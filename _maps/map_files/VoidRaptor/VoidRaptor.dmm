@@ -1146,7 +1146,7 @@
 	shuttle_id = "pod_3_lavaland"
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "aqJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/delivery,
@@ -9189,7 +9189,7 @@
 	shuttle_id = "pod_2_lavaland"
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "cMm" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
@@ -20463,7 +20463,7 @@
 	shuttle_id = "pod_lavaland"
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "fXm" = (
 /obj/item/restraints/legcuffs/beartrap,
 /obj/item/restraints/legcuffs/beartrap,
@@ -23398,7 +23398,7 @@
 	shuttle_id = "pod_4_lavaland"
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "gMS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/light/floor,
@@ -32990,7 +32990,7 @@
 	width = 29
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "jul" = (
 /obj/effect/landmark/start/security_officer,
 /turf/open/floor/iron/dark/smooth_large,
@@ -36286,7 +36286,7 @@
 	width = 23
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "kpe" = (
 /obj/item/radio/intercom/directional/south,
 /obj/effect/turf_decal/tile/green/diagonal_centre,
@@ -39738,7 +39738,7 @@
 	width = 5
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "lky" = (
 /obj/machinery/light/small/directional/east,
 /obj/structure/cable,
@@ -45216,7 +45216,7 @@
 	dir = 2
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "mLb" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -47917,7 +47917,7 @@
 "nwb" = (
 /obj/docking_port/stationary/mining_home,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "nwl" = (
 /obj/machinery/door/airlock/grunge{
 	name = "Chapel"
@@ -57237,7 +57237,7 @@
 	width = 12
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "pXz" = (
 /obj/item/storage/fancy/candle_box,
 /obj/structure/table/wood,
@@ -58349,7 +58349,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "qjA" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -63390,7 +63390,7 @@
 	width = 35
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "rGi" = (
 /obj/machinery/light/small/directional/west,
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -64928,7 +64928,7 @@
 	dir = 8
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "sdR" = (
 /obj/item/book/manual/nuclear,
 /turf/open/floor/plating/foam{
@@ -72069,7 +72069,7 @@
 	pixel_x = -2;
 	pixel_y = 3
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_x = 13;
 	pixel_y = 2
 	},
@@ -82448,13 +82448,13 @@
 	dir = 4
 	},
 /obj/structure/sign/warning/no_smoking/directional/east,
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_y = 5
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = 5
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = -5
 	},
 /turf/open/floor/iron/smooth_edge{
@@ -83141,7 +83141,7 @@
 "xaL" = (
 /obj/docking_port/stationary/escape_pod,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "xaR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/dark_red/filled/line{

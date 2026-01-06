@@ -265,7 +265,7 @@
 	if(system_state != BSA_SYSTEM_READY)
 		return
 	system_state = BSA_SYSTEM_PREFIRE
-	priority_announce("BLUESPACE TARGETING PARAMETERS SET, PREIGNITION STARTING... CAPACITOR CHARGE AT [round(capacitor_power / 1000000, 0.1)] MW, FIRING IN T-20 SECONDS!", "BLUESPACE ARTILLERY", ANNOUNCER_BLUESPACEARTY)
+	priority_announce("BLUESPACE TARGETING PARAMETERS SET, PREIGNITION STARTING... CAPACITOR CHARGE AT [round(capacitor_power / BSA_FIRE_POWER_THRESHOLD, 0.1)] MW, FIRING IN T-20 SECONDS!", "BLUESPACE ARTILLERY", ANNOUNCER_BLUESPACEARTY)
 	alert_sound_to_playing('modular_nova/modules/bsa_overhaul/sound/superlaser_prefire.ogg', override_volume = TRUE)
 	message_admins("[user] has started the fire cycle of [src]! Firing at: [ADMIN_VERBOSEJMP(bullseye)]")
 	log_game("[key_name(user)] has aimed the bluespace artillery strike at [bullseye].")
@@ -288,6 +288,8 @@
 	var/turf/target = get_target_turf()
 	// Anything that blocks the BSA beam, if it's blocked, it hits that thing
 	var/atom/movable/blocker
+	// Intensity of the screen shake, capping at 0.75 with maximum charge, with a minimum of 0.25
+	var/camera_shake_intensity = ((round((capacitor_power / (50 * BSA_FIRE_POWER_THRESHOLD)), 1)) + 1) / 4
 	// Now we absolutely destroy everything in the beams path.
 	for(var/turf/iterating_turf as anything in get_line(get_step(point, dir), target))
 		if(SEND_SIGNAL(iterating_turf, COMSIG_ATOM_BSA_BEAM) & COMSIG_ATOM_BLOCKS_BSA_BEAM)
@@ -303,6 +305,8 @@
 		else
 			SSexplosions.highturf += iterating_turf //also fucks everything else on the turf
 	point.Beam(target, icon_state = "bsa_beam", time = 5 SECONDS, maxdistance = world.maxx) //ZZZAP
+	for(var/mob/living/witness in range(7, src))
+		shake_camera(witness, 5 SECONDS, camera_shake_intensity)
 	new /obj/effect/temp_visual/bsa_splash(point, dir)
 
 	if(!blocker)

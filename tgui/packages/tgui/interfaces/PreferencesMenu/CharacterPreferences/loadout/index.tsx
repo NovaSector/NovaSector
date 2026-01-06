@@ -17,7 +17,7 @@ import {
   Tabs,
 } from 'tgui-core/components';
 
-import { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
+import type { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
 import { useServerPrefs } from '../../useServerPrefs';
 import type {
   LoadoutCategory,

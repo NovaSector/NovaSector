@@ -1061,7 +1061,7 @@
 	color = "#C8C8C8"
 	taste_mult = 6
 	taste_description = "smoke"
-	overdose_threshold = 15
+	overdose_threshold = 45 // NOVA EDIT ORIGINAL: overdose_threshold = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/char/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)

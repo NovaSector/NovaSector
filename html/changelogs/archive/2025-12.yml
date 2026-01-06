@@ -885,3 +885,25 @@
 2025-12-25:
   MintMetal:
   - bugfix: some Tarkon issues have been fixed
+2025-12-27:
+  TheRealSlimRedwoods:
+  - rscadd: Fox players can now gecker! Rejoice!
+  sqnztb:
+  - bugfix: Soda dispensers now get their T2 upgrades applied properly. Apple, pumpkin,
+      and vanilla return.
+  vinylspiders:
+  - bugfix: fixes some escape menu urls pointing to tgstation defaults
+2025-12-29:
+  SuperDrish:
+  - rscadd: Xenohybrids recently evolved to "feel better" on resin, or whatever the
+      local one says
+2025-12-30:
+  Zergspower:
+  - map: Update all Catwalk automapping templates for return to rotation
+2025-12-31:
+  Geoengi:
+  - rscadd: Due to aggressive cost-cutting measures, many shock stabilizers in BSA
+      devices were removed. Leading NT bluespace engineers say the resulting localized
+      tremors are "cooler."
+  MacaroniCritter:
+  - rscdel: Removed Pepper Shoulders from spawned modsuits
