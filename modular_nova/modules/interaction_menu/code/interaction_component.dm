@@ -112,28 +112,28 @@
 
 	data["isTargetSelf"] = (user == self)
 
-	// Primary attributes (user's stats)
-		// user values
-		var/user_pleasure = 0
-		var/user_arousal = 0
-		var/user_pain = 0
+// Primary attributes (user's stats)
+	// user values
+	var/user_pleasure = 0
+	var/user_arousal = 0
+	var/user_pain = 0
 
-		if(user)
-			user_pleasure = human_user.pleasure
-			user_arousal = human_user.arousal
-			user_pain = human_user.pain
+	if(user)
+		user_pleasure = human_user.pleasure
+		user_arousal = human_user.arousal
+		user_pain = human_user.pain
 
-		// target values
-		var/their_pleasure = null
-		var/their_arousal = null
-		var/their_pain = null
-		var/their_max = null
+	// target values
+	var/their_pleasure = null
+	var/their_arousal = null
+	var/their_pain = null
+	var/their_max = null
 
-		if(user != self)
-			their_pleasure = self.pleasure
-			their_arousal = self.arousal
-			their_pain = self.pain
-			their_max = AROUSAL_LIMIT
+	if(user != self)
+		their_pleasure = self.pleasure
+		their_arousal = self.arousal
+		their_pain = self.pain
+		their_max = AROUSAL_LIMIT
 
 		data["pleasure"] = user_pleasure
 		data["maxPleasure"] = AROUSAL_LIMIT
