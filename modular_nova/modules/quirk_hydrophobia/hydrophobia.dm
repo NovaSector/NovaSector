@@ -25,6 +25,5 @@
 	// If they're a slime, let's grant them the ability to repel water
 	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia = locate() in quirk_holder.actions
 	if(isnull(slime_hydrophobia) && isroundstartslime(quirk_holder) && !HAS_TRAIT(quirk_holder, TRAIT_WATER_BREATHING))
-	if(isroundstartslime(quirk_holder) && !HAS_TRAIT(quirk_holder, TRAIT_WATER_BREATHING))
 		slime_hydrophobia = new(src)
 		slime_hydrophobia.Grant(quirk_holder)
