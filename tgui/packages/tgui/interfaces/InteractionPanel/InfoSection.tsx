@@ -10,14 +10,14 @@ import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../../backend';
 
 type HeaderInfo = {
-  isTargetSelf: booleanLike;
+  isTargetSelf: BooleanLike;
   pleasure: number;
   arousal: number;
   pain: number;
   theirPleasure: number;
   theirArousal: number;
   theirPain: number;
-  arousal_limit: number;
+  arousalLimit: number;
 };
 
 export const InfoSection = () => {
@@ -30,7 +30,7 @@ export const InfoSection = () => {
     theirPleasure,
     theirArousal,
     theirPain,
-    arousal_limit
+    arousalLimit
   } = data;
   return (
     <Section fill>
@@ -54,7 +54,7 @@ export const InfoSection = () => {
                 <Stack.Item>
                   <ProgressBar
                     value={pleasure}
-                    maxValue={arousal_limit}
+                    maxValue={arousalLimit}
                     color="purple">
                     <Icon name="heart" /> Pleasure
                   </ProgressBar>
@@ -62,7 +62,7 @@ export const InfoSection = () => {
                 <Stack.Item>
                   <ProgressBar
                     value={arousal}
-                    maxValue={arousal_limit}
+                    maxValue={arousalLimit}
                     color="pink">
                     <Icon name="tint" /> Arousal
                   </ProgressBar>
@@ -70,7 +70,7 @@ export const InfoSection = () => {
                 <Stack.Item>
                   <ProgressBar
                     value={pain}
-                    maxValue={arousal_limit} color="red">
+                    maxValue={arousalLimit} color="red">
                     <Icon name="bolt" /> Pain
                   </ProgressBar>
                 </Stack.Item>
@@ -82,7 +82,7 @@ export const InfoSection = () => {
                   <Stack.Item>
                     <ProgressBar
                       value={theirPleasure}
-                      maxValue={arousal_limit}
+                      maxValue={arousalLimit}
                       color="purple">
                       <Icon name="heart" /> Pleasure
                     </ProgressBar>
@@ -90,7 +90,7 @@ export const InfoSection = () => {
                   <Stack.Item>
                     <ProgressBar
                       value={theirArousal}
-                      maxValue={arousal_limit}
+                      maxValue={arousalLimit}
                       color="pink">
                       <Icon name="tint" /> Arousal
                     </ProgressBar>
@@ -98,7 +98,7 @@ export const InfoSection = () => {
                   <Stack.Item>
                     <ProgressBar
                       value={theirPain}
-                      maxValue={arousal_limit}
+                      maxValue={arousalLimit}
                       color="red">
                       <Icon name="bolt" /> Pain
                     </ProgressBar>
