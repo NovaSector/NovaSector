@@ -73,7 +73,7 @@ export const InteractionsTab = ({searchText, showCategories}: InteractionsTabPro
     let categoryInteractions = interactions[category] || [];
     if (searchText) {
       categoryInteractions = categoryInteractions.filter((interaction) =>
-        interaction.toLowerCase().includes(searchText.toLowerCase()),
+        interaction.toLowerCase().includes(searchLower),
       );
     }
     return categoryInteractions;
