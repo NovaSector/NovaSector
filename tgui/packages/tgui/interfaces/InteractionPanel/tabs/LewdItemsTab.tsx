@@ -48,7 +48,6 @@ export const LewdItemsTab = ({searchText}: LewdItemsTabProps) => {
                         }
                         color="pink"
                         tooltip={`${slot.name}${slot.item_name ? ` - ${slot.item_name}` : ''}`}
-                        //tooltip={slot.name}
                     >
                         <Box
                         style={{
