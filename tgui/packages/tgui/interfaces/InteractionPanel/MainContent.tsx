@@ -28,6 +28,12 @@ export const MainContent = () => {
   const {
     erp_interaction,
   } = data;
+  const placeholder =
+    tabIndex === 0
+      ? 'Search for an interaction'
+      : tabIndex === 1
+        ? 'Search for an item'
+        : 'Searching is unavailable for this tab';
 
   return (
     <Section fill>
