@@ -122,7 +122,7 @@ const allInteractions = useMemo(() => {
             ) : (
               <Section fill>
                 <Box mt={0.2}>
-                  {getAllInteractions().map(({ name, category }) => (
+                  {allInteractions.map(({ name, category }) => (
                     renderInteractionButton(name)
                   ))}
                 </Box>
