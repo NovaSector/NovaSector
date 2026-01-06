@@ -57,7 +57,7 @@
 	var/obj/item/mail/illegal_parcel = new /obj/item/mail(spot)
 	illegal_parcel.recipient_ref = mind_ref
 	var/datum/mind/recipient = mind_ref.resolve()
-	illegal_parcel.name = "unmarked parcel for [recipient.name] ([recipient.assigned_role.title])"
+	illegal_parcel.name = "unmarked parcel for [recipient.name]"
 	illegal_parcel.desc = "A shady package that seems to have slipped between the cracks, it isn't postmarked."
 	illegal_parcel.postmarked = FALSE
 	illegal_parcel.color = pick(list(COLOR_FLOORTILE_GRAY, COLOR_ASSISTANT_OLIVE, COLOR_RUSTED_GLASS))
@@ -138,7 +138,7 @@
 GLOBAL_LIST_INIT(smuggler_items, list(
 	"Nukedisk pinpointer" = /obj/item/pinpointer/nuke,
 	"NV health meson goggles" = /obj/item/clothing/glasses/hud/health/night/meson,
-	"Doorjack" = /obj/item/card/emag/doorjack,
+	"Badass sunglasses" = /obj/item/clothing/glasses/sunglasses/robohand,
 	"SyndEye PDA program" = /obj/item/computer_disk/syndicate/camera_app,
 	"Blood Steal NIFsoft" = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal,
 	"4U70-P3R4710N skillchip" = /obj/item/skillchip/self_surgery,
