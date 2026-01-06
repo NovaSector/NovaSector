@@ -80,7 +80,7 @@
 
 /datum/component/interactable/ui_static_data(mob/user)
 	var/list/data = list()
-	data["arousal_limit"] = AROUSAL_LIMIT
+	data["arousalLimit"] = AROUSAL_LIMIT
 	return data
 
 /datum/component/interactable/ui_data(mob/user)
