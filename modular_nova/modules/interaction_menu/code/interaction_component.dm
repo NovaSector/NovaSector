@@ -109,13 +109,40 @@
 	data["erp_interaction"] = self.client?.prefs?.read_preference(/datum/preference/toggle/erp)
 
 	var/mob/living/carbon/human/human_user = user
+
+	data["isTargetSelf"] = (user == self)
+
 	// Primary attributes (user's stats)
-	data["pleasure"] = human_user.pleasure
-	data["maxPleasure"] = AROUSAL_LIMIT
-	data["arousal"] = human_user.arousal
-	data["maxArousal"] = AROUSAL_LIMIT
-	data["pain"] = human_user.pain
-	data["maxPain"] = AROUSAL_LIMIT
+	if(user)
+		data["pleasure"] = human_user.pleasure
+		data["maxPleasure"] = AROUSAL_LIMIT
+		data["arousal"] = human_user.arousal
+		data["maxArousal"] = AROUSAL_LIMIT
+		data["pain"] = human_user.pain
+		data["maxPain"] = AROUSAL_LIMIT
+	else
+		data["pleasure"] = 0
+		data["maxPleasure"] = AROUSAL_LIMIT
+		data["arousal"] = 0
+		data["maxArousal"] = AROUSAL_LIMIT
+		data["pain"] = 0
+		data["maxPain"] = AROUSAL_LIMIT
+
+	// Target attributes (self's stats) only if not self-targeting
+	if(user != self)
+		data["theirPleasure"] = self.pleasure || 0
+		data["theirMaxPleasure"] = AROUSAL_LIMIT
+		data["theirArousal"] = self.arousal || 0
+		data["theirMaxArousal"] = AROUSAL_LIMIT
+		data["theirPain"] = self.pain || 0
+		data["theirMaxPain"] = AROUSAL_LIMIT
+	else
+		data["theirPleasure"] = null
+		data["theirMaxPleasure"] = null
+		data["theirArousal"] = null
+		data["theirMaxArousal"] = null
+		data["theirPain"] = null
+		data["theirMaxPain"] = null
 
 	var/list/parts = list()
 
