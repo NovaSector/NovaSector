@@ -3,7 +3,7 @@ import { Box, Button, Icon, Stack } from 'tgui-core/components';
 
 import { useBackend } from '../../../backend';
 
-class LewdSlot {
+type LewdSlot = {
     img;
     name;
     item_name?;
