@@ -150,6 +150,7 @@
 /datum/loadout_item/erp/ballgag/choking
 	name = "Phallic Ball Gag"
 	item_path = /obj/item/clothing/mask/muzzle/ballgag/choking
+	reskin_datum = /datum/atom_skin/ballgag
 
 /datum/loadout_item/erp/muzzle_ring
 	name = "Ring Gag"
@@ -158,6 +159,7 @@
 /datum/loadout_item/erp/deprivation_helmet
 	name = "Deprivation Helmet"
 	item_path = /obj/item/clothing/head/deprivation_helmet
+	reskin_datum = /datum/atom_skin/deprivation_helmet
 
 /datum/loadout_item/erp/blindfold
 	name = "Luxury Blindfold"

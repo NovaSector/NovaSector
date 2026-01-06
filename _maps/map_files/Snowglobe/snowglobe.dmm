@@ -8270,7 +8270,7 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_y = 6;
 	pixel_x = 4
 	},
@@ -14606,14 +14606,14 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = 4
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -4
 	},
 /obj/machinery/status_display/ai/directional/south,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = 1;
 	pixel_y = 5
 	},
@@ -51604,14 +51604,14 @@
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -8
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -7;
 	pixel_y = 4
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -5;
 	pixel_y = 7
 	},

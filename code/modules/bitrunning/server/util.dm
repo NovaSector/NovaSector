@@ -151,7 +151,7 @@
 	// NOVA EDIT ADDITION BEGIN - PREFS!
 	var/datum/preferences/pref
 	var/load_loadout = FALSE
-	var/obj/item/bitrunning_disk/prefs/prefdisk = locate() in neo.get_contents()
+	var/obj/item/disk/bitrunning/prefs/prefdisk = locate() in neo.get_contents()
 	if(prefdisk)
 		load_loadout = prefdisk.include_loadout
 		pref = prefdisk.loaded_preference
