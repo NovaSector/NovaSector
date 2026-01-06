@@ -85,19 +85,14 @@ export const MainContent = () => {
         </Stack.Item>
         <Stack.Item grow mb={-1.6}>
           <Section fill>
-            {(() => {
-              switch (tabIndex) {
-                case 1:
-                  return <LewdItemsTab searchText={searchText} />;
-                default:
-                  return (
-                    <InteractionsTab
-                      searchText={searchText}
-                      showCategories={showCategories}
-                    />
-                  );
-              }
-            })()}
+            {tabIndex === 1 ? (
+              <LewdItemsTab searchText={searchText} />
+            ) : (
+              <InteractionsTab
+                searchText={searchText}
+                showCategories={showCategories}
+              />
+            )}
           </Section>
         </Stack.Item>
       </Stack>
