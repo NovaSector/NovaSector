@@ -78,6 +78,11 @@
 
 	return UI_INTERACTIVE // This UI is always interactive as we handle distance flags via can_interact
 
+/datum/component/interactable/ui_static_data(mob/user)
+	var/list/data = list()
+	data["arousal_limit"] = AROUSAL_LIMIT
+	return data
+
 /datum/component/interactable/ui_data(mob/user)
 	var/list/data = list()
 	var/list/descriptions = list()
@@ -124,30 +129,22 @@
 		user_pain = human_user.pain
 
 		data["pleasure"] = user_pleasure
-		data["maxPleasure"] = AROUSAL_LIMIT
 		data["arousal"] = user_arousal
-		data["maxArousal"] = AROUSAL_LIMIT
 		data["pain"] = user_pain
-		data["maxPain"] = AROUSAL_LIMIT
 
 	// target values
 	var/their_pleasure = null
 	var/their_arousal = null
 	var/their_pain = null
-	var/their_max = null
 
 	if(user != self)
 		their_pleasure = self.pleasure
 		their_arousal = self.arousal
 		their_pain = self.pain
-		their_max = AROUSAL_LIMIT
 
 		data["theirPleasure"] = their_pleasure
-		data["theirMaxPleasure"] = their_max
 		data["theirArousal"] = their_arousal
-		data["theirMaxArousal"] = their_max
 		data["theirPain"] = their_pain
-		data["theirMaxPain"] = their_max
 
 	var/list/parts = list()
 
