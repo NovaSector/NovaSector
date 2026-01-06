@@ -7,10 +7,12 @@
 	inhand_icon_state = "balaclava"
 	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/neck_gaiter"
+	worn_icon_teshari = "gaiter"
 	post_init_icon_state = "gaiter"
 	greyscale_config = /datum/greyscale_config/neck_gaiter
 	greyscale_config_worn = /datum/greyscale_config/neck_gaiter/worn
-	greyscale_colors = "#666666"
+	greyscale_config_worn_teshari = /datum/greyscale_config/neck_gaiter/worn/teshari
+	greyscale_colors = "#5e6069"
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|MASKINTERNALS
 	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = HIDEFACIALHAIR | HIDEFACE | HIDESNOUT
