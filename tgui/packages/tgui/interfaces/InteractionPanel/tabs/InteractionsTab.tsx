@@ -32,9 +32,9 @@ export const InteractionsTab = ({searchText, showCategories}: InteractionsTabPro
   const { act, data } = useBackend<Interaction>();
   const {
     categories = [],
-    interactions,
-    descriptions,
-    colors,
+    interactions = {},
+    descriptions = {},
+    colors = {},
     ref_self,
     ref_user,
     block_interact,
