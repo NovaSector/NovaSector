@@ -1,6 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - qol: "Mediguns can now fit inside of labcoats"
-  - balance: "Medigun damage thresholds lowered from 50 to 30"
-  - refactor: "Medigun clone damage has been removed from code"
