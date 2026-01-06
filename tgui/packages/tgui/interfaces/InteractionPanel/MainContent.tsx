@@ -46,12 +46,13 @@ export const MainContent = () => {
             >
               Interactions
             </Tabs.Tab>
-            {erp_interaction ? (
-            <Tabs.Tab selected={tabIndex === 1} onClick={() => setTabIndex(1)}>
+            {erp_interaction && (
+            <Tabs.Tab
+              selected={tabIndex === 1}
+              onClick={() => setTabIndex(1)}
+            >
               Lewd Items
             </Tabs.Tab>
-            ) : (
-            ''
             )}
           </Tabs>
         </Stack.Item>
