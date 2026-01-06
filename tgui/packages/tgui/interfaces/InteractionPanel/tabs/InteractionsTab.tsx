@@ -51,7 +51,9 @@ export const InteractionsTab = ({searchText, showCategories}: InteractionsTabPro
         lineHeight={1.75}
         disabled={block_interact}
         color={block_interact ? 'grey' : colors[interaction]}
-        tooltip={descriptions[interaction]}
+        tooltip={block_interact
+          ? 'You cannot interact right now'
+          : descriptions[interaction]}
         icon="exclamation-circle"
         onClick={() =>
           act('interact', {
