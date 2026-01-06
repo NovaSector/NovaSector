@@ -5,7 +5,7 @@
 	name = "organ manipulation"
 	abstract_type = /datum/surgery_operation/limb/organ_manipulation
 	operation_flags = OPERATION_MORBID | OPERATION_NOTABLE | OPERATION_NO_PATIENT_REQUIRED
-	required_bodytype = ~BODYTYPE_ROBOTIC
+	required_bodytype = (~BODYTYPE_ROBOTIC & ~BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = ~BODYTYPE_ROBOTIC
 	/// Radial slice datums for every organ type we can manipulate
 	VAR_PRIVATE/list/cached_organ_manipulation_options
 
@@ -239,8 +239,8 @@
 	)
 
 /datum/surgery_operation/limb/organ_manipulation/internal/mechanic
-	name = "prosthetic organ manipulation"
-	required_bodytype = BODYTYPE_ROBOTIC
+	name = "mechanical organ manipulation"// NOVA EDIT CHANGE - ORIGINAL: name = "prosthetic organ manipulation"
+	required_bodytype = (BODYTYPE_ROBOTIC| BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = BODYTYPE_ROBOTIC
 	remove_implements = list(
 		TOOL_CROWBAR = 1,
 		TOOL_HEMOSTAT = 1,
@@ -271,8 +271,8 @@
 	return (organ.organ_flags & ORGAN_EXTERNAL)
 
 /datum/surgery_operation/limb/organ_manipulation/external/mechanic
-	name = "prosthetic feature manipulation"
-	required_bodytype = BODYTYPE_ROBOTIC
+	name = "mechanical feature manipulation" // NOVA EDIT: ORIGINAL: name = "prosthetic feature manipulation"
+	required_bodytype = (BODYTYPE_ROBOTIC| BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = BODYTYPE_ROBOTIC
 	remove_implements = list(
 		TOOL_CROWBAR = 1,
 		TOOL_HEMOSTAT = 1,

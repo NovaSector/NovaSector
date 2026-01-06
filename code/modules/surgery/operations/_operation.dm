@@ -742,17 +742,17 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	// Ignore alllll the penalties (but also all the bonuses)
 	if(!HAS_TRAIT(surgeon, TRAIT_IGNORE_SURGERY_MODIFIERS))
 		var/mob/living/patient = get_patient(operating_on)
-		total_mod *= get_surgeon_surgery_speed_mod(surgeon, tool)
+		total_mod *= get_surgeon_surgery_speed_mod(patient, surgeon, tool) // NOVA EDIT CHANGE - ORIGINAL: total_mod *= get_surgeon_surgery_speed_mod(surgeon, tool)
 		if(!isnull(patient)) // Some surgeries can lack patients
 			total_mod *= get_location_modifier(get_turf(patient))
-			total_mod *= get_mob_surgery_speed_mod(patient)
+			total_mod *= get_mob_surgery_speed_mod(patient, surgeon, tool) // NOVA EDIT CHANGE - ORIGINAL: total_mod *= get_mob_surgery_speed_mod(patient)
 		// Using TRAIT_SELF_SURGERY on a surgery which doesn't normally allow self surgery imparts a penalty
 		if(operating_on == surgeon && HAS_TRAIT(surgeon, TRAIT_SELF_SURGERY) && !(operation_flags & OPERATION_SELF_OPERABLE))
 			total_mod *= 1.5
 	return round(total_mod, 0.01)
 
 /// Returns a time modifier based on the mob's status
-/datum/surgery_operation/proc/get_mob_surgery_speed_mod(mob/living/patient)
+/datum/surgery_operation/proc/get_mob_surgery_speed_mod(mob/living/patient, mob/living/surgeon, tool) // NOVA EDIT CHANGE - ORIGINAL: /datum/surgery_operation/proc/get_mob_surgery_speed_mod(mob/living/patient)
 	PROTECTED_PROC(TRUE)
 	var/basemod = 1.0
 	for(var/mod_id, mod_amt in patient.mob_surgery_speed_mods)
@@ -761,10 +761,11 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		basemod *= 0.8
 	if(HAS_TRAIT(patient, TRAIT_ANALGESIA))
 		basemod *= 0.8
+		to_chat(surgeon, span_notice("You are able to work faster due to the patient's calm attitude!")) // NOVA EDIT ADDITION - Better feedback for the use of analgesia
 	return basemod
 
 /// Returns a time modifier based on the surgeon's status
-/datum/surgery_operation/proc/get_surgeon_surgery_speed_mod(mob/living/surgeon, tool)
+/datum/surgery_operation/proc/get_surgeon_surgery_speed_mod(mob/living/patient, mob/living/surgeon, tool)
 	PROTECTED_PROC(TRUE)
 	var/basemod = 1.0
 	if((operation_flags & OPERATION_MORBID) && HAS_MIND_TRAIT(surgeon, TRAIT_MORBID) && isitem(tool))
@@ -778,6 +779,16 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		basemod *= 0.8
 	else
 		basemod *= 1 + round((drunkness ** 1.5) / 90, 0.1)
+	// NOVA EDIT ADDITION START - reward for doing surgery on a calm environment (no other humans around)
+	var/quiet_environment = TRUE
+	for(var/mob/living/carbon/human/loud_person in view(3, patient))
+		if(loud_person != surgeon && loud_person != patient)
+			quiet_environment = FALSE
+			break
+	if(quiet_environment)
+		basemod *= 0.8
+		to_chat(surgeon, span_notice("You are able to work faster due to the quiet environment!"))
+	// NOVA EDIT ADDITION END
 
 	return basemod
 
@@ -1316,6 +1327,10 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 
 	if(required_bodytype && !(limb.bodytype & required_bodytype))
 		return FALSE
+	// NOVA EDIT ADDITION START - Synth Flags
+	if(blocked_bodytype && (limb.bodytype & blocked_bodytype))
+		return FALSE
+	// NOVA EDIT ADDITION END - Synth Flags
 
 	return ..()
 
@@ -1378,6 +1393,10 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		return FALSE
 	if(!HAS_TRAIT(organ.bodypart_owner, TRAIT_READY_TO_OPERATE))
 		return FALSE
+	// NOVA EDIT ADDITION START - Synth Flags
+	if(blocked_organ_flag && (organ.organ_flags & blocked_organ_flag))
+		return FALSE
+	// NOVA EDIT ADDITION END
 
 	return ..()
 

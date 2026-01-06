@@ -43,12 +43,17 @@
 	)
 
 /obj/item/disk/surgery/brainwashing
-	name = "brainwashing surgery disk"
-	desc = "Provides instructions on how to impress an order on a brain, making it the primary objective of the patient."
+	//name = "brainwashing surgery disk" // NOVA EDIT REMOVAL - Finally I can upload the funny surgery disk without letting everyone in the room know about it!
+	desc = "The disk provides instructions on some kind of surgery, but the label has been scratched off..." //NOVA EDIT CHANGE: Moved to Special Desc - ORIGINAL: desc = "Provides instructions on how to impress an order on a brain, making it the primary objective of the patient."
 	surgeries = list(
 		/datum/surgery_operation/organ/brainwash,
 		/datum/surgery_operation/organ/brainwash/mechanic,
 	)
+	// NOVA EDIT ADDITION START - Job specific descriptions
+	special_desc_requirement = EXAMINE_CHECK_JOB
+	special_desc_jobs = list("Medical Doctor, Chief Medical Officer, Roboticist")
+	special_desc = "The disk provides instructions on how to impress an order on a brain, making it the primary objective of the patient."
+	// NOVA EDIT ADDITION END
 
 /obj/item/disk/surgery/sleeper_protocol
 	name = "suspicious surgery disk"
