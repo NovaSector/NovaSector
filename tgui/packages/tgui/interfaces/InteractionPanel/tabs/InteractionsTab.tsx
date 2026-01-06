@@ -23,7 +23,7 @@ type Interaction = {
   use_subtler;
 }
 
-class InteractionsTabProps {
+interface InteractionsTabPropsData {
   searchText;
   showCategories;
 };
