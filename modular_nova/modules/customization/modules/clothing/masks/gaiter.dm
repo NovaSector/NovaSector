@@ -7,7 +7,6 @@
 	inhand_icon_state = "balaclava"
 	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/neck_gaiter"
-	worn_icon_teshari = "gaiter"
 	post_init_icon_state = "gaiter"
 	greyscale_config = /datum/greyscale_config/neck_gaiter
 	greyscale_config_worn = /datum/greyscale_config/neck_gaiter/worn
