@@ -7465,7 +7465,6 @@
 #include "modular_nova\master_files\code\modules\surgery\operations\_operation.dm"
 #include "modular_nova\master_files\code\modules\surgery\operations\operation_add_limb.dm"
 #include "modular_nova\master_files\code\modules\surgery\operations\operation_amputation.dm"
-#include "modular_nova\master_files\code\modules\surgery\operations\operation_lobectomy.dm"
 #include "modular_nova\master_files\code\modules\surgery\operations\operation_organ_manip.dm"
 #include "modular_nova\master_files\code\modules\surgery\operations\operation_organ_repair.dm"
 #include "modular_nova\master_files\code\modules\surgery\operations\operation_revival.dm"
