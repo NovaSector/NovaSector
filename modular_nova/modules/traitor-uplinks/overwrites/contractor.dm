@@ -11,6 +11,12 @@
 #undef CONTRACTOR_KIT_PRICE
 
 
+
+/obj/item/storage/box/syndicate/contractor_loadout/PopulateContents()
+	..()
+	new /obj/item/mod/control/pre_equipped/contractor(src)
+
+
 // LOW COST
 
 
