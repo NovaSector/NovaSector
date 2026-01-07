@@ -1,0 +1,5 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - bugfix: "Fixed Tesharis being stuck with human sprites when wearing neck gaiters"
+  - code_imp: "Changed default colors for neck gaiters"
