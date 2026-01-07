@@ -161,9 +161,21 @@ export const DmMapsIncludeTarget = new Juke.Target({
       ...Juke.glob('_maps/templates/**/*.dmm'),
     ];
     // NOVA EDIT ADDITION START
-    const foldersNova = [
-      ...Juke.glob('_maps/nova/**/*.dmm'), // Mom said its our turn on the CI
-    ];
+    const isNovaTemplate = (file: string) =>
+      file.startsWith('_maps/nova/') ||
+      file.startsWith('_maps/RandomRuins/SpaceRuins/nova/') ||
+      file.startsWith('_maps/shuttles/nova/');
+
+    const foldersNova = [];
+    for (let i = folders.length - 1; i >= 0; i--) {
+      const file = folders[i];
+      if (isNovaTemplate(file)) {
+        foldersNova.push(file);
+        folders.splice(i, 1); // remove from folders
+      }
+    }
+
+    foldersNova.push(...Juke.glob('_maps/nova/**/*.dmm'));
     // NOVA EDIT ADDITION END
     const content = `${folders
       .map((file) => file.replace('_maps/', ''))
