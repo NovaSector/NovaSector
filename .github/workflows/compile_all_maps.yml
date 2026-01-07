@@ -46,9 +46,9 @@ jobs:
           tools/build/build.sh --ci dm -DCIBUILDING -DCITESTING -DALL_TEMPLATES
 
   compile_nova_templates:
-  name: Compile Nova Templates
-  runs-on: ubuntu-24.04
-  timeout-minutes: 5
+    name: Compile Nova Templates
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
 
   steps:
     - uses: actions/checkout@v6
