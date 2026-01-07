@@ -285,7 +285,7 @@ export const AutowikiTarget = new Juke.Target({
     NoWarningParameter,
   ],
   dependsOn: ({ get }) => [
-    get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT CHANGE - ORIGINAL: get(DefineParameter).includes('ALL_TEMPLATES') && DmMapsIncludeTarget,
+    get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT ADDITION
     IconCutterTarget,
   ],
   outputs: ['data/autowiki_edits.txt'],
