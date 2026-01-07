@@ -59,4 +59,4 @@ jobs:
     - name: Compile Nova Maps
       run: |
         source $HOME/BYOND/byond/bin/byondsetup
-        tools/build/build.sh --ci dm \ -DCIBUILDING \ -DCITESTING \ -DNOVA_TEMPLATES
+        tools/build/build.sh --ci dm -DCIBUILDING -DCITESTING -DNOVA_TEMPLATES
