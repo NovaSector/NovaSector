@@ -2,7 +2,6 @@
 	icon_greyscale = BODYPART_ICON_TAUR
 	limb_id = LIMBS_TAUR
 	bodypart_flags = BODYPART_UNREMOVABLE
-	can_be_surgically_removed = FALSE
 	bodyshape = parent_type::bodyshape | BODYSHAPE_TAUR
 	brute_modifier = 0.8
 	burn_modifier = 0.8
@@ -17,7 +16,6 @@
 	icon_greyscale = BODYPART_ICON_TAUR
 	limb_id = LIMBS_TAUR
 	bodypart_flags = BODYPART_UNREMOVABLE
-	can_be_surgically_removed = FALSE
 	bodyshape = parent_type::bodyshape | BODYSHAPE_TAUR
 	brute_modifier = 0.8
 	burn_modifier = 0.8
@@ -32,7 +30,6 @@
 	icon_greyscale = BODYPART_ICON_TAUR
 	limb_id = LIMBS_TAUR
 	bodypart_flags = parent_type::bodypart_flags | BODYPART_UNREMOVABLE
-	can_be_surgically_removed = FALSE
 	bodyshape = parent_type::bodyshape | BODYSHAPE_TAUR
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	brute_modifier = 0.8
@@ -48,7 +45,6 @@
 	icon_greyscale = BODYPART_ICON_TAUR
 	limb_id = LIMBS_TAUR
 	bodypart_flags = parent_type::bodypart_flags | BODYPART_UNREMOVABLE
-	can_be_surgically_removed = FALSE
 	bodyshape = parent_type::bodyshape | BODYSHAPE_TAUR
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	brute_modifier = 0.8

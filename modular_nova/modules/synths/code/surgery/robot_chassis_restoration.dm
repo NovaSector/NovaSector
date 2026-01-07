@@ -1,6 +1,6 @@
 #define SYNTH_REVIVE_WELD_INTERNALS_DAMAGE 30
 
-/datum/surgery/chassis_restoration
+/datum/surgery_operation/chassis_restoration
 	name = "Chassis Restoration (Repair + Revival)"
 	desc = "A mechanical surgical procedure that completely rebuilds an android's chassis, and restarts their neural network."
 	steps = list(
@@ -16,14 +16,14 @@
 		/datum/surgery_step/mechanic_close,
 	)
 	target_mobtypes = list(/mob/living/carbon/human)
-	possible_locs = list(BODY_ZONE_CHEST)
-	organ_to_manipulate = ORGAN_SLOT_BRAIN
+	target_type = /obj/item/organ/brain
 	requires_bodypart_type = BODYTYPE_ROBOTIC
 	requires_organ_flags = ORGAN_ROBOTIC
 
-/datum/surgery/chassis_restoration/can_start(mob/user, mob/living/carbon/target)
+/datum/surgery_operation/chassis_restoration/is_available(obj/item/organ/brain/organ, operated_zone)
 	. = ..()
-	if(target.stat != DEAD)
+	var/mob/living/patient = get_patient(operating_on)
+	if(patient.stat != DEAD)
 		return FALSE
 
 /datum/surgery_step/pry_off_plating/fullbody
