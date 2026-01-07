@@ -1,5 +1,5 @@
 /// Reagent Processor Repair surgery
-/datum/surgery/reagent_pump
+/datum/surgery_operation/organ/repair/reagent_pump
 	name = "Reagent Processor Manual Reset"
 	desc = "A mechanical surgery procedure designed to repair an android's reagent processor."
 	surgery_flags = SURGERY_REQUIRE_RESTING | SURGERY_REQUIRE_LIMB | SURGERY_REQUIRES_REAL_LIMB
@@ -14,15 +14,14 @@
 		/datum/surgery_step/mechanic_close,
 	)
 	target_mobtypes = list(/mob/living/carbon/human)
-	possible_locs = list(BODY_ZONE_CHEST)
-	organ_to_manipulate = ORGAN_SLOT_LIVER
 	requires_bodypart_type = BODYTYPE_ROBOTIC
-	requires_organ_type = /obj/item/organ/liver/synth
+	target_type = /obj/item/organ/liver/synth
 	requires_organ_flags = ORGAN_ROBOTIC
 	requires_organ_damage = 10
+	heal_to_percent = 0
 
 // Subtype for synthetic humanoids with organic bodyparts
-/datum/surgery/reagent_pump/hybrid
+/datum/surgery_operation/organ/repair/reagent_pump/hybrid
 	steps = list(
 		/datum/surgery_step/incise,
 		/datum/surgery_step/retract_skin,

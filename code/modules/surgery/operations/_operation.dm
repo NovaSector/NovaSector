@@ -761,6 +761,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		basemod *= 0.8
 	if(HAS_TRAIT(patient, TRAIT_ANALGESIA))
 		basemod *= 0.8
+		to_chat(user, span_notice("You are able to work faster due to the patient's calm attitude!")) // NOVA EDIT ADDITION - Better feedback for the use of analgesia
 	return basemod
 
 /// Returns a time modifier based on the surgeon's status
@@ -778,6 +779,16 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		basemod *= 0.8
 	else
 		basemod *= 1 + round((drunkness ** 1.5) / 90, 0.1)
+	// NOVA EDIT ADDITION START - reward for doing surgery on a calm environment (no other humans around)
+	var/quiet_environment = TRUE
+	for(var/mob/living/carbon/human/loud_people in view(3, target))
+		if(loud_people != surgeon && loud_people != target)
+			quiet_environment = FALSE
+			break
+	if(quiet_environment)
+		basemod *= 0.8
+		to_chat(surgeon, span_notice("You are able to work faster due to the quiet environment!"))
+	// NOVA EDIT ADDITION END
 
 	return basemod
 

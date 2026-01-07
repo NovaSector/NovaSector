@@ -13,7 +13,6 @@
 	)
 
 	target_mobtypes = list(/mob/living/carbon/human)
-	possible_locs = list(BODY_ZONE_CHEST)
 	replaced_by = /datum/surgery
 	requires_bodypart_type = BODYTYPE_ROBOTIC
 	surgery_flags = SURGERY_IGNORE_CLOTHES | SURGERY_REQUIRE_RESTING | SURGERY_REQUIRE_LIMB

@@ -1,4 +1,4 @@
-/datum/surgery/revive_synth
+/datum/surgery_operation/organ/revive_synth
 	name = "Restart Neural Network (Revival)"
 	desc = "A mechanical surgical procedure that restarts an android's neural network."
 	steps = list(
@@ -11,13 +11,12 @@
 		/datum/surgery_step/mechanic_close,
 	)
 	target_mobtypes = list(/mob/living/carbon/human)
-	possible_locs = list(BODY_ZONE_CHEST)
-	organ_to_manipulate = ORGAN_SLOT_BRAIN
+	target_type = /obj/item/organ/brain
 	requires_bodypart_type = BODYTYPE_ROBOTIC
 	requires_organ_flags = ORGAN_ROBOTIC
 
 // Subtype for synthetic humanoids with organic bodyparts
-/datum/surgery/revive_synth/hybrid
+/datum/surgery_operation/organ/revive_synth/hybrid
 	steps = list(
 		/datum/surgery_step/incise,
 		/datum/surgery_step/retract_skin,
@@ -28,12 +27,12 @@
 		/datum/surgery_step/finalize_restart,
 		/datum/surgery_step/close,
 	)
-	possible_locs = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST)
 	requires_bodypart_type = BODYTYPE_ORGANIC
 
-/datum/surgery/revive_synth/can_start(mob/user, mob/living/carbon/target)
+/datum/surgery_operation/organ/revive_synth/is_available(obj/item/organ/brain/organ, operated_zone)
 	. = ..()
-	if(target.stat != DEAD)
+	var/mob/living/patient = get_patient(operating_on)
+	if(patient.stat != DEAD)
 		return FALSE
 
 /datum/surgery_step/finalize_restart

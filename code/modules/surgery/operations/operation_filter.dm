@@ -34,6 +34,10 @@
 	var/obj/item/blood_filter/bloodfilter = tool
 	for(var/datum/reagent/chem as anything in limb.owner.reagents?.reagent_list)
 		if(!length(bloodfilter.whitelist) || !(chem.type in bloodfilter.whitelist))
+			// NOVA EDIT ADDITION BEGIN - Neuroware
+			if(chem.chemical_flags & REAGENT_NEUROWARE)
+				continue
+			// NOVA EDIT ADDITION END
 			limb.owner.reagents.remove_reagent(chem.type, clamp(round(chem.volume * 0.22, 0.2), 0.4, 10))
 
 	display_results(
@@ -66,10 +70,21 @@
 	if(!length(bloodfilter.whitelist))
 		return TRUE
 
+	var/found_reagents = FALSE // NOVA EDIT ADDITION - Neuroware
 	for(var/datum/reagent/chem as anything in target.reagents.reagent_list)
+		// NOVA EDIT ADDITION BEGIN - Neuroware
+		if(chem.chemical_flags & REAGENT_NEUROWARE)
+			continue
+		found_reagents = TRUE
+		// NOVA EDIT ADDITION END
 		if(chem.type in bloodfilter.whitelist)
 			return TRUE
 
+	// NOVA EDIT ADDITION BEGIN - Neuroware
+	if(!found_reagents)
+		bloodfilter.audible_message(span_notice("[bloodfilter] pings as it reports no chemicals detected in [target]'s blood."))
+		playsound(get_turf(target), 'sound/machines/ping.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1)
+	// NOVA EDIT ADDITION END
 	return FALSE
 
 /datum/surgery_operation/limb/filter_blood/mechanic
