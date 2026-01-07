@@ -78,6 +78,16 @@
 	design_ids += list(
 		"gbp_machine",
 		"pen",
+		"d2",
+		"d4",
+		"d6",
+		"d8",
+		"d10",
+		"d00",
+		"d12",
+		"d20",
+		"d100",
+		"fudge",
 	)
 	return ..()
 
@@ -320,6 +330,8 @@
 	design_ids += list(
 		"advanced_materials",
 		"borg_upgrade_welding",
+		"rld_cyborg",
+		"borg_upgrade_brped",
 	)
 	return ..()
 

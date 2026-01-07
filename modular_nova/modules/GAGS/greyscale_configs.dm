@@ -2026,6 +2026,14 @@ TREK
 	icon_file = 'modular_nova/modules/hyposprays/icons/vials.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypovial.json'
 
+/datum/greyscale_config/hypovial/large
+	name = "Hypovial (Large)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypovial_large.json'
+
+/datum/greyscale_config/hypovial/interdyne
+	name = "Hypovial (Interdyne)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypovial_interdyne.json'
+
 // Evil primitive catgirl clothing
 
 /datum/greyscale_config/primitive_catgirl_wraps
