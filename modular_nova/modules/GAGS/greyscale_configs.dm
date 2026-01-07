@@ -1716,7 +1716,6 @@ TREK
 	name = "christmas_boots (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
-
 /datum/greyscale_config/sport_boots
 	name = "Sport Boots"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
@@ -1729,6 +1728,15 @@ TREK
 /datum/greyscale_config/sport_boots/worn/digi
 	name = "Sport Boots (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+
+/datum/greyscale_config/knee_boots
+	name = "Knee Boots"
+	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/knee_boots.json'
+
+/datum/greyscale_config/knee_boots/worn
+	name = "Knee Boots (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/knee_boots_worn.json'
 
 // Laceups
 

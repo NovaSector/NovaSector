@@ -1,5 +1,0 @@
-author: "sergeirocks100"
-delete-after: True
-changes:
-  - rscadd: "You can now print dice in the autolathe."
-  - rscadd: "You can now craft dice bags, with 2 sheets of leather."
