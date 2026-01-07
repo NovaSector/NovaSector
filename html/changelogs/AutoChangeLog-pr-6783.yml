@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes an issue where vox could select the nitrogen breather quirk, and plasmamen could select the plasma_breather quirk despite that being their default."
-  - bugfix: "fixes slimepeople being able to select the plasma_breather quirk, this was not intended for balance reasons but the code to prevent them from selecting it had a bug."

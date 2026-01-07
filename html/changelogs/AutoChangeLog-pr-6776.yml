@@ -1,6 +1,0 @@
-author: "MajManatee"
-delete-after: True
-changes:
-  - rscadd: "Adds new Engiborg BSRPED and RLD"
-  - rscadd: "Engiborg gripper can hold more engineering related things."
-  - qol: "Playing engiborg is less brain-damaging and more user friendly"
