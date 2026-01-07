@@ -34,7 +34,6 @@
 	#ifdef ALL_TEMPLATES
 		#include "templates.dm"
 	#endif
-	#endif
 	// NOVA EDIT ADDITION START
 	#ifdef NOVA_TEMPLATES
 		#include "templates_nova.dm"
