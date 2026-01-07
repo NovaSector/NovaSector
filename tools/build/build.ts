@@ -159,13 +159,24 @@ export const DmMapsIncludeTarget = new Juke.Target({
       ...Juke.glob('_maps/RandomZLevels/**/*.dmm'),
       ...Juke.glob('_maps/shuttles/**/*.dmm'),
       ...Juke.glob('_maps/templates/**/*.dmm'),
-      ...Juke.glob('_maps/nova/**/*.dmm'), // NOVA EDIT ADDITION - Mom said its our turn on the CI
     ];
+    // NOVA EDIT ADDITION START
+    const foldersNova = [
+      ...Juke.glob('_maps/nova/**/*.dmm'), // Mom said its our turn on the CI
+    ];
+    // NOVA EDIT ADDITION END
     const content = `${folders
       .map((file) => file.replace('_maps/', ''))
       .map((file) => `#include "${file}"`)
       .join('\n')}\n`;
     fs.writeFileSync('_maps/templates.dm', content);
+    // NOVA EDIT ADDITION START
+    const contentNova = `${foldersNova
+      .map((file) => file.replace('_maps/', ''))
+      .map((file) => `#include "${file}"`)
+      .join('\n')}\n`;
+    fs.writeFileSync('_maps/templates_nova.dm', contentNova);
+    // NOVA EDIT ADDITION END
   },
 });
 
@@ -179,6 +190,7 @@ export const DmTarget = new Juke.Target({
   ],
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('ALL_TEMPLATES') && DmMapsIncludeTarget,
+    get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT ADDITION
     !get(SkipIconCutter) && IconCutterTarget,
   ],
   inputs: [
@@ -261,7 +273,7 @@ export const AutowikiTarget = new Juke.Target({
     NoWarningParameter,
   ],
   dependsOn: ({ get }) => [
-    get(DefineParameter).includes('ALL_TEMPLATES') && DmMapsIncludeTarget,
+    get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT CHANGE - ORIGINAL: get(DefineParameter).includes('ALL_TEMPLATES') && DmMapsIncludeTarget,
     IconCutterTarget,
   ],
   outputs: ['data/autowiki_edits.txt'],
