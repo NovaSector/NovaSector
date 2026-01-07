@@ -164,6 +164,7 @@ export const DmMapsIncludeTarget = new Juke.Target({
     const isNovaTemplate = (file: string) =>
       file.startsWith('_maps/nova/') ||
       file.startsWith('_maps/RandomRuins/SpaceRuins/nova/') ||
+      file.startsWith('_maps/RandomRuins/IceRuins/nova/') ||
       file.startsWith('_maps/shuttles/nova/');
 
     const foldersNova = [];
