@@ -6,6 +6,7 @@
 	var/cooldown
 
 /obj/item/organ/cyberimp/brain/anti_sleep/on_life(seconds_per_tick)
+	. = ..()
 	if(timeleft(cooldown))
 		return
 
