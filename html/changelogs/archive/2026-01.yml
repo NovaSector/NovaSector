@@ -333,3 +333,14 @@
       things.
   - bugfix: larger taur body type emissives will no longer float away from the mob
   - bugfix: switching characters in the prefs menu should be less laggy now
+2026-01-07:
+  MajManatee:
+  - rscadd: Adds new Engiborg BSRPED and RLD
+  - rscadd: Engiborg gripper can hold more engineering related things.
+  - qol: Playing engiborg is less brain-damaging and more user friendly
+  vinylspiders:
+  - bugfix: fixes an issue where vox could select the nitrogen breather quirk, and
+      plasmamen could select the plasma_breather quirk despite that being their default.
+  - bugfix: fixes slimepeople being able to select the plasma_breather quirk, this
+      was not intended for balance reasons but the code to prevent them from selecting
+      it had a bug.

@@ -1658,6 +1658,7 @@
 	)
 	search_metadata = "boris"
 
+/* //NOVA EDIT REMOVAL START - Added to starting loadout. Linter got mad that the ID was not used anywhrere.
 /datum/design/borg_upgrade_rped
 	name = "Rapid Part Exchange Device Expanded"
 	id = "borg_upgrade_rped"
@@ -1672,7 +1673,7 @@
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
 	)
-
+*/ // NOVA EDIT REMOVAL END
 /datum/design/borg_upgrade_inducer
 	name = "Cyborg inducer"
 	id = "borg_upgrade_inducer"

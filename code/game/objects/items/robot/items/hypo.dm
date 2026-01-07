@@ -7,8 +7,8 @@
 		/datum/reagent/medicine/c2/multiver,\
 		/datum/reagent/medicine/salglu_solution,\
 		/datum/reagent/medicine/spaceacillin,\
-		/datum/reagent/medicine/lidocaine\
-	) //NOVA EDIT line 10 added Lidocaine
+		/datum/reagent/medicine/lidocaine, /* NOVA EDIT ADDITION - added Lidocaine */ \
+	)
 #define EXPANDED_MEDICAL_REAGENTS list(\
 		/datum/reagent/medicine/haloperidol,\
 		/datum/reagent/medicine/inacusiate,\
@@ -18,7 +18,8 @@
 		/datum/reagent/medicine/oxandrolone,\
 		/datum/reagent/medicine/pen_acid,\
 		/datum/reagent/medicine/rezadone,\
-		/datum/reagent/medicine/sal_acid\
+		/datum/reagent/medicine/sal_acid, /* NOVA EDIT ADDITION - added comma for below */ \
+		/datum/reagent/toxin/formaldehyde, /* NOVA EDIT ADDITION - added Formaldehyde */ \
 	)
 #define HACKED_MEDICAL_REAGENTS list(\
 		/datum/reagent/toxin/cyanide,\

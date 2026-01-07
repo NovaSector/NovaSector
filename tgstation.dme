@@ -7011,6 +7011,7 @@
 #include "modular_nova\master_files\code\game\machinery\deployable.dm"
 #include "modular_nova\master_files\code\game\machinery\dna_scanner.dm"
 #include "modular_nova\master_files\code\game\machinery\hologram.dm"
+#include "modular_nova\master_files\code\game\machinery\iv_drip.dm"
 #include "modular_nova\master_files\code\game\machinery\limbgrower.dm"
 #include "modular_nova\master_files\code\game\machinery\stasis.dm"
 #include "modular_nova\master_files\code\game\machinery\status_display.dm"
