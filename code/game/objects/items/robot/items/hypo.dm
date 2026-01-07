@@ -7,8 +7,8 @@
 		/datum/reagent/medicine/c2/multiver,\
 		/datum/reagent/medicine/salglu_solution,\
 		/datum/reagent/medicine/spaceacillin,\
-		/datum/reagent/medicine/lidocaine\
-	) //NOVA EDIT line 10 added Lidocaine
+		/datum/reagent/medicine/lidocaine, /* NOVA EDIT ADDITION – added Lidocaine */ \
+	)
 #define EXPANDED_MEDICAL_REAGENTS list(\
 		/datum/reagent/medicine/haloperidol,\
 		/datum/reagent/medicine/inacusiate,\
