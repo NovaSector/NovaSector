@@ -753,6 +753,14 @@
 		to_chat(user, span_danger("Your chameleon field deactivates."))
 		deactivate(user)
 
+/obj/item/borg/apparatus/sheet_manipulator/chemistry
+	name = "material manipulation apparatus"
+	desc = "An apparatus for carrying, deploying, and manipulating sheets of material used in advanced chemistry operations."
+	icon_state = "borg_stack_apparatus"
+	storable = list(
+		/obj/item/stack/sheet,
+	) // technically can store any sheet, but it's meant for chemistry materials primarily.
+
 /obj/item/construction/rld/cyborg
 	name = "cyborg rapid-light-device"
 	desc = "A device used to rapidly provide lighting sources to an area. Runs off a cyborg's internal power supply"
