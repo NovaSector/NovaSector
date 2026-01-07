@@ -50,13 +50,13 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
 
-  steps:
-    - uses: actions/checkout@v6
-    - name: Setup Bun
-      uses: ./.github/actions/setup_bun
-    - name: Restore BYOND from Cache
-      uses: ./.github/actions/restore_or_install_byond
-    - name: Compile Nova Maps
-      run: |
-        source $HOME/BYOND/byond/bin/byondsetup
-        tools/build/build.sh --ci dm -DCIBUILDING -DCITESTING -DNOVA_TEMPLATES
+    steps:
+      - uses: actions/checkout@v6
+      - name: Setup Bun
+        uses: ./.github/actions/setup_bun
+      - name: Restore BYOND from Cache
+        uses: ./.github/actions/restore_or_install_byond
+      - name: Compile Nova Maps
+        run: |
+          source $HOME/BYOND/byond/bin/byondsetup
+          tools/build/build.sh --ci dm -DCIBUILDING -DCITESTING -DNOVA_TEMPLATES
