@@ -6,5 +6,5 @@
 		patient.balloon_alert(surgeon, "not numbed!")
 
 /// Makes the organ operable again
-/datum/surgery_operation/organ/proc/make_operable/on_success(obj/item/organ/organ)
+/datum/surgery_operation/organ/proc/make_operable(obj/item/organ/organ)
 	REMOVE_TRAIT(organ, TRAIT_ORGAN_OPERATED_ON, TRAIT_GENERIC)
