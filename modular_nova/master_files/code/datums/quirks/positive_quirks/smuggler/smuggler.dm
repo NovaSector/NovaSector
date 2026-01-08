@@ -1,5 +1,5 @@
-#define TIMER_MIN 45 MINUTES
-#define TIMER_MAX 1 HOURS
+#define TIMER_MIN 0.65 HOURS
+#define TIMER_MAX 1.15 HOURS
 
 /datum/quirk/smuggler
 	name = "Contraband Smuggler"
