@@ -417,13 +417,11 @@
 
 /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/hardlight/dropped(mob/user)
 	. = ..()
-	var/mob/living/carbon/wearer = user
-
-	if((wearer.get_item_by_slot(ITEM_SLOT_OCLOTHING)) == src && !QDELETED(src))
-		to_chat(wearer, span_warning("[src] disappears after being removed!"))
-		qdel(src)
-		user.update_held_items()
+	user.update_held_items()
+	if(QDELETED(src)) //prevents triple messages
 		return
+	user.visible_message(span_warning("[src] disappears after being removed!"))
+	qdel(src)
 
 //Salve Globule
 /obj/item/mending_globule/hardlight
