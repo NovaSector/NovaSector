@@ -132,7 +132,7 @@
 		for(var/obj/item/contraband in contraband_path)
 			new contraband(illegal_parcel)
 		return TRUE
-	else if(ispath(contraband_path, /datum/computer_file/program))
+	if(ispath(contraband_path, /datum/computer_file/program))
 		var/obj/item/disk/computer/shady_floppy = new(illegal_parcel)
 		shady_floppy.name = "shady floppy disk"
 		shady_floppy.icon_state = "datadisk3"
@@ -141,9 +141,10 @@
 		shady_floppy.cut_overlays()
 		shady_floppy.update_icon()
 		return TRUE
-	else if(ispath(contraband_path, /obj/item))
+	if(ispath(contraband_path, /obj/item))
 		new contraband_path(illegal_parcel)
 		return TRUE
+	stack_trace("[src] of [quirk_holder] attempted to add [contraband_path] to [illegal_parcel].")
 	return FALSE
 
 // if a penalty should run
