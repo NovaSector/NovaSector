@@ -3,7 +3,6 @@
 	desc = "Base for many-o-salads."
 
 	mutantpart_key = FEATURE_POD_HAIR
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Ivy", MUTANT_INDEX_COLOR_LIST = list("#ffffff", "#ffffff", "#ffffff"))
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_POD_HAIR

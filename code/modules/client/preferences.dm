@@ -92,10 +92,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	QDEL_NULL(character_preview_view)
 	QDEL_LIST(middleware)
 	value_cache = null
-	//NOVA EDIT ADDITION
-	if(pref_species)
-		QDEL_NULL(pref_species)
-	//NOVA EDIT END
 	return ..()
 
 /datum/preferences/New(client/parent)

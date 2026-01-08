@@ -26,3 +26,5 @@
 /datum/sprite_accessory/moth_antennae/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
