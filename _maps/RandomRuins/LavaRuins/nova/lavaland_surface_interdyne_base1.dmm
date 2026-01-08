@@ -1083,10 +1083,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med/pharm)
-"jr" = (
-/obj/structure/closet/crate/trashcart/laundry,
-/turf/open/floor/iron/dark,
-/area/ruin/interdyne_planetary_base/main)
 "js" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/bookcase/random,
@@ -1250,13 +1246,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
-"kr" = (
-/obj/effect/turf_decal/bot_red,
-/obj/machinery/rnd/server,
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/ruin/interdyne_planetary_base/science)
 "kv" = (
 /obj/structure/table,
 /obj/item/flashlight,
@@ -1995,7 +1984,6 @@
 /area/ruin/interdyne_planetary_base/med/pharm)
 "qp" = (
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2004,6 +1992,7 @@
 	name = "Virology"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/med/viro)
 "qq" = (
@@ -2549,6 +2538,13 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
+"va" = (
+/obj/effect/turf_decal/bot_red,
+/obj/structure/bodycontainer/morgue,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/interdyne_planetary_base/med/morgue)
 "vf" = (
 /obj/effect/turf_decal/siding/white,
 /obj/effect/turf_decal/siding/white{
@@ -2736,7 +2732,9 @@
 	name = "Morgue"
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "xe" = (
 /obj/structure/cable,
@@ -2859,13 +2857,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
-"yh" = (
-/obj/effect/turf_decal/bot_red,
-/obj/structure/showcase/machinery/signal_decrypter,
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/ruin/interdyne_planetary_base/science)
 "yj" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -3257,6 +3248,9 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/ruin/interdyne_planetary_base/cargo)
+"Bd" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ruin/interdyne_planetary_base/science)
 "Bf" = (
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/interdyne_planetary_base)
@@ -3554,9 +3548,8 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "Dx" = (
-/obj/machinery/computer/rdservercontrol{
-	dir = 4
-	},
+/obj/effect/turf_decal/bot_red,
+/obj/machinery/rnd/server/oldstation,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
@@ -4133,9 +4126,6 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
-"Hx" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/science)
 "Hy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4355,6 +4345,11 @@
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/science)
+"JE" = (
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/interdyne_planetary_base/science)
 "JP" = (
 /obj/structure/table/reinforced/rglass,
 /obj/machinery/door/window/survival_pod/left/directional/east{
@@ -4502,6 +4497,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
+"KQ" = (
+/obj/effect/turf_decal/bot_red,
+/obj/structure/showcase/machinery/signal_decrypter,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/interdyne_planetary_base/science)
 "KS" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/effect/turf_decal/tile/purple/half{
@@ -4637,6 +4639,10 @@
 	},
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
+"Mh" = (
+/obj/structure/closet/crate/trashcart/laundry,
+/turf/open/floor/iron/dark,
+/area/ruin/interdyne_planetary_base/main)
 "Mi" = (
 /obj/structure/table/reinforced/rglass,
 /obj/machinery/camera/autoname/directional/east{
@@ -4698,11 +4704,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/morgue)
-"MN" = (
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/ruin/interdyne_planetary_base/science)
 "MP" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 1
@@ -6083,14 +6084,14 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "WT" = (
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/virology{
 	name = "Science Research"
 	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science)
 "WX" = (
@@ -6316,13 +6317,6 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"YZ" = (
-/obj/effect/turf_decal/bot_red,
-/obj/structure/bodycontainer/morgue,
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/ruin/interdyne_planetary_base/med/morgue)
 "Zc" = (
 /obj/machinery/dryer{
 	pixel_x = 25
@@ -7172,7 +7166,7 @@ xb
 hz
 cs
 xM
-YZ
+va
 je
 je
 je
@@ -7214,11 +7208,11 @@ hs
 MM
 iq
 St
-Hx
+Bd
+JE
+KQ
 Dx
-yh
-kr
-Hx
+Bd
 Qf
 fm
 fm
@@ -7255,12 +7249,12 @@ gB
 gB
 CQ
 xL
-Hx
+Bd
 Gi
 ZN
 Gi
-Hx
-Hx
+Bd
+Bd
 fm
 fm
 ja
@@ -7296,12 +7290,12 @@ po
 Xe
 Eq
 hV
-Hx
+Bd
 wU
 LF
 sZ
 gY
-Hx
+Bd
 fm
 fm
 ja
@@ -7337,12 +7331,12 @@ Te
 Dr
 oy
 hS
-Hx
+Bd
 jn
 HL
-MN
+JE
 Hi
-Hx
+Bd
 fm
 fm
 ja
@@ -7378,12 +7372,12 @@ CP
 fQ
 Ym
 AL
-Hx
+Bd
 Ue
 qw
 yj
 Vj
-Hx
+Bd
 fm
 fm
 ja
@@ -7419,12 +7413,12 @@ ox
 ox
 ox
 ox
-Hx
+Bd
 WT
 JD
-Hx
-Hx
-Hx
+Bd
+Bd
+Bd
 fm
 fm
 ja
@@ -7505,7 +7499,7 @@ Wy
 Wy
 eE
 eE
-jr
+Mh
 Eu
 fm
 ja
