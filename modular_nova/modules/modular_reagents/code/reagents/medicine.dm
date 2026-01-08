@@ -10,7 +10,7 @@
 	inverse_chem = /datum/reagent/inverse/lidocaine
 	metabolized_traits = list(TRAIT_ANALGESIA)
 
-/datum/reagent/medicine/lidocaine/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/medicine/lidocaine/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART, 3 * REM * seconds_per_tick, 80, required_organ_flag = affected_organ_flags)
 
@@ -24,7 +24,7 @@
 	ph = 6.09
 	tox_damage = 0
 
-/datum/reagent/inverse/lidocaine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/inverse/lidocaine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	to_chat(affected_mob, span_userdanger("Your body aches with unimaginable pain!"))
 	affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART, 3 * REM * seconds_per_tick, 85, required_organ_flag = affected_organ_flags)

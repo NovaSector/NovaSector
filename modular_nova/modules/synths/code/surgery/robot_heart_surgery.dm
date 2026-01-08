@@ -1,5 +1,5 @@
 /// Hydraulic Pump Surgery
-/datum/surgery/hydraulic_maintenance
+/datum/surgery_operation/organ/repair/coronary_bypass/mechanic/hydraulic_maintenance
 	name = "Hydraulic Pump Maintenance"
 	desc = "A mechanical surgery procedure designed to repair an androids internal hydraulic pump."
 	surgery_flags = SURGERY_REQUIRE_RESTING | SURGERY_REQUIRE_LIMB | SURGERY_REQUIRES_REAL_LIMB
@@ -14,15 +14,14 @@
 		/datum/surgery_step/mechanic_close,
 	)
 	target_mobtypes = list(/mob/living/carbon/human)
-	possible_locs = list(BODY_ZONE_CHEST)
-	organ_to_manipulate = ORGAN_SLOT_HEART
 	requires_bodypart_type = BODYTYPE_ROBOTIC
-	requires_organ_type = /obj/item/organ/heart/synth
+	target_type = /obj/item/organ/heart/synth
 	requires_organ_flags = ORGAN_ROBOTIC
 	requires_organ_damage = 10
+	heal_to_percent = 0
 
 // Subtype for synthetic humanoids with organic bodyparts
-/datum/surgery/hydraulic_maintenance/hybrid
+/datum/surgery_operation/organ/repair/coronary_bypass/mechanic/hydraulic_maintenance/mechanic/hybrid
 	steps = list(
 		/datum/surgery_step/incise,
 		/datum/surgery_step/retract_skin,

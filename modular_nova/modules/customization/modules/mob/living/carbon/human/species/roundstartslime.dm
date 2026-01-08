@@ -127,7 +127,7 @@
 
 // CHEMICAL HANDLING
 // Here's where slimes heal off plasma and where they hate drinking water.
-/obj/item/organ/liver/slime/handle_chemical(mob/living/carbon/organ_owner, datum/reagent/chem, seconds_per_tick, times_fired)
+/obj/item/organ/liver/slime/handle_chemical(mob/living/carbon/organ_owner, datum/reagent/chem, seconds_per_tick)
 	. = ..()
 	if(. & COMSIG_MOB_STOP_REAGENT_TICK)
 		return
@@ -357,7 +357,7 @@
 
 // HEALING SECTION
 // Handles passive healing and water damage for slimes and water-breathing variants.
-/datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick, times_fired)
+/datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick)
 	. = ..()
 
 	// Skip if unconscious

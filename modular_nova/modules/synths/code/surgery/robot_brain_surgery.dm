@@ -1,4 +1,4 @@
-/datum/surgery/robot_brain_surgery
+/datum/surgery_operation/robot_brain_surgery
 	name = "Reset Logic (Brain Surgery)"
 	desc = "A surgical procedure that restores the default behavior logic and personality matrix of an synthetic humanoid's neural network."
 	steps = list(
@@ -10,13 +10,12 @@
 		/datum/surgery_step/mechanic_close,
 	)
 	target_mobtypes = list(/mob/living/carbon/human)
-	possible_locs = list(BODY_ZONE_CHEST) // The brains are in the chest
-	organ_to_manipulate = ORGAN_SLOT_BRAIN
+	target_type = /obj/item/organ/brain
 	requires_bodypart_type = BODYTYPE_ROBOTIC
 	requires_organ_flags = ORGAN_ROBOTIC
 
 // Subtype for synthetic humanoids with organic bodyparts
-/datum/surgery/robot_brain_surgery/hybrid
+/datum/surgery_operation/robot_brain_surgery/hybrid
 	steps = list(
 		/datum/surgery_step/incise,
 		/datum/surgery_step/retract_skin,

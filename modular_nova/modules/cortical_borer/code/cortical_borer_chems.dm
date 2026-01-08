@@ -2,7 +2,7 @@
 	name = "Unknown Methamphetamine Isomer"
 	overdose_threshold = 40
 
-/datum/reagent/drug/methamphetamine/borer_version/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/methamphetamine/borer_version/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	var/high_message = pick("You feel hyper.", "You feel like you need to go faster.", "You feel like you can run the world.")
 	if(SPT_PROB(2.5, seconds_per_tick))
 		to_chat(affected_mob, span_notice("[high_message]"))
