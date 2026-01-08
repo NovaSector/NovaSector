@@ -26,7 +26,7 @@
 	// tg stats at time of writing: 25 damage, 30 AP, 0 wound bonus, 15 exposed wound bonus
 	// adjustment: +10 damage, to 35, +5 wound bonus, -5 wound bonus (still total 15 wound bonus). keeps the 30 AP to give it an actual niche
 	// wound bonuses still generally favor hitting people in bare limbs for wounds
-	damage = 40
+	damage = 35
 	wound_bonus = 5
 	exposed_wound_bonus = 10
 
