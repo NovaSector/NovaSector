@@ -1,3 +1,6 @@
+#define TIMER_MIN 45 MINUTES
+#define TIMER_MAX 1 HOURS
+
 /datum/quirk/smuggler
 	name = "Contraband Smuggler"
 	desc = "Thanks to your connections, an illegal yet lucrative item will be shipped to you via the cargo shuttle, somewhere later in the shift."
@@ -9,8 +12,6 @@
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
 	/// weakref of the quirk holder's mind, to open the mail
 	var/datum/weakref/mind_ref
-	/// type-path of chosen contraband item
-	var/contraband
 	/// wether or not we should try the long timer, or the short timer if the aforementioned has expired already
 	var/timer_passed = FALSE
 
@@ -18,16 +19,9 @@
 	associated_typepath = /datum/quirk/smuggler
 	customization_options = list(/datum/preference/choiced/smuggler)
 
-/datum/quirk/smuggler/add(client/client_source)
-	var/item_choice = client_source?.prefs.read_preference(/datum/preference/choiced/smuggler)
-	if(!item_choice)
-		return
-	contraband = GLOB.smuggler_items[item_choice]
-
 /datum/quirk/smuggler/post_add()
 	mind_ref = WEAKREF(quirk_holder.mind)
 	if(!can_run())
-		to_chat(quirk_holder, span_warning("Your [name] quirk did not load due to your job ([quirk_holder.mind.assigned_role.title]) being on its blacklist!"))
 		qdel(src)
 		return
 	if(!timer_passed)
@@ -37,62 +31,31 @@
 	if(QDELING(quirk_holder) || istype(quirk_holder, /mob/living/carbon/human/consistent))
 		return
 	QDEL_NULL(mind_ref)
-	contraband = null
 
-// adds either the original timer, or a short timer for when the shuttle doesn't allow mail to spawn
-/datum/quirk/smuggler/proc/set_mail_timer()
-	if(!timer_passed)
-		addtimer(CALLBACK(src, PROC_REF(try_to_add_to_shuttle)), rand(25 MINUTES, 45 MINUTES), TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_DELETE_ME)
-	else //check if the shuttle is at CC every once in a while
-		addtimer(CALLBACK(src, PROC_REF(try_to_add_to_shuttle)), 1 MINUTES, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_DELETE_ME)
 
-// try to place the item, or loop back into a timer if not able to
-/datum/quirk/smuggler/proc/try_to_add_to_shuttle()
-	timer_passed = TRUE
-	var/turf/open/spot = find_a_spot()
-	if(!spot || is_station_level(spot?.z))
-		set_mail_timer()
-		return
-	// build parcel
-	var/obj/item/mail/illegal_parcel = new /obj/item/mail(spot)
-	illegal_parcel.recipient_ref = mind_ref
-	var/datum/mind/recipient = mind_ref.resolve()
-	illegal_parcel.name = "unmarked parcel for [recipient.name]"
-	illegal_parcel.desc = "A shady package that seems to have slipped between the cracks, it isn't postmarked."
-	illegal_parcel.postmarked = FALSE
-	illegal_parcel.color = pick(list(COLOR_FLOORTILE_GRAY, COLOR_ASSISTANT_OLIVE, COLOR_RUSTED_GLASS))
-	illegal_parcel.cut_overlays()
-	illegal_parcel.update_icon()
-	illegal_parcel.pixel_y = rand(-12, 12)
-	illegal_parcel.pixel_x = rand(-12, 12)
-	// add item
-	new contraband(illegal_parcel)
-	if(rand(1, 30 == 1))
-		var/datum/record/crew/record = find_record(recipient.name) || find_record("[trim(first_name(recipient.name), 2)]. [last_name(recipient.name)]") //visitor id shit
-		if(!record)
-			return
-		fine(recipient, record)
+// if the quirk should run
+/datum/quirk/smuggler/proc/can_run()
+	if(!check_postoffice())
+		to_chat(quirk_holder, span_warning("Your [name] quirk did not load due to the mail being blocked this round!"))
+		return FALSE
+	if(!check_job_blacklist(mind_ref.resolve()))
+		to_chat(quirk_holder, span_warning("Your [name] quirk did not load due to your job ([quirk_holder.mind?.assigned_role.title]) being on its blacklist!"))
+		return FALSE
+	return TRUE
 
-// find a tile on the cargo shuttle to be placed at
-/datum/quirk/smuggler/proc/find_a_spot()
-	var/list/empty_shuttle_turfs = list()
-	var/list/area/shuttle/shuttle_areas = SSshuttle.supply.shuttle_areas
-	for(var/area/shuttle/shuttle_area as anything in shuttle_areas)
-		for(var/turf/open/floor/shuttle_turf in shuttle_area.get_turfs_from_all_zlevels())
-			if(shuttle_turf.is_blocked_turf())
-				continue
-			empty_shuttle_turfs += shuttle_turf
-	if(!length(empty_shuttle_turfs))
-		return
-	return pick(empty_shuttle_turfs)
+// is mail being delivered today?
+/datum/quirk/smuggler/proc/check_postoffice()
+	if(SSeconomy.mail_blocked)
+		return FALSE
+	return TRUE
 
 // job blacklist for the jobs that shouldnt do illegal stuff and get fined
-/datum/quirk/smuggler/proc/can_run()
-	var/datum/mind/mind = mind_ref.resolve()
+/datum/quirk/smuggler/proc/check_job_blacklist(datum/mind/recipient)
 	var/static/list/blacklisted_jobs = list(
 		JOB_CAPTAIN,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_DETECTIVE,
 		JOB_HEAD_OF_SECURITY,
 		JOB_CUSTOMS_AGENT,
 		JOB_ORDERLY,
@@ -109,20 +72,94 @@
 		JOB_NT_REP,
 	//	JOB_BRIDGE_ASSISTANT, same deal
 	)
-	if(mind.assigned_role.title in blacklisted_jobs)
+	if(!recipient)
+		return FALSE
+	if (recipient.assigned_role.title in blacklisted_jobs)
 		return FALSE
 	return TRUE
 
+// adds either the original timer, or a short timer for when the shuttle doesn't allow mail to spawn
+/datum/quirk/smuggler/proc/set_mail_timer()
+	if(!timer_passed)
+		addtimer(CALLBACK(src, PROC_REF(try_smuggle)), rand(TIMER_MIN, TIMER_MAX), TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_DELETE_ME)
+	else //check if the shuttle is at CC every once in a while
+		addtimer(CALLBACK(src, PROC_REF(try_smuggle)), 1 MINUTES, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_DELETE_ME)
+
+// try to run the quirk, or loop back into a timer if not able to
+/datum/quirk/smuggler/proc/try_smuggle()
+	timer_passed = TRUE
+	var/turf/open/spot = find_a_spot()
+	if(!spot || is_station_level(spot?.z))
+		set_mail_timer()
+		return
+	// build parcel
+	create_parcel(new /obj/item/mail(spot))
+	// roll for penalty
+	try_penalty()
+
+// find a tile on the cargo shuttle to be placed at
+/datum/quirk/smuggler/proc/find_a_spot()
+	var/list/empty_shuttle_turfs = list()
+	var/list/area/shuttle/shuttle_areas = SSshuttle.supply.shuttle_areas
+	for(var/area/shuttle/shuttle_area as anything in shuttle_areas)
+		for(var/turf/open/floor/shuttle_turf in shuttle_area.get_turfs_from_all_zlevels())
+			if(shuttle_turf.is_blocked_turf())
+				continue
+			empty_shuttle_turfs += shuttle_turf
+	if(!length(empty_shuttle_turfs))
+		return
+	return pick(empty_shuttle_turfs)
+
+// build and add some flavor to the mail item
+/datum/quirk/smuggler/proc/create_parcel(obj/item/mail/illegal_parcel)
+	illegal_parcel.recipient_ref = mind_ref
+	illegal_parcel.name = "unmarked parcel for [mind_ref.resolve()]"
+	illegal_parcel.desc = "A shady package that seems to have slipped between the cracks, it isn't postmarked."
+	illegal_parcel.postmarked = FALSE
+	illegal_parcel.color = pick(list(COLOR_FLOORTILE_GRAY, COLOR_ASSISTANT_OLIVE, COLOR_RUSTED_GLASS))
+	illegal_parcel.cut_overlays()
+	illegal_parcel.update_icon()
+	illegal_parcel.pixel_y = rand(-12, 12)
+	illegal_parcel.pixel_x = rand(-12, 12)
+	if(add_contraband(illegal_parcel, GLOB.smuggler_items[quirk_holder.client?.prefs?.read_preference(/datum/preference/choiced/smuggler)]))
+		return
+	qdel(illegal_parcel)
+	set_mail_timer() //spawning error, try again later
+
+// add the actual contraband
+/datum/quirk/smuggler/proc/add_contraband(obj/item/mail/illegal_parcel, contraband_path)
+	if(ispath(contraband_path, /datum/computer_file/program))
+		var/obj/item/disk/computer/contraband = new(illegal_parcel)
+		contraband.name = "shady floppy disk"
+		contraband.icon_state = "datadisk3"
+		contraband.sticker_icon_state = "o_damaged"
+		contraband.add_file(new contraband_path)
+		contraband.cut_overlays()
+		contraband.update_icon()
+		return TRUE
+	else if(ispath(contraband_path, /obj/item))
+		new contraband_path(illegal_parcel)
+		return TRUE
+	return FALSE
+
+// if a penalty should run
+/datum/quirk/smuggler/proc/try_penalty()
+	if(rand(1, 30 == 1))
+		var/datum/record/crew/record = find_record(mind_ref.resolve()) || find_record("[trim(first_name(mind_ref.resolve()), 2)]. [last_name(mind_ref.resolve())]") //visitor id shit
+		fine(record)
+
 // uh oh, looks like customs knows what you're upto...
-/datum/quirk/smuggler/proc/fine(datum/mind/mind, datum/record/crew/record)
+/datum/quirk/smuggler/proc/fine(datum/record/crew/record)
+	if(!record)
+		return
 	var/datum/crime/citation/citation = new(
 		name = "Fraud",
-		details = "CC customs have inspected a parcel belonging to [mind.name] and declared it as unlawful.",
+		details = "CC customs have inspected a parcel belonging to [record.name] and declared it as unlawful.",
 		author = "CentCom customs",
 		fine = 250,
 	)
 	record.citations += citation
-	aas_config_announce(/datum/aas_config_entry/cc_customs_inspection, list("PERSON" = mind.name), src, list(RADIO_CHANNEL_SECURITY), RADIO_CHANNEL_SECURITY)
+	aas_config_announce(/datum/aas_config_entry/cc_customs_inspection, list("PERSON" = record.name), src, list(RADIO_CHANNEL_SECURITY), RADIO_CHANNEL_SECURITY)
 
 /datum/aas_config_entry/cc_customs_inspection
 	name = "CentCom Customs"
@@ -136,13 +173,12 @@
 
 //list of contraband choices
 GLOBAL_LIST_INIT(smuggler_items, list(
-	"Nukedisk pinpointer" = /obj/item/pinpointer/nuke,
 	"NV health meson goggles" = /obj/item/clothing/glasses/hud/health/night/meson,
 	"Badass sunglasses" = /obj/item/clothing/glasses/sunglasses/robohand,
-	"SyndEye PDA program" = /obj/item/disk/computer/syndicate/camera_app,
-	"Blood Steal NIFsoft" = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal,
+	"Fission360 PDA program" = /datum/computer_file/program/radar/fission360,
+	"SyndEye PDA program" = /datum/computer_file/program/secureye/syndicate,
+	"Aranesp pill bottle" = /obj/item/storage/pill_bottle/aranesp,
 	"4U70-P3R4710N skillchip" = /obj/item/skillchip/self_surgery,
-	"Stimulant medipen" = /obj/item/reagent_containers/hypospray/medipen/stimulants,
 ))
 
 //pref for the contraband item choices
@@ -158,7 +194,10 @@ GLOBAL_LIST_INIT(smuggler_items, list(
 	if (!..(preferences))
 		return FALSE
 
-	return "Smuggler" in preferences.all_quirks
+	return "Contraband Smuggler" in preferences.all_quirks
 
 /datum/preference/choiced/smuggler/apply_to_human(mob/living/carbon/human/target, value)
 	return
+
+#undef TIMER_MIN
+#undef TIMER_MAX
