@@ -230,7 +230,7 @@
 	dangerous = TRUE
 	fusion_power = 2
 	rarity = 600
-	base_value = 1
+	base_value = 0 // NOVA EDIT ORIGINAL base_value = 1
 	desc = "A highly flammable gas."
 	primary_color = "#ffffff"
 
