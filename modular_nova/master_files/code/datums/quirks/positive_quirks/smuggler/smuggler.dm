@@ -128,7 +128,11 @@
 
 // add the actual contraband
 /datum/quirk/smuggler/proc/add_contraband(obj/item/mail/illegal_parcel, contraband_path)
-	if(ispath(contraband_path, /datum/computer_file/program))
+	if(islist(contraband_path))
+		for(var/obj/item/contraband in contraband_path)
+			new contraband(illegal_parcel)
+		return TRUE
+	else if(ispath(contraband_path, /datum/computer_file/program))
 		var/obj/item/disk/computer/shady_floppy = new(illegal_parcel)
 		shady_floppy.name = "shady floppy disk"
 		shady_floppy.icon_state = "datadisk3"
@@ -173,12 +177,14 @@
 
 //list of contraband choices
 GLOBAL_LIST_INIT(smuggler_items, list(
+	"Syndicate maid outfit" = list(/obj/item/clothing/under/syndicate/nova/maid, /obj/item/clothing/gloves/combat/maid, /obj/item/clothing/head/costume/maid_headband/syndicate),
 	"NV health meson goggles" = /obj/item/clothing/glasses/hud/health/night/meson,
 	"Badass sunglasses" = /obj/item/clothing/glasses/sunglasses/robohand,
 	"Fission360 PDA program" = /datum/computer_file/program/radar/fission360,
 	"SyndEye PDA program" = /datum/computer_file/program/secureye/syndicate,
 	"Aranesp pill bottle" = /obj/item/storage/pill_bottle/aranesp,
 	"4U70-P3R4710N skillchip" = /obj/item/skillchip/self_surgery,
+	"Hacker arm toolkit" = /obj/item/organ/cyberimp/arm/toolkit/hacker,
 ))
 
 //pref for the contraband item choices
