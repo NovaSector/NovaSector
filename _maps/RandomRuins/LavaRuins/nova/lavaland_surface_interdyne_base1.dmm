@@ -2307,7 +2307,6 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
-/obj/machinery/light/cold/directional/south,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/ruin/interdyne_planetary_base/main)
