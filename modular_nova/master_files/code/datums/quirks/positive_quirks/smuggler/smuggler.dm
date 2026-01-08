@@ -129,13 +129,13 @@
 // add the actual contraband
 /datum/quirk/smuggler/proc/add_contraband(obj/item/mail/illegal_parcel, contraband_path)
 	if(ispath(contraband_path, /datum/computer_file/program))
-		var/obj/item/disk/computer/contraband = new(illegal_parcel)
-		contraband.name = "shady floppy disk"
-		contraband.icon_state = "datadisk3"
-		contraband.sticker_icon_state = "o_damaged"
-		contraband.add_file(new contraband_path)
-		contraband.cut_overlays()
-		contraband.update_icon()
+		var/obj/item/disk/computer/shady_floppy = new(illegal_parcel)
+		shady_floppy.name = "shady floppy disk"
+		shady_floppy.icon_state = "datadisk3"
+		shady_floppy.sticker_icon_state = "o_damaged"
+		shady_floppy.add_file(new contraband_path)
+		shady_floppy.cut_overlays()
+		shady_floppy.update_icon()
 		return TRUE
 	else if(ispath(contraband_path, /obj/item))
 		new contraband_path(illegal_parcel)
