@@ -52,14 +52,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
-"aF" = (
-/obj/machinery/computer/rdservercontrol{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/ruin/interdyne_planetary_base/science)
 "aG" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on,
 /obj/machinery/light/small/directional/north,
@@ -791,11 +783,10 @@
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "hz" = (
-/obj/effect/turf_decal/bot_red,
-/obj/structure/bodycontainer/morgue,
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "hH" = (
 /obj/machinery/airalarm/directional/east,
@@ -983,6 +974,9 @@
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_y = 29
+	},
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -1089,6 +1083,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med/pharm)
+"jr" = (
+/obj/structure/closet/crate/trashcart/laundry,
+/turf/open/floor/iron/dark,
+/area/ruin/interdyne_planetary_base/main)
 "js" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/bookcase/random,
@@ -1252,6 +1250,13 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
+"kr" = (
+/obj/effect/turf_decal/bot_red,
+/obj/machinery/rnd/server,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/interdyne_planetary_base/science)
 "kv" = (
 /obj/structure/table,
 /obj/item/flashlight,
@@ -1485,9 +1490,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
-"mu" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/science)
 "mz" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white,
@@ -2599,6 +2601,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot_white,
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_y = 29
+	},
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -2726,6 +2731,13 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/checker,
 /area/ruin/interdyne_planetary_base/serv/bar)
+"xb" = (
+/obj/machinery/door/airlock/grunge{
+	name = "Morgue"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/med/morgue)
 "xe" = (
 /obj/structure/cable,
 /obj/machinery/power/terminal,
@@ -2847,6 +2859,13 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
+"yh" = (
+/obj/effect/turf_decal/bot_red,
+/obj/structure/showcase/machinery/signal_decrypter,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/interdyne_planetary_base/science)
 "yj" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -3361,13 +3380,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
-"Cc" = (
-/obj/structure/frame/machine/secured,
-/obj/item/circuitboard/machine/protolathe/offstation,
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/ruin/interdyne_planetary_base/science)
 "Cd" = (
 /obj/effect/turf_decal/siding/dark_green{
 	dir = 5
@@ -3542,8 +3554,9 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "Dx" = (
-/obj/effect/turf_decal/bot_red,
-/obj/machinery/rnd/server,
+/obj/machinery/computer/rdservercontrol{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
@@ -4095,6 +4108,8 @@
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
 "Hi" = (
+/obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/protolathe/offstation,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
@@ -4119,9 +4134,8 @@
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "Hx" = (
-/obj/structure/closet/crate/trashcart/laundry,
-/turf/open/floor/iron/dark,
-/area/ruin/interdyne_planetary_base/main)
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ruin/interdyne_planetary_base/science)
 "Hy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4684,6 +4698,11 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/morgue)
+"MN" = (
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/interdyne_planetary_base/science)
 "MP" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 1
@@ -5234,12 +5253,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
-"RE" = (
-/obj/structure/cable,
-/obj/machinery/airalarm/directional/west,
-/obj/effect/mapping_helpers/airalarm/syndicate_access,
-/turf/open/floor/iron/dark/herringbone,
-/area/ruin/interdyne_planetary_base/med/morgue)
 "RH" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -5722,13 +5735,6 @@
 	},
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/med)
-"Uz" = (
-/obj/machinery/door/airlock/grunge{
-	name = "Morgue"
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/med/morgue)
 "UA" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -5907,13 +5913,6 @@
 	},
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/main)
-"VE" = (
-/obj/effect/turf_decal/bot_red,
-/obj/structure/showcase/machinery/signal_decrypter,
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
-	},
-/area/ruin/interdyne_planetary_base/science)
 "VF" = (
 /turf/closed/wall/mineral/titanium,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -6038,6 +6037,9 @@
 	},
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_x = 28
 	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
@@ -6314,6 +6316,13 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"YZ" = (
+/obj/effect/turf_decal/bot_red,
+/obj/structure/bodycontainer/morgue,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/interdyne_planetary_base/med/morgue)
 "Zc" = (
 /obj/machinery/dryer{
 	pixel_x = 25
@@ -7159,11 +7168,11 @@ Mv
 Rr
 br
 tt
-Uz
-RE
+xb
+hz
 cs
 xM
-hz
+YZ
 je
 je
 je
@@ -7205,11 +7214,11 @@ hs
 MM
 iq
 St
-mu
-aF
-VE
+Hx
 Dx
-mu
+yh
+kr
+Hx
 Qf
 fm
 fm
@@ -7246,12 +7255,12 @@ gB
 gB
 CQ
 xL
-mu
+Hx
 Gi
 ZN
 Gi
-mu
-mu
+Hx
+Hx
 fm
 fm
 ja
@@ -7287,12 +7296,12 @@ po
 Xe
 Eq
 hV
-mu
+Hx
 wU
 LF
 sZ
 gY
-mu
+Hx
 fm
 fm
 ja
@@ -7328,12 +7337,12 @@ Te
 Dr
 oy
 hS
-mu
+Hx
 jn
 HL
+MN
 Hi
-Cc
-mu
+Hx
 fm
 fm
 ja
@@ -7369,12 +7378,12 @@ CP
 fQ
 Ym
 AL
-mu
+Hx
 Ue
 qw
 yj
 Vj
-mu
+Hx
 fm
 fm
 ja
@@ -7410,12 +7419,12 @@ ox
 ox
 ox
 ox
-mu
+Hx
 WT
 JD
-mu
-mu
-mu
+Hx
+Hx
+Hx
 fm
 fm
 ja
@@ -7496,7 +7505,7 @@ Wy
 Wy
 eE
 eE
-Hx
+jr
 Eu
 fm
 ja
