@@ -36,6 +36,11 @@
 
 /obj/item/mod/module/storage/on_uninstall(deleting = FALSE)
 	. = ..()
+	// NOVA EDIT: Safety check to prevent "Cannot read null.atom_storage" runtime errors
+	// mod might be null if module is being uninstalled from a destroyed/invalid modsuit
+	// This can occur during protean assimilation/unassimilation or other edge cases
+	if(!mod)
+		return
 	atom_storage.set_locked(STORAGE_FULLY_LOCKED)
 	QDEL_NULL(mod.atom_storage)
 	if(!deleting)

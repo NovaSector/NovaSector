@@ -357,3 +357,10 @@
 		"mod_plating_security",
 	)
 	return ..()
+
+// Protean servo module
+/datum/techweb_node/mod_equip/New()
+	design_ids += list(
+		"mod_protean_servo",
+	)
+	return ..()
