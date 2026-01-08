@@ -24,7 +24,7 @@
 // Upgraded medigun
 /obj/item/gun/energy/cell_loaded/medigun/upgraded
 	name = "VeyMedical CWM-479-FC cell-powered medigun"
-	desc = "This is an upgraded variant of the standard CWM-479 medigun. While it still only fits three cells, its cell have been upgraded for higher capacity and faster charging."
+	desc = "This is an upgraded variant of the standard CWM-479 medigun. While it still only fits three cells, its battery has been upgraded for higher capacity and faster charging."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/upgraded
 
 /obj/item/gun/energy/cell_loaded/medigun/upgraded/Initialize(mapload)
