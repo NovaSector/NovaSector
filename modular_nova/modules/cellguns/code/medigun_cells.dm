@@ -323,10 +323,10 @@
 	var/obj/item/clothing/gown = new /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/hardlight
 
 	if(wearer.equip_to_slot_if_possible(gown, ITEM_SLOT_OCLOTHING, 1, 1, 1))
-		wearer.visible_message(span_notice("The [gown] covers [wearer] body"), span_notice("The [gown] wraps around your body, covering you"))
+		wearer.visible_message(span_notice("[gown] covers [wearer]'s body."), span_notice("[gown] wraps around your body, covering you."))
 		return
 	else
-		wearer.visible_message(span_notice("The [gown] fails to fit on [wearer], instantly disentagrating away"), span_notice("The [gown] unable to fit on you, disentagrates into nothing"))
+		wearer.visible_message(span_warning("[gown] fails to fit on [wearer], instantly disintegrating away!"), span_warning("[gown], unable to fit on you, disintegrates into nothing!"))
 		return FALSE
 
 //Salve Medicell
@@ -412,7 +412,7 @@
 //Objects Used by medicells.
 /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/hardlight
 	name = "hardlight surgical gown"
-	desc = "A hospital gown made out of hardlight - you can barely feel it on your body, especially with all the anesthetics."
+	desc = "A hospital gown made out of hardlight. You can barely feel it on your body, especially with all the anesthetics."
 	icon_state = "lgown"
 
 /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/hardlight/dropped(mob/user)
@@ -420,14 +420,15 @@
 	var/mob/living/carbon/wearer = user
 
 	if((wearer.get_item_by_slot(ITEM_SLOT_OCLOTHING)) == src && !QDELETED(src))
-		to_chat(wearer, span_notice("The [src] disappeared after being removed"))
+		to_chat(wearer, span_warning("[src] disappears after being removed!"))
 		qdel(src)
+		user.update_held_items()
 		return
 
 //Salve Globule
 /obj/item/mending_globule/hardlight
 	name = "salve globule"
-	desc = "A ball of regenerative synthetic plant matter, contained within a soft hardlight field."
+	desc = "A ball of regenerative, synthetic plant matter, contained within a soft hardlight field."
 	embed_type = /datum/embedding/salve_globule/hardlight
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
 	icon_state = "globule"
@@ -448,7 +449,7 @@
 //Hardlight Emergency Bed.
 /obj/structure/bed/medical/medigun
 	name = "hardlight medical bed"
-	desc = "A medical bed made out of Hardlight"
+	desc = "A medical bed made out of hardlight."
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
 	icon_state = "hardlight_down"
 	base_icon_state = "hardlight"
