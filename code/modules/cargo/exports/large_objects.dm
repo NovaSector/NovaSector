@@ -106,7 +106,7 @@
 	export_types = list(/obj/item/grenade/barrier, /obj/structure/barricade/security)
 
 ///Maximum number of credits you can earn from selling your gas canister cause its theoritically infinite
-#define MAX_GAS_CREDITS 15000
+#define MAX_GAS_CREDITS 100 // NOVA EDIT ORIGINAL #define MAX_GAS_CREDITS 15000
 
 /**
  * Maximum pressure a canister can withstand is 9.2e13 kPa at a minimum of 2.7K which would contain a horrifying 4,098,150,709.4 moles.
