@@ -1,7 +1,0 @@
-author: "MajManatee"
-delete-after: True
-changes:
-  - rscadd: "Medborgs can get an autopsy scanner upgrade"
-  - rscadd: "Medborgs can get a material manipulator to allow making advanced chemicals that require grinding of things like silver"
-  - rscadd: "Medborgs get formaldehyde in their advanced chemicals to help with body decay."
-  - rscadd: "Borgs can now attach IVs as god intended"

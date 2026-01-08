@@ -344,3 +344,16 @@
   - bugfix: fixes slimepeople being able to select the plasma_breather quirk, this
       was not intended for balance reasons but the code to prevent them from selecting
       it had a bug.
+2026-01-08:
+  Hardly:
+  - bugfix: Fixed Tesharis being stuck with human sprites when wearing neck gaiters
+  - code_imp: Changed default colors for neck gaiters
+  MacaroniCritter:
+  - rscadd: Added colorable knee boots.
+  MajManatee:
+  - rscadd: Medborgs can get an autopsy scanner upgrade
+  - rscadd: Medborgs can get a material manipulator to allow making advanced chemicals
+      that require grinding of things like silver
+  - rscadd: Medborgs get formaldehyde in their advanced chemicals to help with body
+      decay.
+  - rscadd: Borgs can now attach IVs as god intended
