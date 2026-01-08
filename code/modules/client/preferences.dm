@@ -177,6 +177,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//NOVA EDIT ADDITION BEGIN
 	data["preview_selection"] = preview_pref
 	data["erp_pref"] = read_preference(/datum/preference/toggle/master_erp_preferences)
+	data["erp_belly_pref"] = read_preference(/datum/preference/toggle/erp/belly_master)
 	data["quirk_points_enabled"] = !CONFIG_GET(flag/disable_quirk_points)
 	data["quirks_balance"] = GetQuirkBalance()
 	data["positive_quirk_count"] = GetPositiveQuirkCount()
@@ -349,6 +350,18 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		// For the quirks in the prefs menu.
 		if ("get_quirks_balance")
+			return TRUE
+
+		if ("openBellyPrefs")
+			to_chat(world, "Opening belly prefs for [usr]!")
+			if(!(usr.client.ckey in GLOB.erp_belly_prefshelpers))
+				to_chat(world, "[usr] didn't have a listed helper in the GLOB yet, adding it now!")
+				var/datum/erp_belly_prefshelper/helper = new()
+				helper.associated_client = usr.client
+				GLOB.erp_belly_prefshelpers[usr.client.ckey] = helper
+				to_chat(world, "Debug check: [GLOB.erp_belly_prefshelpers[usr.client.ckey]] exists, and its assoociated client is [GLOB.erp_belly_prefshelpers[usr.client.ckey].associated_client]")
+			to_chat(world, "Okay, calling ui_interact for [usr] now!")
+			GLOB.erp_belly_prefshelpers[usr.client.ckey].ui_interact(usr)
 			return TRUE
 		//NOVA EDIT ADDITION END
 
