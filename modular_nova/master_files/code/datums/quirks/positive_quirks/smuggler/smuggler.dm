@@ -1,5 +1,21 @@
 #define TIMER_MIN 0.65 HOURS
 #define TIMER_MAX 1.15 HOURS
+/// 1 in 30 odds to be fined
+#define PENALTY_ODDS_FINE 30
+
+/*	list of contraband choices
+	supports items, lists of items, and pda program datums
+*/
+GLOBAL_LIST_INIT(smuggler_items, list(
+	"Syndicate maid outfit" = list(/obj/item/clothing/under/syndicate/nova/maid, /obj/item/clothing/gloves/combat/maid, /obj/item/clothing/head/costume/maid_headband/syndicate),
+	"NV health meson goggles" = /obj/item/clothing/glasses/hud/health/night/meson,
+	"Badass sunglasses" = /obj/item/clothing/glasses/sunglasses/robohand,
+	"Fission360 PDA program" = /datum/computer_file/program/radar/fission360,
+	"SyndEye PDA program" = /datum/computer_file/program/secureye/syndicate,
+	"Aranesp pill bottle" = /obj/item/storage/pill_bottle/aranesp,
+	"4U70-P3R4710N skillchip" = /obj/item/skillchip/self_surgery,
+	"Hacker arm toolkit" = /obj/item/organ/cyberimp/arm/toolkit/hacker,
+))
 
 /datum/quirk/smuggler
 	name = "Contraband Smuggler"
@@ -149,7 +165,7 @@
 
 // if a penalty should run
 /datum/quirk/smuggler/proc/try_penalty()
-	if(rand(1, 30 == 1))
+	if(rand(1, PENALTY_ODDS_FINE == 1))
 		var/datum/record/crew/record = find_record(mind_ref.resolve()) || find_record("[trim(first_name(mind_ref.resolve()), 2)]. [last_name(mind_ref.resolve())]") //visitor id shit
 		fine(record)
 
@@ -175,36 +191,6 @@
 		"PERSON" = "will be replaced with the name of the user",
 	)
 
-
-//list of contraband choices
-GLOBAL_LIST_INIT(smuggler_items, list(
-	"Syndicate maid outfit" = list(/obj/item/clothing/under/syndicate/nova/maid, /obj/item/clothing/gloves/combat/maid, /obj/item/clothing/head/costume/maid_headband/syndicate),
-	"NV health meson goggles" = /obj/item/clothing/glasses/hud/health/night/meson,
-	"Badass sunglasses" = /obj/item/clothing/glasses/sunglasses/robohand,
-	"Fission360 PDA program" = /datum/computer_file/program/radar/fission360,
-	"SyndEye PDA program" = /datum/computer_file/program/secureye/syndicate,
-	"Aranesp pill bottle" = /obj/item/storage/pill_bottle/aranesp,
-	"4U70-P3R4710N skillchip" = /obj/item/skillchip/self_surgery,
-	"Hacker arm toolkit" = /obj/item/organ/cyberimp/arm/toolkit/hacker,
-))
-
-//pref for the contraband item choices
-/datum/preference/choiced/smuggler
-	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-	savefile_key = "smuggler"
-	savefile_identifier = PREFERENCE_CHARACTER
-
-/datum/preference/choiced/smuggler/init_possible_values()
-	return GLOB.smuggler_items
-
-/datum/preference/choiced/smuggler/is_accessible(datum/preferences/preferences)
-	if (!..(preferences))
-		return FALSE
-
-	return "Contraband Smuggler" in preferences.all_quirks
-
-/datum/preference/choiced/smuggler/apply_to_human(mob/living/carbon/human/target, value)
-	return
-
 #undef TIMER_MIN
 #undef TIMER_MAX
+#undef PENALTY_ODDS_FINE
