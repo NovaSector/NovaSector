@@ -45,16 +45,21 @@
 	playsound(organ_owner, 'sound/items/eshield_recharge.ogg', 40)
 	// NOVA EDIT REMOVAL - delegating EMP protection to the status effect - organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
 	RegisterSignal(organ_owner, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION), PROC_REF(activate_survival))
-	RegisterSignal(organ_owner, COMSIG_ATOM_PRE_EMP_ACT, PROC_REF(on_emp_act))
+	RegisterSignal(organ_owner, COMSIG_ATOM_PRE_EMP_ACT, PROC_REF(on_emp_act)) // NOVA EDIT - original RegisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
 
 /obj/item/organ/heart/cybernetic/anomalock/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 	if(!core)
 		return
-	UnregisterSignal(organ_owner, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION))
+	UnregisterSignal(organ_owner, list(COMSIG_ATOM_PRE_EMP_ACT, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION))) // NOVA EDIT - original UnregisterSignal(organ_owner, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION))
 	organ_owner.RemoveElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
 	tesla_zap(source = organ_owner, zap_range = 20, power = 2.5e5, cutoff = 1e3)
 	// qdel(src) // NOVA EDIT REMOVAL
+	// NOVA EDIT ADDITION START
+	if(owner?.has_status_effect(/datum/status_effect/voltaic_overdrive))
+		owner?.remove_status_effect(/datum/status_effect/voltaic_overdrive)
+	clear_lightning_overlay()
+	// NOVA EDIT ADDITION END
 
 /obj/item/organ/heart/cybernetic/anomalock/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(target_mob != user || !istype(target_mob) || !core)
@@ -88,14 +93,17 @@
 
 /obj/item/organ/heart/cybernetic/anomalock/proc/add_lightning_overlay(time_to_last = 10 SECONDS)
 	if(lightning_overlay)
-		lightning_timer = addtimer(CALLBACK(src, PROC_REF(clear_lightning_overlay)), time_to_last, (TIMER_UNIQUE|TIMER_OVERRIDE))
+		lightning_timer = addtimer(CALLBACK(src, PROC_REF(clear_lightning_overlay)), time_to_last, (TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)) // NOVA EDIT - original lightning_timer = addtimer(CALLBACK(src, PROC_REF(clear_lightning_overlay)), time_to_last, (TIMER_UNIQUE|TIMER_OVERRIDE))
 		return
 	lightning_overlay = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning")
 	owner.add_overlay(lightning_overlay)
-	lightning_timer = addtimer(CALLBACK(src, PROC_REF(clear_lightning_overlay)), time_to_last, (TIMER_UNIQUE|TIMER_OVERRIDE))
+	lightning_timer = addtimer(CALLBACK(src, PROC_REF(clear_lightning_overlay)), time_to_last, (TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)) // NOVA EDIT - original lightning_timer = addtimer(CALLBACK(src, PROC_REF(clear_lightning_overlay)), time_to_last, (TIMER_UNIQUE|TIMER_OVERRIDE))
 
 /obj/item/organ/heart/cybernetic/anomalock/proc/clear_lightning_overlay()
-	owner.cut_overlay(lightning_overlay)
+	owner?.cut_overlay(lightning_overlay) // NOVA EDIT - we might not have an owner because we might have fallen out of their torso - original owner.cut_overlay(lightning_overlay)
+	// NOVA EDIT ADDITION START
+	deltimer(lightning_timer)
+	// NOVA EDIT ADDITION END
 	lightning_overlay = null
 
 /obj/item/organ/heart/cybernetic/anomalock/attack_self(mob/user, modifiers)

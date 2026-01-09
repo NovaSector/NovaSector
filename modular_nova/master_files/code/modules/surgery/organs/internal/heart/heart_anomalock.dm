@@ -1,6 +1,6 @@
 /obj/item/organ/heart/cybernetic/anomalock
 	desc = "A cutting-edge cyberheart. Voltaic technology allows the heart to keep the body upright in dire circumstances, \
-		along with fully shielding the user from shocks and electro-magnetic pulses. \
+		along with fully shielding the user from shocks and electro-magnetic pulses, when in an \"overdrive\" state. \
 		Requires a refined flux core as a power source. \
 		The critical protection functionality requires a cooldown period before it can be used again."
 
@@ -25,16 +25,6 @@
 			In that four minutes and thirty seconds between, though, the user is quite vulnerable.", \
 	)
 
-/obj/item/organ/heart/cybernetic/anomalock/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
-	if(owner?.has_status_effect(/datum/status_effect/voltaic_overdrive))
-		owner?.remove_status_effect(/datum/status_effect/voltaic_overdrive)
-	UnregisterSignal(organ_owner, list(COMSIG_ATOM_EMP_ACT, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION)))
-	return ..()
-
-/obj/item/organ/heart/cybernetic/anomalock/clear_lightning_overlay()
-	owner?.cut_overlay(lightning_overlay)
-	lightning_overlay = null
-
 /datum/status_effect/voltaic_overdrive
 	/// The heart this status effect is associated with. In the event this heart falls out of the owner, we remove the buff.
 	var/obj/item/organ/heart/cybernetic/anomalock/associated_heart
@@ -44,6 +34,7 @@
 		return
 	return ..()
 
+/datum/status_effect/voltaic_overdrive/on_remove()
 	to_chat(owner, span_userdanger("Your voltaic combat cyberheart putters weakly in your chest as it recharges; it won't protect you against EMPs until it recovers."))
 	associated_heart = null
 	return ..()
