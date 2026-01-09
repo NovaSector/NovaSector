@@ -242,7 +242,7 @@
 	gas_overlay = "healium"
 	moles_visible = MOLES_GAS_VISIBLE
 	rarity = 300
-	base_value = 0.1 // NOVA EDIT ORIGINAL: base_value = 5.5
+	base_value = 0.01 // NOVA EDIT ORIGINAL: base_value = 5.5
 	desc = "Causes deep, regenerative sleep."
 	primary_color = "#fa8072"
 
