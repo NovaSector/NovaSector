@@ -48,7 +48,11 @@
 	RegisterSignal(organ_owner, COMSIG_ATOM_PRE_EMP_ACT, PROC_REF(on_emp_act)) // NOVA EDIT CHANGE - ORIGINAL: RegisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
 
 /obj/item/organ/heart/cybernetic/anomalock/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
-	clear_lightning_overlay() // NOVA EDIT ADDITION
+	// NOVA EDIT ADDITION START
+	organ_owner.cut_overlay(lightning_overlay) // necessary because clear_lightning_overlay() assumes we still have an owner, which we unassign upon removal
+	deltimer(lightning_timer)
+	lightning_overlay = null
+	// NOVA EDIT ADDITION END
 	. = ..()
 	if(!core)
 		return
@@ -139,10 +143,10 @@
 	if(!COOLDOWN_FINISHED(src, survival_cooldown))
 		return
 	organ_owner.apply_status_effect(/datum/status_effect/voltaic_overdrive)
-	// NOVA EDIT ADDITION END
 	add_lightning_overlay(30 SECONDS)
 	COOLDOWN_START(src, survival_cooldown, survival_cooldown_time)
 	addtimer(CALLBACK(src, PROC_REF(notify_cooldown), organ_owner), COOLDOWN_TIMELEFT(src, survival_cooldown))
+	return TRUE // NOVA EDIT ADDITION
 
 ///Alerts our owner that the organ is ready to do its thing again
 /obj/item/organ/heart/cybernetic/anomalock/proc/notify_cooldown(mob/living/carbon/organ_owner)
