@@ -106,7 +106,7 @@
 	export_types = list(/obj/item/grenade/barrier, /obj/structure/barricade/security)
 
 ///Maximum number of credits you can earn from selling your gas canister cause its theoritically infinite
-#define MAX_GAS_CREDITS 100 // NOVA EDIT ORIGINAL #define MAX_GAS_CREDITS 15000
+#define MAX_GAS_CREDITS 15000
 
 /**
  * Maximum pressure a canister can withstand is 9.2e13 kPa at a minimum of 2.7K which would contain a horrifying 4,098,150,709.4 moles.
@@ -116,6 +116,8 @@
 	cost = CARGO_CRATE_VALUE * 0.05 //Base cost of canister. You get more for nice gases inside.
 	unit_name = "Gas Canister"
 	export_types = list(/obj/machinery/portable_atmospherics/canister)
+	k_hit_percentile = 0 // NOVA EDIT -- Originally inherits k_hit_percentile = 0.05
+
 
 /datum/export/gas_canister/get_base_cost(obj/machinery/portable_atmospherics/canister/canister)
 	var/datum/gas_mixture/canister_mix = canister.return_air()
