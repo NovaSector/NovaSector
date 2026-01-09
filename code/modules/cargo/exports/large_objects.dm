@@ -116,6 +116,8 @@
 	cost = CARGO_CRATE_VALUE * 0.05 //Base cost of canister. You get more for nice gases inside.
 	unit_name = "Gas Canister"
 	export_types = list(/obj/machinery/portable_atmospherics/canister)
+	k_hit_percentile = 0 // NOVA EDIT -- Originally inherits k_hit_percentile = 0.05
+
 
 /datum/export/gas_canister/get_base_cost(obj/machinery/portable_atmospherics/canister/canister)
 	var/datum/gas_mixture/canister_mix = canister.return_air()
