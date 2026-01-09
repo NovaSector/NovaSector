@@ -437,7 +437,7 @@ trait_name = "Station"
 map_files = ["catwalkstation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [172, 163, 1]
+coordinates = [173, 163, 1]
 trait_name = "Station"
 
 #Catwalkstation NTRep Office
@@ -445,7 +445,15 @@ trait_name = "Station"
 map_files = ["catwalkstation_ntrep_office.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [114, 150, 1]
+coordinates = [115, 123, 1]
+trait_name = "Station"
+
+#Catwalkstation NTRep Office Upper
+[templates.catwalkstation_ntrep_office_upper]
+map_files = ["catwalkstation_ntrep_office_upper.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [115, 123, 2]
 trait_name = "Station"
 
 #Catwalkstation Arrivals
@@ -461,7 +469,7 @@ trait_name = "Station"
 map_files = ["catwalkstation_cryo.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [132, 149, 1]
+coordinates = [129, 151, 1]
 trait_name = "Station"
 
 #Catwalkstation Armory
@@ -469,7 +477,7 @@ trait_name = "Station"
 map_files = ["catwalkstation_armory.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [68, 129, 2]
+coordinates = [68, 130, 2]
 trait_name = "Station"
 
 #Catwalkstation Barber

@@ -55,7 +55,7 @@
 	width = 35
 	},
 /turf/template_noop,
-/area/space/nearstation)
+/area/space)
 "u" = (
 /turf/template_noop,
 /area/template_noop)

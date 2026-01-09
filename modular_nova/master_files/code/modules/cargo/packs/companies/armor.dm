@@ -1,6 +1,6 @@
 /datum/supply_pack/companies/armor
 	group = "★ Armors and Uniforms"
-	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE 
+	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // Blacksteel
 
@@ -113,7 +113,7 @@
 /datum/supply_pack/companies/armor/hc_surplus/space_suit
 	name = "Voskhod-P depowered combat armor"
 	contains = list(/obj/item/clothing/suit/space/voskhod, /obj/item/clothing/head/helmet/space/voskhod)
-	desc = "An old combat modsuit with its powered components removed. Works perfectly as a hardsuit though! Includes helmet."
+	desc = "An old combat proto-hardsuit with its powered components removed. Works perfectly for kevlar knighting though! Includes helmet."
 	cost = CARGO_CRATE_VALUE * 2
 	auto_name = FALSE
 
@@ -131,6 +131,9 @@
 
 /datum/supply_pack/companies/armor/hc_surplus/clothing/police_baseball_cap
 	contains = list(/obj/item/clothing/head/soft/hc_police)
+
+/datum/supply_pack/companies/armor/hc_surplus/clothing/police_mask
+	contains = list(/obj/item/clothing/mask/gas/hc_police)
 
 /datum/supply_pack/companies/armor/hc_surplus/clothing/police_vest
 	contains = list(/obj/item/clothing/head/helmet/hc_police)

@@ -493,12 +493,6 @@
 	. = ..()
 	.[FA_ICON_EAR_DEAF] = "Behind Ears"
 
-//Christmas
-/datum/loadout_item/head/christmas
-	name = "Christmas Hat"
-	item_path = /obj/item/clothing/head/costume/santa/gags
-	group = "Costumes"
-
 //Chaplain
 /datum/loadout_item/head/chap_nunh
 	name = "Nun's Hood"

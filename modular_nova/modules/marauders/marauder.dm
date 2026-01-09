@@ -125,7 +125,7 @@
 		return
 	if(!uniform.has_sensor)
 		return
-	uniform.sensor_mode = NO_SENSORS
+	uniform.set_sensor_mode(SENSOR_OFF)
 
 /datum/outfit/marauder/plasmaman
 	name = "Marauder (Plasmaman)"

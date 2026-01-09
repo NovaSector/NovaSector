@@ -85,9 +85,14 @@ const jobToColor = (jobId: number) => {
   if (jobId >= 60 && jobId < 200) {
     return COLORS.department.service;
   }
-  if (jobId >= 200 && jobId < 230) {
+  if (jobId >= 200 && jobId < 240) { // NOVA EDIT CHANGE - ORIGINAL: jobID < if (jobId >= 200 && jobId < 230)
     return COLORS.department.centcom;
   }
+  // NOVA EDIT ADDITION START
+  if (jobId >= 401 && jobId < 409) {
+    return COLORS.department.prisoner;
+  }
+  // NOVA EDIT ADDITION END
   return COLORS.department.other;
 };
 
@@ -151,6 +156,8 @@ type CrewSensor = {
   area: string | undefined;
   health: number;
   ref: string;
+  is_robot: BooleanLike; // NOVA EDIT ADDITION
+  can_track: BooleanLike; // NOVA EDIT ADDITION
 };
 
 type CrewConsoleData = {
@@ -239,6 +246,8 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
     burndam,
     brutedam,
     area,
+    is_robot, // NOVA EDIT ADDITION
+    can_track // NOVA EDIT ADDITION
   } = sensor_data;
 
   return (
@@ -247,6 +256,11 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
         {name}
         {assignment !== undefined ? ` (${assignment})` : ''}
       </Table.Cell>
+      { /* NOVA EDIT ADDITION START */}
+      <Table.Cell collapsing textAlign="center">
+        {is_robot ? <Icon name="wrench" color="#B7410E" size={1} /> : ''}
+      </Table.Cell>
+      { /* NOVA EDIT ADDITION END */}
       <Table.Cell collapsing textAlign="center">
         {oxydam !== undefined ? (
           <Icon
@@ -293,6 +307,7 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
       {!!link_allowed && (
         <Table.Cell collapsing>
           <Button
+            disabled={!can_track} // NOVA EDIT ADDITION
             onClick={() =>
               act('select_person', {
                 name: name,

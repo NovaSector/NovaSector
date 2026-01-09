@@ -18,7 +18,12 @@
 	siemens_coefficient = 0
 	slowdown_deployed = 0
 	ui_theme = "syndicate"
-	inbuilt_modules = list(/obj/item/mod/module/chameleon/contractor, /obj/item/mod/module/welding/syndicate, /obj/item/mod/module/night, /obj/item/mod/module/hearing_protection,)
+	hearing_protection = EAR_PROTECTION_NORMAL
+	inbuilt_modules = list(
+		/obj/item/mod/module/chameleon/contractor,
+		/obj/item/mod/module/welding/syndicate,
+		/obj/item/mod/module/night,
+	)
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,

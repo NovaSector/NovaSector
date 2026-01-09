@@ -97,6 +97,10 @@
 	icon_state = "bigwolfinnerdark"
 	has_inner = TRUE
 
+/datum/sprite_accessory/ears/external/jackal
+	name = "Jackal"
+	icon_state = "jackal"
+
 /datum/sprite_accessory/ears/external/bunny
 	name = "Bunny"
 	icon_state = "bunny"
@@ -367,6 +371,10 @@
 	name = "Teshari Regular"
 	icon_state = "teshari_regular"
 
+/datum/sprite_accessory/ears/external/teshari/regularalt
+	name = "Teshari Regular Alt"
+	icon_state = "teshari_feathers_regalt"
+
 /datum/sprite_accessory/ears/external/teshari/feathers_bushy
 	name = "Teshari Feathers Bushy"
 	icon_state = "teshari_feathers_bushy"
@@ -419,11 +427,6 @@
 /datum/sprite_accessory/ears/external/teshari/feathers_backstrafe
 	name = "Teshari Feathers Backstrafe"
 	icon_state = "teshari_feathers_backstrafe"
-	color_src = USE_ONE_COLOR
-
-/datum/sprite_accessory/ears/external/teshari/feathers_thinmohawk
-	name = "Teshari Feathers Thin Mohawk"
-	icon_state = "teshari_feathers_thinmohawk"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/external/teshari/feathers_thin
@@ -591,3 +594,15 @@
 /datum/sprite_accessory/ears/external/shade/fluffy/rings/right
 	name = "Shade Fluffy Rings (Right)"
 	icon_state = "shadekinfluffyringsright"
+
+/datum/sprite_accessory/ears/external/fennecl
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears_big.dmi'
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/ears/external/fennecl/large
+	name = "Fennec Large"
+	icon_state = "fennecl_large"
+
+/datum/sprite_accessory/ears/external/fennecl/large/flatsharp
+	name = "Fennec Large Flat Sharp"
+	icon_state = "fennecl_large_flatsharp"

@@ -3,8 +3,6 @@
 	var/console_flag = CARGO_CONSOLE_ALL
 	///Boolean to indicate that express consoles cannot order this.
 	var/express_lock = FALSE
-	///Boolean to indicate if a goody can be ordered by departments or not.
-	var/departamental_goody = FALSE
 	///Boolean to indicate if the pack has a custom name and description or not.
 	var/auto_name = FALSE
 

@@ -32,7 +32,7 @@
 	access = ACCESS_WEAPONS
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // MOD cores & Fuel
@@ -155,6 +155,10 @@
 
 /datum/supply_pack/companies/modsuits/utility_modules/expanded_storage
 	contains = list(/obj/item/mod/module/storage/large_capacity)
+	cost = CARGO_CRATE_VALUE * 0.5
+
+/datum/supply_pack/companies/modsuits/utility_modules/holster
+	contains = list(/obj/item/mod/module/holster)
 	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/modsuits/utility_modules/retract_plates

@@ -38,6 +38,7 @@
 		add_verb(cyborg, /mob/living/silicon/robot/proc/robot_lay_down)
 		add_verb(cyborg, /mob/living/silicon/robot/proc/rest_style)
 	else
+		cyborg.robot_rest_style = ROBOT_REST_NORMAL
 		cyborg.set_base_pixel_x(0)
 		remove_verb(cyborg, /mob/living/silicon/robot/proc/robot_lay_down)
 		remove_verb(cyborg, /mob/living/silicon/robot/proc/rest_style)
