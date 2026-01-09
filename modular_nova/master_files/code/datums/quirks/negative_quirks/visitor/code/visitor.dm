@@ -84,10 +84,3 @@
 	new_id.update_icon()
 	//here's your new id sir or ma'am :)
 	visitor_id = new_id
-
-/datum/manifest/inject(mob/living/carbon/human/person, atom/appearance_proxy, client/person_client)
-	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
-		return
-	if(person.has_quirk(/datum/quirk/visitor))
-		return inject_guest(person, person_client)
-	return ..()
