@@ -142,6 +142,7 @@
 /obj/item/organ/heart/cybernetic/anomalock/proc/activate_survival(mob/living/carbon/organ_owner)
 	if(!COOLDOWN_FINISHED(src, survival_cooldown))
 		return
+
 	organ_owner.apply_status_effect(/datum/status_effect/voltaic_overdrive)
 	add_lightning_overlay(30 SECONDS)
 	COOLDOWN_START(src, survival_cooldown, survival_cooldown_time)
