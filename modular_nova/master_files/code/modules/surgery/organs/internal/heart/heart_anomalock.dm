@@ -25,16 +25,18 @@
 			In that four minutes and thirty seconds between, though, the user is quite vulnerable.", \
 	)
 
-/datum/status_effect/voltaic_overdrive
-	/// The heart this status effect is associated with. In the event this heart falls out of the owner, we remove the buff.
-	var/obj/item/organ/heart/cybernetic/anomalock/associated_heart
-
-/datum/status_effect/voltaic_overdrive/tick(seconds_between_ticks)
-	if(isnull(associated_heart.owner))
-		return
+/datum/status_effect/voltaic_overdrive/on_apply()
+	RegisterSignal(owner, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_organ_lost))
 	return ..()
+
+/datum/status_effect/voltaic_overdrive/proc/on_organ_lost(mob/living/carbon/source, obj/item/organ/organ, special)
+	SIGNAL_HANDLER
+	if(istype(organ, /obj/item/organ/heart/cybernetic/anomalock))
+		var/obj/item/organ/heart/cybernetic/anomalock/just_fell_out = organ
+		just_fell_out.clear_lightning_overlay()
+		qdel(src)
 
 /datum/status_effect/voltaic_overdrive/on_remove()
 	to_chat(owner, span_userdanger("Your voltaic combat cyberheart putters weakly in your chest as it recharges; it won't protect you against EMPs until it recovers."))
-	associated_heart = null
+	UnregisterSignal(owner, COMSIG_CARBON_LOSE_ORGAN)
 	return ..()
