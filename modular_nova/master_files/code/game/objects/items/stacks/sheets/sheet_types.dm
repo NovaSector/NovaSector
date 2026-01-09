@@ -128,6 +128,7 @@ GLOBAL_LIST_INIT(nova_cloth_recipes, list(
 // Leather
 
 GLOBAL_LIST_INIT(nova_leather_recipes, list(
+	new/datum/stack_recipe("bag of dice", /obj/item/storage/dice/empty, 2, category = CAT_CONTAINERS),
 ))
 
 GLOBAL_LIST_INIT(nova_leather_belt_recipes, list(
