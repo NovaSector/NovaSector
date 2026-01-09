@@ -43,9 +43,9 @@
 		return
 	add_lightning_overlay(30 SECONDS)
 	playsound(organ_owner, 'sound/items/eshield_recharge.ogg', 40)
-	organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
+	// NOVA EDIT REMOVAL - delegating EMP protection to the status effect - organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
 	RegisterSignal(organ_owner, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION), PROC_REF(activate_survival))
-	RegisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
+	RegisterSignal(organ_owner, COMSIG_ATOM_PRE_EMP_ACT, PROC_REF(on_emp_act))
 
 /obj/item/organ/heart/cybernetic/anomalock/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
@@ -54,7 +54,7 @@
 	UnregisterSignal(organ_owner, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION))
 	organ_owner.RemoveElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
 	tesla_zap(source = organ_owner, zap_range = 20, power = 2.5e5, cutoff = 1e3)
-	// qdel(src) // NOVA EDIT CHANGE
+	// qdel(src) // NOVA EDIT REMOVAL
 
 /obj/item/organ/heart/cybernetic/anomalock/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(target_mob != user || !istype(target_mob) || !core)
@@ -76,17 +76,15 @@
 /obj/item/organ/heart/cybernetic/anomalock/proc/on_emp_act(severity)
 	SIGNAL_HANDLER
 	add_lightning_overlay(10 SECONDS)
-	// NOVA EDIT ADD: EMP resistance handling moved to the status effect
+	// NOVA EDIT ADDITION START: EMP resistance handling moved to the status effect
 	if(owner.has_status_effect(/datum/status_effect/voltaic_overdrive))
-		. = EMP_PROTECT_ALL
 		to_chat(owner, span_danger("Your voltaic combat cyberheart flutters against an electromagnetic pulse!"))
-		return
+		return EMP_PROTECT_ALL
 	if(activate_survival(owner))
-		. = EMP_PROTECT_ALL
 		to_chat(owner, span_userdanger("Your voltaic combat cyberheart thunders in your chest wildly, surging to hold against the electromagnetic pulse!"))
-		return
+		return EMP_PROTECT_ALL
 	to_chat(owner, span_danger("Your voltaic combat cyberheart flutters weakly, failing to protect against an electromagnetic pulse!"))
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 /obj/item/organ/heart/cybernetic/anomalock/proc/add_lightning_overlay(time_to_last = 10 SECONDS)
 	if(lightning_overlay)
@@ -136,8 +134,12 @@
 /obj/item/organ/heart/cybernetic/anomalock/proc/activate_survival(mob/living/carbon/organ_owner)
 	if(!COOLDOWN_FINISHED(src, survival_cooldown))
 		return
-
-	organ_owner.apply_status_effect(/datum/status_effect/voltaic_overdrive)
+	// NOVA EDIT ADDITION START
+	// associate the heart with the effect
+	var/datum/status_effect/voltaic_overdrive/maximum_overdrive = organ_owner.apply_status_effect(/datum/status_effect/voltaic_overdrive)
+	maximum_overdrive.associated_heart = src
+	// organ_owner.apply_status_effect(/datum/status_effect/voltaic_overdrive)
+	// NOVA EDIT ADDITION END
 	add_lightning_overlay(30 SECONDS)
 	COOLDOWN_START(src, survival_cooldown, survival_cooldown_time)
 	addtimer(CALLBACK(src, PROC_REF(notify_cooldown), organ_owner), COOLDOWN_TIMELEFT(src, survival_cooldown))

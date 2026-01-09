@@ -25,46 +25,25 @@
 			In that four minutes and thirty seconds between, though, the user is quite vulnerable.", \
 	)
 
-/obj/item/organ/heart/cybernetic/anomalock/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
-	. = ..()
-	if(!core)
-		return
-	// we're delegating the EMP protection to the status effect
-	organ_owner.RemoveElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
-
 /obj/item/organ/heart/cybernetic/anomalock/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	if(owner?.has_status_effect(/datum/status_effect/voltaic_overdrive))
 		owner?.remove_status_effect(/datum/status_effect/voltaic_overdrive)
 	UnregisterSignal(organ_owner, list(COMSIG_ATOM_EMP_ACT, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION)))
-	. = ..()
+	return ..()
 
 /obj/item/organ/heart/cybernetic/anomalock/clear_lightning_overlay()
 	owner?.cut_overlay(lightning_overlay)
 	lightning_overlay = null
 
-/obj/item/organ/heart/cybernetic/anomalock/activate_survival(mob/living/carbon/organ_owner)
-	if(!COOLDOWN_FINISHED(src, survival_cooldown))
-		return
-
-	// associate the heart with the effect
-	var/datum/status_effect/voltaic_overdrive/maximum_overdrive = organ_owner.apply_status_effect(/datum/status_effect/voltaic_overdrive)
-	maximum_overdrive.associated_heart = src
-
-	add_lightning_overlay(30 SECONDS)
-	COOLDOWN_START(src, survival_cooldown, survival_cooldown_time)
-	addtimer(CALLBACK(src, PROC_REF(notify_cooldown), organ_owner), COOLDOWN_TIMELEFT(src, survival_cooldown))
-
 /datum/status_effect/voltaic_overdrive
+	/// The heart this status effect is associated with. In the event this heart falls out of the owner, we remove the buff.
 	var/obj/item/organ/heart/cybernetic/anomalock/associated_heart
 
-
 /datum/status_effect/voltaic_overdrive/tick(seconds_between_ticks)
-	if(!associated_heart.owner)
-		qdel(src)
+	if(isnull(associated_heart.owner))
 		return
-	. = ..()
+	return ..()
 
-/datum/status_effect/voltaic_overdrive/on_remove()
 	to_chat(owner, span_userdanger("Your voltaic combat cyberheart putters weakly in your chest as it recharges; it won't protect you against EMPs until it recovers."))
 	associated_heart = null
-	. = ..()
+	return ..()
