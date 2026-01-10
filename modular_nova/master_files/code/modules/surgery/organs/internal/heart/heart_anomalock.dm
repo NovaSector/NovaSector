@@ -33,7 +33,6 @@
 	SIGNAL_HANDLER
 	if(istype(organ, /obj/item/organ/heart/cybernetic/anomalock))
 		var/obj/item/organ/heart/cybernetic/anomalock/just_fell_out = organ
-		just_fell_out.clear_lightning_overlay()
 		qdel(src)
 
 /datum/status_effect/voltaic_overdrive/on_remove()
