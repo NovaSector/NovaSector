@@ -10,7 +10,7 @@
 		"[HUMAN_HEIGHT_MEDIUM]" = "Medium",
 		"[HUMAN_HEIGHT_TALL]" = "Tall",
 		"[HUMAN_HEIGHT_TALLER]" = "Taller",
-		"[HUMAN_HEIGHT_TALLEST]" = "Tallest"
+		"[HUMAN_HEIGHT_TALLEST]" = "Tallest",
 	)
 
 	/// List of strings, representing quirk ids that prevent this from applying and being accessed.
