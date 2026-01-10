@@ -72,10 +72,6 @@
 	name = /obj/item/forging/reagent_weapon/spear::name
 	item_path = /obj/item/forging/reagent_weapon/spear
 
-/datum/loadout_item/weapons/forgeweapons/hammer
-	name = /obj/item/forging/reagent_weapon/hammer::name
-	item_path = /obj/item/forging/reagent_weapon/hammer
-
 /datum/loadout_item/weapons/forgeweapons/axe
 	name = /obj/item/forging/reagent_weapon/axe::name
 	item_path = /obj/item/forging/reagent_weapon/axe
@@ -89,9 +85,9 @@
 */
 
 /datum/loadout_item/weapons/randomstuff
-	abstract_type = /datum/loadout_item/weapons/randomstuff
+	abstract_type = /datum/loadout_item/weapons/assortedweapons
 	group = "Assorted Weapons"
 
-/datum/loadout_item/weapons/randomstuff/loudnoises
+/datum/loadout_item/weapons/assortedweapons/lead_pipe
 	name = /obj/item/lead_pipe::name
 	item_path = /obj/item/lead_pipe
