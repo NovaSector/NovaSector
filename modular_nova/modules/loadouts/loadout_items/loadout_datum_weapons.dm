@@ -79,3 +79,15 @@
 /datum/loadout_item/weapons/forgeweapons/staff
 	name = /obj/item/forging/reagent_weapon/staff::name
 	item_path = /obj/item/forging/reagent_weapon/staff
+
+/*
+*	RANDOM BULLSHIT GO
+*/
+
+/datum/loadout_item/weapons/assortedweapons
+	abstract_type = /datum/loadout_item/weapons/assortedweapons
+	group = "Assorted Weapons"
+
+/datum/loadout_item/weapons/assortedweapons/lead_pipe
+	name = /obj/item/lead_pipe::name
+	item_path = /obj/item/lead_pipe
