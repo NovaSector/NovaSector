@@ -118,7 +118,7 @@
 	armor_type = /datum/armor/space_ntrauma
 	resistance_flags = ACID_PROOF
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|FEET
-	cell = /obj/item/stock_parts/power_store/cell/super
+	cell = /obj/item/stock_parts/power_store/cell/hyper
 	allowed = list(/obj/item/gun/energy, /obj/item/gun/medbeam, /obj/item/melee/baton, /obj/item/storage/medkit, /obj/item/tank/internals)
 
 /datum/armor/space_ntrauma
