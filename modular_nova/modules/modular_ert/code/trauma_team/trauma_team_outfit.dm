@@ -67,7 +67,7 @@
 
 /obj/item/storage/belt/medical/ntrauma
 	name = "trauma chest rig"
-	desc = "A set of tactical webbing worn by Trauma Response teams."
+	desc = "A set of tactical webbing worn by Trauma Response Teams."
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "ert_ntrauma"
