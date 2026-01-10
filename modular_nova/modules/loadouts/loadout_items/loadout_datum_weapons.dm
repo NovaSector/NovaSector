@@ -84,7 +84,7 @@
 *	RANDOM BULLSHIT GO
 */
 
-/datum/loadout_item/weapons/randomstuff
+/datum/loadout_item/weapons/assortedweapons
 	abstract_type = /datum/loadout_item/weapons/assortedweapons
 	group = "Assorted Weapons"
 
