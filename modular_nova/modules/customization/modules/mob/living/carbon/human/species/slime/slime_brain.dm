@@ -236,7 +236,7 @@
 	playsound(victim, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
 
 	if(gps_active) // adding the gps signal if they have activated the ability
-		AddComponent(/datum/component/gps, "[victim]'s Core")
+		AddComponent(/datum/component/gps, "![victim]'s Core")
 
 	qdel(victim)
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
