@@ -32,6 +32,10 @@
 	purchase_path = /obj/item/clothing/glasses/meson/prescription
 	cost_per_order = 325
 
+/datum/orderable_item/interdyne/skillchip/job/miner
+	purchase_path = /obj/item/skillchip/job/miner
+	cost_per_order = 3000
+
 /datum/orderable_item/mining/crusher
 	purchase_path = /obj/item/crusher_conversion_kit
 	cost_per_order = 650 // Completely replaces the crusher as well as every crusher variant, and is set at the default crusher's base price.
