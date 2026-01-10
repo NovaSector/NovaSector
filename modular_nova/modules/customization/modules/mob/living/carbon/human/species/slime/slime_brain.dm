@@ -24,7 +24,6 @@
 	/// Item types that should never be stored in core and will drop on death. Takes priority over allowed lists.
 	var/static/list/bannedcore = typecacheof(list(/obj/item/disk/nuclear))
 
-
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
@@ -42,7 +41,6 @@
 		if(gps_active)
 			context[SCREENTIP_CONTEXT_RMB] = "Disable GPS Signal"
 	return CONTEXTUAL_SCREENTIP_SET
-
 
 /obj/item/organ/brain/slime/examine(mob/user)
 	. = ..()
@@ -118,7 +116,10 @@
 			item.forceMove(turf)
 	stored_items.Cut()
 
-/obj/item/organ/brain/slime/attack_self(mob/living/user) // Allows a player (presumably an antag) to steal their items and then deactivate the GPS signal if they interact with it again
+/**
+* Allows a player to dump their items or deactivate the GPS signal and the core glow
+*/
+/obj/item/organ/brain/slime/attack_self(mob/living/user)
 	if(DOING_INTERACTION_WITH_TARGET(user, src))
 		return
 
@@ -204,7 +205,7 @@
 		add_atom_colour(core_color, FIXED_COLOUR_PRIORITY)
 
 /**
-* Handling for tracking when the slime in question dies (except through gibbing), which then segues into the core ejection proc.
+* Handling for tracking when the slime in question dies which then segues into the core ejection proc.
 */
 /obj/item/organ/brain/slime/proc/on_slime_death(mob/living/victim, new_stat)
 	SIGNAL_HANDLER
