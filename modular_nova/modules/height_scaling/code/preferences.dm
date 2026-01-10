@@ -20,8 +20,6 @@
 	)
 
 /datum/preference/choiced/height_scaling/init_possible_values()
-	// HUMAN_HEIGHT_SHORTEST and HUMAN_HEIGHT_TALLER are left out on maintainer request unless desired later
-	// HUMAN_HEIGHT_TALLEST is disabled because it constantly artifacts
 	return list(HUMAN_HEIGHT_SHORTEST,HUMAN_HEIGHT_SHORT, HUMAN_HEIGHT_MEDIUM, HUMAN_HEIGHT_TALL, HUMAN_HEIGHT_TALLER,HUMAN_HEIGHT_TALLEST)
 
 /datum/preference/choiced/height_scaling/create_default_value()
