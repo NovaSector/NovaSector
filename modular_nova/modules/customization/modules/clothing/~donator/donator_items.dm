@@ -547,7 +547,7 @@
 
 /obj/item/mod/skin_applier/paragon
 	name = "\improper Homo Ludens Parts kit 'Paragon'"
-	desc = "A sturdy black storage container wrap with yellow tape lable 'VOID IF TEMPERED, DO NOT PAINT OVER LABEL.” Barcodes, manufacturing details, and safety warnings are stenciled along its sides. Within the box contains several converstion parts packed neatly within shape foam, a distinctive glass like helmet visor made out of synthetic crystel laminate with eletrical polorized lense matrix, and a manual with detailed instruction necessary to create the Paragon MODsuit."
+	desc = "A sturdy black storage container wrapped with yellow tape label 'VOID IF TEMPERED, DO NOT PAINT OVER LABEL.” Barcodes, manufacturing details, and safety warnings are stenciled along its sides. Within the box contains several conversion parts packed neatly within shape foam, a distinctive glass like helmet visor made out of synthetic crystal laminate with electrical polarized lense matrix, and a manual with detailed instruction necessary to create the Paragon MODsuit."
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "paragon-box"
 	skin = "paragon"
