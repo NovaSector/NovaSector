@@ -7,5 +7,5 @@
 	moles_visible = MOLES_GAS_VISIBLE
 	fusion_power = 30
 	rarity = 1
-	base_value = 8
+	base_value = 1
 	desc = "A strange byproduct of using tritium in a RB-MK2 reactor. Has interesting effects when inhaled."
