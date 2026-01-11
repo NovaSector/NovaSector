@@ -46,6 +46,8 @@
 #define DIAG_CAMERA_HUD "21"
 /// Steady Hacked APC effect, visible only to Malf AIs
 #define MALF_APC_HUD "22"
+/// Big Manipulator interaction point HUDs
+#define BIG_MANIP_HUD "23"
 
 // NOVA EDIT ADDITION BEGIN - gun permits and DNR
 /// ammo of guns
