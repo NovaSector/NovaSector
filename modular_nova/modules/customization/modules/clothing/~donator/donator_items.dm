@@ -403,7 +403,7 @@
 	icon_state = "jumper-box"
 	skin = "jumper"
 
-/obj/item/mod/skin_applier/jumper/pre_attack(atom/attacked_atom, mob/living/user, params)
+/obj/item/mod/skin_applier/jumper/interact_with_atom(atom/attacked_atom, mob/living/user, params)
 	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/security))
 		return ..()
 	var/obj/item/mod/control/mod = attacked_atom
@@ -546,14 +546,14 @@
 	spawnwithmagazine = FALSE
 
 /obj/item/mod/skin_applier/paragon
-	name = "\improper PA-4 MK-7 J.S supply crate"
-	desc = "A crate made mostly of titanium with handles on the side to carry. It seems to be pressure sealed and the lid seems to be hydraulically assisted. The inside of the crate opens up and folds out to display an entire toolkit with all the essentials to convert most armor into a Mark 7 PA-7 Variant Jump suit. This crate seems to have the emblem relating to a certain Commando... Perhaps you should return it to the owner where you found it, if you can even lift it."
+	name = "\improper Homo Ludens Parts kit 'Paragon'"
+	desc = "A sturdy black storage container wrap with yellow tape lable 'VOID IF TEMPERED, DO NOT PAINT OVER LABEL.” Barcodes, manufacturing details, and safety warnings are stenciled along its sides. Within the box contains several converstion parts packed neatly within shape foam, a distinctive glass like helmet visor made out of synthetic crystel laminate with eletrical polorized lense matrix, and a manual with detailed instruction necessary to create the Paragon MODsuit."
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "paragon-box"
 	skin = "paragon"
 
-/obj/item/mod/skin_applier/paragon/pre_attack(atom/attacked_atom, mob/living/user, params)
-	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/security))
+/obj/item/mod/skin_applier/paragon/interact_with_atom(atom/attacked_atom, mob/living/user, params)
+	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/medical))
 		return ..()
 	var/obj/item/mod/control/mod = attacked_atom
 	mod.theme.variants += list("paragon" = list(

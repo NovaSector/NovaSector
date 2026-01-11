@@ -1003,3 +1003,8 @@
 	name = "AK-105 SBR Conversion Kit"
 	item_path = /obj/item/device/custom_kit/ak105
 	ckeywhitelist = list("latinfishy", "hollandaisesauce", "orbisa")
+
+/datum/loadout_item/pocket_items/Paragon_Box
+	name = "The Homo Ludens Flag suit, nicknamed 'Paragon'"
+	item_path = /obj/item/mod/skin_applier/paragon
+	ckeywhitelist = list("kaynite", "rilomatic", "darkinite")
