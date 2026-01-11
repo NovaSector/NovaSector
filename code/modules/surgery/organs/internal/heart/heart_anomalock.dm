@@ -105,7 +105,7 @@
 	owner?.cut_overlay(lightning_overlay) // NOVA EDIT CHANGE - we might not have an owner because we might have fallen out of their torso - ORIGINAL: owner.cut_overlay(lightning_overlay)
 	deltimer(lightning_timer) // NOVA EDIT ADDITION
 	lightning_overlay = null
-/* NOVA EDIT REMOVAL - no self-implant for you buddy
+/* // NOVA EDIT REMOVAL START - no self-implant for you buddy
 /obj/item/organ/heart/cybernetic/anomalock/attack_self(mob/user, modifiers)
 	. = ..()
 	if(.)
@@ -113,7 +113,8 @@
 
 	if(core)
 		return attack(user, user, modifiers)
-*/
+*/ // NOVA EDIT REMOVAL END
+
 /obj/item/organ/heart/cybernetic/anomalock/on_life(seconds_per_tick, times_fired)
 	. = ..()
 	if(!core)
