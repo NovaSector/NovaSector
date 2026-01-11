@@ -238,6 +238,7 @@
 	key = "blink"
 	key_third_person = "blinks"
 	message = "blinks."
+	sound = 'modular_nova/modules/emotes/sound/voice/blink.ogg' // NOVA EDIT ADDITION: Blink sound
 
 /datum/emote/living/carbon/human/blink/can_run_emote(mob/living/carbon/human/user, status_check, intentional, params)
 	if (!ishuman(user) || HAS_TRAIT(user, TRAIT_PREVENT_BLINKING) || HAS_TRAIT(user, TRAIT_NO_EYELIDS))
