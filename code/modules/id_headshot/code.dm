@@ -28,8 +28,7 @@
 	if(!user?.client?.prefs.read_preference(/datum/preference/toggle/see_headshot_on_id))
 		return
 	if(!small_icon)
-		. = list("<img class='hugeicon' src='[headshot_string]'/>")
-		return
+		return . = list("<img class='hugeicon' src='[headshot_string]'/>")
 	. = list("[icon2html(get_cached_flat_icon(), user, extra_classes = "bigicon")]")
 
 //proc overwrite (more of an addition)
