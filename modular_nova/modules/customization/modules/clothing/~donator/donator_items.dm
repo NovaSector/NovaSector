@@ -355,6 +355,8 @@
 	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/entombed))
 		return ..()
 	var/obj/item/mod/control/mod = attacked_atom
+	if(skin in mod.theme.variants)
+		return ..()
 	mod.theme.variants += list("akari" = list(
 		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
 		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
@@ -407,6 +409,8 @@
 	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/security))
 		return ..()
 	var/obj/item/mod/control/mod = attacked_atom
+	if(skin in mod.theme.variants)
+		return ..()
 	mod.theme.variants += list("jumper" = list(
 		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
 		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
