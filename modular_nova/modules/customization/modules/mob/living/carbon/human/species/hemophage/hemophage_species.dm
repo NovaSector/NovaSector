@@ -23,7 +23,7 @@
 	mutanttongue = /obj/item/organ/tongue/hemophage
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_HUMAN
-	skinned_type = /obj/item/stack/sheet/animalhide/human
+	skinned_type = /obj/item/stack/sheet/animalhide/carbon/human
 
 /datum/species/hemophage/allows_food_preferences()
 	return FALSE

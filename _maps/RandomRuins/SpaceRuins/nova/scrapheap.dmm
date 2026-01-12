@@ -1265,7 +1265,7 @@
 /obj/item/stack/sheet/animalhide/corgi/five,
 /obj/item/stack/sheet/animalhide/cat/five,
 /obj/item/stack/sheet/animalhide/mothroach/five,
-/obj/item/stack/sheet/animalhide/human/five,
+/obj/item/stack/sheet/animalhide/carbon/human/five,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Gf" = (
