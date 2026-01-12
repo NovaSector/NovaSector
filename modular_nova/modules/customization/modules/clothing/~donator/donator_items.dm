@@ -558,6 +558,8 @@
 	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/medical))
 		return ..()
 	var/obj/item/mod/control/mod = attacked_atom
+	if(skin in mod.theme.variants)
+		return ..()
 	mod.theme.variants += list("paragon" = list(
 		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
 		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
