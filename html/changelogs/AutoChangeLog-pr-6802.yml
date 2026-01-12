@@ -1,0 +1,4 @@
+author: "Happyowl93"
+delete-after: True
+changes:
+  - rscadd: "shortest, taller and tallest readded into the char pref options"
