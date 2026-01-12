@@ -7491,6 +7491,7 @@
 #include "modular_nova\master_files\code\modules\surgery\organs\external\wings\wings.dm"
 #include "modular_nova\master_files\code\modules\surgery\organs\internal\appendix\_appendix.dm"
 #include "modular_nova\master_files\code\modules\surgery\organs\internal\cyberimp\augments_internal.dm"
+#include "modular_nova\master_files\code\modules\surgery\organs\internal\heart\heart_anomalock.dm"
 #include "modular_nova\master_files\code\modules\surgery\organs\internal\lungs\_lungs.dm"
 #include "modular_nova\master_files\code\modules\uplink\suits.dm"
 #include "modular_nova\master_files\code\modules\vehicles\sealed.dm"
