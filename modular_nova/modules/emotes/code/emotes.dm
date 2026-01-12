@@ -822,5 +822,7 @@
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 
 /datum/emote/living/gulp/get_sound(mob/living/user)
-	return pick('modular_nova/modules/emotes/sound/voice/gulp1.ogg',
-				'modular_nova/modules/emotes/sound/voice/gulp2.ogg')
+	return pick(
+		'modular_nova/modules/emotes/sound/voice/gulp1.ogg',
+		'modular_nova/modules/emotes/sound/voice/gulp2.ogg',
+	)
