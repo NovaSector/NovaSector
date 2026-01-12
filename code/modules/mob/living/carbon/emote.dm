@@ -261,7 +261,6 @@
 	key = "wink"
 	key_third_person = "winks"
 	message = "winks."
-	sound = 'modular_nova/modules/emotes/sound/voice/wink.ogg' // NOVA EDIT ADDITION: Wink sound
 
 /datum/emote/living/carbon/hiss
 	key = "hiss"

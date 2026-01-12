@@ -826,3 +826,9 @@
 		'modular_nova/modules/emotes/sound/voice/gulp1.ogg',
 		'modular_nova/modules/emotes/sound/voice/gulp2.ogg',
 	)
+
+/datum/emote/living/carbon/wink
+	sound = 'modular_nova/modules/emotes/sound/voice/wink.ogg'
+
+/datum/emote/living/carbon/human/blink
+	sound = 'modular_nova/modules/emotes/sound/voice/blink.ogg'
