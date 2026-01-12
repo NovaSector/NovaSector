@@ -32,9 +32,9 @@
 	purchase_path = /obj/item/clothing/glasses/meson/prescription
 	cost_per_order = 325
 
-/datum/orderable_item/interdyne/skillchip/job/miner
+/datum/orderable_item/mining/skillchip/job/miner
 	purchase_path = /obj/item/skillchip/job/miner
-	cost_per_order = 3000
+	cost_per_order = 2000
 
 /datum/orderable_item/mining/crusher
 	purchase_path = /obj/item/crusher_conversion_kit
