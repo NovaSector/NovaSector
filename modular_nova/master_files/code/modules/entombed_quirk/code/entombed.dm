@@ -124,7 +124,7 @@
 	if (role_exceptions[modsuit_skin])
 		if (human_holder && human_holder.mind && human_holder.mind.assigned_role)
 			// Check if the role matches the exception for this skin
-			if (H.mind.assigned_role.title == role_exceptions[modsuit_skin])
+			if (human_holder.mind.assigned_role.title == role_exceptions[modsuit_skin])
 				should_apply_lock = FALSE
 
 	// Apply restriction only if there's no role exception
