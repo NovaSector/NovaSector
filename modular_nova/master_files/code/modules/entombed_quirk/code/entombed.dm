@@ -133,9 +133,9 @@
 
 	if (should_apply_lock && lock_color_value && (modsuit_hardlight == lock_color_value))
 		var/list/allowed_hardlights = list()
-		for (var/theme_name in hardlight_display_names)
+		for (var/theme_name, display_name in hardlight_display_names)
 			if (theme_name != lock_color_name)
-				allowed_hardlights += hardlight_display_names[theme_name]
+				allowed_hardlights += display_name
 
 		if (length(allowed_hardlights))
 			modsuit_hardlight = pick(allowed_hardlights)
