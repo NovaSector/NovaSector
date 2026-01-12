@@ -20,7 +20,6 @@
 
 /datum/preference/choiced/height_scaling/init_possible_values()
 	return list(
-		HUMAN_HEIGHT_SHORTEST,
 		HUMAN_HEIGHT_SHORT, 
 		HUMAN_HEIGHT_MEDIUM, 
 		HUMAN_HEIGHT_TALL, 
