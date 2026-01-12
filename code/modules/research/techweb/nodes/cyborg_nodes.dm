@@ -125,7 +125,7 @@
 	description = "To slack even more."
 	prereq_ids = list(TECHWEB_NODE_BORG_MINING, TECHWEB_NODE_PARTS_UPG)
 	design_ids = list(
-		"borg_upgrade_rped",
+		//"borg_upgrade_rped", // NOVA EDIT REMOVAL: Added to starting modules.
 		"borg_upgrade_engineeringomnitool",
 		"borg_upgrade_engineeringapp",
 		"borg_upgrade_inducer",

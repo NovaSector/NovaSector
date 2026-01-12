@@ -29,6 +29,8 @@
 		/obj/item/storage/pill_bottle,
 		/obj/item/tank/internals/emergency_oxygen,
 		/obj/item/tank/internals/plasmaman,
+		/obj/item/gun/energy/cell_loaded/medigun, //NOVA EDIT ADDITION - MEDIGUNS
+		/obj/item/storage/medkit, //NOVA EDIT ADDITION
 	)
 	armor_type = /datum/armor/toggle_labcoat
 	species_exception = list(/datum/species/golem)
@@ -41,7 +43,7 @@
 
 /obj/item/clothing/suit/toggle/labcoat/cmo/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -3) //FISH DOCTOR?!
+	AddElement(/datum/element/adjust_fishing_difficulty, -3) //FISH DOCTOR?!
 
 /datum/armor/toggle_labcoat
 	bio = 50
@@ -64,7 +66,7 @@
 
 /obj/item/clothing/suit/toggle/labcoat/paramedic/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -3) //FISH DOCTOR?!
+	AddElement(/datum/element/adjust_fishing_difficulty, -3) //FISH DOCTOR?!
 	allowed += /obj/item/crowbar/power/paramedic
 
 /obj/item/clothing/suit/toggle/labcoat/mad

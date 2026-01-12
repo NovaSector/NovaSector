@@ -44,15 +44,6 @@
 		/obj/item/clothing/mask/breath,
 	)
 
-/*
-*	ENGINEERING STUFF
-*/
-
-/datum/supply_pack/goody/improvedrcd
-	name = "Improved RCD"
-	desc = "An upgraded RCD featuring superior material storage. Comes with complimentary frames and circuitry upgrades to boot!"
-	cost = PAYCHECK_CREW * 38
-	contains = list(/obj/item/construction/rcd/improved)
 
 /*
 *	MISC

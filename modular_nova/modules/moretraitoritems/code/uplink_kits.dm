@@ -1,4 +1,4 @@
-/obj/item/storage/box/syndie_kit/cultkisr
+/obj/item/storage/box/syndie_kit/cultkitsr
 	name = "cult construct kit"
 	desc = "A sleek, sturdy box with an ominous, dark energy inside. Yikes."
 

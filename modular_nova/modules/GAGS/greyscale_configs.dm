@@ -429,6 +429,10 @@
 	name = "Neck Gaiter (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/gaiter/gaiter_worn.json'
 
+/datum/greyscale_config/neck_gaiter/worn/teshari
+	name = "Neck gaiter (Worn, Teshari)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
+
 /*
 *	EYES
 */
@@ -1186,6 +1190,7 @@
 /datum/greyscale_config/jeans_ripped/worn
 	name = "Ripped Jeans (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/jeans_ripped_worn.json'
 
 /datum/greyscale_config/jeans_ripped/worn/digi
 	name = "Ripped Jeans (Worn, Digi)"
@@ -1715,7 +1720,6 @@ TREK
 	name = "christmas_boots (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
-
 /datum/greyscale_config/sport_boots
 	name = "Sport Boots"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
@@ -1728,6 +1732,15 @@ TREK
 /datum/greyscale_config/sport_boots/worn/digi
 	name = "Sport Boots (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+
+/datum/greyscale_config/knee_boots
+	name = "Knee Boots"
+	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/knee_boots.json'
+
+/datum/greyscale_config/knee_boots/worn
+	name = "Knee Boots (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/knee_boots_worn.json'
 
 // Laceups
 
@@ -2024,6 +2037,14 @@ TREK
 	name = "Hypovial"
 	icon_file = 'modular_nova/modules/hyposprays/icons/vials.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypovial.json'
+
+/datum/greyscale_config/hypovial/large
+	name = "Hypovial (Large)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypovial_large.json'
+
+/datum/greyscale_config/hypovial/interdyne
+	name = "Hypovial (Interdyne)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypovial_interdyne.json'
 
 // Evil primitive catgirl clothing
 

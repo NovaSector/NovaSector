@@ -34,6 +34,11 @@
 	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel/phosphor
 	icon_state = "stack_spec"
 
+/obj/item/ammo_box/magazine/ammo_stack/c980/prefilled/conc
+	name = ".980 Tydhouer kinetic concussive grenades"
+	ammo_type = /obj/item/ammo_casing/c980grenade/concussive
+	icon_state = "stack_spec"
+
 // 12ga shotgun shells
 
 /obj/item/ammo_casing/shotgun

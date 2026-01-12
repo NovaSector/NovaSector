@@ -24,8 +24,6 @@
 	var/spawned_disease = null
 	/// How much of a disease specified in spawned_disease should this container spawn with
 	var/disease_amount = 20
-	/// If the reagents inside of this container will splash out when the container tries to splash onto someone or something
-	var/spillable = FALSE
 	/**
 	 * The different thresholds at which the reagent fill overlay will change. See medical/reagent_fillings.dmi.
 	 *

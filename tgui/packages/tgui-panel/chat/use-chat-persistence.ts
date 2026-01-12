@@ -1,22 +1,14 @@
 import { storage } from 'common/storage';
 import DOMPurify from 'dompurify';
-import { useAtom, useAtomValue, useSetAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { useEffect } from 'react';
 import { settingsLoadedAtom } from '../settings/atoms';
-import {
-  allChatAtom,
-  chatLoadedAtom,
-  chatPagesAtom,
-  chatPagesRecordAtom,
-  currentPageIdAtom,
-  versionAtom,
-} from './atom';
+import { chatLoadedAtom, versionAtom } from './atom';
 import { MESSAGE_SAVE_INTERVAL } from './constants';
 import { saveChatToStorage } from './helpers';
-import { normalizeChatSettings } from './migration';
+import { startChatStateMigration } from './migration';
 import { createMessage } from './model';
 import { chatRenderer } from './renderer';
-import { type StoredChatSettings, storedSettingsSchema } from './types';
 
 // List of blacklisted tags
 const FORBID_TAGS = ['a', 'iframe', 'link', 'video'];
@@ -26,12 +18,7 @@ const FORBID_TAGS = ['a', 'iframe', 'link', 'video'];
  * it back
  */
 export function useChatPersistence() {
-  const [version, setVersion] = useAtom(versionAtom);
-  const setChatPages = useSetAtom(chatPagesAtom);
-  const setCurrentPageId = useSetAtom(currentPageIdAtom);
-  const setPagesRecord = useSetAtom(chatPagesRecordAtom);
-
-  const allChat = useAtomValue(allChatAtom);
+  const version = useAtomValue(versionAtom);
 
   const [loaded, setLoaded] = useAtom(chatLoadedAtom);
   const settingsLoaded = useAtomValue(settingsLoadedAtom);
@@ -62,33 +49,6 @@ export function useChatPersistence() {
     return () => clearInterval(saveInterval);
   }, [loaded]);
 
-  /** Saves chat settings shortly after any settings change */
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
-    if (loaded) {
-      timeout = setTimeout(() => {
-        // Avoid persisting frequently-changing unread counts.
-        const pageById = Object.fromEntries(
-          Object.entries(allChat.pageById).map(([id, page]) => [
-            id,
-            {
-              ...page,
-              unreadCount: 0,
-            },
-          ]),
-        );
-
-        storage.set('chat-state', {
-          ...allChat,
-          pageById,
-        });
-      }, 750);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [loaded, allChat]);
-
   async function loadChatFromStorage(): Promise<void> {
     const [state, messages] = await Promise.all([
       storage.get('chat-state'),
@@ -104,7 +64,7 @@ export function useChatPersistence() {
       console.log('Initialized chat with default settings');
     } else if (state && 'version' in state && state.version === version) {
       console.log('Loaded chat state from storage:', state);
-      handleSettings(state);
+      startChatStateMigration(state);
     } else {
       // Discard incompatible versions
       console.log('Discarded incompatible chat state from storage:', state);
@@ -132,31 +92,5 @@ export function useChatPersistence() {
     });
 
     console.log(`Restored chat with ${messages.length} messages`);
-  }
-
-  function handleSettings(state: StoredChatSettings): void {
-    const parsed = storedSettingsSchema.safeParse(state);
-    if (!parsed.success) {
-      console.error('Failed to parse stored chat settings:', parsed.error);
-      return;
-    }
-    const { settings: loaded, dirty: wasInconsistent } = normalizeChatSettings(
-      parsed.data,
-    );
-
-    if (wasInconsistent) {
-      console.error('Chat settings were inconsistent, rewriting to storage');
-      console.log('Comparison, stored vs update:', state, loaded);
-      storage.set('chat-state', loaded);
-    }
-
-    setVersion(loaded.version);
-    setChatPages(loaded.pages);
-    setCurrentPageId(loaded.currentPageId);
-    setPagesRecord(loaded.pageById);
-
-    chatRenderer.changePage(loaded.pageById[loaded.currentPageId]);
-
-    console.log('Restored chat settings:', loaded);
   }
 }

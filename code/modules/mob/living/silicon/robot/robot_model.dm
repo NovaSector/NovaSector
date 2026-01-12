@@ -206,7 +206,7 @@
 	if(!istype(charger))
 		return
 
-	var/datum/component/material_container/mat_container = charger.materials.mat_container
+	var/datum/material_container/mat_container = charger.materials.mat_container
 	if(!mat_container || charger.materials.on_hold())
 		charger.sendmats = FALSE
 		return
@@ -435,6 +435,7 @@
 		/obj/item/stack/rods/cyborg,
 		/obj/item/lightreplacer, // NOVA EDIT ADDITION - Surprised Engie borgs don't get these
 		/obj/item/construction/rtd/borg,
+		/obj/item/storage/part_replacer, // NOVA EDIT ADDITION - Borgs start with a basic RPD.
 		/obj/item/stack/cable_coil,
 		/obj/item/airlock_painter/decal/cyborg,
 	)

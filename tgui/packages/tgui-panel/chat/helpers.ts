@@ -6,14 +6,12 @@ import {
   chatPagesAtom,
   chatPagesRecordAtom,
   currentPageAtom,
-  currentPageIdAtom,
-  mainPage,
   scrollTrackingAtom,
 } from './atom';
 import { MAX_PERSISTED_MESSAGES } from './constants';
 import { canPageAcceptType, serializeMessage } from './model';
 import { chatRenderer } from './renderer';
-import type { Page } from './types';
+import type { StoredChatSettings } from './types';
 
 chatRenderer.events.on(
   'batchProcessed',
@@ -65,32 +63,13 @@ function updateMessageCount(countByType: Record<string, number>): void {
   store.set(chatPagesRecordAtom, draftpagesRecord);
 }
 
-export function importChatState(pageRecord: Record<string, Page>): void {
-  if (!pageRecord) return;
-
-  const newPageIds: string[] = Object.keys(pageRecord);
-  if (!newPageIds) return;
-
-  // Correct any missing keys from the import
-  const merged: Record<string, Page> = { ...pageRecord };
-  for (const page of newPageIds) {
-    merged[page] = {
-      ...mainPage,
-      ...pageRecord[page],
-      unreadCount: 0,
-    };
-  }
-
-  const first = newPageIds[0];
-
-  store.set(currentPageIdAtom, first);
-  store.set(chatPagesAtom, newPageIds);
-  store.set(chatPagesRecordAtom, merged);
-
-  chatRenderer.changePage(merged[first]);
+export function saveChatToStorage(): void {
+  saveChatMessages();
+  const allChat = store.get(allChatAtom);
+  saveChatState(allChat);
 }
 
-export function saveChatToStorage(): void {
+function saveChatMessages(): void {
   const fromIndex = Math.max(
     0,
     chatRenderer.messages.length - MAX_PERSISTED_MESSAGES,
@@ -100,8 +79,23 @@ export function saveChatToStorage(): void {
     .slice(fromIndex)
     .map((message) => serializeMessage(message));
 
-  const allChat = store.get(allChatAtom);
-
-  storage.set('chat-state', allChat);
   storage.set('chat-messages', messages);
+}
+
+export function saveChatState(state: StoredChatSettings): void {
+  // Avoid persisting frequently-changing unread counts.
+  const pageById = Object.fromEntries(
+    Object.entries(state.pageById).map(([id, page]) => [
+      id,
+      {
+        ...page,
+        unreadCount: 0,
+      },
+    ]),
+  );
+
+  storage.set('chat-state', {
+    ...state,
+    pageById,
+  });
 }

@@ -261,7 +261,7 @@
 			var/mob/living/carbon/human/human_target = target
 			if(prob(force_say_chance))
 				human_target.force_say()
-		var/armour_block = target.run_armor_check(null, armour_type_against_stun, null, null, stun_armour_penetration)
+		var/armour_block = target.run_armor_check(BODY_ZONE_CHEST, armour_type_against_stun, null, null, stun_armour_penetration)
 		target.apply_damage(stamina_damage, STAMINA, blocked = armour_block)
 		if(!trait_check)
 			target.Knockdown((isnull(stun_override) ? knockdown_time : stun_override))
@@ -453,8 +453,8 @@
 
 /obj/item/melee/baton/telescopic/contractor_baton/additional_effects_non_cyborg(mob/living/target, mob/living/user)
 	. = ..()
-	target.set_jitter_if_lower(40 SECONDS)
-	target.set_stutter_if_lower(40 SECONDS)
+	target.set_jitter_if_lower(40 SECONDS * (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
+	target.set_stutter_if_lower(40 SECONDS * (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 
 /obj/item/melee/baton/security
 	name = "stun baton"
@@ -693,9 +693,9 @@
  * After a period of time, we then check to see what stun duration we give.
  */
 /obj/item/melee/baton/security/additional_effects_non_cyborg(mob/living/target, mob/living/user)
-	target.set_jitter_if_lower(40 SECONDS)
-	// target.set_confusion_if_lower(10 SECONDS) // NOVA EDIT REMOVAL
-	target.set_stutter_if_lower(16 SECONDS)
+	target.set_jitter_if_lower(40 SECONDS * (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
+	// target.set_confusion_if_lower(10 SECONDS * (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1)) // NOVA EDIT REMOVAL
+	target.set_stutter_if_lower(16 SECONDS * (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
 	addtimer(CALLBACK(src, PROC_REF(apply_stun_effect_end), target), 2 SECONDS)
@@ -755,6 +755,20 @@
 /obj/item/melee/baton/security/loaded/hos
 	preload_cell_type = /obj/item/stock_parts/power_store/cell/super
 
+// Stunsword Skins
+/datum/atom_skin/stunsword
+	abstract_type = /datum/atom_skin/stunsword
+	change_inhand_icon_state = TRUE
+	change_base_icon_state = TRUE
+
+/datum/atom_skin/stunsword/default
+	preview_name = "Default"
+	new_icon_state = "stunsword"
+
+/datum/atom_skin/stunsword/energy
+	preview_name = "Energy"
+	new_icon_state = "stunsword_energy"
+
 ///Stun Sword
 /obj/item/melee/baton/security/stunsword
 	name = "\improper NT-20 'Excalibur' Stunsword"
@@ -780,14 +794,11 @@
 	convertible = FALSE
 
 	obj_flags = UNIQUE_RENAME
-	unique_reskin = list(
-		"Default" = "stunsword",
-		"Energy Stunsword" = "stunsword_energy",
-	)
-	unique_reskin_changes_inhand = TRUE
-	unique_reskin_changes_base_icon_state = TRUE
 
-/obj/item/melee/baton/security/stunsword/loaded/add_deep_lore()
+/obj/item/melee/baton/security/stunsword/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/stunsword)
+
+/obj/item/melee/baton/security/stunsword/add_deep_lore()
 	return
 
 /obj/item/melee/baton/security/stunsword/loaded
