@@ -121,10 +121,10 @@
 
 	// Check if the player has the appropriate role to bypass the restriction
 	var/should_apply_lock = TRUE
-	if (role_exceptions[modsuit_skin])
+	if (role_exceptions[capitalize(modsuit_skin)])
 		if (human_holder && human_holder.mind && human_holder.mind.assigned_role)
 			// Check if the role matches the exception for this skin
-			if (human_holder.mind.assigned_role.title == role_exceptions[modsuit_skin])
+			if (human_holder.mind.assigned_role.title == role_exceptions[capitalize(modsuit_skin)])
 				should_apply_lock = FALSE
 
 	// Apply restriction only if there's no role exception
@@ -133,9 +133,9 @@
 
 	if (should_apply_lock && lock_color_value && (modsuit_hardlight == lock_color_value))
 		var/list/allowed_hardlights = list()
-		for (var/theme_name, display_name in hardlight_display_names)
-			if (theme_name != lock_color_name)
-				allowed_hardlights += display_name
+		for (var/display_name, skin_name in hardlight_display_names)
+			if (display_name != lock_color_name)
+				allowed_hardlights += skin_name
 
 		if (length(allowed_hardlights))
 			modsuit_hardlight = pick(allowed_hardlights)
@@ -143,6 +143,12 @@
 		else
 			modsuit_hardlight = "standard_blue"
 			to_chat(human_holder, span_warning("The combination of [modsuit_skin] skin and [lock_color_name] color is not available for your role. Default color has been set."))
+		
+	// If the skin itself is role-locked and the user lacks the role, fall back the skin
+	if (should_apply_lock && locked_combinations[capitalize(modsuit_skin)])
+		to_chat(human_holder, span_warning("The [modsuit_skin] MODsuit skin is restricted to a specific role. Defaulting to the civilian skin."))
+		modsuit_skin = "civilian"
+		modsuit.skin = modsuit_skin
 
 	if (!modsuit_hardlight)
 		modsuit_hardlight = "standard_blue"
