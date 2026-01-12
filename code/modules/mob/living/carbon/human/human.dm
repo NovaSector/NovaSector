@@ -121,7 +121,10 @@
 		var/id_gender = record?.gender
 		var/id_species = record?.species
 		var/id_icon = jointext(id.get_id_examine_strings(viewer), "")
-		var/id_permit = (ACCESS_WEAPONS in id.GetAccess()) ? "Authorized" : "Unauthorized" // NOVA EDIT ADDITION - Permit shown on ID
+		// NOVA EDIT ADDITION START
+		var/id_permit = (ACCESS_WEAPONS in id.GetAccess()) ? "Authorized" : "Unauthorized" // Permit shown on ID
+		var/id_small_icon = viewer.client?.prefs.read_preference(/datum/preference/toggle/see_headshot_on_id) ? jointext(id.get_id_examine_strings(viewer, TRUE), "") : NONE // Small ID icon
+		// NOVA EDIT ADDITION END
 		// Fill in some blanks for chameleon IDs to maintain the illusion of a real ID
 		if(istype(id, /obj/item/card/id/advanced/chameleon))
 			id_gender ||= gender
@@ -143,7 +146,10 @@
 			"&bull; Gender: [id_gender || "Unknown"]",
 			"&bull; Blood Type: [id_blood_type || "?"]",
 			"&bull; Species: [id_species || "Unknown"]",
-			"&bull; Weapon Permit: [id_permit || "Unknown"]", // NOVA EDIT ADDITION - Permit shown on ID
+			// NOVA EDIT ADDITION START
+			"&bull; Weapon Permit: [id_permit || "Unknown"]", // Permit shown on ID
+			viewer.client?.prefs.read_preference(/datum/preference/toggle/see_headshot_on_id) ? "&bull; ID Examine: <br> [id_small_icon]" : "",
+			// NOVA EDIT ADDITION END
 		), "<br>")
 		id_examine += "</div>" // container
 		id_examine += "</div>" // text
