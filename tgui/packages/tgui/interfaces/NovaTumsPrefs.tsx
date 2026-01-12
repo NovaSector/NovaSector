@@ -15,6 +15,7 @@ import { useBackend, useSharedState } from '../backend';
 import { Window } from '../layouts';
 
 type NovaTumsPrefsData = {
+  ckeyTab: string;
   title: string;
   color: string;
   use_skintone: BooleanLike;
@@ -49,7 +50,7 @@ type NovaTumsPrefsData = {
 
 export const NovaTumsPrefs = (props) => {
   const { act, data } = useBackend<NovaTumsPrefsData>();
-  const [currentTab, changeTab] = useSharedState('tumsTab', 1);
+  const [currentTab, changeTab] = useSharedState(data.ckeyTab, 1);
 
   return (
     <Window title={data.title} width={920} height={780}>
@@ -110,7 +111,7 @@ export const NovaTumsPrefs = (props) => {
 
 const NovaTumsPrefsCharacter = (props) => {
   const { act, data } = useBackend<NovaTumsPrefsData>();
-  const [currentTab, changeTab] = useSharedState('tumsTab', 1);
+  const [currentTab, changeTab] = useSharedState(data.ckeyTab, 1);
 
   return (
     <Section fill>
@@ -151,7 +152,7 @@ const NovaTumsPrefsCharacter = (props) => {
 
 const NovaTumsPrefsBelly = (props) => {
   const { act, data } = useBackend<NovaTumsPrefsData>();
-  const [currentTab, changeTab] = useSharedState('tumsTab', 1);
+  const [currentTab, changeTab] = useSharedState(data.ckeyTab, 1);
 
   return (
     <>
@@ -396,7 +397,7 @@ const NovaTumsPrefsBelly = (props) => {
 
 const NovaTumsPrefsGlobal = (props) => {
   const { act, data } = useBackend<NovaTumsPrefsData>();
-  const [currentTab, changeTab] = useSharedState('tumsTab', 1);
+  const [currentTab, changeTab] = useSharedState(data.ckeyTab, 1);
 
   return (
     <Section fill>

@@ -115,9 +115,6 @@
 	var/south_layer = UNIFORM_LAYER
 	var/north_layer = BODY_BEHIND_LAYER
 
-	/// Tracks if the user made edits to their character/global preferences in the belly UI.
-	var/datum/erp_belly_prefshelper/ui_datum = null
-
 /// Sanity checks & required edits to make the belly action get properly granted.
 /obj/item/belly_function/item_action_slot_check(slot, mob/user, datum/action/action)
 	var/datum/quirk/belly/bellyquirk
@@ -143,7 +140,6 @@
 	. = ..()
 	for(var/mob/living/carbon/human/nommed in nommeds)
 		free_target(nommed)
-	ui_datum?.belly = null
 	QDEL_LIST(belly_acts)
 	belly_acts = null
 
@@ -201,8 +197,7 @@
 	var/adjustment_mode = tgui_input_list(user, "Select ", "Belly Control", opt_list)
 	switch(adjustment_mode)
 		if("Edit Settings")
-			to_chat(world, "Attempting UI_INTERACT for ui_datum!  Should be [ui_datum] with associated client [ui_datum.associated_client]")
-			ui_datum.ui_interact(user)
+			GLOB.erp_belly_prefshelper.ui_interact(user)
 		else
 			if(adjustment_mode in extra_size_list)
 				var/temp_size = tgui_input_number(user, "What size do you want [extra_size_list[adjustment_mode].name] to be?  (0.0-infinity, 1000 is typically same-sizeish)", "Endo Size")
@@ -224,20 +219,6 @@
 	if(!istype(user))
 		return
 	lastuser = user
-	if(lastuser.client != null)
-		if(ui_datum != null)
-			ui_datum.belly = null
-		if(ui_datum == null || ui_datum?.associated_client != lastuser.client)
-			to_chat(world, "Hey, the ui_datum for [lastuser]'s belly is null!  Trying to set to the datum for ckey [lastuser.ckey]")
-			if(!(lastuser.ckey in GLOB.erp_belly_prefshelpers))
-				to_chat(world, "Couldn't find an entry for [lastuser.ckey] in the GLOB!  Adding it now...")
-				var/datum/erp_belly_prefshelper/helper = new()
-				helper.associated_client = lastuser.client
-				GLOB.erp_belly_prefshelpers[lastuser.ckey] = helper
-				to_chat(world, "Debug check: [GLOB.erp_belly_prefshelpers[lastuser.ckey]] exists, and its assoociated client is [GLOB.erp_belly_prefshelpers[lastuser.ckey].associated_client]")
-			ui_datum = GLOB.erp_belly_prefshelpers[lastuser.ckey]
-			to_chat(world, "ui_datum set!")
-			ui_datum.belly = src
 	for(var/datum/action/action as anything in actions)
 		give_item_action(action, user, null)
 	RegisterSignal(lastuser, COMSIG_GENERAL_STEP_ACTION, PROC_REF(on_step), TRUE)
