@@ -7350,7 +7350,6 @@
 #include "modular_nova\master_files\code\modules\mob\living\living.dm"
 #include "modular_nova\master_files\code\modules\mob\living\living_defines.dm"
 #include "modular_nova\master_files\code\modules\mob\living\living_movement.dm"
-#include "modular_nova\master_files\code\modules\mob\living\basic\lavaland\legion\legion.dm"
 #include "modular_nova\master_files\code\modules\mob\living\basic\maintsroomdescent\custom_maintsrooms_objects.dm"
 #include "modular_nova\master_files\code\modules\mob\living\basic\maintsroomdescent\deathsquad_corpse.dm"
 #include "modular_nova\master_files\code\modules\mob\living\basic\maintsroomdescent\deathsquadtrader.dm"
