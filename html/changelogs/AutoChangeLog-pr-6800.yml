@@ -1,0 +1,5 @@
+author: "dee-dubya"
+delete-after: True
+changes:
+  - rscadd: "Adds the lead pipe as an optional weapon in the loadout"
+  - rscadd: "Adds the \"Assorted Weapons\" category in the loadout's weapon tab"

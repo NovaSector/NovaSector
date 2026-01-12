@@ -25,10 +25,10 @@
 
 /datum/species/vulpkanin/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Fox", TRUE),
-		"snout" = list("Mammal, Long", TRUE),
-		"ears" = list("Fox", TRUE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_TAIL = list("Fox", TRUE),
+		FEATURE_SNOUT = list("Mammal, Long", TRUE),
+		FEATURE_EARS = list("Fox", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /obj/item/organ/tongue/vulpkanin
@@ -59,9 +59,9 @@
 		if(5)
 			main_color = "#999999"
 			second_color = "#EEEEEE"
-	features["mcolor"] = main_color
-	features["mcolor2"] = second_color
-	features["mcolor3"] = second_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	features[FEATURE_MUTANT_COLOR_THREE] = second_color
 	return features
 
 /datum/species/vulpkanin/get_random_body_markings(list/passed_features)
@@ -82,11 +82,11 @@
 	var/main_color = "#FF8800"
 	var/second_color = "#FFFFFF"
 
-	vulp.dna.features["mcolor"] = main_color
-	vulp.dna.features["mcolor2"] = second_color
-	vulp.dna.features["mcolor3"] = second_color
-	vulp.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Mammal, Long", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	vulp.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	vulp.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Wolf", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
+	vulp.dna.features[FEATURE_MUTANT_COLOR] = main_color
+	vulp.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	vulp.dna.features[FEATURE_MUTANT_COLOR_THREE] = second_color
+	vulp.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Mammal, Long", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	vulp.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
+	vulp.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Wolf", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
 	regenerate_organs(vulp, src, visual_only = TRUE)
 	vulp.update_body(TRUE)

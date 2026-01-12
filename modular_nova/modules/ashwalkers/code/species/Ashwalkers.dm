@@ -283,8 +283,11 @@
 		consumed_trophies += 1
 		if(isliving(user)) //give a reason to consume past the increased damage
 			var/mob/living/living_user = user
-			living_user.adjustBruteLoss(-5, updating_health = FALSE)
-			living_user.adjustFireLoss(-5)
+			var/need_mob_update
+			need_mob_update += living_user.adjust_brute_loss(-5, updating_health = FALSE)
+			need_mob_update += living_user.adjust_fire_loss(-5, updating_health = FALSE)
+			if(need_mob_update)
+				living_user.updatehealth()
 
 		if(consumed_trophies <= max_trophies)
 			force += 5

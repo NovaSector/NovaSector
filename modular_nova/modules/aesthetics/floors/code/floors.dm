@@ -29,6 +29,17 @@
 		/obj/item/stack/tile/iron/brick_aligned_corner_inverse,
 		/obj/item/stack/tile/iron/brick_aligned_corner_vertical,
 		/obj/item/stack/tile/iron/brick_aligned_corner_vertical_inverse,
+		/obj/item/stack/tile/iron/pattern_1,
+		/obj/item/stack/tile/iron/pattern_2,
+		/obj/item/stack/tile/iron/pattern_3,
+		/obj/item/stack/tile/iron/pattern_4,
+		/obj/item/stack/tile/iron/pattern_5,
+		/obj/item/stack/tile/iron/pattern_6,
+		/obj/item/stack/tile/iron/pattern_7,
+		/obj/item/stack/tile/iron/pattern_8,
+		/obj/item/stack/tile/iron/pattern_9,
+		/obj/item/stack/tile/iron/pattern_10,
+		/obj/item/stack/tile/iron/pattern_11,
 		/obj/item/stack/tile/iron/dark,
 		/obj/item/stack/tile/iron/dark/smooth_edge,
 		/obj/item/stack/tile/iron/dark/smooth_half,
@@ -53,6 +64,17 @@
 		/obj/item/stack/tile/iron/dark/brick_aligned_corner_inverse,
 		/obj/item/stack/tile/iron/dark/brick_aligned_corner_vertical,
 		/obj/item/stack/tile/iron/dark/brick_aligned_corner_vertical_inverse,
+		/obj/item/stack/tile/iron/dark/pattern_1,
+		/obj/item/stack/tile/iron/dark/pattern_2,
+		/obj/item/stack/tile/iron/dark/pattern_3,
+		/obj/item/stack/tile/iron/dark/pattern_4,
+		/obj/item/stack/tile/iron/dark/pattern_5,
+		/obj/item/stack/tile/iron/dark/pattern_6,
+		/obj/item/stack/tile/iron/dark/pattern_7,
+		/obj/item/stack/tile/iron/dark/pattern_8,
+		/obj/item/stack/tile/iron/dark/pattern_9,
+		/obj/item/stack/tile/iron/dark/pattern_10,
+		/obj/item/stack/tile/iron/dark/pattern_11,
 		/obj/item/stack/tile/iron/checker,
 		/obj/item/stack/tile/iron/white,
 		/obj/item/stack/tile/iron/white/smooth_edge,
@@ -76,6 +98,17 @@
 		/obj/item/stack/tile/iron/white/brick_aligned_corner_inverse,
 		/obj/item/stack/tile/iron/white/brick_aligned_corner_vertical,
 		/obj/item/stack/tile/iron/white/brick_aligned_corner_vertical_inverse,
+		/obj/item/stack/tile/iron/white/pattern_1,
+		/obj/item/stack/tile/iron/white/pattern_2,
+		/obj/item/stack/tile/iron/white/pattern_3,
+		/obj/item/stack/tile/iron/white/pattern_4,
+		/obj/item/stack/tile/iron/white/pattern_5,
+		/obj/item/stack/tile/iron/white/pattern_6,
+		/obj/item/stack/tile/iron/white/pattern_7,
+		/obj/item/stack/tile/iron/white/pattern_8,
+		/obj/item/stack/tile/iron/white/pattern_9,
+		/obj/item/stack/tile/iron/white/pattern_10,
+		/obj/item/stack/tile/iron/white/pattern_11,
 		/obj/item/stack/tile/iron/white_side,
 		/obj/item/stack/tile/iron/white_corner,
 		/obj/item/stack/tile/iron/cafeteria,
@@ -101,6 +134,26 @@
 		/obj/item/stack/tile/iron/sepia,
 	)
 
+/obj/item/stack/tile/wood
+	tile_reskin_types = list(
+		/obj/item/stack/tile/wood,
+		/obj/item/stack/tile/wood/large,
+		/obj/item/stack/tile/wood/tile,
+		/obj/item/stack/tile/wood/wood_1,
+		/obj/item/stack/tile/wood/wood_2,
+		/obj/item/stack/tile/wood/wood_3,
+		/obj/item/stack/tile/wood/wood_4,
+		/obj/item/stack/tile/wood/wood_5,
+		/obj/item/stack/tile/wood/wood_6,
+		/obj/item/stack/tile/wood/wood_7,
+		/obj/item/stack/tile/wood/wood_8,
+		/obj/item/stack/tile/wood/wood_9,
+		/obj/item/stack/tile/wood/wood_10,
+		/obj/item/stack/tile/wood/wood_11,
+		/obj/item/stack/tile/wood/wood_12,
+		/obj/item/stack/tile/wood/wood_13,
+	)
+
 /turf/open/indestructible/cobble
 	name = "cobblestone path"
 	desc = "A simple but beautiful path made of various sized stones."
@@ -111,7 +164,7 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_dirt = FALSE
+	tiled_turf = FALSE
 
 /turf/open/indestructible/cobble/side
 	icon_state = "cobble_side"

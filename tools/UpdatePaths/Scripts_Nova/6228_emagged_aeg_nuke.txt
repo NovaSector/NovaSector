@@ -1,0 +1,1 @@
+/obj/item/gun/energy/e_gun/nuclear/rainbow : /obj/item/gun/energy/e_gun/nuclear

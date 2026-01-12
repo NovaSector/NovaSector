@@ -11,7 +11,7 @@
 	if(interacting_with.stat)
 		to_chat(user, span_warning("The pet is dead!"))
 		return ITEM_INTERACT_BLOCKING
-	if(!is_path_in_list(interacting_with.type, flatten_list(GLOB.possible_player_pet)))
+	if(!is_path_in_list(interacting_with.type, assoc_to_values(GLOB.possible_player_pet)))
 		to_chat(user, span_warning("This treat doesn't work on [interacting_with]!"))
 		return ITEM_INTERACT_BLOCKING
 	return ITEM_INTERACT_SUCCESS

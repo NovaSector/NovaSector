@@ -58,6 +58,18 @@
 
 	. = ..()
 
+/obj/item/gun/ballistic/shotgun/riot/sol/sawoff(mob/user, obj/item/saw, handle_modifications)
+	. = ..()
+	if(.)
+		var/datum/component/seclite_attachable/light = GetComponent(/datum/component/seclite_attachable)
+		light.overlay_x = 16
+		light.update_light()
+		magazine.max_ammo = 4 // capacity drops to 4+1 because Where's The Rest Of The Magazine, Bro
+		lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
+		righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
+		inhand_icon_state = "renoster_sawed"
+		weapon_weight = WEAPON_MEDIUM // compare/contrast the bobr shotgun revolver - +1 capacity, less accuracy, equal recoil, pump-action
+
 /obj/item/ammo_box/magazine/internal/shot/sol
 	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
 	max_ammo = 8
@@ -83,6 +95,18 @@
 /obj/item/ammo_box/magazine/internal/shot/sol/thunderdome/evil
 	ammo_type = /obj/item/ammo_casing/shotgun/flechette_nova
 
+
+/datum/atom_skin/nachtreiher_shotgun
+	abstract_type = /datum/atom_skin/nachtreiher_shotgun
+
+/datum/atom_skin/nachtreiher_shotgun/standard
+	preview_name = "Standard"
+	new_icon_state = "renoster_super"
+
+/datum/atom_skin/nachtreiher_shotgun/shadowed
+	preview_name = "Shadowed"
+	new_icon_state = "renoster_super_dark"
+
 /obj/item/gun/ballistic/shotgun/riot/sol/super
 	name = "\improper Nachtreiher combat shotgun"
 	desc = "A robust twelve-gauge shotgun with an extended nine-shell top-mounted magazine tube and integrated barrel charger. \
@@ -91,10 +115,6 @@
 	can_suppress = FALSE
 	can_be_sawn_off = FALSE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/sol_super
-	unique_reskin = list(
-		"Standard" = "renoster_super",
-		"Shadowed" = "renoster_super_dark",
-	)
 	icon_state = "renoster_super"
 	inhand_icon_state = "renoster_super"
 	lore_blurb = "The Nachtreiher is an overhaul of the robust M64 shotgun of SolFed fame, improving on an already lethal design.<br><br>\
@@ -105,6 +125,9 @@
 		None of this, however, comes cheap, which means that examples of Nachtreiher overhauls are an uncommon sight."
 	rack_delay = 0.5 SECONDS
 	fire_delay = 0.4 SECONDS
+
+/obj/item/gun/ballistic/shotgun/riot/sol/super/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/nachtreiher_shotgun)
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ARCHON)
@@ -162,15 +185,22 @@
 /obj/item/ammo_box/magazine/internal/shot/sol_super/empty
 	start_empty = TRUE
 
+/datum/atom_skin/kasuar_shotgun
+	abstract_type = /datum/atom_skin/kasuar_shotgun
+
+/datum/atom_skin/kasuar_shotgun/standard
+	preview_name = "Standard"
+	new_icon_state = "renoster_super2"
+
+/datum/atom_skin/kasuar_shotgun/shadowed
+	preview_name = "Shadowed"
+	new_icon_state = "renoster_super2_dark"
+
 /obj/item/gun/ballistic/shotgun/riot/sol/super/plus
 	name = "\improper Kasuar enhanced assault shotgun"
 	desc = "A concerningly robust twelve-gauge shotgun with an extended ten-shell top-mounted magazine tube and integrated barrel charger. \
 		A specialist's shotgun for very specific purposes, such as the reunion of men with their ancestors."
 	icon_state = "renoster_super2"
-	unique_reskin = list(
-		"Standard" = "renoster_super2",
-		"Shadowed" = "renoster_super2_dark",
-	)
 	lore_blurb = "The Kasuar is an extensive overhaul of the robust M64 shotgun of SolFed fame, further iterating on an already lethal design.<br><br>\
 		More precisely, the Archon Combat Systems \"KOLBEN/KASUAR\" suite (as it's officially known) is an upgrade and accessory set for the M64, \
 		consisting of a hardened semi-automatic internals suite, extended magazine tube, smartlink sight, hybridized handguard-smartlink aiming module, \
@@ -184,6 +214,9 @@
 	semi_auto = TRUE
 	casing_ejector = TRUE
 	projectile_damage_multiplier = 1.35
+
+/obj/item/gun/ballistic/shotgun/riot/sol/super/plus/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/kasuar_shotgun)
 
 /datum/action/item_action/booster/sol_super/plus
 	name = "Overclock Shotgun Barrel Charger"

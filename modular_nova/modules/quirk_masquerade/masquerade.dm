@@ -6,7 +6,7 @@
 	medical_record_text = "Patient is able to consume food or drink without having to mix in blood, though they derive no nutritional benefit from it."
 	value = 2
 	mob_trait = TRAIT_MASQUERADE_FOOD
-	icon = FA_ICON_MASKS_THEATER
+	icon = FA_ICON_MASK
 	quirk_flags = QUIRK_HUMAN_ONLY
 
 /datum/quirk/masquerade_food/is_species_appropriate(datum/species/mob_species)

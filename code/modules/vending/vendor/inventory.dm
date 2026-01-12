@@ -26,6 +26,10 @@
 			product_to_category[product_key] = category
 
 	for(var/typepath in productlist)
+		// NOVA EDIT ADDITION START
+		if(is_type_in_typecache(typepath, excluded_products))
+			continue
+		// NOVA EDIT ADDITION END
 		var/amount = productlist[typepath]
 
 		var/obj/item/temp = typepath
@@ -204,7 +208,7 @@
 
 	if(greyscale_colors)
 		vended_item.set_greyscale(colors=greyscale_colors)
-	if(user.CanReach(src) && user.put_in_hands(vended_item))
+	if(IsReachableBy(user) && user.put_in_hands(vended_item))
 		to_chat(user, span_notice("You take [item_record.name] out of the slot."))
 		vended_item.do_pickup_animation(user, src)
 	else
@@ -282,6 +286,6 @@
 
 	//transfer money to machine
 	SSblackbox.record_feedback("amount", "vending_spent", price_to_use)
-	log_econ("[price_to_use] credits were inserted into [src] by [account.account_holder] to buy [product_to_vend].")
+	log_econ("[price_to_use] [MONEY_NAME] were inserted into [src] by [account.account_holder] to buy [product_to_vend].")
 	credits_contained += round(price_to_use * VENDING_CREDITS_COLLECTION_AMOUNT)
 	return TRUE

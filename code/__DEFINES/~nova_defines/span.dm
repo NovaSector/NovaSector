@@ -10,6 +10,7 @@
 #define span_crossasay(str) ("<span class='crossasay'>" + str + "</span>")
 #define span_doyourjobidiot(str) ("<span class='doyourjobidiot'>" + str + "</span>")
 #define span_brown(str) ("<span class='brown'>" + str + "</span>")
+#define span_horizonblue(str) ("<span class='horizonblue'>" + str + "</span>")
 #define span_cyan(str) ("<span class='cyan'>" + str + "</span>")
 #define span_orange(str) ("<span class='orange'>" + str + "</span>")
 #define span_yellow(str) ("<span class='yellow'>" + str + "</span>")
@@ -19,3 +20,5 @@
 #define span_clockyellow(str) ("<span class='clockyellow'>" + str + "</span>")
 #define span_clockgray(str) ("<span class='clockgray'>" + str + "</span>")
 #define span_clockred(str) ("<span class='clockred'>" + str + "</span>")
+#define span_subtle(str) ("<span class='subtle'>" + str + "</span>")
+#define span_subtler(str) ("<span class='subtler'>" + str + "</span>")

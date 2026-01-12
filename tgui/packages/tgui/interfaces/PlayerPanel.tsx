@@ -1,3 +1,4 @@
+// THIS IS A NOVA SECTOR UI FILE
 import { useState } from 'react';
 import {
   Box,
@@ -100,6 +101,10 @@ const PAGES = [
     icon: 'crosshairs',
   },
 ];
+
+function isPresent<T>(value: T | null): value is T {
+  return value !== null;
+}
 
 export const PlayerPanel = () => {
   const { act, data } = useBackend<Data>();
@@ -242,23 +247,24 @@ export const PlayerPanel = () => {
           <Flex.Item>
             <Section fitted>
               <Tabs vertical>
-                {PAGES.map((page, i) => {
-                  if (page.canAccess && !page.canAccess(data)) {
-                    return;
-                  }
-
-                  return (
+                {PAGES
+                  .map((page, index) =>
+                    !page.canAccess || page.canAccess(data)
+                      ? { page, index }
+                      : null
+                  )
+                  .filter(isPresent)
+                  .map(({ page, index }) => (
                     <Tabs.Tab
-                      key={i}
+                      key={index}
                       color={page.color}
-                      selected={i === pageIndex}
+                      selected={index === pageIndex}
                       icon={page.icon}
-                      onClick={() => setPageIndex(i)}
+                      onClick={() => setPageIndex(index)}
                     >
                       {page.title}
                     </Tabs.Tab>
-                  );
-                })}
+                  ))}
               </Tabs>
             </Section>
           </Flex.Item>
@@ -888,7 +894,7 @@ const FunActions = () => {
 
   const narrateStyles = {
     color: colours[narrateColour],
-    'font-size': narrateSize + 'rem',
+    'font-size': `${narrateSize}rem`,
     'font-weight': narrateBold ? 'bold' : '',
     'font-family': narrateFont,
     'font-style': narrateItalic ? 'italic' : '',

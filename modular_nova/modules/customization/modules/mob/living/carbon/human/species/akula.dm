@@ -46,9 +46,9 @@
 
 /datum/species/akula/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("Akula", TRUE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_EARS = list("None", FALSE),
+		FEATURE_TAIL = list("Akula", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /datum/species/akula/get_species_description()
@@ -133,20 +133,20 @@
 			main_color = "#DB35DE"
 			secondary_color = "#BE3AFE"
 			tertiary_color = "#F5E2EE"
-	features["mcolor"] = main_color
-	features["mcolor2"] = secondary_color
-	features["mcolor3"] = tertiary_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
+	features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
 	return features
 
 /datum/species/akula/prepare_human_for_preview(mob/living/carbon/human/akula)
 	var/main_color = "#1CD3E5"
 	var/secondary_color = "#6AF1D6"
 	var/tertiary_color = "#CCF6E2"
-	akula.dna.features["mcolor"] = main_color
-	akula.dna.features["mcolor2"] = secondary_color
-	akula.dna.features["mcolor3"] = tertiary_color
-	akula.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, tertiary_color))
-	akula.dna.features["legs"] = "Normal Legs"
+	akula.dna.features[FEATURE_MUTANT_COLOR] = main_color
+	akula.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
+	akula.dna.features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
+	akula.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, tertiary_color))
+	akula.dna.features[FEATURE_LEGS] = "Normal Legs"
 	regenerate_organs(akula, src, visual_only = TRUE)
 	akula.update_body(TRUE)
 
@@ -254,12 +254,12 @@
 	// Relieve the negative moodlet
 	akula.clear_mood_event("dry_skin")
 	// The timer which will initiate above 10 wet_stacks, and call dried() once the timer runs out
-	dry_up_timer = addtimer(CALLBACK(src, PROC_REF(dried), akula), DRY_UP_TIME, TIMER_UNIQUE | TIMER_STOPPABLE)
+	dry_up_timer = addtimer(CALLBACK(src, PROC_REF(dried), akula), DRY_UP_TIME, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /// This proc is called after a mob with the TRAIT_SLIPPERY has its related timer run out
 /datum/species/akula/proc/dried(mob/living/carbon/akula)
 	// A moodlet which will not go away until the user gets wet
-	akula.add_mood_event("dry_skin", /datum/mood_event/dry_skin)
+	akula?.add_mood_event("dry_skin", /datum/mood_event/dry_skin)
 
 /// A simple overwrite which calls parent to listen to wet_stacks
 /datum/status_effect/fire_handler/wet_stacks/tick(delta_time)

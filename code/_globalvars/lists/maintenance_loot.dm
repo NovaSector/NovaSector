@@ -119,7 +119,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/stack/sheet/iron/twenty = 1,
 		/obj/item/stack/sheet/mineral/plasma = 1,
 		/obj/item/stock_parts/power_store/cell = 1,
-
+		/obj/effect/spawner/random/engineering/vending_restock = 1,
 		//assemblies
 		/obj/item/assembly/health = 1,
 		/obj/item/assembly/igniter = 1,
@@ -267,6 +267,7 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/food/canned/peaches/maint = 1,
 		/obj/item/storage/box/donkpockets = 1,
 		/obj/item/storage/box/gum/happiness = 1,
+		/obj/item/pizzavoucher/free = 1, //NOVA EDIT ADDITION
 		list(//Donk Varieties
 			/obj/item/storage/box/donkpockets/donkpocketberry = 1,
 			/obj/item/storage/box/donkpockets/donkpockethonk = 1,
@@ -287,14 +288,14 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		) = 8,
 
 	list(//computer disks
-		/obj/item/computer_disk/maintenance/scanner = 1,
-		///obj/item/computer_disk/maintenance/camera = 1, //NOVA EDIT REMOVAL - Available To Crew Now
-		/obj/item/computer_disk/maintenance/modsuit_control = 1,
-		/obj/item/computer_disk/maintenance/spectre_meter = 1,
-		/obj/item/computer_disk/maintenance/arcade = 1,
+		/obj/item/disk/computer/maintenance/scanner = 1,
+		///obj/item/disk/computer/maintenance/camera = 1, // NOVA EDIT REMOVAL - Available To Crew Now
+		/obj/item/disk/computer/maintenance/modsuit_control = 1,
+		/obj/item/disk/computer/maintenance/spectre_meter = 1,
+		/obj/item/disk/computer/maintenance/arcade = 1,
 		/obj/item/disk/design_disk/liberator = 1,
-		/obj/item/computer_disk/maintenance/theme = 3,
-	) = 3, //NOVA EDIT CHANGE - Original : 4
+		/obj/item/disk/computer/maintenance/theme = 3,
+	) = 4,
 
 	list(//modsuits
 		/obj/effect/spawner/random/mod/maint = 3,

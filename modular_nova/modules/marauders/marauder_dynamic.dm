@@ -2,12 +2,12 @@
 	name = "Ghost Roll Traitor"
 	config_tag = "Marauders"
 	preview_antag_datum = /datum/antagonist/traitor/marauder
-	midround_type = LIGHT_MIDROUND
+	midround_type = HEAVY_MIDROUND
 	candidate_role = "Marauder"
 	pref_flag = ROLE_MARAUDER
 	jobban_flag = ROLE_MARAUDER
 	ruleset_flags = RULESET_INVADER
-	weight = list(
+	weight = alist(
 		DYNAMIC_TIER_LOW = 4,
 		DYNAMIC_TIER_LOWMEDIUM = 4,
 		DYNAMIC_TIER_MEDIUMHIGH = 6,

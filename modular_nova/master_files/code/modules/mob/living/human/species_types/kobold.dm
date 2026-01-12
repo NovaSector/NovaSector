@@ -38,18 +38,18 @@
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Smooth", TRUE),
-		"snout" = list("Round", TRUE),
-		"frills" = list("Short", FALSE),
-		"horns" = list("Curled", FALSE),
+		FEATURE_TAIL = list("Smooth", TRUE),
+		FEATURE_SNOUT = list("Round", TRUE),
+		FEATURE_FRILLS = list("Short", FALSE),
+		FEATURE_HORNS = list("Curled", FALSE),
 	)
 
 /datum/species/monkey/kobold/randomize_features()
 	var/list/features = ..()
 	var/main_color = "#[random_color()]"
-	features["mcolor"] = main_color
-	features["mcolor2"] = main_color
-	features["mcolor3"] = main_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = main_color
+	features[FEATURE_MUTANT_COLOR_THREE] = main_color
 	features -= "tail"
 	return features
 
@@ -125,13 +125,13 @@
 	var/second_color = "#926838"
 	var/third_color = "#926838"
 
-	kobold.dna.features["mcolor"] = main_color
-	kobold.dna.features["mcolor2"] = second_color
-	kobold.dna.features["mcolor3"] = third_color
-	kobold.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	kobold.dna.features[FEATURE_MUTANT_COLOR] = main_color
+	kobold.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	kobold.dna.features[FEATURE_MUTANT_COLOR_THREE] = third_color
+	kobold.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_FRILLS] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
 	regenerate_organs(kobold, src, visual_only = TRUE)
 	kobold.update_body(TRUE)
 

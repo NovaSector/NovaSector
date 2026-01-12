@@ -47,11 +47,17 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/teshari,
 	)
 
+/datum/species/teshari/get_species_description()
+	return placeholder_description
+
+/datum/species/teshari/get_species_lore()
+	return list(placeholder_lore)
+
 /datum/species/teshari/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Teshari (Default)", TRUE),
-		"ears" = list("Teshari Regular", TRUE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_TAIL = list("Teshari (Default)", TRUE),
+		FEATURE_EARS = list("Teshari Regular", TRUE),
+		FEATURE_LEGS = list("Normal Legs", FALSE),
 	)
 
 /obj/item/organ/tongue/teshari
@@ -62,9 +68,9 @@
 	var/base_color = "#c0965f"
 	var/ear_color = "#e4c49b"
 
-	tesh.dna.features["mcolor"] = base_color
-	tesh.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Teshari Feathers Upright", MUTANT_INDEX_COLOR_LIST = list(ear_color, ear_color, ear_color))
-	tesh.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Teshari (Default)", MUTANT_INDEX_COLOR_LIST = list(base_color, base_color, ear_color))
+	tesh.dna.features[FEATURE_MUTANT_COLOR] = base_color
+	tesh.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Teshari Feathers Upright", MUTANT_INDEX_COLOR_LIST = list(ear_color, ear_color, ear_color))
+	tesh.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Teshari (Default)", MUTANT_INDEX_COLOR_LIST = list(base_color, base_color, ear_color))
 	regenerate_organs(tesh, src, visual_only = TRUE)
 	tesh.update_body(TRUE)
 

@@ -1,12 +1,10 @@
 /datum/sprite_accessory/snouts
-	key = "snout"
-	generic = "Snout"
+	key = FEATURE_SNOUT
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi'
 	flags_for_organ = SPRITE_ACCESSORY_USE_MUZZLED_SPRITE
 	organ_type = /obj/item/organ/snout
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD)
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
 
 /datum/sprite_accessory/snouts/is_hidden(mob/living/carbon/human/human)
 	if((human.wear_mask?.flags_inv & HIDESNOUT) || (human.head?.flags_inv & HIDESNOUT))
@@ -15,10 +13,9 @@
 	return FALSE
 
 /obj/item/organ/snout
-	mutantpart_key = "snout"
+	mutantpart_key = FEATURE_SNOUT
 	mutantpart_info = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
 	external_bodyshapes = NONE // We don't actually want this to have  by default, since some of them don't apply that.
-	preference = "feature_snout"
 
 /datum/bodypart_overlay/mutant/snout
 	color_source = ORGAN_COLOR_OVERRIDE
@@ -43,9 +40,11 @@
 /obj/item/organ/snout/top
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout/top
 
+/datum/bodypart_overlay/mutant/snout/get_global_feature_list()
+	return SSaccessories.sprite_accessories[FEATURE_SNOUT]
+
 /datum/bodypart_overlay/mutant/snout/top
 	layers = EXTERNAL_FRONT
-
 
 /obj/item/organ/snout/top_adj
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout/top_adj

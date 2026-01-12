@@ -29,7 +29,7 @@
 		• Syndichem vending machine
 		• Silicate selections vending machine
 		• Part-mart vending machine
-		<br>Medical implant vouchers, general supply vouchers and secondary weapon vouchers can be traded for at the civilian console in the briefing room. Turn in any voucher, but primary weapon and robotics exosuit vouchers cannot be gotten more of. Spend them wisely."}
+		<br>Medical implant vouchers, general supply vouchers and secondary weapon vouchers can be traded for at the communications console in the briefing room. Turn in any voucher, but primary weapon and robotics exosuit vouchers cannot be gotten more of. Spend them wisely."}
 
 /obj/item/paper/fluff/midround_traitor/greeting
 	can_become_message_in_bottle = FALSE

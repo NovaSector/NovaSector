@@ -118,9 +118,6 @@
 	stored = new /obj/item/reagent_containers/cup/beaker/large(src)
 
 /obj/item/borg/apparatus/beaker/Destroy()
-	if(stored)
-		var/obj/item/reagent_containers/reagent_container = stored
-		reagent_container.SplashReagents(get_turf(src))
 	QDEL_NULL(stored)
 	return ..()
 
@@ -257,7 +254,8 @@
 	icon_state = "borg_stack_apparatus"
 	storable = list(/obj/item/stack/sheet,
 					/obj/item/stack/tile,
-					/obj/item/stack/rods)
+					/obj/item/stack/rods,
+					/obj/item/stack/conveyor)
 
 /obj/item/borg/apparatus/sheet_manipulator/Initialize(mapload)
 	update_appearance()
@@ -293,8 +291,18 @@
 	storable = list(
 		/obj/item/circuitboard,
 		/obj/item/electronics,
-		/obj/item/stock_parts/power_store,
+		/obj/item/stock_parts, // NOVA EDIT CHANGE - All stock parts - ORIGINAL: /obj/item/stock_parts/power_store,
 		/obj/item/light,
+		/obj/item/conveyor_switch_construct,
+		// NOVA EDIT ADDITION START
+		/obj/item/assembly/control,
+		/obj/item/tank/internals,
+		/obj/item/tank/rbmk2_rod,
+		/obj/item/wallframe,
+		/obj/item/stack/conveyor,
+		/obj/item/stack/tile,
+		/obj/item/vending_refill
+		// NOVA EDIT ADDITION END
 	)
 
 /obj/item/borg/apparatus/engineering/Initialize(mapload)

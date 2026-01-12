@@ -10,4 +10,4 @@
 	attack_verb_simple = list("flutter", "flap", "squeak")
 	w_class = WEIGHT_CLASS_TINY
 	force = 0
-	hitsound = 'modular_nova/modules/emotes/sound/emotes/mothsqueak.ogg'
+	hitsound = 'sound/mobs/humanoids/moth/moth_chitter.ogg'

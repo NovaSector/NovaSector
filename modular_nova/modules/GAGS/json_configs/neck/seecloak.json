@@ -1,0 +1,30 @@
+{
+	"seecloak": [
+		{
+			"type": "icon_state",
+			"icon_state": "seecloak_base",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+				{
+			"type": "icon_state",
+			"icon_state": "seecloak_trim",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+		"seecloak_trimonly": [
+		{
+			"type": "icon_state",
+			"icon_state": "seecloak_base",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+				{
+			"type": "icon_state",
+			"icon_state": "seecloak_trim_only",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

@@ -60,9 +60,16 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/dullahan
 	mutant_bodyparts = list()
+	nova_stars_only = TRUE
+	outfit_important_for_life = /datum/outfit/dullahan
+
+/datum/species/dullahan/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
+	. = ..()
+	give_important_for_life(equipping)
 
 /datum/species/human/felinid
 	mutant_bodyparts = list()
+	mutant_organs = list()
 
 /datum/species/human/felinid/get_default_mutant_bodyparts()
 	return list(
@@ -84,7 +91,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	return to_add
 
 /datum/species/human
-	mutant_bodyparts = list()
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	mutant_bodyparts = list("legs" = "Normal Legs")
 
@@ -98,6 +104,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/mush
 	mutant_bodyparts = list()
+	mutant_organs = list()
 
 /datum/species/human/vampire
 	mutant_bodyparts = list()
@@ -133,25 +140,34 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	var/list/mutantpart_list = list()
 	if(LAZYLEN(existing_mutant_bodyparts))
 		mutantpart_list = existing_mutant_bodyparts.Copy()
+
 	var/list/default_bodypart_data = GLOB.default_mutant_bodyparts[name]
 	var/list/bodyparts_to_add = default_bodypart_data.Copy()
+
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		for(var/genital in GLOB.possible_genitals)
 			bodyparts_to_add.Remove(genital)
-	for(var/key in bodyparts_to_add)
+
+	for(var/key, bodypart_to_add in bodyparts_to_add)
+		// Skip if there's an existing sprite accessory
 		if(LAZYLEN(existing_mutant_bodyparts) && existing_mutant_bodyparts[key])
 			continue
-		var/datum/sprite_accessory/SP
-		if(default_bodypart_data[key][MUTANTPART_CAN_RANDOMIZE])
-			SP = random_accessory_of_key_for_species(key, src)
+
+		var/bodypart_data = default_bodypart_data[key]
+
+		var/datum/sprite_accessory/sprite_accessory
+		if(bodypart_data[MUTANTPART_CAN_RANDOMIZE])
+			sprite_accessory = random_accessory_of_key_for_species(key, src)
 		else
-			SP = SSaccessories.sprite_accessories[key][bodyparts_to_add[key][MUTANTPART_NAME]]
-			if(!SP)
-				CRASH("Cant find accessory of [key] key, [bodyparts_to_add[key]] name, for species [id]")
-		var/list/color_list = SP.get_default_color(features, src)
-		var/list/final_list = list()
-		final_list[MUTANT_INDEX_NAME] = SP.name
-		final_list[MUTANT_INDEX_COLOR_LIST] = color_list
+			var/accessory_table = SSaccessories.sprite_accessories[key]
+			sprite_accessory = accessory_table[bodypart_to_add[MUTANTPART_NAME]]
+			if(!sprite_accessory)
+				CRASH("Cant find accessory of [key] key, [bodypart_to_add]] name, for species [id]")
+
+		var/list/final_list = list(
+			MUTANT_INDEX_NAME = sprite_accessory.name,
+			MUTANT_INDEX_COLOR_LIST = sprite_accessory.get_default_color(features, src)
+		)
 		mutantpart_list[key] = final_list
 
 	return mutantpart_list
@@ -169,17 +185,18 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 	var/robot_organs = HAS_TRAIT(target, TRAIT_ROBOTIC_DNA_ORGANS)
 
-	for(var/key in target.dna.mutant_bodyparts)
-		if(!islist(target.dna.mutant_bodyparts[key]) || !(target.dna.mutant_bodyparts[key][MUTANT_INDEX_NAME] in SSaccessories.sprite_accessories[key]))
+	for(var/key, mutant_part in target.dna.mutant_bodyparts)
+		if(!islist(mutant_part) || !(mutant_part[MUTANT_INDEX_NAME] in SSaccessories.sprite_accessories[key]))
 			continue
 
-		var/datum/sprite_accessory/mutant_accessory = SSaccessories.sprite_accessories[key][target.dna.mutant_bodyparts[key][MUTANT_INDEX_NAME]]
+		var/datum/sprite_accessory/mutant_accessory = SSaccessories.sprite_accessories[key][mutant_part[MUTANT_INDEX_NAME]]
 
 		if(mutant_accessory?.factual && mutant_accessory.organ_type)
-			var/obj/item/organ/current_organ = target.get_organ_by_type(mutant_accessory.organ_type)
+			var/obj/item/organ/accessory_organ_type = mutant_accessory.organ_type
+			var/obj/item/organ/current_organ = target.get_organ_by_type(accessory_organ_type)
 
 			if(!current_organ || replace_current)
-				var/organ_slot = mutant_accessory.organ_type::slot
+				var/organ_slot = accessory_organ_type::slot
 				var/obj/item/organ/current_organ_in_slot = target.get_organ_slot(organ_slot)
 				var/obj/item/organ/replacement
 
@@ -187,10 +204,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 				// force it to be the replacement organ.
 				if(current_organ_in_slot?.overrides_sprite_datum_organ_type && istype(current_organ_in_slot, get_mutant_organ_type_for_slot(organ_slot)))
 					replacement = SSwardrobe.provide_type(current_organ_in_slot.type)
-
 				else
-					replacement = SSwardrobe.provide_type(mutant_accessory.organ_type)
+					replacement = SSwardrobe.provide_type(accessory_organ_type)
 
+				// Apply accessory flags & layers
 				replacement.sprite_accessory_flags = mutant_accessory.flags_for_organ
 				replacement.relevant_layers = mutant_accessory.relevent_layers
 
@@ -204,7 +221,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 					current_organ.before_organ_replacement(replacement)
 
 				replacement.build_from_dna(target.dna, key)
-				// organ.Insert will qdel any current organs in that slot, so we don't need to.
+				// organ.Insert will qdel any current organs in that slot, so we don't need to
 				replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/species/proc/spec_revival(mob/living/carbon/human/H)
@@ -227,10 +244,8 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /proc/generate_customizable_races()
 	var/list/customizable_races = list()
 
-	for(var/species_type in subtypesof(/datum/species))
-		var/datum/species/species = new species_type
-		if(species.always_customizable)
-			customizable_races += species.id
-			qdel(species)
+	for(var/datum/species/species_type as anything in subtypesof(/datum/species))
+		if(species_type::always_customizable)
+			customizable_races[species_type::id] = TRUE
 
 	return customizable_races

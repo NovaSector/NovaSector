@@ -17,7 +17,6 @@ PROCESSING_SUBSYSTEM_DEF(reagents)
 	GLOB.fake_reagent_blacklist = list(/datum/reagent/medicine/c2, /datum/reagent/medicine, /datum/reagent/reaction_agent)
 	//Build GLOB lists - see holder.dm
 	build_chemical_reactions_lists()
-
 	// NOVA EDIT ADDITION START
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		for(var/reaction_path in GLOB.chemical_reactions_list)

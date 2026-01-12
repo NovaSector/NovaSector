@@ -457,6 +457,7 @@
 	slot_flags = parent_type::slot_flags | ITEM_SLOT_NECK
 	dog_fashion = /datum/dog_fashion/head/cone
 	var/toggle_state = "close"
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/clothing/head/cone_of_shame/click_alt(mob/user)
 	if(toggle_state == "open")
@@ -540,6 +541,6 @@
 	suppressor_x_offset = 7
 	suppressor_y_offset = 0
 
-/obj/item/gun/ballistic/automatic/miecz/ak105/no_mag 
+/obj/item/gun/ballistic/automatic/miecz/ak105/no_mag
 	//Made this one for completion, the thing is, the kit doesnt affect no_mag, so, the day we change the paradigm of the miecz to spawn with no_mag, likely we want this one. (alternatively we do somethiing better thhan to use subtypes.)
 	spawnwithmagazine = FALSE

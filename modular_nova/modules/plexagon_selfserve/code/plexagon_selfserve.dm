@@ -18,7 +18,10 @@
 	///What trim is applied to inserted IDs?
 	var/target_trim = /datum/id_trim/job/assistant
 	///These job datums can't go off-duty
-	var/list/blacklisted_jobs = list(/datum/job/assistant, /datum/job/prisoner)
+	var/static/list/blacklisted_jobs = typecacheof(list(
+		/datum/job/assistant,
+		/datum/job/prisoner,
+	))
 
 /datum/computer_file/program/crew_self_serve/on_start(mob/living/user)
 	. = ..()
@@ -233,7 +236,7 @@
 			if(!inserted_auth_card)
 				return
 
-			if(blacklisted_jobs.Find(user_mind.assigned_role.type))
+			if(is_type_in_typecache(user_mind.assigned_role.type, blacklisted_jobs))
 				playsound(computer, 'modular_nova/modules/emotes/sound/emotes/synth_no.ogg', 50, FALSE)
 				return
 

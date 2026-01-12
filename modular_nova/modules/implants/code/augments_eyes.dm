@@ -1,6 +1,6 @@
 /obj/item/organ/eyes/night_vision/cyber
 	name = "nightvision eyes"
-	icon = 'modular_nova/modules/implants/icons/internal_HA.dmi' //All in the chest implants .dmi
+	icon = 'modular_nova/modules/implants/icons/chest_modular.dmi' //All in the chest implants .dmi
 	icon_state = "eyes_nvcyber"
 	desc = "A pair of eyes with built-in nightvision optics, with the additional bonus of being rad as hell."
 	eye_color_left = "#0ffc03"

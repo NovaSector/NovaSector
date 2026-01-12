@@ -4,18 +4,16 @@
 	icon_state = "random_fly_2"
 	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
 
-	mutantpart_key = "xenodorsal"
+	mutantpart_key = FEATURE_XENODORSAL
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_XENODORSAL
 
-	preference = "feature_xenodorsal"
-
 	bodypart_overlay = /datum/bodypart_overlay/mutant/xenodorsal
 
 /datum/bodypart_overlay/mutant/xenodorsal
-	feature_key = "xenodorsal"
+	feature_key = FEATURE_XENODORSAL
 	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 	color_source = ORGAN_COLOR_OVERRIDE
 
@@ -23,4 +21,4 @@
 	return draw_color
 
 /datum/bodypart_overlay/mutant/xenodorsal/get_global_feature_list()
-	return SSaccessories.sprite_accessories["xenodorsal"]
+	return SSaccessories.sprite_accessories[FEATURE_XENODORSAL]

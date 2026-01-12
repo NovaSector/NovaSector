@@ -1,0 +1,10 @@
+{
+	"knee_boots": [
+		{
+			"type": "icon_state",
+			"icon_state": "kneeboots_obj",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

@@ -26,7 +26,7 @@
  */
 /datum/preference/choiced/digitigrade_legs/proc/is_usable(datum/preferences/preferences)
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
-	var/datum/species/species = new species_type
+	var/datum/species/species = GLOB.species_prototypes[species_type]
 
 	return (savefile_key in species.get_features()) \
 		&& species.digitigrade_customization == DIGITIGRADE_OPTIONAL
@@ -35,11 +35,11 @@
 	if(!preferences || !is_usable(preferences))
 		return FALSE
 
-	var/old_value = target.dna.features["legs"]
+	var/old_value = target.dna.features[FEATURE_LEGS]
 	if(value == old_value)
 		return FALSE
 
-	target.dna.features["legs"] = value
+	target.dna.features[FEATURE_LEGS] = value
 
 	target.update_body()
 	target.dna.species.replace_body(target, target.dna.species) // TODO: Replace this with something less stupidly expensive.

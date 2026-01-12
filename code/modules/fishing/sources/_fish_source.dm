@@ -159,15 +159,22 @@ GLOBAL_LIST_INIT(specific_fish_icons, generate_specific_fish_icons())
 /datum/fish_source/proc/on_start_fishing(obj/item/fishing_rod/rod, mob/fisherman, atom/parent)
 	return
 
-///Comsig proc from the fishing minigame for 'calculate_difficulty'
-/datum/fish_source/proc/calculate_difficulty_minigame(datum/fishing_challenge/challenge, reward_path, obj/item/fishing_rod/rod, mob/fisherman, list/difficulty_holder)
-	SIGNAL_HANDLER
+/**
+ * Calculates the difficulty of the minigame:
+ *
+ * This includes the source's fishing difficulty, that of the fish, the rod,
+ * favorite and disliked baits, fish traits and the fisherman skill.
+ *
+ * This is the version to call while we are in the fishing minigame phase.
+ */
+/datum/fish_source/proc/calculate_difficulty_minigame(datum/fishing_challenge/challenge, reward_path, obj/item/fishing_rod/rod, mob/fisherman)
 	SHOULD_NOT_OVERRIDE(TRUE)
-	difficulty_holder[1] += calculate_difficulty(reward_path, rod, fisherman)
+	. = 0 // begin with a fresh calculation each time
+	. += calculate_difficulty(reward_path, rod, fisherman)
 
 	// Difficulty modifier added by the fisher's skill level
 	if(!(challenge.special_effects & FISHING_MINIGAME_RULE_NO_EXP))
-		difficulty_holder[1] += fisherman.mind?.get_skill_modifier(/datum/skill/fishing, SKILL_VALUE_MODIFIER)
+		. += fisherman.mind?.get_skill_modifier(/datum/skill/fishing, SKILL_VALUE_MODIFIER)
 
 	if(challenge.special_effects & FISHING_MINIGAME_RULE_KILL)
 		challenge.RegisterSignal(src, COMSIG_FISH_SOURCE_REWARD_DISPENSED, TYPE_PROC_REF(/datum/fishing_challenge, hurt_fish))
@@ -352,6 +359,7 @@ GLOBAL_LIST_INIT(specific_fish_icons, generate_specific_fish_icons())
 	//and it would suck if the pool of bottle messages were constantly being emptied by explosive fishing.
 	if(from_explosion)
 		table -= /obj/effect/spawner/message_in_a_bottle
+		table -= fish_counts // NOVA EDIT ADDITION - avoids explosions to get rare stuff. Fish for it!
 	for(var/result in table)
 		if(!isnull(fish_counts[result]) && fish_counts[result] <= 0)
 			table -= result
@@ -380,6 +388,7 @@ GLOBAL_LIST_INIT(specific_fish_icons, generate_specific_fish_icons())
 
 	if(!fisherman.client)
 		final_table -= /obj/effect/spawner/message_in_a_bottle // avoids npc's to get messages in a bottle. Fish for them!
+		final_table -= fish_counts // NOVA EDIT ADDITION - avoids npc's to get rare stuff. Fish for it!
 
 	for(var/result in final_table)
 		final_table[result] *= rod.hook.get_hook_bonus_multiplicative(result)

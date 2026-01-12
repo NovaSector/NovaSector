@@ -19,7 +19,7 @@
 	///The alt slot, only used by certain UIs like the access app.
 	var/obj/item/card/id/alt_stored_id
 	///The disk in this PDA. If set, this will be inserted on Initialize.
-	var/obj/item/computer_disk/inserted_disk
+	var/obj/item/disk/computer/inserted_disk
 	///The power cell the computer uses to run on.
 	var/obj/item/stock_parts/power_store/internal_cell = /obj/item/stock_parts/power_store/cell
 	///A pAI currently loaded into the modular computer.
@@ -149,6 +149,7 @@
 	if(internal_cell)
 		internal_cell = new internal_cell(src)
 
+	AddElement(/datum/element/drag_to_activate)
 	install_default_programs()
 	register_context()
 	update_appearance()
@@ -399,10 +400,6 @@
 	update_appearance()
 	return TRUE
 
-/obj/item/modular_computer/mouse_drop_dragged(atom/over_object, mob/user)
-	if(!istype(over_object, /atom/movable/screen))
-		return attack_self(user)
-
 /obj/item/modular_computer/attack_ai(mob/user)
 	return attack_self(user)
 
@@ -629,7 +626,7 @@
 	physical.loc.visible_message(span_notice("[icon2html(physical, viewers(physical.loc))] \The [src] displays a [call_source.filedesc] notification: [alerttext]"))
 
 /obj/item/modular_computer/proc/ring(ringtone, list/balloon_alertees) // bring bring
-	if(!use_energy())
+	if(!use_energy(check_programs = FALSE))
 		return
 	if(HAS_TRAIT(SSstation, STATION_TRAIT_PDA_GLITCHED))
 		playsound(src, pick(
@@ -931,7 +928,7 @@
 	if(istype(tool, /obj/item/paper_bin))
 		return paper_bin_act(user, tool)
 
-	if(istype(tool, /obj/item/computer_disk))
+	if(istype(tool, /obj/item/disk/computer))
 		return computer_disk_act(user, tool)
 
 	return NONE
@@ -1003,7 +1000,7 @@
 	bin.update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
-/obj/item/modular_computer/proc/computer_disk_act(mob/user, obj/item/computer_disk/disk)
+/obj/item/modular_computer/proc/computer_disk_act(mob/user, obj/item/disk/computer/disk)
 	if(!user.transferItemToLoc(disk, src))
 		return ITEM_INTERACT_BLOCKING
 	if(inserted_disk)
@@ -1086,26 +1083,26 @@
 				return ALERT_RELEVANCY_WARN
 		if(SEC_LEVEL_GREEN) // no threats, no concerns
 			return ALERT_RELEVANCY_SAFE
-
-		// NOVA EDIT START. ADDITION - ALERTS
+		// NOVA EDIT ADDITION START - ALERTS
 		if(SEC_LEVEL_EPSILON, SEC_LEVEL_GAMMA)
 			return ALERT_RELEVANCY_PERTINENT
 		if(SEC_LEVEL_AMBER, SEC_LEVEL_FEDERAL)
-			if(ACCESS_SECURITY in stored_id.access)
+			if(ACCESS_SECURITY in stored_id?.access)
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
 		if(SEC_LEVEL_VIOLET)
-			if(ACCESS_MEDICAL in stored_id.access)
+			if(ACCESS_MEDICAL in stored_id?.access)
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
 		if(SEC_LEVEL_ORANGE)
-			if(ACCESS_ENGINEERING in stored_id.access)
+			if(ACCESS_ENGINEERING in stored_id?.access)
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
+
 	return 0
 
 #undef ALERT_RELEVANCY_SAFE

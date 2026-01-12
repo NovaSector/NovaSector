@@ -96,7 +96,7 @@
 	abstract = TRUE
 	required_limb_biostate = BIO_METAL
 	wound_series = WOUND_SERIES_METAL_BLUNT_BASIC
-	required_wounding_types = list(WOUND_BLUNT)
+	required_wounding_type = WOUND_BLUNT
 
 /datum/wound_pregen_data/blunt_metal/generate_scar_priorities()
 	return list("[BIO_METAL]")
@@ -134,7 +134,7 @@
 		if(held_item && victim.dropItemToGround(held_item))
 			victim.visible_message(span_danger("[victim] drops [held_item] in shock!"), span_warning("<b>The force on your [limb.plaintext_zone] causes you to drop [held_item]!</b>"), vision_distance=COMBAT_MESSAGE_RANGE)
 
-/datum/wound/blunt/robotic/remove_wound(ignore_limb, replaced)
+/datum/wound/blunt/robotic/remove_wound(ignore_limb, replaced, destroying)
 	. = ..()
 
 	QDEL_NULL(active_trauma)

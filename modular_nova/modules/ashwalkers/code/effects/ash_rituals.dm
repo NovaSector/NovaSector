@@ -191,13 +191,13 @@
 	name = "Incite Megafauna"
 	desc = "Causes a horrible, unrecognizable sound that will attract the large fauna from around the planet."
 	required_components = list(
-		"north" = /mob/living/carbon/human,
+		"north" = /obj/item/organ/monster_core/regenerative_core,
 		"south" = /obj/item/ash_seed/tendril,
-		"east" = /mob/living/carbon/human,
-		"west" = /mob/living/carbon/human,
+		"east" = /obj/item/organ/monster_core/regenerative_core,
+		"west" = /obj/item/organ/monster_core/regenerative_core,
 	)
 	consumed_components = list(
-		/mob/living/carbon/human,
+		/obj/item/organ/monster_core/regenerative_core,
 		/obj/item/ash_seed/tendril,
 	)
 
@@ -240,13 +240,12 @@
 	name = "Ashen Age Ceremony"
 	desc = "Those who partake in the ceremony and are ready will age, increasing their value to the kin."
 	required_components = list(
-		"north" = /mob/living/carbon/human,
+		"north" = /obj/item/organ/monster_core/regenerative_core,
 		"south" = /obj/item/organ/monster_core/regenerative_core,
 		"east" = /obj/item/stack/sheet/bone,
 		"west" = /obj/item/stack/sheet/sinew,
 	)
 	consumed_components = list(
-		/mob/living/carbon/human,
 		/obj/item/organ/monster_core/regenerative_core,
 		/obj/item/stack/sheet/bone,
 		/obj/item/stack/sheet/sinew,
@@ -355,7 +354,7 @@
 	if(!human_victim)
 		return
 
-	var/total_damage = human_victim.getBruteLoss() + human_victim.getFireLoss()
+	var/total_damage = human_victim.get_brute_loss() + human_victim.get_fire_loss()
 	var/divide_damage = 0
 	var/list/valid_humans = list()
 
@@ -372,9 +371,9 @@
 	var/singular_damage = total_damage / divide_damage
 
 	for(var/mob/living/carbon/human/human_target in valid_humans)
-		human_target.adjustBruteLoss(singular_damage)
+		human_target.adjust_brute_loss(singular_damage)
 
-	human_victim.heal_overall_damage(human_victim.getBruteLoss(), human_victim.getFireLoss())
+	human_victim.heal_overall_damage(human_victim.get_brute_loss(), human_victim.get_fire_loss())
 
 /// Bye Felicia
 /datum/ash_ritual/banish_kin

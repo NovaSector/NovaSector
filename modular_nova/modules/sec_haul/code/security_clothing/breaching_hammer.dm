@@ -28,7 +28,7 @@
 
 /obj/item/melee/breaching_hammer/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/kneecapping)
+	AddElement(/datum/element/mauling, swing_delay = 2 SECONDS, mauling_damage_mult = 2)
 
 /obj/item/melee/breaching_hammer/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!istype(interacting_with, /obj/machinery/door))

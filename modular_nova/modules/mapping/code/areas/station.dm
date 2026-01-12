@@ -37,6 +37,11 @@
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "blueshield"
 
+//Bridge Officer area
+/area/station/command/heads_quarters/bridge_officer
+	name = "Bridge Officer Quarters"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
+	icon_state = "nt_rep"
 /*
  * Department areas
  */

@@ -1,13 +1,12 @@
 /datum/sprite_accessory/ears
-	key = "ears"
-	generic = "Ears"
+	key = FEATURE_EARS
 	organ_type = /obj/item/organ/ears_external
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_MATRIXED_COLORS
-	genetic = TRUE
 
 /datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer)
-	if(!wearer.head)
+	var/obj/item/clothing/head/mod/worn_head = wearer.head
+	if(isnull(worn_head))
 		return FALSE
 
 	// Can hide if wearing hat
@@ -15,13 +14,14 @@
 		return TRUE
 
 	// Exception for MODs
-	if(istype(wearer.head, /obj/item/clothing/head/mod))
+	if(istype(worn_head))
 		return FALSE
 
 	// Hide accessory if flagged to do so
-	if((wearer.head?.flags_inv & HIDEHAIR || wearer.wear_mask?.flags_inv & HIDEHAIR) \
+	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
+	if((worn_head.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
 		// This line basically checks if we FORCE accessory-ears to show, for items with earholes like Balaclavas and Luchador masks
-		&& ((wearer.head && !(wearer.head.flags_inv & SHOWSPRITEEARS)) || (wearer.wear_mask && !(wearer.wear_mask?.flags_inv & SHOWSPRITEEARS))))
+		&& ((worn_head && !(worn_head.flags_inv & SHOWSPRITEEARS)) || (worn_mask && !(worn_mask?.flags_inv & SHOWSPRITEEARS))))
 		return TRUE
 
 	return FALSE
@@ -96,6 +96,10 @@
 	name = "Dark Big Wolf (ALT)"
 	icon_state = "bigwolfinnerdark"
 	has_inner = TRUE
+
+/datum/sprite_accessory/ears/external/jackal
+	name = "Jackal"
+	icon_state = "jackal"
 
 /datum/sprite_accessory/ears/external/bunny
 	name = "Bunny"
@@ -367,6 +371,10 @@
 	name = "Teshari Regular"
 	icon_state = "teshari_regular"
 
+/datum/sprite_accessory/ears/external/teshari/regularalt
+	name = "Teshari Regular Alt"
+	icon_state = "teshari_feathers_regalt"
+
 /datum/sprite_accessory/ears/external/teshari/feathers_bushy
 	name = "Teshari Feathers Bushy"
 	icon_state = "teshari_feathers_bushy"
@@ -419,11 +427,6 @@
 /datum/sprite_accessory/ears/external/teshari/feathers_backstrafe
 	name = "Teshari Feathers Backstrafe"
 	icon_state = "teshari_feathers_backstrafe"
-	color_src = USE_ONE_COLOR
-
-/datum/sprite_accessory/ears/external/teshari/feathers_thinmohawk
-	name = "Teshari Feathers Thin Mohawk"
-	icon_state = "teshari_feathers_thinmohawk"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/external/teshari/feathers_thin
@@ -519,3 +522,87 @@
 /datum/sprite_accessory/ears/external/hawk
 	name = "Hawk"
 	icon_state = "hawk"
+
+/datum/sprite_accessory/ears/external/big/chemlight
+	name = "Tall Tipped Ears"
+	icon_state = "chemlight"
+
+/datum/sprite_accessory/ears/external/shade/
+	name = "Shade Ears"
+	icon_state = "shadekin"
+
+/datum/sprite_accessory/ears/external/shade/band
+	name = "Shade Bandaged"
+	icon_state = "shadekinbands"
+
+/datum/sprite_accessory/ears/external/shade/band/left
+	name = "Shade Bandaged (Left)"
+	icon_state = "shadekinbandleft"
+
+/datum/sprite_accessory/ears/external/shade/band/right
+	name = "Shade Bandaged (Right)"
+	icon_state = "shadekinbandright"
+
+/datum/sprite_accessory/ears/external/shade/rings
+	name = "Shade Rings"
+	icon_state = "shadekinrings"
+
+/datum/sprite_accessory/ears/external/shade/rings/left
+	name = "Shade Rings (Left)"
+	icon_state = "shadekinringsleft"
+
+/datum/sprite_accessory/ears/external/shade/rings/right
+	name = "Shade Rings (Right)"
+	icon_state = "shadekinringsright"
+
+/datum/sprite_accessory/ears/external/shade/smooth
+	name = "Shade Smooth"
+	icon_state = "shadekinsmooth"
+
+/datum/sprite_accessory/ears/external/shade/saggy
+	name = "Shade Saggy"
+	icon_state = "shadekinsaggy"
+
+/datum/sprite_accessory/ears/external/shade/short
+	name = "Shade Short"
+	icon_state = "shadekinshort"
+
+/datum/sprite_accessory/ears/external/shade/short/rings
+	name = "Shade Short Rings"
+	icon_state = "shadekinshortrings"
+
+/datum/sprite_accessory/ears/external/shade/short/rings/left
+	name = "Shade Short Rings (Left)"
+	icon_state = "shadekinshortringsleft"
+
+/datum/sprite_accessory/ears/external/shade/short/rings/right
+	name = "Shade Short Rings (Right)"
+	icon_state = "shadekinshortringsright"
+
+/datum/sprite_accessory/ears/external/shade/fluffy
+	name = "Shade Fluffy"
+	icon_state = "shadekinfluffy"
+
+/datum/sprite_accessory/ears/external/shade/fluffy/rings
+	name = "Shade Fluffy Rings"
+	icon_state = "shadekinfluffyrings"
+
+/datum/sprite_accessory/ears/external/shade/fluffy/rings/left
+	name = "Shade Fluffy Rings (Left)"
+	icon_state = "shadekinfluffyringsleft"
+
+/datum/sprite_accessory/ears/external/shade/fluffy/rings/right
+	name = "Shade Fluffy Rings (Right)"
+	icon_state = "shadekinfluffyringsright"
+
+/datum/sprite_accessory/ears/external/fennecl
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears_big.dmi'
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/ears/external/fennecl/large
+	name = "Fennec Large"
+	icon_state = "fennecl_large"
+
+/datum/sprite_accessory/ears/external/fennecl/large/flatsharp
+	name = "Fennec Large Flat Sharp"
+	icon_state = "fennecl_large_flatsharp"

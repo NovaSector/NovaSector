@@ -33,7 +33,6 @@
 	desc = "A sharp, one-handed sword most adept at blocking opposing melee strikes."
 	force = 20
 	armour_penetration = 20
-	demolition_mod = 1.2
 	icon_state = "sword"
 	inhand_icon_state = "sword"
 	worn_icon_state = "sword_back"
@@ -142,7 +141,6 @@
 	desc = "An axe especially balanced for throwing. Nonetheless useful as a traditional melee tool."
 	force = 15
 	armour_penetration = 10
-	demolition_mod = 1.2
 	icon_state = "axe"
 	inhand_icon_state = "axe"
 	worn_icon_state = "axe_back"
@@ -165,7 +163,6 @@
 	desc = "A heavy, weighted hammer that packs an incredible punch but can prove to be unwieldy. Useful for forging!"
 	force = 10
 	armour_penetration = 10
-	demolition_mod = 2
 	icon_state = "crush_hammer"
 	inhand_icon_state = "crush_hammer"
 	worn_icon_state = "hammer_back"

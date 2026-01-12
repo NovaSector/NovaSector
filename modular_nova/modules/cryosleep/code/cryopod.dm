@@ -31,10 +31,12 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	verb_ask = "queries"
 	verb_exclaim = "alarms"
 
+	connectable = FALSE
+
 	/// Used for logging people entering cryosleep and important items they are carrying.
-	var/list/frozen_crew = list()
+	var/list/frozen_crew
 	/// The items currently stored in the cryopod control panel.
-	var/list/frozen_item = list()
+	var/list/frozen_items
 
 	/// The channel to be broadcast on, works via refactored AAS machinery.
 	var/announcement_channel = RADIO_CHANNEL_COMMON
@@ -77,7 +79,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	/// The associative list of the reference to an item and its name.
 	var/list/item_ref_name = list()
 
-	for(var/obj/item/item in frozen_item)
+	for(var/obj/item/item in frozen_items)
 		var/ref = REF(item)
 		item_ref_list += ref
 		item_ref_name[ref] = item.name
@@ -107,11 +109,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			// This is using references, kinda clever, not gonna lie. Good work Zephyr
 			var/item_get = params["item_get"]
 			var/obj/item/item = locate(item_get)
-			if(item in frozen_item)
+			if(item in frozen_items)
 				item.forceMove(drop_location())
-				frozen_item.Remove(item_get, item)
+				ui.user.put_in_hands(item)
+				LAZYREMOVE(frozen_items, item)
 				visible_message("[src] dispenses \the [item].")
-				message_admins("[item] was retrieved from cryostorage at [ADMIN_COORDJMP(src)]")
+				message_admins("[item] was retrieved by [ui.user] from cryostorage at [ADMIN_COORDJMP(src)]")
 			else
 				CRASH("Invalid REF# for ui_act. Not inside internal list!")
 			return TRUE
@@ -382,26 +385,42 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		if(current_highpriest?.resolve() == mob_occupant)
 			reset_religion()
 
+	var/obj/item/card/id/auth_card = mob_occupant.get_idcard()
+	var/off_duty_component = auth_card?.GetComponent(/datum/component/off_duty_timer)
+	var/datum/id_trim/job/plexagon_selfserve_target_trim = /datum/computer_file/program/crew_self_serve::target_trim
 	// Delete them from datacore and ghost records.
 	var/announce_rank = null
-	for(var/list/record in GLOB.ghost_records)
-		if(record["name"] == occupant_name)
-			announce_rank = record["rank"]
-			GLOB.ghost_records.Remove(list(record))
+	// It is possible to join round from ghost cafe without leaving it. So we prioritize general manifest first to avoid ghost roles announcements IC.
+	for(var/datum/record/crew/possible_target_record as anything in GLOB.manifest.general)
+		if (possible_target_record.name != occupant_name)
+			continue
+
+		var/match_rank = occupant_rank == "N/A" || possible_target_record.trim == occupant_rank
+		// Off-duty crew manifest changed to Assistant trim and assignment. It doesn't work for off-duties without ID, but oh well.
+		var/match_offduty = off_duty_component && possible_target_record.trim == plexagon_selfserve_target_trim.assignment
+
+		if(match_rank || match_offduty)
+			announce_rank = possible_target_record.rank
+			qdel(possible_target_record)
 			break
 
 	if(!announce_rank) // No need to loop over all of those if we already found it beforehand.
-		for(var/datum/record/crew/possible_target_record as anything in GLOB.manifest.general)
-			if(possible_target_record.name == occupant_name && (occupant_rank == "N/A" || possible_target_record.trim == occupant_rank))
-				announce_rank = possible_target_record.rank
-				qdel(possible_target_record)
+		for(var/list/record as anything in GLOB.ghost_records)
+			if(record["name"] == occupant_name)
+				announce_rank = record["rank"]
+				GLOB.ghost_records -= record
 				break
+
+	// Borgs job var is null for some reason, and they are not in records, so we handle them separately.
+	if (iscyborg(occupant))
+		var/mob/living/silicon/robot/borg = occupant
+		announce_rank = "[borg.designation] Cyborg"
 
 	var/obj/machinery/computer/cryopod/control_computer = control_computer_weakref?.resolve()
 	if(!control_computer)
 		control_computer_weakref = null
 	else
-		control_computer.frozen_crew += list(list("name" = occupant_name, "job" = occupant_rank))
+		LAZYADD(control_computer.frozen_crew, list(list("name" = occupant_name, "job" = occupant_rank)))
 
 		// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
 		if(!quiet)
@@ -409,21 +428,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
-	for(var/obj/item/item_content as anything in mob_occupant)
-		if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & ABSTRACT|DROPDEL) || (item_content.flags_1 & HOLOGRAM_1))
-			continue
-		if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
-			continue
-		if(control_computer)
-			if(istype(item_content, /obj/item/modular_computer))
-				var/obj/item/modular_computer/computer = item_content
-				for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
-					message_app.invisible = TRUE
-			mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
-			item_content.dropped(mob_occupant)
-			control_computer.frozen_item += item_content
-		else
-			mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
+	if(!HAS_TRAIT_FROM(mob_occupant, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)) // Don't let ghost cafe people store items
+		for(var/obj/item/item_content in mob_occupant)
+			if(HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & (ABSTRACT|DROPDEL)) || (item_content.flags_1 & HOLOGRAM_1))
+				continue
+			if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
+				continue
+			if(control_computer)
+				if(istype(item_content, /obj/item/modular_computer))
+					var/obj/item/modular_computer/computer = item_content
+					for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
+						message_app.invisible = TRUE
+				mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
+				item_content.dropped(mob_occupant)
+				LAZYADD(control_computer.frozen_items, item_content)
+			else
+				mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
 
 	// Borgs will splash the ground with their beaker reagents on qdel, let's make sure this does not happen
 	if(iscyborg(occupant))
@@ -453,7 +473,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/robot/ghostcafe::name]
 		else
 			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/human/ghostcafe::name]
-		ghostcafe_spawner.create_from_ghost(occupant_ghost_mob, use_loadout = TRUE)
+		ghostcafe_spawner.create_from_ghost(occupant_ghost_mob, apply_prefs = TRUE)
 
 	QDEL_NULL(occupant)
 	open_machine()
@@ -510,8 +530,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_Theyre()] conscious."))
 		return
 
-	if(target == user && (tgui_alert(target, "Would you like to enter cryosleep?", "Enter Cryopod?", list("Yes", "No")) != "Yes"))
-		return
+	if(target == user)
+		var/fridge_text = "Enter cryosleep?"
+		if(!despawn_to_ghostcafe || !quiet)
+			fridge_text += " ([CONFIG_GET(string/cryo_policy)])"
+		if(tgui_alert(target, fridge_text, "Enter Cryopod?", list("Yes", "No")) != "Yes")
+			return
 
 	if(target == user)
 		if(target.mind.assigned_role.req_admin_notify)
@@ -603,7 +627,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 	/// For figuring out where the local cryopod computer is. Must be set for cryo computer announcements.
 	var/area/computer_area
 
-/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, use_loadout = FALSE)
+/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, apply_prefs)
 	var/mob/living/spawned_mob = ..()
 	var/obj/machinery/computer/cryopod/control_computer = find_control_computer()
 

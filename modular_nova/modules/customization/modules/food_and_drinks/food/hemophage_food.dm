@@ -1,3 +1,8 @@
+// Override to add the bloody type to these tgmaters
+/obj/item/food/grown/tomato/blood/Initialize(mapload, obj/item/seeds/new_seed)
+	foodtypes |= BLOODY
+	return ..()
+
 /obj/item/food/hemophage
 	name = "bloody food"
 	desc = "If you see this, then something's gone very wrong and you should report it whenever you get the chance."

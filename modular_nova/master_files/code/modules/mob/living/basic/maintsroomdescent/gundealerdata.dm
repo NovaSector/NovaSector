@@ -77,7 +77,7 @@
 		/obj/item/gun/energy/temperature/security = list(PAYCHECK_CREW * 200, INFINITY, ""),
 		/obj/item/gun/energy/tesla_cannon = list(PAYCHECK_CREW * 25, INFINITY, ""),
 		/obj/item/gun/energy/wormhole_projector/core_inserted = list(PAYCHECK_CREW * 200, INFINITY, ""),
-		/obj/item/gun/energy/xray = list(PAYCHECK_CREW * 20, INFINITY, ""),
+		/obj/item/gun/energy/laser/xray = list(PAYCHECK_CREW * 20, INFINITY, ""),
 	)
 	///The speech data of the trader
 	say_phrases = list(

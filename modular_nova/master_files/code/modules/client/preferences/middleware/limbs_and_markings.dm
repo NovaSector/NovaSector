@@ -25,7 +25,7 @@
 	)
 
 	var/list/organs_to_process = list(
-		"brain" = "Brain", //NOVA EDIT
+		"brain" = "Brain",
 		"heart" = "Heart",
 		"lungs" = "Lungs",
 		"liver" = "Liver",
@@ -33,6 +33,7 @@
 		"ears" = "Ears",
 		"eyes" = "Eyes",
 		"tongue" = "Tongue",
+		"Brain Implant" = "Brain implant",
 		"Mouth implant" = "Mouth implant",
 		"Chest implant" = "Chest implant",
 		"Left Arm implant" = "Left Arm implant",
@@ -162,12 +163,12 @@
 		if(marking_id == "[limb_slot]_[marking_count]")
 			marking_entry_name = marking_entry
 		new_markings[marking_entry] = markings[marking_entry]
-	var/new_color = input(
+	var/new_color = tgui_color_picker(
 		usr,
 		"Select new color",
 		null,
 		preferences.body_markings[limb_slot][marking_entry_name][1],
-	) as color | null
+	)
 	if(!new_color)
 		return TRUE
 	new_markings[marking_entry_name][1] = sanitize_hexcolor(new_color) // gets the new color from the picker

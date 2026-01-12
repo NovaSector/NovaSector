@@ -19,7 +19,7 @@
 /area/ruin/unpowered/ash_walkers)
 "ar" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
-/obj/machinery/oven/stone,
+/obj/machinery/oven/primitive,
 /obj/structure/stone_tile/block{
 	dir = 8
 	},

@@ -12,16 +12,17 @@
 	reload_delay = CLICK_CD_MELEE //Mags shouldn't load shells into tube-fed shotguns without zero CD
 
 /obj/item/ammo_box/magazine/katyusha
-	reload_delay = CLICK_CD_MELEE 
+	reload_delay = CLICK_CD_MELEE
 
 /obj/item/ammo_box/magazine/jager
-	reload_delay = CLICK_CD_MELEE 
+	reload_delay = CLICK_CD_MELEE
 
 /obj/item/ammo_box/magazine/shitzu
-	reload_delay = CLICK_CD_MELEE 
+	reload_delay = CLICK_CD_MELEE
 
 /// Reloading with ammo box can incur penalty with some guns
 /obj/item/gun/ballistic/proc/handle_box_reload(mob/user, obj/item/ammo, num_loaded)
+	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 	if(!istype(ammo, /obj/item/ammo_box))
 		balloon_alert(user, "[num_loaded] [cartridge_wording]\s loaded")
 		return

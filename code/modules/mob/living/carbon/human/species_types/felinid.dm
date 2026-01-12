@@ -5,12 +5,11 @@
 	examine_limb_id = SPECIES_HUMAN
 	mutantbrain = /obj/item/organ/brain/felinid
 	mutanttongue = /obj/item/organ/tongue/cat
-	/* NOVA EDIT REMOVAL - CUSTOMIZATION
 	mutantears = /obj/item/organ/ears/cat
+	mutanteyes = /obj/item/organ/eyes/felinid
 	mutant_organs = list(
 		/obj/item/organ/tail/cat = "Cat",
 	)
-	*/ // NOVA EDIT REMOVAL END
 	inherent_traits = list(
 		TRAIT_CATLIKE_GRACE,
 		TRAIT_HATED_BY_DOGS,
@@ -26,94 +25,17 @@
 	/// Yummy!
 	species_cookie = /obj/item/food/nugget
 
-/datum/species/human/felinid/on_species_gain(mob/living/carbon/carbon_being, datum/species/old_species, pref_load, regenerate_icons)
-	if(ishuman(carbon_being))
-		var/mob/living/carbon/human/target_human = carbon_being
-		if(!pref_load) //Hah! They got forcefully purrbation'd. Force default felinid parts on them if they have no mutant parts in those areas!
-			target_human.dna.features["tail_cat"] = "Cat"
-			if(target_human.dna.features["ears"] == "None")
-				target_human.dna.features["ears"] = "Cat"
-		/* NOVA EDIT CHANGE START - ORIGINAL
-		if(target_human.dna.features["ears"] == "None")
-			mutantears = /obj/item/organ/ears
-		else
-			var/obj/item/organ/ears/cat/ears = new(FALSE, target_human.dna.features["ears"])
-			ears.Insert(target_human, movement_flags = DELETE_IF_REPLACED)
-		*/
-		if(target_human.dna.features["ears"] == "Cat")
-			var/obj/item/organ/ears/cat/ears = new
-			ears.Insert(target_human, movement_flags = DELETE_IF_REPLACED)
-		else
-			mutantears = /obj/item/organ/ears
-		// NOVA EDIT CHANGE END
+/datum/species/human/felinid/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons = TRUE, replace_missing = TRUE)
+	if(!pref_load) //Hah! They got forcefully purrbation'd. Force default felinid parts on them if they have no mutant parts in those areas!
+		if(human_who_gained_species.dna.mutant_bodyparts[FEATURE_TAIL][MUTANT_INDEX_NAME] == SPRITE_ACCESSORY_NONE) // NOVA EDIT CHANGE - ORIGINAL: if(human_who_gained_species.dna.features[FEATURE_TAIL_CAT] == SPRITE_ACCESSORY_NONE)
+			human_who_gained_species.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_who_gained_species.hair_color)) // NOVA EDIT CHANGE - ORIGINAL: human_who_gained_species.dna.features[FEATURE_TAIL_CAT] = get_consistent_feature_entry(SSaccessories.feature_list[FEATURE_TAIL_CAT])
+		if(human_who_gained_species.dna.mutant_bodyparts[FEATURE_EARS][MUTANT_INDEX_NAME] == SPRITE_ACCESSORY_NONE) // NOVA EDIT CHANGE - ORIGINAL: if(human_who_gained_species.dna.features[FEATURE_EARS] == SPRITE_ACCESSORY_NONE)
+			human_who_gained_species.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_who_gained_species.hair_color)) // NOVA EDIT CHANGE - ORIGINAL: human_who_gained_species.dna.features[FEATURE_EARS] = get_consistent_feature_entry(SSaccessories.feature_list[FEATURE_EARS])
+
+	// Swapping out feline ears for normal ol' human ears if they have invisible cat ears.
+	if(human_who_gained_species.dna.mutant_bodyparts[FEATURE_EARS][MUTANT_INDEX_NAME] == SPRITE_ACCESSORY_NONE) // NOVA EDIT CHANGE - ORIGINAL: if(human_who_gained_species.dna.features[FEATURE_EARS] == SPRITE_ACCESSORY_NONE)
+		mutantears = /obj/item/organ/ears
 	return ..()
-
-/datum/species/human/felinid/randomize_features(mob/living/carbon/human/human_mob)
-	var/list/features = ..()
-	features["ears"] = pick("None", "Cat")
-	return features
-
-/datum/species/human/felinid/get_laugh_sound(mob/living/carbon/human/felinid)
-	if(felinid.physique == FEMALE)
-		return 'sound/mobs/humanoids/human/laugh/womanlaugh.ogg'
-	return pick(
-		'sound/mobs/humanoids/human/laugh/manlaugh1.ogg',
-		'sound/mobs/humanoids/human/laugh/manlaugh2.ogg',
-	)
-
-
-/datum/species/human/felinid/get_cough_sound(mob/living/carbon/human/felinid)
-	if(felinid.physique == FEMALE)
-		return pick(
-			'sound/mobs/humanoids/human/cough/female_cough1.ogg',
-			'sound/mobs/humanoids/human/cough/female_cough2.ogg',
-			'sound/mobs/humanoids/human/cough/female_cough3.ogg',
-			'sound/mobs/humanoids/human/cough/female_cough4.ogg',
-			'sound/mobs/humanoids/human/cough/female_cough5.ogg',
-			'sound/mobs/humanoids/human/cough/female_cough6.ogg',
-		)
-	return pick(
-		'sound/mobs/humanoids/human/cough/male_cough1.ogg',
-		'sound/mobs/humanoids/human/cough/male_cough2.ogg',
-		'sound/mobs/humanoids/human/cough/male_cough3.ogg',
-		'sound/mobs/humanoids/human/cough/male_cough4.ogg',
-		'sound/mobs/humanoids/human/cough/male_cough5.ogg',
-		'sound/mobs/humanoids/human/cough/male_cough6.ogg',
-	)
-
-
-/datum/species/human/felinid/get_cry_sound(mob/living/carbon/human/felinid)
-	if(felinid.physique == FEMALE)
-		return pick(
-			'sound/mobs/humanoids/human/cry/female_cry1.ogg',
-			'sound/mobs/humanoids/human/cry/female_cry2.ogg',
-		)
-	return pick(
-		'sound/mobs/humanoids/human/cry/male_cry1.ogg',
-		'sound/mobs/humanoids/human/cry/male_cry2.ogg',
-		'sound/mobs/humanoids/human/cry/male_cry3.ogg',
-	)
-
-
-/datum/species/human/felinid/get_sneeze_sound(mob/living/carbon/human/felinid)
-	if(felinid.physique == FEMALE)
-		return 'sound/mobs/humanoids/human/sneeze/female_sneeze1.ogg'
-	return 'sound/mobs/humanoids/human/sneeze/male_sneeze1.ogg'
-
-/datum/species/human/felinid/get_sigh_sound(mob/living/carbon/human/felinid)
-	if(felinid.physique == FEMALE)
-		return SFX_FEMALE_SIGH
-	return SFX_MALE_SIGH
-
-/datum/species/human/felinid/get_sniff_sound(mob/living/carbon/human/felinid)
-	if(felinid.physique == FEMALE)
-		return 'sound/mobs/humanoids/human/sniff/female_sniff.ogg'
-	return 'sound/mobs/humanoids/human/sniff/male_sniff.ogg'
-
-/datum/species/human/felinid/get_snore_sound(mob/living/carbon/human/felinid)
-	if(felinid.physique == FEMALE)
-		return SFX_SNORE_FEMALE
-	return SFX_SNORE_MALE
 
 /datum/species/human/felinid/get_hiss_sound(mob/living/carbon/human/felinid)
 	return 'sound/mobs/humanoids/felinid/felinid_hiss.ogg'
@@ -203,17 +125,18 @@
 	human_for_preview.set_haircolor("#ffcccc", update = FALSE) // pink
 	human_for_preview.set_hairstyle("Hime Cut", update = TRUE)
 
-	/* NOVA EDIT - Making the species menu icons work better - ORIGINAL:
+	/* // NOVA EDIT REMOVAL START - Making the species menu icons work better - ORIGINAL:
 	var/obj/item/organ/ears/cat/cat_ears = human_for_preview.get_organ_by_type(/obj/item/organ/ears/cat)
 	if (cat_ears)
 		cat_ears.color = human_for_preview.hair_color
 		human_for_preview.update_body()
-	*/ // START
-	human_for_preview.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
-	human_for_preview.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
+	*/ // NOVA EDIT REMOVAL END
+	// NOVA EDIT ADDITION START
+	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
 	regenerate_organs(human_for_preview, src, visual_only = TRUE)
 	human_for_preview.update_body(TRUE)
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 /datum/species/human/felinid/get_physical_attributes()
 	return "Felinids are very similar to humans in almost all respects, with their biggest differences being the ability to lick their wounds, \
