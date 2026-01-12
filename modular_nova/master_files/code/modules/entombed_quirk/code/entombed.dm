@@ -128,7 +128,7 @@
 				should_apply_lock = FALSE
 
 	// Apply restriction only if there's no role exception
-	var/lock_color_name = locked_combinations[modsuit_skin]
+	var/lock_color_name = locked_combinations[capitalize(modsuit_skin)]
 	var/lock_color_value = hardlight_display_names[lock_color_name]
 
 	if (should_apply_lock && lock_color_value && (modsuit_hardlight == lock_color_value))
