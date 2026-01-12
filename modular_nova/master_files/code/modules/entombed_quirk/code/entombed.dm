@@ -122,8 +122,7 @@
 	// Check if the player has the appropriate role to bypass the restriction
 	var/should_apply_lock = TRUE
 	if (role_exceptions[modsuit_skin])
-		var/mob/living/carbon/human/H = human_holder
-		if (H && H.mind && H.mind.assigned_role)
+		if (human_holder && human_holder.mind && human_holder.mind.assigned_role)
 			// Check if the role matches the exception for this skin
 			if (H.mind.assigned_role.title == role_exceptions[modsuit_skin])
 				should_apply_lock = FALSE
