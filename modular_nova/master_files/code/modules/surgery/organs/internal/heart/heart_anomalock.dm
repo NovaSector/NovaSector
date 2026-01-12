@@ -1,3 +1,9 @@
+/obj/item/organ/heart/cybernetic/anomalock
+	/// Do we confer EMP interception/immunity?
+	var/gives_emp_immunity = TRUE
+	/// What type of voltaic overdrive do we confer in crit?
+	var/datum/status_effect/voltaic_overdrive/overdrive_type = /datum/status_effect/voltaic_overdrive
+
 /obj/item/organ/heart/cybernetic/anomalock/weak
 	name = "scavenged voltaic combat cyberheart"
 	desc = "A cutting-edge cyberheart, pulled from an abandoned corporate scientist's corpse. \

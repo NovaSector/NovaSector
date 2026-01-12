@@ -29,13 +29,6 @@
 	///If the core is removable once socketed.
 	var/core_removable = TRUE
 
-	// NOVA EDIT ADD: voltaic nerfs
-	/// Do we confer EMP interception/immunity?
-	var/gives_emp_immunity = TRUE
-	/// What type of voltaic overdrive do we confer in crit?
-	var/datum/status_effect/voltaic_overdrive/overdrive_type = /datum/status_effect/voltaic_overdrive
-	// NOVA EDIT ADD END
-
 /obj/item/organ/heart/cybernetic/anomalock/Destroy()
 	QDEL_NULL(core)
 	return ..()
@@ -50,11 +43,11 @@
 		return
 	add_lightning_overlay(30 SECONDS)
 	playsound(organ_owner, 'sound/items/eshield_recharge.ogg', 40)
-	// NOVA EDIT START: voltaic nerf: adds a variable for EMP protection
-	// ORIGINAL - organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
+	// organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE) // NOVA EDIT REMOVAL
+	// NOVA EDIT ADDITION START: voltaic nerf: adds a variable for EMP protection
 	if(gives_emp_immunity)
 		organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	RegisterSignal(organ_owner, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION), PROC_REF(activate_survival))
 	RegisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
 
