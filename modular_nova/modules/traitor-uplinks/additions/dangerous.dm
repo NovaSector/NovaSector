@@ -122,7 +122,7 @@
 // HIGH COST
 /datum/uplink_item/dangerous/shitzu
 	name = "Shitzu Magfed Shotgun Case"
-	desc = "Everyone says a dog is a man's best friend, lets change that and make man's best friend a 12 gauge magfed shotgun! Thanks to the beloved contributions from the Gorlex Marauders."
+	desc = "Everyone says a dog is man's best friend, let's change that and make man's best friend a 12 gauge magfed shotgun! Thanks to the beloved contributions from the Gorlex Marauders."
 	item = /obj/item/storage/toolbox/guncase/nova/syndicate/shitzu
 	cost = /datum/uplink_item/high_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
