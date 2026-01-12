@@ -117,7 +117,7 @@
 	if (modsuit_hardlight == NONE)
 		modsuit_hardlight = "standard_blue"
 	else
-		modsuit_hardlight = hardlight_display_names[modsuit_hardlight]
+		modsuit_hardlight = hardlight_display_names[modsuit_hardlight] || "standard_blue"
 
 	// Check if the player has the appropriate role to bypass the restriction
 	var/should_apply_lock = TRUE
