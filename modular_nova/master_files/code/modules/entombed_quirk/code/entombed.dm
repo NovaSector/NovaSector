@@ -89,24 +89,71 @@
 
 	modsuit.skin = LOWER_TEXT(modsuit_skin)
 
+	var/static/list/hardlight_display_names = list(
+		"Standard Blue" = "standard_blue",
+		"Alert Amber" = "alert_amber",
+		"Contractor Red" = "contractor_red",
+		"Extrashield Green" = "extrashield_green",
+		"Evil Green" = "evil_green",
+		"Royal Purple" = "royal_purple",
+		"Hazard Orange" = "hazard_orange",
+		"Cosmic Blue" = "cosmic_blue"
+	)
+
+	var/static/list/locked_combinations = list(
+		"Safeguard" = "Alert Amber",
+		"Advanced" = "Hazard Orange",
+		"Rescue" = "Standard Blue",
+		"Research" = "Royal Purple"
+	)
+
+	var/static/list/role_exceptions = list(
+		"Safeguard" = JOB_HEAD_OF_SECURITY,
+		"Advanced" = JOB_CHIEF_ENGINEER,
+		"Rescue" = JOB_CHIEF_MEDICAL_OFFICER,
+		"Research" = JOB_RESEARCH_DIRECTOR
+	)
+
 	if (modsuit_hardlight == NONE)
 		modsuit_hardlight = "standard_blue"
 	else
 		modsuit_hardlight = hardlight_display_names[modsuit_hardlight]
 
+	// Check if the player has the appropriate role to bypass the restriction
+	var/should_apply_lock = TRUE
+	if (role_exceptions[modsuit_skin])
+		var/mob/living/carbon/human/H = human_holder
+		if (H && H.mind && H.mind.assigned_role)
+			// Check if the role matches the exception for this skin
+			if (H.mind.assigned_role.title == role_exceptions[modsuit_skin])
+				should_apply_lock = FALSE
+
+	// Apply restriction only if there's no role exception
+	var/lock_color_name = locked_combinations[modsuit_skin]
+	var/lock_color_value = hardlight_display_names[lock_color_name]
+
+	if (should_apply_lock && lock_color_value && (modsuit_hardlight == lock_color_value))
+		var/list/allowed_hardlights = list()
+		for (var/theme_name in hardlight_display_names)
+			if (theme_name != lock_color_name)
+				allowed_hardlights += hardlight_display_names[theme_name]
+
+		if (length(allowed_hardlights))
+			modsuit_hardlight = pick(allowed_hardlights)
+			to_chat(human_holder, span_warning("The combination of [modsuit_skin] skin and [lock_color_name] color is not available for your role. Color has been changed to a random available one."))
+		else
+			modsuit_hardlight = "standard_blue"
+			to_chat(human_holder, span_warning("The combination of [modsuit_skin] skin and [lock_color_name] color is not available for your role. Default color has been set."))
+
+	if (!modsuit_hardlight)
+		modsuit_hardlight = "standard_blue"
+
 	modsuit.theme.hardlight_theme = modsuit_hardlight
 
-	if(modsuit.skin == "colonist") // special case here, because the icon files for the colonist module are different from the tg ones.
-		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
-
-	else if(modsuit.skin == "tarkon") // Another special case
-		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
-
-	else if(modsuit.skin == "voskhod")
-		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
+	switch(LOWER_TEXT(modsuit.skin))
+		if ("colonist", "tarkon", "voskhod")
+			modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+			modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	var/modsuit_name = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_name)
 	if (modsuit_name)
@@ -124,17 +171,10 @@
 	for(var/obj/item/part as anything in modsuit.get_parts())
 		part.name = "[modsuit.theme.name] [initial(part.name)]"
 		part.desc = "[initial(part.desc)] [modsuit.theme.desc]"
-		if(modsuit.skin == "colonist") // That special case again. If more Nova modsuit skins ever get added, we may want to refactor this quirk to use the mod_theme's variants list instead of hardcoded strings.
-			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
-
-		else if(modsuit.skin == "tarkon") // Same as above, not smart enough to do the refactoring
-			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
-
-		else if(modsuit.skin == "voskhod")
-			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
+		switch(LOWER_TEXT(modsuit.skin))
+			if ("colonist", "tarkon", "voskhod")
+				part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+				part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	install_racial_features()
 
@@ -245,17 +285,6 @@
 		"Hazard Orange",
 		"Cosmic Blue",
 	)
-
-var/list/hardlight_display_names = list(
-	"Standard Blue" = "standard_blue",
-	"Alert Amber" = "alert_amber",
-	"Contractor Red" = "contractor_red",
-	"Extrashield Green" = "extrashield_green",
-	"Evil Green" = "evil_green",
-	"Royal Purple" = "royal_purple",
-	"Hazard Orange" = "hazard_orange",
-	"Cosmic Blue" = "cosmic_blue"
-)
 
 /datum/preference/choiced/entombed_skin/create_default_value()
 	return "Civilian"
