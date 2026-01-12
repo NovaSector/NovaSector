@@ -351,10 +351,10 @@
 	icon_state = "skinapplier"
 	skin = "akari"
 
-/obj/item/mod/skin_applier/akari/interact_with_atom(atom/attacked_atom, mob/living/user, params)
-	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/entombed))
+/obj/item/mod/skin_applier/akari/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/entombed))
 		return ..()
-	var/obj/item/mod/control/mod = attacked_atom
+	var/obj/item/mod/control/mod = interacting_with
 	if(skin in mod.theme.variants)
 		return ..()
 	mod.theme.variants += list("akari" = list(
@@ -405,10 +405,10 @@
 	icon_state = "jumper-box"
 	skin = "jumper"
 
-/obj/item/mod/skin_applier/jumper/interact_with_atom(atom/attacked_atom, mob/living/user, params)
-	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/security))
+/obj/item/mod/skin_applier/jumper/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/security))
 		return ..()
-	var/obj/item/mod/control/mod = attacked_atom
+	var/obj/item/mod/control/mod = interacting_with
 	if(skin in mod.theme.variants)
 		return ..()
 	mod.theme.variants += list("jumper" = list(
@@ -558,10 +558,10 @@
 	icon_state = "paragon-box"
 	skin = "paragon"
 
-/obj/item/mod/skin_applier/paragon/interact_with_atom(atom/attacked_atom, mob/living/user, params)
-	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/medical))
+/obj/item/mod/skin_applier/paragon/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/medical))
 		return ..()
-	var/obj/item/mod/control/mod = attacked_atom
+	var/obj/item/mod/control/mod = interacting_with
 	if(skin in mod.theme.variants)
 		return ..()
 	mod.theme.variants += list("paragon" = list(
