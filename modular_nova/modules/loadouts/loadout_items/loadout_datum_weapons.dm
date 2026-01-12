@@ -84,10 +84,10 @@
 *	RANDOM BULLSHIT GO
 */
 
-/datum/loadout_item/weapons/assorted_weapons
-	abstract_type = /datum/loadout_item/weapons/assorted_weapons
+/datum/loadout_item/weapons/assortedweapons
+	abstract_type = /datum/loadout_item/weapons/assortedweapons
 	group = "Assorted Weapons"
 
-/datum/loadout_item/weapons/assorted_weapons/lead_pipe
+/datum/loadout_item/weapons/assortedweapons/lead_pipe
 	name = /obj/item/lead_pipe::name
 	item_path = /obj/item/lead_pipe
