@@ -41,8 +41,10 @@
 	name = "NT/E \"Laevateinn\" Revolver Conversion Kit"
 	desc = "A set of parts for converting a .38 revolver into Nanotrasen's latest foray into magnetically-accelerated sidearms. Includes a speedloader expansion toolset."
 	cost = CARGO_CRATE_VALUE * 1.5 // 300 cr at time of writing, 800 cr total
-	contains = list(/obj/item/crafting_conversion_kit/c38_super,
-					/obj/item/crafting_conversion_kit/c38_speedloader_plus,)
+	contains = list(
+		/obj/item/crafting_conversion_kit/c38_super,
+		/obj/item/crafting_conversion_kit/c38_speedloader_plus,
+	)
 	auto_name = FALSE
 	access = FALSE
 	access_view = FALSE

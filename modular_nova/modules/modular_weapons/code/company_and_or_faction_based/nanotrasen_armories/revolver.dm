@@ -81,7 +81,7 @@
 		base_fire_delay = NONE, \
 		amped_damage_mult = 1.2, \
 		amped_speed_mult = 1.2, \
-		amped_fire_delay = (CLICK_CD_RANGE*1.5), \
+		amped_fire_delay = (CLICK_CD_RANGE * 1.5), \
 	)
 	RegisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED, PROC_REF(on_booster_toggle))
 
