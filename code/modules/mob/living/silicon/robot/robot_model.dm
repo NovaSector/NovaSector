@@ -436,7 +436,7 @@
 		/obj/item/lightreplacer, // NOVA EDIT ADDITION - Surprised Engie borgs don't get these
 		/obj/item/construction/rtd/borg,
 		/obj/item/storage/part_replacer, // NOVA EDIT ADDITION - Borgs start with a basic RPD.
-		/obj/item/borg/apparatus/engineering // NOVA EDIT ADDITION - Borgs start with one gripper, upgrade adds a second like mediborg beakers
+		/obj/item/borg/apparatus/engineering, // NOVA EDIT ADDITION - Borgs start with one gripper, upgrade adds a second like mediborg beakers
 		/obj/item/stack/cable_coil,
 		/obj/item/airlock_painter/decal/cyborg,
 	)
