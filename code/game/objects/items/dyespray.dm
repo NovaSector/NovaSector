@@ -1,11 +1,9 @@
 /obj/item/dyespray
 	name = "hair dye spray"
-	desc = "A spray to dye hair as well as giving it any gradient you'd like." // NOVA EDIT - Making the dyespray change hair color
+	desc = "A spray to dye your hair any gradients you'd like."
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/cosmetic.dmi'
 	icon_state = "dyespray"
-
-	var/uses = 40 //NOVA EDIT ADDITION
 
 /obj/item/dyespray/attack_self(mob/user)
 	dye(user, user)
@@ -20,14 +18,11 @@
  * Arguments:
  * * target - The mob who we will apply the gradient and gradient color to.
  */
+
 /* NOVA EDIT REMOVAL - MOVED TO MODULAR (modular_nova\master_files\code\game\objects\items\dyekit.dm)
 /obj/item/dyespray/proc/dye(mob/target, mob/user)
 	if(!ishuman(target))
 		return
-
-	if(!uses) //NOVA EDIT ADDITION
-		return //NOVA EDIT ADDITION
-
 	var/mob/living/carbon/human/human_target = target
 	var/list/dyables = list("Hair", "Facial Hair")
 	for(var/obj/item/organ/organ as anything in human_target.organs)
