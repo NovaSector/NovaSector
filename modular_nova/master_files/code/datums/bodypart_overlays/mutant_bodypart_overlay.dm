@@ -263,6 +263,7 @@
 	if(!limb || !length(emissive_eligibility_by_color_index))
 		return overlays
 
+	var/list/image/emissives
 	var/max = min(3, length(overlays)) // only care about the first 3 indexes
 	for(var/index = 1 to max)
 		if(emissive_eligibility_by_color_index[index])
