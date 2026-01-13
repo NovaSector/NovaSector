@@ -357,3 +357,25 @@
   - rscadd: Medborgs get formaldehyde in their advanced chemicals to help with body
       decay.
   - rscadd: Borgs can now attach IVs as god intended
+2026-01-12:
+  Happyowl93:
+  - rscadd: shortest, taller and tallest readded into the char pref options
+  Hatterhat:
+  - balance: Citing a sudden decrease in unattended protolathes, the Syndicate's Marauder
+      Program has started recycling recovered voltaic combat cyberhearts from dead
+      scientists, resulting in a reduced quality of usable anomaly-powered cybernetic
+      hearts, with increased cooldown cycle time (10 minutes, up from 5), decreased
+      active time (10 seconds, down from 30) and a lack of passive electromagnetic
+      shielding.
+  LotusLadno:
+  - rscadd: New Skin in Entombed Quirks
+  - rscadd: Custom Hardlight Theme in Entombed Quirks
+  MajManatee:
+  - image: Trama drakes are no longer haunted by one white pixel when resting and
+      looking east.
+  - rscadd: '*blink, *gulp, *wink. All have sounds!'
+  dee-dubya:
+  - rscadd: Adds the lead pipe as an optional weapon in the loadout
+  - rscadd: Adds the "Assorted Weapons" category in the loadout's weapon tab
+  sqnztb:
+  - bugfix: visitor quirk no longer removes all assistant records.
