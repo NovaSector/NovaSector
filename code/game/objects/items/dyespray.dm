@@ -23,7 +23,6 @@
 /obj/item/dyespray/proc/dye(mob/target, mob/user)
 	if(!ishuman(target))
 		return
-
 	var/mob/living/carbon/human/human_target = target
 	var/list/dyables = list("Hair", "Facial Hair")
 	for(var/obj/item/organ/organ as anything in human_target.organs)
