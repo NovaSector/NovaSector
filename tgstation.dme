@@ -9265,6 +9265,7 @@
 #include "modular_nova\modules\SiliconQoL\code\door_request.dm"
 #include "modular_nova\modules\SiliconQoL\code\robotic_factory.dm"
 #include "modular_nova\modules\simple_animal\bot\secbot_permit_overwrite.dm"
+#include "modular_nova\modules\smolraptors\code\smallraptors.dm"
 #include "modular_nova\modules\solfed_mechs\code\aegis.dm"
 #include "modular_nova\modules\solfed_mechs\code\atlas.dm"
 #include "modular_nova\modules\solfed_mechs\code\beacon.dm"
