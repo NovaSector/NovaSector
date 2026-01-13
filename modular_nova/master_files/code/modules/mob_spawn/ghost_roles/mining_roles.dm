@@ -205,6 +205,7 @@
 	r_pocket = /obj/item/storage/bag/ore
 	id_trim = /datum/id_trim/syndicom/nova/interdyne/shaftminer
 	back = /obj/item/storage/backpack/explorer
+	skillchips = list(/obj/item/skillchip/job/miner)
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
@@ -223,6 +224,7 @@
 	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
+	skillchips = list(/obj/item/skillchip/job/miner)
 	id = /obj/item/card/id/advanced/chameleon/elite/black/silver
 	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
 

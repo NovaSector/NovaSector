@@ -333,3 +333,49 @@
       things.
   - bugfix: larger taur body type emissives will no longer float away from the mob
   - bugfix: switching characters in the prefs menu should be less laggy now
+2026-01-07:
+  MajManatee:
+  - rscadd: Adds new Engiborg BSRPED and RLD
+  - rscadd: Engiborg gripper can hold more engineering related things.
+  - qol: Playing engiborg is less brain-damaging and more user friendly
+  vinylspiders:
+  - bugfix: fixes an issue where vox could select the nitrogen breather quirk, and
+      plasmamen could select the plasma_breather quirk despite that being their default.
+  - bugfix: fixes slimepeople being able to select the plasma_breather quirk, this
+      was not intended for balance reasons but the code to prevent them from selecting
+      it had a bug.
+2026-01-08:
+  Hardly:
+  - bugfix: Fixed Tesharis being stuck with human sprites when wearing neck gaiters
+  - code_imp: Changed default colors for neck gaiters
+  MacaroniCritter:
+  - rscadd: Added colorable knee boots.
+  MajManatee:
+  - rscadd: Medborgs can get an autopsy scanner upgrade
+  - rscadd: Medborgs can get a material manipulator to allow making advanced chemicals
+      that require grinding of things like silver
+  - rscadd: Medborgs get formaldehyde in their advanced chemicals to help with body
+      decay.
+  - rscadd: Borgs can now attach IVs as god intended
+2026-01-12:
+  Happyowl93:
+  - rscadd: shortest, taller and tallest readded into the char pref options
+  Hatterhat:
+  - balance: Citing a sudden decrease in unattended protolathes, the Syndicate's Marauder
+      Program has started recycling recovered voltaic combat cyberhearts from dead
+      scientists, resulting in a reduced quality of usable anomaly-powered cybernetic
+      hearts, with increased cooldown cycle time (10 minutes, up from 5), decreased
+      active time (10 seconds, down from 30) and a lack of passive electromagnetic
+      shielding.
+  LotusLadno:
+  - rscadd: New Skin in Entombed Quirks
+  - rscadd: Custom Hardlight Theme in Entombed Quirks
+  MajManatee:
+  - image: Trama drakes are no longer haunted by one white pixel when resting and
+      looking east.
+  - rscadd: '*blink, *gulp, *wink. All have sounds!'
+  dee-dubya:
+  - rscadd: Adds the lead pipe as an optional weapon in the loadout
+  - rscadd: Adds the "Assorted Weapons" category in the loadout's weapon tab
+  sqnztb:
+  - bugfix: visitor quirk no longer removes all assistant records.

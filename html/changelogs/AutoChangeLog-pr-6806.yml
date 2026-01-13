@@ -1,0 +1,7 @@
+author: "Rilomatic"
+delete-after: True
+changes:
+  - rscadd: "Added Donor MODsuit \"Paragon\""
+  - bugfix: "Fixed minor bugs in donor list"
+  - bugfix: "Update to MercTac Donor Item"
+  - image: "added images"
