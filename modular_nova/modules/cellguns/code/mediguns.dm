@@ -5,6 +5,7 @@
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/projectile.dmi'
 	icon_state = "medigun"
 	inhand_icon_state = "chronogun" // Fits best with how the medigun looks, might be changed in the future
+	abstract_type = /obj/item/gun/energy/cell_loaded/medigun
 	ammo_type = list(/obj/item/ammo_casing/energy/medical) // The default option that heals oxygen
 	w_class = WEIGHT_CLASS_NORMAL
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun
