@@ -717,6 +717,10 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/hc_cops/armory)
+"hG" = (
+/obj/machinery/door/airlock/survival_pod,
+/turf/open/floor/iron/showroomfloor,
+/area/shuttle/hc_cops/dock)
 "hH" = (
 /obj/structure/sign/clock/directional/west,
 /obj/machinery/computer/camera_advanced{
@@ -1255,6 +1259,9 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/dock)
+"nm" = (
+/turf/open/floor/iron,
 /area/shuttle/hc_cops/dock)
 "nv" = (
 /obj/structure/cable,
@@ -2652,6 +2659,10 @@
 	},
 /turf/open/floor/wood,
 /area/shuttle/hc_cops/recreation)
+"Dp" = (
+/obj/structure/bed,
+/turf/open/floor/iron,
+/area/shuttle/hc_cops/dock)
 "Dr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2870,6 +2881,9 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/dock)
+"GC" = (
+/turf/open/floor/iron/showroomfloor,
 /area/shuttle/hc_cops/dock)
 "GD" = (
 /obj/structure/cable,
@@ -3395,6 +3409,12 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark,
 /area/shuttle/hc_cops/recreation)
+"Mt" = (
+/obj/machinery/door/airlock/survival_pod{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/shuttle/hc_cops/dock)
 "Mu" = (
 /obj/structure/sign/flag/hc/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3825,6 +3845,12 @@
 	dir = 1
 	},
 /area/shuttle/hc_cops/command)
+"QM" = (
+/obj/structure/bed{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/shuttle/hc_cops/dock)
 "QV" = (
 /obj/machinery/biogenerator/food_replicator,
 /turf/open/floor/iron/smooth_half,
@@ -4051,6 +4077,9 @@
 	dir = 8
 	},
 /area/shuttle/hc_cops/command)
+"TX" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/dock)
 "Uh" = (
 /obj/machinery/door/airlock{
 	name = "Restroom"
@@ -5016,16 +5045,16 @@ Jz
 OW
 Dx
 nl
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
+TX
+TX
+TX
+TX
+TX
+TX
+Mt
+TX
+TX
+TX
 qm
 qm
 qm
@@ -5051,16 +5080,16 @@ kd
 rG
 Ib
 Gx
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
+TX
+QM
+nm
+QM
+nm
+nm
+nm
+TX
+GC
+TX
 qm
 qm
 qm
@@ -5086,16 +5115,16 @@ Ha
 TK
 Pb
 jt
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
+TX
+nm
+nm
+nm
+nm
+nm
+nm
+hG
+GC
+TX
 qm
 qm
 qm
@@ -5121,16 +5150,16 @@ Cm
 Ng
 Dx
 cL
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
+TX
+Dp
+nm
+Dp
+nm
+nm
+nm
+TX
+GC
+TX
 qm
 qm
 qm
@@ -5156,16 +5185,16 @@ dV
 zi
 Dx
 AY
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
-qm
+TX
+TX
+TX
+TX
+TX
+TX
+TX
+TX
+TX
+TX
 qm
 qm
 qm
