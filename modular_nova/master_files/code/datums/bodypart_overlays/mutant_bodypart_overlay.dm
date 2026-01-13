@@ -263,16 +263,12 @@
 	if(!limb || !length(emissive_eligibility_by_color_index))
 		return overlays
 
-	var/index = 1
-	var/list/image/emissives = list()
-
-	for(var/image/overlay in overlays)
+	var/max = min(3, length(overlays)) // only care about the first 3 indexes
+	for(var/index = 1 to max)
 		if(emissive_eligibility_by_color_index[index])
-			emissives += emissive_appearance_copy(overlay, limb)
+			LAZYADD(emissives, emissive_appearance_copy(overlays[index], limb))
 
-		index++
-
-	return overlays + emissives
+	return emissives ? (overlays + emissives) : overlays
 
 /**
  * Helper to set the MOD-related info on the overlay, useful for MODsuit overlays.
