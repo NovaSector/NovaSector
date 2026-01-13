@@ -26,7 +26,6 @@
 		return
 	tweak_manifest()
 	var/mob/living/carbon/human/quirk_human = quirk_holder
-	quirk_human.mind.assigned_role.job_flags &= ~(JOB_CREW_MANIFEST|JOB_ANNOUNCE_ARRIVAL)
 	quirk_human.update_ID_card()
 
 /datum/quirk/visitor/remove(return_id = TRUE, erase_new = TRUE) //these flags are for VV
