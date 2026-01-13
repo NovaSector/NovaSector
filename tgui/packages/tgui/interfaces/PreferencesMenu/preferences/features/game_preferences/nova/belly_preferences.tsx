@@ -1,14 +1,14 @@
 // THIS IS A NOVA SECTOR UI FILE
 import {
   CheckboxInput,
-  Feature,
+  type Feature,
   FeatureSliderInput,
-  FeatureToggle,
+  type FeatureToggle,
 } from '../../base';
 
 export const erp_enable_belly: FeatureToggle = {
   name: 'Show/Hide Belly Preferences',
-  category: 'BELLY',
+  category: 'ERP',
   description: 'This shows/hides belly-kink content specific preferences.',
   component: CheckboxInput,
 };

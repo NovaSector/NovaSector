@@ -191,6 +191,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 
 /// Belly sprite visibility pref, used for blocking out the alt_appearance.
 /datum/preference/toggle/erp/belly
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "erp_belly_base"
 
 /datum/preference/toggle/erp/belly/is_accessible(datum/preferences/preferences)
@@ -227,7 +228,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 /// Why is this not integrated into the existing vore prefs, you ask?
 /// Because they aren't granular enough...and because it shows on examine, which some people might not want public.
 /datum/preference/choiced/erp_vore_prey_pref
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_belly_vore_prey"
 
@@ -265,7 +266,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 /// If new sizes are added, adjust the maximum here accordingly.
 /// Ignored if /toggle/erp/belly is off.
 /datum/preference/numeric/erp_belly_maxsize
-	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_PLAYER
 	savefile_key = "erp_belly_maxsize"
 	step = 1
@@ -687,13 +688,15 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 	var/static/consent_options = list("Never", "Query", "Always")
 	.["pred_options"] = consent_options
 	.["prey_options"] = consent_options
+	.["ckeyTab"] = "[user.client?.ckey]TumsTab"
 
 /datum/erp_belly_prefshelper/ui_data(mob/user)
 	. = list()
 
 	// Figure out what tab we're in
-	.["ckeyTab"] = "[user.client?.ckey]TumsTab"
-	var/ui_tab = ("[user.client?.ckey]TumsTab" in tgui_shared_states) ? text2num(tgui_shared_states["[user.client?.ckey]TumsTab"]) : 1
+	var/ui_tab = 2
+	if("[user.client?.ckey]TumsTab" in tgui_shared_states)
+		ui_tab = text2num(tgui_shared_states["[user.client?.ckey]TumsTab"])
 
 
 	var/obj/item/belly_function/belly = get_assoc_belly(user)
