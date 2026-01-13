@@ -61,15 +61,15 @@
 	roundstart_template = /datum/map_template/shuttle/random_ship/hc_ferry
 	width = 14
 	height = 7
-	dwidth = 14
+	dwidth = 0
 	dheight = 7
 
 /obj/docking_port/mobile/hc_carrier
 	name = "HC ACV 'Harrier Du Bois'"
 	shuttle_id = "hc_carrier"
 	initial_engine_power = 6
-	port_direction = NORTH
-	preferred_direction = NORTH
+	port_direction = EAST
+	preferred_direction = EAST
 	callTime = 2 MINUTES
 	rechargeTime = 12 MINUTES
 	movement_force = list("KNOCKDOWN"=0,"THROW"=0)
