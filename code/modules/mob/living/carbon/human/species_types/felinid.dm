@@ -5,7 +5,7 @@
 	examine_limb_id = SPECIES_HUMAN
 	mutantbrain = /obj/item/organ/brain/felinid
 	mutanttongue = /obj/item/organ/tongue/cat
-	mutantears = /obj/item/organ/ears/cat
+	mutantears = /obj/item/organ/ears // NOVA EDIT CHANGE - these mutantpart vars annoyingly confict with our own mutant_bodyparts system and should never be used for visual organs - ORIGINAL /obj/item/organ/ears/cat
 	mutanteyes = /obj/item/organ/eyes/felinid
 	mutant_organs = list(
 		/obj/item/organ/tail/cat = "Cat",
