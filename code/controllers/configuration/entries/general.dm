@@ -799,3 +799,5 @@
 /datum/config_entry/number/minimum_ascension_time
 	default = 0 // 1 minute
 	min_val = 0
+
+/datum/config_entry/flag/fishing
