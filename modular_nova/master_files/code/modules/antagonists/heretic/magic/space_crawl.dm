@@ -1,21 +1,24 @@
-/datum/action/cooldown/spell/jaunt/space_crawl/Grant(mob/grant_to)
+/datum/action/cooldown/spell/jaunt/space_crawl/on_jaunt_exited(obj/effect/dummy/phased_mob/jaunt, mob/living/unjaunter)
 	. = ..()
-	RegisterSignal(grant_to, COMSIG_MOB_AFTER_EXIT_JAUNT, PROC_REF(apply_cooldown))
+	addtimer(CALLBACK(src, PROC_REF(StartCooldown), 30 SECONDS), 0 SECONDS)
 
-/datum/action/cooldown/spell/jaunt/space_crawl/Remove(mob/remove_from)
+/obj/effect/dummy/phased_mob/spell_jaunt/space/set_jaunter(atom/movable/new_jaunter)
 	. = ..()
-	UnregisterSignal(remove_from, COMSIG_MOB_AFTER_EXIT_JAUNT)
+	RegisterSignal(src, COMSIG_MOB_PHASED_CHECK, PROC_REF(is_it_outside))
 
-/datum/action/cooldown/spell/jaunt/space_crawl/proc/apply_cooldown()
-	addtimer(CALLBACK(src, PROC_REF(StartCooldown), 30 SECONDS), 0.1 SECONDS)
+/obj/effect/dummy/phased_mob/spell_jaunt/space
+	/// When was the jaunter last warned about space crawling's limitations?
+	var/last_warning
 
-/obj/effect/dummy/phased_mob/spell_jaunt/space/phased_check(mob/living/user, direction)
-	. = ..()
-	var/turf/my_turf = get_turf(user)
-	if(isspaceturf(my_turf))
-		return TRUE
-	var/area/my_area = get_area(user)
-	if (isopenturf(my_turf) && my_area.outdoors && lavaland_equipment_pressure_check(my_turf))
-		return TRUE
-	to_chat(user, "You can only traverse space or low-pressure outdoors areas while space crawling!")
-	return FALSE
+/obj/effect/dummy/phased_mob/spell_jaunt/space/proc/is_it_outside(obj/effect/dummy/phased_mob/jaunt, mob/living/parent, turf/new_turf)
+	SIGNAL_HANDLER
+	// if it's space OR it's outdoors and low pressure, it's fine
+	if(isspaceturf(new_turf))
+		return
+	var/area/my_area = get_area(new_turf)
+	if(isopenturf(new_turf) && my_area.outdoors && lavaland_equipment_pressure_check(new_turf))
+		return
+	if(last_warning + 3 SECONDS < world.time)
+		last_warning = world.time
+		to_chat(parent, span_warning("You can only traverse space or low-pressure outdoors areas while space crawling!"))
+	return COMPONENT_BLOCK_PHASED_MOVE
