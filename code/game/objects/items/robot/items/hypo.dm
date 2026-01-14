@@ -8,6 +8,7 @@
 		/datum/reagent/medicine/salglu_solution,\
 		/datum/reagent/medicine/spaceacillin,\
 		/datum/reagent/medicine/lidocaine, /* NOVA EDIT ADDITION - added Lidocaine */ \
+		/datum/reagent/medicine/potass_iodide, /* NOVA EDIT ADDITION - added Potassium Iodine */ \
 	)
 #define EXPANDED_MEDICAL_REAGENTS list(\
 		/datum/reagent/medicine/haloperidol,\
