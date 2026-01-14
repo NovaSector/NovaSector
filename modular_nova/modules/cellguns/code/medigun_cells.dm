@@ -418,10 +418,8 @@
 
 /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/hardlight/dropped(mob/user)
 	user.update_held_items()
-	if(QDELETED(src)) //prevents triple messages
-		return
 	user.visible_message(span_warning("[src] disappears after being removed!"))
-	qdel(src)
+	return ..()
 
 //Salve Globule
 /obj/item/mending_globule/hardlight
