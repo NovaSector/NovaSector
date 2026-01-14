@@ -102,19 +102,20 @@
 		"Hazard Orange" = "hazard_orange",
 		"Cosmic Blue" = "cosmic_blue"
 	)
-
+	// For restricting color combinations of certain suits (currently not enabled)
 	var/static/list/locked_combinations = list(
-		"Safeguard" = "Alert Amber",
-		"Advanced" = "Hazard Orange",
-		"Rescue" = "Standard Blue",
-		"Research" = "Royal Purple"
+		//"Safeguard" = "Alert Amber",
+		//"Advanced" = "Hazard Orange",
+		//"Rescue" = "Standard Blue",
+		//"Research" = "Royal Purple"
 	)
 
+	// For restricting certain skins to specific rols (currently not enabled)
 	var/static/list/role_exceptions = list(
-		"Safeguard" = JOB_HEAD_OF_SECURITY,
-		"Advanced" = JOB_CHIEF_ENGINEER,
-		"Rescue" = JOB_CHIEF_MEDICAL_OFFICER,
-		"Research" = JOB_RESEARCH_DIRECTOR
+		//"Safeguard" = JOB_HEAD_OF_SECURITY,
+		//"Advanced" = JOB_CHIEF_ENGINEER,
+		//"Rescue" = JOB_CHIEF_MEDICAL_OFFICER,
+		//"Research" = JOB_RESEARCH_DIRECTOR
 	)
 
 	if (modsuit_hardlight == NONE)
