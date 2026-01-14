@@ -21,7 +21,7 @@
 		/obj/item/storage/box/plastic/medicells,\
 		/obj/item/storage/medkit/tactical/ntrauma,\
 		/obj/item/emergency_bed,\
-		)
+	)
 	//Chosen cells are based off the worst things to deal with: TraumaTeam is built for worst-case scenarios, so they get a temperature cell and a better toxin cell
 
 /datum/outfit/centcom/ert/medic/traumateam/leader //Very few differences, mostly just unique leader items - namely, a medbeam rather than a Veymed, a surgical implant, and a compact defib
@@ -34,7 +34,7 @@
 		/obj/item/emergency_bed,\
 		/obj/item/holosign_creator/medical/treatment_zone,\
 		/obj/item/autosurgeon/syndicate/emaggedsurgerytoolset/single_use,\
-		)
+	)
 
 /*
 *	UNIQUE ITEMS
