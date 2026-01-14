@@ -486,6 +486,10 @@
 	. = ..()
 	AddElement(/datum/element/blood_limb_overlay)
 
+/obj/item/bodypart/leg/left/skeleton/nonfunctional/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+	. = ..()
+	limb_id = ((bodyshape & BODYSHAPE_DIGITIGRADE) && owner?.is_digitigrade_squished()) ? initial(limb_id) : "[initial(limb_id)]_[BODYPART_ID_DIGITIGRADE]"
+
 /obj/item/bodypart/leg/right/skeleton/nonfunctional
 	limb_id = BODYPART_ID_BONE
 	disabling_threshold_percentage = 0
@@ -494,6 +498,10 @@
 /obj/item/bodypart/leg/right/skeleton/nonfunctional/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/blood_limb_overlay)
+
+/obj/item/bodypart/leg/right/skeleton/nonfunctional/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+	. = ..()
+	limb_id = ((bodyshape & BODYSHAPE_DIGITIGRADE) && owner?.is_digitigrade_squished()) ? initial(limb_id) : "[initial(limb_id)]_[BODYPART_ID_DIGITIGRADE]"
 
 ///MUSHROOM
 /obj/item/bodypart/head/mushroom
@@ -748,6 +756,9 @@
 	ADD_TRAIT(src, TRAIT_IGNORED_BY_LIVING_FLESH, BODYPART_TRAIT)
 	AddElement(/datum/element/living_limb_initialiser)
 
+/obj/item/bodypart/arm/left/flesh/get_butcher_drops()
+	return list(/obj/item/food/meat/slab/synthmeat = 1)
+
 /obj/item/bodypart/arm/right/flesh
 	limb_id = BODYPART_ID_MEAT
 	should_draw_greyscale = FALSE
@@ -756,6 +767,9 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_IGNORED_BY_LIVING_FLESH, BODYPART_TRAIT)
 	AddElement(/datum/element/living_limb_initialiser)
+
+/obj/item/bodypart/arm/right/flesh/get_butcher_drops()
+	return list(/obj/item/food/meat/slab/synthmeat = 1)
 
 /obj/item/bodypart/leg/left/flesh
 	limb_id = BODYPART_ID_MEAT
@@ -766,6 +780,9 @@
 	ADD_TRAIT(src, TRAIT_IGNORED_BY_LIVING_FLESH, BODYPART_TRAIT)
 	AddElement(/datum/element/living_limb_initialiser)
 
+/obj/item/bodypart/leg/left/flesh/get_butcher_drops()
+	return list(/obj/item/food/meat/slab/synthmeat = 1)
+
 /obj/item/bodypart/leg/right/flesh
 	limb_id = BODYPART_ID_MEAT
 	should_draw_greyscale = FALSE
@@ -774,3 +791,6 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_IGNORED_BY_LIVING_FLESH, BODYPART_TRAIT)
 	AddElement(/datum/element/living_limb_initialiser)
+
+/obj/item/bodypart/leg/right/flesh/get_butcher_drops()
+	return list(/obj/item/food/meat/slab/synthmeat = 1)
