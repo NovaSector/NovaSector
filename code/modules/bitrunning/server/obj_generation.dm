@@ -60,7 +60,7 @@
 
 	// NOVA EDIT ADDITION START -- Equip bitrunner's custom loadout, suit armor nerf
 	if(!isnull(prefs) && include_loadout)
-		avatar.equip_outfit_and_loadout(new /datum/outfit(), prefs)
+		avatar.equip_outfit_and_loadout(new /datum/outfit(), prefs, visuals_only = TRUE)
 
 	var/obj/item/clothing/suit/suit = avatar.wear_suit
 	if(istype(suit))
