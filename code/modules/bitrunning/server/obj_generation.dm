@@ -58,9 +58,13 @@
 	to_wear.suit = null
 	to_wear.suit_store = null
 
-	// NOVA EDIT ADDITION START -- Equip bitrunner's custom loadout
+	// NOVA EDIT ADDITION START -- Equip bitrunner's custom loadout, suit armor nerf
 	if(!isnull(prefs) && include_loadout)
 		avatar.equip_outfit_and_loadout(new /datum/outfit(), prefs)
+
+	var/obj/item/clothing/suit/suit = avatar.wear_suit
+	if(istype(suit))
+		suit.set_armor(/datum/armor/none)
 	// NOVA EDIT ADDITION END
 
 	avatar.equipOutfit(to_wear, visuals_only = TRUE)
