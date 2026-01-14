@@ -1,0 +1,4 @@
+author: "VigilDLX"
+delete-after: True
+changes:
+  - bugfix: "Fixed station announcements to more accurately represent our regulations."
