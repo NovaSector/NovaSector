@@ -110,7 +110,7 @@
 		//"Research" = "Royal Purple"
 	)
 
-	// For restricting certain skins to specific rols (currently not enabled)
+	// For restricting certain skins to specific roles (currently not enabled)
 	var/static/list/role_exceptions = list(
 		//"Safeguard" = JOB_HEAD_OF_SECURITY,
 		//"Advanced" = JOB_CHIEF_ENGINEER,
