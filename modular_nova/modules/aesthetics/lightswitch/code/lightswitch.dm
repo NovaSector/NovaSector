@@ -12,7 +12,7 @@
 #ifndef UNIT_TESTS
 /obj/machinery/light_switch/post_machine_initialize()
 	. = ..()
-	if(prob(50) && area.lightswitch) //50% chance for area to start with lights off.
+	if(prob(50) && area.lightswitch && !is_reserved_level(loc.z)) //50% chance for area to start with lights off, does not apply if in reserved level.
 		turn_off()
 #endif
 
