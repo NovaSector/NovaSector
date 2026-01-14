@@ -414,9 +414,9 @@
 	name = "hardlight surgical gown"
 	desc = "A hospital gown made out of hardlight. You can barely feel it on your body, especially with all the anesthetics."
 	icon_state = "lgown"
+	item_flags = parent_type::item_flags | DROPDEL
 
 /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/hardlight/dropped(mob/user)
-	. = ..()
 	user.update_held_items()
 	if(QDELETED(src)) //prevents triple messages
 		return
