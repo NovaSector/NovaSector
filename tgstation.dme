@@ -7969,6 +7969,7 @@
 #include "modular_nova\modules\customization\datums\components\crafting\recipes.dm"
 #include "modular_nova\modules\customization\datums\components\crafting\teshari_recipes.dm"
 #include "modular_nova\modules\customization\datums\dna\dna.dm"
+#include "modular_nova\modules\customization\datums\dna\mutant_bodyparts.dm"
 #include "modular_nova\modules\customization\datums\dna\blocks\dna_features_block.dm"
 #include "modular_nova\modules\customization\datums\keybinding\communication.dm"
 #include "modular_nova\modules\customization\game\objects\items\balls.dm"
