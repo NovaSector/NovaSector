@@ -170,15 +170,7 @@
 	var/displayed_key = key
 	if(client?.holder?.fakekey)
 		displayed_key = null
-	deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key)
-
-	//NOVA ADDITION START - ghost runechat
-	for(var/mob/dead/dead_mob as anything in GLOB.player_list)
-		if(!istype(dead_mob))
-			continue
-		if (dead_mob.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
-			dead_mob.create_chat_message(src, /datum/language/common, message)
-	//NOVA ADDITION END
+	deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key, original_message = message) //NOVA EDIT - Original: deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key)
 
 ///Check if this message is an emote
 /mob/proc/check_emote(message, forced)
