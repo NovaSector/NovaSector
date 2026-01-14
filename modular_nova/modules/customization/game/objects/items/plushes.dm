@@ -148,3 +148,52 @@
 	attack_verb_continuous = list("cuddles", "meows", "hisses")
 	attack_verb_simple = list("cuddle", "meow", "hiss")
 	squeak_override = list('modular_nova/modules/kahraman_equipment/sound/thumper_thump/punch_press_2.wav' = 1)
+
+/obj/item/toy/plush/nova/fushi
+	name = "fluffy dragon"
+	desc = "A rather adorable soft plush of a dragon, seems rather fluffy."
+	icon_state = "plush_fushi_hat"
+	attack_verb_continuous = list("cuddles", "wehs", "pats")
+	attack_verb_simple = list("cuddle", "weh", "pat")
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/weh.ogg' = 1)
+	gender = MALE
+	post_init_icon_state = "plush_fushi_hat"
+	var/plushhat = TRUE
+
+
+		var/static/list/responses = list(
+		"WEH.",
+		"This isnt my office...",
+		"Has anyone seen Ian?",
+		"Weeeeehhhhhh!",
+		"Don't take my hat!",
+		"No I cant give you all acesss.",
+		"How are you doing today?",
+		"Careful with my tail!",
+		"Command is being silly today.",
+		"I used to be tiny you know.",
+	)
+	COOLDOWN_DECLARE(fushi_cooldown)
+
+/obj/item/toy/plush/nova/fushi/attack()
+	. = ..()
+	if(!COOLDOWN_FINISHED(src, fushi_cooldown))
+		return
+	say(pick(responses))
+	COOLDOWN_START(src, fushi_cooldown, 3 SECONDS)
+
+	///Sprite visible when the hat is on.
+	var/upsprite = "plush_fushi_hat"
+	///Sprite visible when the hat is taken off.
+	var/downsprite = "plush_fushi"
+
+/obj/item/toy/plush/nova/fushi/attack_self_secondary(mob/user)
+	if(plushhat)
+		icon_state = upsprite
+		inhand_icon_state = upsprite
+		to_chat(user, span_notice("You place the plushie's hat on its head."))
+	else
+		icon_state = downsprite
+		inhand_icon_state = downsprite
+		to_chat(user, span_notice("You take off the plushie's hat."))
+	plushhat = !plushhat
