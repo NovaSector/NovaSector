@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "Following some complaints and suggestions, Nanotrasen's weapon development teams revisited the NT/E Laevateinn upgrade suite and improved both its cylinder and coolant systems, resulting in a larger capacity and increased firerate when amped, respectively."
+  - balance: "To facilitate the Laevateinn's upgraded capacity, the Laevateinn kit in Cargo now includes a DIY speedloader upgrading kit."
