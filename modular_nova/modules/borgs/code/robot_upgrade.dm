@@ -560,6 +560,7 @@
 		/obj/machinery/rnd/production/colony_lathe,
 		/obj/item/stack/sheet/iron,
 		/obj/item/stack/sheet/glass,
+		/obj/item/holochip, // makes sense, idk.
 	)
 
 /obj/item/borg/apparatus/cargo_papermanipulator/Initialize(mapload)
