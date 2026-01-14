@@ -1,5 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - balance: "Spawner-made legion and snow legion now drop charred corpses again, instead of summoning another skull to get attacked by."
-  - balance: "Ashwalker rituals that formerly required human corpses, then legion cores, now require legion tumors, which can be pilfered from legion corpses."

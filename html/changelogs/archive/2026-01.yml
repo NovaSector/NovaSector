@@ -379,3 +379,21 @@
   - rscadd: Adds the "Assorted Weapons" category in the loadout's weapon tab
   sqnztb:
   - bugfix: visitor quirk no longer removes all assistant records.
+2026-01-14:
+  Hardly:
+  - bugfix: Fixes hair dye's gradient dyeing not working
+  - code_imp: Some maintenance to our modular hair dye code.
+  Hatterhat:
+  - balance: Spawner-made legion and snow legion now drop charred corpses again, instead
+      of summoning another skull to get attacked by.
+  - balance: Ashwalker rituals that formerly required human corpses, then legion cores,
+      now require legion tumors, which can be pilfered from legion corpses.
+  Hislyna:
+  - rscadd: Gives Interdyne Miners and Deck Officer the Tunnel Rat Skillchip Roundstart.
+  MajManatee:
+  - bugfix: Ammo pouches now hold speedloaders
+  Rilomatic:
+  - rscadd: Added Donor MODsuit "Paragon"
+  - bugfix: Fixed minor bugs in donor list
+  - bugfix: Update to MercTac Donor Item
+  - image: added images

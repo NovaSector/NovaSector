@@ -1,5 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - bugfix: "Fixes hair dye's gradient dyeing not working"
-  - code_imp: "Some maintenance to our modular hair dye code."
