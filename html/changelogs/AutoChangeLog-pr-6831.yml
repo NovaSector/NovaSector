@@ -1,0 +1,4 @@
+author: "Geoengi"
+delete-after: True
+changes:
+  - bugfix: "Ghostly hardlight gowns are finally slain, again."
