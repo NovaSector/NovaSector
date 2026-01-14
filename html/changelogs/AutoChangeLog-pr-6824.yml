@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "the interactions panel 'info' section (pleasure, pain, etc) will only display if you have erp interactions available"
