@@ -738,7 +738,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 			belly_last_size = 0
 		if(belly.sizemod_autostuffed > 0 && belly.sizemod > 0)
 			nutritionmaxxing = (((25.9852 * ((belly_current_size_unclamped)**2))/belly.sizemod/belly.sizemod_autostuffed) + 500) / 0.4
-		.["calculated_size"] = "Base cosmetic sizes: these provide mechanics-agnostic belly size and/or audio.\nCalculated total sprite size of [belly_current_size_unclamped]/16 ([belly_last_size]/[belly.maxsize] clamped); equivalent to [nutritionmaxxing] nutrition."
+		.["calculated_size"] = "Base cosmetic sizes: sprite size of [belly_current_size_unclamped]/16 ([belly_last_size]/[belly.maxsize] clamped) or [nutritionmaxxing] nutrition."
 		// Send a calculated max for the sliders - this is based on the volume equation.
 		// This sets per-category max to the value required to reach a smidge beyond the maximum sprite size.
 		if(belly.sizemod > 0)
@@ -791,7 +791,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		var/nutritionmaxxing = "N/A"
 		if(prefs_sizemod_autostuffed > 0 && prefs_sizemod > 0)
 			nutritionmaxxing = (((25.9852 * ((prefs_current_size_unclamped)**2))/prefs_sizemod/prefs_sizemod_autostuffed) + 500) / 0.4
-		.["calculated_size"] = "Base cosmetic sizes: these provide mechanics-agnostic belly size and/or audio.\nCalculated total sprite size of [prefs_current_size_unclamped]/16 ([prefs_last_size]/[prefs_maxsize] clamped); equivalent to [nutritionmaxxing] nutrition."
+		.["calculated_size"] = "Base cosmetic sizes: sprite size of [prefs_current_size_unclamped]/16 ([prefs_last_size]/[prefs_maxsize] clamped) or [nutritionmaxxing] nutrition."
 		// Send a calculated max for the sliders - this is based on the volume equation.
 		// This sets per-category max to the value required to reach a smidge beyond the maximum sprite size.
 		if(prefs_sizemod > 0)

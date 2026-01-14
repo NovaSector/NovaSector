@@ -278,8 +278,8 @@ const NovaTumsPrefsBelly = (props) => {
         </LabeledList.Item>
       </LabeledList>
       <NoticeBox>
-        Belly sound toggles - these only affect what your belly emits, not what
-        you can hear - that's in the global prefs section.
+        Belly sound toggles - these affect what sounds your belly can make,
+        distinct from what sounds you're opted into hearing (see Global Prefs)
       </NoticeBox>
       <LabeledList>
         <LabeledList.Item label="Allow Full Groans">
