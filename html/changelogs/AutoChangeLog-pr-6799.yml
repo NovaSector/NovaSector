@@ -1,0 +1,10 @@
+author: "Geoengi"
+delete-after: True
+changes:
+  - qol: "Trauma Team softsuits can now store their weapons/major tools in their suit storage."
+  - balance: "NT Trauma Teams had their gear expanded, while splitting the advanced tools and combat defib between the regular members and the leader, respectively."
+  - bugfix: "Hardlight gowns will no longer persist after being removed in patients' hands."
+  - bugfix: "Trauma Team webbing can now store the tools that it starts with, along with many other types of medical equipment."
+  - bugfix: "Fixed incorrect subtypes in Trauma Team outfits that were granting them an extra gun, an extra internals box, and obfuscating their cell box."
+  - spellcheck: "Medigun and Trauma Team descriptions have been grammar audited to be more consistent."
+  - code_imp: "Trauma Team member vs leader made more distinct in the select equipment menu."
