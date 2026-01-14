@@ -8855,6 +8855,7 @@
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\conversion_kits.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\revolver.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\shotgun.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\speedloaders.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\submachinegun.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\saibasan\laser_guns.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\saibasan\mode_datums.dm"
