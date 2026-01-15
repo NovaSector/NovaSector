@@ -8027,6 +8027,8 @@
 #include "modular_nova\modules\customization\modules\clothing\under\utility_port\suits_port.dm"
 #include "modular_nova\modules\customization\modules\clothing\~donator\donator_clothing.dm"
 #include "modular_nova\modules\customization\modules\clothing\~donator\donator_items.dm"
+#include "modular_nova\modules\customization\modules\clothing\~donator\modsuit\mod_construction.dm"
+#include "modular_nova\modules\customization\modules\clothing\~donator\modsuit\mod_theme.dm"
 #include "modular_nova\modules\customization\modules\food_and_drinks\food\hemophage_food.dm"
 #include "modular_nova\modules\customization\modules\food_and_drinks\food\scottish.dm"
 #include "modular_nova\modules\customization\modules\food_and_drinks\food\SRseafood.dm"

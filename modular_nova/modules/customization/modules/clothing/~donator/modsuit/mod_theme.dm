@@ -1,5 +1,5 @@
 /datum/mod_theme/paragon
-	name = "tarkon"
+	name = "paragon"
 	desc = "Blah blah yap yap"
 	extended_desc = "If you see this it worked"
 	default_skin = "paragon"
