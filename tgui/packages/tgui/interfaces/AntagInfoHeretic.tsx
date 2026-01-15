@@ -262,9 +262,11 @@ const GuideSection = () => {
           <span style={hereticRed}>WARNING!</span>
         </Stack.Item>
         <Stack.Item>
-          Rising your passive to a level of <b>3</b> through a
-          great <span style={hereticBlue}>ritual of knowledge</span> will begin
-          to manifest a visible aura of&nbsp;
+          Rising your passive ability to a level of <b>3</b> through a
+          great <span style={hereticYellow}>ritual of knowledge</span> or
+          progressing too far down the&nbsp;
+          <span style={hereticBlue}>research tree</span> will begin to
+          manifest a visible aura of&nbsp;
           <span style={hereticPurple}>mansus energy</span> around you. This aura
           will be visible to all those around you and will mark you as a
           heretic. Consider the risks before accumulating too much power!
