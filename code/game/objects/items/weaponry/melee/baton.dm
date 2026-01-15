@@ -237,7 +237,6 @@
 
 /// Wrapper for calling "stun()" and doing relevant vfx/sfx
 /obj/item/melee/baton/proc/finalize_baton_attack(mob/living/target, mob/living/user, clumsy = FALSE)
-	PROTECTED_PROC(TRUE)
 	COOLDOWN_START(src, cooldown_check, cooldown)
 	SEND_SIGNAL(src, COMSIG_PRE_BATON_FINALIZE_ATTACK, target, user) // NOVA EDIT ADDITION
 	if(on_stun_sound)
