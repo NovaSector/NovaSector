@@ -172,6 +172,7 @@
 		"Careful with my tail!",
 		"Command is being silly today.",
 		"I used to be tiny you know.",
+		"I'm not a Fushi, I'm a Plushi!",
 	)
 	COOLDOWN_DECLARE(fushi_cooldown)
 
