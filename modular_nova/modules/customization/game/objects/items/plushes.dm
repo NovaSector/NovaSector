@@ -153,15 +153,22 @@
 	name = "fluffy dragon"
 	desc = "A rather adorable soft plush of a dragon, seems rather fluffy."
 	icon_state = "plush_fushi_hat"
-	attack_verb_continuous = list("cuddles", "wehs", "pats")
-	attack_verb_simple = list("cuddle", "weh", "pat")
-	squeak_override = list('modular_nova/modules/emotes/sound/voice/weh.ogg' = 1)
+	attack_verb_continuous = list("cuddles", "nuzzles", "pats")
+	attack_verb_simple = list("cuddle", "nuzzle", "pat")
+	squeak_override = list(
+		'modular_nova/modules/emotes/sound/voice/wurble.ogg' = 10, //10% chance to wurble
+		'modular_nova/modules/emotes/sound/voice/weh.ogg' = 90,
+		)
 	gender = MALE
 	post_init_icon_state = "plush_fushi_hat"
 	var/plushhat = TRUE
+	///Sprite visible when the hat is on.
+	var/upsprite = "plush_fushi_hat"
+	///Sprite visible when the hat is taken off.
+	var/downsprite = "plush_fushi"
 
-
-		var/static/list/responses = list(
+	///Sounds the plush makes when hitting something
+	var/static/list/responses = list(
 		"WEH.",
 		"This isnt my office...",
 		"Has anyone seen Ian?",
@@ -173,7 +180,22 @@
 		"Command is being silly today.",
 		"I used to be tiny you know.",
 		"I'm not a Fushi, I'm a Plushi!",
+		"Cuddle approved. Promotion pending.",
+		"Paperwork is temporary. Fluff is eternal.",
+		"I'm the HoP, Head of Pats",
+		"I’m very busy being approachable.",
+		"This is a safe workplace. Mostly.",
+		"Tiny dragon, big responsibilities.",
+		"You can pet me one more time",
 	)
+	///Emotes the plush makes when being petted
+	var/static/list/responses_action = list(
+		"wags his tail happily.",
+		"nuzzles affectionately.",
+		"purrs contentedly.",
+		"does a little happy dance.",
+	)
+
 	COOLDOWN_DECLARE(fushi_cooldown)
 
 /obj/item/toy/plush/nova/fushi/attack()
@@ -183,18 +205,25 @@
 	say(pick(responses))
 	COOLDOWN_START(src, fushi_cooldown, 3 SECONDS)
 
-	///Sprite visible when the hat is on.
-	var/upsprite = "plush_fushi_hat"
-	///Sprite visible when the hat is taken off.
-	var/downsprite = "plush_fushi"
+	///controls the emotes and sound when interacted with
+/obj/item/toy/plush/nova/fushi/attack_self(mob/user)
+	visible_message("[src] [span_notice(pick(responses_action))]")
+	if(!COOLDOWN_FINISHED(src, fushi_cooldown))
+		return
+	playsound(src, pick(squeak_override),30)
+	COOLDOWN_START(src, fushi_cooldown, 2 SECONDS)
 
+
+	///controls the hat toggle
 /obj/item/toy/plush/nova/fushi/attack_self_secondary(mob/user)
 	if(plushhat)
 		icon_state = upsprite
 		inhand_icon_state = upsprite
 		to_chat(user, span_notice("You place the plushie's hat on its head."))
+		say("My hat is back!")
 	else
 		icon_state = downsprite
 		inhand_icon_state = downsprite
 		to_chat(user, span_notice("You take off the plushie's hat."))
+		say("Hey! Thats my hat!")
 	plushhat = !plushhat
