@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - refactor: "refactors mutant bodyparts backend"
-  - bugfix: "bodypart markings and marking sets will now inherit the appropriate mutant colors when initially applied in char prefs"

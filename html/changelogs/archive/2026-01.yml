@@ -432,3 +432,17 @@
   vinylspiders:
   - bugfix: the interactions panel 'info' section (pleasure, pain, etc) will only
       display if you have erp interactions available
+2026-01-15:
+  Happyowl93:
+  - balance: Laser carbine, wylom, sindano, MMR and m64 have their costs reduced in
+      the traitor uplink so, they can be considered over the hassle of getting a weapon
+      permit.
+  - rscadd: Cybersun S-120 laser carbine added to traitor uplink as another laser
+      gun option.
+  LotusLadno:
+  - bugfix: fixes entombed MODsuit theme behaving erratically and not showing the
+      right theme sometimes, and removes the role lock feature for now
+  vinylspiders:
+  - refactor: refactors mutant bodyparts backend
+  - bugfix: bodypart markings and marking sets will now inherit the appropriate mutant
+      colors when initially applied in char prefs
