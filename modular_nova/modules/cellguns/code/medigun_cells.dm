@@ -417,6 +417,7 @@
 	item_flags = parent_type::item_flags | DROPDEL
 
 /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/hardlight/dropped(mob/user)
+	user.update_held_items()
 	if(!QDELETED(src))
 		user.visible_message(span_warning("[src] disappears after being removed!"))
 	return ..()

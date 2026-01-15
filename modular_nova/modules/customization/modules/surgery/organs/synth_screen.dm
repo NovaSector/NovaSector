@@ -3,8 +3,7 @@
 	desc = "Surely that's just a bunch of LEDs and not a retro-projected screen, right? Right...?"
 	icon_state = "tonguerobot"
 
-	mutantpart_key = MUTANT_SYNTH_SCREEN
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Blank", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
+	mutantpart_key = FEATURE_SYNTH_SCREEN
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_SYNTH_SCREEN
@@ -13,7 +12,7 @@
 	use_mob_sprite_as_obj_sprite = TRUE
 
 /datum/bodypart_overlay/mutant/synth_screen
-	feature_key = MUTANT_SYNTH_SCREEN
+	feature_key = FEATURE_SYNTH_SCREEN
 	layers = EXTERNAL_FRONT_UNDER_CLOTHES
 	color_source = ORGAN_COLOR_OVERRIDE
 
@@ -21,4 +20,4 @@
 	return draw_color
 
 /datum/bodypart_overlay/mutant/synth_screen/get_global_feature_list()
-	return SSaccessories.sprite_accessories[MUTANT_SYNTH_SCREEN]
+	return SSaccessories.sprite_accessories[FEATURE_SYNTH_SCREEN]
