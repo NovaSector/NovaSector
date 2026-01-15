@@ -240,6 +240,7 @@ const GuideSection = () => {
           <span style={hereticYellow}>final ritual</span>. Complete the ritual
           to become all powerful!
         </Stack.Item>
+        {/* NOVA EDIT REMOVAL START
         <Stack.Item>
           <span style={hereticRed}>WARNING!</span>
           <br /> Accumulating a total of <b>{points_to_aura}</b>&nbsp;
@@ -255,7 +256,31 @@ const GuideSection = () => {
           <span style={hereticPurple}>Codex Cicatrix</span> will also make you
           very obvious as a heretic when draining&nbsp;
           <span style={hereticYellow}>influences</span>
+         NOVA EDIT REMOVAL END */}
+         {/* NOVA EDIT ADDITION START */}
+        <Stack.Item fontSize="14px">
+          <span style={hereticRed}>WARNING!</span>
         </Stack.Item>
+        <Stack.Item>
+          Rising your passive to a level of <b>3</b> through a
+          great <span style={hereticBlue}>ritual of knowledge</span> will begin
+          to manifest a visible aura of&nbsp;
+          <span style={hereticPurple}>mansus energy</span> around you. This aura
+          will be visible to all those around you and will mark you as a
+          heretic. Consider the risks before accumulating too much power!
+        </Stack.Item>
+        <Stack.Item>
+          Your robes will absorb this&nbsp;
+          <span style={hereticPurple}>energy</span>, hiding it, but are their
+          own identifing mark to those who wish to&nbsp;
+          <span style={hereticRed}>suppress</span> you.
+        </Stack.Item>
+        <Stack.Item>Keep in mind that using a&nbsp;
+          <span style={hereticPurple}>Codex Cicatrix</span> will also make you
+          very obvious as a heretic when draining&nbsp;
+          <span style={hereticYellow}>influences</span>.
+        </Stack.Item>
+        {/* NOVA EDIT ADDITION END */}
       </Stack>
     </Stack.Item>
   );
