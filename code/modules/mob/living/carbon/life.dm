@@ -522,9 +522,18 @@
 	if(blood_type.reagent_type != chem.type)
 		return
 
+	var/cached_blood_volume = get_blood_volume()
+
 	var/blood_transfusion_cap = (MONKEY_ORIGINS in chem.data) && chem.data[MONKEY_ORIGINS] ? BLOOD_VOLUME_NORMAL : BLOOD_VOLUME_MAXIMUM // NOVA EDIT ADDITION - Clamp the value so that being injected with monkey blood when you're past 560u doesn't do anything
 	var/blood_added = adjust_blood_volume(round(reac_volume, CHEMICAL_VOLUME_ROUNDING), maximum = blood_transfusion_cap) // NOVA EDIT CHANGE - ORIGINAL: var/blood_added = adjust_blood_volume(round(reac_volume, CHEMICAL_VOLUME_ROUNDING))
-	reagents.remove_reagent(chem.type, blood_added)
+
+	if(chem.data?[BLOOD_DATA_SYNTH_CONTENT] && !IS_BLOOD_ALWAYS_SYNTHETIC(src))
+		var/added_synth_volume = blood_added * chem.data[BLOOD_DATA_SYNTH_CONTENT]
+		var/existing_synth_volume = cached_blood_volume * get_blood_synth_content()
+
+		if (added_synth_volume != 0 || existing_synth_volume != 0)
+			// A simple weighted average that simplifies down to "total synth volume / total blood volume" i.e. "how much of our blood is synthetic"
+			AddComponent(/datum/component/synth_blood, (added_synth_volume + existing_synth_volume) / (blood_added + cached_blood_volume))
 
 	if(chem.data?["blood_type"])
 		var/datum/blood_type/donor_type = chem.data["blood_type"]
