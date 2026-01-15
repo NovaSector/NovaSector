@@ -116,3 +116,59 @@
 	floor_tile = /obj/item/stack/tile/carpet/kinaris/black/whitetrim
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_KINARIS_BLACK_WHITETRIM
 	canSmoothWith = SMOOTH_GROUP_CARPET_KINARIS_BLACK_WHITETRIM
+
+/turf/open/floor/carpet/polite
+	icon = 'modular_nova/master_files/icons/turf/floors/carpet_polite_black.dmi'
+	icon_state = "carpet_polite_black-255"
+	base_icon_state = "carpet_polite_black"
+	floor_tile = /obj/item/stack/tile/carpet/polite
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_POLITE_BLACK
+	canSmoothWith = SMOOTH_GROUP_CARPET_POLITE_BLACK
+
+/turf/open/floor/carpet/polite/red
+	icon = 'modular_nova/master_files/icons/turf/floors/carpet_polite_red.dmi'
+	icon_state = "carpet_polite_red-255"
+	base_icon_state = "carpet_polite_red"
+	floor_tile = /obj/item/stack/tile/carpet/polite/red
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_POLITE_RED
+	canSmoothWith = SMOOTH_GROUP_CARPET_POLITE_RED
+
+/turf/open/floor/carpet/polite/orange
+	icon = 'modular_nova/master_files/icons/turf/floors/carpet_polite_orange.dmi'
+	icon_state = "carpet_polite_orange-255"
+	base_icon_state = "carpet_polite_orange"
+	floor_tile = /obj/item/stack/tile/carpet/polite/orange
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_POLITE_ORANGE
+	canSmoothWith = SMOOTH_GROUP_CARPET_POLITE_ORANGE
+
+/turf/open/floor/carpet/polite/yellow
+	icon = 'modular_nova/master_files/icons/turf/floors/carpet_polite_yellow.dmi'
+	icon_state = "carpet_polite_yellow-255"
+	base_icon_state = "carpet_polite_yellow"
+	floor_tile = /obj/item/stack/tile/carpet/polite/yellow
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_POLITE_YELLOW
+	canSmoothWith = SMOOTH_GROUP_CARPET_POLITE_YELLOW
+
+/turf/open/floor/carpet/polite/green
+	icon = 'modular_nova/master_files/icons/turf/floors/carpet_polite_green.dmi'
+	icon_state = "carpet_polite_green-255"
+	base_icon_state = "carpet_polite_green"
+	floor_tile = /obj/item/stack/tile/carpet/polite/green
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_POLITE_GREEN
+	canSmoothWith = SMOOTH_GROUP_CARPET_POLITE_GREEN
+
+/turf/open/floor/carpet/polite/blue
+	icon = 'modular_nova/master_files/icons/turf/floors/carpet_polite_blue.dmi'
+	icon_state = "carpet_polite_blue-255"
+	base_icon_state = "carpet_polite_blue"
+	floor_tile = /obj/item/stack/tile/carpet/polite/blue
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_POLITE_BLUE
+	canSmoothWith = SMOOTH_GROUP_CARPET_POLITE_BLUE
+
+/turf/open/floor/carpet/polite/purple
+	icon = 'modular_nova/master_files/icons/turf/floors/carpet_polite_purple.dmi'
+	icon_state = "carpet_polite_purple-255"
+	base_icon_state = "carpet_polite_purple"
+	floor_tile = /obj/item/stack/tile/carpet/polite/purple
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_POLITE_PURPLE
+	canSmoothWith = SMOOTH_GROUP_CARPET_POLITE_PURPLE

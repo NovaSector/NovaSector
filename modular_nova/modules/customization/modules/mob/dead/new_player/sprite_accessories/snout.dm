@@ -3,7 +3,14 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi'
 	flags_for_organ = SPRITE_ACCESSORY_USE_MUZZLED_SPRITE
 	organ_type = /obj/item/organ/snout
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+		SPECIES_KOBOLD = 1,
+	)
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/is_hidden(mob/living/carbon/human/human)
@@ -13,8 +20,7 @@
 	return FALSE
 
 /obj/item/organ/snout
-	mutantpart_key = "snout"
-	mutantpart_info = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
+	mutantpart_key = FEATURE_SNOUT
 	external_bodyshapes = NONE // We don't actually want this to have  by default, since some of them don't apply that.
 
 /datum/bodypart_overlay/mutant/snout
@@ -40,9 +46,11 @@
 /obj/item/organ/snout/top
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout/top
 
+/datum/bodypart_overlay/mutant/snout/get_global_feature_list()
+	return SSaccessories.sprite_accessories[FEATURE_SNOUT]
+
 /datum/bodypart_overlay/mutant/snout/top
 	layers = EXTERNAL_FRONT
-
 
 /obj/item/organ/snout/top_adj
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout/top_adj
@@ -56,20 +64,37 @@
 	icon_state = "none"
 	flags_for_organ = NONE
 	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/snouts/mammal
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	color_src = USE_MATRIXED_COLORS
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMANOID)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMANOID = 1,
+	)
 
 /datum/sprite_accessory/snouts/mammal/vulpkanin
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_VULP, SPECIES_HUMANOID)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_VULP = 1,
+		SPECIES_HUMANOID = 1,
+	)
 
 /datum/sprite_accessory/snouts/mammal/tajaran
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_TAJARAN, SPECIES_HUMANOID)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_TAJARAN = 1,
+		SPECIES_HUMANOID = 1,
+	)
 
 /datum/sprite_accessory/snouts/mammal/akula
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_AKULA, SPECIES_AQUATIC, SPECIES_HUMANOID)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_AKULA = 1,
+		SPECIES_AQUATIC = 1,
+		SPECIES_HUMANOID = 1,
+	)
 
 /datum/sprite_accessory/snouts/mammal/bird
 	name = "Beak"

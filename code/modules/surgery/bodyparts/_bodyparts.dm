@@ -21,7 +21,6 @@
 	///The color to multiply the greyscaled husk sprites by. Can be null. Old husk sprite chest color is #A6A6A6
 	var/husk_color = "#A6A6A6"
 	layer = BELOW_MOB_LAYER //so it isn't hidden behind objects when on the floor
-	grind_results = list(/datum/reagent/bone_dust = 10, /datum/reagent/consumable/liquidgibs = 5) // robotic bodyparts and chests/heads cannot be ground
 	/// The mob that "owns" this limb
 	/// DO NOT MODIFY DIRECTLY. Use update_owner()
 	var/mob/living/carbon/owner
@@ -68,7 +67,7 @@
 	/// bitflag used to check which clothes cover this bodypart
 	var/body_part
 	/// List of obj/item's embedded inside us. Managed by embedded components, do not modify directly
-	var/list/embedded_objects = list()
+	var/list/embedded_objects
 	/// are we a hand? if so, which one!
 	var/held_index = 0
 	/// A speed modifier we apply to the owner when attached, if any. Positive numbers make it move slower, negative numbers make it move faster.
@@ -255,9 +254,7 @@
 		texture_bodypart_overlay = new texture_bodypart_overlay()
 		add_bodypart_overlay(texture_bodypart_overlay, update = FALSE)
 
-	if(!IS_ORGANIC_LIMB(src))
-		grind_results = null
-	else
+	if(IS_ORGANIC_LIMB(src))
 		blood_dna_info = list("Unknown DNA" = get_blood_type(BLOOD_TYPE_O_PLUS))
 
 	name = "[limb_id] [parse_zone(body_zone)]"
@@ -276,6 +273,7 @@
 
 	owner = null
 
+	QDEL_NULL(current_gauze)
 	QDEL_LAZYLIST(scars)
 
 	for(var/atom/movable/movable in contents)
@@ -284,6 +282,9 @@
 	QDEL_LIST_ASSOC_VAL(feature_offsets)
 
 	return ..()
+
+/obj/item/bodypart/grind_results()
+	return IS_ORGANIC_LIMB(src) ? list() : list(/datum/reagent/bone_dust = 10, /datum/reagent/consumable/liquidgibs = 5)
 
 /obj/item/bodypart/ex_act(severity, target)
 	if(owner) //trust me bro you dont want this
@@ -1042,15 +1043,16 @@
 	update_draw_color()
 
 	// NOVA EDIT ADDITION
-	var/datum/species/owner_species = human_owner.dna.species
+	var/datum/dna/owner_dna = human_owner.dna
+	var/datum/species/owner_species = owner_dna.species
 
 	if(owner_species && owner_species.specific_alpha != 255)
 		alpha = owner_species.specific_alpha
 
-	if(body_zone in owner_species.body_markings)
-		markings = LAZYCOPY(owner_species.body_markings[body_zone])
-		if(aux_zone && (aux_zone in owner_species.body_markings))
-			aux_zone_markings = LAZYCOPY(owner_species.body_markings[aux_zone])
+	if(body_zone in owner_dna.body_markings)
+		markings = LAZYCOPY(owner_dna.body_markings[body_zone])
+		if(aux_zone && (aux_zone in owner_dna.body_markings))
+			aux_zone_markings = LAZYCOPY(owner_dna.body_markings[aux_zone])
 		markings_alpha = owner_species.markings_alpha
 	else
 		markings = list()
@@ -1060,7 +1062,7 @@
 		overlay.inherit_color(src, force = TRUE)
 	// Ensures marking overlays are updated accordingly as well
 	for(var/datum/bodypart_overlay/simple/body_marking/marking in bodypart_overlays)
-		marking.set_appearance(human_owner.dna.features[marking.dna_feature_key], species_color)
+		marking.set_appearance(owner_dna.features[marking.dna_feature_key], species_color)
 
 	return TRUE
 
@@ -1248,8 +1250,7 @@
 			if (!body_marking) // Edge case prevention.
 				continue
 
-			var/render_limb_string = limb_id == "digitigrade" ? ("digitigrade_1_" + body_zone) : body_zone // I am not sure why there are _1 and _2 versions of digi, so, it's staying like this.
-
+			var/render_limb_string = limb_id == BODYPART_ID_DIGITIGRADE ? "[BODYPART_ID_DIGITIGRADE]_[body_zone]" : body_zone
 			var/gender_modifier = ""
 			if(body_zone == BODY_ZONE_CHEST) // Chest markings have male and female versions.
 				if(body_marking.gendered)
@@ -1367,14 +1368,14 @@
 	if(embed in embedded_objects) // go away
 		return
 	// We don't need to do anything with projectile embedding, because it will never reach this point
-	embedded_objects += embed
+	LAZYADD(embedded_objects, embed)
 	RegisterSignal(embed, COMSIG_ITEM_EMBEDDING_UPDATE, PROC_REF(embedded_object_changed))
 	refresh_bleed_rate()
 
 /// INTERNAL PROC, DO NOT USE
 /// Cleans up any attachment we have to the embedded object, removes it from our list
 /obj/item/bodypart/proc/_unembed_object(obj/item/unembed)
-	embedded_objects -= unembed
+	LAZYREMOVE(embedded_objects, unembed)
 	UnregisterSignal(unembed, COMSIG_ITEM_EMBEDDING_UPDATE)
 	refresh_bleed_rate()
 
@@ -1621,6 +1622,10 @@
 		return "bone"
 	if (biological_state & BIO_METAL)
 		return "metal"
+	if (biological_state & BIO_FLESH)
+		return "shreds of ligaments"
+	if (biological_state & BIO_WOOD)
+		return "splinters of poorly manufactured wood"
 
 	return "error"
 

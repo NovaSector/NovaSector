@@ -3,12 +3,10 @@
 	savefile_key = "digitigrade_legs"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	relevant_mutant_bodypart = "legs"
-
+	relevant_mutant_bodypart = FEATURE_LEGS
 
 /datum/preference/choiced/digitigrade_legs/create_default_value()
 	return NORMAL_LEGS
-
 
 /datum/preference/choiced/digitigrade_legs/init_possible_values()
 	return list(NORMAL_LEGS, DIGITIGRADE_LEGS)
@@ -26,7 +24,7 @@
  */
 /datum/preference/choiced/digitigrade_legs/proc/is_usable(datum/preferences/preferences)
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
-	var/datum/species/species = new species_type
+	var/datum/species/species = GLOB.species_prototypes[species_type]
 
 	return (savefile_key in species.get_features()) \
 		&& species.digitigrade_customization == DIGITIGRADE_OPTIONAL

@@ -357,14 +357,14 @@
 	name = "human right leg"
 	path = /obj/item/bodypart/leg/right
 
-/datum/augment_item/limb/l_leg/species/human_digi
+/datum/augment_item/limb/l_leg/species/human_digi_capable
 	name = "skintone mutant left leg"
-	path = /obj/item/bodypart/leg/left/human_digi
+	path = /obj/item/bodypart/leg/left/human_digi_capable
 	supports_digitigrade = TRUE
 
-/datum/augment_item/limb/r_leg/species/human_digi
+/datum/augment_item/limb/r_leg/species/human_digi_capable
 	name = "skintone mutant right leg"
-	path = /obj/item/bodypart/leg/right/human_digi
+	path = /obj/item/bodypart/leg/right/human_digi_capable
 	supports_digitigrade = TRUE
 
 //Ethereals

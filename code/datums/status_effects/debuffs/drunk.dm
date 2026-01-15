@@ -26,7 +26,7 @@
 /datum/status_effect/inebriated/on_creation(mob/living/new_owner, drunk_value = 0)
 	. = ..()
 	set_drunk_value(drunk_value)
-	
+
 /datum/status_effect/inebriated/get_examine_text()
 	// Dead people don't look drunk
 	if(owner.stat == DEAD || HAS_TRAIT(owner, TRAIT_FAKEDEATH))
@@ -230,22 +230,21 @@
 				carbon_owner.vomit() // Vomiting clears toxloss - consider this a blessing
 
 	// Over 81, we will gain constant toxloss
-	if(drunk_value >= 83.4)
-		owner.adjustToxLoss(1)
+	if(drunk_value >= 83.4) // NOVA EDIT CHANGE - Alcohol impairment curve smoothing - ORIGINAL: if(drunk_value >= 81)
+		owner.adjust_tox_loss(1)
 		if(owner.stat == CONSCIOUS && prob(5))
 			to_chat(owner, span_warning("Maybe you should lie down for a bit..."))
 
 	// Over 91, we gain even more toxloss, brain damage, and have a chance of dropping into a long sleep
-	if(drunk_value >= 93.4)
-		owner.adjustToxLoss(1)
-		owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.4)
+	if(drunk_value >= 93.4) // NOVA EDIT CHANGE - Alcohol impairment curve smoothing - ORIGINAL: if(drunk_value >= 91)
+		owner.adjust_tox_loss(1)
+		owner.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.4)
 		if(owner.stat == CONSCIOUS)
 			attempt_to_blackout()
 
 	// And finally, over 100 - let's be honest, you shouldn't be alive by now.
-	if(drunk_value >= 103.4)
-		owner.adjustToxLoss(2)
-	// NOVA EDIT CHANGE END - ALCOHOL_PROCESSING
+	if(drunk_value >= 103.4) // NOVA EDIT CHANGE - Alcohol impairment curve smoothing - ORIGINAL: if(drunk_value >= 101)
+		owner.adjust_tox_loss(2)
 
 /datum/status_effect/inebriated/drunk/proc/attempt_to_blackout()
 	/* NOVA EDIT REMOVAL - Blackout drunk begone

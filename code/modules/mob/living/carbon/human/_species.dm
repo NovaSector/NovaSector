@@ -65,7 +65,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	/// Use a [language holder datum][/datum/language_holder] typepath in this var.
 	/// Should never be null.
 	var/datum/language_holder/species_language_holder = /datum/language_holder/human_basic
-	var/list/list/mutant_bodyparts = list() // NOVA EDIT ADDITION - CUSTOMIZATION (typed list)
 	///The bodyparts this species uses. assoc of bodypart string - bodypart type. Make sure all the fucking entries are in or I'll skin you alive.
 	var/list/bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left,
@@ -99,7 +98,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/obj/item/organ/appendix/mutantappendix = /obj/item/organ/appendix
 
 	/// Store body marking defines. See mobs.dm for bitflags
-	//var/list/body_markings = list() // NOVA EDIT REMOVAL - We already have this defined as an assoc list
+	//var/list/body_markings = list() // NOVA EDIT REMOVAL - We already have this defined as an assoc list in dna
 
 	/// Flat modifier on all damage taken via [apply_damage][/mob/living/proc/apply_damage] (so being punched, shot, etc.)
 	/// IE: 10 = 10% less damage taken.
@@ -141,7 +140,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/list/inherent_traits = list()
 	/// List of biotypes the mob belongs to. Used by diseases.
 	var/inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	/// The type of respiration the mob is capable of doing. Used by adjustOxyLoss.
+	/// The type of respiration the mob is capable of doing. Used by adjust_oxy_loss.
 	var/inherent_respiration_type = RESPIRATION_OXYGEN
 	///List of factions the mob gain upon gaining this species.
 	var/list/inherent_factions
@@ -219,14 +218,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	for(var/species_type in subtypesof(/datum/species))
 		var/datum/species/species = GLOB.species_prototypes[species_type]
 		if(species.check_roundstart_eligible())
-			selectable_species += species.id
+			selectable_species[species.id] = TRUE // NOVA EDIT CHANGE - Make assoc for fast lookup - ORIGINAL: selectable_species += species.id
 			var/datum/language_holder/temp_holder = GLOB.prototype_language_holders[species.species_language_holder]
 			for(var/datum/language/spoken_language as anything in temp_holder.understood_languages)
 				GLOB.uncommon_roundstart_languages |= spoken_language
 
 	GLOB.uncommon_roundstart_languages -= /datum/language/common
 	if(!selectable_species.len)
-		selectable_species += SPECIES_HUMAN
+		selectable_species[SPECIES_HUMAN] = TRUE // NOVA EDIT CHANGE - ORIGINAL: selectable_species += SPECIES_HUMAN
 
 	return selectable_species
 
@@ -303,11 +302,19 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		// if we have an extra organ that before changing that the species didnt have, remove it
 		if(!new_organ)
 			if(existing_organ && (old_organ_type == existing_organ.type || replace_current))
-				existing_organ.Remove(organ_holder)
+				//existing_organ.Remove(organ_holder) // NOVA EDIT REMOVAL
+				// NOVA EDIT ADDITION START - Remove so it can be reinserted + handled in modular_nova\modules\customization\modules\mob\living\carbon\human\species.dm
+				// We basically just want to keep from removing it from mutant_bodyparts
+				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
+				if(existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key])
+					existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
+				else
+					existing_organ.Remove(organ_holder)
+				// NOVA EDIT ADDITION END
 				qdel(existing_organ)
 			continue
 
-		if(existing_organ && !disallow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
+		if(existing_organ && allow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
 			// we dont want to remove organs that were not from the old species (such as from freak surgery or prosthetics)
 			if(existing_organ.type != old_organ_type && !replace_current)
 				continue
@@ -360,8 +367,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
  * Normalizes blood in a human if it is excessive. If it is above BLOOD_VOLUME_NORMAL, this will clamp it to that value. It will not give the human more blodo than they have less than this value.
  */
 /datum/species/proc/normalize_blood(mob/living/carbon/human/blood_possessing_human)
-	var/normalized_blood_values = max(blood_possessing_human.blood_volume, 0, BLOOD_VOLUME_NORMAL)
-	blood_possessing_human.blood_volume = normalized_blood_values
+	blood_possessing_human.set_blood_volume(min(blood_possessing_human.get_blood_volume(), BLOOD_VOLUME_NORMAL))
 
 /**
  * Proc called when a carbon becomes this species.
@@ -474,7 +480,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	clear_tail_moodlets(human)
 
-	remove_body_markings(human)
+	//remove_body_markings(human) // NOVA EDIT REMOVAL - We do this differently
 
 	// Removes all languages previously associated with [LANGUAGE_SPECIES], gaining our new species will add new ones back
 	var/datum/language_holder/losing_holder = GLOB.prototype_language_holders[species_language_holder]
@@ -555,7 +561,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/spec_life(mob/living/carbon/human/H, seconds_per_tick, times_fired)
 	SHOULD_CALL_PARENT(TRUE)
 	if(HAS_TRAIT(H, TRAIT_NOBREATH) && (H.health < H.crit_threshold) && !HAS_TRAIT(H, TRAIT_NOCRITDAMAGE))
-		H.adjustBruteLoss(0.5 * seconds_per_tick)
+		H.adjust_brute_loss(0.5 * seconds_per_tick)
 
 /datum/species/proc/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
 	if(no_equip_flags & slot && !(I.is_mod_shell_component() && (modsuit_slot_exceptions & slot))) // NOVA EDIT ADDITION - ORIGINAL: if(no_equip_flags & slot)
@@ -844,10 +850,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		limb_accuracy = floor(limb_accuracy * pummel_bonus)
 
 	//Get our puncher's combined brute and burn damage.
-	var/puncher_brute_and_burn = (user.getFireLoss() + user.getBruteLoss())
+	var/puncher_brute_and_burn = (user.get_fire_loss() + user.get_brute_loss())
 
 	//Get our targets combined brute and burn damage.
-	var/target_brute_and_burn = (target.getFireLoss() + target.getBruteLoss())
+	var/target_brute_and_burn = (target.get_fire_loss() + target.get_brute_loss())
 
 	// In a brawl, drunkenness can make you swing more wildly and with more force, and thus catch your opponent off guard, but it could also totally throw you off if you're too intoxicated
 	// But god is it going to make you sick moving too much while drunk
@@ -1263,7 +1269,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		humi.apply_damage(burn_damage, BURN, spread_damage = TRUE, wound_clothing = FALSE)
 
 	// For cold damage, we cap at the threshold if you're dead
-	if(humi.getFireLoss() >= abs(HEALTH_THRESHOLD_DEAD) && humi.stat == DEAD)
+	if(humi.get_fire_loss() >= abs(HEALTH_THRESHOLD_DEAD) && humi.stat == DEAD)
 		return
 
 	// Apply some burn / brute damage to the body (Dependent if the person is hulk or not)
@@ -1344,7 +1350,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				H.clear_alert(ALERT_PRESSURE)
 			else
 				var/pressure_damage = min(((adjusted_pressure / HAZARD_HIGH_PRESSURE) - 1) * PRESSURE_DAMAGE_COEFFICIENT, MAX_HIGH_PRESSURE_DAMAGE) * H.physiology.pressure_mod * H.physiology.brute_mod * seconds_per_tick
-				H.adjustBruteLoss(pressure_damage, required_bodytype = BODYTYPE_ORGANIC)
+				H.adjust_brute_loss(pressure_damage, required_bodytype = BODYTYPE_ORGANIC)
 				H.throw_alert(ALERT_PRESSURE, /atom/movable/screen/alert/highpressure, 2)
 
 		// High pressure, show an alert
@@ -1370,7 +1376,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				H.clear_alert(ALERT_PRESSURE)
 			else
 				var/pressure_damage = LOW_PRESSURE_DAMAGE * H.physiology.pressure_mod * H.physiology.brute_mod * seconds_per_tick
-				H.adjustBruteLoss(pressure_damage, required_bodytype = BODYTYPE_ORGANIC)
+				H.adjust_brute_loss(pressure_damage, required_bodytype = BODYTYPE_ORGANIC)
 				H.throw_alert(ALERT_PRESSURE, /atom/movable/screen/alert/lowpressure, 2)
 
 /**
@@ -1379,8 +1385,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/handle_gas_interaction(mob/living/carbon/human/human, datum/gas_mixture/environment, seconds_per_tick, times_fired)
 	/// Some non-clothing items may end up in these slots, e.g. flowers worn on the head, so we should consider clothing_flags as potentially nonexistant as a var.
 	/// Otherwise we will get a very spammy runtime.
-	var/suit_flags = istype(human?.wear_suit, /obj/item/clothing) ? human.wear_suit.clothing_flags : NONE
-	var/head_flags = istype(human?.head, /obj/item/clothing) ? human.head.clothing_flags : NONE
+	var/suit_flags = astype(human?.wear_suit, /obj/item/clothing)?.clothing_flags
+	var/head_flags = astype(human?.head, /obj/item/clothing)?.clothing_flags
 
 	if((suit_flags & STOPSPRESSUREDAMAGE) && (head_flags & STOPSPRESSUREDAMAGE))
 		return
@@ -1999,12 +2005,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	// NOVA EDIT ADDITION START - Synth digitigrade sanitization
 	var/ignore_digi = FALSE // You can jack into this var with other checks, if you want.
 	if(issynthetic(target))
-		var/list/chassis = target.dna.mutant_bodyparts[MUTANT_SYNTH_CHASSIS]
+		var/datum/mutant_bodypart/chassis = target.dna.mutant_bodyparts[FEATURE_SYNTH_CHASSIS]
 		if(chassis)
-			var/list/chassis_accessory = SSaccessories.sprite_accessories[MUTANT_SYNTH_CHASSIS]
+			var/list/chassis_accessory = SSaccessories.sprite_accessories[FEATURE_SYNTH_CHASSIS]
 			var/datum/sprite_accessory/synth_chassis/body_choice
 			if(chassis_accessory)
-				body_choice = chassis_accessory[chassis[MUTANT_INDEX_NAME]]
+				body_choice = chassis_accessory[chassis.name]
 			if(body_choice && !body_choice.is_digi_compatible)
 				ignore_digi = TRUE
 	// NOVA EDIT END

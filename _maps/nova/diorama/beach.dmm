@@ -114,7 +114,7 @@
 /obj/structure/sign/plaques/kiddie/diorama/beach{
 	pixel_y = 8
 	},
-/turf/template_noop,
+/turf/closed/wall,
 /area/template_noop)
 "x" = (
 /obj/effect/light_emitter/interlink,

@@ -489,16 +489,14 @@
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
 "pi" = (
-/obj/structure/sign/map/left{
-	desc = "A framed picture of the station. Clockwise from security at the top (red), you see engineering (yellow), science (purple), escape (red and white), medbay (green), arrivals (blue and white), and finally cargo (brown).";
-	icon_state = "map-left-MS";
-	pixel_y = -32
-	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/sign/map/meta/left{
+	pixel_y = -32
+	},
 /turf/open/floor/iron/white/corner,
 /area/station/hallway/secondary/entry)
 "pt" = (
@@ -842,11 +840,6 @@
 /turf/closed/wall,
 /area/station/hallway/secondary/entry)
 "ys" = (
-/obj/structure/sign/map/right{
-	desc = "A framed picture of the station. Clockwise from security at the top (red), you see engineering (yellow), science (purple), escape (red and white), medbay (green), arrivals (blue and white), and finally cargo (brown).";
-	icon_state = "map-right-MS";
-	pixel_y = -32
-	},
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -858,6 +851,9 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/structure/sign/map/meta/right{
+	pixel_y = -32
+	},
 /turf/open/floor/iron/white/corner,
 /area/station/hallway/secondary/entry)
 "yz" = (
@@ -1672,7 +1668,8 @@
 /obj/structure/sign/map/right{
 	desc = "A framed picture of the station. Clockwise from security at the top (red), you see engineering (yellow), science (purple), escape (red and white), medbay (green), arrivals (blue and white), and finally cargo (brown).";
 	icon_state = "map-right-MS";
-	pixel_y = 32
+	pixel_y = 32;
+	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -2026,7 +2023,8 @@
 /obj/structure/sign/map/left{
 	desc = "A framed picture of the station. Clockwise from security at the top (red), you see engineering (yellow), science (purple), escape (red and white), medbay (green), arrivals (blue and white), and finally cargo (brown).";
 	icon_state = "map-left-MS";
-	pixel_y = 32
+	pixel_y = 32;
+	dir = 1
 	},
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1

@@ -54,7 +54,7 @@
 	/obj/item/mod/control/pre_equipped/magnate, \
 	/obj/item/mod/control/pre_equipped/blueshield, \
 	/obj/item/clothing/suit/armor/vest/warden, \
-	/obj/item/clothing/gloves/krav_maga/sec, \
+	/obj/item/clothing/gloves/kaza_ruk/sec, \
 	/obj/item/clothing/suit/armor/vest/alt/sec, \
 	/obj/item/storage/belt/holster/detective/full, \
 	/obj/item/detective_scanner, \

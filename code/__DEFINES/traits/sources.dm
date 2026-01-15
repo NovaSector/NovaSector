@@ -30,6 +30,8 @@
 #define PERSONALITY_TRAIT "personality_trait"
 /// (B)admins only.
 #define ADMIN_TRAIT "admin"
+/// Traits that were granted via modify_traits in vv or the mass_modify_traits verb
+#define TRAIT_ADMIN_GRANTED "adminabuse"
 /// Any traits given through a smite.
 #define SMITE_TRAIT "smite"
 #define CHANGELING_TRAIT "changeling"
@@ -327,3 +329,6 @@
 
 /// Permanent trait from an overdose effect
 #define OVERDOSE_TRAIT "overdose"
+
+/// Trait gained by a guardian who is recalled
+#define GUARDIAN_RECALLED "guardian_recalled"

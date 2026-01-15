@@ -8,6 +8,8 @@
 		/obj/item/clothing/under/rank/medical/scrubs/nova/red = 4,
 		/obj/item/clothing/under/rank/medical/scrubs/nova/white = 4,
 		/obj/item/clothing/under/rank/medical/doctor/nova/utility = 4,
+		/obj/item/clothing/under/rank/medical/doctor/nurse = 4,
+		/obj/item/clothing/under/rank/medical/doctor/nurse/seriouser = 4,
 		/obj/item/clothing/suit/toggle/labcoat/medical = 4,
 		/obj/item/storage/backpack/messenger/med = 4,
 	)
@@ -188,6 +190,9 @@
 	)
 
 /obj/machinery/vending/wardrobe/jani_wardrobe
+	products_nova = list(
+		/obj/item/clothing/shoes/galoshes/heeled = 3,
+	)
 	premium_nova = list(/obj/item/disk/nifsoft_uploader/job/summoner/service = 2, /obj/item/flatpack/trash_compactor = 1)
 
 /obj/machinery/vending/

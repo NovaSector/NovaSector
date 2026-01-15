@@ -3,13 +3,7 @@
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/forest = 1)
 	flora_spawn_chance = 25
 	smoothing_iterations = 15
-
-	mob_spawn_chance = 0.75
-
-	weighted_mob_spawn_list = list(
-		/mob/living/basic/deer/mining = 50,
-		/mob/living/basic/mining/megadeer = 15,
-	)
+	mob_spawn_chance = 0
 
 	weighted_flora_spawn_list = list(
 		/obj/structure/flora/ash/fireblossom = 2,

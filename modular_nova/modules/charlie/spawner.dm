@@ -1,8 +1,8 @@
 /obj/effect/mob_spawn/ghost_role/human/oldstation/sec
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /obj/effect/mob_spawn/ghost_role/human/oldstation/eng
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /obj/effect/mob_spawn/ghost_role/human/oldstation/sci
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE

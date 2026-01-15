@@ -80,4 +80,4 @@
 /datum/surgery_step/finalize_restart/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, fail_prob)
 	. = ..()
 
-	target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 130)
+	target.adjust_organ_loss(ORGAN_SLOT_BRAIN, 5, 130)

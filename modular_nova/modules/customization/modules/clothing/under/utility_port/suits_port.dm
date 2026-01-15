@@ -129,7 +129,7 @@
 	name = "bridge officer's jacket"
 	desc = "It's a blue and silver jacket indicating that of a \"Bridge Officer\"."
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/bridge_officer"
-	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
+	greyscale_colors = "#41579a#eae3ce#ffffff#4d4d4d"
 	flags_1 = null
 
 /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/interdyne

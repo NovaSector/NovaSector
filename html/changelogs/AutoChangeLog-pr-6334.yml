@@ -1,7 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - rscadd: "The designs for 10mm \"downer\" ammunition, specifically for incapacitating and not killing living targets, are now being flashed onto advanced lethal variant modules around the Frontier, including those of Gorlex Marauder manufacture and issue. Downer ammunition is nonlethal, inflicts a hefty chunk of stamina damage, and conditionally makes exhausted targets sleep."
-  - balance: "Following a series of complaints from contractors, the Syndicate has updated the standard loadouts issued to their drifting contractors, who now receive a proper medkit, a box of tools, and a real, actual firearm (the Ansem/SC, loaded with 10mm Downer by default)."
-  - balance: "Drifting contractors' random item pools have been trimmed down a lot, and now only receive 2 items instead of 3."
-  - balance: "The contractor MOD as issued to contractors of both drifting and non-drifting varieties now has flash protection, hearing protection, and night-vision suites comparable to their less-stealthy bretheren. Drifting contractors also receive a thermal visor."

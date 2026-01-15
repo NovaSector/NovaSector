@@ -209,7 +209,7 @@ GLOBAL_LIST_EMPTY(raptor_population)
 
 /mob/living/basic/raptor/proc/add_breeding_component()
 	var/static/list/partner_types = typecacheof(list(/mob/living/basic/raptor))
-	var/static/list/baby_types = list(/obj/item/food/egg = 1) ///raptor_egg = 1)
+	var/static/list/baby_types = list(/obj/item/food/egg/raptor_egg = 1)
 	AddComponent(\
 		/datum/component/breed, \
 		can_breed_with = partner_types, \
@@ -280,7 +280,7 @@ GLOBAL_LIST_EMPTY(raptor_population)
 		return partner.raptor_color.guaranteed_crossbreeds[raptor_color.type]
 
 	// We've got all the colors in our family tree and aren't rolling a guarantee, bingo
-	if (length(inherited_stats.parent_colors | partner.inherited_stats.parent_colors | raptor_color.type | partner.raptor_color.type) == length(GLOB.raptor_colors))
+	if (length(inherited_stats.parent_colors | partner.inherited_stats.parent_colors | raptor_color.type | partner.raptor_color.type) >= (length(GLOB.raptor_colors) - 1))
 		return /datum/raptor_color/black
 
 	var/list/prob_list = list()

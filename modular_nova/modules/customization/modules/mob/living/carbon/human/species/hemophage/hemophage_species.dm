@@ -25,14 +25,13 @@
 	examine_limb_id = SPECIES_HUMAN
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 
-
 /datum/species/hemophage/allows_food_preferences()
 	return FALSE
 
 
 /datum/species/hemophage/get_default_mutant_bodyparts()
 	return list(
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 

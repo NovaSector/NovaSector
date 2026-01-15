@@ -192,7 +192,7 @@
 	new /obj/effect/temp_visual/explosion/fast(get_turf(defender))
 	defender.throw_at(throw_target, 2, 7, attacker)
 	defender.apply_damage(attacker == defender ? 20 : 10, attacker.get_attack_type())
-	defender.adjustStaminaLoss(10)
+	defender.adjust_stamina_loss(10)
 
 	var/obj/item/bodypart/arm/active_arm = attacker.get_active_hand()
 	var/mob/living/carbon/carbon_attacker = attacker

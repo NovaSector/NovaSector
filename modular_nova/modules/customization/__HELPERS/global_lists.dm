@@ -28,15 +28,16 @@
 
 /proc/make_default_mutant_bodypart_references()
 	// Build the global list for default species' mutant_bodyparts
-	for(var/path in subtypesof(/datum/species))
-		var/datum/species/species_type = path
-		var/datum/species/species_instance = new species_type
-		if(!isnull(species_instance.name))
-			GLOB.default_mutant_bodyparts[species_instance.name] = species_instance.get_default_mutant_bodyparts()
-			if(species_instance.can_have_genitals)
-				for(var/genital in GLOB.possible_genitals)
-					GLOB.default_mutant_bodyparts[species_instance.name] += list((genital) = list("None", FALSE))
-		qdel(species_instance)
+	for(var/species_path in subtypesof(/datum/species))
+		var/datum/species/species = GLOB.species_prototypes[species_path]
+		if(isnull(species.name))
+			continue
+
+		var/list/default_parts = species.get_default_mutant_bodyparts()
+		if(!islist(default_parts))
+			continue
+
+		GLOB.default_mutant_bodyparts[species.name] = default_parts
 
 /proc/make_body_marking_references()
 	// Here we build the global list for all body markings

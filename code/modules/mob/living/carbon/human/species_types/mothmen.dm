@@ -12,7 +12,6 @@
 		/obj/item/organ/antennae = "Plain",
 	)
 	*/ // NOVA EDIT REMOVAL END
-	mutant_bodyparts = list("moth_markings" = "None") // NOVA EDIT ADDITION - Customization
 	meat = /obj/item/food/meat/slab/human/mutant/moth
 	mutanttongue = /obj/item/organ/tongue/moth
 	mutanteyes = /obj/item/organ/eyes/moth
@@ -48,7 +47,7 @@
 
 /datum/species/moth/randomize_features()
 	var/list/features = ..()
-	features[FEATURE_MOTH_MARKINGS] = pick(SSaccessories.moth_wings_list) // NOVA EDIT CHANGE - ORIGINAL: features[FEATURE_MOTH_MARKINGS] = pick(SSaccessories.moth_markings_list)
+	features[FEATURE_MOTH_MARKINGS] = pick(SSaccessories.feature_list[FEATURE_MOTH_MARKINGS])
 	return features
 
 /datum/species/moth/get_scream_sound(mob/living/carbon/human/moth)

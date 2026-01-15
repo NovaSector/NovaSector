@@ -1,10 +1,8 @@
 /obj/item/organ/head_accessory
 	name = "head accessory"
 	desc = "It goes on the head."
-	icon_state = "random_fly_1"
 
-	mutantpart_key = "head_accessory"
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Sylveon Head Bow", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // Change the default here whenever we get something else than this donator-only one.
+	mutantpart_key = FEATURE_HEAD_ACCESSORY
 
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_EXTERNAL_HEAD_ACCESSORY
@@ -13,7 +11,7 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/head_accessory
 
 /datum/bodypart_overlay/mutant/head_accessory
-	feature_key = "head_accessory"
+	feature_key = FEATURE_HEAD_ACCESSORY
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
 	color_source = ORGAN_COLOR_OVERRIDE
 

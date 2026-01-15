@@ -132,7 +132,7 @@
 		victim.blood_volume = clamp(victim.blood_volume - drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
 
 	else
-		if(!victim.transfer_blood_to(stomach_reference, drained_blood, forced = TRUE))
+		if(!victim.transfer_blood_to(stomach_reference, drained_blood, ignore_low_blood = TRUE))
 			victim.blood_volume = clamp(victim.blood_volume - drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
 	hemophage.blood_volume = clamp(hemophage.blood_volume + (drained_blood * drained_multiplier), 0, BLOOD_VOLUME_MAXIMUM)
 

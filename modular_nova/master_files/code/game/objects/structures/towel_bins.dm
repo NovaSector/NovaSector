@@ -18,6 +18,7 @@
 	amount = 0
 	icon_state = "linenbin-empty"
 	anchored = FALSE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 
 /obj/structure/towel_bin/examine(mob/user)

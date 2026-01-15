@@ -542,7 +542,7 @@
 
 /obj/item/storage/box/colonial_rations
 	name = "foreign colonization ration"
-	desc = "A freshly printed civilian MRE, or more specifically a lunchtime food package, for use in the early colonization times by the first settlers of what is now known as the NRI. <br>\
+	desc = "A freshly printed civilian MRE, or more specifically a lunchtime food package, for use in the early colonization times by the first settlers of what is now known as the HC. <br>\
 		The lack of any imprinted dates, as well as its origin, <i>the food replicator</i>, should probably give you a good enough hint at its short, if reasonable, expiry time."
 	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
 	icon_state = "mre_package"

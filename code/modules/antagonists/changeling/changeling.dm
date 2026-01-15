@@ -144,6 +144,7 @@
 	RegisterSignal(living_mob, COMSIG_MOB_GET_STATUS_TAB_ITEMS, PROC_REF(get_status_tab_item))
 	RegisterSignals(living_mob, list(COMSIG_MOB_MIDDLECLICKON, COMSIG_MOB_ALTCLICKON), PROC_REF(on_click_sting))
 	ADD_TRAIT(living_mob, TRAIT_FAKE_SOULLESS, CHANGELING_TRAIT)
+	ADD_TRAIT(living_mob, TRAIT_BRAINLESS_CARBON, CHANGELING_TRAIT)
 
 	if(living_mob.hud_used)
 		var/datum/hud/hud_used = living_mob.hud_used
@@ -203,6 +204,7 @@
 	handle_clown_mutation(living_mob, removing = FALSE)
 	UnregisterSignal(living_mob, list(COMSIG_MOB_LOGIN, COMSIG_LIVING_LIFE, COMSIG_LIVING_POST_FULLY_HEAL, COMSIG_MOB_GET_STATUS_TAB_ITEMS, COMSIG_MOB_MIDDLECLICKON, COMSIG_MOB_ALTCLICKON))
 	REMOVE_TRAIT(living_mob, TRAIT_FAKE_SOULLESS, CHANGELING_TRAIT)
+	REMOVE_TRAIT(living_mob, TRAIT_BRAINLESS_CARBON, CHANGELING_TRAIT)
 
 	if(living_mob.hud_used)
 		var/datum/hud/hud_used = living_mob.hud_used
@@ -798,7 +800,7 @@
 	user.socks_color = chosen_profile.socks_color
 	user.bra_color = chosen_profile.bra_color
 	user.emissive_eyes = chosen_profile.emissive_eyes
-	user.dna.mutant_bodyparts = chosen_dna.mutant_bodyparts.Copy()
+	user.dna.mutant_bodyparts = LAZYCOPY(chosen_dna.mutant_bodyparts)
 	user.dna.body_markings = chosen_dna.body_markings.Copy()
 
 	qdel(user.selected_scream)

@@ -4,6 +4,7 @@
 	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi'
 	icon_state = "archery_target"
 	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 4)
 
 /datum/crafting_recipe/archery_target
 

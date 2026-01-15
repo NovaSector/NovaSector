@@ -228,6 +228,12 @@
 /obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
+"xW" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/engineering/material_rare,
+/obj/effect/spawner/random/entertainment/money_large,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
 "yN" = (
 /obj/structure/table,
 /obj/item/paper,
@@ -247,7 +253,7 @@
 /area/ruin/space/has_grav/powered)
 "Bf" = (
 /obj/structure/table/reinforced,
-/obj/item/circular_saw/alien,
+/obj/effect/spawner/random/medical/surgery_tool_alien,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Cv" = (
@@ -329,10 +335,8 @@
 /area/ruin/space/has_grav/powered)
 "GV" = (
 /obj/structure/table,
-/obj/item/scalpel/advanced,
-/obj/item/retractor/advanced{
-	pixel_y = 3
-	},
+/obj/effect/spawner/random/medical/surgery_tool_advanced,
+/obj/effect/spawner/random/medical/surgery_tool_advanced,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Hb" = (
@@ -363,10 +367,13 @@
 /area/ruin/space/has_grav/powered)
 "IG" = (
 /obj/structure/closet/crate/secure/syndicrate,
-/obj/item/stack/spacecash/c10000,
 /obj/item/mod/control/pre_equipped/empty/syndicate,
 /obj/item/mod/module/clamp,
 /obj/item/mod/module/storage/syndicate,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Kn" = (
@@ -1045,7 +1052,7 @@ Mr
 qT
 qT
 Mr
-eL
+xW
 vf
 kl
 Kn

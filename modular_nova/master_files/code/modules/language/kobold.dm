@@ -1,7 +1,7 @@
 /datum/language/kobold
 	name = "Kobold"
 	desc = "Yip yip."
-	key = "k"
+	key = "O"
 	space_chance = 100
 	sentence_chance = 100
 	between_word_sentence_chance = 10

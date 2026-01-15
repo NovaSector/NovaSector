@@ -659,7 +659,7 @@
 			f = user.filters[start+i]
 			animate(f, offset=f:offset, time=0, loop=3, flags=ANIMATION_PARALLEL)
 			animate(offset=f:offset-1, time=rand()*20+10)
-		if (do_after(user, 5 SECONDS, target=user) && user.cell.use(activationCost))
+		if (do_after(user, 5 SECONDS, target=user) && (!activationCost || user.cell.use(activationCost)))
 			playsound(src, 'sound/effects/bamf.ogg', 100, TRUE, -6)
 			to_chat(user, span_notice("You are now disguised."))
 			activate(user)
@@ -696,7 +696,7 @@
 	return TRUE
 
 /obj/item/borg_shapeshifter/process()
-	if (user && !user.cell?.use(activationUpkeep))
+	if (user && activationUpkeep && !user.cell?.use(activationUpkeep))
 		disrupt(user)
 	else
 		return PROCESS_KILL
@@ -752,3 +752,39 @@
 	if(active)
 		to_chat(user, span_danger("Your chameleon field deactivates."))
 		deactivate(user)
+
+/obj/item/borg/apparatus/sheet_manipulator/chemistry
+	name = "material manipulation apparatus"
+	desc = "An apparatus for carrying, deploying, and manipulating sheets of material used in advanced chemistry operations."
+	icon_state = "borg_stack_apparatus"
+	storable = list(
+		/obj/item/stack/sheet,
+	) // technically can store any sheet, but it's meant for chemistry materials primarily.
+
+/obj/item/construction/rld/cyborg
+	name = "cyborg rapid-light-device"
+	desc = "A device used to rapidly provide lighting sources to an area. Runs off a cyborg's internal power supply"
+	/// The multiplier that determines the energy use for each use. Same as the cost for a borg RCD
+	var/energy_factor = /obj/item/construction/rcd/borg::energyfactor
+
+/obj/item/construction/rld/cyborg/get_matter(mob/user)
+	if(!iscyborg(user))
+		return 0
+	var/mob/living/silicon/robot/borgy = user
+	if(!borgy.cell)
+		return 0
+	max_matter = borgy.cell.maxcharge
+	return borgy.cell.charge
+
+/obj/item/construction/rld/cyborg/useResource(amount, mob/user)
+	if(!iscyborg(user))
+		return 0
+	var/mob/living/silicon/robot/borgy = user
+	if(!borgy.cell)
+		if(user)
+			balloon_alert(user, "no cell found!")
+		return 0
+	. = borgy.cell.use(amount * energy_factor)
+	if(!. && user)
+		balloon_alert(user, "insufficient charge!")
+	return .

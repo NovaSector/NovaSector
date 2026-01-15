@@ -67,7 +67,6 @@
 /obj/item/storage/medkit/regular,
 /obj/structure/decorative/shelf,
 /obj/item/storage/medkit/surgery,
-/obj/item/clothing/neck/stethoscope,
 /turf/open/floor/wood/large,
 /area/ruin/powered/hermit)
 "lm" = (
@@ -267,11 +266,11 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/powered/hermit)
 "PT" = (
-/obj/structure/safe/floor,
 /obj/item/flatpacked_machine/wind_turbine,
 /obj/item/flatpacked_machine/wind_turbine,
 /obj/item/pipe_dispenser,
 /obj/item/circuitboard/machine/autolathe,
+/obj/structure/decorative/shelf,
 /turf/open/floor/wood/large,
 /area/ruin/powered/hermit)
 "Rd" = (

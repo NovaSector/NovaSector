@@ -59,6 +59,10 @@
 	. = ..()
 	robot = loc
 	if(!istype(robot))
+		// NOVA EDIT ADDITION START - Disguise picker needs to be able to temporarily spawn models, to copy their appearance. No modules needed
+		if(isnull(robot))
+			return
+		// NOVA EDIT ADDITION END
 		stack_trace("Robot model ([src]) initialized outside of a robot at [AREACOORD(robot)]! \
 			This should never happen, make sure this item is not map-placed.")
 		return INITIALIZE_HINT_QDEL
@@ -202,7 +206,7 @@
 	if(!istype(charger))
 		return
 
-	var/datum/component/material_container/mat_container = charger.materials.mat_container
+	var/datum/material_container/mat_container = charger.materials.mat_container
 	if(!mat_container || charger.materials.on_hold())
 		charger.sendmats = FALSE
 		return
@@ -431,6 +435,8 @@
 		/obj/item/stack/rods/cyborg,
 		/obj/item/lightreplacer, // NOVA EDIT ADDITION - Surprised Engie borgs don't get these
 		/obj/item/construction/rtd/borg,
+		/obj/item/storage/part_replacer, // NOVA EDIT ADDITION - Borgs start with a basic RPD.
+		/obj/item/borg/apparatus/engineering, // NOVA EDIT ADDITION - Borgs start with one gripper, upgrade adds a second like mediborg beakers
 		/obj/item/stack/cable_coil,
 		/obj/item/airlock_painter/decal/cyborg,
 	)

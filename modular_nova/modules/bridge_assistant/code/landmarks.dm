@@ -1,3 +1,4 @@
 /obj/effect/landmark/start/bridge_officer
 	name = JOB_BRIDGE_ASSISTANT
-	icon_state = "Head of Personnel"
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
+	icon_state = "Bridge Officer"

@@ -101,6 +101,24 @@
 		borg.model.basic_modules += HA
 		borg.model.add_module(HA, FALSE, TRUE)
 
+/obj/item/borg/upgrade/autopsy_scanner
+	name = "medical cyborg autopsy scanner"
+	desc = "An upgrade to the Medical model cyborg's surgery loadout, adding an autopsy scanner."
+	icon_state = "module_medical"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/medical)
+	model_flags = BORG_MODEL_MEDICAL
+	items_to_add = list(/obj/item/autopsy_scanner)
+
+/obj/item/borg/upgrade/chemistrygripper
+	name = "medical cyborg chemistry gripper"
+	desc = "An upgrade to the Medical model cyborg's loadout, adding a material gripper to allow handling of materials related to advanced chemistry."
+	icon_state = "module_medical"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/medical)
+	model_flags = BORG_MODEL_MEDICAL
+	items_to_add = list(/obj/item/borg/apparatus/sheet_manipulator/chemistry)
+
 /*
 *	ADVANCED ENGINEERING CYBORG UPGRADES
 */
@@ -164,6 +182,27 @@
 		qdel(plasteel_energy)
 	for(var/datum/robot_energy_storage/titanium/titanium_energy in borgo.model.storages)
 		qdel(titanium_energy)
+
+//Bluespace RPED
+/obj/item/borg/upgrade/brped
+	name = "cyborg rapid part exchange device upgrade"
+	desc = "An upgrade to the cyborg's standard RPED."
+	icon_state = "module_engineer"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/engineering)
+	model_flags = BORG_MODEL_ENGINEERING
+	items_to_add = list(/obj/item/storage/part_replacer/bluespace)
+	items_to_remove = list(/obj/item/storage/part_replacer)
+
+// Engiborg RLD
+/obj/item/borg/upgrade/rld
+	name = "engineering cyborg rapid lighting device upgrade"
+	desc = "An upgrade to allow a cyborg to use a Rapid Lighting Device."
+	icon_state = "module_engineer"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/engineering)
+	model_flags = BORG_MODEL_ENGINEERING
+	items_to_add = list(/obj/item/construction/rld/cyborg)
 
 /*
 *	ADVANCED MINING CYBORG UPGRADES
@@ -246,7 +285,6 @@
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_CARGO,
 	)
-
 
 /obj/item/borg/upgrade/better_clamp
 	name = "improved integrated hydraulic clamp"
@@ -435,9 +473,8 @@
 	icon_state = "module_illegal"
 	new_model = /obj/item/robot_model/syndicatejack
 
-/obj/item/borg/upgrade/transform/syndicatejack/action(mob/living/silicon/robot/cyborg, user = usr) // Only usable on emagged cyborgs. In exchange. makes you unable to get locked down or detonated.
-	if(cyborg.emagged)
-		return ..()
+/obj/item/borg/upgrade/transform/syndicatejack/marauder
+	new_model = /obj/item/robot_model/syndicatejack/marauder
 
 /// Dominatrix time
 /obj/item/borg/upgrade/dominatrixmodule

@@ -248,6 +248,7 @@
 	stack_amount = 2
 	destroyed_stack_amount = 0
 	can_wire = FALSE
+	custom_materials = list(/datum/material/snow = SHEET_MATERIAL_AMOUNT * 2)
 
 /*----------------------*/
 // GUARD RAIL
@@ -264,6 +265,7 @@
 	barricade_type = "railing"
 	pass_flags_self = PASSSTRUCTURE
 	can_wire = FALSE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /datum/armor/deployable_barricade_guardrail
 	melee = 35
@@ -294,6 +296,7 @@
 	can_change_dmg_state = FALSE
 	barricade_type = "wooden"
 	can_wire = FALSE
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5)
 
 /obj/structure/deployable_barricade/wooden/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
@@ -353,6 +356,7 @@
 	var/repair_amount = 2
 	/// Can we be upgraded?
 	var/can_upgrade = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /datum/armor/deployable_barricade_metal
 	bio = 80
@@ -672,6 +676,7 @@
 	var/linked = FALSE
 	///Open/close delay, for customisation. And because I was asked to - won't customise anything myself.
 	var/toggle_delay = 2 SECONDS
+	custom_materials = list(/datum/material/alloy/plasteel = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/structure/deployable_barricade/metal/plasteel/crowbar_act(mob/living/user, obj/item/I)
 	switch(build_state)

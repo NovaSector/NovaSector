@@ -118,7 +118,6 @@
 	light_range = LIGHT_FIRE_BLOSSOM
 	light_power = LIGHT_FIRE_BLOSSOM
 	light_color = COLOR_RED_LIGHT
-	product_types = list(/obj/item/food/grown/ash_flora/lightshroom = 1)
 	harvested_name = "lightshroom stems"
 	harvested_desc = "A few lightshroom stems, missing their caps."
 	harvest_amount_high = 3
@@ -128,6 +127,9 @@
 	regrowth_time_low = 2500
 	regrowth_time_high = 4000
 	number_of_variants = 1
+
+/obj/structure/flora/ash/lightshroom/get_potential_products()
+	return list(/obj/item/food/grown/ash_flora/lightshroom = 1)
 
 /obj/structure/flora/ash/lightshroom/after_harvest()
 	set_light_power(LIGHT_RANGE_FIRE_BLOSSOM_HARVESTED)
@@ -145,13 +147,17 @@
 	icon_state = "blue_mushroom1"
 	base_icon_state = "blue_mushroom"
 	light_color = COLOR_BIOLUMINESCENCE_BLUE
-	product_types = list(/obj/item/food/grown/ash_flora/lightshroom/blue = 1)
+
+/obj/structure/flora/ash/lightshroom/blue/get_potential_products()
+	return list(/obj/item/food/grown/ash_flora/lightshroom/blue = 1)
 
 /obj/structure/flora/ash/lightshroom/green
 	icon_state = "green_mushroom1"
 	base_icon_state = "green_mushroom"
 	light_color = COLOR_BIOLUMINESCENCE_GREEN
-	product_types = list(/obj/item/food/grown/ash_flora/lightshroom/green = 1)
+
+/obj/structure/flora/ash/lightshroom/green/get_potential_products()
+	return list(/obj/item/food/grown/ash_flora/lightshroom/green = 1)
 
 /obj/item/food/grown/ash_flora/lightshroom
 	name = "red lightshroom"

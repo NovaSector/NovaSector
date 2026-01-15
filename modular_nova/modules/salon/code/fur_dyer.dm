@@ -45,12 +45,12 @@
 		to_chat(user, span_danger("A red light blinks!"))
 		return
 
-	var/selected_color = input(
+	var/selected_color = tgui_color_picker(
 			user,
 			"Select marking color",
 			null,
 			COLOR_WHITE,
-		) as color | null
+		)
 
 	if(!selected_color)
 		return
@@ -99,12 +99,12 @@
 	if(!selected_marking_id)
 		return
 
-	var/selected_color = input(
+	var/selected_color = tgui_color_picker(
 			user,
 			"Select marking color",
 			null,
 			COLOR_WHITE,
-		) as color | null
+		)
 
 	if(!selected_color)
 		return

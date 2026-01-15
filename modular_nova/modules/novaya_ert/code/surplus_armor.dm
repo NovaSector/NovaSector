@@ -75,7 +75,7 @@
 /obj/item/clothing/head/helmet/cin_surplus_helmet/examine_more(mob/user)
 	. = ..()
 
-	. += "The GZ-03 series of coalition armor was a collaborative project between the NRI and TransOrbital \
+	. += "The GZ-03 series of coalition armor was a collaborative project between the HC and TransOrbital \
 		to develop a frontline soldier's armor set that could withstand attacks from the Solar Federation's \
 		then relatively new pulse ballistics. The design itself is based upon a far older pattern \
 		of armor originally developed by SolFed themselves, which was the standard pattern of armor design \
@@ -179,7 +179,7 @@
 /obj/item/clothing/suit/armor/vest/cin_surplus_vest/examine_more(mob/user)
 	. = ..()
 
-	. += "The GZ-03 series of coalition armor was a collaborative project between the NRI and TransOrbital \
+	. += "The GZ-03 series of coalition armor was a collaborative project between the HC and TransOrbital \
 		to develop a frontline soldier's armor set that could withstand attacks from the Solar Federation's \
 		then relatively new pulse ballistics. The design itself is based upon a far older pattern \
 		of armor originally developed by SolFed themselves, which was the standard pattern of armor design \

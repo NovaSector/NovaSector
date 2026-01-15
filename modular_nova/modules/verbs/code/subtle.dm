@@ -20,7 +20,7 @@
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	default_value = TRUE
 
-/datum/emote/living/subtle/run_emote(mob/user, params, type_override = null)
+/datum/emote/living/subtle/run_emote(mob/user, params, type_override, intentional)
 	if(!can_run_emote(user))
 		to_chat(user, span_warning("You can't emote at this time."))
 		return FALSE
@@ -39,8 +39,8 @@
 		subtle_message = subtle_emote
 	else
 		subtle_message = params
-		if(type_override)
-			emote_type = type_override
+
+	var/running_emote_type = type_override || emote_type
 
 	if(!can_run_emote(user))
 		to_chat(user, span_warning("You can't emote at this time."))
@@ -50,7 +50,7 @@
 
 	var/space = should_have_space_before_emote(html_decode(subtle_emote)[1]) ? " " : ""
 
-	subtle_message = span_emote("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtle_message)]</i>")
+	subtle_message = span_subtle("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtle_message)]</i>")
 
 	var/list/viewers = get_hearers_in_view(SUBTLE_ONE_TILE, user)
 
@@ -67,10 +67,17 @@
 
 	for(var/mob/ghost as anything in GLOB.dead_mob_list)
 		if((ghost.client?.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers))
-			ghost.show_message(subtle_message)
+			to_chat(ghost, "[FOLLOW_LINK(ghost, user)] [subtle_message]")
 
 	for(var/mob/receiver in viewers)
+		if((running_emote_type & EMOTE_LEWD) && !pref_check_emote(receiver, preference = /datum/emote/living/lewd::pref_to_check))
+			continue
 		receiver.show_message(subtle_message, alt_msg = subtle_message)
+		// Optional sound notification
+		if(!isobserver(receiver))
+			var/datum/preferences/prefs = receiver.client?.prefs
+			if(prefs && prefs.read_preference(/datum/preference/toggle/subtler_sound))
+				receiver.playsound_local(get_turf(receiver), 'sound/effects/achievement/beeps_jingle.ogg', 50)
 
 	return TRUE
 
@@ -84,7 +91,7 @@
 	message = null
 	mob_type_blacklist_typecache = list(/mob/living/brain)
 
-/datum/emote/living/subtler/run_emote(mob/user, params, type_override = null)
+/datum/emote/living/subtler/run_emote(mob/user, params, type_override, intentional)
 	if(!can_run_emote(user))
 		to_chat(user, span_warning("You can't emote at this time."))
 		return FALSE
@@ -138,8 +145,8 @@
 	else
 		target = SUBTLE_ONE_TILE
 		subtler_message = subtler_emote
-		if(type_override)
-			emote_type = type_override
+
+	var/running_emote_type = type_override || emote_type
 
 	if(!can_run_emote(user))
 		to_chat(user, span_warning("You can't emote at this time."))
@@ -149,11 +156,13 @@
 
 	var/space = should_have_space_before_emote(html_decode(subtler_emote)[1]) ? " " : ""
 
-	subtler_message = span_emote("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtler_message)]</i>")
+	subtler_message = span_subtler("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtler_message)]</i>")
 
 	if(istype(target, /mob))
 		var/mob/target_mob = target
 		user.show_message(subtler_message, alt_msg = subtler_message)
+		if((running_emote_type & EMOTE_LEWD) && !pref_check_emote(target_mob, preference = /datum/emote/living/lewd::pref_to_check))
+			return FALSE
 		var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 		if((get_dist(user.loc, target_mob.loc) <= subtler_range) || (hologram && get_dist(hologram.loc, target_mob.loc) <= subtler_range))
 			target_mob.show_message(subtler_message, alt_msg = subtler_message)
@@ -165,6 +174,8 @@
 	else if(istype(target, /obj/effect/overlay/holo_pad_hologram))
 		var/obj/effect/overlay/holo_pad_hologram/hologram = target
 		if(hologram.Impersonation?.client)
+			if((running_emote_type & EMOTE_LEWD) && !pref_check_emote(client = hologram.Impersonation.client, preference = /datum/emote/living/lewd::pref_to_check))
+				return FALSE
 			hologram.Impersonation.show_message(subtler_message, alt_msg = subtler_message)
 			var/datum/preferences/prefs = hologram.Impersonation.client?.prefs
 			if(prefs && prefs.read_preference(/datum/preference/toggle/subtler_sound))
@@ -184,6 +195,8 @@
 			ghostless += dullahan.owner
 
 		for(var/mob/receiver in ghostless)
+			if((running_emote_type & EMOTE_LEWD) && !pref_check_emote(receiver, preference = /datum/emote/living/lewd::pref_to_check))
+				continue
 			receiver.show_message(subtler_message, alt_msg = subtler_message)
 			var/datum/preferences/prefs = receiver.client?.prefs
 			if(prefs && prefs.read_preference(/datum/preference/toggle/subtler_sound))

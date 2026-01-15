@@ -127,7 +127,6 @@ SOLFED ARMOR VALUES!
 	greyscale_config = /datum/greyscale_config/solfed_goggles
 	greyscale_config_worn = /datum/greyscale_config/solfed_goggles/worn
 	greyscale_colors = "#808080"
-	unique_reskin = null
 	clothing_traits = list(TRAIT_HEAD_INJURY_BLOCKED)
 	clothing_flags = SNUG_FIT
 

@@ -104,7 +104,7 @@
 				span_danger("[our_guy] suddenly slows from [our_guy.p_their()] inhuman speeds!"),
 				span_danger("You suddenly slow back to normal speed!")
 			)
-		our_guy.adjustStaminaLoss(constant_dose_time)
+		our_guy.adjust_stamina_loss(constant_dose_time)
 
 	else // Much longer than that however, and you're not gonna have a good day
 		if(!(our_guy.mob_biotypes & MOB_ROBOTIC))
@@ -119,9 +119,9 @@
 				span_danger("[our_guy] suddenly snaps back from [our_guy.p_their()] inhuman speeds!"),
 				span_danger("You suddenly snap back to normal speeds. You feel like you've just been run over by a power loader.")
 			)
-		our_guy.adjustStaminaLoss(constant_dose_time)
+		our_guy.adjust_stamina_loss(constant_dose_time)
 		if(!HAS_TRAIT(our_guy, TRAIT_TWITCH_ADAPTED))
-			our_guy.adjustOrganLoss(ORGAN_SLOT_HEART, 0.3 * constant_dose_time) // Basically you might die
+			our_guy.adjust_organ_loss(ORGAN_SLOT_HEART, 0.3 * constant_dose_time, required_organ_flag = affected_organ_flags) // Basically you might die
 
 	if(!our_guy.hud_used)
 		return
@@ -199,7 +199,7 @@
 		var/mob/living/carbon/human/human = our_guy
 		human.adjust_coretemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
 	else
-		our_guy.adjustOrganLoss(ORGAN_SLOT_HEART, 0.1 * REM * seconds_per_tick)
+		our_guy.adjust_organ_loss(ORGAN_SLOT_HEART, 0.1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 
 	if(locate(/datum/reagent/drug/kronkaine) in our_guy.reagents.reagent_list) // Kronkaine, another heart-straining drug, could cause problems if mixed with this
 		our_guy.ForceContractDisease(new /datum/disease/adrenal_crisis(), FALSE, TRUE)
@@ -237,8 +237,8 @@
 		var/mob/living/carbon/human/human = our_guy
 		human.adjust_coretemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
 	else
-		our_guy.adjustOrganLoss(ORGAN_SLOT_HEART, 1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
-	our_guy.adjustToxLoss(1 * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype)
+		our_guy.adjust_organ_loss(ORGAN_SLOT_HEART, 1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
+	our_guy.adjust_tox_loss(1 * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype)
 
 	if(SPT_PROB(5, seconds_per_tick) && !(our_guy.mob_biotypes & MOB_ROBOTIC))
 		to_chat(our_guy, span_danger("You cough up a splatter of blood!"))
