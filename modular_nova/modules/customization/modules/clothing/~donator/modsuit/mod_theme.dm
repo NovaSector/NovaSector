@@ -1,3 +1,19 @@
+//This file and folder is only for donation modsuits.
+//If your Donor MODsuit is a reskin of a common MODsuit. Copy the MODsuits attributes from:
+//
+//code\modules\mod\mod_theme.dm - Common suits (Security, medical, mining, EVA, etc etc...)
+//modular_nova\master_files\code\modules\mod\mod_theme.dm - Uncommon suits (Tarkon, Syndicate, etc etc...)
+//
+//If you're trying to make a new modsuit and add in here, be sure to not overpower it.
+//
+//Make sure the name and other variables are label according to your new modsuit (name, default_skin, [YOUR_SUIT_NAME_HERE] = list)
+//MOD_ICON_OVERRIDE and MOD_WORN_ICON_OVERRIDE to the modsuit design you placed in:
+//modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi - Obj
+//modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi - Worn
+//
+//Besure to add armor value into this file example: /datum/armor/mod_theme_[YOUR_SUIT_NAME_HERE]
+// -- Rilomatic - 16th January 2026
+
 //Kaynite Donor Item
 
 /datum/mod_theme/paragon
@@ -105,6 +121,8 @@
 	)
 	variants = list(
 		"jumper" = list(
+			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL,
 				SEALED_CLOTHING = STOPSPRESSUREDAMAGE|HEADINTERNALS,
@@ -149,3 +167,4 @@
 	fire = 100
 	acid = 75
 	wound = 20
+

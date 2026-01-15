@@ -347,8 +347,8 @@
 /obj/item/mod/skin_applier/akari
 	name = "nanite MODsuit refitter"
 	desc = "A small kit full of nanites designed to refit a MODsuit to Akari's personal design. Only compatible with fused MODsuits due to the refit's reliance on a symbiote."
-	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
-	icon_state = "skinapplier"
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	icon_state = "akari-skinapplier"
 	skin = "akari"
 
 /obj/item/mod/skin_applier/akari/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)

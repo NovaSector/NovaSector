@@ -1,11 +1,19 @@
 //This file and folder is only for donation modsuits.
 //Follow the same methods below and make sure that 'icon_state' lable as [YOUR_SUIT_NAME_HERE]-plating.
-//The game will load it but will not load the icon as it will lable it as [YOUR_SUIT_NAME_HERE]-plating. Unsure why, have a feeling is due to modsuit coding.
+//The game will load it but will not load the icon as it will lable it as [YOUR_SUIT_NAME_HERE]-plating. Unsure why, best guess is due to TG modsuit code
+//It will take the name variable from mod_theme.dm and merge it with a static "plating" thus the icon_state naming.
 //DO: Coolsuit-plating.
 //DONT: Coolsuit-box / coolsuit-box-plating / coolsuit.
 //Make sure that your .dmi icon is also labled the same way.
 //Remember to add your MODsuit variables in ~donator\modsuit\mod_theme.dm.
 // -- Rilomatic - 15th January 2026
+
+//Limitations - Entombed MODsuits - Logic wise we can't take off the suit, nor we can craft a new entomed suit / crafting recipe might kill the player
+//									Best choice is to use skin_applier - View Akari Modsuit (Entombed) for code in:
+//									modular_nova\modules\customization\modules\clothing\~donator\donator_items.dm
+// -- Rilomatic - 16th January 2026
+
+//Kaynite Donor Item
 
 /obj/item/mod/construction/plating/paragon
 	name = "\improper Paragon Plating"
@@ -15,6 +23,8 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "paragon-plating"
 	theme = /datum/mod_theme/paragon
+
+// Bonkai Donor Item
 
 /obj/item/mod/construction/plating/jumper
 	name = "\improper PA-4 MK-7 J.S supply crate"
