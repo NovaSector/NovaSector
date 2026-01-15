@@ -278,7 +278,7 @@
 	item_path = /obj/item/toy/plush/nova/towa
 
 /datum/loadout_item/toys/plush/fushi
-	name = "Flufyy Dragon"
+	name = "Fluffy Dragon"
 	item_path = /obj/item/toy/plush/nova/fushi
 
 /*
