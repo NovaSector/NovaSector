@@ -10,7 +10,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "al" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
 	dir = 8
@@ -28,7 +28,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "ax" = (
 /obj/structure/drain/big,
 /obj/machinery/light/warm/directional/west,
@@ -36,7 +36,7 @@
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "aI" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/folder/red{
@@ -50,15 +50,14 @@
 	pixel_x = 4
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "aJ" = (
 /obj/effect/turf_decal/vg_decals/numbers/four{
 	dir = 4
 	},
 /turf/open/floor/engine/hull,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "aS" = (
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/door/airlock/survival_pod{
 	dir = 8;
@@ -70,11 +69,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "aV" = (
 /obj/machinery/space_heater,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "bj" = (
 /obj/structure/closet/secure_closet/evidence,
 /obj/machinery/light/cold/directional/west,
@@ -84,7 +83,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "br" = (
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 4
@@ -93,39 +92,41 @@
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "bs" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "bx" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/carpet/black,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "bC" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 9
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "bD" = (
 /obj/effect/turf_decal/vg_decals/atmos/nitrogen{
 	dir = 4
 	},
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/engine/n2,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "bJ" = (
 /obj/machinery/door/window/survival_pod,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "bO" = (
 /obj/machinery/power/shuttle_engine/large{
 	dir = 1
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "bP" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/newscaster/directional/south,
@@ -153,7 +154,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral/half,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "bW" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -162,7 +163,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "bX" = (
 /obj/machinery/computer/camera_advanced{
 	dir = 4
@@ -175,14 +176,14 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "bY" = (
 /obj/machinery/cryo_cell,
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 1
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "cb" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/flashlight/lamp{
@@ -197,33 +198,41 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "ce" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "cj" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/dark_blue/half,
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/effect/mapping_helpers/apc/cell_10k,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "ck" = (
 /obj/effect/turf_decal/vg_decals/numbers/two{
 	dir = 4
 	},
 /turf/open/floor/engine/hull,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "cn" = (
 /obj/effect/turf_decal/tile/neutral/anticorner{
 	dir = 1
 	},
 /obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc,
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
+"cA" = (
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/teleporter)
 "cL" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
@@ -235,7 +244,11 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
+"cM" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/shuttle/hc_cops/recreation)
 "cO" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/bot,
@@ -244,7 +257,7 @@
 	pixel_x = 4
 	},
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "cP" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4
@@ -257,7 +270,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
+"cX" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/shuttle/hc_cops/engineering)
 "df" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -271,7 +288,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "di" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1
@@ -283,11 +300,11 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "dj" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/engine/o2,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "dx" = (
 /obj/structure/sign/directions/supply/directional/south{
 	pixel_y = -20
@@ -296,22 +313,22 @@
 	biomass = 2500
 	},
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "dE" = (
 /obj/structure/window/reinforced/shuttle/spaceship,
 /obj/structure/grille,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "dM" = (
 /obj/machinery/light/cold/directional/east,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "dN" = (
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "dP" = (
 /obj/structure/tank_dispenser/oxygen{
 	pixel_x = -1;
@@ -323,7 +340,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "dQ" = (
 /obj/structure/closet/crate/medical{
 	anchored = 1
@@ -364,13 +381,13 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "dS" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "dV" = (
 /obj/structure/tank_holder/anesthetic,
 /obj/structure/sign/warning/no_smoking/directional/east,
@@ -379,20 +396,20 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "eg" = (
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "ei" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "er" = (
 /obj/machinery/health_station/directional/east,
 /obj/effect/turf_decal/tile/dark_blue/half{
@@ -407,17 +424,21 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "ev" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/siding/white,
 /turf/open/floor/plating/elevatorshaft,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
+"ew" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/shuttle/hc_cops/armory)
 "ex" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/black,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "ez" = (
 /obj/machinery/airalarm/directional/east,
 /obj/structure/cable,
@@ -430,7 +451,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "eB" = (
 /obj/item/paper_bin{
 	pixel_y = 4
@@ -453,7 +474,7 @@
 	},
 /obj/item/stamp/denied,
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "eC" = (
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
@@ -466,7 +487,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "eD" = (
 /obj/effect/turf_decal/tile/neutral/half,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -475,7 +496,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "eI" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/storage/box/flashbangs{
@@ -508,20 +529,20 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "eK" = (
 /obj/structure/sign/calendar/directional/east,
 /obj/machinery/vending/games,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "eV" = (
 /obj/machinery/door/window/survival_pod/left/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/black,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "fd" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -530,7 +551,7 @@
 /obj/effect/mob_spawn/ghost_role/human/hc_officer,
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "fj" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 8
@@ -545,11 +566,19 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
+"fn" = (
+/obj/machinery/power/shuttle_engine/large{
+	dir = 1
+	},
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/recreation)
 "fr" = (
 /obj/machinery/light/small/directional/west,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "fu" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/gym/mirrored/right{
@@ -559,13 +588,13 @@
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "fw" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "fZ" = (
 /obj/structure/chair/sofa/corp/corner{
 	dir = 4
@@ -575,12 +604,12 @@
 /turf/open/floor/iron/dark/side{
 	dir = 9
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "gb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "gh" = (
 /obj/structure/filingcabinet{
 	pixel_x = -7
@@ -594,14 +623,24 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
+"gm" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/checkpoint)
 "gr" = (
 /obj/machinery/door/airlock/survival_pod/glass,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
+"gw" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/armory)
 "gy" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 1
@@ -611,7 +650,7 @@
 	},
 /obj/structure/curtain/bounty,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "gA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -619,7 +658,7 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/marker_beacon/cerulean,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "gE" = (
 /obj/structure/chair/sofa/corp/corner{
 	dir = 4
@@ -628,12 +667,12 @@
 /obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "gG" = (
 /obj/machinery/atmospherics/pipe/smart/simple/violet/hidden,
 /obj/machinery/meter,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "gH" = (
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 8
@@ -652,13 +691,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "gK" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 10
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "gL" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
@@ -667,7 +706,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "gM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
@@ -680,7 +719,7 @@
 	req_access = list("syndicate")
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "gO" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /obj/item/food/meat/slab,
@@ -698,7 +737,7 @@
 /turf/open/floor/iron/smooth_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "gS" = (
 /obj/machinery/chem_dispenser,
 /obj/structure/sign/warning/chem_diamond/directional/west,
@@ -707,7 +746,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "gY" = (
 /obj/structure/closet/secure_closet/evidence,
 /obj/structure/noticeboard{
@@ -719,13 +758,13 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "hd" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "hf" = (
 /obj/structure/sign/flag/hc/directional/south,
 /obj/machinery/disposal/bin{
@@ -737,7 +776,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "hh" = (
 /obj/structure/sign/poster/official/no_erp/directional/north,
 /obj/structure/reagent_dispensers/water_cooler,
@@ -745,7 +784,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "hn" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -755,7 +794,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "ho" = (
 /obj/structure/rack,
 /obj/item/cultivator,
@@ -772,7 +811,7 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "hq" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/pollution_scrubber{
@@ -788,7 +827,11 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
+"hy" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/armory)
 "hz" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/electrical{
@@ -796,7 +839,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "hH" = (
 /obj/structure/sign/clock/directional/west,
 /obj/machinery/computer/camera_advanced{
@@ -808,13 +851,13 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "hV" = (
 /obj/machinery/deepfryer,
 /turf/open/floor/iron/smooth_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "im" = (
 /obj/structure/table,
 /obj/structure/towel_bin{
@@ -834,7 +877,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "in" = (
 /obj/effect/turf_decal/tile/dark_blue/half,
 /obj/machinery/health_station/directional/south,
@@ -845,7 +888,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "io" = (
 /obj/effect/turf_decal/siding/white/end{
 	dir = 4
@@ -854,13 +897,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "iu" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "iv" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
 	dir = 1
@@ -869,7 +912,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
+"ix" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/engineering)
 "iC" = (
 /obj/machinery/chem_master,
 /obj/structure/sign/warning/no_smoking/directional/south,
@@ -877,12 +924,12 @@
 	dir = 8
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "iF" = (
 /obj/effect/light_emitter,
 /obj/effect/spawner/liquids_spawner,
 /turf/open/floor/iron/pool,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "iO" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner,
 /obj/effect/turf_decal/bot,
@@ -898,7 +945,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "iP" = (
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
@@ -910,7 +957,7 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "iQ" = (
 /obj/item/clothing/accessory/webbing/pouch/black,
 /obj/item/storage/pouch/cin_general,
@@ -933,27 +980,33 @@
 /obj/item/disk/nifsoft_uploader/job/summoner/detective,
 /obj/item/clothing/under/misc/nova/taccas,
 /obj/item/quantum_keycard,
+/obj/item/clothing/suit/armor/vest/hc_police_jacket,
+/obj/item/clothing/head/soft/hc_police,
+/obj/item/clothing/under/colonial/hc_police/skirt,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/head/security_garrison,
+/obj/item/clothing/neck/tie/blue,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "jp" = (
 /obj/structure/plaque/static_plaque/golden/commission/ks13/hc_police,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "jt" = (
-/obj/effect/turf_decal/stripes/blue/end{
-	dir = 4
+/obj/effect/turf_decal/stripes/blue/line{
+	dir = 10
 	},
 /obj/machinery/door/poddoor/shutters/window{
 	id = "hcteleporter"
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "jy" = (
 /obj/machinery/atmospherics/components/binary/pump/off/scrubbers/visible/layer2{
 	dir = 4
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "jC" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/fans/tiny,
@@ -968,7 +1021,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "jD" = (
 /obj/structure/fans/tiny/forcefield,
 /obj/structure/grille,
@@ -977,7 +1030,7 @@
 	id = "hcbridgeshutters"
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "jK" = (
 /obj/machinery/light/warm/directional/west,
 /obj/structure/sign/clock/directional/west,
@@ -985,16 +1038,17 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "jP" = (
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 1
 	},
 /obj/structure/sign/flag/hc/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "jQ" = (
 /obj/structure/cable,
 /obj/machinery/light/cold/directional/east,
@@ -1002,7 +1056,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "kb" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/bin,
@@ -1013,7 +1067,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "kd" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4
@@ -1026,7 +1080,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "kk" = (
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted{
 	dir = 1
@@ -1050,7 +1104,7 @@
 /obj/structure/window/reinforced/tinted/spawner/directional/west,
 /obj/structure/window/reinforced/tinted/spawner/directional/north,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "kp" = (
 /obj/machinery/photocopier/gratis,
 /obj/structure/sign/calendar/directional/east,
@@ -1061,19 +1115,19 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "kq" = (
 /obj/structure/chair/sofa/corp/left,
 /obj/effect/turf_decal/tile/neutral/half,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "kv" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/cerulean,
 /turf/open/space/basic,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "kx" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
@@ -1084,12 +1138,12 @@
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/carpet/black,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "kF" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/dark_blue/half,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "kN" = (
 /obj/structure/drain,
 /obj/structure/curtain,
@@ -1099,27 +1153,27 @@
 	},
 /obj/structure/sink/directional/south,
 /turf/open/floor/iron/showroomfloor,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "kO" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/engine/n2,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "kP" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
 /obj/machinery/holopad/secure,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "ld" = (
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "le" = (
 /obj/structure/chair/sofa/corp/left,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "lt" = (
 /obj/item/clothing/accessory/webbing/pouch/black,
 /obj/item/storage/pouch/cin_general,
@@ -1143,8 +1197,17 @@
 /obj/item/disk/nifsoft_uploader/job/summoner/detective,
 /obj/item/clothing/under/misc/nova/taccas,
 /obj/item/quantum_keycard,
+/obj/item/clothing/suit/armor/vest/hc_police_jacket,
+/obj/item/clothing/head/soft/hc_police,
+/obj/item/clothing/under/colonial/hc_police/skirt,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/head/security_garrison,
+/obj/item/clothing/neck/tie/blue,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
+"lu" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/isolation)
 "lx" = (
 /obj/structure/closet/crate/secure/engineering,
 /obj/item/mod/module/shove_blocker,
@@ -1177,8 +1240,10 @@
 /obj/item/mod/module/dna_lock,
 /obj/item/mod/module/dna_lock,
 /obj/item/mod/module/dna_lock,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "lA" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/storage/box/colonial_rations{
@@ -1253,7 +1318,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "lD" = (
 /obj/structure/fans/tiny/forcefield,
 /obj/machinery/door/poddoor/preopen{
@@ -1262,18 +1327,21 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced/shuttle/spaceship,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "lT" = (
 /obj/structure/chair/office{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "lU" = (
 /obj/structure/table,
 /obj/item/storage/cans/sixenergydrink,
 /turf/open/floor/iron/dark/side,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
+"lV" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/recreation)
 "lW" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 4
@@ -1285,7 +1353,21 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
+"md" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/turf/template_noop,
+/area/shuttle/hc_cops/recreation)
+"me" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/canteen)
+"mg" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 6
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/canteen)
 "mj" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 8
@@ -1300,7 +1382,10 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
+"mn" = (
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/checkpoint)
 "mr" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1308,7 +1393,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "mu" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
@@ -1317,13 +1402,13 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "my" = (
 /obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "mL" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/coffeemaker{
@@ -1336,7 +1421,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "mN" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/door/window/right{
@@ -1349,32 +1434,32 @@
 	pixel_x = -16
 	},
 /turf/open/floor/iron/smooth_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "mP" = (
 /obj/machinery/computer/teleporter{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/blue/full,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "mQ" = (
 /obj/machinery/newscaster/directional/south,
 /obj/effect/turf_decal/tile/dark_blue/half,
 /obj/machinery/inspector_mainframe,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "mZ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "ne" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "nh" = (
 /obj/machinery/computer/camera_advanced{
 	dir = 8
@@ -1385,7 +1470,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "nl" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -1398,7 +1483,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "nv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1409,17 +1494,23 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
+"nz" = (
+/obj/effect/turf_decal/stripes/blue/line{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/teleporter)
 "nA" = (
 /obj/machinery/atmospherics/components/binary/pump/off/supply/visible/layer4{
 	dir = 8
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "nD" = (
 /obj/structure/lattice,
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "nJ" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral/half,
@@ -1429,25 +1520,25 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "nO" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "nR" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "nW" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "of" = (
 /obj/effect/turf_decal/siding/white/end{
 	dir = 8
@@ -1459,7 +1550,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "oi" = (
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 8
@@ -1473,7 +1564,10 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
+"os" = (
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/engineering)
 "oy" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -1487,7 +1581,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/iron/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "oC" = (
 /obj/machinery/door/airlock/survival_pod,
 /obj/effect/turf_decal/tile/yellow/full,
@@ -1498,7 +1592,7 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "oK" = (
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 4
@@ -1516,7 +1610,10 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
+"oO" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/command)
 "oT" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
@@ -1526,7 +1623,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "pa" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/effect/turf_decal/tile/dark_blue/half{
@@ -1538,7 +1635,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "pf" = (
 /obj/machinery/door/airlock/survival_pod,
 /obj/structure/cable,
@@ -1549,7 +1646,7 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "pk" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/bot,
@@ -1557,7 +1654,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "pl" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1565,7 +1662,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "pq" = (
 /obj/structure/toilet{
 	dir = 8
@@ -1574,13 +1671,13 @@
 	pixel_y = 25
 	},
 /turf/open/floor/iron/showroomfloor,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "ps" = (
 /obj/machinery/atmospherics/pipe/smart/simple/violet/hidden{
 	dir = 9
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "pw" = (
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 1
@@ -1589,7 +1686,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "pK" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 8
@@ -1603,7 +1700,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "pX" = (
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 8
@@ -1611,7 +1708,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "qd" = (
 /obj/structure/closet/secure_closet/engineering_electrical{
 	req_access = null;
@@ -1633,11 +1730,11 @@
 /obj/item/stock_parts/power_store/battery/hyper,
 /obj/item/storage/toolbox/electrical,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "qh" = (
 /obj/item/reagent_containers/cup/bucket,
 /turf/open/floor/iron/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "qi" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -1651,7 +1748,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/elevatorshaft,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "qj" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/tile/neutral/half{
@@ -1662,12 +1759,12 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "qm" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/north,
 /obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "qq" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1675,7 +1772,7 @@
 /obj/effect/mob_spawn/ghost_role/human/hc_officer,
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "qr" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
@@ -1684,7 +1781,7 @@
 	},
 /obj/structure/sign/flag/hc/directional/north,
 /turf/open/floor/carpet/black,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "qt" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/coffeemaker{
@@ -1700,7 +1797,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "qx" = (
 /obj/item/clothing/accessory/webbing/pouch/black,
 /obj/item/storage/pouch/cin_general,
@@ -1722,22 +1819,28 @@
 /obj/item/disk/nifsoft_uploader/job/summoner/detective,
 /obj/item/clothing/under/misc/nova/taccas,
 /obj/item/quantum_keycard,
+/obj/item/clothing/suit/armor/vest/hc_police_jacket,
+/obj/item/clothing/head/soft/hc_police,
+/obj/item/clothing/under/colonial/hc_police/skirt,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/head/security_garrison,
+/obj/item/clothing/neck/tie/blue,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "qH" = (
 /obj/machinery/vending/sovietsoda,
 /obj/structure/sign/poster/contraband/blood_geometer/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "qK" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/south,
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 1
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "qM" = (
 /obj/machinery/autolathe/hacked,
 /obj/structure/sign/warning/secure_area/directional/north,
@@ -1753,12 +1856,16 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "qR" = (
 /obj/structure/sign/warning/engine_safety/directional/north,
 /obj/machinery/rnd/production/colony_lathe,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
+"qU" = (
+/obj/machinery/porta_turret/syndicate/hc_police,
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/engineering)
 "qX" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/bot,
@@ -1792,7 +1899,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "qZ" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/bot,
@@ -1807,7 +1914,7 @@
 /turf/open/floor/iron/smooth_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "rp" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 8
@@ -1820,14 +1927,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "rz" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
 /obj/machinery/holopad/secure,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "rE" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 8
@@ -1842,11 +1949,11 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "rF" = (
 /obj/effect/spawner/liquids_spawner,
 /turf/open/floor/iron/pool,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "rG" = (
 /obj/effect/turf_decal/siding/white/end,
 /obj/structure/disposalpipe/segment,
@@ -1854,7 +1961,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "rI" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /obj/machinery/holopad/secure,
@@ -1862,38 +1969,40 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "rJ" = (
-/obj/structure/rack/gunrack,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
 /obj/effect/turf_decal/tile/dark/half{
 	dir = 4
+	},
+/obj/item/ammo_box/magazine/miecz,
+/obj/item/ammo_box/magazine/miecz,
+/obj/item/ammo_box/magazine/miecz,
+/obj/item/ammo_box/magazine/miecz,
+/obj/item/ammo_box/magazine/miecz,
+/obj/item/ammo_box/magazine/miecz,
+/obj/item/ammo_box/magazine/miecz,
+/obj/item/ammo_box/magazine/miecz,
+/obj/item/ammo_box/magazine/lanca,
+/obj/item/ammo_box/magazine/lanca,
+/obj/item/ammo_box/magazine/lanca,
+/obj/item/ammo_box/magazine/pulse,
+/obj/item/ammo_box/magazine/pulse,
+/obj/item/ammo_box/magazine/pulse,
+/obj/structure/closet/crate/secure/weapon{
+	anchored = 1;
+	name = "munition crate"
 	},
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "rL" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
+"rM" = (
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/armory)
 "rT" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1904,14 +2013,14 @@
 /obj/effect/mapping_helpers/apc/full_charge,
 /obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "sg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/dark_blue,
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "sp" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/bot,
@@ -1919,7 +2028,12 @@
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
+"ss" = (
+/obj/machinery/power/shuttle_engine/large,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/checkpoint)
 "su" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/choice_beacon/music,
@@ -1932,7 +2046,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "sy" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -1941,7 +2055,7 @@
 	dir = 9
 	},
 /turf/open/floor/plating/elevatorshaft,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "sF" = (
 /obj/structure/sign/poster/contraband/hacking_guide/directional/north,
 /obj/machinery/light/cold/directional/north,
@@ -1958,7 +2072,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "sH" = (
 /obj/machinery/door/window/survival_pod/left/directional/south,
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -1969,51 +2083,58 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "sJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "sQ" = (
 /obj/machinery/atmospherics/pipe/smart/simple/violet/hidden{
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
+"sZ" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/hydroponics)
 "tb" = (
 /obj/machinery/computer/camera_advanced{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
+"tj" = (
+/obj/structure/cable,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/hc_cops/hydroponics)
 "tq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "tt" = (
 /obj/machinery/power/shuttle_engine/large,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "tu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "tv" = (
 /obj/structure/chair/sofa/corp,
 /obj/effect/turf_decal/tile/neutral/half,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "tx" = (
 /obj/structure/closet/generic/wall{
 	pixel_x = 32
@@ -2026,11 +2147,11 @@
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "tI" = (
 /obj/structure/chair/stool/bar/directional/west,
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "tK" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -2039,13 +2160,13 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/marker_beacon/cerulean,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "tR" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "tS" = (
 /obj/machinery/suit_storage_unit/hc_police,
 /obj/effect/turf_decal/bot,
@@ -2057,20 +2178,21 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "tU" = (
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 1
 	},
+/obj/item/flatpack/quantum_pad,
 /turf/open/floor/iron/dark/smooth_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "tV" = (
 /obj/structure/sauna_oven{
 	fuel_amount = -1;
 	water_amount = -1
 	},
 /turf/open/floor/wood,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "uh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2078,7 +2200,7 @@
 	dir = 9
 	},
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "ul" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/yellow/half{
@@ -2088,12 +2210,12 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "un" = (
 /obj/machinery/power/shuttle_engine/large,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "uu" = (
 /obj/machinery/door/airlock/survival_pod,
 /obj/effect/mapping_helpers/airlock/autoname,
@@ -2102,7 +2224,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "uy" = (
 /obj/machinery/telecomms/relay/preset/ruskie,
 /obj/effect/turf_decal/tile/neutral/anticorner,
@@ -2111,12 +2233,12 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "uB" = (
 /obj/structure/cable,
 /obj/machinery/power/terminal,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "uD" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
 	dir = 1
@@ -2129,21 +2251,23 @@
 /obj/machinery/button/door/directional/west{
 	req_access = list("syndicate");
 	id = "hcteleporterblastdoor1";
-	pixel_y = 4
+	pixel_y = 4;
+	name = "Teleporter Entrance Blast Door"
 	},
 /obj/machinery/button/door/directional/west{
 	req_access = list("syndicate");
 	id = "hcpostshutters";
-	pixel_y = -4
+	pixel_y = -4;
+	name = "Teleporter Checkpoint Window Shutters"
 	},
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "uR" = (
 /obj/machinery/computer/message_monitor{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "uV" = (
 /obj/structure/chair/stool/bar/directional/south,
 /obj/machinery/light/warm/directional/east,
@@ -2151,7 +2275,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 6
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "uY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/item/wrench/medical,
@@ -2164,7 +2288,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "vg" = (
 /obj/machinery/limbgrower,
 /obj/item/reagent_containers/cup/beaker/synthflesh/named,
@@ -2174,7 +2298,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "vk" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
@@ -2183,7 +2307,7 @@
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
 /obj/effect/mapping_helpers/apc/full_charge,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "vr" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/bin,
@@ -2200,12 +2324,15 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "vs" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/side,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
+"vt" = (
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/cargo_hold)
 "vA" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/tile/dark/half,
@@ -2214,7 +2341,7 @@
 	},
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "vE" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
@@ -2222,15 +2349,15 @@
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/black,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "vH" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/machinery/door/window/survival_pod/left/directional/east,
 /obj/structure/cable,
-/turf/open/floor/iron/submarine_vents,
-/area/centcom/holding/cafepark)
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/hc_cops/engineering)
 "vI" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -2239,7 +2366,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "vL" = (
 /obj/effect/turf_decal/tile/dark_blue,
 /obj/effect/turf_decal/stripes/blue{
@@ -2247,7 +2374,7 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "vT" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted{
@@ -2255,25 +2382,28 @@
 	},
 /obj/machinery/skill_station,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "vZ" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/side,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "wf" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 8
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
+"wk" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/checkpoint)
 "wn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "ww" = (
 /obj/machinery/stasis{
 	dir = 4
@@ -2285,7 +2415,10 @@
 	pixel_x = -28
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
+"wA" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/conference)
 "wB" = (
 /obj/machinery/door/airlock{
 	name = "Restroom"
@@ -2293,30 +2426,29 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/iron/showroomfloor,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "wD" = (
 /obj/effect/turf_decal/stripes/blue/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes/blue/line,
 /obj/machinery/door/poddoor/shutters/window{
 	id = "hcteleporter"
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "wE" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/weightmachine,
 /turf/open/floor/iron/dark/side{
 	dir = 9
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "wK" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "wO" = (
 /obj/effect/turf_decal/siding/white,
 /obj/machinery/conveyor{
@@ -2327,7 +2459,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/elevatorshaft,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "wQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2335,7 +2467,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "wV" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -2344,7 +2476,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "wX" = (
 /obj/machinery/shower{
 	dir = 1;
@@ -2353,7 +2485,7 @@
 /obj/structure/curtain/bounty,
 /obj/structure/drain,
 /turf/open/floor/iron/dark/side,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "xm" = (
 /obj/machinery/door/airlock{
 	name = "Kitchen"
@@ -2365,18 +2497,18 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/smooth,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "xt" = (
 /obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse{
 	dir = 4
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "xv" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/microwave,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "xw" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 1
@@ -2386,21 +2518,18 @@
 	},
 /obj/machinery/door/window/survival_pod/left/directional/north,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "xH" = (
-/obj/structure/cable,
 /obj/structure/closet/emcloset/wall{
 	pixel_y = -32
 	},
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "xI" = (
 /obj/structure/cable,
-/obj/machinery/power/micro_reactor/bapgm{
-	power_gen = 150000
-	},
-/turf/open/floor/iron/submarine,
-/area/centcom/holding/cafepark)
+/obj/machinery/power/micro_reactor,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/hc_cops/engineering)
 "ye" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/yellow/anticorner{
@@ -2422,12 +2551,19 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
+"ym" = (
+/obj/effect/turf_decal/stripes/blue/line{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/teleporter)
 "yq" = (
 /obj/item/reagent_containers/cup/bucket/wooden,
 /obj/structure/sign/clock/directional/west,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/wood,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "yy" = (
 /obj/machinery/door/airlock/survival_pod{
 	dir = 8
@@ -2439,13 +2575,10 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "yC" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/cargo_hold)
 "yE" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/tile/neutral/half{
@@ -2458,7 +2591,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "yK" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/clothing/glasses/science{
@@ -2471,7 +2604,7 @@
 /obj/item/storage/box/beakers/big,
 /obj/item/reagent_containers/dropper,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "yL" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -2479,7 +2612,14 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
+"yR" = (
+/obj/structure/window/reinforced/tinted/spawner/directional/south,
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 1
+	},
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/armory)
 "zb" = (
 /obj/item/clothing/accessory/webbing/pouch/black,
 /obj/item/storage/pouch/cin_general,
@@ -2501,17 +2641,23 @@
 /obj/item/disk/nifsoft_uploader/job/summoner/detective,
 /obj/item/clothing/under/misc/nova/taccas,
 /obj/item/quantum_keycard,
+/obj/item/clothing/suit/armor/vest/hc_police_jacket,
+/obj/item/clothing/head/soft/hc_police,
+/obj/item/clothing/under/colonial/hc_police/skirt,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/head/security_garrison,
+/obj/item/clothing/neck/tie/blue,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "ze" = (
-/obj/effect/turf_decal/stripes/blue/end{
-	dir = 8
+/obj/effect/turf_decal/stripes/blue/line{
+	dir = 6
 	},
 /obj/machinery/door/poddoor/shutters/window{
 	id = "hcteleporter"
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "zh" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 8
@@ -2522,7 +2668,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "zi" = (
 /obj/machinery/computer/operating{
 	dir = 1
@@ -2531,7 +2677,7 @@
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "zo" = (
 /obj/structure/chair/stool/bar/directional/south,
 /obj/effect/turf_decal/tile/neutral/half{
@@ -2543,7 +2689,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "zA" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/storage/medkit/toxin,
@@ -2563,7 +2709,7 @@
 /obj/item/storage/box/bodybags,
 /obj/item/storage/box/pillbottles,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "zD" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/yellow/half,
@@ -2579,14 +2725,14 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "zK" = (
 /obj/structure/chair/pew{
 	dir = 8;
 	pixel_x = 5
 	},
 /turf/open/floor/wood,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "zQ" = (
 /turf/template_noop,
 /area/template_noop)
@@ -2605,7 +2751,7 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/turf_decal/tile/dark_blue/full,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "zX" = (
 /obj/machinery/door/airlock/survival_pod,
 /obj/structure/cable,
@@ -2617,7 +2763,7 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/turf_decal/tile/dark_blue/full,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "Ab" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/coffeemaker{
@@ -2629,7 +2775,7 @@
 	id = "hckitchenshutters"
 	},
 /turf/open/floor/iron/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "Ag" = (
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 8
@@ -2641,7 +2787,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "An" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -2650,7 +2796,7 @@
 	dir = 10
 	},
 /turf/open/floor/plating/elevatorshaft,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "Ax" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
@@ -2662,7 +2808,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "AH" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/chem_dispenser/drinks{
@@ -2675,12 +2821,12 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "AI" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "AJ" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
@@ -2695,7 +2841,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "AM" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2704,21 +2850,24 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "AN" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /obj/structure/marker_beacon/cerulean,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
+"AO" = (
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/armory)
 "AT" = (
 /obj/structure/chair/pew/right{
 	dir = 8;
 	pixel_x = 5
 	},
 /turf/open/floor/wood,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "AV" = (
 /obj/machinery/coffeemaker{
 	pixel_y = 5
@@ -2732,24 +2881,24 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "AY" = (
 /obj/machinery/newscaster/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/carpet/black,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "Bf" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Bh" = (
 /obj/machinery/power/smes/super/full,
 /obj/structure/cable,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Bo" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1;
@@ -2766,15 +2915,9 @@
 	name = "Bridge Blast Doors";
 	req_access = list("syndicate")
 	},
-/obj/machinery/button/door/directional/west{
-	pixel_y = -2;
-	name = "Hangar Blast Doors";
-	id = "hchangarblastdoors";
-	req_access = list("syndicate")
-	},
 /obj/machinery/holopad/secure,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "Bq" = (
 /obj/machinery/computer/arcade/orion_trail{
 	dir = 4
@@ -2783,7 +2926,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Br" = (
 /obj/machinery/airalarm/directional/west,
 /obj/effect/turf_decal/tile/neutral/half{
@@ -2794,7 +2937,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "BA" = (
 /obj/structure/rack/gunrack,
 /obj/structure/noticeboard{
@@ -2812,14 +2955,14 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "BB" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/dark/half,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "BF" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
@@ -2828,14 +2971,13 @@
 	},
 /obj/item/newspaper,
 /turf/open/floor/carpet/black,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "BH" = (
 /obj/machinery/door/airlock/survival_pod{
 	dir = 8;
 	name = "Isolation Room";
 	id_tag = "hcisolationroom"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/door/poddoor/preopen,
 /obj/effect/mapping_helpers/airlock/autoname,
@@ -2846,13 +2988,13 @@
 	id = "hcteleporterblastdoor1"
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "BJ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "BN" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/storage/medkit/brute{
@@ -2871,19 +3013,19 @@
 /obj/item/reagent_containers/medigel/synthflesh,
 /obj/machinery/biogenerator/medstation/directional/east,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "BO" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /obj/machinery/door/window/brigdoor/left/directional/west,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "BZ" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/choice_beacon/music,
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Ca" = (
 /obj/machinery/shower{
 	dir = 1;
@@ -2894,7 +3036,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 6
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Ch" = (
 /obj/machinery/door/window/survival_pod/left/directional/west,
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
@@ -2904,15 +3046,15 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "Cm" = (
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "Cn" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/shuttle/spaceship,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Cp" = (
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted{
 	dir = 4
@@ -2923,7 +3065,7 @@
 /obj/structure/extinguisher_cabinet/directional/east,
 /obj/structure/window/reinforced/tinted/spawner/directional/north,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "Cq" = (
 /obj/structure/bed{
 	dir = 4
@@ -2936,7 +3078,7 @@
 	},
 /obj/structure/sign/flag/hc/directional/north,
 /turf/open/floor/carpet/black,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "Cr" = (
 /obj/machinery/disposal/bin{
 	desc = "A pneumatic waste disposal unit. This one leads into space!";
@@ -2948,17 +3090,17 @@
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "CB" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/cerulean,
 /turf/template_noop,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "CJ" = (
 /obj/machinery/teleport/station,
 /obj/effect/turf_decal/stripes/blue/full,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "CK" = (
 /obj/item/clothing/accessory/webbing/pouch/black,
 /obj/item/storage/pouch/cin_general,
@@ -2972,35 +3114,47 @@
 /obj/structure/closet/secure_closet,
 /obj/effect/turf_decal/bot,
 /obj/item/clothing/suit/armor/vest/hc_police_jacket/suit,
-/obj/machinery/power/apc/auto_name/directional/east,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/item/clothing/mask/neck_gaiter/syndicate,
 /obj/item/clothing/under/colonial/hc_police,
 /obj/item/clothing/suit/armor/vest/hc_police,
 /obj/item/clothing/head/helmet/hc_police,
-/obj/effect/mapping_helpers/apc/cut_AI_wire,
-/obj/effect/mapping_helpers/apc/full_charge,
-/obj/effect/mapping_helpers/apc/cell_10k,
 /obj/item/disk/nifsoft_uploader/job/summoner/detective,
 /obj/item/clothing/under/misc/nova/taccas,
 /obj/item/quantum_keycard,
+/obj/item/clothing/suit/armor/vest/hc_police_jacket,
+/obj/item/clothing/head/soft/hc_police,
+/obj/item/clothing/under/colonial/hc_police/skirt,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/head/security_garrison,
+/obj/item/clothing/neck/tie/blue,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "CR" = (
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock{
 	name = "Sauna"
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/autoname,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/wood,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
+"CU" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/turf/template_noop,
+/area/shuttle/hc_cops/command)
+"Di" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/engineering)
 "Dr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Ds" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/pollution_scrubber{
@@ -3008,39 +3162,39 @@
 	pixel_y = -5
 	},
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Dt" = (
 /obj/machinery/oven/range,
 /turf/open/floor/iron/smooth_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "Du" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 1
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Dx" = (
 /obj/machinery/light/floor,
 /obj/structure/mirror/directional/south,
 /turf/open/floor/iron/showroomfloor,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "Dy" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "DI" = (
 /obj/structure/reagent_dispensers/watertank/high,
 /obj/item/stack/sheet/mineral/wood/fifty,
 /turf/open/floor/wood,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "DK" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "DZ" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/coffeemaker{
@@ -3056,13 +3210,13 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "Eb" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "Eh" = (
 /obj/structure/closet/crate/engineering{
 	anchored = 1
@@ -3091,14 +3245,14 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "Em" = (
 /obj/machinery/photocopier/gratis,
 /obj/effect/turf_decal/tile/dark_blue/half,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "En" = (
 /obj/effect/turf_decal/bot_blue,
 /obj/machinery/quantumpad,
@@ -3107,7 +3261,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "Es" = (
 /obj/item/paper_bin,
 /obj/item/pen,
@@ -3122,7 +3276,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "Et" = (
 /obj/machinery/chem_heater,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
@@ -3131,16 +3285,16 @@
 	},
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "Ez" = (
 /obj/machinery/porta_turret/syndicate/hc_police,
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "EE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "EM" = (
 /obj/structure/sign/flag/terragov/directional/south,
 /obj/machinery/light/floor,
@@ -3148,7 +3302,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "EU" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 4
@@ -3159,14 +3313,19 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
+"Fb" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/turf/template_noop,
+/area/shuttle/hc_cops/armory)
 "Fc" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
 /obj/machinery/door/window/brigdoor/left/directional/west,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "Fe" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 4
@@ -3180,7 +3339,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "Fk" = (
 /obj/structure/closet/generic/wall{
 	pixel_x = 32
@@ -3188,13 +3347,24 @@
 /turf/open/floor/iron/white/smooth_half{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
+"Fl" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/turf/template_noop,
+/area/shuttle/hc_cops/engineering)
+"Ft" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/armory)
 "Fz" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 4
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "FE" = (
 /obj/structure/sink/directional/west,
 /obj/structure/mirror{
@@ -3204,26 +3374,25 @@
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "FI" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "FP" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "Gi" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "Gp" = (
 /obj/structure/sign/poster/official/moth_meth/directional/west,
 /obj/machinery/smartfridge/chemistry/preloaded,
@@ -3232,14 +3401,14 @@
 	},
 /obj/machinery/door/window/survival_pod/left/directional/north,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "Gr" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/processor{
 	pixel_y = 8
 	},
 /turf/open/floor/iron/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "Gw" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -3248,7 +3417,7 @@
 /obj/effect/mob_spawn/ghost_role/human/hc_officer,
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "Gx" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
 	dir = 4
@@ -3259,7 +3428,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "GD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3270,7 +3439,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "GI" = (
 /obj/machinery/cell_charger_multi{
 	pixel_y = 11
@@ -3296,7 +3465,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "GJ" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/computer/records/security/laptop/syndie{
@@ -3312,11 +3481,11 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "GS" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "GU" = (
 /obj/machinery/atmospherics/pipe/smart/simple/violet/hidden{
 	dir = 8
@@ -3324,16 +3493,16 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced/shuttle/spaceship,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "GY" = (
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "GZ" = (
 /obj/structure/sign/warning/vacuum/directional/south,
 /obj/structure/cable,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Ha" = (
 /obj/structure/table/reinforced/rglass,
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
@@ -3346,18 +3515,37 @@
 	pixel_x = 5
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
+"Hc" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/recreation)
+"Hh" = (
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/command)
+"Ho" = (
+/obj/structure/window/reinforced/tinted/spawner/directional/north,
+/obj/machinery/power/shuttle_engine/heater,
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/cargo_hold)
+"Hp" = (
+/obj/structure/window/reinforced/tinted/spawner/directional/north,
+/obj/machinery/power/shuttle_engine/heater,
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/engineering)
 "Hs" = (
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "Hx" = (
 /obj/machinery/suit_storage_unit/hc_police,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/vg_decals/numbers/five,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "HF" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
@@ -3368,13 +3556,13 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "HK" = (
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/iron/smooth_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "HT" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/book/manual/chef_recipes{
@@ -3384,10 +3572,9 @@
 /obj/item/kitchen/rollingpin,
 /obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "Ib" = (
 /obj/machinery/door/airlock/survival_pod,
-/obj/machinery/door/poddoor/preopen,
 /obj/structure/disposalpipe/segment,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/autoname,
@@ -3396,22 +3583,24 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "Ic" = (
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
 	dir = 4
 	},
 /obj/machinery/meter,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Ie" = (
 /obj/machinery/suit_storage_unit/hc_police,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/vg_decals/numbers/six,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "Ij" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 4
@@ -3423,7 +3612,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "Ik" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/computer/records/security/laptop/syndie{
@@ -3439,13 +3628,22 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
+"It" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/dark_blue/half,
+/turf/open/floor/iron/dark/textured_half,
+/area/shuttle/hc_cops/ready_room)
+"IE" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/teleporter)
 "IH" = (
 /obj/structure/marker_beacon/cerulean,
 /obj/structure/lattice,
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "IK" = (
 /obj/machinery/door/airlock/survival_pod,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3453,17 +3651,17 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "IN" = (
 /obj/machinery/chem_dispenser/mutagensaltpeter,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "IP" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
 	dir = 4
 	},
 /turf/open/floor/engine/o2,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Jn" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 4
@@ -3472,25 +3670,31 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
+"Jo" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/ready_room)
 "Jt" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/weightmachine/weightlifter,
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Jv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /obj/structure/marker_beacon/cerulean,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Jw" = (
 /obj/machinery/door/window/brigdoor/left/directional/west,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "Jz" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/table/reinforced/rglass,
@@ -3502,7 +3706,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "JH" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/shuttle/spaceship,
@@ -3510,13 +3714,13 @@
 	dir = 4
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "JJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "JS" = (
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 8
@@ -3527,7 +3731,7 @@
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "Ke" = (
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted,
 /obj/structure/cable,
@@ -3538,15 +3742,12 @@
 /obj/structure/closet/crate/freezer/blood,
 /obj/machinery/iv_drip,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "Ki" = (
 /obj/structure/closet/crate/secure/weapon{
 	anchored = 1;
 	name = "munition crate"
 	},
-/obj/item/ammo_box/pulse_cargo_box,
-/obj/item/ammo_box/pulse_cargo_box,
-/obj/item/ammo_box/pulse_cargo_box,
 /obj/item/ammo_box/pulse_cargo_box,
 /obj/item/ammo_box/pulse_cargo_box,
 /obj/item/ammo_box/pulse_cargo_box,
@@ -3559,10 +3760,40 @@
 /obj/item/ammo_box/magazine/recharge/plasma_battery,
 /obj/item/ammo_box/magazine/recharge/plasma_battery,
 /obj/item/ammo_box/magazine/recharge/plasma_battery,
+/obj/item/ammo_box/c310_cargo_box,
+/obj/item/ammo_box/c310_cargo_box,
+/obj/item/ammo_box/c310_cargo_box,
+/obj/item/ammo_box/c310_cargo_box,
+/obj/item/ammo_box/c310_cargo_box/piercing,
+/obj/item/ammo_box/c310_cargo_box/piercing,
+/obj/item/ammo_box/c310_cargo_box/rubber,
+/obj/item/ammo_box/c310_cargo_box/rubber,
+/obj/item/ammo_box/c310_cargo_box/rubber,
+/obj/item/ammo_box/c310_cargo_box/rubber,
+/obj/item/ammo_box/c27_54cesarzowa,
+/obj/item/ammo_box/c27_54cesarzowa,
+/obj/item/ammo_box/c27_54cesarzowa,
+/obj/item/ammo_box/c27_54cesarzowa,
+/obj/item/ammo_box/c27_54cesarzowa/rubber,
+/obj/item/ammo_box/c27_54cesarzowa/rubber,
+/obj/item/ammo_box/c27_54cesarzowa/rubber,
+/obj/item/ammo_box/c27_54cesarzowa/rubber,
+/obj/item/ammo_box/advanced/s12gauge/rubber,
+/obj/item/ammo_box/advanced/s12gauge/rubber,
+/obj/item/ammo_box/advanced/s12gauge/rubber,
+/obj/item/ammo_box/advanced/s12gauge/rubber,
+/obj/item/ammo_box/advanced/s12gauge/buckshot/milspec,
+/obj/item/ammo_box/advanced/s12gauge/buckshot/milspec,
+/obj/item/ammo_box/advanced/s12gauge/buckshot/milspec,
+/obj/item/ammo_box/advanced/s12gauge/milspec,
+/obj/item/ammo_box/advanced/s12gauge/milspec,
+/obj/item/ammo_box/advanced/s12gauge/milspec,
+/obj/item/ammo_box/advanced/s12gauge/beehive,
+/obj/item/ammo_box/advanced/s12gauge/beehive,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "Kj" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
 	dir = 4
@@ -3576,11 +3807,11 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "Km" = (
 /obj/structure/chair/stool/bar/directional/south,
 /turf/open/floor/iron/dark/side,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Ko" = (
 /obj/structure/filingcabinet{
 	pixel_x = 7
@@ -3594,7 +3825,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "KF" = (
 /obj/item/clothing/accessory/webbing/pouch/black,
 /obj/item/storage/pouch/cin_general,
@@ -3617,8 +3848,14 @@
 /obj/item/disk/nifsoft_uploader/job/summoner/detective,
 /obj/item/clothing/under/misc/nova/taccas,
 /obj/item/quantum_keycard,
+/obj/item/clothing/suit/armor/vest/hc_police_jacket,
+/obj/item/clothing/head/soft/hc_police,
+/obj/item/clothing/under/colonial/hc_police/skirt,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/head/security_garrison,
+/obj/item/clothing/neck/tie/blue,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "KI" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -3636,7 +3873,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "KL" = (
 /obj/structure/closet/crate/secure/weapon{
 	anchored = 1
@@ -3648,12 +3885,12 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "KM" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "KP" = (
 /obj/structure/cable,
 /obj/structure/cable,
@@ -3661,7 +3898,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "KW" = (
 /obj/effect/turf_decal/bot,
 /obj/item/circuitboard/machine/rtg/advanced{
@@ -3701,10 +3938,10 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "KZ" = (
 /turf/open/floor/engine/o2,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Lb" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /obj/machinery/light/floor,
@@ -3712,7 +3949,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "Le" = (
 /obj/effect/turf_decal/tile/yellow/full,
 /obj/machinery/door/airlock/survival_pod{
@@ -3725,10 +3962,11 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/autoname,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "Lm" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/survival_pod/glass,
@@ -3736,38 +3974,38 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "Lr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 4
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "Ls" = (
 /obj/structure/chair/stool/bar/directional/west,
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark/side,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Lv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Lw" = (
 /obj/structure/sign/clock/directional/east,
 /obj/machinery/recharge_station,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "LD" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "LG" = (
 /obj/machinery/ammo_workbench/unlocked,
 /obj/effect/turf_decal/tile/dark/half{
@@ -3776,7 +4014,23 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
+"LH" = (
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/hc_cops/checkpoint)
+"LK" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/cerulean,
+/turf/template_noop,
+/area/shuttle/hc_cops/cargo_hold)
 "LN" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/cargo,
@@ -3804,13 +4058,13 @@
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/mineral/gold/fifty,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "LX" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "Mf" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/effect/turf_decal/tile/dark_blue/half{
@@ -3822,7 +4076,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "Ml" = (
 /obj/machinery/suit_storage_unit/hc_police,
 /obj/effect/turf_decal/bot,
@@ -3833,12 +4087,13 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "Mm" = (
 /obj/machinery/light/cold/directional/south,
 /obj/effect/turf_decal/tile/dark/half,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "Ms" = (
 /obj/machinery/door/airlock/survival_pod{
 	dir = 8
@@ -3848,14 +4103,14 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Mu" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "MA" = (
 /obj/structure/sign/poster/official/moth_piping/directional/north,
 /obj/structure/table,
@@ -3867,7 +4122,7 @@
 	pixel_x = -3
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "ME" = (
 /obj/structure/closet/generic/wall{
 	pixel_y = 32
@@ -3879,7 +4134,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "MN" = (
 /obj/structure/closet/secure_closet/evidence,
 /obj/effect/turf_decal/tile/dark_blue/half{
@@ -3888,7 +4143,10 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
+"MU" = (
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/recreation)
 "MW" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/folder/blue/hc_cop,
@@ -3899,7 +4157,11 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
+"MZ" = (
+/obj/machinery/porta_turret/syndicate/hc_police,
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/checkpoint)
 "Nd" = (
 /obj/item/clothing/under/costume/nri/captain{
 	pixel_y = 4
@@ -3909,7 +4171,7 @@
 	},
 /obj/structure/table/wood/fancy,
 /turf/open/floor/carpet/green,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Ng" = (
 /obj/structure/table/optable,
 /obj/effect/turf_decal/tile/dark_red/half/contrasted,
@@ -3918,7 +4180,7 @@
 	},
 /obj/item/clothing/mask/breath/muzzle,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "Nh" = (
 /obj/machinery/computer/arcade/battle{
 	dir = 4
@@ -3926,7 +4188,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Np" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/tile/neutral/half{
@@ -3937,7 +4199,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "Nr" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/effect/turf_decal/tile/dark_blue/half{
@@ -3946,7 +4208,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "Nv" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/cerulean,
@@ -3958,33 +4220,36 @@
 	dir = 1
 	},
 /turf/template_noop,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "NC" = (
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/automatic/pulse_rifle,
-/obj/item/gun/ballistic/automatic/pulse_rifle,
-/obj/item/gun/ballistic/automatic/pulse_rifle,
-/obj/item/gun/ballistic/automatic/pulse_rifle,
-/obj/item/gun/ballistic/automatic/pulse_rifle,
-/obj/item/gun/ballistic/automatic/pulse_rifle,
 /obj/effect/turf_decal/tile/dark/anticorner,
+/obj/item/gun/ballistic/rifle/pulse_sniper,
+/obj/item/gun/ballistic/automatic/miecz,
+/obj/item/gun/ballistic/automatic/miecz,
+/obj/item/gun/ballistic/automatic/lanca,
+/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
+"NI" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/armory)
 "NK" = (
 /obj/structure/cable,
 /obj/machinery/computer/monitor{
 	dir = 1
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "NL" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "NM" = (
 /obj/structure/closet/generic/wall{
 	pixel_y = 32
@@ -3996,7 +4261,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "NO" = (
 /obj/effect/turf_decal/tile/yellow/anticorner,
 /obj/structure/cable,
@@ -4004,16 +4269,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/button/door/directional/south{
 	req_access = list("syndicate");
-	id = "hcteleporterblastdoor2"
+	id = "hcteleporterblastdoor2";
+	name = "Teleporter-Cargo Connector Blast Doors"
 	},
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "NS" = (
 /obj/machinery/seed_extractor,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "NZ" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -4022,9 +4288,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "Ob" = (
-/obj/machinery/door/poddoor/preopen,
 /obj/machinery/door/airlock/survival_pod/glass{
 	dir = 4
 	},
@@ -4036,7 +4301,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "Oc" = (
 /obj/structure/sign/flag/hc/directional/north,
 /obj/effect/turf_decal/tile/dark/half{
@@ -4046,7 +4311,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "Oi" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -4059,18 +4324,21 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
+"Oj" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/infirmary)
 "Os" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Oz" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "OE" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/storage/box/syringes,
@@ -4085,14 +4353,14 @@
 	dir = 8
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "OI" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 1
 	},
 /obj/machinery/computer/shuttle/hc,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "OK" = (
 /obj/structure/bed{
 	dir = 4
@@ -4104,7 +4372,7 @@
 	pixel_x = -32
 	},
 /turf/open/floor/carpet/black,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "OP" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/turf_decal/bot,
@@ -4115,7 +4383,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "OR" = (
 /obj/machinery/door/airlock/survival_pod,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -4128,14 +4396,14 @@
 	id = "hcteleporterblastdoor2"
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "OT" = (
 /obj/structure/chair/pew/left{
 	dir = 8;
 	pixel_x = 5
 	},
 /turf/open/floor/wood,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "OW" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/storage/bag/chemistry,
@@ -4143,13 +4411,13 @@
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted,
 /obj/item/reagent_containers/syringe,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "OY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "Pa" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 8
@@ -4159,7 +4427,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "Pb" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 8
@@ -4171,7 +4439,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "Pr" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -4179,7 +4447,7 @@
 /turf/open/floor/iron/white/smooth_half{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "PA" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/paper_bin,
@@ -4191,7 +4459,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "PD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4199,10 +4467,13 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
+"PM" = (
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/ready_room)
 "PO" = (
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
 "PS" = (
 /obj/machinery/door/airlock/survival_pod,
 /obj/structure/cable,
@@ -4213,7 +4484,7 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "PT" = (
 /obj/item/disk/surgery/forgottenship{
 	pixel_y = 5;
@@ -4247,18 +4518,18 @@
 	dir = 1
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "PX" = (
 /obj/machinery/portable_atmospherics/scrubber,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2{
 	dir = 4
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "PZ" = (
 /obj/effect/turf_decal/tile/dark/half,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "Qf" = (
 /obj/machinery/suit_storage_unit/hc_police,
 /obj/effect/turf_decal/bot,
@@ -4270,7 +4541,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "Qk" = (
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 1
@@ -4281,12 +4552,13 @@
 /obj/machinery/light/floor,
 /obj/machinery/button/door/directional/east{
 	req_access = list("syndicate");
-	id = "hcteleporter"
+	id = "hcteleporter";
+	name = "Teleporter Shutters"
 	},
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "Qr" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/storage/box/handcuffs{
@@ -4301,21 +4573,21 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "Qx" = (
 /obj/structure/closet/firecloset/wall{
 	pixel_y = -32
 	},
 /obj/machinery/door/window/brigdoor/left/directional/west,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "Qz" = (
 /obj/structure/sign/flag/nanotrasen/directional/south,
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "QF" = (
 /obj/machinery/light/cold/directional/east,
 /obj/machinery/computer/centcom_announcement/hc_police{
@@ -4324,24 +4596,24 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "QK" = (
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "QV" = (
 /obj/machinery/biogenerator/food_replicator{
 	biomass = 5000
 	},
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "QW" = (
 /obj/effect/turf_decal/vg_decals/atmos/oxygen{
 	dir = 4
 	},
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/engine/o2,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Rk" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/medical,
@@ -4365,7 +4637,7 @@
 /obj/item/storage/medkit/civil_defense/comfort/stocked,
 /obj/item/storage/medkit/civil_defense/comfort/stocked,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "Ry" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -4380,7 +4652,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "RG" = (
 /obj/machinery/vending/hydroseeds{
 	onstation = 0
@@ -4388,7 +4660,7 @@
 /turf/open/floor/iron/smooth_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "RK" = (
 /obj/structure/filingcabinet/security{
 	pixel_x = -7
@@ -4403,7 +4675,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "RN" = (
 /obj/machinery/disposal/bin{
 	desc = "A pneumatic waste disposal unit. This one leads into space!";
@@ -4423,7 +4695,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "RT" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -4432,7 +4704,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "Sc" = (
 /obj/machinery/light/cold/directional/north,
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -4490,7 +4762,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "So" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/stripes/line{
@@ -4500,7 +4772,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/elevatorshaft,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "Sp" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/reagentgrinder{
@@ -4510,14 +4782,19 @@
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
+"Sq" = (
+/obj/machinery/power/shuttle_engine/large,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/cargo_hold)
 "Su" = (
 /obj/machinery/vending/cigarette,
 /obj/machinery/light/warm/directional/east,
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Sx" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -4529,7 +4806,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/iron/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "SK" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
@@ -4542,7 +4819,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "SM" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 8
@@ -4553,13 +4830,23 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/lounge)
+"SP" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/shuttle/hc_cops/hydroponics)
 "ST" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 5
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
+"Tc" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/command)
 "Tf" = (
 /obj/machinery/vending/hydronutrients{
 	onstation = 0
@@ -4567,16 +4854,15 @@
 /turf/open/floor/iron/smooth_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "Th" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "Tt" = (
 /obj/effect/turf_decal/tile/dark_blue/half,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "TJ" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 8
@@ -4587,7 +4873,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "TK" = (
 /obj/structure/table/reinforced/rglass,
 /obj/effect/spawner/surgery_tray/full,
@@ -4596,7 +4882,7 @@
 	},
 /obj/structure/window/reinforced/tinted/spawner/directional/west,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "TU" = (
 /obj/effect/turf_decal/tile/neutral/anticorner{
 	dir = 4
@@ -4607,7 +4893,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "Uh" = (
 /obj/effect/turf_decal/tile/yellow/half,
 /obj/structure/cable,
@@ -4616,7 +4902,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "Uj" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 1
@@ -4624,7 +4910,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "Uo" = (
 /obj/machinery/light/cold/directional/west,
 /obj/effect/turf_decal/tile/yellow/half{
@@ -4637,11 +4923,11 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "Uq" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "Uv" = (
 /obj/structure/filingcabinet{
 	pixel_x = -7
@@ -4650,7 +4936,7 @@
 	pixel_x = 7
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "Uz" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -4659,7 +4945,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "UC" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
@@ -4670,7 +4956,7 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "UF" = (
 /obj/machinery/disposal/bin{
 	desc = "A pneumatic waste disposal unit. This one leads into space!";
@@ -4681,13 +4967,13 @@
 	},
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "UG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "UQ" = (
 /obj/machinery/recharge_station,
 /obj/effect/turf_decal/tile/dark/anticorner{
@@ -4696,18 +4982,24 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "UT" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
 	dir = 6
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "UW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
+"Vb" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/armory)
 "Vj" = (
-/obj/machinery/door/poddoor/preopen,
 /obj/machinery/door/airlock/vault{
 	id_tag = "hcarmoury";
 	name = "Armoury"
@@ -4722,7 +5014,7 @@
 /obj/effect/turf_decal/tile/dark_blue/full,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
 "Vl" = (
 /obj/machinery/suit_storage_unit/hc_police,
 /obj/effect/turf_decal/bot,
@@ -4731,7 +5023,12 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/armory)
+"Vq" = (
+/obj/structure/window/reinforced/tinted/spawner/directional/north,
+/obj/machinery/power/shuttle_engine/heater,
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/lounge)
 "VF" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -4742,7 +5039,7 @@
 	id = "hccargoblastdoor"
 	},
 /turf/open/floor/engine,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "VI" = (
 /obj/structure/filingcabinet/security{
 	pixel_x = -7
@@ -4751,15 +5048,15 @@
 	pixel_x = 7
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "VP" = (
 /obj/structure/chair/office/light,
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "VV" = (
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/iron/submarine_vents,
-/area/centcom/holding/cafepark)
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/hc_cops/engineering)
 "Wb" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/tile/neutral{
@@ -4768,7 +5065,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "Wg" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/shuttle/spaceship,
@@ -4776,7 +5073,7 @@
 	id = "hcpostshutters"
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/checkpoint)
 "Wh" = (
 /obj/effect/turf_decal/siding/white/end{
 	dir = 1
@@ -4786,7 +5083,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "Wi" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -4797,7 +5094,7 @@
 	id = "hccargoblastdoor"
 	},
 /turf/open/floor/engine,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "Wj" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
@@ -4808,10 +5105,11 @@
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
 /obj/structure/cable,
 /obj/machinery/light/cold/directional/north,
+/obj/item/flatpack/quantum_pad,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "Wk" = (
 /obj/machinery/disposal/bin{
 	desc = "A pneumatic waste disposal unit. This one leads into space!";
@@ -4822,7 +5120,7 @@
 	id = "hcteleporterblastdoor2"
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Wq" = (
 /obj/structure/sign/flag/hc/directional/south,
 /obj/effect/turf_decal/tile/neutral/half,
@@ -4833,7 +5131,7 @@
 	},
 /obj/item/paper/monitorkey,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "Wr" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
@@ -4845,7 +5143,11 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
+"WC" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/shuttle/hc_cops/cargo_hold)
 "WE" = (
 /obj/structure/railing,
 /obj/structure/table/wood,
@@ -4869,7 +5171,7 @@
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "WI" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -4878,14 +5180,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "WK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "WQ" = (
 /obj/machinery/door/window/survival_pod/left/directional/west,
 /obj/effect/turf_decal/tile/dark_blue/half{
@@ -4895,13 +5197,13 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "WR" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "WU" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 4
@@ -4915,7 +5217,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "WV" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/paperwork/security,
@@ -4928,7 +5230,12 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
+"WY" = (
+/obj/machinery/light/cold/directional/south,
+/obj/effect/turf_decal/tile/dark/half,
+/turf/open/floor/iron/dark/textured_half,
+/area/shuttle/hc_cops/armory)
 "Xl" = (
 /obj/machinery/airalarm/directional/west,
 /obj/structure/closet/radiation{
@@ -4940,13 +5247,13 @@
 /obj/item/clothing/head/utility/radiation,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Xr" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
 	dir = 4
 	},
 /turf/open/floor/engine/n2,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "Xt" = (
 /obj/machinery/door/airlock/survival_pod{
 	dir = 8;
@@ -4958,15 +5265,22 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/isolation)
 "Xx" = (
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "Xy" = (
 /turf/open/floor/engine/n2,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
+"XA" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/command)
 "XC" = (
 /obj/effect/turf_decal/tile/dark_blue/half,
 /obj/effect/turf_decal/stripes/blue{
@@ -4978,7 +5292,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "XG" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /obj/item/storage/fancy/egg_box,
@@ -4996,7 +5310,7 @@
 	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "XH" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer,
 /obj/structure/sign/warning/cold_temp/directional/north,
@@ -5005,7 +5319,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/infirmary)
 "XM" = (
 /obj/structure/sign/calendar/directional/west,
 /obj/machinery/photocopier/gratis,
@@ -5016,7 +5330,7 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "XT" = (
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 4
@@ -5027,7 +5341,7 @@
 /obj/machinery/button/door/directional/east{
 	id = "hcteleporterblastdoor1";
 	req_access = list("syndicate");
-	name = "Teleporter main blast door"
+	name = "Teleporter Entrance Blast Door"
 	},
 /obj/machinery/button/door/directional/east{
 	pixel_y = -8;
@@ -5039,12 +5353,12 @@
 	pixel_y = 8;
 	id = "hcteleporter";
 	req_access = list("syndicate");
-	name = "Teleporter shutters"
+	name = "Teleporter Shutters"
 	},
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "XX" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/paper_bin{
@@ -5063,32 +5377,32 @@
 /obj/item/encryptionkey/heads/hos,
 /obj/item/stamp/denied,
 /turf/open/floor/iron/dark/textured_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/command)
 "Yn" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/iron/submarine_vents,
-/area/centcom/holding/cafepark)
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/hc_cops/engineering)
 "Yz" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/textured_corner,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "YE" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/structure/sign/warning/electric_shock/directional/north,
-/turf/open/floor/iron/submarine_vents,
-/area/centcom/holding/cafepark)
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/hc_cops/engineering)
 "YG" = (
 /obj/structure/chair/sofa/corp,
 /obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "YK" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -5096,12 +5410,18 @@
 /obj/effect/mob_spawn/ghost_role/human/hc_officer,
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/pod/dark,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
+"YP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/armory)
 "YQ" = (
 /obj/machinery/teleport/hub,
 /obj/effect/turf_decal/stripes/blue/box,
 /turf/open/floor/iron/dark/textured_large,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/teleporter)
 "YR" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5110,7 +5430,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/ready_room)
 "YU" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/yellow/half{
@@ -5120,13 +5440,13 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/cargo_hold)
 "YV" = (
 /obj/effect/turf_decal/vg_decals/numbers/zero{
 	dir = 4
 	},
 /turf/open/floor/engine/hull,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/hydroponics)
 "YW" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -5135,13 +5455,13 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "Zf" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/clock/directional/south,
 /obj/structure/weightmachine/weightlifter,
 /turf/open/floor/iron/dark/side,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/recreation)
 "Zg" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -5150,7 +5470,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth_half,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/canteen)
 "ZA" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner,
 /obj/structure/cable,
@@ -5159,7 +5479,7 @@
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 "ZB" = (
 /obj/structure/flora/rock/style_3,
 /obj/item/knife/combat{
@@ -5170,14 +5490,14 @@
 	name = "incredibly sharp combat knife"
 	},
 /turf/open/floor/carpet/green,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "ZM" = (
 /obj/machinery/portable_atmospherics/pump,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
 	dir = 4
 	},
 /turf/open/floor/plating/reinforced,
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/engineering)
 "ZW" = (
 /obj/machinery/holopad/secure,
 /obj/structure/sign/flag/hc/directional/south,
@@ -5185,31 +5505,31 @@
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
-/area/centcom/holding/cafepark)
+/area/shuttle/hc_cops/conference)
 
 (1,1,1) = {"
-CB
-Uq
-Uq
+Fb
+ew
+ew
 bC
-PO
-PO
-PO
-PO
+NI
+NI
+NI
+NI
 wf
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
+PM
+PM
+PM
+PM
+PM
+PM
+PM
+PM
+PM
+PM
 gK
-Uq
-CB
+cX
+Fl
 zQ
 zQ
 zQ
@@ -5223,50 +5543,50 @@ zQ
 zQ
 "}
 (2,1,1) = {"
-Uq
+ew
 zQ
 zQ
-PO
+NI
 Vl
 Ml
 Qf
 UQ
-PO
+NI
 Qr
 lA
 AV
-PO
+PM
 fd
 qq
 qq
 qq
 Gw
 YK
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Di
 gK
-Uq
+cX
 IH
 zQ
 "}
 (3,1,1) = {"
-Uq
-PO
-PO
-PO
+ew
+NI
+NI
+NI
 jP
-ld
+Vb
 bJ
 PZ
-PO
+NI
 eI
 ld
 Tt
@@ -5277,34 +5597,34 @@ Jw
 Jw
 Fc
 Qx
-PO
+Di
 QW
 dj
 Cn
 bD
 kO
-PO
+Di
 Jv
 Yn
 AN
-PO
+Di
 nD
-PO
+Di
 zQ
 "}
 (4,1,1) = {"
 iu
 bO
-qK
-PO
+yR
+NI
 tS
 Hx
 Ie
-Mm
-PO
+WY
+NI
 Sc
 rL
-cj
+It
 Lm
 FI
 FI
@@ -5312,77 +5632,77 @@ Th
 Th
 Th
 xH
-PO
+Di
 KZ
 IP
 Cn
 Xr
 Xy
-PO
+Di
 YE
 xI
 VV
-PO
-qm
-dN
+Di
+Hp
+os
 tt
 "}
 (5,1,1) = {"
-hd
-dN
-qK
-PO
+Ft
+AO
+yR
+NI
 dP
 hz
 lx
 PZ
-PO
+NI
 BA
 ld
-cj
-PO
+It
+PM
 lt
 iQ
 zb
 qx
 KF
 CK
-PO
+Di
 Cn
 JH
-PO
+Di
 GU
 dE
-PO
+Di
 gA
 vH
 tK
-PO
-qm
-dN
-Oz
+Di
+Hp
+os
+ix
 "}
 (6,1,1) = {"
-hd
+Ft
 bO
-qK
-PO
+yR
+NI
 sF
-rL
+hy
 EE
 vA
-PO
+NI
 Eh
 ld
 cj
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
+PM
+PM
+PM
+PM
+PM
+PM
+PM
+Di
 qd
 Ic
 Xl
@@ -5392,21 +5712,21 @@ PX
 aV
 uB
 Bh
-PO
-PO
-PO
-PO
+Di
+Di
+Di
+Di
 "}
 (7,1,1) = {"
-ce
-dN
-qK
-PO
+YP
+AO
+yR
+NI
 GI
-ld
-yC
+rM
+EE
 vk
-PO
+NI
 dQ
 ld
 AM
@@ -5417,64 +5737,64 @@ MN
 gY
 bj
 mu
-PO
+Di
 qR
 xt
 gG
 ps
 Dy
 nO
-dN
-dN
+os
+os
 NK
-PO
+Di
 ZB
 Nd
-PO
+Di
 "}
 (8,1,1) = {"
-Du
-PO
-PO
-PO
+gw
+NI
+NI
+NI
 LG
-ld
-yC
+rM
+EE
 Mm
-PO
+NI
 qM
 bs
 nR
 Es
 lT
 aI
-DK
+Jo
 ld
 LD
 kF
-PO
+Di
 MA
 my
-dN
+os
 BJ
 nA
 jy
 NL
-dN
+os
 GZ
-PO
-PO
-PO
-PO
+Di
+Di
+Di
+Di
 "}
 (9,1,1) = {"
 iu
 bO
-qK
-PO
+yR
+NI
 Oc
-ld
-yC
+rM
+EE
 BB
 Vj
 GD
@@ -5503,57 +5823,57 @@ KI
 Nv
 "}
 (10,1,1) = {"
-ce
-dN
-qK
-PO
+YP
+AO
+yR
+NI
 KL
 Ki
 rJ
 NC
-PO
+NI
 RN
 di
 df
 RK
 Ko
 kp
-PO
+PM
 Ob
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-Ez
+PM
+PM
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+Di
+qU
 "}
 (11,1,1) = {"
-Du
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
+gw
+NI
+NI
+NI
+NI
+NI
+NI
+NI
+NI
+PM
+PM
 zW
-PO
-PO
-PO
-PO
+PM
+PM
+PM
+PM
 iv
 gh
 Yz
@@ -5561,26 +5881,26 @@ RT
 YW
 Uz
 Qz
-PO
+wA
 gE
 Ax
 Jn
 qt
 AH
 PO
-qm
+Vq
 dN
 un
 "}
 (12,1,1) = {"
-CB
+CU
 jD
 eB
 hH
 XM
 Br
 mL
-PO
+oO
 XH
 uY
 ww
@@ -5588,7 +5908,7 @@ of
 Gp
 gS
 iC
-PO
+Oj
 SK
 PA
 rI
@@ -5596,14 +5916,14 @@ WV
 Ry
 WV
 ZW
-PO
+wA
 tv
 yE
 pK
 zo
 Np
 PO
-qm
+Vq
 dN
 Oz
 "}
@@ -5612,10 +5932,10 @@ jD
 jD
 GJ
 rz
-ld
-ld
+Hh
+Hh
 bP
-PO
+oO
 bY
 tq
 AI
@@ -5623,7 +5943,7 @@ Oi
 xw
 VP
 yK
-PO
+Oj
 cL
 Em
 Lb
@@ -5631,14 +5951,14 @@ yL
 yL
 yL
 EM
-PO
+wA
 tv
 su
 Pb
 zo
 qj
 PO
-qm
+Vq
 dN
 un
 "}
@@ -5650,7 +5970,7 @@ uR
 VI
 DK
 hf
-PO
+oO
 wV
 Lr
 Hs
@@ -5658,7 +5978,7 @@ Oi
 Et
 Jz
 OW
-PO
+Oj
 AJ
 pX
 WQ
@@ -5666,14 +5986,14 @@ Mf
 Nr
 pa
 Ch
-PO
+wA
 kq
 hq
 mj
 zh
 ai
 PO
-qm
+Vq
 dN
 Oz
 "}
@@ -5681,9 +6001,9 @@ Oz
 jD
 OI
 Bo
-ld
+Hh
 jp
-UG
+XA
 nJ
 zX
 Wh
@@ -5720,7 +6040,7 @@ tb
 Uv
 sJ
 Wq
-PO
+oO
 PT
 OE
 vT
@@ -5728,34 +6048,34 @@ hn
 kk
 Ha
 TK
-PO
-PO
-PO
-PO
-PO
+Oj
+lu
+lu
+lu
+lu
 Xt
-PO
-PO
-PO
-PO
-PO
+lu
+lu
+lu
+lu
+wk
 Wg
 aS
-PO
-PO
+wk
+wk
 qm
-dN
-un
+mn
+ss
 "}
 (17,1,1) = {"
 jD
 jD
 XX
 kP
-ld
+Hh
 Xx
 mQ
-PO
+oO
 vg
 Cm
 KM
@@ -5763,34 +6083,34 @@ hn
 gy
 Cm
 Ng
-PO
+Oj
 Cq
 BF
 OK
 BF
 Mu
 vr
-PO
+lu
 kN
-PO
+lu
 uD
 Pa
 TJ
 al
-PO
+wk
 qm
-dN
-Oz
+mn
+gm
 "}
 (18,1,1) = {"
-CB
+CU
 lD
 nh
 XT
 QF
 eC
 uy
-PO
+oO
 BN
 zA
 Ke
@@ -5798,7 +6118,7 @@ io
 Cp
 dV
 zi
-PO
+Oj
 AY
 ex
 bx
@@ -5807,130 +6127,130 @@ eD
 Uj
 wB
 Dx
-PO
+lu
 HF
 sH
 wQ
 in
-PO
+wk
 qm
-dN
-un
+mn
+ss
 "}
 (19,1,1) = {"
-Du
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
+Tc
+oO
+oO
+oO
+oO
+oO
+oO
+oO
+lV
+lV
+lV
 yy
-PO
-PO
-PO
-PO
+lV
+lV
+lV
+lu
 qr
 kx
 vE
 BF
 OP
 DZ
-PO
+lu
 pq
-PO
+lu
 Kj
 Fe
-EU
+LH
 iO
-PO
+wk
 qm
-dN
-Oz
+mn
+gm
 "}
 (20,1,1) = {"
-iu
-bO
+Hc
+fn
 qK
-PO
+lV
 wE
 eg
 Jt
-PO
+lV
 fZ
 gL
 oT
 mr
 Nh
 Bq
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
+lV
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+yC
+yC
+yC
+yC
 Wg
 BH
-PO
-PO
-PO
-PO
-Ez
+wk
+wk
+wk
+wk
+MZ
 "}
 (21,1,1) = {"
 ce
-dN
+MU
 qK
-PO
+lV
 im
 GY
 lU
-PO
+lV
 YG
 BZ
 GY
 wK
 tI
 Ls
-PO
+me
 Dt
 jK
 hV
-PO
+sZ
 mN
 UC
 qZ
-PO
+yC
 tU
 JS
-PO
+yC
 vL
 WU
 oK
 ze
+ym
 mP
-PO
 GS
 "}
 (22,1,1) = {"
 Du
-PO
-PO
-PO
+lV
+lV
+lV
 fu
 tR
 Zf
-PO
+lV
 le
 Ds
 ne
@@ -5941,11 +6261,11 @@ PS
 vI
 fw
 Sp
-PO
+sZ
 cO
-QK
+tj
 cO
-PO
+yC
 Wj
 Uh
 OR
@@ -5953,13 +6273,13 @@ XC
 En
 Wr
 wD
+cA
 CJ
-PO
-PO
+IE
 "}
 (23,1,1) = {"
-iu
-bO
+Hc
+fn
 qK
 Wk
 hh
@@ -5976,31 +6296,31 @@ Ab
 NZ
 LX
 HT
-PO
+sZ
 pk
 OY
 sp
-PO
+yC
 br
 NO
-PO
+yC
 oi
 er
 Qk
 jt
+nz
 YQ
-PO
-PO
+IE
 "}
 (24,1,1) = {"
 hd
-dN
+MU
 qK
-PO
+lV
 ME
 nW
 wX
-PO
+lV
 qH
 wn
 dS
@@ -6011,31 +6331,31 @@ oy
 NZ
 Gr
 xv
-PO
+sZ
 UF
 ei
 dx
-PO
-PO
+yC
+yC
 Le
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
+yC
+yC
+yC
+yC
+yC
+yC
+yC
+yC
 "}
 (25,1,1) = {"
 hd
-bO
+fn
 qK
-PO
+lV
 NM
 FE
 Ca
-PO
+lV
 Su
 WK
 Lw
@@ -6057,51 +6377,51 @@ Uo
 Ag
 sy
 An
-PO
-qm
-dN
-un
+yC
+Ho
+vt
+Sq
 "}
 (26,1,1) = {"
 ce
-dN
+MU
 qK
-PO
-PO
-PO
-PO
-PO
-PO
+lV
+lV
+lV
+lV
+lV
+lV
 Ms
-PO
-PO
-PO
-PO
-PO
+lV
+lV
+lV
+lV
+me
 XG
 QK
 QV
-PO
+sZ
 NS
 qh
 IN
-PO
+yC
 KW
 LN
 Rk
 zD
 So
 ev
-PO
-qm
-dN
+yC
+Ho
+vt
 Eb
 "}
 (27,1,1) = {"
-Uq
-PO
-PO
-PO
+cM
+lV
+lV
+lV
 tV
 yq
 fr
@@ -6112,84 +6432,84 @@ Pr
 ax
 rF
 iF
-PO
+me
 gO
 iP
 HK
-PO
+sZ
 Tf
 ho
 RG
-PO
+yC
 ye
 YU
 ul
 qX
 qi
 wO
-PO
-PO
-PO
+yC
+yC
+yC
 zQ
 "}
 (28,1,1) = {"
-Uq
+cM
 zQ
 zQ
-PO
+lV
 DI
 OT
 zK
 AT
-PO
+lV
 tx
 Fk
 WE
 rF
 rF
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
+me
+me
+me
+me
+sZ
+sZ
+sZ
+sZ
 Fz
-PO
-PO
-PO
-PO
+yC
+yC
+yC
+yC
 VF
 Wi
 UT
-Uq
-CB
+WC
+LK
 zQ
 "}
 (29,1,1) = {"
-CB
-Uq
-Uq
+md
+cM
+cM
 ST
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-PO
-UT
+lV
+lV
+lV
+lV
+lV
+lV
+lV
+lV
+lV
+lV
+mg
 Uq
 CB
 ck
 aJ
 YV
 kv
-Uq
+SP
 zQ
 zQ
 zQ
