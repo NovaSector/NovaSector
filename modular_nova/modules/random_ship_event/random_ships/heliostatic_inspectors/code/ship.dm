@@ -6,6 +6,7 @@
 	name = "HC Ship"
 	forced_ambience = TRUE
 	requires_power = TRUE
+	area_limited_icon_smoothing = /area/shuttle/hc_cops
 	ambient_buzz = 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/amb_ship_01.ogg'
 	ambient_buzz_vol = 15
 	ambientsounds = list('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/alarm_radio.ogg',
@@ -74,13 +75,11 @@
 /obj/docking_port/mobile/hc_ship
 	name = "HC LTPV 'Icebreaker'"
 	shuttle_id = "hc_ship"
-	initial_engine_power = 6
 	port_direction = EAST
 	preferred_direction = EAST
 	callTime = 2 MINUTES
 	rechargeTime = 12 MINUTES
 	movement_force = list("KNOCKDOWN"=0,"THROW"=0)
-	can_move_docking_ports = TRUE
 	takeoff_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/engine_ignit_int.ogg')
 	landing_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/env_ship_down.ogg')
 
@@ -99,7 +98,6 @@
 	view_range = 5.5
 	x_offset = -3
 	y_offset = -7
-	whitelist_turfs = list(/turf/open/space, /turf/open/floor/plating, /turf/open/lava, /turf/closed/mineral, /turf/open/openspace, /turf/open/misc)
 	shuttleId = "hc_ship"
 	shuttlePortId = "hc_ship_custom"
 
