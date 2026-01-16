@@ -5,7 +5,6 @@
 	mutantears = /obj/item/organ/ears/shadekin
 	mutantbrain = /obj/item/organ/brain/shadekin
 	mutanteyes = /obj/item/organ/eyes/shadekin
-	mutant_bodyparts = list()
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	bodypart_overrides = list(
