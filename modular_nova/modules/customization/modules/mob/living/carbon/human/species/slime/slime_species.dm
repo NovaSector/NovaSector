@@ -3,7 +3,6 @@
 #define SPECIES_SLIME_PASSIVE_REGEN_BURN 0.5
 
 /datum/species/jelly
-	mutant_bodyparts = list()
 	hair_alpha = 160 //a notch brighter so it blends better.
 	facial_hair_alpha = 160
 	mutantliver = /obj/item/organ/liver/slime
@@ -45,15 +44,15 @@
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("None", FALSE),
-		"snout" = list("None", FALSE),
-		"ears" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
-		"taur" = list("None", FALSE),
-		"wings" = list("None", FALSE),
-		"horns" = list("None", FALSE),
-		"spines" = list("None", FALSE),
-		"frills" = list("None", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SPINES = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_FRILLS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
