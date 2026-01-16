@@ -71,6 +71,9 @@
 		qdel(src)
 		return
 
+	var/datum/mod_theme/new_theme = new /datum/mod_theme/entombed()
+	modsuit.theme = new_theme
+
 	var/lock_deploy = client_source?.prefs.read_preference(/datum/preference/toggle/entombed_deploy_lock)
 	if (!isnull(lock_deploy))
 		deploy_locked = lock_deploy
@@ -82,19 +85,84 @@
 
 	// set all of our customization stuff from prefs, if we have it
 	var/modsuit_skin = client_source?.prefs.read_preference(/datum/preference/choiced/entombed_skin)
+	var/modsuit_hardlight = client_source?.prefs.read_preference(/datum/preference/choiced/entombed_hardlight_theme)
 
 	if (modsuit_skin == NONE)
 		modsuit_skin = "civilian"
 
 	modsuit.skin = LOWER_TEXT(modsuit_skin)
 
-	if(modsuit.skin == "colonist") // special case here, because the icon files for the colonist module are different from the tg ones.
-		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
+	var/static/list/hardlight_display_names = list(
+		"Standard Blue" = "standard_blue",
+		"Alert Amber" = "alert_amber",
+		"Contractor Red" = "contractor_red",
+		"Extrashield Green" = "extrashield_green",
+		"Evil Green" = "evil_green",
+		"Royal Purple" = "royal_purple",
+		"Hazard Orange" = "hazard_orange",
+		"Cosmic Blue" = "cosmic_blue"
+	)
+	// For restricting color combinations of certain suits (currently not enabled)
+	var/static/list/locked_combinations = list(
+		//"Safeguard" = "Alert Amber",
+		//"Advanced" = "Hazard Orange",
+		//"Rescue" = "Standard Blue",
+		//"Research" = "Royal Purple"
+	)
 
-	else if(modsuit.skin == "tarkon") // Another special case
-		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
+	// For restricting certain skins to specific roles (currently not enabled)
+	var/static/list/role_exceptions = list(
+		//"Safeguard" = JOB_HEAD_OF_SECURITY,
+		//"Advanced" = JOB_CHIEF_ENGINEER,
+		//"Rescue" = JOB_CHIEF_MEDICAL_OFFICER,
+		//"Research" = JOB_RESEARCH_DIRECTOR
+	)
+
+	if (modsuit_hardlight == NONE)
+		modsuit_hardlight = "standard_blue"
+	else
+		modsuit_hardlight = hardlight_display_names[modsuit_hardlight] || "standard_blue"
+
+	// Check if the player has the appropriate role to bypass the restriction
+	var/should_apply_lock = TRUE
+	if (role_exceptions[capitalize(modsuit_skin)])
+		if (human_holder && human_holder.mind && human_holder.mind.assigned_role)
+			// Check if the role matches the exception for this skin
+			if (human_holder.mind.assigned_role.title == role_exceptions[capitalize(modsuit_skin)])
+				should_apply_lock = FALSE
+
+	// If the skin itself is role-locked and the user lacks the role, fall back the skin
+	if (should_apply_lock && locked_combinations[capitalize(modsuit_skin)])
+		to_chat(human_holder, span_warning("The [modsuit_skin] MODsuit skin is restricted to a specific role. Defaulting to the civilian skin."))
+		modsuit_skin = "civilian"
+		modsuit.skin = modsuit_skin
+
+	// Apply restriction only if there's no role exception
+	var/lock_color_name = locked_combinations[capitalize(modsuit_skin)]
+	var/lock_color_value = hardlight_display_names[lock_color_name]
+
+	if (should_apply_lock && lock_color_value && (modsuit_hardlight == lock_color_value))
+		var/list/allowed_hardlights = list()
+		for (var/display_name, skin_name in hardlight_display_names)
+			if (display_name != lock_color_name)
+				allowed_hardlights += skin_name
+
+		if (length(allowed_hardlights))
+			modsuit_hardlight = pick(allowed_hardlights)
+			to_chat(human_holder, span_warning("The combination of [modsuit_skin] skin and [lock_color_name] color is not available for your role. Color has been changed to a random available one."))
+		else
+			modsuit_hardlight = "standard_blue"
+			to_chat(human_holder, span_warning("The combination of [modsuit_skin] skin and [lock_color_name] color is not available for your role. Default color has been set."))
+
+	if (!modsuit_hardlight)
+		modsuit_hardlight = "standard_blue"
+
+	modsuit.theme.hardlight_theme = modsuit_hardlight
+
+	switch(LOWER_TEXT(modsuit.skin))
+		if ("colonist", "tarkon", "voskhod")
+			modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+			modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	var/modsuit_name = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_name)
 	if (modsuit_name)
@@ -112,13 +180,10 @@
 	for(var/obj/item/part as anything in modsuit.get_parts())
 		part.name = "[modsuit.theme.name] [initial(part.name)]"
 		part.desc = "[initial(part.desc)] [modsuit.theme.desc]"
-		if(modsuit.skin == "colonist") // That special case again. If more Nova modsuit skins ever get added, we may want to refactor this quirk to use the mod_theme's variants list instead of hardcoded strings.
-			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
-
-		else if(modsuit.skin == "tarkon") // Same as above, not smart enough to do the refactoring
-			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
+		switch(LOWER_TEXT(modsuit.skin))
+			if ("colonist", "tarkon", "voskhod")
+				part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+				part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	install_racial_features()
 
@@ -165,6 +230,7 @@
 	associated_typepath = /datum/quirk/equipping/entombed
 	customization_options = list(
 		/datum/preference/choiced/entombed_skin,
+		/datum/preference/choiced/entombed_hardlight_theme,
 		/datum/preference/text/entombed_mod_desc,
 		/datum/preference/text/entombed_mod_name,
 		/datum/preference/text/entombed_mod_prefix,
@@ -195,6 +261,38 @@
 		"Security",
 		"Colonist",
 		"Tarkon",
+		"Asteroid",
+		"Research",
+		"Rescue",
+		"Safeguard",
+		"Voskhod",
+	)
+
+/datum/preference/choiced/entombed_hardlight_theme
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "entombed_hardlight_theme"
+	savefile_identifier = PREFERENCE_CHARACTER
+	can_randomize = FALSE
+
+/datum/preference/choiced/entombed_hardlight_theme/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+/datum/preference/choiced/entombed_hardlight_theme/is_accessible(datum/preferences/preferences)
+	if (!..())
+		return FALSE
+
+	return "Entombed" in preferences.all_quirks
+
+/datum/preference/choiced/entombed_hardlight_theme/init_possible_values()
+	return list(
+		"Standard Blue",
+		"Alert Amber",
+		"Contractor Red",
+		"Extrashield Green",
+		"Evil Green",
+		"Royal Purple",
+		"Hazard Orange",
+		"Cosmic Blue",
 	)
 
 /datum/preference/choiced/entombed_skin/create_default_value()

@@ -52,6 +52,7 @@
 	set_holdable(list(
 		/obj/item/ammo_box/magazine,
 		/obj/item/ammo_casing,
+		/obj/item/ammo_box/speedloader,
 	))
 
 /datum/storage/casing_pouch

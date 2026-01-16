@@ -4,12 +4,11 @@
  * Returns STYLE_TAUR_* or NONE.
  */
 /mob/living/carbon/human/proc/get_taur_mode()
-	var/taur_mutant_bodypart = dna.mutant_bodyparts[FEATURE_TAUR]
+	var/datum/mutant_bodypart/taur_mutant_bodypart = dna.mutant_bodyparts[FEATURE_TAUR]
 	if(!taur_mutant_bodypart)
 		return NONE
 
-	var/bodypart_name = taur_mutant_bodypart[MUTANT_INDEX_NAME]
-	var/datum/sprite_accessory/taur/taur = SSaccessories.sprite_accessories[FEATURE_TAUR][bodypart_name]
+	var/datum/sprite_accessory/taur/taur = SSaccessories.sprite_accessories[FEATURE_TAUR][taur_mutant_bodypart.name]
 	if(!taur)
 		return NONE
 
@@ -81,6 +80,7 @@
 	dimension_x = 32
 	center = FALSE
 	factual = FALSE
+	natural_spawn = FALSE
 	color_src = null
 	flags_for_organ = NONE
 
