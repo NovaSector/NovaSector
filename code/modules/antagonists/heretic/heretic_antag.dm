@@ -445,11 +445,13 @@
 	/* // NOVA EDIT REMOVAL START - This shouldn't be an easy way to get no aura since ascension isn't allowed as of writing this, along with even getting the aura being harder
 	if(!can_assign_self_objectives)
 		return FALSE // We spurned the offer of the Mansus :(
-	*/ // NOVA EDIT REMOVAL END
+	*/
 	if(!unlimited_blades || HAS_TRAIT(owner.current, TRAIT_HERETIC_AURA_HIDDEN))
 		return FALSE // No aura if we have the trait or is too early still
+	/*
 	if(feast_of_owls)
 		return FALSE // No use in giving the aura to a heretic that can't ascend
+	*/ // NOVA EDIT REMOVAL END
 	if(heretic_path?.route == PATH_LOCK)
 		return FALSE // Lock heretics never get this aura
 	return TRUE
