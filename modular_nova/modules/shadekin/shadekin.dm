@@ -108,12 +108,12 @@
 
 /datum/species/shadekin/get_species_description()
     return list(
-        "Shadekins appeared somewhere in distant space."
+		"Shadekins appeared somewhere in distant space."
     )
 
 /datum/species/shadekin/get_species_lore()
     return list(
-        "It is unclear when exactly Shadekin first spawned, though it is assumedly a relatively recent development."
+		"It is unclear when exactly Shadekin first spawned, though it is assumedly a relatively recent development."
     )
 
 /obj/item/organ/brain/shadekin
