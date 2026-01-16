@@ -3901,6 +3901,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/structure/disposalpipe/segment,
+/obj/docking_port/mobile/hc_ship,
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/engineering)
 "KL" = (
@@ -4249,17 +4250,15 @@
 	},
 /area/shuttle/hc_cops/conference)
 "Nv" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/cerulean,
 /obj/machinery/atmospherics/components/unary/outlet_injector/on{
 	dir = 1;
 	volume_rate = 200
 	},
-/obj/docking_port/mobile/hc_ship,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/turf/template_noop,
+/turf/open/floor/catwalk_floor/airless,
 /area/shuttle/hc_cops/engineering)
 "NC" = (
 /obj/effect/turf_decal/tile/dark/anticorner,

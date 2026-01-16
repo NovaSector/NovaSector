@@ -75,10 +75,10 @@
 /obj/docking_port/mobile/hc_ship
 	name = "HC LTPV 'Icebreaker'"
 	shuttle_id = "hc_ship"
-	port_direction = EAST
-	preferred_direction = EAST
-	callTime = 2 MINUTES
-	rechargeTime = 12 MINUTES
+	port_direction = NORTH
+	preferred_direction = NORTH
+	callTime = 1 MINUTES
+	rechargeTime = 3 MINUTES
 	movement_force = list("KNOCKDOWN"=0,"THROW"=0)
 	takeoff_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/engine_ignit_int.ogg')
 	landing_sound = sound('modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/env_ship_down.ogg')
@@ -95,9 +95,9 @@
 	name = "police shuttle navigation computer"
 	desc = "Used to designate a precise transit location for the police shuttle."
 	lock_override = CAMERA_LOCK_STATION
-	view_range = 5.5
-	x_offset = -3
-	y_offset = -7
+	view_range = 8.5
+	x_offset = 6
+	y_offset = 15
 	shuttleId = "hc_ship"
 	shuttlePortId = "hc_ship_custom"
 
