@@ -11,7 +11,7 @@
 /obj/item/bodypart/leg/right/taur/generate_icon_key()
 	RETURN_TYPE(/list)
 	// We don't want more than one icon for all of the taur legs, because they're going to be invisible.
-	return list("taur")
+	return list(FEATURE_TAUR)
 
 /obj/item/bodypart/leg/left/taur
 	icon_greyscale = BODYPART_ICON_TAUR
@@ -26,7 +26,7 @@
 /obj/item/bodypart/leg/left/taur/generate_icon_key()
 	RETURN_TYPE(/list)
 	// We don't want more than one icon for all of the taur legs, because they're going to be invisible.
-	return list("taur")
+	return list(FEATURE_TAUR)
 
 /obj/item/bodypart/leg/right/synth/taur
 	icon_greyscale = BODYPART_ICON_TAUR
@@ -42,7 +42,7 @@
 /obj/item/bodypart/leg/right/synth/taur/generate_icon_key()
 	RETURN_TYPE(/list)
 	// We don't want more than one icon for all of the taur legs, because they're going to be invisible.
-	return list("taur")
+	return list(FEATURE_TAUR)
 
 /obj/item/bodypart/leg/left/synth/taur
 	icon_greyscale = BODYPART_ICON_TAUR
@@ -58,4 +58,4 @@
 /obj/item/bodypart/leg/left/Synth/taur/generate_icon_key()
 	RETURN_TYPE(/list)
 	// We don't want more than one icon for all of the taur legs, because they're going to be invisible.
-	return list("taur")
+	return list(FEATURE_TAUR)

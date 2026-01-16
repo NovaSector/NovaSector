@@ -9,7 +9,6 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list()
 	mutanttongue = /obj/item/organ/tongue/aquatic
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -25,12 +24,12 @@
 
 /datum/species/aquatic/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Shark", TRUE),
-		FEATURE_SNOUT = list("Shark", TRUE),
-		FEATURE_HORNS = list("None", FALSE),
-		FEATURE_EARS = list("Hammerhead", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
-		FEATURE_WINGS = list("None", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Shark", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Shark", is_randomizable = TRUE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Hammerhead", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /obj/item/organ/tongue/aquatic

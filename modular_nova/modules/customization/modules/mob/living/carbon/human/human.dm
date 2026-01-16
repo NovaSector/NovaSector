@@ -9,17 +9,18 @@
 			if("genitals")
 				var/list/line = list()
 				for(var/genital in GLOB.possible_genitals)
-					if(!dna.species.mutant_bodyparts[genital])
+					var/datum/mutant_bodypart/genital_part = dna.mutant_bodyparts[genital]
+					if(isnull(genital_part))
 						continue
-					var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
-					if(!G)
+					var/datum/sprite_accessory/genital/genital_accessory = SSaccessories.sprite_accessories[genital][genital_part.name]
+					if(isnull(genital_accessory))
 						continue
-					if(G.is_hidden(src))
+					if(genital_accessory.is_hidden(src))
 						continue
-					var/obj/item/organ/genital/ORG = get_organ_slot(G.associated_organ_slot)
-					if(!ORG)
+					var/obj/item/organ/genital/genital_organ = get_organ_slot(genital_accessory.associated_organ_slot)
+					if(isnull(genital_organ))
 						continue
-					line += ORG.get_description_string(G)
+					line += genital_organ.get_description_string(genital_accessory)
 				if(length(line))
 					to_chat(usr, span_notice("[jointext(line, "\n")]"))
 			if("open_examine_panel")
@@ -144,14 +145,14 @@
 	var/list/available_selection
 	// The total list of parts choosable
 	var/static/list/total_selection = list(
-		ORGAN_SLOT_EXTERNAL_HORNS = "horns",
-		ORGAN_SLOT_EARS = "ears",
-		ORGAN_SLOT_EXTERNAL_WINGS = "wings",
-		ORGAN_SLOT_EXTERNAL_TAIL = "tail",
-		ORGAN_SLOT_EXTERNAL_SYNTH_ANTENNA = "ipc_antenna",
-		ORGAN_SLOT_EXTERNAL_ANTENNAE = "moth_antennae",
-		ORGAN_SLOT_EXTERNAL_XENODORSAL = "xenodorsal",
-		ORGAN_SLOT_EXTERNAL_SPINES = "spines",
+		ORGAN_SLOT_EXTERNAL_HORNS = FEATURE_HORNS,
+		ORGAN_SLOT_EARS = FEATURE_EARS,
+		ORGAN_SLOT_EXTERNAL_WINGS = FEATURE_WINGS,
+		ORGAN_SLOT_EXTERNAL_TAIL = FEATURE_TAIL,
+		ORGAN_SLOT_EXTERNAL_SYNTH_ANTENNA = FEATURE_SYNTH_ANTENNA,
+		ORGAN_SLOT_EXTERNAL_ANTENNAE = FEATURE_MOTH_ANTENNAE,
+		ORGAN_SLOT_EXTERNAL_XENODORSAL = FEATURE_XENODORSAL,
+		ORGAN_SLOT_EXTERNAL_SPINES = FEATURE_SPINES,
 	)
 
 	// Stat check
