@@ -424,6 +424,7 @@ ROUNDSTART_RACES abductorweak
 ROUNDSTART_RACES golemweak
 ROUNDSTART_RACES dullahan
 ROUNDSTART_RACES kobold
+ROUNDSTART_RACES shadekin
 
 ##-------------------------------------------------------------------------------------------
 
