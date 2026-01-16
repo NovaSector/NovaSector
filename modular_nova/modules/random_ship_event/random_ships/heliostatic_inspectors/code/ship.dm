@@ -49,7 +49,7 @@
 	icon_state = "cafeteria"
 
 /area/shuttle/hc_cops/hydroponics
-	name = "HC Ship Canteen"
+	name = "HC Ship Hydroponics"
 	icon_state = "hydro"
 
 /area/shuttle/hc_cops/isolation
