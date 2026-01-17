@@ -1,6 +1,0 @@
-author: "MajManatee"
-delete-after: True
-changes:
-  - rscadd: "Cargo borgs get more utility with a full toolset"
-  - rscadd: "Manipulator can hold belts, blast door assemblies, and even an RPD."
-  - rscadd: "New cargo teleporter upgrades for borgs"
