@@ -7187,6 +7187,7 @@
 #include "modular_nova\master_files\code\modules\client\preferences\mutant_parts.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\out_of_combat_fov_darkness.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\player_panel.dm"
+#include "modular_nova\master_files\code\modules\client\preferences\runechat.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\scream.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\sensitive_snout.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\sounds.dm"
