@@ -207,7 +207,7 @@
 	visible_message("[src] [span_notice(pick(responses_action))]")
 	if(!COOLDOWN_FINISHED(src, fushi_cooldown))
 		return
-	playsound(src, pick(squeak_override),30)
+	playsound(src, pick(squeak_override), 30)
 	COOLDOWN_START(src, fushi_cooldown, 2 SECONDS)
 
 	///controls the hat toggle
