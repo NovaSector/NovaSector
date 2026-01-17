@@ -511,4 +511,4 @@
 	default = 6
 
 /datum/config_entry/number/max_shuttle_size
-	default = 250
+	default = 350 // NOVA EDIT: Increased to 350 to allowe bigger, cooler shuttles. Originally 250.
