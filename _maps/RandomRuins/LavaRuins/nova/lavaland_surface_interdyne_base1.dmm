@@ -2772,16 +2772,6 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
-"xr" = (
-/obj/effect/turf_decal/trimline/dark_green/filled/line,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 1
-	},
-/turf/open/floor/iron/herringbone,
-/area/ruin/interdyne_planetary_base/cargo)
 "xA" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/door/window/survival_pod/left/directional/east{
@@ -7872,7 +7862,7 @@ pq
 mV
 iQ
 Ih
-xr
+fh
 Rv
 Fk
 PR
