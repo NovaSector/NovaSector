@@ -914,7 +914,6 @@
 /area/ruin/interdyne_planetary_base/med/viro)
 "hZ" = (
 /obj/effect/turf_decal/bot_red,
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "ib" = (
@@ -1100,7 +1099,6 @@
 /area/ruin/interdyne_planetary_base/main)
 "jo" = (
 /obj/machinery/light/cold/directional/south,
-/obj/effect/turf_decal/siding/thinplating,
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer{
 	dir = 8
 	},
@@ -1473,12 +1471,6 @@
 "lU" = (
 /turf/template_noop,
 /area/template_noop)
-"lY" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 6
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
 "ma" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -1586,6 +1578,9 @@
 	id = "interdynexenobiowindows";
 	name = "Xenobio Window Privacy";
 	pixel_x = -24;
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
@@ -2037,9 +2032,6 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng)
 "qw" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 10
-	},
 /obj/structure/table/reinforced,
 /obj/item/gun/energy/plasmacutter{
 	pixel_x = 4;
@@ -2301,6 +2293,7 @@
 	},
 /obj/item/gun/energy/cell_loaded/medigun/standard,
 /obj/item/folder/syndicate/red/secretformula,
+/obj/item/mod/paint,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "tl" = (
@@ -2884,16 +2877,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
-"yj" = (
-/obj/effect/turf_decal/siding/thinplating,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/structure/closet/secure_closet/freezer/meat/all_access,
-/turf/open/floor/iron/kitchen{
-	dir = 4
-	},
-/area/ruin/interdyne_planetary_base/serv/kitchen)
 "ym" = (
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -3157,9 +3140,6 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "Av" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 8
-	},
 /obj/machinery/suit_storage_unit/mining,
 /obj/machinery/button/door/directional/north{
 	name = "Miner 1 Bolt";
@@ -4691,15 +4671,6 @@
 	},
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/pharm)
-"Mc" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/thinplating/corner{
-	dir = 8
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
 "Mh" = (
 /obj/structure/closet/secure_closet/personal/wall{
 	pixel_x = 29
@@ -4916,8 +4887,14 @@
 /area/ruin/interdyne_planetary_base/science/xeno)
 "On" = (
 /obj/effect/turf_decal/siding/thinplating,
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/closet/secure_closet/freezer/meat/all_access,
+/turf/open/floor/iron/kitchen{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/serv/kitchen)
 "Oo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -5134,12 +5111,6 @@
 	dir = 8
 	},
 /area/ruin/interdyne_planetary_base/main)
-"PJ" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 4
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
 "PR" = (
 /obj/effect/turf_decal/siding/thinplating,
 /obj/structure/bed/double,
@@ -5262,9 +5233,6 @@
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
 "Rx" = (
-/obj/effect/turf_decal/siding/thinplating/end{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner,
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -5387,6 +5355,7 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "SA" = (
@@ -7818,7 +7787,7 @@ Qd
 Nd
 Ih
 Ih
-On
+Ih
 Ih
 uQ
 ql
@@ -7940,9 +7909,9 @@ ZN
 oT
 fh
 Ih
-PJ
-Mc
-lY
+Ih
+Ih
+Ih
 Yd
 DH
 jS
@@ -8119,7 +8088,7 @@ gk
 do
 do
 do
-yj
+On
 vY
 AJ
 ZB
