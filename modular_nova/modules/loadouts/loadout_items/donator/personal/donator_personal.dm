@@ -965,22 +965,22 @@
 	ckeywhitelist = list("pyritechimera", "sirbillyblacksmith", "darkinite")
 
 /datum/loadout_item/head/gabney
-	name = "Triumvirate officer's cap"
+	name = "Triumvirate Officer's Cap"
 	item_path = /obj/item/clothing/head/gabeny
 	ckeywhitelist = list("pyritechimera", "gabenyfox", "draegonlore")
 
 /datum/loadout_item/under/gabney
-	name = "Triumvirate Officer's formal uniform"
+	name = "Triumvirate Officer's Formal Uniform"
 	item_path = /obj/item/clothing/under/gabeny
 	ckeywhitelist = list("pyritechimera", "gabenyfox", "draegonlore")
 
 /datum/loadout_item/suit/gabney
-	name = "Triumvirate MedSci Officer's labcoat"
+	name = "Triumvirate MedSci Officer's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/gabeny
 	ckeywhitelist = list("pyritechimera", "gabenyfox", "draegonlore")
 
 /datum/loadout_item/suit/gabney
-	name = "Triumvirate Officer's great coat"
+	name = "Triumvirate Officer's Great Coat"
 	item_path = /obj/item/clothing/suit/jacket/gabeny
 	ckeywhitelist = list("pyritechimera", "gabenyfox", "draegonlore")
 

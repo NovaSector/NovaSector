@@ -2494,7 +2494,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/under/gabeny
 	name = "\improper Triumvirate officer's formal uniform"
-	desc = "A dark grey military-style uniform with golden cuffs and epaulette on the right shoulder. The top of this uniform is double-breasted with navy blue buttons and highlights."
+	desc = "A dark grey military-style uniform with golden cuffs and epaulet on the right shoulder. The top of this uniform is double-breasted with navy blue buttons and highlights."
 	icon_state = "gabeny_jumpsuit"
 	worn_icon_state = "gabeny_jumpsuit"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
@@ -2503,7 +2503,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/toggle/labcoat/gabeny
 	name = "\improper Triumvirate medsci officer's labcoat"
-	desc = "A dark grey labcoat with navy blue accents and the fox-faced emblem of Triumvirate Textiles on the right breast pocket. Despite having a spot on the right sleeve for a company patch, there doesn't seem to be one. The materials used to make this coat make it perfectly sanitary for any medical or research needs."
+	desc = "A dark grey labcoat with navy blue accents and the fox-faced emblem of Triumvirate Textiles on the right breast pocket. Despite having a spot on the right sleeve for a company patch, there doesn't seem to be one. \
+		The materials used to make this coat make it perfectly sanitary for any medical or research needs."
 	icon_state = "gabeny_labcoat"
 	worn_icon_state = "gabeny_labcoat"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
@@ -2511,7 +2512,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/jacket/gabeny
 	name = "\improper Triumvirate officer's great coat"
-	desc = "A dark grey great coat with navy blue accents and gold buttons with a patch of the Sol Federation flag on the right shoulder. There's a few other patches across the chest, and left sleeve, most recognizable being the fox-faced emblem of Triumvirate Textiles on the left breast pocket."
+	desc = "A dark grey great coat with navy blue accents and gold buttons with a patch of the Sol Federation flag on the right shoulder. \
+		There's a few other patches across the chest, and left sleeve, most recognizable being the fox-faced emblem of Triumvirate Textiles on the left breast pocket."
 	icon_state = "gabeny_greatcoat"
 	worn_icon_state = "gabeny_greatcoat"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
