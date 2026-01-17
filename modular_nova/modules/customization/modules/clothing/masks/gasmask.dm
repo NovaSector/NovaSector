@@ -175,7 +175,7 @@
 
 	if(src && choice && !user.incapacitated && in_range(user,src))
 		var/mob/living/carbon/human/human_user = user
-		if(human_user.dna.species.mutant_bodyparts[FEATURE_SNOUT])
+		if(human_user.dna.mutant_bodyparts[FEATURE_SNOUT])
 			icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 			worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
 		else

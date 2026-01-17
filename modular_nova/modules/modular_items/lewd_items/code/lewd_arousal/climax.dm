@@ -154,7 +154,7 @@
 						target_buttons += "asshole"
 					if(target_human.has_penis(REQUIRE_GENITAL_EXPOSED))
 						var/obj/item/organ/genital/penis/other_penis = target_human.get_organ_slot(ORGAN_SLOT_PENIS)
-						if(other_penis.sheath != "None")
+						if(other_penis.sheath != SPRITE_ACCESSORY_NONE)
 							target_buttons += "sheath"
 					target_buttons += "On [target_human_them]"
 
