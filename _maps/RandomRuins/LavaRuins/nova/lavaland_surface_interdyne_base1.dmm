@@ -281,6 +281,19 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
+"cD" = (
+/obj/machinery/button/door/directional/north{
+	id = "syndie_lavaland_vault";
+	specialfunctions = 4;
+	req_access = list("syndicate");
+	name = "Interdyne Vault Bolt Control";
+	normaldoorcontrol = 1
+	},
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 9
+	},
+/turf/open/floor/iron/herringbone,
+/area/ruin/interdyne_planetary_base/main/vault)
 "cE" = (
 /obj/machinery/chem_heater/withbuffer,
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -399,11 +412,16 @@
 	},
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "du" = (
-/obj/machinery/suit_storage_unit/interdyne/nerfed,
-/turf/open/floor/iron/dark/textured_half{
-	dir = 1
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/door/airlock/vault{
+	id_tag = "syndie_lavaland_vault";
+	name = "Interdyne Vault"
 	},
-/area/ruin/interdyne_planetary_base/main)
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/vault)
 "dB" = (
 /obj/machinery/light/cold/directional/south,
 /obj/machinery/door/window/survival_pod/left/directional/west{
@@ -436,6 +454,15 @@
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/eng)
 "dQ" = (
+/obj/machinery/light/cold/directional/north,
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
 "dU" = (
@@ -489,18 +516,16 @@
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "eE" = (
-/obj/machinery/button/door/directional/north{
-	id = "syndie_lavaland_vault";
+/obj/machinery/button/door/directional/west{
+	id = "IDyneP";
+	normaldoorcontrol = 1;
 	specialfunctions = 4;
-	req_access = list("syndicate");
-	name = "Interdyne Vault Bolt Control";
-	normaldoorcontrol = 1
+	name = "Door Lock";
+	pixel_x = 0;
+	pixel_y = 24
 	},
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 9
-	},
-/turf/open/floor/iron/herringbone,
-/area/ruin/interdyne_planetary_base/main/vault)
+/turf/open/floor/iron/pool/cobble/corner,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "eH" = (
 /obj/machinery/computer/operating,
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -699,14 +724,18 @@
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "gB" = (
-/obj/structure/disposalpipe/segment{
-	dir = 9
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/iron/white,
-/area/ruin/interdyne_planetary_base/cargo)
+/obj/machinery/vending/autodrobe{
+	onstation = 0;
+	extended_inventory = 1;
+	all_products_free = 1
+	},
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/main)
 "gF" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 9
@@ -745,10 +774,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/main)
-"gY" = (
-/obj/machinery/announcement_system,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/main/vault)
 "hd" = (
 /obj/effect/turf_decal/siding/white,
 /obj/effect/turf_decal/siding/white{
@@ -757,9 +782,14 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "hg" = (
-/obj/machinery/space_heater,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/eng)
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/ruin/interdyne_planetary_base/cargo)
 "hl" = (
 /obj/structure/railing,
 /obj/structure/plasticflaps,
@@ -1114,6 +1144,10 @@
 	dir = 1
 	},
 /area/ruin/interdyne_planetary_base/cargo/ware)
+"jw" = (
+/obj/machinery/portable_atmospherics/scrubber/huge,
+/turf/open/floor/iron/diagonal,
+/area/ruin/interdyne_planetary_base/eng)
 "jx" = (
 /obj/machinery/camera/autoname/directional/west{
 	network = list("intd13")
@@ -1518,18 +1552,17 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "mV" = (
-/obj/effect/turf_decal/tile/dark_green/anticorner{
-	dir = 1
-	},
-/obj/machinery/camera/autoname/directional/west{
-	network = list("intd13")
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/dark/smooth_edge{
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer{
 	dir = 4
 	},
-/area/ruin/interdyne_planetary_base/main)
+/obj/structure/bed/double{
+	dir = 1
+	},
+/obj/item/bedsheet/green/double{
+	dir = 1
+	},
+/turf/open/floor/iron/herringbone,
+/area/ruin/interdyne_planetary_base/cargo)
 "mW" = (
 /obj/item/storage/bag/xeno{
 	pixel_y = 10;
@@ -1586,10 +1619,20 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "nw" = (
-/obj/machinery/suit_storage_unit/interdyne/nerfed,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 4
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 8
 	},
+/obj/machinery/button/door/directional/west{
+	id = "InterdyneResearch3";
+	name = "Research Bolt 3";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/main)
 "nz" = (
 /obj/structure/cable,
@@ -1709,28 +1752,21 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "oJ" = (
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 8
-	},
-/obj/machinery/button/door/directional/west{
-	id = "InterdyneResearch4";
-	name = "Research Bolt 4";
-	normaldoorcontrol = 1;
-	specialfunctions = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
-/turf/open/floor/iron/dark/smooth_edge{
+/obj/machinery/announcement_system,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main/vault)
+"oL" = (
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/area/ruin/interdyne_planetary_base/main)
-"oL" = (
-/obj/structure/bedsheetbin,
-/obj/structure/table,
-/turf/open/floor/wood/parquet,
-/area/ruin/interdyne_planetary_base/main/dorms)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/iron/herringbone,
+/area/ruin/interdyne_planetary_base/cargo)
 "oT" = (
 /obj/machinery/door/airlock/virology{
 	name = "Miner 2";
@@ -1903,12 +1939,10 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "pR" = (
-/obj/machinery/door/window/survival_pod/left/directional/west{
-	req_access = list("syndicate")
-	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
-/turf/open/floor/engine,
-/area/ruin/interdyne_planetary_base/science/xeno)
+/obj/structure/cable,
+/obj/machinery/portable_atmospherics/pump,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/eng)
 "pT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
@@ -1974,23 +2008,14 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "qp" = (
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 8
+/obj/structure/sign/painting/large/library{
+	pixel_y = -32
 	},
-/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base{
+/obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
 	},
-/obj/machinery/light/cold/directional/west,
-/obj/structure/bed/double{
-	dir = 1
-	},
-/obj/item/bedsheet/green/double{
-	dir = 1
-	},
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 4
-	},
-/area/ruin/interdyne_planetary_base/main)
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "qq" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
@@ -2012,26 +2037,22 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng)
 "qw" = (
-/obj/effect/turf_decal/siding/thinplating,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/structure/closet/crate/freezer,
-/obj/item/choice_beacon/ingredient,
-/obj/item/reagent_containers/condiment/soymilk,
-/obj/item/reagent_containers/condiment/soymilk,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/rice,
-/obj/item/reagent_containers/condiment/sugar,
-/obj/item/reagent_containers/condiment/flour,
-/obj/item/storage/fancy/egg_box,
-/obj/item/storage/fancy/egg_box,
-/obj/item/reagent_containers/condiment/flour,
-/turf/open/floor/iron/kitchen{
-	dir = 4
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 10
 	},
-/area/ruin/interdyne_planetary_base/serv/kitchen)
+/obj/structure/table/reinforced,
+/obj/item/gun/energy/plasmacutter{
+	pixel_x = 4;
+	pixel_y = -4
+	},
+/obj/item/gps{
+	gpstag = "INTRDYN0";
+	pixel_x = 8;
+	pixel_y = -5
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/iron/herringbone,
+/area/ruin/interdyne_planetary_base/cargo)
 "qx" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
@@ -2122,6 +2143,19 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/main/vault)
+"rE" = (
+/obj/effect/turf_decal/tile/dark_green/anticorner{
+	dir = 1
+	},
+/obj/machinery/camera/autoname/directional/west{
+	network = list("intd13")
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/main)
 "rG" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood/parquet,
@@ -2198,14 +2232,10 @@
 /turf/open/floor/circuit/telecomms,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "sJ" = (
-/obj/effect/turf_decal/tile/dark_green{
+/obj/machinery/suit_storage_unit/interdyne/nerfed,
+/turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/iron/dark/smooth_edge,
 /area/ruin/interdyne_planetary_base/main)
 "sM" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
@@ -2308,10 +2338,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/ruin/interdyne_planetary_base/main)
-"tz" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/iron/herringbone,
-/area/ruin/interdyne_planetary_base/cargo)
 "tI" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
@@ -2519,23 +2545,8 @@
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "uS" = (
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 4
-	},
-/obj/machinery/skill_station/plasmaglass,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 4
-	},
-/area/ruin/interdyne_planetary_base/main)
-"uV" = (
-/obj/machinery/door/airlock/virology{
-	name = "Researcher 1";
-	id_tag = "InterdyneResearch1"
-	},
-/turf/open/floor/iron/kitchen{
-	dir = 4
-	},
-/area/ruin/interdyne_planetary_base/serv/kitchen)
+/turf/open/floor/iron/herringbone,
+/area/ruin/interdyne_planetary_base/cargo)
 "uW" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/machinery/portable_atmospherics/canister/anesthetic_mix,
@@ -2665,14 +2676,11 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "wE" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
-	dir = 6
+	dir = 4
 	},
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -2810,6 +2818,16 @@
 	dir = 1
 	},
 /area/ruin/interdyne_planetary_base/main)
+"xL" = (
+/obj/effect/turf_decal/siding/thinplating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/icecream_vat,
+/turf/open/floor/iron/kitchen{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/serv/kitchen)
 "xM" = (
 /obj/machinery/light/cold/directional/west,
 /obj/structure/table/optable,
@@ -2867,11 +2885,14 @@
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "yj" = (
-/obj/structure/closet/secure_closet/personal/wall{
-	pixel_x = 29
+/obj/machinery/door/airlock/virology{
+	name = "Researcher 1";
+	id_tag = "InterdyneResearch1"
 	},
-/turf/open/floor/iron/herringbone,
-/area/ruin/interdyne_planetary_base/cargo)
+/turf/open/floor/iron/kitchen{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/serv/kitchen)
 "ym" = (
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -2910,10 +2931,23 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "yI" = (
-/obj/structure/cable,
-/obj/machinery/portable_atmospherics/pump,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/eng)
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 8
+	},
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base{
+	dir = 4
+	},
+/obj/machinery/light/cold/directional/west,
+/obj/structure/bed/double{
+	dir = 1
+	},
+/obj/item/bedsheet/green/double{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/main)
 "yJ" = (
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -3290,17 +3324,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/checker,
 /area/ruin/interdyne_planetary_base/serv/bar)
-"BG" = (
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/effect/mapping_helpers/apc/syndicate_access,
-/obj/structure/cable,
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/herringbone,
-/area/ruin/interdyne_planetary_base/main/vault)
 "BJ" = (
 /obj/structure/table/reinforced,
 /obj/item/pipe_dispenser{
@@ -3340,15 +3363,10 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/main)
 "BQ" = (
-/obj/machinery/button/door/directional/west{
-	id = "IDyneP";
-	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	name = "Door Lock";
-	pixel_x = 0;
-	pixel_y = 24
+/obj/structure/sign/painting{
+	pixel_y = -32
 	},
-/turf/open/floor/iron/pool/cobble/corner,
+/turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "BZ" = (
 /obj/machinery/hydroponics/constructable,
@@ -3398,6 +3416,11 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
+"Cr" = (
+/obj/structure/bedsheetbin,
+/obj/structure/table,
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "Cv" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/effect/turf_decal/siding/dark{
@@ -3454,19 +3477,6 @@
 "CP" = (
 /obj/machinery/smartfridge/chemistry/virology/preloaded,
 /turf/open/floor/iron/dark/small,
-/area/ruin/interdyne_planetary_base/med/viro)
-"CQ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/virology{
-	name = "Virology"
-	},
-/turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/med/viro)
 "CR" = (
 /turf/closed/wall/mineral/titanium,
@@ -3530,21 +3540,18 @@
 	},
 /area/ruin/interdyne_planetary_base/main)
 "Do" = (
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 8
-	},
-/obj/machinery/button/door/directional/west{
-	id = "InterdyneResearch3";
-	name = "Research Bolt 3";
-	normaldoorcontrol = 1;
-	specialfunctions = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/virology{
+	name = "Virology"
 	},
-/turf/open/floor/iron/dark,
-/area/ruin/interdyne_planetary_base/main)
+/turf/open/floor/iron/white/small,
+/area/ruin/interdyne_planetary_base/med/viro)
 "Dr" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3660,6 +3667,7 @@
 /obj/structure/sink/directional/west,
 /obj/structure/mirror/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "En" = (
@@ -4097,6 +4105,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "GZ" = (
@@ -4178,18 +4187,12 @@
 	},
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "HL" = (
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 4
+/obj/structure/disposalpipe/segment{
+	dir = 8
 	},
-/obj/machinery/vending/games{
-	onstation = 0;
-	all_products_free = 1;
-	extended_inventory = 1
-	},
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 4
-	},
-/area/ruin/interdyne_planetary_base/main)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/eng)
 "HN" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -4431,11 +4434,9 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "Kr" = (
-/obj/structure/sign/painting{
-	pixel_y = -32
-	},
-/turf/open/floor/wood/parquet,
-/area/ruin/interdyne_planetary_base/main/dorms)
+/obj/machinery/space_heater,
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/eng)
 "Ks" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 10
@@ -4531,12 +4532,14 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "KQ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/eng)
+/obj/machinery/skill_station/plasmaglass,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/main)
 "KS" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/effect/turf_decal/tile/purple/half{
@@ -4690,11 +4693,8 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "Mh" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_x = 29
 	},
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -4763,15 +4763,12 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "MV" = (
-/obj/effect/turf_decal/siding/thinplating,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/machinery/icecream_vat,
-/turf/open/floor/iron/kitchen{
+/obj/effect/turf_decal/tile/purple/half{
 	dir = 4
 	},
-/area/ruin/interdyne_planetary_base/serv/kitchen)
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/turf/open/floor/engine/bz,
+/area/ruin/interdyne_planetary_base/science/xeno)
 "MY" = (
 /obj/machinery/door/airlock/virology/glass,
 /obj/structure/sign/warning/no_smoking/circle/directional/south,
@@ -4781,15 +4778,15 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/main)
 "Nd" = (
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/locked,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/machinery/door/airlock/vault{
-	id_tag = "syndie_lavaland_vault";
-	name = "Interdyne Vault"
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
 	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/dark/textured_large,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/main/vault)
 "Nf" = (
 /obj/machinery/smartfridge/organ,
@@ -4910,21 +4907,8 @@
 /turf/open/floor/engine/bz,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "On" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 10
-	},
-/obj/structure/table/reinforced,
-/obj/item/gun/energy/plasmacutter{
-	pixel_x = 4;
-	pixel_y = -4
-	},
-/obj/item/gps{
-	gpstag = "INTRDYN0";
-	pixel_x = 8;
-	pixel_y = -5
-	},
-/obj/machinery/light/small/directional/west,
-/turf/open/floor/iron/herringbone,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "Oo" = (
 /obj/effect/turf_decal/stripes/line{
@@ -4967,11 +4951,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv/hydr)
-"Ox" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/herringbone,
-/area/ruin/interdyne_planetary_base/cargo)
 "OB" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -5009,14 +4988,23 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "OJ" = (
-/obj/structure/sign/painting/large/library{
-	pixel_y = -32
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 8
 	},
-/obj/effect/turf_decal/siding/wood/corner{
+/obj/machinery/button/door/directional/west{
+	id = "InterdyneResearch1";
+	name = "Research Bolt 1";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
-/turf/open/floor/wood/parquet,
-/area/ruin/interdyne_planetary_base/main/dorms)
+/area/ruin/interdyne_planetary_base/main)
 "OP" = (
 /obj/machinery/computer/security/hos{
 	name = "\improper Interdyne camera console";
@@ -5262,23 +5250,9 @@
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
 "Rw" = (
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 8
-	},
-/obj/machinery/button/door/directional/west{
-	id = "InterdyneResearch1";
-	name = "Research Bolt 1";
-	normaldoorcontrol = 1;
-	specialfunctions = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 4
-	},
-/area/ruin/interdyne_planetary_base/main)
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron/herringbone,
+/area/ruin/interdyne_planetary_base/cargo)
 "Rx" = (
 /obj/effect/turf_decal/siding/thinplating/end{
 	dir = 8
@@ -5442,9 +5416,11 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
 "SO" = (
-/obj/effect/turf_decal/siding/thinplating,
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
+/obj/machinery/suit_storage_unit/interdyne/nerfed,
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/ruin/interdyne_planetary_base/main)
 "SP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5756,17 +5732,21 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "UE" = (
-/obj/machinery/light/cold/directional/north,
-/obj/structure/cable,
-/obj/machinery/airalarm/directional/north,
-/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 8
+	},
+/obj/machinery/door/airlock/virology{
+	name = "Researcher 1";
+	id_tag = "InterdyneResearch1"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 1
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
 	},
-/turf/open/floor/iron/herringbone,
-/area/ruin/interdyne_planetary_base/cargo)
+/area/ruin/interdyne_planetary_base/main)
 "UN" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
@@ -5835,12 +5815,15 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "Vc" = (
-/obj/effect/turf_decal/tile/purple/half{
+/obj/effect/turf_decal/tile/dark_green{
 	dir = 4
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
-/turf/open/floor/engine/bz,
-/area/ruin/interdyne_planetary_base/science/xeno)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/dark/smooth_edge,
+/area/ruin/interdyne_planetary_base/main)
 "Vf" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -5858,6 +5841,27 @@
 	},
 /turf/open/floor/plating/lavaland_atmos,
 /area/ruin/interdyne_planetary_base/eng)
+"Vj" = (
+/obj/effect/turf_decal/siding/thinplating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/closet/crate/freezer,
+/obj/item/choice_beacon/ingredient,
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/rice,
+/obj/item/reagent_containers/condiment/sugar,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/storage/fancy/egg_box,
+/obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/condiment/flour,
+/turf/open/floor/iron/kitchen{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/serv/kitchen)
 "Vm" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5888,16 +5892,12 @@
 /area/ruin/interdyne_planetary_base/med)
 "VD" = (
 /obj/effect/turf_decal/tile/dark_green/half{
-	dir = 8
+	dir = 4
 	},
-/obj/machinery/door/airlock/virology{
-	name = "Researcher 1";
-	id_tag = "InterdyneResearch1"
+/obj/machinery/vending/barbervend{
+	onstation = 0;
+	all_products_free = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -5958,9 +5958,23 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/cargo)
 "Wf" = (
-/obj/machinery/portable_atmospherics/scrubber/huge,
-/turf/open/floor/iron/diagonal,
-/area/ruin/interdyne_planetary_base/eng)
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 8
+	},
+/obj/machinery/button/door/directional/west{
+	id = "InterdyneResearch4";
+	name = "Research Bolt 4";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/main)
 "Wk" = (
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
@@ -6013,10 +6027,10 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
-/obj/machinery/vending/autodrobe{
+/obj/machinery/vending/games{
 	onstation = 0;
-	extended_inventory = 1;
-	all_products_free = 1
+	all_products_free = 1;
+	extended_inventory = 1
 	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
@@ -6199,17 +6213,12 @@
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
 "XL" = (
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 4
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	req_access = list("syndicate")
 	},
-/obj/machinery/vending/barbervend{
-	onstation = 0;
-	all_products_free = 1
-	},
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 4
-	},
-/area/ruin/interdyne_planetary_base/main)
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/turf/open/floor/engine,
+/area/ruin/interdyne_planetary_base/science/xeno)
 "XM" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -6367,15 +6376,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "ZN" = (
-/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer{
-	dir = 4
-	},
-/obj/structure/bed/double{
-	dir = 1
-	},
-/obj/item/bedsheet/green/double{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
 "ZP" = (
@@ -6740,7 +6742,7 @@ jl
 IN
 nW
 qA
-Vc
+MV
 je
 je
 fm
@@ -6862,7 +6864,7 @@ Jr
 oi
 Az
 NA
-pR
+XL
 NA
 dB
 je
@@ -6944,7 +6946,7 @@ vB
 vB
 ul
 NA
-pR
+XL
 NA
 Df
 je
@@ -7026,7 +7028,7 @@ vB
 Ex
 CH
 NA
-pR
+XL
 NA
 Df
 je
@@ -7148,10 +7150,10 @@ cs
 xM
 va
 Eu
-mV
-VD
-Rw
-qp
+rE
+UE
+OJ
+yI
 Eu
 fm
 fm
@@ -7192,7 +7194,7 @@ Eu
 Gi
 Eu
 Dx
-du
+SO
 Eu
 fm
 fm
@@ -7305,8 +7307,8 @@ fA
 bZ
 xI
 Gc
-sJ
-CQ
+Vc
+Do
 Te
 Dr
 oy
@@ -7396,7 +7398,7 @@ ox
 Eu
 WT
 JD
-Do
+nw
 Bd
 Eu
 fm
@@ -7438,7 +7440,7 @@ WP
 Uc
 Eu
 UW
-nw
+sJ
 Eu
 fm
 fm
@@ -7512,15 +7514,15 @@ EK
 Ss
 XI
 sM
+gB
+KQ
 WG
-uS
-HL
-XL
+VD
 km
 kn
 cZ
-oJ
-qp
+Wf
+yI
 Eu
 fm
 ja
@@ -7561,7 +7563,7 @@ Xm
 sk
 Eu
 UW
-nw
+sJ
 Eu
 fm
 ja
@@ -7746,12 +7748,12 @@ fm
 vu
 vu
 dU
-gY
+oJ
 Qd
-eE
+cD
 Ih
 Av
-On
+qw
 Ih
 uF
 ql
@@ -7788,7 +7790,7 @@ Vh
 vu
 De
 dn
-Nd
+du
 rj
 sN
 Fk
@@ -7830,10 +7832,10 @@ eo
 ta
 LY
 Qd
-BG
+Nd
 Ih
 Ih
-SO
+On
 Ih
 uQ
 ql
@@ -7871,7 +7873,7 @@ pq
 Ih
 Ih
 Ih
-UE
+dQ
 SQ
 pn
 vK
@@ -7909,7 +7911,7 @@ pq
 nb
 Wn
 pq
-ZN
+mV
 iQ
 Ih
 xr
@@ -7950,8 +7952,8 @@ is
 uf
 rJ
 pq
-tz
-Ox
+Rw
+ZN
 oT
 fh
 Ih
@@ -7989,18 +7991,18 @@ gL
 pq
 RT
 qV
-KQ
+HL
 VR
-dQ
+uS
 vO
 Ih
 fh
-wE
+oL
 VX
 Xj
 Gk
 KN
-gB
+hg
 pA
 hq
 yn
@@ -8013,7 +8015,7 @@ uN
 tl
 iP
 EH
-BQ
+eE
 wi
 EH
 DU
@@ -8032,11 +8034,11 @@ jf
 cL
 Cx
 pq
-yj
+Mh
 Io
 Tx
 jM
-Mh
+wE
 Vn
 hZ
 Rx
@@ -8058,7 +8060,7 @@ EH
 EJ
 EH
 AJ
-Kr
+BQ
 EH
 fm
 ja
@@ -8093,9 +8095,9 @@ XF
 XZ
 Er
 do
-qw
+Vj
 vY
-oL
+Cr
 ZB
 js
 AJ
@@ -8132,15 +8134,15 @@ oW
 fX
 gk
 do
-uV
+yj
 do
-MV
+xL
 vY
 AJ
 ZB
 Tm
 Xw
-Kr
+BQ
 EH
 fm
 ja
@@ -8154,7 +8156,7 @@ pq
 EG
 cq
 bB
-hg
+Kr
 mp
 wu
 At
@@ -8239,7 +8241,7 @@ BJ
 aS
 KL
 lt
-yI
+pR
 xe
 HS
 pq
@@ -8279,7 +8281,7 @@ UN
 dk
 cK
 Wk
-Wf
+jw
 qv
 ZU
 Wx
@@ -8304,7 +8306,7 @@ qI
 rG
 Tl
 Tl
-OJ
+qp
 EH
 fm
 ja
