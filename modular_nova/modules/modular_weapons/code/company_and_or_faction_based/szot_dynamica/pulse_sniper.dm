@@ -27,7 +27,7 @@
 	fire_delay = 1.2 SECONDS
 
 	spread = 2.5
-	recoil = 1
+	recoil = 0.5
 	projectile_damage_multiplier = 1.8
 	projectile_speed_multiplier = 1.5
 
