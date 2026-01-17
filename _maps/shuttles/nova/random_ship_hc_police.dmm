@@ -5542,7 +5542,7 @@
 /obj/item/knife/combat{
 	anchored = 1;
 	armour_penetration = 50;
-	desc = "Legendary military combat knife with "Colonel100Stars" engraved on the handle, it seems impossible to lift.";
+	desc = "Legendary military combat knife with \"Colonel100Stars\" engraved on the handle, it seems impossible to lift.";
 	force = 85;
 	name = "incredibly sharp combat knife"
 	},
