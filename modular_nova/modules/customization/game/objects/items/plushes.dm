@@ -223,3 +223,15 @@
 		to_chat(user, span_notice("You take off the plushie's hat."))
 		say("Hey! Thats my hat!")
 	plushhat = !plushhat
+	if(plushhat)
+		say("My hat is back!")
+	else
+		say("Hey! That's my hat!")
+	update_appearance(UPDATE_ICON_STATE)
+
+/obj/item/toy/plush/nova/fushi/update_icon_state()
+	if(plushhat)
+		icon_state = "plush_fushi"
+	else
+		icon_state = initial(icon_state)
+	return ..()
