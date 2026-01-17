@@ -24,7 +24,7 @@
 
 /obj/item/reagent_containers/heroin
 	name = "heroin"
-	desc = "Take a line and take some time of man."
+	desc = "Take a line and take some time off, man."
 	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "heroin"
 	volume = 4
@@ -42,6 +42,10 @@
 	if(covered)
 		to_chat(user, span_warning("You have to remove your [covered] first!"))
 		return
+	var/obj/item/organ/lungs/lungs = user.get_organ_slot(ORGAN_SLOT_LUNGS)
+	if(isnull(lungs) || istype(lungs, /obj/item/organ/lungs/synth))
+		to_chat(user, span_warning("You have to be able to breathe to snort the heroin!"))
+		return
 	user.visible_message(span_notice("'[user] starts snorting the [src]."))
 	if(do_after(user, 30))
 		to_chat(user, span_notice("You finish snorting the [src]."))
@@ -49,8 +53,7 @@
 			reagents.trans_to(user, reagents.total_volume, transferred_by = user, methods = INGEST)
 		qdel(src)
 
-/obj/item/reagent_containers/heroin/attack(mob/target, mob/user)
-	if(target == user)
+/obj/item/reagent_containers/heroin/attack_self(mob/user)
 		snort(user)
 
 /obj/item/reagent_containers/heroin/attack_hand_secondary(mob/user, list/modifiers)

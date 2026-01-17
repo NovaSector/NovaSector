@@ -29,9 +29,18 @@
 /datum/sprite_accessory/ears/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/ears/cat
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_ONE_COLOR
 	has_inner = TRUE
@@ -44,7 +53,14 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears.dmi'
 	organ_type = /obj/item/organ/ears_external
 	color_src = USE_MATRIXED_COLORS
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 	uses_emissives = TRUE
 
 /datum/sprite_accessory/ears/external/none
@@ -52,18 +68,44 @@
 	icon_state = "none"
 	color_src = null
 	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/ears/external/big
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears_big.dmi'
 
 /datum/sprite_accessory/ears/external/vulpkanin
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_VULP, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_VULP = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 
 /datum/sprite_accessory/ears/external/cat
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_TAJARAN, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_TAJARAN = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 
 /datum/sprite_accessory/ears/external/akula
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_AQUATIC, SPECIES_AKULA, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_AQUATIC = 1,
+		SPECIES_AKULA = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 
 /datum/sprite_accessory/ears/external/axolotl
 	name = "Axolotl"
@@ -96,6 +138,10 @@
 	name = "Dark Big Wolf (ALT)"
 	icon_state = "bigwolfinnerdark"
 	has_inner = TRUE
+
+/datum/sprite_accessory/ears/external/jackal
+	name = "Jackal"
+	icon_state = "jackal"
 
 /datum/sprite_accessory/ears/external/bunny
 	name = "Bunny"
@@ -361,7 +407,7 @@
 	icon_state = "deerear"
 
 /datum/sprite_accessory/ears/external/teshari
-	recommended_species = list(SPECIES_TESHARI)
+	recommended_species = list(SPECIES_TESHARI = 1)
 
 /datum/sprite_accessory/ears/external/teshari/regular
 	name = "Teshari Regular"

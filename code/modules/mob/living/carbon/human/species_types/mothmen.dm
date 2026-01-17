@@ -12,7 +12,6 @@
 		/obj/item/organ/antennae = "Plain",
 	)
 	*/ // NOVA EDIT REMOVAL END
-	mutant_bodyparts = list("moth_markings" = "None") // NOVA EDIT ADDITION - Customization
 	meat = /obj/item/food/meat/slab/human/mutant/moth
 	mutanttongue = /obj/item/organ/tongue/moth
 	mutanteyes = /obj/item/organ/eyes/moth
