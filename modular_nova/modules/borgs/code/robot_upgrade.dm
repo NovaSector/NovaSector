@@ -556,7 +556,7 @@
 		/obj/item/stack/conveyor,
 		/obj/item/conveyor_switch_construct,
 		/obj/item/assembly/control, // To help rewire bay doors
-		/obj/item/stock_parts, // So they can make laithes and such infront of the bay
+		/obj/item/stock_parts, // So they can make lathes and such in front of the bay
 		/obj/machinery/rnd/production/colony_lathe,
 		/obj/item/stack/sheet/iron,
 		/obj/item/stack/sheet/glass,
