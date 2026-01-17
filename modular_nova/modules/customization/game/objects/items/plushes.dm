@@ -171,7 +171,7 @@
 		"Has anyone seen Ian?",
 		"Weeeeehhhhhh!",
 		"Don't take my hat!",
-		"No I cant give you all acesss.",
+		"No I cant give you all access.",
 		"How are you doing today?",
 		"Careful with my tail!",
 		"Command is being silly today.",
