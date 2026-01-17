@@ -212,16 +212,6 @@
 
 // controls the hat toggle
 /obj/item/toy/plush/nova/fushi/attack_self_secondary(mob/user)
-	if(plushhat)
-		icon_state = upsprite
-		inhand_icon_state = upsprite
-		to_chat(user, span_notice("You place the plushie's hat on its head."))
-		say("My hat is back!")
-	else
-		icon_state = downsprite
-		inhand_icon_state = downsprite
-		to_chat(user, span_notice("You take off the plushie's hat."))
-		say("Hey! Thats my hat!")
 	plushhat = !plushhat
 	if(plushhat)
 		say("My hat is back!")
