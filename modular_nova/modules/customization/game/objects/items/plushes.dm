@@ -158,7 +158,7 @@
 	squeak_override = list(
 		'modular_nova/modules/emotes/sound/voice/wurble.ogg' = 10, //10% chance to wurble
 		'modular_nova/modules/emotes/sound/voice/weh.ogg' = 90,
-		)
+	)
 	gender = MALE
 	var/plushhat = TRUE
 	///Sprite visible when the hat is taken off.
