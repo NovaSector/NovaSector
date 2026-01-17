@@ -3027,6 +3027,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/rag,
+/obj/item/choice_beacon/ingredient,
 /turf/open/floor/wood/tile,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "zB" = (
@@ -4180,7 +4181,7 @@
 	},
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
-/obj/structure/table/reinforced,
+/obj/structure/closet/secure_closet/freezer/kitchen/all_access,
 /turf/open/floor/iron/kitchen{
 	dir = 4
 	},
@@ -5440,8 +5441,8 @@
 "SR" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/small/directional/north,
-/obj/item/kitchen/rollingpin,
 /obj/machinery/light_switch/directional/north,
+/obj/item/kitchen/rollingpin,
 /turf/open/floor/iron/kitchen{
 	dir = 4
 	},
@@ -5846,18 +5847,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/structure/closet/crate/freezer,
-/obj/item/choice_beacon/ingredient,
-/obj/item/reagent_containers/condiment/soymilk,
-/obj/item/reagent_containers/condiment/soymilk,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/rice,
-/obj/item/reagent_containers/condiment/sugar,
-/obj/item/reagent_containers/condiment/flour,
-/obj/item/storage/fancy/egg_box,
-/obj/item/storage/fancy/egg_box,
-/obj/item/reagent_containers/condiment/flour,
+/obj/structure/closet/crate/freezer/food,
 /turf/open/floor/iron/kitchen{
 	dir = 4
 	},
