@@ -1250,6 +1250,12 @@
 /obj/item/mod/module/dna_lock,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/mod/module/emp_shield,
+/obj/item/mod/module/emp_shield,
+/obj/item/mod/module/emp_shield,
+/obj/item/mod/module/emp_shield,
+/obj/item/mod/module/emp_shield,
+/obj/item/mod/module/emp_shield,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/hc_cops/armory)
 "lA" = (
