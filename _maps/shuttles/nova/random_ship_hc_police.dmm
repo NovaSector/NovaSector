@@ -258,8 +258,7 @@
 "cO" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/window/right{
-	dir = 4;
+/obj/machinery/door/window/right/directional/east{
 	pixel_x = 4
 	},
 /turf/open/floor/iron/smooth_half,
@@ -1423,8 +1422,7 @@
 /area/shuttle/hc_cops/command)
 "mN" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/window/right{
-	dir = 4;
+/obj/machinery/door/window/right/directional/east{
 	pixel_x = 4
 	},
 /obj/machinery/hydroponics/constructable,
@@ -1498,10 +1496,6 @@
 	dir = 8
 	},
 /turf/open/floor/plating/reinforced,
-/area/shuttle/hc_cops/engineering)
-"nD" = (
-/obj/structure/lattice,
-/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/engineering)
 "nJ" = (
 /obj/structure/cable,
@@ -1893,8 +1887,7 @@
 "qZ" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/window/right{
-	dir = 4;
+/obj/machinery/door/window/right/directional/east{
 	pixel_x = 4
 	},
 /obj/structure/sink/kitchen{
@@ -3662,7 +3655,6 @@
 /area/shuttle/hc_cops/teleporter)
 "IH" = (
 /obj/structure/marker_beacon/cerulean,
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/shuttle/hc_cops/engineering)
@@ -3912,14 +3904,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white,
 /area/shuttle/hc_cops/infirmary)
-"KP" = (
-/obj/structure/cable,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating/reinforced,
-/area/shuttle/hc_cops/engineering)
 "KW" = (
 /obj/effect/turf_decal/bot,
 /obj/item/circuitboard/machine/rtg/advanced{
@@ -4340,7 +4324,6 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
@@ -4688,7 +4671,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/hc_cops/cargo_hold)
 "Ry" = (
-/obj/structure/table/reinforced/plastitaniumglass,
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/paper_bin,
 /obj/item/pen,
@@ -5665,7 +5647,7 @@ Jv
 Yn
 AN
 Di
-nD
+Di
 Di
 zQ
 "}
@@ -5869,7 +5851,7 @@ Bf
 Bf
 jQ
 Bf
-KP
+Bf
 WR
 dM
 rT
