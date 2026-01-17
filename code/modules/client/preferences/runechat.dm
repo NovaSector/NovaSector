@@ -30,4 +30,4 @@
 	savefile_key = "chat_on_map_dead"
 	savefile_identifier = PREFERENCE_PLAYER
 	default_value = FALSE
-// END NOVA EDIT
+// NOVA EDIT ADDITION END
