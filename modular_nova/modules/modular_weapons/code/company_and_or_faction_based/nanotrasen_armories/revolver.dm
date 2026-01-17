@@ -47,8 +47,10 @@
 	base_icon_state = "c38rail"
 	w_class = WEIGHT_CLASS_NORMAL
 	obj_flags = UNIQUE_RENAME
-	desc = "A new spin on a classic. Uses .38 Special rounds, and features both a magnified sight and a non-adjustable charge-shot assembly built into the barrel for precision fire."
+	desc = "A new spin on a classic. Uses .38 Special rounds, and features both a magnified sight and a magnetic charge-shot assembly built into the barrel for precision fire."
 	desc_controls = "Use the action button to toggle charged shots, increasing projectile speed and damage in return for firerate."
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev38/super
+
 	lore_blurb = "The NT/E Laevateinn is Nanotrasen's take on a charged-shot revolver, designed shortly after the BR-38.<br><br>\
 		With the success of the BR-38 (as a project), a small group of technicians experienced with the carbine's workings \
 		proposed downscaling its magnetic acceleration system for use within a revolver's form-factor. Interestingly enough, \
@@ -79,7 +81,7 @@
 		base_fire_delay = NONE, \
 		amped_damage_mult = 1.2, \
 		amped_speed_mult = 1.2, \
-		amped_fire_delay = (CLICK_CD_RANGE*2), \
+		amped_fire_delay = (CLICK_CD_RANGE * 1.5), \
 	)
 	RegisterSignal(src, COMSIG_GUN_BOOSTER_TOGGLED, PROC_REF(on_booster_toggle))
 
@@ -110,13 +112,17 @@
 	name = "Toggle Revolver Barrel Charger"
 
 /obj/item/gun/ballistic/revolver/c38/super/empty
-	spawn_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev38/empty
+	spawn_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev38/super/empty
+
+/obj/item/ammo_box/magazine/internal/cylinder/rev38/super
+	name = "upgraded .38 revolver cylinder"
+	max_ammo = 8
 
 // Turns out cylinders really don't like it when they don't initialize ammo/start empty,
 // so we just delete everything on init to keep the cylinder structure it expects in stored_ammo.
-/obj/item/ammo_box/magazine/internal/cylinder/rev38/empty
+/obj/item/ammo_box/magazine/internal/cylinder/rev38/super/empty
 
-/obj/item/ammo_box/magazine/internal/cylinder/rev38/empty/Initialize(mapload)
+/obj/item/ammo_box/magazine/internal/cylinder/rev38/super/empty/Initialize(mapload)
 	. = ..()
 	var/list/to_clear = ammo_list() // forces ammo to init
 	for (var/obj/item/ammo_casing/casing in to_clear) // and then deletes it

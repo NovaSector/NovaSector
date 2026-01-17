@@ -13,6 +13,8 @@
 /datum/sprite_accessory/frills/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/frills/divinity
 	name = "Divinity"

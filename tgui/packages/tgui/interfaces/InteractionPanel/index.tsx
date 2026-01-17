@@ -24,12 +24,13 @@ export function InteractionPanel () {
     self,
     use_subtler,
     erp_interaction,
+    has_erp_interaction,
   } = data;
 
   return (
     <Window width={500} height={600} title={`Interact - ${self}`}>
       <Window.Content scrollable>
-          {erp_interaction && (
+          {!!erp_interaction && !!has_erp_interaction && (
             <Section>
               <Stack vertical fill>
                   <Stack.Item grow>
