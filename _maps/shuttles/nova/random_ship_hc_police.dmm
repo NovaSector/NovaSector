@@ -478,6 +478,24 @@
 	pixel_x = -32
 	},
 /obj/item/stamp/denied,
+/obj/item/card/faction_access/guest{
+	extra_access = list("syndicate")
+	},
+/obj/item/card/faction_access/guest{
+	extra_access = list("syndicate")
+	},
+/obj/item/card/faction_access/guest{
+	extra_access = list("syndicate")
+	},
+/obj/item/card/faction_access/guest{
+	extra_access = list("syndicate")
+	},
+/obj/item/card/faction_access/guest{
+	extra_access = list("syndicate")
+	},
+/obj/item/card/faction_access/guest{
+	extra_access = list("syndicate")
+	},
 /turf/open/floor/iron/dark/textured_corner,
 /area/shuttle/hc_cops/command)
 "eC" = (
@@ -1260,30 +1278,6 @@
 /area/shuttle/hc_cops/armory)
 "lA" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/storage/box/colonial_rations{
-	pixel_x = -8;
-	pixel_y = -6
-	},
-/obj/item/storage/box/colonial_rations{
-	pixel_y = -10;
-	pixel_x = -8
-	},
-/obj/item/storage/box/colonial_rations{
-	pixel_x = -8;
-	pixel_y = -14
-	},
-/obj/item/storage/box/colonial_rations{
-	pixel_x = 7;
-	pixel_y = -6
-	},
-/obj/item/storage/box/colonial_rations{
-	pixel_y = -10;
-	pixel_x = 7
-	},
-/obj/item/storage/box/colonial_rations{
-	pixel_x = 7;
-	pixel_y = -14
-	},
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /obj/item/reagent_containers/spray/pepper{
 	pixel_y = 19;
@@ -1853,14 +1847,8 @@
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/recreation)
 "qM" = (
-/obj/machinery/autolathe/hacked,
 /obj/structure/sign/warning/secure_area/directional/north,
 /obj/machinery/light/cold/directional/north,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/plastic{
-	amount = 10
-	},
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
 	},
@@ -2719,6 +2707,7 @@
 	},
 /obj/item/storage/box/bodybags,
 /obj/item/storage/box/pillbottles,
+/obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron/white,
 /area/shuttle/hc_cops/infirmary)
 "zD" = (
@@ -2889,15 +2878,16 @@
 /turf/open/floor/wood,
 /area/shuttle/hc_cops/recreation)
 "AV" = (
-/obj/machinery/coffeemaker{
-	pixel_y = 5
-	},
-/obj/item/coffee_cartridge/fancy,
-/obj/item/coffee_cartridge/fancy,
-/obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
 	dir = 8
 	},
+/obj/structure/rack/gunrack,
+/obj/item/gun/energy/e_gun/advtaser,
+/obj/item/gun/energy/e_gun/advtaser,
+/obj/item/gun/energy/e_gun/advtaser,
+/obj/item/gun/energy/e_gun/advtaser,
+/obj/item/gun/energy/e_gun/advtaser,
+/obj/item/gun/energy/e_gun/advtaser,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
@@ -2959,18 +2949,32 @@
 	},
 /area/shuttle/hc_cops/command)
 "BA" = (
-/obj/structure/rack/gunrack,
-/obj/structure/noticeboard{
-	pixel_y = 32
+/obj/structure/closet/crate/engineering{
+	anchored = 1
 	},
-/obj/item/gun/energy/e_gun/advtaser,
-/obj/item/gun/energy/e_gun/advtaser,
-/obj/item/gun/energy/e_gun/advtaser,
-/obj/item/gun/energy/e_gun/advtaser,
-/obj/item/gun/energy/e_gun/advtaser,
-/obj/item/gun/energy/e_gun/advtaser,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/multitool/fock,
+/obj/item/multitool/fock,
+/obj/item/multitool/fock,
+/obj/item/multitool/fock,
+/obj/item/multitool/fock,
+/obj/item/multitool/fock,
+/obj/item/clothing/glasses/meson/engine,
+/obj/item/clothing/glasses/meson/engine,
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
+	},
+/obj/item/skillchip/job/engineer,
+/obj/item/skillchip/job/engineer,
+/obj/structure/noticeboard{
+	pixel_y = 32
 	},
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
@@ -3086,6 +3090,8 @@
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
 /obj/structure/window/reinforced/tinted/spawner/directional/north,
+/obj/structure/closet/crate/freezer/blood,
+/obj/machinery/iv_drip,
 /turf/open/floor/iron/white,
 /area/shuttle/hc_cops/infirmary)
 "Cq" = (
@@ -3240,30 +3246,15 @@
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/cargo_hold)
 "Eh" = (
-/obj/structure/closet/crate/engineering{
-	anchored = 1
-	},
-/obj/item/analyzer,
-/obj/item/analyzer,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/multitool/fock,
-/obj/item/multitool/fock,
-/obj/item/multitool/fock,
-/obj/item/multitool/fock,
-/obj/item/multitool/fock,
-/obj/item/multitool/fock,
-/obj/item/clothing/glasses/meson/engine,
-/obj/item/clothing/glasses/meson/engine,
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
 	},
-/obj/item/skillchip/job/engineer,
-/obj/item/skillchip/job/engineer,
+/obj/machinery/autolathe/hacked,
+/obj/item/stack/sheet/plastic{
+	amount = 10
+	},
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
@@ -3574,6 +3565,9 @@
 /area/shuttle/hc_cops/engineering)
 "Hs" = (
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted,
+/obj/structure/bed/medical/emergency{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/shuttle/hc_cops/infirmary)
 "Hx" = (
@@ -3784,8 +3778,6 @@
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
 /obj/effect/mapping_helpers/apc/full_charge,
-/obj/structure/closet/crate/freezer/blood,
-/obj/machinery/iv_drip,
 /turf/open/floor/iron/white,
 /area/shuttle/hc_cops/infirmary)
 "Ki" = (
@@ -5755,7 +5747,7 @@ hy
 EE
 vA
 NI
-Eh
+dQ
 ld
 cj
 PM
@@ -5790,7 +5782,7 @@ rM
 EE
 vk
 NI
-dQ
+Eh
 ld
 AM
 Ik
