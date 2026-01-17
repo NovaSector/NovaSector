@@ -524,6 +524,7 @@
 	pixel_x = 0;
 	pixel_y = 24
 	},
+/obj/effect/spawner/liquids_spawner/shoulders,
 /turf/open/floor/iron/pool/cobble/corner,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "eH" = (
@@ -2052,6 +2053,7 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "qy" = (
+/obj/effect/spawner/liquids_spawner/shoulders,
 /turf/open/floor/iron/pool/cobble/side{
 	dir = 1
 	},
@@ -2654,6 +2656,7 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng)
 "wi" = (
+/obj/effect/spawner/liquids_spawner/shoulders,
 /turf/open/floor/iron/pool/cobble/corner{
 	dir = 4
 	},
@@ -2887,6 +2890,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "yr" = (
+/obj/effect/spawner/liquids_spawner/shoulders,
 /turf/open/floor/iron/pool/cobble/corner{
 	dir = 8
 	},
@@ -4010,6 +4014,7 @@
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Gy" = (
+/obj/effect/spawner/liquids_spawner/shoulders,
 /turf/open/floor/iron/pool/cobble/corner{
 	dir = 1
 	},
@@ -5265,6 +5270,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "RI" = (
+/obj/effect/spawner/liquids_spawner/shoulders,
 /turf/open/floor/iron/pool/cobble/side,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "RR" = (
