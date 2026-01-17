@@ -210,7 +210,7 @@
 	playsound(src, pick(squeak_override), 30)
 	COOLDOWN_START(src, fushi_cooldown, 2 SECONDS)
 
-	///controls the hat toggle
+// controls the hat toggle
 /obj/item/toy/plush/nova/fushi/attack_self_secondary(mob/user)
 	if(plushhat)
 		icon_state = upsprite
