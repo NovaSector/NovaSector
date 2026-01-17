@@ -202,7 +202,7 @@
 	say(pick(responses))
 	COOLDOWN_START(src, fushi_cooldown, 3 SECONDS)
 
-	///controls the emotes and sound when interacted with
+// controls the emotes and sound when interacted with
 /obj/item/toy/plush/nova/fushi/attack_self(mob/user)
 	visible_message("[src] [span_notice(pick(responses_action))]")
 	if(!COOLDOWN_FINISHED(src, fushi_cooldown))
