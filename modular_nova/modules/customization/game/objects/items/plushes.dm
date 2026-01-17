@@ -160,7 +160,6 @@
 		'modular_nova/modules/emotes/sound/voice/weh.ogg' = 90,
 		)
 	gender = MALE
-	post_init_icon_state = "plush_fushi_hat"
 	var/plushhat = TRUE
 	///Sprite visible when the hat is taken off.
 	var/downsprite = "plush_fushi"
