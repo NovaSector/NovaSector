@@ -161,8 +161,6 @@
 	)
 	gender = MALE
 	var/plushhat = TRUE
-	///Sprite visible when the hat is taken off.
-	var/downsprite = "plush_fushi"
 
 	///Sounds the plush makes when hitting something
 	var/static/list/responses = list(
