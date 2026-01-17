@@ -23,8 +23,8 @@
 
 /datum/preference/numeric/max_chat_length/create_default_value()
 	return CHAT_MESSAGE_MAX_LENGTH
+// NOVA EDIT ADDITION START
 
-// NOVA EDIT ADDITION
 /datum/preference/toggle/enable_runechat_dead
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "chat_on_map_dead"
