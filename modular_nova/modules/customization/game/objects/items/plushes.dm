@@ -220,7 +220,7 @@
 
 /obj/item/toy/plush/nova/fushi/update_icon_state()
 	if(plushhat)
-		icon_state = "plush_fushi"
-	else
 		icon_state = initial(icon_state)
+	else
+		icon_state = "plush_fushi"
 	return ..()
