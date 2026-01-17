@@ -95,6 +95,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/structure/rack/shelf,
+/obj/structure/rack/shelf,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 8
 	},
@@ -479,22 +481,28 @@
 	},
 /obj/item/stamp/denied,
 /obj/item/card/faction_access/guest{
-	extra_access = list("syndicate")
+	extra_access = list("syndicate");
+	name = "guest access card"
 	},
 /obj/item/card/faction_access/guest{
-	extra_access = list("syndicate")
+	extra_access = list("syndicate");
+	name = "guest access card"
 	},
 /obj/item/card/faction_access/guest{
-	extra_access = list("syndicate")
+	extra_access = list("syndicate");
+	name = "guest access card"
 	},
 /obj/item/card/faction_access/guest{
-	extra_access = list("syndicate")
+	extra_access = list("syndicate");
+	name = "guest access card"
 	},
 /obj/item/card/faction_access/guest{
-	extra_access = list("syndicate")
+	extra_access = list("syndicate");
+	name = "guest access card"
 	},
 /obj/item/card/faction_access/guest{
-	extra_access = list("syndicate")
+	extra_access = list("syndicate");
+	name = "guest access card"
 	},
 /turf/open/floor/iron/dark/textured_corner,
 /area/shuttle/hc_cops/command)
@@ -955,11 +963,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/shuttle/hc_cops/infirmary)
-"iF" = (
-/obj/effect/light_emitter,
-/obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool,
-/area/shuttle/hc_cops/recreation)
 "iO" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner,
 /obj/effect/turf_decal/bot,
@@ -1302,24 +1305,12 @@
 	pixel_y = 19;
 	pixel_x = 8
 	},
-/obj/item/detective_scanner{
-	pixel_y = 9
-	},
-/obj/item/detective_scanner{
-	pixel_y = 9
-	},
-/obj/item/detective_scanner{
-	pixel_y = 9
-	},
-/obj/item/detective_scanner{
-	pixel_y = 9
-	},
-/obj/item/detective_scanner{
-	pixel_y = 9
-	},
-/obj/item/detective_scanner{
-	pixel_y = 9
-	},
+/obj/item/detective_scanner,
+/obj/item/detective_scanner,
+/obj/item/detective_scanner,
+/obj/item/detective_scanner,
+/obj/item/detective_scanner,
+/obj/item/detective_scanner,
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 8
 	},
@@ -1950,8 +1941,7 @@
 	},
 /area/shuttle/hc_cops/lounge)
 "rF" = (
-/obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool,
+/turf/open/water/overlay/hotspring,
 /area/shuttle/hc_cops/recreation)
 "rG" = (
 /obj/effect/turf_decal/siding/white/end,
@@ -2181,6 +2171,9 @@
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 1
 	},
+/obj/structure/rack/shelf,
+/obj/item/flatpack/quantum_pad,
+/obj/item/flatpack/quantum_pad,
 /obj/item/flatpack/quantum_pad,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/shuttle/hc_cops/cargo_hold)
@@ -3003,7 +2996,6 @@
 	id_tag = "hcisolationroom"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/machinery/door/poddoor/preopen,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3268,7 +3260,6 @@
 /area/shuttle/hc_cops/conference)
 "En" = (
 /obj/effect/turf_decal/bot_blue,
-/obj/machinery/quantumpad,
 /obj/item/beacon,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3899,7 +3890,9 @@
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/structure/disposalpipe/segment,
-/obj/docking_port/mobile/hc_ship,
+/obj/docking_port/mobile/hc_ship{
+	dir = 2
+	},
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/engineering)
 "KL" = (
@@ -4094,6 +4087,15 @@
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/mineral/gold/fifty,
+/obj/item/stack/sheet/spaceship{
+	amount = 50
+	},
+/obj/item/stack/sheet/spaceship{
+	amount = 50
+	},
+/obj/item/stack/sheet/spaceshipglass{
+	amount = 50
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/hc_cops/cargo_hold)
 "LX" = (
@@ -5162,7 +5164,7 @@
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
 /obj/structure/cable,
 /obj/machinery/light/cold/directional/north,
-/obj/item/flatpack/quantum_pad,
+/obj/structure/rack/shelf,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
@@ -6486,7 +6488,7 @@ Lv
 Pr
 ax
 rF
-iF
+rF
 me
 gO
 iP
