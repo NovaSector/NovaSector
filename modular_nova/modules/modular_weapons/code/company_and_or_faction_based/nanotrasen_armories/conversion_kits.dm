@@ -77,10 +77,53 @@
 
 /datum/crafting_recipe/c38_super/New()
 	..()
-	blacklist |= typesof(/obj/item/gun/ballistic/revolver/c38/super) // let's not try to super-ize our already super revolver i think
+	LAZYOR(blacklist, typesof(/obj/item/gun/ballistic/revolver/c38/super)) // let's not try to super-ize our already super revolver i think
 
 /datum/crafting_recipe/c38_super/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/gun/ballistic/revolver/c38/the_piece = collected_requirements[/obj/item/gun/ballistic/revolver/c38][1]
 	if(the_piece.get_ammo())
+		return FALSE
+	return ..()
+
+/obj/item/crafting_conversion_kit/c38_speedloader_plus
+	name = "\improper speedloader widening set (.38)"
+	desc = "All the parts you need to upgrade any empty .38 speedloader's capacity, from 6 rounds to 8. Intended for use with the NT/E Laevateinn modification suite."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
+	icon_state = "speedloader_kit"
+
+	lore_blurb = "After some complaints about low capacity, the weapons design team behind the NT/E Laevateinn were requested to design a second revision of the \
+		revolver to feature an upgraded, higher-capacity cylinder and attempt other performance improvements. They were, surprisingly enough, successful in both regards. \
+		However, adding redundant speedloader designs for every .38 variant seemed like too much of a hassle. Instead of doing that, it was decided to just make people \
+		upgrade their own speedloaders."
+
+/obj/item/crafting_conversion_kit/c38_speedloader_plus/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
+
+/datum/crafting_recipe/c38_speedloader_plus
+	name = ".38 Speedloader Expansion"
+	desc = "Six rounds is two less than eight, which makes reloading an eight-round cylinder with a six-round speedloader both annoying and suboptimal. \
+		This, however, is a fixable problem."
+	result = /obj/item/ammo_box/speedloader/c38/hicap/empty
+	reqs = list(
+		/obj/item/ammo_box/speedloader/c38 = 1,
+	)
+	tool_paths = list(
+		/obj/item/crafting_conversion_kit/c38_speedloader_plus,
+	)
+	steps = list(
+		"Empty the speedloader",
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+	time = 10 SECONDS
+	category = CAT_WEAPON_RANGED
+
+/datum/crafting_recipe/c38_speedloader_plus/New()
+	..()
+	LAZYOR(blacklist, typesof(/obj/item/ammo_box/speedloader/c38/hicap)) // let's not try to super-ize our already super speedloader i think
+
+/datum/crafting_recipe/c38_speedloader_plus/check_requirements(mob/user, list/collected_requirements)
+	var/obj/item/ammo_box/speedloader/c38/the_loader = collected_requirements[/obj/item/ammo_box/speedloader/c38][1]
+	if(length(the_loader.stored_ammo))
 		return FALSE
 	return ..()

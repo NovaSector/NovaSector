@@ -70,8 +70,8 @@ export const FoodPreferences = (props) => {
                         Prefrences are Invalid!{' '}
                         {invalid.charAt(0).toUpperCase() + invalid.slice(1)} |{' '}
                         {counts.disliked < 2
-                          ? counts.disliked + '/2 Disliked'
-                          : counts.toxic + '/1 Toxic'}
+                          ? `${counts.disliked}/2 Disliked`
+                          : `${counts.toxic}/1 Toxic`}
                       </Box>
                     ) : (
                       <Box as="span" color="green">

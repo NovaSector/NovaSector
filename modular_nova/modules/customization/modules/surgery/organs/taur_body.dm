@@ -9,7 +9,6 @@
 
 	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
 	mutantpart_key = FEATURE_TAUR
-	mutantpart_info = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
 	bodypart_overlay = /datum/bodypart_overlay/mutant/taur_body
 
 	/// If not null, the left leg limb we add to our mob will have this name.
@@ -275,7 +274,6 @@
 	if(right_leg_name)
 		new_right_leg.name = "[right_leg_name] (Right leg)"
 		new_right_leg.plaintext_zone = LOWER_TEXT(new_right_leg.name)
-
 
 	var/obj/item/clothing/shoes/shoe = receiver.get_item_by_slot(ITEM_SLOT_FEET)
 	if(shoe && !HAS_TRAIT(shoe, TRAIT_NODROP))

@@ -17,8 +17,7 @@
 
 /datum/crafting_recipe/charge_holster/New()
 	. = ..()
-	blacklist |= subtypesof(/obj/item/storage/belt/holster) - list(/obj/item/storage/belt/holster/thigh)
-	blacklist |= subtypesof(/obj/item/stock_parts/capacitor)
+	LAZYOR(blacklist, (subtypesof(/obj/item/storage/belt/holster) - list(/obj/item/storage/belt/holster/thigh)) + subtypesof(/obj/item/stock_parts/capacitor))
 
 /datum/crafting_recipe/charge_holster/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/storage/belt/holster/the_drip = collected_requirements[/obj/item/storage/belt/holster][1]

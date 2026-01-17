@@ -8,7 +8,6 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
-	mutant_bodyparts = list()
 	mutanttongue = /obj/item/organ/tongue/insect
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -24,15 +23,15 @@
 
 /datum/species/insect/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("None", FALSE),
-		FEATURE_SNOUT = list("None", FALSE),
-		FEATURE_HORNS = list("None", FALSE),
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
-		FEATURE_TAUR = list("None", FALSE),
-		FEATURE_FLUFF = list("None", FALSE),
-		FEATURE_WINGS = list("Bee", FALSE),
-		FEATURE_MOTH_ANTENNAE = list("None", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_FLUFF = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT("Bee", is_randomizable = FALSE),
+		FEATURE_MOTH_ANTENNAE = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/insect/get_species_description()
@@ -47,6 +46,6 @@
 	human.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	human.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
 	human.dna.features[FEATURE_MUTANT_COLOR_THREE] = secondary_color
-	human.dna.species.body_markings[BODY_ZONE_HEAD] = list("Insect Antennae" = list("#644b07", 0))
+	human.dna.body_markings[BODY_ZONE_HEAD] = list("Insect Antennae" = list("#644b07", 0))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)

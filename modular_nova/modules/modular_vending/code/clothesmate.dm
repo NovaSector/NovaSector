@@ -88,6 +88,7 @@
 				/obj/item/clothing/under/dress/skirt/nova/mini_skirt = 5,
 				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
 				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
+				/obj/item/clothing/under/misc/nova/gear_harness = 5,
 			),
 		),
 
@@ -167,6 +168,7 @@
 				/obj/item/clothing/shoes/sport_boots = 5,
 				/obj/item/clothing/shoes/cowboy/laced/recolorable = 5,
 				/obj/item/clothing/shoes/jackboots/knee = 5,
+				/obj/item/clothing/shoes/jackboots/knee/recolorable = 5,
 				/obj/item/clothing/shoes/jackboots/recolorable = 5,
 				/obj/item/clothing/shoes/jackboots/duckboots = 5,
 			),
@@ -182,6 +184,10 @@
 				/obj/item/clothing/mask/gas/respirator = 5,
 				/obj/item/clothing/mask/surgical/greyscale = 5,
 				/obj/item/clothing/glasses/blindfold/color = 5,
+				/obj/item/storage/backpack/udc = 5,
+				/obj/item/storage/backpack/tinypaka = 5,
+				/obj/item/storage/backpack/tinypakb = 5,
+				/obj/item/storage/backpack/tinypakc = 5,
 			)
 		)
 	)
