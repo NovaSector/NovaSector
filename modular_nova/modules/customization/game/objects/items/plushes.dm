@@ -160,6 +160,7 @@
 		'modular_nova/modules/emotes/sound/voice/weh.ogg' = 90,
 	)
 	gender = MALE
+	/// If TRUE, we are wearing our hat
 	var/plushhat = TRUE
 
 	///Sounds the plush makes when hitting something
