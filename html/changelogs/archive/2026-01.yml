@@ -446,3 +446,14 @@
   - refactor: refactors mutant bodyparts backend
   - bugfix: bodypart markings and marking sets will now inherit the appropriate mutant
       colors when initially applied in char prefs
+2026-01-17:
+  Hardly:
+  - map: Nanotrasen Security has no idea to why they keep bringing in a syndicate
+      box of EMPs in Blueshift's armory. Anyway, it's gone, straight to the recycler.
+  MajManatee:
+  - rscadd: Cargo borgs get more utility with a full toolset
+  - rscadd: Manipulator can hold belts, blast door assemblies, and even an RPD.
+  - rscadd: New cargo teleporter upgrades for borgs
+  muratendmo:
+  - balance: Discovery that the foregrips and handguards on the Zaibas longarms are
+      not decorative has led to a decrease in recoil of 50% (half)

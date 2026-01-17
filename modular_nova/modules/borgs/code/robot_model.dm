@@ -350,7 +350,8 @@
 		/obj/item/borg/hydraulic_clamp/mail,
 		/obj/item/hand_labeler/cyborg,
 		/obj/item/dest_tagger,
-		/obj/item/crowbar/cyborg,
+		/obj/item/borg/cyborg_omnitool/engineering,
+		/obj/item/weldingtool/largetank/cyborg, // a basic toolset that everyone has. Very helpful in cargo.
 		/obj/item/extinguisher,
 		/obj/item/universal_scanner,
 	)
