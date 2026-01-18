@@ -10,13 +10,3 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
-
-/datum/design/surgery/healing/robotic_healing_upgrade
-	name = "Repair robotic limbs upgrade: Advanced"
-	surgery = /datum/surgery_operation/basic/repair_synth/upgraded
-	id = "robotic_heal_surgery_upgrade"
-
-/datum/design/surgery/healing/robotic_healing_upgrade_2
-	name = "Repair robotic limbs upgrade: Experimental"
-	surgery = /datum/surgery_operation/basic/repair_synth/upgraded/master
-	id = "robotic_heal_surgery_upgrade_2"
