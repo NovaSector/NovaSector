@@ -1,6 +1,3 @@
-/datum/surgery_operation/limb/amputate
-	removes_target_bodypart = TRUE // Surgically unremovable limbs
-
 /datum/surgery_operation/limb/amputate/New()
 	implements += list(
 		/obj/item/machete = 1.25,
