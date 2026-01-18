@@ -4,7 +4,7 @@
 /datum/component/pixel_tilt
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 	var/tilt_angle = 0
-	var/tilting = FALSE
+	var/tilting = TRUE
 	var/maximum_tilt = 10
 	var/tilt_increment = 5
 	var/matrix/original_transform
