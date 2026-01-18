@@ -3,7 +3,7 @@
 	implements = list(
 		IMPLEMENT_HAND = 1,
 	)
-	operation_flags = OPERATION_AFFECTS_MOOD | OPERATION_NOTABLE | OPERATION_MORBID | OPERATION_LOCKED
+	operation_flags = OPERATION_AFFECTS_MOOD | OPERATION_NOTABLE | OPERATION_MORBID | OPERATION_LOCKED | OPERATION_MECHANIC
 	required_bodytype = BODYTYPE_SYNTHETIC
 	time = 12.5 SECONDS
 	all_surgery_states_required = SURGERY_SKIN_OPEN|SURGERY_BONE_SAWED|SURGERY_ORGANS_CUT
@@ -12,8 +12,6 @@
 	var/datum/status_effect/status_effect_gained = /datum/status_effect/subsystem_upgrade
 	/// Zone to operate on for this subsystem_upgrade
 	var/required_zone = BODY_ZONE_CHEST
-	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
-
 
 /datum/surgery_operation/limb/subsystem_upgrade/get_default_radial_image()
 	return image('icons/hud/implants.dmi', "lighting_bolt")
