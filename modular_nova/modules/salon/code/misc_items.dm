@@ -121,7 +121,7 @@
 		var/covering = target_human.is_mouth_covered()
 		if(covering)
 			to_chat(user, span_warning("[covering] is in the way!"))
-		return
+			return
 
 		if(HAS_TRAIT(target_human, TRAIT_SHAVED))
 			to_chat(user, span_warning("[target_human] is just way too shaved. Like, really really shaved."))
