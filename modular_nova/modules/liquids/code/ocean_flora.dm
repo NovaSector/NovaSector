@@ -116,7 +116,7 @@
 	name = "Ocean Curio Spawner"
 	var/default_1 = /obj/structure/flora/ocean/seaweed
 	var/default_2 = /obj/structure/flora/ocean/longseaweed
-	var/allowed_area_types = list(/area/ocean = TRUE, /area/ocean/generated = TRUE)
+	var/allowed_area_types = list(/area/ocean = TRUE)
 
 /obj/effect/spawner/ocean_curio/Initialize(mapload)
 	. = ..()

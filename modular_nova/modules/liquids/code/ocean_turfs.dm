@@ -217,23 +217,23 @@
 	new_immmutable.add_turf(src)
 
 /turf/closed/mineral/random/ocean
-	baseturfs = /turf/open/misc/ocean/rock/heavy
-	turf_type = /turf/open/misc/ocean/rock/heavy
+	baseturfs = /turf/open/misc/beach/sand
+	turf_type = /turf/open/misc/beach/sand
 	color = "#58606b"
 
 /turf/closed/mineral/random/high_chance/ocean
-	baseturfs = /turf/open/misc/ocean/rock/heavy
-	turf_type = /turf/open/misc/ocean/rock/heavy
+	baseturfs = /turf/open/misc/beach/sand
+	turf_type = /turf/open/misc/beach/sand
 	color = "#58606b"
 
 /turf/closed/mineral/random/low_chance/ocean
-	baseturfs = /turf/open/misc/ocean/rock/heavy
-	turf_type = /turf/open/misc/ocean/rock/heavy
+	baseturfs = /turf/open/misc/beach/sand
+	turf_type = /turf/open/misc/beach/sand
 	color = "#58606b"
 
 /turf/closed/mineral/random/stationside/ocean
-	baseturfs = /turf/open/misc/ocean/rock/heavy
-	turf_type = /turf/open/misc/ocean/rock/heavy
+	baseturfs = /turf/open/misc/beach/sand
+	turf_type = /turf/open/misc/beach/sand
 	color = "#58606b"
 
 /obj/effect/abstract/liquid_turf/immutable/canal
@@ -318,3 +318,15 @@
 //For now just a titanium wall. I'll make sprites for it later
 /turf/closed/wall/mineral/titanium/submarine
 	name = "submarine wall"
+
+/turf/open/water/deep_beach/planet_surface
+	space_lit = TRUE
+	light_range = 2
+
+/turf/open/water/deep_beach/lethal/planet_surface
+	space_lit = TRUE
+	light_range = 2
+
+/turf/open/water/beach/planet_surface
+	space_lit = TRUE
+	light_range = 2

@@ -31,7 +31,7 @@
 			/area/forestplanet,
 			/area/icemoon,
 			/area/lavaland,
-			/area/ocean/generated,
+			/area/ocean,
 			/area/ruin,
 	))
 	var/static/list/disallowed_areas = typecacheof(list(
@@ -45,7 +45,7 @@
 			/area/forestplanet,
 			/area/icemoon,
 			/area/lavaland,
-			/area/ocean/generated,
+			/area/ocean,
 			/area/ruin,
 	))
 	var/static/list/disallowed_areas = typecacheof(list(

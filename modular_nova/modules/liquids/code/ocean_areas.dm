@@ -1,9 +1,11 @@
 /area/ocean
 	name = "Ocean"
-	icon = 'icons/area/areas_station.dmi'
-	icon_state = "explored"
+	icon_state = "space"
+	icon = 'icons/area/areas_misc.dmi'
 	requires_power = TRUE
 	always_unpowered = TRUE
+	static_lighting = FALSE
+	base_lighting_alpha = 255
 	power_light = FALSE
 	power_equip = FALSE
 	power_environ = FALSE
@@ -13,32 +15,19 @@
 	sound_environment = SOUND_AREA_SPACE
 
 /area/ocean/generated
-	icon_state = "unexplored"
-	map_generator = /datum/map_generator/ocean_generator
+	icon_state = "cordon"
+	map_generator = /datum/map_generator/cave_generator/ocean
 
-/area/ocean/trench
-	area_flags = CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
-	name = "The Trench"
+/area/ocean/generated/wilderness
+	map_generator = /datum/map_generator/cave_generator/ocean/wilderness
 
-/area/ocean/trench/generated
-	icon_state = "unexplored"
-	map_generator = /datum/map_generator/cave_generator/trench
+/area/ocean/generated/no_ruins
+	icon_state = "unknown"
+	map_generator = /datum/map_generator/cave_generator/ocean/noruins
+
+/area/ocean/monestary
+	name = "\improper Monastery Beach"
 
 /area/ruin/ocean
 	default_gravity = STANDARD_GRAVITY
 	area_flags = NONE
-
-/area/ruin/ocean/listening_outpost
-	name = "Listening Station"
-
-/area/ruin/ocean/bunker
-	name = "Bunker"
-
-/area/ruin/ocean/bioweapon_research
-	name = "Syndicate Ocean Base"
-
-/area/ruin/ocean/mining_site
-	name = "Mining Site"
-
-/area/ruin/ocean/saddam_hole
-	name = "Cave Hideout"

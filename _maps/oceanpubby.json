@@ -1,0 +1,32 @@
+{
+	"version": 1,
+	"map_name": "Pubby Station",
+	"map_path": "map_files/oceanpubby",
+	"map_file": "oceanpubby.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"wilderness_levels": 0,
+	"planetary": 1,
+	"shuttles": {
+		"emergency": "emergency_pubby",
+		"whiteship": "whiteship_pubby",
+		"ferry": "ferry_fancy",
+		"cargo": "cargo_pubby"
+	},
+	"traits": [
+		{
+			"Linkage": "Grid",
+			"Gravity": true,
+			"Baseturf": "/turf/open/water/deep_beach/planet_surface",
+			"No Parallax": true
+		}
+	],
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": ["/area/station/service/bar/atrium"]
+		},
+		"Chaplain": {
+			"has_monastery": 1
+		}
+	}
+}
