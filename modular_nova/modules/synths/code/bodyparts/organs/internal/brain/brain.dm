@@ -10,20 +10,27 @@
 	/// The last time (in ticks) a message about brain damage was sent. Don't touch.
 	var/last_message_time = 0
 	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
+	var/obj/item/modular_computer/pda/synth/internal_computer
+	actions_types = list(/datum/action/item_action/synth/open_internal_computer)
 
 /obj/item/organ/brain/synth/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "robot", BUBBLE_ICON_PRIORITY_ORGAN)
+	internal_computer = new(src)
+	ADD_TRAIT(src, TRAIT_SILICON_EMOTES_ALLOWED, INNATE_TRAIT)
 
 /obj/item/organ/brain/synth/on_mob_insert(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
-
-	if(brain_owner.stat != DEAD || !ishuman(brain_owner))
+	var/mob/living/carbon/human/human_brain_owner = brain_owner
+	if(!istype(human_brain_owner))
 		return
 
-	var/mob/living/carbon/human/human_brain_owner = brain_owner
-	if(HAS_TRAIT(human_brain_owner, TRAIT_REVIVES_BY_HEALING) && human_brain_owner.health > SYNTH_BRAIN_WAKE_THRESHOLD)
+	if(human_brain_owner.stat == DEAD && HAS_TRAIT(human_brain_owner, TRAIT_REVIVES_BY_HEALING) && human_brain_owner.health > SYNTH_BRAIN_WAKE_THRESHOLD)
 		human_brain_owner.revive(FALSE)
+
+	RegisterSignal(human_brain_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equip_signal))
+	if(internal_computer && human_brain_owner.wear_id)
+		internal_computer.handle_id_slot(human_brain_owner, human_brain_owner.wear_id)
 
 /obj/item/organ/brain/synth/emp_act(severity) // EMP act against the posi, keep the cap far below the organ health
 	. = ..()
@@ -54,6 +61,26 @@
 
 		if(damage > BRAIN_DAMAGE_MILD)
 			to_chat(owner, span_warning("Alert: Minor corruption in central processing unit. Error Code: 001-HP"))
+
+/obj/item/organ/brain/synth/Destroy()
+	QDEL_NULL(internal_computer)
+	return ..()
+
+/obj/item/organ/brain/synth/on_mob_remove(mob/living/carbon/human/brain_owner, special)
+	. = ..()
+	if(!istype(brain_owner))
+		return
+	UnregisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM)
+	if(internal_computer)
+		internal_computer.handle_id_slot(brain_owner)
+		internal_computer.clear_id_slot_signals(brain_owner.wear_id)
+
+/obj/item/organ/brain/synth/proc/on_equip_signal(datum/source, obj/item/item, slot)
+	SIGNAL_HANDLER
+	if(isnull(internal_computer))
+		return
+	if(slot == ITEM_SLOT_ID)
+		internal_computer.handle_id_slot(owner, item)
 
 /obj/item/organ/brain/synth/circuit
 	name = "compact AI circuit"

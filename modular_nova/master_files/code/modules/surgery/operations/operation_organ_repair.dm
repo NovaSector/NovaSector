@@ -5,7 +5,7 @@
 /datum/surgery_operation/organ/repair/is_available(obj/item/organ/organ, operated_zone)
 	. = ..()
 	// Ensure organ has the required amount of damage
-	if(!isnull(requires_organ_damage) && (organn.damage < requires_organ_damage))
+	if(!isnull(requires_organ_damage) && (organ.damage < requires_organ_damage))
 		return FALSE
 
 // This is so that you can do organ surgeries multiple times on slimepeople.

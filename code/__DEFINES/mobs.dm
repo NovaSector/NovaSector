@@ -161,6 +161,8 @@
 #define BODYSHAPE_HIDE_SHOES (1<<11)
 ///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
 #define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<12)
+///The limb is synthetic, this is for an additional surgery check.
+#define BODYTYPE_SYNTHETIC (1<<13)
 // NOVA EDIT ADDITION END
 
 // Bodyshape defines for how things can be worn, i.e., what "shape" the mob sprite is

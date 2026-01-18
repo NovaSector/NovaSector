@@ -4,7 +4,7 @@
 		IMPLEMENT_HAND = 1,
 	)
 	operation_flags = OPERATION_AFFECTS_MOOD | OPERATION_NOTABLE | OPERATION_MORBID | OPERATION_LOCKED
-	required_bodytype = ~BODYTYPE_ROBOTIC
+	required_bodytype = (~BODYTYPE_ROBOTIC | ~BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = ~BODYTYPE_ROBOTIC
 	time = 12.5 SECONDS
 	all_surgery_states_required = SURGERY_SKIN_OPEN|SURGERY_BONE_SAWED|SURGERY_ORGANS_CUT
 	/// What status effect is gained when the surgery is successful?
@@ -72,7 +72,7 @@
 /datum/surgery_operation/limb/bioware/vein_threading/mechanic
 	rnd_name = "Hydraulics Routing Optimization (Threaded Veins)"
 	desc = "Optimize the routing of a robotic patient's hydraulic system, reducing fluid loss from leaks."
-	required_bodytype = BODYTYPE_ROBOTIC
+	required_bodytype = (BODYTYPE_ROBOTIC | ~BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/muscled_veins
@@ -105,7 +105,7 @@
 /datum/surgery_operation/limb/bioware/muscled_veins/mechanic
 	rnd_name = "Hydraulics Redundancy Subroutine (Muscled Veins)"
 	desc = "Add redundancies to a robotic patient's hydraulic system, allowing it to pump fluids without an engine or pump."
-	required_bodytype = BODYTYPE_ROBOTIC
+	required_bodytype = (BODYTYPE_ROBOTIC | ~BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/nerve_splicing
@@ -139,7 +139,7 @@
 /datum/surgery_operation/limb/bioware/nerve_splicing/mechanic
 	rnd_name = "System Automatic Reset Subroutine (Spliced Nerves)"
 	desc = "Upgrade a robotic patient's automatic systems, allowing it to better resist stuns."
-	required_bodytype = BODYTYPE_ROBOTIC
+	required_bodytype = (BODYTYPE_ROBOTIC | ~BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/nerve_grounding
@@ -173,7 +173,7 @@
 /datum/surgery_operation/limb/bioware/nerve_grounding/mechanic
 	rnd_name = "System Shock Dampening (Grounded Nerves)"
 	desc = "Install grounding rods into a robotic patient's nervous system, protecting it from electrical shocks."
-	required_bodytype = BODYTYPE_ROBOTIC
+	required_bodytype = (BODYTYPE_ROBOTIC | ~BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/ligament_hook
@@ -207,7 +207,7 @@
 	rnd_name = "Anchor Point Snaplocks (Ligament Hooks)"
 	desc = "Refactor a robotic patient's limb joints to allow for rapid deatchment, allowing limbs to be manually reattached if severed - \
 		at the cost of making them easier to detach as well."
-	required_bodytype = BODYTYPE_ROBOTIC
+	required_bodytype = (BODYTYPE_ROBOTIC | ~BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/ligament_reinforcement
@@ -240,7 +240,7 @@
 /datum/surgery_operation/limb/bioware/ligament_reinforcement/mechanic
 	rnd_name = "Anchor Point Reinforcement (Ligament Reinforcement)"
 	desc = "Reinforce a robotic patient's limb joints to prevent dismemberment, at the cost of making nerve connections easier to interrupt."
-	required_bodytype = BODYTYPE_ROBOTIC
+	required_bodytype = (BODYTYPE_ROBOTIC | ~BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/cortex_folding
@@ -305,7 +305,7 @@
 /datum/surgery_operation/limb/bioware/cortex_folding/mechanic
 	rnd_name = "Wetware OS Labyrinthian Programming (Cortex Folding)"
 	desc = "Reprogram a robotic patient's neural network in a downright eldritch programming language, giving space to non-standard neural patterns."
-	required_bodytype = BODYTYPE_ROBOTIC
+	required_bodytype = (BODYTYPE_ROBOTIC | ~BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/cortex_imprint
@@ -354,5 +354,5 @@
 	rnd_name = "Wetware OS Ver 2.0 (Cortex Imprinting)"
 	desc = "Update a robotic patient's operating system to a \"newer version\", improving overall performance and resilience. \
 		Shame about all the adware."
-	required_bodytype = BODYTYPE_ROBOTIC
+	required_bodytype = (BODYTYPE_ROBOTIC | ~BODYTYPE_SYNTHETIC) // NOVA EDIT CHANGE - SYNTH FLAGS  -Orginal: required_bodytype = BODYTYPE_ROBOTIC
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC

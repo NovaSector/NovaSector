@@ -2,6 +2,9 @@
 #define IS_ORGANIC_ORGAN(organ) (organ.organ_flags & ORGAN_ORGANIC)
 /// Helper to figure out if an organ is robotic
 #define IS_ROBOTIC_ORGAN(organ) (organ.organ_flags & ORGAN_ROBOTIC)
+// NOVA EDIT ADDITION START - SYNTHETIC BODYTYPE
+#define IS_SYNTHETIC_ORGAN(organ) (organ.organ_flags & ORGAN_SYNTHETIC_FROM_SPECIES)
+// NOVA EDIT ADDITION END
 
 // Flags for the organ_flags var on /obj/item/organ
 /// Organic organs, the default. Don't get affected by EMPs.
@@ -59,6 +62,9 @@
 #define IS_ROBOTIC_LIMB(limb) (limb.bodytype & BODYTYPE_ROBOTIC)
 /// Helper to figure out if a limb is a peg limb
 #define IS_PEG_LIMB(limb) (limb.bodytype & BODYTYPE_PEG)
+// NOVA EDIT ADDITION START - SYNTHETIC BODYTYPE
+#define IS_SYNTHETIC_LIMB(limb) (limb.bodytype & BODYTYPE_SYNTHETIC)
+// NOVA EDIT ADDITION END
 
 // Flags for the bodypart_flags var on /obj/item/bodypart
 /// Bodypart cannot be dismembered or amputated
@@ -179,7 +185,7 @@ DEFINE_BITFIELD(operation_flags, list(
 #define OPERATION_BRUTE_MULTIPLIER "brute_multiplier"
 #define OPERATION_BURN_MULTIPLIER "burn_multiplier"
 
-/// Used in string formatting to print a limb as "John's right arm" or "the human right arm" 
+/// Used in string formatting to print a limb as "John's right arm" or "the human right arm"
 #define FORMAT_LIMB_OWNER(limb) (limb.owner ? "[limb.owner]'s [limb.plaintext_zone]" : limb)
 /// Used in string formatting to print an organ's location as "John" or "the human chest"
 #define FORMAT_ORGAN_OWNER(organ) (organ.owner || organ.loc)
