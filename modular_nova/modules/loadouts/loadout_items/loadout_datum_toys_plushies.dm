@@ -277,6 +277,10 @@
 	name = "Tiny Overwatch"
 	item_path = /obj/item/toy/plush/nova/towa
 
+/datum/loadout_item/toys/plush/fushi
+	name = "Fluffy Dragon"
+	item_path = /obj/item/toy/plush/nova/fushi
+
 /*
 *	STAFF
 */
