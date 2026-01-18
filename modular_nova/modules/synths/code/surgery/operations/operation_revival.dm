@@ -4,10 +4,10 @@
 	desc = "A mechanical surgical procedure that restarts an android's neural network."
 	implements = list(
 		TOOL_MULTITOOL = 1,
-		/obj/item/shockpaddles = 2,
-		/obj/item/melee/touch_attack/shock = 2,
-		/obj/item/melee/baton/security = 3.33,
-		/obj/item/gun/energy = 3.67,
+		/obj/item/shockpaddles = 1.43,
+		/obj/item/melee/touch_attack/shock = 1.43,
+		/obj/item/melee/baton/security = 2.86,
+		/obj/item/gun/energy = 10,
 	)
 	operation_flags = OPERATION_MORBID | OPERATION_NOTABLE
 	time = 5 SECONDS

@@ -21,7 +21,7 @@
 	var/obj/item/bodypart/cool_robot_arm = new /obj/item/bodypart/arm/right/robot()
 	cool_robot_arm.set_icon_static('modular_nova/master_files/icons/mob/augmentation/sgmipc.dmi')
 	cool_robot_arm.current_style = "Shellguard Munitions Standard Series"
-	cool_robot_arm.replace_limb(dummy, TRUE)
+	cool_robot_arm.replace_limb(dummy)
 	qdel(lame_flesh_arm)
 	dummy.equipOutfit(outfit, visuals_only = TRUE)
 	dummy.underwear = "Striped Boxers"

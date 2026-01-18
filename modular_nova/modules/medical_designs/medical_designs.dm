@@ -13,10 +13,10 @@
 
 /datum/design/surgery/healing/robotic_healing_upgrade
 	name = "Repair robotic limbs upgrade: Advanced"
-	surgery = /datum/surgery/robot_healing/upgraded
+	surgery = /datum/surgery_operation/basic/repair_synth/upgraded
 	id = "robotic_heal_surgery_upgrade"
 
 /datum/design/surgery/healing/robotic_healing_upgrade_2
 	name = "Repair robotic limbs upgrade: Experimental"
-	surgery = /datum/surgery/robot_healing/experimental
+	surgery = /datum/surgery_operation/basic/repair_synth/upgraded/master
 	id = "robotic_heal_surgery_upgrade_2"
