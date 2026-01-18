@@ -8827,6 +8827,7 @@
 #include "modular_nova\modules\modular_weapons\code\booster_action.dm"
 #include "modular_nova\modules\modular_weapons\code\conversion_kits.dm"
 #include "modular_nova\modules\modular_weapons\code\detective_beacon.dm"
+#include "modular_nova\modules\modular_weapons\code\energy_melee.dm"
 #include "modular_nova\modules\modular_weapons\code\gun_launches_little_guys_element.dm"
 #include "modular_nova\modules\modular_weapons\code\gun_racks.dm"
 #include "modular_nova\modules\modular_weapons\code\holster_conversions.dm"
