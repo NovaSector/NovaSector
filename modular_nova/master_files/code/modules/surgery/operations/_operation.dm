@@ -1,4 +1,4 @@
-/datum/surgery_operation/proc/on_preop(atom/movable/operating_on, mob/living/surgeon, tool, list/operation_args)
+/datum/surgery_operation/on_preop(atom/movable/operating_on, mob/living/surgeon, tool, list/operation_args)
 	. = ..()
 	// warning for unanesthetized surgery
 	var/mob/living/patient = get_patient(operating_on)
