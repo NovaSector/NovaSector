@@ -974,7 +974,7 @@
 	item_path = /obj/item/clothing/under/gabeny
 	ckeywhitelist = list("pyritechimera", "gabenyfox", "draegonlore")
 
-/datum/loadout_item/suit/gabney
+/datum/loadout_item/suit/labcoat_gabney
 	name = "Triumvirate MedSci Officer's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/gabeny
 	ckeywhitelist = list("pyritechimera", "gabenyfox", "draegonlore")
