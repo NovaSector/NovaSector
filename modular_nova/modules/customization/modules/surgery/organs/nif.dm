@@ -12,7 +12,7 @@
 	all_surgery_states_required = SURGERY_SKIN_OPEN | SURGERY_BONE_SAWED | SURGERY_ORGANS_CUT
 	any_surgery_states_blocked = SURGERY_VESSELS_UNCLAMPED
 
-/datum/surgery_operation/basic/repair_nif/on_preop(obj/item/organ/cyberimp/brain/nif/installed_nif, mob/living/surgeon, obj/item/tool, list/operation_args)
+/datum/surgery_operation/repair_nif/on_preop(obj/item/organ/cyberimp/brain/nif/installed_nif, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(
 		surgeon,
 		installed_nif.owner,
@@ -21,7 +21,7 @@
 		span_notice("[surgeon] begins to perform repairs on [FORMAT_ORGAN_OWNER(installed_nif)]'s NIF."),
 	)
 
-/datum/surgery_operation/basic/repair_nif/on_success(obj/item/organ/cyberimp/brain/nif/installed_nif, mob/living/surgeon, tool, list/operation_args)
+/datum/surgery_operation/repair_nif/on_success(obj/item/organ/cyberimp/brain/nif/installed_nif, mob/living/surgeon, tool, list/operation_args)
 	display_results(
 		surgeon,
 		installed_nif.owner,
@@ -34,7 +34,7 @@
 
 	return ..()
 
-/datum/surgery_operation/basic/repair_nif/on_failure(obj/item/organ/cyberimp/brain/nif/installed_nif, mob/living/surgeon, obj/item/tool, list/operation_args)
+/datum/surgery_operation/repair_nif/on_failure(obj/item/organ/cyberimp/brain/nif/installed_nif, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(
 		surgeon,
 		installed_nif.owner,
