@@ -57,6 +57,17 @@
 	},
 /turf/open/floor/engine/hull,
 /area/shuttle/hc_cops/hydroponics)
+"aM" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/shuttle/spaceship,
+/obj/machinery/door/poddoor/shutters{
+	id = "hcpostshutters"
+	},
+/obj/machinery/door/poddoor{
+	id = "hcteleporterblastdoor1"
+	},
+/turf/open/floor/plating/reinforced,
+/area/shuttle/hc_cops/checkpoint)
 "aS" = (
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/machinery/door/airlock/survival_pod/glass{
@@ -1443,6 +1454,26 @@
 /obj/machinery/inspector_mainframe,
 /turf/open/floor/iron/dark/textured_half,
 /area/shuttle/hc_cops/command)
+"mU" = (
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 4
+	},
+/obj/machinery/light/cold/directional/east,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/button/door/directional/east{
+	name = "Isolation Room Bolts";
+	id = "hcisolationroom";
+	specialfunctions = 4;
+	normaldoorcontrol = 1;
+	req_access = list("syndicate")
+	},
+/turf/open/floor/iron/dark/textured_half{
+	dir = 1
+	},
+/area/shuttle/hc_cops/conference)
 "mZ" = (
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/hydroponics)
@@ -2193,17 +2224,6 @@
 	dir = 1
 	},
 /area/shuttle/hc_cops/cargo_hold)
-"um" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/shuttle/spaceship,
-/obj/machinery/door/poddoor/shutters{
-	id = "hcpostshutters"
-	},
-/obj/machinery/door/poddoor{
-	id = "hcteleporterblastdoor1"
-	},
-/turf/open/floor/plating/reinforced,
-/area/shuttle/hc_cops/checkpoint)
 "un" = (
 /obj/machinery/power/shuttle_engine/large,
 /obj/effect/turf_decal/stripes/line,
@@ -3225,6 +3245,12 @@
 	},
 /obj/structure/sign/calendar/directional/east,
 /obj/machinery/light/cold/directional/south,
+/obj/machinery/button/door/directional/south{
+	id = "hcisolationroom";
+	name = "Isolation Room Bolts";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
@@ -5296,7 +5322,8 @@
 /area/shuttle/hc_cops/engineering)
 "Xt" = (
 /obj/machinery/door/airlock/survival_pod{
-	dir = 8
+	dir = 8;
+	id_tag = "hcisolationroom"
 	},
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
@@ -6059,7 +6086,7 @@ Ij
 EU
 lW
 EU
-Ij
+mU
 ZA
 uu
 nl
@@ -6239,7 +6266,7 @@ yC
 yC
 yC
 yC
-um
+aM
 BH
 wk
 wk
