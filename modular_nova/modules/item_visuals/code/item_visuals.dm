@@ -1,7 +1,7 @@
 // ITEM VISUALS - Random rotation & pixel shift for items, robot interactions
 
-/// Current rotation angle of the item
 /obj/item
+	/// Current rotation angle of the item
 	var/our_angle = 0
 
 /// Randomly rotates and pixel shifts the item for a messy appearance. Has a 35% chance to actually trigger.
