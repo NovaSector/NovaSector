@@ -2,7 +2,7 @@
 	/// Organ requires this much damage before it can be operated on
 	var/requires_organ_damage
 
-/datum/surgery_operation/organ/repair/is_available(obj/item/organ/organ, operated_zone)
+/datum/surgery_operation/organ/repair/state_check(obj/item/organ/organ)
 	. = ..()
 	// Ensure organ has the required amount of damage
 	if(!isnull(requires_organ_damage) && (organ.damage < requires_organ_damage))
