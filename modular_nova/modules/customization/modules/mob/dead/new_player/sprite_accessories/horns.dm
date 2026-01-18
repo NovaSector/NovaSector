@@ -1,14 +1,14 @@
 /datum/sprite_accessory/horns
-	key = "horns"
-	generic = "Horns"
+	key = FEATURE_HORNS
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/horns.dmi'
 	default_color = "#555555"
-	genetic = TRUE
 	organ_type = /obj/item/organ/horns
 
 /datum/sprite_accessory/horns/is_hidden(mob/living/carbon/human/wearer)
-	if(!wearer.head && !wearer.wear_mask)
+	var/obj/item/clothing/head/worn_head = wearer.head
+	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
+	if(isnull(worn_head) && isnull(worn_mask))
 		return FALSE
 
 	// Can hide if wearing hat
@@ -20,8 +20,8 @@
 		return FALSE
 
 	// Hide accessory if flagged to do so
-	if((wearer.head?.flags_inv & HIDEHAIR || wearer.wear_mask?.flags_inv & HIDEHAIR) \
-		&& !(wearer.wear_mask && wearer.wear_mask.flags_inv & SHOWSPRITEEARS))
+	if((worn_head?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
+		&& !(worn_mask && worn_mask.flags_inv & SHOWSPRITEEARS))
 		return TRUE
 
 	return FALSE
@@ -29,21 +29,50 @@
 /datum/sprite_accessory/horns/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/horns/angler
 	default_color = DEFAULT_SECONDARY
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+	)
 
 /datum/sprite_accessory/horns/ram
 	name = "Ram"
 	icon_state = "ram"
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+		SPECIES_KOBOLD = 1,
+	)
 
 /datum/sprite_accessory/horns/short
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+		SPECIES_KOBOLD = 1,
+	)
 
 /datum/sprite_accessory/horns/simple
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+		SPECIES_KOBOLD = 1,
+	)
 
 /datum/sprite_accessory/horns/guilmon
 	name = "Guilmon"
@@ -149,31 +178,34 @@
 	icon_state = "broadcurls"
 
 /datum/sprite_accessory/horns/antenna_fuzzball_v2
-	recommended_species = list(SPECIES_INSECT)
+	recommended_species = list(SPECIES_INSECT = 1)
 	name = "Fuzzball Antenna"
 	icon_state = "antenna_fuzzballv2"
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/horns/setaceous
-	recommended_species = list(SPECIES_INSECT)
+	recommended_species = list(SPECIES_INSECT = 1)
 	name = "Setaceous Antenna"
 	icon_state = "setaceous"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/horns/setaceousm
-	recommended_species = list(SPECIES_INSECT)
+	recommended_species = list(SPECIES_INSECT = 1)
 	name = "Medium Setaceous Antenna"
 	icon_state = "setaceousm"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/horns/geniculate
-	recommended_species = list(SPECIES_INSECT)
+	recommended_species = list(SPECIES_INSECT = 1)
 	name = "Geniculate Antenna"
 	icon_state = "geniculate"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/horns/moogle_pom
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+	)
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moogle_pom.dmi'
 	color_src = USE_MATRIXED_COLORS
 

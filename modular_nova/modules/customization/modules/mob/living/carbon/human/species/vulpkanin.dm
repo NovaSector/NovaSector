@@ -8,7 +8,7 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list()
+
 	mutanttongue = /obj/item/organ/tongue/vulpkanin
 	species_language_holder = /datum/language_holder/vulpkanin
 	payday_modifier = 1.0
@@ -25,10 +25,10 @@
 
 /datum/species/vulpkanin/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Fox", TRUE),
-		"snout" = list("Mammal, Long", TRUE),
-		"ears" = list("Fox", TRUE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Fox", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Mammal, Long", is_randomizable = TRUE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Fox", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /obj/item/organ/tongue/vulpkanin
@@ -59,9 +59,9 @@
 		if(5)
 			main_color = "#999999"
 			second_color = "#EEEEEE"
-	features["mcolor"] = main_color
-	features["mcolor2"] = second_color
-	features["mcolor3"] = second_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	features[FEATURE_MUTANT_COLOR_THREE] = second_color
 	return features
 
 /datum/species/vulpkanin/get_random_body_markings(list/passed_features)
@@ -82,11 +82,11 @@
 	var/main_color = "#FF8800"
 	var/second_color = "#FFFFFF"
 
-	vulp.dna.features["mcolor"] = main_color
-	vulp.dna.features["mcolor2"] = second_color
-	vulp.dna.features["mcolor3"] = second_color
-	vulp.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Mammal, Long", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	vulp.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	vulp.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Wolf", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
+	vulp.dna.features[FEATURE_MUTANT_COLOR] = main_color
+	vulp.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	vulp.dna.features[FEATURE_MUTANT_COLOR_THREE] = second_color
+	vulp.dna.mutant_bodyparts[FEATURE_SNOUT] = vulp.dna.species.build_mutant_part("Mammal, Long", list(main_color, main_color, main_color))
+	vulp.dna.mutant_bodyparts[FEATURE_TAIL] = vulp.dna.species.build_mutant_part("Husky", list(second_color, main_color, main_color))
+	vulp.dna.mutant_bodyparts[FEATURE_EARS] = vulp.dna.species.build_mutant_part("Wolf", list(main_color, second_color, second_color))
 	regenerate_organs(vulp, src, visual_only = TRUE)
 	vulp.update_body(TRUE)

@@ -11,12 +11,10 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 /datum/preference_middleware/food/apply_to_human(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
 	if(!length(preferences.food_preferences) || isdummy(target))
 		return
-	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
-	var/datum/species/species = new species_type
+	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/datum/species/species = GLOB.species_prototypes[species_type]
 	if(!species.allows_food_preferences())
-		qdel(species)
 		return
-	qdel(species)
 
 	var/counts = GLOB.food_prefs_menu.count_valid_prefs(preferences)
 
@@ -114,8 +112,8 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 /datum/food_prefs_menu/ui_data(mob/user)
 	var/datum/preferences/preferences = user.client.prefs
 
-	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
-	var/datum/species/species = new species_type
+	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/datum/species/species = GLOB.species_prototypes[species_type]
 
 	var/counts = count_valid_prefs(preferences)
 
@@ -131,7 +129,6 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 		),
 		"counts" = counts,
 	)
-	qdel(species)
 	return data
 
 /**

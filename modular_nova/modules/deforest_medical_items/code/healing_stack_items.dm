@@ -91,7 +91,7 @@
 		to_chat(patient, span_userdanger("Your [limb.plaintext_zone] burns like hell as the wounds on it are rapidly healed, fuck!"))
 		patient.add_mood_event("severe_surgery", /datum/mood_event/rapid_wound_healing)
 	limb.receive_damage(brute = INSTANT_WOUND_HEAL_LIMB_DAMAGE, wound_bonus = CANT_WOUND)
-	patient.adjustStaminaLoss(INSTANT_WOUND_HEAL_STAMINA_DAMAGE)
+	patient.adjust_stamina_loss(INSTANT_WOUND_HEAL_STAMINA_DAMAGE)
 	patient.apply_status_effect(/datum/status_effect/vulnerable_to_damage)
 	use(1)
 
@@ -141,9 +141,11 @@
 	heal_brute = 5
 	flesh_regeneration = 5
 	sanitization = 3
-	grind_results = list(/datum/reagent/medicine/oxandrolone = 3)
 	merge_type = /obj/item/stack/medical/ointment/red_sun
 	custom_price = PAYCHECK_LOWER * 1.5
+
+/obj/item/stack/medical/ointment/red_sun/grind_results()
+	return list(/datum/reagent/medicine/oxandrolone = 3)
 
 /obj/item/stack/medical/ointment/red_sun/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)
 	. = ..()

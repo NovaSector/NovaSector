@@ -164,7 +164,6 @@ Runs the event
 	round_event.setup()
 	round_event.current_players = get_active_player_count(alive_check = 1, afk_check = 1, human_check = 1)
 	occurrences++
-	SSevents.previously_run += src // NOVA EDIT ADDITION
 
 	if(announce_chance_override != null)
 		round_event.announce_chance = announce_chance_override

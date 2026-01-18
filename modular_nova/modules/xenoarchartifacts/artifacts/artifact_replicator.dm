@@ -73,12 +73,12 @@
 
 	var/quantity = rand(3,8)
 	for (var/i in 1 to quantity)
-		var/button_desc = "a [pick("yellow", "purple", "green", "blue", "red", "orange", "white", "black", "lime", "pink", "gray", "bloody")], "
+		var/button_desc = "A [pick("yellow", "purple", "green", "blue", "red", "orange", "white", "black", "lime", "pink", "gray", "bloody")], "
 		button_desc += "[pick("round", "square", "diamond", "heart", "dog", "human", "cat", "lizard", "skull", "syringe", "disk", "pen", "circuitboard")]-shaped "
 		button_desc += "[pick("toggle", "switch", "lever", "button", "pad", "hole")]"
 		construction[button_desc] = pick_n_take(viables)
 
-	fail_message = span_notice("a [pick("loud", "soft", "sinister", "eery", "triumphant", "depressing", "cheerful", "angry")] \
+	fail_message = span_notice("A [pick("loud", "soft", "sinister", "eery", "triumphant", "depressing", "cheerful", "angry")] \
 		[pick("horn", "beep", "bing", "bleep", "blat", "honk", "hrumph", "ding")] sounds and a \
 		[pick("yellow", "purple", "green", "blue", "red", "golden", "white")] \
 		[pick("light", "dial", "meter", "window", "protrusion", "knob", "antenna", "swirly thing")] \
@@ -154,23 +154,40 @@
 	. = ..()
 	if(.)
 		return
+	if(!usr || get_dist(src, usr) > 1)
+		return
+
+	var/should_refresh = FALSE
+
 	if(href_list["activate"])
 		var/index = text2num(href_list["activate"])
-		if(index > 0 && index <= construction.len)
-			if(stored_materials.len > spawning_types.len)
-				if(spawning_types.len)
-					visible_message(span_notice("A [pick("light", "dial", "display", "meter", "pad")] on [src]'s front [pick("blinks", "flashes")] [pick("red", "yellow", "blue", "orange", "purple", "green", "white")]."))
+
+		// Validate index in construction list
+		if(index > 0 && index <= LAZYLEN(construction))
+			// Check storage capacity
+			if(LAZYLEN(stored_materials) > LAZYLEN(spawning_types))
+				// Feedback messaging
+				if(LAZYLEN(spawning_types))
+					visible_message(
+						span_notice("A [pick("light", "dial", "display", "meter", "pad")] on [src]'s front [pick("blinks", "flashes")] [pick("red", "yellow", "blue", "orange", "purple", "green", "white")].")
+					)
 				else
 					visible_message(
 						span_notice("[src]'s front compartment slides shut."),
 						blind_message = span_hear("You hear metal shuffling."),
 					)
 
-				spawning_types.Add(construction[construction[index]])
+				// Queue next spawn type
+				var/type_to_spawn = construction[index]
+				spawning_types += construction[type_to_spawn]
+
 				spawn_progress_time = 0
 				update_use_power(ACTIVE_POWER_USE)
 				icon_state = "replicator_active"
 			else
 				visible_message(fail_message)
-	if(usr)
+
+		should_refresh = TRUE
+
+	if(should_refresh)
 		ui_interact(usr)

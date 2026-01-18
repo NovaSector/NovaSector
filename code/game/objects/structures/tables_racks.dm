@@ -91,11 +91,7 @@
 	make_climbable()
 	AddElement(/datum/element/give_turf_traits, string_list(turf_traits))
 	AddElement(/datum/element/footstep_override, priority = STEP_SOUND_TABLE_PRIORITY)
-	AddComponent(/datum/component/table_smash, gentle_push = slam_gently, after_smash = CALLBACK(src, PROC_REF(after_smash)))
-
-/// Called after someone is harmfully smashed into us
-/obj/structure/table/proc/after_smash(mob/living/smashed)
-	return // This is mostly for our children
+	AddElement(/datum/element/table_smash, gentle_push = slam_gently, after_smash_proccall = PROC_REF(after_smash))
 
 /// Applies additional properties based on the frame used to construct this table.
 /obj/structure/table/proc/apply_frame_properties(obj/structure/table_frame/frame_used)
@@ -109,7 +105,7 @@
 
 ///Adds the element used to make the object climbable, and also the one that shift the mob buckled to it up.
 /obj/structure/table/proc/make_climbable()
-	AddComponent(/datum/component/climb_walkable)
+	AddElement(/datum/element/climb_walkable)
 	AddElement(/datum/element/climbable)
 	AddElement(/datum/element/elevation, pixel_shift = 12)
 
@@ -136,7 +132,7 @@
 //proc that removes elements present in now-flipped tables
 /obj/structure/table/proc/flip_table(new_dir = SOUTH)
 	playsound(src, flipped_table_sound, 100)
-	qdel(GetComponent(/datum/component/climb_walkable))
+	RemoveElement(/datum/element/climb_walkable)
 	RemoveElement(/datum/element/climbable)
 	RemoveElement(/datum/element/footstep_override, priority = STEP_SOUND_TABLE_PRIORITY)
 	RemoveElement(/datum/element/give_turf_traits, turf_traits)
@@ -427,7 +423,7 @@
 	return FALSE
 
 /obj/structure/table/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, list/rcd_data)
-	if(rcd_data["[RCD_DESIGN_MODE]"] == RCD_DECONSTRUCT)
+	if(rcd_data[RCD_DESIGN_MODE] == RCD_DECONSTRUCT)
 		qdel(src)
 		return TRUE
 	return FALSE
@@ -552,6 +548,7 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+	AddElement(/datum/element/give_turf_traits, string_list(list(TRAIT_AI_AVOID_TURF)))
 
 /obj/structure/table/glass/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
@@ -632,7 +629,7 @@
 	canSmoothWith = SMOOTH_GROUP_WOOD_TABLES
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
 
-/obj/structure/table/wood/after_smash(mob/living/smashed)
+/obj/structure/table/wood/after_smash(mob/living/smashed_onto)
 	if(QDELETED(src) || prob(66))
 		return
 	visible_message(
@@ -641,9 +638,9 @@
 	)
 
 	playsound(src, 'sound/effects/wounds/crack2.ogg', 50, TRUE)
-	smashed.Knockdown(10 SECONDS)
-	smashed.Paralyze(2 SECONDS)
-	smashed.apply_damage(20, BRUTE)
+	smashed_onto.Knockdown(10 SECONDS)
+	smashed_onto.Paralyze(2 SECONDS)
+	smashed_onto.apply_damage(20, BRUTE)
 	deconstruct(FALSE)
 
 /obj/structure/table/wood/narsie_act(total_override = TRUE)
@@ -854,7 +851,7 @@
 	canSmoothWith = SMOOTH_GROUP_BRONZE_TABLES
 	can_flip = FALSE
 
-/obj/structure/table/bronze/after_smash(mob/living/pushed_mob)
+/obj/structure/table/bronze/after_smash(mob/living/smashed_onto)
 	playsound(src, 'sound/effects/magic/clockwork/fellowship_armory.ogg', 50, TRUE)
 
 /obj/structure/table/reinforced/rglass
@@ -1084,6 +1081,7 @@
 		if (patient.external && patient.external == air_tank)
 			patient.close_externals()
 
+	SEND_SIGNAL(src, COMSIG_OPERATING_TABLE_SET_PATIENT, new_patient)
 	patient = new_patient
 	update_appearance()
 	if (!patient)
@@ -1432,4 +1430,3 @@
 		R.add_fingerprint(user)
 		qdel(src)
 	building = FALSE
-

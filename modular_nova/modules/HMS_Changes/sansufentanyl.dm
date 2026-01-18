@@ -23,7 +23,7 @@
 	. = ..()
 	affected_mob.adjust_confusion_up_to(3 SECONDS * REM * seconds_per_tick, 10 SECONDS)
 	affected_mob.adjust_dizzy_up_to(6 SECONDS * REM * seconds_per_tick, 20 SECONDS)
-	if(affected_mob.adjustStaminaLoss(4 * REM * seconds_per_tick, updating_stamina = FALSE))
+	if(affected_mob.adjust_stamina_loss(4 * REM * seconds_per_tick, updating_stamina = FALSE))
 		. = UPDATE_MOB_HEALTH
 
 	if(SPT_PROB(10, seconds_per_tick))

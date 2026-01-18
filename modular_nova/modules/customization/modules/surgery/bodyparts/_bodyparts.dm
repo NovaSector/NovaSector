@@ -14,7 +14,7 @@
 		. += "-[current_style]"
 
 	for(var/key in markings)
-		. += limb_id == "digitigrade" ? ("digitigrade_1_" + body_zone) : body_zone
+		. += limb_id == BODYPART_ID_DIGITIGRADE ? "[BODYPART_ID_DIGITIGRADE]_[body_zone]" : body_zone
 		. += "-[key]_[markings[key][MARKING_INDEX_COLOR]]_[markings[key][MARKING_INDEX_EMISSIVE]]"
 
 	return .

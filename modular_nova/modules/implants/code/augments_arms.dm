@@ -24,17 +24,45 @@
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = CONDUCTS_ELECTRICITY
 	sharpness = SHARP_EDGED
-	force = 25
-	armour_penetration = 20
+	force = 17 // Previously 25, dropped to 17 as two can attack at the same time, equaling about 34 force total.
+	armour_penetration = 15
 	item_flags = NEEDS_PERMIT //Beepers gets angry if you get caught with this.
 	hitsound = 'modular_nova/master_files/sound/weapons/bloodyslice.ogg'
+
+/obj/item/melee/implantarmblade/attack(mob/living/M, mob/living/user)
+	. = ..()
+	if(user.get_active_held_item() != src)
+		return
+
+	var/obj/item/some_item = user.get_inactive_held_item()
+
+	if(!istype(some_item,type))
+		return
+
+	user.do_attack_animation(M,null,some_item)
+	some_item.attack(M,user)
+
+/obj/item/organ/cyberimp/arm/toolkit/armblade
+	zone = BODY_ZONE_R_ARM
+	slot = ORGAN_SLOT_RIGHT_ARM_AUG
+
+/obj/item/organ/cyberimp/arm/toolkit/armblade/l
+	zone = BODY_ZONE_L_ARM
+	slot = ORGAN_SLOT_LEFT_ARM_AUG
+
+/obj/item/melee/implantarmblade/early
+	name = "early armblade implant"
+	desc = "A long, sharp, mantis-like blade implanted into someones arm. This is an early, outdated model with a ceramic blade, it isn't as effective as steel versions, but easier to smuggle past metal detectors."
+	force = 12 // More then the claws(but doesn't double as wire cutters), less then the razorwire and 10 less then real armblades, about equal to a survival knife, 24 with two
+	armour_penetration = 5
+	icon_state = "mantis_blade_early"
 
 /obj/item/melee/implantarmblade/energy
 	name = "energy arm blade"
 	desc = "A long mantis-like blade made entirely of blazing-hot energy. Stylish and EXTRA deadly!"
 	icon_state = "energy_mantis_blade"
-	force = 30
-	armour_penetration = 10 //Energy isn't as good at going through armor as it is through flesh alone.
+	force = 20 // Two can attack at the same time, so read this as 40 force total.
+	armour_penetration = 25 //Energy isn't as good at going through armor as it is through flesh alone.
 	hitsound = 'sound/items/weapons/blade1.ogg'
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade
@@ -44,6 +72,18 @@
 	icon = 'modular_nova/modules/implants/icons/implanted_blade.dmi'
 	icon_state = "mantis_blade"
 	aug_icon = "toolkit"
+
+/obj/item/organ/cyberimp/arm/toolkit/armblade/early
+	name = "outdated arm blade implant"
+	items_to_create = list(/obj/item/melee/implantarmblade/early)
+
+/obj/item/organ/cyberimp/arm/toolkit/armblade/early
+	zone = BODY_ZONE_R_ARM
+	slot = ORGAN_SLOT_RIGHT_ARM_AUG
+
+/obj/item/organ/cyberimp/arm/toolkit/armblade/early/l
+	zone = BODY_ZONE_L_ARM
+	slot = ORGAN_SLOT_LEFT_ARM_AUG
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade/emag_act()
 	if(obj_flags & EMAGGED)
@@ -134,6 +174,28 @@
 	extend_sound = 'sound/items/unsheath.ogg'
 	retract_sound = 'sound/items/sheath.ogg'
 
+/obj/item/organ/cyberimp/arm/toolkit/razor_claws/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
+		return
+	var/effect_chance = 0
+	switch(severity)
+		if(EMP_LIGHT)
+			effect_chance = 17.5
+		if(EMP_HEAVY)
+			effect_chance = 35
+	if(prob(effect_chance) && owner)
+		owner.visible_message(
+			span_danger("[owner]'s razor claws extend and retract rapidly!"),
+			span_warning("Your razor claws malfunction, extending and retracting uncontrollably!")
+		)
+		if(active_item)
+			Retract()
+		do_sparks(2, TRUE, owner)
+		playsound(owner, 'sound/items/unsheath.ogg', 50, TRUE)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, playsound), owner, 'sound/items/sheath.ogg', 50, TRUE), 0.3 SECONDS)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, playsound), owner, 'sound/items/unsheath.ogg', 50, TRUE), 0.6 SECONDS)
+
 /// bespoke subtypes for augs menu since it's a bit wonky
 /obj/item/organ/cyberimp/arm/toolkit/razor_claws/right_arm
 	zone = BODY_ZONE_R_ARM
@@ -159,6 +221,27 @@
 	aug_icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	aug_overlay = "steel"
 	hand_state = FALSE
+
+/obj/item/organ/cyberimp/arm/toolkit/mining_drill/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF || !IS_ROBOTIC_ORGAN(src))
+		return
+	var/effect_chance = 0
+	switch(severity)
+		if(EMP_LIGHT)
+			effect_chance = 20
+		if(EMP_HEAVY)
+			effect_chance = 40
+	if(prob(effect_chance) && owner)
+		owner.visible_message(
+			span_danger("[owner]'s drill implant whirs and spins erratically!"),
+			span_warning("Your drill implant malfunctions, spinning wildly and making your whole arm shake!")
+		)
+		if(active_item)
+			Retract()
+		owner.set_jitter_if_lower(severity == EMP_LIGHT ? 10 SECONDS : 20 SECONDS)
+		do_sparks(3, TRUE, owner)
+		playsound(owner, 'sound/items/weapons/drill.ogg', 50, TRUE)
 
 /obj/item/organ/cyberimp/arm/toolkit/mining_drill/right_arm //You know the drill.
 	zone = BODY_ZONE_R_ARM
@@ -219,8 +302,8 @@
 	icon_state = "diamond"
 	inhand_icon_state = "diamond"
 	toolspeed = 0.2
-	force = 20
-	demolition_mod = 1.25
+	force = 15
+	demolition_mod = 1.15
 	usesound = 'sound/items/weapons/drill.ogg'
 	hitsound = 'sound/items/weapons/drill.ogg'
 
@@ -302,6 +385,29 @@
 
 // Razorwire implant, long reach whip made of extremely thin wire, ouch!
 
+/datum/atom_skin/razorwire
+	abstract_type = /datum/atom_skin/razorwire
+
+/datum/atom_skin/razorwire/red
+	preview_name = "Evil Red"
+	new_icon_state = "razorwire_weapon"
+
+/datum/atom_skin/razorwire/teal
+	preview_name = "Teal I Think?"
+	new_icon_state = "razorwire_weapon_teal"
+
+/datum/atom_skin/razorwire/yellow
+	preview_name = "Yellow"
+	new_icon_state = "razorwire_weapon_yellow"
+
+/datum/atom_skin/razorwire/Ourple
+	preview_name = "Ourple"
+	new_icon_state = "razorwire_weapon_ourple"
+
+/datum/atom_skin/razorwire/green
+	preview_name = "Green"
+	new_icon_state = "razorwire_weapon_green"
+
 /obj/item/melee/razorwire
 	name = "implanted razorwire"
 	desc = "A long length of monomolecular filament, built into the back of your hand. \
@@ -323,30 +429,10 @@
 	hitsound = 'sound/items/weapons/whip.ogg'
 	attack_verb_continuous = list("slashes", "whips", "lashes", "lacerates")
 	attack_verb_simple = list("slash", "whip", "lash", "lacerate")
-	obj_flags = UNIQUE_RENAME | INFINITE_RESKIN
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Evil Red" = list(
-			RESKIN_ICON_STATE = "razorwire_weapon",
-			RESKIN_INHAND_STATE = "razorwire"
-		),
-		"Teal I Think?" = list(
-			RESKIN_ICON_STATE = "razorwire_weapon_teal",
-			RESKIN_INHAND_STATE = "razorwire_teal"
-		),
-		"Yellow" = list(
-			RESKIN_ICON_STATE = "razorwire_weapon_yellow",
-			RESKIN_INHAND_STATE = "razorwire_yellow"
-		),
-		"Ourple" = list(
-			RESKIN_ICON_STATE = "razorwire_weapon_ourple",
-			RESKIN_INHAND_STATE = "razorwire_ourple"
-		),
-		"Green" = list(
-			RESKIN_ICON_STATE = "razorwire_weapon_green",
-			RESKIN_INHAND_STATE = "razorwire_green"
-		),
-	)
+	obj_flags = UNIQUE_RENAME
+
+/obj/item/melee/razorwire/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/razorwire, infinite = TRUE)
 
 /obj/item/organ/cyberimp/arm/toolkit/razorwire
 	name = "razorwire spool implant"
@@ -355,6 +441,14 @@
 	items_to_create = list(/obj/item/melee/razorwire)
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "razorwire"
+
+/obj/item/organ/cyberimp/arm/toolkit/razorwire
+	zone = BODY_ZONE_R_ARM
+	slot = ORGAN_SLOT_RIGHT_ARM_AUG
+
+/obj/item/organ/cyberimp/arm/toolkit/razorwire/l
+	zone = BODY_ZONE_L_ARM
+	slot = ORGAN_SLOT_LEFT_ARM_AUG
 
 /obj/item/autosurgeon/syndicate/razorwire
 	name = "razorwire autosurgeon"

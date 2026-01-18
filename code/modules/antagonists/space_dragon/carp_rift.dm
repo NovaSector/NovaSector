@@ -40,6 +40,14 @@
 	dragon.riftTimer = -1
 	new_rift.dragon = dragon
 	dragon.rift_list += new_rift
+	// NOVA EDIT ADDITION START, announce on first rift - reset stats if dragon manages to retry
+	if(!dragon.announced)
+		priority_announce("A large organic energy flux has been recorded near of [station_name()], please stand-by.", "Lifesign Alert")
+		dragon.announced = TRUE
+	if(HAS_TRAIT(owner, TRAIT_RIFT_FAILURE))
+		REMOVE_TRAIT(owner, TRAIT_RIFT_FAILURE, REF(dragon))
+		owner.remove_movespeed_modifier(/datum/movespeed_modifier/dragon_depression)
+	// NOVA EDIT ADDITION END
 	to_chat(owner, span_boldwarning("The rift has been summoned. Prevent the crew from destroying it at all costs!"))
 	notify_ghosts(
 		"The Space Dragon has opened a rift!",

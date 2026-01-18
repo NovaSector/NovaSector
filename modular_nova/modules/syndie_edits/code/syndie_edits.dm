@@ -65,7 +65,7 @@
 	desc = "For the agent wanting to keep a low profile whilst concealing their identity. Has a small respirator to be used with internals."
 	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
 	icon_state = "/obj/item/clothing/mask/neck_gaiter/syndicate"
-	greyscale_colors = "#333333"
+	greyscale_colors = "#2c2c2e"
 
 /obj/item/clothing/shoes/combat //TO-DO: Move these overrides out of a syndicate file!
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
@@ -86,12 +86,12 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "combat"
 
-/obj/item/clothing/gloves/krav_maga/combatglovesplus
+/obj/item/clothing/gloves/kaza_ruk/combatglovesplus
 	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "combat"
 
-/obj/item/clothing/gloves/krav_maga/combatglovesplus/maa
+/obj/item/clothing/gloves/kaza_ruk/combatglovesplus/maa
 	name = "master at arms' combat gloves"
 	desc = "A set of combat gloves plus emblazoned with red knuckles, showing dedication to the trade while also hiding any blood left after use."
 	icon_state = "maagloves"
@@ -102,7 +102,9 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "webbingds"
 	worn_icon_state = "webbingds"
-	uses_advanced_reskins = FALSE
+
+/obj/item/storage/belt/security/webbing/ds/setup_reskins()
+	return
 
 /obj/item/clothing/suit/armor/bulletproof/old
 	desc = "A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent."
@@ -140,6 +142,11 @@
 	icon_state = "syndimaid_headband"
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = "#88242D#591A2A"
+	flags_1 = NONE
 
 /obj/item/clothing/gloves/combat/maid
 	name = "combat maid sleeves"
@@ -150,7 +157,7 @@
 	name = "tactical maid outfit"
 	desc = "A 'tactical' skirtleneck fashioned to the likeness of a maid outfit. Why the Syndicate has these, you'll never know."
 	icon_state = "syndimaid"
-	armor_type = /datum/armor/clothing_under/none
+	armor_type = /datum/armor/clothing_under
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
@@ -275,8 +282,9 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
-	uses_advanced_reskins = FALSE
-	unique_reskin = null
+
+/obj/item/clothing/suit/armor/hos/deckofficer/setup_reskins()
+	return
 
 /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/black
 	name = "interdyne black labcoat"

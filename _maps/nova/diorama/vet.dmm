@@ -193,7 +193,7 @@
 /obj/structure/sign/plaques/kiddie/diorama/vet{
 	pixel_y = 8
 	},
-/turf/template_noop,
+/turf/closed/wall,
 /area/template_noop)
 "Y" = (
 /obj/structure/bed/dogbed,

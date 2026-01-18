@@ -181,7 +181,7 @@
  * Goes through hud_possible list and adds the images to the hud_list variable (if not already cached)
  */
 /atom/proc/prepare_huds()
-	if(hud_list) // I choose to be lienient about people calling this proc more then once
+	if(hud_list) // I choose to be lenient about people calling this proc more then once
 		return
 	hud_list = list()
 	for(var/hud in hud_possible)
@@ -286,22 +286,8 @@
 
 	if(!islist(ignored_mobs))
 		ignored_mobs = list(ignored_mobs)
-	var/list/hearers = get_hearers_in_view(vision_distance, src) //caches the hearers and then removes ignored mobs.
+	var/list/hearers = mob_only_listeners(get_hearers_in_view(vision_distance, src)) //caches the hearers and then removes ignored mobs.
 	hearers -= ignored_mobs
-
-	//NOVA EDIT ADDITION BEGIN - AI QoL
-	for(var/mob/eye/camera/ai/ai_eye in hearers)
-		if(ai_eye.ai?.client && !(ai_eye.ai.stat == DEAD))
-			hearers -= ai_eye
-			hearers |= ai_eye.ai
-
-	for(var/obj/effect/overlay/holo_pad_hologram/holo in hearers)
-		if(holo.Impersonation?.client)
-			hearers |= holo.Impersonation
-	//NOVA EDIT ADDITION END - AI QoL
-
-	if(self_message)
-		hearers -= src
 
 	var/raw_msg = message
 	if(visible_message_flags & WITH_EMPHASIS_MESSAGE)
@@ -309,11 +295,13 @@
 	if(visible_message_flags & EMOTE_MESSAGE)
 		message = span_emote("<b>[src]</b>[separation][message]") // NOVA EDIT - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
 
-	for(var/mob/M in hearers)
-		if(!M.client)
+	for(var/mob/hearing_mob as anything in hearers)
+		if(!hearing_mob?.client)
+			continue
+		if(self_message && hearing_mob == src)
 			continue
 		// NOVA EDIT ADDITION - Emote pref checks
-		if(pref_to_check && !M.client?.prefs.read_preference(pref_to_check))
+		if(pref_to_check && !hearing_mob.client?.prefs.read_preference(pref_to_check))
 			continue
 		// NOVA EDIT END
 
@@ -321,24 +309,23 @@
 		var/msg = message
 		var/msg_type = MSG_VISUAL
 
-		if(M.see_invisible < invisibility)//if src is invisible to M
+		if(hearing_mob.see_invisible < invisibility)//if src is invisible to M
 			msg = blind_message
 			msg_type = MSG_AUDIBLE
 		else if(T != loc && T != src) //if src is inside something and not a turf.
-			if(M != loc) // Only give the blind message to hearers that aren't the location
+			if(hearing_mob != loc) // Only give the blind message to hearers that aren't the location
 				msg = blind_message
 				msg_type = MSG_AUDIBLE
-		else if(!HAS_TRAIT(M, TRAIT_HEAR_THROUGH_DARKNESS) && M.lighting_cutoff < LIGHTING_CUTOFF_HIGH && T.is_softly_lit() && !in_range(T,M)) //if it is too dark, unless we're right next to them.
+		else if(!HAS_TRAIT(hearing_mob, TRAIT_HEAR_THROUGH_DARKNESS) && hearing_mob.lighting_cutoff < LIGHTING_CUTOFF_HIGH && T.is_softly_lit() && !in_range(T,hearing_mob)) //if it is too dark, unless we're right next to them.
 			msg = blind_message
 			msg_type = MSG_AUDIBLE
 		if(!msg)
 			continue
 
-		if(visible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, visible_message_flags) && !M.is_blind())
-			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = visible_message_flags)
+		if(visible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(hearing_mob, visible_message_flags) && !hearing_mob.is_blind())
+			hearing_mob.create_chat_message(src, raw_message = raw_msg, runechat_flags = visible_message_flags)
 
-		M.show_message(msg, msg_type, blind_message, MSG_AUDIBLE)
-
+		hearing_mob.show_message(msg, msg_type, blind_message, MSG_AUDIBLE)
 
 ///Adds the functionality to self_message.
 /mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check)  // NOVA EDIT ADDITION - Better emotes, pref checks
@@ -374,35 +361,25 @@
  * * self_message (optional) is what the src mob hears.
  * * audible_message_flags (optional) is the type of message being sent.
  */
-/atom/proc/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // NOVA EDIT ADDITION - Better emotes, pref checks
-	var/list/hearers = get_hearers_in_view(hearing_distance, src)
-
-	//NOVA EDIT ADDITION BEGIN - AI QoL
-	for(var/mob/eye/camera/ai/ai_eye in hearers)
-		if(ai_eye.ai?.client && !(ai_eye.ai.stat == DEAD))
-			hearers -= ai_eye
-			hearers |= ai_eye.ai
-
-	for(var/obj/effect/overlay/holo_pad_hologram/holo in hearers)
-		if(holo.Impersonation?.client)
-			hearers |= holo.Impersonation
-	//NOVA EDIT ADDITION END - AI QoL
-
-	if(self_message)
-		hearers -= src
+/atom/proc/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // NOVA EDIT CHANGE - ORIGINAL: /atom/proc/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE)
+	var/list/hearers = mob_only_listeners(get_hearers_in_view(hearing_distance, src))
 	var/raw_msg = message
 	if(audible_message_flags & WITH_EMPHASIS_MESSAGE)
 		message = apply_message_emphasis(message)
 	if(audible_message_flags & EMOTE_MESSAGE)
 		message = span_emote("<b>[src]</b>[separation][message]") // NOVA EDIT CHANGE - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
-	for(var/mob/M in hearers)
-	// NOVA EDIT ADDITION - Emote pref checks
-		if(pref_to_check && !M.client?.prefs.read_preference(pref_to_check))
+	for(var/mob/hearing_mob as anything in hearers)
+		if(!hearing_mob?.client)
 			continue
-	// NOVA EDIT END
-		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, audible_message_flags) && M.can_hear())
-			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
-		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
+		// NOVA EDIT ADDITION - Emote pref checks
+		if(pref_to_check && !hearing_mob.client?.prefs.read_preference(pref_to_check))
+			continue
+		// NOVA EDIT END
+		if(self_message && hearing_mob == src)
+			continue
+		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(hearing_mob, audible_message_flags) && hearing_mob.can_hear())
+			hearing_mob.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
+		hearing_mob.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
 
 /**
  * Show a message to all mobs in earshot of this one
@@ -436,6 +413,25 @@
 	if(self_runechat && (audible_message_flags & EMOTE_MESSAGE) && runechat_prefs_check(src, audible_message_flags))
 		create_chat_message(src, raw_message = raw_self_message, runechat_flags = audible_message_flags)
 
+/// Gets a linked mob, letting atoms act as proxies for actions that rely on hearing sensitivity.
+/// For example, AIs hearing around their holopads, and dullahans hearing around their heads.
+/// Normal say messages are handled by Hear(), this is for other visible/audible messages
+/atom/movable/proc/get_listening_mob()
+	return
+
+/obj/effect/overlay/holo_pad_hologram/get_listening_mob()
+	return Impersonation
+
+/obj/item/dullahan_relay/get_listening_mob()
+	return owner
+
+/mob/get_listening_mob()
+	return src
+
+// NOVA EDIT ADDITION START - AI qol
+/mob/eye/camera/ai/get_listening_mob()
+	return ai
+// NOVA EDIT ADDITION END
 ///Returns the client runechat visible messages preference according to the message type.
 /atom/proc/runechat_prefs_check(mob/target, visible_message_flags = NONE)
 	if(!target.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
@@ -455,7 +451,7 @@
 
 
 ///Get the item on the mob in the storage slot identified by the id passed in
-/mob/proc/get_item_by_slot(slot_id)
+/mob/proc/get_item_by_slot(slot_id) as /obj/item
 	return null
 
 /// Gets what slot the item on the mob is held in.
@@ -562,6 +558,8 @@
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(run_examinate), examinify))
 
 /mob/proc/run_examinate(atom/examinify, force_examinate_more = FALSE)
+	if(QDELETED(examinify)) // since this can run async we might have had the atom get qdeleted already
+		return
 
 	if(isturf(examinify) && !(sight & SEE_TURFS) && !(examinify in view(client ? client.view : world.view, src)))
 		// shift-click catcher may issue examinate() calls for out-of-sight turfs
@@ -601,7 +599,7 @@
 		SEND_SIGNAL(src, COMSIG_MOB_EXAMINING, examinify, result)
 		if(removes_double_click)
 			result += span_notice("<i>You can <a href=byond://?src=[REF(src)];run_examinate=[REF(examinify)]>examine</a> [examinify] closer...</i>")
-		result_combined = (atom_title ? fieldset_block("[atom_title][ismob(examinify) ? "!" :"."]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>"))) // NOVA EDIT CHANGE - ORIGINAL: result_combined = (atom_title ? fieldset_block("[atom_title]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>")))
+		result_combined = (atom_title ? fieldset_block("[atom_title][ismob(examinify) ? "!" :"."]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>"))) // NOVA EDIT CHANGE - ORIGINAL: result_combined = (atom_title ? fieldset_block("[atom_title].", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>")))
 		result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // NOVA EDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
 
 	to_chat(src, span_infoplain(result_combined))
@@ -905,6 +903,15 @@
 	set name = "Cancel Camera View"
 	set category = "OOC"
 	reset_perspective(null)
+
+/**
+ * Helpful for when a players uplink window gets glitched to above their screen.
+ * preventing them from moving the UPLINK window.
+ */
+/mob/verb/reset_ui_positions_for_mob()
+	set name = "Reset UI Positions"
+	set category = "OOC"
+	SStgui.reset_ui_position(src)
 
 //suppress the .click/dblclick macros so people can't use them to identify the location of items or aimbot
 /mob/verb/DisClick(argu = null as anything, sec = "" as text, number1 = 0 as num  , number2 = 0 as num)
@@ -1600,13 +1607,6 @@
 		)
 	else
 		remove_movespeed_modifier(/datum/movespeed_modifier/equipment_speedmod)
-
-///Get all items in our possession that should affect our movespeed
-/mob/proc/get_equipped_speed_mod_items()
-	. = list()
-	for(var/obj/item/thing in held_items)
-		if(thing.item_flags & SLOWS_WHILE_IN_HAND)
-			. += thing
 
 /mob/proc/set_stat(new_stat)
 	if(new_stat == stat)

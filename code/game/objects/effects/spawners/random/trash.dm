@@ -156,8 +156,16 @@
 		// NOVA EDIT START: modular food trash (canned goods wit no canned goods)
 		/obj/item/trash/can/food/tuna = 1,
 		/obj/item/trash/pljeskavica = 1,
-		/obj/item/trash/nachos = 1,
+		/obj/item/trash/cevapi = 1,
+		/obj/item/trash/pierogi_ravioli = 1,
+		/obj/item/trash/sarma = 1,
+		/obj/item/trash/chigirtma = 1,
+		/obj/item/trash/kasha_kiev = 1,
+		/obj/item/trash/pickled_vegetables = 1,
+		/obj/item/trash/draniki = 1,
+		/obj/item/trash/mushroom_barley = 1,
 		/obj/item/trash/blins = 1,
+		/obj/item/trash/syrniki = 1,
 		/obj/item/trash/empty_food_tray = 1,
 		/obj/item/trash/empty_side_pack/moth = 1,
 		/obj/item/trash/empty_side_pack/nt = 1,
@@ -364,7 +372,8 @@
 	name = "box spawner"
 	icon_state = "box"
 	loot = list(
-		/obj/structure/closet/cardboard = 9,
+		/obj/structure/closet/cardboard = 5,
+		/obj/structure/closet/crate/cardboard = 4,
 		/obj/structure/closet/cardboard/metal = 1,
 	)
 

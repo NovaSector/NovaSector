@@ -110,6 +110,7 @@
 	tool_behaviour = TOOL_BLOWROD
 	/// Whether the rod is in use currently; will try to prevent many other actions on it
 	var/in_use = FALSE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 	/// A ref to the glass item being blown
 	var/datum/weakref/glass_ref
 
@@ -490,6 +491,7 @@
 	name = "jacks"
 	desc = "A tool that helps shape glass during the art process."
 	icon_state = "jacks"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 
 /datum/crafting_recipe/glassblowing_recipe/glass_jack
 	name = "Glass-blowing Jacks"
@@ -499,6 +501,7 @@
 	name = "paddle"
 	desc = "A tool that helps shape glass during the art process."
 	icon_state = "paddle"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 
 /datum/crafting_recipe/glassblowing_recipe/glass_paddle
 	name = "Glass-blowing Paddle"
@@ -508,6 +511,7 @@
 	name = "shears"
 	desc = "A tool that helps shape glass during the art process."
 	icon_state = "shears"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 
 /datum/crafting_recipe/glassblowing_recipe/glass_shears
 	name = "Glass-blowing Shears"
@@ -518,6 +522,7 @@
 	desc = "A tool that helps shape glass during the art process."
 	icon_state = "metal_cup_empty"
 	var/has_sand = FALSE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 
 /datum/crafting_recipe/glassblowing_recipe/glass_metal_cup
 	name = "Glass-blowing Metal Cup"

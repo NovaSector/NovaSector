@@ -133,7 +133,7 @@
 		return FALSE
 	owner = acquirer
 	dna = acquirer.dna
-	dna.mutations += src
+	LAZYADD(dna.mutations, src)
 	SEND_SIGNAL(src, COMSIG_MUTATION_GAINED, acquirer)
 	if(text_gain_indication)
 		to_chat(owner, text_gain_indication)
@@ -157,7 +157,7 @@
 	return
 
 /datum/mutation/proc/on_losing(mob/living/carbon/human/owner)
-	if(!istype(owner) || !(owner.dna.mutations.Remove(src)))
+	if(!istype(owner) || !(owner.dna.mutations?.Remove(src)))
 		return TRUE
 	. = FALSE
 	SEND_SIGNAL(src, COMSIG_MUTATION_LOST, owner)

@@ -129,6 +129,14 @@
 	name = "White Cat Plushie"
 	item_path = /obj/item/toy/plush/nova/cat/white
 
+/datum/loadout_item/toys/plush/fkinbnuuy
+	name = "Heckin Bnuuy"
+	item_path = /obj/item/toy/plush/nova/fkinbnuuy
+
+/datum/loadout_item/toys/plush/funniyellowrock
+	name = "Squishy Yellow Rock"
+	item_path = /obj/item/toy/plush/nova/funniyellowrock
+
 /*
 *	DONATOR
 */
@@ -260,6 +268,18 @@
 /datum/loadout_item/toys/plush/plush_janiborg
 	name = "Friendly Janiborg Plush"
 	item_path = /obj/item/toy/plush/nova/donator/plush_janiborg
+
+/datum/loadout_item/toys/plush/securifox
+	name = "Securifox Plushie"
+	item_path = /obj/item/toy/plush/nova/securifox
+
+/datum/loadout_item/toys/plush/towa
+	name = "Tiny Overwatch"
+	item_path = /obj/item/toy/plush/nova/towa
+
+/datum/loadout_item/toys/plush/fushi
+	name = "Fluffy Dragon"
+	item_path = /obj/item/toy/plush/nova/fushi
 
 /*
 *	STAFF

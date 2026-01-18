@@ -67,3 +67,39 @@
 
 /obj/item/storage/lunchbox/hearts
 	icon_state = "hearts"
+
+/obj/item/storage/lunchbox/heart
+	icon_state = "heart"
+
+/obj/item/storage/lunchbox/heart/monster
+	icon_state = "heart_monster"
+
+/obj/item/storage/lunchbox/tvtime
+	icon_state = "tvtime"
+
+/obj/item/storage/lunchbox/ally
+	icon_state = "ally"
+
+/obj/item/storage/lunchbox/ship
+	desc = "A Spessman's best friend: a beautifully packed lunch, on the side depicting a ship moving fast around a planet."
+	icon_state = "ship"
+
+/obj/item/storage/lunchbox/ammo
+	desc = "A well packed ammo box..."
+	icon_state = "ammo"
+
+/obj/item/storage/lunchbox/cyber
+	icon_state = "cyber"
+
+/obj/item/storage/lunchbox/cyber/dark
+	icon_state = "cyber_dark"
+
+/obj/item/storage/lunchbox/lavaland
+	icon_state = "lavaland"
+
+/obj/item/storage/lunchbox/rainy
+	icon_state = "rainy"
+
+/obj/item/storage/lunchbox/fire_clock
+	desc = "A lunchbox with a flaming clock on it... weird... it seems to have the letter 'L' but the rest is scratched out."
+	icon_state = "fire_clock"

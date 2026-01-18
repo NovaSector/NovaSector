@@ -436,6 +436,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 		for(var/M in mymob.observers)
 			show_hud(hud_version, M)
 	else if (viewmob.hud_used)
+		viewmob.hide_other_mob_action_buttons(mymob)
 		viewmob.hud_used.plane_masters_update()
 		viewmob.show_other_mob_action_buttons(mymob)
 
@@ -868,4 +869,4 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 
 /datum/action_group/listed/refresh_actions()
 	. = ..()
-	owner.palette_actions.refresh_actions() // We effect them, so we gotta refresh em
+	owner?.palette_actions.refresh_actions() // We effect them, so we gotta refresh em

@@ -15,14 +15,14 @@ GLOBAL_LIST_EMPTY(supplypod_loading_bays)
 	var/list/packs = list()
 	for(var/datum/supply_pack/prototype as anything in subtypesof(/datum/supply_pack))
 		var/discountable = initial(prototype.discountable)
-		if(discountable)
+		var/list/contains = initial(prototype.contains) // NOVA EDIT ADDITION - This is a good candidate to PR upstream too.
+		if(discountable && contains) // NOVA EDIT CHANGE - ORIGINAL: if(discountable)
 			LAZYADD(packs[discountable], prototype)
 	return packs
 
 /// Called when the global exports_list is empty, and sets it up.
 /proc/init_Exports()
 	var/list/exports = list()
-	for(var/datum/export/subtype as anything in subtypesof(/datum/export))
-		if(subtype::abstract_type != subtype)
-			exports += new subtype
+	for(var/datum/export/subtype as anything in valid_subtypesof(/datum/export))
+		exports += new subtype
 	return exports

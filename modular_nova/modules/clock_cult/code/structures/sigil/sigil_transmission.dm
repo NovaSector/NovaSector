@@ -14,7 +14,7 @@
 	looping = TRUE
 	living_only = FALSE
 	/// A list of structures linked to this sigil
-	var/list/linked_structures = list()
+	var/list/linked_structures
 
 
 /obj/structure/destructible/clockwork/sigil/transmission/Initialize(mapload)
@@ -37,7 +37,7 @@
 
 /obj/structure/destructible/clockwork/sigil/transmission/process()
 	for(var/obj/structure/destructible/clockwork/gear_base/powered/gear_base as anything in linked_structures)
-		if(gear_base.transmission_sigils[1] != src) // [1] Ensures we are the master (first) transmission signal
+		if(LAZYACCESS(gear_base.transmission_sigils, 1) != src) // [1] Ensures we are the master (first) transmission signal
 			continue
 
 		gear_base.update_power()

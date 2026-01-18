@@ -187,3 +187,88 @@
 
 /obj/item/stack/tile/carpet/kinaris/black/whitetrim/fifty
 	amount = 50
+
+/obj/item/stack/tile/carpet/polite
+	name = "black polite carpet tiles"
+	singular_name = "black polite carpet tile"
+
+	icon = 'modular_nova/master_files/icons/obj/tiles.dmi'
+	icon_state = "carpet_polite_black"
+
+	turf_type = /turf/open/floor/carpet/polite
+	merge_type = /obj/item/stack/tile/carpet/polite
+
+/obj/item/stack/tile/carpet/polite/fifty
+	amount = 50
+
+/obj/item/stack/tile/carpet/polite/red
+	name = "red polite carpet tiles"
+	singular_name = "red polite carpet tile"
+
+	icon_state = "carpet_polite_red"
+
+	turf_type = /turf/open/floor/carpet/polite/red
+	merge_type = /obj/item/stack/tile/carpet/polite
+
+/obj/item/stack/tile/carpet/polite/red/fifty
+	amount = 50
+
+/obj/item/stack/tile/carpet/polite/orange
+	name = "orange polite carpet tiles"
+	singular_name = "orange polite carpet tile"
+
+	icon_state = "carpet_polite_orange"
+
+	turf_type = /turf/open/floor/carpet/polite/orange
+	merge_type = /obj/item/stack/tile/carpet/polite/orange
+
+/obj/item/stack/tile/carpet/polite/orange/fifty
+	amount = 50
+
+/obj/item/stack/tile/carpet/polite/yellow
+	name = "yellow polite carpet tiles"
+	singular_name = "yellow polite carpet tile"
+
+	icon_state = "carpet_polite_yellow"
+
+	turf_type = /turf/open/floor/carpet/polite/yellow
+	merge_type = /obj/item/stack/tile/carpet/polite/yellow
+
+/obj/item/stack/tile/carpet/polite/yellow/fifty
+	amount = 50
+
+/obj/item/stack/tile/carpet/polite/green
+	name = "green polite carpet tiles"
+	singular_name = "green polite carpet tile"
+
+	icon_state = "carpet_polite_green"
+
+	turf_type = /turf/open/floor/carpet/polite/green
+	merge_type = /obj/item/stack/tile/carpet/polite/green
+
+/obj/item/stack/tile/carpet/polite/green/fifty
+	amount = 50
+
+/obj/item/stack/tile/carpet/polite/blue
+	name = "blue polite carpet tiles"
+	singular_name = "blue polite carpet tile"
+
+	icon_state = "carpet_polite_blue"
+
+	turf_type = /turf/open/floor/carpet/polite/blue
+	merge_type = /obj/item/stack/tile/carpet/polite/blue
+
+/obj/item/stack/tile/carpet/polite/blue/fifty
+	amount = 50
+
+/obj/item/stack/tile/carpet/polite/purple
+	name = "purple polite carpet tiles"
+	singular_name = "purple polite carpet tile"
+
+	icon_state = "carpet_polite_purple"
+
+	turf_type = /turf/open/floor/carpet/polite/purple
+	merge_type = /obj/item/stack/tile/carpet/polite/purple
+
+/obj/item/stack/tile/carpet/polite/purple/fifty
+	amount = 50

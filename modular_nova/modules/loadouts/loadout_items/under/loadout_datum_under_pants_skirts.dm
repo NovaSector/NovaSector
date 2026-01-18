@@ -248,8 +248,8 @@
 /datum/loadout_item/under/miscellaneous/sweater
 	name = "Cableknit Sweater" //Different than the Suit item ("Sweater")!!
 	item_path = /obj/item/clothing/under/sweater
+	reskin_datum = /datum/atom_skin/cableknit_sweater
 	group = "Casualwear"
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/under/jumpsuit/turtleneck
 	name = "Turtleneck w/ Pants"
@@ -274,4 +274,14 @@
 /datum/loadout_item/under/jumpsuit/overalls_skirt
 	name = "Turtleneck w/ Overalls Skirt"
 	item_path = /obj/item/clothing/under/greyscale/overalls/skirt
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/windowed_dress
+	name = "Windowed Dress"
+	item_path = /obj/item/clothing/under/dress/nova/windowed_dress
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/shorter_overall
+	name = "Shorter Overall"
+	item_path = /obj/item/clothing/under/pants/nova/shorted_overall
 	group = "Casualwear"

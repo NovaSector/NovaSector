@@ -6,8 +6,10 @@
 	var/list/datum/interaction/interactions
 	var/interact_last = 0
 	var/interact_next = 0
-	/// Whether or not we are using subtler for our interactions.
+	/// Whether or not we are using subtler for lewd interactions.
 	var/use_subtler = TRUE
+	/// Whether or not we have an erp interaction available to us right now
+	var/has_erp_interaction = FALSE
 
 /datum/component/interactable/Initialize(...)
 	if(QDELETED(parent))
@@ -69,7 +71,7 @@
 /datum/component/interactable/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "InteractionMenu")
+		ui = new(user, src, "InteractionPanel")
 		ui.open()
 
 /datum/component/interactable/ui_status(mob/user, datum/ui_state/state)
@@ -78,34 +80,80 @@
 
 	return UI_INTERACTIVE // This UI is always interactive as we handle distance flags via can_interact
 
+/datum/component/interactable/ui_static_data(mob/user)
+	var/list/data = list()
+	data["arousalLimit"] = AROUSAL_LIMIT
+	return data
+
 /datum/component/interactable/ui_data(mob/user)
 	var/list/data = list()
 	var/list/descriptions = list()
 	var/list/categories = list()
-	var/list/display_categories = list()
 	var/list/colors = list()
-	for(var/datum/interaction/interaction in interactions)
-		if(!can_interact(interaction, user))
+
+	has_erp_interaction = FALSE
+
+	for (var/datum/interaction/interaction in interactions)
+		if (!can_interact(interaction, user))
 			continue
-		if(!categories[interaction.category])
-			categories[interaction.category] = list(interaction.name)
-		else
-			categories[interaction.category] += interaction.name
-			var/list/sorted_category = sort_list(categories[interaction.category])
-			categories[interaction.category] = sorted_category
+
+		if (interaction.lewd)
+			has_erp_interaction = TRUE
+
+		var/category = interaction.category
+		var/list/category_list = categories[category]
+
+		if (isnull(category_list))
+			category_list = list()
+			categories[category] = category_list
+
+		category_list += interaction.name
+
 		descriptions[interaction.name] = interaction.description
 		colors[interaction.name] = interaction.color
+
+	// Sort category contents once
+	for (var/category in categories)
+		categories[category] = sort_list(categories[category])
+
+	// Build and sort category names
+	data["categories"] = sort_list(assoc_to_keys(categories))
+	data["interactions"] = categories
 	data["descriptions"] = descriptions
 	data["colors"] = colors
-	for(var/category in categories)
-		display_categories += category
-	data["categories"] = sort_list(display_categories)
+
 	data["ref_user"] = REF(user)
 	data["ref_self"] = REF(self)
 	data["self"] = self.name
 	data["block_interact"] = interact_next >= world.time
-	data["interactions"] = categories
 	data["use_subtler"] = use_subtler
+	data["erp_interaction"] = self.client?.prefs?.read_preference(/datum/preference/toggle/erp)
+	data["has_erp_interaction"] = has_erp_interaction
+
+	var/mob/living/carbon/human/human_user = user
+
+	data["isTargetSelf"] = (user == self)
+
+	// user (the one who opened the ui)
+	var/user_pleasure = 0
+	var/user_arousal = 0
+	var/user_pain = 0
+
+	if(user)
+		user_pleasure = human_user.pleasure
+		user_arousal = human_user.arousal
+		user_pain = human_user.pain
+
+		data["pleasure"] = user_pleasure
+		data["arousal"] = user_arousal
+		data["pain"] = user_pain
+
+
+	// self - the one who the interaction component belongs to, aka who it's opened on (confusing var name yep)
+	if(user != self)
+		data["theirPleasure"] = self.pleasure
+		data["theirArousal"] = self.arousal
+		data["theirPain"] = self.pain
 
 	var/list/parts = list()
 

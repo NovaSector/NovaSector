@@ -1,8 +1,9 @@
 #define MARTIALART_STREET_BOXING "street boxing"
 
 /obj/item/melee/knuckleduster
-	name = "knuckleduster"
-	desc = "Weighted rings for the knuckles. While worn, you fistfight like a dishonorable \"street\" boxer, proving formidable in a brawl."
+	name = "knuckle dusters"
+	desc = "Weighted rings for the knuckles. While worn, you fistfight like a dishonorable \"street\" boxer, proving formidable in a brawl. \
+		Putting these on does briefly encumber your hands, though."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi'
 	icon_state = "knuckleduster"
 	inhand_icon_state = null
@@ -95,6 +96,8 @@
 	is_worn_as_glove = TRUE
 	if(istype(user))
 		user.add_traits(list(TRAIT_CHUNKYFINGERS), REF(src))
+	user.changeNext_move(CLICK_CD_MELEE)
+	user.balloon_alert(user, "next attack delayed!")
 
 /**
  * Removes all glove-related bonuses, effects, and traits.
@@ -151,9 +154,11 @@
 		playsound(src, hitsound, 50, TRUE)
 
 /obj/item/melee/knuckleduster/traitor
-	name = "reinforced knuckleduster"
-	desc = "Reinforced knuckle-dusters for those who don't play fair. The added weight and reinforcement make these quite suitable for \"evil boxing,\" \
-		with devastating knockout strikes being quite doable with enough training."
+	name = "reinforced knuckle dusters"
+	desc = "Reinforced knuckle-dusters for those who really don't believe in fighting fair. \
+		The added weight and reinforcement make these quite suitable for \"evil boxing,\" \
+		with devastating knockout strikes being quite doable with enough training. \
+		Equipping them does briefly encumber the hands, though."
 	icon_state = "knuckleduster_syndie"
 	force = 5
 	armour_penetration = 10
@@ -205,7 +210,7 @@
 				)
 				to_chat(attacker, span_danger("You knock [defender] around with a haymaker!"))
 				defender.adjust_staggered_up_to(0.5 SECONDS, 10 SECONDS) // probably not enough to increase the window to eat more crits
-				defender.apply_damage(20, STAMINA, blocked = armor_block)
+				defender.apply_damage(15, STAMINA, blocked = armor_block) // if you're punching the guy who's baton-resistant, you might just want to shoot him, actually
 				log_combat(attacker, defender, "knocked around (boxing) ")
 			else
 			// otherwise, sit down buddy (if you got crit once you're probably lined up to eat more crits)
@@ -218,8 +223,11 @@
 				)
 				to_chat(attacker, span_danger("You knock [defender] down with a haymaker!"))
 				defender.adjust_staggered_up_to(2 SECONDS, 10 SECONDS) // slight increase in window to eat more crits
-				defender.apply_effect(5 SECONDS, EFFECT_KNOCKDOWN, armor_block)
-				defender.apply_damage(30, STAMINA, blocked = armor_block)
+				defender.apply_effect(1 SECONDS, EFFECT_KNOCKDOWN, armor_block)
+				// in regards to knockdown: "1 second seems a bit low"
+				// consider that this is off a crit, which can theoretically be chained
+				// the knockdown is slightly longer than melee click delay by default
+				defender.apply_damage(25, STAMINA, blocked = armor_block)
 				log_combat(attacker, defender, "knocked down (boxing) ")
 	else
 		defender.visible_message(
