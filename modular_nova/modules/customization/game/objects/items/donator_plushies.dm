@@ -269,13 +269,13 @@
 		"hisses",
 		"woofs",
 		"bites",
-		)
+	)
 	attack_verb_simple = list(
 		"beep",
 		"hiss",
 		"woof",
 		"bite",
-		)
+	)
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/arf.ogg'= 1)
 
 /*
