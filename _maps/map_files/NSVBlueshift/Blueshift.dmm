@@ -1470,6 +1470,13 @@
 /area/station/hallway/secondary/command)
 "aqb" = (
 /obj/item/kirbyplants/random,
+/obj/machinery/requests_console/directional/south{
+	department = "Robotics";
+	name = "Robotics Requests Console"
+	},
+/obj/effect/mapping_helpers/requests_console/ore_update,
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/supplies,
 /turf/open/floor/iron/dark,
 /area/station/science/robotics)
 "aqd" = (
@@ -12343,7 +12350,7 @@
 /area/station/maintenance/department/medical/central)
 "cyz" = (
 /obj/machinery/computer/operating,
-/obj/item/radio/intercom/directional/north,
+/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "cyK" = (
@@ -15362,6 +15369,10 @@
 /obj/effect/spawner/random/trash/moisture_trap,
 /turf/open/floor/plating,
 /area/station/maintenance/fore/upper)
+"dea" = (
+/obj/machinery/iv_drip,
+/turf/open/floor/iron/white,
+/area/station/medical/treatment_center)
 "deb" = (
 /obj/effect/turf_decal/stripes/end{
 	dir = 4
@@ -17493,7 +17504,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/upper)
 "dAK" = (
-/obj/machinery/iv_drip,
 /obj/machinery/defibrillator_mount/directional/north,
 /obj/machinery/stasis{
 	dir = 4
@@ -27727,12 +27737,6 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "fBL" = (
-/obj/machinery/button/door{
-	id = "roboticsurgery";
-	name = "Robitics surgery privacy shutters";
-	pixel_x = 26;
-	pixel_y = -26
-	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
@@ -31056,6 +31060,7 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
+/obj/item/radio/intercom/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery)
 "glX" = (
@@ -34835,6 +34840,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/junction{
 	dir = 4
+	},
+/obj/machinery/button/door{
+	id = "roboticsurgery";
+	name = "Robitics surgery privacy shutters";
+	pixel_x = 26;
+	pixel_y = -26
 	},
 /turf/open/floor/iron,
 /area/station/science/robotics)
@@ -43627,12 +43638,9 @@
 /turf/open/floor/iron/dark,
 /area/station/medical/paramedic)
 "iRZ" = (
-/obj/machinery/iv_drip,
-/obj/structure/bed/medical/anchored{
-	dir = 1
-	},
 /obj/machinery/defibrillator_mount/directional/north,
 /obj/item/radio/intercom/directional/east,
+/obj/machinery/stasis,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "iSa" = (
@@ -50260,7 +50268,7 @@
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/machinery/status_display/ai/directional/north,
+/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "kgt" = (
@@ -54105,7 +54113,7 @@
 /obj/machinery/computer/operating{
 	dir = 1
 	},
-/obj/item/radio/intercom/directional/south,
+/obj/machinery/vitals_reader/directional/south,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "kVb" = (
@@ -62860,6 +62868,7 @@
 /obj/structure/table/glass,
 /obj/structure/window/spawner/directional/east,
 /obj/item/stack/medical/gauze,
+/obj/machinery/vitals_reader/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "mKz" = (
@@ -103843,7 +103852,7 @@
 /obj/structure/table/glass,
 /obj/structure/window/spawner/directional/east,
 /obj/item/clothing/neck/stethoscope,
-/obj/machinery/status_display/evac/directional/north,
+/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "uRM" = (
@@ -111703,13 +111712,7 @@
 /turf/open/floor/iron,
 /area/station/medical/storage)
 "wsy" = (
-/obj/machinery/requests_console/directional/south{
-	department = "Robotics";
-	name = "Robotics Requests Console"
-	},
-/obj/effect/mapping_helpers/requests_console/assistance,
-/obj/effect/mapping_helpers/requests_console/supplies,
-/obj/effect/mapping_helpers/requests_console/ore_update,
+/obj/machinery/vitals_reader/directional/south,
 /turf/open/floor/iron,
 /area/station/science/robotics)
 "wsF" = (
@@ -224574,9 +224577,9 @@ vEr
 pdp
 hDR
 sHt
-sHt
+dea
 fTD
-sHt
+dea
 sHt
 gKQ
 fNF
