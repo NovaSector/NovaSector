@@ -17,6 +17,7 @@
 	description = "Did you know Hephaestus actually has a free online tutorial for synthetic trauma repairs? It's true!"
 	prereq_ids = list(TECHWEB_NODE_ROBOTIC_SURGERY)
 	design_ids = list(
+		"synthetic_surgery_heal_combo",
 		"synthetic_surgery_heal_combo_upgrade_femto",
 		"synthetic_surgery_heal_upgrade_femto"
 	)
@@ -81,6 +82,9 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/people/android = TECHWEB_TIER_5_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
+
+/datum/design/surgery/subsystem_upgrade
+	abstract_type = /datum/design/surgery/subsystem_upgrade
 
 // nerve splicing - Reinforced Servos
 /datum/design/surgery/subsystem_upgrade/nerve_splicing
