@@ -466,3 +466,5 @@
       keys to apply tilt to yourself.'
   - rscadd: items will now have a chance to land messily when dropped if combat mode
       is active, or if the item was thrown
+  wivernshy:
+  - rscadd: Adds wivernshy's donator item!
