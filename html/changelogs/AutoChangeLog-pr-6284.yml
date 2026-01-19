@@ -1,4 +1,5 @@
 author: "Bannhammger"
 delete-after: True
 changes:
-  - rscadd: "brand new item tilting and person tilting"
+  - rscadd: "adds a new tilting feature (Default hotkey: 'N') - Hold and use arrow keys to apply tilt to yourself."
+  - rscadd: "items will now have a chance to land messily when dropped if combat mode is active, or if the item was thrown"
