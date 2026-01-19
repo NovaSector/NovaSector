@@ -2,7 +2,6 @@
 	title = JOB_TELECOMMS_SPECIALIST
 	description = "Monitor, configure, and maintain all station communications \
 		and assist with light engineering work."
-	department_head = list(JOB_CHIEF_ENGINEER)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -38,7 +37,7 @@
 		/obj/item/reagent_containers/cup = 10,
 		/obj/item/stock_parts/subspace = 8,
 		/obj/item/banhammer = 8,
-		/obj/item/computer_disk/maintenance = 1,
+		/obj/item/disk/computer/maintenance = 1,
 	)
 	rpg_title = "Diviner"
 	job_flags = STATION_JOB_FLAGS
@@ -46,7 +45,7 @@
 /obj/effect/landmark/start/telecomms_specialist
 	name = "Telecomms Specialist"
 	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
-	icon_state = "Engineering Guard"
+	icon_state = "Telecomms Specialist"
 
 /datum/outfit/job/telecomms_specialist
 	name = "Telecomms Specialist"

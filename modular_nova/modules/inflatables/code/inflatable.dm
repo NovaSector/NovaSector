@@ -50,6 +50,8 @@
 /// Do damage ticks to structure's integrity if the air is warmer than the minimum of fire, we only care about heat
 /obj/structure/inflatable/proc/check_melt(turf/source, datum/gas_mixture/air, temperature)
 	SIGNAL_HANDLER
+	if(QDELETED(src))
+		return
 	if(temperature < FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		return
 	if(!COOLDOWN_FINISHED(src, burn_damage_cd))

@@ -1,9 +1,9 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { ComponentProps, ReactNode, useEffect, useState } from 'react';
+import { type ComponentProps, type ReactNode, useEffect, useState } from 'react';
 import { Box, ColorBox, Dropdown, Stack } from 'tgui-core/components';
 import { capitalizeFirst } from 'tgui-core/string';
 
-import { Feature, FeatureChoicedServerData, FeatureValueProps } from './base';
+import type { Feature, FeatureChoicedServerData, FeatureValueProps } from './base';
 
 type ColorDropdownInputProps = FeatureValueProps<
   string,
@@ -17,6 +17,14 @@ export type FeatureWithExtraQuirkData<T> = Feature<
   FeatureChoicedServerData
 >;
 
+
+type ExtraQuirk =
+{
+  color: string;
+  chemical: string;
+  blurb: string;
+};
+
 type DropdownOptions = ComponentProps<typeof Dropdown>['options'];
 
 export function FeatureBloodTypeDropdownInput(props: ColorDropdownInputProps) {
@@ -25,40 +33,44 @@ export function FeatureBloodTypeDropdownInput(props: ColorDropdownInputProps) {
   const [dropdownOptions, setDropdownOptions] = useState<DropdownOptions>([]);
 
   function populateOptions() {
-    if (!serverData) return;
-    const { choices = [] } = serverData;
+  if (!serverData) return;
 
-    let newOptions: DropdownOptions = [];
+  const { choices = [] } = serverData;
+  const newOptions: DropdownOptions = [];
 
-    for (const choice of choices) {
-      let displayText: ReactNode = serverData.display_names?.[choice]
-        ? serverData.display_names?.[choice]
-        : capitalizeFirst(choice);
-      let color = serverData.extra_quirk_data?.[choice]['color'];
+  for (const choice of choices) {
+    let displayText: ReactNode =
+      serverData.display_names?.[choice] ??
+      capitalizeFirst(choice);
 
-      if (serverData.extra_quirk_data?.[choice]) {
-        displayText = (
-          <Stack>
-            <Stack.Item>
-              <ColorBox
-                style={{
-                  border: '2px solid white',
-                  boxSizing: 'content-box',
-                }}
-                color={color}
-              />
-            </Stack.Item>
-            <Stack.Item grow>{displayText}</Stack.Item>
-          </Stack>
-        );
-      }
-      setDropdownOptions(newOptions);
-      newOptions.push({
-        displayText,
-        value: choice,
-      });
+    const quirk = serverData.extra_quirk_data?.[choice] as ExtraQuirk | undefined;
+    const color = quirk?.color;
+
+    if (quirk) {
+      displayText = (
+        <Stack>
+          <Stack.Item>
+            <ColorBox
+              style={{
+                border: '2px solid white',
+                boxSizing: 'content-box',
+              }}
+              color={color}
+            />
+          </Stack.Item>
+          <Stack.Item grow>{displayText}</Stack.Item>
+        </Stack>
+      );
     }
+
+    newOptions.push({
+      displayText,
+      value: choice,
+    });
   }
+
+  setDropdownOptions(newOptions);
+}
 
   useEffect(() => {
     if (serverData) {
@@ -66,10 +78,11 @@ export function FeatureBloodTypeDropdownInput(props: ColorDropdownInputProps) {
     }
   }, [serverData]);
 
-  const displayText = serverData?.display_names?.[value] || String(value);
-  const color = serverData?.extra_quirk_data?.[value]['color'];
-  const chemical = serverData?.extra_quirk_data?.[value]['chemical'];
-  const blurb = serverData?.extra_quirk_data?.[value]['blurb'];
+  const displayText = serverData?.display_names?.[value] ?? String(value);
+  const quirk = serverData?.extra_quirk_data?.[value] as ExtraQuirk | undefined;
+  const color = quirk?.color;
+  const chemical = quirk?.chemical;
+  const blurb = quirk?.blurb;
 
   return (
     <Stack vertical>

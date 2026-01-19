@@ -41,13 +41,13 @@
 	)
 
 	for (var/datum/design/design as anything in subtypesof(/datum/design))
-		var/design_id = design::id
-		if (design_id == DESIGN_ID_IGNORE || (design in exceptions))
+		design = new design()
+		if (design.id == DESIGN_ID_IGNORE || (design.type in exceptions))
 			continue
-		if (design_id in all_designs)
-			TEST_FAIL("Design [design] shares an ID \"[design_id]\" with another design")
+		if (design.id in all_designs)
+			TEST_FAIL("Design [design.type] shares an ID \"[design.id]\" with another design")
 			continue
-		all_designs[design_id] = design
+		all_designs[design.id] = design.type
 
 	for (var/datum/techweb_node/node as anything in subtypesof(/datum/techweb_node))
 		node = new node()
@@ -67,7 +67,7 @@
 
 	for (var/obj/item/disk/surgery/design_disk as anything in subtypesof(/obj/item/disk/surgery))
 		design_disk = new design_disk()
-		for (var/surgery_type as anything in design_disk.surgeries)
+		for (var/surgery_type in design_disk.surgeries)
 			for (var/design_id in all_designs)
 				var/datum/design/surgery/design = all_designs[design_id]
 				if (ispath(design, /datum/design/surgery) && design::surgery == surgery_type)

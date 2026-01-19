@@ -37,6 +37,7 @@
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
 	icon_state = "mindcollar"
 	inhand_icon_state = null
+	obj_flags_nova = ERP_ITEM
 	/// Reference to the mind control remote
 	var/obj/item/mind_controller/remote = null
 	/// What the default emoting pattern is set to

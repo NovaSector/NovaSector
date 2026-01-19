@@ -49,7 +49,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 				"trim" = trim,
 				)
 			continue
-		for(var/department_type as anything in job.departments_list)
+		for(var/department_type in job.departments_list)
 			//Jobs under multiple departments should only be displayed if this is their first department or the command department
 			if(job.departments_list[1] != department_type && !(job.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND))
 				continue
@@ -111,6 +111,10 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	set waitfor = FALSE
 	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
 		return
+	// NOVA EDIT ADDITION START - Visitor ID -> no manifest
+	if(person.has_quirk(/datum/quirk/visitor) || ("Visitor ID" in person_client?.prefs.all_quirks))
+		return inject_guest(person, person_client)
+	// NOVA EDIT ADDITION END
 
 	// Attempt to get assignment from ID, otherwise default to mind.
 	var/obj/item/card/id/id_card = person.get_idcard(hand_first = FALSE)
@@ -241,4 +245,3 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		"manifest" = get_manifest(),
 		"positions" = positions
 	)
-

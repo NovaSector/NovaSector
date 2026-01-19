@@ -153,6 +153,15 @@
 	icon_state = "/obj/item/clothing/head/beret/cargo/qm/alt"
 	greyscale_colors = "#FFFFFF#FFCE5B"
 
+/obj/item/clothing/head/beret/clown
+	name = "\improper H.O.N.K tactical beret"
+	desc = "A tactical berret to be used during the enacting of the most dangerous of pranks."
+	icon_state = "/obj/item/clothing/head/beret/clown"
+	post_init_icon_state = "beret_badge_clown"
+	greyscale_config = /datum/greyscale_config/beret_badge_clown
+	greyscale_config_worn = /datum/greyscale_config/beret_badge_clown/worn
+	greyscale_colors = "#FFBAFF"
+
 /obj/item/clothing/head/caphat/beret/alt
 	name = "captain's beret"
 	desc = "For the Captains known for their sense of fashion. This one is made out of white fabric. Fancy"

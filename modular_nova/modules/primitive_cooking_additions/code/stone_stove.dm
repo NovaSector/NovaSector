@@ -10,6 +10,11 @@
 	use_power = FALSE
 	circuit = null
 	resistance_flags = FIRE_PROOF
+	custom_materials = list(/datum/material/stone = SHEET_MATERIAL_AMOUNT * 5)
+
+/obj/machinery/primitive_stove/clay
+	name = "clay stove"
+	custom_materials = list(/datum/material/clay = SHEET_MATERIAL_AMOUNT * 10)
 
 /obj/machinery/primitive_stove/Initialize(mapload)
 	. = ..()

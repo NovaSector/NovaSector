@@ -1,6 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
 
-import { Antagonist, Category } from '../base';
+import { type Antagonist, Category } from '../base';
 
 export const CONTRACTOR_MECHANICAL_DESCRIPTION = `
       Float onto the station and complete as many

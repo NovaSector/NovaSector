@@ -204,7 +204,6 @@
 	scan_desc = "monophobia"
 	gain_text = span_warning("You feel really lonely...")
 	lose_text = span_notice("You feel like you could be safe on your own.")
-	var/stress = 0
 
 /datum/brain_trauma/severe/monophobia/on_gain()
 	. = ..()
@@ -356,7 +355,7 @@
 		stealables += potential_stealable
 
 	for(var/obj/item/stealable as anything in shuffle(stealables))
-		if(!owner.CanReach(stealable, view_only = TRUE) || stealable.IsObscured())
+		if(!stealable.IsReachableBy(owner) || stealable.IsObscured())
 			continue
 		// Try to do a raw click on the item with one of our empty hands, to pick it up (duh)
 		owner.log_message("attempted to pick up (kleptomania)", LOG_ATTACK, color = "orange")

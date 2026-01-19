@@ -1,10 +1,4 @@
-// sound overrides
-/datum/sound_effect/cat_meow // everything from tg without the fucked up oranges meow (lmao)
-	file_paths = list(
-		'sound/mobs/non-humanoids/cat/cat_meow1.ogg',
-		'sound/mobs/non-humanoids/cat/cat_meow2.ogg',
-		'sound/mobs/non-humanoids/cat/cat_meow3.ogg',
-	)
+//! Nova's modular sound overrides
 
 /datum/sound_effect/punch
 	file_paths = list(
@@ -236,12 +230,14 @@
 
 /obj/structure/deployable_barricade/wooden
 	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5)
 
 /obj/structure/statue/snow
 	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
 
 /obj/structure/deployable_barricade/snow
 	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
+	custom_materials = list(/datum/material/snow = SHEET_MATERIAL_AMOUNT * 2)
 
 // MACHINERY
 /obj/machinery/door/window

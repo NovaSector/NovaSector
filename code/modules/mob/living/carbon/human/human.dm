@@ -105,7 +105,7 @@
 		if(!same_id || (text2num(href_list["examine_time"]) + viable_time) < world.time)
 			to_chat(viewer, span_notice("You don't have that good of a memory. Examine [p_them()] again."))
 			return
-		if(HAS_TRAIT(src, TRAIT_UNKNOWN))
+		if(HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE))
 			to_chat(viewer, span_notice("You can't make out that ID anymore."))
 			return
 		if(!isobserver(viewer) && get_dist(viewer, src) > ID_EXAMINE_DISTANCE + 1) // leeway, ignored if the viewer is a ghost
@@ -121,13 +121,14 @@
 		var/id_gender = record?.gender
 		var/id_species = record?.species
 		var/id_icon = jointext(id.get_id_examine_strings(viewer), "")
+		var/id_permit = (ACCESS_WEAPONS in id.GetAccess()) ? "Authorized" : "Unauthorized" // NOVA EDIT ADDITION - Permit shown on ID
 		// Fill in some blanks for chameleon IDs to maintain the illusion of a real ID
 		if(istype(id, /obj/item/card/id/advanced/chameleon))
 			id_gender ||= gender
 			id_species ||= dna.species.name
 			id_blood_type ||= get_bloodtype()
 
-		if(istype(id, /obj/item/card/id/advanced))
+		else if(istype(id, /obj/item/card/id/advanced))
 			var/obj/item/card/id/advanced/advancedID = id
 			id_job = advancedID.trim_assignment_override || id_job
 
@@ -142,6 +143,7 @@
 			"&bull; Gender: [id_gender || "Unknown"]",
 			"&bull; Blood Type: [id_blood_type || "?"]",
 			"&bull; Species: [id_species || "Unknown"]",
+			"&bull; Weapon Permit: [id_permit || "Unknown"]", // NOVA EDIT ADDITION - Permit shown on ID
 		), "<br>")
 		id_examine += "</div>" // container
 		id_examine += "</div>" // text
@@ -183,12 +185,12 @@
 			if(!HAS_TRAIT(human_user, TRAIT_MEDICAL_HUD))
 				return
 			if(href_list["evaluation"])
-				if(!getBruteLoss() && !getFireLoss() && !getOxyLoss() && getToxLoss() < 20)
+				if(!get_brute_loss() && !get_fire_loss() && !get_oxy_loss() && get_tox_loss() < 20)
 					to_chat(human_user, "[span_notice("No external injuries detected.")]<br>")
 					return
 				var/span = "notice"
 				var/status = ""
-				if(getBruteLoss())
+				if(get_brute_loss())
 					to_chat(human_user, "<b>Physical trauma analysis:</b>")
 					for(var/X in bodyparts)
 						var/obj/item/bodypart/BP = X
@@ -204,7 +206,7 @@
 							span = "userdanger"
 						if(brutedamage)
 							to_chat(human_user, "<span class='[span]'>[BP] appears to have [status]</span>")
-				if(getFireLoss())
+				if(get_fire_loss())
 					to_chat(human_user, "<b>Analysis of skin burns:</b>")
 					for(var/X in bodyparts)
 						var/obj/item/bodypart/BP = X
@@ -220,9 +222,9 @@
 							span = "userdanger"
 						if(burndamage)
 							to_chat(human_user, "<span class='[span]'>[BP] appears to have [status]</span>")
-				if(getOxyLoss())
+				if(get_oxy_loss())
 					to_chat(human_user, span_danger("Patient has signs of suffocation, emergency treatment may be required!"))
-				if(getToxLoss() > 20)
+				if(get_tox_loss() > 20)
 					to_chat(human_user, span_danger("Gathered data is inconsistent with the analysis, possible cause: poisoning."))
 			if(!human_user.wear_id) //You require access from here on out.
 				to_chat(human_user, span_warning("ERROR: Invalid access"))
@@ -365,7 +367,7 @@
 					var/datum/crime/citation/new_citation = new(name = citation_name, author = allowed_access, fine = fine)
 
 					target_record.citations += new_citation
-					new_citation.alert_owner(usr, src, target_record.name, "You have been fined [fine] credits for '[citation_name]'. Fines may be paid at security.")
+					new_citation.alert_owner(usr, src, target_record.name, "You have been fined [fine] [MONEY_NAME] for '[citation_name]'. Fines may be paid at security.")
 					investigate_log("New Citation: <strong>[citation_name]</strong> Fine: [fine] | Added to [target_record.name] by [key_name(human_user)]", INVESTIGATE_RECORDS)
 					SSblackbox.ReportCitation(REF(new_citation), human_user.ckey, human_user.real_name, target_record.name, citation_name, null, fine)
 
@@ -617,10 +619,10 @@
 			to_chat(target, span_unconscious("You feel someone pushing down onto your chest, but you don't feel any better..."))
 		else if(!can_breathe || (HAS_TRAIT(target, TRAIT_NOBREATH) || !target.get_organ_slot(ORGAN_SLOT_LUNGS)))
 			to_chat(target, span_unconscious("You feel someone pushing down onto your chest..."))
-			target.adjustOxyLoss(-min(target.getOxyLoss(), 5))
+			target.adjust_oxy_loss(-min(target.get_oxy_loss(), 5))
 		// NOVA EDIT ADDITION END
 		else
-			target.adjustOxyLoss(-min(target.getOxyLoss(), 7))
+			target.adjust_oxy_loss(-min(target.get_oxy_loss(), 7))
 			to_chat(target, span_unconscious("You feel someone pushing on your chest, and fresh air inside your lungs... It feels good...")) // NOVA EDIT CHANGE - Original: to_chat(target, span_unconscious("You feel a breath of fresh air enter your lungs... It feels good..."))
 
 		if (target.health <= target.crit_threshold)
@@ -648,7 +650,7 @@
  * Returns false if we couldn't wash our hands due to them being obscured, otherwise true
  */
 /mob/living/carbon/human/proc/wash_hands(clean_types)
-	if(check_covered_slots() & ITEM_SLOT_GLOVES)
+	if(covered_slots & HIDEGLOVES)
 		return FALSE
 
 	if(gloves)
@@ -671,7 +673,7 @@
 	if(glasses && !is_eyes_covered(ITEM_SLOT_MASK|ITEM_SLOT_HEAD) && glasses.wash(clean_types))
 		. = TRUE
 
-	if(wear_mask && !(check_covered_slots() & ITEM_SLOT_MASK) && wear_mask.wash(clean_types))
+	if(wear_mask && !(covered_slots & HIDEMASK) && wear_mask.wash(clean_types))
 		. = TRUE
 
 /**
@@ -683,7 +685,7 @@
 		. |= COMPONENT_CLEANED
 
 	// Wash hands if exposed
-	if(!gloves && (clean_types & CLEAN_TYPE_BLOOD) && blood_in_hands > 0 && !(check_covered_slots() & ITEM_SLOT_GLOVES))
+	if(!gloves && (clean_types & CLEAN_TYPE_BLOOD) && blood_in_hands > 0 && !(covered_slots & HIDEGLOVES))
 		blood_in_hands = 0
 		update_worn_gloves()
 		. |= COMPONENT_CLEANED
@@ -773,7 +775,7 @@
 	return ..()
 
 /mob/living/carbon/human/vomit(vomit_flags = VOMIT_CATEGORY_DEFAULT, vomit_type = /obj/effect/decal/cleanable/vomit/toxic, lost_nutrition = 10, distance = 1, purge_ratio = 0.1)
-	if(!((vomit_flags & MOB_VOMIT_BLOOD) && HAS_TRAIT(src, TRAIT_NOBLOOD) && !HAS_TRAIT(src, TRAIT_TOXINLOVER)))
+	if(!((vomit_flags & MOB_VOMIT_BLOOD) && !CAN_HAVE_BLOOD(src) && !HAS_TRAIT(src, TRAIT_TOXINLOVER)))
 		return ..()
 
 	if(vomit_flags & MOB_VOMIT_MESSAGE)
@@ -992,11 +994,11 @@
 	else if(carrydelay <= 4 SECONDS)
 		skills_space = " quickly"
 	// NOVA EDIT ADDITION START
-	if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
+	if((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) && !istype(potential_spine))
 		visible_message(span_warning("[src] tries to carry [target], but they are too heavy!"))
 		return
 	else if(HAS_TRAIT(target, TRAIT_HEAVYSET))
-		if(fitness_level < SKILL_LEVEL_MASTER - 1) // fitness_level has 1 subtracted from it
+		if((fitness_level < SKILL_LEVEL_MASTER - 1) && !istype(potential_spine)) // fitness_level has 1 subtracted from it
 			visible_message(span_warning("[src] tries to carry [target], but can't make them budge!"))
 			return
 		carrydelay = 5 SECONDS
@@ -1030,8 +1032,9 @@
 	if(INCAPACITATED_IGNORING(target, INCAPABLE_GRAB) || INCAPACITATED_IGNORING(src, INCAPABLE_GRAB))
 		target.visible_message(span_warning("[target] can't hang onto [src]!"))
 		return
-	//NOVA EDIT START
-	if( (HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) || (HAS_TRAIT(target, TRAIT_HEAVYSET) && !HAS_TRAIT(src, TRAIT_HEAVYSET)) )
+	// NOVA EDIT ADDITION START
+	var/obj/item/organ/cyberimp/chest/spine/atlas/potential_spine = get_organ_slot(ORGAN_SLOT_SPINE) // Only those with a gravity core spine implant can do the holy heavy piggyback while being smoll and light
+	if(((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) && !istype(potential_spine)) || ((HAS_TRAIT(target, TRAIT_HEAVYSET) && !HAS_TRAIT(src, TRAIT_HEAVYSET)) && !istype(potential_spine)))
 		target.visible_message(span_warning("[target] is too heavy for [src] to carry!"))
 		var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 		var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))
@@ -1052,7 +1055,7 @@
 		if(get_turf(target) != get_turf(src))
 			target.throw_at(get_turf(src), 1, 1, spin=FALSE, quickstart=FALSE)
 		return
-		//NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 	return buckle_mob(target, TRUE, TRUE, RIDER_NEEDS_ARMS)
 
@@ -1072,16 +1075,6 @@
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown, TRUE, multiplicative_slowdown = health_deficiency / 75)
 	else
 		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown)
-
-/mob/living/carbon/human/is_bleeding()
-	if(HAS_TRAIT(src, TRAIT_NOBLOOD))
-		return FALSE
-	return ..()
-
-/mob/living/carbon/human/get_total_bleed_rate()
-	if(HAS_TRAIT(src, TRAIT_NOBLOOD))
-		return FALSE
-	return ..()
 
 /mob/living/carbon/human/get_exp_list(minutes)
 	. = ..()
@@ -1138,6 +1131,7 @@
 	ai_controller = /datum/ai_controller/monkey
 
 /mob/living/carbon/human/species
+	abstract_type = /mob/living/carbon/human/species
 	var/race = null
 	var/use_random_name = TRUE
 
@@ -1146,7 +1140,7 @@
 	if (!isnull(race))
 		dna.species = new race
 
-/mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // NOVA EDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update, pref_load, replace_missing)
+/mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings) // NOVA EDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update, pref_load, replace_missing)
 	. = ..()
 	if(use_random_name)
 		fully_replace_character_name(real_name, generate_random_mob_name())
@@ -1165,7 +1159,7 @@
 	var/chest_covered = FALSE
 	var/head_covered = FALSE
 	var/hands_covered = FALSE
-	for (var/obj/item/clothing/equipped in get_equipped_items())
+	for (var/obj/item/clothing/equipped in get_equipped_items(INCLUDE_ABSTRACT))
 		// We don't really have space-proof gloves, so even if we're checking them we ignore the flags
 		if ((equipped.body_parts_covered & HANDS) && num_hands >= default_num_hands)
 			hands_covered = TRUE
@@ -1218,11 +1212,8 @@
 /mob/living/carbon/human/species/lizard/silverscale
 	race = /datum/species/lizard/silverscale
 
-/mob/living/carbon/human/species/spirit
-	race = /datum/species/spirit
-
 /mob/living/carbon/human/species/ghost
-	race = /datum/species/spirit/ghost
+	race = /datum/species/ghost
 
 /mob/living/carbon/human/species/ethereal
 	race = /datum/species/ethereal

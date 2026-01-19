@@ -131,6 +131,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "key_collar"
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
+	obj_flags_nova = ERP_ITEM
 	interaction_flags_click = NEED_DEXTERITY
 	/// The ID of the collar to pair with this key. Usually a ref to the collar.
 	var/key_id = null

@@ -35,7 +35,6 @@
 
 	treatable_tools = list(TOOL_WIRECUTTER, TOOL_RETRACTOR)
 	treatable_by = list(/obj/item/stack/medical/suture)
-	treatable_by_grabbed = list(/obj/item/stack/cable_coil)
 
 	default_scar_file = METAL_SCAR_FILE
 
@@ -105,7 +104,7 @@
 /datum/wound_pregen_data/electrical_damage
 	abstract = TRUE
 	required_limb_biostate = (BIO_WIRED)
-	required_wounding_types = list(WOUND_SLASH)
+	required_wounding_type = WOUND_SLASH
 	wound_series = WOUND_SERIES_WIRE_SLASH_ELECTRICAL_DAMAGE
 
 /datum/wound_pregen_data/electrical_damage/generate_scar_priorities()
@@ -113,6 +112,11 @@
 
 /datum/wound/burn/electrical_damage/slash/get_limb_examine_description()
 	return span_warning("The wiring on this limb is slashed open.")
+
+/datum/wound/burn/electrical_damage/check_grab_treatments(obj/item/tool, mob/user)
+	if(istype(tool, /obj/item/stack/cable_coil))
+		return TRUE
+	return FALSE
 
 /datum/wound/electrical_damage/handle_process(seconds_per_tick, times_fired)
 	. = ..()

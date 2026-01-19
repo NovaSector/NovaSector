@@ -9,17 +9,18 @@
 			if("genitals")
 				var/list/line = list()
 				for(var/genital in GLOB.possible_genitals)
-					if(!dna.species.mutant_bodyparts[genital])
+					var/datum/mutant_bodypart/genital_part = dna.mutant_bodyparts[genital]
+					if(isnull(genital_part))
 						continue
-					var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
-					if(!G)
+					var/datum/sprite_accessory/genital/genital_accessory = SSaccessories.sprite_accessories[genital][genital_part.name]
+					if(isnull(genital_accessory))
 						continue
-					if(G.is_hidden(src))
+					if(genital_accessory.is_hidden(src))
 						continue
-					var/obj/item/organ/genital/ORG = get_organ_slot(G.associated_organ_slot)
-					if(!ORG)
+					var/obj/item/organ/genital/genital_organ = get_organ_slot(genital_accessory.associated_organ_slot)
+					if(isnull(genital_organ))
 						continue
-					line += ORG.get_description_string(G)
+					line += genital_organ.get_description_string(genital_accessory)
 				if(length(line))
 					to_chat(usr, span_notice("[jointext(line, "\n")]"))
 			if("open_examine_panel")
@@ -74,6 +75,9 @@
 
 /mob/living/carbon/human/species/abductorweak
 	race = /datum/species/abductor/abductorweak
+
+/mob/living/carbon/human/species/golem/weak
+	race = /datum/species/golem/weak
 
 /mob/living/carbon/human/species/monkey/kobold
 	race = /datum/species/monkey/kobold
@@ -141,14 +145,14 @@
 	var/list/available_selection
 	// The total list of parts choosable
 	var/static/list/total_selection = list(
-		ORGAN_SLOT_EXTERNAL_HORNS = "horns",
-		ORGAN_SLOT_EARS = "ears",
-		ORGAN_SLOT_EXTERNAL_WINGS = "wings",
-		ORGAN_SLOT_EXTERNAL_TAIL = "tail",
-		ORGAN_SLOT_EXTERNAL_SYNTH_ANTENNA = "ipc_antenna",
-		ORGAN_SLOT_EXTERNAL_ANTENNAE = "moth_antennae",
-		ORGAN_SLOT_EXTERNAL_XENODORSAL = "xenodorsal",
-		ORGAN_SLOT_EXTERNAL_SPINES = "spines",
+		ORGAN_SLOT_EXTERNAL_HORNS = FEATURE_HORNS,
+		ORGAN_SLOT_EARS = FEATURE_EARS,
+		ORGAN_SLOT_EXTERNAL_WINGS = FEATURE_WINGS,
+		ORGAN_SLOT_EXTERNAL_TAIL = FEATURE_TAIL,
+		ORGAN_SLOT_EXTERNAL_SYNTH_ANTENNA = FEATURE_SYNTH_ANTENNA,
+		ORGAN_SLOT_EXTERNAL_ANTENNAE = FEATURE_MOTH_ANTENNAE,
+		ORGAN_SLOT_EXTERNAL_XENODORSAL = FEATURE_XENODORSAL,
+		ORGAN_SLOT_EXTERNAL_SPINES = FEATURE_SPINES,
 	)
 
 	// Stat check
@@ -157,12 +161,13 @@
 		return
 
 	// Only show the 'reveal all' button if we are already hiding something
-	if(try_hide_mutant_parts)
-		LAZYOR(available_selection, "reveal all")
+	available_selection = list()
+	if(LAZYLEN(try_hide_mutant_parts))
+		available_selection["reveal all"] = TRUE
 	// Lets build our parts list
-	for(var/organ_slot in total_selection)
+	for(var/organ_slot, feature_string in total_selection)
 		if(get_organ_slot(organ_slot))
-			LAZYOR(available_selection, total_selection[organ_slot])
+			available_selection[feature_string] = TRUE
 
 	// If this proc is called with the 'quick_toggle' flag, we skip the rest
 	if(quick_toggle)
@@ -170,7 +175,7 @@
 			LAZYNULL(try_hide_mutant_parts)
 		else
 			for(var/part in available_selection)
-				LAZYOR(try_hide_mutant_parts, part)
+				LAZYSET(try_hide_mutant_parts, part,  TRUE)
 		update_body_parts()
 		return
 
@@ -184,15 +189,36 @@
 		return
 
 	// Radial rendering
-	var/list/choices = list()
-	for(var/choice in available_selection)
-		var/datum/radial_menu_choice/option = new
-		var/image/part_image = image(icon = HIDING_RADIAL_DMI, icon_state = choice)
+	// Shared static caches so we never re-create objects
+	var/static/list/choice_icon_cache = list()
+	var/static/mutable_appearance/unusable_overlay = mutable_appearance(
+		icon = HIDING_RADIAL_DMI,
+		icon_state = "module_unable",
+	)
 
-		option.image = part_image
+	// Radial rendering
+	var/list/choices = list()
+
+	for(var/choice in available_selection)
+		// Build appearance once per icon_state
+		if(isnull(choice_icon_cache[choice]))
+			choice_icon_cache[choice] = mutable_appearance(
+				icon = HIDING_RADIAL_DMI,
+				icon_state = choice,
+			)
+
+		// Reuse cached appearance
+		var/mutable_appearance/choice_icon_appearance = new (choice_icon_cache[choice])
+
+		var/datum/radial_menu_choice/option = new
+		option.image = choice_icon_appearance
+
+		// Add overlay if hidden
 		if(choice in try_hide_mutant_parts)
-			part_image.underlays += image(icon = HIDING_RADIAL_DMI, icon_state = "module_unable")
+			choice_icon_appearance.overlays += unusable_overlay
+
 		choices[choice] = option
+
 	// Radial choices
 	sort_list(choices)
 	var/pick = show_radial_menu(usr, src, choices, custom_check = FALSE, tooltips = TRUE)
@@ -206,16 +232,14 @@
 		update_body_parts()
 		return
 
-	else if(pick in try_hide_mutant_parts)
+	else if(LAZYLEN(try_hide_mutant_parts) && try_hide_mutant_parts.Remove(pick))
 		to_chat(usr, span_notice("You are no longer trying to hide your [pick]."))
-		LAZYREMOVE(try_hide_mutant_parts, pick)
 	else
 		to_chat(usr, span_notice("You are now trying to hide your [pick]."))
-		LAZYOR(try_hide_mutant_parts, pick)
+		LAZYSET(try_hide_mutant_parts, pick, TRUE)
 	update_body_parts()
 	// automatically re-do the menu after making a selection
 	mutant_part_visibility(re_do = TRUE)
-
 
 // Feign impairment verb
 #define DEFAULT_TIME 30

@@ -39,7 +39,7 @@
 	icon_state = "phantom-broken"
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/mecha.dmi'
 	desc = "You almost get phantom pain from looking at this."
-	welder_salvage = list(/obj/item/computer_disk/virus/mime, /obj/item/clothing/head/beret)
+	welder_salvage = list(/obj/item/disk/computer/virus/mime, /obj/item/clothing/head/beret)
 
 /obj/vehicle/sealed/mecha/reticence/artifact/Initialize(mapload)
 	. = ..()
@@ -87,7 +87,7 @@
 		carbon_mob.adjust_stutter(40 SECONDS)
 		var/obj/item/organ/ears/ears = carbon_mob.get_organ_slot(ORGAN_SLOT_EARS)
 		if(ears)
-			ears.adjustEarDamage(0, 30)
+			carbon_mob.sound_damage(0, 30)
 		carbon_mob.Paralyze(6 SECONDS)
 		if(prob(30))
 			carbon_mob.Stun(20 SECONDS)

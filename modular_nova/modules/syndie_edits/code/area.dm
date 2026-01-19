@@ -31,6 +31,7 @@
 /area/ruin/syndicate_lava_base/testlab
 	name = "Interdyne Experimentation Lab"
 	area_flags = XENOBIOLOGY_COMPATIBLE
+	area_flags_mapping = NONE
 
 /area/ruin/syndicate_lava_base/dormitories
 	name = "Interdyne Dormitories"

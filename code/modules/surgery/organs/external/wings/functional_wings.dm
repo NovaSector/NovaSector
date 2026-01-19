@@ -26,7 +26,6 @@
 	///We cant hide this wings in suit
 	var/cant_hide = FALSE
 
-	// grind_results = list(/datum/reagent/flightpotion = 5)
 	food_reagents = list(/datum/reagent/flightpotion = 5)
 
 	var/drift_force = FUNCTIONAL_WING_FORCE
@@ -49,6 +48,9 @@
 /obj/item/organ/wings/functional/Destroy()
 	QDEL_NULL(fly)
 	return ..()
+
+/obj/item/organ/wings/functional/grind_results()
+	return list(/datum/reagent/flightpotion = 5)
 
 /obj/item/organ/wings/functional/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
@@ -82,8 +84,8 @@
 	if(human.stat || human.body_position == LYING_DOWN || isnull(human.client))
 		return FALSE
 	//Jumpsuits have tail holes, so it makes sense they have wing holes too
-	if(!cant_hide && human.wear_suit && ((human.wear_suit.flags_inv & HIDEJUMPSUIT) && (!human.wear_suit.species_exception || !is_type_in_list(src, human.wear_suit.species_exception))))
-		to_chat(human, span_warning("Your suit blocks your wings from extending!"))
+	if(!cant_hide && (human.obscured_slots & HIDEJUMPSUIT))
+		to_chat(human, span_warning("Your clothing blocks your wings from extending!"))
 		return FALSE
 	var/turf/location = get_turf(human)
 	if(!location)
@@ -166,26 +168,16 @@
 /datum/bodypart_overlay/mutant/wings/functional
 	///Are our wings currently open? Change through open_wings or close_wings()
 	VAR_PRIVATE/wings_open = FALSE
-	///Feature render key for opened wings
-	var/open_feature_key = "wingsopen"
 
 /datum/bodypart_overlay/mutant/wings/functional/get_global_feature_list()
-	/* NOVA EDIT REMOVAL - CUSTOMIZATION
 	if(wings_open)
-		return SSaccessories.wings_open_list
-	else
-		return SSaccessories.wings_list
-	*/ // NOVA EDIT REMOVAL END
-	// NOVA EDIT ADDITION START
-	if(wings_open)
-		return SSaccessories.sprite_accessories["wings_open"]
+		return SSaccessories.feature_list[FEATURE_WINGS_OPEN]
+	return ..()
 
-	return SSaccessories.sprite_accessories["wings"]
-	// NOVA EDIT ADDITION END
 ///Update our wingsprite to the open wings variant
 /datum/bodypart_overlay/mutant/wings/functional/proc/open_wings()
 	wings_open = TRUE
-	feature_key = open_feature_key
+	feature_key = FEATURE_WINGS_OPEN
 	set_appearance_from_name(sprite_datum.name) //It'll look for the same name again, but this time from the open wings list
 
 ///Update our wingsprite to the closed wings variant

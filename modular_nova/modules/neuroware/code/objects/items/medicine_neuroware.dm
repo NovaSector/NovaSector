@@ -12,7 +12,7 @@
 
 /obj/item/disk/neuroware/brain
 	name = "corruption repair neuroware"
-	desc = "A neuroware chip containing a corruption-repairing program which attempts to fix minor brain traumas in artificial brains. Multi-user license included."
+	desc = "A neuroware chip containing a corruption-repairing program which attempts to fix minor brain traumas. Multi-user license included."
 	icon_state = "/obj/item/disk/neuroware/brain"
 	post_init_icon_state = "chip_super"
 	greyscale_colors = "#474747"

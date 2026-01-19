@@ -697,13 +697,15 @@
 	id = "prisontransportlockdown";
 	name = "Interior Lockdown Shutters";
 	pixel_x = -8;
-	pixel_y = 8
+	pixel_y = 8;
+	dir = 1
 	},
 /obj/machinery/button/door{
 	id = "prisontransportouter";
 	name = "Exterior Blast Doors";
 	pixel_x = 8;
-	pixel_y = 8
+	pixel_y = 8;
+	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
 /turf/open/floor/iron/dark,
@@ -897,16 +899,19 @@
 /obj/machinery/button/door{
 	id = "prisontransportlockdownc1";
 	name = "Section 1 LOCKDOWN";
-	pixel_y = -11
+	pixel_y = -11;
+	dir = 1
 	},
 /obj/machinery/button/door{
 	id = "prisontransportlockdownc2";
-	name = "Section 2 LOCKDOWN"
+	name = "Section 2 LOCKDOWN";
+	dir = 1
 	},
 /obj/machinery/button/door{
 	id = "prisontransportlockdownc3";
 	name = "Section 3 LOCKDOWN";
-	pixel_y = 11
+	pixel_y = 11;
+	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
 /turf/open/floor/iron/dark,

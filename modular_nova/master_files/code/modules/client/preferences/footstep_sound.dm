@@ -37,10 +37,10 @@
 	var/obj/item/bodypart/leg/left_leg = target.get_bodypart(BODY_ZONE_L_LEG)
 	var/obj/item/bodypart/leg/right_leg = target.get_bodypart(BODY_ZONE_R_LEG)
 	if(islist(footstep_type))
-		left_leg.special_footstep_sounds = footstep_type
-		right_leg.special_footstep_sounds = footstep_type
+		left_leg?.special_footstep_sounds = footstep_type
+		right_leg?.special_footstep_sounds = footstep_type
 	else
-		left_leg.footstep_type = footstep_type
-		right_leg.footstep_type = footstep_type
+		left_leg?.footstep_type = footstep_type
+		right_leg?.footstep_type = footstep_type
 
 	target.footstep_type = footstep_type // We are most likely going to have our legs get replaced during char creation immediately, so this is necessary to apply to any subsequent legs that get added.

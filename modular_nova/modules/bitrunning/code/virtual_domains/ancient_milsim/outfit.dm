@@ -59,7 +59,7 @@
 	head = /obj/item/clothing/head/helmet/cin_surplus_helmet/forest
 	back = /obj/item/mod/control/pre_equipped/voskhod/ancient_milsim
 	backpack_contents = list(
-		/obj/item/storage/box/nri_survival_pack/raider,
+		/obj/item/storage/box/nri_survival_pack/inspector,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery = 3,
 		/obj/item/reagent_containers/cup/glass/waterbottle/large/protozine = 2,

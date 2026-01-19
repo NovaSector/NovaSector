@@ -92,10 +92,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	QDEL_NULL(character_preview_view)
 	QDEL_LIST(middleware)
 	value_cache = null
-	//NOVA EDIT ADDITION
-	if(pref_species)
-		QDEL_NULL(pref_species)
-	//NOVA EDIT END
 	return ..()
 
 /datum/preferences/New(client/parent)
@@ -289,12 +285,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/default_value = read_preference(requested_preference.type)
 
 			// Yielding
-			var/new_color = input(
+			var/new_color = tgui_color_picker(
 				usr,
 				"Select new color",
 				null,
 				default_value || COLOR_WHITE,
-			) as color | null
+			)
 
 			if (!new_color)
 				return FALSE
@@ -330,12 +326,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/default_value = default_value_list[index_key]
 
 			// Yielding
-			var/new_color = input(
+			var/new_color = tgui_color_picker(
 				usr,
 				"Select new color",
 				null,
 				default_value || COLOR_WHITE,
-			) as color | null
+			)
 
 			if (!new_color)
 				return FALSE
@@ -498,7 +494,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	return TRUE
 
 /datum/preferences/proc/GetQuirkBalance()
-	var/bal = 0
+	var/bal = CONFIG_GET(number/default_quirk_points)
 	for(var/V in all_quirks)
 		var/datum/quirk/T = SSquirks.quirks[V]
 		bal -= initial(T.value)
@@ -589,12 +585,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	apply_character_randomization_prefs(is_antag)
 	apply_prefs_to(character, icon_updates)
 
-/// Applies the given preferences to a human mob.
-/datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, visuals_only = FALSE)  // NOVA EDIT - Customization - ORIGINAL: /datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE)
-	character.dna.features = MANDATORY_FEATURE_LIST //NOVA EDIT CHANGE - We need to instansiate the list with the basic features.
+/**
+ * Applies the given preferences to a human mob.
+ *
+ * Arguments:
+ * * character - The human mob to apply the preferences to
+ * * icon_updates - Whether to update the mob's icons after applying preferences.
+ * Is often skipped to save processing when an update will happen later anyway.
+ * * do_not_apply - A list of preference types to skip when applying preferences.
+ */
+/datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, list/do_not_apply, visuals_only = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, list/do_not_apply)
+	character.dna.features = MANDATORY_FEATURE_LIST // NOVA EDIT CHANGE - We need to instansiate the list with the basic features. - ORIGINAL: character.dna.features = list()
 
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
 		if (preference.savefile_identifier != PREFERENCE_CHARACTER)
+			continue
+		if (preference.type in do_not_apply)
 			continue
 
 		preference.apply_to_human(character, read_preference(preference.type), src) // NOVA EDIT CHANGE - ORIGINAL: preference.apply_to_human(character, read_preference(preference.type))

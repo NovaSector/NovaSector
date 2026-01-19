@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(statpanels)
 		num_fires++
 		var/datum/map_config/cached = SSmap_vote.next_map_config
 
-		/* NOVA EDIT CHANGE - ORIGINAL:
+		/* // NOVA EDIT REMOVAL START
 		if(isnull(SSmapping.current_map))
 			global_data = list("Loading")
 		else if(SSmapping.current_map.feedback_link)
@@ -43,7 +43,8 @@ SUBSYSTEM_DEF(statpanels)
 			"Station Time: [station_time_timestamp()]",
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 		)
-		*/
+		*/ // NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDITION START
 		var/real_round_time = world.timeofday - SSticker.real_round_start_time
 		global_data = list(
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
@@ -70,7 +71,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Round Timer: [ROUND_TIME()]",
 			"Actual Round Timer: [time2text(real_round_time, "hh:mm:ss", 0)]"
 		)
-		// NOVA EDIT CHANGE END
+		// NOVA EDIT ADDITION END
 
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()
@@ -249,7 +250,6 @@ SUBSYSTEM_DEF(statpanels)
 #endif
 	for(var/datum/controller/subsystem/sub_system as anything in Master.subsystems)
 		mc_data[++mc_data.len] = list("\[[sub_system.state_letter()]][sub_system.name]", sub_system.stat_entry(), text_ref(sub_system))
-	mc_data[++mc_data.len] = list("Camera Net", "Cameras: [GLOB.cameranet.cameras.len] | Chunks: [GLOB.cameranet.chunks.len]", text_ref(GLOB.cameranet))
 
 ///immediately update the active statpanel tab of the target client
 /datum/controller/subsystem/statpanels/proc/immediate_send_stat_data(client/target)

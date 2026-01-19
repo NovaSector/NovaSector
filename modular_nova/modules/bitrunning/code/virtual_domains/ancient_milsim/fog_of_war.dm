@@ -41,6 +41,9 @@
 /obj/machinery/door/poddoor/ancient_milsim/screwdriver_act()
 	return
 
+/obj/machinery/door/poddoor/ancient_milsim/crowbar_act()
+	return
+
 /obj/machinery/door/poddoor/ancient_milsim/welder_act()
 	return
 

@@ -173,7 +173,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/interdyne, 32)
 	sign_path = /obj/structure/sign/flag/syndicate
 
 /obj/item/sign/flag/interdyne
-	name = "folded flag of the Syndicate"
+	name = "folded flag of the Interdyne"
 	desc = "The folded flag of Interdyne Pharmaceutics."
 	icon_state = "folded_coder"
 	sign_path = /obj/structure/sign/flag/interdyne

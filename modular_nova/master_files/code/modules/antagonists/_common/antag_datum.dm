@@ -26,7 +26,6 @@
 		/datum/crafting_recipe/ash_recipe/ash_robes,
 		/datum/crafting_recipe/ash_recipe/ash_plates,
 		/datum/crafting_recipe/ash_recipe/ash_plates/decorated,
-		/datum/crafting_recipe/thatch_bed,
 	)
 
 /datum/antagonist/heretic

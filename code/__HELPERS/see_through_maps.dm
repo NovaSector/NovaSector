@@ -15,6 +15,16 @@
 ///Seethrough component for the ratvar wreck, in shape of the ratvar wreck
 #define SEE_THROUGH_MAP_RATVAR_WRECK "ratvar"
 
+//NOVA EDIT ADDITION START - cars_props
+
+///Two rows of four wide, but offset one tile to the left, like shipping containers
+#define SEE_THROUGH_MAP_LONG_TRUCK "long_truck"
+
+///Two rows of 2 wide, but offset one tile to the left, like shipping containers
+#define SEE_THROUGH_MAP_LONG_TRUCK_HALF "long_truck_half"
+
+//  NOVA EDIT ADDITION END - cars_props
+
 
 /**global statics for the see_through_component coordinate maps
 * For ease of use, include a comment in the shape of the coordinate map, where O is nothing, X is a hidden tile and A is the object
@@ -76,7 +86,25 @@ GLOBAL_LIST_INIT(see_through_maps, list(
 		list(0, 2, 0), list(1, 2, 0), list(2, 2, 0), list(3, 2, 0), list(4, 2, 0), list(5, 2, 0), list(6, 2, 0), list(7, 2, 0), list(8, 2, 0), list(9, 2, 0), list(10, 2, 0), list(11, 2, 0), list(12, 2, 0),
 		list(0, 1, 0), list(1, 1, 0), list(2, 1, 0), list(3, 1, 0), list(4, 1, 0), list(5, 1, 0), list(6, 1, 0), list(7, 1, 0), list(8, 1, 0), list(9, 1, 0), list(10, 1, 0), list(11, 1, 0), list(12, 1, 0),
 		list(0, 0, 0), list(1, 0, 0), list(2, 0, 0), list(3, 0, 0), list(4, 0, 0), list(5, 0, 0), list(6, 0, 0), list(7, 0, 0), list(8, 0, 0), list(9, 0, 0), list(10, 0, 0), list(11, 0, 0), list(12, 0, 0), list(13, 0, 0)
+	),
+
+	//NOVA EDIT ADDITION START - cars_props
+
+	/// XXXX
+	/// AXXX
+	SEE_THROUGH_MAP_LONG_TRUCK = list(
+		list(0, 1, 0), list(1, 1, 0), list(2, 1, 0), list(3, 1, 0),
+		list(0, 0, 0), list(1, 0, 0), list(2, 0, 0), list(3, 0, 0)
+	),
+
+	/// XX
+	/// AX
+	SEE_THROUGH_MAP_LONG_TRUCK_HALF = list(
+		list(0, 1, 0), list(1, 1, 0),
+		list(0, 0, 0), list(1, 0, 0)
 	)
+
+	//NOVA EDIT ADDITION END
 ))
 
 

@@ -40,7 +40,7 @@
 		ANNOUNCER_SPOOKY = 'modular_nova/modules/alerts/sound/misc/admin_horror_music.ogg',
 		ANNOUNCER_ERTYES = 'modular_nova/modules/alerts/sound/alerts/yesert.ogg',
 		ANNOUNCER_MUTANTS = 'modular_nova/modules/alerts/sound/alerts/hazdet.ogg',
-		ANNOUNCER_NRI_RAIDERS = 'modular_nova/modules/encounters/sounds/morse.ogg',
+		ANNOUNCER_HC_POLICE = 'modular_nova/modules/random_ship_event/random_ships/heliostatic_inspectors/sounds/morse.ogg',
 		ANNOUNCER_DEPARTMENTAL = 'modular_nova/modules/alerts/sound/alerts/alert3.ogg',
 		ANNOUNCER_SHUTTLE = 'modular_nova/modules/alerts/sound/alerts/alert3.ogg',
 		)

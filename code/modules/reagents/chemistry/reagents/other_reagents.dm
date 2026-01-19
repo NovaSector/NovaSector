@@ -230,17 +230,22 @@
 
 /datum/reagent/water/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
+
+	var/obj/item/organ/liver/liver = affected_mob.get_organ_slot(ORGAN_SLOT_LIVER)
+	if(liver?.damage && !IS_ROBOTIC_ORGAN(liver) && !(liver.organ_flags & ORGAN_FAILING))
+		var/healing_bonus = liver.healing_factor * liver.maxHealth
+		liver.apply_organ_damage(-healing_bonus * REM * seconds_per_tick)
+
 	var/water_adaptation = HAS_TRAIT(affected_mob, TRAIT_WATER_ADAPTATION)
-	if(affected_mob.blood_volume)
-		var/blood_restored = water_adaptation ? 0.3 : 0.1
-		affected_mob.blood_volume += blood_restored * REM * seconds_per_tick // water is good for you!
+	var/blood_restored = water_adaptation ? 0.3 : 0.1
+	affected_mob.adjust_blood_volume(blood_restored * REM * seconds_per_tick) // water is good for you!
 	var/drunkness_restored = water_adaptation ? -0.5 : -0.25
 	affected_mob.adjust_drunk_effect(drunkness_restored * REM * seconds_per_tick) // and even sobers you up slowly!!
 	if(water_adaptation)
 		var/need_mob_update = FALSE
-		need_mob_update = affected_mob.adjustToxLoss(-0.25 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
-		need_mob_update += affected_mob.adjustFireLoss(-0.25 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
-		need_mob_update += affected_mob.adjustBruteLoss(-0.25 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update = affected_mob.adjust_tox_loss(-0.25 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
+		need_mob_update += affected_mob.adjust_fire_loss(-0.25 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update += affected_mob.adjust_brute_loss(-0.25 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 		return need_mob_update ? UPDATE_MOB_HEALTH : .
 
 // For weird backwards situations where water manages to get added to trays nutrients, as opposed to being snowflaked away like usual.
@@ -248,6 +253,15 @@
 	mytray.adjust_waterlevel(round(volume))
 	//You don't belong in this world, monster!
 	mytray.reagents.remove_reagent(type, volume)
+
+/datum/reagent/water/mineral
+	name = "Mineral Water"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE|REAGENT_CLEANS
+
+/datum/reagent/water/mineral/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+	affected_mob.adjust_tox_loss(-0.1 * REM * seconds_per_tick, updating_health = FALSE)
+	return UPDATE_MOB_HEALTH
 
 /datum/reagent/water/salt
 	name = "Saltwater"
@@ -293,8 +307,8 @@
 /datum/wound/burn/flesh/on_saltwater(reac_volume)
 	// Similar but better stats from normal salt.
 	sanitization += VALUE_PER(0.6, 30) * reac_volume
-	infestation -= max(VALUE_PER(0.5, 30) * reac_volume, 0)
-	infestation_rate += VALUE_PER(0.07, 30) * reac_volume
+	infection -= max(VALUE_PER(0.5, 30) * reac_volume, 0)
+	infection_rate += VALUE_PER(0.07, 30) * reac_volume
 	to_chat(victim, span_notice("The salt water splashes over [LOWER_TEXT(src)], soaking up the... miscellaneous fluids. It feels somewhat better afterwards."))
 	return
 
@@ -364,7 +378,7 @@
 		else if(HAS_TRAIT(affected_mob, TRAIT_EVIL) && SPT_PROB(25, seconds_per_tick)) //Congratulations, your committment to evil has now made holy water a deadly poison to you!
 			if(!IS_CULTIST(affected_mob) || affected_mob.mind?.holy_role != HOLY_ROLE_PRIEST)
 				affected_mob.emote("scream")
-				need_mob_update += affected_mob.adjustFireLoss(3 * REM * seconds_per_tick, updating_health = FALSE)
+				need_mob_update += affected_mob.adjust_fire_loss(3 * REM * seconds_per_tick, updating_health = FALSE)
 
 	if(data["deciseconds_metabolized"] >= (1 MINUTES)) // 24 units
 		if(IS_CULTIST(affected_mob))
@@ -372,7 +386,7 @@
 			affected_mob.Unconscious(10 SECONDS)
 		else if(HAS_TRAIT(affected_mob, TRAIT_EVIL)) //At this much holy water, you're probably going to fucking melt. good luck
 			if(!IS_CULTIST(affected_mob) || affected_mob.mind?.holy_role != HOLY_ROLE_PRIEST)
-				need_mob_update += affected_mob.adjustFireLoss(10 * REM * seconds_per_tick, updating_health = FALSE)
+				need_mob_update += affected_mob.adjust_fire_loss(10 * REM * seconds_per_tick, updating_health = FALSE)
 		affected_mob.remove_status_effect(/datum/status_effect/jitter)
 		affected_mob.remove_status_effect(/datum/status_effect/speech/stutter)
 		for(var/datum/status_effect/eldritch_painting/eldritch_curses in affected_mob.status_effects)
@@ -440,7 +454,7 @@
 	var/damage_to_inflict = 2 * max(1 - touch_protection, 0)
 
 	if(damage_to_inflict)
-		exposed_mob.adjustFireLoss(damage_to_inflict)
+		exposed_mob.adjust_fire_loss(damage_to_inflict)
 
 /datum/reagent/fuel/unholywater //if you somehow managed to extract this from someone, dont splash it on yourself and have a smoke
 	name = "Unholy Water"
@@ -464,30 +478,21 @@
 	if(IS_CULTIST(affected_mob))
 		affected_mob.adjust_drowsiness(-10 SECONDS * REM * seconds_per_tick)
 		affected_mob.AdjustAllImmobility(-40 * REM * seconds_per_tick)
-		need_mob_update += affected_mob.adjustStaminaLoss(-10 * REM * seconds_per_tick, updating_stamina = FALSE)
-		need_mob_update += affected_mob.adjustToxLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustOxyLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustBruteLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustFireLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += affected_mob.adjust_stamina_loss(-10 * REM * seconds_per_tick, updating_stamina = FALSE)
+		need_mob_update += affected_mob.adjust_tox_loss(-2 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += affected_mob.adjust_oxy_loss(-2 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += affected_mob.adjust_brute_loss(-2 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += affected_mob.adjust_fire_loss(-2 * REM * seconds_per_tick, updating_health = FALSE)
 		need_mob_update = TRUE
-		if(ishuman(affected_mob) && affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
-			affected_mob.blood_volume += 3 * REM * seconds_per_tick
-
-			var/datum/wound/bloodiest_wound
-
-			for(var/datum/wound/iter_wound as anything in affected_mob.all_wounds)
-				if(iter_wound.blood_flow && iter_wound.blood_flow > bloodiest_wound?.blood_flow)
-					bloodiest_wound = iter_wound
-
-			if(bloodiest_wound)
-				bloodiest_wound.adjust_blood_flow(-2 * REM * seconds_per_tick)
+		affected_mob.adjust_blood_volume(3 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL)
+		affected_mob.coagulant_effect(2 * REM * seconds_per_tick)
 
 	else  // Will deal about 90 damage when 50 units are thrown
-		need_mob_update += affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
-		need_mob_update += affected_mob.adjustToxLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustFireLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustOxyLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustBruteLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
+		need_mob_update += affected_mob.adjust_tox_loss(1 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += affected_mob.adjust_fire_loss(1 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += affected_mob.adjust_oxy_loss(1 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += affected_mob.adjust_brute_loss(1 * REM * seconds_per_tick, updating_health = FALSE)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
@@ -507,9 +512,9 @@
 	affected_mob.set_fire_stacks(min(affected_mob.fire_stacks + (1.5 * seconds_per_tick), 5))
 	affected_mob.ignite_mob() //Only problem with igniting people is currently the commonly available fire suits make you immune to being on fire
 	var/need_mob_update
-	need_mob_update = affected_mob.adjustToxLoss(0.5*seconds_per_tick, updating_health = FALSE)
-	need_mob_update += affected_mob.adjustFireLoss(0.5*seconds_per_tick, updating_health = FALSE) //Hence the other damages... ain't I a bastard?
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2.5*seconds_per_tick, 150)
+	need_mob_update = affected_mob.adjust_tox_loss(0.5*seconds_per_tick, updating_health = FALSE)
+	need_mob_update += affected_mob.adjust_fire_loss(0.5*seconds_per_tick, updating_health = FALSE) //Hence the other damages... ain't I a bastard?
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 2.5*seconds_per_tick, 150)
 	if(holder)
 		holder.remove_reagent(type, 0.5 * seconds_per_tick)
 	if(need_mob_update)
@@ -565,7 +570,7 @@
 /datum/reagent/spraytan/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
 	if(ishuman(exposed_mob))
-		if(methods & (PATCH|VAPOR) && touch_protection >= 1)
+		if(methods & (PATCH|VAPOR) && touch_protection < 1)
 			var/mob/living/carbon/human/exposed_human = exposed_mob
 			if(HAS_TRAIT(exposed_human, TRAIT_USES_SKINTONES))
 				switch(exposed_human.skin_tone)
@@ -601,7 +606,7 @@
 						exposed_human.skin_tone = "mixed3"
 			//take current alien color and darken it slightly
 			else if(HAS_TRAIT(exposed_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(exposed_human, TRAIT_FIXED_MUTANT_COLORS))
-				var/list/existing_color = rgb2num(exposed_human.dna.features["mcolor"])
+				var/list/existing_color = rgb2num(exposed_human.dna.features[FEATURE_MUTANT_COLOR])
 				var/list/darkened_color = list()
 				// Reduces each part of the color by 16
 				for(var/channel in existing_color)
@@ -611,7 +616,7 @@
 				var/list/new_hsv = rgb2hsv(new_color)
 				// Can't get too dark now
 				if(new_hsv[3] >= 50)
-					exposed_human.dna.features["mcolor"] = new_color
+					exposed_human.dna.features[FEATURE_MUTANT_COLOR] = new_color
 			exposed_human.update_body(is_creating = TRUE)
 
 		if((methods & INGEST) && show_message)
@@ -635,7 +640,7 @@
 		if(HAS_TRAIT(affected_human, TRAIT_USES_SKINTONES))
 			affected_human.skin_tone = "orange"
 		else if(HAS_TRAIT(affected_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(affected_human, TRAIT_FIXED_MUTANT_COLORS)) //Aliens with custom colors simply get turned orange
-			affected_human.dna.features["mcolor"] = "#ff8800"
+			affected_human.dna.features[FEATURE_MUTANT_COLOR] = "#ff8800"
 		affected_human.update_body(is_creating = TRUE)
 		if(SPT_PROB(3.5, seconds_per_tick))
 			if(affected_human.w_uniform)
@@ -669,11 +674,12 @@
 									"Your appendages begin morphing." = MUT_MSG_EXTENDED,
 									"You feel as though you're about to change at any moment!" = MUT_MSG_ABOUT2TURN)
 
-/datum/reagent/mutationtoxin/on_mob_life(mob/living/carbon/human/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/mutationtoxin/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	if(!istype(affected_mob))
+	if(!ishuman(affected_mob))
 		return
-	if(!(affected_mob.dna?.species) || !(affected_mob.mob_biotypes & affected_biotype))
+	var/mob/living/carbon/affected_human = affected_mob
+	if(!(affected_human.dna?.species) || !(affected_human.mob_biotypes & affected_biotype))
 		return
 
 	if(SPT_PROB(5, seconds_per_tick))
@@ -689,13 +695,13 @@
 		for(var/i in mutationtexts)
 			if(mutationtexts[i] == filter)
 				pick_ur_fav += i
-		to_chat(affected_mob, span_warning("[pick(pick_ur_fav)]"))
+		to_chat(affected_human, span_warning("[pick(pick_ur_fav)]"))
 
 	if(current_cycle >= CYCLES_TO_TURN)
 		var/datum/species/species_type = race
-		affected_mob.set_species(species_type)
+		affected_human.set_species(species_type)
 		holder.del_reagent(type)
-		to_chat(affected_mob, span_warning("You've become \a [LOWER_TEXT(initial(species_type.name))]!"))
+		to_chat(affected_human, span_warning("You've become \a [LOWER_TEXT(initial(species_type.name))]!"))
 		return
 
 /datum/reagent/mutationtoxin/classic //The one from plasma on green slimes
@@ -752,20 +758,24 @@
 	taste_description = "grandma's gelatin"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/mutationtoxin/jelly/on_mob_life(mob/living/carbon/human/affected_mob, seconds_per_tick, times_fired)
-	if(isjellyperson(affected_mob))
-		to_chat(affected_mob, span_warning("Your jelly shifts and morphs, turning you into another subspecies!"))
-		var/species_type = pick(subtypesof(/datum/species/jelly))
-		affected_mob.set_species(species_type)
-		holder.del_reagent(type)
-		return UPDATE_MOB_HEALTH
-	if(current_cycle >= CYCLES_TO_TURN) //overwrite since we want subtypes of jelly
+/datum/reagent/mutationtoxin/jelly/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	if(!ishuman(affected_mob))
+		return ..()
+	var/mob/living/carbon/affected_human = affected_mob
+	if(isjellyperson(affected_human))
 		var/datum/species/species_type = pick(subtypesof(race))
-		affected_mob.set_species(species_type)
+		affected_human.set_species(species_type)
 		holder.del_reagent(type)
-		to_chat(affected_mob, span_warning("You've become \a [initial(species_type.name)]!"))
+		to_chat(affected_human, span_warning("Your jelly shifts and morphs, turning you into another subspecies!"))
 		return UPDATE_MOB_HEALTH
-	return ..()
+	if(current_cycle < CYCLES_TO_TURN) //overwrite since we want subtypes of jelly
+		return ..()
+	var/datum/species/species_type = pick(subtypesof(race))
+	affected_human.set_species(species_type)
+	holder.del_reagent(type)
+	to_chat(affected_human, span_warning("You've become \a [initial(species_type.name)]!"))
+	return UPDATE_MOB_HEALTH
+
 
 /datum/reagent/mutationtoxin/golem
 	name = "Golem Mutation Toxin"
@@ -849,13 +859,14 @@
 	taste_description = "slime"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/mulligan/on_mob_life(mob/living/carbon/human/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/mulligan/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	if (!istype(affected_mob))
+	if(!ishuman(affected_mob))
 		return
-	to_chat(affected_mob, span_warning("<b>You grit your teeth in pain as your body rapidly mutates!</b>"))
-	affected_mob.visible_message("<b>[affected_mob]</b> suddenly transforms!")
-	randomize_human_normie(affected_mob)
+	var/mob/living/carbon/human/affected_human = affected_mob
+	to_chat(affected_human, span_boldwarning("You grit your teeth in pain as your body rapidly mutates!"))
+	affected_human.visible_message("<b>[affected_human]</b> suddenly transforms!")
+	randomize_human_normie(affected_human)
 
 /datum/reagent/aslimetoxin
 	name = "Advanced Mutation Toxin"
@@ -972,7 +983,7 @@
 		step(affected_mob, pick(GLOB.cardinals))
 	if(SPT_PROB(3.5, seconds_per_tick))
 		affected_mob.emote(pick("twitch","drool","moan"))
-	if(affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.5*seconds_per_tick))
+	if(affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5*seconds_per_tick))
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/sulfur
@@ -1038,7 +1049,7 @@
 
 /datum/reagent/fluorine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	if(affected_mob.adjustToxLoss(0.5*REM*seconds_per_tick, updating_health = FALSE))
+	if(affected_mob.adjust_tox_loss(0.5*REM*seconds_per_tick, updating_health = FALSE))
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/sodium
@@ -1080,7 +1091,7 @@
 
 /datum/reagent/glycerol
 	name = "Glycerol"
-	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
+	description = "A simple polyol compound. Sweet-tasting and of low toxicity."
 	color = "#D3B913"
 	taste_description = "sweetness"
 	ph = 9
@@ -1100,7 +1111,7 @@
 		return
 
 	for(var/datum/surgery/surgery as anything in exposed_carbon.surgeries)
-		surgery.speed_modifier = max(0.2, surgery.speed_modifier)
+		surgery.speed_modifier = min(0.8, surgery.speed_modifier)
 
 /datum/reagent/space_cleaner/sterilizine/on_burn_wound_processing(datum/wound/burn/flesh/burn_wound)
 	burn_wound.sanitization += 0.9
@@ -1150,7 +1161,7 @@
 		var/chance = min(volume / (20 - rad_power * 5), rad_power)
 		if(SPT_PROB(chance, seconds_per_tick)) // ignore rad protection calculations bc it's inside of us
 			affected_mob.AddComponent(/datum/component/irradiated)
-	if(affected_mob.adjustToxLoss(tox_damage * seconds_per_tick * REM, updating_health = FALSE))
+	if(affected_mob.adjust_tox_loss(tox_damage * seconds_per_tick * REM, updating_health = FALSE))
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/uranium/expose_obj(obj/exposed_obj, reac_volume, methods=TOUCH, show_message=TRUE)
@@ -1296,7 +1307,7 @@
 	var/obj/item/organ/liver/liver = victim.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(liver && HAS_TRAIT(liver, TRAIT_HUMAN_AI_METABOLISM))
 		return
-	if(victim.adjustToxLoss(0.5 * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
+	if(victim.adjust_tox_loss(0.5 * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/fuel/expose_turf(turf/exposed_turf, reac_volume)
@@ -1335,7 +1346,7 @@
 	exposed_turf.wash(clean_types, TRUE)
 
 	for(var/mob/living/basic/slime/exposed_slime in exposed_turf)
-		exposed_slime.adjustToxLoss(rand(5,10))
+		exposed_slime.adjust_tox_loss(rand(5,10))
 
 /datum/reagent/space_cleaner/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
 	. = ..()
@@ -1363,9 +1374,9 @@
 /datum/reagent/space_cleaner/ez_clean/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	var/need_mob_update
-	need_mob_update = affected_mob.adjustBruteLoss(1.665*seconds_per_tick, updating_health = FALSE)
-	need_mob_update += affected_mob.adjustFireLoss(1.665*seconds_per_tick, updating_health = FALSE)
-	need_mob_update += affected_mob.adjustToxLoss(1.665*seconds_per_tick, updating_health = FALSE)
+	need_mob_update = affected_mob.adjust_brute_loss(1.665*seconds_per_tick, updating_health = FALSE)
+	need_mob_update += affected_mob.adjust_fire_loss(1.665*seconds_per_tick, updating_health = FALSE)
+	need_mob_update += affected_mob.adjust_tox_loss(1.665*seconds_per_tick, updating_health = FALSE)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
@@ -1377,8 +1388,8 @@
 	var/damage_to_inflict = 1.5 * max(1 - touch_protection, 0)
 
 	if(damage_to_inflict)
-		exposed_mob.adjustBruteLoss(damage_to_inflict)
-		exposed_mob.adjustFireLoss(damage_to_inflict)
+		exposed_mob.adjust_brute_loss(damage_to_inflict)
+		exposed_mob.adjust_fire_loss(damage_to_inflict)
 
 /datum/reagent/cryptobiolin
 	name = "Cryptobiolin"
@@ -1404,7 +1415,7 @@
 
 /datum/reagent/impedrezene
 	name = "Impedrezene"
-	description = "Impedrezene is a narcotic that impedes one's ability by slowing down the higher brain cell functions."
+	description = "A narcotic that impedes one's ability by slowing down the higher brain cell functions."
 	color = "#E07DDD" // pink = happy = dumb
 	taste_description = "numbness"
 	ph = 9.1
@@ -1415,7 +1426,7 @@
 	. = ..()
 	affected_mob.adjust_jitter(-5 SECONDS * seconds_per_tick)
 	if(SPT_PROB(55, seconds_per_tick))
-		affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2)
+		affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 2)
 		. = TRUE
 	if(SPT_PROB(30, seconds_per_tick))
 		affected_mob.adjust_drowsiness(6 SECONDS)
@@ -1568,27 +1579,27 @@
 		var/drowsiness_to_apply = max(round(reac_volume, 1) * 2 SECONDS * (1 - touch_protection), 4 SECONDS)
 		exposed_mob.adjust_drowsiness(drowsiness_to_apply)
 	if(methods & INHALE)
-		exposed_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25 * reac_volume, required_organ_flag = affected_organ_flags)
+		exposed_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * reac_volume, required_organ_flag = affected_organ_flags)
 		exposed_mob.adjust_hallucinations(10 SECONDS * reac_volume)
 
 /datum/reagent/nitrous_oxide/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
 	if(!HAS_TRAIT(affected_mob, TRAIT_COAGULATING)) //IF the mob does not have a coagulant in them, we add the blood mess trait to make the bleed quicker
-		ADD_TRAIT(affected_mob, TRAIT_BLOODY_MESS, type)
+		ADD_TRAIT(affected_mob, TRAIT_BLOOD_FOUNTAIN, type)
 
 /datum/reagent/nitrous_oxide/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
-	REMOVE_TRAIT(affected_mob, TRAIT_BLOODY_MESS, type)
+	REMOVE_TRAIT(affected_mob, TRAIT_BLOOD_FOUNTAIN, type)
 
 /datum/reagent/nitrous_oxide/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	affected_mob.adjust_drowsiness(4 SECONDS * REM * seconds_per_tick)
 
-	if(!HAS_TRAIT(affected_mob, TRAIT_BLOODY_MESS) && !HAS_TRAIT(affected_mob, TRAIT_COAGULATING)) //So long as they do not have a coagulant, if they did not have the bloody mess trait, they do now
-		ADD_TRAIT(affected_mob, TRAIT_BLOODY_MESS, type)
+	if(!HAS_TRAIT(affected_mob, TRAIT_BLOOD_FOUNTAIN) && !HAS_TRAIT(affected_mob, TRAIT_COAGULATING)) //So long as they do not have a coagulant, if they did not have the bloody mess trait, they do now
+		ADD_TRAIT(affected_mob, TRAIT_BLOOD_FOUNTAIN, type)
 
 	else if(HAS_TRAIT(affected_mob, TRAIT_COAGULATING)) //if we find they now have a coagulant, we remove the trait
-		REMOVE_TRAIT(affected_mob, TRAIT_BLOODY_MESS, type)
+		REMOVE_TRAIT(affected_mob, TRAIT_BLOOD_FOUNTAIN, type)
 
 	if(SPT_PROB(10, seconds_per_tick))
 		affected_mob.losebreath += 2
@@ -1738,8 +1749,8 @@
 /datum/reagent/plantnutriment/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(SPT_PROB(tox_prob, seconds_per_tick))
-		var/flipped_number = (affected_mob.mob_biotypes & MOB_PLANT) ? -1 : 1 //NOVA EDIT ADDITION: Plant mobs will be healed instead
-		if(affected_mob.adjustToxLoss(flipped_number, updating_health = FALSE, required_biotype = affected_biotype)) // NOVA EDIT CHANGE - ORIGINAL: if(affected_mob.adjustToxLoss(1, updating_health = FALSE, required_biotype = affected_biotype))
+		var/flipped_number = (affected_mob.mob_biotypes & MOB_PLANT) ? -1 : 1 // NOVA EDIT ADDITION: Plant mobs will be healed instead
+		if(affected_mob.adjust_tox_loss(flipped_number, updating_health = FALSE, required_biotype = affected_biotype)) // NOVA EDIT CHANGE - ORIGINAL: if(affected_mob.adjust_tox_loss(1, updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
 
 /datum/reagent/plantnutriment/eznutriment
@@ -2075,21 +2086,21 @@
 
 /datum/reagent/pentaerythritol
 	name = "Pentaerythritol"
-	description = "Slow down, it ain't no spelling bee!"
-	color = "#E66FFF"
+	description = "A crystalline compound used in the synthesis of explosives and other chemicals."
+	color = "#EEEEEF"
 	taste_description = "acid"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/acetaldehyde
 	name = "Acetaldehyde"
-	description = "Similar to plastic. Tastes like dead people."
+	description = "A colorless liquid with a strong smell. Used in the synthesis of other chemicals."
 	color = "#EEEEEF"
 	taste_description = "dead people" //made from formaldehyde, ya get da joke ?
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/acetone_oxide
 	name = "Acetone Oxide"
-	description = "Enslaved oxygen"
+	description = "A highly reactive compoud derived from acetone. Known to cause burns on contact. Used in the synthesis of various explosives."
 	color = "#966199cb"
 	taste_description = "acid"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2102,7 +2113,7 @@
 	var/damage_to_inflict = 2 * max(1 - touch_protection, 0)
 
 	if(damage_to_inflict)
-		exposed_mob.adjustFireLoss(damage_to_inflict)
+		exposed_mob.adjust_fire_loss(damage_to_inflict)
 
 	exposed_mob.adjust_fire_stacks((reac_volume / 10))
 
@@ -2116,7 +2127,7 @@
 
 /datum/reagent/ash
 	name = "Ash"
-	description = "Supposedly phoenixes rise from these, but you've never seen it."
+	description = "A fine ash. Supposedly phoenixes rise from these, but you've never seen it."
 	color = "#515151"
 	taste_description = "ash"
 	ph = 6.5
@@ -2474,12 +2485,18 @@
 /datum/reagent/romerol/expose_mob(mob/living/carbon/human/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
 	// Silently add the zombie infection organ to be activated upon death
-	if(exposed_mob.get_organ_slot(ORGAN_SLOT_ZOMBIE))
-		return
-
-	if((methods & (PATCH|INGEST|INJECT|INHALE)) || ((methods & (VAPOR|TOUCH)) && prob(min(reac_volume,100)*(1 - touch_protection))))
+	if(can_infect(exposed_mob, reac_volume, methods))
 		var/obj/item/organ/zombie_infection/nodamage/zombie_infection = new()
 		zombie_infection.Insert(exposed_mob)
+
+/datum/reagent/romerol/proc/can_infect(mob/living/carbon/human/exposed_mob, reac_volume = 5, methods = INGEST)
+	if(exposed_mob.get_organ_slot(ORGAN_SLOT_ZOMBIE))
+		return FALSE
+	if(methods & (PATCH|INGEST|INJECT|INHALE))
+		return TRUE
+	if(reac_volume >= 1)
+		return TRUE
+	return FALSE
 
 /datum/reagent/magillitis
 	name = "Magillitis"
@@ -2531,7 +2548,7 @@
 
 /datum/reagent/plastic_polymers
 	name = "Plastic Polymers"
-	description = "the petroleum based components of plastic."
+	description = "Petroleum based components of plastic."
 	color = "#f7eded"
 	taste_description = "plastic"
 	ph = 6
@@ -2540,7 +2557,7 @@
 /datum/reagent/glitter
 	name = "Glitter"
 	description = "The herpes of arts and crafts."
-	data = list("colors"=list(COLOR_WHITE = 100))
+	data = list("colors" = list(COLOR_WHITE = 100))
 	color = COLOR_WHITE //pure white
 	taste_description = "plastic"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2553,6 +2570,7 @@
 
 /datum/reagent/glitter/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
+
 	if(!istype(exposed_turf))
 		return
 	exposed_turf.spawn_glitter(data["colors"])
@@ -2561,7 +2579,7 @@
 	. = ..()
 
 	if(src.data["colors"])
-		color = pick(src.data["colors"])
+		color = pick_weight(src.data["colors"])
 	else
 		color = COLOR_WHITE
 
@@ -2574,32 +2592,25 @@
 		data["colors"] = blend_weighted_lists(mix_data["colors"], data["colors"], prop_current)
 
 	if(data["colors"])
-		color = pick(data["colors"])
+		color = pick_weight(data["colors"])
 	else
 		color = COLOR_WHITE
 
 /datum/reagent/glitter/random
-	name = "Unrandomised Randomised Glitter"
-	description = "You shouldn't be seeing this, please make an issue report describing how you found it."
-
-	var/list/possible_colors = list(
-		list(COLOR_WHITE = 100),
-		list("#ff8080" = 100),
-		list("#4040ff" = 100),
-		list("#ff5555" = 34, "#55ff55" = 33, "#5555ff" = 33),
+	name = "Glitter (Random)"
+	// The weighted list of random color choices that can be chosen upon spawning
+	var/static/list/possible_colors = list(
+		COLOR_WHITE = 25,
+		"#ff8080" = 25,
+		"#4040ff" = 25,
+		"#ff5555" = 8,
+		"#55ff55" = 9,
+		"#5555ff" = 8,
 	)
 
 /datum/reagent/glitter/random/on_new(data)
-	. = ..()
-
-	var/list/color_list = pick(possible_colors)
-
-	var/datum/reagents/our_holder = src.holder
-	var/our_volume = src.volume
-	var/list/our_data = list("colors" = color_list)
-
-	our_holder.remove_reagent(/datum/reagent/glitter/random, our_volume)
-	our_holder.add_reagent(/datum/reagent/glitter, our_volume, data = our_data)
+	src.data["colors"] = possible_colors
+	return ..()
 
 /datum/reagent/confetti
 	name = "Confetti"
@@ -2670,8 +2681,8 @@
 	. = ..()
 	var/healthcomp = (100 - affected_mob.health) //DOES NOT ACCOUNT FOR ADMINBUS THINGS THAT MAKE YOU HAVE MORE THAN 200/210 HEALTH, OR SOMETHING OTHER THAN A HUMAN PROCESSING THIS.
 	. = FALSE
-	if(affected_mob.getStaminaLoss() < (45 - healthcomp)) //At 50 health you would have 200 - 150 health meaning 50 compensation. 60 - 50 = 10, so would only do 10-19 stamina.)
-		if(affected_mob.adjustStaminaLoss(10 * REM * seconds_per_tick, updating_stamina = FALSE))
+	if(affected_mob.get_stamina_loss() < (45 - healthcomp)) //At 50 health you would have 200 - 150 health meaning 50 compensation. 60 - 50 = 10, so would only do 10-19 stamina.)
+		if(affected_mob.adjust_stamina_loss(10 * REM * seconds_per_tick, updating_stamina = FALSE))
 			. = UPDATE_MOB_HEALTH
 	if(SPT_PROB(16, seconds_per_tick))
 		to_chat(affected_mob, "You should sit down and take a rest...")
@@ -2876,7 +2887,7 @@
 		for(var/thing in affected_mob.all_wounds)
 			var/datum/wound/W = thing
 			stam_crash += (W.severity + 1) * 3 // spike of 3 stam damage per wound severity (moderate = 6, severe = 9, critical = 12) when the determination wears off if it was a combat rush
-		affected_mob.adjustStaminaLoss(stam_crash)
+		affected_mob.adjust_stamina_loss(stam_crash)
 	affected_mob.remove_status_effect(/datum/status_effect/determined)
 
 /datum/reagent/determination/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
@@ -2892,7 +2903,7 @@
 		var/obj/item/bodypart/wounded_part = W.limb
 		if(wounded_part)
 			wounded_part.heal_damage(0.25 * REM * seconds_per_tick, 0.25 * REM * seconds_per_tick)
-		if(affected_mob.adjustStaminaLoss(-1 * REM * seconds_per_tick, updating_stamina = FALSE)) // the more wounds, the more stamina regen
+		if(affected_mob.adjust_stamina_loss(-1 * REM * seconds_per_tick, updating_stamina = FALSE)) // the more wounds, the more stamina regen
 			return UPDATE_MOB_HEALTH
 
 // unholy water, but for heretics.
@@ -2916,19 +2927,23 @@
 	if(IS_HERETIC_OR_MONSTER(drinker))
 		drinker.adjust_drowsiness(-10 * REM * seconds_per_tick)
 		drinker.AdjustAllImmobility(-40 * REM * seconds_per_tick)
-		need_mob_update += drinker.adjustStaminaLoss(-10 * REM * seconds_per_tick, updating_stamina = FALSE)
-		need_mob_update += drinker.adjustToxLoss(-2 * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE)
-		need_mob_update += drinker.adjustOxyLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += drinker.adjustBruteLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += drinker.adjustFireLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		if(drinker.blood_volume < BLOOD_VOLUME_NORMAL)
-			drinker.blood_volume += 3 * REM * seconds_per_tick
+		need_mob_update += drinker.adjust_stamina_loss(-10 * REM * seconds_per_tick, updating_stamina = FALSE)
+		need_mob_update += drinker.adjust_tox_loss(-2 * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE)
+		need_mob_update += drinker.adjust_oxy_loss(-2 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += drinker.adjust_brute_loss(-2 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += drinker.adjust_fire_loss(-2 * REM * seconds_per_tick, updating_health = FALSE)
+		drinker.adjust_blood_volume(3 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL)
+		// Slowly regulates your body temp
+		drinker.adjust_bodytemperature((drinker.get_body_temp_normal() - drinker.bodytemperature) / 5)
+		for(var/datum/reagent/reagent as anything in drinker.reagents.reagent_list)
+			if(reagent != src)
+				drinker.reagents.remove_reagent(reagent.type, 2 * reagent.purge_multiplier * REM * seconds_per_tick)
 	else
-		need_mob_update = drinker.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
-		need_mob_update += drinker.adjustToxLoss(2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += drinker.adjustFireLoss(2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += drinker.adjustOxyLoss(2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += drinker.adjustBruteLoss(2 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update = drinker.adjust_organ_loss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
+		need_mob_update += drinker.adjust_tox_loss(2 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += drinker.adjust_fire_loss(2 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += drinker.adjust_oxy_loss(2 * REM * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += drinker.adjust_brute_loss(2 * REM * seconds_per_tick, updating_health = FALSE)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
@@ -2987,7 +3002,7 @@
 
 /datum/reagent/ants/on_mob_life(mob/living/carbon/victim, seconds_per_tick)
 	. = ..()
-	victim.adjustBruteLoss(max(0.1, round((ant_ticks * ant_damage),0.1))) //Scales with time. Roughly 32 brute with 100u.
+	victim.adjust_brute_loss(max(0.1, round((ant_ticks * ant_damage),0.1))) //Scales with time. Roughly 32 brute with 100u.
 	ant_ticks++
 	if(ant_ticks < 5) // Makes ant food a little more appetizing, since you won't be screaming as much.
 		return
@@ -3072,7 +3087,7 @@
 
 /datum/reagent/lead/on_mob_life(mob/living/carbon/victim)
 	. = ..()
-	if(victim.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.5))
+	if(victim.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5))
 		return UPDATE_MOB_HEALTH
 
 //The main feedstock for kronkaine production, also a shitty stamina healer.
@@ -3088,8 +3103,8 @@
 /datum/reagent/kronkus_extract/on_mob_life(mob/living/carbon/kronkus_enjoyer, seconds_per_tick)
 	. = ..()
 	var/need_mob_update
-	need_mob_update = kronkus_enjoyer.adjustOrganLoss(ORGAN_SLOT_HEART, 0.2 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
-	need_mob_update += kronkus_enjoyer.adjustStaminaLoss(-6, updating_stamina = FALSE)
+	need_mob_update = kronkus_enjoyer.adjust_organ_loss(ORGAN_SLOT_HEART, 0.2 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
+	need_mob_update += kronkus_enjoyer.adjust_stamina_loss(-6, updating_stamina = FALSE)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
@@ -3102,7 +3117,7 @@
 
 /datum/reagent/brimdust/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	if(affected_mob.adjustFireLoss((ispodperson(affected_mob) ? -1 : 1 * seconds_per_tick), updating_health = FALSE))
+	if(affected_mob.adjust_fire_loss((ispodperson(affected_mob) ? -1 : 1 * seconds_per_tick), updating_health = FALSE))
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/brimdust/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
@@ -3158,15 +3173,16 @@
 	ph = 10
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-//gives 20 seconds of haunting effect for every unit of it that touches an object
+//gives 20 seconds of haunting effect for every unit of it that touches an item
 /datum/reagent/hauntium/expose_obj(obj/exposed_obj, reac_volume, methods=TOUCH, show_message=TRUE)
 	. = ..()
 	if(!isitem(exposed_obj))
 		return
-	if(HAS_TRAIT_FROM(exposed_obj, TRAIT_HAUNTED, HAUNTIUM_REAGENT_TRAIT))
+	var/obj/item/exposed_item = exposed_obj
+	if(HAS_TRAIT_FROM(exposed_item, TRAIT_HAUNTED, HAUNTIUM_REAGENT_TRAIT))
 		return
-	exposed_obj.make_haunted(HAUNTIUM_REAGENT_TRAIT, "#f8f8ff")
-	addtimer(CALLBACK(exposed_obj, TYPE_PROC_REF(/atom/movable/, remove_haunted), HAUNTIUM_REAGENT_TRAIT), reac_volume * 20 SECONDS)
+	exposed_item.make_haunted(HAUNTIUM_REAGENT_TRAIT, "#f8f8ff")
+	addtimer(CALLBACK(exposed_item, TYPE_PROC_REF(/obj/item/, remove_haunted), HAUNTIUM_REAGENT_TRAIT), reac_volume * 20 SECONDS)
 
 /datum/reagent/hauntium/on_mob_metabolize(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -3186,7 +3202,7 @@
 		affected_mob.AdjustParalyzed(-5 SECONDS * REM * seconds_per_tick)
 		affected_mob.AdjustImmobilized(-5 SECONDS * REM * seconds_per_tick)
 	else
-		if(affected_mob.adjustOrganLoss(ORGAN_SLOT_HEART, REM * seconds_per_tick)) //1 heart damage per tick
+		if(affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART, REM * seconds_per_tick)) //1 heart damage per tick
 			. = UPDATE_MOB_HEALTH
 		if(SPT_PROB(10, seconds_per_tick))
 			affected_mob.emote(pick("twitch","choke","shiver","gag"))
@@ -3231,8 +3247,7 @@
 	RegisterSignal(affected_human, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_organ_removed))
 	var/obj/item/organ/eyes/eyes = affected_human.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes && !IS_ROBOTIC_ORGAN(eyes))
-		prev_ignore_lighting = eyes.overlay_ignore_lighting
-		eyes.overlay_ignore_lighting = TRUE
+		ADD_TRAIT(affected_human, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -3244,7 +3259,7 @@
 	affected_human.remove_eye_color(EYE_COLOR_LUMINESCENT_PRIORITY)
 	var/obj/item/organ/eyes/eyes = affected_human.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes && !IS_ROBOTIC_ORGAN(eyes) && !overdosed)
-		eyes.overlay_ignore_lighting = prev_ignore_lighting
+		REMOVE_TRAIT(affected_human, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/on_mob_life(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -3256,21 +3271,20 @@
 		added_light = TRUE
 
 	if (SPT_PROB(8, seconds_per_tick))
-		if(affected_mob.adjustToxLoss(1, updating_health = FALSE))
+		if(affected_mob.adjust_tox_loss(1, updating_health = FALSE))
 			return UPDATE_MOB_HEALTH
 
 /datum/reagent/luminescent_fluid/proc/on_organ_added(mob/living/source, obj/item/organ/eyes/new_eyes)
 	SIGNAL_HANDLER
 
 	if (istype(new_eyes) && !IS_ROBOTIC_ORGAN(new_eyes))
-		prev_ignore_lighting = new_eyes.overlay_ignore_lighting
-		new_eyes.overlay_ignore_lighting = TRUE
+		ADD_TRAIT(source, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/proc/on_organ_removed(mob/living/source, obj/item/organ/eyes/old_eyes)
 	SIGNAL_HANDLER
 
 	if (istype(old_eyes) && !IS_ROBOTIC_ORGAN(old_eyes) && !overdosed)
-		old_eyes.overlay_ignore_lighting = prev_ignore_lighting
+		REMOVE_TRAIT(source, TRAIT_LUMINESCENT_EYES, REF(src))
 
 /datum/reagent/luminescent_fluid/overdose_start(mob/living/affected_mob)
 	. = ..()

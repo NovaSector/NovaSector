@@ -46,10 +46,10 @@
 	custom_materials = AMMO_MATS_EMP
 
 // ammo boxes
-/obj/item/ammo_box/c38
+/obj/item/ammo_box/speedloader/c38
 	caliber = CALIBER_38
 
-/obj/item/ammo_box/c38/haywire
+/obj/item/ammo_box/speedloader/c38/haywire
 	name = "speed loader (.38 Haywire)"
 	desc = "Designed to quickly reload revolvers. These rounds create small electromagnetic pulses upon impact."
 	ammo_type = /obj/item/ammo_casing/c38/haywire
@@ -96,7 +96,7 @@
 
 // ammo boxes
 
-/obj/item/ammo_box/a357/haywire
+/obj/item/ammo_box/speedloader/c357/haywire
 	name = "speed loader (.357 Haywire+)"
 	desc = "Designed to quickly reload revolvers. These rounds create small, but powerful electromagnetic pulses upon impact."
 	ammo_type = /obj/item/ammo_casing/c357/haywire
@@ -221,6 +221,17 @@
 		<i>RUBBER: Less than lethal ammo. Deals both stamina damage and regular damage.</i>"
 	projectile_type = /obj/projectile/bullet/c10mm/rubber
 	ammo_categories = AMMO_CLASS_NONE
+	harmful = FALSE
+
+/obj/item/ammo_casing/c10mm/downer
+	name = "10mm downer bullet casing"
+	desc = "A 10mm downer bullet casing.\
+		<br><br>\
+		<i>DOWNER: Nonlethal ammo. Deals heavy stamina damage. Fully exhausted targets go to sleep. \
+		Partially exhausted targets have a chance to sleep, scaling with how much exhaustion they have. \
+		Inflicts drowsiness, regardless.</i>"
+	projectile_type = /obj/projectile/bullet/c10mm/downer
+	ammo_categories = AMMO_CLASS_SUPER_LTL
 	harmful = FALSE
 
 /obj/item/ammo_casing/c10mm/reaper

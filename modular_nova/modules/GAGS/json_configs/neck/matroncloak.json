@@ -1,0 +1,22 @@
+{
+	"matroncloak": [
+		{
+			"type": "icon_state",
+			"icon_state": "matroncloak_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+				{
+			"type": "icon_state",
+			"icon_state": "matroncloak_fluff",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+				{
+			"type": "icon_state",
+			"icon_state": "matroncloak_gem",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

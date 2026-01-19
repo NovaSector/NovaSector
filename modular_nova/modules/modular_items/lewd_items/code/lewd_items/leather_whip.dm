@@ -13,6 +13,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	hitsound = 'sound/items/weapons/whip.ogg'
 	clothing_flags = INEDIBLE_CLOTHING
+	obj_flags_nova = ERP_ITEM
 	//When taking that thing in mouth
 	flags_cover = MASKCOVERSMOUTH
 	var/modifies_speech = TRUE

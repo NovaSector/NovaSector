@@ -29,8 +29,8 @@
 		GLOB.all_loadout_datums[spawned_type.item_path] = spawned_type
 		. |= spawned_type
 
-
 /datum/loadout_item
+	loadout_flags = LOADOUT_FLAG_ALLOW_NAMING // ORIGINAL: var/loadout_flags = NONE
 	/// If set, it's a list containing ckeys which only can get the item
 	var/list/ckeywhitelist
 	/// If set, is a list of job names of which can get the loadout item
@@ -38,13 +38,17 @@
 	/// If set, is a list of job names of which can't get the loadout item
 	var/list/blacklisted_roles
 	/// If set, is a list of species which can get the loadout item
-	var/list/restricted_species
+	var/list/species_whitelist
+	/// If set, is a list of species which can't get the loadout item
+	var/list/species_blacklist
 	/// Whether the item is restricted to supporters
 	var/donator_only
 	/// Whether the item is restricted to Nova stars.
 	var/nova_stars_only
 	/// Whether the item requires a specific season in order to be available
 	var/required_season = null
+	/// Is the loadout item a mechanical item? If so, it will be blocked by 'allow_mechanical_loadout_items' under some circumstances
+	var/mechanical_item = FALSE
 	/// If the item won't appear when the ERP config is disabled
 	var/erp_item = FALSE
 	/// If the item goes into the special erp box
@@ -88,52 +92,78 @@
 
 /**
  * Called before a loadout item is given to a mob, making sure that they're
- * elligible to receive it, based on all of that item's restrictions, if any.
+ * eligible to receive it, based on all of that item's restrictions, if any.
  *
  * Returns `TRUE` if `target` is allowed to receive this item, `FALSE` if not.
  */
-/datum/loadout_item/proc/can_be_applied_to(mob/living/target, datum/preferences/preference_source, datum/job/equipping_job, silent = FALSE)
+/datum/loadout_item/proc/can_be_applied_to(mob/living/target, datum/preferences/preference_source, datum/job/equipping_job, allow_mechanical_loadout_items = TRUE, visuals_only)
 	var/client/client = preference_source.parent
-	if(restricted_roles && equipping_job && !(equipping_job.title in restricted_roles))
-		if(client && !silent)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to job restrictions!"))
-		return FALSE
 
-	if(blacklisted_roles && equipping_job && (equipping_job.title in blacklisted_roles))
-		if(client && !silent)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to job blacklists!"))
-		return FALSE
+	// mechanical restrictions come first
+	if(!allow_mechanical_loadout_items && !equipping_job && mechanical_item)
+		return message_client(client, target, "this ghost role not allowing it")
 
-	if(iscarbon(target))
-		var/mob/living/carbon/carbon_target = target
-		var/datum/dna/dna = carbon_target.dna
-		if(!istype(dna) || (restricted_species && !(dna.species.id in restricted_species)))
-			if(client && !silent)
-				to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to species restrictions!"))
+	// job restrictions
+	if(equipping_job)
+		var/title = equipping_job.title
+
+		if(restricted_roles && !(title in restricted_roles))
+			if(!visuals_only)
+				message_client(client, target, "job restrictions")
 			return FALSE
 
+		if(blacklisted_roles && (title in blacklisted_roles))
+			if(!visuals_only)
+				message_client(client, target, "job blacklist")
+			return FALSE
+
+	// species restrictions
+	if(iscarbon(target))
+		var/mob/living/carbon/carbon_mob = target
+		var/datum/dna/dna = carbon_mob.dna
+		if(!dna)
+			return FALSE
+
+		var/spec = dna.species.id
+
+		if(species_whitelist && !(spec in species_whitelist))
+			if(!visuals_only)
+				message_client(client, target, "species restrictions")
+			return FALSE
+		else if(species_blacklist && (spec in species_blacklist))
+			if(!visuals_only)
+				message_client(client, target, "species restrictions")
+			return FALSE
+
+	// donor/star
 	if(donator_only && !SSplayer_ranks.is_donator(client))
-		if(client && !silent)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a donator!"))
+		if(!visuals_only)
+			message_client(client, target, "donator")
 		return FALSE
 
 	if(nova_stars_only && !SSplayer_ranks.is_nova_star(client))
-		if(client && !silent)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a Nova star!"))
+		if(!visuals_only)
+			message_client(client, target, "Nova star")
 		return FALSE
 
+	// ckey restrictions
 	if(LAZYLEN(ckeywhitelist) && !(client?.ckey in ckeywhitelist))
-		if(client && !silent)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being apart of its CKEY whitelist!"))
+		if(!visuals_only)
+			message_client(client, target, "CKEY whitelist")
 		return FALSE
 
 	return TRUE
 
+/// Tells the client we couldn't equip their item
+/datum/loadout_item/proc/message_client(client, target, msg)
+	if(client)
+		to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to [msg]!"))
+	return FALSE
 
 /datum/loadout_item/get_ui_buttons()
 	var/list/buttons = ..()
 
-	if(can_be_named)
+	if(loadout_flags & LOADOUT_FLAG_ALLOW_NAMING)
 		UNTYPED_LIST_ADD(buttons, list(
 			"label" = "Change description",
 			"act_key" = "set_description",
@@ -148,7 +178,7 @@
 	formatted_item["ckey_whitelist"] = ckeywhitelist
 	formatted_item["restricted_roles"] = restricted_roles
 	formatted_item["blacklisted_roles"] = blacklisted_roles
-	formatted_item["restricted_species"] = restricted_species
+	formatted_item["species_whitelist"] = species_whitelist
 	formatted_item["donator_only"] = donator_only
 	formatted_item["nova_stars_only"] = nova_stars_only
 
@@ -156,7 +186,7 @@
 
 
 /datum/loadout_item/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action, params)
-	if(action == "set_description" && can_be_named)
+	if(action == "set_description" && (loadout_flags & LOADOUT_FLAG_ALLOW_NAMING))
 		return set_description(manager, user)
 
 	return ..()

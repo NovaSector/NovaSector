@@ -8,6 +8,7 @@
 	desc = "A fleshy growth that was dug out of the skull of a Nightmare."
 	icon = 'icons/obj/medical/organs/organs.dmi'
 	icon_state = "brain-x-d"
+	shade_color = "black, somehow"
 
 	///Our associated shadow jaunt spell, for all nightmares
 	var/datum/action/cooldown/spell/jaunt/shadow_walk/our_jaunt
@@ -46,8 +47,6 @@
 
 /datum/status_effect/shadow/nightmare
 	id = "nightmare"
-	duration = 2 SECONDS
-	status_type = STATUS_EFFECT_REFRESH
 	alert_type = /atom/movable/screen/alert/status_effect/shadow_regeneration/nightmare
 
 /datum/status_effect/shadow/nightmare/on_apply()

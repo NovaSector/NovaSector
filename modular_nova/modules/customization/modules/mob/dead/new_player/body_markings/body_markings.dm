@@ -13,7 +13,7 @@
 	///Which bodyparts does the marking affect in BITFLAGS!! (HEAD, CHEST, ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT, LEG_RIGHT, LEG_LEFT)
 	var/affected_bodyparts
 	///Which species is this marking recommended to. Important for randomisations.
-	var/recommended_species = list(SPECIES_MAMMAL)
+	var/list/recommended_species = list(SPECIES_MAMMAL = TRUE)
 	///If this is on the color customization will show up despite the pref settings, it will also cause the marking to not reset colors to match the defaults
 	var/always_color_customizable
 	///Whether the body marking sprite is the same for both sexes or not. Only relevant for chest right now.
@@ -22,21 +22,23 @@
 /datum/body_marking/New()
 	if(!default_color)
 		default_color = "#FFFFFF"
+	if(recommended_species)
+		recommended_species = string_assoc_list(recommended_species)
 
-/datum/body_marking/proc/get_default_color(list/features, datum/species/pref_species) //Needs features for the color information
+/datum/body_marking/proc/get_default_color(list/features, datum/species/species) //Needs features for the color information
 	var/list/colors
 	switch(default_color)
 		if(DEFAULT_PRIMARY)
-			colors = sanitize_hexcolor(features["mcolor"])
+			colors = features[FEATURE_MUTANT_COLOR]
 		if(DEFAULT_SECONDARY)
-			colors = sanitize_hexcolor(features["mcolor2"])
+			colors = features[FEATURE_MUTANT_COLOR_TWO]
 		if(DEFAULT_TERTIARY)
-			colors = sanitize_hexcolor(features["mcolor3"])
+			colors = features[FEATURE_MUTANT_COLOR_THREE]
 		if(DEFAULT_SKIN_OR_PRIMARY)
-			if(pref_species && !(TRAIT_USES_SKINTONES in pref_species.inherent_traits))
-				colors = sanitize_hexcolor(features["skin_color"])
+			if(species && !(TRAIT_USES_SKINTONES in species.inherent_traits))
+				colors = features[FEATURE_SKIN_COLOR]
 			else
-				colors = sanitize_hexcolor(features["mcolor"])
+				colors = features[FEATURE_MUTANT_COLOR]
 		else
 			colors = default_color
 
@@ -98,18 +100,24 @@
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
-/datum/body_marking/other/monster_mouth2
+/datum/body_marking/other/monster_mouth_white
 	name = "Monster Mouth (White)"
-	icon_state = "monster2"
+	icon_state = "monster_white"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
-/datum/body_marking/other/monster_mouth3
+/datum/body_marking/other/monster_mouth_white2
 	name = "Monster Mouth (White, eye-compatible)"
-	icon_state = "monster3"
+	icon_state = "monster_white2"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 //you're welcome -- iska
+
+/datum/body_marking/other/monster_mouth2
+	name = "Monster Mouth 2"
+	icon_state = "monster2"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
 
 /datum/body_marking/other/nose_blemish
 	name = "Nose Blemish"
@@ -191,6 +199,13 @@
 /datum/body_marking/other/four_eyes
 	name = "Four Eyes"
 	icon_state = "4eyes"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
+/datum/body_marking/other/sclera
+	name = "Sclera"
+	icon_state = "sclera"
 	default_color = "#FF0000"
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE
@@ -308,6 +323,16 @@
 	affected_bodyparts = CHEST
 	gendered = FALSE
 
+/datum/body_marking/other/chemlight
+	name = "Bands and Stripes"
+	icon_state = "chemlight"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/back_stripe
+	name = "Back Stripe"
+	icon_state = "backstripe"
+	affected_bodyparts = HEAD | CHEST
+
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'
 	default_color = DEFAULT_SECONDARY
@@ -315,44 +340,50 @@
 /datum/body_marking/secondary/teshari
 	name = "Teshari"
 	icon_state = "teshari"
-	recommended_species = list(SPECIES_TESHARI)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT
 
 /datum/body_marking/secondary/teshari_plain
 	name = "Teshari Plain"
 	icon_state = "teshari_plain"
-	recommended_species = list(SPECIES_TESHARI)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_coat
 	name = "Teshari Coat"
 	icon_state = "teshari_coat"
-	recommended_species = list(SPECIES_TESHARI)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_underfluff
 	name = "Teshari Underfluff"
 	icon_state = "teshari_underfluff"
-	recommended_species = list(SPECIES_TESHARI)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_short
 	name = "Teshari Short"
 	icon_state = "teshari_short"
-	recommended_species = list(SPECIES_TESHARI)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_feathers_male
 	name = "Teshari Feathers (Male)"
 	icon_state = "teshari_feathers_male"
-	recommended_species = list(SPECIES_TESHARI)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary/teshari_feathers_female
 	name = "Teshari Feathers (Female)"
 	icon_state = "teshari_feathers_female"
-	recommended_species = list(SPECIES_TESHARI)
+	recommended_species = list(SPECIES_TESHARI = 1)
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/secondary/teshari_lashes
+	name = "Teshari Lashes"
+	icon_state = "teshari_lashes"
+	recommended_species = list(SPECIES_TESHARI = 1)
+	affected_bodyparts = HEAD
 
 /datum/body_marking/secondary/tajaran
 	name = "Tajaran"
@@ -528,7 +559,7 @@
 	name = "Xeno"
 	icon_state = "xeno"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
-	recommended_species = list(SPECIES_XENO)
+	recommended_species = list(SPECIES_XENO = 1)
 
 /datum/body_marking/secondary/datashark
 	name = "Datashark"
@@ -608,6 +639,11 @@
 /datum/body_marking/secondary/insectoid
 	name = "Insectoid"
 	icon_state = "insect"
+	affected_bodyparts = CHEST
+
+/datum/body_marking/secondary/bellyoutline
+	name = "Belly Outline"
+	icon_state = "chembelly_trim"
 	affected_bodyparts = CHEST
 
 /datum/body_marking/tertiary
@@ -728,7 +764,7 @@
 	name = "Xeno Head"
 	icon_state = "xeno"
 	affected_bodyparts = HEAD
-	recommended_species = list(SPECIES_XENO)
+	recommended_species = list(SPECIES_XENO = 1)
 
 /datum/body_marking/tertiary/dtiger
 	name = "Dark Tiger Body"
@@ -750,11 +786,16 @@
 	icon_state = "insect_trim"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_LEFT | LEG_RIGHT
 
+/datum/body_marking/tertiary/chemlight
+	name = "Bands and Stripes (Alt)"
+	icon_state = "chem_light"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
 /datum/body_marking/tattoo
 	icon = 'modular_nova/master_files/icons/mob/body_markings/tattoo_markings.dmi'
 	recommended_species = null
 	default_color = "#112222" //slightly faded ink.
-	always_color_customizable = TRUE
+	always_color_customizable = 1
 	gendered = FALSE
 
 /datum/body_marking/tattoo/heart

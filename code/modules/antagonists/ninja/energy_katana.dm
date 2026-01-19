@@ -72,7 +72,7 @@
 /datum/action/innate/dash/ninja
 	current_charges = 3
 	max_charges = 3
-	charge_rate = 350 //NOVA EDIT CHANGE - ORIGINAL: 200
+	charge_rate = 200
 	beam_length = 1 SECONDS
 	recharge_sound = null
 
@@ -88,7 +88,7 @@
 	var/obj/item/sword = target
 	if(length(line) <= 1 || !teleport(user, line[length(line) - 1])) // teleports to the second last turf, should be adjacent to the target
 		return
-	if(!user.CanReach(stabbing, target))
+	if(!stabbing.IsReachableBy(user, sword?.reach))
 		return
 	sword.melee_attack_chain(user, stabbing)
 	if(prob(5) && check_holidays(APRIL_FOOLS))

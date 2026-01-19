@@ -4,10 +4,10 @@
 #define SATURATED_ALLOY_EXPORT_MODIFIER 0.13
 
 /datum/export/material/market
-	k_recovery_elasticity = 1/45 //roughly 30 minutes of recovery
+	k_recovery_time = 30 MINUTES
 
 /datum/export/stack
-	k_recovery_elasticity = 1/45 //roughly 30 minutes of recovery
+	k_recovery_time = 30 MINUTES
 
 /datum/export/stack/plasteel
 	cost = CARGO_CRATE_VALUE * 0.41 * MATERIAL_EXPORT_MODIFIER // CCV*0.41 is tg original

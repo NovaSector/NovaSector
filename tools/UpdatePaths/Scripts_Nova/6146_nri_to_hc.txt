@@ -1,0 +1,9 @@
+/obj/item/clothing/under/colonial/nri_police : /obj/item/clothing/under/colonial/hc_police{@OLD}
+/obj/item/clothing/neck/cloak/colonial/nri_police : /obj/item/clothing/neck/cloak/colonial/hc_police{@OLD}
+/obj/item/clothing/head/hats/colonial/nri_police : /obj/item/clothing/head/hats/colonial/hc_police{@OLD}
+/obj/item/clothing/mask/gas/nri_police : /obj/item/clothing/mask/gas/hc_police{@OLD}
+/obj/item/clothing/head/helmet/nri_police : /obj/item/clothing/head/helmet/hc_police{@OLD}
+/obj/item/clothing/suit/armor/vest/nri_police : /obj/item/clothing/suit/armor/vest/hc_police{@OLD}
+/obj/item/clothing/suit/armor/vest/nri_police_jacket : /obj/item/clothing/suit/armor/vest/hc_police_jacket{@OLD}
+/obj/item/clothing/suit/armor/vest/nri_police_jacket/suit : /obj/item/clothing/suit/armor/vest/hc_police_jacket/suit{@OLD}
+/obj/item/clothing/head/soft/nri_police : /obj/item/clothing/head/soft/hc_police{@OLD}

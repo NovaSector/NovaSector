@@ -1,48 +1,48 @@
 /datum/voucher_set/traitor/supplies/ammo
 
 /datum/voucher_set/traitor/supplies/ammo/a357_heartseeker
-	name = /obj/item/ammo_box/a357/heartseeker::name
-	description = /obj/item/ammo_box/a357/heartseeker::desc
-	icon = /obj/item/ammo_box/a357/heartseeker::icon
-	icon_state = /obj/item/ammo_box/a357/heartseeker::icon_state
+	name = /obj/item/ammo_box/speedloader/c357/heartseeker::name
+	description = /obj/item/ammo_box/speedloader/c357/heartseeker::desc
+	icon = /obj/item/ammo_box/speedloader/c357/heartseeker::icon
+	icon_state = /obj/item/ammo_box/speedloader/c357/heartseeker::icon_state
 	set_items = list(
-		/obj/item/ammo_box/a357/heartseeker,
+		/obj/item/ammo_box/speedloader/c357/heartseeker,
 	)
 
 /datum/voucher_set/traitor/supplies/ammo/a357_trickshot
-	name = /obj/item/ammo_box/a357/match::name
-	description = /obj/item/ammo_box/a357/match::desc
-	icon = /obj/item/ammo_box/a357/match::icon
-	icon_state = /obj/item/ammo_box/a357/match::icon_state
+	name = /obj/item/ammo_box/speedloader/c357/match::name
+	description = /obj/item/ammo_box/speedloader/c357/match::desc
+	icon = /obj/item/ammo_box/speedloader/c357/match::icon
+	icon_state = /obj/item/ammo_box/speedloader/c357/match::icon_state
 	set_items = list(
-		/obj/item/ammo_box/a357/match,
+		/obj/item/ammo_box/speedloader/c357/match,
 	)
 
 /datum/voucher_set/traitor/supplies/ammo/a357_emp
-	name = /obj/item/ammo_box/a357/haywire::name
-	description = /obj/item/ammo_box/a357/haywire::desc
-	icon = /obj/item/ammo_box/a357/haywire::icon
-	icon_state = /obj/item/ammo_box/a357/haywire::icon_state
+	name = /obj/item/ammo_box/speedloader/c357/haywire::name
+	description = /obj/item/ammo_box/speedloader/c357/haywire::desc
+	icon = /obj/item/ammo_box/speedloader/c357/haywire::icon
+	icon_state = /obj/item/ammo_box/speedloader/c357/haywire::icon_state
 	set_items = list(
-		/obj/item/ammo_box/a357/haywire,
+		/obj/item/ammo_box/speedloader/c357/haywire,
 	)
 
 /datum/voucher_set/traitor/supplies/ammo/c38_hotshot
-	name = /obj/item/ammo_box/c38/hotshot::name
-	description = /obj/item/ammo_box/c38/hotshot::desc
-	icon = /obj/item/ammo_box/c38/hotshot::icon
-	icon_state = /obj/item/ammo_box/c38/hotshot::icon_state
+	name = /obj/item/ammo_box/speedloader/c38/hotshot::name
+	description = /obj/item/ammo_box/speedloader/c38/hotshot::desc
+	icon = /obj/item/ammo_box/speedloader/c38/hotshot::icon
+	icon_state = /obj/item/ammo_box/speedloader/c38/hotshot::icon_state
 	set_items = list(
-		/obj/item/ammo_box/c38/hotshot,
+		/obj/item/ammo_box/speedloader/c38/hotshot,
 	)
 
 /datum/voucher_set/traitor/supplies/ammo/c38_dumdum
-	name = /obj/item/ammo_box/c38/dumdum::name
-	description = /obj/item/ammo_box/c38/dumdum::desc
-	icon = /obj/item/ammo_box/c38/dumdum::icon
-	icon_state = /obj/item/ammo_box/c38/dumdum::icon_state
+	name = /obj/item/ammo_box/speedloader/c38/dumdum::name
+	description = /obj/item/ammo_box/speedloader/c38/dumdum::desc
+	icon = /obj/item/ammo_box/speedloader/c38/dumdum::icon
+	icon_state = /obj/item/ammo_box/speedloader/c38/dumdum::icon_state
 	set_items = list(
-		/obj/item/ammo_box/c38/dumdum,
+		/obj/item/ammo_box/speedloader/c38/dumdum,
 	)
 
 /datum/voucher_set/traitor/supplies/ammo/smgm45_ap

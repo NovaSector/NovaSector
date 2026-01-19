@@ -28,6 +28,7 @@
 	foodtypes = MEAT|VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
+	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 3.95)
 
 // mrsanderp's donator item
 /obj/item/food/donator/tiramisu
@@ -62,6 +63,7 @@
 	foodtypes = MEAT | GRAIN | DAIRY | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_4
+	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 4)
 
 // mrsanderp's donator item
 /obj/item/food/donator/aubergine_rolls

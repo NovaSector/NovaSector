@@ -38,7 +38,7 @@
 	/// Tracks if the last ticket we got was for luxury items, if this is true we get a normal food ticket
 	var/last_ticket_luxury = TRUE
 
-/datum/bank_account/payday(amount_of_paychecks, free = FALSE)
+/datum/bank_account/payday(amount_of_paychecks, free = FALSE, skippable = FALSE, event = "Payday")
 	. = ..()
 	if(!.)
 		return

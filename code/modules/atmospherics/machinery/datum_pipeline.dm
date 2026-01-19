@@ -25,7 +25,7 @@
 	members = list()
 	other_atmos_machines = list()
 	require_custom_reconcilation = list()
-	gas_visuals = list()
+	//gas_visuals = list() // NOVA EDIT REMOVAL - Pipe gas visuals removed
 	SSair.networks += src
 
 /datum/pipeline/Destroy()
