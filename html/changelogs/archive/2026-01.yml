@@ -457,3 +457,12 @@
   muratendmo:
   - balance: Discovery that the foregrips and handguards on the Zaibas longarms are
       not decorative has led to a decrease in recoil of 50% (half)
+2026-01-18:
+  codyman765:
+  - rscadd: Added new loadout plushie, a fluffy dragon! Now with removeable hat!
+2026-01-19:
+  Bannhammger:
+  - rscadd: 'adds a new tilting feature (Default hotkey: ''N'') - Hold and use arrow
+      keys to apply tilt to yourself.'
+  - rscadd: items will now have a chance to land messily when dropped if combat mode
+      is active, or if the item was thrown
