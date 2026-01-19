@@ -37942,6 +37942,7 @@
 "kcR" = (
 /obj/machinery/stasis,
 /obj/machinery/vitals_reader/directional/east,
+/obj/machinery/light/floor,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/treatment_center)
 "kde" = (

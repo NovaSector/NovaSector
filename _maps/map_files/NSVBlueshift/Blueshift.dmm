@@ -15369,10 +15369,6 @@
 /obj/effect/spawner/random/trash/moisture_trap,
 /turf/open/floor/plating,
 /area/station/maintenance/fore/upper)
-"dea" = (
-/obj/machinery/iv_drip,
-/turf/open/floor/iron/white,
-/area/station/medical/treatment_center)
 "deb" = (
 /obj/effect/turf_decal/stripes/end{
 	dir = 4
@@ -34843,7 +34839,7 @@
 	},
 /obj/machinery/button/door{
 	id = "roboticsurgery";
-	name = "Robitics surgery privacy shutters";
+	name = "Robitics Surgery Privacy Shutters";
 	pixel_x = 26;
 	pixel_y = -26
 	},
@@ -70408,6 +70404,10 @@
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron,
 /area/station/science/ordnance/storage)
+"olv" = (
+/obj/machinery/iv_drip,
+/turf/open/floor/iron/white,
+/area/station/medical/treatment_center)
 "oly" = (
 /turf/open/floor/iron/stairs/medium{
 	dir = 4
@@ -224577,9 +224577,9 @@ vEr
 pdp
 hDR
 sHt
-dea
+olv
 fTD
-dea
+olv
 sHt
 gKQ
 fNF
