@@ -19,6 +19,7 @@ type NovaTumsPrefsData = {
   title: string;
   color: string;
   use_skintone: BooleanLike;
+  use_slime_alpha: BooleanLike;
   sizemod: number;
   sizemod_autostuffed: number;
   sizemod_audio: number;
@@ -137,7 +138,7 @@ const NovaTumsPrefsCharacter = (props) => {
               selected={data.prey_mode}
               onSelected={(e) =>
                 act('changePreyMode', {
-                  newPredMode: e,
+                  newPreyMode: e,
                   tab: currentTab,
                 })
               }
@@ -189,6 +190,23 @@ const NovaTumsPrefsBelly = (props) => {
               from your selected skintone while the palette is active!"
           >
             Use the skintone sprite palette?
+          </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Use Slime Alpha">
+          <Button.Checkbox
+            checked={data.use_slime_alpha}
+            fluid
+            onClick={() =>
+              act('changeUseSlimeAlpha', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Slimepeople have a body alpha of 155; this sets the belly
+            to match that.  Causes minor visual artifacts with worn gloves'
+            offhands, shoes on large bellies, and a couple other oddities, not
+            to mention looking VERY odd rendering overtop undersuit/undies."
+          >
+            Use slimeperson body alpha?
           </Button.Checkbox>
         </LabeledList.Item>
       </LabeledList>

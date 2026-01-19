@@ -54,8 +54,11 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 	original_image = image(base_image)
 	original_image.pixel_x -= image.pixel_x
 	original_image.pixel_y -= image.pixel_y
+	original_image.alpha = 255
 	image.appearance_flags |= KEEP_TOGETHER
+	var/temp_alpha = image.alpha
 	image.color = COLOR_WHITE
+	image.alpha = temp_alpha
 	LAZYADD(target.update_on_z, image)
 	if(transfer_overlays)
 		copy_overlays(target, TRUE)
@@ -318,6 +321,8 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 	the_bwelly.color = client_source?.prefs.read_preference(/datum/preference/color/erp_bellyquirk_color) || "#FFFFFF"
 	/// Skintone toggle - this adjusts the sprite files.
 	the_bwelly.use_skintone = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
+	/// Slime alpha toggle - this reduces the alpha to 155, as per normal slimepeople.
+	the_bwelly.use_slime_alpha = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_use_slime_alpha) || FALSE
 
 	/// Size modifier - overall.
 	the_bwelly.sizemod = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 1
@@ -431,6 +436,16 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 	default_value = FALSE
 
 /datum/preference/toggle/erp_bellyquirk_skintone/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+/// Per-character pref, a toggle for whether this belly should use slimepeople body alpha.
+/datum/preference/toggle/erp_bellyquirk_use_slime_alpha
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "erp_bellyquirk_use_slime_alpha"
+	default_value = FALSE
+
+/datum/preference/toggle/erp_bellyquirk_use_slime_alpha/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
 /// Per-character pref, an overall sprite size modifier.
@@ -632,20 +647,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 
 
 
-/// Quirk data helper.
-/datum/quirk_constant_data/stuffable
-	associated_typepath = /datum/quirk/belly
-
-/datum/quirk_constant_data/stuffable/New()
-	customization_options = list(/datum/preference/color/erp_bellyquirk_color, /datum/preference/toggle/erp_bellyquirk_skintone,
-	/datum/preference/numeric/erp_bellyquirk_sizemod, /datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed, /datum/preference/numeric/erp_bellyquirk_sizemod_audio, /datum/preference/numeric/erp_bellyquirk_maxsize,
-	/datum/preference/numeric/erp_bellyquirk_size_base, /datum/preference/numeric/erp_bellyquirk_size_full, /datum/preference/numeric/erp_bellyquirk_size_stuffed,
-	/datum/preference/toggle/erp_bellyquirk_groans, /datum/preference/toggle/erp_bellyquirk_gurgles, /datum/preference/toggle/erp_bellyquirk_move_creaks, /datum/preference/toggle/erp_bellyquirk_move_sloshes,
-	/datum/preference/choiced/erp_bellyquirk_pred_pref)
-
-	return ..()
-
-
 /// Helper for managing preferences independent of an equipped belly.
 /datum/erp_belly_prefshelper
 	/// Tracker for this helper's client.
@@ -716,6 +717,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		// Send current color & sprite variants
 		.["color"] = belly.color
 		.["use_skintone"] = belly.use_skintone
+		.["use_slime_alpha"] = belly.use_slime_alpha
 		// Send current size modifiers
 		.["sizemod"] = belly.sizemod
 		.["sizemod_autostuffed"] = belly.sizemod_autostuffed
@@ -761,6 +763,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		// Send current color & sprite variants
 		.["color"] = get_assoc_client(user).prefs.read_preference(/datum/preference/color/erp_bellyquirk_color) || "#FFFFFF"
 		.["use_skintone"] = get_assoc_client(user).prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
+		.["use_slime_alpha"] = get_assoc_client(user).prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_use_slime_alpha) || FALSE
 		// Send current size modifiers
 		var/prefs_sizemod = get_assoc_client(user).prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 1
 		.["sizemod"] = prefs_sizemod
@@ -866,7 +869,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 					belly.color = new_color
 			belly?.do_alt_appearance(belly?.lastuser, TRUE, belly?.last_size)
 			belly?.last_size = -1
-			return TRUE
 		if("changeUseSkintone")
 			if(params["tab"] == "2" || ui_tab == 2)
 				var/new_use_skintone = !(get_assoc_client(user).prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE)
@@ -893,7 +895,19 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.color = skintone2hex(belly.lastuser.skin_tone) //why this isn't in DNA hurts me
 			belly?.do_alt_appearance(belly?.lastuser, TRUE, belly?.last_size)
 			belly?.last_size = -1
-			return TRUE
+		if("changeUseSlimeAlpha")
+			if(params["tab"] == "2" || ui_tab == 2)
+				var/new_use_slime_alpha = !(get_assoc_client(user).prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_use_slime_alpha) || FALSE)
+				get_assoc_client(user).prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_use_slime_alpha], new_use_slime_alpha != FALSE)
+				wrote_prefs = TRUE
+				if(belly != null)
+					var/mode_select = tgui_alert(belly.lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
+					if(!(isnull(mode_select) || QDELETED(belly.lastuser) || QDELETED(src)) && mode_select == "Yes")
+						belly.use_slime_alpha = new_use_slime_alpha
+			else if(belly != null)
+				belly.use_slime_alpha = !belly.use_slime_alpha
+			belly?.do_alt_appearance(belly?.lastuser, TRUE, belly?.last_size)
+			belly?.last_size = -1
 		if("changeSizemod")
 			var/new_sizemod = text2num(params["newSizemod"])
 			if(params["tab"] == "2" || ui_tab == 2)
@@ -905,7 +919,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.sizemod = new_sizemod
 			else if(belly != null)
 				belly.sizemod = new_sizemod
-			return TRUE
 		if("changeSizemodAutostuffed")
 			var/new_sizemod_autostuffed = text2num(params["newSizemodAutostuffed"])
 			if(params["tab"] == "2" || ui_tab == 2)
@@ -917,7 +930,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.sizemod_autostuffed = new_sizemod_autostuffed
 			else if(belly != null)
 				belly.sizemod_autostuffed = new_sizemod_autostuffed
-			return TRUE
 		if("changeSizemodAudio")
 			var/new_sizemod_audio = text2num(params["newSizemodAudio"])
 			if(params["tab"] == "2" || ui_tab == 2)
@@ -929,7 +941,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.sizemod_audio = new_sizemod_audio
 			else if(belly != null)
 				belly.sizemod_audio = new_sizemod_audio
-			return TRUE
 		if("changeSoundGroans")
 			if(params["tab"] == "2" || ui_tab == 2)
 				var/new_allow_sound_groans = !(get_assoc_client(user).prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_groans) || FALSE)
@@ -941,7 +952,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.allow_sound_groans = new_allow_sound_groans
 			else if(belly != null)
 				belly.allow_sound_groans = !belly.allow_sound_groans
-			return TRUE
 		if("changeSoundGurgles")
 			if(params["tab"] == "2" || ui_tab == 2)
 				var/new_allow_sound_gurgles = !(get_assoc_client(user).prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_gurgles) || FALSE)
@@ -953,7 +963,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.allow_sound_gurgles = new_allow_sound_gurgles
 			else if(belly != null)
 				belly.allow_sound_gurgles = !belly.allow_sound_gurgles
-			return TRUE
 		if("changeSoundMoveCreaks")
 			if(params["tab"] == "2" || ui_tab == 2)
 				var/new_allow_sound_move_creaks = !(get_assoc_client(user).prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_creaks) || FALSE)
@@ -965,7 +974,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.allow_sound_move_creaks = new_allow_sound_move_creaks
 			else if(belly != null)
 				belly.allow_sound_move_creaks = !belly.allow_sound_move_creaks
-			return TRUE
 		if("changeSoundMoveSloshes")
 			if(params["tab"] == "2" || ui_tab == 2)
 				var/new_allow_sound_move_sloshes = !(get_assoc_client(user).prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_move_sloshes) || FALSE)
@@ -977,7 +985,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.allow_sound_move_sloshes = new_allow_sound_move_sloshes
 			else if(belly != null)
 				belly.allow_sound_move_sloshes = !belly.allow_sound_move_sloshes
-			return TRUE
 		if("changeMaxsize")
 			var/new_maxsize = text2num(params["newMaxsize"])
 			if(params["tab"] == "2" || ui_tab == 2)
@@ -989,7 +996,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.maxsize = new_maxsize
 			else if(belly != null)
 				belly.maxsize = new_maxsize
-			return TRUE
 		if("changeBaseCosmetic")
 			var/new_base_size_cosmetic = text2num(params["newBaseCosmetic"])
 			if(params["tab"] == "2" || ui_tab == 2)
@@ -1001,7 +1007,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.base_size_cosmetic = new_base_size_cosmetic
 			else if(belly != null)
 				belly.base_size_cosmetic = new_base_size_cosmetic
-			return TRUE
 		if("changeBaseFull")
 			var/new_base_size_full = text2num(params["newBaseFull"])
 			if(params["tab"] == "2" || ui_tab == 2)
@@ -1013,7 +1018,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.base_size_full = new_base_size_full
 			else if(belly != null)
 				belly.base_size_full = new_base_size_full
-			return TRUE
 		if("changeBaseStuffed")
 			var/new_base_size_stuffed = text2num(params["newBaseStuffed"])
 			if(params["tab"] == "2" || ui_tab == 2)
@@ -1025,7 +1029,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.base_size_stuffed = new_base_size_stuffed
 			else if(belly != null)
 				belly.base_size_stuffed = new_base_size_stuffed
-			return TRUE
 		if("changePredMode")
 			var/new_pred_mode = params["newPredMode"]
 			if(params["tab"] == "2" || ui_tab == 2)
@@ -1037,7 +1040,6 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.pred_mode = new_pred_mode
 			else if(belly != null)
 				belly.pred_mode = new_pred_mode
-			return TRUE
 		if("changeEndoSize")
 			var/new_endo_size = text2num(params["newEndoSize"])
 			if(params["tab"] == "2" || ui_tab == 2)
@@ -1049,20 +1051,11 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 						belly.endo_size = new_endo_size
 			else if(belly != null)
 				belly.endo_size = new_endo_size
-			return TRUE
 		if("changePreyMode")
 			var/new_prey_mode = params["newPreyMode"]
-			if(params["tab"] == "2" || ui_tab == 2)
-				get_assoc_client(user).prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/erp_vore_prey_pref], new_prey_mode)
-				wrote_prefs = TRUE
-			// in-round prey mode hasn't yet been implemented
-			/*	if(new_prey_mode != prey_mode)
-					var/mode_select = tgui_alert(belly.lastuser, "Update your current in-round prefs to match the new value?", "Update Local?", list_yesno)
-					if(!(isnull(mode_select) || QDELETED(belly.lastuser) || QDELETED(src)) && mode_select == "Yes")
-						prey_mode = new_prey_mode
-			else
-				prey_mode = new_prey_mode*/
-			return TRUE
+			get_assoc_client(user).prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/erp_vore_prey_pref], new_prey_mode)
+			wrote_prefs = TRUE
+			//in-round prey mode edits don't exist yet ,this may yet be refactored.
 		// === GLOBAL PREFS BREAKER ===
 		if("changeGlobalSoundGroans")
 			var/new_global_sound_groans = !(get_assoc_client(user).prefs.read_preference(/datum/preference/toggle/erp/belly/sound_groans) || FALSE)
@@ -1088,7 +1081,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 			var/new_maxsize = text2num(params["newMaxsize"])
 			get_assoc_client(user).prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_belly_maxsize], new_maxsize)
 			wrote_prefs = TRUE
-			return TRUE
 
 	if(wrote_prefs == TRUE)
 		get_assoc_client(user).prefs.save_preferences()
+	return TRUE

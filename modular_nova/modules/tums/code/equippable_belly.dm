@@ -7,16 +7,23 @@
 	icon = 'modular_nova/modules/tums/icons/helpers.dmi'
 	worn_icon_state = "haha-no"
 	worn_icon = 'modular_nova/modules/tums/icons/bellies.dmi'
+	/// Worn icon used for XL sizes that require a 64x64 sprite.
 	var/icon/worn_icon_64x ='modular_nova/modules/tums/icons/bellies_64x.dmi'
 	worn_icon_teshari ='modular_nova/modules/tums/icons/bellies_teshari.dmi'
+	/// Worn icon used for XL sizes on a teshari that require a 64x64 sprite.
 	var/icon/worn_icon_teshari_64x ='modular_nova/modules/tums/icons/bellies_teshari_64x.dmi'
 
-	/// Skintone variant settings & spritesheets.
-	var/use_skintone = FALSE
-	var/icon/skintone_worn_icon = 'modular_nova/modules/tums/icons/skintone_bellies.dmi'
-	var/icon/skintone_worn_icon_64x ='modular_nova/modules/tums/icons/skintone_bellies_64x.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	color = "#ffffff"
+
+	/// Whether or not to use the skintone spritesheet.
+	var/use_skintone = FALSE
+	/// Bespoke icons used for skintone bellies.  No teshi subvariant as of yet as it's PROBABLY unneeded.
+	var/icon/skintone_worn_icon = 'modular_nova/modules/tums/icons/skintone_bellies.dmi'
+	var/icon/skintone_worn_icon_64x ='modular_nova/modules/tums/icons/skintone_bellies_64x.dmi'
+
+	/// Whether or not to bump the alpha down to 155 to match the standard body alpha of slimepeople.
+	var/use_slime_alpha = FALSE
 
 	actions_types = list(
 		/datum/action/item_action/belly_menu/access,
@@ -301,6 +308,10 @@
 			iconfile = counter > 10 ? skintone_worn_icon_64x : skintone_worn_icon
 		else if(user.dna.species.id == SPECIES_TESHARI)
 			iconfile = counter > 10 ? worn_icon_teshari_64x : worn_icon_teshari
+
+		/// Slimes need translucency
+		if(use_slime_alpha)
+			alpha = 155
 
 		/// Generate appearances next.
 		var/icon_state_wew = "[base_icon_state]-[counter]"
