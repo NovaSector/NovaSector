@@ -5,7 +5,7 @@
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 	var/tilt_angle = 0
 	var/tilting = TRUE
-	var/maximum_tilt = 10
+	var/maximum_tilt = 45
 	var/tilt_increment = 5
 	var/matrix/original_transform
 
@@ -69,9 +69,9 @@
 	var/mob/living/owner = parent
 	switch(direct)
 		if(EAST)
-			tilt_angle = clamp(tilt_angle - tilt_increment, -maximum_tilt, maximum_tilt)
-		if(WEST)
 			tilt_angle = clamp(tilt_angle + tilt_increment, -maximum_tilt, maximum_tilt)
+		if(WEST)
+			tilt_angle = clamp(tilt_angle - tilt_increment, -maximum_tilt, maximum_tilt)
 		if(NORTH, SOUTH)
 			tilt_angle = 0
 	var/matrix/tilt_matrix = matrix(original_transform)
