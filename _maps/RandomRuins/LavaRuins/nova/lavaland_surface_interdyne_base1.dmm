@@ -242,6 +242,7 @@
 /area/ruin/interdyne_planetary_base/med)
 "cd" = (
 /obj/machinery/computer/operating,
+/obj/machinery/vitals_reader/advanced/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "co" = (
@@ -2717,6 +2718,7 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
 	},
+/obj/machinery/vitals_reader/advanced/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "wT" = (
