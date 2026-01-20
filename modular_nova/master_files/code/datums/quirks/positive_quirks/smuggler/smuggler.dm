@@ -1,7 +1,7 @@
 #define TIMER_MIN 0.65 HOURS
 #define TIMER_MAX 1.15 HOURS
-/// 1 in 30 odds to be fined
-#define PENALTY_ODDS_FINE 30
+/// 1 in # odds to be fined
+#define PENALTY_ODDS_FINE 50
 
 /*	list of contraband choices
 	supports items, lists of items, and pda program datums
