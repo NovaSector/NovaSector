@@ -22,7 +22,7 @@
     var/blastoff_amount = ampoule.reagents.get_reagent_amount(/datum/reagent/drug/blastoff)
     if(!blastoff_amount)
         return 0
-    return (blastoff_amount * CARGO_CRATE_VALUE * 0.05)
+    return (blastoff_amount * CARGO_CRATE_VALUE * 0.1)
 
 /datum/export/saturnx
 	cost = CARGO_CRATE_VALUE * 1
