@@ -71,7 +71,7 @@
 
 /// Reagent Processor Repair surgery start
 /datum/surgery_operation/organ/repair/hepatectomy/mechanic/synth
-	name = "perform reagent procesor maintenance"
+	name = "perform reagent processor maintenance"
 	rnd_name = "Reagent Processor Maintenance (Liver Repair)"
 	desc = "A mechanical surgery procedure designed to repair an android's reagent processor."
 	implements = list(
@@ -259,7 +259,7 @@
 	rnd_name = "Reset Logic Core (Posi Repair)"
 	desc = "A surgical procedure that restores the default behavior logic and personality matrix of an synthetic humanoid's neural network."
 	implements = list(
-		TOOL_MULTITOOL = 2.15,
+		TOOL_MULTITOOL = 1.05,
 		TOOL_SCREWDRIVER = 4.85,
 		/obj/item/pen = 6.67,
 	)
@@ -269,6 +269,7 @@
 	heal_to_percent = 0
 	failure_damage_percent = 0.2
 	repeatable = TRUE
+	time = 12 SECONDS //long and complicated
 	target_type = /obj/item/organ/brain/synth
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
