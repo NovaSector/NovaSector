@@ -66661,9 +66661,6 @@
 "nzR" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/item/storage/box/emps{
-	pixel_y = 11
-	},
 /obj/item/gun/energy/ionrifle,
 /turf/open/floor/iron/dark,
 /area/station/security/armory)
