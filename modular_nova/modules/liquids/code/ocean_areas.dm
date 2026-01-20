@@ -17,16 +17,24 @@
 /area/ocean/generated
 	icon_state = "cordon"
 	map_generator = /datum/map_generator/cave_generator/ocean
+	area_flags_mapping = parent_type::area_flags_mapping|FLORA_ALLOWED|CAVES_ALLOWED
 
-/area/ocean/generated/wilderness
-	map_generator = /datum/map_generator/cave_generator/ocean/wilderness
+/area/ocean/generated/friendly_mobs
+	map_generator = /datum/map_generator/cave_generator/lagoon/friendly_mobs
+	area_flags_mapping = parent_type::area_flags_mapping|MOB_SPAWN_ALLOWED
 
-/area/ocean/generated/no_ruins
-	icon_state = "unknown"
-	map_generator = /datum/map_generator/cave_generator/ocean/noruins
+/area/ocean/generated/hostile_mobs
+	map_generator = /datum/map_generator/cave_generator/lagoon/hostile_mobs
+	area_flags_mapping = parent_type::area_flags_mapping|MOB_SPAWN_ALLOWED
+
+/area/ocean/generated/friendly_mobs/wilderness
+	map_generator = /datum/map_generator/cave_generator/lagoon/friendly_mobs/wilderness
+
+/area/ocean/generated/hostile_mobs/wilderness
+	map_generator = /datum/map_generator/cave_generator/lagoon/hostile_mobs/wilderness
 
 /area/ocean/monestary
-	name = "\improper Monastery Beach"
+	name = "\improper Monastery Isle"
 
 /area/ruin/ocean
 	default_gravity = STANDARD_GRAVITY
