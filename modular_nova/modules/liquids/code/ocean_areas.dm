@@ -19,6 +19,9 @@
 	map_generator = /datum/map_generator/cave_generator/ocean
 	area_flags_mapping = parent_type::area_flags_mapping|FLORA_ALLOWED|CAVES_ALLOWED
 
+/area/ocean/generated/rocky
+	map_generator = /datum/map_generator/cave_generator/ocean/rocky
+
 /area/ocean/generated/friendly_mobs
 	map_generator = /datum/map_generator/cave_generator/lagoon/friendly_mobs
 	area_flags_mapping = parent_type::area_flags_mapping|MOB_SPAWN_ALLOWED
