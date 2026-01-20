@@ -80,7 +80,7 @@
 		"surgery_subsystem_upgrade_nerve_splice",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
-	discount_experiments = list(/datum/experiment/scanning/people/android = TECHWEB_TIER_3_POINTS)
+	discount_experiments = list(/datum/experiment/scanning/people/android = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 // nerve splicing - Reinforced Servos
