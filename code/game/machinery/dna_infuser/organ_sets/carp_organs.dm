@@ -104,9 +104,25 @@
 
 /obj/item/knife/carp
 	name = "carp tooth"
-	desc = "Looks sharp. Sharp enough to poke someone's eye out. Holy fuck it's big."
+	desc = "A large, fiddly tooth from some kind of carp. Looks pretty sharp!"
 	icon_state = "carptooth"
 	icon_angle = -45
+	force = 7 //a little better than normal glass, but this is still not a knife
+	obj_flags = NONE //no conductivity
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT * 0.2)	// 1/5 a sheet of bone, because teeth are not made of iron! no idea if this is relevant ever
+
+///glass shard logic, because you're trying to hit something with a tooth one of your peers spat our of their mouth
+/obj/item/knife/carp/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
+	if(!iscarbon(user) || !user.is_holding(src))
+		return
+
+	var/mob/living/carbon/jab = user
+	if(jab.get_all_covered_flags() & HANDS)
+		return
+
+	to_chat(user, span_warning("[src] cuts into your hand!"))
+	jab.apply_damage(force * 0.5, BRUTE, user.get_active_hand(), attacking_item = src)
+
 
 ///carp brain. you need to occasionally go to a new zlevel. think of it as... walking your dog!
 /obj/item/organ/brain/carp
