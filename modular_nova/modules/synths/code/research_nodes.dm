@@ -4,11 +4,11 @@
 	description = "As it turns out, you don't actually need to cut out entire support rods if it's just scratched!"
 	prereq_ids = list(TECHWEB_NODE_CONSTRUCTION)
 	design_ids = list(
-		"synthetic_surgery_heal_combo_upgrade",
+		"synthetic_surgery_heal_combo",
 		"synthetic_surgery_heal_upgrade",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
-	required_experiments = list(/datum/experiment/scanning/people/augmented_organs = TECHWEB_TIER_2_POINTS)
+	required_experiments = list(/datum/experiment/scanning/people/augmented_organs)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/advanced_robotic_tend_wounds
@@ -17,12 +17,12 @@
 	description = "Did you know Hephaestus actually has a free online tutorial for synthetic trauma repairs? It's true!"
 	prereq_ids = list(TECHWEB_NODE_ROBOTIC_SURGERY)
 	design_ids = list(
-		"synthetic_surgery_heal_combo",
+		"synthetic_surgery_heal_combo_upgrade",
 		"synthetic_surgery_heal_combo_upgrade_femto",
 		"synthetic_surgery_heal_upgrade_femto"
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
-	discount_experiments = list(/datum/experiment/scanning/people/android = TECHWEB_TIER_5_POINTS)
+	discount_experiments = list(/datum/experiment/scanning/people/android = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /**
