@@ -83,32 +83,29 @@
 	discount_experiments = list(/datum/experiment/scanning/people/android = TECHWEB_TIER_5_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
-/datum/design/surgery/subsystem_upgrade
-	abstract_type = /datum/design/surgery/subsystem_upgrade
-
 // nerve splicing - Reinforced Servos
-/datum/design/surgery/subsystem_upgrade/nerve_splicing
+/datum/design/surgery/nerve_splicing
 	desc = "A surgical procedure which upgrades a synthetic patient's movement servos, allowing it to better resist stuns."
 	id = "surgery_subsystem_upgrade_nerve_splice"
 	surgery = /datum/surgery_operation/limb/subsystem_upgrade/nerve_splicing
 	research_icon_state = "surgery_chest"
 
 // nerve grounding - Reinforced Capacitors
-/datum/design/surgery/subsystem_upgrade/nerve_grounding
+/datum/design/surgery/nerve_grounding
 	desc = "A surgical procedure which installs an additional capacitor bank designed to abdorb electrical shocks."
 	id = "surgery_subsystem_upgrade_nerve_ground"
 	surgery = /datum/surgery_operation/limb/subsystem_upgrade/nerve_grounding
 	research_icon_state = "surgery_chest"
 
 // Muscled Veins - Hydraulics Redundancy Subroutine
-/datum/design/surgery/subsystem_upgrade/muscled_veins
+/datum/design/surgery/muscled_veins
 	desc = "Add redundancies to a robotic patient's hydraulic system, allowing it to pump fluids without an engine or pump."
 	id = "surgery_subsystem_upgrade_muscled_veins"
 	surgery = /datum/surgery_operation/limb/subsystem_upgrade/muscled_veins
 	research_icon_state = "surgery_chest"
 
 // ligament reinforcement - Anchor Point Reinforcement
-/datum/design/surgery/subsystem_upgrade/ligament_reinforcement
+/datum/design/surgery/ligament_reinforcement
 	desc = "A surgical procedure which adds reinforcement a robotic patient's limb joints to prevent dismemberment, \
 		at the cost of making nerve connections easier to interrupt."
 	id = "surgery_subsystem_upgrade_ligament_reinforcement"
@@ -116,7 +113,7 @@
 	research_icon_state = "surgery_chest"
 
 // cortex imprinting - Anti-Cascade 2.0
-/datum/design/surgery/subsystem_upgrade/cortex_imprint
+/datum/design/surgery/cortex_imprint
 	desc = "A surgical procedure which updates a robotic patient's underlying operating system to a \"newer version\", improving overall performance and resilience. \
 		Shame about all the adware."
 	id = "surgery_subsystem_upgrade_cortex_imprint"
@@ -124,7 +121,7 @@
 	research_icon_state = "surgery_chest"
 
 // cortex folding - Neuropathing Reinforcement
-/datum/design/surgery/subsystem_upgrade/cortex_folding
+/datum/design/surgery/cortex_folding
 	desc = "A surgical procedure which reprograms a robotic patient's neural network in a downright eldritch programming language, giving space to non-standard neural patterns. \
 		Definitely isn't malware."
 	id = "surgery_subsystem_upgrade_cortex_folding"
