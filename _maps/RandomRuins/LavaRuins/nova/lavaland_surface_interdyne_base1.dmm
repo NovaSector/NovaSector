@@ -5202,9 +5202,6 @@
 	},
 /area/ruin/interdyne_planetary_base/main)
 "Rv" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 1
-	},
 /obj/machinery/door/airlock/virology{
 	name = "Miner 3";
 	id_tag = "InterdyneMining3"
@@ -5396,12 +5393,6 @@
 	},
 /obj/machinery/duct,
 /turf/open/floor/iron/white,
-/area/ruin/interdyne_planetary_base/cargo)
-"SQ" = (
-/obj/effect/turf_decal/siding/thinplating/corner{
-	dir = 4
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "SR" = (
 /obj/machinery/light/small/directional/north,
@@ -7825,7 +7816,7 @@ Ih
 Ih
 Ih
 dQ
-SQ
+Ih
 pn
 vK
 Ih
