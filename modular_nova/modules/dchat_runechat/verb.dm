@@ -3,7 +3,7 @@ ADMIN_VERB(toggle_ooc_dead_rune, R_ADMIN, "Toggle Dead Runechat", "Toggle the ru
     toggle_drune()
     log_admin("[key_name(user)] toggled Dead runechat.")
     message_admins("[key_name_admin(user)] toggled Dead Runechat.")
-    SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Dead Rybecgat", "[GLOB.drune_allowed ? "Enabled" : "Disabled"]"))
+    SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Dead Runechat", "[GLOB.drune_allowed ? "Enabled" : "Disabled"]"))
 
 /proc/toggle_drune(toggle = null)
 	if(toggle != null)
