@@ -108,9 +108,12 @@
 	icon_state = "carptooth"
 	inhand_icon_state = "carptooth"
 	icon_angle = -45
-	force = 7 //a little better than normal glass, but this is still absolutely not a knife
+	force = 7 //a little better than a glass shard, but this is still absolutely not a knife
+	throwforce = 5 //honestly the aerodynamics of a tooth leave much to be desired. i doubt throwing it is a good option
 	obj_flags = NONE //no conductivity
 	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT * 0.2)	// 1/5 a sheet of bone, because teeth are not made of iron! no idea if this is relevant ever
+	pickup_sound = NONE	//no pickup/drop sounds
+	drop_sound = NONE
 
 ///glass shard logic, because you're trying to hit something with a tooth one of your peers spat our of their mouth
 /obj/item/knife/carp/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
