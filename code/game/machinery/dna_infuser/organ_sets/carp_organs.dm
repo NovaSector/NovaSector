@@ -104,10 +104,11 @@
 
 /obj/item/knife/carp
 	name = "carp tooth"
-	desc = "A large, fiddly tooth from some kind of carp. Looks pretty sharp!"
+	desc = "A large, fiddly tooth from a space carp. Looks very sharp."
 	icon_state = "carptooth"
+	inhand_icon_state = "carptooth"
 	icon_angle = -45
-	force = 7 //a little better than normal glass, but this is still not a knife
+	force = 7 //a little better than normal glass, but this is still absolutely not a knife
 	obj_flags = NONE //no conductivity
 	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT * 0.2)	// 1/5 a sheet of bone, because teeth are not made of iron! no idea if this is relevant ever
 
