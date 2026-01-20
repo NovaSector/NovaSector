@@ -43,7 +43,11 @@
 		return
 	add_lightning_overlay(30 SECONDS)
 	playsound(organ_owner, 'sound/items/eshield_recharge.ogg', 40)
-	organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
+	// organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE) // NOVA EDIT REMOVAL
+	// NOVA EDIT ADDITION START: voltaic nerf: adds a variable for EMP protection
+	if(gives_emp_immunity)
+		organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
+	// NOVA EDIT ADDITION END
 	RegisterSignal(organ_owner, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION), PROC_REF(activate_survival))
 	RegisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
 
@@ -126,7 +130,7 @@
 	if(!COOLDOWN_FINISHED(src, survival_cooldown))
 		return
 
-	organ_owner.apply_status_effect(/datum/status_effect/voltaic_overdrive)
+	organ_owner.apply_status_effect(overdrive_type) // NOVA EDIT ORIGINAL - organ_owner.apply_status_effect(/datum/status_effect/voltaic_overdrive)
 	add_lightning_overlay(30 SECONDS)
 	COOLDOWN_START(src, survival_cooldown, survival_cooldown_time)
 	addtimer(CALLBACK(src, PROC_REF(notify_cooldown), organ_owner), COOLDOWN_TIMELEFT(src, survival_cooldown))

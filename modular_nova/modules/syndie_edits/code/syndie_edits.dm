@@ -65,7 +65,7 @@
 	desc = "For the agent wanting to keep a low profile whilst concealing their identity. Has a small respirator to be used with internals."
 	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
 	icon_state = "/obj/item/clothing/mask/neck_gaiter/syndicate"
-	greyscale_colors = "#333333"
+	greyscale_colors = "#2c2c2e"
 
 /obj/item/clothing/shoes/combat //TO-DO: Move these overrides out of a syndicate file!
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'

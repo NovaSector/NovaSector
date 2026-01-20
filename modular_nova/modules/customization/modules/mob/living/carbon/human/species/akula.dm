@@ -30,7 +30,6 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list()
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodypart_overrides = list(
@@ -46,9 +45,9 @@
 
 /datum/species/akula/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_TAIL = list("Akula", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Akula", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /datum/species/akula/get_species_description()
@@ -145,8 +144,8 @@
 	akula.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	akula.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
 	akula.dna.features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
-	akula.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Akula", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, tertiary_color))
-	akula.dna.features[FEATURE_LEGS] = "Normal Legs"
+	akula.dna.mutant_bodyparts[FEATURE_TAIL] = akula.dna.species.build_mutant_part("Akula", list(main_color, secondary_color, tertiary_color))
+	akula.dna.features[FEATURE_LEGS] = NORMAL_LEGS
 	regenerate_organs(akula, src, visual_only = TRUE)
 	akula.update_body(TRUE)
 
