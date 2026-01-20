@@ -417,7 +417,7 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 				rendered_message = "[turf_link] [message]"
 
 			// NOVA EDIT ADDITION START - ghost runechat
-			if (M.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat_dead))
+			if (M.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat_dead) && GLOB.drune_allowed)
 				M.create_chat_message(follow_target, /datum/language/common, original_message)
 			// NOVA EDIT ADDITION END
 			to_chat(M, rendered_message, avoid_highlighting = speaker_key == M.key)

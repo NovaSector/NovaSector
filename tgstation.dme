@@ -8193,6 +8193,7 @@
 #include "modular_nova\modules\customization\modules\taur_mechanics\code\saddles.dm"
 #include "modular_nova\modules\customization\modules\taur_mechanics\code\taur_clothing_offset.dm"
 #include "modular_nova\modules\customization\subsystem\sprite_accessories.dm"
+#include "modular_nova\modules\dchat_runechat\verb.dm"
 #include "modular_nova\modules\death_consequences_perk\death_consequences.dm"
 #include "modular_nova\modules\death_consequences_perk\death_consequences_trauma.dm"
 #include "modular_nova\modules\deathmatch\deathmatch_loadouts.dm"
