@@ -82,7 +82,7 @@
 	get_calm()
 	return ..()
 
-/mob/living/simple_animal/hostile/megafauna/gladiator/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/hostile/megafauna/gladiator/Life(seconds_per_tick = SSMOBS_DT)
 	. = ..()
 	if(stat >= DEAD)
 		return
