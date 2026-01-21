@@ -11,7 +11,7 @@
 //modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi - Obj
 //modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi - Worn
 //
-//Besure to add armor value into this file example: /datum/armor/mod_theme_[YOUR_SUIT_NAME_HERE]
+//Besure to add armor value in this file, example: /datum/armor/mod_theme_[YOUR_SUIT_NAME_HERE]
 // -- Rilomatic - 16th January 2026
 
 //Kaynite Donor Item

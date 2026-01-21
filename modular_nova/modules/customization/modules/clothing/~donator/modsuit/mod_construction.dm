@@ -13,11 +13,60 @@
 //									modular_nova\modules\customization\modules\clothing\~donator\donator_items.dm
 // -- Rilomatic - 16th January 2026
 
+// Line 17 - 56 -- DO NOT TOUCH. Needed for modsuit to work as a modsuit or prepare to hear runtime meows
+/obj/item/mod/control/donor
+	starting_frequency = MODLINK_FREQ_NANOTRASEN
+	/// The skin we apply to the suit, defaults to the default_skin of the theme.
+	var/applied_skin
+	/// The MOD core we apply to the suit.
+	var/applied_core = /obj/item/mod/core/standard
+	/// The cell we apply to the core. Only applies to standard core suits.
+	var/applied_cell = /obj/item/stock_parts/power_store/cell/super
+	/// List of modules we spawn with.
+	var/list/applied_modules = list()
+	/// Modules that we pin when the suit is installed for the first time, for convenience, can be applied or theme inbuilt modules.
+	var/list/default_pins = list()
+
+/obj/item/mod/control/donor/Initialize(mapload, new_theme, new_skin, new_core)
+	for(var/module_to_pin in default_pins)
+		default_pins[module_to_pin] = list()
+	new_skin = applied_skin
+	new_core = new applied_core(src)
+	if(istype(new_core, /obj/item/mod/core/standard))
+		var/obj/item/mod/core/standard/cell_core = new_core
+		cell_core.cell = new applied_cell()
+	. = ..()
+	for(var/obj/item/mod/module/module as anything in applied_modules)
+		module = new module(src)
+		install(module)
+
+/obj/item/mod/control/donor/set_wearer(mob/living/carbon/human/user)
+	. = ..()
+	for(var/obj/item/mod/module/module as anything in modules)
+		if(!default_pins[module.type]) //this module isnt meant to be pinned by default
+			continue
+		if(REF(wearer) in default_pins[module.type]) //if we already had pinned once to this user, don care anymore
+			continue
+		default_pins[module.type] += REF(wearer)
+		module.pin(wearer)
+
+/obj/item/mod/control/donor/uninstall(obj/item/mod/module/old_module, deleting)
+	. = ..()
+	if(default_pins[old_module.type])
+		default_pins -= old_module
+
 //Kaynite Donor Item
 
 //Adding paragon as a object - Needed for crafting recipe
-/obj/item/mod/control/paragon
+/obj/item/mod/control/donor/paragon
 	theme = /datum/mod_theme/paragon
+	applied_cell = /obj/item/stock_parts/power_store/cell/super
+	applied_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/health_analyzer,
+		/obj/item/mod/module/injector,
+	)
 
 /obj/item/mod/construction/plating/paragon
 	name = "\improper Paragon Plating"
@@ -31,7 +80,7 @@
 //Crafting recipe for paragon
 /datum/crafting_recipe/Paragon
 	name = "Homo Ludens Modsuit 'Paragon'"
-	result = /obj/item/mod/control/paragon
+	result = /obj/item/mod/control/donor/paragon
 	time = 1 SECONDS
 	reqs = list(
 		/obj/item/mod/construction/plating/paragon = 1,
@@ -39,7 +88,7 @@
 	)
 	category = CAT_CLOTHING
 
-// Bonkai Donor Item
+// Bonkaitheroris (Bonkai) Donor Item
 
 /obj/item/mod/construction/plating/jumper
 	name = "\improper PA-4 MK-7 J.S supply crate"
