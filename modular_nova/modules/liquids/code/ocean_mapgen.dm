@@ -18,7 +18,7 @@
 	smoothing_iterations = 15
 	weighted_open_turf_types = list(
 		/turf/open/water/deep_beach/planet_surface = 66,
-		/turf/open/misc/ocean_no_liquid = 33,
+		/turf/open/misc/ashplanet/wateryrock/planet_surface = 33,
 		)
 	weighted_flora_spawn_list = list(/obj/structure/flora/rock/style_random = 100)
 

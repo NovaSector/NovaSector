@@ -232,8 +232,8 @@
 	color = "#58606b"
 
 /turf/closed/mineral/random/stationside/ocean
-	baseturfs = /turf/open/misc/ocean_no_liquid
-	turf_type = /turf/open/misc/ocean_no_liquid
+	baseturfs = /turf/open/misc/ashplanet/wateryrock/planet_surface
+	turf_type = /turf/open/misc/ashplanet/wateryrock/planet_surface
 	color = "#58606b"
 
 /obj/effect/abstract/liquid_turf/immutable/canal
@@ -335,24 +335,9 @@
 	space_lit = TRUE
 	light_range = 2
 
-/turf/open/misc/ocean_no_liquid
-	name = "rock"
-	desc = "Sea rock at water-level, seals would love this."
-	baseturfs = /turf/open/misc/ocean/rock
-	icon = 'modular_nova/modules/liquids/icons/turf/seafloor.dmi'
-	icon_state = "seafloor"
-	base_icon_state = "seafloor"
-	color = "#768fb3"
-	footstep = FOOTSTEP_SAND
-	barefootstep = FOOTSTEP_SAND
-	clawfootstep = FOOTSTEP_SAND
-
-/turf/open/misc/ocean_no_liquid/fissure
-	name = "fissure"
-	desc = "A comfortable, warm tempature eminates from these - followed immediately after by toxic chemicals in liquid or gaseous forms; but warmth all the same!"
-	icon = 'modular_nova/modules/liquids/icons/turf/fissure.dmi'
-	icon_state = "fissure-0"
-	base_icon_state = "fissure"
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_FISSURE
-	canSmoothWith = SMOOTH_GROUP_FISSURE
+/turf/open/misc/ashplanet/wateryrock/planet_surface
+	planetary_atmos = TRUE
+	space_lit = TRUE
+	light_range = 2
+	slowdown = 0
+	initial_gas_mix = /turf/open/water::initial_gas_mix
