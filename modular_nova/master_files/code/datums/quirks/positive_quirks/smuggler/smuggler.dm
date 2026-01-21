@@ -10,6 +10,7 @@
 */
 GLOBAL_LIST_INIT(smuggler_items, list(
 	"Syndicate maid outfit" = list(/obj/item/clothing/under/syndicate/nova/maid, /obj/item/clothing/gloves/combat/maid, /obj/item/clothing/head/costume/maid_headband/syndicate),
+	"Vintage movie outfit" = list(/obj/item/clothing/suit/armor/stormtrooper, /obj/item/clothing/shoes/combat/stormtrooper, /obj/item/clothing/gloves/combat/peacekeeper/stormtrooper),
 	"NV health meson goggles" = /obj/item/clothing/glasses/hud/health/night/meson,
 	"Badass sunglasses" = /obj/item/clothing/glasses/sunglasses/robohand, // ever been shot in the eye? not fun
 	"Fission360 PDA program" = /datum/computer_file/program/radar/fission360,
@@ -18,7 +19,9 @@ GLOBAL_LIST_INIT(smuggler_items, list(
 	"Aranesp pill bottle" = /obj/item/storage/pill_bottle/aranesp,
 	"4U70-P3R4710N skillchip" = /obj/item/skillchip/self_surgery,
 	"Hacker arm toolkit" = /obj/item/organ/cyberimp/arm/toolkit/hacker,
-	"Radio Cracker kit" = /obj/item/storage/box/syndicate/radio_cracker_kit,
+	"Advanced cybernetic eyes" = /obj/item/storage/organbox/advanced_cyber_eyes,
+	"Radio Cracker kit" = /obj/item/storage/box/syndie_kit/radio_cracker_kit,
+	"Five telecrystals" = /obj/item/stack/telecrystal/five,
 ))
 
 /datum/quirk/smuggler

@@ -3,7 +3,7 @@
 	name = "Radio Cracker kit"
 	desc = "A simple radio headset at first glance, but its hardware has been jailbroken to allow freerange browsing of frequencies. \
 			Comes with a handy phonebook including all the station frequencies, too."
-	item = /obj/item/storage/box/syndicate/radio_cracker_kit
+	item = /obj/item/storage/box/syndie_kit/radio_cracker_kit
 	cost = 1
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SPY
 
