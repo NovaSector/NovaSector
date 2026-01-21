@@ -15,6 +15,10 @@
 
 //Kaynite Donor Item
 
+//Adding paragon as a object - Needed forcrafting recipe
+/obj/item/mod/control/paragon
+	theme = /datum/mod_theme/paragon
+
 /obj/item/mod/construction/plating/paragon
 	name = "\improper Paragon Plating"
 	desc = "A sturdy black storage container wrapped with yellow tape label 'VOID IF TEMPERED, DO NOT PAINT OVER LABEL.” Barcodes, manufacturing details, and safety warnings are stenciled along its sides. \
@@ -23,6 +27,17 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "paragon-plating"
 	theme = /datum/mod_theme/paragon
+
+//Crafting recipe for paragon
+/datum/crafting_recipe/Paragon
+	name = "Homo Ludens Modsuit 'Paragon'"
+	result = /obj/item/mod/control/paragon
+	time = 1 SECONDS
+	reqs = list(
+		/obj/item/mod/construction/plating/paragon = 1,
+		/obj/item/mod/control/pre_equipped/medical = 1,
+	)
+	category = CAT_CLOTHING
 
 // Bonkai Donor Item
 
