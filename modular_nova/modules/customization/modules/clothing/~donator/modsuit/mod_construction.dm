@@ -15,7 +15,7 @@
 
 //Kaynite Donor Item
 
-//Adding paragon as a object - Needed forcrafting recipe
+//Adding paragon as a object - Needed for crafting recipe
 /obj/item/mod/control/paragon
 	theme = /datum/mod_theme/paragon
 
