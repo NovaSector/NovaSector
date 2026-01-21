@@ -1,6 +1,12 @@
-/datum/action/cooldown/spell/jaunt/space_crawl/on_jaunt_exited(obj/effect/dummy/phased_mob/jaunt, mob/living/unjaunter)
+/datum/action/cooldown/spell/jaunt/space_crawl
+	/// Have we successfully casted a jaunt? Used for triggering a cooldown when we exit Space Phase.
+	var/successful_jaunt = FALSE
+
+/datum/action/cooldown/spell/jaunt/space_crawl/after_cast(atom/cast_on)
 	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(StartCooldown), 30 SECONDS), 0 SECONDS)
+	successful_jaunt = !successful_jaunt
+	if(!successful_jaunt)
+		StartCooldown(30 SECONDS)
 
 /obj/effect/dummy/phased_mob/spell_jaunt/space/set_jaunter(atom/movable/new_jaunter)
 	. = ..()
