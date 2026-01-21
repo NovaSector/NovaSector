@@ -8944,6 +8944,7 @@
 #include "modular_nova\modules\morenarcotics\code\vapecarts.dm"
 #include "modular_nova\modules\moretraitoritems\code\autosurgeon.dm"
 #include "modular_nova\modules\moretraitoritems\code\autosurgeon_bodypart.dm"
+#include "modular_nova\modules\moretraitoritems\code\boxes.dm"
 #include "modular_nova\modules\moretraitoritems\code\cards_id.dm"
 #include "modular_nova\modules\moretraitoritems\code\cultist.dm"
 #include "modular_nova\modules\moretraitoritems\code\drinkingglass.dm"

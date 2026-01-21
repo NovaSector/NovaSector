@@ -1,4 +1,12 @@
 // LOW COST
+/datum/uplink_item/device_tools/radio_cracker_kit
+	name = "Radio Cracker kit"
+	desc = "A simple radio headset at first glance, but its hardware has been jailbroken to allow freerange browsing of frequencies. \
+			Comes with a handy phonebook including all the station frequencies, too."
+	item = /obj/item/storage/box/syndicate/radio_cracker_kit
+	cost = 1
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SPY
+
 /datum/uplink_item/device_tools/syndie_jaws
 	name = "Syndicate Jaws of Life"
 	desc = "Based on a Nanotrasen model, this powerful tool can be used as both a crowbar and a pair of wirecutters. \

@@ -5,16 +5,20 @@
 
 /*	list of contraband choices
 	supports items, lists of items, and pda program datums
+	rule of thumb about what belongs here:
+	if you search the type-path and it has more than 5 results, reconsider
 */
 GLOBAL_LIST_INIT(smuggler_items, list(
 	"Syndicate maid outfit" = list(/obj/item/clothing/under/syndicate/nova/maid, /obj/item/clothing/gloves/combat/maid, /obj/item/clothing/head/costume/maid_headband/syndicate),
 	"NV health meson goggles" = /obj/item/clothing/glasses/hud/health/night/meson,
-	"Badass sunglasses" = /obj/item/clothing/glasses/sunglasses/robohand,
+	"Badass sunglasses" = /obj/item/clothing/glasses/sunglasses/robohand, // ever been shot in the eye? not fun
 	"Fission360 PDA program" = /datum/computer_file/program/radar/fission360,
 	"SyndEye PDA program" = /datum/computer_file/program/secureye/syndicate,
+	"MODsuit Control program" = /datum/computer_file/program/maintenance/modsuit_control,
 	"Aranesp pill bottle" = /obj/item/storage/pill_bottle/aranesp,
 	"4U70-P3R4710N skillchip" = /obj/item/skillchip/self_surgery,
 	"Hacker arm toolkit" = /obj/item/organ/cyberimp/arm/toolkit/hacker,
+	"Radio Cracker kit" = /obj/item/storage/box/syndicate/radio_cracker_kit,
 ))
 
 /datum/quirk/smuggler
