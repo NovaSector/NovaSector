@@ -357,3 +357,114 @@
   - rscadd: Medborgs get formaldehyde in their advanced chemicals to help with body
       decay.
   - rscadd: Borgs can now attach IVs as god intended
+2026-01-12:
+  Happyowl93:
+  - rscadd: shortest, taller and tallest readded into the char pref options
+  Hatterhat:
+  - balance: Citing a sudden decrease in unattended protolathes, the Syndicate's Marauder
+      Program has started recycling recovered voltaic combat cyberhearts from dead
+      scientists, resulting in a reduced quality of usable anomaly-powered cybernetic
+      hearts, with increased cooldown cycle time (10 minutes, up from 5), decreased
+      active time (10 seconds, down from 30) and a lack of passive electromagnetic
+      shielding.
+  LotusLadno:
+  - rscadd: New Skin in Entombed Quirks
+  - rscadd: Custom Hardlight Theme in Entombed Quirks
+  MajManatee:
+  - image: Trama drakes are no longer haunted by one white pixel when resting and
+      looking east.
+  - rscadd: '*blink, *gulp, *wink. All have sounds!'
+  dee-dubya:
+  - rscadd: Adds the lead pipe as an optional weapon in the loadout
+  - rscadd: Adds the "Assorted Weapons" category in the loadout's weapon tab
+  sqnztb:
+  - bugfix: visitor quirk no longer removes all assistant records.
+2026-01-14:
+  Geoengi:
+  - qol: Trauma Team softsuits can now store their weapons/major tools in their suit
+      storage.
+  - balance: NT Trauma Teams had their gear expanded, while splitting the advanced
+      tools and combat defib between the regular members and the leader, respectively.
+  - bugfix: Hardlight gowns will no longer persist after being removed in patients'
+      hands.
+  - bugfix: Trauma Team webbing can now store the tools that it starts with, along
+      with many other types of medical equipment.
+  - bugfix: Fixed incorrect subtypes in Trauma Team outfits that were granting them
+      an extra gun, an extra internals box, and obfuscating their cell box.
+  - spellcheck: Medigun and Trauma Team descriptions have been grammar audited to
+      be more consistent.
+  - code_imp: Trauma Team member vs leader made more distinct in the select equipment
+      menu.
+  - bugfix: Ghostly hardlight gowns are finally slain, again.
+  Happyowl93:
+  - balance: The rest of .38 bullet types have been balanced to align them with the
+      rest of calibers
+  - balance: damage on all slug types have been increased slighty
+  Hardly:
+  - bugfix: Fixes hair dye's gradient dyeing not working
+  - code_imp: Some maintenance to our modular hair dye code.
+  Hatterhat:
+  - balance: Spawner-made legion and snow legion now drop charred corpses again, instead
+      of summoning another skull to get attacked by.
+  - balance: Ashwalker rituals that formerly required human corpses, then legion cores,
+      now require legion tumors, which can be pilfered from legion corpses.
+  - balance: Following some complaints and suggestions, Nanotrasen's weapon development
+      teams revisited the NT/E Laevateinn upgrade suite and improved both its cylinder
+      and coolant systems, resulting in a larger capacity and increased firerate when
+      amped, respectively.
+  - balance: To facilitate the Laevateinn's upgraded capacity, the Laevateinn kit
+      in Cargo now includes a DIY speedloader upgrading kit.
+  Hislyna:
+  - rscadd: Gives Interdyne Miners and Deck Officer the Tunnel Rat Skillchip Roundstart.
+  MajManatee:
+  - bugfix: Ammo pouches now hold speedloaders
+  - rscadd: Engiborgs start with a gripper. The upgrade adds a second, like mediborgs
+  - image: adds the small raptor borgs from bubber
+  - bugfix: Snack dispenser text fix when dispensing food.
+  - rscadd: Mediborgs have antirad as standard
+  Rilomatic:
+  - rscadd: Added Donor MODsuit "Paragon"
+  - bugfix: Fixed minor bugs in donor list
+  - bugfix: Update to MercTac Donor Item
+  - image: added images
+  VigilDLX:
+  - bugfix: Fixed station announcements to more accurately represent our regulations.
+  vinylspiders:
+  - bugfix: the interactions panel 'info' section (pleasure, pain, etc) will only
+      display if you have erp interactions available
+2026-01-15:
+  Happyowl93:
+  - balance: Laser carbine, wylom, sindano, MMR and m64 have their costs reduced in
+      the traitor uplink so, they can be considered over the hassle of getting a weapon
+      permit.
+  - rscadd: Cybersun S-120 laser carbine added to traitor uplink as another laser
+      gun option.
+  LotusLadno:
+  - bugfix: fixes entombed MODsuit theme behaving erratically and not showing the
+      right theme sometimes, and removes the role lock feature for now
+  vinylspiders:
+  - refactor: refactors mutant bodyparts backend
+  - bugfix: bodypart markings and marking sets will now inherit the appropriate mutant
+      colors when initially applied in char prefs
+2026-01-17:
+  Hardly:
+  - map: Nanotrasen Security has no idea to why they keep bringing in a syndicate
+      box of EMPs in Blueshift's armory. Anyway, it's gone, straight to the recycler.
+  MajManatee:
+  - rscadd: Cargo borgs get more utility with a full toolset
+  - rscadd: Manipulator can hold belts, blast door assemblies, and even an RPD.
+  - rscadd: New cargo teleporter upgrades for borgs
+  muratendmo:
+  - balance: Discovery that the foregrips and handguards on the Zaibas longarms are
+      not decorative has led to a decrease in recoil of 50% (half)
+2026-01-18:
+  codyman765:
+  - rscadd: Added new loadout plushie, a fluffy dragon! Now with removeable hat!
+2026-01-19:
+  Bannhammger:
+  - rscadd: 'adds a new tilting feature (Default hotkey: ''N'') - Hold and use arrow
+      keys to apply tilt to yourself.'
+  - rscadd: items will now have a chance to land messily when dropped if combat mode
+      is active, or if the item was thrown
+  wivernshy:
+  - rscadd: Adds wivernshy's donator item!
