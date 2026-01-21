@@ -65,7 +65,21 @@
 
 /datum/species/hemophage/get_species_lore()
 	return list(
-		"THIS IS A TEST DO NOT USE THIS GO BACK"
+				"Though not technically a species all their own, Hemophages are a general catch-all term for individuals afflicted by a symbiotic infection. This infection - usually, but not always - is transmitted via bite from one infectee to another wherein a small organism is implanted through the bloodstream which eventually grows into the full symbiont. Beyond this, commonalities between each individual hemophage will vary, as the specific mutations and genetic traits of each organism can be radically different from others, each distinct type known as 'clades.'",
+
+				"Despite the clade a symbiont will originate from: all share at least a few commonalities: the symbiont will attach to and rapidly integrate with major organ systems in the host's body. Initially this will start with the host's cardiovascular system but shortly thereafter, translucent tendrils from the tiny pitch-colored form of the symbiont will worm their way into the spinal column and eventually: the brain of the host. When it does, the host begins to not only psychologically, but also physically crave the consumption of blood in order to survive. Depending on the clade, these changes can take effect as early as hours after initial infection, though occurrance after a factor of days is not unheard of.",
+
+				"Further changes occur in the host: the symbiont is heavily reliant on extremely rapid cell regeneration to sustain itself, which is disrupted by the presence of UV light. As a result, the host can start to experience heightened irritation in the presence of light and especially sunlight.",
+
+				"Once fully integrated into the host, the now-Hemophagic individual finds themselves a changed entity; their thoughts, base instincts, and reactions altered - albeit usually subtly - to more accommodate the symbiont through its need for blood.",
+
+				"These alterations are not without their benefits however:",
+
+				"The extremely rapid regeneration of the symbiont, while similar to cancerous cells in many ways, offer a marked increase in healing in the host; as the symbiont attempts to repair itself by releasing hypercoagulant agents and healing factors into the bloodstream, resulting in small wounds healing extremely rapidly. All but the most virulent diseases find no purchase in the symbiont and its host, while carbon dioxide is recycled in the infected's altered lungs back into oxygen. Blood taken in by the host is rapidly converted into a usable antigen-agnostic blood type by the symbiont's bodily processes.",
+
+				"All of this renders the infected individual into a new, conjoined being with its symbiont not long after infection. Separation of the two becomes next to impossible due to how rapidly and thoroughly the symbiont's tendrils spread into the host's systems. Some claim mastery of hidden, expensive, or painful procedures to 'cure' one of the symbiosis but the results these range from actively damaging to the host, to utterly useless.",
+
+				"The exact benefits, transferrance methods, features, and side-effects of symbiosis have been documented to be exceptionally variable, depending on which specific clade a host's progenitor originates from. Some feature blackened blood and are wracked with constant pain, others find themselves largely unaffected outside of the craving for blood, others still hear the whisperings of others constantly in the back of their mind.",
 	)
 
 
