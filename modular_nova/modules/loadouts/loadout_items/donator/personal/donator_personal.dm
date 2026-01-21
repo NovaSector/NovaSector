@@ -1007,4 +1007,4 @@
 /datum/loadout_item/pocket_items/paragon_box
 	name = "The Homo Ludens Flag suit, nicknamed 'Paragon'"
 	item_path = /obj/item/mod/construction/plating/paragon
-	ckeywhitelist = list("kaynite", "rilomatic")
+	ckeywhitelist = list("kaynite")

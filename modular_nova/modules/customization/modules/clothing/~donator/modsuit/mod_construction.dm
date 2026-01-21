@@ -1,10 +1,10 @@
 //This file and folder is only for donation modsuits.
-//Follow the same methods below and make sure that 'icon_state' lable as [YOUR_SUIT_NAME_HERE]-plating.
-//The game will load it but will not load the icon as it will lable it as [YOUR_SUIT_NAME_HERE]-plating. Unsure why, best guess is due to TG modsuit code
+//Follow the same methods below and make sure that 'icon_state' label as [YOUR_SUIT_NAME_HERE]-plating.
+//The game will load it but will not load the icon as it will label it as [YOUR_SUIT_NAME_HERE]-plating. Unsure why, best guess is due to TG modsuit code
 //It will take the name variable from mod_theme.dm and merge it with a static "plating" thus the icon_state naming.
 //DO: Coolsuit-plating.
 //DONT: Coolsuit-box / coolsuit-box-plating / coolsuit.
-//Make sure that your .dmi icon is also labled the same way.
+//Make sure that your plating .dmi icon is also labeled the same way.
 //Remember to add your MODsuit variables in ~donator\modsuit\mod_theme.dm.
 // -- Rilomatic - 15th January 2026
 
