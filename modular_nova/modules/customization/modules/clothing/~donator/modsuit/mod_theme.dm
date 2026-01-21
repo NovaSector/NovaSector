@@ -1,8 +1,7 @@
 //This file and folder is only for donation modsuits.
 //If your Donor MODsuit is a reskin of a common MODsuit. Copy the MODsuits attributes from:
 //
-//code\modules\mod\mod_theme.dm - Common suits (Security, medical, mining, EVA, etc etc...)
-//modular_nova\master_files\code\modules\mod\mod_theme.dm - Uncommon suits (Tarkon, Syndicate, etc etc...)
+//modular_nova\master_files\code\modules\mod\mod_theme.dm
 //
 //If you're trying to make a new modsuit and add in here, be sure to not overpower it.
 //

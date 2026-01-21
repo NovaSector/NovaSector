@@ -86,9 +86,25 @@
 		/obj/item/mod/construction/plating/paragon = 1,
 		/obj/item/mod/control/pre_equipped/medical = 1,
 	)
-	category = CAT_CLOTHING
 
 // Bonkaitheroris (Bonkai) Donor Item
+
+//Adding jumper as a object - Needed for crafting recipe
+/obj/item/mod/control/donor/jumper
+	theme = /datum/mod_theme/jumper
+	applied_modules = list(
+		/obj/item/mod/module/storage,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/pepper_shoulders,
+		/obj/item/mod/module/criminalcapture,
+		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
+	)
+	default_pins = list(
+		/obj/item/mod/module/jetpack,
+	)
 
 /obj/item/mod/construction/plating/jumper
 	name = "\improper PA-4 MK-7 J.S supply crate"
@@ -99,3 +115,13 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "jumper-plating"
 	theme = /datum/mod_theme/jumper
+
+//Crafting recipe for jumper
+/datum/crafting_recipe/jumper
+	name = "PA-4 MK-7 J.S 'Jumper'"
+	result = /obj/item/mod/control/donor/jumper
+	time = 1 SECONDS
+	reqs = list(
+		/obj/item/mod/construction/plating/jumper = 1,
+		/obj/item/mod/control/pre_equipped/security = 1,
+	)
