@@ -6,6 +6,7 @@
 	preview_outfit = /datum/outfit/marauder_preview
 	show_to_ghosts = TRUE
 	give_uplink = FALSE
+	stinger_sound = 'modular_nova/modules/moretraitoritems/sound/wakeup.ogg'
 
 /datum/outfit/marauder_preview
 	name = "Marauder (Preview only)"
