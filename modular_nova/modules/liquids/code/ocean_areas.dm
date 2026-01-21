@@ -19,22 +19,25 @@
 	map_generator = /datum/map_generator/cave_generator/ocean
 	area_flags_mapping = parent_type::area_flags_mapping|FLORA_ALLOWED|CAVES_ALLOWED
 
+/area/ocean/generated/shallow
+	map_generator = /datum/map_generator/cave_generator/ocean/shallow
+
 /area/ocean/generated/rocky
 	map_generator = /datum/map_generator/cave_generator/ocean/rocky
 
 /area/ocean/generated/friendly_mobs
-	map_generator = /datum/map_generator/cave_generator/lagoon/friendly_mobs
+	map_generator = /datum/map_generator/cave_generator/ocean/shallow/lagoon/friendly_mobs
 	area_flags_mapping = parent_type::area_flags_mapping|MOB_SPAWN_ALLOWED
 
 /area/ocean/generated/hostile_mobs
-	map_generator = /datum/map_generator/cave_generator/lagoon/hostile_mobs
+	map_generator = /datum/map_generator/cave_generator/ocean/shallow/lagoon/hostile_mobs
 	area_flags_mapping = parent_type::area_flags_mapping|MOB_SPAWN_ALLOWED
 
 /area/ocean/generated/friendly_mobs/wilderness
-	map_generator = /datum/map_generator/cave_generator/lagoon/friendly_mobs/wilderness
+	map_generator = /datum/map_generator/cave_generator/ocean/shallow/lagoon/friendly_mobs/wilderness
 
 /area/ocean/generated/hostile_mobs/wilderness
-	map_generator = /datum/map_generator/cave_generator/lagoon/hostile_mobs/wilderness
+	map_generator = /datum/map_generator/cave_generator/ocean/shallow/lagoon/hostile_mobs/wilderness
 
 /area/ocean/monestary
 	name = "\improper Monastery Isle"
