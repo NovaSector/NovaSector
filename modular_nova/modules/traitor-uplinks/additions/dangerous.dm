@@ -41,6 +41,13 @@
 	cost = /datum/uplink_item/low_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
+/datum/uplink_item/dangerous/covenant
+	name = "\"Covenant\" elite energy sword"
+	desc = "Much like its more conventional sibling, the energy sword, the \"Covenant\" elite energy sword is an edged weapon with two blades of pure energy. \
+			The sword is small enough to be pocketed when inactive. Activating it produces a loud, distinctive noise, which makes subtlety very difficult."
+	item = /obj/item/melee/energy/sword/saber/covenant
+	cost = /datum/uplink_item/low_cost/weaponry::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 // MEDIUM COST
 /datum/uplink_item/dangerous/laser_carbine

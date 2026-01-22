@@ -7,7 +7,7 @@
 	embed_type = /datum/embedding/esword/surplus
 
 /obj/item/melee/energy/sword/surplus/improvised
-	name = "\improper Type I/H 'Bokuto' energy sword" // type I/Handmade
+	name = "\improper Pattern I/H 'Bokuto' energy sword" // type I/Handmade
 	desc = "A handmade energy sword, used for live training and pest control, modeled after the infamous Type I 'Iaito'. It can be recharged with the dynamos in the handle."
 	block_chance = 25 // Surplus is 50
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.25, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.37)
@@ -20,7 +20,7 @@
 			From ne'er-do-wells to enthusiasts and everything in between, the ease of acquiring parts means that anyone with a semblance of \
 			craftsmanship can make something that works as a sword.<br>\
 			<br>\
-			When handmade energy swords are patterened after earlier energy swords such as the Type I 'Iaito', they're typically designated with \
+			When handmade energy swords are patterened after earlier energy swords such as the Pattern I 'Iaito', they're typically designated with \
 			the H suffix to denote the circumstances of their manufacture and given a different nickname. \
 			Typically, for Iaito-likes, the designation of choice is the 'Bokuto'. \
 			While remarkably similar to recovered Iaitos, thanks to the designs for homemade prototypes having long been leaked to the exonet, \

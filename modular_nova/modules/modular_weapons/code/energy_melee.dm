@@ -17,12 +17,40 @@
 	. = ..()
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
-		lore = "Wort wort wort. \
-		Despite having two cutting planes, this still only fights as well as a regular energy sword. \
-		It's good at stabbing people, though.", \
+		lore = "The Pattern III/C \"Covenant\" charged plasma blade, colloquially known as the \"elite\" energy sword, is a variant of the \
+			energy sword infamously used by Syndicate operatives, noteworthy for its unusual twin-bladed design.<br>\
+			<br>\
+			A very large deviation from conventional energy-based melee weapon designs, designed less for concealment and more for visual distinction, \
+			the Pattern III/C \"Covenant\" has a horizontally-oriented hilt with two blade emitters and a central protrusion that provides an orientation \
+			point for the fingers wrapping around the hilt. \
+			Despite the twin energy blades, the forward-protruding orientation of both blades means that it does not provide the protective qualities \
+			of the infamous dual-bladed energy sword, but also means that it does not require both hands to be wielded. Users are advised that it \
+			performs more like a standard energy sword, albeit slightly better for impaling people than its single-bladed sibling. \
+			A multitool can be used to recalibrate the blade modulator to adjust the color of the energy blade, which does not affect performance.", \
 	)
-	AddComponent(/datum/component/jousting, damage_boost_per_tile = 1, knockdown_chance_per_tile = 10)
 
-/obj/item/melee/energy/sword/saber/multitool_act(mob/living/user, obj/item/tool)
-	// todo radial
+/obj/item/melee/energy/sword/saber/covenant/multitool_act(mob/living/user, obj/item/tool)
+	var/list/color_menu = list(
+		"Blue" = image(icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi', icon_state = "covenant_on_blue"),
+		"Green" = image(icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi', icon_state = "covenant_on_green"),
+		"Red" = image(icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi', icon_state = "covenant_on_red"),
+		"Purple" = image(icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi', icon_state = "covenant_on_purple"),
+	)
+	var/pick_result = lowertext(show_radial_menu(user, src, color_menu, custom_check = CALLBACK(src, PROC_REF(check_reskin_menu), user), require_near = TRUE, tooltips = TRUE))
+	if(!pick_result)
+		return
+	sword_color_icon = pick_result
+	set_light_color(possible_sword_colors[sword_color_icon])
+	to_chat(user, span_info("You modify [src]'s blade modulator to be [pick_result]."))
 	update_appearance(UPDATE_ICON_STATE)
+
+/**
+ * Checks if we are allowed to interact with a radial menu for reskins
+ *
+ * Arguments:
+ * * user The mob interacting with the menu
+ */
+/obj/item/melee/energy/sword/saber/covenant/proc/check_reskin_menu(mob/user)
+	if(user.incapacitated)
+		return FALSE
+	return TRUE
