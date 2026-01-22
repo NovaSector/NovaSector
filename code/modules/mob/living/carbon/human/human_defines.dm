@@ -93,3 +93,6 @@
 	VAR_PRIVATE/base_mob_height = HUMAN_HEIGHT_MEDIUM
 	/// Actual height of the mob. Don't touch this one, it is set via update_mob_height()
 	VAR_FINAL/mob_height = HUMAN_HEIGHT_MEDIUM
+
+	/// Tracks how long in seconds we've been in a low pressure environment
+	VAR_FINAL/seconds_in_low_pressure = 0
