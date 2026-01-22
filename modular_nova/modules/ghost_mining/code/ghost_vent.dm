@@ -63,10 +63,16 @@
 
 	//produce the boulder
 	var/obj/item/boulder/new_rock
-	if(prob(artifact_chance))
-		new_rock = new /obj/item/boulder/artifact(loc)
+	if(ghost_mining)
+		if(prob(artifact_chance))
+			new_rock = new /obj/item/boulder/artifact/ghost_mining(loc)
+		else
+			new_rock = new /obj/item/boulder/ghost_mining(loc)
 	else
-		new_rock = new /obj/item/boulder(loc)
+		if(prob(artifact_chance))
+			new_rock = new /obj/item/boulder/artifact(loc)
+		else
+			new_rock = new /obj/item/boulder(loc)
 	Shake(duration = 1.5 SECONDS)
 
 	//decorate the boulder with materials
@@ -465,6 +471,14 @@
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
 		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom,
 	)
+
+/obj/item/boulder/ghost_mining
+	name = "crystal cluster"
+	desc = "They're not rocks, they're minerals."
+
+/obj/item/boulder/artifact/ghost_mining
+	name = "crystalized artifact cluster"
+	desc = "Minerals crystalized around an obscured object."
 
 #undef COLONY_THREAT_XENOS
 #undef COLONY_THREAT_PIRATES

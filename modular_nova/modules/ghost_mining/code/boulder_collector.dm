@@ -134,7 +134,7 @@
 	if(istype(target_boulder, /obj/item/boulder))
 		var/obj/item/boulder/mine_now = target_boulder
 		mine_now.forceMove(src) //Pull the boulder into storage
-		if(!(mine_now in SSore_generation.available_boulders)) //if not in BRM pull list, add it to its potential pull list
+		if(istype(mine_now, /obj/item/boulder/ghost_mining) || istype(mine_now, /obj/item/boulder/artifact/ghost_mining)) //if not in BRM pull list, add it to its potential pull list
 			available_boulders += WEAKREF(mine_now)
 	return
 
@@ -142,7 +142,7 @@
 	if(istype(attacking_item, /obj/item/boulder))
 		var/obj/item/boulder/mine_now = attacking_item
 		user.transferItemToLoc(attacking_item, src)
-		if(!(mine_now in SSore_generation.available_boulders))
+		if(istype(mine_now, /obj/item/boulder/ghost_mining) || istype(mine_now, /obj/item/boulder/artifact/ghost_mining))
 			available_boulders += WEAKREF(mine_now)
 	else
 		return ..()
