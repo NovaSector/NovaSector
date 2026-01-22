@@ -468,3 +468,10 @@
       is active, or if the item was thrown
   wivernshy:
   - rscadd: Adds wivernshy's donator item!
+2026-01-22:
+  splat1125:
+  - rscadd: Added a new undershirt, the cropped corset. recolorable!
+  - rscadd: Added a new under/uniform clothing item, wide legged pants, to loadouts
+      and station vendors. recolorable!
+  - bugfix: Security battle dress is no longer missing a single pixel at the crotch
+      when worn with the female bodytype
