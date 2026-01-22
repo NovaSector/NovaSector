@@ -2,8 +2,7 @@
 	name = "Ghoul"
 	id = SPECIES_GHOUL
 	examine_limb_id = SPECIES_GHOUL
-	can_have_genitals = FALSE //WHY WOULD YOU WANT TO FUCK ONE OF THESE THINGS?
-	mutant_bodyparts = list("ghoulcolor" = "Tan Necrotic")
+	can_have_genitals = FALSE
 	mutanttongue = /obj/item/organ/tongue/ghoul
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
@@ -33,16 +32,17 @@
 
 /datum/species/ghoul/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_TAIL = list("None", FALSE),
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_GHOUL_COLOR = MUTPART_BLUEPRINT("Tan Necrotic", is_randomizable = FALSE, is_feature = TRUE),
 	)
 
-/proc/proof_ghoul_features(list/inFeatures)
+/proc/proof_ghoul_features(list/in_features)
 	// Missing Defaults in DNA? Randomize!
-	if(inFeatures[FEATURE_GHOUL_COLOR] == null || inFeatures[FEATURE_GHOUL_COLOR] == "")
-		inFeatures[FEATURE_GHOUL_COLOR] = GLOB.color_list_ghoul[pick(GLOB.color_list_ghoul)]
+	if(in_features[FEATURE_GHOUL_COLOR] == null || in_features[FEATURE_GHOUL_COLOR] == "")
+		in_features[FEATURE_GHOUL_COLOR] = GLOB.color_list_ghoul[pick(GLOB.color_list_ghoul)]
 
 /datum/species/proc/set_ghoul_color(mob/living/carbon/human/human_ghoul)
 	return // Do Nothing

@@ -1,11 +1,10 @@
 /datum/job/research_director
 	title = JOB_RESEARCH_DIRECTOR
 	description = "Supervise research efforts, ensure Robotics is in working \
-		order, make sure the AI and its Cyborgs aren't rogue, replacing them if \
+		order, make sure the AI and its Cyborgs aren't rogue, replace them if \
 		they are."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	department_head = list(JOB_CAPTAIN)
-	head_announce = list("Science")
+	head_announce = RADIO_CHANNEL_SCIENCE
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1

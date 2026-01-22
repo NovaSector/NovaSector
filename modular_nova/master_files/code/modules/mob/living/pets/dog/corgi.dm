@@ -121,7 +121,7 @@
 		if(hitting_projectile.damage_type != BRUTE && hitting_projectile.damage_type != BURN)
 			return
 
-		adjustBruteLoss(hitting_projectile.damage)
+		adjust_brute_loss(hitting_projectile.damage)
 		if(!isliving(target) || health <= 0)
 			return
 

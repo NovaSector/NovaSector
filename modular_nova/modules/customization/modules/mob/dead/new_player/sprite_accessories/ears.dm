@@ -5,7 +5,8 @@
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer)
-	if(!wearer.head)
+	var/obj/item/clothing/head/mod/worn_head = wearer.head
+	if(isnull(worn_head))
 		return FALSE
 
 	// Can hide if wearing hat
@@ -13,13 +14,14 @@
 		return TRUE
 
 	// Exception for MODs
-	if(istype(wearer.head, /obj/item/clothing/head/mod))
+	if(istype(worn_head))
 		return FALSE
 
 	// Hide accessory if flagged to do so
-	if((wearer.head?.flags_inv & HIDEHAIR || wearer.wear_mask?.flags_inv & HIDEHAIR) \
+	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
+	if((worn_head.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
 		// This line basically checks if we FORCE accessory-ears to show, for items with earholes like Balaclavas and Luchador masks
-		&& ((wearer.head && !(wearer.head.flags_inv & SHOWSPRITEEARS)) || (wearer.wear_mask && !(wearer.wear_mask?.flags_inv & SHOWSPRITEEARS))))
+		&& ((worn_head && !(worn_head.flags_inv & SHOWSPRITEEARS)) || (worn_mask && !(worn_mask?.flags_inv & SHOWSPRITEEARS))))
 		return TRUE
 
 	return FALSE
@@ -27,9 +29,18 @@
 /datum/sprite_accessory/ears/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/ears/cat
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_ONE_COLOR
 	has_inner = TRUE
@@ -42,7 +53,14 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears.dmi'
 	organ_type = /obj/item/organ/ears_external
 	color_src = USE_MATRIXED_COLORS
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 	uses_emissives = TRUE
 
 /datum/sprite_accessory/ears/external/none
@@ -50,18 +68,44 @@
 	icon_state = "none"
 	color_src = null
 	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/ears/external/big
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears_big.dmi'
 
 /datum/sprite_accessory/ears/external/vulpkanin
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_VULP, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_VULP = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 
 /datum/sprite_accessory/ears/external/cat
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_TAJARAN, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_TAJARAN = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 
 /datum/sprite_accessory/ears/external/akula
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_AQUATIC, SPECIES_AKULA, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_AQUATIC = 1,
+		SPECIES_AKULA = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 
 /datum/sprite_accessory/ears/external/axolotl
 	name = "Axolotl"
@@ -94,6 +138,10 @@
 	name = "Dark Big Wolf (ALT)"
 	icon_state = "bigwolfinnerdark"
 	has_inner = TRUE
+
+/datum/sprite_accessory/ears/external/jackal
+	name = "Jackal"
+	icon_state = "jackal"
 
 /datum/sprite_accessory/ears/external/bunny
 	name = "Bunny"
@@ -359,11 +407,15 @@
 	icon_state = "deerear"
 
 /datum/sprite_accessory/ears/external/teshari
-	recommended_species = list(SPECIES_TESHARI)
+	recommended_species = list(SPECIES_TESHARI = 1)
 
 /datum/sprite_accessory/ears/external/teshari/regular
 	name = "Teshari Regular"
 	icon_state = "teshari_regular"
+
+/datum/sprite_accessory/ears/external/teshari/regularalt
+	name = "Teshari Regular Alt"
+	icon_state = "teshari_feathers_regalt"
 
 /datum/sprite_accessory/ears/external/teshari/feathers_bushy
 	name = "Teshari Feathers Bushy"
@@ -417,11 +469,6 @@
 /datum/sprite_accessory/ears/external/teshari/feathers_backstrafe
 	name = "Teshari Feathers Backstrafe"
 	icon_state = "teshari_feathers_backstrafe"
-	color_src = USE_ONE_COLOR
-
-/datum/sprite_accessory/ears/external/teshari/feathers_thinmohawk
-	name = "Teshari Feathers Thin Mohawk"
-	icon_state = "teshari_feathers_thinmohawk"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/external/teshari/feathers_thin
@@ -589,3 +636,15 @@
 /datum/sprite_accessory/ears/external/shade/fluffy/rings/right
 	name = "Shade Fluffy Rings (Right)"
 	icon_state = "shadekinfluffyringsright"
+
+/datum/sprite_accessory/ears/external/fennecl
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears_big.dmi'
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/ears/external/fennecl/large
+	name = "Fennec Large"
+	icon_state = "fennecl_large"
+
+/datum/sprite_accessory/ears/external/fennecl/large/flatsharp
+	name = "Fennec Large Flat Sharp"
+	icon_state = "fennecl_large_flatsharp"

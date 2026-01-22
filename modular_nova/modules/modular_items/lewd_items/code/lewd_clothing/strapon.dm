@@ -251,7 +251,7 @@
 			)
 			target_mob.adjust_arousal(4)
 			target_mob.adjust_pleasure(1)
-			target_mob.adjustOxyLoss(1.5)
+			target_mob.adjust_oxy_loss(1.5)
 			if(prob(70))
 				target_mob.try_lewd_autoemote(pick("gasp", "moan"))
 			user.visible_message(span_purple("[user] [message]!"))

@@ -1,11 +1,12 @@
 #define OVEN_TRAY_Y_OFFSET -12
 
-/obj/machinery/oven/stone
+/obj/machinery/oven/primitive
 	name = "stone oven"
 	desc = "Sorry buddy, all this stone used up the budget that would have normally gone to garfield comic jokes."
 	icon = 'modular_nova/modules/primitive_cooking_additions/icons/stone_kitchen_machines.dmi'
 	circuit = null
 	use_power = FALSE
+	custom_materials = list(/datum/material/stone = SHEET_MATERIAL_AMOUNT * 5)
 
 	/// A list of the different oven trays we can spawn with
 	var/static/list/random_oven_tray_types = list(
@@ -14,7 +15,11 @@
 		/obj/item/plate/oven_tray/material/fake_tin,
 	)
 
-/obj/machinery/oven/stone/Initialize(mapload)
+/obj/machinery/oven/primitive/clay
+	name = "clay oven"
+	custom_materials = list(/datum/material/clay = SHEET_MATERIAL_AMOUNT * 10)
+
+/obj/machinery/oven/primitive/Initialize(mapload)
 	. = ..()
 
 	if(!mapload)
@@ -26,22 +31,22 @@
 	var/new_tray_type_to_use = pick(random_oven_tray_types)
 	add_tray_to_oven(new new_tray_type_to_use(src))
 
-/obj/machinery/oven/stone/examine(mob/user)
+/obj/machinery/oven/primitive/examine(mob/user)
 	. = ..()
 
 	. += span_notice("It can be taken apart with a <b>crowbar</b>.")
 
 // formerly NO_DECONSTRUCTION
-/obj/machinery/oven/stone/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+/obj/machinery/oven/primitive/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
 	return NONE
 
-/obj/machinery/oven/stone/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+/obj/machinery/oven/primitive/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
 	return NONE
 
-/obj/machinery/oven/stone/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+/obj/machinery/oven/primitive/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
 	return NONE
 
-/obj/machinery/oven/stone/add_tray_to_oven(obj/item/plate/oven_tray, mob/baker)
+/obj/machinery/oven/primitive/add_tray_to_oven(obj/item/plate/oven_tray, mob/baker)
 	used_tray = oven_tray
 
 	if(!open)
@@ -54,20 +59,20 @@
 	update_baking_audio()
 	update_appearance()
 
-/obj/machinery/oven/stone/set_smoke_state(new_state)
+/obj/machinery/oven/primitive/set_smoke_state(new_state)
 	. = ..()
 
 	if(particles)
 		particles.position = list(0, 10, 0)
 
-/obj/machinery/oven/stone/crowbar_act(mob/living/user, obj/item/tool)
+/obj/machinery/oven/primitive/crowbar_act(mob/living/user, obj/item/tool)
 	user.balloon_alert_to_viewers("disassembling...")
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/oven/stone/on_deconstruction(disassembled)
+/obj/machinery/oven/primitive/on_deconstruction(disassembled)
 	new /obj/item/stack/sheet/mineral/stone(drop_location(), 5)
 
 #undef OVEN_TRAY_Y_OFFSET

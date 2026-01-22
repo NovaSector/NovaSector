@@ -1559,7 +1559,8 @@
 /obj/machinery/button/polarizer{
 	id = "interdynexenobiowindows";
 	name = "Xenobio Window Privacy";
-	pixel_x = -24
+	pixel_x = -24;
+	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -2536,7 +2537,8 @@
 /obj/machinery/button/polarizer{
 	pixel_y = 24;
 	id = "interdynedeckofficerwindows";
-	name = "Deck Officer Window Privacy"
+	name = "Deck Officer Window Privacy";
+	dir = 1
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)

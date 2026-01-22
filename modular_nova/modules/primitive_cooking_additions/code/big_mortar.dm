@@ -85,7 +85,7 @@
 			if(length(contents) >= maximum_contained_items)
 				break
 
-			if(target_item.juice_typepath || target_item.grind_results)
+			if(target_item.juice_typepath() || target_item.grind_results())
 				target_item.forceMove(src)
 
 		if (length(contents) >= maximum_contained_items)
@@ -112,7 +112,7 @@
 		)
 		var/picked_option = show_radial_menu(user, src, choose_options, radius = 38, require_near = TRUE)
 
-		if(user.getStaminaLoss() > LARGE_MORTAR_STAMINA_MINIMUM)
+		if(user.get_stamina_loss() > LARGE_MORTAR_STAMINA_MINIMUM)
 			balloon_alert(user, "too tired!")
 			return ITEM_INTERACT_BLOCKING
 
@@ -144,7 +144,7 @@
 			balloon_alert_to_viewers("stopped [act_verb_ing]")
 			return ITEM_INTERACT_BLOCKING
 
-		user.adjustStaminaLoss(LARGE_MORTAR_STAMINA_USE) //This is a bit more tiring than a normal sized mortar and pestle
+		user.adjust_stamina_loss(LARGE_MORTAR_STAMINA_USE) //This is a bit more tiring than a normal sized mortar and pestle
 		switch(picked_option)
 			if("Juice")
 				for(var/obj/item/target_item as anything in contents)
@@ -152,7 +152,7 @@
 						balloon_alert(user, "overflowing!")
 						break
 
-					if(target_item.juice_typepath)
+					if(target_item.juice_typepath())
 						juice_target_item(target_item, user)
 
 					else
@@ -164,7 +164,7 @@
 						balloon_alert(user, "overflowing!")
 						break
 
-					if(target_item.grind_results)
+					if(target_item.grind_results())
 						grind_target_item(target_item, user)
 
 					else
@@ -174,7 +174,7 @@
 
 		return ITEM_INTERACT_SUCCESS
 
-	if(!tool.grind_results && !tool.juice_typepath)
+	if(!tool.grind_results() && !tool.juice_typepath())
 		balloon_alert(user, "can't grind this!")
 		return ITEM_INTERACT_BLOCKING
 

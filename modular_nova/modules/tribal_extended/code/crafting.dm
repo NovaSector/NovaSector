@@ -11,6 +11,7 @@
 	icon_state = "db6"
 	microwave_riggable = FALSE // You can't melt bone in the microwave
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/cup/bowl/wood_bowl
 	name = "wooden bowl"
@@ -19,6 +20,7 @@
 	icon_state = "wood_bowl"
 	fill_icon_state = "fullbowl"
 	fill_icon = 'icons/obj/mining_zones/ash_flora.dmi'
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/reagent_containers/cup/bowl/mushroom_bowl/update_icon_state()
 	if(!reagents.total_volume)

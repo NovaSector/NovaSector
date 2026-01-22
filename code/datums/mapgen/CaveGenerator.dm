@@ -114,10 +114,6 @@
 	string_gen = rustg_cnoise_generate("[initial_closed_chance]", "[smoothing_iterations]", "[birth_limit]", "[death_limit]", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
 
 	for(var/turf/gen_turf as anything in turfs) //Go through all the turfs and generate them
-		//NOVA EDIT ADDITION
-		if(istype(gen_turf, /turf/open/space/mirage))
-			continue
-		//NOVA EDIT END
 
 		var/closed = string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x] != "0"
 		var/turf/new_turf = pick(closed ? closed_turf_types : open_turf_types)

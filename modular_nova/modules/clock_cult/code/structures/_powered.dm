@@ -24,14 +24,13 @@
 /obj/structure/destructible/clockwork/gear_base/powered/Initialize(mapload)
 	. = ..()
 	update_icon_state()
-	LAZYINITLIST(transmission_sigils)
 	for(var/obj/structure/destructible/clockwork/sigil/transmission/trans_sigil in range(src, SIGIL_TRANSMISSION_RANGE))
 		link_to_sigil(trans_sigil)
 
 
 /obj/structure/destructible/clockwork/gear_base/powered/Destroy()
 	for(var/obj/structure/destructible/clockwork/sigil/transmission/trans_sigil as anything in transmission_sigils)
-		trans_sigil.linked_structures -= src
+		LAZYREMOVE(trans_sigil.linked_structures, src)
 	return ..()
 
 
@@ -193,7 +192,7 @@
 /// Adds a sigil to the linked structure list
 /obj/structure/destructible/clockwork/gear_base/powered/proc/link_to_sigil(obj/structure/destructible/clockwork/sigil/transmission/sigil)
 	LAZYOR(transmission_sigils, sigil)
-	sigil.linked_structures |= src
+	LAZYOR(sigil.linked_structures, src)
 
 
 /// Removes a sigil from the linked structure list
@@ -202,6 +201,6 @@
 		return
 
 	LAZYREMOVE(transmission_sigils, sigil)
-	sigil.linked_structures -= src
+	LAZYREMOVE(sigil.linked_structures, src)
 
 	check_power()

@@ -63,7 +63,7 @@
 	. = ..()
 
 	create_reagents(max_reagent_volume)
-	AddComponent(/datum/component/liquids_interaction, TYPE_PROC_REF(/obj/item/towel, attack_on_liquids_turf))
+	AddElement(/datum/element/liquids_interaction)
 	AddComponent(/datum/component/surgery_initiator) // Since you can do it with bedsheets, why not with towels too?
 
 	register_context()
@@ -493,20 +493,9 @@
 		make_used(user, silent = TRUE)
 
 
-/**
- * The procedure for remove liquids from turf
- *
- * The object is called from liquid_interaction element.
- * The procedure check range of mop owner and tile, then check reagents in mop, if reagents volume < mop capacity - liquids absorbs from tile
- * In another way, input a chat about mop capacity
- * Arguments:
- * * towel - Towel used to absorb liquids
- * * tile - On which tile the towel will try to absorb liquids
- * * user - Who tries to absorb liquids with the towel
- * * liquids - Liquids that user tries to absorb with the towel
- */
-/obj/item/towel/proc/attack_on_liquids_turf(turf/tile, mob/user, obj/effect/abstract/liquid_turf/liquids)
-	if(!in_range(user, tile))
+// The procedure check range of mop owner and target_turf, then check reagents in mop, if reagents volume < mop capacity - liquids absorbs from target_turf
+/obj/item/towel/attack_liquids_turf(turf/target_turf, mob/living/user, obj/effect/abstract/liquid_turf/liquids)
+	if(!in_range(user, target_turf))
 		return FALSE
 
 	var/free_space = reagents.maximum_volume - reagents.total_volume

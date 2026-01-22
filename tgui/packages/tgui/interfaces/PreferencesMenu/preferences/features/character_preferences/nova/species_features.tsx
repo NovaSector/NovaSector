@@ -1,17 +1,17 @@
 // THIS IS A NOVA SECTOR UI FILE
 import {
   CheckboxInput,
-  Feature,
-  FeatureChoiced,
-  FeatureChoicedServerData,
+  type Feature,
+  type FeatureChoiced,
+  type FeatureChoicedServerData,
   FeatureColorInput,
   FeatureNumberInput,
   FeatureShortTextInput,
   FeatureTextInput,
-  FeatureToggle,
+  type FeatureToggle,
   FeatureTriBoolInput,
   FeatureTriColorInput,
-  FeatureValueProps,
+  type FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
@@ -687,7 +687,7 @@ export const taur_emissive: Feature<boolean[]> = {
 export const naga_sole: FeatureToggle = {
   name: 'Taur (Naga) disable hardened soles',
   description:
-    'If using a serpentine taur body, determines if you are immune to caltrops and a few other effects of being barefoot.',
+    'If using a serpentine or fishlike taur body, determines if you are immune to caltrops and a few other effects of being barefoot.',
   component: CheckboxInput,
 };
 

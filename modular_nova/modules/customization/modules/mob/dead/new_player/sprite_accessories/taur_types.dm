@@ -4,12 +4,11 @@
  * Returns STYLE_TAUR_* or NONE.
  */
 /mob/living/carbon/human/proc/get_taur_mode()
-	var/taur_mutant_bodypart = dna.species.mutant_bodyparts[FEATURE_TAUR]
+	var/datum/mutant_bodypart/taur_mutant_bodypart = dna.mutant_bodyparts[FEATURE_TAUR]
 	if(!taur_mutant_bodypart)
 		return NONE
 
-	var/bodypart_name = taur_mutant_bodypart[MUTANT_INDEX_NAME]
-	var/datum/sprite_accessory/taur/taur = SSaccessories.sprite_accessories[FEATURE_TAUR][bodypart_name]
+	var/datum/sprite_accessory/taur/taur = SSaccessories.sprite_accessories[FEATURE_TAUR][taur_mutant_bodypart.name]
 	if(!taur)
 		return NONE
 
@@ -56,9 +55,22 @@
 					if (worn_suit.worn_icon_taur_hoof)
 						return TRUE
 
+	var/obj/item/clothing/under/worn_uniform = target.w_uniform
+	if (istype(worn_uniform))
+		if (worn_uniform.flags_inv & HIDETAUR)
+			switch (taur_mode)
+				if (STYLE_TAUR_SNAKE)
+					if (worn_suit.worn_icon_taur_snake)
+						return TRUE
+				if (STYLE_TAUR_PAW)
+					if (worn_suit.worn_icon_taur_paw)
+						return TRUE
+				if (STYLE_TAUR_HOOF)
+					if (worn_suit.worn_icon_taur_hoof)
+						return TRUE
+
 	if(target.owned_turf)
-		var/list/used_in_turf = list("tail")
-		if(target.owned_turf.name in used_in_turf)
+		if(target.owned_turf.name == "tail")
 			return TRUE
 
 	return FALSE
@@ -68,6 +80,7 @@
 	dimension_x = 32
 	center = FALSE
 	factual = FALSE
+	natural_spawn = FALSE
 	color_src = null
 	flags_for_organ = NONE
 
@@ -131,6 +144,23 @@
 	alt_taur_mode = STYLE_TAUR_PAW
 	can_lay_down = TRUE
 	laydown_offset = -3
+
+/datum/sprite_accessory/taur/fishlike
+	name = "Mermaid"
+	icon_state = "mermaid"
+	organ_type = /obj/item/organ/taur_body/fishlike
+	taur_mode = STYLE_TAUR_SNAKE
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/taur/fishlike/mermaid_alt
+	name = "Mermaid (Koi Fish)"
+	icon_state = "mermaid_alt"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/taur/fishlike/orca
+	name = "Orca"
+	icon_state = "orca"
+	color_src = null
 
 /datum/sprite_accessory/taur/naga
 	name = "Naga"

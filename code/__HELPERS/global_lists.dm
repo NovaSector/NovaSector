@@ -17,12 +17,10 @@
 	init_crafting_recipes_atoms()
 
 /// Inits crafting recipe lists
-/proc/init_crafting_recipes(list/crafting_recipes)
-	for(var/path in subtypesof(/datum/crafting_recipe))
-		if(ispath(path, /datum/crafting_recipe/stack))
-			continue
-		var/datum/crafting_recipe/recipe = new path()
-		var/is_cooking = ((recipe.category in GLOB.crafting_category_food) || (recipe.category in GLOB.crafting_category_food_nova)) // NOVA EDIT CHANGE - ORIGINAL: var/is_cooking = (recipe.category in GLOB.crafting_category_food)
+/proc/init_crafting_recipes()
+	for(var/datum/crafting_recipe_path as anything in valid_subtypesof(/datum/crafting_recipe))
+		var/datum/crafting_recipe/recipe = new crafting_recipe_path()
+		var/is_cooking = (recipe.category in (GLOB.crafting_category_food + GLOB.crafting_category_food_nova)) // NOVA EDIT CHANGE - ORIGINAL: var/is_cooking = (recipe.category in GLOB.crafting_category_food)
 		recipe.reqs = sort_list(recipe.reqs, GLOBAL_PROC_REF(cmp_crafting_req_priority))
 		if(recipe.name != "" && recipe.result)
 			if(is_cooking)
@@ -135,29 +133,21 @@
 			for(var/atom/req_atom as anything in recipe.structures)
 				atom_list |= req_atom
 
-//creates every subtype of prototype (excluding prototype) and adds it to list L.
-//if no list/L is provided, one is created.
+/// Creates every subtype of prototype (excluding prototype and abstract types) and adds it to list L.
+/// If no list/L is provided, one is created.
 /proc/init_subtypes(prototype, list/L)
 	if(!istype(L))
 		L = list()
-	for(var/path in subtypesof(prototype))
+	for(var/path in valid_subtypesof(prototype))
 		L += new path()
 	return L
 
-//returns a list of paths to every subtype of prototype (excluding prototype)
-//if no list/L is provided, one is created.
-/proc/init_paths(prototype, list/L)
-	if(!istype(L))
-		L = list()
-		for(var/path in subtypesof(prototype))
-			L+= path
-		return L
-
 /// Functions like init_subtypes, but uses the subtype's path as a key for easy access
+/// If no list/L is provided, one is created.
 /proc/init_subtypes_w_path_keys(prototype, list/L)
 	if(!istype(L))
 		L = list()
-	for(var/path in subtypesof(prototype))
+	for(var/path in valid_subtypesof(prototype))
 		L[path] = new path()
 	return L
 

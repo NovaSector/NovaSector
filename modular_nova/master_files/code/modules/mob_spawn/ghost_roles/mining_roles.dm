@@ -17,7 +17,7 @@
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE // ghost role prefs
 	deletes_on_zero_uses_left = TRUE
 
-/obj/effect/mob_spawn/ghost_role/human/heretic
+/obj/effect/mob_spawn/ghost_role/human/heretic //specifically staying here for nova so the admins can spawn this if they want, tell me to delete this if you dont want this.
 	name = "Security Agent"
 	prompt_name = "Become a mysterious agent?"
 	you_are_text = "You are an agent for a mysterious clandestine group and the facility you worked for recently got evacuated and you were told to not go in and to prevent other people from going in, you know better than to mess with your boss."
@@ -205,6 +205,7 @@
 	r_pocket = /obj/item/storage/bag/ore
 	id_trim = /datum/id_trim/syndicom/nova/interdyne/shaftminer
 	back = /obj/item/storage/backpack/explorer
+	skillchips = list(/obj/item/skillchip/job/miner)
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
@@ -223,6 +224,7 @@
 	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
+	skillchips = list(/obj/item/skillchip/job/miner)
 	id = /obj/item/card/id/advanced/chameleon/elite/black/silver
 	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
 

@@ -30,7 +30,7 @@
 	attach_accessory(A)
 
 /obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset
-	name = "syndicate maid apron"
+	name = "tactical maid apron"
 	desc = "Practical? No. Tactical? Also no. Cute? Most definitely yes."
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'

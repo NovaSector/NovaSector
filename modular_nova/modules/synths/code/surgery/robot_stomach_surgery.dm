@@ -60,7 +60,7 @@
 /datum/surgery_step/fuelcell/repair/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/patient = target
 	var/obj/item/organ/stomach/fuelcell = target.get_organ_slot(ORGAN_SLOT_STOMACH)
-	patient.setOrganLoss(ORGAN_SLOT_STOMACH, 0) // adjustOrganLoss didnt work here without runtimes spamming, setting to 0 as synths have no natural organ decay/regeneration
+	patient.set_organ_loss(ORGAN_SLOT_STOMACH, 0) // adjust_organ_loss didnt work here without runtimes spamming, setting to 0 as synths have no natural organ decay/regeneration
 	if(fuelcell.organ_flags & ORGAN_EMP)
 		fuelcell.organ_flags &= ~ORGAN_EMP
 	display_results(
@@ -75,7 +75,7 @@
 
 /datum/surgery_step/fuelcell/repair/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery)
 	var/mob/living/carbon/human/patient = target
-	patient.adjustOrganLoss(ORGAN_SLOT_STOMACH, 15)
+	patient.adjust_organ_loss(ORGAN_SLOT_STOMACH, 15)
 	display_results(
 		user,
 		target,

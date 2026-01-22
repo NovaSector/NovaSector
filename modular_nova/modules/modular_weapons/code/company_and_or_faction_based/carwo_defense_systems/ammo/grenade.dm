@@ -280,6 +280,68 @@
 
 	ammo_type = /obj/item/ammo_casing/c980grenade/riot
 
+// .980 kinetic concussive grenade (throw people around. ruin interior decorations. maybe actually give someone a concussion.)
+/obj/item/ammo_casing/c980grenade/concussive
+	name = ".980 Tydhouer kinetic concussive grenade"
+	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Creates a kinetic shockwave optimized for \
+		throwing things around, including people, and disorienting people via pressure wave."
+
+	icon_state = "980_concussive"
+	ammo_categories = AMMO_CLASS_NICHE
+	projectile_type = /obj/projectile/bullet/c980grenade/concussive
+
+/obj/projectile/bullet/c980grenade/concussive
+	name = ".980 Tydhouer kinetic concussive grenade"
+
+	/// Knockback wave size, see forced_throw_vortex.
+	var/knockback_size = 3
+	/// Concussion wave size. If you're in this distance from the airburst detonation, you eat a stagger.
+	var/stagger_size = 2
+
+/obj/projectile/bullet/c980grenade/concussive/fuse_activation(atom/target)
+	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	var/turf/burst_turf = get_turf(src)
+	for(var/mob/living/brainbonked in view(stagger_size, burst_turf))
+		var/distance = get_dist(brainbonked, burst_turf)
+		brainbonked.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * (stagger_size - distance), STAGGERED_SLOWDOWN_LENGTH * 3)
+	new /obj/effect/temp_visual/kinetic_blast(get_turf(src))
+	forced_throw_vortex(get_turf(src), TRUE, knockback_size)
+
+/obj/item/ammo_box/c980grenade/concussive
+	name = "ammo box (.980 Tydhouer kinetic concussive)"
+	desc = "A box of four .980 Tydhouer concussive grenades. Instructions on the box indicate these are \
+		kinetic concussive rounds that generate a wave of force that debilitates those in its blast radius. \
+		A disclaimer notes that these may cause complaints from interior decorators, and that, for best effects, \
+		to airburst adjacent to the target."
+
+	icon_state = "980box_concussive"
+
+	ammo_type = /obj/item/ammo_casing/c980grenade/concussive
+
+/**
+ * Magical move-wooney but it always throws you that happens sometimes, adapted from goonchem_vortex
+ *
+ * Simulates a vortex that moves nearby movable atoms towards or away from the turf T.
+ * Range also determines the strength of the effect. Always throws. Parameters decide how hard it throws.
+ * Arguments:
+ * * T - turf where it happens
+ * * is_pulling - true if throwing things away from the starting turf
+ * * range - range.
+ */
+/proc/forced_throw_vortex(turf/starting_turf, is_pulling, range)
+	for(var/atom/movable/hucked in range(range, starting_turf))
+		if(hucked.anchored)
+			continue
+		if(iseffect(hucked) || iseyemob(hucked) || isdead(hucked))
+			continue
+		var/distance = get_dist(hucked, starting_turf)
+		var/moving_power = max(range - distance, 1)
+		if(is_pulling)
+			var/atom/throw_target = get_edge_target_turf(hucked, get_dir(hucked, get_step_away(hucked, starting_turf)))
+			hucked.throw_at(throw_target, moving_power * 1.5, moving_power)
+		else
+			hucked.throw_at(starting_turf, moving_power * 1.5, moving_power)
+
 #undef AMMO_MATS_GRENADE
 #undef AMMO_MATS_GRENADE_SHRAPNEL
 #undef AMMO_MATS_GRENADE_INCENDIARY

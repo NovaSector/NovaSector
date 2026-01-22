@@ -12,7 +12,6 @@
 	bodytemp_heat_damage_limit = FIRE_MINIMUM_TEMPERATURE_TO_SPREAD
 	bodytemp_cold_damage_limit = (T20C - 10)
 	species_language_holder = /datum/language_holder/skrell
-	mutant_bodyparts = list()
 	mutanttongue = /obj/item/organ/tongue/skrell
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -33,8 +32,8 @@
 
 /datum/species/skrell/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_SKRELL_HAIR = list("Short", TRUE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SKRELL_HAIR = MUTPART_BLUEPRINT("Short", is_randomizable = TRUE),
 	)
 
 /datum/species/skrell/get_species_description()
@@ -71,7 +70,7 @@
 	skrell.dna.features[FEATURE_MUTANT_COLOR] = skrell_color
 	skrell.dna.features[FEATURE_MUTANT_COLOR_TWO] = skrell_color
 	skrell.dna.features[FEATURE_MUTANT_COLOR_THREE] = skrell_color
-	skrell.dna.mutant_bodyparts[FEATURE_SKRELL_HAIR] = list(MUTANT_INDEX_NAME = "Long", MUTANT_INDEX_COLOR_LIST = list(skrell_color, skrell_color, skrell_color))
+	skrell.dna.mutant_bodyparts[FEATURE_SKRELL_HAIR] = skrell.dna.species.build_mutant_part("Long", list(skrell_color, skrell_color, skrell_color))
 	regenerate_organs(skrell, src, visual_only = TRUE)
 	skrell.update_body(TRUE)
 

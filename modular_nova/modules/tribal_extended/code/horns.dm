@@ -39,7 +39,7 @@
 
 /// Blows the horn if the user has enough stamina
 /obj/item/blowing_horn/attack_self(mob/living/user)
-	if (user.getStaminaLoss() > BHORN_STAMINA_MINIMUM)
+	if (user.get_stamina_loss() > BHORN_STAMINA_MINIMUM)
 		balloon_alert(user, "too tired!")
 		return
 	var/bhorn_origin = get_turf(user)
@@ -69,7 +69,7 @@
 			hearing_player.playsound_local(bhorn_origin, 'modular_nova/master_files/sound/items/blow_horn.ogg', 150, TRUE)
 			if (hearing_player != user)
 				hearing_player.show_message(span_warning("Somewhere to the [direction_text], a horn calls out in a pattern: '[current_tune]'."))
-	user.adjustStaminaLoss(BHORN_STAMINA_USE)
+	user.adjust_stamina_loss(BHORN_STAMINA_USE)
 	COOLDOWN_START(src, bhorn_cooldown, 5.5 SECONDS)
 
 /// Switches the current tune of the horn to the next in the list
@@ -131,7 +131,7 @@
 	if (!ishuman(user))
 		balloon_alert(user, "you cannot use this!")
 		return
-	if (user.getStaminaLoss() > WHORN_STAMINA_MINIMUM)
+	if (user.get_stamina_loss() > WHORN_STAMINA_MINIMUM)
 		balloon_alert(user, "too tired!")
 		return
 	if (user.is_mouth_covered())
@@ -161,7 +161,7 @@
 			continue
 		hearing_player.show_message(span_big("The sound of a war horn echoes from [loc_text] — its rhythm: '[current_tune]'."))
 		hearing_player.playsound_local(location, 'modular_nova/master_files/sound/items/war_horn.ogg', 150, TRUE)
-	user.adjustStaminaLoss(WHORN_STAMINA_USE)
+	user.adjust_stamina_loss(WHORN_STAMINA_USE)
 	COOLDOWN_START(src, whorn_cooldown, 11.5 SECONDS)
 
 

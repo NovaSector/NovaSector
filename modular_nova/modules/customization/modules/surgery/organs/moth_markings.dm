@@ -4,7 +4,6 @@
 	icon_state = "random_fly_2"
 
 	mutantpart_key = FEATURE_MOTH_MARKINGS
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_EXTERNAL_MOTH_MARKINGS

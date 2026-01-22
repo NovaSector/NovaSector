@@ -8,7 +8,6 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list()
 	mutanttongue = /obj/item/organ/tongue/mammal
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -23,16 +22,16 @@
 
 /datum/species/mammal/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Husky", TRUE),
-		FEATURE_SNOUT = list("Husky", TRUE),
-		FEATURE_HORNS = list("None", FALSE),
-		FEATURE_EARS = list("Husky", TRUE),
-		FEATURE_LEGS = list("Normal Legs", TRUE),
-		FEATURE_TAUR = list("None", FALSE),
-		FEATURE_FLUFF = list("None", FALSE),
-		FEATURE_WINGS = list("None", FALSE),
-		FEATURE_HEAD_ACCESSORY = list("None", FALSE),
-		FEATURE_NECK_ACCESSORY = list("None", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Husky", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Husky", is_randomizable = TRUE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Husky", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = TRUE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_FLUFF = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_HEAD_ACCESSORY = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_NECK_ACCESSORY = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /obj/item/organ/tongue/mammal
@@ -86,7 +85,7 @@
 	var/list/candidates = GLOB.body_marking_sets.Copy()
 	for(var/candi in candidates)
 		var/datum/body_marking_set/setter = GLOB.body_marking_sets[candi]
-		if(setter.recommended_species && !(id in setter.recommended_species))
+		if(setter.recommended_species && isnull(setter.recommended_species[id]))
 			candidates -= candi
 	if(length(candidates))
 		name = pick(candidates)
@@ -109,8 +108,8 @@
 	human.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	human.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
 	human.dna.features[FEATURE_MUTANT_COLOR_THREE] = secondary_color
-	human.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, "#464646"))
-	human.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, secondary_color))
-	human.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Husky", MUTANT_INDEX_COLOR_LIST = list(main_color, "#4D4D4D", secondary_color))
+	human.dna.mutant_bodyparts[FEATURE_EARS] = human.dna.species.build_mutant_part("Husky", list(main_color, secondary_color, "#464646"))
+	human.dna.mutant_bodyparts[FEATURE_SNOUT] = human.dna.species.build_mutant_part("Husky", list(main_color, secondary_color, secondary_color))
+	human.dna.mutant_bodyparts[FEATURE_TAIL] = human.dna.species.build_mutant_part("Husky", list(main_color, "#4D4D4D", secondary_color))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)

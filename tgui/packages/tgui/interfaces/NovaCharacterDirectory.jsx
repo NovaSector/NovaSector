@@ -22,7 +22,7 @@ import { CharacterPreview } from './common/CharacterPreview';
 const formatURLs = (text) => {
   if (!text) return;
   const parts = [];
-  let regex = /https?:\/\/[^\s/$.?#].[^\s]*/gi;
+  const regex = /https?:\/\/[^\s/$.?#].[^\s]*/gi;
   let lastIndex = 0;
 
   text.replace(regex, (url, index) => {
@@ -307,7 +307,7 @@ const ViewCharacter = (props) => {
                     </>
                   )}
                   {oocNotesIndex === 'SFW' && (
-                    <>{formatURLs(overlay.ooc_notes)}</>
+                    formatURLs(overlay.ooc_notes)
                   )}
                 </Section>
               </Stack.Item>

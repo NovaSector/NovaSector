@@ -21,6 +21,7 @@
 	greyscale_config = /datum/greyscale_config/neuroware
 	// Color of circuitboard underlay.
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	sticker_icon_state = null
 
 	///Balloon message upon successful installation.
 	var/success_message = "inserted neuroware chip"
@@ -66,6 +67,9 @@
 			desc += CHIP_LABEL_WARD
 		if(NEUROWARE_ZENGHU)
 			desc += CHIP_LABEL_ZENGHU
+
+/obj/item/disk/neuroware/setup_reskins()
+	return
 
 /obj/item/disk/neuroware/examine()
 	. = ..()

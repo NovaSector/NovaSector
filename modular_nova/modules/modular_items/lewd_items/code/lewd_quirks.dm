@@ -54,6 +54,7 @@
 	var/lust_message = "Your breath begins to feel warm..."
 	//we are using if statements so that it slowly becomes more and more to the person
 	human_owner.manual_emote(pick(lust_emotes))
+	var/need_mob_update
 	if(stress >= 60)
 		human_owner.set_jitter_if_lower(40 SECONDS)
 		lust_message = "You feel a static sensation all across your skin..."
@@ -64,11 +65,13 @@
 		owner.adjust_hallucinations(60 SECONDS)
 		lust_message = "You begin to fantasize of what you could do to someone..."
 	if(stress >= 240)
-		human_owner.adjustStaminaLoss(30)
+		need_mob_update += human_owner.adjust_stamina_loss(30)
 		lust_message = "You body feels so very hot, almost unwilling to cooperate..."
 	if(stress >= 300)
-		human_owner.adjustOxyLoss(40)
+		need_mob_update += human_owner.adjust_oxy_loss(40)
 		lust_message = "You feel your neck tightening, straining..."
+	if(need_mob_update)
+		human_owner.updatehealth()
 	to_chat(human_owner, span_purple(lust_message))
 	return TRUE
 

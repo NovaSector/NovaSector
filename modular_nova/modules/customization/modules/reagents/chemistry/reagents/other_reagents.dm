@@ -48,8 +48,7 @@
 	if(show_message)
 		to_chat(scarred, span_danger("The scars on your body start to fade and disappear."))
 	if(reac_volume >= DERMAGEN_SCAR_FIX_AMOUNT)
-		for(var/i in scarred.all_scars)
-			qdel(i)
+		QDEL_LAZYLIST(scarred.all_scars)
 
 #undef DERMAGEN_SCAR_FIX_AMOUNT
 

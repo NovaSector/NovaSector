@@ -73,7 +73,7 @@
 	)
 
 /obj/item/storage/fancy/cigarettes/crownhaze
-	name = "\improper Crown Smoke Kings Haze"
+	name = "\improper Crown Smoke King's Haze"
 	desc = "Ethically sourced from the finest cannabis plants, these pre-rolls are sure to leave you feeling like royalty. Please smoke responsibly."
 	icon = 'modular_nova/modules/morenarcotics/icons/thcsnacks.dmi'
 	icon_state = "weedpack"
@@ -84,8 +84,8 @@
 	list_reagents = list(/datum/reagent/drug/thc = 15)
 
 /obj/item/reagent_containers/cup/soda_cans/thc
-	name = "Orchard Green"
-	desc = "The taste of a star in liquid form. Spiked with an orange flavored THC blend, to make the day go by a little easier."
+	name = "\improper Orchard Green"
+	desc = "The taste of a star in liquid form. Spiked with an orange-flavored THC blend to make the day go by a little easier."
 	icon = 'modular_nova/modules/morenarcotics/icons/thcsnacks.dmi'
 	icon_state = "thcdrink"
 	list_reagents = list(/datum/reagent/consumable/space_cola = 11, /datum/reagent/consumable/orangejuice = 11, /datum/reagent/drug/thc = 8)
@@ -93,7 +93,7 @@
 
 /obj/item/food/thcgummies
 	name = "sour-apple THC gummies"
-	desc = "just a little bit too hard to chew comfortably, but with all the right flavors. This Product contains THC."
+	desc = "Just a little bit too hard to chew comfortably, but with all the right flavors. This Product contains THC."
 	icon = 'modular_nova/modules/morenarcotics/icons/thcsnacks.dmi'
 	icon_state = "thcgummy"
 	bite_consumption = 1

@@ -75,12 +75,17 @@
 	max_slots = 1
 	// not a rifle but this is the sound tgmc uses
 	rustle_sound = 'modular_nova/modules/mauling_melees/sounds/rifle_draw.ogg'
+	remove_rustle_sound = 'modular_nova/modules/mauling_melees/sounds/rifle_draw.ogg'
 	max_specific_storage = WEIGHT_CLASS_BULKY
 	click_alt_open = FALSE
 
 /datum/storage/machete_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
 	set_holdable(/obj/item/machete)
+
+/datum/storage/machete_belt/handle_exit(datum/source, obj/item/gone)
+	. = ..()
+	playsound(parent, rustle_sound, 50, rustle_vary, -5)
 
 /obj/item/storage/belt/machete/Initialize(mapload)
 	. = ..()

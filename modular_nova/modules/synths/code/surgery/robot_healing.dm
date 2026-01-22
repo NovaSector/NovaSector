@@ -84,7 +84,7 @@
 
 /datum/surgery_step/robot_heal/initiate(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	if(..())
-		while((heals_brute && target.getBruteLoss() && tool.tool_use_check(user, 1)) || (heals_burn && target.getFireLoss() && tool))
+		while((heals_brute && target.get_brute_loss() && tool.tool_use_check(user, 1)) || (heals_burn && target.get_fire_loss() && tool))
 			if(!..())
 				break
 
@@ -108,12 +108,12 @@
 
 	if(missing_health_bonus)
 		if(target.stat != DEAD)
-			healed_brute += round((target.getBruteLoss() / missing_health_bonus), DAMAGE_ROUNDING)
-			healed_burn += round((target.getFireLoss() / missing_health_bonus), DAMAGE_ROUNDING)
+			healed_brute += round((target.get_brute_loss() / missing_health_bonus), DAMAGE_ROUNDING)
+			healed_burn += round((target.get_fire_loss() / missing_health_bonus), DAMAGE_ROUNDING)
 
 		else //less healing bonus for the dead since they're expected to have lots of damage to begin with (to make TW into defib not TOO simple)
-			healed_brute += round((target.getBruteLoss() / (missing_health_bonus * 5)), DAMAGE_ROUNDING)
-			healed_burn += round((target.getFireLoss() / (missing_health_bonus * 5)), DAMAGE_ROUNDING)
+			healed_brute += round((target.get_brute_loss() / (missing_health_bonus * 5)), DAMAGE_ROUNDING)
+			healed_burn += round((target.get_fire_loss() / (missing_health_bonus * 5)), DAMAGE_ROUNDING)
 
 	if(!get_location_accessible(target, target_zone))
 		healed_brute *= FINAL_STEP_HEAL_MULTIPLIER
@@ -152,8 +152,8 @@
 		burn_damage = burn_heal_amount * FAIL_DAMAGE_MULTIPLIER
 
 	if(missing_health_bonus)
-		brute_damage += round((target.getBruteLoss() / (missing_health_bonus * 2)), DAMAGE_ROUNDING)
-		burn_damage += round((target.getFireLoss() / (missing_health_bonus * 2)), DAMAGE_ROUNDING)
+		brute_damage += round((target.get_brute_loss() / (missing_health_bonus * 2)), DAMAGE_ROUNDING)
+		burn_damage += round((target.get_fire_loss() / (missing_health_bonus * 2)), DAMAGE_ROUNDING)
 
 	target.take_bodypart_damage(brute_damage, burn_damage)
 	return FALSE
@@ -214,17 +214,17 @@
 /datum/surgery_step/robot_heal/proc/get_progress(mob/user, mob/living/carbon/target, brute_healed, burn_healed)
 	var/estimated_remaining_steps = 0
 	if(brute_healed > 0)
-		estimated_remaining_steps = max(0, (target.getBruteLoss() / brute_healed))
+		estimated_remaining_steps = max(0, (target.get_brute_loss() / brute_healed))
 	if(burn_healed > 0)
-		estimated_remaining_steps = max(estimated_remaining_steps, (target.getFireLoss() / burn_healed)) // whichever is higher between brute or burn steps
+		estimated_remaining_steps = max(estimated_remaining_steps, (target.get_fire_loss() / burn_healed)) // whichever is higher between brute or burn steps
 
 	var/progress_text
 
 	if(locate(/obj/item/healthanalyzer) in user.held_items)
-		if(target.getBruteLoss())
-			progress_text = ". Remaining brute: <font color='#ff3333'>[target.getBruteLoss()]</font>"
-		if(target.getFireLoss())
-			progress_text += ". Remaining burn: <font color='#ff9933'>[target.getFireLoss()]</font>"
+		if(target.get_brute_loss())
+			progress_text = ". Remaining brute: <font color='#ff3333'>[target.get_brute_loss()]</font>"
+		if(target.get_fire_loss())
+			progress_text += ". Remaining burn: <font color='#ff9933'>[target.get_fire_loss()]</font>"
 	else
 		switch(estimated_remaining_steps)
 			if(-INFINITY to 1)
