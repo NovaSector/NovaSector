@@ -175,6 +175,8 @@
 				/obj/item/clothing/shoes/jackboots/knee/recolorable = 5,
 				/obj/item/clothing/shoes/jackboots/recolorable = 5,
 				/obj/item/clothing/shoes/jackboots/duckboots = 5,
+				/obj/item/clothing/shoes/high_heels = 5,
+				/obj/item/clothing/shoes/fancy_heels = 5,
 			),
 		),
 
