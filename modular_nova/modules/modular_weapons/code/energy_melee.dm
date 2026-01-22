@@ -36,7 +36,7 @@
 		"Red" = image(icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi', icon_state = "covenant_on_red"),
 		"Purple" = image(icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi', icon_state = "covenant_on_purple"),
 	)
-	var/pick_result = lowertext(show_radial_menu(user, src, color_menu, custom_check = CALLBACK(src, PROC_REF(check_reskin_menu), user), require_near = TRUE, tooltips = TRUE))
+	var/pick_result = LOWER_TEXT(show_radial_menu(user, src, color_menu, custom_check = CALLBACK(src, PROC_REF(check_reskin_menu), user), require_near = TRUE, tooltips = TRUE))
 	if(!pick_result)
 		return
 	sword_color_icon = pick_result
