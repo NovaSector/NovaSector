@@ -245,3 +245,13 @@
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
 	)
+
+/datum/design/borgteleporter
+	name = "Cyborg Cargo Teleporter"
+	id = "borg_upgrade_cargo_teleporter"
+	build_type = MECHFAB
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 2.5)
+	build_path = /obj/item/borg/upgrade/cargo_teleporter
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_CARGO
+	)
