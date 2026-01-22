@@ -19,11 +19,11 @@
 	name = "paragon"
 	desc = "This semi-artisanal, bleeding edge MODsuit is a symbol of exemplary performance, amplifying the speciality of the user through its durable carapace and a wide variety of utilities, both offensive and defensive."
 	extended_desc = "A semi-artisanal, bleeding-edge MODsuit produced by the DeForest Medical Corporation, built upon foundational work by Nakamura Engineering. \
-		 Designed as a symbol of exemplary performance, the suit amplifies the wearer’s specialty through a durable, \
-		 acid-resistant carapace and a broad suite of integrated utilities, both offensive and defensive. \
-		 Advanced filtration and sealing systems render it immune to allergens, airborne toxins, and common pathogens. \
-		 Its defining strength is speed—high-powered servos and actuators fused into a lightweight carbon-fiber frame allow \
-		 for exceptional mobility at the cost of minimal armor plating."
+		Designed as a symbol of exemplary performance, the suit amplifies the wearer’s specialty through a durable, \
+		acid-resistant carapace and a broad suite of integrated utilities, both offensive and defensive. \
+		Advanced filtration and sealing systems render it immune to allergens, airborne toxins, and common pathogens. \
+		Its defining strength is speed—high-powered servos and actuators fused into a lightweight carbon-fiber frame allow \
+		for exceptional mobility at the cost of minimal armor plating."
 	default_skin = "paragon"
 	armor_type = /datum/armor/mod_theme_paragon
 	charge_drain = DEFAULT_CHARGE_DRAIN * 1.5
