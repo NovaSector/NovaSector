@@ -21,7 +21,7 @@
 				/obj/item/clothing/head/large_bow = 5,
 				/obj/item/clothing/head/large_bow/back_bow = 5,
 				/obj/item/clothing/head/large_bow/sweet_bow = 5,
-				/obj/item/clothing/head/costume/papakha = 5,
+				/obj/item/clothing/head/costume/nova/papakha = 5,
 				/obj/item/clothing/head/costume/delinquent = 5,
 			),
 		),
