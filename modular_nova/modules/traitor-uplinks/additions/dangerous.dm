@@ -55,7 +55,7 @@
 	item = /obj/item/melee/energy/sword/saber/covenant
 	cost = /datum/uplink_item/low_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
-  
+
 /datum/uplink_item/dangerous/laser_carbine
 	name = "Allstar Laser-Carbine Case"
 	desc = "A modified laser gun which can shoot far faster, but each shot is far less damaging. \
