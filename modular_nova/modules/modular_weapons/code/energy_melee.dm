@@ -54,3 +54,15 @@
 	if(user.incapacitated)
 		return FALSE
 	return TRUE
+
+/obj/item/melee/energy/sword/saber/covenant/red
+	sword_color_icon = "red"
+
+/obj/item/melee/energy/sword/saber/covenant/blue
+	sword_color_icon = "blue"
+
+/obj/item/melee/energy/sword/saber/covenant/green
+	sword_color_icon = "green"
+
+/obj/item/melee/energy/sword/saber/covenant/purple
+	sword_color_icon = "purple"
