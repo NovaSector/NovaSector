@@ -1,4 +1,0 @@
-author: "LotusLadno"
-delete-after: True
-changes:
-  - bugfix: "fixes entombed MODsuit theme behaving erratically and not showing the right theme sometimes, and removes the role lock feature for now"
