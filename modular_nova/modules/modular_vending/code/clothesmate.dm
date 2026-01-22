@@ -21,6 +21,8 @@
 				/obj/item/clothing/head/large_bow = 5,
 				/obj/item/clothing/head/large_bow/back_bow = 5,
 				/obj/item/clothing/head/large_bow/sweet_bow = 5,
+				/obj/item/clothing/head/costume/papakha = 5,
+				/obj/item/clothing/head/costume/delinquent = 5,
 			),
 		),
 
@@ -44,6 +46,7 @@
 				/obj/item/clothing/neck/face_scarf = 5,
 				/obj/item/clothing/mask/neck_gaiter = 5,
 				/obj/item/clothing/gloves/bracer/wraps = 5,
+				/obj/item/clothing/glasses/fake_sunglasses/aviator = 5,
 			),
 		),
 
