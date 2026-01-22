@@ -800,7 +800,7 @@
 	user.socks_color = chosen_profile.socks_color
 	user.bra_color = chosen_profile.bra_color
 	user.emissive_eyes = chosen_profile.emissive_eyes
-	user.dna.mutant_bodyparts = chosen_dna.mutant_bodyparts.Copy()
+	user.dna.mutant_bodyparts = LAZYCOPY(chosen_dna.mutant_bodyparts)
 	user.dna.body_markings = chosen_dna.body_markings.Copy()
 
 	qdel(user.selected_scream)

@@ -251,6 +251,11 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/worn/digi
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
+/obj/item/clothing/under/rank/civilian/curator/nasa // this is really just a black jumpsuit, with stupid pathing
+	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/worn/digi
+	greyscale_config_worn_better_vox = /datum/greyscale_config/jumpsuit/worn/better_vox
+	greyscale_config_worn_teshari = /datum/greyscale_config/jumpsuit/worn/teshari
+
 /obj/item/clothing/under/suit/waiter
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
