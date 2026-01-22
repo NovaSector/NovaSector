@@ -1,6 +1,6 @@
 //Synth snouts (This is the most important part)
 /datum/sprite_accessory/snouts/synthliz
-	recommended_species = list()
+	recommended_species = null
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/synthliz_snouts.dmi'
 	color_src = USE_ONE_COLOR
 	default_color = null
@@ -71,7 +71,7 @@
 
 //Synth tails
 /datum/sprite_accessory/tails/synthliz
-	recommended_species = list()
+	recommended_species = null
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/synthliz_tails.dmi'
 	color_src = USE_ONE_COLOR
 	name = "Synthetic Lizard"
@@ -143,7 +143,7 @@
 	name = "Cybernetic Lizard"
 	icon_state = "synthlizard"
 	taur_mode = STYLE_TAUR_PAW
-	recommended_species = list()
+	recommended_species = null
 	organ_type = /obj/item/organ/taur_body/horselike/synth
 	can_lay_down = TRUE
 	laydown_offset = -3

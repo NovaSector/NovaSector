@@ -13,7 +13,7 @@
 /datum/sprite_accessory/ears/mutant/ramatae
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/species/ramatae.dmi'
 	name = "Ramatan"
-	icon_state = "ramatan"
+	icon_state = "ramatan_standard"
 
 /datum/sprite_accessory/ears/mutant/ramatae/tall
 	name = "Ramatan (Tall)"
