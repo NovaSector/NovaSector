@@ -84,7 +84,7 @@
 	if(.)
 		return
 
-	var/datum/component/pixel_tilt/tilt_component = GetComponent(/datum/component/pixel_tilt)
+	var/datum/component/pixel_tilt/tilt_component = user.mob.GetComponent(/datum/component/pixel_tilt)
 	if(tilt_component)
 		tilt_component.reset_tilt_and_remove()
 	else
