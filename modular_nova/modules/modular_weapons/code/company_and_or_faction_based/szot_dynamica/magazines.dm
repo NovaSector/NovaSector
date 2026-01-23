@@ -48,7 +48,7 @@
 
 	ammo_type = /obj/item/ammo_casing/c10mm
 	caliber = CALIBER_10MM
-	max_ammo = 50
+	max_ammo = 40
 
 /obj/item/ammo_box/magazine/napad/spawns_empty
 	start_empty = TRUE
@@ -134,7 +134,7 @@
 	base_icon_state = "zashch_mag"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	ammo_type = /obj/item/ammo_casing/c10mm
-	max_ammo = 18
+	max_ammo = 20
 	caliber = CALIBER_10MM
 
 /obj/item/ammo_box/magazine/zashch/spawns_empty
