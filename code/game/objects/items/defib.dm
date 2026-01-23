@@ -614,6 +614,8 @@
 						fail_reason = "Patient's brain is missing. Further attempts futile."
 					if (DEFIB_FAIL_BLACKLISTED)
 						fail_reason = "Patient has been blacklisted from revival. Further attempts futile."
+					if (DEFIB_FAIL_GOLEM)
+						fail_reason = "Patient is constructed from inorganic materials. Further attempts futile, though manual reconstruction is possible."
 					//NOVA EDIT ADDITION - DNR TRAIT
 					if (DEFIB_FAIL_DNR)
 						fail_reason = "Patient has been flagged as Do Not Resuscitate. Further attempts futile."

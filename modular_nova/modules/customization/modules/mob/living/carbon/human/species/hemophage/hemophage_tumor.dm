@@ -60,7 +60,7 @@
 		tumorless_human.remove_movespeed_modifier(/datum/movespeed_modifier/hemophage_dormant_state)
 
 
-/obj/item/organ/heart/hemophage/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/heart/hemophage/on_life(seconds_per_tick)
 	. = ..()
 
 	// A Hemophage's tumor will be able to be operated on multiple times, so
