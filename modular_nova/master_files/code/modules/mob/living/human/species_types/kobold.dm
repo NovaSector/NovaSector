@@ -116,7 +116,7 @@
 	var/datum/language/kobold_language = /datum/language/kobold
 
 	to_add += list(list(
-		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "comment",
 		SPECIES_PERK_NAME = "Primitive Tongue",
 		SPECIES_PERK_DESC = "You are able to understand [kobold_language.name].",
