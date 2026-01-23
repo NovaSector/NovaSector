@@ -28,6 +28,7 @@
 			maxHealth = 150
 			melee_damage_lower = 15
 			melee_damage_upper = 15
+			minimum_survivable_temperature = 0
 			unique_name = TRUE
 			pixel_x = -16
 			base_pixel_x = -16
@@ -38,6 +39,7 @@
 			icon_dead = "alienwarrior_dead"
 			health = 175
 			maxHealth = 175
+			minimum_survivable_temperature = 0
 			unique_name = TRUE
 			mob_size = MOB_SIZE_LARGE
 			pixel_x = -16
@@ -51,6 +53,7 @@
 			maxHealth = 125
 			melee_damage_lower = 10
 			melee_damage_upper = 15
+			minimum_survivable_temperature = 0
 			unique_name = TRUE
 			pixel_x = -16
 			base_pixel_x = -16
@@ -63,6 +66,7 @@
 			maxHealth = 225
 			melee_damage_lower = 10
 			melee_damage_upper = 15
+			minimum_survivable_temperature = 0
 			unique_name = TRUE
 			mob_size = MOB_SIZE_LARGE
 			pixel_x = -16
@@ -74,6 +78,7 @@
 			icon_dead = "alienravager_dead"
 			health = 200
 			maxHealth = 200
+			minimum_survivable_temperature = 0
 			unique_name = TRUE
 			mob_size = MOB_SIZE_LARGE
 			pixel_x = -16

@@ -49,12 +49,16 @@
 	max_plasma = 100
 	actions_types = list(/datum/action/cooldown/alien/transfer)
 
-/obj/item/organ/alien/plasmavessel/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/alien/plasmavessel/on_life(seconds_per_tick)
 	var/delta_time = DELTA_WORLD_TIME(SSmobs)
 	//Instantly healing to max health in a single tick would be silly. If it takes 8 seconds to fire, then something's fucked.
 	var/delta_time_capped = min(delta_time, 8)
 	//If there are alien weeds on the ground then heal if needed or give some plasma
 	if(locate(/obj/structure/alien/weeds) in owner.loc)
+		// NOVA EDIT ADDITION START
+		if(istype(src, /obj/item/organ/alien/plasmavessel/roundstart))
+			owner.add_mood_event("area_beauty", /datum/mood_event/xenohybrid_resin)
+		// NOVA EDIT ADDITION END
 		if(owner.health >= owner.maxHealth)
 			owner.adjustPlasma(plasma_rate * delta_time)
 		else
@@ -62,9 +66,9 @@
 			if(!isalien(owner))
 				heal_amt *= 0.2
 			owner.adjustPlasma(0.5 * plasma_rate * delta_time_capped)
-			owner.adjustBruteLoss(-heal_amt * delta_time_capped)
-			owner.adjustFireLoss(-heal_amt * delta_time_capped)
-			owner.adjustOxyLoss(-heal_amt * delta_time_capped)
+			owner.adjust_brute_loss(-heal_amt * delta_time_capped)
+			owner.adjust_fire_loss(-heal_amt * delta_time_capped)
+			owner.adjust_oxy_loss(-heal_amt * delta_time_capped)
 	else
 		owner.adjustPlasma(0.1 * plasma_rate * delta_time)
 

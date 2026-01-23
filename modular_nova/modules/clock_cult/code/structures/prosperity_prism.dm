@@ -26,11 +26,14 @@
 			continue
 
 		if(use_power(POWER_PER_USE))
-			possible_cultist.adjustToxLoss(-2.5 * seconds_per_tick, forced = TRUE)
-			possible_cultist.adjustStaminaLoss(-7.5 * seconds_per_tick, forced = TRUE)
-			possible_cultist.adjustBruteLoss(-2.5 * seconds_per_tick, forced = TRUE)
-			possible_cultist.adjustFireLoss(-2.5 * seconds_per_tick, forced = TRUE)
-			possible_cultist.adjustOxyLoss(-2.5 * seconds_per_tick, forced = TRUE)
+			var/need_mob_update
+			need_mob_update += possible_cultist.adjust_tox_loss(-2.5 * seconds_per_tick, forced = TRUE, updating_health = FALSE)
+			need_mob_update += possible_cultist.adjust_stamina_loss(-7.5 * seconds_per_tick, forced = TRUE, updating_stamina = FALSE)
+			need_mob_update += possible_cultist.adjust_brute_loss(-2.5 * seconds_per_tick, forced = TRUE, updating_health = FALSE)
+			need_mob_update += possible_cultist.adjust_fire_loss(-2.5 * seconds_per_tick, forced = TRUE, updating_health = FALSE)
+			need_mob_update += possible_cultist.adjust_oxy_loss(-2.5 * seconds_per_tick, forced = TRUE, updating_health = FALSE)
+			if(need_mob_update)
+				possible_cultist.updatehealth()
 
 			new /obj/effect/temp_visual/heal(get_turf(possible_cultist), "#45dd8a")
 

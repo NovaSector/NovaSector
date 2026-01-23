@@ -15,7 +15,7 @@
 	bonus_value = 15
 
 /obj/item/crusher_trophy/gladiator/effect_desc()
-	return "the crusher to have a <b>[bonus_value]%</b> chance to block incoming attacks."
+	return "the crusher to have a <b>[bonus_value]%</b> chance to block incoming attacks"
 
 /obj/item/crusher_trophy/gladiator/add_to(obj/item/kinetic_crusher/incomingchance, mob/living/user)
 	. = ..()
@@ -34,7 +34,6 @@
 	worn_icon = 'modular_nova/modules/gladiator/icons/berserk_suit.dmi'
 	icon_state = "berk_cape"
 	inhand_icon_state = "" //lul
-	uses_advanced_reskins = FALSE
 	resistance_flags = INDESTRUCTIBLE
 
 /obj/item/clothing/neck/warrior_cape/examine()

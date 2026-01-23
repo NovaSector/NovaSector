@@ -78,6 +78,16 @@
 	design_ids += list(
 		"gbp_machine",
 		"pen",
+		"d2",
+		"d4",
+		"d6",
+		"d8",
+		"d10",
+		"d00",
+		"d12",
+		"d20",
+		"d100",
+		"fudge",
 	)
 	return ..()
 
@@ -93,6 +103,7 @@
 		"anesthetic_machine",
 		"smartdartgun",
 		"cone_of_shame",
+		"defibrillator",
 	)
 	return ..()
 
@@ -311,7 +322,8 @@
 		"borg_upgrade_clamp",
 		"borg_upgrade_brush",
 		"borg_upgrade_shrink",
-		"borg_upgrade_cargo_apparatus"
+		"borg_upgrade_cargo_apparatus",
+		"borg_upgrade_cargo_teleporter",
 	)
 	return ..()
 
@@ -319,12 +331,16 @@
 	design_ids += list(
 		"advanced_materials",
 		"borg_upgrade_welding",
+		"rld_cyborg",
+		"borg_upgrade_brped",
 	)
 	return ..()
 
 /datum/techweb_node/borg_medical/New()
 	design_ids += list(
 		"borg_upgrade_surgicaltools",
+		"borg_upgrade_autopsyscanner",
+		"borg_upgrade_chemistrygripper",
 	)
 	return ..()
 

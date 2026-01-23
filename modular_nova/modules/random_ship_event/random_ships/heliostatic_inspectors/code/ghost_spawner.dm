@@ -10,37 +10,37 @@
 	flavour_text = "Your patrol vessel is conducting a Standard Compliance and Inspection operation on this remote facility. Your mandate, derived from Coalition Accords, grants you the authority to inspect, seize contraband, and use necessary force to protect Coalition interests. Vigilance is paramount; these stations are self-governing and not inherently trustworthy. Adhere to the Standard Operating Procedures at all times."
 	important_text = "Follow the chain of command. Your patrol leader's callsign is appended with 'Actual'. Maintain professional discipline and be prepared to escalate appropriately as the situation demands."
 	outfit = /datum/outfit/hc_officer
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	show_flavor = TRUE
 	/// To know whether or not we have an officer already, keep a ref to them
 	var/static/first_officer
 
-/obj/effect/mob_spawn/ghost_role/human/hc_officer/proc/apply_codename(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/hc_officer/proc/apply_codename(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	var/callsign = pick(GLOB.callsigns_nri)
 	var/number = pick(GLOB.phonetic_alphabet_numbers)
 	var/full_name = "[callsign] [number]"
-	if(first_officer == REF(spawned_human))
+	if(first_officer == REF(spawned_mob))
 		full_name += " Actual"
-	spawned_human.fully_replace_character_name(null, full_name)
+	spawned_mob.fully_replace_character_name(null, full_name)
 
-/obj/effect/mob_spawn/ghost_role/human/hc_officer/special(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/hc_officer/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	. = ..()
-	spawned_human.mind.add_antag_datum(/datum/antagonist/cop)
-	spawned_human.grant_language(/datum/language/panslavic, source = LANGUAGE_SPAWNER)
-	spawned_human.grant_language(/datum/language/uncommon, source = LANGUAGE_SPAWNER)
-	spawned_human.grant_language(/datum/language/yangyu, source = LANGUAGE_SPAWNER)
-	spawned_human.grant_language(/datum/language/akulan, source = LANGUAGE_SPAWNER)
+	spawned_mob.mind.add_antag_datum(/datum/antagonist/cop)
+	spawned_mob.grant_language(/datum/language/panslavic, source = LANGUAGE_SPAWNER)
+	spawned_mob.grant_language(/datum/language/uncommon, source = LANGUAGE_SPAWNER)
+	spawned_mob.grant_language(/datum/language/yangyu, source = LANGUAGE_SPAWNER)
+	spawned_mob.grant_language(/datum/language/akulan, source = LANGUAGE_SPAWNER)
 
 	// if this is the first officer, keep a reference to them
 	if(!first_officer)
-		first_officer = REF(spawned_human)
-		to_chat(spawned_human, span_bold("You are the Patrol Leader (Actual). You hold ultimate authority and responsibility for this mission. \
+		first_officer = REF(spawned_mob)
+		to_chat(spawned_mob, span_bold("You are the Patrol Leader (Actual). You hold ultimate authority and responsibility for this mission. \
 			Your directives are to: Ensure the safety of your personnel and vessel. Conduct a thorough inspection for contraband and violations per \
 			SOP Section V. Project Coalition authority and assess the facility's compliance. Declare Alert Status changes based on observed threats. \
 			Your discretion in the field is final. Consult your Field Guide and SOP documents." \
 		))
 
-	to_chat(spawned_human, "[span_boldnotice("Your primary duty is to the Heliostatic Coalition. \
+	to_chat(spawned_mob, "[span_boldnotice("Your primary duty is to the Heliostatic Coalition. \
 		This inspection is a right granted by treaty, not a request. \
 		Be firm, professional, and by-the-book. Trust must be earned, \
 		and violations of procedure are to be met with immediate challenges \
@@ -49,16 +49,16 @@
 		[span_info("OOC Note: Your objectives are narrative guides for creating collaborative roleplay. \
 		They are not mechanical 'greentext' goals. Focus on the experience. If you have a creative idea for a gimmick or story direction, \
 		communicating with the admins and other players is encouraged.")]")
-	apply_codename(spawned_human)
+	apply_codename(spawned_mob)
 
-/obj/effect/mob_spawn/ghost_role/human/hc_officer/post_transfer_prefs(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/hc_officer/post_transfer_prefs(mob/living/spawned_mob)
 	. = ..()
-	apply_codename(spawned_human)
+	apply_codename(spawned_mob)
 
-/obj/effect/mob_spawn/ghost_role/human/hc_officer/equip(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/hc_officer/equip(mob/living/spawned_mob)
 	. = ..()
-	var/obj/item/card/id/advanced/card = spawned_human.get_idcard()
-	if(first_officer == REF(spawned_human))
+	var/obj/item/card/id/advanced/card = spawned_mob.get_idcard()
+	if(first_officer == REF(spawned_mob))
 		card.assignment = pick(HC_LEADER_JOB_LIST)
 		card.trim.sechud_icon_state = "hud_hc_police_lead"
 	else

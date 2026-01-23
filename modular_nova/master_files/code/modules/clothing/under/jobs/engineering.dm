@@ -100,3 +100,4 @@
 	icon_state = "telecomm_skirt"
 	can_adjust = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	gets_cropped_on_taurs = FALSE

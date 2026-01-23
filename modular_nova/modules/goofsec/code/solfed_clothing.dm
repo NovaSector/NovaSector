@@ -127,7 +127,6 @@ SOLFED ARMOR VALUES!
 	greyscale_config = /datum/greyscale_config/solfed_goggles
 	greyscale_config_worn = /datum/greyscale_config/solfed_goggles/worn
 	greyscale_colors = "#808080"
-	unique_reskin = null
 	clothing_traits = list(TRAIT_HEAD_INJURY_BLOCKED)
 	clothing_flags = SNUG_FIT
 
@@ -326,7 +325,7 @@ SOLFED ARMOR VALUES!
 	machine_name = "SolfedDrobe"
 
 /obj/machinery/vending/access/solfed/build_access_list(list/access_lists)
-	access_lists["[ACCESS_CENT_CAPTAIN]"] = list(
+	access_lists[ACCESS_CENT_CAPTAIN] = list(
 		// Solfed has CC and station AA but this is the highest access possible so no one but feds can get it. Hopefully
 		/obj/item/clothing/accessory/nova/solfedribbon = 4,
 		/obj/item/clothing/accessory/nova/solfedribbon/rank2 = 4,

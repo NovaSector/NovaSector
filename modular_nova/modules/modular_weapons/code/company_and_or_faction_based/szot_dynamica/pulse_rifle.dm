@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/automatic/pulse_rifle
-	name = "\improper Žaibas plasma pulse projector"
+	name = "\improper M/PR-15 'Žaibas' Plasma Pulse Projector"
 	desc = "An advanced energy weapon that uses high-capacity plasma pulse cells. Fires in 3-round bursts."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
@@ -24,25 +24,32 @@
 	bolt_drop_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_push.ogg'
 
 	burst_size = 3
-	fire_delay = 2
+	burst_delay = 0.3 SECONDS
+	fire_delay = 0.9 SECONDS
 
-	spread = 1
-	recoil = 0.5
+	spread = 3
+	recoil = 0.25
 
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	lore_blurb = "Žaibas represents the Heliostatic Coalition's pinnacle of plasma weapon miniaturization - at a cost.<br><br>\
-		Where conventional plasma weapons use bulky rechargeable cells, Žaibas employs revolutionary crystalline compression \"plugs\" that store plasma \
-		in a metastable state. When discharged, these plugs unleash their energy content in controlled pulses before shattering, providing unmatched \
-		armor penetration at the expense of sustainability. Each military-grade magazine contains enough for approximately one hundred discharges.<br>\
-		Early prototypes lacked simulated recoil, causing seasoned marksmen to overcompensate and miss shots. The solution? \
-		A kinetic feedback system that mimics the kick of a .27-54 rifle, ensuring soldiers used to ballistic weapons could transition seamlessly. \
-		This 'illusion of recoil' remains a signature feature.<br><br>\
-		Developed during the Coalition's formative years, the weapon's origins are reflected in both its name and its operating principle - \
-		delivering overwhelming force in brief, devastating strikes. While standard plasma weapons remain more practical for \
-		most users, the Žaibas has found particular favor among Coalition shock troops and anti-materiel teams who value its ability to punch through \
-		fortifications and powered armor with equal ease.<br><br>\
-		A warning etched near the ejection port reminds users: 'NEPONOVLJATI NAPAJANJE - Kristalna matrika može srušiti se'."
+	lore_blurb = "The M/PR-15 represents the Coalition's solution to the eternal logistical problem: how much ammunition can one soldier carry? \
+		While plasma pistols solved the sidearm question, battle rifles still required troops to hump kilograms of brass and propellant. \
+		The answer was the plasma pulse cell - a disposable, hyper-dense energy storage unit that shaves microscopic amounts of tungsten \
+		into each plasma burst, creating projectiles that behave like .277 caliber HEAT rounds. <br><br> \
+		Developed as XM/PR-12 through XM/PR-14 over eight years, the \"Žaibas\" uses crystalline compression \"plugs\" that store plasma \
+		in metastable states. When discharged, these plugs unleash their energy in controlled pulses before shattering. \
+		Each military-grade magazine contains enough for approximately one hundred discharges. <br><br> \
+		The most controversial feature is the non-ejecting casing system. Pulse cells remain chambered until completely \
+		depleted, reducing mechanical complexity and preventing lost cells in combat. This does mean reloading requires manually clearing \
+		a partially-spent cell, but troops appreciate not having to police their brass under fire. <br><br> \
+		Standard testing revealed an unusual problem: veteran marksmen consistently overcompensated for non-existent recoil. \
+		The kinetic feedback system from the M/PP-8 was scaled up to mimic the kick of a .277 rifle, ensuring soldiers used to \
+		ballistic weapons could transition seamlessly. Coalition shock troops value its ability to punch through fortifications and powered armor with equal ease. <br><br> \
+		The weapon's aesthetic was a deliberate departure from Coalition norms. Its sleek, blackened ferritic casing; rounded yet sharp lines; and imposing, \
+		oversized magazine were designed for psychological impact as much as function. The strategy worked too well; the PR-15's menacing silhouette \
+		became so culturally ubiquitous that it single-handedly replaced the many centuries-old stereotype of \
+		the \"villain with a stamped-receiver, wood-stocked assault rifle\" in popular media, becoming the new de-facto \"bad guy's gun\" in films \
+		and video games for a generation."
 
 /obj/item/gun/ballistic/automatic/pulse_rifle/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)

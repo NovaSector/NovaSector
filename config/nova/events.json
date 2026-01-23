@@ -1,0 +1,23 @@
+{
+	"Space Vines (Hard)": {
+		"min_players": 10,
+		"weight": 0
+	},
+	"Moldies": {
+		"min_players": 5,
+		"weight": 8
+	},
+	"Scrubber Overflow: ICES": {
+		"min_players": 0,
+		"weight": 16
+	},
+	"Random Ship Event": {
+		"min_players": 15,
+		"weight": 10
+	},
+	"Meteor Wave: ICES": {
+		"min_players": 40,
+		"weight": 16,
+		"earliest_start": 45000
+	}
+}

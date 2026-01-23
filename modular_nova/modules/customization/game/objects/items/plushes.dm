@@ -118,3 +118,109 @@
 
 /obj/item/toy/plush/lizard_plushie
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/weh.ogg' = 1)
+
+/obj/item/toy/plush/nova/funniyellowrock
+	name = "squishy yellow rock"
+	desc = "A familiar looking yellow rock plushie. Touching it won't reduce you to dust. Probably."
+	icon_state = "plush_sm"
+	squeak_override = list('sound/machines/sm/accent/delam/1.ogg' = 1)
+
+/obj/item/toy/plush/nova/fkinbnuuy
+	name = "heckin bnuuy"
+	desc = "A small bunny plushie with black beady eyes. The nametag appears to be misspelled?"
+	icon_state = "plush_bnuuy"
+	attack_verb_continuous = list("cuddles", "squeaks")
+	attack_verb_simple = list("cuddle", "squeak")
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
+
+/obj/item/toy/plush/nova/securifox
+	name = "securifox slushie"
+	desc = "An NT security branded fox plush. Wait. If it has more than one tail, doesn't that make it a kitsune? And why does it look so smug?"
+	icon_state = "plush_dee"
+	attack_verb_continuous = list("geckers", "boops", "nuzzles")
+	attack_verb_simple = list("gecker", "boop", "nuzzle")
+	squeak_override = list('sound/vehicles/mecha/justice_shield_broken.ogg' = 1)
+
+/obj/item/toy/plush/nova/towa
+	name = "tiny overwatch"
+	desc = "It invokes a certain comfort knowing its on your side when the chips are down."
+	icon_state = "plush_towa"
+	attack_verb_continuous = list("cuddles", "meows", "hisses")
+	attack_verb_simple = list("cuddle", "meow", "hiss")
+	squeak_override = list('modular_nova/modules/kahraman_equipment/sound/thumper_thump/punch_press_2.wav' = 1)
+
+/obj/item/toy/plush/nova/fushi
+	name = "fluffy dragon"
+	desc = "A rather adorable soft plush of a dragon, seems rather fluffy."
+	icon_state = "plush_fushi_hat"
+	attack_verb_continuous = list("cuddles", "nuzzles", "pats")
+	attack_verb_simple = list("cuddle", "nuzzle", "pat")
+	squeak_override = list(
+		'modular_nova/modules/emotes/sound/voice/wurble.ogg' = 10, //10% chance to wurble
+		'modular_nova/modules/emotes/sound/voice/weh.ogg' = 90,
+	)
+	gender = MALE
+	/// If TRUE, we are wearing our hat
+	var/plushhat = TRUE
+
+	///Sounds the plush makes when hitting something
+	var/static/list/responses = list(
+		"WEH.",
+		"This isnt my office...",
+		"Has anyone seen Ian?",
+		"Weeeeehhhhhh!",
+		"Don't take my hat!",
+		"No I cant give you all access.",
+		"How are you doing today?",
+		"Careful with my tail!",
+		"Command is being silly today.",
+		"I used to be tiny you know.",
+		"I'm not a Fushi, I'm a Plushi!",
+		"Cuddle approved. Promotion pending.",
+		"Paperwork is temporary. Fluff is eternal.",
+		"I'm the HoP, Head of Pats",
+		"I’m very busy being approachable.",
+		"This is a safe workplace. Mostly.",
+		"Tiny dragon, big responsibilities.",
+		"You can pet me one more time",
+	)
+	///Emotes the plush makes when being petted
+	var/static/list/responses_action = list(
+		"wags his tail happily.",
+		"nuzzles affectionately.",
+		"purrs contentedly.",
+		"does a little happy dance.",
+	)
+
+	COOLDOWN_DECLARE(fushi_cooldown)
+
+/obj/item/toy/plush/nova/fushi/attack()
+	. = ..()
+	if(!COOLDOWN_FINISHED(src, fushi_cooldown))
+		return
+	say(pick(responses))
+	COOLDOWN_START(src, fushi_cooldown, 3 SECONDS)
+
+// controls the emotes and sound when interacted with
+/obj/item/toy/plush/nova/fushi/attack_self(mob/user)
+	visible_message("[src] [span_notice(pick(responses_action))]")
+	if(!COOLDOWN_FINISHED(src, fushi_cooldown))
+		return
+	playsound(src, pick(squeak_override), 30)
+	COOLDOWN_START(src, fushi_cooldown, 2 SECONDS)
+
+// controls the hat toggle
+/obj/item/toy/plush/nova/fushi/attack_self_secondary(mob/user)
+	plushhat = !plushhat
+	if(plushhat)
+		say("My hat is back!")
+	else
+		say("Hey! That's my hat!")
+	update_appearance(UPDATE_ICON_STATE)
+
+/obj/item/toy/plush/nova/fushi/update_icon_state()
+	if(plushhat)
+		icon_state = initial(icon_state)
+	else
+		icon_state = "plush_fushi"
+	return ..()

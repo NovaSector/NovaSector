@@ -384,6 +384,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN
 	cold_protection = CHEST|GROIN
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'

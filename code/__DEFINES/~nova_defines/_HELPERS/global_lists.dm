@@ -36,6 +36,9 @@ GLOBAL_LIST_EMPTY(assault_operative_start)
 GLOBAL_LIST_EMPTY(blooper_list)
 GLOBAL_LIST_EMPTY(blooper_random_list)
 
+/// Cache of available TTS voices
+GLOBAL_LIST_EMPTY(tts_voice_list)
+
 // ERP Items
 
 GLOBAL_LIST_EMPTY(erp_items)

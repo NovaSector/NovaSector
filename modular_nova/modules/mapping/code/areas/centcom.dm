@@ -6,7 +6,7 @@
 
 /area/centcom/holding
 	name = "Holding Facility"
-	area_flags = parent_type::area_flags | UNLIMITED_FISHING
+	area_flags = parent_type::area_flags | UNLIMITED_FISHING | NO_DEATH_MESSAGE
 	mood_bonus = 25
 	mood_message = "I am taking a well deserved rest!"
 

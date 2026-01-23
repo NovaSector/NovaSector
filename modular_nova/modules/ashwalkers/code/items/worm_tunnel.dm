@@ -109,7 +109,7 @@ GLOBAL_LIST_EMPTY(ashwalker_tunnels)
 		for(var/iterations in 1 to 3)
 			if(!do_after(user, 6 SECONDS * skill_modifier, target = src))
 				return
-			user.adjustBruteLoss(10)
+			user.adjust_brute_loss(10)
 
 	if(tunnel_choice.covered_tunnel)
 		to_chat(user, span_warning("[tunnel_choice] was covered! Returning back to the start!"))

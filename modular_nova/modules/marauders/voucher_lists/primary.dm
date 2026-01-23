@@ -72,7 +72,6 @@
 	icon_state = /obj/item/gun/energy/modular_laser_rifle::icon_state
 	set_items = list(
 		/obj/item/gun/energy/modular_laser_rifle,
-		/obj/item/storage/box/syndie_kit/recharger,
 	)
 
 /datum/voucher_set/traitor/primary_weapon/pulse_rifle

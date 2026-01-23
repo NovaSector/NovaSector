@@ -56,5 +56,5 @@
 		return FALSE
 	var/mob/living/carbon/carbon_mob = receiver
 	carbon_mob.adjust_confusion_up_to(7.5 SECONDS * seconds_per_tick, 30 SECONDS)
-	carbon_mob.adjustStaminaLoss(power * weakened * seconds_per_tick, updating_stamina = TRUE, forced = TRUE)
+	carbon_mob.adjust_stamina_loss(power * weakened * seconds_per_tick, updating_stamina = TRUE, forced = TRUE)
 	return TRUE

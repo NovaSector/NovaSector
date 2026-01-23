@@ -28,6 +28,10 @@
 	var/datum/component/mind_linker/wavespeak
 	/// What areas are we allowed to place rifts in?
 	var/list/chosen_rift_areas = list()
+	// NOVA EDIT ADDITION START, announce on first rift
+	/// If the space dragon has been announced to the station yet
+	var/announced = FALSE
+	// NOVA EDIT ADDITION END
 
 /datum/antagonist/space_dragon/greet()
 	. = ..()
@@ -164,6 +168,12 @@
 		rift_list -= rift
 		if(!QDELETED(rift))
 			QDEL_NULL(rift)
+	// NOVA EDIT ADDITION START, let the dragon retry
+	if(rift_ability)
+		QDEL_NULL(rift_ability)
+	rift_ability = new()
+	rift_ability?.Grant(owner.current)
+	// NOVA EDIT ADDITION END
 
 /**
  * Sets up Space Dragon's victory for completing the objectives.

@@ -2,7 +2,7 @@
 	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
 	// also covers the ion carbine
 
-/obj/item/gun/energy/xray
+/obj/item/gun/energy/laser/xray
 	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
 	shaded_charge = TRUE
 

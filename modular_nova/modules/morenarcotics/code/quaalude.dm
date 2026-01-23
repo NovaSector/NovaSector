@@ -18,7 +18,7 @@
 		var/atom/movable/plane_master_controller/game_plane_master_controller = affected_carbon.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		game_plane_master_controller.add_filter("quaalude_wave", 10, wave_filter(300, 300, 3, 0, WAVE_SIDEWAYS))
 
-/datum/reagent/drug/quaalude/on_mob_life(mob/living/carbon/affected_carbon, seconds_per_tick, times_fired)
+/datum/reagent/drug/quaalude/on_mob_life(mob/living/carbon/affected_carbon, seconds_per_tick)
 	. = ..()
 	if(SPT_PROB(2.5, seconds_per_tick))
 		var/high_message = pick("You feel relaxed.", "You feel like you're on the moon.", "You feel like you could walk 20 miles for a quaalude.")
@@ -27,7 +27,7 @@
 	affected_carbon.set_drugginess(1 MINUTES * REM * seconds_per_tick)
 	affected_carbon.adjust_slurring_up_to(30 SECONDS, 2 MINUTES)
 	affected_carbon.set_dizzy_if_lower(5 * REM * seconds_per_tick * 2 SECONDS)
-	if(affected_carbon.adjustStaminaLoss(-5 * REM * seconds_per_tick, updating_stamina = FALSE))
+	if(affected_carbon.adjust_stamina_loss(-5 * REM * seconds_per_tick, updating_stamina = FALSE))
 		. = UPDATE_MOB_HEALTH
 
 	if(SPT_PROB(3.5, seconds_per_tick))
@@ -44,14 +44,14 @@
 		var/atom/movable/plane_master_controller/game_plane_master_controller = affected_carbon.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		game_plane_master_controller.remove_filter("quaalude_wave")
 
-/datum/reagent/drug/quaalude/overdose_process(mob/living/affected_carbon, seconds_per_tick, times_fired)
+/datum/reagent/drug/quaalude/overdose_process(mob/living/affected_carbon, seconds_per_tick)
 	var/kidfrombrooklyn_message = pick("BRING BACK THE FUCKING QUAALUDES!", "I'd walk 20 miles for a quaalude, let me tell ya'!", "There's nothing like a fuckin' quaalude!")
 
 	if(SPT_PROB(1.5, seconds_per_tick))
 		affected_carbon.say(kidfrombrooklyn_message)
 
-	affected_carbon.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25 * REM * seconds_per_tick)
-	affected_carbon.adjustToxLoss(0.25 * REM * seconds_per_tick, 0)
+	affected_carbon.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
+	affected_carbon.adjust_tox_loss(0.25 * REM * seconds_per_tick, updating_health = FALSE)
 	affected_carbon.adjust_drowsiness(0.5 SECONDS * REM * normalise_creation_purity() * seconds_per_tick)
 
 	if(SPT_PROB(3.5, seconds_per_tick))

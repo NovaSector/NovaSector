@@ -34,7 +34,7 @@
 
 /datum/crafting_recipe/riot_sol_super/New()
 	..()
-	blacklist |= typesof(/obj/item/gun/ballistic/shotgun/riot/sol/super) // let's not try to super-ize our already super shotgun i think
+	LAZYOR(blacklist, typesof(/obj/item/gun/ballistic/shotgun/riot/sol/super)) // let's not try to super-ize our already super shotgun i think
 
 /datum/crafting_recipe/riot_sol_super/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/gun/ballistic/shotgun/riot/sol/the_piece = collected_requirements[/obj/item/gun/ballistic/shotgun/riot/sol][1]

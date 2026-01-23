@@ -1,0 +1,90 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/template_noop)
+"d" = (
+/turf/open/floor/plating,
+/area/template_noop)
+"e" = (
+/obj/structure/closet/crate,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/spawner/random/engineering/material_cheap,
+/obj/effect/spawner/random/engineering/tool,
+/turf/open/floor/plating,
+/area/template_noop)
+"y" = (
+/obj/effect/spawner/random/engineering/atmospherics_portable,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/plating,
+/area/template_noop)
+"A" = (
+/obj/effect/spawner/random/trash/graffiti,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/template_noop)
+"B" = (
+/obj/structure/trash_pile,
+/turf/open/floor/plating,
+/area/template_noop)
+"C" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/spawner/random/engineering/toolbox,
+/turf/open/floor/plating,
+/area/template_noop)
+"D" = (
+/obj/machinery/light/small/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/template_noop)
+"E" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/random/engineering/tool,
+/obj/effect/spawner/random/engineering/material,
+/turf/open/floor/plating,
+/area/template_noop)
+"I" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/template_noop)
+"K" = (
+/obj/modular_map_connector,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/template_noop)
+"Q" = (
+/obj/effect/spawner/random/engineering/tank,
+/turf/open/floor/plating,
+/area/template_noop)
+"S" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/plating,
+/area/template_noop)
+"W" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/random/engineering/material,
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/plating,
+/area/template_noop)
+
+(1,1,1) = {"
+e
+S
+C
+K
+D
+A
+c
+"}
+(2,1,1) = {"
+y
+d
+B
+Q
+E
+W
+I
+"}

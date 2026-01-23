@@ -134,12 +134,12 @@
 		if(held_item && victim.dropItemToGround(held_item))
 			victim.visible_message(span_danger("[victim] drops [held_item] in shock!"), span_warning("<b>The force on your [limb.plaintext_zone] causes you to drop [held_item]!</b>"), vision_distance=COMBAT_MESSAGE_RANGE)
 
-/datum/wound/blunt/robotic/remove_wound(ignore_limb, replaced)
+/datum/wound/blunt/robotic/remove_wound(ignore_limb, replaced, destroying)
 	. = ..()
 
 	QDEL_NULL(active_trauma)
 
-/datum/wound/blunt/robotic/handle_process(seconds_per_tick, times_fired)
+/datum/wound/blunt/robotic/handle_process(seconds_per_tick)
 	. = ..()
 
 	if (!victim || HAS_TRAIT(victim, TRAIT_STASIS))

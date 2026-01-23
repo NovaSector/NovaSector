@@ -62,13 +62,12 @@
 /datum/reagent/drug/demoneye/on_mob_end_metabolize(mob/living/carbon/human/our_guy)
 	. = ..()
 
-	our_guy.eye_color_left = user_left_eye_color
-	our_guy.eye_color_right = user_right_eye_color
+	our_guy.set_eye_color(user_left_eye_color,user_right_eye_color)
 	our_guy.update_body()
 
 	our_guy.sound_environment_override = NONE
 
-	if(constant_dose_time < CONSTANT_DOSE_SAFE_LIMIT || !our_guy.blood_volume)
+	if(constant_dose_time < CONSTANT_DOSE_SAFE_LIMIT || !our_guy.get_blood_volume())
 		our_guy.visible_message(
 				span_danger("[our_guy]'s eyes fade from their evil looking red back to normal..."),
 				span_danger("Your vision slowly returns to normal as you lose your unnatural strength...")
@@ -98,14 +97,14 @@
 	game_plane_master_controller.remove_filter("demoneye_blur")
 
 
-/datum/reagent/drug/demoneye/on_mob_life(mob/living/carbon/our_guy, seconds_per_tick, times_fired)
+/datum/reagent/drug/demoneye/on_mob_life(mob/living/carbon/our_guy, seconds_per_tick)
 	. = ..()
 
 	constant_dose_time += seconds_per_tick
 
 	our_guy.add_mood_event("tweaking", /datum/mood_event/stimulant_heavy/sundowner, name)
 
-	our_guy.adjustStaminaLoss(-10 * REM * seconds_per_tick)
+	our_guy.adjust_stamina_loss(-10 * REM * seconds_per_tick)
 	our_guy.AdjustSleeping(-2 SECONDS * REM * seconds_per_tick)
 	our_guy.adjust_drowsiness(-5 * REM * seconds_per_tick)
 
@@ -119,7 +118,7 @@
 	if(locate(/datum/reagent/drug/twitch) in our_guy.reagents.reagent_list) // Combining this with twitch could cause some heart attack problems
 		our_guy.apply_status_effect(/datum/status_effect/heart_attack)
 
-/datum/reagent/drug/demoneye/overdose_process(mob/living/carbon/our_guy, seconds_per_tick, times_fired)
+/datum/reagent/drug/demoneye/overdose_process(mob/living/carbon/our_guy, seconds_per_tick)
 	. = ..()
 
 	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)
@@ -141,10 +140,7 @@
 	)
 	if(really_bad)
 		our_guy.vomit(0, TRUE, FALSE, 1)
-	our_guy.adjustOrganLoss(
-		pick(organs_we_damage),
-		damage,
-	)
+	our_guy.adjust_organ_loss(pick(organs_we_damage), damage,required_organ_flag = affected_organ_flags)
 
 // Mood event used by demoneye, because the normal one I just didn't vibe with
 /datum/mood_event/stimulant_heavy/sundowner

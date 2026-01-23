@@ -101,11 +101,14 @@
 	inhand_icon_state = null
 	self_delay = 4 SECONDS
 	other_delay = 2 SECONDS
-	grind_results = list(/datum/reagent/medicine/nanite_slurry = 10,
-		/datum/reagent/dinitrogen_plasmide = 5,
-		/datum/reagent/medicine/coagulant/fabricated = 10,
-	)
 	merge_type = /obj/item/stack/medical/synth_repair
+
+/obj/item/stack/medical/synth_repair/grind_results()
+	return list(
+			/datum/reagent/medicine/nanite_slurry = 10,
+			/datum/reagent/dinitrogen_plasmide = 5,
+			/datum/reagent/medicine/coagulant/fabricated = 10,
+		)
 
 /obj/item/stack/medical/synth_repair/try_heal_checks(mob/living/patient, mob/living/user, healed_zone, silent = FALSE)
 	var/obj/item/bodypart/limb = patient.get_bodypart(healed_zone)
@@ -120,7 +123,7 @@
 
 /obj/item/stack/medical/synth_repair/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/living/user)
 	. = ..()
-	healed_mob.reagents.add_reagent_list(grind_results)
+	healed_mob.reagents.add_reagent_list(grind_results())
 
 // Repairs a robotic organs directly, or during organ manipulation surgery.
 // Sprites: [@splat1125](https://github.com/splat1125)
@@ -167,15 +170,17 @@
 ///Prompts the user to select a robotic organ in the target mob and returns it.
 ///Requires the target to have an active organ manipulation surgery in its "manipulate organs" stage.
 /obj/item/cybernetic_repair_paste/proc/select_organ(mob/living/carbon/human/target_human, mob/living/user)
-	// Search for a valid organ manipulation surgery in the targeted bodyzone
-	var/datum/surgery/active_surgery = target_human.has_surgery(
-		surgery_type = /datum/surgery/organ_manipulation,
-		step_type = /datum/surgery_step/manipulate_organs,
-		target_zone = user.zone_selected,
-	)
-	if(isnull(active_surgery))
+	// Check for valid organ manipulation surgery state in the targeted bodyzone
+	var/obj/item/bodypart/part_to_repair = target_human.get_bodypart(deprecise_zone(user.zone_selected))
+	var/surgery_step_bitflags = SURGERY_SKIN_OPEN|SURGERY_ORGANS_CUT
+	// Chest and brain require bone saw
+	if(part_to_repair.body_zone == BODY_ZONE_CHEST)
+		surgery_step_bitflags = SURGERY_SKIN_OPEN|SURGERY_ORGANS_CUT|SURGERY_BONE_SAWED
+
+	if(!LIMB_HAS_SURGERY_STATE(part_to_repair, (surgery_step_bitflags)))
 		balloon_alert(user, "requires open surgery!")
 		return
+
 	var/list/obj/item/organ/cyber_organs = list()
 	for(var/obj/item/organ/organ as anything in target_human.get_organs_for_zone(user.zone_selected))
 		if(organ.organ_flags & ORGAN_ROBOTIC)
@@ -184,6 +189,12 @@
 		balloon_alert(user, "lacks robotic organ!")
 		return
 	var/obj/item/organ/chosen_organ = tgui_input_list(user, "Repair which organ?", "Surgery", sort_list(cyber_organs))
+	// Brains specifically also require the bone saw, so check that as well.
+	if(chosen_organ.slot == ORGAN_SLOT_BRAIN)
+		if(!LIMB_HAS_SURGERY_STATE(part_to_repair, (SURGERY_SKIN_OPEN|SURGERY_ORGANS_CUT|SURGERY_BONE_SAWED)))
+			balloon_alert(user, "requires the bones to be sawed open!")
+			return
+
 	return chosen_organ
 
 ///Attempts to repair the given robotic organ, and returns TRUE if successful.

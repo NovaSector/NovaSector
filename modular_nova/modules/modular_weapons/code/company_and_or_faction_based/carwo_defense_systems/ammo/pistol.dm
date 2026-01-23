@@ -21,7 +21,7 @@
 
 /obj/projectile/bullet/c35sol
 	name = ".35 Sol Short bullet"
-	damage = 20
+	damage = 16
 
 	wound_bonus = 5 // Normal bullets are 20
 	exposed_wound_bonus = 10
@@ -58,8 +58,8 @@
 
 /obj/projectile/bullet/c35sol/incapacitator
 	name = ".35 Sol Short incapacitator bullet"
-	damage = 5
-	stamina = 30
+	damage = 3
+	stamina = 20
 
 	wound_bonus = -40
 	exposed_wound_bonus = -20
@@ -103,7 +103,7 @@
 
 /obj/projectile/bullet/c35sol/ripper
 	name = ".35 Sol ripper bullet"
-	damage = 15
+	damage = 10
 
 	weak_against_armour = TRUE
 
@@ -162,7 +162,7 @@
 		flashed_living.ignite_mob() // lmao
 		if(flashed_living.flash_act(intensity = 1, affect_silicon = TRUE, length = 1 SECONDS))
 			flashed_living.set_confusion_if_lower(2 SECONDS)
-			flashed_living.adjustStaminaLoss(rand(30, 35))
+			flashed_living.adjust_stamina_loss(rand(30, 35))
 
 /obj/item/ammo_box/c35sol/flash
 	name = "ammo box (.35 Sol Short flash)"

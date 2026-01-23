@@ -12,7 +12,7 @@ SUBSYSTEM_DEF(condos)
 		/obj/item/gun/energy/laser/captain, \
 		/obj/item/gun/energy/e_gun/hos, \
 		/obj/item/hand_tele, \
-		/obj/item/tank/jetpack/oxygen/captain, \
+		/obj/item/tank/jetpack/captain, \
 		/obj/item/clothing/shoes/magboots/advance, \
 		/obj/item/blueprints, \
 		/obj/item/clothing/accessory/medal/gold/captain, \
@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(condos)
 		/obj/item/clothing/suit/hooded/ablative, \
 		/obj/item/nuke_core, \
 		/obj/item/nuke_core_container, \
-		/obj/item/computer_disk/hdd_theft, \
+		/obj/item/disk/computer/hdd_theft, \
 		/obj/item/nuke_core_container/supermatter, \
 		/obj/item/aicard, \
 		/obj/item/gun/energy/temperature/security, \

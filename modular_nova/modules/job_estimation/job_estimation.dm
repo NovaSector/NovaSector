@@ -16,27 +16,36 @@
 	SSstatpanels.update_job_estimation(ckey = client.ckey)
 
 /datum/controller/subsystem/statpanels
-	/// The assoc list of job estimations keyed to player ref
+	/// The assoc list of job estimation data keyed to player ref. data format: list(estimation_string, ckey)
 	var/list/player_ready_data = list()
-	/// The assoc list of job estimations keyed to player ref (for command players only)
+	/// The assoc list of job estimation data keyed to player ref (for command players only). data format: list(estimation_string, ckey)
 	var/list/command_player_ready_data = list()
+	/// The assoc list of job estimation data keyed to player ref (for assistant players only). data format: list(estimation_string, ckey)
+	var/list/assistant_player_ready_data = list()
 
+#define INDEX_PLAYER_DATA 1
+#define INDEX_PLAYER_CKEY 2
 /// Returns the list of job estimation strings that get output to the stat panel. First to ready up get listed first. Command roles get displayed before all the rest.
-/datum/controller/subsystem/statpanels/proc/get_job_estimation()
+/datum/controller/subsystem/statpanels/proc/get_job_estimation(mob/dead/recipient)
 	var/list/job_estimation = list(
 		"",
 		"------------------",
 		"Job Estimation:",
 		"",
 	)
+	var/is_admin = check_rights_for(recipient.client, R_ADMIN)
+	for(var/player_ref, player_data in command_player_ready_data) // Command and silicons first
+		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
-	for(var/player_ref in command_player_ready_data)
-		job_estimation += command_player_ready_data[player_ref]
+	for(var/player_ref, player_data in player_ready_data)
+		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
-	for(var/player_ref in player_ready_data)
-		job_estimation += player_ready_data[player_ref]
+	for(var/player_ref, player_data in assistant_player_ready_data) // Assistants last
+		job_estimation += "[player_data[INDEX_PLAYER_DATA]][is_admin ? " ([player_data[INDEX_PLAYER_CKEY]])" : ""]"
 
 	return job_estimation
+#undef INDEX_PLAYER_DATA
+#undef INDEX_PLAYER_CKEY
 
 /// Adds a player to the ready estimation
 /datum/controller/subsystem/statpanels/proc/add_job_estimation(mob/dead/new_player/player)
@@ -53,10 +62,6 @@
 		return
 
 	var/title = player_job.title
-	// If the readied player has selected a miscellaneous job (Assistant, or Prisoner), they shouldn't be displayed
-	if(title == JOB_ASSISTANT || title == JOB_PRISONER)
-		return
-
 	var/display
 	// people who have opted out of giving their name will show up as 'a mysterious [job title here]', unless they're command or AI
 	if(!prefs.read_preference(/datum/preference/toggle/ready_job) && !(player_job.departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND)) && title != JOB_AI)
@@ -83,10 +88,13 @@
 	/// The string as it appears in the stat panel
 	var/job_estimation_text = "* [display] [player.client?.prefs.alt_job_titles?[title] || title]"
 	// If our player is a member of Command or a Silicon, we want to sort them to the top of the list. Otherwise, just add them to the end of the list.
+	// Assistants show up after everyone else.
 	if(player_job.departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND | DEPARTMENT_BITFLAG_SILICON))
-		command_player_ready_data[player_ref] = job_estimation_text
+		command_player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
+	else if(player_job.departments_bitflags & DEPARTMENT_BITFLAG_ASSISTANT)
+		assistant_player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
 	else
-		player_ready_data[player_ref] = job_estimation_text
+		player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
 
 	RegisterSignal(player, COMSIG_JOB_PREF_UPDATED, PROC_REF(on_client_changes_job))
 
@@ -100,6 +108,9 @@
 
 	if(length(command_player_ready_data))
 		command_player_ready_data -= player_ref
+
+	if(length(assistant_player_ready_data))
+		assistant_player_ready_data -= player_ref
 
 	UnregisterSignal(player, list(COMSIG_JOB_PREF_UPDATED))
 
@@ -122,11 +133,6 @@
 /datum/controller/subsystem/statpanels/proc/on_client_changes_job(mob/dead/new_player/source)
 	SIGNAL_HANDLER
 	update_job_estimation(source)
-
-// When switching character slots in prefs, make sure we update our job if we're readied
-/datum/preferences/switch_to_slot(new_slot)
-	. = ..()
-	SSstatpanels.update_job_estimation(ckey = parent.ckey) // update the job estimations with their new char
 
 // This gets called both when the client disconnects and when the client is shoved into their spawn mob.
 /mob/dead/new_player/become_uncliented()

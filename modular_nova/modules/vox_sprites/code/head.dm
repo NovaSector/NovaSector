@@ -81,3 +81,6 @@
 
 /obj/item/clothing/head/beret/sec/navywarden/peacekeeper
 	greyscale_config_worn_vox = /datum/greyscale_config/beret_badge_fancy/worn/vox
+
+/obj/item/clothing/head/beret/clown
+	greyscale_config_worn_vox = /datum/greyscale_config/beret_badge_clown/worn/vox

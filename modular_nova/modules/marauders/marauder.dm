@@ -6,6 +6,7 @@
 	preview_outfit = /datum/outfit/marauder_preview
 	show_to_ghosts = TRUE
 	give_uplink = FALSE
+	stinger_sound = 'modular_nova/modules/moretraitoritems/sound/wakeup.ogg'
 
 /datum/outfit/marauder_preview
 	name = "Marauder (Preview only)"
@@ -21,14 +22,14 @@
 	var/obj/item/bodypart/cool_robot_arm = new /obj/item/bodypart/arm/right/robot()
 	cool_robot_arm.set_icon_static('modular_nova/master_files/icons/mob/augmentation/sgmipc.dmi')
 	cool_robot_arm.current_style = "Shellguard Munitions Standard Series"
-	cool_robot_arm.replace_limb(dummy, TRUE)
+	cool_robot_arm.replace_limb(dummy)
 	qdel(lame_flesh_arm)
 	dummy.equipOutfit(outfit, visuals_only = TRUE)
 	dummy.underwear = "Striped Boxers"
 	dummy.underwear_color = "#5f534a"
 	dummy.hair_color = "#ffffff"
-	dummy.grad_color[1] = "#bcb4e7"
-	dummy.grad_style[1] = "Fade Up"
+	dummy.set_hair_gradient_color("#bcb4e7")
+	dummy.set_hair_gradient_style("Fade Up")
 	dummy.hairstyle = "Sideways ponytail"
 
 	dummy.update_body(TRUE)
@@ -125,7 +126,7 @@
 		return
 	if(!uniform.has_sensor)
 		return
-	uniform.sensor_mode = NO_SENSORS
+	uniform.set_sensor_mode(SENSOR_OFF)
 
 /datum/outfit/marauder/plasmaman
 	name = "Marauder (Plasmaman)"

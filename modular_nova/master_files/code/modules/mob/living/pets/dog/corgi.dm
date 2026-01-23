@@ -121,7 +121,7 @@
 		if(hitting_projectile.damage_type != BRUTE && hitting_projectile.damage_type != BURN)
 			return
 
-		adjustBruteLoss(hitting_projectile.damage)
+		adjust_brute_loss(hitting_projectile.damage)
 		if(!isliving(target) || health <= 0)
 			return
 
@@ -154,7 +154,7 @@
 	fired_projectile.fired_from = src
 	fired_projectile.fire()
 
-/mob/living/basic/pet/dog/corgi/borgi/Life(seconds, times_fired)
+/mob/living/basic/pet/dog/corgi/borgi/Life(seconds)
 	. = ..()
 
 	// spark for no reason

@@ -15,7 +15,7 @@
 	. = ..()
 	var/obj/item/organ/cyberimp/brain/nif/target_nif = target_mob.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
 
-	if(!target_nif || !length(target_nif.loaded_nifsofts))
+	if(!target_nif || !LAZYLEN(target_nif.loaded_nifsofts))
 		balloon_alert(user, "[target_mob] has no NIFSofts!")
 		return
 
@@ -66,7 +66,7 @@
 	var/mob/living/carbon/human/target_mob = interacting_with
 	var/obj/item/organ/cyberimp/brain/nif/target_nif = target_mob.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
 
-	if(!target_nif || !length(target_nif.loaded_nifsofts))
+	if(!target_nif || !LAZYLEN(target_nif.loaded_nifsofts))
 		balloon_alert(user, "[target_mob] has no NIFSofts!")
 		return ITEM_INTERACT_BLOCKING
 
