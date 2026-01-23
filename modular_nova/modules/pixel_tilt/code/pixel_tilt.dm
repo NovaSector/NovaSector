@@ -96,4 +96,3 @@
 
 /mob/living/add_pixel_tilt_component()
 	AddComponent(/datum/component/pixel_tilt)
-
