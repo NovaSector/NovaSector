@@ -117,7 +117,6 @@
 	unit_name = "Gas Canister"
 	export_types = list(/obj/machinery/portable_atmospherics/canister)
 
-
 /datum/export/gas_canister/get_base_cost(obj/machinery/portable_atmospherics/canister/canister)
 	var/datum/gas_mixture/canister_mix = canister.return_air()
 	if(!canister_mix.total_moles())
