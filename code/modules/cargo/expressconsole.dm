@@ -178,10 +178,12 @@
 			if(!istype(pack))
 				CRASH("Unknown supply pack id given by express order console ui. ID: [params["id"]]")
 
+			/* NOVA EDIT REMOVAL BEGIN - We use the goody system for imports, so we remove this block in order to let cargo and ghost roles to get imports
 			if((pack.order_flags & ORDER_GOODY) && !self_paid && !(obj_flags & EMAGGED))
 				playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 				say("ERROR: Small crates may only be purchased by private accounts.")
 				return
+			*/ // NOVA EDIT REMOVAL END
 
 			var/name = "*None Provided*"
 			var/rank = "*None Provided*"
