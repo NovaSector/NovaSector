@@ -36946,7 +36946,7 @@
 /obj/machinery/computer/records/medical/laptop{
 	pixel_y = 1
 	},
-/obj/item/infuser_book{
+/obj/item/tgui_book/manual/infuser{
 	pixel_x = -18
 	},
 /turf/open/floor/iron/dark,
@@ -107098,7 +107098,7 @@
 /area/station/escapepodbay)
 "vyn" = (
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/stack/sheet/animalhide/monkey{
+/obj/item/stack/sheet/animalhide/carbon/monkey{
 	pixel_y = 4
 	},
 /obj/effect/decal/cleanable/blood,

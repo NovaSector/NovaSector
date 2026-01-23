@@ -65398,7 +65398,7 @@
 "taS" = (
 /obj/structure/table,
 /obj/machinery/computer/records/medical/laptop,
-/obj/item/infuser_book{
+/obj/item/tgui_book/manual/infuser{
 	pixel_x = 11
 	},
 /obj/effect/turf_decal/bot_red,

@@ -3572,7 +3572,7 @@
 /area/ruin/interdyne_planetary_base/main/dorms)
 "DV" = (
 /obj/structure/table/reinforced/rglass,
-/obj/item/infuser_book{
+/obj/item/tgui_book/manual/infuser{
 	pixel_y = 8;
 	pixel_x = -2
 	},
