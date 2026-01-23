@@ -285,9 +285,9 @@
 			boss_string = "frozen over with bloodened ice"
 		if(/mob/living/simple_animal/hostile/megafauna/wendigo/noportal) //Megafauna vent end
 			boss_string = "clear, showing a skull just below"
-		if(/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/hunter) //Elite vent start. Yes, I know this isn't an elite, But even my noob-miner ass can do this one.
+		if(/mob/living/basic/boss/blood_drunk_miner/hunter) //Elite vent start. Yes, I know this isn't an elite, But even my noob-miner ass can do this one.
 			boss_string = "frothing with blood and scented of alcohol"
-		if(/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom) //For icemoon one
+		if(/mob/living/basic/boss/blood_drunk_miner/doom) //For icemoon one
 			boss_string = "swirling angrily and frothing with rage"
 		if(/mob/living/simple_animal/hostile/asteroid/elite/broodmother)
 			boss_string = "clear, showing a pit of tendrils and worms beneath"
@@ -339,7 +339,7 @@
 		/datum/material/plasma = 1,
 		/datum/material/titanium = 1,
 	)
-	summoned_boss = /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/hunter // bloody hunters, cant let dracula flow
+	summoned_boss = /mob/living/basic/boss/blood_drunk_miner/hunter // bloody hunters, cant let dracula flow
 	static_magnitude = 4
 	static_boulder_size = LARGE_VENT_TYPE // Yes, We use the vent type here. Refer to lines 76 and 106
 	static_boulder_bounty = 40 //same as boss vent, roughly 40 minutes between spawns
@@ -350,19 +350,19 @@
 		/mob/living/simple_animal/hostile/asteroid/elite/herald,
 		/mob/living/simple_animal/hostile/asteroid/elite/pandora,
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
-		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/hunter,
+		/mob/living/basic/boss/blood_drunk_miner/hunter,
 	)
 
 /obj/structure/ore_vent/ghost_mining/boss/elite/Icemoon
 	icon_state = "ore_vent_ice_active"
 	base_icon_state = "ore_vent_ice_active"
-	summoned_boss = /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom // Hes angry he got demoted to elite status
+	summoned_boss = /mob/living/basic/boss/blood_drunk_miner/doom // Hes angry he got demoted to elite status
 	defending_mobs = list(
 		/mob/living/simple_animal/hostile/asteroid/elite/broodmother,
 		/mob/living/simple_animal/hostile/asteroid/elite/herald,
 		/mob/living/simple_animal/hostile/asteroid/elite/pandora,
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
-		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom,
+		/mob/living/basic/boss/blood_drunk_miner/doom,
 	)
 
 #undef COLONY_THREAT_XENOS

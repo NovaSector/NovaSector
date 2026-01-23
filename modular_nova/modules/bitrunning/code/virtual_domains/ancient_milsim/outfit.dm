@@ -73,8 +73,8 @@
 
 /datum/outfit/cin_soldier_player/post_equip(mob/living/carbon/human/user, visualsOnly)
 	. = ..()
-	user.faction -= FACTION_NEUTRAL
-	user.faction |= ROLE_SYNDICATE
+	user.remove_faction(FACTION_NEUTRAL)
+	user.add_faction(ROLE_SYNDICATE)
 
 	var/callsign = pick(GLOB.callsigns_nri)
 	var/number = pick(GLOB.phonetic_alphabet_numbers)
