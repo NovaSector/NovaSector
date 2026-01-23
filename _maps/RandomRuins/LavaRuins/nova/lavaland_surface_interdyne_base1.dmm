@@ -186,6 +186,7 @@
 /area/ruin/interdyne_planetary_base/med)
 "bB" = (
 /obj/effect/turf_decal/vg_decals/atmos/oxygen,
+/obj/machinery/space_heater,
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "bJ" = (
@@ -995,6 +996,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mob_spawn/ghost_role/robot/interdyne,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "iP" = (
@@ -1156,6 +1158,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mob_spawn/ghost_role/robot/interdyne,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "jG" = (
@@ -1683,8 +1686,11 @@
 /obj/effect/turf_decal/siding/dark_green{
 	dir = 10
 	},
-/obj/effect/mob_spawn/ghost_role/robot/interdyne,
 /obj/effect/turf_decal/delivery,
+/obj/structure/table/reinforced,
+/obj/item/storage/bag/xenoarch/adv,
+/obj/item/storage/bag/xenoarch/adv,
+/obj/item/storage/bag/xenoarch/adv,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "oi" = (
@@ -1738,7 +1744,8 @@
 "oz" = (
 /obj/effect/turf_decal/siding/dark_green,
 /obj/effect/turf_decal/delivery,
-/obj/effect/mob_spawn/ghost_role/robot/interdyne,
+/obj/machinery/xenoarch/scanner,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "oH" = (
@@ -1880,6 +1887,8 @@
 "pu" = (
 /obj/machinery/light/cold/directional/south,
 /obj/effect/turf_decal/siding/dark_green,
+/obj/machinery/xenoarch/researcher,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "pw" = (
@@ -2128,6 +2137,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/mob_spawn/ghost_role/robot/interdyne,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "rj" = (
@@ -2875,6 +2885,37 @@
 /obj/effect/turf_decal/arrows{
 	dir = 4
 	},
+/obj/item/storage/bag/ore,
+/obj/item/choice_beacon/music,
+/obj/item/choice_beacon/music{
+	pixel_y = -6;
+	pixel_x = 2
+	},
+/obj/item/flashlight{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/flashlight{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/flashlight{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/item/extinguisher{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/extinguisher{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/extinguisher{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/structure/closet/crate,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "yr" = (
@@ -3009,6 +3050,16 @@
 "zB" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/delivery,
+/obj/structure/closet/crate/internals,
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/clothing/mask/gas,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "zE" = (
@@ -3676,39 +3727,10 @@
 	},
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "Es" = (
-/obj/structure/closet/crate,
-/obj/item/extinguisher{
-	pixel_x = 1;
-	pixel_y = -1
-	},
-/obj/item/extinguisher{
-	pixel_x = -2;
-	pixel_y = 2
-	},
-/obj/item/extinguisher{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/flashlight{
-	pixel_x = 1;
-	pixel_y = -1
-	},
-/obj/item/flashlight{
-	pixel_x = -2;
-	pixel_y = 2
-	},
-/obj/item/flashlight{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/choice_beacon/music{
-	pixel_y = -6;
-	pixel_x = 2
-	},
-/obj/item/choice_beacon/music,
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/siding/dark_green,
-/obj/item/storage/bag/ore,
+/obj/machinery/xenoarch/recoverer,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "Eu" = (
@@ -4414,10 +4436,6 @@
 	},
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
-"Kr" = (
-/obj/machinery/space_heater,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/eng)
 "Ks" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 10
@@ -5574,19 +5592,11 @@
 /obj/effect/turf_decal/siding/dark_green{
 	dir = 6
 	},
-/obj/structure/closet/crate/internals,
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/tank/internals/oxygen/yellow,
-/obj/item/clothing/mask/gas,
-/obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/tank/internals/emergency_oxygen/double,
 /obj/machinery/camera/autoname/directional/south{
 	network = list("intd13")
 	},
+/obj/machinery/xenoarch/digger,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "TX" = (
@@ -8094,7 +8104,7 @@ pq
 EG
 cq
 bB
-Kr
+wu
 mp
 wu
 At
