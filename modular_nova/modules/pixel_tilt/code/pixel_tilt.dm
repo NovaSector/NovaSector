@@ -84,7 +84,11 @@
 	if(.)
 		return
 
-	user.mob.add_pixel_tilt_component()
+	var/datum/component/pixel_tilt/tilt_component = GetComponent(/datum/component/pixel_tilt)
+	if(tilt_component)
+		tilt_component.reset_tilt_and_remove()
+	else
+		user.mob.add_pixel_tilt_component()
 
 /// Mob integration
 /mob/proc/add_pixel_tilt_component()
