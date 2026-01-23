@@ -143,11 +143,11 @@
 		for(var/datum/wound/iter_wound as anything in organ_owner.all_wounds)
 			iter_wound.on_xadone(4 * REM * seconds_per_tick)
 			organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-		if(organ_owner.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
+		if(organ_owner.get_blood_volume() > BLOOD_VOLUME_SLIME_SPLIT)
 			organ_owner.adjust_organ_loss(
-			pick(organs_we_mend),
-			- 2 * seconds_per_tick,
-		)
+				pick(organs_we_mend),
+				- 2 * seconds_per_tick,
+			)
 		if(SPT_PROB(5, seconds_per_tick))
 			to_chat(organ_owner, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
 
@@ -155,7 +155,7 @@
 		if (HAS_TRAIT(organ_owner, TRAIT_SLIME_HYDROPHOBIA) || HAS_TRAIT(organ_owner, TRAIT_WATER_BREATHING))
 			return
 
-		organ_owner.blood_volume -= 3 * seconds_per_tick
+		organ_owner.adjust_blood_volume(-3 * seconds_per_tick)
 		organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
 		if(SPT_PROB(1, seconds_per_tick))
 			to_chat(organ_owner, span_warning("The water starts to weaken and adulterate your insides!"))
@@ -343,7 +343,7 @@
 	new_body.updateappearance(mutcolor_update=1)
 	new_body.domutcheck()
 	new_body.forceMove(get_turf(src))
-	new_body.blood_volume = BLOOD_VOLUME_SAFE+60
+	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 	SSquirks.AssignQuirks(new_body, brainmob.client)
 	src.replace_into(new_body)
 	for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
@@ -405,10 +405,10 @@
 			if(SPT_PROB(1, seconds_per_tick))
 				to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
 
-	slime.blood_volume -= blood_units_to_lose
+	slime.adjust_blood_volume(-blood_units_to_lose)
 
 	// PASSIVE HEALING
-	if(slime.blood_volume >= BLOOD_VOLUME_NORMAL && healing)
+	if(slime.get_blood_volume() >= BLOOD_VOLUME_NORMAL && healing)
 		if(slime.stat != CONSCIOUS)
 			return
 		var/need_mob_update
