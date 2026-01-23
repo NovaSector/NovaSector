@@ -356,7 +356,7 @@
 		else
 			playsound(src, 'modular_nova/modules/emotes/sound/emotes/Nose_boop.ogg', 50, 0)
 			helper.visible_message(span_notice("[helper] boops [src]'s nose."), span_notice("You boop [src] on the nose."))
-			if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && get_location_accessible(src, BODY_ZONE_PRECISE_MOUTH))
+			if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && is_location_accessible(BODY_ZONE_PRECISE_MOUTH))
 				var/datum/quirk/sensitivesnout/poor_snout = src.get_quirk(/datum/quirk/sensitivesnout)
 				poor_snout?.get_booped(helper)
 			return
@@ -730,7 +730,7 @@
 		if (picked_user_part && BODYTYPE_CAN_BE_BIOSCRAMBLED(picked_user_part.bodytype))
 			changed_something = TRUE
 			new_part = new new_part()
-			new_part.replace_limb(src, special = TRUE)
+			new_part.replace_limb(src)
 			if (picked_user_part)
 				qdel(picked_user_part)
 

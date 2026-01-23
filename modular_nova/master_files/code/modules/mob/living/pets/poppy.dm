@@ -94,7 +94,7 @@
 		set_light_on(TRUE)
 	regenerate_icons()
 
-/mob/living/basic/pet/poppy/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/basic/pet/poppy/Life(seconds_per_tick = SSMOBS_DT)
 	if(client || stat)
 		return
 

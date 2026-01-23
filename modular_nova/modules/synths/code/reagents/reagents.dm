@@ -39,7 +39,7 @@
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 	affected_biotype = MOB_ROBOTIC
 
-/datum/reagent/medicine/system_cleaner/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/medicine/system_cleaner/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	if(affected_mob.adjust_tox_loss(-2 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 		. = UPDATE_MOB_HEALTH
 	affected_mob.adjust_disgust(-5 * REM * seconds_per_tick)
@@ -91,7 +91,7 @@
 	affected_mob.heal_bodypart_damage(heal_amount, heal_amount, required_bodytype = affected_bodytype)
 	return ..()
 
-/datum/reagent/medicine/nanite_slurry/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/medicine/nanite_slurry/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick)
 	if(affected_mob.mob_biotypes & affected_biotype)
 		affected_mob.adjust_bodytemperature(temperature_change * REM * seconds_per_tick)
 		return ..()
