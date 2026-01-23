@@ -73,7 +73,7 @@
 		return
 
 	if(!owner.has_status_effect(/datum/status_effect/master_of_the_house))
-		owner.adjust_blood_volume(-bloodloss_rate * seconds_per_tick)
+		owner.adjust_blood_volume(round(-bloodloss_rate * seconds_per_tick, CHEMICAL_VOLUME_ROUNDING))
 
 	if(owner.get_blood_volume() <= BLOOD_VOLUME_SURVIVE)
 		to_chat(owner, span_danger("You ran out of blood!"))
