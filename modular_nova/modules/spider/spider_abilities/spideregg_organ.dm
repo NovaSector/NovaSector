@@ -76,6 +76,7 @@
 
 // let's make a timer proc so it doesn't shit out spiders every game tic
 /obj/item/organ/body_egg/spideregg_infection/on_life(seconds_per_tick)
+	. = ..()
 	if(!active)
 		return
 	if(!ishuman(owner))

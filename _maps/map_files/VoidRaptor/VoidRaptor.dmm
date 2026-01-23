@@ -8174,16 +8174,6 @@
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/station/solars/starboard/aft)
-"cxD" = (
-/obj/structure/chair/pew/left{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 10
-	},
-/obj/machinery/firealarm/directional/south,
-/turf/open/floor/wood/large,
-/area/station/security/courtroom)
 "cxF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -68192,6 +68182,7 @@
 	dir = 1;
 	name = "Accused"
 	},
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/courtroom)
 "sVD" = (
@@ -121624,7 +121615,7 @@ yft
 lPR
 xlB
 qWA
-cxD
+rbz
 eFF
 plF
 ekT
