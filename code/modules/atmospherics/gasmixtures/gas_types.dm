@@ -74,7 +74,7 @@
 	name = "Oxygen"
 	rarity = 900
 	purchaseable = TRUE
-	// base_value = 0.2 // NOVA EDIT
+	base_value = 0.2
 	desc = "The gas most life forms need to be able to survive. Also an oxidizer."
 	primary_color = "#0000ff"
 
@@ -84,7 +84,7 @@
 	name = "Nitrogen"
 	rarity = 1000
 	purchaseable = TRUE
-	// base_value = 0.1 // NOVA EDIT
+	base_value = 0.1
 	desc = "A very common gas that used to pad artificial atmospheres to habitable pressure."
 	primary_color = "#ffff00"
 
@@ -95,7 +95,7 @@
 	dangerous = TRUE
 	rarity = 700
 	purchaseable = TRUE
-	// base_value = 0.2 // NOVA EDIT
+	base_value = 0.2
 	desc = "What the fuck is carbon dioxide?"
 	primary_color = COLOR_GRAY
 
@@ -107,7 +107,7 @@
 	moles_visible = MOLES_GAS_VISIBLE
 	dangerous = TRUE
 	rarity = 800
-	// base_value = 1.5 // NOVA EDIT
+	base_value = 1.5
 	desc = "A flammable gas with many other curious properties. Its research is one of NT's primary objective."
 	primary_color = "#ffc0cb"
 
@@ -120,7 +120,7 @@
 	fusion_power = 8
 	rarity = 500
 	purchaseable = TRUE
-	// base_value = 0.5 // NOVA EDIT
+	 base_value = 0.5
 	desc = "Water, in gas form. Makes floors slippery and washes items on them."
 	primary_color = "#b0c4de"
 
@@ -132,7 +132,7 @@
 	moles_visible = MOLES_GAS_VISIBLE
 	fusion_power = 10
 	rarity = 50
-	base_value = 0.2 // NOVA EDIT ORIGINAL: base_value = 2.5
+	base_value = 2.5
 	desc = "The most noble gas of them all. High quantities of hyper-noblium actively prevents reactions from occurring."
 	primary_color = COLOR_TEAL
 
@@ -146,7 +146,7 @@
 	dangerous = TRUE
 	rarity = 600
 	purchaseable = TRUE
-	// base_value = 1.5 // NOVA EDIT
+	base_value = 1.5
 	desc = "Causes drowsiness, euphoria, and eventually unconsciousness."
 	primary_color = "#ffe4c4"
 
@@ -159,7 +159,7 @@
 	moles_visible = MOLES_GAS_VISIBLE
 	dangerous = TRUE
 	rarity = 1
-	base_value = 0.2 // NOVA EDIT ORIGINAL: base_value = 6
+	base_value = 6
 	desc = "An experimental performance enhancing gas. Nitrium can have amplified effects as more of it gets into your bloodstream."
 	primary_color = "#a52a2a"
 
@@ -172,7 +172,7 @@
 	dangerous = TRUE
 	fusion_power = 5
 	rarity = 300
-	base_value = 0.075 // NOVA EDIT ORIGINAL: base_value = 2.5
+	base_value = 2.5
 	desc = "A highly flammable and radioactive gas."
 	primary_color = "#32cd32"
 
@@ -184,7 +184,7 @@
 	fusion_power = 8
 	rarity = 400
 	purchaseable = TRUE
-	base_value = 0.01 // NOVA EDIT ORIGINAL: base_value = 1.5
+	bbase_value = 1.5
 	desc = "A powerful hallucinogenic nerve agent able to induce cognitive damage."
 	primary_color = "#9370db"
 
@@ -194,7 +194,7 @@
 	name = "Pluoxium"
 	fusion_power = -10
 	rarity = 200
-	base_value = 0.01 // NOVA EDIT ORIGINAL: base_value = 2.5
+	base_value = 2.5
 	desc = "A gas that could supply even more oxygen to the bloodstream when inhaled, without being an oxidizer."
 	primary_color = "#7b68ee"
 
@@ -206,7 +206,7 @@
 	gas_overlay = "miasma"
 	moles_visible = MOLES_GAS_VISIBLE * 60
 	rarity = 250
-	base_value = 0.1 // NOVA EDIT ORIGINAL: base_value = 1
+	base_value = 1
 	desc = "Not necessarily a gas, miasma refers to biological pollutants found in the atmosphere."
 	primary_color = COLOR_OLIVE
 
@@ -219,7 +219,7 @@
 	moles_visible = MOLES_GAS_VISIBLE *30
 	fusion_power = -5
 	rarity = 10
-	base_value = 0.02 // NOVA EDIT ORIGINAL: base_value = 5
+	base_value = 5
 	desc = "A coolant gas. Mainly used for its endothermic reaction with oxygen."
 	primary_color = "#afeeee"
 
@@ -230,7 +230,7 @@
 	dangerous = TRUE
 	fusion_power = 2
 	rarity = 600
-	base_value = 0.0005 // NOVA EDIT ORIGINAL: base_value = 1
+	base_value = 1
 	desc = "A highly flammable gas."
 	primary_color = "#ffffff"
 
@@ -242,7 +242,7 @@
 	gas_overlay = "healium"
 	moles_visible = MOLES_GAS_VISIBLE
 	rarity = 300
-	base_value = 0.01 // NOVA EDIT ORIGINAL: base_value = 5.5
+	base_value = 5.5
 	desc = "Causes deep, regenerative sleep."
 	primary_color = "#fa8072"
 
@@ -254,7 +254,7 @@
 	gas_overlay = "proto_nitrate"
 	moles_visible = MOLES_GAS_VISIBLE
 	rarity = 200
-	base_value = 0.3 // NOVA EDIT ORIGINAL: base_value = 2.5
+	base_value = 2.5
 	desc = "A very volatile gas that reacts differently with various gases."
 	primary_color = "#adff2f"
 
@@ -266,7 +266,7 @@
 	gas_overlay = "zauker"
 	moles_visible = MOLES_GAS_VISIBLE
 	rarity = 1
-	base_value = 15 // NOVA EDIT ORIGINAL: base_value = 7
+	base_value = 7
 	desc = "A highly toxic gas, its production is highly regulated on top of being difficult. It also breaks down when in contact with nitrogen."
 	primary_color = "#006400"
 
@@ -278,7 +278,7 @@
 	gas_overlay = "halon"
 	moles_visible = MOLES_GAS_VISIBLE
 	rarity = 300
-	base_value = 0.01 // NOVA EDIT ORIGINAL: base_value = 4
+	base_value = 4
 	desc = "A potent fire suppressant. Removes oxygen from high temperature fires and cools down the area"
 	primary_color = COLOR_PURPLE
 
@@ -288,7 +288,7 @@
 	name = "Helium"
 	fusion_power = 7
 	rarity = 50
-	base_value = 0.01 // NOVA EDIT ORIGINAL: base_value = 3.5
+	base_value = 3.5
 	desc = "A very inert gas produced by the fusion of hydrogen and its derivatives."
 	primary_color = "#f0f8ff"
 
@@ -301,7 +301,7 @@
 	moles_visible = MOLES_GAS_VISIBLE
 	fusion_power = 20
 	rarity = 1
-	//base_value = 10 // NOVA EDIT
+	base_value = 10
 	desc = "We still don't know what it does, but it sells for a lot."
 	primary_color = COLOR_MAROON
 
