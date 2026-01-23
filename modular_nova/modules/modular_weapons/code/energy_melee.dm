@@ -36,24 +36,14 @@
 		"Red" = image(icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi', icon_state = "covenant_on_red"),
 		"Purple" = image(icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi', icon_state = "covenant_on_purple"),
 	)
-	var/pick_result = LOWER_TEXT(show_radial_menu(user, src, color_menu, custom_check = CALLBACK(src, PROC_REF(check_reskin_menu), user), require_near = TRUE, tooltips = TRUE))
-	if(!pick_result)
-		return
-	sword_color_icon = pick_result
+	var/pick_result = show_radial_menu(user, src, color_menu, require_near = TRUE, tooltips = TRUE)
+	if(!pick_result || !user.can_perform_action(src))
+		return ITEM_INTERACT_BLOCKING
+	sword_color_icon = LOWER_TEXT(pick_result)
 	set_light_color(possible_sword_colors[sword_color_icon])
-	to_chat(user, span_info("You modify [src]'s blade modulator to be [pick_result]."))
+	to_chat(user, span_info("You modify [src]'s blade modulator to be [sword_color_icon]."))
 	update_appearance(UPDATE_ICON_STATE)
-
-/**
- * Checks if we are allowed to interact with a radial menu for reskins
- *
- * Arguments:
- * * user The mob interacting with the menu
- */
-/obj/item/melee/energy/sword/saber/covenant/proc/check_reskin_menu(mob/user)
-	if(user.incapacitated)
-		return FALSE
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/melee/energy/sword/saber/covenant/red
 	sword_color_icon = "red"
