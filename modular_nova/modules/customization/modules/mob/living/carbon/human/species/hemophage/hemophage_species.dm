@@ -79,7 +79,7 @@
 
 				"All of this renders the infected individual into a new, conjoined being with its symbiont not long after infection. Separation of the two becomes next to impossible due to how rapidly and thoroughly the symbiont's tendrils spread into the host's systems. Some claim mastery of hidden, expensive, or painful procedures to 'cure' one of the symbiosis but the results these range from actively damaging to the host, to utterly useless.",
 
-				"The exact benefits, transferrance methods, features, and side-effects of symbiosis have been documented to be exceptionally variable, depending on which specific clade a host's progenitor originates from. Some feature blackened blood and are wracked with constant pain, others find themselves largely unaffected outside of the craving for blood, others still hear the whisperings of others constantly in the back of their mind.",
+				"The exact benefits, transference methods, features, and side-effects of symbiosis have been documented to be exceptionally variable, depending on which specific clade a host's progenitor originates from. Some feature blackened blood and are wracked with constant pain, others find themselves largely unaffected outside of the craving for blood, others still hear the whisperings of others constantly in the back of their mind.",
 	)
 
 
