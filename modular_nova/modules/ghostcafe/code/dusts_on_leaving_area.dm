@@ -24,4 +24,4 @@
 		return
 
 	living_source.investigate_log("was dusted due to leaving their valid areas.", INVESTIGATE_DEATHS)
-	living_source.dust(TRUE, force = TRUE)
+	living_source.dust(just_ash = TRUE, give_moodlet = FALSE, force = TRUE)

@@ -42,15 +42,13 @@
 	var/mob/living/owner_mob = mob_override || owner.current
 	var/datum/language_holder/holder = owner_mob.get_language_holder()
 	holder.grant_language(/datum/language/codespeak, source = LANGUAGE_MIND)
-	owner_mob.faction |= ROLE_SYNDICATE
-	owner_mob.faction &= FACTION_NEUTRAL
+	owner_mob.add_faction(ROLE_SYNDICATE)
 
 /datum/antagonist/traitor/marauder/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/owner_mob = mob_override || owner.current
 	if(owner_mob)
 		owner_mob.remove_language(/datum/language/codespeak, source = LANGUAGE_MIND)
-		owner_mob.faction &= ROLE_SYNDICATE
-		owner_mob.faction |= FACTION_NEUTRAL
+		owner_mob.remove_faction(ROLE_SYNDICATE)
 
 /// Removes NT from being the possible employer, because that would be weird
 /datum/antagonist/traitor/marauder/pick_employer()
