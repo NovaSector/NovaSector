@@ -2490,10 +2490,6 @@
 	pixel_x = -3;
 	pixel_y = -1
 	},
-/obj/item/infuser_book{
-	pixel_y = 4;
-	pixel_x = -2
-	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "uF" = (
