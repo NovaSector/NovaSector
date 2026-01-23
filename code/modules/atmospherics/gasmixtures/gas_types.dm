@@ -120,7 +120,7 @@
 	fusion_power = 8
 	rarity = 500
 	purchaseable = TRUE
-	 base_value = 0.5
+	base_value = 0.5
 	desc = "Water, in gas form. Makes floors slippery and washes items on them."
 	primary_color = "#b0c4de"
 
@@ -184,7 +184,7 @@
 	fusion_power = 8
 	rarity = 400
 	purchaseable = TRUE
-	bbase_value = 1.5
+	base_value = 1.5
 	desc = "A powerful hallucinogenic nerve agent able to induce cognitive damage."
 	primary_color = "#9370db"
 
