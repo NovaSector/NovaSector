@@ -475,3 +475,127 @@
       and station vendors. recolorable!
   - bugfix: Security battle dress is no longer missing a single pixel at the crotch
       when worn with the female bodytype
+2026-01-23:
+  A.C.M.O.:
+  - bugfix: Fixed a bug in Hemophage species blood drain action which caused lethality
+      warnings to appear later than expected.
+  Happyowl93:
+  - bugfix: Contractor kit description modified to specify it doesn't come with a
+      modsuit.
+  Hatterhat:
+  - balance: Space Phase now has a cooldown of 30 seconds, up from 0, that applies
+      when you exit Space Phase.
+  - balance: Space Phase no longer grants space immunity and only allows traversal
+      on space or low-pressure outdoors turfs.
+  - balance: Ashen Passage cooldown doubled to 30 seconds, up from 15.
+  - balance: Feast of Owls is no longer a roundstart knowledge.
+  MajManatee:
+  - qol: You can tilt, but MORE (From 10 degrees up to 45 now)
+  - bugfix: Tilting is now not inverted
+  Melbert:
+  - qol: If a surgery table has a patient on it, and you click it with a surgical
+      tool, it redirects the click to the patient instead of placing the tool on the
+      table
+  - rscadd: Surgery has been REWORKED ENTIRELY
+  - rscadd: Surgery is now STATE BASED. What does this mean? Well, when you start
+      surgery, you apply drapes and then make an incision. Then you can either retract
+      skin or clamp bleeders. Once you retract skin you gain access to outer cavity
+      operations, then once you saw the bones, inner cavity operations.
+  - balance: If your vessels are unclamped, you bleed pretty fast. Clamp those blood
+      vessels fast to stop blood loss in surgery.
+  - balance: Species which lack skin or bones allow you to skip surgical steps. Skeletons
+      have no skin to incise, after all.
+  - qol: Nectrotic Revival now works with chemicals in the syringe used, rather than
+      only chemicals in the patient.
+  - qol: You can close a surgery with sutures, rather than only a cautery.
+  - qol: You can no longer feed someone an organ who is undergoing an operation.
+  - rscadd: Many surgeries have received new names or flavor.
+  - rscadd: The operating computer has received major tweaks. It now shows all potential
+      operations and the patient's current surgical state, highlighting any steps
+      you could take next.
+  - rscadd: New surgeries are now available immediately upon research. Syncing is
+      dead.
+  - rscadd: Organ fishing can now be complete in someone with an open cavity, rather
+      than someone undergoing organ manipulation.
+  - balance: You can no longer fish a vital organ (the brain) out of someone.
+  - rscadd: Organ thrower mod now works on people with open cavities, rather than
+      people undergoing organ manipulation.
+  - rscadd: Chestbursters now no longer gib people with open cavities, rather than
+      people undergoing organ manipulation.
+  - rscadd: Xenomorphs now have CHITIN rather than FLESH. This means little besides
+      indicating you need a saw to incise their skin.
+  - rscadd: Sterilizine and similar chemicals now have a set duration, 1 minute per
+      unit applied, up to 5 minutes.
+  - rscadd: Medibot upgrades are now applied automatically on research. Syncing is
+      dead.
+  - rscadd: Many mechanical surgeries targeting organs now require cybernetic organs
+      rather than a cybernetic bodypart.
+  - refactor: Surgery has literally be rewritten from the ground up. If you see anything
+      broken or weird looking, particularly with mechanical surgeries and medical
+      cyborgs, please report it
+  - qol: Examining yourself for injuries explains how to apply pressure to bleeding
+      limbs
+  - rscadd: Scientists only say Balmer voicelines if they are whimsical
+  - rscadd: Surgery gets slower if the surgeon is drunk, UNLESS you land in the Balmer
+      Peak, then it's actually faster.
+  - refactor: Refactored death moodlet, report any oddities
+  - balance: Golems have a whopping 0.5x modifier to brute and burn damage, but no
+      longer have a 0.9 modifier to tox / oxy damage.
+  - balance: Golems have a new 0.6x modifier to stamina damage and stun duration,
+      but also a new 1.2x modifier to knockdown duration.
+  - balance: Golems can no longer be defibrillated. Revival surgery is... untouched,
+      I guess.
+  - balance: Golems can be revived by applying materials to their body. Each sheet
+      restores some brute and burn damage, as well as some nutrition. When sufficient
+      brute, burn, and nutrition are restored, they are revived!
+  - balance: Golems can no longer fall into soft crit. They can still enter hard crit
+      and die when taking sufficient damage, though.
+  - balance: When a golem is attacked with brute or burn damage, they sustain direct
+      nutrition drain based on how much damage dealt.
+  - balance: Golems drain nutrition faster if near starving or below the normal soft
+      crit threshold.
+  - balance: Golems fall unconscious if starving.
+  - balance: When a golem's nutrition hits 0, they die!
+  - balance: Golems cannot get overweight, but are capped on the amount of nutrition
+      they can have
+  - balance: The strength of titanium's reduction to brute damage when consumed by
+      a golem or rock eater has been reduced (0.7x -> 0.8x)
+  - balance: Eating iron no longer heals tox or oxy for golems or rock eaters (still
+      heals brute and burn)
+  - balance: Golems now have a unique bodytype, making them ineligible for some surgeries
+  - rscadd: Adds "reset dislocation" operation, which is a surgical analog to resetting
+      a dislocated limb. Same tools, same steps, but if you go through the effort
+      of doing it surgically, it's faster and safer.
+  - rscadd: All wound surgeries now gain a speed bonus from being wound scanned.
+  - balance: Plasmamen no longer take flat 1.5x brute and burn damage
+  - balance: Plasmamen are now affected by weapon demolition modifier, meaning blunt
+      attacks deal more damage but slashing or piercing deal less damage
+  - balance: Skeletons and Golems are also affected by weapon demolition modifier,
+      as well as any mineral type mobs (of which none currently exist)
+  - bugfix: Fixes more surgeries being marked as a priority operation that intended
+  - bugfix: Naive and Desensitized people get less sad at death
+  - rscadd: Adds "surgical processor implant", a cybernetic brain implant which grants
+      the user knowledge of whatever surgeries are installed in it.
+  - bugfix: Moth wing repair surgery correctly checks that bones are intact rather
+      than bones are sawed
+  - rscadd: You can skip the "apply drapes" step of surgery if the patient is buckled
+      to an operating table or stasis bed!
+  SmArtKar:
+  - rscadd: You can now butcher individual limbs and people by right clicking with
+      a knife on combat mode. Doing so requires cut and open skin, as well as sawed
+      bone and no organs inside the limb.
+  - rscadd: Gibbers now source their meat from the victim's limbs and not species
+  - rscadd: Meat spikes in the freezer now allow their victims to be operated on
+  - balance: Butcher's knives are now a bit faster.
+  - bugfix: Fixed incorrect leg number calculations for disabled limbs.
+  - bugfix: Skeleton limbs can no longer get scars.
+  - refactor: Refactored gibbers, butchering and meat spikes.
+  SyncIt21:
+  - code_imp: removes an unused parameter `times_fired` from mob life procs. Making
+      them function slightly faster
+  carpotoxin:
+  - sound: Adds a stinger sound effect to the Marauder antag, personally voiced by
+      Keanu Reeves.
+  splat1125:
+  - rscadd: '[Thanks to Rett Jester] Three new vocal barks based around extremely
+      old vocal synthesizers!'
