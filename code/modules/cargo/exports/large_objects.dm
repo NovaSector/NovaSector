@@ -153,6 +153,6 @@
 	return worth
 
 /datum/export/gas_canister/proc/get_gas_value(datum/gas/gasType, moles)
-	return ROUND_UP(initial(gasType.base_value) * moles)
+	return ROUND_UP((GLOB.gas_base_values[gasType] || initial(gasType.base_value)) * moles) // NOVA EDIT CHANGE - ORIGINAL: return ROUND_UP(initial(gasType.base_value) * moles)
 
 #undef MAX_GAS_CREDITS
