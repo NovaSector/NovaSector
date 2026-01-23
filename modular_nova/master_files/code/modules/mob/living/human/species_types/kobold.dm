@@ -18,6 +18,8 @@
 		TRAIT_WEAK_SOUL,
 		TRAIT_MUTANT_COLORS,
 	)
+	no_equip_flags = null
+	species_cookie = /obj/item/food/meat/slab
 	coldmod = 1.5
 	heatmod = 0.67
 	death_sound = 'sound/mobs/humanoids/lizard/deathsound.ogg'
@@ -52,10 +54,6 @@
 	features[FEATURE_MUTANT_COLOR_THREE] = main_color
 	features -= FEATURE_TAIL
 	return features
-
-/datum/species/monkey/kobold/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
-	. = ..()
-	human_who_gained_species.dna.add_mutation(/datum/mutation/clever, MUTATION_SOURCE_SPECIES_INNATE)
 
 /datum/species/monkey/kobold/get_scream_sound(mob/living/carbon/human/kobold)
 	return pick(
@@ -110,13 +108,19 @@
 			SPECIES_PERK_DESC = "Kobolds are primitive humanoids, and can't do most things a humanoid can do. Computers are impossible, \
 				complex machines are right out, and most clothes don't fit your smaller form.",
 		),
-		list(
-			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
-			SPECIES_PERK_ICON = "capsules",
-			SPECIES_PERK_NAME = "Mutadone Averse",
-			SPECIES_PERK_DESC = "Kobolds are reverted into normal lizardpeople upon being exposed to Mutadone.",
-		),
 	)
+
+/datum/species/monkey/create_pref_language_perk()
+	var/list/to_add = list()
+	// Holding these variables so we can grab the exact names for our perk.
+	var/datum/language/kobold_language = /datum/language/kobold
+
+	to_add += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+		SPECIES_PERK_ICON = "comment",
+		SPECIES_PERK_NAME = "Primitive Tongue",
+		SPECIES_PERK_DESC = "You are able to understand [kobold_language.name].",
+	))
 
 	return to_add
 
@@ -135,3 +139,13 @@
 	regenerate_organs(kobold, src, visual_only = TRUE)
 	kobold.update_body(TRUE)
 
+// Same as regular kobolds except they cannot be butchered, and are smart enough to use devices (debatable)
+/datum/species/monkey/kobold/roundstart
+	mutantbrain = /obj/item/organ/brain/lizard
+	knife_butcher_results = null
+	inherent_traits = list(
+		TRAIT_NO_AUGMENTS,
+		TRAIT_NO_BLOOD_OVERLAY,
+		TRAIT_VENTCRAWLER_NUDE,
+		TRAIT_MUTANT_COLORS,
+	)
