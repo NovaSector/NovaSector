@@ -1,0 +1,4 @@
+author: "Happyowl93"
+delete-after: True
+changes:
+  - bugfix: "Contractor kit description modified to specify it doesn't come with a modsuit."

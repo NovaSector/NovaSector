@@ -673,7 +673,7 @@
 
 /datum/reagent/consumable/ethanol/bloody_mary/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
 	. = ..()
-	drinker.adjust_blood_volume(1 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL) // Bloody Mary quickly restores blood loss. // NOVA EDIT - Bloodshot is now the go-to drink for bloodloss, not Bloody Mary - ORIGINAL: drinker.adjust_blood_volume(3 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL)
+	drinker.adjust_blood_volume(min(0.25 + round(0.75 * drinker.get_drunk_amount() / 40, 0.1), 2) * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL) // Bloody Mary restores blood loss based on how drunk you are // Bloody Mary quickly restores blood loss. // NOVA EDIT - Bloodshot is now the go-to drink for bloodloss, not Bloody Mary - ORIGINAL: drinker.adjust_blood_volume((0.25 + round(2 * drinker.get_drunk_amount() / 40, 0.1)) * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL)
 
 /datum/reagent/consumable/ethanol/brave_bull
 	name = "Brave Bull"

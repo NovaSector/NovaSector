@@ -225,33 +225,16 @@
 	///What dye registry should be looked at when dying this item; see washing_machine.dm
 	var/dying_key
 
-	/// A lazy reagent list containing the reagents this item produces when ground up in a grinder
-	var/list/grind_results
-	///A reagent the nutriments are converted into when the item is juiced.
-	var/datum/reagent/consumable/juice_typepath
-
 	/// Used in obj/item/examine to give additional notes on what the weapon does, separate from the predetermined output variables
 	var/offensive_notes
 	/// Used in obj/item/examine to determines whether or not to detail an item's statistics even if it does not meet the force requirements
 	var/override_notes = FALSE
 	/// Used if we want to have a custom verb text for throwing. "John Spaceman flicks the ciggerate" for example.
 	var/throw_verb
-	// NOVA EDIT ADDITION START
-	/// Does this use the advanced reskinning setup?
-	var/uses_advanced_reskins = FALSE
-	// NOVA EDIT ADDITION END
 
 	/// A lazylist used for applying fantasy values, contains the actual modification applied to a variable.
 	var/list/fantasy_modifications = null
 
-	/// Has the item been reskinned?
-	var/current_skin
-	/// List of options to reskin.
-	var/list/unique_reskin
-	/// If reskins change base icon state as well
-	var/unique_reskin_changes_base_icon_state = FALSE
-	/// If reskins change inhands as well
-	var/unique_reskin_changes_inhand = FALSE
 	/// Do we apply a click cooldown when resisting this object if it is restraining them?
 	var/resist_cooldown = CLICK_CD_BREAKOUT
 
@@ -287,9 +270,6 @@
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_ITEM, src)
 
-	setup_reskinning()
-
-
 /obj/item/Destroy(force)
 	// This var exists as a weird proxy "owner" ref
 	// It's used in a few places. Stop using it, and optimially replace all uses please
@@ -303,19 +283,6 @@
 		remove_item_action(action)
 
 	return ..()
-
-
-/obj/item/add_context(atom/source, list/context, obj/item/held_item, mob/user)
-	. = ..()
-
-	if(!unique_reskin)
-		return
-
-	if(current_skin && !(obj_flags & INFINITE_RESKIN))
-		return
-
-	context[SCREENTIP_CONTEXT_ALT_LMB] = "Reskin"
-	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/click_ctrl(mob/user)
 	SHOULD_NOT_OVERRIDE(TRUE)
@@ -426,7 +393,7 @@
 		return
 	if(greyscale_config_worn)
 		worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors)
-	// NOVA EDIT ADD START
+	// NOVA EDIT ADDITION START
 	if(greyscale_config_worn_digi)
 		worn_icon_digi = SSgreyscale.GetColoredIconByType(greyscale_config_worn_digi, greyscale_colors)
 	if(greyscale_config_worn_muzzled)
@@ -445,7 +412,7 @@
 		worn_icon_taur_paw = SSgreyscale.GetColoredIconByType(greyscale_config_worn_taur_paw, greyscale_colors)
 	if(greyscale_config_worn_taur_hoof)
 		worn_icon_taur_hoof = SSgreyscale.GetColoredIconByType(greyscale_config_worn_taur_hoof, greyscale_colors)
-	// NOVA EDIT ADD END
+	// NOVA EDIT ADDITION END
 	if(greyscale_config_inhand_left)
 		lefthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_left, greyscale_colors)
 	if(greyscale_config_inhand_right)
@@ -481,9 +448,6 @@
 		.["insulated"] = "It is made from a robust electrical insulator and will block any electricity passing through it!"
 	else if (siemens_coefficient <= 0.5)
 		.["partially insulated"] = "It is made from a poor insulator that will dampen (but not fully block) electric shocks passing through it."
-
-	if(LAZYLEN(unique_reskin) && !current_skin)
-		.["reskinnable"] = "This item is able to be reskinned! Alt-Click to do so!"
 
 /obj/item/examine_descriptor(mob/user)
 	return "item"
@@ -1076,6 +1040,12 @@
 /obj/item/proc/blend_requirements(obj/machinery/reagentgrinder/R)
 	return TRUE
 
+///Returns a reagent list containing the reagents this item produces when ground up in a grinder
+/obj/item/proc/grind_results()
+	RETURN_TYPE(/list/datum/reagent)
+
+	return null
+
 ///Called BEFORE the object is ground up - use this to change grind results based on conditions. Return "-1" to prevent the grinding from occurring
 /obj/item/proc/on_grind()
 	PROTECTED_PROC(TRUE)
@@ -1109,18 +1079,26 @@
 /obj/item/proc/grind_atom(datum/reagents/target_holder, mob/user)
 	PROTECTED_PROC(TRUE)
 
+	var/list/datum/reagent/grind_reagents = grind_results()
+
 	. = FALSE
-	if(LAZYLEN(grind_results))
-		target_holder.add_reagent_list(grind_results)
+	if(length(grind_reagents))
+		target_holder.add_reagent_list(grind_reagents)
 		. = TRUE
 	if(reagents?.trans_to(target_holder, reagents.total_volume, transferred_by = user))
 		. = TRUE
+
+///Returns A reagent the nutriments are converted into when the item is juiced.
+/obj/item/proc/juice_typepath()
+	RETURN_TYPE(/datum/reagent)
+
+	return null
 
 ///Called BEFORE the object is ground up - use this to change grind results based on conditions. Return "-1" to prevent the grinding from occurring
 /obj/item/proc/on_juice()
 	PROTECTED_PROC(TRUE)
 
-	if(!juice_typepath)
+	if(!juice_typepath())
 		return -1
 
 	return SEND_SIGNAL(src, COMSIG_ITEM_ON_JUICE)
@@ -1154,9 +1132,11 @@
 
 	. = FALSE
 
-	if(ispath(juice_typepath))
-		reagents.convert_reagent(/datum/reagent/consumable/nutriment, juice_typepath, include_source_subtypes = FALSE)
-		reagents.convert_reagent(/datum/reagent/consumable/nutriment/vitamin, juice_typepath, include_source_subtypes = FALSE)
+	var/juice_result = juice_typepath()
+
+	if(ispath(juice_result))
+		reagents.convert_reagent(/datum/reagent/consumable/nutriment, juice_result, include_source_subtypes = FALSE)
+		reagents.convert_reagent(/datum/reagent/consumable/nutriment/vitamin, juice_result, include_source_subtypes = FALSE)
 		. = TRUE
 
 	if(!QDELETED(target_holder))
@@ -1380,13 +1360,13 @@
 	return !HAS_TRAIT(src, TRAIT_NODROP) && !(item_flags & ABSTRACT)
 
 /obj/item/proc/doStrip(mob/stripper, mob/owner)
-	//NOVA EDIT CHANGE BEGIN - THIEVING GLOVES - ORIGINAL: return owner.dropItemToGround(src)
-	if (!owner.dropItemToGround(src))
+	if (!owner.dropItemToGround(src)) // NOVA EDIT CHANGE - THIEVING GLOVES - ORIGINAL: return owner.dropItemToGround(src)
 		return FALSE
+	// NOVA EDIT ADDITION START
 	if (HAS_TRAIT(stripper, TRAIT_STICKY_FINGERS))
 		stripper.put_in_hands(src)
 	return TRUE
-	//NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 
 
@@ -1553,60 +1533,6 @@
 		return TRUE // both must be able to hold items for this to make sense
 	if(SEND_SIGNAL(src, COMSIG_ITEM_OFFER_TAKEN, offerer, taker) & COMPONENT_OFFER_INTERRUPT)
 		return TRUE
-
-/// NOVA EDIT ADDITION START
-/obj/item/reskin_obj(mob/M)
-	if(!uses_advanced_reskins)
-		return ..()
-	if(!LAZYLEN(unique_reskin))
-		return
-
-	var/list/items = list()
-
-
-	for(var/reskin_option in unique_reskin)
-		var/image/item_image = image(icon = unique_reskin[reskin_option][RESKIN_ICON] ? unique_reskin[reskin_option][RESKIN_ICON] : icon, icon_state = "[unique_reskin[reskin_option][RESKIN_ICON_STATE]]")
-		items += list("[reskin_option]" = item_image)
-	sort_list(items)
-
-	var/pick = show_radial_menu(M, src, items, custom_check = CALLBACK(src, PROC_REF(check_reskin_menu), M), radius = 38, require_near = TRUE)
-	if(!pick)
-		return
-	if(!unique_reskin[pick])
-		return
-	current_skin = pick
-
-	if(unique_reskin[pick][RESKIN_ICON])
-		icon = unique_reskin[pick][RESKIN_ICON]
-
-	if(unique_reskin[pick][RESKIN_ICON_STATE])
-		icon_state = unique_reskin[pick][RESKIN_ICON_STATE]
-
-	if(unique_reskin[pick][RESKIN_WORN_ICON])
-		worn_icon = unique_reskin[pick][RESKIN_WORN_ICON]
-
-	if(unique_reskin[pick][RESKIN_WORN_ICON_STATE])
-		worn_icon_state = unique_reskin[pick][RESKIN_WORN_ICON_STATE]
-
-	if(unique_reskin[pick][RESKIN_INHAND_L])
-		lefthand_file = unique_reskin[pick][RESKIN_INHAND_L]
-	if(unique_reskin[pick][RESKIN_INHAND_R])
-		righthand_file = unique_reskin[pick][RESKIN_INHAND_R]
-	if(unique_reskin[pick][RESKIN_INHAND_STATE])
-		inhand_icon_state = unique_reskin[pick][RESKIN_INHAND_STATE]
-	if(unique_reskin[pick][RESKIN_SUPPORTS_VARIATIONS_FLAGS])
-		supports_variations_flags = unique_reskin[pick][RESKIN_SUPPORTS_VARIATIONS_FLAGS]
-	if(ishuman(M))
-		var/mob/living/carbon/human/wearer = M
-		wearer.regenerate_icons() // update that mf
-	to_chat(M, "[src] is now skinned as '[pick].'")
-	post_reskin(M)
-
-/// Automatically called after a reskin, for any extra variable changes.
-/obj/item/proc/post_reskin(mob/our_mob)
-	return
-
-/// NOVA EDIT ADDITION END
 
 /// Special stuff you want to do when an outfit equips this item.
 /obj/item/proc/on_outfit_equip(mob/living/carbon/human/outfit_wearer, visuals_only, item_slot)
@@ -1875,7 +1801,7 @@
 
 /// Common proc used by painting tools like spraycans and palettes that can access the entire 24 bits color space.
 /obj/item/proc/pick_painting_tool_color(mob/user, default_color)
-	var/chosen_color = input(user,"Pick new color", "[src]", default_color) as color|null
+	var/chosen_color = tgui_color_picker(user, "Pick new color", "[src]", default_color)
 	if(!chosen_color || QDELETED(src) || IS_DEAD_OR_INCAP(user) || !user.is_holding(src))
 		return
 	set_painting_tool_color(chosen_color)

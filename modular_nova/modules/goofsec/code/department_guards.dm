@@ -9,7 +9,9 @@
 /obj/item/clothing/under/rank/security/officer/blueshirt/nova
 	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	name = "science guard's uniform"
-	unique_reskin = null
+
+/obj/item/clothing/under/rank/security/officer/blueshirt/nova/setup_reskins()
+	return
 
 /obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly
 	name = "orderly uniform"
@@ -54,8 +56,10 @@
 	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
-	unique_reskin = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/armor/vest/blueshirt/nova/setup_reskins()
+	return
 
 /obj/item/clothing/suit/armor/vest/blueshirt/nova/guard //Badge-less version of the blueshirt vest
 	icon_state = "guard_armor"
@@ -87,7 +91,6 @@
 /obj/item/clothing/head/helmet/blueshirt/nova
 	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	//The base one is used for science guards, and the sprite is unchanged
-	unique_reskin = null
 
 /obj/item/clothing/head/helmet/blueshirt/nova/guard //Version of the blueshirt helmet without a blue line. Used by all dept guards right now.
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
@@ -134,7 +137,9 @@
 	worn_icon_state = "engine"
 	icon = 'modular_nova/modules/goofsec/icons/obj/belts.dmi'
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/belts.dmi'
-	unique_reskin = null
+
+/obj/item/storage/belt/security/department_guard/setup_reskins()
+	return
 
 /obj/item/storage/belt/security/department_guard/science
 	name = "science guard belt"
@@ -724,7 +729,7 @@
 	. = ..()
 	icon_state = "[department_icon_state]_[icon_state]"
 
-/obj/item/melee/baton/security/loaded/departmental/can_baton(mob/living/target, mob/living/user)
+/obj/item/melee/baton/security/loaded/departmental/try_stun(mob/living/target, mob/living/user, harmbatonning)
 	if(active && !emagged && COOLDOWN_FINISHED(src, cooldown_check))
 		var/area/current_area = get_area(user)
 		if(!is_type_in_list(current_area, valid_areas))
@@ -742,7 +747,7 @@
 				playsound(src, SFX_SPARKS, 75, TRUE, -1)
 				update_appearance()
 				return FALSE
-	. = ..()
+	return ..()
 
 /obj/item/melee/baton/security/loaded/departmental/attack_self(mob/user)
 	. = ..()

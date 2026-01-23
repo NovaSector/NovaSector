@@ -65,7 +65,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	/// Use a [language holder datum][/datum/language_holder] typepath in this var.
 	/// Should never be null.
 	var/datum/language_holder/species_language_holder = /datum/language_holder/human_basic
-	var/list/list/mutant_bodyparts = list() // NOVA EDIT ADDITION - CUSTOMIZATION (typed list)
 	///The bodyparts this species uses. assoc of bodypart string - bodypart type. Make sure all the fucking entries are in or I'll skin you alive.
 	var/list/bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left,
@@ -99,7 +98,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/obj/item/organ/appendix/mutantappendix = /obj/item/organ/appendix
 
 	/// Store body marking defines. See mobs.dm for bitflags
-	//var/list/body_markings = list() // NOVA EDIT REMOVAL - We already have this defined as an assoc list
+	//var/list/body_markings = list() // NOVA EDIT REMOVAL - We already have this defined as an assoc list in dna
 
 	/// Flat modifier on all damage taken via [apply_damage][/mob/living/proc/apply_damage] (so being punched, shot, etc.)
 	/// IE: 10 = 10% less damage taken.
@@ -303,11 +302,19 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		// if we have an extra organ that before changing that the species didnt have, remove it
 		if(!new_organ)
 			if(existing_organ && (old_organ_type == existing_organ.type || replace_current))
-				existing_organ.Remove(organ_holder)
+				//existing_organ.Remove(organ_holder) // NOVA EDIT REMOVAL
+				// NOVA EDIT ADDITION START - Remove so it can be reinserted + handled in modular_nova\modules\customization\modules\mob\living\carbon\human\species.dm
+				// We basically just want to keep from removing it from mutant_bodyparts
+				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
+				if(existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key])
+					existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
+				else
+					existing_organ.Remove(organ_holder)
+				// NOVA EDIT ADDITION END
 				qdel(existing_organ)
 			continue
 
-		if(existing_organ && !disallow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
+		if(existing_organ && allow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
 			// we dont want to remove organs that were not from the old species (such as from freak surgery or prosthetics)
 			if(existing_organ.type != old_organ_type && !replace_current)
 				continue
@@ -473,7 +480,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	clear_tail_moodlets(human)
 
-	remove_body_markings(human)
+	//remove_body_markings(human) // NOVA EDIT REMOVAL - We do this differently
 
 	// Removes all languages previously associated with [LANGUAGE_SPECIES], gaining our new species will add new ones back
 	var/datum/language_holder/losing_holder = GLOB.prototype_language_holders[species_language_holder]
@@ -1378,8 +1385,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/handle_gas_interaction(mob/living/carbon/human/human, datum/gas_mixture/environment, seconds_per_tick, times_fired)
 	/// Some non-clothing items may end up in these slots, e.g. flowers worn on the head, so we should consider clothing_flags as potentially nonexistant as a var.
 	/// Otherwise we will get a very spammy runtime.
-	var/suit_flags = istype(human?.wear_suit, /obj/item/clothing) ? human.wear_suit.clothing_flags : NONE
-	var/head_flags = istype(human?.head, /obj/item/clothing) ? human.head.clothing_flags : NONE
+	var/suit_flags = astype(human?.wear_suit, /obj/item/clothing)?.clothing_flags
+	var/head_flags = astype(human?.head, /obj/item/clothing)?.clothing_flags
 
 	if((suit_flags & STOPSPRESSUREDAMAGE) && (head_flags & STOPSPRESSUREDAMAGE))
 		return
@@ -1998,12 +2005,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	// NOVA EDIT ADDITION START - Synth digitigrade sanitization
 	var/ignore_digi = FALSE // You can jack into this var with other checks, if you want.
 	if(issynthetic(target))
-		var/list/chassis = target.dna.mutant_bodyparts[MUTANT_SYNTH_CHASSIS]
+		var/datum/mutant_bodypart/chassis = target.dna.mutant_bodyparts[FEATURE_SYNTH_CHASSIS]
 		if(chassis)
-			var/list/chassis_accessory = SSaccessories.sprite_accessories[MUTANT_SYNTH_CHASSIS]
+			var/list/chassis_accessory = SSaccessories.sprite_accessories[FEATURE_SYNTH_CHASSIS]
 			var/datum/sprite_accessory/synth_chassis/body_choice
 			if(chassis_accessory)
-				body_choice = chassis_accessory[chassis[MUTANT_INDEX_NAME]]
+				body_choice = chassis_accessory[chassis.name]
 			if(body_choice && !body_choice.is_digi_compatible)
 				ignore_digi = TRUE
 	// NOVA EDIT END

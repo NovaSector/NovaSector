@@ -27,6 +27,7 @@
 	dir = 8
 	},
 /obj/item/gun/grenadelauncher,
+/obj/item/gun/ballistic/automatic/battle_rifle,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/armory)
 "i" = (

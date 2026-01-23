@@ -1,35 +1,33 @@
 // MODULAR ID TRIM ACCESS OVERRIDES GO HERE!!
 
 /datum/id_trim/job/medical_doctor/New()
-	. = ..()
-
 	extra_access  |= ACCESS_MORGUE_SECURE
+	return ..()
 
 /datum/id_trim/job/chief_engineer/New()
-	. = ..()
-
 	minimal_access |= ACCESS_WEAPONS
+	return ..()
 
 /datum/id_trim/job/atmospheric_technician/New()
-	. = ..()
-
 	minimal_access |= ACCESS_ENGINE_EQUIP
+	return ..()
 
 /datum/id_trim/job/chief_medical_officer/New()
-	. = ..()
-
 	minimal_access |= ACCESS_WEAPONS
+	return ..()
 
 /datum/id_trim/job/research_director/New()
-	. = ..()
-
 	minimal_access |= ACCESS_WEAPONS
+	return ..()
 
 
 /datum/id_trim/job/head_of_personnel/New()
-	. = ..()
-
 	minimal_access |= ACCESS_WEAPONS
+	return ..()
+
+/datum/id_trim/job/clown/New()
+	minimal_access |= ACCESS_WEAPONS
+	return ..()
 
 /datum/id_trim/job/blueshield
 	assignment = "Blueshield"
@@ -192,3 +190,6 @@
 		ACCESS_CMO,
 		)
 	job = /datum/job/virologist
+
+/datum/id_trim/job/warden
+	honorifics = list("Officer", "Watchman", "Sergeant", "Sgt.") // Changed from Lieutenant and Lt to Sergeant and Sgt since we use Brig Sergeant and such. (original: honorifics = list("Officer", "Watchman", "Lieutenant", "Lt."))

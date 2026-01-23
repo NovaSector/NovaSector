@@ -849,7 +849,9 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	gender = PLURAL
 	icon = 'icons/effects/magic.dmi'
 	icon_state = "ectoplasm"
-	grind_results = list(/datum/reagent/hauntium = 25) //can be ground into hauntium
+
+/obj/item/ectoplasm/grind_results()
+	return list(/datum/reagent/hauntium = 25)
 
 /obj/item/ectoplasm/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is inhaling [src]! It looks like [user.p_theyre()] trying to visit the astral plane!"))
@@ -1073,6 +1075,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 /obj/item/melee/flyswatter/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(is_type_in_typecache(target, splattable))
 		to_chat(user, span_warning("You easily splat [target]."))
+		if(QDELETED(target))
+			return
 		if(isliving(target))
 			new /obj/effect/decal/cleanable/insectguts(target.drop_location())
 			var/mob/living/bug = target

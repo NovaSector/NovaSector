@@ -160,6 +160,14 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/fox_squeak.ogg'
 
+/datum/emote/living/gecker
+	key = "gecker"
+	key_third_person = "geckers"
+	message = "geckers!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/gecker.ogg'
+
 /datum/emote/living/fwhine
 	key = "fwhine"
 	key_third_person = "fwhines"
@@ -207,6 +215,27 @@
 	muzzle_ignore = TRUE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/slime_squish.ogg'
+
+/datum/emote/living/bubble
+	key = "bubble"
+	key_third_person = "bubbles"
+	message = "bubbles."
+	message_param = "bubbles at %t."
+	message_mime = "bubbles silently."
+	emote_type = EMOTE_AUDIBLE
+	muzzle_ignore = TRUE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/slime_bubble.ogg'
+
+/datum/emote/living/pop
+	key = "pop"
+	key_third_person = "pops"
+	message = "makes a popping sound."
+	message_param = "makes a popping sound at %t."
+	message_mime = "makes a silent pop."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/slime_pop.ogg'
 
 /datum/emote/living/meow
 	key = "meow"
@@ -759,3 +788,47 @@
 /datum/emote/living/meowdeep/get_sound(mob/living/user)
 	. = ..()
 	return pick('modular_nova/modules/emotes/sound/voice/meowdeep.ogg', 'modular_nova/modules/emotes/sound/voice/meowdeep2.ogg', 'modular_nova/modules/emotes/sound/voice/meowdeep3.ogg')
+
+/datum/emote/living/teshchirp
+	key = "teshchirp"
+	key_third_person = "chirps!"
+	message = "chirps!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/teshchirp.ogg' // Credits to Virgo Station for the files.
+
+/datum/emote/living/teshsqueak
+	key = "teshsqueak"
+	key_third_person = "squeaks!"
+	message = "squeaks!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/teshsqueak.ogg' // Credits to Virgo Station for the files.
+
+/datum/emote/living/teshtrill
+	key = "teshtrill"
+	key_third_person = "trills!"
+	message = "trills!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/teshtrill.ogg' // Credits to Virgo Station for the files.
+
+/datum/emote/living/gulp
+	key = "gulp"
+	key_third_person = "gulps"
+	message = "gulps nervously."
+	message_mime = "gulps silently!"
+	vary = TRUE
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+
+/datum/emote/living/gulp/get_sound(mob/living/user)
+	return pick(
+		'modular_nova/modules/emotes/sound/voice/gulp1.ogg',
+		'modular_nova/modules/emotes/sound/voice/gulp2.ogg',
+	)
+
+/datum/emote/living/carbon/wink
+	sound = 'modular_nova/modules/emotes/sound/voice/wink.ogg'
+
+/datum/emote/living/carbon/human/blink
+	sound = 'modular_nova/modules/emotes/sound/voice/blink.ogg'

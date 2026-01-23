@@ -55,6 +55,10 @@
 	var/delta_time_capped = min(delta_time, 8)
 	//If there are alien weeds on the ground then heal if needed or give some plasma
 	if(locate(/obj/structure/alien/weeds) in owner.loc)
+		// NOVA EDIT ADDITION START
+		if(istype(src, /obj/item/organ/alien/plasmavessel/roundstart))
+			owner.add_mood_event("area_beauty", /datum/mood_event/xenohybrid_resin)
+		// NOVA EDIT ADDITION END
 		if(owner.health >= owner.maxHealth)
 			owner.adjustPlasma(plasma_rate * delta_time)
 		else

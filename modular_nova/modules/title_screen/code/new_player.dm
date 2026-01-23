@@ -64,12 +64,16 @@
 			if(!is_admin(client) && length_char(client?.prefs?.read_preference(/datum/preference/text/flavor_text)) < CONFIG_GET(number/flavor_text_character_requirement))
 				to_chat(src, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to ready up for the round. You have [length_char(client.prefs.read_preference(/datum/preference/text/flavor_text))] characters."))
 				return
-		ready = !ready
-		if(ready)
+
+		if(ready == PLAYER_NOT_READY)
+			auto_deadmin_on_ready_or_latejoin()
+			ready = PLAYER_READY_TO_PLAY
 			SSstatpanels.add_job_estimation(src)
 		else
+			ready = PLAYER_NOT_READY
 			SSstatpanels.remove_job_estimation(src)
-		client << output(ready, "nova_title_browser:toggle_ready")
+
+		client << output((ready == PLAYER_READY_TO_PLAY) ? 1 : 0, "nova_title_browser:toggle_ready")
 		return
 
 	if(href_list["late_join"])

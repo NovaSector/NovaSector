@@ -522,7 +522,7 @@
 	if(blood_type.reagent_type != chem.type)
 		return
 
-	var/blood_transfusion_cap = chem.data["monkey_origins"] ? BLOOD_VOLUME_NORMAL : BLOOD_VOLUME_MAXIMUM // NOVA EDIT ADDITION - Clamp the value so that being injected with monkey blood when you're past 560u doesn't do anything
+	var/blood_transfusion_cap = (MONKEY_ORIGINS in chem.data) && chem.data[MONKEY_ORIGINS] ? BLOOD_VOLUME_NORMAL : BLOOD_VOLUME_MAXIMUM // NOVA EDIT ADDITION - Clamp the value so that being injected with monkey blood when you're past 560u doesn't do anything
 	var/blood_added = adjust_blood_volume(round(reac_volume, CHEMICAL_VOLUME_ROUNDING), maximum = blood_transfusion_cap) // NOVA EDIT CHANGE - ORIGINAL: var/blood_added = adjust_blood_volume(round(reac_volume, CHEMICAL_VOLUME_ROUNDING))
 	reagents.remove_reagent(chem.type, blood_added)
 
@@ -566,25 +566,27 @@
 		if(stat != DEAD || disease.process_dead)
 			disease.stage_act(seconds_per_tick, times_fired)
 
-/mob/living/carbon/handle_mutations(time_since_irradiated, seconds_per_tick, times_fired)
-	if(!dna?.temporary_mutations.len)
+/mob/living/carbon/handle_mutations(time_since_irradiated, seconds_per_tick)
+	if(!LAZYLEN(dna?.temporary_mutations))
 		return
 
-	for(var/mut in dna.temporary_mutations)
-		if(dna.temporary_mutations[mut] < world.time)
+	for(var/mut, mut_data in dna.temporary_mutations)
+		if(mut_data < world.time)
+			if(!LAZYLEN(dna.previous))
+				continue
 			if(mut == UI_CHANGED)
 				if(dna.previous["UI"])
 					dna.unique_identity = merge_text(dna.unique_identity,dna.previous["UI"])
 					updateappearance(mutations_overlay_update=1)
 					dna.previous.Remove("UI")
-				dna.temporary_mutations.Remove(mut)
+				LAZYREMOVE(dna.temporary_mutations, mut)
 				continue
 			if(mut == UF_CHANGED)
 				if(dna.previous["UF"])
 					dna.unique_features = merge_text(dna.unique_features,dna.previous["UF"])
 					updateappearance(mutcolor_update=1, mutations_overlay_update=1)
 					dna.previous.Remove("UF")
-				dna.temporary_mutations.Remove(mut)
+				LAZYREMOVE(dna.temporary_mutations, mut)
 				continue
 			if(mut == UE_CHANGED)
 				if(dna.previous["name"])
@@ -597,7 +599,7 @@
 				if(dna.previous["blood_type"])
 					set_blood_type(dna.previous["blood_type"])
 					dna.previous.Remove("blood_type")
-				dna.temporary_mutations.Remove(mut)
+				LAZYREMOVE(dna.temporary_mutations, mut)
 				continue
 
 /**

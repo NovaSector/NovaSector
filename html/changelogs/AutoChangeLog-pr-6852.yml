@@ -1,0 +1,5 @@
+author: "MajManatee"
+delete-after: True
+changes:
+  - qol: "You can tilt, but MORE (From 10 degrees up to 45 now)"
+  - bugfix: "Tilting is now not inverted"

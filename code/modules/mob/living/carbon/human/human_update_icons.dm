@@ -1153,7 +1153,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 
 /mob/living/carbon/human/proc/update_underwear()
 	remove_overlay(BODY_LAYER)
-	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN) || HAS_TRAIT(src, TRAIT_NO_UNDERWEAR))
 		return
 	// Underwear, Undershirts & Socks
 	var/list/standing = list()
@@ -1209,7 +1209,8 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	*/ // NOVA EDIT REMOVAL END
 	// NOVA EDIT ADDITION START - Nova socks
 	if(socks && num_legs >= 2 && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS))
-		if(!("taur" in dna.species.mutant_bodyparts) || dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME] == SPRITE_ACCESSORY_NONE)
+		var/datum/mutant_bodypart/taur_body = dna.mutant_bodyparts[FEATURE_TAUR]
+		if(isnull(taur_body) || taur_body.name == SPRITE_ACCESSORY_NONE)
 			var/datum/sprite_accessory/socks/undie_accessory = SSaccessories.socks_list[socks]
 			if(undie_accessory)
 				var/mutable_appearance/socks_overlay

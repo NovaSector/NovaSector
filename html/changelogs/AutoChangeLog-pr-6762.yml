@@ -1,0 +1,7 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "Space Phase now has a cooldown of 30 seconds, up from 0, that applies when you exit Space Phase."
+  - balance: "Space Phase no longer grants space immunity and only allows traversal on space or low-pressure outdoors turfs."
+  - balance: "Ashen Passage cooldown doubled to 30 seconds, up from 15."
+  - balance: "Feast of Owls is no longer a roundstart knowledge."
