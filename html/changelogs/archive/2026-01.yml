@@ -599,3 +599,7 @@
   splat1125:
   - rscadd: '[Thanks to Rett Jester] Three new vocal barks based around extremely
       old vocal synthesizers!'
+  vinylspiders:
+  - bugfix: fixed tilting not working with shift/ctrl + bindings.
+  - qol: tilting is now a toggle, to exit tilting just press the hotkey again or move
+      up or down. adds feedback in the form of a balloon alert.

@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixed tilting not working with shift/ctrl + bindings."
-  - qol: "tilting is now a toggle, to exit tilting just press the hotkey again or move up or down. adds feedback in the form of a balloon alert."
