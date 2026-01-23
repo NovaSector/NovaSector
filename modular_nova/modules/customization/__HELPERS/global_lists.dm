@@ -5,7 +5,6 @@
 	make_body_marking_set_references()
 	make_augment_references()
 	build_erp_item_list()
-	setup_gas_prices()
 
 /proc/init_prefs_emotes()
 	//Scream types
@@ -232,3 +231,7 @@
 		/datum/gas/antinoblium = 0, // Original: base_value = 10
 		/datum/gas/goblin = 1, // Original: base_value = 8
 	)
+
+	// Remove elasticity
+	var/datum/export/gas_canister/canister_export = locate() in GLOB.exports_list
+	canister_export.k_hit_percentile = 0 // Originally inherits k_hit_percentile = 0.05
