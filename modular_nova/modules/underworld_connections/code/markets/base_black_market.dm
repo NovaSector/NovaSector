@@ -172,10 +172,6 @@
 	price_min = PAYCHECK_CREW * 2
 	price_max = PAYCHECK_CREW * 6
 
-/datum/market_item/tool/fake_scanner
-	price_min = PAYCHECK_CREW * 0.5
-	price_max = PAYCHECK_CREW * 2
-
 /datum/market_item/tool/program_disk
 	name = "Bootleg PDA Data Disk"
 	desc = "Contains a random selection of limited PDA programs purloined by bitrunners from the FTU. Wait, we're not supposed to tell you that."

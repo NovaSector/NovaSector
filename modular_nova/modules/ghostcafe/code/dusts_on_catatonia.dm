@@ -28,5 +28,5 @@
 			continue
 
 		attached.investigate_log("was dusted due to no longer being linked to a player or ghost.", INVESTIGATE_DEATHS)
-		attached.dust(TRUE, force = TRUE)
+		attached.dust(just_ash = TRUE, give_moodlet = FALSE, force = TRUE)
 		Detach(attached)

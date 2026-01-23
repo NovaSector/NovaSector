@@ -375,3 +375,20 @@
 	name = "Old"
 	id = "old"
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/old.ogg'
+
+// splet barks
+// commission for rett jester. speak & spell bloops
+/datum/blooper/spell1
+	name = "SpeechSynth 1"
+	id = "spell1"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/spell1.ogg'
+
+/datum/blooper/spell2
+	name = "SpeechSynth 2"
+	id = "spell2"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/spell2.ogg'
+
+/datum/blooper/spell3
+	name = "SpeechSynth 3"
+	id = "spell3"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/spell3.ogg'
