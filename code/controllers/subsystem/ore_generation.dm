@@ -103,10 +103,21 @@ SUBSYSTEM_DEF(ore_generation)
 	available_boulders.Cut() // reset upon new fire.
 	for(var/obj/structure/ore_vent/current_vent as anything in processed_vents)
 
-		var/local_vent_count = 0
+		/* var/local_vent_count = 0
 		for(var/obj/item/boulder/old_rock in current_vent.loc)
 			available_boulders += old_rock
-			local_vent_count++
+			local_vent_count++ */ //Nova Edit Original. Nova Edit Begin.
+
+		var/local_vent_count = 0
+		for(var/obj/item/boulder/old_rock in current_vent.loc)
+			if(!istype(/obj/item/boulder/artifact/ghost_mining, old_rock) || !istype(/obj/item/boulder/ghost_mining, old_rock))
+				available_boulders += old_rock
+				local_vent_count++
+
+		for(var/obj/structure/ore_box/boulder_collector/rock_box in view(1,current_vent))
+			for(var/obj/item/boulder/box_rock in rock_box.contents)
+				if(!istype(/obj/item/boulder/artifact/ghost_mining, box_rock) || !istype(/obj/item/boulder/ghost_mining, box_rock))
+					available_boulders += box_rock //Nova Edit End
 
 		if(local_vent_count >= MAX_BOULDERS_PER_VENT)
 			continue //We don't want to be accountable for literally hundreds of unprocessed boulders for no reason.
