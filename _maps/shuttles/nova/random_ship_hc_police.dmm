@@ -122,7 +122,8 @@
 /area/shuttle/hc_cops/isolation)
 "bC" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 9
+	dir = 9;
+	system_id = "hc_ship"
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/armory)
@@ -675,12 +676,6 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
-"gw" = (
-/obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 1
-	},
-/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
-/area/shuttle/hc_cops/armory)
 "gy" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
 	dir = 1
@@ -736,7 +731,8 @@
 /area/shuttle/hc_cops/infirmary)
 "gK" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 10
+	dir = 10;
+	system_id = "hc_ship"
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/engineering)
@@ -830,15 +826,9 @@
 	},
 /area/shuttle/hc_cops/recreation)
 "hn" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/obj/item/flashlight/lamp{
-	pixel_y = 9
-	},
-/obj/item/newspaper,
-/obj/structure/sign/calendar/directional/east,
-/turf/open/floor/carpet/black,
-/area/shuttle/hc_cops/isolation)
+/obj/machinery/telecomms/relay/preset/auto,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/command)
 "ho" = (
 /obj/structure/rack,
 /obj/item/cultivator,
@@ -1031,6 +1021,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
+/obj/item/clothing/gloves/color/black/security/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "jp" = (
@@ -1245,6 +1236,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
+/obj/item/clothing/gloves/color/black/security/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "lu" = (
@@ -1389,7 +1381,8 @@
 /area/shuttle/hc_cops/canteen)
 "mg" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 6
+	dir = 6;
+	system_id = "hc_ship"
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/canteen)
@@ -1862,6 +1855,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
+/obj/item/clothing/gloves/color/black/security/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "qE" = (
@@ -1898,7 +1892,9 @@
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/engineering)
 "qU" = (
-/obj/machinery/porta_turret/syndicate/hc_police,
+/obj/machinery/porta_turret/syndicate/hc_police{
+	system_id = "hc_ship"
+	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/engineering)
 "qX" = (
@@ -2372,16 +2368,6 @@
 "vt" = (
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/cargo_hold)
-"vx" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/obj/item/flashlight/lamp{
-	pixel_y = 9
-	},
-/obj/item/newspaper,
-/obj/structure/sign/clock/directional/west,
-/turf/open/floor/carpet/black,
-/area/shuttle/hc_cops/isolation)
 "vA" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/tile/dark/half,
@@ -2442,7 +2428,8 @@
 /area/shuttle/hc_cops/recreation)
 "wf" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 8
+	dir = 8;
+	system_id = "hc_ship"
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/armory)
@@ -2711,6 +2698,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
+/obj/item/clothing/gloves/color/black/security/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "ze" = (
@@ -2798,6 +2786,13 @@
 	},
 /turf/open/floor/wood,
 /area/shuttle/hc_cops/recreation)
+"zL" = (
+/obj/machinery/porta_turret/syndicate/hc_police{
+	dir = 1;
+	system_id = "hc_ship"
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/hc_cops/armory)
 "zQ" = (
 /turf/template_noop,
 /area/template_noop)
@@ -2984,7 +2979,8 @@
 /obj/machinery/turretid{
 	req_access = list("syndicate");
 	pixel_x = -37;
-	pixel_y = 3
+	pixel_y = 3;
+	system_id = "hc_ship"
 	},
 /obj/machinery/button/door/directional/west{
 	pixel_y = 6;
@@ -3223,6 +3219,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
+/obj/item/clothing/gloves/color/black/security/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "CR" = (
@@ -3266,7 +3263,8 @@
 /area/shuttle/hc_cops/canteen)
 "Du" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 1
+	dir = 1;
+	system_id = "hc_ship"
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/recreation)
@@ -3377,7 +3375,9 @@
 /turf/open/floor/iron/white,
 /area/shuttle/hc_cops/infirmary)
 "Ez" = (
-/obj/machinery/porta_turret/syndicate/hc_police,
+/obj/machinery/porta_turret/syndicate/hc_police{
+	system_id = "hc_ship"
+	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/lounge)
 "EE" = (
@@ -3452,7 +3452,8 @@
 /area/shuttle/hc_cops/armory)
 "Fz" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 4
+	dir = 4;
+	system_id = "hc_ship"
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/cargo_hold)
@@ -3477,6 +3478,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/smooth_half,
 /area/shuttle/hc_cops/canteen)
+"Gc" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/item/flashlight/lamp{
+	pixel_y = 9
+	},
+/obj/item/newspaper,
+/obj/structure/sign/clock/directional/west,
+/turf/open/floor/carpet/black,
+/area/shuttle/hc_cops/isolation)
 "Gi" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3952,6 +3963,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
+/obj/item/clothing/gloves/color/black/security/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "KI" = (
@@ -4051,7 +4063,6 @@
 /obj/machinery/door/airlock/survival_pod/glass{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4270,7 +4281,9 @@
 	},
 /area/shuttle/hc_cops/command)
 "MZ" = (
-/obj/machinery/porta_turret/syndicate/hc_police,
+/obj/machinery/porta_turret/syndicate/hc_police{
+	system_id = "hc_ship"
+	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/checkpoint)
 "Nd" = (
@@ -4962,13 +4975,15 @@
 /area/shuttle/hc_cops/lounge)
 "ST" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 5
+	dir = 5;
+	system_id = "hc_ship"
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/recreation)
 "Tc" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 1
+	dir = 1;
+	system_id = "hc_ship"
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/command)
@@ -5058,9 +5073,15 @@
 /turf/template_noop,
 /area/shuttle/hc_cops/canteen)
 "Uv" = (
-/obj/machinery/telecomms/relay/preset/auto,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops/command)
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/item/flashlight/lamp{
+	pixel_y = 9
+	},
+/obj/item/newspaper,
+/obj/structure/sign/calendar/directional/east,
+/turf/open/floor/carpet/black,
+/area/shuttle/hc_cops/isolation)
 "Uz" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -5109,7 +5130,8 @@
 /area/shuttle/hc_cops/armory)
 "UT" = (
 /obj/machinery/porta_turret/syndicate/hc_police{
-	dir = 6
+	dir = 6;
+	system_id = "hc_ship"
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/hc_cops/cargo_hold)
@@ -5875,7 +5897,7 @@ Nd
 Di
 "}
 (8,1,1) = {"
-gw
+zL
 NI
 NI
 NI
@@ -5980,7 +6002,7 @@ Di
 qU
 "}
 (11,1,1) = {"
-gw
+zL
 NI
 NI
 NI
@@ -6089,7 +6111,7 @@ jD
 cn
 Wb
 uR
-Uv
+hn
 DK
 hf
 oO
@@ -6209,7 +6231,7 @@ Oj
 Cq
 BF
 OK
-vx
+Gc
 Mu
 vr
 lu
@@ -6279,7 +6301,7 @@ lu
 qr
 kx
 vE
-hn
+Uv
 OP
 DZ
 lu

@@ -1,5 +1,5 @@
 /obj/effect/mob_spawn/ghost_role/human/hc_officer
-	name = "HC Patrol Officer Sleeper"
+	name = "HC Patrol Officer"
 	desc = "A comfortable-looking sleeper unit adorned with the insignia of the Heliostatic Coalition Internal Affairs Department."
 	prompt_name = "an HC Expeditionary Patrol Officer"
 	icon = 'modular_nova/modules/cryosleep/icons/cryogenics.dmi'
@@ -11,6 +11,7 @@
 	important_text = "Follow the chain of command. Your patrol leader's callsign is appended with 'Actual'. Maintain professional discipline and be prepared to escalate appropriately as the situation demands."
 	outfit = /datum/outfit/hc_officer
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
+	quirks_enabled = TRUE
 	show_flavor = TRUE
 	/// To know whether or not we have an officer already, keep a ref to them
 	var/static/first_officer
@@ -21,9 +22,9 @@
 	var/full_name = "[callsign] [number]"
 	if(first_officer == REF(spawned_mob))
 		full_name += " Actual"
-	spawned_mob.fully_replace_character_name(null, full_name)
+	spawned_mob.fully_replace_character_name(spawned_mob.real_name, full_name)
 
-/obj/effect/mob_spawn/ghost_role/human/hc_officer/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
+/obj/effect/mob_spawn/ghost_role/human/hc_officer/post_transfer_prefs(mob/living/spawned_mob)
 	. = ..()
 	spawned_mob.mind.add_antag_datum(/datum/antagonist/cop)
 	spawned_mob.grant_language(/datum/language/panslavic, source = LANGUAGE_SPAWNER)
@@ -49,10 +50,6 @@
 		[span_info("OOC Note: Your objectives are narrative guides for creating collaborative roleplay. \
 		They are not mechanical 'greentext' goals. Focus on the experience. If you have a creative idea for a gimmick or story direction, \
 		communicating with the admins and other players is encouraged.")]")
-	apply_codename(spawned_mob)
-
-/obj/effect/mob_spawn/ghost_role/human/hc_officer/post_transfer_prefs(mob/living/spawned_mob)
-	. = ..()
 	apply_codename(spawned_mob)
 
 /obj/effect/mob_spawn/ghost_role/human/hc_officer/equip(mob/living/spawned_mob)
