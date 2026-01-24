@@ -329,6 +329,7 @@
 	planetary_atmos = TRUE
 	space_lit = TRUE
 	light_range = 2
+	color = "#8898ad"
 
 /turf/open/water/beach/planet_surface
 	planetary_atmos = TRUE

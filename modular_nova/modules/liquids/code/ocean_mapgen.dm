@@ -1,5 +1,5 @@
 /datum/map_generator/cave_generator/ocean
-	flora_spawn_chance = 15
+	flora_spawn_chance = 13
 	initial_closed_chance = 10
 	smoothing_iterations = 3
 	feature_spawn_chance = 15
@@ -13,8 +13,19 @@
 	)
 	weighted_feature_spawn_list = list(/obj/item/toy/seashell = 100)
 
+/datum/map_generator/cave_generator/ocean/deep
+	flora_spawn_chance = 9
+	feature_spawn_chance = 5
+	weighted_open_turf_types = list(/turf/open/water/deep_beach/lethal/planet_surface = 100)
+	weighted_flora_spawn_list = list(
+		/obj/structure/flora/ocean/seaweed = 5,
+		/obj/structure/flora/ocean/longseaweed = 8,
+		/obj/structure/flora/ocean/coral = 2,
+	)
+
 /datum/map_generator/cave_generator/ocean/shallow
-	flora_spawn_chance = 13
+	flora_spawn_chance = 15
+	feature_spawn_chance = 10
 	weighted_open_turf_types = list(/turf/open/water/beach/planet_surface = 100)
 	weighted_flora_spawn_list = list(
 		/obj/structure/flora/ocean/seaweed = 11,
@@ -23,7 +34,7 @@
 	)
 
 /datum/map_generator/cave_generator/ocean/rocky
-	flora_spawn_chance = 13
+	flora_spawn_chance = 15
 	initial_closed_chance = 35
 	smoothing_iterations = 15
 	weighted_open_turf_types = list(
