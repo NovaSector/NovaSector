@@ -101,6 +101,10 @@
 	shuttleId = "hc_ship"
 	shuttlePortId = "hc_ship_custom"
 
+/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/hc/rotateLandingSpot()
+	to_chat(current_user, span_warning("Rotation disabled to preserve structural integrity of the outpost."))
+	return FALSE
+
 /obj/machinery/porta_turret/syndicate/hc_police
 	name = "anti-projectile turret"
 	desc = "An automatic defense turret designed for point-defense, it's probably not that wise to try approaching it."

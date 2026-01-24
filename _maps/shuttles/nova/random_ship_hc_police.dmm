@@ -29,6 +29,16 @@
 	dir = 4
 	},
 /area/shuttle/hc_cops/checkpoint)
+"av" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/item/flashlight/lamp{
+	pixel_y = 9
+	},
+/obj/item/newspaper,
+/obj/structure/sign/calendar/directional/east,
+/turf/open/floor/carpet/black,
+/area/shuttle/hc_cops/isolation)
 "ax" = (
 /obj/structure/drain/big,
 /obj/machinery/light/warm/directional/west,
@@ -106,6 +116,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/structure/rack/shelf,
 /obj/structure/rack/shelf,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 8
 	},
@@ -363,8 +374,6 @@
 /obj/item/clothing/glasses/science,
 /obj/item/storage/medkit/robotic_repair/stocked,
 /obj/item/storage/medkit/robotic_repair/stocked,
-/obj/item/storage/medkit/combat_surgeon/stocked,
-/obj/item/storage/medkit/combat_surgeon/stocked,
 /obj/item/healthanalyzer/advanced,
 /obj/item/healthanalyzer/advanced,
 /obj/item/storage/medkit/frontier/stocked,
@@ -373,23 +382,25 @@
 /obj/item/storage/medkit/frontier/stocked,
 /obj/item/storage/medkit/frontier/stocked,
 /obj/item/storage/medkit/frontier/stocked,
+/obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/item/storage/medkit/civil_defense/stocked,
+/obj/item/storage/medkit/civil_defense/stocked,
+/obj/item/storage/medkit/civil_defense/stocked,
+/obj/item/storage/medkit/civil_defense/stocked,
+/obj/item/storage/medkit/civil_defense/stocked,
+/obj/item/storage/medkit/civil_defense/stocked,
+/obj/item/disk/nifsoft_uploader/job/med_hud,
+/obj/item/disk/nifsoft_uploader/job/med_hud,
+/obj/item/disk/nifsoft_uploader/job/summoner/surgery,
+/obj/item/disk/nifsoft_uploader/job/summoner/surgery,
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
 	},
-/obj/item/storage/medkit/combat_surgeon/stocked,
-/obj/item/storage/medkit/combat_surgeon/stocked,
-/obj/item/storage/medkit/combat_surgeon/stocked,
-/obj/item/storage/medkit/combat_surgeon/stocked,
-/obj/item/storage/medkit/civil_defense/stocked,
-/obj/item/storage/medkit/civil_defense/stocked,
-/obj/item/storage/medkit/civil_defense/stocked,
-/obj/item/storage/medkit/civil_defense/stocked,
-/obj/item/storage/medkit/civil_defense/stocked,
-/obj/item/storage/medkit/civil_defense/stocked,
-/obj/item/disk/nifsoft_uploader/job/med_hud,
-/obj/item/disk/nifsoft_uploader/job/med_hud,
-/obj/item/disk/nifsoft_uploader/job/summoner/surgery,
-/obj/item/disk/nifsoft_uploader/job/summoner/surgery,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
@@ -523,6 +534,7 @@
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
 /obj/effect/mapping_helpers/apc/full_charge,
+/obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
@@ -539,28 +551,28 @@
 "eI" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/storage/box/flashbangs{
-	pixel_y = 3;
+	pixel_y = 8;
 	pixel_x = -4
 	},
 /obj/item/storage/box/flashes{
 	pixel_x = 13;
-	pixel_y = 3
+	pixel_y = 8
 	},
 /obj/item/storage/box/evidence{
 	pixel_x = -21;
-	pixel_y = 3
+	pixel_y = 8
 	},
 /obj/item/storage/box/evidence{
 	pixel_x = -21;
-	pixel_y = 3
+	pixel_y = -2
 	},
 /obj/item/storage/box/flashbangs{
-	pixel_y = 3;
+	pixel_y = -2;
 	pixel_x = -4
 	},
 /obj/item/storage/box/flashes{
 	pixel_x = 13;
-	pixel_y = 3
+	pixel_y = -2
 	},
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 1
@@ -596,7 +608,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
@@ -728,8 +739,8 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 9
+/obj/structure/disposalpipe/junction{
+	dir = 8
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/shuttle/hc_cops/infirmary)
@@ -829,15 +840,9 @@
 	},
 /area/shuttle/hc_cops/recreation)
 "hn" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/white,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/white/smooth_large,
-/area/shuttle/hc_cops/infirmary)
+/obj/machinery/telecomms/relay/preset/auto,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/command)
 "ho" = (
 /obj/structure/rack,
 /obj/item/cultivator,
@@ -939,6 +944,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/white/smooth_large,
 /area/shuttle/hc_cops/infirmary)
 "iu" = (
@@ -983,6 +991,7 @@
 /obj/structure/closet/generic/wall{
 	pixel_x = 32
 	},
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
@@ -1006,7 +1015,6 @@
 /obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/storage/belt/military/cin_surplus/marine,
 /obj/item/radio/headset/headset_sec/alt,
-/obj/item/encryptionkey/headset_syndicate/guild,
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
 /obj/item/storage/belt/security/webbing/peacekeeper,
 /obj/structure/sign/poster/official/space_cops/directional/east,
@@ -1093,6 +1101,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/engineering)
 "kb" = (
@@ -1156,6 +1165,7 @@
 "kq" = (
 /obj/structure/chair/sofa/corp/left,
 /obj/effect/turf_decal/tile/neutral/half,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
 	},
@@ -1218,7 +1228,6 @@
 /obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/storage/belt/military/cin_surplus/marine,
 /obj/item/radio/headset/headset_sec/alt,
-/obj/item/encryptionkey/headset_syndicate/guild,
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
 /obj/item/storage/belt/security/webbing/peacekeeper,
 /obj/structure/sign/flag/hc/directional/north,
@@ -1271,54 +1280,67 @@
 /obj/item/mod/module/quick_cuff,
 /obj/item/mod/module/night,
 /obj/item/mod/module/night,
-/obj/item/mod/module/dna_lock,
-/obj/item/mod/module/dna_lock,
-/obj/item/mod/module/dna_lock,
-/obj/item/mod/module/dna_lock,
-/obj/item/mod/module/dna_lock,
-/obj/item/mod/module/dna_lock,
+/obj/item/mod/module/emp_shield,
+/obj/item/mod/module/emp_shield,
+/obj/item/mod/module/emp_shield,
+/obj/item/mod/module/emp_shield,
+/obj/item/mod/module/emp_shield,
+/obj/item/mod/module/emp_shield,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/item/mod/module/emp_shield,
-/obj/item/mod/module/emp_shield,
-/obj/item/mod/module/emp_shield,
-/obj/item/mod/module/emp_shield,
-/obj/item/mod/module/emp_shield,
-/obj/item/mod/module/emp_shield,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/hc_cops/armory)
 "lA" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /obj/item/reagent_containers/spray/pepper{
-	pixel_y = 19;
+	pixel_y = 15;
 	pixel_x = -12
 	},
 /obj/item/reagent_containers/spray/pepper{
-	pixel_y = 19;
+	pixel_y = 15;
 	pixel_x = -8
 	},
 /obj/item/reagent_containers/spray/pepper{
-	pixel_y = 19;
+	pixel_y = 15;
 	pixel_x = -4
 	},
 /obj/item/reagent_containers/spray/pepper{
-	pixel_y = 19
+	pixel_y = 15;
+	pixel_x = 0
 	},
 /obj/item/reagent_containers/spray/pepper{
-	pixel_y = 19;
+	pixel_y = 15;
 	pixel_x = 4
 	},
 /obj/item/reagent_containers/spray/pepper{
-	pixel_y = 19;
+	pixel_y = 15;
 	pixel_x = 8
 	},
-/obj/item/detective_scanner,
-/obj/item/detective_scanner,
-/obj/item/detective_scanner,
-/obj/item/detective_scanner,
-/obj/item/detective_scanner,
-/obj/item/detective_scanner,
+/obj/item/detective_scanner{
+	pixel_x = 0;
+	pixel_y = 3
+	},
+/obj/item/detective_scanner{
+	pixel_x = 0;
+	pixel_y = 1
+	},
+/obj/item/detective_scanner{
+	pixel_x = 0;
+	pixel_y = -1
+	},
+/obj/item/detective_scanner{
+	pixel_x = 0;
+	pixel_y = -3
+	},
+/obj/item/detective_scanner{
+	pixel_x = 0;
+	pixel_y = -5
+	},
+/obj/item/detective_scanner{
+	pixel_x = 0;
+	pixel_y = -7
+	},
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 8
 	},
@@ -1397,6 +1419,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -1425,6 +1450,7 @@
 	dir = 8
 	},
 /obj/machinery/computer/security/telescreen/entertainment/directional/south,
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
@@ -1516,6 +1542,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
 	},
@@ -1820,7 +1847,6 @@
 /obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/storage/belt/military/cin_surplus/marine,
 /obj/item/radio/headset/headset_sec/alt,
-/obj/item/encryptionkey/headset_syndicate/guild,
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
 /obj/item/storage/belt/security/webbing/peacekeeper,
 /obj/structure/sign/clock/directional/east,
@@ -2390,6 +2416,7 @@
 	dir = 6
 	},
 /obj/machinery/light/floor,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark/textured_corner,
 /area/shuttle/hc_cops/teleporter)
 "vT" = (
@@ -2467,6 +2494,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/shuttle/hc_cops/recreation)
 "wO" = (
@@ -2545,7 +2575,9 @@
 /area/shuttle/hc_cops/ready_room)
 "xI" = (
 /obj/structure/cable,
-/obj/machinery/power/micro_reactor,
+/obj/machinery/power/micro_reactor{
+	active = 1
+	},
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/hc_cops/engineering)
 "ye" = (
@@ -2554,18 +2586,30 @@
 	dir = 4
 	},
 /obj/structure/closet/crate/cardboard,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
+/obj/item/sign/flag/hc,
+/obj/item/sign/flag/hc,
+/obj/item/sign/flag/hc,
+/obj/item/sign/flag/interdyne,
+/obj/item/sign/flag/interdyne,
+/obj/item/sign/flag/interdyne,
+/obj/item/sign/flag/mars,
+/obj/item/sign/flag/mars,
+/obj/item/sign/flag/mars,
+/obj/item/sign/flag/mothic,
+/obj/item/sign/flag/mothic,
+/obj/item/sign/flag/mothic,
+/obj/item/sign/flag/nanotrasen,
+/obj/item/sign/flag/nanotrasen,
+/obj/item/sign/flag/nanotrasen,
+/obj/item/sign/flag/ssc,
+/obj/item/sign/flag/ssc,
+/obj/item/sign/flag/ssc,
+/obj/item/sign/flag/terragov,
+/obj/item/sign/flag/terragov,
+/obj/item/sign/flag/terragov,
+/obj/item/sign/flag/tizira,
+/obj/item/sign/flag/tizira,
+/obj/item/sign/flag/tizira,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
@@ -2586,6 +2630,9 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_half,
 /area/shuttle/hc_cops/recreation)
 "yC" = (
@@ -2639,7 +2686,6 @@
 /obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/storage/belt/military/cin_surplus/marine,
 /obj/item/radio/headset/headset_sec/alt,
-/obj/item/encryptionkey/headset_syndicate/guild,
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
 /obj/item/storage/belt/security/webbing/peacekeeper,
 /obj/structure/sign/calendar/directional/east,
@@ -2720,7 +2766,7 @@
 	},
 /obj/item/storage/box/bodybags,
 /obj/item/storage/box/pillbottles,
-/obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/white,
 /area/shuttle/hc_cops/infirmary)
 "zD" = (
@@ -2797,6 +2843,7 @@
 	id = "hccargo"
 	},
 /obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
@@ -2918,7 +2965,10 @@
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/engineering)
 "Bh" = (
-/obj/machinery/power/smes/super/full,
+/obj/machinery/power/smes/super/full{
+	input_level = 200000;
+	output_level = 70000
+	},
 /obj/structure/cable,
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/engineering)
@@ -2981,13 +3031,17 @@
 /obj/item/multitool/fock,
 /obj/item/clothing/glasses/meson/engine,
 /obj/item/clothing/glasses/meson/engine,
-/obj/effect/turf_decal/tile/dark_blue/half{
-	dir = 1
-	},
 /obj/item/skillchip/job/engineer,
 /obj/item/skillchip/job/engineer,
 /obj/structure/noticeboard{
 	pixel_y = 32
+	},
+/obj/item/disk/nifsoft_uploader/job/meson_hud,
+/obj/item/disk/nifsoft_uploader/job/meson_hud,
+/obj/item/disk/nifsoft_uploader/summoner/tools,
+/obj/item/disk/nifsoft_uploader/summoner/tools,
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_half{
 	dir = 4
@@ -3082,6 +3136,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
@@ -3146,7 +3201,6 @@
 /obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/storage/belt/military/cin_surplus/marine,
 /obj/item/radio/headset/headset_sec/alt,
-/obj/item/encryptionkey/headset_syndicate/guild,
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
 /obj/item/storage/belt/security/webbing/peacekeeper,
 /obj/structure/closet/secure_closet,
@@ -3203,6 +3257,7 @@
 /area/shuttle/hc_cops/recreation)
 "Dt" = (
 /obj/machinery/oven/range,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/smooth_corner,
 /area/shuttle/hc_cops/canteen)
 "Du" = (
@@ -3243,7 +3298,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/structure/sign/calendar/directional/east,
 /obj/machinery/light/cold/directional/south,
 /obj/machinery/button/door/directional/south{
 	id = "hcisolationroom";
@@ -3251,6 +3305,7 @@
 	normaldoorcontrol = 1;
 	specialfunctions = 4
 	},
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
@@ -3858,7 +3913,8 @@
 	pixel_x = 7
 	},
 /obj/structure/filingcabinet{
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 0
 	},
 /obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 4
@@ -3874,7 +3930,6 @@
 /obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/storage/belt/military/cin_surplus/marine,
 /obj/item/radio/headset/headset_sec/alt,
-/obj/item/encryptionkey/headset_syndicate/guild,
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
 /obj/item/storage/belt/security/webbing/peacekeeper,
 /obj/structure/sign/poster/contraband/kss13/directional/east,
@@ -4238,6 +4293,7 @@
 /obj/machinery/computer/arcade/battle{
 	dir = 4
 	},
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -4283,6 +4339,7 @@
 /obj/item/gun/ballistic/automatic/miecz,
 /obj/item/gun/ballistic/automatic/lanca,
 /obj/item/gun/ballistic/shotgun/automatic/combat/compact,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
@@ -4334,6 +4391,7 @@
 /area/shuttle/hc_cops/cargo_hold)
 "NS" = (
 /obj/machinery/seed_extractor,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/smooth_half,
 /area/shuttle/hc_cops/hydroponics)
 "NZ" = (
@@ -4436,7 +4494,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/structure/sign/clock/directional/east,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
@@ -4623,11 +4680,11 @@
 "Qr" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/storage/box/handcuffs{
-	pixel_y = 3;
+	pixel_y = 8;
 	pixel_x = -6
 	},
 /obj/item/storage/box/handcuffs{
-	pixel_y = 3;
+	pixel_y = -2;
 	pixel_x = -6
 	},
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
@@ -4774,23 +4831,23 @@
 	},
 /obj/item/melee/baton/security/stun_gun/loaded{
 	pixel_x = 12;
-	pixel_y = -2
+	pixel_y = -3
 	},
 /obj/item/melee/baton/security/stun_gun/loaded{
 	pixel_x = 12;
-	pixel_y = -2
+	pixel_y = -5
 	},
 /obj/item/melee/baton/security/stun_gun/loaded{
 	pixel_x = 12;
-	pixel_y = -2
+	pixel_y = -7
 	},
 /obj/item/melee/baton/security/stun_gun/loaded{
 	pixel_x = 12;
-	pixel_y = -2
+	pixel_y = -9
 	},
 /obj/item/melee/baton/security/stun_gun/loaded{
 	pixel_x = 12;
-	pixel_y = -2
+	pixel_y = -11
 	},
 /obj/item/melee/baton{
 	pixel_x = 10;
@@ -4999,14 +5056,15 @@
 /turf/template_noop,
 /area/shuttle/hc_cops/canteen)
 "Uv" = (
-/obj/structure/filingcabinet{
-	pixel_x = -7
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/item/flashlight/lamp{
+	pixel_y = 9
 	},
-/obj/structure/filingcabinet{
-	pixel_x = 7
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops/command)
+/obj/item/newspaper,
+/obj/structure/sign/clock/directional/west,
+/turf/open/floor/carpet/black,
+/area/shuttle/hc_cops/isolation)
 "Uz" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -5239,8 +5297,8 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 6
+/obj/structure/disposalpipe/junction/flip{
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/shuttle/hc_cops/recreation)
@@ -5552,9 +5610,10 @@
 /obj/item/knife/combat{
 	anchored = 1;
 	armour_penetration = 50;
-	desc = "Legendary military combat knife with \"Colonel100Stars\" engraved on the handle, it seems impossible to lift.";
+	desc = "Legendary military combat knife with 'Colonel100Stars' engraved on the handle, it seems impossible to lift.";
 	force = 85;
-	name = "incredibly sharp combat knife"
+	name = "incredibly sharp combat knife";
+	move_resist = 30000
 	},
 /turf/open/floor/carpet/green,
 /area/shuttle/hc_cops/engineering)
@@ -6034,7 +6093,7 @@ jD
 cn
 Wb
 uR
-VI
+hn
 DK
 hf
 oO
@@ -6104,14 +6163,14 @@ jD
 TU
 MW
 tb
-Uv
+VI
 sJ
 Wq
 oO
 PT
 OE
 vT
-hn
+Oi
 kk
 Ha
 TK
@@ -6146,7 +6205,7 @@ oO
 vg
 Cm
 KM
-hn
+Oi
 gy
 Cm
 Ng
@@ -6154,7 +6213,7 @@ Oj
 Cq
 BF
 OK
-BF
+Uv
 Mu
 vr
 lu
@@ -6224,7 +6283,7 @@ lu
 qr
 kx
 vE
-BF
+av
 OP
 DZ
 lu
