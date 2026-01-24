@@ -29,6 +29,38 @@
 	inhand_icon_state = "dynepaddles0"
 	base_icon_state = "dynepaddles0"
 
+/datum/atom_skin/interdyne_premiumkit
+	abstract_type = /datum/atom_skin/interdyne_premiumkit
+	change_base_icon_state = TRUE
+
+/datum/atom_skin/interdyne_premiumkit/default
+	preview_name = "default"
+	new_icon_state = "interdyne_premium"
+
+/datum/atom_skin/interdyne_premiumkit/corpse
+	preview_name = "Coroner"
+	new_icon_state = "interdyne_premium_corpse"
+
+/datum/atom_skin/interdyne_premiumkit/burn
+	preview_name = "Burn"
+	new_icon_state = "interdyne_premium_burn"
+
+/datum/atom_skin/interdyne_premiumkit/brute
+	preview_name = "Brute"
+	new_icon_state = "interdyne_premium_brute"
+
+/datum/atom_skin/interdyne_premiumkit/toxins
+	preview_name = "Toxins"
+	new_icon_state = "interdyne_premium_toxin"
+
+/datum/atom_skin/interdyne_premiumkit/oxy
+	preview_name = "Oxy"
+	new_icon_state = "interdyne_premium_oxy"
+
+/datum/atom_skin/interdyne_premiumkit/surg
+	preview_name = "Surgical"
+	new_icon_state = "interdyne_premium_surgical"
+
 /obj/item/storage/medkit/tactical/premium/interdyne
 	name = "\improper Interdyne Premium Doctor's Kit"
 	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools."
@@ -39,15 +71,9 @@
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
 	storage_type = /datum/storage/duffel/deforest_big_surgery
 	obj_flags = UNIQUE_RENAME
-	unique_reskin = list(
-		"Default" = "interdyne_premium_surgical",
-		"Corpse" = "interdyne_premium_corpse",
-		"Burn" = "interdyne_premium_burn",
-		"Brute" = "interdyne_premium_brute",
-		"Toxin" = "interdyne_premium_toxin",
-		"Oxy" = "interdyne_premium_oxy",
-		"Tactical" = "interdyne_premium",
-	)
+
+/obj/item/storage/medkit/tactical/premium/interdyne/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/interdyne_premiumkit, infinite = TRUE)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/PopulateContents()
 	if(empty)
@@ -98,6 +124,37 @@
 /*
 /// Medium Medkits
 */
+/datum/atom_skin/interdyne_mediumkit
+	abstract_type = /datum/atom_skin/interdyne_mediumkit
+	change_base_icon_state = TRUE
+
+/datum/atom_skin/interdyne_mediumkit/default
+	preview_name = "default"
+	new_icon_state = "interdyne_tactical"
+
+/datum/atom_skin/interdyne_mediumkit/corpse
+	preview_name = "Coroner"
+	new_icon_state = "interdyne_coroner"
+
+/datum/atom_skin/interdyne_mediumkit/burn
+	preview_name = "Burn"
+	new_icon_state = "interdyne_burn"
+
+/datum/atom_skin/interdyne_mediumkit/brute
+	preview_name = "Brute"
+	new_icon_state = "interdyne_brute"
+
+/datum/atom_skin/interdyne_mediumkit/toxins
+	preview_name = "Toxins"
+	new_icon_state = "interdyne_toxin"
+
+/datum/atom_skin/interdyne_mediumkit/oxy
+	preview_name = "Oxy"
+	new_icon_state = "interdyne_oxy"
+
+/datum/atom_skin/interdyne_mediumkit/surg
+	preview_name = "Surgical"
+	new_icon_state = "interdyne_surgical"
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium
 	name = "\improper Interdyne Trauma Kit"
@@ -108,15 +165,9 @@
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
 	storage_type = /datum/storage/duffel/deforest_paramedic
 	obj_flags = UNIQUE_RENAME
-	unique_reskin = list(
-		"Default" = "interdyne_surgical",
-		"Corpse" = "interdyne_coroner",
-		"Burn" = "interdyne_burn",
-		"Brute" = "interdyne_brute",
-		"Toxin" = "interdyne_toxin",
-		"Oxy" = "interdyne_oxy",
-		"Tactical" = "interdyne_tactical",
-	)
+
+/obj/item/storage/medkit/tactical/premium/interdyne/medium/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/interdyne_mediumkit, infinite = TRUE)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/PopulateContents()
 	var/list/items_inside = list(
@@ -189,6 +240,38 @@
 /// Small Medkits
 */
 
+/datum/atom_skin/interdyne_firstaid
+	abstract_type = /datum/atom_skin/interdyne_firstaid
+	change_base_icon_state = TRUE
+
+/datum/atom_skin/interdyne_firstaid/default
+	preview_name = "default"
+	new_icon_state = "interdyne_lite"
+
+/datum/atom_skin/interdyne_firstaid/corpse
+	preview_name = "Coroner"
+	new_icon_state = "interdyne_lite_corpse"
+
+/datum/atom_skin/interdyne_firstaid/burn
+	preview_name = "Burn"
+	new_icon_state = "interdyne_lite_burn"
+
+/datum/atom_skin/interdyne_firstaid/brute
+	preview_name = "Brute"
+	new_icon_state = "interdyne_lite_brute"
+
+/datum/atom_skin/interdyne_firstaid/toxins
+	preview_name = "Toxins"
+	new_icon_state = "interdyne_lite_toxin"
+
+/datum/atom_skin/interdyne_firstaid/oxy
+	preview_name = "Oxy"
+	new_icon_state = "interdyne_lite_oxy"
+
+/datum/atom_skin/interdyne_firstaid/surg
+	preview_name = "Surgical"
+	new_icon_state = "interdyne_lite_surgical"
+
 /obj/item/storage/pouch/medical/firstaid/interdyne
 	name = "\improper Interdyne Emergency Trauma Kit"
 	desc = "An Interdyne Pharmaceuticals Trauma kit, for immediate first aid in situations where more complex aid may not be available."
@@ -199,15 +282,9 @@
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
 	storage_type = /datum/storage/pouch/medical/small
 	obj_flags = UNIQUE_RENAME
-	unique_reskin = list(
-		"Default" = "interdyne_lite",
-		"Corpse" = "interdyne_lite_corpse",
-		"Burn" = "interdyne_lite_burn",
-		"Brute" = "interdyne_lite_brute",
-		"Toxin" = "interdyne_lite_toxin",
-		"Oxy" = "interdyne_lite_oxy",
-		"Surgical" = "interdyne_lite_surgical",
-	)
+
+/obj/item/storage/pouch/medical/firstaid/interdyne/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/interdyne_firstaid, infinite = TRUE)
 
 /obj/item/storage/pouch/medical/firstaid/interdyne/PopulateContents()
 	var/list/items_inside = list(
