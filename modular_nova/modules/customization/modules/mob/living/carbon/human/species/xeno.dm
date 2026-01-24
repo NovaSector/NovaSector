@@ -24,7 +24,7 @@
 		)
 	exotic_bloodtype = BLOOD_TYPE_XENO
 	heatmod = 2.5
-	mutant_bodyparts = list()
+
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodypart_overrides = list(
@@ -43,12 +43,12 @@
 
 /datum/species/xeno/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_TAIL = list("Xenomorph Tail", FALSE),
-		FEATURE_XENODORSAL = list("Standard", TRUE),
-		FEATURE_XENOHEAD = list("Standard", TRUE),
-		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
-		FEATURE_TAUR = list("None", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Xenomorph Tail", is_randomizable = FALSE),
+		FEATURE_XENODORSAL = MUTPART_BLUEPRINT("Standard", is_randomizable = TRUE),
+		FEATURE_XENOHEAD = MUTPART_BLUEPRINT("Standard", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(DIGITIGRADE_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/xeno/get_species_description()
@@ -80,9 +80,9 @@
 	var/xeno_color = "#525288"
 	xeno.dna.features[FEATURE_MUTANT_COLOR] = xeno_color
 	xeno.set_eye_color( "#30304F")
-	xeno.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Xenomorph Tail", MUTANT_INDEX_COLOR_LIST = list(xeno_color, xeno_color, xeno_color))
-	xeno.dna.mutant_bodyparts[FEATURE_XENODORSAL] = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list(xeno_color))
-	xeno.dna.mutant_bodyparts[FEATURE_XENOHEAD] = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list(xeno_color, xeno_color, xeno_color))
+	xeno.dna.mutant_bodyparts[FEATURE_TAIL] = xeno.dna.species.build_mutant_part("Xenomorph Tail", list(xeno_color, xeno_color, xeno_color))
+	xeno.dna.mutant_bodyparts[FEATURE_XENODORSAL] = xeno.dna.species.build_mutant_part("Standard", list(xeno_color))
+	xeno.dna.mutant_bodyparts[FEATURE_XENOHEAD] = xeno.dna.species.build_mutant_part("Standard", list(xeno_color, xeno_color, xeno_color))
 	regenerate_organs(xeno, src, visual_only = TRUE)
 	xeno.update_body(TRUE)
 
@@ -138,7 +138,7 @@
 	icon_state = "liver-x"
 
 //Liver modification (xenohybrids can process plasma!)
-/obj/item/organ/liver/xeno_hybrid/handle_chemical(mob/living/carbon/owner, datum/reagent/toxin/chem, seconds_per_tick, times_fired)
+/obj/item/organ/liver/xeno_hybrid/handle_chemical(mob/living/carbon/owner, datum/reagent/toxin/chem, seconds_per_tick)
 	. = ..()
 	if(. & COMSIG_MOB_STOP_REAGENT_TICK)
 		return

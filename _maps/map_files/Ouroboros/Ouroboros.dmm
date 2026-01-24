@@ -46395,7 +46395,7 @@
 /area/station/service/barber)
 "nlK" = (
 /obj/machinery/dna_infuser,
-/obj/item/infuser_book{
+/obj/item/tgui_book/manual/infuser{
 	pixel_x = -6
 	},
 /obj/effect/turf_decal/stripes/line{

@@ -139,7 +139,7 @@
 
 	QDEL_NULL(active_trauma)
 
-/datum/wound/blunt/robotic/handle_process(seconds_per_tick, times_fired)
+/datum/wound/blunt/robotic/handle_process(seconds_per_tick)
 	. = ..()
 
 	if (!victim || HAS_TRAIT(victim, TRAIT_STASIS))

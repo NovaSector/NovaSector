@@ -27,13 +27,14 @@
 	abstract_type = /datum/dna_block/feature/mutant
 
 /datum/dna_block/feature/mutant/create_unique_block(mob/living/carbon/human/target)
-	if(isnull(target.dna.mutant_bodyparts[feature_key]))
+	var/datum/mutant_bodypart/mutant_part = target.dna.mutant_bodyparts[feature_key]
+	if(isnull(mutant_part))
 		return random_string(block_length, GLOB.hex_characters)
 
 	var/list/accessories_for_key = SSaccessories.sprite_accessories[feature_key]
-	. = construct_block(accessories_for_key.Find(target.dna.mutant_bodyparts[feature_key][MUTANT_INDEX_NAME]), accessories_for_key.len)
+	. = construct_block(accessories_for_key.Find(mutant_part.name), accessories_for_key.len)
 	var/colors_left = DNA_FEATURE_COLOR_BLOCKS_PER_FEATURE
-	for(var/color in target.dna.mutant_bodyparts[feature_key][MUTANT_INDEX_COLOR_LIST])
+	for(var/color in mutant_part.get_colors())
 		colors_left--
 		. += sanitize_hexcolor(color, include_crunch = FALSE)
 	if(colors_left)
@@ -48,8 +49,10 @@
 		sanitize_hexcolor(copytext(our_block, FEATURE_HASH_COLOR2_START, FEATURE_HASH_COLOR2_END)),
 		sanitize_hexcolor(copytext(our_block, FEATURE_HASH_COLOR3_START, FEATURE_HASH_COLOR3_END)),
 	)
-	target.dna.mutant_bodyparts[feature_key][MUTANT_INDEX_NAME] = SSaccessories.sprite_accessories[feature_key][accessory_index]
-	target.dna.mutant_bodyparts[feature_key][MUTANT_INDEX_COLOR_LIST] = color_portions
+	var/datum/mutant_bodypart/mutant_part = target.dna.mutant_bodyparts[feature_key]
+	if(mutant_part)
+		mutant_part.name = SSaccessories.sprite_accessories[feature_key][accessory_index]
+		mutant_part.set_colors(color_portions)
 
 /datum/dna_block/feature/mutant/tail_generic
 	feature_key = FEATURE_TAIL

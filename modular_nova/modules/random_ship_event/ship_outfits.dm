@@ -49,7 +49,7 @@
 
 /datum/outfit/ship_crew/rogue_trader/post_equip(mob/living/carbon/human/equipped)
 	. = ..()
-	equipped.faction |= FACTION_PIRATE
+	equipped.add_faction(FACTION_PIRATE)
 
 	var/obj/item/radio/outfit_radio = equipped.ears
 	if(outfit_radio)

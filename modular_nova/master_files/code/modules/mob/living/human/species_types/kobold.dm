@@ -3,12 +3,12 @@
 	id = SPECIES_KOBOLD
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
 	mutant_organs = list()
-	mutant_bodyparts = list()
+
 	mutanttongue = /obj/item/organ/tongue/lizard
 	mutanteyes = /obj/item/organ/eyes/lizard
-	skinned_type = /obj/item/stack/sheet/animalhide/lizard
+	skinned_type = /obj/item/stack/sheet/animalhide/carbon/lizard
 	meat = /obj/item/food/meat/slab/human/mutant/lizard
-	knife_butcher_results = list(/obj/item/food/meat/slab/human/mutant/lizard = 5, /obj/item/stack/sheet/animalhide/lizard = 1)
+	knife_butcher_results = list(/obj/item/food/meat/slab/human/mutant/lizard = 5, /obj/item/stack/sheet/animalhide/carbon/lizard = 1)
 	inherent_traits = list(
 		TRAIT_NO_AUGMENTS,
 		TRAIT_NO_BLOOD_OVERLAY,
@@ -38,10 +38,10 @@
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Smooth", TRUE),
-		FEATURE_SNOUT = list("Round", TRUE),
-		FEATURE_FRILLS = list("Short", FALSE),
-		FEATURE_HORNS = list("Curled", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Smooth", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Round", is_randomizable = TRUE),
+		FEATURE_FRILLS = MUTPART_BLUEPRINT("Short", is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT("Curled", is_randomizable = FALSE),
 	)
 
 /datum/species/monkey/kobold/randomize_features()
@@ -50,7 +50,7 @@
 	features[FEATURE_MUTANT_COLOR] = main_color
 	features[FEATURE_MUTANT_COLOR_TWO] = main_color
 	features[FEATURE_MUTANT_COLOR_THREE] = main_color
-	features -= "tail"
+	features -= FEATURE_TAIL
 	return features
 
 /datum/species/monkey/kobold/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
@@ -128,10 +128,10 @@
 	kobold.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	kobold.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
 	kobold.dna.features[FEATURE_MUTANT_COLOR_THREE] = third_color
-	kobold.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_FRILLS] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_SNOUT] = kobold.dna.species.build_mutant_part("Round", list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_TAIL] = kobold.dna.species.build_mutant_part("Smooth", list(second_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_HORNS] = kobold.dna.species.build_mutant_part("Curled", list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_FRILLS] = kobold.dna.species.build_mutant_part("Short", list(main_color, main_color, main_color))
 	regenerate_organs(kobold, src, visual_only = TRUE)
 	kobold.update_body(TRUE)
 

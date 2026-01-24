@@ -12,7 +12,6 @@
 		/datum/bodypart_overlay/simple/body_marking/lizard = SPRITE_ACCESSORY_NONE,
 	)
 	*/ // NOVA EDIT REMOVAL END
-	mutant_bodyparts = list(FEATURE_MARKING_GENERIC = "None", FEATURE_LEGS = "Normal Legs") // NOVA EDIT ADDITION - Customization
 	mutant_organs = list(
 		/obj/item/organ/horns = SPRITE_ACCESSORY_NONE,
 		/obj/item/organ/frills = SPRITE_ACCESSORY_NONE,
@@ -29,7 +28,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	species_cookie = /obj/item/food/meat/slab
 	meat = /obj/item/food/meat/slab/human/mutant/lizard
-	skinned_type = /obj/item/stack/sheet/animalhide/lizard
+	skinned_type = /obj/item/stack/sheet/animalhide/carbon/lizard
 	exotic_bloodtype = BLOOD_TYPE_LIZARD
 	inert_mutation = /datum/mutation/firebreath
 	death_sound = 'sound/mobs/humanoids/lizard/deathsound.ogg'
@@ -50,7 +49,7 @@
 	)
 
 /// Lizards are cold blooded and do not stabilize body temperature naturally
-/datum/species/lizard/body_temperature_core(mob/living/carbon/human/humi, seconds_per_tick, times_fired)
+/datum/species/lizard/body_temperature_core(mob/living/carbon/human/humi, seconds_per_tick)
 	return
 
 //NOVA EDIT REMOVAL BEGIN

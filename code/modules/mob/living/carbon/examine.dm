@@ -70,6 +70,11 @@
 		for(var/datum/wound/iter_wound as anything in body_part.wounds)
 			. += span_danger(iter_wound.get_examine_description(user))
 
+		var/surgery_examine = body_part.get_surgery_examine()
+		if(surgery_examine)
+			. += surgery_examine
+
+
 	for(var/obj/item/bodypart/body_part as anything in disabled)
 		var/damage_text
 		if(HAS_TRAIT(body_part, TRAIT_DISABLED_BY_WOUND))
@@ -284,10 +289,11 @@
 			. += "<span class='warning'><b>[GP.source.name] [GP.source.p_are()] holding [t_him] at gunpoint with [GP.aimed_gun.name]!</b></span>\n"
 
 	for(var/genital in GLOB.possible_genitals)
-		if(dna.species.mutant_bodyparts[genital])
-			var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
-			if(G)
-				if(!(G.is_hidden(src)))
+		var/datum/mutant_bodypart/genital_part = dna.mutant_bodyparts[genital]
+		if(genital_part)
+			var/datum/sprite_accessory/genital/genital_accessory = SSaccessories.sprite_accessories[genital][genital_part.name]
+			if(genital_accessory)
+				if(!(genital_accessory.is_hidden(src)))
 					. += "<span class='notice'>[t_He] [t_has] exposed genitals... <a href='byond://?src=[REF(src)];lookup_info=genitals'>\[Look closer...\]</a></span>"
 					break
 
