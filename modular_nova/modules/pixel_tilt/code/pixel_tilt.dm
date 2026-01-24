@@ -1,5 +1,5 @@
 // PIXEL TILT - Character rotation keybind for RP
-
+/*
 // Component
 /datum/component/pixel_tilt
 	dupe_mode = COMPONENT_DUPE_UNIQUE
@@ -96,3 +96,4 @@
 
 /mob/living/add_pixel_tilt_component()
 	AddComponent(/datum/component/pixel_tilt)
+*/
