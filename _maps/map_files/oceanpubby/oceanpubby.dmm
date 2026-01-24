@@ -41294,11 +41294,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
-"nxW" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/open/water/deep_beach/lethal/planet_surface,
-/area/station/solars/ocean/starboard)
 "nyB" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -112410,7 +112405,7 @@ ayF
 ayF
 ayF
 ayF
-nxW
+cFB
 cFB
 cFB
 cFB
