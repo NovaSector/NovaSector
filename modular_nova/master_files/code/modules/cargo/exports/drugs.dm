@@ -8,6 +8,12 @@
 	export_types = list(/obj/item/food/drug/moon_rock)
 	include_subtypes = FALSE
 
+/datum/export/meth_crystal
+	cost = CARGO_CRATE_VALUE * 1
+	unit_name = "meth crystal"
+	export_types = list(/obj/item/food/drug/meth_crystal)
+	include_subtypes = FALSE
+
 /datum/export/blastoff_ampoule
 	cost = CARGO_CRATE_VALUE * 1
 	unit_name = "blastoff ampoule"
