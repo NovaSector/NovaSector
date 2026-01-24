@@ -324,17 +324,26 @@
 	space_lit = TRUE
 	light_range = 2
 	planetary_atmos = TRUE
+	reagent_to_extract = /datum/reagent/water/salt
 
 /turf/open/water/deep_beach/lethal/planet_surface
 	planetary_atmos = TRUE
 	space_lit = TRUE
 	light_range = 2
 	color = "#8898ad"
+	reagent_to_extract = /datum/reagent/water/salt
 
 /turf/open/water/beach/planet_surface
 	planetary_atmos = TRUE
 	space_lit = TRUE
 	light_range = 2
+	reagent_to_extract = /datum/reagent/water/salt
+
+/turf/open/water/hot_spring/planet_surface
+	planetary_atmos = TRUE
+	space_lit = TRUE
+	light_range = 2
+	reagent_to_extract = /datum/reagent/water/salt
 
 /turf/open/misc/ashplanet/wateryrock/planet_surface
 	planetary_atmos = TRUE
