@@ -9,3 +9,5 @@
 #define TRAIT_SPIDER_HOST "spider_host"
 ///for if we are army crawling or not
 #define TRAIT_PRONE "prone"
+/// Trait gained from bioware surgeries
+#define SUBSYSTEM_UPGRADE_TRAIT "subsystem_upgrade"
