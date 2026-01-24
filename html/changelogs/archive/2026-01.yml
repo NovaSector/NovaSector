@@ -938,3 +938,21 @@
       up or down. adds feedback in the form of a balloon alert.
   - refactor: faction list structures have been refactored, please report any unusual
       faction related behavior
+2026-01-24:
+  ArcaneMusic:
+  - bugfix: The Express Cargo Console can no longer buy goodie items.
+  - rscadd: The Express Cargo console can bypass the goodie purchasing protection
+      if Emagged.
+  - bugfix: Departmental Order requests may no longer bypass access restrictions,
+      and require access to place the order.
+  - rscadd: Departmental Order may explicitly bypass access restrictions if placed
+      using an agent ID.
+  Hatterhat:
+  - rscadd: The Syndicate has begun to issue newly-received "Covenant" e-sword variants.
+      While, essentially, statistically identical to their conventional energy swords,
+      some argue that they strike a more imposing image. You can recolor them with
+      a multitool, but they can't go rainbow mode.
+  - balance: Nanotrasen has upgraded their expeditionary deathrattle licenses for
+      the sector, allowing them to alert to deaths anywhere BUT the station, making
+      them actually useful for aspiring space explorers and/or people who are paranoid
+      about being hucked out of airlocks.
