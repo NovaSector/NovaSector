@@ -139,6 +139,11 @@
 	item_path = /obj/item/clothing/under/pants/nova/yoga
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/wide_leg
+	name = "Pants - Wide Legged (Colorable)"
+	item_path = /obj/item/clothing/under/pants/nova/wide_leg
+	group = "Casualwear"
+
 /datum/loadout_item/under/miscellaneous/shorts
 	name = "Shorts  (Colorable)"
 	item_path = /obj/item/clothing/under/shorts
@@ -248,8 +253,8 @@
 /datum/loadout_item/under/miscellaneous/sweater
 	name = "Cableknit Sweater" //Different than the Suit item ("Sweater")!!
 	item_path = /obj/item/clothing/under/sweater
+	reskin_datum = /datum/atom_skin/cableknit_sweater
 	group = "Casualwear"
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/under/jumpsuit/turtleneck
 	name = "Turtleneck w/ Pants"

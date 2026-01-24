@@ -532,7 +532,7 @@
 "oz" = (
 /obj/machinery/door/airlock/mining,
 /obj/effect/mapping_helpers/airlock/locked,
-/obj/effect/spawner/random/structure/barricade,
+/obj/effect/spawner/random/structure/barricade/crude,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "oJ" = (
@@ -728,7 +728,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "ui" = (
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/spawner/random/structure/barricade,
+/obj/effect/spawner/random/structure/barricade/crude,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "us" = (
@@ -921,7 +921,7 @@
 "yO" = (
 /obj/machinery/light/red/directional/west,
 /obj/structure/table/reinforced,
-/obj/item/computer_disk/syndicate/camera_app,
+/obj/item/disk/computer/syndicate/camera_app,
 /obj/item/disk/design_disk/bepis,
 /obj/item/disk/design_disk/bepis,
 /obj/effect/spawner/random/entertainment/money_medium,
@@ -1049,7 +1049,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "CF" = (
 /obj/machinery/door/airlock/glass,
-/obj/effect/spawner/random/structure/barricade,
+/obj/effect/spawner/random/structure/barricade/crude,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "CH" = (
@@ -1265,7 +1265,7 @@
 /obj/item/stack/sheet/animalhide/corgi/five,
 /obj/item/stack/sheet/animalhide/cat/five,
 /obj/item/stack/sheet/animalhide/mothroach/five,
-/obj/item/stack/sheet/animalhide/human/five,
+/obj/item/stack/sheet/animalhide/carbon/human/five,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Gf" = (

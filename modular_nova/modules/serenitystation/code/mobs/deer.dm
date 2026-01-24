@@ -1,6 +1,6 @@
 /mob/living/basic/deer/mining
 	desc = "A common deer, used to living alongside monsters after generations on this planet."
-	faction = list("mining")
+	faction = list(FACTION_MINING)
 	ai_controller = /datum/ai_controller/basic_controller/deer/mining
 
 /datum/ai_controller/basic_controller/deer/mining/New()

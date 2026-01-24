@@ -8,7 +8,6 @@
 #define SPECIES_SLIME_PASSIVE_REGEN_BURN 0.5
 
 /datum/species/jelly
-	mutant_bodyparts = list()
 	hair_alpha = 160 //a notch brighter so it blends better.
 	facial_hair_alpha = 160
 	mutantliver = /obj/item/organ/liver/slime
@@ -54,15 +53,15 @@
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("None", FALSE),
-		"snout" = list("None", FALSE),
-		"ears" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
-		"taur" = list("None", FALSE),
-		"wings" = list("None", FALSE),
-		"horns" = list("None", FALSE),
-		"spines" = list("None", FALSE),
-		"frills" = list("None", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SPINES = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_FRILLS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
@@ -127,7 +126,7 @@
 
 // CHEMICAL HANDLING
 // Here's where slimes heal off plasma and where they hate drinking water.
-/obj/item/organ/liver/slime/handle_chemical(mob/living/carbon/organ_owner, datum/reagent/chem, seconds_per_tick, times_fired)
+/obj/item/organ/liver/slime/handle_chemical(mob/living/carbon/organ_owner, datum/reagent/chem, seconds_per_tick)
 	. = ..()
 	if(. & COMSIG_MOB_STOP_REAGENT_TICK)
 		return
@@ -144,11 +143,11 @@
 		for(var/datum/wound/iter_wound as anything in organ_owner.all_wounds)
 			iter_wound.on_xadone(4 * REM * seconds_per_tick)
 			organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-		if(organ_owner.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
+		if(organ_owner.get_blood_volume() > BLOOD_VOLUME_SLIME_SPLIT)
 			organ_owner.adjust_organ_loss(
-			pick(organs_we_mend),
-			- 2 * seconds_per_tick,
-		)
+				pick(organs_we_mend),
+				- 2 * seconds_per_tick,
+			)
 		if(SPT_PROB(5, seconds_per_tick))
 			to_chat(organ_owner, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
 
@@ -156,7 +155,7 @@
 		if (HAS_TRAIT(organ_owner, TRAIT_SLIME_HYDROPHOBIA) || HAS_TRAIT(organ_owner, TRAIT_WATER_BREATHING))
 			return
 
-		organ_owner.blood_volume -= 3 * seconds_per_tick
+		organ_owner.adjust_blood_volume(-3 * seconds_per_tick)
 		organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
 		if(SPT_PROB(1, seconds_per_tick))
 			to_chat(organ_owner, span_warning("The water starts to weaken and adulterate your insides!"))
@@ -344,7 +343,7 @@
 	new_body.updateappearance(mutcolor_update=1)
 	new_body.domutcheck()
 	new_body.forceMove(get_turf(src))
-	new_body.blood_volume = BLOOD_VOLUME_SAFE+60
+	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 	SSquirks.AssignQuirks(new_body, brainmob.client)
 	src.replace_into(new_body)
 	for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
@@ -357,7 +356,7 @@
 
 // HEALING SECTION
 // Handles passive healing and water damage for slimes and water-breathing variants.
-/datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick, times_fired)
+/datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick)
 	. = ..()
 
 	// Skip if unconscious
@@ -406,10 +405,10 @@
 			if(SPT_PROB(1, seconds_per_tick))
 				to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
 
-	slime.blood_volume -= blood_units_to_lose
+	slime.adjust_blood_volume(-blood_units_to_lose)
 
 	// PASSIVE HEALING
-	if(slime.blood_volume >= BLOOD_VOLUME_NORMAL && healing)
+	if(slime.get_blood_volume() >= BLOOD_VOLUME_NORMAL && healing)
 		if(slime.stat != CONSCIOUS)
 			return
 		var/need_mob_update
@@ -771,11 +770,11 @@
 	var/color_target
 	switch(color_choice)
 		if("Primary", "All")
-			color_target = "mcolor"
+			color_target = FEATURE_MUTANT_COLOR
 		if("Secondary")
-			color_target = "mcolor2"
+			color_target = FEATURE_MUTANT_COLOR_TWO
 		if("Tertiary")
-			color_target = "mcolor3"
+			color_target = FEATURE_MUTANT_COLOR_THREE
 
 	var/new_mutant_colour = tgui_color_picker(
 		alterer,
@@ -802,7 +801,7 @@
 		alterer,
 		"Would you like to reset your hair to match your new colors?",
 		"Reset hair",
-		list("Hair", "Facial Hair", "Both", "None"),
+		list("Hair", "Facial Hair", "Both", SPRITE_ACCESSORY_NONE),
 	)
 
 	if(color_choice == "All")
@@ -823,19 +822,19 @@
 				alterer.dna.update_uf_block(/datum/dna_block/feature/mutant_color/three)
 
 	if(marking_reset == "Yes")
-		for(var/zone in alterer.dna.species.body_markings)
-			for(var/key in alterer.dna.species.body_markings[zone])
+		for(var/zone in alterer.dna.body_markings)
+			for(var/key in alterer.dna.body_markings[zone])
 				var/datum/body_marking/iterated_marking = GLOB.body_markings[key]
 				if(iterated_marking.always_color_customizable)
 					continue
-				alterer.dna.species.body_markings[zone][key] = iterated_marking.get_default_color(alterer.dna.features, alterer.dna.species)
+				alterer.dna.body_markings[zone][key] = iterated_marking.get_default_color(alterer.dna.features, alterer.dna.species)
 
 	if(mutant_part_reset == "Yes")
 		alterer.mutant_renderkey = "" //Just in case
-		for(var/mutant_key in alterer.dna.species.mutant_bodyparts)
-			var/mutant_list = alterer.dna.species.mutant_bodyparts[mutant_key]
-			var/datum/sprite_accessory/changed_accessory = SSaccessories.sprite_accessories[mutant_key][mutant_list[MUTANT_INDEX_NAME]]
-			mutant_list[MUTANT_INDEX_COLOR_LIST] = changed_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
+		for(var/mutant_key, mutant_bodypart in alterer.dna.mutant_bodyparts)
+			var/datum/mutant_bodypart/bodypart = mutant_bodypart
+			var/datum/sprite_accessory/changed_accessory = SSaccessories.sprite_accessories[mutant_key][bodypart.name]
+			bodypart.set_colors(changed_accessory.get_default_color(alterer.dna.features, alterer.dna.species))
 
 	if(hair_reset)
 		switch(hair_reset)
@@ -987,7 +986,16 @@
 				got_organ.Remove(alterer)
 				qdel(got_organ)
 		else
-			alterer.dna.species.mutant_bodyparts -= chosen_key
+			var/obj/item/organ/got_organ = alterer.get_organ_slot(chosen_key)
+			if(got_organ)
+				got_organ.Remove(alterer)
+				qdel(got_organ)
+			else
+				alterer.dna.mutant_bodyparts -= chosen_key
+	else if(chosen_key == FEATURE_LEGS)
+		alterer.dna.features[FEATURE_LEGS] = chosen_name_key
+		alterer.update_body()
+		alterer.dna.species.replace_body(alterer, alterer.dna.species) // TODO: Replace this with something less stupidly expensive.
 	else
 		if(selected_sprite_accessory.organ_type)
 			var/robot_organs = HAS_TRAIT(alterer, TRAIT_ROBOTIC_DNA_ORGANS)
@@ -1003,21 +1011,23 @@
 			replacement_organ.sprite_accessory_flags = selected_sprite_accessory.flags_for_organ
 			replacement_organ.relevant_layers = selected_sprite_accessory.relevent_layers
 
-			var/list/new_acc_list = list()
-			new_acc_list[MUTANT_INDEX_NAME] = selected_sprite_accessory.name
-			new_acc_list[MUTANT_INDEX_COLOR_LIST] = selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
-			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list.Copy()
+			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+				selected_sprite_accessory.name,
+				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
+			)
+			alterer.dna.mutant_bodyparts[chosen_key] = new_mutant_bodypart
 
 			if(robot_organs)
 				replacement_organ.organ_flags |= ORGAN_ROBOTIC
 			replacement_organ.build_from_dna(alterer.dna, chosen_key)
 			replacement_organ.Insert(alterer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		else
-			var/list/new_acc_list = list()
-			new_acc_list[MUTANT_INDEX_NAME] = selected_sprite_accessory.name
-			new_acc_list[MUTANT_INDEX_COLOR_LIST] = selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
-			alterer.dna.species.mutant_bodyparts[chosen_key] = new_acc_list
-			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list.Copy()
+			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+				selected_sprite_accessory.name,
+				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
+			)
+			alterer.dna.mutant_bodyparts[chosen_key] = new_mutant_bodypart
+
 		alterer.dna.update_uf_block(mutant_part_list[chosen_key])
 	alterer.update_body_parts()
 	alterer.update_clothing(ALL) // for any clothing that has alternate versions (e.g. muzzled masks)
@@ -1036,7 +1046,7 @@
 	if(!chosen_name)
 		return
 	var/datum/body_marking_set/marking_set = GLOB.body_marking_sets[chosen_name]
-	alterer.dna.species.body_markings = assemble_body_markings_from_set(marking_set, alterer.dna.features, alterer.dna.species)
+	alterer.dna.body_markings = assemble_body_markings_from_set(marking_set, alterer.dna.features, alterer.dna.species)
 	alterer.update_body(is_creating = TRUE)
 
 /**

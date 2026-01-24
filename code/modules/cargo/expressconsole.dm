@@ -174,8 +174,17 @@
 			var/id = params["id"]
 			id = text2path(id) || id
 			var/datum/supply_pack/pack = SSshuttle.supply_packs[id]
+
 			if(!istype(pack))
 				CRASH("Unknown supply pack id given by express order console ui. ID: [params["id"]]")
+
+			/* NOVA EDIT REMOVAL BEGIN - We use the goody system for imports, so we remove this block in order to let cargo and ghost roles to get imports
+			if((pack.order_flags & ORDER_GOODY) && !self_paid && !(obj_flags & EMAGGED))
+				playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
+				say("ERROR: Small crates may only be purchased by private accounts.")
+				return
+			*/ // NOVA EDIT REMOVAL END
+
 			var/name = "*None Provided*"
 			var/rank = "*None Provided*"
 			var/ckey = user.ckey
@@ -194,6 +203,7 @@
 
 			if (obj_flags & EMAGGED)
 				landingzone = GLOB.areas_by_type[pick(GLOB.the_station_areas)]
+
 
 			var/list/empty_turfs
 			if (!istype(beacon) || !using_beacon || (obj_flags & EMAGGED))

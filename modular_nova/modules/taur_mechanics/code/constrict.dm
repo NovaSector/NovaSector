@@ -43,8 +43,7 @@
 			qdel(tail)
 			return TRUE
 
-		create_tail()
-		return TRUE
+		return FALSE
 
 	var/mob/living/living_target = clicked_on
 
@@ -214,8 +213,9 @@
 /obj/structure/serpentine_tail/proc/sync_sprite()
 	//coloring
 	var/list/finished_list = list()
-	var/list/color_list = owner.dna.mutant_bodyparts[FEATURE_TAUR][MUTANT_INDEX_COLOR_LIST] //identify color
-	var/datum/sprite_accessory/sprite_type = SSaccessories.sprite_accessories[FEATURE_TAUR][owner.dna.mutant_bodyparts[FEATURE_TAUR][MUTANT_INDEX_NAME]] //identify type
+	var/datum/mutant_bodypart/taur_body = owner.dna.mutant_bodyparts[FEATURE_TAUR]
+	var/list/color_list = taur_body.get_colors() //identify color
+	var/datum/sprite_accessory/sprite_type = SSaccessories.sprite_accessories[FEATURE_TAUR][taur_body.name] //identify type
 
 	switch(sprite_type.color_src)
 		if(USE_MATRIXED_COLORS)

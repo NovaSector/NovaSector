@@ -97,7 +97,7 @@
 /datum/loadout_item/under/miscellaneous/giant_scarf
 	name = "Giant Scarf"
 	item_path = /obj/item/clothing/under/dress/nova/giant_scarf
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/giant_scarf
 
 /datum/loadout_item/under/miscellaneous/playsuit
 	name = "Playsuit (Recolorable)"
@@ -223,12 +223,12 @@
 /datum/loadout_item/under/formal/inferno
 	name = "Inferno Suit"
 	item_path = /obj/item/clothing/under/suit/nova/inferno
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/inferno_suit
 
 /datum/loadout_item/under/formal/inferno_skirt
 	name = "Inferno Suitskirt"
 	item_path = /obj/item/clothing/under/suit/nova/inferno/skirt
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/inferno_suitskirt
 
 /datum/loadout_item/under/formal/black_lawyer_suit
 	name = "Lawyer Suit (Black)"
@@ -362,7 +362,7 @@
 /datum/loadout_item/under/formal/midnight_gown
 	name = "Midnight Gown"
 	item_path = /obj/item/clothing/under/dress/nova/midnight_gown
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/midnight_gown
 
 /*
 *	erp_item

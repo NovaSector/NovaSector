@@ -31,3 +31,4 @@ Adds in a roundstart robotic race. Currently in a very sad state, and is being w
 Niko - Making defibs fuck synths up
 Nerevar - Initial code, I think. Correct this file if wrong.
 RimiNosha - Updating the code and adding various QoL features.
+Zergspower - compilation and consolidation, revamp of surgical system.

@@ -8270,7 +8270,7 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_y = 6;
 	pixel_x = 4
 	},
@@ -12552,7 +12552,6 @@
 "dqY" = (
 /obj/effect/landmark/start/roboticist,
 /obj/structure/cable,
-/obj/machinery/light/floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
@@ -14606,14 +14605,14 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = 4
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -4
 	},
 /obj/machinery/status_display/ai/directional/south,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = 1;
 	pixel_y = 5
 	},
@@ -18547,6 +18546,7 @@
 /obj/machinery/mech_bay_recharge_port{
 	dir = 8
 	},
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/circuit/red,
 /area/station/science/robotics/mechbay)
 "eXr" = (
@@ -51604,14 +51604,14 @@
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -8
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -7;
 	pixel_y = 4
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -5;
 	pixel_y = 7
 	},
@@ -66226,6 +66226,7 @@
 /obj/machinery/mech_bay_recharge_port{
 	dir = 8
 	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/circuit/red,
 /area/station/science/robotics/mechbay)
 "rRR" = (
@@ -77026,7 +77027,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 6
 	},
-/obj/item/infuser_book,
+/obj/item/tgui_book/manual/infuser,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -10;
 	pixel_y = 5

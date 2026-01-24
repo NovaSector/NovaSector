@@ -2,13 +2,19 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
 	default_color = "#FFFFFF"
 	key = FEATURE_FLUFF
-	recommended_species = list(SPECIES_MOTH, SPECIES_MAMMAL, SPECIES_INSECT)
+	recommended_species = list(
+		SPECIES_MOTH = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_INSECT = 1,
+	)
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	organ_type = /obj/item/organ/fluff
 
 /datum/sprite_accessory/fluff/moth/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/fluff/moth/is_hidden(mob/living/carbon/human/human)
 	if((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))

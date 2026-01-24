@@ -1,9 +1,3 @@
-#define MUTANT_SYNTH_ANTENNA "ipc_antenna"
-#define MUTANT_SYNTH_SCREEN "ipc_screen"
-#define MUTANT_SYNTH_CHASSIS "synth_chassis"
-#define MUTANT_SYNTH_HEAD "synth_head"
-#define MUTANT_SYNTH_HAIR "synth_hair"
-
 #define DEFAULT_SYNTH_PART_COLOR "#746c6a"
 #define DEFAULT_SYNTH_SCREEN_COLOR "#b99b3a"
 
@@ -38,3 +32,11 @@
 #define RND_SUBCATEGORY_MECHFAB_ANDROID "/Android"
 #define RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS "/Android Chassis"
 #define RND_SUBCATEGORY_MECHFAB_ANDROID_ORGANS "/Android Organs"
+
+/// Surgery defines
+
+/// Helper to figure out if an organ is synthetic
+#define IS_SYNTHETIC_ORGAN(organ) (organ.organ_flags & ORGAN_SYNTHETIC_FROM_SPECIES)
+
+/// Helper to figure out if a limb is synthetic
+#define IS_SYNTHETIC_LIMB(limb) (limb.bodytype & BODYTYPE_SYNTHETIC)

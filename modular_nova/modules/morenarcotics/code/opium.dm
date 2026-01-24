@@ -24,7 +24,7 @@
 
 /obj/item/reagent_containers/heroin
 	name = "heroin"
-	desc = "Take a line and take some time of man."
+	desc = "Take a line and take some time off, man."
 	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "heroin"
 	volume = 4
@@ -42,6 +42,10 @@
 	if(covered)
 		to_chat(user, span_warning("You have to remove your [covered] first!"))
 		return
+	var/obj/item/organ/lungs/lungs = user.get_organ_slot(ORGAN_SLOT_LUNGS)
+	if(isnull(lungs) || istype(lungs, /obj/item/organ/lungs/synth))
+		to_chat(user, span_warning("You have to be able to breathe to snort the heroin!"))
+		return
 	user.visible_message(span_notice("'[user] starts snorting the [src]."))
 	if(do_after(user, 30))
 		to_chat(user, span_notice("You finish snorting the [src]."))
@@ -49,8 +53,7 @@
 			reagents.trans_to(user, reagents.total_volume, transferred_by = user, methods = INGEST)
 		qdel(src)
 
-/obj/item/reagent_containers/heroin/attack(mob/target, mob/user)
-	if(target == user)
+/obj/item/reagent_containers/heroin/attack_self(mob/user)
 		snort(user)
 
 /obj/item/reagent_containers/heroin/attack_hand_secondary(mob/user, list/modifiers)
@@ -105,7 +108,7 @@
 	taste_description = "flowers"
 	addiction_types = list(/datum/addiction/opioids = 18)
 
-/datum/reagent/drug/opium/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	var/high_message = pick("You feel euphoric.", "You feel on top of the world.")
 	if(SPT_PROB(2.5, seconds_per_tick))
 		to_chat(affected_mob, span_notice("[high_message]"))
@@ -118,7 +121,7 @@
 	affected_mob.overlay_fullscreen("heroin_euphoria", /atom/movable/screen/fullscreen/color_vision/heroin_color)
 	return ..() || .
 
-/datum/reagent/drug/opium/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/overdose_process(mob/living/affected_mob, seconds_per_tick)
 	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	affected_mob.adjust_tox_loss(1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 	affected_mob.adjust_drowsiness(1 SECONDS * REM * normalise_creation_purity() * seconds_per_tick)
@@ -143,7 +146,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	inverse_chem = /datum/reagent/drug/opium/blacktar/liquid
 
-/datum/reagent/drug/opium/heroin/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/heroin/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	var/high_message = pick("You feel like nothing can stop you.", "You feel like God.")
 	if(SPT_PROB(2.5, seconds_per_tick))
@@ -162,7 +165,7 @@
 	taste_description = "flowers"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/drug/opium/blacktar/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/blacktar/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	var/high_message = pick("You feel like tar.", "The blood in your veins feel like syrup.")
 	if(SPT_PROB(2.5, seconds_per_tick))
