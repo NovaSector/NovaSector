@@ -2507,14 +2507,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/crew_quarters/dorms)
 "akq" = (
-/obj/machinery/light/small/directional/east,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/department/crew_quarters/dorms)
+/turf/open/floor/iron/freezer,
+/area/station/medical/virology)
 "akr" = (
 /obj/machinery/washing_machine,
 /turf/open/floor/plating,
@@ -16060,6 +16054,7 @@
 /obj/structure/window/spawner/directional/west,
 /obj/effect/spawner/liquids_spawner/fulltile,
 /obj/item/fish/starfish,
+/obj/structure/flora/ocean/seaweed,
 /turf/open/misc/sandy_dirt,
 /area/station/medical/medbay/lobby)
 "buj" = (
@@ -18512,10 +18507,10 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "bFL" = (
-/obj/machinery/light/small/directional/south,
-/mob/living/carbon/human/species/monkey,
-/turf/open/floor/iron/freezer,
-/area/station/medical/virology)
+/obj/structure/lattice,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/water/beach/planet_surface,
+/area/ocean)
 "bFS" = (
 /obj/structure/cable,
 /obj/machinery/newscaster/directional/west,
@@ -20319,10 +20314,7 @@
 /turf/open/misc/beach/sand,
 /area/ocean)
 "bQj" = (
-/obj/effect/landmark/blobstart,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/freezer,
 /area/station/medical/virology)
 "bQl" = (
@@ -26068,12 +26060,9 @@
 /turf/open/misc/beach/sand,
 /area/ocean)
 "cyM" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 4
-	},
-/obj/item/radio/intercom/directional/east,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central/aft)
+/obj/structure/flora/ocean/longseaweed,
+/turf/open/water/deep_beach/planet_surface,
+/area/ocean)
 "cyP" = (
 /obj/structure/bookcase/random/nonfiction,
 /obj/machinery/light/small/directional/north,
@@ -26768,6 +26757,12 @@
 /obj/effect/turf_decal/tile/red/fourcorners,
 /turf/open/floor/iron,
 /area/station/security/prison/safe)
+"cMd" = (
+/obj/structure/flora/ocean/coral{
+	icon_state = "coral2"
+	},
+/turf/open/water/deep_beach/planet_surface,
+/area/ocean)
 "cMl" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -29996,7 +29991,7 @@
 "fcn" = (
 /obj/item/toy/beach_ball/branded,
 /turf/open/water/deep_beach/planet_surface,
-/area/ocean/generated/shallow)
+/area/ocean)
 "fcD" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -30621,6 +30616,11 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
+"fxE" = (
+/mob/living/carbon/human/species/monkey,
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron/freezer,
+/area/station/medical/virology)
 "fyw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/effect/turf_decal/tile/purple/half/contrasted{
@@ -31752,6 +31752,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/brig)
+"gsr" = (
+/obj/item/toy/seashell,
+/turf/open/water/beach/planet_surface,
+/area/ocean)
 "gsB" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -32670,6 +32674,12 @@
 	},
 /turf/open/floor/plating,
 /area/station/security/execution/education)
+"hcs" = (
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 1
+	},
+/turf/open/water/beach/planet_surface,
+/area/ocean)
 "hdk" = (
 /obj/structure/flora/bush/large/style_random,
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -36279,6 +36289,11 @@
 	},
 /turf/closed/wall,
 /area/station/cargo/drone_bay)
+"jVl" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/water/beach/planet_surface,
+/area/ocean)
 "jVo" = (
 /obj/structure/cable,
 /turf/open/floor/iron,
@@ -37924,6 +37939,10 @@
 	dir = 6
 	},
 /turf/open/water/beach/planet_surface,
+/area/ocean)
+"lcb" = (
+/obj/item/toy/seashell,
+/turf/open/water/deep_beach/planet_surface,
 /area/ocean)
 "lct" = (
 /obj/structure/disposalpipe/junction{
@@ -40068,8 +40087,9 @@
 /area/station/security/checkpoint/engineering)
 "mCs" = (
 /obj/item/fish/starfish,
+/obj/structure/flora/ocean/longseaweed,
 /turf/open/water/deep_beach/planet_surface,
-/area/ocean/generated/shallow)
+/area/ocean)
 "mCW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -40444,6 +40464,10 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
+"mQo" = (
+/obj/structure/flora/ocean/coral,
+/turf/open/water/deep_beach/planet_surface,
+/area/ocean)
 "mQL" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
@@ -40646,10 +40670,9 @@
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "mYX" = (
-/obj/machinery/light/directional/south,
-/obj/effect/turf_decal/tile/yellow/half/contrasted,
-/turf/open/floor/iron/dark,
-/area/station/maintenance/disposal/incinerator)
+/obj/structure/flora/ocean/longseaweed,
+/turf/open/water/beach/planet_surface,
+/area/ocean)
 "mZi" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -42153,16 +42176,10 @@
 /turf/open/floor/iron/dark,
 /area/station/command/eva)
 "ojD" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "ai-solar-panels"
-	},
-/turf/open/floor/plastic,
-/area/station/security/lockers)
+/obj/effect/turf_decal/tile/yellow/half/contrasted,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark,
+/area/station/maintenance/disposal/incinerator)
 "okk" = (
 /obj/effect/turf_decal/trimline/neutral/warning{
 	dir = 9
@@ -45747,6 +45764,10 @@
 /obj/structure/window/spawner/directional/west,
 /obj/structure/window/spawner/directional/north,
 /obj/effect/spawner/liquids_spawner/fulltile,
+/obj/structure/flora/ocean/longseaweed,
+/obj/item/toy/seashell{
+	pixel_y = -13
+	},
 /turf/open/misc/sandy_dirt,
 /area/station/medical/medbay/lobby)
 "qEk" = (
@@ -48431,6 +48452,13 @@
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/engineering/transit_tube)
+"swZ" = (
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 1
+	},
+/obj/structure/flora/ocean/seaweed,
+/turf/open/water/beach/planet_surface,
+/area/ocean)
 "sxe" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -50462,8 +50490,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
 "tHo" = (
+/obj/structure/flora/ocean/seaweed,
 /turf/open/water/deep_beach/planet_surface,
-/area/ocean/generated/shallow)
+/area/ocean)
 "tHB" = (
 /obj/machinery/light/small/directional/west,
 /obj/item/radio/intercom/directional/west,
@@ -52705,6 +52734,14 @@
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/qm)
+"vhc" = (
+/mob/living/carbon/human/species/monkey,
+/obj/effect/landmark/blobstart,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/station/medical/virology)
 "vhk" = (
 /obj/structure/chair,
 /turf/open/floor/carpet,
@@ -80360,7 +80397,7 @@ bOD
 bEr
 bEr
 bEr
-teG
+bFL
 bva
 cFT
 bDi
@@ -80614,10 +80651,10 @@ fWl
 jVS
 uAs
 bQj
-bFI
-bEr
-oSZ
-oSZ
+vhc
+akq
+hcs
+mYX
 bva
 eNy
 vNu
@@ -80870,11 +80907,11 @@ bEr
 ozc
 vbv
 dWo
+fxE
 bFI
-bFL
-bEr
-oSZ
-oSZ
+akq
+swZ
+gsr
 bva
 qXx
 bDi
@@ -81130,8 +81167,8 @@ bEr
 bEr
 bEr
 bEr
-sOB
-teG
+bEr
+jVl
 bva
 mQV
 bDi
@@ -81606,7 +81643,7 @@ aYL
 wFO
 baW
 vOQ
-cyM
+vOQ
 beb
 vOQ
 bge
@@ -82839,7 +82876,7 @@ dAa
 dAa
 dAa
 cnP
-ojD
+aeB
 lkX
 xjU
 xjU
@@ -87495,13 +87532,13 @@ aCH
 aCK
 aEE
 aAB
-tHo
+cyM
 awd
 aHV
 ilz
 fei
 awd
-tHo
+cyM
 aKT
 coH
 aKT
@@ -87752,13 +87789,13 @@ lTW
 wEJ
 aEF
 aoH
-tHo
+lcb
 awd
 aHV
 ilz
 fei
 awd
-tHo
+cMd
 aKT
 coH
 aKT
@@ -88009,7 +88046,7 @@ wdW
 aDM
 aEG
 aAB
-tHo
+dbj
 awd
 aHV
 aIX
@@ -88266,7 +88303,7 @@ mtB
 wEJ
 aEH
 aoH
-tHo
+mQo
 awd
 uNL
 ilz
@@ -88529,7 +88566,7 @@ qlr
 ilz
 fei
 awd
-tHo
+lcb
 aKT
 coF
 aKT
@@ -88786,7 +88823,7 @@ tNf
 mTc
 bft
 axi
-tHo
+cyM
 aKT
 wzm
 wYH
@@ -97080,7 +97117,7 @@ usl
 usl
 usl
 jKs
-yjt
+ojD
 bYw
 bYw
 bYw
@@ -97337,7 +97374,7 @@ usl
 usl
 usl
 oib
-mYX
+yjt
 mHK
 ckO
 xXi
@@ -98265,7 +98302,7 @@ uWm
 qCS
 qCS
 aiT
-akq
+sFK
 sFK
 sFK
 sFK
