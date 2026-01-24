@@ -3572,11 +3572,6 @@
 /obj/structure/lattice,
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/station/solars/ocean/port)
-"aoJ" = (
-/obj/effect/spawner/structure/window,
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
-/area/station/cargo/miningfoundry)
 "aoN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -13770,11 +13765,6 @@
 /obj/machinery/duct,
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
-"biB" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/open/water/deep_beach/lethal/planet_surface,
-/area/station/solars/ocean/port)
 "biC" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 8
@@ -14979,7 +14969,7 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/effect/turf_decal/tile/red/fourcorners,
-/turf/closed/wall/r_wall,
+/turf/open/space/basic,
 /area/station/security/execution/education)
 "bpG" = (
 /obj/structure/disposalpipe/segment,
@@ -23999,11 +23989,6 @@
 	},
 /turf/open/water/beach/planet_surface,
 /area/ocean/generated/shallow)
-"cjC" = (
-/obj/effect/spawner/structure/window,
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
-/area/station/service/chapel/funeral)
 "cjH" = (
 /obj/machinery/door/airlock/grunge{
 	name = "Chapel Garden"
@@ -34112,10 +34097,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
-"iiI" = (
-/turf/open/water/beach/planet_surface,
-/turf/open/water/beach/planet_surface,
-/area/ocean/generated/shallow)
 "iiP" = (
 /obj/machinery/door/airlock/atmos{
 	name = "HFR"
@@ -37424,11 +37405,6 @@
 /obj/effect/mapping_helpers/requests_console/supplies,
 /turf/open/floor/wood,
 /area/station/service/bar)
-"kFR" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/open/water/deep_beach/lethal/planet_surface,
-/area/ocean)
 "kGj" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -55441,7 +55417,7 @@
 /area/station/command/bridge)
 "xan" = (
 /obj/machinery/dna_infuser,
-/obj/item/infuser_book,
+/obj/item/tgui_book/manual/infuser,
 /turf/open/floor/iron/dark,
 /area/station/science/genetics)
 "xat" = (
@@ -56279,11 +56255,6 @@
 /obj/machinery/duct,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
-"xxr" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/open/water/deep_beach/lethal/planet_surface,
-/area/station/solars/ocean/aisat)
 "xxt" = (
 /obj/structure/chair/sofa/bench/right,
 /obj/effect/turf_decal/siding/wood/end{
@@ -57261,10 +57232,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/engineering/lobby)
-"yhR" = (
-/obj/effect/spawner/structure/window,
-/turf/closed/wall,
-/area/station/service/abandoned_gambling_den)
 "yiz" = (
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 8
@@ -64132,7 +64099,7 @@ ayF
 ayF
 ayF
 ayF
-biB
+aoI
 azG
 aoI
 ayF
@@ -68354,7 +68321,7 @@ gEh
 vpC
 vpC
 vpC
-cjC
+fIT
 fIT
 oSZ
 oSZ
@@ -68894,7 +68861,7 @@ oSZ
 oSZ
 oSZ
 oSZ
-iiI
+oSZ
 oSZ
 pVS
 pVS
@@ -93931,7 +93898,7 @@ qRW
 gna
 klV
 xbJ
-yhR
+aJc
 pVS
 pVS
 pVS
@@ -98782,7 +98749,7 @@ ayF
 ayF
 ayF
 ayF
-xxr
+aHA
 tkS
 aHA
 ayF
@@ -100130,7 +100097,7 @@ aPi
 kPZ
 vBZ
 oRb
-aoJ
+vQz
 eZj
 cEA
 aUz
@@ -107107,7 +107074,7 @@ vtl
 bwm
 bwm
 ayF
-kFR
+fpT
 fpT
 fpT
 fpT
@@ -107303,7 +107270,7 @@ ayF
 ayF
 ayF
 ayF
-nxW
+cFB
 cFB
 cFB
 cFB
