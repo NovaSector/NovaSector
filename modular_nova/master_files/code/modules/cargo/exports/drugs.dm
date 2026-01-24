@@ -1,10 +1,6 @@
-/datum/export/food
-	cost = 10
-	unit_name = "serving"
-	message = "of food"
-	export_types = list(/obj/item/food)
-	include_subtypes = TRUE
-	exclude_types = list(/obj/item/food/grown,/obj/item/food/drug)
+/datum/export/food/New()
+	exclude_types += /obj/item/food/drug
+	return ..()
 
 /datum/export/moon_rock
 	cost = CARGO_CRATE_VALUE * 0.8
