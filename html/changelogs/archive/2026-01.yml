@@ -460,3 +460,481 @@
 2026-01-18:
   codyman765:
   - rscadd: Added new loadout plushie, a fluffy dragon! Now with removeable hat!
+2026-01-19:
+  Bannhammger:
+  - rscadd: 'adds a new tilting feature (Default hotkey: ''N'') - Hold and use arrow
+      keys to apply tilt to yourself.'
+  - rscadd: items will now have a chance to land messily when dropped if combat mode
+      is active, or if the item was thrown
+  wivernshy:
+  - rscadd: Adds wivernshy's donator item!
+2026-01-22:
+  splat1125:
+  - rscadd: Added a new undershirt, the cropped corset. recolorable!
+  - rscadd: Added a new under/uniform clothing item, wide legged pants, to loadouts
+      and station vendors. recolorable!
+  - bugfix: Security battle dress is no longer missing a single pixel at the crotch
+      when worn with the female bodytype
+2026-01-23:
+  A.C.M.O.:
+  - bugfix: Fixed a bug in Hemophage species blood drain action which caused lethality
+      warnings to appear later than expected.
+  Absolucy:
+  - refactor: Refactored turrets so they only process if something potentially "interesting"
+      is within its range.
+  - refactor: Refactored how mobs target turrets and mechs, which should hopefully
+      be more performant.
+  ArcaneMusic:
+  - admin: Fishing now has it's own log file, when a fish is caught or bred into the
+      game.
+  Arceniu:
+  - bugfix: ert commander card properly appear in game, no longer overriding basetype
+      ert card
+  Arturlang:
+  - bugfix: fixes star touch's cosmic bean making the victim forever unable to teleport
+      and leave trails
+  Cirrial:
+  - map: Fixed the access requirements of the telecomms door in Catwalk.
+  - image: The Human Observation Console for Abductors now has a separate icon for
+      Send To and Send Self.
+  Co0kie-GG:
+  - rscadd: "Glow on AI \u0421ores and IntelliCards"
+  - rscadd: New displays on IntelliCards
+  ElGitificador:
+  - bugfix: fixed experimentor irradiate goo failure locking experimentor
+  - bugfix: fixed syndi surplus crate desc not naming their new tc value properly
+  - spellcheck: fixed heckacious larincks not being properly capitalized
+  - bugfix: fixed bear suit not hiding hands
+  - balance: Advanced DNA injectors have a cooldown cap of 90s, as opposed to not
+      having a cap at all
+  - balance: DNA data disks can now store 10 mutations.
+  Ezel:
+  - balance: sabre, parsnip, gladius sheathe can now be worn on suit storages
+  - bugfix: mirrors gladius belt worn sprite so it doesn't overlap with belted revolvers
+  - image: adds mirrored belt sprites
+  - bugfix: Removes the intercomm in meta xenobio interior so it doesn't clip with
+      the shower anymore.
+  FalloutFalcon:
+  - bugfix: Brains, a few implants, glands, and all other organs now heal and fail
+      as intended
+  FalloutFalcon, Major00:
+  - rscadd: Adds Teto (Outfit), found in the autodrobe
+  - image: Resprited Miku outfit and fixed minor issues with it
+  Fghj240:
+  - rscadd: The void stamp is now obtainable
+  - rscadd: The lawdrobe now sells a box of stamps
+  - rscadd: The head of personnel's locker now contains a box of stamps
+  - bugfix: The mod stamper module is now visible
+  - balance: advanced disease cures are now based on their symptoms
+  - balance: spaceacillin is a little worse at curing viruses
+  - balance: health analyzers can only detect a limited amount of unique advanced
+      disease cures
+  - balance: advanced disease resistance affects natural recovery
+  - balance: advanced disease cure resistance cap raised
+  - balance: advanced disease stage speed starts higher and scales slower
+  - balance: low level virus symptoms have had their stats increased
+  - balance: vomiting symptom thresholds slightly increased
+  - balance: you don't count as sleeping for the purpose of natural recovery if made
+      unconscious by means other than sleeping
+  Ghommie:
+  - rscadd: Once installed, special PDA themes from maintenance disks will be present
+      on your roundstart PDA on future rounds (Sadly I couldn't figure out a way to
+      add those to the preferences UI yet). You can check which PDA themes you've
+      unlocked in the Progress tab of the achievements UI.
+  Happyowl93:
+  - bugfix: Contractor kit description modified to specify it doesn't come with a
+      modsuit.
+  Hardly:
+  - bugfix: Fixed hair dyes returning a TGUI error when trying to dye a hair.
+  - spellcheck: Fixed a typo with Deltastation's Server Room Entrance's camera.
+  Hatterhat:
+  - balance: Space Phase now has a cooldown of 30 seconds, up from 0, that applies
+      when you exit Space Phase.
+  - balance: Space Phase no longer grants space immunity and only allows traversal
+      on space or low-pressure outdoors turfs.
+  - balance: Ashen Passage cooldown doubled to 30 seconds, up from 15.
+  - balance: Feast of Owls is no longer a roundstart knowledge.
+  Hatterhat, vinylspiders:
+  - bugfix: Voltaic combat cyberheart's lightning overlay should be more reliably
+      cleared in the event that it should be lost.
+  - bugfix: If your voltaic combat cyberheart is lost/removed while you're in voltaic
+      overdrive, you lose the overdrive.
+  Jacquerel:
+  - bugfix: When you spawn as a plasmaman ninja, you will also have some breathable
+      air in your pocket
+  - qol: When you spawn as a ghost role plasmaman your internals should be enabled
+  - bugfix: If you use the polymorph belt to turn into a mob which transforms into
+      another mob, it won't ghost you or kick you out upon transformation.
+  - bugfix: Plasmaman Nuclear Operative helmet does not turn into a big error graphic
+      when its torch is enabled
+  - image: Plasmamen Nuclear Operatives illuminate their skull with red light instead
+      of purple
+  - rscadd: If you kill yourself with a spear you will impale your head on that spear.
+  - balance: Nightmares are Light Drinkers in addition to being Light Eaters.
+  - rscadd: You can now also load stunprods into ballistas, make sure you turn them
+      on first though
+  - balance: The mounted ballista's damage, wound chance, and armour penetration is
+      now dependent on what kind of spear is loaded into it, and is generally a bit
+      lower
+  - balance: Mounted guns are less accurate when not wrenched down
+  - bugfix: Cancelling reloading a ballista now cancels the reload rather than completing
+      it.
+  - bugfix: You can pick up the exact same spear you fired out of a ballista, rather
+      than a totally new generic spear
+  - bugfix: It is possible to damage and destroy mounted guns with weapons
+  - code_imp: Reworked mounted guns to duplicate less code, please report any deviant
+      behaviour
+  - balance: Eldritch rusted tiles don't apply their effects to anyone who is jaunted
+      or in vents, and don't apply negative effects to people who are flying.
+  - balance: Heretic items which apply rust (grenades and eldritch reagent) check
+      the rust resistance level of the turf rather than always rusting it.
+  - bugfix: Rust Heretics ascending don't rust unrustable turfs, like space tiles.
+  - bugfix: Chainsaws can't behead people with unremovable heads.
+  - bugfix: You can only put your own head on a spear or into a box if it is possible
+      to remove your head.
+  - bugfix: Heretic rifts can only remove your arms if your arms can be removed.
+  - bugfix: Paperwork can only cut off your head if your head can be cut off.
+  - bugfix: Smite being reflected can only blow off your arm if your arm can be removed.
+  - rscdel: It's no longer considered quirky to have Big Hands.
+  - bugfix: You can't shoot yourself using a wand or staff that you can't use, or
+      that has no charge
+  - rscadd: Most wands and staves now do something funnier if you use them to kill
+      yourself
+  - bugfix: When you pick up a plant pot and hide behind it you will now also move
+      it in front of you, in case it is visually far away from your position
+  JohnFulpWillard:
+  - refactor: ID checking for access has been reworked, please make a bug report if
+      anything that's supposed to grant access is not working.
+  - bugfix: Changing the job of one person from one job position to another won't
+      set EVERYONE ELSE of the old job's paycheck department to the new one.
+  - bugfix: PDA's ring again.
+  KingkumaArt:
+  - bugfix: Giantslayer spear now does intended damage to mining mobs.
+  L0pz:
+  - image: Claymore inhans are girthier
+  LT3:
+  - code_imp: Code unit testing now checks emergency access and red alert access
+  - bugfix: Fixed lights being able to run on emergency power forever
+  - bugfix: Fixed airlock responses while carrying another mob
+  - bugfix: Airlock checks for all possible permits before delaying
+  - bugfix: Throwing items at unrestricted airlocks opens them
+  MajManatee:
+  - qol: You can tilt, but MORE (From 10 degrees up to 45 now)
+  - bugfix: Tilting is now not inverted
+  Maximal08:
+  - qol: made division of Changeling abilities into categories
+  - image: added Defibrillator Grasp icon
+  - image: modified Pheromone Receptors icon
+  Melbert:
+  - qol: If a surgery table has a patient on it, and you click it with a surgical
+      tool, it redirects the click to the patient instead of placing the tool on the
+      table
+  - rscadd: Surgery has been REWORKED ENTIRELY
+  - rscadd: Surgery is now STATE BASED. What does this mean? Well, when you start
+      surgery, you apply drapes and then make an incision. Then you can either retract
+      skin or clamp bleeders. Once you retract skin you gain access to outer cavity
+      operations, then once you saw the bones, inner cavity operations.
+  - balance: If your vessels are unclamped, you bleed pretty fast. Clamp those blood
+      vessels fast to stop blood loss in surgery.
+  - balance: Species which lack skin or bones allow you to skip surgical steps. Skeletons
+      have no skin to incise, after all.
+  - qol: Nectrotic Revival now works with chemicals in the syringe used, rather than
+      only chemicals in the patient.
+  - qol: You can close a surgery with sutures, rather than only a cautery.
+  - qol: You can no longer feed someone an organ who is undergoing an operation.
+  - rscadd: Many surgeries have received new names or flavor.
+  - rscadd: The operating computer has received major tweaks. It now shows all potential
+      operations and the patient's current surgical state, highlighting any steps
+      you could take next.
+  - rscadd: New surgeries are now available immediately upon research. Syncing is
+      dead.
+  - rscadd: Organ fishing can now be complete in someone with an open cavity, rather
+      than someone undergoing organ manipulation.
+  - balance: You can no longer fish a vital organ (the brain) out of someone.
+  - rscadd: Organ thrower mod now works on people with open cavities, rather than
+      people undergoing organ manipulation.
+  - rscadd: Chestbursters now no longer gib people with open cavities, rather than
+      people undergoing organ manipulation.
+  - rscadd: Xenomorphs now have CHITIN rather than FLESH. This means little besides
+      indicating you need a saw to incise their skin.
+  - rscadd: Sterilizine and similar chemicals now have a set duration, 1 minute per
+      unit applied, up to 5 minutes.
+  - rscadd: Medibot upgrades are now applied automatically on research. Syncing is
+      dead.
+  - rscadd: Many mechanical surgeries targeting organs now require cybernetic organs
+      rather than a cybernetic bodypart.
+  - refactor: Surgery has literally be rewritten from the ground up. If you see anything
+      broken or weird looking, particularly with mechanical surgeries and medical
+      cyborgs, please report it
+  - qol: Examining yourself for injuries explains how to apply pressure to bleeding
+      limbs
+  - rscadd: Scientists only say Balmer voicelines if they are whimsical
+  - rscadd: Surgery gets slower if the surgeon is drunk, UNLESS you land in the Balmer
+      Peak, then it's actually faster.
+  - refactor: Refactored death moodlet, report any oddities
+  - balance: Golems have a whopping 0.5x modifier to brute and burn damage, but no
+      longer have a 0.9 modifier to tox / oxy damage.
+  - balance: Golems have a new 0.6x modifier to stamina damage and stun duration,
+      but also a new 1.2x modifier to knockdown duration.
+  - balance: Golems can no longer be defibrillated. Revival surgery is... untouched,
+      I guess.
+  - balance: Golems can be revived by applying materials to their body. Each sheet
+      restores some brute and burn damage, as well as some nutrition. When sufficient
+      brute, burn, and nutrition are restored, they are revived!
+  - balance: Golems can no longer fall into soft crit. They can still enter hard crit
+      and die when taking sufficient damage, though.
+  - balance: When a golem is attacked with brute or burn damage, they sustain direct
+      nutrition drain based on how much damage dealt.
+  - balance: Golems drain nutrition faster if near starving or below the normal soft
+      crit threshold.
+  - balance: Golems fall unconscious if starving.
+  - balance: When a golem's nutrition hits 0, they die!
+  - balance: Golems cannot get overweight, but are capped on the amount of nutrition
+      they can have
+  - balance: The strength of titanium's reduction to brute damage when consumed by
+      a golem or rock eater has been reduced (0.7x -> 0.8x)
+  - balance: Eating iron no longer heals tox or oxy for golems or rock eaters (still
+      heals brute and burn)
+  - balance: Golems now have a unique bodytype, making them ineligible for some surgeries
+  - rscadd: Adds "reset dislocation" operation, which is a surgical analog to resetting
+      a dislocated limb. Same tools, same steps, but if you go through the effort
+      of doing it surgically, it's faster and safer.
+  - rscadd: All wound surgeries now gain a speed bonus from being wound scanned.
+  - balance: Plasmamen no longer take flat 1.5x brute and burn damage
+  - balance: Plasmamen are now affected by weapon demolition modifier, meaning blunt
+      attacks deal more damage but slashing or piercing deal less damage
+  - balance: Skeletons and Golems are also affected by weapon demolition modifier,
+      as well as any mineral type mobs (of which none currently exist)
+  - bugfix: Fixes more surgeries being marked as a priority operation that intended
+  - bugfix: Naive and Desensitized people get less sad at death
+  - rscadd: Adds "surgical processor implant", a cybernetic brain implant which grants
+      the user knowledge of whatever surgeries are installed in it.
+  - bugfix: Moth wing repair surgery correctly checks that bones are intact rather
+      than bones are sawed
+  - rscadd: You can skip the "apply drapes" step of surgery if the patient is buckled
+      to an operating table or stasis bed!
+  - balance: Pressure damage scales over time. It starts at 2 per second (pre-buff
+      value) but increases by 0.5 damage every 1.2 minutes you are exposed, up to
+      5 per second (requiring 7.2 full minutes of exposure).
+  - rscadd: Adds stasis bodybags, unlocked with cryo tech. They put its occupants
+      (organ or mobs) in stasis, but wear down over time.
+  - rscadd: Adds triage cards to the medical vendor, a flavor item docs can use during
+      mass casualty events.
+  - qol: You can pin papers to closed bodybags. Keep organized with your autopsies.
+  - qol: You can interact with papers in folders and on clipboards
+  - qol: All forms of stasis stop brain tumors
+  - rscadd: Hangover effects depend on personality traits
+  - qol: Objects that can pass over tables don't block table construction
+  - qol: If table construction fails, it tells you what is blocking, rather than "something
+      is"
+  - qol: Biogenerators protect food placed on top of them from germs
+  - rscadd: You can now find the SDMS-35 in Medbay, the CMO's office, the Psychologist's
+      office, and possibly the Library. Quite simply, it's a reference book for all
+      the brain trauma's you may experience.
+  - bugfix: Syncing instruments no longer fails if starting instrument is held
+  - spellcheck: Corrects the blind message for manual cauterization
+  - bugfix: Fixed spotlight effect on multi-z map
+  - bugfix: Surgical state applied by wounds no longer persist after fix
+  - rscadd: Hallucinations that don't make sense to trigger while unconscious or deaf
+      will no longer trigger while unconscious or deaf
+  - balance: 'Thermal vision mutation: Active duration 10s -> 30s  (with power, 30s->45s)'
+  - balance: 'Thermal vision mutation: Cooldown 25s -> 60s (with energy, 60s -> 30s)'
+  - balance: 'Thermal vision mutation: Eye damage 10 -> 7.5 (with sync, 7.5 -> 3.75)'
+  - balance: 'Thermal vision mutation: Eye damage is now affected by power chromosome
+      (with power, 7.5 -> 11.25)'
+  - balance: Rebalanced Unstable Mutagen's / Uranium's botany use. It now always increases
+      instability (on par with L4Z), and occasionally increases instability even more
+      at the costs of some toxins. It also scales with volume
+  - rscadd: Adds "Toxin Resistance" gene to botany which makes the plant immune to
+      toxin damage. Given (and graftable from) Death Berries.
+  - rscadd: Adds "Toxin Adaptation" gene to botany which makes the plant heal from
+      toxin damage. Only in strange seeds (for now).
+  - code_imp: Cleaned up a smidge of botany code
+  - rscadd: All radios (intercoms and station-bounced) can have encryption keys installed
+      in them, rather than solely headsets and cyborgs.
+  - rscadd: Existing screwdriver interactions for station-bounced radios and intercoms
+      have been moved to right click. However, intercoms will still default to the
+      old behavior if they have no key installed.
+  - qol: Screentips for radios.
+  - rscdel: N-spect scanners can no longer print reports. All it does now is scan
+      for contraband.
+  - rscdel: Clown N-spect scanners have been removed.
+  - rscdel: Security no longer get bounties to loot the brig's equipment. Though the
+      contraband bounty is still available.
+  - rscadd: Security's patrol bounties have been reworked. Now, they just require
+      you to walk around an area for a bit. No scanning necessary.
+  - refactor: Adds setters for bounties and bank accounts. Report any situations where
+      your bank account is not set correctly.
+  - refactor: ID trims now handle bounty generation. Report any situations where you
+      get a weird pool of bounties.
+  - bugfix: Bountious Bounties station trait works again
+  MelokG000:
+  - balance: Added yellow pocket oxygen tank to kinetic crusher kit
+  Nari Harimoto:
+  - bugfix: Camera Consoles no longer hallucinate the Gateway in a different position
+  - map: Nanotrasen found the budget to add a small circuit workshop to the engineering
+      department on every station except for tramstation.
+  RikuTheKiller:
+  - rscadd: Added a new heavy roundstart/midround antagonist, the Blood Worm. Credit
+      to INFRARED_BARON for the sprites!
+  - bugfix: Removing traits based on a source no longer causes issues with trait signals.
+  - bugfix: High-priority effects no longer double-trigger due to subsystem issues.
+  - bugfix: Weighted averaging in reagent merging code has been band-aid fixed. It's
+      not the best, but it works.
+  - bugfix: Camera chunks, the biggest source of lag in the entire game, now run twice
+      as fast.
+  SapphoQueer:
+  - bugfix: Hypnoflashes now fit on secbelts just like regular flashes.
+  - bugfix: Modular computers now have a 2 second delay before being deconstructed.
+  - bugfix: Jaws of life can cuffsnap again.
+  - bugfix: The buttons for lavaland organs no longer show up after their removal
+      from your body.
+  SmArtKar:
+  - rscadd: You can now butcher individual limbs and people by right clicking with
+      a knife on combat mode. Doing so requires cut and open skin, as well as sawed
+      bone and no organs inside the limb.
+  - rscadd: Gibbers now source their meat from the victim's limbs and not species
+  - rscadd: Meat spikes in the freezer now allow their victims to be operated on
+  - balance: Butcher's knives are now a bit faster.
+  - bugfix: Fixed incorrect leg number calculations for disabled limbs.
+  - bugfix: Skeleton limbs can no longer get scars.
+  - refactor: Refactored gibbers, butchering and meat spikes.
+  - bugfix: Fixed people hanged on meat spikes sometimes rotating sideways
+  - image: Sinew on bones from butchered limbs now inherits its owner's blood color
+  - qol: You can now clamp cables by RMBing them with wirecutters in order to prevent
+      them from connecting to other cables in a certain direction.
+  - refactor: Refactored cable interaction and some of connection code
+  - rscadd: Multiple new reagents such as napalm, sorium, TATP, smoke/sonic/flash
+      powders and other explosives can now be used to rig cells or tools.
+  - rscadd: Plasma and gunpowder rigged items can now have controlled current requirement/delay
+      by adding some stabilizing agent alongside the main reagent.
+  - balance: Creating chemical smoke inside of a mob now makes them violently cough
+      it up, damaging their lungs a bit.
+  - bugfix: Chemically-rigged lightbulbs now once again explode.
+  - refactor: Refactored how power cells, welding tools, lightbulbs, cigarettes (and
+      now, lighters) handle being rigged with chemicals.
+  - bugfix: Fixed ID cards sometimes not functioning within wallets/PDAs
+  - code_imp: Dreamchecker no longer throws an error if you run the game with the
+      MAP_TEST flag
+  - bugfix: Added logging and fingerprints to pipebombs
+  - rscadd: Made lizard skin and lizardskin items inherit their "donor's" skin color
+  - bugfix: Fixed odd behaviors of floppy disk stacks
+  SpaceManiac:
+  - bugfix: Wiki books such as "Barman Recipes" and "Space Law" no longer have terrible
+      formatting.
+  - bugfix: Wiki books now properly give book nerd moodlets.
+  SyncIt21:
+  - code_imp: removes an unused parameter `times_fired` from mob life procs. Making
+      them function slightly faster
+  - qol: added examines & screentips for ducts & stack of ducts
+  - qol: you can wrench a stack of ducts on the ground to create a pipe
+  - refactor: plumbing code has been improved overall. Report bugs on github
+  - bugfix: objects mounted in shuttle areas deconstruct when their support structure
+      is destroyed
+  - bugfix: fixes runtime in arrivals shuttle when its request console is destroyed
+  - map: moved around some objects in shuttles so they can be mounted on its walls
+      again
+  - bugfix: plumbing machinery can't be anchored on top of machines that have other
+      ducts/plumbing machines on them
+  - code_imp: improved plumbing layer overlap code to report early bugs
+  - bugfix: removing implant in cybernetic brain works again
+  - bugfix: photocopier does not charge for failed tasks
+  TheNobodyofimportance:
+  - bugfix: The Syndicate infiltrator no longer spawns in the nuclear base, and instead
+      spawns alongside nukies, eliminating lazyload clipping.
+  - bugfix: Clownops now spawn with a bananium bomb in their infiltrator.
+  Tractor-Maam:
+  - bugfix: fixed circuit action icon five
+  Vect0r2:
+  - balance: people with immunodeficiency no longer can cure themselves automatically
+  VigilDLX:
+  - bugfix: Fixed Medipen Refiller taking more than it refilled
+  Y0SH1M4S73R:
+  - bugfix: A fishing rod's materials can only be applied to fish when they are initially
+      spawned from a fishing spot. This means you cannot repeatedly apply a fishing
+      rod's materials to the same single fish to increase its mass without limits.
+  - rscadd: Adds the MOD Storage Module of Holding, a version of the Bag of Holding
+      for your MODsuits.
+  - refactor: The behavior of MODsuit storage modules and anomaly-locked modules has
+      been refactored - please report any oddities.
+  carpotoxin:
+  - sound: Adds a stinger sound effect to the Marauder antag, personally voiced by
+      Keanu Reeves.
+  - bugfix: fixed the queue'ing of roundstart antags
+  - code_imp: Adding or removing rulesets from the queue list is done by procs instead
+      of directly editing the list.
+  combustor:
+  - bugfix: Adds a request console to the CE's office in catwalk
+  jlsnow301:
+  - bugfix: Fixed an issue in TGUI that caused icons to not load sometimes
+  lelandkemble:
+  - map: The last full wooden barricades on top of dense objects have been excised
+  - bugfix: Flipped RPD-placed trinary atmospheric implements now place properly.
+  - bugfix: intercoms will now visibly have their mic on when constructed manually
+  - bugfix: Fixes light deconstruction succeeding when they're fully constructed,
+      and failing when they're not.
+  - bugfix: Paywall firing pins are registerable again, & they'll keep being registerable
+      after being unregistered.
+  - bugfix: Taking keys out of vehicles puts them in your hands if possible
+  - balance: You can't smell monkeys unless you're next to them, or have a good nose.
+  - bugfix: Disposal pipe previews within the RPD ui will now be correct
+  - balance: wooden barricades mapped on top of objects are now crude barricades,
+      preventing them from materializing when you open a door.
+  - map: Catwalk AI sat's door accesses have been brought in line with other maps
+  - map: Icebox science now requires science access to enter
+  - qol: Ghost health and chem scanning displays after examine information rather
+      than before
+  - map: AI satellite accesses have been made more consistent across maps.
+  loganuk:
+  - bugfix: Restores emergency access feature
+  - map: CATWALK - Chapel has had an upgrade, rejoice in a larger area
+  - map: CATWALK - Atmos & Engi had a quick tidy up
+  - map: CATWALK - Solar Arrays tweaked to be better
+  - map: CATWALK - South East Maintenance has changed
+  - map: CATWALK - Security expanded
+  - map: CATWALK - AI Sat fortified similar to Meta and other maps
+  - map: CATWALK - See full change log in PR
+  - bugfix: Shuttle purchase screen now shows price for emag shuttles as well as normal
+  - bugfix: Making surgery beds on top of stasis beds no longer possible
+  mcbalaam:
+  - rscadd: "Big Manipulators are now Smart\u2122"
+  necromanceranne:
+  - qol: The white ship has a unique GPS signal. Just look for the 'Distress Signal'
+      co-ordinate.
+  - balance: The infiltrator and blood-red modsuit have had their armor values swapped.
+  san7890:
+  - bugfix: Killing Blood Drunk Miner normally should no longer give you a crusher
+      achievement.
+  - balance: 'Miners Beware: Blood Drunk Miners have been refactored into basic mobs.
+      This means their timings and such may be a bit more unpredictable than what
+      you''re used to. The difficulty should be about the same, but do approach with
+      caution lest you get devoured...'
+  - balance: Helping out (or just watching) the murderization of xenomorphs will give
+      you a positive moodlet, with increased effect depending on the strength of the
+      xenomorph. Bonus points for sending them out in gibby/dusty fashion.
+  - balance: However, if you are a carrier of a xenomorph embryo and witness this
+      death, the unborn entity inside you will provoke a sense of malaise having been
+      so close to the death of the sister.
+  se:
+  - balance: Killing yourself with a tadpole now only bursts your chest open and not
+      your entire body, and frankly even that is pretty impressive work for a single
+      frog to manage.
+  - bugfix: Killing yourself in various other ways that gib or dust you will no longer
+      delete the items you were wearing, consistent with most of the other ways of
+      killing yourself that gib or dust you.
+  splat1125:
+  - rscadd: '[Thanks to Rett Jester] Three new vocal barks based around extremely
+      old vocal synthesizers!'
+  tontyGH:
+  - bugfix: As the AI, possessing an empty shell will no longer break your de-synchronization
+      protocols, which would trap your Nanotrasen-brand Silica-Soul(TM) inside of
+      it.
+  trickyfox-inc:
+  - admin: New adminverb "show occupants PP". You can now open the PP of mobs inside
+      vehicles, closets, machinery, body bags, etc. via the RMB context menu.
+  vinylspiders:
+  - bugfix: fixed tilting not working with shift/ctrl + bindings.
+  - qol: tilting is now a toggle, to exit tilting just press the hotkey again or move
+      up or down. adds feedback in the form of a balloon alert.
+  - refactor: faction list structures have been refactored, please report any unusual
+      faction related behavior

@@ -64,18 +64,19 @@
 	egg_owner.med_hud_set_status()
 	INVOKE_ASYNC(src, PROC_REF(RemoveInfectionImages), egg_owner)
 
-/obj/item/organ/body_egg/spideregg_infection/on_death(seconds_per_tick, times_fired)
+/obj/item/organ/body_egg/spideregg_infection/on_death(seconds_per_tick)
 	. = ..()
 	if(!owner)
 		return
-	egg_process(seconds_per_tick, times_fired)
+	egg_process(seconds_per_tick)
 
-/obj/item/organ/body_egg/spideregg_infection/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/body_egg/spideregg_infection/on_life(seconds_per_tick)
 	. = ..()
-	egg_process(seconds_per_tick, times_fired)
+	egg_process(seconds_per_tick)
 
 // let's make a timer proc so it doesn't shit out spiders every game tic
-/obj/item/organ/body_egg/spideregg_infection/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/body_egg/spideregg_infection/on_life(seconds_per_tick)
+	. = ..()
 	if(!active)
 		return
 	if(!ishuman(owner))
@@ -87,7 +88,7 @@
 		COOLDOWN_START(src, activation_cooldown, rand(cooldown_low, cooldown_high))
 	if(!uses)
 		active = FALSE
-	egg_process(seconds_per_tick, times_fired)
+	egg_process(seconds_per_tick)
 
 // activate the spoods!
 /obj/item/organ/body_egg/spideregg_infection/activate()

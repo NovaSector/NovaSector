@@ -96,7 +96,7 @@
 	human_owner.Knockdown(6 SECONDS)
 	human_owner.Stun(4 SECONDS)
 	human_owner.do_jitter_animation(18 SECONDS)
-	human_owner.blood_volume -= 90
+	human_owner.adjust_blood_volume(-90)
 	addtimer(CALLBACK(src, PROC_REF(vomit_blood)), 3 SECONDS)
 
 // Hackerman deck, lets you emag or doorjack things (NO CYBORGS) within a short range of yourself

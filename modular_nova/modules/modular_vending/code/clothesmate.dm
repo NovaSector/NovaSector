@@ -60,6 +60,7 @@
 				/obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt = 5,
 				/obj/item/clothing/under/shorts/nova/shorts_ripped = 5,
 				/obj/item/clothing/under/pants/nova/yoga = 5,
+				/obj/item/clothing/under/pants/nova/wide_leg = 5,
 				/obj/item/clothing/under/misc/nova/mechanic = 5,
 				/obj/item/clothing/under/misc/bluetracksuit = 5,
 				/obj/item/clothing/under/suit/nova/recolorable = 5,

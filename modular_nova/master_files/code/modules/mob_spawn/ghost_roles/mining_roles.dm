@@ -175,7 +175,7 @@
 	var/jobtype = /datum/job/interdyne_planetary_base
 
 /datum/outfit/interdyne_planetary_base/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
-	syndicate.faction |= ROLE_INTERDYNE_PLANETARY_BASE
+	syndicate.add_faction(ROLE_INTERDYNE_PLANETARY_BASE)
 
 	var/obj/item/card/id/id_card = syndicate.wear_id
 	if(istype(id_card))

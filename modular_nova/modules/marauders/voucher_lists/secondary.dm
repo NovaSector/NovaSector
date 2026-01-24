@@ -158,12 +158,21 @@
 	)
 
 /datum/voucher_set/traitor/secondary_weapon/esword
-	name = /obj/item/melee/energy::name
-	description = /obj/item/melee/energy::desc
+	name = /obj/item/melee/energy/sword/saber/red::name
+	description = /obj/item/melee/energy/sword/saber/red::desc
 	icon = 'icons/obj/weapons/transforming_energy.dmi'
 	icon_state = "e_sword_on"
 	set_items = list(
-		/obj/item/melee/energy/sword,
+		/obj/item/melee/energy/sword/saber/red,
+	)
+
+/datum/voucher_set/traitor/secondary_weapon/esword_covenant
+	name = /obj/item/melee/energy/sword/saber/covenant::name
+	description = /obj/item/melee/energy/sword/saber/covenant::desc
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi'
+	icon_state = "covenant_on_blue"
+	set_items = list(
+		/obj/item/melee/energy/sword/saber/covenant/blue,
 	)
 
 /datum/voucher_set/traitor/secondary_weapon/switchblade

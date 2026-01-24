@@ -184,7 +184,7 @@
 	return COMPONENT_BULLET_PIERCED
 
 
-/datum/reagent/drug/twitch/on_mob_life(mob/living/carbon/our_guy, seconds_per_tick, times_fired)
+/datum/reagent/drug/twitch/on_mob_life(mob/living/carbon/our_guy, seconds_per_tick)
 	. = ..()
 
 	constant_dose_time += seconds_per_tick
@@ -223,7 +223,7 @@
 		animate(filter, loop = -1, color = col_filter_ourple, time = 4 SECONDS, easing = BOUNCE_EASING)
 
 
-/datum/reagent/drug/twitch/overdose_process(mob/living/carbon/our_guy, seconds_per_tick, times_fired)
+/datum/reagent/drug/twitch/overdose_process(mob/living/carbon/our_guy, seconds_per_tick)
 	. = ..()
 	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)
 
