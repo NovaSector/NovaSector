@@ -29,16 +29,6 @@
 	dir = 4
 	},
 /area/shuttle/hc_cops/checkpoint)
-"av" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/obj/item/flashlight/lamp{
-	pixel_y = 9
-	},
-/obj/item/newspaper,
-/obj/structure/sign/calendar/directional/east,
-/turf/open/floor/carpet/black,
-/area/shuttle/hc_cops/isolation)
 "ax" = (
 /obj/structure/drain/big,
 /obj/machinery/light/warm/directional/west,
@@ -840,9 +830,15 @@
 	},
 /area/shuttle/hc_cops/recreation)
 "hn" = (
-/obj/machinery/telecomms/relay/preset/auto,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/hc_cops/command)
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/item/flashlight/lamp{
+	pixel_y = 9
+	},
+/obj/item/newspaper,
+/obj/structure/sign/calendar/directional/east,
+/turf/open/floor/carpet/black,
+/area/shuttle/hc_cops/isolation)
 "ho" = (
 /obj/structure/rack,
 /obj/item/cultivator,
@@ -2376,6 +2372,16 @@
 "vt" = (
 /turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/cargo_hold)
+"vx" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/item/flashlight/lamp{
+	pixel_y = 9
+	},
+/obj/item/newspaper,
+/obj/structure/sign/clock/directional/west,
+/turf/open/floor/carpet/black,
+/area/shuttle/hc_cops/isolation)
 "vA" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/tile/dark/half,
@@ -2825,9 +2831,7 @@
 /area/shuttle/hc_cops/command)
 "Ab" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/coffeemaker{
-	pixel_y = 5
-	},
+/obj/machinery/coffeemaker,
 /obj/item/coffee_cartridge/fancy,
 /obj/item/coffee_cartridge/fancy,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -3491,9 +3495,7 @@
 /area/shuttle/hc_cops/infirmary)
 "Gr" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/processor{
-	pixel_y = 8
-	},
+/obj/machinery/processor,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/hc_cops/canteen)
 "Gw" = (
@@ -4327,7 +4329,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/turf/open/floor/catwalk_floor/airless,
+/turf/open/floor/plating/reinforced,
 /area/shuttle/hc_cops/engineering)
 "NC" = (
 /obj/effect/turf_decal/tile/dark/anticorner,
@@ -5056,15 +5058,9 @@
 /turf/template_noop,
 /area/shuttle/hc_cops/canteen)
 "Uv" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
-/obj/item/flashlight/lamp{
-	pixel_y = 9
-	},
-/obj/item/newspaper,
-/obj/structure/sign/clock/directional/west,
-/turf/open/floor/carpet/black,
-/area/shuttle/hc_cops/isolation)
+/obj/machinery/telecomms/relay/preset/auto,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/hc_cops/command)
 "Uz" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -6093,7 +6089,7 @@ jD
 cn
 Wb
 uR
-hn
+Uv
 DK
 hf
 oO
@@ -6213,7 +6209,7 @@ Oj
 Cq
 BF
 OK
-Uv
+vx
 Mu
 vr
 lu
@@ -6283,7 +6279,7 @@ lu
 qr
 kx
 vE
-av
+hn
 OP
 DZ
 lu
