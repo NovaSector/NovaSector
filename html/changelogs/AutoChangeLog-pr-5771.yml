@@ -1,5 +1,0 @@
-author: "DeepSpaceFurry"
-delete-after: True
-changes:
-  - rscadd: "Adds an Interdyne company import that can only be accessed via Interdyne company express terminal"
-  - code_imp: "Removed dead code regarding company imports"

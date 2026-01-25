@@ -1,5 +1,0 @@
-author: "SomeRandomOwl"
-delete-after: True
-changes:
-  - rscadd: "Adds a new global perf that enables ghosts / observers to see runechat messages above other observers. This is disabled by default, enable it in your settings."
-  - admin: "Added a Admin verb to disable ghost runechat. In case of lag."

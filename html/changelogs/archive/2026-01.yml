@@ -956,3 +956,17 @@
       the sector, allowing them to alert to deaths anywhere BUT the station, making
       them actually useful for aspiring space explorers and/or people who are paranoid
       about being hucked out of airlocks.
+2026-01-25:
+  DeepSpaceFurry:
+  - rscadd: Adds an Interdyne company import that can only be accessed via Interdyne
+      company express terminal
+  - code_imp: Removed dead code regarding company imports
+  Hardly:
+  - image: 'Added two new halos: Simple and Double, as well as their static variants.'
+  MacaroniCritter:
+  - bugfix: Fixes the missing muzzle sprite for the gaiter face mask.
+  SomeRandomOwl:
+  - rscadd: Adds a new global perf that enables ghosts / observers to see runechat
+      messages above other observers. This is disabled by default, enable it in your
+      settings.
+  - admin: Added a Admin verb to disable ghost runechat. In case of lag.
