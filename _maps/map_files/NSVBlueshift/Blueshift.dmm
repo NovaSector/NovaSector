@@ -16694,6 +16694,13 @@
 "dro" = (
 /turf/open/floor/iron/dark,
 /area/station/service/cafeteria)
+"drq" = (
+/obj/structure/chair/comfy/black{
+	dir = 1;
+	pixel_y = 3
+	},
+/turf/open/floor/iron,
+/area/station/command/bridge)
 "drB" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -39742,6 +39749,7 @@
 	},
 /area/station/common/pool)
 "iaH" = (
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/stairs/left{
 	dir = 4
 	},
@@ -53134,10 +53142,6 @@
 /obj/machinery/duct,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
-"kJQ" = (
-/obj/machinery/modular_computer/preset/command,
-/turf/open/floor/iron/dark,
-/area/station/command/bridge)
 "kJX" = (
 /obj/structure/easel,
 /obj/item/canvas/twentythree_twentythree{
@@ -67821,7 +67825,7 @@
 /area/station/hallway/primary/central/aft)
 "nLV" = (
 /obj/structure/window/reinforced/spawner/directional/east,
-/obj/machinery/computer/shuttle/arrivals/recall{
+/obj/machinery/modular_computer/preset/command{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -82233,10 +82237,6 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/customs/auxiliary)
 "qDo" = (
-/obj/structure/chair/comfy/black{
-	dir = 1;
-	pixel_y = 3
-	},
 /obj/machinery/keycard_auth/wall_mounted/directional/south{
 	pixel_y = -23
 	},
@@ -120250,7 +120250,6 @@
 /turf/open/floor/carpet/purple,
 /area/station/common/night_club)
 "ydD" = (
-/obj/machinery/light_switch/directional/south,
 /obj/machinery/light/directional/south,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/blue/half/contrasted,
@@ -218104,8 +218103,8 @@ bbG
 bwg
 gij
 bMO
+drq
 tVq
-kJQ
 qDo
 jiu
 lYQ
