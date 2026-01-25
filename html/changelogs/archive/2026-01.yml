@@ -963,6 +963,10 @@
   - rscadd: Adds an Interdyne company import that can only be accessed via Interdyne
       company express terminal
   - code_imp: Removed dead code regarding company imports
+  Happyowl93:
+  - rscadd: There's a shortage of maintenance drugs like SaturnX, Blastoff and moon
+      rocks in the market, they give out a competitive price compared to other drugs
+      now. Meth crystals are also looking very juicy.
   Hardly:
   - image: 'Added two new halos: Simple and Double, as well as their static variants.'
   JohnFulpWillard:
@@ -984,3 +988,6 @@
   - admin: Added a Admin verb to disable ghost runechat. In case of lag.
   jlsnow301:
   - bugfix: Fixed the regex mode toggle in the spawn (verb) panel.
+  vinylspiders:
+  - bugfix: fixes an exploit where you could use pixel tilt to infinitely scale your
+      character up or down
