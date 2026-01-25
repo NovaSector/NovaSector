@@ -184,7 +184,7 @@
 	return COMPONENT_BULLET_PIERCED
 
 
-/datum/reagent/drug/twitch/on_mob_life(mob/living/carbon/our_guy, seconds_per_tick)
+/datum/reagent/drug/twitch/on_mob_life(mob/living/carbon/our_guy, seconds_per_tick, metabolization_ratio)
 	. = ..()
 
 	constant_dose_time += seconds_per_tick
@@ -205,7 +205,7 @@
 		our_guy.ForceContractDisease(new /datum/disease/adrenal_crisis(), FALSE, TRUE)
 
 
-/datum/reagent/drug/twitch/overdose_start(mob/living/our_guy)
+/datum/reagent/drug/twitch/overdose_start(mob/living/our_guy, metabolization_ratio)
 	. = ..()
 
 	RegisterSignal(our_guy, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(dodge_bullets))
@@ -223,7 +223,7 @@
 		animate(filter, loop = -1, color = col_filter_ourple, time = 4 SECONDS, easing = BOUNCE_EASING)
 
 
-/datum/reagent/drug/twitch/overdose_process(mob/living/carbon/our_guy, seconds_per_tick)
+/datum/reagent/drug/twitch/overdose_process(mob/living/carbon/our_guy, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)
 

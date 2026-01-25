@@ -13,17 +13,17 @@
 	return TRUE
 
 // Fuels for the synthetic fuel cell
-/datum/reagent/stable_plasma/on_mob_life(mob/living/carbon/affected_mob)
+/datum/reagent/stable_plasma/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(can_fuel_synth(affected_mob))
 		affected_mob.nutrition = min(affected_mob.nutrition + 5, NUTRITION_LEVEL_FULL-1)
 	return ..()
 
-/datum/reagent/fuel/on_mob_life(mob/living/carbon/affected_mob)
+/datum/reagent/fuel/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(can_fuel_synth(affected_mob))
 		affected_mob.nutrition = min(affected_mob.nutrition + 5, NUTRITION_LEVEL_FULL-1)
 	return ..()
 
-/datum/reagent/carbondioxide/on_mob_life(mob/living/carbon/affected_mob)
+/datum/reagent/carbondioxide/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(can_fuel_synth(affected_mob))
 		affected_mob.nutrition = min(affected_mob.nutrition + 5, NUTRITION_LEVEL_FULL-1)
 	return ..()
@@ -39,7 +39,7 @@
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 	affected_biotype = MOB_ROBOTIC
 
-/datum/reagent/medicine/system_cleaner/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
+/datum/reagent/medicine/system_cleaner/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(affected_mob.adjust_tox_loss(-2 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 		. = UPDATE_MOB_HEALTH
 	affected_mob.adjust_disgust(-5 * REM * seconds_per_tick)
@@ -61,7 +61,7 @@
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 	affected_organ_flags = ORGAN_ROBOTIC
 
-/datum/reagent/medicine/liquid_solder/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
+/datum/reagent/medicine/liquid_solder/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, -3 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	if(prob(10))
 		var/obj/item/organ/brain/owner_brain = affected_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
@@ -86,12 +86,12 @@
 	var/temperature_change = 50
 
 
-/datum/reagent/medicine/nanite_slurry/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
+/datum/reagent/medicine/nanite_slurry/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	var/heal_amount = healing * REM * seconds_per_tick
 	affected_mob.heal_bodypart_damage(heal_amount, heal_amount, required_bodytype = affected_bodytype)
 	return ..()
 
-/datum/reagent/medicine/nanite_slurry/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick)
+/datum/reagent/medicine/nanite_slurry/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(affected_mob.mob_biotypes & affected_biotype)
 		affected_mob.adjust_bodytemperature(temperature_change * REM * seconds_per_tick)
 		return ..()

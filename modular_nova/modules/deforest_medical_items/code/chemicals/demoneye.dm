@@ -97,7 +97,7 @@
 	game_plane_master_controller.remove_filter("demoneye_blur")
 
 
-/datum/reagent/drug/demoneye/on_mob_life(mob/living/carbon/our_guy, seconds_per_tick)
+/datum/reagent/drug/demoneye/on_mob_life(mob/living/carbon/our_guy, seconds_per_tick, metabolization_ratio)
 	. = ..()
 
 	constant_dose_time += seconds_per_tick
@@ -118,7 +118,7 @@
 	if(locate(/datum/reagent/drug/twitch) in our_guy.reagents.reagent_list) // Combining this with twitch could cause some heart attack problems
 		our_guy.apply_status_effect(/datum/status_effect/heart_attack)
 
-/datum/reagent/drug/demoneye/overdose_process(mob/living/carbon/our_guy, seconds_per_tick)
+/datum/reagent/drug/demoneye/overdose_process(mob/living/carbon/our_guy, seconds_per_tick, metabolization_ratio)
 	. = ..()
 
 	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)
