@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes an exploit where you could use pixel tilt to infinitely scale your character up or down"
