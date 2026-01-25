@@ -214,7 +214,7 @@
 	)
 
 /obj/item/mod/control/pre_equipped/interdyne/nerfed
-	theme = /datum/mod_theme/interdyne
+	theme = /datum/mod_theme/interdyne/nerfed
 	starting_frequency = MODLINK_FREQ_SYNDICATE
 	applied_cell = /obj/item/stock_parts/power_store/cell/super
 	applied_modules = list(

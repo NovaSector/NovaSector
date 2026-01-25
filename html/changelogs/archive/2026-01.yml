@@ -956,3 +956,38 @@
       the sector, allowing them to alert to deaths anywhere BUT the station, making
       them actually useful for aspiring space explorers and/or people who are paranoid
       about being hucked out of airlocks.
+2026-01-25:
+  ArcaneMusic:
+  - spellcheck: The slime management console no longer reads a variable name out incorrectly.
+  DeepSpaceFurry:
+  - rscadd: Adds an Interdyne company import that can only be accessed via Interdyne
+      company express terminal
+  - code_imp: Removed dead code regarding company imports
+  Happyowl93:
+  - rscadd: There's a shortage of maintenance drugs like SaturnX, Blastoff and moon
+      rocks in the market, they give out a competitive price compared to other drugs
+      now. Meth crystals are also looking very juicy.
+  Hardly:
+  - image: 'Added two new halos: Simple and Double, as well as their static variants.'
+  JohnFulpWillard:
+  - rscadd: Masks now fit snouted species a little bit better, maybe.
+  JoshAdamPowell:
+  - admin: Someone gave Centcom permission to access the anomalous materials research
+      department. The result surely can't be good...
+  LT3:
+  - bugfix: Emergency lighting consumes its cell at the expected rate
+  - bugfix: Fixed lights breaking forever if they lose power
+  MacaroniCritter:
+  - bugfix: Fixes the missing muzzle sprite for the gaiter face mask.
+  SmArtKar:
+  - bugfix: Fixed fancytypes in admin menus being mangled
+  SomeRandomOwl:
+  - rscadd: Adds a new global perf that enables ghosts / observers to see runechat
+      messages above other observers. This is disabled by default, enable it in your
+      settings.
+  - admin: Added a Admin verb to disable ghost runechat. In case of lag.
+  jlsnow301:
+  - bugfix: Fixed the regex mode toggle in the spawn (verb) panel.
+  vinylspiders:
+  - bugfix: fixes an exploit where you could use pixel tilt to infinitely scale your
+      character up or down
