@@ -37619,6 +37619,10 @@
 /obj/effect/turf_decal/trimline/dark_blue/corner,
 /turf/open/misc/beach/sand,
 /area/ocean)
+"kPq" = (
+/obj/effect/landmark/carpspawn,
+/turf/open/water/deep_beach/planet_surface,
+/area/ocean/generated)
 "kPZ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -42965,6 +42969,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/aft)
+"oHY" = (
+/obj/effect/landmark/carpspawn,
+/turf/open/water/beach/planet_surface,
+/area/ocean/generated/shallow)
 "oIf" = (
 /obj/machinery/rnd/server/master,
 /obj/item/toy/figure/ninja{
@@ -53291,6 +53299,10 @@
 /obj/item/radio/intercom/chapel/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/monastery)
+"vGu" = (
+/obj/effect/landmark/carpspawn,
+/turf/open/water/deep_beach/lethal/planet_surface,
+/area/ocean/generated/deep)
 "vHj" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
@@ -62558,6 +62570,7 @@ ayF
 ayF
 ayF
 ayF
+vGu
 ayF
 ayF
 ayF
@@ -62570,8 +62583,7 @@ ayF
 ayF
 ayF
 ayF
-ayF
-ayF
+vGu
 ayF
 ayF
 ayF
@@ -63906,7 +63918,7 @@ ayF
 ayF
 ayF
 ayF
-pVS
+kPq
 pVS
 pVS
 pVS
@@ -66130,7 +66142,7 @@ pVS
 pVS
 pVS
 pVS
-pVS
+kPq
 pVS
 pVS
 pVS
@@ -66795,7 +66807,7 @@ oSZ
 oSZ
 oSZ
 oSZ
-oSZ
+oHY
 oSZ
 oSZ
 oSZ
@@ -78950,7 +78962,7 @@ ayF
 ayF
 ayF
 ayF
-ayF
+vGu
 ayF
 ayF
 ayF
@@ -92252,7 +92264,7 @@ ayF
 ayF
 ayF
 ayF
-ayF
+vGu
 ayF
 ayF
 ayF
@@ -95914,7 +95926,7 @@ ayF
 ayF
 ayF
 ayF
-ayF
+vGu
 ayF
 ayF
 ayF
@@ -98869,7 +98881,7 @@ ayF
 ayF
 ayF
 ayF
-ayF
+vGu
 ayF
 ayF
 ayF
@@ -100549,7 +100561,7 @@ ayF
 ayF
 ayF
 ayF
-ayF
+vGu
 ayF
 ayF
 ayF
@@ -101267,7 +101279,7 @@ pVS
 pVS
 pVS
 pVS
-pVS
+kPq
 pVS
 pVS
 ayF
@@ -108424,7 +108436,7 @@ pVS
 pVS
 pVS
 pVS
-pVS
+kPq
 pVS
 pVS
 pVS
@@ -109839,7 +109851,7 @@ ayF
 ayF
 ayF
 ayF
-ayF
+vGu
 ayF
 ayF
 ayF
@@ -110924,7 +110936,7 @@ ayF
 ayF
 ayF
 ayF
-ayF
+vGu
 ayF
 ayF
 ayF
@@ -115767,7 +115779,7 @@ ayF
 ayF
 ayF
 ayF
-ayF
+vGu
 ayF
 ayF
 ayF
