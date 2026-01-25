@@ -136,7 +136,7 @@
 /obj/machinery/lrm/CanAllowThrough(atom/movable/mover, border_dir)
 	if(!anchored)
 		return FALSE
-	if(istype(mover, /obj/item/boulder))
+	if(istype(mover, /obj/item/boulder/ghost_mining || /obj/item/boulder/artifact/ghost_mining))
 		return TRUE
 	return ..()
 
@@ -316,7 +316,7 @@
 		return FALSE
 
 	//There is an boulder in our loc. it has be removed so we don't clog up our loc with even more boulders
-	if(locate(/obj/item/boulder) in loc)
+	if(locate(/obj/item/boulder/ghost_mining || /obj/item/boulder/artifact/ghost_mining) in loc)
 		batch_processing = FALSE
 		return LRM_TURF_BLOCKED_BY_BOULDER
 
@@ -343,8 +343,9 @@
 	var/obj/item/boulder/chosen_rock = chosen_rock_ref?.resolve()
 
 	//If boulder is BRM'able, refuse.
-	if(chosen_rock in SSore_generation.available_boulders)
+	if(!istype(chosen_rock, /obj/item/boulder/artifact/ghost_mining && /obj/item/boulder/ghost_mining))
 		batch_processing = FALSE
+		balloon_alert_to_viewers("Boulder too unstable!")
 		return LRM_UNSTABLE_BOULDER
 
 	chosen_rock.forceMove(drop_location())
