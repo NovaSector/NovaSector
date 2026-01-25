@@ -104,9 +104,9 @@
 
 	our_guy.add_mood_event("tweaking", /datum/mood_event/stimulant_heavy/sundowner, name)
 
-	our_guy.adjust_stamina_loss(-10 * REM * seconds_per_tick)
-	our_guy.AdjustSleeping(-2 SECONDS * REM * seconds_per_tick)
-	our_guy.adjust_drowsiness(-5 * REM * seconds_per_tick)
+	our_guy.adjust_stamina_loss(-7.7 * seconds_per_tick * metabolization_ratio)
+	our_guy.AdjustSleeping(-1.5 SECONDS * seconds_per_tick * metabolization_ratio)
+	our_guy.adjust_drowsiness(-3.8 * seconds_per_tick * metabolization_ratio)
 
 	if(SPT_PROB(25, seconds_per_tick))
 		our_guy.playsound_local(our_guy, 'sound/effects/singlebeat.ogg', 100, TRUE)
@@ -121,7 +121,7 @@
 /datum/reagent/drug/demoneye/overdose_process(mob/living/carbon/our_guy, seconds_per_tick, metabolization_ratio)
 	. = ..()
 
-	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)
+	our_guy.set_jitter_if_lower(7.7 SECONDS * seconds_per_tick * metabolization_ratio)
 
 	if(SPT_PROB(10, seconds_per_tick))
 		hurt_that_mans_organs(our_guy, 5, TRUE)

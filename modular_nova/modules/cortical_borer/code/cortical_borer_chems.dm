@@ -7,12 +7,12 @@
 	if(SPT_PROB(2.5, seconds_per_tick))
 		to_chat(affected_mob, span_notice("[high_message]"))
 	affected_mob.add_mood_event("tweaking", /datum/mood_event/stimulant_medium, name)
-	affected_mob.AdjustStun(-4 SECONDS * REM * seconds_per_tick)
-	affected_mob.AdjustKnockdown(-4 SECONDS * REM * seconds_per_tick)
-	affected_mob.AdjustUnconscious(-4 SECONDS * REM * seconds_per_tick)
-	affected_mob.AdjustParalyzed(-4 SECONDS * REM * seconds_per_tick)
-	affected_mob.AdjustImmobilized(-4 SECONDS * REM * seconds_per_tick)
-	if(affected_mob.adjust_stamina_loss(-2 * REM * seconds_per_tick, updating_stamina = FALSE))
+	affected_mob.AdjustStun(-2.667 SECONDS * seconds_per_tick * metabolization_ratio)
+	affected_mob.AdjustKnockdown(-2.667 SECONDS * seconds_per_tick * metabolization_ratio)
+	affected_mob.AdjustUnconscious(-2.667 SECONDS * seconds_per_tick * metabolization_ratio)
+	affected_mob.AdjustParalyzed(-2.667 SECONDS * seconds_per_tick * metabolization_ratio)
+	affected_mob.AdjustImmobilized(-2.667 SECONDS * seconds_per_tick * metabolization_ratio)
+	if(affected_mob.adjust_stamina_loss(-1.33 * seconds_per_tick * metabolization_ratio, updating_stamina = FALSE))
 		. = UPDATE_MOB_HEALTH
 
 	affected_mob.set_jitter_if_lower(5 SECONDS)

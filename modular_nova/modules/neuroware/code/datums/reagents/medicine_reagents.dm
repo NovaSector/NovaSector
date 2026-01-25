@@ -25,7 +25,7 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/brain_neuroware)
 NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/reset_neuroware)
 
 /datum/reagent/medicine/reset_neuroware/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
-	var/remove_amount = 1 * REM * seconds_per_tick;
+	var/remove_amount = 0.25 * seconds_per_tick * metabolization_ratio
 	for(var/thing in affected_mob.reagents.reagent_list)
 		var/datum/reagent/reagent = thing
 		if((reagent.chemical_flags & REAGENT_NEUROWARE) && (reagent != src))

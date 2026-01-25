@@ -29,7 +29,7 @@
 
 /datum/reagent/consumable/ethanol/synthanol/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(!(affected_mob.mob_biotypes & MOB_ROBOTIC))
-		affected_mob.reagents.remove_reagent(type, 3.6 * REM * seconds_per_tick) //gets removed from organics very fast
+		affected_mob.reagents.remove_reagent(type, 6 * seconds_per_tick * metabolization_ratio) //gets removed from organics very fast
 		if(prob(25))
 			affected_mob.vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = 5)
 	return ..()
@@ -164,7 +164,7 @@
 
 /datum/reagent/consumable/ethanol/hellfire/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	affected_mob.adjust_bodytemperature(30 * TEMPERATURE_DAMAGE_COEFFICIENT * REM * seconds_per_tick, 0, BODYTEMP_NORMAL + 30)
+	affected_mob.adjust_bodytemperature(50 * TEMPERATURE_DAMAGE_COEFFICIENT * seconds_per_tick * metabolization_ratio, 0, BODYTEMP_NORMAL + 30)
 
 /datum/reagent/consumable/ethanol/sins_delight
 	name = "Sin's Delight"
@@ -258,8 +258,8 @@
 
 /datum/reagent/consumable/ethanol/hotlime_miami/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	affected_mob.set_drugginess(1.5 MINUTES * REM * seconds_per_tick)
-	if(affected_mob.adjust_stamina_loss(-2 * REM * seconds_per_tick, updating_stamina = FALSE))
+	affected_mob.set_drugginess(2.5 MINUTES * seconds_per_tick * metabolization_ratio)
+	if(affected_mob.adjust_stamina_loss(-3.34 * seconds_per_tick * metabolization_ratio, updating_stamina = FALSE))
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/consumable/ethanol/coggrog
@@ -324,7 +324,7 @@
 
 /datum/reagent/consumable/ethanol/mercuryblast/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	affected_mob.adjust_bodytemperature(-30 * TEMPERATURE_DAMAGE_COEFFICIENT * REM * seconds_per_tick, T0C)
+	affected_mob.adjust_bodytemperature(-50 * TEMPERATURE_DAMAGE_COEFFICIENT * seconds_per_tick * metabolization_ratio, T0C)
 
 /datum/reagent/consumable/ethanol/piledriver
 	name = "Piledriver"
@@ -544,7 +544,7 @@
 /datum/reagent/consumable/ethanol/jell_wyrm/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	if(prob(20))
-		if(affected_mob.adjust_tox_loss(0.5 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
+		if(affected_mob.adjust_tox_loss(0.83 * seconds_per_tick * metabolization_ratio, updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
 
 #define JELLWYRM_DISGUST 25
@@ -648,7 +648,7 @@
 	. = ..()
 	if(drinker.get_blood_volume() < drinker.blood_volume_normal)
 		//Bloodshot quickly restores blood loss.
-		drinker.adjust_blood_volume(2 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL)
+		drinker.adjust_blood_volume(3.34 * seconds_per_tick * metabolization_ratio, maximum = BLOOD_VOLUME_NORMAL)
 
 /datum/reagent/consumable/ethanol/blizzard_brew
 	name = "Blizzard Brew"
@@ -745,11 +745,11 @@
 /datum/reagent/consumable/ethanol/hippie_hooch/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	for(var/effect in status_effects_to_clear)
 		affected_mob.remove_status_effect(effect)
-	affected_mob.reagents.remove_reagent(/datum/reagent/consumable/ethanol, 3 * REM * seconds_per_tick, include_subtypes = TRUE)
+	affected_mob.reagents.remove_reagent(/datum/reagent/consumable/ethanol, 5 * seconds_per_tick * metabolization_ratio, include_subtypes = TRUE)
 	. = ..()
-	if(affected_mob.adjust_tox_loss(-0.2 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
+	if(affected_mob.adjust_tox_loss(-0.334 * seconds_per_tick * metabolization_ratio, updating_health = FALSE, required_biotype = affected_biotype))
 		. = UPDATE_MOB_HEALTH
-	affected_mob.adjust_drunk_effect(-10 * REM * seconds_per_tick)
+	affected_mob.adjust_drunk_effect(-16.67 * seconds_per_tick * metabolization_ratio)
 
 /datum/reagent/consumable/ethanol/research_rum
 	name = "Research Rum"
@@ -843,10 +843,10 @@
 	. = ..()
 	var/obj/item/organ/liver/liver = drinker.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(liver && HAS_TRAIT(liver, TRAIT_CORONER_METABOLISM))
-		if(drinker.heal_bodypart_damage(1 * REM * seconds_per_tick, 1 * REM * seconds_per_tick)) //coroners love drinking formaldehyde
+		if(drinker.heal_bodypart_damage(1.67 * seconds_per_tick * metabolization_ratio, 1.67 * seconds_per_tick * metabolization_ratio)) //coroners love drinking formaldehyde
 			return UPDATE_MOB_HEALTH
 	else
-		drinker.adjust_disgust(1 * REM * seconds_per_tick)
+		drinker.adjust_disgust(1.67 * seconds_per_tick * metabolization_ratio)
 
 /datum/glass_style/drinking_glass/cringe_weaver
 	required_drink_type = /datum/reagent/consumable/ethanol/cringe_weaver

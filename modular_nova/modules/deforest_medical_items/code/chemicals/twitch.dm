@@ -38,7 +38,7 @@
 	/// What type of span class do we change heard speech to?
 	var/speech_effect_span
 	/// How much the mob heating is multiplied by, if the target is a robot or has muscled veins
-	var/mob_heating_muliplier = 5
+	var/mob_heating_muliplier = 3.8
 
 
 /datum/reagent/drug/twitch/on_mob_metabolize(mob/living/our_guy)
@@ -191,7 +191,7 @@
 
 	// If the target is a robot, or has muscle veins, then they get an effect similar to herignis, heating them up quite a bit
 	if((our_guy.mob_biotypes & MOB_ROBOTIC) || HAS_TRAIT(our_guy, TRAIT_STABLEHEART))
-		var/heating = mob_heating_muliplier * creation_purity * REM * seconds_per_tick
+		var/heating = mob_heating_muliplier * creation_purity * seconds_per_tick * metabolization_ratio
 		our_guy.reagents?.chem_temp += heating
 		our_guy.adjust_bodytemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
 		if(!ishuman(our_guy))
@@ -199,7 +199,7 @@
 		var/mob/living/carbon/human/human = our_guy
 		human.adjust_coretemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
 	else
-		our_guy.adjust_organ_loss(ORGAN_SLOT_HEART, 0.1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
+		our_guy.adjust_organ_loss(ORGAN_SLOT_HEART, 0.77 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
 
 	if(locate(/datum/reagent/drug/kronkaine) in our_guy.reagents.reagent_list) // Kronkaine, another heart-straining drug, could cause problems if mixed with this
 		our_guy.ForceContractDisease(new /datum/disease/adrenal_crisis(), FALSE, TRUE)
@@ -225,11 +225,11 @@
 
 /datum/reagent/drug/twitch/overdose_process(mob/living/carbon/our_guy, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)
+	our_guy.set_jitter_if_lower(7.7 SECONDS * seconds_per_tick * metabolization_ratio)
 
 	// If the target is a robot, or has muscle veins, then they get an effect similar to herignis, heating them up quite a bit
 	if((our_guy.mob_biotypes & MOB_ROBOTIC) || HAS_TRAIT(our_guy, TRAIT_STABLEHEART))
-		var/heating = (mob_heating_muliplier * 2) * creation_purity * REM * seconds_per_tick
+		var/heating = (mob_heating_muliplier * 2) * creation_purity * seconds_per_tick * metabolization_ratio
 		our_guy.reagents?.chem_temp += heating
 		our_guy.adjust_bodytemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
 		if(!ishuman(our_guy))
@@ -237,8 +237,8 @@
 		var/mob/living/carbon/human/human = our_guy
 		human.adjust_coretemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
 	else
-		our_guy.adjust_organ_loss(ORGAN_SLOT_HEART, 1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
-	our_guy.adjust_tox_loss(1 * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype)
+		our_guy.adjust_organ_loss(ORGAN_SLOT_HEART, 0.77 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
+	our_guy.adjust_tox_loss(0.77 * seconds_per_tick * metabolization_ratio, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype)
 
 	if(SPT_PROB(5, seconds_per_tick) && !(our_guy.mob_biotypes & MOB_ROBOTIC))
 		to_chat(our_guy, span_danger("You cough up a splatter of blood!"))
