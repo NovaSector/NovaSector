@@ -12,6 +12,15 @@ export const chat_on_map: FeatureToggle = {
   component: CheckboxInput,
 };
 
+// NOVA EDIT ADDITION START
+export const chat_on_map_dead: FeatureToggle = {
+  name: 'Enable Runechat for observers',
+  category: 'RUNECHAT',
+  description: 'Chat messages will show above ghosts when you are observing.',
+  component: CheckboxInput,
+};
+
+// NOVA EDIT ADDITION END
 export const see_chat_non_mob: FeatureToggle = {
   name: 'Enable Runechat on objects',
   category: 'RUNECHAT',

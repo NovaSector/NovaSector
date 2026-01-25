@@ -170,7 +170,7 @@
 	var/displayed_key = key
 	if(client?.holder?.fakekey)
 		displayed_key = null
-	deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key)
+	deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key, original_message = message) //NOVA EDIT - Original: deadchat_broadcast(rendered, source, follow_target = src, speaker_key = displayed_key)
 
 ///Check if this message is an emote
 /mob/proc/check_emote(message, forced)
