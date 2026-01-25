@@ -7174,6 +7174,7 @@
 #include "modular_nova\master_files\code\modules\cargo\bounties\shared_chef.dm"
 #include "modular_nova\master_files\code\modules\cargo\bounties\shared_xenoarch.dm"
 #include "modular_nova\master_files\code\modules\cargo\bounties\tarkon.dm"
+#include "modular_nova\master_files\code\modules\cargo\exports\drugs.dm"
 #include "modular_nova\master_files\code\modules\cargo\exports\stamped_paperwork.dm"
 #include "modular_nova\master_files\code\modules\cargo\exports\tools.dm"
 #include "modular_nova\master_files\code\modules\cargo\exports\weapons.dm"
