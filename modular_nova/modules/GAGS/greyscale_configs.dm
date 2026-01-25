@@ -429,6 +429,10 @@
 	name = "Neck Gaiter (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/gaiter/gaiter_worn.json'
 
+/datum/greyscale_config/neck_gaiter/worn/muzzled
+	name = "Neck gaiter (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
 /datum/greyscale_config/neck_gaiter/worn/teshari
 	name = "Neck gaiter (Worn, Teshari)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
