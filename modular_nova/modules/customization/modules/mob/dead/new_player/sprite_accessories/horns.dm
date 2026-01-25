@@ -233,3 +233,27 @@
 	name = "Moogle Pom (Large, Back)"
 	icon_state = "mpom3alt"
 
+/datum/sprite_accessory/horns/halo
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+	)
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/halo.dmi'
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/horns/halo/simple
+	name = "Halo"
+	icon_state = "halo"
+
+/datum/sprite_accessory/horns/halo/simple/no_animation
+	name = "Halo (Static)"
+	icon_state = "halo_static"
+
+/datum/sprite_accessory/horns/halo/halo_double
+	name = "Double Halo"
+	icon_state = "halo_double"
+
+/datum/sprite_accessory/horns/halo/halo_double/no_animation
+	name = "Double Halo (Static)"
+	icon_state = "halo_double_static"
+
