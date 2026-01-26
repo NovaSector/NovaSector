@@ -88,6 +88,10 @@
 	name = "Big Sweater (Colorable)"
 	item_path = /obj/item/clothing/suit/nova/sweater
 
+/datum/loadout_item/suit/big_sweater
+	name = "Big Sweater With Bow (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/sweater/bow
+
 /*
 *	WINTER COATS
 */
