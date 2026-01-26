@@ -101,13 +101,6 @@
 			SPECIES_PERK_DESC = "Kobolds can crawl through the vent and scrubber networks while wearing no clothing. \
 				Stay out of the kitchen!",
 		),
-		list(
-			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
-			SPECIES_PERK_ICON = "paw",
-			SPECIES_PERK_NAME = "Simple Squamate",
-			SPECIES_PERK_DESC = "Kobolds are primitive humanoids, and can't do most things a humanoid can do. Computers are impossible, \
-				complex machines are right out, and most clothes don't fit your smaller form.",
-		),
 	)
 
 /datum/species/monkey/create_pref_language_perk()
