@@ -36,7 +36,7 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/kobold,
 	)
 	exotic_bloodtype = BLOOD_TYPE_LIZARD
-	payday_modifier = 1.35
+	payday_modifier = 1
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
@@ -141,6 +141,8 @@
 
 // Same as regular kobolds except they cannot be butchered, and are smart enough to use devices (debatable)
 /datum/species/monkey/kobold/roundstart
+	id = SPECIES_KOBOLDROUNDSTART
+	examine_limb_id = SPECIES_KOBOLD
 	mutantbrain = /obj/item/organ/brain/lizard
 	knife_butcher_results = null
 	inherent_traits = list(
