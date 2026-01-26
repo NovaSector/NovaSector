@@ -10,6 +10,9 @@
 	name = "The Circus, but dark"
 	icon_state = "away3"
 
+/area/awaymission/circus/no_light/bad_area
+	name = "The circus, but dangerous"
+
 /obj/item/paper/fluff/cyborg_circus
 	name = "Cyborg charger"
 	default_raw_text = "Dont worry for any of or silicon friends out there, here is a recharger."
