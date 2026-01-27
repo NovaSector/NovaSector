@@ -779,10 +779,6 @@
 	savefile_key = "head_acc_toggle"
 	relevant_mutant_bodypart = FEATURE_HEAD_ACCESSORY
 
-/datum/preference/toggle/mutant_toggle/head_acc/is_accessible(datum/preferences/preferences)
-	var/ckeycheck = preferences?.parent?.ckey == "whirlsam"
-	return ckeycheck && ..(preferences)
-
 /datum/preference/choiced/mutant_choice/head_acc
 	savefile_key = "feature_head_acc"
 	relevant_mutant_bodypart = FEATURE_HEAD_ACCESSORY
@@ -808,10 +804,6 @@
 /datum/preference/toggle/mutant_toggle/neck_acc
 	savefile_key = "neck_acc_toggle"
 	relevant_mutant_bodypart = FEATURE_NECK_ACCESSORY
-
-/datum/preference/toggle/mutant_toggle/neck_acc/is_accessible(datum/preferences/preferences)
-	var/ckeycheck = preferences?.parent?.ckey == "whirlsam"
-	return ckeycheck && ..(preferences)
 
 /datum/preference/choiced/mutant_choice/neck_acc
 	savefile_key = "feature_neck_acc"

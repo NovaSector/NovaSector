@@ -498,12 +498,12 @@ export const fluff_emissive: Feature<boolean[]> = {
 };
 
 export const head_acc_toggle: FeatureToggle = {
-  name: 'Head Accessories',
+  name: 'Head Accessory',
   component: CheckboxInput,
 };
 
 export const feature_head_acc: Feature<string> = {
-  name: 'Head Accessories Selection',
+  name: 'Head Accessory Selection',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -512,12 +512,12 @@ export const feature_head_acc: Feature<string> = {
 };
 
 export const head_acc_color: Feature<string[]> = {
-  name: 'Head Accessories Colors',
+  name: 'Head Accessory Colors',
   component: FeatureTriColorInput,
 };
 
 export const head_acc_emissive: Feature<boolean[]> = {
-  name: 'Head Accessories Emissives',
+  name: 'Head Accessory Emissives',
   description: 'Emissive parts glow in the dark.',
   component: FeatureTriBoolInput,
 };
@@ -611,12 +611,12 @@ export const feature_hair_opacity: Feature<number> = {
 };
 
 export const neck_acc_toggle: FeatureToggle = {
-  name: 'Neck Accessories',
+  name: 'Neck Accessory',
   component: CheckboxInput,
 };
 
 export const feature_neck_acc: Feature<string> = {
-  name: 'Neck Accessories Selection',
+  name: 'Neck Accessory Selection',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -625,12 +625,12 @@ export const feature_neck_acc: Feature<string> = {
 };
 
 export const neck_acc_color: Feature<string[]> = {
-  name: 'Neck Accessories Colors',
+  name: 'Neck Accessory Colors',
   component: FeatureTriColorInput,
 };
 
 export const neck_acc_emissive: Feature<boolean[]> = {
-  name: 'Neck Accessories Emissives',
+  name: 'Neck Accessory Emissives',
   component: FeatureTriBoolInput,
 };
 

@@ -18,7 +18,7 @@
 		var/atom/movable/plane_master_controller/game_plane_master_controller = affected_carbon.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		game_plane_master_controller.add_filter("quaalude_wave", 10, wave_filter(300, 300, 3, 0, WAVE_SIDEWAYS))
 
-/datum/reagent/drug/quaalude/on_mob_life(mob/living/carbon/affected_carbon, seconds_per_tick, times_fired)
+/datum/reagent/drug/quaalude/on_mob_life(mob/living/carbon/affected_carbon, seconds_per_tick)
 	. = ..()
 	if(SPT_PROB(2.5, seconds_per_tick))
 		var/high_message = pick("You feel relaxed.", "You feel like you're on the moon.", "You feel like you could walk 20 miles for a quaalude.")
@@ -44,7 +44,7 @@
 		var/atom/movable/plane_master_controller/game_plane_master_controller = affected_carbon.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		game_plane_master_controller.remove_filter("quaalude_wave")
 
-/datum/reagent/drug/quaalude/overdose_process(mob/living/affected_carbon, seconds_per_tick, times_fired)
+/datum/reagent/drug/quaalude/overdose_process(mob/living/affected_carbon, seconds_per_tick)
 	var/kidfrombrooklyn_message = pick("BRING BACK THE FUCKING QUAALUDES!", "I'd walk 20 miles for a quaalude, let me tell ya'!", "There's nothing like a fuckin' quaalude!")
 
 	if(SPT_PROB(1.5, seconds_per_tick))
