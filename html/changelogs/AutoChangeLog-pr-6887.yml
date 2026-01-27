@@ -1,4 +1,0 @@
-author: "MacaroniCritter"
-delete-after: True
-changes:
-  - bugfix: "The towel sprite no longer covers players hands when worn around the waist."

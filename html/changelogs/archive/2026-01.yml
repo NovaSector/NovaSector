@@ -991,3 +991,8 @@
   vinylspiders:
   - bugfix: fixes an exploit where you could use pixel tilt to infinitely scale your
       character up or down
+2026-01-27:
+  MacaroniCritter:
+  - map: Fixed Blueshifts command Hallway light switch placement.
+  - map: Removed an indestructible console from Blueshifts Bridge.
+  - bugfix: The towel sprite no longer covers players hands when worn around the waist.
