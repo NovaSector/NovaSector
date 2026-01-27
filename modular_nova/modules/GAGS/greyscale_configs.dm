@@ -429,6 +429,10 @@
 	name = "Neck Gaiter (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/gaiter/gaiter_worn.json'
 
+/datum/greyscale_config/neck_gaiter/worn/muzzled
+	name = "Neck gaiter (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
 /datum/greyscale_config/neck_gaiter/worn/teshari
 	name = "Neck gaiter (Worn, Teshari)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
@@ -2521,6 +2525,16 @@ TREK
 	name = "Big Sweater (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweater.json'
+	
+/datum/greyscale_config/sweater_nova_2
+	name = "Big Sweater With Bow"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweaterbow.json'
+
+/datum/greyscale_config/sweater_nova_2/worn
+	name = "Big Sweater With Bow (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweaterbow.json'
 
 /datum/greyscale_config/playsuit
 	name = "Playsuit"

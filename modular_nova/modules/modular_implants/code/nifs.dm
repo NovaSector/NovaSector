@@ -201,7 +201,7 @@
 		toggle_blood_drain(TRUE)
 
 	if(blood_drain)
-		linked_mob.blood_volume -= blood_drain_rate
+		linked_mob.adjust_blood_volume(-blood_drain_rate)
 
 	if(power_usage > power_level)
 		for(var/datum/nifsoft/nifsoft as anything in loaded_nifsofts)
@@ -273,7 +273,7 @@
 
 ///Checks if the NIF is able to draw blood as a power source?
 /obj/item/organ/cyberimp/brain/nif/proc/blood_check()
-	if(!linked_mob || !linked_mob.blood_volume || (linked_mob.blood_volume <= minimum_blood_level))
+	if(!linked_mob || !linked_mob.get_blood_volume() || (linked_mob.get_blood_volume() <= minimum_blood_level))
 		return FALSE
 
 	return TRUE

@@ -5,7 +5,8 @@
 	slot = ORGAN_SLOT_BRAIN_CNS //One or the other, not both.
 	var/cooldown
 
-/obj/item/organ/cyberimp/brain/anti_sleep/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/cyberimp/brain/anti_sleep/on_life(seconds_per_tick)
+	. = ..()
 	if(timeleft(cooldown))
 		return
 

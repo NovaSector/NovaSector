@@ -6,8 +6,6 @@
 			continue
 		if(!mismatched && sprite_accessory.recommended_species && isnull(sprite_accessory.recommended_species[species.id]))
 			continue
-		if(sprite_accessory.ckey_whitelist && !sprite_accessory.ckey_whitelist[ckey])
-			continue
 		accessory_list += sprite_accessory.name
 	return accessory_list
 
