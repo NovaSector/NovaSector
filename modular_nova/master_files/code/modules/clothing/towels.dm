@@ -64,7 +64,7 @@
 
 	create_reagents(max_reagent_volume)
 	AddElement(/datum/element/liquids_interaction)
-	AddComponent(/datum/component/surgery_initiator) // Since you can do it with bedsheets, why not with towels too?
+	AddElement(/datum/element/surgery_aid, name)// Since you can do it with bedsheets, why not with towels too?
 
 	register_context()
 	register_item_context()

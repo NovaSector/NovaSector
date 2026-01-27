@@ -429,6 +429,10 @@
 	name = "Neck Gaiter (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/gaiter/gaiter_worn.json'
 
+/datum/greyscale_config/neck_gaiter/worn/muzzled
+	name = "Neck gaiter (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
 /datum/greyscale_config/neck_gaiter/worn/teshari
 	name = "Neck gaiter (Worn, Teshari)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
@@ -1257,6 +1261,19 @@
 
 /datum/greyscale_config/big_pants/worn/digi
 	name = "'JUNCO' megacargo pants (Worn, Digi)"
+	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
+
+/datum/greyscale_config/wide_leg
+	name = "Wide Pants"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/wide_leg.json'
+
+/datum/greyscale_config/wide_leg/worn
+	name = "Wide Pants (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/wide_leg/worn/digi
+	name = "Wide Pants (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
 
 // DRESSES / SKIRTS

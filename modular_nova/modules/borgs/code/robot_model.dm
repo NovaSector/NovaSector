@@ -350,7 +350,8 @@
 		/obj/item/borg/hydraulic_clamp/mail,
 		/obj/item/hand_labeler/cyborg,
 		/obj/item/dest_tagger,
-		/obj/item/crowbar/cyborg,
+		/obj/item/borg/cyborg_omnitool/engineering,
+		/obj/item/weldingtool/largetank/cyborg, // a basic toolset that everyone has. Very helpful in cargo.
 		/obj/item/extinguisher,
 		/obj/item/universal_scanner,
 	)
@@ -538,11 +539,11 @@
 /obj/item/robot_model/ninja/rebuild_modules()
 	. = ..()
 	var/mob/living/silicon/robot/ninja = loc
-	ninja.faction  -= "silicon" //ai turrets hostile against assault and medical
+	ninja.remove_faction(FACTION_SILICON) //ai turrets hostile against assault and medical
 
 /obj/item/robot_model/ninja/remove_module(obj/item/removed_module)
 	var/mob/living/silicon/robot/ninja = loc
-	ninja.faction += "silicon"
+	ninja.add_faction(FACTION_SILICON)
 	return ..()
 
 /obj/item/robot_model/ninja/ninja_medical
