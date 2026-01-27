@@ -88,7 +88,6 @@
 				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
 				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
-				/obj/item/clothing/under/rank/security/nova/skirt/mini/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/turtleneck/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/formal/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
