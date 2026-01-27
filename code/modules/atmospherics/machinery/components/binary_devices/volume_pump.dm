@@ -76,7 +76,7 @@
 	var/input_starting_pressure = air1.return_pressure()
 	var/output_starting_pressure = air2.return_pressure()
 
-	/* NOVA EDIT REMOVAL START
+	/* // NOVA EDIT REMOVAL START
 	// Requires being able to leak air in order to overclock.
 	if(overclocked)
 		var/turf/turf = loc
