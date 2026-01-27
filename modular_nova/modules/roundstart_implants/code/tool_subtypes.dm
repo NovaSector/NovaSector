@@ -62,6 +62,7 @@
 
 /obj/item/surgical_drapes/integrated/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/surgery_initiator)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_INTERDYNE)
 
 /obj/item/hemostat/integrated

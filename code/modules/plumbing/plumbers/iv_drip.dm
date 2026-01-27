@@ -8,9 +8,9 @@
 	use_internal_storage = TRUE
 	processing_flags = START_PROCESSING_MANUALLY
 
-/obj/machinery/iv_drip/plumbing/Initialize(mapload, layer)
+/obj/machinery/iv_drip/plumbing/Initialize(mapload, bolt, layer)
 	. = ..()
-	AddComponent(/datum/component/plumbing/automated_iv, layer)
+	AddComponent(/datum/component/plumbing/automated_iv, bolt, layer, distinct_reagent_cap = 3)
 	AddElement(/datum/element/simple_rotation)
 
 /obj/machinery/iv_drip/plumbing/quick_toggle(mob/living/user)

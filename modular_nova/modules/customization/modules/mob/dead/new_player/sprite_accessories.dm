@@ -44,6 +44,8 @@
 	var/special_x_dimension
 	///Special case for MODsuit overlays
 	var/use_custom_mod_icon
+	///If defined, the accessory will be only available to ckeys inside the list. ITS ASSOCIATIVE, ie. ("ckey" = TRUE). For speed
+	var/list/ckey_whitelist
 	var/uses_emissives = FALSE
 	var/color_layer_names
 	/// If this sprite accessory will be inaccessable if ERP config is disabled

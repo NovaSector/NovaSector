@@ -8,8 +8,6 @@
 	pixel_z = 1
 	///Something's being washed at the moment
 	var/busy = FALSE
-	///Capacity of this sink
-	var/capacity = 100
 	///What kind of reagent is produced by this sink by default? (We now have actual plumbing, Arcane, August 2020)
 	var/dispensedreagent = /datum/reagent/water
 	///Material to drop when broken or deconstructed.
@@ -48,10 +46,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 			pixel_x = pixel_shift
 			pixel_y = 0
 
-	create_reagents(capacity, NO_REACT)
+	create_reagents(100, NO_REACT)
 	if(src.has_water_reclaimer)
-		reagents.add_reagent(dispensedreagent, capacity)
-	AddComponent(/datum/component/plumbing/simple_demand/extended)
+		reagents.add_reagent(dispensedreagent, 100)
+	AddComponent(/datum/component/plumbing/simple_demand, extend_pipe_to_edge = TRUE)
 
 /obj/structure/sink/examine(mob/user)
 	. = ..()
@@ -226,7 +224,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 			new M.sheet_type(loc, FLOOR(custom_materials[M] / SHEET_MATERIAL_AMOUNT, 1))
 
 /obj/structure/sink/proc/begin_reclamation()
-	START_PROCESSING(SSobj, src)
+	START_PROCESSING(SSplumbing, src)
 
 /obj/structure/sink/kitchen
 	name = "kitchen sink"

@@ -16,7 +16,6 @@
 	cost = 250
 	source = /datum/robot_energy_storage/medical
 	merge_type = /obj/item/stack/medical
-	apply_verb = "treating"
 	/// How long it takes to apply it to yourself
 	var/self_delay = 5 SECONDS
 	/// How long it takes to apply it to someone else
@@ -33,6 +32,8 @@
 	var/sanitization
 	/// How much we add to flesh_healing for burn wounds on application
 	var/flesh_regeneration
+	/// Verb used when applying this object to someone
+	var/apply_verb = "treating"
 	/// Whether this item can be used on dead bodies
 	var/works_on_dead = FALSE
 	/// The sound this makes when starting healing with this item
@@ -382,8 +383,6 @@
 	custom_price = PAYCHECK_CREW * 2
 	absorption_rate = 0.125
 	absorption_capacity = 5
-	sanitization = 3
-	flesh_regeneration = 5
 	splint_factor = 0.7
 	burn_cleanliness_bonus = 0.35
 	merge_type = /obj/item/stack/medical/gauze
@@ -495,13 +494,6 @@
 
 	if(limb.cached_bleed_rate)
 		add_mob_blood(patient)
-
-	// Dressing burns provides a "one-time" bonus to sanitization and healing
-	// However, any notable infection will reduce the effectiveness of this bonus
-	for(var/datum/wound/burn/flesh/wound in limb.wounds)
-		wound.sanitization += sanitization * (wound.infection > 0.1 ? 0.2 : 1)
-		wound.flesh_healing += flesh_regeneration * (wound.infection > 0.1 ? 0 : 1)
-
 	limb.apply_gauze(src)
 
 /obj/item/stack/medical/gauze/twelve
@@ -539,8 +531,6 @@
 	burn_cleanliness_bonus = 0.7
 	absorption_rate = 0.075
 	absorption_capacity = 4
-	sanitization = 1
-	flesh_regeneration = 3
 	merge_type = /obj/item/stack/medical/gauze/improvised
 
 	/*

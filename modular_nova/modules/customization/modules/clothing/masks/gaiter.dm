@@ -11,7 +11,6 @@
 	greyscale_config = /datum/greyscale_config/neck_gaiter
 	greyscale_config_worn = /datum/greyscale_config/neck_gaiter/worn
 	greyscale_config_worn_teshari = /datum/greyscale_config/neck_gaiter/worn/teshari
-	greyscale_config_worn_muzzled = /datum/greyscale_config/neck_gaiter/worn/muzzled
 	greyscale_colors = "#5e6069"
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|MASKINTERNALS
 	w_class = WEIGHT_CLASS_SMALL

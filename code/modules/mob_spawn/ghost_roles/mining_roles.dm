@@ -320,7 +320,7 @@
 	implants = list(/obj/item/implant/weapons_auth)
 
 /datum/outfit/lavaland_syndicate/post_equip(mob/living/carbon/human/syndicate, visuals_only = FALSE)
-	syndicate.add_faction(ROLE_SYNDICATE)
+	syndicate.faction |= ROLE_SYNDICATE
 
 /datum/outfit/lavaland_syndicate/comms
 	name = "Lavaland Syndicate Comms Agent"

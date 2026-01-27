@@ -46,7 +46,8 @@
 
 
 /obj/effect/holodeck_effect/random_book/activate(obj/machinery/computer/holodeck/father_holodeck)
-	var/newtype = get_random_manual()
+	var/static/banned_books = list(/obj/item/book/manual/random, /obj/item/book/manual/nuclear, /obj/item/book/manual/wiki)
+	var/newtype = pick(subtypesof(/obj/item/book/manual) - banned_books)
 	var/obj/item/book/manual/to_spawn = new newtype(loc)
 	to_spawn.flags_1 |= HOLOGRAM_1
 	to_spawn.obj_flags |= NO_DEBRIS_AFTER_DECONSTRUCTION

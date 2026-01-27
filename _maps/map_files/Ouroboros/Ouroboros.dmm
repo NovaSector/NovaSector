@@ -2839,11 +2839,11 @@
 /turf/open/floor/plating,
 /area/station/science/ordnance/burnchamber)
 "aTd" = (
+/obj/machinery/digital_clock/directional/south,
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 8
 	},
 /obj/machinery/smartfridge/organ,
-/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -24435,9 +24435,9 @@
 	dir = 4
 	},
 /obj/machinery/airalarm/directional/west,
+/obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/box/white,
 /obj/machinery/computer/operating,
-/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/surgery/fore)
 "hgp" = (
@@ -30187,7 +30187,6 @@
 	dir = 4
 	},
 /obj/item/tank/internals/anesthetic,
-/obj/machinery/digital_clock/directional/west,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -30213,7 +30212,7 @@
 	dir = 4
 	},
 /obj/machinery/light/cold/no_nightlight/directional/south,
-/obj/machinery/vitals_reader/directional/south,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -38225,7 +38224,6 @@
 	},
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /obj/machinery/light/cold/directional/east,
-/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/robotics/augments)
 "kXs" = (
@@ -40268,7 +40266,6 @@
 	name = "privacy shutters control"
 	},
 /obj/effect/turf_decal/box/white,
-/obj/machinery/vitals_reader/directional/west,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/medical/surgery/theatre)
 "lCL" = (
@@ -46398,7 +46395,7 @@
 /area/station/service/barber)
 "nlK" = (
 /obj/machinery/dna_infuser,
-/obj/item/tgui_book/manual/infuser{
+/obj/item/infuser_book{
 	pixel_x = -6
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -58074,11 +58071,11 @@
 /turf/open/floor/iron/white/diagonal,
 /area/station/common/spa)
 "qKI" = (
+/obj/machinery/digital_clock/directional/north,
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 8
 	},
 /obj/machinery/smartfridge/organ,
-/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -60338,7 +60335,6 @@
 	name = "privacy shutters control"
 	},
 /obj/effect/turf_decal/box/white,
-/obj/machinery/vitals_reader/directional/east,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/medical/surgery/theatre)
 "rwy" = (
@@ -60893,7 +60889,6 @@
 /obj/effect/turf_decal/bot_white,
 /obj/structure/table/optable,
 /obj/effect/turf_decal/tile/blue/full,
-/obj/machinery/digital_clock/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/surgery/fore)
 "rGe" = (

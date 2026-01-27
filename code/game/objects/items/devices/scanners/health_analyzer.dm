@@ -180,8 +180,6 @@
 		if(advanced)
 			if(HAS_TRAIT_FROM(target, TRAIT_HUSK, CHANGELING_DRAIN))
 				render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("desiccation", "Perform blood transfusion and apply a de-husking agent such as [/datum/reagent/medicine/c2/synthflesh::name]. Full restoration will require more than usual.", tochat)].</span><br>" // NOVA EDIT CHANGE - ORIGINAL: render_list += "<span class='alert ml-1'>Subject has been husked by [conditional_tooltip("desiccation", "Irreparable. Under normal circumstances, revival can only proceed via brain transplant.", tochat)].</span><br>"
-			else if(HAS_TRAIT_FROM(target, TRAIT_HUSK, SKELETON_TRAIT))
-				render_list += "<span class='alert ml-1'>Subject has been husked due to severe flesh loss.</span><br>"
 			else if(!HAS_TRAIT_FROM(target, TRAIT_HUSK, BURN)) // prioritize showing unknown causes over burns
 				render_list += "<span class='alert ml-1'>Subject has been husked by mysterious causes.</span><br>"
 			else
@@ -432,29 +430,13 @@
 		if(!disease_hr)
 			render_list += "<hr>"
 			disease_hr = TRUE
-		var/cure_text
-		if(istype(disease, /datum/disease/advance))
-			var/datum/disease/advance/advanced_disease = disease
-			var/remedies = list()
-			var/remedy_limit = advanced ? 3 : 2
-			for(var/datum/symptom/each_symptom as anything in advanced_disease.symptoms)
-				if(!each_symptom.symptom_cure)
-					continue
-				var/datum/reagent/each_cure = each_symptom.symptom_cure
-				if(!each_symptom.neutered && !(each_cure::name in remedies))
-					remedies += each_cure::name
-				if(length(remedies) >= remedy_limit)
-					break
-			cure_text = english_list(remedies, nothing_text = "Nothing")
-		else
-			cure_text = disease.cure_text
 		render_list += "<span class='alert ml-1'>\
 			<b>Warning: [disease.form] detected</b><br>\
 			<div class='ml-2'>\
 			Name: [disease.name].<br>\
 			Type: [disease.spread_text].<br>\
 			Stage: [disease.stage]/[disease.max_stages].<br>\
-			Possible Cure: [cure_text]</div>\
+			Possible Cure: [disease.cure_text]</div>\
 			</span>"
 	// NOVA EDIT ADDITION - Mutant stuff + death consequences quirk
 	if(iscarbon(target))
@@ -467,6 +449,7 @@
 				var/datum/brain_trauma/severe/death_consequences/consequences_trauma = trauma
 				render_list += consequences_trauma.get_health_analyzer_link_text(user)
 	// NOVA EDIT ADDITION END
+
 
 	// Lungs
 	var/obj/item/organ/lungs/lungs = target.get_organ_slot(ORGAN_SLOT_LUNGS)
@@ -847,16 +830,8 @@
 	var/list/render = list()
 	for(var/datum/disease/disease as anything in patient.diseases)
 		if(!(disease.visibility_flags & HIDDEN_SCANNER))
-			var/disease_cure = disease.cure_text
-			if(istype(disease, /datum/disease/advance))
-				var/datum/disease/advance/advanced_disease = disease
-				for(var/datum/symptom/each_symptom as anything in advanced_disease.symptoms)
-					if(!each_symptom.neutered && each_symptom.symptom_cure)
-						var/datum/reagent/each_cure = each_symptom.symptom_cure
-						disease_cure = each_cure::name
-						break // We only get one
 			render += "<span class='alert ml-1'><b>Warning: [disease.form] detected</b><br>\
-			<div class='ml-2'>Name: [disease.name].<br>Type: [disease.spread_text].<br>Stage: [disease.stage]/[disease.max_stages].<br>Possible Cure: [disease_cure]</div>\
+			<div class='ml-2'>Name: [disease.name].<br>Type: [disease.spread_text].<br>Stage: [disease.stage]/[disease.max_stages].<br>Possible Cure: [disease.cure_text]</div>\
 			</span>"
 
 	if(!length(render))

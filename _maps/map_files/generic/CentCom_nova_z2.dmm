@@ -10265,7 +10265,7 @@
 /area/centcom/holding/cafepark)
 "jAe" = (
 /obj/structure/table/reinforced/rglass,
-/obj/item/tgui_book/manual/infuser{
+/obj/item/infuser_book{
 	pixel_y = 8;
 	pixel_x = -2
 	},

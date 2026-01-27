@@ -30,7 +30,7 @@
 
 	always_customizable = FALSE
 
-/datum/species/pod/podweak/spec_life(mob/living/carbon/human/H, seconds_per_tick)
+/datum/species/pod/podweak/spec_life(mob/living/carbon/human/H, seconds_per_tick, times_fired)
 	. = ..()
 	if(H.stat != CONSCIOUS)
 		return

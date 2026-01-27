@@ -31,12 +31,13 @@
 #endif
 #ifdef MAP_TEST
 	message_admins("Mapping: [text]")
-#else
+	return
+#endif
 	logger.Log(LOG_CATEGORY_DEBUG_MAPPING, text)
 	if(skip_world_log)
 		return
 	SEND_TEXT(world.log, text)
-#endif
+
 /// Logging for game performance
 /proc/log_perf(list/perf_info)
 	. = "[perf_info.Join(",")]\n"

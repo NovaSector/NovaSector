@@ -153,7 +153,7 @@
 /datum/mutation/proc/get_visual_indicator()
 	return
 
-/datum/mutation/proc/on_life(seconds_per_tick)
+/datum/mutation/proc/on_life(seconds_per_tick, times_fired)
 	return
 
 /datum/mutation/proc/on_losing(mob/living/carbon/human/owner)

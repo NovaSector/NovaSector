@@ -218,7 +218,7 @@
 
 /obj/item/clothing/neck/robe_cape/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/surgery_aid, "cape")
+	AddComponent(/datum/component/surgery_initiator)
 
 /obj/item/clothing/neck/tie/detective
 	name = "loose tie"

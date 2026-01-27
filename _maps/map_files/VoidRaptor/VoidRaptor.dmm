@@ -1738,12 +1738,12 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/starboard/fore)
 "ayV" = (
+/obj/machinery/defibrillator_mount/directional/west,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/stasis{
 	dir = 4
 	},
 /obj/effect/turf_decal/box/blue,
-/obj/machinery/vitals_reader/directional/west,
 /turf/open/floor/iron/freezer,
 /area/station/medical/treatment_center)
 "azd" = (
@@ -8174,6 +8174,16 @@
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/station/solars/starboard/aft)
+"cxD" = (
+/obj/structure/chair/pew/left{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/wood/large,
+/area/station/security/courtroom)
 "cxF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -8391,8 +8401,8 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 6
 	},
+/obj/machinery/status_display/evac/directional/east,
 /obj/effect/turf_decal/bot,
-/obj/machinery/vitals_reader/directional/east,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery)
 "cAR" = (
@@ -8857,7 +8867,7 @@
 /area/station/medical/chemistry)
 "cGZ" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
 "cHc" = (
@@ -12561,7 +12571,6 @@
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted{
 	dir = 8
 	},
-/obj/machinery/vitals_reader/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/lab)
 "dIZ" = (
@@ -14878,16 +14887,10 @@
 "ent" = (
 /obj/structure/table/glass,
 /obj/item/stack/medical/gauze,
-/obj/item/radio/intercom/directional/west{
-	pixel_y = 6;
-	pixel_x = -28
-	},
+/obj/item/radio/intercom/directional/west,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/structure/curtain,
 /obj/machinery/light/cold/directional/west,
-/obj/machinery/defibrillator_mount/directional/west{
-	pixel_y = -6
-	},
 /turf/open/floor/iron/freezer,
 /area/station/medical/treatment_center)
 "enw" = (
@@ -17695,8 +17698,8 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 5
 	},
+/obj/machinery/status_display/ai/directional/east,
 /obj/effect/turf_decal/bot,
-/obj/machinery/vitals_reader/directional/east,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery)
 "fdG" = (
@@ -37992,7 +37995,7 @@
 /area/station/tcommsat/computer)
 "kKX" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos)
 "kLc" = (
@@ -38092,9 +38095,9 @@
 /area/station/medical/medbay/lobby)
 "kMs" = (
 /obj/machinery/stasis,
+/obj/machinery/defibrillator_mount/directional/east,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/effect/turf_decal/box/blue,
-/obj/machinery/vitals_reader/directional/east,
 /turf/open/floor/iron/freezer,
 /area/station/medical/treatment_center)
 "kMA" = (
@@ -51586,7 +51589,7 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Maintenance Hatch"
 	},
-/obj/effect/spawner/random/structure/barricade/crude,
+/obj/effect/spawner/random/structure/barricade,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/engine)
@@ -58125,7 +58128,6 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/effect/turf_decal/bot,
 /obj/machinery/iv_drip,
-/obj/machinery/defibrillator_mount/directional/east,
 /turf/open/floor/iron/freezer,
 /area/station/medical/treatment_center)
 "qgS" = (
@@ -58422,6 +58424,15 @@
 	dir = 4
 	},
 /area/station/science/ordnance/testlab)
+"qkB" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "roboticssurgery";
+	name = "Robotics Shutters"
+	},
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
 "qkJ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -59291,7 +59302,7 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Maintenance Hatch"
 	},
-/obj/effect/spawner/random/structure/barricade/crude,
+/obj/effect/spawner/random/structure/barricade,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -68181,7 +68192,6 @@
 	dir = 1;
 	name = "Accused"
 	},
-/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/courtroom)
 "sVD" = (
@@ -70684,6 +70694,15 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/wood/large,
 /area/station/hallway/primary/central/fore)
+"tBV" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "roboticssurgery";
+	name = "Robotics Shutters"
+	},
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
 "tCa" = (
 /obj/structure/sign/warning/vacuum,
 /turf/closed/wall/r_wall,
@@ -77714,7 +77733,7 @@
 /area/station/security/prison/mess)
 "vBb" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
 /turf/open/floor/plating,
 /area/station/science/research/abandoned)
 "vBd" = (
@@ -117256,7 +117275,7 @@ nEm
 sOc
 qlN
 qlN
-qlN
+qkB
 qlN
 hwA
 mdM
@@ -118284,7 +118303,7 @@ qEU
 wvu
 cuq
 qlN
-qlN
+tBV
 qlN
 thf
 pav
@@ -121605,7 +121624,7 @@ yft
 lPR
 xlB
 qWA
-rbz
+cxD
 eFF
 plF
 ekT

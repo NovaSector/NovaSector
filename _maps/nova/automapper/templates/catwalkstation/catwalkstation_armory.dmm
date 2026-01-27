@@ -3,8 +3,7 @@
 /obj/machinery/airalarm/directional/west,
 /obj/structure/rack,
 /obj/effect/spawner/armory_spawn/shotguns,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/security/armory)
 "b" = (
 /obj/item/radio/intercom/directional/west,
@@ -15,16 +14,15 @@
 	},
 /obj/effect/spawner/armory_spawn/mod_lasers_big,
 /obj/effect/spawner/armory_spawn/mod_lasers_small,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/security/armory)
 "r" = (
 /obj/structure/rack,
+/obj/structure/secure_safe/directional/west{
+	name = "Armory safe A"
+	},
 /obj/effect/spawner/armory_spawn/smg,
-/obj/effect/spawner/random/armory/dragnet,
-/obj/structure/sign/poster/official/random/directional/west,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/security/armory)
 
 (1,1,1) = {"

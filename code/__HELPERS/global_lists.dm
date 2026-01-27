@@ -1,6 +1,10 @@
-//////////////////////////
-/////Initial Building/////
-//////////////////////////
+/// Inits GLOB.surgeries
+/proc/init_surgeries()
+	var/surgeries = list()
+	for(var/path in subtypesof(/datum/surgery))
+		surgeries += new path()
+	sort_list(surgeries, GLOBAL_PROC_REF(cmp_typepaths_asc))
+	return surgeries
 
 /// Legacy procs that really should be replaced with proper _INIT macros
 /proc/make_datum_reference_lists()
@@ -31,7 +35,7 @@
 		/obj/item/stack/sheet/plasmarglass = GLOB.prglass_recipes,
 		/obj/item/stack/sheet/animalhide/gondola = GLOB.gondola_recipes,
 		/obj/item/stack/sheet/animalhide/corgi = GLOB.corgi_recipes,
-		/obj/item/stack/sheet/animalhide/carbon/monkey = GLOB.monkey_recipes,
+		/obj/item/stack/sheet/animalhide/monkey = GLOB.monkey_recipes,
 		/obj/item/stack/sheet/animalhide/xeno = GLOB.xeno_recipes,
 		/obj/item/stack/sheet/leather = GLOB.leather_recipes,
 		/obj/item/stack/sheet/sinew = GLOB.sinew_recipes,

@@ -154,7 +154,7 @@
 	fired_projectile.fired_from = src
 	fired_projectile.fire()
 
-/mob/living/basic/pet/dog/corgi/borgi/Life(seconds)
+/mob/living/basic/pet/dog/corgi/borgi/Life(seconds, times_fired)
 	. = ..()
 
 	// spark for no reason

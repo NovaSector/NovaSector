@@ -873,8 +873,6 @@
 /obj/item/modular_computer/wrench_act_secondary(mob/living/user, obj/item/tool)
 	. = ..()
 	tool.play_tool_sound(src, user, 20, volume=20)
-	if(!do_after(user, 2 SECONDS, target = physical))
-		return ITEM_INTERACT_BLOCKING
 	deconstruct(TRUE)
 	user.balloon_alert(user, "disassembled")
 	return ITEM_INTERACT_SUCCESS
@@ -967,7 +965,7 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/modular_computer/proc/photo_act(mob/user, obj/item/photo/scanned_photo)
-	if(!store_file(new /datum/computer_file/picture(scanned_photo.picture), user))
+	if(!store_file(new /datum/computer_file/picture(scanned_photo.picture)))
 		balloon_alert(user, "no space!")
 		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "photo scanned")

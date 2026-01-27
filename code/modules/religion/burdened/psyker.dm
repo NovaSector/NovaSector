@@ -22,7 +22,7 @@
 	qdel(removed_from.GetComponent(/datum/component/echolocation))
 	qdel(removed_from.GetComponent(/datum/component/anti_magic))
 
-/obj/item/organ/brain/psyker/on_life(seconds_per_tick)
+/obj/item/organ/brain/psyker/on_life(seconds_per_tick, times_fired)
 	. = ..()
 	var/obj/item/bodypart/head/psyker/psyker_head = owner.get_bodypart(zone)
 	if(istype(psyker_head))
@@ -71,7 +71,7 @@
 	if(stat == DEAD || !old_head || !old_brain)
 		return FALSE
 	var/obj/item/bodypart/head/psyker/psyker_head = new()
-	if(!psyker_head.replace_limb(src))
+	if(!psyker_head.replace_limb(src, special = TRUE))
 		return FALSE
 	qdel(old_head)
 	var/obj/item/organ/brain/psyker/psyker_brain = new() /// turns out if you make a flashing monochromatic outline against black background that refreshes on inconsistant intervals, it hurts peoples eyes. Who'da thunk.

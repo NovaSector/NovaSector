@@ -227,10 +227,10 @@
 	if(the_rcd.canRturf || rcd_data[RCD_DESIGN_MODE] == RCD_WALLFRAME)
 		return ..()
 
-/turf/closed/wall/r_wall/rust_turf(magic = FALSE)
+/turf/closed/wall/r_wall/rust_turf()
 	if(HAS_TRAIT(src, TRAIT_RUSTY))
 		ChangeTurf(/turf/closed/wall/rust)
-		return TRUE
+		return
 	return ..()
 
 /turf/closed/wall/r_wall/plastitanium

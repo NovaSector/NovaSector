@@ -14,9 +14,7 @@
 	var/poison_amount = 5
 	slot = ORGAN_SLOT_STOMACH_AID
 
-/obj/item/organ/cyberimp/chest/nutriment/on_life(seconds_per_tick)
-	. = ..()
-
+/obj/item/organ/cyberimp/chest/nutriment/on_life(seconds_per_tick, times_fired)
 	if(synthesizing)
 		return
 
@@ -57,14 +55,12 @@
 	COOLDOWN_DECLARE(reviver_cooldown)
 	COOLDOWN_DECLARE(defib_cooldown)
 
-/obj/item/organ/cyberimp/chest/reviver/on_death(seconds_per_tick)
+/obj/item/organ/cyberimp/chest/reviver/on_death(seconds_per_tick, times_fired)
 	if(isnull(owner)) // owner can be null, on_death() gets called by /obj/item/organ/process() for decay
 		return
 	try_heal() // Allows implant to work even on dead people
 
-/obj/item/organ/cyberimp/chest/reviver/on_life(seconds_per_tick)
-	. = ..()
-
+/obj/item/organ/cyberimp/chest/reviver/on_life(seconds_per_tick, times_fired)
 	try_heal()
 
 /obj/item/organ/cyberimp/chest/reviver/proc/try_heal()

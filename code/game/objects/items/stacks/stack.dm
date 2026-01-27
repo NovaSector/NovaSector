@@ -58,8 +58,6 @@
 	// They're here instead of /stack/medical
 	// because sticky tape can be used as a makeshift bandage or splint
 
-	/// Verb used when applying this object to someone
-	var/apply_verb = "applying"
 	/// If set and this used as a splint for a broken bone wound,
 	/// This is used as a multiplier for applicable slowdowns (lower = better) (also for speeding up burn recoveries)
 	var/splint_factor
@@ -80,7 +78,7 @@
 	///What type of wall does this sheet spawn
 	var/walltype
 
-/obj/item/stack/Initialize(mapload, new_amount = amount, merge = TRUE, list/mat_override = null, mat_amt = 1)
+/obj/item/stack/Initialize(mapload, new_amount = amount, merge = TRUE, list/mat_override=null, mat_amt=1)
 	amount = new_amount
 	if(amount <= 0)
 		stack_trace("invalid amount [amount]!")

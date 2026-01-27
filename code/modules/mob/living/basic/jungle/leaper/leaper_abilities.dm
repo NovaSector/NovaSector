@@ -62,7 +62,7 @@
 	taste_description = "french cuisine"
 	taste_mult = 1.3
 
-/datum/reagent/toxin/leaper_venom/on_mob_life(mob/living/carbon/poisoned_mob, seconds_per_tick)
+/datum/reagent/toxin/leaper_venom/on_mob_life(mob/living/carbon/poisoned_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(volume <= 5)
 		return
@@ -247,4 +247,4 @@
 /datum/action/cooldown/spell/conjure/limit_summons/create_suicide_toads/post_summon(atom/summoned_object, atom/cast_on)
 	. = ..()
 	var/mob/living/summoned_toad = summoned_object
-	SET_FACTION_AND_ALLIES_FROM(summoned_toad, owner) // so they dont attack the leaper or the wizard master
+	summoned_toad.faction = owner.faction ///so they dont attack the leaper or the wizard master

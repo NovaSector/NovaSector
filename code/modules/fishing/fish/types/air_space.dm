@@ -198,7 +198,7 @@
 	if(chest)
 		babby.set_greyscale(chest.species_color) // this isn't working. why isnt this working
 
-	user.gib(DROP_ALL_REMAINS)
+	user.gib()
 	qdel(src)
 
 /obj/item/fish/baby_carp/update_overlays()

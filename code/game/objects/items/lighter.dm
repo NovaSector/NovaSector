@@ -245,10 +245,6 @@
 	if(!lit)
 		return FALSE
 
-	if (reagents.spark_act(0, TRUE, banned_reagents = /datum/reagent/fuel) & SPARK_ACT_DESTRUCTIVE)
-		qdel(src)
-		return FALSE
-
 	if(used > 0)
 		burned_fuel_for = 0
 
@@ -261,7 +257,7 @@
 
 ///Returns the amount of fuel
 /obj/item/lighter/proc/get_fuel()
-	return reagents.get_reagent_amount(/datum/reagent/fuel) + reagents.get_reagent_amount(/datum/reagent/toxin/plasma)
+	return reagents.get_reagent_amount(/datum/reagent/fuel)
 
 /obj/item/lighter/greyscale
 	name = "cheap lighter"

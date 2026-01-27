@@ -12,7 +12,7 @@
 	medhud.add_atom_to_hud(src)
 	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]
 	diag_hud.add_atom_to_hud(src)
-	add_ally(src)
+	faction += "[REF(src)]"
 	GLOB.mob_living_list += src
 	SSpoints_of_interest.make_point_of_interest(src)
 	update_fov()
@@ -45,6 +45,7 @@
 		imaginary_group -= src
 		QDEL_LIST(imaginary_group)
 	QDEL_LAZYLIST(diseases)
+	QDEL_LIST(surgeries)
 	QDEL_LAZYLIST(quirks)
 	return ..()
 
@@ -678,9 +679,11 @@ NOVA EDIT REMOVAL END */
 /**
  * Returns the access list for this mob
  */
-/mob/living/get_access()
+/mob/living/proc/get_access() as /list
 	var/list/access_list = list()
-	SEND_SIGNAL(src, COMSIG_MOB_RETRIEVE_ACCESS, access_list)
+	SEND_SIGNAL(src, COMSIG_MOB_RETRIEVE_SIMPLE_ACCESS, access_list)
+	var/obj/item/card/id/id = get_idcard()
+	access_list += id?.GetAccess()
 	return access_list
 
 /mob/living/proc/get_id_in_hand()
@@ -1129,10 +1132,6 @@ NOVA EDIT REMOVAL END */
 
 ///Called by mob Move() when the lying_angle is different than zero, to better visually simulate crawling.
 /mob/living/proc/lying_angle_on_movement(direct)
-	if(buckled && buckled.buckle_lying != NO_BUCKLE_LYING)
-		set_lying_angle(buckled.buckle_lying)
-		return
-
 	if(direct & EAST)
 		set_lying_angle(LYING_ANGLE_EAST)
 	else if(direct & WEST)
@@ -2683,9 +2682,6 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /mob/living/proc/set_usable_hands(new_value)
 	if(usable_hands == new_value)
 		return
-	if(new_value < 0) // Sanity check
-		stack_trace("[src] had set_usable_hands() called on them with a negative value!")
-		new_value = 0
 	. = usable_hands
 	usable_hands = new_value
 
@@ -2868,11 +2864,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /mob/living/proc/add_mood_event(category, type, ...)
 	if(QDELETED(mob_mood))
 		return
-
-	if(ispath(type, /datum/mood_event/conditional))
-		mob_mood.add_conditional_mood_event(arglist(args))
-	else
-		mob_mood.add_mood_event(arglist(args))
+	mob_mood.add_mood_event(arglist(args))
 
 /// Clears a mood event from the mob
 /mob/living/proc/clear_mood_event(category)
@@ -2906,7 +2898,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /// Proc called when TARGETED by a lazarus injector
 /mob/living/proc/lazarus_revive(mob/living/reviver, malfunctioning)
 	revive(HEAL_ALL)
-	add_faction(FACTION_NEUTRAL)
+	faction |= FACTION_NEUTRAL
 	if (!malfunctioning)
 		befriend(reviver)
 	var/lazarus_policy = get_policy(ROLE_LAZARUS_GOOD) || "The lazarus injector has brought you back to life! You are now friendly to everyone."
@@ -2925,9 +2917,9 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(QDELETED(new_friend))
 		return
 	var/friend_ref = REF(new_friend)
-	if (has_ally(friend_ref))
+	if (faction.Find(friend_ref))
 		return FALSE
-	add_ally(friend_ref)
+	faction |= friend_ref
 	ai_controller?.insert_blackboard_key_lazylist(BB_FRIENDS_LIST, new_friend)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_BEFRIENDED, new_friend)
@@ -2937,9 +2929,9 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /mob/living/proc/unfriend(mob/living/old_friend)
 	SHOULD_CALL_PARENT(TRUE)
 	var/friend_ref = REF(old_friend)
-	if (!has_ally(friend_ref))
+	if (!faction.Find(friend_ref))
 		return FALSE
-	remove_ally(friend_ref)
+	faction -= friend_ref
 	ai_controller?.remove_thing_from_blackboard_key(BB_FRIENDS_LIST, old_friend)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_UNFRIENDED, old_friend)

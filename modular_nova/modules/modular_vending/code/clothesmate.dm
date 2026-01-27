@@ -152,7 +152,6 @@
 				/obj/item/clothing/under/greyscale/overalls/skirt = 5,
 				/obj/item/clothing/suit/apron/overalls_loneskirt = 5,
 				/obj/item/clothing/suit/nova/sweater = 5,
-				/obj/item/clothing/suit/nova/sweater/bow = 5,
 				/obj/item/clothing/suit/nova/overcoat = 5,
 			),
 		),

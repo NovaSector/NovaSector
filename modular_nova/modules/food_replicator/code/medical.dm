@@ -12,7 +12,7 @@
 
 /obj/item/stack/medical/suture/bloody/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)
 	. = ..()
-	if(healed_mob.get_blood_volume() <= BLOOD_VOLUME_SAFE)
+	if(healed_mob.blood_volume <= BLOOD_VOLUME_SAFE)
 		healed_mob.reagents.add_reagent(/datum/reagent/medicine/salglu_solution, 2)
 		healed_mob.adjust_oxy_loss(-amount_healed)
 
@@ -38,7 +38,7 @@
 
 /obj/item/stack/medical/mesh/bloody/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)
 	. = ..()
-	if(healed_mob.get_blood_volume() <= BLOOD_VOLUME_SAFE)
+	if(healed_mob.blood_volume <= BLOOD_VOLUME_SAFE)
 		healed_mob.reagents.add_reagent(/datum/reagent/medicine/salglu_solution, 2)
 		healed_mob.adjust_oxy_loss(-amount_healed)
 

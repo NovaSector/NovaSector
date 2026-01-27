@@ -814,7 +814,7 @@
 /obj/machinery/attack_ai(mob/user)
 	if(!(interaction_flags_machine & INTERACT_MACHINE_ALLOW_SILICON) && !isAdminGhostAI(user))
 		return FALSE
-	if(!user.has_faction(ROLE_SYNDICATE))
+	if(!(ROLE_SYNDICATE in user.faction))
 		if((ACCESS_SYNDICATE in req_access) || (ACCESS_SYNDICATE_LEADER in req_access) || (ACCESS_SYNDICATE in req_one_access) || (ACCESS_SYNDICATE_LEADER in req_one_access))
 			return FALSE
 		if((onSyndieBase() && loc != user))
@@ -1093,7 +1093,9 @@
 			if(istype(secondary_part, /obj/item/stock_parts/power_store/cell) && works_from_distance)
 				var/obj/item/stock_parts/power_store/cell/checked_cell = secondary_part
 				// If it's rigged or corrupted, max the charge. Then explode it.
-				if(checked_cell.try_explode(max_charge = TRUE))
+				if(checked_cell.rigged || checked_cell.corrupted)
+					checked_cell.charge = checked_cell.maxcharge
+					checked_cell.explode()
 					break
 			if(secondary_part.get_part_rating() > current_rating)
 				//store name of part incase we qdel it below

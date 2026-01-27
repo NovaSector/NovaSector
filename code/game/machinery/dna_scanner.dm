@@ -166,8 +166,7 @@
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
 	var/list/genetic_makeup_buffer = list()
 	var/list/mutations = list()
-	var/max_mutations = 10
-	read_only = FALSE //Well,it's still a floppy disk
+	var/max_mutations = 6
 
 /obj/item/disk/data/Initialize(mapload)
 	. = ..()

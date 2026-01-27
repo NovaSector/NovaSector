@@ -8,26 +8,6 @@
 	item_flags = null
 	force = 7
 
-/obj/item/aicard/syndie/update_icon_state()
-	icon_state = base_icon_state
-	return ..()
-
-/obj/item/aicard/syndie/update_overlays()
-	..()
-	. = list()
-
-	if(!AI)
-		return
-
-	var/face_state = "[base_icon_state][AI.stat == DEAD ? "-404" : "-full"]"
-	. += mutable_appearance(icon, face_state)
-	. += emissive_appearance(icon, face_state, src, alpha = src.alpha)
-
-	var/indicator_state = "[base_icon_state][AI.control_disabled ? "-off" : "-on"]"
-	. += mutable_appearance(icon, indicator_state)
-	. += emissive_appearance(icon, indicator_state, src, alpha = src.alpha)
-
-
 /obj/item/aicard/syndie/loaded
 	/// Set to true while we're waiting for ghosts to sign up
 	var/finding_candidate = FALSE
@@ -78,29 +58,21 @@
 	nuke_datum.send_to_spawnpoint = FALSE
 	new_ai.mind.add_antag_datum(nuke_datum, op_datum.nuke_team)
 	LAZYADD(new_ai.mind.special_roles, "Syndicate AI")
-	new_ai.add_faction(ROLE_SYNDICATE)
-
+	new_ai.faction |= ROLE_SYNDICATE
 	// Make it look evil!!!
 	new_ai.hologram_appearance = mutable_appearance('icons/mob/silicon/ai.dmi',"xeno_queen") //good enough
-
-	new_ai.set_core_display_icon("hades")
-
+	new_ai.icon_state = resolve_ai_icon("hades")
 	// Hide PDA from messenger
 	var/datum/computer_file/program/messenger/msg = locate() in new_ai.modularInterface.stored_files
 	if(msg)
 		msg.invisible = TRUE
 
 	// Transfer the AI from the core we created into the card, then delete the core
-	new_ai.transfer_ai(AI_TRANS_TO_CARD, user, null, src)
-	update_appearance()
-
+	capture_ai(new_ai, user)
 	var/obj/structure/ai_core/detritus = locate() in get_turf(src)
 	qdel(detritus)
-
-	if(AI)
-		AI.set_control_disabled(FALSE)
-		AI.radio_enabled = TRUE
-
+	AI.set_control_disabled(FALSE)
+	AI.radio_enabled = TRUE
 	do_sparks(4, TRUE, src)
 	playsound(src, 'sound/machines/chime.ogg', 25, TRUE)
 	return

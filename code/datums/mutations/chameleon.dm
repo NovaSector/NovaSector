@@ -22,7 +22,7 @@
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 	RegisterSignal(owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_attack_hand))
 
-/datum/mutation/chameleon/on_life(seconds_per_tick)
+/datum/mutation/chameleon/on_life(seconds_per_tick, times_fired)
 	/// NOVA EDIT ADDITION BEGIN
 	if(!HAS_TRAIT(owner, TRAIT_CHAMELEON_SKIN))
 		return

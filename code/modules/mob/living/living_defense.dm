@@ -102,20 +102,6 @@
 /mob/living/proc/is_ears_covered()
 	return null
 
-/**
- * Check if the passed body zone is covered by some clothes
- *
- * * location: body zone to check
- * ([BODY_ZONE_CHEST], [BODY_ZONE_HEAD], etc)
- * * exluded_equipment_slots: equipment slots to ignore when checking coverage
- * (for example, if you want to ignore helmets, pass [ITEM_SLOT_HEAD])
- *
- * Returns TRUE if the location is accessible (not covered)
- * Returns FALSE if the location is covered by something
- */
-/mob/living/proc/is_location_accessible(location, exluded_equipment_slots = NONE)
-	return TRUE
-
 /mob/living/bullet_act(obj/projectile/proj, def_zone, piercing_hit = FALSE, blocked = 0)
 	. = ..()
 	if (. != BULLET_ACT_HIT)
@@ -476,8 +462,13 @@
 	if(.)
 		return TRUE
 
-	if(!combat_mode && HAS_TRAIT(src, TRAIT_READY_TO_OPERATE) && user.perform_surgery(src))
-		return TRUE
+	for(var/datum/surgery/operations as anything in surgeries)
+		if(user.combat_mode)
+			break
+		if(IS_IN_INVALID_SURGICAL_POSITION(src, operations))
+			continue
+		if(operations.next_step(user, modifiers))
+			return TRUE
 
 	return FALSE
 
@@ -671,7 +662,7 @@
 	return TRUE
 
 //called when the mob receives a loud bang
-/mob/living/proc/soundbang_act(intensity = SOUNDBANG_NORMAL, stun_pwr = 2 SECONDS, damage_pwr = 5, deafen_pwr = 1.5 SECONDS, ignore_deafness = FALSE, send_sound = TRUE)
+/mob/living/proc/soundbang_act(intensity = SOUNDBANG_NORMAL, stun_pwr = 20, damage_pwr = 5, deafen_pwr = 15, ignore_deafness = FALSE, send_sound = TRUE)
 	var/protection = get_ear_protection(ignore_deafness)
 	if(protection >= intensity)
 		return FALSE
