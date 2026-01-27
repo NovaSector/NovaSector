@@ -34839,7 +34839,7 @@
 	},
 /obj/machinery/button/door{
 	id = "roboticsurgery";
-	name = "Robitics Surgery Privacy Shutters";
+	name = "Robotics Surgery Privacy Shutters";
 	pixel_x = 26;
 	pixel_y = -26
 	},
