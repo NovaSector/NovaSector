@@ -142,6 +142,8 @@
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 		),
 	))
+	mod.name = "\improper Homo Ludens Modsuit 'Paragon'"
+	mod.desc = "This semi-artisanal, bleeding edge MODsuit is a symbol of exemplary performance, amplifying the speciality of the user through its durable carapace and a wide variety of utilities, both offensive and defensive."
 	return ..()
 
 // Bonkaitheroris (Bonkai) Donor Item
