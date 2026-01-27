@@ -87,6 +87,63 @@
 		/obj/item/mod/control/pre_equipped/medical = 1,
 	)
 
+/obj/item/mod/skin_applier/paragon
+	name = "\improper Homo Ludens Parts kit 'Paragon'"
+	desc = "A sturdy black storage container wrapped with yellow tape label 'VOID IF TEMPERED, DO NOT PAINT OVER LABEL.” Barcodes, manufacturing details, and safety warnings are stenciled along its sides. \
+		Within the box contains several conversion parts packed neatly within shape foam, a distinctive glass like helmet visor made out of synthetic crystal laminate with electrical polarized lens matrix, and a manual with detailed instruction \
+		necessary to create the Paragon MODsuit."
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	icon_state = "paragon-plating"
+	skin = "paragon"
+
+/obj/item/mod/skin_applier/paragon/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/medical))
+		return ..()
+	var/obj/item/mod/control/mod = interacting_with
+	if(skin in mod.theme.variants)
+		return ..()
+	//Skin Isolation from being shared.
+	var/datum/mod_theme/paragon = new mod.theme.type
+	paragon.variants = mod.theme.variants.Copy()
+	mod.theme = paragon
+	mod.theme.variants += list("paragon" = list(
+		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
+		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
+		/obj/item/clothing/head/mod = list(
+			UNSEALED_LAYER = HEAD_LAYER,
+			UNSEALED_CLOTHING = SNUG_FIT,
+			UNSEALED_COVER = HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_INVISIBILITY = HIDEHAIR|HIDEEYES|HIDESNOUT,
+			SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY =  HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
+			SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/suit/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY = HIDEJUMPSUIT|HIDETAIL,
+			UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/gloves/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/shoes/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
+		),
+	))
+	return ..()
+
 // Bonkaitheroris (Bonkai) Donor Item
 
 //Adding jumper as a object - Needed for crafting recipe
