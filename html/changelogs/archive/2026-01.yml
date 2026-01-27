@@ -992,6 +992,10 @@
   - bugfix: fixes an exploit where you could use pixel tilt to infinitely scale your
       character up or down
 2026-01-27:
+  Deadly Toy, sergeirocks100:
+  - rscadd: A bowless big sweater has been added to the loadout and Clothesmate.
+  - image: The sprites for both the regular and bowed big sweater have been adjusted
+      somewhat.
   Iajret:
   - rscdel: Encasing overclocked volume pumps inside wall no longer prevents them
       from working
