@@ -2,13 +2,13 @@
 	"sweaterbow": [
 		{
 			"type": "icon_state",
-			"icon_state": "sweaterbow_base",
+			"icon_state": "sweater",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "sweaterbow_strings",
+			"icon_state": "sweater_bow",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
