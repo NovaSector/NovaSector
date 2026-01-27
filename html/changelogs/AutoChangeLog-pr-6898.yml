@@ -1,0 +1,4 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - balance: "The agent stealth box no longer makes you much faster, it only makes you a little faster now."
