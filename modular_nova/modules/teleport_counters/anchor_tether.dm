@@ -26,20 +26,15 @@
 
 /datum/embedding/tether_projectile/anti_teleport/remove_embedding(mob/living/to_hands)
 	UnregisterSignal(owner, list(COMSIG_MOVABLE_TELEPORTING, COMSIG_MOB_PRE_JAUNT))
-	. = ..()
+	return ..()
 
 /// Signal for COMSIG_MOVABLE_TELEPORTING that blocks teleports and stuns the would-be-teleportee, adapted from implant_noteleport.dm
 /datum/embedding/tether_projectile/anti_teleport/proc/on_teleport(mob/living/teleportee, atom/destination, channel)
 	SIGNAL_HANDLER
 
 	to_chat(teleportee, span_holoparasite("You feel yourself teleporting, but are suddenly flung back to where you just were!"))
+	penalize(teleportee)
 
-	teleportee.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 10 SECONDS)
-	teleportee.apply_status_effect(/datum/status_effect/incapacitating/knockdown, 2 SECONDS)
-	teleportee.apply_damage(55, STAMINA)
-	var/datum/effect_system/spark_spread/quantum/spark_system = new()
-	spark_system.set_up(5, TRUE, teleportee)
-	spark_system.start()
 	return TRUE
 
 /// Signal for COMSIG_MOB_PRE_JAUNT that prevents a user from entering a jaunt.
@@ -47,11 +42,16 @@
 	SIGNAL_HANDLER
 
 	to_chat(jaunter, span_holoparasite("As you attempt to jaunt, you slam directly into the barrier between realities and are sent crashing back into corporeality!"))
+	penalize(jaunter)
 
-	jaunter.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 10 SECONDS)
-	jaunter.apply_status_effect(/datum/status_effect/incapacitating/knockdown, 2 SECONDS)
-	jaunter.apply_damage(55, STAMINA)
-	var/datum/effect_system/spark_spread/quantum/spark_system = new()
-	spark_system.set_up(5, TRUE, jaunter)
-	spark_system.start()
 	return COMPONENT_BLOCK_JAUNT
+
+/// Stuns a target, presumably the offending party/embed target/whoever was about to try teleporting.
+/datum/embedding/tether_projectile/anti_teleport/proc/penalize(mob/living/target)
+	target.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 10 SECONDS)
+	target.Knockdown(0.2 SECONDS)
+	target.drop_all_held_items()
+	target.apply_damage(55, STAMINA)
+	var/datum/effect_system/spark_spread/quantum/spark_system = new()
+	spark_system.set_up(5, TRUE, target)
+	spark_system.start()
