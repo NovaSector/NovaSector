@@ -1,0 +1,5 @@
+author: "MacaroniCritter"
+delete-after: True
+changes:
+  - map: "Fixed Blueshifts command Hallway light switch placement."
+  - map: "Removed an indestructible console from Blueshifts Bridge."
