@@ -1,4 +1,0 @@
-author: "MacaroniCritter"
-delete-after: True
-changes:
-  - bugfix: "fixed tennis balls not being equippable in the mask slot"

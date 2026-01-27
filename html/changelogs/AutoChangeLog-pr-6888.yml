@@ -1,6 +1,0 @@
-author: "carpotoxin"
-delete-after: True
-changes:
-  - rscdel: "Removes ckey whitelist \"code\" for sprite accessory datums"
-  - qol: "Moogle poms and halos are now a head accessory, meaning they can be stacked with horns. To Moogle-pom or halo-havers: you will need to reapply the former-horn accessory in preferences, look for 'Head Accessory'"
-  - code_imp: "Head accessories and neck accessories are now available in the character editor"
