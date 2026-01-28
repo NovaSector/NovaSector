@@ -58,7 +58,18 @@
 	to_wear.suit = null
 	to_wear.suit_store = null
 
-	avatar.equipOutfit(to_wear, visuals_only = TRUE)
+	// NOVA EDIT ADDITION START -- Equip bitrunner's custom loadout, weakens loadout suit's armor for consistency
+	if(!isnull(prefs) && include_loadout)
+		avatar.equip_outfit_and_loadout(to_wear, prefs, visuals_only = TRUE)
+	else
+		avatar.equipOutfit(to_wear, visuals_only = TRUE)
+
+	var/obj/item/clothing/suit/suit = avatar.wear_suit
+	if(istype(suit))
+		suit.set_armor(/datum/armor/none)
+	// NOVA EDIT ADDITION END
+
+	//avatar.equipOutfit(to_wear, visuals_only = TRUE) // NOVA SECTOR REMOVAL - Refer to above
 
 	var/obj/item/clothing/under/jumpsuit = avatar.w_uniform
 	if(istype(jumpsuit))
@@ -81,11 +92,6 @@
 			new /obj/item/storage/medkit/regular,
 			new /obj/item/flashlight,
 		)
-
-	// NOVA EDIT ADDITION START
-	if(!isnull(prefs) && include_loadout)
-		avatar.equip_outfit_and_loadout(new /datum/outfit(), prefs)
-	// NOVA EDIT ADDITION END
 	var/obj/item/card/id/outfit_id = avatar.wear_id
 	if(outfit_id)
 		outfit_id.set_account(new /datum/bank_account)
