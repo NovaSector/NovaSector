@@ -74,21 +74,29 @@
 /obj/item/clothing/under/rank/security/nova/formal/blue
 	icon_state = "formal_blue"
 
-/datum/atom_skin/security_jumpskirt
-	abstract_type = /datum/atom_skin/security_jumpskirt
+/datum/atom_skin/security_sweaterskirt
+	abstract_type = /datum/atom_skin/security_sweaterskirt
 
-/datum/atom_skin/security_jumpskirt/blue
+/datum/atom_skin/security_sweaterskirt/white
+	preview_name = "White Variant"
+	new_icon_state = "sweaterskirt_white"
+
+/datum/atom_skin/security_sweaterskirt/blue
 	preview_name = "Blue Variant"
-	new_icon_state = "jumpskirt_blue"
+	new_icon_state = "sweaterskirt_blue"
 
-/datum/atom_skin/security_jumpskirt/black
+/datum/atom_skin/security_sweaterskirt/black
 	preview_name = "Black Variant"
-	new_icon_state = "jumpskirt_black"
+	new_icon_state = "sweaterskirt_black"
+
+/datum/atom_skin/security_sweaterskirt/red
+	preview_name = "Red Variant"
+	new_icon_state = "sweaterskirt_red"
 
 /obj/item/clothing/under/rank/security/nova/skirt
-	name = "security jumpskirt"
-	desc = "A \"tactical\" security uniform with the legs replaced by a skirt."
-	icon_state = "jumpskirt_blue"
+	name = "security sweaterskirt"
+	desc = "A \"tactical\" security sweater with the legs replaced by a skirt."
+	icon_state = "sweaterskirt_red"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 
