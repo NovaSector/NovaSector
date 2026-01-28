@@ -9192,6 +9192,7 @@
 #include "modular_nova\modules\random_ship_event\ships.dm"
 #include "modular_nova\modules\random_ship_event\random_ships\heliostatic_inspectors\code\antag_datum.dm"
 #include "modular_nova\modules\random_ship_event\random_ships\heliostatic_inspectors\code\documents.dm"
+#include "modular_nova\modules\random_ship_event\random_ships\heliostatic_inspectors\code\flatpack.dm"
 #include "modular_nova\modules\random_ship_event\random_ships\heliostatic_inspectors\code\ghost_spawner.dm"
 #include "modular_nova\modules\random_ship_event\random_ships\heliostatic_inspectors\code\hc_police.dm"
 #include "modular_nova\modules\random_ship_event\random_ships\heliostatic_inspectors\code\inspector_mainframe.dm"
