@@ -10,3 +10,6 @@
 /obj/item/radio/headset/chameleon/advanced/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+
+/obj/item/radio/headset/freerange
+	freerange = TRUE
