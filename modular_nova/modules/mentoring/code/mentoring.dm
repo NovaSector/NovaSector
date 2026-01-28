@@ -3,7 +3,7 @@
 #define AUTHOR_LEVEL_JOURNEYMAN 4
 #define AUTHOR_LEVEL_EXPERT 5
 #define AUTHOR_LEVEL_MASTER 6
-
+/*
 /datum/crafting_recipe/mentoring_book
 	name = "Mentoring Book"
 	result = /obj/item/mentoring_book
@@ -13,7 +13,7 @@
 		/obj/item/paper = 5,
 	)
 	category = CAT_ENTERTAINMENT
-
+*/
 /obj/item/mentoring_book
 	name = "mentoring book"
 	desc = "Written on the pages are countless tales of the author's experiences in certain skills. Perhaps reading will help you."
