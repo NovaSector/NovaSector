@@ -108,7 +108,7 @@
 
 /datum/atom_skin/security_plain_skirt/red
 	preview_name = "Red Variant"
-	new_icon_state = "plain_skirt_red"
+	new_icon_state = "plain_skirt"
 
 /datum/atom_skin/security_plain_skirt/white
 	preview_name = "White Variant"
@@ -117,7 +117,7 @@
 /obj/item/clothing/under/rank/security/nova/skirt/plain
 	name = "security plain skirt"
 	desc = "Plain-shirted uniform commonly worn by Nanotrasen officers, attached with a skirt."
-	icon_state = "plain_skirt_red"
+	icon_state = "plain_skirt"
 
 /obj/item/clothing/under/rank/security/nova/skirt/plain/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_plain_skirt)
