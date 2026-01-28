@@ -3,7 +3,7 @@
 #define AUTHOR_LEVEL_JOURNEYMAN 4
 #define AUTHOR_LEVEL_EXPERT 5
 #define AUTHOR_LEVEL_MASTER 6
-/*
+
 /datum/crafting_recipe/mentoring_book
 	name = "Mentoring Book"
 	result = /obj/item/mentoring_book
@@ -13,7 +13,7 @@
 		/obj/item/paper = 5,
 	)
 	category = CAT_ENTERTAINMENT
-*/
+
 /obj/item/mentoring_book
 	name = "mentoring book"
 	desc = "Written on the pages are countless tales of the author's experiences in certain skills. Perhaps reading will help you."
@@ -91,7 +91,7 @@
 		. += span_notice("This book can teach you sign language.")
 
 	if(!(taught_skill || taught_language || teach_sign))
-		. += span_notice("Pondering about yet to be filled pages can give you insights in <b>Language skill<b>.")
+		. += span_notice("The pages are blank.")
 
 	. += span_notice("Using a pen will allow you to impart your knowledge about language or skills to the book!")
 
@@ -123,14 +123,7 @@
 
 /obj/item/mentoring_book/attack_self(mob/user, modifiers)
 	if(isnull(taught_skill) && isnull(taught_language) && !teach_sign)
-		for(var/scribble_iteration in 1 to 50)
-			var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/language, SKILL_SPEED_MODIFIER)
-			if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
-				to_chat(user, span_notice("You put [src] down."))
-				return
-
-			give_experience(user)
-
+		to_chat(user, span_notice("The pages are blank. Use a pen to write knowledge into the book first."))
 		return
 
 	if(taught_skill)

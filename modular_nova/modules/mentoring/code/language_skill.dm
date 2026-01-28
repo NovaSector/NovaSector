@@ -36,3 +36,10 @@
 /obj/item/clothing/accessory/language/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/skill_reward, /datum/skill/language)
+
+/datum/job/curator/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	if(!spawned.mind)
+		return
+
+	spawned.mind.set_level(/datum/skill/language, SKILL_LEVEL_LEGENDARY, silent = TRUE)
