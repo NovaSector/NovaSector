@@ -1013,3 +1013,7 @@
       accessory in preferences, look for ''Head Accessory'''
   - code_imp: Head accessories and neck accessories are now available in the character
       editor
+2026-01-28:
+  carpotoxin:
+  - balance: The agent stealth box no longer makes you much faster, it only makes
+      you a little faster now.
