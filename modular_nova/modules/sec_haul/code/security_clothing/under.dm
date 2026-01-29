@@ -273,6 +273,25 @@
 /obj/item/clothing/under/rank/security/nova/trousers/shorts/blue/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts/blue)
 
+/datum/atom_skin/security_turtleneck
+	abstract_type = /datum/atom_skin/security_turtleneck
+
+/datum/atom_skin/security_turtleneck/red
+	preview_name = "Red Variant"
+	new_icon_state = "secturtleneck"
+
+/datum/atom_skin/security_turtleneck/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "secturtleneck_blue"
+
+/datum/atom_skin/security_turtleneck/white
+	preview_name = "White Variant"
+	new_icon_state = "secturtleneck_white"
+
+/datum/atom_skin/security_turtleneck/black
+	preview_name = "Black Variant"
+	new_icon_state = "secturtleneck_black"
+
 /obj/item/clothing/under/rank/security/nova/turtleneck
 	name = "security turtleneck"
 	desc = "Turtleneck sweater commonly worn by trained Officers, attached with pants."
@@ -281,8 +300,8 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
-/obj/item/clothing/under/rank/security/nova/turtleneck/blue
-	icon_state = "secturtleneck_blue"
+/obj/item/clothing/under/rank/security/nova/turtleneck/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_turtleneck)
 
 /*
 *	WARDEN
