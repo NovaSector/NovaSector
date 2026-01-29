@@ -101,7 +101,7 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/nova/skirt/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_jumpskirt, infinite = TRUE)
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_sweaterskirt, infinite = TRUE)
 
 /datum/atom_skin/security_plain_skirt
 	abstract_type = /datum/atom_skin/security_plain_skirt
