@@ -13,6 +13,18 @@
 //									modular_nova\modules\customization\modules\clothing\~donator\donator_items.dm
 // -- Rilomatic - 16th January 2026
 
+// == SKIN_APPLIER ==
+// To Isolate skin from being shared. Include this in your skin_applier
+//
+//	var/datum/mod_theme/[YOUR_SUIT_NAME_HERE] = new mod.theme.type
+//	[YOUR_SUIT_NAME_HERE].variants = mod.theme.variants.Copy()
+//	mod.theme = [YOUR_SUIT_NAME_HERE]
+
+// To change the name and description of modsuit with a skin_applier.
+// mod.name =
+// mod.desc =
+// -- Rilomatic - 29th January 2026
+
 // Line 17 - 56 -- DO NOT TOUCH. Needed for modsuit to work as a modsuit or prepare to hear runtime meows
 /obj/item/mod/control/donor
 	starting_frequency = MODLINK_FREQ_NANOTRASEN
@@ -68,6 +80,7 @@
 		/obj/item/mod/module/injector,
 	)
 
+//Plating - Constuction from scratch
 /obj/item/mod/construction/plating/paragon
 	name = "\improper Paragon Plating"
 	desc = "A sturdy black storage container wrapped with yellow tape label 'VOID IF TEMPERED, DO NOT PAINT OVER LABEL.” Barcodes, manufacturing details, and safety warnings are stenciled along its sides. \
@@ -77,16 +90,7 @@
 	icon_state = "paragon-plating"
 	theme = /datum/mod_theme/paragon
 
-//Crafting recipe for paragon
-/datum/crafting_recipe/Paragon
-	name = "Homo Ludens Modsuit 'Paragon'"
-	result = /obj/item/mod/control/donor/paragon
-	time = 1 SECONDS
-	reqs = list(
-		/obj/item/mod/construction/plating/paragon = 1,
-		/obj/item/mod/control/pre_equipped/medical = 1,
-	)
-
+//Skinapplier - For pre-equipped MODsuits
 /obj/item/mod/skin_applier/paragon
 	name = "\improper Homo Ludens Parts kit 'Paragon'"
 	desc = "A sturdy black storage container wrapped with yellow tape label 'VOID IF TEMPERED, DO NOT PAINT OVER LABEL.” Barcodes, manufacturing details, and safety warnings are stenciled along its sides. \
@@ -142,8 +146,10 @@
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 		),
 	))
+	//Changes pre-equip modsuit name and description to custom.
 	mod.name = "\improper Homo Ludens Modsuit 'Paragon'"
-	mod.desc = "This semi-artisanal, bleeding edge MODsuit is a symbol of exemplary performance, amplifying the speciality of the user through its durable carapace and a wide variety of utilities, both offensive and defensive."
+	mod.desc = "This semi-artisanal, bleeding edge MODsuit is a symbol of exemplary performance, \
+				amplifying the speciality of the user through its durable carapace and a wide variety of utilities, both offensive and defensive."
 	return ..()
 
 // Bonkaitheroris (Bonkai) Donor Item
@@ -175,12 +181,121 @@
 	icon_state = "jumper-plating"
 	theme = /datum/mod_theme/jumper
 
-//Crafting recipe for jumper
-/datum/crafting_recipe/jumper
-	name = "PA-4 MK-7 J.S 'Jumper'"
-	result = /obj/item/mod/control/donor/jumper
-	time = 1 SECONDS
-	reqs = list(
-		/obj/item/mod/construction/plating/jumper = 1,
-		/obj/item/mod/control/pre_equipped/security = 1,
-	)
+/obj/item/mod/skin_applier/jumper
+	name = "\improper PA-4 MK-7 J.S supply crate"
+	desc = "A crate made mostly of titanium with handles on the side to carry. \
+			It seems to be pressure sealed and the lid seems to be hydraulically assisted. \
+			The inside of the crate opens up and folds out to display an entire toolkit with all the essentials to convert most armor into a Mark 7 PA-7 Variant Jump suit. \
+			This crate seems to have the emblem relating to a certain Commando... Perhaps you should return it to the owner where you found it, if you can even lift it."
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "jumper-plating"
+	skin = "jumper"
+
+/obj/item/mod/skin_applier/jumper/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/security))
+		return ..()
+	var/obj/item/mod/control/mod = interacting_with
+	if(skin in mod.theme.variants)
+		return ..()
+	var/datum/mod_theme/jumper = new mod.theme.type
+	jumper.variants = mod.theme.variants.Copy()
+	mod.theme = jumper
+	mod.theme.variants += list("jumper" = list(
+		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
+		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
+		/obj/item/clothing/head/mod = list(
+			UNSEALED_LAYER = HEAD_LAYER,
+			UNSEALED_CLOTHING = SNUG_FIT,
+			UNSEALED_COVER = HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_INVISIBILITY = HIDEHAIR|HIDEEYES|HIDESNOUT,
+			SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY =  HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
+			SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/suit/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY = HIDEJUMPSUIT|HIDETAIL,
+			UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/gloves/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/shoes/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
+		),
+	))
+	mod.name = "\improper PA-4 MK-7 J.S 'Jumper'"
+	mod.desc = "A rugged combat MODsuit optimized for shock deployment and urban warfare. \
+				Featuring reinforced armor segments, integrated life-support, and modular hardpoints, \
+				it prioritizes endurance and flexibility over excess weight, ensuring consistent performance under extreme conditions"
+	return ..()
+
+//samman166 Donor Items
+
+/obj/item/mod/skin_applier/akari
+	name = "nanite MODsuit refitter"
+	desc = "A small kit full of nanites designed to refit a MODsuit to Akari's personal design. Only compatible with fused MODsuits due to the refit's reliance on a symbiote."
+	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
+	icon_state = "skinapplier"
+	skin = "akari"
+
+/obj/item/mod/skin_applier/akari/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/entombed))
+		return ..()
+	var/obj/item/mod/control/mod = interacting_with
+	if(skin in mod.theme.variants)
+		return ..()
+	var/datum/mod_theme/akari = new mod.theme.type
+	akari.variants = mod.theme.variants.Copy()
+	mod.theme = akari
+	mod.theme.variants += list("akari" = list(
+		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
+		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
+		/obj/item/clothing/head/mod = list(
+			UNSEALED_LAYER = HEAD_LAYER,
+			UNSEALED_CLOTHING = SNUG_FIT,
+			UNSEALED_COVER = HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_INVISIBILITY = HIDEHAIR|HIDEEYES|HIDESNOUT,
+			SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY =  HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
+			SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/suit/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY = HIDEJUMPSUIT|HIDETAIL,
+			UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/gloves/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/shoes/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
+		),
+	))
+	return ..()
