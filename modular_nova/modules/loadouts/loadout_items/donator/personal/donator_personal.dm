@@ -878,7 +878,7 @@
 
 /datum/loadout_item/pocket_items/jumperbox
 	name = "Jumper Conversation Kit Box"
-	item_path = /obj/item/mod/skin_applier/jumper
+	item_path = /obj/item/mod/construction/plating/jumper
 	ckeywhitelist = list("bonkaitheroris")
 
 /datum/loadout_item/pocket_items/starfruit_seed
@@ -1026,5 +1026,15 @@
 
 /datum/loadout_item/pocket_items/paragon_box
 	name = "The Homo Ludens Flag suit, nicknamed 'Paragon'"
+	item_path = /obj/item/mod/construction/plating/paragon
+	ckeywhitelist = list("kaynite")
+
+/datum/loadout_item/pocket_items/paragon_box_skinapplier
+	name = "The Homo Ludens Flag suit, nicknamed 'Paragon' (Skinapplier)"
 	item_path = /obj/item/mod/skin_applier/paragon
 	ckeywhitelist = list("kaynite")
+
+/datum/loadout_item/pocket_items/jumperbox_skinapplier
+	name = "Jumper Conversation Kit Box"
+	item_path = /obj/item/mod/skin_applier/jumper
+	ckeywhitelist = list("bonkaitheroris")
