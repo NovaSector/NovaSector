@@ -29,7 +29,7 @@
 			span_warning("The water starts to dilute your body, dry it off!"),
 		)
 
-	owner.blood_volume -= blood_units_to_lose
+	owner.adjust_blood_volume(-blood_units_to_lose)
 
 /datum/status_effect/wet_slime/get_examine_text()
 	return span_warning("[owner.p_Their()] outer membrane is soaked, [owner.p_their()] form losing cohesion!")
@@ -65,7 +65,7 @@
 			span_warning("Your body loses cohesion as it dries, only immersion can restore it!"),
 		)
 
-	owner.blood_volume -= blood_units_to_lose
+	owner.adjust_blood_volume(-blood_units_to_lose)
 
 /datum/status_effect/dry_slime/get_examine_text()
 	return span_warning("[owner.p_Their()] outer membrane appears to be dry, [owner.p_their()] form losing cohesion!")
@@ -82,5 +82,5 @@
 			return
 		if(HAS_TRAIT(exposed_mob, TRAIT_WATER_BREATHING))
 			return
-		exposed_mob.blood_volume = max(exposed_mob.blood_volume - 5, 0)
+		exposed_mob.adjust_blood_volume(-max(exposed_mob.blood_volume - 5, 0))
 		to_chat(exposed_mob, span_warning("The water causes you to melt away!"))

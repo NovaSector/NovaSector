@@ -39,7 +39,7 @@
 
 // CHEMICAL HANDLING
 // Here's where slimes heal off plasma and where they hate drinking water.
-/obj/item/organ/liver/slime/handle_chemical(mob/living/carbon/organ_owner, datum/reagent/chem, seconds_per_tick, times_fired)
+/obj/item/organ/liver/slime/handle_chemical(mob/living/carbon/organ_owner, datum/reagent/chem, seconds_per_tick)
 	. = ..()
 	if(. & COMSIG_MOB_STOP_REAGENT_TICK)
 		return
@@ -56,11 +56,11 @@
 		for(var/datum/wound/iter_wound as anything in organ_owner.all_wounds)
 			iter_wound.on_xadone(4 * REM * seconds_per_tick)
 			organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-		if(organ_owner.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
+		if(organ_owner.get_blood_volume() > BLOOD_VOLUME_SLIME_SPLIT)
 			organ_owner.adjust_organ_loss(
-			pick(organs_we_mend),
-			- 2 * seconds_per_tick,
-		)
+				pick(organs_we_mend),
+				- 2 * seconds_per_tick,
+			)
 		if(SPT_PROB(5, seconds_per_tick))
 			to_chat(organ_owner, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
 
@@ -68,7 +68,7 @@
 		if(HAS_TRAIT(organ_owner, TRAIT_SLIME_HYDROPHOBIA) || HAS_TRAIT(organ_owner, TRAIT_WATER_BREATHING))
 			return
 
-		organ_owner.blood_volume -= 3 * seconds_per_tick
+		organ_owner.adjust_blood_volume(-3 * seconds_per_tick)
 		organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
 		if(SPT_PROB(1, seconds_per_tick))
 			to_chat(organ_owner, span_warning("The water starts to weaken and adulterate your insides!"))

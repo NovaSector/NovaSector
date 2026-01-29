@@ -324,7 +324,7 @@
 	new_body.updateappearance(mutcolor_update=1)
 	new_body.domutcheck()
 	new_body.forceMove(get_turf(src))
-	new_body.blood_volume = BLOOD_VOLUME_SAFE+60
+	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 	SSquirks.AssignQuirks(new_body, brainmob.client)
 	src.replace_into(new_body)
 	if(nugget)
