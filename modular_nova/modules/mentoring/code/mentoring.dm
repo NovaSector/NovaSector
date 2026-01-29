@@ -58,8 +58,19 @@
 		"You jot down some notes in the book, then scribble it out...",
 	)
 
-/obj/item/mentoring_book/limited
+/obj/item/mentoring_book/limited/preset_language
 	limit_uses = TRUE
+
+/// A mentoring book that comes pre-written with a specific language
+/obj/item/mentoring_book/limited/preset_language
+	/// The language type to pre-load into the book
+	var/preset_language_type = /datum/language/common
+
+/obj/item/mentoring_book/limited/preset_language/Initialize(mapload)
+	. = ..()
+	if(preset_language_type)
+		taught_language = preset_language_type
+		name = "mentoring book - [initial(preset_language_type.name)]"
 
 /obj/item/mentoring_book/examine(mob/user)
 	. = ..()
