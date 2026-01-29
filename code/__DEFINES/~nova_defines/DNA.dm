@@ -59,6 +59,7 @@
 #define ORGAN_SLOT_EXTERNAL_TAUR FEATURE_TAUR
 #define ORGAN_SLOT_EXTERNAL_XENODORSAL FEATURE_XENODORSAL
 #define ORGAN_SLOT_EXTERNAL_XENOHEAD FEATURE_XENOHEAD
+#define ORGAN_SLOT_EXTERNAL_FOURARMS FEATURE_FOURARMS
 
 //Defines for an accessory to be randomed
 #define ACC_RANDOM		"random"
@@ -108,6 +109,7 @@
 #define FEATURE_NECK_ACCESSORY "neck_acc"
 #define FEATURE_GHOUL_COLOR "ghoulcolor"
 #define FEATURE_WINGS_FUNCTIONAL "wings_functional"
+#define FEATURE_FOURARMS "four_arms"
 
 // Synth parts
 #define FEATURE_SYNTH_ANTENNA "ipc_antenna"
