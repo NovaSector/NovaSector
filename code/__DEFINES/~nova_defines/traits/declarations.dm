@@ -31,6 +31,7 @@
 /// This makes trait makes it so that the person cannot be infected by the zombie virus.
 #define TRAIT_MUTANT_IMMUNE "mutant_immune"
 #define TRAIT_HYDRA_HEADS "hydrahead"
+#define TRAIT_FOUR_ARMS "four_arms"
 /// Trait to spawn with a pet in a pet carrier (veteran only)
 #define TRAIT_PET_OWNER "pet_owner"
 /// Trait to spawn with a lunch box!
