@@ -134,7 +134,7 @@
 
 		var/learning_exp = 10
 		while(user_level < author_level)
-			if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
+			if(!timed_sentence(user, pick(learning_sentences), 60 SECONDS))
 				if(learning_exp > 10) // don't consume any charges if we have not gained any xp yet.
 					check_limit(user)
 				return
@@ -152,7 +152,7 @@
 			return
 
 		for(var/language_learning in 1 to 5)
-			if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
+			if(!timed_sentence(user, pick(learning_sentences), 60 SECONDS))
 				return
 
 		user.remove_blocked_language(taught_language, source = LANGUAGE_BABEL)
@@ -169,7 +169,7 @@
 				return
 
 			for(var/language_learning in 1 to 5)
-				if(!timed_sentence(living_user, pick(learning_sentences), 6 SECONDS))
+				if(!timed_sentence(living_user, pick(learning_sentences), 60 SECONDS))
 					return
 
 			living_user.add_quirk(/datum/quirk/item_quirk/signer)
@@ -183,7 +183,7 @@
 				return
 
 			for(var/language_learning in 1 to 5)
-				if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
+				if(!timed_sentence(user, pick(learning_sentences), 60 SECONDS))
 					return
 
 			user.AddComponent(/datum/component/sign_language)
@@ -242,7 +242,7 @@
 					return ITEM_INTERACT_BLOCKING
 
 				for(var/language_iteration in 1 to 5)
-					if(!timed_sentence(user, pick(writing_sentences), 6 SECONDS))
+					if(!timed_sentence(user, pick(writing_sentences), 60 SECONDS))
 						return ITEM_INTERACT_BLOCKING
 
 				to_chat(user, span_notice("You finish writing inside the book about your language."))
@@ -279,7 +279,7 @@
 					return ITEM_INTERACT_BLOCKING
 
 				for(var/skill_iteration in 1 to 5)
-					if(!timed_sentence(user, pick(writing_sentences), 6 SECONDS))
+					if(!timed_sentence(user, pick(writing_sentences), 60 SECONDS))
 						return ITEM_INTERACT_BLOCKING
 
 				to_chat(user, span_notice("You finish writing inside the book about your skill."))
