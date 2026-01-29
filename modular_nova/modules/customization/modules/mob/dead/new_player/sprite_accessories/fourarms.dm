@@ -1,10 +1,11 @@
 /datum/sprite_accessory/fourarms
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/four_arms.dmi'
 	key = FEATURE_FOURARMS
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	relevent_layers = ALL_EXTERNAL_OVERLAYS
 	organ_type = /obj/item/organ/fourarms
 	color_src = USE_ONE_COLOR
 	icon_state = "quadarm"
+	use_custom_mod_icon = TRUE
 
 /datum/sprite_accessory/fourarms/none
 	name = SPRITE_ACCESSORY_NONE
@@ -64,3 +65,18 @@
 	name = "Xeno"
 	icon_state = "xeno"
 */
+
+/datum/sprite_accessory/fourarms/is_hidden(mob/living/carbon/human/wearer)
+	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
+	if(isnull(wearer.w_uniform) && isnull(worn_suit))
+		return FALSE
+	if(key in wearer.try_hide_mutant_parts)
+		return TRUE
+
+	if(worn_suit)
+		// Exception for MODs
+		if(istype(worn_suit))
+			return FALSE
+		// Hide accessory if flagged to do so
+		else if(worn_suit.flags_inv & HIDEFOURARMS)
+			return TRUE

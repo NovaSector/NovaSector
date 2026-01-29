@@ -22,7 +22,7 @@
 
 /datum/bodypart_overlay/mutant/fourarms
 	feature_key = FEATURE_FOURARMS
-	layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	layers = ALL_EXTERNAL_OVERLAYS
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/fourarms/override_color(rgb_value)
@@ -30,6 +30,3 @@
 
 /datum/bodypart_overlay/mutant/fourarms/get_global_feature_list()
 	return SSaccessories.sprite_accessories[FEATURE_FOURARMS]
-
-/datum/bodypart_overlay/mutant/fourarms/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	return !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)

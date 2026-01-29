@@ -45,7 +45,7 @@
 	else if(amt > old_limbs)
 		hand_bodyparts.len = amt
 		for(var/i in old_limbs + 1 to amt)
-			var/obj/item/bodypart/new_bodypart
+			var/obj/item/bodypart/arm/new_bodypart
 			if(IS_RIGHT_INDEX(i))
 				new_bodypart = newBodyPart(BODY_ZONE_R_ARM)
 			else
@@ -53,6 +53,22 @@
 			new_bodypart.held_index = i
 			new_bodypart.try_attach_limb(src, TRUE)
 			new_bodypart.update_limb(is_creating = TRUE)
+			// values empirically tested to look the best.
+			if(i > 2)
+				if(IS_RIGHT_INDEX(i))
+					new_bodypart.held_hand_offset = new(
+						attached_part = new_bodypart,
+						feature_key = OFFSET_HELD,
+						offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0, "northwest" = 0, "southwest" = 0, "northeast" = 0, "southeast" = 0),
+						offset_y = list("north" = -20, "south" = -20, "east" = -20, "west" = -20),
+					)
+				else
+					new_bodypart.held_hand_offset = new(
+						attached_part = new_bodypart,
+						feature_key = OFFSET_HELD,
+						offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0, "northwest" = 0, "southwest" = 0, "northeast" = 0, "southeast" = 0),
+						offset_y = list("north" = -20, "south" = -20, "east" = -20, "west" = -20),
+					)
 			hand_bodyparts[i] = new_bodypart
 	if(amt < held_items.len)
 		for(var/i in held_items.len to amt step -1)
