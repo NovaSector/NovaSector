@@ -38,6 +38,7 @@
 			"products" = list(
 				/obj/item/clothing/head/beret/sec = 4,
 				/obj/item/clothing/head/soft/sec = 4,
+				/obj/item/clothing/head/security_garrison = 4,
 				/obj/item/clothing/head/helmet/sec/white = 3,
 				/obj/item/clothing/mask/bandana/striped/security = 4,
 				/obj/item/clothing/neck/security_cape = 4,
@@ -85,7 +86,6 @@
 				/obj/item/clothing/suit/armor/vest/jacket = 3,
 				/obj/item/clothing/suit/armor/vest/jacket/badge = 3,
 				/obj/item/clothing/under/rank/security/nova/officer = 4,
-				/obj/item/clothing/under/rank/security/nova/skirt = 4,
 				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
 				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/formal/blue = 4,
@@ -95,7 +95,6 @@
 				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
 				/obj/item/clothing/gloves/color/black/security/white = 4,
 				/obj/item/clothing/gloves/color/black/security/blu = 4,
-				/obj/item/clothing/head/security_garrison = 4,
 				/obj/item/clothing/head/hats/warden/police/patrol = 4,
 				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
 				/obj/item/storage/backpack/security/blue = 4,
