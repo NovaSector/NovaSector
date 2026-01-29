@@ -71,7 +71,7 @@
 /datum/species/monkey/kobold/get_species_description()
 	return "Kobolds are diminutive, reptilian creatures as related to Lizardpeople as monkeys are to humans."
 
-/datum/species/monkey/get_species_lore()
+/datum/species/monkey/kobold/get_species_lore()
 	return list(
 		"A smaller subspecies of lizardperson, tends to be rather excitable in nature.",
 	)
@@ -103,16 +103,14 @@
 		),
 	)
 
-/datum/species/monkey/create_pref_language_perk()
+/datum/species/monkey/kobold/create_pref_language_perk()
 	var/list/to_add = list()
-	// Holding these variables so we can grab the exact names for our perk.
-	var/datum/language/kobold_language = /datum/language/kobold
 
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "comment",
 		SPECIES_PERK_NAME = "Primitive Tongue",
-		SPECIES_PERK_DESC = "You are able to understand [kobold_language.name].",
+		SPECIES_PERK_DESC = "You are able to understand [/datum/language/kobold::name].",
 	))
 
 	return to_add
