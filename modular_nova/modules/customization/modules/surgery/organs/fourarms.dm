@@ -30,3 +30,21 @@
 
 /datum/bodypart_overlay/mutant/fourarms/get_global_feature_list()
 	return SSaccessories.sprite_accessories[FEATURE_FOURARMS]
+
+/datum/bodypart_overlay/mutant/fourarms/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+	var/mob/living/carbon/human/wearer = bodypart_owner.owner
+	if(!istype(wearer))
+		return TRUE
+	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
+	if(isnull(wearer.w_uniform) && isnull(worn_suit))
+		return ..()
+
+	// Can hide if wearing uniform
+	if(feature_key in wearer.try_hide_mutant_parts)
+		return FALSE
+
+	// Exception for MODs
+	if(istype(worn_suit))
+		return TRUE
+
+	return !(bodypart_owner.owner?.obscured_slots & HIDEFOURARMS)

@@ -7,7 +7,7 @@
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
 	icon_state = "seva"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	flags_inv = HIDEJUMPSUIT|HIDETAIL
+	flags_inv = HIDEJUMPSUIT|HIDETAIL|HIDEFOURARMS
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	w_class = WEIGHT_CLASS_BULKY

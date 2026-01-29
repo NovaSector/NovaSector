@@ -6,7 +6,7 @@
 	gain_text = span_notice("You feel your extra arms respond to your thoughts.")
 	lose_text = span_danger("Your extra arms fade away.")
 	medical_record_text = "Subject exhibits a tetramorphic physiognomy with four prehensile, articulated arms."
-	icon = FA_ICON_HAND
+	icon = FA_ICON_HANDS_CLAPPING
 
 /*
 	It is not an oversight that this trait is not co-dependent with the 'extra arms' organ in fourarms.dm.
