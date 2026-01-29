@@ -31,7 +31,7 @@
 
 /datum/outfit/hc_officer/post_equip(mob/living/carbon/human/equipped)
 	. = ..()
-	equipped.faction |= "coalition"
+	equipped.add_faction("coalition")
 
 	// make sure we update the ID's name too
 	var/obj/item/card/id/id_card = equipped.wear_id

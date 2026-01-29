@@ -500,8 +500,7 @@
 /datum/status_effect/heretic_passive/rust/proc/on_move(mob/source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
 
-	var/turf/mover_turf = get_turf(source)
-	if(HAS_TRAIT(mover_turf, TRAIT_RUSTY))
+	if(source.is_touching_rust())
 		ADD_TRAIT(source, TRAIT_BATON_RESISTANCE, REF(src))
 	else
 		REMOVE_TRAIT(source, TRAIT_BATON_RESISTANCE, REF(src))
@@ -512,11 +511,10 @@
  * Gradually heals the heretic ([source]) on rust,
  * including baton knockdown and stamina damage.
  */
-/datum/status_effect/heretic_passive/rust/proc/on_life(mob/living/source, seconds_per_tick, times_fired)
+/datum/status_effect/heretic_passive/rust/proc/on_life(mob/living/source, seconds_per_tick)
 	SIGNAL_HANDLER
 
-	var/turf/our_turf = get_turf(source)
-	if(!HAS_TRAIT(our_turf, TRAIT_RUSTY))
+	if(!source.is_touching_rust())
 		return
 
 	// Heals all damage + Stamina

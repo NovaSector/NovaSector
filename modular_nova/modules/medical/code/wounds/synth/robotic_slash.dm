@@ -118,7 +118,7 @@
 		return TRUE
 	return FALSE
 
-/datum/wound/electrical_damage/handle_process(seconds_per_tick, times_fired)
+/datum/wound/electrical_damage/handle_process(seconds_per_tick)
 	. = ..()
 
 	var/base_mult = get_base_mult()

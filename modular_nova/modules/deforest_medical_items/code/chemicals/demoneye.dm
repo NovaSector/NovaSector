@@ -67,7 +67,7 @@
 
 	our_guy.sound_environment_override = NONE
 
-	if(constant_dose_time < CONSTANT_DOSE_SAFE_LIMIT || !our_guy.blood_volume)
+	if(constant_dose_time < CONSTANT_DOSE_SAFE_LIMIT || !our_guy.get_blood_volume())
 		our_guy.visible_message(
 				span_danger("[our_guy]'s eyes fade from their evil looking red back to normal..."),
 				span_danger("Your vision slowly returns to normal as you lose your unnatural strength...")
@@ -97,7 +97,7 @@
 	game_plane_master_controller.remove_filter("demoneye_blur")
 
 
-/datum/reagent/drug/demoneye/on_mob_life(mob/living/carbon/our_guy, seconds_per_tick, times_fired)
+/datum/reagent/drug/demoneye/on_mob_life(mob/living/carbon/our_guy, seconds_per_tick)
 	. = ..()
 
 	constant_dose_time += seconds_per_tick
@@ -118,7 +118,7 @@
 	if(locate(/datum/reagent/drug/twitch) in our_guy.reagents.reagent_list) // Combining this with twitch could cause some heart attack problems
 		our_guy.apply_status_effect(/datum/status_effect/heart_attack)
 
-/datum/reagent/drug/demoneye/overdose_process(mob/living/carbon/our_guy, seconds_per_tick, times_fired)
+/datum/reagent/drug/demoneye/overdose_process(mob/living/carbon/our_guy, seconds_per_tick)
 	. = ..()
 
 	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)

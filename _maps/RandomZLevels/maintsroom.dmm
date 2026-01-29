@@ -648,7 +648,6 @@
 /area/awaymission/caves/maintsroom)
 "cp" = (
 /obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -942,7 +941,6 @@
 "dm" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
 /obj/structure/holosign/barrier/atmos,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -5926,7 +5924,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/machinery/door/airlock/science,
 /obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "tO" = (
@@ -6084,7 +6081,6 @@
 "um" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
 /obj/effect/mapping_helpers/airlock/welded,
 /turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
@@ -7195,7 +7191,7 @@
 /obj/machinery/door/airlock{
 	name = "Maintenance"
 	},
-/obj/effect/spawner/random/structure/barricade,
+/obj/effect/spawner/random/structure/barricade/crude,
 /obj/effect/mapping_helpers/airlock/abandoned,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -8461,7 +8457,6 @@
 "Cz" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
 /turf/open/misc/asteroid/forest/mushroom/blue,
 /area/awaymission/caves/maintsroom)
 "CA" = (
@@ -8902,7 +8897,6 @@
 "Eg" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Eh" = (
@@ -10859,7 +10853,6 @@
 /area/awaymission/caves/maintsroom)
 "KT" = (
 /obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
 /obj/structure/trap/stun,
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Auxiliary Power"
@@ -10888,7 +10881,6 @@
 /obj/machinery/door/airlock/vault,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
-/obj/structure/barricade/wooden,
 /obj/structure/barricade/wooden/crude,
 /obj/machinery/scanner_gate/luxury_shuttle,
 /turf/open/floor/iron/smooth,
@@ -12895,7 +12887,6 @@
 /obj/machinery/door/airlock/cult,
 /obj/structure/barricade/wooden/crude,
 /obj/effect/spawner/random/structure/grille,
-/obj/structure/barricade/wooden,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
@@ -14903,7 +14894,6 @@
 "Ys" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Yt" = (

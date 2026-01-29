@@ -32,7 +32,7 @@
 	to_chat(affected_mob, span_danger("You feel like your joints are filling with some viscous fluid!"))
 	affected_mob.add_movespeed_modifier(/datum/movespeed_modifier/dinitrogen_plasmide_overdose)
 
-/datum/reagent/dinitrogen_plasmide/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/dinitrogen_plasmide/overdose_process(mob/living/affected_mob, seconds_per_tick)
 	. = ..()
 
 	holder.remove_reagent(type, 1.2 * seconds_per_tick) // decays

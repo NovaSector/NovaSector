@@ -27,7 +27,7 @@
 	name = "glass of synthanol"
 	desc = "The equivalent of alcohol for synthetic crewmembers. They'd find it awful if they had tastebuds too."
 
-/datum/reagent/consumable/ethanol/synthanol/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/synthanol/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	if(!(affected_mob.mob_biotypes & MOB_ROBOTIC))
 		affected_mob.reagents.remove_reagent(type, 3.6 * REM * seconds_per_tick) //gets removed from organics very fast
 		if(prob(25))
@@ -162,7 +162,7 @@
 	name = "glass of hellfire"
 	desc = "An amber colored drink that isn't quite as hot as it looks."
 
-/datum/reagent/consumable/ethanol/hellfire/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/hellfire/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	affected_mob.adjust_bodytemperature(30 * TEMPERATURE_DAMAGE_COEFFICIENT * REM * seconds_per_tick, 0, BODYTEMP_NORMAL + 30)
 
@@ -256,7 +256,7 @@
 	name = "glass of hotlime miami"
 	desc = "This looks very aesthetically pleasing."
 
-/datum/reagent/consumable/ethanol/hotlime_miami/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/hotlime_miami/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	affected_mob.set_drugginess(1.5 MINUTES * REM * seconds_per_tick)
 	if(affected_mob.adjust_stamina_loss(-2 * REM * seconds_per_tick, updating_stamina = FALSE))
@@ -322,7 +322,7 @@
 	name = "glass of mercuryblast"
 	desc = "No thermometers were harmed in the creation of this drink"
 
-/datum/reagent/consumable/ethanol/mercuryblast/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/mercuryblast/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	affected_mob.adjust_bodytemperature(-30 * TEMPERATURE_DAMAGE_COEFFICIENT * REM * seconds_per_tick, T0C)
 
@@ -541,7 +541,7 @@
 	name = "glass of jell wyrm"
 	desc = "A bubbly drink that is rather inviting to those that don't know who it's meant for."
 
-/datum/reagent/consumable/ethanol/jell_wyrm/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/jell_wyrm/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	if(prob(20))
 		if(affected_mob.adjust_tox_loss(0.5 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
@@ -634,7 +634,7 @@
 	if(ishemophage(exposed_mob))
 		quality = RACE_DRINK
 
-	else if(exposed_mob.blood_volume < exposed_mob.blood_volume_normal)
+	else if(exposed_mob.get_blood_volume() < exposed_mob.blood_volume_normal)
 		quality = DRINK_GOOD
 
 	if(!quality) // Basically, you don't have a reason to want to have this in your system, it doesn't taste good to you!
@@ -644,10 +644,11 @@
 
 #undef BLOODSHOT_DISGUST
 
-/datum/reagent/consumable/ethanol/bloodshot/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/bloodshot/on_mob_life(mob/living/carbon/drinker, seconds_per_tick)
 	. = ..()
-	if(drinker.blood_volume < drinker.blood_volume_normal)
-		drinker.blood_volume = max(drinker.blood_volume, min(drinker.blood_volume + (2 * REM * seconds_per_tick), BLOOD_VOLUME_NORMAL)) //Bloodshot quickly restores blood loss.
+	if(drinker.get_blood_volume() < drinker.blood_volume_normal)
+		//Bloodshot quickly restores blood loss.
+		drinker.adjust_blood_volume(2 * REM * seconds_per_tick, maximum = BLOOD_VOLUME_NORMAL)
 
 /datum/reagent/consumable/ethanol/blizzard_brew
 	name = "Blizzard Brew"
@@ -680,7 +681,7 @@
 	drinker.remove_status_effect(/datum/status_effect/frozenstasis/irresistable)
 	return ..()
 
-/datum/reagent/consumable/ethanol/blizzard_brew/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/blizzard_brew/overdose_process(mob/living/affected_mob, seconds_per_tick)
 	. = ..()
 	if(!affected_mob.has_status_effect(/datum/status_effect/frozenstasis/irresistable))
 		holder.remove_reagent(type, volume) // remove it all if we were broken out
@@ -741,7 +742,7 @@
 		quality = DRINK_FANTASTIC
 	return ..()
 
-/datum/reagent/consumable/ethanol/hippie_hooch/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/hippie_hooch/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	for(var/effect in status_effects_to_clear)
 		affected_mob.remove_status_effect(effect)
 	affected_mob.reagents.remove_reagent(/datum/reagent/consumable/ethanol, 3 * REM * seconds_per_tick, include_subtypes = TRUE)
@@ -771,7 +772,7 @@
 		quality = DRINK_GOOD
 	return ..()
 
-/datum/reagent/consumable/ethanol/research_rum/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/research_rum/on_mob_life(mob/living/carbon/drinker, seconds_per_tick)
 	. = ..()
 	if(prob(5))
 		drinker.say(pick_list_replacements(VISTA_FILE, "ballmer_good_msg"), forced = "ballmer")
@@ -838,7 +839,7 @@
 	taste_description = "cringe and latin"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/consumable/ethanol/cringe_weaver/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
+/datum/reagent/consumable/ethanol/cringe_weaver/on_mob_life(mob/living/carbon/drinker, seconds_per_tick)
 	. = ..()
 	var/obj/item/organ/liver/liver = drinker.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(liver && HAS_TRAIT(liver, TRAIT_CORONER_METABOLISM))

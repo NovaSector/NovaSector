@@ -108,7 +108,7 @@
 	taste_description = "flowers"
 	addiction_types = list(/datum/addiction/opioids = 18)
 
-/datum/reagent/drug/opium/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	var/high_message = pick("You feel euphoric.", "You feel on top of the world.")
 	if(SPT_PROB(2.5, seconds_per_tick))
 		to_chat(affected_mob, span_notice("[high_message]"))
@@ -121,7 +121,7 @@
 	affected_mob.overlay_fullscreen("heroin_euphoria", /atom/movable/screen/fullscreen/color_vision/heroin_color)
 	return ..() || .
 
-/datum/reagent/drug/opium/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/overdose_process(mob/living/affected_mob, seconds_per_tick)
 	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.5 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	affected_mob.adjust_tox_loss(1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 	affected_mob.adjust_drowsiness(1 SECONDS * REM * normalise_creation_purity() * seconds_per_tick)
@@ -146,7 +146,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	inverse_chem = /datum/reagent/drug/opium/blacktar/liquid
 
-/datum/reagent/drug/opium/heroin/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/heroin/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	var/high_message = pick("You feel like nothing can stop you.", "You feel like God.")
 	if(SPT_PROB(2.5, seconds_per_tick))
@@ -165,7 +165,7 @@
 	taste_description = "flowers"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/drug/opium/blacktar/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/opium/blacktar/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	var/high_message = pick("You feel like tar.", "The blood in your veins feel like syrup.")
 	if(SPT_PROB(2.5, seconds_per_tick))
