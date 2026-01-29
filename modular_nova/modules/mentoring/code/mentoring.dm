@@ -61,6 +61,17 @@
 /obj/item/mentoring_book/limited
 	limit_uses = TRUE
 
+/// A mentoring book that comes pre-written with a specific language
+/obj/item/mentoring_book/limited/preset_language
+	/// The language type to pre-load into the book
+	var/preset_language_type = /datum/language/common
+
+/obj/item/mentoring_book/limited/preset_language/Initialize(mapload)
+	. = ..()
+	if(preset_language_type)
+		taught_language = preset_language_type
+		name = "mentoring book - [initial(taught_language.name)]"
+
 /obj/item/mentoring_book/examine(mob/user)
 	. = ..()
 	var/level_name
@@ -91,7 +102,7 @@
 		. += span_notice("This book can teach you sign language.")
 
 	if(!(taught_skill || taught_language || teach_sign))
-		. += span_notice("Pondering about yet to be filled pages can give you insights in <b>Language skill<b>.")
+		. += span_notice("The pages are blank.")
 
 	. += span_notice("Using a pen will allow you to impart your knowledge about language or skills to the book!")
 
@@ -123,14 +134,7 @@
 
 /obj/item/mentoring_book/attack_self(mob/user, modifiers)
 	if(isnull(taught_skill) && isnull(taught_language) && !teach_sign)
-		for(var/scribble_iteration in 1 to 50)
-			var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/language, SKILL_SPEED_MODIFIER)
-			if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
-				to_chat(user, span_notice("You put [src] down."))
-				return
-
-			give_experience(user)
-
+		to_chat(user, span_notice("The pages are blank. Use a pen to write knowledge into the book first."))
 		return
 
 	if(taught_skill)
@@ -141,7 +145,7 @@
 
 		var/learning_exp = 10
 		while(user_level < author_level)
-			if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
+			if(!timed_sentence(user, pick(learning_sentences), 60 SECONDS))
 				if(learning_exp > 10) // don't consume any charges if we have not gained any xp yet.
 					check_limit(user)
 				return
@@ -159,7 +163,7 @@
 			return
 
 		for(var/language_learning in 1 to 5)
-			if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
+			if(!timed_sentence(user, pick(learning_sentences), 60 SECONDS))
 				return
 
 		user.remove_blocked_language(taught_language, source = LANGUAGE_BABEL)
@@ -176,7 +180,7 @@
 				return
 
 			for(var/language_learning in 1 to 5)
-				if(!timed_sentence(living_user, pick(learning_sentences), 6 SECONDS))
+				if(!timed_sentence(living_user, pick(learning_sentences), 60 SECONDS))
 					return
 
 			living_user.add_quirk(/datum/quirk/item_quirk/signer)
@@ -190,7 +194,7 @@
 				return
 
 			for(var/language_learning in 1 to 5)
-				if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
+				if(!timed_sentence(user, pick(learning_sentences), 60 SECONDS))
 					return
 
 			user.AddComponent(/datum/component/sign_language)
@@ -249,7 +253,7 @@
 					return ITEM_INTERACT_BLOCKING
 
 				for(var/language_iteration in 1 to 5)
-					if(!timed_sentence(user, pick(writing_sentences), 6 SECONDS))
+					if(!timed_sentence(user, pick(writing_sentences), 60 SECONDS))
 						return ITEM_INTERACT_BLOCKING
 
 				to_chat(user, span_notice("You finish writing inside the book about your language."))
@@ -286,7 +290,7 @@
 					return ITEM_INTERACT_BLOCKING
 
 				for(var/skill_iteration in 1 to 5)
-					if(!timed_sentence(user, pick(writing_sentences), 6 SECONDS))
+					if(!timed_sentence(user, pick(writing_sentences), 60 SECONDS))
 						return ITEM_INTERACT_BLOCKING
 
 				to_chat(user, span_notice("You finish writing inside the book about your skill."))
