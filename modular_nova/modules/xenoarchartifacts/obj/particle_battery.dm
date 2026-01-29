@@ -129,7 +129,7 @@
 	else
 		set_light(0, 0)
 
-/obj/item/xenoarch/xenoarch_utilizer/process(seconds_per_tick, times_fired)
+/obj/item/xenoarch/xenoarch_utilizer/process(seconds_per_tick)
 	update_icon()
 	if(cooldown > 0)
 		cooldown -= 0.5 * seconds_per_tick

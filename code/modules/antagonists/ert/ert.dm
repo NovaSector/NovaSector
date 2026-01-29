@@ -34,7 +34,7 @@
 		forge_objectives()
 	if(equip_ert)
 		equipERT()
-	owner?.current.faction |= FACTION_ERT // NOVA EDIT ADDITION
+	owner?.current.add_faction(FACTION_ERT) // NOVA EDIT ADDITION
 	. = ..()
 
 /datum/antagonist/ert/apply_innate_effects(mob/living/mob_override)

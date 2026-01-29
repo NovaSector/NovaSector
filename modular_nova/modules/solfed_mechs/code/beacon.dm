@@ -106,7 +106,7 @@ GLOBAL_DATUM(mech_drop_alert_handler, /datum/mech_drop_alert_handler)
 	openingSound = null
 	leavingSound = null
 
-/obj/structure/closet/supplypod/mech_drop/preOpen()
+/obj/structure/closet/supplypod/mech_drop/pre_open()
 	. = ..()
 
 	var/turf/pod_tile = get_turf(src)
