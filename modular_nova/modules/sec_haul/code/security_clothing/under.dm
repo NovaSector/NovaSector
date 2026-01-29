@@ -74,26 +74,34 @@
 /obj/item/clothing/under/rank/security/nova/formal/blue
 	icon_state = "formal_blue"
 
-/datum/atom_skin/security_jumpskirt
-	abstract_type = /datum/atom_skin/security_jumpskirt
+/datum/atom_skin/security_sweaterskirt
+	abstract_type = /datum/atom_skin/security_sweaterskirt
 
-/datum/atom_skin/security_jumpskirt/blue
+/datum/atom_skin/security_sweaterskirt/white
+	preview_name = "White Variant"
+	new_icon_state = "sweaterskirt_white"
+
+/datum/atom_skin/security_sweaterskirt/blue
 	preview_name = "Blue Variant"
-	new_icon_state = "jumpskirt_blue"
+	new_icon_state = "sweaterskirt_blue"
 
-/datum/atom_skin/security_jumpskirt/black
+/datum/atom_skin/security_sweaterskirt/black
 	preview_name = "Black Variant"
-	new_icon_state = "jumpskirt_black"
+	new_icon_state = "sweaterskirt_black"
+
+/datum/atom_skin/security_sweaterskirt/red
+	preview_name = "Red Variant"
+	new_icon_state = "sweaterskirt_red"
 
 /obj/item/clothing/under/rank/security/nova/skirt
-	name = "security jumpskirt"
-	desc = "A \"tactical\" security uniform with the legs replaced by a skirt."
-	icon_state = "jumpskirt_blue"
+	name = "security sweaterskirt"
+	desc = "A \"tactical\" security sweater with the legs replaced by a skirt."
+	icon_state = "sweaterskirt_red"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/nova/skirt/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_jumpskirt, infinite = TRUE)
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_sweaterskirt, infinite = TRUE)
 
 /datum/atom_skin/security_plain_skirt
 	abstract_type = /datum/atom_skin/security_plain_skirt
@@ -106,10 +114,18 @@
 	preview_name = "Black Variant"
 	new_icon_state = "plain_skirt_black"
 
+/datum/atom_skin/security_plain_skirt/red
+	preview_name = "Red Variant"
+	new_icon_state = "plain_skirt"
+
+/datum/atom_skin/security_plain_skirt/white
+	preview_name = "White Variant"
+	new_icon_state = "plain_skirt_white"
+
 /obj/item/clothing/under/rank/security/nova/skirt/plain
 	name = "security plain skirt"
 	desc = "Plain-shirted uniform commonly worn by Nanotrasen officers, attached with a skirt."
-	icon_state = "plain_skirt_blue"
+	icon_state = "plain_skirt"
 
 /obj/item/clothing/under/rank/security/nova/skirt/plain/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_plain_skirt)
@@ -121,9 +137,17 @@
 	preview_name = "Red Variant"
 	new_icon_state = "miniskirt"
 
-/datum/atom_skin/security_miniskirt/black
-	preview_name = "Black Variant"
+/datum/atom_skin/security_miniskirt/redaccent
+	preview_name = "Red Accent Variant"
 	new_icon_state = "miniskirt_black"
+
+/datum/atom_skin/security_miniskirt/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "miniskirt_blue"
+
+/datum/atom_skin/security_miniskirt/blueaccent
+	preview_name = "Blue Accent Variant"
+	new_icon_state = "miniskirt_blue_black"
 
 /obj/item/clothing/under/rank/security/nova/skirt/mini
 	name = "security miniskirt"
@@ -132,23 +156,6 @@
 
 /obj/item/clothing/under/rank/security/nova/skirt/mini/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt)
-
-/datum/atom_skin/security_miniskirt_blue
-	abstract_type = /datum/atom_skin/security_miniskirt_blue
-
-/datum/atom_skin/security_miniskirt_blue/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "miniskirt_blue"
-
-/datum/atom_skin/security_miniskirt_blue/black
-	preview_name = "Black Variant"
-	new_icon_state = "miniskirt_blue_black"
-
-/obj/item/clothing/under/rank/security/nova/skirt/mini/blue
-	icon_state = "miniskirt_blue"
-
-/obj/item/clothing/under/rank/security/nova/skirt/mini/blue/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt_blue)
 
 /obj/item/clothing/under/rank/security/nova/utility
 	name = "security utility uniform"
