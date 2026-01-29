@@ -35,28 +35,28 @@
 // ... think of a better/quicker/easier way to do this in .dm; Will gladly alter this if someone more knowledgeable ...
 // ... has a better solution in mind that doesn't involve tremenduous effort for a niche feature. - bwsb/SunriseOYH
 /mob/living/carbon/human/proc/change_number_of_arms(amt)
-    var/old_limbs = held_items.len
-    if(amt < old_limbs)
-        for(var/i in hand_bodyparts.len to amt step -1)
-            var/obj/item/bodypart/BP = hand_bodyparts[i]
-            BP.dismember()
-            hand_bodyparts[i] = null
-        hand_bodyparts.len = amt
-    else if(amt > old_limbs)
-        hand_bodyparts.len = amt
-        for(var/i in old_limbs + 1 to amt)
-            var/obj/item/bodypart/new_bodypart
-            if(IS_RIGHT_INDEX(i))
-                new_bodypart = newBodyPart(BODY_ZONE_R_ARM)
-            else
-                new_bodypart = newBodyPart(BODY_ZONE_L_ARM)
-            new_bodypart.held_index = i
-            new_bodypart.try_attach_limb(src, TRUE)
-            new_bodypart.update_limb(is_creating = TRUE)
-            hand_bodyparts[i] = new_bodypart
-    if(amt < held_items.len)
-        for(var/i in held_items.len to amt step -1)
-            dropItemToGround(held_items[i])
-    held_items.len = amt
-    if(hud_used)
-        hud_used.build_hand_slots()
+	var/old_limbs = held_items.len
+	if(amt < old_limbs)
+		for(var/i in hand_bodyparts.len to amt step -1)
+			var/obj/item/bodypart/BP = hand_bodyparts[i]
+			BP.dismember()
+			hand_bodyparts[i] = null
+		hand_bodyparts.len = amt
+	else if(amt > old_limbs)
+		hand_bodyparts.len = amt
+		for(var/i in old_limbs + 1 to amt)
+			var/obj/item/bodypart/new_bodypart
+			if(IS_RIGHT_INDEX(i))
+				new_bodypart = newBodyPart(BODY_ZONE_R_ARM)
+			else
+				new_bodypart = newBodyPart(BODY_ZONE_L_ARM)
+			new_bodypart.held_index = i
+			new_bodypart.try_attach_limb(src, TRUE)
+			new_bodypart.update_limb(is_creating = TRUE)
+			hand_bodyparts[i] = new_bodypart
+	if(amt < held_items.len)
+		for(var/i in held_items.len to amt step -1)
+			dropItemToGround(held_items[i])
+	held_items.len = amt
+	if(hud_used)
+		hud_used.build_hand_slots()
