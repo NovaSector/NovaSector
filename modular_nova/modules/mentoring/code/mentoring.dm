@@ -58,7 +58,7 @@
 		"You jot down some notes in the book, then scribble it out...",
 	)
 
-/obj/item/mentoring_book/limited/preset_language
+/obj/item/mentoring_book/limited
 	limit_uses = TRUE
 
 /// A mentoring book that comes pre-written with a specific language
@@ -70,7 +70,7 @@
 	. = ..()
 	if(preset_language_type)
 		taught_language = preset_language_type
-		name = "mentoring book - [initial(preset_language_type.name)]"
+		name = "mentoring book - [initial(taught_language.name)]"
 
 /obj/item/mentoring_book/examine(mob/user)
 	. = ..()
