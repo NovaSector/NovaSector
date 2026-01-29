@@ -8,7 +8,7 @@
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/balls_right.dmi'
 	inhand_icon_state = "tennis_classic"
 	worn_icon = 'modular_nova/master_files/icons/mob/mouthball.dmi'
-	slot_flags = ITEM_SLOT_HEAD | ITEM_SLOT_NECK | ITEM_SLOT_EARS	//Fluff item, put it wherever you want!
+	slot_flags = ITEM_SLOT_HEAD | ITEM_SLOT_NECK | ITEM_SLOT_EARS | ITEM_SLOT_MASK	//Fluff item, put it wherever you want!
 	throw_range = 14
 	w_class = WEIGHT_CLASS_SMALL
 
