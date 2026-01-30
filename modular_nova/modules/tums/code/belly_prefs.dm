@@ -670,11 +670,8 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 
 /datum/erp_belly_prefshelper/proc/get_assoc_belly(mob/user)
 	RETURN_TYPE(/obj/item/belly_function)
-	var/obj/item/belly_function/belly = null
-	for(var/something in user.contents)
-		belly = something
-		if(istype(belly))
-			return belly
+	var/obj/item/belly_function/belly = locate() in user
+	return belly
 
 /datum/erp_belly_prefshelper/ui_interact(mob/dead/new_player/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

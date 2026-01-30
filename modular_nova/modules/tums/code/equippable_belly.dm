@@ -129,12 +129,7 @@
 	var/mob/living/carbon/human/source = user
 	if(!istype(source))
 		return FALSE
-	for(var/datum/quirk/some_quirk in source.quirks)
-		bellyquirk = some_quirk
-		if(istype(bellyquirk))
-			break
-		else
-			bellyquirk = null
+	bellyquirk = locate() in source.quirks
 	if(bellyquirk != null)
 		a_belly = bellyquirk.the_bwelly
 	if(a_belly == src)
