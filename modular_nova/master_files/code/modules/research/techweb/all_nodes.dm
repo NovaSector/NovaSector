@@ -356,5 +356,6 @@
 /datum/techweb_node/mod_security/New()
 	design_ids += list(
 		"mod_plating_security",
+		"mod_tether_grounded",
 	)
 	return ..()
