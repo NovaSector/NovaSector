@@ -168,18 +168,33 @@
 /obj/item/clothing/under/rank/security/nova/utility/blue
 	icon_state = "util_sec_blue"
 
+/datum/atom_skin/security_dress
+	abstract_type = /datum/atom_skin/security_dress
+
 /obj/item/clothing/under/rank/security/nova/dress
 	name = "security battle dress"
 	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt."
-	icon_state = "security_skirt"
+	icon_state = "security_dress"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	alt_covers_chest = FALSE
+
+/datum/atom_skin/security_dress/red
+	preview_name = "Red Variant"
+	new_icon_state = "security_dress"
+
+/datum/atom_skin/security_dress/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "security_dress_blue"
+
+/datum/atom_skin/security_dress/white
+	preview_name = "White Variant"
+	new_icon_state = "security_dress_white"
+
+/datum/atom_skin/security_dress/black
+	preview_name = "Black Variant"
+	new_icon_state = "security_dress_black"
 
 /obj/item/clothing/under/rank/security/nova/dress/setup_reskins()
-	return
-
-/obj/item/clothing/under/rank/security/nova/dress/blue
-	icon_state = "security_skirt_blue"
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_dress)
 
 /datum/atom_skin/security_trousers
 	abstract_type = /datum/atom_skin/security_trousers

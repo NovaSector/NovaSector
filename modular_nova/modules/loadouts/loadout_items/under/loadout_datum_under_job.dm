@@ -287,12 +287,6 @@
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
-/datum/loadout_item/under/jumpsuit/security_dress_blue
-	name = "Security Battle Dress (Blue)"
-	item_path = /obj/item/clothing/under/rank/security/nova/dress/blue
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
-	group = "Job-Locked"
-
 /datum/loadout_item/under/jumpsuit/security_formal
 	name = "Security Formal Uniform"
 	item_path = /obj/item/clothing/under/rank/security/nova/formal

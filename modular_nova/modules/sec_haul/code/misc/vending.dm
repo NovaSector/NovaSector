@@ -87,7 +87,6 @@
 				/obj/item/clothing/suit/armor/vest/jacket/badge = 3,
 				/obj/item/clothing/under/rank/security/nova/officer = 4,
 				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
-				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/formal/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/trousers/blue = 4,
