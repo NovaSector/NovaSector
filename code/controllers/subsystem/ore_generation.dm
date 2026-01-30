@@ -1,7 +1,7 @@
 
 SUBSYSTEM_DEF(ore_generation)
 	name = "Ore Generation"
-	wait = 60 SECONDS
+	wait = 5 MINUTES // NOVA EDIT CHANGE: Original: wait = 60 SECONDS
 	dependencies = list(
 		/datum/controller/subsystem/atoms,
 	)

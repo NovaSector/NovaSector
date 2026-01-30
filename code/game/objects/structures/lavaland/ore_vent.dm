@@ -125,7 +125,7 @@
 		if(do_after(user, boulder_size * 1 SECONDS, src))
 			user.apply_damage(20, STAMINA)
 			playsound(src, 'sound/items/weapons/genhit.ogg', 50, TRUE)
-		*/ 
+		*/
 		if(!do_after(user, boulder_size * 1 SECONDS, src))
 			user.balloon_alert(user, "stay still!")
 			return

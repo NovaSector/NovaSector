@@ -464,7 +464,11 @@ Used by the AI doomsday and the self-destruct nuke.
 #ifndef LOWMEMORYMODE
 
 	if(current_map.minetype == MINETYPE_LAVALAND)
-		LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland.dmm", default_traits = ZTRAITS_LAVALAND)
+		//LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland.dmm", default_traits = ZTRAITS_LAVALAND) // NOVA EDIT REMOVAL
+		// NOVA EDIT ADDITION START
+		LoadGroup(FailedZs, "Lavaland_Lower", "map_files/Mining", "Lavaland_Lower.dmm", default_traits = ZTRAITS_LAVALAND_UNDERGROUND)
+		LoadGroup(FailedZs, "Lavaland_Upper", "map_files/Mining", "Lavaland_Upper.dmm", default_traits = ZTRAITS_LAVALAND)
+		// NOVA EDIT ADDITION END
 	else if (!isnull(current_map.minetype) && current_map.minetype != MINETYPE_NONE && current_map.minetype != MINETYPE_ICE)
 		INIT_ANNOUNCE("WARNING: An unknown minetype '[current_map.minetype]' was set! This is being ignored! Update the maploader code!")
 #endif
