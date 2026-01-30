@@ -25,7 +25,7 @@
 // mod.desc =
 // -- Rilomatic - 29th January 2026
 
-// Line 17 - 56 -- DO NOT TOUCH. Needed for modsuit to work as a modsuit or prepare to hear runtime meows
+// Line 29 - 73 -- Needed for modsuit to work as a modsuit or prepare to hear runtime meows
 /obj/item/mod/control/donor
 	starting_frequency = MODLINK_FREQ_NANOTRASEN
 	/// The skin we apply to the suit, defaults to the default_skin of the theme.
@@ -40,20 +40,26 @@
 	var/list/default_pins = list()
 
 /obj/item/mod/control/donor/Initialize(mapload, new_theme, new_skin, new_core)
-	for(var/module_to_pin in default_pins)
-		default_pins[module_to_pin] = list()
-	new_skin = applied_skin
-	new_core = new applied_core(src)
-	if(istype(new_core, /obj/item/mod/core/standard))
-		var/obj/item/mod/core/standard/cell_core = new_core
-		cell_core.cell = new applied_cell()
-	. = ..()
-	for(var/obj/item/mod/module/module as anything in applied_modules)
-		module = new module(src)
-		install(module)
+    // Create instance copy from the TYPE definition, not the instance variable
+    var/list/new_pins = list()
+    for(var/module_to_pin in initial(default_pins))
+        new_pins[module_to_pin] = list()
+    default_pins = new_pins
+    new_skin = applied_skin
+    new_core = new applied_core(src)
+    if(istype(new_core, /obj/item/mod/core/standard))
+        var/obj/item/mod/core/standard/cell_core = new_core
+        if(applied_cell)
+            cell_core.cell = new applied_cell()
+    . = ..()
+    for(var/obj/item/mod/module/module as anything in applied_modules)
+        module = new module(src)
+        install(module)
 
 /obj/item/mod/control/donor/set_wearer(mob/living/carbon/human/user)
 	. = ..()
+	if(!wearer)
+		return
 	for(var/obj/item/mod/module/module as anything in modules)
 		if(!default_pins[module.type]) //this module isnt meant to be pinned by default
 			continue
@@ -64,8 +70,7 @@
 
 /obj/item/mod/control/donor/uninstall(obj/item/mod/module/old_module, deleting)
 	. = ..()
-	if(default_pins[old_module.type])
-		default_pins -= old_module
+	default_pins -= old_module.type
 
 //Kaynite Donor Item
 
@@ -99,18 +104,7 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "paragon-plating"
 	skin = "paragon"
-
-/obj/item/mod/skin_applier/paragon/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/medical))
-		return ..()
-	var/obj/item/mod/control/mod = interacting_with
-	if(skin in mod.theme.variants)
-		return ..()
-	//Skin Isolation from being shared.
-	var/datum/mod_theme/paragon = new mod.theme.type
-	paragon.variants = mod.theme.variants.Copy()
-	mod.theme = paragon
-	mod.theme.variants += list("paragon" = list(
+	var/list/variant_data = list(
 		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
 		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
 		/obj/item/clothing/head/mod = list(
@@ -145,7 +139,19 @@
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 		),
-	))
+	)
+
+/obj/item/mod/skin_applier/paragon/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/medical))
+		return ..()
+	var/obj/item/mod/control/mod = interacting_with
+	if(skin in mod.theme.variants)
+		return ..()
+	//Skin Isolation from being shared.
+	var/datum/mod_theme/paragon = new mod.theme.type
+	paragon.variants = mod.theme.variants.Copy()
+	mod.theme = paragon
+	mod.theme.variants[skin] = variant_data
 	//Changes pre-equip modsuit name and description to custom.
 	mod.name = "\improper Homo Ludens Modsuit 'Paragon'"
 	mod.desc = "This semi-artisanal, bleeding edge MODsuit is a symbol of exemplary performance, \
@@ -192,17 +198,7 @@
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "jumper-plating"
 	skin = "jumper"
-
-/obj/item/mod/skin_applier/jumper/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/security))
-		return ..()
-	var/obj/item/mod/control/mod = interacting_with
-	if(skin in mod.theme.variants)
-		return ..()
-	var/datum/mod_theme/jumper = new mod.theme.type
-	jumper.variants = mod.theme.variants.Copy()
-	mod.theme = jumper
-	mod.theme.variants += list("jumper" = list(
+	var/list/variant_data = list(
 		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
 		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
 		/obj/item/clothing/head/mod = list(
@@ -237,7 +233,18 @@
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 		),
-	))
+	)
+
+/obj/item/mod/skin_applier/jumper/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/security))
+		return ..()
+	var/obj/item/mod/control/mod = interacting_with
+	if(skin in mod.theme.variants)
+		return ..()
+	var/datum/mod_theme/jumper = new mod.theme.type
+	jumper.variants = mod.theme.variants.Copy()
+	mod.theme = jumper
+	mod.theme.variants[skin] = variant_data
 	mod.name = "\improper PA-4 MK-7 J.S 'Jumper'"
 	mod.desc = "A rugged combat MODsuit optimized for shock deployment and urban warfare. \
 				Featuring reinforced armor segments, integrated life-support, and modular hardpoints, \
@@ -252,17 +259,7 @@
 	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	icon_state = "skinapplier"
 	skin = "akari"
-
-/obj/item/mod/skin_applier/akari/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/entombed))
-		return ..()
-	var/obj/item/mod/control/mod = interacting_with
-	if(skin in mod.theme.variants)
-		return ..()
-	var/datum/mod_theme/akari = new mod.theme.type
-	akari.variants = mod.theme.variants.Copy()
-	mod.theme = akari
-	mod.theme.variants += list("akari" = list(
+	var/list/variant_data = list(
 		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
 		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
 		/obj/item/clothing/head/mod = list(
@@ -297,5 +294,16 @@
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 		),
-	))
+	)
+
+/obj/item/mod/skin_applier/akari/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/entombed))
+		return ..()
+	var/obj/item/mod/control/mod = interacting_with
+	if(skin in mod.theme.variants)
+		return ..()
+	var/datum/mod_theme/akari = new mod.theme.type
+	akari.variants = mod.theme.variants.Copy()
+	mod.theme = akari
+	mod.theme.variants[skin] = variant_data
 	return ..()
