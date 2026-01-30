@@ -7064,6 +7064,7 @@
 #include "modular_nova\master_files\code\game\objects\effects\decals\cleanable\misc.dm"
 #include "modular_nova\master_files\code\game\objects\effects\effect_system\effect_sparks.dm"
 #include "modular_nova\master_files\code\game\objects\items\AI_modules.dm"
+#include "modular_nova\master_files\code\game\objects\items\canes.dm"
 #include "modular_nova\master_files\code\game\objects\items\cards_ids.dm"
 #include "modular_nova\master_files\code\game\objects\items\cosmetics.dm"
 #include "modular_nova\master_files\code\game\objects\items\crayons.dm"
