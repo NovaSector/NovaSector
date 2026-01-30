@@ -158,5 +158,5 @@
 	imp_type = /obj/item/implant/deathrattle/lavaland
 
 #undef DEATHRATTLE_AREA_NOLIST
-#undef DEATHRATTLE_AREA_BLACKLIST
+//#undef DEATHRATTLE_AREA_BLACKLIST // NOVA EDIT REMOVAL - Used in modular_nova/master_files/code/game/objects/items/implants/implant_deathrattle.dm
 #undef DEATHRATTLE_AREA_WHITELIST

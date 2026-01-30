@@ -94,7 +94,7 @@
 	GiveTarget(null)
 	return ..()
 
-/mob/living/simple_animal/hostile/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/hostile/Life(seconds_per_tick = SSMOBS_DT)
 	. = ..()
 	if(!.) //dead
 		GLOB.move_manager.stop_looping(src)
@@ -650,7 +650,7 @@
 		return
 	friends += new_friend
 	RegisterSignal(new_friend, COMSIG_QDELETING, PROC_REF(handle_friend_del))
-	faction = new_friend.faction.Copy()
+	SET_FACTION_AND_ALLIES_FROM(src, new_friend)
 
 /mob/living/simple_animal/hostile/lazarus_revive(mob/living/reviver, malfunctioning)
 	. = ..()

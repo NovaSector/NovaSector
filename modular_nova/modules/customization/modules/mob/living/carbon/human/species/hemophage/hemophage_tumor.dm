@@ -6,9 +6,6 @@
 /// By how much the blood drain will be divided when the tumor is in a dormant state.
 #define DORMANT_BLOODLOSS_MULTIPLIER 10
 
-/// Just a conversion factor that ensures there's no weird floating point errors when blood is draining.
-#define FLOATING_POINT_ERROR_AVOIDING_FACTOR 1000
-
 /// Trait gained from the pulsating tumor.
 #define TRAIT_TUMOR "tumor"
 
@@ -63,7 +60,7 @@
 		tumorless_human.remove_movespeed_modifier(/datum/movespeed_modifier/hemophage_dormant_state)
 
 
-/obj/item/organ/heart/hemophage/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/heart/hemophage/on_life(seconds_per_tick)
 	. = ..()
 
 	// A Hemophage's tumor will be able to be operated on multiple times, so
@@ -76,9 +73,9 @@
 		return
 
 	if(!owner.has_status_effect(/datum/status_effect/master_of_the_house))
-		owner.blood_volume = (owner.blood_volume * FLOATING_POINT_ERROR_AVOIDING_FACTOR - bloodloss_rate * seconds_per_tick * FLOATING_POINT_ERROR_AVOIDING_FACTOR) / FLOATING_POINT_ERROR_AVOIDING_FACTOR
+		owner.adjust_blood_volume(round(-bloodloss_rate * seconds_per_tick, CHEMICAL_VOLUME_ROUNDING))
 
-	if(owner.blood_volume <= BLOOD_VOLUME_SURVIVE)
+	if(owner.get_blood_volume() <= BLOOD_VOLUME_SURVIVE)
 		to_chat(owner, span_danger("You ran out of blood!"))
 		owner.investigate_log("starved to death from lack of blood caused by [src].", INVESTIGATE_DEATHS)
 		owner.death() // Owch! Ran out of blood.
@@ -139,12 +136,10 @@
 /obj/item/organ/heart/hemophage/proc/get_status_tab_item(mob/living/source, list/items)
 	SIGNAL_HANDLER
 
-	items += "Current blood level: [owner.blood_volume]/[BLOOD_VOLUME_MAXIMUM]"
+	items += "Current blood level: [owner.get_blood_volume()]/[BLOOD_VOLUME_MAXIMUM]"
 
 
 #undef MINIMUM_LIGHT_THRESHOLD_FOR_REGEN
-
-#undef FLOATING_POINT_ERROR_AVOIDING_FACTOR
 
 #undef DORMANT_DAMAGE_MULTIPLIER
 #undef DORMANT_BLOODLOSS_MULTIPLIER
