@@ -40,32 +40,37 @@
 	var/list/default_pins = list()
 
 /obj/item/mod/control/donor/Initialize(mapload, new_theme, new_skin, new_core)
-    // Create instance copy from the TYPE definition, not the instance variable
-    var/list/new_pins = list()
-    for(var/module_to_pin in initial(default_pins))
-        new_pins[module_to_pin] = list()
-    default_pins = new_pins
-    new_skin = applied_skin
-    new_core = new applied_core(src)
-    if(istype(new_core, /obj/item/mod/core/standard))
-        var/obj/item/mod/core/standard/cell_core = new_core
-        if(applied_cell)
-            cell_core.cell = new applied_cell()
-    . = ..()
-    for(var/obj/item/mod/module/module as anything in applied_modules)
-        module = new module(src)
-        install(module)
+	// Create instance copy from the TYPE definition, not the instance variable
+	var/list/new_pins = list()
+	for(var/module_to_pin in initial(default_pins))
+		new_pins[module_to_pin] = list()
+	default_pins = new_pins
+
+	if(!new_skin)
+		new_skin = applied_skin
+	if(!new_core)
+		new_core = new applied_core(src)
+		if(istype(new_core, /obj/item/mod/core/standard))
+			var/obj/item/mod/core/standard/cell_core = new_core
+			if(applied_cell)
+				cell_core.cell = new applied_cell()
+	. = ..()
+	for(var/module_type as anything in applied_modules)
+		var/obj/item/mod/module/new_module = new module_type(src)
+		install(new_module)
 
 /obj/item/mod/control/donor/set_wearer(mob/living/carbon/human/user)
 	. = ..()
 	if(!wearer)
 		return
+	var/wearer_ref = REF(wearer)
 	for(var/obj/item/mod/module/module as anything in modules)
-		if(!default_pins[module.type]) //this module isnt meant to be pinned by default
+		var/list/pinned_list = default_pins[module.type]
+		if(!pinned_list) //this module isnt meant to be pinned by default
 			continue
-		if(REF(wearer) in default_pins[module.type]) //if we already had pinned once to this user, don care anymore
+		if(wearer_ref in pinned_list) //if we already had pinned once to this user, don care anymore
 			continue
-		default_pins[module.type] += REF(wearer)
+		pinned_list += wearer_ref
 		module.pin(wearer)
 
 /obj/item/mod/control/donor/uninstall(obj/item/mod/module/old_module, deleting)
