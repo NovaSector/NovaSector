@@ -358,3 +358,74 @@
 		"mod_plating_security",
 	)
 	return ..()
+
+/////// Roundstart Techweb/////////
+
+/datum/techweb_node
+	starting_node = TRUE
+
+// Linter stuff
+/datum/techweb_node/error_node
+	starting_node = FALSE
+
+// Nova stuff
+/datum/techweb_node/adv_vision
+	starting_node = FALSE
+
+/datum/techweb_node/borg_shapeshifter
+	starting_node = FALSE
+
+// bepis stuff
+/datum/techweb_node/light_apps
+	starting_node = FALSE
+
+/datum/techweb_node/extreme_office
+	starting_node = FALSE
+
+/datum/techweb_node/spec_eng
+	starting_node = FALSE
+
+/datum/techweb_node/aus_security
+	starting_node = FALSE
+
+/datum/techweb_node/interrogation
+	starting_node = FALSE
+
+/datum/techweb_node/sticky_advanced
+	starting_node = FALSE
+
+/datum/techweb_node/tackle_advanced
+	starting_node = FALSE
+
+/datum/techweb_node/mod_experimental
+	starting_node = FALSE
+
+/datum/techweb_node/posisphere
+	starting_node = FALSE
+
+/datum/techweb_node/donk_shell
+	starting_node = FALSE
+
+// Alien Stuff
+/datum/techweb_node/alientech
+	starting_node = FALSE
+
+/datum/techweb_node/alien_engi
+	starting_node = FALSE
+
+/datum/techweb_node/alien_surgery
+	starting_node = FALSE
+
+// Ilegal tech
+/datum/techweb_node/syndicate_basic
+	starting_node = FALSE
+
+/datum/techweb_node/unregulated_bluespace
+	starting_node = FALSE
+
+// Tarkon
+/datum/techweb_node/tarkon
+	starting_node = FALSE
+
+/datum/techweb_node/tarkonturret
+	starting_node = FALSE
