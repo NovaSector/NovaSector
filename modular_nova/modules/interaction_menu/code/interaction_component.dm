@@ -251,12 +251,7 @@
 			var/datum/quirk/belly/bellyquirk
 			var/obj/item/belly_function/a_belly
 			// We start by digging through the pred's quirks to find Big Boned
-			for(var/datum/quirk/some_quirk in source.quirks)
-				bellyquirk = some_quirk
-				if(istype(bellyquirk))
-					break
-				else
-					bellyquirk = null
+			bellyquirk = locate() in source.quirks
 			// If they have it (which they should, but sanity checks are important) we pull the belly object from the quirk
 			if(bellyquirk != null)
 				a_belly = bellyquirk.the_bwelly
