@@ -1,8 +1,6 @@
 /// Custom computer for synth brains
 /obj/item/modular_computer/pda/synth
 	name = "virtual persocom"
-
-
 	icon = 'icons/obj/devices/assemblies.dmi'
 	icon_state = "posibrain"
 	base_icon_state = "posibrain"
