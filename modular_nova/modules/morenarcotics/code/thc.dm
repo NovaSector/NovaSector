@@ -50,7 +50,7 @@
 	name = "Concentrated THC"
 	description = "TCH in pure concentrated form"
 
-/datum/reagent/drug/thc/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/thc/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	. = ..()
 	var/high_message = pick("You feel relaxed.", "You feel fucked up.", "You feel totally wrecked...")
 	if(affected_mob.hud_used != null)
@@ -74,7 +74,7 @@
 	affected_mob.clear_alert("stoned")
 	affected_mob.sound_environment_override = SOUND_ENVIRONMENT_NONE
 
-/datum/reagent/drug/thc/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/thc/overdose_process(mob/living/affected_mob, seconds_per_tick)
 	. = ..()
 	var/cg420_message = pick("It's major...", "Oh my goodness...",)
 	if(SPT_PROB(1.5, seconds_per_tick))
