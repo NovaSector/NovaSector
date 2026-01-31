@@ -95,7 +95,7 @@
 
 /datum/antagonist/obsessed/forge_objectives(datum/mind/obsessionmind)
 	var/list/objectives_left = list(OBSESSED_OBJECTIVE_SPEND_TIME, OBSESSED_OBJECTIVE_POLAROID, OBSESSED_OBJECTIVE_HUG)
-	var/datum/objective/assassinate/obsessed/kill = new
+	var/datum/objective/kidnap_obsessed/kill = new // NOVA EDIT CHANGE - Kidnap, not kill - ORIGINAL: var/datum/objective/assassinate/obsessed/kill = new
 	kill.owner = owner
 	kill.target = obsessionmind
 	var/obj/family_heirloom
