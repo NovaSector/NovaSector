@@ -51,3 +51,38 @@
 /datum/design/turbine_part_rotor/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
+
+// Factory machines
+
+/datum/design/board/big_manipulator/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/manulathe/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/manucrafter/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/manucrusher/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/manurouter/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/manusorter/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/manuunloader/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/manusmelter/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
