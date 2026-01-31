@@ -28,6 +28,7 @@
 
 	id = /obj/item/card/id/advanced/hc_police
 	id_trim = /datum/id_trim/hc_police
+	implants = list(/obj/item/implant/mindshield)
 
 /datum/outfit/hc_officer/post_equip(mob/living/carbon/human/equipped)
 	. = ..()
