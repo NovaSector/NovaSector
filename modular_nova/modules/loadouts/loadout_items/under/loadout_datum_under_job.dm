@@ -317,18 +317,6 @@
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
-/datum/loadout_item/under/jumpsuit/security_shorts
-	name = "Security Shorts"
-	item_path = /obj/item/clothing/under/rank/security/nova/trousers/shorts
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
-	group = "Job-Locked"
-
-/datum/loadout_item/under/jumpsuit/security_shorts_blue
-	name = "Security Shorts (Blue)"
-	item_path = /obj/item/clothing/under/rank/security/nova/trousers/shorts/blue
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
-	group = "Job-Locked"
-
 /datum/loadout_item/under/jumpsuit/security_trousers
 	name = "Security Trousers"
 	item_path = /obj/item/clothing/under/rank/security/nova/trousers

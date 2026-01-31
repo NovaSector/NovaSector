@@ -66,13 +66,24 @@
 /obj/item/clothing/under/rank/security/nova/officer/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform_blue)
 
+/datum/atom_skin/security_formal
+	abstract_type = /datum/atom_skin/security_formal
+
+/datum/atom_skin/security_formal/red
+	preview_name = "Red Variant"
+	new_icon_state = "formal"
+
+/datum/atom_skin/security_formal/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "formal_blue"
+
 /obj/item/clothing/under/rank/security/nova/formal
 	name = "security formal suit"
 	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
 	icon_state = "formal"
 
-/obj/item/clothing/under/rank/security/nova/formal/blue
-	icon_state = "formal_blue"
+/obj/item/clothing/under/rank/security/nova/formal/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_formal)
 
 /datum/atom_skin/security_sweaterskirt
 	abstract_type = /datum/atom_skin/security_sweaterskirt
@@ -245,58 +256,6 @@
 
 /obj/item/clothing/under/rank/security/nova/trousers/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_trousers)
-
-/datum/atom_skin/security_shorts
-	abstract_type = /datum/atom_skin/security_shorts
-
-/datum/atom_skin/security_shorts/red_short
-	preview_name = "Red Variant, Short"
-	new_icon_state = "workshorts"
-
-/datum/atom_skin/security_shorts/red_short_short
-	preview_name = "Red Variant, Short Short"
-	new_icon_state = "workshorts_short"
-
-/datum/atom_skin/security_shorts/white_short
-	preview_name = "White Variant, Short"
-	new_icon_state = "workshorts_white"
-
-/datum/atom_skin/security_shorts/white_short_short
-	preview_name = "White Variant, Short Short"
-	new_icon_state = "workshorts_white_short"
-
-/obj/item/clothing/under/rank/security/nova/trousers/shorts
-	name = "security shorts"
-	desc = "Some \"combat\" shorts. Probably should pair it with a vest for safety."
-	icon_state = "workshorts"
-
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts)
-
-/datum/atom_skin/security_shorts/blue
-	abstract_type = /datum/atom_skin/security_shorts/blue
-
-/datum/atom_skin/security_shorts/blue/blue_short
-	preview_name = "Blue Variant, Short"
-	new_icon_state = "workshorts_blue"
-
-/datum/atom_skin/security_shorts/blue/blue_short_short
-	preview_name = "Blue Variant, Short Short"
-	new_icon_state = "workshorts_blue_short"
-
-/datum/atom_skin/security_shorts/blue/white_short
-	preview_name = "White Variant, Short"
-	new_icon_state = "workshorts_white"
-
-/datum/atom_skin/security_shorts/blue/white_short_short
-	preview_name = "White Variant, Short Short"
-	new_icon_state = "workshorts_white_short"
-
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/blue
-	icon_state = "workshorts_blue"
-
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/blue/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts/blue)
 
 /datum/atom_skin/security_turtleneck
 	abstract_type = /datum/atom_skin/security_turtleneck
