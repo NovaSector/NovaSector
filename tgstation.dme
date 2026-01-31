@@ -7620,6 +7620,8 @@
 #include "modular_nova\modules\ammo_workbench\code\ammo_bench_defines.dm"
 #include "modular_nova\modules\ammo_workbench\code\ammo_workbench.dm"
 #include "modular_nova\modules\ammo_workbench\code\design_disks.dm"
+#include "modular_nova\modules\anomaly_grenades\code\anchor_grenade.dm"
+#include "modular_nova\modules\anomaly_grenades\code\grenade_kits.dm"
 #include "modular_nova\modules\antag_opt_in\code\antag_optin_config.dm"
 #include "modular_nova\modules\antag_opt_in\code\antag_optin_preferences.dm"
 #include "modular_nova\modules\antag_opt_in\code\job.dm"
