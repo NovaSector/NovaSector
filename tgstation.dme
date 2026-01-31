@@ -7221,6 +7221,7 @@
 #include "modular_nova\master_files\code\modules\client\preferences\flavor_text.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\footstep_sound.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\genitals.dm"
+#include "modular_nova\master_files\code\modules\client\preferences\hair_emissive.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\headshot.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\laugh.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\loadout_override_preference.dm"
