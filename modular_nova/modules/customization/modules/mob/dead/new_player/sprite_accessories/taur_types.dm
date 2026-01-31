@@ -249,12 +249,13 @@
 /datum/sprite_accessory/taur/biglegs
 	name = "Big Legs"
 	icon_state = "biglegs"
-	taur_mode = STYLE_TAUR_PAW
+	taur_mode = STYLE_TAUR_BIGLEGS
 	organ_type = /obj/item/organ/taur_body/anthro
 
 /datum/sprite_accessory/taur/biglegs/stanced
 	name = "Big Legs, Stanced"
 	icon_state = "biglegs_stanced"
+	taur_mode = STYLE_TAUR_BIGLEGS_STANCED
 
 /datum/sprite_accessory/taur/biglegs/bird
 	name = "Big Legs, Bird"

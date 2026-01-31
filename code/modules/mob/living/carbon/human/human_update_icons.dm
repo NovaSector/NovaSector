@@ -1040,6 +1040,13 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
 			override_file = worn_icon_taur_hoof
 			using_taur_variant = TRUE
+	// big legs add
+	if (isnull(override_file) && (mutant_styles & STYLE_TAUR_BIGLEGS_ALL) &&  !(supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON))
+		using_taur_variant = TRUE
+		if(mutant_styles & STYLE_TAUR_BIGLEGS)
+			override_file = 'modular_nova/master_files/icons/mob/clothing/uniform_taur_biglegs.dmi'
+		else if(mutant_styles & STYLE_TAUR_BIGLEGS_STANCED)
+			override_file = 'modular_nova/master_files/icons/mob/clothing/uniform_taur_biglegs_stanced.dmi'
 	// NOVA EDIT ADDITION END
 	//Find a valid icon_state from variables+arguments
 	var/t_state = override_state || (isinhands ? inhand_icon_state : worn_icon_state) || icon_state
@@ -1071,6 +1078,9 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
 	if (is_for_taur && !using_taur_variant)
 		building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
+	if (!isinhands && using_taur_variant && (mutant_styles & STYLE_TAUR_BIGLEGS_ALL))
+		if(!(supports_variations_flags & STYLE_TAUR_BIGLEGS_ALL))
+			building_icon = wear_digi_version(icon_exists(file2use, t_state) ? icon(file2use, t_state) : icon(worn_icon, t_state), src, "[t_state]-[worn_icon]-[female_uniform]", greyscale_colors)
 	// NOVA EDIT ADDITION END
 	if(building_icon)
 		draw_target = mutable_appearance(building_icon, layer = -layer2use)
