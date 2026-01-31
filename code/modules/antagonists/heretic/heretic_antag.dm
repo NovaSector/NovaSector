@@ -442,12 +442,16 @@
 	return TRUE
 
 /datum/antagonist/heretic/proc/should_show_aura()
+	/* // NOVA EDIT REMOVAL START - This shouldn't be an easy way to get no aura since ascension isn't allowed as of writing this, along with even getting the aura being harder
 	if(!can_assign_self_objectives)
 		return FALSE // We spurned the offer of the Mansus :(
+	*/ // NOVA EDIT REMOVAL END
 	if(!unlimited_blades || HAS_TRAIT(owner.current, TRAIT_HERETIC_AURA_HIDDEN))
 		return FALSE // No aura if we have the trait or is too early still
+	/* // NOVA EDIT REMOVAL START
 	if(feast_of_owls)
 		return FALSE // No use in giving the aura to a heretic that can't ascend
+	*/ // NOVA EDIT REMOVAL END
 	if(heretic_path?.route == PATH_LOCK)
 		return FALSE // Lock heretics never get this aura
 	return TRUE
@@ -778,8 +782,10 @@
 /datum/antagonist/heretic/proc/adjust_knowledge_points(amount, update = TRUE)
 	knowledge_points = max(0, knowledge_points + amount) // Don't allow negative knowledge points
 	knowledge_gained += max(0, amount)
+	/* //NOVA EDIT REMOVAL START - Disables the aura from knowledge gain
 	if(knowledge_gained > points_to_aura && !unlimited_blades)
 		disable_blade_breaking()
+	*/ //NOVA EDIT REMOVAL END
 	if(update)
 		update_data_for_all_viewers()
 
