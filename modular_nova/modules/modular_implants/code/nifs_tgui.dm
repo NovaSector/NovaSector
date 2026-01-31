@@ -73,7 +73,7 @@
 	data["nutrition_drain"] = nutrition_drain
 	data["nutrition_level"] = linked_mob.nutrition
 
-	data["blood_level"] = linked_mob.blood_volume
+	data["blood_level"] = linked_mob.get_blood_volume()
 	data["blood_drain"] = blood_drain
 	data["minimum_blood_level"] = minimum_blood_level
 

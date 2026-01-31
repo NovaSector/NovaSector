@@ -9,7 +9,7 @@
 	inhand_icon_state = "s_suit"
 	allowed = list(/obj/item/gun, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
 	armor_type = /datum/armor/space_syndicate
-	supports_variations_flags = CLOTHING_NO_VARIATION //It's already huge enough to look like it can work with digis
+	supports_variations_flags = NONE //It's already huge enough to look like it can work with digis
 
 /obj/item/clothing/suit/space/voskhod/Initialize(mapload)
 	. = ..()
@@ -32,7 +32,7 @@
 	icon_state = "voskhod_helmet"
 	inhand_icon_state = "space_helmet"
 	armor_type = /datum/armor/space_syndicate
-	supports_variations_flags = CLOTHING_NO_VARIATION
+	supports_variations_flags = NONE
 
 /obj/item/clothing/head/helmet/space/voskhod/Initialize(mapload)
 	. = ..()
