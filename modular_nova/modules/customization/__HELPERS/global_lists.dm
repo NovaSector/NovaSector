@@ -206,3 +206,35 @@
 		if(initial(fun_item.obj_flags_nova) & ERP_ITEM)
 			GLOB.erp_items += fun_item
 
+// Setup gas price overrides
+/proc/setup_gas_prices()
+	if(!CONFIG_GET(flag/override_gas_prices))
+		return
+
+	GLOB.gas_base_values = list(
+		/datum/gas/oxygen = 0, // Original: base_value = 0.2
+		/datum/gas/nitrogen = 0, // Original: base_value = 0.1
+		/datum/gas/carbon_dioxide = 0, // Original: base_value = 0.2
+		/datum/gas/plasma = 0, // Original: base_value = 1.5
+		/datum/gas/water_vapor = 0, // Original: base_value = 0.5
+		/datum/gas/hypernoblium = 0.2, // Original: base_value = 2.5
+		/datum/gas/nitrous_oxide = 0, // Original: base_value = 1.5
+		/datum/gas/nitrium = 0.2, // Original: base_value = 6
+		/datum/gas/tritium = 0.075, // Original: base_value = 2.5
+		/datum/gas/bz = 0.01, // Original: base_value = 1.5
+		/datum/gas/pluoxium = 0.01, // Original: base_value = 2.5
+		/datum/gas/miasma = 0.1, // Original: base_value = 1
+		/datum/gas/freon = 0.02, // Original: base_value = 5
+		/datum/gas/hydrogen = 0.0005, // Original: base_value = 1
+		/datum/gas/healium = 0.05, // Original: base_value = 5.5
+		/datum/gas/proto_nitrate = 0.3, // Original: base_value = 2.5
+		/datum/gas/zauker = 15, // Original: base_value = 7
+		/datum/gas/halon = 0.01, // Original: base_value = 4
+		/datum/gas/helium = 0.01, // Original: base_value = 3.5
+		/datum/gas/antinoblium = 0, // Original: base_value = 10
+		/datum/gas/goblin = 1, // Original: base_value = 8
+	)
+
+	// Remove elasticity
+	var/datum/export/gas_canister/canister_export = locate() in GLOB.exports_list
+	canister_export.k_hit_percentile = 0 // Originally inherits k_hit_percentile = 0.05
