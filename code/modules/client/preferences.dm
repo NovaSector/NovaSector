@@ -173,6 +173,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//NOVA EDIT ADDITION BEGIN
 	data["preview_selection"] = preview_pref
 	data["erp_pref"] = read_preference(/datum/preference/toggle/master_erp_preferences)
+	data["erp_belly_pref"] = read_preference(/datum/preference/toggle/erp/belly_master)
 	data["quirk_points_enabled"] = !CONFIG_GET(flag/disable_quirk_points)
 	data["quirks_balance"] = GetQuirkBalance()
 	data["positive_quirk_count"] = GetPositiveQuirkCount()
@@ -345,6 +346,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		// For the quirks in the prefs menu.
 		if ("get_quirks_balance")
+			return TRUE
+
+		if ("openBellyPrefs")
+			GLOB.erp_belly_prefshelper.ui_interact(usr)
 			return TRUE
 		//NOVA EDIT ADDITION END
 

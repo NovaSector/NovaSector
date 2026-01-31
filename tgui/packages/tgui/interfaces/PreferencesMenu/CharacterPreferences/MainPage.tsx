@@ -649,6 +649,17 @@ export function MainPage(props: MainPageProps) {
                   setVocalsInputOpen(true);
                 }}
               />
+              {data.erp_belly_pref === 1 && (
+                <Button
+                  fluid
+                  textAlign="center"
+                  onClick={() => {
+                    act('openBellyPrefs');
+                  }}
+                >
+                  Belly Preferences
+                </Button>
+              )}
             </Stack.Item>
             {/* NOVA EDIT ADDITION END */}
           </Stack>
