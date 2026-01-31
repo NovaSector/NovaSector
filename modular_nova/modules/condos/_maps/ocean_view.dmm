@@ -25,7 +25,9 @@
 /turf/closed/indestructible/fakeglass,
 /area/misc/condo)
 "i" = (
-/obj/structure/flora/scrap,
+/mob/living/basic/axolotl{
+	dir = 8
+	},
 /turf/open/misc/ironsand/ocean,
 /area/misc/condo)
 "j" = (
@@ -425,7 +427,7 @@ X
 J
 s
 W
-J
+i
 q
 J
 E
@@ -441,7 +443,7 @@ a
 a
 X
 X
-i
+J
 J
 X
 X
