@@ -887,3 +887,22 @@
 	// This makes it so that it appears only when we have pod hair or allow mismatched parts.
 	check_mode = TRICOLOR_CHECK_ACCESSORY
 	type_to_check = /datum/preference/choiced/mutant_choice/pod_hair
+
+/// quad arms
+
+/datum/preference/toggle/mutant_toggle/fourarms
+	savefile_key = "fourarms_toggle"
+	relevant_mutant_bodypart = FEATURE_FOURARMS
+
+/datum/preference/choiced/mutant_choice/fourarms
+	savefile_key = "feature_fourarms"
+	relevant_mutant_bodypart = FEATURE_FOURARMS
+	type_to_check = /datum/preference/toggle/mutant_toggle/fourarms
+	default_accessory_type = /datum/sprite_accessory/fourarms/none
+
+/datum/preference/tri_color/fourarms
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "fourarms_color"
+	relevant_mutant_bodypart = FEATURE_FOURARMS
+	type_to_check = /datum/preference/toggle/mutant_toggle/fourarms

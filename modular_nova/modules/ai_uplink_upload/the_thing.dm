@@ -25,6 +25,7 @@
 		ORGAN_SLOT_EXTERNAL_WINGS,
 		ORGAN_SLOT_EXTERNAL_ANTENNAE,
 		ORGAN_SLOT_EXTERNAL_POD_HAIR,
+		ORGAN_SLOT_EXTERNAL_FOURARMS
 	)
 
 /obj/item/organ/brain/cybernetic/ai/Initialize(mapload)
