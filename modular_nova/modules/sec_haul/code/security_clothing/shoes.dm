@@ -1,17 +1,21 @@
 /datum/atom_skin/security_jackboots
 	abstract_type = /datum/atom_skin/security_jackboots
 
-/datum/atom_skin/security_jackboots/blue_trim
-	preview_name = "Blue-Trimmed Variant"
-	new_icon_state = "security_boots"
+/datum/atom_skin/security_jackboots/red
+	preview_name = "Red Variant"
+	new_icon_state = "securityboots"
 
-/datum/atom_skin/security_jackboots/white_trim
-	preview_name = "White-Trimmed Variant"
-	new_icon_state = "security_boots_white"
+/datum/atom_skin/security_jackboots/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "securityboots_blue"
 
-/datum/atom_skin/security_jackboots/fullwhite
-	preview_name = "Full White Variant"
-	new_icon_state = "security_boots_fullwhite"
+/datum/atom_skin/security_jackboots/white
+	preview_name = "White Variant"
+	new_icon_state = "securityboots_white"
+
+/datum/atom_skin/security_jackboots/black
+	preview_name = "Black Variant"
+	new_icon_state = "securityboots_black"
 
 /obj/item/clothing/shoes/jackboots/sec/blue
 	icon_state = "security_boots"

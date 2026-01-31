@@ -157,6 +157,9 @@
 /obj/item/clothing/under/rank/security/nova/skirt/mini/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt)
 
+/datum/atom_skin/security_utility
+	abstract_type = /datum/atom_skin/security_utility
+
 /obj/item/clothing/under/rank/security/nova/utility
 	name = "security utility uniform"
 	desc = "A utility uniform worn by trained Security officers."
@@ -165,8 +168,24 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 
-/obj/item/clothing/under/rank/security/nova/utility/blue
-	icon_state = "util_sec_blue"
+/datum/atom_skin/security_utility/red
+	preview_name = "Red Variant"
+	new_icon_state = "util_sec"
+
+/datum/atom_skin/security_utility/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "util_sec_blue"
+
+/datum/atom_skin/security_utility/white
+	preview_name = "White Variant"
+	new_icon_state = "util_sec_white"
+
+/datum/atom_skin/security_utility/black
+	preview_name = "Black Variant"
+	new_icon_state = "util_sec_black"
+
+/obj/item/clothing/under/rank/security/nova/utility/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_utility)
 
 /datum/atom_skin/security_dress
 	abstract_type = /datum/atom_skin/security_dress
@@ -203,9 +222,17 @@
 	preview_name = "Red Variant"
 	new_icon_state = "workpants"
 
+/datum/atom_skin/security_trousers/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "workpants_blue"
+
 /datum/atom_skin/security_trousers/white
 	preview_name = "White Variant"
 	new_icon_state = "workpants_white"
+
+/datum/atom_skin/security_trousers/black
+	preview_name = "Black Variant"
+	new_icon_state = "workpants_black"
 
 /obj/item/clothing/under/rank/security/nova/trousers
 	name = "security trousers"
@@ -218,23 +245,6 @@
 
 /obj/item/clothing/under/rank/security/nova/trousers/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_trousers)
-
-/datum/atom_skin/security_trousers/blue
-	abstract_type = /datum/atom_skin/security_trousers/blue
-
-/datum/atom_skin/security_trousers/blue/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "workpants_blue"
-
-/datum/atom_skin/security_trousers/blue/white
-	preview_name = "White Variant"
-	new_icon_state = "workpants_white"
-
-/obj/item/clothing/under/rank/security/nova/trousers/blue
-	icon_state = "workpants_blue"
-
-/obj/item/clothing/under/rank/security/nova/trousers/blue/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_trousers/blue)
 
 /datum/atom_skin/security_shorts
 	abstract_type = /datum/atom_skin/security_shorts

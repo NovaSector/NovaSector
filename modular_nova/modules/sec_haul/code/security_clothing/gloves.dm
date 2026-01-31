@@ -1,9 +1,9 @@
 /datum/atom_skin/sec_gloves_white
 	abstract_type = /datum/atom_skin/sec_gloves_white
 
-/datum/atom_skin/sec_gloves_white/black
-	preview_name = "Black Variant"
-	new_icon_state = "gloves_black"
+/datum/atom_skin/sec_gloves_white/red
+	preview_name = "Red Variant"
+	new_icon_state = "gloves_red"
 
 /datum/atom_skin/sec_gloves_white/blue
 	preview_name = "Blue Variant"
@@ -13,10 +13,14 @@
 	preview_name = "White Variant"
 	new_icon_state = "gloves_white"
 
+/datum/atom_skin/sec_gloves_white/black
+	preview_name = "Black Variant"
+	new_icon_state = "gloves_black"
+
 /obj/item/clothing/gloves/color/black/security/white
 	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
-	icon_state = "gloves_white"
+	icon_state = "gloves_red"
 
 /obj/item/clothing/gloves/color/black/security/white/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/sec_gloves_white)

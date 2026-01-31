@@ -98,21 +98,17 @@
 /datum/atom_skin/police_patrol_cap
 	abstract_type = /datum/atom_skin/police_patrol_cap
 
-/datum/atom_skin/police_patrol_cap/blue
-	preview_name = "Blue"
-	new_icon_state = "policeofficercap"
-
-/datum/atom_skin/police_patrol_cap/sillitoe
-	preview_name = "Sillitoe"
-	new_icon_state = "policetrafficcap"
-
-/datum/atom_skin/police_patrol_cap/black
-	preview_name = "Black"
+/datum/atom_skin/police_patrol_cap/red
+	preview_name = "Red Variant"
 	new_icon_state = "policeofficerpatrolcap"
 
-/datum/atom_skin/police_patrol_cap/policecadetcap
-	preview_name = "Cadet"
-	new_icon_state = "policecadetcap"
+/datum/atom_skin/police_patrol_cap/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "policeofficerpatrolcap_blue"
+
+/datum/atom_skin/police_patrol_cap/white
+	preview_name = "White Variant"
+	new_icon_state = "policeofficerpatrolcap_white"
 
 /obj/item/clothing/head/hats/warden/police/patrol
 	name = "police patrol cap"
