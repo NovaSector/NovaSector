@@ -28,11 +28,11 @@
 	name = "Belly Access Helper"
 	desc = "LMB: Activate the belly-config menu without needing to alt-click. RMB: Access the config menu for your guests."
 
-/datum/action/item_action/belly_menu/access/Trigger(trigger_flags)
+/datum/action/item_action/belly_menu/access/Trigger(mob/clicker, trigger_flags)
 	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
-		my_belly.release_menu(usr)
+		my_belly.release_menu(owner)
 	else
-		my_belly.config_menu(usr)
+		my_belly.config_menu(owner)
 	return TRUE
 
 /// Escape helper for belly-dwellers.  This lets them jostle around to make noise or immediately leave.
@@ -40,8 +40,11 @@
 	name = "Belly Escape Helper"
 	desc = "LMB: Squirm around and make your host's belly noisy. RMB: Escape immediately."
 	button_icon_state = "escape_icon"
+
+	// TODO: we probably want to make these editable from the UI later
+
 	/// Squirm interact messages, displayed to the guest.
-	var/list/squirm_messages_usr = list(
+	var/list/squirm_messages_owner = list(
 		"You press into %USER%'s bellywalls!",
 		"You knead into %USER%'s bellywalls!",
 		"You squish into %USER%'s bellywalls!",
@@ -59,18 +62,18 @@
 		"You feel %USER% jostling your belly about from within!"
 	)
 
-/datum/action/item_action/belly_menu/escape/Trigger(trigger_flags)
+/datum/action/item_action/belly_menu/escape/Trigger(mob/clicker, trigger_flags)
 	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
-		if(usr in my_belly.nommeds)
-			my_belly.free_target(usr)
+		if(owner in my_belly.nommeds)
+			my_belly.free_target(owner)
 		else
-			to_chat(usr, span_danger("You're not supposed to be able to use this action!"))
-			src.Remove(usr)
+			to_chat(owner, span_danger("You're not supposed to be able to use this action!"))
+			src.Remove(owner)
 	else
 		if(my_belly.lastuser != null)
-			var/message_index = rand(1, length(squirm_messages_usr))
-			to_chat(usr, span_notice(replacetext(squirm_messages_usr[message_index], "%USER%", my_belly.lastuser.name)))
-			to_chat(my_belly.lastuser, span_notice(replacetext(squirm_messages_host[message_index], "%USER%", usr.name)))
+			var/message_index = rand(1, length(squirm_messages_owner))
+			to_chat(owner, span_notice(replacetext(squirm_messages_owner[message_index], "%USER%", my_belly.lastuser.name)))
+			to_chat(my_belly.lastuser, span_notice(replacetext(squirm_messages_host[message_index], "%USER%", owner.name)))
 			if(my_belly.allow_sound_move_creaks)
 				playsound_if_pref(my_belly.lastuser, pick(my_belly.move_creaks), min(10 + round(my_belly.total_fullness/40, 1), 30), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_creaks)
 			if(my_belly.stuffed_temp > 1 && prob(100) <= my_belly.stuffed_temp * 100 && my_belly.allow_sound_move_sloshes)
@@ -84,5 +87,5 @@
 
 /datum/action/item_action/belly_menu/escape/Destroy()
 	. = ..()
-	if(usr in my_belly.nommeds)
-		my_belly.free_target(usr)
+	if(owner in my_belly.nommeds)
+		my_belly.free_target(owner)
