@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/voice_actor_quirk/README.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/voice_actor_quirk/README.md <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/voice_actor_quirk/README.md"><img src="git.png" width="16" height="16" title="modular_nova/modules/voice_actor_quirk/README.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><ul>
+<li>https://github.com/NovaSector/NovaSector/pull/4529</li>
+<li>https://github.com/NovaSector/NovaSector/pull/5407</li>
+<li>https://github.com/NovaSector/NovaSector/pull/5428</li>
+<li>https://github.com/NovaSector/NovaSector/pull/6583</li>
+</ul>
+<h2 id="title-voice-actor-quirk">Title: Voice Actor Quirk</h2>
+<p>MODULE ID: VOICE_ACTOR_QUIRK</p>
+<h3 id="description">Description:</h3>
+<p>Adds a quirk and action which allows swapping to a second chat color, TTS voice, and vocal bark / blooper.</p>
+<h3 id="master-file-additions">Master File Additions</h3>
+<ul>
+<li>Created <code>modular_nova/master_files/code/modules/client/preferences/middleware/tts.dm</code>:
+<ul>
+<li>Overrode <code>/datum/preference_middleware/tts/New()</code> .</li>
+<li>Added <code>/datum/preference_middleware/tts/proc/play_second_voice()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li><code>tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/character_preferences/nova/voice_actor.tsx</code></li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<ul>
+<li><a href="https://github.com/Floofies">@Floofies</a></li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/657d8ef394559c0511df84ee2ab52980cf0aa418">657d8ef</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

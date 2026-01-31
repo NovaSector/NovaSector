@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/customization/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/customization/readme.md <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/customization/readme.md"><img src="git.png" width="16" height="16" title="modular_nova/modules/customization/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2 id="title-customization">Title: Customization</h2>
+<p>MODULE ID: CUSTOMIZATION</p>
+<h3 id="description">Description:</h3>
+<p>IF YOU WANT TO ADD AN EXTRA FEATURE TO SOMEONES DNA LOOK AT &quot;<code>code\__DEFINES\~nova_defines\DNA.dm&quot;</code></p>
+<p>Re-writes how mutant bodyparts exist and how they're handled. Adds in a per limb body marking system. Adds in loadout, with lots of clothing ported over. Adds in all the missing species. Adds in flavor text and OOC prefs. Adds in special rendering cases for digitigrades, taurs, snouts, voxes etc. Adds in changeable PDA ringtone message.</p>
+<h3 id="tg-proc-changes">TG Proc Changes:</h3>
+<p><code>.\code\__HELPERS\global_lists.dm &gt; \proc\make_datum_references_lists()</code>
+<code>.\code\__HELPERS\mobs.dm &gt; \proc\random_features()</code>
+<code>.\code\controllers\subsystem\job.dm</code> &gt; \datum\controller\subsystem\job\proc\EquipRank()
+<code>.\code\datums\dna.dm</code> &gt; \datum\dna\proc\initialize_dna() , \mob\living\carbon\set_species()
+<code>.\code\modules\admin\create_mob.dm </code>&gt; \proc\randomize_human()
+<code>.\code\modules\client\preferences.dm</code> &gt; ALMOST THE ENTIRETY OF THE FILE
+<code>.\code\modules\client\preferences_savefile.dm</code> &gt; ONCE AGAIN, THE ENTIRE FILE
+<code>.\code\modules\mob\dead\new_player\preferences_setup.dm</code> &gt; \datum\preferences\proc\random_character(), \datum\preferences\proc\random_species(), \datum\preferences\proc\update_preview_icon()
+<code>.\code\modules\mob\living\carbon\carbon_update_icons.dm</code> &gt; \mob\living\carbon\update_inv_wear_mask(), \mob\living\carbon\update_inv_head(), \mob\living\carbon\proc\update_body_parts(), <code>\mob\living\carbon\proc\generate_icon_render_key()</code>
+<code>.\code\modules\mob\living\carbon\human\emote.dm</code> &gt; \datum\emote\living\carbon\human\wag\run_emote(), \datum\emote\living\carbon\human\wag\can_run_emote()
+<code>.\code\modules\mob\living\carbon\human\examine.dm</code> &gt; \mob\living\carbon\human\examine()
+<code>.\code\modules\mob\living\carbon\human\human_update_icons.dm</code> &gt; \mob\living\carbon\human\update_inv_w_uniform(), \mob\living\carbon\human\update_inv_glasses(), \mob\living\carbon\human\update_inv_shoes(), <code>\mob\living\carbon\human\update_inv_wear_suit()</code>, \obj\item\proc\build_worn_icon(), \mob\living\carbon\human\generate_icon_render_key()
+<code>.\code\modules\mob\living\carbon\human\species.dm</code> &gt; \datum\species\proc\on_species_gain(), \datum\species\proc\handle_body(), \datum\species\proc\handle_mutant_bodyparts(), \datum\species\proc\can_equip(), <code>\datum\species\proc\handle_hair()</code>
+<code>.\code\modules\mob\living\carbon\human\species_types\felinid.dm</code> &gt; the 5 procs related to wagging tail
+<code>.\code\modules\mob\living\carbon\human\species_types\lizardpeople.dm</code> the 5 procs related to wagging tail and - \datum\species\lizard\on_species_gain()
+<code>.\code\modules\surgery\bodyparts_bodyparts.dm</code> &gt; \obj\item\bodypart\proc\get_limb_icon()
+<code>.\code\modules\surgery\organs\ears.dm</code> &gt; \obj\item\organ\ears\cat\Insert(), \obj\item\organ\ears\cat\Remove()
+<code>.\code\modules\surgery\organs\tails.dm</code> &gt; \obj\item\organ\tail\cat\Insert(), \obj\item\organ\tail\cat\Remove(), \obj\item\organ\tail\lizard\Initialize(mapload), \obj\item\organ\tail\lizard\Insert(), <code>\obj\item\organ\tail\lizard\Remove()</code>
+<code>.\code\modules\surgery\bodyparts\dismemberment.dm</code> &gt; \mob\living\carbon\regenerate_limb()
+<code>.\code\modules\mob\living\carbon\human\status_procs.dm</code> &gt; \mob\living\carbon\human\become_husk() &gt; APPENDED
+<code>.\code\modules\reagents\chemistry\holder.dm</code> &gt; \datum\reagents\metabolize()
+<code>.\code\modules\food_and_drinks\drinks\drinks\drinkingglass.dm</code> &gt; \obj\item\reagent_containers\cup\glass\drinkingglass\on_reagent_change()
+<code>.\code\modules\mob\living\carbon\human\human_defense.dm</code> &gt; \mob\living\carbon\human\emp_act()
+<code>.\code\modules\mob\living\carbon\human.dm</code> &gt; \mob\living\carbon\human\revive() &gt; APPENDED
+<code>.\code\modules\reagents\chemistry\reagents\food_reagents.dm</code> &gt; datum\reagent\consumable\on_mob_life()
+<code>.\code\datums\traits\negative.dm</code> &gt; \datum\quirk\prosthetic_limb
+<code>.\code\modules\client.dm</code> &gt; \client\proc\update_special_keybinds()
+<code>.\code\datums\traits\negative.dm</code> &gt; \datum\quirk\prosthetic_limb</p>
+<p><code>.\code\modules\mob\living\carbon\human\species.dm</code> &gt; <code>\datum\species\regenerate_organs()</code> &gt; <code>APPENDED</code></p>
+<p><code>.\code\modules\mob\dead\new_player\new_player.dm</code> &gt; <code>\mob\dead\new_player\proc\IsJobUnavailable()</code>, <code>\proc\get_job_unavailable_error_message()</code></p>
+<h3 id="defines">Defines:</h3>
+<p><code>.\code\modules\surgery\organs\tongue.dm &gt; var\static\list\languages_possible_base</code> - added 2 languages
+<code>.\code\modules\mob\living\carbon\human\species_types\lizardpeople.dm</code> &gt; commented out &quot;mutant_organs = list(\obj\item\organ\tail\lizard)&quot;
+<code>.\code\modules\mob\living\carbon\human\species_types\felinid.dm</code> &gt; commented out &quot;mutantears = \obj\item\organ\ears\cat&quot; and &quot;mutant_organs = list(\obj\item\organ\tail\cat)&quot;
+<code>.\code\modules\mob\living\carbon\human\species.dm</code> &gt; var\list\list\mutant_bodyparts (added typed list type)
+<code>.\code_globalvars\lists\flavor_misc.dm</code> &gt; Removed accessory list defines
+<code>.\code\datums\keybindings\living.dm</code> &gt; \datum\keybinding\living\look_up &gt; from L to P`</p>
+<p><code>.\code\__DEFINES\~nova_defines\DNA.dm</code> &gt; A TON of defines<code></code>.\code__DEFINES~nova_defines\obj_flags.dm<code> &gt; Organ flags</code>
+<code>.\code\__DEFINES\~nova_defines\say.dm</code> &gt; MAX_FLAVOR_LEN<code></code>.\code__DEFINES~nova_defines\traits.dm<code> &gt; TRAIT_NO_HUSK</code></p>
+<p>.\modular_nova\modules\customization\modules\reagents\chemistry\reagents.dm &gt; var\process_flags</p>
+<h3 id="master-file-additions">Master file additions</h3>
+<p>.\modular_nova\master_files\icons\mob\clothing\eyes_vox.dmi
+.\modular_nova\master_files\icons\mob\clothing\feet_digi.dmi
+.\modular_nova\master_files\icons\mob\clothing\head_muzzled.dmi
+.\modular_nova\master_files\icons\mob\clothing\head_vox.dmi
+.\modular_nova\master_files\icons\mob\clothing\mask_muzzled.dmi
+.\modular_nova\master_files\icons\mob\clothing\mask_vox.dmi
+.\modular_nova\master_files\icons\mob\clothing\suit_digi.dmi
+.\modular_nova\master_files\icons\mob\clothing\suit_taur_hoof.dmi
+.\modular_nova\master_files\icons\mob\clothing\suit_taur_paw.dmi
+.\modular_nova\master_files\icons\mob\clothing\suit_taur_snake.dmi
+.\modular_nova\master_files\icons\mob\clothing\uniform_digi.dmi
+.\modular_nova\master_files\icons\mob\clothing\under\uniform_digi.dmi
+.\modular_nova\master_files\icons\mob\clothing\under\uniform_taur_hoof.dmi
+.\modular_nova\master_files\icons\mob\clothing\under\uniform_taur_paw.dmi
+.\modular_nova\master_files\icons\mob\clothing\under\uniform_taur_snake.dmi</p>
+<p>.\modular_nova\master_files\icons\obj\drinks.dmi</p>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<p>Azarak</p></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/657d8ef394559c0511df84ee2ab52980cf0aa418">657d8ef</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

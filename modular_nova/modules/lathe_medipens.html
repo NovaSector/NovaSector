@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/lathe_medipens/README.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/lathe_medipens/README.md <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/lathe_medipens/README.md"><img src="git.png" width="16" height="16" title="modular_nova/modules/lathe_medipens/README.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p>https://github.com/NovaSector/NovaSector/pull/3577</p>
+<h2 id="title-lathe-medipens">Title: Lathe Medipens</h2>
+<p>MODULE ID: lathe_medipens</p>
+<h3 id="description">Description:</h3>
+<p>Contains empty subtypes of several medipens, custom/universal medipen subtypes with new icons, and techweb nodes/designs for them.</p>
+<h3 id="tg-proc-changes">TG Proc Changes:</h3>
+<ul>
+<li><code>/obj/item/reagent_containers/hypospray/medipen/Initialize()</code></li>
+<li><code>/obj/item/reagent_containers/hypospray/medipen/inject()</code></li>
+<li><code>/obj/machinery/medipen_refiller/add_context()</code></li>
+<li><code>/obj/machinery/medipen_refiller/attackby()</code></li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="master-file-additions">Master file additions</h3>
+<ul>
+<li><code>modular_nova/master_files/code/modules/reagents/reagent_containers/hypospray.dm</code>
+<ul>
+<li>Overrides <code>Initialize()</code> and <code>inject()</code>.</li>
+<li>Adds new variables <code>medipen/var/init_empty</code> and <code>medipen/var/unused</code>.</li>
+</ul>
+</li>
+<li><code>modular_nova/master_files/code/modules/reagents/chemistry/holder.dm</code>
+<ul>
+<li>Adds new proc <code>/datum/reagents/proc/trans_to_multiple()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<p>Dependent to avoid runtime errors:</p>
+<ul>
+<li><code>modular_nova/master_files/code/modules/reagents/reagent_containers/hypospray.dm</code></li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<ul>
+<li><a href="https://github.com/Floofies">@Floofies</a></li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/657d8ef394559c0511df84ee2ab52980cf0aa418">657d8ef</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

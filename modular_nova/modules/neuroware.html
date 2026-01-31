@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/neuroware/README.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/neuroware/README.md <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/neuroware/README.md"><img src="git.png" width="16" height="16" title="modular_nova/modules/neuroware/README.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2 id="title-neuroware">Title: Neuroware</h2>
+<p>MODULE ID: NEUROWARE</p>
+<h3 id="description">Description:</h3>
+<p>Adds neuroware chips, which add reagents to synthetic humanoids which are contextualized as &quot;neurocomputing programs&quot;.</p>
+<h3 id="tg-proc-file-changes">TG Proc/File Changes:</h3>
+<ul>
+<li><code>code/_globalvars/lists/maintenance_loot.dm</code>
+<ul>
+<li>Added to global list <code>trash_loot</code></li>
+</ul>
+</li>
+<li><code>code/game/objects/effects/spawners/random/trash.dm</code>
+<ul>
+<li>Added to <code>/obj/effect/spawner/random/trash/deluxe_garbage</code></li>
+</ul>
+</li>
+<li><code>code/game/objects/effects/spawners/random/contraband.dm</code>
+<ul>
+<li>Added to <code>/obj/effect/spawner/random/contraband</code></li>
+</ul>
+</li>
+<li><code>code/game/objects/items/storage/uplink_kits.dm</code>
+<ul>
+<li>Added to <code>/obj/item/storage/toolbox/emergency/old/ancientbundle/PopulateContents()</code></li>
+<li>Added to <code>/obj/item/storage/box/syndicate/bundle_a/PopulateContents()</code>:
+<ul>
+<li><code>KIT_STEALTHY</code></li>
+<li><code>KIT_REVOLUTIONARY</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>code/game/objects/items/devices/scanners/health_analyzer.dm</code>
+<ul>
+<li>Added neuroware listing to <code>/proc/chemscan()</code></li>
+</ul>
+</li>
+<li><code>code/modules/surgery/blood_filter.dm</code>
+<ul>
+<li>Added to <code>/datum/surgery_step/filter_blood/proc/has_filterable_chems()</code></li>
+<li>Added to <code>/datum/surgery_step/filter_blood/proc/success()</code></li>
+</ul>
+</li>
+<li><code>code/modules/surgery/tools.dm</code>
+<ul>
+<li>Edited <code>/obj/item/blood_filter/proc/ui_act()</code></li>
+</ul>
+</li>
+<li><code>code/game/objects/items/storage/wallets.dm</code>
+<ul>
+<li>Added to <code>/obj/item/storage/wallet/Initialize(mapload)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="modular-overrides">Modular Overrides:</h3>
+<ul>
+<li>Macro <code>NEUROWARE_METABOLIZE_HELPER</code> overrides <code>on_mob_end_metabolize()</code> for the given reagent type.
+<ul>
+<li>Used for all neuroware reagents in <code>modular_nova/modules/neuroware/code/datums/reagents</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li>Defined in <code>code/__DEFINES/~nova_defines/neuroware_defines.dm</code>:</li>
+<li><code>NEUROWARE_METABOLIZE_HELPER</code> macro, overrides a reagent's <code>on_mob_end_metabolize()</code>.</li>
+<li><code>REAGENT_NEUROWARE</code> bitflag for <code>chemical_flags</code>, which combines <code>REAGENT_INVISIBLE</code> with a new flag.</li>
+<li>Bitflags for chip labels:
+<ul>
+<li><code>NEUROWARE_BISHOP</code></li>
+<li><code>NEUROWARE_DEFOREST</code></li>
+<li><code>NEUROWARE_DONK</code></li>
+<li><code>NEUROWARE_MAINT</code></li>
+<li><code>NEUROWARE_NT</code></li>
+<li><code>NEUROWARE_SYNDIE</code></li>
+<li><code>NEUROWARE_WARD</code></li>
+<li><code>NEUROWARE_ZENGHU</code></li>
+</ul>
+</li>
+<li>Defined in <code>modular_nova/modules/neuroware/code/objects/items/_neuroware.dm</code> are macros for manufacturer tags. Matches up to bitflags defined in <code>neuroware_defines.dm</code>:
+<ul>
+<li><code>CHIP_LABEL_BISHOP</code></li>
+<li><code>CHIP_LABEL_DEFOREST</code></li>
+<li><code>CHIP_LABEL_DONK</code></li>
+<li><code>CHIP_LABEL_MAINT</code></li>
+<li><code>CHIP_LABEL_NT</code></li>
+<li><code>CHIP_LABEL_SYNDIE</code></li>
+<li><code>CHIP_LABEL_WARD</code></li>
+<li><code>CHIP_LABEL_ZENGHU</code></li>
+<li><code>NEURO_SLOT_NAME</code></li>
+</ul>
+</li>
+<li>Defined in <code>modular_nova/master_files/code/_globalvars/lists/reagents.dm</code>:
+<ul>
+<li>Added global list <code>name2reagent_normalized</code>. Same as <code>name2reagent</code> but omits neuroware reagents.</li>
+<li>Added global list <code>name2neuroware</code>. Same as <code>name2reagent</code> but contains only neuroware reagents.</li>
+<li>Added global list <code>name2neuroware_safe</code>. Same as <code>name2neuroware</code> but omits aphrodisiac reagents.</li>
+</ul>
+</li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li><code>code/__DEFINES/~nova_defines/neuroware_defines.dm</code></li>
+<li><code>modular_nova/modules/GAGS/json_configs/items/neuroware.json</code></li>
+<li><code>modular_nova/master_files/code/_globalvars/lists/reagents.dm</code></li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<ul>
+<li>Code by <a href="https://github.com/Floofies">@Floofies</a></li>
+<li>Sprites by <a href="https://github.com/splat1125">@splat1125</a></li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/657d8ef394559c0511df84ee2ab52980cf0aa418">657d8ef</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

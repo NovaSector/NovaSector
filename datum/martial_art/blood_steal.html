@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>/datum/martial_art/blood_steal - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a> — <a href="datum/martial_art/blood_steal.html#var">Var Details</a> - <a href="datum/martial_art/blood_steal.html#proc">Proc Details</a></header><main><h1>blood_steal <aside>/<a href="datum.html">datum</a>/<a href="datum/martial_art.html">martial_art</a>/<a href="datum/martial_art/blood_steal.html">blood_steal</a></aside> <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm#L54"><img src="git.png" width="16" height="16" title="modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm 54"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr><tr><th><a href="datum/martial_art/blood_steal.html#var/parrying_machine">parrying_machine</a></th><td>Weakref to a machine that's just parried</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr><tr><th><a href="datum/martial_art/blood_steal.html#proc/attempt_parry">attempt_parry</a></th><td>Handles our parrying signals, similar to hit_reaction() on items. Only parries while not-V1 is in throw mode.
+Attempts to parry an incoming projectile
+Arguments:</td></tr><tr><th><a href="datum/martial_art/blood_steal.html#proc/can_deflect">can_deflect</a></th><td>Checks if the attacker is capable of deflecting a projectile
+Arguments:</td></tr><tr><th><a href="datum/martial_art/blood_steal.html#proc/feedbacker">feedbacker</a></th><td>Performs a blood steal punch attack that deals extra damage and steals blood from the target
+Arguments:</td></tr><tr><th><a href="datum/martial_art/blood_steal.html#proc/knuckleblaster">knuckleblaster</a></th><td>Performs a blast attack that knocks the target back
+Arguments:</td></tr><tr><th><a href="datum/martial_art/blood_steal.html#proc/parry_availability">parry_availability</a></th><td>Notifies the attacker when their parry ability is available again after cooldown
+Arguments:</td></tr></table><h2 id="var">Var Details</h2><h3 id="var/parrying_machine"><aside class="declaration">var </aside>parrying_machine <aside>– /<a href="datum.html">datum</a>/<a href="datum/weakref.html">weakref</a></aside> <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm#L60"><img src="git.png" width="16" height="16" title="modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm 60"></a></h3><p>Weakref to a machine that's just parried</p><h2 id="proc">Proc Details</h2><h3 id="proc/attempt_parry"><aside class="declaration">proc </aside>attempt_parry<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/attacker, /<a href="obj.html">obj</a>/<a href="obj/projectile.html">projectile</a>/hitting_projectile)  <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm#L232"><img src="git.png" width="16" height="16" title="modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm 232"></a></aside></h3><p>Handles our parrying signals, similar to hit_reaction() on items. Only parries while not-V1 is in throw mode.
+Attempts to parry an incoming projectile
+Arguments:</p>
+<ul>
+<li>attacker - The mob attempting to parry</li>
+<li>hitting_projectile - The projectile being parried
+Returns COMPONENT_BULLET_ACTED if the projectile was destroyed, COMPONENT_BULLET_PIERCED if deflected, or NONE if parry failed</li>
+</ul><h3 id="proc/can_deflect"><aside class="declaration">proc </aside>can_deflect<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/attacker)  <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm#L211"><img src="git.png" width="16" height="16" title="modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm 211"></a></aside></h3><p>Checks if the attacker is capable of deflecting a projectile
+Arguments:</p>
+<ul>
+<li>attacker - The mob to check for deflect capability
+Returns TRUE if the attacker can deflect, FALSE otherwise</li>
+</ul><h3 id="proc/feedbacker"><aside class="declaration">proc </aside>feedbacker<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/attacker, /<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/defender)  <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm#L87"><img src="git.png" width="16" height="16" title="modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm 87"></a></aside></h3><p>Performs a blood steal punch attack that deals extra damage and steals blood from the target
+Arguments:</p>
+<ul>
+<li>attacker - The mob performing the attack</li>
+<li>defender - The mob being attacked
+Returns TRUE if the attack was successful, FALSE if it missed</li>
+</ul><h3 id="proc/knuckleblaster"><aside class="declaration">proc </aside>knuckleblaster<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/attacker, /<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/defender)  <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm#L179"><img src="git.png" width="16" height="16" title="modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm 179"></a></aside></h3><p>Performs a blast attack that knocks the target back
+Arguments:</p>
+<ul>
+<li>attacker - The mob performing the attack</li>
+<li>defender - The mob being attacked
+Returns TRUE if the attack was successful</li>
+</ul><h3 id="proc/parry_availability"><aside class="declaration">proc </aside>parry_availability<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/attacker)  <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm#L269"><img src="git.png" width="16" height="16" title="modular_nova/modules/modular_implants/code/nifsofts/blood_steal.dm 269"></a></aside></h3><p>Notifies the attacker when their parry ability is available again after cooldown
+Arguments:</p>
+<ul>
+<li>attacker - The mob to notify about parry availability</li>
+</ul></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/657d8ef394559c0511df84ee2ab52980cf0aa418">657d8ef</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

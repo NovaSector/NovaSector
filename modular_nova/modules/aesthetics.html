@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/aesthetics/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/aesthetics/readme.md <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/modules/aesthetics/readme.md"><img src="git.png" width="16" height="16" title="modular_nova/modules/aesthetics/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p>https://github.com/Skyrat-SS13/Skyrat-tg/pull/1245</p>
+<h2 id="title-general-aesthetic-change">Title: General aesthetic change.</h2>
+<p>MODULE ID: AESTHETICS</p>
+<h3 id="description">Description:</h3>
+<p>This takes a few sprites from TauCeti station and ports them over to us. With a few sound modifications too.</p>
+<p>Otherwise, this is a general module for &quot;TG items that we alter the audio/visuals of&quot;.
+Try not to put NEW items in this module, only overrides of TG's own aesthetics.</p>
+<p>Good examples of what belongs in here (all of which are actually in here):</p>
+<ul>
+<li>Audio and visual changes used to set a different atmosphere (e.g. Lighting or Footsteps)</li>
+<li>Removing visuals that an item's balance doesn't warrant for us (Such as removing the Breathing Implant visual)</li>
+<li>The ported walls/doors, which directly override TG's ancient wall sprites</li>
+<li>Custom floors that override TG's to match the ported walls better</li>
+<li>Sprites we just flat-out prefer to TG's (e.g. Boxes and Tools)</li>
+</ul>
+<h3 id="tg-proc-changes">TG Proc Changes:</h3>
+<ul>
+<li>
+<p>All TG file changes should be tagged with &quot;NOVA EDIT (ADDITION/REMOVAL) - AESTHETICS&quot;</p>
+</li>
+<li>
+<p>/obj/machinery/cell_charger/update_overlays()</p>
+</li>
+<li>
+<p>/obj/machinery/computer/ui_interact(mob/user, datum/tgui/ui)</p>
+</li>
+<li>
+<p>/obj/machinery/door/airlock/try_to_force_door_open(force_type = DEFAULT_DOOR_CHECKS)</p>
+</li>
+<li>
+<p>/mob/living/carbon/human/Initialize(mapload)</p>
+</li>
+<li>
+<p>/obj/machinery/door/airlock/update_overlays()</p>
+</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="master-file-additions">Master file additions</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<ul>
+<li>TauCeti station</li>
+<li>Gandalf2k15</li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/657d8ef394559c0511df84ee2ab52980cf0aa418">657d8ef</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

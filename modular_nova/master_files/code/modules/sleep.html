@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/master_files/code/modules/sleep/README.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/master_files/code/modules/sleep/README.md <a href="https://github.com/NovaSector/NovaSector/blob/657d8ef394559c0511df84ee2ab52980cf0aa418/modular_nova/master_files/code/modules/sleep/README.md"><img src="git.png" width="16" height="16" title="modular_nova/master_files/code/modules/sleep/README.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p>https://github.com/NovaSector/NovaSector/4525</p>
+<h2 id="title-enhanced-mob-sleep">Title: Enhanced Mob Sleep</h2>
+<p>MODULE ID: sleep</p>
+<h3 id="description">Description:</h3>
+<p>Overrides the sleep verb and some associated code chunks to implement enhancesments to sleeping.</p>
+<h3 id="tg-proc-changes">TG Proc Changes:</h3>
+<ul>
+<li>Edited <code>code/modules/admin/verbs/debug.dm</code>:
+<ul>
+<li>Added signal <code>COMSIG_MOB_GIVE_DIRECT_CONTROL</code> to <code>/datum/admin_verb/cmd_give_direct_control()</code>.</li>
+</ul>
+</li>
+<li>Edited <code>code/modules/mob/living\living.dm</code>:
+<ul>
+<li>Commented out <code>/mob/living/proc/mob_sleep()</code>.</li>
+<li>Edited <code>/mob/living/can_resist()</code>:
+<ul>
+<li>Added a conditional to allow resisting if the sleep verb was used.</li>
+</ul>
+</li>
+<li>Edited <code>/mob/living/proc/execute_resist()</code>:
+<ul>
+<li>Added conditional to allow resisting to wake up from sleep.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Edited <code>code/datums/status_effects/_status_effect.dm</code>:
+<ul>
+<li>Edited <code>/datum/status_effect/process()</code>:
+<ul>
+<li>Added conditional to allow for handling new variable <code>pause_expiry</code> and pausing status effect expiration.</li>
+</ul>
+</li>
+<li>Edited <code>/datum/status_effect/proc/remove_duration()</code>:
+<ul>
+<li>Added conditional to allow for handling new variable <code>pause_expiry</code> and pausing status effect expiration.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Edited <code>code/modules/mob/living/status_procs.dm</code>:
+<ul>
+<li>Edited <code>/mob/living/proc/Sleeping()</code>:
+<ul>
+<li>Added argument <code>is_voluntary</code> to differentiate voluntary and involuntary sleeping.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Edited <code>code/modules/surgery/organs/internal/stomach/_stomach.dm</code>:
+<ul>
+<li>Edited <code>/obj/item/organ/internal/stomach/proc/handle_hunger()</code>:
+<ul>
+<li>Added conditional to reduce hunger rate by 50% when lying down or sleeping.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li>Edited <code>code/__DEFINES/~nova_defines/signals.dm</code>:
+<ul>
+<li>Added <code>COMSIG_MOB_GIVE_DIRECT_CONTROL</code>, emitted by <code>/datum/admin_verb/cmd_give_direct_control()</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="master-file-additions">Master file additions</h3>
+<ul>
+<li>Created <code>master_files/code/modules/sleep/code/mob/living/living.dm</code>
+<ul>
+<li>Added proc <code>/mob/living/proc/mob_sleep()</code>, replaces proc definition in <code>code\modules\mob\living\living.dm</code>.</li>
+</ul>
+</li>
+<li>Created <code>master_files/code/modules/sleep/code/datums/status_effects/_status_effect_.dm</code>
+<ul>
+<li>Added variable <code>pause_expiry</code> to allow pausing of status effect expiration.</li>
+<li>Added procs <code>enable_expiry()</code> and <code>disable_expiry()</code> for signal handlers.</li>
+</ul>
+</li>
+<li>Created <code>master_files/code/modules/sleep/code/datums/status_effects/debuffs/debuffs.dm</code>
+<ul>
+<li>Added variable <code>voluntary</code> to differentiate between voluntary sleep (sleep verb) and involuntary sleep.</li>
+<li>Added <code>/atom/movable/screen/alert/status_effect/asleep/proc/Click()</code> to allow waking up from voluntary sleep.</li>
+<li>Overrode <code>/datum/status_effect/incapacitating/sleeping/on_apply()</code>
+<ul>
+<li>Registers signals for setting <code>pause_expiry</code> upon mob login/logout, being ghostized, and when given control.</li>
+</ul>
+</li>
+<li>Overrode <code>/datum/status_effect/incapacitating/sleeping/on_remove()</code>
+<ul>
+<li>Handles unregistering signals for setting <code>pause_expiry</code></li>
+</ul>
+</li>
+<li>Overrode <code>/datum/status_effect/incapacitating/sleeping/proc/on_creation()</code>:
+<ul>
+<li>Handles new argument <code>is_voluntary</code>.</li>
+<li>Automatically hides sleep duration in the screen alert if it's infinite.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<ul>
+<li><a href="https://github.com/Floofies">@Floofies</a></li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/657d8ef394559c0511df84ee2ab52980cf0aa418">657d8ef</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>
