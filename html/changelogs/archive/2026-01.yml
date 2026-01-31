@@ -1017,3 +1017,10 @@
   carpotoxin:
   - balance: The agent stealth box no longer makes you much faster, it only makes
       you a little faster now.
+2026-01-31:
+  Iajret:
+  - bugfix: Defibbing DNRed people shouldn't tell you about inorganic materials
+  muratendmo:
+  - code_imp: '"Red Planet Parm" now requires cooked chicken steak, after numerous
+      profanity-laden complaints about the chicken being raw. "Red Bay Chicken Meatballs"
+      now require half the herbs.'

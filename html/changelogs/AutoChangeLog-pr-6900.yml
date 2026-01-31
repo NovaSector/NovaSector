@@ -1,4 +1,0 @@
-author: "Iajret"
-delete-after: True
-changes:
-  - bugfix: "Defibbing DNRed people shouldn't tell you about inorganic materials"
