@@ -713,15 +713,13 @@
 		receievers += computer.inserted_pai.pai
 	if(computer.loc && isliving(computer.loc))
 		receievers += computer.loc
-
-/// NOVA EDIT BEGINS - Synths get notified if their brain PDA is messaged
+	/// NOVA EDIT BEGINS - Synths get notified if their brain PDA is messaged
 	if(istype(computer, /obj/item/modular_computer/pda/synth))
 		var/obj/item/organ/brain/synth/brain_loc = computer.loc
 		var/mob/living/carbon/owner = brain_loc?.bodypart_owner?.owner
 		if(istype(owner))
 			receievers += owner
-/// NOVA EDIT ENDS
-
+	/// NOVA EDIT ENDS
 	// resolving w/o nullcheck here, assume the messenger exists if a real person sent a message
 	var/datum/computer_file/program/messenger/sender_messenger = chat.recipient?.resolve()
 
