@@ -35,11 +35,11 @@
 	if(isnull(holder) && !ismob(parent_item.loc))
 		return null
 
-	var/mob/living/carbon/human/human_mob = holder || parent_item.loc
-	if(!istype(human_mob) || !human_mob.hud_used)
+	var/mob/hud_owner = holder || parent_item.loc
+	if(!ismob(holder) || !hud_owner.hud_used)
 		return null
 
-	return human_mob.hud_used.ammo_counter
+	return hud_owner.hud_used.ammo_counter
 
 /**
  * Handles enabling the ammo HUD when the item is equipped.
@@ -60,9 +60,6 @@
  */
 /datum/element/ammo_hud/proc/on_equipped(obj/item/source, mob/equipper, slot)
 	SIGNAL_HANDLER
-
-	if(!ishuman(equipper))
-		return
 
 	if(!equipper.is_holding(source))
 		return
@@ -95,9 +92,6 @@
  */
 /datum/element/ammo_hud/proc/on_dropped(datum/source, mob/living/dropper)
 	SIGNAL_HANDLER
-
-	if(!ishuman(dropper))
-		return
 
 	var/atom/movable/screen/ammo_counter/hud = get_hud(dropper)
 	var/obj/item/active_held_item = dropper.get_active_held_item()
@@ -167,7 +161,7 @@
 	if(!isnull(active_held_item) && inactive_held_item == to_update && HAS_TRAIT(active_held_item, TRAIT_DISPLAYING_AMMO_HUD))
 		return FALSE
 
-	return TRUE
+	return HAS_TRAIT(to_update, TRAIT_DISPLAYING_AMMO_HUD)
 
 /**
  * Dispatches an ammo HUD update based on the item's type.

@@ -410,4 +410,3 @@
 	if(get_fuel() < max_fuel && nextrefueltick < world.time)
 		nextrefueltick = world.time + 10
 		reagents.add_reagent(/datum/reagent/fuel, 1)
-		SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD) // NOVA EDIT ADDITION
