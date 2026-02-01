@@ -1,0 +1,4 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - rscadd: "The Rapid Colony Fabricator now has the ability to fabricate factory boards. The factory must grow."

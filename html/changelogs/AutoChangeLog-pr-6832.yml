@@ -1,6 +1,0 @@
-author: "splat1125"
-delete-after: True
-changes:
-  - rscadd: "Added a new undershirt, the cropped corset. recolorable!"
-  - rscadd: "Added a new under/uniform clothing item, wide legged pants, to loadouts and station vendors. recolorable!"
-  - bugfix: "Security battle dress is no longer missing a single pixel at the crotch when worn with the female bodytype"

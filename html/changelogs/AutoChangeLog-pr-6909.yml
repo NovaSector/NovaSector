@@ -1,0 +1,4 @@
+author: "MajManatee"
+delete-after: True
+changes:
+  - bugfix: "Synths now properly get notified of PDA messages like everyone else."

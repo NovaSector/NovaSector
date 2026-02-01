@@ -197,7 +197,7 @@
 		spawned_robot.set_gender(spawned_robot.client)
 
 /mob/living/silicon/robot/model/ds2
-	faction = list("Syndicate", ROLE_DS2)
+	faction = list(ROLE_SYNDICATE, ROLE_DS2)
 	bubble_icon = "syndibot"
 	req_access = list(ACCESS_SYNDICATE)
 	lawupdate = FALSE
@@ -417,7 +417,7 @@
 	ears = /obj/item/radio/headset/interdyne
 
 /datum/outfit/ds2/syndicate/post_equip(mob/living/carbon/human/syndicate)
-	syndicate.faction |= ROLE_DS2
+	syndicate.add_faction(ROLE_DS2)
 	return ..()
 
 //DS-2 Command
@@ -479,7 +479,7 @@
 	id_trim = /datum/id_trim/syndicom/nova/ds2/stationadmiral
 
 /datum/outfit/ds2/syndicate_command/post_equip(mob/living/carbon/human/syndicate)
-	syndicate.faction |= ROLE_DS2
+	syndicate.add_faction(ROLE_DS2)
 	return ..()
 
 /datum/outfit/hotelstaff

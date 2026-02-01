@@ -76,6 +76,7 @@
 	var/input_starting_pressure = air1.return_pressure()
 	var/output_starting_pressure = air2.return_pressure()
 
+	/* // NOVA EDIT REMOVAL START
 	// Requires being able to leak air in order to overclock.
 	if(overclocked)
 		var/turf/turf = loc
@@ -83,6 +84,7 @@
 			balloon_alert_to_viewers("jammed!")
 			overclocked = FALSE
 			update_appearance(UPDATE_ICON)
+	*/ // NOVA EDIT REMOVAL END
 
 	if((input_starting_pressure < VOLUME_PUMP_MINIMUM_OUTPUT_PRESSURE) || ((output_starting_pressure > VOLUME_PUMP_MAX_OUTPUT_PRESSURE)) && !overclocked)
 		return

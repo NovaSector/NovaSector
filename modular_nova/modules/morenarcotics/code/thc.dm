@@ -50,7 +50,7 @@
 	name = "Concentrated THC"
 	description = "TCH in pure concentrated form"
 
-/datum/reagent/drug/thc/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/thc/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	var/high_message = pick("You feel relaxed.", "You feel fucked up.", "You feel totally wrecked...")
 	if(affected_mob.hud_used != null)
@@ -61,8 +61,8 @@
 	affected_mob.add_mood_event("stoned", /datum/mood_event/stoned, name)
 	affected_mob.throw_alert("stoned", /atom/movable/screen/alert/stoned)
 	affected_mob.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED
-	affected_mob.set_dizzy_if_lower(5 * REM * seconds_per_tick * 2 SECONDS)
-	affected_mob.adjust_nutrition(-1 * REM * seconds_per_tick) //munchies
+	affected_mob.set_dizzy_if_lower(5 * seconds_per_tick * metabolization_ratio * 2 SECONDS)
+	affected_mob.adjust_nutrition(-1 * seconds_per_tick * metabolization_ratio) //munchies
 	if(SPT_PROB(3.5, seconds_per_tick))
 		affected_mob.emote(pick("laugh","giggle"))
 
@@ -74,12 +74,12 @@
 	affected_mob.clear_alert("stoned")
 	affected_mob.sound_environment_override = SOUND_ENVIRONMENT_NONE
 
-/datum/reagent/drug/thc/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/thc/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	var/cg420_message = pick("It's major...", "Oh my goodness...",)
 	if(SPT_PROB(1.5, seconds_per_tick))
 		affected_mob.say("[cg420_message]")
-	affected_mob.adjust_drowsiness(0.2 SECONDS * REM * normalise_creation_purity() * seconds_per_tick)
+	affected_mob.adjust_drowsiness(0.2 SECONDS * normalise_creation_purity() * seconds_per_tick * metabolization_ratio)
 	if(SPT_PROB(3.5, seconds_per_tick))
 		playsound(affected_mob, pick('modular_nova/master_files/sound/effects/lungbust_cough1.ogg','modular_nova/master_files/sound/effects/lungbust_cough2.ogg'), 50, TRUE)
 		affected_mob.emote("cough")
