@@ -382,7 +382,6 @@
 	desc = "A warm and comfortable ushanka, dyed with 'all natural flavors' according to the tag."
 	greyscale_colors = "#C7B08B#A52F29"
 	armor_type = /datum/armor/cosmetic_sec
-	flags_1 = null
 
 /obj/item/clothing/head/costume/nightcap
 	abstract_type = /obj/item/clothing/head/costume/nightcap
