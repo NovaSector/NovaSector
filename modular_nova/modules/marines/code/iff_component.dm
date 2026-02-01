@@ -22,4 +22,4 @@
 	var/obj/item/ammo_casing/casing = gun.chambered
 	if(isnull(casing))
 		return
-	casing.loaded_projectile.ignored_factions = iff_factions.Copy()
+	casing.loaded_projectile.set_faction(iff_factions.Copy())

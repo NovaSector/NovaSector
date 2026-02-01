@@ -778,7 +778,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_firing(obj/item/ammo_casing/casing, atom/movable/target)
 	var/obj/projectile/our_projectile = casing.loaded_projectile
 	if(ignore_faction)
-		our_projectile.ignored_factions = get_faction(src) + allies
+		APPLY_FACTION_AND_ALLIES_FROM(our_projectile, src)
 	our_projectile.damage *= turret_damage_multiplier
 	our_projectile.stamina *= turret_damage_multiplier
 

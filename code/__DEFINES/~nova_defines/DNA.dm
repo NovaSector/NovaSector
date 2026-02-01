@@ -180,6 +180,7 @@
 #define SPECIES_ABDUCTORWEAK "abductorweak"
 #define SPECIES_GOLEMWEAK "golemweak"
 #define SPECIES_KOBOLD "kobold"
+#define SPECIES_KOBOLDROUNDSTART "koboldroundstart"
 #define SPECIES_RAMATAE "ramatan"
 #define SPECIES_INSECTOID "insectoid"
 

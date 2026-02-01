@@ -166,7 +166,7 @@
 		to_chat(exposed_mob, span_purple("You can feel your heavy balls churn as they swell to enormous proportions!"))
 
 // Notify the user that they're overdosing. Doesn't affect their mood.
-/datum/reagent/drug/aphrodisiac/incubus_draft/overdose_start(mob/living/carbon/human/exposed_mob)
+/datum/reagent/drug/aphrodisiac/incubus_draft/overdose_start(mob/living/carbon/human/exposed_mob, metabolization_ratio)
 	to_chat(exposed_mob, span_userdanger("You feel like you took too much [name]!"))
 	exposed_mob.add_mood_event("[type]_overdose", /datum/mood_event/minor_overdose, name)
 
