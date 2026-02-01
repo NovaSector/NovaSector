@@ -18,7 +18,7 @@
 	new_icon_state = "securityboots_black"
 
 /obj/item/clothing/shoes/jackboots/sec/blue
-	icon_state = "security_boots"
+	icon_state = "securityboots"
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 
