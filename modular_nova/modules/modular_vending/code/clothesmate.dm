@@ -93,6 +93,7 @@
 				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
 				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
 				/obj/item/clothing/under/misc/nova/gear_harness = 5,
+				/obj/item/clothing/under/shorts/nova/shortershorts = 5,
 			),
 		),
 
@@ -177,6 +178,7 @@
 				/obj/item/clothing/shoes/jackboots/duckboots = 5,
 				/obj/item/clothing/shoes/high_heels = 5,
 				/obj/item/clothing/shoes/fancy_heels = 5,
+				/obj/item/clothing/shoes/jackboots/colonial = 5,
 			),
 		),
 
