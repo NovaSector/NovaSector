@@ -695,7 +695,7 @@
 
 /datum/loadout_item/head/officerberet
 	name = "Security Beret"
-	item_path = /obj/item/clothing/head/beret/sec/nova
+	item_path = /obj/item/clothing/head/beret/sec
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
