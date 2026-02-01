@@ -693,12 +693,6 @@
 	restricted_roles = list(JOB_WARDEN)
 	group = "Job-Locked"
 
-/datum/loadout_item/head/officerberet
-	name = "Security Beret"
-	item_path = /obj/item/clothing/head/beret/sec/nova
-	restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
-
 /datum/loadout_item/head/navyblueofficerberet
 	name = "Security Beret (Navy Blue)"
 	item_path = /obj/item/clothing/head/beret/sec/navyofficer
