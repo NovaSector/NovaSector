@@ -77,6 +77,7 @@
 			"icon" = "shield-halved",
 			"products" = list(
 				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
+				/obj/item/clothing/head/beret/sec/nova = 4,
 				/obj/item/clothing/head/security_cap = 4,
 				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
@@ -86,6 +87,7 @@
 				/obj/item/clothing/suit/armor/vest/jacket/badge = 3,
 				/obj/item/clothing/under/rank/security/nova/officer = 4,
 				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
+				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
 				/obj/item/storage/backpack/security/blue = 4,
 				/obj/item/storage/backpack/satchel/sec/blue = 4,
 				/obj/item/storage/backpack/duffelbag/sec/blue = 4,
