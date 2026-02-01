@@ -5808,6 +5808,9 @@
 /obj/effect/spawner/random/food_or_drink/seed_rare,
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
+"EH" = (
+/turf/open/floor/pod/light,
+/area/awaymission/beach/heretic)
 "EI" = (
 /turf/open/water/beach,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -42211,7 +42214,7 @@ wf
 wf
 wf
 bb
-BV
+EH
 gT
 wf
 wf
