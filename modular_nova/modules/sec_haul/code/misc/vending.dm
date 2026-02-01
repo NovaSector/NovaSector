@@ -69,7 +69,6 @@
 				/obj/item/storage/backpack/satchel/sec = 4,
 				/obj/item/storage/backpack/duffelbag/sec = 4,
 				/obj/item/storage/backpack/messenger/sec = 4,
-				/obj/item/clothing/head/costume/ushanka/sec = 4
 			),
 		),
 
