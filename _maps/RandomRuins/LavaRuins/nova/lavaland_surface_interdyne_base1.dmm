@@ -50,6 +50,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/duct,
+/obj/structure/sink/directional/east{
+	pixel_x = -43
+	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "aG" = (
@@ -1141,9 +1144,6 @@
 "jG" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 5
-	},
-/obj/structure/sink/directional/east{
-	pixel_x = -11
 	},
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west{
 	pixel_x = -4
