@@ -58,7 +58,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 		sink_structures = list()
 		sink_structures += ..()
 		sink_structures += /obj/machinery/smartfridge //medbay sometimes have sinks attached to fridges
-		sink_structures += /obj/structure/window // NOVA EDIT ADDITION
 	return sink_structures
 
 /obj/structure/sink/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
