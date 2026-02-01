@@ -154,7 +154,7 @@
 				//Offsets
 				worn_face_offset?.apply_offset(hair_overlay)
 				. += hair_overlay
-				//NOVA EDIT ADDITION START - Emissive hair appearance
+				// NOVA EDIT ADDITION START - Emissive hair appearance
 				var/mob/living/carbon/human/human_owner = owner
 				if(human_owner?.emissive_hair)
 					var/mutable_appearance/em_appear = emissive_appearance(hair_overlay.icon, "[hair_overlay.icon_state]_e", location, layer = hair_overlay.layer, alpha = hair_alpha)
