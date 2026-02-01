@@ -275,6 +275,13 @@
 /obj/item/clothing/glasses/hud/security/sunglasses/gars/giga/setup_reskins()
 	return
 
+/obj/item/clothing/head/beret/sec
+  flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/beret/sec/Initialize(mapload)
+  . = ..()
+  AddElement(/datum/element/gags_recolorable)
+
 /datum/atom_skin/hos_cap
 	abstract_type = /datum/atom_skin/hos_cap
 
