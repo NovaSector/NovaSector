@@ -163,7 +163,6 @@
 					worn_face_offset?.apply_offset(em_appear)
 					. += em_appear
 				// NOVA EDIT ADDITION END
-
 				//Gradients
 				var/hair_gradient_style = get_hair_gradient_style(GRADIENT_HAIR_KEY)
 				if(hair_gradient_style != "None")
