@@ -36,7 +36,7 @@
 		return null
 
 	var/mob/hud_owner = holder || parent_item.loc
-	if(!ismob(holder) || !hud_owner.hud_used)
+	if(!ismob(hud_owner) || !hud_owner.hud_used)
 		return null
 
 	return hud_owner.hud_used.ammo_counter
