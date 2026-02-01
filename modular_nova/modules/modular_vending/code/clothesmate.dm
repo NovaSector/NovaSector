@@ -157,6 +157,9 @@
 				/obj/item/clothing/suit/apron/overalls_loneskirt = 5,
 				/obj/item/clothing/suit/nova/sweater = 5,
 				/obj/item/clothing/suit/nova/overcoat = 5,
+				/obj/item/clothing/suit/koreacoat = 5,
+				/obj/item/clothing/suit/cossack = 5,
+				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber = 5,
 			),
 		),
 
@@ -178,7 +181,6 @@
 				/obj/item/clothing/shoes/jackboots/duckboots = 5,
 				/obj/item/clothing/shoes/high_heels = 5,
 				/obj/item/clothing/shoes/fancy_heels = 5,
-				/obj/item/clothing/shoes/jackboots/colonial = 5,
 			),
 		),
 
