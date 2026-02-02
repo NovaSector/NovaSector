@@ -107,7 +107,7 @@
 	name = "Nakamura Type-45 LEGACY Production and Research kit"
 	desc = "Self-folded portative capsule containing a premade structure to suit your needs. This one smells of buttered chicken... and peaches? 5x5"
 	cost = CARGO_CRATE_VALUE * 6 // Just a room, but contains interesting and useful technology and DIY xenobio and xenoarch gear. Basically low cost science starter kit. Could be also used as a good resupply pod for events and all.
-	access_view = ACCESS_XENOBIOLOGY //Because its very specialised and should not be sold to common folk, unless a willing scientist thinks they can be trusted.
+	access_view = ACCESS_SCIENCE //Because its very specialised and should not be sold to common folk, unless a willing scientist thinks they can be trusted.
 	contains = list(
 	/obj/item/survivalcapsule/prefab_production,
 	)
@@ -127,7 +127,7 @@
 
 /datum/supply_pack/engineering/prefab_factory
 	name = "Nakamura Streamline Basics"
-	desc = "Self-folded portative capsule containing a premade structure to suit your needs. Why does it have a green felinind gal and heavy machinery warning stickers? 11x11"
+	desc = "Self-folded portative capsule containing a premade structure to suit your needs. Why does it have a green felinid gal and heavy machinery warning stickers? 11x11"
 	cost = CARGO_CRATE_VALUE * 10 // By far, its huge, it has machines premade and has decent tools, as well as means to be powered right out of the box. Its publically available however. If price is too low, it could be too spammable.
 	contains = list(
 	/obj/item/survivalcapsule/prefab_factory,
@@ -171,3 +171,27 @@
 	desc = "Finally, build your own plastic kingdom."
 	cost = PAYCHECK_CREW * 10
 	contains = list(/obj/item/survivalcapsule/prefab_room_10)
+
+/datum/supply_pack/security/prefab_defenseplatform
+	name = " SINGLE Solarian Federation EXP-40 Reinforced Emplacement"
+	desc = "Self-folded portative capsule containing an automated defense countermeasure, desperate pirates crack those open to put turrets on their scrapheaps as DIY ship weapons. 3x3 but needs 1 space away from eachother."
+	cost = CARGO_CRATE_VALUE * 5
+	access_view = ACCESS_SECURITY
+	contains = list(/obj/item/survivalcapsule/prefab_defenseplatform)
+
+/datum/supply_pack/security/prefab_defenseplatform
+	name = " BULK Solarian Federation EXP-40 Reinforced Emplacement"
+	desc = "Self-folded portative capsule containing an automated defense countermeasure, desperate pirates crack those open to put turrets on their scrapheaps as DIY ship weapons. 3x3 but needs 1 space away from eachother."
+	cost = CARGO_CRATE_VALUE * 12
+	access_view = ACCESS_SECURITY
+	contains = list(/obj/item/survivalcapsule/prefab_defenseplatform,
+					/obj/item/survivalcapsule/prefab_defenseplatform,
+					/obj/item/survivalcapsule/prefab_defenseplatform,
+					)
+
+/datum/supply_pack/security/prefab_medical
+	name = "Deforest Infirmary Pattern Tent"
+	desc = "Self-folded portative capsule containing a premade medical tent with basic surgical tools and  ability to revivify. Lock those Hem-issues with your skill in the field.  5x5"
+	cost = CARGO_CRATE_VALUE * 8 //It has good gear for its price, a skilled person can really make a lot out of this in the field.
+	access_view = ACCESS_MEDICAL
+	contains = list(/obj/item/survivalcapsule/prefab_medical)
