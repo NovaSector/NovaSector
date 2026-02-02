@@ -50,6 +50,10 @@
 /datum/atom_skin/security_cap
 	abstract_type = /datum/atom_skin/security_cap
 
+/datum/atom_skin/security_cap/red
+	preview_name = "Red Variant"
+	new_icon_state = "security_cap_red"
+
 /datum/atom_skin/security_cap/black
 	preview_name = "Black Variant"
 	new_icon_state = "security_cap_black"
@@ -67,7 +71,7 @@
 	desc = "A robust cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "security_cap_black"
+	icon_state = "security_cap_red"
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 	dog_fashion = null

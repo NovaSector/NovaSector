@@ -63,11 +63,15 @@
 /obj/item/clothing/suit/hooded/wintercoat/security/blue
 	name = "security winter coat"
 	desc = "A blue, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority."
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
-	icon_state = "coatsecurity_winter"
-	hoodtype = /obj/item/clothing/head/hooded/winterhood/security/blue
-
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/blue"
+	post_init_icon_state = "coatwinter"
+	hood_down_overlay_suffix = ""
+	greyscale_config = /datum/greyscale_config/winter_coats
+	greyscale_config_worn = /datum/greyscale_config/winter_coats/worn
+	greyscale_colors = "#A52F29#212022#B89E8D"
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/custom
+	flags_1 = IS_PLAYER_COLORABLE_1
 /*
 *	WARDEN
 */

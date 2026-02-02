@@ -919,6 +919,15 @@
 	name = "Warm Coat (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/warm_coat_worn.dmi'
 
+/datum/greyscale_config/security_winter_coat
+	name = "Security Winter Coat"
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/winter_coat.json'
+
+/datum/greyscale_config/security_winter_coat/worn
+	name = "Winter Coat (Worn)"
+	json_config = 'code/datums/greyscale/json_configs/wintercoats_worn.json'
+
 // LEATHER JACKET
 
 /datum/greyscale_config/leather_jacket

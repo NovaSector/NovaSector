@@ -20,51 +20,30 @@
 *	SECURITY OFFICER
 */
 
-//Redsec uniform with black pants
-/datum/atom_skin/security_uniform_black
-	abstract_type = /datum/atom_skin/security_uniform_black
-
-/datum/atom_skin/security_uniform_black/black
-	preview_name = "Black Variant"
-	new_icon_state = "security_black"
-	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-
-/datum/atom_skin/security_uniform_black/white
-	preview_name = "White Variant"
-	new_icon_state = "security_white"
-	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-
-/obj/item/clothing/under/rank/security/nova/officer/black
-	icon_state = "security_black"
-	alt_covers_chest = TRUE
-
-/obj/item/clothing/under/rank/security/nova/officer/black/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform_black)
-
 //Bluesec uniform
-/datum/atom_skin/security_uniform_blue
-	abstract_type = /datum/atom_skin/security_uniform_blue
+/datum/atom_skin/security_uniform
+	abstract_type = /datum/atom_skin/security_uniform
 
-/datum/atom_skin/security_uniform_blue/black
-	preview_name = "Black Variant"
+/datum/atom_skin/security_uniform/red
+	preview_name = "Red Variant"
+	new_icon_state = "security_red"
+
+/datum/atom_skin/security_uniform/blue
+	preview_name = "Blue Variant"
 	new_icon_state = "security_blue_black"
 
-/datum/atom_skin/security_uniform_blue/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "security_blue"
-
-/datum/atom_skin/security_uniform_blue/white
+/datum/atom_skin/security_uniform/white
 	preview_name = "White Variant"
 	new_icon_state = "security_white"
 
 /obj/item/clothing/under/rank/security/nova/officer
 	name = "security uniform"
 	desc = "A tactical security uniform for officers complete with Nanotrasen belt buckle."
-	icon_state = "security_blue_black"
+	icon_state = "security_red"
 	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/security/nova/officer/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform_blue)
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform)
 
 /datum/atom_skin/security_formal
 	abstract_type = /datum/atom_skin/security_formal
@@ -110,6 +89,7 @@
 	icon_state = "sweaterskirt_red"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
+	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/security/nova/skirt/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_sweaterskirt, infinite = TRUE)
