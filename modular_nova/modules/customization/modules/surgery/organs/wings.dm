@@ -15,6 +15,8 @@
 	///Whether the owner of wings has flight thanks to the wings
 	var/granted_flight
 
+/obj/item/organ/wings/custom
+
 /datum/bodypart_overlay/mutant/wings
 	color_source = ORGAN_COLOR_OVERRIDE
 

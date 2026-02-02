@@ -2525,6 +2525,16 @@ TREK
 	name = "Big Sweater (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweater.json'
+	
+/datum/greyscale_config/sweater_nova_2
+	name = "Big Sweater With Bow"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweaterbow.json'
+
+/datum/greyscale_config/sweater_nova_2/worn
+	name = "Big Sweater With Bow (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweaterbow.json'
 
 /datum/greyscale_config/playsuit
 	name = "Playsuit"
