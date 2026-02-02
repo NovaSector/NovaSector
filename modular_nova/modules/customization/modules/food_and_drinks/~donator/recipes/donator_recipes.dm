@@ -17,7 +17,7 @@
 	reqs = list(
 		/datum/reagent/consumable/red_bay = 1,
 		/obj/item/food/meatball/chicken = 3,
-		/obj/item/food/grown/herbs = 4,
+		/obj/item/food/grown/herbs = 2,
 		/obj/item/popsicle_stick = 2
 	)
 	result = /obj/item/food/donator/red_bay_chicken_meatballs
@@ -43,7 +43,7 @@
 	name = "Red Planet Parm"
 	reqs = list(
 		/obj/item/food/breadslice/reispan = 2,
-		/obj/item/food/meat/slab/chicken = 1,
+		/obj/item/food/meat/steak/chicken = 1,
 		/obj/item/food/grown/tomato = 1,
 		/obj/item/food/cheese/firm_cheese_slice = 1
 	)

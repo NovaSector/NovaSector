@@ -136,6 +136,9 @@
 	/// If set, look for a policy with this instead of the job title
 	var/policy_override
 
+	/// How desensitized this job is to seeing death as a base - applied with the job
+	var/desensitized_base = 1.0
+
 /datum/job/New()
 	. = ..()
 	// NOVA EDIT START
@@ -154,6 +157,8 @@
 	SHOULD_CALL_PARENT(TRUE)
 	if(length(mind_traits))
 		spawned.mind.add_traits(mind_traits, JOB_TRAIT)
+
+	spawned.mind.desensitized_level = clamp(desensitized_base, DESENSITIZED_MINIMUM, spawned.mind.desensitized_level)
 
 	var/obj/item/organ/liver/liver = spawned.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(liver && length(liver_traits))

@@ -166,7 +166,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 				returnable_list[MALE_SPRITE_LIST] += accessory.name
 				returnable_list[FEMALE_SPRITE_LIST] += accessory.name
 
-	if(add_blank)
+	if(add_blank && isnull(returnable_list[DEFAULT_SPRITE_LIST][SPRITE_ACCESSORY_NONE])) // NOVA EDIT CHANGE - Do not overwrite 'None' subtypes - ORIGINAL: if(add_blank)
 		returnable_list[DEFAULT_SPRITE_LIST][SPRITE_ACCESSORY_NONE] = new /datum/sprite_accessory/blank
 
 	return returnable_list
