@@ -956,3 +956,20 @@
 		"squish",
 		"bap",
 	)
+
+// Donation reward for vethonker
+/obj/item/toy/plush/nova/donator/vethonk
+	name = "Veteran Clown Plush"
+	desc = "What sits before you is a plushie of what looks like a crippled veteran dressed as a clown. <i>What sort of monster would do this to a man?</i> ...Sponsored by the <b>Comedy Council!</b>"
+	icon_state = "plushie_vethonk"
+	squeak_override = list(
+		'sound/effects/roll.ogg' = 1,
+		)
+
+/obj/item/toy/plush/nova/donator/percy
+	name = "Dr. Percival"
+	desc = "Looks like a competent enough surgeon. Just don’t ask for too much paperwork or bedside manners."
+	icon_state = "percival-1"
+	squeak_override = list(
+		'sound/items/handling/surgery/saw.ogg' = 1,
+		)
