@@ -434,3 +434,10 @@
 	desc = "If you in your carelessness lost the key to your golfcart you can purchase one. Unfortunately not covered by warranty."
 	cost = PAYCHECK_CREW * 5
 	contains = list(/obj/item/key/golfcart)
+
+/datum/supply_pack/goody/fishing_portal
+	name = "Fishing Spot Capsule"
+	desc = "Oh hey! Their makers finally found a market, guess hotsprings really such a treat."
+	cost = PAYCHECK_CREW * 12 // to prevent people from easily spawning too much of them
+	contains = list(/obj/item/survivalcapsule/fishing)
+

@@ -343,3 +343,89 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/door/window/survival_pod/left, 0)
 	lefthand_file = initial(I.lefthand_file)
 	righthand_file = initial(I.righthand_file)
 	cut_overlays() //to get rid of the big blue x
+
+/obj/item/survivalcapsule/prefab_airlock
+	name = "Nakamura LC-12 Airlock"
+	desc = "Self-folded portative capsule containing a premade structure to suit your needs. 5x5"
+	template_id = "prefab_airlock"
+	icon_state = "prefab_nakamura_airlock"
+
+/obj/item/survivalcapsule/prefab_medical
+	name = "Deforest Infirmary Pattern Tent"
+	desc = "Self-folded portative capsule containing a premade structure to suit your needs. 5x5"
+	template_id = "prefab_medical"
+	icon_state = "prefab_deforest"
+
+/obj/item/survivalcapsule/prefab_production
+	name = "Nakamura Type-45 LEGACY Production and Research kit"
+	desc = "Self-folded portative capsule containing a premade structure to suit your needs. This one smells of burnt chicken... 5x5"
+	template_id = "prefab_production"
+	icon_state = "prefab_nakamura_rnd"
+
+/obj/item/survivalcapsule/prefab_defenseplatform
+	name = "Solarian Federation EXP-40 Reinforced Emplacement"
+	desc = "Self-folded portative capsule containing an automated defense countermeasure, desperate pirates crack those open to put turrets on their scrapheaps as DIY ship weapons. 3x3 but needs 1 space away from eachother."
+	template_id = "prefab_defenseplatform"
+	icon_state = "prefab_defenseplatform"
+
+
+/obj/item/survivalcapsule/prefab_room_7
+	name = "Nakamura LC-07 Template Room"
+	desc = "Self-folded portative capsule containing a premade structure to suit your needs. 7x7"
+	template_id = "prefab_room_7"
+	icon_state = "prefab_nakamura"
+
+/obj/item/survivalcapsule/prefab_room_10
+	name = "Nakamura LC-10 Template Room"
+	desc = "Self-folded portative capsule containing a premade structure to suit your needs. 10x10"
+	template_id = "prefab_room_10"
+	icon_state = "prefab_nakamura"
+
+/obj/item/survivalcapsule/prefab_wall5v
+	name = "Nakamura LC-05 Vertical Wall "
+	desc = "Simple 5x1 prefabricated VERTICAL wall."
+	template_id = "prefab_wall5v"
+	icon_state = "prefab_nakamura"
+
+/obj/item/survivalcapsule/prefab_wall5h
+	name = "Nakamura LC-05 Horizontal Wall "
+	desc = "Simple 5x1 prefabricated HORIZONTAL wall."
+	template_id = "prefab_wall5h"
+	icon_state = "prefab_nakamura"
+
+/obj/item/survivalcapsule/prefab_wall3v
+	name = "Nakamura LC-03 Vertical Wall "
+	desc = "Simple 3x1 prefabricated VERTICAL wall."
+	template_id = "prefab_wall3v"
+	icon_state = "prefab_nakamura"
+
+/obj/item/survivalcapsule/prefab_wall3h
+	name = "Nakamura LC-03 Horizontal Wall "
+	desc = "Simple 3x1 prefabricated HORIZONTAL wall."
+	template_id = "prefab_wall3h"
+	icon_state = "prefab_nakamura"
+
+/obj/item/survivalcapsule/prefab_solarunit
+	name = "Nakamura Heliantus-8 "
+	desc = "Popular solar platform, easy to deploy, cheap, simple and decent power solution."
+	template_id = "prefab_solarunit"
+	icon_state = "prefab_nakamura_solarunit"
+
+/obj/item/survivalcapsule/prefab_infrastructure
+	name = "Nakamura Infrastructure Node"
+	desc = "Air mining rig, basic power generator, ore silo, basic tool set."
+	template_id = "prefab_infrastructure"
+	icon_state = "prefab_nakamura_infrastructure"
+
+/obj/item/survivalcapsule/prefab_stardewvalley
+	name = "Nakamura X NT Sustenance Greenhouse"
+	desc = "Basic green house to help sate your hunger, even on a distant system. Or grow a couple of cute, plant gals."
+	template_id = "prefab_stardewvalley"
+	icon_state = "prefab_stardewvalley"
+
+/obj/item/survivalcapsule/prefab_factory
+	name = "Nakamura Streamline Basics"
+	desc = "One of the most complicated, assembled and wierd things Nakamura has packed. A factory cell configured for basic production line. Sometimes you really need those 3000 drinking glasses huh?"
+	template_id = "prefab_factory"
+	icon_state = "prefab_nakamura_adv"
+

@@ -1,0 +1,151 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/prefab_plastic,
+/area/template_noop)
+"b" = (
+/obj/item/storage/box/nri_flares,
+/obj/structure/rack/shelf,
+/obj/item/storage/box/nri_flares,
+/obj/item/storage/box/nri_flares,
+/obj/item/trench_tool,
+/obj/item/trench_tool,
+/obj/item/trench_tool,
+/obj/item/trench_tool,
+/turf/open/floor/plastic,
+/area/template_noop)
+"d" = (
+/obj/structure/rack/shelf,
+/obj/item/storage/box/expeditionary_survival,
+/obj/item/storage/box/expeditionary_survival,
+/turf/open/floor/plastic,
+/area/template_noop)
+"n" = (
+/obj/structure/mineral_door/manual_colony_door,
+/turf/open/floor/plastic,
+/area/template_noop)
+"v" = (
+/obj/structure/rack/shelf,
+/obj/item/circuitboard/computer/crew,
+/obj/item/circuitboard/machine/biogenerator,
+/obj/item/circuitboard/machine/component_printer,
+/obj/item/circuitboard/machine/cyborgrecharger,
+/obj/item/circuitboard/machine/mechfab,
+/obj/item/circuitboard/mecha/ripley/main,
+/obj/item/circuitboard/mecha/ripley/peripherals,
+/obj/item/flatpacked_machine/airlock_kit_manual,
+/obj/item/flatpacked_machine/airlock_kit_manual,
+/obj/item/flatpacked_machine/airlock_kit_manual,
+/obj/item/flatpacked_machine/airlock_kit_manual,
+/obj/item/flatpacked_machine/airlock_kit_manual,
+/obj/item/flatpacked_machine/airlock_kit,
+/obj/item/flatpacked_machine/airlock_kit,
+/obj/item/flatpacked_machine/arc_furnace,
+/obj/item/wallframe/intercom,
+/obj/item/wallframe/intercom,
+/obj/item/wallframe/intercom,
+/obj/item/wallframe/intercom,
+/obj/item/wallframe/intercom,
+/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/turf/open/floor/plastic,
+/area/template_noop)
+"A" = (
+/obj/structure/rack/shelf,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/structure/sign/poster/contraband/tools/directional/north,
+/obj/item/storage/belt/utility/xenoarch,
+/obj/item/xenoarch,
+/obj/item/xenoarch/anomaly_stabilizer,
+/obj/item/xenoarch/brush,
+/obj/item/xenoarch/core_sampler,
+/obj/item/storage/bag/xenoarch,
+/obj/item/paper/fluff/xenoarch_guide,
+/obj/item/xenoarch/hammer/cm10,
+/obj/item/xenoarch/hammer/cm2,
+/obj/item/xenoarch/hammer/cm6,
+/obj/item/xenoarch/hammer/cm5,
+/obj/item/xenoarch/hammer/cm4,
+/obj/item/xenoarch/hammer/cm3,
+/obj/item/xenoarch/handheld_scanner,
+/obj/item/xenoarch/handheld_recoverer,
+/turf/open/floor/plastic,
+/area/template_noop)
+"I" = (
+/obj/structure/rack/shelf,
+/obj/item/circuitboard/computer/apc_control,
+/obj/item/circuitboard/machine/fishing_portal_generator,
+/obj/item/circuitboard/machine/portagrav,
+/obj/item/circuitboard/machine/sleeper,
+/obj/item/circuitboard/machine/stasissleeper,
+/obj/item/stack/circuit_stack,
+/obj/item/circuitboard/computer/xenobiology,
+/obj/item/slime_extract/grey,
+/obj/item/flatpacked_machine/organics_printer,
+/obj/item/flatpacked_machine/organics_ration_printer,
+/obj/item/flatpacked_machine/sustenance_machine,
+/obj/item/flatpacked_machine/water_synth,
+/obj/item/flatpacked_machine/frontier_griddle,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/turf/open/floor/plastic,
+/area/template_noop)
+"P" = (
+/obj/effect/turf_decal/loading_area,
+/turf/open/floor/plastic,
+/area/template_noop)
+"T" = (
+/obj/machinery/autolathe,
+/obj/item/stack/sheet/rglass/fifty,
+/obj/effect/turf_decal/box,
+/turf/open/floor/plastic,
+/area/template_noop)
+"Y" = (
+/obj/effect/turf_decal/shuttle,
+/turf/open/floor/plastic,
+/area/template_noop)
+
+(1,1,1) = {"
+a
+a
+n
+a
+a
+"}
+(2,1,1) = {"
+a
+I
+Y
+b
+a
+"}
+(3,1,1) = {"
+a
+A
+P
+T
+a
+"}
+(4,1,1) = {"
+a
+v
+Y
+d
+a
+"}
+(5,1,1) = {"
+a
+a
+n
+a
+a
+"}
