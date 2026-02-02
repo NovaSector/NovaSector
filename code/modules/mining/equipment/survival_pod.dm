@@ -421,7 +421,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/door/window/survival_pod/left, 0)
 	name = "Nakamura X NT Sustenance Greenhouse"
 	desc = "Basic green house to help sate your hunger, even on a distant system. Or grow a couple of cute, plant gals."
 	template_id = "prefab_stardewvalley"
-	icon_state = "prefab_stardewvalley"
+	icon_state = "prefab_natural"
 
 /obj/item/survivalcapsule/prefab_factory
 	name = "Nakamura Streamline Basics"
