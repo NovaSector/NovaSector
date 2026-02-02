@@ -14286,7 +14286,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 8
 	},
-/obj/machinery/duct,
 /turf/open/floor/iron/white/small,
 /area/station/medical/treatment_center)
 "bli" = (
@@ -52988,7 +52987,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 4
 	},
-/obj/machinery/duct,
 /turf/open/floor/iron/white/small,
 /area/station/medical/treatment_center)
 "uVF" = (
