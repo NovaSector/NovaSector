@@ -1,0 +1,7 @@
+author: "Bisar"
+delete-after: True
+changes:
+  - balance: "The Voltaic combat cyberheart no longer gives full, permanent EMP immunity to its owner when implanted with a core. The EMP immunity now shares a cooldown with the crit survival mechanic."
+  - balance: "The Voltaic combat cyberheart can no longer be inserted without surgery."
+  - balance: "The Voltaic combat cyberheart's enhanced blood restoration with a core is now a base feature, with or without a core."
+  - balance: "The Voltaic combat cyberheart no longer deletes itself whenever it is removed from an owner."
