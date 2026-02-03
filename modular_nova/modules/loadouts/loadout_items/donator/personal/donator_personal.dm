@@ -1028,3 +1028,8 @@
 	name = "The Homo Ludens Flag suit, nicknamed 'Paragon'"
 	item_path = /obj/item/mod/skin_applier/paragon
 	ckeywhitelist = list("kaynite")
+
+/obj/item/storage/belt/espatier
+	name = "Dated Espatier holster"
+	item_path = /obj/item/mod/skin_applier/paragon
+	ckeywhitelist = list("PyriteChimera", "Darkinite", "Deadmon_wonderland", "Nonplayer775", "Rilomatic")
