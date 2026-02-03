@@ -56,4 +56,19 @@
 	. = ..()
 	. += span_notice(CHARGE_MESSAGE)
 
+// Crank Guns + emplacements that shouldn't get self-charge
+/obj/item/gun/energy/disabler/smoothbore
+	selfcharge = FALSE
+
+/obj/item/gun/energy/disabler/smoothbore/examine(mob/user)
+	. = ..()
+	. -= span_notice(CHARGE_MESSAGE)
+
+/obj/item/gun/energy/laser/musket/
+	selfcharge = FALSE
+
+/obj/item/gun/energy/laser/musket/examine(mob/user)
+	. = ..()
+	. -= span_notice(CHARGE_MESSAGE)
+
 #undef CHARGE_MESSAGE
