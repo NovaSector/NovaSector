@@ -2,12 +2,12 @@
 
 //Parent for all of them.
 /obj/item/survivalcapsule/prefab
-	ame = "\improper generic prefabricated self-fold"
+	name = "\improper generic prefabricated self-fold"
 	desc = "You shouldnt see this"
 	template_id = "prefab_room_10"
 	icon_state = "prefab_nakamura"
-	icon = 'colony_fabricator_selffolds/icons/mining.dmi'
-	w_class = WEIGHT_CLASS_TINY
+	icon = 'modular_nova/modules/colony_fabricator_selffolds/icons/mining.dmi'
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/survivalcapsule/prefab/airlock
 	name = "\improper Nakamura LC-12 Airlock"
