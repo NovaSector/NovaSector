@@ -1,0 +1,22 @@
+{
+	"coatwinter": [
+		{
+			"type": "icon_state",
+			"icon_state": "coatsecurity_winter_obj_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coatsecurity_winter_obj_lining",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coatsecurity_winter_obj_vest",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

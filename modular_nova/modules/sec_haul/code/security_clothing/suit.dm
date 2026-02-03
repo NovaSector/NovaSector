@@ -53,25 +53,50 @@
 	desc = "A slightly vintage canvas and aramid jacket; hi-vis checkers and chevron badge included. Armored and stylish? Implausible."
 	icon_state = "highvis_jacket_badge"
 
+//REMOVE WHEN DONE
+//obj/item/clothing/head/hooded/winterhood/security/blue
+//	desc = "A blue, armour-padded winter hood. Definitely not bulletproof, especially not the part where your face goes."
+//	icon = 'modular_nova/master_files/icons/obj/clothing/head/winterhood.dmi'
+//	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/winterhood.dmi'
+//	icon_state = "winterhood_security"
+//BLACK CLOTH WITH RED LINING
 
-/obj/item/clothing/head/hooded/winterhood/security/blue
-	desc = "A blue, armour-padded winter hood. Definitely not bulletproof, especially not the part where your face goes."
-	icon = 'modular_nova/master_files/icons/obj/clothing/head/winterhood.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/winterhood.dmi'
-	icon_state = "winterhood_security"
-
-/obj/item/clothing/suit/hooded/wintercoat/security/blue
+/obj/item/clothing/suit/hooded/wintercoat/security/thick
 	name = "security winter coat"
 	desc = "A blue, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/blue"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/thick"
 	post_init_icon_state = "coatwinter"
 	hood_down_overlay_suffix = ""
-	greyscale_config = /datum/greyscale_config/winter_coats
-	greyscale_config_worn = /datum/greyscale_config/winter_coats/worn
-	greyscale_colors = "#A52F29#212022#B89E8D"
+	greyscale_config = /datum/greyscale_config/security_winter_coat
+	greyscale_config_worn = /datum/greyscale_config/security_winter_coat/worn
+	greyscale_colors = "#A52F29#B89E8D#212022"
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/custom
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+//In case colors are changed after initialization
+/obj/item/clothing/suit/hooded/wintercoat/security/thick/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/coat_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_coat_colors = coat_colors.Copy(1,4)
+	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
+	hood.update_slot_icon()
+
+//But also keep old method in case the hood is (re-)created later
+/obj/item/clothing/suit/hooded/wintercoat/security/thick/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/coat_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_coat_colors = coat_colors.Copy(1,4)
+	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
+
+/obj/item/clothing/head/hooded/winterhood/custom
+	name = "tailored winter coat hood"
+	desc = "A heavy jacket hood made from 'synthetic' animal furs, with custom colors."
+	greyscale_config = /datum/greyscale_config/winter_hoods
+	greyscale_config_worn = /datum/greyscale_config/winter_hoods/worn
+
 /*
 *	WARDEN
 */

@@ -61,6 +61,7 @@
 				/obj/item/clothing/under/pants/slacks = 4,
 				/obj/item/clothing/suit/armor/vest/secjacket = 4,
 				/obj/item/clothing/suit/hooded/wintercoat/security = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/thick = 4,
 				/obj/item/clothing/suit/armor/vest = 4,
 				/obj/item/clothing/suit/armor/vest/brit = 3,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec = 4,
@@ -78,7 +79,6 @@
 			"icon" = "shield-halved",
 			"products" = list(
 				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
-				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
 				/obj/item/clothing/suit/armor/vest/jacket = 3,

@@ -1,0 +1,43 @@
+{
+	"coatwinter": [
+		{
+			"type": "icon_state",
+			"icon_state": "coatsecurity_winter_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coatsecurity_winter_lining",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coatsecurity_winter_vest",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+
+	"coatwinter_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "coatsecurity_winter_base_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coatsecurity_winter_lining_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "coatsecurity_winter_vest_t",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

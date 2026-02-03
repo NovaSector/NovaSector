@@ -922,11 +922,23 @@
 /datum/greyscale_config/security_winter_coat
 	name = "Security Winter Coat"
 	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/winter_coat.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secwintercoat/seccoats.json'
 
 /datum/greyscale_config/security_winter_coat/worn
 	name = "Winter Coat (Worn)"
-	json_config = 'code/datums/greyscale/json_configs/wintercoats_worn.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secwintercoat/seccoats_worn.json'
+
+/datum/greyscale_config/security_hoods
+	name = "Security Coat Hood"
+	icon_file = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/winter_hood.json'
+	//icon_file = 'icons/obj/clothing/head/winterhood.dmi'
+	//json_config = 'modular_nova/modules/GAGS/json_configs/suits/secwintercoat/seccoats_hood.json'
+
+/datum/greyscale_config/security_hoods/worn
+	name = "Security Coat Hood (Worn)"
+	icon_file = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	//icon_file = 'icons/mob/clothing/head/winterhood.dmi'
 
 // LEATHER JACKET
 
@@ -2534,7 +2546,7 @@ TREK
 	name = "Big Sweater (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweater.json'
-	
+
 /datum/greyscale_config/sweater_nova_2
 	name = "Big Sweater With Bow"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
