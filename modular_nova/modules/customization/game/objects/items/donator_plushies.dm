@@ -967,7 +967,7 @@
 	)
 
 /obj/item/toy/plush/nova/donator/percy
-	name = "Dr. Percival"
+	name = "\improper Dr. Percival plushie"
 	desc = "Looks like a competent enough surgeon. Just don’t ask for too much paperwork or bedside manners."
 	icon_state = "percival-1"
 	squeak_override = list(
