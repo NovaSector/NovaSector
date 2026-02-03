@@ -167,7 +167,7 @@
 	. -= span_notice(CHARGE_MESSAGE)
 	. += span_notice(SUPER_CHARGE_MESSAGE)
 
-// Ditto for event horizon, giving a slight delay boost for consistency
+// Ditto for event horizon, giving a slight delay boost for consistency with description
 /obj/item/gun/energy/event_horizon
 	charge_delay = 10
 
