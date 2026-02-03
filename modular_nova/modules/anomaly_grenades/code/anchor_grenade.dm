@@ -26,45 +26,46 @@
 	alert_type = /atom/movable/screen/alert/status_effect/bluespace_grounded
 	status_type = STATUS_EFFECT_REFRESH
 	show_duration = TRUE
+	var/datum/effect_system/spark_spread/quantum/spark_system
 
 /datum/status_effect/bluespace_grounded/on_apply()
 	RegisterSignal(owner, COMSIG_MOVABLE_TELEPORTING, PROC_REF(on_teleport))
 	RegisterSignal(owner, COMSIG_MOB_PRE_JAUNT, PROC_REF(on_jaunt))
-	var/datum/effect_system/spark_spread/quantum/spark_system = new()
+	spark_system = new /datum/effect_system/spark_spread/quantum
 	spark_system.set_up(3, TRUE, owner)
 	spark_system.start()
-	to_chat(owner, span_warning("Your surroundings blink, slightly. Teleportation would not be a good idea."))
+	to_chat(owner, span_warning("Your surroundings shimmer slightly. Teleportation, somehow, seems like it would not be a good idea."))
 	return TRUE
 
 /datum/status_effect/bluespace_grounded/on_remove()
+	qdel(spark_system)
 	UnregisterSignal(owner, COMSIG_MOVABLE_TELEPORTING)
 	UnregisterSignal(owner, COMSIG_MOB_PRE_JAUNT)
-	to_chat(owner, span_notice("Your surroundings blink, slightly. Teleportation might be possible again."))
+	to_chat(owner, span_notice("Your surroundings shimmer slightly. Teleportation might be possible again."))
 
 /// Signal for COMSIG_MOVABLE_TELEPORTING that blocks teleports and stuns the would-be-teleportee.
 /datum/status_effect/bluespace_grounded/proc/on_teleport(mob/living/teleportee, atom/destination, channel)
 	SIGNAL_HANDLER
 
-	to_chat(teleportee, span_holoparasite("You feel yourself teleporting, but end up staggering as you're suddenly flung back to where you just were!"))
+	to_chat(owner, span_holoparasite("You feel yourself teleporting, but are suddenly flung back to where you just were!"))
+	penalize()
 
-	teleportee.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 10 SECONDS)
-	teleportee.apply_status_effect(/datum/status_effect/incapacitating/knockdown, 2 SECONDS)
-	teleportee.apply_damage(55, STAMINA)
-	var/datum/effect_system/spark_spread/quantum/spark_system = new()
-	spark_system.set_up(5, TRUE, teleportee)
-	spark_system.start()
 	return TRUE
 
 /// Signal for COMSIG_MOB_PRE_JAUNT that prevents a user from entering a jaunt.
 /datum/status_effect/bluespace_grounded/proc/on_jaunt(mob/living/jaunter)
 	SIGNAL_HANDLER
 
-	to_chat(jaunter, span_holoparasite("As you attempt to jaunt, you slam directly into the barrier between realities and stagger as you're sent crashing back into corporeality!"))
+	to_chat(owner, span_holoparasite("As you attempt to jaunt, you slam directly into the barrier between realities and crash back into corporeality!"))
+	penalize()
 
-	jaunter.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 10 SECONDS)
-	jaunter.apply_status_effect(/datum/status_effect/incapacitating/knockdown, 2 SECONDS)
-	jaunter.apply_damage(55, STAMINA)
-	var/datum/effect_system/spark_spread/quantum/spark_system = new()
-	spark_system.set_up(5, TRUE, jaunter)
-	spark_system.start()
 	return COMPONENT_BLOCK_JAUNT
+
+/// Stuns a target, presumably the offending party/embed target/whoever was about to try teleporting.
+/datum/status_effect/bluespace_grounded/proc/penalize()
+	owner.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 10 SECONDS)
+	owner.Knockdown(0.2 SECONDS)
+	owner.drop_all_held_items()
+	owner.apply_damage(55, STAMINA)
+	spark_system.set_up(5, TRUE, owner)
+	spark_system.start()
