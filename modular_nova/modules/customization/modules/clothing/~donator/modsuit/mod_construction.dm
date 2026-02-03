@@ -64,7 +64,7 @@
 	if(!wearer)
 		return
 	var/wearer_ref = REF(wearer)
-	for(var/obj/item/mod/module/module as anything in modules)
+	for(var/obj/item/mod/module/module in modules)
 		var/list/pinned_list = default_pins[module.type]
 		if(!pinned_list) //this module isnt meant to be pinned by default
 			continue
