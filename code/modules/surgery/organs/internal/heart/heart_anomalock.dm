@@ -62,7 +62,7 @@
 	tesla_zap(source = organ_owner, zap_range = 20, power = 2.5e5, cutoff = 1e3)
 	// QDEL_IN(src, 0) // NOVA EDIT REMOVAL - no delete on removal
 
-/* NOVA EDIT REMOVAL - no self-implant (that only nearly kills you)
+/* //NOVA EDIT REMOVAL - no self-implant (that only nearly kills you)
 /obj/item/organ/heart/cybernetic/anomalock/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(target_mob != user || !istype(target_mob) || !core)
 		return ..()
@@ -79,7 +79,7 @@
 	user.apply_damage(100, BRUTE, BODY_ZONE_CHEST)
 	user.emote("scream")
 	return TRUE
-*/
+*/ // NOVA EDIT REMOVAL END
 
 /obj/item/organ/heart/cybernetic/anomalock/proc/on_emp_act(severity)
 	SIGNAL_HANDLER
@@ -109,6 +109,7 @@
 	if(lightning_timer)
 		deltimer(lightning_timer)
 	lightning_overlay = null
+
 /* // NOVA EDIT REMOVAL START - no self-implant for you buddy
 /obj/item/organ/heart/cybernetic/anomalock/attack_self(mob/user, modifiers)
 	. = ..()
