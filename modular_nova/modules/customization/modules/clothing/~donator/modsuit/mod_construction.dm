@@ -55,7 +55,7 @@
 			if(applied_cell)
 				cell_core.cell = new applied_cell()
 	. = ..()
-	for(var/module_type as anything in applied_modules)
+	for(var/module_type in applied_modules)
 		var/obj/item/mod/module/new_module = new module_type(src)
 		install(new_module)
 
