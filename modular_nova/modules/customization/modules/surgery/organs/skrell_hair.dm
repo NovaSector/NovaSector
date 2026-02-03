@@ -1,10 +1,8 @@
 /obj/item/organ/skrell_hair
 	name = "skrell_hair"
 	desc = "Hair isn't really the best way to describe it, but you really can't think of any other word that makes sense."
-	icon_state = "random_fly_1"
 
 	mutantpart_key = FEATURE_SKRELL_HAIR
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Long", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_SKRELL_HAIR
@@ -13,6 +11,7 @@
 	use_mob_sprite_as_obj_sprite = TRUE
 
 	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
+
 
 /datum/bodypart_overlay/mutant/skrell_hair
 	feature_key = FEATURE_SKRELL_HAIR

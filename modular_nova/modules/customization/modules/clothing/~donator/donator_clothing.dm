@@ -2484,6 +2484,42 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/head/gabeny
+	name = "\improper Triumvirate officer's cap"
+	desc = "A militaristic, dark grey cap with a of gold badge on the front. The emblem depicts the triangular fox-faced emblem of Triumvirate Textiles."
+	icon_state = "gabeny_cap"
+	worn_icon_state = "gabeny_cap"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+
+/obj/item/clothing/under/gabeny
+	name = "\improper Triumvirate officer's formal uniform"
+	desc = "A dark grey military-style uniform with golden cuffs and epaulet on the right shoulder. The top of this uniform is double-breasted with navy blue buttons and highlights."
+	icon_state = "gabeny_jumpsuit"
+	worn_icon_state = "gabeny_jumpsuit"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/uniform_digi.dmi'
+
+/obj/item/clothing/suit/toggle/labcoat/gabeny
+	name = "\improper Triumvirate medsci officer's labcoat"
+	desc = "A dark grey labcoat with navy blue accents and the fox-faced emblem of Triumvirate Textiles on the right breast pocket. Despite having a spot on the right sleeve for a company patch, there doesn't seem to be one. \
+		The materials used to make this coat make it perfectly sanitary for any medical or research needs."
+	icon_state = "gabeny_labcoat"
+	worn_icon_state = "gabeny_labcoat"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+
+/obj/item/clothing/suit/jacket/gabeny
+	name = "\improper Triumvirate officer's great coat"
+	desc = "A dark grey great coat with navy blue accents and gold buttons with a patch of the Sol Federation flag on the right shoulder. \
+		There's a few other patches across the chest, and left sleeve, most recognizable being the fox-faced emblem of Triumvirate Textiles on the left breast pocket."
+	icon_state = "gabeny_greatcoat"
+	worn_icon_state = "gabeny_greatcoat"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	armor_type = /datum/armor/colonist_clothing
+
 // Kaynite Donor Items
 /obj/item/clothing/suit/hooded/merctac_hoodie
 	name = "\improper MercTac hoodie"

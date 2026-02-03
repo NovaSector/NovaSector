@@ -8,7 +8,7 @@
 #define MAX_CORES_BIOSCRAMBLER 8
 #define MAX_CORES_DIMENSIONAL 8
 #define MAX_CORES_ECTOPLASMIC 8
-#define MAX_CORES_WEATHER 8
+#define MAX_CORES_WEATHER 5
 
 ///Defines for the different types of explosion a flux anomaly can have
 #define FLUX_NO_EMP 0
@@ -49,6 +49,8 @@ GLOBAL_LIST_INIT(bioscrambler_organs_blacklist, typecacheof(list (
 	/obj/item/organ/eyes/robotic,
 	/obj/item/organ/eyes/night_vision/cyber,
 	/obj/item/organ/genital,
+	/obj/item/organ/head_accessory,
+	/obj/item/organ/neck_accessory,
 	// NOVA EDIT ADDITION END
 )))
 

@@ -14,7 +14,7 @@
 	mutantlungs = /obj/item/organ/lungs/nitrogen/vox
 	mutantbrain = /obj/item/organ/brain/cybernetic/cortical/vox //reparented vox brain
 	breathid = "n2"
-	mutant_bodyparts = list()
+
 	mutanttongue = /obj/item/organ/tongue/vox
 	payday_modifier = 1.0
 	outfit_important_for_life = /datum/outfit/vox
@@ -48,8 +48,7 @@
 
 /datum/species/vox_primalis/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("Vox Primalis Tail", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Vox Primalis Tail", is_randomizable = FALSE),
 	)
 
 /datum/species/vox_primalis/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)

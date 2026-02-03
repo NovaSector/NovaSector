@@ -109,12 +109,12 @@
 /datum/reagent/drug/aphrodisiac/proc/overdose_effects(mob/living/carbon/human/exposed_mob)
 	return
 
-/datum/reagent/drug/aphrodisiac/on_mob_life(mob/living/carbon/human/exposed_mob)
+/datum/reagent/drug/aphrodisiac/on_mob_life(mob/living/carbon/human/exposed_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	if(life_pref_datum && exposed_mob.client?.prefs.read_preference(life_pref_datum) && ishuman(exposed_mob))
 		life_effects(exposed_mob)
 
-/datum/reagent/drug/aphrodisiac/overdose_process(mob/living/carbon/human/exposed_mob)
+/datum/reagent/drug/aphrodisiac/overdose_process(mob/living/carbon/human/exposed_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	if(overdose_pref_datum && exposed_mob.client?.prefs.read_preference(overdose_pref_datum) && ishuman(exposed_mob))
 		overdose_effects(exposed_mob)
@@ -447,18 +447,34 @@
 	if(!data)
 		data = species_to_penis[SPECIES_HUMAN]
 
-	if(exposed_mob.dna.features["penis_sheath"] == "None")
+	if(exposed_mob.dna.features["penis_sheath"] == SPRITE_ACCESSORY_NONE)
 		exposed_mob.dna.features["penis_sheath"] = data["sheath"]
 
-	if(exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_PENIS][MUTANT_INDEX_NAME] == "None")
-		exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_PENIS][MUTANT_INDEX_NAME] = data["mutant_index"]
+	var/datum/mutant_bodypart/penis = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_PENIS]
+	if(isnull(penis))
+		penis = exposed_mob.dna.species.build_mutant_part(
+			data["mutant_index"],
+			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/penis),
+			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/penis),
+		)
+		LAZYSET(exposed_mob.dna.mutant_bodyparts, FEATURE_PENIS, penis)
+	else if(penis.name == SPRITE_ACCESSORY_NONE)
+		penis.name = data["mutant_index"]
 
-	if(exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_TESTICLES][MUTANT_INDEX_NAME] == "None")
-		exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_TESTICLES][MUTANT_INDEX_NAME] = data["balls"]
+	var/datum/mutant_bodypart/testicles = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_TESTICLES]
+	if(isnull(testicles))
+		testicles = exposed_mob.dna.species.build_mutant_part(
+			data["balls"],
+			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/testicles),
+			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/testicles),
+		)
+		LAZYSET(exposed_mob.dna.mutant_bodyparts, FEATURE_TESTICLES, testicles)
+	else if(testicles.name == SPRITE_ACCESSORY_NONE)
+		testicles.name = data["balls"]
 
 	var/colour = data["colour"]
 	if(colour)
-		exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_PENIS][MUTANT_INDEX_COLOR_LIST] = list(colour)
+		penis.set_colors(list(colour))
 
 	// Create the new penis
 	var/obj/item/organ/genital/penis/new_penis = new
@@ -512,8 +528,16 @@
 		return
 
 	// If the user has not defined their own prefs for their breast type, default to two breasts
-	if (exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_BREASTS][MUTANT_INDEX_NAME] == "None")
-		exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_BREASTS][MUTANT_INDEX_NAME] = "Pair"
+	var/datum/mutant_bodypart/breasts = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_BREASTS]
+	if(isnull(breasts))
+		breasts = exposed_mob.dna.species.build_mutant_part(
+			"Pair",
+			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/breasts),
+			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/breasts),
+		)
+		LAZYSET(exposed_mob.dna.mutant_bodyparts, FEATURE_BREASTS, breasts)
+	else if(breasts.name == SPRITE_ACCESSORY_NONE)
+		breasts.name = "Pair"
 
 	// Create the new breasts
 	var/obj/item/organ/genital/breasts/new_breasts = new
@@ -550,8 +574,16 @@
 	if(!exposed_mob.client?.prefs.read_preference(/datum/preference/toggle/erp/new_genitalia_growth))
 		return
 
-	if (exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_VAGINA][MUTANT_INDEX_NAME] == "None")
-		exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_VAGINA][MUTANT_INDEX_NAME] = "Human"
+	var/datum/mutant_bodypart/vagina = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_VAGINA]
+	if(isnull(vagina))
+		vagina = exposed_mob.dna.species.build_mutant_part(
+			"Human",
+			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/vagina),
+			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/vagina),
+		)
+		LAZYSET(exposed_mob.dna.mutant_bodyparts, FEATURE_VAGINA, vagina)
+	else if(vagina.name == SPRITE_ACCESSORY_NONE)
+		vagina.name = "Human"
 
 	var/obj/item/organ/genital/vagina/new_vagina = new
 	new_vagina.build_from_dna(exposed_mob.dna, ORGAN_SLOT_VAGINA)
@@ -573,8 +605,12 @@
 	if(mob_womb)
 		return
 
-	if (exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_WOMB][MUTANT_INDEX_NAME] == "None")
-		exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_WOMB][MUTANT_INDEX_NAME] = "Normal"
+	var/datum/mutant_bodypart/womb = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_WOMB]
+	if(isnull(womb))
+		womb = exposed_mob.dna.species.build_mutant_part("Normal")
+		LAZYSET(exposed_mob.dna.mutant_bodyparts, FEATURE_WOMB, womb)
+	else if(womb.name == SPRITE_ACCESSORY_NONE)
+		womb.name = "Normal"
 
 	var/obj/item/organ/genital/womb/new_womb = new
 	new_womb.build_from_dna(exposed_mob.dna, ORGAN_SLOT_WOMB)

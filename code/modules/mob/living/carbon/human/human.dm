@@ -771,6 +771,7 @@
 	if(heal_flags & HEAL_TEMP)
 		set_coretemperature(get_body_temp_normal(apply_change = FALSE))
 		heat_exposure_stacks = 0
+		seconds_in_low_pressure = 0
 
 	return ..()
 
@@ -1140,7 +1141,7 @@
 	if (!isnull(race))
 		dna.species = new race
 
-/mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // NOVA EDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update, pref_load, replace_missing)
+/mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings) // NOVA EDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update, pref_load, replace_missing)
 	. = ..()
 	if(use_random_name)
 		fully_replace_character_name(real_name, generate_random_mob_name())

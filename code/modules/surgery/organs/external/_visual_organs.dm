@@ -47,6 +47,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 
 	if(restyle_flags)
 		RegisterSignal(src, COMSIG_ATOM_RESTYLE, PROC_REF(on_attempt_feature_restyle))
+	color = bodypart_overlay.draw_color // NOVA EDIT ADDITION
 
 /// Some sanity checks, but mostly to check if the person has their preference/dna set to load
 /proc/should_visual_organ_apply_to(obj/item/organ/organpath, mob/living/carbon/target)
@@ -65,7 +66,10 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	if(target.dna.features[feature_key] != SPRITE_ACCESSORY_NONE)
 		return TRUE
 	// NOVA EDIT ADDITION START
-	if(target.dna.mutant_bodyparts[feature_key][MUTANT_INDEX_NAME] != SPRITE_ACCESSORY_NONE)
+	var/datum/mutant_bodypart/mutant_part = target.dna.mutant_bodyparts[feature_key]
+	if(isnull(mutant_part))
+		return FALSE
+	else if(mutant_part.name != SPRITE_ACCESSORY_NONE)
 		return TRUE
 	// NOVA EDIT ADDITION END
 	return FALSE
@@ -166,6 +170,26 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout
 
 	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
+
+	/// Offset to apply to equipment worn on the mouth we give to the head.
+	var/datum/worn_feature_offset/worn_mask_offset
+
+/* // NOVA EDIT REMOVAL START - TODO: This should not be using the global worn offsets, because it will make snouted variations look wrong. For now I'm just commenting this shit out.
+/obj/item/organ/snout/on_bodypart_insert(obj/item/bodypart/head/limb)
+	. = ..()
+	if(isnull(limb.worn_mask_offset))
+		worn_mask_offset = limb.worn_mask_offset = new(
+			attached_part = limb,
+			feature_key = OFFSET_FACEMASK,
+			offset_x = list("east" = 1, "west" = -1),
+		)
+
+/obj/item/organ/snout/on_bodypart_remove(obj/item/bodypart/head/limb, movement_flags)
+	if(worn_mask_offset)
+		QDEL_NULL(worn_mask_offset)
+		limb.worn_mask_offset = null
+	return ..()
+*/ // NOVA EDIT REMOVAL END
 
 /datum/bodypart_overlay/mutant/snout
 	layers = EXTERNAL_ADJACENT

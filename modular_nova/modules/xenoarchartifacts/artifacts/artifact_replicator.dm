@@ -86,7 +86,7 @@
 		[pick("front", "side", "top", "bottom", "rear", "inside")] of [src]. A [pick("slot", "funnel", "chute", "tube")] opens up in the \
 		[pick("front", "side", "top", "bottom", "rear", "inside")].")
 
-/obj/machinery/replicator/process(seconds_per_tick, times_fired)
+/obj/machinery/replicator/process(seconds_per_tick)
 	if(spawning_types.len && powered())
 		spawn_progress_time += world.time - last_process_time
 		if(spawn_progress_time > max_spawn_time)

@@ -90,7 +90,7 @@
 	if(!istype(living_owner))
 		return
 
-	if(living_owner.blood_volume <= MINIMUM_VOLUME_FOR_REGEN)
+	if(living_owner.get_blood_volume() <= MINIMUM_VOLUME_FOR_REGEN)
 		living_owner.balloon_alert(living_owner, "blood level too low!")
 		return
 
@@ -130,7 +130,7 @@
 	if(!istype(carbon_owner))
 		return
 
-	if(carbon_owner.blood_volume <= MINIMUM_VOLUME_FOR_REGEN)
+	if(carbon_owner.get_blood_volume() <= MINIMUM_VOLUME_FOR_REGEN)
 		carbon_owner.balloon_alert(carbon_owner, "blood level too low!")
 		return
 
@@ -154,7 +154,7 @@
 		RegisterSignal(carbon_owner, COMSIG_CARBON_LIMB_DAMAGED, PROC_REF(on_limb_damaged), override = TRUE)
 		chosen_wound.adjust_blood_flow(-WOUND_MAX_BLOODFLOW)
 		to_chat(carbon_owner, span_good("You use hemokinesis to clot the [chosen_wound]."))
-		carbon_owner.blood_volume -= 50
+		carbon_owner.adjust_blood_volume(-50)
 		return ..()
 
 	carbon_owner.balloon_alert(carbon_owner, "no clottable wounds!")

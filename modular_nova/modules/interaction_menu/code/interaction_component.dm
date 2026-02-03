@@ -8,6 +8,8 @@
 	var/interact_next = 0
 	/// Whether or not we are using subtler for lewd interactions.
 	var/use_subtler = TRUE
+	/// Whether or not we have an erp interaction available to us right now
+	var/has_erp_interaction = FALSE
 
 /datum/component/interactable/Initialize(...)
 	if(QDELETED(parent))
@@ -87,31 +89,46 @@
 	var/list/data = list()
 	var/list/descriptions = list()
 	var/list/categories = list()
-	var/list/display_categories = list()
 	var/list/colors = list()
-	for(var/datum/interaction/interaction in interactions)
-		if(!can_interact(interaction, user))
+
+	has_erp_interaction = FALSE
+
+	for (var/datum/interaction/interaction in interactions)
+		if (!can_interact(interaction, user))
 			continue
-		if(!categories[interaction.category])
-			categories[interaction.category] = list(interaction.name)
-		else
-			categories[interaction.category] += interaction.name
-			var/list/sorted_category = sort_list(categories[interaction.category])
-			categories[interaction.category] = sorted_category
+
+		if (interaction.lewd)
+			has_erp_interaction = TRUE
+
+		var/category = interaction.category
+		var/list/category_list = categories[category]
+
+		if (isnull(category_list))
+			category_list = list()
+			categories[category] = category_list
+
+		category_list += interaction.name
+
 		descriptions[interaction.name] = interaction.description
 		colors[interaction.name] = interaction.color
+
+	// Sort category contents once
+	for (var/category in categories)
+		categories[category] = sort_list(categories[category])
+
+	// Build and sort category names
+	data["categories"] = sort_list(assoc_to_keys(categories))
+	data["interactions"] = categories
 	data["descriptions"] = descriptions
 	data["colors"] = colors
-	for(var/category in categories)
-		display_categories += category
-	data["categories"] = sort_list(display_categories)
+
 	data["ref_user"] = REF(user)
 	data["ref_self"] = REF(self)
 	data["self"] = self.name
 	data["block_interact"] = interact_next >= world.time
-	data["interactions"] = categories
 	data["use_subtler"] = use_subtler
 	data["erp_interaction"] = self.client?.prefs?.read_preference(/datum/preference/toggle/erp)
+	data["has_erp_interaction"] = has_erp_interaction
 
 	var/mob/living/carbon/human/human_user = user
 

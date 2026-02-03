@@ -14,7 +14,7 @@
 	mutantlungs = /obj/item/organ/lungs/nitrogen/vox
 	mutantbrain = /obj/item/organ/brain/cybernetic/cortical/vox
 	breathid = "n2"
-	mutant_bodyparts = list()
+
 	payday_modifier = 1.0
 	outfit_important_for_life = /datum/outfit/vox
 	species_language_holder = /datum/language_holder/vox
@@ -46,11 +46,11 @@
 
 /datum/species/vox/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("None", FALSE),
-		FEATURE_TAIL = list("Vox Tail", FALSE),
-		FEATURE_LEGS = list(DIGITIGRADE_LEGS,FALSE),
-		FEATURE_SNOUT = list("Vox Snout", FALSE),
-		FEATURE_SPINES = list("Vox Bands", TRUE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Vox Tail", is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(DIGITIGRADE_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Vox Snout", is_randomizable = FALSE),
+		FEATURE_SPINES = MUTPART_BLUEPRINT("Vox Bands", is_randomizable = TRUE),
 	)
 
 /datum/species/vox/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
@@ -98,6 +98,6 @@
 	vox.dna.features[FEATURE_MUTANT_COLOR] = "#77DD88"
 	vox.dna.features[FEATURE_MUTANT_COLOR_TWO] = "#EEDD88"
 	vox.dna.features[FEATURE_MUTANT_COLOR_THREE] = "#222222"
-	vox.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Vox Snout", MUTANT_INDEX_COLOR_LIST = list("#EEDD88"))
+	vox.dna.mutant_bodyparts[FEATURE_SNOUT] = vox.dna.species.build_mutant_part("Vox Snout", list("#EEDD88"))
 	regenerate_organs(vox, src, visual_only = TRUE)
 	vox.update_body(TRUE)
