@@ -5,7 +5,7 @@
 	icon_state = "vox"
 	color_src = 0
 	gender_specific = FALSE
-	recommended_species = list(SPECIES_VOX_PRIMALIS)
+	recommended_species = list(SPECIES_VOX_PRIMALIS = 1)
 
 /datum/sprite_accessory/tails/vox_primalis/albino
 	name = "Vox Primalis Albino Tail"
@@ -26,7 +26,7 @@
 // HAIR
 /datum/sprite_accessory/hair/vox_primalis
 	icon = 'modular_nova/modules/better_vox/icons/accessories/vox_hair.dmi'
-	recommended_species = list(SPECIES_VOX_PRIMALIS)
+	recommended_species = list(SPECIES_VOX_PRIMALIS = 1)
 	name = "Vox Primalis Shortquills"
 	icon_state = "vox_shortquills_s"
 
@@ -82,7 +82,7 @@
 /datum/body_marking/vox_primalis
 	icon = 'modular_nova/modules/better_vox/icons/accessories/vox_bodymarkings.dmi'
 	default_color = "#64e8ff"
-	recommended_species = list(SPECIES_VOX_PRIMALIS)
+	recommended_species = list(SPECIES_VOX_PRIMALIS = 1)
 	affected_bodyparts = CHEST
 	gendered = FALSE
 
@@ -121,5 +121,5 @@
 	icon_state = "vox"
 	color_src = 0
 	gender_specific = FALSE
-	recommended_species = list(SPECIES_VOX_PRIMALIS)
+	recommended_species = list(SPECIES_VOX_PRIMALIS = 1)
 

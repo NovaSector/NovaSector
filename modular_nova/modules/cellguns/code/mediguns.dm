@@ -1,10 +1,11 @@
 // Base medigun code
 /obj/item/gun/energy/cell_loaded/medigun
 	name = "medigun"
-	desc = "This is my smart gun, it won't hurt anyone friendly, infact it will make them heal! Please tell github if you somehow manage to get this gun."
+	desc = "This is my smart gun. It won't hurt anyone friendly; in fact, it will make them heal! Please tell github if you somehow manage to get this gun."
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/projectile.dmi'
 	icon_state = "medigun"
 	inhand_icon_state = "chronogun" // Fits best with how the medigun looks, might be changed in the future
+	abstract_type = /obj/item/gun/energy/cell_loaded/medigun
 	ammo_type = list(/obj/item/ammo_casing/energy/medical) // The default option that heals oxygen
 	w_class = WEIGHT_CLASS_NORMAL
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun
@@ -19,12 +20,12 @@
 // Standard medigun - this is what you will get from Cargo, most likely.
 /obj/item/gun/energy/cell_loaded/medigun/standard
 	name = "VeyMedical CWM-479 cell-powered medigun"
-	desc = "This is a standard model medigun produced by Vey-Med, for healing in less than ideal scenarios. The medicell chamber is rated to fit three cells."
+	desc = "This is a standard model medigun produced by Vey-Med for healing in less-than-ideal scenarios. The medicell chamber is rated to fit three cells."
 
 // Upgraded medigun
 /obj/item/gun/energy/cell_loaded/medigun/upgraded
 	name = "VeyMedical CWM-479-FC cell-powered medigun"
-	desc = "This is an upgraded variant of the standard CWM-479 medigun. While it still only fits three cells, its cell has been upgraded for higher capacity and faster charging."
+	desc = "This is an upgraded variant of the standard CWM-479 medigun. While it still only fits three cells, its battery has been upgraded for higher capacity and faster charging."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/upgraded
 
 /obj/item/gun/energy/cell_loaded/medigun/upgraded/Initialize(mapload)
@@ -35,7 +36,7 @@
 // CMO and CC MediGun
 /obj/item/gun/energy/cell_loaded/medigun/cmo
 	name = "VeyMedical CWM-479-CC cell-powered medigun"
-	desc = "The most advanced version of the CWM-479 line of mediguns, it features slots for six cells and a auto recharging battery"
+	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for six cells and an auto-recharging battery."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/experimental
 	maxcells = 6
 	selfcharge = 1
@@ -127,7 +128,7 @@
 // Default Cell
 /obj/item/weaponcell/medical
 	name = "default medicell"
-	desc = "The standard oxygen cell, most guns come with this already installed."
+	desc = "The standard oxygen cell. Most guns come with this already installed."
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/medicells.dmi'
 	icon_state = "Oxy1"
 	w_class = WEIGHT_CLASS_SMALL
@@ -190,7 +191,7 @@
 // Oxygen II
 /obj/item/weaponcell/medical/oxygen/tier_2
 	name = "oxygen II medicell"
-	desc = "A small cell with a notable blue glow. Can be used on mediguns to enable improved oxygen deprivation healing functionality."
+	desc = "A small cell with a noticeable blue glow. Can be used on mediguns to enable improved oxygen deprivation healing functionality."
 	icon_state = "Oxy2"
 	ammo_type = /obj/item/ammo_casing/energy/medical/oxy2
 
@@ -260,7 +261,7 @@
 
 /obj/item/weaponcell/medical/utility/bed
 	name = "hardlight roller bed medicell"
-	desc = "A medicell that summons a temporary roller bed under a patient already lying on the floor."
+	desc = "A medicell that summons a temporary roller bed underneath a patient already lying on the floor."
 	icon_state = "gown"
 	ammo_type = /obj/item/ammo_casing/energy/medical/utility/bed
 
@@ -286,7 +287,7 @@
 	name = "empty salve medicell"
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/medicells.dmi'
 	icon_state = "empty"
-	desc = "An inactive salve medicell, use this on an aloe leaf to make this into a usable cell."
+	desc = "An inactive salve medicell. Use this on an aloe leaf to make this into a usable cell."
 	from_obj = /obj/item/food/grown/aloe
 	to_obj = /obj/item/weaponcell/medical/utility/salve
 
@@ -296,12 +297,12 @@
 
 /obj/item/device/custom_kit/empty_cell/body_teleporter
 	name = "empty body teleporter medicell"
-	desc = "An inactive body teleporter medicell, use this on a bluespace slime extract to make this into a usable cell."
+	desc = "An inactive body teleporter medicell. Use this on a bluespace slime extract to make this into a usable cell."
 	from_obj = /obj/item/slime_extract/bluespace
 	to_obj = /obj/item/weaponcell/medical/utility/body_teleporter
 
 /obj/item/device/custom_kit/empty_cell/relocator
 	name = "empty oppressive force relocator medicell"
-	desc = "An inactive oppressive force relocator medicell, use this on a bluespace slime extract to make this into a usable cell."
+	desc = "An inactive oppressive force relocator medicell. Use this on a bluespace slime extract to make this into a usable cell."
 	from_obj = /obj/item/slime_extract/bluespace
 	to_obj = /obj/item/weaponcell/medical/utility/relocation

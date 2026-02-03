@@ -21,7 +21,7 @@
 
 	jaunt_type = /obj/effect/dummy/phased_mob/spell_jaunt/space
 	///List of traits that are added to the heretic while in space phase jaunt
-	var/static/list/jaunting_traits = list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTCOLD, TRAIT_NOBREATH)
+	var/static/list/jaunting_traits = list() // NOVA EDIT CHANGE - ORIGINAL var/static/list/jaunting_traits = list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTCOLD, TRAIT_NOBREATH)
 
 /datum/action/cooldown/spell/jaunt/space_crawl/Grant(mob/grant_to)
 	. = ..()

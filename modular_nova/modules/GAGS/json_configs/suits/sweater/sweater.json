@@ -2,15 +2,9 @@
 	"sweater": [
 		{
 			"type": "icon_state",
-			"icon_state": "sweater_base",
+			"icon_state": "sweater",
 			"blend_mode": "overlay",
 			"color_ids": [1]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "sweater_strings",
-			"blend_mode": "overlay",
-			"color_ids": [2]
 		}
 	]
 }

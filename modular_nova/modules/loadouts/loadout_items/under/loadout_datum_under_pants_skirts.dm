@@ -139,6 +139,11 @@
 	item_path = /obj/item/clothing/under/pants/nova/yoga
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/wide_leg
+	name = "Pants - Wide Legged (Colorable)"
+	item_path = /obj/item/clothing/under/pants/nova/wide_leg
+	group = "Casualwear"
+
 /datum/loadout_item/under/miscellaneous/shorts
 	name = "Shorts  (Colorable)"
 	item_path = /obj/item/clothing/under/shorts

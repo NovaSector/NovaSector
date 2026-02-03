@@ -45,6 +45,7 @@
 @include meta.load-css('./interfaces/Uplink.scss');
 @include meta.load-css('./interfaces/DetectiveBoard.scss');
 @include meta.load-css('./interfaces/ColorPicker.scss');
+@include meta.load-css('./interfaces/AnomalyTower.scss');
 // NOVA EDIT ADDITION START
 @include meta.load-css('./interfaces/ClockworkResearch.scss');
 @include meta.load-css('./interfaces/ClockworkSlab.scss');
