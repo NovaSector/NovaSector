@@ -1029,6 +1029,19 @@
 	item_path = /obj/item/mod/skin_applier/paragon
 	ckeywhitelist = list("kaynite")
 
+/datum/loadout_item/pocket_items/jumperbox_skinapplier
+	name = "Jumper Conversation Kit Box"
+	item_path = /obj/item/mod/skin_applier/jumper
+	ckeywhitelist = list("bonkaitheroris")
+
+/datum/loadout_item/toys/plush/plushe_vethonk
+	name = "Veteran Clown Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/vethonk
+
+/datum/loadout_item/toys/plush/plushe_percy
+	name = "Dr. Percival Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/percy
+
 /datum/loadout_item/pocket_items/espatier
 	name = "dated Espatier holster"
 	item_path = /obj/item/storage/belt/espatiers
