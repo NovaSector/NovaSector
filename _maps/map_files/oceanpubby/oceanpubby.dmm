@@ -20527,6 +20527,7 @@
 /obj/effect/turf_decal/trimline/dark_blue/line{
 	dir = 8
 	},
+/mob/living/carbon/human/species/monkey,
 /turf/open/misc/beach/sand,
 /area/ocean)
 "bQj" = (
