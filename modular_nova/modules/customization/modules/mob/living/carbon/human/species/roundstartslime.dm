@@ -627,7 +627,7 @@
 	var/oversized_user = FALSE
 	///What text is shown to others when the person uses the ability?
 	var/shapeshift_text = "gains a look of concentration while standing perfectly still. Their body seems to shift and starts getting more goo-like."
-	///List containing all of the avalible parts
+	///List containing all of the available parts
 	var/static/list/available_choices
 	/// Icon for "Body Colors" alteration button.
 	var/bodycolours_icon
