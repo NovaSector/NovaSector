@@ -1,4 +1,4 @@
-// This is where we put all the overrides for energy recharge. At the moment of this change, TG default charge_delay is 8. With this they recharge 10% per what charge_delay says
+// This is where we put all the overrides for energy recharge. At the moment of this change, TG default charge_delay is 8. With this they recharge 10% per what charge_delay says.
 
 #define CHARGE_MESSAGE "Equipped with a trickle-charge microcell. Regains a couple of shots every quarter minute or so without external power. Don't expect it to keep up with heavy use."
 #define SUPER_CHARGE_MESSAGE "Equipped with a fission-powered microcell. Regains a couple of shots every few seconds or so without external power. While not infinite, it can handle heavier usage than its peers without running dry."
