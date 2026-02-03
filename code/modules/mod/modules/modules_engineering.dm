@@ -146,6 +146,9 @@
 		return
 	var/obj/projectile/tether = new tether_type(mod.wearer.loc, src) // NOVA EDIT CHANGE - editable projectile - ORIGINAL var/obj/projectile/tether = new /obj/projectile/tether(mod.wearer.loc, src)
 	tether.aim_projectile(target, mod.wearer)
+	tether.firer = mod.wearer
+	playsound(src, 'sound/items/weapons/batonextend.ogg', 25, TRUE)
+	INVOKE_ASYNC(tether, TYPE_PROC_REF(/obj/projectile, fire))
 	drain_power(use_energy_cost)
 
 /obj/item/mod/module/tether/get_configuration()
