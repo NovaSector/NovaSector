@@ -1,14 +1,11 @@
 /obj/item/organ/heart/cybernetic/anomalock
-	/// Do we confer EMP interception/immunity?
-	var/gives_emp_immunity = TRUE
-	/// What type of voltaic overdrive do we confer in crit?
-	var/datum/status_effect/voltaic_overdrive/overdrive_type = /datum/status_effect/voltaic_overdrive
-
-/obj/item/organ/heart/cybernetic/anomalock
 	desc = "A cutting-edge cyberheart. Voltaic technology allows the heart to keep the body upright in dire circumstances, \
 		along with fully shielding the user from shocks and electro-magnetic pulses, when in an \"overdrive\" state. \
 		Requires a refined flux core as a power source. \
 		The critical protection functionality requires a cooldown period before it can be used again."
+
+	/// What type of voltaic overdrive do we confer in crit?
+	var/datum/status_effect/voltaic_overdrive/overdrive_type = /datum/status_effect/voltaic_overdrive
 
 /obj/item/organ/heart/cybernetic/anomalock/Initialize(mapload) // The heart itself is ALWAYS immune to EMPs
 	. = ..()
@@ -31,32 +28,26 @@
 			In that four minutes and thirty seconds between, though, the user is quite vulnerable.", \
 	)
 
-/datum/status_effect/voltaic_overdrive/on_apply()
-	RegisterSignal(owner, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_organ_lost))
-	return ..()
-
-/datum/status_effect/voltaic_overdrive/proc/on_organ_lost(mob/living/carbon/source, obj/item/organ/organ, special)
-	SIGNAL_HANDLER
-	if(istype(organ, /obj/item/organ/heart/cybernetic/anomalock))
-		var/obj/item/organ/heart/cybernetic/anomalock/just_fell_out = organ
-		qdel(src)
+/datum/status_effect/voltaic_overdrive
+	/// Does this voltaic overdrive effect provide EMP protection?
+	var/emp_resist = TRUE
 
 /datum/status_effect/voltaic_overdrive/on_remove()
 	to_chat(owner, span_userdanger("Your voltaic combat cyberheart putters weakly in your chest as it recharges; it won't protect you against EMPs until it recovers."))
-	UnregisterSignal(owner, COMSIG_CARBON_LOSE_ORGAN)
 	return ..()
 
 /obj/item/organ/heart/cybernetic/anomalock/weak
 	name = "scavenged voltaic combat cyberheart"
-	desc = "A cutting-edge cyberheart, pulled from an abandoned corporate scientist's corpse. \
-		Voltaic technology allows the heart to keep the body upright in dire circumstances, \
-		alongside redirecting anomalous flux energy to fully shield the user from shocks. \
-		Requires a refined flux core as a power source. Due to battle damage, does not provide immunity from EMPs and \
-		has a shortened overdrive time."
+	desc = "A cutting-edge cyberheart. Voltaic technology allows the heart to keep the body upright in dire circumstances, \
+		along with fully shielding the user from shocks, when in an \"overdrive\" state. \
+		Requires a refined flux core as a power source. \
+		The critical protection functionality requires a cooldown period before it can be used again. \
+		Due to battle damage, the overdrive does not provide immunity from EMPs, \
+		has a shortened overdrive time, and has a longer, ten-minute cooldown time."
 
-	gives_emp_immunity = FALSE
 	survival_cooldown_time = 10 MINUTES
 	overdrive_type = /datum/status_effect/voltaic_overdrive/short
 
 /datum/status_effect/voltaic_overdrive/short
+	emp_resist = FALSE
 	duration = 10 SECONDS

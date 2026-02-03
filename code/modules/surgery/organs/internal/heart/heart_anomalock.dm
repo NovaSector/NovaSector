@@ -48,19 +48,10 @@
 	add_lightning_overlay(30 SECONDS)
 	playsound(organ_owner, 'sound/items/eshield_recharge.ogg', 40)
 	// organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE) // NOVA EDIT REMOVAL
-	// NOVA EDIT ADDITION START: voltaic nerf: adds a variable for EMP protection
-	if(gives_emp_immunity)
-		organ_owner.AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
-	// NOVA EDIT ADDITION END
 	RegisterSignal(organ_owner, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION), PROC_REF(activate_survival))
 	RegisterSignal(organ_owner, COMSIG_ATOM_PRE_EMP_ACT, PROC_REF(on_emp_act)) // NOVA EDIT CHANGE - ORIGINAL: RegisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
 
 /obj/item/organ/heart/cybernetic/anomalock/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
-	// NOVA EDIT ADDITION START
-	organ_owner.cut_overlay(lightning_overlay) // necessary because clear_lightning_overlay() assumes we still have an owner, which we unassign upon removal
-	deltimer(lightning_timer)
-	lightning_overlay = null
-	// NOVA EDIT ADDITION END
 	. = ..()
 	if(!core)
 		return
@@ -69,7 +60,7 @@
 	UnregisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT)
 	organ_owner.RemoveElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_PROTECT_CONTENTS|EMP_NO_EXAMINE)
 	tesla_zap(source = organ_owner, zap_range = 20, power = 2.5e5, cutoff = 1e3)
-	QDEL_IN(src, 0)
+	// QDEL_IN(src, 0) // NOVA EDIT REMOVAL - no delete on removal
 
 /* NOVA EDIT REMOVAL - no self-implant (that only nearly kills you)
 /obj/item/organ/heart/cybernetic/anomalock/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
@@ -95,8 +86,10 @@
 	add_lightning_overlay(10 SECONDS)
 	// NOVA EDIT ADDITION START: EMP resistance handling moved to the status effect
 	if(owner.has_status_effect(/datum/status_effect/voltaic_overdrive))
-		to_chat(owner, span_danger("Your voltaic combat cyberheart flutters against an electromagnetic pulse!"))
-		return EMP_PROTECT_ALL
+		var/datum/status_effect/voltaic_overdrive/our_drive = owner.has_status_effect(/datum/status_effect/voltaic_overdrive)
+		if(our_drive.emp_resist)
+			to_chat(owner, span_danger("Your voltaic combat cyberheart flutters against an electromagnetic pulse!"))
+			return EMP_PROTECT_ALL
 	if(activate_survival(owner))
 		to_chat(owner, span_userdanger("Your voltaic combat cyberheart thunders in your chest wildly, surging to hold against the electromagnetic pulse!"))
 		return EMP_PROTECT_ALL
