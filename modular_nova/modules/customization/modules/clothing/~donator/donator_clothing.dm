@@ -2609,7 +2609,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	max_slots = 5
 	max_limited_store = 1
 	max_specific_storage = 5
-	max_total_storage = 10
+	max_total_storage = WEIGHT_CLASS_SMALL * 5
 	open_sound = 'sound/items/handling/holster_open.ogg'
 	open_sound_vary = TRUE
 	rustle_sound = null
