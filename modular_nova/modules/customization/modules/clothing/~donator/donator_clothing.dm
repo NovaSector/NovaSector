@@ -2594,10 +2594,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	allowed = GLOB.security_vest_allowed
 
 /obj/item/storage/belt/espatier
-	name = "Dated Espatier holster"
+	name = "dated Espatier holster"
 	desc = "An old outdated holster used by the Sol Federation Espatiers during the Rimward War \
-		with a sidearm holster and four pouches capable of containing anything: from ammo and meds, \
-		to lucky charms. This one's been refurbished DarkRilo Apparel, though it's clearly been through a lot."
+	with a sidearm holster and four pouches capable of containing anything from ammo and meds, \
+	to lucky charms. This one's been refurbished DarkRilo Apparel, though it's clearly been through a lot."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
 	icon_state = "espatier"
@@ -2637,7 +2637,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		/obj/item/storage/pill_bottle,
 		/obj/item/radio,
 		/obj/item/restraints/handcuffs, //include cable
-		/obj/item/grenade/flashbang,
 		/obj/item/knife/combat/throwing,
 		/obj/item/binoculars,
 		/obj/item/gps,
