@@ -40,7 +40,7 @@
 		affected_carbon.gain_trauma(pcp_rage, TRAUMA_RESILIENCE_ABSOLUTE)
 		affected_carbon.gain_trauma(pcp_tenacity, TRAUMA_RESILIENCE_ABSOLUTE)
 
-/datum/reagent/drug/pcp/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/drug/pcp/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	var/high_message = pick("You feel like KILLING!", "Someone's about to fucking die!", "Rip and tear!")
 	if(affected_mob.hud_used != null)
@@ -48,16 +48,16 @@
 		game_plane_master_controller.add_filter("pcp_blur", 10, angular_blur_filter(0, 0, 0.7))
 	if(SPT_PROB(2.5, seconds_per_tick))
 		to_chat(affected_mob, span_warning("[high_message]"))
-	affected_mob.AdjustKnockdown(-2 SECONDS * REM * seconds_per_tick)
-	affected_mob.AdjustImmobilized(-2 SECONDS * REM * seconds_per_tick)
-	if(affected_mob.adjust_stamina_loss(-10 * REM * seconds_per_tick, updating_stamina = FALSE))
+	affected_mob.AdjustKnockdown(-2 SECONDS * seconds_per_tick * metabolization_ratio)
+	affected_mob.AdjustImmobilized(-2 SECONDS * seconds_per_tick * metabolization_ratio)
+	if(affected_mob.adjust_stamina_loss(-10 * seconds_per_tick * metabolization_ratio, updating_stamina = FALSE))
 		. = UPDATE_MOB_HEALTH
-	affected_mob.AdjustStun(-1 SECONDS * REM * seconds_per_tick) //this is absolutely rediculous
+	affected_mob.AdjustStun(-1 SECONDS * seconds_per_tick * metabolization_ratio) //this is absolutely rediculous
 	affected_mob.overlay_fullscreen("pcp_rage", /atom/movable/screen/fullscreen/color_vision/rage_color)
 	affected_mob.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED
 	if(SPT_PROB(3.5, seconds_per_tick))
 		affected_mob.emote(pick("scream","twitch"))
-	pcp_lifetime += 3 * REM * seconds_per_tick
+	pcp_lifetime += 3 * seconds_per_tick
 
 /datum/reagent/drug/pcp/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -76,11 +76,11 @@
 	affected_mob.Paralyze(pcp_lifetime,TRUE)
 	affected_mob.drop_all_held_items()
 
-/datum/reagent/drug/pcp/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
-	var/need_mob_update = affected_mob.adjust_tox_loss(2 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
-	affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART, (2 * REM * seconds_per_tick), required_organ_flag = affected_organ_flags)
-	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, (2 * REM * seconds_per_tick), required_organ_flag = affected_organ_flags)
-	need_mob_update += affected_mob.adjust_stamina_loss(15 * REM * seconds_per_tick, updating_stamina = FALSE) //reverses stamina loss
+/datum/reagent/drug/pcp/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
+	var/need_mob_update = affected_mob.adjust_tox_loss(2 * seconds_per_tick * metabolization_ratio, updating_health = FALSE, required_biotype = affected_biotype)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART, (2 * seconds_per_tick * metabolization_ratio), required_organ_flag = affected_organ_flags)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, (2 * seconds_per_tick * metabolization_ratio), required_organ_flag = affected_organ_flags)
+	need_mob_update += affected_mob.adjust_stamina_loss(15 * seconds_per_tick * metabolization_ratio, updating_stamina = FALSE) //reverses stamina loss
 	affected_mob.set_jitter_if_lower(5 SECONDS)
 	if(SPT_PROB(2.5, seconds_per_tick))
 		affected_mob.emote(pick("twitch","drool"))

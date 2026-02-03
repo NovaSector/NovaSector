@@ -264,7 +264,7 @@
  * Signal proc for [COMSIG_LIVING_LIFE].
  * Handles regenerating chemicals on life ticks.
  */
-/datum/antagonist/changeling/proc/on_life(datum/source, seconds_per_tick, times_fired)
+/datum/antagonist/changeling/proc/on_life(datum/source, seconds_per_tick)
 	SIGNAL_HANDLER
 
 	var/delta_time = DELTA_WORLD_TIME(SSmobs)
@@ -800,7 +800,7 @@
 	user.socks_color = chosen_profile.socks_color
 	user.bra_color = chosen_profile.bra_color
 	user.emissive_eyes = chosen_profile.emissive_eyes
-	user.dna.mutant_bodyparts = chosen_dna.mutant_bodyparts.Copy()
+	user.dna.mutant_bodyparts = LAZYCOPY(chosen_dna.mutant_bodyparts)
 	user.dna.body_markings = chosen_dna.body_markings.Copy()
 
 	qdel(user.selected_scream)

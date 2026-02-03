@@ -34,7 +34,6 @@
 	worn_icon = 'modular_nova/modules/gladiator/icons/berserk_suit.dmi'
 	icon_state = "berk_cape"
 	inhand_icon_state = "" //lul
-	uses_advanced_reskins = FALSE
 	resistance_flags = INDESTRUCTIBLE
 
 /obj/item/clothing/neck/warrior_cape/examine()
@@ -134,7 +133,7 @@
 	item_flags = NO_BLOOD_ON_ITEM
 	// aughhghghgh this really should be elementized but this works for now
 	var/faction_bonus_force = 40
-	var/static/list/nemesis_factions = list("mining", "boss")
+	var/static/list/nemesis_factions = list(FACTION_MINING, FACTION_BOSS)
 	/// how much stamina does it cost to roll
 	var/roll_stamcost = 10
 	/// how far do we roll?
@@ -146,7 +145,7 @@
 
 /obj/item/claymore/dragonslayer/attack(mob/living/target, mob/living/carbon/human/user)
 	var/is_nemesis_faction = FALSE
-	for(var/found_faction in target.faction)
+	for(var/found_faction in target.get_faction())
 		if(found_faction in nemesis_factions)
 			is_nemesis_faction = TRUE
 			force += faction_bonus_force

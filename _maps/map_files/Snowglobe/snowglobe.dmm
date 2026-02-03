@@ -5695,6 +5695,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/bot_red,
+/obj/machinery/vitals_reader/directional/west,
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 4
 	},
@@ -8270,7 +8271,7 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_y = 6;
 	pixel_x = 4
 	},
@@ -12552,7 +12553,6 @@
 "dqY" = (
 /obj/effect/landmark/start/roboticist,
 /obj/structure/cable,
-/obj/machinery/light/floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
@@ -14606,14 +14606,14 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = 4
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -4
 	},
 /obj/machinery/status_display/ai/directional/south,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = 1;
 	pixel_y = 5
 	},
@@ -15227,14 +15227,13 @@
 /obj/structure/table/optable{
 	name = "Robotics Operating Table"
 	},
-/obj/machinery/light/directional/east,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot_white{
 	color = "#D381C9"
 	},
-/obj/machinery/firealarm/directional/east,
+/obj/machinery/vitals_reader/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/science/robotics)
 "ecX" = (
@@ -18547,6 +18546,7 @@
 /obj/machinery/mech_bay_recharge_port{
 	dir = 8
 	},
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/circuit/red,
 /area/station/science/robotics/mechbay)
 "eXr" = (
@@ -26046,10 +26046,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/engineering/main)
-"gXm" = (
-/obj/machinery/digital_clock/directional/west,
-/turf/closed/wall,
-/area/station/medical/office)
 "gXo" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
@@ -37945,8 +37941,8 @@
 /area/station/hallway/primary/aftporthall)
 "kcR" = (
 /obj/machinery/stasis,
-/obj/machinery/defibrillator_mount/directional/east,
-/obj/machinery/light/directional/east,
+/obj/machinery/vitals_reader/directional/east,
+/obj/machinery/light/floor,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/treatment_center)
 "kde" = (
@@ -42117,7 +42113,7 @@
 	},
 /obj/item/multitool,
 /obj/structure/sign/calendar/directional/north,
-/obj/machinery/light/small/directional/south,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/science/robotics)
 "lgw" = (
@@ -43450,6 +43446,7 @@
 	dir = 6
 	},
 /obj/item/radio/intercom/directional/east,
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/science/robotics)
 "lAc" = (
@@ -50412,14 +50409,13 @@
 /obj/structure/table/optable{
 	name = "Robotics Operating Table"
 	},
-/obj/machinery/light/directional/north,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
-/obj/structure/sign/poster/official/periodic_table/directional/north,
 /obj/effect/turf_decal/bot_white{
 	color = "#D381C9"
 	},
+/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -51604,14 +51600,14 @@
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -8
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -7;
 	pixel_y = 4
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -5;
 	pixel_y = 7
 	},
@@ -57093,6 +57089,7 @@
 	dir = 1
 	},
 /obj/item/radio/intercom/directional/north,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -66226,6 +66223,7 @@
 /obj/machinery/mech_bay_recharge_port{
 	dir = 8
 	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/circuit/red,
 /area/station/science/robotics/mechbay)
 "rRR" = (
@@ -67291,6 +67289,7 @@
 	pixel_x = -7;
 	pixel_y = 3
 	},
+/obj/machinery/defibrillator_mount/directional/east,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/treatment_center)
 "scS" = (
@@ -67948,11 +67947,16 @@
 "slB" = (
 /obj/machinery/shower/directional/south,
 /obj/structure/curtain,
-/obj/item/radio/intercom/directional/west,
+/obj/item/radio/intercom/directional/west{
+	pixel_y = 2
+	},
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 1
 	},
 /obj/structure/drain,
+/obj/machinery/light_switch/directional/west{
+	pixel_y = -7
+	},
 /turf/open/floor/iron/white/smooth_corner,
 /area/station/medical/surgery)
 "slJ" = (
@@ -77026,7 +77030,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 6
 	},
-/obj/item/infuser_book,
+/obj/item/tgui_book/manual/infuser,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -10;
 	pixel_y = 5
@@ -77374,13 +77378,13 @@
 /area/station/maintenance/dorm_room)
 "uJJ" = (
 /obj/machinery/airalarm/directional/south,
-/obj/machinery/light_switch/directional/east,
 /obj/effect/turf_decal/tile/blue/anticorner,
 /obj/machinery/computer/operating{
 	dir = 8
 	},
 /obj/effect/turf_decal/bot_red,
 /obj/effect/mapping_helpers/airalarm/surgery,
+/obj/machinery/vitals_reader/directional/east,
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 1
 	},
@@ -80315,6 +80319,7 @@
 	pixel_x = -4;
 	pixel_y = 8
 	},
+/obj/machinery/defibrillator_mount/directional/north,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/treatment_center)
 "vyv" = (
@@ -84175,6 +84180,7 @@
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/anesthetic_mix,
+/obj/machinery/digital_clock/directional/north,
 /turf/open/floor/iron,
 /area/station/medical/treatment_center)
 "wys" = (
@@ -267154,7 +267160,7 @@ spo
 szn
 hNV
 nuP
-gXm
+nuP
 fsa
 hDc
 fsa

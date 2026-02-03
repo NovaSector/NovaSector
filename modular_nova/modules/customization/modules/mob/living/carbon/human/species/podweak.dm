@@ -6,15 +6,15 @@
 		TRAIT_PLANT_SAFE,
 		TRAIT_LITERATE,
 	)
-	mutant_bodyparts = list()
+
 	mutant_organs = list() // Removes the pod hair organ from here, messes up unit tests (we handle that differently here)
 	payday_modifier = 1.0
 
 /datum/species/pod/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"pod_hair" = list("Ivy", TRUE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_POD_HAIR = MUTPART_BLUEPRINT("Ivy", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE)
 	)
 
 /datum/species/pod/podweak
@@ -30,7 +30,7 @@
 
 	always_customizable = FALSE
 
-/datum/species/pod/podweak/spec_life(mob/living/carbon/human/H, seconds_per_tick, times_fired)
+/datum/species/pod/podweak/spec_life(mob/living/carbon/human/H, seconds_per_tick)
 	. = ..()
 	if(H.stat != CONSCIOUS)
 		return
@@ -58,7 +58,7 @@
 		new /obj/effect/temp_visual/annoyed/plant(get_turf(H))
 
 /datum/species/pod/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.mutant_bodyparts[FEATURE_POD_HAIR] = list(MUTANT_INDEX_NAME = "Ivy", MUTANT_INDEX_COLOR_LIST = list(COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME))
+	human.dna.mutant_bodyparts[FEATURE_POD_HAIR] = human.dna.species.build_mutant_part("Ivy", list(COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)
 

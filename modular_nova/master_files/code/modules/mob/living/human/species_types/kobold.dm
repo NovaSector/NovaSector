@@ -1,14 +1,14 @@
 /datum/species/monkey/kobold
 	name = "\improper Kobold"
-	id = SPECIES_KOBOLD
+	id = SPECIES_KOBOLD_PRIMITIVE
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
 	mutant_organs = list()
-	mutant_bodyparts = list()
+
 	mutanttongue = /obj/item/organ/tongue/lizard
 	mutanteyes = /obj/item/organ/eyes/lizard
-	skinned_type = /obj/item/stack/sheet/animalhide/lizard
+	skinned_type = /obj/item/stack/sheet/animalhide/carbon/lizard
 	meat = /obj/item/food/meat/slab/human/mutant/lizard
-	knife_butcher_results = list(/obj/item/food/meat/slab/human/mutant/lizard = 5, /obj/item/stack/sheet/animalhide/lizard = 1)
+	knife_butcher_results = list(/obj/item/food/meat/slab/human/mutant/lizard = 5, /obj/item/stack/sheet/animalhide/carbon/lizard = 1)
 	inherent_traits = list(
 		TRAIT_NO_AUGMENTS,
 		TRAIT_NO_BLOOD_OVERLAY,
@@ -18,6 +18,8 @@
 		TRAIT_WEAK_SOUL,
 		TRAIT_MUTANT_COLORS,
 	)
+	no_equip_flags = null
+	species_cookie = /obj/item/food/meat/slab
 	coldmod = 1.5
 	heatmod = 0.67
 	death_sound = 'sound/mobs/humanoids/lizard/deathsound.ogg'
@@ -34,14 +36,14 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/kobold,
 	)
 	exotic_bloodtype = BLOOD_TYPE_LIZARD
-	payday_modifier = 1.35
+	payday_modifier = 1
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Smooth", TRUE),
-		FEATURE_SNOUT = list("Round", TRUE),
-		FEATURE_FRILLS = list("Short", FALSE),
-		FEATURE_HORNS = list("Curled", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Smooth", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Round", is_randomizable = TRUE),
+		FEATURE_FRILLS = MUTPART_BLUEPRINT("Short", is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT("Curled", is_randomizable = FALSE),
 	)
 
 /datum/species/monkey/kobold/randomize_features()
@@ -50,12 +52,8 @@
 	features[FEATURE_MUTANT_COLOR] = main_color
 	features[FEATURE_MUTANT_COLOR_TWO] = main_color
 	features[FEATURE_MUTANT_COLOR_THREE] = main_color
-	features -= "tail"
+	features -= FEATURE_TAIL
 	return features
-
-/datum/species/monkey/kobold/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
-	. = ..()
-	human_who_gained_species.dna.add_mutation(/datum/mutation/clever, MUTATION_SOURCE_SPECIES_INNATE)
 
 /datum/species/monkey/kobold/get_scream_sound(mob/living/carbon/human/kobold)
 	return pick(
@@ -73,7 +71,7 @@
 /datum/species/monkey/kobold/get_species_description()
 	return "Kobolds are diminutive, reptilian creatures as related to Lizardpeople as monkeys are to humans."
 
-/datum/species/monkey/get_species_lore()
+/datum/species/monkey/kobold/get_species_lore()
 	return list(
 		"A smaller subspecies of lizardperson, tends to be rather excitable in nature.",
 	)
@@ -103,20 +101,17 @@
 			SPECIES_PERK_DESC = "Kobolds can crawl through the vent and scrubber networks while wearing no clothing. \
 				Stay out of the kitchen!",
 		),
-		list(
-			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
-			SPECIES_PERK_ICON = "paw",
-			SPECIES_PERK_NAME = "Simple Squamate",
-			SPECIES_PERK_DESC = "Kobolds are primitive humanoids, and can't do most things a humanoid can do. Computers are impossible, \
-				complex machines are right out, and most clothes don't fit your smaller form.",
-		),
-		list(
-			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
-			SPECIES_PERK_ICON = "capsules",
-			SPECIES_PERK_NAME = "Mutadone Averse",
-			SPECIES_PERK_DESC = "Kobolds are reverted into normal lizardpeople upon being exposed to Mutadone.",
-		),
 	)
+
+/datum/species/monkey/kobold/create_pref_language_perk()
+	var/list/to_add = list()
+
+	to_add += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "comment",
+		SPECIES_PERK_NAME = "Primitive Tongue",
+		SPECIES_PERK_DESC = "You are able to understand [/datum/language/kobold::name].",
+	))
 
 	return to_add
 
@@ -128,10 +123,22 @@
 	kobold.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	kobold.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
 	kobold.dna.features[FEATURE_MUTANT_COLOR_THREE] = third_color
-	kobold.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_HORNS] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_FRILLS] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_SNOUT] = kobold.dna.species.build_mutant_part("Round", list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_TAIL] = kobold.dna.species.build_mutant_part("Smooth", list(second_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_HORNS] = kobold.dna.species.build_mutant_part("Curled", list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_FRILLS] = kobold.dna.species.build_mutant_part("Short", list(main_color, main_color, main_color))
 	regenerate_organs(kobold, src, visual_only = TRUE)
 	kobold.update_body(TRUE)
 
+// Same as regular kobolds except they cannot be butchered, and are smart enough to use devices (debatable)
+/datum/species/monkey/kobold/roundstart
+	id = SPECIES_KOBOLD
+	examine_limb_id = SPECIES_KOBOLD
+	mutantbrain = /obj/item/organ/brain/lizard
+	knife_butcher_results = null
+	inherent_traits = list(
+		TRAIT_NO_AUGMENTS,
+		TRAIT_NO_BLOOD_OVERLAY,
+		TRAIT_VENTCRAWLER_NUDE,
+		TRAIT_MUTANT_COLORS,
+	)

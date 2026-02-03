@@ -60,6 +60,7 @@
 				/obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt = 5,
 				/obj/item/clothing/under/shorts/nova/shorts_ripped = 5,
 				/obj/item/clothing/under/pants/nova/yoga = 5,
+				/obj/item/clothing/under/pants/nova/wide_leg = 5,
 				/obj/item/clothing/under/misc/nova/mechanic = 5,
 				/obj/item/clothing/under/misc/bluetracksuit = 5,
 				/obj/item/clothing/under/suit/nova/recolorable = 5,
@@ -88,6 +89,7 @@
 				/obj/item/clothing/under/dress/skirt/nova/mini_skirt = 5,
 				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
 				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
+				/obj/item/clothing/under/misc/nova/gear_harness = 5,
 			),
 		),
 
@@ -150,6 +152,7 @@
 				/obj/item/clothing/under/greyscale/overalls/skirt = 5,
 				/obj/item/clothing/suit/apron/overalls_loneskirt = 5,
 				/obj/item/clothing/suit/nova/sweater = 5,
+				/obj/item/clothing/suit/nova/sweater/bow = 5,
 				/obj/item/clothing/suit/nova/overcoat = 5,
 			),
 		),
@@ -167,6 +170,7 @@
 				/obj/item/clothing/shoes/sport_boots = 5,
 				/obj/item/clothing/shoes/cowboy/laced/recolorable = 5,
 				/obj/item/clothing/shoes/jackboots/knee = 5,
+				/obj/item/clothing/shoes/jackboots/knee/recolorable = 5,
 				/obj/item/clothing/shoes/jackboots/recolorable = 5,
 				/obj/item/clothing/shoes/jackboots/duckboots = 5,
 			),
@@ -182,6 +186,10 @@
 				/obj/item/clothing/mask/gas/respirator = 5,
 				/obj/item/clothing/mask/surgical/greyscale = 5,
 				/obj/item/clothing/glasses/blindfold/color = 5,
+				/obj/item/storage/backpack/udc = 5,
+				/obj/item/storage/backpack/tinypaka = 5,
+				/obj/item/storage/backpack/tinypakb = 5,
+				/obj/item/storage/backpack/tinypakc = 5,
 			)
 		)
 	)

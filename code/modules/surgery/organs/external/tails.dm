@@ -67,9 +67,10 @@
 	tail_spines_overlay.tail_spine_key = tail_spine_key
 	// NOVA EDIT ADDITION START
 	if(!bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES])
-		bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600"))
+		bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES] = bodypart.owner.dna.species.build_mutant_part(SPRITE_ACCESSORY_NONE, list("#886600", "#886600", "#886600"))
 	// NOVA EDIT ADDITION END
-	var/feature_name = bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES][MUTANT_INDEX_NAME] // NOVA EDIT CHANGE - ORIGINAL: var/feature_name = bodypart.owner.dna.features[FEATURE_SPINES] //tail spines don't live in DNA, but share feature names with regular spines
+	var/datum/mutant_bodypart/mutant_bodypart = bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES]
+	var/feature_name = mutant_bodypart.name // NOVA EDIT CHANGE - ORIGINAL: var/feature_name = bodypart.owner.dna.features[FEATURE_SPINES] //tail spines don't live in DNA, but share feature names with regular spines
 	tail_spines_overlay.set_appearance_from_dna(bodypart.owner.dna, feature_name, feature_key = FEATURE_SPINES) // NOVA EDIT CHANGE - ORIGINAL: tail_spines_overlay.set_appearance_from_name(feature_name)
 	bodypart.add_bodypart_overlay(tail_spines_overlay)
 

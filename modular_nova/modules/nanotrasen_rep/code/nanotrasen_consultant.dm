@@ -110,7 +110,7 @@
 
 /obj/item/modular_computer/pda/nanotrasen_consultant
 	name = "nanotrasen consultant's PDA"
-	inserted_disk = /obj/item/computer_disk/command/captain
+	inserted_disk = /obj/item/disk/computer/command/captain
 	inserted_item = /obj/item/pen/fountain/captain
 	greyscale_colors = "#017941#0060b8"
 
@@ -149,7 +149,7 @@
 	new /obj/item/clothing/neck/petcollar(src)
 	new /obj/item/pet_carrier(src)
 	new /obj/item/clothing/suit/armor/vest(src)
-	new /obj/item/computer_disk/command/captain(src)
+	new /obj/item/disk/computer/command/captain(src)
 	new /obj/item/radio/headset/heads/nanotrasen_consultant/alt(src)
 	new /obj/item/radio/headset/heads/nanotrasen_consultant(src)
 	new /obj/item/storage/photo_album/personal(src)

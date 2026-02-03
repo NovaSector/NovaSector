@@ -12,7 +12,7 @@
 	)
 	mutanttongue = /obj/item/organ/tongue/cat/tajaran
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list()
+
 	payday_modifier = 1.0
 	species_language_holder = /datum/language_holder/tajaran
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -28,10 +28,10 @@
 
 /datum/species/tajaran/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_TAIL = list("Cat (Big)", TRUE),
-		FEATURE_SNOUT = list("Mammal, Short", TRUE),
-		FEATURE_EARS = list("Cat, Alert", TRUE),
-		FEATURE_LEGS = list("Normal Legs", FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Cat (Big)", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Mammal, Short", is_randomizable = TRUE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Cat, Alert", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /obj/item/organ/tongue/cat/tajaran
@@ -87,9 +87,9 @@
 	cat.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	cat.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
 	cat.dna.features[FEATURE_MUTANT_COLOR_THREE] = second_color
-	cat.dna.mutant_bodyparts[FEATURE_SNOUT] = list(MUTANT_INDEX_NAME = "Mammal, Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
-	cat.dna.mutant_bodyparts[FEATURE_TAIL] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	cat.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Cat, Alert", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
+	cat.dna.mutant_bodyparts[FEATURE_SNOUT] = cat.dna.species.build_mutant_part("Mammal, Short", list(main_color, main_color, main_color))
+	cat.dna.mutant_bodyparts[FEATURE_TAIL] = cat.dna.species.build_mutant_part("Cat", list(second_color, main_color, main_color))
+	cat.dna.mutant_bodyparts[FEATURE_EARS] = cat.dna.species.build_mutant_part("Cat, Alert", list(main_color, second_color, second_color))
 	regenerate_organs(cat, src, visual_only = TRUE)
 	cat.update_body(TRUE)
 

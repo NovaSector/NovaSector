@@ -36,18 +36,18 @@
 
 /datum/species/insectoid/get_default_mutant_bodyparts()
 	return list(
-		FEATURE_EARS = list("Royal Antenna", FALSE),
-		FEATURE_TAIL = list("Insectoid", FALSE),
-		FEATURE_WINGS = list("Insectoid II", FALSE),
-		FEATURE_FLUFF = list("Insectoid", FALSE),
-		FEATURE_LEGS = list(NORMAL_LEGS, FALSE),
-		FEATURE_TAUR = list("None", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT("Royal Antenna", is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Insectoid", is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT("Insectoid II", is_randomizable = FALSE),
+		FEATURE_FLUFF = MUTPART_BLUEPRINT("Insectoid", is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/insectoid/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#292929"
-	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Royal Antenna", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
-	human_for_preview.dna.mutant_bodyparts[FEATURE_FLUFF] = list(MUTANT_INDEX_NAME = "Insectoid", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = human_for_preview.dna.species.build_mutant_part("Royal Antenna")
+	human_for_preview.dna.mutant_bodyparts[FEATURE_FLUFF] = human_for_preview.dna.species.build_mutant_part("Insectoid")
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
 

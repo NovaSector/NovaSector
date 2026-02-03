@@ -276,7 +276,7 @@
 				return FALSE
 
 			if(sending_virus)
-				var/obj/item/computer_disk/virus/disk = computer.inserted_disk
+				var/obj/item/disk/computer/virus/disk = computer.inserted_disk
 				if(!istype(disk))
 					return FALSE
 
@@ -376,7 +376,7 @@
 	data["selected_photo_path"] = !isnull(selected_image) ? SSassets.transport.get_asset_url(selected_image) : null
 	data["on_spam_cooldown"] = !can_send_everyone_message()
 
-	var/obj/item/computer_disk/virus/disk = computer.inserted_disk
+	var/obj/item/disk/computer/virus/disk = computer.inserted_disk
 	if(istype(disk))
 		data["virus_attach"] = TRUE
 		data["sending_virus"] = sending_virus
@@ -714,6 +714,13 @@
 	if(computer.loc && isliving(computer.loc))
 		receievers += computer.loc
 
+	// NOVA EDIT ADDITION START - Synths get notified if their brain PDA is messaged
+	if(istype(computer, /obj/item/modular_computer/pda/synth))
+		var/obj/item/organ/brain/synth/brain_loc = computer.loc
+		var/mob/living/carbon/owner = brain_loc?.bodypart_owner?.owner
+		if(istype(owner))
+			receievers += owner
+	// NOVA EDIT ADDITION END
 	// resolving w/o nullcheck here, assume the messenger exists if a real person sent a message
 	var/datum/computer_file/program/messenger/sender_messenger = chat.recipient?.resolve()
 

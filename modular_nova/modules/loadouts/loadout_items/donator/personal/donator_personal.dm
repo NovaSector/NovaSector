@@ -964,6 +964,26 @@
 	item_path = /obj/item/clothing/suit/admiral_coat
 	ckeywhitelist = list("pyritechimera", "sirbillyblacksmith", "darkinite")
 
+/datum/loadout_item/head/gabney
+	name = "Triumvirate Officer's Cap"
+	item_path = /obj/item/clothing/head/gabeny
+	ckeywhitelist = list("pyritechimera", "gabenyfox", "draegonlore")
+
+/datum/loadout_item/under/gabney
+	name = "Triumvirate Officer's Formal Uniform"
+	item_path = /obj/item/clothing/under/gabeny
+	ckeywhitelist = list("pyritechimera", "gabenyfox", "draegonlore")
+
+/datum/loadout_item/suit/labcoat_gabney
+	name = "Triumvirate MedSci Officer's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/gabeny
+	ckeywhitelist = list("pyritechimera", "gabenyfox", "draegonlore")
+
+/datum/loadout_item/suit/gabney
+	name = "Triumvirate Officer's Great Coat"
+	item_path = /obj/item/clothing/suit/jacket/gabeny
+	ckeywhitelist = list("pyritechimera", "gabenyfox", "draegonlore")
+
 /datum/loadout_item/suit/merctac
 	name = "MercTac Hoodie"
 	item_path = /obj/item/clothing/suit/hooded/merctac_hoodie
@@ -1003,3 +1023,8 @@
 	name = "AK-105 SBR Conversion Kit"
 	item_path = /obj/item/device/custom_kit/ak105
 	ckeywhitelist = list("latinfishy", "hollandaisesauce", "orbisa")
+
+/datum/loadout_item/pocket_items/paragon_box
+	name = "The Homo Ludens Flag suit, nicknamed 'Paragon'"
+	item_path = /obj/item/mod/skin_applier/paragon
+	ckeywhitelist = list("kaynite")

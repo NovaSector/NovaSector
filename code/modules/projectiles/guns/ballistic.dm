@@ -9,7 +9,6 @@
 	pickup_sound = 'sound/items/handling/gun/gun_pick_up.ogg'
 	drop_sound = 'sound/items/handling/gun/gun_drop.ogg'
 	sound_vary = TRUE
-	unique_reskin_changes_base_icon_state = TRUE
 
 	min_recoil = 0.1
 
@@ -222,11 +221,10 @@
 	. = ..()
 
 	if(selector_switch_icon)
-		switch(burst_fire_selection)
-			if(FALSE)
-				. += "[initial(icon_state)]_semi"
-			if(TRUE)
-				. += "[initial(icon_state)]_burst"
+		if(burst_fire_selection)
+			. += "[initial(icon_state)]_burst"
+		else
+			. += "[initial(icon_state)]_semi"
 
 	if(show_bolt_icon)
 		if (bolt_type == BOLT_TYPE_LOCKING)
