@@ -46324,6 +46324,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/engineering/lobby)
+"qzT" = (
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/iron/dark,
+/area/station/commons/lounge)
 "qzW" = (
 /obj/structure/table/wood,
 /obj/item/inspector{
@@ -92363,7 +92367,7 @@ bap
 bbv
 liQ
 jdA
-liQ
+qzT
 ajX
 jLT
 kDX
