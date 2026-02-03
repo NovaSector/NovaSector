@@ -1,0 +1,6 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - image: "Resprited the advanced energy gun. Credits to Zydras for the original e-gun sprite, and /vg/station for their variant of the advanced energy gun, which the new sprite takes some design notes from."
+  - bugfix: "Antique laser guns (e.g. the captain's laser gun) now have their intended charge delay of 8 ticks, down from 15."
+  - balance: "Advanced energy guns now have a charge delay of 5 ticks, down from 15, and recharge 3 shots per cycle (15% of the cell) up from 1 shot per cycle (5% of the cell)."
