@@ -80,7 +80,7 @@
 	race = /datum/species/golem/weak
 
 /mob/living/carbon/human/species/monkey/kobold
-	race = /datum/species/monkey/kobold
+	race = /datum/species/monkey/kobold/roundstart
 
 /mob/living/carbon/human/verb/toggle_undies()
 	set category = "IC"

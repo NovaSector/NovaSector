@@ -610,6 +610,12 @@ export const feature_hair_opacity: Feature<number> = {
   component: FeatureNumberInput,
 };
 
+export const hair_emissive: Feature<boolean> = {
+  name: 'Hair Emissive',
+  description: 'Emissive parts glow in the dark.',
+  component: CheckboxInput,
+};
+
 export const neck_acc_toggle: FeatureToggle = {
   name: 'Neck Accessory',
   component: CheckboxInput,

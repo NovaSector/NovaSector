@@ -49,6 +49,12 @@
 		"You tap your pen softly against the book, then resume writing...",
 	)
 
+	/// Tracks reading progress per user (by ckey) so they can resume if interrupted
+	var/list/reading_progress
+
+	/// Tracks writing progress per user (by ckey) so they can resume if interrupted
+	var/list/writing_progress
+
 	var/static/list/learning_sentences = list(
 		"You look at the new word and try to gain context...",
 		"You gaze down at the sentence, and wonder how the author arrived at this conclusion...",
@@ -60,6 +66,17 @@
 
 /obj/item/mentoring_book/limited
 	limit_uses = TRUE
+
+/// A mentoring book that comes pre-written with a specific language
+/obj/item/mentoring_book/limited/preset_language
+	/// The language type to pre-load into the book
+	var/preset_language_type = /datum/language/common
+
+/obj/item/mentoring_book/limited/preset_language/Initialize(mapload)
+	. = ..()
+	if(preset_language_type)
+		taught_language = preset_language_type
+		name = "mentoring book - [initial(taught_language.name)]"
 
 /obj/item/mentoring_book/examine(mob/user)
 	. = ..()
@@ -91,7 +108,7 @@
 		. += span_notice("This book can teach you sign language.")
 
 	if(!(taught_skill || taught_language || teach_sign))
-		. += span_notice("Pondering about yet to be filled pages can give you insights in <b>Language skill<b>.")
+		. += span_notice("The pages are blank.")
 
 	. += span_notice("Using a pen will allow you to impart your knowledge about language or skills to the book!")
 
@@ -121,16 +138,37 @@
 
 	return TRUE
 
+/**
+ * Performs a progress-tracked loop of timed sentences, saving progress if interrupted.
+ *
+ * Arguments:
+ * * user - The mob performing the action
+ * * progress_list - The list to track progress in (reading_progress or writing_progress)
+ * * sentence_list - The list of sentences to randomly pick from
+ * * iterations - How many successful iterations are needed (default 5)
+ * * time_per_iteration - How long each iteration takes (default 60 SECONDS)
+ * * resume_message - Optional message shown when resuming from saved progress
+ *
+ * Returns TRUE if all iterations completed, FALSE if interrupted
+ */
+/obj/item/mentoring_book/proc/do_progress_loop(mob/user, list/progress_list, list/sentence_list, iterations = 5, time_per_iteration = 60 SECONDS, resume_message = "You resume from where you left off...")
+	var/user_key = user.ckey || REF(user)
+	var/starting_iteration = LAZYACCESS(progress_list, user_key) || 1
+
+	if(starting_iteration > 1)
+		to_chat(user, span_notice(resume_message))
+
+	for(var/current_iteration in starting_iteration to iterations)
+		if(!timed_sentence(user, pick(sentence_list), time_per_iteration))
+			LAZYSET(progress_list, user_key, current_iteration)
+			return FALSE
+
+	LAZYREMOVE(progress_list, user_key) // Clear progress on completion
+	return TRUE
+
 /obj/item/mentoring_book/attack_self(mob/user, modifiers)
 	if(isnull(taught_skill) && isnull(taught_language) && !teach_sign)
-		for(var/scribble_iteration in 1 to 50)
-			var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/language, SKILL_SPEED_MODIFIER)
-			if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
-				to_chat(user, span_notice("You put [src] down."))
-				return
-
-			give_experience(user)
-
+		to_chat(user, span_notice("The pages are blank. Use a pen to write knowledge into the book first."))
 		return
 
 	if(taught_skill)
@@ -139,16 +177,26 @@
 			to_chat(user, span_notice("You already know all that is in this book."))
 			return
 
-		var/learning_exp = 10
+		var/user_key = user.ckey || REF(user)
+		var/starting_iteration = LAZYACCESS(reading_progress, user_key) || 0
+		var/learning_exp = 10 + (starting_iteration * 5) // Resume exp calculation from saved progress
+		var/current_iteration = starting_iteration
+
+		if(starting_iteration > 0)
+			to_chat(user, span_notice("You resume reading from where you left off..."))
+
 		while(user_level < author_level)
-			if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
-				if(learning_exp > 10) // don't consume any charges if we have not gained any xp yet.
+			if(!timed_sentence(user, pick(learning_sentences), 60 SECONDS))
+				LAZYSET(reading_progress, user_key, current_iteration)
+				if(current_iteration > 0) // don't consume any charges if we have not gained any xp yet.
 					check_limit(user)
 				return
 			user.mind?.adjust_experience(taught_skill, learning_exp)
 			user_level = user.mind?.get_skill_level(taught_skill)
 			learning_exp += 5 //this means that it won't take 40 minutes to get from beginner to master... I definitely wouldn't know ;-;
+			current_iteration++
 
+		LAZYREMOVE(reading_progress, user_key) // Clear progress on completion
 		to_chat(user, span_notice("You have learned all you can learn from [src]."))
 		check_limit(user)
 		return
@@ -158,9 +206,8 @@
 			to_chat(user, span_notice("You already know [initial(taught_language.name)]."))
 			return
 
-		for(var/language_learning in 1 to 5)
-			if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
-				return
+		if(!do_progress_loop(user, reading_progress, learning_sentences, 5, 60 SECONDS, "You resume reading from where you left off..."))
+			return
 
 		user.remove_blocked_language(taught_language, source = LANGUAGE_BABEL)
 		user.grant_language(taught_language, source = LANGUAGE_BABEL)
@@ -175,9 +222,8 @@
 				to_chat(living_user, span_warning("You already know all about sign language!"))
 				return
 
-			for(var/language_learning in 1 to 5)
-				if(!timed_sentence(living_user, pick(learning_sentences), 6 SECONDS))
-					return
+			if(!do_progress_loop(living_user, reading_progress, learning_sentences, 5, 60 SECONDS, "You resume reading from where you left off..."))
+				return
 
 			living_user.add_quirk(/datum/quirk/item_quirk/signer)
 			to_chat(living_user, span_notice("You have fully learned sign language!"))
@@ -189,9 +235,8 @@
 				to_chat(user, span_warning("You already know all about sign language!"))
 				return
 
-			for(var/language_learning in 1 to 5)
-				if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
-					return
+			if(!do_progress_loop(user, reading_progress, learning_sentences, 5, 60 SECONDS, "You resume reading from where you left off..."))
+				return
 
 			user.AddComponent(/datum/component/sign_language)
 			to_chat(user, span_notice("You have fully learned sign language!"))
@@ -248,9 +293,8 @@
 					to_chat(user, span_notice("You decide against writing."))
 					return ITEM_INTERACT_BLOCKING
 
-				for(var/language_iteration in 1 to 5)
-					if(!timed_sentence(user, pick(writing_sentences), 6 SECONDS))
-						return ITEM_INTERACT_BLOCKING
+				if(!do_progress_loop(user, writing_progress, writing_sentences, 5, 60 SECONDS, "You resume writing from where you left off..."))
+					return ITEM_INTERACT_BLOCKING
 
 				to_chat(user, span_notice("You finish writing inside the book about your language."))
 				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
@@ -285,9 +329,8 @@
 					to_chat(user, span_warning("You are not skilled enough to write about this skill!"))
 					return ITEM_INTERACT_BLOCKING
 
-				for(var/skill_iteration in 1 to 5)
-					if(!timed_sentence(user, pick(writing_sentences), 6 SECONDS))
-						return ITEM_INTERACT_BLOCKING
+				if(!do_progress_loop(user, writing_progress, writing_sentences, 5, 60 SECONDS, "You resume writing from where you left off..."))
+					return ITEM_INTERACT_BLOCKING
 
 				to_chat(user, span_notice("You finish writing inside the book about your skill."))
 				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)

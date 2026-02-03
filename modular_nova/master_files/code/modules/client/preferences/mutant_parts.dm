@@ -239,7 +239,7 @@
 	savefile_key = "feature_ears"
 	relevant_mutant_bodypart = FEATURE_EARS
 	type_to_check = /datum/preference/toggle/mutant_toggle/ears
-	default_accessory_type = /datum/sprite_accessory/ears/none
+	default_accessory_type = /datum/sprite_accessory/ears/external/none
 
 /datum/preference/tri_color/ears
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -501,7 +501,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_screen_color"
 	relevant_mutant_bodypart = FEATURE_SYNTH_SCREEN
-	priority = PREFERENCE_PRIORITY_SPECIES
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES // This needs to run AFTER the choiced so it can apply before insertion, but before species.
 
 /datum/preference/toggle/emissive/ipc_screen_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -578,9 +578,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_chassis_color"
 	relevant_mutant_bodypart = FEATURE_SYNTH_CHASSIS
-	priority = PREFERENCE_PRIORITY_SPECIES	// This needs to run AFTER the choiced so it can apply before insertion.
-	// We have very little control over ordering outside of this, luckily this is alphabetically before species so it works.
-	// Prefs code is the fucking worst, I hate it here.
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES // This needs to run AFTER the choiced so it can apply before insertion, but before species.
 
 /// IPC Head
 
@@ -616,7 +614,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_head_color"
 	relevant_mutant_bodypart = FEATURE_SYNTH_HEAD
-	priority = PREFERENCE_PRIORITY_SPECIES
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES // This needs to run AFTER the choiced so it can apply before insertion, but before species.
 
 // Synth Hair Opacity
 
