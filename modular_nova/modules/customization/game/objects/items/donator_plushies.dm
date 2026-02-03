@@ -972,4 +972,4 @@
 	icon_state = "percival-1"
 	squeak_override = list(
 		'sound/items/handling/surgery/saw.ogg' = 1,
-		)
+	)
