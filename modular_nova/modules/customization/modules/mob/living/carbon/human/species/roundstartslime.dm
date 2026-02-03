@@ -141,7 +141,7 @@
 	)
 	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
 		for(var/datum/wound/iter_wound as anything in organ_owner.all_wounds)
-			iter_wound.on_xadone(4 * REM * seconds_per_tick)
+			iter_wound.on_xadone(2 * seconds_per_tick)
 			organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
 		if(organ_owner.get_blood_volume() > BLOOD_VOLUME_SLIME_SPLIT)
 			organ_owner.adjust_organ_loss(
@@ -627,7 +627,7 @@
 	var/oversized_user = FALSE
 	///What text is shown to others when the person uses the ability?
 	var/shapeshift_text = "gains a look of concentration while standing perfectly still. Their body seems to shift and starts getting more goo-like."
-	///List containing all of the avalible parts
+	///List containing all of the available parts
 	var/static/list/available_choices
 	/// Icon for "Body Colors" alteration button.
 	var/bodycolours_icon

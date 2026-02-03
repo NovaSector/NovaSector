@@ -104,7 +104,7 @@
 
 
 /obj/machinery/stasissleeper/process()
-	if( !( occupant && isliving(occupant) && check_nap_violations() ) )
+	if(!(occupant && isliving(occupant)))
 		use_power = IDLE_POWER_USE
 		return
 	var/mob/living/L_occupant = occupant
