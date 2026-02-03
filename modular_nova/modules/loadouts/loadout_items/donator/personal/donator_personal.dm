@@ -1044,5 +1044,5 @@
 
 /datum/loadout_item/pocket_items/espatier
 	name = "dated Espatier holster"
-	item_path = /obj/item/storage/belt/espatiers
+	item_path = /obj/item/storage/belt/espatier
 	ckeywhitelist = list("PyriteChimera", "Darkinite", "Deadmon_wonderland", "Nonplayer775", "Rilomatic")
