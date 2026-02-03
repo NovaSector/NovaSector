@@ -2593,19 +2593,19 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	. = ..()
 	allowed = GLOB.security_vest_allowed
 
-/obj/item/storage/belt/celpatier
-	name = "celpatier"
+/obj/item/storage/belt/espatier
+	name = "Dated Espatier holster"
 	desc = "An old outdated holster used by the Sol Federation Espatiers during the Rimward War \
 	with a sidearm holster and four pouches capable of containing anything from ammo and meds, \
 	to lucky charms. This one's been refurbished DarkRilo Apparel, though it's clearly been through a lot."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
-	icon_state = "celpatier"
-	worn_icon_state = "celpatier"
+	icon_state = "espatier"
+	worn_icon_state = "espatier"
 	content_overlays = TRUE
-	storage_type = /datum/storage/holster/celpatier
+	storage_type = /datum/storage/holster/espatier
 
-/datum/storage/holster/celpatier
+/datum/storage/holster/espatier
 	max_slots = 5
 	max_limited_store = 1
 	max_specific_storage = 5
@@ -2614,7 +2614,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	open_sound_vary = TRUE
 	rustle_sound = null
 
-/datum/storage/holster/celpatier/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
+/datum/storage/holster/espatier/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
 	. = ..()
 	set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol/zashch,
@@ -2625,26 +2625,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		/obj/item/healthanalyzer/advanced,
 		/obj/item/door_remote, //All Command door remote
 		/obj/item/anomaly_neutralizer,
-		/obj/item/food/donut, // donut and plain
-		/obj/item/seeds, //All seeds
 		/obj/item/pen, //All pen
 		/obj/item/stamp, //All stamps
 		/obj/item/paper, //All paper
 		/obj/item/clipboard,
 		/obj/item/folder,
 		/obj/item/reagent_containers/hypospray/medipen, //All medipen
-		/obj/item/stack/medical, //Include Bonegel
 		/obj/item/stack/sticky_tape/surgical,
 		/obj/item/reagent_containers/cup/vial/small,
 		/obj/item/reagent_containers/cup/vial/large,
 		/obj/item/storage/pill_bottle,
-		/obj/item/radio/headset, //Does not include Bowman Headset
 		/obj/item/radio,
 		/obj/item/restraints/handcuffs, //include cable
 		/obj/item/grenade/flashbang,
-		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/knife/combat/throwing,
-		/obj/item/clothing/glasses/regular,
 		/obj/item/binoculars,
 		/obj/item/gps,
 		/obj/item/experi_scanner,
@@ -2652,21 +2646,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		/obj/item/t_scanner/adv_mining_scanner, // Automatic and advanced mining scanner
 		/obj/item/stack/cable_coil,
 		/obj/item/reagent_containers/cup/bottle,
-		/obj/item/reagent_containers/dropper,
 		/obj/item/hypospray,
 		/obj/item/reagent_containers/cup/glass/flask,
 		/obj/item/storage/fancy/cigarettes,
 		/obj/item/cigarette,
 		/obj/item/lighter,
-		/obj/item/melee/energy/sword,
 		/obj/item/reagent_containers/cup/beaker,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/flashlight,
 		/obj/item/hand_tele,
-		/obj/item/clothing/glasses/hud,
-		/obj/item/flashlight/seclite,
-		/obj/item/card/id,
 		/obj/item/petri_dish,
-		/obj/item/encryptionkey,
 		/obj/item/food/grown/banana,
 	))
