@@ -1,0 +1,4 @@
+author: "Rilomatic"
+delete-after: True
+changes:
+  - refactor: "Added a Donor MODsuits Subsystem, and tidied up donor list and misplaced icons for donor, and fixed MODsuits Skin Applier sharing Donor Item"
