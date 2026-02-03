@@ -964,7 +964,7 @@
 	icon_state = "plushie_vethonk"
 	squeak_override = list(
 		'sound/effects/roll.ogg' = 1,
-		)
+	)
 
 /obj/item/toy/plush/nova/donator/percy
 	name = "Dr. Percival"
