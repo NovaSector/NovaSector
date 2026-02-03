@@ -71,5 +71,6 @@
 		What store of relics lies in thy hilt of gold!\"<br>\
 		- The Song of Roland, translated by Dorothy Sayers.<br>\
 		<br>\
-		[lore_blurb]",)
+		[lore_blurb]" \
+	)
 
