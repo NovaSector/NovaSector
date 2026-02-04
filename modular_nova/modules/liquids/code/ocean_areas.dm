@@ -48,6 +48,7 @@
 /area/station/solars/ocean
 	icon_state = "panels"
 	requires_power = FALSE
+	area_flags = NONE // Override NO_GRAVITY from parent
 	flags_1 = NONE
 	static_lighting = FALSE
 	base_lighting_alpha = 255
