@@ -1,0 +1,16 @@
+{
+	"secarmor": [
+		{
+			"type": "icon_state",
+			"icon_state": "secarmor_base_obj",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "secarmor_accent_obj",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

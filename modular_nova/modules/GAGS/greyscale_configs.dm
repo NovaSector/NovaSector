@@ -623,6 +623,15 @@
 
 // ARMOR
 
+/datum/greyscale_config/secarmor
+	name = "Security Armor"
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secarmors/secarmor.json'
+
+/datum/greyscale_config/secarmor/worn
+	name = "Security Armor (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secarmors/secarmor_worn.json'
+
 /datum/greyscale_config/heck_suit/worn/digi
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor_digi.dmi'
 
@@ -922,23 +931,20 @@
 /datum/greyscale_config/security_winter_coat
 	name = "Security Winter Coat"
 	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secwintercoat/seccoats.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secarmors/seccoats.json'
 
 /datum/greyscale_config/security_winter_coat/worn
 	name = "Winter Coat (Worn)"
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secwintercoat/seccoats_worn.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secarmors/seccoats_worn.json'
 
 /datum/greyscale_config/security_hoods
 	name = "Security Coat Hood"
 	icon_file = 'modular_nova/modules/GAGS/icons/head/head.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secwintercoat/seccoats_hood.json'
-	//icon_file = 'icons/obj/clothing/head/winterhood.dmi'
-	//json_config = 'modular_nova/modules/GAGS/json_configs/suits/secwintercoat/seccoats_hood.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secarmors/seccoats_hood.json'
 
 /datum/greyscale_config/security_hoods/worn
 	name = "Security Coat Hood (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/head/head.dmi'
-	//icon_file = 'icons/mob/clothing/head/winterhood.dmi'
 
 // LEATHER JACKET
 

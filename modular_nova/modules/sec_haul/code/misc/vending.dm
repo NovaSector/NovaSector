@@ -60,6 +60,7 @@
 				/obj/item/clothing/under/rank/security/officer/grey = 4,
 				/obj/item/clothing/under/pants/slacks = 4,
 				/obj/item/clothing/suit/armor/vest/secjacket = 4,
+				/obj/item/clothing/suit/armor/vest/alt/sec/secarmor = 4,
 				/obj/item/clothing/suit/hooded/wintercoat/security = 4,
 				/obj/item/clothing/suit/hooded/wintercoat/security/thick = 4,
 				/obj/item/clothing/suit/armor/vest = 4,
@@ -81,8 +82,6 @@
 			"products" = list(
 				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
-				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
-				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
 				/obj/item/storage/backpack/security/blue = 4,
 				/obj/item/storage/backpack/satchel/sec/blue = 4,
 				/obj/item/storage/backpack/duffelbag/sec/blue = 4,

@@ -1,25 +1,13 @@
-/datum/atom_skin/security_armor_vest_white
-	abstract_type = /datum/atom_skin/security_armor_vest_white
-
-/datum/atom_skin/security_armor_vest_white/black
-	preview_name = "Black Variant"
-	new_icon_state = "vest_black"
-
-/datum/atom_skin/security_armor_vest_white/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "vest_blue"
-
-/datum/atom_skin/security_armor_vest_white/white
-	preview_name = "White Variant"
-	new_icon_state = "vest_white"
-
-/obj/item/clothing/suit/armor/vest/alt/sec/white
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
-	icon_state = "vest_white"
-
-/obj/item/clothing/suit/armor/vest/alt/sec/white/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_armor_vest_white)
+/obj/item/clothing/suit/armor/vest/alt/sec/secarmor
+	name = "security armor"
+	desc = "A standalone vest of armor to compliment your uniform."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/armor/vest/alt/sec/secarmor"
+	post_init_icon_state = "secarmor"
+	greyscale_config = /datum/greyscale_config/secarmor
+	greyscale_config_worn = /datum/greyscale_config/secarmor/worn
+	greyscale_colors = "#212022#A52F29"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/armor/vest/brit
 	name = "high vis armored vest"
@@ -50,7 +38,7 @@
 
 /obj/item/clothing/suit/armor/vest/vested_jacket
 	name = "vested security jacket"
-	desc = "The company standard armor vest now with a stylish zipper jacket stitched in for when you don't think you'll get shot!"
+	desc = "The company standard armor now with a stylish zipper jacket stitched in for when you don't think you'll get shot!"
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "vested_jacket"
@@ -64,7 +52,7 @@
 
 /obj/item/clothing/suit/hooded/wintercoat/security/thick
 	name = "security winter coat"
-	desc = "A blue, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority."
+	desc = "An armor-padded winter coat. It glitters with a mild ablative coating and a robust air of authority."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/thick"
 	post_init_icon_state = "coatwinter"

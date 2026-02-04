@@ -46,13 +46,6 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/under/rank/security/officer/blueshirt
-	name = "blue shirt and tie"
-	desc = "I'm a little busy right now, Calhoun."
-	icon_state = "blueshift"
-	inhand_icon_state = null
-	can_adjust = FALSE
-
 /obj/item/clothing/under/rank/security/officer/formal
 	name = "security officer's formal uniform"
 	desc = "The latest in fashionable security outfits."
