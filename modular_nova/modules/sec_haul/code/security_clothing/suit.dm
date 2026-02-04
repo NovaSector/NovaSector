@@ -29,37 +29,38 @@
 	icon_state = "hazardbg"
 	worn_icon_state = "hazardbg"
 
-/obj/item/clothing/suit/armor/vest/brit/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_icon, "zipper")
+/datum/atom_skin/vested_jacket
+	abstract_type = /datum/atom_skin/vested_jacket/red
 
-/obj/item/clothing/suit/armor/vest/jacket
-	name = "high vis security jacket"
-	desc = "A slightly vintage canvas and aramid jacket; hi-vis checkers included. Armored and stylish? Implausible."
+/datum/atom_skin/vested_jacket/red
+	preview_name = "Red Variant"
+	new_icon_state = "vested_jacket"
+
+/datum/atom_skin/vested_jacket/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "vested_jacket_blue"
+
+/datum/atom_skin/vested_jacket/white
+	preview_name = "White Variant"
+	new_icon_state = "vested_jacket_white"
+
+/datum/atom_skin/vested_jacket/black
+	preview_name = "Black Variant"
+	new_icon_state = "vested_jacket_black"
+
+/obj/item/clothing/suit/armor/vest/vested_jacket
+	name = "vested security jacket"
+	desc = "The company standard armor vest now with a stylish zipper jacket stitched in for when you don't think you'll get shot!"
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
-	icon_state = "highvis_jacket"
+	icon_state = "vested_jacket"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	heat_protection = CHEST|GROIN|ARMS
 
-/obj/item/clothing/suit/armor/vest/peacekeeper/jacket/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_icon, "zipper")
-
-/obj/item/clothing/suit/armor/vest/jacket/badge
-	name = "badged high vis security jacket"
-	desc = "A slightly vintage canvas and aramid jacket; hi-vis checkers and chevron badge included. Armored and stylish? Implausible."
-	icon_state = "highvis_jacket_badge"
-
-//REMOVE WHEN DONE
-//obj/item/clothing/head/hooded/winterhood/security/blue
-//	desc = "A blue, armour-padded winter hood. Definitely not bulletproof, especially not the part where your face goes."
-//	icon = 'modular_nova/master_files/icons/obj/clothing/head/winterhood.dmi'
-//	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/winterhood.dmi'
-//	icon_state = "winterhood_security"
-//BLACK CLOTH WITH RED LINING
+/obj/item/clothing/under/rank/security/nova/skirt/plain/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_plain_skirt)
 
 /obj/item/clothing/suit/hooded/wintercoat/security/thick
 	name = "security winter coat"
@@ -71,7 +72,7 @@
 	greyscale_config = /datum/greyscale_config/security_winter_coat
 	greyscale_config_worn = /datum/greyscale_config/security_winter_coat/worn
 	greyscale_colors = "#A52F29#B89E8D#212022"
-	hoodtype = /obj/item/clothing/head/hooded/winterhood/custom
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/sec_hood
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 //In case colors are changed after initialization
@@ -91,11 +92,11 @@
 	var/list/new_coat_colors = coat_colors.Copy(1,4)
 	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
 
-/obj/item/clothing/head/hooded/winterhood/custom
+/obj/item/clothing/head/hooded/winterhood/sec_hood
 	name = "tailored winter coat hood"
 	desc = "A heavy jacket hood made from 'synthetic' animal furs, with custom colors."
-	greyscale_config = /datum/greyscale_config/winter_hoods
-	greyscale_config_worn = /datum/greyscale_config/winter_hoods/worn
+	greyscale_config = /datum/greyscale_config/security_hoods
+	greyscale_config_worn = /datum/greyscale_config/security_hoods/worn
 
 /*
 *	WARDEN

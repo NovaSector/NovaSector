@@ -930,14 +930,14 @@
 
 /datum/greyscale_config/security_hoods
 	name = "Security Coat Hood"
-	icon_file = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/winter_hood.json'
+	icon_file = 'modular_nova/modules/GAGS/icons/head/head.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secwintercoat/seccoats_hood.json'
 	//icon_file = 'icons/obj/clothing/head/winterhood.dmi'
 	//json_config = 'modular_nova/modules/GAGS/json_configs/suits/secwintercoat/seccoats_hood.json'
 
 /datum/greyscale_config/security_hoods/worn
 	name = "Security Coat Hood (Worn)"
-	icon_file = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/head/head.dmi'
 	//icon_file = 'icons/mob/clothing/head/winterhood.dmi'
 
 // LEATHER JACKET
