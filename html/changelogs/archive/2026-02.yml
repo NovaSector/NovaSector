@@ -199,3 +199,66 @@
   vinylspiders:
   - bugfix: fixed a bug where choosing 'None' as your ear type using the polymorph
       nif or alter form would just make you deaf
+2026-02-03:
+  Bisar:
+  - balance: The Voltaic combat cyberheart no longer gives full, permanent EMP immunity
+      to its owner when implanted with a core. The EMP immunity now shares a cooldown
+      with the crit survival mechanic.
+  - balance: The Voltaic combat cyberheart can no longer be inserted without surgery.
+  - balance: The Voltaic combat cyberheart's enhanced blood restoration with a core
+      is now a base feature, with or without a core.
+  - balance: The Voltaic combat cyberheart no longer deletes itself whenever it is
+      removed from an owner.
+  Cyberboss:
+  - server: If TGS is configured to push test merge commits to a publicly accessible
+      GitHub, the exact game revision will be set as the `round`.`commit_hash` in
+      the database.
+  Hardly:
+  - image: Tweaked the big cat tail to be more consistent, cooler and faster when
+      wagging.
+  - map: Fixes mislabeled dorms rooms in Blueshift.
+  Hatterhat:
+  - image: Resprited the advanced energy gun. Credits to Zydras for the original e-gun
+      sprite, and /vg/station for their variant of the advanced energy gun, which
+      the new sprite takes some design notes from.
+  - bugfix: Antique laser guns (e.g. the captain's laser gun) now have their intended
+      charge delay of 8 ticks, down from 15.
+  - balance: Advanced energy guns now have a charge delay of 5 ticks, down from 15,
+      and recharge 3 shots per cycle (15% of the cell) up from 1 shot per cycle (5%
+      of the cell).
+  - rscadd: Realizing that they can, in fact, do things, Nanotrasen has licensed Robust
+      Corp's bluespace grounding technology for use in retooled MOD emergency tether
+      modules. These can be found as MOD grounded apprehension modules, under Security
+      Modular Suits.
+  - rscadd: Realizing that they can, in fact, just do things, Nanotrasen has started
+      using some of their gathered data on anomalies in order to progress military
+      technology in the form of anomaly-based throwable munitions, with their first
+      foray being bluespace grounders, crafted with a case of uncharged anomaly grenades
+      (from Cargo) and a dimensional anomaly core (from Science). Grounders only work
+      within a 2-tile range, at most.
+  Justice12354:
+  - rscadd: Added lemon juice box
+  Magentaformula0:
+  - rscadd: Veteran Honker and Percival Plush
+  - image: Sprites for both plushes
+  Melbert:
+  - balance: Plant instability can no longer cause the value of the instability stat
+      to change randomly unless instability is >=80
+  - balance: Plants can no longer mutate their stats twice in one tick starting at
+      40 instability - though the degree to which stats mutate is still increased
+      at the 40 mark, that is unchanged.
+  Rilomatic:
+  - refactor: Added a Donor MODsuits Subsystem, and tidied up donor list and misplaced
+      icons for donor, and fixed MODsuits Skin Applier sharing Donor Item
+  Stalkeros, Lukaster42:
+  - map: HC ship has been vastly remapped. Now six ghost roles, and roughly 2.5x as
+      big and many times more useable.
+  Y0SH1M4S73R:
+  - refactor: Painting has been significantly refactored with a new UI that should
+      provide every painting control you need without having to unfocus the UI window.
+      Please report any issues.
+  - refactor: Items that can store paint palettes now start with no colors. Colors
+      can be added to and removed from the item's palette, up to the number of colors
+      they previously stored.
+  muratendmo:
+  - rscadd: Adds many previously loadout-exclusive cosmetic clothes to the Clothesmate.
