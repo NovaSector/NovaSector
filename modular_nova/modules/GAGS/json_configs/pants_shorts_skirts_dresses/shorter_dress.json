@@ -1,5 +1,5 @@
 {
-	"windowed_dress": [
+	"shorter_dress": [
 		{
 			"type": "icon_state",
 			"icon_state": "collared_collar",
@@ -14,20 +14,20 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "windowed_dress_base",
+			"icon_state": "shorter_opac_collared",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		}
 	],
-	"windowed_dress_deepv": [
+	"shorter_dress_deepv": [
 		{
 			"type": "icon_state",
-			"icon_state": "windowed_dress_deepv",
+			"icon_state": "shorter_opac_deepv",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		}
 	],
-	"windowed_dress_opac": [
+	"shorter_dress_opac": [
 		{
 			"type": "icon_state",
 			"icon_state": "opac_opac",
@@ -36,12 +36,12 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "window_dress_opac",
+			"icon_state": "shorter_opac_opac",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
 	],
-	"windowed_dress_no_opac": [
+	"shorter_dress_no_opac": [
 		{
 			"type": "icon_state",
 			"icon_state": "collared_collar",
@@ -50,12 +50,12 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "windowed_dress_base",
+			"icon_state": "shorter_opac_collared",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
 	],
-	"windowed_dress_no_collar": [
+	"shorter_dress_no_collar": [
 		{
 			"type": "icon_state",
 			"icon_state": "opac_opac",
@@ -64,7 +64,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "windowed_dress_base",
+			"icon_state": "shorter_opac_collared",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
