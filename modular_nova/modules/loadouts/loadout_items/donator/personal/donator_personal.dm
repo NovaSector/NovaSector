@@ -1046,3 +1046,8 @@
 /datum/loadout_item/toys/plush/plushe_percy
 	name = "Dr. Percival Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/percy
+
+/datum/loadout_item/pocket_items/espatier
+	name = "dated Espatier holster"
+	item_path = /obj/item/storage/belt/espatier
+	ckeywhitelist = list("pyriteChimera", "darkinite", "deadmon_wonderland", "nonplayer775", "rilomatic")
