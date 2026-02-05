@@ -350,17 +350,168 @@
 /obj/item/clothing/under/dress/nova/midnight_gown/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/midnight_gown)
 
+// Windowed Dress
 /obj/item/clothing/under/dress/nova/windowed_dress
 	name = "windowed dress"
-	desc = "A chic, dark dress with a tastefully placed collar and straps, creating a 'windowed' effect that is both alluring and fashionable."
+	desc = "A chic, dress with a tastefully sewn in 'windowed' effect that is both alluring and fashionable.  \
+			The variations of this classic style includes a 'Deep V' backing and an 'Illusion' top variant. \
+			The recreation of these styles are courtesy of DarkRilo Apparels"
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/windowed_dress"
 	post_init_icon_state = "windowed_dress"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	greyscale_config = /datum/greyscale_config/windowed_dress
 	greyscale_config_worn = /datum/greyscale_config/windowed_dress/worn
 	greyscale_colors = "#424242#424242#424242"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN|LEGS
+
+/obj/item/clothing/under/dress/nova/windowed_dress/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/windowed_dress)
+
+/datum/atom_skin/windowed_dress
+	abstract_type = /datum/atom_skin/windowed_dress
+	greyscale_item_path = /obj/item/clothing/under/dress/nova/windowed_dress
+
+/datum/atom_skin/windowed_dress/deepv
+	preview_name = "Deep V"
+	new_icon_state = "windowed_dress_deepv"
+	greyscale_colors = "#424242"
+
+/datum/atom_skin/windowed_dress/opac
+	preview_name = "Opaque"
+	new_icon_state = "windowed_dress_opac"
+	greyscale_colors = "#424242#424242"
+
+/datum/atom_skin/windowed_dress/no_opac
+	preview_name = "Windowed Dress (No Opac)"
+	new_icon_state = "windowed_dress_no_opac"
+	greyscale_colors = "#424242#424242"
+
+/datum/atom_skin/windowed_dress/no_collar
+	preview_name = "Windowed Dress (No Collar)"
+	new_icon_state = "windowed_dress_no_collar"
+	greyscale_colors = "#424242#424242"
+
+// Slit Dress
+/obj/item/clothing/under/dress/nova/slit_dress
+	name = "Slit Dress"
+	desc = "An elegant, long  dress with an alluring thigh high slit from the bottom. \
+			Showcasing it all yet hiding all the important bits. \
+			The variations of this classic style includes a 'Deep V' backing and an 'Illusion' top variant. \
+			The recreation of these styles are courtesy of DarkRilo Apparels"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/slit_dress"
+	post_init_icon_state = "slit_dress"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	greyscale_config = /datum/greyscale_config/slit_dress
+	greyscale_config_worn = /datum/greyscale_config/slit_dress/worn
+	greyscale_colors = "#424242#424242#424242"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN|LEGS
+
+/obj/item/clothing/under/dress/nova/slit_dress/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/slit_dress)
+
+/datum/atom_skin/slit_dress
+	abstract_type = /datum/atom_skin/slit_dress
+	greyscale_item_path = /obj/item/clothing/under/dress/nova/slit_dress
+
+/datum/atom_skin/slit_dress/deepv
+	preview_name = "Deep V"
+	new_icon_state = "slit_dress_deepv"
+	greyscale_colors = "#424242"
+
+/datum/atom_skin/slit_dress/opac
+	preview_name = "Opaque"
+	new_icon_state = "slit_dress_opac"
+	greyscale_colors = "#424242#424242"
+
+/datum/atom_skin/slit_dress/no_opac
+	preview_name = "Slit Dress (No Opac)"
+	new_icon_state = "slit_dress_no_opac"
+	greyscale_colors = "#424242#424242"
+
+/datum/atom_skin/slit_dress/no_collar
+	preview_name = "Slit Dress (No Collar)"
+	new_icon_state = "slit_dress_no_collar"
+	greyscale_colors = "#424242#424242"
+
+// Shorter Dress
+/obj/item/clothing/under/dress/nova/shorter_dress
+	name = "Shorter Dress"
+	desc = "A pervasive, short dress. What's there to say? It's persuasive only hiding the bare minimum. \
+			Perhaps that's all it takes to be sexy and alluring.  \
+			The variations of this classic style includes a 'Deep V' backing and an 'Illusion' top variant. \
+			The recreation of these styles are courtesy of DarkRilo Apparels"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/shorter_dress"
+	post_init_icon_state = "shorter_dress"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	greyscale_config = /datum/greyscale_config/shorter_dress
+	greyscale_config_worn = /datum/greyscale_config/shorter_dress/worn
+	greyscale_colors = "#424242#424242#424242"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN|LEGS
+
+/obj/item/clothing/under/dress/nova/shorter_dress/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/shorter_dress)
+
+/datum/atom_skin/shorter_dress
+	abstract_type = /datum/atom_skin/shorter_dress
+	greyscale_item_path = /obj/item/clothing/under/dress/nova/shorter_dress
+
+/datum/atom_skin/shorter_dress/deepv
+	preview_name = "Deep V"
+	new_icon_state = "shorter_dress_deepv"
+	greyscale_colors = "#424242"
+
+/datum/atom_skin/shorter_dress/opac
+	preview_name = "Opaque"
+	new_icon_state = "shorter_dress_opac"
+	greyscale_colors = "#424242#424242"
+
+/datum/atom_skin/shorter_dress/no_opac
+	preview_name = "Shorter Dress (No Opac)"
+	new_icon_state = "shorter_dress_no_opac"
+	greyscale_colors = "#424242#424242"
+
+/datum/atom_skin/shorter_dress/no_collar
+	preview_name = "Shorter Dress (No Collar)"
+	new_icon_state = "shorter_dress_no_collar"
+	greyscale_colors = "#424242#424242"
+
+
+// Pen Skirt
+/obj/item/clothing/under/dress/nova/pen_skirt
+	name = "Pen Skirt"
+	desc = "A simple short dress skirt, stretchy for both shapely and comfortable bureaucratic needs. \
+			Clothing by |DarkRilo Apparels|"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/pen_skirt"
+	post_init_icon_state = "pen_skirt"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	greyscale_config = /datum/greyscale_config/pen_skirt
+	greyscale_config_worn = /datum/greyscale_config/pen_skirt/worn
+	greyscale_colors = "#424242"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = GROIN|LEGS
+
+// Formal Pen Skirt
+/obj/item/clothing/under/dress/nova/formal_pen_skirt
+	name = "Formal Pen suit"
+	desc = "A standard pencil dress suit. The blouse is thin and cool to the touch for long hours in the office. \
+			Some buttons are snap on for when you're too tired to take it off. Clothing by |DarkRilo Apparels|"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/formal_pen_skirt"
+	post_init_icon_state = "formal_pen_skirt"
+	can_adjust = TRUE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	greyscale_config = /datum/greyscale_config/formal_pen_skirt
+	greyscale_config_worn = /datum/greyscale_config/formal_pen_skirt/worn
+	greyscale_colors = "#424242#424242"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
 /*
  *	Others
