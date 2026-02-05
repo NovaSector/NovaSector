@@ -1072,7 +1072,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	if (is_for_taur && !using_taur_variant)
 		building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
 	if (mutant_styles & STYLE_TAUR_BIGLEGS_ALL)
-		building_icon = wear_digi_version(icon_exists(file2use, t_state) ? icon(file2use, t_state) : icon(worn_icon, t_state), src, "[t_state]-[worn_icon]-[female_uniform]", greyscale_colors)
+		building_icon = wear_big_legs_version(icon_exists(file2use, t_state) ? icon(file2use, t_state) : icon(worn_icon, t_state), src, "[t_state]-[worn_icon]-[female_uniform]", greyscale_colors, mutant_styles)
 	// NOVA EDIT ADDITION END
 	if(building_icon)
 		draw_target = mutable_appearance(building_icon, layer = -layer2use)

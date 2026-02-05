@@ -1,2 +1,1 @@
 draw the templates for '/datum/greyscale_config/digitigrade/big_leg' and '/datum/greyscale_config/digitigrade/big_leg_stanced'
-tweak '/obj/item/clothing/under/generate_digitigrade_icons()' to look for aforementioned if applicable.
