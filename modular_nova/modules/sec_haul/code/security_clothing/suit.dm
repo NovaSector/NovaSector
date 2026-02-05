@@ -17,6 +17,14 @@
 	icon_state = "hazardbg"
 	worn_icon_state = "hazardbg"
 
+/obj/item/clothing/suit/armor/vest/brit/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon, "zipper")
+
+/obj/item/clothing/suit/armor/vest/vested_jacket/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon, "zipper")
+
 /datum/atom_skin/vested_jacket
 	abstract_type = /datum/atom_skin/vested_jacket/red
 
@@ -48,7 +56,7 @@
 	heat_protection = CHEST|GROIN|ARMS
 
 /obj/item/clothing/under/rank/security/nova/skirt/plain/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_plain_skirt)
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/vested_jacket/red)
 
 /obj/item/clothing/suit/hooded/wintercoat/security/thick
 	name = "security winter coat"
