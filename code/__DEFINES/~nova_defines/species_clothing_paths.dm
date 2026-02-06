@@ -4,6 +4,12 @@
 #define SNOUTED_HEAD_FILE 'modular_nova/master_files/icons/mob/clothing/head_muzzled.dmi'
 ///The dmi containing snouted mod parts
 #define SNOUTED_MODPARTS_FILE 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi'
+///The dmi containing digitigrade shoes
+#define DIGITIGRADE_SHOES_FILE 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+///The dmi containing digitigrade oversuits
+#define DIGITIGRADE_SUIT_FILE 'modular_nova/master_files/icons/mob/clothing/suit_digi.dmi'
+///The dmi containing digitigrade mod parts
+#define DIGITIGRADE_MODPARTS_FILE 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi'
 
 // Vox stuff
 #define VOX_BACK_ICON 'modular_nova/master_files/icons/mob/clothing/species/vox/back.dmi'

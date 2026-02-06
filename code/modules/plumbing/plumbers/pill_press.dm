@@ -30,7 +30,7 @@
 	buffer = 100
 	// NOVA EDIT ADDITION END
 
-/obj/machinery/plumbing/pill_press/Initialize(mapload, bolt, layer)
+/obj/machinery/plumbing/pill_press/Initialize(mapload, layer)
 	. = ..()
 
 	if(!packaging_types)
@@ -63,7 +63,7 @@
 	max_volume = initial(packaging_type.volume)
 	current_volume = clamp(current_volume, MIN_VOLUME, max_volume)
 
-	AddComponent(/datum/component/plumbing/simple_demand, bolt, layer)
+	AddComponent(/datum/component/plumbing/simple_demand, layer, distinct_reagent_cap = 3)
 
 /obj/machinery/plumbing/pill_press/Destroy(force)
 	QDEL_LAZYLIST(stored_products)

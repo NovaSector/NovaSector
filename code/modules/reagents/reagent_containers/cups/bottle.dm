@@ -11,6 +11,8 @@
 	possible_transfer_amounts = list(5, 10, 15, 25, 50)
 	volume = 50
 	fill_icon_thresholds = list(0, 1, 20, 40, 60, 80, 100)
+	can_lid = TRUE
+	assembly_pixel_y = 4
 
 /obj/item/reagent_containers/cup/bottle/Initialize(mapload)
 	. = ..()
@@ -505,6 +507,7 @@
 	fill_icon_thresholds = list(0, 20, 40, 60, 80, 100)
 	possible_transfer_amounts = list(5, 10)
 	amount_per_transfer_from_this = 5
+	can_lid = FALSE
 
 /obj/item/reagent_containers/cup/bottle/syrup_bottle/Initialize(mapload)
 	. = ..()
@@ -548,7 +551,8 @@
 		return ITEM_INTERACT_BLOCKING
 
 	var/transfer_amount = round(reagents.trans_to(tool, amount_per_transfer_from_this, transferred_by = user), CHEMICAL_VOLUME_ROUNDING)
-	balloon_alert(user, "transferred [transfer_amount] unit\s")
+	if(transfer_amount)
+		balloon_alert(user, "transferred [transfer_amount] unit\s")
 	flick("syrup_anim",src)
 	tool.update_appearance()
 	update_appearance()

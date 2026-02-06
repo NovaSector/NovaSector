@@ -59,13 +59,17 @@
 		return
 	. = ..()
 
-/obj/item/organ/genital/Remove(mob/living/carbon/M, special = FALSE, moving)
+/obj/item/organ/genital/Remove(mob/living/carbon/M, special = FALSE, movement_flags)
 	. = ..()
 	update_genital_icon_state()
 
 /obj/item/organ/genital/build_from_dna(datum/dna/DNA, associated_key)
 	. = ..()
-	var/datum/sprite_accessory/genital/accessory = SSaccessories.sprite_accessories[associated_key][DNA.mutant_bodyparts[associated_key][MUTANT_INDEX_NAME]]
+	var/datum/mutant_bodypart/bodypart = DNA.mutant_bodyparts[associated_key]
+	if(isnull(bodypart))
+		return
+
+	var/datum/sprite_accessory/genital/accessory = SSaccessories.sprite_accessories[associated_key][bodypart.name]
 	genital_name = accessory.name
 	genital_type = accessory.icon_state
 	build_from_accessory(accessory, DNA)
@@ -188,7 +192,6 @@
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_PENIS
 	mutantpart_key = ORGAN_SLOT_PENIS
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Human", MUTANT_INDEX_COLOR_LIST = list("#FFEEBB"))
 	drop_when_organ_spilling = FALSE
 	var/girth = 9
 	var/sheath = SHEATH_NONE
@@ -306,7 +309,6 @@
 	icon_state = "testicles"
 	icon = 'modular_nova/master_files/icons/obj/genitals/testicles.dmi'
 	mutantpart_key = ORGAN_SLOT_TESTICLES
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Pair", MUTANT_INDEX_COLOR_LIST = list("#FFEEBB"))
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_TESTICLES
 	aroused = AROUSAL_CANT
@@ -387,7 +389,6 @@
 	icon = 'modular_nova/master_files/icons/obj/genitals/vagina.dmi'
 	icon_state = "vagina"
 	mutantpart_key = ORGAN_SLOT_VAGINA
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Human", MUTANT_INDEX_COLOR_LIST = list("#FFEEBB"))
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_VAGINA
 	genital_location = GROIN
@@ -450,7 +451,6 @@
 	icon = 'modular_nova/master_files/icons/obj/genitals/vagina.dmi'
 	icon_state = "womb"
 	mutantpart_key = ORGAN_SLOT_WOMB
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Normal", MUTANT_INDEX_COLOR_LIST = list("FFEEBB"))
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_WOMB
 	visibility_preference = GENITAL_SKIP_VISIBILITY
@@ -473,7 +473,6 @@
 	icon = 'modular_nova/master_files/icons/obj/genitals/anus.dmi'
 	icon_state = "anus"
 	mutantpart_key = ORGAN_SLOT_ANUS
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Normal", MUTANT_INDEX_COLOR_LIST = list("FEB"))
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_ANUS
 	genital_location = GROIN
@@ -503,7 +502,6 @@
 	icon = 'modular_nova/master_files/icons/obj/genitals/breasts.dmi'
 	genital_type = "pair"
 	mutantpart_key = ORGAN_SLOT_BREASTS
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Pair", MUTANT_INDEX_COLOR_LIST = list("#FFEEBB"))
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_BREASTS
 	genital_location = CHEST

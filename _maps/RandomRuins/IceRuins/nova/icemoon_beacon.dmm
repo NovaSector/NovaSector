@@ -52,7 +52,7 @@
 	pixel_y = -12;
 	pixel_x = 5
 	},
-/turf/open/misc/sandy_dirt/forest,
+/turf/open/misc/sandy_dirt/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "n" = (
 /turf/open/misc/asteroid/snow/icemoon,
@@ -64,7 +64,7 @@
 "u" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/cerulean,
-/turf/open/misc/sandy_dirt/forest,
+/turf/open/misc/sandy_dirt/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "K" = (
 /obj/structure/statue/snow/snowman,
@@ -73,7 +73,7 @@
 "Z" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/indigo,
-/turf/open/misc/sandy_dirt/forest,
+/turf/open/misc/sandy_dirt/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 
 (1,1,1) = {"

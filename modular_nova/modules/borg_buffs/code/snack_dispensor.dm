@@ -113,7 +113,7 @@
 	borg.do_item_attack_animation(patron, null, snack)
 	playsound(loc, 'sound/machines/click.ogg', 10, TRUE)
 	to_chat(patron, span_notice("[borg] dispenses [snack] into your empty hand and you reflexively grasp it."))
-	to_chat(borg, span_notice("You dispense [snack] into the hand of [borg]."))
+	to_chat(borg, span_notice("You dispense [snack] into the hand of [patron]."))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/borg_snack_dispenser/click_alt(mob/user)

@@ -64,11 +64,6 @@
 	. = ..()
 	give_autofire()
 
-/obj/item/gun/ballistic/automatic/sol_classic/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-	// lore component soon, right? surely
-
 /obj/item/gun/ballistic/automatic/sol_classic/get_lore_blurb()
 	return lore_blurb + "<br><br>" + model_specific_lore
 
@@ -98,15 +93,15 @@
 	fire_delay = 0.6 SECONDS
 
 	spread = 0
-	projectile_damage_multiplier = 1.15 // 35*1.15 = 40.25 damage off base .40 sol
-	projectile_speed_multiplier = 1.2
+	projectile_damage_multiplier = 1.3 // 27*1.3 = 35.1 damage off base .40 sol, balanced by slightly slower firedelay + only semiauto
+	projectile_speed_multiplier = 1.2 // and also faster shots.
 	projectile_wound_bonus = 10
 
 	model_specific_lore = "This particular variant is the Krijgspaard-Elite model, built for precision fire for use by designated marksmen. \
 		Forsaking automatic fire in favor of precision, models like these typically feature match-grade triggers, \
 		free-floating accurized barrels, and a variable-magnification optic built into the carrying handle. \
 		These are typically seen with smaller magazines for the shooter's comfort, but remain fully compatible with full-size magazines, \
-		in case you need to make a lot of very precise shots without switching magazines."
+		in case you need to make a lot of very precise shots without reloading."
 
 /obj/item/gun/ballistic/automatic/sol_classic/marksman/Initialize(mapload)
 	. = ..()

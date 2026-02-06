@@ -14,6 +14,10 @@
 	var/list/input_colors = input
 	return list(sanitize_hexcolor(input_colors[1]), sanitize_hexcolor(input_colors[2]), sanitize_hexcolor(input_colors[3]))
 
+/datum/preference/tri_color/serialize(input)
+	var/list/input_colors = input
+	return list(sanitize_hexcolor(input_colors[1]), sanitize_hexcolor(input_colors[2]), sanitize_hexcolor(input_colors[3]))
+
 /datum/preference/tri_color/create_default_value()
 	return list("#[random_color()]", "#[random_color()]", "#[random_color()]")
 
@@ -33,9 +37,9 @@
 /datum/preference/tri_color/apply_to_human(mob/living/carbon/human/target, value)
 	if (type == abstract_type)
 		return ..()
-	if(!target.dna.mutant_bodyparts[relevant_mutant_bodypart])
-		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"), MUTANT_INDEX_EMISSIVE_LIST = list(FALSE, FALSE, FALSE))
-	target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_COLOR_LIST] = list(sanitize_hexcolor(value[1]), sanitize_hexcolor(value[2]), sanitize_hexcolor(value[3]))
+	var/datum/mutant_bodypart/mutant_part = target.dna.mutant_bodyparts[relevant_mutant_bodypart]
+	if(mutant_part)
+		mutant_part.set_colors(list(sanitize_hexcolor(value[1]), sanitize_hexcolor(value[2]), sanitize_hexcolor(value[3])))
 
 /datum/preference/tri_bool
 	abstract_type = /datum/preference/tri_bool
@@ -69,10 +73,9 @@
 /datum/preference/tri_bool/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	if (type == abstract_type)
 		return ..()
-	if(!target.dna.mutant_bodyparts[relevant_mutant_bodypart])
-		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"), MUTANT_INDEX_EMISSIVE_LIST = list(FALSE, FALSE, FALSE))
-	if(is_emissive_allowed(preferences))
-		target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_EMISSIVE_LIST] = list(sanitize_integer(value[1]), sanitize_integer(value[2]), sanitize_integer(value[3]))
+	var/datum/mutant_bodypart/mutant_bodypart = target.dna.mutant_bodyparts[relevant_mutant_bodypart]
+	if(mutant_bodypart && is_emissive_allowed(preferences))
+		mutant_bodypart.set_emissive_tri_bool_list(sanitize_integer(value[1]), sanitize_integer(value[2]), sanitize_integer(value[3]))
 
 /datum/preference/color/mutant
 	abstract_type = /datum/preference/color/mutant
@@ -81,11 +84,10 @@
 	if (type == abstract_type)
 		return ..()
 
-	if(!target.dna.mutant_bodyparts[relevant_mutant_bodypart])
-		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"), MUTANT_INDEX_EMISSIVE_LIST = list(FALSE, FALSE, FALSE))
-
-	var/color_value = sanitize_hexcolor(value)
-	target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_COLOR_LIST] = list(color_value, color_value, color_value)
+	var/datum/mutant_bodypart/mutant_part = target.dna.mutant_bodyparts[relevant_mutant_bodypart]
+	if(mutant_part)
+		var/color_value = sanitize_hexcolor(value)
+		mutant_part.set_colors(list(color_value, color_value, color_value))
 
 /**
  * Base class for character feature togglers
@@ -197,6 +199,9 @@
 	if(preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts))
 		return TRUE
 
+	if(!is_accessible(preferences))
+		return FALSE
+
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = GLOB.species_prototypes[species_type]
 
@@ -214,14 +219,14 @@
 	if(!bodypart_is_visible)
 		value = create_default_value()
 
-	if(value == "None")
+	if(value == SPRITE_ACCESSORY_NONE)
 		return bodypart_is_visible
 
-	if(!target.dna.mutant_bodyparts[relevant_mutant_bodypart])
-		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = list(MUTANT_INDEX_NAME = value, MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"), MUTANT_INDEX_EMISSIVE_LIST = list(FALSE, FALSE, FALSE))
-		return bodypart_is_visible
-
-	target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_NAME] = value
+	var/datum/mutant_bodypart/mutant_bodypart = target.dna.mutant_bodyparts[relevant_mutant_bodypart]
+	if(mutant_bodypart)
+		mutant_bodypart.name = value
+	else
+		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = target.dna.species.build_mutant_part(value)
 	return bodypart_is_visible
 
 /datum/preference/toggle/emissive
@@ -245,8 +250,12 @@
 /datum/preference/toggle/emissive/apply_to_human(mob/living/carbon/human/target, value)
 	if (type == abstract_type)
 		return ..()
-	if(!target.dna.mutant_bodyparts[relevant_mutant_bodypart])
-		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"), MUTANT_INDEX_EMISSIVE_LIST = list(FALSE, FALSE, FALSE))
-	target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_EMISSIVE_LIST] = list(sanitize_integer(value), sanitize_integer(value), sanitize_integer(value))
+	var/datum/mutant_bodypart/mutant_bodypart = target.dna.mutant_bodyparts[relevant_mutant_bodypart]
+	if(mutant_bodypart)
+		mutant_bodypart.set_emissive_tri_bool_list(sanitize_integer(value), sanitize_integer(value), sanitize_integer(value))
+	else
+		var/datum/mutant_bodypart/new_mutant_bodypart = target.dna.species.build_mutant_part()
+		new_mutant_bodypart.set_emissive_tri_bool_list(sanitize_integer(value), sanitize_integer(value), sanitize_integer(value))
+		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = new_mutant_bodypart
 
 #undef REQUIRED_CROP_LIST_SIZE

@@ -132,7 +132,7 @@
 
 	set_highest_scar(null)
 
-/datum/wound/burn/robotic/overheat/remove_wound(ignore_limb, replaced)
+/datum/wound/burn/robotic/overheat/remove_wound(ignore_limb, replaced, destroying)
 	if (!replaced && highest_scar)
 		already_scarred = TRUE
 		highest_scar.lazy_attach(limb)
@@ -163,7 +163,7 @@
 /datum/wound/burn/robotic/get_limb_examine_description()
 	return span_warning("The metal on this limb is glowing radiantly.")
 
-/datum/wound/burn/robotic/overheat/handle_process(seconds_per_tick, times_fired)
+/datum/wound/burn/robotic/overheat/handle_process(seconds_per_tick)
 	if (isnull(victim))
 		var/turf/our_turf = get_turf(limb)
 		if (!isnull(our_turf))
@@ -218,7 +218,7 @@
 	SIGNAL_HANDLER
 
 	var/reagent_coeff = base_reagent_temp_coefficient
-	if (!get_location_accessible(victim, limb.body_zone))
+	if(!victim.is_location_accessible(limb.body_zone))
 		if (ishuman(victim))
 			// hi! it's niko! small rant
 			// this proc has no goddamn reason to be on human, it could so easily just have used a proc on carbon that would get the required bodyparts to check
@@ -281,7 +281,7 @@
 
 		if (victim)
 			var/gauze_or_not = (!isnull(gauze) ? ", but [gauze] helps to keep it together" : "")
-			var/clothing_text = (!get_location_accessible(victim, limb.body_zone) ? ", [victim.p_their()] clothing absorbing some of the liquid" : "")
+			var/clothing_text = (!victim.is_location_accessible(limb.body_zone) ? ", [victim.p_their()] clothing absorbing some of the liquid" : "")
 			victim.visible_message(span_warning("[victim]'s [limb.plaintext_zone] strains from the thermal shock[clothing_text][gauze_or_not]!"))
 			playsound(victim, 'sound/items/tools/welder.ogg', 25)
 

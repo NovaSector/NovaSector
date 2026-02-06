@@ -162,7 +162,7 @@
 		flashed_living.ignite_mob() // lmao
 		if(flashed_living.flash_act(intensity = 1, affect_silicon = TRUE, length = 1 SECONDS))
 			flashed_living.set_confusion_if_lower(2 SECONDS)
-			flashed_living.adjustStaminaLoss(rand(30, 35))
+			flashed_living.adjust_stamina_loss(rand(30, 35))
 
 /obj/item/ammo_box/c35sol/flash
 	name = "ammo box (.35 Sol Short flash)"

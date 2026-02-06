@@ -37,16 +37,19 @@
 	projectile_damage_multiplier = 0.65
 	spread = 6
 
-	lore_blurb = "<i>The 'Napadayuschiy' is a heavy sub-machine gun with a focus on reliability and a very large magazine size.<br><br>\
-		Originally, it was designed for the inevitable situation of its sibling, the Zashchitnik handgun, \
-		not bringing enough to bear for any given situation. \
-		It sports a colossal magazine and a oversized stature familiar to the Zashchitnik. \
-		However, the sheer size of the magazine is a point of contention; its simple, angular construction means \
-		it sticks far from the gun, making it easy to catch on surfaces and door frames. \
-		Regardless, the weapon is reliable, albeit with a small quirk regarding the manual of arms; \
-		if the charging handle isn't placed into the loading notch before inserting a fresh magazine, \
-		the spring pressure of fifty 10mm rounds will make operating the charging handle require \
-		a herculean feat of strength.</i>"
+	lore_blurb = "The Napadayuschiy is what happens when you take the Zashchitnik pistol's design principles and feed them a steady diet of \
+		growth hormones and poor life choices. It is the Zashch's bigger, uglier, and even less refined older sibling, chambered for the same \
+		ubiquitous 10mm Auto and built from the same philosophy of using sheet steel as a primary architectural component. <br><br> \
+		The colossal 50-round magazine was a solution in search of a problem, offering staggering firepower at the cost of making the \
+		weapon a logistical nightmare. The magazine's simple, angular construction ensures it snags on every doorframe, equipment webbing, \
+		and stray thought its user might have. A notorious quirk in the manual of arms requires the charging handle to be locked in a specific \
+		loading notch before inserting a fresh magazine; failure to do so means the spring pressure of fifty rounds makes racking the slide a \
+		feat of strength typically associated with loading capital ship railguns. <br><br> \
+		It is the weapon of choice for budget-conscious militias, underworld enforcers who prioritize intimidation over finesse, and \
+		security details who are more concerned with the upfront cost on a spreadsheet than the long-term chiropractic bills of their personnel. \
+		It is a blunt instrument that fires smaller blunt instruments, a testament to the fact that sometimes, the cheapest solution is also the \
+		heaviest, most cumbersome, and profoundly un-ergonomic one. It gets the job done, provided the job is \"making a lot of noise and being \
+		very difficult to lose.\""
 
 /obj/item/gun/ballistic/automatic/napad/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)

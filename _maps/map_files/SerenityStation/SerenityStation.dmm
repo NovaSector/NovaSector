@@ -3029,7 +3029,7 @@
 /area/station/engineering/storage)
 "aRK" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/eva/abandoned)
@@ -6010,6 +6010,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
+/obj/effect/mapping_helpers/airalarm/surgery,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/fore)
 "bIK" = (
@@ -9753,15 +9754,11 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/secure_safe/caps_spare{
-	base_icon_state = "floorsafe";
-	icon_state = "floorsafe";
-	pixel_y = 5
-	},
 /obj/effect/turf_decal/trimline/dark/filled/line{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/thinplating/dark,
+/obj/structure/secure_safe/caps_spare,
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "cNP" = (
@@ -14159,10 +14156,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/electronics/firealarm,
-/obj/item/electronics/firealarm,
-/obj/item/electronics/firelock,
-/obj/item/electronics/firelock,
+/obj/effect/spawner/random/techstorage/custom_shuttle,
 /turf/open/floor/iron,
 /area/station/engineering/storage/tech)
 "edn" = (
@@ -20352,15 +20346,15 @@
 	pixel_y = 3;
 	pixel_x = -2
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -21426,6 +21420,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/bot_red,
+/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "ggs" = (
@@ -28503,7 +28498,7 @@
 /obj/machinery/door/airlock/command{
 	name = "Auxiliary E.V.A. Storage"
 	},
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
@@ -36783,6 +36778,7 @@
 	pixel_x = 6
 	},
 /obj/item/reagent_containers/syringe,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 8
 	},
@@ -39453,6 +39449,7 @@
 	name = "medbay camera";
 	network = list("ss13","medbay")
 	},
+/obj/effect/mapping_helpers/airalarm/surgery,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/aft)
 "lnx" = (
@@ -44182,7 +44179,7 @@
 	dir = 1
 	},
 /obj/machinery/stasis,
-/obj/machinery/defibrillator_mount/directional/east,
+/obj/machinery/vitals_reader/directional/east,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 8
 	},
@@ -48181,7 +48178,7 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Abandoned Kitchen"
 	},
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
@@ -52588,8 +52585,8 @@
 /obj/item/stack/medical/mesh,
 /obj/item/stack/medical/mesh,
 /obj/item/stack/medical/suture,
-/obj/structure/extinguisher_cabinet/directional/west,
 /obj/machinery/light/directional/west,
+/obj/machinery/defibrillator_mount/directional/west,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
 	},
@@ -55462,13 +55459,13 @@
 "qfU" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/table,
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_y = 5
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = -5
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = 5
 	},
 /obj/machinery/requests_console/directional/north{
@@ -56468,7 +56465,6 @@
 	pixel_x = 7
 	},
 /obj/item/watertank,
-/obj/machinery/light/directional/east,
 /obj/item/stack/ducts/fifty,
 /obj/item/construction/plumbing/service,
 /turf/open/floor/iron/dark/smooth_half{
@@ -60317,11 +60313,11 @@
 	dir = 8
 	},
 /obj/item/radio/intercom/directional/east,
-/obj/machinery/newscaster/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
+/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/fore)
 "rAR" = (
@@ -61144,6 +61140,7 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/medical2,
+/obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "rPs" = (
@@ -65404,7 +65401,7 @@
 "taS" = (
 /obj/structure/table,
 /obj/machinery/computer/records/medical/laptop,
-/obj/item/infuser_book{
+/obj/item/tgui_book/manual/infuser{
 	pixel_x = 11
 	},
 /obj/effect/turf_decal/bot_red,
@@ -69587,10 +69584,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
 	},
-/obj/machinery/defibrillator_mount/directional/west,
 /obj/machinery/stasis{
 	dir = 1
 	},
+/obj/machinery/vitals_reader/directional/west,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
 	},
@@ -72586,8 +72583,8 @@
 /obj/item/reagent_containers/chem_pack{
 	pixel_y = 3
 	},
-/obj/machinery/firealarm/directional/east,
 /obj/machinery/light/directional/east,
+/obj/machinery/defibrillator_mount/directional/east,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 8
 	},
@@ -72749,15 +72746,15 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/table,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -5;
 	pixel_y = 8
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -8;
 	pixel_y = -3
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = 1
 	},
 /obj/structure/disposalpipe/segment,
@@ -75829,11 +75826,11 @@
 	dir = 8
 	},
 /obj/item/radio/intercom/directional/east,
-/obj/machinery/newscaster/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
+/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/aft)
 "vYt" = (

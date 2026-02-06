@@ -101,6 +101,24 @@
 		borg.model.basic_modules += HA
 		borg.model.add_module(HA, FALSE, TRUE)
 
+/obj/item/borg/upgrade/autopsy_scanner
+	name = "medical cyborg autopsy scanner"
+	desc = "An upgrade to the Medical model cyborg's surgery loadout, adding an autopsy scanner."
+	icon_state = "module_medical"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/medical)
+	model_flags = BORG_MODEL_MEDICAL
+	items_to_add = list(/obj/item/autopsy_scanner)
+
+/obj/item/borg/upgrade/chemistrygripper
+	name = "medical cyborg chemistry gripper"
+	desc = "An upgrade to the Medical model cyborg's loadout, adding a material gripper to allow handling of materials related to advanced chemistry."
+	icon_state = "module_medical"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/medical)
+	model_flags = BORG_MODEL_MEDICAL
+	items_to_add = list(/obj/item/borg/apparatus/sheet_manipulator/chemistry)
+
 /*
 *	ADVANCED ENGINEERING CYBORG UPGRADES
 */
@@ -164,6 +182,27 @@
 		qdel(plasteel_energy)
 	for(var/datum/robot_energy_storage/titanium/titanium_energy in borgo.model.storages)
 		qdel(titanium_energy)
+
+//Bluespace RPED
+/obj/item/borg/upgrade/brped
+	name = "cyborg rapid part exchange device upgrade"
+	desc = "An upgrade to the cyborg's standard RPED."
+	icon_state = "module_engineer"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/engineering)
+	model_flags = BORG_MODEL_ENGINEERING
+	items_to_add = list(/obj/item/storage/part_replacer/bluespace)
+	items_to_remove = list(/obj/item/storage/part_replacer)
+
+// Engiborg RLD
+/obj/item/borg/upgrade/rld
+	name = "engineering cyborg rapid lighting device upgrade"
+	desc = "An upgrade to allow a cyborg to use a Rapid Lighting Device."
+	icon_state = "module_engineer"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/engineering)
+	model_flags = BORG_MODEL_ENGINEERING
+	items_to_add = list(/obj/item/construction/rld/cyborg)
 
 /*
 *	ADVANCED MINING CYBORG UPGRADES
@@ -247,7 +286,6 @@
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_CARGO,
 	)
 
-
 /obj/item/borg/upgrade/better_clamp
 	name = "improved integrated hydraulic clamp"
 	desc = "An improved hydraulic clamp to allow for bigger packages to be picked up as well!"
@@ -279,6 +317,16 @@
 	var/obj/item/borg/hydraulic_clamp/better/big_clamp = locate() in cyborg.model.modules
 	if(big_clamp)
 		cyborg.model.remove_module(big_clamp)
+
+/obj/item/borg/upgrade/cargo_teleporter
+	name = "cargo teleporter upgrade module"
+	desc = "An upgrade to allow a cyborg to use a Cargo Teleporter."
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
+	icon_state = "module_cargo"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/cargo)
+	model_flags = BORG_MODEL_CARGO
+	items_to_add = list(/obj/item/cargo_teleporter)
 
 /*
 *	UNIVERSAL CYBORG UPGRADES
@@ -489,8 +537,8 @@
 		borg.model.remove_module(fleshlight)
 
 /obj/item/borg/upgrade/cargo_papermanipulator
-	name = "Cargo Cyborg Paper Manipulator"
-	desc = "An upgrade to the service model cyborg, to help handle foods and paper."
+	name = "Cargo Cyborg Manipulator"
+	desc = "An upgrade to the cargo model cyborg, to help manipulate items like paper, belts, and even a piping device."
 	icon_state = "module_miner"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/cargo)
@@ -500,10 +548,19 @@
 
 /obj/item/borg/apparatus/cargo_papermanipulator
 	name = "Cargo apparatus"
-	desc = "A not so special apparatus designed for the most tedious of tasks, holding paper..."
+	desc = "A not so special apparatus designed for the handling of paper, belts, and even piping devices."
 	icon_state = "borg_service_apparatus"
 	storable = list(
 		/obj/item/paper,
+		/obj/item/pipe_dispenser,
+		/obj/item/stack/conveyor,
+		/obj/item/conveyor_switch_construct,
+		/obj/item/assembly/control, // To help rewire bay doors
+		/obj/item/stock_parts, // So they can make lathes and such in front of the bay
+		/obj/machinery/rnd/production/colony_lathe,
+		/obj/item/stack/sheet/iron,
+		/obj/item/stack/sheet/glass,
+		/obj/item/holochip, // makes sense, idk.
 	)
 
 /obj/item/borg/apparatus/cargo_papermanipulator/Initialize(mapload)

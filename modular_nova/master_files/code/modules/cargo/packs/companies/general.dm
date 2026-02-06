@@ -29,7 +29,7 @@
 	name = "Brussite"
 	contains = list(/obj/item/stack/sheet/brussite/three)
 	desc = "A three-pack of our finest brussite alloy, with a robust yellow color for creating the strongest metalworks from."
-	
+
 // Kahraman
 
 /datum/supply_pack/companies/general/kahraman
@@ -79,6 +79,13 @@
 /datum/supply_pack/companies/general/donk/food/teriyaki_pockets
 	contains = list(/obj/item/storage/box/donkpockets/donkpocketteriyaki)
 
+/datum/supply_pack/companies/general/donk/food/pizza_voucher
+	name = "Pizza Voucher"
+	desc = "WE ALWAYS DELIVER! WE ALWAYS DELIVER! WE ALWAYS DELIVER!"
+	contains = list(/obj/item/pizzavoucher)
+	cost = CARGO_CRATE_VALUE * 0.9 // This price gives 180 and when the very common trait to up prices 10% hits, gives a total of 199 credits. Just under a crate value!
+	auto_name = FALSE
+
 /datum/supply_pack/companies/general/donk/pet_food
 
 /datum/supply_pack/companies/general/donk/pet_food/void
@@ -86,6 +93,10 @@
 	contains = list(/obj/item/pet_food/pet_space_treat)
 
 /datum/supply_pack/companies/general/donk/merch
+
+/datum/supply_pack/companies/general/donk/merch/donk_fish
+	cost = CARGO_CRATE_VALUE * 3
+	contains = list(/obj/item/storage/fish_case/donkfish)
 
 /datum/supply_pack/companies/general/donk/merch/donk_carpet
 	contains = list(/obj/item/stack/tile/carpet/donk/thirty)

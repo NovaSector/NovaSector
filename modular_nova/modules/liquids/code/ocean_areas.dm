@@ -26,7 +26,7 @@
 
 /area/ruin/ocean
 	default_gravity = STANDARD_GRAVITY
-	area_flags = UNIQUE_AREA
+	area_flags = NONE
 
 /area/ruin/ocean/listening_outpost
 	name = "Listening Station"

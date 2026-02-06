@@ -34,14 +34,14 @@
 	/// Once we reach infection beyond WOUND_INFECTION_SEPTIC, we get this many warnings before the limb is completely paralyzed (you'd have to ignore a really bad burn for a really long time for this to happen)
 	var/strikes_to_lose_limb = 3
 
-/datum/wound/burn/flesh/handle_process(seconds_per_tick, times_fired)
+/datum/wound/burn/flesh/handle_process(seconds_per_tick)
 
 	if (!victim || HAS_TRAIT(victim, TRAIT_STASIS))
 		return
 
 	. = ..()
 	if(strikes_to_lose_limb <= 0) // we've already hit sepsis, nothing more to do
-		victim.adjustToxLoss(0.25 * seconds_per_tick)
+		victim.adjust_tox_loss(0.25 * seconds_per_tick)
 		if(SPT_PROB(0.5, seconds_per_tick))
 			victim.visible_message(span_danger("The infection on the remnants of [victim]'s [limb.plaintext_zone] shift and bubble nauseatingly!"), span_warning("You can feel the infection on the remnants of your [limb.plaintext_zone] coursing through your veins!"), vision_distance = COMBAT_MESSAGE_RANGE)
 		return
@@ -89,7 +89,7 @@
 
 		if(WOUND_INFECTION_MODERATE to WOUND_INFECTION_SEVERE)
 			if(SPT_PROB(15, seconds_per_tick))
-				victim.adjustToxLoss(0.2)
+				victim.adjust_tox_loss(0.2)
 				if(prob(6))
 					to_chat(victim, span_warning("The blisters on your [limb.plaintext_zone] ooze a strange pus..."))
 
@@ -105,7 +105,7 @@
 				return
 
 			if(SPT_PROB(10, seconds_per_tick))
-				victim.adjustToxLoss(0.5)
+				victim.adjust_tox_loss(0.5)
 
 		if(WOUND_INFECTION_CRITICAL to WOUND_INFECTION_SEPTIC)
 			if(!disabling)
@@ -121,9 +121,9 @@
 			if(SPT_PROB(2.48, seconds_per_tick))
 				if(prob(20))
 					to_chat(victim, span_warning("You contemplate life without your [limb.plaintext_zone]..."))
-					victim.adjustToxLoss(0.75)
+					victim.adjust_tox_loss(0.75)
 				else
-					victim.adjustToxLoss(1)
+					victim.adjust_tox_loss(1)
 
 		if(WOUND_INFECTION_SEPTIC to INFINITY)
 			if(SPT_PROB(0.5 * infection, seconds_per_tick))
@@ -252,7 +252,7 @@
 		uv(tool, user)
 
 // people complained about burns not healing on stasis beds, so in addition to checking if it's cured, they also get the special ability to very slowly heal on stasis beds if they have the healing effects stored
-/datum/wound/burn/flesh/on_stasis(seconds_per_tick, times_fired)
+/datum/wound/burn/flesh/on_stasis(seconds_per_tick)
 	. = ..()
 	if(strikes_to_lose_limb <= 0) // we've already hit sepsis, nothing more to do
 		if(SPT_PROB(0.5, seconds_per_tick))

@@ -3032,11 +3032,6 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/abandoned/bridge)
-"Co" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/secure/tradership_cargo_very_valuable,
-/turf/open/floor/iron/dark,
-/area/shuttle/abandoned/cargo)
 "Cv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -3163,7 +3158,6 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/secure/tradership_cargo_very_valuable,
 /obj/structure/alien/weeds,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
@@ -5897,7 +5891,7 @@ kI
 bQ
 rO
 Dr
-Co
+OC
 gt
 ZM
 ZS

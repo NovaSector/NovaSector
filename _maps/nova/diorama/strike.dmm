@@ -64,7 +64,7 @@
 /obj/structure/sign/plaques/kiddie/diorama/strike{
 	pixel_y = 8
 	},
-/turf/template_noop,
+/turf/closed/wall,
 /area/template_noop)
 "u" = (
 /obj/structure/disposalpipe/segment{

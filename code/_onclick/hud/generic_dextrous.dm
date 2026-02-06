@@ -55,6 +55,8 @@
 		if(inv.slot_id)
 			inv_slots[TOBITSHIFT(inv.slot_id) + 1] = inv
 			inv.update_appearance()
+	ammo_counter = new /atom/movable/screen/ammo_counter(null, src) //NOVA EDIT ADDITION
+	infodisplay += ammo_counter //NOVA EDIT ADDITION
 
 /datum/hud/dextrous/persistent_inventory_update()
 	if(!mymob)

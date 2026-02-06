@@ -141,7 +141,7 @@
 	var/attacker_has_blood = isliving(attacker) && HAS_TRAIT(attacker, TRAIT_NOBLOOD)
 
 	// Blood drain effects on defender
-	if(defender_has_blood && defender.blood_volume >= BLOOD_VOLUME_SURVIVE)
+	if(defender_has_blood && defender.get_blood_volume() >= BLOOD_VOLUME_SURVIVE)
 		var/attack_direction = get_dir(attacker, defender)
 		if(iscarbon(defender))
 			var/mob/living/carbon/carbon_defender = defender
@@ -151,7 +151,7 @@
 			if(carbon_defender.mob_biotypes & MOB_ROBOTIC)
 				do_sparks(2, FALSE, carbon_defender.loc)
 				playsound(carbon_defender, 'modular_nova/modules/medical/sound/robotic_slash_T2.ogg', 100)
-		defender.blood_volume -= 10
+		defender.adjust_blood_volume(-10)
 
 	// Healing effects on attacker
 	if(!isliving(attacker))
@@ -160,12 +160,12 @@
 	living_attacker.heal_ordered_damage(5, damage_heal_order)
 
 	// Blood transfer effects
-	if(attacker_has_blood && living_attacker.blood_volume < BLOOD_VOLUME_MAXIMUM)
-		living_attacker.blood_volume += 5
+	if(attacker_has_blood && living_attacker.get_blood_volume() < BLOOD_VOLUME_MAXIMUM)
+		living_attacker.adjust_blood_volume(5)
 	if(isbodypart(active_arm) && !IS_ROBOTIC_LIMB(active_arm))
 		living_attacker.apply_damage(damage*0.75, TOX, forced = TRUE)
 		if(attacker_has_blood)
-			living_attacker.blood_volume -= 7
+			living_attacker.adjust_blood_volume(-7)
 
 	new /obj/effect/temp_visual/crit(get_turf(defender))
 
@@ -192,7 +192,7 @@
 	new /obj/effect/temp_visual/explosion/fast(get_turf(defender))
 	defender.throw_at(throw_target, 2, 7, attacker)
 	defender.apply_damage(attacker == defender ? 20 : 10, attacker.get_attack_type())
-	defender.adjustStaminaLoss(10)
+	defender.adjust_stamina_loss(10)
 
 	var/obj/item/bodypart/arm/active_arm = attacker.get_active_hand()
 	var/mob/living/carbon/carbon_attacker = attacker

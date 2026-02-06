@@ -16,21 +16,13 @@
 	selfcharge = TRUE
 	charge_delay = 15
 
-/obj/item/gun/energy/e_gun/advtaser/examine(mob/user)
-	. = ..()
-	. += span_notice(CHARGE_MESSAGE)
-
 // disabler smg
 /obj/item/gun/energy/disabler/smg
 	selfcharge = TRUE
 	charge_delay = 15
 
-/obj/item/gun/energy/disabler/smg/examine(mob/user)
-	. = ..()
-	. += span_notice(CHARGE_MESSAGE)
-
 // miniature energy gun
-// Allstar sc2 energy carbine - Special, is not a sidearm but too many weapons are child of fthis thing, and they change modes too, so using a crank is tricky.
+// Allstar sc2 energy carbine
 /obj/item/gun/energy/e_gun
 	selfcharge = TRUE
 	charge_delay = 15
@@ -39,12 +31,35 @@
 	. = ..()
 	. += span_notice(CHARGE_MESSAGE)
 
-// Tesla Cannon a tad crazy with crank, plus its supposed to be fed by the anomaly
+/obj/item/gun/energy/e_gun/nuclear
+	charge_delay = 5 // compare/contrast tg's default delay of 8, tg's adv e-gun delay of 10, nova's egun self-charge delay of 15
+	self_charge_amount = STANDARD_ENERGY_GUN_SELF_CHARGE_RATE * 3 // recharges 15% of the internal cell per tick.
+
+// Tesla Cannon
 /obj/item/gun/energy/tesla_cannon
 	selfcharge = TRUE
 	charge_delay = 15
 
 /obj/item/gun/energy/tesla_cannon/examine(mob/user)
+	. = ..()
+	. += span_notice(CHARGE_MESSAGE)
+
+/obj/item/gun/energy/laser
+	selfcharge = TRUE
+	charge_delay = 15
+
+/obj/item/gun/energy/laser/examine(mob/user)
+	. = ..()
+	. += span_notice(CHARGE_MESSAGE)
+
+/obj/item/gun/energy/laser/captain
+	charge_delay = 8 // compare/contrast tg's default delay of 8, nova's laser self-charge delay of 15
+
+/obj/item/gun/energy/ionrifle
+	selfcharge = TRUE
+	charge_delay = 15
+
+/obj/item/gun/energy/ionrifle/examine(mob/user)
 	. = ..()
 	. += span_notice(CHARGE_MESSAGE)
 

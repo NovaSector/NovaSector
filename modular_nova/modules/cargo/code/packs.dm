@@ -410,7 +410,7 @@
 	contains = list(/obj/item/gravity_harness)
 
 /datum/supply_pack/misc/commandkeys
-	hidden = TRUE
+	order_flags = ORDER_EMAG_ONLY
 
 /*
 *	FOOD
@@ -680,7 +680,7 @@
 	name = "Authentic Renaissance Faire Crate"
 	desc = "Contains two authentic suits of armor, swords, and two bows and cuirass' for the cowards hiding in the back."
 	cost = CARGO_CRATE_VALUE * 30
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 	contains = list(
 		/obj/item/clothing/suit/armor/riot/knight/larp/red,
 		/obj/item/clothing/gloves/plate/larp/red,

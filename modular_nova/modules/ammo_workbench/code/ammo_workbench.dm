@@ -8,6 +8,8 @@
 	// active power usage taken from autolathes
 	active_power_usage = 0.025 * STANDARD_CELL_RATE
 	circuit = /obj/item/circuitboard/machine/ammo_workbench
+	/// The container to hold materials
+	var/datum/material_container/materials
 	var/busy = FALSE
 	var/error_message = ""
 	var/error_type = ""
@@ -56,18 +58,17 @@
 	)
 
 /obj/machinery/ammo_workbench/Initialize(mapload)
-	AddComponent( \
-		/datum/component/material_container, \
+	materials = new ( \
+		src, \
 		SSmaterials.materials_by_category[MAT_CATEGORY_ITEM_MATERIAL], \
 		200000, \
 		MATCONTAINER_EXAMINE, \
 		allowed_items = /obj/item/stack, \
 	)
-	. = ..()
+	return ..()
 
 /obj/machinery/ammo_workbench/examine(mob/user)
 	. += ..()
-	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>\
 			Material consumption at <b>[creation_efficiency*100]%</b>.")
@@ -146,11 +147,9 @@
 	data["turboBoost"] = turbo_boost
 
 	data["materials"] = list()
-	var/datum/component/material_container/mat_container = GetComponent(/datum/component/material_container)
-	if (mat_container)
-		for(var/mat in mat_container.materials)
+	if (materials)
+		for(var/mat, amount in materials.materials)
 			var/datum/material/material = mat
-			var/amount = mat_container.materials[material]
 			var/sheet_amount = amount / SHEET_MATERIAL_AMOUNT
 			var/ref = REF(material)
 			data["materials"] += list(list("name" = material.name, "id" = ref, "amount" = sheet_amount))
@@ -203,13 +202,11 @@
 
 		if("Release")
 
-			var/datum/component/material_container/mat_container = GetComponent(/datum/component/material_container)
-
-			if(!mat_container)
+			if(isnull(materials))
 				return
 			var/datum/material/mat = locate(params["id"])
 
-			var/amount = mat_container.materials[mat]
+			var/amount = materials.materials[mat]
 			if(!amount)
 				return
 
@@ -224,7 +221,7 @@
 
 			var/sheets_to_remove = round(min(desired,50,stored_amount))
 
-			mat_container.retrieve_stack(sheets_to_remove, mat, loc)
+			materials.retrieve_stack(sheets_to_remove, mat, loc)
 			. = TRUE
 
 		if("ReadDisk")
@@ -314,8 +311,6 @@
 
 	if(!loaded_magazine)
 		return
-
-	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 
 	var/obj/item/ammo_casing/new_casing = new casing_type
 
@@ -426,7 +421,6 @@
 	for(var/datum/stock_part/matter_bin/new_matter_bin in component_parts)
 		mat_capacity += new_matter_bin.tier * (40 * SHEET_MATERIAL_AMOUNT)
 
-	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	materials.max_amount = mat_capacity
 	update_ammotypes()
 
@@ -442,7 +436,7 @@
 	if(loaded_magazine)
 		loaded_magazine.forceMove(loc)
 		loaded_magazine = null
-
+	QDEL_NULL(materials)
 	return ..()
 
 /obj/machinery/ammo_workbench/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)

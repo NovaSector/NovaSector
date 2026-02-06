@@ -39,7 +39,7 @@
 	icon_state = "phantom-broken"
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/mecha.dmi'
 	desc = "You almost get phantom pain from looking at this."
-	welder_salvage = list(/obj/item/computer_disk/virus/mime, /obj/item/clothing/head/beret)
+	welder_salvage = list(/obj/item/disk/computer/virus/mime, /obj/item/clothing/head/beret)
 
 /obj/vehicle/sealed/mecha/reticence/artifact/Initialize(mapload)
 	. = ..()

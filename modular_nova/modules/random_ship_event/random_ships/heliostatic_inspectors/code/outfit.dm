@@ -28,10 +28,11 @@
 
 	id = /obj/item/card/id/advanced/hc_police
 	id_trim = /datum/id_trim/hc_police
+	implants = list(/obj/item/implant/mindshield)
 
 /datum/outfit/hc_officer/post_equip(mob/living/carbon/human/equipped)
 	. = ..()
-	equipped.faction |= "coalition"
+	equipped.add_faction("coalition")
 
 	// make sure we update the ID's name too
 	var/obj/item/card/id/id_card = equipped.wear_id

@@ -15,7 +15,7 @@
 /obj/item/food/grown/poppy/opiumpoppy
 	seed = /obj/item/seeds/poppy/opiumpoppy
 	name = "opium poppy seedpod"
-	desc = "The seedpod of the opium poppy plant, which contain opium latex."
+	desc = "The seedpod of the opium poppy plant, which contains opium latex."
 	icon = 'modular_nova/master_files/icons/obj/hydroponics/harvest.dmi'
 	icon_state = "opiumpoppy"
 	worn_icon_state = "map_flower"

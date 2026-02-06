@@ -52,14 +52,14 @@
 /** Checks proximity for mobs */
 /mob/eye/blob/proc/check_core_visibility()
 	for(var/mob/living/player in range(7, src))
-		if(ROLE_BLOB in player.faction)
+		if(player.has_faction(ROLE_BLOB))
 			continue
 		if(player.client)
 			to_chat(src, span_warning("There is someone too close to place your blob core!"))
 			return FALSE
 
 	for(var/mob/living/player in view(13, src))
-		if(ROLE_BLOB in player.faction)
+		if(player.has_faction(ROLE_BLOB))
 			continue
 		if(player.client)
 			to_chat(src, span_warning("Someone could see your blob core from here!"))
@@ -216,7 +216,7 @@
 		factory.assign_blobbernaut(null)
 		return FALSE
 
-	var/mob_type = /mob/living/basic/blob_minion/spore/minion
+	var/mob_type = /mob/living/basic/blob_minion/blobbernaut/minion
 	var/mob/living/basic/blob_minion/blobbernaut/minion/blobber = new mob_type(get_turf(factory), blob_borne = TRUE)
 	blobber.AddComponent(/datum/component/blob_minion, new_overmind = src, new_death_cloud_size = blobber.death_cloud_size)
 	factory.assign_blobbernaut(blobber)
@@ -295,7 +295,7 @@
 	for(var/mob/living/player in tile)
 		if(!player.can_blob_attack())
 			continue
-		if(ROLE_BLOB in player.faction) //no friendly/dead fire
+		if(player.has_faction(ROLE_BLOB)) //no friendly/dead fire
 			continue
 		if(player.stat != DEAD)
 			attack_success = TRUE

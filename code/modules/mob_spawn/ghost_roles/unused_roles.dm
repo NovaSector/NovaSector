@@ -12,7 +12,7 @@
 	though fate has other plans for you."
 	flavour_text = "Good. It seems as though your ship crashed. You remember that you were convicted of "
 	spawner_job_path = /datum/job/escaped_prisoner
-	allow_custom_character = GHOSTROLE_ALLOW_OTHER
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /obj/effect/mob_spawn/ghost_role/human/prisoner_transport/Initialize(mapload)
 	. = ..()
@@ -25,7 +25,7 @@
 	new /obj/structure/fluff/empty_sleeper/syndicate(get_turf(src))
 	return ..()
 
-/obj/effect/mob_spawn/ghost_role/human/prisoner_transport/special(mob/living/carbon/human/spawned_human, mob/mob_possessor)
+/obj/effect/mob_spawn/ghost_role/human/prisoner_transport/special(mob/living/carbon/human/spawned_human, mob/mob_possessor, apply_prefs)
 	. = ..()
 	spawned_human.fully_replace_character_name(null, "NTP #LL-0[rand(111,999)]") //Nanotrasen Prisoner #Lavaland-(numbers)
 
@@ -111,7 +111,7 @@
 	implants = list(/obj/item/implant/weapons_auth)
 
 /datum/outfit/syndicate_empty/post_equip(mob/living/carbon/human/H)
-	H.faction |= ROLE_SYNDICATE
+	H.add_faction(ROLE_SYNDICATE)
 
 //For ghost bar.
 /obj/effect/mob_spawn/ghost_role/human/space_bar_patron
@@ -157,7 +157,7 @@
 	new/obj/structure/fluff/empty_sleeper(get_turf(src))
 	return ..()
 
-/obj/effect/mob_spawn/ghost_role/human/exile/special(mob/living/new_spawn, mob/mob_possessor)
+/obj/effect/mob_spawn/ghost_role/human/exile/special(mob/living/new_spawn, mob/mob_possessor, apply_prefs)
 	. = ..()
 	new_spawn.fully_replace_character_name(null,"Wish Granter's Victim ([rand(1,999)])")
 	var/wish = rand(1,4)
@@ -192,7 +192,7 @@
 	you_are_text = "You are a Nanotrasen Commander!"
 	flavour_text = "Upper-crusty of Nanotrasen. You should be given the respect you're owed."
 	outfit = /datum/outfit/nanotrasencommander
-	allow_custom_character = GHOSTROLE_ALLOW_OTHER
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 //space doctor, a rat with cancer, and bessie from an old removed lavaland ruin.
 
@@ -234,7 +234,7 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 
-/obj/effect/mob_spawn/cow/special(mob/living/spawned_mob, mob/mob_possessor)
+/obj/effect/mob_spawn/cow/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	. = ..()
 	gender = FEMALE
 
@@ -279,7 +279,7 @@
 	spawner_job_path = /datum/job/syndicate_cybersun
 	allow_custom_character = ALL
 
-/obj/effect/mob_spawn/ghost_role/human/syndicatespace/special(mob/living/new_spawn, mob/mob_possessor)
+/obj/effect/mob_spawn/ghost_role/human/syndicatespace/special(mob/living/new_spawn, mob/mob_possessor, apply_prefs)
 	. = ..()
 	new_spawn.grant_language(/datum/language/codespeak, source = LANGUAGE_SPAWNER) // NOVA EDIT CHANGE - ORIGINAL: new_spawn.grant_language(/datum/language/codespeak, source = LANGUAGE_MIND)
 	var/datum/job/spawn_job = SSjob.get_job_type(spawner_job_path)
@@ -314,7 +314,7 @@
 	implants = list(/obj/item/implant/weapons_auth)
 
 /datum/outfit/syndicatespace/post_equip(mob/living/carbon/human/syndie_scum)
-	syndie_scum.faction |= ROLE_SYNDICATE
+	syndie_scum.add_faction(ROLE_SYNDICATE)
 
 /datum/outfit/syndicatespace/syndicrew
 	name = "Syndicate Ship Crew Member"

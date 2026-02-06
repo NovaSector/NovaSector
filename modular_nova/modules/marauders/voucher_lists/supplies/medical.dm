@@ -10,12 +10,12 @@
 	)
 
 /datum/voucher_set/traitor/supplies/medical/sentience_potion
-	name = /obj/item/slimepotion/slime/sentience/nuclear::name
-	description = /obj/item/slimepotion/slime/sentience/nuclear::desc
-	icon = /obj/item/slimepotion/slime/sentience/nuclear::icon
-	icon_state = /obj/item/slimepotion/slime/sentience/nuclear::icon_state
+	name = /obj/item/slimepotion/sentience/nuclear::name
+	description = /obj/item/slimepotion/sentience/nuclear::desc
+	icon = /obj/item/slimepotion/sentience/nuclear::icon
+	icon_state = /obj/item/slimepotion/sentience/nuclear::icon_state
 	set_items = list(
-		/obj/item/slimepotion/slime/sentience/nuclear,
+		/obj/item/slimepotion/sentience/nuclear,
 	)
 
 /datum/voucher_set/traitor/supplies/medical/twitch

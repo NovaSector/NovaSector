@@ -41,7 +41,7 @@
 	// adjustment: -5 damage (still +10 from base slugs), +0.25 speed (tiles/sec?), +10 wound bonus, -10 exposed wound bonus (still 15 total wound bonus)
 	// frankly I think leaving it at 50 would be fine because crewside milspecs should be dead with the same PR this comment is in
 	// *shrug
-	damage = 45
+	damage = 50
 	armour_penetration = 30
 	speed = 1.5
 	wound_bonus = 10
@@ -88,9 +88,11 @@
 		<br><br>\
 		<i>METEOR: Fires a meteor-like projectile that knocks back movable objects like people and airlocks.</i>"
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6.45, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4)
 
 /obj/item/ammo_casing/shotgun/pulseslug
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.51, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.12)
 
 /obj/item/ammo_casing/shotgun/frag12
 	name = "FRAG-12 slug"
@@ -112,7 +114,7 @@
 	can_be_printed = FALSE // it's just not good
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
-	damage = 5
+	damage = 6
 	wound_bonus = 5
 	exposed_wound_bonus = 10
 
@@ -121,10 +123,10 @@
 	icon_state = "mgshell"
 	variance = 15
 	ammo_categories = AMMO_CLASS_SUPER
-	custom_materials = AMMO_MATS_HEAVY_FAST
+	custom_materials = AMMO_MATS_AP
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
-	damage = 6 // 6 * 8 = 48
+	damage = 7 // 7 * 8 = 56
 	damage_falloff_tile = -0.1
 	wound_falloff_tile = -0.25
 	speed = 1.5
@@ -168,7 +170,7 @@
 	// adjustments: +2.5 damage per pellet (4*8=32 pb damage), damage falloff taken to -0.1, exposed wound buffed +5 to 10
 	// pellets, but specialized for AP/embeds. not as good for raw damage but more for making people regret running
 	name = "shredder flechette"
-	damage = 4
+	damage = 5
 	damage_falloff_tile = -0.1
 	speed = 1.35 // you can have above average projectile speed. as a treat
 	wound_bonus = 5
@@ -182,6 +184,7 @@
 
 /obj/item/ammo_casing/shotgun/ion
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.41, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.07)
 
 /obj/item/ammo_casing/shotgun/scatterlaser
 	ammo_categories = AMMO_CLASS_NICHE // it's techy okay.
@@ -223,7 +226,7 @@
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	name = "magnum blockshot"
-	damage = 10
+	damage = 13
 	exposed_wound_bonus = 5
 	wound_bonus = 5
 	armour_penetration = 5
@@ -267,7 +270,7 @@
 	name = "ripper flechette"
 	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "flechette"
-	damage = 6
+	damage = 7
 	wound_bonus = 0
 	exposed_wound_bonus = 15
 	sharpness = SHARP_EDGED //Did you knew flechettes fly sideways into people
@@ -293,7 +296,7 @@
 	name = "hornet flechette"
 	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "hornet"
-	damage = 4
+	damage = 5
 	stamina = 15
 	damage_falloff_tile = -0.1
 	stamina_falloff_tile = -0.1

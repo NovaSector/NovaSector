@@ -21,7 +21,7 @@
 
 	restricted_species = list(/datum/species/human/felinid/primitive)
 	quirks_enabled = TRUE
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	loadout_enabled = FALSE
 	uses = 12
 	deletes_on_zero_uses_left = FALSE
@@ -102,14 +102,14 @@
 
 
 /obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/allow_spawn(mob/user, silent = FALSE)
-	if(!(user.key in team.players_spawned)) // One spawn per person
+	if(!(user.ckey in team.players_spawned)) // One spawn per person
 		return TRUE
 	if(!silent)
 		to_chat(user, span_warning("It'd be weird if there were multiple of you in that cave, wouldn't it?"))
 	return FALSE
 
 
-/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/create(mob/mob_possessor, newname, use_loadout = FALSE)
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/create(mob/mob_possessor, newname, apply_prefs)
 	. = ..()
 
 	// We remove their name from there if they come back.
@@ -123,7 +123,7 @@
 
 	spawned_human.mind.add_antag_datum(/datum/antagonist/primitive_catgirl, team)
 
-	team.players_spawned += (spawned_human.key)
+	team.players_spawned += (spawned_human.ckey)
 
 
 /obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/mouse_drop_receive(mob/living/carbon/human/target, mob/user, params)
@@ -136,7 +136,7 @@
 		to_chat(user, span_danger("Dead kin cannot be put back to sleep."))
 		return
 
-	if(target.key && target != user)
+	if(target.ckey && target != user)
 		if(!target.get_organ_by_type(/obj/item/organ/brain) || (target.mind && !target.ssd_indicator))
 			to_chat(user, span_danger("Awake kin cannot be put back to sleep against their will."))
 			return
@@ -214,7 +214,7 @@
 
 	// We make sure people can come back in again, if they needed to fix prefs
 	// or whatever.
-	team.players_spawned -= (target.key)
+	team.players_spawned -= (target.ckey)
 	team.remove_member(target.mind)
 	went_back_to_sleep += target.real_name
 	join_and_leave_log_cache = null

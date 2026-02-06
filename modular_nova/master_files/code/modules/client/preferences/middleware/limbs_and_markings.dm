@@ -25,7 +25,7 @@
 	)
 
 	var/list/organs_to_process = list(
-		"brain" = "Brain", //NOVA EDIT
+		"brain" = "Brain",
 		"heart" = "Heart",
 		"lungs" = "Lungs",
 		"liver" = "Liver",
@@ -33,6 +33,7 @@
 		"ears" = "Ears",
 		"eyes" = "Eyes",
 		"tongue" = "Tongue",
+		"Brain Implant" = "Brain implant",
 		"Mouth implant" = "Mouth implant",
 		"Chest implant" = "Chest implant",
 		"Left Arm implant" = "Left Arm implant",
@@ -59,7 +60,7 @@
 
 
 /datum/preference_middleware/limbs_and_markings/apply_to_human(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
-	target.dna.species.body_markings = LAZYCOPY(preferences.body_markings)
+	target.dna.body_markings = LAZYCOPY(preferences.body_markings)
 
 	var/list/visited_body_zones = list()
 	for(var/key in preferences.augments)
@@ -128,7 +129,18 @@
 		preferences.body_markings[limb_slot] = list()
 	if(preferences.body_markings[limb_slot].len >= MAXIMUM_MARKINGS_PER_LIMB)
 		return
-	preferences.body_markings[limb_slot] += list(GLOB.body_markings_per_limb[limb_slot][1] = list("#FFFFFF", FALSE)) // Default to the first in the list for the limb.
+	var/marking_name = pick(GLOB.body_markings_per_limb[limb_slot]) // Default to a random one in the list
+	var/datum/body_marking/marking = GLOB.body_markings[marking_name]
+	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/list/mutant_colors = preferences.read_preference(/datum/preference/tri_color/mutant_colors)
+	var/list/features = list(
+			FEATURE_MUTANT_COLOR = mutant_colors[1],
+			FEATURE_MUTANT_COLOR_TWO = mutant_colors[2],
+			FEATURE_MUTANT_COLOR_THREE = mutant_colors[3],
+			FEATURE_SKIN_COLOR = skintone2hex(preferences.read_preference(/datum/preference/choiced/skin_tone))
+		)
+	var/datum/species/current_species = GLOB.species_prototypes[species_type]
+	preferences.body_markings[limb_slot] += list("[marking_name]" = list(marking.get_default_color(features, current_species), FALSE))
 	preferences.character_preview_view.update_body()
 	return TRUE
 
@@ -162,12 +174,12 @@
 		if(marking_id == "[limb_slot]_[marking_count]")
 			marking_entry_name = marking_entry
 		new_markings[marking_entry] = markings[marking_entry]
-	var/new_color = input(
+	var/new_color = tgui_color_picker(
 		usr,
 		"Select new color",
 		null,
 		preferences.body_markings[limb_slot][marking_entry_name][1],
-	) as color | null
+	)
 	if(!new_color)
 		return TRUE
 	new_markings[marking_entry_name][1] = sanitize_hexcolor(new_color) // gets the new color from the picker
@@ -230,7 +242,16 @@
 	var/preset = params["preset"]
 	if (preset)
 		var/datum/body_marking_set/BMS = GLOB.body_marking_sets[preset]
-		preferences.body_markings = assemble_body_markings_from_set(BMS, preferences.features, preferences.pref_species)
+		var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+		var/list/mutant_colors = preferences.read_preference(/datum/preference/tri_color/mutant_colors)
+		var/list/features = list(
+			FEATURE_MUTANT_COLOR = mutant_colors[1],
+			FEATURE_MUTANT_COLOR_TWO = mutant_colors[2],
+			FEATURE_MUTANT_COLOR_THREE = mutant_colors[3],
+			FEATURE_SKIN_COLOR = skintone2hex(preferences.read_preference(/datum/preference/choiced/skin_tone))
+		)
+		var/datum/species/current_species = GLOB.species_prototypes[species_type]
+		preferences.body_markings = assemble_body_markings_from_set(BMS, features, current_species)
 	preferences.character_preview_view.update_body()
 	return TRUE
 
@@ -270,7 +291,7 @@
 		if (!allow_mismatched_parts)
 			for (var/name in choices)
 				var/datum/body_marking/marking = GLOB.body_markings[name]
-				if (marking.recommended_species && !(initial(species_type.id) in marking.recommended_species))
+				if (marking.recommended_species && isnull(marking.recommended_species[species_type::id]))
 					choices -= name
 		limbs_data += list(list(
 			"slot" = limb,
@@ -324,8 +345,8 @@
 	var/list/presets = GLOB.body_marking_sets.Copy()
 	if (!allow_mismatched_parts)
 		for (var/name in presets)
-			var/datum/body_marking_set/BMS = presets[name]
-			if (BMS.recommended_species && !(initial(species_type.id) in BMS.recommended_species))
+			var/datum/body_marking_set/marking_set = presets[name]
+			if (marking_set.recommended_species && isnull(marking_set.recommended_species[species_type::id]))
 				presets -= name
 
 	data["marking_presets"] = presets
