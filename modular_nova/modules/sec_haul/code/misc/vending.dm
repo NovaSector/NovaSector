@@ -36,6 +36,7 @@
 			"name" = "Main",
 			"icon" = "shield",
 			"products" = list(
+				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
 				/obj/item/clothing/head/beret/sec = 4,
 				/obj/item/clothing/head/security_cap = 4,
 				/obj/item/clothing/head/security_garrison = 4,
@@ -68,7 +69,7 @@
 				/obj/item/clothing/suit/armor/vest/brit = 3,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec = 4,
 				/obj/item/clothing/gloves/color/black/security/white = 4,
-				/obj/item/clothing/shoes/jackboots/sec = 4,
+				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
 				/obj/item/storage/backpack/security = 4,
 				/obj/item/storage/backpack/satchel/sec = 4,
 				/obj/item/storage/backpack/duffelbag/sec = 4,

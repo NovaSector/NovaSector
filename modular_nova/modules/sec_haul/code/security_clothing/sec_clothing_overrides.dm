@@ -206,6 +206,12 @@
 /datum/atom_skin/security_hud_sunglasses
 	abstract_type = /datum/atom_skin/security_hud_sunglasses
 
+/datum/atom_skin/security_hud_sunglasses/red
+	preview_name = "Red Tinted Sunglasses"
+	new_icon = 'icons/obj/clothing/glasses.dmi'
+	new_icon_state = "sunhudsec"
+	new_worn_icon = 'icons/mob/clothing/eyes.dmi'
+
 /datum/atom_skin/security_hud_sunglasses/dark
 	preview_name = "Dark-Tint Blue Sunglasses"
 	new_icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'

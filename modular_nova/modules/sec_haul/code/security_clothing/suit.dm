@@ -21,12 +21,8 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, "zipper")
 
-/obj/item/clothing/suit/armor/vest/vested_jacket/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_icon, "zipper")
-
 /datum/atom_skin/vested_jacket
-	abstract_type = /datum/atom_skin/vested_jacket/red
+	abstract_type = /datum/atom_skin/vested_jacket
 
 /datum/atom_skin/vested_jacket/red
 	preview_name = "Red Variant"
@@ -55,21 +51,27 @@
 	cold_protection = CHEST|GROIN|ARMS
 	heat_protection = CHEST|GROIN|ARMS
 
-/obj/item/clothing/under/rank/security/nova/skirt/plain/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/vested_jacket/red)
+/obj/item/clothing/suit/armor/vest/vested_jacket/Initialize(mapload)
+    . = ..()
+    // Add the reskin component here
+    AddComponent(/datum/component/reskinable_item, /datum/atom_skin/vested_jacket)
+    // Your existing zipper component
+    AddComponent(/datum/component/toggle_icon, "zipper")
 
 /obj/item/clothing/suit/hooded/wintercoat/security/thick
 	name = "security winter coat"
 	desc = "An armor-padded winter coat. It glitters with a mild ablative coating and a robust air of authority."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/thick"
-	post_init_icon_state = "coatwinter"
+	post_init_icon_state = "seccoatwinter"
 	hood_down_overlay_suffix = ""
 	greyscale_config = /datum/greyscale_config/security_winter_coat
-	greyscale_config_worn = /datum/greyscale_config/security_winter_coat/worn
+	greyscale_config_worn = /datum/greyscale_config/security_winter_coat_worn
 	greyscale_colors = "#A52F29#B89E8D#212022"
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/sec_hood
 	flags_1 = IS_PLAYER_COLORABLE_1
+	/// Whether the hood is flipped up
+	var/hood_up = FALSE
 
 //In case colors are changed after initialization
 /obj/item/clothing/suit/hooded/wintercoat/security/thick/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)

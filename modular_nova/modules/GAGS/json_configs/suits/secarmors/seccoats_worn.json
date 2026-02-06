@@ -1,5 +1,5 @@
 {
-	"coatwinter": [
+	"seccoatwinter": [
 		{
 			"type": "icon_state",
 			"icon_state": "coatsecurity_winter_base",
@@ -19,8 +19,7 @@
 			"color_ids": [3]
 		}
 	],
-
-	"coatwinter_t": [
+	"seccoatwinter_t": [
 		{
 			"type": "icon_state",
 			"icon_state": "coatsecurity_winter_base_t",

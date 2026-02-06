@@ -933,9 +933,10 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secarmors/seccoats.json'
 
-/datum/greyscale_config/security_winter_coat/worn
+/datum/greyscale_config/security_winter_coat_worn
 	name = "Winter Coat (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/secarmors/seccoats_worn.json'
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
 
 /datum/greyscale_config/security_hoods
 	name = "Security Coat Hood"
