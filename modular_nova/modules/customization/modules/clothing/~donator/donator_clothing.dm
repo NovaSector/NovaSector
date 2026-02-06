@@ -2623,8 +2623,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /datum/storage/holster/espatier/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
 	. = ..()
 	set_holdable(list(
-		/obj/item/gun/ballistic/automatic/pistol/zashch,
-		/obj/item/ammo_box/magazine/zashch,
+		/obj/item/gun/ballistic/revolver/c38/detective,
+		/obj/item/gun/ballistic/revolver/c38/super,
+		/obj/item/ammo_box/speedloader/c38,
 		/obj/item/gun/ballistic/automatic/pistol/sol,
 		/obj/item/ammo_box/magazine/c35sol_pistol,
 		/obj/item/healthanalyzer,
