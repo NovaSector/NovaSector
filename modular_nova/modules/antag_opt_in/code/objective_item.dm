@@ -1,6 +1,6 @@
 /datum/objective_item
 	/// The opt in level all owners of the item must meet for this to be eligible as an objective target.
-	var/opt_in_level = OPT_IN_YES_TEMP
+	var/opt_in_level = OPT_IN_YES_ANTAG
 
 /// Returns TRUE if we have no owners, or all owners's effective opt in level is above [opt_in_level]. FALSE otherwise.
 /datum/objective_item/proc/owner_opted_in()

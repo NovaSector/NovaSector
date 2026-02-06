@@ -4,7 +4,7 @@
 	savefile_key = "antag_opt_in_status_pref"
 
 /datum/preference/choiced/antag_opt_in_status/init_possible_values()
-	return list(OPT_IN_YES_TEMP, OPT_IN_YES_KILL, OPT_IN_YES_ROUND_REMOVE, OPT_IN_NOT_TARGET)
+	return list(OPT_IN_YES_ANTAG, OPT_IN_YES_ROUND_REMOVE, OPT_IN_NOT_TARGET)
 
 /datum/preference/choiced/antag_opt_in_status/create_default_value()
 	return OPT_IN_DEFAULT_LEVEL

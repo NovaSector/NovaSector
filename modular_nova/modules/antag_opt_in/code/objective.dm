@@ -1,6 +1,6 @@
 /datum/objective
 	/// The default opt in level of this objective. Only targets with opt in above or at this will be considered for this objective.
-	var/default_opt_in_level = OPT_IN_YES_KILL
+	var/default_opt_in_level = OPT_IN_YES_ANTAG
 
 /// Simple getter for [default_opt_in_level]. Use for custom behavior.
 /datum/objective/proc/get_opt_in_level(datum/mind/target_mind)
@@ -35,36 +35,34 @@
 // KILL
 
 /datum/objective/assassinate
-	default_opt_in_level = OPT_IN_YES_KILL
+	default_opt_in_level = OPT_IN_YES_ANTAG
 
 /datum/objective/destroy
-	default_opt_in_level = OPT_IN_YES_KILL
+	default_opt_in_level = OPT_IN_YES_ANTAG
 
 /datum/objective/mutiny
-	default_opt_in_level = OPT_IN_YES_KILL
-
-// TEMP
+	default_opt_in_level = OPT_IN_YES_ANTAG
 
 /datum/objective/protect
-	default_opt_in_level = OPT_IN_YES_TEMP
+	default_opt_in_level = OPT_IN_YES_ANTAG
 
 /datum/objective/protect/nonhuman
-	default_opt_in_level = OPT_IN_YES_TEMP
+	default_opt_in_level = OPT_IN_YES_ANTAG
 
 /datum/objective/steal_n_of_type
-	default_opt_in_level = OPT_IN_YES_TEMP
+	default_opt_in_level = OPT_IN_YES_ANTAG
 
 /datum/objective/steal
-	default_opt_in_level = OPT_IN_YES_TEMP
+	default_opt_in_level = OPT_IN_YES_ANTAG
 
 /datum/objective/escape/escape_with_identity
-	default_opt_in_level = OPT_IN_YES_TEMP
+	default_opt_in_level = OPT_IN_YES_ANTAG
 
 /datum/objective/jailbreak
-	default_opt_in_level = OPT_IN_YES_TEMP
+	default_opt_in_level = OPT_IN_YES_ANTAG
 
 /datum/objective/contract
-	default_opt_in_level = OPT_IN_YES_TEMP
+	default_opt_in_level = OPT_IN_YES_ANTAG
 
 /datum/objective/contract/opt_in_valid(datum/mind/target_mind)
 	var/datum/job/target_job = target_mind.assigned_role

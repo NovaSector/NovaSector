@@ -20,7 +20,7 @@ Adds functionality to allow players to 'opt-in' to being an antagonist's mechani
 
 ### Defines:
 
-- antag_opt_in - lives in ~nova_defines located in `__DEFINES` folder. Defines named OPT_IN_YES_KILL, OPT_IN_YES_TEMP, OPT_IN_YES_ROUND_REMOVE, and OPT_IN_OPT_IN_NOT_TARGET - used for managing opt in stuff.
+- antag_opt_in - lives in ~nova_defines located in `__DEFINES` folder. Defines named OPT_IN_YES_ANTAG, OPT_IN_YES_ROUND_REMOVE, and OPT_IN_OPT_IN_NOT_TARGET - used for managing opt in stuff.
 
 ### Included files that are not contained in this module:
 

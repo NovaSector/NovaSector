@@ -145,7 +145,7 @@
 		// NOVA EDIT ADDITION START - Players in the interlink can't be obsession targets + Antag Optin
 		if(SSticker.IsRoundInProgress() && istype(get_area(player), /area/centcom/interlink))
 			continue
-		if (!opt_in_disabled && player.mind?.get_effective_opt_in_level() < OPT_IN_YES_KILL)
+		if (!opt_in_disabled && player.mind?.get_effective_opt_in_level() < OPT_IN_YES_ANTAG)
 			continue
 		// NOVA EDIT ADDITION END
 		viable_minds += player.mind
