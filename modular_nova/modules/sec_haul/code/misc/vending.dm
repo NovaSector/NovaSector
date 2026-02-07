@@ -58,6 +58,7 @@
 				/obj/item/clothing/under/rank/security/nova/formal = 4,
 				/obj/item/clothing/under/rank/security/nova/utility = 4,
 				/obj/item/clothing/under/rank/security/nova/trousers = 4,
+				/obj/item/clothing/under/rank/security/nova/trousers/shorts = 4,
 				/obj/item/clothing/under/rank/security/officer/grey = 4,
 				/obj/item/clothing/under/pants/slacks = 4,
 				/obj/item/clothing/suit/armor/vest/secjacket = 4,

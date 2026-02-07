@@ -90,8 +90,10 @@
 	var/list/new_coat_colors = coat_colors.Copy(1,4)
 	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
 
+//
+
 /obj/item/clothing/head/hooded/winterhood/sec_hood
-	name = "tailored winter coat hood"
+	name = "security coat hood"
 	desc = "A heavy jacket hood made from 'synthetic' animal furs, with custom colors."
 	greyscale_config = /datum/greyscale_config/security_hoods
 	greyscale_config_worn = /datum/greyscale_config/security_hoods/worn

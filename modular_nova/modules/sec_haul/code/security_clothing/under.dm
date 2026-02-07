@@ -148,35 +148,34 @@
 /obj/item/clothing/under/rank/security/nova/skirt/mini/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt)
 
-/datum/atom_skin/security_utility
-	abstract_type = /datum/atom_skin/security_utility
+/datum/atom_skin/security_modskin
+	abstract_type = /datum/atom_skin/security_modskin
 
-/obj/item/clothing/under/rank/security/nova/utility
-	name = "security utility uniform"
-	desc = "A utility uniform worn by trained Security officers."
-	icon_state = "util_sec"
+/obj/item/clothing/under/rank/security/nova/modskin
+	name = "security M.O.D. skinsuit"
+	desc = "A M.O.D. skinsuit worn by trained Security officers."
+	icon_state = "modsec"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	alt_covers_chest = TRUE
 
-/datum/atom_skin/security_utility/red
+/datum/atom_skin/security_modskin/red
 	preview_name = "Red Variant"
 	new_icon_state = "util_sec"
 
-/datum/atom_skin/security_utility/blue
+/datum/atom_skin/security_modskin/blue
 	preview_name = "Blue Variant"
 	new_icon_state = "util_sec_blue"
 
-/datum/atom_skin/security_utility/white
+/datum/atom_skin/security_modskin/white
 	preview_name = "White Variant"
 	new_icon_state = "util_sec_white"
 
-/datum/atom_skin/security_utility/black
+/datum/atom_skin/security_modskin/black
 	preview_name = "Black Variant"
 	new_icon_state = "util_sec_black"
 
-/obj/item/clothing/under/rank/security/nova/utility/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_utility)
+/obj/item/clothing/under/rank/security/nova/modskin/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_modskin)
 
 /datum/atom_skin/security_dress
 	abstract_type = /datum/atom_skin/security_dress
@@ -205,6 +204,33 @@
 
 /obj/item/clothing/under/rank/security/nova/dress/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_dress)
+
+/datum/atom_skin/security_shorts
+	abstract_type = /datum/atom_skin/security_shorts
+
+/datum/atom_skin/security_shorts/red
+	preview_name = "Red Variant"
+	new_icon_state = "cargoshorts"
+
+/datum/atom_skin/security_shorts/red
+	preview_name = "Blue Variant"
+	new_icon_state = "cargoshorts_blue"
+
+/datum/atom_skin/security_shorts/white
+	preview_name = "White Variant"
+	new_icon_state = "cargoshorts_white"
+
+/datum/atom_skin/security_shorts/black
+	preview_name = "Black Variant"
+	new_icon_state = "cargoshorts_black"
+
+/obj/item/clothing/under/rank/security/nova/trousers/shorts
+	name = "cargo shorts"
+	desc = "Some \"combat\" shorts. Please don't actually wear these."
+	icon_state = "cargoshorts"
+
+/obj/item/clothing/under/rank/security/nova/trousers/shorts/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts)
 
 /datum/atom_skin/security_trousers
 	abstract_type = /datum/atom_skin/security_trousers
