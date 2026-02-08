@@ -226,6 +226,16 @@
   - balance: Advanced energy guns now have a charge delay of 5 ticks, down from 15,
       and recharge 3 shots per cycle (15% of the cell) up from 1 shot per cycle (5%
       of the cell).
+  - rscadd: Realizing that they can, in fact, do things, Nanotrasen has licensed Robust
+      Corp's bluespace grounding technology for use in retooled MOD emergency tether
+      modules. These can be found as MOD grounded apprehension modules, under Security
+      Modular Suits.
+  - rscadd: Realizing that they can, in fact, just do things, Nanotrasen has started
+      using some of their gathered data on anomalies in order to progress military
+      technology in the form of anomaly-based throwable munitions, with their first
+      foray being bluespace grounders, crafted with a case of uncharged anomaly grenades
+      (from Cargo) and a dimensional anomaly core (from Science). Grounders only work
+      within a 2-tile range, at most.
   Justice12354:
   - rscadd: Added lemon juice box
   Magentaformula0:
