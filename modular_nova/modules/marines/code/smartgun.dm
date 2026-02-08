@@ -44,11 +44,6 @@
 /obj/item/gun/ballistic/automatic/smart_machine_gun/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
-/obj/item/gun/ballistic/automatic/smart_machine_gun/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	. = ..()
-	if(chambered)
-		SEND_SIGNAL(chambered, COMSIG_CHAMBERED_BULLET_FIRE, iff_factions)
-
 /obj/item/gun/ballistic/automatic/smart_machine_gun/examine(mob/user)
 	. = ..()
 	. += "<b>RMB with an empty hand</b> to [cover_open ? "close" : "open"] the dust cover."

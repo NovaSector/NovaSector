@@ -138,7 +138,7 @@
 	icon_state = "liver-x"
 
 //Liver modification (xenohybrids can process plasma!)
-/obj/item/organ/liver/xeno_hybrid/handle_chemical(mob/living/carbon/owner, datum/reagent/toxin/chem, seconds_per_tick, times_fired)
+/obj/item/organ/liver/xeno_hybrid/handle_chemical(mob/living/carbon/owner, datum/reagent/toxin/chem, seconds_per_tick)
 	. = ..()
 	if(. & COMSIG_MOB_STOP_REAGENT_TICK)
 		return

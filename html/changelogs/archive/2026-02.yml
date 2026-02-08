@@ -1,0 +1,264 @@
+2026-02-01:
+  Boopideedoo:
+  - rscadd: added a fire extinguisher to the seed vault
+  Cirrial:
+  - bugfix: Fixed right-click menu pick up of items not working in rare cases.
+  Cyberboss:
+  - bugfix: The lootpanel will now properly close with distance from the target like
+      most other tguis.
+  - qol: The lootpanel will now automatically refresh when new items enter it. Removed
+      the manual refresh button.
+  - bugfix: Fixed placing people onto tables.
+  EEASAS:
+  - rscadd: Mustard. find it in the produce ordering computer or receive it in the
+      mail
+  - bugfix: Adds ketchup to the produce ordering computer
+  ERRORNAME:
+  - image: Shadow people and Nightmare resprite
+  - image: Unique sprites for light eater and heart of darkness
+  Ezel, Toriate:
+  - rscadd: you can now craft katana sheaths with 3 leather
+  - balance: Energy katana and hanzo katana and the normal katana now comes in a sheath
+      this allows them to counterattack aswell
+  - balance: Normal katanas aren't a huge item anymore but instead bulky this will
+      allow them to be stored in the suspicous dufflebag/bag of holding
+  - balance: Toy katana is now bulky too but comes in a sheath that can't counterattack
+      but looks like the normal katana's one as metabreaker
+  - balance: Normal and hanzo katana can't be wielded on your back or belt anymore
+      without a sheath
+  - balance: nukie base gets a katana with a sheath which can be stored now but still
+      force 20
+  - map: Most maps now include the katana sheaths if premapped in.
+  - image: energy katana sheath and katana sheaths by  Toriate
+  Geoengi:
+  - balance: X-ray eyes now possess flash sensitivity, requiring additional flash
+      protection to negate bright lights.
+  - balance: X-ray goggles also no longer have pseudo night vision, putting them more
+      in line with the eyes.
+  - balance: Moth thermal eyes are hyper-sensitive to flashes, like their x-ray brothers.
+  - bugfix: Penlight messages for examining zombie and x-ray eyes work as they should,
+      with maintenance eyes losing a superfluous period.
+  - image: X-ray goggles now have a relatively unique, blue tint and glasses color
+      to represent their capabilities.
+  Hardly:
+  - balance: Kobolds can now wear boots and gloves
+  - balance: Playable Kobolds can be absorbed properly by changelings and revenants
+  - balance: Kobolds no longer get a higher paycheck than everyone else
+  - bugfix: Fixed playable Kobolds being unable to use certain devices by giving them
+      a bigger brain
+  - code_imp: All kobolds no longer spawn with an innate clever mutation
+  - code_imp: Kobolds get free raw meat if the Gods feel like giving them a cookie
+  - bugfix: Fixed up a couple of incorrect perks in the Kobold's perk list
+  Jacquerel:
+  - sound: wands and staffs adjust their fire sound pitch instead of frequency as
+      charges are depleted
+  JoshAdamPowell:
+  - bugfix: 'Removed a ferry console which should not be at the heretic beach
+
+      :cl:'
+  KREKS:
+  - image: resprites banners
+  MajManatee:
+  - rscdel: You can once again put a normal AI in a modsuit
+  Melbert:
+  - bugfix: Having an active honorific no longer changes your runechat emote color
+  - rscadd: Desensitization to death is no longer binary - some antagonists are now
+      more used to it than others.
+  - rscadd: Witnessing the death of a fellow humanoid (or dying yourself) will slightly
+      desensitize you to future deaths.
+  - rscadd: Adds an achievement for managing to max out desensitization across a round.
+  - rscadd: Desensitized crewmembers care less when splattered with blood.
+  - rscadd: Holodeck mobs have a reduced death mood impact.
+  - qol: Banners drop centered
+  - balance: Inexorable's crit damage is halted in hard crit while you have Epinephrine
+      or similar, so you can actually get healed out of hard crit
+  - balance: Atropine stops crit damage like Epinephrine
+  - rscdel: Admins can no longer use the NAP button
+  - qol: Secure prosthetic surgical operation ignores clothing
+  - bugfix: Fix wallet (again)
+  - bugfix: Fix alt stunsword skin
+  - rscadd: A bullet to the brain has a rare chance of providing a free lobotomy
+  - qol: Operating computers, Vitals readers, and the health analyzer MODsuit module
+      (when active) can be used in the place of a health analyzer to display precise
+      health stats during a Tend Wounds surgery
+  - qol: Dna console has a minor visual indicator for invalid pairs (such as A-A or
+      C-T)
+  - bugfix: Fix hand surgery (stomach pump, etc) being blocked by the patient being
+      on combat mode rather than the surgeon
+  - qol: Chameleon ID's selection pool has been trimmed down, removing all the weird
+      random IDs and trims like "Head Occultist", to make it easier to find the real
+      job trims. You can (of course) manually forge the ID to set whatever job text
+      you want.
+  - qol: Chameleon items format their name slightly differently, making it easier
+      to search
+  - rscadd: Adds doppler radar towers to Lavaland and the Icemoon. These towers ensure
+      weather radios have accurate readings.
+  - rscadd: Adding a weather anomaly core to a radar tower upgrades it, giving you
+      control of weather - allowing you to cancel storms or even spawn a weather event
+      of your choice. However, the core will expire after use, requiring replacement.
+  - rscadd: You can construct radar towers with plasteel. Even on the station. Yes,
+      you can summon weather onto the station.
+  - balance: Limits weather anomaly cores to 5.
+  RikuTheKiller:
+  - refactor: Refactored girders and wall construction. Report any bugs.
+  SmArtKar:
+  - qol: Item fortification scroll no longer requires combat mode in order to be used
+  - bugfix: Fixed some reagents still using old (and now, incorrect) math for their
+      metabolization values
+  - bugfix: Fixed cables not disconnecting their neighbors when destroyed
+  - bugfix: Lipoplasty can no longer be used to infinitely farm meat or increase patient's
+      nutrition level
+  - bugfix: If your chest has somehow been swapped, you will drop the correct type
+      of meat when undergoing lipoplasty
+  - code_imp: Removed magic numbers in human meat related code
+  - qol: Plastic surgery can now be done on detached heads.
+  - refactor: Refactored how disfiguration is handled to be stored on head's side
+  - bugfix: Robotic (and other non-huskable) heads no longer become disfigured from
+      husking
+  - bugfix: Attaching a head from a husk to a different body no longer permanently
+      turns them into an Unknown.
+  - qol: Ashwalkers are now desensetized to non-ashie deaths, and enjoy witnessing
+      gibbings
+  - bugfix: Some specific death moodlets now properly register when their target has
+      been dusted or gibbed in their description
+  - bugfix: Moved floppy disk sticker reskins to alt-right-click
+  - rscadd: Added back IEDs made by attaching some wire and tape to a soda can filled
+      with fuel, plasma, or any other explosive of your choice. They need to be lit
+      on fire with a lighter or a welding tool.
+  - rscadd: You can now attach a lid to beakers with alt-click, preventing them from
+      being spilled when thrown.
+  - rscadd: Added beakerbombs, made by attaching an assembly (with optional power
+      cell and wiring) to a lidded beaker.
+  - balance: Rigged explosions now create flames.
+  - balance: Plasma explosions now limit their explosion potency past a certain point
+      based on their volume
+  Swan:
+  - bugfix: fixes the HFR health dropping exponentially once it starts taking damage
+      from having too many moles
+  SyncIt21:
+  - bugfix: selecting layer and colour of a stack of ducts works correctly
+  - qol: added examines & screen tips for wall frame items
+  - qol: added examines & screen tips for washing items in sinks
+  - bugfix: plumbing components inside shuttles reconnect to their machine counterparts
+      correctly
+  - bugfix: plumbing iv drip has its red & blue connectors visible again
+  - bugfix: sinks consume reagents when washing and won't wash when it becomes dry
+  - bugfix: map loaded plumbing machines begin processing
+  - bugfix: 'placing stack of ducts by hand of ducts works again
+
+      fix; plumbing machinery properly reconnects when un wrenching ducts in circular
+      connections'
+  - refactor: sinks are now proper wall mounted components meaning destroying their
+      attached walls will cause it to get destroyed & sink frames are wall frame items
+      that can be carried in hand
+  - bugfix: floor light constructs now deconstruct when floor is deconstructed
+  - bugfix: RLD created lights now fall off when floor/wall is destroyed
+  - bugfix: probability reagent affects scale correctly
+  - balance: reagent affects now scale with the volume of reagent metabolized meaning
+      lower metabolization rates (from like cybernetic organs) yield lower effects
+      & higher rates yield higher effects
+  Thunder12345:
+  - bugfix: The Sanguine Excavation bitrunning domain will drop the cache on killing
+      the boss again.
+  Y0SH1M4S73R:
+  - bugfix: Service cyborgs did not receive any benefit from installing the piercing
+      hypospray upgrade, so it can no longer be installed in them.
+  - bugfix: wire bundle circuit components work once again
+  lelandkemble:
+  - bugfix: Improvised mounted weaponry now drops a reasonable amount of cable
+  - bugfix: You can no longer oneshot the hierophant with an EMP
+  - bugfix: The "Super-Stable" line of Donk Co. Bomb Payloads are now stable when
+      exposed to extreme temperatures
+  - bugfix: bounties where you must submit reagents or pills or viruses now work
+  - spellcheck: spine implant emp damaging text spells "shearing" correctly
+  - map: Icebox engineering circuit lab no longer has firelocks placed in the windows
+  - rscadd: Added the ability to modify sabre sheaths into gun-powered sheaths, making
+      their counterattacks much more potent at the risk of great personal harm on
+      failure, especially if you have a weak, fleshy arm.
+  sqnztb:
+  - rscdel: blank mentoring books no longer give language experience. read some books,
+      or get the curator to write you a book if you want to learn a new language
+  tontyGH:
+  - bugfix: Viruses that heal their hosts through radiation no longer cause phantom
+      pain.
+  vinylspiders:
+  - bugfix: ammo counter HUDs will now prioritize your active hand, and will no longer
+      not update when reaching 100% charge for energy weapons
+  - qol: 'ammo counter HUDs are now available for drones
+
+      /:cl'
+  - bugfix: fixes the sql schema revision being wrong in the code
+2026-02-02:
+  Happyowl93:
+  - rscadd: hair can glow now!
+  Hardly:
+  - rscadd: The Rapid Colony Fabricator now has the ability to fabricate factory boards.
+      The factory must grow.
+  MajManatee:
+  - bugfix: Synths now properly get notified of PDA messages like everyone else.
+  vinylspiders:
+  - bugfix: fixed a bug where choosing 'None' as your ear type using the polymorph
+      nif or alter form would just make you deaf
+2026-02-03:
+  Bisar:
+  - balance: The Voltaic combat cyberheart no longer gives full, permanent EMP immunity
+      to its owner when implanted with a core. The EMP immunity now shares a cooldown
+      with the crit survival mechanic.
+  - balance: The Voltaic combat cyberheart can no longer be inserted without surgery.
+  - balance: The Voltaic combat cyberheart's enhanced blood restoration with a core
+      is now a base feature, with or without a core.
+  - balance: The Voltaic combat cyberheart no longer deletes itself whenever it is
+      removed from an owner.
+  Cyberboss:
+  - server: If TGS is configured to push test merge commits to a publicly accessible
+      GitHub, the exact game revision will be set as the `round`.`commit_hash` in
+      the database.
+  Hardly:
+  - image: Tweaked the big cat tail to be more consistent, cooler and faster when
+      wagging.
+  - map: Fixes mislabeled dorms rooms in Blueshift.
+  Hatterhat:
+  - image: Resprited the advanced energy gun. Credits to Zydras for the original e-gun
+      sprite, and /vg/station for their variant of the advanced energy gun, which
+      the new sprite takes some design notes from.
+  - bugfix: Antique laser guns (e.g. the captain's laser gun) now have their intended
+      charge delay of 8 ticks, down from 15.
+  - balance: Advanced energy guns now have a charge delay of 5 ticks, down from 15,
+      and recharge 3 shots per cycle (15% of the cell) up from 1 shot per cycle (5%
+      of the cell).
+  - rscadd: Realizing that they can, in fact, do things, Nanotrasen has licensed Robust
+      Corp's bluespace grounding technology for use in retooled MOD emergency tether
+      modules. These can be found as MOD grounded apprehension modules, under Security
+      Modular Suits.
+  - rscadd: Realizing that they can, in fact, just do things, Nanotrasen has started
+      using some of their gathered data on anomalies in order to progress military
+      technology in the form of anomaly-based throwable munitions, with their first
+      foray being bluespace grounders, crafted with a case of uncharged anomaly grenades
+      (from Cargo) and a dimensional anomaly core (from Science). Grounders only work
+      within a 2-tile range, at most.
+  Justice12354:
+  - rscadd: Added lemon juice box
+  Magentaformula0:
+  - rscadd: Veteran Honker and Percival Plush
+  - image: Sprites for both plushes
+  Melbert:
+  - balance: Plant instability can no longer cause the value of the instability stat
+      to change randomly unless instability is >=80
+  - balance: Plants can no longer mutate their stats twice in one tick starting at
+      40 instability - though the degree to which stats mutate is still increased
+      at the 40 mark, that is unchanged.
+  Rilomatic:
+  - refactor: Added a Donor MODsuits Subsystem, and tidied up donor list and misplaced
+      icons for donor, and fixed MODsuits Skin Applier sharing Donor Item
+  Stalkeros, Lukaster42:
+  - map: HC ship has been vastly remapped. Now six ghost roles, and roughly 2.5x as
+      big and many times more useable.
+  Y0SH1M4S73R:
+  - refactor: Painting has been significantly refactored with a new UI that should
+      provide every painting control you need without having to unfocus the UI window.
+      Please report any issues.
+  - refactor: Items that can store paint palettes now start with no colors. Colors
+      can be added to and removed from the item's palette, up to the number of colors
+      they previously stored.
+  muratendmo:
+  - rscadd: Adds many previously loadout-exclusive cosmetic clothes to the Clothesmate.

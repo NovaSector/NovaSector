@@ -26,12 +26,6 @@
 
 	return FALSE
 
-/datum/sprite_accessory/ears/none
-	name = SPRITE_ACCESSORY_NONE
-	icon_state = "none"
-	factual = FALSE
-	natural_spawn = FALSE
-
 /datum/sprite_accessory/ears/cat
 	recommended_species = list(
 		SPECIES_MAMMAL = 1,

@@ -100,6 +100,19 @@
 	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Make attachable to uniform"
 	return CONTEXTUAL_SCREENTIP_SET
 
+/obj/item/clothing/under/pants/nova/wide_leg
+	name = "wide legged pants"
+	desc = "An airy pair of wide-legged pants with a reasonably high waist."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/wide_leg"
+	post_init_icon_state = "wide_leg"
+	greyscale_config = /datum/greyscale_config/wide_leg //The naming conventions behind the icons/configs here are a travesty, and I'm very sorry.
+	greyscale_config_worn = /datum/greyscale_config/wide_leg/worn	//It will happen again.
+	greyscale_config_worn_digi = /datum/greyscale_config/wide_leg/worn/digi
+	greyscale_colors = "#ba917d"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	alternate_worn_layer = LOW_FACEMASK_LAYER
+
 /*
 *	SHORTS
 */

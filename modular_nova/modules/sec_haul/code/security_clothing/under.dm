@@ -165,6 +165,7 @@
 	name = "security battle dress"
 	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt."
 	icon_state = "security_skirt"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/rank/security/nova/dress/setup_reskins()

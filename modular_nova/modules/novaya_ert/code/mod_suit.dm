@@ -171,7 +171,7 @@
 	var/new_stamloss = mod.wearer.get_stamina_loss()
 	var/new_toxloss = mod.wearer.get_tox_loss()
 
-	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
+	if(mod.wearer.get_blood_volume() < BLOOD_VOLUME_OKAY && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
 		if(!COOLDOWN_FINISHED(src, blood_timer))
 			return FALSE
 		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"=mod.wearer.dna.blood_type,"resistances"=null,"trace_chem"=null))
