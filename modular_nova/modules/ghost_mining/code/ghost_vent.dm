@@ -120,6 +120,8 @@
 	. = ..()
 	if(random_start)
 		reset_vent(FALSE)
+	if(ghost_mining)
+		boulder_icon_state = "crystal"
 
 /obj/structure/ore_vent/ghost_mining/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
@@ -475,10 +477,14 @@
 /obj/item/boulder/ghost_mining
 	name = "crystal cluster"
 	desc = "They're not rocks, they're minerals."
+	icon = 'modular_nova/modules/ghost_mining/icons/ore.dmi'
+	icon_state = "crystal"
 
 /obj/item/boulder/artifact/ghost_mining
 	name = "crystalized artifact cluster"
 	desc = "Minerals crystalized around an obscured object."
+	icon = 'modular_nova/modules/ghost_mining/icons/ore.dmi'
+	icon_state = "crystal"
 
 #undef COLONY_THREAT_XENOS
 #undef COLONY_THREAT_PIRATES
