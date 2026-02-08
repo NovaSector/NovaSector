@@ -64,9 +64,9 @@
 	heat_protection = CHEST|GROIN|ARMS
 
 /obj/item/clothing/suit/armor/vest/vested_jacket/Initialize(mapload)
-    . = ..()
-    AddComponent(/datum/component/reskinable_item, /datum/atom_skin/vested_jacket)
-    AddComponent(/datum/component/toggle_icon, "zipper")
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/vested_jacket)
+	AddComponent(/datum/component/toggle_icon, "zipper")
 
 /obj/item/clothing/head/hooded/winterhood/security/blue
 	desc = "A blue, armour-padded winter hood. Definitely not bulletproof, especially not the part where your face goes."
