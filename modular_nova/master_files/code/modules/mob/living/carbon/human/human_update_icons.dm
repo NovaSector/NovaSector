@@ -5,28 +5,15 @@
 	if(isnull(greyscale_colors) || length(SSgreyscale.ParseColorString(greyscale_colors)) > 1)
 		greyscale_colors = item.get_general_color(base_icon)
 
-	var/index = "[key]-[item.type]-[greyscale_colors]"
+	var/index = "[key]-[item.type]-[greyscale_colors]-[mutant_styles]"
 	var/static/list/big_legs_clothing_cache = list()
-	var/static/list/big_legs_stanced_clothing_cache = list()
-	var/icon/resulting_icon
-	var/stanced = FALSE
-
-	if(mutant_styles & STYLE_TAUR_BIGLEGS_STANCED)
-		stanced = TRUE
-	if(!stanced)
-		resulting_icon = big_legs_clothing_cache[index]
-	else
-		resulting_icon = big_legs_stanced_clothing_cache[index]
-
+	var/icon/resulting_icon = big_legs_clothing_cache[index]
 	if(!resulting_icon)
 		resulting_icon = item.generate_big_legs_icons(base_icon, greyscale_colors, mutant_styles)
 		if(!resulting_icon)
 			stack_trace("[item.type] is set to generate a masked big legs icon, but generate_big_legs_icons was not implemented (or error'd).")
 			return base_icon
-		if(!stanced)
-			big_legs_clothing_cache[index] = fcopy_rsc(resulting_icon)
-		else
-			big_legs_stanced_clothing_cache[index] = fcopy_rsc(resulting_icon)
+		big_legs_clothing_cache[index] = fcopy_rsc(resulting_icon)
 
 	return icon(resulting_icon)
 
