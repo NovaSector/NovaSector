@@ -44,11 +44,39 @@
 /datum/preference/toggle/allow_emissives/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return TRUE // we dont actually want this to do anything
 
+/datum/preference/toggle/mutant_color_toggle
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "mutant_colors_toggle"
+	can_randomize = FALSE
+
+/datum/preference/toggle/mutant_color_toggle/create_informed_default_value(datum/preferences/preferences)
+	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	return (TRAIT_MUTANT_COLORS in species_type::inherent_traits)
+
+/datum/preference/toggle/mutant_color_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	var/trait_to_remove = value ? TRAIT_USES_SKINTONES : TRAIT_MUTANT_COLORS
+	var/trait_to_add = value ? TRAIT_MUTANT_COLORS : TRAIT_USES_SKINTONES
+	REMOVE_TRAIT(target, trait_to_remove, SPECIES_TRAIT)
+	ADD_TRAIT(target, trait_to_add, SPECIES_TRAIT)
+	return TRUE
+
+/datum/preference/choiced/skin_tone
+	relevant_inherent_trait = null // we will check availability by our toggler instead
+
+/datum/preference/choiced/skin_tone/is_accessible(datum/preferences/preferences)
+	. = ..()
+	return !preferences.read_preference(/datum/preference/toggle/mutant_color_toggle)
+
 /datum/preference/tri_color/mutant_colors
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "mutant_colors_color"
 	check_mode = TRICOLOR_NO_CHECK
+
+/datum/preference/tri_color/mutant_colors/is_accessible(datum/preferences/preferences)
+	. = ..()
+	return preferences.read_preference(/datum/preference/toggle/mutant_color_toggle)
 
 /datum/preference/tri_color/mutant_colors/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features[FEATURE_MUTANT_COLOR] = value[1]

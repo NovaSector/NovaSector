@@ -184,6 +184,14 @@ export const eye_emissives: FeatureToggle = {
   component: CheckboxInput,
 };
 
+export const mutant_colors_toggle: FeatureToggle = {
+  name: 'Use Mutant Colors',
+  description:
+    'If we should use mutant colors (free color selection)\
+   or skin tones (an array of options close to human natural skin colors).',
+  component: CheckboxInput,
+};
+
 export const mutant_colors_color: Feature<string[]> = {
   name: 'Mutant Colors',
   component: FeatureTriColorInput,

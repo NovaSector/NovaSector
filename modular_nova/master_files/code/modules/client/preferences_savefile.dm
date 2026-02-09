@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 16
+#define MODULAR_SAVEFILE_VERSION_MAX 15
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -21,7 +21,6 @@
 #define VERSION_EMO_LONG_REMOVAL 13
 #define VERSION_TOOLKIT_IMPLANTS 14
 #define VERSION_VOCAL_BARKS 15
-#define VERSION_SKINTONES_REMOVAL 16
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -314,14 +313,6 @@
 		var/current_tts_voice = save_data["tts_voice"]
 		if(current_tts_voice != TTS_VOICE_NONE && current_tts_voice != "invalid") // make sure we don't turn off TTS for people who have it on
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/vocals/voice_type], "Text-to-speech")
-
-	if(current_version < VERSION_SKINTONES_REMOVAL)
-		var/list/new_color
-		var/old_species = save_data["species"]
-		if(istext(old_species) && (old_species in list(SPECIES_HEMOPHAGE, SPECIES_FELINE, SPECIES_FELINE_PRIMITIVE, SPECIES_DULLAHAN, SPECIES_DWARF, SPECIES_VAMPIRE, SPECIES_HUMAN)))
-			var/skin_tone = save_data["skin_tone"]
-			new_color += list(skintone2hex(skin_tone), skintone2hex(skin_tone), skintone2hex(skin_tone))
-			write_preference(GLOB.preference_entries[/datum/preference/tri_color/mutant_colors], new_color)
 
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
