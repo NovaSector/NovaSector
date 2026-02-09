@@ -262,3 +262,13 @@
       they previously stored.
   muratendmo:
   - rscadd: Adds many previously loadout-exclusive cosmetic clothes to the Clothesmate.
+2026-02-09:
+  DeepSpaceFurry:
+  - qol: Added Honorifics to DS-2 ID cards.
+  Hardly:
+  - rscadd: Added "Atmospheric Trainee" title for newer atmosians
+  Iajret:
+  - bugfix: Liquid pumps for plumbing should now work.
+  splat1125:
+  - rscadd: 'Added five new hairstyles: "Chunky Twin Buns", "Chunky Quad Buns" (c:
+      carpotoxin), "Chunky Ponytail", "''Zero'' Ponytail", and "Misshapen"'
