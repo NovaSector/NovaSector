@@ -7,7 +7,7 @@
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 		TRAIT_LITERATE,
-		TRAIT_USES_SKINTONES,
+		TRAIT_MUTANT_COLORS,
 	)
 	mutanttongue = /obj/item/organ/tongue/dwarven
 	skinned_type = /obj/item/stack/sheet/animalhide/carbon/human
