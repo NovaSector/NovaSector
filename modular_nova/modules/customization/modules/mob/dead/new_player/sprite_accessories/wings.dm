@@ -16,7 +16,7 @@
 		SPECIES_LIZARD = 1,
 		SPECIES_MAMMAL = 1,
 	)
-	organ_type = /obj/item/organ/wings
+	organ_type = /obj/item/organ/wings/custom
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer)

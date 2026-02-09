@@ -25,7 +25,7 @@
 	burn_damage = tracked_mob.get_fire_loss()
 	toxin_damage = tracked_mob.get_tox_loss()
 	oxygen_damage = tracked_mob.get_oxy_loss()
-	stored_blood_volume = tracked_mob.blood_volume
+	stored_blood_volume = tracked_mob.get_blood_volume()
 
 	return TRUE
 
@@ -42,7 +42,7 @@
 	need_mob_update += tracked_mob.set_fire_loss(oxygen_damage, updating_health = FALSE)
 	if(need_mob_update)
 		tracked_mob.updatehealth()
-	tracked_mob.blood_volume = stored_blood_volume
+	tracked_mob.set_blood_volume(stored_blood_volume)
 
 	return TRUE
 

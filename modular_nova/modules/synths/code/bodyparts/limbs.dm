@@ -31,7 +31,7 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = TRUE
 	icon_greyscale = BODYPART_ICON_IPC
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -86,7 +86,7 @@
 	is_dimorphic = FALSE
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -181,7 +181,7 @@
 	is_dimorphic = FALSE
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -234,7 +234,7 @@
 	is_dimorphic = FALSE
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -289,7 +289,7 @@
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
 	digitigrade_type = /obj/item/bodypart/leg/left/synth/digitigrade
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -344,7 +344,7 @@
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
 	digitigrade_type = /obj/item/bodypart/leg/right/synth/digitigrade
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"

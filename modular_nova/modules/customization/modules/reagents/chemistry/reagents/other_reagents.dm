@@ -17,7 +17,7 @@
 	description = "A colourless liquid that makes people more peaceful and felines happier."
 	metabolization_rate = 1.75 * REAGENTS_METABOLISM
 
-/datum/reagent/pax/catnip/on_mob_life(mob/living/carbon/M)
+/datum/reagent/pax/catnip/on_mob_life(mob/living/carbon/M, seconds_per_tick, metabolization_ratio)
 	if(isfeline(M))
 		if(prob(20))
 			M.emote("nya")

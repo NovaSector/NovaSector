@@ -259,6 +259,25 @@
 		)
 	squeak_override = list('sound/machines/beep/twobeep.ogg' = 1)
 
+//Donation reward for wivernshy
+/obj/item/toy/plush/nova/donator/plush_hemlock
+	name = "silly snuppy plushie"
+	desc = "This synthetic snake-dog is weighted for comfort! Or harm, nothing says you can't use it for evil."
+	icon_state = "plush_hemlock"
+	attack_verb_continuous = list(
+		"beeps",
+		"hisses",
+		"woofs",
+		"bites",
+	)
+	attack_verb_simple = list(
+		"beep",
+		"hiss",
+		"woof",
+		"bite",
+	)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/arf.ogg'= 1)
+
 /*
 * Plushies beyond this did not have "Donation reward for:" when moved to this file.
 * Please do not put anything else into this mess, and organize your plushie like the rest above.
@@ -936,4 +955,21 @@
 		"hug",
 		"squish",
 		"bap",
+	)
+
+// Donation reward for vethonker
+/obj/item/toy/plush/nova/donator/vethonk
+	name = "\improper Veteran Clown plushie"
+	desc = "What sits before you is a plushie of what looks like a crippled veteran dressed as a clown. <i>What sort of monster would do this to a man?</i> ...Sponsored by the <b>Comedy Council!</b>"
+	icon_state = "plushie_vethonk"
+	squeak_override = list(
+		'sound/effects/roll.ogg' = 1,
+	)
+
+/obj/item/toy/plush/nova/donator/percy
+	name = "\improper Dr. Percival plushie"
+	desc = "Looks like a competent enough surgeon. Just don’t ask for too much paperwork or bedside manners."
+	icon_state = "percival-1"
+	squeak_override = list(
+		'sound/items/handling/surgery/saw.ogg' = 1,
 	)

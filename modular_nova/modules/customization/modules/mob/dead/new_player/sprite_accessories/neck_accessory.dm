@@ -1,11 +1,8 @@
 /datum/sprite_accessory/neck_accessory
-	name = "Sylveon Neck Bow"
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/neck_accessory.dmi'
 	key = FEATURE_NECK_ACCESSORY
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	organ_type = /obj/item/organ/neck_accessory
-	icon_state = "sylveon_bow"
-
 	recommended_species = list(
 		SPECIES_MAMMAL = 1,
 		SPECIES_HUMAN = 1,
@@ -15,7 +12,6 @@
 	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_MATRIXED_COLORS
-	ckey_whitelist = list("whirlsam" = TRUE)
 
 /datum/sprite_accessory/neck_accessory/none
 	name = SPRITE_ACCESSORY_NONE
@@ -23,10 +19,14 @@
 	color_src = null
 	factual = FALSE
 	natural_spawn = FALSE
-	ckey_whitelist = null
+
+/datum/sprite_accessory/neck_accessory/sylveon_bow
+	name = "Sylveon Bow"
+	icon_state = "sylveon_bow"
 
 /datum/sprite_accessory/neck_accessory/is_hidden(mob/living/carbon/human/wearer)
-	if(wearer.w_uniform)
-		if(key in wearer.try_hide_mutant_parts)
-			return TRUE
+	var/obj/item/clothing/head/worn_neck = wearer.wear_neck
+	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
+	if((worn_neck?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR))
+		return TRUE
 	return FALSE
