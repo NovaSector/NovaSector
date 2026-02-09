@@ -1,1 +1,0 @@
-draw the templates for '/datum/greyscale_config/digitigrade/big_leg' and '/datum/greyscale_config/digitigrade/big_leg_stanced'
