@@ -45,20 +45,24 @@
 	return TRUE // we dont actually want this to do anything
 
 /datum/preference/toggle/mutant_color_toggle
+	priority = PREFERENCE_PRORITY_LATE_BODY_TYPE // we override species trait thus we go after species
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "mutant_colors_toggle"
 	can_randomize = FALSE
 
 /datum/preference/toggle/mutant_color_toggle/create_informed_default_value(datum/preferences/preferences)
-	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
-	return (TRAIT_MUTANT_COLORS in species_type::inherent_traits)
+	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/datum/species/species = GLOB.species_prototypes[species_type]
+	return (TRAIT_MUTANT_COLORS in species.inherent_traits)
 
 /datum/preference/toggle/mutant_color_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	var/trait_to_remove = value ? TRAIT_USES_SKINTONES : TRAIT_MUTANT_COLORS
-	var/trait_to_add = value ? TRAIT_MUTANT_COLORS : TRAIT_USES_SKINTONES
-	REMOVE_TRAIT(target, trait_to_remove, SPECIES_TRAIT)
-	ADD_TRAIT(target, trait_to_add, SPECIES_TRAIT)
+	if(value)
+		REMOVE_TRAIT(target, TRAIT_USES_SKINTONES, SPECIES_TRAIT)
+		ADD_TRAIT(target, TRAIT_MUTANT_COLORS, SPECIES_TRAIT)
+	else
+		REMOVE_TRAIT(target, TRAIT_MUTANT_COLORS, SPECIES_TRAIT)
+		ADD_TRAIT(target, TRAIT_USES_SKINTONES, SPECIES_TRAIT)
 	return TRUE
 
 /datum/preference/choiced/skin_tone
