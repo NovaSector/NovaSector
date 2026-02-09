@@ -221,7 +221,10 @@
 			return
 		return
 		// Shielded type for Interdyne.
-	if(istype(target, /turf/closed/wall/mineral/titanium/shielded) || istype(target, /turf/closed/wall/mineral/titanium/nodiagonal/shielded))
+	if(istype(target, /turf/closed/wall/mineral/titanium/shielded) || \
+		istype(target, /turf/closed/wall/mineral/titanium/nodiagonal/shielded) || \
+		istype(target, /turf/closed/wall/r_wall/plastitanium/syndicate/shielded) || \
+		istype(target, /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded))
 		return
 		// NOVA EDIT ADDITION END
 	if(!explode_hit_objects || istype(target, /obj/vehicle/sealed))
