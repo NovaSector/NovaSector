@@ -683,10 +683,12 @@
 /datum/sprite_accessory/hair/nova/ponytail_chunky
 	name = "Chunky Ponytail"
 	icon_state = "hair_ponytail_chunky"
+	hair_appendages_inner = list("hair_ponytail_chunky" = HAIR_APPENDAGE_REAR)
 
 /datum/sprite_accessory/hair/nova/ponytail_kzero
 	name = "'Zero' Ponytail"
 	icon_state = "hair_ponytail_kzero"
+	hair_appendages_inner = list("hair_ponytail_kzero" = HAIR_APPENDAGE_REAR)
 
 /datum/sprite_accessory/hair/nova/misshapen
 	name = "Misshapen"
