@@ -353,9 +353,8 @@
 // Windowed Dress
 /obj/item/clothing/under/dress/nova/windowed_dress
 	name = "windowed dress"
-	desc = "A chic, dress with a tastefully sewn in 'windowed' effect that is both alluring and fashionable.  \
-			The variations of this classic style includes a 'Deep V' backing and an 'Illusion' top variant. \
-			The recreation of these styles are courtesy of DarkRilo Apparels"
+	desc = "A chic dress with a tastefully sewn in 'windowed' effect on the back, that is both alluring and fashionable.\
+			This dress style is courtesy of |DarkRilo Apparels|."
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/windowed_dress"
 	post_init_icon_state = "windowed_dress"
@@ -396,10 +395,9 @@
 // Slit Dress
 /obj/item/clothing/under/dress/nova/slit_dress
 	name = "Slit Dress"
-	desc = "An elegant, long  dress with an alluring thigh high slit from the bottom. \
-			Showcasing it all yet hiding all the important bits. \
-			The variations of this classic style includes a 'Deep V' backing and an 'Illusion' top variant. \
-			The recreation of these styles are courtesy of DarkRilo Apparels"
+	desc = "An elegant long dress with an alluring thigh high slit. \
+			In elegance, you only need show the bare minimum to exude beauty.\
+			This dress style is courtesy of |DarkRilo Apparels|."
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/slit_dress"
 	post_init_icon_state = "slit_dress"
@@ -440,10 +438,8 @@
 // Shorter Dress
 /obj/item/clothing/under/dress/nova/shorter_dress
 	name = "Shorter Dress"
-	desc = "A pervasive, short dress. What's there to say? It's persuasive only hiding the bare minimum. \
-			Perhaps that's all it takes to be sexy and alluring.  \
-			The variations of this classic style includes a 'Deep V' backing and an 'Illusion' top variant. \
-			The recreation of these styles are courtesy of DarkRilo Apparels"
+	desc = "A pervasive short dress that brings life to any occasion. Short, sleek and alluring.\
+			This dress style is courtesy of |DarkRilo Apparels|."
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/shorter_dress"
 	post_init_icon_state = "shorter_dress"
@@ -485,8 +481,8 @@
 // Pen Skirt
 /obj/item/clothing/under/dress/nova/pen_skirt
 	name = "Pen Skirt"
-	desc = "A simple short dress skirt, stretchy for both shapely and comfortable bureaucratic needs. \
-			Clothing by |DarkRilo Apparels|"
+	desc = "A simple pencil skirt, stretchy and form fitting for both shapely and comfortable bureaucratic needs.\
+			Clothing by |DarkRilo Apparels|."
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/pen_skirt"
 	post_init_icon_state = "pen_skirt"
@@ -500,8 +496,8 @@
 // Formal Pen Skirt
 /obj/item/clothing/under/dress/nova/formal_pen_skirt
 	name = "Formal Pen suit"
-	desc = "A standard pencil dress suit. The blouse is thin and cool to the touch for long hours in the office. \
-			Some buttons are snap on for when you're too tired to take it off. Clothing by |DarkRilo Apparels|"
+	desc = "A standard pencil dress suit. The blouse is thin and cool to the touch for long hours in the office.\
+			Clothing by |DarkRilo Apparels|."
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/formal_pen_skirt"
 	post_init_icon_state = "formal_pen_skirt"
