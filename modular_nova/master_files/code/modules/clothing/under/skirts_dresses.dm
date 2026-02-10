@@ -477,7 +477,6 @@
 	new_icon_state = "shorter_dress_no_collar"
 	greyscale_colors = "#424242#424242"
 
-
 // Pen Skirt
 /obj/item/clothing/under/dress/nova/pen_skirt
 	name = "Pen Skirt"
