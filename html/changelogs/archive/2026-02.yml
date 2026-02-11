@@ -272,3 +272,16 @@
   splat1125:
   - rscadd: 'Added five new hairstyles: "Chunky Twin Buns", "Chunky Quad Buns" (c:
       carpotoxin), "Chunky Ponytail", "''Zero'' Ponytail", and "Misshapen"'
+2026-02-10:
+  Bugwasabi:
+  - bugfix: Play Internet Sounds will now only display song details to users who have
+      admin music enabled.
+  Iajret:
+  - rscadd: You can select digi legs and wings for felinid chars
+  splat1125:
+  - bugfix: Chunky Twin Buns is now actually in the list of pickable hairstyles
+  - bugfix: '''Zero'' and Chunky Ponytails are no longer awkwardly clipped by berets'
+  sqnztb:
+  - map: swapped DS2's maintenance loot spawners to other, non maint loot spawners.
+  - rscadd: Interdyne's lavaland shuttle now is much more protected against NT's Shaft
+      Miner Rudeness
