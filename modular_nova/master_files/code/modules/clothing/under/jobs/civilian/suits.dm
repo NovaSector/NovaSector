@@ -28,7 +28,7 @@
 	name = "recolorable suitskirt"
 	desc = "A semi-formal suitskirt, clean-cut with a matching vest and skirt."
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 	body_parts_covered = CHEST|GROIN|LEGS
 	icon = 'icons/map_icons/clothing/under/_under.dmi'

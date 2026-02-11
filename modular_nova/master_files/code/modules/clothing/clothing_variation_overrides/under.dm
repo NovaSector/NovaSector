@@ -107,19 +107,19 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer/black/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer/beige/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer/red/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer/blue/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer/bluesuit/skirt
@@ -205,7 +205,7 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/color/jumpskirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/changeling
@@ -215,14 +215,17 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/costume/buttondown/skirt
-	supports_variations_flags = CLOTHING_BIG_LEGS_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/costume/buttondown/skirt/service
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/trek/q
-	supports_variations_flags = CLOTHING_BIG_LEGS_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK | CLOTHING_BIG_LEGS_MASK
+
+/obj/item/clothing/under/ethereal_tunic
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/centcom/officer_skirt
 	gets_cropped_on_taurs = FALSE
