@@ -70,7 +70,7 @@
 		/obj/item/clothing/under/rank/civilian/head_of_personnel/nova/turtleneck/skirt = 1,
 		/obj/item/clothing/under/rank/civilian/head_of_personnel/nova/parade = 1,
 		/obj/item/clothing/under/rank/civilian/head_of_personnel/nova/parade/female = 1,
-		/obj/item/clothing/under/rank/civilian/head_of_personnel/nova/imperial = 1,
+		/obj/item/clothing/under/rank/captain/nova/imperial/generic/hop = 1,
 		/obj/item/clothing/suit/armor/vest/hop/hop_formal = 1,
 		/obj/item/clothing/neck/cloak/hop = 1,
 		/obj/item/clothing/neck/mantle/hopmantle = 1,

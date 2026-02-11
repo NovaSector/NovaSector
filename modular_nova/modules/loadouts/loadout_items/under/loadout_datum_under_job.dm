@@ -220,7 +220,7 @@
 //SERV
 /datum/loadout_item/under/jumpsuit/imphop
 	name = "Head of Personnel's Naval Jumpsuit"
-	item_path = /obj/item/clothing/under/rank/civilian/head_of_personnel/nova/imperial
+	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/generic/hop
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
 	group = "Job-Locked"
 
