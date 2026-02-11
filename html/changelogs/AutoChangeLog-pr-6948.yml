@@ -1,0 +1,7 @@
+author: "MacaroniCritter"
+delete-after: True
+changes:
+  - rscadd: "Added the security M.O.D. skinsuit"
+  - image: "resprited the security shorts"
+  - image: "resprited the security trousers"
+  - image: "resprited the high-vis jacket"
