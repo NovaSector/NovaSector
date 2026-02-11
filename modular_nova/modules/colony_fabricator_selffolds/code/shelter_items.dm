@@ -2,7 +2,7 @@
 
 //Parent for all of them.
 /obj/item/survivalcapsule/prefab
-	name = "\improper generic prefabricated self-fold"
+	name = "generic prefabricated self-fold"
 	desc = "You shouldnt see this"
 	template_id = "prefab_room_10"
 	icon_state = "prefab_nakamura"
