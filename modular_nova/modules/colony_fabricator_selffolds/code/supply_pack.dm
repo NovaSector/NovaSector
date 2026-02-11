@@ -87,7 +87,7 @@
 	crate_type = /obj/structure/closet/crate/engineering
 
 // Cheap alone, fair price when in bulk. Plenty uses - DIY hull patch, project building, maybe even on demand light cover.
-/datum/supply_pack/goody/prefab_wall3h
+/datum/supply_pack/goody/prefab_wall3_horizontal
 	name = "Horizontal 3x1 Wall"
 	desc = "Finally, build your own plastic castle."
 	cost = PAYCHECK_CREW * 1.5
