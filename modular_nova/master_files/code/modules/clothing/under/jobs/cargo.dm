@@ -49,6 +49,7 @@
 	name = "supply skirtleneck"
 	desc = "A snug turtleneck sweater worn by Supply, this time with a skirt attached!"
 	icon_state = "skirtleneck"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 	gets_cropped_on_taurs = FALSE

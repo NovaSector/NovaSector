@@ -211,10 +211,14 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/costume/buttondown/skirt
+	supports_variations_flags = CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/costume/buttondown/skirt/service
 	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/trek/q
+	supports_variations_flags = CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/centcom/officer_skirt
 	gets_cropped_on_taurs = FALSE
@@ -280,7 +284,11 @@
 /obj/item/clothing/under/dress/striped
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
+/obj/item/clothing/under/dress/skirt
+	supports_variations_flags = CLOTHING_BIG_LEGS_MASK
+
 /obj/item/clothing/under/dress/skirt/plaid
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/civilian/clown/jester
