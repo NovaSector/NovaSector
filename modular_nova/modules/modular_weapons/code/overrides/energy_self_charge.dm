@@ -64,6 +64,10 @@
 	selfcharge = TRUE
 	charge_delay = 15
 
+/obj/item/gun/energy/tesla_cannon/examine(mob/user)
+	. = ..()
+	. += span_notice(CHARGE_MESSAGE)
+
 // Lasers
 /obj/item/gun/energy/laser
 	selfcharge = TRUE
