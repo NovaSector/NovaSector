@@ -22,6 +22,14 @@
 		slapcraft_recipes = slapcraft_recipe_list,\
 	)
 
+// NOVA EDIT ADDITION START - Allows for messages about the gun's self-charge cababilities to be added to the end of the examine text.
+/obj/item/gun/energy/examine(mob/user)
+	. = ..()
+	var/charge_message = get_charge_message()
+	if(charge_message)
+		. += charge_message
+// NOVA EDIT ADDITION END
+
 /obj/item/gun/energy/e_gun/add_seclight_point()
 	AddComponent(/datum/component/seclite_attachable, \
 		light_overlay_icon = 'icons/obj/weapons/guns/flashlights.dmi', \
@@ -75,7 +83,7 @@
 
 /obj/item/gun/energy/e_gun/hos
 	name = "\improper X-01 MultiPhase Energy Gun"
-	desc = "This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time."
+	desc = "This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to self-charge quite as fast over time." // NOVA EDIT CHANGE - ORIGINAL: desc = "This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time."
 	cell_type = /obj/item/stock_parts/power_store/cell/hos_gun
 	icon_state = "hoslaser"
 	w_class = WEIGHT_CLASS_NORMAL
