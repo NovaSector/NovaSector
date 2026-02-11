@@ -49,10 +49,10 @@
 	name = "supply skirtleneck"
 	desc = "A snug turtleneck sweater worn by Supply, this time with a skirt attached!"
 	icon_state = "skirtleneck"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 	gets_cropped_on_taurs = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/cargo/tech/nova/evil
 	name = "black cargo uniform"
