@@ -14,9 +14,9 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 /// The code which handles generating a greyscale icon for worn clothing on big leg (taur) legs, for human_update_icons.dm
 /obj/item/clothing/proc/generate_big_legs_icons(icon/base_icon, greyscale_colors, mutant_styles)
 	var/greyscale_config = /datum/greyscale_config/digitigrade //fb
-	if(mutant_styles & STYLE_TAUR_BIGLEGS)
+	if(mutant_styles & STYLE_TAUR_BIG_LEGS)
 		greyscale_config = /datum/greyscale_config/digitigrade/big_leg
-	else if(mutant_styles & STYLE_TAUR_BIGLEGS_STANCED)
+	else if(mutant_styles & STYLE_TAUR_BIG_LEGS_STANCED)
 		greyscale_config = /datum/greyscale_config/digitigrade/big_leg_stanced
 
 	var/icon/legs = icon(SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors), "jumpsuit_worn")

@@ -245,11 +245,11 @@
  * Clothing that has a digitigrade version, but its parent was set to something else earlier in this file.
  */
 /obj/item/clothing/under/misc/bouncer
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/color
 	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/worn/digi
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/civilian/curator/nasa // this is really just a black jumpsuit, with stupid pathing
 	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/worn/digi
@@ -257,17 +257,17 @@
 	greyscale_config_worn_teshari = /datum/greyscale_config/jumpsuit/worn/teshari
 
 /obj/item/clothing/under/suit/waiter
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/prisoner
 	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/prison/worn/digi
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/security/officer
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/medical/scrubs
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/dress/striped
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
@@ -276,25 +276,25 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/civilian/clown/jester
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/civilian/clown/jesteralt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/syndicate/combat
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/syndicate/sniper
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/syndicate/bloodred
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/syndicate/camo
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/syndicate/soviet
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/syndicate/rus_army
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
