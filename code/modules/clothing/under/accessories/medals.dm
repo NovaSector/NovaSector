@@ -1,3 +1,8 @@
+/*
+// AWARDABLE MEDALS
+// These can be pinned onto others on the under clothes slot to 'award' them, appearing in the round-end screen
+*/
+
 /obj/item/clothing/accessory/medal
 	name = "bronze medal"
 	desc = "A bronze medal."
@@ -12,6 +17,7 @@
 	var/awarded_to
 	/// Who gave out this medal
 	var/awarder
+	attachment_slot = NONE
 
 /obj/item/clothing/accessory/medal/Initialize(mapload)
 	. = ..()
