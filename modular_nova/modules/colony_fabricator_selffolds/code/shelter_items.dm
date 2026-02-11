@@ -94,5 +94,3 @@
 	template_id = "prefab_factory"
 	icon_state = "prefab_nakamura_adv"
 
-
-
