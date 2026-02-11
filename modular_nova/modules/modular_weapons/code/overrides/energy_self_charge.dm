@@ -41,6 +41,10 @@
 	. += span_notice(CHARGE_MESSAGE)
 
 // Pulse
+/obj/item/gun/energy/pulse
+	selfcharge = TRUE
+	charge_delay = 15
+
 /obj/item/gun/energy/pulse/examine(mob/user)
 	. = ..()
 	. += span_notice(CHARGE_MESSAGE)
