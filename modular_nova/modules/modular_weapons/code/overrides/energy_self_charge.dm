@@ -54,7 +54,7 @@
 	charge_delay = 5 // compare/contrast tg's default delay of 8, tg's adv e-gun delay of 10, nova's egun self-charge delay of 15
 	self_charge_amount = STANDARD_ENERGY_GUN_SELF_CHARGE_RATE * 3 // recharges 15% of the internal cell per tick.
 
-/obj/item/gun/energy/e_gun/nuclear/examine(mob/user) // Only gun with a recharge rate of 5, so it gets a super special message. needs the removal of its parent's message, otherwise both would show up
+/obj/item/gun/energy/e_gun/nuclear/examine(mob/user) // Only gun with a recharge rate of 5, so it gets a super special message. It needs the removal of its parent's message, otherwise both would show up.
 	. = ..()
 	. -= span_notice(CHARGE_MESSAGE)
 	. += span_notice(HYPER_CHARGE_MESSAGE)
