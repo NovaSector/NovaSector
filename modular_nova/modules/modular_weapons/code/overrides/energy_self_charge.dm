@@ -41,19 +41,24 @@
 	. += span_notice(CHARGE_MESSAGE)
 
 // Pulse
-/obj/item/gun/energy/pulse
+/obj/item/gun/energy/pulse/examine(mob/user)
+	. = ..()
+	. += span_notice(CHARGE_MESSAGE)
+
+// Advanced Energy Gun
 /obj/item/gun/energy/e_gun/nuclear
 	charge_delay = 5 // compare/contrast tg's default delay of 8, tg's adv e-gun delay of 10, nova's egun self-charge delay of 15
 	self_charge_amount = STANDARD_ENERGY_GUN_SELF_CHARGE_RATE * 3 // recharges 15% of the internal cell per tick.
+
+/obj/item/gun/energy/e_gun/nuclear/examine(mob/user) // Only gun with a recharge rate of 5, so it gets a super special message. needs the removal of its parent's message, otherwise both would show up
+	. = ..()
+	. -= span_notice(CHARGE_MESSAGE)
+	. += span_notice(HYPER_CHARGE_MESSAGE)
 
 // Tesla Cannon
 /obj/item/gun/energy/tesla_cannon
 	selfcharge = TRUE
 	charge_delay = 15
-
-/obj/item/gun/energy/pulse/examine(mob/user)
-	. = ..()
-	. += span_notice(CHARGE_MESSAGE)
 
 // Lasers
 /obj/item/gun/energy/laser
@@ -74,9 +79,6 @@
 	. += span_notice(CHARGE_MESSAGE)
 
 // Ion Rifles
-/obj/item/gun/energy/laser/captain
-	charge_delay = 8 // compare/contrast tg's default delay of 8, nova's laser self-charge delay of 15
-
 /obj/item/gun/energy/ionrifle
 	selfcharge = TRUE
 	charge_delay = 15
@@ -84,6 +86,15 @@
 /obj/item/gun/energy/ionrifle/examine(mob/user)
 	. = ..()
 	. += span_notice(CHARGE_MESSAGE)
+
+// Captain's Laser
+/obj/item/gun/energy/laser/captain
+	charge_delay = 8 // compare/contrast tg's default delay of 8, nova's laser self-charge delay of 15
+
+/obj/item/gun/energy/laser/captain/examine(mob/user) // A delay of 8 gets the super charge message
+	. = ..()
+	. -= span_notice(CHARGE_MESSAGE)
+	. += span_notice(SUPER_CHARGE_MESSAGE)
 
 // Temperature Guns
 /obj/item/gun/energy/temperature
@@ -171,13 +182,7 @@
 	. = ..()
 	. -= span_notice(CHARGE_MESSAGE)
 
-//Removes standard charge message for the advanced energy gun and replaces it with the hyper charge message
-/obj/item/gun/energy/e_gun/nuclear/examine(mob/user)
-	. = ..()
-	. -= span_notice(CHARGE_MESSAGE)
-	. += span_notice(HYPER_CHARGE_MESSAGE)
-
-//Gives the almost unobtainable event horizon rifle a more accurate message, as its charge rate is untouched
+//Gives the almost unobtainable event horizon rifle a more accurate message, as its charge rate is untouched by overrides
 /obj/item/gun/energy/event_horizon/examine(mob/user)
 	. = ..()
 	. += span_notice(SUPER_CHARGE_MESSAGE)
@@ -185,12 +190,6 @@
 // Ditto for flora guns, since it's primarily a tool
 /obj/item/gun/energy/floragun/examine(mob/user)
 	. = ..()
-	. += span_notice(SUPER_CHARGE_MESSAGE)
-
-// Double ditto for captain's laser
-/obj/item/gun/energy/laser/captain/examine(mob/user)
-	. = ..()
-	. -= span_notice(CHARGE_MESSAGE)
 	. += span_notice(SUPER_CHARGE_MESSAGE)
 
 #undef CHARGE_MESSAGE
