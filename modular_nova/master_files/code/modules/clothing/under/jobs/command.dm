@@ -191,28 +191,29 @@
 	has_sensor = NO_SENSORS
 
 /obj/item/clothing/under/rank/captain/nova/imperial/generic
-	desc = "A grey naval suit with a rank badge denoting an Officer. Doesn't protect against blaster fire."
-	name = "grey officer's naval jumpsuit"
-	icon_state = "impcom"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
-
-/obj/item/clothing/under/rank/captain/nova/imperial/generic/pants
-	desc = "A grey naval suit over black pants, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
+	desc = "A naval uniform, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
 	name = "officer's naval jumpsuit"
-	icon_state = "impcom_pants"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	greyscale_colors = "#A49C9C#2D2D33#252525#FFFFFF"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/generic"
+	post_init_icon_state = "officersnaval"
+	greyscale_config = /datum/greyscale_config/officersnaval
+	greyscale_config_worn = /datum/greyscale_config/officersnaval/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/officersnaval/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/rank/captain/nova/imperial/generic/grey
-	desc = "A dark grey naval suit with a rank badge denoting an Officer. Doesn't protect against blaster fire."
-	name = "dark grey officer's naval jumpsuit"
-	icon_state = "impcom_dark"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
-
-/obj/item/clothing/under/rank/captain/nova/imperial/generic/red
-	desc = "A red naval suit with a rank badge denoting an Officer. Doesn't protect against blaster fire."
-	name = "red officer's naval jumpsuit"
-	icon_state = "impcom_red"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+/obj/item/clothing/under/rank/captain/nova/imperial/generic/skirt
+	desc = "A skirted naval uniform, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
+	name = "officer's naval jumpskirt"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	greyscale_colors = "#A49C9C#252525#FFFFFF"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/generic/skirt"
+	post_init_icon_state = "officersnavalskirt"
+	greyscale_config = /datum/greyscale_config/officersnavalskirt
+	greyscale_config_worn = /datum/greyscale_config/officersnavalskirt/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*
 *	MISC

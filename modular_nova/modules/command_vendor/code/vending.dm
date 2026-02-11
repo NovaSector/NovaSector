@@ -179,13 +179,8 @@
 
 	access_lists[ACCESS_COMMAND] = list(
 		/obj/item/clothing/head/hats/imperial = 5,
-		/obj/item/clothing/head/hats/imperial/grey = 5,
-		/obj/item/clothing/head/hats/imperial/white = 2,
-		/obj/item/clothing/head/hats/imperial/red = 5,
 		/obj/item/clothing/head/hats/imperial/helmet = 5,
 		/obj/item/clothing/under/rank/captain/nova/imperial/generic = 5,
-		/obj/item/clothing/under/rank/captain/nova/imperial/generic/grey = 5,
-		/obj/item/clothing/under/rank/captain/nova/imperial/generic/pants = 5,
-		/obj/item/clothing/under/rank/captain/nova/imperial/generic/red = 5,
+		/obj/item/clothing/under/rank/captain/nova/imperial/generic/skirt = 5,
 	)
 

@@ -770,6 +770,36 @@
 	name = "Pencilskirt + Suit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
 
+//Officer's Naval Uniform
+
+/datum/greyscale_config/officersnaval
+	name = "Officer's Naval Uniform"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/officersnaval.json'
+
+/datum/greyscale_config/officersnaval/worn
+	name = "Officer's Naval Uniform (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/officersnaval/worn/digi
+	name = "Officer's Naval Uniform (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+//Navalskirt
+
+/datum/greyscale_config/officersnavalskirt
+	name = "Officer's Naval Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/officersnavalskirt.json'
+
+/datum/greyscale_config/officersnavalskirt/worn
+	name = "Officer's Naval Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+///datum/greyscale_config/officersnaval/worn/digi
+//	name = "Officer's Naval Uniform (Worn, Digi)"
+//	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
 // DOUBLE SKIRT DRESS
 /datum/greyscale_config/double_skirt_dress
 	name = "Double Skirt Dress"
@@ -2525,7 +2555,7 @@ TREK
 	name = "Big Sweater (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweater.json'
-	
+
 /datum/greyscale_config/sweater_nova_2
 	name = "Big Sweater With Bow"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'

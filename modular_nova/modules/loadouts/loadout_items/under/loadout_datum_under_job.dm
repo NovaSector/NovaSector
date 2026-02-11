@@ -99,24 +99,14 @@
 	item_path = /obj/item/clothing/under/rank/medical/doctor/nova/utility
 	group = "Workwear"
 
-/datum/loadout_item/under/jumpsuit/impcommand
-	name = "Officer's Naval Jumpsuit (Light Grey)"
+/datum/loadout_item/under/jumpsuit/officersnaval
+	name = "Officer's Naval Jumpsuit"
 	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/generic
 	group = "Workwear"
 
-/datum/loadout_item/under/jumpsuit/impcom
-	name = "Officer's Naval Jumpsuit (Grey)"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/generic/grey
-	group = "Workwear"
-
-/datum/loadout_item/under/jumpsuit/impred
-	name = "Officer's Naval Jumpsuit (Red)"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/generic/red
-	group = "Workwear"
-
-/datum/loadout_item/under/jumpsuit/impcomtrous
-	name = "Officer's Naval Jumpsuit (Grey w/ Black Trousers)"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/generic/pants
+/datum/loadout_item/under/jumpsuit/officersnavalskirt
+	name = "Officer's Naval Jumpskirt"
+	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/generic/skirt
 	group = "Workwear"
 
 /datum/loadout_item/under/jumpsuit/paramed_light_skirt
