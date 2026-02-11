@@ -142,7 +142,7 @@
 
 /datum/supply_pack/security/prefab_medical
 	name = "Deforest Infirmary Pattern Tent"
-	desc = "Self-folded portative capsule containing a premade medical tent with basic surgical tools and  ability to revivify. Lock those Hem-issues with your skill in the field.  5x5"
+	desc = "Self-folded portative capsule containing a premade medical tent with basic surgical tools and ability to revivify. Lock those Hem-issues with your skill in the field. 5x5"
 	cost = CARGO_CRATE_VALUE * 8 //It has good gear for its price, a skilled person can really make a lot out of this in the field.
 	access_view = ACCESS_MEDICAL
 	contains = list(/obj/item/survivalcapsule/prefab/medical)
