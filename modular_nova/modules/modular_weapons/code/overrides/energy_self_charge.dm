@@ -5,7 +5,7 @@
 #define SUPER_CHARGE_MESSAGE "Equipped with a hyper-charge microcell. Regains a couple of shots next to every ten seconds without external power. While not infinite, it can handle heavier usage than its peers without running dry."
 #define HYPER_CHARGE_MESSAGE "Equipped with a fission-powered microcell. Regains a couple of shots every few seconds without external power. If this thing runs out of juice, you have bigger problems than recharging your gun."
 
-//Proc that is used to determine the message shown on examine for energy guns, if any. Override as needed with the appropriate message defined above.
+/// Proc that is used to determine the message shown on examine for energy guns, if any. Override as needed with the appropriate message defined above.
 /obj/item/gun/energy/proc/get_charge_message()
 	if(!selfcharge)
 		return
