@@ -58,8 +58,9 @@
 	return (TRAIT_USES_SKINTONES in species.inherent_traits)
 
 /datum/preference/toggle/skin_tone_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	REMOVE_TRAIT(target, (value ? TRAIT_MUTANT_COLORS : TRAIT_USES_SKINTONES), SPECIES_TRAIT)
-	ADD_TRAIT(target, (value ? TRAIT_USES_SKINTONES : TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
+	if (!value)
+		REMOVE_TRAIT(target, TRAIT_USES_SKINTONES, SPECIES_TRAIT)
+		ADD_TRAIT(target, TRAIT_MUTANT_COLORS, SPECIES_TRAIT)
 	return TRUE
 
 /datum/preference/choiced/skin_tone
