@@ -4,6 +4,13 @@
 #define SUPER_CHARGE_MESSAGE "Equipped with a hyper-charge microcell. Regains a couple of shots next to every eight seconds without external power. While not infinite, it can handle heavier usage than its peers without running dry."
 #define HYPER_CHARGE_MESSAGE "Equipped with a fission-powered microcell. Regains a couple of shots every few seconds without external power. If this thing runs out of juice, you have bigger problems than recharging your gun."
 
+// Allows for messages about the gun's self-charge cababilities to be added to the end of the examine text.
+/obj/item/gun/energy/examine(mob/user)
+	. = ..()
+	var/charge_message = get_charge_message()
+	if(charge_message)
+		. += charge_message
+
 //Proc that is used to determine the message shown on examine for energy guns, if any. Override as needed with the appropriate message defined above.
 /obj/item/gun/energy/proc/get_charge_message()
 	return
@@ -143,13 +150,13 @@
 /obj/item/gun/energy/disabler/smoothbore
 	selfcharge = FALSE
 
-/obj/item/gun/energy/laser/musket/
+/obj/item/gun/energy/laser/musket
 	selfcharge = FALSE
 
 /obj/item/gun/energy/laser/instakill
 	selfcharge = FALSE
 
-/obj/item/gun/energy/laser/thermal/
+/obj/item/gun/energy/laser/thermal
 	selfcharge = FALSE
 
 /obj/item/gun/energy/taser/crank
