@@ -45,10 +45,10 @@
 	return TRUE // we dont actually want this to do anything
 
 /datum/preference/toggle/skin_tone_toggle
-	priority = PREFERENCE_PRORITY_LATE_BODY_TYPE // we override species trait thus we go after species
+	priority = PREFERENCE_PRIORITY_BODYPARTS // we override species trait thus we go after species
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "mutant_colors_toggle"
+	savefile_key = "skin_tone_toggle"
 	can_randomize = FALSE
 
 /datum/preference/toggle/skin_tone_toggle/is_accessible(datum/preferences/preferences)
@@ -58,12 +58,8 @@
 	return (TRAIT_USES_SKINTONES in species.inherent_traits)
 
 /datum/preference/toggle/skin_tone_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	if(value)
-		REMOVE_TRAIT(target, TRAIT_USES_SKINTONES, SPECIES_TRAIT)
-		ADD_TRAIT(target, TRAIT_MUTANT_COLORS, SPECIES_TRAIT)
-	else
-		REMOVE_TRAIT(target, TRAIT_MUTANT_COLORS, SPECIES_TRAIT)
-		ADD_TRAIT(target, TRAIT_USES_SKINTONES, SPECIES_TRAIT)
+	REMOVE_TRAIT(target, (value ? TRAIT_MUTANT_COLORS : TRAIT_USES_SKINTONES), SPECIES_TRAIT)
+	ADD_TRAIT(target, (value ? TRAIT_USES_SKINTONES : TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
 	return TRUE
 
 /datum/preference/choiced/skin_tone
@@ -71,7 +67,7 @@
 
 /datum/preference/choiced/skin_tone/is_accessible(datum/preferences/preferences)
 	. = ..()
-	return !preferences.read_preference(/datum/preference/toggle/skin_tone_toggle)
+	return preferences.read_preference(/datum/preference/toggle/skin_tone_toggle)
 
 /datum/preference/tri_color/mutant_colors
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -81,7 +77,7 @@
 
 /datum/preference/tri_color/mutant_colors/is_accessible(datum/preferences/preferences)
 	. = ..()
-	return preferences.read_preference(/datum/preference/toggle/skin_tone_toggle)
+	return !preferences.read_preference(/datum/preference/toggle/skin_tone_toggle)
 
 /datum/preference/tri_color/mutant_colors/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features[FEATURE_MUTANT_COLOR] = value[1]
