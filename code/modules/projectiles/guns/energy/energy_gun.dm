@@ -22,14 +22,6 @@
 		slapcraft_recipes = slapcraft_recipe_list,\
 	)
 
-// NOVA EDIT ADDITION START - Allows for messages about the gun's self-charge cababilities to be added to the end of the examine text.
-/obj/item/gun/energy/examine(mob/user)
-	. = ..()
-	var/charge_message = get_charge_message()
-	if(charge_message)
-		. += charge_message
-// NOVA EDIT ADDITION END
-
 /obj/item/gun/energy/e_gun/add_seclight_point()
 	AddComponent(/datum/component/seclite_attachable, \
 		light_overlay_icon = 'icons/obj/weapons/guns/flashlights.dmi', \
