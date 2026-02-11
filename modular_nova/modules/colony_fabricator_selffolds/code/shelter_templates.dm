@@ -107,7 +107,7 @@
 /datum/map_template/shelter/prefab_defenseplatform
 	name = "Surplus Defense System SOL-EXP-40"
 	shelter_id = "prefab_defenseplatform"
-	description = "Mass-produced, blocky, flimsy Solarian-made turret meant to reinforce and protect brave colonists in their sleep. Packed with its own platform and some cover. \
+	description = "A mass-produced, blocky, flimsy Solarian-made turret meant to reinforce and protect brave colonists in their sleep. Packed with its own platform and some cover. \
 		Not as scary as you might want it, but hey, it still gets the job done. Hate or love the Stun mode, this one just doesn't have one. \
 		FACTORY TARGETING UNIT SETTING REQUIRED. THIS LABEL VOIDS LIABILITY FOR ANY ACCIDENTAL TRAUMAS."
 	mappath = "_maps/templates/prefab_defenseplatform.dmm"
