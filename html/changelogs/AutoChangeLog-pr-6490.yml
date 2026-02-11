@@ -1,0 +1,4 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - qol: "Adds a tracker to the main-menu, which updates you on when a late-join antag role is queue'd for the taking. Click on it to update."

@@ -1,0 +1,5 @@
+author: "Rilomatic"
+delete-after: True
+changes:
+  - rscadd: "Added Donor Item \"Dated Espatier Holster\""
+  - image: "Obj and Worn icons for \"Dated Espatier holster\""
