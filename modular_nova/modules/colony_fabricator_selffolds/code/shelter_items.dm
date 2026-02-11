@@ -46,25 +46,25 @@
 	template_id = "prefab_room_10"
 	icon_state = "prefab_nakamura"
 
-/obj/item/survivalcapsule/prefab/wall5v
+/obj/item/survivalcapsule/prefab/wall5_vertical
 	name = "\improper Nakamura LC-05 Vertical Wall "
 	desc = "Simple 5x1 prefabricated VERTICAL wall."
 	template_id = "prefab_wall5v"
 	icon_state = "prefab_nakamura"
 
-/obj/item/survivalcapsule/prefab/wall5h
+/obj/item/survivalcapsule/prefab/wall5_horizontal
 	name = "\improper Nakamura LC-05 Horizontal Wall "
 	desc = "Simple 5x1 prefabricated HORIZONTAL wall."
 	template_id = "prefab_wall5h"
 	icon_state = "prefab_nakamura"
 
-/obj/item/survivalcapsule/prefab/wall3v
+/obj/item/survivalcapsule/prefab/wall3_vertical
 	name = "\improper Nakamura LC-03 Vertical Wall "
 	desc = "Simple 3x1 prefabricated VERTICAL wall."
 	template_id = "prefab_wall3v"
 	icon_state = "prefab_nakamura"
 
-/obj/item/survivalcapsule/prefab/wall3h
+/obj/item/survivalcapsule/prefab/wall3_horizontal
 	name = "\improper Nakamura LC-03 Horizontal Wall "
 	desc = "Simple 3x1 prefabricated HORIZONTAL wall."
 	template_id = "prefab_wall3h"
