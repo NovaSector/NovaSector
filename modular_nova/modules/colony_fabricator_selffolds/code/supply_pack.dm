@@ -61,7 +61,7 @@
 	cost = CARGO_CRATE_VALUE * 6 // Just a room, but contains interesting and useful technology and DIY xenobio and xenoarch gear. Basically low cost science starter kit. Could be also used as a good resupply pod for events and all.
 	access_view = ACCESS_SCIENCE //Because its very specialised and should not be sold to common folk, unless a willing scientist thinks they can be trusted.
 	contains = list(
-	/obj/item/survivalcapsule/prefab/production,
+		/obj/item/survivalcapsule/prefab/production,
 	)
 	crate_name = "Nakamura Type-45 LEGACY Production and Research kit"
 	crate_type = /obj/structure/closet/crate/science
