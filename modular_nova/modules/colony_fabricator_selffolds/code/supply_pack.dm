@@ -35,7 +35,7 @@
 	)
 	crate_name = "Prefabricated Hulls Kit"
 
-/datum/supply_pack/engineering/prefab_room_7_Airlocked
+/datum/supply_pack/engineering/prefab_room_7_airlocked
 	name = "Nakamura LC-07 Airlocked Setup"
 	desc = "Self-folded portative capsule containing a premade structure to suit your needs. 7x7"
 	cost = CARGO_CRATE_VALUE * 4 // Because giving people a way to setup a place for personal projects is nice
