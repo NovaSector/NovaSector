@@ -44,19 +44,20 @@
 /datum/preference/toggle/allow_emissives/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return TRUE // we dont actually want this to do anything
 
-/datum/preference/toggle/mutant_color_toggle
+/datum/preference/toggle/skin_tone_toggle
 	priority = PREFERENCE_PRORITY_LATE_BODY_TYPE // we override species trait thus we go after species
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "mutant_colors_toggle"
 	can_randomize = FALSE
 
-/datum/preference/toggle/mutant_color_toggle/create_informed_default_value(datum/preferences/preferences)
+/datum/preference/toggle/skin_tone_toggle/is_accessible(datum/preferences/preferences)
+	. = ..()
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = GLOB.species_prototypes[species_type]
-	return (TRAIT_MUTANT_COLORS in species.inherent_traits)
+	return (TRAIT_USES_SKINTONES in species.inherent_traits)
 
-/datum/preference/toggle/mutant_color_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+/datum/preference/toggle/skin_tone_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	if(value)
 		REMOVE_TRAIT(target, TRAIT_USES_SKINTONES, SPECIES_TRAIT)
 		ADD_TRAIT(target, TRAIT_MUTANT_COLORS, SPECIES_TRAIT)
@@ -70,7 +71,7 @@
 
 /datum/preference/choiced/skin_tone/is_accessible(datum/preferences/preferences)
 	. = ..()
-	return !preferences.read_preference(/datum/preference/toggle/mutant_color_toggle)
+	return !preferences.read_preference(/datum/preference/toggle/skin_tone_toggle)
 
 /datum/preference/tri_color/mutant_colors
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -80,7 +81,7 @@
 
 /datum/preference/tri_color/mutant_colors/is_accessible(datum/preferences/preferences)
 	. = ..()
-	return preferences.read_preference(/datum/preference/toggle/mutant_color_toggle)
+	return preferences.read_preference(/datum/preference/toggle/skin_tone_toggle)
 
 /datum/preference/tri_color/mutant_colors/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features[FEATURE_MUTANT_COLOR] = value[1]
