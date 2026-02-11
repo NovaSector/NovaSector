@@ -22,14 +22,14 @@
 	access_view = ACCESS_ENGINEERING
 	contains = list(
 		/obj/item/survivalcapsule/prefab/room_7,
-		/obj/item/survivalcapsule/prefab/wall5v,
-		/obj/item/survivalcapsule/prefab/wall5v,
-		/obj/item/survivalcapsule/prefab/wall5v,
-		/obj/item/survivalcapsule/prefab/wall5v,
-		/obj/item/survivalcapsule/prefab/wall5h,
-		/obj/item/survivalcapsule/prefab/wall5h,
-		/obj/item/survivalcapsule/prefab/wall5h,
-		/obj/item/survivalcapsule/prefab/wall5h,
+		/obj/item/survivalcapsule/prefab/wall5_vertical,
+		/obj/item/survivalcapsule/prefab/wall5_vertical,
+		/obj/item/survivalcapsule/prefab/wall5_vertical,
+		/obj/item/survivalcapsule/prefab/wall5_vertical,
+		/obj/item/survivalcapsule/prefab/wall5_horizontal,
+		/obj/item/survivalcapsule/prefab/wall5_horizontal,
+		/obj/item/survivalcapsule/prefab/wall5_horizontal,
+		/obj/item/survivalcapsule/prefab/wall5_horizontal,
 		/obj/item/flatpacked_machine/airlock_kit_manual,
 		/obj/item/flatpacked_machine/airlock_kit_manual,
 	)
