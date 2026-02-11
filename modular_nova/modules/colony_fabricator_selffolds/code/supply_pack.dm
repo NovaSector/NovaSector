@@ -50,7 +50,7 @@
 	desc = "Popular solar platform, easy to deploy, cheap, simple and decent power solution."
 	cost = CARGO_CRATE_VALUE * 4 // Main price comes from some materials and convinience. A person buying this, is either desperate, lost, or doing a thing. Also okayish backup plan for the backup plan.
 	contains = list(
-	/obj/item/survivalcapsule/prefab/solarunit,
+		/obj/item/survivalcapsule/prefab/solarunit,
 	)
 	crate_name = "Nakamura Heliantus-8 Solar Node"
 	crate_type = /obj/structure/closet/crate/engineering
