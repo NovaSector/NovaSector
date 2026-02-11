@@ -138,7 +138,7 @@
 	contains = list(/obj/item/survivalcapsule/prefab/defenseplatform,
 					/obj/item/survivalcapsule/prefab/defenseplatform,
 					/obj/item/survivalcapsule/prefab/defenseplatform,
-					)
+	)
 
 /datum/supply_pack/security/prefab_medical
 	name = "Deforest Infirmary Pattern Tent"
