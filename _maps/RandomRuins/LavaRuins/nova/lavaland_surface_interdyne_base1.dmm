@@ -37,6 +37,14 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
+"ay" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/table/wood,
+/obj/machinery/computer/libraryconsole/bookmanagement{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "aA" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -223,10 +231,7 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "bV" = (
-/obj/structure/table/wood,
-/obj/machinery/computer/libraryconsole/bookmanagement{
-	dir = 4
-	},
+/obj/machinery/quantum_server,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "bZ" = (
@@ -240,8 +245,12 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/med)
+"cc" = (
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
+/area/lavaland/surface/outdoors)
 "cd" = (
 /obj/machinery/computer/operating,
+/obj/machinery/vitals_reader/advanced/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "co" = (
@@ -478,13 +487,10 @@
 	},
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "ea" = (
-/obj/structure/table/reinforced,
-/obj/item/defibrillator/loaded{
-	pixel_y = 6
-	},
 /obj/machinery/door/window/survival_pod/left/directional/south{
 	req_access = list("syndicate")
 	},
+/obj/machinery/suit_storage_unit/interdyne/nerfed,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "el" = (
@@ -524,10 +530,6 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "eN" = (
-/obj/machinery/light/small/directional/west,
-/obj/machinery/modular_computer/preset/curator{
-	dir = 4
-	},
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "eP" = (
@@ -985,6 +987,9 @@
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 1
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_y = 26
 	},
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer,
 /turf/open/floor/iron/dark/diagonal,
@@ -1680,6 +1685,9 @@
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo/deck)
+"on" = (
+/turf/closed/wall/mineral/titanium/shielded,
+/area/lavaland/surface/outdoors)
 "op" = (
 /obj/structure/railing{
 	dir = 9
@@ -2287,6 +2295,7 @@
 	name = "chameleon kit"
 	},
 /obj/item/gun/energy/cell_loaded/medigun/standard,
+/obj/item/mod/paint,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "tl" = (
@@ -2455,8 +2464,11 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "us" = (
 /obj/structure/table/optable,
-/obj/machinery/defibrillator_mount/directional{
+/obj/machinery/defibrillator_mount/charging{
 	pixel_y = 26
+	},
+/obj/item/defibrillator/loaded{
+	pixel_y = 6
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
@@ -2595,6 +2607,9 @@
 	},
 /obj/effect/turf_decal/bot_white,
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer,
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_y = 26
+	},
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "vX" = (
@@ -2697,6 +2712,7 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
 	},
+/obj/machinery/vitals_reader/advanced/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "wT" = (
@@ -3474,6 +3490,11 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
+"Da" = (
+/obj/machinery/light/small/directional/west,
+/obj/machinery/netpod,
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "De" = (
 /obj/machinery/light/small/directional/north,
 /obj/machinery/turretid{
@@ -3524,7 +3545,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/structure/table/wood,
+/obj/machinery/suit_storage_unit/interdyne,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "Dx" = (
@@ -3567,7 +3588,7 @@
 /turf/open/floor/plating/lavaland_atmos,
 /area/ruin/interdyne_planetary_base)
 "DU" = (
-/obj/machinery/libraryscanner,
+/obj/machinery/byteforge,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "DV" = (
@@ -3844,6 +3865,9 @@
 	dir = 1
 	},
 /obj/machinery/light_switch/directional/north,
+/obj/item/xenoarch/brush/adv,
+/obj/item/xenoarch/hammer/adv,
+/obj/item/xenoarch/handheld_scanner/advanced,
 /obj/item/xenoarch/handheld_recoverer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -4177,6 +4201,10 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
+"If" = (
+/obj/machinery/libraryscanner,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "Ih" = (
 /turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -4276,9 +4304,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "IU" = (
-/obj/structure/chair/office/light{
-	dir = 8
-	},
 /obj/machinery/light_switch/directional/south,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -5231,6 +5256,10 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"RO" = (
+/obj/machinery/computer/quantum_console,
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "RR" = (
 /obj/item/geiger_counter,
 /obj/item/clothing/head/utility/radiation,
@@ -5725,6 +5754,8 @@
 	pixel_y = 8;
 	pixel_x = 2
 	},
+/obj/item/ammo_workbench_module/lethal_super/evil,
+/obj/item/flatpack/ammo_workbench,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "UN" = (
@@ -5880,7 +5911,12 @@
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/main)
 "VF" = (
-/turf/closed/wall/mineral/titanium/shielded,
+/obj/machinery/computer/order_console/bitrunning{
+	density = 0;
+	pixel_y = 31
+	},
+/obj/machinery/netpod,
+/turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "VQ" = (
 /obj/effect/turf_decal/stripes/line,
@@ -5947,6 +5983,7 @@
 /obj/item/circuitboard/machine/powerator/interdyne,
 /obj/item/circuitboard/computer/bountypad,
 /obj/item/circuitboard/machine/bountypad,
+/obj/item/gun/ballistic/rifle/sniper_rifle/syndicate,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "Wk" = (
@@ -6003,6 +6040,9 @@
 	},
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_x = 26
 	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
@@ -7794,9 +7834,9 @@ OH
 DZ
 fm
 fm
-ja
-ja
-ja
+fm
+fm
+fm
 ja
 "}
 (35,1,1) = {"
@@ -7834,10 +7874,10 @@ OH
 OH
 OH
 DZ
+cc
+cc
+on
 fm
-fm
-fm
-ja
 ja
 "}
 (36,1,1) = {"
@@ -7876,8 +7916,8 @@ lc
 vG
 EH
 VF
-fm
-fm
+Da
+EH
 fm
 ja
 "}
@@ -7916,9 +7956,9 @@ EH
 Gy
 yr
 EH
+RO
+eN
 EH
-EH
-VF
 fm
 ja
 "}
@@ -8079,8 +8119,8 @@ VV
 vY
 Qi
 IQ
-js
-yL
+ay
+If
 YS
 EH
 fm
