@@ -40,8 +40,8 @@
 	desc = "Self-folded portative capsule containing a premade structure to suit your needs. 7x7"
 	cost = CARGO_CRATE_VALUE * 4 // Because giving people a way to setup a place for personal projects is nice
 	contains = list(
-	/obj/item/survivalcapsule/prefab/room_7,
-	/obj/item/flatpacked_machine/airlock_kit_manual,
+		/obj/item/survivalcapsule/prefab/room_7,
+		/obj/item/flatpacked_machine/airlock_kit_manual,
 	)
 	crate_name = "Nakamura LC-07 Airlocked Kit"
 
