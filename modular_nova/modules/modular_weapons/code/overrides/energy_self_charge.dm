@@ -1,7 +1,8 @@
 // This is where we put all the overrides for energy recharge. At the moment of this change, TG default charge_delay is 8. With this they recharge 10% per what charge_delay says.
 
 #define CHARGE_MESSAGE "Equipped with a trickle-charge microcell. Regains a couple of shots every quarter minute or so without external power. Don't expect it to keep up with heavy use."
-#define SUPER_CHARGE_MESSAGE "Equipped with a fission-powered microcell. Regains a couple of shots every few seconds or so without external power. While not infinite, it can handle heavier usage than its peers without running dry."
+#define SUPER_CHARGE_MESSAGE "Equipped with a hyper-charge microcell. Regains a couple of shots next to every eight seconds without external power. While not infinite, it can handle heavier usage than its peers without running dry."
+#define HYPER_CHARGE_MESSAGE "Equipped with a fission-powered microcell. Regains a couple of shots every few seconds without external power. If this thing runs out of juice, you have bigger problems than recharging your gun."
 
 // Disablers
 /obj/item/gun/energy/disabler
@@ -161,27 +162,28 @@
 	. = ..()
 	. -= span_notice(CHARGE_MESSAGE)
 
-//Removes standard charge message for the advanced energy gun and replaces it with the super charge message
+//Removes standard charge message for the advanced energy gun and replaces it with the hyper charge message
 /obj/item/gun/energy/e_gun/nuclear/examine(mob/user)
 	. = ..()
 	. -= span_notice(CHARGE_MESSAGE)
-	. += span_notice(SUPER_CHARGE_MESSAGE)
+	. += span_notice(HYPER_CHARGE_MESSAGE)
 
-// Ditto for event horizon, giving a slight delay boost for consistency with description
-/obj/item/gun/energy/event_horizon
-	charge_delay = 10
-
+//Gives the almost unobtainable event horizon rifle a more accurate message, as its charge rate is untouched
 /obj/item/gun/energy/event_horizon/examine(mob/user)
 	. = ..()
 	. += span_notice(SUPER_CHARGE_MESSAGE)
 
-// Triple ditto for flora guns, since it's primarily a tool
-/obj/item/gun/energy/floragun
-	charge_delay = 10
-
+// Ditto for flora guns, since it's primarily a tool
 /obj/item/gun/energy/floragun/examine(mob/user)
 	. = ..()
 	. += span_notice(SUPER_CHARGE_MESSAGE)
 
+// Double ditto for captain's laser
+/obj/item/gun/energy/laser/captain/examine(mob/user)
+	. = ..()
+	. -= span_notice(CHARGE_MESSAGE)
+	. += span_notice(SUPER_CHARGE_MESSAGE)
+
 #undef CHARGE_MESSAGE
 #undef SUPER_CHARGE_MESSAGE
+#undef HYPER_CHARGE_MESSAGE
