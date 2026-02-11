@@ -83,7 +83,7 @@
 
 /obj/item/survivalcapsule/prefab/botany
 	name = "\improper Nakamura X NT Sustenance Greenhouse"
-	desc = "Basic green house to help sate your hunger, even on a distant system. Or grow a couple of cute, plant gals."
+	desc = "Basic green house to help sate your hunger, even on a distant system. Or grow a couple of cute plant gals."
 	template_id = "prefab_botany"
 	icon_state = "prefab_natural"
 
