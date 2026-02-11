@@ -37,14 +37,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
-"ay" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/structure/table/wood,
-/obj/machinery/computer/libraryconsole/bookmanagement{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "aA" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -245,9 +237,6 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/med)
-"cc" = (
-/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
-/area/lavaland/surface/outdoors)
 "cd" = (
 /obj/machinery/computer/operating,
 /obj/machinery/vitals_reader/advanced/directional/north,
@@ -350,6 +339,11 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
+"cX" = (
+/obj/machinery/light/small/directional/west,
+/obj/machinery/netpod,
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "cZ" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -1633,6 +1627,9 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
+"nN" = (
+/turf/closed/wall/mineral/titanium/shielded,
+/area/lavaland/surface/outdoors)
 "nW" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/effect/turf_decal/tile/purple/half{
@@ -1685,9 +1682,6 @@
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo/deck)
-"on" = (
-/turf/closed/wall/mineral/titanium/shielded,
-/area/lavaland/surface/outdoors)
 "op" = (
 /obj/structure/railing{
 	dir = 9
@@ -2661,6 +2655,14 @@
 "wu" = (
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
+"wC" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/table/wood,
+/obj/machinery/computer/libraryconsole/bookmanagement{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "wE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2991,6 +2993,9 @@
 /obj/item/rag,
 /turf/open/floor/wood/tile,
 /area/ruin/interdyne_planetary_base/serv/bar)
+"zq" = (
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
+/area/lavaland/surface/outdoors)
 "zB" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/delivery,
@@ -3063,6 +3068,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
+"Af" = (
+/obj/machinery/computer/quantum_console,
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "Ai" = (
 /obj/effect/turf_decal/box/red/corners{
 	dir = 1
@@ -3277,6 +3286,7 @@
 /obj/machinery/camera/autoname/directional/north{
 	network = list("intd13")
 	},
+/obj/item/stock_parts/card_reader,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "BF" = (
@@ -3490,11 +3500,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
-"Da" = (
-/obj/machinery/light/small/directional/west,
-/obj/machinery/netpod,
-/turf/open/floor/wood/parquet,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "De" = (
 /obj/machinery/light/small/directional/north,
 /obj/machinery/turretid{
@@ -4201,10 +4206,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
-"If" = (
-/obj/machinery/libraryscanner,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "Ih" = (
 /turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -5256,10 +5257,6 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"RO" = (
-/obj/machinery/computer/quantum_console,
-/turf/open/floor/wood/parquet,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "RR" = (
 /obj/item/geiger_counter,
 /obj/item/clothing/head/utility/radiation,
@@ -5388,6 +5385,10 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
+"SM" = (
+/obj/machinery/libraryscanner,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "SO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/space_heater,
@@ -7874,9 +7875,9 @@ OH
 OH
 OH
 DZ
-cc
-cc
-on
+zq
+zq
+nN
 fm
 ja
 "}
@@ -7916,7 +7917,7 @@ lc
 vG
 EH
 VF
-Da
+cX
 EH
 fm
 ja
@@ -7956,7 +7957,7 @@ EH
 Gy
 yr
 EH
-RO
+Af
 eN
 EH
 fm
@@ -8119,8 +8120,8 @@ VV
 vY
 Qi
 IQ
-ay
-If
+wC
+SM
 YS
 EH
 fm
