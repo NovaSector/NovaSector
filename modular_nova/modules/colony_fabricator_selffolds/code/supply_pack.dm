@@ -91,25 +91,25 @@
 	name = "Horizontal 3x1 Wall"
 	desc = "Finally, build your own plastic castle."
 	cost = PAYCHECK_CREW * 1.5
-	contains = list(/obj/item/survivalcapsule/prefab/wall3h)
+	contains = list(/obj/item/survivalcapsule/prefab/wall3_horizontal)
 
-/datum/supply_pack/goody/prefab_wall3v
+/datum/supply_pack/goody/prefab_wall3_vertical
 	name = "Vertical 3x1 Wall"
 	desc = "Finally, build your own plastic castle."
 	cost = PAYCHECK_CREW * 1.5
-	contains = list(/obj/item/survivalcapsule/prefab/wall3v)
+	contains = list(/obj/item/survivalcapsule/prefab/wall3_vertical)
 
-/datum/supply_pack/goody/prefab_wall5h
+/datum/supply_pack/goody/prefab_wall5_horizontal
 	name = "Horizontal 5x1 Wall"
 	desc = "Finally, build your own plastic castle."
 	cost = PAYCHECK_CREW * 2
-	contains = list(/obj/item/survivalcapsule/prefab/wall5h)
+	contains = list(/obj/item/survivalcapsule/prefab/wall5_horizontal)
 
-/datum/supply_pack/goody/prefab_wall5v
+/datum/supply_pack/goody/prefab_wall5_vertical
 	name = "Vertical 5x1 Wall"
 	desc = "Finally, build your own plastic castle."
 	cost = PAYCHECK_CREW * 2
-	contains = list(/obj/item/survivalcapsule/prefab/wall5v)
+	contains = list(/obj/item/survivalcapsule/prefab/wall5_vertical)
 
 /datum/supply_pack/goody/prefab_room_7
 	name = "Nakamura LC-07 Template Room"
