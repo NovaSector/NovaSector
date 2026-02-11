@@ -33,6 +33,16 @@
 		/obj/structure/flora/ocean/coral = 4,
 	)
 
+/datum/map_generator/cave_generator/ocean/shallow/nofishy
+	flora_spawn_chance = 2
+	feature_spawn_chance = 2
+	weighted_open_turf_types = list(/turf/open/water/beach/planet_surface/nofishy = 100)
+	weighted_flora_spawn_list = list(
+		/obj/structure/flora/ocean/seaweed = 11,
+		/obj/structure/flora/ocean/longseaweed = 2,
+		/obj/structure/flora/ocean/coral = 4,
+	)
+
 /datum/map_generator/cave_generator/ocean/rocky
 	flora_spawn_chance = 15
 	initial_closed_chance = 35

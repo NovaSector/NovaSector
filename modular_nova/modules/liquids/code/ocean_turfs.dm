@@ -222,13 +222,13 @@
 	color = "#58606b"
 
 /turf/closed/mineral/random/high_chance/ocean
-	baseturfs = /turf/open/misc/beach/sand
-	turf_type = /turf/open/misc/beach/sand
+	baseturfs = /turf/open/misc/beach/sand/nofishy
+	turf_type = /turf/open/misc/beach/sand/nofishy
 	color = "#58606b"
 
 /turf/closed/mineral/random/low_chance/ocean
-	baseturfs = /turf/open/misc/beach/sand
-	turf_type = /turf/open/misc/beach/sand
+	baseturfs = /turf/open/misc/beach/sand/nofishy
+	turf_type = /turf/open/misc/beach/sand/nofishy
 	color = "#58606b"
 
 /turf/closed/mineral/random/stationside/ocean
@@ -338,6 +338,33 @@
 	space_lit = TRUE
 	light_range = 2
 	reagent_to_extract = /datum/reagent/water/salt
+
+/*
+	For around the ordinance test range for the Ocean Pubby
+	The /water are easily handled but the /beach ones have an extra
+	fishing added on during their init, so the base type gets the fishing enabled here
+	and we'll selectively disable it via an edit to the base initalize in
+	code\game\turfs\open\sand.dm
+
+*/
+/turf/open/water/beach/planet_surface/nofishy
+	desc = "The water's great, but the immediate area seems completely devoid of fish..."
+	fishing_datum = null
+
+/turf/open/misc/beach
+    var/fishing_enabled = TRUE
+
+/turf/open/misc/beach/nofishy
+	fishing_enabled = FALSE
+
+/turf/open/misc/beach/sand/nofishy
+	fishing_enabled = FALSE
+
+/turf/open/misc/beach/coast/nofishy
+	fishing_enabled = FALSE
+
+/turf/open/misc/beach/coast/corner/nofishy
+	fishing_enabled = FALSE
 
 /turf/open/water/hot_spring/planet_surface
 	planetary_atmos = TRUE

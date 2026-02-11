@@ -25,6 +25,9 @@
 /area/ocean/generated/shallow
 	map_generator = /datum/map_generator/cave_generator/ocean/shallow
 
+/area/ocean/generated/shallow/nofishy
+	map_generator = /datum/map_generator/cave_generator/ocean/shallow/nofishy
+
 /area/ocean/generated/rocky
 	map_generator = /datum/map_generator/cave_generator/ocean/rocky
 
