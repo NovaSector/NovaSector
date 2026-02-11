@@ -15,7 +15,7 @@
 /datum/map_template/shelter/prefab_wall3v
 	name = "Vertical 1x3"
 	shelter_id = "prefab_wall3v"
-	description = "Prefabricated, unpowered, simple and fast 1x3 wall, currently set to be vertical."
+	description = "A prefabricated, unpowered, simple and fast 1x3 wall, currently set to be vertical."
 	mappath = "_maps/templates/prefab_wall3v.dmm"
 
 /datum/map_template/shelter/prefab_wall3v/New()
