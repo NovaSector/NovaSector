@@ -353,9 +353,8 @@
 // Windowed Dress
 /obj/item/clothing/under/dress/nova/windowed_dress
 	name = "windowed dress"
-	desc = "A chic, dress with a tastefully sewn in 'windowed' effect that is both alluring and fashionable.  \
-			The variations of this classic style includes a 'Deep V' backing and an 'Illusion' top variant. \
-			The recreation of these styles are courtesy of DarkRilo Apparels"
+	desc = "A chic dress with a tastefully sewn in 'windowed' effect on the back, that is both alluring and fashionable.\
+			This dress style is courtesy of |DarkRilo Apparels|."
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/windowed_dress"
 	post_init_icon_state = "windowed_dress"
@@ -376,22 +375,18 @@
 /datum/atom_skin/windowed_dress/deepv
 	preview_name = "Deep V"
 	new_icon_state = "windowed_dress_deepv"
-	greyscale_colors = "#424242"
 
 /datum/atom_skin/windowed_dress/opac
 	preview_name = "Opaque"
 	new_icon_state = "windowed_dress_opac"
-	greyscale_colors = "#424242#424242"
 
 /datum/atom_skin/windowed_dress/no_opac
 	preview_name = "Windowed Dress (No Opac)"
 	new_icon_state = "windowed_dress_no_opac"
-	greyscale_colors = "#424242#424242"
 
 /datum/atom_skin/windowed_dress/no_collar
 	preview_name = "Windowed Dress (No Collar)"
 	new_icon_state = "windowed_dress_no_collar"
-	greyscale_colors = "#424242#424242"
 
 // Slit Dress
 /obj/item/clothing/under/dress/nova/slit_dress
@@ -418,22 +413,18 @@
 /datum/atom_skin/slit_dress/deepv
 	preview_name = "Deep V"
 	new_icon_state = "slit_dress_deepv"
-	greyscale_colors = "#424242"
 
 /datum/atom_skin/slit_dress/opac
 	preview_name = "Opaque"
 	new_icon_state = "slit_dress_opac"
-	greyscale_colors = "#424242#424242"
 
 /datum/atom_skin/slit_dress/no_opac
 	preview_name = "Slit Dress (No Opac)"
 	new_icon_state = "slit_dress_no_opac"
-	greyscale_colors = "#424242#424242"
 
 /datum/atom_skin/slit_dress/no_collar
 	preview_name = "Slit Dress (No Collar)"
 	new_icon_state = "slit_dress_no_collar"
-	greyscale_colors = "#424242#424242"
 
 // Shorter Dress
 /obj/item/clothing/under/dress/nova/shorter_dress
@@ -460,22 +451,18 @@
 /datum/atom_skin/shorter_dress/deepv
 	preview_name = "Deep V"
 	new_icon_state = "shorter_dress_deepv"
-	greyscale_colors = "#424242"
 
 /datum/atom_skin/shorter_dress/opac
 	preview_name = "Opaque"
 	new_icon_state = "shorter_dress_opac"
-	greyscale_colors = "#424242#424242"
 
 /datum/atom_skin/shorter_dress/no_opac
 	preview_name = "Shorter Dress (No Opac)"
 	new_icon_state = "shorter_dress_no_opac"
-	greyscale_colors = "#424242#424242"
 
 /datum/atom_skin/shorter_dress/no_collar
 	preview_name = "Shorter Dress (No Collar)"
 	new_icon_state = "shorter_dress_no_collar"
-	greyscale_colors = "#424242#424242"
 
 // Pen Skirt
 /obj/item/clothing/under/dress/nova/pen_skirt

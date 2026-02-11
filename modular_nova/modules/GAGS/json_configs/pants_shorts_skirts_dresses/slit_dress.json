@@ -2,7 +2,7 @@
 	"slit_dress": [
 		{
 			"type": "icon_state",
-			"icon_state": "collared_collar",
+			"icon_state": "slit_dress_collared",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
@@ -14,7 +14,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "slit_dress_collared",
+			"icon_state": "collared_collar",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		}
@@ -30,13 +30,13 @@
 	"slit_dress_opac": [
 		{
 			"type": "icon_state",
-			"icon_state": "opac_opac",
+			"icon_state": "slit_dress_opac",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "slit_dress_opac",
+			"icon_state": "opac_opac",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
@@ -44,13 +44,13 @@
 	"slit_dress_no_opac": [
 		{
 			"type": "icon_state",
-			"icon_state": "collared_collar",
+			"icon_state": "slit_dress_collared",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "slit_dress_collared",
+			"icon_state": "collared_collar",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
@@ -58,13 +58,13 @@
 	"slit_dress_no_collar": [
 		{
 			"type": "icon_state",
-			"icon_state": "opac_opac",
+			"icon_state": "slit_dress_collared",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "slit_dress_collared",
+			"icon_state": "opac_opac",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}

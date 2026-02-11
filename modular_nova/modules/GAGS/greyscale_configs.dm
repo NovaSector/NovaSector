@@ -1451,9 +1451,6 @@
 	name = "Formal Pen Dress (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
-/datum/greyscale_config/formal_pen_skirt_d/worn
-	name = "Formal Pen Dress (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 // COSTUMES
 
 /datum/greyscale_config/jester_suit/worn/digi
