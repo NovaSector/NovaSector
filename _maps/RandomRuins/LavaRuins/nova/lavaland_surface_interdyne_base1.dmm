@@ -339,11 +339,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
-"cX" = (
-/obj/machinery/light/small/directional/west,
-/obj/machinery/netpod,
-/turf/open/floor/wood/parquet,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "cZ" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -1584,6 +1579,14 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/cargo/ware)
+"nh" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/table/wood,
+/obj/machinery/computer/libraryconsole/bookmanagement{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "nv" = (
 /mob/living/basic/pet/chinchilla/white{
 	dir = 4;
@@ -1627,9 +1630,6 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
-"nN" = (
-/turf/closed/wall/mineral/titanium/shielded,
-/area/lavaland/surface/outdoors)
 "nW" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/effect/turf_decal/tile/purple/half{
@@ -2655,14 +2655,6 @@
 "wu" = (
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
-"wC" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/structure/table/wood,
-/obj/machinery/computer/libraryconsole/bookmanagement{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "wE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2993,9 +2985,6 @@
 /obj/item/rag,
 /turf/open/floor/wood/tile,
 /area/ruin/interdyne_planetary_base/serv/bar)
-"zq" = (
-/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
-/area/lavaland/surface/outdoors)
 "zB" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/delivery,
@@ -3068,10 +3057,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
-"Af" = (
-/obj/machinery/computer/quantum_console,
-/turf/open/floor/wood/parquet,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "Ai" = (
 /obj/effect/turf_decal/box/red/corners{
 	dir = 1
@@ -3864,6 +3849,14 @@
 	},
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
+"Fl" = (
+/obj/machinery/computer/order_console/bitrunning{
+	density = 0;
+	pixel_y = 31
+	},
+/obj/machinery/netpod,
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "Fq" = (
 /obj/structure/closet/xenoarch,
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -4052,6 +4045,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/pink,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
+"GS" = (
+/obj/machinery/computer/quantum_console,
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "GT" = (
 /obj/structure/table/reinforced,
 /obj/machinery/microwave{
@@ -5140,6 +5137,10 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
+"QB" = (
+/obj/machinery/libraryscanner,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "QD" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 8;
@@ -5147,6 +5148,11 @@
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base)
+"QO" = (
+/obj/machinery/light/small/directional/west,
+/obj/machinery/netpod,
+/turf/open/floor/wood/parquet,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "QR" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/syndicate_access,
@@ -5385,10 +5391,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
-"SM" = (
-/obj/machinery/libraryscanner,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "SO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/space_heater,
@@ -5912,12 +5914,7 @@
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/main)
 "VF" = (
-/obj/machinery/computer/order_console/bitrunning{
-	density = 0;
-	pixel_y = 31
-	},
-/obj/machinery/netpod,
-/turf/open/floor/wood/parquet,
+/turf/closed/wall/mineral/titanium/shielded,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "VQ" = (
 /obj/effect/turf_decal/stripes/line,
@@ -7874,10 +7871,10 @@ OH
 OH
 OH
 OH
-DZ
-zq
-zq
-nN
+VF
+EH
+EH
+VF
 fm
 ja
 "}
@@ -7916,8 +7913,8 @@ EH
 lc
 vG
 EH
-VF
-cX
+Fl
+QO
 EH
 fm
 ja
@@ -7957,7 +7954,7 @@ EH
 Gy
 yr
 EH
-Af
+GS
 eN
 EH
 fm
@@ -8120,8 +8117,8 @@ VV
 vY
 Qi
 IQ
-wC
-SM
+nh
+QB
 YS
 EH
 fm
