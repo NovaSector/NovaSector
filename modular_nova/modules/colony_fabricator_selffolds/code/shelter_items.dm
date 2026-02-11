@@ -8,6 +8,7 @@
 	icon_state = "prefab_nakamura"
 	icon = 'modular_nova/modules/colony_fabricator_selffolds/icons/mining.dmi'
 	w_class = WEIGHT_CLASS_SMALL
+	abstract_type = /obj/item/survivalcapsule/prefab
 
 /obj/item/survivalcapsule/prefab/airlock
 	name = "\improper Nakamura LC-12 Airlock"
