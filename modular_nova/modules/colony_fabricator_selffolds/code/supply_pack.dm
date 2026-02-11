@@ -71,7 +71,7 @@
 	desc = "Self-folded portative capsule containing a premade structure to suit your needs. Oh hey, why does it smell of pickles??? 7x7"
 	cost = CARGO_CRATE_VALUE * 3 // Its a 7x7 with dirt and hope for some food, cmon, you can get this on 2 minute lavaland trip
 	contains = list(
-	/obj/item/survivalcapsule/prefab/botany,
+		/obj/item/survivalcapsule/prefab/botany,
 	)
 	crate_name = "Nakamura X NT Sustenance Greenhouse"
 	crate_type = /obj/structure/closet/crate/hydroponics
