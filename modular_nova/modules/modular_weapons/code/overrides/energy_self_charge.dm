@@ -1,4 +1,4 @@
-// This is where we put all the overrides for energy recharge. At the moment of this change, TG default charge_delay is 8. With this they recharge 10% per what charge_delay says.
+// This is where we put all the overrides for energy recharge. At the moment of this change, TG default charge_delay is 8. With this they recharge 10% per what charge_delay says
 
 #define CHARGE_MESSAGE "Equipped with a trickle-charge microcell. Regains a couple of shots every quarter minute or so without external power. Don't expect it to keep up with heavy use."
 #define SUPER_CHARGE_MESSAGE "Equipped with a hyper-charge microcell. Regains a couple of shots next to every eight seconds without external power. While not infinite, it can handle heavier usage than its peers without running dry."
@@ -77,6 +77,15 @@
 	. = ..()
 	. += span_notice(CHARGE_MESSAGE)
 
+// Captain's Laser
+/obj/item/gun/energy/laser/captain
+	charge_delay = 8 // compare/contrast tg's default delay of 8, nova's laser self-charge delay of 15
+
+/obj/item/gun/energy/laser/captain/examine(mob/user) // A delay of 8 gets the super charge message
+	. = ..()
+	. -= span_notice(CHARGE_MESSAGE)
+	. += span_notice(SUPER_CHARGE_MESSAGE)
+
 // Pure Tasers
 /obj/item/gun/energy/taser
 	selfcharge = TRUE
@@ -94,15 +103,6 @@
 /obj/item/gun/energy/ionrifle/examine(mob/user)
 	. = ..()
 	. += span_notice(CHARGE_MESSAGE)
-
-// Captain's Laser
-/obj/item/gun/energy/laser/captain
-	charge_delay = 8 // compare/contrast tg's default delay of 8, nova's laser self-charge delay of 15
-
-/obj/item/gun/energy/laser/captain/examine(mob/user) // A delay of 8 gets the super charge message
-	. = ..()
-	. -= span_notice(CHARGE_MESSAGE)
-	. += span_notice(SUPER_CHARGE_MESSAGE)
 
 // Temperature Guns
 /obj/item/gun/energy/temperature
