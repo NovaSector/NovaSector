@@ -64,7 +64,6 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/syndicate/bloodred/sleepytime/sensors //Halloween-only
 	has_sensor = HAS_SENSORS
@@ -91,7 +90,7 @@
 	gets_cropped_on_taurs = FALSE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/syndicate/unarmoured/examine_more(mob/user)
 	. = ..()
@@ -115,7 +114,7 @@
 	gets_cropped_on_taurs = FALSE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/syndicate/nova/tactical/unarmoured/examine_more(mob/user)
 	. = ..()
@@ -136,7 +135,7 @@
 	gets_cropped_on_taurs = FALSE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/examine_more(mob/user)

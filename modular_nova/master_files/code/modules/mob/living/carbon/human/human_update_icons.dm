@@ -1,5 +1,5 @@
 /// Modifies a sprite to conform to big legs (taur) body shapes
-/proc/wear_big_legs_version(icon/base_icon, obj/item/clothing/item, key, greyscale_colors, mutant_styles)
+/proc/wear_big_legs_version(icon/base_icon, obj/item/clothing/under/item, key, greyscale_colors, mutant_styles)
 	ASSERT(istype(item), "wear_big_legs_version: no item passed")
 	ASSERT(istext(key), "wear_big_legs_version: no key passed")
 	if(isnull(greyscale_colors) || length(SSgreyscale.ParseColorString(greyscale_colors)) > 1)

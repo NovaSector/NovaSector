@@ -11,6 +11,10 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
+/obj/item/clothing/under/maid_costume
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
 /obj/item/clothing/under/costume/schoolgirl
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
@@ -83,7 +87,7 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/cargo/tech/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/head_of_personnel/suit/skirt
@@ -115,7 +119,7 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer/bluesuit/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer/purpsuit/skirt
@@ -178,13 +182,17 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
+/obj/item/clothing/under/dress/skirt/turtleskirt
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
+	gets_cropped_on_taurs = FALSE
+
 /obj/item/clothing/under/syndicate/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	body_parts_covered = CHEST|GROIN|ARMS
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/syndicate/tacticool/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	body_parts_covered = CHEST|GROIN|ARMS
 	gets_cropped_on_taurs = FALSE
 
@@ -273,7 +281,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/dress/skirt/plaid
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/civilian/clown/jester
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK

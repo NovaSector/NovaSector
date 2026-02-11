@@ -129,7 +129,7 @@ There are several things that need to be remembered:
 
 		// NOVA EDIT ADDITION START - Taur-friendly suits!
 		if(bodyshape & BODYSHAPE_TAUR)
-			if(istype(uniform) && uniform.gets_cropped_on_taurs)
+			if(istype(uniform) && (uniform.gets_cropped_on_taurs || (uniform.supports_variations_flags & CLOTHING_BIG_LEGS_MASK)))
 				mutant_styles |= get_taur_mode()
 			female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
 			female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP_ONLY bit if it is unset.
