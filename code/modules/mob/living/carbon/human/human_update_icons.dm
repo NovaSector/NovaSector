@@ -139,11 +139,11 @@ There are several things that need to be remembered:
 				uniform.worn_x_offset = -16
 			else if ((mutant_styles & STYLE_TAUR_HOOF) && uniform.worn_icon_taur_hoof)
 				uniform.worn_x_offset = -16
+			//big legs
+			if((mutant_styles & STYLE_TAUR_BIG_LEGS_ALL) && (uniform.supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
+				icon_file = mutant_styles & STYLE_TAUR_BIG_LEGS ? BIG_LEGS_UNIFORM_FILE : BIG_LEGS_STANCED_UNIFORM_FILE
 		else
 			uniform.worn_x_offset = 0
-		//big legs
-		if((mutant_styles & STYLE_TAUR_BIG_LEGS_ALL) && (uniform.supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
-			icon_file = mutant_styles & STYLE_TAUR_BIG_LEGS ? 'modular_nova/master_files/icons/mob/clothing/uniform_taur_big_legs.dmi' : 'modular_nova/master_files/icons/mob/clothing/uniform_taur_big_legs_stanced.dmi'
 		// NOVA EDIT ADDITION END
 
 		//END SPECIES HANDLING

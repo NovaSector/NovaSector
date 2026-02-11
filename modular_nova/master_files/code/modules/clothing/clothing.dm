@@ -17,7 +17,8 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 	if(mutant_styles & STYLE_TAUR_BIG_LEGS_STANCED)
 		greyscale_config = /datum/greyscale_config/digitigrade/big_leg_stanced
 	var/skirt = FALSE
-	if((female_sprite_flags & FEMALE_UNIFORM_TOP_ONLY) && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
+	// An assumption being made, that this combination of flags will basically always be a skirt
+	if((female_sprite_flags & FEMALE_UNIFORM_TOP_ONLY) && (supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON) && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
 		skirt = TRUE
 
 	var/icon/legs = icon(SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors), skirt ? "skirt_worn" : "jumpsuit_worn")
