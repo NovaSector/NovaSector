@@ -81,7 +81,7 @@
 	desc = "Self-folded portative capsule containing a premade structure to suit your needs. Why does it have a green felinid gal and heavy machinery warning stickers? 11x11"
 	cost = CARGO_CRATE_VALUE * 10 // By far, its huge, it has machines premade and has decent tools, as well as means to be powered right out of the box. Its publically available however. If price is too low, it could be too spammable.
 	contains = list(
-	/obj/item/survivalcapsule/prefab/factory,
+		/obj/item/survivalcapsule/prefab/factory,
 	)
 	crate_name = "Nakamura Streamline Basics Factory"
 	crate_type = /obj/structure/closet/crate/engineering
