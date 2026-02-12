@@ -1,0 +1,8 @@
+author: "Geoengi"
+delete-after: True
+changes:
+  - balance: "Crank/thermal weapons have lost their self-recharging nature. Come on and crank/spin that thing!"
+  - bugfix: "Expanded the self-charging nature of energy guns to many edge cases that lacked them."
+  - bugfix: "HoS's gun now accurately states that it self-charges, albeit with less efficiency than its parent."
+  - qol: "Improved the accuracy of the self-charging messages."
+  - code_imp: "Redoes the energy gun charging system to one based on procs, cleans up the overall file."
