@@ -221,6 +221,7 @@ export type PreferencesMenuData = {
       loadout_lists: LoadoutList; // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: loadout_list: LoadoutList;
       job_clothes: BooleanLike;
       loadout_index: string; // NOVA EDIT ADDITION: Multiple loadout presets
+      background_state: string; // NOVA EDIT ADDITION: Swappable character editor backgrounds
     };
 
     randomization: Record<string, RandomSetting>;
@@ -296,5 +297,6 @@ export type ServerData = {
     loadout_tabs: LoadoutCategory[];
   };
   species: Record<string, Species>;
+  background_state: { choices: string[] }; // NOVA EDIT ADDITION
   [otherKey: string]: unknown;
 };

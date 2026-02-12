@@ -614,7 +614,7 @@ export function MainPage(props: MainPageProps) {
 
             <Stack.Item grow>
               <CharacterPreview
-                height="80%" // NOVA EDIT - ORIGINAL: height="100%"
+                height="65%" // NOVA EDIT - ORIGINAL: height="100%"
                 id={data.character_preview_view}
               />
             </Stack.Item>
@@ -632,6 +632,20 @@ export function MainPage(props: MainPageProps) {
                 }
               />
             </Stack.Item>
+            {/* NOVA EDIT ADDITION START: Background Selection */}
+            <Stack.Item position="relative">
+              <Dropdown
+                width="100%"
+                selected={data.character_preferences.misc.background_state}
+                options={serverData?.background_state.choices || []}
+                onSelected={(value) =>
+                  act('update_background', {
+                    new_background: value,
+                  })
+                }
+              />
+            </Stack.Item>
+            {/* NOVA EDIT ADDITION END: Background Selection */}
             {/* NOVA EDIT ADDITION END */}
             <Stack.Item position="relative">
               <NameInput
@@ -687,7 +701,8 @@ export function MainPage(props: MainPageProps) {
         {/* ORIGINAL: <Stack.Item grow basis={0}> */}
         <Stack.Item grow basis={0} ml="4px">
           <Stack vertical fill>
-            {/* NOVA EDIT REMOVAL START
+            {
+              /* NOVA EDIT REMOVAL START
              <PreferenceList
               randomizations={getRandomization(
                 contextualPreferences,
@@ -707,7 +722,8 @@ export function MainPage(props: MainPageProps) {
               preferences={nonContextualPreferences}
               maxHeight="auto"
             />
-            */ // NOVA EDIT REMOVAL END
+            */
+              // NOVA EDIT REMOVAL END
             }
             {/* NOVA EDIT ADDITION BEGIN: Swappable pref menus */}
             <Stack>
