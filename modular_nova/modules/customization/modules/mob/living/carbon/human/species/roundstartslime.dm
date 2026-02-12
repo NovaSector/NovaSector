@@ -282,8 +282,7 @@
 * Procs the ethereal jaunt liquid effect when the slime dissolves on death.
 */
 /obj/item/organ/brain/slime/proc/do_steam_effects(turf/loc)
-	var/datum/effect_system/steam_spread/steam = new()
-	steam.set_up(10, FALSE, loc)
+	var/datum/effect_system/basic/steam_spread/steam = new(loc, 10, FALSE)
 	steam.start()
 
 /**

@@ -35,9 +35,8 @@
 	if (damage_flag)
 		var/turf/this_turf = get_turf(src)
 		explosion(src, devastation_range = 0, heavy_impact_range = 2, light_impact_range = 4, flash_range = 5, adminlog = TRUE)
-		var/datum/effect_system/explosion/explosiooon
-		explosiooon = new /datum/effect_system/explosion/smoke
-		explosiooon.set_up(this_turf)
+		var/datum/effect_system/explosion/smoke/explosiooon
+		explosiooon = new (this_turf)
 		playsound(this_turf, 'sound/effects/chemistry/shockwave_explosion.ogg', 80, TRUE)
 		explosiooon.start()
 	return ..()
