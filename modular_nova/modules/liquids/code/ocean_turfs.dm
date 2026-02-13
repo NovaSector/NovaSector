@@ -352,7 +352,7 @@
 	fishing_datum = null
 
 /turf/open/misc/beach
-    var/fishing_enabled = TRUE
+	var/fishing_enabled = TRUE
 
 /turf/open/misc/beach/nofishy
 	fishing_enabled = FALSE
