@@ -13,6 +13,13 @@ Potential future ideas:
 - Department medals (adding to TG's existing medal lockboxes)
 */
 
+/*
+// AWARDABLE MEDALS
+// These can be pinned onto others on the under clothes slot to 'award' them, appearing in the round-end screen
+*/
+/obj/item/clothing/accessory/medal
+	attachment_slot = NONE // lifts slot restriction for medal attachment
+
 /obj/item/clothing/accessory/medal/nova
 	name = "medal of robustness"
 	desc = "A medal dedicated to those who display robustness in many fields."
