@@ -186,7 +186,7 @@
 	new_icon_state = "workpants_white"
 
 /obj/item/clothing/under/rank/security/nova/trousers
-	name = "security trousers"
+	name = "pair of security trousers"
 	desc = "Some \"combat\" trousers. Probably should pair it with a vest for safety."
 	icon_state = "workpants"
 	body_parts_covered = GROIN|LEGS
@@ -234,7 +234,7 @@
 	new_icon_state = "workshorts_white_short"
 
 /obj/item/clothing/under/rank/security/nova/trousers/shorts
-	name = "security shorts"
+	name = "pair of security shorts"
 	desc = "Some \"combat\" shorts. Probably should pair it with a vest for safety."
 	icon_state = "workshorts"
 
