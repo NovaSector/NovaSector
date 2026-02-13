@@ -63,6 +63,7 @@
 		/obj/item/clothing/head/hats/hopcap = 1,
 		/obj/item/clothing/head/hopcap/beret = 1,
 		/obj/item/clothing/head/hopcap/beret/alt = 1,
+		/obj/item/clothing/head/hopcap/beret/olive = 1,
 		/obj/item/clothing/head/hats/imperial/hop = 1,
 		/obj/item/clothing/under/rank/civilian/head_of_personnel = 1,
 		/obj/item/clothing/under/rank/civilian/head_of_personnel/skirt = 1,
@@ -71,6 +72,7 @@
 		/obj/item/clothing/under/rank/civilian/head_of_personnel/nova/parade = 1,
 		/obj/item/clothing/under/rank/civilian/head_of_personnel/nova/parade/female = 1,
 		/obj/item/clothing/under/rank/captain/nova/imperial/generic/hop = 1,
+		/obj/item/clothing/under/rank/captain/nova/imperial/skirt/hop = 1,
 		/obj/item/clothing/suit/armor/vest/hop/hop_formal = 1,
 		/obj/item/clothing/neck/cloak/hop = 1,
 		/obj/item/clothing/neck/mantle/hopmantle = 1,
@@ -111,7 +113,7 @@
 		/obj/item/clothing/head/hats/imperial/ce = 1,
 		/obj/item/clothing/under/rank/engineering/chief_engineer = 1,
 		/obj/item/clothing/under/rank/engineering/chief_engineer/skirt = 1,
-		/obj/item/clothing/under/rank/engineering/chief_engineer/nova/imperial = 1,
+		/obj/item/clothing/under/rank/captain/nova/imperial/ce = 1,
 		/obj/item/clothing/neck/cloak/ce = 1,
 		/obj/item/clothing/neck/mantle/cemantle = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
@@ -181,6 +183,6 @@
 		/obj/item/clothing/head/hats/imperial = 5,
 		/obj/item/clothing/head/hats/imperial/helmet = 5,
 		/obj/item/clothing/under/rank/captain/nova/imperial/generic = 5,
-		/obj/item/clothing/under/rank/captain/nova/imperial/generic/skirt = 5,
+		/obj/item/clothing/under/rank/captain/nova/imperial/skirt = 5,
 	)
 

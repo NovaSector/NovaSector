@@ -633,21 +633,8 @@
 	item_path = /obj/item/clothing/head/hats/caphat/naval/custom/gold
 
 /datum/loadout_item/head/imperial_generic
-	name = "Naval Officer Cap (Grey)"
+	name = "Naval Officer Cap"
 	item_path = /obj/item/clothing/head/hats/imperial
-
-/datum/loadout_item/head/imperial_grey
-	name = "Naval Officer Cap (Dark Grey)"
-	item_path = /obj/item/clothing/head/hats/imperial/grey
-
-/datum/loadout_item/head/imperial_red
-	name = "Naval Officer Cap (Red)"
-	item_path = /obj/item/clothing/head/hats/imperial/red
-
-/datum/loadout_item/head/imperial_white
-	name = "Naval Officer Cap (White)"
-	item_path = /obj/item/clothing/head/hats/imperial/white
-
 /*
 *	JOB-LOCKED
 */

@@ -106,7 +106,7 @@
 
 /datum/loadout_item/under/jumpsuit/officersnavalskirt
 	name = "Officer's Naval Jumpskirt"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/generic/skirt
+	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/skirt
 	group = "Workwear"
 
 /datum/loadout_item/under/jumpsuit/paramed_light_skirt
@@ -224,6 +224,12 @@
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
 	group = "Job-Locked"
 
+/datum/loadout_item/under/jumpsuit/imphop
+	name = "Head of Personnel's Naval Jumpskirt"
+	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/skirt/hop
+	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
+	group = "Job-Locked"
+
 //MED
 /datum/loadout_item/under/jumpsuit/impcmo
 	name = "Chief Medical Officer's Naval Uniform"
@@ -234,7 +240,7 @@
 //ENGI
 /datum/loadout_item/under/jumpsuit/impce
 	name = "Chief Engineer's Naval Uniform"
-	item_path = /obj/item/clothing/under/rank/engineering/chief_engineer/nova/imperial
+	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/ce
 	restricted_roles = list(JOB_CHIEF_ENGINEER)
 	group = "Job-Locked"
 

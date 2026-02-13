@@ -44,16 +44,20 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 
-///obj/item/clothing/under/rank/civilian/head_of_personnel/nova/imperial //Rank pins of the Grand Moff
 /obj/item/clothing/under/rank/captain/nova/imperial/generic/hop
 	name = "head of personnel's naval jumpsuit"
 	desc = "A pale green naval suit and a rank badge denoting the Personnel Officer. Target, maximum firepower."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/generic/hop"
-	//post_init_icon_state = "officersnaval"
-	//greyscale_config = /datum/greyscale_config/officersnaval
-	//greyscale_config_worn = /datum/greyscale_config/officersnaval/worn
-	//greyscale_config_worn_digi = /datum/greyscale_config/officersnaval/worn/digi
-	greyscale_colors = "#829A8C#829A8C#373741#2979CD"
-	//supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	greyscale_colors = "#667363#667363#373741#F3F3F3#BC2626#2979CD"//829A8C
+	flags_1 = null
+
+/obj/item/clothing/under/rank/captain/nova/imperial/skirt/hop
+	desc = "A skirted naval uniform, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
+	name = "officer's naval jumpskirt"
+	greyscale_colors = "#A49C9C#373741#F3F3F3#BC2626#2979CD"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/skirt/hop"
+	post_init_icon_state = "officersnavalskirthop"
+	greyscale_config = /datum/greyscale_config/officersnavalskirt/hop
+	greyscale_config_worn = /datum/greyscale_config/officersnavalskirt/hop/worn
 	flags_1 = null

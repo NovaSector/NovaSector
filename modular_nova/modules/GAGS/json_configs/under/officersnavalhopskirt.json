@@ -1,5 +1,5 @@
 {
-	"officersnaval": [
+	"officersnavalskirthop": [
 		{
 			"type": "icon_state",
 			"icon_state": "officersnaval_base",
@@ -8,33 +8,27 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "officersnaval_pants",
+			"icon_state": "officersnaval_belt",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "officersnaval_belt",
+			"icon_state": "officersnaval_buckle",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "officersnaval_buckle",
+			"icon_state": "officersnaval_pins",
 			"blend_mode": "overlay",
 			"color_ids": [4]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "officersnaval_pins",
-			"blend_mode": "overlay",
-			"color_ids": [5]
-		},
-		{
-			"type": "icon_state",
 			"icon_state": "officersnaval_pins_accent",
 			"blend_mode": "overlay",
-			"color_ids": [6]
+			"color_ids": [5]
 		}
 	]
 }

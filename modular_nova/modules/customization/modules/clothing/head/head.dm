@@ -80,72 +80,53 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/hats/imperial
-	name = "grey naval officer cap"
-	desc = "A grey naval cap with a silver disk in the center."
-	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "impcom"
+	name = "naval officer cap"
+	desc = "A naval cap with a signifying disk in the center."
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/hats/imperial"
+	post_init_icon_state = "navalcap"
+	greyscale_config = /datum/greyscale_config/navalcap
+	greyscale_config_worn = /datum/greyscale_config/navalcap/worn
+	greyscale_colors = "#A49C9C#FFFFFF"
+	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/head/hats/imperial/grey
-	name = "dark grey naval officer cap"
-	desc = "A dark grey naval cap with a silver disk in the center."
-	icon_state = "impcommand"
-
-/obj/item/clothing/head/hats/imperial/red
-	name = "red naval officer cap"
-	desc = "A red naval cap with a silver disk in the center."
-	icon_state = "impcap_red"
-
-/obj/item/clothing/head/hats/imperial/white
-	name = "white naval officer cap"
-	desc = "A white naval cap with a silver disk in the center."
-	icon_state = "impcap"
 
 /obj/item/clothing/head/hats/imperial/cap
 	name = "captain's naval officer cap"
-	desc = "A white naval cap with a silver disk in the center."
-	icon_state = "impcap"
+	desc = "A white naval cap with a pin signifying captainship in the center."
+	icon_state = "/obj/item/clothing/head/hats/imperial/cap"
+	greyscale_colors = "#EEEEEE#FFCE5B"
+	armor_type = /datum/armor/hats_caphat
+	flags_1 = null
 
 /obj/item/clothing/head/hats/imperial/hop
 	name = "head of personnel's naval officer cap"
-	desc = "An olive naval cap with a silver disk in the center."
-	icon_state = "imphop"
+	desc = "An olive naval cap with a pin signifying a HOP in the center."
+	icon_state = "/obj/item/clothing/head/hats/imperial/hop"
+	greyscale_colors = "#829A8C#88242D"
+	flags_1 = null
 
 /obj/item/clothing/head/hats/imperial/hos
 	name = "head of security's naval officer cap"
-	desc = "A tar black naval cap with a silver disk in the center."
-	icon_state = "imphos"
+	desc = "A tar black naval cap with a pin signifying a HOS in the center."
+	icon_state = "/obj/item/clothing/head/hats/imperial/hos"
+	greyscale_colors = "#29252D#FFCE5B"
 	armor_type = /datum/armor/hats_hos
+	flags_1 = null
 
 /obj/item/clothing/head/hats/imperial/cmo
 	name = "chief medical officer's naval cap"
-	desc = "A teal naval cap with a silver disk in the center."
-	icon_state = "impcmo"
+	desc = "A teal naval cap with a pin signifying a CMO in the center."
+	icon_state = "/obj/item/clothing/head/hats/imperial/cmo"
+	greyscale_colors = "#3F958F#FFCE5B"
+	flags_1 = null
 
 /obj/item/clothing/head/hats/imperial/ce
 	name = "chief engineer's blast helmet"
-	desc = "Despite seeming like it's made of metal, it's actually a very cheap plastic.."
-	armor_type = /datum/armor/imperial_ce
-	clothing_flags = STOPSPRESSUREDAMAGE
-	heat_protection = HEAD
-	max_heat_protection_temperature = FIRE_HELM_MAX_TEMP_PROTECT
-	cold_protection = HEAD
-	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
-	icon_state = "impce"
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
-
-
-/datum/armor/imperial_ce
-	melee = 15
-	bullet = 5
-	laser = 20
-	energy = 10
-	bomb = 20
-	bio = 10
-	fire = 100
-	acid = 50
-	wound = 10
+	desc = "A naval cap with a pin signifying a CE in the center."
+	icon_state = "/obj/item/clothing/head/hats/imperial/ce"
+	greyscale_colors = "#EADB83#2E992E"
+	flags_1 = null
 
 /obj/item/clothing/head/hats/imperial/helmet
 	name = "blast helmet"

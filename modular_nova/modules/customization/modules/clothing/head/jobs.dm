@@ -180,6 +180,12 @@
 
 /obj/item/clothing/head/hopcap/beret/alt
 	name = "head of personnel's beret"
-	desc = "A fancy beret designed by NT's Personnel division for their favorite head's head. This one is made out of white fabric. Fancy"
+	desc = "A fancy beret designed by NT's Personnel division for their favorite head's head. This one is made out of white fabric, fancy."
 	icon_state = "/obj/item/clothing/head/hopcap/beret/alt"
 	greyscale_colors = "#FFFFFF#88242D"
+
+/obj/item/clothing/head/hopcap/beret/olive
+	name = "head of personnel's beret"
+	desc = "A fancy beret designed by NT's Personnel division for their favorite head's head. This one is made out of olive fabric, fancy."
+	icon_state = "/obj/item/clothing/head/hopcap/beret/olive"
+	greyscale_colors = "#829A8C#88242D"
