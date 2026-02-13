@@ -224,9 +224,9 @@
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
 	group = "Job-Locked"
 
-/datum/loadout_item/under/jumpsuit/imphop
+/datum/loadout_item/under/jumpsuit/imphopskirt
 	name = "Head of Personnel's Naval Jumpskirt"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/skirt/hop
+	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/skirt/hopskirt
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
 	group = "Job-Locked"
 
@@ -241,6 +241,12 @@
 /datum/loadout_item/under/jumpsuit/impce
 	name = "Chief Engineer's Naval Uniform"
 	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/ce
+	restricted_roles = list(JOB_CHIEF_ENGINEER)
+	group = "Job-Locked"
+
+/datum/loadout_item/under/jumpsuit/impceskirt
+	name = "Chief Engineer's Naval Skirt"
+	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/skirt/ceskirt
 	restricted_roles = list(JOB_CHIEF_ENGINEER)
 	group = "Job-Locked"
 

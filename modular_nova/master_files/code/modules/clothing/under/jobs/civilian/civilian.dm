@@ -48,16 +48,12 @@
 	name = "head of personnel's naval jumpsuit"
 	desc = "A pale green naval suit and a rank badge denoting the Personnel Officer. Target, maximum firepower."
 	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/generic/hop"
-	greyscale_colors = "#667363#667363#373741#F3F3F3#BC2626#2979CD"//829A8C
+	greyscale_colors = "#829A8C#829A8C#373741#F3F3F3#BC2626#2979CD"
 	flags_1 = null
 
-/obj/item/clothing/under/rank/captain/nova/imperial/skirt/hop
-	desc = "A skirted naval uniform, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
-	name = "officer's naval jumpskirt"
-	greyscale_colors = "#A49C9C#373741#F3F3F3#BC2626#2979CD"
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/skirt/hop"
-	post_init_icon_state = "officersnavalskirthop"
-	greyscale_config = /datum/greyscale_config/officersnavalskirt/hop
-	greyscale_config_worn = /datum/greyscale_config/officersnavalskirt/hop/worn
+/obj/item/clothing/under/rank/captain/nova/imperial/skirt/hopskirt
+	desc = "A pale green naval skirt and a rank badge denoting the Personnel Officer. Target, maximum firepower."
+	name = "head of personnel's naval jumpskirt"
+	greyscale_colors = "#829A8C#373741#F3F3F3#BC2626#2979CD"
+	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/skirt/hopskirt"
 	flags_1 = null
