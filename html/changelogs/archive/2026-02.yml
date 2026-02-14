@@ -262,3 +262,140 @@
       they previously stored.
   muratendmo:
   - rscadd: Adds many previously loadout-exclusive cosmetic clothes to the Clothesmate.
+2026-02-09:
+  DeepSpaceFurry:
+  - qol: Added Honorifics to DS-2 ID cards.
+  Hardly:
+  - rscadd: Added "Atmospheric Trainee" title for newer atmosians
+  Iajret:
+  - bugfix: Liquid pumps for plumbing should now work.
+  splat1125:
+  - rscadd: 'Added five new hairstyles: "Chunky Twin Buns", "Chunky Quad Buns" (c:
+      carpotoxin), "Chunky Ponytail", "''Zero'' Ponytail", and "Misshapen"'
+2026-02-10:
+  Bugwasabi:
+  - bugfix: Play Internet Sounds will now only display song details to users who have
+      admin music enabled.
+  Iajret:
+  - rscadd: You can select digi legs and wings for felinid chars
+  splat1125:
+  - bugfix: Chunky Twin Buns is now actually in the list of pickable hairstyles
+  - bugfix: '''Zero'' and Chunky Ponytails are no longer awkwardly clipped by berets'
+  sqnztb:
+  - map: swapped DS2's maintenance loot spawners to other, non maint loot spawners.
+  - rscadd: Interdyne's lavaland shuttle now is much more protected against NT's Shaft
+      Miner Rudeness
+2026-02-11:
+  Happyowl93:
+  - bugfix: Fixed typo on quaalude code, can be synthesized properly now
+  MacaroniCritter:
+  - rscadd: Added the security M.O.D. skinsuit
+  - image: resprited the security shorts
+  - image: resprited the security trousers
+  - image: resprited the high-vis jacket
+  Rilomatic:
+  - rscadd: Added Donor Item "Dated Espatier Holster"
+  - image: Obj and Worn icons for "Dated Espatier holster"
+  carpotoxin:
+  - qol: Adds a tracker to the main-menu, which updates you on when a late-join antag
+      role is queue'd for the taking. Click on it to update.
+2026-02-12:
+  ArcaneMusic:
+  - balance: Multitools cost has been decreased from youtool vendors, and their stock
+      increased (150 credits, 4 stock).
+  - rscadd: Stations can now spawn with Structural weakpoints. If they're subject
+      to an explosion, they'll crack open a tear in the station's turfs. If you spot
+      one, make sure to weld it or seal it with sticky tape to fix one. Or not!
+  - rscadd: Adds a negative station trait that greatly increases the number of weakpoints
+      that can spawn on station.
+  Cerulyss-Aureon:
+  - qol: The HFR can now produce Tier 5 gases at Level 4 when plasma is present in
+      the moderator. This makes it a more viable and competitive alternative to traditional
+      pipe or chamber gas synthesis.
+  Cyberboss:
+  - bugfix: Fixed encoding of special characters in chem dispenser recorded recipe
+      names.
+  - bugfix: Fixed some inconsistencies with bodytypes when non-binary genders had
+      it set to "Use gender". This is no longer possible. If you use have previously
+      used this setting, your bodytype will be explicitly set to female.
+  - bugfix: Fixed right clicking a closet with an ID in hand toggling locks twice
+      in one tick
+  Fghj240:
+  - bugfix: viruses should maybe probably not cure themselves
+  Geoengi:
+  - balance: Crank/thermal weapons have lost their self-recharging nature. Come on
+      and crank/spin that thing!
+  - bugfix: Expanded the self-charging nature of energy guns to many edge cases that
+      lacked them.
+  - bugfix: HoS's gun now accurately states that it self-charges, albeit with less
+      efficiency than its parent.
+  - qol: Improved the accuracy of the self-charging messages.
+  - code_imp: Redoes the energy gun charging system to one based on procs, cleans
+      up the overall file.
+  Iajret:
+  - bugfix: fixed brain not getting traumas from brain damage (including rotting or
+      chemicals)
+  - bugfix: brains should no longer be getting traumas from mannitol healing
+  - bugfix: apparently cut stomach healing had been broken too, and it should be fixed
+      now.
+  Kashargul:
+  - bugfix: tgui error year display
+  Laikodaemon:
+  - image: HoP's Accounting console now has a new sprite.
+  Maximal08:
+  - map: Adds missing wires and pipes to meta
+  Melbert:
+  - refactor: Refactored how deafness is tracked. Please report any weird interactions
+      with sounds, like messages or sfx being missing.
+  - bugfix: Lacking ears and being in hard crit now consistently treats you as "being
+      deaf". This affects a few minor interactions like empath, the jukebox, and sleeping.
+  - balance: Stasis now stops addiction ticks while active - meaning addictions will
+      not apply their ticking withdrawal effects, but also won't heal over time
+  - qol: You are always notified if your paycheck amount changes
+  - qol: Blushing matches blood color, so lizards blush greeeen.
+  Neocloudy:
+  - bugfix: Entertainment monitors don't bypass radio speech volume.
+  SmArtKar:
+  - refactor: Refactored sparks, foam, smoke, and other miscellaneous effect systems.
+  - refactor: Vapes now have consistent rigging with cigs using the new system.
+  - bugfix: Fixed some effects never working.
+  - image: Husk visuals now inherit their mob's blood color
+  - bugfix: Fixed chemical foam not working
+  SyncIt21:
+  - qol: plumbing disposer now has TGUI interface for operations
+  - bugfix: plumbing disposer icon state correctly switches between on & off under
+      circumstances
+  - qol: you can place plumbing machines on ducts with different layers again
+  Y0SH1M4S73R:
+  - bugfix: The holy energy swords and the carp-sie plushie can once again be renamed
+  - bugfix: The holy energy swords and the carp-sie plushie can once again be sacrificed
+      by cultists to spawn different weapons based on how many unique cultists the
+      chaplain has crit or killed with them
+  - qol: The holy skateboard can be renamed like other null rod variants can
+  - bugfix: Unusual null rod variants like the holy skateboard and bow can now be
+      sacrificed by cultists to spawn different weapons based on how many unique cultists
+      the chaplain has crit or killed with them. The bow and the burdened chaplain's
+      revolver, in particular, also count cultists crit or killed by arrows/bullets
+      fired from them by the chaplain.
+  alien3301:
+  - qol: Heretic void cloak doesn't quickdraw
+  lelandkemble:
+  - spellcheck: Pronouns in counterattack text are more correct
+  - bugfix: Sources of random slimes will now produce random slimes
+  - bugfix: Slimes revived via magic will now continue to look as they should
+  - rscadd: You can now put a deconstructed nuclear bomb back together again
+  - bugfix: Nuclear bombs with exposed cores will again irradiate their surrounding
+      area
+  - bugfix: Blast doors & shutters no longer inexplicably open when approached on
+      a mount
+  - bugfix: Airlock painters are now short range once again
+  - map: Catwalks vault is now restricted access
+  - spellcheck: Language manuals correctly refer to the person using them up to viewers
+  - bugfix: the Space Furnace is now usable in rooms that have previously been breached,
+      provided they have recovered enough air.
+  - bugfix: the auto updating lootpanel now automatically shows new items that haven't
+      moved yet.
+  sesametg:
+  - server: 'fix: HR have reopened positions at unstaffed stations'
+  vinylspiders:
+  - code_imp: sinks can be mounted to floors

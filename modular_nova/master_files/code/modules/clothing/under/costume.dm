@@ -161,6 +161,7 @@
 	icon_state = "kimono"
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/costume/nova/shihakusho
 	name = "shihakusho"
@@ -179,6 +180,7 @@
 	greyscale_colors = "#a52f29#2ba396#545461#88242d#eeeeee"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alternate_worn_layer = UNDER_SUIT_LAYER
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*

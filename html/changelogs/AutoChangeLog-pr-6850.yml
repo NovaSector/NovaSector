@@ -1,0 +1,4 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - rscadd: "Clothing (pants) generation for the 'big legs' taur variations"

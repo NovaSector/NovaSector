@@ -12,7 +12,8 @@
 
 /turf/open/misc/beach/Initialize(mapload)
 	. = ..()
-	add_lazy_fishing(/datum/fish_source/sand)
+	if (fishing_enabled) // NOVA EDIT ADDITION
+		add_lazy_fishing(/datum/fish_source/sand) // NOVA EDIT CHANGE: Intented into if block.
 
 /turf/open/misc/beach/ex_act(severity, target)
 	if(fish_source)

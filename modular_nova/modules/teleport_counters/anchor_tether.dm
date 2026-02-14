@@ -56,6 +56,4 @@
 	target.Knockdown(0.2 SECONDS)
 	target.drop_all_held_items()
 	target.apply_damage(55, STAMINA)
-	var/datum/effect_system/spark_spread/quantum/spark_system = new()
-	spark_system.set_up(5, TRUE, target)
-	spark_system.start()
+	do_sparks(5, TRUE, target, spark_type = /datum/effect_system/basic/spark_spread/quantum)
