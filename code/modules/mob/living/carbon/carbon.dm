@@ -112,6 +112,41 @@
 		weapon.get_embed().rip_out(usr)
 		return
 
+	if(href_list["remove_tourniquet"])
+		var/obj/item/bodypart/limb = locate(href_list["remove_tourniquet"]) in bodyparts
+		var/mob/living/patient = limb?.owner
+		var/obj/item/tourniquet = LAZYACCESS(limb?.applied_items, LIMB_ITEM_TOURNIQUET)
+		if(QDELETED(limb) || QDELETED(patient) || QDELETED(tourniquet))
+			return
+		balloon_alert_to_viewers("removing tourniquet...")
+		if(!do_after(usr, 4 SECONDS, target = src))
+			return
+		if(QDELETED(limb) || QDELETED(patient) || QDELETED(tourniquet) || limb.owner != patient || tourniquet.loc != limb)
+			return
+
+		balloon_alert_to_viewers("tourniquet removed")
+		usr.put_in_hands(tourniquet)
+		return
+	// NOVA EDIT ADDITION START - Copy above tourniquet code for gauze
+	if(href_list["remove_gauze"])
+		var/obj/item/bodypart/limb = locate(href_list["remove_gauze"]) in bodyparts
+		var/mob/living/patient = limb?.owner
+		var/obj/item/stack/medical/wrap/gauze = LAZYACCESS(limb?.applied_items, LIMB_ITEM_GAUZE)
+		if(QDELETED(limb) || QDELETED(patient) || QDELETED(gauze))
+			return
+		balloon_alert_to_viewers("removing [gauze]...")
+		if(!do_after(usr, 4 SECONDS, target = src))
+			return
+		if(QDELETED(limb) || QDELETED(patient) || QDELETED(gauze) || limb.owner != patient || gauze.loc != limb)
+			return
+
+		balloon_alert_to_viewers("[gauze] removed")
+		var/obj/item/stack/medical/wrap/gotten = gauze.rip_off()
+		if(gotten && !usr.put_in_hands(gotten))
+			gotten.forceMove(get_turf(usr))
+		return
+	// NOVA EDIT ADDITION END
+
 	if(href_list["show_paper_note"])
 		var/obj/item/paper/paper_note = locate(href_list["show_paper_note"])
 		if(!paper_note)
@@ -940,7 +975,7 @@
 ///Updates the bodypart speed modifier based on our bodyparts.
 /mob/living/carbon/proc/update_bodypart_speed_modifier()
 	var/final_modification = 0
-	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+	for(var/obj/item/bodypart/leg/bodypart in bodyparts)
 		final_modification += bodypart.speed_modifier
 	add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/bodypart, update = TRUE, multiplicative_slowdown = final_modification)
 
