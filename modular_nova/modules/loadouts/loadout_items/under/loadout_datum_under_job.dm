@@ -101,12 +101,12 @@
 
 /datum/loadout_item/under/jumpsuit/officersnaval
 	name = "Officer's Naval Jumpsuit"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/generic
+	item_path = /obj/item/clothing/under/imperial
 	group = "Workwear"
 
 /datum/loadout_item/under/jumpsuit/officersnavalskirt
 	name = "Officer's Naval Jumpskirt"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/skirt
+	item_path = /obj/item/clothing/under/imperialskirt
 	group = "Workwear"
 
 /datum/loadout_item/under/jumpsuit/paramed_light_skirt
@@ -205,11 +205,11 @@
 */
 
 //COM
-/datum/loadout_item/under/jumpsuit/impcap
-	name = "Captain's Naval Jumpsuit"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	group = "Job-Locked"
+//datum/loadout_item/under/jumpsuit/impcap
+//	name = "Captain's Naval Jumpsuit"
+//	item_path = /obj/item/clothing/under/rank/captain/nova/imperial
+//	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
+//	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/utility_com
 	name = "Command Utility Uniform"
@@ -220,13 +220,13 @@
 //SERV
 /datum/loadout_item/under/jumpsuit/imphop
 	name = "Head of Personnel's Naval Jumpsuit"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/generic/hop
+	item_path = /obj/item/clothing/under/imperial/hop
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/imphopskirt
 	name = "Head of Personnel's Naval Jumpskirt"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/skirt/hopskirt
+	item_path = /obj/item/clothing/under/imperialskirt/hop
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_NT_REP)
 	group = "Job-Locked"
 
@@ -240,13 +240,13 @@
 //ENGI
 /datum/loadout_item/under/jumpsuit/impce
 	name = "Chief Engineer's Naval Uniform"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/ce
+	item_path = /obj/item/clothing/under/imperial/ce
 	restricted_roles = list(JOB_CHIEF_ENGINEER)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/impceskirt
 	name = "Chief Engineer's Naval Skirt"
-	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/skirt/ceskirt
+	item_path = /obj/item/clothing/under/imperialskirt/ce
 	restricted_roles = list(JOB_CHIEF_ENGINEER)
 	group = "Job-Locked"
 

@@ -44,16 +44,16 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/under/rank/captain/nova/imperial/generic/hop
+/obj/item/clothing/under/imperial/hop
 	name = "head of personnel's naval jumpsuit"
 	desc = "A pale green naval suit and a rank badge denoting the Personnel Officer. Target, maximum firepower."
-	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/generic/hop"
-	greyscale_colors = "#829A8C#829A8C#373741#F3F3F3#BC2626#2979CD"
-	flags_1 = null
+	icon_state = "/obj/item/clothing/under/imperial/hop"
+	greyscale_colors = "#829A8C#829A8C#829A8C#373741#F3F3F3#BC2626#2979CD"
+	flags_1 = NONE
 
-/obj/item/clothing/under/rank/captain/nova/imperial/skirt/hopskirt
+/obj/item/clothing/under/imperialskirt/hop
 	desc = "A pale green naval skirt and a rank badge denoting the Personnel Officer. Target, maximum firepower."
 	name = "head of personnel's naval jumpskirt"
-	greyscale_colors = "#829A8C#373741#F3F3F3#BC2626#2979CD"
-	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/skirt/hopskirt"
-	flags_1 = null
+	greyscale_colors = "#829A8C#829A8C#373741#F3F3F3#BC2626#2979CD"
+	icon_state = "/obj/item/clothing/under/imperialskirt/hop"
+	flags_1 = NONE

@@ -62,20 +62,19 @@
 /*
 *	CHIEF ENGINEER
 */
-
-/obj/item/clothing/under/rank/captain/nova/imperial/generic/ce
-	desc = "A gray naval suit with a lead-lined vest and a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
+/obj/item/clothing/under/imperial/ce
+	desc = "A naval suit with a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
 	name = "chief engineer's naval jumpsuit"
-	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/ce"
-	greyscale_colors = "#EADB83#EADB83#373741#F3F3F3#2470C0#2E992E"
-	flags_1 = null
+	icon_state = "/obj/item/clothing/under/imperial/ce"
+	greyscale_colors = "#EADB83#EADB83#EADB83#373741#F3F3F3#2470C0#2E992E"
+	flags_1 = NONE
 
-/obj/item/clothing/under/rank/captain/nova/imperial/skirt/ceskirt
-	desc = "A gray naval skirt with a lead-lined vest and a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
+/obj/item/clothing/under/imperialskirt/ce
+	desc = "A gray naval skirt with a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
 	name = "chief engineer's naval skirt"
-	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/skirt/ce"
-	greyscale_colors = "#EADB83#373741#F3F3F3#2470C0#2E992E"
-	flags_1 = null
+	icon_state = "/obj/item/clothing/under/imperialskirt/ce"
+	greyscale_colors = "#EADB83#EADB83#373741#F3F3F3#2470C0#2E992E"
+	flags_1 = NONE
 
 /*
 *	ATMOS TECH

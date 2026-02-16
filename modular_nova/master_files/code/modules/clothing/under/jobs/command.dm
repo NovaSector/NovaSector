@@ -190,27 +190,27 @@
 	armor_type = /datum/armor/clothing_under/utility_syndicate
 	has_sensor = NO_SENSORS
 
-/obj/item/clothing/under/rank/captain/nova/imperial/generic
+/obj/item/clothing/under/imperial
 	desc = "A naval uniform, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
 	name = "officer's naval jumpsuit"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	greyscale_colors = "#A49C9C#A49C9C#373741#FFFFFF#FFFFFF#FFFFFF"
+	greyscale_colors = "#A49C9C#A49C9C#A49C9C#373741#FFFFFF#FFFFFF#FFFFFF"
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/generic"
+	icon_state = "/obj/item/clothing/under/imperial"
 	post_init_icon_state = "officersnaval"
 	greyscale_config = /datum/greyscale_config/officersnaval
 	greyscale_config_worn = /datum/greyscale_config/officersnaval/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/officersnaval/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/rank/captain/nova/imperial/skirt
+/obj/item/clothing/under/imperialskirt
 	desc = "A skirted naval uniform, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
 	name = "officer's naval jumpskirt"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	greyscale_colors = "#A49C9C#373741#FFFFFF#FFFFFF#FFFFFF"
+	greyscale_colors = "#A49C9C#A49C9C#373741#FFFFFF#FFFFFF#FFFFFF"
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/rank/captain/nova/imperial/skirt"
+	icon_state = "/obj/item/clothing/under/imperialskirt"
 	post_init_icon_state = "officersnavalskirt"
 	greyscale_config = /datum/greyscale_config/officersnavalskirt
 	greyscale_config_worn = /datum/greyscale_config/officersnavalskirt/worn
