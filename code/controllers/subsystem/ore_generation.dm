@@ -110,13 +110,13 @@ SUBSYSTEM_DEF(ore_generation)
 
 		var/local_vent_count = 0
 		for(var/obj/item/boulder/old_rock in current_vent.loc)
-			if(!istype(old_rock, /obj/item/boulder/artifact/ghost_mining || /obj/item/boulder/ghost_mining))
+			if(old_rock.brm_stable)
 				available_boulders += old_rock
 				local_vent_count++
 
 		for(var/obj/structure/ore_box/boulder_collector/rock_box in view(1,current_vent))
 			for(var/obj/item/boulder/box_rock in rock_box.contents)
-				if(!istype(box_rock, /obj/item/boulder/artifact/ghost_mining || /obj/item/boulder/ghost_mining))
+				if(box_rock.brm_stable)
 					available_boulders += box_rock //Nova Edit End
 
 		if(local_vent_count >= MAX_BOULDERS_PER_VENT)

@@ -479,12 +479,14 @@
 	desc = "They're not rocks, they're minerals."
 	icon = 'modular_nova/modules/ghost_mining/icons/ore.dmi'
 	icon_state = "crystal"
+	brm_stable = FALSE
 
 /obj/item/boulder/artifact/ghost_mining
 	name = "crystalized artifact cluster"
 	desc = "Minerals crystalized around an obscured object."
 	icon = 'modular_nova/modules/ghost_mining/icons/ore.dmi'
 	icon_state = "crystal"
+	brm_stable = FALSE
 
 #undef COLONY_THREAT_XENOS
 #undef COLONY_THREAT_PIRATES
