@@ -21,7 +21,7 @@
 	name = "engineering utility uniform"
 	desc = "A utility uniform worn by Engineering personnel."
 	icon_state = "util_eng"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 
