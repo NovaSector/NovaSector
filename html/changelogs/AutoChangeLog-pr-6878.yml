@@ -1,7 +1,0 @@
-author: "carpotoxin, SQN"
-delete-after: True
-changes:
-  - rscadd: "Adds Pubby Station to the map rotation!"
-  - code_imp: "Changes the warning received when you can level up your fitness skill (less spammy)"
-  - code_imp: "Replaces old ocean generation code with new ocean generation"
-  - rscdel: "Removes some unused ocean clutter"

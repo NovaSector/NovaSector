@@ -399,3 +399,15 @@
   - server: 'fix: HR have reopened positions at unstaffed stations'
   vinylspiders:
   - code_imp: sinks can be mounted to floors
+2026-02-16:
+  MowLiao:
+  - rscadd: Added snaggletooth snout including sprite to character customisation
+  - qol: allowed all medals to be attached to any under clothing
+  carpotoxin:
+  - rscadd: Clothing (pants) generation for the 'big legs' taur variations
+  carpotoxin, SQN:
+  - rscadd: Adds Pubby Station to the map rotation!
+  - code_imp: Changes the warning received when you can level up your fitness skill
+      (less spammy)
+  - code_imp: Replaces old ocean generation code with new ocean generation
+  - rscdel: Removes some unused ocean clutter
