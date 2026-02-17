@@ -4,14 +4,14 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 
 GLOBAL_LIST_INIT(background_state_options, list(
-	"000",
-	"midgrey",
-	"FFF",
-	"white",
-	"plasteel",
-	"dark" ,
-	"plating",
-	"reinforced",
+	"Black",
+	"Grey",
+	"White",
+	"White Tiles",
+	"Plasteel",
+	"Dark Tiles" ,
+	"Plating",
+	"Reinforced Floor",
 	))
 
 /datum/preference/choiced/background_state/create_default_value()
