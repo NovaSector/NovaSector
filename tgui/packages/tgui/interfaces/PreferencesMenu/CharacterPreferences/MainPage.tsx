@@ -6,7 +6,6 @@ import { sendAct } from 'tgui/events/act';
 import {
   Box,
   Button,
-  Dropdown, // NOVA EDIT ADDITION
   Floating,
   Input,
   LabeledList,
