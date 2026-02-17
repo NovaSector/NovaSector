@@ -7101,6 +7101,7 @@
 #include "modular_nova\master_files\code\game\objects\items\stacks\sheets\sheet_types.dm"
 #include "modular_nova\master_files\code\game\objects\items\stacks\tiles\tile_types.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\backpack.dm"
+#include "modular_nova\master_files\code\game\objects\items\storage\belt.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\boxes.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\duffelbags.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\holsters.dm"
