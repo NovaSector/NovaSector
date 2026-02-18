@@ -462,11 +462,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/canvas_size = 0
 	var/canvas_state = preferences.read_preference(/datum/preference/choiced/background_state)
 
-	// if oversized trait, or over 1.1, scales up
-	if (preferences.all_quirks.Find("Oversized") || (body.dna.features["body_size"] > 1.1))
+	// if oversized trait (fixes size at 2.0) or over 1.1, scales up
+	if (("Oversized" in preferences.all_quirks) || (body.dna.features["body_size"] > 1.1))
 		canvas_size += 1
 	if (body.dna.mutant_bodyparts["taur"])
-		// taurs are extra wide, so scale up to attempt to see their tails
+		// taurs can be extra wide, so scale up in attempt to see their tails
 		canvas_size += 1
 	body.pixel_x = canvas_size * 16
 
@@ -479,6 +479,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if (2)
 				canvas = image('modular_nova/modules/character_preview_background/icons/background_96x96.dmi', icon_state = canvas_state)
 
+	// Update the map view bounds when canvas size changes to properly display the scaled preview
+	set_position(1, 1)
 	last_canvas_size = canvas_size
 	last_canvas_state = canvas_state
 
