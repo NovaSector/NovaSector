@@ -159,6 +159,7 @@
 #undef BEYBLADE_CONFUSION_INCREMENT
 #undef BEYBLADE_CONFUSION_LIMIT
 
+
 /datum/emote/jump
 	key = "jump"
 	key_third_person = "jumps"
