@@ -8,7 +8,7 @@
 	var/static/list/mob_emotes = list(
 		/mob/proc/emote_flip,
 		/mob/proc/emote_spin,
-		/mob/proc/emote_rolld20
+		/mob/proc/emote_rolld20,
 	)
 	all_emotes += mob_emotes
 
