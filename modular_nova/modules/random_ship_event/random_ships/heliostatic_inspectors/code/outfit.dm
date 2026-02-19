@@ -81,13 +81,11 @@
 	), src)
 
 /obj/item/storage/box/nri_survival_pack/inspector
-	w_class = WEIGHT_CLASS_SMALL
 	desc = "A box filled with useful inspection items, supplied by the HC."
 
 /obj/item/storage/box/nri_survival_pack/inspector/PopulateContents()
 	new /obj/item/oxygen_candle(src)
 	new /obj/item/tank/internals/emergency_oxygen(src)
-	new /obj/item/stack/spacecash/c1000(src)
 	new /obj/item/storage/pill_bottle/iron(src)
 	new /obj/item/reagent_containers/hypospray/medipen(src)
 	new /obj/item/flashlight/flare(src)
