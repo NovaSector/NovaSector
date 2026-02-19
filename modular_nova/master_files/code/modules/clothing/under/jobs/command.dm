@@ -194,6 +194,7 @@
 	desc = "A naval uniform, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
 	name = "officer's naval jumpsuit"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	greyscale_colors = "#A49C9C#A49C9C#A49C9C#373741#FFFFFF#FFFFFF#FFFFFF"
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/imperial"
@@ -204,7 +205,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/imperialskirt
-	desc = "A skirted naval uniform, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
+	desc = "A naval skirt, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
 	name = "officer's naval jumpskirt"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY

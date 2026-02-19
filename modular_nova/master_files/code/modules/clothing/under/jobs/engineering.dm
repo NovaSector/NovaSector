@@ -63,17 +63,17 @@
 *	CHIEF ENGINEER
 */
 /obj/item/clothing/under/imperial/ce
-	desc = "A naval suit with a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
+	desc = "An olive drab naval suit with a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
 	name = "chief engineer's naval jumpsuit"
 	icon_state = "/obj/item/clothing/under/imperial/ce"
-	greyscale_colors = "#EADB83#EADB83#EADB83#373741#F3F3F3#2470C0#2E992E"
+	greyscale_colors = "#404429#404429#43443f#373741#ffffff#f48600#5c97e6"
 	flags_1 = NONE
 
 /obj/item/clothing/under/imperialskirt/ce
-	desc = "A gray naval skirt with a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
+	desc = "An olive drab naval skirt with a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
 	name = "chief engineer's naval skirt"
 	icon_state = "/obj/item/clothing/under/imperialskirt/ce"
-	greyscale_colors = "#EADB83#EADB83#373741#F3F3F3#2470C0#2E992E"
+	greyscale_colors = "#404429#43443f#373741#ffffff#f48600#5c97e6"
 	flags_1 = NONE
 
 /*

@@ -233,7 +233,13 @@
 //MED
 /datum/loadout_item/under/jumpsuit/impcmo
 	name = "Chief Medical Officer's Naval Uniform"
-	item_path = /obj/item/clothing/under/rank/medical/chief_medical_officer/nova/imperial
+	item_path = /obj/item/clothing/under/imperial/cmo
+	restricted_roles = list(JOB_CHIEF_MEDICAL_OFFICER)
+	group = "Job-Locked"
+
+/datum/loadout_item/under/jumpsuit/impcmoskirt
+	name = "Chief Medical Officer's Naval Skirt"
+	item_path = /obj/item/clothing/under/imperialskirt/cmo
 	restricted_roles = list(JOB_CHIEF_MEDICAL_OFFICER)
 	group = "Job-Locked"
 
@@ -253,7 +259,13 @@
 //SCI
 /datum/loadout_item/under/jumpsuit/imprd
 	name = "Research Director's Naval Uniform"
-	item_path = /obj/item/clothing/under/rank/rnd/research_director/nova/imperial
+	item_path = /obj/item/clothing/under/imperial/rd
+	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
+	group = "Job-Locked"
+
+/datum/loadout_item/under/jumpsuit/imprdskirt
+	name = "Research Director's Naval Skirt"
+	item_path = /obj/item/clothing/under/imperialskirt/rd
 	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
 	group = "Job-Locked"
 
