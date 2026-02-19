@@ -20,6 +20,10 @@
 #define STRIPPABLE_ITEM_LEGCUFFS "legcuffs"
 #define STRIPPABLE_ITEM_PET_COLLAR "pet_collar"
 #define STRIPPABLE_ITEM_PARROT_HEADSET "parrot_headset"
+// NOVA EDIT ADDITION START
+#define STRIPPABLE_ITEM_LHAND_LOWER "left_hand_lower"
+#define STRIPPABLE_ITEM_RHAND_LOWER "right_hand_lower"
+// NOVA EDIT ADDITION END
 
 /// This slot is not obscured.
 #define STRIPPABLE_OBSCURING_NONE 0
