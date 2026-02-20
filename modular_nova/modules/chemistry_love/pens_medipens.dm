@@ -8,7 +8,7 @@
 	volume = 25
 	fill_icon = 'modular_nova/modules/chemistry_love/icons/obj/medical/pen_medipens/fill_overlay.dmi'
 	fill_icon_state = "tank"
-	fill_icon_thresholds = list(0,1)
+	fill_icon_thresholds = list(0, 1)
 	adjust_color_contrast = FALSE
 	list_reagents = list()
 	custom_price = 0
