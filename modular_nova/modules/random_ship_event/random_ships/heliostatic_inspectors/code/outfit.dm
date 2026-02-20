@@ -22,8 +22,9 @@
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = 1,
 		/obj/item/clothing/mask/gas/hc_police = 1,
 		/obj/item/modular_computer/pda/hc_police = 1,
+		/obj/item/stack/spacecash/c1000 = 1,
 	)
-	l_pocket = /obj/item/folder/blue/hc_cop
+	l_pocket = null
 	r_pocket = /obj/item/storage/pouch/ammo
 
 	id = /obj/item/card/id/advanced/hc_police
@@ -91,7 +92,6 @@
 	new /obj/item/flashlight/flare(src)
 	new /obj/item/crowbar/red(src)
 	new /obj/item/clipboard(src)
-	new /obj/item/pen(src)
 
 /obj/item/folder/blue/hc_cop
 	name = "HC police SOPs"
