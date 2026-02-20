@@ -489,7 +489,8 @@ function QuirkPage() {
       </Stack.Item>
 
       <Stack.Item align="center">
-        {/* NOVA EDIT START */}
+        { /* <Icon name="exchange-alt" size={1.5} ml={2} mr={2} /> // NOVA EDIT REMOVAL - moved down */ }
+        {/* NOVA EDIT ADDITION START */}
         <Stack vertical fill align="center">
           {/* Keep the CharacterPreview alive but "hidden", so that traits that affect appearance (e.g. Oversized) refresh rendering calculations immediately. */}
           <Stack.Item
@@ -508,7 +509,7 @@ function QuirkPage() {
           </Stack.Item>
           <Icon name="exchange-alt" size={1.5} ml={2} mr={2} />
         </Stack>
-        {/* NOVA EDIT END */}
+        {/* NOVA EDIT ADDITION END */}
       </Stack.Item>
 
       <Stack.Item basis="50%">
