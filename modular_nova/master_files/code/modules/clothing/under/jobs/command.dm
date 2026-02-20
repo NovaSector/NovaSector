@@ -217,6 +217,26 @@
 	greyscale_config_worn = /datum/greyscale_config/officersnavalskirt/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/under/imperialvest
+	post_init_icon_state = "officersnavalvest"
+	greyscale_colors = "#39393f#39393f#39393f#373741#FFFFFF#21212B#f8d860#a52f29"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	greyscale_config = /datum/greyscale_config/officersnavalvest
+	greyscale_config_worn = /datum/greyscale_config/officersnavalvest/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/officersnavalvest/worn/digi
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	armor_type = /datum/armor/clothing_under/security_head_of_security
+
+/obj/item/clothing/under/imperialskirtvest
+	post_init_icon_state = "officersnavalskirtvest"
+	greyscale_colors = "#39393f#39393f#373741#FFFFFF#21212B#f8d860#a52f29"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	greyscale_config = /datum/greyscale_config/officersnavalskirtvest
+	greyscale_config_worn = /datum/greyscale_config/officersnavalskirtvest/worn
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	armor_type = /datum/armor/clothing_under/security_head_of_security
+
 /*
 *	MISC
 */

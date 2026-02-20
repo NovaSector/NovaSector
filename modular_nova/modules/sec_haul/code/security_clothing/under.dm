@@ -313,10 +313,20 @@
 /obj/item/clothing/under/rank/security/head_of_security/nova/formal/blue
 	icon_state = "formal_hos_blue"
 
-/obj/item/clothing/under/rank/security/head_of_security/nova/imperial //Rank pins of the Grand General
-	desc = "A tar black naval suit and a rank badge denoting the Officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
+
+/obj/item/clothing/under/imperialvest/hos
 	name = "head of security's naval jumpsuit"
-	icon_state = "imphos"
+	desc = "A tar black naval suit with a rank badge denoting the Officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
+	icon_state = "/obj/item/clothing/under/imperialvest/hos"
+	greyscale_colors = "#39393f#39393f#39393f#373741#f8d860#21212B#f8d860#a52f29"
+	flags_1 = NONE
+
+/obj/item/clothing/under/imperialskirtvest/hos
+	name = "head of security's naval jumpsuit"
+	desc = "A tar black naval skirt with a rank badge denoting the Officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
+	greyscale_colors = "#39393f#39393f#373741#f8d860#21212B#f8d860#a52f29"
+	icon_state = "/obj/item/clothing/under/imperialskirtvest/hos"
+	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/head_of_security/nova/parade
 	name = "head of security's parade uniform"

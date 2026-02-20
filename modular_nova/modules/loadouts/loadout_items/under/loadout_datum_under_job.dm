@@ -291,7 +291,13 @@
 //SEC
 /datum/loadout_item/under/jumpsuit/imphos
 	name = "Head of Security's Naval Uniform"
-	item_path = /obj/item/clothing/under/rank/security/head_of_security/nova/imperial
+	item_path = /obj/item/clothing/under/imperialvest/hos
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Job-Locked"
+
+/datum/loadout_item/under/jumpsuit/imphosskirt
+	name = "Head of Security's Naval Skirt"
+	item_path = /obj/item/clothing/under/imperialskirtvest/hos
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
