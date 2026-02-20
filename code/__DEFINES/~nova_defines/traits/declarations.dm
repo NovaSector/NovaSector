@@ -187,4 +187,7 @@
 /// Skillchip trait that lets the player expertly brush or cut hair faster
 #define TRAIT_HAIR_EXPERT "hair_expert"
 
+/// Trait for quirk: Rad Fiend
+#define TRAIT_RAD_FIEND "rad_fiend"
+
 // END TRAIT DEFINES

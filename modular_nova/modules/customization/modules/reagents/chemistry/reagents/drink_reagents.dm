@@ -78,3 +78,10 @@
 	icon_state = "chocolatepudding"
 	name = "glass of beer batter"
 	desc = "Used in cooking, pure cholesterol, Scottish people eat it."
+
+// Reagent metabolize: Nuka Cola
+/datum/reagent/consumable/nuka_cola/on_mob_metabolize(mob/living/affected_mob)
+	. = ..()
+
+	// Send signal for adding reagent
+	SEND_SIGNAL(affected_mob, COMSIG_REAGENT_METABOLIZE_NUKACOLA)
