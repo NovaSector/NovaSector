@@ -193,5 +193,4 @@
 /// Trait for quirk: Illuminated
 #define TRAIT_COSGLOW "cosmetic_glow"
 
-
 // END TRAIT DEFINES

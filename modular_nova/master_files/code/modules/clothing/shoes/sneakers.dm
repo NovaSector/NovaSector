@@ -10,5 +10,3 @@
 
 /obj/item/clothing/shoes/sneakers/marisa
 	greyscale_config_worn_digi = /datum/greyscale_config/sneakers_marisa/worn/digi
-
-
