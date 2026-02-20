@@ -190,4 +190,8 @@
 /// Trait for quirk: Rad Fiend
 #define TRAIT_RAD_FIEND "rad_fiend"
 
+/// Trait for quirk: Illuminated
+#define TRAIT_COSGLOW "cosmetic_glow"
+
+
 // END TRAIT DEFINES
