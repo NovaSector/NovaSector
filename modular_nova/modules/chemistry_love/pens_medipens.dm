@@ -1,7 +1,7 @@
 // why it's a subtype of deforest medipens? so I don't have to rewrite injection code...
 /obj/item/reagent_containers/hypospray/medipen/deforest/printable
 	name = "pen injector"
-	desc = "The pen injector is an open-source copy of the medipen system - It's less compact design eases mass production, and ensures safety even with untrained personnel by retracting the needle after use, while requiring a more deliberate pen-like grip."
+	desc = "The pen injector is an open-source copy of the medipen system - Its less compact design eases mass production, and ensures safety even with untrained personnel by retracting the needle after use, while requiring a more deliberate pen-like grip."
 	icon = 'modular_nova/modules/chemistry_love/icons/obj/medical/pen_medipens/pen_medipens.dmi'
 	icon_state = "default"
 	base_icon_state = "default"
