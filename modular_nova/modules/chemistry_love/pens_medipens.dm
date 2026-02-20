@@ -16,10 +16,6 @@
 	inject_others_time = 1.5 SECONDS
 	initial_reagent_flags = TRANSPARENT
 
-/obj/item/reagent_containers/hypospray/medipen/deforest/printable/Initialize(mapload)
-	. = ..()
-	update_appearance()
-
 /obj/item/reagent_containers/hypospray/medipen/deforest/printable/brute
 	base_icon_state = "brute"
 	icon_state = "brute"
