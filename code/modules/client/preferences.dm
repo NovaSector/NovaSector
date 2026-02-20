@@ -489,7 +489,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	appearance = canvas.appearance
 	// NOVA EDIT ADDITION END
-
 /atom/movable/screen/map_view/char_preview/proc/create_body()
 	QDEL_NULL(body)
 
