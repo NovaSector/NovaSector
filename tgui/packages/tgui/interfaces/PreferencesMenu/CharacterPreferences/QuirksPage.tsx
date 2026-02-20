@@ -11,7 +11,8 @@ import {
   Tooltip,
 } from 'tgui-core/components';
 import { createSearch } from 'tgui-core/string';
-import { CharacterPreview } from '../../common/CharacterPreview';
+import { CharacterPreview } from '../../common/CharacterPreview'; // NOVA EDIT ADDITION
+
 import {
   type PreferencesMenuData,
   type Quirk,
@@ -102,7 +103,7 @@ function QuirkDisplay(props: QuirkDisplayProps) {
   const { icon, value, name, description, customizable, failTooltip } = quirk;
 
   const [customizationExpanded, setCustomizationExpanded] = useState(false);
-  const { data } = useBackend<PreferencesMenuData>();
+  const { data } = useBackend<PreferencesMenuData>(); // NOVA EDIT ADDITION
 
   const className = 'PreferencesMenu__Quirks__QuirkList__quirk';
 

@@ -12,7 +12,7 @@ GLOBAL_LIST_INIT(background_state_options, list(
 	"Dark Tiles" ,
 	"Plating",
 	"Reinforced Floor",
-	))
+))
 
 /datum/preference/choiced/background_state/create_default_value()
 	return GLOB.background_state_options[1]

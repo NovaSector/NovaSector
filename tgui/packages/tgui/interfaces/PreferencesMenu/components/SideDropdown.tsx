@@ -1,7 +1,5 @@
-/*
-    NOVA COMPONENT
-    Ported from Bubberstation: https://github.com/Bubberstation/Bubberstation/commit/07daef9517a879f04281fe4b97b69d4f9a6d2338
-*/
+// THIS IS A NOVA SECTOR UI FILE
+// Ported from Bubberstation: https://github.com/Bubberstation/Bubberstation/commit/07daef9517a879f04281fe4b97b69d4f9a6d2338
 
 import { type ComponentProps, type ReactNode, useRef, useState } from 'react';
 import { type Box, Button, Floating, Icon } from 'tgui-core/components';

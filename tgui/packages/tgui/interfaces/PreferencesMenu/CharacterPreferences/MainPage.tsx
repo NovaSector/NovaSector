@@ -603,8 +603,8 @@ export function MainPage(props: MainPageProps) {
               <CharacterControls
                 gender={data.character_preferences.misc.gender}
                 handleOpenSpecies={props.openSpecies}
-                handleRotate={(value) => {
-                  act('rotate', { backwards: value }); // NOVA EDIT CHANGE - Original: handleRotate={() => { act('rotate'); }}
+                handleRotate={(value) => { // NOVA EDIT CHANGE - Original: handleRotate={() => { 
+                  act('rotate', { backwards: value }); // NOVA EDIT CHANGE - Original: act('rotate');
                 }}
                 setGender={createSetPreference(act, 'gender')}
                 showGender={
@@ -713,8 +713,7 @@ export function MainPage(props: MainPageProps) {
         {/* ORIGINAL: <Stack.Item grow basis={0}> */}
         <Stack.Item grow basis={0} ml="4px">
           <Stack vertical fill>
-            {
-              /* NOVA EDIT REMOVAL START
+            { /* // NOVA EDIT REMOVAL START
              <PreferenceList
               randomizations={getRandomization(
                 contextualPreferences,
@@ -734,9 +733,7 @@ export function MainPage(props: MainPageProps) {
               preferences={nonContextualPreferences}
               maxHeight="auto"
             />
-            */
-              // NOVA EDIT REMOVAL END
-            }
+            // NOVA EDIT REMOVAL END */ }
             {/* NOVA EDIT ADDITION BEGIN: Swappable pref menus */}
             <Stack>
               <Stack.Item grow={2}>

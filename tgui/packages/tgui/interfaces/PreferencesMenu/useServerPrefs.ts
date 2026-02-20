@@ -27,10 +27,11 @@ export const ServerPrefs = createContext<ServerData | undefined>({
     loadout_tabs: [],
   },
   species: {},
+  // NOVA EDIT ADDITION START - Background Selection
   background_state: {
-    /* NOVA EDIT ADDITION: Background Selection */
     choices: [],
   },
+  // NOVA EDIT ADDITION END - Background Selection
 });
 
 export function useServerPrefs() {
