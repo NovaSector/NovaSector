@@ -1,4 +1,0 @@
-author: "MowLiao"
-delete-after: True
-changes:
-  - qol: "Added counter-clockwise rotation to character creation, increased size of character preview, added background selection, and scaling of preview to match character size."

@@ -420,3 +420,9 @@
   - map: Changed Pubby ordnance's mass driver to be a bit more powerful by default
   Iajret:
   - rscadd: Added big brother trim in ID painter
+  MacaroniCritter:
+  - image: Gave the muzzled gaiter icon more shape
+  MowLiao:
+  - qol: Added counter-clockwise rotation to character creation, increased size of
+      character preview, added background selection, and scaling of preview to match
+      character size.
