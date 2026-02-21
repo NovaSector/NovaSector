@@ -1,8 +1,8 @@
-#define RESTMETA_BRUTE_THRESHOLD 40
+#define RESTMETA_BRUTE_THRESHOLD 25
 #define RESTMETA_BRUTE_AMOUNT -0.4
-#define RESTMETA_BURN_THRESHOLD 40
+#define RESTMETA_BURN_THRESHOLD 25
 #define RESTMETA_BURN_AMOUNT -0.2
-#define RESTMETA_TOX_THRESHOLD 30
+#define RESTMETA_TOX_THRESHOLD 20
 #define RESTMETA_TOX_AMOUNT -0.1
 
 /datum/mutation/restorative_metabolism
@@ -12,7 +12,7 @@
 	text_lose_indication = span_notice("You sense your enhanced reconstructive ability fading away...")
 	quality = POSITIVE
 	instability = POSITIVE_INSTABILITY_MAJOR
-	difficulty = 12
+	difficulty = 16
 	synchronizer_coeff = 1
 	power_coeff = 1
 	var /mob/living/carbon/human/our_being = null
@@ -35,15 +35,15 @@
 	// Define health needing updates
 	var/need_mob_update = FALSE
 	// Check brute threshold
-	if(our_being.get_brute_loss() <= RESTMETA_BRUTE_THRESHOLD*synchronizer_coeff)
+	if(our_being.get_brute_loss() <= RESTMETA_BRUTE_THRESHOLD*(1/synchronizer_coeff))
 		need_mob_update += our_being.adjust_brute_loss(RESTMETA_BRUTE_AMOUNT*power_coeff * seconds_per_tick, updating_health = FALSE)
 
 	// Check burn threshold
-	if(our_being.get_fire_loss() <= RESTMETA_BURN_THRESHOLD*synchronizer_coeff)
+	if(our_being.get_fire_loss() <= RESTMETA_BURN_THRESHOLD*(1/synchronizer_coeff))
 		need_mob_update += our_being.adjust_fire_loss(RESTMETA_BURN_AMOUNT*power_coeff * seconds_per_tick, updating_health = FALSE)
 
 	// Check tox threshold
-	if(our_being.get_tox_loss() <= RESTMETA_TOX_THRESHOLD*synchronizer_coeff)
+	if(our_being.get_tox_loss() <= RESTMETA_TOX_THRESHOLD*(1/synchronizer_coeff))
 		need_mob_update += our_being.adjust_tox_loss(RESTMETA_TOX_AMOUNT*power_coeff * seconds_per_tick, updating_health = FALSE, forced = TRUE)
 
 	// Check if healing will be applied
