@@ -50,7 +50,8 @@
 // Light emitting status effect
 /datum/status_effect/quirk_examine/cosglow
 	status_type = STATUS_EFFECT_REPLACE
-
+	id = "cosglow"
+	alert_type = null
 	// Light effect object
 	var/obj/effect/dummy/lighting_obj/moblight/cosglow_light_obj
 
