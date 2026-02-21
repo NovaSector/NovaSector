@@ -28,8 +28,6 @@
 	var/boulder_string = "boulder"
 	/// If the boulder is converted into a platform, how long will it last? Default is 10 seconds unless overwritten by a vent.
 	var/platform_lifespan = PLATFORM_LIFE_DEFAULT
-	/// Nova Addition: decides whether a BRM should pick up the boulder
-	var/brm_stable = TRUE
 
 /obj/item/boulder/Initialize(mapload)
 	. = ..()

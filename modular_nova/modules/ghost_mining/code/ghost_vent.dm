@@ -473,6 +473,10 @@
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
 		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom,
 	)
+/obj/item/boulder
+	/// Nova Addition: decides whether a BRM should pick up the boulder or whether it's limited to LRM/Manual Labor
+	var/brm_stable = TRUE
+
 
 /obj/item/boulder/ghost_mining
 	name = "crystal cluster"
