@@ -36,11 +36,11 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/mutation_path = GLOB.genetic_mutation_choice[client_source?.prefs?.read_preference(/datum/preference/choiced/genetic_mutation)]
 	applied_mutation = mutation_path
-	human_holder.dna.add_mutation(applied_mutation, MUTATION_SOURCE_ACTIVATED, 0)
+	human_holder.dna.add_mutation(applied_mutation, MUTATION_SOURCE_MUTATOR, 0)
 
 /datum/quirk/genetic_mutation/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	human_holder.dna.remove_mutation(applied_mutation, MUTATION_SOURCE_ACTIVATED)
+	human_holder.dna.remove_mutation(applied_mutation, MUTATION_SOURCE_MUTATOR)
 
 /datum/preference/choiced/genetic_mutation
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
