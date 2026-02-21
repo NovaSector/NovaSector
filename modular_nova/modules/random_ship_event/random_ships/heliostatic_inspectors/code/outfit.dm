@@ -24,7 +24,7 @@
 		/obj/item/modular_computer/pda/hc_police = 1,
 		/obj/item/stack/spacecash/c1000 = 1,
 	)
-	l_pocket = null
+	l_pocket = /obj/item/folder/blue/hc_cop
 	r_pocket = /obj/item/storage/pouch/ammo
 
 	id = /obj/item/card/id/advanced/hc_police
@@ -87,11 +87,11 @@
 /obj/item/storage/box/nri_survival_pack/inspector/PopulateContents()
 	new /obj/item/oxygen_candle(src)
 	new /obj/item/tank/internals/emergency_oxygen(src)
-	new /obj/item/storage/pill_bottle/iron(src)
+	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/reagent_containers/hypospray/medipen/blood_loss(src)
 	new /obj/item/reagent_containers/hypospray/medipen(src)
 	new /obj/item/flashlight/flare(src)
 	new /obj/item/crowbar/red(src)
-	new /obj/item/clipboard(src)
 
 /obj/item/folder/blue/hc_cop
 	name = "HC police SOPs"
