@@ -110,7 +110,7 @@
 	name = "Boots - Jackboots  (Colorable)"
 	item_path = /obj/item/clothing/shoes/jackboots/recolorable
 
-/datum/loadout_item/shoes/boots/jackboots/toeless
+/datum/loadout_item/shoes/jackboots/toeless
 	name = "Toeless Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots/toeless
 
@@ -150,7 +150,7 @@
 	name = "Boots - Work"
 	item_path = /obj/item/clothing/shoes/workboots
 
-/datum/loadout_item/shoes/boots/work_boots/toeless
+/datum/loadout_item/shoes/work_boots/toeless
 	name = "Toeless Workboots"
 	item_path = /obj/item/clothing/shoes/workboots/toeless
 
