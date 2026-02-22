@@ -113,6 +113,8 @@ SUBSYSTEM_DEF(ore_generation)
 			if(old_rock.brm_stable)
 				available_boulders += old_rock
 				local_vent_count++
+			else
+				local_vent_count++ //so you dont clear one out, forget, and overload the system without doing the other half
 
 		for(var/obj/structure/ore_box/boulder_collector/rock_box in view(1,current_vent))
 			for(var/obj/item/boulder/box_rock in rock_box.contents)
