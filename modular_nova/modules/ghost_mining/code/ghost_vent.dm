@@ -296,6 +296,11 @@
 /obj/structure/ore_vent/ghost_mining/lavaland/ras //random at start
 	random_start = TRUE
 
+/obj/structure/ore_vent/ghost_mining/lavaland/endless
+	boulder_infinite = TRUE
+	manual_reset = TRUE
+	ghost_mining = TRUE
+
 /obj/structure/ore_vent/ghost_mining/snowland
 	icon_state = "ore_vent_ice_active"
 	base_icon_state = "ore_vent_ice_active"
@@ -304,6 +309,11 @@
 
 /obj/structure/ore_vent/ghost_mining/snowland/ras
 	random_start = TRUE
+
+/obj/structure/ore_vent/ghost_mining/snowland/endless
+	boulder_infinite = TRUE
+	manual_reset = TRUE
+	ghost_mining = TRUE
 
 /obj/structure/ore_vent/ghost_mining/undersnow
 	icon_state = "ore_vent_ice_active"
