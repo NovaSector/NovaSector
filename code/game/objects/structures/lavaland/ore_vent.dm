@@ -125,7 +125,7 @@
 		if(do_after(user, boulder_size * 1 SECONDS, src))
 			user.apply_damage(20, STAMINA)
 			playsound(src, 'sound/items/weapons/genhit.ogg', 50, TRUE)
-		*/ 
+		*/
 		if(!do_after(user, boulder_size * 1 SECONDS, src))
 			user.balloon_alert(user, "stay still!")
 			return
@@ -238,7 +238,7 @@
 	Shake(duration = 3 SECONDS)
 	if(spawn_drone)
 		node = new /mob/living/basic/node_drone(loc)
-		node.faction = user.faction //Nova Edit Addition.
+		node.set_faction(user.get_faction()) //Nova Addition
 		node.arrive(src)
 		RegisterSignal(node, COMSIG_QDELETING, PROC_REF(handle_wave_conclusion))
 		RegisterSignal(node, COMSIG_MOVABLE_MOVED, PROC_REF(handle_wave_conclusion))
