@@ -209,6 +209,7 @@
 	add_atom_colour("#77abff", FIXED_COLOUR_PRIORITY)
 	set_light(2)
 	visible_message(span_notice("A holographic pay stand appears."))
+/* // NOVA EDIT REMOVAL START - Gut out the ID tracking
 	/// Start checking if the source projection is in range
 	track(linked_card)
 	return TRUE
@@ -237,7 +238,7 @@
 		return
 	if(ismovable(source.loc))
 		track(source.loc)
-
+*/ // NOVA EDIT REMOVAL END
 /**
  * Creates holopay vanishing effects.
  * Deletes the holopay thereafter.
