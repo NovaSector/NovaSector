@@ -38,6 +38,7 @@
 /datum/job/atmospheric_technician
 	alt_titles = list(
 		"Atmospheric Technician",
+		"Atmospheric Trainee",
 		"Emergency Fire Technician",
 		"Hypertorus Fusion Reactor Operator",
 		"Gas Synthesis Technician",

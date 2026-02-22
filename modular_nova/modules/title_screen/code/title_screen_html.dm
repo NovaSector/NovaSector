@@ -115,6 +115,7 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			<a class="menu_button" href='byond://?src=[text_ref(src)];character_setup=1'>SETUP CHARACTER (<span id="character_slot">[uppertext(client.prefs.read_preference(/datum/preference/name/real_name))]</span>)</a>
 			<a class="menu_button" href='byond://?src=[text_ref(src)];game_options=1'>GAME OPTIONS</a>
 			<a id="be_antag" class="menu_button" href='byond://?src=[text_ref(src)];toggle_antag=1'>[client.prefs.read_preference(/datum/preference/toggle/be_antag) ? "<span class='checked'>☑</span> BE ANTAGONIST" : "<span class='unchecked'>☒</span> BE ANTAGONIST"]</a>
+			<span class="menu_button info_display">LATEJOIN QUEUE: [length(SSdynamic.queued_rulesets)]</span>
 			<hr>
 			<a class="menu_button" href='byond://?src=[text_ref(src)];server_swap=1'>SWAP SERVERS</a>
 		"}

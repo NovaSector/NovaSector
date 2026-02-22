@@ -29,6 +29,10 @@
 	minimal_access |= ACCESS_WEAPONS
 	return ..()
 
+/datum/id_trim/job/human_ai/New()
+	template_access  |= ACCESS_CAPTAIN
+	return ..()
+
 /datum/id_trim/job/blueshield
 	assignment = "Blueshield"
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'

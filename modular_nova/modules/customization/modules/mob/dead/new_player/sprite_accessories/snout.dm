@@ -528,6 +528,10 @@
 	color_src = USE_MATRIXED_COLORS
 	flags_for_organ = NONE
 
+/datum/sprite_accessory/snouts/mammal/snaggletooth
+	name = "Snaggletooth"
+	icon_state = "snaggletooth"
+
 /datum/sprite_accessory/snouts/mammal/acrador
 	name = "Acrador (Short)"
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
