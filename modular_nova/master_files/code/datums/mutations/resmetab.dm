@@ -1,5 +1,5 @@
 #define RESTMETA_BRUTE_THRESHOLD 40
-#define RESTMETA_BRUTE_AMOUNT -0.4
+#define RESTMETA_BRUTE_AMOUNT -0.3
 #define RESTMETA_BURN_THRESHOLD 40
 #define RESTMETA_BURN_AMOUNT -0.2
 #define RESTMETA_TOX_THRESHOLD 30
@@ -34,8 +34,9 @@
 	if(!istype(to_modify)) // null or invalid
 		return
 
-	// Transfers more damage if strengthened. (1.5 with power chromosome)
-	to_modify.power_coefficient = GET_MUTATION_POWER(src)
+	// Transfers more damage if strengthened. (1.5->2 with power chromosome)
+	to_modify.power_coefficient = ceil(GET_MUTATION_POWER(src))
+
 	// Halves transferred damage if synchronized. (0.5 with synchronizer chromosome)
 	to_modify.synchronizer_coefficient = GET_MUTATION_SYNCHRONIZER(src)
 
