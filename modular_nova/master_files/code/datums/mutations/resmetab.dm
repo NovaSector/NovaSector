@@ -7,7 +7,7 @@
 
 /datum/mutation/restorative_metabolism
 	name = "Restorative Metabolism"
-	desc = "Your body possesses a differentiated reconstructive ability, allowing you to slowly recover from light to moderate injuries. Critical injuries, wounds, and genetic damage will still require medical attention."
+	desc = "Your body possesses a differentiated reconstructive ability, allowing you to slowly recover from light to moderate injuries. Critical injuries, wounds, and radiation damage will still require medical attention."
 	text_gain_indication = span_notice("You feel a surge of reconstructive vitality coursing through your")
 	text_lose_indication = span_notice("You sense your enhanced reconstructive ability fading away...")
 	quality = POSITIVE
