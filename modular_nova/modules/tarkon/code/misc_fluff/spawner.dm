@@ -59,11 +59,11 @@
 			if(DDUFFELBAG)
 				back = duffelbag //faction duffel bag
 			if(TPACKB)
-				return = /obj/item/storage/backpack/tinypakb //tiny packs, because they kinda drippin
+				return /obj/item/storage/backpack/tinypakb //tiny packs, because they kinda drippin
 			if(TPACKA)
-				return = /obj/item/storage/backpack/tinypaka
+				return /obj/item/storage/backpack/tinypaka
 			if(TPACKC)
-				return = /obj/item/storage/backpack/tinypakc //No guncase option bc ????engineering company????
+				return /obj/item/storage/backpack/tinypakc //No guncase option bc ????engineering company????
 			else
 				back = backpack //faction backpack fallback incase bag pref shits bed
 
