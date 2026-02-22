@@ -34,10 +34,9 @@
 	if(!istype(to_modify)) // null or invalid
 		return
 
-	// Transfers more damage if strengthened. (1.5->2 with power chromosome)
+	// doubles healing power if strengthened. (1.5->2 with power chromosome)
 	to_modify.power_coefficient = ceil(GET_MUTATION_POWER(src))
-
-	// Halves transferred damage if synchronized. (0.5 with synchronizer chromosome)
+	// doubles threshold if synchronized. (0.5 with synchronizer chromosome)
 	to_modify.synchronizer_coefficient = GET_MUTATION_SYNCHRONIZER(src)
 
 /datum/mutation/restorative_metabolism/on_losing(mob/living/carbon/human/owner)
