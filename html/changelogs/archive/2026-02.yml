@@ -411,3 +411,18 @@
       (less spammy)
   - code_imp: Replaces old ocean generation code with new ocean generation
   - rscdel: Removes some unused ocean clutter
+2026-02-20:
+  Diltyrr:
+  - balance: "Hearthkin now have innate ice\u2011slip immunity."
+  Eli-Hodges:
+  - rscadd: Added d20 rolling in looc chat
+  Hardly:
+  - map: Changed Pubby ordnance's mass driver to be a bit more powerful by default
+  Iajret:
+  - rscadd: Added big brother trim in ID painter
+  MacaroniCritter:
+  - image: Gave the muzzled gaiter icon more shape
+  MowLiao:
+  - qol: Added counter-clockwise rotation to character creation, increased size of
+      character preview, added background selection, and scaling of preview to match
+      character size.
