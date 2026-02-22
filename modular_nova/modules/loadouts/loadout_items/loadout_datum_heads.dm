@@ -592,10 +592,6 @@
 *	TREK/STAR WARS
 */
 
-/datum/loadout_item/head/blasthelmet
-	name = "Officer's Blast Helmet"
-	item_path = /obj/item/clothing/head/hats/imperial/helmet
-
 /datum/loadout_item/head/trekcap
 	name = "Officer's Cap (White)"
 	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap

@@ -189,3 +189,9 @@
 	desc = "A fancy beret designed by NT's Personnel division for their favorite head's head. This one is made out of olive fabric, fancy."
 	icon_state = "/obj/item/clothing/head/hopcap/beret/olive"
 	greyscale_colors = "#829A8C#88242D"
+
+/obj/item/clothing/head/bridgeofficer/beret
+	name = "bridge officer's beret"
+	desc = "A beret pinned with the designation of a bridge officer."
+	icon_state = "/obj/item/clothing/head/bridgeofficer/beret"
+	greyscale_colors = "#41579a#ccced1"

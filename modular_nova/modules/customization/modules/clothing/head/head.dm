@@ -99,16 +99,38 @@
 	armor_type = /datum/armor/hats_caphat
 	flags_1 = null
 
+/obj/item/clothing/head/hats/imperial/nanotrasen_consultant
+	name = "nanotrasen consultant's naval cap"
+	desc = "A naval cap with a pin signifying a nanotrasen consultant in the center."
+	icon_state = "/obj/item/clothing/head/hats/imperial/nanotrasen_consultant"
+	greyscale_colors = "#54a57e#ffce5b"
+	flags_1 = null
+
+/obj/item/clothing/head/hats/imperial/blueshield
+	name = "blueshield's naval cap"
+	desc = "A naval cap with a pin signifying a blueshield in the center."
+	icon_state = "/obj/item/clothing/head/hats/imperial/blueshield"
+	greyscale_colors = "#363740#4064bf"
+	flags_1 = null
+	armor_type = /datum/armor/cosmetic_sec
+
+/obj/item/clothing/head/hats/imperial/bridge_officer
+	name = "bridge officer's naval cap"
+	desc = "A naval cap with a pin signifying a bridge officer in the center."
+	icon_state = "/obj/item/clothing/head/hats/imperial/bridge_officer"
+	greyscale_colors = "#41579a#ccced1"
+	flags_1 = null
+
 /obj/item/clothing/head/hats/imperial/hop
 	name = "head of personnel's naval officer cap"
-	desc = "An olive naval cap with a pin signifying a HOP in the center."
+	desc = "An olive naval cap with a pin signifying a head of personnel in the center."
 	icon_state = "/obj/item/clothing/head/hats/imperial/hop"
 	greyscale_colors = "#829A8C#88242D"
 	flags_1 = null
 
 /obj/item/clothing/head/hats/imperial/hos
 	name = "head of security's naval officer cap"
-	desc = "A tar black naval cap with a pin signifying a HOS in the center."
+	desc = "A tar black naval cap with a pin signifying a head of security in the center."
 	icon_state = "/obj/item/clothing/head/hats/imperial/hos"
 	greyscale_colors = "#29252D#FFCE5B"
 	armor_type = /datum/armor/hats_hos
@@ -116,29 +138,31 @@
 
 /obj/item/clothing/head/hats/imperial/cmo
 	name = "chief medical officer's naval cap"
-	desc = "A teal naval cap with a pin signifying a CMO in the center."
+	desc = "A teal naval cap with a pin signifying a chief medical officer in the center."
 	icon_state = "/obj/item/clothing/head/hats/imperial/cmo"
-	greyscale_colors = "#3F958F#FFCE5B"
+	greyscale_colors = "#5EB8B8#5FA4CC"
 	flags_1 = null
 
 /obj/item/clothing/head/hats/imperial/ce
-	name = "chief engineer's blast helmet"
-	desc = "A naval cap with a pin signifying a CE in the center."
+	name = "chief engineer's naval cap"
+	desc = "A naval cap with a pin signifying a chief engineer in the center."
 	icon_state = "/obj/item/clothing/head/hats/imperial/ce"
-	greyscale_colors = "#EADB83#2E992E"
+	greyscale_colors = "#404429#5c97e6"
 	flags_1 = null
 
-/obj/item/clothing/head/hats/imperial/helmet
-	name = "blast helmet"
-	desc = "A sharp helmet with some goggles on the top. Unfortunately, both those and the helmet itself are made of flimsy plastic." //No armor moment
-	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "blast_helmet"
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+/obj/item/clothing/head/hats/imperial/rd
+	name = "research director's naval cap"
+	desc = "A naval cap with a pin signifying a research director in the center."
+	icon_state = "/obj/item/clothing/head/hats/imperial/rd"
+	greyscale_colors = "#7e1980#fac719"
+	flags_1 = null
 
-/obj/item/clothing/head/hats/imperial/helmet/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_icon, "goggles")
+/obj/item/clothing/head/hats/imperial/qm
+	name = "quartermaster's naval cap"
+	desc = "A naval cap with a pin signifying a quartermaster in the center."
+	icon_state = "/obj/item/clothing/head/hats/imperial/qm"
+	greyscale_colors = "#8B4C31#DEB63D"
+	flags_1 = null
 
 /obj/item/clothing/head/soft/yankee
 	name = "fashionable baseball cap"
