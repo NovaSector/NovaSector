@@ -154,7 +154,7 @@
 	name = "security utility uniform"
 	desc = "A utility uniform worn by trained Security officers."
 	icon_state = "util_sec"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 
@@ -174,21 +174,56 @@
 /obj/item/clothing/under/rank/security/nova/dress/blue
 	icon_state = "security_skirt_blue"
 
+/datum/atom_skin/security_shorts
+	abstract_type = /datum/atom_skin/security_shorts
+
+/datum/atom_skin/security_shorts/red
+	preview_name = "Red Variant"
+	new_icon_state = "cargoshorts"
+
+/datum/atom_skin/security_shorts/red
+	preview_name = "Blue Variant"
+	new_icon_state = "cargoshorts_blue"
+
+/datum/atom_skin/security_shorts/white
+	preview_name = "White Variant"
+	new_icon_state = "cargoshorts_white"
+
+/datum/atom_skin/security_shorts/black
+	preview_name = "Black Variant"
+	new_icon_state = "cargoshorts_black"
+
+/obj/item/clothing/under/rank/security/nova/trousers/shorts
+	name = "cargo shorts"
+	desc = "Some \"combat\" shorts. Please don't actually wear these."
+	icon_state = "cargoshorts"
+
+/obj/item/clothing/under/rank/security/nova/trousers/shorts/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts)
+
 /datum/atom_skin/security_trousers
 	abstract_type = /datum/atom_skin/security_trousers
 
 /datum/atom_skin/security_trousers/red
 	preview_name = "Red Variant"
-	new_icon_state = "workpants"
+	new_icon_state = "cargopants"
+
+/datum/atom_skin/security_trousers/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "cargopants_blue"
 
 /datum/atom_skin/security_trousers/white
 	preview_name = "White Variant"
-	new_icon_state = "workpants_white"
+	new_icon_state = "cargopants_white"
+
+/datum/atom_skin/security_trousers/black
+	preview_name = "Black Variant"
+	new_icon_state = "cargopants_black"
 
 /obj/item/clothing/under/rank/security/nova/trousers
 	name = "security trousers"
 	desc = "Some \"combat\" trousers. Probably should pair it with a vest for safety."
-	icon_state = "workpants"
+	icon_state = "cargopants"
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
@@ -197,81 +232,41 @@
 /obj/item/clothing/under/rank/security/nova/trousers/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_trousers)
 
-/datum/atom_skin/security_trousers/blue
-	abstract_type = /datum/atom_skin/security_trousers/blue
+/datum/atom_skin/security_modskin
+	abstract_type = /datum/atom_skin/security_modskin
 
-/datum/atom_skin/security_trousers/blue/blue
+/obj/item/clothing/under/rank/security/nova/modskin
+	name = "security M.O.D. skinsuit"
+	desc = "A M.O.D. skinsuit worn by trained Security officers."
+	icon_state = "modsec"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+
+/datum/atom_skin/security_modskin/red
+	preview_name = "Red Variant"
+	new_icon_state = "modsec"
+
+/datum/atom_skin/security_modskin/blue
 	preview_name = "Blue Variant"
-	new_icon_state = "workpants_blue"
+	new_icon_state = "modsec_blue"
 
-/datum/atom_skin/security_trousers/blue/white
+/datum/atom_skin/security_modskin/white
 	preview_name = "White Variant"
-	new_icon_state = "workpants_white"
+	new_icon_state = "modsec_white"
 
-/obj/item/clothing/under/rank/security/nova/trousers/blue
-	icon_state = "workpants_blue"
+/datum/atom_skin/security_modskin/black
+	preview_name = "Black Variant"
+	new_icon_state = "modsec_black"
 
-/obj/item/clothing/under/rank/security/nova/trousers/blue/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_trousers/blue)
-
-/datum/atom_skin/security_shorts
-	abstract_type = /datum/atom_skin/security_shorts
-
-/datum/atom_skin/security_shorts/red_short
-	preview_name = "Red Variant, Short"
-	new_icon_state = "workshorts"
-
-/datum/atom_skin/security_shorts/red_short_short
-	preview_name = "Red Variant, Short Short"
-	new_icon_state = "workshorts_short"
-
-/datum/atom_skin/security_shorts/white_short
-	preview_name = "White Variant, Short"
-	new_icon_state = "workshorts_white"
-
-/datum/atom_skin/security_shorts/white_short_short
-	preview_name = "White Variant, Short Short"
-	new_icon_state = "workshorts_white_short"
-
-/obj/item/clothing/under/rank/security/nova/trousers/shorts
-	name = "security shorts"
-	desc = "Some \"combat\" shorts. Probably should pair it with a vest for safety."
-	icon_state = "workshorts"
-
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts)
-
-/datum/atom_skin/security_shorts/blue
-	abstract_type = /datum/atom_skin/security_shorts/blue
-
-/datum/atom_skin/security_shorts/blue/blue_short
-	preview_name = "Blue Variant, Short"
-	new_icon_state = "workshorts_blue"
-
-/datum/atom_skin/security_shorts/blue/blue_short_short
-	preview_name = "Blue Variant, Short Short"
-	new_icon_state = "workshorts_blue_short"
-
-/datum/atom_skin/security_shorts/blue/white_short
-	preview_name = "White Variant, Short"
-	new_icon_state = "workshorts_white"
-
-/datum/atom_skin/security_shorts/blue/white_short_short
-	preview_name = "White Variant, Short Short"
-	new_icon_state = "workshorts_white_short"
-
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/blue
-	icon_state = "workshorts_blue"
-
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/blue/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts/blue)
+/obj/item/clothing/under/rank/security/nova/modskin/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_modskin)
 
 /obj/item/clothing/under/rank/security/nova/turtleneck
 	name = "security turtleneck"
 	desc = "Turtleneck sweater commonly worn by trained Officers, attached with pants."
 	icon_state = "secturtleneck"
 	can_adjust = TRUE
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/rank/security/nova/turtleneck/blue

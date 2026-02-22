@@ -153,7 +153,7 @@
 					to_chat(exposed_mob, span_purple("Your [pick(boob_text_list)] [pick(action_text_list)]about [translation]-cups."))
 
 // Notify the user that they're overdosing. Doesn't affect their mood.
-/datum/reagent/drug/aphrodisiac/succubus_milk/overdose_start(mob/living/carbon/human/exposed_mob)
+/datum/reagent/drug/aphrodisiac/succubus_milk/overdose_start(mob/living/carbon/human/exposed_mob, metabolization_ratio)
 	to_chat(exposed_mob, span_userdanger("You feel like you took too much [name]!"))
 	exposed_mob.add_mood_event("[type]_overdose", /datum/mood_event/minor_overdose, name)
 

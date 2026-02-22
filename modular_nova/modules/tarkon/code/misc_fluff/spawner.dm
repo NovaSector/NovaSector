@@ -268,7 +268,7 @@
 	playsound(get_turf(src),'sound/effects/explosion/explosionfar.ogg', 200, TRUE)
 	visible_message(span_boldannounce("The nest's entrance starts to crumble before something charges forth!"))
 	var/mob/living/basic/boss_baby = new boss_mob(loc)
-	boss_baby.faction = faction
+	boss_baby.set_faction(faction)
 	new loot_drop(loc)
 	qdel(src)
 

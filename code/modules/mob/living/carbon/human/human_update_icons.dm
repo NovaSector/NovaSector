@@ -129,7 +129,7 @@ There are several things that need to be remembered:
 
 		// NOVA EDIT ADDITION START - Taur-friendly suits!
 		if(bodyshape & BODYSHAPE_TAUR)
-			if(istype(uniform) && uniform.gets_cropped_on_taurs)
+			if(istype(uniform) && (uniform.gets_cropped_on_taurs || (uniform.supports_variations_flags & CLOTHING_BIG_LEGS_MASK)))
 				mutant_styles |= get_taur_mode()
 			female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
 			female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP_ONLY bit if it is unset.
@@ -139,6 +139,9 @@ There are several things that need to be remembered:
 				uniform.worn_x_offset = -16
 			else if ((mutant_styles & STYLE_TAUR_HOOF) && uniform.worn_icon_taur_hoof)
 				uniform.worn_x_offset = -16
+			//big legs
+			if((mutant_styles & STYLE_TAUR_BIG_LEGS_ALL) && (uniform.supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
+				icon_file = mutant_styles & STYLE_TAUR_BIG_LEGS ? BIG_LEGS_UNIFORM_FILE : BIG_LEGS_STANCED_UNIFORM_FILE
 		else
 			uniform.worn_x_offset = 0
 		// NOVA EDIT ADDITION END
@@ -1071,6 +1074,8 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
 	if (is_for_taur && !using_taur_variant)
 		building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
+	else if ((mutant_styles & STYLE_TAUR_BIG_LEGS_ALL) && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
+		building_icon = wear_big_legs_version(building_icon || icon(file2use, t_state), src, "[t_state]-[building_icon]-[female_uniform]", greyscale_colors, mutant_styles)
 	// NOVA EDIT ADDITION END
 	if(building_icon)
 		draw_target = mutable_appearance(building_icon, layer = -layer2use)

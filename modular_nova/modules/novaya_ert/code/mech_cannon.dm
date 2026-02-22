@@ -148,10 +148,7 @@
 /obj/projectile/bullet/tank_cannon/smoke/on_hit(atom/target, blocked = FALSE, pierce_hit)
 	. = ..()
 	if(!ismineralturf(target))
-		var/datum/effect_system/fluid_spread/smoke/chem/smoke = new
-		smoke.chemholder.add_reagent(/datum/reagent/toxin/acid, 45)
-		smoke.set_up(1.25, holder = src, location = get_turf(target))
-		smoke.start()
+		do_chem_smoke(1.25, src, get_turf(target), /datum/reagent/toxin/acid, 45)
 
 /obj/projectile/bullet/tank_cannon/heap
 	name = "heap shot"

@@ -3,9 +3,9 @@
 	/// The closed turf our object is currently linked to.
 	var/atom/hanging_support_atom
 
-/datum/component/atom_mounted/Initialize(target_structure, on_drop_callback)
+/datum/component/atom_mounted/Initialize(target_structure)
 	. = ..()
-	if(!isobj(parent))
+	if(!isobj(parent) || !isatom(target_structure))
 		return COMPONENT_INCOMPATIBLE
 	hanging_support_atom = target_structure
 	RegisterSignal(hanging_support_atom, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
@@ -15,19 +15,19 @@
 		RegisterSignal(hanging_support_atom, COMSIG_QDELETING, PROC_REF(on_structure_delete))
 
 /datum/component/atom_mounted/RegisterWithParent()
-	ADD_TRAIT(parent, TRAIT_WALLMOUNTED, REF(src))
+	ADD_TRAIT(parent, TRAIT_WALLMOUNTED, INNATE_TRAIT)
+	if(is_area_shuttle(get_area(parent)))
+		RegisterSignal(parent, COMSIG_ATOM_BEFORE_SHUTTLE_MOVE, PROC_REF(detach))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 
 /datum/component/atom_mounted/UnregisterFromParent()
-	REMOVE_TRAIT(parent, TRAIT_WALLMOUNTED, REF(src))
-	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+	REMOVE_TRAIT(parent, TRAIT_WALLMOUNTED, INNATE_TRAIT)
+	var/list/signals = list(COMSIG_MOVABLE_MOVED)
+	if(is_area_shuttle(get_area(parent)))
+		signals += COMSIG_ATOM_BEFORE_SHUTTLE_MOVE
+	UnregisterSignal(parent, signals)
 
 /datum/component/atom_mounted/Destroy(force)
-	UnregisterSignal(hanging_support_atom, list(COMSIG_ATOM_EXAMINE))
-	if(isclosedturf(hanging_support_atom))
-		UnregisterSignal(hanging_support_atom, COMSIG_TURF_CHANGE)
-	else
-		UnregisterSignal(hanging_support_atom, COMSIG_QDELETING)
 	hanging_support_atom = null
 	return ..()
 
@@ -47,6 +47,7 @@
 	if(ispath(path, /turf/open))
 		drop_wallmount()
 
+///When the atom the object is mounted on is destroyed deconstruct
 /datum/component/atom_mounted/proc/on_structure_delete(datum/source, force)
 	SIGNAL_HANDLER
 
@@ -61,6 +62,12 @@
 		return
 	drop_wallmount()
 
+///Called when the object is about to be shuttle rotated so we have to delete ourself and mount again later
+/datum/component/atom_mounted/proc/detach(datum/source, newT, rotation, move_mode, moving_dock)
+	SIGNAL_HANDLER
+
+	qdel(src)
+
 /**
  * Handles the dropping of the linked object. This is done via deconstruction, as that should be the most sane way to handle it for most objects.
  * Except for intercoms, which are handled by creating a new wallframe intercom, as they're apparently items.
@@ -71,7 +78,6 @@
 	var/obj/hanging_parent = parent
 	hanging_parent.visible_message(message = span_warning("\The [hanging_parent] falls apart!"), vision_distance = 5)
 	hanging_parent.deconstruct(FALSE)
-
 
 /// Returns a list of potential turfs to mount on. This should not check if those turfs are valid but only locate them
 /obj/proc/get_turfs_to_mount_on()
@@ -107,7 +113,7 @@
 	return isclosedturf(target)
 
 /// Returns an list of object types we can mount on if the turf is unmountable
-/obj/proc/get_moutable_objects()
+/obj/proc/get_mountable_objects()
 	PROTECTED_PROC(TRUE)
 	SHOULD_BE_PURE(TRUE)
 	RETURN_TYPE(/list/obj)
@@ -137,7 +143,7 @@
 		return TRUE
 
 	var/area/location = get_area(src)
-	if(!isarea(location) || istype(location, /area/shuttle))
+	if(!isarea(location))
 		return FALSE
 
 	var/msg
@@ -150,13 +156,15 @@
 		if(is_mountable_turf(target))
 			attachable_atom = target //your usual wallmount
 		else
-			var/list/obj/attachables = get_moutable_objects()
+			var/list/obj/attachables = get_mountable_objects()
 			for(var/obj/attachable in target)
 				if(is_type_in_list(attachable, attachables))
 					attachable_atom = attachable
 					break
 		if(attachable_atom)
 			AddComponent(/datum/component/atom_mounted, attachable_atom)
+			if(is_area_shuttle(location))
+				RegisterSignal(src, COMSIG_ATOM_AFTER_SHUTTLE_MOVE, PROC_REF(remount), override = TRUE)
 			return TRUE
 		if(msg)
 			msg += "([target.x],[target.y],[target.z]) "
@@ -166,3 +174,10 @@
 	if(mark_for_late_init)
 		obj_flags |= MOUNT_ON_LATE_INITIALIZE
 	return FALSE
+
+///Used to remount an object after shuttle move
+/obj/proc/remount(datum/source, oldT)
+	SIGNAL_HANDLER
+	PRIVATE_PROC(TRUE)
+
+	find_and_mount_on_atom()

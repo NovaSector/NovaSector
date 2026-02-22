@@ -19,11 +19,11 @@
 	ph = 5
 	chemical_flags = REAGENT_NO_RANDOM_RECIPE
 
-/datum/reagent/medicine/sansufentanyl_base/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/medicine/sansufentanyl_base/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	affected_mob.adjust_confusion_up_to(3 SECONDS * REM * seconds_per_tick, 10 SECONDS)
-	affected_mob.adjust_dizzy_up_to(6 SECONDS * REM * seconds_per_tick, 20 SECONDS)
-	if(affected_mob.adjust_stamina_loss(4 * REM * seconds_per_tick, updating_stamina = FALSE))
+	affected_mob.adjust_confusion_up_to(1.5 SECONDS * seconds_per_tick * metabolization_ratio, 10 SECONDS)
+	affected_mob.adjust_dizzy_up_to(3 SECONDS * seconds_per_tick * metabolization_ratio, 20 SECONDS)
+	if(affected_mob.adjust_stamina_loss(2 * seconds_per_tick * metabolization_ratio, updating_stamina = FALSE))
 		. = UPDATE_MOB_HEALTH
 
 	if(SPT_PROB(10, seconds_per_tick))
