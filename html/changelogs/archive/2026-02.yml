@@ -426,3 +426,8 @@
   - qol: Added counter-clockwise rotation to character creation, increased size of
       character preview, added background selection, and scaling of preview to match
       character size.
+2026-02-23:
+  Stalkeros:
+  - qol: HC cops' loadouts have been slightly rejiggled into a more appropriate shape.
+  sqnztb:
+  - balance: HC survival packs are now normal sized.
