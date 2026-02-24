@@ -15,29 +15,21 @@
 	name = "medical heal shot"
 	icon_state = "blue_laser"
 	damage = 0
-
-/obj/projectile/energy/medical/oxygen
-	name = "oxygen heal shot"
-	var/amount_healed = 10
-
-/obj/projectile/energy/medical/oxygen/on_hit(mob/living/target, blocked = 0, pierce_hit)
-	. = ..()
-	if(!IsLivingHuman(target))
-		return FALSE
-
-	target.adjust_oxy_loss(-amount_healed)
+	var/healing_threshold = 30
+	var/base_disgust = 1
+	var/base_nutrition = -2
 
 /*
 *	PROCS
 */
 
-/// Applies digust by damage thresholds.
-/obj/projectile/energy/medical/proc/damage_disgust(mob/living/target, type_damage)
-	if(type_damage >= 100)
-		target.adjust_disgust(3)
+/// Applies digust based on how much nutrition they're missing under certain thresholds.
+/obj/projectile/energy/medical/proc/nutrition_disgust(mob/living/target, nutrition)
+	if(target.nutrition < 150)
+		target.adjust_disgust(6)
 
-	if(type_damage >=  50 && type_damage < 100)
-		target.adjust_disgust(1.5)
+	if(target.nutrition > 150 && target.nutrition < 250)
+		target.adjust_disgust(3)
 
 /// Checks to see if the patient is living.
 /obj/projectile/energy/medical/proc/IsLivingHuman(mob/living/target)
@@ -60,33 +52,51 @@
 
 	return non_medicine_chems
 
-/// Heals Brute if it's under 30, make them gain disgust.
-/obj/projectile/energy/medical/proc/healBrute(mob/living/target, amount_healed, base_disgust)
+/// Heals Oxygen if it's under threshold, make them gain disgust.
+/obj/projectile/energy/medical/proc/healOxy(mob/living/target, amount_healed, base_disgust, healing_threshold, base_nutrition)
 	if(!IsLivingHuman(target))
 		return FALSE
 
-	if(target.get_brute_loss() >= 30 )
+	if(target.get_oxy_loss() > healing_threshold)
 		return FALSE
 
-	damage_disgust(target, target.get_brute_loss())
+	nutrition_disgust(target, target.get_oxy_loss())
 	target.adjust_disgust(base_disgust)
+	target.adjust_nutrition(base_nutrition)
+	target.adjust_oxy_loss(-amount_healed)
+
+/// Heals Brute if it's under threshold, make them gain disgust.
+/obj/projectile/energy/medical/proc/healBrute(mob/living/target, amount_healed, base_disgust, healing_threshold, base_nutrition)
+	if(!IsLivingHuman(target))
+		return FALSE
+
+	if(target.get_brute_loss() > healing_threshold)
+		return FALSE
+
+	nutrition_disgust(target, target.get_brute_loss())
+	target.adjust_disgust(base_disgust)
+	target.adjust_nutrition(base_nutrition)
 	target.adjust_brute_loss(-amount_healed)
 
-/// Heals Burn if it's under 30, make them gain disgust.
-/obj/projectile/energy/medical/proc/healBurn(mob/living/target, amount_healed, base_disgust)
+/// Heals Burn if it's at the threshold or less, make them gain disgust.
+/obj/projectile/energy/medical/proc/healBurn(mob/living/target, amount_healed, base_disgust, healing_threshold, base_nutrition)
 	if(!IsLivingHuman(target))
 		return FALSE
 
-	if(target.get_fire_loss() >= 30 )
+	if(target.get_fire_loss() > healing_threshold)
 		return FALSE
 
-	damage_disgust(target, target.get_brute_loss())
+	nutrition_disgust(target, target.get_brute_loss())
 	target.adjust_disgust(base_disgust)
+	target.adjust_nutrition(base_nutrition)
 	target.adjust_fire_loss(-amount_healed)
 
 /// Heals Toxins
-/obj/projectile/energy/medical/proc/healTox(mob/living/target, amount_healed)
+/obj/projectile/energy/medical/proc/healTox(mob/living/target, amount_healed, base_disgust, healing_threshold, base_nutrition)
 	if(!IsLivingHuman(target))
+		return FALSE
+
+	if(target.get_tox_loss() > healing_threshold)
 		return FALSE
 
 	var/healing_multiplier = 1.5
@@ -96,6 +106,9 @@
 	if(healing_multiplier < 0.25)
 		healing_multiplier = 0.25
 
+	nutrition_disgust(target, target.get_tox_loss())
+	target.adjust_disgust(base_disgust)
+	target.adjust_nutrition(base_nutrition)
 	target.adjust_tox_loss(-(amount_healed * healing_multiplier))
 
 /*
@@ -106,7 +119,7 @@
 *	TIER ONE
 */
 
-//The Basic Brute Heal Projectile
+//Basic Brute Heal Projectile
 /obj/item/ammo_casing/energy/medical/brute1
 	projectile_type = /obj/projectile/energy/medical/brute
 	select_name = "brute"
@@ -116,13 +129,12 @@
 	name = "brute heal shot"
 	icon_state = "red_laser"
 	var/amount_healed = 7.5
-	var/base_disgust = 3
 
 /obj/projectile/energy/medical/brute/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healBrute(target, amount_healed, base_disgust)
+	healBrute(target, amount_healed, base_disgust, healing_threshold, base_nutrition)
 
-//The Basic Burn Heal//
+//Basic Burn Heal Projectile
 /obj/item/ammo_casing/energy/medical/burn1
 	projectile_type = /obj/projectile/energy/medical/burn
 	select_name = "burn"
@@ -132,13 +144,21 @@
 	name = "burn heal shot"
 	icon_state = "yellow_laser"
 	var/amount_healed = 7.5
-	var/base_disgust = 3
 
 /obj/projectile/energy/medical/burn/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healBurn(target, amount_healed, base_disgust)
+	healBurn(target, amount_healed, base_disgust, healing_threshold, base_nutrition)
 
-//Basic Toxin Heal//
+//Basic Oxygen Heal Projectile. Doesn't get a casing because the base medical projectile is already oxygen.
+/obj/projectile/energy/medical/oxygen
+	name = "oxygen heal shot"
+	var/amount_healed = 10
+
+/obj/projectile/energy/medical/oxygen/on_hit(mob/living/target, blocked = 0, pierce_hit)
+	. = ..()
+	healOxy(target, amount_healed, base_disgust, healing_threshold, base_nutrition)
+
+//Basic Toxin Heal Projectile
 /obj/item/ammo_casing/energy/medical/toxin1
 	projectile_type = /obj/projectile/energy/medical/toxin
 	select_name = "toxin"
@@ -151,7 +171,7 @@
 
 /obj/projectile/energy/medical/toxin/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healTox(target, amount_healed)
+	healTox(target, amount_healed, base_disgust, healing_threshold, base_nutrition)
 
 /*
 *	TIER TWO
@@ -168,6 +188,7 @@
 	pass_flags =  UPGRADED_MEDICELL_PASSFLAGS
 	amount_healed = 11.25
 	base_disgust = 2
+	healing_threshold = 40
 
 //Tier II Burn Projectile
 /obj/item/ammo_casing/energy/medical/burn2
@@ -180,8 +201,9 @@
 	pass_flags =  UPGRADED_MEDICELL_PASSFLAGS
 	amount_healed = 11.25
 	base_disgust = 2
+	healing_threshold = 40
 
-//Tier II Oxy Projectile
+//Tier II Oxygen Projectile
 /obj/item/ammo_casing/energy/medical/oxy2
 	projectile_type = /obj/projectile/energy/medical/oxygen/better
 	select_name = "oxygen II"
@@ -191,6 +213,8 @@
 	name = "strong oxygen heal shot"
 	pass_flags =  UPGRADED_MEDICELL_PASSFLAGS
 	amount_healed = 20
+	base_disgust = 2
+	healing_threshold = 40
 
 //Tier II Toxin Projectile
 /obj/item/ammo_casing/energy/medical/toxin2
@@ -202,6 +226,8 @@
 	name = "strong toxin heal shot"
 	pass_flags =  UPGRADED_MEDICELL_PASSFLAGS
 	amount_healed = 7.5
+	base_disgust = 2
+	healing_threshold = 40
 
 /*
 *	TIER THREE
@@ -216,7 +242,8 @@
 /obj/projectile/energy/medical/brute/better/best
 	name = "powerful brute heal shot"
 	amount_healed = 15
-	base_disgust = 1
+	base_disgust = 3
+	healing_threshold = 50
 
 //Tier III Burn Projectile
 /obj/item/ammo_casing/energy/medical/burn3
@@ -227,9 +254,10 @@
 /obj/projectile/energy/medical/burn/better/best
 	name = "powerful burn heal shot"
 	amount_healed = 15
-	base_disgust = 1
+	base_disgust = 3
+	healing_threshold = 50
 
-//Tier III Oxy Projectile
+//Tier III Oxygen Projectile
 /obj/item/ammo_casing/energy/medical/oxy3
 	projectile_type = /obj/projectile/energy/medical/oxygen/better/best
 	select_name = "oxygen III"
@@ -238,6 +266,8 @@
 /obj/projectile/energy/medical/oxygen/better/best
 	name = "powerful oxygen heal shot"
 	amount_healed = 30
+	base_disgust = 3
+	healing_threshold = 50
 
 //Tier III Toxin Projectile
 /obj/item/ammo_casing/energy/medical/toxin3
@@ -248,10 +278,8 @@
 /obj/projectile/energy/medical/toxin/better/best
 	name = "powerful toxin heal shot"
 	amount_healed = 10
-
-/obj/projectile/energy/medical/upgraded/toxin3/on_hit(mob/living/target, blocked = 0, pierce_hit)
-	. = ..()
-	healTox(target, 10)
+	base_disgust = 3
+	healing_threshold = 50
 
 /*
 *	UTILITY CELLS
@@ -427,19 +455,29 @@
 	embed_type = /datum/embedding/salve_globule/hardlight
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
 	icon_state = "globule"
-	heals_left = 40 //This means it'll be heaing 15 damage per type max.
+	heals_left = 40 //This means it'll be heaing 10 damage per type max.
 
-/datum/embedding/salve_globule/hardlight/process(seconds_per_tick)
+/datum/embedding/salve_globule/hardlight/on_successful_embed()
+	addtimer(CALLBACK(src, PROC_REF(heal_tick)), 1, TIMER_LOOP)
+
+/datum/embedding/salve_globule/hardlight/proc/heal_tick()
+	if(!owner_limb || !istype(parent, /obj/item/mending_globule)) //Safety checks
+		return TIMER_DELETE_ME
+
 	if(!owner_limb.get_damage()) //Makes it poof as soon as the body part is fully healed, no keeping this on forever.
 		qdel(src)
-		return FALSE
+		return TIMER_DELETE_ME
 
 	var/obj/item/mending_globule/globule = parent
-	owner_limb.heal_damage(0.125 * seconds_per_tick, 0.125 * seconds_per_tick) //Reduced healing rate over original
+	owner_limb.heal_damage(0.25, 0.25) //Heals 0.25 per second for brute and burn
 	globule.heals_left--
 
 	if(globule.heals_left <= 0)
+		globule.visible_message(span_notice("[globule]'s hardlight field dissipates after fully releasing its regenerative properties."))
 		qdel(src)
+		return TIMER_DELETE_ME
+
+	return 1
 
 //Hardlight Emergency Bed.
 /obj/structure/bed/medical/medigun
