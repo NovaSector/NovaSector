@@ -364,6 +364,25 @@
 	manual_reset = TRUE
 	ghost_mining = TRUE
 
+/// Starter vents. Change threats for appropriate roles
+
+/obj/structure/ore_vent/ghost_mining/starter
+	tapped = TRUE
+	discovered = TRUE
+	boulder_infinite = TRUE
+	manual_reset = TRUE //allowed to be reset, but only if people really want to.
+	ghost_mining = TRUE
+	boulder_size = BOULDER_SIZE_SMALL
+	mineral_breakdown = list(
+		/datum/material/iron = 1,
+		/datum/material/glass = 1,
+	)
+
+/obj/structure/ore_vent/ghost_mining/starter/tarkon
+	threat_pool = list(COLONY_THREAT_XENOS)
+
+/// Boss Vents. For the purpose of making bosses repeatable
+
 /obj/structure/ore_vent/ghost_mining/boss
 	name = "swirling oxide pool"
 	desc = "A deep mineral pool laden with massive oxide chunks. This one has an evil aura about it. Better be careful."
@@ -483,6 +502,7 @@
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
 		/mob/living/basic/boss/blood_drunk_miner/doom,
 	)
+
 /obj/item/boulder
 	/// Nova Addition: decides whether a BRM should pick up the boulder or whether it's limited to LRM/Manual Labor
 	var/brm_stable = TRUE

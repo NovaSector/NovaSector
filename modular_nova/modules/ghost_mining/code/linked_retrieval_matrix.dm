@@ -376,6 +376,23 @@
 		/datum/stock_part/micro_laser = 1,
 	)
 
+///Beacon to launch a new mining setup when activated. For testing and speed!
+/obj/item/boulder_beacon/lrm
+	name = "T.I. boulder beacon"
+	desc = "Tarkon Industries brand mining beacon. Used for local mining operations and colony startups."
+
+/obj/item/boulder_beacon/lrm/launch_payload()
+	playsound(src, SFX_SPARKS, 80, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	switch(uses)
+		if(3)
+			new /obj/machinery/lrm(drop_location())
+		if(2)
+			new /obj/machinery/bouldertech/refinery(drop_location())
+		if(1)
+			new /obj/machinery/bouldertech/refinery/smelter(drop_location())
+			qdel(src)
+	uses--
+
 
 #undef LRM_TELEPORTATION_TIME
 #undef LRM_BATCH_COOLDOWN
