@@ -177,6 +177,7 @@
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#3e5c88#88242D"
+	armor_type = /datum/armor/hats_hopcap
 
 /obj/item/clothing/head/hopcap/beret/alt
 	name = "head of personnel's beret"
@@ -190,8 +191,11 @@
 	icon_state = "/obj/item/clothing/head/hopcap/beret/olive"
 	greyscale_colors = "#829A8C#88242D"
 
-/obj/item/clothing/head/bridgeofficer/beret
+/obj/item/clothing/head/beret/bridgeofficer
 	name = "bridge officer's beret"
 	desc = "A beret pinned with the designation of a bridge officer."
-	icon_state = "/obj/item/clothing/head/bridgeofficer/beret"
+	post_init_icon_state = "beret_badge"
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	icon_state = "/obj/item/clothing/head/beret/bridgeofficer"
 	greyscale_colors = "#41579a#ccced1"

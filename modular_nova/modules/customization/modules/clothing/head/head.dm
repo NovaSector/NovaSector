@@ -110,7 +110,7 @@
 	name = "blueshield's naval cap"
 	desc = "A naval cap with a pin signifying a blueshield in the center."
 	icon_state = "/obj/item/clothing/head/hats/imperial/blueshield"
-	greyscale_colors = "#363740#4064bf"
+	greyscale_colors = "#3c485a#bbbbbb"
 	flags_1 = null
 	armor_type = /datum/armor/cosmetic_sec
 
@@ -127,6 +127,7 @@
 	icon_state = "/obj/item/clothing/head/hats/imperial/hop"
 	greyscale_colors = "#829A8C#88242D"
 	flags_1 = null
+	armor_type = /datum/armor/hats_hopcap
 
 /obj/item/clothing/head/hats/imperial/hos
 	name = "head of security's naval officer cap"

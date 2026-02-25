@@ -17,17 +17,19 @@
 
 /obj/item/clothing/under/imperial/captain
 	name = "captain's naval jumpsuit"
-	desc = "A white naval suit adorned with golden epaulets and a rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
+	desc = "A white naval suit adorned with a gold rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
 	icon_state = "/obj/item/clothing/under/imperial/captain"
-	greyscale_colors = "#829A8C#829A8C#829A8C#373741#F3F3F3#BC2626#2979CD"
+	greyscale_colors = "#eeeeee#eeeeee#eeeeee#373741#FFCE5B#FFCE5B#FFCE5B"
 	flags_1 = NONE
+	armor_type = /datum/armor/clothing_under/rank_captain
 
 /obj/item/clothing/under/imperialskirt/captain
 	name = "captain's naval skirt"
-	desc = "A white naval suit adorned with golden epaulets and a rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
-	greyscale_colors = "#829A8C#829A8C#373741#F3F3F3#BC2626#2979CD"
+	desc = "A white naval suit adorned with a gold rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
+	greyscale_colors = "#eeeeee#eeeeee#373741#FFCE5B#FFCE5B#FFCE5B"
 	icon_state = "/obj/item/clothing/under/imperialskirt/captain"
 	flags_1 = NONE
+	armor_type = /datum/armor/clothing_under/rank_captain
 
 //Donor item for Gandalf - all donors have access
 /obj/item/clothing/under/rank/captain/nova/black
@@ -118,14 +120,14 @@
 	name = "blueshield's naval skirt"
 	desc = "An upper level uniform granted to shields alike, representing CentCom's grand naval fleet."
 	icon_state = "/obj/item/clothing/under/imperialvest/bs"
-	greyscale_colors = "#363740#363740#2c3f70#373741#ffce5b#21212B#ffce5b#4064bf"
+	greyscale_colors = "#363740#363740#3c485a#373741#bbbbbb#21212B#bbbbbb#bbbbbb"
 	flags_1 = NONE
 	armor_type = /datum/armor/clothing_under/rank_blueshield
 
 /obj/item/clothing/under/imperialskirtvest/blueshield
 	name = "blueshield's naval skirt"
 	desc = "An upper level uniform granted to shields alike, representing CentCom's grand naval fleet."
-	greyscale_colors = "#363740#2c3f70#373741#ffce5b#21212B#ffce5b#4064bf"
+	greyscale_colors = "#363740#3c485a#373741#bbbbbb#21212B#bbbbbb#bbbbbb"
 	icon_state = "/obj/item/clothing/under/imperialskirtvest/bs"
 	flags_1 = NONE
 	armor_type = /datum/armor/clothing_under/rank_blueshield
@@ -202,14 +204,14 @@
 
 /obj/item/clothing/under/imperial/bridge_officer
 	name = "bridge officer's naval uniform"
-	desc = "An upper level uniform granted to bridge attendants. You did clear your internship, right?"
+	desc = "An \"upper\" level uniform granted to bridge attendants. You did clear your internship, right?"
 	icon_state = "/obj/item/clothing/under/imperial/bridge_officer"
 	greyscale_colors = "#41579a#41579a#3b3c3f#373741#ccced1#41579a#ccced1"
 	flags_1 = NONE
 
 /obj/item/clothing/under/imperialskirt/bridge_officer
 	name = "bridge officer's naval skirt"
-	desc = "An upper level uniform granted to bridge attendants. You did clear your internship, right?"
+	desc = "An \"upper\" level uniform granted to bridge attendants. You did clear your internship, right?"
 	greyscale_colors = "#41579a#3b3c3f#373741#ccced1#41579a#ccced1"
 	icon_state = "/obj/item/clothing/under/imperialskirt/bridge_officer"
 	flags_1 = NONE
