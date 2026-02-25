@@ -166,7 +166,7 @@
 /obj/machinery/porta_turret/syndicate{
 	faction = list("Syndicate","neutral")
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base)
 "bu" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -498,7 +498,7 @@
 /obj/machinery/status_display/department_balance{
 	credits_account = "IP"
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base)
 "es" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -661,7 +661,7 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "fX" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "gk" = (
 /obj/machinery/griddle,
@@ -1032,10 +1032,10 @@
 	faction = list("Syndicate","neutral");
 	dir = 8
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base)
 "je" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "jf" = (
 /obj/effect/turf_decal/tile/neutral/diagonal_centre,
@@ -1222,7 +1222,7 @@
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "kk" = (
-/turf/closed/wall/mineral/titanium,
+/turf/closed/wall/mineral/titanium/shielded,
 /area/ruin/interdyne_planetary_base/eng)
 "kl" = (
 /obj/structure/extinguisher_cabinet/directional/east,
@@ -1590,7 +1590,7 @@
 	dir = 4;
 	name = "Gizmo"
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "nw" = (
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -1696,7 +1696,7 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/interdyne_planetary_base/main)
 "ox" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/viro)
 "oy" = (
 /obj/structure/cable,
@@ -1748,7 +1748,7 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "oW" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "oZ" = (
 /obj/machinery/smartfridge/chemistry/preloaded,
@@ -1831,7 +1831,7 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med/viro)
 "pq" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/eng)
 "pu" = (
 /obj/effect/turf_decal/bot_white,
@@ -1941,7 +1941,7 @@
 /obj/machinery/status_display/department_balance{
 	credits_account = "IP"
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "ql" = (
 /obj/effect/turf_decal/trimline/dark_green/warning{
@@ -2553,7 +2553,7 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "vu" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base)
 "vB" = (
 /turf/open/floor/iron/dark/smooth_large,
@@ -2701,7 +2701,7 @@
 /area/ruin/interdyne_planetary_base/med)
 "wT" = (
 /obj/effect/turf_decal/bot_white,
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "wU" = (
 /obj/machinery/light/small/directional/north,
@@ -2984,7 +2984,7 @@
 /obj/machinery/status_display/department_balance{
 	credits_account = "IP"
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
 "zI" = (
 /obj/effect/turf_decal/siding/dark{
@@ -3190,7 +3190,7 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "AQ" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "AU" = (
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -3227,10 +3227,10 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/main)
 "By" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "BA" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "BC" = (
 /obj/effect/turf_decal/bot_white,
@@ -3448,7 +3448,7 @@
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/med/viro)
 "CR" = (
-/turf/closed/wall/mineral/titanium,
+/turf/closed/wall/mineral/titanium/shielded,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "CU" = (
 /obj/machinery/door/firedoor/border_only,
@@ -3597,7 +3597,7 @@
 /turf/open/floor/engine/n2,
 /area/ruin/interdyne_planetary_base/eng)
 "DZ" = (
-/turf/closed/wall/mineral/titanium,
+/turf/closed/wall/mineral/titanium/shielded,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "Ec" = (
 /obj/machinery/camera/autoname/directional/east{
@@ -3700,7 +3700,7 @@
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "Eu" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main)
 "Ew" = (
 /obj/structure/cable,
@@ -3756,7 +3756,7 @@
 /turf/open/floor/engine/o2,
 /area/ruin/interdyne_planetary_base/eng)
 "EH" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "EJ" = (
 /obj/effect/turf_decal/siding/wood/corner,
@@ -3960,7 +3960,7 @@
 /area/ruin/interdyne_planetary_base)
 "Gk" = (
 /obj/effect/turf_decal/bot_white,
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
 "Gq" = (
 /obj/machinery/door/window/survival_pod/left/directional/east{
@@ -4178,7 +4178,7 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "Ih" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
 "Io" = (
 /obj/effect/turf_decal/tile/brown/half/contrasted{
@@ -4321,7 +4321,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "JP" = (
 /obj/structure/table/reinforced/rglass,
@@ -4631,7 +4631,7 @@
 	},
 /area/ruin/interdyne_planetary_base/main)
 "Mv" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "ME" = (
 /obj/machinery/stasis{
@@ -4656,7 +4656,7 @@
 /obj/machinery/status_display/department_balance{
 	credits_account = "IP"
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "MM" = (
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -4921,7 +4921,7 @@
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "OH" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "OJ" = (
 /obj/structure/sign/painting/large/library{
@@ -4976,7 +4976,7 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "Pn" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med)
 "Po" = (
 /obj/effect/turf_decal/stripes/blue/full,
@@ -5087,7 +5087,7 @@
 /turf/open/floor/grass,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "Qd" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/vault)
 "Qf" = (
 /obj/effect/turf_decal/stripes/full,
@@ -5119,7 +5119,7 @@
 	dir = 8;
 	faction = list("Syndicate","neutral")
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base)
 "QR" = (
 /obj/structure/cable,
@@ -5194,7 +5194,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner,
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
 "Rz" = (
 /obj/structure/cable,
@@ -5260,7 +5260,7 @@
 /turf/open/floor/wood/tile,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "RY" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "Sg" = (
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -5336,7 +5336,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main)
 "SH" = (
 /obj/effect/turf_decal/siding/wood{
@@ -5547,7 +5547,7 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "TI" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "TK" = (
 /obj/effect/turf_decal/tile/dark_green{
@@ -5880,7 +5880,7 @@
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/main)
 "VF" = (
-/turf/closed/wall/mineral/titanium,
+/turf/closed/wall/mineral/titanium/shielded,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "VQ" = (
 /obj/effect/turf_decal/stripes/line,
@@ -5995,7 +5995,7 @@
 /obj/effect/turf_decal/trimline/dark_green/warning{
 	dir = 1
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med)
 "WG" = (
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base{
@@ -6253,7 +6253,7 @@
 	dir = 1;
 	faction = list("Syndicate","neutral")
 	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base)
 "YG" = (
 /obj/machinery/door/airlock/external{
