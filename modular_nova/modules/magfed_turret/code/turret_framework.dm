@@ -314,6 +314,7 @@
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
 	turret_flags = TURRET_FLAG_SHOOT_ALL | TURRET_FLAG_SHOOT_ANOMALOUS
 	ignore_faction = TRUE
+	invisibility = INVISIBILITY_NONE //Should fix the "invisibility" issue
 	armor_type = /datum/armor/mobile_turret
 	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed, though useless bc of syndicate subtyping.
 	faction = list(FACTION_TURRET)
