@@ -827,10 +827,11 @@
 	return ..()
 
 /mob/living/carbon/proc/can_defib()
-//NOVA EDIT ADDITION - DNR TRAIT
+	SHOULD_BE_PURE(TRUE)
+	//NOVA EDIT ADDITION START - DNR TRAIT
 	if(HAS_TRAIT(src, TRAIT_DNR)) //This is also added when a ghost DNR's!
 		return DEFIB_FAIL_DNR
-//NOVA EDIT ADDITION END - DNR TRAIT
+	//NOVA EDIT ADDITION END - DNR TRAIT
 	if (HAS_TRAIT(src, TRAIT_SUICIDED))
 		return DEFIB_FAIL_SUICIDE
 
