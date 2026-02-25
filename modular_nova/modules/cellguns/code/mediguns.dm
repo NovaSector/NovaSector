@@ -14,7 +14,7 @@
 	charge_sections = 3
 	selfcharge = 1
 	charge_delay = 15
-	maxcells = 3
+	maxcells = 4
 	allowed_cells = list(/obj/item/weaponcell/medical)
 	item_flags = null
 	gun_flags = TURRET_INCOMPATIBLE
@@ -22,14 +22,14 @@
 // Standard medigun - this is what you will get from Cargo, most likely.
 /obj/item/gun/energy/cell_loaded/medigun/standard
 	name = "VeyMedical CWM-479 cell-powered medigun"
-	desc = "This is a standard model medigun produced by Vey-Med for healing in less-than-ideal scenarios. The medicell chamber is rated to fit three cells."
+	desc = "This is a standard model medigun produced by Vey-Med for healing in less-than-ideal scenarios. The medicell chamber is rated to fit four cells."
 
 // Upgraded medigun
 /obj/item/gun/energy/cell_loaded/medigun/upgraded
 	name = "VeyMedical CWM-479-FC cell-powered medigun"
 	desc = "This is an upgraded variant of the standard CWM-479 medigun. The chamber has been expanded to fit another cell, in addition to a larger, faster charging battery."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/upgraded
-	maxcells = 4
+	maxcells = 5
 	charge_delay = 11
 
 /obj/item/gun/energy/cell_loaded/medigun/upgraded/Initialize(mapload)
@@ -40,9 +40,9 @@
 // CMO and CC MediGun
 /obj/item/gun/energy/cell_loaded/medigun/cmo
 	name = "VeyMedical CWM-479-CC cell-powered medigun"
-	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for five cells and the largest battery produced by Vey-Med."
+	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for six cells and the largest battery produced by Vey-Med."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/experimental
-	maxcells = 5
+	maxcells = 6
 	charge_delay = 8
 
 /obj/item/gun/energy/cell_loaded/medigun/cmo/Initialize(mapload)
@@ -67,6 +67,31 @@
 	chargerate = STANDARD_CELL_CHARGE * 0.1
 
 // End of power cells
+
+//Medigun lore
+/obj/item/gun/energy/cell_loaded/medigun/proc/add_deep_lore()
+	AddElement(/datum/element/examine_lore, \
+		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
+		lore = "The VeyMedical CWM-479 line of mediguns is widely considered the foothold that brought the medical titan into \
+		 the niche where it is today, opening many lucrative doors for the continued development of luxury medical equipment.<br>\
+		<br>\
+		Although hard to imagine, VeyMed's entrance into the corporate scene would be a shaky one, immediately facing pressure from \
+		larger, more established groups like Zeng-Hu who boasted similar products for less. Things looked bleak financially until the \
+		first sightings of handheld, medibeam projectors in the hands of Syndicate-backed mercenaries would shake the industry dramatically. \
+		It's here that Nanotrasen would enter the picture, poising themselves as angel investors to the fledgling company as long as \
+		they could reproduce the technology for their own use, something that was accepted with open arms and bank accounts. <br>\
+		<br>\
+		In the following time, VeyMed would enjoy otherwise smooth progress in trying to reverse-engineer captured devices, but would be \
+		interrupted by a major roadblock. The energy throughput of anything less than some sort of mechanized suit prevented miniaturization \
+		of the nanite stream for their research team. Frustrated, they decided on a radical rethinking of the concept: what if they harnessed the \
+		body's natural energy to heal? <br>\
+		<br>\
+		By using a lower amount of energy and many proprietary principles, a CWM medigun can stimulate a patient's natural healing factor by \
+		a factor of at least 7 times in an instant, far outpacing the gradual healing that they initally set out to achieve. Unfortunately, the \
+		overloading of natural proccesses means that the device is prone to inducing superficial sickness when used carelessly on those with \
+		less-than-ideal lifestyles. Despite this, many, from insane Solarian field doctors to remote colonial hospitals, would eagerly pay \
+		the exorbinant price for the CWM-479, and VeyMed is more than happy to provide it." \
+	)
 
 // Upgrade Kit
 /obj/item/device/custom_kit/medigun_fastcharge

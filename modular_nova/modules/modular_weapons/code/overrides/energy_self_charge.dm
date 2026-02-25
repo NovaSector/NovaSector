@@ -33,7 +33,7 @@
 // Disablers
 /obj/item/gun/energy/disabler
 	selfcharge = TRUE
-	charge_delay = 15
+
 
 // Eguns
 /obj/item/gun/energy/e_gun

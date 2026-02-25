@@ -17,19 +17,19 @@
 	damage = 0
 	var/healing_threshold = 30
 	var/base_disgust = 1
-	var/base_nutrition = -2
 
 /*
 *	PROCS
 */
 
-/// Applies digust based on how much nutrition they're missing under certain thresholds.
-/obj/projectile/energy/medical/proc/nutrition_disgust(mob/living/target, nutrition)
+/// Applies additional digust based on how much nutrition they're missing under certain thresholds, increasingly multiplying it each stage beyond hungry they are.
+/obj/projectile/energy/medical/proc/nutrition_disgust(mob/living/target, nutrition, base_disgust)
 	if(target.nutrition < 150)
-		target.adjust_disgust(6)
-
-	if(target.nutrition > 150 && target.nutrition < 250)
-		target.adjust_disgust(3)
+		target.adjust_disgust(base_disgust * 4)
+	else if(target.nutrition >= 150 && target.nutrition <= 200)
+		target.adjust_disgust(base_disgust * 3)
+	else if(target.nutrition > 200 && target.nutrition < 250)
+		target.adjust_disgust(base_disgust * 2)
 
 /// Checks to see if the patient is living.
 /obj/projectile/energy/medical/proc/IsLivingHuman(mob/living/target)
@@ -53,7 +53,7 @@
 	return non_medicine_chems
 
 /// Heals Oxygen if it's under threshold, make them gain disgust.
-/obj/projectile/energy/medical/proc/healOxy(mob/living/target, amount_healed, base_disgust, healing_threshold, base_nutrition)
+/obj/projectile/energy/medical/proc/healOxy(mob/living/target, amount_healed, base_disgust, healing_threshold)
 	if(!IsLivingHuman(target))
 		return FALSE
 
@@ -62,11 +62,11 @@
 
 	nutrition_disgust(target, target.get_oxy_loss())
 	target.adjust_disgust(base_disgust)
-	target.adjust_nutrition(base_nutrition)
+	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_oxy_loss(-amount_healed)
 
 /// Heals Brute if it's under threshold, make them gain disgust.
-/obj/projectile/energy/medical/proc/healBrute(mob/living/target, amount_healed, base_disgust, healing_threshold, base_nutrition)
+/obj/projectile/energy/medical/proc/healBrute(mob/living/target, amount_healed, base_disgust, healing_threshold)
 	if(!IsLivingHuman(target))
 		return FALSE
 
@@ -75,11 +75,11 @@
 
 	nutrition_disgust(target, target.get_brute_loss())
 	target.adjust_disgust(base_disgust)
-	target.adjust_nutrition(base_nutrition)
+	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_brute_loss(-amount_healed)
 
 /// Heals Burn if it's at the threshold or less, make them gain disgust.
-/obj/projectile/energy/medical/proc/healBurn(mob/living/target, amount_healed, base_disgust, healing_threshold, base_nutrition)
+/obj/projectile/energy/medical/proc/healBurn(mob/living/target, amount_healed, base_disgust, healing_threshold)
 	if(!IsLivingHuman(target))
 		return FALSE
 
@@ -88,11 +88,11 @@
 
 	nutrition_disgust(target, target.get_brute_loss())
 	target.adjust_disgust(base_disgust)
-	target.adjust_nutrition(base_nutrition)
+	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_fire_loss(-amount_healed)
 
 /// Heals Toxins
-/obj/projectile/energy/medical/proc/healTox(mob/living/target, amount_healed, base_disgust, healing_threshold, base_nutrition)
+/obj/projectile/energy/medical/proc/healTox(mob/living/target, amount_healed, base_disgust, healing_threshold)
 	if(!IsLivingHuman(target))
 		return FALSE
 
@@ -108,7 +108,7 @@
 
 	nutrition_disgust(target, target.get_tox_loss())
 	target.adjust_disgust(base_disgust)
-	target.adjust_nutrition(base_nutrition)
+	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_tox_loss(-(amount_healed * healing_multiplier))
 
 /*
@@ -132,7 +132,7 @@
 
 /obj/projectile/energy/medical/brute/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healBrute(target, amount_healed, base_disgust, healing_threshold, base_nutrition)
+	healBrute(target, amount_healed, base_disgust, healing_threshold)
 
 //Basic Burn Heal Projectile
 /obj/item/ammo_casing/energy/medical/burn1
@@ -147,7 +147,7 @@
 
 /obj/projectile/energy/medical/burn/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healBurn(target, amount_healed, base_disgust, healing_threshold, base_nutrition)
+	healBurn(target, amount_healed, base_disgust, healing_threshold)
 
 //Basic Oxygen Heal Projectile. Doesn't get a casing because the base medical projectile is already oxygen.
 /obj/projectile/energy/medical/oxygen
@@ -156,7 +156,7 @@
 
 /obj/projectile/energy/medical/oxygen/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healOxy(target, amount_healed, base_disgust, healing_threshold, base_nutrition)
+	healOxy(target, amount_healed, base_disgust, healing_threshold)
 
 //Basic Toxin Heal Projectile
 /obj/item/ammo_casing/energy/medical/toxin1
@@ -171,7 +171,7 @@
 
 /obj/projectile/energy/medical/toxin/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healTox(target, amount_healed, base_disgust, healing_threshold, base_nutrition)
+	healTox(target, amount_healed, base_disgust, healing_threshold)
 
 /*
 *	TIER TWO
@@ -380,7 +380,23 @@
 /obj/projectile/energy/medical/utility/salve/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	if(!IsLivingHuman(target)) //No using this on the dead or synths.
 		return FALSE
+
+	// Check if target already has a salve globule embedded in any limb
+	var/mob/living/carbon/human/human_target = target
+	for(var/obj/item/bodypart/limb in human_target.bodyparts)
+		if(limb.embedded_objects && length(limb.embedded_objects))
+			for(var/datum/embedding/salve_globule/existing in limb.embedded_objects)
+				target.visible_message(span_warning("The salve globule slides right off of [target]'s body, already having a globule attached!"))
+				return FALSE
+
 	return ..()
+
+/datum/embedding/salve_globule/stop_embedding()
+    var/obj/item/mending_globule/globule = parent
+    if(globule)
+        globule.visible_message(span_warning("[globule]'s hardlight field disintigrates upon being removed from its host, fizzling away into nothingness with the remaining salve!"))
+        qdel(globule)
+    return ..()
 
 //Hardlight Rollerbed Medicell
 /obj/item/ammo_casing/energy/medical/utility/bed
@@ -457,27 +473,20 @@
 	icon_state = "globule"
 	heals_left = 40 //This means it'll be heaing 10 damage per type max.
 
-/datum/embedding/salve_globule/hardlight/on_successful_embed()
-	addtimer(CALLBACK(src, PROC_REF(heal_tick)), 1, TIMER_LOOP)
-
-/datum/embedding/salve_globule/hardlight/proc/heal_tick()
-	if(!owner_limb || !istype(parent, /obj/item/mending_globule)) //Safety checks
-		return TIMER_DELETE_ME
-
+/datum/embedding/salve_globule/hardlight/process(seconds_per_tick)
 	if(!owner_limb.get_damage()) //Makes it poof as soon as the body part is fully healed, no keeping this on forever.
 		qdel(src)
-		return TIMER_DELETE_ME
+		return FALSE
 
 	var/obj/item/mending_globule/globule = parent
-	owner_limb.heal_damage(0.25, 0.25) //Heals 0.25 per second for brute and burn
+	owner_limb.heal_damage(0.25 * seconds_per_tick, 0.25 * seconds_per_tick) //Reduced healing rate over original
 	globule.heals_left--
 
 	if(globule.heals_left <= 0)
 		globule.visible_message(span_notice("[globule]'s hardlight field dissipates after fully releasing its regenerative properties."))
 		qdel(src)
-		return TIMER_DELETE_ME
 
-	return 1
+	return TRUE  // Signal successful processing
 
 //Hardlight Emergency Bed.
 /obj/structure/bed/medical/medigun
