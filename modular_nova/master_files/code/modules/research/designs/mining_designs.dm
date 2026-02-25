@@ -15,7 +15,7 @@
 
 /datum/design/board/lrm
 	name = "Linked Retrieval Matrix Board"
-	id = "lrm"
+	id = "lrm_board"
 	build_type = COLONY_FABRICATOR | PROTOLATHE | AWAY_LATHE | AUTOLATHE
 	materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT,)
 	build_path = /obj/item/circuitboard/machine/lrm
