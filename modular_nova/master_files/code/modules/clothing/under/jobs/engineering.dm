@@ -68,6 +68,7 @@
 	icon_state = "/obj/item/clothing/under/imperial/ce"
 	greyscale_colors = "#404429#404429#43443f#373741#ffffff#f48600#5c97e6"
 	flags_1 = NONE
+	armor_type = /datum/armor/clothing_under/engineering_chief_engineer
 
 /obj/item/clothing/under/imperialskirt/ce
 	desc = "An olive drab naval skirt with a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
@@ -75,6 +76,7 @@
 	icon_state = "/obj/item/clothing/under/imperialskirt/ce"
 	greyscale_colors = "#404429#43443f#373741#ffffff#f48600#5c97e6"
 	flags_1 = NONE
+	armor_type = /datum/armor/clothing_under/engineering_chief_engineer
 
 /*
 *	ATMOS TECH
