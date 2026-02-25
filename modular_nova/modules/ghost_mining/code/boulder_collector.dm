@@ -25,6 +25,15 @@
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
 
+/obj/structure/ore_box/boulder_collector/examine(mob/user)
+	. = ..()
+	var/rock_count = 0
+	for(var/datum/weakref/num_collector in available_boulders)
+		rock_count++
+
+	. += span_notice("There are [span_boldnotice("[rock_count] boulders")] available to teleport inside.")
+	. += span_notice("The boulder collector can be linked to a <b>linked retrieval matrix</b> using a <b>multitool</b>.")
+
 /obj/structure/ore_box/boulder_collector/multitool_act(mob/living/user, obj/item/multitool/I)
 	I.set_buffer(src)
 	balloon_alert(user, "saved to multitool buffer")
