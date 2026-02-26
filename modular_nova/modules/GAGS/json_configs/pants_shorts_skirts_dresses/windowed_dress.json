@@ -24,7 +24,7 @@
 	"windowed_dress_opac": [
 		{
 			"type": "icon_state",
-			"icon_state": "windowed_dress_opac",
+			"icon_state": "window_dress_opac",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
