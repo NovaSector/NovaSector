@@ -97,6 +97,7 @@
 	greyscale_config = /datum/greyscale_config/lone_skirt
 	greyscale_config_worn = /datum/greyscale_config/lone_skirt/worn
 	greyscale_colors = "#5f534a"
+	supports_variations_flags = CLOTHING_BIG_LEGS_MASK
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/dress/skirt/nova/medium

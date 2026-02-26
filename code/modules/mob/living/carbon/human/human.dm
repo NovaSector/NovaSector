@@ -55,6 +55,8 @@
 /mob/living/carbon/human/proc/setup_organless_effects()
 	// All start without eyes, and get them via set species
 	become_blind(NO_EYES)
+	// And no ears, and get them via set species
+	ADD_TRAIT(src, TRAIT_DEAF, NO_EARS)
 	// Mobs cannot taste anything without a tongue; the tongue organ removes this on Insert
 	ADD_TRAIT(src, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
 
@@ -848,10 +850,8 @@
 		if(!check_rights(R_SPAWN))
 			return
 		var/list/options = list("Clear"="Clear")
-		for(var/type in subtypesof(/datum/quirk))
+		for(var/type in valid_subtypesof(/datum/quirk))
 			var/datum/quirk/quirk_type = type
-			if(initial(quirk_type.abstract_parent_type) == type)
-				continue
 			// NOVA EDIT ADDITION START
 			if(initial(quirk_type.erp_quirk) && CONFIG_GET(flag/disable_erp_preferences))
 				continue

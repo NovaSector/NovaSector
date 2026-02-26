@@ -81,11 +81,8 @@
 		switch(teleport_option)
 			if("Bluespace")
 				spawned_player.forceMove(current_turf)
+				do_sparks(10, TRUE, spawned_player, spark_type = /datum/effect_system/basic/spark_spread/quantum)
 
-				var/datum/effect_system/spark_spread/quantum/sparks = new
-				sparks.set_up(10, 1, spawned_player)
-				sparks.attach(get_turf(spawned_player))
-				sparks.start()
 			if("Pod")
 				var/obj/structure/closet/supplypod/empty_pod = new()
 

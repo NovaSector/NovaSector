@@ -15,8 +15,11 @@ Potential future ideas:
 
 /*
 // AWARDABLE MEDALS
-// These can be pinned onto others to 'award' them, appearing in the round-end screen
+// These can be pinned onto others on the under clothes slot to 'award' them, appearing in the round-end screen
 */
+/obj/item/clothing/accessory/medal
+	attachment_slot = NONE // lifts slot restriction for medal attachment
+
 /obj/item/clothing/accessory/medal/nova
 	name = "medal of robustness"
 	desc = "A medal dedicated to those who display robustness in many fields."
@@ -27,7 +30,6 @@ Potential future ideas:
 	greyscale_config_worn = /datum/greyscale_config/medals/syndicate/worn
 	greyscale_colors = "#ffff66#990000#ffff66#990000#ffffff"
 	minimize_when_attached = TRUE
-	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 // DS-2/Syndicate Medals

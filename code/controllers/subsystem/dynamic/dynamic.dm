@@ -539,6 +539,7 @@ SUBSYSTEM_DEF(dynamic)
 		CRASH("queue_ruleset() was called with an invalid type: [ruleset_typepath]")
 
 	queued_rulesets += new ruleset_typepath(dynamic_config)
+	SStitle.show_title_screen() // NOVA EDIT ADDITION - menu latejoin tracker
 
 /**
  * Unqueues a ruleset because it has executed
@@ -548,6 +549,7 @@ SUBSYSTEM_DEF(dynamic)
 		CRASH("queue_ruleset() was called with an invalid type: [ruleset.type]")
 
 	queued_rulesets -= ruleset
+	SStitle.show_title_screen() // NOVA EDIT ADDITION - menu latejoin tracker
 
 /**
  * Get the cooldown between attempts to spawn a ruleset of the given type
