@@ -26,19 +26,15 @@
 	alert_type = /atom/movable/screen/alert/status_effect/bluespace_grounded
 	status_type = STATUS_EFFECT_REFRESH
 	show_duration = TRUE
-	var/datum/effect_system/spark_spread/quantum/spark_system
 
 /datum/status_effect/bluespace_grounded/on_apply()
 	RegisterSignal(owner, COMSIG_MOVABLE_TELEPORTING, PROC_REF(on_teleport))
 	RegisterSignal(owner, COMSIG_MOB_PRE_JAUNT, PROC_REF(on_jaunt))
-	spark_system = new /datum/effect_system/spark_spread/quantum
-	spark_system.set_up(3, TRUE, owner)
-	spark_system.start()
+	do_sparks(owner, 3, TRUE, spark_type = /datum/effect_system/basic/spark_spread/quantum)
 	to_chat(owner, span_warning("Your surroundings shimmer slightly. Teleportation, somehow, seems like it would not be a good idea."))
 	return TRUE
 
 /datum/status_effect/bluespace_grounded/on_remove()
-	qdel(spark_system)
 	UnregisterSignal(owner, COMSIG_MOVABLE_TELEPORTING)
 	UnregisterSignal(owner, COMSIG_MOB_PRE_JAUNT)
 	to_chat(owner, span_notice("Your surroundings shimmer slightly. Teleportation might be possible again."))
@@ -67,5 +63,4 @@
 	owner.Knockdown(0.2 SECONDS)
 	owner.drop_all_held_items()
 	owner.apply_damage(55, STAMINA)
-	spark_system.set_up(5, TRUE, owner)
-	spark_system.start()
+	do_sparks(5, TRUE, owner, spark_type = /datum/effect_system/basic/spark_spread/quantum)
