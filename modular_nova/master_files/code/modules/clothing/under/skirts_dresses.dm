@@ -358,7 +358,6 @@
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/windowed_dress"
 	post_init_icon_state = "windowed_dress"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	greyscale_config = /datum/greyscale_config/windowed_dress
 	greyscale_config_worn = /datum/greyscale_config/windowed_dress/worn
 	greyscale_colors = "#424242#424242#424242"
@@ -377,16 +376,12 @@
 	new_icon_state = "windowed_dress_deepv"
 
 /datum/atom_skin/windowed_dress/opac
-	preview_name = "Opaque"
+	preview_name = "Tulle"
 	new_icon_state = "windowed_dress_opac"
 
 /datum/atom_skin/windowed_dress/no_opac
-	preview_name = "Windowed Dress (No Opac)"
+	preview_name = "Collared Tulle"
 	new_icon_state = "windowed_dress_no_opac"
-
-/datum/atom_skin/windowed_dress/no_collar
-	preview_name = "Windowed Dress (No Collar)"
-	new_icon_state = "windowed_dress_no_collar"
 
 // Slit Dress
 /obj/item/clothing/under/dress/nova/slit_dress
@@ -396,7 +391,6 @@
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/slit_dress"
 	post_init_icon_state = "slit_dress"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	greyscale_config = /datum/greyscale_config/slit_dress
 	greyscale_config_worn = /datum/greyscale_config/slit_dress/worn
 	greyscale_colors = "#424242#424242#424242"
@@ -415,16 +409,12 @@
 	new_icon_state = "slit_dress_deepv"
 
 /datum/atom_skin/slit_dress/opac
-	preview_name = "Opaque"
+	preview_name = "Tulle"
 	new_icon_state = "slit_dress_opac"
 
 /datum/atom_skin/slit_dress/no_opac
-	preview_name = "Slit Dress (No Opac)"
+	preview_name = "Collared Tulle"
 	new_icon_state = "slit_dress_no_opac"
-
-/datum/atom_skin/slit_dress/no_collar
-	preview_name = "Slit Dress (No Collar)"
-	new_icon_state = "slit_dress_no_collar"
 
 // Shorter Dress
 /obj/item/clothing/under/dress/nova/shorter_dress
@@ -434,7 +424,6 @@
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/shorter_dress"
 	post_init_icon_state = "shorter_dress"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	greyscale_config = /datum/greyscale_config/shorter_dress
 	greyscale_config_worn = /datum/greyscale_config/shorter_dress/worn
 	greyscale_colors = "#424242#424242#424242"
@@ -453,16 +442,12 @@
 	new_icon_state = "shorter_dress_deepv"
 
 /datum/atom_skin/shorter_dress/opac
-	preview_name = "Opaque"
+	preview_name = "Tulle"
 	new_icon_state = "shorter_dress_opac"
 
 /datum/atom_skin/shorter_dress/no_opac
-	preview_name = "Shorter Dress (No Opac)"
+	preview_name = "Collared Tulle"
 	new_icon_state = "shorter_dress_no_opac"
-
-/datum/atom_skin/shorter_dress/no_collar
-	preview_name = "Shorter Dress (No Collar)"
-	new_icon_state = "shorter_dress_no_collar"
 
 // Pen Skirt
 /obj/item/clothing/under/dress/nova/pen_skirt
@@ -472,7 +457,6 @@
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/pen_skirt"
 	post_init_icon_state = "pen_skirt"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	greyscale_config = /datum/greyscale_config/pen_skirt
 	greyscale_config_worn = /datum/greyscale_config/pen_skirt/worn
 	greyscale_colors = "#424242"
@@ -487,8 +471,8 @@
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/formal_pen_skirt"
 	post_init_icon_state = "formal_pen_skirt"
-	can_adjust = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	can_adjust = TRUE
 	greyscale_config = /datum/greyscale_config/formal_pen_skirt
 	greyscale_config_worn = /datum/greyscale_config/formal_pen_skirt/worn
 	greyscale_colors = "#424242#424242"
