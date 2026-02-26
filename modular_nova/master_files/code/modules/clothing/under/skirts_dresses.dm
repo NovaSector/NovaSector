@@ -360,7 +360,7 @@
 	post_init_icon_state = "windowed_dress"
 	greyscale_config = /datum/greyscale_config/windowed_dress
 	greyscale_config_worn = /datum/greyscale_config/windowed_dress/worn
-	greyscale_colors = "#424242#424242#424242"
+	greyscale_colors = "#424242#424242
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN|LEGS
 
@@ -393,7 +393,7 @@
 	post_init_icon_state = "slit_dress"
 	greyscale_config = /datum/greyscale_config/slit_dress
 	greyscale_config_worn = /datum/greyscale_config/slit_dress/worn
-	greyscale_colors = "#424242#424242#424242"
+	greyscale_colors = "#424242#424242
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN|LEGS
 
@@ -426,7 +426,7 @@
 	post_init_icon_state = "shorter_dress"
 	greyscale_config = /datum/greyscale_config/shorter_dress
 	greyscale_config_worn = /datum/greyscale_config/shorter_dress/worn
-	greyscale_colors = "#424242#424242#424242"
+	greyscale_colors = "#424242#424242
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN|LEGS
 
