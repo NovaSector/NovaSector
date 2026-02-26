@@ -381,7 +381,7 @@
 	new_icon_state = "windowed_dress_opac"
 
 /datum/atom_skin/windowed_dress/no_opac
-	preview_name = "Collared Tulle"
+	preview_name = "Straight Collared"
 	new_icon_state = "windowed_dress_no_opac"
 
 // Slit Dress
@@ -414,7 +414,7 @@
 	new_icon_state = "slit_dress_opac"
 
 /datum/atom_skin/slit_dress/no_opac
-	preview_name = "Collared Tulle"
+	preview_name = "Straight Collared"
 	new_icon_state = "slit_dress_no_opac"
 
 // Shorter Dress
@@ -447,7 +447,7 @@
 	new_icon_state = "shorter_dress_opac"
 
 /datum/atom_skin/shorter_dress/no_opac
-	preview_name = "Collared Tulle"
+	preview_name = "Straight Collared"
 	new_icon_state = "shorter_dress_no_opac"
 
 // Pen Skirt
