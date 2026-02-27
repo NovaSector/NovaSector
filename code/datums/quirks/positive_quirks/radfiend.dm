@@ -26,7 +26,7 @@
 
 /datum/quirk/rad_fiend/remove()
 
-	if(QDELETED(quirk_mob))
+	if(QDELETED(quirk_holder))
 		return
 
 	// Remove radiation immunity
