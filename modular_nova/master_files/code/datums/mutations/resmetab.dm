@@ -50,7 +50,7 @@
 	// Define health needing updates
 	var/need_mob_update = FALSE
 	// Check brute threshold
-	if(our_being.get_brute_loss() <= RESTMETA_BRUTE_THRESHOLD*(1/synchronizer_coefficient))
+	if(owner.get_brute_loss() <= RESTMETA_BRUTE_THRESHOLD*(1/synchronizer_coefficient))
 		need_mob_update += owner.adjust_brute_loss(RESTMETA_BRUTE_AMOUNT * power_coefficient * seconds_per_tick, updating_health = FALSE)
 
 	// Check burn threshold
