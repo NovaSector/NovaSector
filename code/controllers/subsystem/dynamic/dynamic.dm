@@ -540,7 +540,7 @@ SUBSYSTEM_DEF(dynamic)
 
 	queued_rulesets += new ruleset_typepath(dynamic_config)
 	// NOVA EDIT ADDITION START - menu latejoin tracker
-	if(SSticker.current_state <= GAME_STATE_SETTING_UP) // Don't flash this while we are assigning roundstart antags
+	if(SSticker.current_state > GAME_STATE_SETTING_UP) // Don't flash this while we are assigning roundstart antags
 		SStitle.show_title_screen()
 	// NOVA EDIT ADDITION END - menu latejoin tracker
 
@@ -553,7 +553,7 @@ SUBSYSTEM_DEF(dynamic)
 
 	queued_rulesets -= ruleset
 	// NOVA EDIT ADDITION START - menu latejoin tracker
-	if(SSticker.current_state <= GAME_STATE_SETTING_UP) // Don't flash this while we are assigning roundstart antags
+	if(SSticker.current_state > GAME_STATE_SETTING_UP) // Don't flash this while we are assigning roundstart antags
 		SStitle.show_title_screen()
 	// NOVA EDIT ADDITION END - menu latejoin tracker
 
