@@ -112,6 +112,3 @@
 
 /// Signal sent whenever a gun with a barrel booster toggles its barrel booster.
 #define COMSIG_GUN_BOOSTER_TOGGLED "gun_booster_toggled"
-
-// Triggered when metabolizing Nuka Cola. Used by quirk: Rad Fiend
-#define COMSIG_REAGENT_METABOLIZE_NUKACOLA "reagent_metabolize_nukacola"
