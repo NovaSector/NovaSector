@@ -16,7 +16,12 @@
 // - A cosmetic glow effect
 // - A favorite food mood bonus for drinking Nuka Cola
 
-/datum/quirk/rad_fiend/add(client/client_source)
+
+/datum/quirk/rad_fiend/is_species_appropriate(datum/species/mob_species)
+	if(TRAIT_RADIMMUNE in GLOB.species_prototypes[mob_species].inherent_traits)
+		return FALSE
+	return ..()
+
 	// Define quirk holder mob
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
