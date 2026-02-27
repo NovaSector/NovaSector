@@ -25,7 +25,7 @@
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
 	// Add radiation immunity
-	ADD_TRAIT(quirk_mob, TRAIT_RADIMMUNE, TRAIT_RAD_FIEND)
+	ADD_TRAIT(quirk_mob, TRAIT_RADIMMUNE)
 
 /datum/quirk/rad_fiend/remove()
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
@@ -34,4 +34,4 @@
 		return
 
 	// Remove radiation immunity
-	REMOVE_TRAIT(quirk_mob, TRAIT_RADIMMUNE, TRAIT_RAD_FIEND)
+	REMOVE_TRAIT(quirk_mob, TRAIT_RADIMMUNE)
