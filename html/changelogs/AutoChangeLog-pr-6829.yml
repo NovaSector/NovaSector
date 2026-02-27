@@ -1,5 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - code_imp: "Quantum Server will ask for username first, and will prevent interactions if message protected"
-  - bugfix: "Lights no longer turn off in bitrunning domains (and the rest of the reserved z-level)"
