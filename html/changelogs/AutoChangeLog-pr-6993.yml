@@ -1,4 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - bugfix: "Fixes \"Moth (Featherful)\" wings having no sprites and renames them to \"Moth (Feathery)\""

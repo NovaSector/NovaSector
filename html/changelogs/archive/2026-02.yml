@@ -431,3 +431,17 @@
   - qol: HC cops' loadouts have been slightly rejiggled into a more appropriate shape.
   sqnztb:
   - balance: HC survival packs are now normal sized.
+2026-02-27:
+  Happyowl93:
+  - rscadd: Adds custom medical pens printable straight from the chemmaster/plumbing
+      pill press
+  Hardly:
+  - bugfix: Fixes "Moth (Featherful)" wings having no sprites and renames them to
+      "Moth (Feathery)"
+  Some2s:
+  - bugfix: fixed a sprite inconsistency
+  bigbakedbean:
+  - rscadd: Added Experiment Plushie
+  splat1125:
+  - image: Fixed outdated Teshari bio suit sprites for all variants
+  - image: Added Teshari sprites for all bio hood variants
