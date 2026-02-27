@@ -135,16 +135,6 @@
 	// Reset to stored color when not given input
 	glow_color = (input_color ? input_color : glow_color)
 
-	// Replaced by alert type input
-	/*
-	// Ask user for thickness input
-	var/input_thickness_tgui = tgui_input_number(action_mob, "How thick is your glow outline?", "Select Glow Thickness", default = COSGLOW_THICKNESS_DEFAULT, max_value = COSGLOW_THICKNESS_MAX, min_value = COSGLOW_THICKNESS_MIN)
-
-	// Check if thickness input was given
-	// Reset to stored thickness when input is null
-	glow_thickness = isnull(input_thickness_tgui) ? glow_thickness : input_thickness_tgui
-	*/
-
 	// Ask user for thickness input
 	switch(tgui_alert(action_mob, message = "How thick is your glow outline?", buttons = list("Light", "Regular", "Bold")))
 		// Set based on input
@@ -161,21 +151,6 @@
 			light_obj_power = COSGLOW_LAMP_POWER_MAX
 		else
 			return
-
-	// Opacity input interferes with the animation
-	/*
-	// Ask user for opacity input
-	// Limit maximum to prevent crew turning into stickers
-	var/input_opacity_tgui = tgui_input_number(action_mob, "How opaque is your glow outline?", "Select Glow Opacity", default = COSGLOW_OPACITY_DEFAULT, max_value = COSGLOW_OPACITY_MAX, min_value = COSGLOW_OPACITY_MIN)
-
-	// Check if opacity input was given
-	// If no input is given, reset to stored opacity
-	var/opacity_clamped = isnull(input_opacity_tgui) ? hex2num(glow_opacity) : input_opacity_tgui
-
-	// Update glow opacity
-	glow_opacity = num2hex(opacity_clamped, 2)
-	*/
-
 	// Update outline effect
 	action_mob.add_filter("rad_fiend_glow", 1, outline_filter("color" = glow_color + "[glow_opacity]", "size" = glow_thickness))
 
@@ -188,9 +163,6 @@
 
 	// Find status effect
 	var/datum/status_effect/cosglow/glow_effect = locate() in action_mob.status_effects
-
-	// Update status effect light color
-	//glow_effect?.cosglow_light_obj?.set_light_color(glow_color) // Unused
 
 	// Update status effect light range
 	glow_effect?.cosglow_light_obj?.set_light_power(light_obj_power)
