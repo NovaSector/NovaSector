@@ -56,7 +56,8 @@
 	var/glow_thickness = client_source?.prefs?.read_preference(/datum/preference/numeric/cosglow_thickness) || COSGLOW_THICKNESS_DEFAULT
 
 	// Outline effect
-	quirk_mob.add_filter("cosglow_glow", 1, outline_filter("color" = glow_color + "[32]", "size" = glow_thickness))	var/filter = quirk_mob.get_filter("cosglow_glow")
+	quirk_mob.add_filter("cosglow_glow", 1, outline_filter("color" = glow_color + "[32]", "size" = glow_thickness))
+	var/filter = quirk_mob.get_filter("cosglow_glow")
 	animate(filter, alpha = 40, time = 2.5 SECONDS, loop = -1)
 	animate(alpha = 110, time = 1.5 SECONDS)
 
