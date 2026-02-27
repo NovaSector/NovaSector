@@ -67,14 +67,12 @@
 	return span_notice("[owner.p_They()] emit[owner.p_s()] a harmless glowing aura.")
 
 // Glow actions
-/datum/action/cosglow
-	name = "Broken Glow Action"
-	desc = "Report this to a coder."
+/datum/action/cosglow/update_glow
+	name = "Modify Glow"
+	desc = "Adjust your glow aura color and thickness."
 	button_icon = 'icons/obj/lighting.dmi'
 	button_icon_state = "slime-on"
 	check_flags = AB_CHECK_CONSCIOUS
-
-/datum/action/cosglow/update_glow
 	name = "Modify Glow"
 	desc = "Adjust your glow aura color and thickness."
 
