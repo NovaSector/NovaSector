@@ -30,7 +30,7 @@
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
 	// Add glow control action
-	var/datum/action/cosglow/update_glow/quirk_action = new
+	glow_control_action = new
 	quirk_action.Grant(quirk_mob)
 
 /datum/quirk/cosglow/remove()
