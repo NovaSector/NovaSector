@@ -75,7 +75,7 @@
 	check_flags = AB_CHECK_CONSCIOUS
 
 	// Default glow color to use
-	// Analogous to radiation color
+	/// Analogous to radiation color
 	var/glow_color = "#14FF67"
 
 	// Default thickness of glow outline
