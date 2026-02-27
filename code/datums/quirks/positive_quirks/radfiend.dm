@@ -22,11 +22,9 @@
 	return ..()
 
 /datum/quirk/rad_fiend/add()
-
 	// Add radiation immunity
 	ADD_TRAIT(quirk_holder, TRAIT_RADIMMUNE, src)
 
 /datum/quirk/rad_fiend/remove()
-
 	// Remove radiation immunity
 	REMOVE_TRAIT(quirk_holder, TRAIT_RADIMMUNE, src)
