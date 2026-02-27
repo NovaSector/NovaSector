@@ -73,8 +73,6 @@
 	button_icon = 'icons/obj/lighting.dmi'
 	button_icon_state = "slime-on"
 	check_flags = AB_CHECK_CONSCIOUS
-	name = "Modify Glow"
-	desc = "Adjust your glow aura color and thickness."
 
 	// Default glow color to use
 	// Analogous to radiation color
