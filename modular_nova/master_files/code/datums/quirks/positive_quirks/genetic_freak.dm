@@ -1,3 +1,16 @@
+/// Assoc list of mutation names to list of restricted species typepaths
+/// Add more entries here to restrict additional mutations from specific species
+GLOBAL_LIST_INIT(genetic_mutation_species_restrictions, list(
+	"Restorative metabolism" = list(
+		/datum/species/jelly,
+		/datum/species/hemophage,
+		/datum/species/pod,
+	),
+	"Cold adaptation" = list(
+		/datum/species/jelly,
+	),
+))
+
 GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	"Antenna" = /datum/mutation/antenna,
 	"Autotomy" = /datum/mutation/self_amputation,
@@ -59,6 +72,33 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 		return FALSE
 
 	return "Genetic Mutation" in preferences.all_quirks
+
+/// Helper proc to check if a mutation is restricted for a given species
+/// Returns TRUE if the mutation is restricted (not allowed), FALSE otherwise
+/proc/is_mutation_restricted_for_species(mutation_name, datum/species/mob_species)
+	var/list/restrictions = GLOB.genetic_mutation_species_restrictions[mutation_name]
+	if(!restrictions)
+		return FALSE
+
+	for(var/restricted_type in restrictions)
+		if(ispath(mob_species, restricted_type))
+			return TRUE
+
+	return FALSE
+
+/datum/preference/choiced/genetic_mutation/is_valid(value, datum/preferences/preferences)
+	// First check if the value is in the allowed choices
+	if(!(value in get_choices()))
+		return FALSE
+
+	var/datum/species/mob_species = preferences.read_preference(/datum/preference/choiced/species)
+
+	// Check if this mutation is restricted for the selected species
+	if(is_mutation_restricted_for_species(value, mob_species))
+		to_chat(preferences.parent, span_warning("[value] is not compatible with your current species."))
+		return FALSE
+
+	return TRUE
 
 /datum/preference/choiced/genetic_mutation/apply_to_human(mob/living/carbon/human/target, value)
 	return
