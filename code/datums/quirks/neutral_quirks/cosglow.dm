@@ -31,7 +31,7 @@
 
 	// Add glow control action
 	glow_control_action = new
-	quirk_action.Grant(quirk_mob)
+	glow_control_action.Grant(quirk_mob)
 
 /datum/quirk/cosglow/remove()
 	// Define quirk holder mob
