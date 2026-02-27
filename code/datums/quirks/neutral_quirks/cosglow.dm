@@ -56,20 +56,9 @@
 	var/obj/effect/dummy/lighting_obj/moblight/cosglow_light_obj
 
 /datum/status_effect/cosglow/on_apply()
-	// Dynamic color is disabled
-	/*
-	// Get glow action
-	var/datum/action/cosglow/update_glow/quirk_action = locate() in owner.actions
-
-	// Check if glow action exists
-	if(!quirk_action)
-		return FALSE
-	*/
-
 	// Set light values
 	// Ignores range settings to prevent crew becoming lanterns
 	cosglow_light_obj = owner.mob_light(range = COSGLOW_LAMP_RANGE_DEFAULT, power = COSGLOW_LAMP_POWER_DEFAULT, color = COSGLOW_LAMP_COLOR)
-
 	return TRUE
 
 /datum/status_effect/cosglow/on_remove()
