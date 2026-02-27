@@ -78,13 +78,13 @@
 	/// Analogous to radiation color
 	var/glow_color = "#14FF67"
 
-	// Default thickness of glow outline
+	/// Default thickness of glow outline
 	var/glow_thickness = COSGLOW_THICKNESS_DEFAULT
 
-	// Default alpha of the glow outline
+	/// Default alpha of the glow outline
 	var/glow_opacity = COSGLOW_OPACITY_DEFAULT
 
-	// Light range of the attached object
+	/// Light range of the attached object
 	var/light_obj_power = COSGLOW_LAMP_POWER_DEFAULT
 
 /datum/action/cosglow/update_glow/Grant(mob/grant_to)
