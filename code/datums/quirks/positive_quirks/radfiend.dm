@@ -12,7 +12,7 @@
 		/datum/glass_style/drinking_glass/nuka_cola,
 	)
 
-// This quirk does three things:
+// This quirk does two things:
 // - Immunity to radiation
 // - A favorite food mood bonus for drinking Nuka Cola
 
