@@ -64,7 +64,7 @@
 	// Check if healing will be applied
 	if(need_mob_update)
 		// Update health
-		our_being.updatehealth()
+		owner.updatehealth()
 
 #undef RESTMETA_BRUTE_THRESHOLD
 #undef RESTMETA_BRUTE_AMOUNT
