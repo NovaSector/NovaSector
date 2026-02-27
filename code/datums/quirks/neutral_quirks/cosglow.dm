@@ -42,7 +42,7 @@
 
 	// Remove glow control action
 	var/datum/action/cosglow/update_glow/quirk_action = locate() in quirk_mob.actions
-	quirk_action.Remove(quirk_mob)
+	QDEL_NULL(glow_control_action)
 
 	// Remove glow effect
 	quirk_mob.remove_filter("rad_fiend_glow")
