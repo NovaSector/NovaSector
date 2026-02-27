@@ -21,17 +21,13 @@
 		return FALSE
 	return ..()
 
-	// Define quirk holder mob
-	var/mob/living/carbon/human/quirk_mob = quirk_holder
-
 	// Add radiation immunity
-	ADD_TRAIT(quirk_mob, TRAIT_RADIMMUNE, src)
+	ADD_TRAIT(quirk_holder, TRAIT_RADIMMUNE, src)
 
 /datum/quirk/rad_fiend/remove()
-	var/mob/living/carbon/human/quirk_mob = quirk_holder
 
 	if(QDELETED(quirk_mob))
 		return
 
 	// Remove radiation immunity
-	REMOVE_TRAIT(quirk_mob, TRAIT_RADIMMUNE, src)
+	REMOVE_TRAIT(quirk_holder, TRAIT_RADIMMUNE, src)
