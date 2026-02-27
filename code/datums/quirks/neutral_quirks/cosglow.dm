@@ -24,6 +24,9 @@
 /datum/preference/color/cosglow_glow_color/create_default_value()
 	return "#14FF67"
 
+/datum/preference/color/cosglow_glow_color/apply_to_human()
+	return
+
 /datum/preference/numeric/cosglow_thickness
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "cosglow_thickness"
@@ -31,6 +34,9 @@
 	minimum = COSGLOW_THICKNESS_MIN
 	maximum = COSGLOW_THICKNESS_MAX
 	step = 0.5
+
+/datum/preference/numeric/cosglow_thickness/apply_to_human()
+	return
 
 /datum/preference/numeric/cosglow_thickness/create_default_value()
 	return COSGLOW_THICKNESS_DEFAULT
