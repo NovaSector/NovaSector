@@ -26,7 +26,7 @@
 		/obj/item/flashlight/glowstick = 1
 	)
 	/// The action to update the glow
-	var/datum/action/cosglow/update_glow/glow_control_action
+	var/datum/action/cosglow/glow_control_action
 
 /datum/quirk/cosglow/add(client/client_source)
 	// Define quirk holder mob
@@ -67,7 +67,7 @@
 	return span_notice("[owner.p_They()] emit[owner.p_s()] a harmless glowing aura.")
 
 // Glow actions
-/datum/action/cosglow/update_glow
+/datum/action/cosglow
 	name = "Modify Glow"
 	desc = "Adjust your glow aura color and thickness."
 	button_icon = 'icons/obj/lighting.dmi'
@@ -87,7 +87,7 @@
 	/// Light range of the attached object
 	var/light_obj_power = COSGLOW_LAMP_POWER_DEFAULT
 
-/datum/action/cosglow/update_glow/Grant(mob/grant_to)
+/datum/action/cosglow/Grant(mob/grant_to)
 	. = ..()
 
 	// Define user mob
@@ -106,7 +106,7 @@
 	// Apply status effect
 	action_mob.apply_status_effect(/datum/status_effect/cosglow, TRAIT_COSGLOW)
 
-/datum/action/cosglow/update_glow/Remove(mob/remove_from)
+/datum/action/cosglow/Remove(mob/remove_from)
 	. = ..()
 
 	// Define user mob
@@ -118,7 +118,7 @@
 	// Remove status effect
 	action_mob.remove_status_effect(/datum/status_effect/cosglow, TRAIT_COSGLOW)
 
-/datum/action/cosglow/update_glow/Trigger(trigger_flags)
+/datum/action/cosglow/Trigger(trigger_flags)
 	. = ..()
 
 	// Check parent return
