@@ -78,7 +78,7 @@
 
 /obj/item/clothing/under/imperial/quartermaster
 	name = "quartermaster's naval uniform"
-	desc = "A uniform of the grand navy questionably granted to NanoTrasen's favorite union representative."
+	desc = "A uniform of the grand navy questionably granted to Nanotrasen's favorite union representative."
 	icon_state = "/obj/item/clothing/under/imperial/quartermaster"
 	greyscale_colors = "#8B4C31#8B4C31#3E3E48#373741#ccced1#DEB63D#DEB63D"
 	flags_1 = NONE
