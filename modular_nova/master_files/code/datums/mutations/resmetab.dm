@@ -53,15 +53,15 @@
 	var/need_mob_update = FALSE
 	// Check brute threshold
 	if(our_being.get_brute_loss() <= RESTMETA_BRUTE_THRESHOLD*(1/synchronizer_coefficient))
-		need_mob_update += our_being.adjust_brute_loss(RESTMETA_BRUTE_AMOUNT*power_coefficient * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += owner.adjust_brute_loss(RESTMETA_BRUTE_AMOUNT * power_coefficient * seconds_per_tick, updating_health = FALSE)
 
 	// Check burn threshold
-	if(our_being.get_fire_loss() <= RESTMETA_BURN_THRESHOLD*(1/synchronizer_coefficient))
-		need_mob_update += our_being.adjust_fire_loss(RESTMETA_BURN_AMOUNT*power_coefficient * seconds_per_tick, updating_health = FALSE)
+	if(owner.get_fire_loss() <= RESTMETA_BURN_THRESHOLD*(1/synchronizer_coefficient))
+		need_mob_update += owner.adjust_fire_loss(RESTMETA_BURN_AMOUNT * power_coefficient * seconds_per_tick, updating_health = FALSE)
 
 	// Check tox threshold
-	if(our_being.get_tox_loss() <= RESTMETA_TOX_THRESHOLD*(1/synchronizer_coefficient))
-		need_mob_update += our_being.adjust_tox_loss(RESTMETA_TOX_AMOUNT*power_coefficient * seconds_per_tick, updating_health = FALSE, forced = TRUE)
+	if(owner.get_tox_loss() <= RESTMETA_TOX_THRESHOLD*(1/synchronizer_coefficient))
+		need_mob_update += owner.adjust_tox_loss(RESTMETA_TOX_AMOUNT * power_coefficient * seconds_per_tick, updating_health = FALSE, forced = TRUE)
 
 	// Check if healing will be applied
 	if(need_mob_update)
