@@ -29,7 +29,7 @@
 
 /datum/mutation/restorative_metabolism/setup()
 	. = ..()
-	var/datum/mutation/restorative_metabolism/to_modify =.
+	var/datum/mutation/restorative_metabolism/to_modify = .
 
 	if(!istype(to_modify)) // null or invalid
 		return
