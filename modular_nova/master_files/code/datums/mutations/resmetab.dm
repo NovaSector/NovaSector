@@ -24,7 +24,6 @@
 
 /datum/mutation/restorative_metabolism/on_acquiring(mob/living/carbon/human/owner)
 	. = ..()
-	our_being = owner
 	START_PROCESSING(SSobj, src)
 
 /datum/mutation/restorative_metabolism/setup()
