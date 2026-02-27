@@ -5,7 +5,7 @@
 	gain_text = span_notice("You feel empowered by Cherenkov's glow.")
 	lose_text = span_notice("You realize that rads aren't so rad.")
 	medical_record_text = "Patient emits a slight radioactive aura. The effect is harmless."
-	mob_trait = TRAIT_RAD_FIEND
+	mob_trait = TRAIT_RADIMMUNE
 	icon = FA_ICON_RADIATION
 	mail_goodies = list (
 		/obj/item/geiger_counter = 1
