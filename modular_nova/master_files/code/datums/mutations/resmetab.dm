@@ -16,7 +16,6 @@
 	energy_coeff = 1
 	power_coeff = 1
 	synchronizer_coeff = 1
-	var/mob/living/carbon/human/our_being = null
 	/// The mutation's power coefficient.
 	var/power_coefficient = 1
 	/// The mutation's synchronizer coefficient.
