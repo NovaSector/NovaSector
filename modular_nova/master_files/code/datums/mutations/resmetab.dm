@@ -4,10 +4,11 @@
 #define RESTMETA_BURN_AMOUNT -0.2
 #define RESTMETA_TOX_THRESHOLD 30
 #define RESTMETA_TOX_AMOUNT -0.1
+#define RESTMETA_HUNGRY_MOD 1.2 // 20% more hungry
 
 /datum/mutation/restorative_metabolism
 	name = "Restorative Metabolism"
-	desc = "Your body possesses a differentiated reconstructive ability, allowing you to slowly recover from light to moderate injuries. Critical injuries, wounds, and radiation damage will still require medical attention."
+	desc = "Your body possesses a differentiated reconstructive ability, allowing you to slowly recover from light to moderate injuries while it's well fed at the cost of a higher metabolism. Critical injuries, wounds, and radiation damage will still require medical attention."
 	text_gain_indication = span_notice("You feel a surge of reconstructive vitality coursing through your body.")
 	text_lose_indication = span_notice("You sense your enhanced reconstructive ability fading away...")
 	quality = POSITIVE
@@ -23,6 +24,10 @@
 
 /datum/mutation/restorative_metabolism/on_acquiring(mob/living/carbon/human/owner)
 	. = ..()
+
+	if(istype(owner))
+		owner.physiology.hunger_mod *= RESTMETA_HUNGRY_MOD
+
 	START_PROCESSING(SSobj, src)
 
 /datum/mutation/restorative_metabolism/setup()
@@ -39,11 +44,15 @@
 
 /datum/mutation/restorative_metabolism/on_losing(mob/living/carbon/human/owner)
 	. = ..()
+
+	if(istype(owner))
+		owner.physiology.hunger_mod /= RESTMETA_HUNGRY_MOD
+
 	STOP_PROCESSING(SSobj, src)
 
 /datum/mutation/restorative_metabolism/process(seconds_per_tick)
-	// Mutation holder must be injured
-	if(owner.health >= owner.maxHealth)
+	// Mutation holder must be injured and not starving
+	if(owner.health >= owner.maxHealth || owner.nutrition <= NUTRITION_LEVEL_STARVING)
 		// Do nothing
 		return
 
@@ -72,3 +81,4 @@
 #undef RESTMETA_BURN_AMOUNT
 #undef RESTMETA_TOX_THRESHOLD
 #undef RESTMETA_TOX_AMOUNT
+#undef RESTMETA_HUNGRY_MOD
