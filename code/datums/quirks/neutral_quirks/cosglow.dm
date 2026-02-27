@@ -159,6 +159,8 @@
 		if ("Bold")
 			glow_thickness = COSGLOW_THICKNESS_MAX
 			light_obj_power = COSGLOW_LAMP_POWER_MAX
+		else
+			return
 
 	// Opacity input interferes with the animation
 	/*
