@@ -43,7 +43,7 @@
 
 /datum/mutation/restorative_metabolism/process(seconds_per_tick)
 	// Mutation holder must be injured
-	if(our_being.health >= our_being.maxHealth)
+	if(owner.health >= owner.maxHealth)
 		// Do nothing
 		return
 
