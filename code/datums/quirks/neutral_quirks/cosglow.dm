@@ -52,7 +52,7 @@
 	status_type = STATUS_EFFECT_REPLACE
 	id = "cosglow"
 	alert_type = null
-	// Light effect object
+	/// Light effect object
 	var/obj/effect/dummy/lighting_obj/moblight/cosglow_light_obj
 
 /datum/status_effect/cosglow/on_apply()
