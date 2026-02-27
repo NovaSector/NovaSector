@@ -25,6 +25,9 @@
 	mail_goodies = list (
 		/obj/item/flashlight/glowstick = 1
 	)
+	/// The action to update the glow
+	var/datum/action/cosglow/update_glow/glow_control_action
+
 /datum/quirk/cosglow/add(client/client_source)
 	// Define quirk holder mob
 	var/mob/living/carbon/human/quirk_mob = quirk_holder
