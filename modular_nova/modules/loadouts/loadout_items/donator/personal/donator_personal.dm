@@ -237,7 +237,7 @@
 /datum/loadout_item/mask/wolf_mask
 	name = "Wolf Mask"
 	item_path = /obj/item/clothing/mask/animal/wolf
-	ckeywhitelist = list("theooz")
+	ckeywhitelist = list("hauntme")
 
 /datum/loadout_item/head/drake_skull
 	name = "Skull of an ashdrake"

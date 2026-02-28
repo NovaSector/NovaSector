@@ -67,14 +67,14 @@
 
 /// 'Marks' the server with the ghost's presence: their custom-written message, and the ckey added to the spam-prevention list.
 /obj/machinery/quantum_server/proc/ghost_mark(mob/activator)
-	var/message = tgui_input_text(activator, "Write your message", "Holonet Gaming Network", max_length = MAX_PLAQUE_LEN)
-	if(!message)
+	if(message_protected)
+		balloon_alert(activator, "message protected!")
 		return
 	var/messenger = tgui_input_text(activator, "Set your username", "Holonet Gaming Network", max_length = MAX_NAME_LEN)
 	if(!messenger)
 		messenger = pick(GLOB.hacker_aliases)
-	if(message_protected)
-		balloon_alert(activator, "message protected!")
+	var/message = tgui_input_text(activator, "Write your message", "Holonet Gaming Network", max_length = MAX_PLAQUE_LEN)
+	if(!message)
 		return
 	playsound(loc, 'sound/machines/ectoscope_beep.ogg', 75)
 	aas_config_announce(/datum/aas_config_entry/bitrunning_ghost_mark, list("NAME" = messenger, "MESSAGE" = message), src, list(RADIO_CHANNEL_FACTION))
