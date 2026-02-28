@@ -217,23 +217,23 @@
 	new_immmutable.add_turf(src)
 
 /turf/closed/mineral/random/ocean
-	baseturfs = /turf/open/misc/ocean/rock/heavy
-	turf_type = /turf/open/misc/ocean/rock/heavy
+	baseturfs = /turf/open/misc/beach/sand
+	turf_type = /turf/open/misc/beach/sand
 	color = "#58606b"
 
 /turf/closed/mineral/random/high_chance/ocean
-	baseturfs = /turf/open/misc/ocean/rock/heavy
-	turf_type = /turf/open/misc/ocean/rock/heavy
+	baseturfs = /turf/open/misc/beach/sand/nofishy
+	turf_type = /turf/open/misc/beach/sand/nofishy
 	color = "#58606b"
 
 /turf/closed/mineral/random/low_chance/ocean
-	baseturfs = /turf/open/misc/ocean/rock/heavy
-	turf_type = /turf/open/misc/ocean/rock/heavy
+	baseturfs = /turf/open/misc/beach/sand/nofishy
+	turf_type = /turf/open/misc/beach/sand/nofishy
 	color = "#58606b"
 
 /turf/closed/mineral/random/stationside/ocean
-	baseturfs = /turf/open/misc/ocean/rock/heavy
-	turf_type = /turf/open/misc/ocean/rock/heavy
+	baseturfs = /turf/open/misc/ashplanet/wateryrock/planet_surface
+	turf_type = /turf/open/misc/ashplanet/wateryrock/planet_surface
 	color = "#58606b"
 
 /obj/effect/abstract/liquid_turf/immutable/canal
@@ -318,3 +318,88 @@
 //For now just a titanium wall. I'll make sprites for it later
 /turf/closed/wall/mineral/titanium/submarine
 	name = "submarine wall"
+
+/turf/open/water/deep_beach/planet_surface
+	planetary_atmos = TRUE
+	space_lit = TRUE
+	light_range = 2
+	planetary_atmos = TRUE
+	reagent_to_extract = /datum/reagent/water/salt
+
+/turf/open/water/deep_beach/lethal/planet_surface
+	planetary_atmos = TRUE
+	space_lit = TRUE
+	light_range = 2
+	color = "#8898ad"
+	reagent_to_extract = /datum/reagent/water/salt
+
+/turf/open/water/beach/planet_surface
+	planetary_atmos = TRUE
+	space_lit = TRUE
+	light_range = 2
+	reagent_to_extract = /datum/reagent/water/salt
+
+/*
+	For around the ordinance test range for the Ocean Pubby
+	The /water are easily handled but the /beach ones have an extra
+	fishing added on during their init, so the base type gets the fishing enabled here
+	and we'll selectively disable it via an edit to the base initalize in
+	code\game\turfs\open\sand.dm
+
+*/
+/turf/open/water/beach/planet_surface/nofishy
+	desc = "The water's great, but the immediate area seems completely devoid of fish..."
+	fishing_datum = null
+
+/turf/open/misc/beach
+	var/fishing_enabled = TRUE
+
+/turf/open/misc/beach/nofishy
+	fishing_enabled = FALSE
+
+/turf/open/misc/beach/sand/nofishy
+	fishing_enabled = FALSE
+
+/turf/open/misc/beach/coast/nofishy
+	fishing_enabled = FALSE
+
+/turf/open/misc/beach/coast/corner/nofishy
+	fishing_enabled = FALSE
+
+/turf/open/water/hot_spring/planet_surface
+	planetary_atmos = TRUE
+	space_lit = TRUE
+	light_range = 2
+	reagent_to_extract = /datum/reagent/water/salt
+
+/turf/open/misc/ashplanet/wateryrock/planet_surface
+	planetary_atmos = TRUE
+	space_lit = TRUE
+	light_range = 2
+	slowdown = 0
+	initial_gas_mix = /turf/open/water::initial_gas_mix
+
+// Allows building lattices and floor tiles over water turfs
+// Code yoinked from /turf/open/openspace
+/turf/open/water/attackby(obj/item/attacking_item, mob/user, list/modifiers)
+	..()
+	if(istype(attacking_item, /obj/item/stack/rods))
+		build_with_rods(attacking_item, user)
+	else if(ismetaltile(attacking_item))
+		build_with_floor_tiles(attacking_item, user)
+
+/turf/open/water/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
+	if(the_rcd.mode == RCD_TURF && the_rcd.rcd_design_path == /turf/open/floor/plating/rcd)
+		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
+		if(L)
+			return list("delay" = 0, "cost" = 1)
+		else
+			return list("delay" = 0, "cost" = 3)
+
+	return FALSE
+
+/turf/open/water/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, list/rcd_data)
+	if(rcd_data[RCD_DESIGN_MODE] == RCD_TURF && rcd_data[RCD_DESIGN_PATH] == /turf/open/floor/plating/rcd)
+		place_on_top(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+		return TRUE
+	return FALSE

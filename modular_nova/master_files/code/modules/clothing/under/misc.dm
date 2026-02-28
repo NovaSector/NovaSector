@@ -47,7 +47,7 @@
 	name = "tacticasual uniform"
 	desc = "A white wifebeater on top of some cargo pants. For when you need to carry various beers."
 	icon_state = "tac_s"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/misc/nova/mechanic
 	name = "mechanic's overalls"
