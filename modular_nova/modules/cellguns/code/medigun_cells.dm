@@ -31,9 +31,9 @@
 	else if(target.nutrition > 200 && target.nutrition < 250)
 		target.adjust_disgust(base_disgust * 2)
 
-/// Checks to see if the patient is living.
+/// Checks to see if the patient is living and organic.
 /obj/projectile/energy/medical/proc/IsLivingHuman(mob/living/target)
-	if(!istype(target, /mob/living/carbon/human))
+	if(!istype(target, /mob/living/carbon/human) && issynthetic(target))
 		return FALSE
 
 	if(target.stat == DEAD)
@@ -382,10 +382,10 @@
 		return FALSE
 
 	// Check if target already has a salve globule embedded in any limb
-	var/mob/living/carbon/human/human_target = target
-	for(var/obj/item/bodypart/limb in human_target.bodyparts)
-		if(limb.embedded_objects && length(limb.embedded_objects))
-			for(var/datum/embedding/salve_globule/existing in limb.embedded_objects)
+	var/mob/living/carbon/carbon_target = target
+	for(var/obj/item/bodypart/limb as anything in carbon_target.bodyparts)
+		for(var/obj/item/mending_globule/hardlight/existing in limb.embedded_objects)
+			if (existing == hit_area)
 				target.visible_message(span_warning("The salve globule slides right off of [target]'s body, already having a globule attached!"))
 				return FALSE
 

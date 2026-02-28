@@ -19,6 +19,10 @@
 	item_flags = null
 	gun_flags = TURRET_INCOMPATIBLE
 
+/obj/item/gun/energy/cell_loaded/medigun/Initialize(mapload)
+	. = ..()
+	add_deep_lore()
+
 // Standard medigun - this is what you will get from Cargo, most likely.
 /obj/item/gun/energy/cell_loaded/medigun/standard
 	name = "VeyMedical CWM-479 cell-powered medigun"
