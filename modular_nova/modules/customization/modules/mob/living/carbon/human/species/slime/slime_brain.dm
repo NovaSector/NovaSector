@@ -189,11 +189,11 @@
 	. = ..()
 	colorize()
 	core_ejected = FALSE
-	RegisterSignal(organ_owner, COMSIG_MOB_STATCHANGE, PROC_REF(on_slime_death))
+	RegisterSignal(organ_owner, COMSIG_LIVING_DEATH, PROC_REF(on_slime_death))
 
 /obj/item/organ/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
-	UnregisterSignal(organ_owner, COMSIG_MOB_STATCHANGE)
+	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
 
 /**
 * Colors the slime's core (their brain) the same as their first mutant color.
@@ -207,10 +207,13 @@
 /**
 * Handling for tracking when the slime in question dies which then segues into the core ejection proc.
 */
-/obj/item/organ/brain/slime/proc/on_slime_death(mob/living/victim, new_stat)
+/obj/item/organ/brain/slime/proc/on_slime_death(mob/living/victim, gibbed)
 	SIGNAL_HANDLER
 
-	if(new_stat != DEAD || IS_CHANGELING(victim) || is_reserved_level(victim.z) && !istype(get_area(victim.loc), /area/shuttle)) // Changelings and bitrunning/deathmatch gamers are exempt
+	if(IS_CHANGELING(victim) || is_reserved_level(victim.z) && !istype(get_area(victim.loc), /area/shuttle)) // No core death for changelings and deathmatch/bitrunning gamers
+		return
+	if(gibbed)
+		core_ejection(victim, gibbed = TRUE)
 		return
 
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // Explode them after the current proc chain ends, to avoid weirdness
@@ -219,28 +222,27 @@
 * CORE EJECTION PROC -
 * Makes it so that when a slime dies, their core ejects and their body is qdel'd.
 */
-/obj/item/organ/brain/slime/proc/core_ejection(mob/living/victim, new_stat, turf/loc_override)
+/obj/item/organ/brain/slime/proc/core_ejection(mob/living/victim, gibbed = FALSE, turf/loc_override)
 	if(core_ejected)
 		return
 	core_ejected = TRUE
-	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
 	var/atom/death_loc = victim.drop_location()
 	process_items(victim) // Start moving items before anything else can touch them.
 	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
 		Remove(victim)
 	if(death_loc)
 		forceMove(death_loc)
-	src.wash(CLEAN_WASH)
-	new death_melt_type(death_loc, victim.dir)
-
-	do_steam_effects(get_turf(victim))
-	playsound(victim, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
 
 	if(gps_active) // adding the gps signal if they have activated the ability
 		AddComponent(/datum/component/gps, "![victim]'s Core")
 
-	qdel(victim)
-	UnregisterSignal(victim, COMSIG_MOB_STATCHANGE)
+	if(!gibbed)
+		victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
+		new death_melt_type(death_loc, victim.dir)
+		do_steam_effects(get_turf(victim))
+		playsound(victim, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
+		qdel(victim)
+	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 /**
 * Procs the ethereal jaunt liquid effect when the slime dissolves on death.
