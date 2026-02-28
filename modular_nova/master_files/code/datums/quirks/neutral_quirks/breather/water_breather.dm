@@ -34,7 +34,7 @@
 	. = ..()
 	RegisterSignal(quirk_holder, COMSIG_MOB_GRANTED_ACTION, PROC_REF(on_hydrophobia_action_granted))
 	// Clean up any action that might already exist
-	for (var/datum/action/cooldown/slime_hydrophobia/hydrophobia_action in quirk_holder.actions)
+	for(var/datum/action/cooldown/slime_hydrophobia/hydrophobia_action in quirk_holder.actions)
 		qdel(hydrophobia_action)
 
 /// Remove hydrophobia action when granted to a slime with water breathing.
