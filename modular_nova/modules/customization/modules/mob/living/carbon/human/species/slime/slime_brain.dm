@@ -136,7 +136,7 @@
 
 	if(!do_after(user, 15 SECONDS, src))
 		user.visible_message(
-			span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!'"),
+			span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!"),
 			span_notice("Your hand slips out of the goopy core before you can find any dense objects inside."),
 			span_notice("You hear a resounding plop.")
 		)
@@ -168,7 +168,7 @@
 
 	if(!do_after(user, 15 SECONDS, src))
 		user.visible_message(
-			span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!'"),
+			span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!"),
 			span_notice("Your hand slips out of the goopy core before you can find it's densest point."),
 			span_notice("You hear a resounding plop.")
 		)
@@ -193,7 +193,7 @@
 
 /obj/item/organ/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
-	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
+	UnregisterSignal(organ_owner, COMSIG_MOB_STATCHANGE)
 
 /**
 * Colors the slime's core (their brain) the same as their first mutant color.
@@ -240,7 +240,7 @@
 		AddComponent(/datum/component/gps, "![victim]'s Core")
 
 	qdel(victim)
-	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
+	UnregisterSignal(victim, COMSIG_MOB_STATCHANGE)
 
 /**
 * Procs the ethereal jaunt liquid effect when the slime dissolves on death.
@@ -316,7 +316,6 @@
 	new_body.undershirt = "Nude" //Which undershirt the player wants
 	new_body.socks = "Nude" //Which socks the player wants
 	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
-	new_body.dna.features[FEATURE_MUTANT_COLOR] = new_body.dna.features[FEATURE_MUTANT_COLOR]
 	new_body.dna.update_uf_block(FEATURE_MUTANT_COLOR)
 	new_body.real_name = new_body.dna.real_name
 	new_body.name = new_body.dna.real_name

@@ -168,7 +168,7 @@
 
 	var/new_mutant_colour = tgui_color_picker(
 		alterer,
-		"Choose your character's new [color_choice = "All" ? "" : LOWER_TEXT(color_choice)] color:",
+		"Choose your character's new [color_choice == "All" ? "" : LOWER_TEXT(color_choice)] color:",
 		"Form Alteration",
 		alterer.dna.features[color_target]
 	)
@@ -453,6 +453,7 @@
 		genital_list += list("Testicles Size")
 	if(!length(genital_list))
 		alterer.balloon_alert(alterer, "no genitals!")
+		return
 
 	var/dna_alteration = tgui_input_list(
 		alterer,

@@ -77,7 +77,7 @@
 	if(old_brain)
 		old_brain.moveToNullspace()
 		STOP_PROCESSING(SSobj, old_brain)
-	if(old_stomach.is_oversized) // don't override augments that are already oversized
+	if(old_stomach?.is_oversized) // don't override augments that are already oversized
 		oversized_quirk.old_organs -= old_stomach
 		qdel(new_slime_stomach)
 		return
