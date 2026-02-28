@@ -73,20 +73,6 @@
 	target.synchronize_bodytypes() // We call this here to ensure that by this point, bodytypes are synchronized, after all changes to the limbs.
 	target.synchronize_bodyshapes()
 
-	// We don't need to go any further if this isn't visuals only, as we will have fully replaced each limb
-	// affected by a limb augmentation.
-	if(!visuals_only)
-		return
-
-	for(var/body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_CHEST, BODY_ZONE_HEAD))
-		if(body_zone in visited_body_zones)
-			continue
-
-		var/obj/item/bodypart/target_bodypart = target.get_bodypart(body_zone)
-
-		target_bodypart?.reset_appearance()
-
-
 /datum/preference_middleware/limbs_and_markings/proc/set_limb_aug(list/params, mob/user)
 	var/limb_slot = params["limb_slot"]
 	var/augment_name = params["augment_name"]

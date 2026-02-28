@@ -61,6 +61,8 @@
 	if (!value)
 		REMOVE_TRAIT(target, TRAIT_USES_SKINTONES, SPECIES_TRAIT)
 		ADD_TRAIT(target, TRAIT_MUTANT_COLORS, SPECIES_TRAIT)
+		for(var/obj/item/bodypart/bodypart_to_change as anything in target.bodyparts)
+			bodypart_to_change.change_appearance(icon = BODYPART_ICON_HUMANOID, id = SPECIES_HUMANOID, greyscale = TRUE)
 	return TRUE
 
 /datum/preference/choiced/skin_tone
