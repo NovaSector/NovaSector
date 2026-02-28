@@ -7026,6 +7026,7 @@
 #include "modular_nova\master_files\code\datums\quirks\neutral_quirks\breather\water_breather.dm"
 #include "modular_nova\master_files\code\datums\quirks\neutral_quirks\lunch_box\lunchbox.dm"
 #include "modular_nova\master_files\code\datums\quirks\neutral_quirks\lunch_box\lunchbox_items.dm"
+#include "modular_nova\master_files\code\datums\quirks\neutral_quirks\unblinking.dm"
 #include "modular_nova\master_files\code\datums\quirks\positive_quirks\adapted_lungs.dm"
 #include "modular_nova\master_files\code\datums\quirks\positive_quirks\empath.dm"
 #include "modular_nova\master_files\code\datums\quirks\positive_quirks\genetic_freak.dm"
