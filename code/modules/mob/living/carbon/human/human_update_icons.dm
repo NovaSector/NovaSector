@@ -1335,6 +1335,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		if(islist(raw_applied))
 			for(var/image/applied_appearance in raw_applied)
 				// NOVA EDIT ADDITION - fix hair clipping PR#7002
+				// ORIGINAL: apply_height_filters(applied_appearance)
 				// For overlay lists (e.g. bodypart overlays), check if the individual image's layer
 				// has a defined offset type. This prevents clipping of hair/ears at the top of the
 				// sprite when the displacement filter would push their pixels out of bounds.
