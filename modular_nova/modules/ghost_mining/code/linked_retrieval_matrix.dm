@@ -378,7 +378,7 @@
 
 ///Beacon to launch a new mining setup when activated. For testing and speed!
 /obj/item/boulder_beacon/lrm
-	name = "T.I. boulder beacon"
+	name = "\improper T.I. boulder beacon"
 	desc = "Tarkon Industries brand mining beacon. Used for local mining operations and colony startups."
 
 /obj/item/boulder_beacon/lrm/launch_payload()
