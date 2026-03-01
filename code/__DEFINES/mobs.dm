@@ -896,6 +896,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	// EYES_LAYER,
 	// BODY_ADJ_LAYER (external organs like wings)
 	// BODY_BEHIND_LAYER (external organs like wings)
+	// BODY_FRONT_LAYER (external organs like wings)
 	// DAMAGE_LAYER (full body)
 	// HIGHEST_LAYER (full body)
 	// UNIFORM_LAYER (full body)
