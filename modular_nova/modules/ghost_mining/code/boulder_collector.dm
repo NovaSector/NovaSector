@@ -34,8 +34,8 @@
 	. += span_notice("There are [span_boldnotice("[rock_count] boulders")] available to teleport inside.")
 	. += span_notice("The boulder collector can be linked to a <b>linked retrieval matrix</b> using a <b>multitool</b>.")
 
-/obj/structure/ore_box/boulder_collector/multitool_act(mob/living/user, obj/item/multitool/I)
-	I.set_buffer(src)
+/obj/structure/ore_box/boulder_collector/multitool_act(mob/living/user, obj/item/multitool/multi_tool)
+	multi_tool.set_buffer(src)
 	balloon_alert(user, "saved to multitool buffer")
 	return ITEM_INTERACT_SUCCESS
 
