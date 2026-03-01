@@ -504,9 +504,8 @@
 	)
 
 /obj/item/boulder
-	/// Nova Addition: decides whether a BRM should pick up the boulder or whether it's limited to LRM/Manual Labor
+	/// Decides whether a BRM should pick up the boulder or whether it's limited to LRM/Manual Labor
 	var/brm_stable = TRUE
-
 
 /obj/item/boulder/ghost_mining
 	name = "crystal cluster"
@@ -517,7 +516,7 @@
 
 /obj/item/boulder/artifact/ghost_mining
 	name = "crystalized artifact cluster"
-	desc = "Minerals crystalized around an obscured object."
+	desc = "Minerals crystallized around an obscured object."
 	icon = 'modular_nova/modules/ghost_mining/icons/ore.dmi'
 	icon_state = "crystal"
 	brm_stable = FALSE
