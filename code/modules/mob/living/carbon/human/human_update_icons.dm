@@ -1373,6 +1373,11 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		else
 			return
 
+	// NOVA EDIT ADDITION - Fix spine/tail offset accumulation bug PR#7002
+	// Reset the pixel_z before applying the offset to prevent cumulative offset
+	// when overlays are re-applied multiple times (e.g., when putting on/off clothing)
+	appearance.pixel_z = initial(appearance.pixel_z)
+	// NOVA EDIT END
 	appearance.pixel_z += final_offset
 	return appearance
 
