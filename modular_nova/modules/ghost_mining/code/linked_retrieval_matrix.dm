@@ -393,7 +393,6 @@
 			qdel(src)
 	uses--
 
-
 #undef LRM_TELEPORTATION_TIME
 #undef LRM_BATCH_COOLDOWN
 #undef LRM_TURF_BLOCKED_BY_BOULDER
