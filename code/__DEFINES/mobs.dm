@@ -862,15 +862,15 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	"[HEAD_LAYER]" = UPPER_BODY,
 	// Hair will get cut off by filter
 	"[HAIR_LAYER]" = UPPER_BODY,
-	// Outer hair (ponytails etc above hats) will get cut off by filter
-	"[OUTER_HAIR_LAYER]" = UPPER_BODY,
 	"[BENEATH_HAIR_LAYER]" = UPPER_BODY,
 	// Long belts (sabre sheathe) will get cut off by filter
 	"[BELT_LAYER]" = LOWER_BODY,
-	// External organs at the top of the head (cat ears, horns, etc) will get cut off by filter
+	// NOVA EDIT ADDITION - hair/ears/horns fix PR#7002
 	"[BODY_FRONT_LAYER]" = UPPER_BODY,
+	"[OUTER_HAIR_LAYER]" = UPPER_BODY,
 	"[BODY_ADJ_LAYER]" = UPPER_BODY,
 	"[BODY_BEHIND_LAYER]" = UPPER_BODY,
+	// NOVA EDIT END
 	// Everything below looks fine with or without a filter, so we can skip it and just offset
 	// (In practice they'd be fine if they got a filter but we can optimize a bit by not.)
 	"[NECK_LAYER]" = UPPER_BODY,
@@ -894,6 +894,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	// BODYPARTS_HIGH_LAYER (arms)
 	// BODY_LAYER (body markings (full body), underwear (full body))
 	// EYES_LAYER,
+	// BODY_ADJ_LAYER (external organs like wings)
+	// BODY_BEHIND_LAYER (external organs like wings)
 	// DAMAGE_LAYER (full body)
 	// HIGHEST_LAYER (full body)
 	// UNIFORM_LAYER (full body)
