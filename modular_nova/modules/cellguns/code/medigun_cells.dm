@@ -33,9 +33,10 @@
 
 /// Checks to see if the patient is living and organic.
 /obj/projectile/energy/medical/proc/IsLivingHuman(mob/living/target)
-	if(!istype(target, /mob/living/carbon/human) && issynthetic(target))
+	if(!istype(target, /mob/living/carbon/human))
 		return FALSE
-
+	if(issynthetic(target))
+		return FALSE
 	if(target.stat == DEAD)
 		return FALSE
 	else
@@ -377,25 +378,15 @@
 	jostle_pain_mult = 0
 	fall_chance = 0
 
-/obj/projectile/energy/medical/utility/salve/on_hit(mob/living/target, blocked = 0, pierce_hit)
+/obj/projectile/energy/medical/utility/salve/on_hit(mob/living/target, blocked = 0, pierce_hit, item_impact_zone, hit_zone)
 	if(!IsLivingHuman(target)) //No using this on the dead or synths.
 		return FALSE
-
-	// Check if target already has a salve globule embedded in any limb
-	var/mob/living/carbon/carbon_target = target
-	for(var/obj/item/bodypart/limb as anything in carbon_target.bodyparts)
-		for(var/obj/item/mending_globule/hardlight/existing in limb.embedded_objects)
-			if (existing == hit_area)
-				target.visible_message(span_warning("The salve globule slides right off of [target]'s body, already having a globule attached!"))
-				return FALSE
-
 	return ..()
 
-/datum/embedding/salve_globule/stop_embedding()
+/datum/embedding/salve_globule/remove_embedding()
     var/obj/item/mending_globule/globule = parent
-    if(globule)
-        globule.visible_message(span_warning("[globule]'s hardlight field disintigrates upon being removed from its host, fizzling away into nothingness with the remaining salve!"))
-        qdel(globule)
+    owner.visible_message(span_warning("[globule]'s hardlight field disintigrates upon being removed from its host, fizzling away into nothingness with the remaining salve!"))
+    qdel(globule)
     return ..()
 
 //Hardlight Rollerbed Medicell
@@ -468,25 +459,22 @@
 /obj/item/mending_globule/hardlight
 	name = "salve globule"
 	desc = "A ball of regenerative, synthetic plant matter, contained within a soft hardlight field."
-	embed_type = /datum/embedding/salve_globule/hardlight
+	embed_type = /datum/embedding/salve_globule
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
 	icon_state = "globule"
 	heals_left = 40 //This means it'll be heaing 10 damage per type max.
 
-/datum/embedding/salve_globule/hardlight/process(seconds_per_tick)
+/datum/embedding/salve_globule/process(seconds_per_tick)
+	. = ..()
+	var/obj/item/mending_globule/hardlight/globule = parent
 	if(!owner_limb.get_damage()) //Makes it poof as soon as the body part is fully healed, no keeping this on forever.
-		qdel(src)
+		qdel(globule)
 		return FALSE
-
-	var/obj/item/mending_globule/globule = parent
 	owner_limb.heal_damage(0.25 * seconds_per_tick, 0.25 * seconds_per_tick) //Reduced healing rate over original
 	globule.heals_left--
-
 	if(globule.heals_left <= 0)
-		globule.visible_message(span_notice("[globule]'s hardlight field dissipates after fully releasing its regenerative properties."))
-		qdel(src)
-
-	return TRUE  // Signal successful processing
+		owner.visible_message(span_notice("[globule]'s hardlight field dissipates after fully releasing its regenerative properties."))
+		qdel(globule)
 
 //Hardlight Emergency Bed.
 /obj/structure/bed/medical/medigun
