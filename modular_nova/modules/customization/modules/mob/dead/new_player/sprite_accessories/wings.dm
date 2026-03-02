@@ -349,9 +349,9 @@
 	name = "Moth (Deathshead)"
 	icon_state = "deathhead"
 
-/datum/sprite_accessory/wings/moth/featherful // Is actually 'feathery' on upstream
-	name = "Moth (Featherful)"
-	icon_state = "featherful"
+/datum/sprite_accessory/wings/moth/feathery
+	name = "Moth (Feathery)"
+	icon_state = "feathery"
 
 /datum/sprite_accessory/wings/moth/firewatch
 	name = "Moth (Firewatch)"

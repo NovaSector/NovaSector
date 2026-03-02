@@ -43,6 +43,9 @@ GLOBAL_LIST_INIT(reagent_containers, list(
 	CAT_DARTS = typecacheof(list(
 		/obj/item/reagent_containers/syringe/smartdart
 	)),
+		CAT_PEN_INJECTORS = typecacheof(list(
+		/obj/item/reagent_containers/hypospray/medipen/deforest/printable
+	)),
 	// NOVA EDIT ADDITION END
 ))
 
