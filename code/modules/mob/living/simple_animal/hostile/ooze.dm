@@ -419,6 +419,17 @@
 	jostle_pain_mult = 0
 	fall_chance = 0.5
 
+//Ensures that you can't stack multiple globules on the same limb
+/datum/embedding/mending_globule/on_successful_embed(mob/living/carbon/target, obj/item/bodypart/target_limb)
+	. = ..()
+	for(var/obj/item/mending_globule/existing in target_limb.embedded_objects)
+		if ((existing != parent))
+			target.visible_message(span_warning("[parent] slides right off of [target]'s [target_limb.plaintext_zone], already having a globule attached there!"))
+			qdel(parent)
+			return FALSE
+		else
+			continue
+
 // This already processes, zero logic to add additional tracking to the item
 /datum/embedding/mending_globule/process(seconds_per_tick)
 	. = ..()

@@ -466,11 +466,12 @@
 	icon_state = "globule"
 	heals_left = 40 //This means it'll be heaing 10 damage per type max.
 
+//Ensures that you can't stack multiple globules on the same limb
 /datum/embedding/salve_globule/on_successful_embed(mob/living/carbon/target, obj/item/bodypart/target_limb)
 	. = ..()
 	for(var/obj/item/mending_globule/hardlight/existing in target_limb.embedded_objects)
 		if ((existing != parent))
-			target.visible_message(span_warning("The salve globule slides right off of [target]'s body, already having a globule attached!"))
+			target.visible_message(span_warning("[parent] slides right off of [target]'s [target_limb.plaintext_zone], already having a globule attached there!"))
 			qdel(parent)
 			return FALSE
 		else
