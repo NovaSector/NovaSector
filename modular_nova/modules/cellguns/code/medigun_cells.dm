@@ -61,8 +61,8 @@
 	if(target.get_oxy_loss() > healing_threshold)
 		return FALSE
 
-	nutrition_disgust(target, target.get_oxy_loss())
 	target.adjust_disgust(base_disgust)
+	nutrition_disgust(target)
 	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_oxy_loss(-amount_healed)
 
@@ -74,8 +74,8 @@
 	if(target.get_brute_loss() > healing_threshold)
 		return FALSE
 
-	nutrition_disgust(target, target.get_brute_loss())
 	target.adjust_disgust(base_disgust)
+	nutrition_disgust(target)
 	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_brute_loss(-amount_healed)
 
@@ -87,8 +87,8 @@
 	if(target.get_fire_loss() > healing_threshold)
 		return FALSE
 
-	nutrition_disgust(target, target.get_brute_loss())
 	target.adjust_disgust(base_disgust)
+	nutrition_disgust(target)
 	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_fire_loss(-amount_healed)
 
@@ -107,8 +107,8 @@
 	if(healing_multiplier < 0.25)
 		healing_multiplier = 0.25
 
-	nutrition_disgust(target, target.get_tox_loss())
 	target.adjust_disgust(base_disgust)
+	nutrition_disgust(target)
 	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_tox_loss(-(amount_healed * healing_multiplier))
 
@@ -464,12 +464,19 @@
 	icon_state = "globule"
 	heals_left = 40 //This means it'll be heaing 10 damage per type max.
 
+/datum/embedding/salve_globule/on_successful_embed(mob/living/carbon/target, obj/item/bodypart/target_limb)
+	. = ..()
+	for(var/obj/item/mending_globule/hardlight/existing in target_limb.embedded_objects)
+		if ((existing != parent))
+			target.visible_message(span_warning("The salve globule slides right off of [target]'s body, already having a globule attached!"))
+			qdel(parent)
+			return FALSE
+		else
+			continue
+
 /datum/embedding/salve_globule/process(seconds_per_tick)
 	. = ..()
 	var/obj/item/mending_globule/hardlight/globule = parent
-	if(!owner_limb.get_damage()) //Makes it poof as soon as the body part is fully healed, no keeping this on forever.
-		qdel(globule)
-		return FALSE
 	owner_limb.heal_damage(0.25 * seconds_per_tick, 0.25 * seconds_per_tick) //Reduced healing rate over original
 	globule.heals_left--
 	if(globule.heals_left <= 0)

@@ -21,16 +21,17 @@
 
 /obj/item/gun/energy/cell_loaded/medigun/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_VEYMED)
 	add_deep_lore()
 
 // Standard medigun - this is what you will get from Cargo, most likely.
 /obj/item/gun/energy/cell_loaded/medigun/standard
-	name = "VeyMedical CWM-479 cell-powered medigun"
-	desc = "This is a standard model medigun produced by Vey-Med for healing in less-than-ideal scenarios. The medicell chamber is rated to fit four cells."
+	name = "Vey-Medical CWM-479 cell-powered medigun"
+	desc = "This is a standard model medigun produced by Vey-Medical for healing in less-than-ideal scenarios. The medicell chamber is rated to fit four cells."
 
 // Upgraded medigun
 /obj/item/gun/energy/cell_loaded/medigun/upgraded
-	name = "VeyMedical CWM-479-FC cell-powered medigun"
+	name = "Vey-Medical CWM-479-FC cell-powered medigun"
 	desc = "This is an upgraded variant of the standard CWM-479 medigun. The chamber has been expanded to fit another cell, in addition to a larger, faster charging battery."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/upgraded
 	maxcells = 5
@@ -43,8 +44,8 @@
 
 // CMO and CC MediGun
 /obj/item/gun/energy/cell_loaded/medigun/cmo
-	name = "VeyMedical CWM-479-CC cell-powered medigun"
-	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for six cells and the largest battery produced by Vey-Med."
+	name = "Vey-Medical CWM-479-CC cell-powered medigun"
+	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for six cells and the largest battery produced by Vey-Medical."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/experimental
 	maxcells = 6
 	charge_delay = 8
@@ -76,16 +77,16 @@
 /obj/item/gun/energy/cell_loaded/medigun/proc/add_deep_lore()
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
-		lore = "The VeyMedical CWM-479 line of mediguns is widely considered the foothold that brought the medical titan into \
+		lore = "The Vey-Medical CWM-479 line of mediguns is widely considered the foothold that brought the medical titan into \
 		 the niche where it is today, opening many lucrative doors for the continued development of luxury medical equipment.<br>\
 		<br>\
-		Although hard to imagine, VeyMed's entrance into the corporate scene would be a shaky one, immediately facing pressure from \
+		Although hard to imagine, Vey-Medical's entrance into the corporate scene would be a shaky one, immediately facing pressure from \
 		larger, more established groups like Zeng-Hu who boasted similar products for less. Things looked bleak financially until the \
 		first sightings of handheld, medibeam projectors in the hands of Syndicate-backed mercenaries would shake the industry dramatically. \
 		It's here that Nanotrasen themselves would enter the picture, poising themselves as angel investors to the fledgling company as long as \
 		they could reproduce the technology for their own use, something that was accepted with open arms and bank accounts. <br>\
 		<br>\
-		In the following time, VeyMed would enjoy otherwise smooth progress in trying to reverse-engineer captured devices, but would be \
+		In the following time, Vey-Medical would enjoy otherwise smooth progress in trying to reverse-engineer captured devices, but would be \
 		interrupted by a major roadblock. The energy throughput of anything less than some sort of mechanized suit prevented miniaturization \
 		of the nanite stream for their research team. Frustrated, they decided on a radical rethinking of the concept: what if they harnessed the \
 		body's natural energy to heal? <br>\
@@ -94,12 +95,12 @@
 		a factor of at least 7 times in an instant, far outpacing the gradual healing that they initally set out to achieve. Unfortunately, the \
 		overloading of natural proccesses means that the device is prone to inducing superficial sickness when used carelessly on those with \
 		less-than-ideal lifestyles. Despite this, many, from insane Solarian field doctors to remote colonial hospitals, would eagerly pay \
-		the exorbinant price for the CWM-479, and VeyMed is more than happy to provide it." \
+		the exorbinant price for the CWM-479, and Vey-Medical is more than happy to provide it." \
 	)
 
 // Upgrade Kit
 /obj/item/device/custom_kit/medigun_fastcharge
-	name = "VeyMedical CWM-479 upgrade kit"
+	name = "Vey-Medical CWM-479 upgrade kit"
 	desc = "Upgrades the internal battery inside of the medigun, allowing for faster charging, an extra medicell slot, and a higher cell capacity. Requires the medigun's cells to be removed first!"
 	// don't tinker with a loaded (medi)gun. fool
 	from_obj = /obj/item/gun/energy/cell_loaded/medigun/standard
@@ -117,7 +118,7 @@
 	name = "medigun operating manual"
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
 	icon_state = "manual"
-	starting_author = "VeyMedical"
+	starting_author = "Vey-Medical"
 	starting_title = "Medigun Operating Manual"
 	page_link = "Guide_to_Mediguns"
 
@@ -134,7 +135,7 @@
 	pickup_sound =  'sound/items/handling/ammobox_pickup.ogg'
 
 /obj/item/storage/briefcase/medicalgunset/standard
-	name = "VeyMedical CWM-479 cell-powered medigun case"
+	name = "Vey-Medical CWM-479 cell-powered medigun case"
 	desc = "A briefcase that contains the CWM-479 medigun and an instruction manual."
 
 /obj/item/storage/briefcase/medicalgunset/standard/PopulateContents()
@@ -142,7 +143,7 @@
 	new /obj/item/book/manual/wiki/mediguns(src)
 
 /obj/item/storage/briefcase/medicalgunset/cmo
-	name = "VeyMedical CWM-479-CC cell-powered medigun case"
+	name = "Vey-Medical CWM-479-CC cell-powered medigun case"
 	desc = "A briefcase that contains the experimental CWM-479-CC medigun, a basic set of three medigun cells, and an instruction manual."
 	icon_state = "case_cmo"
 
