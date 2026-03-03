@@ -112,5 +112,16 @@
 		/obj/item/clothing/head/beret/sec/navyofficer = 3,
 		/obj/item/riding_saddle/leather = 3,
 		/obj/item/riding_saddle/leather/blue = 2,
+		/obj/item/clothing/head/helmet/hc_police = 3,
+		/obj/item/clothing/head/soft/hc_police = 3,
+		/obj/item/clothing/mask/gas/hc_police = 3,
+		/obj/item/clothing/head/hats/colonial/hc_police = 3,
+		/obj/item/clothing/neck/cloak/colonial/hc_police = 3,
+		/obj/item/clothing/under/colonial/hc_police = 3,
+		/obj/item/clothing/under/colonial/hc_police/skirt = 3,
+		/obj/item/clothing/suit/armor/vest/hc_police_jacket/suit = 3,
+		/obj/item/clothing/suit/armor/vest/hc_police = 3,
+		/obj/item/clothing/suit/armor/vest/hc_police_jacket = 3,
+
 		)
 	payment_department = ACCOUNT_SEC
