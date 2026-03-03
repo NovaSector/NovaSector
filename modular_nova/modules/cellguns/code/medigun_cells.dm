@@ -387,7 +387,7 @@
 
 /datum/embedding/salve_globule/remove_embedding()
     var/obj/item/mending_globule/globule = parent
-    owner.visible_message(span_warning("[globule]'s hardlight field disintigrates upon being removed from its host, fizzling away into nothingness with the remaining salve!"))
+    owner.visible_message(span_warning("[globule]'s hardlight field disintigrates upon being removed from [owner], fizzling away into nothingness with the remaining salve!"))
     qdel(globule)
     return ..()
 
