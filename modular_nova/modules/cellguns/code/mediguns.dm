@@ -1,7 +1,7 @@
 // Base medigun code
 /obj/item/gun/energy/cell_loaded/medigun
-	name = "medigun"
-	desc = "This is my smart gun. It won't hurt anyone friendly; in fact, it will make them heal! Please tell github if you somehow manage to get this gun."
+	name = "\improper medigun"
+	desc = "This is my smart gun. It won't hurt anyone friendly; in fact, it will make them heal! Please tell the GitHub if you somehow manage to get this gun."
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/projectile.dmi'
 	icon_state = "medigun"
 	inhand_icon_state = "chronogun" // Fits best with how the medigun looks, might be changed in the future
@@ -26,12 +26,12 @@
 
 // Standard medigun - this is what you will get from Cargo, most likely.
 /obj/item/gun/energy/cell_loaded/medigun/standard
-	name = "Vey-Medical CWM-479 cell-powered medigun"
+	name = "\improper Vey-Medical CWM-479 cell-powered medigun"
 	desc = "This is a standard model medigun produced by Vey-Medical for healing in less-than-ideal scenarios. The medicell chamber is rated to fit four cells."
 
 // Upgraded medigun
 /obj/item/gun/energy/cell_loaded/medigun/upgraded
-	name = "Vey-Medical CWM-479-FC cell-powered medigun"
+	name = "\improper Vey-Medical CWM-479-FC cell-powered medigun"
 	desc = "This is an upgraded variant of the standard CWM-479 medigun. The chamber has been expanded to fit another cell, in addition to a larger, faster charging battery."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/upgraded
 	maxcells = 5
@@ -44,7 +44,7 @@
 
 // CMO and CC MediGun
 /obj/item/gun/energy/cell_loaded/medigun/cmo
-	name = "Vey-Medical CWM-479-CC cell-powered medigun"
+	name = "\improper Vey-Medical CWM-479-CC cell-powered medigun"
 	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for six cells and the largest battery produced by Vey-Medical."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/experimental
 	maxcells = 6

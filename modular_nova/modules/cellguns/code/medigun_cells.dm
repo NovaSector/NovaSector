@@ -23,13 +23,15 @@
 */
 
 /// Applies additional digust based on how much nutrition they're missing under certain thresholds, increasingly multiplying it each stage beyond hungry they are.
-/obj/projectile/energy/medical/proc/nutrition_disgust(mob/living/target, nutrition, base_disgust)
-	if(target.nutrition < 150)
+/obj/projectile/energy/medical/proc/nutrition_disgust(mob/living/target, base_disgust)
+	if(target.nutrition < NUTRITION_LEVEL_STARVING)
 		target.adjust_disgust(base_disgust * 4)
-	else if(target.nutrition >= 150 && target.nutrition <= 200)
+	else if(target.nutrition >= NUTRITION_LEVEL_STARVING && target.nutrition <= NUTRITION_LEVEL_VERY_HUNGRY)
 		target.adjust_disgust(base_disgust * 3)
-	else if(target.nutrition > 200 && target.nutrition < 250)
+	else if(target.nutrition > NUTRITION_LEVEL_VERY_HUNGRY && target.nutrition < NUTRITION_LEVEL_HUNGRY)
 		target.adjust_disgust(base_disgust * 2)
+	else
+		return
 
 /// Checks to see if the patient is living and organic.
 /obj/projectile/energy/medical/proc/IsLivingHuman(mob/living/target)
@@ -62,7 +64,7 @@
 		return FALSE
 
 	target.adjust_disgust(base_disgust)
-	nutrition_disgust(target)
+	nutrition_disgust(target, base_disgust)
 	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_oxy_loss(-amount_healed)
 
@@ -75,7 +77,7 @@
 		return FALSE
 
 	target.adjust_disgust(base_disgust)
-	nutrition_disgust(target)
+	nutrition_disgust(target, base_disgust)
 	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_brute_loss(-amount_healed)
 
@@ -88,7 +90,7 @@
 		return FALSE
 
 	target.adjust_disgust(base_disgust)
-	nutrition_disgust(target)
+	nutrition_disgust(target, base_disgust)
 	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_fire_loss(-amount_healed)
 
@@ -108,7 +110,7 @@
 		healing_multiplier = 0.25
 
 	target.adjust_disgust(base_disgust)
-	nutrition_disgust(target)
+	nutrition_disgust(target, base_disgust)
 	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_tox_loss(-(amount_healed * healing_multiplier))
 
@@ -480,7 +482,7 @@
 	owner_limb.heal_damage(0.25 * seconds_per_tick, 0.25 * seconds_per_tick) //Reduced healing rate over original
 	globule.heals_left--
 	if(globule.heals_left <= 0)
-		owner.visible_message(span_notice("[globule]'s hardlight field dissipates after fully releasing its regenerative properties."))
+		to_chat(owner, span_notice("[globule]'s hardlight field dissipates after fully releasing its regenerative properties."))
 		qdel(globule)
 
 //Hardlight Emergency Bed.
