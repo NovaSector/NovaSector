@@ -419,7 +419,7 @@
 	jostle_pain_mult = 0
 	fall_chance = 0.5
 
-//Ensures that you can't stack multiple globules on the same limb
+//NOVA EDIT ADDITION START - Ensures that you can't stack multiple globules on the same limb
 /datum/embedding/mending_globule/on_successful_embed(mob/living/carbon/target, obj/item/bodypart/target_limb)
 	. = ..()
 	for(var/obj/item/mending_globule/existing in target_limb.embedded_objects)
@@ -429,6 +429,7 @@
 			return FALSE
 		else
 			continue
+//NOVA EDIT ADDITION END
 
 // This already processes, zero logic to add additional tracking to the item
 /datum/embedding/mending_globule/process(seconds_per_tick)

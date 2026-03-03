@@ -55,7 +55,7 @@
 
 	return non_medicine_chems
 
-/// Heals Oxygen if it's under threshold, make them gain disgust.
+/// Heals Oxygen if it's at the threshold or less, make them gain disgust.
 /obj/projectile/energy/medical/proc/healOxy(mob/living/target, amount_healed, base_disgust, healing_threshold)
 	if(!IsLivingHuman(target))
 		return FALSE
@@ -68,7 +68,7 @@
 	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_oxy_loss(-amount_healed)
 
-/// Heals Brute if it's under threshold, make them gain disgust.
+/// Heals Brute if it's at the threshold or less, make them gain disgust.
 /obj/projectile/energy/medical/proc/healBrute(mob/living/target, amount_healed, base_disgust, healing_threshold)
 	if(!IsLivingHuman(target))
 		return FALSE
@@ -94,7 +94,7 @@
 	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_fire_loss(-amount_healed)
 
-/// Heals Toxins
+/// Heals Toxins if it's at the threshold or less, make them gain disgust.
 /obj/projectile/energy/medical/proc/healTox(mob/living/target, amount_healed, base_disgust, healing_threshold)
 	if(!IsLivingHuman(target))
 		return FALSE
