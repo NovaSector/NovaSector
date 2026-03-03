@@ -82,7 +82,7 @@
 		<br>\
 		Although hard to imagine, Vey-Med's entrance into the corporate scene would be a shaky one, immediately facing pressure from \
 		larger, more established groups like Zeng-Hu who boasted similar products for less. Things looked bleak financially until the \
-		first sightings of handheld, medbeam projectors in the hands of Syndicate-backed mercenaries would shake the industry dramatically. \
+		first sightings of handheld, medical beamguns in the hands of Syndicate-backed mercenaries would shake the industry dramatically. \
 		It's here that Nanotrasen themselves would enter the picture, poising themselves as angel investors to the fledgling company as long as \
 		they could reproduce the technology for their own use, something that was accepted with open arms and bank accounts. <br>\
 		<br>\
