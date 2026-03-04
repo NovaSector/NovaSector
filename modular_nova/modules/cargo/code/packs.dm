@@ -134,7 +134,7 @@
 
 /datum/supply_pack/medical/medicells
 	name = "Medicell Replacement Crate"
-	desc = "Contains a set of tier I brute, burn, and toxin cells for Vey-Medical mediguns."
+	desc = "Contains a set of tier I brute, burn, and toxin medicells for Vey-Medical mediguns."
 	cost = CARGO_CRATE_VALUE * 5
 	access = ACCESS_MEDICAL
 	contains = list(

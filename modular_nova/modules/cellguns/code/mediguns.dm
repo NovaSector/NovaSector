@@ -32,7 +32,7 @@
 // Upgraded medigun
 /obj/item/gun/energy/cell_loaded/medigun/upgraded
 	name = "\improper Vey-Medical CWM-479-FC cell-powered medigun"
-	desc = "This is an upgraded variant of the standard CWM-479 medigun. The chamber has been expanded to fit another cell, in addition to a larger, faster charging battery."
+	desc = "This is an upgraded variant of the standard CWM-479 medigun. The chamber has been expanded to fit another medicell, in addition to a larger, faster charging battery."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/upgraded
 	maxcells = 5
 	charge_delay = 11
@@ -101,7 +101,7 @@
 // Upgrade Kit
 /obj/item/device/custom_kit/medigun_fastcharge
 	name = "Vey-Medical CWM-479 upgrade kit"
-	desc = "Upgrades the internal battery inside of the medigun, allowing for faster charging, an extra medicell slot, and a higher cell capacity. Requires the medigun's cells to be removed first!"
+	desc = "Upgrades the internal battery inside of the medigun, allowing for faster charging, an extra medicell slot, and a higher battery capacity. Requires the medigun's cells to be removed first!"
 	// don't tinker with a loaded (medi)gun. fool
 	from_obj = /obj/item/gun/energy/cell_loaded/medigun/standard
 	to_obj = /obj/item/gun/energy/cell_loaded/medigun/upgraded
