@@ -25,7 +25,7 @@
 // Standard medigun - this is what you will get from Cargo, most likely.
 /obj/item/gun/energy/cell_loaded/medigun/standard
 	name = "\improper Vey-Medical CWM-479 cell-powered medigun"
-	desc = "This is a standard model medigun produced by Vey-Med for healing in less-than-ideal scenarios. The medicell chamber is rated to fit four cells."
+	desc = "This is a standard model medigun produced by Vey-Med for healing in less-than-ideal scenarios. The medicell chamber is rated to fit three cells."
 
 // Upgraded medigun
 /obj/item/gun/energy/cell_loaded/medigun/upgraded
@@ -42,9 +42,9 @@
 // CMO and CC MediGun
 /obj/item/gun/energy/cell_loaded/medigun/cmo
 	name = "\improper Vey-Medical CWM-479-CC cell-powered medigun"
-	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for six medicells and the largest battery produced by Vey-Med."
+	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for five medicells and the largest battery produced by Vey-Med."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/experimental
-	maxcells = 6
+	maxcells = 5
 	selfcharge = 1
 	can_charge = FALSE
 
