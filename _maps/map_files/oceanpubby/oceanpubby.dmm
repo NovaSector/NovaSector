@@ -19586,7 +19586,9 @@
 	},
 /area/station/hallway/secondary/entry)
 "bMq" = (
-/obj/machinery/mass_driver/ordnance,
+/obj/machinery/mass_driver/ordnance{
+	power = 4
+	},
 /turf/open/floor/plating,
 /area/station/science/ordnance/testlab)
 "bMu" = (

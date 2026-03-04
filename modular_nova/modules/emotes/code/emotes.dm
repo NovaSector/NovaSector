@@ -832,3 +832,12 @@
 
 /datum/emote/living/carbon/human/blink
 	sound = 'modular_nova/modules/emotes/sound/voice/blink.ogg'
+
+/datum/emote/rolld20
+	key = "rolld20"
+	affected_by_pitch = FALSE
+
+/datum/emote/rolld20/run_emote(mob/user, params, type_override, intentional)
+	. = ..()
+	var/result = roll(20)
+	user.client?.looc_message("[user] rolls a d20 and gets [result].")
