@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "Tarkon turrets tech node will no longer be shown as available when it in fact isn't"
