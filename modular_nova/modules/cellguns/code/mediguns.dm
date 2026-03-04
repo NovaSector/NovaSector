@@ -45,7 +45,7 @@
 // CMO and CC MediGun
 /obj/item/gun/energy/cell_loaded/medigun/cmo
 	name = "\improper Vey-Medical CWM-479-CC cell-powered medigun"
-	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for six cells and the largest battery produced by Vey-Med."
+	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for six medicells and the largest battery produced by Vey-Med."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/experimental
 	maxcells = 6
 	charge_delay = 8
