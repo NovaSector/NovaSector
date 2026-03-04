@@ -34,8 +34,7 @@
 	name = "\improper Vey-Medical CWM-479-FC cell-powered medigun"
 	desc = "This is an upgraded variant of the standard CWM-479 medigun. The chamber has been expanded to fit another medicell, in addition to a larger, faster charging battery."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/upgraded
-	maxcells = 5
-	charge_delay = 11
+	maxcells = 4
 
 /obj/item/gun/energy/cell_loaded/medigun/upgraded/Initialize(mapload)
 	. = ..()
