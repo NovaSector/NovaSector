@@ -1,5 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - rscadd: "Following the short-lived success of the KOLBEN/NACHTREIHER overhaul suite for M64 shotguns in Nanotrasen/FTU markets, Archon Combat Systems has begun rollout of the LAMMERGEIER overhaul suite for double-barrel shotguns, featuring duplex barrel chargers and an over/under configuration for precision fire. The Lammergeier has a passive 70% multiplier on projectile spread, with the barrel charger system taking it to a 40% multiplier on spread."
-  - balance: "Downtuned the spread reduction on the amped Nachtreiher from a 40% multiplier to a 70% multiplier."
