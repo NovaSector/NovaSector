@@ -421,6 +421,7 @@
 
 //NOVA EDIT ADDITION START - Ensures that you can't use this on dead/synth people or stack multiple globules on the same limb.
 /obj/projectile/globule/on_hit(mob/living/target, blocked = 0, pierce_hit)
+	. = ..()
 	if(!istype(target, /mob/living/carbon/human))
 		return FALSE
 	if(issynthetic(target))
