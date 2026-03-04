@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "latejoin tracker should no longer update as the round is starting to reflect roundstart rulesets"
