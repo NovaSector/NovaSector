@@ -12,9 +12,7 @@
 	modifystate = 1
 	ammo_x_offset = 3
 	charge_sections = 3
-	selfcharge = 1
-	charge_delay = 15
-	maxcells = 4
+	maxcells = 3
 	allowed_cells = list(/obj/item/weaponcell/medical)
 	item_flags = null
 	gun_flags = TURRET_INCOMPATIBLE
