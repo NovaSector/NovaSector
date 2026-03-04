@@ -386,10 +386,10 @@
 	return ..()
 
 /datum/embedding/salve_globule/remove_embedding()
-    var/obj/item/mending_globule/globule = parent
-    owner.visible_message(span_warning("[globule]'s hardlight field disintigrates upon being removed from [owner], fizzling away into nothingness with the remaining salve!"))
-    qdel(globule)
-    return ..()
+	var/obj/item/mending_globule/globule = parent
+	owner.visible_message(span_warning("[globule]'s hardlight field disintigrates upon being removed from [owner], fizzling away into nothingness with the remaining salve!"))
+	qdel(globule)
+	return ..()
 
 //Hardlight Rollerbed Medicell
 /obj/item/ammo_casing/energy/medical/utility/bed
