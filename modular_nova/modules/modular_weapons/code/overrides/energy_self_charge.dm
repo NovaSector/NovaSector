@@ -35,7 +35,6 @@
 	selfcharge = TRUE
 	charge_delay = 15
 
-
 // Eguns
 /obj/item/gun/energy/e_gun
 	selfcharge = TRUE
