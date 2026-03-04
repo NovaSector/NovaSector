@@ -78,7 +78,7 @@
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The Vey-Medical CWM-479 line of mediguns is widely considered the foothold that brought the medical titan into \
-		 the niche where it is today, opening many lucrative doors for the continued development of luxury medical equipment.<br>\
+		the niche where it is today, opening many lucrative doors for the continued development of luxury medical equipment.<br>\
 		<br>\
 		Although hard to imagine, Vey-Med's entrance into the corporate scene would be a shaky one, immediately facing pressure from \
 		larger, more established groups like Zeng-Hu who boasted similar products for less. Things looked bleak financially until the \
