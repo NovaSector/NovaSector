@@ -48,7 +48,8 @@
 	desc = "The most advanced version of the CWM-479 line of mediguns. It features slots for six medicells and the largest battery produced by Vey-Med."
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun/experimental
 	maxcells = 6
-	charge_delay = 8
+	selfcharge = 1
+	can_charge = FALSE
 
 /obj/item/gun/energy/cell_loaded/medigun/cmo/Initialize(mapload)
 	. = ..()
