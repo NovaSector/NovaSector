@@ -66,6 +66,15 @@ SUBSYSTEM_DEF(title)
 	return SS_INIT_SUCCESS
 
 /**
+ * Returns the length of the queued latejoin rulesets if we are past roundstart
+ */
+/datum/controller/subsystem/title/proc/get_latejoin_queue_count()
+	if (SSticker.current_state <= GAME_STATE_SETTING_UP)
+		return 0
+
+	return length(SSdynamic.queued_rulesets)
+
+/**
  * Make sure reference time is set up. If not, this is now time 0.
  */
 /datum/controller/subsystem/title/proc/check_progress_reference_time()

@@ -399,3 +399,56 @@
   - server: 'fix: HR have reopened positions at unstaffed stations'
   vinylspiders:
   - code_imp: sinks can be mounted to floors
+2026-02-16:
+  MowLiao:
+  - rscadd: Added snaggletooth snout including sprite to character customisation
+  - qol: allowed all medals to be attached to any under clothing
+  carpotoxin:
+  - rscadd: Clothing (pants) generation for the 'big legs' taur variations
+  carpotoxin, SQN:
+  - rscadd: Adds Pubby Station to the map rotation!
+  - code_imp: Changes the warning received when you can level up your fitness skill
+      (less spammy)
+  - code_imp: Replaces old ocean generation code with new ocean generation
+  - rscdel: Removes some unused ocean clutter
+2026-02-20:
+  Diltyrr:
+  - balance: "Hearthkin now have innate ice\u2011slip immunity."
+  Eli-Hodges:
+  - rscadd: Added d20 rolling in looc chat
+  Hardly:
+  - map: Changed Pubby ordnance's mass driver to be a bit more powerful by default
+  Iajret:
+  - rscadd: Added big brother trim in ID painter
+  MacaroniCritter:
+  - image: Gave the muzzled gaiter icon more shape
+  MowLiao:
+  - qol: Added counter-clockwise rotation to character creation, increased size of
+      character preview, added background selection, and scaling of preview to match
+      character size.
+2026-02-23:
+  Stalkeros:
+  - qol: HC cops' loadouts have been slightly rejiggled into a more appropriate shape.
+  sqnztb:
+  - balance: HC survival packs are now normal sized.
+2026-02-27:
+  Happyowl93:
+  - rscadd: Adds custom medical pens printable straight from the chemmaster/plumbing
+      pill press
+  - bugfix: removed the greyscale digi legs being applied to all clothes.
+  - rscadd: adds two new quirks, rad fiend and illuminated
+  - rscadd: Added a new set of toeless boots and tailmaw
+  Hardly:
+  - bugfix: Fixes "Moth (Featherful)" wings having no sprites and renames them to
+      "Moth (Feathery)"
+  - code_imp: Quantum Server will ask for username first, and will prevent interactions
+      if message protected
+  - bugfix: Lights no longer turn off in bitrunning domains (and the rest of the reserved
+      z-level)
+  Some2s:
+  - bugfix: fixed a sprite inconsistency
+  bigbakedbean:
+  - rscadd: Added Experiment Plushie
+  splat1125:
+  - image: Fixed outdated Teshari bio suit sprites for all variants
+  - image: Added Teshari sprites for all bio hood variants

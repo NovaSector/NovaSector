@@ -224,3 +224,10 @@
 	else
 		icon_state = "plush_fushi"
 	return ..()
+
+/obj/item/toy/plush/nova/expie
+	name = "experiment plushie"
+	desc = "A plushie of a canid of sorts, it yearns to be detonated on a landmine."
+	icon_state = "plushie_expie"
+	attack_verb_continuous = list("whines at", "claws")
+	attack_verb_simple = list("whine at", "claw")
