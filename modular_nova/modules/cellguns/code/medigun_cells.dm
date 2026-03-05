@@ -365,7 +365,7 @@
 	name = "salve globule"
 	icon_state = "glob_projectile"
 	shrapnel_type = /obj/item/mending_globule/hardlight
-	embed_type = /datum/embedding/salve_globule
+	embed_type = /datum/embedding/salve_globule/hardlight
 	damage = 0
 
 /datum/embedding/salve_globule
@@ -380,7 +380,7 @@
 		return FALSE
 	return ..()
 
-/datum/embedding/salve_globule/remove_embedding()
+/datum/embedding/salve_globule/hardlight/remove_embedding()
 	var/obj/item/mending_globule/globule = parent
 	owner.visible_message(span_warning("[globule]'s hardlight field disintigrates upon being removed from [owner], fizzling away into nothingness with the remaining salve!"))
 	qdel(globule)
@@ -462,7 +462,7 @@
 	heals_left = 40 //This means it'll be heaing 10 damage per type max.
 
 //Ensures that you can't stack multiple globules on the same limb
-/datum/embedding/salve_globule/on_successful_embed(mob/living/carbon/target, obj/item/bodypart/target_limb)
+/datum/embedding/salve_globule/hardlight/on_successful_embed(mob/living/carbon/target, obj/item/bodypart/target_limb)
 	. = ..()
 	for(var/obj/item/mending_globule/hardlight/existing in target_limb.embedded_objects)
 		if ((existing != parent))
@@ -472,7 +472,7 @@
 		else
 			continue
 
-/datum/embedding/salve_globule/process(seconds_per_tick)
+/datum/embedding/salve_globule/hardlight/process(seconds_per_tick)
 	. = ..()
 	var/obj/item/mending_globule/hardlight/globule = parent
 	owner_limb.heal_damage(0.25 * seconds_per_tick, 0.25 * seconds_per_tick) //Reduced healing rate over original
