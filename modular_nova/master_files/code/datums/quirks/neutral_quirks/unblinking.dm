@@ -1,6 +1,6 @@
 /datum/quirk/unblinking
 	name = "Unblinking"
-	desc = "For whatever reason, you do not need to blink to keep your eyes (or equivalent visual apparatus) functional."
+	desc = "For whatever reason, you do not posess eyelids and thus cannot blink."
 	icon = FA_ICON_FACE_FLUSHED
 	value = 0
 	gain_text = span_danger("You no longer feel the need to blink.")
