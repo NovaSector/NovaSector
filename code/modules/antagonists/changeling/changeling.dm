@@ -825,7 +825,9 @@
 				break
 	// NOVA EDIT ADDITION END
 
+	user.visual_only_organs = TRUE
 	chosen_dna.copy_dna(user.dna, COPY_DNA_SE|COPY_DNA_SPECIES)
+	user.visual_only_organs = FALSE
 
 	for(var/obj/item/bodypart/limb as anything in user.bodyparts)
 		limb.update_limb(is_creating = TRUE)
