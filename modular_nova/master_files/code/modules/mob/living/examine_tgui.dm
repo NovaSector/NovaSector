@@ -9,14 +9,14 @@
 
 /datum/examine_panel/Destroy(force)
 	holder = null
-	qdel(examine_panel_screen)
+	QDEL_NULL(examine_panel_screen)
 	return ..()
 
 /datum/examine_panel/ui_state(mob/user)
 	return GLOB.always_state
 
 /datum/examine_panel/ui_close(mob/user)
-	user.client?.clear_map(examine_panel_screen.assigned_map)
+	examine_panel_screen.hide_from(user)
 
 /atom/movable/screen/map_view/examine_panel_screen
 	name = "examine panel screen"
