@@ -823,11 +823,18 @@
 			if(target_quirk.name == mimicable_quirk)
 				user.add_quirk(target_quirk.type)
 				break
+
+	// Clean up organs from previous transformation so they don't persist
+	for(var/obj/item/organ/old_organ as anything in user.organs)
+		if(old_organ.bodypart_overlay)
+			old_organ.Remove(user, special = TRUE)
+			qdel(old_organ)
+			continue
+		// Allow regenerate_organs to replace even unremovable organs (e.g. hemophage tumor) during changeling transformation
+		old_organ.organ_flags &= ~ORGAN_UNREMOVABLE
 	// NOVA EDIT ADDITION END
 
-	user.visual_only_organs = TRUE
 	chosen_dna.copy_dna(user.dna, COPY_DNA_SE|COPY_DNA_SPECIES)
-	user.visual_only_organs = FALSE
 
 	for(var/obj/item/bodypart/limb as anything in user.bodyparts)
 		limb.update_limb(is_creating = TRUE)
