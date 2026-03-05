@@ -14,3 +14,9 @@
   vinylspiders:
   - bugfix: latejoin tracker should no longer update as the round is starting to reflect
       roundstart rulesets
+2026-03-05:
+  Some2s:
+  - rscadd: Adds the Unblinking quirk which disables blinking for your character.
+  sqnztb:
+  - balance: Atmos export prices greatly reduced across the board. See PR 6796 for
+      new values.
