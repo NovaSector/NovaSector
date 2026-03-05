@@ -28,8 +28,11 @@
 
 		if(uses_robotic_styles && prefs.augment_limb_styles[slot])
 			var/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
-			old_limb.set_icon_static(chosen_style)
 			old_limb.current_style = prefs.augment_limb_styles[slot]
+			if(!uses_greyscale)
+				old_limb.set_icon_static(chosen_style)
+			else
+				old_limb.set_icon_greyscale(chosen_style)
 		else
 			if(!uses_greyscale)
 				old_limb.set_icon_static(initial(new_limb.icon))
@@ -61,6 +64,11 @@
 	name = "Cyborg head"
 	path = /obj/item/bodypart/head/robot/weak
 
+/datum/augment_item/limb/head/cyborg/greyscale
+	uses_greyscale = TRUE
+	name = "Cyborg head (Greyscale)"
+	path = /obj/item/bodypart/head/robot/weak/greyscale
+
 //CHESTS
 /datum/augment_item/limb/chest
 	slot = AUGMENT_SLOT_CHEST
@@ -68,6 +76,11 @@
 /datum/augment_item/limb/chest/cyborg
 	name = "Cyborg chest"
 	path = /obj/item/bodypart/chest/robot/weak
+
+/datum/augment_item/limb/chest/cyborg/greyscale
+	uses_greyscale = TRUE
+	name = "Cyborg chest (Greyscale)"
+	path = /obj/item/bodypart/chest/robot/weak/greyscale
 
 //LEFT ARMS
 /datum/augment_item/limb/l_arm
@@ -78,9 +91,19 @@
 	path = /obj/item/bodypart/arm/left/robot/surplus
 	cost = -1
 
+/datum/augment_item/limb/l_arm/prosthetic/greyscale
+	uses_greyscale = TRUE
+	name = "Prosthetic left arm (Greyscale)"
+	path = /obj/item/bodypart/arm/left/robot/surplus/greyscale
+
 /datum/augment_item/limb/l_arm/cyborg
 	name = "Cyborg left arm"
 	path = /obj/item/bodypart/arm/left/robot/weak
+
+/datum/augment_item/limb/l_arm/cyborg/greyscale
+	uses_greyscale = TRUE
+	name = "Cyborg left arm (Greyscale)"
+	path = /obj/item/bodypart/arm/left/robot/weak/greyscale
 
 /datum/augment_item/limb/l_arm/plasmaman
 	name = "Plasmaman left arm"
@@ -108,9 +131,20 @@
 	path = /obj/item/bodypart/arm/right/robot/surplus
 	cost = -1
 
+/datum/augment_item/limb/r_arm/prosthetic/greyscale
+	uses_greyscale = TRUE
+	name = "Prosthetic right arm (Greyscale)"
+	path = /obj/item/bodypart/arm/right/robot/surplus/greyscale
+
 /datum/augment_item/limb/r_arm/cyborg
 	name = "Cyborg right arm"
 	path = /obj/item/bodypart/arm/right/robot/weak
+
+/datum/augment_item/limb/r_arm/cyborg/greyscale
+	uses_greyscale = TRUE
+	name = "Cyborg right arm (Greyscale)"
+	path = /obj/item/bodypart/arm/right/robot/weak/greyscale
+
 
 /datum/augment_item/limb/r_arm/plasmaman
 	name = "Plasmaman right arm"
@@ -138,9 +172,21 @@
 	path = /obj/item/bodypart/leg/left/robot/surplus
 	cost = -1
 
+/datum/augment_item/limb/l_leg/prosthetic/greyscale
+	uses_greyscale = TRUE
+	name = "Prosthetic left leg (Greyscale)"
+	supports_digitigrade = TRUE
+	path = /obj/item/bodypart/leg/left/robot/surplus/greyscale
+
 /datum/augment_item/limb/l_leg/cyborg
 	name = "Cyborg left leg"
 	path = /obj/item/bodypart/leg/left/robot/weak
+
+/datum/augment_item/limb/l_leg/cyborg/greyscale
+	uses_greyscale = TRUE
+	supports_digitigrade = TRUE
+	name = "Cyborg left leg (Greyscale)"
+	path = /obj/item/bodypart/leg/left/robot/weak/greyscale
 
 /datum/augment_item/limb/l_leg/plasmaman
 	name = "Plasmaman left leg"
@@ -167,9 +213,21 @@
 	path = /obj/item/bodypart/leg/right/robot/surplus
 	cost = -1
 
+/datum/augment_item/limb/r_leg/prosthetic/greyscale
+	uses_greyscale = TRUE
+	supports_digitigrade = TRUE
+	name = "Prosthetic right leg (Greyscale)"
+	path = /obj/item/bodypart/leg/right/robot/surplus/greyscale
+
 /datum/augment_item/limb/r_leg/cyborg
 	name = "Cyborg right leg"
 	path = /obj/item/bodypart/leg/right/robot/weak
+
+/datum/augment_item/limb/r_leg/cyborg/greyscale
+	uses_greyscale = TRUE
+	supports_digitigrade = TRUE
+	name = "Cyborg right leg (Greyscale)"
+	path = /obj/item/bodypart/leg/right/robot/weak/greyscale
 
 /datum/augment_item/limb/r_leg/plasmaman
 	name = "Plasmaman right leg"

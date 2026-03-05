@@ -97,6 +97,8 @@ GLOBAL_LIST_INIT(preference_balls_sizes, list(
 
 GLOBAL_LIST_INIT(robotic_styles_list, list(
 	"None" = "None",
+	"Scrappy" = 'modular_nova/master_files/icons/mob/augmentation/scrappyipc.dmi',
+	"Scrappy (Greyscale)" = 'modular_nova/master_files/icons/mob/augmentation/scrappyipc_greyscale.dmi',
 	"Surplus" = 'icons/mob/augmentation/surplus_augments.dmi',
 	"Cyborg" = 'icons/mob/augmentation/augments.dmi',
 	"Engineering" = 'icons/mob/augmentation/augments_engineer.dmi',
@@ -116,6 +118,13 @@ GLOBAL_LIST_INIT(robotic_styles_list, list(
 	"Mariinsky Ballet Company" = 'modular_nova/master_files/icons/mob/augmentation/mariinskyipc.dmi',
 	"Zhenkov & Co. Foundries" = 'modular_nova/master_files/icons/mob/augmentation/zhenkovipc.dmi',
 	"Zhenkov & Co. Foundries - Dark" = 'modular_nova/master_files/icons/mob/augmentation/zhenkovipc_dark.dmi',
+	"Anthro" = 'modular_nova/master_files/icons/mob/augmentation/species_mimic/anthro.dmi',
+	"Lizard" = 'modular_nova/master_files/icons/mob/augmentation/species_mimic/lizard.dmi',
+	"Vox" = 'modular_nova/master_files/icons/mob/augmentation/species_mimic/vox.dmi',
+	"Xenohybrid" = 'modular_nova/master_files/icons/mob/augmentation/species_mimic/xeno.dmi',
+	"Ramatan" = 'modular_nova/master_files/icons/mob/augmentation/species_mimic/ramatae.dmi',
+	"Akula" = 'modular_nova/master_files/icons/mob/augmentation/species_mimic/akula.dmi',
+	"Moth" = 'modular_nova/master_files/icons/mob/augmentation/species_mimic/moth.dmi',
 	))
 
 //ghoul colors
