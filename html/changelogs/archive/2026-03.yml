@@ -23,6 +23,9 @@
 2026-03-06:
   81fm:
   - rscadd: 4 new posters
+  Absolucy:
+  - qol: Your own LOOC, AOOC, SOOC, or Mentorsay messages will no longer trigger your
+      highlights.
   Happyowl93:
   - bugfix: fixed changeling transform carrying over mutant parts from a previous
       profile
