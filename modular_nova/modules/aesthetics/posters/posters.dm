@@ -75,13 +75,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 3
 
 //Replacement for the deathsquad poster
 //Given permission by Rai Montroyal's player @81fm (hey i pr'd this in)
-/obj/structure/sign/poster/official/enlist/nova
+/obj/structure/sign/poster/official/enlist
 	name = "Enlist" // deathsquad mention removed in favour of asset protection
 	desc = "An advertisement for the Central Command Asset Protection strike team."
 	icon = 'modular_nova/modules/aesthetics/posters/official.dmi'
 	icon_state = "nova_enlist"
 
-/obj/structure/sign/poster/official/enlist/nova/examine_more(mob/user)
+/obj/structure/sign/poster/official/enlist/examine_more(mob/user)
 	. = ..()
 	. += span_notice("<i>You browse some of the poster's information...</i>")
 	. += "\t[span_info("The Nanotrasen Central Command Asset Protection team comprises of some of the best individuals in the company.")]"
@@ -90,8 +90,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 3
 	. += "\t[span_info("High-Ranking Nanotrasen Navy officers, such as those in the Admiralty; Foreign Diplomats; and company secrets.")]"
 	. += "\t[span_info("If you think you have what it takes, enlist today with the Master-At-Arms of your nearest Nanotrasen Interlink facility!")]"
 	return .
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/enlist/nova, 32)
 
 /obj/structure/sign/poster/official/nova_signup
 	name = "Sign Up"
