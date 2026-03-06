@@ -20,3 +20,20 @@
   sqnztb:
   - balance: Atmos export prices greatly reduced across the board. See PR 6796 for
       new values.
+2026-03-06:
+  81fm:
+  - rscadd: 4 new posters
+  Happyowl93:
+  - bugfix: fixed changeling transform carrying over mutant parts from a previous
+      profile
+  Hardly:
+  - qol: Barbers now spawn with the H41R 3XP3R7 skillchip
+  - bugfix: Head of Security Cap's "Sol Cap" skin is no longer invisible
+  Rilomatic:
+  - rscadd: Added Slit Dress (4 ALTS and Grayscale)
+  - rscadd: Shorter Dress (4 ALTS and grayscale)
+  - rscadd: Formal Pen Skirt (With loose top toggle and grayscale)
+  - rscadd: Pen skirt. (With grayscale)
+  - rscadd: Update to Windowed Dress (4 ALTS with grayscale)
+  muratendmo:
+  - rscadd: Heliostatic Coalition police surplus has been added to the SecDrobe.

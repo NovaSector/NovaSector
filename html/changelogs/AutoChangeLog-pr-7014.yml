@@ -1,4 +1,0 @@
-author: "Happyowl93"
-delete-after: True
-changes:
-  - bugfix: "fixed changeling transform carrying over mutant parts from a previous profile"
