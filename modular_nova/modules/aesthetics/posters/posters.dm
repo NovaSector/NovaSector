@@ -115,7 +115,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_signup, 32)
 	. += "\t[span_info("Their presence is as much a deterrent as they are a fighting force, given a number of exclusive technologies, items, and gear not available to ordinary security forces.")]"
 	. += "\t[span_info("Whether escorting captains through hostile zones or reinforcing station security against external threats, the 'Shield' stands as the last line of defense between order and total chaos")]"
 	. += "\t[span_info("If you think you have what it takes, join today!")]"
-	. += span_notice("<i>You note that it features a certain divorced binturong.</i>")
 	return .
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_join, 32)
