@@ -54,7 +54,7 @@
 /// Become a monkey
 /datum/action/changeling/lesserform/proc/become_monkey(mob/living/carbon/human/user)
 	to_chat(user, span_warning("Our genes cry out!"))
-	// NOVA EDIT ADDITION - Clean up organs from previous transformation so they don't persist into monkey form
+	// NOVA EDIT ADDITION START - Clean up organs from previous transformation so they don't persist into monkey form
 	for(var/obj/item/organ/old_organ as anything in user.organs)
 		if(old_organ.bodypart_overlay)
 			old_organ.Remove(user, special = TRUE)
