@@ -130,7 +130,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_join, 32)
 	. = ..()
 	. += span_notice("<i>You look closer at the poster...</i>")
 	. += "\t[span_info("The poster has scorch marks on the corners. Typical of the fauna that miners have to fight.")]"
-	. += span_notice("<i>You notice it features a certain white-haired excavator.</i>")
 	return .
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_mining, 32)
