@@ -60,7 +60,7 @@
 			old_organ.Remove(user, special = TRUE)
 			qdel(old_organ)
 			continue
-		old_organ.organ_flags &= ~ORGAN_UNREMOVABLE
+		old_organ.organ_flags &= ~ORGAN_UNREMOVABLE // Allow regenerate_organs to replace even unremovable organs (e.g. hemophage tumor) during changeling transformation
 	// NOVA EDIT ADDITION END
 	user.monkeyize(instant = transform_instantly)
 	return TRUE
