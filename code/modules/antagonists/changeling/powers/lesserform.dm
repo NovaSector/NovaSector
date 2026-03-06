@@ -32,7 +32,7 @@
 		user.balloon_alert(user, "can't transform in pipes!")
 		return FALSE
 	var/datum/antagonist/changeling/changeling = IS_CHANGELING(user)
-	var/datum/changeling_profile/chosen_form = changeling?.current_profile //NOVA EDIT - ORIGINAL var/datum/changeling_profile/chosen_form = select_form(changeling, user)
+	var/datum/changeling_profile/chosen_form = changeling?.current_profile // NOVA EDIT CHANGE - ORIGINAL: var/datum/changeling_profile/chosen_form = select_form(changeling, user)
 	if(!chosen_form)
 		return FALSE
 	to_chat(user, span_notice("We transform our appearance."))
