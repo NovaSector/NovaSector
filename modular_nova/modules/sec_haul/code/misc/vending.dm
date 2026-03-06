@@ -122,6 +122,5 @@
 		/obj/item/clothing/suit/armor/vest/hc_police_jacket/suit = 3,
 		/obj/item/clothing/suit/armor/vest/hc_police = 3,
 		/obj/item/clothing/suit/armor/vest/hc_police_jacket = 3,
-
 		)
 	payment_department = ACCOUNT_SEC
