@@ -61,7 +61,7 @@
 			qdel(old_organ)
 			continue
 		old_organ.organ_flags &= ~ORGAN_UNREMOVABLE
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	user.monkeyize(instant = transform_instantly)
 	return TRUE
 
