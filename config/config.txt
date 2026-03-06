@@ -129,6 +129,9 @@ RETA_DEPT_COOLDOWN_DS 150
 ## allow players to initiate a map-change vote
 #ALLOW_VOTE_MAP
 
+## allow players to vote on the dynamic threat level before roundstart
+ALLOW_VOTE_DYNAMIC_TIER
+
 ## the number of times you wish to allow players to rock the vote in a given shift
 MAX_ROCKING_VOTES 1
 
