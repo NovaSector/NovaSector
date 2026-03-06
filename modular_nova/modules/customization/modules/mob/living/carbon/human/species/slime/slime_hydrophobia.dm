@@ -18,7 +18,6 @@
 		slime_hydrophobia_deactivate(user)
 		return
 
-	ADD_TRAIT(user, TRAIT_SLIME_HYDROPHOBIA, ACTION_TRAIT)
 	user.apply_status_effect(/datum/status_effect/slime_hydrophobia)
 	user.visible_message(
 		span_purple("[user]'s outer membrane starts to ooze out an oily coating, [owner.p_their()] body becoming more viscous!"),
@@ -32,7 +31,6 @@
 	if(!user.has_status_effect(/datum/status_effect/slime_hydrophobia))
 		return
 
-	REMOVE_TRAIT(user, TRAIT_SLIME_HYDROPHOBIA, ACTION_TRAIT)
 	user.remove_status_effect(/datum/status_effect/slime_hydrophobia)
 	user.visible_message(
 		span_purple("[user]'s outer membrane returns to normal, [owner.p_their()] body drawing the oily coat back inside!"),
@@ -49,10 +47,12 @@
 
 /datum/status_effect/slime_hydrophobia/on_apply()
 	. = ..()
+	ADD_TRAIT(owner, TRAIT_SLIME_HYDROPHOBIA, ACTION_TRAIT)
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/status_effect/slime_hydrophobia, update=TRUE)
 
 /datum/status_effect/slime_hydrophobia/on_remove()
 	. = ..()
+	REMOVE_TRAIT(owner, TRAIT_SLIME_HYDROPHOBIA, ACTION_TRAIT)
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/slime_hydrophobia, update=TRUE)
 
 /datum/status_effect/slime_hydrophobia/get_examine_text()
