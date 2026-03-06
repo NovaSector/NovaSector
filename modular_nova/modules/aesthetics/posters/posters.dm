@@ -75,13 +75,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 3
 
 //Replacement for the deathsquad poster
 //Given permission by Rai Montroyal's player @81fm (hey i pr'd this in)
-/obj/structure/sign/poster/official/enlist
+/obj/structure/sign/poster/official/enlist/nova
 	name = "Enlist" // deathsquad mention removed in favour of asset protection
 	desc = "An advertisement for the Central Command Asset Protection strike team."
 	icon = 'modular_nova/modules/aesthetics/posters/official.dmi'
 	icon_state = "nova_enlist"
 
-/obj/structure/sign/poster/official/enlist/examine_more(mob/user)
+/obj/structure/sign/poster/official/enlist/nova/examine_more(mob/user)
 	. = ..()
 	. += span_notice("<i>You browse some of the poster's information...</i>")
 	. += "\t[span_info("The Nanotrasen Central Command Asset Protection team comprises of some of the best individuals in the company.")]"
