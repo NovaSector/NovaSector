@@ -1,0 +1,4 @@
+author: "Absolucy"
+delete-after: True
+changes:
+  - qol: "Your own LOOC, AOOC, SOOC, or Mentorsay messages will no longer trigger your highlights."
