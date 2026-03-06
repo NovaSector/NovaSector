@@ -80,8 +80,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 3
 	desc = "An advertisement for the Central Command Asset Protection strike team."
 	icon = 'modular_nova/modules/aesthetics/posters/official.dmi'
 	icon_state = "nova_enlist"
-	
-	MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/enlist/nova, 32)
 
 /obj/structure/sign/poster/official/enlist/nova/examine_more(mob/user)
 	. = ..()
@@ -92,6 +90,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 3
 	. += "\t[span_info("High-Ranking Nanotrasen Navy officers, such as those in the Admiralty; Foreign Diplomats; and company secrets.")]"
 	. += "\t[span_info("If you think you have what it takes, enlist today with the Master-At-Arms of your nearest Nanotrasen Interlink facility!")]"
 	return .
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/enlist/nova, 32)
 
 /obj/structure/sign/poster/official/nova_signup
 	name = "Sign Up"
