@@ -19,6 +19,7 @@
 	if(!HAS_TRAIT(owner, TRAIT_IS_WET))
 		to_chat(owner, span_info("You're no longer soaked, your form regenerating once more."))
 		qdel(src)
+		return
 
 	var/blood_units_to_lose = 0
 
