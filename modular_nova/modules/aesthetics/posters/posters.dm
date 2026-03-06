@@ -89,7 +89,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 3
 	. += "\t[span_info("These include but are not limited to:")]"
 	. += "\t[span_info("High-Ranking Nanotrasen Navy officers, such as those in the Admiralty; Foreign Diplomats; and company secrets.")]"
 	. += "\t[span_info("If you think you have what it takes, enlist today with the Master-At-Arms of your nearest Nanotrasen Interlink facility!")]"
-	. += span_notice("<i>You notice it features a certain white-haired cat.</i>")
 	return .
 
 /obj/structure/sign/poster/official/nova_signup
