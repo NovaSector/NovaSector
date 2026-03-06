@@ -137,6 +137,10 @@
 	name = "Squishy Yellow Rock"
 	item_path = /obj/item/toy/plush/nova/funniyellowrock
 
+/datum/loadout_item/toys/plush/expie
+	name = "Experiment Plushie"
+	item_path = /obj/item/toy/plush/nova/expie
+
 /*
 *	DONATOR
 */
