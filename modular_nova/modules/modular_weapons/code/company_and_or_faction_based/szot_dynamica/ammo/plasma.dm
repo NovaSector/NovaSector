@@ -15,6 +15,6 @@
 	icon_state = "plasma_glob"
 	damage = 10
 	speed = 1
-	bare_wound_bonus = 40
+	exposed_wound_bonus = 40
 	wound_bonus = -20 // Not too great at wounding through armor.
 	pass_flags = PASSTABLE | PASSGRILLE // His ass does NOT pass through glass!

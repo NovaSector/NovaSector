@@ -10,7 +10,7 @@
 	binrange = 10
 
 /obj/item/circuitboard/machine/dish_drive/bullet
-	name = "Bullet Drive (Machine Board)"
+	name = "Bullet Drive"
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/dish_drive/bullet
 	req_components = list(
@@ -65,3 +65,7 @@
 				flick("synthesizer_beam", src)
 			else
 				step_towards(I, src)
+
+/obj/item/flatpack/bullet_drive
+	name = "flatpacked bullet drive"
+	board = /obj/item/circuitboard/machine/dish_drive/bullet

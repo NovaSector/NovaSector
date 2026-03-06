@@ -1,8 +1,9 @@
-/// Teshari ears, but as a quirk/organ
+/// Teshari ears, hold the teshari
 /obj/item/organ/ears/sensitive
 	name = "sensitive ears"
 	desc = "Highly sensitive ears capable of detecting even the smallest noises."
 	damage_multiplier = 2
+	organ_traits = list(TRAIT_SENSITIVE_HEARING)
 	actions_types = list(/datum/action/cooldown/spell/teshari_hearing)
 
 /obj/item/organ/ears/sensitive/on_mob_remove(mob/living/carbon/ear_owner)
@@ -11,12 +12,7 @@
 	if(ear_owner.has_status_effect(/datum/status_effect/teshari_hearing))
 		ear_owner.remove_status_effect(/datum/status_effect/teshari_hearing)
 
-	ear_owner.remove_traits(list(TRAIT_GOOD_HEARING, TRAIT_SENSITIVE_HEARING), ORGAN_TRAIT)
-
-/obj/item/organ/ears/sensitive/on_mob_insert(mob/living/carbon/ear_owner)
-	. = ..()
-	// TRAIT_SENSITIVE_HEARING is important for the flavor text distinction
-	ADD_TRAIT(ear_owner, TRAIT_SENSITIVE_HEARING, ORGAN_TRAIT)
+	REMOVE_TRAIT(ear_owner, TRAIT_GOOD_HEARING, ORGAN_TRAIT)
 
 /obj/item/organ/ears/teshari
 	name = "teshari ears"
@@ -51,6 +47,9 @@
 /datum/action/cooldown/spell/teshari_hearing/Remove(mob/living/remove_from)
 	REMOVE_TRAIT(remove_from, TRAIT_GOOD_HEARING, ORGAN_TRAIT)
 	remove_from.update_sight()
+	if(remove_from.has_status_effect(/datum/status_effect/teshari_hearing))
+		//we haven't deactivated yet...
+		teshari_hearing_deactivate(remove_from)
 	return ..()
 
 /datum/action/cooldown/spell/teshari_hearing/cast(list/targets, mob/living/carbon/human/user = usr)
@@ -89,7 +88,7 @@
 	var/obj/item/organ/ears/ears = user.get_organ_slot(ORGAN_SLOT_EARS)
 	if(ears)
 		// Sensitive Hearing users take more hearing damage when they're not listening
-		ears.damage_multiplier = HAS_TRAIT(user, TRAIT_SENSITIVE_HEARING) ? 2 : 1.5
+		ears.damage_multiplier = HAS_TRAIT(user, TRAIT_SENSITIVE_HEARING) ? /obj/item/organ/ears/sensitive::damage_multiplier : /obj/item/organ/ears/teshari::damage_multiplier
 
 /datum/status_effect/teshari_hearing
 	id = "teshari_hearing"

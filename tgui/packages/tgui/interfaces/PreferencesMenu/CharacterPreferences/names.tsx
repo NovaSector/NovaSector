@@ -1,4 +1,5 @@
-import { binaryInsertWith, sortBy } from 'common/collections';
+import { binaryInsertWith } from 'common/collections';
+import { sortBy } from 'es-toolkit';
 import { useState } from 'react';
 import {
   Box,
@@ -13,7 +14,7 @@ import {
   TrackOutsideClicks,
 } from 'tgui-core/components';
 
-import { Name } from '../types';
+import type { Name } from '../types';
 import { useServerPrefs } from '../useServerPrefs';
 
 type NameWithKey = {
@@ -29,7 +30,7 @@ function binaryInsertName(
 }
 
 function sortNameWithKeyEntries(array: [string, NameWithKey[]][]) {
-  return sortBy(array, ([key]) => key);
+  return sortBy(array, [([key]) => key]);
 }
 
 type MultiNameProps = {
@@ -40,10 +41,7 @@ type MultiNameProps = {
 };
 
 export function MultiNameInput(props: MultiNameProps) {
-  const { handleUpdateName } = props;
-  const [currentlyEditingName, setCurrentlyEditingName] = useState<
-    string | null
-  >(null);
+  const { handleUpdateName, handleRandomizeName } = props;
 
   const data = useServerPrefs();
   if (!data) return;
@@ -58,12 +56,6 @@ export function MultiNameInput(props: MultiNameProps) {
         name,
       },
     );
-  }
-
-  function updateName(key, value) {
-    handleUpdateName(key, value);
-
-    setCurrentlyEditingName(null);
   }
 
   return (
@@ -82,51 +74,97 @@ export function MultiNameInput(props: MultiNameProps) {
               ([_, names], index, collection) => (
                 <>
                   {names.map(({ key, name }) => {
-                    let content;
+                    // NOVA EDIT ADDITION START - DRONE PREFIXES
+                    // Get prefixes from backend if available
+                    const allPrefixes = name.prefixes || [];
 
-                    if (currentlyEditingName === key) {
-                      content = (
-                        <Input
-                          autoSelect
-                          onEnter={(e, value) => updateName(key, value)}
-                          onChange={(e, value) => updateName(key, value)}
-                          onEscape={() => {
-                            setCurrentlyEditingName(null);
-                          }}
-                          value={props.names[key]}
-                        />
-                      );
-                    } else {
-                      content = (
-                        <Button
-                          width="100%"
-                          onClick={(event) => {
-                            setCurrentlyEditingName(key);
-                            event.cancelBubble = true;
-                            event.stopPropagation();
-                          }}
-                        >
-                          <FitText maxFontSize={12} maxWidth={130}>
-                            {props.names[key]}
-                          </FitText>
-                        </Button>
-                      );
-                    }
-
+                    // Current value stored in props.names[key], default if empty
+                    const currentValue =
+                      props.names[key] || `${allPrefixes[0] || ''}-001`;
+                    const [prefix, suffix] = currentValue.split('-');
+                    // NOVA EDIT ADDITION END
                     return (
                       <LabeledList.Item key={key} label={name.explanation}>
                         <Stack fill>
-                          <Stack.Item grow>{content}</Stack.Item>
+                          {/* NOVA EDIT REMOVAL START - DRONE NAMING (the removed part is integrated in the added block below)
+                          <Stack.Item grow>
+                            <Button.Input
+                              fluid
+                              onCommit={(value) => handleUpdateName(key, value)}
+                              value={props.names[key]}
+                            />
+                          </Stack.Item>
+                          NOVA EDIT REMOVAL END*/}
+                          {/* NOVA EDIT ADDITION START - DRONE NAMING */}
+                          {key === 'drone_name' ? (
+                            <>
+                              {/* Prefix dropdown */}
+                              <Stack.Item>
+                                <select
+                                  style={{
+                                    background: 'rgba(0, 0, 0, 0.3)',
+                                    color: 'white',
+                                    padding: '2px 4px',
+                                    border:
+                                      '1px solid rgba(255, 255, 255, 0.2)',
+                                    borderRadius: '4px',
+                                  }}
+                                  value={prefix || ''}
+                                  onChange={(e) => {
+                                    props.handleUpdateName(
+                                      key,
+                                      `${e.target.value}-${suffix || ''}`,
+                                    );
+                                  }}
+                                >
+                                  {allPrefixes.map((pref) => (
+                                    <option key={pref} value={pref}>
+                                      {pref}
+                                    </option>
+                                  ))}
+                                </select>
+                              </Stack.Item>
 
+                              {/* Suffix input with commit behavior */}
+                              <Stack.Item grow>
+                                <Button.Input
+                                  fluid
+                                  maxLength={3}
+                                  onCommit={(value) => {
+                                    if (/^\d{0,3}$/.test(value)) {
+                                      const padded = value.padStart(3, '0');
+                                      props.handleUpdateName(
+                                        key,
+                                        `${prefix}-${padded}`,
+                                      );
+                                    }
+                                  }}
+                                  value={suffix || ''}
+                                />
+                              </Stack.Item>
+                            </>
+                          ) : (
+                            /* Default case for other names */
+                            <Stack.Item grow>
+                              <Button.Input
+                                fluid
+                                onCommit={(value) =>
+                                  handleUpdateName(key, value)
+                                }
+                                value={props.names[key]}
+                              />
+                            </Stack.Item>
+                          )}
+
+                          {/* Randomize button — works for drone_name too */}
+                          {/* NOVA EDIT ADDITION END*/}
                           {!!name.can_randomize && (
                             <Stack.Item>
                               <Button
                                 icon="dice"
                                 tooltip="Randomize"
                                 tooltipPosition="right"
-                                onClick={() => {
-                                  props.handleRandomizeName(key);
-                                }}
+                                onClick={() => handleRandomizeName(key)}
                               />
                             </Stack.Item>
                           )}
@@ -158,7 +196,7 @@ export function NameInput(props: NameInputProps) {
   );
   const editing = lastNameBeforeEdit === props.name;
 
-  function updateName(e, value) {
+  function updateName(value) {
     setLastNameBeforeEdit(null);
     props.handleUpdateName(value);
   }
@@ -187,17 +225,16 @@ export function NameInput(props: NameInputProps) {
         </Stack.Item>
 
         <Stack.Item grow position="relative">
-          {(editing && (
+          {editing ? (
             <Input
               autoSelect
-              onEnter={updateName}
-              onChange={updateName}
+              onBlur={updateName}
               onEscape={() => {
                 setLastNameBeforeEdit(null);
               }}
               value={props.name}
             />
-          )) || (
+          ) : (
             <FitText maxFontSize={16} maxWidth={130}>
               {props.name}
             </FitText>

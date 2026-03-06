@@ -106,6 +106,8 @@
 #define VV_HK_OBSERVE_FOLLOW "observe_follow"
 #define VV_HK_GET_MOVABLE "get_movable"
 #define VV_HK_DEADCHAT_PLAYS "deadchat_plays"
+#define VV_HK_ADD_REMOVE_FACTION "add_remove_faction"
+#define VV_HK_GET_FACTIONS "add_remove_factions"
 
 // /obj
 #define VV_HK_OSAY "osay"
@@ -127,6 +129,7 @@
 #define VV_HK_GODMODE "godmode"
 #define VV_HK_DROP_ALL "dropall"
 #define VV_HK_REGEN_ICONS "regen_icons"
+#define VV_HK_REGEN_ICONS_FULL "regen_icons_full"
 #define VV_HK_PLAYER_PANEL "player_panel"
 #define VV_HK_BUILDMODE "buildmode"
 #define VV_HK_DIRECT_CONTROL "direct_control"
@@ -135,6 +138,7 @@
 #define VV_HK_VIEW_PLANES "view_planes"
 #define VV_HK_GIVE_AI "give_ai"
 #define VV_HK_GIVE_AI_SPEECH "give_ai_speech"
+#define VV_HK_GIVE_ACCESS "give_access"
 
 // /mob/living
 #define VV_HK_GIVE_SPEECH_IMPEDIMENT "impede_speech"

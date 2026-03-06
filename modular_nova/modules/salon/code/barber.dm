@@ -1,7 +1,6 @@
 /datum/job/barber
 	title = JOB_BARBER
 	description = "Run your salon and meet the crews sanitary needs, such as hair cutting, massaging and more!"
-	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
@@ -34,6 +33,7 @@
 	uniform = /obj/item/clothing/under/rank/barber
 	shoes = /obj/item/clothing/shoes/laceup
 	id_trim = /datum/id_trim/job/barber
+	skillchips = list(/obj/item/skillchip/hair_expert)
 
 /obj/structure/closet/secure_closet/barber
 	name = "barber's locker"
@@ -58,7 +58,7 @@
 	new /obj/item/reagent_containers/spray/quantum_hair_dye(src)
 	new /obj/item/reagent_containers/spray/barbers_aid(src)
 	new /obj/item/reagent_containers/spray/cleaner(src)
-	new /obj/item/reagent_containers/cup/rag(src)
+	new /obj/item/rag(src)
 	new /obj/item/storage/medkit(src)
 
 /obj/effect/landmark/start/barber

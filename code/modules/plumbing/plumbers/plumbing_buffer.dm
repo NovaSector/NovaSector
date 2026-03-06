@@ -9,14 +9,16 @@
 	pass_flags_self = PASSMACHINE | LETPASSTHROW // It looks short enough.
 	buffer = 200
 
+	///Buffer net that connects multiple buffers
 	var/datum/buffer_net/buffer_net
+	///Volume of reagents at which which this buffer is ready to send
 	var/activation_volume = 100
+	///The state of this machine see defines
 	var/mode
 
-/obj/machinery/plumbing/buffer/Initialize(mapload, bolt, layer)
+/obj/machinery/plumbing/buffer/Initialize(mapload, layer)
 	. = ..()
-
-	AddComponent(/datum/component/plumbing/buffer, bolt, layer)
+	AddComponent(/datum/component/plumbing/buffer, layer)
 
 /obj/machinery/plumbing/buffer/create_reagents(max_vol, flags)
 	. = ..()
@@ -77,7 +79,7 @@
 	to_chat(user, span_notice("New activation threshold is now [activation_volume]."))
 	return
 
-/obj/machinery/plumbing/buffer/attackby(obj/item/item, mob/user, list/modifiers)
+/obj/machinery/plumbing/buffer/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)
 	if(item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, span_notice("You reset the automatic buffer."))
 

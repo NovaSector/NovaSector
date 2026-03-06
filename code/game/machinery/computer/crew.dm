@@ -13,9 +13,7 @@
 
 /obj/machinery/computer/crew/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
-	AddComponent(/datum/component/usb_port, list(
-		/obj/item/circuit_component/medical_console_data,
-	))
+	AddComponent(/datum/component/usb_port, typecacheof(list(/obj/item/circuit_component/medical_console_data), only_root_path = TRUE))
 
 /obj/item/circuit_component/medical_console_data
 	display_name = "Crew Monitoring Data"
@@ -180,7 +178,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "CrewConsoleNova") // NOVA EDIT CHANGE - ORIGINAL: ui = new(user, src, "CrewConsole")
+		ui = new(user, src, "CrewConsole")
 		ui.open()
 
 /datum/crewmonitor/proc/show(mob/M, source)
@@ -258,8 +256,22 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			entry["name"] = id_card.registered_name
 			entry["assignment"] = id_card.assignment
 			var/trim_assignment = id_card.get_trim_assignment()
+			/* // NOVA EDIT REMOVAL START - Just so we can indent this after an else
 			if (jobs[trim_assignment] != null)
 				entry["ijob"] = jobs[trim_assignment]
+			*/ // NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDITION START
+			if(show_command_only)
+				if (jobs_command[trim_assignment] != null)
+					entry["ijob"] = jobs_command[trim_assignment]
+				else
+					continue
+			else
+				if (jobs[trim_assignment] != null)
+					entry["ijob"] = jobs[trim_assignment]
+		else if(show_command_only) // Skip unknowns on blueshield
+			continue
+		// NOVA EDIT ADDITION END
 
 		// NOVA EDIT ADDITION START - Checking for robotic race
 		if (issynthetic(tracked_human))
@@ -275,30 +287,30 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			entry["burndam"] = rand(0,175)
 			entry["brutedam"] = rand(0,175)
 			entry["health"] = -50
-			entry["can_track"] = tracked_living_mob.can_track()
 			results[++results.len] = entry
 			continue
 
 		// Current status
-		if (sensor_mode >= SENSOR_LIVING)
+		if (sensor_mode >= SENSOR_VITALS)
 			entry["life_status"] = tracked_living_mob.stat
+		else if (sensor_mode == SENSOR_LIVING)
+			// binary sensors should only report alive or dead
+			entry["life_status"] = (tracked_living_mob.stat == DEAD) ? DEAD : CONSCIOUS
 
 		// Damage
 		if (sensor_mode >= SENSOR_VITALS)
 			entry += list(
-				"oxydam" = round(tracked_living_mob.getOxyLoss(), 1),
-				"toxdam" = round(tracked_living_mob.getToxLoss(), 1),
-				"burndam" = round(tracked_living_mob.getFireLoss(), 1),
-				"brutedam" = round(tracked_living_mob.getBruteLoss(), 1),
+				"oxydam" = round(tracked_living_mob.get_oxy_loss(), 1),
+				"toxdam" = round(tracked_living_mob.get_tox_loss(), 1),
+				"burndam" = round(tracked_living_mob.get_fire_loss(), 1),
+				"brutedam" = round(tracked_living_mob.get_brute_loss(), 1),
 				"health" = round(tracked_living_mob.health, 1),
 			)
 
 		// Location
 		if (sensor_mode >= SENSOR_COORDS)
 			entry["area"] = get_area_name(tracked_living_mob, format_text = TRUE)
-
-		// Trackability
-		entry["can_track"] = tracked_living_mob.can_track()
+		entry["can_track"] = tracked_living_mob.can_track() // NOVA EDIT ADDITION
 
 		results[++results.len] = entry
 

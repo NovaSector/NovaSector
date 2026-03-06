@@ -2,7 +2,7 @@
 	name = "\improper Space Dragon"
 	roundend_category = "space dragons"
 	antagpanel_category = ANTAG_GROUP_LEVIATHANS
-	job_rank = ROLE_SPACE_DRAGON
+	pref_flag = ROLE_SPACE_DRAGON
 	show_in_antagpanel = FALSE
 	show_name_in_check_antagonists = TRUE
 	show_to_ghosts = TRUE
@@ -28,6 +28,10 @@
 	var/datum/component/mind_linker/wavespeak
 	/// What areas are we allowed to place rifts in?
 	var/list/chosen_rift_areas = list()
+	// NOVA EDIT ADDITION START, announce on first rift
+	/// If the space dragon has been announced to the station yet
+	var/announced = FALSE
+	// NOVA EDIT ADDITION END
 
 /datum/antagonist/space_dragon/greet()
 	. = ..()
@@ -66,12 +70,10 @@
 /datum/antagonist/space_dragon/on_gain()
 	forge_objectives()
 	rift_ability = new()
-	owner.special_role = ROLE_SPACE_DRAGON
 	owner.set_assigned_role(SSjob.get_job_type(/datum/job/space_dragon))
 	return ..()
 
 /datum/antagonist/space_dragon/on_removal()
-	owner.special_role = null
 	owner.set_assigned_role(SSjob.get_job_type(/datum/job/unassigned))
 	return ..()
 
@@ -79,7 +81,7 @@
 	var/mob/living/antag = mob_override || owner.current
 	RegisterSignal(antag, COMSIG_LIVING_LIFE, PROC_REF(rift_checks))
 	RegisterSignal(antag, COMSIG_LIVING_DEATH, PROC_REF(destroy_rifts))
-	antag.faction |= FACTION_CARP
+	antag.add_faction(FACTION_CARP)
 	// Give the ability over if we have one
 	rift_ability?.Grant(antag)
 	wavespeak = antag.AddComponent( \
@@ -96,7 +98,7 @@
 	var/mob/living/antag = mob_override || owner.current
 	UnregisterSignal(antag, COMSIG_LIVING_LIFE)
 	UnregisterSignal(antag, COMSIG_LIVING_DEATH)
-	antag.faction -= FACTION_CARP
+	antag.remove_faction(FACTION_CARP)
 	rift_ability?.Remove(antag)
 	QDEL_NULL(wavespeak)
 
@@ -166,6 +168,12 @@
 		rift_list -= rift
 		if(!QDELETED(rift))
 			QDEL_NULL(rift)
+	// NOVA EDIT ADDITION START, let the dragon retry
+	if(rift_ability)
+		QDEL_NULL(rift_ability)
+	rift_ability = new()
+	rift_ability?.Grant(owner.current)
+	// NOVA EDIT ADDITION END
 
 /**
  * Sets up Space Dragon's victory for completing the objectives.

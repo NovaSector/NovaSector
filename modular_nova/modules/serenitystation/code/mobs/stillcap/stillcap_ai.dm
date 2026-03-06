@@ -17,7 +17,6 @@
 
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/pet_planning,
-		/datum/ai_planning_subtree/stop_hiding_if_target,
 		/datum/ai_planning_subtree/simple_find_nearest_target_to_flee,
 		/datum/ai_planning_subtree/stop_hiding_if_target,
 		/datum/ai_planning_subtree/flee_target,

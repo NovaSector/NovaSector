@@ -1,17 +1,22 @@
 //lets broadcast to the common channel if a lockbox is destroyed
 /obj/item/storage/lockbox/order/Destroy()
+	var/announcement_line = atom_storage.locked == STORAGE_NOT_LOCKED ? "Delivered" : "Locked"
 	aas_config_announce(/datum/aas_config_entry/goodycase_destroyed, list(
 		"LOCATION" = get_area_name(src),
-	), src, list(RADIO_CHANNEL_COMMON))
+		"OWNER" = buyer_account?.account_holder,
+	), src, list(RADIO_CHANNEL_COMMON), announcement_line)
 	log_game("[src] was destroyed in [get_area_name(src)]")
 	return ..()
 
 /datum/aas_config_entry/goodycase_destroyed
 	name = "Cargo Alert: Goody Case Destroyed"
+	// Empty line will be dropped, so by default we will not report properly destroyed goody cases.
 	announcement_lines_map = list(
-		"Message" = "A goody case has been destroyed in %LOCATION.")
+		"Delivered" = "",
+		"Locked" = "%OWNER's locked goody case has been destroyed in %LOCATION.")
 	vars_and_tooltips_map = list(
 		"LOCATION" = "will be replaced with the location of the goody case.",
+		"OWNER" = "with case owner name."
 	)
 
 /obj/item/goodycase_holder

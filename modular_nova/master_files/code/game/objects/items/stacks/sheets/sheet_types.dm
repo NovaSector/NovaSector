@@ -29,10 +29,13 @@ GLOBAL_LIST_INIT(nova_metal_recipes, list(
 	new/datum/stack_recipe("elevated floor tile", /obj/item/stack/tile/iron/elevated, 1, 4, 20, category = CAT_TILES),
 	new/datum/stack_recipe("wrestling turnbuckle", /obj/structure/wrestling_corner, 3, time = 2.5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("metal barricade", /obj/structure/deployable_barricade/metal, 2, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("gun rack", /obj/structure/rack/gunrack, 1, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("gun locker", /obj/structure/guncase, 5, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("metal shelf", /obj/structure/rack/shelf, 1, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("anvil", /obj/structure/reagent_anvil, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("forge", /obj/structure/reagent_forge, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("throwing wheel", /obj/structure/throwing_wheel, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
+	new/datum/stack_recipe("crate shelf parts", /obj/item/rack_parts/cargo_shelf, 4, category = CAT_FURNITURE), \
 ))
 
 GLOBAL_LIST_INIT(nova_metal_airlock_recipes, list(
@@ -100,7 +103,7 @@ GLOBAL_LIST_INIT(nova_wood_recipes, list(
 // Cardboard
 
 GLOBAL_LIST_INIT(nova_cardboard_recipes, list(
-	new/datum/stack_recipe("flat box", /obj/item/storage/box/flat, crafting_flags = NONE, category = CAT_CONTAINERS),
+	new/datum/stack_recipe("coffee tray", /obj/item/storage/box/coffee_tray, 1, category = CAT_CONTAINERS),
 ))
 
 /obj/item/stack/sheet/cardboard/get_main_recipes()
@@ -125,6 +128,7 @@ GLOBAL_LIST_INIT(nova_cloth_recipes, list(
 // Leather
 
 GLOBAL_LIST_INIT(nova_leather_recipes, list(
+	new/datum/stack_recipe("bag of dice", /obj/item/storage/dice/empty, 2, category = CAT_CONTAINERS),
 ))
 
 GLOBAL_LIST_INIT(nova_leather_belt_recipes, list(
@@ -188,7 +192,7 @@ GLOBAL_LIST_INIT(nova_sand_recipes, list(
 // Sandstone
 
 GLOBAL_LIST_INIT(nova_sandstone_recipes, list(
-	new/datum/stack_recipe("brick well", /obj/structure/water_source/brick_well, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("brick well", /obj/structure/water_source/brick_well, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND | CRAFT_SKIP_MATERIALS_PARITY, category = CAT_STRUCTURE),
 ))
 
 /obj/item/stack/sheet/mineral/sandstone/get_main_recipes()

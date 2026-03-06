@@ -95,10 +95,6 @@
 	name = "Halfbang ALT"
 	icon_state = "hair_halfbangalt"
 
-/datum/sprite_accessory/hair/nova/emolong
-	name = "Emo Long"
-	icon_state = "hair_emolong"
-
 /datum/sprite_accessory/hair/nova/sleaze
 	name = "Sleaze"
 	icon_state = "hair_sleaze"
@@ -202,6 +198,10 @@
 /datum/sprite_accessory/hair/nova/long4
 	name = "Long 4"
 	icon_state = "hair_long4"
+
+/datum/sprite_accessory/hair/nova/fluffball
+	name = "Fluffball"
+	icon_state = "hair_fluffball"
 
 /datum/sprite_accessory/hair/nova/fluffy_short
 	name = "Fluffy Short"
@@ -671,6 +671,29 @@
 	name = "Long Dreadlocks"
 	icon_state = "hair_dreadlocks_long"
 
+/datum/sprite_accessory/hair/nova/twinbun_chunky
+	name = "Chunky Twin Buns"
+	icon_state = "hair_twinbun_chunky"
+
+/datum/sprite_accessory/hair/nova/quadbun_chunky
+	name = "Chunky Quad Buns"
+	icon_state = "hair_quadbun_chunky"
+	y_offset = 1
+
+/datum/sprite_accessory/hair/nova/ponytail_chunky
+	name = "Chunky Ponytail"
+	icon_state = "hair_ponytail_chunky"
+	hair_appendages_inner = list("hair_ponytail_chunky" = HAIR_APPENDAGE_REAR)
+
+/datum/sprite_accessory/hair/nova/ponytail_kzero
+	name = "'Zero' Ponytail"
+	icon_state = "hair_ponytail_kzero"
+	hair_appendages_inner = list("hair_ponytail_kzero" = HAIR_APPENDAGE_REAR)
+
+/datum/sprite_accessory/hair/nova/misshapen
+	name = "Misshapen"
+	icon_state = "hair_misshapen"
+
 /datum/sprite_accessory/hair/nova/halfbob
 	name = "Half Bob"
 	icon_state = "hair_bob_half"
@@ -678,6 +701,26 @@
 /datum/sprite_accessory/hair/nova/halfbob_mirrored
 	name = "Mirrored Half Bob"
 	icon_state = "hair_bob_half_mirrored"
+
+/datum/sprite_accessory/hair/nova/flowerchild
+	name = "Flowerchild"
+	icon_state = "hair_flowerchild"
+
+/datum/sprite_accessory/hair/nova/flowerchild_ponyless
+	name = "Flowerchild (No Ponytail)"
+	icon_state = "hair_flowerchild_ponyless"
+
+/datum/sprite_accessory/hair/nova/flowerchild_ponyful
+	name = "Flowerchild (Ponytail Only)"
+	icon_state = "hair_flowerchild_ponyful"
+
+/datum/sprite_accessory/hair/nova/tesharimohawk
+	name = "Teshari Mohawk"
+	icon_state = "hair_teshmohawk"
+
+/datum/sprite_accessory/hair/nova/tesharimohawkalt
+	name = "Teshari Mohawk Alt"
+	icon_state = "hair_teshmohawkalt"
 
 // Facial hair
 

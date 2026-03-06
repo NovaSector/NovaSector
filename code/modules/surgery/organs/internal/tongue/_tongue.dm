@@ -8,6 +8,7 @@
 	attack_verb_continuous = list("licks", "slobbers", "slaps", "frenches", "tongues")
 	attack_verb_simple = list("lick", "slobber", "slap", "french", "tongue")
 	voice_filter = ""
+	organ_traits = list(TRAIT_SPEAKS_CLEARLY)
 	/**
 	 * A cached list of paths of all the languages this tongue is capable of speaking
 	 *
@@ -51,6 +52,8 @@
 	// - then we cache it via string list
 	// this results in tongues with identical possible languages sharing a cached list instance
 	languages_possible = string_list(get_possible_languages())
+	if(!sense_of_taste)
+		add_organ_trait(TRAIT_AGEUSIA)
 
 /obj/item/organ/tongue/examine(mob/user)
 	. = ..()
@@ -138,40 +141,24 @@
 	* ageusia from having a non-tasting tongue.
 	*/
 	REMOVE_TRAIT(receiver, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
-	apply_tongue_effects()
 
 /obj/item/organ/tongue/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 
 	temp_say_mod = ""
 	UnregisterSignal(organ_owner, COMSIG_MOB_SAY)
-	REMOVE_TRAIT(organ_owner, TRAIT_SPEAKS_CLEARLY, SPEAKING_FROM_TONGUE)
-	REMOVE_TRAIT(organ_owner, TRAIT_AGEUSIA, ORGAN_TRAIT)
 	// Carbons by default start with NO_TONGUE_TRAIT caused TRAIT_AGEUSIA
 	ADD_TRAIT(organ_owner, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
 	organ_owner.voice_filter = initial(organ_owner.voice_filter)
 
-/obj/item/organ/tongue/apply_organ_damage(damage_amount, maximum = maxHealth, required_organ_flag)
-	. = ..()
-	if(!owner)
-		return FALSE
-	apply_tongue_effects()
+/obj/item/organ/tongue/on_begin_failure()
+	remove_organ_trait(TRAIT_SPEAKS_CLEARLY)
+	add_organ_trait(TRAIT_AGEUSIA)
 
-/// Applies effects to our owner based on how damaged our tongue is
-/obj/item/organ/tongue/proc/apply_tongue_effects()
+/obj/item/organ/tongue/on_failure_recovery()
+	add_organ_trait(TRAIT_SPEAKS_CLEARLY)
 	if(sense_of_taste)
-		//tongues can't taste food when they are failing
-		if(organ_flags & ORGAN_FAILING)
-			ADD_TRAIT(owner, TRAIT_AGEUSIA, ORGAN_TRAIT)
-		else
-			REMOVE_TRAIT(owner, TRAIT_AGEUSIA, ORGAN_TRAIT)
-	else
-		//tongues can't taste food when they lack a sense of taste
-		ADD_TRAIT(owner, TRAIT_AGEUSIA, ORGAN_TRAIT)
-	if(organ_flags & ORGAN_FAILING)
-		REMOVE_TRAIT(owner, TRAIT_SPEAKS_CLEARLY, SPEAKING_FROM_TONGUE)
-	else
-		ADD_TRAIT(owner, TRAIT_SPEAKS_CLEARLY, SPEAKING_FROM_TONGUE)
+		remove_organ_trait(TRAIT_AGEUSIA)
 
 /obj/item/organ/tongue/could_speak_language(datum/language/language_path)
 	return (language_path in languages_possible)
@@ -371,6 +358,15 @@
 	bomb = 50
 	fire = 100
 
+/obj/item/organ/tongue/ghost
+	name = "ghost tongue"
+	desc = "You feel spooked even thinking about someone talking through this."
+	icon_state = "tongue-ghost"
+	movement_type = PHASING
+	say_mod = "boos"
+	sense_of_taste = FALSE
+	organ_flags = parent_type::organ_flags | ORGAN_GHOST
+
 /obj/item/organ/tongue/abductor
 	name = "superlingual matrix"
 	desc = "A mysterious structure that allows for instant communication between users. Pretty impressive until you need to eat something."
@@ -568,7 +564,7 @@
 	attack_verb_simple = list("beep", "boop")
 	modifies_speech = TRUE
 	taste_sensitivity = 25 // not as good as an organic tongue
-	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
+	organ_traits = list(TRAIT_SPEAKS_CLEARLY, TRAIT_SILICON_EMOTES_ALLOWED)
 	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 
 /obj/item/organ/tongue/robot/could_speak_language(datum/language/language_path)
@@ -576,6 +572,18 @@
 
 /obj/item/organ/tongue/robot/modify_speech(datum/source, list/speech_args)
 	speech_args[SPEECH_SPANS] |= SPAN_ROBOT
+
+/obj/item/organ/tongue/robot/on_mob_insert(mob/living/carbon/receiver)
+	. = ..()
+	receiver.grant_language(/datum/language/machine, source = LANGUAGE_TONGUE)
+	to_chat(receiver, span_boldnotice("You gain a new understanding of [/datum/language/machine::name]."))
+
+/obj/item/organ/tongue/robot/on_mob_remove(mob/living/carbon/owner)
+	. = ..()
+	if(QDELING(owner))
+		return
+	owner.remove_language(/datum/language/machine, source = LANGUAGE_TONGUE)
+	to_chat(owner, span_boldnotice("You're not really sure what beeps and boops mean anymore."))
 
 /obj/item/organ/tongue/snail
 	name = "radula"
@@ -618,12 +626,42 @@
 
 /obj/item/organ/tongue/cat
 	name = "felinid tongue"
-	desc = "A fleshy muscle mostly used for meowing."
+	desc = "A fleshy muscle mostly used for meowing. Or biting."
 	say_mod = "meows"
 	liked_foodtypes = SEAFOOD | ORANGES | BUGS | GORE
 	disliked_foodtypes = GROSS | CLOTH | RAW
-	organ_traits = list(TRAIT_WOUND_LICKER, TRAIT_FISH_EATER)
+	organ_traits = list(TRAIT_SPEAKS_CLEARLY, TRAIT_WOUND_LICKER, TRAIT_FISH_EATER, TRAIT_CARPOTOXIN_IMMUNE)
 	languages_native = list(/datum/language/nekomimetic)
+	actions_types = list(/datum/action/item_action/organ_action/go_feral)
+	var/feral_mode = FALSE
+
+/obj/item/organ/tongue/cat/on_bodypart_insert(obj/item/bodypart/head)
+	. = ..()
+	head.unarmed_damage_low += 4
+	head.unarmed_damage_high += 7
+	head.unarmed_effectiveness += 10
+	head.unarmed_pummeling_bonus += 0.5
+	head.unarmed_attack_effect = ATTACK_EFFECT_BITE
+	head.unarmed_sharpness = SHARP_EDGED
+	if(feral_mode)
+		add_organ_trait(TRAIT_FERAL_BITER)
+
+/obj/item/organ/tongue/cat/on_bodypart_remove(obj/item/bodypart/head)
+	. = ..()
+	head.unarmed_damage_low -= 4
+	head.unarmed_damage_high -= 7
+	head.unarmed_effectiveness -= 10
+	head.unarmed_pummeling_bonus -= 0.5
+	head.unarmed_attack_effect = initial(head.unarmed_attack_effect)
+	head.unarmed_sharpness = initial(head.unarmed_sharpness)
+	remove_organ_trait(TRAIT_FERAL_BITER)
+
+/obj/item/organ/tongue/cat/proc/toggle_feral()
+	feral_mode = !feral_mode
+	if(feral_mode)
+		add_organ_trait(TRAIT_FERAL_BITER)
+	else
+		remove_organ_trait(TRAIT_FERAL_BITER)
 
 /obj/item/organ/tongue/jelly
 	name = "jelly tongue"

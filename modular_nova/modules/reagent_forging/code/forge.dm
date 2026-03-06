@@ -46,6 +46,7 @@
 
 	anchored = TRUE
 	density = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10)
 
 	/// What the current internal temperature of the forge is
 	var/forge_temperature = 0
@@ -189,7 +190,7 @@
 	QDEL_NULL(particles)
 	if(used_tray)
 		QDEL_NULL(used_tray)
-	. = ..()
+	return ..()
 
 /obj/structure/reagent_forge/update_appearance(updates)
 	. = ..()
@@ -423,7 +424,7 @@
 
 	playsound(src, 'sound/items/weapons/parry.ogg', 50, TRUE) // Play a feedback sound to really let players know we just did an upgrade
 
-/obj/structure/reagent_forge/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/structure/reagent_forge/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!used_tray && istype(attacking_item, /obj/item/plate/oven_tray))
 		add_tray_to_forge(user, attacking_item)
 		return TRUE
@@ -872,7 +873,7 @@
 			material_list[GET_MATERIAL_REF(search_stack.material_type)] = SHEET_MATERIAL_AMOUNT
 
 		else
-			for(var/material as anything in search_stack.custom_materials)
+			for(var/material in search_stack.custom_materials)
 				material_list[material] = SHEET_MATERIAL_AMOUNT
 
 		if(!search_stack.use(1))

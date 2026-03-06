@@ -21,7 +21,7 @@
 	mutanttongue = /obj/item/organ/tongue/cat/primitive
 
 	species_language_holder = /datum/language_holder/primitive_felinid
-	language_prefs_whitelist = list(/datum/language/primitive_catgirl)
+	language_prefs_whitelist = list(/datum/language/primitive_catgirl = TRUE)
 
 	bodytemp_normal = 270 // If a normal human gets hugged by one it's gonna feel cold
 	bodytemp_heat_damage_limit = 283 // To them normal station atmos would be sweltering
@@ -32,6 +32,7 @@
 		TRAIT_VIRUSIMMUNE,
 		TRAIT_RESISTCOLD,
 		TRAIT_USES_SKINTONES,
+		TRAIT_NO_SLIP_ICE,
 	)
 
 	always_customizable = TRUE
@@ -41,12 +42,8 @@
 	var/mob/living/carbon/human/hearthkin = new_primitive
 	if(!istype(hearthkin))
 		return
-	hearthkin.dna.add_mutation(/datum/mutation/human/olfaction, MUT_NORMAL)
-	hearthkin.dna.activate_mutation(/datum/mutation/human/olfaction)
-
-    	// >mfw I take mutadone and my nose clogs
-	var/datum/mutation/human/olfaction/mutation = locate() in hearthkin.dna.mutations
-	mutation.mutadone_proof = TRUE
+	hearthkin.dna.add_mutation(/datum/mutation/olfaction, MUTATION_SOURCE_SPECIES_INNATE)
+	var/datum/mutation/olfaction/mutation = locate() in hearthkin.dna.mutations
 	mutation.instability = 0
 
 /datum/species/human/felinid/primitive/on_species_loss(mob/living/carbon/former_primitive, datum/species/new_species, pref_load)
@@ -54,7 +51,7 @@
 	var/mob/living/carbon/human/hearthkin = former_primitive
 	if(!istype(hearthkin))
 		return
-	hearthkin.dna.remove_mutation(/datum/mutation/human/olfaction)
+	hearthkin.dna.remove_mutation(/datum/mutation/olfaction, MUTATION_SOURCE_SPECIES_INNATE)
 
 /datum/species/human/felinid/primitive/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.hairstyle = "Blunt Bangs Alt"
@@ -63,8 +60,8 @@
 
 	human_for_preview.update_body_parts()
 
-	human_for_preview.dna.species.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
-	human_for_preview.dna.species.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = human_for_preview.dna.species.build_mutant_part("Cat", list(human_for_preview.hair_color))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = human_for_preview.dna.species.build_mutant_part("Cat", list(human_for_preview.hair_color))
 
 	human_for_preview.update_body_parts()
 	human_for_preview.update_body(is_creating = TRUE)
@@ -120,7 +117,7 @@
 		"Physically, the Hearthkin always come in the form of demihumans; appearing similar to normal Earthlings, \
 			but with the tails, ears, and sometimes limbs of various arctic animals; wolves, bears, and felines to only name a few. \
 			They seem perfectly adapted to their lands of ice and mist, but find even the mild controlled temperatures of \
-			NanoTrasen stations to be swelteringly hot. Their view of 'station' genemodders is that of 'halflings': \
+			Nanotrasen stations to be swelteringly hot. Their view of 'station' genemodders is that of 'halflings': \
 			Ancestral bodies, but with the blood and spirit of the humans of Midgard, \
 			tending to look down on them even more than other aliens.",
 	)

@@ -71,7 +71,7 @@
 /obj/item/clothing/head/collectable/flatcap
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret/worn/teshari
 
-/obj/item/clothing/head/frenchberet
+/obj/item/clothing/head/beret/frenchberet
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret/worn/teshari
 
 /obj/item/clothing/head/flatcap
@@ -131,7 +131,7 @@
 /obj/item/clothing/head/flatcap
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret/worn/teshari
 
-/obj/item/clothing/head/frenchberet
+/obj/item/clothing/head/beret/frenchberet
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret/worn/teshari
 
 /obj/item/clothing/head/beret/sec/navywarden/syndicate
@@ -145,6 +145,9 @@
 
 /obj/item/clothing/head/beret/sec/nova
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
+
+/obj/item/clothing/head/beret/clown
+	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge_clown/worn/teshari
 
 /obj/item/clothing/neck/ranger_poncho
 	greyscale_config_worn_teshari = /datum/greyscale_config/ranger_poncho/worn/teshari

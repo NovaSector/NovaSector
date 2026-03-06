@@ -12,12 +12,12 @@ Otherwise, this is a general module for "TG items that we alter the audio/visual
 Try not to put NEW items in this module, only overrides of TG's own aesthetics.
 
 Good examples of what belongs in here (all of which are actually in here):
+
 - Audio and visual changes used to set a different atmosphere (e.g. Lighting or Footsteps)
 - Removing visuals that an item's balance doesn't warrant for us (Such as removing the Breathing Implant visual)
 - The ported walls/doors, which directly override TG's ancient wall sprites
 - Custom floors that override TG's to match the ported walls better
 - Sprites we just flat-out prefer to TG's (e.g. Boxes and Tools)
-
 
 ### TG Proc Changes:
 
@@ -42,5 +42,6 @@ Good examples of what belongs in here (all of which are actually in here):
 - N/A
 
 ### Credits:
+
 - TauCeti station
 - Gandalf2k15

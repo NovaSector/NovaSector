@@ -11,6 +11,7 @@
 	icon_state = "sleepbag_pink_deflated_folded"
 	base_icon_state = "sleepbag"
 	w_class = WEIGHT_CLASS_SMALL
+	obj_flags_nova = ERP_ITEM
 	var/bag_state = "deflated"
 	var/bag_fold = TRUE
 	var/bag_color = "pink"
@@ -66,7 +67,7 @@
 
 		if(TRUE)
 			if(bag_state == "deflated")
-				fold()
+				fold(user)
 				to_chat(user, span_notice("The sleeping bag now is [bag_fold? "folded." : "unfolded."]"))
 				update_icon()
 				update_icon_state()
@@ -130,7 +131,7 @@
 	else
 		to_chat(affected_human, span_notice("You need to unfold the bag before inflating it!"))
 
-/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/proc/fold(mob/user, src)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/proc/fold(mob/user)
 	bag_fold = !bag_fold
 	playsound_if_pref(user, 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg', 40, TRUE)
 	if(bag_fold == TRUE)

@@ -71,7 +71,7 @@
 			continue
 
 		var/datum/signal/subspace/messaging/tablet_message/signal = new(source, list(
-			"fakename" = "NanoTrasen Corp Alerts",
+			"fakename" = "Nanotrasen Corp Alerts",
 			"fakejob" = "Flashbang Watchdog",
 			"message" = message,
 			"targets" = list(messenger),

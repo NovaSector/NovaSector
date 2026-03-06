@@ -20,7 +20,7 @@ EDIT: examine.dm, human.dm, datacore.dm, flavor_text.dm, species_features.tx, tg
 
 ### Master file additions
 
-- code/modules/antagonists/_common/antag_datum.dm
+- `code/modules/antagonists/_common/antag_datum.dm`
 
 ### Included files that are not contained in this module:
 

@@ -3,10 +3,11 @@
 	desc = "A set of shackles designed for intimate encounters. There's a release switch just under the wrist."
 	body_parts_covered = NONE
 	flags_inv = NONE
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_suits.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/lewd_suits.dmi'
-	icon_state = "shackles"
 	greyscale_colors = "#dc7ef4#383840"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/straight_jacket/shackles"
+	post_init_icon_state = "shackles"
 	greyscale_config = /datum/greyscale_config/dorms_shackles
 	greyscale_config_worn = /datum/greyscale_config/dorms_shackles/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/dorms_shackles/worn/digi
@@ -14,6 +15,7 @@
 	greyscale_config_worn_taur_hoof = /datum/greyscale_config/dorms_shackles/worn/taur_hoof
 	greyscale_config_worn_taur_snake = /datum/greyscale_config/dorms_shackles/worn/taur_snake
 	flags_1 = IS_PLAYER_COLORABLE_1
+	obj_flags_nova = ERP_ITEM
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	equip_delay_self = 1 SECONDS
 	strip_delay = 2 SECONDS
@@ -55,6 +57,7 @@
 /obj/item/clothing/suit/straight_jacket/shackles/reinforced
 	name = "reinforced shackles"
 	desc = "A set of sturdy shackles, with a heavy lock."
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	clothing_flags = DANGEROUS_OBJECT
 	equip_delay_self = 10 SECONDS
 	strip_delay = 12 SECONDS

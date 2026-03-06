@@ -14,6 +14,17 @@
 	fire = 15
 	acid = 15
 
+/datum/atom_skin/expeditionary_corps_chest_rig
+	abstract_type = /datum/atom_skin/expeditionary_corps_chest_rig
+
+/datum/atom_skin/expeditionary_corps_chest_rig/webbing
+	preview_name = "Webbing"
+	new_icon_state = "webbing_exp_corps"
+
+/datum/atom_skin/expeditionary_corps_chest_rig/belt
+	preview_name = "Belt"
+	new_icon_state = "belt_exp_corps"
+
 /obj/item/storage/belt/military/expeditionary_corps
 	name = "expeditionary corps chest rig"
 	desc = "A set of tactical webbing worn by the now-defunct Vanguard Expeditionary Corps."
@@ -21,17 +32,9 @@
 	worn_icon_state = "webbing_exp_corps"
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Webbing" = list(
-			RESKIN_ICON_STATE = "webbing_exp_corps",
-			RESKIN_WORN_ICON_STATE = "webbing_exp_corps"
-		),
-		"Belt" = list(
-			RESKIN_ICON_STATE = "belt_exp_corps",
-			RESKIN_WORN_ICON_STATE = "belt_exp_corps"
-		),
-	)
+
+/obj/item/storage/belt/military/expeditionary_corps/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/expeditionary_corps_chest_rig)
 
 /obj/item/storage/belt/military/expeditionary_corps/combat_tech
 	name = "combat tech's chest rig"
@@ -92,8 +95,6 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF
-	uses_advanced_reskins = FALSE
-	unique_reskin = NONE
 
 /obj/item/clothing/gloves/chief_engineer/expeditionary_corps
 	name = "expeditionary corps insulated gloves"
@@ -126,6 +127,17 @@
 	fire = 80
 	acid = 50
 
+/datum/atom_skin/expeditionary_corps_bag
+	abstract_type = /datum/atom_skin/expeditionary_corps_bag
+
+/datum/atom_skin/expeditionary_corps_bag/backpack
+	preview_name = "Backpack"
+	new_icon_state = "exp_corps"
+
+/datum/atom_skin/expeditionary_corps_bag/belt
+	preview_name = "Belt"
+	new_icon_state = "exp_corps_satchel"
+
 /obj/item/storage/backpack/duffelbag/expeditionary_corps
 	name = "expeditionary corps bag"
 	desc = "A large bag for holding extra tactical supplies."
@@ -133,17 +145,9 @@
 	inhand_icon_state = "backpack"
 	icon = 'modular_nova/modules/exp_corps/icons/backpack.dmi'
 	worn_icon = 'modular_nova/modules/exp_corps/icons/mob_backpack.dmi'
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Backpack" = list(
-			RESKIN_ICON_STATE = "exp_corps",
-			RESKIN_WORN_ICON_STATE = "exp_corps"
-		),
-		"Belt" = list(
-			RESKIN_ICON_STATE = "exp_corps_satchel",
-			RESKIN_WORN_ICON_STATE = "exp_corps_satchel"
-		),
-	)
+
+/obj/item/storage/backpack/duffelbag/expeditionary_corps/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/expeditionary_corps_bag)
 
 /obj/item/clothing/suit/armor/vest/expeditionary_corps
 	name = "expeditionary corps armor vest"
@@ -168,6 +172,7 @@
 		/obj/item/tank/internals/emergency_oxygen,
 		/obj/item/tank/internals/plasmaman,
 		/obj/item/storage/belt/holster,
+		/obj/item/storage/belt/machete,
 		)
 
 
@@ -229,7 +234,7 @@
 		if(my_eyes)
 			my_eyes.color_cutoffs = list(10, 30, 10)
 			my_eyes.flash_protect = FLASH_PROTECTION_SENSITIVE
-		current_user.add_client_colour(/datum/client_colour/glass_colour/lightgreen)
+		current_user.add_client_colour(/datum/client_colour/glass_colour/lightgreen, REF(src))
 
 /obj/item/clothing/head/helmet/expeditionary_corps/proc/disable_nv()
 	if(current_user)
@@ -237,7 +242,7 @@
 		if(my_eyes)
 			my_eyes.color_cutoffs = initial(my_eyes.color_cutoffs)
 			my_eyes.flash_protect = initial(my_eyes.flash_protect)
-		current_user.remove_client_colour(/datum/client_colour/glass_colour/lightgreen)
+		current_user.remove_client_colour(/datum/client_colour/glass_colour/lightgreen, REF(src))
 		current_user.update_sight()
 
 /obj/item/clothing/head/helmet/expeditionary_corps/click_alt(mob/user)

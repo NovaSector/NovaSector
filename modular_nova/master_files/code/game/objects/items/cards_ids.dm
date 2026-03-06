@@ -12,7 +12,7 @@
 	assigned_icon_state = null
 
 // Interdyne (Deck Officer's)
-/obj/item/card/id/advanced/chameleon/black/silver
+/obj/item/card/id/advanced/chameleon/elite/black/silver
 	name = "silver identification card"
 	desc = "A silver card which shows honour and dedication."
 	icon_state = "card_silver"
@@ -35,3 +35,11 @@
 // Station CC
 /obj/item/card/id/advanced/centcom/station
 	wildcard_slots = WILDCARD_LIMIT_SILVER
+
+/obj/item/card/id/examine_more(mob/user)
+	. = ..()
+
+	if(ACCESS_WEAPONS in GetAccess())
+		. += span_info("This ID authorizes the bearer to carry bulky firearms and automatic weapons.")
+	else
+		. += span_info("This ID does not authorize the bearer to carry bulky firearms or automatic weapons.")

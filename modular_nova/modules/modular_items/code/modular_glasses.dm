@@ -30,8 +30,8 @@
 	mode = MODE_ON
 
 /obj/item/clothing/glasses/hud/ar/Destroy()
-	. = ..()
 	STOP_PROCESSING(SSobj, src)
+	return ..()
 
 /obj/item/clothing/glasses/hud/ar/equipped(mob/living/carbon/human/user, slot)
 	if(mode != MODE_OFF || slot != slot_flags)
@@ -57,18 +57,18 @@
 
 	switch(mode)
 		if(MODE_ON)
-			balloon_alert(user, span_notice("[modes_msg[mode]]"))
+			balloon_alert(user, modes_msg[mode])
 			reset_vars() // Resets all the vars to their initial values (THIS PRESUMES THE DEFAULT STATE IS ON)
 			add_hud(user)
 		if(MODE_FREEZE_ANIMATION)
-			balloon_alert(user, span_notice("[modes_msg[mode]]"))
+			balloon_alert(user, modes_msg[mode])
 			freeze_animation()
 		if(MODE_OFF)
 			if(MODE_OFF_FLASH_PROTECTION in modes)
 				flash_protect = FLASH_PROTECTION_FLASH
-				balloon_alert(user, span_notice("[modes_msg[MODE_OFF_FLASH_PROTECTION]]"))
+				balloon_alert(user, modes_msg[MODE_OFF_FLASH_PROTECTION])
 			else
-				balloon_alert(user, span_notice("[modes_msg[mode]]"))
+				balloon_alert(user, modes_msg[mode])
 			icon_state = off_state
 			disable_vars(user)
 			remove_hud(user)
@@ -110,7 +110,7 @@
 
 /obj/item/clothing/glasses/hud/ar/proc/reset_vars()
 	worn_icon = initial(worn_icon)
-	icon_state = initial(icon_state)
+	icon_state = initial(post_init_icon_state) || initial(icon_state)
 	flash_protect = initial(flash_protect)
 	tint = initial(tint)
 	color_cutoffs = initial(color_cutoffs)

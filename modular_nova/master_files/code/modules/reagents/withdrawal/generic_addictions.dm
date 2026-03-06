@@ -1,19 +1,11 @@
-// Alters nicotine withdrawal
-/datum/addiction/nicotine
-	name = "nicotine"
-	withdrawal_stage_messages = list("Feel like having a smoke...", "I really need a smoke now...", "I can't take it, I really need a smoke now!")
-
-	medium_withdrawal_moodlet = /datum/mood_event/nicotine_withdrawal_moderate
-	severe_withdrawal_moodlet = /datum/mood_event/nicotine_withdrawal_severe
-
 /datum/addiction/nicotine/proc/trigger_random_side_effect(mob/living/carbon/affected_carbon, seconds_per_tick, strength = 1)
 	switch(rand(1, 4))
 		if(1)
 			if(!HAS_TRAIT(affected_carbon, TRAIT_NOHUNGER))
-				affected_carbon.adjust_nutrition(-10 * REM * seconds_per_tick)
+				affected_carbon.adjust_nutrition(-5 * seconds_per_tick)
 		if(2)
 			to_chat(affected_carbon, span_warning("Your head hurts."))
-			affected_carbon.adjustStaminaLoss(50 * REM * seconds_per_tick)
+			affected_carbon.adjust_stamina_loss(25 * seconds_per_tick)
 		if(3)
 			if(strength >= 2)
 				to_chat(affected_carbon, span_warning("You feel a little dizzy."))
@@ -21,7 +13,7 @@
 		if(4)
 			if(strength >= 2)
 				to_chat(affected_carbon, span_warning("You feel tired."))
-				affected_carbon.adjustStaminaLoss(75 * REM * seconds_per_tick)
+				affected_carbon.adjust_stamina_loss(37.5 * seconds_per_tick)
 
 /datum/addiction/nicotine/withdrawal_enters_stage_1(mob/living/carbon/affected_carbon, seconds_per_tick)
 	. = ..()

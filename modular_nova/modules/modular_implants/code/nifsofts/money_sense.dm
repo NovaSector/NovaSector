@@ -1,4 +1,4 @@
-/obj/item/disk/nifsoft_uploader/money_sense
+/obj/item/disk/nifsoft_uploader/job/money_sense
 	name = "Automatic Apprasial"
 	loaded_nifsoft = /datum/nifsoft/money_sense
 

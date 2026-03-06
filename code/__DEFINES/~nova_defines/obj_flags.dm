@@ -6,5 +6,8 @@
 #define GENITAL_LAYER_NORMAL 4
 #define GENITAL_LAYER_HIGH 5
 
+
 /// Whether something is repairable by the anvil
 #define ANVIL_REPAIR (1<<0)
+/// Whether item is used for ERP
+#define ERP_ITEM (1<<1)

@@ -14,19 +14,24 @@
 		return
 
 	var/mob/living/living_crosser = crosser
-	living_crosser.adjustBruteLoss(-MUTATION_HEAL_AMOUNT_CROSS)
-	living_crosser.adjustFireLoss(-MUTATION_HEAL_AMOUNT_CROSS)
-	living_crosser.adjustToxLoss(-MUTATION_HEAL_AMOUNT_CROSS)
+	var/need_mob_update
+	need_mob_update += living_crosser.adjust_brute_loss(-MUTATION_HEAL_AMOUNT_CROSS, updating_health = FALSE)
+	need_mob_update += living_crosser.adjust_fire_loss(-MUTATION_HEAL_AMOUNT_CROSS, updating_health = FALSE)
+	need_mob_update += living_crosser.adjust_tox_loss(-MUTATION_HEAL_AMOUNT_CROSS, updating_health = FALSE)
+	if(need_mob_update)
+		living_crosser.updatehealth()
 
 /datum/spacevine_mutation/flesh_mending/on_eat(obj/structure/spacevine/vine_object, mob/living/eater)
 	if(!isliving(eater))
 		return
 
 	var/mob/living/living_eater = eater
-	living_eater.adjustBruteLoss(-MUTATION_HEAL_AMOUNT_EAT)
-	living_eater.adjustFireLoss(-MUTATION_HEAL_AMOUNT_EAT)
-	living_eater.adjustToxLoss(-MUTATION_HEAL_AMOUNT_EAT)
-
+	var/need_mob_update
+	need_mob_update += living_eater.adjust_brute_loss(-MUTATION_HEAL_AMOUNT_EAT, updating_health = FALSE)
+	need_mob_update += living_eater.adjust_fire_loss(-MUTATION_HEAL_AMOUNT_EAT, updating_health = FALSE)
+	need_mob_update += living_eater.adjust_tox_loss(-MUTATION_HEAL_AMOUNT_EAT, updating_health = FALSE)
+	if(need_mob_update)
+		living_eater.updatehealth()
 
 // Will prevent the vine from opening doors
 /datum/spacevine_mutation/domesticated
@@ -59,17 +64,19 @@
 
 		space_turf.ChangeTurf(/turf/open/floor/plating/kudzu)
 		space_turf.color = hue
+
 /turf/open/floor/plating/kudzu
 	name = "vine flooring"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi'
+	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
 	icon_state = "vinefloor"
 
-/turf/open/floor/plating/kudzu/attacked_by(obj/item/attacking_item, mob/living/user)
-	if(!istype(attacking_item, /obj/item/wirecutters))
-		return ..()
-
-	ChangeTurf(/turf/open/space)
-
+/turf/open/floor/plating/kudzu/attackby(obj/item/attacking_item, mob/user, list/modifiers)
+	if(istype(attacking_item, /obj/item/scythe) || istype(attacking_item, /obj/item/wirecutters))
+		to_chat(user, span_notice("You cull [src]."))
+		playsound(src, 'sound/items/weapons/bladeslice.ogg', 75, TRUE)
+		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+		return TRUE
+	return ..()
 
 // Turns CO2 into oxygen
 /datum/spacevine_mutation/carbon_recycling

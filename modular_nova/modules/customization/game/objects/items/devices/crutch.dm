@@ -6,6 +6,7 @@
 	inhand_icon_state = "crutch"
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/melee_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/melee_righthand.dmi'
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 // stupid DM inheritance, we have to remove our icon overrides for subtypes
 /obj/item/cane/crutch/wood

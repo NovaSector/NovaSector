@@ -8,8 +8,6 @@
 	name = "Tarkon Atmospheric Control"
 	build_path = /obj/machinery/computer/atmos_control/tarkon
 
-/obj/machinery/air_sensor/tarkon
-
 /obj/machinery/computer/atmos_control/tarkon/oxygen_tank
 	name = "Tarkon Oxygen Supply Control"
 	circuit = /obj/item/circuitboard/computer/atmos_control/tarkon/oxygen_tank
@@ -21,12 +19,6 @@
 
 /obj/machinery/air_sensor/tarkon/oxygen_tank
 	name = "oxygen tank gas sensor"
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_O2
-
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/oxygen_input/tarkon
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_O2
-
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/oxygen_output/tarkon
 	chamber_id = ATMOS_GAS_MONITOR_TARKON_O2
 
 /obj/machinery/computer/atmos_control/tarkon/plasma_tank
@@ -42,12 +34,6 @@
 	name = "plasma tank gas sensor"
 	chamber_id = ATMOS_GAS_MONITOR_TARKON_PLAS
 
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/plasma_input/tarkon
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_PLAS
-
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/plasma_output/tarkon
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_PLAS
-
 /obj/machinery/computer/atmos_control/tarkon/mix_tank
 	name = "Tarkon Mix Chamber Control"
 	circuit = /obj/item/circuitboard/computer/atmos_control/tarkon/mix_tank
@@ -59,12 +45,6 @@
 
 /obj/machinery/air_sensor/tarkon/mix_tank
 	name = "mix tank gas sensor"
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_MIX
-
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/air_input/tarkon
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_MIX
-
-/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/siphon/monitored/air_output/tarkon
 	chamber_id = ATMOS_GAS_MONITOR_TARKON_MIX
 
 /obj/machinery/computer/atmos_control/tarkon/nitrogen_tank
@@ -80,12 +60,6 @@
 	name = "nitrogen tank gas sensor"
 	chamber_id = ATMOS_GAS_MONITOR_TARKON_N2
 
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/nitrogen_input/tarkon
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_N2
-
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrogen_output/tarkon
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_N2
-
 /obj/machinery/computer/atmos_control/tarkon/nitrous_tank
 	name = "Tarkon Nitrous Oxide Supply Control"
 	circuit = /obj/item/circuitboard/computer/atmos_control/tarkon/nitrous_tank
@@ -99,12 +73,6 @@
 	name = "nitrous oxide tank gas sensor"
 	chamber_id = ATMOS_GAS_MONITOR_TARKON_N2O
 
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/nitrous_input/tarkon
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_N2O
-
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrous_output/tarkon
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_N2O
-
 /obj/machinery/computer/atmos_control/tarkon/carbon_tank
 	name = "Tarkon Carbon Dioxide Supply Control"
 	circuit = /obj/item/circuitboard/computer/atmos_control/tarkon/carbon_tank
@@ -116,12 +84,6 @@
 
 /obj/machinery/air_sensor/tarkon/carbon_tank
 	name = "carbon dioxide tank gas sensor"
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_CO2
-
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/carbon_input/tarkon
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_CO2
-
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/carbon_output/tarkon
 	chamber_id = ATMOS_GAS_MONITOR_TARKON_CO2
 
 /obj/machinery/computer/atmos_control/tarkon/incinerator
@@ -160,9 +122,6 @@
 
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_tarkon
 	id_tag = INCINERATOR_TARKON_DP_VENTPUMP
-
-/obj/machinery/atmospherics/components/unary/outlet_injector/monitored/incinerator_input/tarkon
-	chamber_id = ATMOS_GAS_MONITOR_TARKON_INCINERATOR
 
 /obj/machinery/igniter/incinerator_tarkon
 	id = INCINERATOR_TARKON_IGNITER

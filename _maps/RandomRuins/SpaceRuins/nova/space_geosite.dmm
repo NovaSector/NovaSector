@@ -36,7 +36,7 @@
 /area/ruin/space/has_grav/outdoors)
 "k" = (
 /obj/item/turret_assembly/duster,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/outdoors)
 "l" = (

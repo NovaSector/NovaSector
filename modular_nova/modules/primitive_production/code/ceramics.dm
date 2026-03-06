@@ -14,21 +14,50 @@
 	throw_speed = 3
 	throw_range = 5
 	merge_type = /obj/item/stack/sheet/mineral/clay
+	material_type = /datum/material/clay
+	mats_per_unit = list(/datum/material/clay = SHEET_MATERIAL_AMOUNT)
 	drop_sound = SFX_BRICK_DROP
 	pickup_sound = SFX_BRICK_PICKUP
 
+//And now for our lavaland dwelling friends, sand, but in stone form! Truly revolutionary.
+/datum/material/clay
+	name = "clay"
+	desc = "It's clay."
+	color = "#757575"
+	categories = list(
+		MAT_CATEGORY_RIGID = TRUE,
+		MAT_CATEGORY_BASE_RECIPES = TRUE,
+		MAT_CATEGORY_ITEM_MATERIAL = TRUE,
+		MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = TRUE,
+		)
+	sheet_type = /obj/item/stack/sheet/mineral/clay
+	value_per_unit = 5 / SHEET_MATERIAL_AMOUNT
+	armor_modifiers = list(MELEE = 0.5, BULLET = 0.5, LASER = 1.25, ENERGY = 0.5, BOMB = 0.5, BIO = 0.25, FIRE = 1.5, ACID = 1.5)
+	beauty_modifier = 0.3
+	turf_sound_override = FOOTSTEP_PLATING
+	texture_layer_icon_state = "brick"
+	fish_weight_modifier = 1.2
+	fishing_difficulty_modifier = 25 // clay fishing rods...
+	fishing_cast_range = -2
+	fishing_experience_multiplier = 0.3
+	fishing_completion_speed = 0.9
+	fishing_bait_speed_mult = 0.8
+	fishing_deceleration_mult = 2.5
+	fishing_bounciness_mult = 0.2
+	fishing_gravity_mult = 0.9
+
 GLOBAL_LIST_INIT(clay_recipes, list ( \
-	new/datum/stack_recipe("clay range", /obj/machinery/primitive_stove, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC), \
-	new/datum/stack_recipe("clay oven", /obj/machinery/oven/stone, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC) \
+	new/datum/stack_recipe("clay range", /obj/machinery/primitive_stove/clay, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC), \
+	new/datum/stack_recipe("clay oven", /obj/machinery/oven/primitive/clay, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC) \
 	))
 
 /obj/item/stack/sheet/mineral/clay/get_main_recipes()
 	. = ..()
 	. += GLOB.clay_recipes
 
-/obj/structure/water_source/puddle/attackby(obj/item/O, mob/user, params)
-	if(istype(O, /obj/item/stack/ore/glass))
-		var/obj/item/stack/ore/glass/glass_item = O
+/obj/structure/water_source/puddle/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stack/ore/glass))
+		var/obj/item/stack/ore/glass/glass_item = attacking_item
 		if(!glass_item.use(1))
 			return
 
@@ -38,9 +67,9 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 	return ..()
 
-/turf/open/water/attackby(obj/item/C, mob/user, params)
-	if(istype(C, /obj/item/stack/ore/glass))
-		var/obj/item/stack/ore/glass/glass_item = C
+/turf/open/water/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stack/ore/glass))
+		var/obj/item/stack/ore/glass/glass_item = attacking_item
 		if(!glass_item.use(1))
 			return
 
@@ -50,15 +79,15 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 	return ..()
 
-/obj/structure/sink/attackby(obj/item/O, mob/living/user, params)
-	if(istype(O, /obj/item/stack/ore/glass))
+/obj/structure/sink/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stack/ore/glass))
 		if(dispensedreagent != /datum/reagent/water)
 			return
 
 		if(reagents.total_volume <= 0)
 			return
 
-		var/obj/item/stack/ore/glass/glass_item = O
+		var/obj/item/stack/ore/glass/glass_item = attacking_item
 		if(!glass_item.use(1))
 			return
 
@@ -72,7 +101,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	var/forge_item
 
-/obj/item/ceramic/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/item/ceramic/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/toy/crayon))
 		var/obj/item/toy/crayon/crayon_item = attacking_item
 		if(!forge_item || !crayon_item.paint_color)
@@ -232,6 +261,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	icon_state = "throw_wheel_empty"
 	density = TRUE
 	anchored = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10)
 
 	///if the structure has clay
 	var/has_clay = FALSE
@@ -257,7 +287,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 		"You stop the throwing wheel, admiring your new creation...",
 	)
 
-/obj/structure/throwing_wheel/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/structure/throwing_wheel/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/stack/clay))
 		if(has_clay)
 			return

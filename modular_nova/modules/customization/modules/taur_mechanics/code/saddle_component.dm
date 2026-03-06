@@ -50,6 +50,8 @@
 
 	if (!wearer_has_requisite_organ(signal_source))
 		var/obj/item/item_parent = parent
+		var/atom/move_target = get_turf(signal_source)
+		signal_source.temporarilyRemoveItemFromInventory(item_parent, TRUE, newloc = move_target)
 		item_parent.forceMove(get_turf(item_parent)) // force unequip
 
 /// Signal handler for COMSIG_HUMAN_SADDLE_RIDE_ATTEMPT. Returns saddle_flags into the signal bitfield.

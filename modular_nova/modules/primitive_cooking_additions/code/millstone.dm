@@ -91,7 +91,7 @@
 
 	deconstruct(TRUE)
 
-/obj/structure/millstone/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/millstone/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/storage/bag))
 		if(length(contents) >= maximum_contained_items)
 			balloon_alert(user, "already full")
@@ -133,7 +133,7 @@
 		balloon_alert(user, "nothing to mill")
 		return
 
-	if(user.getStaminaLoss() > MILLSTONE_STAMINA_MINIMUM)
+	if(user.get_stamina_loss() > MILLSTONE_STAMINA_MINIMUM)
 		balloon_alert(user, "too tired")
 		return
 
@@ -145,14 +145,14 @@
 	flick("millstone_spin", src)
 	playsound(src, 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 
-	user.adjustStaminaLoss(MILLSTONE_STAMINA_USE) // Prevents spamming it
+	user.adjust_stamina_loss(MILLSTONE_STAMINA_USE) // Prevents spamming it
 
 	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
 	if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
 		balloon_alert_to_viewers("stopped grinding")
 		return
 
-	for(var/target_item as anything in contents)
+	for(var/target_item in contents)
 		seedify(target_item, t_max = 1)
 
 	balloon_alert_to_viewers("finished grinding")

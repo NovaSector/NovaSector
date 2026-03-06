@@ -16,10 +16,9 @@ GLOBAL_LIST_EMPTY(gangster_cell_phones)
 
 /obj/item/gangster_cellphone/Destroy()
 	GLOB.gangster_cell_phones -= src
-	. = ..()
+	return ..()
 
 /obj/item/gangster_cellphone/attack_self(mob/user, modifiers)
-	. = ..()
 	if(!activated)
 		to_chat(user, "You turn on [src].")
 		icon_state = "phone_on"
@@ -28,8 +27,9 @@ GLOBAL_LIST_EMPTY(gangster_cell_phones)
 		to_chat(user, "You turn off [src].")
 		icon_state = "phone_off"
 		activated = FALSE
+	return ..()
 
-/obj/item/gangster_cellphone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
+/obj/item/gangster_cellphone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods, message_range)
 	. = ..()
 	if(!activated)
 		return

@@ -128,7 +128,7 @@
 	},
 /area/station/common/cryopods)
 "P" = (
-/obj/machinery/time_clock/directional/south,
+/obj/machinery/modular_computer/preset/time_clock/directional/south,
 /obj/effect/turf_decal/trimline/white/filled/corner{
 	dir = 1
 	},

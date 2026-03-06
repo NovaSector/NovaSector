@@ -5,7 +5,6 @@
 	title = JOB_VIROLOGIST
 	description = "Study the effects of various diseases and synthesize a \
 		vaccine for them. Engineer beneficial viruses."
-	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -64,6 +63,7 @@
 
 /obj/item/modular_computer/pda/viro
 	name = "virology PDA"
+	icon_state = "/obj/item/modular_computer/pda/viro"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_double
 	greyscale_colors = "#FAFAFA#355FAC#57C451"
 	starting_programs = list(

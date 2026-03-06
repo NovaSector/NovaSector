@@ -121,7 +121,7 @@
 	pixel_y = -10
 
 
-/obj/item/permanent_portal_anchor/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/permanent_portal_anchor/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(attacking_item, /obj/item/permanent_portal_creator))
 		return ..()
 

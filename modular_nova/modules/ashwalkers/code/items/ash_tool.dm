@@ -3,13 +3,14 @@
 	name = "primitive screwdriver"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "screwdriver"
-	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT)
 
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_screwdriver
 	name = "Ash Screwdriver"
@@ -19,13 +20,14 @@
 	name = "primitive wirecutters"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "cutters"
-	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT)
 
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_cutters
 	name = "Ash Wirecutters"
@@ -35,29 +37,47 @@
 	name = "primitive wrench"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "wrench"
-	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT)
 
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_wrench
 	name = "Ash Wrench"
 	result = /obj/item/wrench/ashwalker
 
-/obj/item/crowbar/ashwalker
-	name = "primitive crowbar"
+/obj/item/secateurs/ashwalker
+	name = "primitive secateurs"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
-	icon_state = "crowbar"
-	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+	icon_state = "secateurs"
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT)
 
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+
+/datum/crafting_recipe/ash_recipe/ash_secateur
+	name = "Ash Secateur"
+	result = /obj/item/secateurs/ashwalker
+
+/obj/item/crowbar/ashwalker
+	name = "primitive crowbar"
+	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
+	icon_state = "crowbar"
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT)
+
+	greyscale_colors = null
+	greyscale_config = null
+	greyscale_config_inhand_left = null
+	greyscale_config_inhand_right = null
+	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_crowbar
 	name = "Ash Crowbar"
@@ -68,13 +88,14 @@
 	desc = "Where there is a will there is a way; the tool head of this chisel is fashioned from bone shaped when it was fresh and then left to calcify in iron rich water, to make a strong head for all your carving needs."
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "chisel"
-	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT)
 
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 	toolspeed = 4
 
 /datum/crafting_recipe/ash_recipe/ash_chisel
@@ -104,9 +125,9 @@
 	. = ..()
 	. += span_notice("In order to be planted, it is required to be on the mining level as well as on basalt.")
 
-/obj/item/ash_seed/proc/harm_user(mob/living/user, var/sent_message, var/damage_amount)
+/obj/item/ash_seed/proc/harm_user(mob/living/user, sent_message, damage_amount)
 	to_chat(user, span_warning(sent_message))
-	user.adjustBruteLoss(damage_amount)
+	user.adjust_brute_loss(damage_amount)
 	if(!do_after(user, 4 SECONDS, target = src))
 		to_chat(user, span_warning("You stop the process of planting [src]!"))
 		return FALSE
@@ -156,7 +177,7 @@
 /obj/item/forging/tongs/ashwalker
 	name = "primitive forging tongs"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
-	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT)
 
 /datum/crafting_recipe/ash_recipe/ash_tongs
 	name = "Ash Forging Tongs"
@@ -165,7 +186,7 @@
 /obj/item/forging/hammer/ashwalker
 	name = "primitive forging hammer"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
-	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT)
 
 /datum/crafting_recipe/ash_recipe/ash_hammer
 	name = "Ash Forging Hammer"
@@ -174,7 +195,7 @@
 /obj/item/forging/billow/ashwalker
 	name = "primitive forging billow"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
-	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT)
 
 /datum/crafting_recipe/ash_recipe/ash_billow
 	name = "Ash Forging Billow"

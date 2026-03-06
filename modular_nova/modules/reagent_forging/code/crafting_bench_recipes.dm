@@ -36,6 +36,14 @@
 	resulting_item = /obj/item/clothing/suit/armor/forging_plate_armor
 	required_good_hits = 12
 
+/datum/crafting_bench_recipe/chain_shirt
+	recipe_name = "chain shirt"
+	recipe_requirements = list(
+		/obj/item/forging/complete/chain = 6,
+	)
+	resulting_item = /obj/item/clothing/suit/armor/forging_chain_shirt
+	required_good_hits = 12
+
 /datum/crafting_bench_recipe/plate_gloves
 	recipe_name = "plate gloves"
 	recipe_requirements = list(

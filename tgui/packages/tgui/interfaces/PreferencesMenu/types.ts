@@ -1,11 +1,12 @@
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
-import { sendAct } from '../../backend';
-import {
+import type { sendAct } from '../../events/act';
+import type {
   LoadoutCategory,
   LoadoutList,
+  typePath,
 } from './CharacterPreferences/loadout/base';
-import { Gender } from './preferences/gender';
+import type { Gender } from './preferences/gender';
 
 export enum Food {
   Alcohol = 'ALCOHOL',
@@ -42,6 +43,7 @@ export type Name = {
   can_randomize: BooleanLike;
   explanation: string;
   group: string;
+  prefixes?: string[]; // NOVA EDIT ADDITION - Drone Prefixes
 };
 
 export type Species = {
@@ -55,7 +57,7 @@ export type Species = {
 
   enabled_features: string[];
 
-  veteran_only: boolean; // NOVA EDIT - Veteran quirks
+  nova_stars_only: boolean; // NOVA EDIT - Nova star quirks
 
   perks: {
     positive: Perk[];
@@ -84,7 +86,7 @@ export type Job = {
   description: string;
   department: string;
   // NOVA EDIT
-  veteran?: boolean;
+  nova_star?: boolean;
   alt_titles?: string[];
   // NOVA EDIT END
 };
@@ -96,7 +98,7 @@ export type Quirk = {
   value: number;
   customizable: boolean;
   customization_options?: string[];
-  veteran_only: boolean; // NOVA EDIT ADDITION - Veteran quirks
+  nova_stars_only: boolean; // NOVA EDIT ADDITION - Nova star quirks
   erp_quirk: boolean; // NOVA EDIT ADDITION - Purple ERP quirks
 };
 
@@ -105,6 +107,7 @@ export type Language = {
   description: string;
   name: string;
   icon: string;
+  speaking: boolean;
 };
 
 export type Marking = {
@@ -145,6 +148,16 @@ export type QuirkInfo = {
   points_enabled: boolean;
 };
 
+export type Personality = {
+  name: string;
+  description: string;
+  pos_gameplay_description: string | null;
+  neg_gameplay_description: string | null;
+  neut_gameplay_description: string | null;
+  path: typePath;
+  groups: string[] | null;
+};
+
 export enum RandomSetting {
   AntagOnly = 1,
   Disabled = 2,
@@ -176,41 +189,40 @@ export enum PrefsWindow {
   Keybindings = 2,
 }
 
+export type CharacterPreferencesData = {
+
+  clothing: Record<string, string>;
+  features: Record<string, string>;
+  game_preferences: Record<string, unknown>;
+  non_contextual: {
+    random_body: RandomSetting;
+    [otherKey: string]: unknown;
+  };
+  secondary_features: Record<string, unknown>;
+  supplemental_features: Record<string, unknown>;
+  manually_rendered_features: Record<string, string>;
+
+  names: Record<string, string>;
+  vocals: Record<string, string>; // NOVA EDIT ADDITION
+
+  misc: {
+    gender: Gender;
+    joblessrole: JoblessRole;
+    species: string;
+    loadout_lists: LoadoutList; // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: loadout_list: LoadoutList;
+    job_clothes: BooleanLike;
+    loadout_index: string; // NOVA EDIT ADDITION: Multiple loadout presets
+    background_state: string; // NOVA EDIT ADDITION: Swappable character editor backgrounds
+  };
+
+  randomization: Record<string, RandomSetting>;
+};
+
 export type PreferencesMenuData = {
   character_preview_view: string;
   character_profiles: (string | null)[];
 
-  preview_options: string[]; // NOVA EDIT ADDITION
-  preview_selection: string; // NOVA EDIT ADDITION
-
-  is_veteran: BooleanLike; // NOVA EDIT - Veteran status
-  erp_pref: BooleanLike; // NOVA EDIT ADDITION
-
-  character_preferences: {
-    clothing: Record<string, string>;
-    features: Record<string, string>;
-    game_preferences: Record<string, unknown>;
-    non_contextual: {
-      random_body: RandomSetting;
-      [otherKey: string]: unknown;
-    };
-    secondary_features: Record<string, unknown>;
-    supplemental_features: Record<string, unknown>;
-    manually_rendered_features: Record<string, string>;
-
-    names: Record<string, string>;
-
-    misc: {
-      gender: Gender;
-      joblessrole: JoblessRole;
-      species: string;
-      loadout_lists: LoadoutList; // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: loadout_list: LoadoutList;
-      job_clothes: BooleanLike;
-      loadout_index: string; // NOVA EDIT ADDITION: Multiple loadout presets
-    };
-
-    randomization: Record<string, RandomSetting>;
-  };
+  character_preferences: CharacterPreferencesData;
 
   content_unlocked: BooleanLike;
 
@@ -225,7 +237,12 @@ export type PreferencesMenuData = {
   >;
   job_preferences: Record<string, JobPriority>;
 
-  // NOVA EDIT
+  // NOVA EDIT ADDITION START
+  preview_options: string[];
+  preview_selection: string;
+
+  erp_pref: BooleanLike;
+
   job_alt_titles: Record<string, string>;
 
   robotic_styles: string[];
@@ -242,10 +259,15 @@ export type PreferencesMenuData = {
   species_restricted_jobs?: string[];
   ckey: string;
   is_donator: BooleanLike;
-  // NOVA EDIT END
+  is_nova_star: BooleanLike;
+  // NOVA EDIT ADDITION END
   keybindings: Record<string, string[]>;
   overflow_role: string;
+  default_quirk_balance: number;
   selected_quirks: string[];
+  selected_personalities: typePath[] | null;
+  max_personalities: number;
+  mood_enabled: BooleanLike;
   species_disallowed_quirks: string[];
 
   antag_bans?: string[];
@@ -267,6 +289,10 @@ export type ServerData = {
     types: Record<string, Name>;
   };
   quirks: QuirkInfo;
+  personality: {
+    personalities: Personality[];
+    personality_incompatibilities: Record<string, string[]>;
+  };
   random: {
     randomizable: string[];
   };
@@ -274,5 +300,6 @@ export type ServerData = {
     loadout_tabs: LoadoutCategory[];
   };
   species: Record<string, Species>;
+  background_state: { choices: string[] }; // NOVA EDIT ADDITION
   [otherKey: string]: unknown;
 };

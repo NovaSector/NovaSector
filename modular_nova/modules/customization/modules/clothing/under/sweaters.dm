@@ -1,7 +1,29 @@
+/datum/atom_skin/cableknit_sweater
+	abstract_type = /datum/atom_skin/cableknit_sweater
+	greyscale_item_path = /obj/item/clothing/under/sweater
+
+/datum/atom_skin/cableknit_sweater/turtleneck
+	preview_name = "Turtleneck"
+	new_icon_state = "cableknit_sweater"
+
+/datum/atom_skin/cableknit_sweater/keyhole
+	preview_name = "Keyhole"
+	new_icon_state = "keyhole_sweater"
+
+/datum/atom_skin/cableknit_sweater/cleavage
+	preview_name = "Neckless"
+	new_icon_state = "cleavage_sweater"
+
+/datum/atom_skin/cableknit_sweater/croptop
+	preview_name = "Crop Top"
+	new_icon_state = "croptop_sweater"
+
 /obj/item/clothing/under/sweater
 	name = "cableknit sweater"
 	desc = "Why trade style for comfort? Now you can go commando down south and still be cozy up north."
-	icon_state = "cableknit_sweater"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/sweater"
+	post_init_icon_state = "cableknit_sweater"
 	greyscale_config = /datum/greyscale_config/cableknit_sweater
 	greyscale_config_worn = /datum/greyscale_config/cableknit_sweater/worn
 	greyscale_config_worn_teshari = /datum/greyscale_config/cableknit_sweater/worn/teshari
@@ -12,16 +34,5 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/under/sweater/black
-	name = "black cableknit sweater"
-	greyscale_colors = "#4f4f4f"
-
-/obj/item/clothing/under/sweater/red
-	name = "red cableknit sweater"
-	greyscale_colors = "#9a0000"
-
-/obj/item/clothing/under/sweater/keyhole
-	name = "keyhole sweater"
-	desc = "So let me get this straight. They cut cleavage out of something meant to keep you warm..? Why? \"Now you can go commando down south and be freezing cold on your chest\" isn't a good motto!"
-	icon_state = "keyhole_sweater"
-	greyscale_colors = "#c5699c"
+/obj/item/clothing/under/sweater/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/cableknit_sweater)

@@ -1,0 +1,146 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/spawner/random/clothing/backpack,
+/obj/effect/turf_decal/tile/dark_green/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/machinery/computer/cryopod/directional/north,
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"g" = (
+/turf/template_noop,
+/area/station/common/cryopods)
+"i" = (
+/obj/effect/turf_decal/tile/dark_green/half/contrasted,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"q" = (
+/turf/closed/wall,
+/area/station/common/cryopods)
+"r" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/spawner/random/clothing/backpack,
+/obj/effect/turf_decal/tile/dark_green/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/machinery/airalarm/directional/north,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/shoes/winterboots,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"C" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/turf_decal/tile/dark_green/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/spawner/random/clothing/backpack,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/shoes/winterboots,
+/obj/machinery/modular_computer/preset/time_clock/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"D" = (
+/obj/effect/turf_decal/tile/dark_green/half/contrasted,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/light/small/directional/south,
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"R" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/turf_decal/tile/dark_green/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/item/radio/intercom/directional/north,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+
+(1,1,1) = {"
+g
+g
+g
+g
+g
+"}
+(2,1,1) = {"
+g
+g
+g
+g
+g
+"}
+(3,1,1) = {"
+g
+g
+g
+g
+g
+"}
+(4,1,1) = {"
+g
+C
+g
+D
+g
+"}
+(5,1,1) = {"
+g
+r
+g
+i
+g
+"}
+(6,1,1) = {"
+g
+R
+g
+i
+g
+"}
+(7,1,1) = {"
+q
+b
+g
+D
+g
+"}
+(8,1,1) = {"
+g
+g
+g
+g
+g
+"}
+(9,1,1) = {"
+g
+g
+g
+g
+g
+"}
+(10,1,1) = {"
+g
+g
+g
+g
+g
+"}

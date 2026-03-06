@@ -1,3 +1,18 @@
 ak_shoot is from freesounds.org made by ninebilly
 ak 47 - single shot.mp3
 https://freesound.org/people/ninebilly/sounds/520934/
+
+pulse_shoot is made from
+scifi-futuristic-rail-gun-shot.wav
+https://freesound.org/people/Sabacky/sounds/767161/
+by Sabacky
+
+pulse_pull and pulse_push are made from
+lazer-rifle-zoom-in-out-effect.wav
+https://freesound.org/people/Hybrid_V/sounds/321216/
+by Hybrid_V
+
+Bay Magnum sprites/sounds taken from Baystation12/Baystation12
+bay_magnum_in
+bay_magnum_out
+bay_gunshot_magnum

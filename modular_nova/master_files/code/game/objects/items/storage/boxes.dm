@@ -7,3 +7,16 @@
 /obj/item/storage/box/techshell/PopulateContents()
 	for(var/i in 1 to 7)
 		new /obj/item/ammo_casing/shotgun/techshell(src)
+
+/obj/item/storage/box/lewd_toys
+	name = "lewd toys box"
+	desc = "Contains lewd implements for spending time alone, or together with someone! Try to hide it better next time."
+
+/obj/item/storage/box/lewd_toys/PopulateContents()
+	new /obj/item/clothing/sextoy/dildo(src)
+	new /obj/item/clothing/sextoy/buttplug(src)
+	new /obj/item/stack/shibari_rope/full(src)
+	new /obj/item/spanking_pad(src)
+	new /obj/item/clothing/mask/muzzle/ballgag(src)
+	new /obj/item/clothing/suit/straight_jacket/shackles(src)
+	new /obj/item/clothing/glasses/blindfold/dorms(src)

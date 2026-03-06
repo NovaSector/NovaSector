@@ -20,7 +20,8 @@ export type LoadoutList = { loadouts: string[]; loadout: LoadoutListInfo }; // N
 export type ReskinOption = {
   name: string;
   tooltip: string;
-  skin_icon_state: DmIconState; // The icon is the same as the item icon
+  skin_icon: DmIconFile | null;
+  skin_icon_state: DmIconState;
 };
 
 export type LoadoutTooltip = {
@@ -44,7 +45,7 @@ export type LoadoutItem = {
   blacklisted_roles: string[] | null;
   restricted_species: string[] | null;
   donator_only: BooleanLike;
-  veteran_only: BooleanLike;
+  nova_stars_only: BooleanLike;
   erp_item: BooleanLike;
   // NOVA EDIT END
 };

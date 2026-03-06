@@ -4,7 +4,7 @@
 		nicknamed 'Shitzu' by other agents for its versatility in clearing tight corridors and its ability to disbatch of threats."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/syndicate_armaments/ballistic48x.dmi'
-	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/nanotrasen_armouries/guns_worn.dmi'
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/nanotrasen_armories/guns_worn.dmi'
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/syndicate_armaments/guns_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/syndicate_armaments/guns_righthand.dmi'
 
@@ -21,4 +21,10 @@
 		it is regarded widely as uncomfortable, and extremely violent to use, but has gotten the job done."
 
 /obj/item/gun/ballistic/shotgun/katyusha/shitzu/give_manufacturer_examine()
-    AddElement(/datum/element/manufacturer_examine, COMPANY_GORLEX)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_GORLEX)
+
+/obj/item/storage/toolbox/guncase/nova/syndicate/shitzu
+	name = "Shitzu Magfed Shotgun Guncase"
+	desc = "Man's best friend.... may be in this case!"
+	weapon_to_spawn = /obj/item/gun/ballistic/shotgun/katyusha/shitzu
+	extra_to_spawn = /obj/item/ammo_box/magazine/shitzu/milspec

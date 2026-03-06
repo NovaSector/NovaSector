@@ -22,10 +22,9 @@
 		/obj/item/organ/alien/resinspinner/roundstart,
 		/obj/item/organ/alien/hivenode,
 		)
-	exotic_blood = /datum/reagent/toxin/acid
-	exotic_bloodtype = "X*"
+	exotic_bloodtype = BLOOD_TYPE_XENO
 	heatmod = 2.5
-	mutant_bodyparts = list()
+
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodypart_overrides = list(
@@ -44,12 +43,12 @@
 
 /datum/species/xeno/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("Xenomorph Tail", FALSE),
-		"xenodorsal" = list("Standard", TRUE),
-		"xenohead" = list("Standard", TRUE),
-		"legs" = list(DIGITIGRADE_LEGS,FALSE),
-		"taur" = list("None", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Xenomorph Tail", is_randomizable = FALSE),
+		FEATURE_XENODORSAL = MUTPART_BLUEPRINT("Standard", is_randomizable = TRUE),
+		FEATURE_XENOHEAD = MUTPART_BLUEPRINT("Standard", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(DIGITIGRADE_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_TAUR = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/xeno/get_species_description()
@@ -79,43 +78,13 @@
 
 /datum/species/xeno/prepare_human_for_preview(mob/living/carbon/human/xeno)
 	var/xeno_color = "#525288"
-	xeno.dna.features["mcolor"] = xeno_color
+	xeno.dna.features[FEATURE_MUTANT_COLOR] = xeno_color
 	xeno.set_eye_color( "#30304F")
-	xeno.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Xenomorph Tail", MUTANT_INDEX_COLOR_LIST = list(xeno_color, xeno_color, xeno_color))
-	xeno.dna.mutant_bodyparts["xenodorsal"] = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list(xeno_color))
-	xeno.dna.mutant_bodyparts["xenohead"] = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list(xeno_color, xeno_color, xeno_color))
+	xeno.dna.mutant_bodyparts[FEATURE_TAIL] = xeno.dna.species.build_mutant_part("Xenomorph Tail", list(xeno_color, xeno_color, xeno_color))
+	xeno.dna.mutant_bodyparts[FEATURE_XENODORSAL] = xeno.dna.species.build_mutant_part("Standard", list(xeno_color))
+	xeno.dna.mutant_bodyparts[FEATURE_XENOHEAD] = xeno.dna.species.build_mutant_part("Standard", list(xeno_color, xeno_color, xeno_color))
 	regenerate_organs(xeno, src, visual_only = TRUE)
 	xeno.update_body(TRUE)
-
-/datum/species/xeno/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
-	. = ..()
-	human_who_gained_species.gib_type = /obj/effect/decal/cleanable/xenoblood/xgibs
-
-/datum/species/xeno/on_species_loss(mob/living/carbon/human/human_who_lost_species, datum/species/new_species, pref_load)
-	. = ..()
-	human_who_lost_species.gib_type = initial(human_who_lost_species.gib_type)
-
-///Xenohybrid additional blood color decals
-/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
-	blood_state = BLOOD_STATE_XENO
-	blood_dna_info = list("UNKNOWN DNA" = "X*")
-
-/obj/effect/decal/cleanable/xenoblood/xsplatter/over_window // special layer/plane set to appear on windows
-	layer = ABOVE_WINDOW_LAYER
-	plane = GAME_PLANE
-	vis_flags = VIS_INHERIT_PLANE
-	alpha = 180
-
-/obj/effect/decal/cleanable/blood/drip/xenoblood
-	name = "drips of blood"
-	desc = "It's green."
-	should_dry = FALSE //human only thing
-	blood_state = BLOOD_STATE_XENO
-	beauty = -150
-
-/obj/effect/decal/cleanable/blood/drip/xenoblood/Initialize(mapload)
-	. = ..()
-	add_blood_DNA(list("UNKNOWN DNA" = "X*"))
 
 ///Xenomorph organs modified to suit roundstart styling
 #define BUILD_DURATION 0.5 SECONDS
@@ -169,9 +138,9 @@
 	icon_state = "liver-x"
 
 //Liver modification (xenohybrids can process plasma!)
-/obj/item/organ/liver/xeno_hybrid/handle_chemical(mob/living/carbon/owner, datum/reagent/toxin/chem, seconds_per_tick, times_fired)
+/obj/item/organ/liver/xeno_hybrid/handle_chemical(mob/living/carbon/owner, datum/reagent/toxin/chem, seconds_per_tick)
 	. = ..()
-	if(. & COMSIG_MOB_STOP_REAGENT_CHECK)
+	if(. & COMSIG_MOB_STOP_REAGENT_TICK)
 		return
 	if(chem.type == /datum/reagent/toxin/plasma)
 		chem.toxpwr = 0

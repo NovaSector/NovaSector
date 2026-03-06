@@ -66,6 +66,15 @@ SUBSYSTEM_DEF(title)
 	return SS_INIT_SUCCESS
 
 /**
+ * Returns the length of the queued latejoin rulesets if we are past roundstart
+ */
+/datum/controller/subsystem/title/proc/get_latejoin_queue_count()
+	if (SSticker.current_state <= GAME_STATE_SETTING_UP)
+		return 0
+
+	return length(SSdynamic.queued_rulesets)
+
+/**
  * Make sure reference time is set up. If not, this is now time 0.
  */
 /datum/controller/subsystem/title/proc/check_progress_reference_time()
@@ -179,7 +188,7 @@ SUBSYSTEM_DEF(title)
 	if(!(istype(user) && user.title_screen_is_ready))
 		return
 
-	user.client << output(name, "title_browser:update_current_character")
+	user.client << output(name, "nova_title_browser:update_current_character")
 
 /**
  * Adds a startup message to the splashscreen.
@@ -217,5 +226,5 @@ SUBSYSTEM_DEF(title)
 		if(!new_player.title_screen_is_ready)
 			continue
 
-		new_player.client << output(msg_html, "title_browser:append_terminal_text")
-		new_player.client << output(list2params(list(new_timing, SStitle.average_completion_time)), "title_browser:update_loading_progress")
+		new_player.client << output(msg_html, "nova_title_browser:append_terminal_text")
+		new_player.client << output(list2params(list(new_timing, SStitle.average_completion_time)), "nova_title_browser:update_loading_progress")

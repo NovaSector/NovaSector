@@ -15,9 +15,6 @@
 	payment_department = ACCOUNT_MED
 	interaction_flags_click = ALLOW_SILICON_REACH
 
-/obj/machinery/stasissleeper/Destroy()
-	. = ..()
-
 /obj/machinery/stasissleeper/examine(mob/user)
 	. = ..()
 	. += span_notice("Alt-click to [state_open ? "close" : "open"] the machine.")
@@ -107,7 +104,7 @@
 
 
 /obj/machinery/stasissleeper/process()
-	if( !( occupant && isliving(occupant) && check_nap_violations() ) )
+	if(!(occupant && isliving(occupant)))
 		use_power = IDLE_POWER_USE
 		return
 	var/mob/living/L_occupant = occupant

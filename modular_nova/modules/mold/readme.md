@@ -7,6 +7,7 @@ MODULE ID: `BIOHAZ_MOLD`
 ### Description:
 
 <!-- Taken from #1356's About section for now as I'm too tired to come up with a good description :v -Avunia -->
+
 100% PVE
 Spreads much like glowshrooms and space vines, has a main core like a blob. During the spreading it builds structures, currently there's 2. One of them will release something harmful on proximity, another will spawn enemies. The blob also releases harmful stuff depending on the type, on cooldown.
 
@@ -24,9 +25,9 @@ When the core dies, everything slowly decays away.
 
 ### Defines:
 
-|File Location|Defines|
-|-------------|-------|
-|`modular_nova/modules/biohazard_blob/code/_biohazard_blob_defines.dm`|`BIO_MOLD_TYPE_FUNGUS`<br>`BIO_MOLD_TYPE_FIRE`<br>`BIO_MOLD_TYPE_EMP`<br>`BIO_MOLD_TYPE_TOXIC`<br>`ALL_BIO_BLOB_TYPES`<br>`FACTION_MOLD`|
+| File Location                                                         | Defines                                                                                                                                  |
+| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `modular_nova/modules/biohazard_blob/code/_biohazard_blob_defines.dm` | `BIO_MOLD_TYPE_FUNGUS`<br>`BIO_MOLD_TYPE_FIRE`<br>`BIO_MOLD_TYPE_EMP`<br>`BIO_MOLD_TYPE_TOXIC`<br>`ALL_BIO_BLOB_TYPES`<br>`FACTION_MOLD` |
 
 ### Master file additions
 

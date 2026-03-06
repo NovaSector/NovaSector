@@ -9,11 +9,11 @@
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	siemens_coefficient = 0
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 5
-	charge_drain = DEFAULT_CHARGE_DRAIN
+	charge_drain = DEFAULT_CHARGE_DRAIN / 2
 	slowdown_deployed = 0.95
 	inbuilt_modules = list(
 		/obj/item/mod/module/joint_torsion/entombed,
-		/obj/item/mod/module/storage,
+		/obj/item/mod/module/storage/large_capacity,
 	)
 	allowed_suit_storage = list(
 		/obj/item/tank/internals,
@@ -36,7 +36,7 @@
 	desc = "Your adaptation to life in this MODsuit shell allows you to ambulate in such a way that your movements recharge the suit's internal batteries slightly, but only while under the effect of gravity."
 	removable = FALSE
 	complexity = 0
-	power_per_step = DEFAULT_CHARGE_DRAIN * 0.4
+	power_per_step = DEFAULT_CHARGE_DRAIN * 0.6
 
 /obj/item/mod/module/plasma_stabilizer/entombed
 	name = "colony-stabilized interior seal"
@@ -78,7 +78,7 @@
 
 /obj/item/mod/module/anomaly_locked/antigrav/entombed
 	name = "assistive anti-gravity ambulator"
-	desc = "An obligatory addition from the NanoTrasen science division as part of the Space Disabilities Act, this augmentation allows your suit to project a limited anti-gravity field to aid in your ambulation around the station for both general use and emergencies. It is powered by a tiny sliver of a gravitational anomaly core, inextricably linked to the power systems that keep you alive. Warning: not rated for EMP protection."
+	desc = "An obligatory addition from the Nanotrasen science division as part of the Space Disabilities Act, this augmentation allows your suit to project a limited anti-gravity field to aid in your ambulation around the station for both general use and emergencies. It is powered by a tiny sliver of a gravitational anomaly core, inextricably linked to the power systems that keep you alive. Warning: not rated for EMP protection."
 	complexity = 1
 	allow_flags = MODULE_ALLOW_INACTIVE // the suit is never off, so this just allows this to be used w/o being parts-deployed for cosmetic reasons
 	removable = FALSE

@@ -12,11 +12,9 @@
 #define UNDERWEAR_HIDE_BRA (1<<3)
 #define UNDERWEAR_HIDE_ALL (UNDERWEAR_HIDE_SOCKS | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_BRA)
 
-//Appends to the bottom of Defib fails - DNR TRAIT
-#define DEFIB_FAIL_DNR (1<<11)
-
 ///Defines for icons used for modular bodyparts, created to make it easier to relocate the module or files if necessary.
 #define BODYPART_ICON_HUMAN 'modular_nova/modules/bodyparts/icons/human_parts_greyscale.dmi'
+#define BODYPART_ICON_HUMANOID 'modular_nova/modules/bodyparts/icons/humanoid_parts_greyscale.dmi'
 #define BODYPART_ICON_MAMMAL 'modular_nova/modules/bodyparts/icons/mammal_parts_greyscale.dmi'
 #define BODYPART_ICON_AKULA 'modular_nova/modules/bodyparts/icons/akula_parts_greyscale.dmi'
 #define BODYPART_ICON_AQUATIC 'modular_nova/modules/bodyparts/icons/aquatic_parts_greyscale.dmi'
@@ -34,3 +32,9 @@
 #define BODYPART_ICON_IPC 'modular_nova/modules/bodyparts/icons/ipc_parts.dmi'
 #define BODYPART_ICON_SYNTHLIZARD 'modular_nova/modules/bodyparts/icons/synthliz_parts_greyscale.dmi'
 #define BODYPART_ICON_SNAIL 'modular_nova/modules/bodyparts/icons/snail_parts_greyscale.dmi'
+#define BODYPART_ICON_RAMATAE 'modular_nova/modules/bodyparts/icons/ramatae_parts_greyscale.dmi'
+#define BODYPART_ICON_INSECTOID 'modular_nova/modules/bodyparts/icons/insectoid_parts_greyscale.dmi'
+///Defines for special modular bodypart variants, like harpy legs.
+#define BODYPART_ICON_HARPY 'modular_nova/modules/bodyparts/icons/bespoke/harpy_parts_greyscale.dmi'
+#define BODYPART_ICON_HARPY_HUMAN 'modular_nova/modules/bodyparts/icons/bespoke/harpy_parts_skintone.dmi'
+#define BODYPART_ICON_HUMAN_CRITTER 'modular_nova/modules/bodyparts/icons/bespoke/mutant_parts_skintone.dmi'

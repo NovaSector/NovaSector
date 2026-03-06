@@ -4,12 +4,12 @@ https://github.com/Skyrat-SS13/Skyrat-tg/pull/127
 
 MODULE ID: BORGS
 
-
 ### Description:
 
 Condenses modular borg skins, items, upgrades and buffs to one folder for sanity's sake
 
 ### TG Proc Changes:
+
 - APPEND: modular_nova/modules/altborgs > modular_nova/modules/borgs
 - /code/modules/mob/living/silicon/robot/robot_modules.dm
 - /code/modules/research/techweb/all_nodes.dm

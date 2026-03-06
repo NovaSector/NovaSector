@@ -1,5 +1,3 @@
-#define POP_PER_BORER 30
-
 /proc/printborer(datum/mind/borer)
 	var/list/text = list()
 	var/mob/living/basic/cortical_borer/player_borer = borer.current
@@ -31,11 +29,10 @@
 
 /datum/antagonist/cortical_borer
 	name = "Cortical Borer"
-	job_rank = ROLE_BORER
+	pref_flag = ROLE_BORER
 	show_in_antagpanel = TRUE
 	roundend_category = "cortical borers"
 	antagpanel_category = "Cortical Borers"
-	prevent_roundtype_conversion = FALSE
 	show_to_ghosts = TRUE
 	/// The team of borers
 	var/datum/team/cortical_borers/borers
@@ -91,107 +88,44 @@
 		parts += span_redtext("Borers were unable to learn enough chemicals through the blood!")
 	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"
 
-/datum/round_event_control/cortical_borer
-	name = "Cortical Borer Infestation"
-	typepath = /datum/round_event/ghost_role/cortical_borer
-	weight = 10
-	min_players = 999
-	max_occurrences = 1 //should only ever happen once
-	dynamic_should_hijack = TRUE
-	category = EVENT_CATEGORY_ENTITIES
-	description = "A cortical borer has appeared on station. It will also attempt to produce eggs, and will attempt to gather willing hosts and learn chemicals through the blood."
-
-/datum/round_event/ghost_role/cortical_borer
-	announce_when = 400
-
-/datum/round_event/ghost_role/cortical_borer/setup()
-	announce_when = rand(announce_when, announce_when + 50)
-
-/datum/round_event/ghost_role/cortical_borer/announce(fake)
-	priority_announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", ANNOUNCER_ALIENS)
-
-/datum/round_event/ghost_role/cortical_borer/start()
-	var/list/vents = list()
-	for(var/obj/machinery/atmospherics/components/unary/vent_pump/temp_vent as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/atmospherics/components/unary/vent_pump))
-		if(QDELETED(temp_vent))
-			continue
-		if(is_station_level(temp_vent.loc.z) && !temp_vent.welded)
-			var/datum/pipeline/temp_vent_parent = temp_vent.parents[1]
-			if(!temp_vent_parent)
-				continue // No parent vent
-			// Stops Cortical Borers getting stuck in small networks.
-			// See: Security, Virology
-			if(length(temp_vent_parent.other_atmos_machines) > 20)
-				vents += temp_vent
-	if(!length(vents))
-		return MAP_ERROR
-	var/list/mob/dead/observer/candidates = SSpolling.poll_ghost_candidates(
-		"Do you want to spawn as a cortical borer?",
-		role = ROLE_PAI,
-		check_jobban = FALSE,
-		poll_time = 10 SECONDS,
-		ignore_category = POLL_IGNORE_CORTICAL_BORER,
-		alert_pic = /obj/item/borer_egg,
-		role_name_text = "cortical borer",
-	)
-	if(!length(candidates))
-		return NOT_ENOUGH_PLAYERS
-	var/living_number = max(length(GLOB.player_list) / POP_PER_BORER, 1)
-	var/choosing_number = min(length(candidates), living_number)
-	for(var/repeating_code in 1 to choosing_number)
-		var/mob/dead/observer/new_borer = pick(candidates)
-		candidates -= new_borer
-		var/turf/vent_turf = get_turf(pick(vents))
-		var/mob/living/basic/cortical_borer/spawned_cb = new /mob/living/basic/cortical_borer(vent_turf)
-		spawned_cb.PossessByPlayer(new_borer.ckey)
-		spawned_cb.mind.add_antag_datum(/datum/antagonist/cortical_borer)
-		to_chat(spawned_cb, span_warning("You are a cortical borer! You can fear someone to make them stop moving, but make sure to inhabit them! You only grow/heal/talk when inside a host!"))
-	for(var/mob/dead_mob in GLOB.dead_mob_list)
-		to_chat(dead_mob, span_notice("The cortical borers have been selected, you are able to orbit them! Remember, they can reproduce!"))
-
 /datum/dynamic_ruleset/midround/from_ghosts/cortical_borer
 	name = "Cortical Borer Infestation"
-	antag_datum = /datum/antagonist/cortical_borer
-	midround_ruleset_style = MIDROUND_RULESET_STYLE_LIGHT
-	antag_flag = ROLE_BORER
-	enemy_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_HEAD_OF_SECURITY,
-		JOB_SECURITY_OFFICER,
-	)
-	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
-	required_candidates = 1
+	config_tag = "Cortical Borers"
+	preview_antag_datum = /datum/antagonist/cortical_borer
+	midround_type = LIGHT_MIDROUND
+	pref_flag = ROLE_BORER
 	weight = 3
-	cost = 15
-	minimum_players = 20
+	min_pop = 50
 	repeatable = TRUE
 	/// List of on-station vents
 	var/list/vents = list()
 
-/datum/dynamic_ruleset/midround/from_ghosts/cortical_borer/execute()
-	for(var/obj/machinery/atmospherics/components/unary/vent_pump/temp_vent as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/atmospherics/components/unary/vent_pump))
+// Ripped from xenomorph ruleset
+/datum/dynamic_ruleset/midround/from_ghosts/cortical_borer/proc/find_vents()
+	var/list/vents = list()
+	var/list/vent_pumps = SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/atmospherics/components/unary/vent_pump)
+	for(var/obj/machinery/atmospherics/components/unary/vent_pump/temp_vent as anything in vent_pumps)
 		if(QDELETED(temp_vent))
 			continue
-		if(is_station_level(temp_vent.loc.z) && !temp_vent.welded)
-			var/datum/pipeline/temp_vent_parent = temp_vent.parents[1]
-			if(!temp_vent_parent)
-				continue // No parent vent
-			// Stops Borers getting stuck in small networks.
-			// See: Security, Virology
-			if(length(temp_vent_parent.other_atmos_machines) > 20)
-				vents += temp_vent
-	if(!length(vents))
-		return FALSE
-	return TRUE
+		if(!is_station_level(temp_vent.loc.z) || temp_vent.welded)
+			continue
+		var/datum/pipeline/temp_vent_parent = temp_vent.parents[1]
+		if(!temp_vent_parent)
+			continue
+		// Stops borers getting stuck in small networks.
+		// See: Security, Virology
+		if(length(temp_vent_parent.other_atmos_machines) <= 20)
+			continue
+		vents += temp_vent
+	return vents
 
-/datum/dynamic_ruleset/midround/from_ghosts/cortical_borer/generate_ruleset_body(mob/applicant)
-	var/obj/vent = pick_n_take(vents)
-	var/mob/living/basic/cortical_borer/new_borer = new(vent.loc)
-	new_borer.PossessByPlayer(applicant.key)
-	new_borer.move_into_vent(vent)
-	message_admins("[ADMIN_LOOKUPFLW(new_borer)] has been made into a borer by the midround ruleset.")
-	log_game("DYNAMIC: [key_name(new_borer)] was spawned as a borer by the midround ruleset.")
-	return new_borer
+/datum/dynamic_ruleset/midround/from_ghosts/cortical_borer/create_ruleset_body()
+	new /mob/living/basic/cortical_borer
 
-#undef POP_PER_BORER
+/datum/dynamic_ruleset/midround/from_ghosts/cortical_borer/create_execute_args()
+	return list(find_vents())
+
+/datum/dynamic_ruleset/midround/from_ghosts/cortical_borer/assign_role(datum/mind/candidate, list/vent_list)
+	candidate.add_antag_datum(/datum/antagonist/cortical_borer)
+	var/obj/vent = length(vent_list) >= 2 ? pick_n_take(vent_list) : vent_list[1]
+	candidate.current.move_into_vent(vent)

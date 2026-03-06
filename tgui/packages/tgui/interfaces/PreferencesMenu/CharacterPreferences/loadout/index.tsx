@@ -17,7 +17,7 @@ import {
   Tabs,
 } from 'tgui-core/components';
 
-import { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
+import type { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
 import { useServerPrefs } from '../../useServerPrefs';
 import type {
   LoadoutCategory,
@@ -110,10 +110,8 @@ export function LoadoutPage(props) {
                   placeholder="Maximum of 24 characters long"
                   width="100%"
                   maxLength={24}
-                  onChange={(_, value) => onType(value)}
-                  onInput={(_, value) => onType(value)}
-                  onEnter={(event) => {
-                    event.preventDefault();
+                  onChange={(value) => onType(value)}
+                  onEnter={() => {
                     act(`${managingPreset.toLowerCase()}_loadout_preset`, {
                       name: input,
                     });
@@ -152,7 +150,7 @@ export function LoadoutPage(props) {
           buttons={
             <Input
               width="200px"
-              onInput={(_, value) => setSearchLoadout(value)}
+              onChange={setSearchLoadout}
               placeholder="Search for an item..."
               value={searchLoadout}
             />
@@ -475,7 +473,7 @@ function LoadoutPreviewSection() {
     >
       <Stack vertical fill>
         <Stack.Item grow align="center">
-          <CharacterPreview height="100%" id={data.character_preview_view} />
+          <CharacterPreview height="100%" width="240px" id={data.character_preview_view} /> {/* NOVA EDIT CHANGE - ORIGINAL: <CharacterPreview height="100%" id={data.character_preview_view} /> */}
         </Stack.Item>
         <Stack.Divider />
         <Stack.Item align="center">

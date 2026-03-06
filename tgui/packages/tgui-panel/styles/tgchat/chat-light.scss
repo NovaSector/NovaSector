@@ -375,6 +375,10 @@ em {
   color: hsl(88.6, 58.9%, 42%);
 }
 
+.enteradio {
+  color: hsl(176.1, 20%, 45.1%);
+}
+
 .syndradio {
   color: hsl(358.7, 26.7%, 33.7%);
 }
@@ -389,10 +393,6 @@ em {
 
 .aiprivradio {
   color: hsl(300, 100%, 50%);
-}
-
-.enteradio {
-  color: hsl(176.1, 20%, 45.1%);
 }
 
 .redteamradio {
@@ -930,7 +930,9 @@ h2.alert {
 }
 
 .drone {
-  color: hsl(60, 0.8%, 51.4%);
+  color: hsl(60 100% 50%);
+  background-color: hsl(287 62% 36%);
+  font-style: italic;
 }
 
 .monkey {
@@ -946,12 +948,8 @@ h2.alert {
 }
 
 .upside_down {
-  display: inline;
-  -moz-transform: scale(-1, -1);
-  -webkit-transform: scale(-1, -1);
-  -o-transform: scale(-1, -1);
-  -ms-transform: scale(-1, -1);
-  transform: scale(-1, -1);
+  transform: rotate(180deg);
+  display: inline-block;
 }
 
 .connectionClosed,
@@ -1309,12 +1307,18 @@ $border-width-px: $border-width * 1px;
   color: #8a2be2;
 }
 .looc {
-  color: #6699cc;
+  color: #113788;
   font-weight: bold;
 }
 .rlooc {
-  color: #507294;
+  color: #113788;
   font-weight: bold;
+}
+.subtle {
+  color: #000099;
+}
+.subtler {
+  color: #4a00b3;
 }
 
 .crossooc {
@@ -1349,6 +1353,11 @@ $border-width-px: $border-width * 1px;
 
 .cyan {
   color: #0ea1e6;
+  font-weight: bold;
+}
+
+.horizonblue {
+  color: #7ca2b8;
   font-weight: bold;
 }
 

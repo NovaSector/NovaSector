@@ -28,7 +28,9 @@
 	icon_state = "starfruit"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT | SUGAR
-	juice_typepath = /datum/reagent/consumable/starfruit_juice
+
+/obj/item/food/grown/starfruit/juice_typepath()
+	return /datum/reagent/consumable/starfruit_juice
 
 //Starfruit drinks
 //All the drinks are very good because this shit cost 1k minimum to get the starfruit
@@ -227,6 +229,7 @@
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "glazedchops"
 	w_class = WEIGHT_CLASS_NORMAL
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 2)
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 15,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
@@ -253,6 +256,7 @@
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "meatdisc"
 	w_class = WEIGHT_CLASS_NORMAL
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 4)
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 30,
 		/datum/reagent/consumable/nutriment/vitamin = 10,
@@ -281,6 +285,7 @@
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "alfredo"
 	w_class = WEIGHT_CLASS_NORMAL
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 15,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
@@ -401,6 +406,7 @@
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "tofubeef"
 	w_class = WEIGHT_CLASS_NORMAL
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
@@ -427,6 +433,7 @@
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starfruitplate"
 	w_class = WEIGHT_CLASS_NORMAL
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 4)
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
 		/datum/reagent/consumable/nutriment/vitamin = 5,

@@ -80,7 +80,7 @@
 
 	var/obj/item/organ/cyberimp/brain/nif/installed_nif = parent_nif?.resolve()
 	if(installed_nif)
-		installed_nif.loaded_nifsofts.Remove(src)
+		LAZYREMOVE(installed_nif.loaded_nifsofts, src)
 
 	return ..()
 
@@ -164,9 +164,10 @@
 /// A disk that can upload NIFSofts to a recpient with a NIFSoft installed.
 /obj/item/disk/nifsoft_uploader
 	name = "Generic NIFSoft datadisk"
-	desc = "A datadisk that can be used to upload a loaded NIFSoft to the user's NIF"
+	desc = "A stylised nanite-infused 'magnetic' tape is perpetually spinning inside. It can be used to upload a loaded NIFSoft to the user's NIF."
 	icon = 'modular_nova/modules/modular_implants/icons/obj/disks.dmi'
 	icon_state = "base_disk"
+	sticker_icon_state = null
 	///What NIFSoft is currently loaded in?
 	var/datum/nifsoft/loaded_nifsoft = /datum/nifsoft
 	///Is the datadisk reusable?
@@ -179,6 +180,9 @@
 		return INITIALIZE_HINT_QDEL
 
 	name = "[initial(loaded_nifsoft.name)] datadisk"
+
+/obj/item/disk/nifsoft_uploader/setup_reskins()
+	return
 
 /obj/item/disk/nifsoft_uploader/examine(mob/user)
 	. = ..()
@@ -214,5 +218,13 @@
 		return FALSE
 
 	attempt_software_install(mob)
+
+/obj/item/disk/nifsoft_uploader/mil_grade
+	desc = "A high-performance, impact-resistant quantum drive that can be used to upload a loaded NIFSoft to the user's NIF."
+	icon_state = "mil_disk"
+
+/obj/item/disk/nifsoft_uploader/job
+	desc = "Enterprise-grade secure digital drive that can be used to upload a loaded NIFSoft to the user's NIF."
+	icon_state = "job_disk"
 
 #undef DEFAULT_NIFSOFT_COOLDOWN

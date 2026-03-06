@@ -11,16 +11,16 @@ import { CharacterPreferenceWindow } from './CharacterPreferences';
 import { GamePreferenceWindow } from './GamePreferences';
 import {
   GamePreferencesSelectedPage,
-  PreferencesMenuData,
+  type PreferencesMenuData,
   PrefsWindow,
-  ServerData,
+  type ServerData,
 } from './types';
 import { RandomToggleState } from './useRandomToggleState';
 import { ServerPrefs } from './useServerPrefs';
 
 export function PreferencesMenu(props) {
   return (
-    <Window width={920} height={770}>
+    <Window width={920} height={780} /* NOVA EDIT - height 770 to 780 */>
       <Window.Content>
         <Suspense fallback={<LoadingScreen />}>
           <PrefsWindowInner />
@@ -37,6 +37,17 @@ function PrefsWindowInner(props) {
 
   const [serverData, setServerData] = useState<ServerData>();
   const randomization = useState(false);
+
+  useEffect(() => {
+    fetchRetry(resolveAsset('preferences.json'))
+      .then((response) => response.json())
+      .then((data) => {
+        setServerData(data);
+      })
+      .catch((error) => {
+        logger.log('Failed to fetch preferences.json', error);
+      });
+  }, []);
 
   let content;
   let title;
@@ -60,17 +71,6 @@ function PrefsWindowInner(props) {
     default:
       exhaustiveCheck(window);
   }
-
-  useEffect(() => {
-    fetchRetry(resolveAsset('preferences.json'))
-      .then((response) => response.json())
-      .then((data) => {
-        setServerData(data);
-      })
-      .catch((error) => {
-        logger.log('Failed to fetch preferences.json', error);
-      });
-  }, []);
 
   return (
     <ServerPrefs.Provider value={serverData}>

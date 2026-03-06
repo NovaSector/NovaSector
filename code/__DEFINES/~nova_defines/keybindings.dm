@@ -1,5 +1,7 @@
 #define COMSIG_KB_MOB_PIXEL_SHIFT_DOWN "keybinding_mob_pixel_shift_down"
 #define COMSIG_KB_MOB_PIXEL_SHIFT_UP "keybinding_mob_pixel_shift_up"
+#define COMSIG_KB_MOB_PIXEL_TILT_DOWN "keybinding_mob_pixel_tilt_down"
+#define COMSIG_KB_MOB_PIXEL_TILT_UP "keybinding_mob_pixel_tilt_up"
 #define COMSIG_KB_CLIENT_LOOC_DOWN "keybinding_client_looc_down"
 #define COMSIG_KB_CLIENT_WHISPER_DOWN "keybinding_client_whisper_down"
 #define COMSIG_KB_LIVING_COMBAT_INDICATOR "keybinding_living_combat_indicator"
@@ -7,3 +9,4 @@
 #define COMSIG_KB_CLIENT_DO_DOWN "keybinding_client_do_down"
 #define COMSIG_KB_CLIENT_DO_LONGER_DOWN "keybinding_client_do_longer_down"
 #define COMSIG_KB_MOB_CTRL_ACTIVATEINHAND_DOWN "keybinding_mob_ctrl_activateinhand_down"
+#define COMSIG_KB_MOVEMENT_ARMY_CRAWL_DOWN "keybinding_movement_army_crawl_down"

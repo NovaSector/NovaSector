@@ -8,7 +8,9 @@
 /obj/item/clothing/neck/tesharian_mantle
 	name = "Tesharian mantle"
 	desc = "Locally sourced from 'Opalite Industries', sewed by the most gentle of packs; The Tesharian mantle is a comfortable knit to cover a decent amount of the average wearer's chest and neck in its luxurious fabric and wool, held together by adorned with stitching. Local Reviewers say: The human-sized ones seems to be made of some brandless knockoff 'eco-friendly' fabric..."
-	icon_state = "tesharian_mantle"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/tesharian_mantle"
+	post_init_icon_state = "tesharian_mantle"
 	greyscale_config = /datum/greyscale_config/tesharian_mantle
 	greyscale_config_worn = /datum/greyscale_config/tesharian_mantle/worn
 	greyscale_config_worn_teshari = /datum/greyscale_config/tesharian_mantle/worn/teshari
@@ -54,23 +56,26 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "cemantle"
 
+/datum/atom_skin/hosmantle
+	abstract_type = /datum/atom_skin/hosmantle
+
+/datum/atom_skin/hosmantle/red
+	preview_name = "Red Variant"
+	new_icon_state = "hosmantle"
+
+/datum/atom_skin/hosmantle/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "hosmantle_blue"
+
 /obj/item/clothing/neck/mantle/hosmantle
 	name = "\proper the head of security's mantle"
 	desc = "A plated mantle that one might wrap around the upper torso. The 'scales' of the garment signify the members of security and how you're carrying them on your shoulders."
 	icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "hosmantle"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "hosmantle",
-			RESKIN_WORN_ICON_STATE = "hosmantle"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "hosmantle_blue",
-			RESKIN_WORN_ICON_STATE = "hosmantle_blue"
-		),
-	)
+
+/obj/item/clothing/neck/mantle/hosmantle/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hosmantle)
 
 /obj/item/clothing/neck/mantle/bsmantle
 	name = "\proper the blueshield's mantle"
@@ -89,11 +94,12 @@
 /obj/item/clothing/neck/mantle/recolorable
 	name = "mantle"
 	desc = "A simple drape over the shoulders."
-	icon = 'modular_nova/modules/GAGS/icons/neck/neck.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/neck/neck.dmi'
 	worn_icon_teshari = 'modular_nova/modules/GAGS/icons/neck/neck_teshari.dmi'
-	icon_state = "mantle"
 	greyscale_colors = "#ffffff"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/mantle/recolorable"
+	post_init_icon_state = "mantle"
 	greyscale_config = /datum/greyscale_config/mantle
 	greyscale_config_worn = /datum/greyscale_config/mantle/worn
 	greyscale_config_worn_teshari = /datum/greyscale_config/mantle/worn/teshari
@@ -104,7 +110,9 @@
 /obj/item/clothing/neck/face_scarf
 	name = "face scarf"
 	desc = "A warm looking scarf that you can easily put around your face."
-	icon_state = "face_scarf"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/face_scarf"
+	post_init_icon_state = "face_scarf"
 	greyscale_config = /datum/greyscale_config/face_scarf
 	greyscale_config_worn = /datum/greyscale_config/face_scarf/worn
 	greyscale_config_worn_muzzled = /datum/greyscale_config/face_scarf/worn/muzzled
@@ -127,7 +135,9 @@
 /obj/item/clothing/neck/maid_neck_cover
 	name = "maid neck cover"
 	desc = "A neckpiece for a maid costume, it smells faintly of disappointment."
-	icon_state = "maid_neck_cover"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/maid_neck_cover"
+	post_init_icon_state = "maid_neck_cover"
 	greyscale_config = /datum/greyscale_config/maid_neck_cover
 	greyscale_config_worn = /datum/greyscale_config/maid_neck_cover/worn
 	greyscale_colors = "#7b9ab5#edf9ff"

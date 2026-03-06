@@ -37,7 +37,7 @@
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
 		/datum/pet_command/free,
-		/datum/pet_command/follow,
+		/datum/pet_command/follow/start_active,
 		/datum/pet_command/perform_trick_sequence,
 		// NOVA EDIT ADDITION START
 		/datum/pet_command/good_boy,
@@ -47,6 +47,7 @@
 	)
 
 /datum/emote/mothroach
+	abstract_type = /datum/emote/mothroach
 	mob_type_allowed_typecache = /mob/living/basic/mothroach
 	mob_type_blacklist_typecache = list()
 
@@ -84,7 +85,7 @@
 	else
 		playsound(loc, 'sound/mobs/humanoids/moth/scream_moth.ogg', 50, TRUE)
 
-/mob/living/basic/mothroach/attackby(obj/item/attacking_item, mob/living/user, list/modifiers)
+/mob/living/basic/mothroach/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(src.stat == DEAD)
 		return

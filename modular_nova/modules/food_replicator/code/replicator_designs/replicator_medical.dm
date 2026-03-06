@@ -6,7 +6,7 @@
 	build_path = /obj/item/storage/pouch/cin_medkit
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/medipouch
@@ -17,7 +17,7 @@
 	build_path = /obj/item/storage/pouch/cin_medipens
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/genpouch
@@ -28,7 +28,7 @@
 	build_path = /obj/item/storage/pouch/cin_general
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/sutures
@@ -39,7 +39,7 @@
 	build_path = /obj/item/stack/medical/suture/bloody
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/mesh
@@ -50,7 +50,7 @@
 	build_path = /obj/item/stack/medical/mesh/bloody
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/bruise_patch
@@ -61,7 +61,7 @@
 	build_path = /obj/item/reagent_containers/applicator/patch/libital
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/burn_patch
@@ -72,7 +72,7 @@
 	build_path = /obj/item/reagent_containers/applicator/patch/aiuri
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/gauze
@@ -83,7 +83,7 @@
 	build_path = /obj/item/stack/medical/gauze
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/epi_pill
@@ -94,7 +94,7 @@
 	build_path = /obj/item/reagent_containers/applicator/pill/epinephrine
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/conv_pill
@@ -105,7 +105,7 @@
 	build_path = /obj/item/reagent_containers/applicator/pill/convermol
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
 /datum/design/multiver_pill
@@ -116,9 +116,9 @@
 	build_path = /obj/item/reagent_containers/applicator/pill/multiver
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_NRI_MEDICAL,
+		RND_CATEGORY_HC_MEDICAL,
 	)
 
-#undef RND_CATEGORY_NRI_FOOD
-#undef RND_CATEGORY_NRI_MEDICAL
-#undef RND_CATEGORY_NRI_CLOTHING
+#undef RND_CATEGORY_HC_FOOD
+#undef RND_CATEGORY_HC_MEDICAL
+#undef RND_CATEGORY_HC_CLOTHING

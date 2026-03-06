@@ -8,7 +8,7 @@ Adds some TrimTokens, that allow for some one-use rapid trim modification that u
 
 ### TG Proc Changes:
 
-- /obj/item/card/id/attackby(obj/item/W, mob/user, params) - cards_ids.dm
+- /obj/item/card/id/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers) - cards_ids.dm
 
 ### Defines:
 
@@ -20,8 +20,6 @@ Adds some TrimTokens, that allow for some one-use rapid trim modification that u
 
 ### Included files that are not contained in this module:
 
-
-
-
 ### Credits:
+
 Code: GoldenAlpharex

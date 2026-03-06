@@ -87,7 +87,7 @@
 	icon_state = "flare"
 	damage = 10
 	speed = 0.4
-	bare_wound_bonus = 55 // Lasers have a wound bonus of 40, this is a bit higher
+	exposed_wound_bonus = 55 // Lasers have a wound bonus of 40, this is a bit higher
 	wound_bonus = -50 // However we do not very much against armor
 	range = 2
 	pass_flags = PASSTABLE | PASSGRILLE // His ass does NOT pass through glass!
@@ -131,7 +131,7 @@
 	icon_state = "hellfire"
 	damage = 30
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
-	speed = 1.66
+	speed = 1.6
 	wound_bonus = 0
 	light_color = COLOR_SOFT_RED
 

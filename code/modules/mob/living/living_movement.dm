@@ -73,7 +73,12 @@
 	return ..()
 
 /mob/living/proc/update_move_intent_slowdown()
-	add_movespeed_modifier((move_intent == MOVE_INTENT_WALK)? /datum/movespeed_modifier/config_walk_run/walk : /datum/movespeed_modifier/config_walk_run/run)
+	add_movespeed_modifier(get_move_intent_slowdown())
+
+/mob/living/proc/get_move_intent_slowdown()
+	if(move_intent == MOVE_INTENT_WALK)
+		return /datum/movespeed_modifier/config_walk_run/walk
+	return /datum/movespeed_modifier/config_walk_run/run
 
 /mob/living/proc/update_turf_movespeed(turf/open/turf)
 	if(isopenturf(turf) && !HAS_TRAIT(turf, TRAIT_TURF_IGNORE_SLOWDOWN))
@@ -92,6 +97,9 @@
 			var/mob/living/L = pulling
 			//NOVA EDIT ADDITION
 			if(HAS_TRAIT(L, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED) && !iscyborg(src))
+				add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/bulky_drag, multiplicative_slowdown = PULL_OVERSIZED_SLOWDOWN)
+				return
+			if(HAS_TRAIT(L, TRAIT_HEAVYSET))
 				add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/bulky_drag, multiplicative_slowdown = PULL_OVERSIZED_SLOWDOWN)
 				return
 			//NOVA EDIT END

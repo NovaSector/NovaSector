@@ -78,7 +78,7 @@ IMPORTANT: MAP CONTRIBUTION GUIDELINES HAVE BEEN UPDATED
 When you are adding a new item to the map you MUST follow this procedure:
 Start by deciding how big of a change it is going to be, if it is a small 1 item change, you should use the simple area automapper. If it is an entire room, you should use the template automapper.
 
-We will no longer have _nova map versions.
+We will no longer have \_nova map versions.
 
 DO NOT CHANGE TG MAPS, THEY ARE HELD TO THE SAME STANDARD AS ICONS. USE THE ABOVE TO MAKE MAP EDITS.
 
@@ -88,11 +88,11 @@ The simple area automapper uses datum entries to place down a single item in an 
 
 ### Assets: images, sounds, icons and binaries
 
-Git doesn't handle conflicts of binary files well at all, therefore changes to core binary files are absolutely forbidden, unless you have a really *really* ***really*** good reason to do otherwise.
+Git doesn't handle conflicts of binary files well at all, therefore changes to core binary files are absolutely forbidden, unless you have a really _really_ **_really_** good reason to do otherwise.
 
 All assets added by us should be placed into the same modular folder as your code. This means everything is kept inside your module folder, sounds, icons and code files.
 
-- ***Example:*** You're adding a new lavaland mob.
+- **_Example:_** You're adding a new lavaland mob.
 
   First of all you create your modular folder. E.g. `modular_nova/modules/lavalandmob`
 
@@ -138,10 +138,10 @@ Such modules, unless _very_ simple, **need** to have a `readme.md` in their fold
 - links to the PRs that implemented this module or made any significant changes to it
 - short description of the module
 - list of files changed in the core code, with a short description of the change, and a list of changes in other modular files that are not part of the same module, that were necessary for this module to function properly
-- (optionally) a bit more elaborative documentation for future-proofing the code,  that will be useful further development and maintenance
+- (optionally) a bit more elaborative documentation for future-proofing the code, that will be useful further development and maintenance
 - credits
 
-***Template:*** [Here](module_template.md)
+**_Template:_** [Here](module_template.md)
 
 ## Modular Overrides (Important!!)
 
@@ -219,7 +219,7 @@ In those cases, we've decided to apply the following convention, with examples:
   ```
 
   And for any removals that are moved to different files*:
-		*Please avoid this however, only to be done if there is no other option.
+  *Please avoid this however, only to be done if there is no other option.
 
   ```byond
   /* // NOVA EDIT REMOVAL START - SHUTTLE_TOGGLE - (Moved to modular_nova/shuttle_toggle/randomverbs.dm)
@@ -251,25 +251,26 @@ In those cases, we've decided to apply the following convention, with examples:
   if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE, SHUTTLE_DISABLED) // NOVA EDIT CHANGE - ORIGINAL: if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE)
   ```
 
-	Always put the original code (the full line!) and use the same formatting as above.
+  Always put the original code (the full line!) and use the same formatting as above.
 
-	Multiline changes should be AVOIDED. Either put multiple single-line changes, or do this instead:
+  Multiline changes should be AVOIDED. Either put multiple single-line changes, or do this instead:
 
-	Example: Removal/addition combo.
-	This is the preferred way of dealing with changes that span more than one line and have varying
-	indentation levels.
+  Example: Removal/addition combo.
+  This is the preferred way of dealing with changes that span more than one line and have varying
+  indentation levels.
 
   ```byond
-	/* // NOVA EDIT REMOVAL START - Adds conditional
-		return 1
-	*/ // NOVA EDIT REMOVAL
-	// NOVA EDIT ADDITION START - Adds conditional
-		if(!isnull(src))
-			return 1
-	// NOVA EDIT ADDITION END
+  /* // NOVA EDIT REMOVAL START - Adds conditional
+  	return 1
+  */ // NOVA EDIT REMOVAL
+  // NOVA EDIT ADDITION START - Adds conditional
+  	if(!isnull(src))
+  		return 1
+  // NOVA EDIT ADDITION END
 
-	It makes resolving diffs during merge conflicts far easier this way for us because it makes the
-	diffs very clear and straightforward.
+  It makes resolving diffs during merge conflicts far easier this way for us because it makes the
+  diffs very clear and straightforward.
+  ```
 
 ## Exceptional cases of modular code
 
@@ -360,16 +361,19 @@ In general try to keep your edit comments on the same line as the change. Prefer
 If that is not possible, you can wrap your edit in curly brackets e.g.
 
 ```js
-{/* NOVA EDIT ADDITION START */}
-<SomeThing>
-	someProp="whatever"
-</SomeThing>
-{/* NOVA EDIT ADDITION END */}
+{
+	/* NOVA EDIT ADDITION START */
+}
+<SomeThing>someProp="whatever"</SomeThing>;
+{
+	/* NOVA EDIT ADDITION END */
+}
 ```
 
 ### Creating new TGUI files
 
 **IMPORTANT! When creating a new TGUI file from scratch, please add the following at the very top of the file (line 1):**
+
 ```js
 // THIS IS A NOVA SECTOR UI FILE
 ```

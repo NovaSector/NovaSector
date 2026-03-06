@@ -64,11 +64,11 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 // Minimum alert level for pods to actually evacuate people
 /datum/config_entry/number/minimum_alert_for_pods
 
-/// Split the threat budget between roundstart and midrounds
-/datum/config_entry/flag/split_threat_budget
-
 // How much time arrivals shuttle should stay at station after its engines recharged before returning to interlink. In deciseconds. 150 - 15 seconds. 0 - disables autoreturn
 /datum/config_entry/number/arrivals_wait
 
 // Are borgs/silicons blacklisted from entering the gateway
 /datum/config_entry/flag/borg_gateway_blacklist
+
+/// Are the TG gas prices being overridden? See modular_nova\modules\customization\__HELPERS\global_lists.dm to configure the prices.
+/datum/config_entry/flag/override_gas_prices

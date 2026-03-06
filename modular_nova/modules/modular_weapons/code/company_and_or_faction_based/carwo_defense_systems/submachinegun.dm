@@ -28,18 +28,17 @@
 	suppressor_x_offset = 11
 
 	burst_size = 1
-	fire_delay = 0.3 SECONDS
+	fire_delay = 0.25 SECONDS
 
 	spread = 7.5
 
 	lore_blurb = "The Sindano submachinegun was originally produced for a military contract.<br><br>\
 		Thanks to that, they could be found in the hands of any SolFed second-line force, \
 		such as, but not limited to, medics, ship techs, and logistics officers. \
-		Funnily enough, shuttle pilots often had several just to show off. \
+		Funnily enough, shuttle pilots often had several just to show off.<br><br>\
 		Due to SolFed's quest to extend the lifespans of their logistics officers and quartermasters, \
-		the Sindano uses the same standard pistol cartridge that most other SolFed military weapons of \
-		small caliber do.<br><br>\
-		This results in interchangeable magazines between pistols and submachineguns. Neat!"
+		the Sindano uses the same standard pistol cartridge and magazines that most other SolFed military weapons of \
+		small caliber do. This results in interchangeable magazines between pistols and submachine guns. Neat!"
 
 /obj/item/gun/ballistic/automatic/sol_smg/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)
@@ -50,10 +49,11 @@
 
 /obj/item/gun/ballistic/automatic/sol_smg/no_mag
 	spawnwithmagazine = FALSE
+
 // Sindano (evil)
 
 /obj/item/gun/ballistic/automatic/sol_smg/evil
-	desc = parent_type::desc + "This one is painted in a tacticool black."
+	desc = parent_type::desc + " This one is painted in a tacticool black."
 
 	icon_state = "sindano_evil"
 	inhand_icon_state = "sindano_evil"

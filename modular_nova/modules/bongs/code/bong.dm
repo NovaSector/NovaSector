@@ -29,14 +29,15 @@
 	var/reagent_transfer_per_use = 0
 	///How far does the smoke reach per use?
 	var/smoke_range = 2
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 10, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 
 /obj/item/bong/Initialize(mapload)
 	. = ..()
 	create_reagents(chem_volume, INJECTABLE | NO_REACT)
 
-/obj/item/bong/attackby(obj/item/used_item, mob/user, params)
-	if(istype(used_item, /obj/item/food/grown))
-		var/obj/item/food/grown/grown_item = used_item
+/obj/item/bong/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/food/grown))
+		var/obj/item/food/grown/grown_item = attacking_item
 		if(packed_item)
 			balloon_alert(user, "already packed!")
 			return
@@ -51,19 +52,19 @@
 			reagent_transfer_per_use = reagents.total_volume / max_hits
 		qdel(grown_item)
 
-	else if(istype(used_item, /obj/item/reagent_containers/hash)) //for hash/dabs
+	else if(istype(attacking_item, /obj/item/reagent_containers/hash)) //for hash/dabs
 		if(packed_item)
 			balloon_alert(user, "already packed!")
 			return
-		to_chat(user, span_notice("You stuff [used_item] into [src]."))
+		to_chat(user, span_notice("You stuff [attacking_item] into [src]."))
 		bong_hits = max_hits
 		packed_item = TRUE
-		if(used_item.reagents)
-			used_item.reagents.trans_to(src, used_item.reagents.total_volume, transferred_by = user)
+		if(attacking_item.reagents)
+			attacking_item.reagents.trans_to(src, attacking_item.reagents.total_volume, transferred_by = user)
 			reagent_transfer_per_use = reagents.total_volume / max_hits
-		qdel(used_item)
+		qdel(attacking_item)
 	else
-		var/lighting_text = used_item.ignition_effect(src, user)
+		var/lighting_text = attacking_item.ignition_effect(src, user)
 		if(!lighting_text)
 			return ..()
 		if(bong_hits <= 0)
@@ -129,14 +130,12 @@
 	name = "lit [name]"
 
 	if(reagents.get_reagent_amount(/datum/reagent/toxin/plasma)) // the plasma explodes when exposed to fire
-		var/datum/effect_system/reagents_explosion/explosion = new()
-		explosion.set_up(round(reagents.get_reagent_amount(/datum/reagent/toxin/plasma) * 0.4, 1), get_turf(src), 0, 0)
+		var/datum/effect_system/reagents_explosion/explosion = new(get_turf(src), round(reagents.get_reagent_amount(/datum/reagent/toxin/plasma) * 0.4, 1))
 		explosion.start()
 		qdel(src)
 		return
 	if(reagents.get_reagent_amount(/datum/reagent/fuel)) // the fuel explodes, too, but much less violently
-		var/datum/effect_system/reagents_explosion/explosion = new()
-		explosion.set_up(round(reagents.get_reagent_amount(/datum/reagent/fuel) * 0.2, 1), get_turf(src), 0, 0)
+		var/datum/effect_system/reagents_explosion/explosion = new(get_turf(src), round(reagents.get_reagent_amount(/datum/reagent/fuel) * 0.2, 1))
 		explosion.start()
 		qdel(src)
 		return
@@ -188,6 +187,7 @@
 	chem_volume = 50
 	smoke_range = 7
 	moan_chance = 50
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 20, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 10)
 
 #define MAX_FAKE_STEAM_STAGES 5
 #define STAGE_DOWN_TIME (10 SECONDS)

@@ -130,7 +130,7 @@
 	name = "Monkey Hide"
 	description = "One of the scientists at CentCom is interested in testing products on monkey skin. Your mission is to acquire monkey's hide and ship it."
 	reward = CARGO_CRATE_VALUE * 3
-	wanted_types = list(/obj/item/stack/sheet/animalhide/monkey = TRUE)
+	wanted_types = list(/obj/item/stack/sheet/animalhide/carbon/monkey = TRUE)
 
 /* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/dead_mice
@@ -292,4 +292,4 @@
 	description = "We need [LOWER_TEXT(fluid_type)] fish to populate our aquariums with. Fishes that are dead or bought from cargo will only be paid half as much."
 
 /datum/bounty/item/assistant/fish/fluid/can_ship_fish(obj/item/fish/fishie)
-	return compatible_fluid_type(fishie.required_fluid_type, fluid_type)
+	return (fluid_type in GLOB.fish_compatible_fluid_types[fishie.required_fluid_type])

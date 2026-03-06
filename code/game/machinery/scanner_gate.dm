@@ -91,7 +91,7 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
-	AddComponent(/datum/component/simple_rotation, ROTATION_IGNORE_ANCHORED|ROTATION_REQUIRE_WRENCH|ROTATION_NEEDS_UNBLOCKED)
+	AddElement(/datum/element/simple_rotation, ROTATION_IGNORE_ANCHORED|ROTATION_REQUIRE_WRENCH|ROTATION_NEEDS_UNBLOCKED)
 	register_context()
 
 /obj/machinery/scanner_gate/Destroy(force)
@@ -149,7 +149,7 @@
 		return
 	set_scanline("passive")
 
-/obj/machinery/scanner_gate/attackby(obj/item/attacking_item, mob/user, list/modifiers)
+/obj/machinery/scanner_gate/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	var/obj/item/card/id/card = attacking_item.GetID()
 	if(card)
 		if(locked)

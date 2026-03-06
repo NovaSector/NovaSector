@@ -1,6 +1,6 @@
-#define SUBTLE_DEFAULT_DISTANCE 1
+#define SUBTLE_DEFAULT_DISTANCE world.view
+#define SUBTLE_ONE_TILE 1
 #define SUBTLE_SAME_TILE_DISTANCE 0
-#define SUBTLER_TELEKINESIS_DISTANCE 7
 
 #define SUBTLE_ONE_TILE_TEXT "1-Tile Range"
 #define SUBTLE_SAME_TILE_TEXT "Same Tile"
@@ -20,7 +20,7 @@
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	default_value = TRUE
 
-/datum/emote/living/subtle/run_emote(mob/user, params, type_override = null)
+/datum/emote/living/subtle/run_emote(mob/user, params, type_override, intentional)
 	if(!can_run_emote(user))
 		to_chat(user, span_warning("You can't emote at this time."))
 		return FALSE
@@ -39,8 +39,8 @@
 		subtle_message = subtle_emote
 	else
 		subtle_message = params
-		if(type_override)
-			emote_type = type_override
+
+	var/running_emote_type = type_override || emote_type
 
 	if(!can_run_emote(user))
 		to_chat(user, span_warning("You can't emote at this time."))
@@ -50,13 +50,16 @@
 
 	var/space = should_have_space_before_emote(html_decode(subtle_emote)[1]) ? " " : ""
 
-	subtle_message = span_emote("<b>[user]</b>[space]<i>[user.say_emphasis(subtle_message)]</i>")
+	subtle_message = span_subtle("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtle_message)]</i>")
 
-	var/list/viewers = get_hearers_in_view(SUBTLE_DEFAULT_DISTANCE, user)
+	var/list/viewers = get_hearers_in_view(SUBTLE_ONE_TILE, user)
 
 	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 	if(hologram)
-		viewers |= get_hearers_in_view(SUBTLE_DEFAULT_DISTANCE, hologram)
+		viewers |= get_hearers_in_view(SUBTLE_ONE_TILE, hologram)
+	for(var/obj/item/dullahan_relay/dullahan in viewers)
+		viewers -= dullahan
+		viewers += dullahan.owner
 
 	for(var/obj/effect/overlay/holo_pad_hologram/iterating_hologram in viewers)
 		if(iterating_hologram?.Impersonation?.client)
@@ -64,10 +67,17 @@
 
 	for(var/mob/ghost as anything in GLOB.dead_mob_list)
 		if((ghost.client?.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers))
-			ghost.show_message(subtle_message)
+			to_chat(ghost, "[FOLLOW_LINK(ghost, user)] [subtle_message]")
 
 	for(var/mob/receiver in viewers)
+		if((running_emote_type & EMOTE_LEWD) && !pref_check_emote(receiver, preference = /datum/emote/living/lewd::pref_to_check))
+			continue
 		receiver.show_message(subtle_message, alt_msg = subtle_message)
+		// Optional sound notification
+		if(!isobserver(receiver))
+			var/datum/preferences/prefs = receiver.client?.prefs
+			if(prefs && prefs.read_preference(/datum/preference/toggle/subtler_sound))
+				receiver.playsound_local(get_turf(receiver), 'sound/effects/achievement/beeps_jingle.ogg', 50)
 
 	return TRUE
 
@@ -81,7 +91,7 @@
 	message = null
 	mob_type_blacklist_typecache = list(/mob/living/brain)
 
-/datum/emote/living/subtler/run_emote(mob/user, params, type_override = null)
+/datum/emote/living/subtler/run_emote(mob/user, params, type_override, intentional)
 	if(!can_run_emote(user))
 		to_chat(user, span_warning("You can't emote at this time."))
 		return FALSE
@@ -89,10 +99,6 @@
 	var/subtler_emote = params
 	var/target
 	var/subtler_range = SUBTLE_DEFAULT_DISTANCE
-
-	var/datum/dna/dna = user.has_dna()
-	if(dna && dna?.check_mutation(/datum/mutation/human/telekinesis))
-		subtler_range = SUBTLER_TELEKINESIS_DISTANCE
 
 	if(SSdbcore.IsConnected() && is_banned_from(user, "emote"))
 		to_chat(user, span_warning("You cannot send subtle emotes (banned)."))
@@ -109,13 +115,21 @@
 
 		var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 		if(hologram)
-			in_view |= get_hearers_in_view(1, hologram)
+			in_view |= get_hearers_in_view(subtler_range, hologram)
 
 		in_view -= GLOB.dead_mob_list
 		in_view.Remove(user)
 
-		for(var/mob/eye/camera/ai/ai_eye in in_view)
-			in_view.Remove(ai_eye)
+		for(var/obj/item/dullahan_relay/dullahan in in_view)
+			in_view -= dullahan
+			if(user != dullahan.owner)
+				in_view += dullahan.owner
+		for(var/mob/mob in in_view) // Filters out the AI eye and clientless mobs.
+			if(!istype(mob, /mob/eye/camera/ai))
+				continue
+			if(mob.client)
+				continue
+			in_view.Remove(mob)
 
 		var/list/targets = list(SUBTLE_ONE_TILE_TEXT, SUBTLE_SAME_TILE_TEXT) + in_view
 		target = tgui_input_list(user, "Pick a target", "Target Selection", targets)
@@ -124,15 +138,15 @@
 
 		switch(target)
 			if(SUBTLE_ONE_TILE_TEXT)
-				target = SUBTLE_DEFAULT_DISTANCE
+				target = SUBTLE_ONE_TILE
 			if(SUBTLE_SAME_TILE_TEXT)
 				target = SUBTLE_SAME_TILE_DISTANCE
 		subtler_message = subtler_emote
 	else
-		target = SUBTLE_DEFAULT_DISTANCE
+		target = SUBTLE_ONE_TILE
 		subtler_message = subtler_emote
-		if(type_override)
-			emote_type = type_override
+
+	var/running_emote_type = type_override || emote_type
 
 	if(!can_run_emote(user))
 		to_chat(user, span_warning("You can't emote at this time."))
@@ -142,11 +156,13 @@
 
 	var/space = should_have_space_before_emote(html_decode(subtler_emote)[1]) ? " " : ""
 
-	subtler_message = span_emote("<b>[user]</b>[space]<i>[user.say_emphasis(subtler_message)]</i>")
+	subtler_message = span_subtler("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtler_message)]</i>")
 
 	if(istype(target, /mob))
 		var/mob/target_mob = target
 		user.show_message(subtler_message, alt_msg = subtler_message)
+		if((running_emote_type & EMOTE_LEWD) && !pref_check_emote(target_mob, preference = /datum/emote/living/lewd::pref_to_check))
+			return FALSE
 		var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 		if((get_dist(user.loc, target_mob.loc) <= subtler_range) || (hologram && get_dist(hologram.loc, target_mob.loc) <= subtler_range))
 			target_mob.show_message(subtler_message, alt_msg = subtler_message)
@@ -158,6 +174,8 @@
 	else if(istype(target, /obj/effect/overlay/holo_pad_hologram))
 		var/obj/effect/overlay/holo_pad_hologram/hologram = target
 		if(hologram.Impersonation?.client)
+			if((running_emote_type & EMOTE_LEWD) && !pref_check_emote(client = hologram.Impersonation.client, preference = /datum/emote/living/lewd::pref_to_check))
+				return FALSE
 			hologram.Impersonation.show_message(subtler_message, alt_msg = subtler_message)
 			var/datum/preferences/prefs = hologram.Impersonation.client?.prefs
 			if(prefs && prefs.read_preference(/datum/preference/toggle/subtler_sound))
@@ -172,8 +190,13 @@
 		for(var/obj/effect/overlay/holo_pad_hologram/holo in ghostless)
 			if(holo?.Impersonation?.client)
 				ghostless |= holo.Impersonation
+		for(var/obj/item/dullahan_relay/dullahan in ghostless)
+			ghostless -= dullahan
+			ghostless += dullahan.owner
 
 		for(var/mob/receiver in ghostless)
+			if((running_emote_type & EMOTE_LEWD) && !pref_check_emote(receiver, preference = /datum/emote/living/lewd::pref_to_check))
+				continue
 			receiver.show_message(subtler_message, alt_msg = subtler_message)
 			var/datum/preferences/prefs = receiver.client?.prefs
 			if(prefs && prefs.read_preference(/datum/preference/toggle/subtler_sound))
@@ -212,8 +235,8 @@
 	usr.emote("subtler")
 
 #undef SUBTLE_DEFAULT_DISTANCE
+#undef SUBTLE_ONE_TILE
 #undef SUBTLE_SAME_TILE_DISTANCE
-#undef SUBTLER_TELEKINESIS_DISTANCE
 
 #undef SUBTLE_ONE_TILE_TEXT
 #undef SUBTLE_SAME_TILE_TEXT

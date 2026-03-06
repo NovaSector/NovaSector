@@ -7,14 +7,15 @@ MODULE ID: ALERTS
 Adds new alert levels, and some extra details regarding the alerts
 
 ### TG Proc Changes:
+
 - EDIT: code/controllers/subsystem/shuttle.dm > /datum/controller/subsystem/shuttle/proc/canRecall()
-- EDIT: code/game/machinery/computer/communications.dm  > /obj/machinery/computer/communications/Topic(), /obj/machinery/computer/communications/ui_interact()
+- EDIT: code/game/machinery/computer/communications.dm > /obj/machinery/computer/communications/Topic(), /obj/machinery/computer/communications/ui_interact()
 - EDIT: code/modules/mob/dead/new_player/new_player.dm > /mob/dead/new_player/proc/LateChoices()
 - MOVED: code/modules/security_levels/security_levels.dm > about the entire file
 
 ### Defines:
 
- ./code/__DEFINES/misc.dm > moved alert defines to:  code/__DEFINES/~nova_defines/security_alerts.dm 
+`./code/__DEFINES/misc.dm > moved alert defines to: `code/_DEFINES/`~nova_defines/security_alerts.dm`
 
 ### Master file additions
 
@@ -25,5 +26,6 @@ Adds new alert levels, and some extra details regarding the alerts
 - N/A
 
 ### Credits:
+
 Azarak - Porting
 Afya - OG code

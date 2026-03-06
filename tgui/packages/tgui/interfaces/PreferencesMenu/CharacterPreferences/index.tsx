@@ -4,7 +4,7 @@ import { Dropdown, Flex, Stack } from 'tgui-core/components'; // NOVA EDIT CHANG
 import { exhaustiveCheck } from 'tgui-core/exhaustive';
 
 import { PageButton } from '../components/PageButton';
-import { PreferencesMenuData } from '../types';
+import type { PreferencesMenuData } from '../types';
 import { AntagsPage } from './AntagsPage';
 import { JobsPage } from './JobsPage';
 // NOVA EDIT ADDITION START
@@ -13,7 +13,7 @@ import { LimbsPage } from './LimbsPage';
 // NOVA EDIT ADDITION END
 import { LoadoutPage } from './loadout';
 import { MainPage } from './MainPage';
-import { QuirksPage } from './QuirksPage';
+import { QuirkPersonalityPage } from './QuirksPage';
 import { SpeciesPage } from './SpeciesPage';
 
 enum Page {
@@ -88,7 +88,7 @@ export function CharacterPreferenceWindow(props) {
 
       break;
     case Page.Quirks:
-      pageContents = <QuirksPage />;
+      pageContents = <QuirkPersonalityPage />;
       break;
 
     case Page.Loadout:
@@ -199,7 +199,7 @@ export function CharacterPreferenceWindow(props) {
               page={Page.Quirks}
               setPage={setCurrentPage}
             >
-              Quirks
+              Quirks and Personality
             </PageButton>
           </Stack.Item>
         </Stack>

@@ -4,13 +4,13 @@
 /obj/item/ammo_box/magazine
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/ammo_box/strilka310
+/obj/item/ammo_box/speedloader/strilka310
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/ammo_box/a357
+/obj/item/ammo_box/speedloader/c357
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/ammo_box/c38
+/obj/item/ammo_box/speedloader/c38
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/ammo_box/c9mm/ap

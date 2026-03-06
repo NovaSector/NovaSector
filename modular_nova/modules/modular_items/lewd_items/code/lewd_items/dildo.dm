@@ -299,7 +299,7 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 
 /obj/item/clothing/sextoy/dildo/double_dildo/update_icon_state()
 	. = ..()
-	icon_state = "[initial(icon_state)]"
+	icon_state = "[initial(post_init_icon_state) || initial(icon_state)]"
 	worn_icon_state = "[initial(worn_icon_state)][(in_back ? "_back" : "")]"
 
 //button stuff

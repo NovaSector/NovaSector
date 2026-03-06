@@ -20,8 +20,6 @@
 /datum/component/wetsuit/proc/apply_wetsuit_status_effect(obj/item/source, mob/living/user, slot)
 	if(slot == ITEM_SLOT_HANDS)
 		return FALSE
-	if(!HAS_TRAIT(user, TRAIT_SLICK_SKIN))
-		return FALSE
 
 	user.apply_status_effect(/datum/status_effect/grouped/wetsuit, REF(source))
 

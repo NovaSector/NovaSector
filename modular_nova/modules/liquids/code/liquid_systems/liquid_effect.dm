@@ -464,7 +464,7 @@
 				var/datum/reagents/tempr = take_reagents_flat(CHOKE_REAGENTS_INGEST_ON_FALL_AMOUNT)
 				tempr.trans_to(falling_carbon, tempr.total_volume, methods = INGEST)
 				qdel(tempr)
-				falling_carbon.adjustOxyLoss(5)
+				falling_carbon.adjust_oxy_loss(5)
 				//C.emote("cough")
 				INVOKE_ASYNC(falling_carbon, TYPE_PROC_REF(/mob, emote), "cough")
 				to_chat(falling_carbon, span_userdanger("You fall in and swallow some [reagents_to_text()]!"))
@@ -520,7 +520,8 @@
 //Exposes my turf with simulated reagents
 /obj/effect/abstract/liquid_turf/proc/ExposeMyTurf()
 	var/datum/reagents/tempr = simulate_reagents_threshold(LIQUID_REAGENT_THRESHOLD_TURF_EXPOSURE)
-	tempr.expose(my_turf, TOUCH, tempr.total_volume)
+	if(tempr.total_volume > 0)
+		tempr.expose(my_turf, TOUCH, tempr.total_volume)
 	qdel(tempr)
 
 /obj/effect/abstract/liquid_turf/proc/ChangeToNewTurf(turf/NewT)
@@ -618,7 +619,7 @@
 					reagents_string += "and "
 	while(reagents_remaining)
 
-	return lowertext(reagents_string)
+	return LOWER_TEXT(reagents_string)
 
 /obj/effect/temp_visual/liquid_splash
 	icon = 'modular_nova/modules/liquids/icons/obj/effects/splash.dmi'

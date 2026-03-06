@@ -1,6 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
 
-import { Antagonist, Category } from '../base';
+import { type Antagonist, Category } from '../base';
 
 export const OPERATIVE_MECHANICAL_DESCRIPTION = `
   Attain all possible GoldenEye authentication keys and use them to activate

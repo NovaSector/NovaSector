@@ -35,8 +35,7 @@ $_channel_map: (
   'Guild': hsl(0, 0%, 70%),
   'SolFed': hsl(68, 70%, 60%),
   'Whis': hsl(238, 55%, 67%),
-  'Do': hsl(137, 64%, 60%),
-  // NOVA EDIT ADDITION END
+  'Do': hsl(137, 64%, 60%), // NOVA EDIT ADDITION END
 );
 
 $channel_keys: map.keys($_channel_map) !default;

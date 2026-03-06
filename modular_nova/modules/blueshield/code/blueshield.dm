@@ -2,7 +2,6 @@
 	title = JOB_BLUESHIELD
 	description = "Protect heads of staff, get your fancy gun stolen, cry as the captain touches the supermatter."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list(JOB_NT_REP)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -39,8 +38,8 @@
 		/obj/item/clothing/head/collectable/captain = 4,
 	)
 
-	veteran_only = TRUE
-	job_flags = STATION_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS
+	nova_stars_only = TRUE
+	job_flags = STATION_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS | JOB_ANTAG_PROTECTED
 
 /datum/outfit/job/blueshield
 	name = "Blueshield"
@@ -89,32 +88,32 @@
 
 /// Blueshield's Custom Hellfire
 /obj/item/ammo_casing/energy/laser/hellfire/blueshield
-	projectile_type = /obj/projectile/beam/laser/hellfire
-	e_cost = LASER_SHOTS(13, STANDARD_CELL_CHARGE)
-	select_name = "maim"
+	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE)
 
 /obj/item/gun/energy/laser/hellgun/blueshield
-	name ="modified hellfire laser gun"
-	desc = "A lightly overtuned version of NT's Hellfire Laser rifle, scratches showing its age and the fact it has definitely been owned before. This one is more energy efficient without sacrificing damage."
-	icon_state = "hellgun"
+	name = "streamlined hellfire laser carbine"
+	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
+	icon_state = "bshg"
+	desc = parent_type::desc + " This one has been tinkered with by Central Command technicians to add blue-tinted furniture and squeeze out a few extra shots before running dry."
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield)
 
 /obj/item/choice_beacon/blueshield
 	name = "weaponry beacon"
 	desc = "A single use beacon to deliver a weapon or set of your choice. Please only call this in your office!"
-	icon_state = "bs_becon"
-	inhand_icon_state = "bs_becon"
+	icon_state = "bs_beacon"
+	inhand_icon_state = "bs_beacon"
 	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
 	lefthand_file = 'modular_nova/modules/modular_items/icons/inhand/mobs/lefthand_remote.dmi'
 	righthand_file = 'modular_nova/modules/modular_items/icons/inhand/mobs/righthand_remote.dmi'
 	company_source = "Nanotrasen Rapid Equipment Deployment Division"
-	company_message = span_bold("Supply Pod incoming, please stand by.")
+	company_message = span_bold("Supply pod incoming, please stand by.")
 
 /obj/item/choice_beacon/blueshield/generate_display_names()
 	var/static/list/selectable_gun_types = list(
-		"Takbok Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok,
-		"Custom Hellfire Laser Rifle" = /obj/item/gun/energy/laser/hellgun/blueshield,
-		"NT20 Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/nt20,
+		"Blueshield Energy Shield" = /obj/item/shield/energy/returning/blueshield,
+		"Fendér Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/bluvolva,
+		"Custom Hellfire Laser Carbine" = /obj/item/gun/energy/laser/hellgun/blueshield,
+		"NT20 Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/ntspecial/nt20,
 		"Katyusha Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/katyusha,
 	)
 

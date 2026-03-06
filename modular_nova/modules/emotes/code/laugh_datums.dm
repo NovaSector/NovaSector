@@ -42,3 +42,8 @@ GLOBAL_LIST_EMPTY(laugh_types)
 		'modular_nova/modules/emotes/sound/emotes/skrelllaugh2.ogg',
 	)
 	female_laughsounds = null
+
+/datum/laugh_type/slugcat
+	name = "Slugcat Laugh"
+	male_laughsounds = list('modular_nova/modules/emotes/sound/voice/scuglaugh_1.ogg')
+	female_laughsounds = null

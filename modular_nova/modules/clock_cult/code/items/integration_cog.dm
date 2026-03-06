@@ -26,7 +26,7 @@
 		if(!do_after(user, 5 SECONDS, target = cogger_apc))
 			return
 
-		balloon_alert(user, "APC cut open")
+		balloon_alert(user, "apc cut open")
 		cogger_apc.panel_open = TRUE
 		cogger_apc.update_appearance()
 		return
@@ -47,7 +47,7 @@
 		addtimer(CALLBACK(src, PROC_REF(finish_setup), cogger_apc), SET_UP_TIME)
 
 		send_clock_message(null, span_brass(span_bold("[user] has installed an integration cog into [cogger_apc].")), msg_ghosts = FALSE)
-		notify_ghosts("[user] has installed an integration cog into [cogger_apc]",
+		notify_ghosts("[user.real_name] has installed an integration cog into [cogger_apc]",
 			source = user,
 			notify_flags = NOTIFY_CATEGORY_NOFLASH,
 			header = "Integration cog",

@@ -1,0 +1,36 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"r" = (
+/turf/template_noop,
+/area/station/engineering/supermatter)
+"w" = (
+/obj/machinery/atmospherics/components/unary/delam_scram/directional/west,
+/turf/template_noop,
+/area/station/engineering/supermatter)
+"R" = (
+/turf/closed/wall/r_wall,
+/area/station/engineering/supermatter)
+"T" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/cable,
+/obj/machinery/button/delam_scram{
+	pixel_y = -31
+	},
+/obj/effect/turf_decal/stripes/red/box,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
+
+(1,1,1) = {"
+T
+R
+r
+R
+"}
+(2,1,1) = {"
+a
+r
+r
+w
+"}

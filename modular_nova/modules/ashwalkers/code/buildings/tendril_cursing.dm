@@ -2,7 +2,7 @@
 	/// whether it has a curse attached to it
 	var/cursed = FALSE
 
-/obj/structure/spawner/lavaland/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/spawner/lavaland/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/cursed_dagger))
 		playsound(get_turf(src), 'sound/effects/magic/demon_attack1.ogg', 50, TRUE)
 		cursed = !cursed
@@ -15,7 +15,7 @@
 		balloon_alert_to_viewers("a curse has been [cursed ? "placed..." : "lifted..."]")
 		if(isliving(user))
 			var/mob/living/living_user = user
-			living_user.adjustFireLoss(100)
+			living_user.adjust_fire_loss(100)
 
 		to_chat(user, span_warning("The knife sears your hand!"))
 		return
@@ -67,20 +67,19 @@
 
 		to_chat(select_mob, span_boldwarning("A target has died, the curse has been lifted!"))
 
-	Destroy()
+	qdel(src)
 
 /datum/component/ash_cursed/proc/do_move()
 	SIGNAL_HANDLER
 
 	var/turf/human_turf = get_turf(human_target)
 	if(!is_mining_level(human_turf.z))
-		Destroy()
 		for(var/mob/select_mob in GLOB.player_list)
 			if(!is_species(select_mob, /datum/species/lizard/ashwalker))
 				continue
 
 			to_chat(select_mob, span_boldwarning("A target has fled from the land, breaking the curse!"))
-
+		qdel(src)
 		return
 
 	if(prob(75))

@@ -1,30 +1,39 @@
-/// How many jobs have bounties, minus the random civ bounties. PLEASE INCREASE THIS NUMBER AS MORE DEPTS ARE ADDED TO BOUNTIES.
-#define MAXIMUM_BOUNTY_JOBS 14
-
 /datum/bounty
 	var/name
 	var/description
-	var/reward = 1000 // In credits.
-	var/claimed = FALSE
-	var/high_priority = FALSE
+	VAR_PROTECTED/reward = CARGO_CRATE_VALUE * 5 // In credits.
+	var/allow_duplicate = FALSE
 
+/// Can this bounty be claimed right now?
 /datum/bounty/proc/can_claim()
-	return !claimed
-
-/// Called when the claim button is clicked. Override to provide fancy rewards.
-/datum/bounty/proc/claim()
-	if(can_claim())
-		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
-		if(D)
-			D.adjust_money(reward * SSeconomy.bounty_modifier)
-		claimed = TRUE
+	return FALSE
 
 /// If an item in question can satisfy the bounty.
-/datum/bounty/proc/applies_to(obj/O)
+/datum/bounty/proc/applies_to(obj/shipped)
 	return FALSE
 
 /// Called when an object is sent on the bounty pad.
-/datum/bounty/proc/ship(obj/O)
+/datum/bounty/proc/ship(obj/shipped)
+	return
+
+/// Formats the text for what is required to complete the bounty, for display purposes.
+/datum/bounty/proc/print_required()
+	return ""
+
+/// Returns the adjusted reward for this bounty, taking into account any global modifiers.
+/datum/bounty/proc/get_bounty_reward()
+	return reward * SSeconomy.bounty_modifier
+
+/// Called when this bounty is selected by the passed ID card
+/datum/bounty/proc/on_selected(obj/item/card/id/id_card)
+	return
+
+/// Called when this bounty is successfully claimed by the passed ID card
+/datum/bounty/proc/on_claimed(obj/item/card/id/id_card)
+	return
+
+/// Called when this bounty is reset from the passed ID card, either from successful claim or from being replaced by another bounty
+/datum/bounty/proc/on_reset(obj/item/card/id/id_card)
 	return
 
 /** Returns a new bounty of random type, but does not add it to GLOB.bounties_list.
@@ -49,7 +58,10 @@
 			if(CIV_JOB_CHEF)
 				chosen_type = pick(subtypesof(/datum/bounty/item/chef) + subtypesof(/datum/bounty/reagent/chef))
 			if(CIV_JOB_SEC)
-				chosen_type = pick(subtypesof(/datum/bounty/item/security))
+				if(prob(75))
+					chosen_type = /datum/bounty/patrol
+				else
+					chosen_type = /datum/bounty/item/contraband
 			if(CIV_JOB_DRINK)
 				if(prob(50))
 					chosen_type = /datum/bounty/reagent/simple_drink
@@ -79,11 +91,31 @@
 				chosen_type = pick(subtypesof(/datum/bounty/item/atmospherics))
 			if(CIV_JOB_BITRUN)
 				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+			// NOVA EDIT ADDITION START - GHOST BOUNTIES #5738
+			if(DS2_JOB_ENFORCER)
+				chosen_type = pick(subtypesof(/datum/bounty/item/ds2))
+			if(DS2_JOB_ENGINEER)
+				chosen_type = pick(subtypesof(/datum/bounty/item/ds2_engie) + subtypesof(/datum/bounty/item/ds2))
+			if(DS2_JOB_SERVICE)
+				chosen_type = pick(subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/shared_botany) + subtypesof(/datum/bounty/item/ds2))
+			if(DS2_JOB_MECHANICAL)
+				chosen_type = pick(subtypesof(/datum/bounty/item/mech) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/ds2))
+			if(DS2_JOB_COMMAND)
+				chosen_type = pick(subtypesof(/datum/bounty/item/ds2) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/ds2))
+			if(DYNE_JOB_MINING)
+				chosen_type = pick(subtypesof(/datum/bounty/item/mining) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+			if(DYNE_JOB_SCIENCE)
+				chosen_type = pick(subtypesof(/datum/bounty/item/interdyne_med) + subtypesof(/datum/bounty/item/interdyne_slime) + subtypesof(/datum/bounty/interdyne_pill/simple_pill) + subtypesof(/datum/bounty/interdyne_reagent/chemical_simple) + subtypesof(/datum/bounty/interdyne_reagent/chemical_complex) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+			if(DYNE_JOB_COMMAND)
+				chosen_type = pick(subtypesof(/datum/bounty/item/interdyne_med) + subtypesof(/datum/bounty/item/interdyne_slime) + subtypesof(/datum/bounty/interdyne_pill/simple_pill) + subtypesof(/datum/bounty/interdyne_reagent/chemical_simple) + subtypesof(/datum/bounty/interdyne_reagent/chemical_complex) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/mining) + subtypesof(/datum/bounty/item/sharedxenoarch))
+			if(TARKON_JOB_CREW)
+				chosen_type = pick(subtypesof(/datum/bounty/item/tarkon) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+			if(TARKON_JOB_COMMAND)
+				chosen_type = pick(subtypesof(/datum/bounty/item/tarkon) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+			// NOVA EDIT ADDITION END #5738
 		bounty_ref = new chosen_type
 		if(bounty_ref.can_get())
 			bounty_succeeded = TRUE
 		else
 			qdel(bounty_ref)
 	return bounty_ref
-
-#undef MAXIMUM_BOUNTY_JOBS

@@ -1,3 +1,2 @@
 /obj/item/bodypart
-	/// If this limb has sharp unarmed attacks, by default off. You probably want to use SHARP_EDGED, SHARP_POINTY would be nuts balance-wise.
-	var/unarmed_sharpness = 0
+	disabling_threshold_percentage = 1 // COMBAT - ORIGINAL : var/disabling_threshold_percentage = 0

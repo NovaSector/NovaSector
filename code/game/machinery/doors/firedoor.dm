@@ -21,7 +21,7 @@
 	closingLayer = CLOSED_FIREDOOR_LAYER
 	armor_type = /datum/armor/door_firedoor
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON | INTERACT_MACHINE_REQUIRES_SILICON | INTERACT_MACHINE_OPEN
-
+	can_open_with_hands = FALSE
 	COOLDOWN_DECLARE(activation_cooldown)
 
 	///X offset for the overlay lights, so that they line up with the thin border firelocks
@@ -185,6 +185,8 @@
 
 /obj/machinery/door/firedoor/update_name(updates)
 	. = ..()
+	if(!my_area || !id_tag)
+		return
 	name = "[get_area_name(my_area)] [initial(name)] [id_tag]"
 
 /**
@@ -280,11 +282,12 @@
 /obj/machinery/door/firedoor/proc/check_atmos(turf/checked_turf)
 	var/datum/gas_mixture/environment = checked_turf.return_air()
 	if(!environment)
-		stack_trace("We tried to check a gas_mixture that doesn't exist for its firetype, what are you DOING")
-		return
+		CRASH("We tried to check a gas_mixture that doesn't exist for its firetype, what are you DOING")
 
 	var/pressure = environment?.return_pressure() //NOVA EDIT ADDITION - Micro optimisation
 	if(environment.temperature >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST || pressure > WARNING_HIGH_PRESSURE) //NOVA EDIT CHANGE ADDITION - ORIGINAL: if(environment.temperature >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return FIRELOCK_ALARM_TYPE_HOT
+	if(environment.gases[/datum/gas/antinoblium] && environment.gases[/datum/gas/antinoblium][MOLES] > MINIMUM_MOLE_COUNT)
 		return FIRELOCK_ALARM_TYPE_HOT
 	if(environment.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT || pressure < WARNING_LOW_PRESSURE) //NOVA EDIT CHANGE ADDITION - ORIGINAL: if(environment.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT)
 		return FIRELOCK_ALARM_TYPE_COLD
@@ -298,6 +301,8 @@
 			return
 
 	var/turf/checked_turf = source
+	if(!(checked_turf.flags_1 & INITIALIZED_1)) // uninitialized turfs won't have atmos setup anyways, so check_atmos would just complain and not work
+		return
 	var/result = check_atmos(checked_turf)
 
 	if(result && TURF_SHARES(checked_turf))
@@ -468,9 +473,6 @@
 		return ..()
 	return FALSE
 
-/obj/machinery/door/firedoor/bumpopen(mob/living/user)
-	return FALSE //No bumping to open, not even in mechs
-
 /obj/machinery/door/firedoor/proc/on_power_loss()
 	SIGNAL_HANDLER
 
@@ -530,7 +532,7 @@
 	boltslocked = !boltslocked
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/door/firedoor/try_to_activate_door(mob/user, access_bypass = FALSE)
+/obj/machinery/door/firedoor/try_to_activate_door(mob/user, access_bypass = FALSE, bumped = FALSE)
 	return
 
 /obj/machinery/door/firedoor/try_to_weld_secondary(obj/item/weldingtool/W, mob/user)
@@ -582,7 +584,7 @@
 	SIGNAL_HANDLER
 
 
-	if(!QDELETED(crowbar_owner) && crowbar_owner.CanReach(src))
+	if(!QDELETED(crowbar_owner) && IsReachableBy(crowbar_owner))
 		if(!ismob(crowbar_owner))
 			return
 		var/mob/living/mob_user = crowbar_owner
@@ -739,12 +741,16 @@
 
 /obj/machinery/door/firedoor/border_only/Initialize(mapload)
 	. = ..()
+	flags_1 &= ~PREVENT_CLICK_UNDER_1
 	adjust_lights_starting_offset()
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
-
 	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/machinery/door/firedoor/border_only/close()
+	. = ..()
+	flags_1 &= ~PREVENT_CLICK_UNDER_1
 
 /obj/machinery/door/firedoor/border_only/adjust_lights_starting_offset()
 	light_xoffset = 0
@@ -811,6 +817,7 @@
 	base_icon_state = "frame"
 	anchored = FALSE
 	density = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3)
 	var/constructionStep = CONSTRUCTION_NO_CIRCUIT
 	var/reinforced = 0
 	/// Is this a border_only firelock? Used in several checks during construction
@@ -947,7 +954,7 @@
 	return FALSE
 
 /obj/structure/firelock_frame/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, list/rcd_data)
-	switch(rcd_data["[RCD_DESIGN_MODE]"])
+	switch(rcd_data[RCD_DESIGN_MODE])
 		if(RCD_UPGRADE_SIMPLE_CIRCUITS)
 			user.balloon_alert(user, "circuit installed")
 			constructionStep = CONSTRUCTION_PANEL_OPEN
@@ -967,10 +974,11 @@
 	flags_1 = ON_BORDER_1
 	obj_flags = CAN_BE_HIT | IGNORE_DENSITY
 	directional = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/structure/firelock_frame/border_only/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
+	AddElement(/datum/element/simple_rotation, ROTATION_NEEDS_ROOM)
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = PROC_REF(on_exit),

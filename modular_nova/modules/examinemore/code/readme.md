@@ -12,7 +12,7 @@ Adds a system for setting special descriptors for items that trigger dependant o
 
 ### Defines:
 
-- code\__DEFINES\~nova_defines\examine_defines.dm
+- `code\__DEFINES\~nova_defines\examine_defines.dm`
 
 ### Master file additions
 
@@ -23,4 +23,5 @@ Adds a system for setting special descriptors for items that trigger dependant o
 - N/A
 
 ### Credits:
+
 Gandalf2k15 - OG code

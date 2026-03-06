@@ -9,7 +9,7 @@ import {
   Section,
   Stack,
 } from 'tgui-core/components';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -278,9 +278,9 @@ const ChoicesPanel = (props) => {
                         name="vote-yea"
                       />
                     )}
-                  {currentVote.displayStatistics ||
-                  user.isLowerAdmin /* NOVA EDIT CHANGE - isLowerAdmin - ORIGINAL: {currentVote.displayStatistics */
-                    ? choice.votes + ' Votes'
+                  {currentVote.displayStatistics /* NOVA EDIT CHANGE - isLowerAdmin - ORIGINAL: {currentVote.displayStatistics */ ||
+                  user.isLowerAdmin // NoVA EDIT ADDITION
+                    ? `${choice.votes} Votes`
                     : null}
                 </LabeledList.Item>
                 <LabeledList.Divider />

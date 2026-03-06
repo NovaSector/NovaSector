@@ -25,14 +25,27 @@
 /obj/item/clothing/shoes/combat/debug
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/storage/belt/utility/chief/full/debug
+/obj/item/storage/belt/utility/full/powertools/debug
 	name = "\improper Bluespace Tech's belt"
 	w_class = WEIGHT_CLASS_TINY
+	storage_type = /datum/storage/debug
+	desc = "Can hold a boatload of things...  Why do you have this?!"
+	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
+	icon_state = "admeme_satchel"
+	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
+	worn_icon_state = "admeme_satchel"
+
+
+/datum/storage/debug
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	max_total_storage = WEIGHT_CLASS_GIGANTIC * 21
+	max_slots = 21
+
 
 /datum/outfit/debug/bst //Debug objs
 	name = "Bluespace Tech"
 	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/chief/full/debug
+	belt = /obj/item/storage/belt/utility/full/powertools/debug
 	shoes = /obj/item/clothing/shoes/combat/debug
 	id = /obj/item/card/id/advanced/debug/bst
 	box = /obj/item/storage/box/debugtools
@@ -45,12 +58,14 @@
 		/obj/item/debug/omnitool = 1,
 		/obj/item/storage/box/stabilized = 1,
 		/obj/item/storage/hypospraykit/cmo/combat = 1,
+		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
+		/obj/item/choice_beacon/job_locker/debug = 1,
 	)
 
 /datum/outfit/admin/bst //Debug objs plus modsuit
 	name = "Bluespace Tech (MODsuit)"
 	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/chief/full/debug
+	belt = /obj/item/storage/belt/utility/full/powertools/debug
 	shoes = /obj/item/clothing/shoes/combat/debug
 	id = /obj/item/card/id/advanced/debug/bst
 	box = /obj/item/storage/box/debugtools
@@ -63,11 +78,14 @@
 		/obj/item/debug/omnitool = 1,
 		/obj/item/storage/box/stabilized = 1,
 		/obj/item/storage/hypospraykit/cmo/combat = 1,
+		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
+		/obj/item/choice_beacon/job_locker/debug = 1,
 	)
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst
 	name = "\improper Bluespace Tech RPED"
 	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly. Alt-Right-Click to manufacture parts, change settings, or clear its internal storage."
+	storage_type = /datum/storage/rped/bluespace/silly
 	/// Whether or not auto-clear is enabled
 	var/auto_clear = TRUE
 	/// List of valid types for pick_stock_part().
@@ -77,10 +95,9 @@
 		/obj/item/reagent_containers/cup/beaker,
 	)
 
-/obj/item/storage/part_replacer/bluespace/tier4/bst/Initialize(mapload)
-	. = ..()
-	atom_storage.max_slots = 1000
-	atom_storage.max_total_storage = 20000
+/datum/storage/rped/bluespace/silly
+	max_slots = 1000
+	max_total_storage = 20000
 
 /// An extension to the default RPED part replacement action - if you don't have the requisite parts in the RPED already, it will spawn T4 versions to use.
 /obj/item/storage/part_replacer/bluespace/tier4/bst/interact_with_atom(obj/attacked_object, mob/living/user, list/modifiers)

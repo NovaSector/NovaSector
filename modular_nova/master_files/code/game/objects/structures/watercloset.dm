@@ -1,4 +1,4 @@
-/obj/structure/sink/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/structure/sink/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(busy)
 		to_chat(user, span_warning("Someone's already washing here!"))
 		return
@@ -24,7 +24,7 @@
 		washed_towel.set_wet(TRUE)
 		washed_towel.make_used(user, silent = TRUE)
 
-		begin_reclamation()
+		START_PROCESSING(SSobj, src)
 		user.visible_message(span_notice("[user] finishes washing [attacking_item] in [src]."), span_notice("You finish washing [washed_towel] in [src], leaving it quite wet."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 

@@ -93,10 +93,10 @@
 		return . || mover.throwing || mover.movement_type & (FLYING | FLOATING)
 	return TRUE
 
-/obj/structure/deployable_barricade/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/stack/cable_coil) && can_wire)
-		var/obj/item/stack/S = I
-		if(S.use(5))
+/obj/structure/deployable_barricade/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stack/cable_coil) && can_wire)
+		var/obj/item/stack/stack_item = attacking_item
+		if(stack_item.use(5))
 			wire()
 		else
 			return
@@ -248,6 +248,7 @@
 	stack_amount = 2
 	destroyed_stack_amount = 0
 	can_wire = FALSE
+	custom_materials = list(/datum/material/snow = SHEET_MATERIAL_AMOUNT * 2)
 
 /*----------------------*/
 // GUARD RAIL
@@ -264,15 +265,14 @@
 	barricade_type = "railing"
 	pass_flags_self = PASSSTRUCTURE
 	can_wire = FALSE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /datum/armor/deployable_barricade_guardrail
+	melee = 35
 	bullet = 50
 	laser = 50
-	energy = 50
-	bomb = 15
-	bio = 100
-	fire = 100
-	acid = 10
+	energy = 100
+	bomb = 10
 
 /obj/structure/deployable_barricade/guardrail/update_icon()
 	. = ..()
@@ -296,15 +296,16 @@
 	can_change_dmg_state = FALSE
 	barricade_type = "wooden"
 	can_wire = FALSE
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5)
 
-/obj/structure/deployable_barricade/wooden/attackby(obj/item/I, mob/user, params)
+/obj/structure/deployable_barricade/wooden/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(istype(I, /obj/item/stack/sheet/mineral/wood))
-		var/obj/item/stack/sheet/mineral/wood/D = I
+	if(istype(attacking_item, /obj/item/stack/sheet/mineral/wood))
+		var/obj/item/stack/sheet/mineral/wood/wood = attacking_item
 		if(get_integrity() >= max_integrity)
 			return
 
-		if(D.get_amount() < 1)
+		if(wood.get_amount() < 1)
 			to_chat(user, span_warning("You need at least one board to repair [src]!"))
 			return
 
@@ -313,7 +314,7 @@
 		if(!do_after(user,20, src) || get_integrity() >= max_integrity)
 			return
 
-		if(!D.use(1))
+		if(!wood.use(1))
 			return
 
 		repair_damage(max_integrity)
@@ -355,11 +356,13 @@
 	var/repair_amount = 2
 	/// Can we be upgraded?
 	var/can_upgrade = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /datum/armor/deployable_barricade_metal
-	bio = 100
+	bio = 80
 	fire = 80
 	acid = 40
+	bomb = 20
 
 /obj/structure/deployable_barricade/metal/click_alt(mob/user)
 	if(portable_type)
@@ -418,11 +421,11 @@
 		if(BARRICADE_TYPE_ACID)
 			. += image('modular_nova/modules/barricades/icons/barricade.dmi', icon_state = "+burn_upgrade_[damage_state]")
 
-/obj/structure/deployable_barricade/metal/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/stack/sheet/iron))
-		var/obj/item/stack/sheet/iron/metal_sheets = I
+/obj/structure/deployable_barricade/metal/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stack/sheet/iron))
+		var/obj/item/stack/sheet/iron/metal_sheets = attacking_item
 		if(can_upgrade && get_integrity() > max_integrity * 0.3)
-			return attempt_barricade_upgrade(I, user, params)
+			return attempt_barricade_upgrade(attacking_item, user, modifiers)
 
 		if(metal_sheets.get_amount() < repair_amount)
 			to_chat(user, span_warning("You need at least two sheets of metal to repair [src]!"))
@@ -440,7 +443,7 @@
 		visible_message(span_notice("[user] repairs [src]."))
 	return ..()
 
-/obj/structure/deployable_barricade/metal/proc/attempt_barricade_upgrade(obj/item/stack/sheet/iron/metal_sheets, mob/user, params)
+/obj/structure/deployable_barricade/metal/proc/attempt_barricade_upgrade(obj/item/stack/sheet/iron/metal_sheets, mob/user, modifiers)
 	if(barricade_upgrade_type)
 		to_chat(user, span_warning("[src] is already upgraded."))
 		return FALSE
@@ -673,6 +676,7 @@
 	var/linked = FALSE
 	///Open/close delay, for customisation. And because I was asked to - won't customise anything myself.
 	var/toggle_delay = 2 SECONDS
+	custom_materials = list(/datum/material/alloy/plasteel = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/structure/deployable_barricade/metal/plasteel/crowbar_act(mob/living/user, obj/item/I)
 	switch(build_state)
@@ -823,10 +827,10 @@
 	desc = "Contains several deployable barricades."
 	icon_state = "box_metal"
 	w_class = WEIGHT_CLASS_NORMAL
+	storage_type = /datum/storage/barricade
 
-/obj/item/storage/barricade/Initialize(mapload)
-	. = ..()
-	atom_storage.max_total_storage = 21
+/datum/storage/barricade
+	max_total_storage = 21
 
 /obj/item/storage/barricade/PopulateContents()
 	for(var/i = 0, i < 3, i++)

@@ -8,7 +8,7 @@
 	additional_syllable_high = 1
 	flags = TONGUELESS_SPEECH
 	key = "K"
-	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
+	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix")
 	default_priority = 90
 	icon_state = "skrell"
 	icon = 'modular_nova/master_files/icons/misc/language.dmi'

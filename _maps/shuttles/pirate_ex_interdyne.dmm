@@ -12,7 +12,6 @@
 	dir = 8
 	},
 /obj/machinery/turretid{
-	icon_state = "control_kill";
 	lethal = 1;
 	locked = 0;
 	pixel_y = -24;
@@ -289,6 +288,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
 /turf/open/floor/iron/dark,
 /area/shuttle/pirate)
+"aS" = (
+/obj/effect/turf_decal/tile/dark_blue/opposingcorners,
+/obj/machinery/light/small/blacklight/directional/south,
+/obj/machinery/iv_drip,
+/obj/structure/closet/crate/secure/freezer/interdyne/blood,
+/turf/open/floor/iron/dark,
+/area/shuttle/pirate)
 "aW" = (
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
 /obj/machinery/cryo_cell,
@@ -540,13 +546,6 @@
 "jY" = (
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/open/floor/iron/dark,
-/area/shuttle/pirate)
-"kO" = (
-/obj/effect/turf_decal/tile/dark_blue/opposingcorners,
-/obj/machinery/light/small/blacklight/directional/south,
-/obj/machinery/iv_drip,
-/obj/structure/closet/crate/secure/freezer/interdyne/blood,
 /turf/open/floor/iron/dark,
 /area/shuttle/pirate)
 "lW" = (
@@ -803,13 +802,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/dark,
 /area/shuttle/pirate)
-"Tr" = (
-/obj/machinery/porta_turret/syndicate/energy/heavy{
-	faction = list("pirate","Syndicate");
-	max_integrity = 10000
-	},
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/pirate)
 "Ur" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
 	dir = 8
@@ -968,7 +960,7 @@ aj
 aj
 aa
 aj
-Tr
+aO
 "}
 (8,1,1) = {"
 vz
@@ -1040,7 +1032,7 @@ aj
 aj
 DD
 aj
-Tr
+aO
 "}
 (12,1,1) = {"
 af
@@ -1049,7 +1041,7 @@ ne
 aj
 aj
 aJ
-kO
+aS
 aj
 SD
 aj

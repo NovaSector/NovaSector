@@ -1,11 +1,11 @@
-/obj/item/clothing/neck/cloak/skill_reward/research
-	name = "legendary researcher's cloak"
-	desc = "This legendary cloak is awarded only to those who have created a large stir within the scientific community with their contributions. \
-	Those who wear this cloak create the scientific foundations, and have the ability to discern the truth of the universe even from the most mundane things."
+/obj/item/clothing/neck/cloak/skill_reward/archeology
+	name = "legendary archeologists's cloak"
+	desc = "This legendary cloak is awarded only to those who have created a large stir within the archaeological community with their contributions. \
+	Those who wear this cloak discover the artifacts that may shape the future, and have the ability to discern the truth of the universe even from the most mundane things."
 	icon = 'modular_nova/modules/extra_skills/icons/cloaks.dmi'
 	worn_icon = 'modular_nova/modules/extra_skills/icons/neck.dmi'
 	icon_state = "researchcloak"
-	associated_skill_path = /datum/skill/research
+	associated_skill_path = /datum/skill/archeology
 
 /obj/item/clothing/neck/cloak/skill_reward/primitive
 	name = "legendary survivalist's cloak"

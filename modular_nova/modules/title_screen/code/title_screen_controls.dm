@@ -40,7 +40,7 @@ ADMIN_VERB(fix_title_screen, R_ADMIN, "Fix Lobby Screen", "Lobbyscreen broke? Pr
 		var/mob/dead/new_player/new_player = user.mob
 		new_player.show_title_screen()
 	else
-		winset(src, "title_browser", "is-disabled=true;is-visible=false")
+		winset(src, "nova_title_browser", "is-disabled=true;is-visible=false")
 		winset(src, "status_bar", "is-visible=true")
 
 /**

@@ -87,7 +87,7 @@
 	return ITEM_INTERACT_SUCCESS
 
 
-/obj/item/clockwork/replica_fabricator/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/clockwork/replica_fabricator/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(!IS_CLOCK(user))
 		return

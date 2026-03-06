@@ -17,19 +17,23 @@
 	. = ..()
 	if(.)
 		for(var/obj/item/retractor/RT in borg.model.modules)
-			borg.model.remove_module(RT, TRUE)
+			borg.model.remove_module(RT)
 		for(var/obj/item/hemostat/HS in borg.model.modules)
-			borg.model.remove_module(HS, TRUE)
+			borg.model.remove_module(HS)
 		for(var/obj/item/cautery/CT in borg.model.modules)
-			borg.model.remove_module(CT, TRUE)
+			borg.model.remove_module(CT)
 		for(var/obj/item/surgicaldrill/SD in borg.model.modules)
-			borg.model.remove_module(SD, TRUE)
+			borg.model.remove_module(SD)
 		for(var/obj/item/scalpel/SP in borg.model.modules)
-			borg.model.remove_module(SP, TRUE)
+			borg.model.remove_module(SP)
 		for(var/obj/item/circular_saw/CS in borg.model.modules)
-			borg.model.remove_module(CS, TRUE)
+			borg.model.remove_module(CS)
 		for(var/obj/item/healthanalyzer/HA in borg.model.modules)
-			borg.model.remove_module(HA, TRUE)
+			borg.model.remove_module(HA)
+		for(var/obj/item/blood_filter/BF in borg.model.modules)
+			borg.model.remove_module(BF)
+		for(var/obj/item/borg/cyborg_omnitool/medical/OMNI in borg.model.modules)
+			borg.model.remove_module(OMNI)
 
 		var/obj/item/scalpel/advanced/AS = new /obj/item/scalpel/advanced(borg.model)
 		borg.model.basic_modules += AS
@@ -40,21 +44,31 @@
 		var/obj/item/cautery/advanced/AC = new /obj/item/cautery/advanced(borg.model)
 		borg.model.basic_modules += AC
 		borg.model.add_module(AC, FALSE, TRUE)
+		var/obj/item/blood_filter/advanced/ABF = new /obj/item/blood_filter/advanced(borg.model)
+		borg.model.basic_modules += ABF
+		borg.model.add_module(ABF, FALSE, TRUE)
 		var/obj/item/healthanalyzer/advanced/AHA = new /obj/item/healthanalyzer/advanced(borg.model)
 		borg.model.basic_modules += AHA
 		borg.model.add_module(AHA, FALSE, TRUE)
+		var/obj/item/surgical_drapes/SDRP = new /obj/item/surgical_drapes(borg.model)
+		borg.model.basic_modules += SDRP
+		borg.model.add_module(SDRP, FALSE, TRUE)
 
 /obj/item/borg/upgrade/surgerytools/deactivate(mob/living/silicon/robot/borg, user = usr)
 	. = ..()
 	if(.)
 		for(var/obj/item/scalpel/advanced/AS in borg.model.modules)
-			borg.model.remove_module(AS, TRUE)
+			borg.model.remove_module(AS)
 		for(var/obj/item/retractor/advanced/AR in borg.model.modules)
-			borg.model.remove_module(AR, TRUE)
+			borg.model.remove_module(AR)
 		for(var/obj/item/cautery/advanced/AC in borg.model.modules)
-			borg.model.remove_module(AC, TRUE)
+			borg.model.remove_module(AC)
+		for(var/obj/item/blood_filter/advanced/ABF in borg.model.modules)
+			borg.model.remove_module(ABF)
 		for(var/obj/item/healthanalyzer/advanced/AHA in borg.model.modules)
-			borg.model.remove_module(AHA, TRUE)
+			borg.model.remove_module(AHA)
+		for(var/obj/item/surgical_drapes/SDRP in borg.model.modules)
+			borg.model.remove_module(SDRP)
 
 		var/obj/item/retractor/RT = new (borg.model)
 		borg.model.basic_modules += RT
@@ -74,9 +88,36 @@
 		var/obj/item/circular_saw/CS = new (borg.model)
 		borg.model.basic_modules += CS
 		borg.model.add_module(CS, FALSE, TRUE)
+		var/obj/item/borg/cyborg_omnitool/medical/OMNI1 = new (borg.model)
+		borg.model.basic_modules += OMNI1
+		borg.model.add_module(OMNI1, FALSE, TRUE)
+		var/obj/item/borg/cyborg_omnitool/medical/OMNI2 = new (borg.model)
+		borg.model.basic_modules += OMNI2
+		borg.model.add_module(OMNI2, FALSE, TRUE)
+		var/obj/item/blood_filter/BF = new (borg.model)
+		borg.model.basic_modules += BF
+		borg.model.add_module(BF, FALSE, TRUE)
 		var/obj/item/healthanalyzer/HA = new (borg.model)
 		borg.model.basic_modules += HA
 		borg.model.add_module(HA, FALSE, TRUE)
+
+/obj/item/borg/upgrade/autopsy_scanner
+	name = "medical cyborg autopsy scanner"
+	desc = "An upgrade to the Medical model cyborg's surgery loadout, adding an autopsy scanner."
+	icon_state = "module_medical"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/medical)
+	model_flags = BORG_MODEL_MEDICAL
+	items_to_add = list(/obj/item/autopsy_scanner)
+
+/obj/item/borg/upgrade/chemistrygripper
+	name = "medical cyborg chemistry gripper"
+	desc = "An upgrade to the Medical model cyborg's loadout, adding a material gripper to allow handling of materials related to advanced chemistry."
+	icon_state = "module_medical"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/medical)
+	model_flags = BORG_MODEL_MEDICAL
+	items_to_add = list(/obj/item/borg/apparatus/sheet_manipulator/chemistry)
 
 /*
 *	ADVANCED ENGINEERING CYBORG UPGRADES
@@ -134,13 +175,34 @@
 		return
 	borgo.hasAdvanced = FALSE
 	for(var/obj/item/stack/sheet/plasteel/cyborg/plasteel_holder in borgo.model.modules)
-		borgo.model.remove_module(plasteel_holder, TRUE)
+		borgo.model.remove_module(plasteel_holder)
 	for(var/obj/item/stack/sheet/titaniumglass/cyborg/titanium_holder in borgo.model.modules)
-		borgo.model.remove_module(titanium_holder, TRUE)
+		borgo.model.remove_module(titanium_holder)
 	for(var/datum/robot_energy_storage/plasteel/plasteel_energy in borgo.model.storages)
 		qdel(plasteel_energy)
 	for(var/datum/robot_energy_storage/titanium/titanium_energy in borgo.model.storages)
 		qdel(titanium_energy)
+
+//Bluespace RPED
+/obj/item/borg/upgrade/brped
+	name = "cyborg rapid part exchange device upgrade"
+	desc = "An upgrade to the cyborg's standard RPED."
+	icon_state = "module_engineer"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/engineering)
+	model_flags = BORG_MODEL_ENGINEERING
+	items_to_add = list(/obj/item/storage/part_replacer/bluespace)
+	items_to_remove = list(/obj/item/storage/part_replacer)
+
+// Engiborg RLD
+/obj/item/borg/upgrade/rld
+	name = "engineering cyborg rapid lighting device upgrade"
+	desc = "An upgrade to allow a cyborg to use a Rapid Lighting Device."
+	icon_state = "module_engineer"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/engineering)
+	model_flags = BORG_MODEL_ENGINEERING
+	items_to_add = list(/obj/item/construction/rld/cyborg)
 
 /*
 *	ADVANCED MINING CYBORG UPGRADES
@@ -159,7 +221,7 @@
 	. = ..()
 	if(.)
 		for(var/obj/item/weldingtool/mini/W in R.model)
-			R.model.remove_module(W, TRUE)
+			R.model.remove_module(W)
 
 		var/obj/item/weldingtool/largetank/cyborg/WW = new /obj/item/weldingtool/largetank/cyborg(R.model)
 		R.model.basic_modules += WW
@@ -169,7 +231,7 @@
 	. = ..()
 	if (.)
 		for(var/obj/item/weldingtool/largetank/cyborg/WW in R.model)
-			R.model.remove_module(WW, TRUE)
+			R.model.remove_module(WW)
 
 		var/obj/item/weldingtool/mini/W = new (R.model)
 		R.model.basic_modules += W
@@ -224,7 +286,6 @@
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_CARGO,
 	)
 
-
 /obj/item/borg/upgrade/better_clamp
 	name = "improved integrated hydraulic clamp"
 	desc = "An improved hydraulic clamp to allow for bigger packages to be picked up as well!"
@@ -255,7 +316,17 @@
 		return
 	var/obj/item/borg/hydraulic_clamp/better/big_clamp = locate() in cyborg.model.modules
 	if(big_clamp)
-		cyborg.model.remove_module(big_clamp, TRUE)
+		cyborg.model.remove_module(big_clamp)
+
+/obj/item/borg/upgrade/cargo_teleporter
+	name = "cargo teleporter upgrade module"
+	desc = "An upgrade to allow a cyborg to use a Cargo Teleporter."
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
+	icon_state = "module_cargo"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/cargo)
+	model_flags = BORG_MODEL_CARGO
+	items_to_add = list(/obj/item/cargo_teleporter)
 
 /*
 *	UNIVERSAL CYBORG UPGRADES
@@ -278,7 +349,7 @@
 	. = ..()
 	if (.)
 		for(var/obj/item/borg_shapeshifter/BS in R.model)
-			R.model.remove_module(BS, TRUE)
+			R.model.remove_module(BS)
 
 /// Quadborg time
 /obj/item/borg/upgrade/affectionmodule
@@ -311,9 +382,9 @@
 		return
 	borg.hasAffection = FALSE
 	for(var/obj/item/quadborg_tongue/quadtongue in borg.model.modules)
-		borg.model.remove_module(quadtongue, TRUE)
+		borg.model.remove_module(quadtongue)
 	for(var/obj/item/quadborg_nose/quadnose in borg.model.modules)
-		borg.model.remove_module(quadnose, TRUE)
+		borg.model.remove_module(quadnose)
 
 // Quadruped tongue - lick lick
 /obj/item/quadborg_tongue
@@ -385,9 +456,7 @@
 		var/prev_lockcharge = borg.lockcharge
 		borg.SetLockdown(TRUE)
 		borg.set_anchored(TRUE)
-		var/datum/effect_system/fluid_spread/smoke/smoke = new
-		smoke.set_up(1, location = get_turf(borg))
-		smoke.start()
+		do_smoke(1, borg, get_turf(borg))
 		sleep(0.2 SECONDS)
 		for(var/i in 1 to 4)
 			playsound(borg, pick('sound/items/tools/drill_use.ogg', 'sound/items/tools/jaws_cut.ogg', 'sound/items/tools/jaws_pry.ogg', 'sound/items/tools/welder.ogg', 'sound/items/tools/ratchet.ogg'), 80, TRUE, -1)
@@ -412,9 +481,8 @@
 	icon_state = "module_illegal"
 	new_model = /obj/item/robot_model/syndicatejack
 
-/obj/item/borg/upgrade/transform/syndicatejack/action(mob/living/silicon/robot/cyborg, user = usr) // Only usable on emagged cyborgs. In exchange. makes you unable to get locked down or detonated.
-	if(cyborg.emagged)
-		return ..()
+/obj/item/borg/upgrade/transform/syndicatejack/marauder
+	new_model = /obj/item/robot_model/syndicatejack/marauder
 
 /// Dominatrix time
 /obj/item/borg/upgrade/dominatrixmodule
@@ -423,6 +491,7 @@
 	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
 	icon_state = "module_lust"
 	custom_price = 0
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/borg/upgrade/dominatrixmodule/action(mob/living/silicon/robot/borg)
 	. = ..()
@@ -455,12 +524,62 @@
 		return
 
 	for(var/obj/item/kinky_shocker/shocker in borg.model.modules)
-		borg.model.remove_module(shocker, TRUE)
+		borg.model.remove_module(shocker)
 	for(var/obj/item/clothing/mask/leatherwhip/whipper in borg.model.modules)
-		borg.model.remove_module(whipper, TRUE)
+		borg.model.remove_module(whipper)
 	for(var/obj/item/spanking_pad/spanker in borg.model.modules)
-		borg.model.remove_module(spanker, TRUE)
+		borg.model.remove_module(spanker)
 	for(var/obj/item/tickle_feather/tickler in borg.model.modules)
-		borg.model.remove_module(tickler, TRUE)
+		borg.model.remove_module(tickler)
 	for(var/obj/item/clothing/sextoy/fleshlight/fleshlight in borg.model.modules)
-		borg.model.remove_module(fleshlight, TRUE)
+		borg.model.remove_module(fleshlight)
+
+/obj/item/borg/upgrade/cargo_papermanipulator
+	name = "Cargo Cyborg Manipulator"
+	desc = "An upgrade to the cargo model cyborg, to help manipulate items like paper, belts, and even a piping device."
+	icon_state = "module_miner"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/cargo)
+	model_flags = BORG_MODEL_CARGO
+
+	items_to_add = list(/obj/item/borg/apparatus/cargo_papermanipulator)
+
+/obj/item/borg/apparatus/cargo_papermanipulator
+	name = "Cargo apparatus"
+	desc = "A not so special apparatus designed for the handling of paper, belts, and even piping devices."
+	icon_state = "borg_service_apparatus"
+	storable = list(
+		/obj/item/paper,
+		/obj/item/pipe_dispenser,
+		/obj/item/stack/conveyor,
+		/obj/item/conveyor_switch_construct,
+		/obj/item/assembly/control, // To help rewire bay doors
+		/obj/item/stock_parts, // So they can make lathes and such in front of the bay
+		/obj/machinery/rnd/production/colony_lathe,
+		/obj/item/stack/sheet/iron,
+		/obj/item/stack/sheet/glass,
+		/obj/item/holochip, // makes sense, idk.
+	)
+
+/obj/item/borg/apparatus/cargo_papermanipulator/Initialize(mapload)
+	update_appearance()
+	return ..()
+
+/obj/item/borg/apparatus/cargo_papermanipulator/update_overlays()
+	. = ..()
+	var/mutable_appearance/arm = mutable_appearance(icon, "borg_hardware_apparatus_arm1")
+	if(stored)
+		stored.pixel_w = -3
+		stored.pixel_z = 0
+		var/mutable_appearance/stored_copy = new /mutable_appearance(stored)
+		stored_copy.layer = FLOAT_LAYER
+		stored_copy.plane = FLOAT_PLANE
+		. += stored_copy
+	. += arm
+
+/obj/item/borg/apparatus/cargo_papermanipulator/examine()
+	. = ..()
+	if(stored)
+		. += "The apparatus currently has [stored] secured."
+	. += span_notice("<i>Alt-click</i> will drop the currently secured item.")
+

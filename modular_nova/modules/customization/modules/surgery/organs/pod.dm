@@ -2,8 +2,7 @@
 	name = "podperson hair"
 	desc = "Base for many-o-salads."
 
-	mutantpart_key = "pod_hair"
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Ivy", MUTANT_INDEX_COLOR_LIST = list("#ffffff", "#ffffff", "#ffffff"))
+	mutantpart_key = FEATURE_POD_HAIR
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_POD_HAIR
@@ -40,5 +39,5 @@
 			overlays[index_to_color].color = null
 
 /datum/bodypart_overlay/mutant/pod_hair/randomize_appearance()
-    . = ..()
-    draw_color = list("#[random_color()]", "#[random_color()]", "#FFFFFF") // currently only two colors are used
+	. = ..()
+	draw_color = list("#[random_color()]", "#[random_color()]", "#FFFFFF") // currently only two colors are used

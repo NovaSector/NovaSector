@@ -60,10 +60,8 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
-	. = ..()
-	qdel(src)
-	return .
+	owner.adjust_blood_volume(-SLIME_LIMB_BLOOD_LOSS)
+	return ..()
 
 /obj/item/bodypart/arm/left/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
 	if(special)
@@ -71,11 +69,8 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
-	. = ..()
-	drop_organs(src, TRUE)
-	qdel(src)
-	return .
+	owner.adjust_blood_volume(-SLIME_LIMB_BLOOD_LOSS)
+	return ..()
 
 /obj/item/bodypart/arm/right/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
 	if(special)
@@ -83,11 +78,8 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
-	. = ..()
-	drop_organs(src, TRUE)
-	qdel(src)
-	return .
+	owner.adjust_blood_volume(-SLIME_LIMB_BLOOD_LOSS)
+	return ..()
 
 /obj/item/bodypart/leg/left/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
 	if(special)
@@ -95,11 +87,8 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
-	. = ..()
-	drop_organs(src, TRUE)
-	qdel(src)
-	return .
+	owner.adjust_blood_volume(-SLIME_LIMB_BLOOD_LOSS)
+	return ..()
 
 /obj/item/bodypart/leg/right/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
 	if(special)
@@ -107,11 +96,8 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
-	. = ..()
-	drop_organs(src, TRUE)
-	qdel(src)
-	return .
+	owner.adjust_blood_volume(-SLIME_LIMB_BLOOD_LOSS)
+	return ..()
 
 /obj/item/bodypart/leg/left/digitigrade/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
 	if(special)
@@ -119,10 +105,8 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
-	. = ..()
-	drop_organs(src, TRUE)
-	qdel(src)
+	owner.adjust_blood_volume(-SLIME_LIMB_BLOOD_LOSS)
+	return ..()
 
 /obj/item/bodypart/leg/right/digitigrade/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
 	if(special)
@@ -130,9 +114,7 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
-	. = ..()
-	drop_organs(src, TRUE)
-	qdel(src)
+	owner.adjust_blood_volume(-SLIME_LIMB_BLOOD_LOSS)
+	return ..()
 
 #undef SLIME_LIMB_BLOOD_LOSS

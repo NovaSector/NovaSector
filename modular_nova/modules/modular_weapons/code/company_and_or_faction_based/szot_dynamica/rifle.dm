@@ -1,10 +1,9 @@
 // Rapid firing scary military grade weapon firing .27-54 Cesarzowa
 
 /obj/item/gun/ballistic/automatic/miecz
-	name = "\improper Miecz Support Weapon"
-	desc = "A short barrel weapon riding the line between submachine gun and a rifle. \
-		Features plasticized furniture and a maintenance manual in the stock... \
-		Which just doesn't seem to come out no matter how hard you pull."
+	name = "\improper M/CR-9 'Miecz' Support Weapon"
+	desc = "A short-barrel weapon riding the line between submachine gun and a rifle, chambered for .27-54 Cesarzowa. \
+		To disincentivize use outside of the suggested short range, it only has basic, but very readable, glow-sights."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
 	icon_state = "miecz"
@@ -25,30 +24,41 @@
 
 	bolt_type = BOLT_TYPE_STANDARD
 
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
-	slot_flags = ITEM_SLOT_BELT // we keeping this for the VIBE
+	slot_flags = ITEM_SLOT_BELT
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/miecz
 
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/ak_shoot.ogg'
 	can_suppress = TRUE
-	suppressor_x_offset = 5
-	suppressor_y_offset = 3
+	suppressor_x_offset = 0
+	suppressor_y_offset = 0
 
 	burst_size = 1
-	fire_delay = 3.5
+	fire_delay = 0.35 SECONDS
 	actions_types = list()
+	spread = 5
+	// assuming base ammo,
+	// sindano:	0.3s fire delay, 7.5 spread, normal	|	20 damage, 0 AP
+	// miecz:	0.35s fire delay, 5 spread, normal	|	20 damage, 30 AP
+	// followup pr suggestion: higher firerate for the sindano/miecz to 0.2s/0.25s, respectively
+	// and/or damage buffs for the sindano? i think the old "miecz spews less-damaging but innate AP bullets,
+	// while the sindano has higher base damage or something" dichotomy could've been explored more.
 
-	spread = 1
-	recoil = 0.5
-
-	lore_blurb = "The Miecz is one of the staple weapons of the frontier; simple, effective, and based on \
-		a figuratively 'tested' design, though you couldn't be sure which one.<br><br>\
-		It fires the .27-54 'intermediary' caliber round, if only to dodge classification as a rifle. \
-		Overall, it's decently accurate, lightweight, reeks of gun-grease, \
-		and might feel a little more homely then the next gun over... allegedly, anyway.<br><br>\
-		The wood-substitute material is known to have various side-effects. Contact your local health department before use."
+	lore_blurb = "The M/CR-9 is a relic of a bygone era, a time when \"advanced ballistics\" was not a contradiction in terms. \
+		Before the widespread adoption of plasma pulse weaponry, the Coalition's answer to close-quarters firepower was the Miecz, a weapon that \
+		straddles the line between submachine gun and compact rifle. <br><br> \
+		Chambered for the purpose-built .27-54 Cesarzowa caseless cartridge, the Miecz was engineered for reliability above all else. \
+		Its operating system is a sealed, short-stroke piston that can cycle everything from high-purity military propellant to re-pressed frontier \
+		smokeless powder caked with lubricant and dust. This legendary tolerance for abuse is why, despite being officially replaced by the M/PR-15 \
+		in frontline service, it remains ubiquitous on the frontier, in colonial militias, and in the hands of security contractors who can't always \
+		guarantee a supply of pristine plasma cells. <br><br> \
+		Its design philosophy is brutally simple: basic, high-visibility glow-sights for fast target acquisition in dimly-lit corridors; \
+		a heavy barrel that refuses to warp during sustained fire; and a robust polymer construction that feels less like a precision instrument and \
+		more like a breaker bar. It lacks the sleek, intimidating lines of modern plasma weapons, a fact its users appreciate — it's a tool, \
+		first and foremost. The hard-tip .27-54 round was specifically designed to defeat the early generations of personal armor that were becoming common \
+		during its development, a trait that remains effective against modern soft armor."
 
 /obj/item/gun/ballistic/automatic/miecz/Initialize(mapload)
 	. = ..()
@@ -63,8 +73,8 @@
 // Semi-automatic rifle firing .310 with reduced firerate compared to a Sakhno
 
 /obj/item/gun/ballistic/automatic/lanca
-	name = "\improper Lanca Battle Rifle"
-	desc = "A relatively compact, long barreled battle rifle chambered for .310 Strilka. Has an integrated sight with \
+	name = "\improper M/BR-8 'Lanca' Battle Rifle"
+	desc = "A relatively compact, long barreled bullpup battle rifle chambered for .310 Strilka. Has an integrated sight with \
 		a surprisingly functional amount of magnification, given its place of origin."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
@@ -92,8 +102,8 @@
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/battle_rifle.ogg'
 	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
 	can_suppress = TRUE
-	suppressor_x_offset = 2
-	suppressor_y_offset = 1
+	suppressor_x_offset = 0
+	suppressor_y_offset = 0
 
 	burst_size = 1
 	fire_delay = 1.2 SECONDS
@@ -103,13 +113,20 @@
 	spread = 2.5
 	projectile_wound_bonus = -20
 
-	lore_blurb = "The Lanca started as an attempt to replace the confusing position of the Miecz.<br><br>\
-		Originally designed as an attempt to upscale the Miecz to a marksman caliber, \
-		it eventually ended up as little more then an odd cousin to it's starting frame. \
-		Initial efforts to upscale from the Miecz's .27-caliber cartridge, to a full-size .310 \
-		necessitated a rework of the entire bolt, updated upper receiver, and a much stronger recoil spring. \
-		To make up for the added weight, the stock was skeletonized, and the barrel assembly was changed out for a minimalist design.<br><br>\
-		All in all, you get less rifle for the somewhat paradoxical privilege of a bigger bang."
+	lore_blurb = "If the Miecz is a trusted old knife, the Lanca is a weathered spear. It represents the pinnacle of caseless, powder-based rifle technology, \
+		a platform so effective it delayed the adoption of plasma rifles for nearly a decade. Chambered for the powerful .310 Strilka cartridge, \
+		the Lanca was the Coalition's first attempt at a unified infantry weapon system, developed in tandem with the smaller Miecz. <br><br>\
+		The BR-8's bullpup layout was revolutionary for its time, concentrating mass for superior handling and allowing for a long barrel in \
+		a relatively compact package. Its integrated magnified optic was a luxury for a standard-issue weapon, turning every soldier into a \
+		potential marksman. The .310 Strilka's caseless design eliminated extraction and ejection failures, while its sheer power could defeat \
+		cover and body armor that would shrug off smaller rounds. <br><br>\
+		The irony is that the Lanca was <b>too</b> successful. Its logistical footprint, -the weight of the dense .310 rounds, the \
+		specialized presses needed to manufacture them-, became its greatest weakness in the face of the plasma pulse revolution. \
+		Why ship ten kilograms of brass and propellant when you can ship one kilogram of plasma cells with equivalent firepower? <br><br>\
+		Now, the Lanca is a weapon of specialists and traditionalists. It's found in the hands of long-range patrol units operating \
+		in high-electronic-warfare environments where plasma projectiles can be magnetically dispersed, or among veteran sergeants who \
+		trust the tangible 'thump' of a .310 round downrange over the mechanical slam and silent flash of plasma. It's an old, heavy, \
+		demanding weapon, but in the right hands, it is utterly decisive."
 
 /obj/item/gun/ballistic/automatic/lanca/Initialize(mapload)
 	. = ..()
@@ -125,7 +142,7 @@
 // This sounds a lot scarier than it actually is, you'll just have to trust me here
 
 /obj/item/gun/ballistic/automatic/wylom
-	name = "\improper Wyłom Anti-Materiel Rifle"
+	name = "\improper M/AMR-1 'Wyłom' Anti-Materiel Rifle"
 	desc = "A massive, outdated beast of an anti materiel rifle supposedly designed for 'fauna control.' Fires the devastating .60 Strela caseless round, \
 		the massively overperforming penetration of which being the reason this weapon was eventually restricted from galactic trade."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_64.dmi'
@@ -158,13 +175,22 @@
 
 	force = 15 // I mean if you're gonna beat someone with the thing you might as well get damage appropriate for how big the fukken thing is
 
-	lore_blurb = "The 'Wyłom' AMR was not originally made for unaided human hands. \
-		The original rifle had mounting points for a specialized suit attachment system, \
-		but that quickly fell through once it was announced, as exosuit hunting isn't exactly a common frontier pastime. \
-		Generally considered a strong contender for the definition of \"anti-armor\", \
-		a strong argument exists to consider it closer to \"anti-anything\".<br><br>\
-		A laser-etched warning label warns users of the weapon to be wary of side-blast from the muzzle brake... \
-		and to not fire unsupported if one is not of appropriate mass to \"wrestle\" the recoil."
+	lore_blurb = "Some problems cannot be solved with technology. The Wyłom is the living proof. This colossal anti-materiel rifle, \
+		chambered for the devastating .60 Strela, is a holdover from an age of brute-force ballistics, and it remains in service for one \
+		simple reason: nothing in the plasma arsenal can replicate the sheer kinetic obliteration of its projectile. <br><br>\
+		The AMR-1 was originally designed as a \"fauna control\" weapon for frontier worlds, a euphemism for engaging targets \
+		that were effectively living battle tanks. Its .60 Strela caseless round is less a bullet and more a self-contained \
+		artillery shell, a monolithic slug of tungsten and high-explosive propellant designed to punch through a meter of \
+		reinforced concrete or the frontal glacis of a light armored vehicle. The over-penetration is so extreme that the \
+		weapon was eventually restricted from galactic trade, as the rounds would pass through most civilian-grade \
+		starship hulls with ease. <br><br>\
+		Early models required a dedicated crew or a powered armor frame to transport and fire. The current \"lightweight\" model, \
+		a relative term for a 15-kilogram weapon, is issued with a massively reinforced sling and a warning to users of \"appropriate mass\" \
+		to handle the recoil. The side-blast from its gargantuan muzzle brake is a lethal hazard in its own right. <br><br>\
+		While plasma weapons excel at killing personnel and disabling systems, the Wyłom is for when you need to delete the target \
+		and a significant portion of the geometry behind it. It is the Coalition's argument that for pure, unsubtle anti-'anything' \
+		work, sometimes you just need to throw a very large piece of metal, very, very fast. It is the one ballistic weapon system \
+		the logistics corps has never seriously attempted to replace."
 
 /obj/item/gun/ballistic/automatic/wylom/Initialize(mapload)
 	. = ..()

@@ -66,7 +66,7 @@ export const NifPanel = (props) => {
                         title={
                           <>
                             {<Icon name={nifsoft.ui_icon} />}
-                            {nifsoft.name + '  '}
+                            {`${nifsoft.name}  `}
                           </>
                         }
                         buttons={
@@ -146,7 +146,7 @@ export const NifPanel = (props) => {
                             />
                           </box>
                         ) : (
-                          <> </>
+                          null
                         )}
                         <box>
                           <br />
@@ -213,9 +213,7 @@ const NifSettings = (props) => {
       </LabeledList.Item>
       <LabeledList.Item label="NIF Flavor Text">
         <Input
-          onChange={(e, value) =>
-            act('change_examine_text', { new_text: value })
-          }
+          onChange={(value) => act('change_examine_text', { new_text: value })}
           width="100%"
         />
       </LabeledList.Item>

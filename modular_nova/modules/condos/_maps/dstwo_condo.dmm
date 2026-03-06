@@ -9,7 +9,7 @@
 /area/misc/condo)
 "cX" = (
 /obj/machinery/light/directional/north,
-/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/platform/plastitanium,
 /turf/open/floor/plating,
 /area/misc/condo)
 "dQ" = (
@@ -22,7 +22,7 @@
 /area/misc/condo)
 "fW" = (
 /obj/structure/fireaxecabinet/empty/directional/north,
-/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/platform/plastitanium,
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 8
 	},
@@ -36,7 +36,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/misc/condo)
 "gS" = (
-/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/platform/plastitanium,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 6
 	},
@@ -257,7 +257,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/condo)
 "Dj" = (
-/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/platform/plastitanium,
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /turf/open/floor/plating,
 /area/misc/condo)
@@ -331,7 +331,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/condo)
 "LR" = (
-/obj/structure/fake_stairs/directional/north,
+/obj/structure/steps/directional/north,
 /turf/open/floor/iron/dark,
 /area/misc/condo)
 "MA" = (
@@ -358,7 +358,7 @@
 /area/misc/condo)
 "SF" = (
 /obj/machinery/light_switch/directional/east,
-/obj/structure/fake_stairs/directional/north,
+/obj/structure/steps/directional/north,
 /turf/open/floor/iron/dark,
 /area/misc/condo)
 "Tu" = (
@@ -375,7 +375,7 @@
 /area/misc/condo)
 "TR" = (
 /obj/structure/sign/poster/contraband/gorlex_recruitment/directional/north,
-/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/platform/plastitanium,
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner,
 /turf/open/floor/plating,
 /area/misc/condo)
@@ -403,7 +403,7 @@
 /turf/open/floor/iron/dark,
 /area/misc/condo)
 "WC" = (
-/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/platform/plastitanium,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 10
 	},

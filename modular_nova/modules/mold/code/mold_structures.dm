@@ -29,6 +29,16 @@
 	if(!mold_type)
 		mold_type = mold_controller?.mold_type || passed_type
 
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/mold/LateInitialize()
+	if(isnull(mold_type))
+		mold_type = mold_controller?.mold_type
+
+	if(isnull(mold_type)) // still no mold type? pick a random one (mold code is in dire need of a total refactor it's baaad)
+		mold_type = pick(subtypesof(/datum/mold_type))
+		mold_type = new mold_type
+
 	color = mold_type.mold_color
 	resistance_flags = mold_type.resistance_flags
 	name = "[mold_type.name] [name]"
@@ -39,13 +49,24 @@
 	/// Does the structure emit light?
 	var/emits_light = FALSE
 
-/obj/structure/mold/structure/Initialize(mapload, passed_type)
-	. = ..()
+/obj/structure/mold/structure/LateInitialize()
+	if(isnull(mold_type))
+		mold_type = mold_controller?.mold_type
+
+	if(isnull(mold_type)) // still no mold type? pick a random one (mold code is in dire need of a total refactor it's baaad)
+		mold_type = pick(subtypesof(/datum/mold_type))
+		mold_type = new mold_type
+
+	color = mold_type.mold_color
+	resistance_flags = mold_type.resistance_flags
+	name = "[mold_type.name] [name]"
+
 	if(emits_light)
 		light_range = 2
 		light_power = 1
 		if(mold_type.structure_light_color)
 			light_color = mold_type.structure_light_color
+	update_appearance()
 
 /datum/looping_sound/core_heartbeat
 	mid_length = 3 SECONDS
@@ -70,6 +91,7 @@
 /obj/structure/mold/structure/core/Initialize(mapload, passed_type)
 	if(mold_type)
 		passed_type = new mold_type
+
 	new /datum/mold_controller(src, passed_type)
 	. = ..()
 	soundloop = new(src, TRUE)
@@ -239,7 +261,7 @@
 	if(!isliving(nearby_atom))
 		return
 	var/mob/living/nearby_mob = nearby_atom
-	if(!(FACTION_MOLD in nearby_mob.faction))
+	if(!nearby_mob.has_faction(FACTION_MOLD))
 		INVOKE_ASYNC(src, PROC_REF(discharge))
 
 /obj/structure/mold/structure/bulb/proc/make_full()
@@ -268,7 +290,7 @@
 	addtimer(CALLBACK(src, PROC_REF(make_full)), 1 MINUTES, TIMER_UNIQUE|TIMER_NO_HASH_WAIT)
 
 /obj/structure/mold/structure/bulb/attack_generic(mob/user, damage_amount, damage_type, damage_flag, sound_effect, armor_penetration)
-	if(FACTION_MOLD in user.faction)
+	if(user.has_faction(FACTION_MOLD))
 		return ..()
 	discharge()
 	. = ..()

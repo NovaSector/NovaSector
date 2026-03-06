@@ -11,5 +11,6 @@ Ports over the large collection of bar signs from /vg/station, and repaths exist
 - code\game\objects\structures\barsigns.dm, single edit, tagged.
 
 ### Credits:
+
 - /vg/station
 - werewolfboyfriend

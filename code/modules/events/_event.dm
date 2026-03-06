@@ -32,9 +32,6 @@
 
 	var/triggering //admin cancellation
 
-	/// Whether or not dynamic should hijack this event
-	var/dynamic_should_hijack = FALSE
-
 	/// Datum that will handle admin options for forcing the event.
 	/// If there are no options, just leave it as an empty list.
 	var/list/datum/event_admin_setup/admin_setup = list()
@@ -82,9 +79,6 @@
 	if(EMERGENCY_ESCAPED_OR_ENDGAMED)
 		return FALSE
 	if(ispath(typepath, /datum/round_event/ghost_role) && !(GLOB.ghost_role_flags & GHOSTROLE_MIDROUND_EVENT))
-		return FALSE
-
-	if (dynamic_should_hijack && SSdynamic.random_event_hijacked != HIJACKED_NOTHING)
 		return FALSE
 
 	return TRUE
@@ -170,7 +164,6 @@ Runs the event
 	round_event.setup()
 	round_event.current_players = get_active_player_count(alive_check = 1, afk_check = 1, human_check = 1)
 	occurrences++
-	SSevents.previously_run += src // NOVA EDIT ADDITION
 
 	if(announce_chance_override != null)
 		round_event.announce_chance = announce_chance_override

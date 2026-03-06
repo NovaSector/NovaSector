@@ -96,49 +96,53 @@
 
 // LIMBS
 
-/obj/item/bodypart/arm/right/mutant/ghoul/drop_limb(special, dismembered, move_to_floor = TRUE)
-	..() // Create Meat, Remove Limb
+/obj/item/bodypart/arm/right/mutant/ghoul/drop_limb(special, dismembered, move_to_floor = FALSE)
+	if(special)
+		return ..()
+
+	// Create Meat, Remove Limb
 	var/percentHealth = 1 - (brute_dam + burn_dam) / max_damage
 	if (percentHealth > 0)
 		// Create Meat
-		var/obj/item/food/meat/slab/newMeat = new /obj/item/food/meat/slab(src.loc)
+		new /obj/item/food/meat/slab(owner.drop_location())
 
-		. = newMeat // Return MEAT
+	return ..()
 
-	qdel(src)
+/obj/item/bodypart/arm/left/mutant/ghoul/drop_limb(special, dismembered, move_to_floor = FALSE)
+	if(special)
+		return ..()
 
-/obj/item/bodypart/arm/left/mutant/ghoul/drop_limb(special, dismembered, move_to_floor = TRUE)
-	..() // Create Meat, Remove Limb
+	// Create Meat, Remove Limb
 	var/percentHealth = 1 - (brute_dam + burn_dam) / max_damage
 	if (percentHealth > 0)
 		// Create Meat
-		var/obj/item/food/meat/slab/newMeat = new /obj/item/food/meat/slab(src.loc)
+		new /obj/item/food/meat/slab(owner.drop_location())
 
-		. = newMeat // Return MEAT
+	return ..()
 
-	qdel(src)
+/obj/item/bodypart/leg/right/mutant/ghoul/drop_limb(special, dismembered, move_to_floor = FALSE)
+	if(special)
+		return ..()
 
-/obj/item/bodypart/leg/right/mutant/ghoul/drop_limb(special, dismembered, move_to_floor = TRUE)
-	..() // Create Meat, Remove Limb
+	// Create Meat, Remove Limb
 	var/percentHealth = 1 - (brute_dam + burn_dam) / max_damage
 	if (percentHealth > 0)
 		// Create Meat
-		var/obj/item/food/meat/slab/newMeat = new /obj/item/food/meat/slab(src.loc)
+		new /obj/item/food/meat/slab(owner.drop_location())
 
-		. = newMeat // Return MEAT
+	return ..()
 
-	qdel(src)
+/obj/item/bodypart/leg/left/mutant/ghoul/drop_limb(special, dismembered, move_to_floor = FALSE)
+	if(special)
+		return ..()
 
-/obj/item/bodypart/leg/left/mutant/ghoul/drop_limb(special, dismembered, move_to_floor = TRUE)
-	..() // Create Meat, Remove Limb
+	// Create Meat, Remove Limb
 	var/percentHealth = 1 - (brute_dam + burn_dam) / max_damage
 	if (percentHealth > 0)
 		// Create Meat
-		var/obj/item/food/meat/slab/newMeat = new /obj/item/food/meat/slab(src.loc)
+		new /obj/item/food/meat/slab(owner.drop_location())
 
-		. = newMeat // Return MEAT
-
-	qdel(src)
+	return ..()
 
 #undef GHOUL_BRUTE_MODIFIER
 #undef GHOUL_BURN_MODIFIER

@@ -40,6 +40,14 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 
+/obj/item/gun/ballistic/shotgun/riot/sol/add_seclight_point()
+	AddComponent(/datum/component/seclite_attachable, \
+		light_overlay_icon = 'icons/obj/weapons/guns/flashlights.dmi', \
+		light_overlay = "flight", \
+		overlay_x = 32, \
+		overlay_y = 12, \
+	)
+
 /obj/item/gun/ballistic/shotgun/riot/sol/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)
 
@@ -49,6 +57,18 @@
 		SET_BASE_PIXEL(0, 0)
 
 	. = ..()
+
+/obj/item/gun/ballistic/shotgun/riot/sol/sawoff(mob/user, obj/item/saw, handle_modifications)
+	. = ..()
+	if(.)
+		var/datum/component/seclite_attachable/light = GetComponent(/datum/component/seclite_attachable)
+		light.overlay_x = 16
+		light.update_light()
+		magazine.max_ammo = 4 // capacity drops to 4+1 because Where's The Rest Of The Magazine, Bro
+		lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
+		righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
+		inhand_icon_state = "renoster_sawed"
+		weapon_weight = WEAPON_MEDIUM // compare/contrast the bobr shotgun revolver - +1 capacity, less accuracy, equal recoil, pump-action
 
 /obj/item/ammo_box/magazine/internal/shot/sol
 	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
@@ -63,7 +83,7 @@
 // Shotgun but EVIL!
 
 /obj/item/gun/ballistic/shotgun/riot/sol/evil
-	desc = parent_type::desc + "This one is painted in a tacticool black."
+	desc = parent_type::desc + " This one is painted in a tacticool black."
 
 	icon_state = "renoster_evil"
 	worn_icon_state = "renoster_evil"

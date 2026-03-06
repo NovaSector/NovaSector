@@ -30,7 +30,7 @@
 /obj/item/assembly/signaler/anomaly/attack_self()
 	return
 
-/obj/item/assembly/signaler/anomaly/attackby(obj/item/I, mob/user, list/modifiers)
+/obj/item/assembly/signaler/anomaly/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers)
 	if(I.tool_behaviour == TOOL_ANALYZER)
 		to_chat(user, span_notice("Analyzing... [src]'s stabilized field is fluctuating along frequency [format_frequency(frequency)], code [code]."))
 	return ..()
@@ -94,3 +94,12 @@
 	desc = "The neutralized core of an ectoplasmic anomaly. When you hold it close, you can hear faint murmuring from inside. It'd probably be valuable for research."
 	icon_state = "dimensional_core"
 	anomaly_type = /obj/effect/anomaly/ectoplasm
+
+/obj/item/assembly/signaler/anomaly/weather
+	name = "\improper weather anomaly core"
+	desc = "The neutralized core of a weather anomaly. The sound of thunder can be heard in the distance. It'd probably be valuable for research."
+	icon_state = "weather_core"
+	anomaly_type = /obj/effect/anomaly/weather
+
+	/// Used in weather towers to track uses before depleting
+	var/charges = 8

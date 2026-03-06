@@ -69,9 +69,8 @@
 	stored_radio.set_listening(FALSE)
 	stored_radio.recalculateChannels()
 
-	find_and_hang_on_wall()
-
 	if(mapload)
+		find_and_mount_on_atom()
 		for(var/obj/machinery/power/rbmk2/reactor in range(10, src))
 			link_reactor(null, reactor)
 
@@ -92,12 +91,11 @@
 		. += "reactor_sniffer_panel"
 
 /obj/machinery/rbmk2_sniffer/Destroy()
-	. = ..()
-
 	for(var/obj/machinery/power/rbmk2/reactor as anything in linked_reactors)
 		unlink_reactor(desired_reactor = reactor)
 
 	QDEL_NULL(stored_radio)
+	return ..()
 
 /obj/machinery/rbmk2_sniffer/screwdriver_act(mob/living/user, obj/item/attack_item)
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attack_item))

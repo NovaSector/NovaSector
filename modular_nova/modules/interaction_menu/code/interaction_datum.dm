@@ -89,14 +89,14 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 				CRASH("Unimplemented interaction requirement '[requirement]'")
 	return TRUE
 
-/datum/interaction/proc/act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/proc/act(mob/living/carbon/human/user, mob/living/carbon/human/target, use_subtler)
 	if(!allow_act(user, target))
 		return
 	if(!message)
-		message_admins("Interaction had a null message list. '[name]'")
+		message_admins("Interaction had a null message list. '[html_encode(name)]'")
 		return
 	if(!islist(message) && istext(message))
-		message_admins("Deprecated message handling for '[name]'. Correct format is a list with one entry. This message will only show once.")
+		message_admins("Deprecated message handling for '[html_encode(name)]'. Correct format is a list with one entry. This message will only show once.")
 		message = list(message)
 	var/msg = pick(message)
 	// We replace %USER% with nothing because manual_emote already prepends it.
@@ -107,7 +107,15 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	msg = replacetext(replacetext(msg, "%TARGET_PRONOUN_THEY%", target.p_they()), "%USER_PRONOUN_THEY%", user.p_they())
 
 	if(lewd)
-		user.emote("subtler", null, msg, TRUE)
+		if(use_subtler)
+			user.emote("subtler", type_override = /datum/emote/living/subtler::emote_type | EMOTE_LEWD, message = msg, intentional = TRUE)
+		else
+			var/list/ignoring_mobs = list()
+			for(var/mob/not_interested in get_hearers_in_view(DEFAULT_MESSAGE_RANGE, user))
+				if(!not_interested.client?.prefs?.read_preference(/datum/preference/toggle/erp))
+					ignoring_mobs += not_interested
+			user.visible_message(span_purple("[user] [msg]"), ignored_mobs = ignoring_mobs)
+			user.log_message(msg, LOG_EMOTE)
 	else
 		user.manual_emote(msg)
 
@@ -131,13 +139,16 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 	if(sound_use)
 		if(!sound_possible)
-			message_admins("Interaction has sound_use set to TRUE but does not set sound! '[name]'")
+			message_admins("Interaction has sound_use set to TRUE but does not set sound! '[html_encode(name)]'")
 			return
 		if(!islist(sound_possible) && istext(sound_possible))
-			message_admins("Deprecated sound handling for '[name]'. Correct format is a list with one entry. This message will only show once.")
+			message_admins("Deprecated sound handling for '[html_encode(name)]'. Correct format is a list with one entry. This message will only show once.")
 			sound_possible = list(sound_possible)
 		sound_cache = pick(sound_possible)
-		playsound(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range))
+		if (lewd)
+			playsound_if_pref(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range), pref_to_check = /datum/preference/toggle/erp/sounds)
+		else
+			playsound(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range))
 
 	INVOKE_ASYNC(src, PROC_REF(apply_effects), user, target)
 
@@ -245,7 +256,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		var/datum/interaction/interaction = new()
 		if(interaction.load_from_json(directory + file))
 			GLOB.interaction_instances[interaction.name] = interaction
-		else message_admins("Error loading interaction from file: '[directory + file]'. Inform coders.")
+		else message_admins("Error loading interaction from file: '[html_encode(directory + file)]'. Inform coders.")
 
 /proc/populate_interaction_jsons_master(path)
 	if(!fexists(path))
@@ -256,12 +267,12 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 	for(var/iname in json)
 		if(GLOB.interaction_instances[iname])
-			message_admins("Interaction Master '[path]' contained a duplicate interaction! '[iname]'")
+			message_admins("Interaction Master '[html_encode(path)]' contained a duplicate interaction! '[html_encode(iname)]'")
 			continue
 
 		var/list/ijson = json[iname]
 		if(ijson["name"] != iname)
-			message_admins("Interaction Master '[path]' contained an invalid interaction! '[iname]'")
+			message_admins("Interaction Master '[html_encode(path)]' contained an invalid interaction! '[html_encode(iname)]'")
 			continue
 
 		var/datum/interaction/interaction = new()

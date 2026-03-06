@@ -11,14 +11,15 @@
 	name = "latex gasmask"
 	desc = "A strict-tensity gas mask that hugs to the face and completely muffles the wearer."
 	greyscale_colors = "#383840#dc7ef4"
+	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon_state = "/obj/item/clothing/mask/gas/bdsm_mask"
+	post_init_icon_state = "mask"
 	greyscale_config = /datum/greyscale_config/dorms_mask
 	greyscale_config_worn = /datum/greyscale_config/dorms_mask/worn
 	greyscale_config_worn_muzzled = /datum/greyscale_config/dorms_mask/worn/muzzled
 	flags_1 = IS_PLAYER_COLORABLE_1
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_masks.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
 	worn_icon_muzzled = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks_muzzled.dmi'
-	icon_state = "mask"
 	slot_flags = ITEM_SLOT_MASK
 	starting_filter_type = null
 	w_class = WEIGHT_CLASS_SMALL
@@ -274,7 +275,7 @@
 	if(time_to_choke_left <= 0)
 		if(tt <= 0)
 			if(affected_carbon.stat == CONSCIOUS)
-				affected_carbon.adjustOxyLoss(rand(4, 8)) // Oxy dmg
+				affected_carbon.adjust_oxy_loss(rand(4, 8)) // Oxy dmg
 				affected_carbon.try_lewd_autoemote(pick("gasp", "choke", "moan"))
 				tt = time
 			else
@@ -290,14 +291,24 @@
 */
 
 // Here goes code for lewd gasmask filter
+/datum/atom_skin/gasmask_filter
+	abstract_type = /datum/atom_skin/gasmask_filter
+
+/datum/atom_skin/gasmask_filter/pink
+	preview_name = "pink"
+	new_icon_state = "filter_pink"
+
+/datum/atom_skin/gasmask_filter/teal
+	preview_name = "teal"
+	new_icon_state = "filter_teal"
+
 /obj/item/reagent_containers/cup/lewd_filter
 	name = "gasmask filter"
 	desc = "A strange looking air filter. It may not be a good idea to breathe this in..."
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "filter_pink"
-	unique_reskin = list("pink" = "filter_pink",
-						"teal" = "filter_teal")
 	w_class = WEIGHT_CLASS_SMALL
+	obj_flags_nova = ERP_ITEM
 	custom_materials = list(
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
@@ -307,6 +318,9 @@
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/crocin = 50)
 	amount_per_transfer_from_this = 1
 	interaction_flags_click = NEED_DEXTERITY
+
+/obj/item/reagent_containers/cup/lewd_filter/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/gasmask_filter)
 
 // Standard initialize code for filter
 /obj/item/reagent_containers/cup/lewd_filter/Initialize(mapload)

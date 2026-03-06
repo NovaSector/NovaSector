@@ -28,7 +28,7 @@
 	name = "customizable vape cart"
 	desc = "Fill with whatever hazardous concoction of chemicals you desire!"
 	list_reagents = list()
-	reagent_flags = OPENCONTAINER
+	initial_reagent_flags = OPENCONTAINER
 	var/labelled = FALSE
 
 /obj/item/reagent_containers/vapecart/empty/attack_self(mob/user)
@@ -36,15 +36,15 @@
 		to_chat(user, span_notice("You empty [src] of all reagents."))
 		reagents.clear_reagents()
 
-/obj/item/reagent_containers/vapecart/empty/attackby(obj/item/attacked_item, mob/user, params)
-	if (istype(attacked_item, /obj/item/pen) || istype(attacked_item, /obj/item/toy/crayon))
+/obj/item/reagent_containers/vapecart/empty/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if (istype(attacking_item, /obj/item/pen) || istype(attacking_item, /obj/item/toy/crayon))
 		if(!user.is_literate())
 			to_chat(user, span_notice("You scribble illegibly on the label of the vape cart!"))
 			return
 		var/new_title = stripped_input(user, "What would you like to label the vape cart?", name, null, 53)
 		if(!user.can_perform_action(src))
 			return
-		if(user.get_active_held_item() != attacked_item)
+		if(user.get_active_held_item() != attacking_item)
 			return
 		if(new_title)
 			labelled = TRUE
@@ -63,31 +63,31 @@
 
 //thc carts
 /obj/item/reagent_containers/vapecart/bluekush
-	name = "Dr. Breen's Blue Kush Reserve cart"
+	name = "\improper Dr. Breen's Blue Kush Reserve cart"
 	desc = "Don't smoke the carts... They put something in it... t-to make you forget! I don't even remember how I got here..."
 	list_reagents = list(/datum/reagent/drug/thc = 20, /datum/reagent/consumable/berryjuice = 10)
 	custom_price = PAYCHECK_LOWER
 
 /obj/item/reagent_containers/vapecart/reddiesel
-	name = "Resistance Red Diesel cart"
+	name = "\improper Resistance Red Diesel cart"
 	desc = "Seems to be endorsed by a real scientist!"
 	list_reagents = list(/datum/reagent/drug/thc = 20, /datum/reagent/consumable/dr_gibb = 10)
 	custom_price = PAYCHECK_LOWER
 
 /obj/item/reagent_containers/vapecart/pwrgame
-	name = "Pwr Haze cart"
+	name = "\improper Pwr Haze cart"
 	desc = "When did Pwr Game get into the cart business?"
 	list_reagents = list(/datum/reagent/drug/thc = 20, /datum/reagent/consumable/pwr_game = 10)
 	custom_price = PAYCHECK_LOWER
 
 /obj/item/reagent_containers/vapecart/cheese
-	name = "Cheesie Honker OG Kush cart"
+	name = "\improper Cheesie Honker OG Kush cart"
 	desc = "*Contains no real cheese."
 	list_reagents = list(/datum/reagent/drug/thc = 20, /datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 3)
 	custom_price = PAYCHECK_LOWER
 
 /obj/item/reagent_containers/vapecart/syndicate
-	name = "Syndikush Green Crack cart"
+	name = "\improper Syndi-Kush Green Crack cart"
 	desc = "Green Crack is a strain of sativa, not actual crack."
 	list_reagents = list(/datum/reagent/drug/thc = 20, /datum/reagent/medicine/stimulants = 10)
 	custom_price = PAYCHECK_LOWER

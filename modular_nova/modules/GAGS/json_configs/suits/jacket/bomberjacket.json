@@ -1,0 +1,16 @@
+{
+	"bomberjacket": [
+		{
+			"type": "icon_state",
+			"icon_state": "bomberjacket_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bomberjacket_fur",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

@@ -26,16 +26,16 @@
 	// Sample of the rock we need to scan
 	var/obj/item/xenoarch/core_sampler/current_sample
 
-/obj/machinery/radiocarbon_spectrometer/attackby(obj/item/to_insert, mob/living/user)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, to_insert))
+/obj/machinery/radiocarbon_spectrometer/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
 		update_appearance()
 		return
-	if(default_pry_open(to_insert))
+	if(default_pry_open(attacking_item))
 		return
-	if(default_deconstruction_crowbar(to_insert))
+	if(default_deconstruction_crowbar(attacking_item))
 		return
-	if(istype(to_insert, /obj/item/xenoarch/core_sampler))
-		var/obj/item/xenoarch/core_sampler/sampler = to_insert
+	if(istype(attacking_item, /obj/item/xenoarch/core_sampler))
+		var/obj/item/xenoarch/core_sampler/sampler = attacking_item
 		if(!powered())
 			return
 		if(scanning)
@@ -89,7 +89,7 @@
 		artifact_report.name = "[src] report"
 		artifact_report.add_raw_text(data)
 		artifact_report.update_icon()
-		var/obj/item/stamp/our_stamp = new
+		var/obj/item/stamp/granted/our_stamp = new
 		var/stamp_data = our_stamp.get_writing_implement_details()
 		artifact_report.add_stamp(stamp_data["stamp_class"], rand(0, 300), rand(0, 400), rand(0, 360), stamp_data["stamp_icon_state"])
 		playsound(src, 'sound/machines/printer.ogg', 25, FALSE)

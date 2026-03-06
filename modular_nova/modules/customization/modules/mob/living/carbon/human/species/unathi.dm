@@ -8,7 +8,7 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list()
+
 	mutanttongue = /obj/item/organ/tongue/unathi
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -25,14 +25,14 @@
 
 /datum/species/unathi/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("Smooth", TRUE),
-		"snout" = list("Sharp + Light", TRUE),
-		"spines" = list("None", FALSE),
-		"frills" = list("None", FALSE),
-		"horns" = list("Curled", FALSE),
-		"body_markings" = list("Smooth Belly", TRUE),
-		"legs" = list("Normal Legs", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Smooth", is_randomizable = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT("Sharp + Light", is_randomizable = TRUE),
+		FEATURE_SPINES = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_FRILLS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_HORNS = MUTPART_BLUEPRINT("Curled", is_randomizable = FALSE),
+		FEATURE_MARKING_GENERIC = MUTPART_BLUEPRINT("Smooth Belly", is_randomizable = TRUE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /obj/item/organ/tongue/unathi
@@ -63,9 +63,9 @@
 		if(5)
 			main_color = "#33BB11"
 			second_color = "#339911"
-	features["mcolor"] = main_color
-	features["mcolor2"] = second_color
-	features["mcolor3"] = second_color
+	features[FEATURE_MUTANT_COLOR] = main_color
+	features[FEATURE_MUTANT_COLOR_TWO] = second_color
+	features[FEATURE_MUTANT_COLOR_THREE] = second_color
 	return features
 
 /datum/species/unathi/get_species_description()

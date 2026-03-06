@@ -5,7 +5,6 @@
 	sexes = FALSE
 	meat = /obj/item/food/meat/slab/human/mutant/skeleton
 	inherent_traits = list(
-		TRAIT_NO_UNDERWEAR,
 		TRAIT_EASYDISMEMBER,
 		TRAIT_FAKEDEATH,
 		TRAIT_GENELESS,
@@ -24,7 +23,8 @@
 		TRAIT_UNHUSKABLE,
 		TRAIT_XENO_IMMUNE,
 	)
-	inherent_biotypes = MOB_UNDEAD|MOB_HUMANOID
+	inherent_factions = list(FACTION_SKELETON)
+	inherent_biotypes = MOB_UNDEAD|MOB_HUMANOID|MOB_SKELETAL
 	mutanttongue = /obj/item/organ/tongue/bone
 	mutantstomach = /obj/item/organ/stomach/bone
 	mutantappendix = null

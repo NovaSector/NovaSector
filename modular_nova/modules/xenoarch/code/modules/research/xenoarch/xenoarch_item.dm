@@ -10,7 +10,7 @@
 	magnified_number = rand(1,8)
 	icon_state = "useless[magnified_number]"
 
-/obj/item/xenoarch/useless_relic/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/xenoarch/useless_relic/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/glassblowing/magnifying_glass))
 		if(istype(src, /obj/item/xenoarch/useless_relic/magnified))
 			balloon_alert(user, "already magnified!")
@@ -21,14 +21,14 @@
 			return
 
 		balloon_alert(user, "starting analysis!")
-		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER)
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
 			balloon_alert(user, "stand still!")
 			return
 
 		loc.balloon_alert(user, "magnified!")
 		spawn_magnified(magnified_number)
-		user.mind?.adjust_experience(/datum/skill/research, 5)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		return
 
 	return ..()
@@ -110,7 +110,7 @@
 	name = "magnified useless relic"
 	desc = "A useless relic that can be exported through Cargo. Has been magnified."
 
-/datum/export/xenoarch/useless_relic
+/datum/export/xenoarch
 	cost = CARGO_CRATE_VALUE * 3 //600
 	unit_name = "useless relic"
 	export_types = list(/obj/item/xenoarch/useless_relic)
@@ -124,7 +124,7 @@
 	include_subtypes = TRUE
 	k_elasticity = 0
 
-/datum/export/xenoarch/useless_relic/magnified
+/datum/export/xenoarch/magnified_relic
 	cost = CARGO_CRATE_VALUE * 6 //1200
 	unit_name = "magnified useless relic"
 	export_types = list(/obj/item/xenoarch/useless_relic/magnified)
@@ -132,12 +132,9 @@
 
 //broken items
 /obj/item/xenoarch/broken_item
-	name = "broken item"
-	desc = "An item that has been damaged, destroyed for quite some time. It is possible to recover it."
-
-/obj/item/xenoarch/broken_item/tech
 	name = "broken tech"
 	icon_state = "recover_tech"
+	desc = "An item that has been damaged, destroyed for quite some time. It is possible to recover it."
 
 /obj/item/xenoarch/broken_item/weapon
 	name = "broken weapon"

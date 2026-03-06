@@ -191,6 +191,10 @@
 	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"eb" = (
+/obj/structure/war_horn,
+/turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "eA" = (
 /obj/structure/railing/wooden_fencing/gate,
 /turf/open/misc/hay/icemoon,
@@ -1734,7 +1738,7 @@ cy
 cy
 cy
 AT
-Bt
+eb
 PK
 Ez
 Ez

@@ -50,20 +50,18 @@
 		balloon_alert(user, "currently [active ? "unsealing" : "sealing"]!")
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return FALSE
-	var/deploy = FALSE
+	var/deploy = TRUE
 	for(var/obj/item/part as anything in get_parts())
 		if(part.loc != src)
-			continue
-		deploy = TRUE
-		break
+			deploy = FALSE
+			break
 	wearer.visible_message(span_notice("[wearer]'s [src] [deploy ? "deploys" : "retracts"] its parts with a mechanical hiss."),
 		span_notice("[src] [deploy ? "deploys" : "retracts"] its parts with a mechanical hiss."),
 		span_hear("You hear a mechanical hiss."))
 	playsound(src, 'sound/vehicles/mecha/mechmove03.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	for(var/obj/item/part as anything in get_parts())
 		if(deploy && part.loc == src)
-			if(!deploy(null, part))
-				continue
+			deploy(null, part)
 		else if(!deploy && part.loc != src)
 			retract(null, part)
 	if(deploy)
@@ -86,13 +84,10 @@
 	if(part_datum.can_overslot)
 		var/obj/item/overslot = wearer.get_item_by_slot(part.slot_flags)
 		/* // NOVA EDIT REMOVAL START
-		if(overslot && istype(overslot, /obj/item/clothing))
-			var/obj/item/clothing/clothing = overslot
-			if(clothing.clothing_flags & CLOTHING_MOD_OVERSLOTTING)
-			if(!HAS_TRAIT(overslot, TRAIT_NODROP))
-				part_datum.overslotting = overslot
-				wearer.transferItemToLoc(overslot, part, force = TRUE)
-				RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
+		if(istype(overslot, /obj/item/clothing))
+			part_datum.overslotting = overslot
+			wearer.transferItemToLoc(overslot, part, force = TRUE)
+			RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
 		*/ // NOVA EDIT REMOVAL END
 		// NOVA EDIT ADDITION START
 		if(overslot && !HAS_TRAIT(overslot, TRAIT_NODROP))
@@ -272,6 +267,9 @@
 		part.heat_protection = initial(part.heat_protection)
 		part.cold_protection = initial(part.cold_protection)
 		part.alternate_worn_layer = part_datum.sealed_layer
+		if(part.slot_flags & ITEM_SLOT_HEAD)
+			var/datum/component/wearertargeting/protection = part.AddComponent(/datum/component/wearertargeting/earprotection, protection_amount = src.theme.hearing_protection)
+			protection.on_equip(src, wearer, ITEM_SLOT_HEAD)
 	else
 		part.icon_state = "[skin]-[part.base_icon_state]"
 		part.flags_cover &= ~part.visor_flags_cover
@@ -280,9 +278,11 @@
 		part.heat_protection = NONE
 		part.cold_protection = NONE
 		part.alternate_worn_layer = part_datum.unsealed_layer
+		if((part.slot_flags & ITEM_SLOT_HEAD) && istype(part, /obj/item/clothing/head/mod))
+			qdel(part.GetComponent(/datum/component/wearertargeting/earprotection))
 	update_speed()
 	wearer.update_clothing(part.slot_flags | slot_flags)
-	wearer.update_obscured_slots(part.visor_flags_inv)
+	wearer.refresh_obscured()
 	if((part.clothing_flags & (MASKINTERNALS|HEADINTERNALS)) && wearer.invalid_internals())
 		wearer.cutoff_internals()
 	SEND_SIGNAL(src, COMSIG_MOD_PART_SEALED, part_datum)
@@ -322,7 +322,10 @@
 			module.part_activated = FALSE
 	update_charge_alert()
 	update_appearance(UPDATE_ICON_STATE)
-	wearer.update_clothing()
+	var/updated_slots = slot_flags
+	for (var/slot_key in mod_parts)
+		updated_slots |= text2num(slot_key)
+	wearer.update_clothing(updated_slots)
 
 /// Quickly deploys all the suit parts and if successful, seals them and turns on the suit. Intended mostly for outfits.
 /obj/item/mod/control/proc/quick_activation()

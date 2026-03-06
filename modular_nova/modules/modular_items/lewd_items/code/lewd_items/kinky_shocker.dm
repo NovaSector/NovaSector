@@ -8,6 +8,7 @@
 	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	w_class = WEIGHT_CLASS_TINY
+	obj_flags_nova = ERP_ITEM
 	/// If the shocker is on or not
 	var/shocker_on = FALSE
 	/// Typecasted var that holds the cell placed in the shocker
@@ -54,7 +55,8 @@
 	else
 		. += span_warning("\The [src] does not have a power source installed.")
 
-/obj/item/kinky_shocker/attackby(obj/item/stock_parts/power_store/cell/powercell, mob/user, params)
+/obj/item/kinky_shocker/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	var/obj/item/stock_parts/power_store/cell/powercell = attacking_item
 	if(!istype(powercell))
 		return ..()
 	if(cell)
@@ -285,7 +287,7 @@
 	if(prob(80))
 		target.try_lewd_autoemote(pick("twitch", "twitch_s", "shiver", "scream"))
 	target.do_jitter_animation()
-	target.adjustStaminaLoss(3)
+	target.adjust_stamina_loss(3)
 	target.adjust_pain(9)
 	target.adjust_stutter(30 SECONDS)
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)

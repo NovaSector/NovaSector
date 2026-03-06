@@ -7,7 +7,7 @@
 	/// What instruments can be used.
 	var/allowed_instrument_ids = list("spaceman", "meowsynth", "square", "sine", "saw")
 	/// Instruments added after being emagged.
-	var/emag_instrument_ids = list("honk")
+	var/emag_instrument_ids = list("bikehorn", "honk")
 	/// Set to TRUE if already emagged.
 	var/emagged = FALSE
 

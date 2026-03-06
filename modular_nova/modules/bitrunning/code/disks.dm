@@ -1,7 +1,7 @@
-/obj/item/bitrunning_disk
+/obj/item/disk/bitrunning
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/bitrunning_disk/ability/tier0
+/obj/item/disk/bitrunning/ability/tier0
 	name = "bitrunning program: cantrip"
 	selectable_actions = list(
 		/datum/action/cooldown/spell/shapeshift/minor_illusion,
@@ -10,7 +10,7 @@
 		/datum/action/cooldown/spell/conjure/cheese,
 	)
 
-/obj/item/bitrunning_disk/item/tier0
+/obj/item/disk/bitrunning/item/tier0
 	name = "bitrunning gear: trinket"
 	selectable_items = list(
 		/obj/item/binoculars,
@@ -22,34 +22,32 @@
 		/obj/item/storage/medkit/robotic_repair/preemo/stocked,
 	)
 
-/obj/item/bitrunning_disk/prefs
+/obj/item/disk/bitrunning/prefs
 	name = "\improper DeForest biological simulation disk"
 	desc = "A disk containing the biological simulation data necessary to load custom characters into bitrunning domains."
-	icon = 'icons/obj/devices/circuitry_n_data.dmi'
+	icon = 'icons/obj/devices/floppy_disks.dmi'
 	base_icon_state = "datadisk"
 	icon_state = "datadisk0"
-
-	w_class = WEIGHT_CLASS_SMALL
 
 	var/datum/preferences/loaded_preference
 
 	var/include_loadout = FALSE
 
-/obj/item/bitrunning_disk/prefs/examine(mob/user)
+/obj/item/disk/bitrunning/prefs/examine(mob/user)
 	. = ..()
 	if(!isnull(loaded_preference))
 		var/name = loaded_preference.read_preference(/datum/preference/name/real_name)
 		. += "It currently has the character [name] loaded, with loadouts [(include_loadout ? "enabled" : "disabled")]"
 		. += span_notice("Alt-Click to change loadout loading")
 
-/obj/item/bitrunning_disk/prefs/click_alt(mob/user)
+/obj/item/disk/bitrunning/prefs/click_alt(mob/user)
 	if(isnull(loaded_preference))
 		return CLICK_ACTION_BLOCKING
 	include_loadout = !include_loadout // We just switch this around. Elegant!
 	balloon_alert(user, include_loadout ? "Loadout enabled" : "Loadout disabled")
 	return CLICK_ACTION_SUCCESS
 
-/obj/item/bitrunning_disk/prefs/attack_self(mob/user, modifiers)
+/obj/item/disk/bitrunning/prefs/attack_self(mob/user, modifiers)
 	. = ..()
 
 	var/list/prefdata_names = user.client.prefs?.create_character_profiles()
@@ -71,24 +69,24 @@
 
 /datum/orderable_item/bitrunning_tech/ability_tier0
 	cost_per_order = 350
-	purchase_path = /obj/item/bitrunning_disk/ability/tier0
+	purchase_path = /obj/item/disk/bitrunning/ability/tier0
 	desc = "This disk contains a program that lets you cast Minor Illusion, Summon Cheese, Produce Flame, or Produce Water."
 
 /datum/orderable_item/bitrunning_tech/item_tier0
 	cost_per_order = 350
-	purchase_path = /obj/item/bitrunning_disk/item/tier0
+	purchase_path = /obj/item/disk/bitrunning/item/tier0
 	desc = "This disk contains a program that lets you equip a pair of binoculars, thirty marker beacons, a snack rig, a D20, a stabilizer pouch, a robotic repair kit, or an empty colonial first-aid pouch."
 
-/obj/item/bitrunning_disk/item/tierlewd
+/obj/item/disk/bitrunning/item/tierrelax
 	name = "bitrunning gear: relaxation"
 	selectable_items = list(
-		/obj/item/summon_beacon/lustwish,
+		/obj/item/summon_beacon/relax,
 		/obj/item/storage/box/nif_ghost_box,
 		/obj/item/storage/box/syndie_kit/chameleon/ghostcafe,
 		/obj/item/survivalcapsule/luxury,
 	)
 
-/obj/item/summon_beacon/lustwish
+/obj/item/summon_beacon/relax
 	name = "relaxation machine beacon"
 	icon_state = "sb_delivery"
 	desc = "Once a vending machine is selected, delivers it to the target location."
@@ -102,32 +100,59 @@
 	)
 
 	selectable_atoms = list(
-		/obj/machinery/vending/dorms/bitrunning,
+		/obj/machinery/vending/autodrobe/bitrunning, // "AutoDrobe"
+		/obj/machinery/vending/games/bitrunning, // "Good Clean Fun"
+		/obj/machinery/vending/clothing/bitrunning, // "ClothesMate"
 	)
 
 	area_string = "virtual domains"
 	supply_pod_stay = FALSE
+
+/obj/item/summon_beacon/relax/equipped(mob/user, slot, initial)
+	. = ..()
+	if (!CONFIG_GET(flag/disable_erp_preferences) && user?.client?.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
+		selectable_atoms += /obj/machinery/vending/dorms/bitrunning
+	else
+		selectable_atoms -= /obj/machinery/vending/dorms/bitrunning
+
+// Be warned, ye who dares to optimize the following bit of code, Initialize is required for vendors to be all_products_free = TRUE, for the code designed for circuits actually resets the value on iniitialize otherwise. be warned and do not spend hours debugging as your predecesors had.
 
 /obj/machinery/vending/dorms/bitrunning/Initialize(mapload)
 	. = ..()
 	all_products_free = TRUE
 	onstation = FALSE
 
-/datum/orderable_item/bitrunning_tech/item_tierlewd
-	cost_per_order = 250
-	purchase_path = /obj/item/bitrunning_disk/item/tierlewd
-	desc = "This disk contains a program that lets you equip a LustWish vending machine delivery beacon, a quick-booting NIF package, a luxury survival capsule, or a set of chameleon clothing."
+/obj/machinery/vending/autodrobe/bitrunning/Initialize(mapload)
+	. = ..()
+	all_products_free = TRUE
+	onstation = FALSE
 
-/obj/item/bitrunning_disk/item/tier1/Initialize(mapload)
+/obj/machinery/vending/games/bitrunning/Initialize(mapload)
+	. = ..()
+	all_products_free = TRUE
+	onstation = FALSE
+
+/obj/machinery/vending/clothing/bitrunning/Initialize(mapload)
+	. = ..()
+	all_products_free = TRUE
+	onstation = FALSE
+
+/datum/orderable_item/bitrunning_tech/item_tierrelax
+	cost_per_order = 250
+	purchase_path = /obj/item/disk/bitrunning/item/tierrelax
+	desc = "This disk contains a program that lets you equip a delivery beacon of vending machines aimed to help to relax, a quick-booting NIF package, a luxury survival capsule, or a set of chameleon clothing."
+
+/obj/item/disk/bitrunning/item/tier1/Initialize(mapload)
 	. = ..()
 	selectable_items += list(
+		/obj/item/antag_spawner/bitrunning_help,
 		/obj/item/storage/belt/military,
 		/obj/item/book_of_babel,
 		/obj/item/storage/toolbox/syndicate,
 		/obj/item/knife/combat,
 	)
 
-/obj/item/bitrunning_disk/item/tier2/Initialize(mapload)
+/obj/item/disk/bitrunning/item/tier2/Initialize(mapload)
 	. = ..()
 	selectable_items -= list(
 		/obj/item/gun/ballistic/automatic/pistol,
@@ -148,7 +173,7 @@
 /obj/item/autosurgeon/syndicate/hackerman/bitrunning
 	name = "hacking arm implanter"
 
-/obj/item/bitrunning_disk/item/tier3/Initialize(mapload)
+/obj/item/disk/bitrunning/item/tier3/Initialize(mapload)
 	. = ..()
 	selectable_items -= list(
 		/obj/item/gun/energy/e_gun/nuclear,
@@ -164,7 +189,7 @@
 /obj/item/autosurgeon/syndicate/nodrop/bitrunning
 	name = "anti-drop implanter"
 
-/obj/item/bitrunning_disk/ability/tier1/Initialize(mapload)
+/obj/item/disk/bitrunning/ability/tier1/Initialize(mapload)
 	. = ..()
 	selectable_actions += list(
 		/datum/action/cooldown/spell/touch/lay_on_hands,
@@ -174,7 +199,7 @@
 		/datum/action/cooldown/spell/conjure/cheese,
 	)
 
-/obj/item/bitrunning_disk/ability/tier2/Initialize(mapload)
+/obj/item/disk/bitrunning/ability/tier2/Initialize(mapload)
 	. = ..()
 	selectable_actions += list(
 		/datum/action/cooldown/adrenaline,
@@ -201,7 +226,7 @@
 	name = "Slice of Life Data Torrent"
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
-/obj/item/bitrunning_disk/ability/tier3/Initialize(mapload)
+/obj/item/disk/bitrunning/ability/tier3/Initialize(mapload)
 	. = ..()
 	selectable_actions += list(
 		/datum/action/cooldown/spell/shapeshift/juggernaut,
@@ -220,7 +245,7 @@
 	),src)
 
 /datum/orderable_item/bitrunning_tech/item_tier1
-	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, a tactical toolbox, a combat knife, or a military webbing."
+	desc = "This disk contains a program that lets you equip a subcontracted assistance request beacon, medical beamgun, a C4 explosive, a box of infinite pizza, a tactical toolbox, a combat knife, or a military webbing."
 
 /datum/orderable_item/bitrunning_tech/item_tier2
 	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, a rifle case, an armour vest, a helmet, an energy sword, a katana, a modular laser carbine, an expeditionary medkit, a ballistic shield, flashproof contacts, or a hacker implant."
@@ -239,5 +264,5 @@
 
 /datum/orderable_item/bitrunning_tech/pref_item
 	cost_per_order = 500
-	purchase_path = /obj/item/bitrunning_disk/prefs
+	purchase_path = /obj/item/disk/bitrunning/prefs
 	desc = "This disk contains a program that lets you load in custom characters."

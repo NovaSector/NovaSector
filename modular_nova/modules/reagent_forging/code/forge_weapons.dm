@@ -33,7 +33,6 @@
 	desc = "A sharp, one-handed sword most adept at blocking opposing melee strikes."
 	force = 20
 	armour_penetration = 20
-	demolition_mod = 1.2
 	icon_state = "sword"
 	inhand_icon_state = "sword"
 	worn_icon_state = "sword_back"
@@ -129,7 +128,7 @@
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "tears", "lacerates", "gores")
 	attack_verb_simple = list("attack", "poke", "jab", "tear", "lacerate", "gore")
 	wound_bonus = -15
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	reach = 2
 	sharpness = SHARP_POINTY
 
@@ -142,7 +141,6 @@
 	desc = "An axe especially balanced for throwing. Nonetheless useful as a traditional melee tool."
 	force = 15
 	armour_penetration = 10
-	demolition_mod = 1.2
 	icon_state = "axe"
 	inhand_icon_state = "axe"
 	worn_icon_state = "axe_back"
@@ -165,7 +163,6 @@
 	desc = "A heavy, weighted hammer that packs an incredible punch but can prove to be unwieldy. Useful for forging!"
 	force = 10
 	armour_penetration = 10
-	demolition_mod = 2
 	icon_state = "crush_hammer"
 	inhand_icon_state = "crush_hammer"
 	worn_icon_state = "hammer_back"
@@ -226,7 +223,7 @@
 	. += span_notice("Using a hammer on [src] will repair its damage!")
 	. += span_notice("This weapon seems twice as effective when used on beasts and monsters.")
 
-/obj/item/shield/buckler/reagent_weapon/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/shield/buckler/reagent_weapon/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(atom_integrity >= max_integrity)
 		return ..()
 	if(istype(attacking_item, /obj/item/forging/hammer))
@@ -295,7 +292,7 @@
 	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 
-/obj/item/ammo_casing/arrow/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/ammo_casing/arrow/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	var/spawned_item
 	if(istype(attacking_item, /obj/item/stack/sheet/sinew))
 		spawned_item = /obj/item/ammo_casing/arrow/ash

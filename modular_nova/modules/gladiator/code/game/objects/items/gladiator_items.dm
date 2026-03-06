@@ -15,7 +15,7 @@
 	bonus_value = 15
 
 /obj/item/crusher_trophy/gladiator/effect_desc()
-	return "the crusher to have a <b>[bonus_value]%</b> chance to block incoming attacks."
+	return "the crusher to have a <b>[bonus_value]%</b> chance to block incoming attacks"
 
 /obj/item/crusher_trophy/gladiator/add_to(obj/item/kinetic_crusher/incomingchance, mob/living/user)
 	. = ..()
@@ -34,7 +34,6 @@
 	worn_icon = 'modular_nova/modules/gladiator/icons/berserk_suit.dmi'
 	icon_state = "berk_cape"
 	inhand_icon_state = "" //lul
-	uses_advanced_reskins = FALSE
 	resistance_flags = INDESTRUCTIBLE
 
 /obj/item/clothing/neck/warrior_cape/examine()
@@ -47,6 +46,7 @@
 	icon_state = "berk_suit"
 	icon = 'modular_nova/modules/gladiator/icons/berserk_icons.dmi'
 	worn_icon = 'modular_nova/modules/gladiator/icons/berserk_suit.dmi'
+	worn_icon_digi = 'modular_nova/modules/gladiator/icons/berserk_suit_digi.dmi'
 	hoodtype = /obj/item/clothing/head/hooded/berserker/gatsu
 	w_class = WEIGHT_CLASS_BULKY
 	armor_type = /datum/armor/berserker_gatsu
@@ -125,7 +125,7 @@
 	slot_flags = null
 	force = 20
 	wound_bonus = 10
-	bare_wound_bonus = 5
+	exposed_wound_bonus = 5
 	resistance_flags = INDESTRUCTIBLE
 	armour_penetration = 35 //this boss is really hard and this sword is really big
 	block_chance = 25
@@ -133,7 +133,7 @@
 	item_flags = NO_BLOOD_ON_ITEM
 	// aughhghghgh this really should be elementized but this works for now
 	var/faction_bonus_force = 40
-	var/static/list/nemesis_factions = list("mining", "boss")
+	var/static/list/nemesis_factions = list(FACTION_MINING, FACTION_BOSS)
 	/// how much stamina does it cost to roll
 	var/roll_stamcost = 10
 	/// how far do we roll?
@@ -145,7 +145,7 @@
 
 /obj/item/claymore/dragonslayer/attack(mob/living/target, mob/living/carbon/human/user)
 	var/is_nemesis_faction = FALSE
-	for(var/found_faction in target.faction)
+	for(var/found_faction in target.get_faction())
 		if(found_faction in nemesis_factions)
 			is_nemesis_faction = TRUE
 			force += faction_bonus_force
@@ -210,12 +210,7 @@
 	new /obj/item/clothing/neck/warrior_cape(src)
 
 /obj/structure/closet/crate/necropolis/gladiator/crusher/PopulateContents()
-	if(prob(5))
-		new /obj/item/claymore/dragonslayer/very_fucking_loud(src)
-	else
-		new /obj/item/claymore/dragonslayer(src)
-	new /obj/item/clothing/suit/hooded/berserker/gatsu(src)
-	new /obj/item/clothing/neck/warrior_cape(src)
+	..()
 	new /obj/item/crusher_trophy/gladiator(src)
 
 #undef BERSERK_MAX_CHARGE

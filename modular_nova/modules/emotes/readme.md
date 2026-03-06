@@ -17,11 +17,11 @@ Pretty much anything that changes emotes is in here
 
 ### TG Proc Changes:
 
-File Location | Changed TG Proc
-------------- | ---------------
-code/datums/emotes.dm | `/datum/emote/proc/check_cooldown(mob/user, intentional)`
-code/datums/emotes.dm | `/datum/emote/proc/run_emote(mob/user, params, type_override, intentional = FALSE)`
-code/modules/mob/living/carbon/carbon_defense.dm | `/mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)`
+| File Location                                    | Changed TG Proc                                                                     |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| code/datums/emotes.dm                            | `/datum/emote/proc/check_cooldown(mob/user, intentional)`                           |
+| code/datums/emotes.dm                            | `/datum/emote/proc/run_emote(mob/user, params, type_override, intentional = FALSE)` |
+| code/modules/mob/living/carbon/carbon_defense.dm | `/mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)`                       |
 
 ### TG File Changes:
 
@@ -31,10 +31,10 @@ code/modules/mob/living/carbon/carbon_defense.dm | `/mob/living/carbon/proc/help
 
 ### Defines:
 
-File Location | Defines
-------------- | -------
-code/__DEFINES/~nova_defines/traits.dm 		| `#define TRAIT_EXCITABLE	"wagwag"`
-modular_nova/modules/emotes/code/emotes.dm 	| `#define EMOTE_DELAY`
+| File Location                                | Defines                           |
+| -------------------------------------------- | --------------------------------- |
+| `code/__DEFINES/~nova_defines/traits.dm`     | `#define TRAIT_EXCITABLE	"wagwag"` |
+| `modular_nova/modules/emotes/code/emotes.dm` | `#define EMOTE_DELAY`             |
 
 ### Master file additions
 
@@ -45,6 +45,7 @@ modular_nova/modules/emotes/code/emotes.dm 	| `#define EMOTE_DELAY`
 - N/A
 
 ### Credits:
+
 - Gandalf2k15 - porting and refactoring
 - Avunia Takiya
   - refactoring code
