@@ -8452,6 +8452,7 @@
 #include "modular_nova\modules\imported_vendors\code\vendor_food.dm"
 #include "modular_nova\modules\imported_vendors\code\vendor_snacks.dm"
 #include "modular_nova\modules\imported_vendors\code\vendors.dm"
+#include "modular_nova\modules\indicators\code\_indicator.dm"
 #include "modular_nova\modules\indicators\code\combat_indicator.dm"
 #include "modular_nova\modules\indicators\code\sealed.dm"
 #include "modular_nova\modules\indicators\code\ssd_indicator.dm"
