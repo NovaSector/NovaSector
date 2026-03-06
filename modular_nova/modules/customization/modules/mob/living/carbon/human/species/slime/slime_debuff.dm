@@ -73,7 +73,7 @@
 	return span_warning("[owner.p_Their()] outer membrane appears to be dry, [owner.p_their()] form losing cohesion!")
 
 /*
-* If exposed to water, directly damage them
+* If exposed to water, directly damage their jelly (blood)
 */
 
 /datum/reagent/water/expose_mob(mob/living/exposed_mob, methods, reac_volume)
@@ -84,5 +84,5 @@
 			return
 		if(HAS_TRAIT(exposed_mob, TRAIT_WATER_BREATHING))
 			return
-		exposed_mob.adjust_blood_volume(-max(exposed_mob.blood_volume - 5, 0))
+		exposed_mob.adjust_blood_volume(-max(exposed_mob.blood_volume - 2, 0))
 		to_chat(exposed_mob, span_warning("The water causes you to melt away!"))
