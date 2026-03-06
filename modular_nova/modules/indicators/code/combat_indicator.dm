@@ -2,8 +2,8 @@
 GLOBAL_DATUM_INIT(combat_indicator_vis, /obj/effect/overlay/indicator/combat, new)
 
 /obj/effect/overlay/indicator/combat
-    icon = 'modular_nova/modules/indicators/icons/combat_indicator.dmi'
-    icon_state = "combat"
+	icon = 'modular_nova/modules/indicators/icons/combat_indicator.dmi'
+	icon_state = "combat"
 
 /mob/living
 	/// Is combat indicator enabled for this mob? Boolean.

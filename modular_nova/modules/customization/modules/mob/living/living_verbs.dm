@@ -1,8 +1,8 @@
 GLOBAL_DATUM_INIT(temporary_flavor_text_vis, /obj/effect/overlay/indicator/temporary_flavor_text, new)
 
 /obj/effect/overlay/indicator/temporary_flavor_text
-    icon = 'modular_nova/modules/indicators/icons/temporary_flavor_text_indicator.dmi'
-    icon_state = "flavor"
+	icon = 'modular_nova/modules/indicators/icons/temporary_flavor_text_indicator.dmi'
+	icon_state = "flavor"
 
 /mob/living/verb/set_temporary_flavor()
 	set category = "IC"

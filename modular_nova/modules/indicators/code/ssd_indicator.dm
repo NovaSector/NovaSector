@@ -1,8 +1,8 @@
 GLOBAL_DATUM_INIT(ssd_indicator_vis, /obj/effect/overlay/indicator/ssd, new)
 
 /obj/effect/overlay/indicator/ssd
-    icon = 'modular_nova/modules/indicators/icons/ssd_indicator.dmi'
-    icon_state = "default0"
+	icon = 'modular_nova/modules/indicators/icons/ssd_indicator.dmi'
+	icon_state = "default0"
 
 /mob/living
 	var/ssd_indicator = FALSE
