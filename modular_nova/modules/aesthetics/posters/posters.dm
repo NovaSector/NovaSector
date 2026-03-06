@@ -80,6 +80,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 3
 	desc = "An advertisement for the Central Command Asset Protection strike team."
 	icon = 'modular_nova/modules/aesthetics/posters/official.dmi'
 	icon_state = "nova_enlist"
+	
+	MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/enlist/nova, 32)
 
 /obj/structure/sign/poster/official/enlist/nova/examine_more(mob/user)
 	. = ..()
