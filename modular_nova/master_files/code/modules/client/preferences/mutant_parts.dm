@@ -61,8 +61,7 @@
 	return TRUE
 
 /datum/preference/choiced/skin_tone/is_accessible(datum/preferences/preferences)
-	. = ..()
-	if(!.)
+	if (!..(preferences))
 		return
 	return preferences.read_preference(/datum/preference/toggle/skin_tone_toggle)
 
