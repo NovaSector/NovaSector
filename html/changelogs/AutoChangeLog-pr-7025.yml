@@ -1,0 +1,4 @@
+author: "flleeppyy"
+delete-after: True
+changes:
+  - bugfix: "Fixed potential issue with setting opt in info on minds from users with non-alphanumeric characters in their username."
