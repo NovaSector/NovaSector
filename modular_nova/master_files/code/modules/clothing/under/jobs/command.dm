@@ -283,6 +283,13 @@
 	armor_type = /datum/armor/clothing_under/security_head_of_security
 	can_adjust = FALSE
 
+/obj/item/clothing/under/imperial/red
+	name = "red naval jumpsuit"
+	desc = "A generic red naval jumpsuit with rank badges pinned to it's chest."
+	icon_state = "/obj/item/clothing/under/imperial/red"
+	greyscale_colors = "#C12E24#C12E24#C12E24#373741#FFFFFF#2979CD#2979CD"
+	flags_1 = NONE
+
 /*
 *	MISC
 */

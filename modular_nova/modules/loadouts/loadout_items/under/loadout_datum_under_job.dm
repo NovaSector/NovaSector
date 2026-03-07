@@ -205,12 +205,6 @@
 */
 
 //COM
-//datum/loadout_item/under/jumpsuit/impcap
-//	name = "Captain's Naval Jumpsuit"
-//	item_path = /obj/item/clothing/under/rank/captain/nova/imperial
-//	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-//	group = "Job-Locked"
-
 /datum/loadout_item/under/jumpsuit/utility_com
 	name = "Command Utility Uniform"
 	item_path = /obj/item/clothing/under/rank/captain/nova/utility

@@ -1,0 +1,2 @@
+/obj/item/clothing/under/rank/captain/nova/imperial/generic/pants : /obj/item/clothing/under/imperial{@OLD}
+/obj/item/clothing/under/rank/captain/nova/imperial/generic/red : /obj/item/clothing/under/imperial/red{@OLD}
