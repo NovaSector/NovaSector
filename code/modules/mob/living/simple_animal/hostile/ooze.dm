@@ -440,8 +440,8 @@
 			return FALSE
 		else
 			continue
-//NOVA EDIT ADDITION END
 
+//NOVA EDIT ADDITION END
 // This already processes, zero logic to add additional tracking to the item
 /datum/embedding/mending_globule/process(seconds_per_tick)
 	. = ..()
