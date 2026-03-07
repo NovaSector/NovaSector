@@ -1470,6 +1470,42 @@
 	name = "Windowed Dress (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
+/datum/greyscale_config/slit_dress
+	name = "Slit Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/slit_dress.json'
+
+/datum/greyscale_config/slit_dress/worn
+	name = "Slit Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/shorter_dress
+	name = "Shorter Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/shorter_dress.json'
+
+/datum/greyscale_config/shorter_dress/worn
+	name = "Shorter Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/pen_skirt
+	name = "Pen Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/pen_skirt.json'
+
+/datum/greyscale_config/pen_skirt/worn
+	name = "Pen Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/formal_pen_skirt
+	name = "Formal Pen Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/formal_pen_skirt.json'
+
+/datum/greyscale_config/formal_pen_skirt/worn
+	name = "Formal Pen Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
 // COSTUMES
 
 /datum/greyscale_config/jester_suit/worn/digi

@@ -1,0 +1,46 @@
+2026-03-04:
+  Hatterhat:
+  - rscadd: Following the short-lived success of the KOLBEN/NACHTREIHER overhaul suite
+      for M64 shotguns in Nanotrasen/FTU markets, Archon Combat Systems has begun
+      rollout of the LAMMERGEIER overhaul suite for double-barrel shotguns, featuring
+      duplex barrel chargers and an over/under configuration for precision fire. The
+      Lammergeier has a passive 70% multiplier on projectile spread, with the barrel
+      charger system taking it to a 40% multiplier on spread.
+  - balance: Downtuned the spread reduction on the amped Nachtreiher from a 40% multiplier
+      to a 70% multiplier.
+  Iajret:
+  - bugfix: Tarkon turrets tech node will no longer be shown as available when it
+      in fact isn't
+  vinylspiders:
+  - bugfix: latejoin tracker should no longer update as the round is starting to reflect
+      roundstart rulesets
+2026-03-05:
+  Some2s:
+  - rscadd: Adds the Unblinking quirk which disables blinking for your character.
+  sqnztb:
+  - balance: Atmos export prices greatly reduced across the board. See PR 6796 for
+      new values.
+2026-03-06:
+  81fm:
+  - rscadd: 4 new posters
+  Absolucy:
+  - qol: Your own LOOC, AOOC, SOOC, or Mentorsay messages will no longer trigger your
+      highlights.
+  Happyowl93:
+  - bugfix: fixed changeling transform carrying over mutant parts from a previous
+      profile
+  Hardly:
+  - qol: Barbers now spawn with the H41R 3XP3R7 skillchip
+  - bugfix: Head of Security Cap's "Sol Cap" skin is no longer invisible
+  Rilomatic:
+  - rscadd: Added Slit Dress (4 ALTS and Grayscale)
+  - rscadd: Shorter Dress (4 ALTS and grayscale)
+  - rscadd: Formal Pen Skirt (With loose top toggle and grayscale)
+  - rscadd: Pen skirt. (With grayscale)
+  - rscadd: Update to Windowed Dress (4 ALTS with grayscale)
+  muratendmo:
+  - rscadd: Heliostatic Coalition police surplus has been added to the SecDrobe.
+2026-03-07:
+  flleeppyy:
+  - bugfix: Fixed potential issue with setting opt in info on minds from users with
+      non-alphanumeric characters in their username.

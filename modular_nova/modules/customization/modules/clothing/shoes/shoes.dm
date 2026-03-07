@@ -152,6 +152,21 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, "It has a small <b>[span_red("red five pointed star")]</b> stamped onto the heel, and <b>[span_red("DIRIGO")]</b> etched under the soles.")
 
+/obj/item/clothing/shoes/jackboots/toeless // Ported from SPLURT
+	name = "toe-less jackboots"
+	desc = "Modified pair of jackboots, particularly friendly to those species whose toes hold claws."
+	icon = MODULAR_SHOES_ICON
+	icon_state = "jackboots-toeless"
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+
+/obj/item/clothing/shoes/workboots/toeless // Ported from SPLURT
+	name = "toe-less workboots"
+	desc = "A pair of toe-less work boots designed for use in industrial settings. Modified for species whose toes have claws."
+	icon = MODULAR_SHOES_ICON
+	icon_state = "workboots-toeless"
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
 /obj/item/clothing/shoes/winterboots/christmas
 	name = "christmas boots"

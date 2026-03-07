@@ -120,6 +120,7 @@
 	// NOVA EDIT ADDITION START
 	populate_interaction_instances()
 	remove_erp_things()
+	setup_gas_prices()
 	// NOVA EDIT ADDITION END
 
 	loaded = TRUE

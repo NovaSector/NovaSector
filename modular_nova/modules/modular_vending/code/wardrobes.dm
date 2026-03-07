@@ -20,6 +20,7 @@
 		/obj/item/clothing/under/rank/engineering/engineer/nova/trouser = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/utility = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/hazard_chem = 3,
+		/obj/item/clothing/shoes/workboots/toeless = 3,
 		/obj/item/clothing/under/misc/overalls = 3,
 		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/engi = 3,
 		/obj/item/clothing/head/utility/hardhat/orange = 2,
