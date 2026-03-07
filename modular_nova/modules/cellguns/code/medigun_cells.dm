@@ -34,7 +34,7 @@
 		return
 
 /// Checks to see if the patient is living and organic.
-/obj/projectile/energy/medical/proc/IsLivingHuman(mob/living/target)
+/obj/projectile/energy/medical/proc/is_living_human(mob/living/target)
 	if(!istype(target, /mob/living/carbon/human))
 		return FALSE
 	if(issynthetic(target))
@@ -45,7 +45,7 @@
 		return TRUE
 
 /// Checks for non-medicine reagents in the bloodstream, used for the toxin medicell.
-/obj/projectile/energy/medical/proc/checkReagents(mob/living/target)
+/obj/projectile/energy/medical/proc/check_reagents(mob/living/target)
 	var/non_medicine_chems = 0 //Keeps track of how many chemicals in the bloodstream aren't medicine.
 
 	for(var/reagent in target.reagents.reagent_list)
@@ -56,8 +56,8 @@
 	return non_medicine_chems
 
 /// Heals Oxygen with no threshold, make them gain disgust.
-/obj/projectile/energy/medical/proc/healOxy(mob/living/target, amount_healed, base_disgust, healing_threshold)
-	if(!IsLivingHuman(target))
+/obj/projectile/energy/medical/proc/heal_oxy(mob/living/target, amount_healed, base_disgust, healing_threshold)
+	if(!is_living_human(target))
 		return FALSE
 
 	target.adjust_disgust(base_disgust)
@@ -66,8 +66,8 @@
 	target.adjust_oxy_loss(-amount_healed)
 
 /// Heals Brute if it's at the threshold or less, make them gain disgust.
-/obj/projectile/energy/medical/proc/healBrute(mob/living/target, amount_healed, base_disgust, healing_threshold)
-	if(!IsLivingHuman(target))
+/obj/projectile/energy/medical/proc/heal_brute(mob/living/target, amount_healed, base_disgust, healing_threshold)
+	if(!is_living_human(target))
 		return FALSE
 
 	if(target.get_brute_loss() > healing_threshold)
@@ -79,8 +79,8 @@
 	target.adjust_brute_loss(-amount_healed)
 
 /// Heals Burn if it's at the threshold or less, make them gain disgust.
-/obj/projectile/energy/medical/proc/healBurn(mob/living/target, amount_healed, base_disgust, healing_threshold)
-	if(!IsLivingHuman(target))
+/obj/projectile/energy/medical/proc/heal_burn(mob/living/target, amount_healed, base_disgust, healing_threshold)
+	if(!is_living_human(target))
 		return FALSE
 
 	if(target.get_fire_loss() > healing_threshold)
@@ -92,15 +92,15 @@
 	target.adjust_fire_loss(-amount_healed)
 
 /// Heals Toxins if it's at the threshold or less, make them gain disgust.
-/obj/projectile/energy/medical/proc/healTox(mob/living/target, amount_healed, base_disgust, healing_threshold)
-	if(!IsLivingHuman(target))
+/obj/projectile/energy/medical/proc/heal_tox(mob/living/target, amount_healed, base_disgust, healing_threshold)
+	if(!is_living_human(target))
 		return FALSE
 
 	if(target.get_tox_loss() > healing_threshold)
 		return FALSE
 
 	var/healing_multiplier = 1.5
-	var/non_meds = checkReagents(target)
+	var/non_meds = check_reagents(target)
 	healing_multiplier = healing_multiplier - (non_meds / 4)
 
 	if(healing_multiplier < 0.25)
@@ -132,7 +132,7 @@
 
 /obj/projectile/energy/medical/brute/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healBrute(target, amount_healed, base_disgust, healing_threshold)
+	heal_brute(target, amount_healed, base_disgust, healing_threshold)
 
 //Basic Burn Heal Projectile
 /obj/item/ammo_casing/energy/medical/burn1
@@ -147,7 +147,7 @@
 
 /obj/projectile/energy/medical/burn/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healBurn(target, amount_healed, base_disgust, healing_threshold)
+	heal_burn(target, amount_healed, base_disgust, healing_threshold)
 
 //Basic Oxygen Heal Projectile. Doesn't get a casing because the base medical projectile is already oxygen.
 /obj/projectile/energy/medical/oxygen
@@ -156,7 +156,7 @@
 
 /obj/projectile/energy/medical/oxygen/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healOxy(target, amount_healed, base_disgust)
+	heal_oxy(target, amount_healed, base_disgust)
 
 //Basic Toxin Heal Projectile
 /obj/item/ammo_casing/energy/medical/toxin1
@@ -171,7 +171,7 @@
 
 /obj/projectile/energy/medical/toxin/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healTox(target, amount_healed, base_disgust, healing_threshold)
+	heal_tox(target, amount_healed, base_disgust, healing_threshold)
 
 /*
 *	TIER TWO
@@ -299,7 +299,7 @@
 
 /obj/projectile/energy/medical/utility/clotting/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(!IsLivingHuman(target))
+	if(!is_living_human(target))
 		return FALSE
 
 	if(target.reagents.get_reagent_amount(/datum/reagent/medicine/coagulant/fabricated) < 5) //injects the target with a weaker coagulant agent
@@ -319,7 +319,7 @@
 
 /obj/projectile/energy/medical/utility/temperature/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(!IsLivingHuman(target))
+	if(!is_living_human(target))
 		return FALSE
 
 	var/ideal_temp = target.get_body_temp_normal(apply_change=FALSE) //Gets the temperature we should be aiming for.
@@ -376,7 +376,7 @@
 	fall_chance = 0
 
 /obj/projectile/energy/medical/utility/salve/on_hit(mob/living/target, blocked = 0, pierce_hit, item_impact_zone, hit_zone)
-	if(!IsLivingHuman(target)) //No using this on the dead or synths.
+	if(!is_living_human(target)) //No using this on the dead or synths.
 		return FALSE
 	return ..()
 
