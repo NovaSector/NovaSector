@@ -50,12 +50,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "skin_tone_toggle"
 	can_randomize = FALSE
-
-/datum/preference/toggle/skin_tone_toggle/is_accessible(datum/preferences/preferences)
-	. = ..()
-	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
-	var/datum/species/species = GLOB.species_prototypes[species_type]
-	return (TRAIT_USES_SKINTONES in species.inherent_traits)
+	relevant_inherent_trait = TRAIT_USES_SKINTONES
 
 /datum/preference/toggle/skin_tone_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	if (!value)
@@ -65,11 +60,10 @@
 			bodypart_to_change.change_appearance(icon = BODYPART_ICON_HUMANOID, id = SPECIES_HUMANOID, greyscale = TRUE)
 	return TRUE
 
-/datum/preference/choiced/skin_tone
-	relevant_inherent_trait = null // we will check availability by our toggler instead
-
 /datum/preference/choiced/skin_tone/is_accessible(datum/preferences/preferences)
 	. = ..()
+	if(!.)
+		return
 	return preferences.read_preference(/datum/preference/toggle/skin_tone_toggle)
 
 /datum/preference/tri_color/mutant_colors
