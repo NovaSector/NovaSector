@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - rscadd: "Character editor now has Use Mutant Colors checkbox, which can be used to allow for more variations of coloring options for humanoids. It can also be used to limit coloring options for non-human species to a set of skin tones."
