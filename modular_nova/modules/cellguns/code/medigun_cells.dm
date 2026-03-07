@@ -468,7 +468,7 @@
 		if ((existing != parent))
 			target.visible_message(span_warning("[parent] slides right off of [target]'s [target_limb.plaintext_zone], already having a globule attached there!"))
 			qdel(parent)
-			return FALSE
+			return
 		else
 			continue
 
