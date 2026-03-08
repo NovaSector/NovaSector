@@ -456,7 +456,7 @@
 /obj/item/mending_globule/hardlight
 	name = "salve globule"
 	desc = "A ball of regenerative, synthetic plant matter, contained within a soft hardlight field."
-	embed_type = /datum/embedding/salve_globule
+	embed_type = /datum/embedding/salve_globule/hardlight
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
 	icon_state = "globule"
 	heals_left = 40 //This means it'll be heaing 10 damage per type max.
