@@ -3,6 +3,7 @@
 	make_default_mutant_bodypart_references()
 	make_body_marking_references()
 	make_body_marking_set_references()
+	make_robotic_style_references()
 	make_augment_references()
 	build_erp_item_list()
 
@@ -61,6 +62,13 @@
 		if(initial(BM.name))
 			BM = new path()
 			GLOB.body_marking_sets[BM.name] = BM
+
+/proc/make_robotic_style_references()
+	for(var/path in subtypesof(/datum/robotic_style))
+		var/datum/robotic_style/RS = path
+		if(initial(RS.name))
+			RS = new path()
+			GLOB.robotic_styles_list[RS.name] = RS
 
 /proc/init_nova_stack_recipes()
 	var/list/additional_stack_recipes = list(

@@ -27,12 +27,18 @@
 			old_head.eyes_icon = new_head.eyes_icon
 
 		if(uses_robotic_styles && prefs.augment_limb_styles[slot])
-			var/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
+			var/datum/robotic_style/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
 			old_limb.current_style = prefs.augment_limb_styles[slot]
+			if(chosen_style.dimorphic_chest && (istype(old_limb, /obj/item/bodypart/chest)))
+				old_limb.is_dimorphic = TRUE
+			if(chosen_style.dimorphic_head && (istype(old_limb, /obj/item/bodypart/head)))
+				old_limb.is_dimorphic = TRUE
+			if(chosen_style.limb_id_override)
+				old_limb.limb_id = chosen_style.limb_id_override
 			if(!uses_greyscale)
-				old_limb.set_icon_static(chosen_style)
+				old_limb.set_icon_static(chosen_style.icon)
 			else
-				old_limb.set_icon_greyscale(chosen_style)
+				old_limb.set_icon_greyscale(chosen_style.icon)
 		else
 			if(!uses_greyscale)
 				old_limb.set_icon_static(initial(new_limb.icon))
@@ -45,9 +51,18 @@
 		var/obj/item/bodypart/new_limb = new path(augmented)
 		var/obj/item/bodypart/old_limb = augmented.get_bodypart(new_limb.body_zone)
 		if(uses_robotic_styles && prefs.augment_limb_styles[slot])
-			var/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
-			new_limb.set_icon_static(chosen_style)
+			var/datum/robotic_style/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]] // Shit's fucked. Start testing on spawn?
 			new_limb.current_style = prefs.augment_limb_styles[slot]
+			if(chosen_style.dimorphic_chest && (istype(new_limb, /obj/item/bodypart/chest)))
+				new_limb.is_dimorphic = TRUE
+			if(chosen_style.dimorphic_head && (istype(new_limb, /obj/item/bodypart/head)))
+				new_limb.is_dimorphic = TRUE
+			if(chosen_style.limb_id_override)
+				new_limb.limb_id = chosen_style.limb_id_override
+			if(!uses_greyscale)
+				new_limb.set_icon_static(chosen_style.icon)
+			else
+				new_limb.set_icon_greyscale(chosen_style.icon)
 		if(supports_digitigrade == TRUE && old_limb.limb_id == BODYPART_ID_DIGITIGRADE)
 			new_limb.limb_id = BODYPART_ID_DIGITIGRADE
 			new_limb.base_limb_id = BODYPART_ID_DIGITIGRADE
@@ -144,7 +159,6 @@
 	uses_greyscale = TRUE
 	name = "Cyborg right arm (Greyscale)"
 	path = /obj/item/bodypart/arm/right/robot/weak/greyscale
-
 
 /datum/augment_item/limb/r_arm/plasmaman
 	name = "Plasmaman right arm"

@@ -8034,6 +8034,7 @@
 #include "modular_nova\modules\customization\datums\dna\mutant_bodyparts.dm"
 #include "modular_nova\modules\customization\datums\dna\blocks\dna_features_block.dm"
 #include "modular_nova\modules\customization\datums\keybinding\communication.dm"
+#include "modular_nova\modules\customization\datums\robotic_styles\robotic_styles.dm"
 #include "modular_nova\modules\customization\game\objects\items\balls.dm"
 #include "modular_nova\modules\customization\game\objects\items\conversion_kits.dm"
 #include "modular_nova\modules\customization\game\objects\items\donator_plushies.dm"
