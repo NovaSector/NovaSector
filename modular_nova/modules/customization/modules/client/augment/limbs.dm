@@ -29,10 +29,9 @@
 		if(uses_robotic_styles && prefs.augment_limb_styles[slot])
 			var/datum/robotic_style/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
 			old_limb.current_style = prefs.augment_limb_styles[slot]
-			if(chosen_style.dimorphic_chest && (istype(old_limb, /obj/item/bodypart/chest)))
-				old_limb.is_dimorphic = TRUE
-			if(chosen_style.dimorphic_head && (istype(old_limb, /obj/item/bodypart/head)))
-				old_limb.is_dimorphic = TRUE
+			var/dimorphic_override = LAZYACCESS(chosen_style.dimorphic_overrides, old_limb.body_zone)
+			if(!isnull(dimorphic_override))
+				old_limb.is_dimorphic = dimorphic_override
 			if(chosen_style.limb_id_override)
 				old_limb.limb_id = chosen_style.limb_id_override
 			if(!uses_greyscale)
@@ -53,10 +52,9 @@
 		if(uses_robotic_styles && prefs.augment_limb_styles[slot])
 			var/datum/robotic_style/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]] // Shit's fucked. Start testing on spawn?
 			new_limb.current_style = prefs.augment_limb_styles[slot]
-			if(chosen_style.dimorphic_chest && (istype(new_limb, /obj/item/bodypart/chest)))
-				new_limb.is_dimorphic = TRUE
-			if(chosen_style.dimorphic_head && (istype(new_limb, /obj/item/bodypart/head)))
-				new_limb.is_dimorphic = TRUE
+			var/dimorphic_override = LAZYACCESS(chosen_style.dimorphic_overrides, new_limb.body_zone)
+			if(!isnull(dimorphic_override))
+				new_limb.is_dimorphic = dimorphic_override
 			if(chosen_style.limb_id_override)
 				new_limb.limb_id = chosen_style.limb_id_override
 			if(!uses_greyscale)

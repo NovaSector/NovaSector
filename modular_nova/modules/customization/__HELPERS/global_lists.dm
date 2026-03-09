@@ -64,11 +64,9 @@
 			GLOB.body_marking_sets[BM.name] = BM
 
 /proc/make_robotic_style_references()
-	for(var/path in subtypesof(/datum/robotic_style))
-		var/datum/robotic_style/RS = path
-		if(initial(RS.name))
-			RS = new path()
-			GLOB.robotic_styles_list[RS.name] = RS
+	for(var/path in valid_subtypesof(/datum/robotic_style))
+		var/datum/robotic_style/style = path
+		GLOB.robotic_styles_list[style::name] = new style()
 
 /proc/init_nova_stack_recipes()
 	var/list/additional_stack_recipes = list(

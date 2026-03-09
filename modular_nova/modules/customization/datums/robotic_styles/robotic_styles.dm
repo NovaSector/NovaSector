@@ -4,10 +4,13 @@
 	var/icon = "None"
 	/// If this style should override the default limb_id
 	var/limb_id_override
-	/// If this style's source utilizes a dimorphic chest
-	var/dimorphic_chest = FALSE
-	/// If this style's source utilizes a dimorphic head
-	var/dimorphic_head = FALSE
+	/// If this style's source utilizes a dimorphic bodypart, it goes in this list assoc list keyed to the body_zone
+	var/list/dimorphic_overrides
+
+/datum/robotic_style/New()
+	if(LAZYLEN(dimorphic_overrides))
+		dimorphic_overrides = string_assoc_list(dimorphic_overrides)
+	return ..()
 
 /datum/robotic_style/scrappyipc
 	name = "Scrappy"
@@ -94,44 +97,49 @@
 	icon = 'modular_nova/master_files/icons/mob/augmentation/zhenkovipc_dark.dmi'
 
 /datum/robotic_style/dimorphic // subtype so we don't have to define dimorphic head+chest every single time
-	name = null // prevents the subtype from appearing in our list
-	dimorphic_chest = TRUE
-	dimorphic_head = TRUE
+	abstract_type = /datum/robotic_style/dimorphic
+	dimorphic_overrides = list(
+		BODY_ZONE_HEAD = TRUE,
+		BODY_ZONE_CHEST = TRUE,
+	)
 
 /datum/robotic_style/dimorphic/akula
 	name = "Akula"
-	icon = /obj/item/bodypart/chest/mutant/akula::icon_greyscale // see how we are just piggybacking off the actual greyscale limb here? this is ideal
-	limb_id_override = /obj/item/bodypart/chest/mutant/akula::limb_id // same here
+	icon = UNLINT(/obj/item/bodypart/chest/mutant/akula::icon_greyscale)
+	limb_id_override = /obj/item/bodypart/chest/mutant/akula::limb_id
 
 /datum/robotic_style/dimorphic/anthro
 	name = "Anthro"
-	icon = /obj/item/bodypart/chest/mutant::icon_greyscale
+	icon = UNLINT(/obj/item/bodypart/chest/mutant::icon_greyscale)
 	limb_id_override = /obj/item/bodypart/chest/mutant::limb_id
 
 /datum/robotic_style/dimorphic/lizard
 	name = "Lizard"
-	icon = /obj/item/bodypart/chest/lizard::icon_greyscale
+	icon = UNLINT(/obj/item/bodypart/chest/lizard::icon_greyscale)
 	limb_id_override = /obj/item/bodypart/chest/lizard::limb_id
-	dimorphic_head = FALSE
+	dimorphic_overrides = list(
+		BODY_ZONE_HEAD = FALSE,
+		BODY_ZONE_CHEST = TRUE,
+	)
 
 /datum/robotic_style/dimorphic/moth
 	name = "Moth"
-	icon = /obj/item/bodypart/chest/moth::icon_greyscale
+	icon = UNLINT(/obj/item/bodypart/chest/moth::icon_greyscale)
 	limb_id_override = /obj/item/bodypart/chest/moth::limb_id
 
 /datum/robotic_style/dimorphic/ramatan
 	name = "Ramatan"
-	icon = /obj/item/bodypart/chest/mutant/ramatae::icon_greyscale
+	icon = UNLINT(/obj/item/bodypart/chest/mutant/ramatae::icon_greyscale)
 	limb_id_override = /obj/item/bodypart/chest/mutant/ramatae::limb_id
 
 /datum/robotic_style/dimorphic/vox
 	name = "Vox"
-	icon = /obj/item/bodypart/chest/mutant/vox::icon_greyscale
+	icon = UNLINT(/obj/item/bodypart/chest/mutant/vox::icon_greyscale)
 	limb_id_override = /obj/item/bodypart/chest/mutant/vox::limb_id
 
 /datum/robotic_style/dimorphic/xenohybrid
 	name = "Xenohybrid"
-	icon = /obj/item/bodypart/chest/mutant/xenohybrid::icon_greyscale
+	icon = UNLINT(/obj/item/bodypart/chest/mutant/xenohybrid::icon_greyscale)
 	limb_id_override = /obj/item/bodypart/chest/mutant/xenohybrid::limb_id
 
 // kept at the bottom for parity with other augment dropdowns
