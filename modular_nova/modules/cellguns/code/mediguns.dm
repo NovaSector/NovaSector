@@ -25,7 +25,7 @@
 // Standard medigun - this is what you will get from Cargo, most likely.
 /obj/item/gun/energy/cell_loaded/medigun/standard
 	name = "\improper Vey-Medical CWM-479 cell-powered medigun"
-	desc = "This is a standard model medigun produced by Vey-Med for healing in less-than-ideal scenarios. The medicell chamber is rated to fit three cells."
+	desc = "This is a standard model medigun produced by Vey-Med for healing in less-than-ideal scenarios. Its chamber is rated to fit three medicells."
 
 // Upgraded medigun
 /obj/item/gun/energy/cell_loaded/medigun/upgraded
