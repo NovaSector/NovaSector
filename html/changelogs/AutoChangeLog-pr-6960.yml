@@ -1,8 +1,0 @@
-author: "MacaroniCritter"
-delete-after: True
-changes:
-  - rscadd: "The naval uniform and cap can now be recolored"
-  - image: "Revamped the naval uniform icons for the HOP, Captain, RD, HOS, and CE"
-  - image: "Added naval uniforms for the Blueshield, Bridge Officer, NT Rep, QM"
-  - code_imp: "The HOP's hats and berets now have the hop armor class"
-  - code_imp: "the captain's clothing items now all share the captains armor class"
