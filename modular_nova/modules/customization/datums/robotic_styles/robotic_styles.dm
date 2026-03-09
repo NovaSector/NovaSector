@@ -105,17 +105,17 @@
 
 /datum/robotic_style/dimorphic/akula
 	name = "Akula"
-	icon = UNLINT(/obj/item/bodypart/chest/mutant/akula::icon_greyscale)
+	icon = BODYPART_ICON_AKULA
 	limb_id_override = /obj/item/bodypart/chest/mutant/akula::limb_id
 
 /datum/robotic_style/dimorphic/anthro
 	name = "Anthro"
-	icon = UNLINT(/obj/item/bodypart/chest/mutant::icon_greyscale)
+	icon = BODYPART_ICON_MAMMAL
 	limb_id_override = /obj/item/bodypart/chest/mutant::limb_id
 
 /datum/robotic_style/dimorphic/lizard
 	name = "Lizard"
-	icon = UNLINT(/obj/item/bodypart/chest/lizard::icon_greyscale)
+	icon = BODYPART_ICON_LIZARD
 	limb_id_override = /obj/item/bodypart/chest/lizard::limb_id
 	dimorphic_overrides = list(
 		BODY_ZONE_HEAD = FALSE,
@@ -124,22 +124,22 @@
 
 /datum/robotic_style/dimorphic/moth
 	name = "Moth"
-	icon = UNLINT(/obj/item/bodypart/chest/moth::icon_greyscale)
+	icon = BODYPART_ICON_MOTH
 	limb_id_override = /obj/item/bodypart/chest/moth::limb_id
 
 /datum/robotic_style/dimorphic/ramatan
 	name = "Ramatan"
-	icon = UNLINT(/obj/item/bodypart/chest/mutant/ramatae::icon_greyscale)
+	icon = BODYPART_ICON_RAMATAE
 	limb_id_override = /obj/item/bodypart/chest/mutant/ramatae::limb_id
 
 /datum/robotic_style/dimorphic/vox
 	name = "Vox"
-	icon = UNLINT(/obj/item/bodypart/chest/mutant/vox::icon_greyscale)
+	icon = BODYPART_ICON_VOX
 	limb_id_override = /obj/item/bodypart/chest/mutant/vox::limb_id
 
 /datum/robotic_style/dimorphic/xenohybrid
 	name = "Xenohybrid"
-	icon = UNLINT(/obj/item/bodypart/chest/mutant/xenohybrid::icon_greyscale)
+	icon = BODYPART_ICON_XENO
 	limb_id_override = /obj/item/bodypart/chest/mutant/xenohybrid::limb_id
 
 // kept at the bottom for parity with other augment dropdowns
