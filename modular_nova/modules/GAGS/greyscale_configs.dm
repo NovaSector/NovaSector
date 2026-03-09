@@ -2554,12 +2554,12 @@ Security
 */
 
 /datum/greyscale_config/secformal
-	name = ""
-	icon_file = //'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
-	json_config = ''
+	name = "security formal suit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/security/formal.json'
 
 /datum/greyscale_config/secformal/worn
-	name = ""
+	name = "security formal suit (worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 
 /*
