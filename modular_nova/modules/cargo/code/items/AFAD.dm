@@ -15,10 +15,10 @@
 	if(target.health != target.maxHealth)
 		new /obj/effect/temp_visual/heal(get_turf(target), "#80F5FF")
 	var/need_mob_update
-	need_mob_update += target.adjust_brute_loss(PHYSICAL_DAMAGE_HEALING, updating_health = FALSE)
-	need_mob_update += target.adjust_fire_loss(PHYSICAL_DAMAGE_HEALING, updating_health = FALSE)
-	need_mob_update += target.adjust_tox_loss(EXOTIC_DAMAGE_HEALING, updating_health = FALSE)
-	need_mob_update += target.adjust_oxy_loss(EXOTIC_DAMAGE_HEALING, updating_health = FALSE)
+	need_mob_update = target.adjust_brute_loss(PHYSICAL_DAMAGE_HEALING, updating_health = FALSE, forced = TRUE)
+	need_mob_update += target.adjust_fire_loss(PHYSICAL_DAMAGE_HEALING, updating_health = FALSE, forced = TRUE)
+	need_mob_update += target.adjust_tox_loss(EXOTIC_DAMAGE_HEALING, updating_health = FALSE, forced = TRUE)
+	need_mob_update += target.adjust_oxy_loss(EXOTIC_DAMAGE_HEALING, updating_health = FALSE, forced = TRUE)
 	if(need_mob_update)
 		target.updatehealth()
 	return
