@@ -1051,3 +1051,13 @@
 	name = "dated Espatier holster"
 	item_path = /obj/item/storage/belt/espatier
 	ckeywhitelist = list("pyriteChimera", "darkinite", "deadmon_wonderland", "nonplayer775", "rilomatic")
+
+/datum/loadout_item/suit/stachelm
+	name = "Stachelm"
+	item_path = /obj/item/clothing/head/helmet/donator/stachelm
+	ckeywhitelist = list("ghostof93")
+
+/datum/loadout_item/head/duke_armored_coat
+	name = "Duke's Armored Coat"
+	item_path = /obj/item/clothing/suit/armor/donator/duke_armored_coat
+	ckeywhitelist = list("ambermane")
