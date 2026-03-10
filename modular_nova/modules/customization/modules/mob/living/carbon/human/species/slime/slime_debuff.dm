@@ -84,5 +84,8 @@
 			return
 		if(HAS_TRAIT(exposed_mob, TRAIT_WATER_BREATHING))
 			return
-		exposed_mob.adjust_blood_volume(-max(exposed_mob.blood_volume - 2, 0))
-		to_chat(exposed_mob, span_warning("The water causes you to melt away!"))
+		exposed_mob.adjust_blood_volume(-20)
+		exposed_mob.visible_message(
+			span_warning("The water causes [exposed_mob] to melt away!"),
+			span_warning("The water causes you to melt away!")
+		)

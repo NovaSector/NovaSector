@@ -256,7 +256,14 @@
 * Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
 */
 /obj/item/organ/brain/slime/check_for_repair(obj/item/item, mob/user)
-
+	if(istype(item, /obj/item/melee/touch_attack/mansus_fist))
+		regenerate(nugget = FALSE, heretic_revival = TRUE)
+		return TRUE
+	if(!item.is_drainable())
+		return TRUE
+	if(item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100)
+		user.balloon_alert(user, "not enough plasma!")
+		return TRUE
 	if(isnull(brainmob))
 		user.balloon_alert(user, "[src] is not a viable candidate for repair!")
 		return TRUE
@@ -264,6 +271,7 @@
 	if(isnull(brainmob.stored_dna))
 		user.balloon_alert(user, "[src] does not contain any dna!")
 		return TRUE
+	brainmob?.grab_ghost()
 	if(isnull(brainmob.client))
 		user.balloon_alert(user, "[src] does not contain a mind!")
 		return TRUE
@@ -277,7 +285,8 @@
 
 	user.visible_message(
 		span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."),
-		span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards...")
+		span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards..."),
+		span_hear("You hear bubbling.")
 	)
 	user.balloon_alert_to_viewers("pouring plasma...")
 
@@ -291,14 +300,17 @@
 		span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane.")
 	)
 
-	item.reagents.clear_reagents() //removes the whole shit
+	item.reagents.remove_reagent(/datum/reagent/toxin/plasma, 100)
 	regenerate()
 	return TRUE
 
 /obj/item/organ/brain/slime/proc/regenerate(nugget = TRUE, heretic_revival = FALSE)
 	//we have the plasma. we can rebuild them.
-	set_organ_damage(-maxHealth) //fully heals the brain
+	set_organ_damage(0) //fully heals the brain
 
+	if(istype(loc, /mob/living/basic/mining/legion))
+		var/mob/living/basic/mining/legion/legion = loc
+		legion.gib()
 	if(istype(loc, /obj/effect/abstract/chasm_storage))
 		// oh fuck we're reviving in a chasm somehow, uhhhh, quick, find us the nearest non-chasm turf
 		for(var/turf/turf as anything in spiral_range_turfs(5, get_turf(src), TRUE))
@@ -315,13 +327,13 @@
 	brainmob.client?.prefs?.safe_transfer_prefs_to(new_body)
 	new_body.underwear = "Nude"
 	new_body.bra = "Nude"
-	new_body.undershirt = "Nude" //Which undershirt the player wants
-	new_body.socks = "Nude" //Which socks the player wants
+	new_body.undershirt = "Nude"
+	new_body.socks = "Nude"
 	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
 	new_body.dna.update_uf_block(FEATURE_MUTANT_COLOR)
 	new_body.real_name = new_body.dna.real_name
 	new_body.name = new_body.dna.real_name
-	new_body.updateappearance(mutcolor_update=1)
+	new_body.updateappearance(mutcolor_update = TRUE)
 	new_body.domutcheck()
 	new_body.forceMove(get_turf(src))
 	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
@@ -332,11 +344,18 @@
 			if(!istype(bodypart, /obj/item/bodypart/chest))
 				bodypart.drop_limb()
 				continue
-		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
+		new_body.visible_message(
+			span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."),
+			span_purple("Your torso fully forms out of your core, yet to form the rest.")
+			)
+	else
+		new_body.visible_message(
+			span_warning("[new_body]'s body fully forms from [new_body.p_their()] core!"),
+			span_purple("Your body fully forms from your core!")
+		)
 	if(heretic_revival) // Let's revive them, and keep them at hard crit so they can be sacrificed
 		new_body.set_brute_loss(200, updating_health = TRUE)
 	to_chat(owner, span_danger("[CONFIG_GET(string/blackoutpolicy)]"))
-	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 	new_body.set_jitter_if_lower(200 SECONDS)
 	new_body.emote("scream")
 	drop_items_to_ground(new_body.drop_location())
@@ -362,7 +381,7 @@
 	if(slime_restricted && !isjellyperson(slime))
 		return
 	if(core.gps_active)
-		to_chat(owner,span_notice("You tune out the electromagnetic signals from your core so they are ignored by GPS receivers upon its rejection."))
+		to_chat(owner, span_notice("You tune out the electromagnetic signals from your core so they are ignored by GPS receivers upon its rejection."))
 		core.gps_active = FALSE
 	else
 		to_chat(owner, span_notice("You fine-tune the electromagnetic signals from your core to be picked up by GPS receivers upon its rejection."))
