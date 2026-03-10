@@ -40,3 +40,21 @@
   - rscadd: Update to Windowed Dress (4 ALTS with grayscale)
   muratendmo:
   - rscadd: Heliostatic Coalition police surplus has been added to the SecDrobe.
+2026-03-07:
+  Happyowl93:
+  - bugfix: large mortar works now.
+  - balance: balanced cost of bag of c4's and emp grenades to something more sensible
+  Iajret:
+  - rscadd: Character editor now has Use Mutant Colors checkbox, which can be used
+      to allow for more variations of coloring options for humanoids. It can also
+      be used to limit coloring options for non-human species to a set of skin tones.
+  flleeppyy:
+  - bugfix: Fixed potential issue with setting opt in info on minds from users with
+      non-alphanumeric characters in their username.
+2026-03-09:
+  MacaroniCritter:
+  - rscadd: The naval uniform and cap can now be recolored
+  - image: Revamped the naval uniform icons for the HOP, Captain, RD, HOS, and CE
+  - image: Added naval uniforms for the Blueshield, Bridge Officer, NT Rep, QM
+  - code_imp: The HOP's hats and berets now have the hop armor class
+  - code_imp: the captain's clothing items now all share the captains armor class

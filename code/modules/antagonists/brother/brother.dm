@@ -137,9 +137,9 @@
 	brother1.set_species(/datum/species/ethereal)
 
 	brother2.dna.features[FEATURE_MUTANT_COLOR] = "#E5CD99" // NOVA EDIT ADDITION - Customization
-	brother2.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = brother2.dna.species.build_mutant_part("Plain") // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_ANTENNAE] = "Plain"
-	brother2.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = brother2.dna.species.build_mutant_part(SPRITE_ACCESSORY_NONE) // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_MARKINGS] = "None"
-	brother2.dna.mutant_bodyparts[FEATURE_WINGS] = brother2.dna.species.build_mutant_part("Moth (Plain)") // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_WINGS] = "Plain"
+	brother2.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = build_mutant_part("Plain") // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_ANTENNAE] = "Plain"
+	brother2.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = build_mutant_part(SPRITE_ACCESSORY_NONE) // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_MARKINGS] = "None"
+	brother2.dna.mutant_bodyparts[FEATURE_WINGS] = build_mutant_part("Moth (Plain)") // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_WINGS] = "Plain"
 	brother2.set_species(/datum/species/moth)
 
 	var/icon/brother1_icon = render_preview_outfit(/datum/outfit/job/quartermaster, brother1)
