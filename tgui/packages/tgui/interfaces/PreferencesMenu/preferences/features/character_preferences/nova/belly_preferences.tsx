@@ -14,7 +14,7 @@ export const erp_belly_vore_prey: FeatureChoiced = {
   name: 'Vore Prey Preference',
   category: 'BELLY',
   description:
-    'Determines whether or not you partake in the belly system to engage in vore as a prey.  Never means you can never be a prey, query means you always get queried before someome tries to take you, always means you always consent.',
+    'Determines whether or not you partake in the belly system to engage in vore as a prey. \'Never\' means you can never be a prey, \'Query\' means you always get queried before someone tries to take you, \'Always\' means you always consent.',
   component: FeatureDropdownInput,
 };
 
@@ -22,7 +22,7 @@ export const erp_belly_vore_prey: FeatureChoiced = {
 export const erp_bellyquirk_color: Feature<string> = {
   name: 'Belly Color',
   description:
-    'Belly coloration. Match this to your skin, Augments+ or Mutant Colors to make it look smooth, and toggle Use Skintone if your torso uses a skintone spritesheet.',
+    'Belly coloration. Match this to your skin, Augments+ or Mutant Colors to make it look smooth, and toggle \'Use Skin tone\' if your torso uses a skintone spritesheet.',
   component: FeatureColorInput,
 };
 
