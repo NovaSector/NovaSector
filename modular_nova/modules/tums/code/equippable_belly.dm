@@ -28,7 +28,7 @@
 	actions_types = list(
 		/datum/action/item_action/belly_menu/access,
 	)
-	var/list/datum/action/item_action/belly_menu/belly_acts = list()
+	var/list/datum/action/item_action/belly_menu/belly_acts
 
 	var/mob/living/carbon/human/lastuser = null
 
@@ -142,8 +142,7 @@
 	. = ..()
 	for(var/mob/living/carbon/human/nommed in nommeds)
 		free_target(nommed)
-	QDEL_LIST(belly_acts)
-	belly_acts = null
+	QDEL_LAZYLIST(belly_acts)
 
 /obj/item/belly_function/New(loc, ...)
 	. = ..()

@@ -14,12 +14,12 @@
 		return
 	else
 		my_belly = Target
-		my_belly.belly_acts += src
+		LAZYADD(my_belly.belly_acts, src)
 
 /datum/action/item_action/belly_menu/Destroy(force)
 	. = ..()
 	if(src in my_belly.belly_acts)
-		my_belly.belly_acts -= src
+		LAZYREMOVE(my_belly.belly_acts, src)
 	my_belly = null
 
 
