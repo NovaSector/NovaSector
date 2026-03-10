@@ -2697,7 +2697,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	body_parts_covered = HEAD
 	flags_inv = HIDEHAIR|HIDEEARS
 	actions_types = list(/datum/action/item_action/toggle_helmet_light)
-	armor_type = /datum/armor/hats_caphat::armor_type
+	armor_type = /obj/item/clothing/head/hats/caphat::armor_type
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 4
 	light_power = 1
