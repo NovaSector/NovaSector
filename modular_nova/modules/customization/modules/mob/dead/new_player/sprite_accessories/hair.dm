@@ -671,6 +671,29 @@
 	name = "Long Dreadlocks"
 	icon_state = "hair_dreadlocks_long"
 
+/datum/sprite_accessory/hair/nova/twinbun_chunky
+	name = "Chunky Twin Buns"
+	icon_state = "hair_twinbun_chunky"
+
+/datum/sprite_accessory/hair/nova/quadbun_chunky
+	name = "Chunky Quad Buns"
+	icon_state = "hair_quadbun_chunky"
+	y_offset = 1
+
+/datum/sprite_accessory/hair/nova/ponytail_chunky
+	name = "Chunky Ponytail"
+	icon_state = "hair_ponytail_chunky"
+	hair_appendages_inner = list("hair_ponytail_chunky" = HAIR_APPENDAGE_REAR)
+
+/datum/sprite_accessory/hair/nova/ponytail_kzero
+	name = "'Zero' Ponytail"
+	icon_state = "hair_ponytail_kzero"
+	hair_appendages_inner = list("hair_ponytail_kzero" = HAIR_APPENDAGE_REAR)
+
+/datum/sprite_accessory/hair/nova/misshapen
+	name = "Misshapen"
+	icon_state = "hair_misshapen"
+
 /datum/sprite_accessory/hair/nova/halfbob
 	name = "Half Bob"
 	icon_state = "hair_bob_half"

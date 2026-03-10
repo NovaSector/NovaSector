@@ -184,6 +184,15 @@ export const eye_emissives: FeatureToggle = {
   component: CheckboxInput,
 };
 
+export const skin_tone_toggle: FeatureToggle = {
+  name: 'Skin Tone',
+  description:
+    'If we should use skin tones (an array of options \
+    close to human natural skin colors) or mutant \
+    colors (free color selection).',
+  component: CheckboxInput,
+};
+
 export const mutant_colors_color: Feature<string[]> = {
   name: 'Mutant Colors',
   component: FeatureTriColorInput,
@@ -608,6 +617,12 @@ export const feature_hair_opacity_toggle: Feature<boolean> = {
 export const feature_hair_opacity: Feature<number> = {
   name: 'Hair Opacity',
   component: FeatureNumberInput,
+};
+
+export const hair_emissive: Feature<boolean> = {
+  name: 'Hair Emissive',
+  description: 'Emissive parts glow in the dark.',
+  component: CheckboxInput,
 };
 
 export const neck_acc_toggle: FeatureToggle = {

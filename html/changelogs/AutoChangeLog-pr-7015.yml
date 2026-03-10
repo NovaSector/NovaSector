@@ -1,0 +1,6 @@
+author: "Skies-Of-Blue"
+delete-after: True
+changes:
+  - rscadd: "Adds two greyscaleable variants of the existing robotic limbs to the Augments+ tab"
+  - rscadd: "Adds seven new species-based reskins to robotic limbs, as well as adding the synth \"Default Chassis\" as a reskin option"
+  - image: "Added sprites to support the above"

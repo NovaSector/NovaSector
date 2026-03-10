@@ -180,9 +180,13 @@
 		return
 
 	for(var/mob/living/nearby in viewers(src))
-		if(nearby.stat >= UNCONSCIOUS || nearby.is_blind())
+		if(nearby == src || nearby.stat >= UNCONSCIOUS || nearby.is_blind())
 			continue
 		nearby.add_mood_event("saw_death", /datum/mood_event/conditional/see_death, src, dusted, gibbed)
+		nearby.mind?.witnessed_death(src)
+
+	if(!gibbed && !dusted)
+		mind?.experienced_death()
 
 /mob/living/silicon/send_death_moodlets(dusted = FALSE, gibbed = FALSE)
 	return // You are a machine (Future todo, roboticists feel sad though)
@@ -245,7 +249,7 @@
 	med_hud_set_status()
 	stop_pulling()
 
-	cut_overlay(GLOB.combat_indicator_overlay) //NOVA EDIT ADDITION - COMBAT_INDICATOR
+	vis_contents -= GLOB.combat_indicator_vis //NOVA EDIT ADDITION - COMBAT_INDICATOR
 	set_ssd_indicator(FALSE) //NOVA EDIT ADDITION - SSD_INDICATOR
 
 	SEND_SIGNAL(src, COMSIG_LIVING_DEATH, gibbed)

@@ -141,7 +141,7 @@
 	)
 	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
 		for(var/datum/wound/iter_wound as anything in organ_owner.all_wounds)
-			iter_wound.on_xadone(4 * REM * seconds_per_tick)
+			iter_wound.on_xadone(2 * seconds_per_tick)
 			organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
 		if(organ_owner.get_blood_volume() > BLOOD_VOLUME_SLIME_SPLIT)
 			organ_owner.adjust_organ_loss(
@@ -282,8 +282,7 @@
 * Procs the ethereal jaunt liquid effect when the slime dissolves on death.
 */
 /obj/item/organ/brain/slime/proc/do_steam_effects(turf/loc)
-	var/datum/effect_system/steam_spread/steam = new()
-	steam.set_up(10, FALSE, loc)
+	var/datum/effect_system/basic/steam_spread/steam = new(loc, 10, FALSE)
 	steam.start()
 
 /**
@@ -627,7 +626,7 @@
 	var/oversized_user = FALSE
 	///What text is shown to others when the person uses the ability?
 	var/shapeshift_text = "gains a look of concentration while standing perfectly still. Their body seems to shift and starts getting more goo-like."
-	///List containing all of the avalible parts
+	///List containing all of the available parts
 	var/static/list/available_choices
 	/// Icon for "Body Colors" alteration button.
 	var/bodycolours_icon
@@ -1011,7 +1010,7 @@
 			replacement_organ.sprite_accessory_flags = selected_sprite_accessory.flags_for_organ
 			replacement_organ.relevant_layers = selected_sprite_accessory.relevent_layers
 
-			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+			var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part(
 				selected_sprite_accessory.name,
 				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			)
@@ -1022,7 +1021,7 @@
 			replacement_organ.build_from_dna(alterer.dna, chosen_key)
 			replacement_organ.Insert(alterer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		else
-			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+			var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part(
 				selected_sprite_accessory.name,
 				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			)

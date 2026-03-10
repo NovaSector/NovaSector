@@ -34,8 +34,8 @@
 
 /datum/species/moth/prepare_human_for_preview(mob/living/carbon/human/moth)
 	moth.dna.features[FEATURE_MUTANT_COLOR] = "#E5CD99"
-	moth.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = moth.dna.species.build_mutant_part("Plain")
-	moth.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = moth.dna.species.build_mutant_part(SPRITE_ACCESSORY_NONE)
-	moth.dna.mutant_bodyparts[FEATURE_WINGS] = moth.dna.species.build_mutant_part("Moth (Plain)")
+	moth.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = build_mutant_part("Plain")
+	moth.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = build_mutant_part(SPRITE_ACCESSORY_NONE)
+	moth.dna.mutant_bodyparts[FEATURE_WINGS] = build_mutant_part("Moth (Plain)")
 	regenerate_organs(moth, src, visual_only = TRUE)
 	moth.update_body(TRUE)

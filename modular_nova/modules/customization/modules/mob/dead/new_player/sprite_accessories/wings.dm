@@ -16,7 +16,7 @@
 		SPECIES_LIZARD = 1,
 		SPECIES_MAMMAL = 1,
 	)
-	organ_type = /obj/item/organ/wings
+	organ_type = /obj/item/organ/wings/custom
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer)
@@ -349,9 +349,9 @@
 	name = "Moth (Deathshead)"
 	icon_state = "deathhead"
 
-/datum/sprite_accessory/wings/moth/featherful // Is actually 'feathery' on upstream
-	name = "Moth (Featherful)"
-	icon_state = "featherful"
+/datum/sprite_accessory/wings/moth/feathery
+	name = "Moth (Feathery)"
+	icon_state = "feathery"
 
 /datum/sprite_accessory/wings/moth/firewatch
 	name = "Moth (Firewatch)"

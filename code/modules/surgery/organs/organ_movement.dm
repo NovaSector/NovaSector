@@ -126,7 +126,7 @@
 	if(mutantpart_key && bodypart_overlay && isnull(organ_owner.dna.mutant_bodyparts[mutantpart_key]))
 		var/datum/sprite_accessory/sprite_acc = bodypart_overlay.sprite_datum
 		if(sprite_acc)
-			organ_owner.dna.mutant_bodyparts[mutantpart_key] = organ_owner.dna.species.build_mutant_part(sprite_acc.name, bodypart_overlay.draw_color || sprite_acc.get_default_color(organ_owner.dna.features, organ_owner.dna.species), bodypart_overlay.emissive_eligibility_by_color_index)
+			organ_owner.dna.mutant_bodyparts[mutantpart_key] = build_mutant_part(sprite_acc.name, bodypart_overlay.draw_color || sprite_acc.get_default_color(organ_owner.dna.features, organ_owner.dna.species), bodypart_overlay.emissive_eligibility_by_color_index)
 			bodypart_overlay.set_appearance_from_dna(organ_owner.dna)
 	// NOVA EDIT ADDITION END
 

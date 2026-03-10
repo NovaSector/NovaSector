@@ -44,6 +44,27 @@
 /datum/preference/toggle/allow_emissives/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return TRUE // we dont actually want this to do anything
 
+/datum/preference/toggle/skin_tone_toggle
+	priority = PREFERENCE_PRIORITY_BODYPARTS // we override species trait thus we go after species
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "skin_tone_toggle"
+	can_randomize = FALSE
+	relevant_inherent_trait = TRAIT_USES_SKINTONES
+
+/datum/preference/toggle/skin_tone_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	if (is_accessible(preferences) && !value)
+		REMOVE_TRAIT(target, TRAIT_USES_SKINTONES, SPECIES_TRAIT)
+		ADD_TRAIT(target, TRAIT_MUTANT_COLORS, SPECIES_TRAIT)
+		for(var/obj/item/bodypart/bodypart_to_change as anything in target.bodyparts)
+			bodypart_to_change.change_appearance(icon = BODYPART_ICON_HUMANOID, id = SPECIES_HUMANOID, greyscale = TRUE)
+	return TRUE
+
+/datum/preference/choiced/skin_tone/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return
+	return preferences.read_preference(/datum/preference/toggle/skin_tone_toggle)
+
 /datum/preference/tri_color/mutant_colors
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -239,7 +260,7 @@
 	savefile_key = "feature_ears"
 	relevant_mutant_bodypart = FEATURE_EARS
 	type_to_check = /datum/preference/toggle/mutant_toggle/ears
-	default_accessory_type = /datum/sprite_accessory/ears/none
+	default_accessory_type = /datum/sprite_accessory/ears/external/none
 
 /datum/preference/tri_color/ears
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -501,7 +522,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_screen_color"
 	relevant_mutant_bodypart = FEATURE_SYNTH_SCREEN
-	priority = PREFERENCE_PRIORITY_SPECIES
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES // This needs to run AFTER the choiced so it can apply before insertion, but before species.
 
 /datum/preference/toggle/emissive/ipc_screen_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -578,9 +599,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_chassis_color"
 	relevant_mutant_bodypart = FEATURE_SYNTH_CHASSIS
-	priority = PREFERENCE_PRIORITY_SPECIES	// This needs to run AFTER the choiced so it can apply before insertion.
-	// We have very little control over ordering outside of this, luckily this is alphabetically before species so it works.
-	// Prefs code is the fucking worst, I hate it here.
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES // This needs to run AFTER the choiced so it can apply before insertion, but before species.
 
 /// IPC Head
 
@@ -616,7 +635,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_head_color"
 	relevant_mutant_bodypart = FEATURE_SYNTH_HEAD
-	priority = PREFERENCE_PRIORITY_SPECIES
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES // This needs to run AFTER the choiced so it can apply before insertion, but before species.
 
 // Synth Hair Opacity
 
