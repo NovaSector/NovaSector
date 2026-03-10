@@ -74,9 +74,16 @@
 	post_init_icon_state = "formal"
 	greyscale_config = /datum/greyscale_config/secformal
 	greyscale_config_worn = /datum/greyscale_config/secformal/worn
-	//greyscale_config_worn_digi = /datum/greyscale_config/playsuit/worn/digi
-	greyscale_colors = "#787878#252525#CCCED1#787878"
-	flags_1 = null
+	greyscale_config_worn_digi = /datum/greyscale_config/secformal/worn/digi
+	greyscale_colors = "#39393F#EBEBEB#88242D#39393F"
+	flags_1 = NONE
+
+/obj/item/clothing/under/rank/security/nova/formal/blue
+	name = "security formal suit"
+	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
+	icon_state = "/obj/item/clothing/under/rank/security/nova/formal/blue"
+	greyscale_colors = "#39393F#EBEBEB#2C5185#39393F"
+	flags_1 = NONE
 
 /datum/atom_skin/security_jumpskirt
 	abstract_type = /datum/atom_skin/security_jumpskirt

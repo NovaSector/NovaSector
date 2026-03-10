@@ -2554,13 +2554,17 @@ Security
 */
 
 /datum/greyscale_config/secformal
-	name = "security formal suit"
+	name = "Security Formal Suit"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/under/security/formal.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/formal.json'
 
 /datum/greyscale_config/secformal/worn
-	name = "security formal suit (worn)"
+	name = "Security Formal Suit (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/secformal/worn/digi
+	name = "Security Formal Suit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
 
 /*
 This is all our modular PDAs, ITS LARGE!

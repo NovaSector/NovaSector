@@ -88,7 +88,7 @@
 				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt/mini/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/turtleneck/blue = 4,
-				//obj/item/clothing/under/rank/security/nova/formal/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/formal/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
 				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
 				/obj/item/clothing/gloves/color/black/security/white = 4,
