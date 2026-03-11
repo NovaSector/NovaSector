@@ -274,7 +274,7 @@
 /atom/movable/screen/alert/status_effect/asleep
 	name = "Asleep"
 	desc = "You've fallen asleep. Wait a bit and you should wake up. Unless you don't, considering how helpless you are."
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "asleep"
 
 //STASIS
@@ -332,7 +332,7 @@
 /atom/movable/screen/alert/status_effect/stasis
 	name = "Stasis"
 	desc = "Your biological functions have halted. You could live forever this way, but it's pretty boring."
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "stasis"
 
 /datum/status_effect/his_wrath //does minor damage over time unless holding His Grace
@@ -593,7 +593,7 @@
 /atom/movable/screen/alert/status_effect/trance
 	name = "Trance"
 	desc = "Everything feels so distant, and you can feel your thoughts forming loops inside your head..."
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "high"
 
 /datum/status_effect/trance/tick(seconds_between_ticks)
@@ -720,7 +720,7 @@
 /atom/movable/screen/alert/status_effect/convulsing
 	name = "Shaky Hands"
 	desc = "You've been zapped with something and your hands can't stop shaking! You can't seem to hold on to anything."
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "convulsing"
 
 /datum/status_effect/dna_melt
@@ -744,7 +744,7 @@
 /atom/movable/screen/alert/status_effect/dna_melt
 	name = "Genetic Breakdown"
 	desc = "I don't feel so good. Your body can't handle the mutations! You have one minute to remove your mutations, or you will be met with a horrible fate."
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "dna_melt"
 
 /datum/status_effect/go_away
@@ -800,7 +800,7 @@
 /atom/movable/screen/alert/status_effect/go_away
 	name = "TO THE STARS AND BEYOND!"
 	desc = "I must go, my people need me!"
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "high"
 
 /datum/status_effect/fake_virus
@@ -948,7 +948,7 @@
 /atom/movable/screen/alert/status_effect/ants
 	name = "Ants!"
 	desc = span_warning("JESUS FUCKING CHRIST! CLICK TO GET THOSE THINGS OFF!")
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "antalert"
 	clickable_glow = TRUE
 
@@ -1029,7 +1029,7 @@
 /atom/movable/screen/alert/status_effect/discoordinated
 	name = "Discoordinated"
 	desc = "You can't seem to properly use anything..."
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "convulsing"
 
 /datum/status_effect/discoordinated/on_apply()
@@ -1068,7 +1068,7 @@
 /atom/movable/screen/alert/status_effect/careful_driving
 	name = "Careful Driving"
 	desc = "That was close! You almost ran that one over!"
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "paralysis"
 
 /datum/movespeed_modifier/careful_driving
@@ -1095,7 +1095,7 @@
 /atom/movable/screen/alert/status_effect/midas_blight
 	name = "Midas Blight"
 	desc = "Your blood is being turned to gold, slowing your movements!"
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "midas_blight"
 
 /datum/status_effect/midas_blight/tick(seconds_between_ticks)
@@ -1145,7 +1145,7 @@
 /atom/movable/screen/alert/status_effect/designated_target
 	name = "Designated Target"
 	desc = "You've been lit up by some kind of bright energy! Wash it off to get rid of it, or you'll be a lot easier to hit!"
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "designated_target"
 
 /datum/status_effect/designated_target
