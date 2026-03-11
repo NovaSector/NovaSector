@@ -312,8 +312,7 @@
 /datum/experiment/scanning/points/xenoarch
 	name = "Advanced Xenoarchaeology Tools"
 	description = "It is possible to create even more advanced tools for xenoarchaeoloy."
-	required_points = 10
+	required_points = 5
 	required_atoms = list(
-		/obj/item/xenoarch/useless_relic = 1,
-		/obj/item/xenoarch/broken_item = 2,
+		/obj/item/xenoarch/broken_item = 1,
 	)

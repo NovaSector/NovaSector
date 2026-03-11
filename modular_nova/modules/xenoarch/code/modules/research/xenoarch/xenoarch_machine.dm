@@ -74,9 +74,7 @@
 	var/max_research = 300
 	/// the value of each accepted item
 	var/list/accepted_types = list(
-		/obj/item/xenoarch/strange_rock = 1,
-		/obj/item/xenoarch/useless_relic = 5,
-		/obj/item/xenoarch/useless_relic/magnified = 10,
+		/obj/item/xenoarch/strange_rock = 5,
 		/obj/item/xenoarch/broken_item = 10,
 	)
 
@@ -169,14 +167,14 @@
 /obj/machinery/xenoarch/scanner/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/storage/bag/xenoarch))
 		for(var/obj/item/xenoarch/strange_rock/chosen_rocks in attacking_item.contents)
-			chosen_rocks.get_scanned()
+			chosen_rocks.get_scanned(TRUE)
 
 		balloon_alert(user, "scan complete!")
 		return
 
 	if(istype(attacking_item, /obj/item/xenoarch/strange_rock))
 		var/obj/item/xenoarch/strange_rock/chosen_rock
-		if(chosen_rock.get_scanned())
+		if(chosen_rock.get_scanned(TRUE))
 			balloon_alert(user, "scan complete!")
 			return
 
