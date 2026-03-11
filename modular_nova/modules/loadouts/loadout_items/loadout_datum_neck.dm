@@ -265,6 +265,7 @@
 	name = "Colonial Cloak"
 	item_path = /obj/item/clothing/neck/cloak/colonial
 	group = "Cloaks and Shrouds"
+	species_blacklist = list(SPECIES_TESHARI)
 
 /datum/loadout_item/neck/coalition_police_cloak
 	name = "Colonial Cloak - Coalition Police"
@@ -325,7 +326,7 @@
 	name = "Seer Cloak (Colorable)"
 	item_path = /obj/item/clothing/neck/greyscaled/seecloak
 	group = "Cloaks and Shrouds"
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/seecloak
 
 /datum/loadout_item/neck/matroncloak
 	name = "Matron Cloak (Colorable)"

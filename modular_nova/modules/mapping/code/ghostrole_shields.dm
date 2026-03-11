@@ -9,6 +9,9 @@
 /obj/machinery/button/door/indestructible/blackmarket_trader/screwdriver_act()
 	return
 
+/obj/machinery/button/door/indestructible/blackmarket_trader/crowbar_act()
+	return
+
 /obj/machinery/button/door/indestructible/blackmarket_trader/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	return
 
@@ -33,6 +36,9 @@
 	return ..()
 
 /obj/machinery/door/poddoor/blackmarket_trader/screwdriver_act()
+	return
+
+/obj/machinery/button/door/indestructible/blackmarket_trader/crowbar_act()
 	return
 
 /obj/machinery/door/poddoor/blackmarket_trader/welder_act()

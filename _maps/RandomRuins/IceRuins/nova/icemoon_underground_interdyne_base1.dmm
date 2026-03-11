@@ -14,20 +14,10 @@
 	dir = 9;
 	faction = list("Syndicate","neutral")
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base)
-"af" = (
-/obj/machinery/camera/autoname/directional/south{
-	pixel_x = 20;
-	pixel_y = 32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo/deck)
 "ag" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "ah" = (
 /obj/machinery/door/poddoor{
@@ -38,15 +28,8 @@
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "ai" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
-"aj" = (
-/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer/ice{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/wood,
-/area/ruin/interdyne_planetary_base/cargo/deck)
 "ak" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
@@ -68,16 +51,6 @@
 /obj/structure/chair/office/light,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/wood,
-/area/ruin/interdyne_planetary_base/cargo/deck)
-"ao" = (
-/obj/machinery/button/door/directional/east{
-	id = "interdynedeckofficer";
-	req_access = list("syndicate")
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "ap" = (
@@ -168,11 +141,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "aC" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/viro)
 "aD" = (
 /obj/structure/disposalpipe/segment,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/viro)
 "aE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -190,7 +163,7 @@
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "aG" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
 "aH" = (
 /obj/machinery/door/airlock/external,
@@ -243,11 +216,6 @@
 /obj/structure/mirror/directional/east,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/interdyne_planetary_base/cargo/deck)
-"aT" = (
-/obj/structure/sign/warning/gas_mask/directional/east,
-/obj/effect/turf_decal/weather/snow,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/cargo)
 "aU" = (
 /obj/machinery/door/airlock/command{
 	name = "Deck Officer"
@@ -309,14 +277,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"be" = (
-/obj/machinery/camera/autoname/directional/south{
-	pixel_y = 32;
-	network = list("intd13")
-	},
-/obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo/deck)
 "bf" = (
 /obj/machinery/suit_storage_unit/mining,
 /obj/machinery/light/directional/north,
@@ -339,22 +299,12 @@
 /obj/machinery/suit_storage_unit/mining,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"bj" = (
-/obj/machinery/camera/autoname/directional/south{
-	pixel_x = 20;
-	pixel_y = 32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
 "bk" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 5;
 	faction = list("Syndicate","neutral")
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base)
 "bl" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -387,12 +337,6 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/firedoor,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/cargo)
-"bq" = (
-/obj/effect/turf_decal/stripes/white/line{
-	dir = 4
-	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "br" = (
@@ -1040,7 +984,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "cR" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "cS" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -1090,7 +1034,7 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/cargo)
 "cW" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "cX" = (
 /obj/effect/turf_decal/siding/brown{
@@ -1109,7 +1053,7 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "cZ" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "da" = (
 /obj/machinery/light/directional/east,
@@ -1182,7 +1126,7 @@
 /turf/open/floor/eighties,
 /area/ruin/interdyne_planetary_base/cargo)
 "dj" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "dk" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -1388,7 +1332,7 @@
 /area/ruin/interdyne_planetary_base/med/viro)
 "dK" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/main)
 "dL" = (
 /obj/machinery/door/airlock/maintenance/external,
@@ -1481,7 +1425,7 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
 "eb" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med)
 "ec" = (
 /obj/machinery/computer/terminal/derelict/security{
@@ -1490,7 +1434,7 @@
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "ed" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/med)
 "ee" = (
 /obj/machinery/computer/security/hos{
@@ -1516,20 +1460,13 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "eh" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
 "ei" = (
 /obj/structure/punching_bag,
 /obj/effect/turf_decal/siding/dark/end,
 /turf/open/floor/eighties,
 /area/ruin/interdyne_planetary_base/cargo)
-"ej" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 10;
-	faction = list("Syndicate","neutral")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/interdyne_planetary_base)
 "ek" = (
 /obj/structure/ore_box,
 /turf/open/floor/iron/diagonal,
@@ -1575,11 +1512,6 @@
 /obj/structure/bed/pod,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
-"er" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/floors.dmi', icon_state="textured_dark_large")
-	},
-/area/ruin/interdyne_planetary_base/cargo)
 "es" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/item/fakeartefact{
@@ -1721,10 +1653,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
-"eK" = (
-/obj/machinery/computer/operating,
-/turf/open/floor/iron/white/textured_large,
-/area/ruin/interdyne_planetary_base/med)
 "eL" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1807,14 +1735,6 @@
 /obj/machinery/duct,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/cargo)
-"eT" = (
-/obj/machinery/camera/autoname/directional/east{
-	pixel_x = -32;
-	pixel_y = -10;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
 "eU" = (
 /obj/machinery/duct,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -1852,7 +1772,7 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
 "fc" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/science)
 "fd" = (
 /obj/effect/turf_decal/vg_decals/department/cargo,
@@ -1978,16 +1898,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
-"fu" = (
-/obj/machinery/cell_charger_multi,
-/obj/item/stock_parts/power_store/cell/bluespace,
-/obj/machinery/airalarm/directional/west{
-	req_access = list("syndicate")
-	},
-/obj/structure/table/glass/plasmaglass,
-/obj/structure/sign/poster/official/periodic_table/directional/north,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/science)
 "fv" = (
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
@@ -1998,11 +1908,11 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
 "fx" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main)
 "fy" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "fz" = (
 /obj/machinery/door/poddoor{
@@ -2366,7 +2276,7 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "gx" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "gy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2448,23 +2358,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
-"gI" = (
-/obj/item/storage/box/stockparts/deluxe{
-	pixel_x = -6;
-	pixel_y = 11
-	},
-/obj/item/storage/box/stockparts/deluxe{
-	pixel_x = 8;
-	pixel_y = 5
-	},
-/obj/item/mmi/posibrain/syndie/interdyne,
-/obj/item/storage/box/beakers/bluespace,
-/obj/structure/table/glass/plasmaglass,
-/obj/item/storage/part_replacer/bluespace{
-	pixel_y = -12
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/science)
 "gJ" = (
 /obj/machinery/door/airlock/research{
 	name = "Science Wing"
@@ -2589,10 +2482,10 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
 "ha" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "hb" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/vault)
 "hc" = (
 /obj/structure/cable,
@@ -2619,34 +2512,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
-"hh" = (
-/obj/machinery/turretid{
-	name = "Base turret controls";
-	desc = "Used to control the base's automated defenses.";
-	dir = 1;
-	pixel_y = 30;
-	req_access = list("syndicate");
-	lethal = 1;
-	control_area = "/area/ruin/interdyne_planetary_base";
-	ailock = 1
-	},
-/obj/item/folder/syndicate/red/secretformula,
-/obj/item/circuitboard/computer/ghostpad/interdyne{
-	pixel_x = 2;
-	pixel_y = 2
-	},
-/obj/item/circuitboard/machine/ghostpad/interdyne{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/circuitboard/computer/cargo/express/ghost/interdyne{
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/obj/item/circuitboard/computer/bountypad,
-/obj/item/circuitboard/machine/bountypad,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/vault)
 "hi" = (
 /obj/structure/filingcabinet,
 /obj/machinery/blackbox_recorder,
@@ -2674,13 +2539,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
-"ho" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 6;
-	faction = list("Syndicate","neutral")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/interdyne_planetary_base)
 "hp" = (
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/turf_decal/weather/snow,
@@ -2797,13 +2655,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main)
-"hF" = (
-/obj/machinery/syndicatebomb/self_destruct{
-	anchored = 1
-	},
-/obj/effect/turf_decal/stripes/red/box,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/vault)
 "hG" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
@@ -2873,6 +2724,10 @@
 /obj/item/reagent_containers/dropper,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
+"hR" = (
+/obj/effect/turf_decal/stripes/red/box,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/vault)
 "hS" = (
 /obj/machinery/autolathe/hacked,
 /turf/open/floor/vault/alien{
@@ -3051,10 +2906,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/morgue)
-"ip" = (
-/obj/machinery/smartfridge/extract/preloaded,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/science/xeno)
 "iq" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/duct,
@@ -3078,10 +2929,10 @@
 /area/ruin/interdyne_planetary_base/main)
 "it" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "iu" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "iv" = (
 /obj/machinery/door/window/survival_pod/left/directional/east{
@@ -3440,7 +3291,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "jm" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "jn" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
@@ -3481,11 +3332,11 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "jr" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "js" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
 "jt" = (
 /obj/machinery/camera/xray{
@@ -3510,7 +3361,7 @@
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "jv" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "jw" = (
 /obj/structure/fans/tiny,
@@ -3595,7 +3446,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/interdyne_planetary_base/main)
 "jE" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "jG" = (
 /obj/structure/lattice/catwalk,
@@ -3662,15 +3513,6 @@
 /obj/structure/sign/flag/interdyne/directional/east,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
-"jN" = (
-/obj/structure/sign/painting/library{
-	pixel_x = 32
-	},
-/obj/machinery/modular_computer/preset/curator{
-	dir = 8
-	},
-/turf/open/floor/wood,
-/area/ruin/interdyne_planetary_base/main/dorms/lib)
 "jO" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/duct,
@@ -3730,7 +3572,7 @@
 /area/ruin/interdyne_planetary_base/science/xeno)
 "jW" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "jX" = (
 /obj/structure/fans/tiny,
@@ -3742,7 +3584,7 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "jY" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/eng)
 "jZ" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -3827,11 +3669,8 @@
 	},
 /turf/open/floor/carpet/royalblue,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
-"kj" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/interdyne_planetary_base/eng/disp)
 "kk" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "kl" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -4058,12 +3897,6 @@
 /obj/effect/turf_decal/siding/dark/end,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
-"kN" = (
-/obj/effect/turf_decal/tile/dark_red{
-	dir = 4
-	},
-/turf/open/floor/engine,
-/area/ruin/interdyne_planetary_base/science/xeno)
 "kO" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/machinery/light/directional/south,
@@ -4293,22 +4126,18 @@
 	dir = 10;
 	faction = list("Syndicate","neutral")
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base)
 "lo" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 6;
 	faction = list("Syndicate","neutral")
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base)
 "lp" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "lq" = (
 /obj/machinery/light_switch/directional/west,
@@ -4330,7 +4159,7 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "lt" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv)
 "lu" = (
 /obj/machinery/door/poddoor{
@@ -4340,7 +4169,7 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/serv)
 "lv" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lx" = (
 /obj/structure/dresser,
@@ -4906,14 +4735,14 @@
 /area/ruin/interdyne_planetary_base/main)
 "mK" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "mL" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "mM" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/viro)
 "mN" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
@@ -4936,7 +4765,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/eng)
 "mP" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "mQ" = (
 /obj/machinery/door/poddoor{
@@ -4957,13 +4786,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/eng)
-"mS" = (
-/obj/machinery/camera/autoname/directional/east{
-	pixel_x = -32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo/deck)
 "mT" = (
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -4976,17 +4798,6 @@
 /obj/machinery/duct,
 /obj/effect/turf_decal/arrows/white{
 	dir = 8
-	},
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/eng/disp)
-"mX" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/reagent_dispensers/plumbed{
-	name = "stationary very-high-capacity water tank";
-	desc = "A stationary, plumbed, very-high-capacity water tank.";
-	dir = 8;
-	prevent_rcd_deconstruction = 1;
-	tank_volume = 5000
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng/disp)
@@ -5351,9 +5162,7 @@
 /area/ruin/interdyne_planetary_base/main/dorms)
 "nQ" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/science)
 "nR" = (
 /obj/machinery/door/firedoor,
@@ -5402,7 +5211,7 @@
 /area/ruin/interdyne_planetary_base/serv/bar)
 "nV" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "nW" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -5441,7 +5250,7 @@
 	pixel_z = 6;
 	pixel_w = -3
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "oc" = (
 /obj/machinery/vending/hydronutrients{
@@ -5553,7 +5362,7 @@
 	name = "shutters button";
 	id = "interdynekitchen"
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "os" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
@@ -5834,17 +5643,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "oR" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate,
-/area/ruin/interdyne_planetary_base/main/dorms)
-"oS" = (
-/obj/machinery/button/door/directional/west{
-	name = "window security button";
-	id = "interdynedorms";
-	req_access = list("syndicate")
-	},
-/obj/structure/table/rolling,
-/obj/structure/bedsheetbin,
-/turf/open/floor/catwalk_floor/iron_dark,
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "oT" = (
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -5899,7 +5698,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "pa" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "pb" = (
 /obj/structure/reagent_dispensers/watertank/high,
@@ -5952,19 +5751,6 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
-"pg" = (
-/obj/structure/table,
-/obj/item/storage/box/drinkingglasses{
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass{
-	pixel_y = 8
-	},
-/obj/machinery/airalarm/directional/south{
-	req_access = list("syndicate")
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/serv/bar)
 "ph" = (
 /obj/structure/table,
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
@@ -5972,16 +5758,9 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/bar)
-"pi" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
-/area/ruin/interdyne_planetary_base/med)
 "pj" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "pk" = (
 /obj/structure/table,
@@ -6005,9 +5784,7 @@
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "pm" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/eng)
 "pn" = (
 /obj/structure/chair/plastic{
@@ -6102,22 +5879,9 @@
 	},
 /turf/open/floor/engine/n2,
 /area/ruin/interdyne_planetary_base/eng)
-"pC" = (
-/obj/machinery/atmospherics/miner/nitrogen,
-/turf/open/floor/engine/n2,
-/area/ruin/interdyne_planetary_base/eng)
 "pD" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/eng/disp)
-"pE" = (
-/obj/machinery/camera/autoname/directional/east{
-	pixel_x = -32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/science/xeno)
 "pF" = (
 /obj/machinery/door/airlock/vault{
 	id_tag = "syndie_lavaland_vault"
@@ -6135,59 +5899,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo/obs)
-"pH" = (
-/obj/machinery/camera/autoname/directional/east{
-	pixel_x = -32;
-	pixel_y = -20;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
-"pI" = (
-/obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/obj/machinery/camera/autoname/directional/south{
-	pixel_y = 32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/science)
 "pJ" = (
 /obj/structure/flora/tree/pine/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
-"pK" = (
-/obj/machinery/door/poddoor{
-	id = "interdynedorms"
-	},
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/camera/autoname/directional/north{
-	pixel_y = -32;
-	network = list("intd13")
-	},
-/turf/open/floor/plating/reinforced,
-/area/ruin/interdyne_planetary_base/main/dorms)
-"pL" = (
-/obj/machinery/camera/autoname/directional/west{
-	pixel_x = 32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo/deck)
-"pM" = (
-/obj/machinery/camera/autoname/directional/south{
-	pixel_x = 20;
-	pixel_y = 32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/med/viro)
-"pN" = (
-/obj/machinery/camera/autoname/directional/east{
-	pixel_x = -32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/science)
 "pO" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -6202,13 +5917,6 @@
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
-/area/ruin/interdyne_planetary_base/main)
-"pP" = (
-/obj/machinery/camera/autoname/directional/west{
-	pixel_x = 32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/main)
 "pQ" = (
 /obj/machinery/vending/boozeomat/syndicate{
@@ -6233,14 +5941,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/ruin/interdyne_planetary_base/main)
-"pS" = (
-/obj/machinery/camera/autoname/directional/north{
-	pixel_x = 20;
-	pixel_y = -32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/eng/disp)
 "pT" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/medipens{
@@ -6267,14 +5967,6 @@
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
-"pW" = (
-/obj/machinery/camera/autoname/directional/east{
-	pixel_x = -32;
-	pixel_y = -20;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/serv/hydr)
 "pX" = (
 /obj/structure/sign/poster/contraband/rush_propaganda/directional/north,
 /turf/open/floor/wood,
@@ -6294,42 +5986,22 @@
 /area/ruin/interdyne_planetary_base/eng/disp)
 "pZ" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/vault)
 "qb" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/pharm)
-"qc" = (
-/obj/machinery/light/directional/south,
-/obj/machinery/button/door/directional/east{
-	name = "window security button";
-	id = "interdynemedbay";
-	req_access = list("syndicate")
-	},
-/obj/structure/closet/crate/freezer/blood,
-/turf/open/floor/iron/white/textured_large,
-/area/ruin/interdyne_planetary_base/med)
-"qd" = (
-/obj/machinery/camera/autoname/directional/east{
-	pixel_x = -32;
-	pixel_y = -20;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/science/xeno)
 "qf" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "qg" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "qh" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate,
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "qi" = (
 /obj/machinery/door/firedoor,
@@ -6342,11 +6014,11 @@
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "qj" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/vault)
 "qk" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "ql" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
@@ -6358,15 +6030,15 @@
 /area/ruin/interdyne_planetary_base/med)
 "qm" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "qn" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "qo" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "qp" = (
 /obj/item/paper/guides/jobs/medical/morgue,
@@ -6382,15 +6054,15 @@
 /area/ruin/interdyne_planetary_base/med/morgue)
 "qq" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/eng)
 "qr" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "qs" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "qt" = (
 /obj/machinery/smartfridge/food,
@@ -6462,13 +6134,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
-"qC" = (
-/obj/machinery/light/directional/east,
-/obj/machinery/hydroponics/constructable{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/serv/hydr)
 "qD" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -6501,14 +6166,10 @@
 /area/icemoon/underground/explored)
 "qH" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/floors.dmi', icon_state="textured_dark_large")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/main)
 "qI" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/floors.dmi', icon_state="textured_dark_large")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/main)
 "qJ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -6584,7 +6245,7 @@
 	pixel_y = -32;
 	network = list("intd13")
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "qQ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -6642,7 +6303,7 @@
 /area/icemoon/underground/explored)
 "qY" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "qZ" = (
 /obj/structure/flora/tree/pine/style_random,
@@ -6653,78 +6314,10 @@
 /obj/structure/flora/bush/snow/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
-"rb" = (
-/obj/machinery/camera/autoname/directional/east{
-	pixel_x = -32;
-	pixel_y = -20;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/main/dorms)
-"rc" = (
-/obj/machinery/camera/autoname/directional/north{
-	pixel_y = -32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/main/dorms)
-"rd" = (
-/obj/machinery/camera/autoname/directional/north{
-	pixel_y = -32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/serv/hydr)
-"re" = (
-/obj/machinery/camera/autoname/directional/north{
-	pixel_x = 20;
-	pixel_y = -32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/serv/hydr)
 "rf" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
-"rg" = (
-/obj/machinery/camera/autoname/directional/west{
-	pixel_x = 32;
-	pixel_y = -20;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/eng/disp)
-"rh" = (
-/obj/machinery/camera/autoname/directional/west{
-	pixel_x = 32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/med/viro)
-"ri" = (
-/obj/machinery/camera/autoname/directional/west{
-	pixel_x = 32;
-	pixel_y = -20;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/med)
-"rj" = (
-/obj/machinery/camera/autoname/directional/west{
-	pixel_x = 32;
-	pixel_y = -20;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/serv/hydr)
-"rk" = (
-/obj/machinery/camera/autoname/directional/north{
-	pixel_y = -32;
-	network = list("intd13")
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
 "rl" = (
 /obj/structure/flora/grass/both/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
@@ -6751,7 +6344,7 @@
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "rq" = (
 /obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "rF" = (
 /turf/open/floor/plating/reinforced{
@@ -6765,10 +6358,20 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "rN" = (
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base/cargo/deck)
+"sj" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 4
+	},
+/obj/machinery/door/window/survival_pod/left/directional/south{
+	req_access = list("syndicate")
+	},
+/obj/machinery/camera/xray/directional/west{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "sL" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 1
@@ -6803,14 +6406,14 @@
 /area/icemoon/underground/explored)
 "tt" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "ua" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 5;
 	faction = list("Syndicate","neutral")
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base)
 "ui" = (
 /obj/machinery/hydroponics/constructable{
@@ -6821,12 +6424,34 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
+"uI" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/machinery/camera/xray/directional/east{
+	network = list("intd13")
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main)
 "uM" = (
 /obj/machinery/status_display/department_balance{
 	credits_account = "IP"
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
+"uV" = (
+/obj/machinery/cell_charger_multi,
+/obj/item/stock_parts/power_store/cell/bluespace,
+/obj/machinery/airalarm/directional/west{
+	req_access = list("syndicate")
+	},
+/obj/structure/table/glass/plasmaglass,
+/obj/structure/sign/poster/official/periodic_table/directional/north,
+/obj/machinery/camera/xray/directional/north{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/science)
 "vo" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 1
@@ -6853,6 +6478,17 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
+"vY" = (
+/mob/living/carbon/human/species/monkey{
+	faction = list("neutral","Syndicate");
+	ai_controller = null
+	},
+/obj/structure/bed/pod,
+/obj/machinery/camera/xray/directional/north{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/med/viro)
 "xc" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/weather/snow,
@@ -6879,6 +6515,19 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"yI" = (
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer/ice{
+	dir = 4
+	},
+/obj/machinery/light/directional/west,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/camera/xray/directional/west{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/cargo)
 "zt" = (
 /obj/structure/marker_beacon/burgundy,
 /obj/effect/turf_decal/stripes/corner{
@@ -6921,7 +6570,7 @@
 	dir = 9;
 	faction = list("Syndicate","neutral")
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base)
 "Al" = (
 /obj/structure/shipping_container/interdyne{
@@ -6949,6 +6598,10 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"AY" = (
+/obj/effect/baseturf_helper/reinforced_plating/ceiling,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
+/area/ruin/interdyne_planetary_base/science)
 "Br" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Service Wing"
@@ -6993,8 +6646,54 @@
 /obj/machinery/status_display/department_balance{
 	credits_account = "IP"
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/ware)
+"Cg" = (
+/obj/machinery/turretid{
+	name = "Base turret controls";
+	desc = "Used to control the base's automated defenses.";
+	dir = 1;
+	pixel_y = 30;
+	req_access = list("syndicate");
+	lethal = 1;
+	control_area = "/area/ruin/interdyne_planetary_base";
+	ailock = 1
+	},
+/obj/item/folder/syndicate/red/secretformula,
+/obj/item/circuitboard/computer/ghostpad/interdyne{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/circuitboard/machine/ghostpad/interdyne{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/circuitboard/computer/cargo/express/ghost/interdyne{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/circuitboard/computer/bountypad,
+/obj/item/circuitboard/machine/bountypad,
+/obj/structure/rack/shelf,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/vault)
+"CF" = (
+/obj/item/mmi/posibrain/syndie/interdyne,
+/obj/item/storage/box/beakers/bluespace,
+/obj/structure/table/glass/plasmaglass,
+/obj/item/storage/part_replacer/bluespace{
+	pixel_y = -12
+	},
+/obj/item/storage/box/stockparts/basic{
+	pixel_x = 9;
+	pixel_y = 10
+	},
+/obj/item/storage/box/stockparts/basic{
+	pixel_y = 10;
+	pixel_x = -8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/science)
 "CW" = (
 /obj/structure/shipping_container/kosmologistika{
 	pixel_x = -6;
@@ -7059,6 +6758,39 @@
 /obj/machinery/announcement_system,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
+"Fw" = (
+/obj/machinery/duct,
+/obj/machinery/camera/xray/directional/north{
+	network = list("intd13")
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main)
+"Fx" = (
+/obj/structure/table,
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_y = 8
+	},
+/obj/machinery/airalarm/directional/south{
+	req_access = list("syndicate")
+	},
+/obj/machinery/camera/xray/directional/south{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/bar)
+"FF" = (
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer/ice{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/camera/xray/directional/west{
+	network = list("intd13")
+	},
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/cargo/deck)
 "FH" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 8
@@ -7081,6 +6813,20 @@
 	},
 /turf/open/floor/stone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
+"GJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/plumbed{
+	name = "stationary very-high-capacity water tank";
+	desc = "A stationary, plumbed, very-high-capacity water tank.";
+	dir = 8;
+	prevent_rcd_deconstruction = 1;
+	tank_volume = 5000
+	},
+/obj/machinery/camera/xray/directional/east{
+	network = list("intd13")
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/eng/disp)
 "GW" = (
 /obj/item/toy/figure/syndie,
 /turf/open/floor/plating/reinforced{
@@ -7099,6 +6845,13 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
+"Hn" = (
+/obj/structure/sign/painting/library{
+	pixel_x = 32
+	},
+/obj/structure/table/wood,
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/main/dorms/lib)
 "Ht" = (
 /obj/machinery/door/airlock/grunge{
 	name = "Bar"
@@ -7139,8 +6892,22 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo)
+"HX" = (
+/obj/machinery/smartfridge/extract/preloaded,
+/obj/machinery/camera/xray/directional/north{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/science/xeno)
+"Ip" = (
+/obj/machinery/computer/operating,
+/obj/machinery/camera/xray/directional/north{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/white/textured_large,
+/area/ruin/interdyne_planetary_base/med)
 "Iu" = (
 /obj/structure/shipping_container/kahraman{
 	pixel_y = -14
@@ -7163,7 +6930,7 @@
 /obj/machinery/status_display/department_balance{
 	credits_account = "IP"
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv)
 "IN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7186,6 +6953,15 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
+"JF" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 4
+	},
+/obj/machinery/camera/xray/directional/south{
+	network = list("intd13")
+	},
+/turf/open/floor/engine,
+/area/ruin/interdyne_planetary_base/science/xeno)
 "JM" = (
 /obj/structure/marker_beacon/burgundy,
 /obj/effect/turf_decal/stripes/corner{
@@ -7234,11 +7010,11 @@
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "Lg" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med)
 "LJ" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv)
 "LM" = (
 /obj/effect/turf_decal/weather/snow,
@@ -7260,8 +7036,30 @@
 /area/icemoon/underground/explored)
 "Mf" = (
 /obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/med/viro)
+"MQ" = (
+/obj/machinery/button/door/directional/east{
+	id = "interdynedeckofficer";
+	req_access = list("syndicate")
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/machinery/camera/xray/directional/east{
+	network = list("intd13")
+	},
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/cargo/deck)
+"Na" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/camera/xray/directional/east{
+	network = list("intd13")
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main)
 "Np" = (
 /obj/structure/railing{
 	dir = 8
@@ -7275,13 +7073,13 @@
 /area/ruin/interdyne_planetary_base/main/dorms)
 "Nz" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "NA" = (
 /obj/machinery/status_display/department_balance{
 	credits_account = "IP"
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/science)
 "Oj" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -7315,14 +7113,6 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"OK" = (
-/obj/machinery/camera/autoname/directional/west{
-	pixel_y = -10;
-	network = list("intd13");
-	pixel_x = 32
-	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
 "Pg" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -7333,7 +7123,14 @@
 /area/icemoon/underground/explored)
 "Pp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
+/area/ruin/interdyne_planetary_base/eng)
+"Px" = (
+/obj/machinery/atmospherics/miner/nitrogen,
+/obj/machinery/camera/xray/directional/east{
+	network = list("intd13")
+	},
+/turf/open/floor/engine/n2,
 /area/ruin/interdyne_planetary_base/eng)
 "PD" = (
 /obj/structure/railing,
@@ -7359,16 +7156,39 @@
 	},
 /turf/open/lava/plasma/ice_moon,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"Rd" = (
+/obj/machinery/light/directional/south,
+/obj/machinery/button/door/directional/east{
+	name = "window security button";
+	id = "interdynemedbay";
+	req_access = list("syndicate")
+	},
+/obj/structure/closet/crate/freezer/blood,
+/obj/machinery/camera/xray/directional/east{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/white/textured_large,
+/area/ruin/interdyne_planetary_base/med)
 "Rt" = (
 /obj/structure/sign/warning/radiation/directional/north,
 /obj/effect/turf_decal/trimline/yellow/filled/warning,
 /turf/open/floor/iron/submarine_vents,
 /area/ruin/interdyne_planetary_base/eng)
+"RR" = (
+/obj/machinery/light/directional/east,
+/obj/machinery/hydroponics/constructable{
+	dir = 8
+	},
+/obj/machinery/camera/xray/directional/east{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "Sb" = (
 /obj/machinery/status_display/department_balance{
 	credits_account = "IP"
 	},
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "Sp" = (
 /obj/structure/cable,
@@ -7428,6 +7248,27 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"Us" = (
+/obj/structure/sign/warning/gas_mask/directional/east,
+/obj/effect/turf_decal/weather/snow,
+/obj/machinery/camera/xray/directional/east{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/cargo)
+"UZ" = (
+/obj/machinery/button/door/directional/west{
+	name = "window security button";
+	id = "interdynedorms";
+	req_access = list("syndicate")
+	},
+/obj/structure/table/rolling,
+/obj/structure/bedsheetbin,
+/obj/machinery/camera/xray/directional/south{
+	network = list("intd13")
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "Va" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7482,9 +7323,7 @@
 	},
 /obj/effect/baseturf_helper/reinforced_plating,
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/plastitanium/syndicate{
-	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
-	},
+/turf/closed/wall/r_wall/plastitanium/syndicate/shielded,
 /area/ruin/interdyne_planetary_base)
 "Wq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7536,6 +7375,19 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"Xv" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/bed/double{
+	dir = 1
+	},
+/obj/effect/spawner/random/bedsheet/any/double{
+	dir = 1
+	},
+/obj/machinery/camera/xray/directional/south{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "Xz" = (
 /obj/machinery/hydroponics/constructable{
 	dir = 4
@@ -7547,8 +7399,12 @@
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "XB" = (
 /obj/structure/sign/poster/contraband/moffuchis_pizza,
-/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
+"XS" = (
+/obj/effect/baseturf_helper/reinforced_plating,
+/turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal/shielded,
+/area/ruin/interdyne_planetary_base/cargo/deck)
 "Yw" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medical Wing";
@@ -7564,6 +7420,15 @@
 	},
 /turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
+"YX" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/machinery/camera/xray/directional/north{
+	network = list("intd13")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/cargo)
 "Zd" = (
 /obj/structure/marker_beacon/burgundy,
 /obj/effect/turf_decal/stripes/corner,
@@ -7575,6 +7440,16 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"Zl" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/machinery/duct,
+/obj/machinery/camera/xray/directional/south{
+	network = list("intd13")
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main)
 "ZP" = (
 /obj/machinery/hydroponics/constructable{
 	dir = 8
@@ -7916,13 +7791,13 @@ ab
 ab
 ab
 pj
-pE
 iu
 iu
 iu
 iu
 iu
-qd
+iu
+iu
 ln
 ab
 ab
@@ -7969,19 +7844,19 @@ ab
 ab
 ab
 nQ
-pN
+fc
 fz
 fz
 fz
 fc
 tt
-ip
+HX
 iT
 jk
 jt
 jU
 kv
-kN
+JF
 qk
 lv
 lv
@@ -7991,7 +7866,7 @@ xj
 lv
 lv
 lv
-rb
+lv
 ln
 ab
 ab
@@ -8027,9 +7902,9 @@ ab
 ab
 ab
 ab
-pI
-fu
-gI
+AY
+uV
+CF
 hm
 kW
 hT
@@ -8050,8 +7925,8 @@ AG
 no
 mh
 og
-Bx
-rc
+Xv
+lv
 ab
 ab
 ab
@@ -8244,7 +8119,7 @@ dW
 ab
 ab
 Wm
-mS
+ag
 ag
 ag
 ai
@@ -8302,8 +8177,8 @@ dW
 dW
 ab
 ab
-be
-aj
+XS
+FF
 av
 aL
 js
@@ -8311,14 +8186,14 @@ aG
 aG
 aG
 aG
-eT
 aG
 aG
 aG
 aG
 aG
-pH
-ej
+aG
+aG
+ln
 as
 ab
 ab
@@ -8370,14 +8245,14 @@ aY
 bs
 aG
 aY
-bs
+yI
 aG
 aY
 bs
 HO
 aY
-bs
-rk
+yI
+aG
 as
 ab
 as
@@ -8404,7 +8279,7 @@ nJ
 nq
 mh
 og
-Bx
+Xv
 lv
 ab
 ab
@@ -8657,7 +8532,7 @@ dW
 ab
 ab
 ah
-ao
+MQ
 aA
 aP
 aG
@@ -8727,7 +8602,7 @@ aG
 aG
 aG
 aG
-er
+eh
 di
 dQ
 ei
@@ -8759,8 +8634,8 @@ ns
 nO
 oh
 ox
-oS
-pK
+UZ
+mQ
 ab
 ab
 dW
@@ -8793,7 +8668,7 @@ dj
 dj
 cR
 qH
-eU
+Fw
 eU
 eU
 gL
@@ -8801,7 +8676,7 @@ hA
 hY
 iq
 iq
-eX
+Zl
 qI
 jm
 jL
@@ -8833,7 +8708,7 @@ dW
 dW
 ab
 ab
-af
+ag
 aq
 aF
 aR
@@ -8893,7 +8768,7 @@ ab
 ab
 ab
 rN
-pL
+ag
 ag
 ag
 aG
@@ -8922,7 +8797,7 @@ ft
 eQ
 ja
 jm
-jN
+Hn
 kq
 kK
 li
@@ -9091,8 +8966,8 @@ eW
 fd
 fT
 hb
-hh
-hF
+Cg
+hR
 hN
 pF
 fT
@@ -9113,7 +8988,7 @@ nz
 nS
 ok
 oC
-pg
+Fx
 pa
 ab
 ab
@@ -9190,7 +9065,7 @@ ab
 ab
 ab
 aH
-aT
+Us
 aV
 bm
 bm
@@ -9383,7 +9258,7 @@ em
 ez
 cW
 qI
-eZ
+Na
 fY
 fY
 hf
@@ -9391,7 +9266,7 @@ hG
 ii
 is
 fY
-iR
+uI
 qI
 jr
 hX
@@ -9427,7 +9302,7 @@ ab
 ab
 ab
 ra
-bj
+aG
 bm
 bF
 bT
@@ -9442,7 +9317,7 @@ en
 eA
 cW
 fx
-pP
+fx
 fr
 Lg
 JE
@@ -9451,7 +9326,7 @@ Yw
 eb
 ik
 fx
-pP
+fx
 jr
 jr
 jr
@@ -9546,7 +9421,7 @@ ab
 as
 pJ
 aW
-bq
+YX
 bH
 bU
 ch
@@ -9607,7 +9482,7 @@ rl
 aW
 br
 bI
-OK
+aG
 ci
 cw
 aW
@@ -9647,7 +9522,7 @@ pe
 mP
 mP
 mP
-pW
+mP
 ln
 ab
 dW
@@ -9705,9 +9580,9 @@ os
 oM
 Xz
 Xz
-Xz
+sj
 qB
-rd
+mP
 ab
 dW
 dW
@@ -10001,8 +9876,8 @@ pf
 Hm
 ui
 ui
-qC
-re
+RR
+mP
 ab
 dW
 dW
@@ -10060,7 +9935,7 @@ jY
 jY
 mP
 mP
-rj
+mP
 qg
 ab
 dW
@@ -10292,7 +10167,7 @@ mZ
 pp
 pu
 py
-pC
+Px
 jY
 ab
 ab
@@ -10322,8 +10197,8 @@ ab
 ab
 ab
 ab
-pM
-ep
+aC
+vY
 eE
 eE
 dJ
@@ -10382,7 +10257,7 @@ ab
 ab
 ab
 bk
-rh
+aC
 aC
 aC
 aC
@@ -10582,8 +10457,8 @@ kE
 kZ
 lf
 ls
-mX
-pS
+GJ
+kk
 ab
 ab
 ab
@@ -10636,12 +10511,12 @@ ha
 jE
 as
 as
-kj
+pD
 kk
 kk
 kk
 kk
-rg
+kk
 pD
 ab
 ab
@@ -10742,11 +10617,11 @@ ab
 ab
 ab
 eb
-eK
+Ip
 fo
 fM
 fn
-qc
+Rd
 eb
 ra
 ac
@@ -10800,13 +10675,13 @@ ab
 ab
 ab
 ab
-pi
+ed
 eb
 eb
 fN
 fN
-ri
-ho
+eb
+lo
 as
 as
 ab

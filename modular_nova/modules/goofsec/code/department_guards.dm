@@ -9,7 +9,9 @@
 /obj/item/clothing/under/rank/security/officer/blueshirt/nova
 	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	name = "science guard's uniform"
-	unique_reskin = null
+
+/obj/item/clothing/under/rank/security/officer/blueshirt/nova/setup_reskins()
+	return
 
 /obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly
 	name = "orderly uniform"
@@ -54,8 +56,10 @@
 	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
-	unique_reskin = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/armor/vest/blueshirt/nova/setup_reskins()
+	return
 
 /obj/item/clothing/suit/armor/vest/blueshirt/nova/guard //Badge-less version of the blueshirt vest
 	icon_state = "guard_armor"
@@ -87,7 +91,6 @@
 /obj/item/clothing/head/helmet/blueshirt/nova
 	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	//The base one is used for science guards, and the sprite is unchanged
-	unique_reskin = null
 
 /obj/item/clothing/head/helmet/blueshirt/nova/guard //Version of the blueshirt helmet without a blue line. Used by all dept guards right now.
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
@@ -134,7 +137,9 @@
 	worn_icon_state = "engine"
 	icon = 'modular_nova/modules/goofsec/icons/obj/belts.dmi'
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/belts.dmi'
-	unique_reskin = null
+
+/obj/item/storage/belt/security/department_guard/setup_reskins()
+	return
 
 /obj/item/storage/belt/security/department_guard/science
 	name = "science guard belt"
@@ -230,7 +235,6 @@
 /datum/job/science_guard
 	title = JOB_SCIENCE_GUARD
 	description = "Figure out why the emails aren't working, keep an eye on the eggheads, protect them from their latest mistakes."
-	department_head = list(JOB_RESEARCH_DIRECTOR)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
@@ -330,7 +334,6 @@
 /datum/job/orderly
 	title = JOB_ORDERLY
 	description = "Defend the medical department, hold down idiots who refuse the vaccine, assist medical with prep and/or cleanup."
-	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
@@ -426,7 +429,6 @@
 /datum/job/engineering_guard
 	title = JOB_ENGINEERING_GUARD
 	description = "Monitor the supermatter, keep an eye on atmospherics, make sure everyone is wearing Proper Protective Equipment."
-	department_head = list(JOB_CHIEF_ENGINEER)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
@@ -527,7 +529,6 @@
 /datum/job/customs_agent
 	title = JOB_CUSTOMS_AGENT
 	description = "Inspect the packages coming to and from the station, protect the cargo department, beat the shit out of people trying to ship Cocaine to the Spinward Stellar Coalition."
-	department_head = list(JOB_QUARTERMASTER)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
@@ -622,7 +623,6 @@
 /datum/job/bouncer
 	title = JOB_BOUNCER
 	description = "Make sure people don't jump the kitchen counter, stop Chapel vandalism, check bargoer's IDs, prevent the dreaded \"food fight\"."
-	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
@@ -729,7 +729,7 @@
 	. = ..()
 	icon_state = "[department_icon_state]_[icon_state]"
 
-/obj/item/melee/baton/security/loaded/departmental/can_baton(mob/living/target, mob/living/user)
+/obj/item/melee/baton/security/loaded/departmental/try_stun(mob/living/target, mob/living/user, harmbatonning)
 	if(active && !emagged && COOLDOWN_FINISHED(src, cooldown_check))
 		var/area/current_area = get_area(user)
 		if(!is_type_in_list(current_area, valid_areas))
@@ -747,7 +747,7 @@
 				playsound(src, SFX_SPARKS, 75, TRUE, -1)
 				update_appearance()
 				return FALSE
-	. = ..()
+	return ..()
 
 /obj/item/melee/baton/security/loaded/departmental/attack_self(mob/user)
 	. = ..()

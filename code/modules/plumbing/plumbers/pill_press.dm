@@ -30,7 +30,7 @@
 	buffer = 100
 	// NOVA EDIT ADDITION END
 
-/obj/machinery/plumbing/pill_press/Initialize(mapload, bolt, layer)
+/obj/machinery/plumbing/pill_press/Initialize(mapload, layer)
 	. = ..()
 
 	if(!packaging_types)
@@ -41,7 +41,7 @@
 			CAT_PATCHES = GLOB.reagent_containers[CAT_PATCHES],
 			"Bottles" = list(/obj/item/reagent_containers/cup/bottle),
 			CAT_HYPOS = GLOB.reagent_containers[CAT_HYPOS], // NOVA EDIT ADDITION - Hypovials
-
+			CAT_PEN_INJECTORS = GLOB.reagent_containers[CAT_PEN_INJECTORS], // NOVA EDIT ADDITION - pen_medipens
 		)
 
 		packaging_types = list()
@@ -63,7 +63,7 @@
 	max_volume = initial(packaging_type.volume)
 	current_volume = clamp(current_volume, MIN_VOLUME, max_volume)
 
-	AddComponent(/datum/component/plumbing/simple_demand, bolt, layer)
+	AddComponent(/datum/component/plumbing/simple_demand, layer, distinct_reagent_cap = 3)
 
 /obj/machinery/plumbing/pill_press/Destroy(force)
 	QDEL_LAZYLIST(stored_products)
@@ -210,6 +210,8 @@
 			// NOVA EDIT ADDITION START
 			else if(ispath(packaging_type, /obj/item/reagent_containers/cup/vial))
 				packaging_category = CAT_HYPOS
+			else if(ispath(packaging_type, /obj/item/reagent_containers/hypospray/medipen/deforest/printable))
+				packaging_category = CAT_PEN_INJECTORS
 			// NOVA EDIT ADDITION END
 			else
 				packaging_category = "Bottles"

@@ -54,6 +54,7 @@
 
 #define CYBORG_ICON_NINJA 'modular_nova/modules/borgs/icons/robots_ninja.dmi'
 #define CYBORG_ICON_NINJA_TALL 'modular_nova/modules/borgs/icons/tallrobot_ninja.dmi'
+#define CYBORG_ICON_NINJA_WIDE 'modular_nova/modules/borgs/icons/widerobot_ninja.dmi'
 
 /// Module is compatible with Cargo Cyborg model
 #define BORG_MODEL_CARGO (BORG_MODEL_ENGINEERING<<1)

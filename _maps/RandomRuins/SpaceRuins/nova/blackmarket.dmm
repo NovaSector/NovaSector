@@ -819,7 +819,7 @@
 	id = "bmt_control"
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "JF" = (
 /obj/machinery/button/door/indestructible/blackmarket_trader{
 	pixel_y = -24
@@ -1033,7 +1033,7 @@
 	id = "bmt_control"
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "Te" = (
 /obj/structure/table,
 /obj/machinery/light/warm/directional/south,

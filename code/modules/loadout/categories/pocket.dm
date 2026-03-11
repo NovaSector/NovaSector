@@ -228,7 +228,7 @@
 		if("select_lipstick_color")
 			var/list/their_loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
 			var/old_color = their_loadout?[item_path]?[INFO_GREYSCALE] || /obj/item/lipstick::lipstick_color
-			var/chosen = input(user, "Pick a lipstick color.", "Pick a color", old_color) as color|null
+			var/chosen = tgui_color_picker(user, "Pick a lipstick color.", "Pick a color", old_color)
 			their_loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
 			if(their_loadout?[item_path]) // Validate they still have it equipped
 				their_loadout[item_path][INFO_GREYSCALE] = chosen

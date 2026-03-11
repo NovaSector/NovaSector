@@ -29,12 +29,16 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Bridge Officer."
 
 /obj/item/storage/bag/garment/bridge_officer/PopulateContents()
+	new /obj/item/clothing/head/beret/bridgeofficer(src)
+	new /obj/item/clothing/head/hats/imperial/bridge_officer(src)
 	new /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/bridge_officer(src)
 	new /obj/item/clothing/suit/nova/bridge_officer/goth(src)
 	new /obj/item/clothing/under/rank/bridge_officer(src)
 	new /obj/item/clothing/under/rank/bridge_officer/skirt(src)
 	new /obj/item/clothing/under/rank/bridge_officer/turtle(src)
 	new /obj/item/clothing/under/rank/bridge_officer/turtle/skirt(src)
+	new /obj/item/clothing/under/imperial/bridge_officer(src)
+	new /obj/item/clothing/under/imperialskirt/bridge_officer(src)
 
 /obj/item/choice_beacon/coffee
 	name = "coffeemaker beacon"

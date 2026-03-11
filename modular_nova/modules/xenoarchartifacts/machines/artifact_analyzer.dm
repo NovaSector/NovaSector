@@ -83,7 +83,7 @@
 	var/artifact_first_effect
 	var/artifact_second_effect
 
-/obj/machinery/artifact_analyser/process(seconds_per_tick, times_fired)
+/obj/machinery/artifact_analyser/process(seconds_per_tick)
 	if(scan_in_progress && world.time > scan_completion_time)
 		// finish scanning
 		scan_in_progress = FALSE
@@ -111,7 +111,7 @@
 		artifact_report.add_raw_text("[scanned_object] -- [results]")
 		artifact_report.update_icon()
 
-		var/obj/item/stamp/our_stamp = new
+		var/obj/item/stamp/granted/our_stamp = new
 		var/stamp_data = our_stamp.get_writing_implement_details()
 		artifact_report.add_stamp(stamp_data["stamp_class"], rand(0, 300), rand(0, 400), rand(0, 360), stamp_data["stamp_icon_state"])
 		playsound(src, 'sound/machines/printer.ogg', 25, FALSE)

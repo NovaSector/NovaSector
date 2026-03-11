@@ -57,10 +57,10 @@
  * Enabled: Disable from config.
  */
 /datum/round_event_control/alien_infestation
-	max_occurrences = 1
+	max_occurrences = 0
 	intensity_restriction = TRUE
 	weight = MED_EVENT_FREQ
-	min_players = 85
+	min_players = 999
 	intensity_restriction = TRUE
 
 
@@ -172,20 +172,26 @@
 	weight = LOW_EVENT_FREQ
 	intensity_restriction = TRUE
 
-
+/**
+ * Dynamic Tweak
+ *
+ */
+/datum/round_event_control/dynamic_tweak
+	max_occurrences = 0
+	weight = VERY_LOW_EVENT_FREQ
 /**
  * Medical
  *
  */
 /datum/round_event_control/disease_outbreak
 	max_occurrences = 2
-	min_players = 45
+	min_players = 20
 	weight = HIGH_EVENT_FREQ
 	intensity_restriction = TRUE
 
 /datum/round_event_control/disease_outbreak/advanced
 	max_occurrences = 1
-	min_players = 45
+	min_players = 25
 	weight = MED_EVENT_FREQ
 	intensity_restriction = TRUE
 
@@ -194,7 +200,7 @@
 	weight = LOW_EVENT_FREQ
 
 /datum/round_event_control/heart_attack
-	max_occurrences = 1
+	max_occurrences = 4
 	weight = MED_EVENT_FREQ
 
 /**
@@ -324,7 +330,7 @@
  */
 /datum/round_event_control/mice_migration
 	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /**
  * Moldies
@@ -351,7 +357,7 @@
 
 /datum/round_event_control/portal_storm_narsie
 	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /**
  * Radiation
@@ -359,7 +365,7 @@
  * Disabled: Unintutivie design and incompatibility with this server
  */
 /datum/round_event_control/radiation_leak
-	max_occurrences = 1
+	max_occurrences = 2
 	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/radiation_storm
@@ -372,19 +378,19 @@
  */
 /datum/round_event_control/vent_clog
 	max_occurrences = 1
-	weight = MED_EVENT_FREQ
+	weight = HIGH_EVENT_FREQ
 
 /datum/round_event_control/vent_clog/major
 	max_occurrences = 1
-	weight = MED_EVENT_FREQ
+	weight = HIGH_EVENT_FREQ
 
 /datum/round_event_control/vent_clog/critical
 	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/vent_clog/strange
 	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /**
  * Scrubber Overflow
@@ -444,11 +450,11 @@
  */
 /datum/round_event_control/stray_cargo
 	max_occurrences = 3
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/stray_cargo/syndicate
 	max_occurrences = 3
-	weight = MED_EVENT_FREQ
+	weight = HIGH_EVENT_FREQ
 
 /**
  * Supermatter Surge

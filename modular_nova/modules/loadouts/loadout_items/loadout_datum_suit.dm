@@ -22,6 +22,7 @@
 /datum/loadout_item/suit/croptop
 	name = "Crop Top Turtleneck"
 	item_path = /obj/item/clothing/suit/jacket/croptop
+	reskin_datum = /datum/atom_skin/cableknit_sweater
 
 /datum/loadout_item/suit/czech
 	name = "Czech Coat"
@@ -84,6 +85,10 @@
 	item_path = /obj/item/clothing/suit/toggle/suspenders
 
 /datum/loadout_item/suit/big_sweater
+	name = "Big Sweater With Bow (Colorable)"
+	item_path = /obj/item/clothing/suit/nova/sweater/bow
+
+/datum/loadout_item/suit/big_sweater_bowless
 	name = "Big Sweater (Colorable)"
 	item_path = /obj/item/clothing/suit/nova/sweater
 
@@ -744,13 +749,13 @@
 /datum/loadout_item/suit/jacket/long_robe
 	name = "Long Robe"
 	item_path = /obj/item/clothing/suit/jacket/long_robe
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/long_robe
 	group = "Costumes"
 
 /datum/loadout_item/suit/jacket/haori
 	name = "Haori"
 	item_path = /obj/item/clothing/suit/jacket/haori
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_RESKIN
+	reskin_datum = /datum/atom_skin/haori
 	group = "Costumes"
 
 /datum/loadout_item/suit/witch
@@ -829,15 +834,9 @@
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/highvis_jacket
-	name = "Security High-Vis Jacket"
-	item_path = /obj/item/clothing/suit/armor/vest/jacket
-	restricted_roles = list(ALL_JOBS_SEC)
-	group = "Job-Locked"
-
-/datum/loadout_item/suit/highvis_jacket/badge
-	name = "Security High-Vis Jacket - Badged"
-	item_path = /obj/item/clothing/suit/armor/vest/jacket/badge
+/datum/loadout_item/suit/vested_jacket
+	name = "Vested Security Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/vested_jacket
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 

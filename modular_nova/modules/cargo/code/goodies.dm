@@ -44,15 +44,6 @@
 		/obj/item/clothing/mask/breath,
 	)
 
-/*
-*	ENGINEERING STUFF
-*/
-
-/datum/supply_pack/goody/improvedrcd
-	name = "Improved RCD"
-	desc = "An upgraded RCD featuring superior material storage. Comes with complimentary frames and circuitry upgrades to boot!"
-	cost = PAYCHECK_CREW * 38
-	contains = list(/obj/item/construction/rcd/improved)
 
 /*
 *	MISC
@@ -93,7 +84,7 @@
 	desc = "A high-grade sharpening stone made of specialized alloys, meant to sharpen razor-claws. Unfortunately, this particular one has by far seen better days."
 	cost = CARGO_CRATE_VALUE * 4 //800 credits
 	contains = list(/obj/item/scratching_stone)
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 
 /*
 *	CARPET PACKS

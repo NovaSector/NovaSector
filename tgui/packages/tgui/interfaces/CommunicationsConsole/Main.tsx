@@ -159,8 +159,8 @@ export function PageMain(props) {
               color={engineeringOverride ? 'bad' : undefined}
               onClick={() => act('toggleEngOverride')}
             >
-              {engineeringOverride ? 'Disable' : 'Enable'}
-              Engineering Override Access
+              {engineeringOverride ? 'Disable' : 'Enable'} Engineering Override
+              Access
             </Button.Confirm>
           )}
           {/* NOVA EDIT ADDITION END */}

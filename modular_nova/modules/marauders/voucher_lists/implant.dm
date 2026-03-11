@@ -260,12 +260,12 @@
 	)
 
 /datum/voucher_set/traitor/implant/voltaic_combat_cyberheart
-	name = /obj/item/organ/heart/cybernetic/anomalock::name
-	description = /obj/item/organ/heart/cybernetic/anomalock::desc
-	icon = /obj/item/organ/heart/cybernetic/anomalock::icon
-	icon_state = /obj/item/organ/heart/cybernetic/anomalock::icon_state
+	name = /obj/item/organ/heart/cybernetic/anomalock/weak::name
+	description = /obj/item/organ/heart/cybernetic/anomalock/weak::desc
+	icon = /obj/item/organ/heart/cybernetic/anomalock/weak::icon
+	icon_state = /obj/item/organ/heart/cybernetic/anomalock/weak::icon_state
 	set_items = list(
-		/obj/item/organ/heart/cybernetic/anomalock,
+		/obj/item/organ/heart/cybernetic/anomalock/weak,
 		/obj/item/assembly/signaler/anomaly/flux,
 	)
 

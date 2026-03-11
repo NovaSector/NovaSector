@@ -18,7 +18,10 @@
 	///What trim is applied to inserted IDs?
 	var/target_trim = /datum/id_trim/job/assistant
 	///These job datums can't go off-duty
-	var/list/blacklisted_jobs = list(/datum/job/assistant, /datum/job/prisoner)
+	var/static/list/blacklisted_jobs = typecacheof(list(
+		/datum/job/assistant,
+		/datum/job/prisoner,
+	))
 
 /datum/computer_file/program/crew_self_serve/on_start(mob/living/user)
 	. = ..()
@@ -208,10 +211,7 @@
 		return TRUE
 
 	shame_box.locked_contents = english_list(shamebox_items)
-	var/datum/effect_system/spark_spread/quantum/sparks = new
-	sparks.set_up(10, 1, human_user)
-	sparks.attach(human_user.loc)
-	sparks.start()
+	do_sparks(10, TRUE, human_user, spark_type = /datum/effect_system/basic/spark_spread/quantum)
 	to_chat(human_user, span_warning("You feel weight lifted off your shoulders as items are teleported off your body!"))
 	to_chat(human_user, span_notice("Items moved to lockbox: [shame_box.locked_contents]."))
 	computer.say(
@@ -233,7 +233,7 @@
 			if(!inserted_auth_card)
 				return
 
-			if(blacklisted_jobs.Find(user_mind.assigned_role.type))
+			if(is_type_in_typecache(user_mind.assigned_role.type, blacklisted_jobs))
 				playsound(computer, 'modular_nova/modules/emotes/sound/emotes/synth_no.ogg', 50, FALSE)
 				return
 

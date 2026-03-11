@@ -3,24 +3,24 @@
 /obj/projectile/bullet/c38
 	// tg base damage 25, wound bonus -20
 	// 25*1.35 = 35
-	damage = 35
+	damage = 25
 	wound_bonus = -10
 
 /obj/projectile/bullet/c38/match/bouncy
 	// tg base damage 10, stamina 30
 	// 10*1.35 = 13.5, rounded up
 	// stamina mildly buffed for funsies
-	damage = 15
+	damage = 12
 	stamina = 35
 
 /obj/projectile/bullet/c38/match/true
 	// tg base damage 15
 	// 15*1.35 = 20.25, rounded down
-	damage = 20
+	damage = 15
 
 /obj/projectile/bullet/c38/dumdum
 	// tg base damage 15, embed falloff -15
-	damage = 20
+	damage = 15
 	embed_falloff_tile = -10
 
 /datum/embedding/bullet/c38/dumdum
@@ -30,10 +30,10 @@
 /obj/projectile/bullet/c38/hotshot
 	// tg base damage 20
 	// 20*1.35 = 27, rounding up
-	damage = 30
+	damage = 20
 
 /obj/projectile/bullet/c38/iceblox
-	damage = 30 // originally 20 on TG
+	damage = 20 // originally 20 on TG
 
 /obj/projectile/bullet/c38/haywire
 	name = ".38 haywire bullet"
@@ -155,7 +155,7 @@
 		living_guy.adjust_drowsiness_up_to(6 SECONDS * mitigate_percent, 12 SECONDS)
 		// and see if we can just sleep them outright:
 		var/stamcritted_target = HAS_TRAIT_FROM(target, TRAIT_INCAPACITATED, STAMINA)
-		var/stamina_ratio = (living_guy.getStaminaLoss() / living_guy.getMaxHealth()) * 50 // 100 / 2
+		var/stamina_ratio = (living_guy.get_stamina_loss() / living_guy.getMaxHealth()) * 50 // 100 / 2
 		// if they're stamcrit, sleep them
 		if(stamcritted_target)
 			living_guy.AdjustSleeping(10 SECONDS) // long naptime for you, buddy

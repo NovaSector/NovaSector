@@ -133,7 +133,7 @@
 		balloon_alert(user, "nothing to mill")
 		return
 
-	if(user.getStaminaLoss() > MILLSTONE_STAMINA_MINIMUM)
+	if(user.get_stamina_loss() > MILLSTONE_STAMINA_MINIMUM)
 		balloon_alert(user, "too tired")
 		return
 
@@ -145,7 +145,7 @@
 	flick("millstone_spin", src)
 	playsound(src, 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 
-	user.adjustStaminaLoss(MILLSTONE_STAMINA_USE) // Prevents spamming it
+	user.adjust_stamina_loss(MILLSTONE_STAMINA_USE) // Prevents spamming it
 
 	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
 	if(!do_after(user, 5 SECONDS * skill_modifier, target = src))

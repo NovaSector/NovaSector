@@ -184,4 +184,10 @@
 ///Insanity trait for Reality Dissociation Syndrome (to make it easier to work with)
 #define TRAIT_INSANITY "insanity"
 
+/// Skillchip trait that lets the player expertly brush or cut hair faster
+#define TRAIT_HAIR_EXPERT "hair_expert"
+
+/// Trait for quirk: Illuminated
+#define TRAIT_COSGLOW "cosmetic_glow"
+
 // END TRAIT DEFINES

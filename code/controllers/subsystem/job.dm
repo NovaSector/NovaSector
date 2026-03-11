@@ -725,7 +725,7 @@ SUBSYSTEM_DEF(job)
 	if(!run_divide_occupation_pure)
 		to_chat(player, span_infoplain("<b>You have failed to qualify for any job you desired.</b>"))
 		player.ready = PLAYER_NOT_READY
-		player.client << output(player.ready, "lobby_browser:imgsrc") //NOVA EDIT ADDITION
+		player.client << output((player.ready == PLAYER_READY_TO_PLAY) ? 1 : 0, "lobby_browser:imgsrc") // NOVA EDIT ADDITION
 
 
 /datum/controller/subsystem/job/Recover()

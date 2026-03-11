@@ -8,7 +8,7 @@
 	manufacturer_tag = NEUROWARE_DONK
 
 /obj/item/disk/neuroware/cocaine
-	name = "\improper #Zeng-Hu Accelerator neuroware"
+	name = "\improper Zeng-Hu Accelerator neuroware"
 	desc = "A neuroware chip containing Zeng-Hu Accelerator, a powerful cyberware accelerator and overclock program. Reduces stun times, but causes drowsiness and severe system corruption if overloaded."
 	icon_state = "/obj/item/disk/neuroware/cocaine"
 	post_init_icon_state = "chip_zenghu"

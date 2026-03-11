@@ -17,7 +17,7 @@ import {
   Tabs,
 } from 'tgui-core/components';
 
-import { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
+import type { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
 import { useServerPrefs } from '../../useServerPrefs';
 import type {
   LoadoutCategory,
@@ -473,7 +473,7 @@ function LoadoutPreviewSection() {
     >
       <Stack vertical fill>
         <Stack.Item grow align="center">
-          <CharacterPreview height="100%" id={data.character_preview_view} />
+          <CharacterPreview height="100%" width="240px" id={data.character_preview_view} /> {/* NOVA EDIT CHANGE - ORIGINAL: <CharacterPreview height="100%" id={data.character_preview_view} /> */}
         </Stack.Item>
         <Stack.Divider />
         <Stack.Item align="center">

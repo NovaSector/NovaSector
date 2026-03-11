@@ -27,20 +27,21 @@
  *
  * Arguments:
  * * dna - The `/datum/dna` datum from which we're going to be extracting the data to set the
- * * accessory_name - instead of using the name from mutant_bodyparts[feature_key][MUTANT_INDEX_NAME] you can optionally pass one explicitly
+ * * accessory_name - instead of using the name from mutant_bodyparts[feature_key] you can optionally pass one explicitly
  * * feature_key - same as with accessory_key, you can optionally pass a feature_key explicitly
  * appearance.
  */
 /datum/bodypart_overlay/mutant/proc/set_appearance_from_dna(datum/dna/dna, accessory_name, feature_key)
 	if(isnull(feature_key)) // if not explicitly set, just use the feature_key of the bodypart_overlay
 		feature_key = src.feature_key
-	var/list/mutantparts_list = dna.mutant_bodyparts[feature_key] ? dna.mutant_bodyparts : dna.species.mutant_bodyparts
-	if(!(feature_key in mutantparts_list) || !mutantparts_list[feature_key])
+	var/list/mutantparts_list = dna.mutant_bodyparts
+	if(isnull(mutantparts_list[feature_key]))
 		return FALSE
-	sprite_datum = fetch_sprite_datum_from_name(accessory_name ? accessory_name : mutantparts_list[feature_key][MUTANT_INDEX_NAME])
+	var/datum/mutant_bodypart/mutant_part = mutantparts_list[feature_key]
+	sprite_datum = fetch_sprite_datum_from_name(accessory_name ? accessory_name : mutant_part.name)
 	modsuit_affected = sprite_datum.use_custom_mod_icon
-	draw_color = mutantparts_list[feature_key][MUTANT_INDEX_COLOR_LIST]
-	build_emissive_eligibility(mutantparts_list[feature_key][MUTANT_INDEX_EMISSIVE_LIST])
+	draw_color = mutant_part.get_colors()
+	emissive_eligibility_by_color_index = mutant_part.get_emissive_tri_bool_list()
 	cache_key = jointext(generate_icon_cache(), "_")
 	return TRUE
 
@@ -72,8 +73,8 @@
 		. += "[alpha]"
 
 	if(emissive_eligibility_by_color_index)
-		for(var/index in emissive_eligibility_by_color_index)
-			. += "[emissive_eligibility_by_color_index[index]]"
+		for(var/emissive_boolean in emissive_eligibility_by_color_index)
+			. += emissive_boolean
 
 	return .
 
@@ -262,33 +263,13 @@
 	if(!limb || !length(emissive_eligibility_by_color_index))
 		return overlays
 
-	var/index = 1
-	var/list/image/emissives = list()
+	var/list/image/emissives
+	var/max = min(3, length(overlays)) // only care about the first 3 indexes
+	for(var/index = 1 to max)
+		if(emissive_eligibility_by_color_index[index])
+			LAZYADD(emissives, emissive_appearance_copy(overlays[index], limb))
 
-	for(var/image/overlay in overlays)
-		if(emissive_eligibility_by_color_index[num2text(index)])
-			emissives += emissive_appearance_copy(overlay, limb)
-
-		index++
-
-	return overlays + emissives
-
-
-/**
- * Builds `emissive_eligibility_by_layer` from the input list of three booleans.
- * Will not do anything if the given argument is `null`.
- */
-/datum/bodypart_overlay/mutant/proc/build_emissive_eligibility(list/emissive_eligibility)
-	if(!emissive_eligibility || !islist(emissive_eligibility))
-		return
-
-	emissive_eligibility_by_color_index = list()
-	var/i = 1
-
-	for(var/eligibility in emissive_eligibility)
-		emissive_eligibility_by_color_index[num2text(i)] = eligibility
-		i++
-
+	return emissives ? (overlays + emissives) : overlays
 
 /**
  * Helper to set the MOD-related info on the overlay, useful for MODsuit overlays.

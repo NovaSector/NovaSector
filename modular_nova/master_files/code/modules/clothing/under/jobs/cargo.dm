@@ -19,7 +19,7 @@
 	name = "supply utility uniform"
 	desc = "A utility uniform worn by employees of the Supply department."
 	icon_state = "util_cargo"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 
@@ -52,6 +52,7 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 	gets_cropped_on_taurs = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/cargo/tech/nova/evil
 	name = "black cargo uniform"
@@ -74,6 +75,20 @@
 	desc = "A rugged, utilitarian gorka with silver markings. Unlike the regular employees', this one is lined with silk on the inside."
 	icon_state = "gorka_qm"
 	can_adjust = FALSE
+
+/obj/item/clothing/under/imperial/quartermaster
+	name = "quartermaster's naval uniform"
+	desc = "A uniform of the grand navy questionably granted to Nanotrasen's favorite union representative."
+	icon_state = "/obj/item/clothing/under/imperial/quartermaster"
+	greyscale_colors = "#8B4C31#8B4C31#3E3E48#373741#ccced1#DEB63D#DEB63D"
+	flags_1 = NONE
+
+/obj/item/clothing/under/imperialskirt/quartermaster
+	name = "quartermaster's naval skirt"
+	desc = "A uniform of the grand navy questionably granted to Nanotrasen's favorite union representative."
+	greyscale_colors = "#8B4C31#3E3E48#373741#ccced1#DEB63D#DEB63D"
+	icon_state = "/obj/item/clothing/under/imperialskirt/quartermaster"
+	flags_1 = NONE
 
 /obj/item/clothing/under/rank/cargo/qm/nova/turtleneck
 	name = "quartermaster's turtleneck"

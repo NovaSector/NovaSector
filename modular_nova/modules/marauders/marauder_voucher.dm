@@ -12,6 +12,17 @@
 	new /obj/item/paper/paperslip/corporate/syndicate/traitor/implant(src)
 	new /obj/item/paper/paperslip/corporate/syndicate/traitor/supplies(src)
 	update_appearance()
+	enable_shine()
+	RegisterSignal(src, COMSIG_ITEM_EQUIPPED, PROC_REF(disable_shine))
+
+/obj/item/folder/syndicate/vouchers/proc/enable_shine()
+	add_filter("shine", 1, list("type" = "rays", "size" = 28, "color" = COLOR_VIVID_YELLOW))
+	animate(get_filter("shine"), offset = 100, time = 2 MINUTES, loop = -1, flags = ANIMATION_PARALLEL)
+
+/obj/item/folder/syndicate/vouchers/proc/disable_shine()
+	SIGNAL_HANDLER
+	remove_filter("shine")
+	UnregisterSignal(src, COMSIG_ITEM_EQUIPPED)
 
 // Plastic slips
 /obj/item/paper/paperslip/corporate/syndicate

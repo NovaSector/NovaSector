@@ -14,7 +14,7 @@
 	icon_state = "syndie-control"
 	ambience_index = AMBIENCE_DANGER
 	ambient_buzz = 'sound/ambience/lavaland/magma.ogg'
-	area_flags = UNIQUE_AREA | BLOBS_ALLOWED
+	area_flags = BLOBS_ALLOWED
 
 /area/ruin/interdyne_planetary_base/cargo
 	name = "Interdyne Cargo Bay"

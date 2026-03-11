@@ -79,6 +79,7 @@
 /datum/loadout_item/shoes/colonial_boots
 	name = "Boots - Colonial Half-Boots"
 	item_path = /obj/item/clothing/shoes/jackboots/colonial
+	species_blacklist = list(SPECIES_TESHARI)
 
 /datum/loadout_item/shoes/cowboy_recolorable
 	name = "Boots - Cowboy (Colorable)"
@@ -109,6 +110,10 @@
 	name = "Boots - Jackboots  (Colorable)"
 	item_path = /obj/item/clothing/shoes/jackboots/recolorable
 
+/datum/loadout_item/shoes/jackboots/toeless
+	name = "Toeless Jackboots"
+	item_path = /obj/item/clothing/shoes/jackboots/toeless
+
 /datum/loadout_item/shoes/jackboots/heel //Donator reward for Thedragmeme, unrestricted at their request
 	name = "Boots - Jackboots, High-Heel"
 	item_path = /obj/item/clothing/shoes/jackboots/heel
@@ -116,6 +121,10 @@
 /datum/loadout_item/shoes/kneeboot
 	name = "Boots - Jackboots, Knee"
 	item_path = /obj/item/clothing/shoes/jackboots/knee
+
+/datum/loadout_item/shoes/kneeboot/recolorable
+	name = "Boots - Jackboots, Knee (Colorable)"
+	item_path = /obj/item/clothing/shoes/jackboots/knee/recolorable
 
 /datum/loadout_item/shoes/jungle
 	name = "Boots - Jungle"
@@ -140,6 +149,10 @@
 /datum/loadout_item/shoes/work_boots
 	name = "Boots - Work"
 	item_path = /obj/item/clothing/shoes/workboots
+
+/datum/loadout_item/shoes/work_boots/toeless
+	name = "Toeless Workboots"
+	item_path = /obj/item/clothing/shoes/workboots/toeless
 
 /*
 *	SNEAKERS

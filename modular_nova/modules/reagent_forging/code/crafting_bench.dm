@@ -12,6 +12,8 @@
 
 	anchored = TRUE
 	density = TRUE
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5)
+
 	///whether the crafting is being hammered
 	var/in_use = FALSE
 

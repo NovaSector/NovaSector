@@ -42,7 +42,7 @@
 	icon = 'modular_nova/modules/ashwalkers/icons/structures.dmi'
 	icon_state = "brick_well"
 	density = TRUE
-
+	custom_materials = list(/datum/material/stone = SHEET_MATERIAL_AMOUNT * 5)
 	///determines whether it is covered, and whether it needs to have the ground below it dug out
 	var/well_covered = FALSE
 
