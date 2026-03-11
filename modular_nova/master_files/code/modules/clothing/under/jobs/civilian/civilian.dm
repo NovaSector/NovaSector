@@ -19,12 +19,6 @@
 *	HEAD OF PERSONNEL
 */
 
-/obj/item/clothing/under/rank/civilian/head_of_personnel/nova/imperial //Rank pins of the Grand Moff
-	name = "head of personnel's naval jumpsuit"
-	desc = "A pale green naval suit and a rank badge denoting the Personnel Officer. Target, maximum firepower."
-	icon_state = "imphop"
-	supports_variations_flags = NONE
-
 /obj/item/clothing/under/rank/civilian/head_of_personnel/nova/parade
 	name = "head of personnel's male formal uniform"
 	desc = "A luxurious uniform for the head of personnel, woven in a deep blue. On the lapel is a small pin in the shape of a corgi's head."
@@ -49,3 +43,17 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/imperial/hop
+	name = "head of personnel's naval jumpsuit"
+	desc = "A pale green naval suit and a rank badge denoting the Personnel Officer. Target, maximum firepower."
+	icon_state = "/obj/item/clothing/under/imperial/hop"
+	greyscale_colors = "#829A8C#829A8C#829A8C#373741#F3F3F3#BC2626#2979CD"
+	flags_1 = NONE
+
+/obj/item/clothing/under/imperialskirt/hop
+	desc = "A pale green naval skirt and a rank badge denoting the Personnel Officer. Target, maximum firepower."
+	name = "head of personnel's naval jumpskirt"
+	greyscale_colors = "#829A8C#829A8C#373741#F3F3F3#BC2626#2979CD"
+	icon_state = "/obj/item/clothing/under/imperialskirt/hop"
+	flags_1 = NONE
