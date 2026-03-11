@@ -331,7 +331,7 @@
 
 /datum/loadout_item/under/jumpsuit/security_shorts
 	name = "Security Shorts"
-	item_path = /obj/item/clothing/under/rank/security/nova/trousers/shorts
+	item_path = /obj/item/clothing/under/rank/security/nova/secshorts
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 

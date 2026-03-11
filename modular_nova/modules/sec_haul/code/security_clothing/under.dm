@@ -185,32 +185,32 @@
 /obj/item/clothing/under/rank/security/nova/dress/blue
 	icon_state = "security_skirt_blue"
 
-/datum/atom_skin/security_shorts
-	abstract_type = /datum/atom_skin/security_shorts
-
-/datum/atom_skin/security_shorts/red
-	preview_name = "Red Variant"
-	new_icon_state = "cargoshorts"
-
-/datum/atom_skin/security_shorts/red
-	preview_name = "Blue Variant"
-	new_icon_state = "cargoshorts_blue"
-
-/datum/atom_skin/security_shorts/white
-	preview_name = "White Variant"
-	new_icon_state = "cargoshorts_white"
-
-/datum/atom_skin/security_shorts/black
-	preview_name = "Black Variant"
-	new_icon_state = "cargoshorts_black"
-
-/obj/item/clothing/under/rank/security/nova/trousers/shorts
+/obj/item/clothing/under/rank/security/nova/secshorts
 	name = "cargo shorts"
 	desc = "Some \"combat\" shorts. Please don't actually wear these."
-	icon_state = "cargoshorts"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts"
+	post_init_icon_state = "secshorts"
+	greyscale_config = /datum/greyscale_config/secshorts
+	greyscale_config_worn = /datum/greyscale_config/secshorts/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/secshorts/worn/digi
+	greyscale_colors = "#39393F#FFFFFF"
+	flags_1 = NONE
+	body_parts_covered = GROIN|LEGS
+	can_adjust = FALSE
+	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
 
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts)
+/obj/item/clothing/under/rank/security/nova/secshorts/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts/blue"
+	greyscale_colors = "#39393F#FFFFFF"
+
+/obj/item/clothing/under/rank/security/nova/secshorts/white
+	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts/white"
+	greyscale_colors = "#39393F#FFFFFF"
+
+/obj/item/clothing/under/rank/security/nova/secshorts/black
+	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts/black"
+	greyscale_colors = "#39393F#FFFFFF"
 
 /datum/atom_skin/security_trousers
 	abstract_type = /datum/atom_skin/security_trousers

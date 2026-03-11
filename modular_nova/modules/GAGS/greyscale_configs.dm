@@ -2566,6 +2566,19 @@ Security
 	name = "Security Formal Suit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
 
+/datum/greyscale_config/secshorts
+	name = "Security Cargo Shorts"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secshorts.json'
+
+/datum/greyscale_config/secshorts/worn
+	name = "Security Cargo Shorts (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/secshorts/worn/digi
+	name = "Security Cargo Shorts (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
 /*
 This is all our modular PDAs, ITS LARGE!
 */
