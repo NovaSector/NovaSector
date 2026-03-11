@@ -230,7 +230,7 @@
 	icon_state = "rock_strange"
 	scan_icon = 'modular_nova/modules/xenoarch/icons/ore_visuals.dmi'
 	scan_state = "rock_strange"
-	mineralType = /obj/item/stack/ore/glass
+	mineralType = /obj/item/xenoarch/strange_rock
 
 /turf/closed/mineral/strange_rock/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -247,16 +247,16 @@
 
 /turf/closed/mineral/random/volcanic/mineral_chances()
 	return list(
-		/obj/item/stack/ore/iron = 400,
-		/obj/item/stack/ore/plasma = 200,
-		/obj/item/stack/ore/silver = 120,
-		/obj/item/stack/ore/titanium = 110,
-		/obj/item/stack/ore/gold = 100,
-		/turf/closed/mineral/strange_rock/volcanic = 3,
-		/obj/item/stack/ore/uranium = 50,
-		/turf/closed/mineral/gibtonite/volcanic = 40,
-		/obj/item/stack/ore/diamond = 10,
-		/obj/item/stack/ore/bluespace_crystal = 10,
+		/obj/item/stack/ore/iron = 40,
+		/obj/item/stack/ore/plasma = 20,
+		/obj/item/stack/ore/silver = 12,
+		/obj/item/stack/ore/titanium = 11,
+		/obj/item/stack/ore/gold = 10,
+		/turf/closed/mineral/strange_rock/volcanic = 1,
+		/obj/item/stack/ore/uranium = 5,
+		/turf/closed/mineral/gibtonite/volcanic = 4,
+		/obj/item/stack/ore/diamond = 1,
+		/obj/item/stack/ore/bluespace_crystal = 1
 		)
 
 /turf/closed/mineral/strange_rock/ice
@@ -276,16 +276,16 @@
 
 /turf/closed/mineral/random/snow/mineral_chances()
 	return list(
-		/obj/item/stack/ore/iron = 400,
-		/obj/item/stack/ore/plasma = 200,
-		/obj/item/stack/ore/silver = 120,
-		/obj/item/stack/ore/titanium = 110,
-		/obj/item/stack/ore/gold = 100,
-		/turf/closed/mineral/strange_rock/ice/icemoon = 3,
-		/obj/item/stack/ore/uranium = 50,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 40,
-		/obj/item/stack/ore/diamond = 10,
-		/obj/item/stack/ore/bluespace_crystal = 10,
+		/obj/item/stack/ore/iron = 40,
+		/obj/item/stack/ore/plasma = 20,
+		/obj/item/stack/ore/silver = 12,
+		/obj/item/stack/ore/titanium = 11,
+		/obj/item/stack/ore/gold = 10,
+		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
+		/obj/item/stack/ore/uranium = 5,
+		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
+		/obj/item/stack/ore/diamond = 1,
+		/obj/item/stack/ore/bluespace_crystal = 1,
 		)
 
 /turf/closed/mineral/random/snow/underground
@@ -295,17 +295,17 @@
 
 /turf/closed/mineral/random/snow/underground/mineral_chances()
 	return list(
-		/obj/item/stack/ore/silver = 240,
-		/obj/item/stack/ore/titanium = 220,
-		/obj/item/stack/ore/gold = 200,
-		/obj/item/stack/ore/plasma = 200,
-		/obj/item/stack/ore/iron = 200,
-		/obj/item/stack/ore/uranium = 100,
-		/turf/closed/mineral/strange_rock/ice/icemoon = 3,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 80,
-		/obj/item/stack/ore/diamond = 40,
-		/obj/item/stack/ore/bluespace_crystal = 20,
-		/obj/item/stack/ore/bananium = 10,
+		/obj/item/stack/ore/silver = 24,
+		/obj/item/stack/ore/titanium = 22,
+		/obj/item/stack/ore/gold = 20,
+		/obj/item/stack/ore/plasma = 20,
+		/obj/item/stack/ore/iron = 20,
+		/obj/item/stack/ore/uranium = 10,
+		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
+		/turf/closed/mineral/gibtonite/ice/icemoon = 8,
+		/obj/item/stack/ore/diamond = 4,
+		/obj/item/stack/ore/bluespace_crystal = 2,
+		/obj/item/stack/ore/bananium = 1,
 		)
 
 //small gibonite fix
@@ -336,16 +336,16 @@
 
 /turf/closed/mineral/random/stationside/asteroid/rockplanet/mineral_chances()
 	return list(
-		/obj/item/stack/ore/iron = 400,
-		/obj/item/stack/ore/plasma = 200,
-		/obj/item/stack/ore/silver = 120,
-		/obj/item/stack/ore/titanium = 110,
-		/obj/item/stack/ore/gold = 100,
-		/turf/closed/mineral/strange_rock/asteroid = 3,
-		/obj/item/stack/ore/uranium = 50,
-		/turf/closed/mineral/gibtonite/asteroid = 40,
-		/obj/item/stack/ore/bluespace_crystal = 10,
-		/obj/item/stack/ore/diamond = 10,
+		/obj/item/stack/ore/iron = 40,
+		/obj/item/stack/ore/plasma = 20,
+		/obj/item/stack/ore/silver = 12,
+		/obj/item/stack/ore/titanium = 11,
+		/obj/item/stack/ore/gold = 10,
+		/turf/closed/mineral/strange_rock/asteroid = 1,
+		/obj/item/stack/ore/uranium = 5,
+		/turf/closed/mineral/gibtonite/asteroid = 4,
+		/obj/item/stack/ore/bluespace_crystal = 1,
+		/obj/item/stack/ore/diamond = 1,
 		)
 
 #undef DIG_UNDEFINED
