@@ -15,6 +15,9 @@
 	throw_speed = 3
 	throw_range = 7
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*2)
+	sound_vary = TRUE
+	pickup_sound = SFX_GENERIC_DEVICE_PICKUP
+	drop_sound = SFX_GENERIC_DEVICE_DROP
 
 	var/list/discovered = list() //hit a dna console to update the scanners database
 	var/list/buffer
@@ -107,6 +110,7 @@
 			to_chat(user, span_boldnotice("[get_display_name(mutation)]"))
 		else
 			to_chat(user, span_notice("[get_display_name(mutation)]"))
+	to_chat(user, span_notice("<span class='info ml-1'>Genetic Stability: [target.dna.stability]%.</span><br>")) // NOVA EDIT ADDITION - Adds stability indication.
 
 ///proc for scanning someone's genetic makeup
 /obj/item/sequence_scanner/proc/makeup_scan(mob/living/carbon/target, mob/living/user)

@@ -47,6 +47,16 @@
 		/obj/item/ammo_box/magazine/enforcer,
 	)
 
+/datum/voucher_set/traitor/secondary_weapon/cybersun_laser
+	name = /obj/item/gun/energy/laser/cybersun::name
+	description = /obj/item/gun/energy/laser/cybersun::desc
+	icon = /obj/item/gun/energy/laser/cybersun::icon
+	icon_state = /obj/item/gun/energy/laser/cybersun::icon_state
+	set_items = list(
+		/obj/item/gun/energy/laser/cybersun/unrestricted,
+		/obj/item/storage/box/syndie_kit/recharger,
+	)
+
 /datum/voucher_set/traitor/secondary_weapon/hoshi
 	name = /obj/item/gun/energy/modular_laser_rifle/carbine::name
 	description = /obj/item/gun/energy/modular_laser_rifle/carbine::desc
@@ -54,7 +64,6 @@
 	icon_state = /obj/item/gun/energy/modular_laser_rifle/carbine::icon_state
 	set_items = list(
 		/obj/item/gun/energy/modular_laser_rifle/carbine,
-		/obj/item/storage/box/syndie_kit/recharger,
 	)
 
 /datum/voucher_set/traitor/secondary_weapon/c20r_toy
@@ -149,12 +158,21 @@
 	)
 
 /datum/voucher_set/traitor/secondary_weapon/esword
-	name = /obj/item/melee/energy::name
-	description = /obj/item/melee/energy::desc
+	name = /obj/item/melee/energy/sword/saber/red::name
+	description = /obj/item/melee/energy/sword/saber/red::desc
 	icon = 'icons/obj/weapons/transforming_energy.dmi'
 	icon_state = "e_sword_on"
 	set_items = list(
-		/obj/item/melee/energy/sword,
+		/obj/item/melee/energy/sword/saber/red,
+	)
+
+/datum/voucher_set/traitor/secondary_weapon/esword_covenant
+	name = /obj/item/melee/energy/sword/saber/covenant::name
+	description = /obj/item/melee/energy/sword/saber/covenant::desc
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi'
+	icon_state = "covenant_on_blue"
+	set_items = list(
+		/obj/item/melee/energy/sword/saber/covenant/blue,
 	)
 
 /datum/voucher_set/traitor/secondary_weapon/switchblade

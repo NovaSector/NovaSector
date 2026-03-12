@@ -6,9 +6,12 @@
 	icon_state = "hudpatch"
 	base_icon_state = "hudpatch"
 	inhand_icon_state = null
-
-	actions_types = list(/datum/action/item_action/toggle_wearable_hud,
-	/datum/action/item_action/flip)
+	abstract_type = /obj/item/clothing/glasses/hud/eyepatch
+	actions_types = list(
+		/datum/action/item_action/toggle_wearable_hud,
+		/datum/action/item_action/flip,
+	)
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT * 3, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5)
 	var/flipped = FALSE
 
 /*
@@ -55,6 +58,9 @@ scarred eye.
 End of the copy-paste.
 */
 
+/obj/item/clothing/glasses/hud/security/sunglasses/eyepatch // TG item, but we have a recipe for it and they don't
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT * 3, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5)
+
 /obj/item/clothing/glasses/hud/eyepatch/med
 	name = "medical HUD eyepatch"
 	desc = "A HUD designed to interface directly with optical nerves. This one scans humanoids in view and provides accurate data about their health status."
@@ -62,6 +68,7 @@ End of the copy-paste.
 	base_icon_state = "medpatch"
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
+
 
 /obj/item/clothing/glasses/hud/eyepatch/meson
 	name = "mesons HUD eyepatch"

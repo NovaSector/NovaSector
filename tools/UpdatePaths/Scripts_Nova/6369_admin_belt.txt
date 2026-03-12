@@ -1,0 +1,1 @@
+/obj/item/storage/belt/utility/chief/full/debug : /obj/item/storage/belt/utility/full/powertools/debug

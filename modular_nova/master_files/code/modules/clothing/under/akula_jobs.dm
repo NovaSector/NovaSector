@@ -21,7 +21,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	can_adjust = FALSE
 	female_sprite_flags = NO_FEMALE_UNIFORM
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	/// If an akula tail accessory is present, we can overlay an additional icon
 	var/tail_overlay
 
@@ -67,11 +67,11 @@
 
 /// If the wearer has a compatible tail for the `tail_overlay` variable, render it
 /obj/item/clothing/under/akula_wetsuit/proc/add_tail_overlay(mob/living/carbon/human/user)
-	if(!user.dna.species.mutant_bodyparts["tail"])
+	var/datum/mutant_bodypart/tail = user.dna.mutant_bodyparts[FEATURE_TAIL]
+	if(isnull(tail))
 		return
 
-	var/tail = user.dna.species.mutant_bodyparts["tail"][MUTANT_INDEX_NAME]
-	switch(tail)
+	switch(tail.name)
 		if("Akula")
 			tail_overlay = mutable_appearance(TAIL_OVERLAY_DMI, "overlay_akula", -(TAIL_OVERLAY_LAYER))
 		if("Shark")

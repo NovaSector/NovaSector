@@ -35,10 +35,6 @@
 /obj/item/clothing/glasses/night,
 /turf/open/floor/iron,
 /area/virtual_domain/safehouse)
-"d" = (
-/obj/machinery/porta_turret/syndicate/nri_raider/ancient_milsim,
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/virtual_domain/safehouse)
 "e" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/effect/turf_decal/stripes/line,
@@ -223,6 +219,10 @@
 /obj/item/tape/ruins/ancient_milsim/devlog_one,
 /turf/open/floor/iron,
 /area/virtual_domain/safehouse)
+"R" = (
+/obj/machinery/porta_turret/syndicate/hc_police/ancient_milsim,
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/virtual_domain/safehouse)
 "U" = (
 /obj/effect/turf_decal/stripes/end{
 	dir = 1
@@ -254,7 +254,7 @@
 /area/virtual_domain/safehouse)
 
 (1,1,1) = {"
-d
+R
 J
 r
 r
@@ -302,7 +302,7 @@ x
 g
 "}
 (7,1,1) = {"
-d
+R
 i
 r
 r

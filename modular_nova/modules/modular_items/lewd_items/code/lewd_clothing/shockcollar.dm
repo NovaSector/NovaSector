@@ -33,8 +33,8 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
-/obj/item/electropack/shockcollar/allow_attack_hand_drop(mob/user)
-	if(user.get_item_by_slot(ITEM_SLOT_NECK) == src)
+/obj/item/electropack/shockcollar/can_mob_unequip(mob/user)
+	if(user.get_item_by_slot(slot_flags) == src)
 		to_chat(user, span_warning("The collar is fastened tight! You'll need help if you want to take it off!"))
 		return FALSE
 	return ..()
@@ -54,9 +54,7 @@
 		step(affected_mob, pick(GLOB.cardinals))
 
 		to_chat(affected_mob, span_danger("You feel a sharp shock from the collar!"))
-		var/datum/effect_system/spark_spread/created_sparks = new /datum/effect_system/spark_spread
-		created_sparks.set_up(3, 1, affected_mob)
-		created_sparks.start()
+		do_sparks(3, TRUE, affected_mob)
 
 		affected_mob.Paralyze(30)
 		affected_mob.adjust_pain(10)

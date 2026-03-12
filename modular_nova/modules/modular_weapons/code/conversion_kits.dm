@@ -12,10 +12,18 @@
 	/// Optional lore blurb. If it exists, is passed along on examine.
 	var/lore_blurb
 
-/obj/item/crafting_conversion_kit/examine_more(mob/user)
+/obj/item/crafting_conversion_kit/Initialize(mapload)
 	. = ..()
 	if(lore_blurb)
-		. += "<i>[lore_blurb]</i>"
+		AddElement(/datum/element/examine_lore, \
+			lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
+			lore = get_lore_blurb() \
+		)
+
+/// Much like guns, returns the lore blurb as a plain string, to be used for adding to the gun's examine_lore component.
+/// Made into a proc to allow overriding, for variant-specific blurbs.
+/obj/item/crafting_conversion_kit/proc/get_lore_blurb()
+	return lore_blurb
 
 /obj/item/crafting_conversion_kit/mosin_pro
 	name = "\improper Xhihao 'Rengo' rifle conversion kit"
@@ -47,7 +55,7 @@
 
 /datum/crafting_recipe/mosin_pro/New()
 	..()
-	blacklist |= subtypesof(/obj/item/gun/ballistic/rifle/boltaction) - list(/obj/item/gun/ballistic/rifle/boltaction/surplus)
+	LAZYOR(blacklist, subtypesof(/obj/item/gun/ballistic/rifle/boltaction) - list(/obj/item/gun/ballistic/rifle/boltaction/surplus))
 
 /datum/crafting_recipe/mosin_pro/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/gun/ballistic/rifle/boltaction/the_piece = collected_requirements[/obj/item/gun/ballistic/rifle/boltaction][1]

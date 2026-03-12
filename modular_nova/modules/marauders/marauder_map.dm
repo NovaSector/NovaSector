@@ -87,9 +87,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 //area
 /area/shuttle/traitor
 	requires_power = TRUE
-	name = "Marauder Ship"
+	name = "\proper Razorfeather 8E short-range cruiser"
 	flags_1 = NONE
-
 
 //map
 /datum/lazy_template/midround_traitor
@@ -159,6 +158,26 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	..()
 	GLOB.traitor_start += loc
 	return INITIALIZE_HINT_QDEL
+
+//misc objects
+/obj/structure/showcase/syndicate_communications_console
+	name = /obj/machinery/computer/communications/syndicate::name
+	desc = /obj/machinery/computer/communications/syndicate::desc
+	icon = /obj/machinery/computer::icon
+	icon_state = /obj/machinery/computer::icon_state
+
+/obj/structure/showcase/syndicate_communications_console/Initialize(mapload)
+	. = ..()
+	add_overlay("commsyndie")
+	add_overlay("syndie_key")
+
+/obj/effect/mapping_helpers/xmas_tree_placer
+	late = TRUE
+
+/obj/effect/mapping_helpers/xmas_tree_placer/LateInitialize()
+	if(check_holidays(CHRISTMAS))
+		new /obj/structure/flora/tree/pine/xmas/presentless(loc)
+	qdel(src)
 
 //areas
 /area/misc/operative_barracks

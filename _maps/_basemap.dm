@@ -1,6 +1,15 @@
 //#define LOWMEMORYMODE //uncomment this to load centcom and runtime station and thats it.
+//#define ABSOLUTE_MINIMUM //uncomment this to load a smaller centcomm and smaller runtime station, only works together with LOWMEMORYMODE
 
+#ifdef ABSOLUTE_MINIMUM
+#define LOWMEMORYMODE
+#endif
+
+#ifndef ABSOLUTE_MINIMUM
 #include "map_files\generic\CentCom.dmm"
+#else
+#include "map_files\generic\CentCom_minimal.dmm"
+#endif
 
 #ifndef LOWMEMORYMODE
 	#ifdef ALL_MAPS
@@ -25,4 +34,9 @@
 	#ifdef ALL_TEMPLATES
 		#include "templates.dm"
 	#endif
+	// NOVA EDIT ADDITION START
+	#ifdef NOVA_TEMPLATES
+		#include "templates_nova.dm"
+	#endif
+	// NOVA EDIT ADDITION END
 #endif

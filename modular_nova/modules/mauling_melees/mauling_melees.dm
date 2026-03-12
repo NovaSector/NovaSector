@@ -22,6 +22,7 @@
 	wound_bonus = 10
 	exposed_wound_bonus = 20
 	tool_behaviour = TOOL_KNIFE
+	icon_angle = -45
 	/*
 	20 force, 10 wb, 20 bwb = 30, 50 against bare skin
 	compare/contrast force/wound bonuses with the captain's sabre, i guess
@@ -40,7 +41,7 @@
 	// but it's good for murdering plantpeople
 	AddElement(/datum/element/bane, mob_biotypes = MOB_PLANT, damage_multiplier = 0.5, requires_combat_mode = FALSE)
 	// Kill.
-	AddElement(/datum/element/mauling)
+	AddElement(/datum/element/mauling, swing_delay = 2 SECONDS, mauling_damage_mult = 2) // 40 force on maul
 
 /obj/item/machete/afterattack(atom/target, mob/user, click_parameters)
 	. = ..()
@@ -74,12 +75,17 @@
 	max_slots = 1
 	// not a rifle but this is the sound tgmc uses
 	rustle_sound = 'modular_nova/modules/mauling_melees/sounds/rifle_draw.ogg'
+	remove_rustle_sound = 'modular_nova/modules/mauling_melees/sounds/rifle_draw.ogg'
 	max_specific_storage = WEIGHT_CLASS_BULKY
 	click_alt_open = FALSE
 
 /datum/storage/machete_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
 	set_holdable(/obj/item/machete)
+
+/datum/storage/machete_belt/handle_exit(datum/source, obj/item/gone)
+	. = ..()
+	playsound(parent, rustle_sound, 50, rustle_vary, -5)
 
 /obj/item/storage/belt/machete/Initialize(mapload)
 	. = ..()
@@ -134,4 +140,4 @@
 
 /obj/item/trench_tool/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/mauling)
+	AddElement(/datum/element/mauling, swing_delay = 2 SECONDS, mauling_damage_mult = 2)

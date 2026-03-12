@@ -103,7 +103,7 @@
 /datum/techweb_node/scythe_t1
 	id = TECHWEB_NODE_SCYTHE_1
 	display_name = "Scythe (Tier 1)"
-	description = "Culling tools"
+	description = "Improved scythe for efficient culling."
 	prereq_ids = list(TECHWEB_NODE_EXP_TOOLS, TECHWEB_NODE_CHEM_SYNTHESIS, TECHWEB_NODE_BOTANY_EQUIP)
 	design_ids = list(
 		"scythet1",
@@ -115,7 +115,7 @@
 /datum/techweb_node/scythe_t2
 	id = TECHWEB_NODE_SCYTHE_2
 	display_name = "Scythe (Tier 2)"
-	description = "Culling tools"
+	description = "Further improved scythe for efficient culling."
 	prereq_ids = list(TECHWEB_NODE_SCYTHE_1)
 	design_ids = list(
 		"scythet2",
@@ -127,8 +127,8 @@
 /datum/techweb_node/scythe_t3
 	id = TECHWEB_NODE_SCYTHE_3
 	display_name = "Scythe (Tier 3)"
-	description = "Culling tools"
-	prereq_ids = list(TECHWEB_NODE_EXP_TOOLS, TECHWEB_NODE_CHEM_SYNTHESIS, TECHWEB_NODE_BOTANY_EQUIP)
+	description = "Even further improved scythe for efficient culling."
+	prereq_ids = list(TECHWEB_NODE_SCYTHE_2)
 	design_ids = list(
 		"scythet3",
 	)
@@ -139,7 +139,7 @@
 /datum/techweb_node/scythe_t4
 	id = TECHWEB_NODE_SCYTHE_4
 	display_name = "Scythe (Tier 4)"
-	description = "Culling tools"
+	description = "The most efficient scythe for culling."
 	prereq_ids = list(TECHWEB_NODE_SCYTHE_3)
 	design_ids = list(
 		"scythet4",

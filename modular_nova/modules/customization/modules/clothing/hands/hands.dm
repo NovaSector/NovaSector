@@ -64,13 +64,14 @@
 	greyscale_config_worn = /datum/greyscale_config/armwraps/worn
 	greyscale_colors = "#FFFFFF"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	armor_type = /datum/armor/none
 
 /obj/item/clothing/gloves
 	worn_icon_teshari = TESHARI_HANDS_ICON
 
 /obj/item/clothing/gloves/maid_arm_covers
 	name = "maid arm covers"
-	desc = "Maid in China."
+	desc = "Maid for you."
 	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/maid_arm_covers"
 	post_init_icon_state = "maid_arm_covers"
@@ -80,3 +81,10 @@
 	greyscale_config_inhand_right = null
 	greyscale_colors = "#7b9ab5#edf9ff"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/gloves/pink_clown
+	name = "pink clown gloves"
+	desc = "A pair of gloves dyed a bright candy-pink, ending in cuffs striped in every color of the rainbow."
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon =  'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+	icon_state = "pink_clown_gloves"

@@ -14,12 +14,41 @@
 	throw_speed = 3
 	throw_range = 5
 	merge_type = /obj/item/stack/sheet/mineral/clay
+	material_type = /datum/material/clay
+	mats_per_unit = list(/datum/material/clay = SHEET_MATERIAL_AMOUNT)
 	drop_sound = SFX_BRICK_DROP
 	pickup_sound = SFX_BRICK_PICKUP
 
+//And now for our lavaland dwelling friends, sand, but in stone form! Truly revolutionary.
+/datum/material/clay
+	name = "clay"
+	desc = "It's clay."
+	color = "#757575"
+	categories = list(
+		MAT_CATEGORY_RIGID = TRUE,
+		MAT_CATEGORY_BASE_RECIPES = TRUE,
+		MAT_CATEGORY_ITEM_MATERIAL = TRUE,
+		MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = TRUE,
+		)
+	sheet_type = /obj/item/stack/sheet/mineral/clay
+	value_per_unit = 5 / SHEET_MATERIAL_AMOUNT
+	armor_modifiers = list(MELEE = 0.5, BULLET = 0.5, LASER = 1.25, ENERGY = 0.5, BOMB = 0.5, BIO = 0.25, FIRE = 1.5, ACID = 1.5)
+	beauty_modifier = 0.3
+	turf_sound_override = FOOTSTEP_PLATING
+	texture_layer_icon_state = "brick"
+	fish_weight_modifier = 1.2
+	fishing_difficulty_modifier = 25 // clay fishing rods...
+	fishing_cast_range = -2
+	fishing_experience_multiplier = 0.3
+	fishing_completion_speed = 0.9
+	fishing_bait_speed_mult = 0.8
+	fishing_deceleration_mult = 2.5
+	fishing_bounciness_mult = 0.2
+	fishing_gravity_mult = 0.9
+
 GLOBAL_LIST_INIT(clay_recipes, list ( \
-	new/datum/stack_recipe("clay range", /obj/machinery/primitive_stove, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC), \
-	new/datum/stack_recipe("clay oven", /obj/machinery/oven/stone, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC) \
+	new/datum/stack_recipe("clay range", /obj/machinery/primitive_stove/clay, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC), \
+	new/datum/stack_recipe("clay oven", /obj/machinery/oven/primitive/clay, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC) \
 	))
 
 /obj/item/stack/sheet/mineral/clay/get_main_recipes()
@@ -232,6 +261,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	icon_state = "throw_wheel_empty"
 	density = TRUE
 	anchored = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10)
 
 	///if the structure has clay
 	var/has_clay = FALSE

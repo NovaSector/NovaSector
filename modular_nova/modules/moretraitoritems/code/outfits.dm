@@ -10,7 +10,7 @@
 	internals_slot = ITEM_SLOT_RPOCKET
 	belt = /obj/item/storage/belt/military
 	backpack_contents = list(
-		/obj/item/tank/jetpack/oxygen/harness = 1,
+		/obj/item/tank/jetpack/harness = 1,
 		/obj/item/gun/ballistic/automatic/pistol = 1,
 		/obj/item/knife/combat/survival,
 	)
@@ -19,8 +19,7 @@
 	tc = 0
 
 /datum/outfit/syndicate/stealth/pre_equip(mob/living/carbon/human/stealth_op, visuals_only)
-	stealth_op.faction |= ROLE_SYNDICATE
-	stealth_op.faction &= FACTION_NEUTRAL
+	stealth_op.add_faction(ROLE_SYNDICATE)
 	stealth_op.fully_replace_character_name(stealth_op.real_name, "[pick(GLOB.operative_aliases)] [syndicate_name()]")
 	if(stealth_op.jumpsuit_style == PREF_SKIRT)
 		uniform = /obj/item/clothing/under/syndicate/skirt

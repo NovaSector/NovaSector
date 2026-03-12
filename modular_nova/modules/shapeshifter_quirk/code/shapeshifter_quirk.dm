@@ -6,8 +6,12 @@
 	lose_text = span_notice("Your body loses its alterable feeling.")
 	medical_record_text = "Patient has an unusual physiology that allows them to physically transform their body."
 	value = 8
-	nova_stars_only = TRUE
 	quirk_flags = QUIRK_HUMAN_ONLY
+
+/datum/quirk/shapeshifter/is_species_appropriate(datum/species/mob_species)
+	if(ispath(mob_species, /datum/species/dullahan))
+		return FALSE
+	return ..()
 
 /datum/quirk/shapeshifter/add(client/client_source)
 	var/datum/action/innate/alter_form/quirk/shapeshift_action = new

@@ -15,13 +15,13 @@
 	RegisterSignal(carbon_target, COMSIG_MOB_ITEM_ATTACK, PROC_REF(mob_attack))
 	carbon_target.AddComponent(/datum/component/ash_age)
 	carbon_target.apply_status_effect(/datum/status_effect/ash_age)
-	carbon_target.faction |= list(FACTION_ASHWALKER,FACTION_NEUTRAL)
+	carbon_target.add_faction(FACTION_ASHWALKER)
 
 /datum/species/lizard/ashwalker/on_species_loss(mob/living/carbon/carbon_target)
 	. = ..()
 	REMOVE_TRAIT(carbon_target, TRAIT_ASHSTORM_IMMUNE, SPECIES_TRAIT)
 	UnregisterSignal(carbon_target, COMSIG_MOB_ITEM_ATTACK)
-	carbon_target.faction &= list(FACTION_ASHWALKER,FACTION_NEUTRAL)
+	carbon_target.remove_faction(FACTION_ASHWALKER)
 
 /datum/species/lizard/ashwalker/proc/mob_attack(datum/source, mob/mob_target, mob/user)
 	SIGNAL_HANDLER
@@ -283,8 +283,11 @@
 		consumed_trophies += 1
 		if(isliving(user)) //give a reason to consume past the increased damage
 			var/mob/living/living_user = user
-			living_user.adjustBruteLoss(-5, updating_health = FALSE)
-			living_user.adjustFireLoss(-5)
+			var/need_mob_update
+			need_mob_update += living_user.adjust_brute_loss(-5, updating_health = FALSE)
+			need_mob_update += living_user.adjust_fire_loss(-5, updating_health = FALSE)
+			if(need_mob_update)
+				living_user.updatehealth()
 
 		if(consumed_trophies <= max_trophies)
 			force += 5

@@ -189,6 +189,28 @@
 /obj/machinery/holopad,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
+"cX" = (
+/obj/item/stack/sheet/iron/twenty,
+/obj/item/circuitboard/machine/ore_silo,
+/obj/item/circuitboard/machine/ore_redemption{
+	pixel_x = 5;
+	pixel_y = -6
+	},
+/obj/structure/closet/crate,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/circuitboard/machine/protolathe/offstation,
+/obj/effect/spawner/random/engineering/toolbox,
+/obj/item/circuitboard/machine/circuit_imprinter/department,
+/obj/item/folded_navigation_gigabeacon,
+/obj/structure/cable,
+/obj/item/circuitboard/computer/powermonitor,
+/obj/item/circuitboard/machine/biogenerator/food_replicator,
+/obj/item/flatpacked_machine,
+/obj/item/storage/box/stockparts/basic,
+/obj/item/storage/box/stockparts/basic,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/cargodise_freighter/utility)
 "dc" = (
 /obj/effect/turf_decal/tile/yellow/half,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -329,11 +351,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
-"ev" = (
-/obj/structure/lattice,
-/mob,
-/turf/template_noop,
-/area/template_noop)
 "ex" = (
 /obj/machinery/door/airlock/survival_pod/glass,
 /obj/structure/fans/tiny,
@@ -540,7 +557,7 @@
 	},
 /obj/machinery/suit_storage_unit{
 	mask_type = /obj/item/clothing/mask/gas/explorer;
-	storage_type = /obj/item/tank/jetpack/oxygen/harness;
+	storage_type = /obj/item/tank/jetpack/harness;
 	suit_type = /obj/item/mod/control/pre_equipped/traitor_elite
 	},
 /turf/open/floor/iron/dark,
@@ -644,15 +661,6 @@
 /obj/effect/mob_spawn/ghost_role/human/lostcargoqm,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
-"jC" = (
-/obj/effect/turf_decal/tile/yellow,
-/obj/machinery/button/door/directional/north{
-	id = "cargolockdown";
-	name = "Loading Bay Blastdoors";
-	pixel_y = -24
-	},
-/turf/open/floor/iron/dark/smooth_half,
-/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "jP" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 4
@@ -825,15 +833,6 @@
 "mb" = (
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
-"mc" = (
-/obj/machinery/button/door/directional/north{
-	id = "bridgelockdown";
-	name = "Bridge Blastdoors";
-	pixel_y = -24
-	},
-/mob/living/basic/looter/ranged/space/laser,
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/cargodise_freighter/vault)
 "mf" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/item/kirbyplants/random,
@@ -960,6 +959,14 @@
 	},
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark/smooth_corner,
+/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
+"oj" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/machinery/button/door/directional/south{
+	id = "cargolockdown";
+	name = "Loading Bay Blastdoors"
+	},
+/turf/open/floor/iron/dark/smooth_half,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "ok" = (
 /obj/machinery/airalarm/directional/east,
@@ -1201,31 +1208,6 @@
 "th" = (
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
-"ti" = (
-/obj/item/stack/sheet/iron/twenty,
-/obj/item/circuitboard/machine/ore_silo,
-/obj/item/circuitboard/machine/ore_redemption{
-	pixel_x = 5;
-	pixel_y = -6
-	},
-/obj/item/storage/box/stockparts/deluxe,
-/obj/item/storage/box/stockparts/deluxe,
-/obj/structure/closet/crate,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/circuitboard/machine/protolathe/offstation,
-/obj/effect/spawner/random/engineering/toolbox,
-/obj/item/circuitboard/machine/circuit_imprinter/department,
-/obj/item/circuitboard/machine/rtg/advanced,
-/obj/item/circuitboard/machine/rtg/advanced,
-/obj/item/circuitboard/machine/rtg/advanced,
-/obj/item/folded_navigation_gigabeacon,
-/obj/structure/cable,
-/obj/item/circuitboard/computer/powermonitor,
-/obj/item/circuitboard/machine/biogenerator/food_replicator,
-/obj/item/flatpacked_machine,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/cargodise_freighter/utility)
 "ty" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1717,20 +1699,6 @@
 /obj/structure/closet/freighterammo,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
-"AE" = (
-/obj/structure/closet/crate/science{
-	req_access = list("science");
-	name = "Delivery - Nanotrasen Science Division"
-	},
-/obj/effect/spawner/random/exotic/technology,
-/obj/effect/spawner/random/exotic/technology,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/effect/spawner/random/exotic/tool,
-/obj/effect/spawner/random/exotic/tool,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "AN" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/cargodise_freighter/exterior)
@@ -1838,6 +1806,14 @@
 	},
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
+"Cy" = (
+/mob/living/basic/looter/ranged/space/laser,
+/obj/machinery/button/door/directional/south{
+	id = "bridgelockdown";
+	name = "Bridge Blastdoors"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/cargodise_freighter/vault)
 "Cz" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 8
@@ -1914,6 +1890,18 @@
 /obj/item/storage/box/beakers/variety,
 /turf/open/floor/iron/kitchen,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
+"Eb" = (
+/obj/structure/closet/crate/science{
+	req_access = list("science");
+	name = "Delivery - Nanotrasen Science Division"
+	},
+/obj/effect/spawner/random/exotic/technology,
+/obj/effect/spawner/random/exotic/technology,
+/obj/item/raw_anomaly_core/random,
+/obj/effect/spawner/random/exotic/tool,
+/obj/effect/spawner/random/exotic/tool,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "Ee" = (
 /obj/effect/turf_decal/tile/yellow/half,
 /obj/machinery/door/firedoor/closed,
@@ -1922,7 +1910,7 @@
 "Ef" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/template_noop)
+/area/space/nearstation)
 "Ej" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2110,6 +2098,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
+"GW" = (
+/obj/structure/closet/crate/medical,
+/obj/effect/spawner/random/medical/medkit,
+/obj/effect/spawner/random/medical/medkit,
+/obj/effect/spawner/random/medical/medkit_rare,
+/obj/effect/spawner/random/medical/surgery_tool_advanced,
+/obj/effect/spawner/random/medical/surgery_tool_advanced,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "Ha" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/kitchen,
@@ -2986,16 +2983,6 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
-"TU" = (
-/obj/structure/closet/crate/medical,
-/obj/effect/spawner/random/medical/medkit,
-/obj/effect/spawner/random/medical/medkit,
-/obj/effect/spawner/random/medical/medkit_rare,
-/obj/effect/spawner/random/medical/surgery_tool_advanced,
-/obj/effect/spawner/random/medical/surgery_tool_advanced,
-/obj/effect/spawner/random/medical/surgery_tool_alien,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "TZ" = (
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
@@ -3946,7 +3933,7 @@ ok
 SP
 Bl
 wQ
-ti
+cX
 Nr
 NE
 Dn
@@ -3972,7 +3959,7 @@ Gh
 Gh
 Gh
 JQ
-ev
+Ef
 Ef
 Ef
 Yr
@@ -4319,7 +4306,7 @@ lH
 HO
 xX
 xX
-AE
+Eb
 xX
 YL
 Wl
@@ -4362,7 +4349,7 @@ xX
 LW
 Ii
 xX
-TU
+GW
 Wl
 nu
 Gh
@@ -4560,7 +4547,7 @@ rY
 Gg
 zF
 tV
-jC
+oj
 Hv
 Hv
 Jx
@@ -5130,7 +5117,7 @@ do
 Eo
 Eo
 jl
-mc
+Cy
 vh
 UL
 tV

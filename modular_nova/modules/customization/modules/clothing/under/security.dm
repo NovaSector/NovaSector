@@ -12,7 +12,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/security/detective/cowboy/armorless //Donator variant, just uses the sprite.
-	armor_type = /datum/armor/clothing_under/none
+	armor_type = /datum/armor/clothing_under
 
 /obj/item/clothing/suit/cowboyvest
 	name = "blonde cowboy vest"
@@ -111,7 +111,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/prisoner/syndicate
 	name = "syndicate prisoner jumpsuit"

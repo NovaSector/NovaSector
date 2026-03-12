@@ -8,7 +8,7 @@
 	// Tracks if a custom description has been provided that should override the mob's default.
 	var/redescribed = FALSE
 
-/obj/item/mob_holder/pet/pet/Initialize(mapload, mob/living/M, worn_state, head_icon, lh_icon, rh_icon, worn_slot_flags = NONE)
+/obj/item/mob_holder/pet/Initialize(mapload, mob/living/M, worn_state, head_icon, lh_icon, rh_icon, worn_slot_flags = NONE)
 	held_mob = new starting_pet(src)
 	if(renamed)
 		held_mob.name = name
@@ -19,14 +19,14 @@
 
 /// If this gets renamed, make sure to paste the new name onto the mob as well.
 /// If, for whatever reason, this gets called before Initialize, it also sets renamed = TRUE to ensure that the mob gets the custom name on initialization.
-/obj/item/mob_holder/pet/pet/on_loadout_custom_named()
+/obj/item/mob_holder/pet/on_loadout_custom_named()
 	. = ..()
 	renamed = TRUE
 	if(held_mob != null)
 		held_mob.name = name
 
 /// See above.
-/obj/item/mob_holder/pet/pet/on_loadout_custom_described()
+/obj/item/mob_holder/pet/on_loadout_custom_described()
 	. = ..()
 	redescribed = TRUE
 	if(held_mob != null)

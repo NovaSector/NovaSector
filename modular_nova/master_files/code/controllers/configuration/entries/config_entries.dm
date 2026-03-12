@@ -3,24 +3,6 @@
 
 /datum/config_entry/flag/russian_text_formation
 
-// Overflow server HARD pop cap
-/datum/config_entry/number/player_hard_cap
-
-// Overflow server SOFT pop cap - Notifiaction to join the overflow
-/datum/config_entry/number/player_soft_cap
-
-// Overflow server IP
-/datum/config_entry/string/overflow_server_ip
-
-// Do we broadcast our OOC to all dem servers in cross servers?
-/datum/config_entry/flag/enable_cross_server_ooc
-
-// Do we broadcast our asay to all dem servers in cross servers?
-/datum/config_entry/flag/enable_cross_server_asay
-
-// Name of our server, ooc.
-/datum/config_entry/string/cross_server_name
-
 // DISCORD GAME ALERT CONFIGS
 // Role id to ping
 /datum/config_entry/string/game_alert_role_id
@@ -111,3 +93,11 @@
 		var/obj/item/organ/eyes/eyes = blinker.get_organ_slot(ORGAN_SLOT_EYES)
 		eyes?.blink()
 		CHECK_TICK
+
+///The maximum number of allowed savefile backups per player
+/datum/config_entry/number/savefile_backup_limit
+	default = 16
+
+///The maximum file size allowed by savefile uploading, in kilobytes
+/datum/config_entry/number/savefile_upload_limit
+	default = 2000

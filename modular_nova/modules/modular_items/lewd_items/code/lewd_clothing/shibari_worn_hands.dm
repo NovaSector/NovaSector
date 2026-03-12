@@ -28,8 +28,10 @@
 		. += emissive_appearance(standing.icon, standing.icon_state, src, alpha = 100)
 
 /obj/item/clothing/gloves/shibari_hands/Destroy()
-	for(var/obj/item in contents)
-		item.forceMove(get_turf(src))
+	for(var/obj/item/stack/shibari_rope/rope_piece in contents)
+		if(QDELETED(rope_piece))
+			continue
+		rope_piece.forceMove(get_turf(src))
 	if(!ishuman(loc))
 		return ..()
 	var/mob/living/carbon/human/hooman = loc

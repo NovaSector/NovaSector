@@ -61,11 +61,11 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/blastoff/synth)
 
 NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/mushroomhallucinogen/synth)
 
-/datum/reagent/drug/quaalude
+/datum/reagent/drug/quaalude/synth
 	name = "GABAA_SL164.exe"
 	chemical_flags = REAGENT_NEUROWARE
 	process_flags = REAGENT_SYNTHETIC
 	self_consuming = TRUE
 	purge_multiplier = 0
 
-NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/quaalude)
+NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/quaalude/synth)

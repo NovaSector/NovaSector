@@ -1,5 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { Feature, FeatureShortTextInput } from '../../base';
+import { type Feature, FeatureShortTextInput } from '../../base';
 
 export const custom_tongue_ask: Feature<string> = {
   name: 'Ask?',

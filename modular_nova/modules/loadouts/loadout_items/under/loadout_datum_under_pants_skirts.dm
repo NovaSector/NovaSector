@@ -139,6 +139,11 @@
 	item_path = /obj/item/clothing/under/pants/nova/yoga
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/wide_leg
+	name = "Pants - Wide Legged (Colorable)"
+	item_path = /obj/item/clothing/under/pants/nova/wide_leg
+	group = "Casualwear"
+
 /datum/loadout_item/under/miscellaneous/shorts
 	name = "Shorts  (Colorable)"
 	item_path = /obj/item/clothing/under/shorts
@@ -153,37 +158,37 @@
 	name = "Shorts (Red)"
 	item_path = /obj/item/clothing/under/shorts/red
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/green_short
 	name = "Shorts (Green)"
 	item_path = /obj/item/clothing/under/shorts/green
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/blue_short
 	name = "Shorts (Blue)"
 	item_path = /obj/item/clothing/under/shorts/blue
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/black_short
 	name = "Shorts (Black)"
 	item_path = /obj/item/clothing/under/shorts/black
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/grey_short
 	name = "Shorts (Grey)"
 	item_path = /obj/item/clothing/under/shorts/grey
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/purple_short
 	name = "Shorts (Purple)"
 	item_path = /obj/item/clothing/under/shorts/purple
 	group = "Casualwear"
-	can_be_greyscale = DONT_GREYSCALE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/miscellaneous/jeanshorts
 	name = "Shorts - Jean (Colorable)"
@@ -248,8 +253,8 @@
 /datum/loadout_item/under/miscellaneous/sweater
 	name = "Cableknit Sweater" //Different than the Suit item ("Sweater")!!
 	item_path = /obj/item/clothing/under/sweater
+	reskin_datum = /datum/atom_skin/cableknit_sweater
 	group = "Casualwear"
-	can_be_reskinned = TRUE
 
 /datum/loadout_item/under/jumpsuit/turtleneck
 	name = "Turtleneck w/ Pants"
@@ -274,4 +279,14 @@
 /datum/loadout_item/under/jumpsuit/overalls_skirt
 	name = "Turtleneck w/ Overalls Skirt"
 	item_path = /obj/item/clothing/under/greyscale/overalls/skirt
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/windowed_dress
+	name = "Windowed Dress"
+	item_path = /obj/item/clothing/under/dress/nova/windowed_dress
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/shorter_overall
+	name = "Shorter Overall"
+	item_path = /obj/item/clothing/under/pants/nova/shorted_overall
 	group = "Casualwear"

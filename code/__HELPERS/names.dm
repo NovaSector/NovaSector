@@ -106,7 +106,7 @@ GLOBAL_VAR(command_name)
 
 	var/config_server_name = CONFIG_GET(string/servername)
 	if(config_server_name)
-		world.name = "[config_server_name][config_server_name == GLOB.station_name ? "" : ": [html_decode(GLOB.station_name)]"]"
+		world.name = "[config_server_name][config_server_name == GLOB.station_name ? "" : ": [html_decode(GLOB.station_name)]"][GLOB.round_id ? " (Round: [GLOB.round_id])" : ""]" // NOVA EDIT CHANGE - ORIGINAL: world.name = "[config_server_name][config_server_name == GLOB.station_name ? "" : ": [html_decode(GLOB.station_name)]"]"
 	else
 		world.name = html_decode(GLOB.station_name)
 
@@ -396,10 +396,10 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 		return FALSE
 	return TRUE
 
-/// Build a list of strings containing the numbers 1-99 as both arabic and roman numerals
+/// Generates and returns a list of both arabic and roman numerals for 1 through 99
 /proc/generate_number_strings()
-	var/list/L[198]
+	var/list/numbers = list()
 	for(var/i in 1 to 99)
-		L += "[i]"
-		L += "\Roman[i]"
-	return L
+		numbers += "[i]"
+		numbers += "\Roman[i]"
+	return numbers

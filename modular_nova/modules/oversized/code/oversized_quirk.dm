@@ -12,7 +12,7 @@
 	value = 0
 	mob_trait = TRAIT_OVERSIZED
 	icon = FA_ICON_EXPAND_ARROWS_ALT
-	nova_stars_only = TRUE
+
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
 	/// Saves refs to the original (normal size) organs, which are on ice in nullspace in case this quirk gets removed somehow.
 	var/list/obj/item/organ/old_organs
@@ -20,8 +20,8 @@
 /datum/quirk/oversized/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	human_holder.dna.features["body_size"] = 2
-	human_holder.maptext_height = 32 * human_holder.dna.features["body_size"] //Adjust runechat height
-	human_holder.dna.update_body_size()
+	if(!isdummy(human_holder))
+		human_holder.dna.update_body_size()
 	human_holder.mob_size = MOB_SIZE_LARGE
 
 	RegisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB, PROC_REF(on_gain_limb)) // make sure we handle this when new ones are applied
@@ -39,8 +39,8 @@
 /datum/quirk/oversized/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	human_holder.dna.features["body_size"] = human_holder?.client?.prefs ?human_holder?.client?.prefs?.read_preference(/datum/preference/numeric/body_size) : 1
-	human_holder.maptext_height = 32 * human_holder.dna.features["body_size"]
-	human_holder.dna.update_body_size()
+	if(!isdummy(human_holder))
+		human_holder.dna.update_body_size()
 	human_holder.mob_size = MOB_SIZE_HUMAN
 
 	var/obj/item/bodypart/arm/left/left_arm = human_holder.get_bodypart(BODY_ZONE_L_ARM)

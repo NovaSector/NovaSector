@@ -21,7 +21,7 @@
 	mutanttongue = /obj/item/organ/tongue/cat/primitive
 
 	species_language_holder = /datum/language_holder/primitive_felinid
-	language_prefs_whitelist = list(/datum/language/primitive_catgirl)
+	language_prefs_whitelist = list(/datum/language/primitive_catgirl = TRUE)
 
 	bodytemp_normal = 270 // If a normal human gets hugged by one it's gonna feel cold
 	bodytemp_heat_damage_limit = 283 // To them normal station atmos would be sweltering
@@ -32,6 +32,7 @@
 		TRAIT_VIRUSIMMUNE,
 		TRAIT_RESISTCOLD,
 		TRAIT_USES_SKINTONES,
+		TRAIT_NO_SLIP_ICE,
 	)
 
 	always_customizable = TRUE
@@ -59,8 +60,8 @@
 
 	human_for_preview.update_body_parts()
 
-	human_for_preview.dna.species.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
-	human_for_preview.dna.species.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(human_for_preview.hair_color))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Cat", list(human_for_preview.hair_color))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = build_mutant_part("Cat", list(human_for_preview.hair_color))
 
 	human_for_preview.update_body_parts()
 	human_for_preview.update_body(is_creating = TRUE)

@@ -7,8 +7,6 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "warden_syndie"
-	uses_advanced_reskins = FALSE
-	unique_reskin = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 // HEAD OF PERSONNEL

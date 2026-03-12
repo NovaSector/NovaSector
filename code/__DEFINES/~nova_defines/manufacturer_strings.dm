@@ -4,7 +4,9 @@
 #define COMPANY_DONK "It has a <b>[span_green("Donk Corporation")]</b> label visible on it."
 #define COMPANY_BOLT "It has <b>[span_yellow("Bolt Fabrications")]</b> stamped onto it."
 #define COMPANY_NANOTRASEN "It has <b>[span_blue("Nanotrasen Armories")]</b> etched into it."
+#define COMPANY_VEYMED "It has <b>[span_nicegreen("Vey-Medical")]</b> precisely cut into it."
 
+#define COMPANY_VELDJEN_KUIPER "It has a small <b>[span_horizonblue("compass rose")]</b> alongside <b>[span_horizonblue("Veldjen-Kuiper Armories")]</b> etched into it."
 #define COMPANY_CARWO "It has a small <b>[span_cyan("four pointed star")]</b> alongside <b>[span_cyan("Carwo Defense Systems")]</b> etched into it."
 #define COMPANY_TRAPPISTE "It has a small <b>[span_red("pattern of five squares")]</b> alongside <b>[span_red("Trappiste Fabriek")]</b> etched into it."
 #define COMPANY_SOLFED "It has <b>[span_cyan("✧︎ Solar Federation Surplus ✧︎")]</b> stamped into it."

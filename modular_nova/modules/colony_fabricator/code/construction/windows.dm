@@ -7,6 +7,7 @@
 	fulltile = TRUE
 	glass_type = /obj/item/stack/sheet/plastic_wall_panel
 	glass_amount = 1
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 0.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.5)
 
 /obj/structure/grille/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(attacking_item, /obj/item/stack/sheet/plastic_wall_panel))

@@ -12,6 +12,15 @@ GLOBAL_LIST_INIT(backpacklist, list(
 	TPACKB,
 	TPACKA,
 	TPACKC,
+	UDCPACK,
 	GUNCASE,
 	// NOVA EDIT ADDITION END
+))
+
+
+GLOBAL_LIST_INIT(suit_sensor_mode_to_defines, list(
+	"Off" = SENSOR_OFF,
+	"Binary vitals" = SENSOR_LIVING,
+	"Exact vitals" = SENSOR_VITALS,
+	"Tracking beacon" = SENSOR_COORDS,
 ))

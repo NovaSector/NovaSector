@@ -205,8 +205,8 @@
 			if(length(graft_list) < 3)
 				. += span_notice("You are able to graft samples of other plants to this tree.")
 
-			for(var/obj/item/graft/grafted_items in graft_list)
-				. += span_notice("A sample of [grafted_items.parent_name] is grafted on.")
+			for(var/obj/item/graft/grafted_item in graft_list)
+				. += span_notice("A sample of [grafted_item.plant_dna.plantname] is grafted on.")
 
 			if(tree_bee)
 				. += span_notice("A big queen bee can be seen flying around the tree.")
@@ -283,7 +283,7 @@
 	if(istype(tool, /obj/item/graft))
 		var/obj/item/graft/tool_graft = tool
 		playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
-		to_chat(user, span_notice("You begin to graft the [tool_graft.parent_name] graft onto [src]."))
+		to_chat(user, span_notice("You begin to graft the [tool_graft.plant_dna.plantname] graft onto [src]."))
 		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, 10 SECONDS * skill_modifier, target = src))
 			to_chat(user, span_warning("You decide against the grafting!"))
@@ -297,7 +297,7 @@
 
 		tool_graft.forceMove(src)
 		graft_list += tool_graft
-		to_chat(user, span_notice("You successfully graft the [tool_graft.parent_name] graft onto [src]."))
+		to_chat(user, span_notice("You successfully graft the [tool_graft.plant_dna.plantname] graft onto [src]."))
 		update_graft_reagents()
 		user.mind?.adjust_experience(/datum/skill/primitive, 5)
 		update_appearance(UPDATE_OVERLAYS)

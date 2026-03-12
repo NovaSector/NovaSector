@@ -8,6 +8,46 @@
 	icon_state = "brain-c"
 	emp_dmg_mult = 1.5 //Note that the base damage is 20/10
 	emp_dmg_max = 150 //defaults to nonlethal, severely damaged
+	var/obj/item/modular_computer/pda/synth/internal_computer
+	actions_types = list(/datum/action/item_action/synth/open_internal_computer)
+
+/obj/item/organ/brain/cybernetic/cortical/Initialize(mapload)
+	. = ..()
+	internal_computer = new(src)
+	ADD_TRAIT(src, TRAIT_SILICON_EMOTES_ALLOWED, INNATE_TRAIT)
+
+/obj/item/organ/brain/cybernetic/cortical/Destroy()
+	QDEL_NULL(internal_computer)
+	return ..()
+
+/obj/item/organ/brain/cybernetic/cortical/on_mob_insert(mob/living/carbon/human/brain_owner, special, movement_flags)
+	. = ..()
+	if(!istype(brain_owner))
+		return
+	RegisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equip_signal))
+	if(internal_computer && brain_owner.wear_id)
+		internal_computer.handle_id_slot(brain_owner, brain_owner.wear_id)
+
+/obj/item/organ/brain/cybernetic/cortical/on_mob_remove(mob/living/carbon/human/brain_owner, special)
+	. = ..()
+	if(!istype(brain_owner))
+		return
+	UnregisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM)
+	if(internal_computer)
+		internal_computer.handle_id_slot(brain_owner)
+		internal_computer.clear_id_slot_signals(brain_owner.wear_id)
+
+/obj/item/organ/brain/cybernetic/cortical/proc/on_equip_signal(datum/source, obj/item/item, slot)
+	SIGNAL_HANDLER
+	if(isnull(internal_computer))
+		return
+	if(slot == ITEM_SLOT_ID)
+		internal_computer.handle_id_slot(owner, item)
+
+/// Mark cortical brains as robotic for systems that require synthetic brains
+/obj/item/organ/brain/cybernetic/cortical/Initialize(mapload)
+	. = ..()
+	organ_flags |= ORGAN_ROBOTIC
 
 //Extra effects
 /obj/item/organ/brain/cybernetic/cortical/emp_act(severity)

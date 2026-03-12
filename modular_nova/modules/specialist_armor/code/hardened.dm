@@ -77,14 +77,13 @@
 		combine in such a way that bullets lose much of their armor penetrating energy before any damage can be done, rather than penetrate into it."
 	icon = 'modular_nova/modules/specialist_armor/icons/armor.dmi'
 	icon_state = "enclosed_standard"
+	base_icon_state = "enclosed_standard"
 	worn_icon = 'modular_nova/modules/specialist_armor/icons/armor_worn.dmi'
 	inhand_icon_state = "helmet"
 	armor_type = /datum/armor/armor_sf_hardened
-	toggle_message = "You extend the visor on"
-	alt_toggle_message = "You retract the visor on"
 	actions_types = list(/datum/action/item_action/toggle)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
-	visor_flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	visor_flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEFACIALHAIR
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES
 	dog_fashion = null
@@ -134,3 +133,4 @@
 		combine in such a way that bullets lose much of their armor penetrating energy before any damage can be done, rather than penetrate into it. \
 		This one has a red stripe down the front."
 	icon_state = "enclosed_emt"
+	base_icon_state = "enclosed_emt"

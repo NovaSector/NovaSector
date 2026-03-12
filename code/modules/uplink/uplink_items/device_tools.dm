@@ -59,7 +59,6 @@
 	item = /obj/item/book/bible/syndicate
 	cost = 5
 
-/* // NOVA EDIT REMOVAL START
 /datum/uplink_item/device_tools/tram_remote
 	name = "Tram Remote Control"
 	desc = "When linked to a tram's on board computer systems, this device allows the user to manipulate the controls remotely. \
@@ -67,7 +66,6 @@
 		Perfect for running someone over in the name of a tram malfunction!"
 	item = /obj/item/assembly/control/transport/remote
 	cost = 2
-*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/device_tools/thermal
 	name = "Thermal Imaging Glasses"
@@ -86,7 +84,6 @@
 	cost = 1
 	surplus = 20
 
-/* // NOVA EDIT REMOVAL
 /datum/uplink_item/device_tools/briefcase_launchpad
 	name = "Briefcase Launchpad"
 	desc = "A briefcase containing a launchpad, a device able to teleport items and people to and from targets up to eight tiles away from the briefcase. \
@@ -94,7 +91,6 @@
 	surplus = 0
 	item = /obj/item/storage/briefcase/launchpad
 	cost = 6
-*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/device_tools/syndicate_teleporter
 	name = "Experimental Syndicate Teleporter"
@@ -108,7 +104,7 @@
 /datum/uplink_item/device_tools/camera_app
 	name = "SyndEye Program"
 	desc = "A data disk containing a unique PC app that allows you to watch cameras and track crewmembers."
-	item = /obj/item/computer_disk/syndicate/camera_app
+	item = /obj/item/disk/computer/syndicate/camera_app
 	cost = 1
 	surplus = 90
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
@@ -141,14 +137,14 @@
 			when used cause the targeted tablet to become a new uplink with zero TCs, and immediately become unlocked. \
 			You will receive the unlock code upon activating the virus, and the new uplink may be charged with \
 			telecrystals normally."
-	item = /obj/item/computer_disk/virus/frame
+	item = /obj/item/disk/computer/virus/frame
 	cost = 4
 	restricted = TRUE
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/device_tools/frame/spawn_item(spawn_path, mob/user, datum/uplink_handler/uplink_handler, atom/movable/source)
 	. = ..()
-	var/obj/item/computer_disk/virus/frame/target = .
+	var/obj/item/disk/computer/virus/frame/target = .
 	if(!target)
 		return
 	target.current_progression = uplink_handler.progression_points
@@ -197,7 +193,6 @@
 	cost = 3
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
-/* NOVA EDIT REMOVAL - It's laggy and doesn't really add much roleplay value
 /datum/uplink_item/device_tools/suspiciousphone
 	name = "Protocol CRAB-17 Phone"
 	desc = "The Protocol CRAB-17 Phone, a phone borrowed from an unknown third party, it can be used to crash the space market, funneling the losses of the crew to your bank account.\
@@ -206,7 +201,6 @@
 	restricted = TRUE
 	cost = 7
 	limited_stock = 1
-*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/device_tools/binary
 	name = "Binary Translator Key"

@@ -16,6 +16,10 @@ export const ServerPrefs = createContext<ServerData | undefined>({
     quirk_blacklist: [],
     points_enabled: false,
   },
+  personality: {
+    personalities: [],
+    personality_incompatibilities: {},
+  },
   random: {
     randomizable: [],
   },
@@ -23,6 +27,11 @@ export const ServerPrefs = createContext<ServerData | undefined>({
     loadout_tabs: [],
   },
   species: {},
+  // NOVA EDIT ADDITION START - Background Selection
+  background_state: {
+    choices: [],
+  },
+  // NOVA EDIT ADDITION END - Background Selection
 });
 
 export function useServerPrefs() {

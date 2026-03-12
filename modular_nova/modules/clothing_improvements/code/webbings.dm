@@ -1,59 +1,95 @@
-/datum/storage/loadout_belt
-	max_specific_storage = WEIGHT_CLASS_SMALL
-	max_slots = 7
-
-/datum/storage/loadout_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
-	. = ..()
-	//Has size exceptions for some larger items in toolbelts & mining webbing
-	set_holdable(exception_hold_list = list(
-		/obj/item/construction, //RCD, RLD, RTD
-		/obj/item/inducer,
-		/obj/item/pickaxe/mini, //Despite being Mini, it's NORMAL (not SMALL). The base pickaxe is BULKY.
-		/obj/item/pipe_painter,
-		/obj/item/plunger,
-		/obj/item/resonator,
-		/obj/item/shovel,
-		/obj/item/stack/ore,
-		/obj/item/stack/sheet/animalhide,
-		/obj/item/stack/sheet/bone,
-		/obj/item/stack/sheet/sinew,
-		/obj/item/storage/bag/ore,
-	))
-
-/obj/item/storage/belt/webbing
+/obj/item/clothing/accessory/webbing
 	name = "webbing"
 	desc = "A sturdy mess of synthetic belts and buckles, ready to share your burden."
-	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	icon_state = "webbing"
-	worn_icon_state = null //inherits from icon_state
-	storage_type = /datum/storage/loadout_belt
+	minimize_when_attached = FALSE
+	attachment_slot = NONE
 
-/obj/item/storage/belt/webbing/pouch
-	name = "drop pouches"
-	gender = PLURAL
-	desc = "A robust pair of drop pouches with good capacity, ready to share your burdens."
-	icon_state = "thigh_brown"
-	unique_reskin = list(
-		"Brown" = "thigh_brown",
-		"Black" = "thigh_black",
-		"White" = "thigh_white",
-	)
+/datum/storage/pockets/webbing
+	do_rustle = TRUE
+	max_slots = 3
+	max_specific_storage = WEIGHT_CLASS_SMALL
 
-/obj/item/storage/belt/webbing/pilot
-	name = "storage rigging"
-	icon_state = "pilot_webbing1"
-	unique_reskin = list(
-		"Full Rigging" = "pilot_webbing1",
-		"Low Slung" = "pilot_webbing2",
-	)
+/obj/item/clothing/accessory/webbing/Initialize(mapload)
+	. = ..()
+	create_storage(storage_type = /datum/storage/pockets/webbing)
 
-/obj/item/storage/belt/webbing/vest
+/obj/item/clothing/accessory/webbing/can_attach_accessory(obj/item/clothing/under/attach_to, mob/living/user)
+	. = ..()
+	if(!.)
+		return
+
+	if(!isnull(attach_to.atom_storage))
+		if(user)
+			attach_to.balloon_alert(user, "not compatible!")
+		return FALSE
+	return TRUE
+
+/datum/atom_skin/webbing_vest
+	abstract_type = /datum/atom_skin/webbing_vest
+
+/datum/atom_skin/webbing_vest/brown
+	preview_name = "Brown"
+	new_icon_state = "vest_brown"
+
+/datum/atom_skin/webbing_vest/black
+	preview_name = "Black"
+	new_icon_state = "vest_black"
+
+/datum/atom_skin/webbing_vest/white
+	preview_name = "Medical White"
+	new_icon_state = "vest_white"
+
+/obj/item/clothing/accessory/webbing/vest
 	name = "webbing vest"
 	desc = "A robust vest with lots of pockets to hold whatever you need, ready to share your burdens."
 	icon_state = "vest_brown"
-	unique_reskin = list(
-		"Brown" = "vest_brown",
-		"Black" = "vest_black",
-		"Medical White" = "vest_white",
-	)
+
+/obj/item/clothing/accessory/webbing/vest/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/webbing_vest)
+
+/datum/atom_skin/drop_pouches
+	abstract_type = /datum/atom_skin/drop_pouches
+
+/datum/atom_skin/drop_pouches/brown
+	preview_name = "Brown"
+	new_icon_state = "thigh_brown"
+
+/datum/atom_skin/drop_pouches/black
+	preview_name = "Black"
+	new_icon_state = "thigh_black"
+
+/datum/atom_skin/drop_pouches/white
+	preview_name = "White"
+	new_icon_state = "thigh_white"
+
+/obj/item/clothing/accessory/webbing/pouch
+	name = "drop pouches"
+	desc = "A robust pair of drop pouches with good capacity, ready to share your burdens."
+	icon_state = "thigh_brown"
+
+/obj/item/clothing/accessory/webbing/pouch/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/drop_pouches)
+
+/obj/item/clothing/accessory/webbing/pouch/black
+	icon_state = "thigh_black"
+
+/datum/atom_skin/storage_rigging
+	abstract_type = /datum/atom_skin/storage_rigging
+
+/datum/atom_skin/storage_rigging/full
+	preview_name = "Full Rigging"
+	new_icon_state = "pilot_webbing1"
+
+/datum/atom_skin/storage_rigging/low_slung
+	preview_name = "Low Slung"
+	new_icon_state = "pilot_webbing2"
+
+/obj/item/clothing/accessory/webbing/pilot
+	name = "storage rigging"
+	icon_state = "pilot_webbing1"
+
+/obj/item/clothing/accessory/webbing/pilot/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/storage_rigging)

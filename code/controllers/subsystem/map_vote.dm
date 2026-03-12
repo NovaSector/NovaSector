@@ -122,10 +122,12 @@ SUBSYSTEM_DEF(map_vote)
 	var/list/maps = shuffle(global.config.maplist)
 	for(var/map in maps)
 		var/datum/map_config/possible_config = config.maplist[map]
+		// NOVA EDIT ADDITION START - Can't vote for the current map
+		if(possible_config.map_name == SSmapping.current_map?.map_name)
+			continue
+		// NOVA EDIT ADDITION END
 		if(!possible_config.votable || (possible_config.map_name in SSpersistence.blocked_maps))
 			continue
-		if(possible_config.map_name == SSmapping.current_map?.map_name) // NOVA EDIT ADDITION - Can't vote for the current map
-			continue // NOVA EDIT ADDITION
 		if(possible_config.config_min_users > 0 && filter_threshold < possible_config.config_min_users)
 			continue
 		if(possible_config.config_max_users > 0 && filter_threshold > possible_config.config_max_users)

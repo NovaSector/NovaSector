@@ -28,19 +28,5 @@
 	caliber = CALIBER_KINETICBALL
 	ammo_type = /obj/item/ammo_casing/kineticball
 	max_ammo = 13
-	casing_x_positions = list(
-		-7,
-		-6,
-		-5,
-		-3,
-		-2,
-		-1,
-		0,
-		1,
-		2,
-		3,
-		5,
-		6,
-		7,
-	)
-	casing_y_padding = 6
+	casing_w_spacing = 2
+	casing_z_padding = 6

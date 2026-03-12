@@ -3,9 +3,7 @@
 	make_default_mutant_bodypart_references()
 	make_body_marking_references()
 	make_body_marking_set_references()
-	make_body_marking_dna_block_references()
-	populate_total_ui_len_by_block()
-	populate_total_uf_len_by_block()
+	make_robotic_style_references()
 	make_augment_references()
 	build_erp_item_list()
 
@@ -31,15 +29,16 @@
 
 /proc/make_default_mutant_bodypart_references()
 	// Build the global list for default species' mutant_bodyparts
-	for(var/path in subtypesof(/datum/species))
-		var/datum/species/species_type = path
-		var/datum/species/species_instance = new species_type
-		if(!isnull(species_instance.name))
-			GLOB.default_mutant_bodyparts[species_instance.name] = species_instance.get_default_mutant_bodyparts()
-			if(species_instance.can_have_genitals)
-				for(var/genital in GLOB.possible_genitals)
-					GLOB.default_mutant_bodyparts[species_instance.name] += list((genital) = list("None", FALSE))
-		qdel(species_instance)
+	for(var/species_path in subtypesof(/datum/species))
+		var/datum/species/species = GLOB.species_prototypes[species_path]
+		if(isnull(species.name))
+			continue
+
+		var/list/default_parts = species.get_default_mutant_bodyparts()
+		if(!islist(default_parts))
+			continue
+
+		GLOB.default_mutant_bodyparts[species.name] = default_parts
 
 /proc/make_body_marking_references()
 	// Here we build the global list for all body markings
@@ -64,13 +63,10 @@
 			BM = new path()
 			GLOB.body_marking_sets[BM.name] = BM
 
-/proc/make_body_marking_dna_block_references()
-	for(var/marking_zone in GLOB.marking_zones)
-		GLOB.dna_body_marking_blocks[marking_zone] = SSaccessories.dna_total_feature_blocks+1
-		for(var/feature_block_set in 1 to MAXIMUM_MARKINGS_PER_LIMB)
-			for(var/color_block in 1 to DNA_MARKING_COLOR_BLOCKS_PER_MARKING)
-				SSaccessories.features_block_lengths["[GLOB.dna_body_marking_blocks[marking_zone] + (feature_block_set - 1) * DNA_BLOCKS_PER_MARKING + color_block]"] = DNA_BLOCK_SIZE_COLOR
-		SSaccessories.dna_total_feature_blocks += DNA_BLOCKS_PER_MARKING_ZONE
+/proc/make_robotic_style_references()
+	for(var/path in valid_subtypesof(/datum/robotic_style))
+		var/datum/robotic_style/style = path
+		GLOB.robotic_styles_list[style::name] = new style()
 
 /proc/init_nova_stack_recipes()
 	var/list/additional_stack_recipes = list(
@@ -216,3 +212,35 @@
 		if(initial(fun_item.obj_flags_nova) & ERP_ITEM)
 			GLOB.erp_items += fun_item
 
+// Setup gas price overrides
+/proc/setup_gas_prices()
+	if(!CONFIG_GET(flag/override_gas_prices))
+		return
+
+	GLOB.gas_base_values = list(
+		/datum/gas/oxygen = 0, // Original: base_value = 0.2
+		/datum/gas/nitrogen = 0, // Original: base_value = 0.1
+		/datum/gas/carbon_dioxide = 0, // Original: base_value = 0.2
+		/datum/gas/plasma = 0, // Original: base_value = 1.5
+		/datum/gas/water_vapor = 0, // Original: base_value = 0.5
+		/datum/gas/hypernoblium = 0.2, // Original: base_value = 2.5
+		/datum/gas/nitrous_oxide = 0, // Original: base_value = 1.5
+		/datum/gas/nitrium = 0.2, // Original: base_value = 6
+		/datum/gas/tritium = 0.075, // Original: base_value = 2.5
+		/datum/gas/bz = 0.01, // Original: base_value = 1.5
+		/datum/gas/pluoxium = 0.01, // Original: base_value = 2.5
+		/datum/gas/miasma = 0.1, // Original: base_value = 1
+		/datum/gas/freon = 0.02, // Original: base_value = 5
+		/datum/gas/hydrogen = 0.0005, // Original: base_value = 1
+		/datum/gas/healium = 0.05, // Original: base_value = 5.5
+		/datum/gas/proto_nitrate = 0.3, // Original: base_value = 2.5
+		/datum/gas/zauker = 15, // Original: base_value = 7
+		/datum/gas/halon = 0.01, // Original: base_value = 4
+		/datum/gas/helium = 0.01, // Original: base_value = 3.5
+		/datum/gas/antinoblium = 0, // Original: base_value = 10
+		/datum/gas/goblin = 1, // Original: base_value = 8
+	)
+
+	// Remove elasticity
+	var/datum/export/gas_canister/canister_export = locate() in GLOB.exports_list
+	canister_export.k_hit_percentile = 0 // Originally inherits k_hit_percentile = 0.05

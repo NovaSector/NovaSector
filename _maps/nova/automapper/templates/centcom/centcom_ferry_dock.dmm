@@ -1,18 +1,13 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "by" = (
-/obj/machinery/firealarm{
-	pixel_y = 24
-	},
 /obj/structure/chair{
 	dir = 8
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 24
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /obj/machinery/light/directional/north,
+/obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
 "bN" = (
@@ -20,9 +15,11 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
 "bO" = (
-/obj/machinery/status_display/evac,
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/firealarm/directional/north,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
 "ce" = (
 /obj/machinery/airalarm/directional/east,
@@ -399,6 +396,11 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
+"Oc" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/status_display/evac/directional/south,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/ferry)
 "On" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 8
@@ -578,7 +580,7 @@ Th
 JB
 JB
 yP
-bO
+pT
 MC
 "}
 (8,1,1) = {"
@@ -605,8 +607,8 @@ iE
 iq
 uQ
 uQ
-ff
-pT
+Oc
+iE
 iE
 "}
 (10,1,1) = {"
@@ -616,7 +618,7 @@ Nn
 On
 ie
 iE
-iq
+bO
 uQ
 uQ
 mj

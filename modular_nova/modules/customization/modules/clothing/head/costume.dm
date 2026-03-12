@@ -6,7 +6,7 @@
 
 /obj/item/clothing/head/costume/nova/maid
 	name = "maid headband"
-	desc = "Maid in China."
+	desc = "Maid for you."
 	icon_state = "maid"
 
 /obj/item/clothing/head/costume/nova/papakha
@@ -21,11 +21,6 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/head/costume/nova/papakha/white
-	icon_state = "papakha_white"
-	greyscale_colors = "#ffffff"
-	flags_1 = null
 
 /obj/item/clothing/head/costume/nova/flowerpin
 	name = "flower pin"

@@ -9,14 +9,14 @@
 	flavour_text = "You are a smart NPC loaded into the domain as a means of slowing down the bitrunning contestants' progression one way or another, be it combat or drawn out dialogues."
 	important_text = "Generally speaking, 'play fair'. Only allowed species is humans."
 	restricted_species = list(/datum/species/human)
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim/proc/apply_codename(mob/living/carbon/human/spawned_human)
 	var/callsign = pick(GLOB.callsigns_nri)
 	var/number = pick(GLOB.phonetic_alphabet_numbers)
 	spawned_human.fully_replace_character_name(null, "[callsign] [number]")
 
-/obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim/special(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim/special(mob/living/carbon/human/spawned_human, mob/mob_possessor, apply_prefs)
 	. = ..()
 	spawned_human.grant_language(/datum/language/panslavic, source = LANGUAGE_SPAWNER)
 	apply_codename(spawned_human)

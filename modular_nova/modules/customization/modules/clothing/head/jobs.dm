@@ -153,6 +153,15 @@
 	icon_state = "/obj/item/clothing/head/beret/cargo/qm/alt"
 	greyscale_colors = "#FFFFFF#FFCE5B"
 
+/obj/item/clothing/head/beret/clown
+	name = "\improper H.O.N.K tactical beret"
+	desc = "A tactical berret to be used during the enacting of the most dangerous of pranks."
+	icon_state = "/obj/item/clothing/head/beret/clown"
+	post_init_icon_state = "beret_badge_clown"
+	greyscale_config = /datum/greyscale_config/beret_badge_clown
+	greyscale_config_worn = /datum/greyscale_config/beret_badge_clown/worn
+	greyscale_colors = "#FFBAFF"
+
 /obj/item/clothing/head/caphat/beret/alt
 	name = "captain's beret"
 	desc = "For the Captains known for their sense of fashion. This one is made out of white fabric. Fancy"
@@ -168,9 +177,25 @@
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#3e5c88#88242D"
+	armor_type = /datum/armor/hats_hopcap
 
 /obj/item/clothing/head/hopcap/beret/alt
 	name = "head of personnel's beret"
-	desc = "A fancy beret designed by NT's Personnel division for their favorite head's head. This one is made out of white fabric. Fancy"
+	desc = "A fancy beret designed by NT's Personnel division for their favorite head's head. This one is made out of white fabric, fancy."
 	icon_state = "/obj/item/clothing/head/hopcap/beret/alt"
 	greyscale_colors = "#FFFFFF#88242D"
+
+/obj/item/clothing/head/hopcap/beret/olive
+	name = "head of personnel's beret"
+	desc = "A fancy beret designed by NT's Personnel division for their favorite head's head. This one is made out of olive fabric, fancy."
+	icon_state = "/obj/item/clothing/head/hopcap/beret/olive"
+	greyscale_colors = "#829A8C#88242D"
+
+/obj/item/clothing/head/beret/bridgeofficer
+	name = "bridge officer's beret"
+	desc = "A beret pinned with the designation of a bridge officer."
+	post_init_icon_state = "beret_badge"
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	icon_state = "/obj/item/clothing/head/beret/bridgeofficer"
+	greyscale_colors = "#41579a#ccced1"

@@ -1,0 +1,10 @@
+{
+	"pen_skirt": [
+		{
+			"type": "icon_state",
+			"icon_state": "penned_skirt_solo",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

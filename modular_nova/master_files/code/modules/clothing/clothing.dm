@@ -11,6 +11,19 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 
 	return ..()
 
+/// The code which handles generating a greyscale icon for worn clothing on big leg (taur) legs, for human_update_icons.dm
+/obj/item/clothing/under/proc/generate_big_legs_icons(icon/base_icon, greyscale_colors, mutant_styles)
+	var/greyscale_config = /datum/greyscale_config/digitigrade/big_leg
+	if(mutant_styles & STYLE_TAUR_BIG_LEGS_STANCED)
+		greyscale_config = /datum/greyscale_config/digitigrade/big_leg_stanced
+	var/skirt = FALSE
+	// An assumption being made, that this combination of flags will basically always be a skirt
+	if((female_sprite_flags & FEMALE_UNIFORM_TOP_ONLY) && (supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON) && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
+		skirt = TRUE
+
+	var/icon/legs = icon(SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors), skirt ? "skirt_worn" : "jumpsuit_worn")
+	return replace_icon_legs(base_icon, legs)
+
 /**
  * Proc to generate a taur variation of clothes, with the intent of caching them.
  * It is meant for suits and uniforms at the moment, to cut out the bottom half so that
@@ -31,6 +44,7 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 	taur_clothing_icon.Blend(taur_cropping_mask, ICON_MULTIPLY)
 	taur_clothing_icon = fcopy_rsc(taur_clothing_icon)
 	GLOB.taur_clothing_icons[index] = taur_clothing_icon
+	return taur_clothing_icon
 
 /**
  * Proc that handles returning a mutable appearance that can fit on a taur body without looking too janky!
@@ -57,5 +71,5 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 	var/index = "[icon_state]-[greyscale_colors]-[female_type]"
 	var/icon/taur_clothing_icon = GLOB.taur_clothing_icons[index]
 	if(!taur_clothing_icon) 	//Create standing/laying icons if they don't exist
-		generate_taur_clothing(index, icon_to_process, icon_state)
-	return icon(GLOB.taur_clothing_icons[index])
+		taur_clothing_icon = generate_taur_clothing(index, icon_to_process, icon_state)
+	return taur_clothing_icon

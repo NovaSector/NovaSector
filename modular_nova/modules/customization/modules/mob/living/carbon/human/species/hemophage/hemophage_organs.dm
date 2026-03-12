@@ -19,7 +19,7 @@
 
 	AddComponent(/datum/component/organ_corruption/liver, time_to_corrupt = ORGAN_CORRUPTION_INSTANT)
 
-/obj/item/organ/liver/hemophage/handle_chemical(mob/living/carbon/affected_mob, datum/reagent/chem, seconds_per_tick, times_fired)
+/obj/item/organ/liver/hemophage/handle_chemical(mob/living/carbon/affected_mob, datum/reagent/chem, seconds_per_tick)
 	. = ..()
 
 	// parent returned COMSIG_MOB_STOP_REAGENT_TICK or we are failing
@@ -63,7 +63,7 @@
 	// Sanitizes and heals, but with a limit
 	if(flesh_healing <= 0.1)
 		flesh_healing += 0.02
-	infestation_rate = max(infestation_rate - 0.005, 0)
+	infection_rate = max(infection_rate - 0.005, 0)
 	return TRUE
 
 
@@ -81,7 +81,7 @@
 
 
 // I didn't feel like moving this behavior onto the component, it was just too annoying to do.
-/obj/item/organ/stomach/hemophage/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/stomach/hemophage/on_life(seconds_per_tick)
 	var/datum/reagent/blood/blood = reagents.has_reagent(/datum/reagent/blood)
 	if(blood)
 		blood.metabolization_rate = BLOOD_METABOLIZATION_RATE
@@ -96,6 +96,7 @@
 	organ_flags = ORGAN_ORGANIC | ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
 	liked_foodtypes = BLOODY
 	disliked_foodtypes = NONE
+	actions_types = list(/datum/action/cooldown/hemophage/drain_victim) /// The item action given to the tongue once it was corrupted.
 
 
 /obj/item/organ/tongue/hemophage/Initialize(mapload)

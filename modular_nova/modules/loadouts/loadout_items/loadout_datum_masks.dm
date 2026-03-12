@@ -159,6 +159,11 @@
 	item_path = /obj/item/clothing/mask/gas/owl_mask
 	group = "Costumes"
 
+/datum/loadout_item/mask/pink_clown_wig
+	name = "Pink Clown Wig"
+	item_path = /obj/item/clothing/mask/gas/pink_clown_wig
+	group = "Costumes"
+
 /datum/loadout_item/mask/paper
 	name = "Paper Mask"
 	item_path = /obj/item/clothing/mask/paper
@@ -203,7 +208,7 @@
 /datum/loadout_item/mask/whistlesec
 	name = "Police Whistle"
 	item_path = /obj/item/clothing/mask/whistle
-	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	restricted_roles = list(ALL_JOBS_SEC)
 
 /*
 *	DONATOR

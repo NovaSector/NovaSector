@@ -8,11 +8,12 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	rust_resistance = RUST_RESISTANCE_ORGANIC
+	rust_resistance = RUST_RESISTANCE_REINFORCED
 
 /turf/open/misc/beach/Initialize(mapload)
 	. = ..()
-	add_lazy_fishing(/datum/fish_source/sand)
+	if (fishing_enabled) // NOVA EDIT ADDITION
+		add_lazy_fishing(/datum/fish_source/sand) // NOVA EDIT CHANGE: Intented into if block.
 
 /turf/open/misc/beach/ex_act(severity, target)
 	if(fish_source)
@@ -72,7 +73,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_dirt = FALSE
+	tiled_turf = FALSE
 	rust_resistance = RUST_RESISTANCE_ORGANIC
 
 /turf/open/misc/sandy_dirt/break_tile()

@@ -38,7 +38,11 @@
 /datum/job/atmospheric_technician
 	alt_titles = list(
 		"Atmospheric Technician",
+		"Atmospheric Trainee",
 		"Emergency Fire Technician",
+		"Hypertorus Fusion Reactor Operator",
+		"Gas Synthesis Technician",
+		"Nuclear Reactor Operator",
 		"Firefighter",
 		"Life Support Technician",
 	)
@@ -56,7 +60,11 @@
 /datum/job/bartender
 	alt_titles = list(
 		"Bartender",
+		"Barman",
+		"Barmaid",
 		"Barista",
+		"Bar Manager",
+		"Beverage Architect",
 		"Barkeeper",
 		"Mixologist",
 	)
@@ -76,6 +84,7 @@
 	alt_titles = list(
 		"Bridge Officer",
 		"Command Aide",
+		"Ensign",
 		"Command Cadet",
 		"Bridge Attendant",
 		"Command Secretary",
@@ -86,6 +95,7 @@
 	alt_titles = list(
 		"Blueshield",
 		"Command Bodyguard",
+		"Corporate Protection Specialist",
 		"Executive Protection Agent",
 	)
 
@@ -95,6 +105,7 @@
 		"Botanical Researcher",
 		"Florist",
 		"Gardener",
+		"Beekeeper",
 		"Herbalist",
 		"Hydroponicist",
 		"Mycologist",
@@ -112,6 +123,7 @@
 	alt_titles = list(
 		"Corrections Officer",
 		"Brig Officer",
+		"Brig Guard",
 		"Prison Guard",
 	)
 
@@ -120,6 +132,7 @@
 		"Captain",
 		"Commanding Officer",
 		"Site Manager",
+		"Site Supervisor",
 		"Site Overseer",
 		"Site Director",
 		"Site Administrator",
@@ -134,8 +147,10 @@
 		"Deck Worker",
 		"Inventory Associate",
 		"Mailman",
+		"Cargo Associate",
 		"Mail Carrier",
 		"Receiving Clerk",
+		"Shipping Associate",
 		"Union Associate",
 	)
 
@@ -162,6 +177,10 @@
 /datum/job/chemist
 	alt_titles = list(
 		"Chemist",
+		"Registered Pharmacist",
+		"Clinical Pharmacist",
+		"Assistant Pharmacist",
+		"Chemical Engineer",
 		"Pharmacist",
 		"Pharmacologist",
 		"Trainee Pharmacist",
@@ -171,6 +190,7 @@
 	alt_titles = list(
 		"Chief Engineer",
 		"Engineering Foreman",
+		"Engineering Supervisor",
 		"Head of Engineering",
 	)
 
@@ -179,6 +199,7 @@
 		"Chief Medical Officer",
 		"Chief Physician",
 		"Head of Medical",
+		"Medical Supervisor",
 		"Head Physician",
 		"Medical Director",
 		"Medical Administrator",
@@ -196,9 +217,12 @@
 	alt_titles = list(
 		"Cook",
 		"Butcher",
+		"Line Cook",
 		"Chef",
 		"Culinary Artist",
 		"Sous-Chef",
+		"Chef's Apprentice",
+		"Baker",
 		"Junior Chef",
 	)
 
@@ -236,8 +260,11 @@
 /datum/job/detective
 	alt_titles = list(
 		"Detective",
+		"Detective Cadet",
+		"Forensic Specialist",
 		"Forensic Scientist",
 		"Forensic Technician",
+		"Forensic Investigator",
 		"Private Investigator",
 	)
 
@@ -250,6 +277,10 @@
 		"Physician",
 		"Surgeon",
 		"Medical Student",
+		"Clinician",
+		"Physician Assistant",
+		"Internal Medicine Physician",
+		"Emergency Medicine Physician",
 		"Registered Nurse",
 	)
 
@@ -258,6 +289,9 @@
 /datum/job/geneticist
 	alt_titles = list(
 		"Geneticist",
+		"Molecular Biologist",
+		"Gene Scientist",
+		"Gene Analyzer",
 		"Gene Tailor",
 		"Mutation Researcher",
 	)
@@ -267,6 +301,7 @@
 		"Head of Personnel",
 		"Crew Supervisor",
 		"Employment Officer",
+		"Human Resources Officer",
 		"Executive Officer",
 	)
 
@@ -276,6 +311,7 @@
 		"Chief Constable",
 		"Chief of Security",
 		"Security Commander",
+		"Security Supervisor",
 		"Security Director",
 		"Sheriff",
 	)
@@ -285,6 +321,8 @@
 		"Janitor",
 		"Concierge",
 		"Custodial Technician",
+		"Rat Catcher",
+		"Pest Control Technician",
 		"Custodian",
 		"Maid",
 		"Maintenance Technician",
@@ -300,6 +338,9 @@
 		"Internal Affairs Agent",
 		"Legal Clerk",
 		"Prosecutor",
+		"Attorney At Law",
+		"Corporate General Counsel Attorney",
+		"Corporate Attorney",
 		"Public Defender",
 	)
 
@@ -312,9 +353,11 @@
 
 /datum/job/nanotrasen_consultant
 	alt_titles = list(
-		"Nanotrasen Consultant",
-		"Nanotrasen Advisor",
-		"Nanotrasen Diplomat",
+		"Nanotrasen Corporate Consultant",
+		"Nanotrasen Corporate Advisor",
+		"Nanotrasen Corporate Regulation Advisor",
+		"Nanotrasen Corporate Representative",
+		"Nanotrasen Corporate Diplomat",
 	)
 
 /datum/job/orderly
@@ -378,6 +421,7 @@
 		"Roboticist",
 		"Biomechanical Engineer",
 		"Cyberneticist",
+		"Mech Fabrication Specialist",
 		"Machinist",
 		"Mechatronic Engineer",
 		"Apprentice Roboticist",
@@ -408,6 +452,8 @@
 		"Security Operative",
 		"Security Cadet",
 		"Security Specialist",
+		"Deputy",
+		"Constable",
 	)
 
 /datum/job/shaft_miner
@@ -417,6 +463,7 @@
 		"Excavator",
 		"Drill Technician",
 		"Prospector",
+		"Ore Excavation Specialist",
 		"Spelunker",
 		"Apprentice Miner",
 	)
@@ -429,8 +476,10 @@
 		"Engine Technician",
 		"EVA Technician",
 		"Mechanic",
+		"Architect",
+		"Structural Engineer",
+		"Electrical Engineer",
 		"Apprentice Engineer",
-		"Nuclear Engineer",
 	)
 
 /datum/job/telecomms_specialist
@@ -439,6 +488,7 @@
 		"Wireless Operator",
 		"Network Engineer",
 		"Sysadmin",
+		"Telecomms Technician",
 		"Tram Technician",
 	)
 
@@ -446,6 +496,7 @@
 	alt_titles = list(
 		"Virologist",
 		"Epidemiologist",
+		"Microbiologist",
 		"Pathologist",
 		"Junior Pathologist",
 	)

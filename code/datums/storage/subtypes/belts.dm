@@ -75,6 +75,7 @@
 		/obj/item/flesh_shears,
 		/obj/item/blood_scanner,
 		/obj/item/reflexhammer,
+		/obj/item/crowbar/power/paramedic,
 		// NOVA EDIT ADDITION START
 		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown,
 		/obj/item/hypospray/mkii,
@@ -98,6 +99,7 @@
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/assembly/flash/handheld,
+		/obj/item/assembly/flash/hypnotic,
 		/obj/item/clothing/glasses,
 		/obj/item/clothing/gloves,
 		/obj/item/flashlight/seclite,
@@ -111,6 +113,7 @@
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
 		/obj/item/gun, // NOVA EDIT - ADDITION
+		/obj/item/clothing/mask/whistle, // NOVA EDIT - ADDITION
 	))
 
 ///Webbing security belt
@@ -307,6 +310,60 @@
 /datum/storage/green_sabre_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
 	set_holdable(/obj/item/melee/parsnip_sabre)
+
+/datum/storage/gladius_belt
+	max_slots = 1
+	do_rustle = FALSE
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/gladius_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/claymore/gladius)
+
+///Katana sheath
+/datum/storage/katana_sheath
+	max_slots = 1
+	do_rustle = FALSE
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/katana_sheath/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/katana)
+
+///Ninja energy katana sheath
+/datum/storage/ninja_sheath
+	max_slots = 1
+	do_rustle = FALSE
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/ninja_sheath/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/energy_katana)
+
+///Chaplain katana sheath
+/datum/storage/hanzo_sheath
+	max_slots = 1
+	do_rustle = FALSE
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/hanzo_sheath/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/nullrod/claymore/katana)
+
+///Toy Katana Sheath(Metabreaker)
+/datum/storage/toy_sheath
+	max_slots = 1
+	do_rustle = FALSE
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/toy_sheath/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/toy/katana)
 
 ///Plant belt
 /datum/storage/plant_belt

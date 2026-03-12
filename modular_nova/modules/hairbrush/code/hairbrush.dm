@@ -61,7 +61,8 @@
 
 		// Combat mode gives one brute damage.
 		if(user.combat_mode && human_target != user)
-			human_target.visible_message(span_warning("[user] scrapes the bristles uncomfortably over [human_target]'s [brush_target]."), span_warning("You scrape the bristles uncomfortably over [human_target]'s [brush_target]."))
+			user.visible_message(span_warning("[user] scrapes the bristles uncomfortably over [human_target]'s [brush_target]."), span_warning("You scrape the bristles uncomfortably over [human_target]'s [brush_target]."), ignored_mobs=list(human_target))
+			human_target.show_message(span_warning("[user] scrapes the bristles uncomfortably over your [brush_target]!"))
 			if(brush_target != "tail")
 				head.receive_damage(1)
 			else
@@ -73,16 +74,21 @@
 
 		// Self brushing
 		if(human_target == user)
-			if(HAS_TRAIT(user, TRAIT_SELF_AWARE)) //Do they have self awareness? If so, give them the better moodlet.
-				human_target.visible_message(span_notice("[user] brushes [user.p_their()] [brush_target]!"), span_notice("You expertly brush your [brush_target]."))
+			if(HAS_TRAIT(user, TRAIT_SELF_AWARE) || HAS_TRAIT(user, TRAIT_HAIR_EXPERT)) // Do they have self awareness or the hair expert trait? If so, give them the better moodlet.
+				human_target.visible_message(span_notice("[user] masterfully brushes [user.p_their()] [brush_target]!"), span_notice("You masterfully brush your [brush_target]."))
 				human_target.add_mood_event("brushed", /datum/mood_event/brushed/self/expert, brush_target)
 			else
 				human_target.visible_message(span_notice("[user] brushes [user.p_their()] [brush_target]!"), span_notice("You brush your [brush_target]."))
 				human_target.add_mood_event("brushed", /datum/mood_event/brushed/self, brush_target)
 		else // Brushing others
-			user.visible_message(span_notice("[user] brushes [human_target]'s [brush_target]!"), span_notice("You brush [human_target]'s [brush_target]."), ignored_mobs=list(human_target))
-			human_target.show_message(span_notice("[user] brushes your [brush_target]!"), MSG_VISUAL)
-			human_target.add_mood_event("brushed", /datum/mood_event/brushed, user, brush_target)
+			if(HAS_TRAIT(user, TRAIT_HAIR_EXPERT)) // Do they have the hair expert trait? If so, give them the better moodlet.
+				user.visible_message(span_notice("[user] masterfully brushes [human_target]'s [brush_target]!"), span_notice("You masterfully brush [human_target]'s [brush_target]."), ignored_mobs=list(human_target))
+				human_target.show_message(span_notice("[user] masterfully brushes your [brush_target]!"), MSG_VISUAL)
+				human_target.add_mood_event("brushed", /datum/mood_event/brushed/expert, user, brush_target)
+			else
+				user.visible_message(span_notice("[user] brushes [human_target]'s [brush_target]!"), span_notice("You brush [human_target]'s [brush_target]."), ignored_mobs=list(human_target))
+				human_target.show_message(span_notice("[user] brushes your [brush_target]!"), MSG_VISUAL)
+				human_target.add_mood_event("brushed", /datum/mood_event/brushed, user, brush_target)
 		playsound(human_target, 'modular_nova/modules/hairbrush/sounds/brush.ogg', 30, extrarange = -6, ignore_walls = FALSE)
 
 	else if(istype(target, /mob/living/basic/pet))

@@ -130,6 +130,10 @@
 		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "Unsecure" : "Install/Secure"]"
 		return CONTEXTUAL_SCREENTIP_SET
 
+	if(held_item?.atom_storage)
+		context[SCREENTIP_CONTEXT_RMB] = "Dump contents"
+		return CONTEXTUAL_SCREENTIP_SET
+
 	if(broken > NOT_BROKEN)
 		if(broken == REALLY_BROKEN && held_item?.tool_behaviour == TOOL_WIRECUTTER)
 			context[SCREENTIP_CONTEXT_LMB] = "Repair"
@@ -639,9 +643,7 @@
 
 /obj/machinery/microwave/proc/spark()
 	visible_message(span_warning("Sparks fly around [src]!"))
-	var/datum/effect_system/spark_spread/sparks = new
-	sparks.set_up(2, 1, src)
-	sparks.start()
+	do_sparks(2, TRUE, src)
 
 /**
  * The start of the cook loop
