@@ -32,3 +32,7 @@
 /datum/techweb_node/explosives/New()
 	make_requirements_optional()
 	return ..()
+
+/datum/techweb_node/fishing_equip_adv/New()
+	make_requirements_optional()
+	return ..()
