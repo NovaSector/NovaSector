@@ -5,7 +5,7 @@
 
 /datum/design/xenoarch
 	build_type = PROTOLATHE | AWAY_LATHE
-	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SERVICE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
@@ -131,16 +131,15 @@
 	id = "xenoarch_handscanner_adv"
 	build_path = /obj/item/xenoarch/handheld_scanner/advanced
 
-/datum/design/xenoarch/tool/advanced/recoverer
-	name = "Xenoarch Handheld Recoverer"
+/datum/design/xenoarch/tool/radar
+	name = "Xenoarch Handheld Radar"
 	desc = "A device with the capabilities to recover items lost due to time."
-	id = "xenoarch_handrecoverer"
+	id = "xenoarch_radar"
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	// rebalance material req after first repath/categorization?
-	build_path = /obj/item/xenoarch/handheld_recoverer
+	build_path = /obj/item/xenoarch/handheld_radar
 
 /datum/design/xenoarch/tool/advanced/adv_hammer
 	name = "Advanced Hammer"
@@ -203,12 +202,6 @@
 	id = "xeno_scanner"
 	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_scanner
 
-/datum/design/board/xenoarch/recoverer
-	name = "Machine Design (Xenoarch Recoverer)"
-	desc = "Allows for the construction of circuit boards used to build a new xenoarch recoverer."
-	id = "xeno_recoverer"
-	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_recoverer
-
 /datum/design/board/xenoarch/artifact_analyzer
 	name = "Machine Design (Artifact Analyzer)"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch artifact analyzer."
@@ -260,20 +253,13 @@
 		"xenoarch_core_sampler",
 		"xenoarch_particles_battery",
 		"xenoarch_artifact_stabilizer",
-	)
-	announce_channels = list(RADIO_CHANNEL_SCIENCE)
-
-/datum/techweb_node/xenoarch_storage
-	id = TECHWEB_NODE_XENOARCH_STORAGE
-	display_name = "Xenoarchaeology Storage"
-	description = "When dealing with xenoarchaeology, one may need storage."
-	prereq_ids = list(TECHWEB_NODE_XENOARCH_BASIC)
-	design_ids = list(
 		"xenoarch_belt",
 		"xenoarch_bag",
+		"xenoarch_radar",
+		"xeno_researcher",
+		"xeno_scanner",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
-	announce_channels = list(RADIO_CHANNEL_SCIENCE)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_SUPPLY)
 
 /datum/techweb_node/xenoarch_machines
 	id = TECHWEB_NODE_XENOARCH_MACHINES
@@ -281,9 +267,6 @@
 	description = "Sometimes, xenoarchaeology can be time consuming, perhaps machines can help?"
 	prereq_ids = list(TECHWEB_NODE_XENOARCH_BASIC)
 	design_ids = list(
-		"xeno_researcher",
-		"xeno_scanner",
-		"xeno_recoverer",
 		"artifact_analyzer",
 		"artifact_scanpad",
 		"artifact_harvester",
@@ -294,25 +277,15 @@
 
 /datum/techweb_node/adv_xenoarch
 	id = TECHWEB_NODE_XENOARCH_ADVANCED
-	display_name = "Advanced Xenoarchaeology"
+	display_name = "Advanced Archeology"
 	description = "After some time, those tools we used have become antiquated-- we need an upgrade."
-	prereq_ids = list(TECHWEB_NODE_XENOARCH_BASIC, TECHWEB_NODE_XENOARCH_MACHINES, TECHWEB_NODE_XENOARCH_STORAGE)
+	prereq_ids = list(TECHWEB_NODE_XENOARCH_BASIC)
 	design_ids = list(
 		"xenoarch_adv_hammer",
 		"xenoarch_adv_brush",
 		"xenoarch_bag_adv",
 		"xenoarch_handscanner_adv",
-		"xenoarch_handrecoverer",
 		"xeno_digger",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
-	required_experiments = list(/datum/experiment/scanning/points/xenoarch)
-	announce_channels = list(RADIO_CHANNEL_SCIENCE)
-
-/datum/experiment/scanning/points/xenoarch
-	name = "Advanced Xenoarchaeology Tools"
-	description = "It is possible to create even more advanced tools for xenoarchaeoloy."
-	required_points = 5
-	required_atoms = list(
-		/obj/item/xenoarch/broken_item = 1,
-	)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_SUPPLY)

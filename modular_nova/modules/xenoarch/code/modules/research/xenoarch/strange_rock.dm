@@ -64,15 +64,15 @@
 	choose_tier = rand(1,100)
 	switch(choose_tier)
 		if(1 to 60)
-			hidden_item = pick_weight(GLOB.tier1_reward)
+			hidden_item = /obj/effect/spawner/random/xenoarch/tier1
 			choose_tier = REWARD_ONE
 
 		if(61 to 87)
-			hidden_item = pick_weight(GLOB.tier2_reward)
+			hidden_item = /obj/effect/spawner/random/xenoarch/tier2
 			choose_tier = REWARD_TWO
 
 		if(88 to 100)
-			hidden_item = pick_weight(GLOB.tier3_reward)
+			hidden_item = /obj/effect/spawner/random/xenoarch/tier3
 			choose_tier = REWARD_THREE
 
 /obj/item/xenoarch/strange_rock/proc/create_depth()

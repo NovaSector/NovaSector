@@ -1,114 +1,138 @@
-GLOBAL_LIST_INIT(tier1_reward, list(
-	/obj/item/xenoarch/useless_relic = 10,
-	/obj/item/stack/sheet/sinew = 1,
-	/obj/item/stack/sheet/animalhide/goliath_hide = 1,
-	/obj/item/stack/sheet/bone = 1,
-	/obj/item/organ/monster_core/regenerative_core/legion/preserved = 2,
-))
+/obj/effect/spawner/random/xenoarch/tier1
+	name = "Xenoarch Tier 1 Rewards"
+	desc = "Rewards for Tier 1 xenoarch rocks"
+	loot = list(
+		/obj/item/coin/gold/ancient = 10,
+		/obj/item/xenoarch/broken_item/plant = 10,
+		/obj/item/xenoarch/broken_item/clothing = 5,
+		/obj/item/xenoarch/broken_item/animal = 10,
+		/obj/item/xenoarch/broken_item = 5,
+		/obj/item/xenoarch/broken_item/weapon = 1,
+	)
 
-GLOBAL_LIST_INIT(tier2_reward, list(
-	/obj/item/xenoarch/broken_item = 1,
-	/obj/item/xenoarch/broken_item/plant = 1,
-	/obj/item/xenoarch/broken_item/clothing = 1,
-	/obj/item/xenoarch/broken_item/animal = 1,
-))
+/obj/effect/spawner/random/xenoarch/tier3
+	name = "Xenoarch Tier 2 Rewards"
+	desc = "Rewards for Tier 2 xenoarch rocks"
+	loot = list(
+		/obj/item/coin/adamantine/ancient = 5,
+		/obj/item/xenoarch/broken_item = 10,
+		/obj/item/xenoarch/broken_item/weapon = 1,
+		/obj/item/xenoarch/broken_item/clothing = 10,
+		/obj/item/xenoarch/broken_item/illegal = 1,
+		/obj/item/xenoarch/broken_item/alien = 1,
+	)
 
-GLOBAL_LIST_INIT(tier3_reward, list(
-	/obj/item/xenoarch/broken_item/weapon = 3,
-	/obj/item/xenoarch/broken_item/illegal = 1,
-	/obj/item/xenoarch/broken_item/alien = 2,
-	/obj/item/stack/spacecash/c5000 = 2,
-))
+/obj/effect/spawner/random/xenoarch/tier2
+	name = "Xenoarch Tier 3 Rewards"
+	desc = "Rewards for Tier 3 xenoarch rocks"
+	loot = list(
+		/obj/item/coin/mythril/ancient = 5,
+		/obj/item/xenoarch/broken_item/weapon = 10,
+		/obj/item/xenoarch/broken_item/illegal = 10,
+		/obj/item/xenoarch/broken_item/alien = 10,
+	)
 
+/obj/effect/spawner/random/xenoarch/plant
+	name = "Xenoarch Plant Rewards"
+	desc = "Xenoarch Plant related rewards"
+	spawn_loot_count = 2
+	loot = list(
+		/obj/item/food/grown/gelthi = 1,
+		/obj/item/seeds/random = 2,
+		/obj/item/food/grown/amauri = 1,
+		/obj/item/food/grown/jurlmah = 1,
+		/obj/item/food/grown/nofruit = 1,
+		/obj/item/food/grown/shand = 1,
+		/obj/item/food/grown/surik = 1,
+		/obj/item/food/grown/telriis = 1,
+		/obj/item/food/grown/thaadra = 1,
+		/obj/item/food/grown/vale = 1,
+		/obj/item/food/grown/vaporsac = 1,
+		/obj/item/food/grown/honeysuckle = 1,
+	)
 
+/obj/effect/spawner/random/xenoarch/animal
+	name = "Xenoarch Animal Rewards"
+	desc = "Xenoarch Animal parts stuff. It also spawns with random cytology cells and viruses."
+	spawn_loot_count = 2
+	loot = list(
+		/obj/item/stack/sheet/sinew/five = 1,
+		/obj/item/stack/sheet/animalhide/goliath_hide/three = 1,
+		/obj/item/stack/sheet/bone/ten = 1,
+		/obj/effect/spawner/random/animalhide = 2,
+		/obj/item/organ/monster_core/regenerative_core/legion/preserved = 4,
+		/obj/item/organ/monster_core/brimdust_sac/preserved = 2,
+		/obj/item/organ/monster_core/rush_gland/preserved = 2,
+	)
 
-GLOBAL_LIST_INIT(tech_reward, list(
-	/obj/item/pipe_dispenser = 1,
-	/obj/item/construction/rcd = 1,
-	/obj/item/anomaly_neutralizer = 1,
-	/obj/item/megaphone = 1,
-	/obj/item/bodybag/bluespace = 1,
-	/obj/item/relic = 1,
-	/obj/item/raw_anomaly_core/random = 1,
-	/obj/item/bag_of_holding_inert = 1,
-	/obj/item/construction/plumbing = 1,
-	/obj/item/mmi/posibrain = 1,
-	/obj/item/storage/portable_chem_mixer = 1,
-	/obj/item/stock_parts/power_store/cell/crank = 1,
-	/obj/item/stock_parts/power_store/cell/self_charge = 1,
-))
+/obj/effect/spawner/random/xenoarch
+	name = "Xenoarch Technological Rewards"
+	desc = "Xenoarch station tier but relative rare loot"
+	loot = list(
+		/obj/item/relic/lavaland/activated = 7,
+		/obj/effect/spawner/random/exotic/technology = 5,
+		/obj/item/stock_parts/power_store/cell/self_charge = 5,
+		/obj/item/flatpacked_machine = 4, // RCF
+		/obj/item/construction/rcd = 4,
+		/obj/item/bodybag/bluespace = 1,
+		/obj/item/construction/plumbing = 1,
+		/obj/item/storage/portable_chem_mixer = 1,
+		/obj/item/pickaxe/drill/diamonddrill = 2,
+		/obj/item/circuitboard/machine/ltsrbt = 1,
+		/obj/item/v8_engine = 1,
+		/obj/item/hearthkin_ship_fragment_inactive = 3, // this turns into a /obj/item/relic/lavaland/activated in lavaland maps
+	)
 
-GLOBAL_LIST_INIT(weapon_reward, list(
-	/obj/item/spear/bonespear = 2,
-	/obj/item/gun/ballistic/bow/tribalbow/ashen = 2,
-	/obj/item/ammo_casing/arrow/ash = 1,
-	/obj/item/claymore/cutlass = 1,
-	/obj/item/pen/edagger = 1,
-	/obj/item/shield/riot = 1,
-	/obj/item/shield/roman = 1,
-	/obj/item/gun/syringe/rapidsyringe = 1,
-))
+/obj/effect/spawner/random/xenoarch/clothing
+	name = "Xenoarch Clothing Rewards"
+	desc = "Xenoarch strange clothing / armor stuff"
+	loot = list(
+		/obj/item/mod/control/pre_equipped/frontier_colonist = 8,
+		/obj/item/mod/control/pre_equipped/mining = 4,
+		/obj/item/clothing/gloves/tackler/rocket = 4, 
+		/obj/item/clothing/gloves/tackler/dolphin = 4,
+		/obj/item/storage/box/fakesyndiesuit/voskhod = 4,
+		/obj/item/clothing/suit/hooded/cloak/goliath = 4,
+		/obj/item/clothing/shoes/bhop/rocket = 2,
+	)
 
-GLOBAL_LIST_INIT(clothing_reward, list(
-	/obj/item/clothing/gloves/military/ashwalk = 1,
-	/obj/item/clothing/gloves/military/claw = 1,
-	/obj/item/clothing/head/shamanash = 1,
-	/obj/item/clothing/shoes/jackboots/ashwalker = 1,
-	/obj/item/clothing/shoes/jackboots/ashwalker/legate = 1,
-	/obj/item/clothing/shoes/wraps/ashwalker = 1,
-	/obj/item/clothing/suit/ashwalkermantle = 1,
-	/obj/item/clothing/suit/ashwalkermantle/cape = 1,
-	/obj/item/clothing/under/costume/gladiator/ash_walker/greentrib = 1,
-	/obj/item/clothing/under/costume/gladiator/ash_walker/yellow = 1,
-	/obj/item/clothing/under/costume/gladiator/ash_walker/chiefrags = 1,
-	/obj/item/clothing/under/costume/gladiator/ash_walker/shaman = 1,
-	/obj/item/clothing/under/costume/gladiator/ash_walker/robe = 1,
-	/obj/item/clothing/under/costume/gladiator/ash_walker/tribal = 1,
-	/obj/item/clothing/under/costume/gladiator/ash_walker/white = 1,
-	/obj/item/clothing/neck/necklace/translator = 1,
-	/obj/item/clothing/neck/necklace/translator/hearthkin = 1,
-	/obj/item/clothing/head/helmet/gladiator = 1,
-	/obj/item/clothing/under/costume/gladiator/ash_walker = 1,
-	/obj/item/storage/box/syndie_kit/chameleon = 5,
-))
+/obj/effect/spawner/random/xenoarch/weapon
+	name = "Xenoarch Weapon Rewards"
+	desc = "Xenoarch Weapons loot"
+	
+	loot = list(
+		/obj/item/claymore/weak = 3,
+		/obj/item/claymore/cutlass/old = 3,
+		/obj/item/claymore = 2,
+		/obj/item/claymore/cutlass = 2,
+		/obj/item/pen/edagger = 4, //can be hidden in the pda and gives illegal tech
+		/obj/item/melee/energy/sword/surplus = 4, // This is the type 1, with 50% block.
+		/obj/item/nullrod/tribal_knife = 2,
+		/obj/item/gun/energy/recharge/fisher = 2,
+		/obj/item/claymore/dragonslayer = 1, // only way to get it. hopefully the list is big enough to make it rare.
+	)
 
-GLOBAL_LIST_INIT(illegal_reward, list(
-	/obj/item/card/emag/doorjack = 1,
-	/obj/item/storage/box/rndboards = 1,
-))
+/obj/effect/spawner/random/xenoarch/illegal
+	name = "Xenoarch Illegal Rewards"
+	desc = "Xenoarch Illegal type loot"
+	loot = list(
+		/obj/item/card/emag/doorjack = 3,
+		/obj/item/chameleon = 3,
+		/obj/item/clothing/shoes/chameleon/noslip = 3,
+		/obj/item/storage/box/incomplete_chameleon = 3, // we use this modified box so it doesnt give illegal tech
+		/obj/item/clothing/gloves/color/black/thief = 2,
+		/obj/item/stock_parts/power_store/cell/self_charge/exotic = 2,
+	)
 
-GLOBAL_LIST_INIT(plant_reward, list(
-	/obj/item/food/grown/gelthi = 1,
-	/obj/item/seeds/random = 1,
-	/obj/item/food/grown/amauri = 1,
-	/obj/item/food/grown/jurlmah = 1,
-	/obj/item/food/grown/nofruit = 1,
-	/obj/item/food/grown/shand = 1,
-	/obj/item/food/grown/surik = 1,
-	/obj/item/food/grown/telriis = 1,
-	/obj/item/food/grown/thaadra = 1,
-	/obj/item/food/grown/vale = 1,
-	/obj/item/food/grown/vaporsac = 1,
-))
-
-GLOBAL_LIST_INIT(animal_reward, list(
-	/obj/item/stack/sheet/sinew = 1,
-	/obj/item/stack/sheet/animalhide/goliath_hide = 1,
-	/obj/item/stack/sheet/bone = 1,
-	/obj/item/organ/monster_core/regenerative_core/legion/preserved = 2,
-))
-
-GLOBAL_LIST_INIT(alien_reward, list(
-	/obj/item/wrench/abductor = 1,
-	/obj/item/wirecutters/abductor = 1,
-	/obj/item/weldingtool/abductor = 1,
-	/obj/item/screwdriver/abductor = 1,
-	/obj/item/crowbar/abductor = 1,
-	/obj/item/multitool/abductor = 1,
-	/obj/item/scalpel/alien = 1,
-	/obj/item/hemostat/alien = 1,
-	/obj/item/retractor/alien = 1,
-	/obj/item/circular_saw/alien = 1,
-	/obj/item/surgicaldrill/alien = 1,
-	/obj/item/cautery/alien = 1,
-))
+/obj/effect/spawner/random/xenoarch/alien
+	name = "Xenoarch Alien Rewards"
+	desc = "Xenoarch Alien origin loot"
+	loot = list(
+		/obj/item/multitool/abductor = 4,
+		/obj/effect/spawner/random/engineering/tool_alien = 2,
+		/obj/effect/spawner/random/medical/surgery_tool_alien = 2,
+		/obj/item/abductor/alien_omnitool = 2,
+		/obj/item/storage/belt/military/abductor/full = 2,
+		/obj/item/abductor/mind_device = 2, // not a problem since you need the target to have a special heart to be controled. So in essence is just mental comunications
+		/obj/item/gun/energy/shrink_ray/faulty = 1,
+	)

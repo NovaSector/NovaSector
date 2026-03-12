@@ -288,7 +288,7 @@
 			if(BRUSH_NONE)
 				to_chat(user, span_notice("You brush around the item, but it wasn't revealed... hammer some more."))
 
-	if(istype(attacking_item, /obj/item/xenoarch/handheld_recoverer))
+	if(istype(attacking_item, /obj/item/xenoarch/handheld_radar))
 		to_chat(user, span_warning("The boulder must be stabilized using a different tool."))
 
 	if(istype(attacking_item, /obj/item/xenoarch/core_sampler))
