@@ -1,115 +1,3 @@
-//useless relics
-/obj/item/xenoarch/useless_relic
-	name = "useless relic"
-	desc = "A useless relic that can be redeemed for cargo or research points."
-	///Used to spawn the same relic
-	var/magnified_number
-
-/obj/item/xenoarch/useless_relic/Initialize(mapload)
-	. = ..()
-	magnified_number = rand(1,8)
-	icon_state = "useless[magnified_number]"
-
-/obj/item/xenoarch/useless_relic/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/glassblowing/magnifying_glass))
-		if(istype(src, /obj/item/xenoarch/useless_relic/magnified))
-			balloon_alert(user, "already magnified!")
-			return
-
-		if(!HAS_TRAIT(user, TRAIT_XENOARCH_QUALIFIED))
-			balloon_alert(user, "needs training!") // it was very tempting to replace this with "skill issue"
-			return
-
-		balloon_alert(user, "starting analysis!")
-		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
-		if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
-			balloon_alert(user, "stand still!")
-			return
-
-		loc.balloon_alert(user, "magnified!")
-		spawn_magnified(magnified_number)
-		user.mind?.adjust_experience(/datum/skill/archeology, 5)
-		return
-
-	return ..()
-
-#define ANCIENT_URN 1
-#define ANCIENT_BOWL 2
-#define ANCIENT_CROWN 3
-#define ANCIENT_COIL 4
-#define ANCIENT_LIGHT 5
-#define ANCIENT_CUP 6
-#define ANCIENT_UTENSILS 7
-#define ANCIENT_R_BOWL 8
-
-/obj/item/xenoarch/useless_relic/proc/spawn_magnified(type_number)
-	var/obj/item/xenoarch/useless_relic/magnified/new_item = new(get_turf(src))
-	new_item.icon_state = "useless[type_number]"
-	switch(type_number)
-		if(ANCIENT_URN)
-			new_item.name = "ancient urn"
-			new_item.desc = "This useless relic is an ancient urn that dates from around [rand(400,600)] years ago. \
-			It has made of a ceramic substance and is clearly crumbling at the edges. Perhaps it has ashes \
-			of someone from long ago."
-
-		if(ANCIENT_BOWL)
-			new_item.name = "ancient bowl"
-			new_item.desc = "This useless relic is an ancient bowl that dates from around [rand(400,600)] years ago. \
-			It is made of a bronze alloy and is dented, with some scratches along the inside. Perhaps it could \
-			have had DNA of someone from long ago."
-
-		if(ANCIENT_CROWN)
-			new_item.name = "ancient crown"
-			new_item.desc = "This useless relic is an ancient crown that dates from around [rand(900,1100)] years ago. \
-			It is made from some unknown alloy, with small inlets that would have been used for jewels. Perhaps if we \
-			look around, we could find some of those old jewels."
-
-		if(ANCIENT_COIL)
-			new_item.name = "ancient coil"
-			new_item.desc = "This useless relic is an ancient coil that dates from around [rand(400,600)] years ago. \
-			It is made of iron and copper. It has some burn marks around the iron rod. Perhaps later on, we could \
-			use it for some machines."
-
-		if(ANCIENT_LIGHT)
-			new_item.name = "ancient light"
-			new_item.desc = "This useless relic is an ancient light that dates from around [rand(400,600)] years ago. \
-			It is made of iron and has glass shards around it. It has dents on the iron and clear damage from misuse. \
-			Perhaps we could research this later on to see how the ancients made lights."
-
-		if(ANCIENT_CUP)
-			new_item.name = "ancient cup"
-			new_item.desc = "This useless relic is an ancient cup that dates from around [rand(900,1100)] years ago. \
-			It is made of hardened stone. There are small cracks all along the surface, as long as chisel marks. \
-			Perhaps it will give insight into the ancient's eating and drinking habits."
-
-		if(ANCIENT_UTENSILS)
-			new_item.name = "ancient utensils"
-			new_item.desc = "These useless relics are ancient utensils that dates from around [rand(900,1100)] years ago. \
-			It is made of hardened stone. There are small cracks all along the surface, as long as chisel marks. \
-			Perhaps it will give insight into the ancient's eating and drinking habits."
-
-		if(ANCIENT_R_BOWL)
-			new_item.name = "ancient rock bowl"
-			new_item.desc = "This useless relic is an ancient rock bowl that dates from around [rand(900,1100)] years ago. \
-			It is made of hardened stone. There are small cracks all along the surface, as long as chisel marks. \
-			Perhaps it will give insight into the ancient's eating and drinking habits."
-
-	new_item.desc += " Whatever use it possibly had in the past, its only use now is either as a museum piece, or being sold off to collectors via the Cargo shuttle."
-	qdel(src)
-
-#undef ANCIENT_URN
-#undef ANCIENT_BOWL
-#undef ANCIENT_CROWN
-#undef ANCIENT_COIL
-#undef ANCIENT_LIGHT
-#undef ANCIENT_CUP
-#undef ANCIENT_UTENSILS
-#undef ANCIENT_R_BOWL
-
-/obj/item/xenoarch/useless_relic/magnified
-	name = "magnified useless relic"
-	desc = "A useless relic that can be exported through Cargo. Has been magnified."
-
 /datum/export/xenoarch/broken_item
 	cost = CARGO_CRATE_VALUE * 5
 	unit_name = "broken object"
@@ -252,8 +140,11 @@
 			<b>The Process</b><br> \
 			<br> \
 			1) Find yourself a strange rock out in the wilderness.<br> \
+			1.A) Use the handheld radar and do a deep scan, there is an ALT button for it on the underside. Do this in a mining sector.<br> \
+			1.B) Activate the handheld radar in your hands and see where the compass directs you, follow the light, but watch out for dangers!<br> \
+			1.C) Use the handheld radar on the ground where you think is the digsite, if you are succesful, you will find the rocks!<br> \
 			2) Go back to (or stay in) the xenoarchaeology laboratory.<br> \
-			3) Process the rock in the scanner (or use the handheld scanner).<br> \
+			3) Process the rock in the scanner (or use the handheld scanner). The Scanner Machine is as good as the advanced handheld scanners they have at Central.<br> \
 			4) Use the measuring tape on the rock.<br> \
 			5) Subtract the safe depth (SD) from the max depth (MD).<br> \
 				5a) QUESTION: What is the depth you dig <i>to</i> when the MD is 50 and the SD is 16?<br> \
