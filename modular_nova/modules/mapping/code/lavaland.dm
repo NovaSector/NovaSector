@@ -72,6 +72,15 @@
 	cost = 0 // We'll steal ore vent costs for vents
 	mineral_cost = 1 //One vent
 
+/datum/map_template/ruin/lavaland/nova/anchor_buoy
+	name = "Lava-Ruin Surface Anchor Buoy"
+	id = "nova-anchor-buoy-lavaland-1"
+	description = "A little one-way-launch navigation beacon for the charting of unexplored lavaland."
+	suffix = "lavaland_beacon.dmm"
+	cost = 0
+	always_place = TRUE
+	allow_duplicates = FALSE
+
 /datum/map_template/ruin/lavaland/nova/duo_hermit
 	name = "Lava-Ruin Duo Makeshift Shelter"
 	id = "lavaland-duo-hermit"
