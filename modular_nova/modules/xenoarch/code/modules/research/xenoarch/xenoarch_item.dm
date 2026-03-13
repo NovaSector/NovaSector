@@ -13,28 +13,28 @@
 	//var/loot_amount_max = 1
 	//var/loot_list_name = "tech_reward"
 	var/loot = /obj/effect/spawner/random/xenoarch
-	var/dig_xp = 10
+	var/dig_xp = 7
 
 /obj/item/xenoarch/broken_item/weapon
 	name = "broken weapon"
 	icon_state = "recover_weapon"
 	loot = /obj/effect/spawner/random/xenoarch/weapon
 	// loot_list_name = "weapon_reward"
-	dig_xp = 15
+	dig_xp = 10
 
 /obj/item/xenoarch/broken_item/illegal
 	name = "broken unknown object"
 	icon_state = "recover_illegal"
 	loot = /obj/effect/spawner/random/xenoarch/illegal
 	// loot_list_name = "illegal_reward"
-	dig_xp = 15
+	dig_xp = 10
 
 /obj/item/xenoarch/broken_item/alien
 	name = "broken unknown object"
 	icon_state = "recover_illegal"
 	//loot_list_name = "alien_reward"
 	loot = /obj/effect/spawner/random/xenoarch/alien
-	dig_xp = 15
+	dig_xp = 10
 
 /obj/item/xenoarch/broken_item/plant
 	name = "withered plant"
@@ -89,7 +89,7 @@
 	icon_state = "recover_clothing"
 	//loot_list_name = "clothing_reward"
 	loot = /obj/effect/spawner/random/xenoarch/clothing
-	dig_xp = 10
+	dig_xp = 7
 
 //circuit boards
 /obj/item/circuitboard/machine/xenoarch_machine
