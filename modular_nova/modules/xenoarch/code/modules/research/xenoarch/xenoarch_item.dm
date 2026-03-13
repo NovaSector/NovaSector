@@ -153,8 +153,7 @@
 			7) Use the hammers to dig the answer to step 6.<br> \
 			8) Once you've reached the answer to step 5, use the brush until you reveal the item.<br> \
 			9) Enjoy the use of your unearthed secret!<br> \
-				9a) If it is a useless relic, sell it or use it in the Researcher for a surprise.<br> \
-				9b) If it is a broken item, sell it or use it in the Recoverer for a surprise.<br> \
+				9a) If it is a broken item, sell it or use a brush on it for a surprise.<br> \
 			<br> \
 			I hope this has been helpful and I wish you great success!<br> \
 			<br> \
