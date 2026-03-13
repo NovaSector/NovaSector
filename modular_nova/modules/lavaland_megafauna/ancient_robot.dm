@@ -634,7 +634,7 @@ Difficulty: Hard
 	QDEL_NULL(leg_part)
 	return ..()
 
-/mob/living/simple_animal/hostile/ancient_robot_leg/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/hostile/ancient_robot_leg/Life(seconds, times_fired)
 	..()
 	health_and_snap_check(TRUE)
 
