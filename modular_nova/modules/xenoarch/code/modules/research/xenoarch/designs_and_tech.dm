@@ -7,8 +7,8 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SERVICE
 	materials = list(
-		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT,
 	)
 
 /datum/design/xenoarch/tool
@@ -117,9 +117,10 @@
 
 /datum/design/xenoarch/tool/advanced
 	materials = list(
-		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2 ,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_XENOARCH_ADVANCED,
@@ -137,7 +138,7 @@
 	id = "xenoarch_radar"
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/xenoarch/handheld_radar
 
@@ -176,12 +177,7 @@
 	name = "Advanced Xenoarch Bag"
 	desc = "A bag that can hold about fifty strange rocks."
 	id = "xenoarch_bag_adv"
-	materials = list(
-		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-	)
-	// i kinda hate how this requires diamond, but this is supposed to be a fix pr, burn the gbp on it later
+	materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*2.5, /datum/material/uranium =SMALL_MATERIAL_AMOUNT*5) // same materials as the mining bag of holding.
 	build_path = /obj/item/storage/bag/xenoarch/adv
 
 /datum/design/board/xenoarch
