@@ -107,6 +107,7 @@
 		/obj/item/claymore/cutlass = 2,
 		/obj/item/pen/edagger = 4, //can be hidden in the pda and gives illegal tech
 		/obj/item/melee/energy/sword/surplus = 4, // This is the type 1, with 50% block.
+		/obj/item/melee/baseball_bat/ablative = 4,
 		/obj/item/nullrod/tribal_knife = 2,
 		/obj/item/gun/energy/recharge/fisher = 2,
 		/obj/item/claymore/dragonslayer = 1, // only way to get it. hopefully the list is big enough to make it rare.
