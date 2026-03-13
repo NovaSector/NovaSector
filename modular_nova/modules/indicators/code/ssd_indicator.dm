@@ -1,4 +1,8 @@
-GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('modular_nova/modules/indicators/icons/ssd_indicator.dmi', "default0", FLY_LAYER))
+GLOBAL_DATUM_INIT(ssd_indicator_vis, /obj/effect/overlay/indicator/ssd, new)
+
+/obj/effect/overlay/indicator/ssd
+	icon = 'modular_nova/modules/indicators/icons/ssd_indicator.dmi'
+	icon_state = "default0"
 
 /mob/living
 	var/ssd_indicator = FALSE
@@ -9,10 +13,10 @@ GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('modular_nova/modules/
 		return
 	ssd_indicator = state
 	if(ssd_indicator)
-		add_overlay(GLOB.ssd_indicator_overlay)
+		vis_contents |= GLOB.ssd_indicator_vis
 		log_message("<font color='green'>has went SSD and got their indicator!</font>", LOG_ATTACK)
 	else
-		cut_overlay(GLOB.ssd_indicator_overlay)
+		vis_contents -= GLOB.ssd_indicator_vis
 		log_message("<font color='green'>is no longer SSD and lost their indicator!</font>", LOG_ATTACK)
 
 /mob/living/Login()

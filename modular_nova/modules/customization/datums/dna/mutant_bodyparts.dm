@@ -162,7 +162,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
  * Returns:
  * - /datum/mutant_bodypart: A newly created mutant bodypart datum.
  */
-/datum/species/proc/build_mutant_part(name, colors, emissive_list)
+/proc/build_mutant_part(name, colors, emissive_list)
 	return new /datum/mutant_bodypart(name, colors, emissive_list)
 
 // Immutable species blueprint, used for default species parts. These are what get stored in GLOB.default_mutant_parts

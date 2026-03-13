@@ -1185,6 +1185,7 @@
 	limb_gender = (human_owner.physique == MALE) ? "m" : "f"
 	if(HAS_TRAIT(human_owner, TRAIT_USES_SKINTONES))
 		skin_tone = human_owner.skin_tone
+		species_color = "" // NOVA EDIT ADDITION
 	else if(HAS_TRAIT(human_owner, TRAIT_MUTANT_COLORS))
 		skin_tone = ""
 		var/datum/species/owner_species = human_owner.dna.species

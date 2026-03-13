@@ -78,14 +78,24 @@
 	if(!visuals_only)
 		return
 
+	// If we have greyscale limbs from having the skintone toggle unchecked
+	var/should_greyscale_limbs
+	if(!preferences.read_preference(/datum/preference/toggle/skin_tone_toggle))
+		var/datum/preference/toggle/skin_tone_toggle/skin_tone_toggle = GLOB.preference_entries[/datum/preference/toggle/skin_tone_toggle]
+		if(skin_tone_toggle.is_accessible(preferences))
+			should_greyscale_limbs = TRUE
+
 	for(var/body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_CHEST, BODY_ZONE_HEAD))
 		if(body_zone in visited_body_zones)
 			continue
 
 		var/obj/item/bodypart/target_bodypart = target.get_bodypart(body_zone)
 
-		target_bodypart?.reset_appearance()
-
+		// Reapply this so we get our greyscaled limbs back - I. hate. this. so much.
+		if(should_greyscale_limbs)
+			target_bodypart?.change_appearance(icon = BODYPART_ICON_HUMANOID, id = SPECIES_HUMANOID, greyscale = TRUE)
+		else
+			target_bodypart?.reset_appearance()
 
 /datum/preference_middleware/limbs_and_markings/proc/set_limb_aug(list/params, mob/user)
 	var/limb_slot = params["limb_slot"]
