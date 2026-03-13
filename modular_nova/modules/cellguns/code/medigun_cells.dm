@@ -15,42 +15,37 @@
 	name = "medical heal shot"
 	icon_state = "blue_laser"
 	damage = 0
-
-/obj/projectile/energy/medical/oxygen
-	name = "oxygen heal shot"
-	var/amount_healed = 10
-
-/obj/projectile/energy/medical/oxygen/on_hit(mob/living/target, blocked = 0, pierce_hit)
-	. = ..()
-	if(!IsLivingHuman(target))
-		return FALSE
-
-	target.adjust_oxy_loss(-amount_healed)
+	var/healing_threshold = 20
+	var/base_disgust = 1
 
 /*
 *	PROCS
 */
 
-/// Applies digust by damage thresholds.
-/obj/projectile/energy/medical/proc/damage_disgust(mob/living/target, type_damage)
-	if(type_damage >= 100)
-		target.adjust_disgust(3)
+/// Applies additional digust based on how much nutrition they're missing under certain thresholds, increasingly multiplying it each stage beyond hungry they are.
+/obj/projectile/energy/medical/proc/nutrition_disgust(mob/living/target, base_disgust)
+	if(target.nutrition < NUTRITION_LEVEL_STARVING)
+		target.adjust_disgust(base_disgust * 4)
+	else if(target.nutrition >= NUTRITION_LEVEL_STARVING && target.nutrition <= NUTRITION_LEVEL_VERY_HUNGRY)
+		target.adjust_disgust(base_disgust * 3)
+	else if(target.nutrition > NUTRITION_LEVEL_VERY_HUNGRY && target.nutrition < NUTRITION_LEVEL_HUNGRY)
+		target.adjust_disgust(base_disgust * 2)
+	else
+		return
 
-	if(type_damage >=  50 && type_damage < 100)
-		target.adjust_disgust(1.5)
-
-/// Checks to see if the patient is living.
-/obj/projectile/energy/medical/proc/IsLivingHuman(mob/living/target)
+/// Checks to see if the patient is living and organic.
+/obj/projectile/energy/medical/proc/is_living_human(mob/living/target)
 	if(!istype(target, /mob/living/carbon/human))
 		return FALSE
-
+	if(issynthetic(target))
+		return FALSE
 	if(target.stat == DEAD)
 		return FALSE
 	else
 		return TRUE
 
 /// Checks for non-medicine reagents in the bloodstream, used for the toxin medicell.
-/obj/projectile/energy/medical/proc/checkReagents(mob/living/target)
+/obj/projectile/energy/medical/proc/check_reagents(mob/living/target)
 	var/non_medicine_chems = 0 //Keeps track of how many chemicals in the bloodstream aren't medicine.
 
 	for(var/reagent in target.reagents.reagent_list)
@@ -60,42 +55,60 @@
 
 	return non_medicine_chems
 
-/// Heals Brute if it's under 30, make them gain disgust.
-/obj/projectile/energy/medical/proc/healBrute(mob/living/target, amount_healed, base_disgust)
-	if(!IsLivingHuman(target))
+/// Heals Oxygen with no threshold, make them gain disgust.
+/obj/projectile/energy/medical/proc/heal_oxy(mob/living/target, amount_healed, base_disgust, healing_threshold)
+	if(!is_living_human(target))
 		return FALSE
 
-	if(target.get_brute_loss() >= 30 )
-		return FALSE
-
-	damage_disgust(target, target.get_brute_loss())
 	target.adjust_disgust(base_disgust)
+	nutrition_disgust(target, base_disgust)
+	target.adjust_nutrition(base_disgust * -2)
+	target.adjust_oxy_loss(-amount_healed)
+
+/// Heals Brute if it's at the threshold or less, make them gain disgust.
+/obj/projectile/energy/medical/proc/heal_brute(mob/living/target, amount_healed, base_disgust, healing_threshold)
+	if(!is_living_human(target))
+		return FALSE
+
+	if(target.get_brute_loss() > healing_threshold)
+		return FALSE
+
+	target.adjust_disgust(base_disgust)
+	nutrition_disgust(target, base_disgust)
+	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_brute_loss(-amount_healed)
 
-/// Heals Burn if it's under 30, make them gain disgust.
-/obj/projectile/energy/medical/proc/healBurn(mob/living/target, amount_healed, base_disgust)
-	if(!IsLivingHuman(target))
+/// Heals Burn if it's at the threshold or less, make them gain disgust.
+/obj/projectile/energy/medical/proc/heal_burn(mob/living/target, amount_healed, base_disgust, healing_threshold)
+	if(!is_living_human(target))
 		return FALSE
 
-	if(target.get_fire_loss() >= 30 )
+	if(target.get_fire_loss() > healing_threshold)
 		return FALSE
 
-	damage_disgust(target, target.get_brute_loss())
 	target.adjust_disgust(base_disgust)
+	nutrition_disgust(target, base_disgust)
+	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_fire_loss(-amount_healed)
 
-/// Heals Toxins
-/obj/projectile/energy/medical/proc/healTox(mob/living/target, amount_healed)
-	if(!IsLivingHuman(target))
+/// Heals Toxins if it's at the threshold or less, make them gain disgust.
+/obj/projectile/energy/medical/proc/heal_tox(mob/living/target, amount_healed, base_disgust, healing_threshold)
+	if(!is_living_human(target))
+		return FALSE
+
+	if(target.get_tox_loss() > healing_threshold)
 		return FALSE
 
 	var/healing_multiplier = 1.5
-	var/non_meds = checkReagents(target)
+	var/non_meds = check_reagents(target)
 	healing_multiplier = healing_multiplier - (non_meds / 4)
 
 	if(healing_multiplier < 0.25)
 		healing_multiplier = 0.25
 
+	target.adjust_disgust(base_disgust)
+	nutrition_disgust(target, base_disgust)
+	target.adjust_nutrition(base_disgust * -2)
 	target.adjust_tox_loss(-(amount_healed * healing_multiplier))
 
 /*
@@ -106,7 +119,7 @@
 *	TIER ONE
 */
 
-//The Basic Brute Heal Projectile
+//Basic Brute Heal Projectile
 /obj/item/ammo_casing/energy/medical/brute1
 	projectile_type = /obj/projectile/energy/medical/brute
 	select_name = "brute"
@@ -116,13 +129,12 @@
 	name = "brute heal shot"
 	icon_state = "red_laser"
 	var/amount_healed = 7.5
-	var/base_disgust = 3
 
 /obj/projectile/energy/medical/brute/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healBrute(target, amount_healed, base_disgust)
+	heal_brute(target, amount_healed, base_disgust, healing_threshold)
 
-//The Basic Burn Heal//
+//Basic Burn Heal Projectile
 /obj/item/ammo_casing/energy/medical/burn1
 	projectile_type = /obj/projectile/energy/medical/burn
 	select_name = "burn"
@@ -132,13 +144,21 @@
 	name = "burn heal shot"
 	icon_state = "yellow_laser"
 	var/amount_healed = 7.5
-	var/base_disgust = 3
 
 /obj/projectile/energy/medical/burn/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healBurn(target, amount_healed, base_disgust)
+	heal_burn(target, amount_healed, base_disgust, healing_threshold)
 
-//Basic Toxin Heal//
+//Basic Oxygen Heal Projectile. Doesn't get a casing because the base medical projectile is already oxygen.
+/obj/projectile/energy/medical/oxygen
+	name = "oxygen heal shot"
+	var/amount_healed = 10
+
+/obj/projectile/energy/medical/oxygen/on_hit(mob/living/target, blocked = 0, pierce_hit)
+	. = ..()
+	heal_oxy(target, amount_healed, base_disgust)
+
+//Basic Toxin Heal Projectile
 /obj/item/ammo_casing/energy/medical/toxin1
 	projectile_type = /obj/projectile/energy/medical/toxin
 	select_name = "toxin"
@@ -151,7 +171,7 @@
 
 /obj/projectile/energy/medical/toxin/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	healTox(target, amount_healed)
+	heal_tox(target, amount_healed, base_disgust, healing_threshold)
 
 /*
 *	TIER TWO
@@ -168,6 +188,7 @@
 	pass_flags =  UPGRADED_MEDICELL_PASSFLAGS
 	amount_healed = 11.25
 	base_disgust = 2
+	healing_threshold = 30
 
 //Tier II Burn Projectile
 /obj/item/ammo_casing/energy/medical/burn2
@@ -180,8 +201,9 @@
 	pass_flags =  UPGRADED_MEDICELL_PASSFLAGS
 	amount_healed = 11.25
 	base_disgust = 2
+	healing_threshold = 30
 
-//Tier II Oxy Projectile
+//Tier II Oxygen Projectile
 /obj/item/ammo_casing/energy/medical/oxy2
 	projectile_type = /obj/projectile/energy/medical/oxygen/better
 	select_name = "oxygen II"
@@ -191,6 +213,7 @@
 	name = "strong oxygen heal shot"
 	pass_flags =  UPGRADED_MEDICELL_PASSFLAGS
 	amount_healed = 20
+	base_disgust = 2
 
 //Tier II Toxin Projectile
 /obj/item/ammo_casing/energy/medical/toxin2
@@ -202,6 +225,8 @@
 	name = "strong toxin heal shot"
 	pass_flags =  UPGRADED_MEDICELL_PASSFLAGS
 	amount_healed = 7.5
+	base_disgust = 2
+	healing_threshold = 30
 
 /*
 *	TIER THREE
@@ -216,7 +241,8 @@
 /obj/projectile/energy/medical/brute/better/best
 	name = "powerful brute heal shot"
 	amount_healed = 15
-	base_disgust = 1
+	base_disgust = 3
+	healing_threshold = 40
 
 //Tier III Burn Projectile
 /obj/item/ammo_casing/energy/medical/burn3
@@ -227,9 +253,10 @@
 /obj/projectile/energy/medical/burn/better/best
 	name = "powerful burn heal shot"
 	amount_healed = 15
-	base_disgust = 1
+	base_disgust = 3
+	healing_threshold = 40
 
-//Tier III Oxy Projectile
+//Tier III Oxygen Projectile
 /obj/item/ammo_casing/energy/medical/oxy3
 	projectile_type = /obj/projectile/energy/medical/oxygen/better/best
 	select_name = "oxygen III"
@@ -238,6 +265,7 @@
 /obj/projectile/energy/medical/oxygen/better/best
 	name = "powerful oxygen heal shot"
 	amount_healed = 30
+	base_disgust = 3
 
 //Tier III Toxin Projectile
 /obj/item/ammo_casing/energy/medical/toxin3
@@ -248,10 +276,8 @@
 /obj/projectile/energy/medical/toxin/better/best
 	name = "powerful toxin heal shot"
 	amount_healed = 10
-
-/obj/projectile/energy/medical/upgraded/toxin3/on_hit(mob/living/target, blocked = 0, pierce_hit)
-	. = ..()
-	healTox(target, 10)
+	base_disgust = 3
+	healing_threshold = 40
 
 /*
 *	UTILITY CELLS
@@ -273,7 +299,7 @@
 
 /obj/projectile/energy/medical/utility/clotting/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(!IsLivingHuman(target))
+	if(!is_living_human(target))
 		return FALSE
 
 	if(target.reagents.get_reagent_amount(/datum/reagent/medicine/coagulant/fabricated) < 5) //injects the target with a weaker coagulant agent
@@ -293,7 +319,7 @@
 
 /obj/projectile/energy/medical/utility/temperature/on_hit(mob/living/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(!IsLivingHuman(target))
+	if(!is_living_human(target))
 		return FALSE
 
 	var/ideal_temp = target.get_body_temp_normal(apply_change=FALSE) //Gets the temperature we should be aiming for.
@@ -339,7 +365,7 @@
 	name = "salve globule"
 	icon_state = "glob_projectile"
 	shrapnel_type = /obj/item/mending_globule/hardlight
-	embed_type = /datum/embedding/salve_globule
+	embed_type = /datum/embedding/salve_globule/hardlight
 	damage = 0
 
 /datum/embedding/salve_globule
@@ -349,9 +375,15 @@
 	jostle_pain_mult = 0
 	fall_chance = 0
 
-/obj/projectile/energy/medical/utility/salve/on_hit(mob/living/target, blocked = 0, pierce_hit)
-	if(!IsLivingHuman(target)) //No using this on the dead or synths.
+/obj/projectile/energy/medical/utility/salve/on_hit(mob/living/target, blocked = 0, pierce_hit, item_impact_zone, hit_zone)
+	if(!is_living_human(target)) //No using this on the dead or synths.
 		return FALSE
+	return ..()
+
+/datum/embedding/salve_globule/hardlight/remove_embedding()
+	var/obj/item/mending_globule/globule = parent
+	owner.visible_message(span_warning("[globule]'s hardlight field disintigrates upon being removed from [owner], fizzling away into nothingness with the remaining salve!"))
+	qdel(globule)
 	return ..()
 
 //Hardlight Rollerbed Medicell
@@ -427,19 +459,26 @@
 	embed_type = /datum/embedding/salve_globule/hardlight
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
 	icon_state = "globule"
-	heals_left = 40 //This means it'll be heaing 15 damage per type max.
+	heals_left = 40 //This means it'll be heaing 10 damage per type max.
+
+//Ensures that you can't stack multiple globules on the same limb
+/datum/embedding/salve_globule/hardlight/on_successful_embed(mob/living/carbon/target, obj/item/bodypart/target_limb)
+	. = ..()
+	for(var/obj/item/mending_globule/hardlight/existing in target_limb.embedded_objects)
+		if ((existing != parent))
+			target.visible_message(span_warning("[parent] slides right off of [target]'s [target_limb.plaintext_zone], already having a globule attached there!"))
+			qdel(parent)
+			return
+		else
+			continue
 
 /datum/embedding/salve_globule/hardlight/process(seconds_per_tick)
-	if(!owner_limb.get_damage()) //Makes it poof as soon as the body part is fully healed, no keeping this on forever.
-		qdel(src)
-		return FALSE
-
-	var/obj/item/mending_globule/globule = parent
-	owner_limb.heal_damage(0.125 * seconds_per_tick, 0.125 * seconds_per_tick) //Reduced healing rate over original
+	. = ..()
+	var/obj/item/mending_globule/hardlight/globule = parent
+	owner_limb.heal_damage(0.25 * seconds_per_tick, 0.25 * seconds_per_tick) //Reduced healing rate over original
 	globule.heals_left--
-
 	if(globule.heals_left <= 0)
-		qdel(src)
+		qdel(globule)
 
 //Hardlight Emergency Bed.
 /obj/structure/bed/medical/medigun

@@ -178,3 +178,6 @@ SAVEFILE_BACKUP_LIMIT 16
 ## Maximum file size allowed by savefile uploading, in kilobytes
 ## Default limit is 2000
 SAVEFILE_UPLOAD_LIMIT 2000
+
+## Uncomment to override gas prices with their modified values, leave commented to use the TG defaults
+#OVERRIDE_GAS_PRICES

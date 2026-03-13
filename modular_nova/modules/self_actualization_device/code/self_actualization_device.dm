@@ -11,7 +11,7 @@
 
 /datum/design/board/self_actualization_device
 	name = "Machine Design (Self-Actualization Device)"
-	desc = "The circuit board for a Self-Actualization Device by Veymed."
+	desc = "The circuit board for a Self-Actualization Device by Vey-Medical."
 	id = "self_actualization_device"
 	build_path = /obj/item/circuitboard/machine/self_actualization_device
 	category = list(RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_MEDICAL)
@@ -41,12 +41,12 @@
 	var/player_consent = NO_CONSENT
 	/// A list containing advertisements that the machine says while working.
 	var/static/list/advertisements = list(\
-	"Thank you for using the Self-Actualization Device, brought to you by Veymed, because you asked for it.", \
-	"The Self-Actualization device is not to be used by the elderly without direct adult supervision. Veymed is not liable for any and all injuries sustained under unsupervised usage of the Self-Actualization Device.", \
+	"Thank you for using the Self-Actualization Device, brought to you by the Vey-Medical Corporation, because you asked for it.", \
+	"The Self-Actualization device is not to be used by the elderly without direct adult supervision. Vey-Medical is not liable for any and all injuries sustained under unsupervised usage of the Self-Actualization Device.", \
 	"The Self-Actualization Device is not to be used un-cleaned. Thanks to its non-stick coating, cleaning up after a failed rejuvenation is easy as cleaning a microwave. Blood just doesn't stick!", \
 	"Before using the Self-Actualization Device, remove any and all metal devices, or you might make the term 'ironman' a bit too literal!" , \
-	"Remember, this is not cloning! Self-Actualization is a legally distinct, Veymed patent pending procedure. Still have questions? Call your nearest Veymed Representative to requisition more information about the Self-Actualization Device!" , \
-	"Coming soon... Self-Actualization Device: Colony Fabricator Edition! Flat-packed and better in every way, with no medical expertise required! It's so easy, it's like cheating! Contact your nearest Veymed Representative to find out more!" \
+	"Remember, this is not cloning! Self-Actualization is a legally distinct, Vey-Medical patent pending procedure. Still have questions? Call your nearest Vey-Medical Representative to requisition more information about the Self-Actualization Device!" , \
+	"Coming soon... Self-Actualization Device: Colony Fabricator Edition! Flat-packed and better in every way, with no medical expertise required! It's so easy, it's like cheating! Contact your nearest Vey-Medical Representative to find out more!" \
 	)
 	COOLDOWN_DECLARE(advert_time)
 	COOLDOWN_DECLARE(sad_processing_time)
@@ -54,7 +54,7 @@
 /obj/machinery/self_actualization_device/examine_more(mob/user)
 	. = ..()
 
-	. += "With the power of modern neurological scanning and synthflesh cosmetic surgery, the Veymed Corporation \
+	. += "With the power of modern neurological scanning and synthflesh cosmetic surgery, the Vey-Medical Corporation \
 		has teamed up with Nanotrasen Human Resources (and elsewise)  to bring you the Self-Actualization Device! \
 		Ever revived a patient and had them file a malpractice lawsuit because their head got attached to the wrong body? \
 		Just slap 'em in the SAD and turn it on! Their frown will turn upside down as they're reconstituted as their ideal self \

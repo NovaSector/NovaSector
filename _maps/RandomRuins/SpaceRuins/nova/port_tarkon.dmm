@@ -5246,7 +5246,6 @@
 /area/ruin/space/has_grav/port_tarkon/developement)
 "wv" = (
 /obj/structure/closet/secure_closet/medical1,
-/obj/item/gun/medbeam/afad,
 /obj/item/clothing/suit/toggle/labcoat/medical,
 /obj/item/storage/bag/bio,
 /obj/effect/turf_decal/tile/blue/anticorner{
