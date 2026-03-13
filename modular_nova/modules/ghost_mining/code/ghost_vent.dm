@@ -30,7 +30,7 @@
 	var/static_boulder_size = null //Does this vent have a static boulder size?
 	var/static_boulder_bounty = null //does this vent have a static boulder bounty?
 	var/manual_reset = FALSE //Can we force a reset on materials?
-	var/min_to_reset = 5 //Minimal amount of boulders needed for manual reset
+	var/min_to_reset = 3 //Minimal amount of boulders needed for manual reset.
 	var/reset_timer = 5 //active amount till vent can reset.
 	var/random_start = FALSE  //does this vent randomize at start?
 	var/ghost_mining = FALSE //are boulders for a ghost role exclusive vent?
@@ -64,10 +64,7 @@
 	//produce the boulder
 	var/obj/item/boulder/new_rock
 	if(ghost_mining)
-		if(prob(artifact_chance))
-			new_rock = new /obj/item/boulder/artifact/ghost_mining(loc)
-		else
-			new_rock = new /obj/item/boulder/ghost_mining(loc)
+		new_rock = new /obj/item/boulder/ghost_mining(loc)
 	else
 		if(prob(artifact_chance))
 			new_rock = new /obj/item/boulder/artifact(loc)
@@ -510,13 +507,6 @@
 /obj/item/boulder/ghost_mining
 	name = "crystal cluster"
 	desc = "They're not rocks, they're minerals."
-	icon = 'modular_nova/modules/ghost_mining/icons/ore.dmi'
-	icon_state = "crystal"
-	brm_stable = FALSE
-
-/obj/item/boulder/artifact/ghost_mining
-	name = "crystalized artifact cluster"
-	desc = "Minerals crystallized around an obscured object."
 	icon = 'modular_nova/modules/ghost_mining/icons/ore.dmi'
 	icon_state = "crystal"
 	brm_stable = FALSE
