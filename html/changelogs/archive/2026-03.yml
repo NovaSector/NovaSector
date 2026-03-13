@@ -58,3 +58,30 @@
   - image: Added naval uniforms for the Blueshield, Bridge Officer, NT Rep, QM
   - code_imp: The HOP's hats and berets now have the hop armor class
   - code_imp: the captain's clothing items now all share the captains armor class
+2026-03-13:
+  Geoengi:
+  - rscadd: Mediguns now have a lore blurb!
+  - rscdel: Removes the AFAD.
+  - bugfix: Mediguns no longer work on synthetics.
+  - bugfix: Hardlight salve cells now actually work.
+  - balance: The four healing-type medigun cells now apply disgust and nutrition drain
+      proportional to their tier. Under certain hunger thresholds, the disgust gain
+      becomes increasingly multiplied.
+  - balance: Also proportional to their tier, healing thresholds for medigun cells
+      in each damage type have been given a spread of 20, 30, 40 for tier I, II, and
+      III, respectively. Oxygen cells are exempt.
+  - balance: The upgraded medigun gets another cell slot, up to four.
+  - balance: The CMO's medigun now has five cell slots.
+  - balance: Healing globules can only have one attached per limb, but no longer delete
+      if there's no current damage to heal.
+  - map: Tarkon's lost its AFAD. Though, not its only starting healing beam...
+  - spellcheck: Standardizes the name "Vey-Medical" or "Vey-Med" in all applicable
+      mentions.
+  - code_imp: Removes redundant code relating to toggling the safe mode in medigun
+      cells.
+  Skies-Of-Blue:
+  - rscadd: Adds two greyscaleable variants of the existing robotic limbs to the Augments+
+      tab
+  - rscadd: Adds seven new species-based reskins to robotic limbs, as well as adding
+      the synth "Default Chassis" as a reskin option
+  - image: Added sprites to support the above
