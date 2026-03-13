@@ -74,7 +74,7 @@
 			and a magnifying glass for actually analyzing your finds (Not guaranted to actually yield any results). \
 			Does not come with actual excavation tools, nor the ability to actually make anyone pay attention to one's \
 			attempts at intellectual posturing, nor any actual job experience as a curator."
-	cost = PAYCHECK_CREW * 15 // 750 credits but you also theoretically print a lot of money if you consistently get/scan relics
+	cost = PAYCHECK_CREW * 15
 	contains = list(/obj/item/storage/belt/utility/xenoarch/full,
 				/obj/item/glassblowing/magnifying_glass,
 			)

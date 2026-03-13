@@ -173,7 +173,7 @@
 		return
 
 	if(istype(attacking_item, /obj/item/xenoarch/strange_rock))
-		var/obj/item/xenoarch/strange_rock/chosen_rock
+		var/obj/item/xenoarch/strange_rock/chosen_rock = attacking_item
 		if(chosen_rock.get_scanned(TRUE))
 			balloon_alert(user, "scan complete!")
 			return
@@ -197,12 +197,11 @@
 	if(istype(attacking_item, /obj/item/storage/bag/xenoarch))
 		for(var/obj/strange_rocks in attacking_item.contents)
 			strange_rocks.forceMove(storage_unit)
-
 		balloon_alert(user, "rocks inserted!")
 		return
 
 	if(istype(attacking_item, /obj/item/xenoarch/strange_rock))
-		attacking_item.forceMove(src)
+		attacking_item.forceMove(storage_unit)
 		balloon_alert(user, "rock inserted!")
 		return
 

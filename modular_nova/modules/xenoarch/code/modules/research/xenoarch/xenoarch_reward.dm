@@ -80,7 +80,7 @@
 		/obj/item/pickaxe/drill/diamonddrill = 2,
 		/obj/item/circuitboard/machine/ltsrbt = 1,
 		/obj/item/v8_engine = 1,
-		/obj/item/hearthkin_ship_fragment_inactive = 3, // this turns into a /obj/item/relic/lavaland/activated in lavaland maps
+		/obj/item/hearthkin_ship_fragment_inactive/xenoarch = 3, // this turns into a /obj/item/relic/lavaland/activated in lavaland maps
 	)
 
 /obj/effect/spawner/random/xenoarch/clothing

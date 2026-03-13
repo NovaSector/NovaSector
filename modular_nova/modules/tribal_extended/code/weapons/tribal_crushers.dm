@@ -142,10 +142,10 @@
 	pickup_sound = SFX_STONE_PICKUP
 
 /// Doesn't mess with the spawners and replaces it anywhere if its ever spawns outside of heartkin maps
-/obj/item/hearthkin_ship_fragment_inactive/Initialize(mapload)
+/obj/item/hearthkin_ship_fragment_inactive/xenoarch/Initialize(mapload)
 	. = ..()
-	if(length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)))
-		new /obj/item/hearthkin_ship_fragment_inactive(get_turf(src))
+	if(!length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)))
+		new /obj/item/relic/lavaland/activated(get_turf(src))
 		qdel(src)
 
 /obj/item/hearthkin_ship_fragment_active
