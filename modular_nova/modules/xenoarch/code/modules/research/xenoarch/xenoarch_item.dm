@@ -1,4 +1,4 @@
-/datum/export/xenoarch/broken_item
+/datum/export/xenoarch
 	cost = CARGO_CRATE_VALUE * 5
 	unit_name = "broken object"
 	export_types = list(/obj/item/xenoarch/broken_item)
