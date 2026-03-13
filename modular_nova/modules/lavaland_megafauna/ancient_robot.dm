@@ -155,7 +155,7 @@ Difficulty: Hard
 		return ..()
 	else if(exploding) //but it refused
 		return
-	adjustBruteLoss(-1)
+	adjust_brute_loss(-1)
 	self_destruct()
 	exploding = TRUE
 
@@ -526,10 +526,10 @@ Difficulty: Hard
 /mob/living/simple_animal/hostile/megafauna/ancient_robot/ex_act(severity, target)
 	switch(severity)
 		if(1)
-			adjustBruteLoss(25)
+			adjust_brute_loss(25)
 
 		if(2)
-			adjustBruteLoss(10)
+			adjust_brute_loss(10)
 
 		if(3)
 			return
@@ -663,7 +663,7 @@ Difficulty: Hard
 
 /mob/living/simple_animal/hostile/ancient_robot_leg/adjustHealth(amount, updating_health = TRUE)
 	var/damage = amount * transfer_rate
-	core.adjustBruteLoss(damage)
+	core.adjust_brute_loss(damage)
 	fake_hp = clamp(fake_hp - damage, 0, fake_max_hp)
 	if(damage && ranged && fake_hp <= 200)
 		ranged = FALSE
@@ -707,10 +707,10 @@ Difficulty: Hard
 /mob/living/simple_animal/hostile/ancient_robot_leg/ex_act(severity, target)
 	switch(severity)
 		if(1)
-			adjustBruteLoss(25)
+			adjust_brute_loss(25)
 
 		if(2)
-			adjustBruteLoss(10)
+			adjust_brute_loss(10)
 
 		if(3)
 			return
@@ -821,7 +821,7 @@ Difficulty: Hard
 	for(var/mob/living/L in current_loc.contents)
 		if(istype(L, /mob/living/simple_animal/hostile/megafauna/ancient_robot))
 			continue
-		L.adjustBruteLoss(35)
+		L.adjust_brute_loss(35)
 		to_chat(L, "<span class='userdanger'>You're hit by the falling rock!</span>")
 
 /obj/effect/temp_visual/fireball/rock

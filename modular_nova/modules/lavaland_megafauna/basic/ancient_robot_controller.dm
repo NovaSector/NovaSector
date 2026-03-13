@@ -15,35 +15,67 @@
 #define ROBOT_ENRAGED (health < maxHealth*0.5)
 
 /datum/ai_controller/basic_controller/ancient_robot
-	// The controller holds the 'pawn' reference automatically as the mob it is attached to.
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/target_retaliate,
-		/datum/ai_planning_subtree/ancient_robot_combat,
-		/datum/ai_planning_subtree/find_and_hunt_target,
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/no_gutted_mobs,
+		BB_TARGET_MINIMUM_STAT = DEAD,
+		BB_AGGRO_RANGE = 12,
+		BB_ANCIENT_ROBOT_SPECIAL_COOLDOWN = 0,
 	)
 
-/datum/ai_planning_subtree/ancient_robot_combat/SelectBehaviors(datum/ai_controller/basic_controller/ancient_robot/controller, mob/living/basic/megafauna/ancient_robot/robot)
-	// In SelectBehaviors, the second argument is the pawn. We name it 'robot' here for clarity.
-	if(robot.charging || robot.exploding || robot.ranged_cooldown > world.time)
+	movement_delay = 0.5 SECONDS
+	ai_movement = /datum/ai_movement/basic_avoidance
+	idle_behavior = /datum/idle_behavior/idle_random_walk
+
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/escape_captivity,
+		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/attack_obstacle_in_path,
+		/datum/ai_planning_subtree/ancient_robot_combat,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree,
+		/datum/ai_planning_subtree/ancient_robot_leg_sync,
+	)
+
+/datum/ai_planning_subtree/ancient_robot_combat
+
+/datum/ai_planning_subtree/ancient_robot_combat/SelectBehaviors(datum/ai_controller/controller, mob/living/basic/megafauna/ancient_robot/pawn)
+	// Do not plan new attacks if currently charging or dying [cite: 31, 35]
+	if(pawn.charging || pawn.exploding || pawn.ranged_cooldown > world.time)
+		return
+
+	// Retrieve target from blackboard
+	var/atom/target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
+	if(!target)
 		return
 
 	// Anger scales based on missing health
-	var/anger = robot.anger_modifier
+	var/anger_modifier = clamp(((pawn.maxHealth - pawn.health) / 50), 0, 20)
 
 	if(prob(20))
-		return controller.queue_behavior(/datum/ai_behavior/ancient_robot_laser)
+		controller.queue_behavior(/datum/ai_behavior/ancient_robot_laser)
+		return TRUE
 
-	if(prob(30 + (anger / 2)))
-		return controller.queue_behavior(/datum/ai_behavior/ancient_robot_charge)
+	if(prob(30 + (anger_modifier / 2)))
+		controller.queue_behavior(/datum/ai_behavior/ancient_robot_charge, target)
+		return TRUE
 
-	if(prob(30 + anger))
-		return controller.queue_behavior(/datum/ai_behavior/ancient_robot_anomalies)
+	if(prob(30 + anger_modifier))
+		controller.queue_behavior(/datum/ai_behavior/ancient_robot_anomalies)
+		return TRUE
 
-	if(prob(60 + anger))
-		return controller.queue_behavior(/datum/ai_behavior/ancient_robot_special)
+	if(prob(60 + anger_modifier))
+		controller.queue_behavior(/datum/ai_behavior/ancient_robot_special, target)
+		return TRUE
+
+/datum/ai_planning_subtree/ancient_robot_leg_sync
+
+/datum/ai_planning_subtree/ancient_robot_leg_sync/SelectBehaviors(datum/ai_controller/controller, mob/living/basic/megafauna/ancient_robot/pawn)
+	// Check distance for all legs
+	if(get_dist(pawn, pawn.TR) > 3 || get_dist(pawn, pawn.TL) > 3 || get_dist(pawn, pawn.BR) > 3 || get_dist(pawn, pawn.BL) > 3)
+		controller.queue_behavior(/datum/ai_behavior/ancient_robot_snap_legs)
+		return TRUE
 
 /datum/ai_behavior/ancient_robot_charge/perform(datum/ai_controller/controller, mob/living/basic/megafauna/ancient_robot/robot)
-	var/atom/target = ai_controller.blackboard_key_exists(BB_BASIC_MOB_CURRENT_TARGET)
+	var/atom/target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
 	if(!target)
 		return AI_BEHAVIOR_FAILED
 	robot.triple_charge()
@@ -60,6 +92,53 @@
 /datum/ai_behavior/ancient_robot_special/perform(datum/ai_controller/controller, mob/living/basic/megafauna/ancient_robot/robot)
 	robot.do_special_move()
 	return AI_BEHAVIOR_SUCCEEDED
+
+/datum/ai_behavior/ancient_robot_snap_legs/perform(datum/ai_controller/controller, mob/living/basic/megafauna/ancient_robot/pawn)
+	// We force the legs to the core's location if they are too far [cite: 51]
+	pawn.fix_specific_leg(TOP_RIGHT)
+	pawn.fix_specific_leg(TOP_LEFT)
+	pawn.fix_specific_leg(BOTTOM_RIGHT)
+	pawn.fix_specific_leg(BOTTOM_LEFT)
+	return AI_BEHAVIOR_SUCCEEDED
+
+/mob/living/basic/megafauna/ancient_robot/proc/fix_specific_leg(input)
+	switch(input)
+		if(TOP_RIGHT)
+			leg_control_system(input, 2, 2)
+		if(TOP_LEFT)
+			leg_control_system(input, -2, 2)
+		if(BOTTOM_RIGHT)
+			leg_control_system(input, 2, -2)
+		if(BOTTOM_LEFT)
+			leg_control_system(input, -2, -2)
+
+/mob/living/basic/megafauna/ancient_robot/proc/leg_control_system(input, horizontal, vertical)
+	var/turf/target = locate(x + horizontal, y + vertical, z)
+	switch(input)
+		if(TOP_RIGHT)
+			TR.leg_movement(target, 0.6)
+		if(TOP_LEFT)
+			TL.leg_movement(target, 0.6)
+		if(BOTTOM_RIGHT)
+			BR.leg_movement(target, 0.6)
+		if(BOTTOM_LEFT)
+			BL.leg_movement(target, 0.6)
+
+/mob/living/basic/ancient_robot_leg/proc/leg_movement(turf/T, movespeed)
+	walk_towards(src, T, movespeed)
+	DestroySurroundings()
+
+/mob/living/basic/ancient_robot_leg/proc/DestroySurroundings()
+	var/static/list/ignore_types = list(/obj/machinery/camera, /obj/effect)
+	for(var/dir in GLOB.alldirs)
+		var/turf/T = get_step(src, dir)
+		if(!T)
+			continue
+		if(T.density)
+			T.attackby(src, src) // Smash walls/turfs
+		for(var/obj/O in T.contents)
+			if(O.density && !is_type_in_list(O, ignore_types))
+				O.attackby(src, src) // Smash structures/machines
 
 /mob/living/basic/megafauna/ancient_robot
 	name = "\improper Vetus Speculator"
@@ -86,6 +165,7 @@
 
 /mob/living/basic/megafauna/ancient_robot/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/footstep, footstep_type = FOOTSTEP_MOB_HEAVY)
 	add_traits(list(TRAIT_LAVA_IMMUNE, TRAIT_ASHSTORM_IMMUNE, TRAIT_BOMBIMMUNE, TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTCOLD, TRAIT_RESISTHEAT), INNATE_TRAIT)
 
 	beam = new(loc)
@@ -94,7 +174,25 @@
 	BR = new(loc, src, BOTTOM_RIGHT)
 	BL = new(loc, src, BOTTOM_LEFT)
 
-	mode = pick(BLUESPACE, GRAV, PYRO, FLUX, VORTEX, CRYO)
+	mode = pick(BLUESPACE, GRAV, PYRO, FLUX, VORTEX, CRYO) //picks one of the 6 cores
+	switch(mode)
+		if(BLUESPACE)
+			desc += " It emits sparks of blue energy."
+		if(GRAV)
+			desc += " Gravity seems to distort around it."
+		if(PYRO)
+			desc += " You see flames burning around it."
+		if(FLUX) // Main attack is shock, so flux makes it stronger
+			melee_damage_lower = 40
+			melee_damage_upper = 60
+			desc += " It seems to overflow with energy."
+		if(VORTEX)
+			desc += " You see space bend and distort around it."
+		if(CRYO)
+			desc += " The air surrounding it is cold and listless."
+	body_shield()
+	add_overlay("[mode]")
+
 	body_shield()
 	return INITIALIZE_HINT_LATELOAD
 
@@ -156,7 +254,7 @@
 
 /mob/living/basic/ancient_robot_leg/adjust_health(amount, updating_health = TRUE)
 	var/damage = amount * 0.75
-	core.adjustBruteLoss(damage)
+	core.adjust_brute_loss(damage)
 	return ..()
 
 /mob/living/basic/megafauna/ancient_robot/proc/triple_charge()
@@ -377,7 +475,7 @@
 	for(var/mob/living/L in current_loc.contents)
 		if(istype(L, /mob/living/basic/megafauna/ancient_robot))
 			continue
-		L.adjustBruteLoss(35)
+		L.adjust_brute_loss(35)
 		to_chat(L, "<span class='userdanger'>You're hit by the falling rock!</span>")
 
 #undef BODY_SHIELD_COOLDOWN_TIME
