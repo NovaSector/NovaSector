@@ -236,10 +236,12 @@
 /obj/item/ammo_casing/energy/shrink/faulty
 	projectile_type = /obj/projectile/magic/shrink/alien
 	select_name = "shrink ray"
-	e_cost = LASER_SHOTS(1.5, STANDARD_CELL_CHARGE)
+	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE)
 
 /obj/item/gun/energy/shrink_ray/faulty
 	name = "faulty shrink ray blaster"
 	desc = "This is a piece of frightening alien tech that enhances the magnetic pull of atoms in a localized space to temporarily make an object shrink. \
-			It looks like it has seen better days, but its likely good for shrinking stuff."
+			Seems... hapzardly jury-rigged to work with human tech, but its likely good for shrinking stuff."
 	ammo_type = list(/obj/item/ammo_casing/energy/shrink/faulty)
+	pin = /obj/item/firing_pin/permit_pin
+	w_class = WEIGHT_CLASS_BULKY
