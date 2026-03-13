@@ -3844,7 +3844,6 @@
 	dir = 1
 	},
 /obj/machinery/light_switch/directional/north,
-/obj/item/xenoarch/handheld_recoverer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Fv" = (
