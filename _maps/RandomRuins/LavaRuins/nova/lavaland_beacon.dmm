@@ -24,7 +24,7 @@
 /obj/item/gps/computer/beacon{
 	pixel_y = 27;
 	pixel_x = 8;
-	gpstag = "ANCHOR-BUOY"
+	gpstag = "ANCHOR-BUOY-SURFACE"
 	},
 /obj/structure/fluff{
 	icon = 'icons/mob/simple/hivebot.dmi';
