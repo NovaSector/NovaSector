@@ -192,20 +192,20 @@
 	COOLDOWN_START(src, tool_scan, 2 SECONDS)
 
 	if(!(is_mining_level(user.z)))
-		user.balloon_alert(user, "Error!")
+		user.balloon_alert(user, "error!")
 		to_chat(user, span_warning("You aren't in a sector where the radar can be used! try moving to a mining sector."))
 		return FALSE
 
 	var/user_area = get_area(user)
 	if (!is_type_in_typecache(user_area, allowed_areas) || is_type_in_typecache(user_area, disallowed_areas))
-		user.balloon_alert(user, "Error!")
+		user.balloon_alert(user, "error!")
 		to_chat(user, span_warning("You aren't standing in a natural area, try moving to one before trying again."))
 		return FALSE
 
 	var/datum/scavenge_profile/profile = get_profile(user)
 
 	if(world.time < profile.next_scan)
-		user.balloon_alert(user, "Error!")
+		user.balloon_alert(user, "error!")
 		var/time_left = DisplayTimeText(max(0, profile.next_scan - world.time), round_seconds_to = 1)
 		to_chat(user, span_warning("The radar is still recharging from last time. Try again in [time_left]!"))
 		return FALSE
@@ -214,7 +214,7 @@
 	span_notice("You trigger a pulse from the handheld radar, scanning for potential dig sites."))
 	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
 	if(!do_after(user, scanner_speed * skill_modifier))
-		user.balloon_alert(user, "Interrupted!")
+		user.balloon_alert(user, "interrupted!")
 		return FALSE
 	profile.next_scan = world.time + cooldown_reroll
 	var/candidate_turf = null
@@ -240,7 +240,7 @@
 		candidate_turf = null
 
 	if(!candidate_turf)
-		user.balloon_alert(user, "Not found!")
+		user.balloon_alert(user, "not found!")
 		to_chat(user, span_warning("The radar couldn't find a suitable digging site."))
 		return FALSE
 
@@ -275,7 +275,7 @@
 	span_notice("You carefully scan and dig through the sediment of [dig_turf], searching for anything unusual."))
 	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
 	if(!do_after(user, scanner_speed * skill_modifier, target = dig_turf))
-		user.balloon_alert(user, "Interrupted!")
+		user.balloon_alert(user, "interrupted!")
 		return FALSE
 
 	var/turf/site_turf = profile.site
@@ -329,13 +329,13 @@
 	COOLDOWN_START(src, tool_scan, 2 SECONDS)
 	var/datum/scavenge_profile/profile = get_profile(user)
 	if(!profile.site)
-		user.balloon_alert(user, "Error!")
+		user.balloon_alert(user, "error!")
 		to_chat(user, span_warning("You don't have a site locked in! You need to do a long range scan first."))
 		return
 	
 	var/turf/candidate_turf = profile.site
 	if(profile.site.z != user.z)
-		user.balloon_alert(user, "Error!")
+		user.balloon_alert(user, "error!")
 		to_chat(user, span_warning("You are not in the same sector as the scanned site."))
 		return
 	var/dist = get_dist(src, candidate_turf)
@@ -345,7 +345,7 @@
 
 	switch(dist)
 		if (0 to 2)
-			user.balloon_alert(user, "Site close!")
+			user.balloon_alert(user, "site close!")
 			return
 		if(3 to 7)
 			arrow_color = COLOR_GREEN
