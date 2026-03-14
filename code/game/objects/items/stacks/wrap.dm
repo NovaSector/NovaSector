@@ -230,6 +230,11 @@
 	amount = 5
 	merge_type = /obj/item/stack/package_wrap/small
 
+//NOVA EDIT START
+/obj/item/stack/package_wrap/one
+	amount = 1
+//NOVA EDIT END
+
 /obj/item/c_tube
 	name = "cardboard tube"
 	desc = "A tube... of cardboard."
