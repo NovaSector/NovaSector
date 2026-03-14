@@ -1,0 +1,108 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/item/storage/toolbox/emergency/turret/mag_fed/colonist/pre_filled{
+	pixel_y = -2
+	},
+/obj/effect/turf_decal/stripes/red/box,
+/obj/item/ammo_box/c40sol{
+	pixel_y = 6;
+	pixel_x = -11
+	},
+/obj/item/multitool{
+	pixel_x = 1;
+	pixel_y = 6
+	},
+/obj/structure/deployable_barricade/metal/plasteel,
+/obj/structure/deployable_barricade/metal{
+	dir = 4
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 1
+	},
+/obj/structure/deployable_barricade/metal{
+	dir = 8
+	},
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"n" = (
+/obj/structure/sign/warning/secure_area,
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 6
+	},
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"C" = (
+/obj/structure/sign/warning/secure_area,
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 5
+	},
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"K" = (
+/obj/structure/sign/warning/secure_area,
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 9
+	},
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"P" = (
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"S" = (
+/obj/structure/sign/warning/secure_area,
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 10
+	},
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"Z" = (
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+Z
+Z
+Z
+Z
+Z
+"}
+(2,1,1) = {"
+Z
+K
+P
+S
+Z
+"}
+(3,1,1) = {"
+Z
+P
+a
+P
+Z
+"}
+(4,1,1) = {"
+Z
+C
+P
+n
+Z
+"}
+(5,1,1) = {"
+Z
+Z
+Z
+Z
+Z
+"}
