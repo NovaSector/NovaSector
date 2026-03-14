@@ -36,9 +36,7 @@
 		mutant_bodypart.name = value
 		return TRUE
 
-	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
-	var/datum/species/current_species = GLOB.species_prototypes[species_type]
-	target.dna.mutant_bodyparts[relevant_mutant_bodypart] = current_species.build_mutant_part(value)
+	target.dna.mutant_bodyparts[relevant_mutant_bodypart] = build_mutant_part(value)
 	return TRUE
 
 /datum/preference/choiced/genital/is_accessible(datum/preferences/preferences)

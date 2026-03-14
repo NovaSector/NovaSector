@@ -114,8 +114,6 @@
 
 	///the type of damage overlay (if any) to use when this bodypart is bruised/burned.
 	var/dmg_overlay_type = "human"
-	///a color (optionally matrix) for the damage overlays to give the limb
-	var/damage_overlay_color
 	/// If we're bleeding, which icon are we displaying on this part
 	var/bleed_overlay_icon
 
@@ -1187,6 +1185,7 @@
 	limb_gender = (human_owner.physique == MALE) ? "m" : "f"
 	if(HAS_TRAIT(human_owner, TRAIT_USES_SKINTONES))
 		skin_tone = human_owner.skin_tone
+		species_color = "" // NOVA EDIT ADDITION
 	else if(HAS_TRAIT(human_owner, TRAIT_MUTANT_COLORS))
 		skin_tone = ""
 		var/datum/species/owner_species = human_owner.dna.species
@@ -1492,6 +1491,11 @@
 	husk_blood.blend_mode = BLEND_INSET_OVERLAY
 	husk_blood.dir = thing_to_husk.dir
 	husk_blood.layer = thing_to_husk.layer
+	var/list/blood_dna = blood_dna_info || owner?.get_blood_dna_list()
+	if (LAZYLEN(blood_dna))
+		husk_blood.color = get_color_from_blood_list(blood_dna)
+	else
+		husk_blood.color = BLOOD_COLOR_RED
 	return husk_blood
 
 ///Add a bodypart overlay and call the appropriate update procs

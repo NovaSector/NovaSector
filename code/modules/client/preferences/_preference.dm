@@ -190,16 +190,23 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /// Given a savefile, writes the inputted value.
 /// Returns TRUE for a successful application.
 /// Return FALSE if it is invalid.
-/datum/preference/proc/write(list/save_data, value)
+/datum/preference/proc/write(list/save_data, value, datum/preferences/preferences)
 	SHOULD_NOT_OVERRIDE(TRUE)
 
-	if (!is_valid(value))
+	if (!is_valid(value, preferences))
 		return FALSE
 
 	if (!isnull(save_data))
 		save_data[savefile_key] = serialize(value)
 
+	post_write(value, preferences)
+
 	return TRUE
+
+/// Called after a preference has been updated
+/datum/preference/proc/post_write(value, datum/preferences/preferences)
+	SHOULD_CALL_PARENT(TRUE)
+	return
 
 /// Apply this preference onto the given client.
 /// Called when the savefile_identifier == PREFERENCE_PLAYER.
@@ -277,7 +284,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /datum/preferences/proc/write_preference(datum/preference/preference, preference_value)
 	var/save_data = get_save_data_for_savefile_identifier(preference.savefile_identifier)
 	var/new_value = preference.deserialize(preference_value, src)
-	var/success = preference.write(save_data, new_value)
+	var/success = preference.write(save_data, new_value, src)
 	if (success)
 		value_cache[preference.type] = new_value
 	return success
@@ -287,7 +294,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /// Performs sanity checks.
 /datum/preferences/proc/update_preference(datum/preference/preference, preference_value)
 	var/new_value = preference.deserialize(preference_value, src)
-	var/success = preference.write(null, new_value)
+	var/success = preference.write(null, new_value, src)
 
 	if (!success)
 		return FALSE
@@ -305,7 +312,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /// Checks that a given value is valid.
 /// Must be overriden by subtypes.
 /// Any type can be passed through.
-/datum/preference/proc/is_valid(value)
+/datum/preference/proc/is_valid(value, datum/preferences/preferences)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(FALSE)
 	CRASH("`is_valid()` was not implemented for [type]!")
@@ -412,7 +419,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	SHOULD_NOT_SLEEP(TRUE)
 	CRASH("`icon_for()` was not implemented for [type], even though should_generate_icons = TRUE!")
 
-/datum/preference/choiced/is_valid(value)
+/datum/preference/choiced/is_valid(value, datum/preferences/preferences)
 	return value in get_choices()
 
 /datum/preference/choiced/deserialize(input, datum/preferences/preferences)
@@ -494,7 +501,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /datum/preference/color/serialize(input)
 	return sanitize_hexcolor(input)
 
-/datum/preference/color/is_valid(value)
+/datum/preference/color/is_valid(value, datum/preferences/preferences)
 	return findtext(value, GLOB.is_color)
 
 /// A numeric preference with a minimum and maximum value
@@ -521,7 +528,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /datum/preference/numeric/create_default_value()
 	return rand(minimum, maximum)
 
-/datum/preference/numeric/is_valid(value)
+/datum/preference/numeric/is_valid(value, datum/preferences/preferences)
 	return isnum(value) && value >= round(minimum, step) && value <= round(maximum, step)
 
 /datum/preference/numeric/compile_constant_data()
@@ -544,7 +551,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /datum/preference/toggle/deserialize(input, datum/preferences/preferences)
 	return !!input
 
-/datum/preference/toggle/is_valid(value)
+/datum/preference/toggle/is_valid(value, datum/preferences/preferences)
 	return value == TRUE || value == FALSE
 
 
@@ -565,7 +572,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /datum/preference/text/create_default_value()
 	return ""
 
-/datum/preference/text/is_valid(value)
+/datum/preference/text/is_valid(value, datum/preferences/preferences)
 	return istext(value) && length(value) < maximum_value_length
 
 /datum/preference/text/compile_constant_data()

@@ -2599,3 +2599,68 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	. = ..()
 	allowed = GLOB.security_vest_allowed
 
+/obj/item/storage/belt/espatier
+	name = "dated Espatier holster"
+	desc = "An old outdated holster used by the Sol Federation Espatiers during the Rimward War \
+		with a sidearm holster and four pouches capable of containing anything from ammo and meds, \
+		to lucky charms. This one's been refurbished DarkRilo Apparel, though it's clearly been through a lot."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
+	icon_state = "espatier"
+	worn_icon_state = "espatier"
+	content_overlays = TRUE
+	storage_type = /datum/storage/holster/espatier
+
+/datum/storage/holster/espatier
+	max_slots = 5
+	max_limited_store = 1
+	max_specific_storage = 5
+	max_total_storage = WEIGHT_CLASS_SMALL * 5
+	open_sound = 'sound/items/handling/holster_open.ogg'
+	open_sound_vary = TRUE
+	rustle_sound = null
+
+/datum/storage/holster/espatier/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
+	. = ..()
+	set_holdable(list(
+		/obj/item/gun/ballistic/revolver/c38/detective,
+		/obj/item/gun/ballistic/revolver/c38/super,
+		/obj/item/ammo_box/speedloader/c38,
+		/obj/item/gun/ballistic/automatic/pistol/sol,
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+		/obj/item/healthanalyzer,
+		/obj/item/healthanalyzer/advanced,
+		/obj/item/door_remote, //All Command door remote
+		/obj/item/anomaly_neutralizer,
+		/obj/item/pen, //All pen
+		/obj/item/stamp, //All stamps
+		/obj/item/paper, //All paper
+		/obj/item/clipboard,
+		/obj/item/folder,
+		/obj/item/reagent_containers/hypospray/medipen, //All medipen
+		/obj/item/stack/sticky_tape/surgical,
+		/obj/item/reagent_containers/cup/vial/small,
+		/obj/item/reagent_containers/cup/vial/large,
+		/obj/item/storage/pill_bottle,
+		/obj/item/radio,
+		/obj/item/restraints/handcuffs, //include cable
+		/obj/item/knife/combat/throwing,
+		/obj/item/binoculars,
+		/obj/item/gps,
+		/obj/item/experi_scanner,
+		/obj/item/mining_scanner, //manual mining scanner
+		/obj/item/t_scanner/adv_mining_scanner, // Automatic and advanced mining scanner
+		/obj/item/stack/cable_coil,
+		/obj/item/reagent_containers/cup/bottle,
+		/obj/item/hypospray,
+		/obj/item/reagent_containers/cup/glass/flask,
+		/obj/item/storage/fancy/cigarettes,
+		/obj/item/cigarette,
+		/obj/item/lighter,
+		/obj/item/reagent_containers/cup/beaker,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/flashlight,
+		/obj/item/hand_tele,
+		/obj/item/petri_dish,
+		/obj/item/food/grown/banana,
+	))

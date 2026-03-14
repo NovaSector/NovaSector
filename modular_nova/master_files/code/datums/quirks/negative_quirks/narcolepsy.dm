@@ -13,4 +13,4 @@
 		/obj/item/disk/neuroware/synaptizine,
 	)
 	stim_medication = /obj/item/storage/box/flat/neuroware/synaptizine
-	abstract_parent_type = /datum/quirk/item_quirk/narcolepsy/synth
+	abstract_type = /datum/quirk/item_quirk/narcolepsy/synth
