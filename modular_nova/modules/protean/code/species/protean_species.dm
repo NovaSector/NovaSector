@@ -174,6 +174,15 @@
 		Proteans are an extremely fragile species, weak in combat, but a powerful aid, or a puppeteer pulling the strings.",
 	)
 
+/datum/species/protean/get_species_lore()
+	return list(
+		"Proteans are a synthetic species composed of a nanomachine swarm housed within a specialized modsuit. \
+		Rather than possessing a traditional biological form, their bodies are constructed from billions of microscopic machines \
+		that can reshape themselves as needed. When critically damaged, a Protean retreats into its modsuit core to rebuild, \
+		making them effectively immortal as long as their core remains intact. They sustain themselves by consuming metal, \
+		which fuels their nanomachine processes.",
+	)
+
 /datum/species/protean/create_pref_unique_perks()
 	var/list/perk_descriptions = list()
 
