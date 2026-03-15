@@ -385,10 +385,12 @@
 /datum/strip_menu/protean
 
 /datum/strip_menu/protean/ui_status(mob/user, datum/ui_state/state)
+	// Use the suit's turf for adjacency, since the protean mob is located inside the suit object
+	var/atom/adjacency_target = owner.loc?.loc ? owner.loc : owner
 	return min(
 		ui_status_only_living(user, owner),
 		ui_status_user_has_free_hands(user, owner),
-		ui_status_user_is_adjacent(user, owner, allow_tk = FALSE, viewcheck = FALSE),
+		ui_status_user_is_adjacent(user, adjacency_target, allow_tk = FALSE),
 		HAS_TRAIT(user, TRAIT_CAN_STRIP) ? UI_INTERACTIVE : UI_UPDATE,
 		max(
 			ui_status_user_is_conscious_and_lying_down(user),
