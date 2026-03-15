@@ -249,18 +249,22 @@
 	name = to_assimilate.name
 	desc = to_assimilate.desc
 	extended_desc = to_assimilate.extended_desc
-	for(var/obj/item/mod/module/module in to_assimilate.modules)
+	// Copy the list since we're modifying it during iteration
+	var/list/modules_to_transfer = to_assimilate.modules.Copy()
+	for(var/obj/item/mod/module/module in modules_to_transfer)
 		if(istype(module, /obj/item/mod/module/storage))
 			var/obj/item/mod/module/storage/existing_storage = locate() in modules
 			if(existing_storage)
 				cached_modules += existing_storage
 				to_chat(user, span_notice("[existing_storage] has been pushed aside!"))
 				uninstall(existing_storage)
-		if(install(module, user, TRUE))
+		to_assimilate.uninstall(module)
+		install(module)
+		if(module in modules)
 			continue
 		if(!module.removable)
+			qdel(module)
 			continue
-		to_assimilate.uninstall(module)
 		module.forceMove(get_turf(src))
 		to_chat(user, span_warning("[module] has dropped onto the floor!"))
 	update_static_data_for_all_viewers()
@@ -314,15 +318,6 @@
 	stored_modsuit = null
 	update_static_data_for_all_viewers()
 
-/obj/item/mod/control/pre_equipped/protean/verb/remove_modsuit()
-	set name = "Remove Assimilated Modsuit"
-
-	unassimilate_modsuit(usr)
-
-/obj/item/mod/control/pre_equipped/protean/verb/remove_plating()
-	set name = "Remove Assimilated Plating"
-
-	unassimilate_theme()
 
 /obj/item/mod/control/pre_equipped/protean/examine(mob/user)
 	. = ..()

@@ -108,6 +108,8 @@
 		/mob/living/carbon/proc/lock_suit,
 		/mob/living/carbon/proc/suit_transformation,
 		/mob/living/carbon/proc/low_power,
+		/mob/living/carbon/proc/remove_assimilated_modsuit,
+		/mob/living/carbon/proc/remove_assimilated_plating,
 	)
 	add_verb(gainer, protean_verbs)
 
@@ -138,6 +140,8 @@
 		/mob/living/carbon/proc/lock_suit,
 		/mob/living/carbon/proc/suit_transformation,
 		/mob/living/carbon/proc/low_power,
+		/mob/living/carbon/proc/remove_assimilated_modsuit,
+		/mob/living/carbon/proc/remove_assimilated_plating,
 	)
 	remove_verb(gainer, protean_verbs)
 	if(gainer)

@@ -22,6 +22,53 @@
 	COOLDOWN_DECLARE(refactory_cooldown)
 	COOLDOWN_DECLARE(orchestrator_cooldown)
 
+/obj/item/organ/brain/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
+	. = ..()
+	RegisterSignal(receiver, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
+
+/obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/brain_owner, special, movement_flags)
+	. = ..()
+	UnregisterSignal(brain_owner, COMSIG_LIVING_DEATH)
+
+/// Intercepts direct death() calls (e.g. chasms, lava) that bypass the normal HARD_CRIT check in on_life.
+/// Schedules retreat for after death() and any caller code finishes executing.
+/obj/item/organ/brain/protean/proc/on_owner_death(mob/living/source, gibbed)
+	SIGNAL_HANDLER
+
+	if(dead)
+		return
+	// Schedule for next tick so death() and the caller (chasm, lava, etc.) finish cleanly first
+	addtimer(CALLBACK(src, PROC_REF(emergency_retreat)), 0)
+
+/// Handles retreat into suit after a direct death() call. Revives the protean and moves them into their suit.
+/// Works from any location including chasm storage.
+/obj/item/organ/brain/protean/proc/emergency_retreat()
+	if(dead)
+		return
+	var/datum/species/protean/protean = owner?.dna?.species
+	if(!istype(protean))
+		return
+	var/obj/item/mod/control/pre_equipped/protean/suit = protean.species_modsuit
+	if(!suit || owner.loc == suit)
+		return
+	dead = TRUE
+	// Move into suit FIRST — this exits chasm_storage, which unregisters
+	// COMSIG_LIVING_REVIVE so revive() won't trigger chasm auto-eject
+	var/atom/current_loc = owner.loc
+	owner.extinguish_mob()
+	owner.Stun(INFINITY, TRUE)
+	owner.add_traits(TRANSFORM_TRAITS, PROTEAN_TRAIT)
+	owner.remove_status_effect(/datum/status_effect/protean_low_power_mode/low_power)
+	if(HAS_TRAIT(suit, TRAIT_NODROP))
+		REMOVE_TRAIT(suit, TRAIT_NODROP, "protean")
+	owner.transferItemToLoc(suit, current_loc, force = TRUE)
+	owner.forceMove(suit)
+	// Now safe to revive — no chasm handler will fire
+	owner.revive(HEAL_DAMAGE | HEAL_ORGANS, force_grab_ghost = TRUE)
+	qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
+	to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
+	ADD_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
+
 /obj/item/organ/brain/protean/on_life(seconds_per_tick, times_fired)
 	. = ..()
 	if(dead)

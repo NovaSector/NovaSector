@@ -58,6 +58,26 @@
 		else
 			balloon_alert(src, "incapacitated!")
 
+/mob/living/carbon/proc/remove_assimilated_modsuit()
+	set name = "Remove Assimilated Modsuit"
+	set desc = "Pry out an absorbed modsuit from your protean suit."
+	set category = "Protean"
+
+	var/datum/species/protean/species = dna.species
+	if(!istype(species))
+		return
+	species.species_modsuit.unassimilate_modsuit(src)
+
+/mob/living/carbon/proc/remove_assimilated_plating()
+	set name = "Remove Assimilated Plating"
+	set desc = "Reset your modsuit appearance back to default."
+	set category = "Protean"
+
+	var/datum/species/protean/species = dna.species
+	if(!istype(species))
+		return
+	species.species_modsuit.unassimilate_theme()
+
 /mob/living/carbon/proc/low_power()
 	set name = "Toggle Low Power Mode"
 	set desc = "Toggle whether you are running on low power mode."
