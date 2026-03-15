@@ -5,6 +5,9 @@
 
 	applied_core = /obj/item/mod/core/protean
 	applied_cell = null
+	applied_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+	)
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	/// Whether or not the wearer can undeploy parts.
 	var/modlocked = FALSE
@@ -204,6 +207,25 @@
 	the_theme.set_up_parts(src, the_theme.default_skin)
 	update_static_data_for_all_viewers()
 
+/obj/item/mod/control/pre_equipped/protean/proc/unassimilate_theme()
+	if(stored_modsuit)
+		balloon_alert(wearer, "remove assimilated suit first")
+		return
+	if(active)
+		balloon_alert(wearer, "deactivate first")
+		return
+	for(var/obj/item/part as anything in get_parts())
+		if(part.loc == src)
+			continue
+		retract(null, part, instant = TRUE)
+	var/datum/mod_theme/default_theme = GLOB.mod_themes[initial(theme)]
+	theme = default_theme
+	default_theme.set_up_parts(src, default_theme.default_skin)
+	name = initial(name)
+	desc = initial(desc)
+	update_static_data_for_all_viewers()
+	balloon_alert(wearer, "plating removed")
+
 /obj/item/mod/control/pre_equipped/protean/proc/assimilate_modsuit(mob/user, modsuit, forced)
 	var/obj/item/mod/control/to_assimilate = modsuit
 	if(stored_modsuit)
@@ -287,13 +309,20 @@
 	extended_desc = initial(extended_desc)
 	if(user?.can_put_in_hand(stored_modsuit, user.active_hand_index))
 		user.put_in_hand(stored_modsuit, user.active_hand_index)
-		stored_modsuit = null
+	else
+		stored_modsuit.forceMove(get_turf(src))
+	stored_modsuit = null
 	update_static_data_for_all_viewers()
 
 /obj/item/mod/control/pre_equipped/protean/verb/remove_modsuit()
 	set name = "Remove Assimilated Modsuit"
 
 	unassimilate_modsuit(usr)
+
+/obj/item/mod/control/pre_equipped/protean/verb/remove_plating()
+	set name = "Remove Assimilated Plating"
+
+	unassimilate_theme()
 
 /obj/item/mod/control/pre_equipped/protean/examine(mob/user)
 	. = ..()
