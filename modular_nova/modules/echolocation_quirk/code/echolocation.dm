@@ -13,8 +13,6 @@
 	var/datum/component/echolocation/esp
 	/// where we store access to the client colour we make
 	var/datum/client_colour/echolocation_custom/esp_color
-	/// The action we add with this quirk in add(), used for easy deletion later
-	var/datum/action/cooldown/spell/added_action
 
 /datum/quirk/echolocation/is_species_appropriate(datum/species/mob_species)
 	if(ispath(mob_species, /datum/species/dullahan))
@@ -49,14 +47,8 @@
 
 	echo_ears.damage_multiplier *= 2
 
-	// add an action/spell to allow the player to toggle echolocation off for a bit (eyestrain on longer rounds, or just roleplay)
-	var/datum/action/cooldown/spell/echolocation_toggle/toggle_action = new /datum/action/cooldown/spell/echolocation_toggle()
-	toggle_action.Grant(human_holder)
-	added_action = toggle_action
-
 /datum/quirk/echolocation/remove()
 	QDEL_NULL(esp) // echolocation component removal handles graceful disposal of everything above except the ears
-	QDEL_NULL(added_action) // remove the stall action, too
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
 	if (!istype(echo_ears))
