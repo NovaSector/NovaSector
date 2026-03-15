@@ -634,7 +634,7 @@ Difficulty: Hard
 	QDEL_NULL(leg_part)
 	return ..()
 
-/mob/living/simple_animal/hostile/ancient_robot_leg/Life(seconds, times_fired)
+/mob/living/simple_animal/hostile/ancient_robot_leg/Life(seconds_per_tick = SSMOBS_DT)
 	..()
 	health_and_snap_check(TRUE)
 
@@ -730,7 +730,7 @@ Difficulty: Hard
 	ranged_cooldown_time = (rand(30, 60)) // keeps them not running on the same time
 	..()
 
-/mob/living/simple_animal/hostile/ancient_robot_leg/Moved(atom/OldLoc, Dir, Forced = FALSE)
+/mob/living/simple_animal/hostile/ancient_robot_leg/Moved(atom/oldLoc, Dir, Forced = FALSE)
 	. = ..()
 	playsound(src, 'sound/effects/meteorimpact.ogg', 60, TRUE, 2, TRUE) //turned way down from bubblegum levels due to 4 legs
 
