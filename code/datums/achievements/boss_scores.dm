@@ -58,9 +58,9 @@
 	desc = "You've killed HOW many?"
 	database_id = THETHING_SCORE
 
-/// NOVA EDIT ADDITION START: Ancient Robot Megafauna Port from Paradise
+/* NOVA EDIT ADDITION START: Ancient Robot Megafauna Port from Paradise
 /datum/award/score/ancient_robot
 	name = "Ancient Robots Killed"
 	desc = "You've killed HOW many?"
 	database_id = ROBOT_SCORE
-/// NOVA EDIT ADDITION END:
+*/// NOVA EDIT ADDITION END:
