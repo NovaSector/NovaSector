@@ -7,6 +7,7 @@
 	applied_cell = null
 	applied_modules = list(
 		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/protean_servo,
 	)
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	/// Whether or not the wearer can undeploy parts.
