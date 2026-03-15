@@ -88,9 +88,12 @@
 	handle_refactory(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
 	handle_orchestrator(owner.get_organ_slot(ORGAN_SLOT_HEART))
 	if(owner.stat >= HARD_CRIT && !dead)
-		to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
 		dead = TRUE
 		owner.revive(HEAL_DAMAGE | HEAL_ORGANS, force_grab_ghost = TRUE)
+		if(IS_CHANGELING(owner))
+			to_chat(owner, span_red("Something anomalous surges through your nanomass, pulling you back together..."))
+		else
+			to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
 			qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
 		go_into_suit(TRUE)
 		ADD_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)

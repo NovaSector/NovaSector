@@ -290,17 +290,24 @@
 		retract(null, part, instant = TRUE)
 
 	complexity_max = initial(complexity_max)
-	for(var/obj/item/mod/module in modules)
-		if(stored_modsuit.install(module, user, TRUE))
-			continue
+	// Copy list since we modify it during iteration
+	var/list/modules_to_return = modules.Copy()
+	for(var/obj/item/mod/module in modules_to_return)
 		uninstall(module)
+		stored_modsuit.install(module)
+		if(module in stored_modsuit.modules)
+			continue
 		to_chat(user, span_notice("[module] has fallen to the floor!"))
 		module.forceMove(get_turf(src))
 
-	for(var/obj/item/mod/module/cached in cached_modules)
-		if(!install(cached, user, TRUE))
-			to_chat(user, span_warning("[cached] failed to return to its original place! REPORT THIS"))
-			stack_trace("Modsuit Unassimilate: cached module [cached] failed to return to original modsuit! [src]")
+	var/list/cached_to_restore = cached_modules.Copy()
+	for(var/obj/item/mod/module/cached in cached_to_restore)
+		install(cached)
+		if(cached in modules)
+			cached_modules -= cached
+			continue
+		to_chat(user, span_warning("[cached] failed to return to its original place! REPORT THIS"))
+		stack_trace("Modsuit Unassimilate: cached module [cached] failed to return to original modsuit! [src]")
 		cached_modules -= cached
 
 	theme = stored_theme
