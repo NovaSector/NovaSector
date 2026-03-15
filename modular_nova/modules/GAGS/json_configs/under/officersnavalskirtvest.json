@@ -1,0 +1,46 @@
+{
+	"officersnavalskirtvest": [
+		{
+			"type": "icon_state",
+			"icon_state": "officersnaval_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "officersnaval_accent",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "officersnaval_belt",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "officersnaval_buckle",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "officersnaval_vest",
+			"blend_mode": "overlay",
+			"color_ids": [5]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "officersnaval_pins",
+			"blend_mode": "overlay",
+			"color_ids": [6]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "officersnaval_pins_accent",
+			"blend_mode": "overlay",
+			"color_ids": [7]
+		}
+	]
+}

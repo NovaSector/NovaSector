@@ -3,8 +3,8 @@
 
 //Upgrade Kit//
 /datum/design/medigun_speedkit
-	name = "VeyMedical CWM-479 upgrade kit"
-	desc = "An upgrade kit for the VeyMedical CWM-479 to have a higher-capacity internal cell, with increased recharger throughput."
+	name = "Vey-Medical CWM-479 upgrade kit"
+	desc = "An upgrade kit for the Vey-Med CWM-479 to have a higher-capacity internal cell, with increased recharger throughput."
 	id = "medigun_speed"
 	build_type = PROTOLATHE | AWAY_LATHE
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
