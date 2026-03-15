@@ -249,6 +249,11 @@
 	name = to_assimilate.name
 	desc = to_assimilate.desc
 	extended_desc = to_assimilate.extended_desc
+	// Cache the protean servo module before transferring absorbed suit's modules
+	var/obj/item/mod/module/protean_servo/servo = locate() in modules
+	if(servo)
+		cached_modules += servo
+		uninstall(servo)
 	// Copy the list since we're modifying it during iteration
 	var/list/modules_to_transfer = to_assimilate.modules.Copy()
 	for(var/obj/item/mod/module/module in modules_to_transfer)
@@ -267,6 +272,11 @@
 			continue
 		module.forceMove(get_turf(src))
 		to_chat(user, span_warning("[module] has dropped onto the floor!"))
+	// Re-install the protean servo on the new configuration
+	if(servo)
+		install(servo)
+		if(servo in modules)
+			cached_modules -= servo
 	update_static_data_for_all_viewers()
 
 /obj/item/mod/control/pre_equipped/protean/proc/unassimilate_modsuit(mob/living/user, forced = FALSE)
@@ -291,6 +301,11 @@
 		retract(null, part, instant = TRUE)
 
 	complexity_max = initial(complexity_max)
+	// Cache the protean servo so it stays on the protean suit
+	var/obj/item/mod/module/protean_servo/servo = locate() in modules
+	if(servo)
+		cached_modules += servo
+		uninstall(servo)
 	// Copy list since we modify it during iteration
 	var/list/modules_to_return = modules.Copy()
 	for(var/obj/item/mod/module in modules_to_return)

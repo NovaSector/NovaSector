@@ -8,6 +8,7 @@
 	complexity = 3
 	use_energy_cost = DEFAULT_CHARGE_DRAIN
 	module_type = MODULE_TOGGLE
+	removable = FALSE
 
 	// Abilities granted to Protean by activating the module
 	var/datum/action/cooldown/protean_servo/movement/servo_movement = new /datum/action/cooldown/protean_servo/movement
@@ -21,14 +22,15 @@
 	var/mob/living/carbon/human/protean_in_suit = protean_core.linked_species.owner
 
 	if(protean_in_suit == mod.wearer)
-		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		to_chat(mod.wearer, span_warning("[src] needs someone else as the wearer, it can't be used on a protean."))
 		deactivate()
 		return
-
+	playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
 	servo_movement.Grant(protean_in_suit)
 	servo_medical.Grant(protean_in_suit)
 	servo_engineering.Grant(protean_in_suit)
+	to_chat(protean_in_suit, span_notice("Servo subroutines activated. Enhancement modes are now available."))
+	to_chat(mod.wearer, span_notice("You feel the suit's servos	whir to life."))
 
 /obj/item/mod/module/protean_servo/on_deactivation(display_message = TRUE, deleting = FALSE)
 	. = ..()
@@ -42,6 +44,11 @@
 	mod.wearer.remove_status_effect(/datum/status_effect/protean_servo_movement)
 	mod.wearer.remove_status_effect(/datum/status_effect/protean_servo_medical)
 	mod.wearer.remove_status_effect(/datum/status_effect/protean_servo_engineer)
+
+	if(display_message)
+		playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
+		to_chat(protean_in_suit, span_notice("Servo subroutines deactivated."))
+		to_chat(mod.wearer, span_notice("The suit's servos wind down."))
 
 //// Protean servo module: Abilities ////
 
