@@ -74,8 +74,11 @@
 	owner.forceMove(suit)
 	// Now safe to revive — no chasm handler will fire
 	owner.revive(HEAL_DAMAGE | HEAL_ORGANS, force_grab_ghost = TRUE)
-	qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
-	to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
+	if(IS_CHANGELING(owner))
+		to_chat(owner, span_red("Something anomalous surges through your nanomass, pulling you back together..."))
+	else
+		qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
+		to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
 	ADD_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
 
 /obj/item/organ/brain/protean/on_life(seconds_per_tick, times_fired)
@@ -88,7 +91,7 @@
 		to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
 		dead = TRUE
 		owner.revive(HEAL_DAMAGE | HEAL_ORGANS, force_grab_ghost = TRUE)
-		qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
+			qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
 		go_into_suit(TRUE)
 		ADD_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
 
@@ -231,7 +234,10 @@
 
 /obj/item/organ/brain/protean/proc/revive_timer()
 	balloon_alert_to_viewers("repairing")
-	revive_timer_id = addtimer(CALLBACK(src, PROC_REF(revive)), 5 MINUTES, TIMER_STOPPABLE)
+	if(IS_CHANGELING(owner))
+		revive_timer_id = addtimer(CALLBACK(src, PROC_REF(revive)), 40 SECONDS, TIMER_STOPPABLE)
+	else
+		revive_timer_id = addtimer(CALLBACK(src, PROC_REF(revive)), 5 MINUTES, TIMER_STOPPABLE)
 
 /obj/effect/temp_visual/protean_to_suit
 	name = "to_suit"
