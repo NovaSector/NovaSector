@@ -76,9 +76,9 @@ Difficulty: Hard
 	loot = list(/obj/structure/closet/crate/necropolis/ancient)
 	crusher_loot = list(/obj/structure/closet/crate/necropolis/ancient/crusher)
 	gps_name = "Robotic Signal"
-	achievement_type = /datum/award/achievement/boss/ancient_robot
-	crusher_achievement_type = /datum/award/achievement/boss/ancient_robot_crusher
-	score_achievement_type = /datum/award/score/ancient_robot
+	//achievement_type = /datum/award/achievement/boss/ancient_robot
+	//crusher_achievement_type = /datum/award/achievement/boss/ancient_robot_crusher
+	//score_achievement_type = /datum/award/score/ancient_robot
 	death_message = "explodes into a shower of alloys"
 	footstep_type = FOOTSTEP_MOB_HEAVY // stompy stompy
 	attack_action_types = list()
