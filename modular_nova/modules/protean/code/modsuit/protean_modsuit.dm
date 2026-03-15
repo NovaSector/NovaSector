@@ -30,11 +30,10 @@
 				qdel(modules)
 				continue
 			modules.forceMove(get_turf(src))
-
 		cached_modules = null
-		drop_suit()
-		INVOKE_ASYNC(src, PROC_REF(unassimilate_modsuit), null, forced = TRUE)
-	QDEL_NULL(stored_modsuit)
+		stored_modsuit.forceMove(get_turf(src))
+	stored_modsuit = null
+	stored_theme = null
 	return ..()
 
 /obj/item/mod/control/pre_equipped/protean/wrench_act(mob/living/user, obj/item/wrench)

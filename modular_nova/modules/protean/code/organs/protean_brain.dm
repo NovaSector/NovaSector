@@ -18,9 +18,18 @@
 	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
 	/// Whether or not the protean is stuck in their suit or not.
 	var/dead = FALSE
+	/// Timer ID for the revive timer, stored so it can be cleaned up on Destroy()
+	var/revive_timer_id
+	/// Timer ID for the emergency retreat timer
+	var/retreat_timer_id
 	COOLDOWN_DECLARE(message_cooldown)
 	COOLDOWN_DECLARE(refactory_cooldown)
 	COOLDOWN_DECLARE(orchestrator_cooldown)
+
+/obj/item/organ/brain/protean/Destroy()
+	deltimer(revive_timer_id)
+	deltimer(retreat_timer_id)
+	return ..()
 
 /obj/item/organ/brain/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
@@ -38,7 +47,7 @@
 	if(dead)
 		return
 	// Schedule for next tick so death() and the caller (chasm, lava, etc.) finish cleanly first
-	addtimer(CALLBACK(src, PROC_REF(emergency_retreat)), 0)
+	retreat_timer_id = addtimer(CALLBACK(src, PROC_REF(emergency_retreat)), 0, TIMER_STOPPABLE)
 
 /// Handles retreat into suit after a direct death() call. Revives the protean and moves them into their suit.
 /// Works from any location including chasm storage.
@@ -222,7 +231,7 @@
 
 /obj/item/organ/brain/protean/proc/revive_timer()
 	balloon_alert_to_viewers("repairing")
-	addtimer(CALLBACK(src, PROC_REF(revive)), 5 MINUTES)
+	revive_timer_id = addtimer(CALLBACK(src, PROC_REF(revive)), 5 MINUTES, TIMER_STOPPABLE)
 
 /obj/effect/temp_visual/protean_to_suit
 	name = "to_suit"
