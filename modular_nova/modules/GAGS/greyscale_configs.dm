@@ -2579,6 +2579,32 @@ Security
 	name = "Security Cargo Shorts (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
 
+/datum/greyscale_config/sectrousers
+	name = "Security Trousers"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/sectrousers.json'
+
+/datum/greyscale_config/sectrousers/worn
+	name = "Security Trousers (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/sectrousers/worn/digi
+	name = "Security Trousers (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/modskin
+	name = "M.O.D. Skinsuit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/modskin.json'
+
+/datum/greyscale_config/modskin/worn
+	name = "M.O.D. Skinsuit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/sectrousers/modskin/digi
+	name = "M.O.D. Skinsuit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
 /*
 This is all our modular PDAs, ITS LARGE!
 */

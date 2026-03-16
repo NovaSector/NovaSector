@@ -186,7 +186,7 @@
 	icon_state = "security_skirt_blue"
 
 /obj/item/clothing/under/rank/security/nova/secshorts
-	name = "cargo shorts"
+	name = "security shorts"
 	desc = "Some \"combat\" shorts. Please don't actually wear these."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts"
@@ -198,6 +198,7 @@
 	flags_1 = NONE
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
 
 /obj/item/clothing/under/rank/security/nova/secshorts/blue
@@ -212,36 +213,33 @@
 	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts/black"
 	greyscale_colors = "#39393F#FFFFFF"
 
-/datum/atom_skin/security_trousers
-	abstract_type = /datum/atom_skin/security_trousers
-
-/datum/atom_skin/security_trousers/red
-	preview_name = "Red Variant"
-	new_icon_state = "cargopants"
-
-/datum/atom_skin/security_trousers/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "cargopants_blue"
-
-/datum/atom_skin/security_trousers/white
-	preview_name = "White Variant"
-	new_icon_state = "cargopants_white"
-
-/datum/atom_skin/security_trousers/black
-	preview_name = "Black Variant"
-	new_icon_state = "cargopants_black"
-
 /obj/item/clothing/under/rank/security/nova/trousers
 	name = "security trousers"
 	desc = "Some \"combat\" trousers. Probably should pair it with a vest for safety."
-	icon_state = "cargopants"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers"
+	post_init_icon_state = "sectrousers"
+	greyscale_config = /datum/greyscale_config/sectrousers
+	greyscale_config_worn = /datum/greyscale_config/sectrousers/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/sectrousers/worn/digi
+	greyscale_colors = "#39393F#FFFFFF"
+	flags_1 = NONE
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
 
-/obj/item/clothing/under/rank/security/nova/trousers/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_trousers)
+/obj/item/clothing/under/rank/security/nova/trousers/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers/blue"
+	greyscale_colors = "#39393F#FFFFFF"
+
+/obj/item/clothing/under/rank/security/nova/trousers/white
+	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers/white"
+	greyscale_colors = "#39393F#FFFFFF"
+
+/obj/item/clothing/under/rank/security/nova/trousers/black
+	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers/black"
+	greyscale_colors = "#39393F#FFFFFF"
 
 /datum/atom_skin/security_modskin
 	abstract_type = /datum/atom_skin/security_modskin
@@ -249,28 +247,27 @@
 /obj/item/clothing/under/rank/security/nova/modskin
 	name = "security M.O.D. skinsuit"
 	desc = "A M.O.D. skinsuit worn by trained Security officers."
-	icon_state = "modsec"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin"
+	post_init_icon_state = "modskin"
+	greyscale_config = /datum/greyscale_config/modskin
+	greyscale_config_worn = /datum/greyscale_config/modskin/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/modskin/worn/digi
+	greyscale_colors = "#4E4E54#A52F29"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	flags_1 = NONE
 
-/datum/atom_skin/security_modskin/red
-	preview_name = "Red Variant"
-	new_icon_state = "modsec"
+/obj/item/clothing/under/rank/security/nova/modskin/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin/blue"
+	greyscale_colors = "#4E4E54#3F6E9E"
 
-/datum/atom_skin/security_modskin/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "modsec_blue"
+/obj/item/clothing/under/rank/security/nova/modskin/white
+	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin/white"
+	greyscale_colors = "#4E4E54#ECECEC"
 
-/datum/atom_skin/security_modskin/white
-	preview_name = "White Variant"
-	new_icon_state = "modsec_white"
-
-/datum/atom_skin/security_modskin/black
-	preview_name = "Black Variant"
-	new_icon_state = "modsec_black"
-
-/obj/item/clothing/under/rank/security/nova/modskin/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_modskin)
+/obj/item/clothing/under/rank/security/nova/modskin/black
+	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin/black"
+	greyscale_colors = "#4E4E54#4E4E54"
 
 /obj/item/clothing/under/rank/security/nova/turtleneck
 	name = "security turtleneck"
