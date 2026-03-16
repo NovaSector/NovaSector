@@ -77,7 +77,7 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/mutant/protean, 40)
 /// Legs are a little more special due to digitigrade support, so they're not macro'd
 /obj/item/bodypart/leg/right/mutant/protean
 	max_damage = 40
-	bodytype = BODYTYPE_SYNTHETIC
+	bodytype = BODYTYPE_ROBOTIC; \
 	dmg_overlay_type = "robotic"
 	light_brute_msg = LIGHT_NANO_BRUTE
 	medium_brute_msg = MEDIUM_NANO_BRUTE
