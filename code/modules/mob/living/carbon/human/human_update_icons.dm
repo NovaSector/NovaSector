@@ -1340,10 +1340,16 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 				// has a defined offset type. This prevents clipping of hair/ears at the top of the
 				// sprite when the displacement filter would push their pixels out of bounds.
 				var/sub_offset_type = GLOB.layers_to_offset[num2text(-applied_appearance.layer)]
+				if(isnull(sub_offset_type) && (copytext(applied_appearance.icon_state, 3, 9) == "horns_" || copytext(applied_appearance.icon_state, 3, 8) == "ears_"))
+					sub_offset_type = UPPER_BODY
 				if(!isnull(sub_offset_type))
-					apply_height_offset_via_transform(applied_appearance, sub_offset_type)
-				else if(copytext(applied_appearance.icon_state, 3, 9) == "horns_")
-					apply_height_offset_via_transform(applied_appearance, UPPER_BODY)
+					// Use transform instead of pixel_z to avoid accumulation on re-application
+					// while preserving any pixel_z set by center_image() for large sprites
+					var/height_to_use = num2text(mob_height)
+					var/final_offset = sub_offset_type == UPPER_BODY ? GLOB.human_heights_to_offsets[height_to_use][1] : GLOB.human_heights_to_offsets[height_to_use][2]
+					var/matrix/M = matrix()
+					M.Translate(0, final_offset)
+					applied_appearance.transform = M
 				else
 					apply_height_filters(applied_appearance)
 				// NOVA EDIT END
@@ -1378,26 +1384,6 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	appearance.pixel_z += final_offset
 	return appearance
 
-// NOVA EDIT ADDITION - PR#7002
-/// Applies height offset via transform matrix instead of pixel_z.
-/// Used in the sub-overlay path where pixel_z += would accumulate on re-application,
-/// and initial(pixel_z) would destroy centering from center_image().
-/// Setting transform to a fresh matrix is inherently idempotent.
-/mob/living/carbon/human/proc/apply_height_offset_via_transform(image/appearance, upper_torso)
-	var/height_to_use = num2text(mob_height)
-	var/final_offset = 0
-	switch(upper_torso)
-		if(UPPER_BODY)
-			final_offset = GLOB.human_heights_to_offsets[height_to_use][1]
-		if(LOWER_BODY)
-			final_offset = GLOB.human_heights_to_offsets[height_to_use][2]
-		else
-			return
-	var/matrix/M = matrix()
-	M.Translate(0, final_offset)
-	appearance.transform = M
-	return appearance
-// NOVA EDIT END
 
 /**
  * Applies a filter to an appearance according to mob height
