@@ -21,7 +21,6 @@
 	failure_sound = 'sound/items/handling/surgery/organ2.ogg'
 	required_biotype = MOB_ORGANIC|MOB_HUMANOID
 	required_bodytype = BODYTYPE_SYNTHETIC
-	blocked_bodytype = NONE
 	any_surgery_states_required = ALL_SURGERY_SKIN_STATES
 	replaced_by = /datum/surgery_operation/basic/repair_synth/upgraded
 	/// Radial slice datums for every healing option we can provide
