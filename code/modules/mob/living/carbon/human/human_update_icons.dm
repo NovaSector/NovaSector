@@ -1343,13 +1343,8 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 				if(isnull(sub_offset_type) && (copytext(applied_appearance.icon_state, 3, 9) == "horns_" || copytext(applied_appearance.icon_state, 3, 8) == "ears_"))
 					sub_offset_type = UPPER_BODY
 				if(!isnull(sub_offset_type))
-					// Use transform instead of pixel_z to avoid accumulation on re-application
-					// while preserving any pixel_z set by center_image() for large sprites
-					var/height_to_use = num2text(mob_height)
-					var/final_offset = sub_offset_type == UPPER_BODY ? GLOB.human_heights_to_offsets[height_to_use][1] : GLOB.human_heights_to_offsets[height_to_use][2]
-					var/matrix/M = matrix()
-					M.Translate(0, final_offset)
-					applied_appearance.transform = M
+					applied_appearance.pixel_z = initial(applied_appearance.pixel_z)
+					apply_height_offsets(applied_appearance, sub_offset_type)
 				else
 					apply_height_filters(applied_appearance)
 				// NOVA EDIT END
