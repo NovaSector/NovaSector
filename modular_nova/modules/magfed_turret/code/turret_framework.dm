@@ -314,7 +314,6 @@
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
 	turret_flags = TURRET_FLAG_SHOOT_ALL | TURRET_FLAG_SHOOT_ANOMALOUS
 	ignore_faction = TRUE
-	invisibility = INVISIBILITY_NONE //Should fix the "invisibility" issue
 	armor_type = /datum/armor/mobile_turret
 	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed, though useless bc of syndicate subtyping.
 	faction = list(FACTION_TURRET)
@@ -393,6 +392,8 @@
 	if(!mag_box) //If we want to make map-spawned turrets in turret form.
 		var/auto_loader = new mag_box_type
 		mag_box = WEAKREF(auto_loader)
+	if(!raised)
+		popUp() //LSS: popUp should set invis to 0. Should also set to mob layer.
 	register_context()
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/update_greyscale()
@@ -690,7 +691,6 @@
 			return TRUE
 
 	if(target)
-		popUp() //pop the turret up if it's not already up.
 		setDir(get_dir(base, target))//even if you can't shoot, follow the target
 		shootAt(target)
 		return TRUE
