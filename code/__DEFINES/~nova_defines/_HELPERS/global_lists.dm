@@ -42,3 +42,6 @@ GLOBAL_LIST_EMPTY(tts_voice_list)
 // ERP Items
 
 GLOBAL_LIST_EMPTY(erp_items)
+
+// Gas base value overrides
+GLOBAL_LIST_EMPTY(gas_base_values)

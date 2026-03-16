@@ -76,6 +76,20 @@
 	icon_state = "gorka_qm"
 	can_adjust = FALSE
 
+/obj/item/clothing/under/imperial/quartermaster
+	name = "quartermaster's naval uniform"
+	desc = "A uniform of the grand navy questionably granted to Nanotrasen's favorite union representative."
+	icon_state = "/obj/item/clothing/under/imperial/quartermaster"
+	greyscale_colors = "#8B4C31#8B4C31#3E3E48#373741#ccced1#DEB63D#DEB63D"
+	flags_1 = NONE
+
+/obj/item/clothing/under/imperialskirt/quartermaster
+	name = "quartermaster's naval skirt"
+	desc = "A uniform of the grand navy questionably granted to Nanotrasen's favorite union representative."
+	greyscale_colors = "#8B4C31#3E3E48#373741#ccced1#DEB63D#DEB63D"
+	icon_state = "/obj/item/clothing/under/imperialskirt/quartermaster"
+	flags_1 = NONE
+
 /obj/item/clothing/under/rank/cargo/qm/nova/turtleneck
 	name = "quartermaster's turtleneck"
 	desc = "A snug turtleneck sweater worn by the Quartermaster, characterized by the expensive-looking pair of suit pants."
