@@ -155,6 +155,28 @@ PROTEAN_LIMB_ATTACH(/obj/item/bodypart/arm/right/robot/protean)
 PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/left/robot/protean)
 PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/right/robot/protean)
 
+/// Protean limbs reject welder/cable healing — intercept before the tool interaction even starts.
+/// Registered on owner from the chest bodypart (always present). Returns ITEM_INTERACT_SKIP_TO_ATTACK
+/// so the welder attacks instead of healing.
+/obj/item/bodypart/chest/robot/protean/apply_ownership(mob/living/carbon/new_owner)
+	. = ..()
+	RegisterSignal(new_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY), PROC_REF(on_item_interaction))
+
+/obj/item/bodypart/chest/robot/protean/clear_ownership(mob/living/carbon/old_owner)
+	UnregisterSignal(old_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY))
+	return ..()
+
+/obj/item/bodypart/chest/robot/protean/proc/on_item_interaction(mob/living/source, mob/living/user, obj/item/tool, list/modifiers)
+	SIGNAL_HANDLER
+	if(!istype(tool, /obj/item/weldingtool) && !istype(tool, /obj/item/stack/cable_coil))
+		return NONE
+	if(user.combat_mode)
+		return NONE
+	var/obj/item/bodypart/affecting = source.get_bodypart(check_zone(user.zone_selected))
+	if(isnull(affecting) || !IS_ROBOTIC_LIMB(affecting))
+		return NONE
+	return ITEM_INTERACT_SKIP_TO_ATTACK
+
 #undef PROTEAN_BODYPART_DEFINE
 #undef PROTEAN_DELIMB_DEFINE
 #undef PROTEAN_LIMB_ATTACH
