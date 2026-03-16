@@ -10,7 +10,7 @@
 #define PROTEAN_BODYPART_DEFINE(path, health) \
 ##path {\
 	max_damage = ##health; \
-	bodytype = BODYTYPE_SYNTHETIC; \
+	bodytype = BODYTYPE_ROBOTIC; \
 	dmg_overlay_type = "robotic"; \
 	light_brute_msg = LIGHT_NANO_BRUTE; \
 	medium_brute_msg = MEDIUM_NANO_BRUTE; \
