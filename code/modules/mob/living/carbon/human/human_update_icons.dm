@@ -1340,9 +1340,12 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 				// has a defined offset type. This prevents clipping of hair/ears at the top of the
 				// sprite when the displacement filter would push their pixels out of bounds.
 				var/sub_offset_type = GLOB.layers_to_offset[num2text(-applied_appearance.layer)]
-				if(isnull(sub_offset_type) && (copytext(applied_appearance.icon_state, 3, 9) == "horns_" || copytext(applied_appearance.icon_state, 3, 8) == "ears_"))
-					sub_offset_type = UPPER_BODY
-				if(!isnull(sub_offset_type))
+				if(isnull(sub_offset_type))
+					if(findtext(applied_appearance.icon_state, "horns_", 3, 9) || findtext(applied_appearance.icon_state, "ears_", 3, 8))
+						sub_offset_type = UPPER_BODY
+				// We check again just in case it was populated BEFORE this block,
+				// or if it was successfully populated BY the block above.
+				if(sub_offset_type)
 					applied_appearance.pixel_z = initial(applied_appearance.pixel_z)
 					apply_height_offsets(applied_appearance, sub_offset_type)
 				else
