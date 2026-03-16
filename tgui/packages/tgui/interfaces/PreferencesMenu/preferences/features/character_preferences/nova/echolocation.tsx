@@ -2,11 +2,9 @@
 import {
   CheckboxInput,
   type Feature,
-  type FeatureChoiced,
   FeatureColorInput,
   type FeatureToggle,
 } from '../../base';
-import { FeatureDropdownInput } from '../../dropdowns';
 
 export const echolocation_outline: Feature<string> = {
   name: 'Echo outline color',
