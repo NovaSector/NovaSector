@@ -343,9 +343,9 @@
 	var/obj/item/boulder/chosen_rock = chosen_rock_ref?.resolve()
 
 	//If boulder is BRM'able, refuse.
-	if(!istype(chosen_rock, /obj/item/boulder/ghost_mining))
+	if(chosen_rock.brm_stable)
 		batch_processing = FALSE
-		balloon_alert_to_viewers("Boulder too unstable!")
+		balloon_alert_to_viewers("Boulder outside parameters!")
 		return LRM_UNSTABLE_BOULDER
 
 	chosen_rock.forceMove(drop_location())
