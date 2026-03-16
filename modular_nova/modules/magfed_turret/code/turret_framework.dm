@@ -393,7 +393,7 @@
 		var/auto_loader = new mag_box_type
 		mag_box = WEAKREF(auto_loader)
 	if(!raised)
-		popUp() //LSS: popUp should set invis to 0. Should also set to mob layer.
+		INVOKE_ASYNC(src, PROC_REF(popUp))
 	register_context()
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/update_greyscale()
