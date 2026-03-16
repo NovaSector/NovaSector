@@ -1,7 +1,7 @@
 /obj/item/organ/tongue/cybernetic/protean
 	name = "protean audio fabricator"
 	desc = "Millions of nanites vibrate in harmony to create the sound you hear."
-	organ_flags = ORGAN_ROBOTIC
+	organ_flags = ORGAN_ROBOTIC  | ORGAN_NANOMACHINE
 
 /obj/item/organ/tongue/cybernetic/protean/Insert(mob/living/carbon/receiver, special, movement_flags)
 	if(QDELETED(src))

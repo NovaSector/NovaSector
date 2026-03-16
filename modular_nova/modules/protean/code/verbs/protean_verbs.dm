@@ -10,7 +10,7 @@
 
 /mob/living/carbon/proc/protean_heal()
 	set name = "Heal Organs and Limbs"
-	set desc = "Heals your replacable organs and limbs with 6 metal."
+	set desc = "Heals your replaceable organs and limbs with 6 metal."
 	set category = "Protean"
 
 	var/obj/item/organ/brain/protean/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
