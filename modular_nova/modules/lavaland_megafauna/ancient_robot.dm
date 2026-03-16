@@ -127,6 +127,7 @@ Difficulty: Hard
 	body_shield()
 	add_overlay("[mode]")
 	add_overlay("eyes")
+	AddComponent(/datum/component/boss_music, 'modular_nova/modules/lavaland_megafauna/sound/music/boss/MidSuavementeLow.ogg', COMSIG_HOSTILE_FOUND_TARGET) //Temp testing boss music
 	return INITIALIZE_HINT_LATELOAD
 
 /mob/living/simple_animal/hostile/megafauna/ancient_robot/LateInitialize()
@@ -262,7 +263,7 @@ Difficulty: Hard
 	revving_charge = FALSE
 	var/movespeed = 0.8
 	walk_towards(src, T, movespeed)
-	SLEEP_CHECK_DEATH(3 SECONDS, src)
+	SLEEP_CHECK_DEATH(1 SECONDS, src)
 	walk(src, 0) // cancel the movement
 	charging = FALSE
 
