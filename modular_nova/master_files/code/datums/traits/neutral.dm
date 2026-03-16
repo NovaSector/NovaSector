@@ -1,14 +1,3 @@
-GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
-
-/// Instantiates GLOB.DNR_trait_overlay by creating a new mutable_appearance instance of the overlay.
-/proc/generate_DNR_trait_overlay()
-	RETURN_TYPE(/mutable_appearance)
-
-	var/mutable_appearance/DNR_trait_overlay = mutable_appearance('modular_nova/modules/indicators/icons/DNR_trait_overlay.dmi', "DNR", FLY_LAYER)
-	DNR_trait_overlay.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
-	return DNR_trait_overlay
-
-
 // NOVA NEUTRAL TRAITS
 /datum/quirk/excitable
 	name = "Excitable!"

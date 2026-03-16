@@ -78,3 +78,11 @@
 	icon_state = "chocolatepudding"
 	name = "glass of beer batter"
 	desc = "Used in cooking, pure cholesterol, Scottish people eat it."
+
+// Reagent metabolize: Nuka Cola
+/datum/reagent/consumable/nuka_cola/on_mob_metabolize(mob/living/affected_mob)
+	. = ..()
+
+	// Add mood bonus
+	if(HAS_TRAIT_FROM(affected_mob, TRAIT_RADIMMUNE, QUIRK_TRAIT))
+		affected_mob.add_mood_event("fav_food", /datum/mood_event/favorite_food)

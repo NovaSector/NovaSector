@@ -43,7 +43,7 @@
 //A box of VeyGun cells, because storage is hell and these take up a LOT more than they're worth.
 /obj/item/storage/box/plastic/medicells
 	name = "box of medicells"
-	desc = "A box with a few basic Medicells designed for VeyMedical CWM cell-powered Mediguns."
+	desc = "A box with a few basic Medicells designed for Vey-Medical CWM cell-powered Mediguns."
 	illustration = "medgel"
 
 /obj/item/storage/box/plastic/medicells/PopulateContents()

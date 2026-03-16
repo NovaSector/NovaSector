@@ -167,6 +167,7 @@
 			CAT_PATCHES = GLOB.reagent_containers[CAT_PATCHES],
 			CAT_HYPOS = GLOB.reagent_containers[CAT_HYPOS], // NOVA EDIT ADDITION
 			CAT_DARTS = GLOB.reagent_containers[CAT_DARTS], // NOVA EDIT ADDITION
+			CAT_PEN_INJECTORS = GLOB.reagent_containers[CAT_PEN_INJECTORS], // NOVA EDIT ADDITION - pen_medipens
 		)
 	return containers
 
