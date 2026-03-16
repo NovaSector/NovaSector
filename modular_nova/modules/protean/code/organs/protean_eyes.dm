@@ -8,3 +8,8 @@
 	if(QDELETED(src))
 		return
 	AddElement(/datum/element/nanite_organ)
+
+/obj/item/organ/eyes/robotic/protean/on_life(seconds_per_tick, times_fired)
+	if(damage > 0)
+		apply_organ_damage(-1 * seconds_per_tick)
+	return ..()

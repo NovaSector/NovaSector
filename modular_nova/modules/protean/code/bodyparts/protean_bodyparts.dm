@@ -10,8 +10,10 @@
 #define PROTEAN_BODYPART_DEFINE(path, health) \
 ##path {\
 	max_damage = ##health; \
-	bodytype = BODYTYPE_ROBOTIC; \
-	dmg_overlay_type = "robotic"; \
+	icon_greyscale = BODYPART_ICON_MAMMAL; \
+	limb_id = SPECIES_MAMMAL; \
+	should_draw_greyscale = TRUE; \
+	change_exempt_flags = NONE; \
 	light_brute_msg = LIGHT_NANO_BRUTE; \
 	medium_brute_msg = MEDIUM_NANO_BRUTE; \
 	heavy_brute_msg = HEAVY_NANO_BRUTE; \
@@ -59,26 +61,33 @@
 }
 
 // Core bodyparts
-PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/head/mutant/protean, 120)
-PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/head/mutant/protean)
-PROTEAN_LIMB_ATTACH(/obj/item/bodypart/head/mutant/protean)
+PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/head/robot/protean, 120)
+PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/head/robot/protean)
+PROTEAN_LIMB_ATTACH(/obj/item/bodypart/head/robot/protean)
 
-PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/chest/mutant/protean, LIMB_MAX_HP_CORE)
+/obj/item/bodypart/head/robot/protean
+	is_dimorphic = TRUE
+	head_flags = HEAD_DEFAULT_FEATURES
 
-/obj/item/bodypart/chest/mutant/protean
+PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/chest/robot/protean, LIMB_MAX_HP_CORE)
+
+/obj/item/bodypart/chest/robot/protean
+	is_dimorphic = TRUE
 	wing_types = list(
 		/obj/item/organ/wings/functional/robotic,
 	)
 
 // Arm limbs
-PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/left/mutant/protean, 40)
-PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/mutant/protean, 40)
+PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/left/robot/protean, 40)
+PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 
 /// Legs are a little more special due to digitigrade support, so they're not macro'd
-/obj/item/bodypart/leg/right/mutant/protean
+/obj/item/bodypart/leg/right/robot/protean
 	max_damage = 40
-	bodytype = BODYTYPE_ROBOTIC; \
-	dmg_overlay_type = "robotic"
+	icon_greyscale = BODYPART_ICON_MAMMAL
+	limb_id = SPECIES_MAMMAL
+	should_draw_greyscale = TRUE
+	change_exempt_flags = NONE
 	light_brute_msg = LIGHT_NANO_BRUTE
 	medium_brute_msg = MEDIUM_NANO_BRUTE
 	heavy_brute_msg = HEAVY_NANO_BRUTE
@@ -86,19 +95,21 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/mutant/protean, 40)
 	medium_burn_msg = MEDIUM_NANO_BURN
 	heavy_burn_msg = HEAVY_NANO_BURN
 	damage_examines = list(BRUTE = BRUTE_EXAMINE_NANO, BURN = BURN_EXAMINE_NANO)
-	digitigrade_type = /obj/item/bodypart/leg/right/mutant/protean/digitigrade
+	digitigrade_type = /obj/item/bodypart/leg/right/robot/protean/digitigrade
 	var/qdel_timer
 
-/obj/item/bodypart/leg/right/mutant/protean/Destroy()
+/obj/item/bodypart/leg/right/robot/protean/Destroy()
 	if(!isnull(qdel_timer))
 		deltimer(qdel_timer)
 		qdel_timer = null
 	return ..()
 
-/obj/item/bodypart/leg/left/mutant/protean
+/obj/item/bodypart/leg/left/robot/protean
 	max_damage = 40
-	bodytype = BODYTYPE_ROBOTIC; \
-	dmg_overlay_type = "robotic"
+	icon_greyscale = BODYPART_ICON_MAMMAL
+	limb_id = SPECIES_MAMMAL
+	should_draw_greyscale = TRUE
+	change_exempt_flags = NONE
 	light_brute_msg = LIGHT_NANO_BRUTE
 	medium_brute_msg = MEDIUM_NANO_BRUTE
 	heavy_brute_msg = HEAVY_NANO_BRUTE
@@ -106,43 +117,43 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/mutant/protean, 40)
 	medium_burn_msg = MEDIUM_NANO_BURN
 	heavy_burn_msg = HEAVY_NANO_BURN
 	damage_examines = list(BRUTE = BRUTE_EXAMINE_NANO, BURN = BURN_EXAMINE_NANO)
-	digitigrade_type = /obj/item/bodypart/leg/left/mutant/protean/digitigrade
+	digitigrade_type = /obj/item/bodypart/leg/left/robot/protean/digitigrade
 	var/qdel_timer
 
-/obj/item/bodypart/leg/left/mutant/protean/Destroy()
+/obj/item/bodypart/leg/left/robot/protean/Destroy()
 	if(!isnull(qdel_timer))
 		deltimer(qdel_timer)
 		qdel_timer = null
 	return ..()
 
-/obj/item/bodypart/leg/right/mutant/protean/digitigrade
+/obj/item/bodypart/leg/right/robot/protean/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 	base_limb_id = BODYPART_ID_DIGITIGRADE
 
-/obj/item/bodypart/leg/right/mutant/protean/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+/obj/item/bodypart/leg/right/robot/protean/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
 
-/obj/item/bodypart/leg/left/mutant/protean/digitigrade
+/obj/item/bodypart/leg/left/robot/protean/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 	base_limb_id = BODYPART_ID_DIGITIGRADE
 
-/obj/item/bodypart/leg/left/mutant/protean/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+/obj/item/bodypart/leg/left/robot/protean/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
 
 // Apply delimb and reattach macros to all limbs
-PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/arm/left/mutant/protean)
-PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/arm/right/mutant/protean)
-PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/leg/left/mutant/protean)
-PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/leg/right/mutant/protean)
+PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/arm/left/robot/protean)
+PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/arm/right/robot/protean)
+PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/leg/left/robot/protean)
+PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/leg/right/robot/protean)
 
-PROTEAN_LIMB_ATTACH(/obj/item/bodypart/arm/left/mutant/protean)
-PROTEAN_LIMB_ATTACH(/obj/item/bodypart/arm/right/mutant/protean)
-PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/left/mutant/protean)
-PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/right/mutant/protean)
+PROTEAN_LIMB_ATTACH(/obj/item/bodypart/arm/left/robot/protean)
+PROTEAN_LIMB_ATTACH(/obj/item/bodypart/arm/right/robot/protean)
+PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/left/robot/protean)
+PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/right/robot/protean)
 
 #undef PROTEAN_BODYPART_DEFINE
 #undef PROTEAN_DELIMB_DEFINE
