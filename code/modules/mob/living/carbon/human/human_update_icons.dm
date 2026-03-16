@@ -1379,7 +1379,6 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	appearance.pixel_z += final_offset
 	return appearance
 
-
 /**
  * Applies a filter to an appearance according to mob height
  */
