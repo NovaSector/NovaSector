@@ -21,6 +21,7 @@
 	failure_sound = 'sound/items/handling/surgery/organ2.ogg'
 	required_biotype = MOB_ORGANIC|MOB_HUMANOID
 	required_bodytype = BODYTYPE_SYNTHETIC
+	blocked_bodytype = NONE
 	any_surgery_states_required = ALL_SURGERY_SKIN_STATES
 	replaced_by = /datum/surgery_operation/basic/repair_synth/upgraded
 	/// Radial slice datums for every healing option we can provide
@@ -239,18 +240,23 @@
 	can_heal = COMBO_SURGERY
 	healing_amount = 3
 	time = 1 SECONDS
+	required_bodytype = BODYTYPE_SYNTHETIC
+	blocked_bodytype = NONE
 
 /datum/surgery_operation/basic/tend_wounds/combo/synth/upgraded
 	rnd_name = parent_type::rnd_name + "+"
 	operation_flags = parent_type::operation_flags | OPERATION_LOCKED
-	required_bodytype = BODYTYPE_SYNTHETIC
 	replaced_by = /datum/surgery_operation/basic/tend_wounds/combo/synth/upgraded/master
 	healing_multiplier = 0.1
+	required_bodytype = BODYTYPE_SYNTHETIC
+	blocked_bodytype = NONE
 
 /datum/surgery_operation/basic/tend_wounds/combo/synth/upgraded/master
 	rnd_name = parent_type::rnd_name + "+"
 	healing_amount = 1
 	healing_multiplier = 0.4
+	required_bodytype = BODYTYPE_SYNTHETIC
+	blocked_bodytype = NONE
 
 #undef BRUTE_SURGERY
 #undef BURN_SURGERY
