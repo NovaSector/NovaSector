@@ -423,7 +423,7 @@
 		"Roboticist",
 		"Biomechanical Engineer",
 		"Cyberneticist",
-		"Fabrication Specialist",
+		"Mech Fabrication Specialist",
 		"Machinist",
 		"Mechatronic Engineer",
 		"Apprentice Roboticist",
