@@ -279,7 +279,7 @@
 		"Medical Student",
 		"Clinician",
 		"Physician Assistant",
-		"General Practitioner",
+		"Emergency Physician",
 		"Registered Nurse",
 	)
 
