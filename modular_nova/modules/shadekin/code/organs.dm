@@ -5,7 +5,6 @@
 	desc = "A mysterious brain."
 	icon = 'icons/obj/medical/organs/organs.dmi'
 	icon_state = "brain-x-d"
-	var/applied_status = /datum/status_effect/shadekin_regeneration
 
 /obj/item/organ/brain/shadekin/on_life(seconds_per_tick, times_fired)
 	. = ..()
@@ -15,9 +14,9 @@
 	var/light_amount = owner_turf.get_lumcount()
 
 	if(light_amount < SHADOW_SPECIES_LIGHT_THRESHOLD)
-		owner.apply_status_effect(applied_status)
-		owner.remove_movespeed_modifier(/datum/movespeed_modifier/light_averse)
+		owner.apply_status_effect(/datum/status_effect/shadekin_regeneration)
 	else
+		owner.remove_status_effect(/datum/status_effect/shadekin_regeneration)
 		owner.add_movespeed_modifier(/datum/movespeed_modifier/light_averse)
 
 /datum/status_effect/shadekin_regeneration
@@ -30,8 +29,15 @@
 	. = ..()
 	if(!.)
 		return FALSE
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
+	owner.remove_movespeed_modifier(/datum/movespeed_modifier/light_averse)
 	heal_owner()
 	return TRUE
+
+/datum/status_effect/shadekin_regeneration/on_remove()
+	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+	owner.add_movespeed_modifier(/datum/movespeed_modifier/light_averse)
+	return ..()
 
 /datum/status_effect/shadekin_regeneration/refresh(effect)
 	. = ..()
@@ -40,9 +46,17 @@
 /datum/status_effect/shadekin_regeneration/proc/heal_owner()
 	owner.heal_overall_damage(brute = 0.5, burn = 0.5, required_bodytype = BODYTYPE_ORGANIC)
 
+/datum/status_effect/shadekin_regeneration/proc/on_owner_moved(datum/source)
+	SIGNAL_HANDLER
+	var/turf/owner_turf = owner.loc
+	if(!isturf(owner_turf))
+		return
+	if(owner_turf.get_lumcount() >= SHADOW_SPECIES_LIGHT_THRESHOLD)
+		qdel(src)
+
 /atom/movable/screen/alert/status_effect/shadekin_regeneration
 	name = "Dark Regeneration"
-	desc = "Feeling the tug of home on your fur, some of its soothing warmth comes to ease your burdens."
+	desc = "Feeling the tug of home, some of its soothing warmth comes to ease your burdens."
 	icon_state = "lightless"
 
 /datum/movespeed_modifier/light_averse
