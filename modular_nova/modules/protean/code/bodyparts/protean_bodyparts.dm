@@ -31,7 +31,7 @@
 	}\
 	if(limb_turf && !owner) {\
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE); \
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON)); \
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY)); \
 	}\
 	return ..(); \
 }
@@ -89,6 +89,7 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 /// Legs are a little more special due to digitigrade support, so they're not macro'd
 /obj/item/bodypart/leg/right/robot/protean
 	max_damage = 40
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED|BIO_BLOODED)
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
 	should_draw_greyscale = TRUE
@@ -115,7 +116,7 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 		qdel_timer = null
 	if(limb_turf && !owner)
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY))
 	return ..()
 
 /obj/item/bodypart/leg/left/robot/protean
@@ -146,7 +147,7 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 		qdel_timer = null
 	if(limb_turf && !owner)
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY))
 	return ..()
 
 /obj/item/bodypart/leg/right/robot/protean/digitigrade

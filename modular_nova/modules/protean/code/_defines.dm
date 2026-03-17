@@ -13,8 +13,8 @@
 #define PROTEAN_SERVO_TRAIT "protean_servo"
 
 /// Blood type
-#define BLOOD_TYPE_IRON "FE"
-#define BLOOD_COLOR_IRON "#CCCCCC"
+#define BLOOD_TYPE_NANITE_SLURRY "NS"
+#define BLOOD_COLOR_NANITE_SLURRY "#CCCCCC"
 
 /// Sprite file location
 #define PROTEAN_ORGAN_SPRITE 'modular_nova/modules/protean/icons/mob/species/protean/protean.dmi'

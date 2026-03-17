@@ -1,9 +1,9 @@
-/// Iron blood type for proteans
-/datum/blood_type/iron
-	name = BLOOD_TYPE_IRON
-	dna_string = "Iron"
-	color = BLOOD_COLOR_IRON
-	reagent_type = /datum/reagent/iron
+/// Nanite Slurry blood type for proteans
+/datum/blood_type/nanite_slurry
+	name = BLOOD_TYPE_NANITE_SLURRY
+	dna_string = "Nanite Slurry"
+	color = BLOOD_COLOR_NANITE_SLURRY
+	reagent_type = /datum/reagent/medicine/nanite_slurry
 	blood_flags = BLOOD_COVER_ALL
 
 /datum/species/protean
@@ -17,7 +17,7 @@
 	siemens_coeff = 1.5 // Electricity messes you up.
 	payday_modifier = 0.7 // 30 percent poorer
 
-	exotic_bloodtype = BLOOD_TYPE_IRON
+	exotic_bloodtype = BLOOD_TYPE_NANITE_SLURRY
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
 	meat = /obj/item/stack/sheet/iron
