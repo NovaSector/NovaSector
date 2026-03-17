@@ -1,0 +1,5 @@
+author: "Happyowl93"
+delete-after: True
+changes:
+  - rscadd: "adds cold,heat,pressure adaptations to the genetics quirk and a new mutation called restorative metabolism."
+  - balance: "Quirk mutations now affect genetic instability"
