@@ -1,0 +1,4 @@
+author: "sergeirocks100"
+delete-after: True
+changes:
+  - qol: "Holographic pay stands no longer dissipate if the ID used to make them gets more than 4 tiles away."
