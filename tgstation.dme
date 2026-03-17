@@ -7011,6 +7011,7 @@
 #include "modular_nova\master_files\code\datums\mood_events\needs_events.dm"
 #include "modular_nova\master_files\code\datums\mutations\antenna.dm"
 #include "modular_nova\master_files\code\datums\mutations\chameleon.dm"
+#include "modular_nova\master_files\code\datums\mutations\resmetab.dm"
 #include "modular_nova\master_files\code\datums\mutations\sight.dm"
 #include "modular_nova\master_files\code\datums\quirks\_quirk.dm"
 #include "modular_nova\master_files\code\datums\quirks\negative_quirks\all_nighter.dm"
