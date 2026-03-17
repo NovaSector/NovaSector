@@ -2638,7 +2638,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		/obj/item/clipboard,
 		/obj/item/folder,
 		/obj/item/reagent_containers/hypospray/medipen, //All medipen
-		/obj/item/stack/sticky_tape/surgical,
+		/obj/item/stack/medical/wrap/sticky_tape/surgical,
 		/obj/item/reagent_containers/cup/vial/small,
 		/obj/item/reagent_containers/cup/vial/large,
 		/obj/item/storage/pill_bottle,
