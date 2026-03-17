@@ -340,7 +340,7 @@
 	item_path = /obj/item/clothing/under/rank/security/nova/trousers
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
-
+/*
 /datum/loadout_item/under/jumpsuit/security_turtleneck
 	name = "Security Turtleneck"
 	item_path = /obj/item/clothing/under/rank/security/nova/turtleneck
@@ -352,7 +352,7 @@
 	item_path = /obj/item/clothing/under/rank/security/nova/turtleneck/blue
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
-
+*/
 /datum/loadout_item/under/jumpsuit/utility_sec
 	name = "Security Utility Uniform"
 	item_path = /obj/item/clothing/under/rank/security/nova/utility

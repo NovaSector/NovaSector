@@ -2601,8 +2601,21 @@ Security
 	name = "M.O.D. Skinsuit (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 
-/datum/greyscale_config/sectrousers/modskin/digi
+/datum/greyscale_config/modskin/worn/digi
 	name = "M.O.D. Skinsuit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/secjumpsuit
+	name = "Security Jumpsuit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secjumpsuit.json'
+
+/datum/greyscale_config/secjumpsuit/worn
+	name = "Security Jumpsuit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/secjumpsuit/worn/digi
+	name = "Security Jumpsuit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
 
 /*

@@ -1,0 +1,27 @@
+{
+	"secjumpsuit": [
+		{
+			"type": "icon_state",
+			"icon_state": "security_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "security_zipper",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "security_accent",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "secargobelt",
+			"blend_mode": "overlay"
+		}
+	]
+}
