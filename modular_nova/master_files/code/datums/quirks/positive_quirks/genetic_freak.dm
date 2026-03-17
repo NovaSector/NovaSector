@@ -24,10 +24,10 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	"Elastic Arms" = /datum/mutation/elastic_arms,
 	"Webbing" = /datum/mutation/webbing,
 	"Mending Touch" = /datum/mutation/lay_on_hands,
-	"Pressure adaptation" = /datum/mutation/adaptation/pressure,
-	"Cold adaptation" = /datum/mutation/adaptation/cold,
-	"Heat adaptation" = /datum/mutation/adaptation/heat,
-	"Restorative metabolism" = /datum/mutation/restorative_metabolism,
+	"Pressure Adaptation" = /datum/mutation/adaptation/pressure,
+	"Cold Adaptation" = /datum/mutation/adaptation/cold,
+	"Heat Adaptation" = /datum/mutation/adaptation/heat,
+	"Restorative Metabolism" = /datum/mutation/restorative_metabolism,
 ))
 
 /datum/quirk/genetic_mutation
