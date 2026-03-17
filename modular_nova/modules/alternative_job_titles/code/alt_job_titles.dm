@@ -40,7 +40,7 @@
 		"Atmospheric Technician",
 		"Atmospheric Trainee",
 		"Emergency Fire Technician",
-		"Fusion Specialist",
+		"Fusion Reactor Operator",
 		"Gas Synthesis Technician",
 		"Nuclear Reactor Operator",
 		"Firefighter",
