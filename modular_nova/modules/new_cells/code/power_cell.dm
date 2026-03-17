@@ -46,7 +46,7 @@
 
 /obj/item/stock_parts/power_store/cell/self_charge/exotic
 	name = "exotic charging cell"
-	desc = "A special cell that will recharge itself over time. The encasing doesnt seem to have seams."
+	desc = "A special cell that will recharge itself over time. The casing doesn't seem to have seams."
 	maxcharge = STANDARD_CELL_CHARGE * 15
 	recharge_amount = STANDARD_CELL_CHARGE
 
