@@ -39,7 +39,7 @@
 				/obj/item/clothing/head/beret/sec = 4,
 				/obj/item/clothing/head/soft/sec = 4,
 				/obj/item/clothing/mask/bandana/striped/security = 4,
-				/obj/item/clothing/under/rank/security/nova/secjumpsuit = 4,				//1
+				/obj/item/clothing/under/rank/security/nova/secjumpsuit = 4,
 				/obj/item/clothing/under/rank/security/nova/officer/black = 4,  //2
 				/obj/item/clothing/under/rank/security/officer/skirt = 4,		//3
 				/obj/item/clothing/under/rank/security/nova/dress = 4,			//4

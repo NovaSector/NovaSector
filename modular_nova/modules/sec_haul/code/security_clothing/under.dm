@@ -241,9 +241,6 @@
 	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers/black"
 	greyscale_colors = "#39393F"
 
-/datum/atom_skin/security_modskin
-	abstract_type = /datum/atom_skin/security_modskin
-
 /obj/item/clothing/under/rank/security/nova/modskin
 	name = "security M.O.D. skinsuit"
 	desc = "A M.O.D. skinsuit worn by trained Security officers."
