@@ -133,13 +133,13 @@
 
 /obj/item/xenoarch/handheld_radar
 	/// Minimum amount of distance from the user that the dig site will spawn in.
-	var/min_distance = 20
+	var/min_distance = 24
 	/// Maximum amount of distance from the user that the dig site will spawn in.
-	var/max_distance = 50
+	var/max_distance = 52
 	/// Cooldown time between generating a new digsite. This is to avoid Users rerolling digsites over and over. This is per Ckey.
-	var/cooldown_reroll = 1 MINUTES
+	var/cooldown_reroll = 1.5 MINUTES
 	/// Cooldown time after succesfully diging a digsite. This is to control how much stuff players get. This is per Ckey.
-	var/cooldown_success = 3 MINUTES
+	var/cooldown_success = 4 MINUTES
 	/// Speed it takes for the Scanner to do any scan operation that needs attention, ie, scan the digsite for the missing bit
 	var/scanner_speed = 5 SECONDS
 	/// How precise the scanner needs to be to dig out the treasures. Archeology has a change to give 1 more, the more leeway, the better.
@@ -169,6 +169,31 @@
 	))
 	COOLDOWN_DECLARE(tool_scan)
 
+/obj/item/xenoarch/handheld_radar/click_alt(mob/user)
+	scan(user)
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/xenoarch/handheld_radar/examine(mob/user)
+	. = ..()
+	. += span_notice("Alt-click the [src] to start the scan.")
+	. += span_notice("Use the [src] on the ground to dig the rocks.")
+	. += span_notice("Use the [src] on your hand or right click to pinpoint the digsite.")
+
+/obj/item/xenoarch/handheld_radar/pre_attack(atom/target, mob/user)
+	if(isturf(target))
+		check_dig(user, target)
+
+/obj/item/xenoarch/handheld_radar/attack_self(mob/user, list/modifiers)
+	. = ..()
+
+	scan_digsite(user)
+
+/obj/item/xenoarch/handheld_radar/attack_self_secondary(mob/user, modifiers)
+	. = ..()
+
+	scan_digsite(user)
+
+// Checks wherever a particular turf is 
 /obj/item/xenoarch/handheld_radar/proc/is_valid_scavenge_turf(turf/candidate_turf)
 	if (is_type_in_typecache(candidate_turf, disallowed_turfs))
 		return FALSE
@@ -177,6 +202,7 @@
 		return FALSE
 	return TRUE
 
+// Gets the profile of the user ckey, or creates a new one should it be needed.
 /obj/item/xenoarch/handheld_radar/proc/get_profile(mob/user)
 	var/datum/scavenge_profile/profile = profiles[user.ckey]
 	if(!profile)
@@ -185,6 +211,33 @@
 		profiles[user.ckey] = profile
 	return profile
 
+// Makes 50 tries to get a turf in a radius between min and max distance of the caller, ensuring not to count places outside the map, and then validating the turf is one of the allowed types.
+/obj/item/xenoarch/handheld_radar/proc/pick_valid_turf_in_range(mob/user)
+	var/turf/candidate_turf = null
+	if (!user)
+		return null
+	for(var/i = 0; i < 50; i++)
+		var/angle = rand(0, 360)
+		var/radius = rand(min_distance, max_distance)
+		var/offset_x = round(radius * cos(angle))
+		var/offset_y = round(radius * sin(angle))
+
+		var/x = user.x + offset_x
+		var/y = user.y + offset_y
+		var/z = user.z
+
+		if(x < 1) x = 1 + (1 - x)
+		if(y < 1) y = 1 + (1 - y)
+		if(x > world.maxx) x = world.maxx - (x - world.maxx)
+		if(y > world.maxy) y = world.maxy - (y - world.maxy)
+
+		candidate_turf = locate(x, y, z)
+		if(candidate_turf && is_valid_scavenge_turf(candidate_turf))
+			break
+		candidate_turf = null
+	return candidate_turf
+
+// Initiates the scan action for the radar, checking the user is able to and on the right conditions to get a new digging site, then stores that along with the ckey of the user and special modifiers like the leeway they rolled to dig at the area.
 /obj/item/xenoarch/handheld_radar/proc/scan(mob/user)
 	if(!COOLDOWN_FINISHED(src, tool_scan))
 		return
@@ -217,27 +270,7 @@
 		user.balloon_alert(user, "interrupted!")
 		return FALSE
 	profile.next_scan = world.time + cooldown_reroll
-	var/candidate_turf = null
-
-	for(var/i = 0; i < 50; i++)
-		var/angle = rand(0, 360)
-		var/radius = rand(min_distance, max_distance)
-		var/offset_x = round(radius * cos(angle))
-		var/offset_y = round(radius * sin(angle))
-
-		var/x = user.x + offset_x
-		var/y = user.y + offset_y
-		var/z = user.z
-
-		if(x < 1) x = 1 + (1 - x)
-		if(y < 1) y = 1 + (1 - y)
-		if(x > world.maxx) x = world.maxx - (x - world.maxx)
-		if(y > world.maxy) y = world.maxy - (y - world.maxy)
-
-		candidate_turf = locate(x, y, z)
-		if(candidate_turf && is_valid_scavenge_turf(candidate_turf))
-			break
-		candidate_turf = null
+	var/candidate_turf = pick_valid_turf_in_range(user)
 
 	if(!candidate_turf)
 		user.balloon_alert(user, "not found!")
@@ -252,16 +285,7 @@
 		to_chat(user, span_notice("Your knowledge of archeology helps you interpret the radar signals more accurately, giving you a bit of extra leeway."))
 	return TRUE
 
-/obj/item/xenoarch/handheld_radar/click_alt(mob/user)
-	scan(user)
-	return CLICK_ACTION_SUCCESS
-
-/obj/item/xenoarch/handheld_radar/examine(mob/user)
-	. = ..()
-	. += span_notice("Alt-click the [src] to start the scan.")
-	. += span_notice("Use the [src] on the ground to dig the rocks.")
-	. += span_notice("Use the [src] on your hand or right click to pinpoint the digsite.")
-
+// This is the digging action, operates when you try to dig in the leeway area of the archeological site, its the one that spawns the rocks and calculates how many, as well as awrding xp
 /obj/item/xenoarch/handheld_radar/proc/check_dig(mob/user, turf/dig_turf)
 	if(!COOLDOWN_FINISHED(src, tool_scan))
 		return
@@ -293,6 +317,7 @@
 	profile.site = null
 	
 	var/rocks_amount = 1
+	to_chat(user, span_notice("You sift through the sediment and recover some rock fragments."))
 	if(prob(user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_PROBS_MODIFIER)))
 		rocks_amount++
 		to_chat(user, span_notice("With practiced skill, you spot and extract an extra rock!"))
@@ -308,20 +333,7 @@
 	profile.next_scan = world.time + cooldown_success
 	return TRUE
 
-/obj/item/xenoarch/handheld_radar/pre_attack(atom/target, mob/user)
-	if(isturf(target))
-		check_dig(user, target)
-
-/obj/item/xenoarch/handheld_radar/attack_self(mob/user, list/modifiers)
-	. = ..()
-
-	scan_digsite(user)
-
-/obj/item/xenoarch/handheld_radar/attack_self_secondary(mob/user, modifiers)
-	. = ..()
-
-	scan_digsite(user)
-
+// This generates an arrow of color based on the distance of the archeological site, and pointing in the direction of it, when you are in the site, it will no longer show an arrow, but you will have to make an educated guess as the exact site (counting of course on the leeway you rolled previously.)
 /obj/item/xenoarch/handheld_radar/proc/scan_digsite(mob/user)
 	if(!COOLDOWN_FINISHED(src, tool_scan))
 		return
@@ -338,30 +350,32 @@
 		user.balloon_alert(user, "error!")
 		to_chat(user, span_warning("You are not in the same sector as the scanned site."))
 		return
+	
+	// We get the distance and direction from the user/tool to the turf we are heading towards.
 	var/dist = get_dist(src, candidate_turf)
 	var/dir = get_dir(user, candidate_turf)
-	var/balloon_message
 	var/arrow_color
 
+	// We pick the color (or break early) based on the distance we got.
 	switch(dist)
-		if (0 to 2)
+		if (0 to 4)
 			user.balloon_alert(user, "site close!")
 			return
-		if(3 to 7)
+		if(5 to 10)
 			arrow_color = COLOR_GREEN
-		if(8 to 13)
+		if(10 to 15)
 			arrow_color = COLOR_YELLOW
-		if(14 to 20)
+		if(15 to 24)
 			arrow_color = COLOR_ORANGE
 		else
 			arrow_color = COLOR_RED
 
-	user.balloon_alert(user, balloon_message)
-
+	// We create and validate the user hud
 	var/datum/hud/user_hud = user.hud_used
 	if(!user_hud || !istype(user_hud, /datum/hud) || !islist(user_hud.infodisplay))
 		return
 
+	// We use our data to color and move the arrow on the player's hud as needed
 	var/atom/movable/screen/radar_arrow/arrow = new(null, user_hud)
 	arrow.color = arrow_color
 	arrow.screen_loc = around_player
@@ -370,6 +384,7 @@
 	user_hud.infodisplay += arrow
 	user_hud.show_hud(user_hud.hud_version)
 
+	// We kill the arrow hud after a bit to avoid clutter.
 	QDEL_IN(arrow, 1.5 SECONDS)
 
 /atom/movable/screen/radar_arrow
