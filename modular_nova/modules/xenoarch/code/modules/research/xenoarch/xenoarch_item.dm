@@ -233,5 +233,5 @@
 	desc = "This is a piece of frightening alien tech that enhances the magnetic pull of atoms in a localized space to temporarily make an object shrink. \
 			Seems... hapzardly jury-rigged to work with human tech, but its likely good for shrinking stuff."
 	ammo_type = list(/obj/item/ammo_casing/energy/shrink/faulty)
-	pin = /obj/item/firing_pin/permit_pin
+	pin = /obj/item/firing_pin
 	w_class = WEIGHT_CLASS_BULKY
