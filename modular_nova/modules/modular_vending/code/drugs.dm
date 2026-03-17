@@ -10,4 +10,5 @@
 		/obj/item/disk/neuroware/psicodine = 2,
 		/obj/item/disk/neuroware/happiness = 2,
 		/obj/item/disk/neuroware/mindbreaker = 2,
+		/obj/item/disk/neuroware/twitch = 2,
 	)

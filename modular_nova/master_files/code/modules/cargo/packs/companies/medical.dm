@@ -278,6 +278,11 @@
 	contains = list(/obj/item/organ/cyberimp/sensory_enhancer)
 	cost = CARGO_CRATE_VALUE * 2.5
 
+/datum/supply_pack/companies/medical/cyber_implants/twitch_neuroware
+	name = "Qani-Laaca Neuroware Chip"
+	contains = list(/obj/item/disk/neuroware/twitch)
+	cost = CARGO_CRATE_VALUE * 0.375
+
 // Donk
 /datum/supply_pack/companies/medical/donk
 
