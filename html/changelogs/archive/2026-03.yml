@@ -100,6 +100,9 @@
       while also sending an error message about not being able to put it in.
   - bugfix: Trying to insert an item into a vendor that can't hold it no longer sends
       the error message twice.
+  Absolucy:
+  - qol: You can now carry the Proto-Kinetic Railgun in the suit storage of mining
+      armors - i.e explorer suits, berserker armor, etc.
   Aliceee2ch:
   - bugfix: Replaced loot spawner in Catwalk's space to prevent flaky errors.
   - map: The shuttles were also equipped with vitals displays.
@@ -132,6 +135,10 @@
   GregariousJB:
   - qol: 'Keybinding visual improvements: "Unbound" is grayed out and custom binds
       are highlighted in green for better visibility'
+  Happyowl93:
+  - rscadd: adds cold,heat,pressure adaptations to the genetics quirk and a new mutation
+      called restorative metabolism.
+  - balance: Quirk mutations now affect genetic instability
   Jacquerel:
   - bugfix: Dead ghosts will return to the grave upon dying.
   - bugfix: When you dig up a ghost's grave you will find the skeleton of that ghost,
@@ -277,5 +284,11 @@
   mcbalaam:
   - rscadd: E.X.P.E.R.I-MENTOR now has proper wires
   - refactor: Refactored the E.X.P.E.R.I-MENTOR and it's E.X.P.E.R.I-ment system
+  muratendmo:
+  - rscadd: Detectives now get Security bounties, since Nanotrasen remembered they
+      are in fact part of the department.
+  sergeirocks100:
+  - qol: Holographic pay stands no longer dissipate if the ID used to make them gets
+      more than 4 tiles away.
   vinylspiders:
   - bugfix: fixes certain particle effects not triggering under certain conditions
