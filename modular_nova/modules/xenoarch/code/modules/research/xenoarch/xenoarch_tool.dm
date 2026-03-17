@@ -145,7 +145,7 @@
 	/// How precise the scanner needs to be to dig out the treasures. Archeology has a change to give 1 more, the more leeway, the better.
 	var/scanner_leeway = 1
 	/// Static list of players profiles so their searchs are saved.
-	var/static/list/profiles = list()
+	var/static/list/profiles
 	/// Mining areas we allow.
 	var/static/list/allowed_areas = typecacheof(list(
 			/area/forestplanet,
@@ -204,11 +204,11 @@
 
 // Gets the profile of the user ckey, or creates a new one should it be needed.
 /obj/item/xenoarch/handheld_radar/proc/get_profile(mob/user)
-	var/datum/scavenge_profile/profile = profiles[user.ckey]
+	var/datum/scavenge_profile/profile = LAZYACCESS(profiles, user.ckey)
 	if(!profile)
 		profile = new
 		profile.ckey = user.ckey
-		profiles[user.ckey] = profile
+		LAZYSET(profiles, user.ckey, profile)
 	return profile
 
 // Makes 50 tries to get a turf in a radius between min and max distance of the caller, ensuring not to count places outside the map, and then validating the turf is one of the allowed types.

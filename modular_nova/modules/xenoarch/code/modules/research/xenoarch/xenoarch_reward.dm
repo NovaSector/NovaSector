@@ -34,7 +34,7 @@
 
 /obj/effect/spawner/random/xenoarch/plant
 	name = "Xenoarch Plant Rewards"
-	desc = "Xenoarch Plant related rewards"
+	desc = "Plant-related xenoarchaeology rewards."
 	spawn_loot_count = 2
 	loot = list(
 		/obj/item/food/grown/gelthi = 1,
@@ -53,7 +53,7 @@
 
 /obj/effect/spawner/random/xenoarch/animal
 	name = "Xenoarch Animal Rewards"
-	desc = "Xenoarch Animal parts stuff. It also spawns with random cytology cells and viruses."
+	desc = "Xenoarchaeology animal parts stuff. It also spawns with random cytology cells and viruses."
 	spawn_loot_count = 2
 	loot = list(
 		/obj/item/stack/sheet/sinew/five = 1,
@@ -67,7 +67,7 @@
 
 /obj/effect/spawner/random/xenoarch
 	name = "Xenoarch Technological Rewards"
-	desc = "Xenoarch station tier but relative rare loot"
+	desc = "Xenoarchaeology station tier but relative rare loot."
 	loot = list(
 		/obj/item/relic/lavaland/activated = 7,
 		/obj/effect/spawner/random/exotic/technology = 5,
@@ -85,7 +85,7 @@
 
 /obj/effect/spawner/random/xenoarch/clothing
 	name = "Xenoarch Clothing Rewards"
-	desc = "Xenoarch strange clothing / armor stuff"
+	desc = "Xenoarchaeology clothing and armor related loot."
 	loot = list(
 		/obj/item/mod/control/pre_equipped/frontier_colonist = 8,
 		/obj/item/mod/control/pre_equipped/mining = 4,
@@ -98,7 +98,7 @@
 
 /obj/effect/spawner/random/xenoarch/weapon
 	name = "Xenoarch Weapon Rewards"
-	desc = "Xenoarch Weapons loot"
+	desc = "Xenoarchaeology weapons loot."
 	
 	loot = list(
 		/obj/item/claymore/weak = 3,
@@ -115,7 +115,7 @@
 
 /obj/effect/spawner/random/xenoarch/illegal
 	name = "Xenoarch Illegal Rewards"
-	desc = "Xenoarch Illegal type loot"
+	desc = "Xenoarchaeology contraband loot."
 	loot = list(
 		/obj/item/card/emag/doorjack = 3,
 		/obj/item/chameleon = 3,
@@ -127,7 +127,7 @@
 
 /obj/effect/spawner/random/xenoarch/alien
 	name = "Xenoarch Alien Rewards"
-	desc = "Xenoarch Alien origin loot"
+	desc = "Xenoarchaeology alien origin loot."
 	loot = list(
 		/obj/item/multitool/abductor = 4,
 		/obj/effect/spawner/random/engineering/tool_alien = 2,
