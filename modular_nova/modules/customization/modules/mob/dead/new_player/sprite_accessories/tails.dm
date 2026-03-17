@@ -398,6 +398,14 @@
 	name = "Shade"
 	icon_state = "shadekin_large"
 	color_src = USE_MATRIXED_COLORS
+	recommended_species = list(
+		SPECIES_SHADEKIN = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 
 /datum/sprite_accessory/tails/mammal/wagging/big/shade/long
 	name = "Shade (Long)"
