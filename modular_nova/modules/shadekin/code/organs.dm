@@ -21,8 +21,8 @@
 
 /datum/status_effect/shadekin_regeneration
 	id = "shadekin_regeneration"
-	duration = 2 SECONDS
-	status_type = STATUS_EFFECT_REFRESH
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/shadekin_regeneration
 
 /datum/status_effect/shadekin_regeneration/on_apply()
@@ -39,8 +39,7 @@
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/light_averse)
 	return ..()
 
-/datum/status_effect/shadekin_regeneration/refresh(effect)
-	. = ..()
+/datum/status_effect/shadekin_regeneration/tick(seconds_between_ticks)
 	heal_owner()
 
 /datum/status_effect/shadekin_regeneration/proc/heal_owner()
