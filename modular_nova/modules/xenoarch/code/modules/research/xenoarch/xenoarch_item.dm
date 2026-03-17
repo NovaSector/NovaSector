@@ -10,8 +10,6 @@
 	name = "broken tech"
 	icon_state = "recover_tech"
 	desc = "An item that has been damaged, destroyed for quite some time. It is possible to recover it."
-	//var/loot_amount_max = 1
-	//var/loot_list_name = "tech_reward"
 	var/loot = /obj/effect/spawner/random/xenoarch
 	var/dig_xp = 7
 
@@ -19,20 +17,17 @@
 	name = "broken weapon"
 	icon_state = "recover_weapon"
 	loot = /obj/effect/spawner/random/xenoarch/weapon
-	// loot_list_name = "weapon_reward"
 	dig_xp = 10
 
 /obj/item/xenoarch/broken_item/illegal
 	name = "broken unknown object"
 	icon_state = "recover_illegal"
 	loot = /obj/effect/spawner/random/xenoarch/illegal
-	// loot_list_name = "illegal_reward"
 	dig_xp = 10
 
 /obj/item/xenoarch/broken_item/alien
 	name = "broken unknown object"
 	icon_state = "recover_illegal"
-	//loot_list_name = "alien_reward"
 	loot = /obj/effect/spawner/random/xenoarch/alien
 	dig_xp = 10
 
@@ -40,8 +35,6 @@
 	name = "withered plant"
 	desc = "A plant that is long past its prime. It is possible to recover it."
 	icon_state = "recover_plant"
-	//loot_amount_max = 2
-	//loot_list_name = "plant_reward"
 	loot = /obj/effect/spawner/random/xenoarch/plant
 	dig_xp = 5
 
@@ -49,8 +42,6 @@
 	name = "preserved animal carcass"
 	desc = "An animal that is long past its prime. It is possible to recover it. Can be swabbed to recover its original animal's remnant DNA."
 	icon_state = "recover_animal"
-	//loot_amount_max = 3
-	//loot_list_name = "animal_reward"
 	loot = /obj/effect/spawner/random/xenoarch/animal
 	dig_xp = 5
 
@@ -87,7 +78,6 @@
 	name = "petrified clothing"
 	desc = "A piece of clothing that has long since lost its beauty."
 	icon_state = "recover_clothing"
-	//loot_list_name = "clothing_reward"
 	loot = /obj/effect/spawner/random/xenoarch/clothing
 	dig_xp = 7
 
