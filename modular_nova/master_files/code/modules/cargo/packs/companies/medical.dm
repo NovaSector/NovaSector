@@ -75,7 +75,7 @@
 	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/sterile_gauze
-	contains = list(/obj/item/stack/medical/gauze/sterilized)
+	contains = list(/obj/item/stack/medical/wrap/gauze/sterilized)
 	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/amollin

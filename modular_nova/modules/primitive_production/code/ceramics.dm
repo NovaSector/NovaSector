@@ -24,27 +24,20 @@
 	name = "clay"
 	desc = "It's clay."
 	color = "#757575"
-	categories = list(
-		MAT_CATEGORY_RIGID = TRUE,
-		MAT_CATEGORY_BASE_RECIPES = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = TRUE,
-		)
+	mat_flags = MATERIAL_CLASS_RIGID | MATERIAL_BASIC_RECIPES
+	mat_properties = list(
+		MATERIAL_DENSITY = 4,
+		MATERIAL_HARDNESS = 1,
+		MATERIAL_FLEXIBILITY = 9,
+		MATERIAL_REFLECTIVITY = 2,
+		MATERIAL_ELECTRICAL = 1,
+		MATERIAL_THERMAL = 8,
+		MATERIAL_CHEMICAL = 3,
+	)
 	sheet_type = /obj/item/stack/sheet/mineral/clay
 	value_per_unit = 5 / SHEET_MATERIAL_AMOUNT
-	armor_modifiers = list(MELEE = 0.5, BULLET = 0.5, LASER = 1.25, ENERGY = 0.5, BOMB = 0.5, BIO = 0.25, FIRE = 1.5, ACID = 1.5)
-	beauty_modifier = 0.3
 	turf_sound_override = FOOTSTEP_PLATING
 	texture_layer_icon_state = "brick"
-	fish_weight_modifier = 1.2
-	fishing_difficulty_modifier = 25 // clay fishing rods...
-	fishing_cast_range = -2
-	fishing_experience_multiplier = 0.3
-	fishing_completion_speed = 0.9
-	fishing_bait_speed_mult = 0.8
-	fishing_deceleration_mult = 2.5
-	fishing_bounciness_mult = 0.2
-	fishing_gravity_mult = 0.9
 
 GLOBAL_LIST_INIT(clay_recipes, list ( \
 	new/datum/stack_recipe("clay range", /obj/machinery/primitive_stove/clay, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC), \
