@@ -514,3 +514,29 @@
 	name = "harpy skintone right leg"
 	path = /obj/item/bodypart/leg/right/mutant/harpy_skin
 	supports_digitigrade = TRUE
+
+/datum/augment_item/limb/head/species/shadekin
+	name = "shadekin head"
+	path = /obj/item/bodypart/head/mutant/shadekin
+
+/datum/augment_item/limb/chest/species/shadekin
+	name = "shadekin chest"
+	path = /obj/item/bodypart/chest/mutant/shadekin
+
+/datum/augment_item/limb/l_arm/species/shadekin
+	name = "shadekin left arm"
+	path = /obj/item/bodypart/arm/left/mutant/shadekin
+
+/datum/augment_item/limb/r_arm/species/shadekin
+	name = "shadekin right arm"
+	path = /obj/item/bodypart/arm/right/mutant/shadekin
+
+/datum/augment_item/limb/l_leg/species/shadekin
+	name = "shadekin left leg"
+	path = /obj/item/bodypart/leg/left/mutant/shadekin
+	supports_digitigrade = TRUE
+
+/datum/augment_item/limb/r_leg/species/shadekin
+	name = "shadekin right leg"
+	path = /obj/item/bodypart/leg/right/mutant/shadekin
+	supports_digitigrade = TRUE

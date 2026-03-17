@@ -841,3 +841,8 @@
 	. = ..()
 	var/result = roll(20)
 	user.client?.looc_message("[user] rolls a d20 and gets [result].")
+
+/datum/emote/living/mar
+	key = "mar"
+	key_third_person = "mars"
+	message = "lets out a mar!"

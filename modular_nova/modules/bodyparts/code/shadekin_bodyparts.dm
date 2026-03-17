@@ -1,6 +1,6 @@
 // Shadekin bodyparts - custom body sprites with increased damage modifiers.
 
-#define BODYPART_ICON_SHADEKIN 'modular_nova/modules/shadekin/icons/shadekin_parts_greyscale.dmi'
+#define BODYPART_ICON_SHADEKIN 'modular_nova/modules/bodyparts/icons/shadekin_parts_greyscale.dmi'
 
 /obj/item/bodypart/head/mutant/shadekin
 	icon_greyscale = BODYPART_ICON_SHADEKIN
