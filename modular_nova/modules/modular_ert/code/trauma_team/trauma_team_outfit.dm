@@ -88,7 +88,7 @@
 /obj/item/storage/medkit/tactical/ntrauma/PopulateContents()
 	new /obj/item/reagent_containers/hypospray/medipen/atropine(src)
 	new /obj/item/reagent_containers/hypospray/medipen/atropine(src)
-	new /obj/item/stack/medical/gauze(src)
+	new /obj/item/stack/medical/wrap/gauze(src)
 	new /obj/item/stack/medical/suture/medicated(src)
 	new /obj/item/stack/medical/suture/medicated(src)
 	new /obj/item/stack/medical/mesh/advanced(src)

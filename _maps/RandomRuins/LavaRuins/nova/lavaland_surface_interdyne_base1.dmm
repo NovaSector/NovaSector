@@ -32,7 +32,7 @@
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/stack/sticky_tape/surgical{
+/obj/item/stack/medical/wrap/sticky_tape/surgical{
 	pixel_x = 6
 	},
 /turf/open/floor/iron/dark/textured_large,
@@ -3611,7 +3611,7 @@
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/stack/sticky_tape/surgical{
+/obj/item/stack/medical/wrap/sticky_tape/surgical{
 	pixel_x = 6
 	},
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
