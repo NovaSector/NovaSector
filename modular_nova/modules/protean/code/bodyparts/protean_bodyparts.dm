@@ -31,7 +31,7 @@
 	}\
 	if(limb_turf && !owner) {\
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE); \
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY)); \
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON)); \
 	}\
 	return ..(); \
 }
@@ -115,7 +115,7 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 		qdel_timer = null
 	if(limb_turf && !owner)
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY))
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
 	return ..()
 
 /obj/item/bodypart/leg/left/robot/protean
@@ -146,7 +146,7 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 		qdel_timer = null
 	if(limb_turf && !owner)
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY))
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
 	return ..()
 
 /obj/item/bodypart/leg/right/robot/protean/digitigrade
