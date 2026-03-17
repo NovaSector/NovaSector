@@ -129,6 +129,9 @@
 	return BRUSH_NONE
 
 /obj/item/xenoarch/strange_rock/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if (!user.mind)
+		user.dropItemToGround(tool)
+		return ITEM_INTERACT_BLOCKING
 	if(istype(tool, /obj/item/xenoarch/hammer))
 		var/obj/item/xenoarch/hammer/xeno_hammer = tool
 		user.balloon_alert(user, "carefully hammering...")
