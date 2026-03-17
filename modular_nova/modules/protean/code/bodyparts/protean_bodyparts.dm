@@ -24,9 +24,14 @@
 	var/qdel_timer; \
 }\
 ##path/Destroy() {\
+	var/turf/limb_turf = get_turf(src); \
 	if(!isnull(qdel_timer)) {\
 		deltimer(qdel_timer); \
 		qdel_timer = null; \
+	}\
+	if(limb_turf && !owner) {\
+		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE); \
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY)); \
 	}\
 	return ..(); \
 }
@@ -98,10 +103,19 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 	digitigrade_type = /obj/item/bodypart/leg/right/robot/protean/digitigrade
 	var/qdel_timer
 
+/obj/item/bodypart/leg/right/robot/protean/clear_ownership(mob/living/carbon/old_owner)
+	old_owner.remove_overlay(SHOES_LAYER)
+	old_owner.update_worn_shoes()
+	return ..()
+
 /obj/item/bodypart/leg/right/robot/protean/Destroy()
+	var/turf/limb_turf = get_turf(src)
 	if(!isnull(qdel_timer))
 		deltimer(qdel_timer)
 		qdel_timer = null
+	if(limb_turf && !owner)
+		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY))
 	return ..()
 
 /obj/item/bodypart/leg/left/robot/protean
@@ -120,10 +134,19 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 	digitigrade_type = /obj/item/bodypart/leg/left/robot/protean/digitigrade
 	var/qdel_timer
 
+/obj/item/bodypart/leg/left/robot/protean/clear_ownership(mob/living/carbon/old_owner)
+	old_owner.remove_overlay(SHOES_LAYER)
+	old_owner.update_worn_shoes()
+	return ..()
+
 /obj/item/bodypart/leg/left/robot/protean/Destroy()
+	var/turf/limb_turf = get_turf(src)
 	if(!isnull(qdel_timer))
 		deltimer(qdel_timer)
 		qdel_timer = null
+	if(limb_turf && !owner)
+		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY))
 	return ..()
 
 /obj/item/bodypart/leg/right/robot/protean/digitigrade
@@ -160,7 +183,7 @@ PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/right/robot/protean)
 /// so the welder attacks instead of healing.
 /obj/item/bodypart/chest/robot/protean/apply_ownership(mob/living/carbon/new_owner)
 	. = ..()
-	RegisterSignal(new_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY), PROC_REF(on_item_interaction))
+	RegisterSignals(new_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY), PROC_REF(on_item_interaction))
 
 /obj/item/bodypart/chest/robot/protean/clear_ownership(mob/living/carbon/old_owner)
 	UnregisterSignal(old_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY))
