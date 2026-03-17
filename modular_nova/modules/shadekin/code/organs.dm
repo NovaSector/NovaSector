@@ -31,11 +31,15 @@
 		return FALSE
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/light_averse)
+	owner.add_movespeed_modifier(/datum/movespeed_modifier/dark_affinity)
+	owner.add_actionspeed_modifier(/datum/actionspeed_modifier/hands_of_darkness)
 	heal_owner()
 	return TRUE
 
 /datum/status_effect/shadekin_regeneration/on_remove()
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+	owner.remove_movespeed_modifier(/datum/movespeed_modifier/dark_affinity)
+	owner.remove_actionspeed_modifier(/datum/actionspeed_modifier/hands_of_darkness)
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/light_averse)
 	return ..()
 
@@ -55,11 +59,17 @@
 
 /atom/movable/screen/alert/status_effect/shadekin_regeneration
 	name = "Dark Regeneration"
-	desc = "Feeling the tug of home, some of its soothing warmth comes to ease your burdens."
+	desc = "Feeling the tug of home, some of its soothing warmth comes to ease your burdens. Your wounds mend, your movements quicken, and your actions hasten."
 	icon_state = "lightless"
 
 /datum/movespeed_modifier/light_averse
 	multiplicative_slowdown = 0.25
+
+/datum/movespeed_modifier/dark_affinity
+	multiplicative_slowdown = -0.2
+
+/datum/actionspeed_modifier/hands_of_darkness
+	multiplicative_slowdown = -0.25
 
 // Shadekin Eyes - flash sensitive, large eyes with enhanced night vision.
 
