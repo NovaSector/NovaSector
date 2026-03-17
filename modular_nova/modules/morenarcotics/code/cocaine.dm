@@ -29,7 +29,7 @@
 	overdose_threshold = 20
 	ph = 9
 	taste_description = "bitterness" //supposedly does taste bitter in real life
-	addiction_types = list(/datum/addiction/stimulants = 14) //5.6 per 2 seconds
+	addiction_types = list(/datum/addiction/stimulants = 40)
 
 /datum/reagent/drug/cocaine/on_mob_metabolize(mob/living/containing_mob)
 	. = ..()

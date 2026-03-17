@@ -106,7 +106,8 @@
 	overdose_threshold = 30
 	ph = 8
 	taste_description = "flowers"
-	addiction_types = list(/datum/addiction/opioids = 18)
+	addiction_types = list(/datum/addiction/opioids = 30)
+	metabolization_rate = 0
 
 /datum/reagent/drug/opium/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	var/high_message = pick("You feel euphoric.", "You feel on top of the world.")
