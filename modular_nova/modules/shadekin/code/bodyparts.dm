@@ -44,6 +44,7 @@
 
 /obj/item/bodypart/leg/left/digitigrade/shadekin
 	icon_greyscale = BODYPART_ICON_SHADEKIN
+	limb_id = BODYPART_ID_DIGITIGRADE
 	footprint_sprite = FOOTPRINT_SPRITE_PAWS
 	footstep_type = FOOTSTEP_MOB_CLAW
 	brute_modifier = 1.2
@@ -51,6 +52,7 @@
 
 /obj/item/bodypart/leg/right/digitigrade/shadekin
 	icon_greyscale = BODYPART_ICON_SHADEKIN
+	limb_id = BODYPART_ID_DIGITIGRADE
 	footprint_sprite = FOOTPRINT_SPRITE_PAWS
 	footstep_type = FOOTSTEP_MOB_CLAW
 	brute_modifier = 1.2
