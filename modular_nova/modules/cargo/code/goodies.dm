@@ -71,7 +71,7 @@
 /datum/supply_pack/goody/xenoarch_intern
 	name = "Xenoarchaeology Intern Set"
 	desc = "A toolbelt with all the tools required to start dabbling in the fine art of scavenging xenoarchaeological finds, \
-			and a magnifying glass for actually analyzing your finds (Not guaranted to actually yield any results). \
+			and a magnifying glass for actually analyzing your finds (Not guaranteed to actually yield any results). \
 			Does not come with actual excavation tools, nor the ability to actually make anyone pay attention to one's \
 			attempts at intellectual posturing, nor any actual job experience as a curator."
 	cost = PAYCHECK_CREW * 15
