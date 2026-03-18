@@ -126,9 +126,13 @@
 	icon_state = "recoverer"
 
 /datum/scavenge_profile
+	/// ckey of the player used as unique identifier for the archeology system scavenge sites.
 	var/ckey
+	/// turf that serves to mark the archeological site that will respond to that client.
 	var/turf/site = null
+	/// cooldown variable, used to say in which time of the world.time the user is able to do another deep scan (and thus roll for a new site)
 	var/next_scan = 0
+	/// this is the leeway variable for digging a site. At 0 it means the digging it needs to be precise, at 1 it means it can be between one tile of the precise site, and so on.
 	var/site_radius
 
 /obj/item/xenoarch/handheld_radar
