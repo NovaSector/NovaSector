@@ -770,6 +770,61 @@
 	name = "Pencilskirt + Suit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
 
+//Officer's Naval Uniform
+
+/datum/greyscale_config/navalcap
+	name = "Naval Officer's Cap"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/navalcap.json'
+
+/datum/greyscale_config/navalcap/worn
+	name = "Naval Officer's Cap (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
+
+/datum/greyscale_config/officersnaval
+	name = "Officer's Naval Uniform"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/officersnaval.json'
+
+/datum/greyscale_config/officersnaval/worn
+	name = "Officer's Naval Uniform (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/officersnaval/worn/digi
+	name = "Officer's Naval Uniform (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/officersnavalskirt
+	name = "Officer's Naval Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/officersnavalskirt.json'
+
+/datum/greyscale_config/officersnavalskirt/worn
+	name = "Officer's Naval Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/officersnavalvest
+	name = "Officer's Naval Uniform (Vest)"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/officersnavalvest.json'
+
+/datum/greyscale_config/officersnavalvest/worn
+	name = "Officer's Naval Uniform (Vest, Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/officersnavalvest/worn/digi
+	name = "Officer's Naval Uniform (Vest, Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/officersnavalskirtvest
+	name = "Officer's Naval Skirt (Vest)"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/officersnavalskirtvest.json'
+
+/datum/greyscale_config/officersnavalskirtvest/worn
+	name = "Officer's Naval Skirt (Vest, Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
 // DOUBLE SKIRT DRESS
 /datum/greyscale_config/double_skirt_dress
 	name = "Double Skirt Dress"
@@ -1413,6 +1468,42 @@
 
 /datum/greyscale_config/windowed_dress/worn
 	name = "Windowed Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/slit_dress
+	name = "Slit Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/slit_dress.json'
+
+/datum/greyscale_config/slit_dress/worn
+	name = "Slit Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/shorter_dress
+	name = "Shorter Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/shorter_dress.json'
+
+/datum/greyscale_config/shorter_dress/worn
+	name = "Shorter Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/pen_skirt
+	name = "Pen Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/pen_skirt.json'
+
+/datum/greyscale_config/pen_skirt/worn
+	name = "Pen Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/formal_pen_skirt
+	name = "Formal Pen Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/formal_pen_skirt.json'
+
+/datum/greyscale_config/formal_pen_skirt/worn
+	name = "Formal Pen Dress (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
 // COSTUMES

@@ -33,13 +33,15 @@
 	return (wearer.obscured_slots & HIDEJUMPSUIT)
 
 /datum/bodypart_overlay/mutant/wings/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+	if(!..())
+		return FALSE
 	if(isnull(bodypart_owner.owner))
-		return ..()
+		return TRUE
 
 	var/mob/living/carbon/human/wearer = bodypart_owner.owner
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
 	if(isnull(wearer.w_uniform) && isnull(worn_suit))
-		return ..()
+		return TRUE
 
 	// Can hide if wearing uniform
 	if(feature_key in wearer.try_hide_mutant_parts)
@@ -349,9 +351,9 @@
 	name = "Moth (Deathshead)"
 	icon_state = "deathhead"
 
-/datum/sprite_accessory/wings/moth/featherful // Is actually 'feathery' on upstream
-	name = "Moth (Featherful)"
-	icon_state = "featherful"
+/datum/sprite_accessory/wings/moth/feathery
+	name = "Moth (Feathery)"
+	icon_state = "feathery"
 
 /datum/sprite_accessory/wings/moth/firewatch
 	name = "Moth (Firewatch)"

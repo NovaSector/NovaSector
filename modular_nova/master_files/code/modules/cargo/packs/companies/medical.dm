@@ -75,7 +75,7 @@
 	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/sterile_gauze
-	contains = list(/obj/item/stack/medical/gauze/sterilized)
+	contains = list(/obj/item/stack/medical/wrap/gauze/sterilized)
 	cost = CARGO_CRATE_VALUE * 0.2
 
 /datum/supply_pack/companies/medical/first_aid/amollin
@@ -252,10 +252,6 @@
 /datum/supply_pack/companies/medical/equipment/hypospray_upgrade
 	contains = list(/obj/item/device/custom_kit/deluxe_hypo2)
 	cost = CARGO_CRATE_VALUE
-
-/datum/supply_pack/companies/medical/equipment/afad
-	contains = list(/obj/item/gun/medbeam/afad)
-	cost = CARGO_CRATE_VALUE * 2.5
 
 /datum/supply_pack/companies/medical/equipment/medstation
 	contains = list(/obj/item/wallframe/frontier_medstation)

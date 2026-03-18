@@ -122,7 +122,7 @@
 		/obj/item/cautery,
 		/obj/item/hemostat,
 		/obj/item/reagent_containers/blood,
-		/obj/item/stack/sticky_tape,
+		/obj/item/stack/medical/wrap/sticky_tape,
 
 	))
 
@@ -131,7 +131,7 @@
 
 /obj/item/storage/pouch/medical/loaded/PopulateContents()
 	generate_items_inside(list(
-		/obj/item/stack/medical/gauze/twelve = 1,
+		/obj/item/stack/medical/wrap/gauze/twelve = 1,
 		/obj/item/stack/medical/suture = 2,
 		/obj/item/stack/medical/mesh = 2,
 		/obj/item/reagent_containers/hypospray/medipen = 1,
@@ -165,7 +165,7 @@
 		/obj/item/stack/medical/suture = 1,
 		/obj/item/stack/medical/mesh = 1,
 		/obj/item/storage/box/bandages = 1,
-		/obj/item/stack/medical/gauze/twelve = 1,
+		/obj/item/stack/medical/wrap/gauze/twelve = 1,
 		/obj/item/reagent_containers/hypospray/medipen/ekit = 1,
 	)
 	generate_items_inside(items_inside, src)
@@ -176,7 +176,7 @@
 	var/static/items_inside = list(
 		/obj/item/cautery = 1,
 		/obj/item/bonesetter = 1,
-		/obj/item/stack/medical/gauze/twelve = 1,
+		/obj/item/stack/medical/wrap/gauze/twelve = 1,
 		/obj/item/reagent_containers/hypospray/medipen/ekit = 2,
 	)
 	generate_items_inside(items_inside, src)
@@ -187,7 +187,7 @@
 	var/static/items_inside = list(
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/stack/medical/mesh/advanced = 1,
-		/obj/item/stack/medical/gauze/twelve = 1,
+		/obj/item/stack/medical/wrap/gauze/twelve = 1,
 		/obj/item/reagent_containers/hypospray/medipen/ekit = 1,
 	)
 	generate_items_inside(items_inside, src)
