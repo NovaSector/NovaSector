@@ -68,5 +68,5 @@
 	icon_state = "/obj/item/disk/neuroware/twitch"
 	post_init_icon_state = "chip_maint"
 	greyscale_colors = CIRCUIT_COLOR_SECURITY
-	list_reagents = list(/datum/reagent/drug/twitch/synth = 15)
+	list_reagents = list(/datum/reagent/drug/twitch/synth = 14)
 	manufacturer_tag = NEUROWARE_MAINT
