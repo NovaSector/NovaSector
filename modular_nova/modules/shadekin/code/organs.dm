@@ -131,7 +131,7 @@
 	var/mood_color = "#5ec7e4"
 	switch(shadekin_mood)
 		if(SANITY_LEVEL_GREAT)
-			mood_color = "#5ec7e4"
+			mood_color = "#30f01f"
 		if(SANITY_LEVEL_NEUTRAL)
 			mood_color = "#a8d8ea"
 		if(SANITY_LEVEL_UNSTABLE)
