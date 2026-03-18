@@ -293,8 +293,13 @@
   vinylspiders:
   - bugfix: fixes certain particle effects not triggering under certain conditions
 2026-03-18:
+  Happyowl93:
+  - rscadd: twitch neuroware, qani-laaca works on synths
   Reco201:
   - rscadd: Added Warning Cone to Loadout
+  Rilomatic:
+  - rscadd: Added Towa's and Ember's Donor Items along with minor fixes to Windowed
+      Dress V2.0, Now dresses can be equipped in Character's Loadout.
   dee-dubya:
   - rscdel: After Central Command realized that they were spending an entire additional
       two credits per annum on ink and toner costs, they have decided to include less
