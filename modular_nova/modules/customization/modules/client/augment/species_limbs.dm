@@ -514,3 +514,29 @@
 	name = "harpy skintone right leg"
 	path = /obj/item/bodypart/leg/right/mutant/harpy_skin
 	supports_digitigrade = TRUE
+
+/datum/augment_item/limb/head/species/protean
+	name = "protean head"
+	path = /obj/item/bodypart/head/robot/protean
+
+/datum/augment_item/limb/chest/species/protean
+	name = "protean chest"
+	path = /obj/item/bodypart/chest/robot/protean
+
+/datum/augment_item/limb/l_arm/species/protean
+	name = "protean left arm"
+	path = /obj/item/bodypart/arm/left/robot/protean
+
+/datum/augment_item/limb/r_arm/species/protean
+	name = "protean right arm"
+	path = /obj/item/bodypart/arm/right/robot/protean
+
+/datum/augment_item/limb/l_leg/species/protean
+	name = "protean left leg"
+	path = /obj/item/bodypart/leg/left/robot/protean
+	supports_digitigrade = TRUE
+
+/datum/augment_item/limb/r_leg/species/protean
+	name = "protean right leg"
+	path = /obj/item/bodypart/leg/right/robot/protean
+	supports_digitigrade = TRUE

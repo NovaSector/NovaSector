@@ -87,9 +87,6 @@
 	var/list/organ_slots = list(ORGAN_SLOT_BRAIN, ORGAN_SLOT_HEART, ORGAN_SLOT_STOMACH, ORGAN_SLOT_EYES)
 	language_prefs_whitelist = list(/datum/language/monkey)
 
-/mob/living/carbon/human/species/protean
-	race = /datum/species/protean
-
 /datum/species/protean/Destroy(force)
 	QDEL_NULL(species_modsuit)
 	owner = null
