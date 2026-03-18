@@ -155,10 +155,11 @@
 			living_mob.balloon_alert_to_viewers("[mode ? "ears vibrate" : "shivers"]", "transmission heard...")
 
 	if(length(GLOB.dead_mob_list))
-		for(var/mob/dead_mob in GLOB.dead_mob_list)
-			if(dead_mob.client)
-				var/link = FOLLOW_LINK(dead_mob, user)
-				to_chat(dead_mob, "[link] [rendered]")
+		for(var/mob/dead_mob as anything in GLOB.dead_mob_list)
+			if(isnull(dead_mob.client) || isnewplayer(dead_mob))
+				continue
+			var/link = FOLLOW_LINK(dead_mob, user)
+			to_chat(dead_mob, "[link] [rendered]")
 
 // Shadekin Ears - sensitive ears that detect empathic communication.
 
