@@ -78,7 +78,7 @@
 		COOLDOWN_RESET(src, damage_delay)
 	COOLDOWN_START(src, damage_delay, REGEN_TIME)
 
-	// Sharp attacks cause nanite slurry blood loss
+	// Sharp attacks cause iron blood loss
 	if(damagetype != BRUTE || !sharpness)
 		return
 	if(!owner || owner.stat == DEAD)
