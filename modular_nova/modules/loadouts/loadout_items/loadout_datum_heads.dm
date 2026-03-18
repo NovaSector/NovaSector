@@ -226,6 +226,11 @@
 	item_path = /obj/item/clothing/head/cone_of_shame
 	group = "Miscellaneous"
 
+/datum/loadout_item/head/warning_cone
+	name = "Warning Cone"
+	item_path = /obj/item/clothing/head/cone
+	group = "Miscellaneous"
+
 /datum/loadout_item/head/wig //TG overwrite so that we can have both fake/natural wigs
 	name = "Wig"
 	item_path = /obj/item/clothing/head/wig

@@ -1272,6 +1272,10 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		return FALSE
 	if(required_bodytype && !(carbon_part.bodytype & required_bodytype))
 		return FALSE
+	// NOVA EDIT ADDITION START - Synth Flags
+	if(blocked_bodytype && (carbon_part.bodytype & blocked_bodytype))
+		return FALSE
+	// NOVA EDIT ADDITION END - Synth Flags
 	return ..()
 
 /datum/surgery_operation/basic/has_surgery_state(mob/living/patient, state)
