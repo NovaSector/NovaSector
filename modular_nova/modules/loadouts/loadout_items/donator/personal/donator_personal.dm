@@ -1052,7 +1052,7 @@
 	item_path = /obj/item/storage/belt/espatier
 	ckeywhitelist = list("pyriteChimera", "darkinite", "deadmon_wonderland", "nonplayer775", "rilomatic")
 
-/datum/loadout_item/head/piece/stachelm
+/datum/loadout_item/head/stachelm
 	name = "Stachelm"
 	item_path = /obj/item/clothing/head/helmet/donator/stachelm
 	ckeywhitelist = list("ghostof93")
