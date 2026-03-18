@@ -142,7 +142,7 @@
 			mood_color = "#8b0000"
 	var/rendered = "<span style=color:[mood_color];><b>[user.real_name]:</b> [message]</span>"
 
-	user.log_talk(message, LOG_SAY, tag="shadekin")
+	user.log_talk(message, LOG_SAY, tag = "shadekin")
 	for(var/mob/living/carbon/human/living_mob in GLOB.alive_mob_list)
 		var/obj/item/organ/ears/shadekin/target_ears = living_mob.get_organ_slot(ORGAN_SLOT_EARS)
 
