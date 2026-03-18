@@ -122,6 +122,7 @@
 	var/layer_above_undies = -(UNIFORM_LAYER - 0.06)
 	/// Ditto, but for BELOW UNDERWEAR
 	var/layer_below_undies = -(UNIFORM_LAYER + 0.06)
+	draw_on_husks = FALSE
 
 /datum/bodypart_overlay/mutant/genital/override_color(rgb_value)
 	return draw_color

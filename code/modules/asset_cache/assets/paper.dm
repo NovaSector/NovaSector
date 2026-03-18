@@ -1,5 +1,5 @@
-/datum/asset/spritesheet/simple/paper
-	name = "paper"
+/datum/asset/spritesheet/simple/stamps
+	name = "stamps"
 	assets = list(
 
 		// NOVA EDIT ADDITION: START - Donator stamp icons
@@ -33,4 +33,10 @@
 		"stamp-mime" = 'icons/stamp_icons/large_stamp-mime.png',
 		"stamp-centcom" = 'icons/stamp_icons/large_stamp-centcom.png',
 		"stamp-syndicate" = 'icons/stamp_icons/large_stamp-syndicate.png'
+	)
+
+// Contains 256x128 versions of various in game company logos
+/datum/asset/simple/logos
+	assets = list(
+		"nanotrasen-logo" = 'icons/ui/logos/nanotrasen-logo.png',
 	)
