@@ -292,7 +292,7 @@
 	group = "Casualwear"
 
 /datum/loadout_item/under/miscellaneous/shorter_dress
-	name = "shorter Dress"
+	name = "Shorter Dress"
 	item_path = /obj/item/clothing/under/dress/nova/shorter_dress
 	group = "Casualwear"
 

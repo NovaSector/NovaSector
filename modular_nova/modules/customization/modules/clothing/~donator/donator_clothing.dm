@@ -2667,7 +2667,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 //Ember's Donor Items
 /obj/item/clothing/suit/armor/donator/duke_armored_coat
-	name = "Duke Armored Coat"
+	name = "Duke's armored coat"
 	desc = "A custom-tailored armored Terran European officer's frock with a sewn-in steel-ceramic carapace. \
 			Embodies the spirit of 'old-world imperialism' to an almost aggressive degree, with the usage of bold, dark colors. \
 			The vest prominently displays the Rathenhaus family crest on the shoulders- \
@@ -2686,7 +2686,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 //Towa's Donor Items
 /obj/item/clothing/head/helmet/donator/stachelm
-	name = "Stachelm"
+	name = "\improper Stachelm"
 	desc = "The S1N Special Tactics And Combat helmet is a prototype combat helmet made \
 			Modular with Integrated HUD and UI so it can be used for a wide range of combat scenarios, \
 			from stealth to heavy combat the S1N combat helmet has your skull covered."
@@ -2704,27 +2704,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	light_power = 1
 	light_color = "#fff9f3"
 	light_on = FALSE
-	var/on = FALSE
 
 /obj/item/clothing/head/helmet/donator/stachelm/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
 
+// Toggles the helmet light on if it was off previously, or off it was on
 /obj/item/clothing/head/helmet/donator/stachelm/proc/toggle_helmet_light(mob/living/user)
-	on = !on
-	if(on)
-		turn_on(user)
-	else
-		turn_off(user)
-
-// Toggle state for the light ON
-/obj/item/clothing/head/helmet/donator/stachelm/proc/turn_on(mob/user)
-	set_light_on(TRUE)
-
-// Toggle state for the light OFF
-/obj/item/clothing/head/helmet/donator/stachelm/proc/turn_off(mob/user)
-	set_light_on(FALSE)
+	set_light_on(!light_on)
 
 /obj/item/clothing/head/helmet/donator/stachelm/attack_self(mob/living/user)
 	toggle_helmet_light(user)
