@@ -29,7 +29,7 @@ export const LewdItemsTab = ({searchText}: LewdItemsTabPropsData) => {
   const filteredSlots = lewd_slots.filter((slot) => {
     return (
       slot.name.toLowerCase().includes(searchLower) ||
-      (slot.item_name && slot.item_name.toLowerCase().includes(searchLower))
+      (slot.item_name?.toLowerCase().includes(searchLower))
     );
   });
 

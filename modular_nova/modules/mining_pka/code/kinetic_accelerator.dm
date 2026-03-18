@@ -42,7 +42,7 @@
 	icon_state = "kineticrailgun"
 	base_icon_state = "kineticrailgun"
 	inhand_icon_state = "kineticgun"
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_BULKY
 	pin = /obj/item/firing_pin/wastes
 	recharge_time = 3 SECONDS
 	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/railgun)
