@@ -292,3 +292,13 @@
       more than 4 tiles away.
   vinylspiders:
   - bugfix: fixes certain particle effects not triggering under certain conditions
+2026-03-18:
+  Reco201:
+  - rscadd: Added Warning Cone to Loadout
+  dee-dubya:
+  - rscdel: After Central Command realized that they were spending an entire additional
+      two credits per annum on ink and toner costs, they have decided to include less
+      words in their corporate representative's job titles.
+  - qol: Other job titles have also been changed, shortened, added, and removed.
+  vinylspiders:
+  - bugfix: tend wounds surgery works on robotic limbs
