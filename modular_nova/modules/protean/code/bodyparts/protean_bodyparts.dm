@@ -25,11 +25,12 @@
 }\
 ##path/Destroy() {\
 	var/turf/limb_turf = get_turf(src); \
+	var/was_dismembered = !isnull(qdel_timer); \
 	if(!isnull(qdel_timer)) {\
 		deltimer(qdel_timer); \
 		qdel_timer = null; \
 	}\
-	if(limb_turf && !owner) {\
+	if(was_dismembered && limb_turf && !owner) {\
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE); \
 		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY)); \
 	}\
@@ -111,10 +112,11 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 
 /obj/item/bodypart/leg/right/robot/protean/Destroy()
 	var/turf/limb_turf = get_turf(src)
+	var/was_dismembered = !isnull(qdel_timer)
 	if(!isnull(qdel_timer))
 		deltimer(qdel_timer)
 		qdel_timer = null
-	if(limb_turf && !owner)
+	if(was_dismembered && limb_turf && !owner)
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
 		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY))
 	return ..()
@@ -142,10 +144,11 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 
 /obj/item/bodypart/leg/left/robot/protean/Destroy()
 	var/turf/limb_turf = get_turf(src)
+	var/was_dismembered = !isnull(qdel_timer)
 	if(!isnull(qdel_timer))
 		deltimer(qdel_timer)
 		qdel_timer = null
-	if(limb_turf && !owner)
+	if(was_dismembered && limb_turf && !owner)
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
 		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_NANITE_SLURRY))
 	return ..()

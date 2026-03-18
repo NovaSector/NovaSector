@@ -71,12 +71,24 @@
 		owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown, multiplicative_slowdown = 2)
 		COOLDOWN_START(src, starving_message, 20 SECONDS)
 
-/obj/item/organ/stomach/protean/proc/damage_listener()
+/obj/item/organ/stomach/protean/proc/damage_listener(mob/living/source, damage, damagetype, def_zone, blocked, wound_bonus, exposed_wound_bonus, sharpness, attack_direction, attacking_item)
 	SIGNAL_HANDLER
 
 	if(COOLDOWN_STARTED(src, damage_delay))
 		COOLDOWN_RESET(src, damage_delay)
 	COOLDOWN_START(src, damage_delay, REGEN_TIME)
+
+	// Sharp attacks cause nanite slurry blood loss
+	if(damagetype != BRUTE || !sharpness)
+		return
+	if(!owner || owner.stat == DEAD)
+		return
+	var/blood_loss = damage * 0.5
+	owner.adjust_blood_volume(-blood_loss)
+	if(damage >= 5 && iscarbon(owner))
+		var/mob/living/carbon/carbon_owner = owner
+		var/spray_direction = attack_direction || pick(GLOB.cardinals)
+		carbon_owner.spray_blood(spray_direction, clamp(round(damage / 10), 1, 3))
 
 /// Check to see if our metal storage is full.
 /obj/item/organ/stomach/protean/proc/try_stomach_eat(mob/eater, atom/eating)
