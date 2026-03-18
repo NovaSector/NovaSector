@@ -11,6 +11,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	species_language_holder = /datum/language_holder/shadekin
+	language_prefs_whitelist = list(/datum/language/marish/empathy = TRUE)
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,

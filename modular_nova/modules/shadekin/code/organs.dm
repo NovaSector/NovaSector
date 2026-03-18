@@ -99,15 +99,12 @@
 		return modify_speech(source, speech_args)
 
 /obj/item/organ/tongue/shadekin/modify_speech(datum/source, list/speech_args)
-	ASYNC
-		actually_modify_speech(source, speech_args)
-	speech_args[SPEECH_MESSAGE] = ""
-
-/obj/item/organ/tongue/shadekin/proc/actually_modify_speech(datum/source, list/speech_args)
 	var/message = speech_args[SPEECH_MESSAGE]
+	speech_args[SPEECH_MESSAGE] = ""
 	var/mob/living/carbon/human/user = owner
 	var/shadekin_mood = user.mob_mood.sanity_level
 	var/empathy_timer = 2 SECONDS
+	var/mood_color = "#5ec7e4"
 	var/obj/item/organ/ears/shadekin/user_ears = user.get_organ_slot(ORGAN_SLOT_EARS)
 	var/mode = istype(user_ears)
 	user.balloon_alert_to_viewers("[mode ? "ears vibrate" : "shivers"]", "projecting thoughts...")
@@ -115,34 +112,31 @@
 	switch(shadekin_mood)
 		if(SANITY_LEVEL_GREAT)
 			empathy_timer = 0
+			mood_color = "#3aff28"
 		if(SANITY_LEVEL_NEUTRAL)
 			empathy_timer = 1 SECONDS
+			mood_color = "#a8d8ea"
 		if(SANITY_LEVEL_UNSTABLE)
 			empathy_timer = 4 SECONDS
+			mood_color = "#d4a843"
 		if(SANITY_LEVEL_CRAZY)
 			empathy_timer = 5 SECONDS
+			mood_color = "#c94a4a"
 			message = stars(message)
 		if(SANITY_LEVEL_INSANE)
 			empathy_timer = 6 SECONDS
+			mood_color = "#8b0000"
 			message = readable_corrupted_text(message)
 
-	if(empathy_timer && !do_after(source, empathy_timer, source))
-		message = full_capitalize(rot13(message))
-	var/mood_color = "#5ec7e4"
-	switch(shadekin_mood)
-		if(SANITY_LEVEL_GREAT)
-			mood_color = "#30f01f"
-		if(SANITY_LEVEL_NEUTRAL)
-			mood_color = "#a8d8ea"
-		if(SANITY_LEVEL_UNSTABLE)
-			mood_color = "#d4a843"
-		if(SANITY_LEVEL_CRAZY)
-			mood_color = "#c94a4a"
-		if(SANITY_LEVEL_INSANE)
-			mood_color = "#8b0000"
-	var/rendered = "<span style=color:[mood_color];><b>[user.real_name]:</b> [message]</span>"
+	var/rendered = "<span style='color: [mood_color]'><b>[user.real_name]:</b> [message]</span>"
 
-	user.log_talk(message, LOG_SAY, tag = "shadekin")
+	if(empathy_timer)
+		addtimer(CALLBACK(src, PROC_REF(deliver_empathy), user, rendered), empathy_timer)
+	else
+		deliver_empathy(user, rendered)
+
+/obj/item/organ/tongue/shadekin/proc/deliver_empathy(mob/living/carbon/human/user, rendered)
+	user.log_talk(rendered, LOG_SAY, tag = "shadekin")
 	for(var/mob/living/carbon/human/living_mob in GLOB.alive_mob_list)
 		var/obj/item/organ/ears/shadekin/target_ears = living_mob.get_organ_slot(ORGAN_SLOT_EARS)
 
@@ -151,15 +145,14 @@
 
 		to_chat(living_mob, rendered)
 		if(living_mob != user)
-			mode = istype(target_ears)
+			var/mode = istype(target_ears)
 			living_mob.balloon_alert_to_viewers("[mode ? "ears vibrate" : "shivers"]", "transmission heard...")
 
-	if(length(GLOB.dead_mob_list))
-		for(var/mob/dead_mob as anything in GLOB.dead_mob_list)
-			if(isnull(dead_mob.client) || isnewplayer(dead_mob))
-				continue
-			var/link = FOLLOW_LINK(dead_mob, user)
-			to_chat(dead_mob, "[link] [rendered]")
+	for(var/mob/dead_mob as anything in GLOB.dead_mob_list)
+		if(isnull(dead_mob.client) || isnewplayer(dead_mob))
+			continue
+		var/link = FOLLOW_LINK(dead_mob, user)
+		to_chat(dead_mob, "[link] [rendered]")
 
 // Shadekin Ears - sensitive ears that detect empathic communication.
 
