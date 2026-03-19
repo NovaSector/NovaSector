@@ -408,17 +408,25 @@
 	)
 
 /datum/sprite_accessory/tails/mammal/wagging/big/shade/long
-	name = "Shade (Long)"
+	name = "Shadekin (Long)"
 	icon_state = "shadekinlong_large"
 
 /datum/sprite_accessory/tails/mammal/wagging/big/shade/striped
-	name = "Shade (Striped)"
+	name = "Shadekin (Striped)"
 	icon_state = "shadekinlongstriped_large"
 
 /datum/sprite_accessory/tails/mammal/wagging/big/shade/fluffy
-	name = "Shade (Fluffy)"
+	name = "Shadekin (Fluffy)"
 	icon_state = "bigandfluffy"
 	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/mammal/wagging/shadekin
+	name = "Shadekin"
+	icon_state = "shadekin"
+
+/datum/sprite_accessory/tails/mammal/wagging/shadekin/shadekinshort
+	name = "Shadekin Short"
+	icon_state = "shadekinshort"
 
 /datum/sprite_accessory/tails/mammal/wagging/big/ringtail
 	name = "Ring Tail (Long)"
