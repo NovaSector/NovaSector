@@ -1,5 +1,3 @@
-/// Limb color priority for energy shield glow effect
-#define LIMB_COLOR_ENERGY_SHIELD 3
 /// Filter name for the energy shield outline glow
 #define ENERGY_SHIELD_FILTER "energy_shield_tint"
 /// Filter name for the energy shield texture pattern
@@ -239,20 +237,15 @@
 	wearer.remove_filter(ENERGY_SHIELD_FILTER)
 	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = tint_color))
 
-/// Briefly tints the struck limb with the shield color to indicate impact.
+/// Briefly pulses the whole mob with the shield color to indicate impact.
+/// Uses animate() so the flash is visible through worn clothing (KEEP_TOGETHER composites everything).
 /obj/item/clothing/accessory/energy_shield/proc/flash_limb(obj/item/bodypart/limb)
-	if(QDELETED(limb) || QDELETED(wearer))
+	if(QDELETED(wearer))
 		return
 	playsound(wearer, 'sound/items/weapons/tap.ogg', 20)
-	limb.add_color_override(shield_color, LIMB_COLOR_ENERGY_SHIELD)
-	limb.update_limb()
-	wearer.update_body_parts()
-	sleep(0.3 SECONDS)
-	if(QDELETED(limb) || QDELETED(wearer))
-		return
-	limb.remove_color_override(LIMB_COLOR_ENERGY_SHIELD)
-	limb.update_limb()
-	wearer.update_body_parts()
+	var/original_color = wearer.color
+	wearer.color = shield_color
+	animate(wearer, color = original_color, time = 0.3 SECONDS)
 
 // --- SHIELD HUD ---
 
@@ -373,7 +366,6 @@
 		update_shield_visuals()
 	update_shield_hud()
 
-#undef LIMB_COLOR_ENERGY_SHIELD
 #undef ENERGY_SHIELD_FILTER
 #undef ENERGY_SHIELD_PATTERN_FILTER
 #undef ENERGY_SHIELD_TRAIT
