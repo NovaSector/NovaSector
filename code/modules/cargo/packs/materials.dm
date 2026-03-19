@@ -98,7 +98,7 @@
 		pack.crate_name = "[name] canister crate"
 		pack.id = "[type]([name])"
 
-		pack.cost = cost + moleCount * initial(gas.base_value) * 1.6
+		pack.cost = cost + moleCount * (GLOB.gas_base_values[gas] || initial(gas.base_value)) * 1.6 // NOVA EDIT CHANGE - ORIGINAL: pack.cost = cost + moleCount * initial(gas.base_value) * 1.6
 		pack.cost = CEILING(pack.cost, 10)
 
 		pack.test_ignored = FALSE
