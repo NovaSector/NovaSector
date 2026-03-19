@@ -1,18 +1,39 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "af" = (
-/obj/machinery/door/airlock/multi_tile/metal{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/blood/splatter/over_window,
-/turf/open/floor/iron/white,
-/area/space)
+/obj/machinery/door/airlock/multi_tile/metal{
+	dir = 4;
+	opacity = 1
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
 "ag" = (
 /obj/structure/closet/wardrobe/genetics_white,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
+"am" = (
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = -5;
+	pixel_y = -11
+	},
+/turf/open/floor/iron/white/side{
+	dir = 6
+	},
+/area/ruin/space/unpowered)
 "aq" = (
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
+"at" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/syringe{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "az" = (
 /obj/effect/decal/cleanable/blood/gibs/up{
 	pixel_x = -1;
@@ -24,8 +45,13 @@
 	pixel_y = -12
 	},
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"aC" = (
+/turf/open/floor/iron/white/side{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
 "aD" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
@@ -34,15 +60,29 @@
 	dir = 6
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
 "bK" = (
 /obj/machinery/light/broken/directional/north,
-/turf/open/floor/iron/white,
-/area/space)
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "co" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
+"cq" = (
+/obj/machinery/light/broken/directional/north,
+/obj/item/wallframe/closet{
+	pixel_x = -29;
+	pixel_y = 0
+	},
+/obj/item/gps/spaceruin{
+	gpstag = "Distress Signal"
+	},
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
 "cW" = (
 /obj/item/paper{
 	text = "Don't open the doors______"
@@ -54,19 +94,19 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/mob_spawn/corpse/human/syndicatestormtrooper,
 /turf/open/floor/iron/white/corner,
-/area/space)
+/area/ruin/space/unpowered)
 "ft" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
 "ge" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
 "gm" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
 "go" = (
 /obj/structure/rack/shelf,
 /obj/item/reagent_containers/syringe,
@@ -74,22 +114,43 @@
 	pixel_x = -3;
 	pixel_y = -9
 	},
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "gw" = (
 /obj/machinery/light/directional/north,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "gP" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
+"gW" = (
+/obj/item/ammo_casing/c357,
+/obj/item/ammo_casing/c357{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/obj/item/ammo_casing/c357{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/obj/item/ammo_casing/c357{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/open/floor/iron/white/side{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/area/ruin/space/unpowered)
 "hP" = (
 /obj/effect/mob_spawn/corpse/human,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
 "ii" = (
 /obj/structure/rack/shelf,
 /obj/item/reagent_containers/syringe,
@@ -97,14 +158,22 @@
 	pixel_x = 1;
 	pixel_y = 3
 	},
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"iR" = (
+/obj/effect/gibspawner/human,
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
 "iX" = (
 /obj/structure/frame/computer{
 	dir = 8
 	},
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
 "jL" = (
 /obj/structure/rack/shelf,
 /obj/item/reagent_containers/syringe{
@@ -115,118 +184,218 @@
 	pixel_x = 1
 	},
 /obj/machinery/light/broken/directional/south,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "jW" = (
 /obj/effect/mob_spawn/corpse/human/doctor,
 /obj/machinery/light/directional/north,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "ld" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
+"lX" = (
+/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
+/turf/open/floor/iron/white/side{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
 "mo" = (
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock/external,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
 "mE" = (
-/turf/closed/wall/mineral/plastitanium/explosive,
-/area/space)
+/obj/effect/spawner/random/structure/grille,
+/obj/effect/spawner/random/structure/grille,
+/turf/open/space/basic,
+/area/ruin/space/unpowered)
 "mQ" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
 "os" = (
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
+"oB" = (
+/obj/effect/gibspawner/human,
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
 "oO" = (
 /obj/structure/closet/crate/science,
 /obj/item/gun/syringe,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "pg" = (
-/obj/structure/lattice,
+/obj/structure/grille/broken,
 /turf/open/space/basic,
-/area/space)
+/area/ruin/space/unpowered)
 "pL" = (
 /obj/structure/closet/crate/science,
 /obj/effect/mob_spawn/corpse/human/scientist,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "qP" = (
 /obj/effect/gibspawner/human,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/corner{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
 "rZ" = (
 /obj/effect/mob_spawn/corpse/human/scientist,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 9
+	},
+/area/ruin/space/unpowered)
 "sI" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/machinery/light/broken/directional/south,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"sM" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/mob_spawn/corpse/human/bridgeofficer,
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 14;
+	pixel_y = 4
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 11;
+	pixel_y = 8
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 10;
+	pixel_y = 4
+	},
+/obj/item/gun/ballistic/automatic/wt550{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "ue" = (
 /obj/machinery/light/broken/directional/south,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/corner{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
 "uT" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 5
 	},
-/obj/structure/sign/warning/explosives/alt/directional/north,
 /obj/effect/mine/stun,
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
-/area/space)
+/area/ruin/space/unpowered)
 "vv" = (
 /obj/effect/mob_spawn/corpse/human/generic_assistant,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 10
+	},
+/area/ruin/space/unpowered)
+"wi" = (
+/obj/structure/grille,
+/turf/open/space/basic,
+/area/ruin/space/unpowered)
+"wm" = (
+/obj/machinery/light/broken/directional/north,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "wo" = (
 /obj/effect/mine/stun,
 /obj/machinery/light/small/red/dim/directional/north,
 /turf/open/floor/iron/dark,
-/area/space)
+/area/ruin/space/unpowered)
 "wD" = (
+/obj/effect/decal/cleanable/blood,
 /obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear,
-/turf/open/floor/iron/white,
-/area/space)
+/obj/item/gun/ballistic/revolver/badass/nuclear{
+	pixel_x = 3;
+	pixel_y = 6
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
 "wW" = (
 /obj/effect/mob_spawn/corpse/human/engineer,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
 "xk" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
+"xG" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
 "xR" = (
 /turf/closed/wall/mineral/titanium,
-/area/space)
+/area/ruin/space/unpowered)
 "xV" = (
-/obj/effect/mob_spawn/corpse/human/bridgeofficer,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/corner{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
+"yk" = (
+/turf/open/floor/iron/white/side{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
 "zI" = (
-/obj/effect/spawner/structure/window/reinforced/tinted,
-/turf/open/floor/plating/airless,
-/area/space)
+/obj/item/ammo_casing/c357,
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "zT" = (
 /obj/structure/rack/shelf,
 /obj/item/reagent_containers/syringe{
 	pixel_y = -9
 	},
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "Bh" = (
-/turf/closed/wall/mineral/plastitanium,
-/area/space)
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/unpowered)
+"BF" = (
+/obj/item/ammo_casing/c357,
+/turf/open/floor/iron/white/side{
+	dir = 5
+	},
+/area/ruin/space/unpowered)
+"Cc" = (
+/obj/effect/gibspawner/human,
+/turf/open/floor/iron/white/side{
+	dir = 5
+	},
+/area/ruin/space/unpowered)
 "Ck" = (
 /obj/machinery/power/shuttle_engine/large{
 	dir = 8
@@ -235,7 +404,11 @@
 	dir = 10
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
+"Cr" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
 "Dr" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -244,33 +417,68 @@
 	dir = 4
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
 "DK" = (
 /obj/machinery/power/shuttle_engine/large{
 	dir = 4
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
+"ED" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "EL" = (
 /obj/structure/closet/crate/science,
 /obj/effect/mine/stun,
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"FG" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 24;
+	pixel_y = -12
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 10;
+	pixel_y = -6
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	pixel_x = 8;
+	pixel_y = -19
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 9;
+	pixel_y = -6
+	},
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
 "Gj" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
 "Gs" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst,
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
 "GM" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
 "GS" = (
 /obj/structure/closet/crate/science,
 /obj/item/reagent_containers/syringe,
@@ -285,24 +493,33 @@
 	pixel_x = 1;
 	pixel_y = -9
 	},
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "HF" = (
 /obj/machinery/door/airlock/multi_tile/metal{
-	dir = 4
+	dir = 4;
+	opacity = 1
 	},
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
 "HZ" = (
 /obj/effect/decal/cleanable/blood/gibs/down{
 	pixel_y = 12
 	},
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
 "IQ" = (
 /obj/machinery/light/directional/south,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"Jm" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/white/corner{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
 "Kt" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 10
@@ -312,11 +529,12 @@
 /turf/open/floor/iron/white/corner{
 	dir = 4
 	},
-/area/space)
+/area/ruin/space/unpowered)
 "LF" = (
-/obj/effect/mine/stun,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/corner{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
 "Mh" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -325,7 +543,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
 "MF" = (
 /obj/structure/rack/shelf,
 /obj/item/reagent_containers/syringe,
@@ -333,30 +551,74 @@
 	pixel_x = -1;
 	pixel_y = -9
 	},
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/corner{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
 "Nj" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 6
+	},
+/area/ruin/space/unpowered)
 "NA" = (
 /obj/effect/mob_spawn/corpse/human/syndicatestormtrooper,
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
+"NQ" = (
+/obj/effect/mob_spawn/corpse/human/scientist,
+/turf/open/floor/iron/white,
+/area/ruin/space/unpowered)
+"Oh" = (
+/obj/machinery/light/broken/directional/south,
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "On" = (
 /obj/machinery/door/airlock/external,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
+"Px" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
+"PL" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/syringe{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_y = -9
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_y = -7;
+	pixel_x = 1
+	},
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "Qa" = (
 /mob/living/simple_animal/hostile/true_changeling,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
 "QC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
+"QT" = (
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "RX" = (
 /obj/structure/rack/shelf,
 /obj/item/reagent_containers/syringe,
@@ -371,38 +633,63 @@
 	pixel_y = -7;
 	pixel_x = 1
 	},
-/turf/open/floor/iron/white,
-/area/space)
-"TR" = (
-/obj/machinery/door/airlock/multi_tile/metal{
-	dir = 8
+/turf/open/floor/iron/white/side{
+	dir = 1
 	},
-/turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
+"Sl" = (
+/obj/item/wirecutters/advanced,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"Tr" = (
+/obj/effect/spawner/random/structure/grille,
+/turf/open/space/basic,
+/area/ruin/space/unpowered)
+"TR" = (
+/obj/effect/turf_decal/stripes/end,
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
 "Uy" = (
 /obj/effect/decal/cleanable/blood/splatter/over_window,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
 "UE" = (
-/turf/open/space/basic,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
+"Vf" = (
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "Vo" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/mine/stun,
 /obj/machinery/light/small/red/dim/directional/south,
 /turf/open/floor/iron/dark,
-/area/space)
+/area/ruin/space/unpowered)
 "Vx" = (
 /obj/effect/mob_spawn/corpse/human/syndicatesoldier,
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
 "Wb" = (
 /obj/structure/chair/office{
 	dir = 4
 	},
 /turf/open/floor/iron/white,
-/area/space)
+/area/ruin/space/unpowered)
+"Wp" = (
+/obj/machinery/light/broken/directional/south,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "Wu" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
@@ -411,44 +698,64 @@
 	dir = 5
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
+"Wy" = (
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
 "WH" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/fans/tiny,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
 "WQ" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 6
 	},
-/obj/structure/sign/warning/explosives/alt/directional/south,
 /obj/effect/mine/stun,
 /turf/open/floor/iron/white/corner{
 	dir = 1
 	},
-/area/space)
+/area/ruin/space/unpowered)
+"WX" = (
+/obj/effect/turf_decal/stripes/end{
+	dir = 1
+	},
+/obj/machinery/power/shuttle_engine/heater,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"Xv" = (
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "XM" = (
 /obj/structure/rack/shelf,
 /obj/item/reagent_containers/syringe,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 "XP" = (
-/turf/closed/wall,
-/area/space)
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/unpowered)
+"Yv" = (
+/obj/effect/gibspawner/human,
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
 "YL" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/ruin/space/unpowered)
 "YU" = (
 /obj/structure/rack/shelf,
 /obj/item/reagent_containers/syringe{
 	pixel_y = -9
 	},
 /obj/machinery/light/broken/directional/north,
-/turf/open/floor/iron/white,
-/area/space)
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
 
 (1,1,1) = {"
 UE
@@ -480,12 +787,12 @@ UE
 UE
 UE
 UE
-Bh
-Bh
-Bh
-Bh
-Bh
-Bh
+XP
+XP
+XP
+XP
+XP
+XP
 UE
 UE
 UE
@@ -502,12 +809,12 @@ UE
 UE
 UE
 UE
-Bh
-qP
+XP
+oB
 hP
 Qa
 qP
-Bh
+XP
 UE
 UE
 UE
@@ -524,12 +831,12 @@ UE
 UE
 UE
 UE
-Bh
+XP
 jW
 aq
 aq
 IQ
-Bh
+XP
 UE
 UE
 UE
@@ -546,12 +853,12 @@ UE
 UE
 UE
 UE
-Bh
+XP
 gw
-rZ
+NQ
 aq
 IQ
-Bh
+XP
 UE
 UE
 UE
@@ -562,288 +869,288 @@ UE
 "}
 (6,1,1) = {"
 UE
-Bh
+XP
 GM
 Ck
-Bh
+XP
 UE
 UE
-Bh
+XP
 xV
 vv
 rZ
-qP
-Bh
+Yv
+XP
 UE
 UE
-Bh
+XP
 GM
 Ck
-Bh
+XP
 UE
 "}
 (7,1,1) = {"
 UE
-Bh
+XP
 gP
 mQ
-Bh
+XP
 UE
-UE
+Tr
 Bh
-mE
+XP
 uT
 WQ
-mE
+XP
 Bh
-UE
-UE
-Bh
+wi
+wi
+XP
 gP
 mQ
-Bh
+XP
 UE
 "}
 (8,1,1) = {"
 UE
-Bh
+XP
 Wu
 aD
-Bh
-UE
-UE
-pg
 XP
-aq
+UE
+UE
+wi
+XP
+os
 af
 XP
-pg
+wi
 UE
 UE
-Bh
+XP
 Wu
 aD
-Bh
+XP
 UE
 "}
 (9,1,1) = {"
 UE
-Bh
+XP
 os
 os
-Bh
-pg
-pg
+XP
+UE
+UE
 pg
 XP
 wo
 Vo
 XP
-pg
-pg
-pg
-Bh
+wi
+UE
+UE
+XP
 os
 os
-Bh
+XP
 UE
 "}
 (10,1,1) = {"
 UE
-Bh
+XP
 os
 os
-Bh
-pg
-pg
+XP
+UE
+UE
 pg
 XP
 Uy
 HF
 XP
-pg
-pg
-pg
-Bh
+wi
+UE
+UE
+XP
 os
 os
-Bh
+XP
 UE
 "}
 (11,1,1) = {"
 UE
-Bh
+XP
 On
 On
 Bh
-pg
+UE
 pg
 Bh
-Bh
+XP
 cW
 Kt
+XP
 Bh
-Bh
-pg
-pg
+Tr
+Tr
 Bh
 On
 On
-Bh
+XP
 UE
 "}
 (12,1,1) = {"
 UE
-Bh
-os
+XP
+Sl
 wW
-os
-UE
-UE
-Bh
+Cr
+pg
+wi
+XP
 ag
 Nj
-qP
-aq
-Bh
-UE
-UE
+Cc
+LF
+XP
+Tr
+Tr
 os
 os
 os
-Bh
+XP
 UE
 "}
 (13,1,1) = {"
 UE
-Bh
+XP
 os
 os
 os
-UE
-UE
-Bh
+wi
+wi
+XP
 az
 gm
 HZ
 sI
-Bh
-UE
-UE
+XP
+mE
+Tr
 os
 os
 os
-Bh
+XP
 UE
 "}
 (14,1,1) = {"
 UE
-Bh
+XP
 On
 On
 Bh
-UE
-UE
-Bh
+wi
+wi
+XP
 oO
 ge
 aq
 pL
-Bh
-UE
-UE
+XP
+wi
+wi
 Bh
 On
 On
-Bh
+XP
 UE
 "}
 (15,1,1) = {"
 UE
-Bh
+XP
 os
 os
-Bh
+XP
 UE
 UE
-Bh
+XP
 GS
 ft
 aq
 EL
-Bh
+XP
 UE
 UE
-Bh
+XP
 os
 os
-Bh
+XP
 UE
 "}
 (16,1,1) = {"
 UE
-Bh
+XP
 Mh
 Dr
-Bh
+XP
 UE
 UE
-Bh
-RX
+XP
+PL
 aq
 Gj
 zT
-Bh
+XP
 UE
 UE
-Bh
+XP
 Mh
 Dr
-Bh
+XP
 UE
 "}
 (17,1,1) = {"
 UE
-Bh
+XP
 os
 DK
-Bh
-UE
-UE
-Bh
+XP
+wi
+wi
+XP
 XM
 Vx
 NA
 RX
-Bh
-UE
-UE
-Bh
+XP
+wi
+wi
+XP
 os
 DK
-Bh
+XP
 UE
 "}
 (18,1,1) = {"
 UE
-Bh
+XP
 QC
 YL
-Bh
+XP
 UE
 UE
-Bh
+XP
 go
 aq
 aq
-ii
-Bh
+at
+XP
 UE
 UE
-Bh
+XP
 QC
 YL
-Bh
+XP
 UE
 "}
 (19,1,1) = {"
@@ -854,12 +1161,12 @@ UE
 UE
 UE
 UE
-Bh
+XP
 YU
-qP
+iR
 aq
 jL
-Bh
+XP
 UE
 UE
 UE
@@ -876,12 +1183,12 @@ UE
 UE
 UE
 UE
-Bh
+XP
 MF
-Vx
-aq
+lX
+aC
 ii
-Bh
+XP
 UE
 UE
 UE
@@ -897,14 +1204,14 @@ UE
 UE
 UE
 UE
-Bh
-Bh
-Bh
-aq
-TR
-Bh
-Bh
-Bh
+XP
+XP
+XP
+os
+HF
+XP
+XP
+XP
 UE
 UE
 UE
@@ -920,12 +1227,12 @@ UE
 UE
 UE
 ld
-os
+TR
 mo
-aq
-aq
+xG
+Jm
 mo
-os
+WX
 Gs
 UE
 UE
@@ -937,22 +1244,22 @@ UE
 (23,1,1) = {"
 UE
 Bh
-zI
-zI
-zI
-Bh
-Bh
-Bh
-Bh
-bK
-ue
-Bh
-Bh
-Bh
-Bh
-zI
-zI
-zI
+xk
+xk
+xk
+XP
+XP
+XP
+XP
+wm
+Wp
+XP
+XP
+XP
+XP
+xk
+xk
+xk
 Bh
 UE
 "}
@@ -966,8 +1273,8 @@ os
 WH
 os
 On
-aq
-aq
+QT
+Vf
 On
 os
 WH
@@ -980,24 +1287,24 @@ UE
 "}
 (25,1,1) = {"
 UE
-Bh
+XP
 xk
 xk
 xk
-Bh
-Bh
-Bh
-Bh
+XP
+XP
+XP
+XP
 bK
-ue
-Bh
-Bh
-Bh
-Bh
+Oh
+XP
+XP
+XP
+XP
 xk
 xk
 xk
-Bh
+XP
 UE
 "}
 (26,1,1) = {"
@@ -1008,12 +1315,12 @@ UE
 UE
 UE
 ld
-os
+TR
 mo
-aq
-aq
+Px
+ED
 mo
-os
+WX
 Gs
 UE
 UE
@@ -1032,7 +1339,7 @@ UE
 xR
 xR
 xR
-aq
+os
 HF
 xR
 xR
@@ -1052,11 +1359,11 @@ UE
 UE
 UE
 xR
-bK
-aq
+cq
+yk
 LF
-LF
-aq
+Wy
+yk
 ue
 xR
 UE
@@ -1074,12 +1381,12 @@ UE
 UE
 UE
 co
+zI
 aq
-aq
-aq
-aq
-aq
-aq
+BF
+am
+FG
+Vf
 co
 UE
 UE
@@ -1096,12 +1403,12 @@ UE
 UE
 UE
 co
-aq
+gW
 Wb
 Wb
 Wb
 Wb
-wD
+sM
 co
 UE
 UE
@@ -1120,10 +1427,10 @@ UE
 co
 wD
 iX
-aq
+aC
 iX
 iX
-aq
+Xv
 co
 UE
 UE
