@@ -178,7 +178,7 @@
 					While it feels latexy in touch, it does not stick like latex, and seems to be constantly moving, like millions of tiny nanites are forming the device. \
 					The JOISuit seems to heat up and exert freezing air constantly when active."
 	default_skin = "joisuit"
-	armor_type = /obj/item/mod/control/pre_equipped/mining::armor_type
+	armor_type = /datum/armor/mod_theme_joisuit
 	resistance_flags = FIRE_PROOF|LAVA_PROOF
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
@@ -239,3 +239,14 @@
 			),
 		),
 	)
+
+/datum/armor/mod_theme_joisuit
+	melee = 20
+	bullet = 5
+	laser = 5
+	energy = 5
+	bomb = 30
+	bio = 100
+	fire = 100
+	acid = 75
+	wound = 15
