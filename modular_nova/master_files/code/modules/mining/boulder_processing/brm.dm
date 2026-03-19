@@ -1,3 +1,4 @@
+// This code is to prevent people turning it on in a valid spot, unwrenching it, and moving it elsewhere where it should not function
 /obj/machinery/brm/begin_processing()
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(on_brm_moved))
