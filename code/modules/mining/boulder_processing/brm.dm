@@ -93,6 +93,7 @@
 
 /obj/machinery/brm/wrench_act(mob/living/user, obj/item/tool)
 	. = ITEM_INTERACT_BLOCKING
+	toggled_on = FALSE // NOVA EDIT ADDITION
 	if(default_unfasten_wrench(user, tool, time = 1.5 SECONDS) == SUCCESSFUL_UNFASTEN)
 		update_appearance(UPDATE_ICON_STATE)
 		return ITEM_INTERACT_SUCCESS
