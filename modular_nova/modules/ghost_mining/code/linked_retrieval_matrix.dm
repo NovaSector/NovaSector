@@ -65,6 +65,8 @@
 	var/rock_count = 0
 	for(var/datum/weakref/num_collector in linked_bscs)
 		var/obj/structure/ore_box/boulder_collector/collector = num_collector?.resolve()
+		if(isnull(collector))
+			continue
 		rock_count += LAZYLEN(collector.available_boulders)
 
 	var/link_count = length(linked_bscs)
