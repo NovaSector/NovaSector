@@ -4,6 +4,6 @@ import { FeatureDropdownInput } from '../../dropdowns';
 
 export const blood_type: FeatureChoiced = {
   name: 'Blood Type',
-  description: "Dictates character blood type, assuming no species or quirk based blood type is present.",
+  description: "Dictates character's blood type.",
   component: FeatureDropdownInput,
 };
