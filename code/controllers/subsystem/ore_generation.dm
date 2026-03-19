@@ -123,7 +123,7 @@ SUBSYSTEM_DEF(ore_generation)
 			for(var/obj/item/boulder/box_rock in rock_box.contents)
 				if(box_rock.brm_stable)
 					available_boulders += box_rock
-					// NOVA EDIT ADDITION END
+		// NOVA EDIT ADDITION END
 
 		if(local_vent_count >= MAX_BOULDERS_PER_VENT)
 			continue //We don't want to be accountable for literally hundreds of unprocessed boulders for no reason.
