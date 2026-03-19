@@ -322,11 +322,13 @@
 
 	//check boxes for boulders
 	var/list/holding_boxes = list()
-	for(var/datum/weakref/possible_collector_ref in linked_bscs)
-		for(var/collector_to_check in 1 to length(linked_bscs))
-			var/obj/structure/ore_box/boulder_collector/possible_collector = possible_collector_ref?.resolve()
-			if(LAZYLEN(possible_collector.available_boulders) >= 1)
-				holding_boxes += possible_collector_ref
+	for(var/datum/weakref/possible_collector_ref in linked_bscs) //Search list for candidates
+		var/obj/structure/ore_box/boulder_collector/possible_collector = possible_collector_ref?.resolve() //resolve for actual item
+		if(isnull(possible_collector)) //pruning dead ends
+			linked_bscs -= possible_collector_ref
+			continue
+		if(LAZYLEN(possible_collector.available_boulders) >= 1)
+			holding_boxes += possible_collector_ref
 
 	//no boulders in boxes
 	if(!length(holding_boxes))
@@ -343,7 +345,8 @@
 	var/obj/item/boulder/chosen_rock = chosen_rock_ref?.resolve()
 
 	//If boulder is BRM'able, refuse.
-	if(chosen_rock.brm_stable)
+	if(isnull(chosen_rock) || chosen_rock.brm_stable)
+
 		batch_processing = FALSE
 		balloon_alert_to_viewers("Boulder outside parameters!")
 		return LRM_UNSTABLE_BOULDER
