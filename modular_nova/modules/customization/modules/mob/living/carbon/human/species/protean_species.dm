@@ -15,7 +15,7 @@
 	always_customizable = TRUE
 
 	siemens_coeff = 1.5 // Electricity messes you up.
-	payday_modifier = 1
+	payday_modifier = 0.7 // 30 percent poorer
 
 	exotic_bloodtype = BLOOD_TYPE_IRON
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
