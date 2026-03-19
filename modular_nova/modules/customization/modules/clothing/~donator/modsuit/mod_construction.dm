@@ -312,3 +312,106 @@
 	mod.theme = akari
 	mod.theme.variants[skin] = variant_data
 	return ..()
+
+//Hisakaki Donor Item
+
+//Adding joisuit as a object - Needed for crafting recipe
+/obj/item/mod/control/donor/joisuit
+	theme = /datum/mod_theme/joisuit
+	applied_cell = /obj/item/stock_parts/power_store/cell/super
+	applied_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/health_analyzer,
+		/obj/item/mod/module/injector,
+	)
+
+//Plating - Constuction from scratch
+/obj/item/mod/construction/plating/joisuit
+	name = "\improper JOISuit Modification Core"
+	desc = "An amalgamation of smart metals that when attached to a MODSuit, slowly assimilates it, \
+			wrapping the original in thousands of tiny tendrils to reform the design to that more akin to a Java Operated Intelligence Suit. \
+			The core itself feels latexy, yet it doesn't stick like latex."
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	icon_state = "joisuit-plating"
+	theme = /datum/mod_theme/joisuit
+
+//Skinapplier - For pre-equipped MODsuits
+/obj/item/mod/skin_applier/joisuit
+	name = "\improper Java Operated Intelligence Suit 'JOISuit'"
+	desc = "An amalgamation of smart metals that when attached to a MODSuit, slowly assimilates it, \
+			wrapping the original in thousands of tiny tendrils to reform the design to that more akin to a Java Operated Intelligence Suit. \
+			The core itself feels latexy, yet it doesn't stick like latex."
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	icon_state = "joisuit-plating"
+	skin = "joisuit"
+	var/list/variant_data = list(
+		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
+		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
+		/obj/item/clothing/head/mod = list(
+			UNSEALED_LAYER = HEAD_LAYER,
+			UNSEALED_CLOTHING = SNUG_FIT,
+			UNSEALED_COVER = HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_INVISIBILITY = HIDEHAIR|HIDEEYES|HIDESNOUT,
+			SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY =  HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
+			SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/suit/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY = HIDEJUMPSUIT|HIDETAIL,
+			UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/gloves/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/shoes/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
+		),
+	)
+
+//Apply skin to multiple type of modsuit while remaining isolated from sharing
+/obj/item/mod/skin_applier/joisuit/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	var/list/allowed_types = list(
+		/obj/item/mod/control/pre_equipped/medical,
+		/obj/item/mod/control/pre_equipped/interdyne/nerfed,
+		/obj/item/mod/control/pre_equipped/mining,
+		/obj/item/mod/control/pre_equipped/civilian
+	)
+
+	var/is_valid = FALSE
+	for(var/T in allowed_types)
+		if(istype(interacting_with, T))
+			is_valid = TRUE
+			break
+
+	if(!is_valid)
+		return ..()
+
+	var/obj/item/mod/control/mod = interacting_with
+	if(skin in mod.theme.variants)
+		return ..()
+	//Skin Isolation from being shared.
+	var/datum/mod_theme/joisuit = new mod.theme.type
+	joisuit.variants = mod.theme.variants.Copy()
+	mod.theme = joisuit
+	mod.theme.variants[skin] = variant_data
+	//Changes pre-equip modsuit name and description to custom.
+	mod.name = "\improper Java Operated Intelligence Suit 'joisuit'"
+	mod.desc = "A prototype design of the Java Operated Intelligence Suit, Inside holds the very being of a JOI, \
+				an artificial intelligence designed to increase morale and combat aptitude of soldiers that wear it. \
+				While it feels latexy in touch, it does not stick like latex, and seems to be constantly moving, like millions of tiny nanites are forming the device. \
+				The JOISuit seems to heat up and exert freezing air constantly when active."
+	return ..()
