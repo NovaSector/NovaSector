@@ -93,6 +93,8 @@
 	sense_of_taste = TRUE
 	modifies_speech = TRUE
 	languages_native = list(/datum/language/marish/empathy)
+	/// Whether the current empathy transmission was interrupted.
+	var/empathy_interrupted = FALSE
 
 /obj/item/organ/tongue/shadekin/handle_speech(datum/source, list/speech_args)
 	if(speech_args[SPEECH_LANGUAGE] in languages_native)
@@ -128,14 +130,23 @@
 			mood_color = "#8b0000"
 			message = readable_corrupted_text(message)
 
-	var/rendered = "<span style='color: [mood_color]'><b>[user.real_name]:</b> [message]</span>"
-
 	if(empathy_timer)
-		addtimer(CALLBACK(src, PROC_REF(deliver_empathy), user, rendered), empathy_timer)
+		empathy_interrupted = FALSE
+		RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(on_empathy_interrupted))
+		addtimer(CALLBACK(src, PROC_REF(deliver_empathy), user, message, mood_color), empathy_timer)
 	else
-		deliver_empathy(user, rendered)
+		deliver_empathy(user, message, mood_color)
 
-/obj/item/organ/tongue/shadekin/proc/deliver_empathy(mob/living/carbon/human/user, rendered)
+/obj/item/organ/tongue/shadekin/proc/on_empathy_interrupted(datum/source)
+	SIGNAL_HANDLER
+	empathy_interrupted = TRUE
+	UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
+
+/obj/item/organ/tongue/shadekin/proc/deliver_empathy(mob/living/carbon/human/user, message, mood_color)
+	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+	if(empathy_interrupted)
+		message = full_capitalize(rot13(message))
+	var/rendered = "<span style='color: [mood_color]'><b>[user.real_name]:</b> [message]</span>"
 	user.log_talk(rendered, LOG_SAY, tag = "shadekin")
 	for(var/mob/living/carbon/human/living_mob in GLOB.alive_mob_list)
 		var/obj/item/organ/ears/shadekin/target_ears = living_mob.get_organ_slot(ORGAN_SLOT_EARS)
