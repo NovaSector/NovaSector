@@ -1061,7 +1061,7 @@
 	name = "JOISuit Modification Core"
 	item_path = /obj/item/mod/construction/plating/joisuit
 	ckeywhitelist = list("hisakaki", "darkinite", "rilomatic")
-  
+
 /datum/loadout_item/head/stachelm
 	name = "Stachelm"
 	item_path = /obj/item/clothing/head/helmet/donator/stachelm
