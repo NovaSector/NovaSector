@@ -1,68 +1,97 @@
 /// Limb color priority for energy shield glow effect
 #define LIMB_COLOR_ENERGY_SHIELD 3
-/// Filter name for the energy shield body tint
+/// Filter name for the energy shield outline glow
 #define ENERGY_SHIELD_FILTER "energy_shield_tint"
-/// Filter name for the energy shield hex pattern
+/// Filter name for the energy shield texture pattern
 #define ENERGY_SHIELD_PATTERN_FILTER "energy_shield_pattern"
 /// Trait source for temporary blood suppression during shield absorption
 #define ENERGY_SHIELD_TRAIT "energy_shield"
+/// Trait applied to wearer to prevent stacking multiple shields
+#define TRAIT_ENERGY_SHIELDED "energy_shielded"
 /// Y offset for shield HUD bar so it doesn't overlap health bar
-#define SHIELD_HUD_Y_OFFSET -6
+#define SHIELD_HUD_Y_OFFSET 6
+/// How long the shield filters stay visible after a hit
+#define SHIELD_VISUAL_LINGER 1.5 SECONDS
 
-/obj/item/clothing/neck/energy_shield
-	name = "energy shield necklace"
-	desc = "A compact personal energy shield projector worn around the neck. Projects a protective barrier that absorbs incoming damage."
+/obj/item/clothing/accessory/energy_shield
+	name = "energy shield projector"
+	desc = "A compact personal energy shield projector. Can be clipped onto clothing or worn around the neck. Projects a protective barrier that absorbs incoming damage."
+	icon = 'icons/obj/clothing/neck.dmi'
+	worn_icon = 'icons/mob/clothing/neck.dmi'
 	icon_state = "modlink"
 	worn_icon_state = "modlink"
 	slot_flags = ITEM_SLOT_NECK
+	attachment_slot = NONE
+	above_suit = FALSE
 	w_class = WEIGHT_CLASS_SMALL
 
-	/// Current shield health
-	var/shield_health = 100
+	/// Current shield health — starts empty, must charge after equipping
+	var/shield_health = 0
 	/// Maximum shield health
-	var/max_shield_health = 100
-	/// Whether the shield overlay is active and visible
+	var/max_shield_health = 50
+	/// Whether the shield is active (has charge and is worn)
 	var/shield_active = FALSE
-	/// The color tint of the shield
+	/// The color tint of the shield effects
 	var/shield_color = "#00aaff"
 	/// Delay before recharge begins after being hit
-	var/recharge_delay = 15 SECONDS
+	var/recharge_delay = 10 SECONDS
 	/// Health restored per second during recharge
 	var/recharge_rate = 5
 	/// Cached reference to the mob wearing this item
 	var/mob/living/carbon/wearer
+	/// Whether the outline/pattern filters are currently applied
+	var/visuals_shown = FALSE
+	/// Whether the recharge visual has been shown for the current recharge cycle
+	var/recharge_visual_pending = TRUE
+	/// Whether filters are showing because of active recharging (persistent until full)
+	var/showing_recharge = FALSE
+	/// Future: multiplier applied to melee damage passing through the shield
+	var/melee_multiplier = 1.25
+	/// Future: list of damage types that bypass the shield entirely
+	var/list/bypassed_damagetypes
 
 	COOLDOWN_DECLARE(recharge_cooldown)
+	/// Controls how long filters linger after a hit
+	COOLDOWN_DECLARE(visual_cooldown)
 
-/obj/item/clothing/neck/energy_shield/equipped(mob/living/user, slot)
+// --- EQUIP / DROP ---
+
+/// Handles activation for both neck slot and accessory-on-jumpsuit paths.
+/// accessory_equipped() calls equipped(), so this single override covers both.
+/obj/item/clothing/accessory/energy_shield/equipped(mob/living/user, slot)
 	. = ..()
-	if(slot != ITEM_SLOT_NECK)
+	if(!(slot & (ITEM_SLOT_NECK | ITEM_SLOT_ICLOTHING)))
 		return
 	if(!iscarbon(user))
 		return
+	if(HAS_TRAIT(user, TRAIT_ENERGY_SHIELDED))
+		return
 
 	wearer = user
+	ADD_TRAIT(wearer, TRAIT_ENERGY_SHIELDED, ENERGY_SHIELD_TRAIT)
 	RegisterSignal(wearer, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(on_damage_modifiers))
+	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(on_pre_bullet))
 
 	if(shield_health > 0)
 		shield_active = TRUE
-	update_shield_visuals()
+	else
+		COOLDOWN_START(src, recharge_cooldown, recharge_delay)
 	update_shield_hud()
 	START_PROCESSING(SSobj, src)
 
-/obj/item/clothing/neck/energy_shield/dropped(mob/living/user)
+/obj/item/clothing/accessory/energy_shield/dropped(mob/living/user)
 	. = ..()
 	if(isnull(wearer))
 		return
-	UnregisterSignal(wearer, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
+	UnregisterSignal(wearer, list(COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_ATOM_PRE_BULLET_ACT))
+	REMOVE_TRAIT(wearer, TRAIT_ENERGY_SHIELDED, ENERGY_SHIELD_TRAIT)
 	shield_active = FALSE
-	wearer.remove_filter(ENERGY_SHIELD_FILTER)
-	wearer.remove_filter(ENERGY_SHIELD_PATTERN_FILTER)
+	hide_shield_visuals()
 	clear_shield_hud()
 	STOP_PROCESSING(SSobj, src)
 	wearer = null
 
-/obj/item/clothing/neck/energy_shield/examine(mob/user)
+/obj/item/clothing/accessory/energy_shield/examine(mob/user)
 	. = ..()
 	if(shield_active)
 		. += span_notice("The energy shield is active ([round((shield_health / max_shield_health) * 100)]% integrity).")
@@ -71,15 +100,76 @@
 	else
 		. += span_warning("The energy shield is offline.")
 
+// --- EMP VULNERABILITY ---
+
+/obj/item/clothing/accessory/energy_shield/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	if(isnull(wearer))
+		return
+	if(shield_health <= 0 && !shield_active)
+		return
+
+	shield_health = 0
+	shield_active = FALSE
+	COOLDOWN_START(src, recharge_cooldown, recharge_delay)
+	update_shield_hud()
+	playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
+	wearer.visible_message(span_warning("[wearer]'s energy shield shorts out!"))
+	do_sparks(3, TRUE, wearer)
+
+// --- PROJECTILE INTERCEPTION ---
+
+/// Fully blocks projectiles when the shield can absorb the entire hit.
+/// This prevents embedding, wounding, and blood splatter from blocked bullets.
+/// Partial absorption falls through to on_damage_modifiers instead.
+/obj/item/clothing/accessory/energy_shield/proc/on_pre_bullet(mob/living/carbon/source, obj/projectile/proj, def_zone, piercing_hit)
+	SIGNAL_HANDLER
+
+	if(shield_health <= 0 || !shield_active)
+		return
+	if(proj.damage <= 0)
+		return
+	// Only fully block if we can absorb the entire raw hit
+	if(shield_health < proj.damage)
+		return
+
+	shield_health -= proj.damage
+
+	COOLDOWN_START(src, recharge_cooldown, recharge_delay)
+	recharge_visual_pending = TRUE
+	showing_recharge = FALSE
+	COOLDOWN_START(src, visual_cooldown, SHIELD_VISUAL_LINGER)
+	INVOKE_ASYNC(src, PROC_REF(show_shield_visuals))
+	INVOKE_ASYNC(src, PROC_REF(update_shield_visuals))
+
+	// Flash the hit limb
+	var/obj/item/bodypart/limb = wearer.get_bodypart(check_zone(def_zone))
+	if(limb)
+		INVOKE_ASYNC(src, PROC_REF(flash_limb), limb)
+
+	if(shield_health <= 0)
+		INVOKE_ASYNC(src, PROC_REF(shield_collapse))
+
+	update_shield_hud()
+	return COMPONENT_BULLET_BLOCKED
+
 // --- DAMAGE ABSORPTION ---
 
-/// Intercepts incoming damage via modifier system. Absorbs damage and triggers limb glow.
-/obj/item/clothing/neck/energy_shield/proc/on_damage_modifiers(mob/living/carbon/source, list/damage_mods, damage, damagetype, def_zone, sharpness, attack_direction, attacking_item)
+/// Intercepts incoming damage via modifier system. Absorbs damage and triggers limb glow on hit.
+/// For projectiles, this only fires when the shield couldn't fully block (partial absorption).
+/// For melee and other external attacks, this is the primary absorption path.
+/obj/item/clothing/accessory/energy_shield/proc/on_damage_modifiers(mob/living/carbon/source, list/damage_mods, damage, damagetype, def_zone, sharpness, attack_direction, attacking_item)
 	SIGNAL_HANDLER
 
 	if(shield_health <= 0)
 		return
 	if(damage <= 0)
+		return
+	// Only absorb external attacks (projectiles, melee) — not embeds, wounds, or reagent damage.
+	// External attacks always have an attack_direction; internal sources don't.
+	if(isnull(attack_direction))
 		return
 
 	var/absorbed = min(damage, shield_health)
@@ -90,34 +180,67 @@
 		damage_mods += (damage - absorbed) / damage
 	shield_health -= absorbed
 
-	// Temporarily suppress blood splatter when fully absorbing projectile hits.
-	// The trait is active for this call stack frame (apply_damage -> create_projectile_hit_effects)
-	// and removed next tick via timer.
-	if(fully_absorbed && !HAS_TRAIT(wearer, TRAIT_NOBLOOD))
-		ADD_TRAIT(wearer, TRAIT_NOBLOOD, ENERGY_SHIELD_TRAIT)
-		addtimer(CALLBACK(src, PROC_REF(remove_noblood_trait)), 0)
+	// Temporarily suppress blood splatter when fully absorbing hits.
+	// CAN_HAVE_BLOOD is a cached bitflag — TRAIT_NOBLOOD alone won't update it in time.
+	// We directly clear the flag for this call stack frame and restore it next tick.
+	if(fully_absorbed && CAN_HAVE_BLOOD(wearer))
+		wearer.living_flags &= ~LIVING_CAN_HAVE_BLOOD
+		addtimer(CALLBACK(src, PROC_REF(restore_blood_flag)), 0)
 
 	COOLDOWN_START(src, recharge_cooldown, recharge_delay)
+	recharge_visual_pending = TRUE
+	showing_recharge = FALSE
+	// Show filters on hit; they'll linger for SHIELD_VISUAL_LINGER then hide in process()
+	COOLDOWN_START(src, visual_cooldown, SHIELD_VISUAL_LINGER)
+	INVOKE_ASYNC(src, PROC_REF(show_shield_visuals))
+	INVOKE_ASYNC(src, PROC_REF(update_shield_visuals))
 
 	if(isbodypart(def_zone))
 		INVOKE_ASYNC(src, PROC_REF(flash_limb), def_zone)
 
 	if(shield_health <= 0)
 		INVOKE_ASYNC(src, PROC_REF(shield_collapse))
-	else
-		update_shield_visuals()
 
 	update_shield_hud()
 
-/// Removes the temporary TRAIT_NOBLOOD after the current tick.
-/obj/item/clothing/neck/energy_shield/proc/remove_noblood_trait()
-	if(!QDELETED(wearer))
-		REMOVE_TRAIT(wearer, TRAIT_NOBLOOD, ENERGY_SHIELD_TRAIT)
+/// Restores the LIVING_CAN_HAVE_BLOOD flag after the current tick.
+/obj/item/clothing/accessory/energy_shield/proc/restore_blood_flag()
+	if(!QDELETED(wearer) && wearer.can_have_blood())
+		wearer.living_flags |= LIVING_CAN_HAVE_BLOOD
 
 // --- VISUAL EFFECTS ---
 
+/// Applies outline glow and texture pattern filters to the wearer.
+/obj/item/clothing/accessory/energy_shield/proc/show_shield_visuals()
+	if(QDELETED(wearer) || visuals_shown)
+		return
+	visuals_shown = TRUE
+	var/tint_alpha = shield_health > 0 ? round((shield_health / max_shield_health) * 150 + 30) : 30
+	var/static/hex_digits = "0123456789abcdef"
+	var/tint_color = "[shield_color][hex_digits[round(tint_alpha / 16) + 1]][hex_digits[(tint_alpha % 16) + 1]]"
+	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = tint_color))
+	wearer.add_filter(ENERGY_SHIELD_PATTERN_FILTER, 2, layering_filter(icon = icon('icons/mob/human/textures.dmi', "fishscale"), color = shield_color, blend_mode = BLEND_INSET_OVERLAY))
+
+/// Removes the outline glow and texture pattern filters from the wearer.
+/obj/item/clothing/accessory/energy_shield/proc/hide_shield_visuals()
+	if(QDELETED(wearer) || !visuals_shown)
+		return
+	visuals_shown = FALSE
+	wearer.remove_filter(ENERGY_SHIELD_FILTER)
+	wearer.remove_filter(ENERGY_SHIELD_PATTERN_FILTER)
+
+/// Updates the outline filter alpha to reflect current shield health.
+/obj/item/clothing/accessory/energy_shield/proc/update_shield_visuals()
+	if(QDELETED(wearer) || !visuals_shown)
+		return
+	var/tint_alpha = shield_health > 0 ? round((shield_health / max_shield_health) * 150 + 30) : 30
+	var/static/hex_digits = "0123456789abcdef"
+	var/tint_color = "[shield_color][hex_digits[round(tint_alpha / 16) + 1]][hex_digits[(tint_alpha % 16) + 1]]"
+	wearer.remove_filter(ENERGY_SHIELD_FILTER)
+	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = tint_color))
+
 /// Briefly tints the struck limb with the shield color to indicate impact.
-/obj/item/clothing/neck/energy_shield/proc/flash_limb(obj/item/bodypart/limb)
+/obj/item/clothing/accessory/energy_shield/proc/flash_limb(obj/item/bodypart/limb)
 	if(QDELETED(limb) || QDELETED(wearer))
 		return
 	playsound(wearer, 'sound/items/weapons/tap.ogg', 20)
@@ -131,30 +254,11 @@
 	limb.update_limb()
 	wearer.update_body_parts()
 
-/// Updates the outline filter and hex pattern layering filter on the wearer.
-/obj/item/clothing/neck/energy_shield/proc/update_shield_visuals()
-	if(QDELETED(wearer))
-		return
-	if(!shield_active || shield_health <= 0)
-		wearer.remove_filter(ENERGY_SHIELD_FILTER)
-		wearer.remove_filter(ENERGY_SHIELD_PATTERN_FILTER)
-		return
-	// Outline glow — encode alpha into color since BYOND outline filters don't support a separate alpha param
-	var/tint_alpha = round((shield_health / max_shield_health) * 150 + 30)
-	var/static/hex_digits = "0123456789abcdef"
-	var/tint_color = "[shield_color][hex_digits[round(tint_alpha / 16) + 1]][hex_digits[(tint_alpha % 16) + 1]]"
-	// Always remove and re-add to ensure color+alpha updates properly
-	wearer.remove_filter(ENERGY_SHIELD_FILTER)
-	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = tint_color))
-	// Texture pattern clipped to body silhouette via layering_filter + BLEND_INSET_OVERLAY
-	if(!wearer.get_filter(ENERGY_SHIELD_PATTERN_FILTER))
-		wearer.add_filter(ENERGY_SHIELD_PATTERN_FILTER, 2, layering_filter(icon = icon('icons/mob/human/textures.dmi', "fishscale"), color = shield_color, blend_mode = BLEND_INSET_OVERLAY))
-
 // --- SHIELD HUD ---
 
 /// Updates the shield health bar visible to medical HUD users.
 /// Reuses existing health bar icon states from hud.dmi, colored blue.
-/obj/item/clothing/neck/energy_shield/proc/update_shield_hud()
+/obj/item/clothing/accessory/energy_shield/proc/update_shield_hud()
 	if(QDELETED(wearer) || !wearer.hud_list)
 		return
 	var/image/holder = wearer.hud_list[SHIELD_HUD]
@@ -171,7 +275,7 @@
 	holder.pixel_z += SHIELD_HUD_Y_OFFSET
 
 /// Clears the shield HUD bar on the wearer.
-/obj/item/clothing/neck/energy_shield/proc/clear_shield_hud()
+/obj/item/clothing/accessory/energy_shield/proc/clear_shield_hud()
 	if(QDELETED(wearer) || !wearer.hud_list)
 		return
 	var/image/holder = wearer.hud_list[SHIELD_HUD]
@@ -181,7 +285,7 @@
 	holder.color = null
 
 /// Maps shield percentage to existing health bar icon state names.
-/obj/item/clothing/neck/energy_shield/proc/round_shield_for_hud(percent)
+/obj/item/clothing/accessory/energy_shield/proc/round_shield_for_hud(percent)
 	switch(percent)
 		if(100 to INFINITY)
 			return "health100"
@@ -221,20 +325,29 @@
 // --- SHIELD COLLAPSE & RECHARGE ---
 
 /// Called when shield health reaches zero. Visual and audio feedback for collapse.
-/obj/item/clothing/neck/energy_shield/proc/shield_collapse()
+/obj/item/clothing/accessory/energy_shield/proc/shield_collapse()
 	if(QDELETED(wearer))
 		return
 	shield_active = FALSE
-	update_shield_visuals()
+	hide_shield_visuals()
 	update_shield_hud()
 	playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
 	wearer.visible_message(span_warning("[wearer]'s energy shield collapses!"))
 	do_sparks(3, TRUE, wearer)
 
 /// Handles passive recharge after the cooldown expires.
-/obj/item/clothing/neck/energy_shield/process(seconds_per_tick)
+/obj/item/clothing/accessory/energy_shield/process(seconds_per_tick)
 	if(QDELETED(wearer))
 		return
+
+	// Hide hit-flash after linger expires, but only if not in recharge display mode
+	if(visuals_shown && !showing_recharge && COOLDOWN_FINISHED(src, visual_cooldown))
+		hide_shield_visuals()
+
+	// Hide recharge display when shield reaches full
+	if(visuals_shown && showing_recharge && shield_health >= max_shield_health)
+		showing_recharge = FALSE
+		hide_shield_visuals()
 
 	if(shield_health >= max_shield_health)
 		return
@@ -247,14 +360,23 @@
 
 	if(was_inactive && shield_health > 0)
 		shield_active = TRUE
+
+	// Show filters and play sound when recharge starts — works at any shield percentage
+	if(recharge_visual_pending)
+		recharge_visual_pending = FALSE
+		showing_recharge = TRUE
 		playsound(wearer, 'sound/items/eshield_recharge.ogg', 50, TRUE)
 		wearer.visible_message(span_notice("[wearer]'s energy shield hums back to life."))
+		show_shield_visuals()
 
-	update_shield_visuals()
+	if(visuals_shown)
+		update_shield_visuals()
 	update_shield_hud()
 
 #undef LIMB_COLOR_ENERGY_SHIELD
 #undef ENERGY_SHIELD_FILTER
 #undef ENERGY_SHIELD_PATTERN_FILTER
 #undef ENERGY_SHIELD_TRAIT
+#undef TRAIT_ENERGY_SHIELDED
 #undef SHIELD_HUD_Y_OFFSET
+#undef SHIELD_VISUAL_LINGER
