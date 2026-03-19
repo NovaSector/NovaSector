@@ -1,0 +1,5 @@
+author: "Zenitheevee"
+delete-after: True
+changes:
+  - bugfix: "mag-fed turrets should no longer have weird invisibility glitches hopefully"
+  - bugfix: "tarkon can now actually take tinypacks and udcs"
