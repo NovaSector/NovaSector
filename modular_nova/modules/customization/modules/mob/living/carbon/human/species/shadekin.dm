@@ -1,3 +1,6 @@
+/// Maximum HSV value (brightness) allowed for shadekin colors. Range is 0-100.
+#define SHADEKIN_MAX_BRIGHTNESS 35
+
 /datum/species/shadekin
 	name = "Shadekin"
 	id = SPECIES_SHADEKIN
@@ -58,6 +61,56 @@
 
 	return to_add
 
+/// Clamps a hex color's brightness (HSV value) to SHADEKIN_MAX_BRIGHTNESS.
+/datum/species/shadekin/proc/clamp_color_brightness(color)
+	if(!color)
+		return "#000000"
+	var/list/hsv = rgb2num(color, COLORSPACE_HSV)
+	if(hsv[3] > SHADEKIN_MAX_BRIGHTNESS)
+		hsv[3] = SHADEKIN_MAX_BRIGHTNESS
+		return rgb(hsv[1], hsv[2], hsv[3], space = COLORSPACE_HSV)
+	return color
+
+/// Clamps all mutant colors and bodypart colors on the target to max brightness.
+/datum/species/shadekin/proc/clamp_all_colors(mob/living/carbon/human/target)
+	// Clamp the three mutant colors in DNA features
+	target.dna.features[FEATURE_MUTANT_COLOR] = clamp_color_brightness(target.dna.features[FEATURE_MUTANT_COLOR])
+	target.dna.features[FEATURE_MUTANT_COLOR_TWO] = clamp_color_brightness(target.dna.features[FEATURE_MUTANT_COLOR_TWO])
+	target.dna.features[FEATURE_MUTANT_COLOR_THREE] = clamp_color_brightness(target.dna.features[FEATURE_MUTANT_COLOR_THREE])
+
+	// Clamp colors on all mutant bodyparts (ears, tail, horns, etc.)
+	for(var/part_key in target.dna.mutant_bodyparts)
+		var/datum/mutant_bodypart/part = target.dna.mutant_bodyparts[part_key]
+		if(!istype(part))
+			continue
+		var/list/part_colors = part.get_colors()
+		if(!length(part_colors))
+			continue
+		var/list/clamped = list()
+		for(var/part_color in part_colors)
+			clamped += clamp_color_brightness(part_color)
+		part.set_colors(clamped)
+
+	// Clamp colors on body markings
+	for(var/zone in target.dna.body_markings)
+		for(var/marking_name in target.dna.body_markings[zone])
+			var/list/marking_data = target.dna.body_markings[zone][marking_name]
+			if(islist(marking_data) && length(marking_data))
+				marking_data[1] = clamp_color_brightness(marking_data[1])
+
+	// Update draw_color on bodypart overlays so they reflect the clamped colors
+	for(var/obj/item/bodypart/bodypart as anything in target.bodyparts)
+		for(var/datum/bodypart_overlay/mutant/overlay in bodypart.bodypart_overlays)
+			if(!overlay.feature_key)
+				continue
+			var/datum/mutant_bodypart/mutant_part = target.dna.mutant_bodyparts[overlay.feature_key]
+			if(!istype(mutant_part))
+				continue
+			overlay.set_appearance_from_dna(target.dna)
+
+/datum/species/shadekin/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
+	clamp_all_colors(target)
+
 /datum/species/shadekin/randomize_features()
 	var/list/features = ..()
 	var/main_color
@@ -67,29 +120,33 @@
 	switch(random)
 		if(1)
 			main_color = "#202020"
-			secondary_color = "#505050"
-			tertiary_color = "#3f3f3f"
+			secondary_color = "#303030"
+			tertiary_color = "#2a2a2a"
 		if(2)
-			main_color = "#CF3565"
-			secondary_color = "#d93554"
-			tertiary_color = "#fbc2dd"
+			main_color = "#4a1225"
+			secondary_color = "#521220"
+			tertiary_color = "#3d1a2a"
 		if(3)
-			main_color = "#FFC44D"
-			secondary_color = "#FFE85F"
-			tertiary_color = "#FFF9D6"
+			main_color = "#4a3a12"
+			secondary_color = "#4a4218"
+			tertiary_color = "#3d3820"
 		if(4)
-			main_color = "#DB35DE"
-			secondary_color = "#BE3AFE"
-			tertiary_color = "#F5E2EE"
+			main_color = "#3d1040"
+			secondary_color = "#351250"
+			tertiary_color = "#3a2035"
 	features[FEATURE_MUTANT_COLOR] = main_color
 	features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
 	features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
 	return features
 
+/datum/species/shadekin/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
+	. = ..()
+	clamp_all_colors(human_who_gained_species)
+
 /datum/species/shadekin/prepare_human_for_preview(mob/living/carbon/human/shadekin)
 	var/main_color = "#222222"
-	var/secondary_color = "#b8b8b8"
-	var/tertiary_color = "#b8b8b8"
+	var/secondary_color = "#383838"
+	var/tertiary_color = "#383838"
 	shadekin.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	shadekin.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
 	shadekin.dna.features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
@@ -133,3 +190,5 @@
 		In this regard, covens are societies in and of themselves, organized in a somewhat tribal manner. Covens do not solely exist on Neoma, they are spread throughout the universe, \
 		but most covens at least have archives on the moon, called \"Mindtrusts\".",
 	)
+
+#undef SHADEKIN_MAX_BRIGHTNESS
