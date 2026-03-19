@@ -49,9 +49,7 @@
 	if(!do_after(user, 5 SECONDS, source_atom))
 		return
 
-	var/moved = attempt_slide(source_atom, user)
-
-	if(!moved)
+	if(!attempt_slide(source_atom, user))
 		source_atom.balloon_alert(user, "something blocks the way!")
 		return
 
@@ -62,7 +60,7 @@
 	if(!destination)
 		return FALSE
 
-	// weird edge case for borders doors, and if you're standing on table/rack on the same turf as the door
+	// weird edge case for windoors, and if you're standing on table/rack on the same turf as the door
 	if((source_atom.flags_1 & ON_BORDER_1) && (get_turf(user) == destination))
 		destination = get_step(destination, source_atom.dir)
 		if(!destination)
