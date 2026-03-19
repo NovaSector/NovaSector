@@ -12,7 +12,7 @@
 	var/turf/input_turf = null
 	/// Determines if this orebox needs to pick up items yet
 	var/needs_item_input = FALSE
-	var/available_boulders = list()
+	var/list/available_boulders
 	var/repacked_type = /obj/item/flatpacked_machine/boulder_collector
 	var/perpetual = FALSE //If it breaks, will it drop its compressed form? Used for gulag
 
@@ -144,7 +144,7 @@
 		var/obj/item/boulder/mine_now = target_boulder
 		mine_now.forceMove(src) //Pull the boulder into storage
 		if(!mine_now.brm_stable) //if not in BRM pull list, add it to its potential pull list
-			available_boulders += WEAKREF(mine_now)
+			LAZYADD(available_boulders,  WEAKREF(mine_now))
 	return
 
 /obj/structure/ore_box/boulder_collector/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
@@ -152,7 +152,7 @@
 		var/obj/item/boulder/mine_now = attacking_item
 		user.transferItemToLoc(attacking_item, src)
 		if(!mine_now.brm_stable)
-			available_boulders += WEAKREF(mine_now)
+			LAZYADD(available_boulders,  WEAKREF(mine_now))
 	else
 		return ..()
 

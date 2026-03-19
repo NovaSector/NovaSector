@@ -108,7 +108,7 @@
 	if(!boulder_infinite)
 		if(tapped) //its either this or nuke gold grub ai and i aint touching mob AI with a 10 tile spear.
 			boulder_bounty -= 1
-		if(boulder_bounty == 0)
+		if(boulder_bounty <= 0)
 			reset_vent(TRUE)
 
 	return new_rock

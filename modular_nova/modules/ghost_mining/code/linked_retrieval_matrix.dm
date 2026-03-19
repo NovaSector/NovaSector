@@ -65,7 +65,7 @@
 	var/rock_count = 0
 	for(var/datum/weakref/num_collector in linked_bscs)
 		var/obj/structure/ore_box/boulder_collector/collector = num_collector?.resolve()
-		rock_count += length(collector.available_boulders)
+		rock_count += LAZYLEN(collector.available_boulders)
 
 	var/link_count = length(linked_bscs)
 
@@ -325,7 +325,7 @@
 	for(var/datum/weakref/possible_collector_ref in linked_bscs)
 		for(var/collector_to_check in 1 to length(linked_bscs))
 			var/obj/structure/ore_box/boulder_collector/possible_collector = possible_collector_ref?.resolve()
-			if(length(possible_collector.available_boulders) >= 1)
+			if(LAZYLEN(possible_collector.available_boulders) >= 1)
 				holding_boxes += possible_collector_ref
 
 	//no boulders in boxes
@@ -351,7 +351,7 @@
 	chosen_rock.forceMove(drop_location())
 	chosen_rock.pixel_x = rand(-2, 2)
 	chosen_rock.pixel_y = rand(-2, 2)
-	collector.available_boulders -= chosen_rock_ref
+	LAZYREMOVE(collector.available_boulders, chosen_rock_ref)
 	balloon_alert_to_viewers("boulder appears!")
 	use_energy(active_power_usage)
 
@@ -362,7 +362,7 @@
 		batch_processing = FALSE
 		return TRUE
 	else
-		addtimer(CALLBACK(src, PROC_REF(pre_collect_boulder), feedback, boulders_remaining, FALSE), LRM_TELEPORTATION_TIME)
+		addtimer(CALLBACK(src, PROC_REF(pre_collect_boulder), feedback, boulders_remaining), LRM_TELEPORTATION_TIME, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 // Circuit Board
 
