@@ -1,4 +1,4 @@
-/obj/machinery/brm/Initialize(mapload)
+/obj/machinery/brm/begin_processing()
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(move_detect)) // NOVA EDIT ADDITION
 
@@ -10,6 +10,6 @@
 		end_processing()
 		update_appearance(UPDATE_ICON_STATE)
 
-/obj/machinery/brm/Destroy()
+/obj/machinery/brm/end_processing()
 	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
 	return ..()
