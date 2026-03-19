@@ -1061,3 +1061,15 @@
 	name = "JOISuit Modification Core"
 	item_path = /obj/item/mod/construction/plating/joisuit
 	ckeywhitelist = list("hisakaki", "darkinite", "rilomatic")
+  
+/datum/loadout_item/head/stachelm
+	name = "Stachelm"
+	item_path = /obj/item/clothing/head/helmet/donator/stachelm
+	ckeywhitelist = list("ghostof93")
+	restricted_roles = list(JOB_CAPTAIN, JOB_BLUESHIELD)
+
+/datum/loadout_item/suit/duke_armored_coat
+	name = "Duke's Armored Coat"
+	item_path = /obj/item/clothing/suit/armor/donator/duke_armored_coat
+	ckeywhitelist = list("ambermane")
+	restricted_roles = list(JOB_CAPTAIN)
