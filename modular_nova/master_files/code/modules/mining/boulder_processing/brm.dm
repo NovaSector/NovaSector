@@ -8,6 +8,7 @@
 	SIGNAL_HANDLER
 	if(toggled_on)
 		toggled_on = FALSE
+		balloon_alert_to_viewers("turns off!")
 		end_processing()
 		update_appearance(UPDATE_ICON_STATE)
 
