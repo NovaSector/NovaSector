@@ -24,10 +24,7 @@
 		return FALSE
 
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species::exotic_bloodtype)
-		return FALSE
-
-	return TRUE
+	return isnull(initial(species.exotic_bloodtype))
 
 /datum/preference/choiced/blood_type/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	var/datum/preference/choiced/blood_type/blood_type_pref = GLOB.preference_entries[/datum/preference/choiced/blood_type]
