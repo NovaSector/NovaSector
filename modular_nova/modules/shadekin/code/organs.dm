@@ -82,6 +82,7 @@
 	blink_animation = FALSE
 	iris_overlay = null
 	lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
+	color_cutoffs = list(20, 10, 40)
 
 // Shadekin Tongue - enables empathic telepathic communication via the Empathy language.
 
