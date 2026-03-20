@@ -289,7 +289,7 @@
 
 	var/absorbed = min(damage, shield_health)
 	pending_absorption = absorbed
-	pending_def_zone = wearer.get_bodypart(check_zone(def_zone))
+	pending_def_zone = isbodypart(def_zone) ? def_zone : wearer.get_bodypart(check_zone(def_zone))
 	// Use a tiny minimum so apply_damage doesn't early-return at 0, allowing on_after_damage to fire
 	damage_mods += max((damage - absorbed) / damage, 0.001)
 
