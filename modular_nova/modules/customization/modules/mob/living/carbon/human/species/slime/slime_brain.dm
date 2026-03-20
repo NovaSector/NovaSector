@@ -267,7 +267,9 @@
 	if(isnull(brainmob))
 		user.balloon_alert(user, "[src] is not a viable candidate for repair!")
 		return TRUE
-	brainmob.grab_ghost()
+	if(HAS_TRAIT(brainmob, TRAIT_DNR))
+		to_chat(user, span_warning("The soul of [src] has departed..."))
+		user.balloon_alert(user, "core's soul has departed...")
 	if(isnull(brainmob.stored_dna))
 		user.balloon_alert(user, "[src] does not contain any dna!")
 		return TRUE
@@ -275,13 +277,6 @@
 	if(isnull(brainmob.client))
 		user.balloon_alert(user, "[src] does not contain a mind!")
 		return TRUE
-
-	if(istype(item, /obj/item/melee/touch_attack/mansus_fist))
-		regenerate(nugget = FALSE, heretic_revival = TRUE)
-		return TRUE
-
-	if(!item.is_drainable() || item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100)
-		return FALSE
 
 	user.visible_message(
 		span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."),
