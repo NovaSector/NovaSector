@@ -9,7 +9,8 @@
 	recharge_rate = 5
 	shield_color = "#88ccff"
 
-/obj/item/clothing/accessory/energy_shield/civilian/give_manufacturer_examine()
+/obj/item/clothing/accessory/energy_shield/civilian/Initialize(mapload)
+	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_BOLT)
 
 /// NT-issue tactical shield. Hardened circuitry allows integration with standard body armor up to class II.
@@ -77,13 +78,3 @@
 /// Movement speed penalty while the bulwark shield is active.
 /datum/movespeed_modifier/energy_shield_bulwark
 	multiplicative_slowdown = 0.35
-
-/datum/supply_pack/security/energy_shield_civilian
-	name = "Bolt SafeGuard Energy Barrier Crate"
-	desc = "Contains two Bolt Fabrications SafeGuard personal energy barriers. Consumer-grade protection for frontier personnel."
-	cost = CARGO_CRATE_VALUE * 8
-	contains = list(
-		/obj/item/clothing/accessory/energy_shield/civilian,
-		/obj/item/clothing/accessory/energy_shield/civilian,
-	)
-	crate_name = "energy barrier crate"
