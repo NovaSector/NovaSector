@@ -201,16 +201,6 @@
 #define PENIS_LENGTH_ABOVE_NORMAL PENIS_MAX_LENGTH - PENIS_MAX_LENGTH_NORMAL_SIZED
 
 /datum/preference/numeric/penis_length/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	// Adjust allowed size based on character size
-	var/body_size = preferences?.read_preference(/datum/preference/numeric/body_size) || BODY_SIZE_NORMAL
-	var/has_oversized_quirk = preferences?.all_quirks.Find(/datum/quirk/oversized::name)
-	// Clamp this for normal sized characters. Max allowed size is proportional to the mob's body_size, rounded up.
-	if(!has_oversized_quirk)
-		var/adjusted_size = PENIS_MAX_LENGTH_NORMAL_SIZED
-		if(body_size > 1)
-			adjusted_size = ceil(round(PENIS_MAX_LENGTH_NORMAL_SIZED, step) + ((((body_size - round(1, step)) * round(2, step))) * round(PENIS_LENGTH_ABOVE_NORMAL, step))) // floating point inaccuracy fun
-		if(value > adjusted_size)
-			value = adjusted_size
 	target.dna.features["penis_size"] = value
 
 #undef PENIS_LENGTH_ABOVE_NORMAL

@@ -77,8 +77,6 @@
 #define PENIS_DEFAULT_GIRTH 5 // a lil big but not by much
 #define PENIS_MIN_LENGTH 1
 #define PENIS_MAX_LENGTH 86
-/// for non oversized mobs with a 'normal' body size
-#define PENIS_MAX_LENGTH_NORMAL_SIZED 25
 #define PENIS_DEFAULT_LENGTH 6 //still a lil long but not insane
 
 #define TESTICLES_MIN_SIZE 0

@@ -239,6 +239,16 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob_alt.dmi'
 	max_sprite_size_affix = 6
 
+/datum/sprite_accessory/genital/testicles/sheath
+	name = "Sheathed Pair"
+	icon_state = "sheath"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/testicles/sheath/alt
+	name = parent_type::name + " (Alt)"
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob_alt.dmi'
+	has_skintone_shading = FALSE
+
 /datum/sprite_accessory/genital/testicles/internal
 	name = "Internal"
 	icon_state = "none"
