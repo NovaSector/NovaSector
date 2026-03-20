@@ -200,8 +200,7 @@
 		COOLDOWN_START(src, visual_cooldown, SHIELD_VISUAL_LINGER)
 		show_shield_visuals()
 	update_shield_visuals()
-	if(limb)
-		shield_hit_effect(limb)
+	shield_hit_effect(limb)
 	if(shield_health <= 0)
 		shield_collapse()
 	update_shield_hud()
@@ -238,17 +237,17 @@
 	if(damage <= 0 || shield_health < damage)
 		return FAILED_BLOCK
 
+	var/mob/living/attacker = isliving(hit_by) ? hit_by : GET_ASSAILANT(hit_by)
 	var/obj/item/bodypart/limb
-	if(isliving(hit_by))
-		var/mob/living/attacker = hit_by
+	if(attacker)
 		limb = wearer.get_bodypart(check_zone(attacker.zone_selected))
 	apply_shield_hit(damage, limb)
 	return SUCCESSFUL_BLOCK
 
-/// Computes the damage modifier for partial shield absorption.
-/// Only fires when the shield can't absorb the full hit (full blocks are handled by on_check_block/on_pre_bullet).
-/// This handler must remain pure (no side effects) — actual shield health deduction
-/// and visual/audio feedback are handled in on_after_damage via COMSIG_MOB_AFTER_APPLY_DAMAGE.
+/// Computes the damage modifier for shield absorption.
+/// For attacks from others, full blocks are handled by on_check_block/on_pre_bullet.
+/// This handler covers partial absorption and self-attacks (where check_block is skipped).
+/// Must remain pure — side effects are in on_after_damage via COMSIG_MOB_AFTER_APPLY_DAMAGE.
 /obj/item/clothing/accessory/energy_shield/proc/on_damage_modifiers(mob/living/carbon/source, list/damage_mods, damage, damagetype, def_zone, sharpness, attack_direction, attacking_item)
 	SIGNAL_HANDLER
 
@@ -271,7 +270,8 @@
 	var/absorbed = min(damage, shield_health)
 	pending_absorption = absorbed
 	pending_def_zone = wearer.get_bodypart(check_zone(def_zone))
-	damage_mods += (damage - absorbed) / damage
+	// Use a tiny minimum so apply_damage doesn't early-return at 0, allowing on_after_damage to fire
+	damage_mods += max((damage - absorbed) / damage, 0.001)
 
 /// Applies shield health deduction and visual/audio feedback after damage is dealt.
 /// Consumes the pending absorption computed by on_damage_modifiers.
