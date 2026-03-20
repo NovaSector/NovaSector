@@ -81,8 +81,6 @@
 
 #define TESTICLES_MIN_SIZE 0
 #define TESTICLES_MAX_SIZE 8
-/// for non oversized mobs with a 'normal' body size
-#define TESTICLES_MAX_NORMAL_SIZED 3
 
 #define SHEATH_NONE	SPRITE_ACCESSORY_NONE
 #define SHEATH_NORMAL "Sheath"
