@@ -24,6 +24,7 @@
 	attachment_slot = NONE
 	above_suit = FALSE
 	w_class = WEIGHT_CLASS_SMALL
+	resistance_flags = FIRE_PROOF
 	actions_types = list(/datum/action/item_action/toggle_energy_shield)
 	/// Grant the action button in both neck and accessory-on-jumpsuit slots
 	action_slots = ITEM_SLOT_NECK | ITEM_SLOT_ICLOTHING
@@ -322,28 +323,28 @@
 		return
 	var/obj/effect/temp_visual/energy_shield_ripple/ripple = new(wearer_turf, wearer)
 	ripple.color = shield_color
-	// Scale ripple with mob height (0.35x at medium height, proportional otherwise)
+	// Scale ripple with mob height and body size
 	var/mob/living/carbon/human/human_wearer = wearer
-	var/scale = 0.35 * (istype(human_wearer) ? (human_wearer.mob_height / HUMAN_HEIGHT_MEDIUM) : 1)
-	ripple.transform = matrix(scale, 0, 0, 0, scale, 0)
+	var/scale = 0.35 * wearer.current_size * (istype(human_wearer) ? (human_wearer.mob_height / HUMAN_HEIGHT_MEDIUM) : 1)
 	// Offset to the struck limb's approximate position on the sprite
+	var/off_x = 0
+	var/off_y = 0
 	switch(limb.body_zone)
 		if(BODY_ZONE_HEAD)
-			ripple.pixel_y = 8
-		if(BODY_ZONE_CHEST)
-			ripple.pixel_y = 0
+			off_y = 14
 		if(BODY_ZONE_L_ARM)
-			ripple.pixel_x = 10
-			ripple.pixel_y = 2
+			off_x = 10
+			off_y = 2
 		if(BODY_ZONE_R_ARM)
-			ripple.pixel_x = -10
-			ripple.pixel_y = 2
+			off_x = -10
+			off_y = 2
 		if(BODY_ZONE_L_LEG)
-			ripple.pixel_x = 4
-			ripple.pixel_y = -10
+			off_x = 4
+			off_y = -16
 		if(BODY_ZONE_R_LEG)
-			ripple.pixel_x = -4
-			ripple.pixel_y = -10
+			off_x = -4
+			off_y = -16
+	ripple.transform = matrix(scale, 0, off_x * scale, 0, scale, off_y * scale)
 
 /// Concentric ripple effect spawned at the struck limb on shield hit.
 /obj/effect/temp_visual/energy_shield_ripple
