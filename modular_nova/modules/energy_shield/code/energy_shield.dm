@@ -481,9 +481,6 @@
 	button_icon_state = "bci_shield"
 
 /datum/action/item_action/toggle_energy_shield/apply_button_icon(atom/movable/screen/movable/action_button/button, force)
-	var/obj/item/clothing/accessory/energy_shield/shield = target
-	if(istype(shield))
-		button.color = shield.enabled ? shield.shield_color : "#888888"
 	return ..()
 
 #undef ENERGY_SHIELD_FILTER
