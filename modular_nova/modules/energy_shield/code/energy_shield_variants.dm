@@ -16,7 +16,7 @@
 /// NT-issue tactical shield. Hardened circuitry allows integration with standard body armor up to class II.
 /obj/item/clothing/accessory/energy_shield/military
 	name = "NT tactical shield projector"
-	desc = "A military-spec energy shield designed for Nanotrasen security forces. Hardened circuitry allows integration with standard-issue body armor."
+	desc = "A military-spec energy shield designed for Nanotrasen security forces. Hardened circuitry allows integration with standard-issue clothing except hardened body armour."
 	max_shield_health = 100
 	recharge_delay = 8 SECONDS
 	recharge_rate = 8
