@@ -10,8 +10,6 @@
 #define SHIELD_HUD_Y_OFFSET 6
 /// How long the shield filters stay visible after a hit
 #define SHIELD_VISUAL_LINGER 1.5 SECONDS
-/// Maximum armor rating allowed on outer clothing before the shield refuses to activate (class I = 10)
-#define SHIELD_MAX_ARMOR_CLASS 10
 
 /obj/item/clothing/accessory/energy_shield
 	name = "energy shield projector"
@@ -53,8 +51,8 @@
 	var/melee_multiplier = 1.25
 	/// Future: list of damage types that bypass the shield entirely
 	var/list/bypassed_damagetypes
-	/// Maximum armor rating on outer clothing before the shield refuses to activate
-	var/max_armor_class = SHIELD_MAX_ARMOR_CLASS
+	/// Maximum armor rating on outer clothing before the shield refuses to activate (I default)
+	var/max_armor_class = 10
 	/// Whether the shield is enabled by the user (toggle via action button)
 	var/enabled = TRUE
 	/// Fraction of shield health retained after an EMP (0 = full wipe, 0.5 = halved)
@@ -508,4 +506,3 @@
 #undef TRAIT_ENERGY_SHIELDED
 #undef SHIELD_HUD_Y_OFFSET
 #undef SHIELD_VISUAL_LINGER
-#undef SHIELD_MAX_ARMOR_CLASS
