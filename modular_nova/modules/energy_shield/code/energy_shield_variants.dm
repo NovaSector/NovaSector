@@ -32,6 +32,7 @@
 	recharge_rate = 10
 	shield_color = "#ff2244"
 	emp_retention = 0.5
+	max_armor_class = 100
 
 /// Syndicate shields bypass all armor restrictions.
 /obj/item/clothing/accessory/energy_shield/syndicate/wearer_has_heavy_armor()
