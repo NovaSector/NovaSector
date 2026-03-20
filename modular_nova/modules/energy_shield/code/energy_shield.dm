@@ -49,8 +49,6 @@
 	var/showing_recharge = FALSE
 	/// Future: multiplier applied to melee damage passing through the shield
 	var/melee_multiplier = 1.25
-	/// Future: list of damage types that bypass the shield entirely
-	var/list/bypassed_damagetypes
 	/// Maximum armor rating on outer clothing before the shield refuses to activate (I default)
 	var/max_armor_class = 10
 	/// Whether the shield is enabled by the user (toggle via action button)
@@ -269,7 +267,7 @@
 
 /// Restores the LIVING_CAN_HAVE_BLOOD flag after the current tick.
 /obj/item/clothing/accessory/energy_shield/proc/restore_blood_flag()
-	if(!QDELETED(wearer) && wearer.can_have_blood())
+	if(wearer?.can_have_blood())
 		wearer.living_flags |= LIVING_CAN_HAVE_BLOOD
 
 /// Builds a "#RRGGBBAA" color string with alpha proportional to current shield health.
@@ -280,7 +278,7 @@
 
 /// Applies outline glow and texture pattern filters to the wearer.
 /obj/item/clothing/accessory/energy_shield/proc/show_shield_visuals()
-	if(QDELETED(wearer) || visuals_shown)
+	if(visuals_shown)
 		return
 	visuals_shown = TRUE
 	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = get_shield_tint_color()))
@@ -288,7 +286,7 @@
 
 /// Removes the outline glow and texture pattern filters from the wearer.
 /obj/item/clothing/accessory/energy_shield/proc/hide_shield_visuals()
-	if(QDELETED(wearer) || !visuals_shown)
+	if(!visuals_shown)
 		return
 	visuals_shown = FALSE
 	wearer.remove_filter(ENERGY_SHIELD_FILTER)
@@ -296,7 +294,7 @@
 
 /// Updates the outline filter alpha to reflect current shield health.
 /obj/item/clothing/accessory/energy_shield/proc/update_shield_visuals()
-	if(QDELETED(wearer) || !visuals_shown)
+	if(!visuals_shown)
 		return
 	wearer.remove_filter(ENERGY_SHIELD_FILTER)
 	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = get_shield_tint_color()))
@@ -304,18 +302,18 @@
 /// Briefly pulses the whole mob with the shield color and spawns a ripple at the hit limb.
 /// Uses animate() so the flash is visible through worn clothing (KEEP_TOGETHER composites everything).
 /obj/item/clothing/accessory/energy_shield/proc/flash_limb(obj/item/bodypart/limb)
-	if(QDELETED(wearer))
-		return
 	playsound(wearer, 'sound/items/weapons/tap.ogg', 20)
 	var/original_color = wearer.color
 	wearer.color = shield_color
 	animate(wearer, color = original_color, time = 0.3 SECONDS)
 	// Spawn concentric ripple at the hit limb's position
-	if(!QDELETED(limb))
+	if(limb)
 		INVOKE_ASYNC(src, PROC_REF(spawn_shield_ripple), limb)
 
 /// Spawns the concentric ripple effect at a limb's position. Separate proc because new() can yield.
 /obj/item/clothing/accessory/energy_shield/proc/spawn_shield_ripple(obj/item/bodypart/limb)
+	if(!wearer)
+		return
 	var/turf/wearer_turf = get_turf(wearer)
 	if(!wearer_turf)
 		return
@@ -364,7 +362,7 @@
 /// Updates the shield health bar visible to medical HUD users.
 /// Reuses existing health bar icon states from hud.dmi, colored blue.
 /obj/item/clothing/accessory/energy_shield/proc/update_shield_hud()
-	if(QDELETED(wearer) || !wearer.hud_list)
+	if(!wearer?.hud_list)
 		return
 	var/image/holder = wearer.hud_list[SHIELD_HUD]
 	if(!holder)
@@ -381,7 +379,7 @@
 
 /// Clears the shield HUD bar on the wearer.
 /obj/item/clothing/accessory/energy_shield/proc/clear_shield_hud()
-	if(QDELETED(wearer) || !wearer.hud_list)
+	if(!wearer?.hud_list)
 		return
 	var/image/holder = wearer.hud_list[SHIELD_HUD]
 	if(!holder)
@@ -429,8 +427,6 @@
 
 /// Called when shield health reaches zero. Visual and audio feedback for collapse.
 /obj/item/clothing/accessory/energy_shield/proc/shield_collapse()
-	if(QDELETED(wearer))
-		return
 	shield_active = FALSE
 	hide_shield_visuals()
 	update_shield_hud()
@@ -440,9 +436,6 @@
 
 /// Handles passive recharge after the cooldown expires.
 /obj/item/clothing/accessory/energy_shield/process(seconds_per_tick)
-	if(QDELETED(wearer))
-		return
-
 	// Don't recharge or activate while disabled
 	if(!enabled)
 		return
