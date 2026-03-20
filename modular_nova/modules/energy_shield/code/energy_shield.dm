@@ -49,6 +49,8 @@
 	var/melee_multiplier = 1.25
 	/// Future: list of damage types that bypass the shield entirely
 	var/list/bypassed_damagetypes
+	/// Maximum armor rating on outer clothing before the shield refuses to activate
+	var/max_armor_class = SHIELD_MAX_ARMOR_CLASS
 
 	COOLDOWN_DECLARE(recharge_cooldown)
 	/// Controls how long filters linger after a hit
@@ -61,11 +63,11 @@
 	var/obj/item/clothing/suit = wearer.get_item_by_slot(ITEM_SLOT_OCLOTHING)
 	if(isnull(suit))
 		return FALSE
-	if(suit.get_armor_rating(LASER) > SHIELD_MAX_ARMOR_CLASS)
+	if(suit.get_armor_rating(LASER) > max_armor_class)
 		return TRUE
-	if(suit.get_armor_rating(ENERGY) > SHIELD_MAX_ARMOR_CLASS)
+	if(suit.get_armor_rating(ENERGY) > max_armor_class)
 		return TRUE
-	if(suit.get_armor_rating(BULLET) > SHIELD_MAX_ARMOR_CLASS)
+	if(suit.get_armor_rating(BULLET) > max_armor_class)
 		return TRUE
 	return FALSE
 
