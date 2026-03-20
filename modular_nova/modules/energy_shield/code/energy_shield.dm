@@ -52,8 +52,6 @@
 	/// Controls how long filters linger after a hit
 	COOLDOWN_DECLARE(visual_cooldown)
 
-// --- EQUIP / DROP ---
-
 /// Handles activation for both neck slot and accessory-on-jumpsuit paths.
 /// accessory_equipped() calls equipped(), so this single override covers both.
 /obj/item/clothing/accessory/energy_shield/equipped(mob/living/user, slot)
@@ -103,8 +101,7 @@
 	else
 		. += span_warning("The energy shield is offline.")
 
-// --- EMP VULNERABILITY ---
-
+/// Resets shield to zero on EMP, triggering recharge cooldown.
 /obj/item/clothing/accessory/energy_shield/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
@@ -121,8 +118,6 @@
 	playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
 	wearer.visible_message(span_warning("[wearer]'s energy shield shorts out!"))
 	do_sparks(3, TRUE, wearer)
-
-// --- PROJECTILE INTERCEPTION ---
 
 /// Fully blocks projectiles when the shield can absorb the entire hit.
 /// This prevents embedding, wounding, and blood splatter from blocked bullets.
@@ -144,21 +139,19 @@
 	recharge_visual_pending = TRUE
 	showing_recharge = FALSE
 	COOLDOWN_START(src, visual_cooldown, SHIELD_VISUAL_LINGER)
-	INVOKE_ASYNC(src, PROC_REF(show_shield_visuals))
-	INVOKE_ASYNC(src, PROC_REF(update_shield_visuals))
+	show_shield_visuals()
+	update_shield_visuals()
 
 	// Flash the hit limb
 	var/obj/item/bodypart/limb = wearer.get_bodypart(check_zone(def_zone))
 	if(limb)
-		INVOKE_ASYNC(src, PROC_REF(flash_limb), limb)
+		flash_limb(limb)
 
 	if(shield_health <= 0)
-		INVOKE_ASYNC(src, PROC_REF(shield_collapse))
+		shield_collapse()
 
 	update_shield_hud()
 	return COMPONENT_BULLET_BLOCKED
-
-// --- DAMAGE ABSORPTION ---
 
 /// Intercepts incoming damage via modifier system. Absorbs damage and triggers limb glow on hit.
 /// For projectiles, this only fires when the shield couldn't fully block (partial absorption).
@@ -195,14 +188,14 @@
 	showing_recharge = FALSE
 	// Show filters on hit; they'll linger for SHIELD_VISUAL_LINGER then hide in process()
 	COOLDOWN_START(src, visual_cooldown, SHIELD_VISUAL_LINGER)
-	INVOKE_ASYNC(src, PROC_REF(show_shield_visuals))
-	INVOKE_ASYNC(src, PROC_REF(update_shield_visuals))
+	show_shield_visuals()
+	update_shield_visuals()
 
 	if(isbodypart(def_zone))
-		INVOKE_ASYNC(src, PROC_REF(flash_limb), def_zone)
+		flash_limb(def_zone)
 
 	if(shield_health <= 0)
-		INVOKE_ASYNC(src, PROC_REF(shield_collapse))
+		shield_collapse()
 
 	update_shield_hud()
 
@@ -211,17 +204,18 @@
 	if(!QDELETED(wearer) && wearer.can_have_blood())
 		wearer.living_flags |= LIVING_CAN_HAVE_BLOOD
 
-// --- VISUAL EFFECTS ---
+/// Builds a "#RRGGBBAA" color string with alpha proportional to current shield health.
+/obj/item/clothing/accessory/energy_shield/proc/get_shield_tint_color()
+	var/tint_alpha = shield_health > 0 ? round((shield_health / max_shield_health) * 150 + 30) : 30
+	var/static/hex_digits = "0123456789abcdef"
+	return "[shield_color][hex_digits[round(tint_alpha / 16) + 1]][hex_digits[(tint_alpha % 16) + 1]]"
 
 /// Applies outline glow and texture pattern filters to the wearer.
 /obj/item/clothing/accessory/energy_shield/proc/show_shield_visuals()
 	if(QDELETED(wearer) || visuals_shown)
 		return
 	visuals_shown = TRUE
-	var/tint_alpha = shield_health > 0 ? round((shield_health / max_shield_health) * 150 + 30) : 30
-	var/static/hex_digits = "0123456789abcdef"
-	var/tint_color = "[shield_color][hex_digits[round(tint_alpha / 16) + 1]][hex_digits[(tint_alpha % 16) + 1]]"
-	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = tint_color))
+	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = get_shield_tint_color()))
 	wearer.add_filter(ENERGY_SHIELD_PATTERN_FILTER, 2, layering_filter(icon = icon('icons/mob/human/textures.dmi', "fishscale"), color = shield_color, blend_mode = BLEND_INSET_OVERLAY))
 
 /// Removes the outline glow and texture pattern filters from the wearer.
@@ -236,11 +230,8 @@
 /obj/item/clothing/accessory/energy_shield/proc/update_shield_visuals()
 	if(QDELETED(wearer) || !visuals_shown)
 		return
-	var/tint_alpha = shield_health > 0 ? round((shield_health / max_shield_health) * 150 + 30) : 30
-	var/static/hex_digits = "0123456789abcdef"
-	var/tint_color = "[shield_color][hex_digits[round(tint_alpha / 16) + 1]][hex_digits[(tint_alpha % 16) + 1]]"
 	wearer.remove_filter(ENERGY_SHIELD_FILTER)
-	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = tint_color))
+	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = get_shield_tint_color()))
 
 /// Briefly pulses the whole mob with the shield color and spawns a ripple at the hit limb.
 /// Uses animate() so the flash is visible through worn clothing (KEEP_TOGETHER composites everything).
@@ -253,32 +244,37 @@
 	animate(wearer, color = original_color, time = 0.3 SECONDS)
 	// Spawn concentric ripple at the hit limb's position
 	if(!QDELETED(limb))
-		var/turf/wearer_turf = get_turf(wearer)
-		if(wearer_turf)
-			var/obj/effect/temp_visual/energy_shield_ripple/ripple = new(wearer_turf, wearer)
-			ripple.color = shield_color
-			// Scale ripple with mob height (0.35x at medium height, proportional otherwise)
-			var/mob/living/carbon/human/human_wearer = wearer
-			var/scale = 0.35 * (istype(human_wearer) ? (human_wearer.mob_height / HUMAN_HEIGHT_MEDIUM) : 1)
-			ripple.transform = matrix(scale, 0, 0, 0, scale, 0)
-			// Offset to the struck limb's approximate position on the sprite
-			switch(limb.body_zone)
-				if(BODY_ZONE_HEAD)
-					ripple.pixel_y = 8
-				if(BODY_ZONE_CHEST)
-					ripple.pixel_y = 0
-				if(BODY_ZONE_L_ARM)
-					ripple.pixel_x = 10
-					ripple.pixel_y = 2
-				if(BODY_ZONE_R_ARM)
-					ripple.pixel_x = -10
-					ripple.pixel_y = 2
-				if(BODY_ZONE_L_LEG)
-					ripple.pixel_x = 4
-					ripple.pixel_y = -10
-				if(BODY_ZONE_R_LEG)
-					ripple.pixel_x = -4
-					ripple.pixel_y = -10
+		INVOKE_ASYNC(src, PROC_REF(spawn_shield_ripple), limb)
+
+/// Spawns the concentric ripple effect at a limb's position. Separate proc because new() can yield.
+/obj/item/clothing/accessory/energy_shield/proc/spawn_shield_ripple(obj/item/bodypart/limb)
+	var/turf/wearer_turf = get_turf(wearer)
+	if(!wearer_turf)
+		return
+	var/obj/effect/temp_visual/energy_shield_ripple/ripple = new(wearer_turf, wearer)
+	ripple.color = shield_color
+	// Scale ripple with mob height (0.35x at medium height, proportional otherwise)
+	var/mob/living/carbon/human/human_wearer = wearer
+	var/scale = 0.35 * (istype(human_wearer) ? (human_wearer.mob_height / HUMAN_HEIGHT_MEDIUM) : 1)
+	ripple.transform = matrix(scale, 0, 0, 0, scale, 0)
+	// Offset to the struck limb's approximate position on the sprite
+	switch(limb.body_zone)
+		if(BODY_ZONE_HEAD)
+			ripple.pixel_y = 8
+		if(BODY_ZONE_CHEST)
+			ripple.pixel_y = 0
+		if(BODY_ZONE_L_ARM)
+			ripple.pixel_x = 10
+			ripple.pixel_y = 2
+		if(BODY_ZONE_R_ARM)
+			ripple.pixel_x = -10
+			ripple.pixel_y = 2
+		if(BODY_ZONE_L_LEG)
+			ripple.pixel_x = 4
+			ripple.pixel_y = -10
+		if(BODY_ZONE_R_LEG)
+			ripple.pixel_x = -4
+			ripple.pixel_y = -10
 
 /// Concentric ripple effect spawned at the struck limb on shield hit.
 /obj/effect/temp_visual/energy_shield_ripple
@@ -296,8 +292,6 @@
 	. = ..()
 	if(target)
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, orbit), target, 0, FALSE, 0, 0, FALSE, TRUE)
-
-// --- SHIELD HUD ---
 
 /// Updates the shield health bar visible to medical HUD users.
 /// Reuses existing health bar icon states from hud.dmi, colored blue.
@@ -365,8 +359,6 @@
 		else
 			return "health0"
 
-// --- SHIELD COLLAPSE & RECHARGE ---
-
 /// Called when shield health reaches zero. Visual and audio feedback for collapse.
 /obj/item/clothing/accessory/energy_shield/proc/shield_collapse()
 	if(QDELETED(wearer))
@@ -376,7 +368,7 @@
 	update_shield_hud()
 	playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
 	wearer.visible_message(span_warning("[wearer]'s energy shield collapses!"))
-	do_sparks(3, TRUE, wearer)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(do_sparks), 3, TRUE, wearer)
 
 /// Handles passive recharge after the cooldown expires.
 /obj/item/clothing/accessory/energy_shield/process(seconds_per_tick)
