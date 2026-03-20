@@ -58,6 +58,10 @@
 	var/enabled = TRUE
 	/// Fraction of shield health retained after an EMP (0 = full wipe, 0.5 = halved)
 	var/emp_retention = 0
+	/// Whether the shield blocks projectile damage
+	var/blocks_projectiles = TRUE
+	/// Whether the shield blocks melee damage
+	var/blocks_melee = TRUE
 
 	COOLDOWN_DECLARE(recharge_cooldown)
 	/// Controls how long filters linger after a hit
@@ -176,6 +180,8 @@
 /obj/item/clothing/accessory/energy_shield/proc/on_pre_bullet(mob/living/carbon/source, obj/projectile/proj, def_zone, piercing_hit)
 	SIGNAL_HANDLER
 
+	if(!blocks_projectiles)
+		return
 	if(shield_health <= 0 || !shield_active)
 		return
 	if(proj.damage <= 0)
@@ -218,6 +224,13 @@
 	// External attacks always have an attack_direction; internal sources don't.
 	if(isnull(attack_direction))
 		return
+	// Check if this damage type is blocked by the shield
+	if(isprojectile(attacking_item))
+		if(!blocks_projectiles)
+			return
+	else
+		if(!blocks_melee)
+			return
 
 	var/absorbed = min(damage, shield_health)
 	var/fully_absorbed = absorbed >= damage

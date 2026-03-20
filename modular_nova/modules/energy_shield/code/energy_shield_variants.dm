@@ -37,12 +37,7 @@
 	desc = "A Syndicate shield tuned exclusively for high-velocity projectile interception. Its phase-shifted barrier is completely transparent to melee attacks."
 	max_shield_health = 150
 	shield_color = "#cc44ff"
-
-/// Phasic shields only absorb damage from projectiles — melee passes through entirely.
-/obj/item/clothing/accessory/energy_shield/syndicate/phasic/on_damage_modifiers(mob/living/carbon/source, list/damage_mods, damage, damagetype, def_zone, sharpness, attack_direction, attacking_item)
-	if(!isprojectile(attacking_item))
-		return
-	return ..()
+	blocks_melee = FALSE
 
 // -- SYNDICATE BULWARK VARIANT --
 
