@@ -35,3 +35,8 @@
 
 /datum/preference/choiced/photophobia_severity/apply_to_human(mob/living/carbon/human/target, value)
 	return
+
+/datum/quirk/photophobia/is_species_appropriate(datum/species/mob_species)
+	if(istype(GLOB.species_prototypes[mob_species], /datum/species/shadekin))
+		return FALSE
+	return ..()
