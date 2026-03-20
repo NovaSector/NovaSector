@@ -13,7 +13,7 @@
 
 /obj/item/clothing/accessory/energy_shield
 	name = "energy shield projector"
-	desc = "A compact personal energy shield projector. Can be clipped onto clothing or worn around the neck. Projects a protective barrier that absorbs incoming damage."
+	desc = "A compact personal energy shield projector. Can be clipped onto clothing as an accessory. Projects a protective barrier that absorbs incoming damage."
 	icon = 'icons/obj/clothing/neck.dmi'
 	worn_icon = 'icons/mob/clothing/neck.dmi'
 	icon_state = "modlink"
@@ -47,7 +47,7 @@
 	var/recharge_visual_pending = TRUE
 	/// Whether filters are showing because of active recharging (persistent until full)
 	var/showing_recharge = FALSE
-	/// Maximum armor rating on outer clothing before the shield refuses to activate (I default)
+	/// Maximum armor rating on outer clothing before the shield refuses to activate (default)
 	var/max_armor_class = 10
 	/// Whether the shield is enabled by the user (toggle via action button)
 	var/enabled = TRUE

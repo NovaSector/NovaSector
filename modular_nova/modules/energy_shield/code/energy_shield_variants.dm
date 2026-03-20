@@ -34,10 +34,6 @@
 	emp_retention = 0.5
 	max_armor_class = 100
 
-/// Syndicate shields bypass all armor restrictions.
-/obj/item/clothing/accessory/energy_shield/syndicate/wearer_has_heavy_armor()
-	return FALSE
-
 /// Syndicate shield tuned for projectile interception only. Transparent to melee.
 /obj/item/clothing/accessory/energy_shield/syndicate/phasic
 	name = "Gorlex phasic deflector"
