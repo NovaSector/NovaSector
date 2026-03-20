@@ -78,8 +78,8 @@
 	target.dna.features[FEATURE_MUTANT_COLOR_THREE] = clamp_color_brightness(target.dna.features[FEATURE_MUTANT_COLOR_THREE])
 
 	// Clamp colors on all mutant bodyparts (ears, tail, horns, etc.)
-	for(var/part_key in target.dna.mutant_bodyparts)
-		var/datum/mutant_bodypart/part = target.dna.mutant_bodyparts[part_key]
+	for(var/part_key, part_entry in target.dna.mutant_bodyparts)
+		var/datum/mutant_bodypart/part = part_entry
 		if(!istype(part))
 			continue
 		var/list/part_colors = part.get_colors()
@@ -92,9 +92,8 @@
 
 	// Deep copy body markings to avoid mutating shared preference references
 	target.dna.body_markings = deep_copy_list(target.dna.body_markings)
-	for(var/zone in target.dna.body_markings)
-		for(var/marking_name in target.dna.body_markings[zone])
-			var/list/marking_data = target.dna.body_markings[zone][marking_name]
+	for(var/zone, markings_list in target.dna.body_markings)
+		for(var/marking_name, marking_data in markings_list)
 			if(islist(marking_data) && length(marking_data))
 				marking_data[1] = clamp_color_brightness(marking_data[1])
 
@@ -141,7 +140,8 @@
 
 /datum/species/shadekin/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
-	clamp_all_colors(human_who_gained_species)
+	if(!pref_load)
+		clamp_all_colors(human_who_gained_species)
 
 /datum/species/shadekin/prepare_human_for_preview(mob/living/carbon/human/shadekin)
 	var/main_color = "#222222"

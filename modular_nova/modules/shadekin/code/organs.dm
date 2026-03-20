@@ -96,6 +96,8 @@
 	languages_native = list(/datum/language/marish/empathy)
 	/// Whether the current empathy transmission was interrupted.
 	var/empathy_interrupted = FALSE
+	/// Typecache of areas which block communication via empathy
+	var/static/list/blacklisted_areas
 
 /obj/item/organ/tongue/shadekin/handle_speech(datum/source, list/speech_args)
 	if(speech_args[SPEECH_LANGUAGE] in languages_native)
@@ -147,8 +149,10 @@
 	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 
 	//don't send messages in ghost cafe
+	if(isnull(blacklisted_areas))
+		blacklisted_areas = typecacheof(GLOB.ghost_cafe_areas)
 	var/area/user_area = get_area(user)
-	if(user_area?.type in GLOB.ghost_cafe_areas)
+	if(is_type_in_typecache(user_area, blacklisted_areas))
 		to_chat(user, span_warning("Your empathic transmission fizzles out..."))
 		return
 	if(empathy_interrupted)
@@ -163,7 +167,7 @@
 
 		//don't receive messages in ghost cafe
 		var/area/target_area = get_area(living_mob)
-		if(target_area?.type in GLOB.ghost_cafe_areas)
+		if(is_type_in_typecache(target_area, blacklisted_areas))
 			continue
 
 		to_chat(living_mob, rendered)

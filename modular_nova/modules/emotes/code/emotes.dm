@@ -846,3 +846,5 @@
 	key = "mar"
 	key_third_person = "mars"
 	message = "lets out a mar!"
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/mar.ogg'
