@@ -169,17 +169,17 @@
 	src.preserve()
 
 /obj/item/coin/gold/ancient
-	name = "ancient gold doubloon"
+	name = "ancient doubloon"
 	override_material_worth = TRUE
 	value = CARGO_CRATE_VALUE * 2.5
 
 /obj/item/coin/adamantine/ancient
-	name = "ancient adamantine doubloon"
+	name = "ancient doubloon"
 	override_material_worth = TRUE
 	value = CARGO_CRATE_VALUE * 5
 
 /obj/item/coin/mythril/ancient
-	name = "ancient mythril doubloon"
+	name = "ancient doubloon"
 	override_material_worth = TRUE
 	value = CARGO_CRATE_VALUE * 12.5
 

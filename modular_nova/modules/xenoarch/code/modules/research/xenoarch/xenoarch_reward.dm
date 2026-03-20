@@ -8,6 +8,7 @@
 		/obj/item/xenoarch/broken_item/animal = 10,
 		/obj/item/xenoarch/broken_item = 5,
 		/obj/item/xenoarch/broken_item/weapon = 1,
+		/obj/item/relic/lavaland/activated = 2,
 	)
 
 /obj/effect/spawner/random/xenoarch/tier3
@@ -20,6 +21,7 @@
 		/obj/item/xenoarch/broken_item/clothing = 10,
 		/obj/item/xenoarch/broken_item/illegal = 1,
 		/obj/item/xenoarch/broken_item/alien = 1,
+		/obj/item/relic/lavaland/activated = 1,
 	)
 
 /obj/effect/spawner/random/xenoarch/tier2
@@ -69,16 +71,16 @@
 	name = "Xenoarch Technological Rewards"
 	desc = "Xenoarchaeology station tier but relative rare loot."
 	loot = list(
-		/obj/item/relic/lavaland/activated = 7,
+		/obj/item/relic/lavaland/activated = 4,
 		/obj/effect/spawner/random/exotic/technology = 5,
 		/obj/item/stock_parts/power_store/cell/self_charge = 5,
+		/obj/item/stock_parts/power_store/cell/self_charge/exotic = 2,
 		/obj/item/flatpacked_machine = 4, // RCF
 		/obj/item/construction/rcd = 4,
 		/obj/item/bodybag/bluespace = 1,
 		/obj/item/construction/plumbing = 1,
 		/obj/item/storage/portable_chem_mixer = 1,
 		/obj/item/pickaxe/drill/diamonddrill = 2,
-		/obj/item/circuitboard/machine/ltsrbt = 1,
 		/obj/item/v8_engine = 1,
 		/obj/item/hearthkin_ship_fragment_inactive/xenoarch = 3, // this turns into a /obj/item/relic/lavaland/activated in lavaland maps
 	)
@@ -87,7 +89,7 @@
 	name = "Xenoarch Clothing Rewards"
 	desc = "Xenoarchaeology clothing and armor related loot."
 	loot = list(
-		/obj/item/mod/control/pre_equipped/frontier_colonist = 8,
+		/obj/item/mod/control/pre_equipped/frontier_colonist = 6,
 		/obj/item/mod/control/pre_equipped/mining = 4,
 		/obj/item/clothing/gloves/tackler/rocket = 4, 
 		/obj/item/clothing/gloves/tackler/dolphin = 4,
@@ -119,21 +121,20 @@
 	loot = list(
 		/obj/item/card/emag/doorjack = 3,
 		/obj/item/chameleon = 3,
-		/obj/item/clothing/shoes/chameleon/noslip = 3,
+		/obj/item/clothing/shoes/chameleon/noslip = 2,
 		/obj/item/storage/box/incomplete_chameleon = 3, // we use this modified box so it doesnt give illegal tech
 		/obj/item/clothing/gloves/color/black/thief = 2,
-		/obj/item/stock_parts/power_store/cell/self_charge/exotic = 2,
+		/obj/item/melee/energy/sword = 1,
 	)
 
 /obj/effect/spawner/random/xenoarch/alien
 	name = "Xenoarch Alien Rewards"
 	desc = "Xenoarchaeology alien origin loot."
 	loot = list(
-		/obj/item/multitool/abductor = 4,
+		/obj/item/multitool/abductor = 2,
 		/obj/effect/spawner/random/engineering/tool_alien = 2,
 		/obj/effect/spawner/random/medical/surgery_tool_alien = 2,
 		/obj/item/abductor/alien_omnitool = 2,
 		/obj/item/storage/belt/military/abductor/full = 2,
-		/obj/item/abductor/mind_device = 2, // not a problem since you need the target to have a special heart to be controled. So in essence is just mental comunications
 		/obj/item/gun/energy/shrink_ray/faulty = 1,
 	)
