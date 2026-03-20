@@ -223,9 +223,9 @@
 		shield_collapse()
 	update_shield_hud()
 
-/// Fully blocks projectiles when the shield can absorb the entire hit.
-/// This prevents embedding, wounding, and blood splatter from blocked bullets.
-/// Partial absorption falls through to on_damage_modifiers instead.
+/// Absorbs projectile damage and stamina with the shield. Brute first, then stamina with leftover.
+/// Fully blocked projectiles return COMPONENT_BULLET_BLOCKED (prevents wounds/embed/blood).
+/// Partially absorbed projectiles have their damage/stamina reduced and proceed normally.
 /obj/item/clothing/accessory/energy_shield/proc/on_pre_bullet(mob/living/carbon/source, obj/projectile/proj, def_zone, piercing_hit)
 	SIGNAL_HANDLER
 
@@ -233,17 +233,28 @@
 		return
 	if(shield_health <= 0 || !shield_active)
 		return
-	// Account for both primary damage and extra stamina (e.g. rubber pellets)
 	var/total_damage = proj.damage + proj.stamina
 	if(total_damage <= 0)
 		return
-	// Only fully block if we can absorb the entire raw hit
-	if(shield_health < total_damage)
-		return
 
+	var/remaining_shield = shield_health
+	// Absorb brute first
+	var/brute_absorbed = min(proj.damage, remaining_shield)
+	remaining_shield -= brute_absorbed
+	// Then stamina with whatever shield is left
+	var/stamina_absorbed = min(proj.stamina, remaining_shield)
+
+	var/total_absorbed = brute_absorbed + stamina_absorbed
 	var/obj/item/bodypart/limb = wearer.get_bodypart(check_zone(def_zone))
-	apply_shield_hit(total_damage, limb)
-	return COMPONENT_BULLET_BLOCKED
+	apply_shield_hit(total_absorbed, limb)
+
+	// Reduce the projectile's damage for whatever passes through
+	proj.damage -= brute_absorbed
+	proj.stamina -= stamina_absorbed
+
+	// Fully absorbed — block the bullet entirely
+	if(proj.damage <= 0 && proj.stamina <= 0)
+		return COMPONENT_BULLET_BLOCKED
 
 /// Fully blocks melee and thrown attacks when the shield can absorb the entire hit.
 /// Mirrors on_pre_bullet for projectiles — prevents wounds, embeds, and blood naturally.
@@ -266,9 +277,10 @@
 	apply_shield_hit(damage, limb)
 	return SUCCESSFUL_BLOCK
 
-/// Computes the damage modifier for shield absorption.
-/// For attacks from others, full blocks are handled by on_check_block/on_pre_bullet.
-/// This handler covers partial absorption and self-attacks (where check_block is skipped).
+/// Computes the damage modifier for melee/self-attack shield absorption.
+/// Projectiles are fully handled by on_pre_bullet — this skips them.
+/// Full melee blocks are handled by on_check_block.
+/// This covers partial melee absorption and self-attacks (where check_block is skipped).
 /// Must remain pure — side effects are in on_after_damage via COMSIG_MOB_AFTER_APPLY_DAMAGE.
 /obj/item/clothing/accessory/energy_shield/proc/on_damage_modifiers(mob/living/carbon/source, list/damage_mods, damage, damagetype, def_zone, sharpness, attack_direction, attacking_item)
 	SIGNAL_HANDLER
@@ -277,17 +289,15 @@
 		return
 	if(damage <= 0)
 		return
-	// Only absorb external attacks (projectiles, melee, thrown) — not embeds, wounds, or reagent damage.
+	// Projectiles are handled entirely by on_pre_bullet (brute + stamina absorption)
+	if(isprojectile(attacking_item))
+		return
+	// Only absorb external attacks (melee, thrown) — not embeds, wounds, or reagent damage.
 	// External attacks have an attack_direction or an attacking_item; internal sources have neither.
 	if(isnull(attack_direction) && isnull(attacking_item))
 		return
-	// Check if this damage type is blocked by the shield
-	if(isprojectile(attacking_item))
-		if(!blocks_projectiles)
-			return
-	else
-		if(!blocks_melee)
-			return
+	if(!blocks_melee)
+		return
 
 	var/absorbed = min(damage, shield_health)
 	pending_absorption = absorbed
