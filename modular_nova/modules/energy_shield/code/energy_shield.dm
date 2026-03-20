@@ -24,6 +24,9 @@
 	attachment_slot = NONE
 	above_suit = FALSE
 	w_class = WEIGHT_CLASS_SMALL
+	actions_types = list(/datum/action/item_action/toggle_energy_shield)
+	/// Grant the action button in both neck and accessory-on-jumpsuit slots
+	action_slots = ITEM_SLOT_NECK | ITEM_SLOT_ICLOTHING
 
 	/// Current shield health — starts empty, must charge after equipping
 	var/shield_health = 0
@@ -51,6 +54,10 @@
 	var/list/bypassed_damagetypes
 	/// Maximum armor rating on outer clothing before the shield refuses to activate
 	var/max_armor_class = SHIELD_MAX_ARMOR_CLASS
+	/// Whether the shield is enabled by the user (toggle via action button)
+	var/enabled = TRUE
+	/// Fraction of shield health retained after an EMP (0 = full wipe, 0.5 = halved)
+	var/emp_retention = 0
 
 	COOLDOWN_DECLARE(recharge_cooldown)
 	/// Controls how long filters linger after a hit
@@ -87,7 +94,9 @@
 	RegisterSignal(wearer, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(on_damage_modifiers))
 	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(on_pre_bullet))
 
-	if(wearer_has_heavy_armor())
+	if(!enabled)
+		to_chat(wearer, span_notice("The [src] is disabled. Use it in hand to open the control panel."))
+	else if(wearer_has_heavy_armor())
 		to_chat(wearer, span_warning("The [src] fails to activate — your armor is too heavy for the energy field to form."))
 	else if(shield_health > 0)
 		shield_active = TRUE
@@ -115,14 +124,34 @@
 
 /obj/item/clothing/accessory/energy_shield/examine(mob/user)
 	. = ..()
-	if(shield_active)
+	if(!enabled)
+		. += span_warning("The energy shield is disabled.")
+	else if(shield_active)
 		. += span_notice("The energy shield is active ([round((shield_health / max_shield_health) * 100)]% integrity).")
 	else if(shield_health > 0)
 		. += span_notice("The energy shield is recharging ([round((shield_health / max_shield_health) * 100)]% integrity).")
 	else
 		. += span_warning("The energy shield is offline.")
 
-/// Resets shield to zero on EMP, triggering recharge cooldown.
+/// Toggles the shield on/off via the action button.
+/obj/item/clothing/accessory/energy_shield/ui_action_click(mob/user, datum/action/action)
+	enabled = !enabled
+	if(!enabled)
+		if(shield_active)
+			shield_active = FALSE
+			shield_health = 0
+			showing_recharge = FALSE
+			hide_shield_visuals()
+			update_shield_hud()
+			playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
+		to_chat(wearer, span_notice("You deactivate the energy shield."))
+	else if(wearer)
+		COOLDOWN_START(src, recharge_cooldown, recharge_delay)
+		recharge_visual_pending = TRUE
+		to_chat(wearer, span_notice("You activate the energy shield. It will begin charging shortly."))
+	action.build_all_button_icons()
+
+/// Drains shield health on EMP. Amount retained is controlled by emp_retention.
 /obj/item/clothing/accessory/energy_shield/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
@@ -132,8 +161,9 @@
 	if(shield_health <= 0 && !shield_active)
 		return
 
-	shield_health = 0
-	shield_active = FALSE
+	shield_health = round(shield_health * emp_retention)
+	if(shield_health <= 0)
+		shield_active = FALSE
 	COOLDOWN_START(src, recharge_cooldown, recharge_delay)
 	update_shield_hud()
 	playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
@@ -227,7 +257,7 @@
 
 /// Builds a "#RRGGBBAA" color string with alpha proportional to current shield health.
 /obj/item/clothing/accessory/energy_shield/proc/get_shield_tint_color()
-	var/tint_alpha = shield_health > 0 ? round((shield_health / max_shield_health) * 150 + 30) : 30
+	var/tint_alpha = shield_health > 0 ? round((shield_health / max_shield_health) * 200 + 5) : 5
 	var/static/hex_digits = "0123456789abcdef"
 	return "[shield_color][hex_digits[round(tint_alpha / 16) + 1]][hex_digits[(tint_alpha % 16) + 1]]"
 
@@ -396,6 +426,10 @@
 	if(QDELETED(wearer))
 		return
 
+	// Don't recharge or activate while disabled
+	if(!enabled)
+		return
+
 	// Suppress shield while wearing heavy armor
 	if(wearer_has_heavy_armor())
 		if(shield_active)
@@ -438,6 +472,19 @@
 	if(visuals_shown)
 		update_shield_visuals()
 	update_shield_hud()
+
+/// Action button for toggling the energy shield on/off.
+/datum/action/item_action/toggle_energy_shield
+	name = "Toggle Energy Shield"
+	desc = "Enable or disable your energy shield projector."
+	button_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon_state = "bci_shield"
+
+/datum/action/item_action/toggle_energy_shield/apply_button_icon(atom/movable/screen/movable/action_button/button, force)
+	var/obj/item/clothing/accessory/energy_shield/shield = target
+	if(istype(shield))
+		button.color = shield.enabled ? shield.shield_color : "#888888"
+	return ..()
 
 #undef ENERGY_SHIELD_FILTER
 #undef ENERGY_SHIELD_PATTERN_FILTER

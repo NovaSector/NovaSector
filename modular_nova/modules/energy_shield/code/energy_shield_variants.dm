@@ -31,26 +31,11 @@
 	recharge_delay = 6 SECONDS
 	recharge_rate = 8
 	shield_color = "#ff2244"
+	emp_retention = 0.5
 
 /// Syndicate shields bypass all armor restrictions.
 /obj/item/clothing/accessory/energy_shield/syndicate/wearer_has_heavy_armor()
 	return FALSE
-
-/// Syndicate shields have partial EMP resistance — halves HP instead of zeroing it.
-/obj/item/clothing/accessory/energy_shield/syndicate/emp_act(severity)
-	var/pre_emp_health = shield_health
-	. = ..()
-	if(. & EMP_PROTECT_SELF)
-		return
-	if(isnull(wearer))
-		return
-	if(pre_emp_health <= 0)
-		return
-	// Parent zeroed health. Restore half of pre-EMP value and start recharging.
-	shield_health = round(pre_emp_health * 0.5)
-	if(shield_health > 0)
-		shield_active = TRUE
-	update_shield_hud()
 
 // -- SYNDICATE PHASIC VARIANT --
 
