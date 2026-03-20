@@ -83,7 +83,12 @@
 		return
 	UnregisterSignal(wearer, list(COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_ATOM_PRE_BULLET_ACT))
 	REMOVE_TRAIT(wearer, TRAIT_ENERGY_SHIELDED, ENERGY_SHIELD_TRAIT)
+	if(shield_health > 0)
+		playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
+	shield_health = 0
 	shield_active = FALSE
+	showing_recharge = FALSE
+	recharge_visual_pending = TRUE
 	hide_shield_visuals()
 	clear_shield_hud()
 	STOP_PROCESSING(SSobj, src)
@@ -237,7 +242,7 @@
 	wearer.remove_filter(ENERGY_SHIELD_FILTER)
 	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = tint_color))
 
-/// Briefly pulses the whole mob with the shield color to indicate impact.
+/// Briefly pulses the whole mob with the shield color and spawns a ripple at the hit limb.
 /// Uses animate() so the flash is visible through worn clothing (KEEP_TOGETHER composites everything).
 /obj/item/clothing/accessory/energy_shield/proc/flash_limb(obj/item/bodypart/limb)
 	if(QDELETED(wearer))
@@ -246,6 +251,51 @@
 	var/original_color = wearer.color
 	wearer.color = shield_color
 	animate(wearer, color = original_color, time = 0.3 SECONDS)
+	// Spawn concentric ripple at the hit limb's position
+	if(!QDELETED(limb))
+		var/turf/wearer_turf = get_turf(wearer)
+		if(wearer_turf)
+			var/obj/effect/temp_visual/energy_shield_ripple/ripple = new(wearer_turf, wearer)
+			ripple.color = shield_color
+			// Scale ripple with mob height (0.35x at medium height, proportional otherwise)
+			var/mob/living/carbon/human/human_wearer = wearer
+			var/scale = 0.35 * (istype(human_wearer) ? (human_wearer.mob_height / HUMAN_HEIGHT_MEDIUM) : 1)
+			ripple.transform = matrix(scale, 0, 0, 0, scale, 0)
+			// Offset to the struck limb's approximate position on the sprite
+			switch(limb.body_zone)
+				if(BODY_ZONE_HEAD)
+					ripple.pixel_y = 8
+				if(BODY_ZONE_CHEST)
+					ripple.pixel_y = 0
+				if(BODY_ZONE_L_ARM)
+					ripple.pixel_x = 10
+					ripple.pixel_y = 2
+				if(BODY_ZONE_R_ARM)
+					ripple.pixel_x = -10
+					ripple.pixel_y = 2
+				if(BODY_ZONE_L_LEG)
+					ripple.pixel_x = 4
+					ripple.pixel_y = -10
+				if(BODY_ZONE_R_LEG)
+					ripple.pixel_x = -4
+					ripple.pixel_y = -10
+
+/// Concentric ripple effect spawned at the struck limb on shield hit.
+/obj/effect/temp_visual/energy_shield_ripple
+	name = "energy shield ripple"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "at_shield2"
+	layer = FLY_LAYER
+	plane = ABOVE_GAME_PLANE
+	duration = 6
+	light_system = OVERLAY_LIGHT
+	light_range = 1.5
+	light_power = 0.8
+
+/obj/effect/temp_visual/energy_shield_ripple/Initialize(mapload, atom/target)
+	. = ..()
+	if(target)
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, orbit), target, 0, FALSE, 0, 0, FALSE, TRUE)
 
 // --- SHIELD HUD ---
 
