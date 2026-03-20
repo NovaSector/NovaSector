@@ -51,7 +51,7 @@
 
 /datum/status_effect/shadekin_regeneration/proc/on_owner_moved(datum/source)
 	SIGNAL_HANDLER
-	var/turf/owner_turf = owner.loc
+	var/turf/owner_turf = owner?.loc
 	if(!isturf(owner_turf))
 		return
 	if(owner_turf.get_lumcount() >= SHADOW_SPECIES_LIGHT_THRESHOLD)
