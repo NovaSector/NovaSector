@@ -32,6 +32,7 @@
 		/obj/item/xenoarch/broken_item/weapon = 10,
 		/obj/item/xenoarch/broken_item/illegal = 10,
 		/obj/item/xenoarch/broken_item/alien = 10,
+		/obj/item/xenoarch/broken_item = 5,
 	)
 
 /obj/effect/spawner/random/xenoarch/plant
@@ -73,7 +74,8 @@
 	loot = list(
 		/obj/item/relic/lavaland/activated = 4,
 		/obj/effect/spawner/random/exotic/technology = 5,
-		/obj/item/stock_parts/power_store/cell/self_charge = 5,
+		/obj/item/grapple_gun = 3,
+		/obj/item/stock_parts/power_store/cell/self_charge = 4,
 		/obj/item/stock_parts/power_store/cell/self_charge/exotic = 2,
 		/obj/item/flatpacked_machine = 4, // RCF
 		/obj/item/construction/rcd = 4,
