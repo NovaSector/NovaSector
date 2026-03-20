@@ -233,14 +233,16 @@
 		return
 	if(shield_health <= 0 || !shield_active)
 		return
-	if(proj.damage <= 0)
+	// Account for both primary damage and extra stamina (e.g. rubber pellets)
+	var/total_damage = proj.damage + proj.stamina
+	if(total_damage <= 0)
 		return
 	// Only fully block if we can absorb the entire raw hit
-	if(shield_health < proj.damage)
+	if(shield_health < total_damage)
 		return
 
 	var/obj/item/bodypart/limb = wearer.get_bodypart(check_zone(def_zone))
-	apply_shield_hit(proj.damage, limb)
+	apply_shield_hit(total_damage, limb)
 	return COMPONENT_BULLET_BLOCKED
 
 /// Fully blocks melee and thrown attacks when the shield can absorb the entire hit.
