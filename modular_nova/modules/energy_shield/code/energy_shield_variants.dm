@@ -39,8 +39,6 @@
 	shield_color = "#cc44ff"
 	blocks_melee = FALSE
 
-// -- SYNDICATE BULWARK VARIANT --
-
 /// Massive Syndicate shield that slows the wearer while active.
 /obj/item/clothing/accessory/energy_shield/syndicate/bulwark
 	name = "Gorlex bulwark generator"
