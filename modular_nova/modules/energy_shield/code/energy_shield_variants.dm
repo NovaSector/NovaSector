@@ -53,6 +53,7 @@
 	max_shield_health = 200
 	recharge_delay = 8 SECONDS
 	recharge_rate = 8
+	persistent_visuals = TRUE
 	shield_color = "#ff6644"
 
 /obj/item/clothing/accessory/energy_shield/syndicate/bulwark/dropped(mob/living/user)
