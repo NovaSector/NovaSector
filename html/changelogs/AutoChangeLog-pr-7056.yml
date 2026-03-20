@@ -1,0 +1,4 @@
+author: "Skies-Of-Blue"
+delete-after: True
+changes:
+  - rscadd: "You can now set your character's blood type in the Character Lore tab! Please note this only appears if your species and quirks do not assign the character an exotic blood type. Sorry lizards..."
