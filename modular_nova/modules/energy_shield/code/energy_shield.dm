@@ -204,7 +204,7 @@
 	// Flash the hit limb
 	var/obj/item/bodypart/limb = wearer.get_bodypart(check_zone(def_zone))
 	if(limb)
-		flash_limb(limb)
+		shield_hit_effect(limb)
 
 	if(shield_health <= 0)
 		shield_collapse()
@@ -258,7 +258,7 @@
 	update_shield_visuals()
 
 	if(isbodypart(def_zone))
-		flash_limb(def_zone)
+		shield_hit_effect(def_zone)
 
 	if(shield_health <= 0)
 		shield_collapse()
@@ -299,9 +299,8 @@
 	wearer.remove_filter(ENERGY_SHIELD_FILTER)
 	wearer.add_filter(ENERGY_SHIELD_FILTER, 1, outline_filter(size = 1, color = get_shield_tint_color()))
 
-/// Briefly pulses the whole mob with the shield color and spawns a ripple at the hit limb.
-/// Uses animate() so the flash is visible through worn clothing (KEEP_TOGETHER composites everything).
-/obj/item/clothing/accessory/energy_shield/proc/flash_limb(obj/item/bodypart/limb)
+/// Flashes the wearer with the shield color and spawns a ripple at the struck limb's position.
+/obj/item/clothing/accessory/energy_shield/proc/shield_hit_effect(obj/item/bodypart/limb)
 	playsound(wearer, 'sound/items/weapons/tap.ogg', 20)
 	var/original_color = wearer.color
 	wearer.color = shield_color
