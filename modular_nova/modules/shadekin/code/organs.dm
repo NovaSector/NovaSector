@@ -145,6 +145,12 @@
 
 /obj/item/organ/tongue/shadekin/proc/deliver_empathy(mob/living/carbon/human/user, message, mood_color)
 	UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
+
+	//don't send messages in ghost cafe
+	var/area/user_area = get_area(user)
+	if(user_area?.type in GLOB.ghost_cafe_areas)
+		to_chat(user, span_warning("Your empathic transmission fizzles out..."))
+		return
 	if(empathy_interrupted)
 		message = full_capitalize(rot13(message))
 	var/rendered = "<span style='color: [mood_color]'><b>[user.real_name]:</b> [message]</span>"
@@ -153,6 +159,11 @@
 		var/obj/item/organ/ears/shadekin/target_ears = living_mob.get_organ_slot(ORGAN_SLOT_EARS)
 
 		if(!istype(target_ears))
+			continue
+
+		//don't receive messages in ghost cafe
+		var/area/target_area = get_area(living_mob)
+		if(target_area?.type in GLOB.ghost_cafe_areas)
 			continue
 
 		to_chat(living_mob, rendered)

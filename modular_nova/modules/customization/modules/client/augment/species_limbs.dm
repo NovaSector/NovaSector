@@ -496,25 +496,7 @@
 	name = "ramatae right leg"
 	path = /obj/item/bodypart/leg/right/mutant/ramatae
 
-//==SPECIAL NON-SPECIES LIMBS==
-/datum/augment_item/limb/l_leg/species/mutant/harpy
-	name = "harpy left leg"
-	path = /obj/item/bodypart/leg/left/mutant/harpy
-
-/datum/augment_item/limb/r_leg/species/mutant/harpy
-	name = "harpy right leg"
-	path = /obj/item/bodypart/leg/right/mutant/harpy
-
-/datum/augment_item/limb/l_leg/species/harpy
-	name = "harpy skintone left leg"
-	path = /obj/item/bodypart/leg/left/mutant/harpy_skin
-	supports_digitigrade = TRUE
-
-/datum/augment_item/limb/r_leg/species/harpy
-	name = "harpy skintone right leg"
-	path = /obj/item/bodypart/leg/right/mutant/harpy_skin
-	supports_digitigrade = TRUE
-
+// Shadekin
 /datum/augment_item/limb/head/species/shadekin
 	name = "shadekin head"
 	path = /obj/item/bodypart/head/mutant/shadekin
@@ -539,4 +521,23 @@
 /datum/augment_item/limb/r_leg/species/shadekin
 	name = "shadekin right leg"
 	path = /obj/item/bodypart/leg/right/mutant/shadekin
+	supports_digitigrade = TRUE
+
+//==SPECIAL NON-SPECIES LIMBS==
+/datum/augment_item/limb/l_leg/species/mutant/harpy
+	name = "harpy left leg"
+	path = /obj/item/bodypart/leg/left/mutant/harpy
+
+/datum/augment_item/limb/r_leg/species/mutant/harpy
+	name = "harpy right leg"
+	path = /obj/item/bodypart/leg/right/mutant/harpy
+
+/datum/augment_item/limb/l_leg/species/harpy
+	name = "harpy skintone left leg"
+	path = /obj/item/bodypart/leg/left/mutant/harpy_skin
+	supports_digitigrade = TRUE
+
+/datum/augment_item/limb/r_leg/species/harpy
+	name = "harpy skintone right leg"
+	path = /obj/item/bodypart/leg/right/mutant/harpy_skin
 	supports_digitigrade = TRUE
