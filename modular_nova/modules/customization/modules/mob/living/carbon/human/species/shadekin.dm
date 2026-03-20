@@ -90,7 +90,8 @@
 			clamped += clamp_color_brightness(part_color)
 		part.set_colors(clamped)
 
-	// Clamp colors on body markings
+	// Deep copy body markings to avoid mutating shared preference references
+	target.dna.body_markings = deep_copy_list(target.dna.body_markings)
 	for(var/zone in target.dna.body_markings)
 		for(var/marking_name in target.dna.body_markings[zone])
 			var/list/marking_data = target.dna.body_markings[zone][marking_name]
