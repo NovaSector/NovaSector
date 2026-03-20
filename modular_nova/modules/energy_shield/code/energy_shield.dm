@@ -139,8 +139,17 @@
 
 /// Toggles the shield on/off via the action button.
 /obj/item/clothing/accessory/energy_shield/ui_action_click(mob/user, datum/action/action)
-	enabled = !enabled
 	if(!enabled)
+		enabled = TRUE
+		if(wearer_has_heavy_armor())
+			enabled = FALSE
+			to_chat(wearer, span_warning("The [src] fails to activate — your armor is too heavy for the energy field to form."))
+		else if(wearer)
+			COOLDOWN_START(src, recharge_cooldown, recharge_delay)
+			recharge_visual_pending = TRUE
+			to_chat(wearer, span_notice("You activate the energy shield. It will begin charging shortly."))
+	else
+		enabled = FALSE
 		if(shield_active)
 			shield_active = FALSE
 			shield_health = 0
@@ -149,10 +158,6 @@
 			update_shield_hud()
 			playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
 		to_chat(wearer, span_notice("You deactivate the energy shield."))
-	else if(wearer)
-		COOLDOWN_START(src, recharge_cooldown, recharge_delay)
-		recharge_visual_pending = TRUE
-		to_chat(wearer, span_notice("You activate the energy shield. It will begin charging shortly."))
 	action.build_all_button_icons()
 
 /// Drains shield health on EMP. Amount retained is controlled by emp_retention.
