@@ -33,13 +33,13 @@
 	var/mob/living/carbon/human/lastuser = null
 
 	/// Master tracker for guests.
-	var/list/mob/living/carbon/human/nommeds = list()
+	var/list/mob/living/carbon/human/nommeds = null
 	/// Sizes for nommed guests (mob:number)
-	var/list/nommed_sizes = list()
+	var/list/nommed_sizes = null
 	/// Gasmixes for nommed guests (mob:/datum/gas_mixture)
-	var/list/datum/gas_mixture/nommed_gasmixes = list()
+	var/list/datum/gas_mixture/nommed_gasmixes = null
 	/// Escape helper actions for nommed guests (mob:/datum/action)
-	var/list/datum/action/item_action/belly_menu/escape/escape_helpers = list()
+	var/list/datum/action/item_action/belly_menu/escape/escape_helpers = null
 	/// Total combined size from all guests.
 	var/total_endo_size = 0
 
@@ -96,13 +96,13 @@
 	/// Working state tracker for generating north overlays
 	var/image/overlay_north
 	/// Working state tracker for generating horizontal overlays
-	var/image/overlay_hori
+	var/image/overlay_horizontal
 	/// All south overlays, used for cutting in remove_from_user or recalculation of overlays.
 	var/list/image/overlay_south_all = list()
 	/// All north overlays, used for cutting in remove_from_user or recalculation of overlays.
 	var/list/image/overlay_north_all = list()
 	/// All horizontal overlays, used for cutting in remove_from_user or recalculation of overlays.
-	var/list/image/overlay_hori_all = list()
+	var/list/image/overlay_horizontal_all = list()
 
 	// TODO: maybe migrate these to a GLOB at some point?  we shall see
 
@@ -142,10 +142,11 @@
 	. = ..()
 	for(var/mob/living/carbon/human/nommed in nommeds)
 		free_target(nommed)
+	LAZYNULL(nommeds)
+	QDEL_LAZYLIST(nommed_sizes)
+	QDEL_LAZYLIST(nommed_gasmixes)
 	QDEL_LAZYLIST(belly_acts)
-
-/obj/item/belly_function/New(loc, ...)
-	. = ..()
+	QDEL_LAZYLIST(escape_helpers)
 
 /// Signal handler that allows for the various movement/jostling sounds to play.
 /obj/item/belly_function/proc/on_step()
@@ -159,7 +160,7 @@
 /// In the future this is likely where per-guest size edits will go...
 /// ...alongside the ability to do certain interactions, like open a target's Ctrl-Shift-Click menu.
 /obj/item/belly_function/proc/release_menu(mob/user)
-	if(length(nommeds) > 0)
+	if(LAZYLEN(nommeds) > 0)
 		var/opt_list = list()
 
 		for(var/mob/living/carbon/human/nommed in nommeds)
@@ -174,13 +175,14 @@
 /// Helper function that handles everything needed to free someone & do all associated sanity checks.
 /obj/item/belly_function/proc/free_target(mob/living/carbon/human/nommed)
 	nommed.forceMove(drop_location())
-	nommeds -= nommed
-	nommed_sizes -= nommed
-	nommed_gasmixes -= nommed
-	if(escape_helpers[nommed] in belly_acts)
-		belly_acts -= escape_helpers[nommed]
-	escape_helpers[nommed].Remove(remove_from = nommed)
-	escape_helpers -= nommed
+	LAZYREMOVE(nommeds, nommed)
+	LAZYREMOVE(nommed_sizes, nommed)
+	LAZYREMOVE(nommed_gasmixes, nommed)
+	var/datum/action/item_action/belly_menu/escape/helper = LAZYACCESS(escape_helpers, nommed)
+	if(helper in belly_acts)
+		LAZYREMOVE(belly_acts, helper)
+	helper.Remove(remove_from = nommed)
+	LAZYREMOVE(escape_helpers, nommed)
 	recalculate_guest_sizes()
 
 /// The great wall of ingame config options.
@@ -204,7 +206,7 @@
 				var/temp_size = tgui_input_number(user, "What size do you want [extra_size_list[adjustment_mode].name] to be?  (0.0-infinity, 1000 is typically same-sizeish)", "Endo Size")
 				if(isnull(temp_size) || QDELETED(user) || QDELETED(src))
 					return
-				nommed_sizes[extra_size_list[adjustment_mode]] = temp_size
+				LAZYSET(nommed_sizes, extra_size_list[adjustment_mode], temp_size)
 				recalculate_guest_sizes()
 			else
 				return
@@ -244,21 +246,21 @@
 		if(do_cut == TRUE)
 			target.cut_overlay(overlay_south)
 			target.cut_overlay(overlay_north)
-			target.cut_overlay(overlay_hori)
+			target.cut_overlay(overlay_horizontal)
 			last_size = -1
 			/// Overlay_south is used as an indicator that overlays are present, so axe it.
 			overlay_south = null
 		else
 			target.add_overlay(overlay_south)
 			target.add_overlay(overlay_north)
-			target.add_overlay(overlay_hori)
+			target.add_overlay(overlay_horizontal)
 	/// Normal players use alt_appearance for the proper ability to hide bellies from nonconsenting viewers.
 	else
 		if(do_cut == TRUE)
 			for(var/ticker in 1 to size)
 				target.remove_alt_appearance("erp_belly_south-[ticker]")
 				target.remove_alt_appearance("erp_belly_north-[ticker]")
-				target.remove_alt_appearance("erp_belly_hori-[ticker]")
+				target.remove_alt_appearance("erp_belly_horizontal-[ticker]")
 			last_size = -1
 			/// Overlay_south is used as an indicator that overlays are present, so axe it.
 			overlay_south = null
@@ -267,7 +269,7 @@
 			/// Depending on how scrungly people are willing to make their blorbos, generating entirely bespoke masks might become necessary.
 			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_south-[size]", image(overlay_south, loc=target, layer=overlay_south.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_south-", size, target.dna.species.id)
 			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_north-[size]", image(overlay_north, loc=target, layer=overlay_north.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_north-", size, target.dna.species.id)
-			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_hori-[size]", image(overlay_hori, loc=target, layer=overlay_hori.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_hori-", size, target.dna.species.id)
+			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_horizontal-[size]", image(overlay_horizontal, loc=target, layer=overlay_horizontal.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_horizontal-", size, target.dna.species.id)
 
 /// Strip the action & appearance from a user if needed.
 /// This is non-destructive; the quirk can be temporarily disabled by pref changes, body swaps, etc to reduce prefbreak risk.
@@ -284,7 +286,7 @@
 	/// Cut out-of-date overlays.
 	if(overlay_south != null)
 		do_alt_appearance(user, TRUE, last_size)
-	overlay_hori_all -= overlay_hori_all
+	overlay_horizontal_all -= overlay_horizontal_all
 	overlay_south_all -= overlay_south_all
 	overlay_north_all -= overlay_north_all
 
@@ -309,8 +311,8 @@
 
 		/// Generate appearances next.
 		var/icon_state_wew = "[base_icon_state]-[counter]"
-		worn_icon_state = "[icon_state_wew]_HORI"
-		overlay_hori = src.build_worn_icon(default_layer = (hori_layer), default_icon_file = iconfile, isinhands = FALSE, override_file = iconfile)
+		worn_icon_state = "[icon_state_wew]_HORIZONTAL"
+		overlay_horizontal = src.build_worn_icon(default_layer = (hori_layer), default_icon_file = iconfile, isinhands = FALSE, override_file = iconfile)
 		worn_icon_state = "[icon_state_wew]_FRONT"
 		overlay_south = src.build_worn_icon(default_layer = (south_layer), default_icon_file = iconfile, isinhands = FALSE, override_file = iconfile)
 		worn_icon_state = "[icon_state_wew]_BACK"
@@ -319,8 +321,8 @@
 
 		/// Sizes above 10 use the 64x icon file, and therefor need offsets.
 		if(counter > 10)
-			overlay_hori.pixel_x -= 16
-			overlay_hori.pixel_y -= 16
+			overlay_horizontal.pixel_x -= 16
+			overlay_horizontal.pixel_y -= 16
 			overlay_south.pixel_x -= 16
 			overlay_south.pixel_y -= 16
 			overlay_north.pixel_x -= 16
@@ -328,15 +330,15 @@
 
 		/// Teshari chests are about 3px lower than normal, this allows them to still have the same variety of sizes without flattening out.
 		if(user.dna.species.id == SPECIES_TESHARI)
-			overlay_hori.pixel_y -= 3
+			overlay_horizontal.pixel_y -= 3
 			overlay_south.pixel_y -= 3
 			overlay_north.pixel_y -= 3
 
 		/// Create final image() instances suitable for alt_apperance & log them in overlays to cut later as needed.
-		overlay_hori = image(overlay_hori, loc = user, layer = overlay_hori.layer)
+		overlay_horizontal = image(overlay_horizontal, loc = user, layer = overlay_horizontal.layer)
 		overlay_south = image(overlay_south, loc = user, layer = overlay_south.layer)
 		overlay_north = image(overlay_north, loc = user, layer = overlay_north.layer)
-		overlay_hori_all += overlay_hori
+		overlay_horizontal_all += overlay_horizontal
 		overlay_south_all += overlay_south
 		overlay_north_all += overlay_north
 
@@ -348,7 +350,7 @@
 /obj/item/belly_function/proc/recalculate_guest_sizes()
 	total_endo_size = 0
 	for(var/nommed_friendo in nommeds)
-		total_endo_size += nommed_sizes[nommed_friendo]
+		total_endo_size += LAZYACCESS(nommed_sizes, nommed_friendo)
 
 /// This is where the magic happens for calculating sizes, triggering noise, etc.
 /obj/item/belly_function/proc/belly_process(seconds_per_tick)
@@ -479,8 +481,8 @@
 	// Step 1: put them in the list (your belly)
 	to_chat(target, span_danger("[user] gulps you down!"))
 	to_chat(user, span_danger("You gulp down [target]!"))
-	nommeds += target
-	nommed_sizes[target] = endo_size
+	LAZYADD(nommeds, target)
+	LAZYSET(nommed_sizes, target, endo_size)
 
 	// Step 2: scan their lungs to determine what air of yours this fool is breathing
 	/// Track the target's lungs, if they have them, so we can extract their expected breath types.
@@ -497,13 +499,14 @@
 		last_gasmix = "o2=5;n2=10;TEMP=293.15"
 
 	// Step 3: save that air in workable gasmix form.  handle_internal_lifeform is nominally assumed to already remove air, this prevents it from being an issue.
-	nommed_gasmixes[target] = SSair.parse_gas_string(last_gasmix)
+	LAZYSET(nommed_gasmixes, target, SSair.parse_gas_string(last_gasmix))
 	/// Step 4: tell the user it's in a "machine" (your belly)- this lets your belly provide the previously calculated airmix - see below in handle_internal_lifeform
 	SEND_SIGNAL(user, COMSIG_MACHINERY_SET_OCCUPANT, target)
 	/// Step 5: finally, move them into the belly, give escape action, and recalculate everything
 	target.forceMove(src)
-	escape_helpers[target] = new /datum/action/item_action/belly_menu/escape(src)
-	escape_helpers[target].Grant(grant_to = target)
+	var/datum/action/item_action/belly_menu/escape/helper = new /datum/action/item_action/belly_menu/escape(src)
+	helper.Grant(grant_to = target)
+	LAZYSET(escape_helpers, target, helper)
 	recalculate_guest_sizes()
 
 /// This is what provides healthy air for occupants to breathe.

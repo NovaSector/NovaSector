@@ -67,7 +67,7 @@ export const NovaTumsPrefs = (props) => {
                     changeTab(1);
                     act('setTab1');
                   }}
-                  disabled={data.has_player === false}
+                  disabled={data.has_player === 0}
                   selected={currentTab === 1}
                 >
                   Local Prefs
