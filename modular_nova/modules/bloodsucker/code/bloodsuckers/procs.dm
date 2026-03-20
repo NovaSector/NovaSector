@@ -35,48 +35,48 @@
 		if(power?.type == power_to_remove)
 			RemovePower(power)
 
-///When a Bloodsucker breaks the Masquerade, they get their HUD icon changed, and Malkavian Bloodsuckers get alerted.
-/datum/antagonist/bloodsucker/proc/break_masquerade(mob/admin)
-	if(broke_masquerade)
+///When a Bloodsucker becomes Exposed, their HUD icon changes, and Mimic clade Bloodsuckers get alerted.
+/datum/antagonist/bloodsucker/proc/break_exposure(mob/admin)
+	if(exposed)
 		return
 	owner.current.playsound_local(null, 'modular_nova/modules/bloodsucker/sound/lunge_warn.ogg', 100, FALSE, pressure_affected = FALSE)
-	to_chat(owner.current, span_cult_bold_italic("You have broken the Masquerade!"))
-	to_chat(owner.current, span_warning("Bloodsucker Tip: When you break the Masquerade, you become open for termination by fellow Bloodsuckers, and your Ghouls are no longer completely loyal to you, as other Bloodsuckers can steal them for themselves!"))
-	broke_masquerade = TRUE
+	to_chat(owner.current, span_cult_bold_italic("You have been Exposed! Your nature is now known!"))
+	to_chat(owner.current, span_warning("When you are Exposed, you become a target for termination by fellow Bloodsuckers, and your Thralls are no longer completely loyal -- other Bloodsuckers can steal them."))
+	exposed = TRUE
 	antag_hud_name = "masquerade_broken"
 	add_team_hud(owner.current)
-	SEND_GLOBAL_SIGNAL(COMSIG_BLOODSUCKER_BROKE_MASQUERADE, src)
+	SEND_GLOBAL_SIGNAL(COMSIG_BLOODSUCKER_EXPOSED, src)
 
-///This is admin-only of reverting a broken masquerade, sadly it doesn't remove the Malkavian objectives yet.
-/datum/antagonist/bloodsucker/proc/fix_masquerade(mob/admin)
-	if(!broke_masquerade)
+///Admin-only: revert an exposed bloodsucker. Does not remove Mimic clade objectives.
+/datum/antagonist/bloodsucker/proc/fix_exposure(mob/admin)
+	if(!exposed)
 		return
-	to_chat(owner.current, span_cult_bold_italic("You have re-entered the Masquerade."))
-	broke_masquerade = FALSE
+	to_chat(owner.current, span_cult_bold_italic("Your exposure has been concealed. You are hidden once more."))
+	exposed = FALSE
 	antag_hud_name = "bloodsucker"
 	add_team_hud(owner.current)
 
-/datum/antagonist/bloodsucker/proc/give_masquerade_infraction()
-	if(broke_masquerade)
+/datum/antagonist/bloodsucker/proc/give_exposure_incident()
+	if(exposed)
 		return
-	masquerade_infractions++
-	if(masquerade_infractions >= 3)
-		break_masquerade()
+	exposure_incidents++
+	if(exposure_incidents >= 3)
+		break_exposure()
 	else
-		to_chat(owner.current, span_cult_bold("You violated the Masquerade! Break the Masquerade [3 - masquerade_infractions] more times and you will become a criminal to the Bloodsucker's Cause!"))
+		to_chat(owner.current, span_cult_bold("Exposure incident! [3 - exposure_incidents] more and your nature will be fully revealed to other Bloodsuckers!"))
 
 /datum/antagonist/bloodsucker/proc/RankUp(force = FALSE)
 	if(!owner || !owner.current)
 		return
 	AdjustUnspentRank(1)
-	if(!my_clan)
-		to_chat(owner.current, span_notice("You have gained a rank. Join a Clan to spend it."))
+	if(!my_clade)
+		to_chat(owner.current, span_notice("You have gained a rank. Join a Clade to spend it."))
 		return
 	// Spend Rank Immediately?
-	if(!is_valid_coffin())
-		to_chat(owner, span_notice("<EM>You have grown more ancient! Sleep in a coffin (or put your Favorite Ghoul on a persuasion rack for Ventrue) that you have claimed to thicken your blood and become more powerful.</EM>"))
+	if(!is_valid_den())
+		to_chat(owner, span_notice("<EM>The symbiont has matured further! Rest in your claimed den (or place your Bonded on an Indoctrination Rack for Tyrant clade) to integrate the new growth.</EM>"))
 		if(bloodsucker_level_unspent >= 2)
-			to_chat(owner, span_announce("Bloodsucker Tip: If you cannot find or steal a coffin to use, you can build one from wood or metal."))
+			to_chat(owner, span_announce("Bloodsucker Tip: Claim any closet, locker, or crate as your den by resting inside it."))
 		return
 	SpendRank()
 
@@ -93,14 +93,14 @@
 
 /datum/antagonist/bloodsucker/proc/LevelUpPowers()
 	for(var/datum/action/cooldown/bloodsucker/power as anything in powers)
-		if(power.purchase_flags & TREMERE_CAN_BUY)
+		if(power.purchase_flags & HEMOKINETIC_CAN_BUY)
 			continue
 		power.upgrade_power()
 
 ///Disables all powers, accounting for torpor
 /datum/antagonist/bloodsucker/proc/DisableAllPowers(forced = FALSE)
 	for(var/datum/action/cooldown/bloodsucker/power as anything in powers)
-		if(forced || ((power.check_flags & BP_CANT_USE_IN_TORPOR) && is_in_torpor()))
+		if(forced || ((power.check_flags & BP_CANT_USE_IN_DORMANCY) && is_in_dormancy()))
 			if(power.active)
 				power.DeactivatePower()
 
@@ -123,16 +123,16 @@
 	bloodsucker_level_unspent = max(bloodsucker_level_unspent + amount, 0)
 	update_rank_hud()
 /**
- * Called when a Bloodsucker reaches Final Death
- * Releases all Ghouls and gives them the ex_ghoul datum.
+ * Called when a Bloodsucker reaches Termination.
+ * Releases all Thralls and gives them the ex_thrall datum.
  */
-/datum/antagonist/bloodsucker/proc/free_all_ghouls()
+/datum/antagonist/bloodsucker/proc/free_all_thralls()
 	for(var/datum/antagonist/ghoul/all_ghouls in ghouls)
 		// Skip over any Bloodsucker Ghouls, they're too far gone to have all their stuff taken away from them
 		if(IS_BLOODSUCKER(all_ghouls.owner.current))
 			all_ghouls.owner.current.remove_status_effect(/datum/status_effect/agent_pinpointer/ghoul_edition)
 			continue
-		if(all_ghouls.special_type == REVENGE_GHOUL || !all_ghouls.owner)
+		if(all_ghouls.special_type == FERAL_THRALL || !all_ghouls.owner)
 			continue
 		all_ghouls.owner.add_antag_datum(/datum/antagonist/ex_ghoul)
 		all_ghouls.owner.remove_antag_datum(/datum/antagonist/ghoul)
@@ -145,15 +145,15 @@
 /datum/antagonist/bloodsucker/proc/return_vamp_examine(mob/living/viewer)
 	if(!viewer.mind && !isobserver(viewer))
 		return FALSE
-	// Viewer is Target's Ghoul?
+	// Viewer is Target's Thrall?
 	if(!isobserver(viewer) && (viewer.mind.has_antag_datum(/datum/antagonist/ghoul) in ghouls))
-		var/returnString = "\[<span class='warning'><EM>This is your Master!</EM></span>\]"
+		var/returnString = "\[<span class='warning'><EM>This is your Progenitor!</EM></span>\]"
 		var/returnIcon = "[icon2html('modular_nova/modules/bloodsucker/icons/language.dmi', world, "bloodsucker")]"
 		returnString += "\n"
 		return returnIcon + returnString
-	// Viewer not a Vamp AND not the target's ghoul?
+	// Viewer not a Bloodsucker AND not the target's thrall?
 	if(!isobserver(viewer) && !viewer.mind.has_antag_datum((/datum/antagonist/bloodsucker)) && !(viewer in ghouls))
-		if(!(HAS_TRAIT(viewer.mind, TRAIT_BLOODSUCKER_HUNTER) && broke_masquerade))
+		if(!(HAS_TRAIT(viewer.mind, TRAIT_BLOODSUCKER_HUNTER) && exposed))
 			return FALSE
 	// Default String
 	var/returnString = "\[<span class='warning'><EM>[return_full_name()]</EM></span>\]"
@@ -166,7 +166,7 @@
 	var/mob/living/carbon/user = owner.current
 	if(blood_level_gain < level_cost)
 		if(!silent)
-			user.balloon_alert(user, "not enough blood thickening points!")
+			user.balloon_alert(user, "not enough strain maturation!")
 		return FALSE
 	if(requires_blood && bloodsucker_blood_volume < level_cost)
 		if(!silent)
@@ -179,7 +179,7 @@
 /datum/antagonist/bloodsucker/proc/blood_level_gain(silent = TRUE, requires_blood = FALSE)
 	var/level_cost = get_level_cost()
 	if(can_gain_blood_rank(silent, requires_blood)) // Checks if we have drunk enough blood from the living to allow us to gain a level up as well as checking if we have enough blood to actually use on the level up
-		var/input = tgui_alert(owner.current, "You have drunk enough blood from the living to thicken your blood, this will cost you [level_cost] blood and give you another level",  "Thicken your blood?.", list("Yes", "No")) //asks user if they want to spend their blood on a level
+		var/input = tgui_alert(owner.current, "The symbiont has matured enough for further integration. This will cost [level_cost] blood and grant another rank.",  "Strain Maturation", list("Yes", "No"))
 		if(input == "Yes")
 			AdjustUnspentRank(1) // gives level
 			blood_level_gain -= level_cost // Subtracts the cost from the pool of drunk blood
@@ -189,20 +189,20 @@
 	return FALSE
 
 /datum/antagonist/bloodsucker/proc/get_level_cost()
-	var/percentage_needed = my_clan ? my_clan.level_cost : BLOODSUCKER_LEVELUP_PERCENTAGE
+	var/percentage_needed = my_clade ? my_clade.level_cost : BLOODSUCKER_LEVELUP_PERCENTAGE
 	return max_blood_volume * percentage_needed
 
-/datum/antagonist/bloodsucker/proc/max_ghouls()
+/datum/antagonist/bloodsucker/proc/max_thralls()
 	return round(bloodsucker_level * 0.5)
 
-/datum/antagonist/bloodsucker/proc/free_ghoul_slots()
-	return max(max_ghouls() - length(ghouls), 0)
+/datum/antagonist/bloodsucker/proc/free_thrall_slots()
+	return max(max_thralls() - length(ghouls), 0)
 
-/datum/antagonist/bloodsucker/proc/frenzy_enter_threshold()
-	return FRENZY_THRESHOLD_ENTER + (humanity_lost * 10)
+/datum/antagonist/bloodsucker/proc/feral_enter_threshold()
+	return FERAL_THRESHOLD_ENTER + (neural_erosion * 10)
 
-/datum/antagonist/bloodsucker/proc/frenzy_exit_threshold()
-	return FRENZY_THRESHOLD_EXIT + (humanity_lost * 10)
+/datum/antagonist/bloodsucker/proc/feral_exit_threshold()
+	return FERAL_THRESHOLD_EXIT + (neural_erosion * 10)
 
 /datum/antagonist/bloodsucker/proc/on_organ_removal(mob/living/carbon/old_owner, obj/item/organ/organ, special)
 	SIGNAL_HANDLER
@@ -210,9 +210,9 @@
 		return
 	DisableAllPowers(TRUE)
 	if(HAS_TRAIT_FROM_ONLY(old_owner, TRAIT_NODEATH, BLOODSUCKER_TRAIT))
-		torpor_end(TRUE)
+		dormancy_end(TRUE)
 	to_chat(old_owner, span_userdanger("You have lost your [organ.slot]!"))
-	to_chat(old_owner, span_warning("This means you will no longer enter torpor nor revive from death, and you will no longer heal any damage, nor can you use your abilities."))
+	to_chat(old_owner, span_warning("Without it, you can no longer enter dormancy, revive from death, heal damage, or use your adaptations."))
 
 /// checks if we're a brainmob inside a brain & the brain is inside a head
 /datum/antagonist/bloodsucker/proc/is_head(mob/living/poor_fucker)
@@ -271,8 +271,8 @@
 	power.level_current = level
 	power.on_power_upgrade()
 
-/datum/antagonist/bloodsucker/proc/regain_heart(mob/living/carbon/target, obj/structure/closet/crate/coffin/coffin)
-	var/obj/item/organ/heart = locate(/obj/item/organ/heart) in coffin.contents
+/datum/antagonist/bloodsucker/proc/regain_heart(mob/living/carbon/target, obj/structure/closet/den)
+	var/obj/item/organ/heart = locate(/obj/item/organ/heart) in den.contents
 	if(heart && !target.get_organ_slot(ORGAN_SLOT_HEART) && heart.Insert(target))
 		to_chat(target, span_warning("You have regained your heart!"))
 
@@ -291,7 +291,7 @@
 	head.Shake(duration = animation_time)
 
 /datum/antagonist/bloodsucker/proc/stake_can_kill()
-	if(owner.current.IsSleeping() || owner.current.stat >= UNCONSCIOUS || is_in_torpor())
+	if(owner.current.IsSleeping() || owner.current.stat >= UNCONSCIOUS || is_in_dormancy())
 		for(var/stake in get_stakes())
 			var/obj/item/stake/killin_stake = stake
 			if(killin_stake?.kills_blodsuckers)
@@ -318,39 +318,39 @@
 /datum/antagonist/bloodsucker/proc/on_staked(atom/target, forced)
 	SIGNAL_HANDLER
 	if(stake_can_kill())
-		FinalDeath()
+		Termination()
 	else
 		to_chat(target, span_userdanger("You have been staked! Your powers are useless, your death forever, while it remains in place."))
 		target.balloon_alert(target, "you have been staked!")
 
-/// is it something that is close enough to a coffin to let us heal/level up in it?
-/datum/antagonist/bloodsucker/proc/is_valid_coffin()
-	if(istype(owner.current.loc, /obj/structure/closet/crate/coffin))
+/// is the bloodsucker inside a valid den (any closet-type structure)?
+/datum/antagonist/bloodsucker/proc/is_valid_den()
+	if(istype(owner.current.loc, /obj/structure/closet))
 		return TRUE
 	return FALSE
 
-/datum/antagonist/bloodsucker/proc/on_enter_coffin(mob/living/carbon/target, obj/structure/closet/crate/coffin/coffin, mob/living/carbon/user)
+/datum/antagonist/bloodsucker/proc/on_enter_den(mob/living/carbon/target, obj/structure/closet/den, mob/living/carbon/user)
 	SIGNAL_HANDLER
-	check_limbs(COFFIN_HEAL_COST_MULT)
-	regain_heart(target, coffin)
-	if(!check_begin_torpor())
-		heal_vampire_organs()
-	if(user == owner.current && (user in coffin))
-		if(can_claim_coffin(coffin, get_area(coffin)))
-			INVOKE_ASYNC(src, PROC_REF(try_claim_coffin), coffin)
+	check_limbs(DEN_HEAL_COST_MULT)
+	regain_heart(target, den)
+	if(!check_begin_dormancy())
+		heal_organs()
+	if(user == owner.current && (user in den))
+		if(can_claim_den(den, get_area(den)))
+			INVOKE_ASYNC(src, PROC_REF(try_claim_den), den)
 		else
-			INVOKE_ASYNC(src, PROC_REF(try_coffin_level_up))
+			INVOKE_ASYNC(src, PROC_REF(try_den_level_up))
 
-/datum/antagonist/bloodsucker/proc/try_claim_coffin(obj/structure/closet/crate/coffin/coffin)
-	if(coffin.prompt_coffin_claim(src))
-		try_coffin_level_up()
+/datum/antagonist/bloodsucker/proc/try_claim_den(obj/structure/closet/den)
+	if(den.prompt_den_claim(src))
+		try_den_level_up()
 
-/datum/antagonist/bloodsucker/proc/try_coffin_level_up()
+/datum/antagonist/bloodsucker/proc/try_den_level_up()
 	var/mob/living/carbon/user = owner.current
 	//Level up if possible.
-	if(!my_clan)
-		user.balloon_alert(user, "enter a clan!")
-		to_chat(user, span_notice("You must enter a Clan to rank up. Do it in the antag menu, which you can see by pressing the action button in the top left."))
+	if(!my_clade)
+		user.balloon_alert(user, "join a clade!")
+		to_chat(user, span_notice("You must join a Clade to rank up. Open the antag menu by pressing the action button in the top left."))
 	else if(!frenzied)
 		if(GetUnspentRank() < 1)
 			blood_level_gain()
@@ -359,7 +359,7 @@
 
 /datum/antagonist/bloodsucker/proc/on_owner_deletion(mob/living/deleted_mob)
 	SIGNAL_HANDLER
-	free_all_ghouls()
+	free_all_thralls()
 	if(deleted_mob != owner.current)
 		return
 	if(is_head(deleted_mob))

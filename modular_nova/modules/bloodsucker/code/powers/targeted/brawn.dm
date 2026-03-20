@@ -2,10 +2,10 @@
 #define BRAWN_BREAKOUT_LEVEL 3
 #define BRAWN_AIRLOCK_LEVEL 4
 /datum/action/cooldown/bloodsucker/targeted/brawn
-	name = "Brawn"
-	desc = "Snap restraints, break lockers and doors at higher levels, or deal terrible damage with your bare hands."
+	name = "Musculature Overdrive"
+	desc = "ATP/calcium overload grants explosive force -- snap restraints, break lockers and doors, or deliver devastating blows."
 	button_icon_state = "power_strength"
-	purchase_flags = BLOODSUCKER_CAN_BUY|GHOUL_CAN_BUY
+	purchase_flags = BLOODSUCKER_CAN_BUY|THRALL_CAN_BUY
 	bloodcost = 10
 	cooldown_time = 12 SECONDS
 	target_range = 1
@@ -114,7 +114,7 @@
 	owner.newtonian_move(send_dir) // Bounce back in 0 G
 	pulled_mob.throw_at(turf_thrown_at, pull_power, TRUE, owner, FALSE) // Throw distance based on grab state! Harder grabs punished more aggressively.
 	// /proc/log_combat(atom/user, atom/target, what_done, atom/object=null, addition=null)
-	log_combat(owner, pulled_mob, "used Brawn power")
+	log_combat(owner, pulled_mob, "used Musculature Overdrive")
 	owner.visible_message(
 		span_warning("[owner] tears free of [pulled_mob]'s grasp!"),
 		span_warning("You shrug off [pulled_mob]'s grasp!"),

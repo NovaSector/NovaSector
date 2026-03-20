@@ -1,9 +1,9 @@
 /datum/action/cooldown/bloodsucker/targeted/trespass
-	name = "Trespass"
-	desc = "Become mist and advance two tiles in one direction. Useful for skipping past doors and barricades."
+	name = "Molecular Compression"
+	desc = "Enter a semi-liquid state and slip through two tiles of barriers. Useful for bypassing doors and barricades."
 	button_icon_state = "power_tres"
-	bloodsucker_check_flags = BP_CANT_USE_IN_TORPOR
-	purchase_flags = BLOODSUCKER_CAN_BUY|GHOUL_CAN_BUY
+	bloodsucker_check_flags = BP_CANT_USE_IN_DORMANCY
+	purchase_flags = BLOODSUCKER_CAN_BUY|THRALL_CAN_BUY
 	bloodcost = 10
 	cooldown_time = 8 SECONDS
 	prefire_message = "Select a destination."
@@ -66,8 +66,8 @@
 	var/turf/my_turf = get_turf(owner)
 
 	user.visible_message(
-		span_warning("[user]'s form dissipates into a cloud of mist!"),
-		span_notice("You disspiate into formless mist."),
+		span_warning("[user]'s form liquefies and compresses!"),
+		span_notice("Your body compresses into semi-liquid form."),
 	)
 	// Effect Origin
 	var/sound_strength = max(60, 70 - level_current * 10)

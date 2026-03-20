@@ -13,11 +13,11 @@
 #define AUSPEX_KNOCKDOWN_LEVEL 5
 #define AUSPEX_ANYWHERE_LEVEL 6
 /datum/action/cooldown/bloodsucker/targeted/tremere/auspex
-	name = "Auspex"
+	name = "Sanguine Blink"
 	level_current = 1
 	button_icon_state = "power_auspex"
-	bloodsucker_check_flags = BP_CANT_USE_IN_TORPOR
-	purchase_flags = TREMERE_CAN_BUY
+	bloodsucker_check_flags = BP_CANT_USE_IN_DORMANCY
+	purchase_flags = HEMOKINETIC_CAN_BUY
 	bloodcost = 10
 	constant_bloodcost = 1
 	cooldown_time = 12 SECONDS
@@ -34,7 +34,7 @@
 	. = ..()
 
 /datum/action/cooldown/bloodsucker/targeted/tremere/auspex/get_power_desc_extended()
-	. = "Hide yourself within a Cloak of Darkness, click on a tile to teleport"
+	. = "Dissolve into blood-mist camouflage, click on a tile to reconstitute"
 	. = "Costs [AUSPEX_BLOOD_COST_PER_TILE] blood per tile teleported."
 	if(target_range)
 		. += " up to [target_range] tiles away."
@@ -48,7 +48,7 @@
 
 /datum/action/cooldown/bloodsucker/targeted/tremere/auspex/get_power_explanation_extended()
 	. = list()
-	. += "When Activated, you will be hidden in a Cloak of Darkness."
+	. += "When activated, you dissolve into blood-mist, becoming nearly invisible."
 	. += "[target_range ? "Click to teleport up to [target_range] tiles away, as long as you can see it" : "You can teleport anywhere you can see"]."
 	. += "Teleporting will refill your stamina to full."
 	. += "At level [AUSPEX_BLEED_LEVEL] you will cause people at your end location to start bleeding."
@@ -101,7 +101,7 @@
 	new /obj/effect/particle_effect/fluid/smoke/vampsmoke(targeted_turf)
 
 	for(var/mob/living/carbon/living_mob in range(1, targeted_turf)-user)
-		if(IS_BLOODSUCKER(living_mob) || IS_GHOUL(living_mob))
+		if(IS_BLOODSUCKER(living_mob) || IS_THRALL(living_mob))
 			continue
 		if(level_current >= AUSPEX_BLEED_LEVEL)
 			var/obj/item/bodypart/bodypart = pick(living_mob.bodyparts)

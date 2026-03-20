@@ -1,7 +1,7 @@
 
 // this suggests that your heart is beating, when it is not
 /mob/living/carbon/bleed_warn(bleed_amt = 0, forced = FALSE)
-	if(mind && IS_BLOODSUCKER(src) && !HAS_TRAIT(src, TRAIT_MASQUERADE))
+	if(mind && IS_BLOODSUCKER(src) && !HAS_TRAIT(src, TRAIT_MIMIC))
 		return
 	. = ..()
 
@@ -12,7 +12,7 @@
 	if(!(methods & (INJECT|INGEST)))
 		return ..()
 
-	if(bloodsuckerdatum.my_clan && istype(bloodsuckerdatum.my_clan, /datum/bloodsucker_clan/ventrue) && bloodsuckerdatum.GetBloodVolume() >= BLOOD_VOLUME_SAFE)
+	if(bloodsuckerdatum.my_clade && istype(bloodsuckerdatum.my_clade, /datum/bloodsucker_clade/ventrue) && bloodsuckerdatum.GetBloodVolume() >= BLOOD_VOLUME_SAFE)
 		return ..()
 	if(bloodsuckerdatum.GetBloodVolume() >= BLOOD_VOLUME_NORMAL)
 		return ..()
@@ -31,7 +31,7 @@
 // todo move this to it's own trait
 /obj/item/clothing/neck/necklace/memento_mori/memento(mob/living/carbon/human/user)
 	if(IS_BLOODSUCKER(user))
-		to_chat(user, span_warning("The Memento notices your undead soul, and refuses to react.."))
+		to_chat(user, span_warning("The Memento recoils from the symbiont within you, and refuses to react.."))
 		return
 	return ..()
 
@@ -41,13 +41,13 @@
 		return 0
 	return ..()
 
-// Used when analyzing a Bloodsucker, Masquerade will hide brain traumas
+// Used when analyzing a Bloodsucker, Mimic will hide brain traumas
 /// todo move this to it's own trait or something
 /mob/living/carbon/get_traumas()
 	if(!mind)
 		return ..()
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(src)
-	if(bloodsuckerdatum && HAS_TRAIT(src, TRAIT_MASQUERADE))
+	if(bloodsuckerdatum && HAS_TRAIT(src, TRAIT_MIMIC))
 		return
 	return ..()
 
@@ -63,9 +63,9 @@
 		. += "Maximum blood: [bloodsuckerdatum.max_blood_volume]"
 		. += "Blood Thickening: [bloodsuckerdatum.blood_level_gain] / [bloodsuckerdatum.get_level_cost()]"
 		if(bloodsuckerdatum.frenzied)
-			. += "Frenzy exit blood threshold: [bloodsuckerdatum.frenzy_exit_threshold()]"
+			. += "Feral Episode exit blood threshold: [bloodsuckerdatum.feral_exit_threshold()]"
 		else
-			. += "Frenzy blood threshold: [bloodsuckerdatum.frenzy_enter_threshold()]"
+			. += "Feral Episode blood threshold: [bloodsuckerdatum.feral_enter_threshold()]"
 
 /datum/outfit/bloodsucker_outfit
 	name = "Bloodsucker outfit (Preview only)"

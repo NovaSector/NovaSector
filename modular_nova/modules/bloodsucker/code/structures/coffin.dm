@@ -1,5 +1,5 @@
-/datum/antagonist/bloodsucker/proc/can_claim_coffin(obj/structure/closet/crate/claimed, area/current_area)
-	if(coffin)
+/datum/antagonist/bloodsucker/proc/can_claim_den(obj/structure/closet/claimed, area/current_area)
+	if(claimed_den)
 		return FALSE
 	// ALREADY CLAIMED
 	if(claimed.resident)
@@ -11,32 +11,34 @@
 		return
 	return TRUE
 
-/datum/antagonist/bloodsucker/proc/claim_coffin(obj/structure/closet/crate/claimed, area/current_area)
-	if(!can_claim_coffin(claimed, current_area))
+/datum/antagonist/bloodsucker/proc/claim_den(obj/structure/closet/claimed, area/current_area)
+	if(!can_claim_den(claimed, current_area))
 		return FALSE
 	// This is my Haven
-	coffin = claimed
+	claimed_den = claimed
 	bloodsucker_haven_area = current_area
-	to_chat(owner, span_userdanger("You have claimed the [claimed] as your place of immortal rest! Your haven is now [bloodsucker_haven_area]."))
-	to_chat(owner, span_announce("Bloodsucker Tip: Find new haven recipes in the Structures tab of the <i>Crafting Menu</i>, including the <i>Persuasion Rack</i> for converting crew into Ghouls."))
+	to_chat(owner, span_userdanger("You have claimed [claimed] as your den! Your haven is now [bloodsucker_haven_area]."))
+	to_chat(owner, span_announce("Bloodsucker Tip: Find new haven recipes in the Structures tab of the <i>Crafting Menu</i>, including the <i>Indoctrination Rack</i> for converting crew into Thralls."))
 	return TRUE
 
-/// From crate.dm
-/obj/structure/closet/crate
-	breakout_time = 20 SECONDS
-	///The resident (owner) of this crate/coffin.
+/// Bloodsucker den system vars -- any closet can be claimed as a den
+/obj/structure/closet
+	///The resident (owner) of this closet, set when claimed as a den.
 	var/mob/living/resident
-	///The time it takes to pry this open with a crowbar.
+	///The time it takes to pry this open with a crowbar when claimed.
 	var/pry_lid_timer = 25 SECONDS
 
-/obj/structure/closet/crate/coffin/examine(mob/user)
+/obj/structure/closet/crate
+	breakout_time = 20 SECONDS
+
+/obj/structure/closet/examine(mob/user)
 	. = ..()
 	if(user == resident)
-		. += span_cult("This is your Claimed Coffin.")
-		. += span_cult("Rest in it while injured to enter Torpor. Entering it with unspent Ranks will allow you to spend one.")
+		. += span_cult("This is your claimed den.")
+		. += span_cult("Rest in it while injured to enter Dormancy. Entering it with unspent Ranks will allow you to spend one.")
 		. += span_cult("Going inside while it contains a heart will put it in your chest, letting you regain your might.")
-		. += span_cult("Alt-Click while inside the Coffin to Lock/Unlock. This also fixes the lock if it's broken.")
-		. += span_cult("Alt-Click while outside of your Coffin to Unclaim it, unwrenching it and all your other structures as a result.")
+		. += span_cult("Alt-Click while inside your den to Lock/Unlock. This also fixes the lock if it's broken.")
+		. += span_cult("Alt-Click while outside of your den to unclaim it, unwrenching it and all your other structures as a result.")
 
 /obj/structure/closet/crate/coffin/blackcoffin
 	name = "black coffin"
@@ -131,11 +133,11 @@
 
 //////////////////////////////////////////////
 
-/// NOTE: This can be any coffin that you are resting AND inside of.
-/obj/structure/closet/crate/coffin/proc/claim_coffin(mob/living/claimant, area/current_area)
+/// Any closet can be claimed as a den by resting inside it.
+/obj/structure/closet/proc/claim_den(mob/living/claimant, area/current_area)
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(claimant)
 	// Successfully claimed?
-	if(bloodsuckerdatum.claim_coffin(src, current_area))
+	if(bloodsuckerdatum.claim_den(src, current_area))
 		resident = claimant
 		anchored = TRUE
 		if(!(interaction_flags_click & ALLOW_RESTING))
@@ -144,8 +146,8 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/closet/crate/coffin/Destroy()
-	unclaim_coffin()
+/obj/structure/closet/Destroy()
+	unclaim_den()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
@@ -172,7 +174,7 @@
 				new /obj/effect/decal/cleanable/cobweb/cobweb2(T_Dirty)
 		new /obj/effect/decal/cleanable/dirt(T_Dirty)
 
-/obj/structure/closet/crate/proc/unclaim_coffin(manual = FALSE, silent = FALSE)
+/obj/structure/closet/proc/unclaim_den(manual = FALSE, silent = FALSE)
 	// Unanchor it (If it hasn't been broken, anyway)
 	anchored = FALSE
 	if(!resident || !resident.mind)
@@ -180,24 +182,24 @@
 	un_enlarge(resident)
 	// Unclaiming
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(resident)
-	if(bloodsuckerdatum && bloodsuckerdatum.coffin == src)
-		bloodsuckerdatum.coffin = null
+	if(bloodsuckerdatum && bloodsuckerdatum.claimed_den == src)
+		bloodsuckerdatum.claimed_den = null
 		bloodsuckerdatum.bloodsucker_haven_area = null
 	for(var/obj/structure/bloodsucker/bloodsucker_structure in get_area(src))
 		if(bloodsucker_structure.owner == resident)
 			bloodsucker_structure.unbolt()
 	if(!silent)
 		if(manual)
-			to_chat(resident, span_cult_italic("You have unclaimed your coffin! This also unclaims all your other Bloodsucker structures!"))
+			to_chat(resident, span_cult_italic("You have unclaimed your den! This also unclaims all your other Bloodsucker structures!"))
 		else
-			to_chat(resident, span_cult_italic("You sense that the link with your coffin and your sacred haven has been broken! You will need to seek another."))
+			to_chat(resident, span_cult_italic("You sense that the link with your den has been broken! You will need to seek another."))
 	// Remove resident. Because this object isnt removed from the game immediately (GC?) we need to give them a way to see they don't have a home anymore.
 	resident = null
 	if(interaction_flags_click & ALLOW_RESTING)
 		interaction_flags_click = interaction_flags_click & ~ALLOW_RESTING
 
-/// You cannot lock in/out a coffin's owner. SORRY.
-/obj/structure/closet/crate/coffin/can_open(mob/living/user)
+/// You cannot lock in/out a den's owner. SORRY.
+/obj/structure/closet/can_open(mob/living/user)
 	if(!locked)
 		return ..()
 	if(user == resident)
@@ -209,11 +211,11 @@
 	playsound(get_turf(src), 'modular_nova/modules/bloodsucker/sound/coffin_locked.ogg', 20, 1)
 	to_chat(user, span_notice("[src] appears to be locked tight from the inside."))
 
-/obj/structure/closet/crate/coffin/close(mob/living/user)
+/obj/structure/closet/close(mob/living/user)
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(user)
 	if(bloodsuckerdatum && user.mob_size > max_mob_size)
-		if(!HAS_TRAIT_FROM_ONLY(src, TRAIT_COFFIN_ENLARGED, "bloodsucker_coffin"))
-			if(prompt_coffin_claim(bloodsuckerdatum))
+		if(!HAS_TRAIT_FROM_ONLY(src, TRAIT_DEN_ENLARGED, "bloodsucker_den"))
+			if(prompt_den_claim(bloodsuckerdatum))
 				enlarge(user)
 			else
 				user.balloon_alert(user, "already claimed by another!")
@@ -221,52 +223,41 @@
 	if(!.)
 		return FALSE
 	for(var/atom/thing as anything in contents)
-		SEND_SIGNAL(thing, COMSIG_ENTER_COFFIN, src, user)
+		SEND_SIGNAL(thing, COMSIG_ENTER_DEN, src, user)
 	return TRUE
 
-// /obj/structure/closet/crate/coffin/proc/is_claimable_coffin(datum/antagonist/bloodsucker/dracula, area/current_area)
-// 	if(!dracula)
-// 		return FALSE
-// 	if(resident == dracula.owner.current)
-// 		return TRUE
-// 	if(!dracula.can_claim_coffin(src, current_area))
-// 		return FALSE
-// 	if(!dracula.coffin && resident)
-// 		return FALSE
-// 	return TRUE
 
-/obj/structure/closet/crate/coffin/proc/prompt_coffin_claim(datum/antagonist/bloodsucker/dracula)
+/obj/structure/closet/proc/prompt_den_claim(datum/antagonist/bloodsucker/dracula)
 	var/area/current_area = get_area(src)
-	switch(tgui_alert(dracula.owner.current, "Do you wish to claim this as your coffin? [current_area] will be your haven.", "Claim Haven", list("Yes", "No")))
+	switch(tgui_alert(dracula.owner.current, "Do you wish to claim this as your den? [current_area] will be your haven.", "Claim Haven", list("Yes", "No")))
 		if("Yes")
-			return claim_coffin(dracula.owner.current, current_area)
+			return claim_den(dracula.owner.current, current_area)
 	return FALSE
 
-// some fatass bloodsucker is trying to fit in a too-small coffin, how about we make some room?
-/obj/structure/closet/crate/proc/enlarge(mob/living/user)
-	ADD_TRAIT(src, TRAIT_COFFIN_ENLARGED, "bloodsucker_coffin")
+// a bloodsucker is trying to fit in a too-small den, how about we make some room?
+/obj/structure/closet/proc/enlarge(mob/living/user)
+	ADD_TRAIT(src, TRAIT_DEN_ENLARGED, "bloodsucker_den")
 	max_mob_size = user.mob_size
-	to_chat(user, span_warning("The coffin creaks and squeaks as you try to squeeze into it. It's a tight fit but you manage it make it fit you."))
+	to_chat(user, span_warning("[src] creaks as you squeeze into it. It's a tight fit but you manage to make it work."))
 	playsound(src, 'modular_nova/modules/aesthetics/airlock/sound/creaking.ogg')
-	animate(src, 1 SECONDS, FALSE, BOUNCE_EASING, transform = transform.Scale(user.mob_size * COFFIN_ENLARGE_MULT))
+	animate(src, 1 SECONDS, FALSE, BOUNCE_EASING, transform = transform.Scale(user.mob_size * DEN_ENLARGE_MULT))
 
-/obj/structure/closet/crate/proc/un_enlarge(mob/living/user)
-	if(!HAS_TRAIT_FROM_ONLY(src, TRAIT_COFFIN_ENLARGED, "bloodsucker_coffin"))
+/obj/structure/closet/proc/un_enlarge(mob/living/user)
+	if(!HAS_TRAIT_FROM_ONLY(src, TRAIT_DEN_ENLARGED, "bloodsucker_den"))
 		return
-	REMOVE_TRAIT(src, TRAIT_COFFIN_ENLARGED, "bloodsucker_coffin")
+	REMOVE_TRAIT(src, TRAIT_DEN_ENLARGED, "bloodsucker_den")
 	max_mob_size = initial(max_mob_size)
 	var/matrix/normal
-	// transform.Scale(user.mob_size * (COFFIN_ENLARGE_MULT + 1)
 	animate(src, 1 SECONDS, FALSE, transform = normal)
 
-/// You cannot weld or deconstruct an owned coffin. Only the owner can destroy their own coffin.
-/obj/structure/closet/crate/coffin/wrench_act_secondary(mob/living/user, obj/item/tool)
+/// You cannot weld or deconstruct a claimed den. Only the owner can unclaim it.
+/obj/structure/closet/wrench_act_secondary(mob/living/user, obj/item/tool)
 	if(resident && anchored)
-		to_chat(user, span_danger("The coffin won't come unanchored from the floor.[user == resident ? " You can Alt-Click to unclaim and unwrench your Coffin." : ""]"))
+		to_chat(user, span_danger("[src] won't come unanchored from the floor.[user == resident ? " You can Alt-Click to unclaim and unwrench your den." : ""]"))
 		return TRUE
 	. = ..()
 
-/obj/structure/closet/crate/coffin/tool_interact(obj/item/weapon, mob/living/user)
+/obj/structure/closet/tool_interact(obj/item/weapon, mob/living/user)
 	if(locked && (weapon.tool_behaviour == TOOL_CROWBAR))
 		var/pry_time = pry_lid_timer * weapon.toolspeed // Pry speed must be affected by the speed of the tool.
 		user.visible_message(
@@ -289,7 +280,7 @@
 			return TRUE
 	. = ..()
 
-/// Forces the coffin to get contents
+/// Forces the closet to take contents
 /obj/structure/closet/proc/force_enter(mob/living/user)
 	SEND_SIGNAL(src, COMSIG_CLOSET_PRE_CLOSE, user)
 	take_contents()
@@ -304,24 +295,24 @@
 	return inserted
 
 /// Distance Check (Inside Of)
-/obj/structure/closet/crate/coffin/click_alt(mob/user)
+/obj/structure/closet/click_alt(mob/user)
 	. = ..()
 	if(user in src)
 		LockMe(user, !locked)
 		return CLICK_ACTION_SUCCESS
 
 	if(user == resident && user.Adjacent(src))
-		balloon_alert(user, "unclaim coffin?")
+		balloon_alert(user, "unclaim den?")
 		var/static/list/unclaim_options = list(
 			"Yes" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_yes"),
 			"No" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_no"))
 		var/unclaim_response = show_radial_menu(user, src, unclaim_options, radius = 36, require_near = TRUE)
 		switch(unclaim_response)
 			if("Yes")
-				unclaim_coffin(TRUE)
+				unclaim_den(TRUE)
 	return CLICK_ACTION_SUCCESS
 
-/obj/structure/closet/crate/proc/LockMe(mob/user, inLocked = TRUE)
+/obj/structure/closet/proc/LockMe(mob/user, inLocked = TRUE)
 	if(user == resident)
 		if(!broken)
 			locked = inLocked

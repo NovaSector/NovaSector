@@ -1,16 +1,16 @@
-#define COFFIN_HEALING_COST 0.5
+#define DEN_HEALING_COST 0.5
 
 /datum/quirk/sol_weakness
 	name = "Sol Weakness"
 	icon = FA_ICON_SUN
 	desc = "Your sub-species of the Hemophage virus renders you weak to Solar radiation, \
-		you will have to hide in a coffin or a closet during the day, or risk burning to a crisp. \
-		Thankfully, you will also heal your wounds at half cost in a coffin."
+		you will have to hide in any enclosed structure during the day, or risk burning to a crisp. \
+		Thankfully, you will also heal your wounds at half cost while sheltered."
 	gain_text = span_warning("You feel a sudden weakness in your body, and a burning sensation on your skin. \
-		You should find a coffin to hide in during the day.")
+		You should find an enclosed structure to hide in during the day.")
 	lose_text = span_notice("You feel safe in Sol's embrace once more.")
 	medical_record_text = "Patient's strain of the hemophage virus is weak to sunlight. \
-		They will have to hide in a coffin or a closet during the day, or risk burning to a crisp."
+		They will have to hide in an enclosed structure during the day, or risk burning to a crisp."
 	value = -4
 	hardcore_value = 6
 	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_HUMAN_ONLY
@@ -35,9 +35,9 @@
 	UnregisterSignal(SSsunlight, list(COMSIG_SOL_RISE_TICK, COMSIG_SOL_WARNING_GIVEN))
 
 /datum/quirk/sol_weakness/proc/on_blood_healing(mob/owner, seconds_between_ticks, datum/status_effect/blood_regen_active/effect)
-	if(effect && in_coffin())
-		// cheaper healing as long as you're in a coffin
-		effect.cost_blood = COFFIN_HEALING_COST
+	if(effect && in_den())
+		// cheaper healing as long as you're in an enclosed structure
+		effect.cost_blood = DEN_HEALING_COST
 	else
 		effect.cost_blood = initial(effect.cost_blood)
 	// prevent healing if sol is active
@@ -56,13 +56,13 @@
 	if(!istype(quirk_holder.loc, /obj/structure))
 		sun_burn()
 	else
-		if(in_coffin())
+		if(in_den())
 			quirk_holder.add_mood_event("vampsleep", /datum/mood_event/coffinsleep/quirk)
 			sun_burn_message(span_warning("The sun is up, but you safely rest in your [quirk_holder.loc.name]."))
 		else
 			quirk_holder.add_mood_event("vampsleep", /datum/mood_event/daylight_bad_sleep)
 			quirk_holder.adjust_fire_loss(1)
-			sun_burn_message(span_warning("[quirk_holder.loc] is not a coffin, but it keeps you safe enough."))
+			sun_burn_message(span_warning("[quirk_holder.loc] offers some protection, but it's not ideal."))
 
 /datum/quirk/sol_weakness/proc/sun_burn()
 	quirk_holder.add_mood_event("vampsleep", /datum/mood_event/daylight_sun_scorched)
@@ -89,12 +89,12 @@
 		vampire_warning_message = span_userdanger("Solar flares bombard the station with deadly UV light! Stay in cover for the next [TIME_BLOODSUCKER_DAY / 60] minutes or risk death!")
 	SSsunlight.warn_notify(quirk_holder, danger_level, vampire_warning_message)
 
-/datum/quirk/sol_weakness/proc/in_coffin()
-	return istype(quirk_holder.loc, /obj/structure/closet/crate/coffin)
+/datum/quirk/sol_weakness/proc/in_den()
+	return istype(quirk_holder.loc, /obj/structure/closet)
 
 /datum/status_effect/blood_regen_active/tick(seconds_between_ticks)
 	if(SEND_SIGNAL(owner, COMSIG_MOB_HEMO_BLOOD_REGEN_TICK, seconds_between_ticks, src) & COMSIG_CANCEL_MOB_HEMO_BLOOD_REGEN)
 		return
 	. = ..()
 
-#undef COFFIN_HEALING_COST
+#undef DEN_HEALING_COST

@@ -3,8 +3,8 @@
 #define FEED_MIN_TIMER (1 SECONDS)
 
 /datum/action/cooldown/bloodsucker/feed
-	name = "Feed"
-	desc = "Feed blood off of a living creature. Feeding while aggressively grabbing them will put them to sleep for a short moment."
+	name = "Drain"
+	desc = "Drain blood from a living creature via symbiont microfilament tendrils. Draining while aggressively grabbing will put the target to sleep."
 	button_icon_state = "power_feed"
 	power_explanation = list(
 		"Activate Feed while next to someone and you will begin to feed blood off of them.",
@@ -12,14 +12,14 @@
 		"Feeding off of someone next to you will not be noticed by the victim, but it will by nearby onlookers",
 		"Feeding off of someone while you have them aggressively grabbed will put them to sleep.",
 		"While feeding, you can't speak, as your mouth is covered.",
-		"Feeding while nearby (2 tiles away from) a mortal who is unaware of Bloodsuckers' existence, will cause a Masquerade Infraction",
-		"If you get too many Masquerade Infractions, you will break the Masquerade.",
+		"Draining while nearby (2 tiles away from) someone unaware of Bloodsuckers will cause an Exposure Incident.",
+		"If you accumulate too many Exposure Incidents, you will be fully Exposed.",
 		"If you are in desperate need of blood, mice can be fed off of, at a cost.",
 		"You must use the ability again to stop sucking blood.",
 	)
 	level_current = -1 // scales itself based on your actual level, since you always have it
 	power_flags = BP_CONTINUOUS_EFFECT|BP_AM_STATIC_COOLDOWN
-	bloodsucker_check_flags = BP_CANT_USE_IN_TORPOR|BP_CAN_USE_WHILE_STAKED|BP_CAN_USE_HEARTLESS
+	bloodsucker_check_flags = BP_CANT_USE_IN_DORMANCY|BP_CAN_USE_WHILE_STAKED|BP_CAN_USE_HEARTLESS
 	purchase_flags = BLOODSUCKER_DEFAULT_POWER
 	bloodcost = 0
 	cooldown_time = 15 SECONDS
@@ -46,9 +46,9 @@
 	. += "The time needed before you start feeding is [DisplayTimeText(get_feed_start_time())]."
 	. += "Feeding off of someone while you have them aggressively grabbed will put them to sleep for [DisplayTimeText(get_sleep_time())]."
 	. += "While feeding, you can't speak, as you are using your mouth to drink blood."
-	. += "Feeding while nearby ([FEED_NOTICE_RANGE] tiles away from) a mortal who is unaware of Bloodsuckers' existence, will cause a Masquerade Infraction"
-	. += "If you get too many Masquerade Infractions, you will break the Masquerade."
-	. += "If you are in desperate need of blood, mice can be fed off of, at a cost to your humanity."
+	. += "Draining while nearby ([FEED_NOTICE_RANGE] tiles away from) someone unaware of Bloodsuckers will cause an Exposure Incident."
+	. += "If you accumulate too many Exposure Incidents, you will be fully Exposed."
+	. += "If you are in desperate need of blood, mice can be drained, at a cost to your sapience."
 	. += "If you are handcuffed, you can use feed to feed off whoever is grabbing you, however this is slower, and very obvious."
 	. += "You must use the ability again to stop sucking blood."
 
@@ -101,7 +101,7 @@
 		to_chat(user, span_notice("You slowly release [feed_target]."))
 		if(feed_target.client && feed_target.stat == DEAD)
 			user.add_mood_event("drankkilled", /datum/mood_event/drankkilled)
-			bloodsuckerdatum_power?.AddHumanityLost(5)
+			bloodsuckerdatum_power?.AddNeuralErosion(5)
 
 	target_ref = null
 	warning_target_bloodvol = initial(warning_target_bloodvol)
@@ -117,11 +117,11 @@
 		DeactivatePower()
 		return FALSE
 	if(istype(feed_target, /mob/living/basic/mouse))
-		to_chat(owner, span_notice("You recoil at the taste of a lesser lifeform."))
+		to_chat(owner, span_notice("The symbiont recoils -- this organism's neurochemistry is insufficient."))
 		if(snobby_drinking_check())
 			var/mob/living/user = owner
 			user.add_mood_event("drankblood", /datum/mood_event/drankblood_bad)
-			bloodsuckerdatum_power?.AddHumanityLost(1)
+			bloodsuckerdatum_power?.AddNeuralErosion(1)
 		bloodsuckerdatum_power?.AdjustBloodVolume(25)
 		feed_target.death()
 		StartCooldown()
@@ -135,7 +135,7 @@
 		return FALSE
 	if(check_aggro_feed(feed_target))
 		aggressive_feed = TRUE
-		if(!IS_BLOODSUCKER(feed_target) && !IS_GHOUL(feed_target) && !IS_MONSTERHUNTER(feed_target))
+		if(!IS_BLOODSUCKER(feed_target) && !IS_THRALL(feed_target) && !IS_MONSTERHUNTER(feed_target))
 			feed_target.Unconscious(get_sleep_time())
 		if(!feed_target.density)
 			feed_target.Move(owner.loc)
@@ -169,10 +169,10 @@
 			continue
 		if(watchers.is_blind() || watchers.is_nearsighted_currently())
 			continue
-		if(IS_BLOODSUCKER(watchers) || IS_GHOUL(watchers) || HAS_TRAIT(watchers.mind, TRAIT_BLOODSUCKER_HUNTER))
+		if(IS_BLOODSUCKER(watchers) || IS_THRALL(watchers) || HAS_TRAIT(watchers.mind, TRAIT_BLOODSUCKER_HUNTER))
 			continue
 		owner.balloon_alert(owner, "feed noticed!")
-		bloodsuckerdatum_power?.give_masquerade_infraction()
+		bloodsuckerdatum_power?.give_exposure_incident()
 		break
 
 /datum/action/cooldown/bloodsucker/feed/process(seconds_per_tick)
@@ -221,7 +221,7 @@
 
 	if(feed_target.mind)
 		user.add_mood_event("drankblood", /datum/mood_event/drankblood)
-	// Drank mindless as Ventrue? - BAD
+	// Drained mindless as selective-feeder? - BAD
 	else if(snobby_drinking_check())
 		user.add_mood_event("drankblood", /datum/mood_event/drankblood_bad)
 	if(feed_target.stat >= DEAD)
@@ -317,7 +317,7 @@
 	return FALSE
 
 /datum/action/cooldown/bloodsucker/proc/snobby_drinking_check()
-	if(bloodsuckerdatum_power?.my_clan && bloodsuckerdatum_power.my_clan.blood_drink_type != BLOODSUCKER_DRINK_INHUMANELY)
+	if(bloodsuckerdatum_power?.my_clade && bloodsuckerdatum_power.my_clade.blood_drink_type != BLOODSUCKER_DRINK_INDISCRIMINATE)
 		return TRUE
 	return TRUE
 
@@ -328,7 +328,7 @@
 	if(safe_set_target(owner.pulledby))
 		return TRUE
 	if(bloodsuckerdatum_power?.frenzied)
-		owner.balloon_alert(owner, "beast active! must grab someone to feed!")
+		owner.balloon_alert(owner, "Override active! must grab someone to drain!")
 		return FALSE
 	var/mob/living/carbon/carbon = owner
 	if(iscarbon(carbon) && carbon.handcuffed)
@@ -411,7 +411,7 @@
 	return TRUE
 
 /datum/action/cooldown/bloodsucker/feed/proc/can_drink_from_mindless(mob/living/target)
-	if(!bloodsuckerdatum_power?.my_clan)
+	if(!bloodsuckerdatum_power?.my_clade)
 		return TRUE
 	if(snobby_drinking_check() && !bloodsuckerdatum_power.frenzied)
 		return FALSE

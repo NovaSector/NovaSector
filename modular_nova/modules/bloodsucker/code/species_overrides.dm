@@ -8,7 +8,7 @@
 /datum/species/proc/on_bloodsucker_loss(mob/living/carbon/human/target)
 	return null
 
-/// Replaces a couple organs to normal variants to not cause issues. Not super happy with this, alternative is disallowing vampiric races from being bloodsuckers
+/// Replaces a couple organs to normal variants to not cause issues. Not super happy with this, alternative is disallowing incompatible species from being bloodsuckers
 /datum/species/proc/humanize_organs(mob/living/carbon/human/target, organs = list())
 	if(!organs || !length(organs))
 		organs = list(
@@ -39,7 +39,7 @@
 // Species-specific bloodsucker overrides
 
 /datum/species/human/vampire/on_bloodsucker_gain(mob/living/carbon/human/target, datum/species/current_species)
-	to_chat(target, span_warning("Your vampire features have been removed, your nature as a bloodsucker abates the lesser vampirism curse."))
+	to_chat(target, span_warning("Your vampire features have been removed -- the deep strain symbiont has subsumed the lesser vampiric mutation."))
 	humanize_organs(target, current_species)
 
 /datum/species/human/vampire/on_bloodsucker_loss(mob/living/carbon/human/target)
@@ -61,7 +61,7 @@
 	normalize_organs()
 
 /datum/species/hemophage/on_bloodsucker_gain(mob/living/carbon/human/target)
-	to_chat(target, span_warning("Your hemophage features have been removed, your nature as a bloodsucker abates the hemophage virus."))
+	to_chat(target, span_warning("Your standard hemophage features have been overwritten -- the deep strain symbiont has consumed and replaced the original hemophage mutation."))
 	// Without this any new organs would get corrupted again.
 	target.RemoveElement(/datum/element/tumor_corruption)
 	for(var/obj/item/organ/organ in target.organs)

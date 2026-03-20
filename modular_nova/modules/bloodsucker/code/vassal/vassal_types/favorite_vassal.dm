@@ -1,26 +1,26 @@
 /**
- * Favorite Ghoul
+ * Bonded Thrall
  *
- * Gets some cool abilities depending on the Clan.
+ * Gets some cool abilities depending on the Clade.
  */
 /datum/antagonist/ghoul/favorite
-	name = "\improper Favorite Ghoul"
+	name = "\improper Bonded Thrall"
 	antag_hud_name = "ghoul6"
-	special_type = FAVORITE_GHOUL
-	ghoul_description = "The Favorite Ghoul gets unique abilities over other Ghouls depending on the Master's Clan \
-		and becomes completely immune to Mindshields. If part of Ventrue, this is the Ghoul a Bloodsucker will rank up."
+	special_type = BONDED_THRALL
+	ghoul_description = "The Bonded Thrall gets unique abilities over other Thralls depending on the Progenitor's Clade \
+		and becomes completely immune to Mindshields. If part of the Tyrant clade, this is the Thrall a Bloodsucker will rank up."
 
-	///Bloodsucker levels, but for Ghouls, used by Ventrue. Used for ventrue creating a new bloodsucker.
+	///Bloodsucker levels, but for Thralls, used by Tyrant clade. Used for creating a new bloodsucker.
 	var/ghoul_level
 	/// Power's we're going to inherit once we turn into a Bloodsucker
 	var/list/bloodsucker_powers = list()
 
 /datum/antagonist/ghoul/favorite/on_gain()
 	. = ..()
-	SEND_SIGNAL(master, COMSIG_BLOODSUCKER_MAKE_FAVORITE, src)
+	SEND_SIGNAL(master, COMSIG_BLOODSUCKER_MAKE_BONDED, src)
 
 /datum/antagonist/ghoul/favorite/on_removal()
-	SEND_SIGNAL(master, COMSIG_BLOODSUCKER_LOOSE_FAVORITE, src)
+	SEND_SIGNAL(master, COMSIG_BLOODSUCKER_LOOSE_BONDED, src)
 	remove_powers(bloodsucker_powers)
 	. = ..()
 

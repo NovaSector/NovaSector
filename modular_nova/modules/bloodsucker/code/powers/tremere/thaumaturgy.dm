@@ -18,11 +18,11 @@
 #define THAUMATURGY_EXTRA_DAMAGE_LEVEL 4
 #define THAUMATURGY_BLOOD_STEAL_LEVEL 5
 /datum/action/cooldown/bloodsucker/targeted/tremere/thaumaturgy
-	name = "Thaumaturgy"
+	name = "Blood Lance"
 	level_current = 1
 	button_icon_state = "power_thaumaturgy"
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED
-	purchase_flags = TREMERE_CAN_BUY
+	purchase_flags = HEMOKINETIC_CAN_BUY
 	// custom cooldown handling based on charges
 	power_flags = BP_AM_STATIC_COOLDOWN
 	bloodcost = 5
@@ -69,10 +69,10 @@
 
 /datum/action/cooldown/bloodsucker/targeted/tremere/thaumaturgy/get_power_explanation_extended()
 	. = list()
-	. += "Thaumaturgy grants you the ability to cast and shoot a slow moving target seeking blood projectile."
+	. += "Blood Lance grants you the ability to fire a slow-moving target-seeking crystallized blood projectile."
 	. += "The projectile will auto aim to a nearby mob if you aim at the ground."
 	. += "If the Blood blast hits a person, it will deal [get_blood_bolt_damage()] [initial(magic_9ball.damage_type)] damage, and is blocked by [initial(magic_9ball.armor_flag)] armor."
-	. += "You can use Blood blast [get_max_charges()] times before needing to recast Thaumaturgy. After each shot you will have to wait [DisplayTimeText(get_shot_cooldown())]."
+	. += "You can fire Blood Lance [get_max_charges()] times before needing to recharge. After each shot you will have to wait [DisplayTimeText(get_shot_cooldown())]."
 	. += "At level [THAUMATURGY_SHIELD_LEVEL] it will grant you a shield that will block [BLOOD_SHIELD_BLOCK_CHANCE]% of incoming damage, costing you [THAUMATURGY_BLOOD_COST_PER_CHARGE] blood each time."
 	. += "To activate the shield, right click the action button."
 	. += "At level [THAUMATURGY_DOOR_BREAK_LEVEL], it will also break open lockers and doors."
@@ -195,7 +195,7 @@
 		for(var/mob/living/possible_target in orange(1, target))
 			if(!ismob(possible_target))
 				continue
-			var/datum/antagonist/ghoul/ghoul = IS_GHOUL(possible_target)
+			var/datum/antagonist/ghoul/ghoul = IS_THRALL(possible_target)
 			if(length(bloodsuckerdatum_power?.ghouls) && ghoul && (ghoul in bloodsuckerdatum_power?.ghouls))
 				continue
 			targets += possible_target

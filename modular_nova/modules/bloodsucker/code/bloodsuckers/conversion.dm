@@ -1,26 +1,26 @@
 /**
  * Checks if the target has antag datums and, if so,
- * are they allowed to be Ghouled, or not, or banned.
+ * are they allowed to be converted into a Thrall, or not, or banned.
  * Args:
  * target - The person we check for antag datums.
  */
 /datum/antagonist/bloodsucker/proc/AmValidAntag(mob/target)
 	if(HAS_TRAIT(target, TRAIT_UNCONVERTABLE))
-		return GHOULING_BANNED
+		return THRALLING_BANNED
 
-	var/ghouling_status = GHOULING_ALLOWED
+	var/ghouling_status = THRALLING_ALLOWED
 	for(var/datum/antagonist/antag_datum as anything in target.mind.antag_datums)
-		if(antag_datum.type in ghoul_banned_antags)
-			return GHOULING_BANNED
-		ghouling_status = GHOULING_DISLOYAL
+		if(antag_datum.type in thrall_banned_antags)
+			return THRALLING_BANNED
+		ghouling_status = THRALLING_DISLOYAL
 	return ghouling_status
 
 /**
  * # can_make_ghoul
  * Checks if the person is allowed to turn into the Bloodsucker's
- * Ghoul, ensuring they are a player and valid.
- * If they are a Ghoul themselves, will check if their master
- * has broken the Masquerade, to steal them.
+ * Thrall, ensuring they are a player and valid.
+ * If they are a Thrall themselves, will check if their Progenitor
+ * has been Exposed, to steal them.
  * Args:
  * conversion_target - Person being ghouled
  */
@@ -29,23 +29,23 @@
 		return FALSE
 	// No Mind!
 	if(!conversion_target.mind)
-		to_chat(owner.current, span_danger("[conversion_target] isn't self-aware enough to be made into a Ghoul."))
+		to_chat(owner.current, span_danger("[conversion_target] isn't self-aware enough to be made into a Thrall."))
 		return FALSE
-	if(AmValidAntag(conversion_target) == GHOULING_BANNED)
+	if(AmValidAntag(conversion_target) == THRALLING_BANNED)
 		to_chat(owner.current, span_danger("[conversion_target] resists the power of your blood to dominate their mind!"))
 		return FALSE
 	var/mob/living/master = conversion_target.mind.enslaved_to?.resolve()
 	if(!master || (master == owner.current))
 		return TRUE
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(master)
-	if(bloodsuckerdatum && bloodsuckerdatum.broke_masquerade)
-		//ghoul stealing
+	if(bloodsuckerdatum && bloodsuckerdatum.exposed)
+		//thrall stealing
 		return TRUE
 	to_chat(owner.current, span_danger("[conversion_target]'s mind is overwhelmed with too much external force to put your own!"))
 	return FALSE
 
 /**
- * First will check if the target can be turned into a Ghoul, if so then it will
+ * First will check if the target can be turned into a Thrall, if so then it will
  * turn them into one, log it, sync their minds, then updates the Rank
  * Args:
  * conversion_target - The person converted.
@@ -55,8 +55,8 @@
 	if(!can_make_ghoul(conversion_target))
 		return FALSE
 #endif
-	//Check if they used to be a Ghoul and was stolen.
-	var/datum/antagonist/ghoul/old_ghoul = IS_GHOUL(conversion_target)
+	//Check if they used to be a Thrall and was stolen.
+	var/datum/antagonist/ghoul/old_ghoul = IS_THRALL(conversion_target)
 	if(old_ghoul)
 		conversion_target.mind.remove_antag_datum(/datum/antagonist/ghoul)
 
@@ -68,16 +68,16 @@
 	ghouldatum.master = bloodsuckerdatum
 	conversion_target.mind.add_antag_datum(ghouldatum)
 
-	message_admins("[conversion_target] has become a Ghoul, and is enslaved to [owner.current].")
-	log_admin("[conversion_target] has become a Ghoul, and is enslaved to [owner.current].")
+	message_admins("[conversion_target] has become a Thrall, and is enslaved to [owner.current].")
+	log_admin("[conversion_target] has become a Thrall, and is enslaved to [owner.current].")
 	return TRUE
 
 /*
  *	# can_make_special
  *
- * MIND Helper proc that ensures the person can be a Special Ghoul,
+ * MIND Helper proc that ensures the person can be a Special Thrall,
  * without actually giving the antag datum to them.
- * This is because Special Ghouls get special abilities, without the unique Bloodsucker blood tracking,
+ * This is because Special Thralls get special abilities, without the unique Bloodsucker blood tracking,
  * and we don't want this to be infinite.
  * Args:
  * creator - Person attempting to convert them.

@@ -72,7 +72,7 @@ export const AntagInfoBloodsucker = (props: any) => {
             selected={tab === 2}
             onClick={() => setTab(2)}
           >
-            Clan & Powers
+            Clade & Adaptations
           </Tabs.Tab>
         </Tabs>
         {tab === 1 && <BloodsuckerIntro />}
@@ -89,8 +89,8 @@ const BloodsuckerIntro = () => {
         <Section scrollable fill>
           <Stack vertical>
             <Stack.Item textColor="red" fontSize="20px">
-              You are a Bloodsucker, an undead blood-seeking monster living
-              aboard Space Station 13
+              You are a Bloodsucker, a host to a hyper-aggressive hemophage
+              strain aboard Space Station 13
             </Stack.Item>
             <Stack.Item>
               <ObjectivePrintout />
@@ -107,21 +107,21 @@ const BloodsuckerIntro = () => {
                 you depend on blood to survive. Don&#39;t allow your blood to
                 run too low, or you&#39;ll enter a
               </span>
-              <span className={'color-red'}> Frenzy</span>!<br />
+              <span className={'color-red'}> Feral Episode</span>!<br />
               <span>
-                Beware of your Humanity level! The more Humanity you lose, the
-                easier it is to fall into a{' '}
-                <span className={'color-red'}> Frenzy</span>!
+                Beware of your Sapience level! The more Neural Erosion you
+                suffer, the easier it is to fall into a{' '}
+                <span className={'color-red'}> Feral Episode</span>!
               </span>
               <br />
               <span>
                 Avoid using your Feed ability while near others, or else you
-                will risk <i>breaking the Masquerade</i>!
+                will risk <i>causing an Exposure Incident</i>!
               </span>
               <span>
-                Loosing your heart will render your powers useless, but going
-                into a coffin with a heart inside will allow you to regenerate
-                it.
+                Losing your heart will render your adaptations useless, but
+                entering your den with a heart inside will allow you to
+                regenerate it.
               </span>
             </Stack.Item>
           </Stack>
@@ -131,23 +131,23 @@ const BloodsuckerIntro = () => {
         <Section fill title="Items">
           <Stack vertical>
             <Stack.Item>
-              Rest in a <b>Coffin</b> to claim it, and that area, as your haven.
+              Rest in any <b>enclosed structure</b> to claim it, and that area, as your den.
               <br />
               Examine your new structures to see how they function!
               <br />
-              Medical analyzers and the book of kindred can sell you out, your
-              Masquerade ability will hide your identity to prevent this.
+              Medical analyzers and the Hemophage Research Codex can expose you.
+              Your Mimic adaptation will hide your identity to prevent this.
               <br />
-              You will learn how to make persuasion racks once you have enough
-              levels to support a ghoul, which you will learn during torpor
-              during daytime. Examine the ghoul rack to see how many ghouls you
-              can have!
+              You will learn how to build Indoctrination Racks once you have
+              enough levels to support a thrall, which you will learn during
+              Dormancy. Examine the rack to see how many thralls you can
+              support!
               <br />
-              You cannot level up until you select a clan. To select a clan,
-              click the clan tab on the top right of this window.
+              You cannot level up until you select a clade. To select a clade,
+              click the Clade & Adaptations tab on the top right of this window.
               <br />
-              Ensure to read the descriptions of each ability in the Clan &
-              Powers tab, you may learn something new!
+              Ensure to read the descriptions of each adaptation in the Clade &
+              Adaptations tab, you may learn something new!
               <br />
               After a certain level, Sol will no longer grant you levels,
               instead, you will need to feed on the blood of others to gain
@@ -175,7 +175,7 @@ const BloodsuckerClan = (props: any) => {
     return (
       <Section minHeight="220px">
         <Box mt={5} bold textAlign="center" fontSize="40px">
-          You are not in a Clan.
+          You are not in a Clade.
         </Box>
         <Box mt={3}>
           <Button
@@ -186,7 +186,7 @@ const BloodsuckerClan = (props: any) => {
             lineHeight={2}
             onClick={() => act('join_clan')}
           >
-            Join Clan
+            Join Clade
           </Button>
         </Box>
       </Section>

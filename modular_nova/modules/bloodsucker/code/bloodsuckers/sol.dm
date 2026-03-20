@@ -1,7 +1,7 @@
 /**
  *	# Assigning Sol
  *
- *	Sol is the sunlight, during this period, all Bloodsuckers must be in their coffin, else they burn.
+ *	Sol is the sunlight, during this period, all Bloodsuckers must be in their den, else they burn.
  */
 
 ///Ranks the Bloodsucker up, called by Sol.
@@ -26,7 +26,7 @@
 ///Called when Sol first ends.
 /datum/antagonist/bloodsucker/proc/on_sol_end(atom/source)
 	SIGNAL_HANDLER
-	check_end_torpor()
+	check_end_dormancy()
 	for(var/datum/action/cooldown/bloodsucker/power in powers)
 		if(istype(power, /datum/action/cooldown/bloodsucker/gohome))
 			RemovePower(power)
@@ -57,12 +57,12 @@
 		owner.current.add_mood_event("vampsleep", /datum/mood_event/daylight_sun_scorched)
 		return
 
-	if(is_valid_coffin()) // Coffins offer the BEST protection
+	if(is_valid_den()) // Claimed dens offer the BEST protection
 		if(owner.current.am_staked() && COOLDOWN_FINISHED(src, bloodsucker_spam_sol_burn))
 			to_chat(owner.current, span_userdanger("You are staked you will keep burning until it is removed! Remove the offending weapon from your heart before sleeping."))
 			COOLDOWN_START(src, bloodsucker_spam_sol_burn, BLOODSUCKER_SPAM_SOL) //This should happen twice per Sol
-		if(!is_in_torpor())
-			check_begin_torpor(TORPOR_SKIP_CHECK_ALL)
+		if(!is_in_dormancy())
+			check_begin_dormancy(DORMANCY_SKIP_CHECK_ALL)
 			owner.current.add_mood_event("vampsleep", /datum/mood_event/coffinsleep)
 		return
 
@@ -78,98 +78,98 @@
 	SSsunlight.warn_notify(owner.current, danger_level, vampire_warning_message)
 
 /**
- * # Torpor
+ * # Dormancy
  *
- * Torpor is what deals with the Bloodsucker falling asleep, their healing, the effects, ect.
- * This is basically what Sol is meant to do to them, but they can also trigger it manually if they wish to heal, as Burn is only healed through Torpor.
- * You cannot manually exit Torpor, it is instead entered/exited by:
+ * Dormancy is what deals with the Bloodsucker falling asleep, their healing, the effects, etc.
+ * This is basically what Sol is meant to do to them, but they can also trigger it manually if they wish to heal, as Burn is only healed through Dormancy.
+ * You cannot manually exit Dormancy, it is instead entered/exited by:
  *
- * Torpor is triggered by:
- * - Being in a Coffin while Sol is on, dealt with by Sol
- * - Entering a Coffin with more than 10 combined Brute/Burn damage, dealt with by /datum/antagonist/bloodsucker/on_enter_coffin() [procs.dm]
+ * Dormancy is triggered by:
+ * - Being in a den while Sol is on, dealt with by Sol
+ * - Entering a den with more than 10 combined Brute/Burn damage, dealt with by /datum/antagonist/bloodsucker/on_enter_den() [procs.dm]
  * - Death, dealt with by /HandleDeath()
- * Torpor is ended by:
- * - Having less than maxHealth * 0.8 damage while OUTSIDE of your Coffin while it isnt Sol.
- * - Having less than 10 Damage Combined while INSIDE of your Coffin while it isnt Sol.
+ * Dormancy is ended by:
+ * - Having less than maxHealth * 0.8 damage while OUTSIDE of your den while it isnt Sol.
+ * - Having less than 10 Damage Combined while INSIDE of your den while it isnt Sol.
  * - Sol being over, dealt with by /datum/controller/subsystem/processing/sunlight/process() [sol_subsystem.dm]
 */
-/datum/antagonist/bloodsucker/proc/check_begin_torpor(SkipChecks = NONE)
+/datum/antagonist/bloodsucker/proc/check_begin_dormancy(SkipChecks = NONE)
 	var/mob/living/carbon/user = owner.current
-	/// Are we entering Torpor via Sol/Death? Then entering it isnt optional!
+	/// Are we entering Dormancy via Sol/Death? Then entering it isnt optional!
 	// do not skip checking organs for torpor
 	if(ishuman(user))
 		var/mob/living/carbon/human/humie = user
 		if(humie.dna.species.mutantheart && !user.get_organ_slot(ORGAN_SLOT_HEART))
 			return FALSE
-	if(SkipChecks & TORPOR_SKIP_CHECK_ALL)
-		if(COOLDOWN_FINISHED(src, bloodsucker_spam_torpor))
-			to_chat(user, span_danger("Your immortal body will not yet relinquish your soul to the abyss. You enter Torpor."))
-		torpor_begin(TRUE)
+	if(SkipChecks & DORMANCY_SKIP_CHECK_ALL)
+		if(COOLDOWN_FINISHED(src, bloodsucker_spam_dormancy))
+			to_chat(user, span_danger("Your body will not yet relinquish. The symbiont forces you into Dormancy."))
+		dormancy_begin(TRUE)
 		return TRUE
-	/// Prevent Torpor whilst frenzied.
-	if(!(SkipChecks & TORPOR_SKIP_CHECK_FRENZY) && (frenzied || (IS_DEAD_OR_INCAP(user) && bloodsucker_blood_volume == 0)))
-		to_chat(user, span_userdanger("Your frenzy prevents you from entering torpor!"))
+	/// Prevent Dormancy whilst in feral episode.
+	if(!(SkipChecks & DORMANCY_SKIP_CHECK_FERAL) && (frenzied || (IS_DEAD_OR_INCAP(user) && bloodsucker_blood_volume == 0)))
+		to_chat(user, span_userdanger("The feral episode prevents you from entering Dormancy!"))
 		return FALSE
 	// sometimes you might incur these damage types when you really, should not, important to check for it here so we can heal it later
 	var/total_damage = get_brute_loss() + get_fire_loss() + user.get_tox_loss() + user.get_oxy_loss()
 	/// Checks - Not daylight & Has more than 10 Brute/Burn & not already in Torpor
-	if(SkipChecks & TORPOR_SKIP_CHECK_DAMAGE || !SSsunlight.sunlight_active && total_damage >= 10 && !is_in_torpor())
-		torpor_begin()
+	if(SkipChecks & DORMANCY_SKIP_CHECK_DAMAGE || !SSsunlight.sunlight_active && total_damage >= 10 && !is_in_dormancy())
+		dormancy_begin()
 		return TRUE
 	return FALSE
 
-/datum/antagonist/bloodsucker/proc/is_in_torpor()
-	return owner.current && HAS_TRAIT_FROM_ONLY(owner.current, TRAIT_TORPOR, BLOODSUCKER_TRAIT)
+/datum/antagonist/bloodsucker/proc/is_in_dormancy()
+	return owner.current && HAS_TRAIT_FROM_ONLY(owner.current, TRAIT_DORMANCY, BLOODSUCKER_TRAIT)
 
-/datum/antagonist/bloodsucker/proc/check_end_torpor(early_end = FALSE)
+/datum/antagonist/bloodsucker/proc/check_end_dormancy(early_end = FALSE)
 	var/mob/living/carbon/user = owner.current
 	var/total_brute = get_brute_loss()
 	var/total_burn = get_fire_loss()
 	// for waking up we ignore all other damage types so we don't get stuck
 	var/total_damage = total_brute + total_burn
-	var/is_in_coffin = is_valid_coffin()
+	var/is_in_den = is_valid_den()
 	if(total_burn >= user.maxHealth * 2)
 		return FALSE
-	if(SSsunlight.sunlight_active && is_in_coffin)
+	if(SSsunlight.sunlight_active && is_in_den)
 		return FALSE
-	if(bloodsucker_blood_volume == 0 || early_end || (SSsunlight.sunlight_active && !is_in_coffin))
+	if(bloodsucker_blood_volume == 0 || early_end || (SSsunlight.sunlight_active && !is_in_den))
 		// If you're frenzying, you need a bit more health to actually have a chance to do something
 		if(frenzied && total_damage >= user.maxHealth)
 			return FALSE
-		torpor_end()
-	// You are in a Coffin, so instead we'll check TOTAL damage, here.
+		dormancy_end()
+	// You are in a den, so instead we'll check TOTAL damage, here.
 	var/damage_to_revive = owner.current.maxHealth * 0.8
-	if(is_valid_coffin())
+	if(is_valid_den())
 		if(total_damage <= 10)
-			torpor_end()
+			dormancy_end()
 	else
 		if(total_damage <= damage_to_revive)
-			torpor_end()
+			dormancy_end()
 	return TRUE
 
-/datum/antagonist/bloodsucker/proc/torpor_begin(silent = FALSE)
+/datum/antagonist/bloodsucker/proc/dormancy_begin(silent = FALSE)
 	// slow down bucko
-	if(!COOLDOWN_FINISHED(src, bloodsucker_spam_torpor))
+	if(!COOLDOWN_FINISHED(src, bloodsucker_spam_dormancy))
 		return
 	if(!silent)
-		to_chat(owner.current, span_notice("You enter the horrible slumber of deathless Torpor. You will heal until you are renewed."))
+		to_chat(owner.current, span_notice("You enter Dormancy. The symbiont will regenerate your body until you are renewed."))
 	// Force them to go to "sleep"
-	if(!is_valid_coffin())
+	if(!is_valid_den())
 		owner.current.death()
 	else
 		owner.current.add_traits(list(TRAIT_FAKEDEATH, TRAIT_DEATHCOMA), BLOODSUCKER_TRAIT)
 	// Without this, you'll just keep dying while you recover.
-	owner.current.add_traits(list(TRAIT_TORPOR, TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_DEATHCOMA), BLOODSUCKER_TRAIT)
+	owner.current.add_traits(list(TRAIT_DORMANCY, TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_DEATHCOMA), BLOODSUCKER_TRAIT)
 	owner.current.do_jitter_animation(2)
 	// Disable ALL Powers
 	DisableAllPowers()
 
-/datum/antagonist/bloodsucker/proc/torpor_end(message = FALSE)
+/datum/antagonist/bloodsucker/proc/dormancy_end(message = FALSE)
 	if(!owner.current)
 		return
 	owner.current.grab_ghost()
-	owner.current.remove_traits(list(TRAIT_TORPOR, TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_FAKEDEATH, TRAIT_DEATHCOMA), BLOODSUCKER_TRAIT)
-	heal_vampire_organs()
+	owner.current.remove_traits(list(TRAIT_DORMANCY, TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_FAKEDEATH, TRAIT_DEATHCOMA), BLOODSUCKER_TRAIT)
+	heal_organs()
 	if(message)
-		to_chat(owner.current, span_warning("You have recovered from Torpor."))
-	SEND_SIGNAL(src, COMSIG_BLOODSUCKER_EXIT_TORPOR)
+		to_chat(owner.current, span_warning("You have recovered from Dormancy."))
+	SEND_SIGNAL(src, COMSIG_BLOODSUCKER_EXIT_DORMANCY)

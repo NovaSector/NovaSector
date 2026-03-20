@@ -20,7 +20,7 @@
 			. += span_cult("It is unsecured. Click on [src] while in your haven to secure it in place to get its full potential.")
 			return
 		. += span_cult(vamp_desc)
-	if(IS_GHOUL(user) && ghoul_desc != "")
+	if(IS_THRALL(user) && ghoul_desc != "")
 		. += span_cult(ghoul_desc)
 	if(IS_MONSTERHUNTER(user) && hunter_desc != "")
 		. += span_cult(hunter_desc)
@@ -50,7 +50,7 @@
 	/// Claiming the Rack instead of using it?
 	if(istype(bloodsuckerdatum) && !owner)
 		if(!bloodsuckerdatum.bloodsucker_haven_area)
-			to_chat(user, span_danger("You don't have a haven. Claim a coffin to make that location your haven."))
+			to_chat(user, span_danger("You don't have a haven. Claim a den to make that location your haven."))
 			return FALSE
 		if(bloodsuckerdatum.bloodsucker_haven_area != get_area(src))
 			to_chat(user, span_danger("You may only activate this structure in your haven: [bloodsuckerdatum.bloodsucker_haven_area]."))
@@ -105,7 +105,7 @@
 */
 
 /obj/structure/bloodsucker/ghoulrack
-	name = "persuasion rack"
+	name = "indoctrination rack"
 	desc = "If this wasn't meant for torture, then someone has some fairly horrifying hobbies."
 	icon = 'modular_nova/modules/bloodsucker/icons/vamp_obj.dmi'
 	icon_state = "ghoulrack"
@@ -113,21 +113,21 @@
 	density = TRUE
 	can_buckle = TRUE
 	buckle_lying = 180
-	ghost_desc = "This is a Ghoul rack, which allows Bloodsuckers to thrall crewmembers into loyal minions."
-	vamp_desc = "This is the Ghoul rack, which allows you to thrall crewmembers into loyal minions in your service.\n\
-		Simply click and hold on a victim, and then drag their sprite on the ghoul rack. Right-click on the ghoul rack to unbuckle them.\n\
-		To convert into a Ghoul, repeatedly click on the persuasion rack. The time required scales with the tool in your off hand. This costs Blood to do.\n\
-		Ghouls can be turned into special ones by continuing to torture them once converted."
-	ghoul_desc = "This is the ghoul rack, which allows your master to thrall crewmembers into their minions.\n\
-		Aid your master in bringing their victims here and keeping them secure.\n\
-		You can secure victims to the ghoul rack by click dragging the victim onto the rack while it is secured."
-	hunter_desc = "This is the ghoul rack, which monsters use to brainwash crewmembers into their loyal slaves.\n\
+	ghost_desc = "This is an Indoctrination Rack, which allows Bloodsuckers to convert crewmembers into loyal Thralls."
+	vamp_desc = "This is the Indoctrination Rack, which allows you to convert crewmembers into loyal Thralls in your service.\n\
+		Simply click and hold on a victim, and then drag their sprite onto the rack. Right-click on the rack to unbuckle them.\n\
+		To convert into a Thrall, repeatedly click on the Indoctrination Rack. The time required scales with the tool in your off hand. This costs Blood to do.\n\
+		Thralls can be turned into special ones by continuing to torture them once converted."
+	ghoul_desc = "This is the Indoctrination Rack, which allows your Progenitor to convert crewmembers into Thralls.\n\
+		Aid your Progenitor in bringing their victims here and keeping them secure.\n\
+		You can secure victims to the rack by click dragging the victim onto it while it is secured."
+	hunter_desc = "This is an Indoctrination Rack, which monsters use to brainwash crewmembers into their loyal slaves.\n\
 		They usually ensure that victims are handcuffed, to prevent them from running away.\n\
 		Their rituals take time, allowing us to disrupt it."
 
 	/// Resets on each new character to be added to the chair. Some effects should lower it...
 	var/convert_progress = 3
-	/// Mindshielded and Antagonists willingly have to accept you as their Master.
+	/// Mindshielded and Antagonists willingly have to accept you as their Progenitor.
 	var/disloyalty_confirm = FALSE
 	/// Prevents popup spam.
 	var/disloyalty_offered = FALSE
@@ -136,8 +136,8 @@
 	. = ..()
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(user)
 	if(bloodsuckerdatum)
-		. += span_cult("You can support a total of [convert_integer_to_words(bloodsuckerdatum.max_ghouls())] [bloodsuckerdatum.max_ghouls() == 1 ? "ghoul" : "ghouls"], \
-		with [convert_integer_to_words(bloodsuckerdatum.free_ghoul_slots())] [bloodsuckerdatum.free_ghoul_slots() == 1 ? "slot" : "slots"] remaining.")
+		. += span_cult("You can support a total of [convert_integer_to_words(bloodsuckerdatum.max_thralls())] [bloodsuckerdatum.max_thralls() == 1 ? "thrall" : "thralls"], \
+		with [convert_integer_to_words(bloodsuckerdatum.free_thrall_slots())] [bloodsuckerdatum.free_thrall_slots() == 1 ? "slot" : "slots"] remaining.")
 
 /obj/structure/bloodsucker/ghoulrack/atom_deconstruct(disassembled = TRUE)
 	. = ..()
@@ -160,14 +160,14 @@
 	if(!anchored && IS_BLOODSUCKER(user))
 		user.balloon_alert(user, "not secured!")
 		to_chat(user, span_danger("Until this rack is secured in place, it cannot serve its purpose."))
-		to_chat(user, span_announce("* Bloodsucker Tip: Examine the Persuasion Rack to understand how it functions!"))
+		to_chat(user, span_announce("* Bloodsucker Tip: Examine the Indoctrination Rack to understand how it functions!"))
 		return
 	// Default checks
 	if(!isliving(movable_atom) || !living_target.Adjacent(src) || living_target == user || !isliving(user) || has_buckled_mobs() || user.incapacitated || living_target.buckled)
 		return
 	// Don't buckle Silicon to it please.
 	if(issilicon(living_target))
-		to_chat(user, span_danger("You realize that this machine cannot be ghouled, therefore it is useless to buckle them."))
+		to_chat(user, span_danger("You realize that this machine cannot be converted, therefore it is useless to buckle them."))
 		return
 	if(do_after(user, 5 SECONDS, living_target))
 		attach_victim(living_target, user)
@@ -211,7 +211,7 @@
 
 /// Attempt Unbuckle
 /obj/structure/bloodsucker/ghoulrack/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
-	if(IS_BLOODSUCKER(user) || IS_GHOUL(user))
+	if(IS_BLOODSUCKER(user) || IS_THRALL(user))
 		return ..()
 
 	if(buckled_mob == user)
@@ -254,18 +254,18 @@
 	if(!istype(bloodsuckerdatum))
 		user_unbuckle_mob(buckled_carbons, user)
 		return
-	if(!bloodsuckerdatum.my_clan)
-		to_chat(user, span_warning("You can't ghoul people until you enter a Clan (Through your Antagonist UI button)"))
-		user.balloon_alert(user, "join a clan first!")
+	if(!bloodsuckerdatum.my_clade)
+		to_chat(user, span_warning("You can't convert people until you join a Clade (Through your Antagonist UI button)"))
+		user.balloon_alert(user, "join a clade first!")
 		return
-	var/datum/antagonist/ghoul/ghouldatum = IS_GHOUL(buckled_carbons)
+	var/datum/antagonist/ghoul/ghouldatum = IS_THRALL(buckled_carbons)
 	// Are they our Ghoul?
 	if(ghouldatum && (ghouldatum in bloodsuckerdatum.ghouls))
-		SEND_SIGNAL(bloodsuckerdatum, COMSIG_BLOODSUCKER_INTERACT_WITH_GHOUL, ghouldatum)
+		SEND_SIGNAL(bloodsuckerdatum, COMSIG_BLOODSUCKER_INTERACT_WITH_THRALL, ghouldatum)
 		return
-	if(bloodsuckerdatum.free_ghoul_slots() < 1)
-		to_chat(user, span_warning("You can't ghoul more people until you level up more! You are currently at [bloodsuckerdatum.free_ghoul_slots()] active / [bloodsuckerdatum.max_ghouls()] max ghouls."))
-		user.balloon_alert(user, "not enough ghoul slots!")
+	if(bloodsuckerdatum.free_thrall_slots() < 1)
+		to_chat(user, span_warning("You can't convert more people until you level up more! You are currently at [bloodsuckerdatum.free_thrall_slots()] active / [bloodsuckerdatum.max_thralls()] max thralls."))
+		user.balloon_alert(user, "not enough thrall slots!")
 		return
 
 
@@ -277,20 +277,20 @@
  *
  * * Tick Down Conversion from 3 to 0
  * * Break mindshielding/antag (on approve)
- * * Ghoulize target
+ * * Convert target into Thrall
  */
 /obj/structure/bloodsucker/ghoulrack/proc/torture_victim(mob/living/user, mob/living/target)
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(user)
-	if(IS_GHOUL(target))
-		var/datum/antagonist/ghoul/ghouldatum = IS_GHOUL(target)
-		if(!ghouldatum.master.broke_masquerade)
-			balloon_alert(user, "someone else's ghoul!")
+	if(IS_THRALL(target))
+		var/datum/antagonist/ghoul/ghouldatum = IS_THRALL(target)
+		if(!ghouldatum.master.exposed)
+			balloon_alert(user, "someone else's thrall!")
 			return FALSE
 
 	var/disloyalty_requires = RequireDisloyalty(user, target)
-	if(disloyalty_requires == GHOULING_BANNED)
+	if(disloyalty_requires == THRALLING_BANNED)
 		if(target.ckey)
-			balloon_alert(user, "can't be ghouled!")
+			balloon_alert(user, "can't be converted!")
 		else
 			balloon_alert(user, "target has no mind!")
 		return FALSE
@@ -306,7 +306,7 @@
 		target.Paralyze(1 SECONDS)
 		convert_progress--
 
-		// We're done? Let's see if they can be Ghoul.
+		// We're done? Let's see if they can be converted.
 		if(convert_progress)
 			balloon_alert(user, "needs more persuasion...")
 			return
@@ -330,11 +330,11 @@
 	if(!do_after(user, 5 SECONDS, target))
 		balloon_alert(user, "interrupted!")
 		return
-	// Convert to Ghoul!
+	// Convert to Thrall!
 	bloodsuckerdatum.AdjustBloodVolume(-TORTURE_CONVERSION_COST)
 	remove_loyalties(target)
 	if(bloodsuckerdatum.make_ghoul(target))
-		SEND_SIGNAL(bloodsuckerdatum, COMSIG_BLOODSUCKER_MADE_GHOUL, user, target)
+		SEND_SIGNAL(bloodsuckerdatum, COMSIG_BLOODSUCKER_MADE_THRALL, user, target)
 
 /obj/structure/bloodsucker/ghoulrack/proc/do_torture(mob/living/user, mob/living/carbon/target, mult = 1)
 	// Fifteen seconds if you aren't using anything. Shorter with weapons and such.
@@ -390,9 +390,9 @@
 	to_chat(user, span_notice("[target] has been given the opportunity for servitude. You await their decision..."))
 	var/alert_response = tgui_alert(
 		user = target, \
-		message = "You are being tortured! Do you want to give in and pledge your undying loyalty to [user]? \n\
-			You will not lose your current objectives, but they come second to the will of your new master!", \
-		title = "THE HORRIBLE PAIN! WHEN WILL IT END?!",
+		message = "The symbiont's secretions are breaking down your resistance. Do you submit to [user]'s strain? \n\
+			You will not lose your current objectives, but they come second to the will of your new Progenitor!", \
+		title = "SYMBIONT INTEGRATION",
 		buttons = list("Accept", "Refuse"),
 		timeout = 10 SECONDS, \
 		autofocus = TRUE, \
@@ -416,12 +416,13 @@
 #else
 	if(!target?.mind || !target?.client)
 #endif
-		return GHOULING_BANNED
+		return THRALLING_BANNED
 
-	if(HAS_TRAIT(target, TRAIT_MINDSHIELD))
-		return GHOULING_DISLOYAL
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(user)
-	return bloodsuckerdatum.AmValidAntag(target)
+	if(bloodsuckerdatum.AmValidAntag(target) == THRALLING_BANNED)
+		return THRALLING_BANNED
+	// All valid targets require consent
+	return THRALLING_DISLOYAL
 
 /obj/structure/bloodsucker/ghoulrack/proc/remove_loyalties(mob/living/target)
 	// Find Mind Implant & Destroy
@@ -443,13 +444,13 @@
 	density = FALSE
 	can_buckle = TRUE
 	anchored = FALSE
-	ghost_desc = "This is a magical candle which drains at the sanity of non Bloodsuckers and Ghouls.\n\
-		Ghouls can turn the candle on manually, while Bloodsuckers can do it from a distance."
-	vamp_desc = "This is a magical candle which drains at the sanity of mortals who are not under your command while it is active.\n\
+	ghost_desc = "This is a bioluminescent candle which drains at the sanity of non Bloodsuckers and Thralls.\n\
+		Thralls can turn the candle on manually, while Bloodsuckers can do it from a distance."
+	vamp_desc = "This is a bioluminescent candle which drains at the sanity of mortals who are not under your command while it is active.\n\
 		You can right-click on it from any range to turn it on remotely, or simply be next to it and click on it to turn it on and off normally."
-	ghoul_desc = "This is a magical candle which drains at the sanity of the fools who havent yet accepted your master, as long as it is active.\n\
+	ghoul_desc = "This is a bioluminescent candle which drains at the sanity of those who haven't yet been claimed by your Progenitor, as long as it is active.\n\
 		You can turn it on and off by clicking on it while you are next to it.\n\
-		If your Master is part of the Ventrue Clan, they utilize this to upgrade their Favorite Ghoul."
+		If your Progenitor is part of the Tyrant Clade, they utilize this to upgrade their Bonded Thrall."
 	hunter_desc = "This is a blue Candelabrum, which causes insanity to those near it while active."
 	var/lit = FALSE
 
@@ -477,7 +478,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(IS_GHOUL(user) || IS_BLOODSUCKER(user))
+	if(IS_THRALL(user) || IS_BLOODSUCKER(user))
 		toggle()
 	return ..()
 
@@ -513,7 +514,7 @@
 		return
 	for(var/mob/living/carbon/nearly_people in viewers(7, src))
 		/// We dont want Bloodsuckers or Ghouls affected by this
-		if(IS_GHOUL(nearly_people) || IS_BLOODSUCKER(nearly_people))
+		if(IS_THRALL(nearly_people) || IS_BLOODSUCKER(nearly_people))
 			continue
 		nearly_people.adjust_hallucinations(5 SECONDS)
 		nearly_people.add_mood_event("vampcandle", /datum/mood_event/vampcandle)
@@ -528,11 +529,11 @@
 	anchored = FALSE
 	density = TRUE
 	can_buckle = TRUE
-	ghost_desc = "This is a Bloodsucker throne, any Bloodsucker sitting on it can remotely speak to their Ghouls by attempting to speak aloud."
-	vamp_desc = "This is a blood throne, sitting on it will allow you to telepathically speak to your ghouls by simply speaking."
-	ghoul_desc = "This is a blood throne, it allows your Master to telepathically speak to you and others like you."
-	hunter_desc = "This is a chair that hurts those that try to buckle themselves onto it, though the Undead have no problem latching on.\n\
-		While buckled, Monsters can use this to telepathically communicate with eachother."
+	ghost_desc = "This is a Bloodsucker throne, any Bloodsucker sitting on it can remotely speak to their Thralls by attempting to speak aloud."
+	vamp_desc = "This is a blood throne, sitting on it will allow you to telepathically speak to your Thralls by simply speaking."
+	ghoul_desc = "This is a blood throne, it allows your Progenitor to telepathically speak to you and others like you."
+	hunter_desc = "This is a chair that hurts those that try to buckle themselves onto it, though hemophage carriers have no problem latching on.\n\
+		While buckled, Monsters can use this to telepathically communicate with each other."
 	var/mutable_appearance/armrest
 
 // Add rotating and armrest
@@ -614,7 +615,7 @@
 	SIGNAL_HANDLER
 
 	var/forced_type = speech_args[SPEECH_FORCED]
-	if(forced_type == CLAN_MALKAVIAN)
+	if(forced_type == CLADE_MIMIC)
 		return
 	var/message = speech_args[SPEECH_MESSAGE]
 	var/mob/living/carbon/human/user = source

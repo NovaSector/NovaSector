@@ -16,7 +16,7 @@
 	/// How much blood we can have without it deckaying quickly, increases per level.
 	var/max_blood_volume = 600
 
-	var/datum/bloodsucker_clan/my_clan
+	var/datum/bloodsucker_clade/my_clade
 
 	// TIMERS //
 	///Timer between alerts for Burn messages
@@ -24,7 +24,7 @@
 	///Timer between alerts for Healing messages
 	COOLDOWN_DECLARE(bloodsucker_spam_healing)
 	/// Timer between exiting torpor
-	COOLDOWN_DECLARE(bloodsucker_spam_torpor)
+	COOLDOWN_DECLARE(bloodsucker_spam_dormancy)
 
 	///Used for assigning your name
 	var/bloodsucker_name
@@ -33,23 +33,23 @@
 	///Used for assigning your reputation
 	var/bloodsucker_reputation
 
-	///Amount of Humanity lost, don't modify this directly, use AddHumanityLost(), and use GetHumanityLost() to get the current value.
-	VAR_PRIVATE/humanity_lost = 0
-	///Have we been broken the Masquerade?
-	var/broke_masquerade = FALSE
-	///How many Masquerade Infractions do we have?
-	var/masquerade_infractions = 0
-	///If we are currently in a Frenzy
+	///Amount of Humanity lost, don't modify this directly, use AddNeuralErosion(), and use GetNeuralErosion() to get the current value.
+	VAR_PRIVATE/neural_erosion = 0
+	///Have we been Exposed?
+	var/exposed = FALSE
+	///How many Exposure Incidents do we have?
+	var/exposure_incidents = 0
+	///If we are currently in a Feral Episode
 	var/frenzied = FALSE
-	/// sired by a ventrue
-	var/ventrue_sired
+	/// sired by a tyrant clade bloodsucker
+	var/tyrant_sired
 
 	///ALL Powers currently owned
 	var/list/datum/action/cooldown/bloodsucker/powers = list()
 
-	///Ghouls under my control. Periodically remove the dead ones.
+	///Thralls under my control. Periodically remove the dead ones.
 	var/list/datum/antagonist/ghoul/ghouls = list()
-	///Special ghouls I own, to not have double of the same type.
+	///Special thralls I own, to not have double of the same type.
 	var/list/datum/antagonist/ghoul/special_ghouls = list()
 
 	///How many ranks we have, don't modify this directly, use AdjustRank() and use GetRank() to get the current value.
@@ -62,7 +62,7 @@
 
 	// Used for Bloodsucker Objectives
 	var/area/bloodsucker_haven_area
-	var/obj/structure/closet/crate/coffin
+	var/obj/structure/closet/claimed_den
 	var/total_blood_drank = 0
 
 	/// Used for Bloodsuckers gaining levels from drinking blood
@@ -77,8 +77,8 @@
 
 	/// Static typecache of all bloodsucker powers.
 	var/static/list/all_bloodsucker_powers = typecacheof(/datum/action/cooldown/bloodsucker, ignore_root_path = TRUE)
-	/// Antagonists that cannot be Ghouled no matter what
-	var/static/list/ghoul_banned_antags = list(
+	/// Antagonists that cannot be converted into Thralls no matter what
+	var/static/list/thrall_banned_antags = list(
 		/datum/antagonist/bloodsucker,
 		// /datum/antagonist/monsterhunter,
 		/datum/antagonist/changeling,
@@ -111,7 +111,7 @@
 		COMSIG_LIVING_DEATH = PROC_REF(on_death),
 		COMSIG_SPECIES_GAIN = PROC_REF(on_species_gain),
 		COMSIG_QDELETING = PROC_REF(on_owner_deletion),
-		COMSIG_ENTER_COFFIN = PROC_REF(on_enter_coffin),
+		COMSIG_ENTER_DEN = PROC_REF(on_enter_den),
 		COMSIG_MOB_STAKED = PROC_REF(on_staked),
 		COMSIG_CARBON_LOSE_ORGAN = PROC_REF(on_organ_removal),
 		COMSIG_HUMAN_ON_HANDLE_BLOOD = PROC_REF(HandleBlood),
@@ -134,7 +134,7 @@
 	var/mob/living/carbon/current_mob = mob_override || owner.current
 	register_body_signals(current_mob)
 	talking_head(current_mob)
-	handle_clown_mutation(current_mob, mob_override ? null : "As a vampiric clown, you are no longer a danger to yourself. Your clownish nature has been subdued by your thirst for blood.")
+	handle_clown_mutation(current_mob, mob_override ? null : "The symbiont has restructured your neural pathways. Your clownish impulses have been suppressed by the hunger.")
 	add_team_hud(current_mob)
 	remove_invalid_quirks(current_mob)
 
@@ -210,22 +210,22 @@
 	if(bloodsucker_level_unspent >= 1)
 		.["Remove Level"] = CALLBACK(src, PROC_REF(RankDown))
 
-	if(broke_masquerade)
-		.["Fix Masquerade"] = CALLBACK(src, PROC_REF(fix_masquerade))
+	if(exposed)
+		.["Fix Exposure"] = CALLBACK(src, PROC_REF(fix_exposure))
 	else
-		.["Break Masquerade"] = CALLBACK(src, PROC_REF(break_masquerade))
+		.["Expose"] = CALLBACK(src, PROC_REF(break_exposure))
 
-	if(my_clan)
-		.["Remove Clan"] = CALLBACK(src, PROC_REF(remove_clan))
+	if(my_clade)
+		.["Remove Clade"] = CALLBACK(src, PROC_REF(remove_clade))
 	else
-		.["Add Clan"] = CALLBACK(src, PROC_REF(admin_set_clan))
+		.["Add Clade"] = CALLBACK(src, PROC_REF(admin_set_clade))
 
 ///Called when you get the antag datum, called only ONCE per antagonist.
 /datum/antagonist/bloodsucker/on_gain()
 	if(!owner?.current)
 		return ..()
 	register_sol_signals()
-	if(ventrue_sired) // sired bloodsuckers shouldnt be getting the same benefits as roundstart Bloodsuckers.
+	if(tyrant_sired) // sired bloodsuckers shouldnt be getting the same benefits as roundstart Bloodsuckers.
 		bloodsucker_level_unspent = 0
 	else
 		// Start Sunlight if first Bloodsucker
@@ -243,7 +243,7 @@
 
 /// Called by the remove_antag_datum() and remove_all_antag_datums() mind procs for the antag datum to handle its own removal and deletion.
 /datum/antagonist/bloodsucker/on_removal()
-	free_all_ghouls()
+	free_all_thralls()
 	if(!owner?.current)
 		return
 	unregister_sol_signals()
@@ -253,8 +253,8 @@
 		var/mob/living/carbon/human/user = owner.current
 		user?.dna?.species.regenerate_organs(user, null, TRUE)
 	clear_powers_and_stats()
-	ventrue_sired = null
-	coffin?.unclaim_coffin(FALSE, TRUE)
+	tyrant_sired = null
+	claimed_den?.unclaim_den(FALSE, TRUE)
 	return ..()
 
 /datum/antagonist/bloodsucker/on_body_transfer(mob/living/old_body, mob/living/new_body)
@@ -309,15 +309,16 @@
 /datum/antagonist/bloodsucker/greet()
 	. = ..()
 	var/fullname = return_full_name()
-	to_chat(owner, span_userdanger("You are [fullname], a strain of vampire known as a Bloodsucker!"))
+	to_chat(owner, span_userdanger("You are [fullname]. The symbiont has taken hold -- you are a Bloodsucker now."))
+	to_chat(owner, span_warning("The Deep Strain demands blood. Feed, grow, propagate, and above all -- remain hidden."))
 	owner.announce_objectives()
 	if(bloodsucker_level_unspent >= 2)
-		to_chat(owner, span_announce("As a latejoiner, you have [bloodsucker_level_unspent] bonus Ranks, entering your claimed coffin allows you to spend a Rank."))
+		to_chat(owner, span_announce("As a latejoiner, you have [bloodsucker_level_unspent] bonus Ranks, entering your claimed den allows you to spend a Rank."))
 	owner.current.playsound_local(null, 'modular_nova/modules/bloodsucker/sound/BloodsuckerAlert.ogg', 100, FALSE, pressure_affected = FALSE)
-	antag_memory += "Although you were born a mortal, in undeath you earned the name <b>[fullname]</b>.<br>"
+	antag_memory += "The symbiont integrated with your body. You are now known as <b>[fullname]</b>.<br>"
 
 /datum/antagonist/bloodsucker/farewell()
-	to_chat(owner.current, span_userdanger("<FONT size = 3>With a snap, your curse has ended. You are no longer a Bloodsucker. You live once more!</FONT>"))
+	to_chat(owner.current, span_userdanger("<FONT size = 3>The symbiont has gone dormant. You are no longer a Bloodsucker. You are yourself again.</FONT>"))
 	// Refill with Blood so they don't instantly die.
 	if(!HAS_TRAIT(owner.current, TRAIT_NOBLOOD))
 		owner.current.blood_volume = max(owner.current.blood_volume, BLOOD_VOLUME_NORMAL)
@@ -345,14 +346,14 @@
 /datum/antagonist/bloodsucker/ui_static_data(mob/user)
 	var/list/data = ability_ui_data(powers)
 	//we don't need to update this that much.
-	data["in_clan"] = !!my_clan
-	var/list/clan_data = list()
-	if(my_clan)
-		clan_data["clan_name"] = my_clan.name
-		clan_data["clan_description"] = my_clan.description
-		clan_data["clan_icon"] = my_clan.join_icon_state
+	data["in_clan"] = !!my_clade
+	var/list/clade_data = list()
+	if(my_clade)
+		clade_data["clan_name"] = my_clade.name
+		clade_data["clan_description"] = my_clade.description
+		clade_data["clan_icon"] = my_clade.join_icon_state
 
-	data["clan"] += list(clan_data)
+	data["clan"] += list(clade_data)
 
 	return data + ..()
 
@@ -367,10 +368,10 @@
 		return
 
 	switch(action)
-		if("join_clan")
-			if(my_clan)
+		if("join_clan") // UI action name kept for TGUI compatibility
+			if(my_clade)
 				return
-			assign_clan_and_bane()
+			assign_clade_and_bane()
 			if(ui.closing)
 				return
 			ui.send_full_update(force = TRUE)
@@ -381,8 +382,8 @@
 	// Vamp name
 	report += "<br><span class='header'><b>\[[return_full_name()]\]</b></span>"
 	report += printplayer(owner)
-	if(my_clan)
-		report += "They were part of the <b>[my_clan.name]</b>!"
+	if(my_clade)
+		report += "They were part of the <b>[my_clade.name]</b>!"
 
 	// Default Report
 	var/objectives_complete = TRUE
@@ -395,22 +396,22 @@
 				objectives_complete = FALSE
 				break
 
-	// Now list their ghouls
+	// Now list their thralls
 	if(ghouls.len)
-		report += "<span class='header'>Their Ghouls were...</span>"
-		for(var/datum/antagonist/ghoul/all_ghouls as anything in ghouls)
-			if(!all_ghouls.owner)
+		report += "<span class='header'>Their Thralls were...</span>"
+		for(var/datum/antagonist/ghoul/all_thralls as anything in ghouls)
+			if(!all_thralls.owner)
 				continue
-			var/list/ghoul_report = list()
-			ghoul_report += "<b>[all_ghouls.owner.name]</b>"
+			var/list/thrall_report = list()
+			thrall_report += "<b>[all_thralls.owner.name]</b>"
 
-			if(all_ghouls.owner.assigned_role)
-				ghoul_report += " the [all_ghouls.owner.assigned_role.title]"
-			if(IS_FAVORITE_GHOUL(all_ghouls.owner.current))
-				ghoul_report += " and was the <b>Favorite Ghoul</b>"
-			else if(IS_REVENGE_GHOUL(all_ghouls.owner.current))
-				ghoul_report += " and was the <b>Revenge Ghoul</b>"
-			report += ghoul_report.Join()
+			if(all_thralls.owner.assigned_role)
+				thrall_report += " the [all_thralls.owner.assigned_role.title]"
+			if(IS_BONDED_THRALL(all_thralls.owner.current))
+				thrall_report += " and was the <b>Bonded Thrall</b>"
+			else if(IS_FERAL_THRALL(all_thralls.owner.current))
+				thrall_report += " and was the <b>Feral Thrall</b>"
+			report += thrall_report.Join()
 
 	if(objectives.len == 0 || objectives_complete)
 		report += "<span class='greentext big'>The [name] was successful!</span>"
@@ -448,23 +449,23 @@
 	// Tongue & Language
 	owner.current.grant_language(/datum/language/vampiric, ALL, LANGUAGE_MIND)
 	/// Clear Disabilities & Organs
-	heal_vampire_organs()
+	heal_organs()
 
 /**
  * ##clear_power_and_stats()
  *
  * Removes all Bloodsucker related Powers/Stats changes, setting them back to pre-Bloodsucker
  * Order of steps and reason why:
- * Remove clan - Clans like Nosferatu give Powers on removal, we have to make sure this is given before removing Powers.
- * Powers - Remove all Powers, so things like Masquerade are off.
+ * Remove clade - Clades like Feral give Powers on removal, we have to make sure this is given before removing Powers.
+ * Powers - Remove all Powers, so things like Mimic are off.
  * Species traits, Traits, Language - Misc stuff, has no priority.
  * Organs - At the bottom to ensure everything that changes them has reverted themselves already.
  * Update Sight - Done after Eyes are regenerated.
  */
 /datum/antagonist/bloodsucker/proc/clear_powers_and_stats()
 	// Remove clan first
-	// if(my_clan)
-	// 	QDEL_NULL(my_clan)
+	// if(my_clade)
+	// 	QDEL_NULL(my_clade)
 	// Powers
 	for(var/datum/action/cooldown/bloodsucker/all_powers as anything in powers)
 		RemovePower(all_powers)
@@ -517,7 +518,7 @@
 /// Include additional information about antag in this part
 /datum/antagonist/bloodsucker/antag_listing_status()
 	if(owner && !considered_alive(owner))
-		return "<font color=red>Final Death</font>"
+		return "<font color=red>Terminated</font>"
 	return ..()
 
 /datum/antagonist/bloodsucker/proc/considered_alive(datum/mind/player_mind, enforce_human)
@@ -539,7 +540,7 @@
 	survive_objective.owner = owner
 	objectives += survive_objective
 
-	// Objective 1: Ghoulize a Head/Command, or a specific target
+	// Objective 1: Convert a Head/Command into a Thrall, or a specific target
 	switch(rand(1, 3))
 		if(1) // Conversion Objective
 			var/datum/objective/bloodsucker/conversion/chosen_subtype = pick(subtypesof(/datum/objective/bloodsucker/conversion))

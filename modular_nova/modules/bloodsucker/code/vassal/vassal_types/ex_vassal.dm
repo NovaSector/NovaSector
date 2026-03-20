@@ -2,10 +2,10 @@
 #define BLOOD_TIMER_HALWAY (BLOOD_TIMER_REQUIREMENT / 2)
 
 /datum/antagonist/ex_ghoul
-	name = "\improper Ex-Ghoul"
-	roundend_category = "ghouls"
+	name = "\improper Former Thrall"
+	roundend_category = "thralls"
 	antagpanel_category = "Bloodsucker"
-	pref_flag = ROLE_VASSAL
+	pref_flag = ROLE_THRALL
 	antag_hud_name = "ghoul_grey"
 	show_in_roundend = FALSE
 	show_in_antagpanel = FALSE
@@ -32,9 +32,9 @@
 /datum/antagonist/ex_ghoul/proc/on_examine(datum/source, mob/examiner, examine_text)
 	SIGNAL_HANDLER
 
-	var/datum/antagonist/ghoul/revenge/ghouldatum = IS_REVENGE_GHOUL(examiner)
+	var/datum/antagonist/ghoul/revenge/ghouldatum = IS_FERAL_THRALL(examiner)
 	if(ghouldatum && !revenge_ghoul)
-		examine_text += span_notice("[owner.current] is an ex-ghoul!")
+		examine_text += span_notice("[owner.current] is a former thrall!")
 
 /datum/antagonist/ex_ghoul/add_team_hud(mob/target)
 	QDEL_NULL(team_hud_ref)
@@ -61,7 +61,7 @@
 /**
  * Fold return
  *
- * Called when a Revenge bloodsucker gets a ghoul back into the fold.
+ * Called when a Feral Thrall gets a former thrall back into the fold.
  */
 /datum/antagonist/ex_ghoul/proc/return_to_fold(datum/antagonist/ghoul/revenge/mike_ehrmantraut)
 	revenge_ghoul = mike_ehrmantraut
@@ -75,7 +75,7 @@
 	SIGNAL_HANDLER
 
 	if(COOLDOWN_TIMELEFT(src, blood_timer) <= BLOOD_TIMER_HALWAY + 2 && COOLDOWN_TIMELEFT(src, blood_timer) >= BLOOD_TIMER_HALWAY - 2) //just about halfway
-		to_chat(owner.current, span_cult_bold("You need new blood from your Master!"))
+		to_chat(owner.current, span_cult_bold("You need new blood from your Progenitor!"))
 	if(!COOLDOWN_FINISHED(src, blood_timer))
 		return
 	to_chat(owner.current, span_cult_bold("You are out of blood!"))
@@ -86,15 +86,15 @@
 /**
  * Bloodsucker Blood
  *
- * Artificially made, this must be fed to ex-ghouls to keep them on their high.
+ * Artificially made, this must be fed to former thralls to maintain their symbiont connection.
  */
 /datum/reagent/blood/bloodsucker
-	name = "Blood two"
+	name = "Symbiont Strain"
 
 /datum/reagent/blood/bloodsucker/expose_mob(mob/living/exposed_mob, methods, reac_volume, show_message, touch_protection)
 	var/datum/antagonist/ex_ghoul/former_ghoul = exposed_mob.mind.has_antag_datum(/datum/antagonist/ex_ghoul)
 	if(former_ghoul)
-		to_chat(exposed_mob, span_cult("You feel the blood restore you... You feel safe."))
+		to_chat(exposed_mob, span_cult("You feel the symbiont stabilize... The connection holds."))
 		COOLDOWN_RESET(former_ghoul, blood_timer)
 		COOLDOWN_START(former_ghoul, blood_timer, BLOOD_TIMER_REQUIREMENT)
 	return ..()

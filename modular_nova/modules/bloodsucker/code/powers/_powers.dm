@@ -1,5 +1,5 @@
 /datum/action/cooldown/bloodsucker
-	name = "Vampiric Gift"
+	name = "Symbiont Adaptation"
 	background_icon = 'modular_nova/modules/bloodsucker/icons/bloodsucker_actions.dmi'
 	background_icon_state = "vamp_power_off"
 	button_icon = 'modular_nova/modules/bloodsucker/icons/bloodsucker_actions.dmi'
@@ -25,9 +25,9 @@
 	var/power_flags = BP_AM_SINGLEUSE|BP_AM_STATIC_COOLDOWN|BP_AM_COSTLESS_UNCONSCIOUS
 	/// Requirement flags for checks
 	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_CONSCIOUS|AB_CHECK_PHASED
-	var/bloodsucker_check_flags = BP_CANT_USE_IN_TORPOR|BP_CANT_USE_IN_FRENZY
+	var/bloodsucker_check_flags = BP_CANT_USE_IN_DORMANCY|BP_CANT_USE_IN_FERAL
 	/// Who can purchase the Power
-	var/purchase_flags = NONE // BLOODSUCKER_CAN_BUY|BLOODSUCKER_DEFAULT_POWER|TREMERE_CAN_BUY|GHOUL_CAN_BUY
+	var/purchase_flags = NONE // BLOODSUCKER_CAN_BUY|BLOODSUCKER_DEFAULT_POWER|HEMOKINETIC_CAN_BUY|THRALL_CAN_BUY
 
 	// VARS //
 	/// If the Power is currently active, differs from action cooldown because of how powers are handled.
@@ -38,7 +38,7 @@
 	var/bloodcost = 0
 	///The cost to MAINTAIN this Power - Only used for Constant Cost Powers
 	var/constant_bloodcost = 0
-	///Most powers happen the moment you click. Some, like Mesmerize, require time and shouldn't cost you if they fail.
+	///Most powers happen the moment you click. Some, like Neural Suppression, require time and shouldn't cost you if they fail.
 	var/power_activates_immediately = TRUE
 
 // Modify description to add cost.
@@ -120,7 +120,7 @@
 /datum/action/cooldown/bloodsucker/proc/on_power_upgrade()
 	SHOULD_CALL_PARENT(TRUE)
 	desc = get_power_desc()
-	if(purchase_flags & TREMERE_CAN_BUY && level_current >= TREMERE_OBJECTIVE_POWER_LEVEL)
+	if(purchase_flags & HEMOKINETIC_CAN_BUY && level_current >= HEMOKINETIC_OBJECTIVE_POWER_LEVEL)
 		background_icon_state = "tremere_power_gold_off"
 		active_background_icon_state = "tremere_power_gold_on"
 		base_background_icon_state = "tremere_power_gold_off"
@@ -139,15 +139,15 @@
 		to_chat(user, span_warning("What are you going to do, jump on someone and suck their blood? You're just a head."))
 		return FALSE
 	// Torpor?
-	if((bloodsucker_check_flags & BP_CANT_USE_IN_TORPOR) && bloodsuckerdatum_power?.is_in_torpor())
-		to_chat(user, span_warning("Not while you're in Torpor."))
+	if((bloodsucker_check_flags & BP_CANT_USE_IN_DORMANCY) && bloodsuckerdatum_power?.is_in_dormancy())
+		to_chat(user, span_warning("Not while you're in Dormancy."))
 		return FALSE
 	if(!(bloodsucker_check_flags & BP_CAN_USE_TRANSFORMED) && (user.has_status_effect(/datum/status_effect/shapechange_mob/from_spell) || user.has_status_effect(/datum/status_effect/shapechange_mob)))
 		to_chat(user, span_warning("You can't do this while transformed!"))
 		return FALSE
 	// Frenzy?
-	if((bloodsucker_check_flags & BP_CANT_USE_IN_FRENZY) && (bloodsuckerdatum_power?.frenzied))
-		to_chat(user, span_warning("You cannot use powers while in a Frenzy!"))
+	if((bloodsucker_check_flags & BP_CANT_USE_IN_FERAL) && (bloodsuckerdatum_power?.frenzied))
+		to_chat(user, span_warning("You cannot use adaptations during a feral episode!"))
 		return FALSE
 	// Stake?
 	if(!(bloodsucker_check_flags & BP_CAN_USE_WHILE_STAKED) && user.am_staked())

@@ -1,14 +1,14 @@
-///Uncomment this to enable testing of Bloodsucker features (such as ghoulizing people with a mind instead of a client).
+///Uncomment this to enable testing of Bloodsucker features (such as thralling people with a mind instead of a client).
 // #define BLOODSUCKER_TESTING // if this isn't commented out, someone is a dumbfuck
 
 /// You have special interactions with Bloodsuckers
 #define TRAIT_BLOODSUCKER_HUNTER "bloodsucker_hunter"
 
-// how much to multiply the coffin size by mob_size
-#define COFFIN_ENLARGE_MULT 0.5
+// how much to multiply the den size by mob_size
+#define DEN_ENLARGE_MULT 0.5
 
-/// At what health to burn damage ratio you Final Death
-#define FINAL_DEATH_HEALTH_TO_BURN 2.5
+/// At what health to burn damage ratio you reach Termination
+#define TERMINATION_HEALTH_TO_BURN 2.5
 /**
  * Blood-level defines
  */
@@ -18,22 +18,22 @@
 #define TORTURE_BLOOD_HALF_COST 4
 /// Cost to convert someone after successful torture, in blood
 #define TORTURE_CONVERSION_COST 10
-/// How much blood it costs you to make a ghoul into a special ghoul
-#define SPECIAL_GHOUL_COST 150
-/// Minimum and maximum frenzy blood thresholds
-/// Once blood is this low, will enter Frenzy
-#define FRENZY_THRESHOLD_ENTER 25
-/// Once blood is this high, will exit Frenzy
-#define FRENZY_THRESHOLD_EXIT 250
+/// How much blood it costs you to make a thrall into a special thrall
+#define SPECIAL_THRALL_COST 150
+/// Minimum and maximum feral episode blood thresholds
+/// Once blood is this low, will enter a Feral Episode
+#define FERAL_THRESHOLD_ENTER 25
+/// Once blood is this high, will exit Feral Episode
+#define FERAL_THRESHOLD_EXIT 250
 
-/// a bloodsucker can't loose more humanity than this, and looses the masquerade ability when reaching it
-#define HUMANITY_LOST_MAXIMUM 50
+/// A bloodsucker can't accumulate more neural erosion than this, and loses the Mimic ability when reaching it
+#define NEURAL_EROSION_MAXIMUM 50
 
 /// Level up blood cost define, max_blood * this = blood cost
 #define BLOODSUCKER_LEVELUP_PERCENTAGE 0.40
-#define BLOODSUCKER_LEVELUP_PERCENTAGE_VENTRUE BLOODSUCKER_LEVELUP_PERCENTAGE - 0.1
+#define BLOODSUCKER_LEVELUP_PERCENTAGE_TYRANT BLOODSUCKER_LEVELUP_PERCENTAGE - 0.1
 
-///The level when at a bloodsucker becomes snobby about who they drink from and gain their non-fledling reputation
+///The level when a bloodsucker becomes selective about who they drain and gains their mature reputation
 #define BLOODSUCKER_HIGH_LEVEL 4
 
 /**
@@ -57,14 +57,14 @@
 #define TIME_BLOODSUCKER_SOL_DELAY 90
 
 /**
- * Ghoul defines
+ * Thrall defines
  */
-///If someone passes all checks and can be ghouled
-#define GHOULING_ALLOWED 0
-///If someone has to accept ghouling
-#define GHOULING_DISLOYAL 1
-///If someone is not allowed under any circimstances to become a Ghoul
-#define GHOULING_BANNED 2
+///If someone passes all checks and can be thralled
+#define THRALLING_ALLOWED 0
+///If someone has to accept thralling
+#define THRALLING_DISLOYAL 1
+///If someone is not allowed under any circumstances to become a Thrall
+#define THRALLING_BANNED 2
 
 /**
  * Cooldown defines
@@ -72,37 +72,33 @@
  */
 ///Spam prevention for healing messages.
 #define BLOODSUCKER_SPAM_HEALING (15 SECONDS)
-///Span prevention for Sol Masquerade messages.
-#define BLOODSUCKER_SPAM_MASQUERADE (60 SECONDS)
+///Spam prevention for Sol Mimic messages.
+#define BLOODSUCKER_SPAM_MIMIC (60 SECONDS)
 
-///Span prevention for Sol messages.
+///Spam prevention for Sol messages.
 #define BLOODSUCKER_SPAM_SOL (30 SECONDS)
 
 
 /**
- * Clan defines
+ * Clade defines
  */
-#define CLAN_NONE "Caitiff"
-#define CLAN_BRUJAH "Brujah Clan"
-#define CLAN_TOREADOR "Toreador Clan"
-#define CLAN_NOSFERATU "Nosferatu Clan"
-#define CLAN_TREMERE "Tremere Clan"
-#define CLAN_GANGREL "Gangrel Clan"
-#define CLAN_VENTRUE "Ventrue Clan"
-#define CLAN_MALKAVIAN "Malkavian Clan"
-#define CLAN_TZIMISCE "Tzimisce Clan"
+#define CLADE_NONE "Unaligned"
+#define CLADE_FERAL "Clade Feral"
+#define CLADE_HEMOKINETIC "Clade Hemokinetic"
+#define CLADE_TYRANT "Clade Tyrant"
+#define CLADE_MIMIC "Clade Mimic"
 
-#define TREMERE_GHOUL "tremere_ghoul"
-#define FAVORITE_GHOUL "favorite_ghoul"
-#define REVENGE_GHOUL "revenge_ghoul"
+#define HEMOKINETIC_THRALL "hemokinetic_thrall"
+#define BONDED_THRALL "bonded_thrall"
+#define FERAL_THRALL "feral_thrall"
 
 /**
  * Power defines
  */
-/// This Power can't be used in Torpor
-#define BP_CANT_USE_IN_TORPOR (1<<0)
-/// This Power can't be used in Frenzy.
-#define BP_CANT_USE_IN_FRENZY (1<<1)
+/// This Power can't be used in Dormancy
+#define BP_CANT_USE_IN_DORMANCY (1<<0)
+/// This Power can't be used in a Feral Episode.
+#define BP_CANT_USE_IN_FERAL (1<<1)
 /// This Power can be used while transformed, for example by the shapeshift spell
 #define BP_CAN_USE_TRANSFORMED (1<<2)
 /// This Power can be used with a stake in you
@@ -114,11 +110,11 @@
 #define BLOODSUCKER_CAN_BUY (1<<0)
 /// This is a Default Power that all Bloodsuckers get.
 #define BLOODSUCKER_DEFAULT_POWER (1<<1)
-/// This Power can be purchased by Tremere Bloodsuckers
-#define TREMERE_CAN_BUY (1<<2)
+/// This Power can be purchased by Hemokinetic Bloodsuckers
+#define HEMOKINETIC_CAN_BUY (1<<2)
 
-/// This Power can be purchased by Ghouls
-#define GHOUL_CAN_BUY (1<<3)
+/// This Power can be purchased by Thralls
+#define THRALL_CAN_BUY (1<<3)
 
 /// If this Power can be bought if you already own it
 #define CAN_BUY_OWNED (1<<4)
@@ -130,55 +126,55 @@
 #define BP_AM_SINGLEUSE (1<<1)
 /// This Power has a Static cooldown
 #define BP_AM_STATIC_COOLDOWN (1<<2)
-/// This Power doesn't cost bloot to run while unconscious
+/// This Power doesn't cost blood to run while unconscious
 #define BP_AM_COSTLESS_UNCONSCIOUS (1<<3)
 
 #define DEACTIVATE_POWER_DO_NOT_REMOVE (1<<0)
 #define DEACTIVATE_POWER_NO_COOLDOWN (1<<1)
 
 // ability levels that are used cross-file
-#define DOMINATE_GHOULIZE_LEVEL 2
-#define TREMERE_OBJECTIVE_POWER_LEVEL 4
+#define NEURAL_OVERRIDE_THRALLIZE_LEVEL 2
+#define HEMOKINETIC_OBJECTIVE_POWER_LEVEL 4
 
-#define COFFIN_HEAL_COST_MULT 0.5
+#define DEN_HEAL_COST_MULT 0.5
 
 
 /**
- * Torpor check bitflags
+ * Dormancy check bitflags
  */
-#define TORPOR_SKIP_CHECK_ALL (1<<0)
-#define TORPOR_SKIP_CHECK_FRENZY (1<<1)
-#define TORPOR_SKIP_CHECK_DAMAGE (1<<2)
+#define DORMANCY_SKIP_CHECK_ALL (1<<0)
+#define DORMANCY_SKIP_CHECK_FERAL (1<<1)
+#define DORMANCY_SKIP_CHECK_DAMAGE (1<<2)
 
 /**
  * Bloodsucker Signals
  */
 ///Called when a Bloodsucker ranks up: (datum/bloodsucker_datum, mob/owner, mob/target)
 #define COMSIG_BLOODSUCKER_RANK_UP "bloodsucker_rank_up"
-///Called when a Bloodsucker interacts with a Ghoul on their persuasion rack.
-#define COMSIG_BLOODSUCKER_INTERACT_WITH_GHOUL "bloodsucker_interact_with_ghoul"
-///Called when a Bloodsucker makes a Ghoul into their Favorite Ghoul: (datum/ghoul_datum, mob/master)
-#define COMSIG_BLOODSUCKER_MAKE_FAVORITE "bloodsucker_make_favorite"
-// called when a bloodsucker looses their favorite ghoul, cleaning up whatever they gained
-#define COMSIG_BLOODSUCKER_LOOSE_FAVORITE "bloodsucker_loose_favorite"
-///Called when a new Ghoul is successfully made: (datum/bloodsucker_datum)
-#define COMSIG_BLOODSUCKER_MADE_GHOUL "bloodsucker_made_ghoul"
-///Called when a Bloodsucker exits Torpor.
-#define COMSIG_BLOODSUCKER_EXIT_TORPOR "bloodsucker_exit_torpor"
-///Called when a Bloodsucker reaches Final Death.
-#define COMSIG_BLOODSUCKER_FINAL_DEATH "bloodsucker_final_death"
-	///Whether the Bloodsucker should not be dusted when arriving Final Death
+///Called when a Bloodsucker interacts with a Thrall on their indoctrination rack.
+#define COMSIG_BLOODSUCKER_INTERACT_WITH_THRALL "bloodsucker_interact_with_thrall"
+///Called when a Bloodsucker makes a Thrall into their Bonded: (datum/thrall_datum, mob/master)
+#define COMSIG_BLOODSUCKER_MAKE_BONDED "bloodsucker_make_bonded"
+// called when a bloodsucker loses their bonded thrall, cleaning up whatever they gained
+#define COMSIG_BLOODSUCKER_LOOSE_BONDED "bloodsucker_loose_bonded"
+///Called when a new Thrall is successfully made: (datum/bloodsucker_datum)
+#define COMSIG_BLOODSUCKER_MADE_THRALL "bloodsucker_made_thrall"
+///Called when a Bloodsucker exits Dormancy.
+#define COMSIG_BLOODSUCKER_EXIT_DORMANCY "bloodsucker_exit_dormancy"
+///Called when a Bloodsucker reaches Termination.
+#define COMSIG_BLOODSUCKER_TERMINATION "bloodsucker_termination"
+	///Whether the Bloodsucker should not be dusted when reaching Termination
 	#define DONT_DUST (1<<0)
-///Called when a Bloodsucker breaks the Masquerade
-#define COMSIG_BLOODSUCKER_BROKE_MASQUERADE "comsig_bloodsucker_broke_masquerade"
-///Called when a Bloodsucker enters Frenzy
-#define COMSIG_BLOODSUCKER_ENTERS_FRENZY "bloodsucker_enters_frenzy"
-///Called when a Bloodsucker exits Frenzy
-#define COMSIG_BLOODSUCKER_EXITS_FRENZY "bloodsucker_exits_frenzy"
+///Called when a Bloodsucker becomes Exposed
+#define COMSIG_BLOODSUCKER_EXPOSED "comsig_bloodsucker_exposed"
+///Called when a Bloodsucker enters a Feral Episode
+#define COMSIG_BLOODSUCKER_ENTERS_FERAL "bloodsucker_enters_feral"
+///Called when a Bloodsucker exits a Feral Episode
+#define COMSIG_BLOODSUCKER_EXITS_FERAL "bloodsucker_exits_feral"
 /// COMSIG_ATOM_EXAMINE that correctly updates when the bloodsucker datum is moved
 #define COMSIG_BLOODSUCKER_EXAMINE "bloodsucker_examine"
-// Called when anyone enters the coffin
-#define COMSIG_ENTER_COFFIN "enter_coffin"
+// Called when anyone enters a claimed den
+#define COMSIG_ENTER_DEN "enter_den"
 #define COMSIG_MOB_STAKED "staked"
 #define COMSIG_BODYPART_STAKED "staked"
 // called when a targeted ability is cast
@@ -191,7 +187,7 @@
 #define COMSIG_SOL_RISE_TICK "comsig_sol_rise_tick"
 #define COMSIG_SOL_NEAR_START "comsig_sol_near_start"
 #define COMSIG_SOL_END "comsig_sol_end"
-///Sent when a warning for Sol is meant to go out: (danger_level, vampire_warning_message, ghoul_warning_message)
+///Sent when a warning for Sol is meant to go out: (danger_level, bloodsucker_warning_message, thrall_warning_message)
 #define COMSIG_SOL_WARNING_GIVEN "comsig_sol_warning_given"
 ///Called on a Bloodsucker's Lifetick.
 #define COMSIG_BLOODSUCKER_ON_LIFETICK "comsig_bloodsucker_on_lifetick"
@@ -206,26 +202,26 @@
 #define DANGER_LEVEL_SOL_ENDED 5
 
 /**
- * Clan defines
+ * Clade defines
  *
- * This is stuff that is used solely by Clans for clan-related activity.
+ * This is stuff that is used solely by Clades for clade-related activity.
  */
 ///Drinks blood the normal Bloodsucker way.
 #define BLOODSUCKER_DRINK_NORMAL "bloodsucker_drink_normal"
-///Drinks blood but is snobby, refusing to drink from mindless
-#define BLOODSUCKER_DRINK_SNOBBY "bloodsucker_drink_snobby"
-///Drinks blood from disgusting creatures without Humanity consequences.
-#define BLOODSUCKER_DRINK_INHUMANELY "bloodsucker_drink_inhumanely"
+///Drinks blood but is selective, refusing to drain the mindless
+#define BLOODSUCKER_DRINK_SELECTIVE "bloodsucker_drink_selective"
+///Drinks blood from any creature without Sapience consequences.
+#define BLOODSUCKER_DRINK_INDISCRIMINATE "bloodsucker_drink_indiscriminate"
 
 /**
  * Traits
  */
 /// Falsifies Health analyzer blood levels
-#define TRAIT_MASQUERADE "masquerade"
+#define TRAIT_MIMIC "bloodsucker_mimic"
 /// Your body is literal room temperature. Does not make you immune to the temp
 #define TRAIT_COLDBLOODED "coldblooded"
-/// In torpor (vampire hibernation)
-#define TRAIT_TORPOR "bloodsucker_torpor"
+/// In dormancy (regenerative hibernation)
+#define TRAIT_DORMANCY "bloodsucker_dormancy"
 
 /**
  * Sources
@@ -233,28 +229,28 @@
 /// Source trait for Bloodsuckers-related traits
 #define BLOODSUCKER_TRAIT "bloodsucker_trait"
 
-#define GHOUL_TRAIT "ghoul_trait"
+#define THRALL_TRAIT "thrall_trait"
 
-/// Source trait for dominate related traits
-#define MESMERIZE_TRAIT "meserize_trait"
-#define DOMINATE_TRAIT "dominate_trait"
+/// Source trait for neural suppression related traits
+#define NEURAL_SUPPRESSION_TRAIT "neural_suppression_trait"
+#define NEURAL_OVERRIDE_TRAIT "neural_override_trait"
 
 /// Source trait for Monster Hunter-related traits
 #define HUNTER_TRAIT "monsterhunter_trait"
 /// Source trait while Feeding
 #define FEED_TRAIT "feed_trait"
-/// Source trait during a Frenzy
-#define FRENZY_TRAIT "frenzy_trait"
+/// Source trait during a Feral Episode
+#define FERAL_TRAIT "feral_trait"
 
 ///Whether a mob is a Bloodsucker
 #define IS_BLOODSUCKER(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/bloodsucker))
-///Whether a mob is a Ghoul
-#define IS_GHOUL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ghoul))
-///Whether a mob is a Favorite Ghoul
-#define IS_FAVORITE_GHOUL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ghoul/favorite))
-///Whether a mob is a Revenge Ghoul
-#define IS_REVENGE_GHOUL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ghoul/revenge))
-#define IS_EX_GHOUL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ex_ghoul))
+///Whether a mob is a Thrall
+#define IS_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/vassal))
+///Whether a mob is a Bonded Thrall
+#define IS_BONDED_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/vassal/favorite))
+///Whether a mob is a Feral Thrall
+#define IS_FERAL_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/vassal/revenge))
+#define IS_EX_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ex_vassal))
 
 ///Whether a mob is a Monster Hunter-NOT NEEDED RIGHT NOW
 // #define IS_MONSTERHUNTER(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/monsterhunter))
@@ -262,7 +258,7 @@
 #define IS_MONSTERHUNTER(mob) (FALSE)
 
 #define BLOODSUCKER_SIGHT_COLOR_CUTOFF list(25, 8, 5)
-#define POLL_IGNORE_GHOUL "ghoul"
+#define POLL_IGNORE_THRALL "thrall"
 
 // Why waste memory on a dynamic global list if we can just bake it in on compile time?
 #define BLOODSUCKER_BLACKLISTED_ROLES list( \
@@ -295,18 +291,18 @@
 /// Custom biotype for vampiric mobs
 #define MOB_VAMPIRIC (1<<15)
 
-/// Trait for when a coffin has been enlarged to fit a larger mob
-#define TRAIT_COFFIN_ENLARGED "coffin_enlarged"
+/// Trait for when a den has been enlarged to fit a larger mob
+#define TRAIT_DEN_ENLARGED "den_enlarged"
 /// Trait for being shaded/protected from Sol
 #define TRAIT_SHADED "shaded"
 /// Trait applied when garlic reagent is in your system
 #define TRAIT_GARLIC_REAGENT "garlic_reagent"
 
-/// Ghoul pinpointer defines
-#define GHOUL_SCAN_MIN_DISTANCE 1
-#define GHOUL_SCAN_PING_TIME 2 SECONDS
+/// Thrall pinpointer defines
+#define THRALL_SCAN_MIN_DISTANCE 1
+#define THRALL_SCAN_PING_TIME 2 SECONDS
 
-/// Signal sent when a mob drinks blood via Feed
+/// Signal sent when a mob drinks blood via Drain
 #define COMSIG_MOB_FEED_DRINK "mob_feed_drink"
 	/// Return flag to cancel blood transfer during feeding
 	#define FEED_CANCEL_BLOOD_TRANSFER (1<<0)
@@ -324,7 +320,7 @@
 	#define COMSIG_CANCEL_MOB_HEMO_BLOOD_REGEN (1<<0)
 
 /**
- * Ventcrawl signals - used by Nosferatu clan
+ * Ventcrawl signals - used by Clade Feral
  */
 #define COMSIG_CAN_VENTCRAWL "can_ventcrawl"
 #define COMISG_VENTCRAWL_PRE_ENTER "ventcrawl_pre_enter"
@@ -337,4 +333,4 @@
 #define ROLE_BLOODSUCKER_BREAKOUT "Bloodsucker Breakout"
 #define ROLE_BLOODSUCKERBREAKOUT "Bloodsucker (Latejoin)"
 #define ROLE_VAMPIRICACCIDENT "Bloodsucker (Midround)"
-#define ROLE_VASSAL "Vassal"
+#define ROLE_THRALL "Thrall"

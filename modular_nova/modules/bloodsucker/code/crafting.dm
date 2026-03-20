@@ -45,7 +45,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/ghoulrack
-	name = "Persuasion Rack"
+	name = "Indoctrination Rack"
 	result = /obj/structure/bloodsucker/ghoulrack
 	tool_behaviors = list(TOOL_WELDER, TOOL_WRENCH)
 	reqs = list(

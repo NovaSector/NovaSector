@@ -1,12 +1,12 @@
 /**
- *	# Tremere Powers
+ *	# Hemokinetic Powers
  *
- *	This file is for Tremere power procs and Bloodsucker procs that deals exclusively with Tremere.
- *	Tremere has quite a bit of unique things to it, so I thought it's own subtype would be nice
+ *	This file is for Hemokinetic power procs and Bloodsucker procs that deal exclusively with the Hemokinetic clade.
+ *	Hemokinetic has quite a bit of unique things to it, so its own subtype is warranted.
  */
 
 /datum/action/cooldown/bloodsucker/targeted/tremere
-	name = "Tremere Gift"
+	name = "Hemokinetic Adaptation"
 	desc = ""
 	power_explanation = ""
 	active_background_icon_state = "tremere_power_on"

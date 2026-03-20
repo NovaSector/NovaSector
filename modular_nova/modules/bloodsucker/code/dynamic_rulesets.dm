@@ -50,7 +50,7 @@
 // Midround Bloodsucker
 
 /datum/dynamic_ruleset/midround/from_living/bloodsucker
-	name = "Vampiric Accident"
+	name = "Hemophage Mutation"
 	config_tag = "Midround Bloodsucker"
 	midround_type = HEAVY_MIDROUND
 	preview_antag_datum = /datum/antagonist/bloodsucker

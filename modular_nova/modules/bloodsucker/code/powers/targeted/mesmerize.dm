@@ -11,16 +11,16 @@
 #define MESMERIZE_GLASSES_LEVEL 3
 #define MESMERIZE_FACING_LEVEL 5
 /datum/action/cooldown/bloodsucker/targeted/mesmerize
-	name = "Mesmerize"
+	name = "Neural Suppression"
 	button_icon_state = "power_mez"
 	power_flags = NONE
-	purchase_flags = BLOODSUCKER_CAN_BUY|GHOUL_CAN_BUY
+	purchase_flags = BLOODSUCKER_CAN_BUY|THRALL_CAN_BUY
 	bloodcost = 30
 	cooldown_time = 30 SECONDS
 	target_range = 4
 	power_activates_immediately = FALSE
 	unset_after_click = FALSE
-	prefire_message = "Whom will you subvert to your will?"
+	prefire_message = "Select a target for neural suppression."
 	///Our mesmerized target - Prevents several mesmerizes.
 	var/datum/weakref/target_ref
 	/// How long it takes us to mesmerize our target.
@@ -47,8 +47,8 @@
 
 /datum/action/cooldown/bloodsucker/targeted/mesmerize/get_power_explanation_extended()
 	. = list()
-	. += "Click any player to attempt to mesmerize them. This will stun the victim."
-	. += "The victim will realize they are being mesmerized, but will be unable to talk, but at level [MESMERIZE_MUTE_LEVEL] they will be also muted."
+	. += "Click any player to attempt to suppress their neural activity. This will stun the victim."
+	. += "The victim will realize they are being suppressed, but will be unable to talk, but at level [MESMERIZE_MUTE_LEVEL] they will be also muted."
 	if(blocked_by_glasses && requires_facing_target)
 		. += "[src] requires you to not be wearing glasses and to be facing your target."
 	else if(blocked_by_glasses)
@@ -58,8 +58,8 @@
 	. += "You cannot wear anything covering your face, and both parties must be facing eachother."
 	. += "Obviously, both parties need to not be blind."
 	. += "Right clicking with the ability will apply a knockdown for [DisplayTimeText(combat_mesmerize_time())], but will also confuse your victim for [DisplayTimeText(get_power_time())]."
-	. += "If your target is already mesmerized or a bloodsucker, the Power will fail."
-	. += "Once mesmerized, the target will be unable to move for [DisplayTimeText(get_power_time())] and muted for [DisplayTimeText(get_mute_time())], scaling with level."
+	. += "If your target is already suppressed or a Bloodsucker, the adaptation will fail."
+	. += "Once suppressed, the target will be unable to move for [DisplayTimeText(get_power_time())] and muted for [DisplayTimeText(get_mute_time())], scaling with level."
 	. += "At level [MESMERIZE_GLASSES_LEVEL], you will be able to use the power through items covering your face."
 	. += "At level [MESMERIZE_FACING_LEVEL], you will be able to mesmerize regardless of your target's direction."
 	. += "Additionally it works on silicon lifeforms, causing a EMP effect instead of a freeze."
@@ -70,7 +70,7 @@
 		return FALSE
 	if(!user.get_organ_slot(ORGAN_SLOT_EYES))
 		// Cant use balloon alert, they've got no eyes!
-		to_chat(user, span_warning("You have no eyes with which to mesmerize."))
+		to_chat(user, span_warning("You have no eyes with which to project neural suppression."))
 		return FALSE
 	// Check: Eyes covered?
 	if(blocked_by_glasses && istype(user) && (user.is_eyes_covered() && level_current <= 2) || !isturf(user.loc))
@@ -149,10 +149,10 @@
 		return
 	// Can't quite time it here, but oh well
 	to_chat(mesmerized_target, "[user]'s eyes look into yours, and [span_hypnophrase("you feel your mind slipping away")]...")
-	if(HAS_TRAIT_FROM_ONLY(mesmerized_target, TRAIT_NO_TRANSFORM, MESMERIZE_TRAIT))
-		owner.balloon_alert(owner, "[mesmerized_target] is already in a hypnotic gaze.")
+	if(HAS_TRAIT_FROM_ONLY(mesmerized_target, TRAIT_NO_TRANSFORM, NEURAL_SUPPRESSION_TRAIT))
+		owner.balloon_alert(owner, "[mesmerized_target] is already neurally suppressed.")
 		return
-	owner.balloon_alert(owner, "successfully mesmerized [mesmerized_target].")
+	owner.balloon_alert(owner, "successfully suppressed [mesmerized_target].")
 	mesmerize_effects(user, mesmerized_target)
 	PowerActivatedSuccesfully() // PAY COST! BEGIN COOLDOWN!
 
@@ -172,7 +172,7 @@
 	mute_target(mesmerized_target)
 	mesmerized_target.Immobilize(power_time)
 	mesmerized_target.next_move = world.time + power_time
-	ADD_TRAIT(mesmerized_target, TRAIT_NO_TRANSFORM, MESMERIZE_TRAIT)
+	ADD_TRAIT(mesmerized_target, TRAIT_NO_TRANSFORM, NEURAL_SUPPRESSION_TRAIT)
 	addtimer(CALLBACK(src, PROC_REF(end_mesmerize), user, mesmerized_target), power_time)
 
 /datum/action/cooldown/bloodsucker/targeted/mesmerize/proc/combat_mesmerize_effects(mob/living/user, mob/living/mesmerized_target)
@@ -201,7 +201,7 @@
 /datum/action/cooldown/bloodsucker/targeted/mesmerize/proc/blind_target(mob/living/mesmerized_target)
 	if(!blind_at_level && level_current < blind_at_level)
 		return
-	mesmerized_target.become_blind(MESMERIZE_TRAIT)
+	mesmerized_target.become_blind(NEURAL_SUPPRESSION_TRAIT)
 
 /datum/action/cooldown/bloodsucker/targeted/mesmerize/proc/mute_target(mob/living/mesmerized_target)
 	if(level_current >= MESMERIZE_MUTE_LEVEL)
@@ -213,8 +213,8 @@
 	timer = null
 
 /datum/action/cooldown/bloodsucker/targeted/mesmerize/proc/end_mesmerize(mob/living/user, mob/living/target)
-	REMOVE_TRAIT(target, TRAIT_NO_TRANSFORM, MESMERIZE_TRAIT)
-	target.cure_blind(MESMERIZE_TRAIT)
+	REMOVE_TRAIT(target, TRAIT_NO_TRANSFORM, NEURAL_SUPPRESSION_TRAIT)
+	target.cure_blind(NEURAL_SUPPRESSION_TRAIT)
 	// They Woke Up! (Notice if within view)
 	if(istype(user) && target.stat == CONSCIOUS && (target in view(target_range, get_turf(user))))
 		target.balloon_alert(owner, "[target] snapped out of their trance.")

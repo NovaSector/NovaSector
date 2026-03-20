@@ -1,7 +1,7 @@
 /datum/asset/simple/bloodsucker_icons
 
 /datum/asset/simple/bloodsucker_icons/register()
-	for(var/datum/bloodsucker_clan/clans as anything in typesof(/datum/bloodsucker_clan))
+	for(var/datum/bloodsucker_clade/clans as anything in typesof(/datum/bloodsucker_clade))
 		if(!initial(clans.joinable_clan))
 			continue
 		add_bloodsucker_icon(initial(clans.join_icon), initial(clans.join_icon_state))

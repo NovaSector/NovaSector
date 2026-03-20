@@ -1,6 +1,6 @@
 /datum/language/vampiric
-	name = "Enochian"
-	desc = "Rumored to be created by the Dark Father, Caine himself as a way to talk to his Childer, the truth, like many things in unlife is uncertain. Spoken by creatures of the night."
+	name = "Haematic"
+	desc = "A neurochemical language transmitted through pheromone signals and sub-vocal resonance patterns unique to hemophage carriers. The symbiont facilitates unconscious encoding and decoding of these signals."
 	key = "L"//Capital L, lowercase l is for ashies.
 	space_chance = 40
 	default_priority = 90

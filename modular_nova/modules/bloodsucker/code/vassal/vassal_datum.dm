@@ -1,15 +1,15 @@
 /datum/antagonist/ghoul
-	name = "\improper Ghoul"
-	roundend_category = "ghouls"
+	name = "\improper Thrall"
+	roundend_category = "thralls"
 	antagpanel_category = "Bloodsucker"
-	pref_flag = ROLE_VASSAL
-	antag_hud_name = "ghoul"
+	pref_flag = ROLE_THRALL
+	antag_hud_name = "thrall"
 	show_in_roundend = FALSE
 	hud_icon = 'modular_nova/modules/bloodsucker/icons/bloodsucker_hud.dmi'
 	ui_name = "AntagInfoGhoul"
-	antag_panel_description = "You are a Ghoul, a mortal servant of a Bloodsucker."
+	antag_panel_description = "You are a Thrall, a biological vessel infected with a dependent sub-strain of the hemophage symbiont."
 
-	/// The Master Bloodsucker's antag datum.
+	/// The Progenitor Bloodsucker's antag datum.
 	var/datum/antagonist/bloodsucker/master
 	/// List of all Purchased Powers, to be cleaned up on antag removal.
 	var/list/datum/action/powers = list()
@@ -22,7 +22,7 @@
 	var/list/traits = list()
 
 /datum/antagonist/ghoul/antag_panel_data()
-	return "Master : [master?.owner.name ? master.owner.name : "Gone"]"
+	return "Progenitor : [master?.owner.name ? master.owner.name : "Gone"]"
 
 // todo make this into a shared proc that bloodsuckers and ghouls share
 /datum/antagonist/ghoul/ui_static_data(mob/user)
@@ -34,7 +34,7 @@
 	current_mob.apply_status_effect(/datum/status_effect/agent_pinpointer/ghoul_edition)
 	add_team_hud(current_mob)
 	if(length(traits))
-		current_mob.add_traits(traits, GHOUL_TRAIT)
+		current_mob.add_traits(traits, THRALL_TRAIT)
 
 /datum/antagonist/ghoul/add_team_hud(mob/target)
 	QDEL_NULL(team_hud_ref)
@@ -63,7 +63,7 @@
 	var/mob/living/current_mob = mob_override || owner.current
 	current_mob.remove_status_effect(/datum/status_effect/agent_pinpointer/ghoul_edition)
 	if(length(traits))
-		current_mob.remove_traits(traits, GHOUL_TRAIT)
+		current_mob.remove_traits(traits, THRALL_TRAIT)
 
 /datum/antagonist/ghoul/pre_mindshield(mob/implanter, mob/living/mob_override)
 	return COMPONENT_MINDSHIELD_PASSED
@@ -71,7 +71,7 @@
 /// This is called when the antagonist is successfully mindshielded.
 /datum/antagonist/ghoul/on_mindshield(mob/implanter, mob/living/mob_override)
 	owner.remove_antag_datum(/datum/antagonist/ghoul)
-	owner.current.log_message("has been deconverted from Ghouling by [implanter]!", LOG_ATTACK, color="#960000")
+	owner.current.log_message("has been deconverted from Thralling by [implanter]!", LOG_ATTACK, color="#960000")
 	return COMPONENT_MINDSHIELD_DECONVERTED
 
 /datum/antagonist/ghoul/proc/on_examined(datum/source, mob/examiner, examine_text)
@@ -84,7 +84,7 @@
 /datum/antagonist/ghoul/on_gain()
 	RegisterSignal(owner.current, COMSIG_ATOM_EXAMINE, PROC_REF(on_examined))
 	RegisterSignal(SSsunlight, COMSIG_SOL_WARNING_GIVEN, PROC_REF(give_warning))
-	/// Enslave them to their Master
+	/// Enslave them to their Progenitor
 	if(!master || !istype(master, master))
 		return
 	if(special_type)
@@ -93,14 +93,14 @@
 		master.special_ghouls[special_type] |= src
 	master.ghouls += src
 	owner.enslave_mind_to_creator(master.owner.current)
-	owner.current.log_message("has been ghouled by [master.owner.current]!", LOG_ATTACK, color="#960000")
+	owner.current.log_message("has been thralled by [master.owner.current]!", LOG_ATTACK, color="#960000")
 	/// Give Recuperate Power
 	BuyPower(/datum/action/cooldown/bloodsucker/recuperate)
 	/// Give Objectives
 	var/datum/objective/bloodsucker/ghoul/ghoul_objective = new
 	ghoul_objective.owner = owner
 	objectives += ghoul_objective
-	/// Give Vampire Language & Hud
+	/// Give Haematic Language & Hud
 	owner.current.grant_all_languages(FALSE, FALSE, TRUE)
 	owner.current.grant_language(/datum/language/vampiric, ALL, LANGUAGE_MIND)
 	return ..()
@@ -108,7 +108,7 @@
 /datum/antagonist/ghoul/on_removal()
 	UnregisterSignal(owner.current, COMSIG_ATOM_EXAMINE)
 	UnregisterSignal(SSsunlight, COMSIG_SOL_WARNING_GIVEN)
-	//Free them from their Master
+	//Free them from their Progenitor
 	if(master && master.owner)
 		if(special_type && master.special_ghouls[special_type])
 			master.special_ghouls.Remove(special_type)
@@ -116,7 +116,7 @@
 		owner.enslaved_to = null
 	//Remove ALL Traits, as long as its from BLOODSUCKER_TRAIT's source.
 	for(var/all_status_traits in owner.current._status_traits)
-		REMOVE_TRAIT(owner.current, all_status_traits, GHOUL_TRAIT)
+		REMOVE_TRAIT(owner.current, all_status_traits, THRALL_TRAIT)
 	//Remove Recuperate Power
 	remove_powers(powers)
 	//Remove Language & Hud
@@ -141,13 +141,13 @@
 	if(silent)
 		return
 
-	to_chat(owner, span_userdanger("You are now the mortal servant of [master.owner.current], a Bloodsucker!"))
-	to_chat(owner, span_boldannounce("The power of [master.owner.current.p_their()] immortal blood compels you to obey [master.owner.current.p_them()] in all things, even offering your own life to prolong theirs.\n\
-		You are not required to obey any other Bloodsucker, for only [master.owner.current] is your master. The laws of Nanotrasen do not apply to you now; only your vampiric master's word must be obeyed."))
+	to_chat(owner, span_userdanger("The sub-strain has taken hold. You are now bound to [master.owner.current], a Bloodsucker!"))
+	to_chat(owner, span_boldannounce("The parasitic sub-strain within [master.owner.current.p_their()] bloodstream compels you to obey [master.owner.current.p_them()] in all things, even offering your own life to prolong theirs.\n\
+		You are not required to obey any other Bloodsucker, for only [master.owner.current] is your Progenitor. The laws of Nanotrasen do not apply to you now; only your Progenitor's word must be obeyed."))
 	owner.current.playsound_local(null, 'sound/effects/magic/mutate.ogg', 100, FALSE, pressure_affected = FALSE)
-	antag_memory += "You, becoming the mortal servant of <b>[master.owner.current]</b>, a bloodsucking vampire!<br>"
-	/// Message told to your Master.
-	to_chat(master.owner, span_userdanger("[owner.current] has become addicted to your immortal blood. [capitalize(owner.current.p_they(TRUE))] [owner.current.p_are()] now your mortal servant!"))
+	antag_memory += "You, infected with a dependent sub-strain by <b>[master.owner.current]</b>, a parasitic carrier!<br>"
+	/// Message told to your Progenitor.
+	to_chat(master.owner, span_userdanger("[owner.current] has been infected with your sub-strain. [capitalize(owner.current.p_they(TRUE))] [owner.current.p_are()] now your Thrall!"))
 	master.owner.current.playsound_local(null, 'sound/effects/magic/mutate.ogg', 100, FALSE, pressure_affected = FALSE)
 
 /datum/antagonist/ghoul/farewell()
@@ -157,11 +157,11 @@
 	owner.current.visible_message(
 		span_deconversion_message("[owner.current]'s eyes dart feverishly from side to side, and then stop. [owner.current.p_They(TRUE)] seem[owner.current.p_s()] to calm, \
 			like [owner.current.p_they()] [owner.current.p_have()] regained some lost part of [owner.current.p_them()]self."), \
-		span_deconversion_message("With a snap, you are no longer enslaved to [master.owner]! You breathe in heavily, having regained your free will."))
+		span_deconversion_message("The sub-strain releases its grip. You breathe deeply, having regained your autonomy from [master.owner]."))
 	owner.current.playsound_local(null, 'sound/effects/magic/mutate.ogg', 100, FALSE, pressure_affected = FALSE)
-	/// Message told to your (former) Master.
+	/// Message told to your (former) Progenitor.
 	if(master && master.owner)
-		to_chat(master.owner, span_cult_bold("You feel the bond with your ghoul [owner.current] has somehow been broken!"))
+		to_chat(master.owner, span_cult_bold("You feel the symbiont connection with your Thrall [owner.current] has been severed!"))
 
 /datum/antagonist/ghoul/admin_add(datum/mind/new_owner, mob/admin)
 	var/list/datum/mind/possible_vampires = list()
@@ -177,11 +177,11 @@
 	if(!length(possible_vampires))
 		message_admins("[key_name_admin(admin)] tried ghoulizing [key_name_admin(new_owner)], but there were no bloodsuckers!")
 		return
-	var/datum/mind/choice = tgui_input_list(admin, "Which bloodsucker should this ghoul belong to?", "Bloodsucker", possible_vampires)
+	var/datum/mind/choice = tgui_input_list(admin, "Which bloodsucker should this thrall belong to?", "Bloodsucker", possible_vampires)
 	if(!choice)
 		return
-	log_admin("[key_name_admin(admin)] turned [key_name_admin(new_owner)] into a ghoul of [key_name_admin(choice)]!")
+	log_admin("[key_name_admin(admin)] turned [key_name_admin(new_owner)] into a thrall of [key_name_admin(choice)]!")
 	var/datum/antagonist/bloodsucker/vampire = IS_BLOODSUCKER(choice.current)
 	master = vampire
 	new_owner.add_antag_datum(src)
-	to_chat(choice, span_notice("Through divine intervention, you've gained a new ghoul!"))
+	to_chat(choice, span_notice("Through external intervention, you've gained a new Thrall!"))

@@ -1,10 +1,10 @@
 /datum/action/cooldown/bloodsucker/veil
-	name = "Veil of Many Faces"
-	desc = "Disguise yourself in the illusion of another identity."
+	name = "Biosculpt"
+	desc = "Rapid subcutaneous rearrangement forges a new physical identity."
 	button_icon_state = "power_veil"
 	power_flags = NONE
 	check_flags = AB_CHECK_CONSCIOUS
-	bloodsucker_check_flags = BP_CANT_USE_IN_FRENZY|BP_CANT_USE_IN_TORPOR
+	bloodsucker_check_flags = BP_CANT_USE_IN_FERAL|BP_CANT_USE_IN_DORMANCY
 	purchase_flags = BLOODSUCKER_DEFAULT_POWER
 	bloodcost = 15
 	level_current = -1
@@ -30,9 +30,9 @@
 
 /datum/action/cooldown/bloodsucker/veil/get_power_explanation_extended()
 	. = list()
-	. += "Activating Veil of Many Faces will shroud you in smoke and forge you a new identity."
-	. += "Your name and appearance will be completely randomized, and turning the ability off again will undo it all."
-	. += "Clothes, gear, and Security/Medical HUD status is kept the same while this power is active."
+	. += "Activating Biosculpt triggers rapid subcutaneous rearrangement, reshaping your features under cover of vapor."
+	. += "Your name and appearance will be completely randomized, and deactivating reverses the sculpting."
+	. += "Clothes, gear, and Security/Medical HUD status is kept the same while this adaptation is active."
 
 /datum/action/cooldown/bloodsucker/veil/ActivatePower(atom/target)
 	. = ..()
@@ -40,7 +40,7 @@
 //	if(blahblahblah)
 //		Disguise_Outfit()
 	veil_user()
-	owner.balloon_alert(owner, "veil turned on.")
+	owner.balloon_alert(owner, "biosculpt activated.")
 	return TRUE
 
 /* // Meant to disguise your character's clothing into fake ones.
@@ -52,7 +52,7 @@
 /datum/action/cooldown/bloodsucker/veil/proc/veil_user()
 	// Change Name/Voice
 	var/mob/living/carbon/human/user = owner
-	to_chat(owner, span_warning("You mystify the air around your person. Your identity is now altered."))
+	to_chat(owner, span_warning("The symbiont reshapes your subcutaneous tissue. Your identity is now altered."))
 
 	// Store Prev Appearance
 	disguise_name = generate_random_name(user.gender, TRUE)
@@ -139,7 +139,7 @@
 	user.update_body_parts(update_limb_data = TRUE) // Body itself, maybe skin color?
 
 	cast_effect() // POOF
-	owner.balloon_alert(owner, "veil turned off.")
+	owner.balloon_alert(owner, "biosculpt deactivated.")
 
 	UnregisterSignal(user, COMSIG_HUMAN_GET_VISIBLE_NAME)
 

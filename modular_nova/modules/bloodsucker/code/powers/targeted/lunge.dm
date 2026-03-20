@@ -3,10 +3,10 @@
 #define LUNGE_INSTANT_RANGE 6
 /datum/action/cooldown/bloodsucker/targeted/lunge
 	name = "Predatory Lunge"
-	desc = "Spring at your target to grapple them without warning, or tear the dead's heart out. Attacks from concealment or the rear may even knock them down if strong enough."
+	desc = "An explosive pounce driven by symbiont predatory instincts. Grapple your target, or tear organs from the dead. Attacks from concealment or the rear may knock them down."
 	button_icon_state = "power_lunge"
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED|AB_CHECK_LYING|AB_CHECK_PHASED|AB_CHECK_LYING
-	purchase_flags = BLOODSUCKER_CAN_BUY|GHOUL_CAN_BUY
+	purchase_flags = BLOODSUCKER_CAN_BUY|THRALL_CAN_BUY
 	bloodcost = 10
 	cooldown_time = 10 SECONDS
 	power_activates_immediately = FALSE
@@ -18,7 +18,7 @@
 	. += "When lunging at someone, you will grab them, immediately starting off at aggressive."
 	. += "Riot gear and Monster Hunters are protected and will only be passively grabbed."
 	. += "You cannot use the Power if you are already grabbing someone, or are being grabbed."
-	. += "If you grab from behind, or while using cloak of darkness, you will knock the target down."
+	. += "If you grab from behind, or while using Adaptive Camouflage, you will knock the target down."
 	. += "If used on a dead body, will tear out a random organ from the zone you are targeting."
 	. += "Higher levels increase how long enemies are knocked down."
 	. += "At level [LUNGE_INSTANT_LEVEL], you will no longer spin, but you will be limited to tackling from only [LUNGE_INSTANT_RANGE] tiles away."

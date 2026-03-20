@@ -4,18 +4,18 @@
 #define GOHOME_TELEPORT 6
 
 /**
- * Given to Bloodsuckers near Sol if they have a Coffin claimed.
- * Teleports them to their Coffin after a delay.
+ * Given to Bloodsuckers near Sol if they have a den claimed.
+ * Teleports them to their den after a delay.
  * Makes them drop everything if someone witnesses the act.
  */
 /datum/action/cooldown/bloodsucker/gohome
-	name = "Vanishing Act"
-	desc = "As dawn aproaches, disperse into mist and return directly to your Haven.<br><b>WARNING:</b> You will drop <b>ALL</b> of your possessions if observed by mortals."
+	name = "Homing Instinct"
+	desc = "The symbiont's biological compass guides you back to your nest. Disperse into vapor and return to your claimed den.<br><b>WARNING:</b> You will drop <b>ALL</b> of your possessions if observed."
 	button_icon_state = "power_gohome"
 	active_background_icon_state = "vamp_power_off_oneshot"
 	base_background_icon_state = "vamp_power_off_oneshot"
 	power_flags = BP_CONTINUOUS_EFFECT|BP_AM_SINGLEUSE|BP_AM_STATIC_COOLDOWN
-	bloodsucker_check_flags = BP_CANT_USE_IN_FRENZY
+	bloodsucker_check_flags = BP_CANT_USE_IN_FERAL
 	check_flags = NONE
 	purchase_flags = NONE
 	bloodcost = 100
@@ -33,19 +33,19 @@
 
 /datum/action/cooldown/bloodsucker/gohome/get_power_explanation_extended()
 	. = list()
-	. += "Vanishing Act will, after a short delay, teleport the user to their Claimed Coffin."
-	. += "The user will drop all belongings if seen by a mortal."
-	. += "The power will cancel out if the Claimed Coffin is somehow destroyed."
-	. += "Immediately after activating, lights around the user will begin to flicker."
-	. += "Once the user teleports to their coffin, in their place will be a Rat or Bat."
+	. += "Homing Instinct will, after a short delay, transport you to your claimed den."
+	. += "You will drop all belongings if seen by an observer."
+	. += "The adaptation will cancel if the claimed den is destroyed."
+	. += "Immediately after activating, lights around you will begin to flicker."
+	. += "Once you arrive at your den, a rat or bat will appear where you vanished."
 
 /datum/action/cooldown/bloodsucker/gohome/can_use(mob/living/carbon/user, trigger_flags)
 	. = ..()
 	if(!.)
 		return FALSE
 	/// Have No Haven (NOTE: You only got this power if you had a haven, so this means it's destroyed)
-	if(!istype(bloodsuckerdatum_power) || !bloodsuckerdatum_power.coffin)
-		owner.balloon_alert(owner, "coffin was destroyed!")
+	if(!istype(bloodsuckerdatum_power) || !bloodsuckerdatum_power.claimed_den)
+		owner.balloon_alert(owner, "den was destroyed!")
 		return FALSE
 	return TRUE
 
@@ -73,7 +73,7 @@
 		if(GOHOME_FLICKER_TWO)
 			INVOKE_ASYNC(src, PROC_REF(flicker_lights), 4, 60)
 		if(GOHOME_TELEPORT)
-			INVOKE_ASYNC(src, PROC_REF(teleport_to_coffin), owner)
+			INVOKE_ASYNC(src, PROC_REF(teleport_to_den), owner)
 	teleporting_stage++
 
 /datum/action/cooldown/bloodsucker/gohome/ContinueActive(mob/living/user, mob/living/target)
@@ -82,9 +82,9 @@
 		return FALSE
 	if(!isturf(owner.loc))
 		return FALSE
-	if(!bloodsuckerdatum_power.coffin)
-		user.balloon_alert(user, "coffin destroyed!")
-		to_chat(owner, span_warning("Your coffin has been destroyed! You no longer have a destination."))
+	if(!bloodsuckerdatum_power.claimed_den)
+		user.balloon_alert(user, "den destroyed!")
+		to_chat(owner, span_warning("Your den has been destroyed! You no longer have a destination."))
 		return FALSE
 	return TRUE
 
@@ -93,7 +93,7 @@
 		nearby_lights.flicker(5)
 	playsound(get_turf(owner), 'sound/effects/singlebeat.ogg', beat_volume, 1)
 
-/datum/action/cooldown/bloodsucker/gohome/proc/teleport_to_coffin(mob/living/carbon/user)
+/datum/action/cooldown/bloodsucker/gohome/proc/teleport_to_den(mob/living/carbon/user)
 	var/drop_item = FALSE
 	var/turf/current_turf = get_turf(user)
 	// If we aren't in the dark, anyone watching us will cause us to drop out stuff
@@ -105,7 +105,7 @@
 				continue
 			if(watchers.is_blind())
 				continue
-			if(!IS_BLOODSUCKER(watchers) && !IS_GHOUL(watchers))
+			if(!IS_BLOODSUCKER(watchers) && !IS_THRALL(watchers))
 				drop_item = TRUE
 				break
 	// Drop all necessary items (handcuffs, legcuffs, items if seen)
@@ -122,10 +122,10 @@
 	/// STEP FIVE: Create animal at prev location
 	var/mob/living/simple_animal/new_mob = pick_weight(spawning_mobs)
 	new new_mob(current_turf)
-	/// TELEPORT: Move to Coffin & Close it!
+	/// TELEPORT: Move to den & close it!
 	user.set_resting(TRUE, TRUE, FALSE)
-	do_teleport(user, bloodsuckerdatum_power.coffin, no_effects = TRUE, forced = TRUE, channel = TELEPORT_CHANNEL_QUANTUM)
-	bloodsuckerdatum_power.coffin.force_enter(user)
+	do_teleport(user, bloodsuckerdatum_power.claimed_den, no_effects = TRUE, forced = TRUE, channel = TELEPORT_CHANNEL_QUANTUM)
+	bloodsuckerdatum_power.claimed_den.force_enter(user)
 
 	DeactivatePower()
 	pay_cost()

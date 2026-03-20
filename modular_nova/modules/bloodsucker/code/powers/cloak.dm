@@ -2,19 +2,19 @@
 #define USE_RUN_CLOAK_LEVEL 4
 
 /datum/action/cooldown/bloodsucker/cloak
-	name = "Cloak of Darkness"
-	desc = "Blend into the shadows and become invisible to the untrained and Artificial eye."
+	name = "Adaptive Camouflage"
+	desc = "Chromatophore cells shift pigmentation, rendering you nearly invisible to organic and artificial eyes."
 	button_icon_state = "power_cloak"
-	power_explanation = "Cloak of Darkness:\n\
-		Activate this Power in the shadows and you will slowly turn nearly invisible.\n\
-		While using Cloak of Darkness, attempting to run will crush you.\n\
-		Additionally, while Cloak is active, you are completely invisible to the AI.\n\
+	power_explanation = "Adaptive Camouflage:\n\
+		Activate this adaptation in the shadows and you will slowly turn nearly invisible.\n\
+		While using Adaptive Camouflage, attempting to run will crush you.\n\
+		Additionally, while camouflaged, you are completely invisible to the AI.\n\
 		Higher levels will increase how invisible you are.\n\
-		At level 2, you will no longer need to be unseen to activate this power.\n\
-		At level 4, you will be able to run while cloaked."
+		At level 2, you will no longer need to be unseen to activate this adaptation.\n\
+		At level 4, you will be able to run while camouflaged."
 	power_flags = BP_CONTINUOUS_EFFECT
 	check_flags = AB_CHECK_CONSCIOUS
-	purchase_flags = BLOODSUCKER_CAN_BUY|GHOUL_CAN_BUY
+	purchase_flags = BLOODSUCKER_CAN_BUY|THRALL_CAN_BUY
 	bloodcost = 5
 	constant_bloodcost = 0.2
 	cooldown_time = 5 SECONDS
@@ -31,7 +31,7 @@
 				continue
 			if(!can_see(watcher, owner))
 				continue
-			if(IS_BLOODSUCKER(watcher) || IS_GHOUL(watcher))
+			if(IS_BLOODSUCKER(watcher) || IS_THRALL(watcher))
 				continue
 			owner.balloon_alert(owner, "you can only vanish unseen.")
 			return FALSE
@@ -43,7 +43,7 @@
 	if(level_current < USE_RUN_CLOAK_LEVEL && was_running)
 		user.toggle_move_intent()
 	user.AddElement(/datum/element/digitalcamo)
-	user.balloon_alert(user, "cloak turned on.")
+	user.balloon_alert(user, "camouflage activated.")
 	return TRUE
 
 /datum/action/cooldown/bloodsucker/cloak/process(seconds_per_tick)
@@ -67,7 +67,7 @@
 		return FALSE
 	/// Must be CONSCIOUS
 	if(user.stat != CONSCIOUS)
-		to_chat(owner, span_warning("Your cloak failed due to you falling unconcious!"))
+		to_chat(owner, span_warning("Your camouflage failed due to you falling unconscious!"))
 		return FALSE
 	return TRUE
 
@@ -80,7 +80,7 @@
 	user.RemoveElement(/datum/element/digitalcamo)
 	if(level_current < USE_RUN_CLOAK_LEVEL && was_running && user.move_intent == MOVE_INTENT_WALK)
 		user.toggle_move_intent()
-	user.balloon_alert(user, "cloak turned off.")
+	user.balloon_alert(user, "camouflage deactivated.")
 
 #undef USE_SEEN_CLOAK_LEVEL
 #undef USE_RUN_CLOAK_LEVEL

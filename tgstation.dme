@@ -7723,7 +7723,6 @@
 #include "modular_nova\modules\bloodsucker\code\bloodsuckers\shaded_bloodsucker.dm"
 #include "modular_nova\modules\bloodsucker\code\bloodsuckers\sol.dm"
 #include "modular_nova\modules\bloodsucker\code\clans\clan.dm"
-#include "modular_nova\modules\bloodsucker\code\clans\clan_flavortext.dm"
 #include "modular_nova\modules\bloodsucker\code\clans\clan_malkavian.dm"
 #include "modular_nova\modules\bloodsucker\code\clans\clan_nosferatu.dm"
 #include "modular_nova\modules\bloodsucker\code\clans\clan_tremere.dm"

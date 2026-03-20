@@ -15,17 +15,17 @@
 	SEND_SIGNAL(src, COMSIG_BLOODSUCKER_ON_LIFETICK, seconds_per_tick, times_fired)
 
 /datum/antagonist/bloodsucker/proc/life_always(is_head = FALSE)
-	if(is_in_torpor())
-		check_end_torpor()
+	if(is_in_dormancy())
+		check_end_dormancy()
 	if(is_head)
 		return
-	if(owner.current.stat == CONSCIOUS && !HAS_TRAIT(owner.current, TRAIT_IMMOBILIZED) && !is_in_torpor())
+	if(owner.current.stat == CONSCIOUS && !HAS_TRAIT(owner.current, TRAIT_IMMOBILIZED) && !is_in_dormancy())
 		INVOKE_ASYNC(src, PROC_REF(AdjustBloodVolume), -BLOODSUCKER_PASSIVE_BLOOD_DRAIN) // -.1 currently
 
 /datum/antagonist/bloodsucker/proc/life_active()
 	if(HandleHealing())
 		if((COOLDOWN_FINISHED(src, bloodsucker_spam_healing)) && bloodsucker_blood_volume > 0)
-			to_chat(owner.current, span_notice("The power of your blood begins knitting your wounds..."))
+			to_chat(owner.current, span_notice("The symbiont's regeneration is knitting your wounds..."))
 			COOLDOWN_START(src, bloodsucker_spam_healing, BLOODSUCKER_SPAM_HEALING)
 
 /datum/antagonist/bloodsucker/proc/on_death(mob/living/source, gibbed)
@@ -56,24 +56,24 @@
 
 #define MASQUERADE /datum/action/cooldown/bloodsucker/masquerade
 
-/datum/antagonist/bloodsucker/proc/GetHumanityLost()
-	return humanity_lost
+/datum/antagonist/bloodsucker/proc/GetNeuralErosion()
+	return neural_erosion
 
-/datum/antagonist/bloodsucker/proc/AddHumanityLost(value)
+/datum/antagonist/bloodsucker/proc/AddNeuralErosion(value)
 	if(value == 0)
 		return
 	var/has_masq = is_path_in_list(MASQUERADE, powers)
-	if(value + humanity_lost >= HUMANITY_LOST_MAXIMUM)
+	if(value + neural_erosion >= NEURAL_EROSION_MAXIMUM)
 		if(has_masq)
 			RemovePowerByPath(MASQUERADE)
-			to_chat(owner.current, span_warning("You hit the maximum amount of lost Humanty, you are far from Human. You've forgotten how to pretend to be like your prey..."))
+			to_chat(owner.current, span_warning("Maximum neural erosion reached. The symbiont has overwritten too much -- you can no longer mimic normal vital signs."))
 		else
-			to_chat(owner.current, span_hypnophrase("The Beast, it yearns for Blood..."))
+			to_chat(owner.current, span_hypnophrase("The Override pulses. It demands blood..."))
 	else if(!has_masq)
 		BuyPower(MASQUERADE)
-		to_chat(owner.current, span_hypnophrase("You've remembered, yet again, how it feels to live again."))
-	humanity_lost = clamp(value, 0, HUMANITY_LOST_MAXIMUM)
-	to_chat(owner.current, span_warning("You feel as if you [value < 0 ? "gained" : "lost" ] some of your humanity, you will now enter Frenzy at [FRENZY_THRESHOLD_ENTER + (humanity_lost * 10)] Blood."))
+		to_chat(owner.current, span_hypnophrase("Neural pathways partially restored. You remember how to suppress the symbiont's signature."))
+	neural_erosion = clamp(value, 0, NEURAL_EROSION_MAXIMUM)
+	to_chat(owner.current, span_warning("You feel your sapience [value < 0 ? "returning" : "eroding"]. Feral episode threshold is now [FERAL_THRESHOLD_ENTER + (neural_erosion * 10)] blood."))
 
 #undef MASQUERADE
 
@@ -98,11 +98,11 @@
  * ## HEALING
  */
 
-/// Constantly runs on Bloodsucker's LifeTick, and is increased by being in Torpor/Coffins
+/// Constantly runs on Bloodsucker's LifeTick, and is increased by being in Dormancy/dens
 /datum/antagonist/bloodsucker/proc/HandleHealing(mult = 1)
-	// Don't heal if I'm staked or on Masquerade.
+	// Don't heal if staked or Mimic is active.
 	var/actual_regen = bloodsucker_regen_rate + additional_regen
-	if(owner.current.am_staked() || (HAS_TRAIT(owner.current, TRAIT_MASQUERADE)))
+	if(owner.current.am_staked() || (HAS_TRAIT(owner.current, TRAIT_MIMIC)))
 		return FALSE
 	// Garlic in you? No healing for you!
 	if(HAS_TRAIT(owner.current, TRAIT_GARLIC_REAGENT))
@@ -111,23 +111,23 @@
 	if(!iscarbon(owner.current)) // Damage Heal: Do I have damage to ANY bodypart?
 		return FALSE
 	var/mob/living/carbon/user = owner.current
-	var/costMult = 1 // Coffin makes it cheaper
+	var/costMult = 1 // Den makes it cheaper
 	// If you're a synth, you heal prosthetic damage.
 	var/bruteLoss = get_brute_loss()
 	var/bruteheal = min(bruteLoss, actual_regen) // BRUTE: Always Heal
-	var/fireheal = 0 // BURN: Heal in Coffin while Fakedeath, or when damage above maxhealth (you can never fully heal fire)
-	// Checks if you're in a coffin here, additionally checks for Torpor right below it.
-	var/amInCoffin = is_valid_coffin()
+	var/fireheal = 0 // BURN: Heal in den while in Dormancy, or when damage above maxhealth (you can never fully heal fire)
+	// Checks if you're in a den here, additionally checks for Dormancy right below it.
+	var/amInDen = is_valid_den()
 	if (blood_over_cap > 0)
 		costMult += round(blood_over_cap / 1000, 0.1) // effectively 1 (normal) + 0.1 for every 100 blood you are over cap
-	if(amInCoffin && is_in_torpor())
-		if(HAS_TRAIT(owner.current, TRAIT_MASQUERADE) && (COOLDOWN_FINISHED(src, bloodsucker_spam_healing)))
-			to_chat(user, span_alert("You do not heal while your Masquerade ability is active."))
-			COOLDOWN_START(src, bloodsucker_spam_healing, BLOODSUCKER_SPAM_MASQUERADE)
+	if(amInDen && is_in_dormancy())
+		if(HAS_TRAIT(owner.current, TRAIT_MIMIC) && (COOLDOWN_FINISHED(src, bloodsucker_spam_healing)))
+			to_chat(user, span_alert("You do not heal while your Mimic ability is active."))
+			COOLDOWN_START(src, bloodsucker_spam_healing, BLOODSUCKER_SPAM_MIMIC)
 			return FALSE
 		fireheal = min(get_fire_loss(), actual_regen)
-		mult *= 5 // Increase multiplier if we're sleeping in a coffin.
-		costMult *= COFFIN_HEAL_COST_MULT // Decrease cost if we're sleeping in a coffin.
+		mult *= 5 // Increase multiplier if we're sleeping in a den.
+		costMult *= DEN_HEAL_COST_MULT // Decrease cost if we're sleeping in a den.
 		user.extinguish_mob()
 		user.bodytemperature = user.get_body_temp_normal()
 		if(ishuman(user))
@@ -136,10 +136,10 @@
 		user.remove_all_embedded_objects() // Remove Embedded!
 		if(check_limbs(costMult))
 			return TRUE
-	// In Torpor, but not in a Coffin? Heal faster anyways.
-	else if(is_in_torpor())
+	// In Dormancy, but not in a den? Heal faster anyways.
+	else if(is_in_dormancy())
 		var/fireloss = get_fire_loss()
-		fireheal = min(fireloss, actual_regen) / 1.2 // 20% slower than being in a coffin
+		fireheal = min(fireloss, actual_regen) / 1.2 // 20% slower than being in a den
 		mult *= 3
 	// Heal if Damaged
 	if((bruteheal + fireheal) && mult != 0) // Just a check? Don't heal/spend, and return.
@@ -180,17 +180,17 @@
 		return TRUE
 
 /*
- *	# Heal Vampire Organs
+ *	# Heal Organs
  *
  *	This is used by Bloodsuckers, these are the steps of this proc:
- *	Step 1 - Cure husking and Regenerate organs. regenerate_organs() removes their Vampire Heart & Eye augments, which leads us to...
- *	Step 2 - Repair any (shouldn't be possible) Organ damage, then return their Vampiric Heart & Eye benefits.
+ *	Step 1 - Cure husking and Regenerate organs. regenerate_organs() removes their modified Heart & Eye augments, which leads us to...
+ *	Step 2 - Repair any (shouldn't be possible) Organ damage, then return their Bloodsucker Heart & Eye benefits.
  *	Step 3 - Revive them, clear all wounds, remove any Tumors (If any).
  *
- *	This is called on Bloodsucker's Assign, and when they end Torpor.
+ *	This is called on Bloodsucker's Assign, and when they exit Dormancy.
  */
 // TODO: Separate this into smaller functions
-/datum/antagonist/bloodsucker/proc/heal_vampire_organs()
+/datum/antagonist/bloodsucker/proc/heal_organs()
 	var/mob/living/carbon/bloodsuckeruser = owner.current
 	// please don't poison or asphyxiate the immune
 	bloodsuckeruser.set_tox_loss(0, forced = TRUE)
@@ -200,9 +200,9 @@
 		return
 
 	if(HAS_TRAIT_FROM_ONLY(bloodsuckeruser, TRAIT_HUSK, CHANGELING_DRAIN) || bloodsuckeruser.has_status_effect(/datum/status_effect/gutted))
-		to_chat(bloodsuckeruser, span_danger("Your immortal blood has healed your body from near-irrecoverable damage, but has used nearly all of your blood in doing so!"))
-		AddHumanityLost(2)
-		SetBloodVolume(min(bloodsucker_blood_volume, frenzy_enter_threshold() * 2))
+		to_chat(bloodsuckeruser, span_danger("The symbiont has repaired catastrophic damage, but consumed nearly all of your blood reserves in the process!"))
+		AddNeuralErosion(2)
+		SetBloodVolume(min(bloodsucker_blood_volume, feral_enter_threshold() * 2))
 		bloodsuckeruser.cure_husk(CHANGELING_DRAIN)
 
 	bloodsuckeruser.cure_husk(BURN)
@@ -210,7 +210,7 @@
 	if(bloodsuckeruser.get_organ_slot(ORGAN_SLOT_HEART))
 		bloodsuckeruser.regenerate_organs(remove_hazardous = FALSE)
 
-	if(!HAS_TRAIT(bloodsuckeruser, TRAIT_MASQUERADE))
+	if(!HAS_TRAIT(bloodsuckeruser, TRAIT_MIMIC))
 		var/obj/item/organ/heart/current_heart = bloodsuckeruser.get_organ_slot(ORGAN_SLOT_HEART)
 		current_heart?.Stop()
 
@@ -256,17 +256,17 @@
 /datum/antagonist/bloodsucker/proc/HandleDeath()
 	if(QDELETED(owner.current))
 		if(length(ghouls))
-			free_all_ghouls()
+			free_all_thralls()
 		ghouls = list()
 		return
 	// Fire Damage? (above double health)
-	if(owner.current.get_fire_loss() >= owner.current.maxHealth * FINAL_DEATH_HEALTH_TO_BURN) // 337.5 burn with 135 maxHealth
-		FinalDeath()
+	if(owner.current.get_fire_loss() >= owner.current.maxHealth * TERMINATION_HEALTH_TO_BURN) // 337.5 burn with 135 maxHealth
+		Termination()
 		return
-	// Temporary Death? Convert to Torpor.
-	if(is_in_torpor() || isbrain(owner.current))
+	// Temporary Death? Convert to Dormancy.
+	if(is_in_dormancy() || isbrain(owner.current))
 		return
-	check_begin_torpor(TORPOR_SKIP_CHECK_ALL)
+	check_begin_dormancy(DORMANCY_SKIP_CHECK_ALL)
 
 /datum/antagonist/bloodsucker/proc/HandleBlood()
 	INVOKE_ASYNC(src, PROC_REF(update_blood))
@@ -279,20 +279,20 @@
 
 	// BLOOD_VOLUME_GOOD: [336] - Pale
 //	handled in bloodsucker_integration.dm
-	// BLOOD_VOLUME_EXIT: [250] - Exit Frenzy (If in one) This is high because we want enough to kill the poor soul they feed off of.
+	// BLOOD_VOLUME_EXIT: [250] - Exit Feral Episode (If in one) This is high because we want enough to kill the poor soul they feed off of.
 	var/datum/status_effect/frenzy/status_effect = owner.current.has_status_effect(/datum/status_effect/frenzy)
-	if(bloodsucker_blood_volume >= frenzy_exit_threshold() && frenzied && status_effect?.duration == -1)
+	if(bloodsucker_blood_volume >= feral_exit_threshold() && frenzied && status_effect?.duration == -1)
 		status_effect.duration = world.time + 10 SECONDS
-		owner.current.balloon_alert(owner.current, "frenzy ends in 10 seconds!")
+		owner.current.balloon_alert(owner.current, "feral episode ending in 10 seconds!")
 	// BLOOD_VOLUME_BAD: [224] - Jitter
-	if(bloodsucker_blood_volume < BLOOD_VOLUME_BAD && prob(0.5) && !is_in_torpor() && !HAS_TRAIT(owner.current, TRAIT_MASQUERADE))
+	if(bloodsucker_blood_volume < BLOOD_VOLUME_BAD && prob(0.5) && !is_in_dormancy() && !HAS_TRAIT(owner.current, TRAIT_MIMIC))
 		owner.current.set_timed_status_effect(3 SECONDS, /datum/status_effect/jitter, only_if_higher = TRUE)
 	// BLOOD_VOLUME_SURVIVE: [122] - Blur Vision
 	if(bloodsucker_blood_volume < BLOOD_VOLUME_SURVIVE)
 		owner.current.set_eye_blur_if_lower((8 - 8 * (bloodsucker_blood_volume / BLOOD_VOLUME_BAD))*2 SECONDS)
 
 	// The more blood, the better the Regeneration, get too low blood, and you enter Frenzy.
-	if(bloodsucker_blood_volume < frenzy_enter_threshold() && !frenzied)
+	if(bloodsucker_blood_volume < feral_enter_threshold() && !frenzied)
 		owner.current.apply_status_effect(/datum/status_effect/frenzy)
 	else if(bloodsucker_blood_volume < BLOOD_VOLUME_BAD)
 		additional_regen = 0.1
@@ -308,14 +308,14 @@
 		additional_regen = 1 + round((blood_over_cap / 1000) * 2, 0.1)
 		AdjustBloodVolume(-1 - blood_over_cap / 100)
 
-/// Makes your blood_volume look like your bloodsucker blood, unless you're Masquerading.
+/// Makes your blood_volume look like your bloodsucker blood, unless Mimic is active.
 /datum/antagonist/bloodsucker/proc/update_blood()
 	if(SEND_SIGNAL(src, BLOODSUCKER_UPDATE_BLOOD) & BLOODSUCKER_UPDATE_BLOOD_DISABLED)
 		return
 	if(HAS_TRAIT(owner.current, TRAIT_NOBLOOD))
 		return
-	//If we're on Masquerade, we appear to have full blood, unless we are REALLY low, in which case we don't look as bad.
-	if(HAS_TRAIT(owner.current, TRAIT_MASQUERADE))
+	//If Mimic is active, we appear to have full blood, unless we are REALLY low, in which case we don't look as bad.
+	if(HAS_TRAIT(owner.current, TRAIT_MIMIC))
 		switch(bloodsucker_blood_volume)
 			if(BLOOD_VOLUME_OKAY to INFINITY) // 336 and up, we are perfectly fine.
 				owner.current.blood_volume = initial(bloodsucker_blood_volume)
@@ -344,7 +344,7 @@
 	RegisterSignal(poor_fucker, COMSIG_MOB_SAY, PROC_REF(shake_head_on_talk))
 	poor_fucker.revive()
 	poor_fucker.stat = CONSCIOUS
-	to_chat(poor_fucker, span_warning("Your immortal [pick(list("blood", "curse"))] keeps your head alive! Though... what will you do now?"))
+	to_chat(poor_fucker, span_warning("The symbiont keeps your severed head alive, nerve tendrils pulsing. What will you do now?"))
 	// No lungs to speak, let's make it spooky
 	poor_fucker.speech_span = SPAN_PAPYRUS
 
@@ -371,14 +371,14 @@
 		cleanup_talking_head()
 
 /// Gibs the Bloodsucker, roundremoving them.
-/datum/antagonist/bloodsucker/proc/FinalDeath(check_organs = FALSE)
+/datum/antagonist/bloodsucker/proc/Termination(check_organs = FALSE)
 	SIGNAL_HANDLER
 	// If we have no body, end here.
 	if(QDELETED(owner.current) || isbrain(owner.current))
 		return
 	unregister_body_signals()
 	unregister_sol_signals()
-	free_all_ghouls()
+	free_all_thralls()
 	DisableAllPowers(forced = TRUE)
 	if(!iscarbon(owner.current))
 		owner.current.gib(DROP_ITEMS)
@@ -390,23 +390,23 @@
 	INVOKE_ASYNC(user, TYPE_PROC_REF(/mob/living/carbon, remove_all_embedded_objects))
 	playsound(owner.current, 'sound/effects/tendril_destroyed.ogg', 40, TRUE)
 
-	var/unique_death = SEND_SIGNAL(src, COMSIG_BLOODSUCKER_FINAL_DEATH)
+	var/unique_death = SEND_SIGNAL(src, COMSIG_BLOODSUCKER_TERMINATION)
 	if(unique_death & DONT_DUST)
 		return
 
-	// Elders get dusted, Fledglings get gibbed.
+	// Mature carriers desiccate, fledglings rupture.
 	if(bloodsucker_level >= 4)
 		user.visible_message(
-			span_warning("[user]'s skin crackles and dries, their skin and bones withering to dust. A hollow cry whips from what is now a sandy pile of remains."),
-			span_userdanger("Your soul escapes your withering body as the abyss welcomes you to your Final Death."),
+			span_warning("[user]'s skin crackles and desiccates as the symbiont rapidly consumes the host from within. A hollow rasp escapes what is now a brittle husk of remains."),
+			span_userdanger("The symbiont devours you from within as your body collapses. Termination."),
 			span_hear("You hear a dry, crackling sound."))
 		addtimer(CALLBACK(user, TYPE_PROC_REF(/atom/movable, dust)), 5 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 		return
 	user.visible_message(
-		span_warning("[user]'s skin bursts forth in a spray of gore and detritus. A horrible cry echoes from what is now a wet pile of decaying meat."),
-		span_userdanger("Your soul escapes your withering body as the abyss welcomes you to your Final Death."),
+		span_warning("[user]'s body ruptures as the dying symbiont violently ejects from its host in a spray of gore and viscera."),
+		span_userdanger("The symbiont tears free of your body in its death throes. Termination."),
 		span_hear("<span class='italics'>You hear a wet, bursting sound."))
 	addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living, gib), DROP_ITEMS), 2 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
-	user.investigate_log("Died as a bloodsucker from Final Death.", INVESTIGATE_DEATHS)
+	user.investigate_log("Died as a bloodsucker from Termination.", INVESTIGATE_DEATHS)
 
 #undef BLOODSUCKER_PASSIVE_BLOOD_DRAIN

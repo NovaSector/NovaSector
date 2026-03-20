@@ -1,11 +1,11 @@
-/// Used by Ghouls
+/// Used by Thralls
 /datum/action/cooldown/bloodsucker/recuperate
 	name = "Sanguine Recuperation"
-	desc = "Slowly heals you overtime using your master's blood, in exchange for some of your own blood and effort."
+	desc = "The sub-strain draws on your Progenitor's blood reserves to regenerate your wounds, at the cost of stamina and your own blood."
 	button_icon_state = "power_recup"
 	power_explanation = "Recuperate:\n\
 		Activating this Power will begin to heal your wounds.\n\
-		You will heal Brute and Toxin damage, at the cost of Stamina damage, and blood from both you and your Master.\n\
+		You will heal Brute and Toxin damage, at the cost of Stamina damage, and blood from both you and your Progenitor.\n\
 		If you aren't a bloodless race, you will additionally heal Burn damage.\n\
 		The power will cancel out if you are dead or unconcious."
 	power_flags = BP_CONTINUOUS_EFFECT
@@ -27,7 +27,7 @@
 
 /datum/action/cooldown/bloodsucker/recuperate/ActivatePower(trigger_flags)
 	. = ..()
-	to_chat(owner, span_notice("Your muscles clench as your master's immortal blood mixes with your own, knitting your wounds."))
+	to_chat(owner, span_notice("Your muscles clench as your Progenitor's symbiont-infused blood mingles with your own, knitting your wounds."))
 	owner.balloon_alert(owner, "recuperate turned on.")
 	return TRUE
 
@@ -39,9 +39,9 @@
 	if(!active)
 		return
 	var/mob/living/carbon/user = owner
-	var/datum/antagonist/ghoul/ghouldatum = IS_GHOUL(user)
+	var/datum/antagonist/ghoul/ghouldatum = IS_THRALL(user)
 	if(!ghouldatum || QDELETED(ghouldatum.master))
-		to_chat(owner, span_warning("No master to draw blood from!"))
+		to_chat(owner, span_warning("No Progenitor to draw blood from!"))
 		DeactivatePower()
 		return
 	ghouldatum.master.AdjustBloodVolume(-1)

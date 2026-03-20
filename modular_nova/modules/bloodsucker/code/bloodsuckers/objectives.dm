@@ -29,7 +29,7 @@
 
 	return possible_targets
 
-/// Check Ghouls and get their occupations
+/// Check Thralls and get their occupations
 /datum/objective/bloodsucker/proc/get_ghoul_occupations()
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(owner.current)
 	if(!bloodsuckerdatum || !bloodsuckerdatum.ghouls.len)
@@ -37,7 +37,7 @@
 	var/list/all_ghoul_jobs = list()
 	var/ghoul_job
 	for(var/datum/antagonist/ghoul/bloodsucker_ghouls in bloodsuckerdatum.ghouls)
-		if(!bloodsucker_ghouls || !bloodsucker_ghouls.owner)	// Must exist somewhere, and as a ghoul.
+		if(!bloodsucker_ghouls || !bloodsucker_ghouls.owner)	// Must exist somewhere, and as a thrall.
 			continue
 		// Mind Assigned
 		if(bloodsucker_ghouls.owner?.assigned_role)
@@ -66,12 +66,12 @@
 
 // EXPLANATION
 /datum/objective/bloodsucker/haven/update_explanation_text()
-	explanation_text = "Create a haven by claiming a coffin, and protect it until the end of the shift."//  Make sure to keep it safe!"
+	explanation_text = "Create a haven by claiming a den (any closet, locker, or coffin), and protect it until the end of the shift."
 
 // WIN CONDITIONS?
 /datum/objective/bloodsucker/haven/check_completion()
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(owner.current)
-	if(bloodsuckerdatum && bloodsuckerdatum.coffin && bloodsuckerdatum.bloodsucker_haven_area)
+	if(bloodsuckerdatum && bloodsuckerdatum.claimed_den && bloodsuckerdatum.bloodsucker_haven_area)
 		return TRUE
 	return FALSE
 
@@ -81,7 +81,7 @@
 
 /datum/objective/survive/bloodsucker
 	name = "bloodsuckersurvive"
-	explanation_text = "Survive the entire shift without succumbing to Final Death."
+	explanation_text = "Survive the entire shift without succumbing to Termination."
 
 /datum/objective/survive/bloodsucker/check_completion()
 	var/list/datum/mind/owners = get_owners()
@@ -96,20 +96,20 @@
 //////////////////////////////////////////////////////////////////////////////////////
 
 
-/// Ghoulify a certain person / people
+/// Convert a certain person / people into Thralls
 /datum/objective/bloodsucker/conversion
 	name = "ghouling"
 
 /////////////////////////////////
 
-// Ghoulify a head of staff
+// Convert a head of staff into a Thrall
 /datum/objective/bloodsucker/conversion/command
 	name = "ghoulingcommand"
 	target_amount = 1
 
 // EXPLANATION
 /datum/objective/bloodsucker/conversion/command/update_explanation_text()
-	explanation_text = "Guarantee a Ghoul ends up as a Department Head or in a Leadership role."
+	explanation_text = "Guarantee a Thrall ends up as a Department Head or in a Leadership role."
 
 // WIN CONDITIONS?
 /datum/objective/bloodsucker/conversion/command/check_completion()
@@ -121,11 +121,11 @@
 
 /////////////////////////////////
 
-// Ghoulify crewmates in a department
+// Convert crewmates in a department into Thralls
 /datum/objective/bloodsucker/conversion/department
-	name = "ghoulify department"
+	name = "convert department"
 
-	///The selected department we have to ghoulify.
+	///The selected department we have to convert.
 	var/datum/job_department/target_department
 	///List of all departments that can be selected for the objective.
 	var/static/list/possible_departments = list(
@@ -146,7 +146,7 @@
 
 // EXPLANATION
 /datum/objective/bloodsucker/conversion/department/update_explanation_text()
-	explanation_text = "Have [target_amount] Ghoul[target_amount == 1 ? "" : "s"] in the [target_department.department_name] department."
+	explanation_text = "Have [target_amount] Thrall[target_amount == 1 ? "" : "s"] in the [target_department.department_name] department."
 	return ..()
 
 // WIN CONDITIONS?
@@ -212,17 +212,17 @@
 
 
 //////////////////////////////
-//     CLAN OBJECTIVES      //
+//     CLADE OBJECTIVES     //
 //////////////////////////////
 
-/// Steal the Book of Nod - Nosferatu Clan objective
+/// Acquire research data - Feral Clade objective
 /datum/objective/bloodsucker/kindred
-	name = "steal the Book of Nod"
+	name = "acquire research data"
 
 // EXPLANATION
 /datum/objective/bloodsucker/kindred/update_explanation_text()
 	. = ..()
-	explanation_text = "A Noddist Scholar has posted a bounty on SchreckNet for a scrap of the Book of Nod located in your sector. Their advise? Read a book."
+	explanation_text = "The symbiont craves understanding of its own biology. Acquire hemophage research data from the station's records. Their advice? Read a book."
 
 // WIN CONDITIONS?
 /datum/objective/bloodsucker/kindred/check_completion()
@@ -240,14 +240,14 @@
 
 //////////////////////////////////////////////////////////////////////////////////////
 
-/// Max out a Tremere Power - Tremere Clan objective
+/// Max out a Hemokinetic Adaptation - Hemokinetic Clade objective
 /datum/objective/bloodsucker/tremere_power
 	name = "tremerepower"
-	var/power_level = TREMERE_OBJECTIVE_POWER_LEVEL
+	var/power_level = HEMOKINETIC_OBJECTIVE_POWER_LEVEL
 
 // EXPLANATION
 /datum/objective/bloodsucker/tremere_power/update_explanation_text()
-	explanation_text = "Your Regent is doubting your abilities, level some Blood Magic to [power_level] to prove them wrong! Remember that Ghoulifying gives more Ranks!"
+	explanation_text = "The vascular network demands growth. Level a Hemokinetic adaptation to [power_level] to reach full potential! Remember that creating Thralls gives more Ranks!"
 
 // WIN CONDITIONS?
 /datum/objective/bloodsucker/tremere_power/check_completion()
@@ -255,20 +255,20 @@
 	if(!bloodsuckerdatum)
 		return FALSE
 	for(var/datum/action/cooldown/bloodsucker/tremere_powers in bloodsuckerdatum.powers)
-		if(tremere_powers.purchase_flags & TREMERE_CAN_BUY && tremere_powers.level_current >= power_level)
+		if(tremere_powers.purchase_flags & HEMOKINETIC_CAN_BUY && tremere_powers.level_current >= power_level)
 			return TRUE
 	return FALSE
 
 //////////////////////////////////////////////////////////////////////////////////////
 
-/// Convert a crewmate - Ventrue Clan objective
+/// Convert a crewmate - Tyrant Clade objective
 /datum/objective/bloodsucker/embrace
 	name = "embrace"
 
 // EXPLANATION
 /datum/objective/bloodsucker/embrace/update_explanation_text()
 	. = ..()
-	explanation_text = "Your Strategoi has granted you permission to embrace your favourite ghoul , use the Rack to 'level' them up."
+	explanation_text = "The symbiont has reached critical mass. Transmit the full strain to your Bonded Thrall -- use the Rack to 'level' them up."
 
 // WIN CONDITIONS?
 /datum/objective/bloodsucker/embrace/check_completion()
@@ -276,7 +276,7 @@
 	if(!bloodsuckerdatum)
 		return FALSE
 	for(var/datum/antagonist/bloodsucker/sired_vamp in GLOB.antagonists)
-		if(sired_vamp.ventrue_sired == bloodsuckerdatum)
+		if(sired_vamp.tyrant_sired == bloodsuckerdatum)
 			return TRUE
 	return FALSE
 
@@ -313,7 +313,7 @@
 
 
 //////////////////////////////
-//     GHOUL OBJECTIVES    //
+//     THRALL OBJECTIVES   //
 //////////////////////////////
 
 /datum/objective/bloodsucker/ghoul
@@ -321,7 +321,7 @@
 // EXPLANATION
 /datum/objective/bloodsucker/ghoul/update_explanation_text()
 	. = ..()
-	explanation_text = "Guarantee the success of your Master's mission!"
+	explanation_text = "Guarantee the success of your Progenitor's mission!"
 
 // WIN CONDITIONS?
 /datum/objective/bloodsucker/ghoul/check_completion()
@@ -336,7 +336,7 @@
 //////////////////////////////
 
 // NOTE: Look up /assassinate in objective.dm for inspiration.
-/// Ghoulify a target.
+/// Convert a target into a Thrall.
 /datum/objective/bloodsucker/ghoulhim
 	name = "ghoulhim"
 	var/target_department_type = FALSE
@@ -350,7 +350,7 @@
 /datum/objective/bloodsucker/ghoulhim/update_explanation_text()
 	. = ..()
 	if(target?.current)
-		explanation_text = "Ensure [target.name], the [!target_department_type ? target.assigned_role.title : english_list(target.get_special_roles())], is Ghoulifyd via the Persuasion Rack."
+		explanation_text = "Ensure [target.name], the [!target_department_type ? target.assigned_role.title : english_list(target.get_special_roles())], is converted into a Thrall via the Indoctrination Rack."
 	else
 		explanation_text = "Free Objective"
 

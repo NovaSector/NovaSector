@@ -1,11 +1,11 @@
 #define FORTITUDE_STUN_IMMUNITY_LEVEL 4
 /datum/action/cooldown/bloodsucker/fortitude
-	name = "Fortitude"
-	desc = "Withstand egregious physical wounds and walk away from attacks that would stun, pierce, and dismember lesser beings, but will render you unable to heal."
+	name = "Exoskeletal Reinforcement"
+	desc = "Calcified protein deposits harden your body against stuns, piercing, and dismemberment, but halt regeneration."
 	button_icon_state = "power_fortitude"
 	power_flags = BP_CONTINUOUS_EFFECT|BP_AM_COSTLESS_UNCONSCIOUS
-	check_flags = BP_CANT_USE_IN_TORPOR|BP_CANT_USE_IN_FRENZY
-	purchase_flags = BLOODSUCKER_CAN_BUY|GHOUL_CAN_BUY
+	check_flags = BP_CANT_USE_IN_DORMANCY|BP_CANT_USE_IN_FERAL
+	purchase_flags = BLOODSUCKER_CAN_BUY|THRALL_CAN_BUY
 	cooldown_time = 20 SECONDS
 	bloodcost = 30
 	constant_bloodcost = 0.2
@@ -16,22 +16,22 @@
 
 /datum/action/cooldown/bloodsucker/fortitude/get_power_explanation_extended()
 	. = list()
-	. += "Fortitude will provide pierce, stun and dismember immunity."
+	. += "Exoskeletal Reinforcement provides pierce, stun and dismember immunity."
 	. += "You will additionally gain resistance to both brute, burn and stamina damage, scaling with level."
-	. += "Fortitude will make you receive [GetFortitudeResist() * 10]% less brute and and stamina and [GetBurnResist() * 10]% less burn damage."
-	. += "While using Fortitude, attempting to run will crush you."
+	. += "Reinforcement reduces brute and stamina damage by [GetFortitudeResist() * 10]% and burn damage by [GetBurnResist() * 10]%."
+	. += "While reinforced, attempting to run will crush you under the calcified weight."
 	. += "At level [FORTITUDE_STUN_IMMUNITY_LEVEL], you gain complete stun immunity."
 	. += "Higher levels will increase Brute and Stamina resistance."
 
 /datum/action/cooldown/bloodsucker/fortitude/ActivatePower(atom/target)
-	owner.balloon_alert(owner, "fortitude turned on.")
-	to_chat(owner, span_notice("Your flesh, skin, and muscles become as steel."))
+	owner.balloon_alert(owner, "reinforcement activated.")
+	to_chat(owner, span_notice("Calcified protein floods your tissue -- your body hardens like chitin."))
 	// Traits & Effects
 	owner.add_traits(traits_to_add, BLOODSUCKER_TRAIT)
 	if(level_current >= FORTITUDE_STUN_IMMUNITY_LEVEL)
 		ADD_TRAIT(owner, TRAIT_STUNIMMUNE, BLOODSUCKER_TRAIT)
 	var/mob/living/carbon/human/bloodsucker_user = owner
-	if(IS_BLOODSUCKER(owner) || IS_GHOUL(owner))
+	if(IS_BLOODSUCKER(owner) || IS_THRALL(owner))
 		fortitude_resist = GetFortitudeResist()
 		bloodsucker_user.physiology.brute_mod *= fortitude_resist
 		bloodsucker_user.physiology.burn_mod *= GetBurnResist()
@@ -91,7 +91,7 @@
 	if(!. || !ishuman(owner))
 		return
 	var/mob/living/carbon/human/bloodsucker_user = owner
-	if(IS_BLOODSUCKER(owner) || IS_GHOUL(owner) && fortitude_resist)
+	if(IS_BLOODSUCKER(owner) || IS_THRALL(owner) && fortitude_resist)
 		bloodsucker_user.physiology.brute_mod /= fortitude_resist
 		bloodsucker_user.physiology.burn_mod /= fortitude_resist + 0.2
 		bloodsucker_user.physiology.stamina_mod /= fortitude_resist
@@ -100,7 +100,7 @@
 
 	if(was_running && bloodsucker_user.move_intent == MOVE_INTENT_WALK)
 		bloodsucker_user.toggle_move_intent()
-	owner.balloon_alert(owner, "fortitude turned off.")
+	owner.balloon_alert(owner, "reinforcement deactivated.")
 	fortitude_resist = 1
 	UnregisterSignal(owner, list(COMSIG_LIVING_ADJUST_BRUTE_DAMAGE, COMSIG_LIVING_ADJUST_BURN_DAMAGE))
 	return ..()

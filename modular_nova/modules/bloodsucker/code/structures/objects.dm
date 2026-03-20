@@ -47,7 +47,7 @@
 		return FALSE
 	return TRUE
 
-///Bloodbag of Bloodsucker blood (used by Ghouls only)
+///Bloodbag of Bloodsucker blood (used by Thralls only)
 /obj/item/reagent_containers/blood/o_minus/bloodsucker
 	name = "blood pack"
 	blood_type = null
@@ -56,7 +56,7 @@
 /obj/item/reagent_containers/blood/o_minus/bloodsucker/examine(mob/user)
 	. = ..()
 	if(user.mind.has_antag_datum(/datum/antagonist/ex_ghoul) || user.mind.has_antag_datum(/datum/antagonist/ghoul/revenge))
-		. += span_notice("Seems to be just about the same color as your Master's...")
+		. += span_notice("Seems to be just about the same color as your Progenitor's...")
 
 //////////////////////
 //      STAKES      //
@@ -241,20 +241,20 @@
 //////////////////////
 
 /**
- *	# Archives of the Kindred:
- *+
+ *	# Hemophage Research Archives:
+ *
  *	A book that can only be used by Curators.
- *	When used on a player, after a short timer, will reveal if the player is a Bloodsucker, including their real name and Clan.
- *	This book should not work on Bloodsuckers using the Masquerade ability.
- *	If it reveals a Bloodsucker, the Curator will then be able to tell they are a Bloodsucker on examine (Like a Ghoul).
- *	Reading it normally will allow Curators to read what each Clan does, with some extra flavor text ones.
+ *	When used on a player, after a short timer, will reveal if the player is a Bloodsucker, including their real name and Clade.
+ *	This book should not work on Bloodsuckers using the Mimic ability.
+ *	If it reveals a Bloodsucker, the Curator will then be able to tell they are a Bloodsucker on examine (Like a Thrall).
+ *	Reading it normally will allow Curators to read what each Clade does, with some extra flavor text ones.
  *
  *	Regular Bloodsuckers won't have any negative effects from the book, while everyone else will get burns/eye damage.
  */
 /obj/item/book/kindred
-	name = "\improper Book of Nod"
-	starting_title = "the Book of Nod"
-	desc = "Cryptic documents explaining hidden truths behind Undead beings. It is said only Curators can decipher what they really mean."
+	name = "\improper Hemophage Research Codex"
+	starting_title = "the Hemophage Research Codex"
+	desc = "Classified research documents detailing the biology and behavioral patterns of hemophage carriers. It is said only Curators can decipher what they really mean."
 	icon = 'modular_nova/modules/bloodsucker/icons/vamp_obj.dmi'
 	lefthand_file = 'modular_nova/modules/bloodsucker/icons/bloodsucker_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/bloodsucker/icons/bloodsucker_righthand.dmi'
@@ -300,13 +300,13 @@
 		return
 	COOLDOWN_START(src, bloodsucker_check_cooldown, cooldown_time)
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(target)
-	// Are we a Bloodsucker | Are we on Masquerade. If one is true, they will fail.
-	if(IS_BLOODSUCKER(target) && !HAS_TRAIT(target, TRAIT_MASQUERADE))
-		if(bloodsuckerdatum.broke_masquerade)
+	// Are we a Bloodsucker | Are we on Mimic. If one is true, they will fail.
+	if(IS_BLOODSUCKER(target) && !HAS_TRAIT(target, TRAIT_MIMIC))
+		if(bloodsuckerdatum.exposed)
 			to_chat(user, span_warning("[target], also known as '[bloodsuckerdatum.return_full_name()]', is indeed a Bloodsucker, but you already knew this."))
 			return
-		to_chat(user, span_warning("[target], also known as '[bloodsuckerdatum.return_full_name()]', [bloodsuckerdatum.my_clan ? "is part of the [bloodsuckerdatum.my_clan]!" : "is not part of a clan."] You quickly note this information down, memorizing it."))
-		bloodsuckerdatum.break_masquerade()
+		to_chat(user, span_warning("[target], also known as '[bloodsuckerdatum.return_full_name()]', [bloodsuckerdatum.my_clade ? "is part of the [bloodsuckerdatum.my_clade]!" : "is not part of a clade."] You quickly note this information down, memorizing it."))
+		bloodsuckerdatum.break_exposure()
 	else
 		to_chat(user, span_notice("You fail to draw any conclusions to [target] being a Bloodsucker."))
 
@@ -326,7 +326,7 @@
 /obj/item/book/kindred/ui_static_data(mob/user)
 	var/data = list()
 
-	for(var/datum/bloodsucker_clan/clans as anything in subtypesof(/datum/bloodsucker_clan))
+	for(var/datum/bloodsucker_clade/clans as anything in subtypesof(/datum/bloodsucker_clade))
 		var/clan_data = list()
 		clan_data["clan_name"] = initial(clans.name)
 		clan_data["clan_desc"] = initial(clans.description)
@@ -335,7 +335,7 @@
 	return data
 
 /obj/structure/displaycase/curator
-	desc = "This book was found inside a coffin of a long dead Curator. It is said to be able to reveal the true nature of those who feed upon mankind."
+	desc = "This codex was found among the belongings of a long dead Curator. It is said to reveal the true nature of hemophage carriers."
 	start_showpiece_type = /obj/item/book/kindred
 	req_access = list(ACCESS_LIBRARY)
 

@@ -1,12 +1,12 @@
 /datum/action/cooldown/bloodsucker/ghoul_blood
 	name = "Help Ghoul"
-	desc = "Bring an ex-Ghoul back into the fold, or create blood using a bag. RMB: Check Ghoul status."
+	desc = "Reinfect an ex-Thrall with the sub-strain, or create blood using a bag. RMB: Check Thrall status."
 	button_icon_state = "power_torpor"
-	power_explanation = "Help Ghoul:\n\
-		Use this power while you have an ex-Ghoul grabbed to bring them back into the fold. \
-		Use this power with a bloodbag in your hand to instead fill it with Vampiric Blood which \
-		can be used to reset ex-ghoul deconversion timers. \
-		Right-Click will show the status of all Ghouls."
+	power_explanation = "Help Thrall:\n\
+		Use this adaptation while you have an ex-Thrall grabbed to reinfect them with the sub-strain. \
+		Use with a bloodbag in hand to fill it with symbiont-infused blood, which \
+		can reset ex-Thrall deconversion timers. \
+		Right-Click will show the status of all Thralls."
 	check_flags = NONE
 	purchase_flags = NONE
 	bloodcost = 10
@@ -21,7 +21,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	var/datum/antagonist/ghoul/revenge/revenge_ghoul = IS_REVENGE_GHOUL(owner)
+	var/datum/antagonist/ghoul/revenge/revenge_ghoul = IS_FERAL_THRALL(owner)
 	if(revenge_ghoul)
 		return FALSE
 
@@ -33,7 +33,7 @@
 
 	if(owner.pulling && isliving(owner.pulling))
 		var/mob/living/pulled_target = owner.pulling
-		var/datum/antagonist/ex_ghoul/former_ghoul = IS_EX_GHOUL(pulled_target)
+		var/datum/antagonist/ex_ghoul/former_ghoul = IS_EX_THRALL(pulled_target)
 		if(!former_ghoul)
 			owner.balloon_alert(owner, "not a former ghoul!")
 			return FALSE
@@ -52,7 +52,7 @@
 
 /datum/action/cooldown/bloodsucker/ghoul_blood/ActivatePower(trigger_flags)
 	. = ..()
-	var/datum/antagonist/ghoul/revenge/revenge_ghoul = IS_REVENGE_GHOUL(owner)
+	var/datum/antagonist/ghoul/revenge/revenge_ghoul = IS_FERAL_THRALL(owner)
 	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
 		for(var/datum/antagonist/ex_ghoul/former_ghouls as anything in revenge_ghoul.ex_ghouls)
 			var/information = "[former_ghouls.owner.current]"
@@ -70,7 +70,7 @@
 
 	if(target_ref)
 		var/mob/living/target = target_ref.resolve()
-		var/datum/antagonist/ex_ghoul/former_ghoul = IS_EX_GHOUL(target)
+		var/datum/antagonist/ex_ghoul/former_ghoul = IS_EX_THRALL(target)
 		if(!former_ghoul || former_ghoul.revenge_ghoul)
 			target_ref = null
 			return

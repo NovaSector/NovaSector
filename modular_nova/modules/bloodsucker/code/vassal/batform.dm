@@ -11,7 +11,7 @@
 	base_background_icon_state = "tremere_power_off"
 	background_icon = 'modular_nova/modules/bloodsucker/icons/tremere_bloodsucker.dmi'
 	power_explanation = "You can fly and see in the dark, and you heal from doing melee attacks."
-	invocation = "Master, grant me your might, BAT FORM!!"
+	invocation = "Chiropteran shift -- ACTIVATE!!"
 	invocation_type = INVOCATION_SHOUT
 	spell_requirements = NONE
 	convert_damage = TRUE
@@ -34,8 +34,8 @@
 		random_step(bat, 2, 50)
 
 /mob/living/basic/bat/bloodsucker
-	name ="vampiric bat"
-	desc = "A bat with a thirst for blood."
+	name ="symbiotic bat"
+	desc = "A bat infected with a parasitic hemophage strain. It thirsts for blood."
 	maxHealth = 100
 	health = 100
 	speed = 0

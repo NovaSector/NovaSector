@@ -5,11 +5,11 @@
 
 #define HASTE_GETUP_LEVEL 3
 /datum/action/cooldown/bloodsucker/targeted/haste
-	name = "Immortal Haste"
-	desc = "Force yourself to stand up if you're down and dash somewhere with supernatural speed. Those nearby may be knocked away, stunned, or left empty-handed."
+	name = "Adrenal Surge"
+	desc = "A catecholamine flood forces you upright and propels you forward at inhuman speed. Those nearby may be knocked away, stunned, or left empty-handed."
 	button_icon_state = "power_speed"
 	prefire_message = "You prepare to dash!"
-	purchase_flags = BLOODSUCKER_CAN_BUY|GHOUL_CAN_BUY
+	purchase_flags = BLOODSUCKER_CAN_BUY|THRALL_CAN_BUY
 	bloodcost = 6
 	cooldown_time = 12 SECONDS
 	target_range = 5
@@ -28,12 +28,12 @@
 	. = list()
 	. += "Click anywhere to immediately dash towards that location."
 	. += "At level [HASTE_GETUP_LEVEL], if you are lying down, you will get up and regain your stamina, but the resulting dash will not knock down those nearby."
-	. += "Haste will knockdown your enemies for [DisplayTimeText(GetKnockdown())] and refill your stamina, but using haste while knocked down will make it go on cooldown for [DisplayTimeText(cooldown_time * 3)]"
-	. += "The Power will not work if you are lying down, in no gravity, or are aggressively grabbed."
-	. += "Anyone in your way during your Haste will be knocked down."
+	. += "Adrenal Surge will knockdown your enemies for [DisplayTimeText(GetKnockdown())] and refill your stamina, but using it while knocked down will triple the cooldown to [DisplayTimeText(cooldown_time * 3)]"
+	. += "The adaptation will not work if you are lying down, in no gravity, or are aggressively grabbed."
+	. += "Anyone in your way during the surge will be knocked down."
 	. += "Higher levels will increase the knockdown dealt to enemies."
 	. += "It will also refill your stamina so you can keep moving."
-	. += "If Fortitude is active, using haste will disable it."
+	. += "If Exoskeletal Reinforcement is active, using Adrenal Surge will disable it."
 
 /datum/action/cooldown/bloodsucker/targeted/haste/can_use(mob/living/carbon/user, trigger_flags)
 	. = ..()
@@ -65,7 +65,7 @@
 	var/stuns_mobs = TRUE
 	var/temp_cooldown = cooldown_time
 	if(level_current >= HASTE_GETUP_LEVEL && user.body_position == LYING_DOWN)
-		to_chat(user, span_danger("Your heart takes a beat, and you force yourself to stand up!"))
+		to_chat(user, span_danger("Adrenaline floods your system -- your body lurches upright!"))
 		user.SetKnockdown(0)
 		user.set_stamina_loss(0)
 		user.set_resting(FALSE, FALSE, TRUE)
