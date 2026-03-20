@@ -7,7 +7,10 @@
 	show_in_roundend = FALSE
 	hud_icon = 'modular_nova/modules/bloodsucker/icons/bloodsucker_hud.dmi'
 	ui_name = "AntagInfoGhoul"
-	antag_panel_description = "You are a Thrall, a biological vessel infected with a dependent sub-strain of the hemophage symbiont."
+	/// Description shown in the antag panel
+	var/antag_panel_description = "You are a Thrall, a biological vessel infected with a dependent sub-strain of the hemophage symbiont."
+	/// Title shown in the antag panel
+	var/antag_panel_title
 
 	/// The Progenitor Bloodsucker's antag datum.
 	var/datum/antagonist/bloodsucker/master

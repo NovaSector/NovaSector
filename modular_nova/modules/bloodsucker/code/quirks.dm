@@ -14,7 +14,6 @@
 	value = -4
 	hardcore_value = 6
 	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_HUMAN_ONLY
-	species_whitelist = list(SPECIES_HEMOPHAGE)
 	COOLDOWN_DECLARE(sun_burn)
 
 /datum/quirk/sol_weakness/add_to_holder(mob/living/new_holder, quirk_transfer = FALSE, client/client_source, unique = TRUE, announce = TRUE)
@@ -91,6 +90,14 @@
 
 /datum/quirk/sol_weakness/proc/in_den()
 	return istype(quirk_holder.loc, /obj/structure/closet)
+
+/// Hemophage blood regeneration status effect - hooks for Sol Weakness quirk
+/datum/status_effect/blood_regen_active
+	id = "blood_regen_active"
+	status_type = STATUS_EFFECT_UNIQUE
+	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
+	/// Blood cost multiplier for healing
+	var/cost_blood = 1
 
 /datum/status_effect/blood_regen_active/tick(seconds_between_ticks)
 	if(SEND_SIGNAL(owner, COMSIG_MOB_HEMO_BLOOD_REGEN_TICK, seconds_between_ticks, src) & COMSIG_CANCEL_MOB_HEMO_BLOOD_REGEN)

@@ -1,6 +1,9 @@
 ///Uncomment this to enable testing of Bloodsucker features (such as thralling people with a mind instead of a client).
 // #define BLOODSUCKER_TESTING // if this isn't commented out, someone is a dumbfuck
 
+/// Span helper for centered text
+#define span_center(str) ("<span class='center'>[str]</span>")
+
 /// You have special interactions with Bloodsuckers
 #define TRAIT_BLOODSUCKER_HUNTER "bloodsucker_hunter"
 
@@ -245,12 +248,12 @@
 ///Whether a mob is a Bloodsucker
 #define IS_BLOODSUCKER(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/bloodsucker))
 ///Whether a mob is a Thrall
-#define IS_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/vassal))
+#define IS_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ghoul))
 ///Whether a mob is a Bonded Thrall
-#define IS_BONDED_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/vassal/favorite))
+#define IS_BONDED_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ghoul/favorite))
 ///Whether a mob is a Feral Thrall
-#define IS_FERAL_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/vassal/revenge))
-#define IS_EX_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ex_vassal))
+#define IS_FERAL_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ghoul/revenge))
+#define IS_EX_THRALL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ex_ghoul))
 
 ///Whether a mob is a Monster Hunter-NOT NEEDED RIGHT NOW
 // #define IS_MONSTERHUNTER(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/monsterhunter))
