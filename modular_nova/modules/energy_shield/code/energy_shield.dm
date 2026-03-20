@@ -18,14 +18,14 @@
 	worn_icon = 'icons/mob/clothing/neck.dmi'
 	icon_state = "modlink"
 	worn_icon_state = "modlink"
-	slot_flags = ITEM_SLOT_NECK
+	slot_flags = NONE
 	attachment_slot = NONE
 	above_suit = FALSE
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FIRE_PROOF
 	actions_types = list(/datum/action/item_action/toggle_energy_shield)
-	/// Grant the action button in both neck and accessory-on-jumpsuit slots
-	action_slots = ITEM_SLOT_NECK | ITEM_SLOT_ICLOTHING
+	/// Grant the action button when attached as accessory on jumpsuit
+	action_slots = ITEM_SLOT_ICLOTHING
 
 	/// Current shield health — starts empty, must charge after equipping
 	var/shield_health = 0
@@ -85,6 +85,8 @@
 	var/obj/item/clothing/suit = wearer.get_item_by_slot(ITEM_SLOT_OCLOTHING)
 	if(isnull(suit))
 		return FALSE
+	if(suit.get_armor_rating(MELEE) > max_armor_class)
+		return TRUE
 	if(suit.get_armor_rating(LASER) > max_armor_class)
 		return TRUE
 	if(suit.get_armor_rating(ENERGY) > max_armor_class)
@@ -93,11 +95,19 @@
 		return TRUE
 	return FALSE
 
-/// Handles activation for both neck slot and accessory-on-jumpsuit paths.
-/// accessory_equipped() calls equipped(), so this single override covers both.
+/obj/item/clothing/accessory/energy_shield/successful_attach(obj/item/clothing/under/attached_to)
+	. = ..()
+	RegisterSignal(attached_to, COMSIG_ATOM_EXAMINE, PROC_REF(on_uniform_examined))
+
+/obj/item/clothing/accessory/energy_shield/detach(obj/item/clothing/under/detach_from)
+	UnregisterSignal(detach_from, COMSIG_ATOM_EXAMINE)
+	return ..()
+
+/// Handles activation when attached as an accessory on a jumpsuit.
+/// accessory_equipped() calls equipped(), so this single override covers it.
 /obj/item/clothing/accessory/energy_shield/equipped(mob/living/user, slot)
 	. = ..()
-	if(!(slot & (ITEM_SLOT_NECK | ITEM_SLOT_ICLOTHING)))
+	if(!(slot & ITEM_SLOT_ICLOTHING))
 		return
 	if(!iscarbon(user))
 		return
@@ -141,14 +151,22 @@
 
 /obj/item/clothing/accessory/energy_shield/examine(mob/user)
 	. = ..()
+	. += get_shield_status_text()
+
+/// Returns a span-formatted string describing the shield's current status.
+/obj/item/clothing/accessory/energy_shield/proc/get_shield_status_text()
 	if(!enabled)
-		. += span_warning("The energy shield is disabled.")
-	else if(shield_active)
-		. += span_notice("The energy shield is active ([round((shield_health / max_shield_health) * 100)]% integrity).")
-	else if(shield_health > 0)
-		. += span_notice("The energy shield is recharging ([round((shield_health / max_shield_health) * 100)]% integrity).")
-	else
-		. += span_warning("The energy shield is offline.")
+		return span_warning("The energy shield is disabled.")
+	if(shield_active)
+		return span_notice("The energy shield is active ([round((shield_health / max_shield_health) * 100)]% integrity).")
+	if(shield_health > 0)
+		return span_notice("The energy shield is recharging ([round((shield_health / max_shield_health) * 100)]% integrity).")
+	return span_warning("The energy shield is offline.")
+
+/// Appends shield status when examining the uniform this shield is attached to.
+/obj/item/clothing/accessory/energy_shield/proc/on_uniform_examined(obj/item/clothing/under/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+	examine_list += get_shield_status_text()
 
 /// Toggles the shield on/off via the action button.
 /obj/item/clothing/accessory/energy_shield/ui_action_click(mob/user, datum/action/action)
@@ -225,7 +243,7 @@
 	apply_shield_hit(proj.damage, limb)
 	return COMPONENT_BULLET_BLOCKED
 
-/// Fully blocks melee attacks when the shield can absorb the entire hit.
+/// Fully blocks melee and thrown attacks when the shield can absorb the entire hit.
 /// Mirrors on_pre_bullet for projectiles — prevents wounds, embeds, and blood naturally.
 /obj/item/clothing/accessory/energy_shield/proc/on_check_block(mob/living/carbon/source, atom/hit_by, damage, attack_text, attack_type, armour_penetration, damage_type)
 	SIGNAL_HANDLER
@@ -237,10 +255,12 @@
 	if(damage <= 0 || shield_health < damage)
 		return FAILED_BLOCK
 
-	var/mob/living/attacker = isliving(hit_by) ? hit_by : GET_ASSAILANT(hit_by)
 	var/obj/item/bodypart/limb
+	var/mob/living/attacker = isliving(hit_by) ? hit_by : GET_ASSAILANT(hit_by)
 	if(attacker)
 		limb = wearer.get_bodypart(check_zone(attacker.zone_selected))
+	if(!limb)
+		limb = wearer.get_bodypart(check_zone(wearer.get_random_valid_zone(BODY_ZONE_CHEST, 65)))
 	apply_shield_hit(damage, limb)
 	return SUCCESSFUL_BLOCK
 
@@ -255,9 +275,9 @@
 		return
 	if(damage <= 0)
 		return
-	// Only absorb external attacks (projectiles, melee) — not embeds, wounds, or reagent damage.
-	// External attacks always have an attack_direction; internal sources don't.
-	if(isnull(attack_direction))
+	// Only absorb external attacks (projectiles, melee, thrown) — not embeds, wounds, or reagent damage.
+	// External attacks have an attack_direction or an attacking_item; internal sources have neither.
+	if(isnull(attack_direction) && isnull(attacking_item))
 		return
 	// Check if this damage type is blocked by the shield
 	if(isprojectile(attacking_item))
