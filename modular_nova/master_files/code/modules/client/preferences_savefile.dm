@@ -325,6 +325,9 @@
 		var/current_donk = save_data["feature_penis"]
 		if(current_donk != "None")
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/genital/penis], current_donk + " (Alt)")
+		var/current_pocket = save_data["feature_testicles"]
+		if(current_pocket == "Pair")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/genital/testicles], "Pair (Alt)")
 
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
