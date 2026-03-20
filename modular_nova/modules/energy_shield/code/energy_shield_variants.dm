@@ -1,11 +1,16 @@
-/// Mass-produced consumer-grade shield. Weak but legal and widely available.
+/// Mass-produced consumer-grade shield by Bolt Fabrications. Weak but legal and widely available.
 /obj/item/clothing/accessory/energy_shield/civilian
-	name = "personal energy barrier"
-	desc = "A consumer-grade personal shield. Popular with merchants and travellers in dangerous frontier sectors."
+	name = "\improper Bolt SafeGuard personal energy barrier"
+	desc = "A mass-produced personal energy barrier manufactured by Bolt Fabrications under their SafeGuard consumer protection line. \
+		Marketed towards frontier merchants, long-haul freight crews, and civilian colonists operating beyond reliable law enforcement coverage. \
+		While its modest output won't stop military ordnance, it has saved enough lives to become standard kit in most frontier outfitters."
 	max_shield_health = 50
 	recharge_delay = 10 SECONDS
 	recharge_rate = 5
 	shield_color = "#88ccff"
+
+/obj/item/clothing/accessory/energy_shield/civilian/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_BOLT)
 
 /// NT-issue tactical shield. Hardened circuitry allows integration with standard body armor up to class II.
 /obj/item/clothing/accessory/energy_shield/military
@@ -72,3 +77,13 @@
 /// Movement speed penalty while the bulwark shield is active.
 /datum/movespeed_modifier/energy_shield_bulwark
 	multiplicative_slowdown = 0.35
+
+/datum/supply_pack/security/energy_shield_civilian
+	name = "Bolt SafeGuard Energy Barrier Crate"
+	desc = "Contains two Bolt Fabrications SafeGuard personal energy barriers. Consumer-grade protection for frontier personnel."
+	cost = CARGO_CRATE_VALUE * 8
+	contains = list(
+		/obj/item/clothing/accessory/energy_shield/civilian,
+		/obj/item/clothing/accessory/energy_shield/civilian,
+	)
+	crate_name = "energy barrier crate"
