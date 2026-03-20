@@ -183,13 +183,11 @@
 		return
 
 	shield_health = round(shield_health * emp_retention)
-	if(shield_health <= 0)
-		shield_active = FALSE
 	COOLDOWN_START(src, recharge_cooldown, recharge_delay)
-	update_shield_hud()
-	playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
-	wearer.visible_message(span_warning("[wearer]'s energy shield shorts out!"))
-	do_sparks(3, TRUE, wearer)
+	if(shield_health <= 0)
+		shield_collapse()
+	else
+		update_shield_hud()
 
 /// Shared post-hit logic: deducts shield health, triggers cooldowns, visuals, and collapse check.
 /obj/item/clothing/accessory/energy_shield/proc/apply_shield_hit(absorbed, obj/item/bodypart/limb)
