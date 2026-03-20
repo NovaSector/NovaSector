@@ -55,11 +55,6 @@
 	recharge_rate = 8
 	shield_color = "#ff6644"
 
-/obj/item/clothing/accessory/energy_shield/syndicate/bulwark/equipped(mob/living/user, slot)
-	. = ..()
-	if(shield_active)
-		wearer?.add_movespeed_modifier(/datum/movespeed_modifier/energy_shield_bulwark)
-
 /obj/item/clothing/accessory/energy_shield/syndicate/bulwark/dropped(mob/living/user)
 	user.remove_movespeed_modifier(/datum/movespeed_modifier/energy_shield_bulwark)
 	return ..()

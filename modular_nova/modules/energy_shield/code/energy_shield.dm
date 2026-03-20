@@ -47,8 +47,6 @@
 	var/recharge_visual_pending = TRUE
 	/// Whether filters are showing because of active recharging (persistent until full)
 	var/showing_recharge = FALSE
-	/// Future: multiplier applied to melee damage passing through the shield
-	var/melee_multiplier = 1.25
 	/// Maximum armor rating on outer clothing before the shield refuses to activate (I default)
 	var/max_armor_class = 10
 	/// Whether the shield is enabled by the user (toggle via action button)
@@ -59,10 +57,26 @@
 	var/blocks_projectiles = TRUE
 	/// Whether the shield blocks melee damage
 	var/blocks_melee = TRUE
+	/// Damage absorbed in the current hit, pending application in on_after_damage
+	var/pending_absorption = 0
+	/// Whether the pending hit was fully absorbed
+	var/pending_fully_absorbed = FALSE
+	/// Bodypart struck in the pending hit (for visual effects)
+	var/obj/item/bodypart/pending_def_zone
 
 	COOLDOWN_DECLARE(recharge_cooldown)
 	/// Controls how long filters linger after a hit
 	COOLDOWN_DECLARE(visual_cooldown)
+
+/obj/item/clothing/accessory/energy_shield/Destroy()
+	if(wearer)
+		UnregisterSignal(wearer, list(COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_ATOM_PRE_BULLET_ACT, COMSIG_MOB_AFTER_APPLY_DAMAGE))
+		REMOVE_TRAIT(wearer, TRAIT_ENERGY_SHIELDED, ENERGY_SHIELD_TRAIT)
+		hide_shield_visuals()
+		clear_shield_hud()
+		wearer = null
+	STOP_PROCESSING(SSobj, src)
+	return ..()
 
 /// Returns TRUE if the wearer's outer clothing has LASER, ENERGY, or BULLET armor above class II.
 /obj/item/clothing/accessory/energy_shield/proc/wearer_has_heavy_armor()
@@ -94,6 +108,7 @@
 	ADD_TRAIT(wearer, TRAIT_ENERGY_SHIELDED, ENERGY_SHIELD_TRAIT)
 	RegisterSignal(wearer, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(on_damage_modifiers))
 	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(on_pre_bullet))
+	RegisterSignal(wearer, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(on_after_damage))
 
 	if(!enabled)
 		to_chat(wearer, span_notice("The [src] is disabled. Use it in hand to open the control panel."))
@@ -110,7 +125,7 @@
 	. = ..()
 	if(isnull(wearer))
 		return
-	UnregisterSignal(wearer, list(COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_ATOM_PRE_BULLET_ACT))
+	UnregisterSignal(wearer, list(COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_ATOM_PRE_BULLET_ACT, COMSIG_MOB_AFTER_APPLY_DAMAGE))
 	REMOVE_TRAIT(wearer, TRAIT_ENERGY_SHIELDED, ENERGY_SHIELD_TRAIT)
 	if(shield_health > 0)
 		playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
@@ -176,6 +191,21 @@
 	wearer.visible_message(span_warning("[wearer]'s energy shield shorts out!"))
 	do_sparks(3, TRUE, wearer)
 
+/// Shared post-hit logic: deducts shield health, triggers cooldowns, visuals, and collapse check.
+/obj/item/clothing/accessory/energy_shield/proc/apply_shield_hit(absorbed, obj/item/bodypart/limb)
+	shield_health -= absorbed
+	COOLDOWN_START(src, recharge_cooldown, recharge_delay)
+	recharge_visual_pending = TRUE
+	showing_recharge = FALSE
+	COOLDOWN_START(src, visual_cooldown, SHIELD_VISUAL_LINGER)
+	show_shield_visuals()
+	update_shield_visuals()
+	if(limb)
+		shield_hit_effect(limb)
+	if(shield_health <= 0)
+		shield_collapse()
+	update_shield_hud()
+
 /// Fully blocks projectiles when the shield can absorb the entire hit.
 /// This prevents embedding, wounding, and blood splatter from blocked bullets.
 /// Partial absorption falls through to on_damage_modifiers instead.
@@ -192,29 +222,13 @@
 	if(shield_health < proj.damage)
 		return
 
-	shield_health -= proj.damage
-
-	COOLDOWN_START(src, recharge_cooldown, recharge_delay)
-	recharge_visual_pending = TRUE
-	showing_recharge = FALSE
-	COOLDOWN_START(src, visual_cooldown, SHIELD_VISUAL_LINGER)
-	show_shield_visuals()
-	update_shield_visuals()
-
-	// Flash the hit limb
 	var/obj/item/bodypart/limb = wearer.get_bodypart(check_zone(def_zone))
-	if(limb)
-		shield_hit_effect(limb)
-
-	if(shield_health <= 0)
-		shield_collapse()
-
-	update_shield_hud()
+	apply_shield_hit(proj.damage, limb)
 	return COMPONENT_BULLET_BLOCKED
 
-/// Intercepts incoming damage via modifier system. Absorbs damage and triggers limb glow on hit.
-/// For projectiles, this only fires when the shield couldn't fully block (partial absorption).
-/// For melee and other external attacks, this is the primary absorption path.
+/// Computes the damage modifier for the shield's absorption.
+/// This handler must remain pure (no side effects) — actual shield health deduction
+/// and visual/audio feedback are handled in on_after_damage via COMSIG_MOB_AFTER_APPLY_DAMAGE.
 /obj/item/clothing/accessory/energy_shield/proc/on_damage_modifiers(mob/living/carbon/source, list/damage_mods, damage, damagetype, def_zone, sharpness, attack_direction, attacking_item)
 	SIGNAL_HANDLER
 
@@ -235,35 +249,37 @@
 			return
 
 	var/absorbed = min(damage, shield_health)
-	var/fully_absorbed = absorbed >= damage
-	if(fully_absorbed)
+	pending_absorption = absorbed
+	pending_fully_absorbed = absorbed >= damage
+	pending_def_zone = isbodypart(def_zone) ? def_zone : null
+
+	if(pending_fully_absorbed)
 		damage_mods += 0
 	else
 		damage_mods += (damage - absorbed) / damage
-	shield_health -= absorbed
 
 	// Temporarily suppress blood splatter when fully absorbing hits.
 	// CAN_HAVE_BLOOD is a cached bitflag — TRAIT_NOBLOOD alone won't update it in time.
 	// We directly clear the flag for this call stack frame and restore it next tick.
-	if(fully_absorbed && CAN_HAVE_BLOOD(wearer))
+	if(pending_fully_absorbed && CAN_HAVE_BLOOD(wearer))
 		wearer.living_flags &= ~LIVING_CAN_HAVE_BLOOD
 		addtimer(CALLBACK(src, PROC_REF(restore_blood_flag)), 0)
 
-	COOLDOWN_START(src, recharge_cooldown, recharge_delay)
-	recharge_visual_pending = TRUE
-	showing_recharge = FALSE
-	// Show filters on hit; they'll linger for SHIELD_VISUAL_LINGER then hide in process()
-	COOLDOWN_START(src, visual_cooldown, SHIELD_VISUAL_LINGER)
-	show_shield_visuals()
-	update_shield_visuals()
+/// Applies shield health deduction and visual/audio feedback after damage is dealt.
+/// Consumes the pending absorption computed by on_damage_modifiers.
+/obj/item/clothing/accessory/energy_shield/proc/on_after_damage(mob/living/carbon/source, damage_dealt, damagetype, def_zone, blocked, wound_bonus, exposed_wound_bonus, sharpness, attack_direction, attacking_item)
+	SIGNAL_HANDLER
 
-	if(isbodypart(def_zone))
-		shield_hit_effect(def_zone)
+	if(pending_absorption <= 0)
+		return
 
-	if(shield_health <= 0)
-		shield_collapse()
+	var/absorbed = pending_absorption
+	var/hit_limb = pending_def_zone
+	pending_absorption = 0
+	pending_fully_absorbed = FALSE
+	pending_def_zone = null
 
-	update_shield_hud()
+	apply_shield_hit(absorbed, hit_limb)
 
 /// Restores the LIVING_CAN_HAVE_BLOOD flag after the current tick.
 /obj/item/clothing/accessory/energy_shield/proc/restore_blood_flag()
