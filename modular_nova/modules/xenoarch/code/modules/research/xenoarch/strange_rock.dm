@@ -154,7 +154,7 @@
 
 			if(DIG_ROCK)
 				user.balloon_alert(user, "item excavated successfully")
-				user.mind?.adjust_experience(/datum/skill/archeology, 5)
+				user.mind?.adjust_experience(/datum/skill/archeology, 10)
 				return ITEM_INTERACT_BLOCKING
 
 		return ITEM_INTERACT_BLOCKING
@@ -175,12 +175,12 @@
 
 			if(BRUSH_UNCOVER)
 				user.balloon_alert(user, "item extracted successfully")
-				user.mind?.adjust_experience(/datum/skill/archeology, 10)
+				user.mind?.adjust_experience(/datum/skill/archeology, 20)
 				return ITEM_INTERACT_BLOCKING
 
 			if(BRUSH_NONE)
 				user.balloon_alert(user, "rock needs more brushing")
-				user.mind?.adjust_experience(/datum/skill/archeology, 2)
+				user.mind?.adjust_experience(/datum/skill/archeology, 4)
 				return ITEM_INTERACT_BLOCKING
 
 		return ITEM_INTERACT_BLOCKING
@@ -199,7 +199,7 @@
 
 		if(get_measured())
 			user.balloon_alert(user, "rock reporting excavation")
-			user.mind?.adjust_experience(/datum/skill/archeology, 5)
+			user.mind?.adjust_experience(/datum/skill/archeology, 10)
 			return ITEM_INTERACT_BLOCKING
 
 
@@ -214,12 +214,12 @@
 
 		if(get_scanned(item_scanner.scan_advanced))
 			var/report_string = "rock scanned"
-			user.mind?.adjust_experience(/datum/skill/archeology, 5)
+			user.mind?.adjust_experience(/datum/skill/archeology, 10)
 			if(adv_scanned)
 				report_string += ", reporting depth"
 				if(get_measured())
 					report_string += " and excavation"
-					user.mind?.adjust_experience(/datum/skill/archeology, 5)
+					user.mind?.adjust_experience(/datum/skill/archeology, 10)
 			user.balloon_alert(user, report_string)
 			return ITEM_INTERACT_BLOCKING
 

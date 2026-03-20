@@ -333,7 +333,7 @@
 		to_chat(user, span_notice("The necropolis is rich with buried remnants. You uncover an extra rock while digging."))
 	for(var/i in 1 to rocks_amount)
 		new /obj/item/xenoarch/strange_rock(dig_turf)
-	user.mind?.adjust_experience(/datum/skill/archeology, rocks_amount*15)
+	user.mind?.adjust_experience(/datum/skill/archeology, rocks_amount*25)
 	profile.next_scan = world.time + cooldown_success
 	return TRUE
 
