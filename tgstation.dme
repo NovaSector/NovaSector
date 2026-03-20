@@ -7234,6 +7234,7 @@
 #include "modular_nova\master_files\code\modules\client\preferences\_preference.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\auto_dementor.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\be_antag.dm"
+#include "modular_nova\master_files\code\modules\client\preferences\blood_type.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\body_size.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\brain.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\chronological_age.dm"
