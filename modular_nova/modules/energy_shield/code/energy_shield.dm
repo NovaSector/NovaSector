@@ -10,6 +10,8 @@
 #define SHIELD_HUD_Y_OFFSET 6
 /// How long the shield filters stay visible after a hit
 #define SHIELD_VISUAL_LINGER 1.5 SECONDS
+/// Maximum armor rating allowed on outer clothing before the shield refuses to activate (class I = 10)
+#define SHIELD_MAX_ARMOR_CLASS 10
 
 /obj/item/clothing/accessory/energy_shield
 	name = "energy shield projector"
@@ -52,6 +54,21 @@
 	/// Controls how long filters linger after a hit
 	COOLDOWN_DECLARE(visual_cooldown)
 
+/// Returns TRUE if the wearer's outer clothing has LASER, ENERGY, or BULLET armor above class II.
+/obj/item/clothing/accessory/energy_shield/proc/wearer_has_heavy_armor()
+	if(!iscarbon(wearer))
+		return FALSE
+	var/obj/item/clothing/suit = wearer.get_item_by_slot(ITEM_SLOT_OCLOTHING)
+	if(isnull(suit))
+		return FALSE
+	if(suit.get_armor_rating(LASER) > SHIELD_MAX_ARMOR_CLASS)
+		return TRUE
+	if(suit.get_armor_rating(ENERGY) > SHIELD_MAX_ARMOR_CLASS)
+		return TRUE
+	if(suit.get_armor_rating(BULLET) > SHIELD_MAX_ARMOR_CLASS)
+		return TRUE
+	return FALSE
+
 /// Handles activation for both neck slot and accessory-on-jumpsuit paths.
 /// accessory_equipped() calls equipped(), so this single override covers both.
 /obj/item/clothing/accessory/energy_shield/equipped(mob/living/user, slot)
@@ -68,7 +85,9 @@
 	RegisterSignal(wearer, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(on_damage_modifiers))
 	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(on_pre_bullet))
 
-	if(shield_health > 0)
+	if(wearer_has_heavy_armor())
+		to_chat(wearer, span_warning("The [src] fails to activate — your armor is too heavy for the energy field to form."))
+	else if(shield_health > 0)
 		shield_active = TRUE
 	else
 		COOLDOWN_START(src, recharge_cooldown, recharge_delay)
@@ -375,6 +394,16 @@
 	if(QDELETED(wearer))
 		return
 
+	// Suppress shield while wearing heavy armor
+	if(wearer_has_heavy_armor())
+		if(shield_active)
+			shield_active = FALSE
+			hide_shield_visuals()
+			update_shield_hud()
+			playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
+			to_chat(wearer, span_warning("Your heavy armor disrupts the energy shield!"))
+		return
+
 	// Hide hit-flash after linger expires, but only if not in recharge display mode
 	if(visuals_shown && !showing_recharge && COOLDOWN_FINISHED(src, visual_cooldown))
 		hide_shield_visuals()
@@ -414,3 +443,4 @@
 #undef TRAIT_ENERGY_SHIELDED
 #undef SHIELD_HUD_Y_OFFSET
 #undef SHIELD_VISUAL_LINGER
+#undef SHIELD_MAX_ARMOR_CLASS
