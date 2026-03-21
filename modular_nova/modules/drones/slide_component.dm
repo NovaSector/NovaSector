@@ -88,13 +88,10 @@
 	. = ..()
 	if(.)
 		return
-	// preserve snowflake handling for passglass from door.dm
-	if(istype(mover) && (mover.pass_flags & PASSGLASS))
-		return !opacity
 	return HAS_TRAIT(mover, TRAIT_SLIDING_UNDER)
 
 // component for mineral doors too
-/obj/machinery/mineral_door/Initialize(mapload)
+/obj/structure/mineral_door/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/sliding_under)
 
@@ -102,7 +99,4 @@
 	. = ..()
 	if(.)
 		return
-	// preserve mineral door beam handling from mineral_doors.dm
-	if(istype(mover, /obj/effect/beam))
-		return !opacity
 	return HAS_TRAIT(mover, TRAIT_SLIDING_UNDER)
