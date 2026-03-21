@@ -234,4 +234,4 @@
 			Seems... haphazardly jury-rigged to work with human tech, but its likely good for shrinking stuff."
 	ammo_type = list(/obj/item/ammo_casing/energy/shrink/faulty)
 	pin = /obj/item/firing_pin
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE // so it cannot be stored. 

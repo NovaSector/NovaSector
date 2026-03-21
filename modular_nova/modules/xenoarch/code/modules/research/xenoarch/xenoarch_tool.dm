@@ -138,7 +138,7 @@
 	var/min_distance = 24
 	/// Maximum amount of distance from the user that the dig site will spawn in.
 	var/max_distance = 52
-	/// Speed it takes for the Scanner to do any scan operation that needs attention, ie, scan the digsite for the missing bit (the full scan is done in intervals)
+	/// Speed it takes for the Scanner to do any scan operation that needs attention, ie, scan the digsite for the missing bit (the full scan is done in intervals). Do not reduce this under 3 seconds.
 	var/scanner_speed = 5 SECONDS
 	/// Speed it takes for the Scanner to dig out rocks
 	var/digging_speed = 5 SECONDS
