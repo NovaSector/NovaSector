@@ -319,7 +319,7 @@
 /datum/action/cooldown/bloodsucker/proc/snobby_drinking_check()
 	if(bloodsuckerdatum_power?.my_clade && bloodsuckerdatum_power.my_clade.blood_drink_type != BLOODSUCKER_DRINK_INDISCRIMINATE)
 		return TRUE
-	return TRUE
+	return FALSE
 
 /datum/action/cooldown/bloodsucker/feed/proc/find_target()
 	// grabbing or grabbed, you're close enough to bite.
