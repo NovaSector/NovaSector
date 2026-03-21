@@ -5,7 +5,7 @@
 	dir = 4;
 	opacity = 1
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/iron/dark,
 /area/ruin/space/unpowered)
 "ag" = (
 /obj/structure/closet/wardrobe/genetics_white,
@@ -84,15 +84,13 @@
 /turf/open/floor/iron/white/corner,
 /area/ruin/space/unpowered)
 "cW" = (
-/obj/item/paper{
-	text = "Don't open the doors______"
-	},
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 9
 	},
-/obj/structure/sign/warning/vacuum/directional/north,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/effect/mob_spawn/corpse/human/syndicatestormtrooper,
+/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
+/obj/item/knife/combat/survival,
+/obj/structure/sign/warning/secure_area/directional/north,
 /turf/open/floor/iron/white/corner,
 /area/ruin/space/unpowered)
 "ft" = (
@@ -118,6 +116,10 @@
 /area/ruin/space/unpowered)
 "gw" = (
 /obj/machinery/light/directional/north,
+/obj/effect/spawner/liquids_spawner/ankles{
+	reagent_list = list(/datum/reagent/blood = 180);
+	name = "Liquids Spawner (Blood, Ankle-Deep)"
+	},
 /turf/open/floor/iron/white/side,
 /area/ruin/space/unpowered)
 "gP" = (
@@ -146,7 +148,7 @@
 	},
 /area/ruin/space/unpowered)
 "hP" = (
-/obj/effect/mob_spawn/corpse/human,
+/obj/effect/mob_spawn/corpse/human/generic_assistant,
 /turf/open/floor/iron/white/side{
 	dir = 4
 	},
@@ -224,8 +226,8 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/unpowered)
 "oB" = (
-/obj/effect/gibspawner/human,
-/turf/open/floor/iron/white/corner,
+/obj/effect/spawner/random/trash/graffiti,
+/turf/open/floor/plating/airless,
 /area/ruin/space/unpowered)
 "oO" = (
 /obj/structure/closet/crate/science,
@@ -244,13 +246,9 @@
 	},
 /area/ruin/space/unpowered)
 "qP" = (
-/obj/effect/gibspawner/human,
-/turf/open/floor/iron/white/corner{
-	dir = 4
-	},
+/turf/open/floor/iron/dark,
 /area/ruin/space/unpowered)
 "rZ" = (
-/obj/effect/mob_spawn/corpse/human/scientist,
 /turf/open/floor/iron/white/side{
 	dir = 9
 	},
@@ -264,7 +262,6 @@
 /area/ruin/space/unpowered)
 "sM" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/mob_spawn/corpse/human/bridgeofficer,
 /obj/item/ammo_casing/c46x30mm/ap{
 	pixel_x = 14;
 	pixel_y = 4
@@ -287,8 +284,11 @@
 	},
 /obj/item/gun/ballistic/automatic/wt550{
 	pixel_x = 4;
-	pixel_y = -7
+	pixel_y = -7;
+	can_misfire = 1;
+	spawnwithmagazine = 0
 	},
+/obj/effect/mob_spawn/corpse/human/engineer,
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
@@ -303,13 +303,19 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 5
 	},
-/obj/effect/mine/stun,
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
 /area/ruin/space/unpowered)
-"vv" = (
+"vm" = (
+/obj/machinery/light/directional/south,
 /obj/effect/mob_spawn/corpse/human/generic_assistant,
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"vv" = (
+/obj/effect/mob_spawn/corpse/human/scientist,
 /turf/open/floor/iron/white/side{
 	dir = 10
 	},
@@ -326,23 +332,21 @@
 /turf/open/floor/iron/white/side,
 /area/ruin/space/unpowered)
 "wo" = (
-/obj/effect/mine/stun,
 /obj/machinery/light/small/red/dim/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/unpowered)
 "wD" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear,
-/obj/item/gun/ballistic/revolver/badass/nuclear{
-	pixel_x = 3;
-	pixel_y = 6
+/obj/item/gun/ballistic/revolver/badass{
+	can_misfire = 1
 	},
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
 /area/ruin/space/unpowered)
 "wW" = (
-/obj/effect/mob_spawn/corpse/human/engineer,
+/obj/effect/gibspawner/human,
 /turf/open/floor/plating/airless,
 /area/ruin/space/unpowered)
 "xk" = (
@@ -359,6 +363,7 @@
 /turf/closed/wall/mineral/titanium,
 /area/ruin/space/unpowered)
 "xV" = (
+/mob/living/basic/trooper/syndicate/ranged/smg/anthro,
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
@@ -391,7 +396,6 @@
 	},
 /area/ruin/space/unpowered)
 "Cc" = (
-/obj/effect/gibspawner/human,
 /turf/open/floor/iron/white/side{
 	dir = 5
 	},
@@ -432,7 +436,9 @@
 /area/ruin/space/unpowered)
 "EL" = (
 /obj/structure/closet/crate/science,
-/obj/effect/mine/stun,
+/obj/effect/mine/explosive/light{
+	range_flame = 3
+	},
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
@@ -466,6 +472,7 @@
 /area/ruin/space/unpowered)
 "Gj" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
+/obj/effect/gibspawner/human,
 /turf/open/floor/iron/white,
 /area/ruin/space/unpowered)
 "Gs" = (
@@ -500,7 +507,7 @@
 	dir = 4;
 	opacity = 1
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/iron/dark,
 /area/ruin/space/unpowered)
 "HZ" = (
 /obj/effect/decal/cleanable/blood/gibs/down{
@@ -524,8 +531,8 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 10
 	},
-/obj/structure/sign/warning/vacuum/directional/south,
 /obj/effect/decal/cleanable/blood/drip,
+/obj/structure/sign/warning/secure_area/directional/south,
 /turf/open/floor/iron/white/corner{
 	dir = 4
 	},
@@ -561,13 +568,9 @@
 	dir = 6
 	},
 /area/ruin/space/unpowered)
-"NA" = (
-/obj/effect/mob_spawn/corpse/human/syndicatestormtrooper,
-/turf/open/floor/iron/white,
-/area/ruin/space/unpowered)
 "NQ" = (
-/obj/effect/mob_spawn/corpse/human/scientist,
-/turf/open/floor/iron/white,
+/obj/item/crowbar/large,
+/turf/open/floor/plating/airless,
 /area/ruin/space/unpowered)
 "Oh" = (
 /obj/machinery/light/broken/directional/south,
@@ -655,7 +658,7 @@
 "Uy" = (
 /obj/effect/decal/cleanable/blood/splatter/over_window,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plating/airless,
+/turf/open/floor/iron/dark,
 /area/ruin/space/unpowered)
 "UE" = (
 /turf/template_noop,
@@ -667,7 +670,6 @@
 /area/ruin/space/unpowered)
 "Vo" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
-/obj/effect/mine/stun,
 /obj/machinery/light/small/red/dim/directional/south,
 /turf/open/floor/iron/dark,
 /area/ruin/space/unpowered)
@@ -711,7 +713,6 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 6
 	},
-/obj/effect/mine/stun,
 /turf/open/floor/iron/white/corner{
 	dir = 1
 	},
@@ -737,7 +738,7 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/ruin/space/unpowered)
 "Yv" = (
-/obj/effect/gibspawner/human,
+/obj/effect/mob_spawn/corpse/human/scientist,
 /turf/open/floor/iron/white/corner{
 	dir = 1
 	},
@@ -810,10 +811,10 @@ UE
 UE
 UE
 XP
-oB
+Wy
 hP
 Qa
-qP
+LF
 XP
 UE
 UE
@@ -835,7 +836,7 @@ XP
 jW
 aq
 aq
-IQ
+vm
 XP
 UE
 UE
@@ -855,8 +856,8 @@ UE
 UE
 XP
 gw
-NQ
 aq
+iR
 IQ
 XP
 UE
@@ -898,10 +899,10 @@ XP
 UE
 Tr
 Bh
-XP
+Bh
 uT
 WQ
-XP
+Bh
 Bh
 wi
 wi
@@ -921,7 +922,7 @@ UE
 UE
 wi
 XP
-os
+qP
 af
 XP
 wi
@@ -1024,8 +1025,8 @@ UE
 (13,1,1) = {"
 UE
 XP
-os
-os
+oB
+NQ
 os
 wi
 wi
@@ -1120,7 +1121,7 @@ wi
 XP
 XM
 Vx
-NA
+aq
 RX
 XP
 wi
@@ -1163,7 +1164,7 @@ UE
 UE
 XP
 YU
-iR
+aq
 aq
 jL
 XP
@@ -1207,7 +1208,7 @@ UE
 XP
 XP
 XP
-os
+qP
 HF
 XP
 XP
@@ -1339,7 +1340,7 @@ UE
 xR
 xR
 xR
-os
+qP
 HF
 xR
 xR
