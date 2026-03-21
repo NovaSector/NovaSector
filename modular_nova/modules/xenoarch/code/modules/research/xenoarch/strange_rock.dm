@@ -154,7 +154,6 @@
 
 			if(DIG_ROCK)
 				user.balloon_alert(user, "item excavated successfully")
-				user.mind?.adjust_experience(/datum/skill/archeology, 10)
 				return ITEM_INTERACT_BLOCKING
 
 		return ITEM_INTERACT_BLOCKING
@@ -180,7 +179,6 @@
 
 			if(BRUSH_NONE)
 				user.balloon_alert(user, "rock needs more brushing")
-				user.mind?.adjust_experience(/datum/skill/archeology, 4)
 				return ITEM_INTERACT_BLOCKING
 
 		return ITEM_INTERACT_BLOCKING
