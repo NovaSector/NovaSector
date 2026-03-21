@@ -60,19 +60,17 @@
 	if(!destination)
 		return FALSE
 
-	// weird edge case for windoors, and if you're standing on table/rack on the same turf as the door
+	// weird edge case for borders doors, and if you're standing on table/rack on the same turf as the door
 	if((source_atom.flags_1 & ON_BORDER_1) && (get_turf(user) == destination))
 		destination = get_step(destination, source_atom.dir)
 		if(!destination)
 			return FALSE
 
-	var/old_pass_flags = user.pass_flags
-	user.pass_flags |= (PASSDOORS | source_atom.pass_flags_self)
+	ADD_TRAIT(user, TRAIT_SLIDING_UNDER, REF(src))
 	var/moved = user.Move(destination)
-	user.pass_flags = old_pass_flags
+	REMOVE_TRAIT(user, TRAIT_SLIDING_UNDER, REF(src))
 
 	return moved
-
 
 /datum/element/sliding_under/proc/ExamineMessage(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
@@ -86,3 +84,12 @@
 /obj/machinery/door/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/sliding_under)
+
+/obj/machinery/door/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	if(.)
+		return
+	// preserve normal door behavior for PASSGLASS movers
+	if(istype(mover) && (mover.pass_flags & PASSGLASS))
+		return !opacity
+	return HAS_TRAIT(mover, TRAIT_SLIDING_UNDER)
