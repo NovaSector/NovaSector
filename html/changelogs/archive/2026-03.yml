@@ -307,3 +307,18 @@
   - qol: Other job titles have also been changed, shortened, added, and removed.
   vinylspiders:
   - bugfix: tend wounds surgery works on robotic limbs
+2026-03-20:
+  OrbisAnima:
+  - bugfix: Exploit with the BRM is no longer posible without being incredibly conspicuous.
+  Skies-Of-Blue:
+  - rscadd: You can now set your character's blood type in the Character Lore tab!
+      Please note this only appears if your species and quirks do not assign the character
+      an exotic blood type. Sorry lizards...
+  Zenitheevee:
+  - bugfix: mag-fed turrets should no longer have weird invisibility glitches hopefully
+  - bugfix: tarkon can now actually take tinypacks and udcs
+2026-03-21:
+  vinylspiders:
+  - image: adds new breast, penis, and testicles sprite variants in character creation
+      for some added variety, as well as a sheathed testicle option
+  - rscdel: removes mob sized clamping of penis size
