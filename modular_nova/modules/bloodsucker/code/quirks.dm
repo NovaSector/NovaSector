@@ -96,6 +96,7 @@
 	id = "blood_regen_active"
 	status_type = STATUS_EFFECT_UNIQUE
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
+	alert_type = null
 	/// Blood cost multiplier for healing
 	var/cost_blood = 1
 
