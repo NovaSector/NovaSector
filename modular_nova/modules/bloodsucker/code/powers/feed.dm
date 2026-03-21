@@ -328,7 +328,7 @@
 	if(safe_set_target(owner.pulledby))
 		return TRUE
 	if(bloodsuckerdatum_power?.frenzied)
-		owner.balloon_alert(owner, "Override active! must grab someone to drain!")
+		owner.balloon_alert(owner, "override active! must grab someone to drain!")
 		return FALSE
 	var/mob/living/carbon/carbon = owner
 	if(iscarbon(carbon) && carbon.handcuffed)
