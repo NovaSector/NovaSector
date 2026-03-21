@@ -96,7 +96,7 @@
 
 /obj/item/xenoarch/brush
 	name = "brush"
-	desc = "A brush that is used to uncover the secrets of the past from strange rocks."
+	desc = "A brush that is used to uncover the secrets of the past from strange rocks. Also useful to clean up broken items."
 	var/dig_speed = 3 SECONDS
 	icon_state = "brush"
 
@@ -130,8 +130,6 @@
 	var/ckey
 	/// turf that serves to mark the archeological site that will respond to that client.
 	var/turf/site = null
-	/// cooldown variable, used to say in which time of the world.time the user is able to do another deep scan (and thus roll for a new site)
-	var/next_scan = 0
 	/// this is the leeway variable for digging a site. At 0 it means the digging it needs to be precise, at 1 it means it can be between one tile of the precise site, and so on.
 	var/site_radius
 
@@ -140,12 +138,10 @@
 	var/min_distance = 24
 	/// Maximum amount of distance from the user that the dig site will spawn in.
 	var/max_distance = 52
-	/// Cooldown time between generating a new digsite. This is to avoid Users rerolling digsites over and over. This is per Ckey.
-	var/cooldown_reroll = 1.5 MINUTES
-	/// Cooldown time after succesfully diging a digsite. This is to control how much stuff players get. This is per Ckey.
-	var/cooldown_success = 4 MINUTES
-	/// Speed it takes for the Scanner to do any scan operation that needs attention, ie, scan the digsite for the missing bit
+	/// Speed it takes for the Scanner to do any scan operation that needs attention, ie, scan the digsite for the missing bit (the full scan is done in intervals)
 	var/scanner_speed = 5 SECONDS
+	/// Speed it takes for the Scanner to dig out rocks
+	var/digging_speed = 5 SECONDS
 	/// How precise the scanner needs to be to dig out the treasures. Archeology has a change to give 1 more, the more leeway, the better.
 	var/scanner_leeway = 1
 	/// Static list of players profiles so their searchs are saved.
@@ -260,20 +256,21 @@
 		return FALSE
 
 	var/datum/scavenge_profile/profile = get_profile(user)
-
-	if(world.time < profile.next_scan)
-		user.balloon_alert(user, "error!")
-		var/time_left = DisplayTimeText(max(0, profile.next_scan - world.time), round_seconds_to = 1)
-		to_chat(user, span_warning("The radar is still recharging from last time. Try again in [time_left]!"))
-		return FALSE
 	
 	user.visible_message(span_notice("[user] triggers a pulse from their handheld radar, scanning the surrounding area."), \
 	span_notice("You trigger a pulse from the handheld radar, scanning for potential dig sites."))
-	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
-	if(!do_after(user, scanner_speed * skill_modifier))
+	user.balloon_alert(user, "scanning signal..!")
+	if(!do_after(user, scanner_speed))
 		user.balloon_alert(user, "interrupted!")
 		return FALSE
-	profile.next_scan = world.time + cooldown_reroll
+	user.balloon_alert(user, "triangulating signal..!")
+	if(!do_after(user, scanner_speed))
+		user.balloon_alert(user, "interrupted!")
+		return FALSE
+	user.balloon_alert(user, "locking signal..!")
+	if(!do_after(user, scanner_speed))
+		user.balloon_alert(user, "interrupted!")
+		return FALSE
 	var/candidate_turf = pick_valid_turf_in_range(user)
 
 	if(!candidate_turf)
@@ -287,6 +284,8 @@
 	if(prob(clamp(chance - 40, 0, 100)))
 		profile.site_radius++
 		to_chat(user, span_notice("Your knowledge of archeology helps you interpret the radar signals more accurately, giving you a bit of extra leeway."))
+	user.balloon_alert(user, "site located!")
+	playsound(src, 'sound/machines/compiler/compiler-stage1.ogg', 75)
 	return TRUE
 
 // This is the digging action, operates when you try to dig in the leeway area of the archeological site, its the one that spawns the rocks and calculates how many, as well as awrding xp
@@ -302,7 +301,7 @@
 	user.visible_message(span_notice("[user] methodically scans the ground and digs through the sediment of [dig_turf]."), \
 	span_notice("You carefully scan and dig through the sediment of [dig_turf], searching for anything unusual."))
 	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
-	if(!do_after(user, scanner_speed * skill_modifier, target = dig_turf))
+	if(!do_after(user, digging_speed * skill_modifier, target = dig_turf))
 		user.balloon_alert(user, "interrupted!")
 		return FALSE
 
@@ -334,7 +333,6 @@
 	for(var/i in 1 to rocks_amount)
 		new /obj/item/xenoarch/strange_rock(dig_turf)
 	user.mind?.adjust_experience(/datum/skill/archeology, rocks_amount*25)
-	profile.next_scan = world.time + cooldown_success
 	return TRUE
 
 // This generates an arrow of color based on the distance of the archeological site, and pointing in the direction of it, when you are in the site, it will no longer show an arrow, but you will have to make an educated guess as the exact site (counting of course on the leeway you rolled previously.)
@@ -366,12 +364,16 @@
 			user.balloon_alert(user, "site close!")
 			return
 		if(5 to 10)
+			user.balloon_alert(user, "! ! ! !")
 			arrow_color = COLOR_GREEN
 		if(10 to 15)
+			user.balloon_alert(user, "! ! !")
 			arrow_color = COLOR_YELLOW
 		if(15 to 24)
+			user.balloon_alert(user, "! !")
 			arrow_color = COLOR_ORANGE
 		else
+			user.balloon_alert(user, "!")
 			arrow_color = COLOR_RED
 
 	// We create and validate the user hud

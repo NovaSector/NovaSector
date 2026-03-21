@@ -9,7 +9,7 @@
 /obj/item/xenoarch/broken_item
 	name = "broken tech"
 	icon_state = "recover_tech"
-	desc = "An item that has been damaged, destroyed for quite some time. It is possible to recover it."
+	desc = "An item that has been damaged, destroyed for quite some time. It is possible to recover it. Some people would pay well for an item like this."
 	var/loot = /obj/effect/spawner/random/xenoarch
 	var/dig_xp = 7
 
