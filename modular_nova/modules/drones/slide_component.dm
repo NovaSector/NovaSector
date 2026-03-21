@@ -69,7 +69,6 @@
 	ADD_TRAIT(user, TRAIT_SLIDING_UNDER, REF(src))
 	var/moved = user.Move(destination)
 	REMOVE_TRAIT(user, TRAIT_SLIDING_UNDER, REF(src))
-
 	return moved
 
 /datum/element/sliding_under/proc/ExamineMessage(datum/source, mob/user, list/examine_list)
@@ -89,10 +88,15 @@
 	. = ..()
 	if(.)
 		return
-	// preserve normal door behavior for PASSGLASS movers
+	// preserve snowflake handling for passglass from door.dm
 	if(istype(mover) && (mover.pass_flags & PASSGLASS))
 		return !opacity
 	return HAS_TRAIT(mover, TRAIT_SLIDING_UNDER)
+
+// component for mineral doors too
+/obj/machinery/mineral_door/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/sliding_under)
 
 /obj/structure/mineral_door/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
