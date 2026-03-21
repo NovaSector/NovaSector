@@ -52,6 +52,7 @@
 	resistance_flags = NONE
 	material_drop = /obj/item/stack/sheet/iron
 	material_drop_amount = 2
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5, /datum/material/iron = SHEET_MATERIAL_AMOUNT)
 	armor_type = /datum/armor/blackcoffin
 
 /datum/armor/blackcoffin
@@ -75,6 +76,7 @@
 	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF
 	material_drop = /obj/item/stack/sheet/iron
 	material_drop_amount = 2
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5.5, /datum/material/alloy/plasteel = SHEET_MATERIAL_AMOUNT * 5)
 	armor_type = /datum/armor/securecoffin
 
 /datum/armor/securecoffin
@@ -98,6 +100,7 @@
 	pry_lid_timer = 20 SECONDS
 	material_drop = /obj/item/food/meat/slab/human
 	material_drop_amount = 3
+	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 20, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 1.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 1.5)
 	armor_type = /datum/armor/meatcoffin
 
 /datum/armor/meatcoffin
@@ -121,6 +124,7 @@
 	pry_lid_timer = 30 SECONDS
 	material_drop = /obj/item/stack/sheet/iron
 	material_drop_amount = 5
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7)
 	armor_type = /datum/armor/metalcoffin
 
 /datum/armor/metalcoffin

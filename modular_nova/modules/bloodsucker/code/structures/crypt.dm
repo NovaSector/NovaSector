@@ -113,6 +113,7 @@
 	density = TRUE
 	can_buckle = TRUE
 	buckle_lying = 180
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.3, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3)
 	ghost_desc = "This is an Indoctrination Rack, which allows Bloodsuckers to convert crewmembers into loyal Thralls."
 	vamp_desc = "This is the Indoctrination Rack, which allows you to convert crewmembers into loyal Thralls in your service.\n\
 		Simply click and hold on a victim, and then drag their sprite onto the rack. Right-click on the rack to unbuckle them.\n\
@@ -444,6 +445,7 @@
 	density = FALSE
 	can_buckle = TRUE
 	anchored = FALSE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.5)
 	ghost_desc = "This is a bioluminescent candle which drains at the sanity of non Bloodsuckers and Thralls.\n\
 		Thralls can turn the candle on manually, while Bloodsuckers can do it from a distance."
 	vamp_desc = "This is a bioluminescent candle which drains at the sanity of mortals who are not under your command while it is active.\n\
@@ -529,6 +531,7 @@
 	anchored = FALSE
 	density = TRUE
 	can_buckle = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/wood = SHEET_MATERIAL_AMOUNT)
 	ghost_desc = "This is a Bloodsucker throne, any Bloodsucker sitting on it can remotely speak to their Thralls by attempting to speak aloud."
 	vamp_desc = "This is a blood throne, sitting on it will allow you to telepathically speak to your Thralls by simply speaking."
 	ghoul_desc = "This is a blood throne, it allows your Progenitor to telepathically speak to you and others like you."
