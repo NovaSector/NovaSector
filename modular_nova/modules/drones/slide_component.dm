@@ -93,3 +93,12 @@
 	if(istype(mover) && (mover.pass_flags & PASSGLASS))
 		return !opacity
 	return HAS_TRAIT(mover, TRAIT_SLIDING_UNDER)
+
+/obj/structure/mineral_door/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	if(.)
+		return
+	// preserve mineral door beam handling from mineral_doors.dm
+	if(istype(mover, /obj/effect/beam))
+		return !opacity
+	return HAS_TRAIT(mover, TRAIT_SLIDING_UNDER)
