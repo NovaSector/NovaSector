@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - image: "adds new breast, penis, and testicles sprite variants in character creation for some added variety, as well as a sheathed testicle option"
+  - rscdel: "removes mob sized clamping of penis size"
