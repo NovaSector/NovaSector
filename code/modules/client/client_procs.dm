@@ -971,6 +971,10 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 		add_verb(src, /client/proc/self_playtime)
 	if(!CONFIG_GET(flag/forbid_preferences_export))
 		add_verb(src, /client/proc/export_preferences)
+	// NOVA EDIT ADDITION START
+	if(CONFIG_GET(flag/enable_relays))
+		add_verb(src, /client/proc/connect_to_relay)
+	// NOVA EDIT ADDITION END
 
 
 //checks if a client is afk

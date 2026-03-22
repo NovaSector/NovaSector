@@ -9528,6 +9528,7 @@
 #include "modular_nova\modules\unusual_biochemistry\reagents.dm"
 #include "modular_nova\modules\unusual_biochemistry\unusual_biochemistry.dm"
 #include "modular_nova\modules\verbs\code\looc.dm"
+#include "modular_nova\modules\verbs\code\relays.dm"
 #include "modular_nova\modules\verbs\code\say.dm"
 #include "modular_nova\modules\verbs\code\subtle.dm"
 #include "modular_nova\modules\voice_actor_quirk\code\alter_voice_action.dm"
