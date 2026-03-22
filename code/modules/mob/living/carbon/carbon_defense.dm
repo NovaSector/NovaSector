@@ -383,6 +383,7 @@
 			if(src_tail && !(src_tail.wag_flags & WAG_WAGGING))
 				emote("wag")
 		//NOVA EDIT ADDITION END
+		SEND_SIGNAL(helper, COMSIG_LIVING_HUG_CARBON, src) // NOVA EDIT ADDITION - VAMPIRES
 
 	else if ((helper.zone_selected == BODY_ZONE_PRECISE_GROIN) && !isnull(src.get_organ_by_type(/obj/item/organ/tail)))
 		helper.visible_message(span_notice("[helper] pulls on [src]'s tail!"), \
