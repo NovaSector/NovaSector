@@ -14,6 +14,8 @@
 	speedup_disabled = TRUE
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine
+	/// The techweb we want to pull from so we dont need to rewrite Inits a dozen times
+	var/intended_techweb = /datum/techweb/autounlocking/col_fab
 	/// The sound loop played while the fabricator is making something
 	var/datum/looping_sound/colony_fabricator_running/soundloop
 
@@ -22,7 +24,9 @@
 	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 	// We don't get new designs but can't print stuff if something's not researched, so we use the web that has everything researched
-	stored_research = locate(/datum/techweb/admin) in SSresearch.techwebs
+	if(!GLOB.autounlock_techwebs[intended_techweb])
+		GLOB.autounlock_techwebs[intended_techweb] = new intended_techweb
+	stored_research = GLOB.autounlock_techwebs[intended_techweb]
 	soundloop = new(src, FALSE)
 	if(!mapload)
 		flick("colony_lathe_deploy", src) // Sick ass deployment animation
