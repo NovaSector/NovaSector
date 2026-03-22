@@ -1,0 +1,5 @@
+author: "prodirus"
+delete-after: True
+changes:
+  - bugfix: "Drones can now slide under doors"
+  - bugfix: "Drones can no longer slide under doors if the door has an impassable object under it"
