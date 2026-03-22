@@ -14,25 +14,25 @@
 	speedup_disabled = TRUE
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine
-	/// The techweb we want to pull from. So we dont need to rewrite Inits a dozen times
-	var/intended_techweb = /datum/techweb/autounlocking/col_fab
 	/// The sound loop played while the fabricator is making something
 	var/datum/looping_sound/colony_fabricator_running/soundloop
 
 /obj/machinery/rnd/production/colony_lathe/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
+	handle_network()
 	give_manufacturer_examine()
-	// We don't get new designs but can't print stuff if something's not researched, so we use the web that has everything researched
-	if(!GLOB.autounlock_techwebs[intended_techweb])
-		GLOB.autounlock_techwebs[intended_techweb] = new intended_techweb
-	stored_research = GLOB.autounlock_techwebs[intended_techweb]
+	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
 	soundloop = new(src, FALSE)
 	if(!mapload)
 		flick("colony_lathe_deploy", src) // Sick ass deployment animation
 
 /obj/machinery/rnd/production/colony_lathe/proc/give_manufacturer_examine() //remaking this is like 7x less annoying than remaking an entire init
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+
+/obj/machinery/rnd/production/colony_lathe/proc/handle_network() //To handle the network in a modifiable way for subtypes down the way
+	if(!GLOB.autounlock_techwebs[/datum/techweb/autounlocking/col_fab])
+		GLOB.autounlock_techwebs[/datum/techweb/autounlocking/col_fab] = new /datum/techweb/autounlocking/col_fab
+	stored_research = GLOB.autounlock_techwebs[/datum/techweb/autounlocking/col_fab]
 
 /obj/machinery/rnd/production/colony_lathe/Destroy()
 	QDEL_NULL(soundloop)
