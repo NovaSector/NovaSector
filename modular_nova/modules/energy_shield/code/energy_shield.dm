@@ -489,14 +489,16 @@
 	if(!enabled)
 		return
 
-	// Suppress shield while wearing heavy armor
+	// Disable shield while wearing heavy armor
 	if(wearer_has_heavy_armor())
-		if(shield_active)
-			shield_active = FALSE
-			hide_shield_visuals()
-			update_shield_hud()
-			playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
-			to_chat(wearer, span_warning("Your heavy armor disrupts the energy shield!"))
+		enabled = FALSE
+		shield_active = FALSE
+		shield_health = 0
+		showing_recharge = FALSE
+		hide_shield_visuals()
+		update_shield_hud()
+		playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
+		to_chat(wearer, span_warning("Your heavy armor disrupts the energy shield! Disabling.."))
 		return
 
 	if(!persistent_visuals)
