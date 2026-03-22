@@ -146,7 +146,7 @@
 
 /obj/vehicle/ridden/rail_cart/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/stack/ore/glass))
-		var/obj/item/stack/ore/glass/use_item = attacking_item
+		var/obj/item/stack/ore/glass/use_item = tool
 		if(has_sand || !use_item.use(10))
 			return NONE
 
