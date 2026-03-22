@@ -848,6 +848,14 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	if(!check_availability(patient, operating_on, surgeon, tool, operation_args[OPERATION_TARGET_ZONE]))
 		return ITEM_INTERACT_BLOCKING
 
+	// NOVA EDIT ADDITION START - Makes it so you cannot operate on people in turned on Stasis Beds
+	if(patient.buckled)
+		var/obj/machinery/stasis/stasis_bed = patient.buckled
+		if(istype(stasis_bed) && stasis_bed.stasis_enabled)
+			to_chat(surgeon, span_warning("[patient] cannot be operated in the [patient.buckled] while it is turned on!"))
+			return ITEM_INTERACT_BLOCKING
+	// NOVA EDIT ADDITION END
+
 	if(!start_operation(operating_on, surgeon, tool, operation_args))
 		return ITEM_INTERACT_BLOCKING
 
