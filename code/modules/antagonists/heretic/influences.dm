@@ -159,6 +159,12 @@
 	if(IS_HERETIC(user) || !ishuman(user))
 		return
 
+	// NOVA EDIT ADDITION START - VAMPIRES
+	var/datum/antagonist/vampire/vampire_datum = IS_VAMPIRE(user)
+	if(istype(vampire_datum?.my_clan, /datum/vampire_clan/malkavian))
+		return
+	// NOVA EDIT ADDITION END
+
 	. += span_userdanger("Your mind burns as you stare at the tear!")
 	user.adjust_organ_loss(ORGAN_SLOT_BRAIN, 10, 190)
 	user.add_mood_event("gates_of_mansus", /datum/mood_event/gates_of_mansus)
