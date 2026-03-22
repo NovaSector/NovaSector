@@ -699,3 +699,44 @@ min_antag_cap = 0
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+
+["Roundstart Vampire"]
+weight = 10
+min_pop = 15
+blacklisted_roles = ["Curator"]
+min_antag_cap = 2
+max_antag_cap = 2
+repeatable_weight_decrease = 2
+repeatable = 0
+minimum_required_age = 0
+
+["Midround Vampire"]
+weight = 10
+min_pop = 15
+blacklisted_roles = ["Curator"]
+min_antag_cap = 1
+# max_antag_cap = min_antag_cap
+repeatable_weight_decrease = 2
+repeatable = 0
+minimum_required_age = 0
+
+["Mass Vampires"]
+weight = 10
+min_pop = 15
+blacklisted_roles = ["Curator"]
+min_antag_cap = 1
+max_antag_cap.denominator = 25
+max_antag_cap.offset = 1
+repeatable_weight_decrease = 2
+repeatable = 0
+minimum_required_age = 0
+
+["Latejoin Vampire"]
+weight = 10
+min_pop = 15
+blacklisted_roles = ["Curator"]
+min_antag_cap = 1
+# max_antag_cap = min_antag_cap
+repeatable_weight_decrease = 2
+repeatable = 0
+minimum_required_age = 0
