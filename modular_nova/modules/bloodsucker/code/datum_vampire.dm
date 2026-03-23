@@ -486,10 +486,10 @@
 		.["powers"] += list(power_data)
 
 /datum/antagonist/vampire/get_preview_icon()
-	var/icon/final_icon = render_preview_outfit(/datum/outfit/vampire_outfit)
-	var/icon/blood_icon = icon('icons/effects/blood.dmi', "suitblood")
-	blood_icon.Blend(BLOOD_COLOR_RED, ICON_MULTIPLY)
-	final_icon.Blend(blood_icon, ICON_OVERLAY)
+	var/datum/universal_icon/final_icon = render_preview_outfit(/datum/outfit/vampire_outfit)
+	var/datum/universal_icon/blood_icon = uni_icon('icons/effects/blood.dmi', "suitblood")
+	blood_icon.blend_color(BLOOD_COLOR_RED, ICON_MULTIPLY)
+	final_icon.blend_icon(blood_icon, ICON_OVERLAY)
 
 	return finish_preview_icon(final_icon)
 
