@@ -1,0 +1,5 @@
+author: "Absolucy"
+delete-after: True
+changes:
+  - code_imp: "Cleaned up the code for Necropolis Blood Crawl a bit."
+  - qol: "Necropolis Blood Crawl now simply prevents you from entering forbidden areas while jaunting, instead of immediately kicking you out, which could send you straight into lava in some situations."
