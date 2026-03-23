@@ -586,10 +586,11 @@
 
 	return TRUE
 
-/obj/machinery/power/rbmk2/proc/shock(mob/living/victim, shock_multiplier = 1)
+/obj/machinery/power/rbmk2/shock(mob/living/victim, mob/living/shocking, chance, shock_source, siemens_coeff)
 	if(!powernet)
 		return FALSE
-	if(!electrocute_mob(victim, powernet, src, shock_multiplier, TRUE))
+	if(machine_stat & (BROKEN|NOPOWER))
 		return FALSE
-	do_sparks(5, TRUE, src)
-	return TRUE
+	if(isnull(siemens_coeff))
+		siemens_coeff = 0.7
+	return ..()

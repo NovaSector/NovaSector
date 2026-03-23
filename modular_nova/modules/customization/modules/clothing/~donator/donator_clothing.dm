@@ -2664,3 +2664,55 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		/obj/item/petri_dish,
 		/obj/item/food/grown/banana,
 	))
+
+//Ember's Donor Items
+/obj/item/clothing/suit/armor/donator/duke_armored_coat
+	name = "Duke's armored coat"
+	desc = "A custom-tailored armored Terran European officer's frock with a sewn-in steel-ceramic carapace. \
+			Embodies the spirit of 'old-world imperialism' to an almost aggressive degree, with the usage of bold, dark colors. \
+			The vest prominently displays the Rathenhaus family crest on the shoulders- \
+			a red-black dragon holding a Saxony coat of arms recolored to the Rathenhaus lineage palette."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon_state = "duke_armored_coat"
+	worn_icon_state = "duke_armored_coat"
+	inhand_icon_state = null
+	body_parts_covered = CHEST|ARM_LEFT
+	cold_protection = CHEST|ARM_LEFT
+	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
+	heat_protection = CHEST|ARM_LEFT
+	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
+	armor_type = /obj/item/clothing/suit/armor/vest/capcarapace::armor_type
+
+//Towa's Donor Items
+/obj/item/clothing/head/helmet/donator/stachelm
+	name = "\improper Stachelm"
+	desc = "The S1N Special Tactics And Combat helmet is a prototype combat helmet made \
+			Modular with Integrated HUD and UI so it can be used for a wide range of combat scenarios, \
+			from stealth to heavy combat the S1N combat helmet has your skull covered."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	icon_state = "towa_stachelm"
+	worn_icon_state = "towa_stachelm"
+	body_parts_covered = HEAD
+	flags_inv = HIDEHAIR|HIDEEARS
+	actions_types = list(/datum/action/item_action/toggle_helmet_light)
+	armor_type = /obj/item/clothing/head/hats/caphat::armor_type
+	resistance_flags = FIRE_PROOF
+	light_system = OVERLAY_LIGHT_DIRECTIONAL
+	light_range = 4
+	light_power = 1
+	light_color = "#fff9f3"
+	light_on = FALSE
+
+/obj/item/clothing/head/helmet/donator/stachelm/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands)
+		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
+
+// Toggles the helmet light on if it was off previously, or off it was on
+/obj/item/clothing/head/helmet/donator/stachelm/proc/toggle_helmet_light(mob/living/user)
+	set_light_on(!light_on)
+
+/obj/item/clothing/head/helmet/donator/stachelm/attack_self(mob/living/user)
+	toggle_helmet_light(user)
