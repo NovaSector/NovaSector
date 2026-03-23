@@ -39,7 +39,11 @@
 	if(amt < old_limbs)
 		for(var/i in hand_bodyparts.len to amt step -1)
 			var/obj/item/bodypart/BP = hand_bodyparts[i]
-			BP.dismember()
+			if(i > 2)
+				remove_bodypart(BP)
+				qdel(BP)
+			else
+				BP.dismember()
 			hand_bodyparts[i] = null
 		hand_bodyparts.len = amt
 	else if(amt > old_limbs)
@@ -51,9 +55,11 @@
 			else
 				new_bodypart = newBodyPart(BODY_ZONE_L_ARM)
 			new_bodypart.held_index = i
-			new_bodypart.try_attach_limb(src, TRUE)
+			if(i <= 2)
+				new_bodypart.try_attach_limb(src, TRUE)
+			else
+				add_bodypart(new_bodypart)
 			new_bodypart.update_limb(is_creating = TRUE)
-			// values empirically tested to look the best.
 			if(i > 2)
 				if(IS_RIGHT_INDEX(i))
 					new_bodypart.held_hand_offset = new(
