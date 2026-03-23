@@ -7,6 +7,8 @@
 	splitter = ","
 
 /client/proc/connect_to_relay()
+	set name = "Connect to Relay"
+	set category = "OOC"
 	if(!CONFIG_GET(flag/enable_relays))
 		to_chat(src, span_danger("Relays are currently disabled!"))
 		return
