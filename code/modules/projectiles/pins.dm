@@ -153,8 +153,9 @@
 
 // Ultra-honk pin, clown's deadly joke item.
 // A gun with ultra-honk pin is useful for clown and useless for everyone else.
-/obj/item/firing_pin/implant/mindshield
-	name = "ultra hilarious firing pin"
+/obj/item/firing_pin/implant/loyalty
+	name = "mindshield firing pin"
+	selfdestruct = TRUE
 
 /obj/item/firing_pin/clown/ultra/pin_auth(mob/living/user)
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, TRUE)
@@ -181,7 +182,7 @@
 	..()
 
 // Now two times deadlier!
-/obj/item/firing_pin/implant/loyalty
+/obj/item/firing_pin/implant/mindshield
 	name = "mindshield firing pin"
 	desc = "Advanced clowntech that can convert any firearm into a far more useful object. It has a small nitrobananium charge on it."
 	selfdestruct = TRUE
