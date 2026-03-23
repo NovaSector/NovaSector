@@ -71,19 +71,48 @@
 	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/formal"
-	post_init_icon_state = "formal"
+	post_init_icon_state = "secformal"
 	greyscale_config = /datum/greyscale_config/secformal
 	greyscale_config_worn = /datum/greyscale_config/secformal/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/secformal/worn/digi
-	greyscale_colors = "#39393F#EBEBEB#88242D#39393F"
+	greyscale_colors = "#39393F#EBEBEB#A52F29#39393F"
 	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/nova/formal/blue
-	name = "security formal suit"
-	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
 	icon_state = "/obj/item/clothing/under/rank/security/nova/formal/blue"
-	greyscale_colors = "#39393F#EBEBEB#2C5185#39393F"
+	greyscale_colors = "#39393F#EBEBEB#3F6E9E#39393F"
+
+/obj/item/clothing/under/rank/security/nova/formal/white
+	icon_state = "/obj/item/clothing/under/rank/security/nova/formal/white"
+	greyscale_colors = "#39393F#EBEBEB#EBEBEB#39393F"
+
+/obj/item/clothing/under/rank/security/nova/formal/black
+	icon_state = "/obj/item/clothing/under/rank/security/nova/formal/black"
+	greyscale_colors = "#39393F#EBEBEB#39393F#EBEBEB"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck
+	name = "security turtleneck"
+	desc = "A turtleneck issued to officers complete with Nanotrasen belt buckle."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck"
+	post_init_icon_state = "secturtleneck"
+	greyscale_config = /datum/greyscale_config/secturtleneck
+	greyscale_config_worn = /datum/greyscale_config/secturtleneck/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/secturtleneck/worn/digi
+	greyscale_colors = "#39393F#A52F29#39393F"
 	flags_1 = NONE
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/blue"
+	greyscale_colors = "#39393F#3F6E9E#39393F"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/white
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/white"
+	greyscale_colors = "#ECECEC#ECECEC#39393F"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/black
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/black"
+	greyscale_colors = "#39393F#39393F#ECECEC"
 
 /datum/atom_skin/security_jumpskirt
 	abstract_type = /datum/atom_skin/security_jumpskirt
@@ -194,7 +223,7 @@
 	greyscale_config = /datum/greyscale_config/secshorts
 	greyscale_config_worn = /datum/greyscale_config/secshorts/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/secshorts/worn/digi
-	greyscale_colors = "#39393F"
+	greyscale_colors = "#A52F29"
 	flags_1 = NONE
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
@@ -203,11 +232,11 @@
 
 /obj/item/clothing/under/rank/security/nova/secshorts/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts/blue"
-	greyscale_colors = "#39393F"
+	greyscale_colors = "#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/secshorts/white
 	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts/white"
-	greyscale_colors = "#39393F"
+	greyscale_colors = "#ECECEC"
 
 /obj/item/clothing/under/rank/security/nova/secshorts/black
 	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts/black"
@@ -222,7 +251,7 @@
 	greyscale_config = /datum/greyscale_config/sectrousers
 	greyscale_config_worn = /datum/greyscale_config/sectrousers/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/sectrousers/worn/digi
-	greyscale_colors = "#39393F"
+	greyscale_colors = "#A52F29"
 	flags_1 = NONE
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
@@ -231,18 +260,15 @@
 
 /obj/item/clothing/under/rank/security/nova/trousers/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers/blue"
-	greyscale_colors = "#39393F"
+	greyscale_colors = "#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/trousers/white
 	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers/white"
-	greyscale_colors = "#39393F"
+	greyscale_colors = "#ECECEC"
 
 /obj/item/clothing/under/rank/security/nova/trousers/black
 	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers/black"
 	greyscale_colors = "#39393F"
-
-/datum/atom_skin/security_modskin
-	abstract_type = /datum/atom_skin/security_modskin
 
 /obj/item/clothing/under/rank/security/nova/modskin
 	name = "security M.O.D. skinsuit"
@@ -292,7 +318,7 @@
 
 /obj/item/clothing/under/rank/security/nova/secjumpsuit/black
 	icon_state = "/obj/item/clothing/under/rank/security/nova/secjumpsuit/black"
-	greyscale_colors = "#4E4E54#ECECEC#ECECEC"
+	greyscale_colors = "#39393F#39393F#ECECEC"
 
 /*
 *	WARDEN

@@ -39,12 +39,12 @@
 				/obj/item/clothing/head/beret/sec = 4,
 				/obj/item/clothing/head/soft/sec = 4,
 				/obj/item/clothing/mask/bandana/striped/security = 4,
-				/obj/item/clothing/under/rank/security/nova/secjumpsuit = 4,				//1
+				/obj/item/clothing/under/rank/security/nova/secjumpsuit = 4,	//1
 				/obj/item/clothing/under/rank/security/nova/officer/black = 4,  //2
 				/obj/item/clothing/under/rank/security/officer/skirt = 4,		//3
 				/obj/item/clothing/under/rank/security/nova/dress = 4,			//4
 				/obj/item/clothing/under/rank/security/nova/skirt/mini = 4,		//5
-//				/obj/item/clothing/under/rank/security/nova/turtleneck = 4,		//6
+				/obj/item/clothing/under/rank/security/nova/turtleneck = 4,
 				/obj/item/clothing/under/rank/security/nova/formal = 4,
 				/obj/item/clothing/under/rank/security/nova/utility = 4,		//7
 				/obj/item/clothing/under/rank/security/nova/trousers = 4,
@@ -66,10 +66,10 @@
 		),
 
 		list(
-			"name" = "Alternate",
+			"name" = "Blue",
 			"icon" = "shield-halved",
 			"products" = list(
-		/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
+				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
 				/obj/item/clothing/head/beret/sec/nova = 4,
 				/obj/item/clothing/head/security_cap = 4,
 				/obj/item/clothing/head/helmet/sec/white = 3,
@@ -85,9 +85,10 @@
 				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt/mini/blue = 4,
-//				/obj/item/clothing/under/rank/security/nova/turtleneck/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/turtleneck/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/formal/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/trousers/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/secshorts/blue = 4,
 				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
 				/obj/item/clothing/gloves/color/black/security/white = 4,
@@ -99,6 +100,82 @@
 				/obj/item/storage/backpack/satchel/sec/blue = 4,
 				/obj/item/storage/backpack/duffelbag/sec/blue = 4,
 				/obj/item/storage/backpack/messenger/sec/blue = 4,
+			),
+		),
+
+		list(
+			"name" = "White",
+			"icon" = "shield-halved",
+			"products" = list(
+/*				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
+				/obj/item/clothing/head/beret/sec/nova = 4,
+				/obj/item/clothing/head/security_cap = 4,
+				/obj/item/clothing/head/helmet/sec/white = 3,
+				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
+				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4, */
+				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
+/*				/obj/item/clothing/suit/armor/vest/brit = 3,
+				/obj/item/clothing/neck/security_cape = 4,
+				/obj/item/clothing/neck/security_cape/armplate = 4,
+				/obj/item/clothing/under/rank/security/nova/officer = 4,
+				/obj/item/clothing/under/rank/security/nova/skirt = 4,
+				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
+				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
+				/obj/item/clothing/under/rank/security/nova/skirt/mini/blue = 4, */
+				/obj/item/clothing/under/rank/security/nova/turtleneck/white = 4,
+				/obj/item/clothing/under/rank/security/nova/formal/white = 4,
+//				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/trousers/white = 4,
+				/obj/item/clothing/under/rank/security/nova/secshorts/white = 4,
+/*				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
+				/obj/item/clothing/gloves/color/black/security/white = 4,
+				/obj/item/clothing/gloves/color/black/security/blu = 4,
+				/obj/item/clothing/head/security_garrison = 4,
+				/obj/item/clothing/head/hats/warden/police/patrol = 4,
+				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
+				/obj/item/storage/backpack/security/blue = 4,
+				/obj/item/storage/backpack/satchel/sec/blue = 4,
+				/obj/item/storage/backpack/duffelbag/sec/blue = 4,
+				/obj/item/storage/backpack/messenger/sec/blue = 4, */
+			),
+		),
+
+		list(
+			"name" = "Black",
+			"icon" = "shield-halved",
+			"products" = list(
+/*				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
+				/obj/item/clothing/head/beret/sec/nova = 4,
+				/obj/item/clothing/head/security_cap = 4,
+				/obj/item/clothing/head/helmet/sec/white = 3,
+				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
+				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
+				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
+				/obj/item/clothing/suit/armor/vest/brit = 3,
+				/obj/item/clothing/neck/security_cape = 4,
+				/obj/item/clothing/neck/security_cape/armplate = 4,
+				/obj/item/clothing/under/rank/security/nova/officer = 4,
+				/obj/item/clothing/under/rank/security/nova/skirt = 4,
+				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
+				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
+				/obj/item/clothing/under/rank/security/nova/skirt/mini/blue = 4, */
+				/obj/item/clothing/under/rank/security/nova/turtleneck/black = 4,
+				/obj/item/clothing/under/rank/security/nova/formal/black = 4,
+//				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/trousers/black = 4,
+				/obj/item/clothing/under/rank/security/nova/secshorts/black = 4,
+/*				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
+				/obj/item/clothing/gloves/color/black/security/white = 4,
+				/obj/item/clothing/gloves/color/black/security/blu = 4,
+				/obj/item/clothing/head/security_garrison = 4,
+				/obj/item/clothing/head/hats/warden/police/patrol = 4,
+				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
+				/obj/item/storage/backpack/security/blue = 4,
+				/obj/item/storage/backpack/satchel/sec/blue = 4,
+				/obj/item/storage/backpack/duffelbag/sec/blue = 4,
+				/obj/item/storage/backpack/messenger/sec/blue = 4, */
 			),
 		),
 	)

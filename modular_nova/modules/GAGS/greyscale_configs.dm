@@ -2647,14 +2647,29 @@ Security
 /datum/greyscale_config/secformal
 	name = "Security Formal Suit"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/under/formal.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secformal.json'
 
 /datum/greyscale_config/secformal/worn
 	name = "Security Formal Suit (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secformal_worn.json'
 
 /datum/greyscale_config/secformal/worn/digi
 	name = "Security Formal Suit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/secturtleneck
+	name = "Security Turtleneck"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secturtleneck.json'
+
+/datum/greyscale_config/secturtleneck/worn
+	name = "Security Turtleneck (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secturtleneck_worn.json'
+
+/datum/greyscale_config/secturtleneck/worn/digi
+	name = "Security Turtleneck (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
 
 /datum/greyscale_config/secshorts
@@ -2705,6 +2720,7 @@ Security
 /datum/greyscale_config/secjumpsuit/worn
 	name = "Security Jumpsuit (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secjumpsuit_worn.json'
 
 /datum/greyscale_config/secjumpsuit/worn/digi
 	name = "Security Jumpsuit (Worn, Digi)"
