@@ -855,7 +855,6 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 			to_chat(surgeon, span_warning("[patient] cannot be operated in the [patient.buckled] while it is turned on!"))
 			return ITEM_INTERACT_BLOCKING
 	// NOVA EDIT ADDITION END
-
 	if(isitem(tool))
 		var/obj/item/realtool = tool
 		var/tool_return = SEND_SIGNAL(realtool, COMSIG_ITEM_USED_IN_SURGERY, src, operating_on, surgeon)
