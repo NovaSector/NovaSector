@@ -15,7 +15,7 @@
 	if(isnull(available_relays))
 		available_relays = CONFIG_GET(keyed_list/relay_option)
 
-	if(length(available_relays) == 1)
+	if(!length(available_relays))
 		to_chat(src, span_danger("No relays are available to connect to!"))
 		return
 
