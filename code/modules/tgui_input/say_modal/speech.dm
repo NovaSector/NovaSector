@@ -52,7 +52,7 @@
 			return TRUE
 		// NOVA EDIT ADDITION START - CUSTOMIZATION
 		if(LOOC_CHANNEL)
-			client.looc(entry)
+			INVOKE_ASYNC(client, TYPE_PROC_REF(/client, looc_message), entry)
 			return TRUE
 		if(WHIS_CHANNEL)
 			client.mob.whisper_verb(entry)
