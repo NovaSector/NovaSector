@@ -2691,6 +2691,7 @@ Security
 /datum/greyscale_config/modskin/worn
 	name = "M.O.D. Skinsuit (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/modskin_worn.json'
 
 /datum/greyscale_config/modskin/worn/digi
 	name = "M.O.D. Skinsuit (Worn, Digi)"
