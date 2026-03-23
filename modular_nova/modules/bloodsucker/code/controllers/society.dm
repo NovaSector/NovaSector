@@ -7,7 +7,7 @@ GLOBAL_LIST_EMPTY(all_vampires)
 SUBSYSTEM_DEF(vsociety)
 	name = "Vampire Society"
 	wait = 5 MINUTES
-	flags = SS_NO_INIT | SS_BACKGROUND
+	ss_flags = SS_NO_INIT | SS_BACKGROUND
 	can_fire = FALSE
 
 	// Are we currently polling?
