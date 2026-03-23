@@ -1,0 +1,4 @@
+author: "JohnFulpWillard"
+delete-after: True
+changes:
+  - qol: "Escape menu's quit button now brings you to a second page instead of a TGUI panel."
