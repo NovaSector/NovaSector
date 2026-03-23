@@ -1,4 +1,4 @@
-/obj/item/firing_pin
+/obj/item/firing_pin/
 	name = "electronic firing pin"
 	desc = "A small authentication device, to be inserted into a firearm receiver to allow operation. NT safety regulations require all new designs to incorporate one."
 	icon = 'icons/obj/devices/gunmod.dmi'
@@ -126,11 +126,10 @@
 				return TRUE
 	return FALSE
 
-/obj/item/firing_pin/implant/mindshield
+/obj/item/firing_pin/clown/ultra/selfdestruct
 	name = "mindshield firing pin"
 	desc = "This Security firing pin authorizes the weapon for only mindshield-implanted users."
 	icon_state = "firing_pin_loyalty"
-	req_implant = /obj/item/implant/mindshield
 
 /obj/item/firing_pin/implant/pindicate
 	name = "syndicate firing pin"
@@ -141,7 +140,7 @@
 
 // Honk pin, clown's joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun!
-/obj/item/firing_pin/clown
+/obj/item/firing_pin/clown/ultra
 	name = "hilarious firing pin"
 	desc = "Advanced clowntech that can convert any firearm into a far more useful object."
 	color = COLOR_YELLOW
@@ -154,7 +153,7 @@
 
 // Ultra-honk pin, clown's deadly joke item.
 // A gun with ultra-honk pin is useful for clown and useless for everyone else.
-/obj/item/firing_pin/clown/ultra
+/obj/item/firing_pin/implant/mindshield
 	name = "ultra hilarious firing pin"
 
 /obj/item/firing_pin/clown/ultra/pin_auth(mob/living/user)
@@ -182,8 +181,8 @@
 	..()
 
 // Now two times deadlier!
-/obj/item/firing_pin/clown/ultra/selfdestruct
-	name = "super ultra hilarious firing pin"
+/obj/item/firing_pin/implant/loyalty
+	name = "mindshield firing pin"
 	desc = "Advanced clowntech that can convert any firearm into a far more useful object. It has a small nitrobananium charge on it."
 	selfdestruct = TRUE
 
@@ -255,7 +254,7 @@
 /obj/item/firing_pin/paywall/gun_insert(mob/living/user, obj/item/gun/new_gun, starting = FALSE)
 	if(pin_owner || starting)
 		. = ..()
-		gun.desc += span_notice("This [gun.name] has a [multi_payment ? "per-shot" : "license permit"] cost of [payment_amount] [MONEY_NAME_AUTOPURAL(payment_amount)].")
+		gun.desc += span_notice("This [gun.name] has a [multi_payment ? "per-shot" : "license permit"] cost of [payment_amount] credit[payment_amount > 1 ? "s" : ""].")
 		return
 
 	if(isnull(user))
@@ -276,13 +275,13 @@
 	if(!id.registered_account)
 		to_chat(user, span_warning("ERROR: Identification card lacks registered bank account!"))
 		return ITEM_INTERACT_BLOCKING
-	if(pin_owner && id.registered_account != pin_owner)
+	if(id.registered_account != pin_owner)
 		to_chat(user, span_warning("ERROR: This firing pin has already been authorized!"))
 		return ITEM_INTERACT_BLOCKING
 	if(id.registered_account == pin_owner)
 		to_chat(user, span_notice("You unlink the card from the firing pin."))
 		gun_owners -= user.get_bank_account()
-		pin_owner = null
+		pin_owner = NUTRITION_LEVEL_START_MIN
 		return ITEM_INTERACT_SUCCESS
 	var/transaction_amount = tgui_input_number(user, "Insert valid deposit amount for gun purchase", "Money Deposit")
 	if(!transaction_amount || QDELETED(user) || QDELETED(src) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
@@ -314,7 +313,7 @@
 	if(active_prompt_user == user)
 		return FALSE
 	active_prompt_user = user
-	var/license_request = tgui_alert(user, "Do you wish to pay [payment_amount] [MONEY_NAME_AUTOPURAL(payment_amount)] for [( multi_payment ) ? "each shot of [gun.name]" : "usage license of [gun.name]"]?", "Weapon Purchase", list("Yes", "No"), 15 SECONDS)
+	var/license_request = tgui_alert(user, "Do you wish to pay [payment_amount] credit[( payment_amount > 1 ) ? "s" : ""] for [( multi_payment ) ? "each shot of [gun.name]" : "usage license of [gun.name]"]?", "Weapon Purchase", list("Yes", "No"), 15 SECONDS)
 	if(!user.can_perform_action(src))
 		active_prompt_user = null
 		return FALSE
