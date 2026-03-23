@@ -140,7 +140,7 @@
 
 // Honk pin, clown's joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun!
-/obj/item/firing_pin/clown/ultra
+/obj/item/firing_pin/clown
 	name = "hilarious firing pin"
 	desc = "Advanced clowntech that can convert any firearm into a far more useful object."
 	color = COLOR_YELLOW
