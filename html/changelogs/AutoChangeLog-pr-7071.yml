@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - qol: "adds a 'Connect to Relay' option under the File menu, below 'reconnect'"
+  - qol: "adds a new verb, 'Connect-to-Relay' that can be typed or found in the OOC tab"
