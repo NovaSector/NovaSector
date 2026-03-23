@@ -9,6 +9,7 @@
 /client/proc/connect_to_relay()
 	if(!CONFIG_GET(flag/enable_relays))
 		to_chat(src, span_danger("Relays are currently disabled!"))
+		return
 
 	var/static/list/available_relays
 	if(isnull(available_relays))
@@ -16,8 +17,8 @@
 
 	if(length(available_relays) == 1)
 		to_chat(src, span_danger("No relays are available to connect to!"))
+		return
 
-	for(var/relay_address, connection_text in available_relays)
 	var/choice = tgui_input_list(usr, "Which relay do you wish to use?", "Relay choice", available_relays)
 	if(isnull(choice))
 		return
