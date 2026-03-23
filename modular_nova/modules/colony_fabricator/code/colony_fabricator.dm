@@ -12,6 +12,8 @@
 	light_power = 5
 	allowed_buildtypes = COLONY_FABRICATOR
 	speedup_disabled = TRUE
+	/// techweb we intend to use for unlocking stuff.
+	var/techweb_path = /datum/techweb/autounlocking/nova/col_fab
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine
 	/// The sound loop played while the fabricator is making something
@@ -30,9 +32,9 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
 /obj/machinery/rnd/production/colony_lathe/proc/handle_network() //To handle the network in a modifiable way for subtypes down the way
-	if(!GLOB.autounlock_techwebs[/datum/techweb/autounlocking/col_fab])
-		GLOB.autounlock_techwebs[/datum/techweb/autounlocking/col_fab] = new /datum/techweb/autounlocking/col_fab
-	stored_research = GLOB.autounlock_techwebs[/datum/techweb/autounlocking/col_fab]
+	if(!GLOB.autounlock_techwebs[techweb_path])
+		GLOB.autounlock_techwebs[techweb_path] = new techweb_path
+	stored_research = GLOB.autounlock_techwebs[techweb_path]
 
 /obj/machinery/rnd/production/colony_lathe/Destroy()
 	QDEL_NULL(soundloop)
@@ -69,18 +71,18 @@
 /obj/machinery/rnd/production/colony_lathe/build_efficiency()
 	return 1
 
-// We take from all nodes even unresearched ones
+// Rewrite to avoid limitations
 /obj/machinery/rnd/production/colony_lathe/update_designs()
 	var/previous_design_count = cached_designs.len
 
 	cached_designs.Cut()
 
 	var/allow_any = isnull(allowed_department_flags)
-	for(var/design_id, design in SSresearch.techweb_designs)
-		var/datum/design/current_design = design
+	for(var/design_id in stored_research.researched_designs)
+		var/datum/design/design = SSresearch.techweb_design_by_id(design_id)
 
-		if(allow_any || ((current_design.departmental_flags & allowed_department_flags) && (current_design.build_type & allowed_buildtypes)))
-			cached_designs |= current_design
+		if(allow_any || ((design.departmental_flags & allowed_department_flags) && (design.build_type & allowed_buildtypes)))
+			cached_designs |= design
 
 	var/design_delta = length(cached_designs) - previous_design_count
 
