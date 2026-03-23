@@ -30,11 +30,11 @@
 	)
 
 /datum/design/module/retract_plates
-	name = "MOD plate compression module"
+	name = "MOD Plate Compression Module"
 	id = "mod_retract_plates"
 	build_path = /obj/item/mod/module/plate_compression
 
 /datum/design/module/magnetic_deploy
-	name = "MOD magnetic deployment module"
+	name = "MOD Magnetic Deployment Module"
 	id = "mod_magnetic_deploy"
 	build_path = /obj/item/mod/module/springlock/contractor
