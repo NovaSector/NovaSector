@@ -1569,6 +1569,12 @@
 	},
 /turf/open/floor/iron/checker,
 /area/mine/cafeteria)
+"iI" = (
+/obj/machinery/power/weather_tower,
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "iN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4225,6 +4231,10 @@
 /obj/item/chair/wood,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"wG" = (
+/obj/structure/lattice/catwalk,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "wJ" = (
 /obj/structure/table/wood/poker,
 /obj/item/toy/cards/deck{
@@ -4534,10 +4544,6 @@
 	},
 /turf/open/floor/iron,
 /area/mine/living_quarters)
-"yL" = (
-/obj/structure/lattice/catwalk,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "yN" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -5022,12 +5028,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/corner,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/mine/production)
-"Ci" = (
-/obj/machinery/power/weather_tower,
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "Cm" = (
 /obj/machinery/door/airlock/glass{
 	name = "Canteen"
@@ -35930,7 +35930,7 @@ pU
 pU
 pU
 pU
-Ci
+iI
 pU
 pU
 pU
@@ -36188,8 +36188,8 @@ aD
 aD
 aD
 aD
-yL
-yL
+wG
+wG
 pU
 pU
 pU
@@ -39263,7 +39263,7 @@ ZY
 ZY
 pU
 pU
-Ci
+iI
 aD
 Qz
 ON
@@ -40034,7 +40034,7 @@ ZY
 ZY
 pU
 pU
-Ci
+iI
 aD
 aD
 ON

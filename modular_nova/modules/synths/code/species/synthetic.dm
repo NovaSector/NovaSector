@@ -259,6 +259,6 @@
 	return perk_descriptions
 
 /datum/species/synthetic/prepare_human_for_preview(mob/living/carbon/human/beepboop)
-	beepboop.dna.mutant_bodyparts[FEATURE_SYNTH_SCREEN] = beepboop.dna.species.build_mutant_part("Console")
+	beepboop.dna.mutant_bodyparts[FEATURE_SYNTH_SCREEN] = build_mutant_part("Console")
 	regenerate_organs(beepboop, src, visual_only = TRUE)
 	beepboop.update_body(TRUE)

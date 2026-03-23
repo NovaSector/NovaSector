@@ -13,6 +13,8 @@ GLOBAL_LIST_EMPTY(body_markings)
 GLOBAL_LIST_EMPTY_TYPED(body_markings_per_limb, /list)
 GLOBAL_LIST_EMPTY(body_marking_sets)
 
+GLOBAL_LIST_EMPTY(robotic_styles_list)
+
 GLOBAL_LIST_EMPTY(loadout_items)
 GLOBAL_LIST_EMPTY(loadout_category_to_subcategory_to_items)
 
