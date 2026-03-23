@@ -1,0 +1,16 @@
+{
+	"navalcap": [
+		{
+			"type": "icon_state",
+			"icon_state": "navalofficerscap_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "navalofficerscap_pin",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

@@ -435,9 +435,16 @@
   Happyowl93:
   - rscadd: Adds custom medical pens printable straight from the chemmaster/plumbing
       pill press
+  - bugfix: removed the greyscale digi legs being applied to all clothes.
+  - rscadd: adds two new quirks, rad fiend and illuminated
+  - rscadd: Added a new set of toeless boots and tailmaw
   Hardly:
   - bugfix: Fixes "Moth (Featherful)" wings having no sprites and renames them to
       "Moth (Feathery)"
+  - code_imp: Quantum Server will ask for username first, and will prevent interactions
+      if message protected
+  - bugfix: Lights no longer turn off in bitrunning domains (and the rest of the reserved
+      z-level)
   Some2s:
   - bugfix: fixed a sprite inconsistency
   bigbakedbean:
