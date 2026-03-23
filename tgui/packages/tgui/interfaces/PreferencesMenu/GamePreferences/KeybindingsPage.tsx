@@ -13,7 +13,6 @@ import {
 import type { KeyEvent } from 'tgui-core/events';
 import { fetchRetry } from 'tgui-core/http';
 import { isEscape, KEY } from 'tgui-core/keys';
-import type { BooleanLike } from 'tgui-core/react';
 
 import { LoadingScreen } from '../../common/LoadingScreen';
 import type { PreferencesMenuData } from '../types';
@@ -22,7 +21,6 @@ import { TabbedMenu } from './TabbedMenu';
 type Keybinding = {
   name: string;
   description?: string;
-  can_edit: BooleanLike;
   default?: string[];
 };
 
@@ -121,7 +119,6 @@ function moveToBottom(entries: [string, unknown][], findCategory: string) {
 }
 
 class KeybindingButton extends Component<{
-  can_edit: BooleanLike;
   currentHotkey?: string;
   onClick?: () => void;
   typingHotkey?: string;
@@ -135,8 +132,7 @@ class KeybindingButton extends Component<{
   }
 
   render() {
-    const { can_edit, currentHotkey, onClick, typingHotkey, defaults } =
-      this.props;
+    const { currentHotkey, onClick, typingHotkey, defaults } = this.props;
 
     const keyText = typingHotkey || currentHotkey || 'Unbound';
     const child = (
@@ -145,19 +141,15 @@ class KeybindingButton extends Component<{
         textAlign="center"
         captureKeys={typingHotkey === undefined}
         onClick={(event) => {
-          if (can_edit) {
-            event.stopPropagation();
-            onClick?.();
-          }
+          event.stopPropagation();
+          onClick?.();
         }}
         selected={typingHotkey !== undefined}
         textColor={keyText === 'Unbound' ? 'grey' : undefined}
         color={
-          !can_edit
-            ? 'transparent'
-            : keyText === 'Unbound' || !defaults || defaults.includes(keyText)
-              ? undefined
-              : 'green'
+          keyText === 'Unbound' || !defaults || defaults.includes(keyText)
+            ? undefined
+            : 'green'
         }
       >
         {keyText}
@@ -251,10 +243,10 @@ function getKeybindingNodes(
         <Stack.Item key={keybindingId} mb={1}>
           <Stack fill>
             {name}
-            {range(0, keybinding.can_edit ? 3 : 1).map((key) => (
+
+            {range(0, 3).map((key) => (
               <Stack.Item key={key} grow basis="10%">
                 <KeybindingButton
-                  can_edit={keybinding.can_edit}
                   currentHotkey={keys[key]}
                   typingHotkey={getTypingHotkey(keybindingId, key)}
                   onClick={getKeybindingOnClick(keybindingId, key)}
@@ -262,11 +254,10 @@ function getKeybindingNodes(
                 />
               </Stack.Item>
             ))}
-            {!!keybinding.can_edit && (
-              <Stack.Item shrink>
-                <ResetToDefaultButton keybindingId={keybindingId} />
-              </Stack.Item>
-            )}
+
+            <Stack.Item shrink>
+              <ResetToDefaultButton keybindingId={keybindingId} />
+            </Stack.Item>
           </Stack>
         </Stack.Item>
       );
