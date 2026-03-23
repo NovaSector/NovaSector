@@ -90,12 +90,14 @@
 			clamped += clamp_color_brightness(part_color)
 		part.set_colors(clamped)
 
+	/* // Marking clamping, disabled for now
 	// Deep copy body markings to avoid mutating shared preference references
 	target.dna.body_markings = deep_copy_list(target.dna.body_markings)
 	for(var/zone, markings_list in target.dna.body_markings)
 		for(var/marking_name, marking_data in markings_list)
 			if(islist(marking_data) && length(marking_data))
 				marking_data[1] = clamp_color_brightness(marking_data[1])
+	*/
 
 	// Update draw_color on bodypart overlays so they reflect the clamped colors
 	for(var/obj/item/bodypart/bodypart as anything in target.bodyparts)
