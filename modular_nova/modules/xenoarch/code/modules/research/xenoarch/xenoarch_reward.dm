@@ -109,7 +109,6 @@
 		/obj/item/claymore/cutlass/old = 3,
 		/obj/item/claymore = 2,
 		/obj/item/claymore/cutlass = 2,
-		/obj/item/pen/edagger = 4, //can be hidden in the pda and gives illegal tech
 		/obj/item/melee/energy/sword/surplus = 4, // This is the type 1, with 50% block.
 		/obj/item/melee/baseball_bat/ablative = 4,
 		/obj/item/nullrod/tribal_knife = 2,
@@ -122,10 +121,10 @@
 	desc = "Xenoarchaeology contraband loot."
 	loot = list(
 		/obj/item/card/emag/doorjack = 3,
-		/obj/item/chameleon = 3,
 		/obj/item/clothing/shoes/chameleon/noslip = 2,
 		/obj/item/storage/box/incomplete_chameleon = 3, // we use this modified box so it doesnt give illegal tech
 		/obj/item/clothing/gloves/color/black/thief = 2,
+		/obj/item/pen/edagger = 4,
 		/obj/item/melee/energy/sword = 1,
 	)
 
@@ -138,5 +137,4 @@
 		/obj/effect/spawner/random/medical/surgery_tool_alien = 2,
 		/obj/item/abductor/alien_omnitool = 2,
 		/obj/item/storage/belt/military/abductor/full = 2,
-		/obj/item/gun/energy/shrink_ray/faulty = 1,
 	)
