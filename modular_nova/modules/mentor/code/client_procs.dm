@@ -8,7 +8,11 @@
 
 	return ..()
 
-/client/proc/mentor_client_procs(href_list)
+/client/proc/client_procs(href_list)
+	if(href_list["connect_to_relay"])
+		connect_to_relay()
+		return TRUE
+
 	if(href_list["mentor_msg"])
 		if(CONFIG_GET(flag/mentors_mobname_only))
 			var/mob/M = locate(href_list["mentor_msg"])
