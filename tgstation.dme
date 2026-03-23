@@ -7414,6 +7414,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\brain\MMI.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\carbon_defense.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\carbon_defines.dm"
+#include "modular_nova\master_files\code\modules\mob\living\carbon\carbon_stripping.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\death.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human_helpers.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\death.dm"
