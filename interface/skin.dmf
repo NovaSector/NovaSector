@@ -35,7 +35,7 @@ menu "menu"
 		category = "&File"
 		saved-params = "is-checked"
     elem
-		name = "&Use Internet Routing Relay"
+		name = "&Connect to Relay"
 		command = "connect-to-relay"
         category = "&File"
 		saved-params = "is-checked"
