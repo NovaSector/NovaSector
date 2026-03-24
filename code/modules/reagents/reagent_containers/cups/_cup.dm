@@ -142,7 +142,6 @@
 	user.hud_used?.hunger?.update_hunger_bar()
 	checkLiked(fraction, target_mob)
 	playsound_if_pref(target_mob, consumption_sound, rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT CHANGE - Original: playsound(target_mob, consumption_sound, rand(10,50), TRUE)
-	if(!iscarbon(target_mob))
 	var/list/datum/disease/diseases_to_add
 	for(var/datum/disease/malady as anything in target_mob.get_static_viruses())
 		if(malady.spread_flags & DISEASE_SPREAD_CONTACT_FLUIDS)
@@ -387,7 +386,7 @@
 
 /obj/item/reagent_containers/cup/beaker
 	name = "beaker"
-	desc = "A beaker. It can hold up to 60 units." //NOVA EDIT: Used to say can hold up to 50 units.
+	desc = "A beaker. It can hold up to 50 units."
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "beaker"
 	inhand_icon_state = "beaker"
@@ -396,8 +395,6 @@
 	worn_icon_state = "beaker"
 	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT*5)
 	fill_icon_thresholds = list(0, 1, 20, 40, 60, 80, 100)
-	volume = 60 //NOVA EDIT: Addition
-	possible_transfer_amounts = list(5,10,15,20,30,60) //NOVA EDIT: Addition
 	pickup_sound = 'sound/items/handling/beaker_pickup.ogg'
 	drop_sound = 'sound/items/handling/beaker_place.ogg'
 	sound_vary = TRUE
@@ -420,26 +417,24 @@
 
 /obj/item/reagent_containers/cup/beaker/large
 	name = "large beaker"
-	desc = "A large beaker. Can hold up to 120 units." //NOVA EDIT: Used to say Can hold up to 100 units.
+	desc = "A large beaker. Can hold up to 100 units."
 	icon_state = "beakerlarge"
 	custom_materials = list(/datum/material/glass= SHEET_MATERIAL_AMOUNT*1.25)
-	volume = 120 //NOVA EDIT: Original value (100)
+	volume = 100
 	amount_per_transfer_from_this = 10
-	//possible_transfer_amounts = list(5,10,15,20,25,30,50,100) //NOVA EDIT: Original Values
-	possible_transfer_amounts = list(5,10,15,20,30,40,60,120) //NOVA EDIT: New Values
+	possible_transfer_amounts = list(5,10,15,20,25,30,50,100)
 	fill_icon_thresholds = list(0, 1, 20, 40, 60, 80, 100)
 	assembly_pixel_y = 8
 
 /obj/item/reagent_containers/cup/beaker/plastic
 	name = "x-large beaker"
-	desc = "An extra-large beaker. Can hold up to 150 units." //NOVA EDIT: Used to say Can hold up to 120 units
+	desc = "An extra-large beaker. Can hold up to 120 units."
 	icon_state = "beakerwhite"
 	inhand_icon_state = "beaker_white"
 	custom_materials = list(/datum/material/glass=SHEET_MATERIAL_AMOUNT*1.25, /datum/material/plastic=SHEET_MATERIAL_AMOUNT * 1.5)
-	volume = 150 //NOVA EDIT: Original Value (120)
+	volume = 120
 	amount_per_transfer_from_this = 10
-	//possible_transfer_amounts = list(5,10,15,20,25,30,60,120) //NOVA EDIT: Original values
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,75,150) //NOVA EDIT: New Values
+	possible_transfer_amounts = list(5,10,15,20,25,30,60,120)
 	fill_icon_thresholds = list(0, 1, 10, 20, 40, 60, 80, 100)
 	assembly_pixel_y = 8
 
@@ -534,7 +529,7 @@
 
 /obj/item/reagent_containers/cup/bucket
 	name = "bucket"
-	desc = "It's a bucket. You can squeeze a mop's contents into it by using right-click." //NOVA EDIT CHANGE - ORIGINAL: desc = "It's a bucket."
+	desc = "It's a bucket."
 	icon = 'icons/obj/service/janitor.dmi'
 	worn_icon = 'icons/mob/clothing/head/utility.dmi'
 	icon_state = "bucket"
@@ -546,8 +541,8 @@
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2)
 	w_class = WEIGHT_CLASS_NORMAL
 	amount_per_transfer_from_this = 20
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100) //NOVA EDIT CHANGE
-	volume = 100 //NOVA EDIT CHANGE
+	possible_transfer_amounts = list(5,10,15,20,25,30,50,70)
+	volume = 70
 	flags_inv = HIDEHAIR
 	slot_flags = ITEM_SLOT_HEAD
 	resistance_flags = NONE
@@ -584,10 +579,22 @@
 	melee = 10
 	acid = 50
 
-// NOVA EDIT CHANGE START - LIQUIDS
-/* Original
 /obj/item/reagent_containers/cup/bucket/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/mop))
+		// NOVA EDIT ADDITION START - LIQUIDS
+		var/is_right_clicking = LAZYACCESS(modifiers, RIGHT_CLICK)
+		if(is_right_clicking)
+			if(tool.reagents.total_volume == 0)
+				user.balloon_alert(user, "[tool] is dry!")
+				return ITEM_INTERACT_BLOCKING
+			if(reagents.total_volume == reagents.maximum_volume)
+				user.balloon_alert(user, "[tool] is full!")
+				return ITEM_INTERACT_BLOCKING
+			tool.reagents.remove_all(tool.reagents.total_volume * SQUEEZING_DISPERSAL_RATIO)
+			tool.reagents.trans_to(src, tool.reagents.total_volume, transferred_by = user)
+			user.balloon_alert(user, "[tool] squeezed")
+			return ..()
+		// NOVA EDIT ADDITION END
 		if(reagents.total_volume < 1)
 			user.balloon_alert(user, "empty!")
 			return ITEM_INTERACT_BLOCKING
@@ -603,38 +610,6 @@
 		return ITEM_INTERACT_SUCCESS
 
 	return ..()
-*/
-/obj/item/reagent_containers/cup/bucket/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(istype(tool, /obj/item/mop))
-		var/is_right_clicking = LAZYACCESS(modifiers, RIGHT_CLICK)
-		if(is_right_clicking)
-			if(tool.reagents.total_volume == 0)
-				user.balloon_alert(user, "[tool] is dry!")
-				return ITEM_INTERACT_BLOCKING
-			if(reagents.total_volume == reagents.maximum_volume)
-				user.balloon_alert(user, "[tool] is full!")
-				return ITEM_INTERACT_BLOCKING
-			tool.reagents.remove_all(tool.reagents.total_volume * SQUEEZING_DISPERSAL_RATIO)
-			tool.reagents.trans_to(src, tool.reagents.total_volume, transferred_by = user)
-			user.balloon_alert(user, "[tool] squeezed")
-		else
-			if(reagents.total_volume < 1)
-				user.balloon_alert(user, "empty!")
-				return ITEM_INTERACT_BLOCKING
-			else
-				reagents.trans_to(tool, 5, transferred_by = user)
-				user.balloon_alert(user, "doused [tool]")
-				playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
-				return ITEM_INTERACT_SUCCESS
-	else if(isprox(tool)) //This works with wooden buckets for now. Somewhat unintended, but maybe someone will add sprites for it soon(TM)
-		to_chat(user, span_notice("You add [tool] to [src]."))
-		qdel(tool)
-		var/obj/item/bot_assembly/cleanbot/new_cleanbot_ass = new(null, src)
-		user.put_in_hands(new_cleanbot_ass)
-		return ITEM_INTERACT_SUCCESS
-
-	return ..()
-// NOVA EDIT CHANGE END - LIQUIDS
 
 /obj/item/reagent_containers/cup/bucket/equipped(mob/user, slot)
 	. = ..()
