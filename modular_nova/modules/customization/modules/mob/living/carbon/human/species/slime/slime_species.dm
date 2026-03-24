@@ -38,20 +38,28 @@
 	)
 
 /datum/species/jelly/Destroy(force)
+	QDEL_NULL(alter_form)
 	QDEL_NULL(slime_washing)
 	QDEL_NULL(slime_hydrophobia)
+	QDEL_NULL(core_signal)
 	return ..()
 
 /datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	if(!ishuman(new_jellyperson))
 		return
+	if(QDELETED(alter_form))
+		alter_form = new
+	alter_form.Grant(new_jellyperson)
 	if(QDELETED(slime_washing))
 		slime_washing = new
 	slime_washing.Grant(new_jellyperson)
 	if(QDELETED(slime_hydrophobia))
 		slime_hydrophobia = new
 	slime_hydrophobia.Grant(new_jellyperson)
+	if(QDELETED(core_signal))
+		core_signal = new
+	core_signal.Grant(new_jellyperson)
 
 	RegisterSignal(new_jellyperson, COMSIG_ATOM_EXPOSE_REAGENTS, PROC_REF(on_reagent_expose))
 	RegisterSignal(new_jellyperson, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_organ_gain))
@@ -64,12 +72,18 @@
 /datum/species/jelly/on_species_loss(mob/living/carbon/former_jellyperson, datum/species/new_species, pref_load)
 	. = ..()
 	UnregisterSignal(former_jellyperson, list(COMSIG_ATOM_EXPOSE_REAGENTS, COMSIG_CARBON_GAIN_ORGAN, COMSIG_CARBON_LOSE_ORGAN))
+	if(alter_form)
+		alter_form.Remove(former_jellyperson)
+		QDEL_NULL(alter_form)
 	if(slime_washing)
 		slime_washing.Remove(former_jellyperson)
 		QDEL_NULL(slime_washing)
 	if(slime_hydrophobia)
 		slime_hydrophobia.Remove(former_jellyperson)
 		QDEL_NULL(slime_hydrophobia)
+	if(core_signal)
+		core_signal.Remove(former_jellyperson)
+		QDEL_NULL(core_signal)
 
 	for(var/obj/item/organ/organ as anything in former_jellyperson.organs)
 		if(is_type_in_list(organ, organs_to_move))

@@ -8214,6 +8214,7 @@
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\slime\signals_slime.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\slime\slime_core.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\slime\slime_debuff.dm"
+#include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\slime\slime_gps.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\slime\slime_hydrophobia.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\slime\slime_organs.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\slime\slime_shapeshifting.dm"

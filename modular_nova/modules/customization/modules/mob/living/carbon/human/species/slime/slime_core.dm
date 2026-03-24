@@ -554,13 +554,13 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	brainmob?.mind?.grab_ghost()
 	if(isnull(mind))
 		if(isnull(brainmob))
-			user?.balloon_alert(user, "this brain is not a viable candidate for repair!")
+			user?.balloon_alert(user, "this core is not a viable candidate for repair!")
 			return null
 		if(isnull(brainmob.stored_dna))
-			user?.balloon_alert(user, "this brain does not contain any dna!")
+			user?.balloon_alert(user, "this core does not contain any dna!")
 			return null
 		if(isnull(brainmob.client))
-			user?.balloon_alert(user, "this brain does not contain a mind!")
+			user?.balloon_alert(user, "this core does not contain a mind!")
 			return null
 
 	if(ismob(loc))
@@ -614,14 +614,17 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		new_body.set_jitter_if_lower(200 SECONDS)
 		INVOKE_ASYNC(new_body, TYPE_PROC_REF(/mob, emote), "scream")
 	else
-		new_body.visible_message(span_warning("[new_body]'s body fully forms from [new_body.p_their()] core!"))
-		to_chat(owner, span_purple("Your body fully forms from your core!"))
+		new_body.visible_message(
+			span_warning("[new_body]'s body fully forms from [new_body.p_their()] core!"),
+			span_purple("Your body fully forms from your core!")
+		)
 
 	if(!QDELETED(brainmob))
 		membrane_mur.Remove(brainmob)
 	brainmob?.mind?.transfer_to(new_body)
 	new_body.grab_ghost()
 	transfer_observers_to(new_body)
+	to_chat(owner, span_danger("[CONFIG_GET(string/blackoutpolicy)]"))
 
 	drop_items_to_ground(new_body.drop_location())
 
