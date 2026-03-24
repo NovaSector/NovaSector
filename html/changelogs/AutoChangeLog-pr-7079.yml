@@ -1,0 +1,4 @@
+author: "Absolucy"
+delete-after: True
+changes:
+  - qol: "The med/sec/exploitable/general/background info readout in chat is now stylized and easier to read."
