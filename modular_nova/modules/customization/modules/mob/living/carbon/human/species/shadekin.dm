@@ -71,33 +71,16 @@
 	return color
 
 /// Clamps all mutant colors and bodypart colors on the target to max brightness.
-/datum/species/shadekin/proc/clamp_all_colors(mob/living/carbon/human/target)
-	// Clamp the three mutant colors in DNA features
+/datum/species/shadekin/proc/clamp_primary_colors(mob/living/carbon/human/target)
+	// Clamp the primary mutant color, which is what is used for the bodyparts
 	target.dna.features[FEATURE_MUTANT_COLOR] = clamp_color_brightness(target.dna.features[FEATURE_MUTANT_COLOR])
-	target.dna.features[FEATURE_MUTANT_COLOR_TWO] = clamp_color_brightness(target.dna.features[FEATURE_MUTANT_COLOR_TWO])
-	target.dna.features[FEATURE_MUTANT_COLOR_THREE] = clamp_color_brightness(target.dna.features[FEATURE_MUTANT_COLOR_THREE])
 
-	// Clamp colors on all mutant bodyparts (ears, tail, horns, etc.)
+	// Clamp primary mutant color on all mutant bodyparts (ears, tail, horns, etc.)
 	for(var/part_key, part_entry in target.dna.mutant_bodyparts)
 		var/datum/mutant_bodypart/part = part_entry
 		if(!istype(part))
 			continue
-		var/list/part_colors = part.get_colors()
-		if(!length(part_colors))
-			continue
-		var/list/clamped = list()
-		for(var/part_color in part_colors)
-			clamped += clamp_color_brightness(part_color)
-		part.set_colors(clamped)
-
-	/* // Marking clamping, disabled for now
-	// Deep copy body markings to avoid mutating shared preference references
-	target.dna.body_markings = deep_copy_list(target.dna.body_markings)
-	for(var/zone, markings_list in target.dna.body_markings)
-		for(var/marking_name, marking_data in markings_list)
-			if(islist(marking_data) && length(marking_data))
-				marking_data[1] = clamp_color_brightness(marking_data[1])
-	*/
+		part.set_primary_color(clamp_color_brightness(part.get_primary_color()))
 
 	// Update draw_color on bodypart overlays so they reflect the clamped colors
 	for(var/obj/item/bodypart/bodypart as anything in target.bodyparts)
@@ -110,7 +93,7 @@
 			overlay.set_appearance_from_dna(target.dna)
 
 /datum/species/shadekin/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
-	clamp_all_colors(target)
+	clamp_primary_colors(target)
 
 /datum/species/shadekin/randomize_features()
 	var/list/features = ..()
@@ -143,7 +126,7 @@
 /datum/species/shadekin/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	if(!pref_load)
-		clamp_all_colors(human_who_gained_species)
+		clamp_primary_colors(human_who_gained_species)
 
 /datum/species/shadekin/prepare_human_for_preview(mob/living/carbon/human/shadekin)
 	var/main_color = "#222222"
