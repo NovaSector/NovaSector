@@ -734,8 +734,10 @@ NOVA EDIT REMOVAL END */
 			if(!silent)
 				to_chat(src, span_notice("You will now stand up as soon as you are able to."))
 		else
-			/*if(!silent) NOVA EDIT REMOVAL
-				to_chat(src, "<span class='notice'>You stand up.</span>")*/
+			// NOVA EDIT REMOVAL START
+			if(!silent)
+				to_chat(src, span_notice("You stand up."))
+			// NOVA EDIT REMOVAL END
 			get_up(instant)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_RESTING, new_resting, silent, instant)
@@ -2109,11 +2111,11 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(isliving(dropping))
 		var/mob/living/M = dropping
 		if(M.can_be_held && U.pulling == M)
-			return M.mob_try_pickup(U) //NOVA EDIT CHANGE - Original:
-			/*
+			/* // NOVA EDIT REMOVAL START
 			M.mob_try_pickup(U)//blame kevinz
 			return//dont open the mobs inventory if you are picking them up
-			*/
+			*/ // NOVA EDIT REMOVAL END
+			return M.mob_try_pickup(U) // NOVA EDIT ADDITION - don't open the mob's inventory if you are picking them up
 	return ..()
 
 /mob/living/proc/mob_pickup(mob/living/user)
@@ -2129,8 +2131,12 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	real_name = name
 
 /mob/living/proc/mob_try_pickup(mob/living/user, instant=FALSE)
-	if(!ishuman(user))
-		return FALSE
+	if(!ishuman(user) && (user.mob_size <= mob_size || user.num_hands == 0))
+		if (!user.num_hands)
+			return
+		if (user.mob_size <= mob_size)
+			to_chat(user, span_warning("[src] is too big to pick up!"))
+			return
 	if(!user.get_empty_held_indexes())
 		to_chat(user, span_warning("Your hands are full!"))
 		return FALSE
@@ -2144,7 +2150,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		if(!do_after(user, 2 SECONDS, target = src))
 			return FALSE
 	mob_pickup(user)
-	return TRUE //NOVA EDIT CHANGE
+	return TRUE
 
 /mob/living/proc/get_static_viruses() //used when creating blood and other infective objects
 	if(!LAZYLEN(diseases))

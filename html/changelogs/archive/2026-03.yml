@@ -673,3 +673,58 @@
   - qol: Your HUD prefs are respected on more mobs now.
   - qol: Improved the HUD of simple/basic animals, as well as Cyborgs, AIs, pAIs and
       Xenomorphs.
+2026-03-24:
+  Absolucy:
+  - bugfix: Some indicators (combat, ssd, temporary flavor text) will no longer be
+      completely dark sometimes on multi-Z maps.
+  - code_imp: Cleaned up the code for Necropolis Blood Crawl a bit.
+  - qol: Necropolis Blood Crawl now simply prevents you from entering forbidden areas
+      while jaunting, instead of immediately kicking you out, which could send you
+      straight into lava in some situations.
+  - qol: The med/sec/exploitable/general/background info readout in chat is now stylized
+      and easier to read.
+  ArcaneMusic:
+  - bugfix: Cargo goodies are now visible in the ordering and request consoles.
+  Bugwasabi, vinylspiders:
+  - code_imp: Uses defines instead of magic numbers on carbon_stripping.dm
+  Happyowl93:
+  - rscadd: 'Adds a new species: shadekins'
+  Iajret:
+  - balance: You once again can't perform operations on patients inside stasis units
+  - rscadd: Vitals display can be printed in ancient lathes
+  - bugfix: fixed vitals display not respecting APCs power when you attach it to a
+      wall
+  - balance: Compression plates and magnetic deployment MOD modules are now available
+      for research and printing at your local RnD department.
+  Jacquerel:
+  - rscadd: Nonhuman mobs with hands can now pick up other mobs that are smaller than
+      them and can usually be picked up
+  JohnFulpWillard:
+  - qol: The Curator's barcode scanner now lets you check books out.
+  - bugfix: The library console can no longer borrow books for an infinite amount
+      of time.
+  Melbert:
+  - bugfix: The skeleton from being shocked matches your height
+  - code_imp: Cleaned up RTG code. Admins can now VV them easier. If you come across
+      a ruin on Lavaland or in space that uses them and see any odd behavior, report
+      it as an issue.
+  - bugfix: Drinking soup will loop until it's empty or you cancel it (as it used
+      to)
+  Y0SH1M4S73R:
+  - qol: Many circuit components have had ports that effectively act as boolean inputs
+      or outputs converted into a new boolean datatype.
+  cebutris:
+  - bugfix: Fixed an oversight with package wrapping
+  - rscdel: Removed Quartermaster access from Customs Agents
+  lelandkemble:
+  - bugfix: Friendly wisps, wizard gravity balls, & tesla periphery balls are no longer
+      disabled due to shuttle transit
+  - bugfix: Glasses that were in the vending machine now still count for the completion
+      of the Beach Bar virtual domain
+  muratendmo:
+  - bugfix: Anomaly cores ordered off the departmental budget now once again come
+      in goody cases.
+  vinylspiders:
+  - qol: adds a 'Connect to Relay' option under the File menu, below 'reconnect'
+  - qol: adds a new verb, 'Connect-to-Relay' that can be typed or found in the OOC
+      tab

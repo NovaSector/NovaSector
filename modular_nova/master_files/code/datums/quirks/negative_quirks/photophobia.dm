@@ -35,3 +35,4 @@
 
 /datum/preference/choiced/photophobia_severity/apply_to_human(mob/living/carbon/human/target, value)
 	return
+
