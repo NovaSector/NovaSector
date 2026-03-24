@@ -32,6 +32,12 @@
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
+/obj/item/organ/lungs/slime/slime_smoker
+	name = "smoker slime vacuole"
+	desc = "A large organelle designed to store oxygen and other important gasses, now discolored from heavy smoking."
+	maxHealth = /obj/item/organ/lungs/smoker_lungs::maxHealth
+	healing_factor = /obj/item/organ/lungs/smoker_lungs::healing_factor
+
 /obj/item/organ/liver/slime
 	name = "endoplasmic reticulum"
 	zone = BODY_ZONE_CHEST

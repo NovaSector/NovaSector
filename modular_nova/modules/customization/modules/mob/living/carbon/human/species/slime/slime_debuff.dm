@@ -72,20 +72,3 @@
 /datum/status_effect/dry_slime/get_examine_text()
 	return span_warning("[owner.p_Their()] outer membrane appears to be dry, [owner.p_their()] form losing cohesion!")
 
-/*
-* If exposed to water, directly damage their jelly (blood)
-*/
-
-/datum/reagent/water/expose_mob(mob/living/exposed_mob, methods, reac_volume)
-	. = ..()
-	if(isroundstartslime(exposed_mob))
-		if(HAS_TRAIT(exposed_mob, TRAIT_SLIME_HYDROPHOBIA))
-			to_chat(exposed_mob, span_warning("Water splashes against your oily membrane and rolls right off your body!"))
-			return
-		if(HAS_TRAIT(exposed_mob, TRAIT_WATER_BREATHING))
-			return
-		exposed_mob.adjust_blood_volume(-20)
-		exposed_mob.visible_message(
-			span_warning("The water causes [exposed_mob] to melt away!"),
-			span_warning("The water causes you to melt away!")
-		)

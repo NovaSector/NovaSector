@@ -1,7 +1,6 @@
-/**
-* SLIME CLEANING ABILITY -
-* When toggled, slimes clean themselves and their equipment.
-*/
+///////
+/// SLIME CLEANING ABILITY -
+/// When toggled, slimes clean themselves and their equipment.
 /datum/action/cooldown/slime_washing
 	name = "Toggle Slime Cleaning"
 	desc = "Filter grime through your outer membrane, cleaning yourself and your equipment for sustenance. Also cleans the floor. For sustenance."
@@ -38,6 +37,7 @@
 		span_purple("[owner]'s outer membrane starts to develop a roiling film on the outside, absorbing grime into [owner.p_their()] inner layer!"),
 		span_purple("Your outer membrane develops a roiling film on the outside, absorbing grime off yourself and your clothes; as well as the floor beneath you.")
 	)
+	owner.balloon_alert_to_viewers("begins absorbing grime")
 	return TRUE
 
 /datum/status_effect/slime_washing/on_remove()
@@ -46,6 +46,7 @@
 		span_notice("[owner]'s outer membrane returns to normal, no longer cleaning [owner.p_their()] surroundings."),
 		span_notice("Your outer membrane returns to normal, filth no longer being cleansed.")
 	)
+	owner.balloon_alert_to_viewers("stops absorbing grime")
 
 /datum/status_effect/slime_washing/tick(seconds_between_ticks)
 	if(owner.stat == DEAD)
