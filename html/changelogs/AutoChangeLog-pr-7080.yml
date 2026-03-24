@@ -1,0 +1,4 @@
+author: "Absolucy"
+delete-after: True
+changes:
+  - bugfix: "Some indicators (combat, ssd, temporary flavor text) will no longer be completely dark sometimes on multi-Z maps."
