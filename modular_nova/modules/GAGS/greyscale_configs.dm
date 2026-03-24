@@ -2726,6 +2726,16 @@ Security
 	name = "Security Jumpsuit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
 
+/datum/greyscale_config/secdress
+	name = "Security Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secdress.json'
+
+/datum/greyscale_config/secdress/worn
+	name = "Security Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secdress_worn.json'
+
 /*
 This is all our modular PDAs, ITS LARGE!
 */

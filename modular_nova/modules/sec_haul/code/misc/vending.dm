@@ -43,7 +43,7 @@
 				/obj/item/clothing/under/rank/security/nova/officer/black = 4,  //2
 				/obj/item/clothing/under/rank/security/officer/skirt = 4,		//3
 				/obj/item/clothing/under/rank/security/nova/dress = 4,			//4
-				/obj/item/clothing/under/rank/security/nova/skirt/mini = 4,		//5
+//				/obj/item/clothing/under/rank/security/nova/skirt/mini = 4,		//5
 				/obj/item/clothing/under/rank/security/nova/turtleneck = 4,
 				/obj/item/clothing/under/rank/security/nova/formal = 4,
 				/obj/item/clothing/under/rank/security/nova/utility = 4,		//7
@@ -84,7 +84,7 @@
 				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
 				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
-				/obj/item/clothing/under/rank/security/nova/skirt/mini/blue = 4,
+//				/obj/item/clothing/under/rank/security/nova/skirt/mini/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/turtleneck/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/formal/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
@@ -119,9 +119,9 @@
 				/obj/item/clothing/neck/security_cape/armplate = 4,
 				/obj/item/clothing/under/rank/security/nova/officer = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt = 4,
-				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
-				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
-				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
+				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,*/
+				/obj/item/clothing/under/rank/security/nova/dress/white = 4,
+/*				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt/mini/blue = 4, */
 				/obj/item/clothing/under/rank/security/nova/turtleneck/white = 4,
 				/obj/item/clothing/under/rank/security/nova/formal/white = 4,
@@ -157,9 +157,9 @@
 				/obj/item/clothing/neck/security_cape/armplate = 4,
 				/obj/item/clothing/under/rank/security/nova/officer = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt = 4,
-				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
-				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
-				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
+				/obj/item/clothing/under/rank/security/officer/blueshirt = 4, */
+				/obj/item/clothing/under/rank/security/nova/dress/black = 4,
+/*				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt/mini/blue = 4, */
 				/obj/item/clothing/under/rank/security/nova/turtleneck/black = 4,
 				/obj/item/clothing/under/rank/security/nova/formal/black = 4,

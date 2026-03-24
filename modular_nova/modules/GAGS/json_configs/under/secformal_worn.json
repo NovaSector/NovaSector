@@ -46,7 +46,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_accent",
+			"icon_state": "security_accent_d",
 			"blend_mode": "overlay",
 			"color_ids": [4]
 		}

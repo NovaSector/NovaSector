@@ -153,7 +153,7 @@
 
 /obj/item/clothing/under/rank/security/nova/skirt/plain/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_plain_skirt)
-
+/*
 /datum/atom_skin/security_miniskirt
 	abstract_type = /datum/atom_skin/security_miniskirt
 
@@ -168,28 +168,26 @@
 /obj/item/clothing/under/rank/security/nova/skirt/mini
 	name = "security miniskirt"
 	desc = "This miniskirt was originally featured in a gag calendar, but entered official use once they realized its potential for arid climates."
-	icon_state = "miniskirt"
-
-/obj/item/clothing/under/rank/security/nova/skirt/mini/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt)
-
-/datum/atom_skin/security_miniskirt_blue
-	abstract_type = /datum/atom_skin/security_miniskirt_blue
-
-/datum/atom_skin/security_miniskirt_blue/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "miniskirt_blue"
-
-/datum/atom_skin/security_miniskirt_blue/black
-	preview_name = "Black Variant"
-	new_icon_state = "miniskirt_blue_black"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/mini"
+	post_init_icon_state = "secmini"
+	greyscale_config = /datum/greyscale_config/secmini
+	greyscale_config_worn = /datum/greyscale_config/secmini/worn
+	greyscale_colors = "#A52F29#39393F"
+	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/nova/skirt/mini/blue
-	icon_state = "miniskirt_blue"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/mini/blue"
+	greyscale_colors = "#3F6E9E#39393F"
 
-/obj/item/clothing/under/rank/security/nova/skirt/mini/blue/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt_blue)
+/obj/item/clothing/under/rank/security/nova/skirt/mini/white
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/mini/white"
+	greyscale_colors = "#ECECEC#39393F"
 
+/obj/item/clothing/under/rank/security/nova/skirt/mini/black
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/mini/black"
+	greyscale_colors = "#39393F#ECECEC"
+*/
 /obj/item/clothing/under/rank/security/nova/utility
 	name = "security utility uniform"
 	desc = "A utility uniform worn by trained Security officers."
@@ -204,15 +202,26 @@
 /obj/item/clothing/under/rank/security/nova/dress
 	name = "security battle dress"
 	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt."
-	icon_state = "security_skirt"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	alt_covers_chest = FALSE
-
-/obj/item/clothing/under/rank/security/nova/dress/setup_reskins()
-	return
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress"
+	post_init_icon_state = "secdress"
+	greyscale_config = /datum/greyscale_config/secdress
+	greyscale_config_worn = /datum/greyscale_config/secdress/worn
+	greyscale_colors = "#A52F29#A52F29"
+	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/nova/dress/blue
-	icon_state = "security_skirt_blue"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/blue"
+	greyscale_colors = "#3F6E9E#3F6E9E"
+
+/obj/item/clothing/under/rank/security/nova/dress/white
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/white"
+	greyscale_colors = "#ECECEC#ECECEC"
+
+/obj/item/clothing/under/rank/security/nova/dress/black
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/black"
+	greyscale_colors = "#39393F#ECECEC"
 
 /obj/item/clothing/under/rank/security/nova/secshorts
 	name = "security shorts"

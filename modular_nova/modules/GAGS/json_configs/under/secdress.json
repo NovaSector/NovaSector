@@ -1,0 +1,21 @@
+{
+	"secdress": [
+		{
+			"type": "icon_state",
+			"icon_state": "security_skirt_shirt",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "security_dress",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "security_dress_trimline",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}
