@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - balance: "You once again can't perform operations on patients inside stasis units"
