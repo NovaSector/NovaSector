@@ -1,0 +1,4 @@
+author: "muratendmo"
+delete-after: True
+changes:
+  - bugfix: "Anomaly cores ordered off the departmental budget now once again come in goody cases."
