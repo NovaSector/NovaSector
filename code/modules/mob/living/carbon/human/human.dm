@@ -258,9 +258,9 @@
 					to_chat(usr,  "<span class='notice ml-1'>No physiological traits found.</span>")
 			//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 			if(href_list["medrecords"])
-				to_chat(usr, "<b>Medical Record:</b> [target_record.past_medical_records]")
+				to_chat(usr, fieldset_block("Medical Record", span_info(target_record.past_medical_records), "boxed_message"), type = MESSAGE_TYPE_INFO)
 			if(href_list["genrecords"])
-				to_chat(usr, "<b>General Record:</b> [target_record.past_general_records]")
+				to_chat(usr, fieldset_block("General Record", span_info(target_record.past_general_records), "boxed_message"), type = MESSAGE_TYPE_INFO)
 			//NOVA EDIT END
 			return //Medical HUD ends here.
 
@@ -343,7 +343,7 @@
 						return
 				else if(!isobserver(usr))
 					return
-				to_chat(usr, "<b>General Record:</b> [target_record.past_general_records]")
+				to_chat(usr, fieldset_block("General Record", span_info(target_record.past_general_records), "boxed_message"), type = MESSAGE_TYPE_INFO)
 			if(href_list["secrecords"])
 				if(ishuman(usr))
 					var/mob/living/carbon/human/human_user = usr
@@ -353,7 +353,7 @@
 						return
 				else if(!isobserver(usr))
 					return
-				to_chat(usr, "<b>Security Record:</b> [target_record.past_security_records]")
+				to_chat(usr, fieldset_block("Security Record", span_info(target_record.past_security_records), "boxed_message"), type = MESSAGE_TYPE_INFO)
 			// NOVA EDIT ADDITION END - EXAMINE RECORDS
 			if(ishuman(human_or_ghost_user))
 				var/mob/living/carbon/human/human_user = human_or_ghost_user
@@ -400,16 +400,16 @@
 		if(isobserver(usr) || usr.mind.can_see_exploitables || usr.mind.has_exploitables_override)
 			var/examined_name = get_face_name(get_id_name(""))
 			var/datum/record/crew/target_record = find_record(examined_name)
-			to_chat(usr, "<b>Background information:</b> [target_record.background_information]")
+			to_chat(usr, fieldset_block("Background Information", span_info(target_record.background_information), "boxed_message"), type = MESSAGE_TYPE_INFO)
 	if(href_list["exprecords"])
 		if(isobserver(usr) || usr.mind.can_see_exploitables || usr.mind.has_exploitables_override)
 			var/examined_name = get_face_name(get_id_name("")) //Named as such because this is the name we see when we examine
 			var/datum/record/crew/target_record = find_record(examined_name)
-			to_chat(usr, "<b>Exploitable information:</b> [target_record.exploitable_information]")
+			to_chat(usr, fieldset_block("Exploitable Information", span_info(target_record.exploitable_information), "boxed_message"), type = MESSAGE_TYPE_INFO)
 	if(href_list["medrecords"])
 		var/examined_name = get_face_name(get_id_name("")) //Named as such because this is the name we see when we examine
 		var/datum/record/crew/target_record = find_record(examined_name)
-		to_chat(usr, "<b>Medical Record:</b> [target_record.past_medical_records]")
+		to_chat(usr, fieldset_block("Medical Record", span_info(target_record.past_medical_records), "boxed_message"), type = MESSAGE_TYPE_INFO)
 	//NOVA EDIT ADDITION END
 
 	..() //end of this massive fucking chain. TODO: make the hud chain not spooky. - Yeah, great job doing that.
