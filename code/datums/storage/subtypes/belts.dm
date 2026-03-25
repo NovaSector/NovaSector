@@ -282,6 +282,7 @@
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_casing/c357,
 		/obj/item/ammo_casing/junk,
+		/obj/item/ammo_casing/a40mm,
 	))
 
 ///Fanny pack

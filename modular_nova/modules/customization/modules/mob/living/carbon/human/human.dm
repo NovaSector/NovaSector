@@ -84,6 +84,9 @@
 
 /mob/living/carbon/human/species/protean
 	race = /datum/species/protean
+  
+/mob/living/carbon/human/species/shadekin
+	race = /datum/species/shadekin
 
 /mob/living/carbon/human/verb/toggle_undies()
 	set category = "IC"
