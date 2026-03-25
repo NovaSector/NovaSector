@@ -401,7 +401,7 @@
 			replacement_organ.sprite_accessory_flags = selected_sprite_accessory.flags_for_organ
 			replacement_organ.relevant_layers = selected_sprite_accessory.relevent_layers
 
-			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+			var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part(
 				selected_sprite_accessory.name,
 				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			)
@@ -412,7 +412,7 @@
 			replacement_organ.build_from_dna(alterer.dna, chosen_key)
 			replacement_organ.Insert(alterer, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		else
-			var/datum/mutant_bodypart/new_mutant_bodypart = alterer.dna.species.build_mutant_part(
+			var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part(
 				selected_sprite_accessory.name,
 				selected_sprite_accessory.get_default_color(alterer.dna.features, alterer.dna.species)
 			)
