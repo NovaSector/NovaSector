@@ -15,7 +15,7 @@
 
 SUBSYSTEM_DEF(armaments)
 	name = "Armaments"
-	flags = SS_NO_FIRE
+	ss_flags = SS_NO_FIRE
 	dependencies = list(
 		/datum/controller/subsystem/atoms,
 	) // Needs to be between atoms and default so it runs before gun companies
