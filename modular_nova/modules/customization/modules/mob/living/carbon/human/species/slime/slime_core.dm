@@ -272,6 +272,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 /obj/item/organ/brain/slime/proc/on_slime_death(mob/living/carbon/victim)
 	SIGNAL_HANDLER
+	if(is_reserved_level(victim.z) && !istype(get_area(victim), /area/shuttle))
+		return
 	var/turf/victim_loc = victim.drop_location()
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 	mind = victim.mind || victim.last_mind
