@@ -12,10 +12,7 @@
 	desc = "A storage system developed by CentCom, these compartments employ \
 		miniaturized bluespace pockets for the ultimate in storage technology; regardless of the weight of objects put inside."
 	icon_state = "storage_large"
-	max_w_class = WEIGHT_CLASS_GIGANTIC
-	max_combined_w_class = WEIGHT_CLASS_GIGANTIC * 28
-	max_items = 28
-	big_nesting = TRUE
+	storage_type = /datum/storage/debug
 
 //The Subspace Technician's Modsuit. Lots of frills.
 /obj/item/mod/control/pre_equipped/subspace
@@ -23,7 +20,6 @@
 	starting_frequency = MODLINK_FREQ_CENTCOM
 	applied_core = /obj/item/mod/core/infinite
 	applied_modules = list(
-		/obj/item/mod/module/hearing_protection,
 		/obj/item/mod/module/storage/debug,
 		/obj/item/mod/module/infiltrator/debug,
 		/obj/item/mod/module/emp_shield/advanced,

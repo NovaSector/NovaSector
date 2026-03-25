@@ -102,7 +102,7 @@
 
 /obj/item/clothing/under/misc/adminsuit/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -25)
+	AddElement(/datum/element/adjust_fishing_difficulty, -25)
 
 // Hey check out this cancerous atompath.
 // Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
@@ -136,7 +136,7 @@
 
 /obj/item/clothing/glasses/meson/engine/admin/debug/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -15)
+	AddElement(/datum/element/adjust_fishing_difficulty, -15)
 
 ///obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl(mob/user)
 //	if(!ishuman(user))
@@ -171,7 +171,7 @@
 
 // Badmin pinpointer. The bool lets you find people, even if they aren't wearing clothes, as long as you share a z-layer
 /obj/item/pinpointer/crew/debug//code\game\objects\items\pinpointer.dm
-	name = "target locator"
+	name = "subspace target locator"
 	desc = "A sleek handheld tablet with a complex looking antennae."
 	icon_state = "pinpointer_sniffer"
 	ignore_suit_sensor_level = TRUE
