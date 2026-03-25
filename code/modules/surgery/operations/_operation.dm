@@ -185,7 +185,7 @@
 		if(suture_tool.amount <= 0)
 			return FALSE
 	else if(tool.tool_behaviour != TOOL_CAUTERY)
-		if(tool.get_temperature() <= 0)
+		if(tool.get_temperature() <= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 			return FALSE
 
 	// we need to have a surgery state worth closing
@@ -848,6 +848,19 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	if(!check_availability(patient, operating_on, surgeon, tool, operation_args[OPERATION_TARGET_ZONE]))
 		return ITEM_INTERACT_BLOCKING
 
+	// NOVA EDIT ADDITION START - Makes it so you cannot operate on people in turned on Stasis Beds
+	if(patient.buckled)
+		var/obj/machinery/stasis/stasis_bed = patient.buckled
+		if(istype(stasis_bed) && stasis_bed.stasis_enabled)
+			to_chat(surgeon, span_warning("[patient] cannot be operated in the [patient.buckled] while it is turned on!"))
+			return ITEM_INTERACT_BLOCKING
+	// NOVA EDIT ADDITION END
+	if(isitem(tool))
+		var/obj/item/realtool = tool
+		var/tool_return = SEND_SIGNAL(realtool, COMSIG_ITEM_USED_IN_SURGERY, src, operating_on, surgeon)
+		if(tool_return & ITEM_INTERACT_ANY_BLOCKER)
+			return tool_return
+
 	if(!start_operation(operating_on, surgeon, tool, operation_args))
 		return ITEM_INTERACT_BLOCKING
 
@@ -1147,7 +1160,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 
 	if(operation_flags & OPERATION_NOTABLE)
 		SSblackbox.record_feedback("tally", "surgeries_completed", 1, type)
-		surgeon.add_mob_memory(/datum/memory/surgery, deuteragonist = surgeon, surgery_type = name)
+		surgeon.add_mob_memory(/datum/memory/surgery, deuteragonist = get_patient(operating_on) || operating_on, surgery_type = name)
 
 	SEND_SIGNAL(surgeon, COMSIG_ATOM_SURGERY_SUCCESS, src, operating_on, tool)
 	play_operation_sound(operating_on, surgeon, tool, success_sound)
@@ -1272,6 +1285,10 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 		return FALSE
 	if(required_bodytype && !(carbon_part.bodytype & required_bodytype))
 		return FALSE
+	// NOVA EDIT ADDITION START - Synth Flags
+	if(blocked_bodytype && (carbon_part.bodytype & blocked_bodytype))
+		return FALSE
+	// NOVA EDIT ADDITION END - Synth Flags
 	return ..()
 
 /datum/surgery_operation/basic/has_surgery_state(mob/living/patient, state)
@@ -1302,6 +1319,9 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	abstract_type = /datum/surgery_operation/limb
 	/// Body type required to perform this operation
 	var/required_bodytype = NONE
+	/// If TRUE, this operation can be performed on stumps.
+	/// If FALSE, the target limb must be a full limb.
+	var/allow_stumps = FALSE
 
 /datum/surgery_operation/limb/all_blocked_strings()
 	. = ..()
@@ -1313,7 +1333,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 /datum/surgery_operation/limb/get_operation_target(atom/movable/operating_on, body_zone)
 	if (isliving(operating_on))
 		var/mob/living/patient = operating_on
-		return patient.get_bodypart(deprecise_zone(body_zone))
+		return patient.get_bodypart(deprecise_zone(body_zone), allow_stumps)
 	if (!isbodypart(operating_on))
 		return null
 	return operating_on

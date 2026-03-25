@@ -69,3 +69,12 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/mushroomhallucinogen/synth)
 	purge_multiplier = 0
 
 NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/quaalude/synth)
+
+/datum/reagent/drug/twitch/synth
+	name = "speedster.exe"
+	chemical_flags = REAGENT_NEUROWARE
+	process_flags = REAGENT_SYNTHETIC
+	self_consuming = TRUE
+	purge_multiplier = 0
+
+NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/twitch/synth)

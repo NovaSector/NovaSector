@@ -11366,7 +11366,7 @@
 	pixel_x = -4;
 	pixel_y = 6
 	},
-/obj/item/stack/medical/gauze{
+/obj/item/stack/medical/wrap/gauze{
 	pixel_x = 5;
 	pixel_y = 6
 	},

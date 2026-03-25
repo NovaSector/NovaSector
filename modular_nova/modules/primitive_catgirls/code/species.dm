@@ -60,8 +60,8 @@
 
 	human_for_preview.update_body_parts()
 
-	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = human_for_preview.dna.species.build_mutant_part("Cat", list(human_for_preview.hair_color))
-	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = human_for_preview.dna.species.build_mutant_part("Cat", list(human_for_preview.hair_color))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Cat", list(human_for_preview.hair_color))
+	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = build_mutant_part("Cat", list(human_for_preview.hair_color))
 
 	human_for_preview.update_body_parts()
 	human_for_preview.update_body(is_creating = TRUE)
