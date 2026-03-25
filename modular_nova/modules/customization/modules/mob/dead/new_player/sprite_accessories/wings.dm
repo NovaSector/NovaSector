@@ -180,6 +180,11 @@
 	name = "Feathery (Alt 2)"
 	icon_state = "featheryalt2"
 
+/datum/sprite_accessory/wings/mammal/triple
+	name = "Tri-wings"
+	icon_state = "triwings"
+	color_Src = USE_MATRIXED_COLORS
+
 /datum/sprite_accessory/wings/mammal/harpy
 	name = "Harpy"
 	icon_state = "harpy"
