@@ -5,45 +5,51 @@
 	include_subtypes = TRUE
 	k_elasticity = 0
 
-//broken items
+/// sediment encased items
 /obj/item/xenoarch/broken_item
-	name = "broken tech"
+	name = "sediment encased tech"
 	icon_state = "recover_tech"
-	desc = "An item that has been damaged, destroyed for quite some time. It is possible to recover it. Some people would pay well for an item like this."
+	desc = "An item caked in layers of sediment and dust. Careful brushing might reveal what lies beneath."
 	var/loot = /obj/effect/spawner/random/xenoarch
-	var/dig_xp = 7
+
+/obj/item/xenoarch/broken_item/t1
+	loot = /obj/effect/spawner/random/xenoarch/t1
 
 /obj/item/xenoarch/broken_item/weapon
-	name = "broken weapon"
+	name = "sediment encased weapon"
 	icon_state = "recover_weapon"
 	loot = /obj/effect/spawner/random/xenoarch/weapon
-	dig_xp = 10
+
+/obj/item/xenoarch/broken_item/weapon/t3
+	loot = /obj/effect/spawner/random/xenoarch/weapon/t3
 
 /obj/item/xenoarch/broken_item/illegal
-	name = "broken unknown object"
+	name = "sediment encased unknown object"
 	icon_state = "recover_illegal"
 	loot = /obj/effect/spawner/random/xenoarch/illegal
-	dig_xp = 10
+
+/obj/item/xenoarch/broken_item/illegal/t3
+	loot = /obj/effect/spawner/random/xenoarch/illegal/t3
 
 /obj/item/xenoarch/broken_item/alien
-	name = "broken unknown object"
+	name = "sediment encased unknown object"
 	icon_state = "recover_illegal"
 	loot = /obj/effect/spawner/random/xenoarch/alien
-	dig_xp = 10
+
+/obj/item/xenoarch/broken_item/alien/t3
+	loot = /obj/effect/spawner/random/xenoarch/alien/t3
 
 /obj/item/xenoarch/broken_item/plant
-	name = "withered plant"
-	desc = "A plant that is long past its prime. It is possible to recover it."
+	name = "sediment encased seeds"
+	desc = "Plant seeds encased in layers of dirt and sediment. Careful brushing might reveal its original form."
 	icon_state = "recover_plant"
 	loot = /obj/effect/spawner/random/xenoarch/plant
-	dig_xp = 5
 
 /obj/item/xenoarch/broken_item/animal
 	name = "preserved animal carcass"
-	desc = "An animal that is long past its prime. It is possible to recover it. Can be swabbed to recover its original animal's remnant DNA."
+	desc = "An animal remnant encased in layers of sediment. Careful cleaning could reveal its original form, can be swabbed to recover its original animal's remnant DNA."
 	icon_state = "recover_animal"
 	loot = /obj/effect/spawner/random/xenoarch/animal
-	dig_xp = 5
 
 /obj/item/xenoarch/broken_item/animal/Initialize(mapload)
 	. = ..()
@@ -75,11 +81,13 @@
 	AddElement(/datum/element/swabable, pick_celltype, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
 /obj/item/xenoarch/broken_item/clothing
-	name = "petrified clothing"
-	desc = "A piece of clothing that has long since lost its beauty."
+	name = "sediment encased clothing"
+	desc = "A piece of clothing or protective gear covered in dirt and debris. With careful brushing, its original condition might be restored."
 	icon_state = "recover_clothing"
 	loot = /obj/effect/spawner/random/xenoarch/clothing
-	dig_xp = 7
+
+/obj/item/xenoarch/broken_item/clothing/t3
+	loot = /obj/effect/spawner/random/xenoarch/clothing/t3
 
 //circuit boards
 /obj/item/circuitboard/machine/xenoarch_machine
@@ -168,6 +176,11 @@
 	. = ..()
 	src.preserve()
 
+/obj/item/coin/silver/ancient
+	name = "ancient doubloon"
+	override_material_worth = TRUE
+	value = CARGO_CRATE_VALUE * 1.25
+
 /obj/item/coin/gold/ancient
 	name = "ancient doubloon"
 	override_material_worth = TRUE
@@ -191,13 +204,6 @@
 
 /obj/item/stack/sheet/animalhide/goliath_hide/three
 	amount = 3
-
-/obj/item/relic/lavaland/activated
-	desc = "A strange relic. This one seems active and calls for a touch to activate its properties."
-
-/obj/item/relic/lavaland/activated/Initialize(mapload)
-	. = ..()
-	src.reveal()
 
 /obj/item/storage/box/incomplete_chameleon
 	name = "Incomplete Chameleon Kit"
@@ -223,15 +229,69 @@
 	new /obj/item/clothing/suit/space/voskhod(src)
 	new /obj/item/clothing/head/helmet/space/voskhod(src)
 
-/obj/item/ammo_casing/energy/shrink/faulty
-	projectile_type = /obj/projectile/magic/shrink/alien
-	select_name = "shrink ray"
-	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE)
+/obj/item/clothing/gloves/color/black/thief/xenoarch
+	desc = parent_type::desc + " Their light fabric would make it harder for others to notice their touch."
 
-/obj/item/gun/energy/shrink_ray/faulty
-	name = "faulty shrink ray blaster"
-	desc = "This is a piece of frightening alien tech that enhances the magnetic pull of atoms in a localized space to temporarily make an object shrink. \
-			Seems... haphazardly jury-rigged to work with human tech, but its likely good for shrinking stuff."
-	ammo_type = list(/obj/item/ammo_casing/energy/shrink/faulty)
-	pin = /obj/item/firing_pin
-	w_class = WEIGHT_CLASS_HUGE // so it cannot be stored. 
+/obj/item/clothing/shoes/chameleon/noslip/xenoarch
+	desc = parent_type::desc + " They seem to have improved traction."
+
+/datum/mood_event/faded_hope_lavaland
+	description = "What a peculiar emblem. It makes me feel hopeful for my future."
+	mood_change = 4 // two thirds of the original.
+
+/obj/item/clothing/accessory/pandora_hope/faded
+	name = "Faded Hope"
+	desc = "A worn symbol, its surface scratched by time and buried under layers of sediment. Whatever it once stood for is long forgotten."
+
+/obj/item/clothing/accessory/pandora_hope/faded/accessory_equipped(obj/item/clothing/under/clothes, mob/living/user)
+	user.add_mood_event("faded_hope_lavaland", /datum/mood_event/faded_hope_lavaland)
+
+/obj/item/clothing/accessory/pandora_hope/faded/accessory_dropped(obj/item/clothing/under/clothes, mob/living/user)
+	user.clear_mood_event("faded_hope_lavaland")
+
+/obj/item/shield/buckler/faded
+	name = "faded buckler"
+	desc = "A faded wooden buckler, brittle and scarred by age. It carries a strange resilience, as if it can turn aside any strike, until it finally gives in."
+	block_chance = 100
+	max_integrity = 25
+	w_class = WEIGHT_CLASS_NORMAL
+	custom_materials = null
+
+/// A raptor egg that piggy backs on the watcher podometer and uses a spawn for 
+/obj/item/food/egg/watcher/raptor
+	name = "cold raptor egg"
+	desc = "A lonely egg still pulsing with life, somehow untouched by the corruption of the Necropolis."
+	icon = 'icons/mob/simple/lavaland/raptor_baby.dmi'
+	icon_state = "raptor_egg"
+	chick_throw_prob = 0
+	steps_to_hatch = 300
+	tastes = list("loneliness" = 5)
+	starting_reagent_purity = 1
+
+/obj/item/food/egg/watcher/raptor/on_stepped(atom/movable/egg, atom/mover, atom/old_loc, direction)
+	var/new_loc = get_turf(egg)
+	if (isnull(new_loc) || new_loc == get_turf(old_loc))
+		return // Didn't actually go anywhere
+	steps_travelled++
+	if (steps_travelled == steps_to_hatch * 0.5)
+		jiggle()
+		return
+	if (steps_travelled < steps_to_hatch)
+		return
+	visible_message(span_boldnotice("[src] splits and unfurls into a baby Watcher!"))
+	playsound(new_loc, 'sound/mobs/non-humanoids/chicken/chick_peep.ogg', 50, TRUE)
+	new /obj/effect/spawner/random/lavaland_mob/raptor/baby(new_loc)
+	qdel(src)
+
+/obj/item/storage/box/shuttle_construction_kit
+	name = "Old Shuttle Construction Starter Kit"
+	desc = "An old shuttle construction kit, its contents worn but intact. Inside are faded blueprints and the circuitboards needed to \
+			assemble a basic shuttle. The instructions on the side of the box are unreadable though."
+
+/obj/item/storage/box/shuttle_construction_kit/PopulateContents() 
+	new /obj/item/circuitboard/computer/shuttle/docker(src)
+	new	/obj/item/circuitboard/computer/shuttle/flight_control(src)
+	new	/obj/item/circuitboard/machine/engine/propulsion(src)
+	new	/obj/item/circuitboard/machine/engine/propulsion(src)
+	new	/obj/item/shuttle_blueprints(src)
+	new	/obj/item/stack/rods/shuttle/fifty(src)

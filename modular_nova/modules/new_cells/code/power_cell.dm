@@ -50,6 +50,12 @@
 	maxcharge = STANDARD_CELL_CHARGE * 15
 	recharge_amount = STANDARD_CELL_CHARGE
 
+/obj/item/stock_parts/power_store/cell/self_charge/anomalous
+	name = "anomalous charge cell"
+	desc = "A power cell of unfamiliar construction. Its casing is perfectly smooth, and it appears to recover energy on its own."
+	maxcharge = STANDARD_CELL_CHARGE * 30
+	recharge_amount = STANDARD_CELL_CHARGE * 2
+
 /obj/item/stock_parts/power_store/cell/self_charge/Initialize(mapload, override_maxcharge)
 	. = ..()
 	START_PROCESSING(SSobj, src)

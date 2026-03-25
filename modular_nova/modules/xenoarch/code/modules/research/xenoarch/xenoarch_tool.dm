@@ -415,7 +415,7 @@
 		var/turf/src_turf = get_turf(brushed_item)
 		var/recovered_loot = brushed_item.loot
 		new recovered_loot(src_turf)
-		user.mind?.adjust_experience(/datum/skill/archeology, brushed_item.dig_xp)
+		user.mind?.adjust_experience(/datum/skill/archeology, 5)
 		qdel(interacting_with)
 		return ITEM_INTERACT_SUCCESS
 

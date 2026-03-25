@@ -145,7 +145,7 @@
 /obj/item/hearthkin_ship_fragment_inactive/xenoarch/Initialize(mapload)
 	. = ..()
 	if(!length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)))
-		new /obj/item/relic/lavaland/activated(get_turf(src))
+		new /obj/item/stack/sheet/mineral/runite{amount = 5}(get_turf(src))
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/hearthkin_ship_fragment_active

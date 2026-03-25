@@ -63,11 +63,11 @@
 /obj/item/xenoarch/strange_rock/proc/create_item()
 	choose_tier = rand(1,100)
 	switch(choose_tier)
-		if(1 to 60)
+		if(1 to 50)
 			hidden_item = /obj/effect/spawner/random/xenoarch/tier1
 			choose_tier = REWARD_ONE
 
-		if(61 to 87)
+		if(51 to 87)
 			hidden_item = /obj/effect/spawner/random/xenoarch/tier2
 			choose_tier = REWARD_TWO
 
