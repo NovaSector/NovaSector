@@ -43,11 +43,11 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	///Stores the real name of the person who originally got this dna datum. Used primarily for changelings
 	var/real_name
 	///All mutations are from now on here
-	var/list/mutations = list()
+	var/list/mutations
 	///Temporary changes to the UE
-	var/list/temporary_mutations = list()
+	var/list/temporary_mutations
 	///For temporary name/ui/ue/blood_type modifications
-	var/list/previous = list()
+	var/list/previous
 	var/mob/living/holder
 	///List of which mutations this carbon has and its assigned block
 	var/mutation_index[DNA_MUTATION_BLOCKS]
@@ -76,9 +76,9 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 
 	QDEL_NULL(species)
 
-	mutations.Cut() //This only references mutations, just dereference.
-	temporary_mutations.Cut() //^
-	previous.Cut() //^
+	LAZYNULL(mutations) //This only references mutations, just dereference.
+	LAZYNULL(temporary_mutations) //^
+	LAZYNULL(previous) //^
 
 	return ..()
 
@@ -90,11 +90,11 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	new_dna.features = features.Copy()
 	new_dna.real_name = real_name
 	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
-	new_dna.mutant_bodyparts = mutant_bodyparts.Copy()
+	new_dna.mutant_bodyparts = LAZYCOPY(mutant_bodyparts)
 	new_dna.body_markings = body_markings.Copy()
 	new_dna.update_body_size()
 	//NOVA EDIT ADDITION END
-	new_dna.temporary_mutations = temporary_mutations.Copy()
+	new_dna.temporary_mutations = LAZYLISTDUPLICATE(temporary_mutations)
 	new_dna.mutation_index = mutation_index
 	new_dna.default_mutation_genes = default_mutation_genes
 	//if the new DNA has a holder, transform them immediately, otherwise save it
@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			as_carbon.set_blood_type(blood_type)
 		// new_dna.holder.set_species(species.type, icon_update = 0) // NOVA EDIT REMOVAL
 			// NOVA EDIT ADDITION START
-			as_carbon.set_species(species.type, icon_update = TRUE, pref_load = FALSE, override_features = features.Copy(), override_mutantparts = mutant_bodyparts.Copy(), override_markings = body_markings.Copy())
+			as_carbon.set_species(species.type, icon_update = TRUE, pref_load = FALSE, override_features = features.Copy(), override_mutantparts = LAZYCOPY(mutant_bodyparts), override_markings = body_markings.Copy())
 		else
 			new_dna.holder.set_species(species.type, icon_update = 0)
 			// NOVA EDIT ADDITION END
@@ -431,28 +431,24 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		old_species.on_species_loss(src, new_race, pref_load)
 
 	// NOVA EDIT ADDITION START - BODYPARTS AND FEATURES
-	// We need to instantiate the list with compatible mutant parts so we don't break things
-
-	if(override_mutantparts && override_mutantparts.len)
+	if(LAZYLEN(override_mutantparts))
 		for(var/feature in dna.mutant_bodyparts)
 			override_mutantparts[feature] = dna.mutant_bodyparts[feature]
 		dna.mutant_bodyparts = override_mutantparts
 
-	if(override_markings && override_markings.len)
+	if(LAZYLEN(override_markings))
 		for(var/feature in dna.body_markings)
 			override_markings[feature] = dna.body_markings[feature]
 		dna.body_markings = override_markings
 
-	if(override_features && override_features.len)
+	if(LAZYLEN(override_features))
 		for(var/feature in dna.features)
 			override_features[feature] = dna.features[feature]
 		dna.features = override_features
 
-	if(dna.species.disallow_customizable_dna_features) // for species where we do not want to carry anything like this over
+	if(!dna.species.allow_customizable_dna_features) // for species where we do not want to carry anything like this over
 		dna.mutant_bodyparts = dna.species.get_mutant_bodyparts(dna.features)
 		dna.body_markings = list()
-		dna.species.mutant_bodyparts = dna.species::mutant_bodyparts || list()
-		dna.species.body_markings = dna.species::body_markings || list()
 	else
 		apply_customizable_dna_features_to_species()
 	dna.unique_features = dna.generate_unique_features()
@@ -462,7 +458,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	dna.species.on_species_gain(src, old_species, pref_load, icon_update, replace_missing)
 	log_mob_tag("TAG: [tag] SPECIES: [key_name(src)] \[[mrace]\]")
 
-/mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, override_features, override_markings, override_mutantparts) // NOVA EDIT CHANGE. ORIGINAL - /mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
+/mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, override_features, override_mutantparts, override_markings) // NOVA EDIT CHANGE. ORIGINAL - /mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
 	..()
 	if(icon_update)
 		update_body(is_creating = TRUE)

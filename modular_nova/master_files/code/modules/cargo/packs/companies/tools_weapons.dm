@@ -71,7 +71,7 @@
 	cost = CARGO_CRATE_VALUE
 	contains = list(/obj/item/shield/riot/tele)
 
-// HC 
+// HC
 
 /datum/supply_pack/companies/tools_weapons/hc_surplus
 	cost = CARGO_CRATE_VALUE * 0.25
@@ -102,7 +102,7 @@
 	access = ACCESS_WEAPONS
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 
 /datum/supply_pack/companies/tools_weapons/vitezstvi/seclight
 	contains = list(/obj/item/flashlight/seclite)

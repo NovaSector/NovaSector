@@ -10,6 +10,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
+	assembly_flags = ASSEMBLY_NO_DUPLICATES
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*3, /datum/material/glass = SMALL_MATERIAL_AMOUNT*3)
 	light_system = OVERLAY_LIGHT //Used as a flash here.
 	light_range = FLASH_LIGHT_RANGE
@@ -26,6 +27,10 @@
 	var/last_used = 0 //last world.time it was used.
 	var/cooldown = 0
 	var/last_trigger = 0 //Last time it was successfully triggered.
+
+/obj/item/assembly/flash/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_ITEM_IN_UNWRAPPED_TRAITOR_MAIL, PROC_REF(on_mail_unwrap))
 
 /obj/item/assembly/flash/suicide_act(mob/living/user)
 	if(burnt_out)
@@ -263,6 +268,15 @@
 	// - - -
 	// Attacker lateral to the victim.
 	return DEVIATION_PARTIAL
+
+/obj/item/assembly/flash/proc/on_mail_unwrap(atom/source, mob/user, obj/item/mail/traitor/letter)
+	SIGNAL_HANDLER
+	if(!try_use_flash())
+		return NONE
+	to_chat(user, span_danger("As you open [letter], a very bright light shoots out from inside!"))
+	flash_mob(user)
+	forceMove(user.loc)
+	return COMPONENT_TRAITOR_MAIL_HANDLED
 
 /obj/item/assembly/flash/attack(mob/living/target, mob/user)
 	if(!try_use_flash(user))

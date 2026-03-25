@@ -191,13 +191,13 @@
 	name = "Incite Megafauna"
 	desc = "Causes a horrible, unrecognizable sound that will attract the large fauna from around the planet."
 	required_components = list(
-		"north" = /obj/item/organ/monster_core/regenerative_core,
+		"north" = /obj/item/organ/legion_tumour,
 		"south" = /obj/item/ash_seed/tendril,
-		"east" = /obj/item/organ/monster_core/regenerative_core,
-		"west" = /obj/item/organ/monster_core/regenerative_core,
+		"east" = /obj/item/organ/legion_tumour,
+		"west" = /obj/item/organ/legion_tumour,
 	)
 	consumed_components = list(
-		/obj/item/organ/monster_core/regenerative_core,
+		/obj/item/organ/legion_tumour,
 		/obj/item/ash_seed/tendril,
 	)
 
@@ -212,7 +212,7 @@
 		flash_color(select_mob, flash_color = "#FF0000", flash_time = 3 SECONDS)
 
 	var/megafauna_choice = pick(
-		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner,
+		/mob/living/basic/boss/blood_drunk_miner,
 		/mob/living/simple_animal/hostile/megafauna/dragon,
 		/mob/living/simple_animal/hostile/megafauna/hierophant,
 	)
@@ -240,13 +240,14 @@
 	name = "Ashen Age Ceremony"
 	desc = "Those who partake in the ceremony and are ready will age, increasing their value to the kin."
 	required_components = list(
-		"north" = /obj/item/organ/monster_core/regenerative_core,
+		"north" = /obj/item/organ/legion_tumour,
 		"south" = /obj/item/organ/monster_core/regenerative_core,
 		"east" = /obj/item/stack/sheet/bone,
 		"west" = /obj/item/stack/sheet/sinew,
 	)
 	consumed_components = list(
 		/obj/item/organ/monster_core/regenerative_core,
+		/obj/item/organ/legion_tumour,
 		/obj/item/stack/sheet/bone,
 		/obj/item/stack/sheet/sinew,
 	)
@@ -455,7 +456,7 @@
 	if(find_animal.sentience_type != SENTIENCE_ORGANIC)
 		return FALSE
 
-	find_animal.faction = list(FACTION_ASHWALKER)
+	find_animal.set_faction(list(FACTION_ASHWALKER))
 
 	if(ishostile(find_animal))
 		var/mob/living/simple_animal/hostile/hostile_animal = find_animal
@@ -478,7 +479,7 @@
 	if(find_animal.sentience_type != SENTIENCE_ORGANIC)
 		return FALSE
 
-	find_animal.faction = list(FACTION_ASHWALKER)
+	find_animal.set_faction(list(FACTION_ASHWALKER))
 
 	find_animal.revive(HEAL_ALL)
 	return TRUE
@@ -502,7 +503,7 @@
 /datum/ash_ritual/pacification/ritual_success(obj/effect/ash_rune/success_rune)
 	. = ..()
 	for(var/mob/living/carbon/human/lizard_target in range(2, get_turf(success_rune)))
-		lizard_target.faction.Add(FACTION_MINING_FAUNA)
+		lizard_target.add_faction(FACTION_MINING_FAUNA)
 		ADD_TRAIT(lizard_target, TRAIT_PACIFISM, SPECIES_TRAIT)
 
 /// Summon Ore Seed

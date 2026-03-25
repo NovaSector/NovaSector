@@ -21,7 +21,7 @@
 	name = "engineering utility uniform"
 	desc = "A utility uniform worn by Engineering personnel."
 	icon_state = "util_eng"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 
@@ -55,18 +55,28 @@
 	icon_state = "hazard_white"
 	armor_type = /datum/armor/clothing_under/hazard_chem_emt
 
-/*
-*	CHIEF ENGINEER
-*/
-
 /datum/armor/clothing_under/hazard_chem_emt
 	fire = 10
 	acid = 50
 
-/obj/item/clothing/under/rank/engineering/chief_engineer/nova/imperial
-	desc = "A gray naval suit with a lead-lined vest and a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
+/*
+*	CHIEF ENGINEER
+*/
+/obj/item/clothing/under/imperial/ce
+	desc = "An olive drab naval suit with a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
 	name = "chief engineer's naval jumpsuit"
-	icon_state = "impce"
+	icon_state = "/obj/item/clothing/under/imperial/ce"
+	greyscale_colors = "#404429#404429#43443f#373741#ffffff#f48600#5c97e6"
+	flags_1 = NONE
+	armor_type = /datum/armor/clothing_under/engineering_chief_engineer
+
+/obj/item/clothing/under/imperialskirt/ce
+	desc = "An olive drab naval skirt with a rank badge denoting the Officer of the Internal Engineering Division. Doesn't come with a death machine building guide."
+	name = "chief engineer's naval skirt"
+	icon_state = "/obj/item/clothing/under/imperialskirt/ce"
+	greyscale_colors = "#404429#43443f#373741#ffffff#f48600#5c97e6"
+	flags_1 = NONE
+	armor_type = /datum/armor/clothing_under/engineering_chief_engineer
 
 /*
 *	ATMOS TECH

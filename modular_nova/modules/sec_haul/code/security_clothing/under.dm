@@ -21,48 +21,50 @@
 */
 
 //Redsec uniform with black pants
+/datum/atom_skin/security_uniform_black
+	abstract_type = /datum/atom_skin/security_uniform_black
+
+/datum/atom_skin/security_uniform_black/black
+	preview_name = "Black Variant"
+	new_icon_state = "security_black"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
+
+/datum/atom_skin/security_uniform_black/white
+	preview_name = "White Variant"
+	new_icon_state = "security_white"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
+
 /obj/item/clothing/under/rank/security/nova/officer/black
 	icon_state = "security_black"
 	alt_covers_chest = TRUE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ALT_COVERS_CHEST = TRUE,
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi',
-			RESKIN_ICON_STATE = "security_black",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi',
-			RESKIN_WORN_ICON_STATE = "security_black"
-		),
-		"White Variant" = list(
-			RESKIN_ALT_COVERS_CHEST = TRUE,
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi',
-			RESKIN_ICON_STATE = "security_white",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi',
-			RESKIN_WORN_ICON_STATE = "security_white"
-		),
-	)
+
+/obj/item/clothing/under/rank/security/nova/officer/black/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform_black)
 
 //Bluesec uniform
+/datum/atom_skin/security_uniform_blue
+	abstract_type = /datum/atom_skin/security_uniform_blue
+
+/datum/atom_skin/security_uniform_blue/black
+	preview_name = "Black Variant"
+	new_icon_state = "security_blue_black"
+
+/datum/atom_skin/security_uniform_blue/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "security_blue"
+
+/datum/atom_skin/security_uniform_blue/white
+	preview_name = "White Variant"
+	new_icon_state = "security_white"
+
 /obj/item/clothing/under/rank/security/nova/officer
 	name = "security uniform"
 	desc = "A tactical security uniform for officers complete with Nanotrasen belt buckle."
 	icon_state = "security_blue_black"
 	alt_covers_chest = TRUE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "security_blue_black",
-			RESKIN_WORN_ICON_STATE = "security_blue_black"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "security_blue",
-			RESKIN_WORN_ICON_STATE = "security_blue"
-		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "security_white",
-			RESKIN_WORN_ICON_STATE = "security_white"
-		),
-	)
+
+/obj/item/clothing/under/rank/security/nova/officer/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform_blue)
 
 /obj/item/clothing/under/rank/security/nova/formal
 	name = "security formal suit"
@@ -72,74 +74,87 @@
 /obj/item/clothing/under/rank/security/nova/formal/blue
 	icon_state = "formal_blue"
 
+/datum/atom_skin/security_jumpskirt
+	abstract_type = /datum/atom_skin/security_jumpskirt
+
+/datum/atom_skin/security_jumpskirt/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "jumpskirt_blue"
+
+/datum/atom_skin/security_jumpskirt/black
+	preview_name = "Black Variant"
+	new_icon_state = "jumpskirt_black"
+
 /obj/item/clothing/under/rank/security/nova/skirt
 	name = "security jumpskirt"
 	desc = "A \"tactical\" security uniform with the legs replaced by a skirt."
 	icon_state = "jumpskirt_blue"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "jumpskirt_blue",
-			RESKIN_WORN_ICON_STATE = "jumpskirt_blue"
-		),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "jumpskirt_black",
-			RESKIN_WORN_ICON_STATE = "jumpskirt_black"
-		),
-	)
+
+/obj/item/clothing/under/rank/security/nova/skirt/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_jumpskirt, infinite = TRUE)
+
+/datum/atom_skin/security_plain_skirt
+	abstract_type = /datum/atom_skin/security_plain_skirt
+
+/datum/atom_skin/security_plain_skirt/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "plain_skirt_blue"
+
+/datum/atom_skin/security_plain_skirt/black
+	preview_name = "Black Variant"
+	new_icon_state = "plain_skirt_black"
 
 /obj/item/clothing/under/rank/security/nova/skirt/plain
 	name = "security plain skirt"
 	desc = "Plain-shirted uniform commonly worn by Nanotrasen officers, attached with a skirt."
 	icon_state = "plain_skirt_blue"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "plain_skirt_blue",
-			RESKIN_WORN_ICON_STATE = "plain_skirt_blue"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "plain_skirt_black",
-			RESKIN_WORN_ICON_STATE = "plain_skirt_black"
-	    ),
-	)
+
+/obj/item/clothing/under/rank/security/nova/skirt/plain/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_plain_skirt)
+
+/datum/atom_skin/security_miniskirt
+	abstract_type = /datum/atom_skin/security_miniskirt
+
+/datum/atom_skin/security_miniskirt/red
+	preview_name = "Red Variant"
+	new_icon_state = "miniskirt"
+
+/datum/atom_skin/security_miniskirt/black
+	preview_name = "Black Variant"
+	new_icon_state = "miniskirt_black"
 
 /obj/item/clothing/under/rank/security/nova/skirt/mini
 	name = "security miniskirt"
 	desc = "This miniskirt was originally featured in a gag calendar, but entered official use once they realized its potential for arid climates."
 	icon_state = "miniskirt"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt",
-			RESKIN_WORN_ICON_STATE = "miniskirt"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_black",
-			RESKIN_WORN_ICON_STATE = "miniskirt_black"
-	    ),
-	)
+
+/obj/item/clothing/under/rank/security/nova/skirt/mini/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt)
+
+/datum/atom_skin/security_miniskirt_blue
+	abstract_type = /datum/atom_skin/security_miniskirt_blue
+
+/datum/atom_skin/security_miniskirt_blue/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "miniskirt_blue"
+
+/datum/atom_skin/security_miniskirt_blue/black
+	preview_name = "Black Variant"
+	new_icon_state = "miniskirt_blue_black"
 
 /obj/item/clothing/under/rank/security/nova/skirt/mini/blue
 	icon_state = "miniskirt_blue"
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_blue",
-			RESKIN_WORN_ICON_STATE = "miniskirt_blue"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_blue_black",
-			RESKIN_WORN_ICON_STATE = "miniskirt_blue_black"
-	    ),
-	)
+
+/obj/item/clothing/under/rank/security/nova/skirt/mini/blue/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_miniskirt_blue)
 
 /obj/item/clothing/under/rank/security/nova/utility
 	name = "security utility uniform"
 	desc = "A utility uniform worn by trained Security officers."
 	icon_state = "util_sec"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 
@@ -150,98 +165,108 @@
 	name = "security battle dress"
 	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt."
 	icon_state = "security_skirt"
-	uses_advanced_reskins = FALSE
-	unique_reskin = null
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = FALSE
+
+/obj/item/clothing/under/rank/security/nova/dress/setup_reskins()
+	return
 
 /obj/item/clothing/under/rank/security/nova/dress/blue
 	icon_state = "security_skirt_blue"
 
+/datum/atom_skin/security_shorts
+	abstract_type = /datum/atom_skin/security_shorts
+
+/datum/atom_skin/security_shorts/red
+	preview_name = "Red Variant"
+	new_icon_state = "cargoshorts"
+
+/datum/atom_skin/security_shorts/red
+	preview_name = "Blue Variant"
+	new_icon_state = "cargoshorts_blue"
+
+/datum/atom_skin/security_shorts/white
+	preview_name = "White Variant"
+	new_icon_state = "cargoshorts_white"
+
+/datum/atom_skin/security_shorts/black
+	preview_name = "Black Variant"
+	new_icon_state = "cargoshorts_black"
+
+/obj/item/clothing/under/rank/security/nova/trousers/shorts
+	name = "cargo shorts"
+	desc = "Some \"combat\" shorts. Please don't actually wear these."
+	icon_state = "cargoshorts"
+
+/obj/item/clothing/under/rank/security/nova/trousers/shorts/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_shorts)
+
+/datum/atom_skin/security_trousers
+	abstract_type = /datum/atom_skin/security_trousers
+
+/datum/atom_skin/security_trousers/red
+	preview_name = "Red Variant"
+	new_icon_state = "cargopants"
+
+/datum/atom_skin/security_trousers/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "cargopants_blue"
+
+/datum/atom_skin/security_trousers/white
+	preview_name = "White Variant"
+	new_icon_state = "cargopants_white"
+
+/datum/atom_skin/security_trousers/black
+	preview_name = "Black Variant"
+	new_icon_state = "cargopants_black"
+
 /obj/item/clothing/under/rank/security/nova/trousers
-	name = "security trousers"
+	name = "pair of security trousers"
 	desc = "Some \"combat\" trousers. Probably should pair it with a vest for safety."
-	icon_state = "workpants"
+	icon_state = "cargopants"
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "workpants",
-			RESKIN_WORN_ICON_STATE = "workpants"
-		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "workpants_white",
-			RESKIN_WORN_ICON_STATE = "workpants_white"
-		),
-	)
 
-/obj/item/clothing/under/rank/security/nova/trousers/blue
-	icon_state = "workpants_blue"
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "workpants_blue",
-			RESKIN_WORN_ICON_STATE = "workpants_blue"
-		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "workpants_white",
-			RESKIN_WORN_ICON_STATE = "workpants_white"
-		),
-	)
+/obj/item/clothing/under/rank/security/nova/trousers/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_trousers)
 
-/obj/item/clothing/under/rank/security/nova/trousers/shorts
-	name = "security shorts"
-	desc = "Some \"combat\" shorts. Probably should pair it with a vest for safety."
-	icon_state = "workshorts"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant, Short" = list(
-			RESKIN_ICON_STATE = "workshorts",
-			RESKIN_WORN_ICON_STATE = "workshorts"
-		),
-		"Red Variant, Short Short" = list(
-			RESKIN_ICON_STATE = "workshorts_short",
-			RESKIN_WORN_ICON_STATE = "workshorts_short"
-		),
-		"White Variant, Short" = list(
-			RESKIN_ICON_STATE = "workshorts_white",
-			RESKIN_WORN_ICON_STATE = "workshorts_white"
-		),
-		"White Variant, Short Short" = list(
-			RESKIN_ICON_STATE = "workshorts_white_short",
-			RESKIN_WORN_ICON_STATE = "workshorts_white_short"
-		),
-	)
+/datum/atom_skin/security_modskin
+	abstract_type = /datum/atom_skin/security_modskin
 
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/blue
-	icon_state = "workshorts_blue"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Blue Variant, Short" = list(
-			RESKIN_ICON_STATE = "workshorts_blue",
-			RESKIN_WORN_ICON_STATE = "workshorts_blue"
-		),
-		"Blue Variant, Short Short" = list(
-			RESKIN_ICON_STATE = "workshorts_blue_short",
-			RESKIN_WORN_ICON_STATE = "workshorts_blue_short"
-		),
-		"White Variant, Short" = list(
-			RESKIN_ICON_STATE = "workshorts_white",
-			RESKIN_WORN_ICON_STATE = "workshorts_white"
-		),
-		"White Variant, Short Short" = list(
-			RESKIN_ICON_STATE = "workshorts_white_short",
-			RESKIN_WORN_ICON_STATE = "workshorts_white_short"
-		),
-	)
+/obj/item/clothing/under/rank/security/nova/modskin
+	name = "security M.O.D. skinsuit"
+	desc = "A M.O.D. skinsuit worn by trained Security officers."
+	icon_state = "modsec"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+
+/datum/atom_skin/security_modskin/red
+	preview_name = "Red Variant"
+	new_icon_state = "modsec"
+
+/datum/atom_skin/security_modskin/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "modsec_blue"
+
+/datum/atom_skin/security_modskin/white
+	preview_name = "White Variant"
+	new_icon_state = "modsec_white"
+
+/datum/atom_skin/security_modskin/black
+	preview_name = "Black Variant"
+	new_icon_state = "modsec_black"
+
+/obj/item/clothing/under/rank/security/nova/modskin/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_modskin)
 
 /obj/item/clothing/under/rank/security/nova/turtleneck
 	name = "security turtleneck"
 	desc = "Turtleneck sweater commonly worn by trained Officers, attached with pants."
 	icon_state = "secturtleneck"
 	can_adjust = TRUE
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/rank/security/nova/turtleneck/blue
@@ -283,10 +308,20 @@
 /obj/item/clothing/under/rank/security/head_of_security/nova/formal/blue
 	icon_state = "formal_hos_blue"
 
-/obj/item/clothing/under/rank/security/head_of_security/nova/imperial //Rank pins of the Grand General
-	desc = "A tar black naval suit and a rank badge denoting the Officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
+
+/obj/item/clothing/under/imperialvest/hos
 	name = "head of security's naval jumpsuit"
-	icon_state = "imphos"
+	desc = "A tar black naval suit with a rank badge denoting the officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
+	icon_state = "/obj/item/clothing/under/imperialvest/hos"
+	greyscale_colors = "#39393f#39393f#39393f#373741#f8d860#21212B#f8d860#a52f29"
+	flags_1 = NONE
+
+/obj/item/clothing/under/imperialskirtvest/hos
+	name = "head of security's naval jumpsuit"
+	desc = "A tar black naval skirt with a rank badge denoting the officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
+	greyscale_colors = "#39393f#39393f#373741#f8d860#21212B#f8d860#a52f29"
+	icon_state = "/obj/item/clothing/under/imperialskirtvest/hos"
+	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/head_of_security/nova/parade
 	name = "head of security's parade uniform"

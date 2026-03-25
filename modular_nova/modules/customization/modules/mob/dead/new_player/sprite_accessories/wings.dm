@@ -9,8 +9,14 @@
 	icon = 'icons/mob/human/species/wings.dmi'
 	key = FEATURE_WINGS
 	color_src = USE_ONE_COLOR
-	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_LIZARD, SPECIES_MAMMAL)
-	organ_type = /obj/item/organ/wings
+	recommended_species = list(
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_FELINE = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_MAMMAL = 1,
+	)
+	organ_type = /obj/item/organ/wings/custom
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer)
@@ -27,13 +33,15 @@
 	return (wearer.obscured_slots & HIDEJUMPSUIT)
 
 /datum/bodypart_overlay/mutant/wings/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+	if(!..())
+		return FALSE
 	if(isnull(bodypart_owner.owner))
-		return ..()
+		return TRUE
 
 	var/mob/living/carbon/human/wearer = bodypart_owner.owner
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
 	if(isnull(wearer.w_uniform) && isnull(worn_suit))
-		return ..()
+		return TRUE
 
 	// Can hide if wearing uniform
 	if(feature_key in wearer.try_hide_mutant_parts)
@@ -49,6 +57,7 @@
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	factual = FALSE
+	natural_spawn = FALSE
 
 /*
 *	FLIGHT POTION WINGS
@@ -112,7 +121,11 @@
 /datum/sprite_accessory/wings/mammal
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/wings.dmi'
 	default_color = DEFAULT_PRIMARY
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_INSECT)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_INSECT = 1,
+	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	dimension_x = 46
 	dimension_y = 34
@@ -310,7 +323,7 @@
 /datum/sprite_accessory/wings/moth
 	icon = 'icons/mob/human/species/moth/moth_wings.dmi' // Needs new icon to suit new naming convention
 	default_color = "#FFFFFF"
-	recommended_species = list(SPECIES_MOTH, SPECIES_MAMMAL, SPECIES_INSECT) // Mammals too, I guess. They wont get flight though, see the wing organs for that logic
+	recommended_species = list(SPECIES_MOTH = 1, SPECIES_MAMMAL = 1, SPECIES_INSECT = 1) // Mammals too, I guess. They wont get flight though, see the wing organs for that logic
 	organ_type = /obj/item/organ/wings/moth
 	feature_key_override = FEATURE_MOTH_WINGS
 	color_src = USE_ONE_COLOR
@@ -318,6 +331,8 @@
 /datum/sprite_accessory/wings/moth/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/wings/moth/atlas
 	name = "Moth (Atlas)"
@@ -336,9 +351,9 @@
 	name = "Moth (Deathshead)"
 	icon_state = "deathhead"
 
-/datum/sprite_accessory/wings/moth/featherful // Is actually 'feathery' on upstream
-	name = "Moth (Featherful)"
-	icon_state = "featherful"
+/datum/sprite_accessory/wings/moth/feathery
+	name = "Moth (Feathery)"
+	icon_state = "feathery"
 
 /datum/sprite_accessory/wings/moth/firewatch
 	name = "Moth (Firewatch)"

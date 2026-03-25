@@ -416,7 +416,7 @@
 /area/misc/condo)
 "vi" = (
 /obj/structure/medieval/bed_2x2{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/marker_beacon/violet{
 	pixel_x = -16;

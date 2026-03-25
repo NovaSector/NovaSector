@@ -129,11 +129,26 @@
 	. = ..()
 	atom_storage?.show_contents(user)
 
-/obj/vehicle/ridden/rail_cart/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/stack/ore/glass))
-		var/obj/item/stack/ore/glass/use_item = attacking_item
+/obj/vehicle/ridden/rail_cart/shovel_act(mob/living/user, obj/item/tool)
+	if(!connected_farm)
+		return NONE
+
+	QDEL_NULL(connected_farm)
+	if(atom_storage)
+		atom_storage.click_alt_open = TRUE
+		atom_storage.insert_on_attack = TRUE
+		atom_storage.attack_hand_interact = TRUE
+		atom_storage.locked = STORAGE_NOT_LOCKED
+	update_overlays()
+	has_sand = FALSE
+	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/rail_cart)
+	return ITEM_INTERACT_SUCCESS
+
+/obj/vehicle/ridden/rail_cart/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stack/ore/glass))
+		var/obj/item/stack/ore/glass/use_item = tool
 		if(has_sand || !use_item.use(10))
-			return ..()
+			return NONE
 
 		connected_farm = AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 24))
 		update_overlays()
@@ -147,22 +162,7 @@
 		atom_storage.locked = STORAGE_FULLY_LOCKED
 		return ITEM_INTERACT_SUCCESS
 
-	if(attacking_item.tool_behaviour == TOOL_SHOVEL)
-		if(!connected_farm)
-			return ..()
-
-		QDEL_NULL(connected_farm)
-		if(atom_storage)
-			atom_storage.click_alt_open = TRUE
-			atom_storage.insert_on_attack = TRUE
-			atom_storage.attack_hand_interact = TRUE
-			atom_storage.locked = STORAGE_NOT_LOCKED
-		update_overlays()
-		has_sand = FALSE
-		AddElement(/datum/element/ridable, /datum/component/riding/vehicle/rail_cart)
-		return ITEM_INTERACT_SUCCESS
-
-	return ..()
+	return NONE
 
 /// searches the cardinal directions to add this cart to another cart's trailer
 /obj/vehicle/ridden/rail_cart/proc/attach_trailer()

@@ -92,10 +92,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	QDEL_NULL(character_preview_view)
 	QDEL_LIST(middleware)
 	value_cache = null
-	//NOVA EDIT ADDITION
-	if(pref_species)
-		QDEL_NULL(pref_species)
-	//NOVA EDIT END
 	return ..()
 
 /datum/preferences/New(client/parent)
@@ -289,12 +285,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/default_value = read_preference(requested_preference.type)
 
 			// Yielding
-			var/new_color = input(
+			var/new_color = tgui_color_picker(
 				usr,
 				"Select new color",
 				null,
 				default_value || COLOR_WHITE,
-			) as color | null
+			)
 
 			if (!new_color)
 				return FALSE
@@ -312,6 +308,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if ("open_food")
 			GLOB.food_prefs_menu.ui_interact(usr)
 			return TRUE
+		// NOVA EDIT ADDITION START: Background Selection
+		if("update_background")
+			update_preference(GLOB.preference_entries[/datum/preference/choiced/background_state], params["new_background"])
+			return TRUE
+		// NOVA EDIT ADDITION END
 
 		if ("set_tricolor_preference")
 			var/requested_preference_key = params["preference"]
@@ -330,12 +331,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/default_value = default_value_list[index_key]
 
 			// Yielding
-			var/new_color = input(
+			var/new_color = tgui_color_picker(
 				usr,
 				"Select new color",
 				null,
 				default_value || COLOR_WHITE,
-			) as color | null
+			)
 
 			if (!new_color)
 				return FALSE
@@ -428,12 +429,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/datum/preferences/preferences
 	/// Whether we show current job clothes or nude/loadout only
 	var/show_job_clothes = TRUE
+	// NOVA EDIT ADDITION START: Better character preview: Rescales between 32x32, 64x64 and 96x96.
+	var/image/canvas
+	var/last_canvas_size
+	var/last_canvas_state
+	// NOVA EDIT ADDITION END
 
 /atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/preferences/preferences)
 	. = ..()
 	src.preferences = preferences
 
 /atom/movable/screen/map_view/char_preview/Destroy()
+	// NOVA EDIT ADDITION START: Better character preview
+	canvas?.cut_overlays()
+	canvas = null
+	// NOVA EDIT ADDITION END
 	QDEL_NULL(body)
 	preferences?.character_preview_view = null
 	preferences = null
@@ -448,6 +458,37 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	appearance = preferences.render_new_preview_appearance(body, show_job_clothes)
 
+	// NOVA EDIT ADDITION BEGIN: Better character preview
+	var/canvas_size = 0
+	var/canvas_state = preferences.read_preference(/datum/preference/choiced/background_state)
+
+	// if oversized trait (fixes size at 2.0) or over 1.1, scales up
+	if (("Oversized" in preferences.all_quirks) || (body.dna.features["body_size"] > 1.1))
+		canvas_size += 1
+	if (body.dna.mutant_bodyparts["taur"])
+		// taurs can be extra wide, so scale up in attempt to see their tails
+		canvas_size += 1
+	body.pixel_x = canvas_size * 16
+
+	if (isnull(canvas) || last_canvas_size != canvas_size || last_canvas_state != canvas_state)
+		switch (canvas_size)
+			if (0)
+				canvas = image('modular_nova/modules/character_preview_background/icons/background_32x32.dmi', icon_state = canvas_state)
+			if (1)
+				canvas = image('modular_nova/modules/character_preview_background/icons/background_64x64.dmi', icon_state = canvas_state)
+			if (2)
+				canvas = image('modular_nova/modules/character_preview_background/icons/background_96x96.dmi', icon_state = canvas_state)
+
+	// Update the map view bounds when canvas size changes to properly display the scaled preview
+	set_position(1, 1)
+	last_canvas_size = canvas_size
+	last_canvas_state = canvas_state
+
+	canvas.cut_overlays()
+	canvas.add_overlay(body.appearance)
+
+	appearance = canvas.appearance
+	// NOVA EDIT ADDITION END
 /atom/movable/screen/map_view/char_preview/proc/create_body()
 	QDEL_NULL(body)
 

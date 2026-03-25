@@ -60,7 +60,7 @@
 
 
 /datum/preference_middleware/limbs_and_markings/apply_to_human(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
-	target.dna.species.body_markings = LAZYCOPY(preferences.body_markings)
+	target.dna.body_markings = LAZYCOPY(preferences.body_markings)
 
 	var/list/visited_body_zones = list()
 	for(var/key in preferences.augments)
@@ -78,14 +78,24 @@
 	if(!visuals_only)
 		return
 
+	// If we have greyscale limbs from having the skintone toggle unchecked
+	var/should_greyscale_limbs
+	if(!preferences.read_preference(/datum/preference/toggle/skin_tone_toggle))
+		var/datum/preference/toggle/skin_tone_toggle/skin_tone_toggle = GLOB.preference_entries[/datum/preference/toggle/skin_tone_toggle]
+		if(skin_tone_toggle.is_accessible(preferences))
+			should_greyscale_limbs = TRUE
+
 	for(var/body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_CHEST, BODY_ZONE_HEAD))
 		if(body_zone in visited_body_zones)
 			continue
 
 		var/obj/item/bodypart/target_bodypart = target.get_bodypart(body_zone)
 
-		target_bodypart?.reset_appearance()
-
+		// Reapply this so we get our greyscaled limbs back - I. hate. this. so much.
+		if(should_greyscale_limbs)
+			target_bodypart?.change_appearance(icon = BODYPART_ICON_HUMANOID, id = SPECIES_HUMANOID, greyscale = TRUE)
+		else
+			target_bodypart?.reset_appearance()
 
 /datum/preference_middleware/limbs_and_markings/proc/set_limb_aug(list/params, mob/user)
 	var/limb_slot = params["limb_slot"]
@@ -129,7 +139,18 @@
 		preferences.body_markings[limb_slot] = list()
 	if(preferences.body_markings[limb_slot].len >= MAXIMUM_MARKINGS_PER_LIMB)
 		return
-	preferences.body_markings[limb_slot] += list(GLOB.body_markings_per_limb[limb_slot][1] = list("#FFFFFF", FALSE)) // Default to the first in the list for the limb.
+	var/marking_name = pick(GLOB.body_markings_per_limb[limb_slot]) // Default to a random one in the list
+	var/datum/body_marking/marking = GLOB.body_markings[marking_name]
+	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/list/mutant_colors = preferences.read_preference(/datum/preference/tri_color/mutant_colors)
+	var/list/features = list(
+			FEATURE_MUTANT_COLOR = mutant_colors[1],
+			FEATURE_MUTANT_COLOR_TWO = mutant_colors[2],
+			FEATURE_MUTANT_COLOR_THREE = mutant_colors[3],
+			FEATURE_SKIN_COLOR = skintone2hex(preferences.read_preference(/datum/preference/choiced/skin_tone))
+		)
+	var/datum/species/current_species = GLOB.species_prototypes[species_type]
+	preferences.body_markings[limb_slot] += list("[marking_name]" = list(marking.get_default_color(features, current_species), FALSE))
 	preferences.character_preview_view.update_body()
 	return TRUE
 
@@ -163,12 +184,12 @@
 		if(marking_id == "[limb_slot]_[marking_count]")
 			marking_entry_name = marking_entry
 		new_markings[marking_entry] = markings[marking_entry]
-	var/new_color = input(
+	var/new_color = tgui_color_picker(
 		usr,
 		"Select new color",
 		null,
 		preferences.body_markings[limb_slot][marking_entry_name][1],
-	) as color | null
+	)
 	if(!new_color)
 		return TRUE
 	new_markings[marking_entry_name][1] = sanitize_hexcolor(new_color) // gets the new color from the picker
@@ -231,7 +252,16 @@
 	var/preset = params["preset"]
 	if (preset)
 		var/datum/body_marking_set/BMS = GLOB.body_marking_sets[preset]
-		preferences.body_markings = assemble_body_markings_from_set(BMS, preferences.features, preferences.pref_species)
+		var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+		var/list/mutant_colors = preferences.read_preference(/datum/preference/tri_color/mutant_colors)
+		var/list/features = list(
+			FEATURE_MUTANT_COLOR = mutant_colors[1],
+			FEATURE_MUTANT_COLOR_TWO = mutant_colors[2],
+			FEATURE_MUTANT_COLOR_THREE = mutant_colors[3],
+			FEATURE_SKIN_COLOR = skintone2hex(preferences.read_preference(/datum/preference/choiced/skin_tone))
+		)
+		var/datum/species/current_species = GLOB.species_prototypes[species_type]
+		preferences.body_markings = assemble_body_markings_from_set(BMS, features, current_species)
 	preferences.character_preview_view.update_body()
 	return TRUE
 
@@ -271,7 +301,7 @@
 		if (!allow_mismatched_parts)
 			for (var/name in choices)
 				var/datum/body_marking/marking = GLOB.body_markings[name]
-				if (marking.recommended_species && !(initial(species_type.id) in marking.recommended_species))
+				if (marking.recommended_species && isnull(marking.recommended_species[species_type::id]))
 					choices -= name
 		limbs_data += list(list(
 			"slot" = limb,
@@ -325,8 +355,8 @@
 	var/list/presets = GLOB.body_marking_sets.Copy()
 	if (!allow_mismatched_parts)
 		for (var/name in presets)
-			var/datum/body_marking_set/BMS = presets[name]
-			if (BMS.recommended_species && !(initial(species_type.id) in BMS.recommended_species))
+			var/datum/body_marking_set/marking_set = presets[name]
+			if (marking_set.recommended_species && isnull(marking_set.recommended_species[species_type::id]))
 				presets -= name
 
 	data["marking_presets"] = presets

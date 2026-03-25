@@ -10,7 +10,7 @@
 #define SPRITE_ACCESSORY_USE_ALT_FACEWEAR_LAYER (1<<3)
 
 /datum/sprite_accessory
-	///Unique key of an accessory. All tails should have "tail", ears "ears" etc.
+	///Unique key of an accessory. All tails should have FEATURE_TAIL, ears FEATURE_EARS etc.
 	var/key = null
 	///If an accessory is special, it wont get included in the normal accessory lists
 	var/special = FALSE
@@ -44,8 +44,6 @@
 	var/special_x_dimension
 	///Special case for MODsuit overlays
 	var/use_custom_mod_icon
-	///If defined, the accessory will be only available to ckeys inside the list. ITS ASSOCIATIVE, ie. ("ckey" = TRUE). For speed
-	var/list/ckey_whitelist
 	var/uses_emissives = FALSE
 	var/color_layer_names
 	/// If this sprite accessory will be inaccessable if ERP config is disabled
@@ -56,6 +54,9 @@
 	var/feature_key_override
 
 /datum/sprite_accessory/New()
+	if(recommended_species)
+		recommended_species = string_assoc_list(recommended_species)
+
 	if(!default_color)
 		switch(color_src)
 			if(USE_ONE_COLOR)
@@ -64,9 +65,6 @@
 				default_color = DEFAULT_MATRIXED
 			else
 				default_color = "#FFFFFF"
-
-	if(name == SPRITE_ACCESSORY_NONE)
-		factual = FALSE
 
 	if(color_src == USE_MATRIXED_COLORS)
 
@@ -106,26 +104,30 @@
 /datum/sprite_accessory/proc/get_custom_mod_icon(mob/living/carbon/human/owner, mutable_appearance/appearance_to_use = null)
 	return null
 
-/datum/sprite_accessory/proc/get_default_color(list/features, datum/species/pref_species) //Needs features for the color information
+/datum/sprite_accessory/proc/get_default_color(list/features, datum/species/species) //Needs features for the color information
 	var/list/colors
 	switch(default_color)
 		if(DEFAULT_PRIMARY)
-			colors = list(features["mcolor"])
+			colors = list(features[FEATURE_MUTANT_COLOR])
 		if(DEFAULT_SECONDARY)
-			colors = list(features["mcolor2"])
+			colors = list(features[FEATURE_MUTANT_COLOR_TWO])
 		if(DEFAULT_TERTIARY)
-			colors = list(features["mcolor3"])
+			colors = list(features[FEATURE_MUTANT_COLOR_THREE])
 		if(DEFAULT_MATRIXED)
-			colors = list(features["mcolor"], features["mcolor2"], features["mcolor3"])
+			colors = list(features[FEATURE_MUTANT_COLOR], features[FEATURE_MUTANT_COLOR_TWO], features[FEATURE_MUTANT_COLOR_THREE])
 		if(DEFAULT_SKIN_OR_PRIMARY)
-			if(pref_species && !(TRAIT_USES_SKINTONES in pref_species.inherent_traits))
-				colors = list(features["skin_color"])
+			if(species && !(TRAIT_USES_SKINTONES in species.inherent_traits))
+				colors = list(features[FEATURE_SKIN_COLOR])
 			else
-				colors = list(features["mcolor"])
+				colors = list(features[FEATURE_MUTANT_COLOR])
 		else
 			colors = list(default_color)
 
 	return colors
+
+/datum/sprite_accessory/blank
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/moth_markings
 	key = FEATURE_MOTH_MARKINGS
@@ -137,17 +139,23 @@
 /datum/sprite_accessory/moth_markings/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/pod_hair
 	icon = 'modular_nova/master_files/icons/mob/species/podperson_hair.dmi'
 	key = FEATURE_POD_HAIR
-	recommended_species = list(SPECIES_PODPERSON, SPECIES_PODPERSON_WEAK)
+	recommended_species = list(
+		SPECIES_PODPERSON = 1,
+		SPECIES_PODPERSON_WEAK = 1,
+	)
 	organ_type = /obj/item/organ/pod_hair
 
 /datum/sprite_accessory/pod_hair/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/caps
 	key = FEATURE_MUSH_CAP
@@ -167,6 +175,7 @@
 	icon_state = "none"
 	color_src = null
 	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/caps/round
 	name = "Round"
@@ -179,6 +188,8 @@
 /datum/sprite_accessory/lizard_markings/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /// Legs are a special case, they aren't actually sprite_accessories but are updated with them.
 /// These datums exist for selecting legs on preference, and little else

@@ -1658,6 +1658,7 @@
 	)
 	search_metadata = "boris"
 
+/* //NOVA EDIT REMOVAL START - Added to starting loadout. Linter got mad that the ID was not used anywhrere.
 /datum/design/borg_upgrade_rped
 	name = "Rapid Part Exchange Device Expanded"
 	id = "borg_upgrade_rped"
@@ -1672,7 +1673,7 @@
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
 	)
-
+*/ // NOVA EDIT REMOVAL END
 /datum/design/borg_upgrade_inducer
 	name = "Cyborg inducer"
 	id = "borg_upgrade_inducer"
@@ -2100,7 +2101,7 @@
 	desc = "[initial(module.desc)] It uses [initial(module.complexity)] complexity."
 
 /datum/design/module/mod_storage
-	name = "Storage Module"
+	name = "Compact Storage Module"
 	id = "mod_storage"
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT *1.25,
@@ -2109,13 +2110,24 @@
 	build_path = /obj/item/mod/module/storage
 
 /datum/design/module/mod_storage_expanded
-	name = "Expanded Storage Module"
+	name = "Storage Module"
 	id = "mod_storage_expanded"
 	materials = list(
 		/datum/material/iron =SHEET_MATERIAL_AMOUNT * 2.5,
 		/datum/material/uranium =SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/mod/module/storage/large_capacity
+
+/datum/design/module/mod_storage_holding
+	name = "Storage Module of Holding"
+	id = "mod_storage_holding"
+	materials = list(
+		/datum/material/gold =SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/diamond =HALF_SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT*2.5,
+		/datum/material/bluespace =SHEET_MATERIAL_AMOUNT
+	)
+	build_path = /obj/item/mod/module/storage/holding
 
 /datum/design/module/mod_visor_medhud
 	name = "Medical Visor Module"

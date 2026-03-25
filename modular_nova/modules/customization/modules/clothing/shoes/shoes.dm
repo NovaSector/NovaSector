@@ -152,6 +152,21 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, "It has a small <b>[span_red("red five pointed star")]</b> stamped onto the heel, and <b>[span_red("DIRIGO")]</b> etched under the soles.")
 
+/obj/item/clothing/shoes/jackboots/toeless // Ported from SPLURT
+	name = "toe-less jackboots"
+	desc = "Modified pair of jackboots, particularly friendly to those species whose toes hold claws."
+	icon = MODULAR_SHOES_ICON
+	icon_state = "jackboots-toeless"
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+
+/obj/item/clothing/shoes/workboots/toeless // Ported from SPLURT
+	name = "toe-less workboots"
+	desc = "A pair of toe-less work boots designed for use in industrial settings. Modified for species whose toes have claws."
+	icon = MODULAR_SHOES_ICON
+	icon_state = "workboots-toeless"
+	worn_icon = MODULAR_SHOES_WORN_ICON
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
 /obj/item/clothing/shoes/winterboots/christmas
 	name = "christmas boots"
@@ -243,6 +258,16 @@
 	greyscale_config_worn_vox = /datum/greyscale_config/boots/worn/oldvox
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/shoes/jackboots/knee/recolorable
+	name = "knee boots"
+	desc = "A pair of typical Nanotrasen-issue combat jackboots, long enough to reach the wearer's knee. Most commonly worn by commanding officers."
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	greyscale_colors = "#2D2D30"
+	icon_state = "/obj/item/clothing/shoes/jackboots/knee/recolorable"
+	post_init_icon_state = "knee_boots"
+	greyscale_config = /datum/greyscale_config/knee_boots
+	greyscale_config_worn = /datum/greyscale_config/knee_boots/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/sport_boots
 	name = "sport boots"

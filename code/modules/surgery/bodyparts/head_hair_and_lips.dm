@@ -67,12 +67,13 @@
 
 	if(HAS_TRAIT(target, TRAIT_USES_SKINTONES))
 		skin_tone = target.skin_tone
+		species_color = "" // NOVA EDIT ADDITION
 	else if(HAS_TRAIT(target, TRAIT_MUTANT_COLORS))
 		skin_tone = ""
 		if(target_species.fixed_mut_color)
 			species_color = target_species.fixed_mut_color
 		else
-			species_color = target.dna.features["mcolor"]
+			species_color = target.dna.features[FEATURE_MUTANT_COLOR]
 	else
 		skin_tone = ""
 		species_color = ""
@@ -154,6 +155,15 @@
 				//Offsets
 				worn_face_offset?.apply_offset(hair_overlay)
 				. += hair_overlay
+				// NOVA EDIT ADDITION START - Emissive hair appearance
+				var/mob/living/carbon/human/human_owner = owner
+				if(human_owner?.emissive_hair)
+					var/mutable_appearance/em_appear = emissive_appearance(hair_overlay.icon, "[hair_overlay.icon_state]_e", location, layer = hair_overlay.layer, alpha = hair_alpha)
+					if(dropped)
+						em_appear = image(em_appear, dir = SOUTH)
+					worn_face_offset?.apply_offset(em_appear)
+					. += em_appear
+				// NOVA EDIT ADDITION END
 				//Gradients
 				var/hair_gradient_style = get_hair_gradient_style(GRADIENT_HAIR_KEY)
 				if(hair_gradient_style != "None")

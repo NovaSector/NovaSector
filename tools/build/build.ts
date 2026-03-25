@@ -22,7 +22,7 @@ export const DME_NAME = 'tgstation';
 
 Juke.chdir('../..', import.meta.url);
 
-const dependencies: Record<string, any> = await Bun.file('dependencies.sh')
+const dependencies: Record<string, string> = await Bun.file('dependencies.sh')
   .text()
   .then(formatDeps)
   .catch((err) => {
@@ -90,7 +90,11 @@ export const CutterTarget = new Juke.Target({
     const ver = dependencies.CUTTER_VERSION;
     const suffix = process.platform === 'win32' ? '.exe' : '';
     const download_from = `https://github.com/${repo}/releases/download/${ver}/hypnagogic${suffix}`;
-    await downloadFile(download_from, cutter_path);
+    // We're delaying "comitting" to the final filename here in case downloading fails/is interrupted
+    const temp_path = `${cutter_path}_temp`; // yes this means its file extension is .exe_temp I don't really care
+    await downloadFile(download_from, temp_path);
+    fs.copyFileSync(temp_path, cutter_path);
+    fs.rmSync(temp_path)
     if (process.platform !== 'win32') {
       await Juke.exec('chmod', ['+x', cutter_path]);
     }
@@ -159,14 +163,38 @@ export const DmMapsIncludeTarget = new Juke.Target({
       ...Juke.glob('_maps/RandomZLevels/**/*.dmm'),
       ...Juke.glob('_maps/shuttles/**/*.dmm'),
       ...Juke.glob('_maps/templates/**/*.dmm'),
-      ...Juke.glob('_maps/nova/**/*.dmm'), // NOVA EDIT ADDITION - Mom said its our turn on the CI
     ];
-    const content =
-      folders
-        .map((file) => file.replace('_maps/', ''))
-        .map((file) => `#include "${file}"`)
-        .join('\n') + '\n';
+    // NOVA EDIT ADDITION START
+    const isNovaTemplate = (file: string) =>
+      file.startsWith('_maps/nova/') ||
+      file.startsWith('_maps/RandomRuins/SpaceRuins/nova/') ||
+      file.startsWith('_maps/RandomRuins/IceRuins/nova/') ||
+      file.startsWith('_maps/RandomRuins/LavaRuins/nova/') ||
+      file.startsWith('_maps/shuttles/nova/');
+
+    const foldersNova = [];
+    for (let i = folders.length - 1; i >= 0; i--) {
+      const file = folders[i];
+      if (isNovaTemplate(file)) {
+        foldersNova.push(file);
+        folders.splice(i, 1); // remove from folders
+      }
+    }
+
+    foldersNova.push(...Juke.glob('_maps/nova/**/*.dmm'));
+    // NOVA EDIT ADDITION END
+    const content = `${folders
+      .map((file) => file.replace('_maps/', ''))
+      .map((file) => `#include "${file}"`)
+      .join('\n')}\n`;
     fs.writeFileSync('_maps/templates.dm', content);
+    // NOVA EDIT ADDITION START
+    const contentNova = `${foldersNova
+      .map((file) => file.replace('_maps/', ''))
+      .map((file) => `#include "${file}"`)
+      .join('\n')}\n`;
+    fs.writeFileSync('_maps/templates_nova.dm', contentNova);
+    // NOVA EDIT ADDITION END
   },
 });
 
@@ -180,6 +208,7 @@ export const DmTarget = new Juke.Target({
   ],
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('ALL_TEMPLATES') && DmMapsIncludeTarget,
+    get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT ADDITION
     !get(SkipIconCutter) && IconCutterTarget,
   ],
   inputs: [
@@ -262,7 +291,7 @@ export const AutowikiTarget = new Juke.Target({
     NoWarningParameter,
   ],
   dependsOn: ({ get }) => [
-    get(DefineParameter).includes('ALL_TEMPLATES') && DmMapsIncludeTarget,
+    get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT ADDITION
     IconCutterTarget,
   ],
   outputs: ['data/autowiki_edits.txt'],
@@ -425,6 +454,7 @@ export const TguiCleanTarget = new Juke.Target({
     Juke.rm('tgui/public/*.{chunk,bundle,hot-update}.*');
     Juke.rm('tgui/packages/tgfont/dist', { recursive: true });
     Juke.rm('tgui/node_modules', { recursive: true });
+    Juke.rm('tgui/packages/*/node_modules', { recursive: true });
   },
 });
 

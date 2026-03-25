@@ -29,8 +29,8 @@
 		GLOB.all_loadout_datums[spawned_type.item_path] = spawned_type
 		. |= spawned_type
 
-
 /datum/loadout_item
+	loadout_flags = LOADOUT_FLAG_ALLOW_NAMING // ORIGINAL: var/loadout_flags = NONE
 	/// If set, it's a list containing ckeys which only can get the item
 	var/list/ckeywhitelist
 	/// If set, is a list of job names of which can get the loadout item

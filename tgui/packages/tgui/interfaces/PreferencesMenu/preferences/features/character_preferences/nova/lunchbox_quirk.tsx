@@ -1,11 +1,10 @@
 // THIS IS A NOVA SECTOR UI FILE
-import {
+import type {
   Feature,
-  FeatureChoiced,
 
 } from '../../base';
 
-import { FeatureDropdownInput, FeatureIconnedDropdownInput, type FeatureWithIcons, } from '../../dropdowns';
+import { FeatureIconnedDropdownInput, type FeatureWithIcons, } from '../../dropdowns';
 
 export const lunchbox_design: FeatureWithIcons<string> = {
   name: 'Lunchbox Design',

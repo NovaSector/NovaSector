@@ -8,6 +8,8 @@
 /datum/sprite_accessory/xenodorsal/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/xenodorsal/standard
 	name = "Standard"
@@ -37,7 +39,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
 	name = "Xenomorph Tail"
 	icon_state = "xeno"
-	recommended_species = list(SPECIES_XENO)
+	recommended_species = list(SPECIES_XENO = 1)
 
 //HEADS
 /datum/sprite_accessory/xenohead
@@ -49,6 +51,8 @@
 /datum/sprite_accessory/xenohead/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/xenohead/standard
 	name = "Standard"

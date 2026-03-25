@@ -10,7 +10,7 @@ permissions:
   contents: write
 jobs:
   auto_changelog:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: github.event.pull_request.merged == true
     steps:
       - name: Checkout
@@ -18,7 +18,7 @@ jobs:
 
       - name: Generate App Token
         id: app-token-generation
-        uses: actions/create-github-app-token@v2
+        uses: actions/create-github-app-token@v3
         if: env.APP_PRIVATE_KEY != '' && env.APP_ID != ''
         with:
           app-id: ${{ secrets.APP_ID }}

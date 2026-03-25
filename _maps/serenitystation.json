@@ -39,5 +39,11 @@
 		}
 	],
 	"minetype": "lavaland",
-	"blacklist_file": "jungleruinblacklist.txt"
+	"blacklist_file": "jungleruinblacklist.txt",
+	"job_changes": {
+		"Captain": {
+			"special_charter": "forest planet"
+		}
+	},
+	"bonus_weakpoints": 2
 }

@@ -54,7 +54,7 @@
 	return ..()
 
 ///Handles nutrition gain/loss of mob and also makes it take damage if it's too low on nutrition, only happens for sentient mobs.
-/mob/living/simple_animal/hostile/ooze/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/hostile/ooze/Life(seconds_per_tick = SSMOBS_DT)
 	. = ..()
 
 	if(!.) //dead or deleted
@@ -419,6 +419,29 @@
 	jostle_pain_mult = 0
 	fall_chance = 0.5
 
+//NOVA EDIT ADDITION START - Ensures that you can't use this on dead/synth people or stack multiple globules on the same limb.
+/obj/projectile/globule/on_hit(mob/living/target, blocked = 0, pierce_hit)
+	. = ..()
+	if(!istype(target, /mob/living/carbon/human))
+		return FALSE
+	if(issynthetic(target))
+		return FALSE
+	if(target.stat == DEAD)
+		return FALSE
+	else
+		return TRUE
+
+/datum/embedding/mending_globule/on_successful_embed(mob/living/carbon/target, obj/item/bodypart/target_limb)
+	. = ..()
+	for(var/obj/item/mending_globule/existing in target_limb.embedded_objects)
+		if ((existing != parent))
+			target.visible_message(span_warning("[parent] slides right off of [target]'s [target_limb.plaintext_zone], already having a globule attached there!"))
+			qdel(parent)
+			return FALSE
+		else
+			continue
+
+//NOVA EDIT ADDITION END
 // This already processes, zero logic to add additional tracking to the item
 /datum/embedding/mending_globule/process(seconds_per_tick)
 	. = ..()

@@ -5,12 +5,14 @@
 	icon_state = "hemo_suture"
 	heal_brute = 7
 	stop_bleeding = 1
-	grind_results = list(/datum/reagent/medicine/coagulant = 2)
 	merge_type = /obj/item/stack/medical/suture/bloody
+
+/obj/item/stack/medical/suture/bloody/grind_results()
+	return list(/datum/reagent/medicine/coagulant = 2)
 
 /obj/item/stack/medical/suture/bloody/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)
 	. = ..()
-	if(healed_mob.blood_volume <= BLOOD_VOLUME_SAFE)
+	if(healed_mob.get_blood_volume() <= BLOOD_VOLUME_SAFE)
 		healed_mob.reagents.add_reagent(/datum/reagent/medicine/salglu_solution, 2)
 		healed_mob.adjust_oxy_loss(-amount_healed)
 
@@ -23,8 +25,10 @@
 	sanitization = 0.5
 	flesh_regeneration = 1.75
 	stop_bleeding = 0.25
-	grind_results = list(/datum/reagent/medicine/coagulant = 2)
 	merge_type = /obj/item/stack/medical/mesh/bloody
+
+/obj/item/stack/medical/mesh/bloody/grind_results()
+	return list(/datum/reagent/medicine/coagulant = 2)
 
 /obj/item/stack/medical/mesh/bloody/update_icon_state()
 	if(is_open)
@@ -34,7 +38,7 @@
 
 /obj/item/stack/medical/mesh/bloody/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)
 	. = ..()
-	if(healed_mob.blood_volume <= BLOOD_VOLUME_SAFE)
+	if(healed_mob.get_blood_volume() <= BLOOD_VOLUME_SAFE)
 		healed_mob.reagents.add_reagent(/datum/reagent/medicine/salglu_solution, 2)
 		healed_mob.adjust_oxy_loss(-amount_healed)
 
