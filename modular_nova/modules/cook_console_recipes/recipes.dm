@@ -128,3 +128,13 @@
 	reqs = list(/obj/item/food/grown/herbs = 1)
 	result = /obj/item/food/dried_herbs
 	category = CAT_MARTIAN
+
+// intrinsic fixes
+/obj/item/food/canned/chap
+	intrinsic_food_materials = list(/datum/material/meat, /datum/material/iron)
+
+/obj/item/food/chapslice
+	intrinsic_food_materials = list(/datum/material/meat, /datum/material/iron)
+
+/obj/item/food/grilled_chapslice
+	intrinsic_food_materials = list(/datum/material/meat, /datum/material/iron)
