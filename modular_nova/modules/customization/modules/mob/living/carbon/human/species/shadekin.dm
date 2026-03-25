@@ -145,7 +145,7 @@
 /datum/species/shadekin/get_species_description()
 	return list(
 		"Shadekin first came about like dust bunnies that collect under a bed, of the collective consciousness \
-		\"Welcome, sibling,\" the first words felt in a sea of thought, guiding them to their first connection.",
+		\"Welcome, sibling,\" the first words felt in a sea of thought, guiding them to their first connection. ",
 		"Shadekin do not respirate, and their bodies are reformed in the darkness, although frail.",
 	)
 
