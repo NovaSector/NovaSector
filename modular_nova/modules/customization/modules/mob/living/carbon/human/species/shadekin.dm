@@ -145,7 +145,7 @@
 /datum/species/shadekin/get_species_description()
 	return list(
 		"Shadekin first came about like dust bunnies that collect under a bed, of the collective consciousness \
-		\"Welcome, sibling,\" the first words felt in a sea of thought, guiding them to their first connection",
+		\"Welcome, sibling,\" the first words felt in a sea of thought, guiding them to their first connection.",
 		"Shadekin do not respirate, and their bodies are reformed in the darkness, although frail.",
 	)
 
@@ -166,7 +166,7 @@
 		Despite this, Shadekin easily find a space of their own, and become staples of their communities. They are more expressive than other species to compensate for a lack of psionic connection. \
 		Their language, Marish, is purely empathic and cannot be spoken by psychopaths. Their eye color is an important part of their biology, as it indicates temperament.",
 
-		"A shadekin is never truly alone, however, as Shadekin have formed in number on the treacherous moon Neoma, due to its darkness and isolation. \
+		"A Shadekin is never truly alone, however, as Shadekin have formed in number on the treacherous moon Neoma, due to its darkness and isolation. \
 		While there is no central Shadekin government, this is the closest thing Shadekin have to a homeworld, devoid of light due to its orbit around Lusine, an extremely hot world that keeps Neoma's surface approaching habitable. \
 		It has become a notable tourist attraction in the few habitable areas. Neoma serves an important function of containing the collective knowledge of Shadekin society and its covens.",
 
