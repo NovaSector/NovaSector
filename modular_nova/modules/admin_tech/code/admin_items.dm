@@ -177,7 +177,7 @@
 	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
 	w_class = WEIGHT_CLASS_TINY
 	armor_type = /datum/armor/debug
-	base_icon_state = "submag"
+	base_icon_state = "submag0"
 	icon_state = "submag0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
 	slowdown_active = -0.25
 	magpulse_fishing_modifier = 10
