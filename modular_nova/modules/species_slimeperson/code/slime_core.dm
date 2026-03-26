@@ -134,7 +134,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	. = ..()
 	if(gps_active)
 		. += span_notice("A dim light lowly pulsates from the center of the core, indicating an outgoing signal from a tracking microchip.")
-		. += span_red("You could probably use the core in-hand to snuff out the tracking signal and retrieve the items within it.")
+		. += span_red("You could probably use the core in-hand to retrieve the items within it, or right-click it in-hand to snuff out the tracking signal.")
 	else
 		. += span_red("You could probably use the core in-hand to retrieve the items within it.")
 	if(HAS_TRAIT(brainmob, TRAIT_DNR))
