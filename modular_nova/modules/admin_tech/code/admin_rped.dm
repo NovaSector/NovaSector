@@ -4,6 +4,7 @@
 	name = "\improper Bluespace Tech RPED"
 	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly. Alt-Right-Click to manufacture parts, change settings, or clear its internal storage."
 	storage_type = /datum/storage/rped/bluespace/debug
+	w_class = 1
 	/// Whether or not auto-clear is enabled
 	var/auto_clear = TRUE
 	/// List of valid types for pick_stock_part().

@@ -15,7 +15,7 @@
 
 /obj/item/storage/bag/construction/debug/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/stack/rods/fifty = null,// amount should be null if it should spawn with the type's default amount
+		/obj/item/stack/rods = 50,// amount should be null if it should spawn with the type's default amount
 		/obj/item/stack/sheet/iron/fifty = null,
 		/obj/item/stack/rods/lava/thirty = null,
 		/obj/item/stack/rods/shuttle/fifty = null,
@@ -34,19 +34,38 @@
 		/obj/item/stack/sheet/mineral/uranium = 20,// "Only 20 uranium 'cause of radiation"
 		/obj/item/stack/sheet/mineral/diamond/fifty = null,
 		/obj/item/stack/sheet/bluespace_crystal/fifty = null,
-		/obj/item/stack/sheet/mineral/bananium/five = 10,
+		/obj/item/stack/sheet/mineral/bananium = 50,
 		/obj/item/stack/sheet/mineral/wood/fifty = null,
 		/obj/item/stack/sheet/plastic/fifty = null,
 		/obj/item/stack/sheet/runed_metal/fifty = null,
 		/obj/item/stack/sheet/mineral/abductor = 50,
-		/obj/item/stack/sheet/mineral/sandstone/thirty = null,
+		/obj/item/stack/sheet/mineral/sandstone = 50,
 		/obj/item/stack/sheet/cardboard/fifty = null,
-		/obj/item/stack/sheet/leather/five = 10,
+		/obj/item/stack/sheet/leather = 50,
 		/obj/item/stack/sheet/hairlesshide = 50,
 		/obj/item/stack/sheet/hot_ice = 50,
 		/obj/item/stack/sheet/mineral/sandbags/fifty = null,
-		/obj/item/stack/sheet/cloth/ten = 5,
+		/obj/item/stack/sheet/cloth = 50,
 		/obj/item/stack/cable_coil = MAXCOIL,
+		/obj/item/stack/sheet/mineral/snow = 50,
+		/obj/item/stack/sheet/mineral/adamantine = 50,
+		/obj/item/stack/sheet/mineral/runite = 50,
+		/obj/item/stack/sheet/mineral/coal = 50,
+		/obj/item/stack/sheet/mineral/metal_hydrogen = 50,
+		/obj/item/stack/sheet/paperframes = 50,
+		/obj/item/stack/sheet/meat = 50,
+		/obj/item/stack/sheet/durathread = 50,
+		/obj/item/stack/sheet/mineral/stone = 50,
+		/obj/item/stack/sheet/mineral/bamboo = 50,
+		/obj/item/stack/sheet/mineral/zaukerite = 50,
+		/obj/item/stack/sheet/brussite = 50,
+		/obj/item/stack/sheet/tinumium = 50,
+		/obj/item/stack/sheet/copporcitite = 50,
+		/obj/item/stack/sheet/cobolterium = 50,
+		/obj/item/stack/sheet/pizza/fifty = 50,
+		/obj/item/stack/sheet/spaceship = 50,
+		/obj/item/stack/sheet/spaceshipglass = 50,
+		/obj/item/stack/circuit_stack/full = null,
 	)
 	for(var/obj/item/stack/stack_type as anything in items_inside)
 		var/amt = items_inside[stack_type]
@@ -56,7 +75,7 @@
 /obj/item/encryptionkey/debug
 	name = "\proper the subspace encryption key"
 	desc = "Holding and looking at this little chip fills you with a sense of existential dread. The taste of metaknowledge fills your mouth. \
-		It tastes salty. Like tears. Why do you know what tears look like? \
+		It tastes salty. Like tears. Why do you know what tears taste like? \
 		You're a badmin, of course you know what tears taste like. Those of your coworkers taste better."
 	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/heads/captain"
@@ -81,7 +100,7 @@
 	AddComponent(/datum/component/wearertargeting/earprotection)
 
 // New admin undersuit
-// todo: BST, CC Variants, Casualmin Variants, or.... Maybe we setup altstates for this?
+// todo: BST, CC Variants, Casualmin Variants, or.... Maybe we setup skins for this?
 /obj/item/clothing/under/misc/sst_suit
 	name = "subspace skinsuit"
 	desc = "A perfectly tailored and customized skin suit made specifically for this technician. \
@@ -229,7 +248,7 @@
 	armor_type = /datum/armor/debug
 	name = "tech's flannel"
 	desc = "Why'd you grab this one from the wardrobe? We have nicely colored ones, you know."
-	greyscale_colors = "#303030ff#FFCE5B"
+	greyscale_colors = "#303030ff"
 
 /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/bst
 	name = "bluespace tech's flannel"
@@ -274,3 +293,13 @@
 	max_filters = 10
 	starting_filter_type = /obj/item/gas_filter/debug
 	fishing_modifier = 0
+
+// Global Access Door Remote
+/obj/item/door_remote/debug
+	name = "subspace door remote"
+	desc = "This remote controls airlocks through narrative will alone. Also comes emagged, did you know that you can emag door remotes?"
+	department = "omni"
+	region_access = REGION_ALL_GLOBAL
+	owner_trim = /datum/id_trim/admin/sst
+	our_domain = list( /area )
+	obj_flags = EMAGGED

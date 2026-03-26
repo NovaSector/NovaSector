@@ -64,6 +64,7 @@
 	new	/obj/item/screwdriver/power(src)
 	new	/obj/item/pipe_dispenser/bluespace(src)
 	new	/obj/item/rpd_upgrade/unwrench(src)
+	new /obj/item/door_remote/debug(src)
 
 // Yes hello I would like some tools in a debug outfit's belt
 /obj/item/storage/belt/utility/debug/bst
@@ -98,3 +99,4 @@
 	new	/obj/item/crowbar/power(src)
 	new	/obj/item/screwdriver/power(src)
 	new	/obj/item/pipe_dispenser/bluespace(src)
+	new /obj/item/door_remote/debug(src)
