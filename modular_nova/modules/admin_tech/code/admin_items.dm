@@ -493,7 +493,15 @@
 		),
 	)
 
-/obj/item/construction/plumbing/service/Initialize(mapload)
-	plumbing_design_types = service_design_types
+/obj/item/construction/plumbing/debug/Initialize(mapload)
+	plumbing_design_types = debug_design_types
 
 	. = ..()
+
+//Debug Amputation Shears
+/obj/item/shears/debug
+	name = "subspace amputation shears"
+	desc = "What, too lazy for player-panel? These blades look sharp enough to cut space-time, they will certainly make quick work of any humanoid."
+	icon = 'icons/obj/medical/surgery_tools.dmi'
+	icon_state = "shears"
+	toolspeed = 0
