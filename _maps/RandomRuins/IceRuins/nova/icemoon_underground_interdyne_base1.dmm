@@ -3969,6 +3969,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/frame/machine/secured,
 /obj/item/circuitboard/machine/stacking_machine,
+/obj/item/circuitboard/machine/stacking_unit_console,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "kY" = (
@@ -6675,6 +6676,7 @@
 /obj/item/circuitboard/computer/bountypad,
 /obj/item/circuitboard/machine/bountypad,
 /obj/structure/rack/shelf,
+/obj/item/circuitboard/machine/interdyne_fabricator,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "CF" = (
