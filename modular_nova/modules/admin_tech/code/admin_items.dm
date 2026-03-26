@@ -205,14 +205,17 @@
 	projectile_type = /obj/projectile/energy/fisher/debug
 	e_cost = 0
 
-/obj/item/gun/energy/recharge/fisher/debug//code\modules\projectiles\guns\energy\recharge.dm
+//code\modules\projectiles\guns\energy\recharge.dm
+/obj/item/gun/energy/recharge/fisher/debug
+	name: "technician's disruptor"
 	w_class = WEIGHT_CLASS_TINY
 	suppressed = SUPPRESSED_QUIET
 	recharge_time = 0.25 SECONDS
 	ammo_type = list(/obj/item/ammo_casing/energy/fisher/debug)
 
 // We need updated money for the debug box. Space cash is not splittable, and spawning 10 stacks of 5000 credits is not an ok solution to that problem
-/obj/item/holochip/fiftythousand//code\game\objects\items\credit_holochip.dm
+//code\game\objects\items\credit_holochip.dm
+/obj/item/holochip/fiftythousand
 	desc = "Oh lawd she thicc."
 	credits = 50000
 
@@ -281,8 +284,10 @@
 		/datum/gas/zauker,
 		)
 
-//TODO:make gags + variants
-/obj/item/clothing/mask/gas/atmos/debug//code\modules\clothing\masks\gasmask.dm
+//Subspace Gas Mask
+//code\modules\clothing\masks\gasmask.dm
+//TODO:bst/sst variants
+/obj/item/clothing/mask/gas/atmos/debug
 	name = "subspace gas mask"
 	desc = "A proprietary filtration mask which route gasses that CentCom deems toxic directly into the space between dimensions.\
 	Wasteful? Totally. Convenient? Extremely."
@@ -295,6 +300,8 @@
 	fishing_modifier = 0
 
 // Global Access Door Remote
+//code\game\objects\items\tools\control_wand.dm
+//todo:subspace icon variant
 /obj/item/door_remote/debug
 	name = "subspace door remote"
 	desc = "This remote controls airlocks through narrative will alone. Also comes emagged, did you know that you can emag door remotes?"
@@ -303,3 +310,32 @@
 	owner_trim = /datum/id_trim/admin/sst
 	our_domain = list( /area )
 	obj_flags = EMAGGED
+
+//Subspace RCD, but using the cooler RCD type. Did you know that there already exists a decently superior alternative to the /obj/item/construction/rcd/combat/admin?
+//It was /obj/item/construction/rcd/arcd and for whatever reason this unused one had the potential to be better. But wasn't used.
+//todo:subspace icons
+/obj/item/construction/rcd/arcd/mattermanipulator/debug
+	name = "subspace matter manipulator"
+	desc = "Holding this fabulous piece of legally distinct technology fills you with a sense of determination. Works at range, and can deconstruct reinforced walls."
+	icon = 'modular_nova/master_files/icons/obj/tools.dmi'
+	icon_state = "rcd"
+	worn_icon_state = "RCD"
+	max_matter = INFINITY
+	matter = INFINITY
+	delay_mod = 0.1
+	construction_upgrades = RCD_ALL_UPGRADES & ~RCD_UPGRADE_SILO_LINK
+
+//Subspace Rapid Lighting Device
+//code\game\objects\items\rcd\RLD.dm
+//todo:subspace icons
+/obj/item/construction/rld/debug
+	name = "subspace rapid lighting device"
+	desc = "A device used to rapidly provide lighting sources to an area. Reload with iron, plasteel, glass or compressed matter cartridges."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "rld"
+	worn_icon_state = "RPD"
+	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+	matter = INFINITY
+	max_matter = INFINITY
+	construction_upgrades = RCD_UPGRADE_SILO_LINK
