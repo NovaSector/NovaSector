@@ -209,7 +209,7 @@
 
 //code\modules\projectiles\guns\energy\recharge.dm
 /obj/item/gun/energy/recharge/fisher/debug
-	name: "subspace disruptor"
+	name = "subspace disruptor"
 	w_class = WEIGHT_CLASS_TINY
 	suppressed = SUPPRESSED_QUIET
 	recharge_time = 0.25 SECONDS
