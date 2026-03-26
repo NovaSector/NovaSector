@@ -2076,10 +2076,15 @@
 /turf/open/floor/iron/checker,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "qV" = (
-/obj/item/circuitboard/machine/stacking_machine,
 /obj/structure/frame/machine/secured,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
+	},
+/obj/item/circuitboard/machine/stacking_machine,
+/obj/item/circuitboard/machine/stacking_unit_console{
+	base_pixel_x = 4;
+	pixel_x = 3;
+	pixel_y = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
