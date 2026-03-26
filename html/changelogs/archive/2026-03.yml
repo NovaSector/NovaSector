@@ -728,3 +728,7 @@
   - qol: adds a 'Connect to Relay' option under the File menu, below 'reconnect'
   - qol: adds a new verb, 'Connect-to-Relay' that can be typed or found in the OOC
       tab
+2026-03-26:
+  vinylspiders:
+  - bugfix: fixes an issue where genitals were rendering the incorrect variant at
+      random
