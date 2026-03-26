@@ -32,6 +32,7 @@
 	return 1
 
 // Pull designs from the global design list directly, filtered by medical department and allowed buildtypes
+// Excludes alien technology, includes all implant designs regardless of department flag
 /obj/machinery/rnd/production/interdyne_fabricator/update_designs()
 	var/previous_design_count = cached_designs.len
 
@@ -40,7 +41,19 @@
 	for(var/design_id, design in SSresearch.techweb_designs)
 		var/datum/design/current_design = design
 
-		if((current_design.departmental_flags & allowed_department_flags) && (current_design.build_type & allowed_buildtypes))
+		if(!(current_design.build_type & allowed_buildtypes))
+			continue
+
+		// Skip generic designs not intended for any specific department (filters away-mission and catch-all items)
+		if(current_design.departmental_flags == ALL)
+			continue
+
+		// Skip alien technology - Interdyne doesn't have access to xenobiological blueprints
+		if(findtext(design_id, "alien_"))
+			continue
+
+		// Include all implant designs (even security-flagged ones) and standard medical designs
+		if((current_design.departmental_flags & allowed_department_flags) || findtext(design_id, "implant"))
 			cached_designs |= current_design
 
 	var/design_delta = length(cached_designs) - previous_design_count
