@@ -3,18 +3,30 @@
 	desc = "A proprietary Interdyne Pharmaceuticals fabricator, pre-loaded with a comprehensive medical design library. \
 		Unlike standard Nanotrasen techfabs, this machine operates independently of any research network, \
 		drawing from Interdyne's own extensive pharmaceutical database."
+	icon = 'modular_nova/modules/company_imports/icons/interdyne_fabricator.dmi'
 	icon_state = "protolathe"
 	production_animation = "protolathe_n"
 	circuit = /obj/item/circuitboard/machine/interdyne_fabricator
 	allowed_buildtypes = PROTOLATHE | IMPRINTER
 	allowed_department_flags = DEPARTMENT_BITFLAG_MEDICAL
-	stripe_color = "#4CBB17"
+	// Null here so the parent doesn't add a stripe from the wrong icon file
+	stripe_color = null
 	payment_department = ACCOUNT_INT
+	/// The actual stripe color, applied in our own update_overlays
+	var/interdyne_stripe_color = "#4CBB17"
 
 /obj/machinery/rnd/production/interdyne_fabricator/Initialize(mapload)
 	. = ..()
 	// Use the admin techweb so all designs are considered "researched" - we filter by department flag instead
 	stored_research = locate(/datum/techweb/admin) in SSresearch.techwebs
+
+/obj/machinery/rnd/production/interdyne_fabricator/update_overlays()
+	. = ..()
+	if(!interdyne_stripe_color)
+		return
+	var/mutable_appearance/stripe = mutable_appearance(icon, "protolathe_stripe[panel_open ? "_t" : ""]")
+	stripe.color = interdyne_stripe_color
+	. += stripe
 
 /obj/machinery/rnd/production/interdyne_fabricator/build_efficiency()
 	return 1
