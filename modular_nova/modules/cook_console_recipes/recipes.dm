@@ -88,7 +88,14 @@
 
 /datum/crafting_recipe/food/can_of_chap
 	name = "Can of CHAP"
-	time = 40
+	time = 10
+	requirements_mats_blacklist = list(
+		/obj/item/reagent_containers/cup/bowl,
+		/obj/item/popsicle_stick,
+		/obj/item/stack/rods,
+		/obj/item/reagent_containers/cup/glass/sillycup,
+		/obj/item/stack/sheet/iron,
+	)
 	reqs = list(
 		/obj/item/stack/sheet/iron = 1,
 		/obj/item/food/meat/slab = 1,
