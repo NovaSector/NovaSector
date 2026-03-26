@@ -427,3 +427,73 @@
 	w_class = WEIGHT_CLASS_TINY
 	template_id = "capsule_tinyfan"
 	used = FALSE
+
+//Debug Plumbing Tool
+//todo:variant icon
+//code\game\objects\items\rcd\RPLD.dm
+/obj/item/construction/plumbing/debug
+	name = "subspace plumbing constructor"
+	desc = "An expertly modified RCD outfitted to construct plumbing machinery."
+	icon_state = "plumberer2"
+	inhand_icon_state = "plumberer"
+	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+	worn_icon_state = "plumbing"
+	icon = 'icons/obj/tools.dmi'
+	slot_flags = ITEM_SLOT_BELT
+	drop_sound = 'sound/items/handling/tools/rcd_drop.ogg'
+	pickup_sound = 'sound/items/handling/tools/rcd_pickup.ogg'
+	sound_vary = TRUE
+	matter = INFINITY
+	max_matter = INFINITY
+	construction_upgrades = RCD_UPGRADE_SILO_LINK
+///Design types for debug service constructor, I just smushed the two lists together
+	var/static/list/debug_design_types = list(
+		//Category 1 synthesizers
+		"Synthesizers" = list(
+			/obj/machinery/plumbing/synthesizer = 1,
+			/obj/machinery/plumbing/synthesizer/soda = 1,
+			/obj/machinery/plumbing/synthesizer/beer = 1,
+			/obj/machinery/plumbing/reaction_chamber = 1,
+			/obj/machinery/plumbing/reaction_chamber/chem = 1,
+			/obj/machinery/plumbing/buffer = 1,
+			/obj/machinery/plumbing/fermenter = 1,
+			/obj/machinery/plumbing/grinder_chemical = 1,
+			/obj/machinery/plumbing/disposer = 1,
+			/obj/machinery/plumbing/liquid_pump = 1,
+		),
+
+		//Category 2 distributors
+		"Distributors" = list(
+			/obj/machinery/duct = 1,
+			/obj/machinery/plumbing/layer_manifold = 5,
+			/obj/machinery/plumbing/input = 5,
+			/obj/machinery/plumbing/filter = 5,
+			/obj/machinery/plumbing/splitter = 5,
+			/obj/machinery/plumbing/output = 5,
+			/obj/machinery/plumbing/output/tap = 5,
+			/obj/machinery/plumbing/sender = 20,
+		),
+
+		//category 3 storage
+		"Storage" = list(
+			/obj/machinery/plumbing/bottler = 50,
+			/obj/machinery/plumbing/tank = 20,
+			/obj/machinery/plumbing/acclimator = 10,
+			/obj/machinery/plumbing/buffer = 10,
+			/obj/machinery/plumbing/pill_press = 20,
+			/obj/machinery/iv_drip/plumbing = 20,
+		),
+
+		//category 4 liquids
+		"Liquids" = list(
+			/obj/structure/drain = 5,
+			/obj/machinery/plumbing/floor_pump/input = 20,
+			/obj/machinery/plumbing/floor_pump/output = 20,
+		),
+	)
+
+/obj/item/construction/plumbing/service/Initialize(mapload)
+	plumbing_design_types = service_design_types
+
+	. = ..()
