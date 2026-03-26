@@ -7,7 +7,7 @@
 	icon_state = "protolathe"
 	production_animation = "protolathe_n"
 	circuit = /obj/item/circuitboard/machine/interdyne_fabricator
-	allowed_buildtypes = PROTOLATHE | IMPRINTER
+	allowed_buildtypes = PROTOLATHE | IMPRINTER | MECHFAB
 	allowed_department_flags = DEPARTMENT_BITFLAG_MEDICAL
 	// Null here so the parent doesn't add a stripe from the wrong icon file
 	stripe_color = null
@@ -32,7 +32,7 @@
 	return 1
 
 // Pull designs from the global design list directly, filtered by medical department and allowed buildtypes
-// Excludes alien technology, includes all implant designs regardless of department flag
+// Excludes alien technology, includes all implant and non-engineering cyborg module designs
 /obj/machinery/rnd/production/interdyne_fabricator/update_designs()
 	var/previous_design_count = cached_designs.len
 
@@ -44,12 +44,25 @@
 		if(!(current_design.build_type & allowed_buildtypes))
 			continue
 
-		// Skip generic designs not intended for any specific department (filters away-mission and catch-all items)
-		if(current_design.departmental_flags == ALL)
-			continue
-
 		// Skip alien technology - Interdyne doesn't have access to xenobiological blueprints
 		if(findtext(design_id, "alien_"))
+			continue
+
+		// Include cyborg modules except engineering ones
+		if(current_design.build_type & MECHFAB)
+			var/is_borg_module = FALSE
+			var/is_engineering = FALSE
+			for(var/cat in current_design.category)
+				if(findtext(cat, RND_CATEGORY_MECHFAB_CYBORG_MODULES))
+					is_borg_module = TRUE
+				if(findtext(cat, RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING))
+					is_engineering = TRUE
+			if(is_borg_module && !is_engineering)
+				cached_designs |= current_design
+			continue
+
+		// Skip generic designs not intended for any specific department (filters away-mission and catch-all items)
+		if(current_design.departmental_flags == ALL)
 			continue
 
 		// Include all implant designs (even security-flagged ones) and standard medical designs
