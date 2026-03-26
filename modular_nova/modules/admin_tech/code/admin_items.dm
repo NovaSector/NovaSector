@@ -3,7 +3,7 @@
 // I can probably adapt the BST-BRPED manufacturing function to this, but for now, an improvement is better than nothing
 /obj/item/storage/bag/construction/debug//code\game\objects\items\storage\bags.dm
 	name = "subspace construction pouch"
-	desc = "A hand manufactured pocket liner assembled with disturbingly advanced technologies and materials. \
+	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
 	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
 	icon = 'modular_nova/master_files/icons/obj/tools.dmi'
 	icon_state = "subspace_bag"
@@ -171,7 +171,7 @@
 //	human_user.update_sight()
 //	return CLICK_ACTION_SUCCESS
 
-// Debug magbooties
+//Debug magbooties
 /obj/item/clothing/shoes/magboots/advance/debug//code\modules\clothing\shoes\magboots.dm
 	name = "subspace magboots"
 	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
@@ -197,6 +197,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
+//Tech's Disruptor - its a fischer but with every flavor of phasing
+//Sometimes you need something to just not work for a moment
 // Techs do Infiltration and Lights testing
 /obj/projectile/energy/fisher/debug//Passes essentially everything, make sure you click on what you want to disable directly
 	projectile_phasing = PASSTABLE | PASSMOB | PASSMACHINE | PASSSTRUCTURE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSDOORS
@@ -207,7 +209,7 @@
 
 //code\modules\projectiles\guns\energy\recharge.dm
 /obj/item/gun/energy/recharge/fisher/debug
-	name: "technician's disruptor"
+	name: "subspace disruptor"
 	w_class = WEIGHT_CLASS_TINY
 	suppressed = SUPPRESSED_QUIET
 	recharge_time = 0.25 SECONDS
@@ -216,6 +218,7 @@
 // We need updated money for the debug box. Space cash is not splittable, and spawning 10 stacks of 5000 credits is not an ok solution to that problem
 //code\game\objects\items\credit_holochip.dm
 /obj/item/holochip/fiftythousand
+	name = "unusually dense holochip"
 	desc = "Oh lawd she thicc."
 	credits = 50000
 
@@ -242,7 +245,7 @@
 	greyscale_colors = "#0050D5#FFCE5B"
 
 /obj/item/clothing/head/helmet/space/beret/debug/sst
-	name = "subspace's beret"
+	name = "subspace tech's beret"
 	desc = "An armored beret commonly used by special operations officers. Uses advanced force field technology to protect the head from space."
 	greyscale_colors = "#C68EEF#FFCE5B"
 
@@ -286,7 +289,7 @@
 
 //Subspace Gas Mask
 //code\modules\clothing\masks\gasmask.dm
-//TODO:bst/sst variants
+//TODO:bst/sst/cc icon variants
 /obj/item/clothing/mask/gas/atmos/debug
 	name = "subspace gas mask"
 	desc = "A proprietary filtration mask which route gasses that CentCom deems toxic directly into the space between dimensions.\
@@ -313,6 +316,8 @@
 
 //Subspace RCD, but using the cooler RCD type. Did you know that there already exists a decently superior alternative to the /obj/item/construction/rcd/combat/admin?
 //It was /obj/item/construction/rcd/arcd and for whatever reason this unused one had the potential to be better. But wasn't used.
+//modular_nova\master_files\code\game\objects\items\RCD.dm
+//code\game\objects\items\rcd\RCD.dm
 //todo:subspace icons
 /obj/item/construction/rcd/arcd/mattermanipulator/debug
 	name = "subspace matter manipulator"
@@ -339,3 +344,15 @@
 	matter = INFINITY
 	max_matter = INFINITY
 	construction_upgrades = RCD_UPGRADE_SILO_LINK
+
+//Debug Emag & Doorjack
+//There is already a 'bluespace emag' but its pretty ugly, so I'll just do my own quick pallete swap icons
+//todo:icon variants
+//code\game\objects\items\emags.dm
+/obj/item/card/emag/debug
+	name = "subspace emag-doorjack"
+	desc = "It's a card with a magnetic strip attached to some circuitry that hurts to look at. Don't wave this at anything you care about."
+	icon_state = "emag"
+	worn_icon_state = "emag"
+	prox_check = FALSE
+	type_blacklist = null

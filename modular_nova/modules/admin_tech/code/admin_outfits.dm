@@ -3,7 +3,7 @@
 /datum/outfit/admin/bst
 	name = "Bluespace Tech (MODsuit)"
 	uniform = /obj/item/clothing/under/misc/sst_suit
-	suit = /obj/item/clothing/suit/armor/vest/debug
+	suit = /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/bst
 	suit_store = /obj/item/tank/internals/emergency_oxygen/double
 	head = /obj/item/clothing/head/helmet/space/beret/debug/bst
 	ears = /obj/item/radio/headset/debug
@@ -12,7 +12,7 @@
 	gloves = /obj/item/clothing/gloves/combat
 	belt = /obj/item/storage/belt/utility/debug/bst
 	shoes = /obj/item/clothing/shoes/magboots/advance/debug
-	mask = /obj/item/clothing/mask/gas/atmos
+	mask = /obj/item/clothing/mask/gas/atmos/debug
 	id = /obj/item/card/id/advanced/debug/bst
 	box = /obj/item/storage/box/debug/tools
 	l_pocket = null
@@ -34,7 +34,7 @@
 /datum/outfit/admin/sst
 	name = "Subspace Tech (MODsuit)"
 	uniform = /obj/item/clothing/under/misc/sst_suit
-	suit = /obj/item/clothing/suit/armor/vest/debug//TODO:Subspace variant
+	suit = /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/sst
 	suit_store = /obj/item/tank/internals/emergency_oxygen/double//TODO:Subspace variant, pluox+nitrium variant
 	head = /obj/item/clothing/head/helmet/space/beret/debug/sst
 	ears = /obj/item/radio/headset/debug
@@ -43,7 +43,7 @@
 	gloves = /obj/item/clothing/gloves/kaza_ruk/combatglovesplus//TODO:Subspace variant
 	belt = /obj/item/storage/belt/utility/debug/sst
 	shoes = /obj/item/clothing/shoes/magboots/advance/debug
-	mask = /obj/item/clothing/mask/gas/atmos
+	mask = /obj/item/clothing/mask/gas/atmos/debug
 	id = /obj/item/card/id/advanced/debug/sst
 	box = /obj/item/storage/box/debug/tools
 	l_pocket = null

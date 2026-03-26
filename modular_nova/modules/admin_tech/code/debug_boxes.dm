@@ -28,7 +28,7 @@
 	new	/obj/item/storage/box/beakers/variety(src)
 	new	/obj/item/uplink/debug(src)
 	new	/obj/item/uplink/nuclear/debug(src)
-	new	/obj/item/card/emag(src)
+	new	/obj/item/card/emag/debug(src)
 	new	/obj/item/construction/rcd/combat/admin(src)
 	new	/obj/item/holochip/fiftythousand(src)
 	new	/obj/item/clothing/glasses/meson/engine/admin(src)
