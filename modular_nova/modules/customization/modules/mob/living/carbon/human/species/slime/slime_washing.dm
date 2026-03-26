@@ -38,6 +38,7 @@
 		span_purple("Your outer membrane develops a roiling film on the outside, absorbing grime off yourself and your clothes; as well as the floor beneath you.")
 	)
 	owner.balloon_alert_to_viewers("begins absorbing grime")
+	clean_floor()
 	return TRUE
 
 /datum/status_effect/slime_washing/on_remove()

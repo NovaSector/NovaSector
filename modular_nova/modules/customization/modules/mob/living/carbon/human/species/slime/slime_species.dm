@@ -34,6 +34,8 @@
 	/// List of organ types we should move to the chest.
 	/// Currently only tongues, but anything can be added to this list if issues are discovered.
 	var/static/list/organs_to_move = list(
+		/obj/item/organ/ears,
+		/obj/item/organ/eyes,
 		/obj/item/organ/tongue,
 	)
 
