@@ -115,7 +115,6 @@
 	icon_state = "nondescript"
 	name = "Nondescript"
 	has_skintone_shading = TRUE
-	max_sprite_size_affix = 4
 
 /datum/sprite_accessory/genital/penis/nondescript/alt
 	name = parent_type::name + " (Alt)"
