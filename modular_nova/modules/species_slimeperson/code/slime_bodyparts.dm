@@ -1,5 +1,3 @@
-// Roundstartslimes!
-
 #define SLIME_LIMB_BLOOD_LOSS 60
 
 /obj/item/bodypart/head/jelly
