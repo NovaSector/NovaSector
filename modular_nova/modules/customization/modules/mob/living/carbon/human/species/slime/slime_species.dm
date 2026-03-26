@@ -177,7 +177,7 @@
 		if(need_mob_update)
 			slime.updatehealth()
 		if(slime.health < slime.maxHealth)
-			new /obj/effect/temp_visual/heal(get_turf(slime), slime.dna.features[FEATURE_MUTANT_COLOR])
+			new /obj/effect/temp_visual/heal(get_turf(slime), slime.dna.features[FEATURE_MUTANT_COLOR] || COLOR_EFFECT_HEAL_RED)
 
 /datum/species/jelly/get_species_description()
 	return "Slime Hybrids are intelligent, gelatinous life forms capable of shape-shifting and eating almost everything, craving plasma above all else."

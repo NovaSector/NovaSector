@@ -1,4 +1,4 @@
-/// A global list of dead/ejected oozeling cores.
+/// A global list of dead/ejected slime cores.
 GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 /obj/item/organ/brain/slime
@@ -22,10 +22,10 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	var/being_repaired = FALSE
 
 	var/datum/dna/stored_dna
-	/// The mind of the oozeling that became this core.
+	/// The mind of the slime that became this core.
 	/// This MUST be named `mind`, in order to allow IS_[antag] macros to work on cores.
 	var/datum/mind/mind
-	/// The original language holder of the oozeling who died.
+	/// The original language holder of the slime who died.
 	var/datum/language_holder/stored_language_holder
 
 ///////
@@ -37,7 +37,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 	///Item types that should never be stored in core and will drop on death. Takes priority over allowed lists.
 	var/static/list/bannedcore = typecacheof(list(/obj/item/disk/nuclear))
-	//Extraneous organs not of oozeling origin. Usually cyber implants.
+	//Extraneous organs not of slime origin. Usually cyber implants.
 	var/static/list/allowed_organ_types = typecacheof(list(
 		/obj/item/organ/antennae,
 		/obj/item/organ/frills,
@@ -273,6 +273,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 /obj/item/organ/brain/slime/proc/on_slime_death(mob/living/carbon/victim)
 	SIGNAL_HANDLER
 	if(is_reserved_level(victim.z) && !istype(get_area(victim), /area/shuttle))
+		return
+	if(IS_CHANGELING(victim))
 		return
 	var/turf/victim_loc = victim.drop_location()
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
@@ -606,11 +608,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
 			if(istype(bodypart, /obj/item/bodypart/chest))
 				continue
-			bodypart.drop_limb() // Drop limb should delete the limb for oozelings unless someone changes it.
+			bodypart.drop_limb() // Drop limb should delete the limb for slimes unless someone changes it.
 		new_body.set_blood_volume(BLOOD_VOLUME_OKAY)
 		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
 		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
-		//Make oozelings revive similar to other species.
+		//Make slimes revive similar to other species.
 		new_body.set_jitter_if_lower(200 SECONDS)
 		INVOKE_ASYNC(new_body, TYPE_PROC_REF(/mob, emote), "scream")
 	else

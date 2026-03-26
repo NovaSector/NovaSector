@@ -1,5 +1,5 @@
 ///////
-/// HYDROPHOBIA TOGGLE
+/// SLIME HYDROPHOBIA ABILITY
 /// Makes it so that slimes are waterproof, but slower, and they don't regenerate.
 
 /datum/action/cooldown/slime_hydrophobia
