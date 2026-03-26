@@ -1,0 +1,5 @@
+"a" = (/obj/machinery/nova/fan/self_powered,/turf/open/floor/engine/insulation,/area/template_noop)
+
+(1,1,1) = {"
+a
+"}

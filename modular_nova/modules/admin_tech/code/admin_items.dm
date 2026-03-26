@@ -177,8 +177,10 @@
 	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
 	w_class = WEIGHT_CLASS_TINY
 	armor_type = /datum/armor/debug
+	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	base_icon_state = "submag0"
 	icon_state = "submag0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	slowdown_active = -0.25
 	magpulse_fishing_modifier = 10
 	fishing_modifier = 10
@@ -356,7 +358,7 @@
 	icon_state = "emag"
 	worn_icon_state = "emag"
 	prox_check = FALSE
-	type_blacklist = null
+	type_blacklist = list()
 
 //Debug Light Replacer
 //todo:icon variant
@@ -408,3 +410,20 @@
 	resistance_flags = INDESTRUCTIBLE
 	can_atmos_pass = ATMOS_PASS_NO
 	armor_type = /datum/armor/debug/badmin
+
+//Admin Capsules - Capsules to spawn things that players shouldnt be spawning on the regular
+//Tiny Fan Capsule
+/datum/map_template/shelter/admin/tinyfan
+	name = "self-powered tiny fan deployer"
+	shelter_id = "capsule_tinyfan"
+	description = "It's a self-powered tiny fan packaged with a hyper insulated floor tile."
+	mappath = "_maps/nova/capsules/tiny_fan_capsule.dmm"
+
+/obj/item/survivalcapsule/admin/fan
+	name = "self-powered tiny fan capsule"
+	desc = "Portable, efficient, and packaged with a hyper-insulated tile, it's a wonder we don't let the normal crew access to such a luxurious device. Maybe we should."
+	icon_state = "capsule"
+	icon = 'icons/obj/mining.dmi'
+	w_class = WEIGHT_CLASS_TINY
+	template_id = "capsule_tinyfan"
+	used = FALSE
