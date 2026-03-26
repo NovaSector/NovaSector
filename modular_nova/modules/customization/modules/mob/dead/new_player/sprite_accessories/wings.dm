@@ -183,7 +183,7 @@
 /datum/sprite_accessory/wings/mammal/triple
 	name = "Tri-wings"
 	icon_state = "triwings"
-	color_Src = USE_MATRIXED_COLORS
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/wings/mammal/harpy
 	name = "Harpy"
