@@ -266,8 +266,10 @@
 	desc = "An armored beret commonly used by administratively deployed techs. Uses advanced force field technology to protect the head from space."
 	greyscale_colors = "#C68EEF"
 
-//Creates a new debug filter and gagsable admim bus gasmask
-/obj/item/gas_filter/debug//code\modules\clothing\masks\gas_filter.dm
+//Debug Gas Mask
+//Creates a new debug filter
+//code\modules\clothing\masks\gas_filter.dm
+/obj/item/gas_filter/debug
 	filter_status = 1000
 	filter_strength_high = 10
 	filter_efficiency = 1
@@ -287,7 +289,6 @@
 		/datum/gas/zauker,
 		)
 
-//Subspace Gas Mask
 //code\modules\clothing\masks\gasmask.dm
 //TODO:bst/sst/cc icon variants
 /obj/item/clothing/mask/gas/atmos/debug
@@ -302,7 +303,7 @@
 	starting_filter_type = /obj/item/gas_filter/debug
 	fishing_modifier = 0
 
-// Global Access Door Remote
+//Debug Global Access Door Remote
 //code\game\objects\items\tools\control_wand.dm
 //todo:subspace icon variant
 /obj/item/door_remote/debug
@@ -314,7 +315,7 @@
 	our_domain = list( /area )
 	obj_flags = EMAGGED
 
-//Subspace RCD, but using the cooler RCD type. Did you know that there already exists a decently superior alternative to the /obj/item/construction/rcd/combat/admin?
+//Debug RCD, but using the cooler RCD type. Did you know that there already exists a decently superior alternative to the /obj/item/construction/rcd/combat/admin?
 //It was /obj/item/construction/rcd/arcd and for whatever reason this unused one had the potential to be better. But wasn't used.
 //modular_nova\master_files\code\game\objects\items\RCD.dm
 //code\game\objects\items\rcd\RCD.dm
@@ -330,7 +331,7 @@
 	delay_mod = 0.1
 	construction_upgrades = RCD_ALL_UPGRADES & ~RCD_UPGRADE_SILO_LINK
 
-//Subspace Rapid Lighting Device
+//Debug Rapid Lighting Device
 //code\game\objects\items\rcd\RLD.dm
 //todo:subspace icons
 /obj/item/construction/rld/debug
@@ -356,3 +357,13 @@
 	worn_icon_state = "emag"
 	prox_check = FALSE
 	type_blacklist = null
+
+//Debug Light Replacer
+//todo:icon variant
+//code\game\objects\items\devices\lightreplacer.dm
+/obj/item/lightreplacer/blue/debug
+	name = "subspace light replacer"
+	desc = "A modified light replacer that zaps lights into place by crystallizing your irritation caused by a lack of lux. Oddly, has endless material."
+	icon_state = "lightreplacer_blue"
+	uses = INFINITY
+	max_uses = INFINITY
