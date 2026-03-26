@@ -34,6 +34,9 @@
 
 /obj/machinery/autodoc/Destroy()
 	for(var/atom/movable/item in stored_items)
+		if(isorgan(item))
+			var/obj/item/organ/organ = item
+			organ.organ_flags &= ~ORGAN_FROZEN
 		item.forceMove(get_turf(src))
 	stored_items.Cut()
 	procedure_queue.Cut()
@@ -118,6 +121,9 @@
 			balloon_alert(user, "can't let go!")
 			return
 		stored_items += used
+		if(isorgan(used))
+			var/obj/item/organ/organ = used
+			organ.organ_flags |= ORGAN_FROZEN
 		balloon_alert(user, "loaded [used.name]")
 		return
 	if(!occupant && default_deconstruction_screwdriver(user, icon_state, icon_state, used))
@@ -267,6 +273,9 @@
 				procedure_queue.Cut(idx, idx + 1)
 				queue_actions.Cut(idx, idx + 1)
 			stored_items -= target
+			if(isorgan(target))
+				var/obj/item/organ/organ = target
+				organ.organ_flags &= ~ORGAN_FROZEN
 			target.forceMove(get_turf(src))
 			balloon_alert(usr, "ejected [target.name]")
 			return TRUE
@@ -331,6 +340,7 @@
 		if("insert")
 			if(isorgan(target))
 				var/obj/item/organ/organ_item = target
+				organ_item.organ_flags &= ~ORGAN_FROZEN
 				if(try_find_empty_zone(organ_item, patient))
 					success = organ_item.Insert(patient)
 				if(success)
@@ -354,6 +364,7 @@
 					organ_item.Remove(patient)
 					target.forceMove(src)
 					stored_items += target
+					organ_item.organ_flags |= ORGAN_FROZEN
 					success = TRUE
 
 	if(success)
