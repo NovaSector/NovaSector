@@ -27,7 +27,7 @@
 // Yes hello I would like some tools in a debug outfit's belt
 /obj/item/storage/belt/utility/debug/bst
 	name = "\improper bluespace technicians's satchel"
-	desc = "A hand manufactured satchel made of the finest materials, processes, and a creatively integrated bluespace anomaly core. \
+	desc = "A hand crafted satchel made of the finest materials, processes, and a creatively integrated bluespace anomaly core. \
 	This one was carefully prestocked and organized by a Central Command Quartermaster to service an engineering aligned technician."
 	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
 	icon_state = "admeme_satchel"
@@ -45,7 +45,8 @@
 	new	/obj/item/bodybag/bluespace(src)
 	new	/obj/item/teleport_rod/admin(src)
 	new	/obj/item/mop/advanced(src)
-	new	/obj/item/holosign_creator/atmos(src)
+	new	/obj/item/holosign_creator/atmos/debug(src)
+	new	/obj/item/forcefield_projector/debug(src)
 	new	/obj/item/lightreplacer/blue/debug(src)
 	new	/obj/item/construction/rld/debug(src)
 	new	/obj/item/rwd/admin(src)
@@ -63,7 +64,7 @@
 // Yes hello I would like some tools in a debug outfit's belt
 /obj/item/storage/belt/utility/debug/sst
 	name = "\improper subspace technician's satchel"
-	desc = "A hand manufactured satchel made of the finest materials, processes, and a creatively integrated bluespace anomaly core. \
+	desc = "A hand crafted satchel made of the finest materials, processes, and a creatively integrated bluespace anomaly core. \
 	This one was carefully prestocked and organized by a Central Command Quartermaster to offer an extreme selection of goodies."
 	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
 	icon_state = "admeme_satchel"
@@ -86,8 +87,8 @@
 	new	/obj/item/fishing_rod/telescopic/master(src)
 	new	/obj/item/gun/energy/recharge/fisher/debug(src)
 	new	/obj/item/mop/advanced(src)
-	new	/obj/item/forcefield_projector(src)
-	new	/obj/item/holosign_creator/atmos(src)
+	new	/obj/item/forcefield_projector/debug(src)
+	new	/obj/item/holosign_creator/atmos/debug(src)
 	new	/obj/item/lightreplacer/blue/debug(src)
 	new	/obj/item/construction/rld/debug(src)
 	new	/obj/item/rwd/admin(src)
