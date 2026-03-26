@@ -5733,8 +5733,7 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "UQ" = (
-/obj/item/circuitboard/machine/techfab/department/medical,
-/obj/structure/frame/machine/secured,
+/obj/machinery/rnd/production/interdyne_fabricator,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "UU" = (
