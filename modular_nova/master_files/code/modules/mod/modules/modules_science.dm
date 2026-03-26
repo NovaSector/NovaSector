@@ -43,7 +43,7 @@
 	active_power_cost = parent_type::active_power_cost * 2
 
 /obj/item/mod/module/anomaly_locked/teleporter
-	teleport_time = 2 SECONDS // original is 1, small nerf.
+	teleport_time = 4 SECONDS // original is 1
 
 /obj/item/mod/module/anomaly_locked/teleporter/commercial
 	name = "MOD teleporter module (commercial variant)"
@@ -53,7 +53,7 @@
 	prebuilt = TRUE
 	core_removable = FALSE
 	complexity = 4 // original is 3
-	teleport_time = 4 SECONDS // original is 1, post nerf original is 2
+	teleport_time = 6 SECONDS // original is 1, post nerf original is 4
 	cooldown_time = 8 SECONDS // original is 4
 
 
