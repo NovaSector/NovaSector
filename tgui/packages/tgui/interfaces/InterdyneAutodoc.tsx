@@ -42,6 +42,8 @@ type Data = {
   open: BooleanLike;
   operating: BooleanLike;
   hasAccess: BooleanLike;
+  maxStorage: number;
+  procedureTime: number;
   occupant: OccupantData | null;
   storedItems: ItemData[];
   queue: QueueEntry[];
@@ -70,6 +72,8 @@ export function InterdyneAutodoc() {
     open,
     operating,
     hasAccess,
+    maxStorage,
+    procedureTime,
     occupant,
     storedItems,
     queue,
@@ -80,7 +84,7 @@ export function InterdyneAutodoc() {
   const statInfo = occupant ? STAT_LABELS[occupant.stat] || STAT_LABELS[0] : null;
 
   return (
-    <Window title="Interdyne Autodoc" width={420} height={620}>
+    <Window title="Interdyne Autodoc" width={420} height={620} theme="interdyne">
       <Window.Content>
         <Stack vertical fill>
           {/* Patient Section */}
@@ -144,7 +148,7 @@ export function InterdyneAutodoc() {
             <Stack fill>
               {/* Stored Items */}
               <Stack.Item grow basis="50%">
-                <Section title="Storage" fill scrollable>
+                <Section title={`Storage (${storedItems.length}/${maxStorage})`} fill scrollable>
                   {storedItems.length === 0 ? (
                     <NoticeBox>No items loaded.</NoticeBox>
                   ) : (
@@ -218,7 +222,7 @@ export function InterdyneAutodoc() {
           {/* Procedure Queue */}
           <Stack.Item>
             <Section
-              title="Procedure Queue"
+              title={`Procedure Queue (${procedureTime}s per step)`}
               scrollable
               buttons={
                 <Button

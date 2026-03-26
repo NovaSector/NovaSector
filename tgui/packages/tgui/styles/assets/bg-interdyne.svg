@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.07">
+  <!-- Rod of Asclepius - medical symbol -->
+  <g fill="none" stroke="#4CBB17" stroke-width="3" stroke-linecap="round">
+    <!-- Staff -->
+    <line x1="100" y1="30" x2="100" y2="180"/>
+    <!-- Staff top ornament -->
+    <circle cx="100" cy="26" r="5" fill="#4CBB17" stroke="none"/>
+    <!-- Serpent body winding around staff -->
+    <path d="M100,160 C120,155 125,145 110,138 C95,131 90,121 110,114 C130,107 125,97 110,90 C95,83 90,73 110,66 C130,59 125,49 105,44" stroke-width="4"/>
+    <!-- Serpent head -->
+    <path d="M105,44 C100,40 92,38 88,42 C84,46 88,50 92,48" stroke-width="3" fill="#4CBB17"/>
+    <!-- Serpent tongue -->
+    <path d="M88,42 L82,38 M88,42 L84,45" stroke-width="1.5"/>
+  </g>
+</svg>

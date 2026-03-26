@@ -11,6 +11,7 @@
 	base_icon_state = "autodoc"
 	density = TRUE
 	obj_flags = BLOCKS_CONSTRUCTION
+	circuit = /obj/item/circuitboard/machine/autodoc
 	state_open = TRUE
 	interaction_flags_mouse_drop = NEED_HANDS | NEED_DEXTERITY
 	req_access = list(ACCESS_SYNDICATE)
@@ -27,12 +28,29 @@
 	/// Current procedure index
 	var/current_procedure = 0
 	/// Time per procedure in deciseconds
-	var/procedure_time = 4 SECONDS
+	var/procedure_time = 60 SECONDS
+	/// Maximum number of items that can be stored
+	var/max_storage = 5
 	COOLDOWN_DECLARE(message_cooldown)
 
 /obj/machinery/autodoc/Initialize(mapload)
 	. = ..()
 	occupant_typecache = typecacheof(/mob/living/carbon/human)
+
+/obj/machinery/autodoc/RefreshParts()
+	. = ..()
+	var/servo_rating = 0
+	for(var/datum/stock_part/servo/servo in component_parts)
+		servo_rating += servo.tier
+	// Base 60s with two T1 servos (rating 2). Each upgrade step reduces by 5s. Min 30s at two T4 servos (rating 8).
+	procedure_time = initial(procedure_time) - (servo_rating - 2) * (5 SECONDS)
+
+	for(var/datum/stock_part/matter_bin/matter_bin in component_parts)
+		max_storage = matter_bin.tier * 5
+
+/obj/machinery/autodoc/on_set_is_operational(old_value)
+	if(!is_operational && operating)
+		abort_procedures()
 
 /obj/machinery/autodoc/Destroy()
 	for(var/atom/movable/item in stored_items)
@@ -119,6 +137,9 @@
 	if(operating)
 		return
 	if(isorgan(used) || istype(used, /obj/item/implant))
+		if(length(stored_items) >= max_storage)
+			balloon_alert(user, "storage full!")
+			return
 		if(!user.transferItemToLoc(used, src))
 			balloon_alert(user, "can't let go!")
 			return
@@ -150,6 +171,8 @@
 	data["open"] = state_open
 	data["operating"] = operating
 	data["hasAccess"] = allowed(user)
+	data["maxStorage"] = max_storage
+	data["procedureTime"] = procedure_time / 10 // deciseconds to seconds
 
 	// Occupant data
 	data["occupant"] = null
@@ -296,6 +319,7 @@
 /obj/machinery/autodoc/proc/start_procedures()
 	operating = TRUE
 	current_procedure = 1
+	use_power = ACTIVE_POWER_USE
 	update_appearance()
 	visible_message(span_notice("[src] hums to life and locks the surgical pod."))
 	playsound(src, 'sound/machines/synth/synth_yes.ogg', 50, TRUE)
@@ -304,6 +328,9 @@
 /obj/machinery/autodoc/proc/perform_next_procedure()
 	if(!operating || !occupant || current_procedure > length(procedure_queue))
 		finish_procedures()
+		return
+	if(!is_operational)
+		abort_procedures()
 		return
 
 	var/obj/item/current_item = procedure_queue[current_procedure]
@@ -322,6 +349,9 @@
 	addtimer(CALLBACK(src, PROC_REF(complete_procedure), current_procedure), procedure_time)
 
 /obj/machinery/autodoc/proc/complete_procedure(procedure_index)
+	if(!is_operational)
+		abort_procedures()
+		return
 	if(!operating || !occupant)
 		current_procedure++
 		addtimer(CALLBACK(src, PROC_REF(perform_next_procedure)), 0.5 SECONDS)
@@ -401,11 +431,37 @@
 /obj/machinery/autodoc/proc/finish_procedures()
 	operating = FALSE
 	current_procedure = 0
+	use_power = IDLE_POWER_USE
 	procedure_queue.Cut()
 	queue_actions.Cut()
 	update_appearance()
 	visible_message(span_notice("[src] completes all procedures and unlocks the pod."))
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 50, TRUE)
 	open_machine(drop = FALSE)
-	dump_inventory_contents(list(occupant))
+	dump_inventory_contents(stored_items + list(occupant))
 	update_appearance()
+
+/obj/machinery/autodoc/proc/abort_procedures()
+	operating = FALSE
+	current_procedure = 0
+	use_power = IDLE_POWER_USE
+	procedure_queue.Cut()
+	queue_actions.Cut()
+	update_appearance()
+	visible_message(span_warning("[src] shuts down mid-procedure and unlocks the pod!"))
+	playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 50, TRUE)
+	open_machine(drop = FALSE)
+	dump_inventory_contents(stored_items + list(occupant))
+	update_appearance()
+
+// --- Circuit board ---
+
+/obj/item/circuitboard/machine/autodoc
+	name = "Interdyne Autodoc"
+	greyscale_colors = CIRCUIT_COLOR_MEDICAL
+	build_path = /obj/machinery/autodoc
+	req_components = list(
+		/datum/stock_part/matter_bin = 1,
+		/datum/stock_part/servo = 2,
+		/datum/stock_part/scanning_module = 1,
+	)
