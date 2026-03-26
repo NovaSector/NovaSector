@@ -90,11 +90,8 @@
 	name = "Can of CHAP"
 	time = 1 SECONDS
 	requirements_mats_blacklist = list(
-		/obj/item/reagent_containers/cup/bowl,
-		/obj/item/popsicle_stick,
-		/obj/item/stack/rods,
-		/obj/item/reagent_containers/cup/glass/sillycup,
 		/obj/item/stack/sheet/iron,
+		/obj/item/food/meat/slab,
 	)
 	reqs = list(
 		/obj/item/stack/sheet/iron = 1,
