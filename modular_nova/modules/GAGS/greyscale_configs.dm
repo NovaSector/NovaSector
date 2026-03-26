@@ -2644,6 +2644,20 @@ TREK
 Security
 */
 
+/datum/greyscale_config/secuniform
+	name = "Security Uniform"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secuniform.json'
+
+/datum/greyscale_config/secuniform/worn
+	name = "Security Uniform (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secuniform_worn.json'
+
+/datum/greyscale_config/secuniform/worn/digi
+	name = "Security Uniform (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
 /datum/greyscale_config/secformal
 	name = "Security Formal Suit"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
@@ -2671,6 +2685,35 @@ Security
 /datum/greyscale_config/secturtleneck/worn/digi
 	name = "Security Turtleneck (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/secskirt
+	name = "Sweatered Security Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secskirt.json'
+
+/datum/greyscale_config/secskirt/worn
+	name = "Sweatered Security Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secskirt_worn.json'
+
+/datum/greyscale_config/secskirtplain
+	name = "Security Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secskirtplain.json'
+
+/datum/greyscale_config/secskirtplain/worn
+	name = "Security Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secskirtplain_worn.json'
+
+/datum/greyscale_config/secmini
+	name = "Security Skirt (Mini)"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/secmini.json'
+
+/datum/greyscale_config/secmini/worn
+	name = "Security Skirt (Mini, Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 
 /datum/greyscale_config/secshorts
 	name = "Security Cargo Shorts"

@@ -47,25 +47,25 @@
 	desc = "A tactical security uniform for officers complete with Nanotrasen belt buckle."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/officer"
-	post_init_icon_state = "officeruniform"
-	greyscale_config = /datum/greyscale_config/officeruniform
-	greyscale_config_worn = /datum/greyscale_config/officeruniform/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/officeruniform/worn/digi
-	greyscale_colors = "#39393F#EBEBEB#A52F29#39393F"
+	post_init_icon_state = "secuniform"
+	greyscale_config = /datum/greyscale_config/secuniform
+	greyscale_config_worn = /datum/greyscale_config/secuniform/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/secuniform/worn/digi
+	greyscale_colors = "#A52F29#39393F#39393F"
 	flags_1 = NONE
 	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/security/nova/officer/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/blue"
-	greyscale_colors = "#39393F#EBEBEB#3F6E9E#39393F"
+	greyscale_colors = "#3F6E9E#39393F#39393F"
 
 /obj/item/clothing/under/rank/security/nova/officer/white
 	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/white"
-	greyscale_colors = "#39393F#EBEBEB#EBEBEB#39393F"
+	greyscale_colors = "#EBEBEB#39393F#39393F"
 
 /obj/item/clothing/under/rank/security/nova/officer/black
 	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/black"
-	greyscale_colors = "#39393F#EBEBEB#39393F#EBEBEB"
+	greyscale_colors = "#39393F#EBEBEB#EBEBEB"
 
 /obj/item/clothing/under/rank/security/nova/formal
 	name = "security formal suit"
@@ -123,22 +123,22 @@
 	post_init_icon_state = "secskirt"
 	greyscale_config = /datum/greyscale_config/secskirt
 	greyscale_config_worn = /datum/greyscale_config/secskirt/worn
-	greyscale_colors = "#A52F29#39393F"
+	greyscale_colors = "#A52F29#39393F#A52F29#39393F"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/nova/skirt/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/blue"
-	greyscale_colors = "#3F6E9E#39393F"
+	greyscale_colors = "#3F6E9E#39393F#3F6E9E#39393F"
 
 /obj/item/clothing/under/rank/security/nova/skirt/white
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/white"
-	greyscale_colors = "#ECECEC#39393F"
+	greyscale_colors = "#ECECEC#39393F#ECECEC#39393F"
 
 /obj/item/clothing/under/rank/security/nova/skirt/black
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/black"
-	greyscale_colors = "#39393F#ECECEC"
+	greyscale_colors = "#39393F#ECECEC#39393F#ECECEC"
 
 /obj/item/clothing/under/rank/security/nova/plainskirt
 	name = "security plain skirt"
@@ -148,22 +148,22 @@
 	post_init_icon_state = "secskirtplain"
 	greyscale_config = /datum/greyscale_config/secskirtplain
 	greyscale_config_worn = /datum/greyscale_config/secskirtplain/worn
-	greyscale_colors = "#A52F29#39393F"
+	greyscale_colors = "#A52F29#39393F#A52F29#39393F"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/nova/plainskirt/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/blue"
-	greyscale_colors = "#3F6E9E#39393F"
+	greyscale_colors = "#3F6E9E#39393F#3F6E9E#39393F"
 
 /obj/item/clothing/under/rank/security/nova/plainskirt/white
 	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/white"
-	greyscale_colors = "#ECECEC#39393F"
+	greyscale_colors = "#ECECEC#39393F#ECECEC#39393F"
 
 /obj/item/clothing/under/rank/security/nova/plainskirt/black
 	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/black"
-	greyscale_colors = "#39393F#ECECEC"
+	greyscale_colors = "#39393F#ECECEC#39393F#ECECEC"
 
 /obj/item/clothing/under/rank/security/nova/miniskirt
 	name = "security miniskirt"
@@ -174,6 +174,7 @@
 	greyscale_config = /datum/greyscale_config/secmini
 	greyscale_config_worn = /datum/greyscale_config/secmini/worn
 	greyscale_colors = "#A52F29#39393F"
+	gets_cropped_on_taurs = FALSE
 	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/nova/miniskirt/blue
