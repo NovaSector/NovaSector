@@ -2529,9 +2529,6 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/science)
 "hm" = (
-/obj/item/storage/box/rndboards{
-	pixel_y = 4
-	},
 /obj/structure/table/glass/plasmaglass,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
