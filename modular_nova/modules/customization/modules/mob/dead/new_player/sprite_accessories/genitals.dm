@@ -122,6 +122,7 @@
 	icon = PENIS_ICON_ALT
 	icon_state = /datum/sprite_accessory/genital/penis/nondescript::icon_state + "_alt"
 	has_skintone_shading = FALSE
+	max_sprite_size_affix = 4
 
 /datum/sprite_accessory/genital/penis/knotted
 	icon_state = "knotted"
@@ -133,6 +134,7 @@
 	icon = PENIS_ICON_ALT
 	icon_state = /datum/sprite_accessory/genital/penis/knotted::icon_state + "_alt"
 	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/penis/flared
 	icon_state = "flared"
@@ -145,6 +147,7 @@
 	icon = PENIS_ICON_ALT
 	icon_state = /datum/sprite_accessory/genital/penis/flared::icon_state + "_alt"
 	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/penis/barbknot
 	icon_state = "barbknot"
@@ -157,6 +160,7 @@
 	icon = PENIS_ICON_ALT
 	icon_state = /datum/sprite_accessory/genital/penis/barbknot::icon_state + "_alt"
 	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/penis/tapered
 	icon_state = "tapered"
@@ -169,6 +173,7 @@
 	icon = PENIS_ICON_ALT
 	icon_state = /datum/sprite_accessory/genital/penis/tapered::icon_state + "_alt"
 	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/penis/tentacle
 	icon_state = "tentacle"
@@ -181,6 +186,7 @@
 	icon = PENIS_ICON_ALT
 	icon_state = /datum/sprite_accessory/genital/penis/tentacle::icon_state + "_alt"
 	has_skintone_shading = FALSE
+	max_sprite_size_affix = 4
 
 /datum/sprite_accessory/genital/penis/hemi
 	icon_state = "hemi"
@@ -188,11 +194,12 @@
 	has_skintone_shading = TRUE
 	max_sprite_size_affix = 5
 
-datum/sprite_accessory/genital/penis/hemi_alt
+/datum/sprite_accessory/genital/penis/hemi_alt
 	name = /datum/sprite_accessory/genital/penis/hemi::name + " (Alt)"
 	icon = PENIS_ICON_ALT
 	icon_state = /datum/sprite_accessory/genital/penis/hemi::icon_state + "_alt"
 	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/penis/hemiknot
 	icon_state = "hemiknot"
@@ -205,6 +212,7 @@ datum/sprite_accessory/genital/penis/hemi_alt
 	icon = PENIS_ICON_ALT
 	icon_state = /datum/sprite_accessory/genital/penis/hemiknot::icon_state + "_alt"
 	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/testicles
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob.dmi'
