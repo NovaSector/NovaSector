@@ -88,7 +88,7 @@
 
 /datum/crafting_recipe/food/can_of_chap
 	name = "Can of CHAP"
-	time = 10
+	time = 1 SECONDS
 	requirements_mats_blacklist = list(
 		/obj/item/reagent_containers/cup/bowl,
 		/obj/item/popsicle_stick,
@@ -140,12 +140,12 @@
 /obj/item/food/canned/chap
 	intrinsic_food_materials = list(/datum/material/meat, /datum/material/iron)
 	// as per the recipe being 1 meat 1 iron,
-//	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT, /datum/material/iron = SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/chapslice
 	intrinsic_food_materials = list(/datum/material/meat)
-//	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT / 5)
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT / 5)
 
 /obj/item/food/grilled_chapslice
 	intrinsic_food_materials = list(/datum/material/meat)
-//	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT / 5)
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT / 5)
