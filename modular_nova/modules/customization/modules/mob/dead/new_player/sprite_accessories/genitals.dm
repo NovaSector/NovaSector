@@ -104,10 +104,10 @@
 	has_skintone_shading = TRUE
 	can_have_sheath = FALSE
 
-/datum/sprite_accessory/genital/penis/human_alt
-	name = /datum/sprite_accessory/genital/penis/human::name + " (Alt)"
+/datum/sprite_accessory/genital/penis/human/alt
+	name = parent_type::name + " (Alt)"
 	icon = PENIS_ICON_ALT
-	icon_state = /datum/sprite_accessory/genital/penis/human::icon_state + "_alt"
+	icon_state = parent_type::icon_state + "_alt"
 	max_sprite_size_affix = 5
 	skintone_max_sprite_size_affix = 4
 
@@ -117,10 +117,10 @@
 	has_skintone_shading = TRUE
 	max_sprite_size_affix = 4
 
-/datum/sprite_accessory/genital/penis/nondescript_alt
-	name = /datum/sprite_accessory/genital/penis/nondescript::name + " (Alt)"
+/datum/sprite_accessory/genital/penis/nondescript/alt
+	name = parent_type::name + " (Alt)"
 	icon = PENIS_ICON_ALT
-	icon_state = /datum/sprite_accessory/genital/penis/nondescript::icon_state + "_alt"
+	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
 	max_sprite_size_affix = 4
 
@@ -129,10 +129,10 @@
 	name = "Knotted"
 	has_skintone_shading = TRUE
 
-/datum/sprite_accessory/genital/penis/knotted_alt
-	name = /datum/sprite_accessory/genital/penis/knotted::name + " (Alt)"
+/datum/sprite_accessory/genital/penis/knotted/alt
+	name = parent_type::name + " (Alt)"
 	icon = PENIS_ICON_ALT
-	icon_state = /datum/sprite_accessory/genital/penis/knotted::icon_state + "_alt"
+	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
 	max_sprite_size_affix = 5
 
@@ -140,12 +140,11 @@
 	icon_state = "flared"
 	name = "Flared"
 	has_skintone_shading = TRUE
-	max_sprite_size_affix = 5
 
-/datum/sprite_accessory/genital/penis/flared_alt
-	name = /datum/sprite_accessory/genital/penis/flared::name + " (Alt)"
+/datum/sprite_accessory/genital/penis/flared/alt
+	name = parent_type::name + " (Alt)"
 	icon = PENIS_ICON_ALT
-	icon_state = /datum/sprite_accessory/genital/penis/flared::icon_state + "_alt"
+	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
 	max_sprite_size_affix = 5
 
@@ -153,12 +152,11 @@
 	icon_state = "barbknot"
 	name = "Barbed, Knotted"
 	has_skintone_shading = TRUE
-	max_sprite_size_affix = 5
 
-/datum/sprite_accessory/genital/penis/barbknot_alt
-	name = /datum/sprite_accessory/genital/penis/barbknot::name + " (Alt)"
+/datum/sprite_accessory/genital/penis/barbknot/alt
+	name = parent_type::name + " (Alt)"
 	icon = PENIS_ICON_ALT
-	icon_state = /datum/sprite_accessory/genital/penis/barbknot::icon_state + "_alt"
+	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
 	max_sprite_size_affix = 5
 
@@ -166,12 +164,11 @@
 	icon_state = "tapered"
 	name = "Tapered"
 	has_skintone_shading = TRUE
-	max_sprite_size_affix = 5
 
-/datum/sprite_accessory/genital/penis/tapered_alt
-	name = /datum/sprite_accessory/genital/penis/tapered::name + " (Alt)"
+/datum/sprite_accessory/genital/penis/tapered/alt
+	name = parent_type::name + " (Alt)"
 	icon = PENIS_ICON_ALT
-	icon_state = /datum/sprite_accessory/genital/penis/tapered::icon_state + "_alt"
+	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
 	max_sprite_size_affix = 5
 
@@ -179,12 +176,11 @@
 	icon_state = "tentacle"
 	name = "Tentacled"
 	has_skintone_shading = TRUE
-	max_sprite_size_affix = 4
 
-/datum/sprite_accessory/genital/penis/tentacle_alt
-	name = /datum/sprite_accessory/genital/penis/tentacle::name + " (Alt)"
+/datum/sprite_accessory/genital/penis/tentacle/alt
+	name = parent_type::name + " (Alt)"
 	icon = PENIS_ICON_ALT
-	icon_state = /datum/sprite_accessory/genital/penis/tentacle::icon_state + "_alt"
+	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
 	max_sprite_size_affix = 4
 
@@ -192,12 +188,11 @@
 	icon_state = "hemi"
 	name = "Hemi"
 	has_skintone_shading = TRUE
-	max_sprite_size_affix = 5
 
-/datum/sprite_accessory/genital/penis/hemi_alt
-	name = /datum/sprite_accessory/genital/penis/hemi::name + " (Alt)"
+/datum/sprite_accessory/genital/penis/hemi/alt
+	name = parent_type::name + " (Alt)"
 	icon = PENIS_ICON_ALT
-	icon_state = /datum/sprite_accessory/genital/penis/hemi::icon_state + "_alt"
+	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
 	max_sprite_size_affix = 5
 
@@ -205,12 +200,11 @@
 	icon_state = "hemiknot"
 	name = "Knotted Hemi"
 	has_skintone_shading = TRUE
-	max_sprite_size_affix = 5
 
-/datum/sprite_accessory/genital/penis/hemiknot_alt
-	name = /datum/sprite_accessory/genital/penis/hemiknot::name + " (Alt)"
+/datum/sprite_accessory/genital/penis/hemiknot/alt
+	name = parent_type::name + " (Alt)"
 	icon = PENIS_ICON_ALT
-	icon_state = /datum/sprite_accessory/genital/penis/hemiknot::icon_state + "_alt"
+	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
 	max_sprite_size_affix = 5
 
@@ -254,10 +248,10 @@
 	icon_state = "pair"
 	has_skintone_shading = TRUE
 
-/datum/sprite_accessory/genital/testicles/pair_alt
-	name = /datum/sprite_accessory/genital/testicles/pair::name + " (Alt)"
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob_alt.dmi'
-	icon_state = /datum/sprite_accessory/genital/testicles/pair::icon_state + "_alt"
+/datum/sprite_accessory/genital/testicles/pair/alt
+	name = parent_type::name + " (Alt)"
+	icon = TESTICLES_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
 	max_sprite_size_affix = 6
 
 /datum/sprite_accessory/genital/testicles/sheath
@@ -265,10 +259,10 @@
 	icon_state = "sheath"
 	has_skintone_shading = TRUE
 
-/datum/sprite_accessory/genital/testicles/sheath_alt
-	name = /datum/sprite_accessory/genital/testicles/sheath::name + " (Alt)"
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob_alt.dmi'
-	icon_state = /datum/sprite_accessory/genital/testicles/sheath::icon_state + "_alt"
+/datum/sprite_accessory/genital/testicles/sheath/alt
+	name = parent_type::name + " (Alt)"
+	icon = TESTICLES_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
 
 /datum/sprite_accessory/genital/testicles/internal
@@ -387,21 +381,20 @@
 	name = "Pair"
 	max_sprite_size_affix = 19
 
-/datum/sprite_accessory/genital/breasts/pair_alt
-	name = /datum/sprite_accessory/genital/breasts/pair::name + " (Alt)"
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob_alt.dmi'
-	icon_state = /datum/sprite_accessory/genital/breasts/pair::icon_state + "_alt"
+/datum/sprite_accessory/genital/breasts/pair/alt
+	name = parent_type::name + " (Alt)"
+	icon = BREASTS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
 	color_src = USE_MATRIXED_COLORS
-	max_sprite_size_affix = 19
 
 /datum/sprite_accessory/genital/breasts/quad
 	icon_state = "quad"
 	name = "Quad"
 
-/datum/sprite_accessory/genital/breasts/quad_alt
-	name = /datum/sprite_accessory/genital/breasts/quad::name + " (Alt)"
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob_alt.dmi'
-	icon_state = /datum/sprite_accessory/genital/breasts/quad::icon_state + "_alt"
+/datum/sprite_accessory/genital/breasts/quad/alt
+	name = parent_type::name + " (Alt)"
+	icon = BREASTS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
 	color_src = USE_MATRIXED_COLORS
 	max_sprite_size_affix = 19
 
@@ -411,11 +404,12 @@
 	max_sprite_size_affix = 15
 	skintone_max_sprite_size_affix = 5
 
-/datum/sprite_accessory/genital/breasts/sextuple_alt
-	name = /datum/sprite_accessory/genital/breasts/sextuple::name + " (Alt)"
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob_alt.dmi'
-	icon_state = /datum/sprite_accessory/genital/breasts/sextuple::icon_state + "_alt"
+/datum/sprite_accessory/genital/breasts/sextuple/alt
+	name = parent_type::name + " (Alt)"
+	icon = BREASTS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
 	color_src = USE_MATRIXED_COLORS
 	max_sprite_size_affix = 19
+	skintone_max_sprite_size_affix = null
 
 #undef TAUR_DIMENSION_X
