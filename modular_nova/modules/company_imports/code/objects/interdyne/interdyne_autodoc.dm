@@ -14,6 +14,8 @@
 	state_open = TRUE
 	interaction_flags_mouse_drop = NEED_HANDS | NEED_DEXTERITY
 	req_access = list(ACCESS_SYNDICATE)
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 2
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 2.5
 	/// Items loaded into the machine for procedures (organs and implants)
 	var/list/stored_items = list()
 	/// Procedure queue — list of refs to items to process
