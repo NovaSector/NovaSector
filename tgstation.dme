@@ -7816,7 +7816,6 @@
 #include "modular_nova\modules\bodyparts\code\ramatae_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\shadekin_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\skrell_bodyparts.dm"
-#include "modular_nova\modules\bodyparts\code\slime_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\snail_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\stargazer_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\taur_bodyparts.dm"
