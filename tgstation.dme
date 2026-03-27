@@ -7972,6 +7972,7 @@
 #include "modular_nova\modules\company_imports\code\objects\donk\donkfish_box.dm"
 #include "modular_nova\modules\company_imports\code\objects\interdyne\interdyne_autodoc.dm"
 #include "modular_nova\modules\company_imports\code\objects\interdyne\interdyne_boxstuff.dm"
+#include "modular_nova\modules\company_imports\code\objects\interdyne\interdyne_chemdispenser.dm"
 #include "modular_nova\modules\company_imports\code\objects\interdyne\interdyne_chemmaster.dm"
 #include "modular_nova\modules\company_imports\code\objects\interdyne\interdyne_fabricator.dm"
 #include "modular_nova\modules\company_imports\code\objects\interdyne\interdyne_kits.dm"
