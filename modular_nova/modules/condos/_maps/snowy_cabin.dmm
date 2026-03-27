@@ -50,7 +50,11 @@
 /obj/machinery/light/dim{
 	dir = 4
 	},
-/turf/open/floor/carpet/red,
+/obj/structure/dresser,
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/turf/open/floor/wood/wood_11,
 /area/misc/condo)
 "et" = (
 /obj/structure/fake_stairs/wood/directional/east,
@@ -66,7 +70,7 @@
 "fB" = (
 /obj/structure/window/green_glass_pane,
 /obj/structure/curtain/bounty,
-/turf/open/misc/asteroid/snow/indestructible/planet,
+/turf/open/floor/iron/dark/brick,
 /area/misc/condo)
 "fO" = (
 /obj/structure/marker_beacon/burgundy,
@@ -74,6 +78,12 @@
 /area/misc/condo)
 "gn" = (
 /obj/machinery/door/airlock/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/brick,
 /area/misc/condo)
 "gq" = (
@@ -104,11 +114,7 @@
 /turf/open/floor/stone,
 /area/misc/condo)
 "iD" = (
-/obj/structure/window/green_glass_pane,
-/obj/structure/curtain/cloth/fancy/mechanical/start_closed{
-	icon_state = "bounty-closed";
-	icon_type = "bounty"
-	},
+/obj/structure/marker_beacon/burgundy,
 /turf/open/misc/asteroid/snow/indestructible/planet,
 /area/misc/condo)
 "kn" = (
@@ -177,6 +183,7 @@
 "tW" = (
 /obj/structure/decorative/shelf,
 /obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/open/floor/wood/large,
 /area/misc/condo)
 "uq" = (
@@ -226,9 +233,7 @@
 /turf/closed/indestructible/wood,
 /area/misc/condo)
 "Ai" = (
-/obj/structure/closet/secure_closet/personal/cabinet{
-	pixel_x = 1
-	},
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood/large,
 /area/misc/condo)
 "CX" = (
@@ -237,7 +242,11 @@
 	icon_state = "bounty-closed";
 	icon_type = "bounty"
 	},
-/turf/closed/indestructible/wood,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"Eu" = (
+/obj/structure/bed/double,
+/turf/open/floor/wood/wood_11,
 /area/misc/condo)
 "EE" = (
 /obj/structure/chair/wood{
@@ -278,12 +287,11 @@
 /turf/open/floor/stone,
 /area/misc/condo)
 "IL" = (
-/obj/structure/window/green_glass_pane,
-/obj/structure/curtain/cloth/fancy/mechanical/start_closed{
-	icon_state = "bounty-closed";
-	icon_type = "bounty"
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
 	},
-/turf/open/space/basic,
+/obj/machinery/light/dim,
+/turf/open/floor/wood/large,
 /area/misc/condo)
 "IO" = (
 /obj/structure/decorative/shelf/crates1,
@@ -308,17 +316,21 @@
 /obj/structure/flora/grass/green/style_random,
 /turf/open/misc/asteroid/snow/indestructible/planet,
 /area/misc/condo)
+"MC" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/wood_11,
+/area/misc/condo)
 "Pa" = (
 /obj/machinery/light/dim,
 /obj/machinery/light_switch/directional/south,
 /turf/open/floor/wood/large,
 /area/misc/condo)
 "Pd" = (
-/obj/structure/closet/secure_closet/personal/cabinet{
-	pixel_x = 1
-	},
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/item/clothing/suit/hooded/wintercoat,
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood/large,
 /area/misc/condo)
 "Pw" = (
@@ -345,8 +357,10 @@
 /turf/open/floor/carpet/red,
 /area/misc/condo)
 "Sw" = (
-/obj/structure/dresser,
-/turf/open/floor/carpet/red,
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood/wood_11,
 /area/misc/condo)
 "Tc" = (
 /turf/closed/indestructible/hoteldoor/fakedoor,
@@ -396,7 +410,7 @@
 /area/misc/condo)
 "Xu" = (
 /obj/structure/table/wood,
-/obj/item/table_clock,
+/obj/item/flashlight/lamp/green,
 /turf/open/floor/wood/wood_5,
 /area/misc/condo)
 "XS" = (
@@ -844,13 +858,13 @@ dL
 dL
 dL
 is
-iD
-iD
-iD
+CX
+CX
+CX
 is
-iD
-IL
-IL
+CX
+CX
+CX
 is
 Qx
 Qx
@@ -881,10 +895,10 @@ Qx
 dL
 Qx
 dL
-IL
+CX
 Pw
 Pw
-Sw
+Pw
 is
 FN
 Uq
@@ -920,8 +934,8 @@ Qx
 Qx
 dL
 CX
-Pw
-Pw
+MC
+Sw
 Pw
 is
 iy
@@ -958,7 +972,7 @@ Qx
 Qx
 dL
 CX
-Pw
+Eu
 ee
 RL
 is
@@ -1046,8 +1060,8 @@ nL
 Qx
 Qx
 Qx
-Qx
 fO
+Qx
 Qx
 Qx
 dL
@@ -1088,7 +1102,7 @@ Qx
 Qx
 dL
 Qx
-dL
+iD
 dL
 Tc
 "}
@@ -1112,7 +1126,7 @@ Qx
 Xm
 sj
 VI
-VI
+IL
 yi
 wV
 wV
@@ -1124,7 +1138,7 @@ Qx
 Qx
 Qx
 Qx
-dL
+iD
 Qx
 Qx
 dL
@@ -1163,7 +1177,7 @@ Qx
 Qx
 Qx
 Qx
-fO
+Qx
 Qx
 dL
 xt
@@ -1223,7 +1237,7 @@ Qx
 Qx
 Qx
 Qx
-LY
+fB
 th
 fd
 mp
