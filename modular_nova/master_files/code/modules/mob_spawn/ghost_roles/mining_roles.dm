@@ -139,7 +139,7 @@
 	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
-	id = /obj/item/card/id/advanced/chameleon/elite
+	id = /obj/item/card/id/advanced/chameleon/elite/interdyne
 	id_trim = /datum/id_trim/interdyne/deckofficer
 
 /obj/item/radio/headset/interdyne/green
@@ -225,7 +225,7 @@
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
 	skillchips = list(/obj/item/skillchip/job/miner)
-	id = /obj/item/card/id/advanced/chameleon/elite
+	id = /obj/item/card/id/advanced/chameleon/elite/interdyne
 	id_trim = /datum/id_trim/interdyne/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deckofficer/Destroy()

@@ -208,6 +208,7 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
+/obj/machinery/autodoc,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "bT" = (
@@ -2884,6 +2885,7 @@
 /obj/structure/table/reinforced/rglass,
 /obj/item/stack/medical/suture,
 /obj/item/stack/medical/mesh,
+/obj/item/storage/box/interdyne/gloves,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "yG" = (
@@ -5331,10 +5333,10 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/viro)
 "SA" = (
-/obj/machinery/chem_dispenser/fullupgrade,
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
+/obj/machinery/chem_dispenser/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "SF" = (
@@ -5591,7 +5593,7 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/door/firedoor,
-/obj/machinery/chem_master/fullupgrade,
+/obj/machinery/chem_master/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "TV" = (

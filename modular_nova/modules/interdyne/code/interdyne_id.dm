@@ -41,7 +41,11 @@
 	desc = "An Interdyne Pharmaceuticals access card designated for mining personnel. This person knows its rocks"
 	trim = /datum/id_trim/interdyne/shaftminer
 
-/obj/item/card/id/advanced/interdyne/deckofficer
+/obj/item/card/id/advanced/chameleon/elite/interdyne
 	name = "\improper Interdyne deck officer's access card"
-	desc = "An Interdyne Pharmaceuticals access card designated for the deck officer. The green trim is slightly more ornate."
+	desc = "An Interdyne Pharmaceuticals access card designated for the deck officer. The green trim is slightly more ornate. \
+		Features an embedded high-end microchip with chameleon capabilities."
+	icon = 'modular_nova/modules/interdyne/icons/interdyne_card.dmi'
+	icon_state = "interdyne"
+	assigned_icon_state = "assigned_interdyne"
 	trim = /datum/id_trim/interdyne/deckofficer
