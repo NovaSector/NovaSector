@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Teleporter Mod for modsuits has a four seconds windup, from one."
+  - balance: "Cargo Anomalous mods for modsuits are no longer equal to their anomaly counterparts, but a less efficient version and more complex due to their lacking."
