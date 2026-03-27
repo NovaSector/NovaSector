@@ -54,7 +54,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 3
 	},
-/turf/open/floor/wood/wood_11,
+/turf/open/floor/carpet/red,
 /area/misc/condo)
 "et" = (
 /obj/structure/fake_stairs/wood/directional/east,
@@ -114,8 +114,19 @@
 /turf/open/floor/stone,
 /area/misc/condo)
 "iD" = (
-/obj/structure/marker_beacon/burgundy,
-/turf/open/misc/asteroid/snow/indestructible/planet,
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/cloth/fancy/mechanical/start_closed{
+	icon_state = "bounty-closed";
+	icon_type = "bounty"
+	},
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"jj" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/machinery/light/dim,
+/turf/open/floor/wood/large,
 /area/misc/condo)
 "kn" = (
 /obj/structure/bookcase/random/adult,
@@ -237,16 +248,10 @@
 /turf/open/floor/wood/large,
 /area/misc/condo)
 "CX" = (
-/obj/structure/window/green_glass_pane,
-/obj/structure/curtain/cloth/fancy/mechanical/start_closed{
-	icon_state = "bounty-closed";
-	icon_type = "bounty"
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
 	},
-/turf/open/floor/iron/dark/brick,
-/area/misc/condo)
-"Eu" = (
-/obj/structure/bed/double,
-/turf/open/floor/wood/wood_11,
+/turf/open/floor/carpet/red,
 /area/misc/condo)
 "EE" = (
 /obj/structure/chair/wood{
@@ -288,10 +293,9 @@
 /area/misc/condo)
 "IL" = (
 /obj/effect/turf_decal/siding/wood{
-	dir = 4
+	dir = 8
 	},
-/obj/machinery/light/dim,
-/turf/open/floor/wood/large,
+/turf/open/floor/carpet/red,
 /area/misc/condo)
 "IO" = (
 /obj/structure/decorative/shelf/crates1,
@@ -316,12 +320,6 @@
 /obj/structure/flora/grass/green/style_random,
 /turf/open/misc/asteroid/snow/indestructible/planet,
 /area/misc/condo)
-"MC" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/floor/wood/wood_11,
-/area/misc/condo)
 "Pa" = (
 /obj/machinery/light/dim,
 /obj/machinery/light_switch/directional/south,
@@ -334,7 +332,7 @@
 /turf/open/floor/wood/large,
 /area/misc/condo)
 "Pw" = (
-/turf/open/floor/carpet/red,
+/turf/open/floor/wood/wood_11,
 /area/misc/condo)
 "Qx" = (
 /turf/open/misc/snow,
@@ -354,13 +352,11 @@
 /area/misc/condo)
 "RL" = (
 /obj/machinery/light_switch/directional/south,
-/turf/open/floor/carpet/red,
+/turf/open/floor/wood/wood_11,
 /area/misc/condo)
 "Sw" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 10
-	},
-/turf/open/floor/wood/wood_11,
+/obj/structure/marker_beacon/burgundy,
+/turf/open/misc/asteroid/snow/indestructible/planet,
 /area/misc/condo)
 "Tc" = (
 /turf/closed/indestructible/hoteldoor/fakedoor,
@@ -398,6 +394,11 @@
 	dir = 6
 	},
 /turf/open/floor/stone,
+/area/misc/condo)
+"Vs" = (
+/obj/structure/bed/double,
+/obj/item/bedsheet/black/double,
+/turf/open/floor/carpet/red,
 /area/misc/condo)
 "VI" = (
 /obj/effect/turf_decal/siding/wood{
@@ -858,13 +859,13 @@ dL
 dL
 dL
 is
-CX
-CX
-CX
+iD
+iD
+iD
 is
-CX
-CX
-CX
+iD
+iD
+iD
 is
 Qx
 Qx
@@ -895,7 +896,7 @@ Qx
 dL
 Qx
 dL
-CX
+iD
 Pw
 Pw
 Pw
@@ -933,9 +934,9 @@ Qx
 Qx
 Qx
 dL
+iD
+IL
 CX
-MC
-Sw
 Pw
 is
 iy
@@ -971,8 +972,8 @@ Qx
 Qx
 Qx
 dL
-CX
-Eu
+iD
+Vs
 ee
 RL
 is
@@ -1102,7 +1103,7 @@ Qx
 Qx
 dL
 Qx
-iD
+Sw
 dL
 Tc
 "}
@@ -1126,7 +1127,7 @@ Qx
 Xm
 sj
 VI
-IL
+jj
 yi
 wV
 wV
@@ -1138,7 +1139,7 @@ Qx
 Qx
 Qx
 Qx
-iD
+dL
 Qx
 Qx
 dL
@@ -1176,7 +1177,7 @@ fO
 Qx
 Qx
 Qx
-Qx
+fO
 Qx
 Qx
 dL
