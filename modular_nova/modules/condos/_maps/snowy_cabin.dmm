@@ -1,0 +1,1778 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aJ" = (
+/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
+	pixel_x = 5;
+	pixel_y = 7
+	},
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/trophy{
+	pixel_y = 18;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/cup/glass/trophy{
+	pixel_y = 10;
+	pixel_x = -8
+	},
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 6
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"bv" = (
+/obj/structure/flora/rock/pile/icy/style_random,
+/turf/open/misc/asteroid/snow/indestructible/planet,
+/area/misc/condo)
+"cr" = (
+/obj/structure/railing/wooden_fencing{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/misc/snow,
+/area/misc/condo)
+"cy" = (
+/obj/machinery/door/airlock/wood,
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"dt" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"dL" = (
+/turf/open/misc/asteroid/snow/indestructible/planet,
+/area/misc/condo)
+"ee" = (
+/obj/machinery/light/dim{
+	dir = 4
+	},
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"et" = (
+/obj/structure/fake_stairs/wood/directional/east,
+/obj/machinery/door/airlock/wood,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"fd" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 8
+	},
+/turf/open/floor/wood/wood_5,
+/area/misc/condo)
+"fB" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/bounty,
+/turf/open/misc/asteroid/snow/indestructible/planet,
+/area/misc/condo)
+"fO" = (
+/obj/structure/marker_beacon/burgundy,
+/turf/open/misc/snow,
+/area/misc/condo)
+"gn" = (
+/obj/machinery/door/airlock/wood,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"gq" = (
+/obj/structure/decorative/shelf,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/item/storage/box/matches,
+/obj/item/hatchet/wooden,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"is" = (
+/turf/closed/indestructible/wood,
+/area/misc/condo)
+"iy" = (
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"iB" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"iD" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/cloth/fancy/mechanical/start_closed{
+	icon_state = "bounty-closed";
+	icon_type = "bounty"
+	},
+/turf/open/misc/asteroid/snow/indestructible/planet,
+/area/misc/condo)
+"kn" = (
+/obj/structure/bookcase/random/adult,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"kN" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/misc/snow,
+/area/misc/condo)
+"mp" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/obj/machinery/light/dim{
+	dir = 4
+	},
+/turf/open/floor/wood/wood_5,
+/area/misc/condo)
+"nJ" = (
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/structure/rack/wooden,
+/turf/open/floor/stone,
+/area/misc/condo)
+"nL" = (
+/obj/structure/railing/wooden_fencing,
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"oo" = (
+/obj/structure/chair/sofa/corp/right,
+/turf/open/floor/wood/wood_5,
+/area/misc/condo)
+"sj" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/item/gun/ballistic/shotgun/doublebarrel{
+	pixel_x = -16;
+	pixel_y = 33
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"sI" = (
+/obj/structure/flora/grass/green/style_random,
+/turf/open/misc/snow,
+/area/misc/condo)
+"sU" = (
+/obj/structure/flora/tree/pine/style_random,
+/turf/open/misc/asteroid/snow/indestructible/planet,
+/area/misc/condo)
+"tc" = (
+/obj/machinery/light/dim,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"th" = (
+/obj/structure/chair/sofa/corp/corner,
+/turf/open/floor/wood/wood_5,
+/area/misc/condo)
+"tW" = (
+/obj/structure/decorative/shelf,
+/obj/item/flashlight/lantern,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"uq" = (
+/turf/open/floor/wood/wood_5,
+/area/misc/condo)
+"uC" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/bounty,
+/turf/open/floor/stone,
+/area/misc/condo)
+"uG" = (
+/turf/open/floor/stone,
+/area/misc/condo)
+"vx" = (
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/misc/snow,
+/area/misc/condo)
+"vF" = (
+/obj/machinery/light/floor,
+/turf/open/water/hot_spring/cafe,
+/area/misc/condo)
+"wB" = (
+/turf/open/water/hot_spring/cafe,
+/area/misc/condo)
+"wV" = (
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"xt" = (
+/turf/closed/wall/ice,
+/area/misc/condo)
+"xC" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/turf/open/floor/wood/wood_5,
+/area/misc/condo)
+"yi" = (
+/obj/structure/sign/painting/library,
+/turf/closed/indestructible/wood,
+/area/misc/condo)
+"Ai" = (
+/obj/structure/closet/secure_closet/personal/cabinet{
+	pixel_x = 1
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"CX" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/cloth/fancy/mechanical/start_closed{
+	icon_state = "bounty-closed";
+	icon_type = "bounty"
+	},
+/turf/closed/indestructible/wood,
+/area/misc/condo)
+"EE" = (
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"FN" = (
+/obj/structure/decorative/shelf,
+/obj/item/storage/fancy/candle_box,
+/obj/item/storage/fancy/candle_box,
+/obj/item/lighter,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"Gg" = (
+/obj/machinery/light/small/red/directional/north,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Gv" = (
+/obj/machinery/door/airlock/wood,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Hp" = (
+/obj/structure/flora/tree/pine/style_random,
+/turf/open/misc/snow,
+/area/misc/condo)
+"HX" = (
+/obj/structure/decorative/shelf,
+/obj/item/storage/box/slugs,
+/obj/item/storage/box/slugs,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"Iz" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/railing/wooden_fencing/gate,
+/turf/open/floor/stone,
+/area/misc/condo)
+"IL" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/cloth/fancy/mechanical/start_closed{
+	icon_state = "bounty-closed";
+	icon_type = "bounty"
+	},
+/turf/open/space/basic,
+/area/misc/condo)
+"IO" = (
+/obj/structure/decorative/shelf/crates1,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"IS" = (
+/obj/machinery/light/dim,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"Lx" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/misc/snow,
+/area/misc/condo)
+"LY" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/bounty,
+/turf/closed/indestructible/wood,
+/area/misc/condo)
+"Mq" = (
+/obj/structure/flora/grass/green/style_random,
+/turf/open/misc/asteroid/snow/indestructible/planet,
+/area/misc/condo)
+"Pa" = (
+/obj/machinery/light/dim,
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Pd" = (
+/obj/structure/closet/secure_closet/personal/cabinet{
+	pixel_x = 1
+	},
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/suit/hooded/wintercoat,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Pw" = (
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"Qx" = (
+/turf/open/misc/snow,
+/area/misc/condo)
+"Rk" = (
+/obj/structure/fake_stairs/wood,
+/turf/open/misc/snow,
+/area/misc/condo)
+"Rs" = (
+/obj/structure/fireplace/nova{
+	pixel_x = 0
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"RL" = (
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"Sw" = (
+/obj/structure/dresser,
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"Tc" = (
+/turf/closed/indestructible/hoteldoor/fakedoor,
+/area/misc/condo)
+"Tv" = (
+/obj/structure/chair/wood,
+/turf/open/floor/stone,
+/area/misc/condo)
+"Uq" = (
+/obj/structure/decorative/shelf,
+/obj/item/storage/box/papersack/ration_bread_slice,
+/obj/item/storage/box/colonial_rations,
+/obj/item/storage/box/colonial_rations,
+/obj/item/storage/box/colonial_rations,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"UP" = (
+/obj/structure/decorative/shelf,
+/obj/item/mop,
+/obj/item/reagent_containers/cup/bucket/wooden,
+/obj/item/reagent_containers/spray/cleaner,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"UQ" = (
+/obj/machinery/shower/directional/east,
+/obj/structure/decorative{
+	icon_state = "drain";
+	icon = 'modular_nova/modules/liquids/icons/obj/structures/drains.dmi';
+	base_icon_state = "drain";
+	dir = 8;
+	pixel_y = 3;
+	pixel_x = -2
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"VI" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Xm" = (
+/turf/closed/wall/mineral/stone,
+/area/misc/condo)
+"Xu" = (
+/obj/structure/table/wood,
+/obj/item/table_clock,
+/turf/open/floor/wood/wood_5,
+/area/misc/condo)
+"XS" = (
+/obj/structure/flora/rock/pile/icy/style_random,
+/turf/open/misc/snow,
+/area/misc/condo)
+"YS" = (
+/obj/item/clothing/head/drake_skull,
+/turf/closed/indestructible/wood,
+/area/misc/condo)
+
+(1,1,1) = {"
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+"}
+(2,1,1) = {"
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+xt
+xt
+xt
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+xt
+xt
+xt
+xt
+xt
+"}
+(3,1,1) = {"
+xt
+xt
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+bv
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+xt
+xt
+"}
+(4,1,1) = {"
+xt
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Mq
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Mq
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+xt
+"}
+(5,1,1) = {"
+xt
+xt
+xt
+dL
+Mq
+dL
+dL
+dL
+Mq
+dL
+sU
+Mq
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+Qx
+dL
+dL
+dL
+Mq
+dL
+dL
+dL
+xt
+"}
+(6,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+dL
+Qx
+Qx
+Qx
+dL
+Qx
+Qx
+dL
+dL
+dL
+Qx
+dL
+dL
+dL
+dL
+dL
+dL
+xt
+"}
+(7,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+Hp
+Qx
+Qx
+dL
+dL
+dL
+dL
+dL
+xt
+xt
+"}
+(8,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+bv
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+bv
+dL
+Hp
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+Qx
+Qx
+dL
+Qx
+dL
+dL
+dL
+bv
+xt
+xt
+"}
+(9,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+Qx
+Qx
+Qx
+Mq
+Qx
+Qx
+dL
+dL
+dL
+dL
+xt
+"}
+(10,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+Mq
+Qx
+Qx
+Qx
+dL
+dL
+Mq
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+sI
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+dL
+dL
+xt
+"}
+(11,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+dL
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Hp
+Qx
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+xt
+"}
+(12,1,1) = {"
+xt
+xt
+dL
+dL
+sU
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+dL
+is
+iD
+iD
+iD
+is
+iD
+IL
+IL
+is
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+dL
+dL
+xt
+"}
+(13,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+Qx
+dL
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+Qx
+dL
+IL
+Pw
+Pw
+Sw
+is
+FN
+Uq
+UP
+is
+Qx
+Qx
+Qx
+Qx
+Qx
+XS
+dL
+dL
+dL
+dL
+xt
+"}
+(14,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+Qx
+dL
+Qx
+dL
+Qx
+Qx
+Hp
+Qx
+Qx
+Qx
+dL
+CX
+Pw
+Pw
+Pw
+is
+iy
+iy
+IS
+is
+Qx
+Qx
+dL
+Qx
+dL
+Qx
+dL
+dL
+dL
+dL
+xt
+"}
+(15,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+CX
+Pw
+ee
+RL
+is
+iy
+IO
+HX
+is
+Qx
+sI
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+Hp
+Qx
+xt
+"}
+(16,1,1) = {"
+xt
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+is
+is
+is
+gn
+is
+et
+is
+is
+is
+cr
+Qx
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+xt
+"}
+(17,1,1) = {"
+xt
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+sI
+Qx
+dL
+YS
+gq
+wV
+wV
+wV
+wV
+Pd
+is
+tW
+nL
+Qx
+Qx
+Qx
+Qx
+fO
+Qx
+Qx
+dL
+dL
+xt
+"}
+(18,1,1) = {"
+xt
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+Xm
+Rs
+wV
+wV
+wV
+wV
+Pa
+is
+Gg
+nL
+Lx
+Qx
+dL
+Qx
+Qx
+dL
+Qx
+dL
+dL
+Tc
+"}
+(19,1,1) = {"
+xt
+dL
+dL
+Mq
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+Qx
+Qx
+dL
+Qx
+Qx
+Xm
+sj
+VI
+VI
+yi
+wV
+wV
+cy
+wV
+wV
+Rk
+Qx
+Qx
+Qx
+Qx
+dL
+Qx
+Qx
+dL
+Tc
+"}
+(20,1,1) = {"
+xt
+dL
+dL
+dL
+dL
+sU
+dL
+Qx
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+yi
+Xu
+uq
+xC
+wV
+wV
+tc
+is
+is
+vx
+kN
+fO
+Qx
+Qx
+Qx
+Qx
+fO
+Qx
+dL
+xt
+"}
+(21,1,1) = {"
+xt
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+dL
+Qx
+Qx
+sI
+Qx
+Qx
+Qx
+Qx
+fB
+oo
+uq
+xC
+wV
+wV
+wV
+Ai
+is
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+xt
+"}
+(22,1,1) = {"
+xt
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+dL
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+LY
+th
+fd
+mp
+kn
+kn
+wV
+Ai
+is
+Qx
+Qx
+sI
+Qx
+Qx
+Qx
+dL
+Hp
+Qx
+dL
+xt
+"}
+(23,1,1) = {"
+xt
+dL
+dL
+dL
+Mq
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+Hp
+Qx
+Qx
+Qx
+is
+is
+is
+is
+is
+is
+Gv
+is
+is
+dL
+Qx
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+xt
+"}
+(24,1,1) = {"
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+dt
+wB
+wB
+wB
+uC
+UQ
+uG
+nJ
+is
+dL
+Qx
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+xt
+"}
+(25,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+dL
+sU
+dL
+Qx
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+dt
+wB
+vF
+wB
+uC
+uG
+uG
+EE
+is
+dL
+Qx
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+xt
+"}
+(26,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+sI
+Qx
+dt
+wB
+wB
+wB
+Iz
+uG
+Tv
+aJ
+is
+dL
+Qx
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+Mq
+dL
+xt
+"}
+(27,1,1) = {"
+xt
+xt
+dL
+dL
+Mq
+dL
+dL
+dL
+dL
+Qx
+dL
+Qx
+Qx
+dL
+Qx
+Qx
+is
+iB
+iB
+iB
+is
+LY
+LY
+LY
+is
+Mq
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+xt
+"}
+(28,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+dL
+Qx
+Qx
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+xt
+"}
+(29,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+dL
+bv
+dL
+dL
+dL
+Qx
+Qx
+dL
+dL
+Qx
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+XS
+dL
+Qx
+dL
+xt
+"}
+(30,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+dL
+dL
+dL
+bv
+dL
+dL
+dL
+Mq
+dL
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+xt
+"}
+(31,1,1) = {"
+xt
+xt
+dL
+dL
+dL
+Mq
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Mq
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+dL
+Qx
+Qx
+Qx
+Hp
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+xt
+xt
+"}
+(32,1,1) = {"
+xt
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+dL
+dL
+sU
+Qx
+Qx
+Mq
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+dL
+Qx
+Qx
+Qx
+Qx
+Qx
+xt
+xt
+"}
+(33,1,1) = {"
+xt
+xt
+xt
+dL
+dL
+dL
+dL
+Mq
+dL
+dL
+sU
+Qx
+dL
+dL
+dL
+Qx
+Qx
+dL
+Qx
+Qx
+dL
+Qx
+dL
+Qx
+Qx
+dL
+dL
+dL
+Mq
+dL
+dL
+Qx
+Qx
+xt
+xt
+xt
+"}
+(34,1,1) = {"
+xt
+xt
+xt
+xt
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+xt
+xt
+xt
+xt
+Qx
+Qx
+Qx
+dL
+Qx
+dL
+dL
+dL
+dL
+dL
+dL
+dL
+Qx
+Qx
+Qx
+xt
+xt
+xt
+xt
+xt
+"}
+(35,1,1) = {"
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+dL
+dL
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+"}
+(36,1,1) = {"
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+xt
+"}
