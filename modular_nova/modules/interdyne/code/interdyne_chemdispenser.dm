@@ -13,13 +13,20 @@
 
 	/// Interdyne-exclusive reagents only available on this machine
 	var/static/list/interdyne_reagents = list(
-		/datum/reagent/medicine/interdyne/dynexil,
-		/datum/reagent/medicine/interdyne/bicardyne,
-		/datum/reagent/medicine/interdyne/thermapyne,
-		/datum/reagent/medicine/interdyne/omnidyne,
-		/datum/reagent/drug/interdyne/panaclarinz,
-		/datum/reagent/drug/interdyne/velocitol,
-		/datum/reagent/drug/interdyne/neurophrene,
+		/datum/reagent/medicine/interdyne/catalyzine,
+		/datum/reagent/toxin/polonium,
+		/datum/reagent/toxin/venom,
+		/datum/reagent/toxin/fentanyl,
+		/datum/reagent/toxin/anacea,
+		/datum/reagent/toxin/spewium,
+		/datum/reagent/drug/syndol,
+		/datum/reagent/toxin/cyanide,
+		/datum/reagent/toxin/initropidril,
+		/datum/reagent/toxin/pancuronium,
+		/datum/reagent/toxin/sodium_thiopental,
+		/datum/reagent/toxin/coniine,
+		/datum/reagent/toxin/curare,
+		/datum/reagent/toxin/amanitin,
 	)
 
 /obj/machinery/chem_dispenser/interdyne/Initialize(mapload)

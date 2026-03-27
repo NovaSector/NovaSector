@@ -56,12 +56,7 @@
 
 /datum/reagent/medicine/interdyne/bicardyne/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	var/need_mob_update
-	if(affected_mob.get_brute_loss() > 25)
-		need_mob_update = affected_mob.adjust_brute_loss(-5 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
-	else
-		need_mob_update = affected_mob.adjust_brute_loss(-0.65 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
-	if(need_mob_update)
+	if(affected_mob.adjust_brute_loss(-5 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype))
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/medicine/interdyne/bicardyne/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
@@ -81,12 +76,7 @@
 
 /datum/reagent/medicine/interdyne/thermapyne/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	var/need_mob_update
-	if(affected_mob.get_fire_loss() > 25)
-		need_mob_update = affected_mob.adjust_fire_loss(-5 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
-	else
-		need_mob_update = affected_mob.adjust_fire_loss(-0.65 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
-	if(need_mob_update)
+	if(affected_mob.adjust_fire_loss(-5 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype))
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/medicine/interdyne/thermapyne/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
@@ -124,6 +114,50 @@
 	need_mob_update += affected_mob.adjust_oxy_loss(hurt, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
 	need_mob_update += affected_mob.adjust_brute_loss(hurt, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjust_fire_loss(hurt, updating_health = FALSE, required_bodytype = affected_bodytype)
+	if(need_mob_update)
+		return UPDATE_MOB_HEALTH
+
+///////////////////////////////////////////////////////////////////////////////
+// METABOLISM BOOSTER
+///////////////////////////////////////////////////////////////////////////////
+
+/datum/reagent/medicine/interdyne/catalyzine
+	name = "Catalyzine"
+	description = "Interdyne's metabolic accelerator compound. Dramatically increases the body's ability to process \
+		chemicals by stimulating hepatic enzyme production. Interdyne recommends pairing with their full product line \
+		for 'optimal pharmaceutical synergy.'"
+	color = "#FFD700"
+	taste_description = "metallic sweetness"
+	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	overdose_threshold = 20
+	ph = 6.5
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	/// The multiplier applied to metabolism_efficiency while active
+	var/metabolism_boost = 1.5
+
+/datum/reagent/medicine/interdyne/catalyzine/on_mob_metabolize(mob/living/affected_mob)
+	. = ..()
+	affected_mob.metabolism_efficiency *= metabolism_boost
+
+/datum/reagent/medicine/interdyne/catalyzine/on_mob_end_metabolize(mob/living/affected_mob)
+	. = ..()
+	affected_mob.metabolism_efficiency /= metabolism_boost
+
+/datum/reagent/medicine/interdyne/catalyzine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	. = ..()
+	// Liver strain from the accelerated enzyme production
+	if(affected_mob.adjust_organ_loss(ORGAN_SLOT_LIVER, 0.3 * metabolization_ratio * seconds_per_tick, required_organ_flag = affected_organ_flags))
+		. = UPDATE_MOB_HEALTH
+
+/datum/reagent/medicine/interdyne/catalyzine/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
+	. = ..()
+	var/need_mob_update = FALSE
+	// Liver takes serious damage from overdrive enzyme production
+	need_mob_update = affected_mob.adjust_organ_loss(ORGAN_SLOT_LIVER, 2 * metabolization_ratio * seconds_per_tick, required_organ_flag = affected_organ_flags)
+	// Toxin buildup from metabolic waste
+	need_mob_update += affected_mob.adjust_tox_loss(1.5 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
+	if(SPT_PROB(8, seconds_per_tick))
+		to_chat(affected_mob, span_userdanger("Your insides burn as your metabolism spirals out of control!"))
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 

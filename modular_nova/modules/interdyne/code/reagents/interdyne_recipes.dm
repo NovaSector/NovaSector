@@ -31,6 +31,15 @@
 	)
 	mix_message = "The mixture glows briefly with a faint green luminescence."
 
+/datum/chemical_reaction/medicine/interdyne/catalyzine
+	results = list(/datum/reagent/medicine/interdyne/catalyzine = 3)
+	required_reagents = list(
+		/datum/reagent/medicine/interdyne/dynexil = 1,
+		/datum/reagent/medicine/ephedrine = 1,
+		/datum/reagent/lithium = 1,
+	)
+	mix_message = "The mixture bubbles rapidly and turns a shimmering gold."
+
 // Exotic drug recipes
 
 /datum/chemical_reaction/drug/interdyne
