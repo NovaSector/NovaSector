@@ -24,7 +24,11 @@
 /datum/element/sliding_under/proc/check_conditions(datum/source, mob/user)
 	SIGNAL_HANDLER
 
-	var/atom/source_atom
+	if(!isatom(source))
+		return
+
+	var/atom/source_atom = source
+
 	//the parent needs to be dense in order to slide through
 	if(!source_atom.density)
 		return
@@ -45,13 +49,32 @@
 	if(!do_after(user, 5 SECONDS, source_atom))
 		return
 
-	user.forceMove(get_turf(source_atom))
+	if(!attempt_slide(source_atom, user))
+		source_atom.balloon_alert(user, "something blocks the way!")
+		return
+
 	source_atom.balloon_alert_to_viewers("something squeezes through!")
+
+/datum/element/sliding_under/proc/attempt_slide(atom/source_atom, mob/user)
+	var/turf/destination = get_turf(source_atom)
+	if(!destination)
+		return FALSE
+
+	// weird edge case for borders doors, and if you're standing on table/rack on the same turf as the door
+	if((source_atom.flags_1 & ON_BORDER_1) && (get_turf(user) == destination))
+		destination = get_step(destination, source_atom.dir)
+		if(!destination)
+			return FALSE
+
+	ADD_TRAIT(user, TRAIT_SLIDING_UNDER, REF(src))
+	var/moved = user.Move(destination)
+	REMOVE_TRAIT(user, TRAIT_SLIDING_UNDER, REF(src))
+	return moved
 
 /datum/element/sliding_under/proc/ExamineMessage(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	if(!is_type_in_list(user, allowed_mobs))
+	if(!is_type_in_typecache(user, allowed_mobs))
 		return
 
 	examine_list += span_warning("Ctrl + Click [source] to slide under!\n")
@@ -60,3 +83,20 @@
 /obj/machinery/door/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/sliding_under)
+
+/obj/machinery/door/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	if(.)
+		return
+	return HAS_TRAIT(mover, TRAIT_SLIDING_UNDER)
+
+// component for mineral doors too
+/obj/structure/mineral_door/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/sliding_under)
+
+/obj/structure/mineral_door/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	if(.)
+		return
+	return HAS_TRAIT(mover, TRAIT_SLIDING_UNDER)

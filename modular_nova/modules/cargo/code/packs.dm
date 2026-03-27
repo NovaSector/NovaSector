@@ -23,7 +23,7 @@
 	)
 	crate_name = "mouse crate"
 
-/datum/supply_pack/critter/mouse/generate()
+/datum/supply_pack/critter/mouse/generate(atom/A, datum/bank_account/paying_account, crate_override)
 	. = ..()
 	for(var/i in 1 to 5)
 		new /mob/living/basic/mouse(.)
@@ -37,7 +37,7 @@
 	)
 	crate_name = "chinchilla crate"
 
-/datum/supply_pack/critter/chinchilla/generate()
+/datum/supply_pack/critter/chinchilla/generate(atom/A, datum/bank_account/paying_account, crate_override)
 	. = ..()
 	for(var/i in 1 to 3)
 		new /mob/living/basic/pet/chinchilla(.)
@@ -752,7 +752,7 @@
 	contains = list(/obj/item/grown/log)
 	crate_name = "lumber crate"
 
-/datum/supply_pack/materials/rawlumber/generate()
+/datum/supply_pack/materials/rawlumber/generate(atom/A, datum/bank_account/paying_account, crate_override)
 	. = ..()
 	for(var/i in 1 to 19)
 		new /obj/item/grown/log(.)

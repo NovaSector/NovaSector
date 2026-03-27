@@ -858,7 +858,7 @@
 
 	chosen_dna.copy_dna(user.dna, COPY_DNA_SE|COPY_DNA_SPECIES)
 
-	for(var/obj/item/bodypart/limb as anything in user.bodyparts)
+	for(var/obj/item/bodypart/limb as anything in user.get_bodyparts())
 		limb.update_limb(is_creating = TRUE)
 
 	user.updateappearance(mutcolor_update = TRUE)
@@ -1117,16 +1117,16 @@
 	return parts.Join("<br>")
 
 /datum/antagonist/changeling/get_preview_icon()
-	var/icon/final_icon = render_preview_outfit(/datum/outfit/changeling)
-	var/icon/split_icon = render_preview_outfit(/datum/outfit/job/engineer)
+	var/datum/universal_icon/final_icon = render_preview_outfit(/datum/outfit/changeling)
+	var/datum/universal_icon/split_icon = render_preview_outfit(/datum/outfit/job/engineer)
 
-	final_icon.Shift(WEST, ICON_SIZE_X / 2)
-	final_icon.Shift(EAST, ICON_SIZE_X / 2)
+	final_icon.shift(WEST, ICON_SIZE_X / 2)
+	final_icon.shift(EAST, ICON_SIZE_X / 2)
 
-	split_icon.Shift(EAST, ICON_SIZE_X / 2)
-	split_icon.Shift(WEST, ICON_SIZE_X / 2)
+	split_icon.shift(EAST, ICON_SIZE_X / 2)
+	split_icon.shift(WEST, ICON_SIZE_X / 2)
 
-	final_icon.Blend(split_icon, ICON_OVERLAY)
+	final_icon.blend_icon(split_icon, ICON_OVERLAY)
 
 	return finish_preview_icon(final_icon)
 
@@ -1166,7 +1166,7 @@
 	name = "\improper Space Changeling"
 
 /datum/antagonist/changeling/space/get_preview_icon()
-	var/icon/final_icon = render_preview_outfit(/datum/outfit/changeling_space)
+	var/datum/universal_icon/final_icon = render_preview_outfit(/datum/outfit/changeling_space)
 	return finish_preview_icon(final_icon)
 
 /datum/antagonist/changeling/space/greet()
