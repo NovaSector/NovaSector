@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 16
+#define MODULAR_SAVEFILE_VERSION_MAX 17
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -22,6 +22,7 @@
 #define VERSION_TOOLKIT_IMPLANTS 14
 #define VERSION_VOCAL_BARKS 15
 #define VERSION_FEATHERY_WINGS_FIX 16
+#define VERSION_DONK_MIGRATION 17
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -320,6 +321,14 @@
 		if(current_wings == "Moth (Featherful)")
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/wings], "Moth (Feathery)")
 
+	if(current_version < VERSION_DONK_MIGRATION)
+		var/current_donk = save_data["feature_penis"]
+		if(current_donk != "None")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/genital/penis], current_donk + " (Alt)")
+		var/current_pocket = save_data["feature_testicles"]
+		if(current_pocket == "Pair")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/genital/testicles], "Pair (Alt)")
+
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
 		to_chat(parent, boxed_message(span_redtext("CRITICAL FAILURE IN PREFERENCE MIGRATION, REPORT THIS IMMEDIATELY.")))
@@ -398,3 +407,4 @@
 #undef VERSION_TOOLKIT_IMPLANTS
 #undef VERSION_VOCAL_BARKS
 #undef VERSION_FEATHERY_WINGS_FIX
+#undef VERSION_DONK_MIGRATION
