@@ -5184,7 +5184,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/vault{
 	id_tag = "syndie_lavaland_deepspacecargo";
-	name = "Interdyne Deepspace Landing pad"
+	name = "Interdyne Deepspace Landing Pad"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
