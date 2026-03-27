@@ -56,5 +56,3 @@
 	teleport_time = 6 SECONDS // original is 1, post nerf original is 4
 	cooldown_time = 8 SECONDS // original is 4
 
-
-
