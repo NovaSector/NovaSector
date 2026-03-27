@@ -40,3 +40,7 @@
 #define SHIBARI_TIGHTNESS_LOW 1
 #define SHIBARI_TIGHTNESS_MED 2
 #define SHIBARI_TIGHTNESS_HIGH 3
+
+#define PENIS_ICON_ALT 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/penis_onmob_alt.dmi'
+#define TESTICLES_ICON_ALT 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob_alt.dmi'
+#define BREASTS_ICON_ALT 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob_alt.dmi'

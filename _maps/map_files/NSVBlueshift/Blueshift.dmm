@@ -31287,6 +31287,14 @@
 /obj/item/restraints/handcuffs,
 /obj/item/assembly/flash/handheld,
 /obj/effect/turf_decal/bot,
+/obj/machinery/recharger{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/obj/machinery/recharger{
+	pixel_y = 2;
+	pixel_x = 6
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
