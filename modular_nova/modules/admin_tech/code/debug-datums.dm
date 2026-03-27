@@ -1,16 +1,17 @@
 // Debug Datums
 // TODO: merge traits, weight classes, and shit into these, to reduce input on the items themselves. Need one thats just armor, and one thats got the additional bonuses
+// todo: make defines?
 // Debug Storage Datums. Need more slots? Raise the number on max_total_storage and max_slots symmetrically
 /datum/storage/debug
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
-	max_total_storage = WEIGHT_CLASS_GIGANTIC * 35
-	max_slots = 35
+	max_total_storage = WEIGHT_CLASS_GIGANTIC * 63
+	max_slots = 63
 	allow_big_nesting = TRUE
 
 /datum/storage/box/debug// Overwrites the original debug box datum to be more sane / match our other debug storage
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
-	max_total_storage = WEIGHT_CLASS_GIGANTIC * 35
-	max_slots = 35
+	max_total_storage = WEIGHT_CLASS_GIGANTIC * 63
+	max_slots = 63
 	allow_big_nesting = TRUE
 
 ///Debug construction bag

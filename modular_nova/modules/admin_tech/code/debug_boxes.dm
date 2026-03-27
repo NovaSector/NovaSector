@@ -1,3 +1,132 @@
+// Fun Boxes and Spawners//
+// Nova Plushie Spawners, no filtering
+/obj/effect/spawner/random/entertainment/plushie
+	icon_state = "plushie"
+	loot_subtype_path = /obj/item/toy/plush/nova
+	loot = list( )
+
+/obj/effect/spawner/random/entertainment/plushie/scatter
+	spawn_loot_split = TRUE
+	spawn_random_offset = TRUE
+	spawn_scatter_radius = 3
+
+/obj/effect/spawner/random/entertainment/plushie/scatter/three
+	spawn_loot_count = 3
+
+/obj/effect/spawner/random/entertainment/plushie/scatter/five
+	spawn_loot_count = 5
+	spawn_scatter_radius = 4
+
+/obj/effect/spawner/random/entertainment/plushie/scatter/seven
+	spawn_loot_count = 7
+	spawn_scatter_radius = 5
+
+//Same as above but spawns everything possible. This might not be a good thing to have existing
+/obj/effect/spawner/random/entertainment/plushie/donator/scatter/all
+	name = "nova sector donator all plushies spawner"
+	icon_state = "plushie"
+	spawn_all_loot = TRUE
+	spawn_scatter_radius = 9
+
+// Staff & Maints Plushies Box and Spawners
+/obj/item/storage/box/hug/plushes/team
+	name = "box of nova sector staff plushies"
+	desc = "Holds random plushies owned by current or prior Staff of Nova Sector."
+
+/obj/effect/spawner/random/entertainment/plushie/team
+	name = "nova sector team plushie spawner"
+	icon_state = "plushie"
+	loot = list(
+		/obj/item/toy/plush/nova/melon,//Deadmon_Wonderland
+		/obj/item/toy/plush/nova/parsec,//Moonridden
+		/obj/item/toy/plush/nova/akinshi,//Darkinite
+		/obj/item/toy/plush/nova/donator/delphic_synth,//Sciamach
+		/obj/item/toy/plush/nova/skaag,//Aganoo
+	)
+
+/obj/item/storage/box/hug/plushes/team/PopulateContents()
+	for(var/i in 1 to 7)
+		var/plush_path = /obj/effect/spawner/random/entertainment/plushie/team
+		new plush_path(src)
+
+/obj/item/storage/box/hug/plushes/team/all
+	name = "box of all nova sector staff plushies"
+	desc = "Holds plushies owned by current or prior Staff of Nova Sector."
+	storage_type = /datum/storage/box/debug
+	w_class = WEIGHT_CLASS_TINY
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+
+//Same as above, but spawns the whole list instead
+/obj/effect/spawner/random/entertainment/plushie/team/all
+	name = "nova sector whole team plushie spawner"
+	icon_state = "plushie"
+	spawn_all_loot = TRUE
+
+/obj/item/storage/box/hug/plushes/team/all/PopulateContents()
+		var/plush_path = /obj/effect/spawner/random/entertainment/plushie/team/all
+		new plush_path(src)
+
+// Donator / Nova Plushies Box and Spawners
+/obj/effect/spawner/random/entertainment/plushie/donator
+	name = "nova sector donator plushie spawner"
+	icon_state = "plushie"
+	loot_subtype_path = /obj/item/toy/plush/nova/donator/
+	loot = list( )
+
+//Sane item to actually be used
+/obj/item/storage/box/hug/plushes/donators
+	name = "box of nova sector supporter plushies"
+	desc = "Thank you to everyone who has helped to keep the lights on."
+
+/obj/item/storage/box/hug/plushes/donators/PopulateContents()
+	for(var/i in 1 to 7)
+		var/plush_path = /obj/effect/spawner/random/entertainment/plushie/donator
+		new plush_path(src)
+
+//Big box that will eventually not fit all of them, but thats a problem for later
+/obj/item/storage/box/hug/plushes/donators/all
+	name = "box of all nova sector supporter plushies"
+	desc = "Thank you to everyone who has helped to keep the lights on."
+	storage_type = /datum/storage/box/debug
+	w_class = WEIGHT_CLASS_TINY
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+
+/obj/effect/spawner/random/entertainment/plushie/donator/all
+	name = "nova sector donator plushie spawner"
+	icon_state = "plushie"
+	loot_subtype_path = /obj/item/toy/plush/nova/donator/
+	spawn_all_loot = TRUE
+	loot = list( )
+
+/obj/item/storage/box/hug/plushes/donators/all/PopulateContents()
+		var/plush_path = /obj/effect/spawner/random/entertainment/plushie/donator/all
+		new plush_path(src)
+
+//Scatter Donator Plushies. Plushie explosions!
+//Use these with buildmode for fun times. Or as mapping features, as intended.
+/obj/effect/spawner/random/entertainment/plushie/donator/scatter
+	icon_state = "plushie"
+	spawn_loot_split = TRUE
+	spawn_random_offset = TRUE
+	spawn_scatter_radius = 3
+
+/obj/effect/spawner/random/entertainment/plushie/donator/scatter/three
+	spawn_loot_count = 3
+
+/obj/effect/spawner/random/entertainment/plushie/donator/scatter/five
+	spawn_loot_count = 5
+	spawn_scatter_radius = 4
+
+/obj/effect/spawner/random/entertainment/plushie/donator/scatter/seven
+	spawn_loot_count = 7
+	spawn_scatter_radius = 5
+
+//Same as above but spawns everything possible. This might not be a good thing to have existing
+/obj/effect/spawner/random/entertainment/plushie/donator/scatter/all
+	name = "nova sector donator all plushies spawner"
+	spawn_all_loot = TRUE
+	spawn_scatter_radius = 9
+
 // Debug Items //
 // Debug Boxes TODO: Antag box, Research box, Security box, Service Box, Cargo Box, Medical Box revisit, Outfit Varianted Debug box to reduce
 // ICON-TODO:Needs its own custom icons file, and variants for box types
