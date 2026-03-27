@@ -12,7 +12,7 @@
 /datum/reagent/medicine/interdyne/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 	// Interdyne drug interaction — mixing Interdyne chems causes liver damage
-	if(istype(src, /datum/reagent/medicine/interdyne/dynexil))
+	if(istype(src, /datum/reagent/medicine/interdyne/dynexil) || istype(src, /datum/reagent/medicine/interdyne/catalyzine))
 		return
 	for(var/datum/reagent/other as anything in affected_mob.reagents.reagent_list)
 		if(other == src)
