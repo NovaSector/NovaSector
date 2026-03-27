@@ -320,5 +320,5 @@
 /datum/supply_pack/companies/medical/interdyne/dynexil
 	name = "Interdyne Dynexil Supply"
 	desc = "Two bottles of Interdyne's proprietary Dynexil stabilizing compound. Required for all Interdyne pharmaceutical formulations. Patent-protected."
-	cost = CARGO_CRATE_VALUE * 4
-	contains = list(/obj/item/reagent_containers/cup/bottle/interdyne_dynexil = 2)
+	cost = CARGO_CRATE_VALUE * 10
+	contains = list(/obj/item/reagent_containers/cup/bottle/interdyne_dynexil = 3)
