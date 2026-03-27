@@ -6,7 +6,7 @@
 	desc = "An Interdyne Pharmaceuticals automated surgical pod. \
 		Capable of performing organ transplants and implant insertions without a surgeon. \
 		Requires authorization from an Interdyne representative to operate."
-	icon = 'modular_nova/modules/company_imports/icons/interdyne_autodoc.dmi'
+	icon = 'modular_nova/modules/interdyne/icons/interdyne_autodoc.dmi'
 	icon_state = "autodoc"
 	base_icon_state = "autodoc"
 	density = TRUE

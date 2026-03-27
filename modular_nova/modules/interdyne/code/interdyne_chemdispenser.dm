@@ -2,7 +2,7 @@
 	name = "Interdyne Chem Dispenser"
 	desc = "An Interdyne Pharmaceuticals chemical dispenser. Creates and dispenses chemicals with a distinctly corporate flair. \
 		Its safety protocols have been thoroughly 'revised' by Interdyne engineers."
-	icon = 'modular_nova/modules/company_imports/icons/interdyne_chemdispenser.dmi'
+	icon = 'modular_nova/modules/interdyne/icons/interdyne_chemdispenser.dmi'
 	circuit = /obj/item/circuitboard/machine/chem_dispenser/interdyne
 	/// No upgrades needed - all reagents available by default
 	upgrade_reagents = null

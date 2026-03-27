@@ -2,7 +2,7 @@
 	name = "Interdyne ChemMaster"
 	desc = "An Interdyne Pharmaceuticals chemical processor. Used to separate chemicals and distribute them in a variety of forms. \
 		Features integrated Interdyne autoinjector fabrication capabilities."
-	icon = 'modular_nova/modules/company_imports/icons/interdyne_chemmaster.dmi'
+	icon = 'modular_nova/modules/interdyne/icons/interdyne_chemmaster.dmi'
 	circuit = /obj/item/circuitboard/machine/chem_master/interdyne
 
 /obj/machinery/chem_master/interdyne/ui_interact(mob/user, datum/tgui/ui)

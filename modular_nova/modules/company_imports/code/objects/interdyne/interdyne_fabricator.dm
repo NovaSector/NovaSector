@@ -3,7 +3,7 @@
 	desc = "A proprietary Interdyne Pharmaceuticals fabricator, pre-loaded with a comprehensive medical design library. \
 		Unlike standard Nanotrasen techfabs, this machine operates independently of any research network, \
 		drawing from Interdyne's own extensive pharmaceutical database."
-	icon = 'modular_nova/modules/company_imports/icons/interdyne_fabricator.dmi'
+	icon = 'modular_nova/modules/interdyne/icons/interdyne_fabricator.dmi'
 	icon_state = "protolathe"
 	production_animation = "protolathe_n"
 	circuit = /obj/item/circuitboard/machine/interdyne_fabricator
