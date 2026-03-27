@@ -13,24 +13,6 @@
 /datum/orderable_item/consumables/space_cash
 	purchase_path = /obj/item/stack/spacecash/c500
 
-/datum/orderable_item/interdyne
-	category_index = CATEGORY_INTERDYNE
-
-/datum/orderable_item/interdyne/adv_plasmacutter
-	purchase_path = /obj/item/gun/energy/plasmacutter/adv
-	cost_per_order = 500
-
-/datum/orderable_item/interdyne/mining_AoE
-	purchase_path = /obj/item/borg/upgrade/modkit/aoe/turfs
-	cost_per_order = 750
-
-/datum/orderable_item/interdyne/night_vision_health_meson
-	purchase_path = /obj/item/clothing/glasses/hud/health/night/meson
-	cost_per_order = 2000
-
-/datum/orderable_item/interdyne/prescription_meson
-	purchase_path = /obj/item/clothing/glasses/meson/prescription
-	cost_per_order = 325
 
 /datum/orderable_item/mining/crusher
 	purchase_path = /obj/item/crusher_conversion_kit

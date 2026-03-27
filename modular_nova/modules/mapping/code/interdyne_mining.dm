@@ -14,7 +14,6 @@
 		CATEGORY_CONSUMABLES,
 		CATEGORY_TOYS_DRONE,
 		CATEGORY_PKA,
-		CATEGORY_INTERDYNE,
 	)
 
 /obj/machinery/computer/order_console/mining/interdyne/Initialize(mapload)

@@ -82,8 +82,15 @@
 		if(current_design.departmental_flags == ALL)
 			continue
 
-		// Include all implant designs (even security-flagged ones) and standard medical designs
-		if((current_design.departmental_flags & allowed_department_flags) || findtext(design_id, "implant"))
+		// Include PKA modkits — Interdyne miners need them
+		var/is_pka_mod = FALSE
+		for(var/cat in current_design.category)
+			if(findtext(cat, RND_SUBCATEGORY_TOOLS_PKA_MODS))
+				is_pka_mod = TRUE
+				break
+
+		// Include all implant designs (even security-flagged ones), standard medical designs, and PKA mods
+		if((current_design.departmental_flags & allowed_department_flags) || findtext(design_id, "implant") || is_pka_mod)
 			cached_designs |= current_design
 
 	var/design_delta = length(cached_designs) - previous_design_count
