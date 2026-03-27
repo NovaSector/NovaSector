@@ -3,14 +3,14 @@
 // Debug Storage Datums. Need more slots? Raise the number on max_total_storage and max_slots symmetrically
 /datum/storage/debug
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
-	max_total_storage = WEIGHT_CLASS_GIGANTIC * 28
-	max_slots = 28
+	max_total_storage = WEIGHT_CLASS_GIGANTIC * 35
+	max_slots = 35
 	allow_big_nesting = TRUE
 
 /datum/storage/box/debug// Overwrites the original debug box datum to be more sane / match our other debug storage
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
-	max_total_storage = WEIGHT_CLASS_GIGANTIC * 28
-	max_slots = 28
+	max_total_storage = WEIGHT_CLASS_GIGANTIC * 35
+	max_slots = 35
 	allow_big_nesting = TRUE
 
 ///Debug construction bag
