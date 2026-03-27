@@ -741,6 +741,10 @@
       installation fee of 8,000 credits. Inquire today under the "Imports" category!
   - code_imp: supply packs can now be spawned using containers different than a crate.
   - bugfix: The Random Supply Drop event can now spawn their items as opposed to runtiming.
+  Hatterhat:
+  - bugfix: Following complaints from approximately two people with a one person margin
+      of error, cans of CHAP and associated products (sliced CHAP, grilled sliced
+      CHAP) should no longer become "meat-iron" and squishy/grey/translucent/etc.
   LemonInTheDark:
   - bugfix: the darken screen shake preference will no longer shake your screen underneath
       the fullscreen overlay
@@ -749,6 +753,10 @@
       light sources
   - qol: Health analyzer lung reports are appended by the lung organs rather than
       at the bottom of the readout
+  OrbisAnima:
+  - balance: Teleporter Mod for modsuits has a four seconds windup, from one.
+  - balance: Cargo Anomalous mods for modsuits are no longer equal to their anomaly
+      counterparts, but a less efficient version and more complex due to their lacking.
   Rhials:
   - bugfix: The medisim shuttle docking port now aligns properly with most evac terminals.
   RusselNotSCP:
@@ -765,6 +773,8 @@
   - map: Snow Cabin fake healing wand now holds on to its sprite
   - spellcheck: Immobile mobile defibrillator mounts are no longer called mobile
   - bugfix: Tape can now secure prosthetic limbs again
+  obvious650-source:
+  - rscadd: Two rechargers added to Blueshift's security department
   vinylspiders:
   - bugfix: fixes an issue where casting spells after your mob gets deleted can leave
       you in a permanently bugged state.
