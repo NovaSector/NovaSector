@@ -8477,7 +8477,6 @@
 #include "modular_nova\modules\interdyne\code\interdyne_autodoc.dm"
 #include "modular_nova\modules\interdyne\code\interdyne_chemdispenser.dm"
 #include "modular_nova\modules\interdyne\code\interdyne_chemmaster.dm"
-#include "modular_nova\modules\interdyne\code\interdyne_pda.dm"
 #include "modular_nova\modules\item_visuals\code\item_visuals.dm"
 #include "modular_nova\modules\jaeger_mod\code\jaeger_mod.dm"
 #include "modular_nova\modules\job_estimation\job_estimation.dm"
