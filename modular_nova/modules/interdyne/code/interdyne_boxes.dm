@@ -13,7 +13,23 @@
 	desc = "A dark storage box marked with a medical cross and Interdyne Pharmaceuticals branding. For pharmaceutical shipments."
 	icon_state = "interdyne_box_med"
 
-/// Stack recipes — added to cardboard only for users with ACCESS_SYNDICATE
+/// Interdyne green nitrile gloves
+/obj/item/clothing/gloves/latex/nitrile/interdyne
+	name = "\improper Interdyne nitrile gloves"
+	desc = "High-quality nitrile gloves in Interdyne Pharmaceuticals corporate green. The logo is embossed on each wrist."
+	greyscale_colors = "#4CBB17"
+
+/// Pre-filled box of Interdyne nitrile gloves
+/obj/item/storage/box/interdyne/gloves
+	name = "\improper Interdyne nitrile gloves box"
+	desc = "A dark storage box containing Interdyne Pharmaceuticals-branded nitrile gloves. Corporate green, naturally."
+	icon_state = "interdyne_box_med"
+
+/obj/item/storage/box/interdyne/gloves/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/clothing/gloves/latex/nitrile/interdyne(src)
+
+/// Stack recipes — added to cardboard only for users with ACCESS_INTERDYNE
 
 GLOBAL_LIST_INIT(interdyne_cardboard_recipes, list(
 	new/datum/stack_recipe_list("Interdyne boxes", list(
@@ -27,7 +43,7 @@ GLOBAL_LIST_INIT(interdyne_cardboard_recipes, list(
 	. = ..()
 	. += GLOB.interdyne_cardboard_recipes
 
-/// Only show Interdyne recipes in the UI for users with ACCESS_SYNDICATE
+/// Only show Interdyne recipes in the UI for users with ACCESS_INTERDYNE
 /obj/item/stack/sheet/cardboard/ui_static_data(mob/user)
 	// Build base recipes WITHOUT Interdyne ones
 	var/list/base_recipes = recipes.Copy()
@@ -42,7 +58,7 @@ GLOBAL_LIST_INIT(interdyne_cardboard_recipes, list(
 	if(isliving(user))
 		var/mob/living/living_user = user
 		var/obj/item/card/id/id_card = living_user.get_idcard(hand_first = TRUE)
-		if(id_card && (ACCESS_SYNDICATE in id_card.GetAccess()))
+		if(id_card && (ACCESS_INTERDYNE in id_card.GetAccess()))
 			data["recipes"] += recursively_build_recipes(GLOB.interdyne_cardboard_recipes)
 
 	return data

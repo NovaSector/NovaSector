@@ -3,3 +3,4 @@
 #define ACCESS_CLOCKCULT "clockcult"
 #define ACCESS_TWIN_NEXUS_STAFF "twin_nexus_staff"
 #define ACCESS_TWIN_NEXUS_MANAGER "twin_nexus_manager"
+#define ACCESS_INTERDYNE "interdyne"

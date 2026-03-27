@@ -114,6 +114,7 @@
 	department_color = COLOR_LIME
 	subdepartment_color = COLOR_VERY_DARK_LIME_GREEN
 	threat_modifier = 2 // Interdyne is allowed on station, so this'll get beepskys off them.
+	access = list(ACCESS_SYNDICATE, ACCESS_INTERDYNE)
 
 /datum/id_trim/syndicom/nova/interdyne/shaftminer
 	assignment = "Interdyne Shaft Miner"
@@ -125,4 +126,4 @@
 	trim_state = "trim_deckofficer"
 	sechud_icon_state = SECHUD_INTERDYNE_DECKOFFICER
 	department_color = COLOR_VERY_DARK_LIME_GREEN
-	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS, ACCESS_SYNDICATE_LEADER)
+	access = list(ACCESS_SYNDICATE, ACCESS_INTERDYNE, ACCESS_ROBOTICS, ACCESS_SYNDICATE_LEADER)

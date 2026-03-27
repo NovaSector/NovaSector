@@ -1,5 +1,5 @@
 /// Interdyne Autodoc — automated surgical pod that inserts organs and implants.
-/// Requires ACCESS_SYNDICATE to operate controls; anyone can be a patient.
+/// Requires ACCESS_INTERDYNE to operate controls; anyone can be a patient.
 
 /obj/machinery/autodoc
 	name = "Interdyne autodoc"
@@ -14,7 +14,7 @@
 	circuit = /obj/item/circuitboard/machine/autodoc
 	state_open = TRUE
 	interaction_flags_mouse_drop = NEED_HANDS | NEED_DEXTERITY
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(ACCESS_INTERDYNE)
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 2
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 2.5
 	/// Items loaded into the machine for procedures (organs and implants)
