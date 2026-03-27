@@ -8475,6 +8475,7 @@
 #include "modular_nova\modules\interaction_menu\code\interaction_component.dm"
 #include "modular_nova\modules\interaction_menu\code\interaction_datum.dm"
 #include "modular_nova\modules\interdyne\code\interdyne_autodoc.dm"
+#include "modular_nova\modules\interdyne\code\interdyne_boxes.dm"
 #include "modular_nova\modules\interdyne\code\interdyne_chemdispenser.dm"
 #include "modular_nova\modules\interdyne\code\interdyne_chemmaster.dm"
 #include "modular_nova\modules\interdyne\code\reagents\interdyne_reagents.dm"
