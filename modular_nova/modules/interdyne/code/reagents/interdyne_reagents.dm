@@ -17,7 +17,9 @@
 	for(var/datum/reagent/other as anything in affected_mob.reagents.reagent_list)
 		if(other == src)
 			continue
-		if(istype(other, /datum/reagent/medicine/interdyne/dynexil))
+		if(istype(other, /datum/reagent/medicine/interdyne))
+			continue
+		if(istype(other, /datum/reagent/drug/interdyne))
 			continue
 		if(istype(other, /datum/reagent/medicine) || istype(other, /datum/reagent/drug))
 			if(affected_mob.adjust_organ_loss(ORGAN_SLOT_LIVER, 2.5 * seconds_per_tick, required_organ_flag = affected_organ_flags))
@@ -33,7 +35,6 @@
 	color = "#2E8B57"
 	taste_description = "smooth bitterness"
 	ph = 7
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /obj/item/reagent_containers/cup/bottle/interdyne_dynexil
 	name = "Dynexil bottle"
@@ -142,7 +143,9 @@
 	for(var/datum/reagent/other as anything in affected_mob.reagents.reagent_list)
 		if(other == src)
 			continue
-		if(istype(other, /datum/reagent/medicine/interdyne/dynexil))
+		if(istype(other, /datum/reagent/medicine/interdyne))
+			continue
+		if(istype(other, /datum/reagent/drug/interdyne))
 			continue
 		if(istype(other, /datum/reagent/medicine) || istype(other, /datum/reagent/drug))
 			if(affected_mob.adjust_organ_loss(ORGAN_SLOT_LIVER, 2.5 * seconds_per_tick, required_organ_flag = affected_organ_flags))
