@@ -1,5 +1,5 @@
 {
-	"plainsecskirt": [
+	"secskirtplain": [
 		{
 			"type": "icon_state",
 			"icon_state": "security_skirt_shirt",
@@ -30,7 +30,7 @@
 			"blend_mode": "overlay"
 		}
 	],
-	"plainsecskirt_d": [
+	"secskirtplain_d": [
 		{
 			"type": "icon_state",
 			"icon_state": "security_skirt_shirt_d",

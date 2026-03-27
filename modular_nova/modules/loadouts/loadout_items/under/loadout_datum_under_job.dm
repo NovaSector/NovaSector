@@ -315,7 +315,7 @@
 
 /datum/loadout_item/under/jumpsuit/security_plain_skirt
 	name = "Security Jumpskirt (Blue, Plain)"
-	item_path = /obj/item/clothing/under/rank/security/nova/skirt/plain
+	item_path = /obj/item/clothing/under/rank/security/nova/plainskirt
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
