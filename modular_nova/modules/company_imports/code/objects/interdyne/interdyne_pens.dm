@@ -7,8 +7,8 @@
 	icon = 'modular_nova/modules/company_imports/icons/interdyne_injectors.dmi'
 	icon_state = "default"
 	base_icon_state = "default"
-	volume = 25
-	amount_per_transfer_from_this = 25
+	volume = 50
+	amount_per_transfer_from_this = 50
 	list_reagents = list()
 
 /obj/item/reagent_containers/hypospray/medipen/interdyne/inject(mob/living/affected_mob, mob/user)
