@@ -76,7 +76,6 @@
 /obj/item/storage/belt/utility/debug/sst/PopulateContents()
 	new	/obj/item/blueprints(src)
 	new	/obj/item/construction/plumbing/debug(src)
-	new	/obj/item/universal_scanner(src)
 	new	/obj/item/hand_labeler(src)
 	new	/obj/item/storage/bag/trash/bluespace(src)
 	new	/obj/item/melee/skateboard/hoverboard/admin(src)

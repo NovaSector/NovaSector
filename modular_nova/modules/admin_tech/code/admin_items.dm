@@ -612,6 +612,7 @@
 /obj/item/tank/internals/debug/mix/fusionfur
 	name = "'Fusion-Fur' subspace tank"
 	desc = "A palm-sized gas tank embedded with an ominous purple crystal. A partially-peeled sticker of a grey-furred anthromorph advertises how well this mix keeps her fur from burning."
+	distribute_pressure = 8
 
 /obj/item/tank/internals/debug/mix/fusionfur/populate_gas()
 	air_contents.assert_gases(/datum/gas/pluoxium, /datum/gas/halon, /datum/gas/hypernoblium)
@@ -626,7 +627,6 @@
 	desc = "A palm-sized gas tank embedded with an ominous purple crystal. It's covered in stickers of butt-bots."
 	icon_state = "emergency_clown"
 	inhand_icon_state = "emergency_clown"
-	worn_icon_state = "emergency_clown"
 	tank_holder_icon_state = "holder_emergency_clown"
 	distribute_pressure = 23
 
