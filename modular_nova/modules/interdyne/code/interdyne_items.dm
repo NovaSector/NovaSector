@@ -6,7 +6,6 @@
 	greyscale_colors = "#1A1A1A#1B5E20#2E8B57"
 	device_theme = PDA_THEME_TERMINAL
 	saved_identification = "Interdyne Employee"
-	saved_job = "Interdyne"
 
 /obj/item/modular_computer/pda/interdyne/Initialize(mapload)
 	. = ..()
