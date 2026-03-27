@@ -4,7 +4,6 @@
 	name = "Interdyne PDA"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick
 	greyscale_colors = "#1A1A1A#1B5E20#2E8B57"
-	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	device_theme = PDA_THEME_TERMINAL
 	saved_identification = "Interdyne Employee"
 
