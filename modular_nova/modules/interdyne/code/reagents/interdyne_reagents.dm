@@ -278,10 +278,13 @@
 	ph = 8
 	addiction_types = list(/datum/addiction/stimulants = 55)
 	metabolized_traits = list(TRAIT_STIMULATED, TRAIT_IGNORESLOWDOWN)
+	/// Attack speed multiplier — lower is faster
+	var/attack_speed_boost = 0.8
 
 /datum/reagent/drug/interdyne/velocitol/on_mob_metabolize(mob/living/speedster)
 	. = ..()
 	speedster.add_actionspeed_modifier(/datum/actionspeed_modifier/interdyne_velocitol)
+	speedster.next_move_modifier *= attack_speed_boost
 	if(!speedster.hud_used)
 		return
 
@@ -301,6 +304,7 @@
 /datum/reagent/drug/interdyne/velocitol/on_mob_end_metabolize(mob/living/speedster)
 	. = ..()
 	speedster.remove_actionspeed_modifier(/datum/actionspeed_modifier/interdyne_velocitol)
+	speedster.next_move_modifier /= attack_speed_boost
 	if(!speedster.hud_used)
 		return
 	var/atom/movable/plane_master_controller/game_plane_master_controller = speedster.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
