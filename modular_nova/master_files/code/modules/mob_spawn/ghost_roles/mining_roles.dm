@@ -169,8 +169,8 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	ears = /obj/item/radio/headset/interdyne/green
 	shoes = /obj/item/clothing/shoes/combat
-	l_pocket = /obj/item/gun/ballistic/automatic/pistol
-	r_hand = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil
+	belt = /obj/item/modular_computer/pda/interdyne
+	l_pocket = /obj/item/gun/energy/laser/pistol/interdyne
 	implants = list(/obj/item/implant/weapons_auth)
 	var/jobtype = /datum/job/interdyne_planetary_base
 
@@ -236,16 +236,6 @@
 	name = "Icemoon Interdyne Shaft Miner"
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
-
-// ITEMS
-
-/obj/item/radio/headset/interdyne
-	name = "\improper Interdyne headset"
-	desc = "A bowman headset with a large red cross on the earpiece, has a small 'IP' written on the top strap. Protects the ears from flashbangs."
-	icon_state = "syndie_headset"
-	inhand_icon_state = null
-	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/syndie.ogg'
-	keyslot = new /obj/item/encryptionkey/headset_syndicate/interdyne
 
 /obj/item/radio/headset/interdyne/Initialize(mapload)
 	. = ..()
