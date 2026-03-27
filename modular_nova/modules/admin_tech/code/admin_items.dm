@@ -190,6 +190,27 @@
 	create_storage(storage_type = /datum/storage/pockets/shoes)
 	AddElement(/datum/element/ignites_matches)
 
+//Subspace gloves
+/obj/item/clothing/gloves/tackler/debug
+	name = "subspace gloves"
+	desc = "A palm-sized gas tank embedded with an ominous purple crystal. It's covered in stickers of butt-bots."
+//	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
+	icon_state = "wizard"
+//	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	siemens_coefficient = 0
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
+	heat_protection = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
+	w_class = WEIGHT_CLASS_TINY
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	clothing_traits = list(TRAIT_FAST_CUFFING)
+	armor_type = /datum/armor/debug/badmin
+
+/obj/item/clothing/gloves/tackler/debug/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/martial_art_giver, /datum/martial_art/kaza_ruk)
+
 // Badmin pinpointer. The bool lets you find people, even if they aren't wearing clothes, as long as you share a z-layer
 /obj/item/pinpointer/crew/debug//code\game\objects\items\pinpointer.dm
 	name = "subspace target locator"
@@ -333,6 +354,9 @@
 	matter = INFINITY
 	delay_mod = 0.1
 	construction_upgrades = RCD_ALL_UPGRADES & ~RCD_UPGRADE_SILO_LINK
+
+//RCD Disks - What the fuck is this code man
+//code\game\machinery\computer\buildandrepair.dm:330 - Furnishing?
 
 //Debug Rapid Lighting Device
 //code\game\objects\items\rcd\RLD.dm
@@ -636,3 +660,4 @@
 	air_contents.gases[/datum/gas/nitrous_oxide][MOLES] = (29*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * 0.05
 	air_contents.gases[/datum/gas/bz][MOLES] = (29*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * 0.05
 	air_contents.gases[/datum/gas/helium][MOLES] = (29*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * 0.15
+

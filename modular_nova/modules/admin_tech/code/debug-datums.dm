@@ -22,21 +22,25 @@
 	max_total_storage = 6769
 
 /datum/armor/debug//No one is invincible.
-	melee = 95
-	melee = 95
-	laser = 95
-	energy = 95
-	bomb = 95
-	bio = 95
-	fire = 98
 	acid = 98
+	bio = 95
+	bomb = 95
+	bullet = 95
+	consume = 95
+	energy = 95
+	laser = 95
+	fire = 98
+	melee = 95
+	wound = 95
 
 /datum/armor/debug/badmin//I'm serious, this isnt enough to save your un-robust ass.
-	melee = 100
-	melee = 100
-	laser = 100
-	energy = 100
-	bomb = 100
-	bio = 100
-	fire = 100
 	acid = 100
+	bio = 100
+	bomb = 100
+	bullet = 100
+	consume = 100
+	energy = 100
+	laser = 100
+	fire = 100
+	melee = 100
+	wound = 100
