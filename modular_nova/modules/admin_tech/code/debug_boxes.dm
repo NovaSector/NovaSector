@@ -55,9 +55,7 @@
 /obj/effect/spawner/random/entertainment/plushie/nova/donator/all
 	name = "nova sector donator plushie spawner"
 	icon_state = "plushie"
-	loot_subtype_path = /obj/item/toy/plush/nova/donator/
 	spawn_all_loot = TRUE
-	loot = list( )
 
 //Same as above but spawns everything possible. This might not be a good thing to have existing
 /obj/effect/spawner/random/entertainment/plushie/nova/donator/all/
@@ -95,7 +93,7 @@
 /obj/effect/spawner/random/entertainment/plushie/nova/donator/scatter/all
 	name = "nova sector donator plushies spawner - scatter - all plushies"
 	spawn_all_loot = TRUE
-	spawn_scatter_radius = 6
+	spawn_scatter_radius = 7
 
 // Staff & Maints Plushies Box and Spawners
 /obj/item/storage/box/hug/plushes/nova/team
@@ -105,6 +103,7 @@
 /obj/effect/spawner/random/entertainment/plushie/nova/team
 	name = "nova sector team plushie spawner"
 	icon_state = "plushie"
+	loot_subtype_path = null
 	loot = list(
 		/obj/item/toy/plush/nova/melon,//Deadmon_Wonderland
 		/obj/item/toy/plush/nova/parsec,//Moonridden
