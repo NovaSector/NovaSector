@@ -12,6 +12,13 @@
 
 	/// Interdyne-exclusive reagents only available on this machine
 	var/static/list/interdyne_reagents = list(
+		/datum/reagent/medicine/interdyne/dynexil,
+		/datum/reagent/medicine/interdyne/bicardyne,
+		/datum/reagent/medicine/interdyne/thermapyne,
+		/datum/reagent/medicine/interdyne/omnidyne,
+		/datum/reagent/drug/interdyne/panaclarinz,
+		/datum/reagent/drug/interdyne/velocitol,
+		/datum/reagent/drug/interdyne/neurophrene,
 	)
 
 /obj/machinery/chem_dispenser/interdyne/Initialize(mapload)
