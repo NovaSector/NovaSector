@@ -46,6 +46,9 @@ GLOBAL_LIST_INIT(reagent_containers, list(
 		CAT_PEN_INJECTORS = typecacheof(list(
 		/obj/item/reagent_containers/hypospray/medipen/deforest/printable
 	)),
+	CAT_INTERDYNE_INJECTORS = typecacheof(list(
+		/obj/item/reagent_containers/hypospray/medipen/interdyne
+	)),
 	// NOVA EDIT ADDITION END
 ))
 
