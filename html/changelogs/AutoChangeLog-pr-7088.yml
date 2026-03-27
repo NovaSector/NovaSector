@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Following complaints from approximately two people with a one person margin of error, cans of CHAP and associated products (sliced CHAP, grilled sliced CHAP) should no longer become \"meat-iron\" and squishy/grey/translucent/etc."
