@@ -4,6 +4,7 @@
 		Its safety protocols have been thoroughly 'revised' by Interdyne engineers."
 	icon = 'modular_nova/modules/interdyne/icons/interdyne_chemdispenser.dmi'
 	circuit = /obj/item/circuitboard/machine/chem_dispenser/interdyne
+	req_access = list(ACCESS_INTERDYNE)
 	/// No upgrades needed - all reagents available by default
 	upgrade_reagents = null
 	upgrade2_reagents = null
@@ -36,6 +37,16 @@
 		var/mob/living/living_user = user
 		is_hallucinating = !!living_user.has_status_effect(/datum/status_effect/hallucination)
 	ui.set_autoupdate(!is_hallucinating)
+
+/obj/machinery/chem_dispenser/interdyne/ui_data(mob/user)
+	. = ..()
+	.["hasAccess"] = allowed(user)
+
+/obj/machinery/chem_dispenser/interdyne/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+	if(!allowed(ui.user))
+		to_chat(ui.user, span_warning("Access denied."))
+		return TRUE
+	return ..()
 
 /obj/item/circuitboard/machine/chem_dispenser/interdyne
 	name = "\improper Interdyne Chem Dispenser"

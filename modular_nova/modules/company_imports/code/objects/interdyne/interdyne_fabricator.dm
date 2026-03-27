@@ -12,6 +12,7 @@
 	// Null here so the parent doesn't add a stripe from the wrong icon file
 	stripe_color = null
 	payment_department = ACCOUNT_INT
+	req_access = list(ACCESS_INTERDYNE)
 	/// The actual stripe color, applied in our own update_overlays
 	var/interdyne_stripe_color = "#4CBB17"
 
@@ -19,6 +20,22 @@
 	. = ..()
 	// Use the admin techweb so all designs are considered "researched" - we filter by department flag instead
 	stored_research = locate(/datum/techweb/admin) in SSresearch.techwebs
+
+/obj/machinery/rnd/production/interdyne_fabricator/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "InterdyneFabricator", name)
+		ui.open()
+
+/obj/machinery/rnd/production/interdyne_fabricator/ui_data(mob/user)
+	. = ..()
+	.["hasAccess"] = allowed(user)
+
+/obj/machinery/rnd/production/interdyne_fabricator/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+	if(!allowed(ui.user))
+		to_chat(ui.user, span_warning("Access denied."))
+		return TRUE
+	return ..()
 
 /obj/machinery/rnd/production/interdyne_fabricator/update_overlays()
 	. = ..()

@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 /datum/reagent/medicine/interdyne
+	abstract_type = /datum/reagent/medicine/interdyne
 	taste_description = "corporate aftertaste"
 
 /datum/reagent/medicine/interdyne/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
@@ -54,7 +55,12 @@
 
 /datum/reagent/medicine/interdyne/bicardyne/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	if(affected_mob.adjust_brute_loss(-4 * normalise_creation_purity() * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype))
+	var/need_mob_update
+	if(affected_mob.get_brute_loss() > 25)
+		need_mob_update = affected_mob.adjust_brute_loss(-5 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
+	else
+		need_mob_update = affected_mob.adjust_brute_loss(-0.65 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
+	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/medicine/interdyne/bicardyne/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
@@ -74,7 +80,12 @@
 
 /datum/reagent/medicine/interdyne/thermapyne/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	if(affected_mob.adjust_fire_loss(-3 * normalise_creation_purity() * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype))
+	var/need_mob_update
+	if(affected_mob.get_fire_loss() > 25)
+		need_mob_update = affected_mob.adjust_fire_loss(-5 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
+	else
+		need_mob_update = affected_mob.adjust_fire_loss(-0.65 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
+	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/medicine/interdyne/thermapyne/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
@@ -122,6 +133,7 @@
 // --- PANACLARIN-Z: The Omniheal Trip ---
 
 /datum/reagent/drug/interdyne
+	abstract_type = /datum/reagent/drug/interdyne
 	taste_description = "corporate pharmaceuticals"
 
 /datum/reagent/drug/interdyne/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)

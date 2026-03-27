@@ -139,8 +139,8 @@
 	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
-	id = /obj/item/card/id/advanced/silver/generic
-	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
+	id = /obj/item/card/id/advanced/chameleon/elite
+	id_trim = /datum/id_trim/interdyne/deckofficer
 
 /obj/item/radio/headset/interdyne/green
 	name = "interdyne branded headset"
@@ -155,8 +155,8 @@
 
 /datum/outfit/interdyne_planetary_base
 	name = "Interdyne Scientist"
-	id = /obj/item/card/id/advanced/chameleon/elite
-	id_trim = /datum/id_trim/syndicom/nova/interdyne
+	id = /obj/item/card/id/advanced/interdyne
+	id_trim = /datum/id_trim/interdyne
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
 	suit = /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
 	head = /obj/item/clothing/head/beret/medical/nova/interdyne
@@ -203,7 +203,7 @@
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
 	r_pocket = /obj/item/storage/bag/ore
-	id_trim = /datum/id_trim/syndicom/nova/interdyne/shaftminer
+	id_trim = /datum/id_trim/interdyne/shaftminer
 	back = /obj/item/storage/backpack/explorer
 	skillchips = list(/obj/item/skillchip/job/miner)
 	backpack_contents = list(
@@ -225,8 +225,8 @@
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
 	skillchips = list(/obj/item/skillchip/job/miner)
-	id = /obj/item/card/id/advanced/chameleon/elite/black/silver
-	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
+	id = /obj/item/card/id/advanced/chameleon/elite
+	id_trim = /datum/id_trim/interdyne/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deckofficer/Destroy()
 	new/obj/structure/fluff/empty_sleeper/syndicate/captain(get_turf(src))

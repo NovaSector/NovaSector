@@ -8,6 +8,7 @@ import {
   Icon,
   ImageButton,
   LabeledList,
+  NoticeBox,
   NumberInput,
   ProgressBar,
   Section,
@@ -66,9 +67,11 @@ type Data = {
   selectedContainerVolume: number;
   selectedContainerCategory?: string;
   hasBeakerInHand: BooleanLike;
+  hasAccess: BooleanLike;
 };
 
 export const InterdyneChemMaster = (props) => {
+  const { data } = useBackend<Data>();
   const [analyzedReagent, setAnalyzedReagent] = useState<AnalyzableReagent>();
 
   return (
@@ -85,6 +88,11 @@ export const InterdyneChemMaster = (props) => {
               setAnalyzedReagent(chemical)
             }
           />
+        )}
+        {!data.hasAccess && (
+          <NoticeBox danger mt={1}>
+            Access denied. Interdyne authorization required.
+          </NoticeBox>
         )}
       </Window.Content>
     </Window>

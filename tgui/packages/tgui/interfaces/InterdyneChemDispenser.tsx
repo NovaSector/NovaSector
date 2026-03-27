@@ -72,6 +72,7 @@ type Data = {
   recipeReagents: string[];
   beaker: TransferableBeaker;
   hasBeakerInHand: BooleanLike;
+  hasAccess: BooleanLike;
   // static
   reaction_list: Record<string, Reaction>;
   all_bitflags: Record<string, number>;
@@ -450,6 +451,11 @@ export const InterdyneChemDispenser = (props) => {
             </Stack.Item>
           )}
         </Stack>
+        {!data.hasAccess && (
+          <NoticeBox danger mt={1}>
+            Access denied. Interdyne authorization required.
+          </NoticeBox>
+        )}
       </Window.Content>
     </Window>
   );
