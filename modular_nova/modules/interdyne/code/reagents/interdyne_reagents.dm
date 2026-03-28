@@ -236,7 +236,6 @@
 
 /datum/reagent/drug/interdyne/panaclarinz/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
-	// Healing — all 4 damage types at 0.5/tick
 	var/heal = -1 * metabolization_ratio * seconds_per_tick
 	var/need_mob_update
 	need_mob_update = affected_mob.adjust_tox_loss(heal, updating_health = FALSE, required_biotype = affected_biotype)
