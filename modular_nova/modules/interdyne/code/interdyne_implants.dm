@@ -108,18 +108,22 @@
 /obj/item/organ/cyberimp/chest/interdyne/hepatixol
 	name = "Hepatixol toxin filter implant"
 	desc = "An Interdyne Pharmaceuticals cybernetic implant that continuously filters toxins from the bloodstream and reinforces liver tissue. \
-		The aggressive filtration slightly reduces chemical metabolism speed."
+		The aggressive filtration slightly reduces medicine effectiveness and weakens toxin potency."
 	icon_state = "hepatixol"
 	slot = ORGAN_SLOT_LIVER_AID
-	/// The metabolism efficiency multiplier applied while implanted (lower = slower metabolism)
-	var/metabolism_penalty = 0.7
+	/// The medicine effect modifier applied while implanted (lower = weaker medicine effects)
+	var/medicine_penalty = 0.7
+	/// The toxin effect modifier applied while implanted (lower = weaker toxin effects)
+	var/toxin_penalty = 0.9
 
 /obj/item/organ/cyberimp/chest/interdyne/hepatixol/Insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
-	receiver.metabolism_efficiency *= metabolism_penalty
+	receiver.medicine_effect_modifier *= medicine_penalty
+	receiver.toxin_effect_modifier *= toxin_penalty
 
 /obj/item/organ/cyberimp/chest/interdyne/hepatixol/Remove(mob/living/carbon/donor, special, movement_flags)
-	donor.metabolism_efficiency /= metabolism_penalty
+	donor.medicine_effect_modifier /= medicine_penalty
+	donor.toxin_effect_modifier /= toxin_penalty
 	return ..()
 
 /obj/item/organ/cyberimp/chest/interdyne/hepatixol/on_life(seconds_per_tick)

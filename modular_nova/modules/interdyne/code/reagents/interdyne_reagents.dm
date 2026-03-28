@@ -132,16 +132,16 @@
 	overdose_threshold = 20
 	ph = 6.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	/// The multiplier applied to metabolism_efficiency while active
+	/// The multiplier applied to reagent_metabolism_boost while active
 	var/metabolism_boost = 1.5
 
 /datum/reagent/medicine/interdyne/catalyzine/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
-	affected_mob.metabolism_efficiency *= metabolism_boost
+	affected_mob.reagent_metabolism_boost *= metabolism_boost
 
 /datum/reagent/medicine/interdyne/catalyzine/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
-	affected_mob.metabolism_efficiency /= metabolism_boost
+	affected_mob.reagent_metabolism_boost /= metabolism_boost
 
 /datum/reagent/medicine/interdyne/catalyzine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
