@@ -276,13 +276,14 @@
 	overdose_threshold = 20
 	ph = 8
 	addiction_types = list(/datum/addiction/stimulants = 55)
-	metabolized_traits = list(TRAIT_STIMULATED, TRAIT_IGNORESLOWDOWN)
+	metabolized_traits = list(TRAIT_STIMULATED, TRAIT_IGNORESLOWDOWN, TRAIT_BATON_RESISTANCE)
 	/// Attack speed multiplier — lower is faster
 	var/attack_speed_boost = 0.8
 
 /datum/reagent/drug/interdyne/velocitol/on_mob_metabolize(mob/living/speedster)
 	. = ..()
 	speedster.add_actionspeed_modifier(/datum/actionspeed_modifier/interdyne_velocitol)
+	speedster.add_movespeed_modifier(/datum/movespeed_modifier/interdyne_velocitol)
 	speedster.next_move_modifier *= attack_speed_boost
 	if(!speedster.hud_used)
 		return
@@ -303,6 +304,7 @@
 /datum/reagent/drug/interdyne/velocitol/on_mob_end_metabolize(mob/living/speedster)
 	. = ..()
 	speedster.remove_actionspeed_modifier(/datum/actionspeed_modifier/interdyne_velocitol)
+	speedster.remove_movespeed_modifier(/datum/movespeed_modifier/interdyne_velocitol)
 	speedster.next_move_modifier /= attack_speed_boost
 	if(!speedster.hud_used)
 		return
@@ -314,8 +316,11 @@
 	. = ..()
 	var/need_mob_update = FALSE
 
+	// Anti-stun — stronger than meth
+	affected_mob.AdjustAllImmobility(-30 * metabolization_ratio * seconds_per_tick)
+
 	// Stamina recovery
-	need_mob_update = affected_mob.adjust_stamina_loss(-2 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE)
+	need_mob_update = affected_mob.adjust_stamina_loss(-5 * metabolization_ratio * seconds_per_tick, updating_stamina = FALSE)
 
 	// Liver damage — the cost of speed
 	need_mob_update += affected_mob.adjust_organ_loss(ORGAN_SLOT_LIVER, 0.4 * metabolization_ratio * seconds_per_tick, required_organ_flag = affected_organ_flags)
@@ -360,6 +365,12 @@
 /datum/actionspeed_modifier/interdyne_velocitol
 	multiplicative_slowdown = -0.3
 
+/datum/movespeed_modifier/interdyne_velocitol
+	multiplicative_slowdown = -0.8
+
+/datum/actionspeed_modifier/interdyne_neurophrene
+	multiplicative_slowdown = -0.4
+
 // --- NEUROPHRENE: The Nootropic ---
 
 /datum/reagent/drug/interdyne/neurophrene
@@ -371,7 +382,7 @@
 	overdose_threshold = 20
 	ph = 7.5
 	addiction_types = list(/datum/addiction/stimulants = 40)
-	metabolized_traits = list(TRAIT_SLEEPIMMUNE)
+	metabolized_traits = list(TRAIT_SLEEPIMMUNE, TRAIT_ANALGESIA, TRAIT_ANTIMAGIC)
 	/// Messages the user hears as phantom whispers
 	var/static/list/whisper_messages = list(
 		"You hear whispers just beyond comprehension...",
@@ -384,6 +395,7 @@
 /datum/reagent/drug/interdyne/neurophrene/on_mob_metabolize(mob/living/thinker)
 	. = ..()
 	thinker.add_mood_event("neurophrene", /datum/mood_event/high)
+	thinker.add_actionspeed_modifier(/datum/actionspeed_modifier/interdyne_neurophrene)
 	if(!thinker.hud_used)
 		return
 
@@ -406,6 +418,7 @@
 	. = ..()
 	thinker.clear_mood_event("neurophrene")
 	thinker.clear_fullscreen("neurophrene_od")
+	thinker.remove_actionspeed_modifier(/datum/actionspeed_modifier/interdyne_neurophrene)
 	if(!thinker.hud_used)
 		return
 	var/atom/movable/plane_master_controller/game_plane_master_controller = thinker.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
@@ -419,9 +432,6 @@
 	// Clear confusion and dizziness each tick
 	affected_mob.remove_status_effect(/datum/status_effect/confusion)
 	affected_mob.remove_status_effect(/datum/status_effect/dizziness)
-
-	// Partial anti-stun
-	affected_mob.AdjustAllImmobility(-8 * metabolization_ratio * seconds_per_tick)
 
 	// Brain damage — ironic cost of a nootropic
 	need_mob_update = affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 0.25 * metabolization_ratio * seconds_per_tick, required_organ_flag = affected_organ_flags)

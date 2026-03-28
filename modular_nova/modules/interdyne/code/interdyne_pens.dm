@@ -4,7 +4,7 @@
 	name = "Interdyne autoinjector"
 	desc = "A sleek, dark autoinjector bearing the Interdyne Pharmaceuticals brand. \
 		Its proprietary design is required for administering Interdyne's enhanced pharmaceutical compounds."
-	icon = 'modular_nova/modules/company_imports/icons/interdyne_injectors.dmi'
+	icon = 'modular_nova/modules/interdyne/icons/interdyne_injectors.dmi'
 	icon_state = "default"
 	base_icon_state = "default"
 	volume = 50
