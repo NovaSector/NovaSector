@@ -27,6 +27,7 @@
 		/datum/reagent/toxin/coniine,
 		/datum/reagent/toxin/curare,
 		/datum/reagent/toxin/amanitin,
+		/datum/reagent/consumable/liquidelectricity/enriched,
 	)
 
 /obj/machinery/chem_dispenser/interdyne/Initialize(mapload)
