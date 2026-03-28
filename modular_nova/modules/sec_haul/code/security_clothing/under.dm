@@ -26,18 +26,18 @@
 
 /datum/atom_skin/security_uniform_black/black
 	preview_name = "Black Variant"
-	new_icon_state = "security_black"
-	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
+	new_icon_state = "/obj/item/clothing/under/rank/security/nova/secjumpsuit/black"
+	new_worn_icon = 'icons/map_icons/clothing/under/_under.dmi'
 
 /datum/atom_skin/security_uniform_black/white
 	preview_name = "White Variant"
-	new_icon_state = "security_white"
-	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
+	new_icon_state = "/obj/item/clothing/under/rank/security/nova/secjumpsuit/white"
+	new_worn_icon = 'icons/map_icons/clothing/under/_under.dmi'
 
 /obj/item/clothing/under/rank/security/nova/officer/black
 	icon_state = "security_black"
 	alt_covers_chest = TRUE
-
+//PLEASE ^
 /obj/item/clothing/under/rank/security/nova/officer/black/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform_black)
 
@@ -123,22 +123,22 @@
 	post_init_icon_state = "secskirt"
 	greyscale_config = /datum/greyscale_config/secskirt
 	greyscale_config_worn = /datum/greyscale_config/secskirt/worn
-	greyscale_colors = "#A52F29#39393F#A52F29#39393F"
+	greyscale_colors = "#A52F29#39393F#39393F#A52F29"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/nova/skirt/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/blue"
-	greyscale_colors = "#3F6E9E#39393F#3F6E9E#39393F"
+	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/skirt/white
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/white"
-	greyscale_colors = "#ECECEC#39393F#ECECEC#39393F"
+	greyscale_colors = "#ECECEC#39393F#39393F#ECECEC"
 
 /obj/item/clothing/under/rank/security/nova/skirt/black
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/black"
-	greyscale_colors = "#39393F#ECECEC#39393F#ECECEC"
+	greyscale_colors = "#39393F#39393F#ECECEC#ECECEC"
 
 /obj/item/clothing/under/rank/security/nova/plainskirt
 	name = "security plain skirt"
@@ -148,22 +148,22 @@
 	post_init_icon_state = "secskirtplain"
 	greyscale_config = /datum/greyscale_config/secskirtplain
 	greyscale_config_worn = /datum/greyscale_config/secskirtplain/worn
-	greyscale_colors = "#A52F29#39393F#A52F29#39393F"
+	greyscale_colors = "#A52F29#39393F#39393F#A52F29"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/nova/plainskirt/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/blue"
-	greyscale_colors = "#3F6E9E#39393F#3F6E9E#39393F"
+	greyscale_colors = "#3F6E9E#39393F#3F6E9E#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/plainskirt/white
 	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/white"
-	greyscale_colors = "#ECECEC#39393F#ECECEC#39393F"
+	greyscale_colors = "#ECECEC#39393F#39393F#ECECEC"
 
 /obj/item/clothing/under/rank/security/nova/plainskirt/black
 	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/black"
-	greyscale_colors = "#39393F#ECECEC#39393F#ECECEC"
+	greyscale_colors = "#39393F#39393F#ECECEC#ECECEC"
 
 /obj/item/clothing/under/rank/security/nova/miniskirt
 	name = "security miniskirt"
