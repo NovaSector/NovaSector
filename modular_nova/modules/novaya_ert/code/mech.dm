@@ -56,7 +56,7 @@
 	update_part_values()
 
 /obj/vehicle/sealed/mecha/warden/wunk
-	name = "\improper M/TACS-1A-LF \"Super Warden\" (WUNK)"
+	name = "\improper M/TACS-1A-LF \"Arbiter\" (WUNK)"
 	desc = "The Warden Urban Necessity Kit transforms the already formidable frontier combat exosuit into a dedicated urban-breaching \
 		asset. Reinforced chassis now incorporates supplemental armor pauldrons, a groin plate, and a rear skirt, while \
 		myomer systems are recalibrated to compensate. Its sensor suite provides wall-penetrating radar and 360° awareness. \
@@ -104,7 +104,7 @@
 		MMI.brainmob.update_sight()
 
 /obj/structure/mecha_wreckage/warden/wunk
-	name = "\improper Super Warden wreckage"
+	name = "\improper Arbiter wreckage"
 	icon_state = "warden_wunk-broken"
 
 /obj/vehicle/sealed/mecha/warden/wunk/loaded
