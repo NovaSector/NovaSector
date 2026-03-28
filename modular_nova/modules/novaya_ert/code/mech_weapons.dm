@@ -296,8 +296,8 @@
 	ammo_type = MECHA_AMMO_CANNON
 
 /obj/item/mecha_ammo/dagr
-	name = "fabricator canister container"
-	desc = "A container of fabricator 'fodder' canisters for use with exosuit weapons."
+	name = "guided rocket container"
+	desc = "A container of semi-guided rockets for use with exosuit weapons."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "dagr_ammo"
 	rounds = 7
