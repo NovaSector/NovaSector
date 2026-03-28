@@ -2,22 +2,22 @@
 	name = "Xenoarch Tier 1 Rewards"
 	desc = "Rewards for Tier 1 xenoarch rocks"
 	loot = list(
-		/obj/item/coin/silver/ancient = 1, // always ensure coins are 20-25% of the total weight.
+		/obj/item/coin/silver/ancient = 2, // always ensure coins are 20-25% of the total weight.
 		/obj/item/coin/gold/ancient = 1,
 		/obj/item/xenoarch/broken_item/plant = 2,
 		/obj/item/xenoarch/broken_item/animal = 2,
-		/obj/item/xenoarch/broken_item/t1 = 2,
+		/obj/item/xenoarch/broken_item/t1 = 3,
 	)
 
 /obj/effect/spawner/random/xenoarch/tier2
 	name = "Xenoarch Tier 2 Rewards"
 	desc = "Rewards for Tier 2 xenoarch rocks"
 	loot = list(
-		/obj/item/coin/gold/ancient = 1, // always ensure coins are 20-25% of the total weight.
+		/obj/item/coin/gold/ancient = 2, // always ensure coins are 20-25% of the total weight.
 		/obj/item/coin/adamantine/ancient = 1,
-		/obj/item/xenoarch/broken_item = 2,
+		/obj/item/xenoarch/broken_item = 3,
 		/obj/item/xenoarch/broken_item/weapon = 2,
-		/obj/item/xenoarch/broken_item/clothing = 2,
+		/obj/item/xenoarch/broken_item/clothing = 3,
 		/obj/item/xenoarch/broken_item/illegal = 2,
 		/obj/item/xenoarch/broken_item/alien = 2,
 	)
@@ -127,11 +127,9 @@
 	name = "Xenoarch Weapon Rewards"
 	desc = "Xenoarchaeology weapons loot."
 	loot = list(
-		/obj/item/claymore/weak = 1,
 		/obj/item/claymore/cutlass/old = 1,
 		/obj/item/melee/energy/sword/surplus = 2,
-		/obj/item/melee/baseball_bat/ablative = 1,
-		/obj/effect/spawner/random/armory/pick_laser_loadout = 1,
+		/obj/item/storage/belt/holster/energy/laser_pistol = 1,
 		/obj/item/storage/backpack/duffelbag/mining_conscript = 1,
 	)
 
@@ -139,7 +137,6 @@
 	name = "Xenoarch Weapon Rewards T3"
 	desc = "Xenoarchaeology high tier weapons loot."
 	loot = list(
-		/obj/item/claymore = 1,
 		/obj/item/claymore/cutlass = 1,
 		/obj/item/nullrod/tribal_knife = 1,
 		/obj/item/claymore/dragonslayer = 1,
