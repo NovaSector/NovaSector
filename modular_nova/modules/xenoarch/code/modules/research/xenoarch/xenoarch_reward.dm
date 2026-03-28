@@ -160,7 +160,7 @@
 	desc = "Xenoarchaeology high tier contraband loot."
 	loot = list(
 		/obj/item/card/emag/doorjack = 1,
-		/obj/item/melee/energy/sword = 1,
+		/obj/item/melee/energy/sword/bananium = 1,
 		/obj/item/construction/rcd/improved = 1,
 	)
 
