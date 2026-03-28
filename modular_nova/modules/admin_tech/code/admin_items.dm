@@ -71,7 +71,7 @@
 		var/amt = items_inside[stack_type]
 		new stack_type(src, amt, FALSE)
 
-// Debug Encryption Key and Headset, still manually populates the channel list because denthead
+// Debug Encryption Key and Headset, still manually populates the channel list because I am not a real coder, just a denthead
 /obj/item/encryptionkey/debug
 	name = "\proper the subspace encryption key"
 	desc = "Holding and looking at this little chip fills you with a sense of existential dread. The taste of metaknowledge fills your mouth. \
@@ -127,19 +127,19 @@
 // Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
 // The one set of lenses to rule them all
 // TODO:fix loss of vision flags when cycling goggle states
-/obj/item/clothing/glasses/meson/engine/admin/debug//code\modules\clothing\glasses\engine_goggles.dm
+/obj/item/clothing/glasses/meson/engine/admin/debug//code\modules\clothing\glasses\engine_goggles.dm & code\modules\clothing\glasses\_glasses.dm
 	name = "subspace contacts"
 	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."
 	desc_controls = "Ctrl click to toggle xray and thermals."
-//	icon = 'icons/obj/devices/syndie_gadget.dmi'
-//	icon_state = "contacts"
-//	inhand_icon_state = "contacts"
-	worn_icon_state = null//TODO: Parent atom has update_appearance() in a proc, so either I figure out how to negate that or I have to recreate the proc-chain
+	icon = 'icons/obj/devices/syndie_gadget.dmi'
+	icon_state = "contacts"
+	inhand_icon_state = "contacts"
+	worn_icon_state = "null"//TODO: Parent atom has update_appearance() in a proc, so either I figure out how to negate that or I have to recreate the proc-chain
 	flags_cover = GLASSESCOVERSEYES
 	flash_protect = FLASH_PROTECTION_WELDER
 	lighting_cutoff = LIGHTING_CUTOFF_HIGH
 	glass_colour_type = FALSE
-	vision_flags = SEE_TURFS | SEE_MOBS | SEE_OBJS
+//	vision_flags = SEE_TURFS | SEE_MOBS | SEE_OBJS
 	clothing_traits = list(
 		TRAIT_REAGENT_SCANNER,
 		TRAIT_MADNESS_IMMUNE,
@@ -148,28 +148,34 @@
 		TRAIT_DIAGNOSTIC_HUD,
 		TRAIT_BOT_PATH_HUD,
 	)
-	var/xray = FALSE
+	var/xray = TRUE//starts enabled
 	pickup_sound = SFX_GOGGLES_PICKUP
 	drop_sound = SFX_GOGGLES_DROP
 	equip_sound = SFX_GOGGLES_EQUIP
 
+
+//I am sorry for I must initialize and recreate procs or the drip will suffer, these goggles are too ugly
 /obj/item/clothing/glasses/meson/engine/admin/debug/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/adjust_fishing_difficulty, -15)
 
-///obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl(mob/user)
-//	if(!ishuman(user))
-//		return CLICK_ACTION_BLOCKING
-//	if(xray)
-//		vision_flags &= ~SEE_TURFS|SEE_MOBS|SEE_OBJS
-//		detach_clothing_traits(TRAIT_XRAY_VISION)
-//	else
-//		vision_flags |= SEE_TURFS|SEE_MOBS|SEE_OBJS
-//		attach_clothing_traits(TRAIT_XRAY_VISION)
-//	xray = !xray
-//	var/mob/living/carbon/human/human_user = user
-//	human_user.update_sight()
-//	return CLICK_ACTION_SUCCESS
+//Please stop updating icon states, youre ugly
+/obj/item/clothing/glasses/meson/engine/admin/debug/update_icon_state()
+	return
+
+/obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl(mob/user)
+	if(!ishuman(user))
+		return CLICK_ACTION_BLOCKING
+	if(xray)
+		vision_flags &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		detach_clothing_traits(TRAIT_XRAY_VISION)
+	else
+		vision_flags |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		attach_clothing_traits(TRAIT_XRAY_VISION)
+	xray = !xray
+	var/mob/living/carbon/human/human_user = user
+	human_user.update_sight()
+	return CLICK_ACTION_SUCCESS
 
 //Debug magbooties
 /obj/item/clothing/shoes/magboots/advance/debug//code\modules\clothing\shoes\magboots.dm
@@ -640,9 +646,8 @@
 
 /obj/item/tank/internals/debug/mix/fusionfur/populate_gas()
 	air_contents.assert_gases(/datum/gas/pluoxium, /datum/gas/halon, /datum/gas/hypernoblium)
-	air_contents.gases[/datum/gas/pluoxium][MOLES] = (29*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * 0.9
+	air_contents.gases[/datum/gas/pluoxium][MOLES] = (29*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * 0.95
 	air_contents.gases[/datum/gas/halon][MOLES] = (29*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * 0.05
-	air_contents.gases[/datum/gas/hypernoblium][MOLES] = (29*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * 0.05
 
 //Stupid in a tank. Give one to the clown.
 //if you say it bee-zed, the name makes slightly more sense. Feel free to rename this one if you're funnier than me, dear reader.
