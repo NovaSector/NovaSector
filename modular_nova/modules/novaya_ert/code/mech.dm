@@ -110,7 +110,7 @@
 /obj/vehicle/sealed/mecha/warden/wunk/loaded
 	equip_by_category = list(
 		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/gunpod,
-		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/energy/zaibas_lmg,
+		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/dagr,
 		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/repair_droid, /obj/item/mecha_parts/mecha_equipment/thrusters/ion),
 		MECHA_POWER = list(/obj/item/mecha_parts/mecha_equipment/generator),
 		MECHA_ARMOR = list(/obj/item/mecha_parts/mecha_equipment/armor/antiemp_armor_booster),
