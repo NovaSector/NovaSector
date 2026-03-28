@@ -35,13 +35,11 @@
 		button to inject a 5u dose. Works even while unconscious. Capacity: 15u, 3 doses."
 	icon_state = "resuvol"
 	slot = ORGAN_SLOT_CHEST_INJECTOR
-	actions_types = list(/datum/action/item_action/organ_action/resuvol_inject)
+	actions_types = list(/datum/action/cooldown/resuvol_inject)
 	/// Maximum reagent capacity
 	var/reservoir_max = 15
 	/// How much to inject per trigger
 	var/inject_amount = 5
-
-	COOLDOWN_DECLARE(inject_cooldown)
 
 /obj/item/organ/cyberimp/chest/interdyne/resuvol/Initialize(mapload)
 	. = ..()
@@ -64,25 +62,6 @@
 		return tool.interact_with_atom(src, user, modifiers)
 	return ..()
 
-/obj/item/organ/cyberimp/chest/interdyne/resuvol/ui_action_click()
-	do_inject()
-
-/obj/item/organ/cyberimp/chest/interdyne/resuvol/proc/do_inject()
-	if(!owner)
-		return
-	if(!reagents?.total_volume)
-		to_chat(owner, span_warning("Your Resuvol implant is empty!"))
-		return
-	if(!COOLDOWN_FINISHED(src, inject_cooldown))
-		to_chat(owner, span_warning("Your Resuvol implant is still recharging!"))
-		return
-	COOLDOWN_START(src, inject_cooldown, 30 SECONDS)
-	reagents.trans_to(owner, inject_amount)
-	to_chat(owner, span_notice("You feel a sharp sting as your Resuvol implant injects chemicals!"))
-	playsound(owner, 'sound/items/hypospray.ogg', 50, TRUE)
-	if(!reagents.total_volume)
-		to_chat(owner, span_warning("Your Resuvol implant clicks empty."))
-
 /obj/item/organ/cyberimp/chest/interdyne/resuvol/emp_act(severity)
 	. = ..()
 	if(!owner || . & EMP_PROTECT_SELF)
@@ -94,9 +73,35 @@
 
 // ---- RESUVOL ACTION (works while unconscious) ----
 
-/datum/action/item_action/organ_action/resuvol_inject
+/datum/action/cooldown/resuvol_inject
 	name = "Inject (Resuvol)"
 	check_flags = NONE // Works while unconscious
+	cooldown_time = 30 SECONDS
+	button_icon = 'modular_nova/modules/interdyne/icons/interdyne_implants.dmi'
+	button_icon_state = "resuvol"
+
+/datum/action/cooldown/resuvol_inject/IsAvailable(feedback = FALSE)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/obj/item/organ/cyberimp/chest/interdyne/resuvol/implant = target
+	if(!implant?.owner)
+		return FALSE
+	return TRUE
+
+/datum/action/cooldown/resuvol_inject/Activate(atom/target_atom)
+	var/obj/item/organ/cyberimp/chest/interdyne/resuvol/implant = target
+	if(!implant?.owner)
+		return
+	if(!implant.reagents?.total_volume)
+		to_chat(implant.owner, span_warning("Your Resuvol implant is empty!"))
+		return
+	StartCooldown()
+	implant.reagents.trans_to(implant.owner, implant.inject_amount)
+	to_chat(implant.owner, span_notice("You feel a sharp sting as your Resuvol implant injects chemicals!"))
+	playsound(implant.owner, 'sound/items/hypospray.ogg', 50, TRUE)
+	if(!implant.reagents.total_volume)
+		to_chat(implant.owner, span_warning("Your Resuvol implant clicks empty."))
 
 // ---- IP-F1 "HEPATIXOL" TOXIN FILTER ----
 
@@ -147,36 +152,11 @@
 		Cooldown: 8 seconds."
 	icon_state = "propeller"
 	slot = ORGAN_SLOT_LEG_DASH
-	actions_types = list(/datum/action/item_action/organ_action/propeller_dash)
+	actions_types = list(/datum/action/cooldown/propeller_dash)
 	/// How many tiles the dash covers (actual distance is this minus 1)
 	var/dash_distance = 5
 	/// How fast the dash throw moves
 	var/dash_speed = 3
-
-	COOLDOWN_DECLARE(dash_cooldown)
-
-/obj/item/organ/cyberimp/leg/interdyne/propeller/ui_action_click()
-	do_dash()
-
-/obj/item/organ/cyberimp/leg/interdyne/propeller/proc/do_dash()
-	if(!owner)
-		return
-	if(!COOLDOWN_FINISHED(src, dash_cooldown))
-		to_chat(owner, span_warning("Your Propeller implant is still recharging!"))
-		return
-	if(HAS_TRAIT(owner, TRAIT_INCAPACITATED))
-		return
-
-	var/atom/target = get_edge_target_turf(owner, owner.dir)
-	ADD_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
-	if(owner.throw_at(target, dash_distance, dash_speed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
-		COOLDOWN_START(src, dash_cooldown, 8 SECONDS)
-		playsound(owner, 'sound/effects/stealthoff.ogg', 50, TRUE, TRUE)
-		owner.visible_message(span_warning("[owner] dashes forward!"))
-		to_chat(owner, span_notice("Your Propeller implant propels you forward!"))
-	else
-		REMOVE_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
-		to_chat(owner, span_warning("Something prevents you from dashing!"))
 
 /obj/item/organ/cyberimp/leg/interdyne/propeller/emp_act(severity)
 	. = ..()
@@ -194,6 +174,36 @@
 
 // ---- PROPELLER ACTION ----
 
-/datum/action/item_action/organ_action/propeller_dash
+/datum/action/cooldown/propeller_dash
 	name = "Dash (Propeller)"
 	check_flags = AB_CHECK_CONSCIOUS
+	cooldown_time = 8 SECONDS
+	button_icon = 'modular_nova/modules/interdyne/icons/interdyne_implants.dmi'
+	button_icon_state = "propeller"
+
+/datum/action/cooldown/propeller_dash/IsAvailable(feedback = FALSE)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/obj/item/organ/cyberimp/leg/interdyne/propeller/implant = target
+	if(!implant?.owner)
+		return FALSE
+	if(HAS_TRAIT(implant.owner, TRAIT_INCAPACITATED))
+		return FALSE
+	return TRUE
+
+/datum/action/cooldown/propeller_dash/Activate(atom/target_atom)
+	var/obj/item/organ/cyberimp/leg/interdyne/propeller/implant = target
+	if(!implant?.owner)
+		return
+	var/mob/living/user = implant.owner
+	var/atom/dash_target = get_edge_target_turf(user, user.dir)
+	ADD_TRAIT(user, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
+	if(user.throw_at(dash_target, implant.dash_distance, implant.dash_speed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(user, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
+		StartCooldown()
+		playsound(user, 'sound/effects/stealthoff.ogg', 50, TRUE, TRUE)
+		user.visible_message(span_warning("[user] dashes forward!"))
+		to_chat(user, span_notice("Your Propeller implant propels you forward!"))
+	else
+		REMOVE_TRAIT(user, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
+		to_chat(user, span_warning("Something prevents you from dashing!"))
