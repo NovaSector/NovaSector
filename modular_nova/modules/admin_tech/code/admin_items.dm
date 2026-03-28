@@ -178,16 +178,16 @@
 	w_class = WEIGHT_CLASS_TINY
 	armor_type = /datum/armor/debug
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	base_icon_state = "submag0"
+	base_icon_state = "submag"
 	icon_state = "submag0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	slowdown_active = -0.25
 	magpulse_fishing_modifier = 10
 	fishing_modifier = 10
 
-/obj/item/clothing/magboots/advance/debug/Initialize(mapload)// Give them pockets, damnit
+/obj/item/clothing/shoes/magboots/advance/debug/Initialize(mapload)// Give them pockets, damnit
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/shoes)
+	create_storage(storage_type = /datum/storage/pockets/debug)
 	AddElement(/datum/element/ignites_matches)
 
 //Subspace gloves
@@ -660,4 +660,3 @@
 	air_contents.gases[/datum/gas/nitrous_oxide][MOLES] = (29*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * 0.05
 	air_contents.gases[/datum/gas/bz][MOLES] = (29*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * 0.05
 	air_contents.gases[/datum/gas/helium][MOLES] = (29*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * 0.15
-

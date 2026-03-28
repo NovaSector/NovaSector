@@ -14,6 +14,12 @@
 	max_slots = 63
 	allow_big_nesting = TRUE
 
+//Debug Pockets!
+/datum/storage/pockets/debug
+	max_slots = 2
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	max_total_storage = 200
+
 ///Debug construction bag
 /datum/storage/bag/construction/debug
 	allow_big_nesting = TRUE
