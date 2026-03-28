@@ -5,7 +5,7 @@
 	name = "subspace construction pouch"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
 	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
-	icon = 'modular_nova/master_files/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
 	icon_state = "subspace_bag"
 	worn_icon_state = null//Dont fuck with my drip, todo: make drip-pouch worn visible
 	w_class = WEIGHT_CLASS_TINY
@@ -183,10 +183,10 @@
 	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
 	w_class = WEIGHT_CLASS_TINY
 	armor_type = /datum/armor/debug
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	base_icon_state = "submag"
-	icon_state = "submag0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	base_icon_state = "sub-magboots"
+	icon_state = "sub-magboots0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
+	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	slowdown_active = -0.25
 	magpulse_fishing_modifier = 10
 	fishing_modifier = 10
@@ -198,9 +198,11 @@
 
 //Subspace gloves
 /obj/item/clothing/gloves/tackler/debug
-	name = "subspace gloves"
-	desc = "A palm-sized gas tank embedded with an ominous purple crystal. It's covered in stickers of butt-bots."
-	icon_state = "wizard"
+	name = "subspace gauntlets"
+	desc = "Extraordinarily lightweight gauntlets packed full of useful technology. You feel perfectly capable of defending yourself."
+	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon_state = "sub-gauntlets"
+	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	siemens_coefficient = 0
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
@@ -214,6 +216,12 @@
 /obj/item/clothing/gloves/tackler/debug/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/martial_art_giver, /datum/martial_art/kaza_ruk)
+
+/obj/item/clothing/gloves/tackler/debug/bst
+	name = "bluespace gauntlets"
+	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon_state = "blue-gauntlets"
+	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 
 // Badmin pinpointer. The bool lets you find people, even if they aren't wearing clothes, as long as you share a z-layer
 /obj/item/pinpointer/crew/debug//code\game\objects\items\pinpointer.dm
