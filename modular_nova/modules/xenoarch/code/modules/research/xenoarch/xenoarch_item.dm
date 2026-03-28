@@ -295,3 +295,9 @@
 	new	/obj/item/circuitboard/machine/engine/propulsion(src)
 	new	/obj/item/shuttle_blueprints(src)
 	new	/obj/item/stack/rods/shuttle/fifty(src)
+
+// This is just a cowboy hat (with minimal armor) that its sole function is to perfectly block a hit to the head and then flip out of the head of the user and away 3-5 tiles. It has a few seconds of cooldown from such, so even if players find a way to quickly reattach it, it wont be a sure protection. 
+/obj/item/clothing/head/cowboy/bounty/deadman
+	name = "dead man's brim"
+	desc = "A wide-brimmed black hat with a polished golden band. It sits just loose enough to be thrown clear at the first sign of trouble, taking the hit with it."
+	deflect_chance = 100
