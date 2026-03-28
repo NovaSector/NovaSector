@@ -1,6 +1,18 @@
 /// Interdyne Pharmaceuticals — Implant Research Designs
 /// These are auto-included by the Interdyne fabricator via the "implant" ID filter.
-/// Not assigned to any research node, so they won't appear on standard protolathes.
+/// The techweb node exists to satisfy the validator but is not reachable from the standard research tree.
+
+/datum/techweb_node/interdyne_implants
+	id = "interdyne_implants"
+	display_name = "Interdyne Proprietary Implants"
+	description = "Interdyne Pharmaceuticals proprietary cybernetic implant designs."
+	design_ids = list(
+		"implant_resuvol",
+		"implant_hepatixol",
+		"implant_propeller",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
+	hidden = TRUE
 
 /datum/design/implant_resuvol
 	name = "Resuvol Auto-Injector Implant"

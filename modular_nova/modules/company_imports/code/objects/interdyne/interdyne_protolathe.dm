@@ -1,5 +1,5 @@
 /obj/machinery/rnd/production/interdyne_fabricator
-	name = "Interdyne pharmaceutical fabricator"
+	name = "Interdyne protolathe"
 	desc = "A proprietary Interdyne Pharmaceuticals fabricator, pre-loaded with a comprehensive medical design library. \
 		Unlike standard Nanotrasen techfabs, this machine operates independently of any research network, \
 		drawing from Interdyne's own extensive pharmaceutical database."
@@ -69,12 +69,15 @@
 		if(current_design.build_type & MECHFAB)
 			var/is_borg_module = FALSE
 			var/is_engineering = FALSE
+			var/is_cybernetic = FALSE
 			for(var/cat in current_design.category)
 				if(findtext(cat, RND_CATEGORY_MECHFAB_CYBORG_MODULES))
 					is_borg_module = TRUE
 				if(findtext(cat, RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING))
 					is_engineering = TRUE
-			if(is_borg_module && !is_engineering)
+				if(findtext(cat, RND_CATEGORY_CYBERNETICS))
+					is_cybernetic = TRUE
+			if((is_borg_module && !is_engineering) || is_cybernetic)
 				cached_designs |= current_design
 			continue
 
@@ -89,8 +92,8 @@
 				is_pka_mod = TRUE
 				break
 
-		// Include all implant designs (even security-flagged ones), standard medical designs, and PKA mods
-		if((current_design.departmental_flags & allowed_department_flags) || findtext(design_id, "implant") || is_pka_mod)
+		// Include all implant/cyberimp designs (even security-flagged ones), standard medical designs, and PKA mods
+		if((current_design.departmental_flags & allowed_department_flags) || findtext(design_id, "implant") || findtext(design_id, "ci-") || is_pka_mod)
 			cached_designs |= current_design
 
 	var/design_delta = length(cached_designs) - previous_design_count
