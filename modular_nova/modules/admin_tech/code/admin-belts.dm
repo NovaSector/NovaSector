@@ -40,7 +40,6 @@
 /obj/item/storage/belt/utility/debug/bst/PopulateContents()
 	new	/obj/item/blueprints(src)
 	new	/obj/item/construction/plumbing/debug(src)
-	new	/obj/item/universal_scanner(src)
 	new	/obj/item/storage/bag/trash/bluespace(src)
 	new	/obj/item/bodybag/bluespace(src)
 	new	/obj/item/teleport_rod/admin(src)
@@ -59,6 +58,7 @@
 	new	/obj/item/screwdriver/power(src)
 	new	/obj/item/pipe_dispenser/bluespace(src)
 	new /obj/item/door_remote/debug(src)
+	new	/obj/item/storage/part_replacer/bluespace/debug(src)
 
 // Yes hello I would like some tools in a debug outfit's belt
 /obj/item/storage/belt/utility/debug/sst
@@ -77,6 +77,7 @@
 	new	/obj/item/blueprints(src)
 	new	/obj/item/construction/plumbing/debug(src)
 	new	/obj/item/hand_labeler(src)
+	new	/obj/item/universal_scanner(src)
 	new	/obj/item/storage/bag/trash/bluespace(src)
 	new	/obj/item/melee/skateboard/hoverboard/admin(src)
 	new	/obj/item/bodybag/bluespace(src)
@@ -100,3 +101,4 @@
 	new	/obj/item/pipe_dispenser/bluespace(src)
 	new	/obj/item/rpd_upgrade/unwrench(src)
 	new /obj/item/door_remote/debug(src)
+	new	/obj/item/storage/part_replacer/bluespace/debug(src)

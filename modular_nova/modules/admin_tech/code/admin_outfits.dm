@@ -25,7 +25,6 @@
 		/obj/item/gun/magic/wand/safety/debug = 1,
 		/obj/item/melee/energy/axe = 1,
 		/obj/item/gun/energy/pulse/destroyer = 1,
-		/obj/item/storage/part_replacer/bluespace/tier4/bst = 1,
 		/obj/item/boxcutter = 1,
 	)
 	belt_contents = list()
@@ -62,6 +61,5 @@
 		/obj/item/gun/magic/wand/resurrection/debug = 1,
 		/obj/item/gun/magic/wand/death/debug = 1,
 		/obj/item/gun/magic/wand/safety/debug = 1,
-		/obj/item/storage/part_replacer/bluespace/tier4/bst = 1,
 	)
 	belt_contents = list()
