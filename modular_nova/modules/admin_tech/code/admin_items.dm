@@ -31,7 +31,7 @@
 		/obj/item/stack/sheet/plastitaniumglass/fifty = null,
 		/obj/item/stack/sheet/mineral/gold/fifty = null,
 		/obj/item/stack/sheet/mineral/silver/fifty = null,
-		/obj/item/stack/sheet/mineral/uranium = 20,// "Only 20 uranium 'cause of radiation"
+		/obj/item/stack/sheet/mineral/uranium = 50,
 		/obj/item/stack/sheet/mineral/diamond/fifty = null,
 		/obj/item/stack/sheet/bluespace_crystal/fifty = null,
 		/obj/item/stack/sheet/mineral/bananium = 50,
@@ -110,7 +110,7 @@
 	inhand_icon_state = null
 	worn_icon = 'modular_nova/modules/modular_items/icons/akulasuit.dmi'
 	worn_icon_state = "default"
-	can_adjust = FALSE//admin techs should NEVER be on sensors
+	has_sensor = NO_SENSORS//admin techs should NEVER be on sensors
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	armor_type = /datum/armor/debug
@@ -134,12 +134,11 @@
 	icon = 'icons/obj/devices/syndie_gadget.dmi'
 	icon_state = "contacts"
 	inhand_icon_state = "contacts"
-	worn_icon_state = "null"//TODO: Parent atom has update_appearance() in a proc, so either I figure out how to negate that or I have to recreate the proc-chain
+	worn_icon_state = "null"
 	flags_cover = GLASSESCOVERSEYES
 	flash_protect = FLASH_PROTECTION_WELDER
 	lighting_cutoff = LIGHTING_CUTOFF_HIGH
 	glass_colour_type = FALSE
-//	vision_flags = SEE_TURFS | SEE_MOBS | SEE_OBJS
 	clothing_traits = list(
 		TRAIT_REAGENT_SCANNER,
 		TRAIT_MADNESS_IMMUNE,
@@ -149,7 +148,7 @@
 		TRAIT_BOT_PATH_HUD,
 		TRAIT_NEARSIGHTED_CORRECTED
 	)
-	var/xray = TRUE//starts enabled
+	var/xray = FALSE
 	pickup_sound = SFX_GOGGLES_PICKUP
 	drop_sound = SFX_GOGGLES_DROP
 	equip_sound = SFX_GOGGLES_EQUIP
@@ -194,16 +193,14 @@
 
 /obj/item/clothing/shoes/magboots/advance/debug/Initialize(mapload)// Give them pockets, damnit
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/debug)
+	create_storage(storage_type = /datum/storage/pockets/debug)//big pockets,,,
 	AddElement(/datum/element/ignites_matches)
 
 //Subspace gloves
 /obj/item/clothing/gloves/tackler/debug
 	name = "subspace gloves"
 	desc = "A palm-sized gas tank embedded with an ominous purple crystal. It's covered in stickers of butt-bots."
-//	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	icon_state = "wizard"
-//	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	siemens_coefficient = 0
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
@@ -363,7 +360,7 @@
 	construction_upgrades = RCD_ALL_UPGRADES & ~RCD_UPGRADE_SILO_LINK
 
 //RCD Disks - What the fuck is this code man
-//code\game\machinery\computer\buildandrepair.dm:330 - Furnishing?
+//Placeholder spot to put an admin RCD disk when I eventually get around to fixing upstream
 
 //Debug Rapid Lighting Device
 //code\game\objects\items\rcd\RLD.dm
@@ -577,7 +574,7 @@
 /obj/item/tank/internals/debug/pluoxium
 	name = "pluoxium subspace tank"
 	desc = "A palm-sized gas tank embedded with an ominous purple crystal. There is a standardized internals information label showing the tank should contain pluoxium."
-	distribute_pressure = TANK_DEFAULT_RELEASE_PRESSURE
+	distribute_pressure = 3
 
 /obj/item/tank/internals/debug/pluoxium/populate_gas()
 	air_contents.assert_gas(/datum/gas/pluoxium)
