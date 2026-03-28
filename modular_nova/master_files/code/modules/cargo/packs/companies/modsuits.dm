@@ -234,11 +234,11 @@
 	cost = CARGO_CRATE_VALUE * 7.5
 
 /datum/supply_pack/companies/modsuits/anomalock/kinesis
-	contains = list(/obj/item/mod/module/anomaly_locked/kinesis/prebuilt/locked)
+	contains = list(/obj/item/mod/module/anomaly_locked/kinesis/commercial)
 
 /datum/supply_pack/companies/modsuits/anomalock/antigrav
-	contains = list(/obj/item/mod/module/anomaly_locked/antigrav/prebuilt/locked)
+	contains = list(/obj/item/mod/module/anomaly_locked/antigrav/commercial)
 
 /datum/supply_pack/companies/modsuits/anomalock/teleporter
-	contains = list(/obj/item/mod/module/anomaly_locked/teleporter/prebuilt/locked)
+	contains = list(/obj/item/mod/module/anomaly_locked/teleporter/commercial)
 	cost = CARGO_CRATE_VALUE * 10
