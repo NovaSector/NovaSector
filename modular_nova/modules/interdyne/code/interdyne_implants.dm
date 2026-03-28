@@ -211,3 +211,85 @@
 	else
 		REMOVE_TRAIT(user, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 		to_chat(user, span_warning("Something prevents you from dashing!"))
+
+// ---- IP-S1 "FUROR" COMBAT STIM IMPLANT ----
+
+/// A spine-mounted combat stim implant that injects DemonEye on demand.
+/// Interdyne's answer to the Qani-Laaca — more aggressive, more dangerous.
+/obj/item/organ/cyberimp/chest/interdyne/furor
+	name = "Furor combat stim implant"
+	desc = "An Interdyne Pharmaceuticals cranial implant containing a reservoir of DemonEye. \
+		When activated, it injects the user with a combat stimulant that suppresses pain and fear \
+		at the cost of severe organ stress. Overcharge mode doubles the dose."
+	icon_state = "furor"
+	slot = ORGAN_SLOT_BRAIN_CNS
+	zone = BODY_ZONE_HEAD
+	w_class = WEIGHT_CLASS_SMALL
+	aug_icon = 'modular_nova/modules/interdyne/icons/interdyne_implants_onmob.dmi'
+	aug_overlay = "furor"
+	actions_types = list(
+		/datum/action/cooldown/furor_inject,
+		/datum/action/cooldown/furor_inject/overcharge,
+	)
+
+/obj/item/organ/cyberimp/chest/interdyne/furor/emp_act(severity)
+	. = ..()
+	if(!owner || . & EMP_PROTECT_SELF)
+		return
+	// EMP forces a full overcharge injection
+	var/mob/living/carbon/human/human_owner = owner
+	if(!istype(human_owner))
+		return
+	if(human_owner.is_neuroware_compatible())
+		human_owner.reagents.add_reagent(/datum/reagent/drug/demoneye/synth, 20)
+	else
+		human_owner.reagents.add_reagent(/datum/reagent/drug/demoneye, 20)
+	to_chat(owner, span_danger("Your Furor implant misfires, flooding your system with combat stimulants!"))
+	playsound(owner, 'sound/items/hypospray.ogg', 50, TRUE)
+
+// ---- FUROR ACTIONS ----
+
+/datum/action/cooldown/furor_inject
+	name = "Activate Furor System"
+	desc = "Injects a standard dose of combat stimulants"
+	button_icon = 'modular_nova/modules/interdyne/icons/interdyne_implants.dmi'
+	button_icon_state = "furor"
+	check_flags = AB_CHECK_CONSCIOUS
+	cooldown_time = 4 MINUTES
+	shared_cooldown = MOB_SHARED_COOLDOWN_3
+	/// How much DemonEye to inject
+	var/injection_amount = 10
+
+/datum/action/cooldown/furor_inject/IsAvailable(feedback = FALSE)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/obj/item/organ/cyberimp/chest/interdyne/furor/implant = target
+	if(!implant?.owner)
+		return FALSE
+	return TRUE
+
+/datum/action/cooldown/furor_inject/Activate(atom/target_atom)
+	var/obj/item/organ/cyberimp/chest/interdyne/furor/implant = target
+	if(!implant?.owner)
+		return
+	var/mob/living/carbon/human/user = implant.owner
+	if(!istype(user))
+		return
+	StartCooldown()
+	if(user.is_neuroware_compatible())
+		user.reagents.add_reagent(/datum/reagent/drug/demoneye/synth, injection_amount)
+	else
+		user.reagents.add_reagent(/datum/reagent/drug/demoneye, injection_amount)
+	user.visible_message(
+		span_danger("[user] jolts as their Furor implant injects a dose of combat stimulants!"),
+		span_userdanger("Your Furor implant fires — DemonEye floods your system!"),
+	)
+	playsound(user, 'sound/items/hypospray.ogg', 50, TRUE)
+	user.log_message("triggered their Furor implant in [(injection_amount > 10) ? "overcharge" : "normal"] mode", LOG_ATTACK)
+
+/datum/action/cooldown/furor_inject/overcharge
+	name = "Overcharge Furor System"
+	desc = "Injects a dangerous overdose of combat stimulants"
+	button_icon_state = "furor"
+	injection_amount = 20

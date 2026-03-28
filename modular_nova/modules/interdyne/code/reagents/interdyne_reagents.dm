@@ -371,6 +371,7 @@
 /datum/actionspeed_modifier/interdyne_neurophrene
 	multiplicative_slowdown = -0.4
 
+
 // --- NEUROPHRENE: The Nootropic ---
 
 /datum/reagent/drug/interdyne/neurophrene
