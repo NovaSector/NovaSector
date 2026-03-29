@@ -17,17 +17,6 @@
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/storage/fancy/donut_box = 2,
 		/obj/item/melee/baton/security/stun_gun/stun_knife = 3,
-				/obj/item/clothing/head/playbunnyears/security = 6,
-				/obj/item/clothing/under/rank/security/security_bunnysuit = 6,
-				/obj/item/clothing/suit/armor/security_tailcoat = 6,
-				/obj/item/clothing/neck/tie/bunnytie/security = 6,
-				/obj/item/clothing/head/playbunnyears/security/assistant = 6,
-				/obj/item/clothing/under/rank/security/security_assistant_bunnysuit = 6,
-				/obj/item/clothing/suit/armor/security_tailcoat/assistant = 6,
-				/obj/item/clothing/neck/tie/bunnytie/security_assistant = 6,
-				/obj/item/clothing/head/playbunnyears/prisoner = 6,
-				/obj/item/clothing/under/rank/security/prisoner_bunnysuit = 6,
-				/obj/item/clothing/neck/tie/bunnytie/prisoner = 6,
 	)
 	premium = list(
 		/obj/item/ammo_workbench_module/lethal = 1,
@@ -134,5 +123,19 @@
 		/obj/item/clothing/suit/armor/vest/hc_police_jacket/suit = 3,
 		/obj/item/clothing/suit/armor/vest/hc_police = 3,
 		/obj/item/clothing/suit/armor/vest/hc_police_jacket = 3,
+		)
+
+	contraband = list(
+		/obj/item/clothing/head/playbunnyears/security = 6,
+		/obj/item/clothing/under/rank/security/security_bunnysuit = 6,
+		/obj/item/clothing/suit/armor/security_tailcoat = 6,
+		/obj/item/clothing/neck/tie/bunnytie/security = 6,
+		/obj/item/clothing/head/playbunnyears/security/assistant = 6,
+		/obj/item/clothing/under/rank/security/security_assistant_bunnysuit = 6,
+		/obj/item/clothing/suit/armor/security_tailcoat/assistant = 6,
+		/obj/item/clothing/neck/tie/bunnytie/security_assistant = 6,
+		/obj/item/clothing/head/playbunnyears/prisoner = 6,
+		/obj/item/clothing/under/rank/security/prisoner_bunnysuit = 6,
+		/obj/item/clothing/neck/tie/bunnytie/prisoner = 6,
 		)
 	payment_department = ACCOUNT_SEC
