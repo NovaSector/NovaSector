@@ -375,7 +375,7 @@
 	flags_1 = NONE
 
 /obj/item/clothing/under/imperialskirtvest/hos
-	name = "head of security's naval jumpsuit"
+	name = "head of security's naval skirt"
 	desc = "A tar black naval skirt with a rank badge denoting the officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
 	greyscale_colors = "#39393f#39393f#373741#f8d860#21212B#f8d860#a52f29"
 	icon_state = "/obj/item/clothing/under/imperialskirtvest/hos"
