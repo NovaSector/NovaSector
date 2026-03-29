@@ -778,3 +778,6 @@
   vinylspiders:
   - bugfix: fixes an issue where casting spells after your mob gets deleted can leave
       you in a permanently bugged state.
+2026-03-29:
+  sqnztb:
+  - bugfix: non-assistant visitors should properly show on manifest with records again.
