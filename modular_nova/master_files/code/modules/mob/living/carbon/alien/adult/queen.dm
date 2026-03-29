@@ -10,7 +10,7 @@ GLOBAL_VAR_INIT(summon_prey_spent, FALSE)
 /// One-time use alien ability that spawns two monkeys adjacent to the queen. Once used by any queen, no other queen can use it.
 /datum/action/cooldown/alien/summon_monkeys
 	name = "Summon Prey"
-	desc = "Call upon the hive's psionic link to lure two unsuspecting primates to your location. Single use per round."
+	desc = "Call upon the hive's psionic link to lure three unsuspecting primates to your location. Single use per round."
 	button_icon_state = "alien_egg"
 	plasma_cost = 100
 
@@ -33,13 +33,13 @@ GLOBAL_VAR_INIT(summon_prey_spent, FALSE)
 		if(!nearby.is_blocked_turf())
 			candidates += nearby
 
-	if(length(candidates) < 2)
+	if(length(candidates) < 3)
 		to_chat(owner, span_warning("There isn't enough open space nearby to summon prey!"))
 		return FALSE
 
 	shuffle_inplace(candidates)
 
-	for(var/i in 1 to 2)
+	for(var/i in 1 to 3)
 		var/turf/spawn_turf = candidates[i]
 		new /mob/living/carbon/human/species/monkey(spawn_turf)
 		new /obj/effect/temp_visual/cult/sparks(spawn_turf)
