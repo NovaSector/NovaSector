@@ -45,8 +45,8 @@ GLOBAL_VAR_INIT(summon_prey_spent, FALSE)
 		new /obj/effect/temp_visual/cult/sparks(spawn_turf)
 
 	owner.visible_message(
-		span_alertalien("[owner] lets out a haunting screech! Two terrified monkeys appear nearby!"),
-		span_noticealien("You reach out through the hive mind, luring two primates to your location."),
+		span_alertalien("[owner] lets out a haunting screech! three terrified monkeys appear nearby!"),
+		span_noticealien("You reach out through the hive mind, luring three primates to your location."),
 	)
 	playsound(owner, 'sound/mobs/non-humanoids/alien/alien_york.ogg', 100)
 
