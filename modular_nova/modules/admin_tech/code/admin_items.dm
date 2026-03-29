@@ -7,7 +7,7 @@
 	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
 	icon_state = "subspace_bag"
-	worn_icon_state = 'null'//Dont fuck with my drip, todo: make drip-pouch worn visible
+	worn_icon_state = "null"//Dont fuck with my drip, todo: make drip-pouch worn visible
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	slot_flags = ITEM_SLOT_POCKETS//pockets only >:(
@@ -222,7 +222,7 @@
 	rad_insulation = RAD_FULL_INSULATION
 	resistance_flags = INDESTRUCTIBLE
 	can_atmos_pass = ATMOS_PASS_NO
-	armor_type = /datum/armor/debug/badmin
+	armor_type = /datum/armor/admin/badmin
 
 //Admin Capsules - Capsules to spawn things that players shouldnt be spawning on the regular
 //Tiny Fan Capsule
@@ -306,8 +306,9 @@
 		),
 	)
 
-/obj/item/construction/plumbing/debug/Initialize(mapload)
+/obj/item/construction/plumbing/admin/Initialize(mapload)
 	plumbing_design_types = admin_design_types
+
 	. = ..()
 
 //Debug Amputation Shears

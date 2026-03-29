@@ -21,13 +21,13 @@
 /datum/outfit/debug/bst
 	name = "Bluespace Tech"
 	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/full/powertools/debug
+	belt = /obj/item/storage/belt/utility/full/powertools/admin
 	shoes = /obj/item/clothing/shoes/combat/debug
 	id = /obj/item/card/id/advanced/debug/bst
 	box = /obj/item/storage/box/debugtools
 	backpack_contents = list(
 		/obj/item/melee/energy/axe = 1,
-		/obj/item/storage/part_replacer/bluespace/debug = 1,// this used to be /obj/item/storage/part_replacer/bluespace/tier4/bst but i eated it
+		/obj/item/storage/part_replacer/bluespace/admin = 1,// this used to be /obj/item/storage/part_replacer/bluespace/tier4/bst but i eated it
 		/obj/item/gun/magic/wand/resurrection/debug = 1,
 		/obj/item/gun/magic/wand/death/debug = 1,
 		/obj/item/debug/human_spawner = 1,

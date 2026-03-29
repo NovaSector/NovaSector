@@ -1,5 +1,4 @@
-//TODO:Bluespace Medical&Research/Security/ Operative (), Subspace Skinsuit, CC Intern / Sergeant / Commander / Official, Asset Protection,
-//Bluespace Technician Outfit, used with the icspawning quick button
+//Bluespace Technician Outfit, used with the icspawning hotkey. Ctrl + Click a ghost while admin'd with spawn perms to use these!
 /datum/outfit/admin/bluespace
 	name = "Bluespace Tech (MODsuit)"
 	uniform = /obj/item/clothing/under/admin
@@ -13,7 +12,7 @@
 	belt = /obj/item/storage/belt/utility/admin/bluespace
 	shoes = /obj/item/clothing/shoes/magboots/advance/admin
 	mask = /obj/item/clothing/mask/gas/atmos/admin
-	id = /obj/item/card/id/advanced/debug/bst
+	id = /obj/item/card/id/advanced/debug/bluespace
 	box = /obj/item/storage/box/debug/tools
 	l_pocket = null
 	r_pocket = null
@@ -42,8 +41,8 @@
 	gloves = /obj/item/clothing/gloves/tackler/admin/subspace
 	belt = /obj/item/storage/belt/utility/admin/subspace
 	shoes = /obj/item/clothing/shoes/magboots/advance/admin/subspace
-	mask = /obj/item/clothing/mask/gas/atmos/admin
-	id = /obj/item/card/id/advanced/debug/sst
+	mask = /obj/item/clothing/mask/gas/atmos/admin/subspace
+	id = /obj/item/card/id/advanced/debug/subspace
 	box = /obj/item/storage/box/debug/tools
 	l_pocket = null
 	r_pocket = null

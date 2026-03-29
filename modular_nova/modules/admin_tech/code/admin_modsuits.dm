@@ -28,7 +28,7 @@
 		have all the fun. If this continues to be a pattern for your \"events\" (Admin Abuse) \
 		there will be an admin complaint. You have been warned."
 	default_skin = "bluespace"
-	armor_type = /datum/armor/debug/badmin
+	armor_type = /datum/armor/admin
 	resistance_flags = INDESTRUCTIBLE|LAVA_PROOF|FIRE_PROOF|UNACIDABLE|ACID_PROOF
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
@@ -43,8 +43,8 @@
 	)
 	variants = list(
 		"bluespace" = list(
-			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
-			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
+			MOD_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/obj/mod_clothing.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/mod_clothing.dmi',
 //			MOD_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/obj/clothing/modsuit/mod_clothing.dmi',
 //			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/clothing/modsuit/mod_clothing.dmi',
 //			MOD_DIGITIGRADE_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi',
@@ -112,7 +112,7 @@
 		have all the fun. If this continues to be a pattern for your \"events\" (Admin Abuse) \
 		there will be an admin complaint. You have been warned."
 	default_skin = "subspace"
-	armor_type = /datum/armor/debug/badmin
+	armor_type = /datum/armor/admin/badmin
 	resistance_flags = INDESTRUCTIBLE|LAVA_PROOF|FIRE_PROOF|UNACIDABLE|ACID_PROOF
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
@@ -127,8 +127,8 @@
 	)
 	variants = list(
 		"subspace" = list(
-			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
-			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
+			MOD_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/obj/mod_clothing.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/mod_clothing.dmi',
 //			MOD_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/obj/clothing/modsuit/mod_clothing.dmi',
 //			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/clothing/modsuit/mod_clothing.dmi',
 //			MOD_DIGITIGRADE_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi',

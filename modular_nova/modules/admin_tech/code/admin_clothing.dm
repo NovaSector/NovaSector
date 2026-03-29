@@ -16,9 +16,9 @@
 	name = "bluespace headset"
 	desc = "You can hear all of them. All oF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
-	icon_state = 'blue-headset'
+	icon_state = "blue-headset"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	worn_icon_state = 'blue-headset'
+	worn_icon_state = "blue-headset"
 	keyslot2 = null
 	keyslot = /obj/item/encryptionkey/admin
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
@@ -32,9 +32,9 @@
 	name = "subspace headset"
 	desc = "You can hear all of them. All oF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
-	icon_state = 'sub-headset'
+	icon_state = "sub-headset"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	worn_icon_state = 'sub-headset'
+	worn_icon_state = "sub-headset"
 
 //Hey check out this cancerous atompath.
 //Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
@@ -95,20 +95,31 @@
 	name = "bluespace visor"
 	desc = "This exceptional piece of headgear seems to be one of the main reality-warping sources of the administrative kit. It feels nearly weightless on your head."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
-	icon_state = 'blue-visor'
+	icon_state = "blue-visor"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	worn_icon_state = 'blue-visor'
-		armor_type = /datum/armor/admin
+	worn_icon_state = "blue-visor"
+	base_icon_state = "blue-visor"
+	armor_type = /datum/armor/admin
+
+//Intercepts init icon state from parent
+/obj/item/clothing/head/helmet/perceptomatrix/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/adjust_fishing_difficulty, -7) // PSYCHIC FISHING
+	AddComponent(/datum/component/hat_stabilizer, loose_hat = TRUE)
+
+/obj/item/clothing/head/helmet/perceptomatrix/update_icon_state()
+	return
 
 //Now we get really magical.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
 	name = "subspace visor"
 	desc = "This exceptional piece of headgear seems to be one of the main reality-warping sources of the administrative kit. It feels nearly weightless on your head."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
-	icon_state = 'sub-visor'
+	icon_state = "sub-visor"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	worn_icon_state = 'sub-visor'
-		armor_type = /datum/armor/admin/badmin
+	worn_icon_state = "sub-visor"
+	base_icon_state = "sub-visor"
+	armor_type = /datum/armor/admin/badmin
 
 //Admin Gas Mask
 //Creates a new filter
@@ -134,29 +145,39 @@
 		)
 
 //code\modules\clothing\masks\gasmask.dm
-//TODO:bst/sst/cc icon variants
 /obj/item/clothing/mask/gas/atmos/admin
-	name = "bluespace gas mask"
+	name = "bluespace mask"
 	desc = "A proprietary filtration mask which route gasses that CentCom deems toxic directly into the space between dimensions.\
 	Wasteful? Totally. Convenient? Extremely."
-	icon_state = "gas_atmos"
-	inhand_icon_state = "gas_atmos"
+	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon_state = "blue-mask"
+	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon_state = "blue-techsuit"
 	resistance_flags = FIRE_PROOF
 	max_filters = 2
-	starting_filter_type = /obj/item/gas_filter/debug
-	fishing_modifier = 0
+	starting_filter_type = /obj/item/gas_filter/admin
 	armor_type = /datum/armor/admin
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+
+/obj/item/clothing/mask/gas/atmos/admin/subspace
+	name = "subspace mask"
+	desc = "A proprietary filtration mask which route gasses that CentCom deems toxic directly into the space between dimensions.\
+	Wasteful? Totally. Convenient? Extremely."
+	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon_state = "sub-mask"
+	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon_state = "sub-mask"
+	armor_type = /datum/armor/admin/badmin
 
 // New admin undersuit
-// todo: BST, CC Variants, Casualmin Variants, or.... Maybe we setup skins for this?
 /obj/item/clothing/under/admin
 	name = "bluespace techsuit"
 	desc = "A perfectly tailored and customized skin suit made specifically for this technician. \
 	Composed of experimental textiles, and assembled with the legendary Bluespace Sewing Machine, it fits the body with perfect comfort, and carries an air of security."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
-	icon_state = 'blue-techsuit'
+	icon_state = "blue-techsuit"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	worn_icon_state = 'blue-techsuit'
+	worn_icon_state = "blue-techsuit"
 	inhand_icon_state = null
 	has_sensor = NO_SENSORS//admin techs should NEVER be on sensors
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -174,9 +195,9 @@
 /obj/item/clothing/under/admin/subspace
 	name = "subspace techsuit"
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
-	icon_state = 'sub-techsuit'
+	icon_state = "sub-techsuit"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	worn_icon_state = 'sub-techsuit'
+	worn_icon_state = "sub-techsuit"
 	armor_type = /datum/armor/admin/badmin
 
 // Worlds most comfortable gloves, great for tickling spacetime
@@ -224,7 +245,7 @@
 
 /obj/item/clothing/shoes/magboots/advance/admin/Initialize(mapload)// Give them pockets, damnit
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/debug)//big pockets,,,
+	create_storage(storage_type = /datum/storage/pockets/admin)//big pockets,,,
 	AddElement(/datum/element/ignites_matches)
 
 /obj/item/clothing/shoes/magboots/advance/admin/subspace

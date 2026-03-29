@@ -1,22 +1,25 @@
 // NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
 //Bluespace Tech bits
-/obj/item/card/id/advanced/debug/bst
+/obj/item/card/id/advanced/debug/bluespace
 	name = "\improper Bluespace ID"
 	desc = "A Bluespace ID card. Has ALL the all access, you really shouldn't have this."
 	icon_state = "card_platinum"
 	assigned_icon_state = "assigned_centcom"
-	trim = /datum/id_trim/admin/bst
+	trim = /datum/id_trim/admin/bluespace
 	wildcard_slots = WILDCARD_LIMIT_ADMIN
 
-/datum/id_trim/admin/bst
+/datum/id_trim/admin/bluespace
 	assignment = "Bluespace Technician"
 	trim_state = "trim_stationengineer"
 	department_color = COLOR_CENTCOM_BLUE
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
 	sechud_icon_state = SECHUD_SCRAMBLED
+	threat_modifier = -INFINITY
+	big_pointer = TRUE
+	pointer_color = COLOR_BLUE
 
 //Subspace Tech bits
-/obj/item/card/id/advanced/debug/sst
+/obj/item/card/id/advanced/debug/subspace
 	name = "\improper Subspace ID"
 	desc = "A Subspace ID card. Has ALL the all access, you really shouldn't have this."
 	icon_state = "card_carp"
@@ -24,12 +27,15 @@
 	trim = /datum/id_trim/admin/sst
 	wildcard_slots = WILDCARD_LIMIT_ADMIN
 
-/datum/id_trim/admin/sst
+/datum/id_trim/admin/subspace
 	assignment = "Subspace Technician"
 	trim_state = "trim_ert_commander"
 	department_color = COLOR_CENTCOM_BLUE
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
 	sechud_icon_state = SECHUD_SCRAMBLED
+	threat_modifier = -INFINITY
+	big_pointer = TRUE
+	pointer_color = COLOR_PURPLE
 
 //Additional admin ID stuff
 /obj/item/card/id/advanced/debug/centcomm

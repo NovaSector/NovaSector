@@ -1,8 +1,8 @@
 // Originally from: NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
-/obj/item/storage/part_replacer/bluespace/debug
+/obj/item/storage/part_replacer/bluespace/admin
 	name = "subspace rped"
 	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly. Alt-Right-Click to manufacture parts, change settings, or clear its internal storage."
-	storage_type = /datum/storage/rped/bluespace/debug
+	storage_type = /datum/storage/rped/bluespace/admin
 	w_class = WEIGHT_CLASS_TINY
 	/// Whether or not auto-clear is enabled
 	var/auto_clear = TRUE
@@ -14,11 +14,11 @@
 		/obj/item/reagent_containers/cup/beaker,
 	)
 
-/datum/storage/rped/bluespace/debug
+/datum/storage/rped/bluespace/admin
 	max_slots = 1000
 	max_total_storage = 20000
 
-/obj/item/storage/part_replacer/bluespace/debug/PopulateContents()
+/obj/item/storage/part_replacer/bluespace/admin/PopulateContents()
 	for(var/i in 1 to 30)
 		new /obj/item/stock_parts/capacitor/quadratic(src)
 		new /obj/item/stock_parts/scanning_module/triphasic(src)
@@ -34,7 +34,7 @@
 		new /obj/item/stack/sheet/bluespace_crystal(src)
 
 /// An extension to the default RPED part replacement action - if you don't have the requisite parts in the RPED already, it will spawn T4 versions to use.
-/obj/item/storage/part_replacer/bluespace/debug/interact_with_atom(obj/attacked_object, mob/living/user, list/modifiers)
+/obj/item/storage/part_replacer/bluespace/admin/interact_with_atom(obj/attacked_object, mob/living/user, list/modifiers)
 	//duplicate checks from parent since
 	if(user.combat_mode)
 		return ITEM_INTERACT_SKIP_TO_ATTACK
@@ -76,7 +76,7 @@
 				qdel(stored_item)
 
 /// A bespoke proc for spawning in parts
-/obj/item/storage/part_replacer/bluespace/debug/proc/spawn_parts_for_components(mob/living/user, list/required_components)
+/obj/item/storage/part_replacer/bluespace/admin/proc/spawn_parts_for_components(mob/living/user, list/required_components)
 	// Since req_components in machineboards can list item types *OR* /datum/stock_part subtypes this gets a little complicated.
 	var/list/subtypes = list()
 	for(var/req_component in required_components)
@@ -173,7 +173,7 @@
 			to_chat(user, span_notice("Something went wrong manufacturing [req_component]. Alert the devs, and let them know what machine it was!"))
 
 /// BSTs' special Bluespace RPED can manufacture parts on Alt-RMB, either cables, glass, machine boards, or stock parts.
-/obj/item/storage/part_replacer/bluespace/debug/click_alt_secondary(mob/user)
+/obj/item/storage/part_replacer/bluespace/admin/click_alt_secondary(mob/user)
 	// Ask the user what they want to make, or if they want to clear the storage.
 	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Toggle Auto-Clear", "Tier 4 Parts", "Cable Coils", "Glass Sheets", "Plasteel Sheets", "Bluespace Crystals", "Infinite Megacell", "Infinite Power Cell", "Machine Boards", "Computer Boards", "Stock Parts", "Beakers"))
 	// If they didn't cancel out of the list selection, we do things.  Clear-all removes all items, auto-clear destroys left-overs after upgrades, and everything else is pretty self-explanatory.
@@ -229,7 +229,7 @@
 			pick_stock_part(user, FALSE, subtype)
 
 /// A bespoke proc for picking a subtype to spawn in a relatively user-friendly way.
-/obj/item/storage/part_replacer/bluespace/debug/proc/pick_stock_part(mob/user, recurse, subtype)
+/obj/item/storage/part_replacer/bluespace/admin/proc/pick_stock_part(mob/user, recurse, subtype)
 	// Sanity check: make sure it's actually an item, and not an atom, machine, or whatever else someone might try to feed it down the line.
 	if(!is_path_in_list(subtype, valid_stock_part_types))//This line is what eats new stock parts in the subtype check, update in var at top
 		return
