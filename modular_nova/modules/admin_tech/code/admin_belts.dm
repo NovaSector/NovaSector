@@ -1,7 +1,7 @@
 // Admin Tech Storage Belts //
 // TODO: more variants for the other outfit types
 // Empty variant
-/obj/item/storage/belt/utility/debug
+/obj/item/storage/belt/utility/admin
 	name = "\improper bluespace satchel"
 	desc = "This bad boy can fit all your bus in one place. Why do you have this?!"
 	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
@@ -25,7 +25,7 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 // Yes hello I would like some tools in a debug outfit's belt
-/obj/item/storage/belt/utility/debug/bst
+/obj/item/storage/belt/utility/admin/bluespace
 	name = "\improper bluespace technicians's satchel"
 	desc = "A hand crafted satchel made of the finest materials, processes, and a creatively integrated bluespace anomaly core. \
 	This one was carefully prestocked and organized by a Central Command Quartermaster to service an engineering aligned technician."
@@ -37,31 +37,31 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-/obj/item/storage/belt/utility/debug/bst/PopulateContents()
+/obj/item/storage/belt/utility/admin/bluespace/PopulateContents()
 	new	/obj/item/blueprints(src)
-	new	/obj/item/construction/plumbing/debug(src)
+	new	/obj/item/construction/plumbing/admin(src)
 	new	/obj/item/storage/bag/trash/bluespace(src)
 	new	/obj/item/bodybag/bluespace(src)
 	new	/obj/item/teleport_rod/admin(src)
 	new	/obj/item/mop/advanced(src)
-	new	/obj/item/holosign_creator/atmos/debug(src)
-	new	/obj/item/forcefield_projector/debug(src)
-	new	/obj/item/lightreplacer/blue/debug(src)
-	new	/obj/item/construction/rld/debug(src)
+	new	/obj/item/holosign_creator/atmos/admin(src)
+	new	/obj/item/forcefield_projector/admin(src)
+	new	/obj/item/lightreplacer/blue/admin(src)
+	new	/obj/item/construction/rld/admin(src)
 	new	/obj/item/rwd/admin(src)
 	new	/obj/item/analyzer/ranged(src)
 	new	/obj/item/construction/rtd/admin(src)
-	new	/obj/item/construction/rcd/arcd/mattermanipulator/debug(src)
+	new	/obj/item/construction/rcd/arcd/mattermanipulator/admin(src)
 	new	/obj/item/multitool/abductor(src)
 	new	/obj/item/weldingtool/abductor(src)
 	new	/obj/item/crowbar/power(src)
 	new	/obj/item/screwdriver/power(src)
 	new	/obj/item/pipe_dispenser/bluespace(src)
-	new /obj/item/door_remote/debug(src)
-	new	/obj/item/storage/part_replacer/bluespace/debug(src)
+	new /obj/item/door_remote/admin(src)
+	new	/obj/item/storage/part_replacer/bluespace/admin(src)
 
 // Yes hello I would like some tools in a debug outfit's belt
-/obj/item/storage/belt/utility/debug/sst
+/obj/item/storage/belt/utility/debug/subspace
 	name = "\improper subspace technician's satchel"
 	desc = "A hand crafted satchel made of the finest materials, processes, and a creatively integrated bluespace anomaly core. \
 	This one was carefully prestocked and organized by a Central Command Quartermaster to offer an extreme selection of goodies."
@@ -73,7 +73,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-/obj/item/storage/belt/utility/debug/sst/PopulateContents()
+/obj/item/storage/belt/utility/admin/subspace/PopulateContents()
 	new	/obj/item/blueprints(src)
 	new	/obj/item/construction/plumbing/debug(src)
 	new	/obj/item/hand_labeler(src)
@@ -84,21 +84,21 @@
 	new	/obj/item/toy/crayon/spraycan/infinite(src)
 	new	/obj/item/teleport_rod/admin(src)
 	new	/obj/item/fishing_rod/telescopic/master(src)
-	new	/obj/item/gun/energy/recharge/fisher/debug(src)
+	new	/obj/item/gun/energy/recharge/fisher/admin(src)
 	new	/obj/item/mop/advanced(src)
-	new	/obj/item/forcefield_projector/debug(src)
-	new	/obj/item/holosign_creator/atmos/debug(src)
-	new	/obj/item/lightreplacer/blue/debug(src)
-	new	/obj/item/construction/rld/debug(src)
+	new	/obj/item/forcefield_projector/admin(src)
+	new	/obj/item/holosign_creator/atmos/admin(src)
+	new	/obj/item/lightreplacer/blue/admin(src)
+	new	/obj/item/construction/rld/admin(src)
 	new	/obj/item/rwd/admin(src)
 	new	/obj/item/analyzer/ranged(src)
 	new	/obj/item/construction/rtd/admin(src)
-	new	/obj/item/construction/rcd/arcd/mattermanipulator/debug(src)
+	new	/obj/item/construction/rcd/arcd/mattermanipulator/admin(src)
 	new	/obj/item/multitool/abductor(src)
 	new	/obj/item/weldingtool/abductor(src)
 	new	/obj/item/crowbar/power(src)
 	new	/obj/item/screwdriver/power(src)
 	new	/obj/item/pipe_dispenser/bluespace(src)
 	new	/obj/item/rpd_upgrade/unwrench(src)
-	new /obj/item/door_remote/debug(src)
-	new	/obj/item/storage/part_replacer/bluespace/debug(src)
+	new /obj/item/door_remote/admin(src)
+	new	/obj/item/storage/part_replacer/bluespace/admin(src)

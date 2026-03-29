@@ -261,7 +261,7 @@
 	max_matter = INFINITY
 	construction_upgrades = RCD_UPGRADE_SILO_LINK
 ///Design types for debug service constructor, I just smushed the two lists together
-	var/static/list/debug_design_types = list(
+	var/static/list/admin_design_types = list(
 		//Category 1 synthesizers
 		"Synthesizers" = list(
 			/obj/machinery/plumbing/synthesizer = 1,
@@ -307,8 +307,7 @@
 	)
 
 /obj/item/construction/plumbing/debug/Initialize(mapload)
-	plumbing_design_types = debug_design_types
-
+	plumbing_design_types = admin_design_types
 	. = ..()
 
 //Debug Amputation Shears
