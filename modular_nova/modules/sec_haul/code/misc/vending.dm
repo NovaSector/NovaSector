@@ -41,7 +41,7 @@
 				/obj/item/clothing/mask/bandana/striped/security = 4,			//3
 				/obj/item/clothing/under/rank/security/nova/secjumpsuit = 4,	//4
 				/obj/item/clothing/under/rank/security/nova/officer/black = 4,  //5
-				obj/item/clothing/under/rank/security/nova/plainskirt = 4,
+				/obj/item/clothing/under/rank/security/nova/plainskirt = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt = 4,
 				/obj/item/clothing/under/rank/security/nova/dress = 4,
 				/obj/item/clothing/under/rank/security/nova/miniskirt = 4,

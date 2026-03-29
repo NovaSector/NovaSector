@@ -238,7 +238,7 @@
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
+	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS|FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/rank/security/nova/secshorts/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts/blue"
