@@ -7,7 +7,7 @@ GLOBAL_VAR_INIT(summon_prey_spent, FALSE)
 		var/datum/action/cooldown/alien/summon_monkeys/monkey_spell = new(src)
 		monkey_spell.Grant(src)
 
-/// One-time use alien ability that spawns two monkeys adjacent to the queen. Once used by any queen, no other queen can use it.
+/// One-time use alien ability that spawns three monkeys adjacent to the queen. Once used by any queen, no other queen can use it.
 /datum/action/cooldown/alien/summon_monkeys
 	name = "Summon Prey"
 	desc = "Call upon the hive's psionic link to lure three unsuspecting primates to your location. Single use per round."
