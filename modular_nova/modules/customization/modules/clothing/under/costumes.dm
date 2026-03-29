@@ -314,7 +314,7 @@
 	desc = "The staple of any bunny themed security officers. The red coloring helps to hide any blood that may stain this."
 	name = "security bunnysuit"
 	icon_state = "bunnysuit_sec"
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
@@ -325,7 +325,7 @@
 	desc = "The staple of any bunny themed security assistants. Can't lost respect you don't have!"
 	name = "security assistant's bunnysuit"
 	icon_state = "bunnysuit_sec_assistant"
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
@@ -337,7 +337,7 @@
 	desc = "The staple of any bunny themed wardens. The more formal security bunny suit for a less combat focused job."
 	name = "warden's bunnysuit"
 	icon_state = "bunnysuit_warden"
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
@@ -348,7 +348,7 @@
 	desc = "The staple of any bunny themed brig physicians. The rejected alternative to an already discontinued alternate uniform, now sold at a premium!"
 	name = "brig physician's bunnysuit"
 	icon_state = "bunnysuit_brig_phys"
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
@@ -358,7 +358,7 @@
 	desc = "The staple of any bunny themed detectives. Capable of storing precious candy corns."
 	name = "detective's bunnysuit"
 	icon_state = "bunnysuit_det"
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
@@ -369,7 +369,7 @@
 	desc = "The staple of any noir bunny themed detectives. Capable of storing precious candy corns."
 	name = "noir detective's bunnysuit"
 	icon_state = "bunnysuit_det_noir"
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
@@ -391,7 +391,7 @@
 	desc = "The staple of any bunny themed security commanders. Includes kevlar weave stockings and a gilded tail."
 	name = "Head of Security's bunnysuit"
 	icon_state = "bunnysuit_hos"
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
