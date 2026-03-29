@@ -1,21 +1,21 @@
 /datum/sprite_accessory/wings/moth/bluespace
 	name = "Moth (Bluespace)"
-	icon = 'modular_nova/modules/grayscale_moth_parts/icon/moth_wings.dmi'
+	icon = 'modular_nova/modules/grayscale_moth_parts/icons/moth_wings.dmi'
 	icon_state = "bluespace"
 
 /datum/sprite_accessory/wings/moth/strawberry
 	name = "Moth (Strawberry)"
-	icon = 'modular_nova/modules/grayscale_moth_parts/icon/moth_wings.dmi'
+	icon = 'modular_nova/modules/grayscale_moth_parts/icons/moth_wings.dmi'
 	icon_state = "strawberry"
 
 /datum/sprite_accessory/wings/moth/clockwork
 	name = "Moth (Clockwork)"
-	icon = 'modular_nova/modules/grayscale_moth_parts/icon/moth_wings.dmi'
+	icon = 'modular_nova/modules/grayscale_moth_parts/icons/moth_wings.dmi'
 	icon_state = "clockwork"
 
 /datum/sprite_accessory/wings/moth/greyscale
 	feature_key_override = FEATURE_WINGS //I don't know why it doesn't work without it
-	icon = 'modular_nova/modules/grayscale_moth_parts/icon/moth_wings.dmi'
+	icon = 'modular_nova/modules/grayscale_moth_parts/icons/moth_wings.dmi'
 	dimension_x = 32
 	dimension_y = 32
 	color_src = USE_MATRIXED_COLORS
