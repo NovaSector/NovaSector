@@ -14771,7 +14771,7 @@
 /area/station/medical/medbay/central)
 "boO" = (
 /obj/structure/table/glass,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/reagent_containers/cup/bottle/epinephrine,
 /obj/effect/turf_decal/trimline/blue/line{
 	dir = 6
@@ -16554,7 +16554,7 @@
 /area/station/commons/lounge)
 "bwO" = (
 /obj/structure/table,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/stack/medical/mesh,
 /obj/item/stack/medical/suture,
 /obj/machinery/firealarm/directional/south,
@@ -19586,7 +19586,9 @@
 	},
 /area/station/hallway/secondary/entry)
 "bMq" = (
-/obj/machinery/mass_driver/ordnance,
+/obj/machinery/mass_driver/ordnance{
+	power = 4
+	},
 /turf/open/floor/plating,
 /area/station/science/ordnance/testlab)
 "bMu" = (
@@ -34827,7 +34829,7 @@
 /area/station/maintenance/department/engine)
 "iGJ" = (
 /obj/structure/table/glass,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /turf/open/floor/iron/white/small,
 /area/station/medical/treatment_center)
 "iGR" = (
@@ -35390,7 +35392,7 @@
 /area/station/service/janitor)
 "jfI" = (
 /obj/structure/table/glass,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/white/small,
 /area/station/medical/treatment_center)
@@ -37737,7 +37739,7 @@
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/cmo)
 "kQO" = (
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /turf/open/floor/iron/dark,
 /area/station/service/abandoned_gambling_den/gaming)
 "kQZ" = (
@@ -38609,7 +38611,7 @@
 /area/station/medical/chemistry)
 "lsr" = (
 /obj/structure/table/glass,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/clothing/neck/stethoscope,
 /obj/machinery/keycard_auth{
 	pixel_x = 25;
@@ -38731,7 +38733,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/library/lounge)
 "lxx" = (
-/obj/item/stack/medical/gauze{
+/obj/item/stack/medical/wrap/gauze{
 	pixel_x = 2
 	},
 /obj/machinery/door/window/right/directional/west{
@@ -42876,7 +42878,7 @@
 "ozc" = (
 /obj/item/paper_bin,
 /obj/item/pen/red,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/machinery/light/small/directional/east,
 /obj/item/hand_labeler,
 /obj/item/book/manual/wiki/infections,

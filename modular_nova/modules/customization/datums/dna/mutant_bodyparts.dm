@@ -109,6 +109,22 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	return colors?[1] || COLOR_WHITE
 
 /**
+ * Sets the primary color for this mutant bodypart.
+ *
+ * Arguments:
+ * - new_color: a hex color string
+ */
+/datum/mutant_bodypart/proc/set_primary_color(new_color)
+	if(!istext(new_color))
+		CRASH("set_primary_color needs to be passed a color hex string!")
+
+	if(!length(colors))
+		colors = list(new_color, new_color, new_color)
+		return
+
+	colors[1] = new_color
+
+/**
  * Returns the secondary (second) color of this mutant bodypart.
  *
  * Returns:
@@ -118,6 +134,22 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
 	return colors?[2] || COLOR_WHITE
 
 /**
+ * Sets the secondary color for this mutant bodypart.
+ *
+ * Arguments:
+ * - new_color: a hex color string
+ */
+/datum/mutant_bodypart/proc/set_secondary_color(new_color)
+	if(!istext(new_color))
+		CRASH("set_secondary_color needs to be passed a color hex string!")
+
+	if(!length(colors))
+		colors = list(new_color, new_color, new_color)
+		return
+
+	colors[2] = new_color
+
+/**
  * Returns the tertiary (third) color of this mutant bodypart.
  *
  * Returns:
@@ -125,6 +157,22 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
  */
 /datum/mutant_bodypart/proc/get_tertiary_color()
 	return colors?[3] || COLOR_WHITE
+
+/**
+ * Sets the tertiary color for this mutant bodypart.
+ *
+ * Arguments:
+ * - new_color: a hex color string
+ */
+/datum/mutant_bodypart/proc/set_tertiary_color(new_color)
+	if(!istext(new_color))
+		CRASH("set_tertiary_color needs to be passed a color hex string!")
+
+	if(!length(colors))
+		colors = list(new_color, new_color, new_color)
+		return
+
+	colors[3] = new_color
 
 /**
  * Sets the emissive tri-boolean list for this mutant bodypart.
@@ -162,7 +210,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
  * Returns:
  * - /datum/mutant_bodypart: A newly created mutant bodypart datum.
  */
-/datum/species/proc/build_mutant_part(name, colors, emissive_list)
+/proc/build_mutant_part(name, colors, emissive_list)
 	return new /datum/mutant_bodypart(name, colors, emissive_list)
 
 // Immutable species blueprint, used for default species parts. These are what get stored in GLOB.default_mutant_parts

@@ -17,7 +17,7 @@ These procs are incredibly expensive and should only really be run once. That's 
 
 SUBSYSTEM_DEF(decay)
 	name = "Decay System"
-	flags = SS_NO_FIRE
+	ss_flags = SS_NO_FIRE
 	init_stage = INITSTAGE_LAST
 
 	/// This is used to determine what maps we should not spawn on.

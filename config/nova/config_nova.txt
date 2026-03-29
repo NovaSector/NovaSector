@@ -178,3 +178,16 @@ SAVEFILE_BACKUP_LIMIT 16
 ## Maximum file size allowed by savefile uploading, in kilobytes
 ## Default limit is 2000
 SAVEFILE_UPLOAD_LIMIT 2000
+
+## Uncomment to override gas prices with their modified values, leave commented to use the TG defaults
+#OVERRIDE_GAS_PRICES
+
+## Uncomment to allow players to connect to relays
+#ENABLE_RELAYS
+
+## If using relays, you will also need to specify at least one relay address here. The first entry is what shows in the relay selection ui, and the second is the actual url.
+#RELAY_OPTION Connect to US-West (Los Angeles),byond://us-west.placeholder.com:1337
+#RELAY_OPTION Connect to EU-Central (Germany),byond://eu.placeholder.com:1337
+#RELAY_OPTION Connect to Asia (Singapore),byond://asia.placeholder.com:1337
+#RELAY_OPTION Connect to South America (Brazil),byond://south-america.placeholder.com:1337
+#RELAY_OPTION Connect Directly (No Relay),byond://placeholder.com:1337

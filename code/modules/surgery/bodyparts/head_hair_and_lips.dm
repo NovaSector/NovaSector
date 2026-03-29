@@ -67,6 +67,7 @@
 
 	if(HAS_TRAIT(target, TRAIT_USES_SKINTONES))
 		skin_tone = target.skin_tone
+		species_color = "" // NOVA EDIT ADDITION
 	else if(HAS_TRAIT(target, TRAIT_MUTANT_COLORS))
 		skin_tone = ""
 		if(target_species.fixed_mut_color)
