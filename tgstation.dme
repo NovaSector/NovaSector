@@ -7449,6 +7449,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\brain\brain_cybernetic.dm"
 #include "modular_nova\master_files\code\modules\mob\living\brain\brain_item.dm"
 #include "modular_nova\master_files\code\modules\mob\living\brain\MMI.dm"
+#include "modular_nova\master_files\code\modules\mob\living\carbon\alien\adult\queen.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\carbon_defense.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\carbon_defines.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\death.dm"
