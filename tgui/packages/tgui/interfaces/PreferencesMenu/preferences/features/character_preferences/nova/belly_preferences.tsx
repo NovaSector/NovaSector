@@ -9,6 +9,12 @@ import {
   FeatureToggle,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
+import { FeatureBellyButton } from '../../belly_button';
+
+export const erp_belly_button: Feature<number> = {
+  name: 'Belly Prefs',
+  component: FeatureBellyButton,
+};
 
 export const erp_belly_vore_prey: FeatureChoiced = {
   name: 'Vore Prey Preference',

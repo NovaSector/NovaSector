@@ -227,6 +227,29 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 /datum/preference/toggle/erp/belly/sound_move_sloshes
 	savefile_key = "erp_belly_sound_move_sloshes"
 
+/datum/preference/toggle/erp_vore_button
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "erp_belly_button"
+
+/datum/preference/toggle/erp_vore_button/create_default_value()
+	return FALSE
+
+/datum/preference/toggle/erp_vore_button/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_tums_preferences))
+		return FALSE
+
+	return preferences.read_preference(/datum/preference/toggle/erp/belly_master)
+
+/datum/preference/toggle/erp_vore_button/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
 /// Per-character preference for being vored.
 /// Why is this not integrated into the existing vore prefs, you ask?
 /// Because they aren't granular enough...and because it shows on examine, which some people might not want public.

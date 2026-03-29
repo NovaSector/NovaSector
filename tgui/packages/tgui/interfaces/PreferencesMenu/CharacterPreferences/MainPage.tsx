@@ -603,7 +603,7 @@ export function MainPage(props: MainPageProps) {
               <CharacterControls
                 gender={data.character_preferences.misc.gender}
                 handleOpenSpecies={props.openSpecies}
-                handleRotate={(value) => { // NOVA EDIT CHANGE - Original: handleRotate={() => { 
+                handleRotate={(value) => { // NOVA EDIT CHANGE - Original: handleRotate={() => {
                   act('rotate', { backwards: value }); // NOVA EDIT CHANGE - Original: act('rotate');
                 }}
                 setGender={createSetPreference(act, 'gender')}
@@ -675,17 +675,6 @@ export function MainPage(props: MainPageProps) {
                   setVocalsInputOpen(true);
                 }}
               />
-              {data.erp_belly_pref === 1 && (
-                <Button
-                  fluid
-                  textAlign="center"
-                  onClick={() => {
-                    act('openBellyPrefs');
-                  }}
-                >
-                  Belly Preferences
-                </Button>
-              )}
             </Stack.Item>
             {/* NOVA EDIT ADDITION END */}
           </Stack>
