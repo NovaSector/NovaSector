@@ -59,11 +59,23 @@
 	if(affected_mob.adjust_brute_loss(-5 * metabolization_ratio * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype))
 		return UPDATE_MOB_HEALTH
 
-/datum/reagent/medicine/interdyne/bicardyne/overdose_process(mob/living/affected_mob, seconds_per_tick, metabolization_ratio)
+/datum/reagent/medicine/interdyne/bicardyne/overdose_start(mob/living/affected_mob, metabolization_ratio)
 	. = ..()
-	if(affected_mob.get_brute_loss())
-		if(affected_mob.adjust_brute_loss(5 * metabolization_ratio * seconds_per_tick, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC))
-			return UPDATE_MOB_HEALTH
+	metabolization_rate *= 4
+
+/datum/reagent/medicine/interdyne/bicardyne/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	. = ..()
+	// Hyper-regeneration tears the body apart — slash wounds and brute in chunks
+	if(SPT_PROB(15, seconds_per_tick))
+		var/obj/item/bodypart/bodypart = pick(affected_mob.bodyparts)
+		var/datum/wound/slash/flesh/moderate/wound = new()
+		wound.apply_wound(bodypart)
+		bodypart.receive_damage(brute = 8, wound_bonus = CANT_WOUND)
+		affected_mob.visible_message(
+			span_danger("[affected_mob]'s skin splits open as tissue regenerates uncontrollably!"),
+			span_userdanger("Your flesh tears apart from the inside as Bicardyne forces your body to rebuild too fast!"),
+		)
+		return UPDATE_MOB_HEALTH
 
 /datum/reagent/medicine/interdyne/thermapyne
 	name = "Thermapyne"
