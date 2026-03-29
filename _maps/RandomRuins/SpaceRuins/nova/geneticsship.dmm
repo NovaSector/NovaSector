@@ -116,10 +116,6 @@
 /area/ruin/space/unpowered)
 "gw" = (
 /obj/machinery/light/directional/north,
-/obj/effect/spawner/liquids_spawner/ankles{
-	reagent_list = list(/datum/reagent/blood = 180);
-	name = "Liquids Spawner (Blood, Ankle-Deep)"
-	},
 /turf/open/floor/iron/white/side,
 /area/ruin/space/unpowered)
 "gP" = (
@@ -145,12 +141,6 @@
 /turf/open/floor/iron/white/side{
 	pixel_x = 0;
 	pixel_y = 0
-	},
-/area/ruin/space/unpowered)
-"hP" = (
-/obj/effect/mob_spawn/corpse/human/generic_assistant,
-/turf/open/floor/iron/white/side{
-	dir = 4
 	},
 /area/ruin/space/unpowered)
 "ii" = (
@@ -202,12 +192,6 @@
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plating/airless,
 /area/ruin/space/unpowered)
-"lX" = (
-/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
-/turf/open/floor/iron/white/side{
-	dir = 8
-	},
-/area/ruin/space/unpowered)
 "mo" = (
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock/external,
@@ -240,7 +224,6 @@
 /area/ruin/space/unpowered)
 "pL" = (
 /obj/structure/closet/crate/science,
-/obj/effect/mob_spawn/corpse/human/scientist,
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
@@ -286,7 +269,8 @@
 	pixel_x = 4;
 	pixel_y = -7;
 	can_misfire = 1;
-	spawnwithmagazine = 0
+	spawnwithmagazine = 0;
+	misfire_probability = 10
 	},
 /obj/effect/mob_spawn/corpse/human/engineer,
 /turf/open/floor/iron/white/side{
@@ -308,11 +292,10 @@
 	},
 /area/ruin/space/unpowered)
 "vm" = (
-/obj/machinery/light/directional/south,
-/obj/effect/mob_spawn/corpse/human/generic_assistant,
-/turf/open/floor/iron/white/side{
-	dir = 1
+/obj/effect/spawner/liquids_spawner/ankles{
+	reagent_list = list(/datum/reagent/blood = 80)
 	},
+/turf/open/floor/iron/white/corner,
 /area/ruin/space/unpowered)
 "vv" = (
 /obj/effect/mob_spawn/corpse/human/scientist,
@@ -337,10 +320,11 @@
 /area/ruin/space/unpowered)
 "wD" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear,
 /obj/item/gun/ballistic/revolver/badass{
-	can_misfire = 1
+	can_misfire = 1;
+	misfire_probability = 25
 	},
+/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
@@ -673,10 +657,6 @@
 /obj/machinery/light/small/red/dim/directional/south,
 /turf/open/floor/iron/dark,
 /area/ruin/space/unpowered)
-"Vx" = (
-/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
-/turf/open/floor/iron/white,
-/area/ruin/space/unpowered)
 "Wb" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -739,6 +719,9 @@
 /area/ruin/space/unpowered)
 "Yv" = (
 /obj/effect/mob_spawn/corpse/human/scientist,
+/obj/effect/spawner/liquids_spawner/ankles{
+	reagent_list = list(/datum/reagent/blood = 80)
+	},
 /turf/open/floor/iron/white/corner{
 	dir = 1
 	},
@@ -811,8 +794,8 @@ UE
 UE
 UE
 XP
-Wy
-hP
+vm
+yk
 Qa
 LF
 XP
@@ -836,7 +819,7 @@ XP
 jW
 aq
 aq
-vm
+IQ
 XP
 UE
 UE
@@ -1120,7 +1103,7 @@ wi
 wi
 XP
 XM
-Vx
+aq
 aq
 RX
 XP
@@ -1186,7 +1169,7 @@ UE
 UE
 XP
 MF
-lX
+aC
 aC
 ii
 XP
