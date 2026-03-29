@@ -8333,6 +8333,7 @@
 #include "modular_nova\modules\examinemore\code\examine_more.dm"
 #include "modular_nova\modules\exp_corps\code\clothing.dm"
 #include "modular_nova\modules\exp_corps\code\expeditionary_trooper.dm"
+#include "modular_nova\modules\grayscale_moth_parts\code\antennaes_mutant_part.dm"
 #include "modular_nova\modules\exp_corps\code\gear.dm"
 #include "modular_nova\modules\exp_corps\code\tomahawk.dm"
 #include "modular_nova\modules\extra_skills\rewards.dm"
