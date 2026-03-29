@@ -36,7 +36,7 @@
 	contains = list(/obj/item/clothing/accessory/webbing/vest)
 
 /datum/supply_pack/companies/apparel/kahraman/drop_pouches
-	contains = list(/obj/item/clothing/accessory/webbing/drop_pouches)
+	contains = list(/obj/item/clothing/accessory/webbing/pouch)
 
 /datum/supply_pack/companies/apparel/kahraman/storage_rigging
 	contains = list(/obj/item/clothing/accessory/webbing/pilot)
