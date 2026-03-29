@@ -15,19 +15,19 @@
 	allow_big_nesting = TRUE
 
 //Debug Pockets!
-/datum/storage/pockets/debug
+/datum/storage/pockets/admin
 	max_slots = 2
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
 	max_total_storage = 200
 
 ///Debug construction bag
-/datum/storage/bag/construction/debug
+/datum/storage/bag/construction/admin
 	allow_big_nesting = TRUE
 	max_slots = 99
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
 	max_total_storage = 6769
 
-/datum/armor/debug//No one is invincible.
+/datum/armor/admin//No one is invincible.
 	acid = 98
 	bio = 95
 	bomb = 95
@@ -39,7 +39,7 @@
 	melee = 95
 	wound = 95
 
-/datum/armor/debug/badmin//I'm serious, this isnt enough to save your un-robust ass.
+/datum/armor/admin/badmin//Not as good as you think
 	acid = 100
 	bio = 100
 	bomb = 100

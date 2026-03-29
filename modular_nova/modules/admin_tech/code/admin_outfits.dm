@@ -1,18 +1,18 @@
 //TODO:Bluespace Medical&Research/Security/ Operative (), Subspace Skinsuit, CC Intern / Sergeant / Commander / Official, Asset Protection,
 //Bluespace Technician Outfit, used with the icspawning quick button
-/datum/outfit/admin/bst
+/datum/outfit/admin/bluespace
 	name = "Bluespace Tech (MODsuit)"
-	uniform = /obj/item/clothing/under/misc/sst_suit
-	suit = /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/bst
-	suit_store = /obj/item/tank/internals/emergency_oxygen/double
-	head = /obj/item/clothing/head/helmet/space/beret/debug/bst
-	ears = /obj/item/radio/headset/debug
+	uniform = /obj/item/clothing/under/admin
+	suit = /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/admin
+	suit_store = /obj/item/tank/internals/admin/pluoxium
+	head = /obj/item/clothing/head/helmet/perceptomatrix/admin
+	ears = /obj/item/radio/headset/admin
 	glasses = /obj/item/clothing/glasses/meson/engine/admin/debug
 	neck = null
-	gloves = /obj/item/clothing/gloves/combat
-	belt = /obj/item/storage/belt/utility/debug/bst
-	shoes = /obj/item/clothing/shoes/magboots/advance/debug
-	mask = /obj/item/clothing/mask/gas/atmos/debug
+	gloves = /obj/item/clothing/gloves/tackler/admin
+	belt = /obj/item/storage/belt/utility/admin/bluespace
+	shoes = /obj/item/clothing/shoes/magboots/advance/admin
+	mask = /obj/item/clothing/mask/gas/atmos/admin
 	id = /obj/item/card/id/advanced/debug/bst
 	box = /obj/item/storage/box/debug/tools
 	l_pocket = null
@@ -30,19 +30,19 @@
 	belt_contents = list()
 
 //Subspace Technician Outfit. This is the new debug outfit, tuned to provide lots of items
-/datum/outfit/admin/sst
+/datum/outfit/admin/subspace
 	name = "Subspace Tech (MODsuit)"
-	uniform = /obj/item/clothing/under/misc/sst_suit
-	suit = /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/sst
-	suit_store = /obj/item/tank/internals/emergency_oxygen/double//TODO:Subspace variant, pluox+nitrium variant
-	head = /obj/item/clothing/head/helmet/space/beret/debug/sst
-	ears = /obj/item/radio/headset/debug
+	uniform = /obj/item/clothing/under/admin/subspace
+	suit = /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/admin
+	suit_store = /obj/item/tank/internals/admin/pluoxium
+	head = /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
+	ears = /obj/item/radio/headset/admin/subspace
 	glasses = /obj/item/clothing/glasses/meson/engine/admin/debug
 	neck = null
-	gloves = /obj/item/clothing/gloves/kaza_ruk/combatglovesplus//TODO:Subspace variant
-	belt = /obj/item/storage/belt/utility/debug/sst
-	shoes = /obj/item/clothing/shoes/magboots/advance/debug
-	mask = /obj/item/clothing/mask/gas/atmos/debug
+	gloves = /obj/item/clothing/gloves/tackler/admin/subspace
+	belt = /obj/item/storage/belt/utility/admin/subspace
+	shoes = /obj/item/clothing/shoes/magboots/advance/admin/subspace
+	mask = /obj/item/clothing/mask/gas/atmos/admin
 	id = /obj/item/card/id/advanced/debug/sst
 	box = /obj/item/storage/box/debug/tools
 	l_pocket = null

@@ -11,9 +11,9 @@
 
 // Legacy armor, but keeping it for now. Minor touchups
 /obj/item/clothing/suit/armor/vest/debug
-	name = "\improper subspace vest"
+	name = "\improper technician's vest"
 	desc = "A sleek piece of armour designed for Bluespace agents."
-	armor_type = /datum/armor/debug
+	armor_type = /datum/armor/admin
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 

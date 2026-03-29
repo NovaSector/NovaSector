@@ -93,23 +93,25 @@
 // We love casting spells. Did you know the perceptomatrix counts for spell clothing? Aint that neat.
 /obj/item/clothing/head/helmet/perceptomatrix/admin
 	name = "bluespace visor"
-	desc = "You can hear all of them. All oF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
+	desc = "This exceptional piece of headgear seems to be one of the main reality-warping sources of the administrative kit. It feels nearly weightless on your head."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = 'blue-visor'
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = 'blue-visor'
+		armor_type = /datum/armor/admin
 
 //Now we get really magical.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
 	name = "subspace visor"
-	desc = "You can hear all of them. All oF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
+	desc = "This exceptional piece of headgear seems to be one of the main reality-warping sources of the administrative kit. It feels nearly weightless on your head."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = 'sub-visor'
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = 'sub-visor'
+		armor_type = /datum/armor/admin/badmin
 
-//Debug Gas Mask
-//Creates a new debug filter
+//Admin Gas Mask
+//Creates a new filter
 //code\modules\clothing\masks\gas_filter.dm
 /obj/item/gas_filter/admin
 	filter_status = 1000
@@ -134,7 +136,7 @@
 //code\modules\clothing\masks\gasmask.dm
 //TODO:bst/sst/cc icon variants
 /obj/item/clothing/mask/gas/atmos/admin
-	name = "subspace gas mask"
+	name = "bluespace gas mask"
 	desc = "A proprietary filtration mask which route gasses that CentCom deems toxic directly into the space between dimensions.\
 	Wasteful? Totally. Convenient? Extremely."
 	icon_state = "gas_atmos"
@@ -143,7 +145,7 @@
 	max_filters = 2
 	starting_filter_type = /obj/item/gas_filter/debug
 	fishing_modifier = 0
-	armor_type = /datum/armor/debug
+	armor_type = /datum/armor/admin
 
 // New admin undersuit
 // todo: BST, CC Variants, Casualmin Variants, or.... Maybe we setup skins for this?
@@ -159,7 +161,7 @@
 	has_sensor = NO_SENSORS//admin techs should NEVER be on sensors
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	armor_type = /datum/armor/debug
+	armor_type = /datum/armor/admin
 	cold_protection = CHEST | GROIN | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -175,8 +177,9 @@
 	icon_state = 'sub-techsuit'
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = 'sub-techsuit'
+	armor_type = /datum/armor/admin/badmin
 
-//Subspace gloves
+// Worlds most comfortable gloves, great for tickling spacetime
 /obj/item/clothing/gloves/tackler/admin
 	name = "bluespace gauntlets"
 	desc = "Extraordinarily lightweight and pleasantly comfortable gauntlets packed full of useful technology. You feel perfectly capable of defending yourself."
@@ -191,9 +194,10 @@
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "blue-gauntlets"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	armor_type = /datum/armor/debug/badmin
+	w_class = WEIGHT_CLASS_TINY
+	armor_type = /datum/armor/admin
 
-/obj/item/clothing/gloves/tackler/debug/Initialize(mapload)
+/obj/item/clothing/gloves/tackler/admin/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/martial_art_giver, /datum/martial_art/kaza_ruk)
 
@@ -202,6 +206,7 @@
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "sub-gauntlets"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	armor_type = /datum/armor/admin/badmin
 
 //Debug magbooties
 /obj/item/clothing/shoes/magboots/advance/admin//code\modules\clothing\shoes\magboots.dm
@@ -215,7 +220,7 @@
 	magpulse_fishing_modifier = 10
 	fishing_modifier = 10
 	w_class = WEIGHT_CLASS_TINY
-	armor_type = /datum/armor/debug
+	armor_type = /datum/armor/admin
 
 /obj/item/clothing/shoes/magboots/advance/admin/Initialize(mapload)// Give them pockets, damnit
 	. = ..()
@@ -229,6 +234,7 @@
 	base_icon_state = "sub-magboots"
 	icon_state = "sub-magboots0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	armor_type = /datum/armor/admin/badmin
 
 
 // Bussy berets, using an old CC beret with built in greyscaling as our foundation
@@ -237,7 +243,7 @@
 	desc = "An armored beret commonly used by administratively deployed techs. Uses advanced force field technology to protect the head from space."
 	greyscale_colors = "#303030ff#FFCE5B"
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT
-	armor_type = /datum/armor/debug
+	armor_type = /datum/armor/admin
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	hair_mask = /datum/hair_mask/standard_hat_middle
 
@@ -253,7 +259,7 @@
 
 // Flannel armor. Fight me.
 /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/admin//modular_nova\modules\customization\modules\clothing\under\utility_port\suits_port.dm
-	armor_type = /datum/armor/debug
+	armor_type = /datum/armor/admin
 	name = "tech's flannel"
 	desc = "Comfortable. Comforting. Gives warmer hugs than VSC ever code."
 	greyscale_colors = "#303030ff"
