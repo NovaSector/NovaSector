@@ -74,11 +74,6 @@
 	var/datum/sprite_accessory/genital/accessory = SSaccessories.sprite_accessories[associated_key][bodypart.name]
 	genital_name = accessory.name
 	genital_type = accessory.icon_state
-	// snowflake for skintone alt human penis, which only has sprites up to size 4 as opposed to the non-skintone which goes to 5.
-	if(genital_name == "Human (Alt)") // This SUCKS. genitals code is simply HORRIBLE and rotted to its core. TODO: destroy and rewrite it ALL. from fucking scratch.
-		var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
-		if(our_overlay.color_source == uses_skin_color)
-			max_sprite_size_affix = 4
 	build_from_accessory(accessory, DNA)
 	update_sprite_suffix()
 
@@ -91,7 +86,12 @@
 /// for specific build_from_dna behavior that also checks the genital accessory.
 /obj/item/organ/genital/proc/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
 	if(isnull(max_sprite_size_affix))
-		max_sprite_size_affix = accessory.max_sprite_size_affix
+		// snowflake for skintone alt human penis, which only has sprites up to size 4 as opposed to the non-skintone which goes to 5. and similar...
+		// This SUCKS. genitals code is simply HORRIBLE and rotted to its core. TODO: destroy and rewrite it ALL. from fucking scratch.
+		if(uses_skintones)
+			max_sprite_size_affix = accessory.skintone_max_sprite_size_affix || accessory.max_sprite_size_affix
+		else
+			max_sprite_size_affix = accessory.max_sprite_size_affix
 	return
 
 /obj/item/organ/genital/proc/is_exposed()
@@ -310,12 +310,12 @@
 	return ..()
 
 /obj/item/organ/genital/penis/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
-	. = ..()
 	var/datum/sprite_accessory/genital/penis/snake = accessory
 	if(snake.can_have_sheath)
 		sheath = DNA.features["penis_sheath"]
 	if(DNA.features["penis_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
+	return ..()
 
 /datum/bodypart_overlay/mutant/genital/penis/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_PENIS]
@@ -371,9 +371,9 @@
 	return ..()
 
 /obj/item/organ/genital/testicles/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
-	. = ..()
 	if(DNA.features["testicles_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
+	return ..()
 
 /obj/item/organ/genital/testicles/get_sprite_size_string()
 	var/measured_size = FLOOR(genital_size,1)
@@ -587,9 +587,9 @@
 	return ..()
 
 /obj/item/organ/genital/breasts/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
-	. = ..()
 	if(DNA.features["breasts_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
+	return ..()
 
 /datum/bodypart_overlay/mutant/genital/breasts/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_BREASTS]
