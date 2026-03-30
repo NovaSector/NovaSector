@@ -865,8 +865,8 @@
 /datum/loadout_item/head/rabbit/playbunny/sec
 	name = "Secure Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/security
+	restricted_roles = (ALL_JOBS_SEC)
 	group = "Costumes"
-
 	name = "Less Secure Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/security/assistant
 	restricted_roles = (ALL_JOBS_SEC)
