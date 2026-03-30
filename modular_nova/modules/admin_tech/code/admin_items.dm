@@ -1,3 +1,4 @@
+//todo:subspace boxcutter, bluespace trashbag / pocket, incorporeal movement / jaunt on visor using the voidling effect
 // The sheetsnatcher extreme is really ugly, misses features, and misses materials. Lets make our own.
 // Using a construction bag as our base, instead of the sheetsnatcher.
 // I can probably adapt the BST-BRPED manufacturing function to this, but for now, an improvement is better than nothing
@@ -123,7 +124,7 @@
 	desc = "This remote controls airlocks through narrative will alone. Also comes emagged, did you know that you can emag door remotes?"
 	department = "omni"
 	region_access = REGION_ALL_GLOBAL
-	owner_trim = /datum/id_trim/admin/sst
+	owner_trim = /datum/id_trim/admin/subspace
 	our_domain = list( /area )
 	obj_flags = EMAGGED
 

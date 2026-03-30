@@ -2,7 +2,7 @@
 /datum/outfit/admin/bluespace
 	name = "Bluespace Tech (MODsuit)"
 	uniform = /obj/item/clothing/under/admin
-	suit = /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/admin
+	suit = /obj/item/clothing/suit/admin
 	suit_store = /obj/item/tank/internals/admin/pluoxium
 	head = /obj/item/clothing/head/helmet/perceptomatrix/admin
 	ears = /obj/item/radio/headset/admin
@@ -32,7 +32,7 @@
 /datum/outfit/admin/subspace
 	name = "Subspace Tech (MODsuit)"
 	uniform = /obj/item/clothing/under/admin/subspace
-	suit = /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/admin
+	suit = /obj/item/clothing/suit/admin/subspace
 	suit_store = /obj/item/tank/internals/admin/pluoxium
 	head = /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
 	ears = /obj/item/radio/headset/admin/subspace

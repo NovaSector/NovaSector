@@ -23,7 +23,7 @@
 	uniform = /obj/item/clothing/under/syndicate/combat
 	belt = /obj/item/storage/belt/utility/full/powertools/admin
 	shoes = /obj/item/clothing/shoes/combat/debug
-	id = /obj/item/card/id/advanced/debug/bst
+	id = /obj/item/card/id/advanced/debug/bluespace
 	box = /obj/item/storage/box/debugtools
 	backpack_contents = list(
 		/obj/item/melee/energy/axe = 1,

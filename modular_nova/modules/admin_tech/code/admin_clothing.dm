@@ -21,6 +21,7 @@
 	worn_icon_state = "blue-headset"
 	keyslot2 = null
 	keyslot = /obj/item/encryptionkey/admin
+	inhand_icon_state = "null"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	w_class = WEIGHT_CLASS_TINY
 
@@ -47,6 +48,7 @@
 	icon_state = "contacts"
 	inhand_icon_state = "contacts"
 	worn_icon_state = "null"
+	inhand_icon_state = "null"
 	flags_cover = GLASSESCOVERSEYES
 	flash_protect = FLASH_PROTECTION_WELDER
 	lighting_cutoff = LIGHTING_CUTOFF_HIGH
@@ -89,6 +91,41 @@
 	human_user.update_sight()
 	return CLICK_ACTION_SUCCESS
 
+// we move phasing, inspect blocking, godmode. later needs a visual indicator of some kind
+// Attempts to create a wall-phasing mode that you can enable with the visor.
+/// Whether phasing is currently active
+/obj/item/clothing/head/helmet/perceptomatrix/admin/item_ctrl_click(mob/user)
+    if(!isliving(user))
+        return CLICK_ACTION_BLOCKING
+
+    // Must be worn, not just held
+    var/mob/living/wearer = user
+    if(wearer.get_slot_by_item(src) != ITEM_SLOT_HEAD)
+    if(wearer.get_slot_by_item(src) != ITEM_SLOT_HEAD)
+        balloon_alert(user, "must be worn!")
+        return CLICK_ACTION_BLOCKING
+
+    admin_phasing = !admin_phasing
+    if(admin_phasing)
+        attach_clothing_traits(TRAIT_MOVE_PHASING)
+    else
+        detach_clothing_traits(TRAIT_MOVE_PHASING)
+
+    balloon_alert(user, "phasing [admin_phasing ? "enabled" : "disabled"]")
+    return CLICK_ACTION_SUCCESS
+
+/obj/item/clothing/head/helmet/perceptomatrix/admin/dropped(mob/user)
+    . = ..()
+    if(admin_phasing)
+        admin_phasing = FALSE
+        // detach_clothing_traits is already called by the parent unequip logic,
+        // but we reset our state variable here
+
+/obj/item/clothing/head/helmet/perceptomatrix/admin/examine(mob/user)
+    . = ..()
+    . += span_notice("Ctrl-click while wearing to toggle phasing. Currently [admin_phasing ? "active" : "inactive"].")
+//
+
 // Admin Helmet
 // We love casting spells. Did you know the perceptomatrix counts for spell clothing? Aint that neat.
 /obj/item/clothing/head/helmet/perceptomatrix/admin
@@ -99,17 +136,21 @@
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = "blue-visor"
 	base_icon_state = "blue-visor"
+	worn_icon_muzzled = "blue-visor"
+	inhand_icon_state = "null"
 	armor_type = /datum/armor/admin
+	var/admin_phasing = FALSE
 
-//Intercepts init icon state from parent
-/obj/item/clothing/head/helmet/perceptomatrix/Initialize(mapload)
+//Intercepts init icon state from parent, this might not be necessary. It also might not be working right, I dont know enough to know.
+/obj/item/clothing/head/helmet/perceptomatrix/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/adjust_fishing_difficulty, -7) // PSYCHIC FISHING
 	AddComponent(/datum/component/hat_stabilizer, loose_hat = TRUE)
 
-/obj/item/clothing/head/helmet/perceptomatrix/update_icon_state()
+/obj/item/clothing/head/helmet/perceptomatrix/admin/update_icon_state()
 	return
-
+//
+//
 //Now we get really magical.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
 	name = "subspace visor"
@@ -119,6 +160,7 @@
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = "sub-visor"
 	base_icon_state = "sub-visor"
+	worn_icon_muzzled = "sub-visor"
 	armor_type = /datum/armor/admin/badmin
 
 //Admin Gas Mask
@@ -152,12 +194,15 @@
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "blue-mask"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	worn_icon_state = "blue-techsuit"
+	worn_icon_state = "blue-mask"
+	inhand_icon_state = "null"
 	resistance_flags = FIRE_PROOF
 	max_filters = 2
 	starting_filter_type = /obj/item/gas_filter/admin
 	armor_type = /datum/armor/admin
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDEEARS|HIDEEYES|HIDESNOUT
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | EARS_COVERED
 
 /obj/item/clothing/mask/gas/atmos/admin/subspace
 	name = "subspace mask"
@@ -178,7 +223,7 @@
 	icon_state = "blue-techsuit"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = "blue-techsuit"
-	inhand_icon_state = null
+	inhand_icon_state = "null"
 	has_sensor = NO_SENSORS//admin techs should NEVER be on sensors
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -199,6 +244,32 @@
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = "sub-techsuit"
 	armor_type = /datum/armor/admin/badmin
+
+//Admeme jackets. Oh so comfortable. And shiny
+/obj/item/clothing/suit/admin
+	name = "bluespace letterman"
+	desc = "Hand-stitched by legendary tailors, these jackets are made specifically for each technician. Using the same advanced fabrics and techniques as the rest of their soft kit, the comfort of these coats is unrivaled."
+	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon_state = "blue-jacket"
+	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon_state = "blue-jacket"
+	inhand_icon_state = null
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	armor_type = /datum/armor/admin
+	strip_delay = 3 SECONDS
+	equip_delay_other = 4 SECONDS
+	var/hit_reflect_chance = 50
+
+/obj/item/clothing/suit/admin/IsReflect(def_zone)
+	if (prob(hit_reflect_chance))
+		return TRUE
+
+/obj/item/clothing/suit/admin/subspace
+	name = "subspace letterman"
+	icon_state = "sub-jacket"
+	worn_icon_state = "sub-jacket"
+	armor_type = /datum/armor/admin/badmin
+	hit_reflect_chance = 100
 
 // Worlds most comfortable gloves, great for tickling spacetime
 /obj/item/clothing/gloves/tackler/admin
@@ -256,33 +327,5 @@
 	icon_state = "sub-magboots0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	armor_type = /datum/armor/admin/badmin
-
-
-// Bussy berets, using an old CC beret with built in greyscaling as our foundation
-/obj/item/clothing/head/helmet/space/beret/admin//code\modules\clothing\spacesuits\specialops.dm
-	name = "tech's beret"
-	desc = "An armored beret commonly used by administratively deployed techs. Uses advanced force field technology to protect the head from space."
-	greyscale_colors = "#303030ff#FFCE5B"
-	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT
-	armor_type = /datum/armor/admin
-	resistance_flags = FIRE_PROOF | ACID_PROOF
-	hair_mask = /datum/hair_mask/standard_hat_middle
-
-/obj/item/clothing/head/helmet/space/beret/admin/bluespace
-	name = "bluespace tech's beret"
-	desc = "An armored beret commonly used by special operations officers. Uses advanced force field technology to protect the head from space."
-	greyscale_colors = "#00289F#FFCE5B"
-
-/obj/item/clothing/head/helmet/space/beret/admin/subspace
-	name = "subspace tech's beret"
-	desc = "An armored beret commonly used by special operations officers. Uses advanced force field technology to protect the head from space."
-	greyscale_colors = "#C68EEF#FFCE5B"
-
-// Flannel armor. Fight me.
-/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags/admin//modular_nova\modules\customization\modules\clothing\under\utility_port\suits_port.dm
-	armor_type = /datum/armor/admin
-	name = "tech's flannel"
-	desc = "Comfortable. Comforting. Gives warmer hugs than VSC ever code."
-	greyscale_colors = "#303030ff"
 
 

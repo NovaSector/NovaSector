@@ -24,7 +24,7 @@
 	desc = "A Subspace ID card. Has ALL the all access, you really shouldn't have this."
 	icon_state = "card_carp"
 	assigned_icon_state = "assigned_centcom"
-	trim = /datum/id_trim/admin/sst
+	trim = /datum/id_trim/admin/subspace
 	wildcard_slots = WILDCARD_LIMIT_ADMIN
 
 /datum/id_trim/admin/subspace
