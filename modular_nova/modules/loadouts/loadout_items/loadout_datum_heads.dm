@@ -868,7 +868,7 @@
 	restricted_roles = (ALL_JOBS_SEC)
 	group = "Costumes"
 
-/datum/loadout_item/head/rabbit/playbunny/sec/dept
+/datum/loadout_item/head/rabbit/playbunny/secdept
 	name = "Less Secure Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/security/assistant
 	restricted_roles = (ALL_JOBS_SEC)
@@ -886,19 +886,19 @@
 	restricted_roles = (JOB_HEAD_OF_SECURITY)
 	group = "Costumes"
 
-/datum/loadout_item/head/rabbit/playbunny/sec/med
+/datum/loadout_item/head/rabbit/playbunny/secmed
 	name = "Secure Medical Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/brig_phys
 	restricted_roles = (ALL_JOBS_SEC)
 	group = "Costumes"
 
-/datum/loadout_item/head/rabbit/playbunny/sec/det
+/datum/loadout_item/head/rabbit/playbunny/secdet
 	name = "Curious Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/detective
 	restricted_roles = (JOB_DETECTIVE)
 	group = "Costumes"
 
-/datum/loadout_item/head/rabbit/playbunny/sec/det/noir
+/datum/loadout_item/head/rabbit/playbunny/sec/detnoir
 	name = "Curious Noir Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/detective/noir
 	restricted_roles = (JOB_DETECTIVE)
