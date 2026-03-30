@@ -770,13 +770,13 @@
 /datum/loadout_item/head/rabbit/playbunny/cap
 	name = "Captain Bunny Ears"
 	item_path = /obj/item/clothing/head/hats/caphat/bunnyears_captain
-	restricted_roles = (JOB_CAPTAIN)
+	restricted_roles = list(JOB_CAPTAIN)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/qm
 	name = "Quartermaster Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/quartermaster
-	restricted_roles = (JOB_QUARTERMASTER)
+	restricted_roles = list(JOB_QUARTERMASTER)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/cargo
@@ -807,7 +807,7 @@
 /datum/loadout_item/head/rabbit/playbunny/engi/ce
 	name = "Chief Engineer's Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/ce
-	restricted_roles = (JOB_CHIEF_ENGINEER)
+	restricted_roles = list(JOB_CHIEF_ENGINEER)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/med
@@ -838,7 +838,7 @@
 /datum/loadout_item/head/rabbit/playbunny/med/cmo
 	name = "Chief Medical Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/cmo
-	restricted_roles = (JOB_CHIEF_MEDICAL_OFFICER)
+	restricted_roles = list(JOB_CHIEF_MEDICAL_OFFICER)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/rnd
@@ -859,49 +859,49 @@
 /datum/loadout_item/head/rabbit/playbunny/rnd/rd
 	name = "Director Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/rd
-	restricted_roles = (JOB_RESEARCH_DIRECTOR)
+	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/secdept
 	name = "Less Secure Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/security/assistant
-	restricted_roles = (ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/sec
 	name = "Secure Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/security
-	restricted_roles = (ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/sec/warden
 	name = "Secure Silver Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/warden
-	restricted_roles = (JOB_WARDEN)
+	restricted_roles = list(JOB_WARDEN)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/sec/hos
 	name = "Secure Gold Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/hos
-	restricted_roles = (JOB_HEAD_OF_SECURITY)
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/secmed
 	name = "Secure Medical Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/brig_phys
-	restricted_roles = (ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/secdet
 	name = "Curious Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/detective
-	restricted_roles = (JOB_DETECTIVE)
+	restricted_roles = list(JOB_DETECTIVE)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/sec/detnoir
 	name = "Curious Noir Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/detective/noir
-	restricted_roles = (JOB_DETECTIVE)
+	restricted_roles = list(JOB_DETECTIVE)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/prisoner
@@ -912,7 +912,7 @@
 /datum/loadout_item/head/rabbit/playbunny/hop
 	name = "Hopping Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/hop
-	restricted_roles = (JOB_HEAD_OF_PERSONNEL)
+	restricted_roles = list(JOB_HEAD_OF_PERSONNEL)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/bar
