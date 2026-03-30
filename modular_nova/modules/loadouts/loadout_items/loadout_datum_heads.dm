@@ -782,7 +782,6 @@
 /datum/loadout_item/head/rabbit/playbunny/cargo
 	name = "Cargo Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/cargo
-	restricted_roles = (ALL_JOBS_CARGO)
 	group = "Costumes"
 
 /datum/loadout_item/head/rabbit/playbunny/mail
