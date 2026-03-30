@@ -247,7 +247,7 @@
 	item_path = /obj/item/clothing/neck/tie/bunnytie/magician
 
 /datum/loadout_item/neck/bowtie/cc
-	name = "Tie - Centcomm Bow Collar"
+	name = "Tie - Centcom Bow Collar"
 	item_path = /obj/item/clothing/neck/tie/bunnytie/centcom
 
 /datum/loadout_item/neck/bowtie/soviet
