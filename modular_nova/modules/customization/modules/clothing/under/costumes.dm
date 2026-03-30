@@ -462,7 +462,7 @@
 
 /obj/item/clothing/under/rank/civilian/mime_bunnysuit
 	name = "mime's bunny suit"
-	desc = "The staple of any bunny themed mimes. Includes black and white stockings in order to comply with mime federation outfit regulations."
+	desc = "The staple of any bunny themed mimes. Includes black and white stockings in order to comply with Mime Federation outfit regulations."
 	icon_state = "bunnysuit_mime"
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'

@@ -320,7 +320,7 @@
 	is_tied = TRUE
 
 /obj/item/clothing/neck/tie/bunnytie/bitrunner
-	name = "bitrunner's bowtie"
+	name = "bunrunner's bowtie"
 	desc = "Bitrunners were told that wearing a novelty shirt with a printed bow tie wasn't enough for formal events."
 	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	icon_state = "bowtie_collar_bitrunner_tied"

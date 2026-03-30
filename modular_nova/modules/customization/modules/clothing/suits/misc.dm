@@ -500,7 +500,7 @@
 	flags_inv = null
 
 /obj/item/clothing/suit/jacket/tailcoat/centcom
-	name = "Centcom tailcoat"
+	name = "centcom tailcoat"
 	desc = "An official coat usually worn by bunny themed executives. The inside is lined with comfortable yet tasteful bunny fluff."
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
 	icon_state = "tailcoat_centcom"
@@ -620,7 +620,7 @@
 
 
 /obj/item/clothing/suit/jacket/tailcoat/bitrunner
-	name = "bitrunner tailcoat"
+	name = "bunrunner tailcoat"
 	desc = "A black and gold coat worn by bunny themed cargo technicians. Open your Space Colas and let's fuckin' game!"
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
 	icon_state = "bitrunner"
@@ -841,7 +841,7 @@
 	desc = "A reinforced tailcoat worn by bunny themed wardens. Stylishly holds hidden flak plates."
 	icon_state = "warden"
 
-/obj/item/clothing/suit/toggle/labcoat/skyrat/security_medic/doctor_tailcoat
+/obj/item/clothing/suit/toggle/labcoat/nova/security_medic/doctor_tailcoat
 	name = "brig physician's tailcoat"
 	desc = "A mostly sterile red and grey coat worn by bunny themed brig physicians. It lacks the padding of the \"standard\" security tailcoat."
 	icon_state = "brig_phys"
