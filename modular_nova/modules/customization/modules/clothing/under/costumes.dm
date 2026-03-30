@@ -320,7 +320,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
-
 /obj/item/clothing/under/rank/security/security_assistant_bunnysuit
 	desc = "The staple of any bunny themed security assistants. Can't lost respect you don't have!"
 	name = "security assistant's bunnysuit"
@@ -330,8 +329,6 @@
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
-
-
 
 /obj/item/clothing/under/rank/security/warden_bunnysuit
 	desc = "The staple of any bunny themed wardens. The more formal security bunny suit for a less combat focused job."
@@ -343,7 +340,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
-
 /obj/item/clothing/under/rank/security/brig_phys_bunnysuit
 	desc = "The staple of any bunny themed brig physicians. The rejected alternative to an already discontinued alternate uniform, now sold at a premium!"
 	name = "brig physician's bunnysuit"
@@ -352,7 +348,6 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
-
 
 /obj/item/clothing/under/rank/security/detective_bunnysuit
 	desc = "The staple of any bunny themed detectives. Capable of storing precious candy corns."
@@ -364,7 +359,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
-
 /obj/item/clothing/under/rank/security/detective_bunnysuit/noir
 	desc = "The staple of any noir bunny themed detectives. Capable of storing precious candy corns."
 	name = "noir detective's bunnysuit"
@@ -375,7 +369,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
-
 /obj/item/clothing/under/rank/security/prisoner_bunnysuit
 	desc = "The staple of any bunny themed prisoners. Great for hiding shanks and other small contrabands."
 	name = "prisoner's bunnysuit"
@@ -385,7 +378,6 @@
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
-
 
 /obj/item/clothing/under/rank/security/head_of_security/bunnysuit
 	desc = "The staple of any bunny themed security commanders. Includes kevlar weave stockings and a gilded tail."
@@ -470,7 +462,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
-
 /obj/item/clothing/under/rank/civilian/chaplain_bunnysuit
 	name = "chaplain's bunny suit"
 	desc = "The staple of any bunny themed chaplains. The wool for the stockings came from a sacrificial lamb, making them extra holy."
@@ -511,7 +502,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
-
 /obj/item/clothing/under/rank/civilian/lawyer_bunnysuit_black
 	name = "lawyer's black bunny suit"
 	desc = "A black linen coat worn by bunny themed lawyers. May or may not contain souls of the damned in suit pockets."
@@ -522,7 +512,6 @@
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
-
 
 /obj/item/clothing/under/rank/civilian/lawyer_bunnysuit_blue
 	name = "lawyer's blue bunny suit"

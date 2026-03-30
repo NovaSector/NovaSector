@@ -214,8 +214,6 @@
 		/obj/item/clothing/under/rank/civilian/cook_bunnysuit = 2,
 	)
 
-
-
 /obj/machinery/vending/cart
 	products_nova = list(
 		/obj/item/radio/headset/headset_srv = 3,
@@ -267,7 +265,6 @@
 		/obj/item/clothing/under/rank/security/detective_bunnysuit/noir = 2,
 	)
 	premium_nova = list(/obj/item/disk/nifsoft_uploader/job/summoner/detective = 2)
-
 
 /obj/machinery/vending/wardrobe/law_wardrobe
 	products_nova = list(
