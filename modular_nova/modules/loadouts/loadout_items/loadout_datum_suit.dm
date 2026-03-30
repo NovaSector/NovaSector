@@ -1005,13 +1005,11 @@
 	group = "Job-Locked"
 
 //SCI
-
 /datum/loadout_item/suit/tailcoat/rnd/rd
 	name = "Research Director's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/research_director/tailcoat
 	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
 	group = "Job-Locked"
-
 
 //SEC
 /datum/loadout_item/suit/navybluejackethos
@@ -1097,7 +1095,6 @@
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/security_medic/doctor_tailcoat
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
-
 
 //Detective
 /datum/loadout_item/suit/deckard

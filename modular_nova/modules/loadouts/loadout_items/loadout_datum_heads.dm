@@ -741,12 +741,12 @@
 	restricted_roles = list(JOB_DETECTIVE)
 	group = "Job-Locked"
 
-/datum/loadout_item/head/rabbit/playbunny
+/datum/loadout_item/head/rabbit
 	name = "Playbunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears
 	group = "Costumes"
 
-/datum/loadout_item/head/rabbit/playbunny/cc
+/datum/loadout_item/head/rabbit/playbunny
 	name = "CentCom Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/centcom
 	restricted_roles = list(ALL_JOBS_CC)
