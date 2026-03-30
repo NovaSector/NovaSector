@@ -89,3 +89,80 @@
 	. = ..()
 	if(owner in my_belly.nommeds)
 		my_belly.free_target(owner)
+
+/// This isn't an action button, persay, but it is an action.
+/// This is the main helper function for handling pref & consent checks before nomming someone.
+/// Call this, not do_nom, unless you are *debugging on local* and don't have two clients to work with.
+/obj/item/belly_function/proc/try_nom(mob/living/carbon/human/target, mob/living/carbon/human/user)
+	if(!ishuman(target) || (target.stat == DEAD) || !ishuman(user) || user == target) //sanity check
+		return
+	/// Tracks the pred's (our user's) consent state.
+	var/consent_pred = FALSE
+	/// Tracks the prey's (our target's) consent state.
+	var/consent_prey = FALSE
+	/// Helper for tgui_alert to provide standard yes or no.
+	var/list_yesno = list("Yes", "No")
+
+	/// Query the host if applicable.  This belly has to be configured to QUERY or ALWAYS mode; otherwise we exit early as the pred doesn't want this.
+	if(pred_mode == "Query")
+		var/mode_select = tgui_alert(user, "Try to vore [target]?", "Nomnom?", list_yesno)
+		if(isnull(mode_select) || QDELETED(user) || QDELETED(src))
+			return
+		consent_pred = (mode_select == "Yes") ? TRUE : FALSE
+	else if(pred_mode == "Always")
+		consent_pred = TRUE
+
+	/// Query the target if applicable.  Their client has to be present, with this character opted in to be a prey, and the pred has to have already consented.
+	var/prey_mode = target.client?.prefs?.read_preference(/datum/preference/choiced/erp_vore_prey_pref)
+	if(consent_pred == TRUE)
+		if(prey_mode == "Query")
+			var/mode_select = tgui_alert(target, "Allow [user] to vore you?", "Nomnom?", list_yesno)
+			if(isnull(mode_select) || QDELETED(target) || QDELETED(src))
+				return
+			consent_prey = (mode_select == "Yes") ? TRUE : FALSE
+		else if(prey_mode == "Always")
+			consent_prey = TRUE
+
+	/// If everybody consents, go ahead and try to nom...
+	if(consent_pred == TRUE && consent_prey == TRUE)
+		do_nom(target, user)
+	/// ...or if the target says no, display the standard interact deny message.
+	else if(consent_pred == TRUE && consent_prey == FALSE)
+		to_chat(user, span_danger("[target] doesn't want you to do that."))
+
+/// This is where the magic happens to actually nom someone.
+/// *Do not call this outside of debug*, it doesn't have consent checks.
+/obj/item/belly_function/proc/do_nom(mob/living/carbon/human/target, mob/living/carbon/human/user)
+	// Step 0: backup sanity check.  adminbussing inception might be funny but the consequences could fold reality like tissue paper
+	if((target.loc in user.contents) || (user.loc in target.contents) || (target.loc.loc == user) || (user.loc.loc == target) || (user == target))
+		return FALSE
+	// Step 1: put them in the list (your belly)
+	to_chat(target, span_danger("[user] gulps you down!"))
+	to_chat(user, span_danger("You gulp down [target]!"))
+	LAZYADD(nommeds, target)
+	LAZYSET(nommed_sizes, target, endo_size)
+
+	// Step 2: scan their lungs to determine what air of yours this fool is breathing
+	/// Track the target's lungs, if they have them, so we can extract their expected breath types.
+	var/obj/item/organ/lungs/hopefully_lungs = target.organs_slot["lungs"]
+	/// String where a gasmix is assembled to be parsed.
+	var/last_gasmix = ""
+	if(hopefully_lungs)
+		for(var/something_in_list in hopefully_lungs.breathe_always)
+			var/datum/gas/a_gas = new something_in_list()
+			if(istype(a_gas))
+				last_gasmix = "[last_gasmix][a_gas.id]=20;"
+		last_gasmix = "[last_gasmix]TEMP=[(hopefully_lungs.heat_level_1_threshold + hopefully_lungs.cold_level_1_threshold) / 2]]"
+	else
+		last_gasmix = "o2=5;n2=10;TEMP=293.15"
+
+	// Step 3: save that air in workable gasmix form.  handle_internal_lifeform is nominally assumed to already remove air, this prevents it from being an issue.
+	LAZYSET(nommed_gasmixes, target, SSair.parse_gas_string(last_gasmix))
+	/// Step 4: tell the user it's in a "machine" (your belly)- this lets your belly provide the previously calculated airmix - see below in handle_internal_lifeform
+	SEND_SIGNAL(user, COMSIG_MACHINERY_SET_OCCUPANT, target)
+	/// Step 5: finally, move them into the belly, give escape action, and recalculate everything
+	target.forceMove(src)
+	var/datum/action/item_action/belly_menu/escape/helper = new /datum/action/item_action/belly_menu/escape(src)
+	helper.Grant(grant_to = target)
+	LAZYSET(escape_helpers, target, helper)
+	recalculate_guest_sizes()

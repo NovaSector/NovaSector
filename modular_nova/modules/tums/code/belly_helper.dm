@@ -108,16 +108,16 @@
 
 	/// Full creaks, groans & similar (allow_sound_groans, full_cooldown)
 	var/static/list/full_sounds = list("modular_nova/modules/tums/sounds/Creaks/Creak1.ogg", "modular_nova/modules/tums/sounds/Creaks/Creak2.ogg", "modular_nova/modules/tums/sounds/Creaks/Creak3.ogg", "modular_nova/modules/tums/sounds/Creaks/Creak4.ogg", "modular_nova/modules/tums/sounds/Creaks/Creak5.ogg", "modular_nova/modules/tums/sounds/Creaks/Creak6.ogg", "modular_nova/modules/tums/sounds/Creaks/Creak7.ogg", "modular_nova/modules/tums/sounds/Creaks/Creak8.ogg", "modular_nova/modules/tums/sounds/Creaks/Creak9.ogg", "modular_nova/modules/tums/sounds/Creaks/Creak10.ogg")
-	
+
 	/// Low-level stuffed digestion noises (allow_sound_gurgles, stuff_minor_cooldown)
 	var/static/list/stuff_minor = list("modular_nova/modules/tums/sounds/Gurgles/Gurgle1.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle2.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle3.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle4.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle5.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle6.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle7.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle8.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle9.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle10.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle11.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle12.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle13.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle14.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle15.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle16.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle17.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle18.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle19.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle20.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle21.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle22.ogg", "modular_nova/modules/tums/sounds/Gurgles/Gurgle23.ogg")
-	
+
 	/// Noisier gurgles and churns for being very stuffed (allow_sound_gurgles, stuff_major_cooldown)
 	var/static/list/stuff_major = list("modular_nova/modules/tums/sounds/Churns/Churn1.ogg", "modular_nova/modules/tums/sounds/Churns/Churn2.ogg", "modular_nova/modules/tums/sounds/Churns/Churn3.ogg", "modular_nova/modules/tums/sounds/Churns/Churn4.ogg", "modular_nova/modules/tums/sounds/Churns/Churn5.ogg", "modular_nova/modules/tums/sounds/Churns/Churn6.ogg", "modular_nova/modules/tums/sounds/Churns/Churn7.ogg", "modular_nova/modules/tums/sounds/Churns/Churn8.ogg", "modular_nova/modules/tums/sounds/Churns/Churn9.ogg")
-	
+
 	/// Movement noise for a full but not sloshy tummy (allow_sound_move_creaks, move_creak_cooldown)
 	var/static/list/move_creaks = list("modular_nova/modules/tums/sounds/Growls/Growl1.ogg", "modular_nova/modules/tums/sounds/Growls/Growl2.ogg", "modular_nova/modules/tums/sounds/Growls/Growl3.ogg", "modular_nova/modules/tums/sounds/Growls/Growl4.ogg", "modular_nova/modules/tums/sounds/Growls/Growl5.ogg", "modular_nova/modules/tums/sounds/Growls/Growl6.ogg")
-	
+
 	/// Movement noise for an overfull, stuffed tummy (allow_sound_move_sloshes, move_slosh_cooldown)
 	var/static/list/slosh_sounds = list("modular_nova/modules/tums/sounds/Sloshes/BigSlosh1.ogg", "modular_nova/modules/tums/sounds/Sloshes/BigSlosh2.ogg", "modular_nova/modules/tums/sounds/Sloshes/BigSlosh3.ogg", "modular_nova/modules/tums/sounds/Sloshes/BigSlosh4.ogg", "modular_nova/modules/tums/sounds/Sloshes/Slosh1.ogg", "modular_nova/modules/tums/sounds/Sloshes/Slosh2.ogg")
 
@@ -238,43 +238,6 @@
 	if(!QDELETED(src))
 		qdel(src)
 
-/// This isn't where the magic happens for doing the overlays.
-/// See the /erp/ alt_appearance subtype for more info.
-/obj/item/belly_function/proc/do_alt_appearance(mob/living/carbon/human/target, do_cut, size)
-	/// Don't do anything on null targets.
-	if(isnull(target))
-		return
-	/// Dummies use normal overlays instead of alt_appearance for correct chargen behaviour.
-	/// If an admin puts a belly on a dummy in tdome for some reason & you get flashbanged, yell at them!
-	else if(isdummy(target))
-		if(do_cut == TRUE)
-			target.cut_overlay(overlay_south)
-			target.cut_overlay(overlay_north)
-			target.cut_overlay(overlay_horizontal)
-			last_size = -1
-			/// Overlay_south is used as an indicator that overlays are present, so axe it.
-			overlay_south = null
-		else
-			target.add_overlay(overlay_south)
-			target.add_overlay(overlay_north)
-			target.add_overlay(overlay_horizontal)
-	/// Normal players use alt_appearance for the proper ability to hide bellies from nonconsenting viewers.
-	else
-		if(do_cut == TRUE)
-			for(var/ticker in 1 to size)
-				target.remove_alt_appearance("erp_belly_south-[ticker]")
-				target.remove_alt_appearance("erp_belly_north-[ticker]")
-				target.remove_alt_appearance("erp_belly_horizontal-[ticker]")
-			last_size = -1
-			/// Overlay_south is used as an indicator that overlays are present, so axe it.
-			overlay_south = null
-		else
-			/// TODO: We might need to migrate handtype from user.dna.species.id to a bespoke check.
-			/// Depending on how scrungly people are willing to make their blorbos, generating entirely bespoke masks might become necessary.
-			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_south-[size]", image(overlay_south, loc=target, layer=overlay_south.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_south-", size, target.dna.species.id)
-			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_north-[size]", image(overlay_north, loc=target, layer=overlay_north.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_north-", size, target.dna.species.id)
-			target.add_alt_appearance(/datum/atom_hud/alternate_appearance/erp/belly, "erp_belly_horizontal-[size]", image(overlay_horizontal, loc=target, layer=overlay_horizontal.layer), AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS, target, "erp_belly_horizontal-", size, target.dna.species.id)
-
 /// Strip the action & appearance from a user if needed.
 /// This is non-destructive; the quirk can be temporarily disabled by pref changes, body swaps, etc to reduce prefbreak risk.
 /// This means that when the user is back in their body & in a valid state, the quirk re-enables itself nondestructively.
@@ -284,71 +247,6 @@
 	if(overlay_south != null)
 		do_alt_appearance(user, TRUE, last_size)
 	lastuser = null
-
-/// Helper function that handles rebuilding overlays.
-/obj/item/belly_function/proc/refresh_overlays(mob/living/carbon/human/user, inbound_size)
-	/// Cut out-of-date overlays.
-	if(overlay_south != null)
-		do_alt_appearance(user, TRUE, last_size)
-	overlay_horizontal_all -= overlay_horizontal_all
-	overlay_south_all -= overlay_south_all
-	overlay_north_all -= overlay_north_all
-
-	var/oldstate = worn_icon_state
-	/// Size counts down from maximum to minimum to ensure correct layering.
-	var/counter = inbound_size
-	var/max = inbound_size
-	/// Dummies don't need advanced layering, as they directly use add_overlay.
-	if(isdummy(user))
-		max = 1
-	for(var/cycles in 1 to max)
-		/// Pick an icon file first.
-		var/iconfile = counter > 10 ? worn_icon_64x : worn_icon
-		if(use_skintone == TRUE)
-			iconfile = counter > 10 ? skintone_worn_icon_64x : skintone_worn_icon
-		else if(user.dna.species.id == SPECIES_TESHARI)
-			iconfile = counter > 10 ? worn_icon_teshari_64x : worn_icon_teshari
-
-		/// Slimes need translucency
-		if(use_slime_alpha)
-			alpha = 155
-
-		/// Generate appearances next.
-		var/icon_state_wew = "[base_icon_state]-[counter]"
-		worn_icon_state = "[icon_state_wew]_HORIZONTAL"
-		overlay_horizontal = src.build_worn_icon(default_layer = (hori_layer), default_icon_file = iconfile, isinhands = FALSE, override_file = iconfile)
-		worn_icon_state = "[icon_state_wew]_FRONT"
-		overlay_south = src.build_worn_icon(default_layer = (south_layer), default_icon_file = iconfile, isinhands = FALSE, override_file = iconfile)
-		worn_icon_state = "[icon_state_wew]_BACK"
-		overlay_north = src.build_worn_icon(default_layer = (north_layer), default_icon_file = iconfile, isinhands = FALSE, override_file = iconfile)
-		worn_icon_state = oldstate
-
-		/// Sizes above 10 use the 64x icon file, and therefor need offsets.
-		if(counter > 10)
-			overlay_horizontal.pixel_x -= 16
-			overlay_horizontal.pixel_y -= 16
-			overlay_south.pixel_x -= 16
-			overlay_south.pixel_y -= 16
-			overlay_north.pixel_x -= 16
-			overlay_north.pixel_y -= 16
-
-		/// Teshari chests are about 3px lower than normal, this allows them to still have the same variety of sizes without flattening out.
-		if(user.dna.species.id == SPECIES_TESHARI)
-			overlay_horizontal.pixel_y -= 3
-			overlay_south.pixel_y -= 3
-			overlay_north.pixel_y -= 3
-
-		/// Create final image() instances suitable for alt_apperance & log them in overlays to cut later as needed.
-		overlay_horizontal = image(overlay_horizontal, loc = user, layer = overlay_horizontal.layer)
-		overlay_south = image(overlay_south, loc = user, layer = overlay_south.layer)
-		overlay_north = image(overlay_north, loc = user, layer = overlay_north.layer)
-		overlay_horizontal_all += overlay_horizontal
-		overlay_south_all += overlay_south
-		overlay_north_all += overlay_north
-
-		/// Finally, actually add this layer of overlays.
-		do_alt_appearance(user, FALSE, counter)
-		counter -= 1
 
 /// Helper function that recalculates the total endo size from nommed guests.
 /obj/item/belly_function/proc/recalculate_guest_sizes()
@@ -436,82 +334,6 @@
 	if(move_slosh_cooldown < 0 && allow_sound_move_sloshes)
 		move_slosh_cooldown = rand(15, 60)
 		playsound_if_pref(user, pick(slosh_sounds), min(20 + round(total_fullness/32, 1), 50), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_sloshes)
-
-/// The main helper function for handling pref & consent checks before nomming someone.
-/// Call this, not do_nom, unless you are *debugging on local* and don't have two clients to work with.
-/obj/item/belly_function/proc/try_nom(mob/living/carbon/human/target, mob/living/carbon/human/user)
-	if(!ishuman(target) || (target.stat == DEAD) || !ishuman(user) || user == target) //sanity check
-		return
-	/// Tracks the pred's (our user's) consent state.
-	var/consent_pred = FALSE
-	/// Tracks the prey's (our target's) consent state.
-	var/consent_prey = FALSE
-	/// Helper for tgui_alert to provide standard yes or no.
-	var/list_yesno = list("Yes", "No")
-
-	/// Query the host if applicable.  This belly has to be configured to QUERY or ALWAYS mode; otherwise we exit early as the pred doesn't want this.
-	if(pred_mode == "Query")
-		var/mode_select = tgui_alert(user, "Try to vore [target]?", "Nomnom?", list_yesno)
-		if(isnull(mode_select) || QDELETED(user) || QDELETED(src))
-			return
-		consent_pred = (mode_select == "Yes") ? TRUE : FALSE
-	else if(pred_mode == "Always")
-		consent_pred = TRUE
-
-	/// Query the target if applicable.  Their client has to be present, with this character opted in to be a prey, and the pred has to have already consented.
-	var/prey_mode = target.client?.prefs?.read_preference(/datum/preference/choiced/erp_vore_prey_pref)
-	if(consent_pred == TRUE)
-		if(prey_mode == "Query")
-			var/mode_select = tgui_alert(target, "Allow [user] to vore you?", "Nomnom?", list_yesno)
-			if(isnull(mode_select) || QDELETED(target) || QDELETED(src))
-				return
-			consent_prey = (mode_select == "Yes") ? TRUE : FALSE
-		else if(prey_mode == "Always")
-			consent_prey = TRUE
-
-	/// If everybody consents, go ahead and try to nom...
-	if(consent_pred == TRUE && consent_prey == TRUE)
-		do_nom(target, user)
-	/// ...or if the target says no, display the standard interact deny message.
-	else if(consent_pred == TRUE && consent_prey == FALSE)
-		to_chat(user, span_danger("[target] doesn't want you to do that."))
-
-/// This is where the magic happens to actually nom someone.
-/// *Do not call this outside of debug*, it doesn't have consent checks.
-/obj/item/belly_function/proc/do_nom(mob/living/carbon/human/target, mob/living/carbon/human/user)
-	// Step 0: backup sanity check.  adminbussing inception might be funny but the consequences could fold reality like tissue paper
-	if((target.loc in user.contents) || (user.loc in target.contents) || (target.loc.loc == user) || (user.loc.loc == target) || (user == target))
-		return FALSE
-	// Step 1: put them in the list (your belly)
-	to_chat(target, span_danger("[user] gulps you down!"))
-	to_chat(user, span_danger("You gulp down [target]!"))
-	LAZYADD(nommeds, target)
-	LAZYSET(nommed_sizes, target, endo_size)
-
-	// Step 2: scan their lungs to determine what air of yours this fool is breathing
-	/// Track the target's lungs, if they have them, so we can extract their expected breath types.
-	var/obj/item/organ/lungs/hopefully_lungs = target.organs_slot["lungs"]
-	/// String where a gasmix is assembled to be parsed.
-	var/last_gasmix = ""
-	if(hopefully_lungs)
-		for(var/something_in_list in hopefully_lungs.breathe_always)
-			var/datum/gas/a_gas = new something_in_list()
-			if(istype(a_gas))
-				last_gasmix = "[last_gasmix][a_gas.id]=20;"
-		last_gasmix = "[last_gasmix]TEMP=[(hopefully_lungs.heat_level_1_threshold + hopefully_lungs.cold_level_1_threshold) / 2]]"
-	else
-		last_gasmix = "o2=5;n2=10;TEMP=293.15"
-
-	// Step 3: save that air in workable gasmix form.  handle_internal_lifeform is nominally assumed to already remove air, this prevents it from being an issue.
-	LAZYSET(nommed_gasmixes, target, SSair.parse_gas_string(last_gasmix))
-	/// Step 4: tell the user it's in a "machine" (your belly)- this lets your belly provide the previously calculated airmix - see below in handle_internal_lifeform
-	SEND_SIGNAL(user, COMSIG_MACHINERY_SET_OCCUPANT, target)
-	/// Step 5: finally, move them into the belly, give escape action, and recalculate everything
-	target.forceMove(src)
-	var/datum/action/item_action/belly_menu/escape/helper = new /datum/action/item_action/belly_menu/escape(src)
-	helper.Grant(grant_to = target)
-	LAZYSET(escape_helpers, target, helper)
-	recalculate_guest_sizes()
 
 /// This is what provides healthy air for occupants to breathe.
 /obj/item/belly_function/handle_internal_lifeform(mob/lifeform_inside_me, breath_request)
