@@ -741,6 +741,256 @@
 	restricted_roles = list(JOB_DETECTIVE)
 	group = "Job-Locked"
 
+/datum/loadout_item/head/rabbit/playbunny
+	name = "Playbunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/cc
+	name = "CentCom Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/centcom
+	restricted_roles = list(ALL_JOBS_CC)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/usa
+	name = "American Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/usa
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/ussr
+	name = "Soviet Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/communist
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/brit
+	name = "British Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/british
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/cap
+	name = "Captain Bunny Ears"
+	item_path = /obj/item/clothing/head/hats/caphat/bunnyears_captain
+	restricted_roles = (JOB_CAPTAIN)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/qm
+	name = "Quartermaster Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/quartermaster
+	restricted_roles = (JOB_QUARTERMASTER)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/cargo
+	name = "Cargo Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/cargo
+	restricted_roles = (ALL_JOBS_CARGO)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/mail
+	name = "Courier Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/mailman
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/bitrun
+	name = "Gamer's Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/bitrunner
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/engi
+	name = "Engineer's Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/engineer
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/engi/atmos
+	name = "Atmos Tech's Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/atmos_tech
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/engi/ce
+	name = "Chief Engineer's Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/ce
+	restricted_roles = (JOB_CHIEF_ENGINEER)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/med
+	name = "Medical Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/doctor
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/med/para
+	name = "Paramedical Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/paramedic
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/med/chem
+	name = "Chemical Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/chemist
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/med/viro
+	name = "Pathological Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/pathologist
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/med/coroner
+	name = "Coroner Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/coroner
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/med/cmo
+	name = "Chief Medical Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/cmo
+	restricted_roles = (JOB_CHIEF_MEDICAL_OFFICER)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/rnd
+	name = "Research Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/scientist
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/rnd/robo
+	name = "Robotic Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/roboticist
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/rnd/gene
+	name = "Genetic Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/geneticist
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/rnd/rd
+	name = "Director Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/rd
+	restricted_roles = (JOB_RESEARCH_DIRECTOR)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/sec
+	name = "Secure Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/security
+	restricted_roles = (ALL_JOBS_SEC)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/sec/dept
+	name = "Less Secure Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/security/assistant
+	restricted_roles = (ALL_JOBS_SEC)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/sec/warden
+	name = "Secure Silver Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/warden
+	restricted_roles = (JOB_WARDEN)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/sec/hos
+	name = "Secure Gold Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/hos
+	restricted_roles = (JOB_HEAD_OF_SECURITY)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/sec/med
+	name = "Secure Medical Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/brig_phys
+	restricted_roles = (ALL_JOBS_SEC)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/sec/det
+	name = "Curious Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/detective
+	restricted_roles = (JOB_DETECTIVE)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/sec/det/noir
+	name = "Curious Noir Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/detective/noir
+	restricted_roles = (JOB_DETECTIVE)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/prisoner
+	name = "Locked Up Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/prisoner
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/hop
+	name = "Hopping Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/hop
+	restricted_roles = (JOB_HEAD_OF_PERSONNEL)
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/bar
+	name = "Drunk Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/bartender
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/jani
+	name = "Clean Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/janitor
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/chef
+	name = "Hungry Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/cook
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/hydro
+	name = "Botanical Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/botanist
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/clown
+	name = "Funny Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/clown
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/mime
+	name = "Quiet Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/mime
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/chaplain
+	name = "Holy Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/chaplain
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/curator/red
+	name = "Nerdy Red Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/curator_red
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/curator/green
+	name = "Nerdy Green Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/curator_green
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/curator/teal
+	name = "Nerdy Green Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/curator_teal
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/lawyer/black
+	name = "Lawful Black Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/lawyer_black
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/lawyer/blue
+	name = "Lawful Blue Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/lawyer_blue
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/lawyer/red
+	name = "Lawful Red Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/lawyer_red
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/lawyer/good
+	name = "Lawful Good Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/lawyer_good
+	group = "Costumes"
+
+/datum/loadout_item/head/rabbit/playbunny/psych
+	name = "Shrink's Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears/psychologist
+	group = "Costumes"
+
 /*
 *	erp_item
 */
