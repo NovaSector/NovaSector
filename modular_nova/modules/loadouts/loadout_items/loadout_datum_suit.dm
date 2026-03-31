@@ -991,21 +991,21 @@
 	restricted_roles = list(ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoatengi/atmos
+/datum/loadout_item/suit/tailcoatengiatmos
 	name = "Atmos Tech's Tailcoat"
 	item_path = /obj/item/clothing/suit/utility/fire/atmos_tech_tailcoat
 	restricted_roles = list(ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 //MED
-/datum/loadout_item/suit/tailcoatmed/cmo
+/datum/loadout_item/suit/tailcoatmedcmo
 	name = "Chief Medical Officer's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/cmo/doctor_tailcoat
 	restricted_roles = list(JOB_CHIEF_MEDICAL_OFFICER)
 	group = "Job-Locked"
 
 //SCI
-/datum/loadout_item/suit/tailcoatrnd/rd
+/datum/loadout_item/suit/tailcoatrndrd
 	name = "Research Director's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/research_director/tailcoat
 	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
@@ -1018,7 +1018,7 @@
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoatsec/hos
+/datum/loadout_item/suit/tailcoatsechos
 	name = "Head of Security's Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/hos_tailcoat
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
@@ -1030,7 +1030,7 @@
 	restricted_roles = list(JOB_WARDEN)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoatsec/warden
+/datum/loadout_item/suit/tailcoatsecwarden
 	name = "Warden's Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/security_tailcoat/warden
 	restricted_roles = list(JOB_WARDEN)
@@ -1084,13 +1084,13 @@
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoatsec/dept
+/datum/loadout_item/suit/tailcoatsecdept
 	name = "Security's Deputy Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/security_tailcoat/assistant
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoatsec/medic
+/datum/loadout_item/suit/tailcoatsecmedic
 	name = "Security's Medicated Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/security_medic/doctor_tailcoat
 	restricted_roles = list(ALL_JOBS_SEC)
@@ -1133,13 +1133,13 @@
 	restricted_roles = list(JOB_DETECTIVE)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoatsec/det
+/datum/loadout_item/suit/tailcoatsecdet
 	name = "Detective's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/det_suit/tailcoat
 	restricted_roles = list(JOB_DETECTIVE)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoatsec/det/noir
+/datum/loadout_item/suit/tailcoatsecdetnoir
 	name = "Detective's Noir Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/det_suit/tailcoat/noir
 	restricted_roles = list(JOB_DETECTIVE)
