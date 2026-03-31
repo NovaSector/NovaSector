@@ -323,6 +323,29 @@
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
 	ammo_categories = AMMO_CLASS_NICHE_LTL
 
+/obj/item/ammo_casing/shotgun/frangible
+	name = "frangible slug"
+	desc = "A weak anti materiel shell intended for dislodging airlock, breaking down barricades and structures. Not effective against people."
+	icon_state = "breacher"
+	projectile_type = /obj/projectile/bullet/frangible_slug
+
+/obj/projectile/bullet/frangible_slug
+	name = "frangible slug"
+	damage = 15 //I'd kill you if you manage to kill someone with this shit
+	wound_bonus = 30
+	exposed_wound_bonus = 30
+	demolition_mod = 2
+
+/obj/projectile/bullet/frangible_slug/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+	if(istype(target, /obj/structure/window) || istype(target, /obj/machinery/door/airlock) || istype(target, /obj/structure/grille) || istype(target,/obj/structure/door_assembly) || istype(target,/obj/machinery/door/window/))
+		if(isobj(target))
+			demolition_mod = 50
+			damage = 30
+		else
+			demolition_mod = 2
+			damage = 15
+
 /obj/item/ammo_casing/shotgun/hunter
 	name = "hunter slug shell"
 	desc = "A 12 gauge slug shell that fires specially designed slugs that deal extra damage to local fauna."
