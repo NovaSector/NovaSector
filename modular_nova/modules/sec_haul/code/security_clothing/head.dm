@@ -39,34 +39,30 @@
 /obj/item/clothing/head/security_garrison/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_garrison_cap)
 
-/datum/atom_skin/security_cap
-	abstract_type = /datum/atom_skin/security_cap
-
-/datum/atom_skin/security_cap/black
-	preview_name = "Black Variant"
-	new_icon_state = "security_cap_black"
-
-/datum/atom_skin/security_cap/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "security_cap_blue"
-
-/datum/atom_skin/security_cap/white
-	preview_name = "White Variant"
-	new_icon_state = "security_cap_white"
-
 /obj/item/clothing/head/security_cap
 	name = "security cap"
 	desc = "A robust cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
-	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "security_cap_black"
+	icon_state = "/obj/item/clothing/head/security_cap"
+	post_init_icon_state = "security_cap"
+	greyscale_config = /datum/greyscale_config/security_cap
+	greyscale_config_worn = /datum/greyscale_config/security_cap/worn
+	greyscale_colors = "#39393F#3F3C40#375989"	//! <
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 	dog_fashion = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/head/security_cap/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_cap)
+/obj/item/clothing/under/rank/security/nova/officer/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/blue"
+	greyscale_colors = "#3F6E9E#39393F#39393F"
+
+/obj/item/clothing/under/rank/security/nova/officer/white
+	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/white"
+	greyscale_colors = "#EBEBEB#39393F#39393F"
+
+/obj/item/clothing/under/rank/security/nova/officer/black
+	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/black"
+	greyscale_colors = "#39393F#EBEBEB#EBEBEB"
 
 /obj/item/clothing/head/beret/sec/nova
 	icon_state = "/obj/item/clothing/head/beret/sec/nova"

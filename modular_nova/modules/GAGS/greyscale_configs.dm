@@ -71,6 +71,17 @@
 	name = "Beret With Clown Badge (Worn, Teshari)"
 	icon_file = 'modular_nova/modules/GAGS/icons/beret_teshari.dmi'
 
+//SOFT CAPS
+
+/datum/greyscale_config/security_cap
+	name = "Security Cap"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/security_cap.json'
+
+/datum/greyscale_config/security_cap/worn
+	name = "Security Cap (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/security_cap_worn.json'		//! <
 
 //COWBOY
 /datum/greyscale_config/cowboy_wide
