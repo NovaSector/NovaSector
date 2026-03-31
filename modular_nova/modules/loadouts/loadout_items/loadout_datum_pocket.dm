@@ -359,7 +359,33 @@
 	name = "Perfume - Cologne"
 	item_path = /obj/item/perfume/cologne
 	group = "Cosmetics"
+/*
+*	FLAGS
+*/
 
+/datum/loadout_item/pocket_items/gaypride
+	name = "Pride Flag - Rainbow"
+	item_path = /obj/item/sign/flag/pride/gay
+
+/datum/loadout_item/pocket_items/acepride
+	name = "Pride Flag - Asexual"
+	item_path = /obj/item/sign/flag/pride/ace
+
+/datum/loadout_item/pocket_items/bipride
+	name = "Pride Flag - Bisexual"
+	item_path = /obj/item/sign/flag/pride/bi
+
+/datum/loadout_item/pocket_items/lesbianpride
+	name = "Pride Flag - Lesbian"
+	item_path = /obj/item/sign/flag/pride/lesbian
+
+/datum/loadout_item/pocket_items/panpride
+	name = "Pride Flag - Pansexual"
+	item_path = /obj/item/sign/flag/pride/pan
+
+/datum/loadout_item/pocket_items/transpride
+	name = "Pride Flag - Transgender"
+	item_path = /obj/item/sign/flag/pride/trans
 /*
 *	JOB-LOCKED
 */
