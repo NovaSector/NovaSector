@@ -475,45 +475,45 @@
 	erp_item = TRUE
 	group = "Bunny Suit"
 
-/datum/loadout_item/under/bunny/curator/red
+/datum/loadout_item/under/bunny/curatorred
 	name = "Bunny Suit (Curator, Red)"
 	item_path = /obj/item/clothing/under/rank/civilian/curator_bunnysuit_red
 	erp_item = TRUE
 	group = "Bunny Suit"
 
-/datum/loadout_item/under/bunny/curator/green
+/datum/loadout_item/under/bunny/curatorgreen
 	name = "Bunny Suit (Curator, Green)"
 	item_path = /obj/item/clothing/under/rank/civilian/curator_bunnysuit_green
 	erp_item = TRUE
 	group = "Bunny Suit"
 
-/datum/loadout_item/under/bunny/curator/teal
+/datum/loadout_item/under/bunny/curatorteal
 	name = "Bunny Suit (Curator, Teal)"
 	item_path = /obj/item/clothing/under/rank/civilian/curator_bunnysuit_teal
 	erp_item = TRUE
 	group = "Bunny Suit"
 
-/datum/loadout_item/under/bunny/lawyer/black
+/datum/loadout_item/under/bunny/lawyerblack
 	name = "Bunny Suit (Lawyer, Black)"
 	item_path = /obj/item/clothing/under/rank/civilian/lawyer_bunnysuit_black
 	erp_item = TRUE
 	group = "Bunny Suit"
 
-/datum/loadout_item/under/bunny/lawyer/blue
+/datum/loadout_item/under/bunny/lawyerblue
 	name = "Bunny Suit (Lawyer, Blue)"
 	item_path = /obj/item/clothing/under/rank/civilian/lawyer_bunnysuit_blue
 	erp_item = TRUE
 	group = "Bunny Suit"
 
 
-/datum/loadout_item/under/bunny/lawyer/red
+/datum/loadout_item/under/bunny/lawyerred
 	name = "Bunny Suit (Lawyer, Red)"
 	item_path = /obj/item/clothing/under/rank/civilian/lawyer_bunnysuit_red
 	erp_item = TRUE
 	group = "Bunny Suit"
 
 
-/datum/loadout_item/under/bunny/lawyer/good
+/datum/loadout_item/under/bunny/lawyergood
 	name = "Bunny Suit (Lawyer, Good)"
 	item_path = /obj/item/clothing/under/rank/civilian/lawyer_bunnysuit_good
 	erp_item = TRUE
