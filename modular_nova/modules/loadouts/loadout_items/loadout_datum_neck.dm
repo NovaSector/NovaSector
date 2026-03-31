@@ -370,7 +370,7 @@
 	name = "Tie - Large Bow Collar"
 	item_path = /obj/item/clothing/neck/tie/clown
 
-/datum/loadout_item/neck/necklace/rabbit
+/datum/loadout_item/neck/rabbit
 	name = "Rabbit Necklace"
 	item_path = /obj/item/clothing/neck/bunny_pendant
 
