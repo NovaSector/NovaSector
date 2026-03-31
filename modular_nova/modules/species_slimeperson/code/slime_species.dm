@@ -252,14 +252,18 @@
 			if(!quiet_if_protected)
 				to_chat(slime, span_warning("The water fails to penetrate your thick clothing!"))
 			return FALSE
+
 	if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
 		if(!quiet_if_protected)
 			to_chat(slime, span_warning("Water splashes against your oily membrane and rolls right off your body!"))
 		return FALSE
+
 	if(!COOLDOWN_FINISHED(src, water_exposure_cooldown))
 		return FALSE
 	COOLDOWN_START(src, water_exposure_cooldown, 0.1 SECONDS)
+
 	slime.adjust_blood_volume(-30 * water_multiplier)
+
 	if(COOLDOWN_FINISHED(src, water_alert_cooldown))
 		slime.visible_message(
 			span_warning("[slime]'s form melts away from the water!"),
