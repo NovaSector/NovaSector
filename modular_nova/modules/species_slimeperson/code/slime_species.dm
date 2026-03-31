@@ -242,7 +242,6 @@
 #undef WATER_PROTECTION_ARM
 #undef WATER_PROTECTION_HAND
 
-
 /datum/species/jelly/proc/water_exposure(mob/living/carbon/human/slime, check_clothes = TRUE, quiet_if_protected = FALSE)
 	var/water_multiplier = 1
 	// thick clothing won't protect you if you just drink or inject tho
