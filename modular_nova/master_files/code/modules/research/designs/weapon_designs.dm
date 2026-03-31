@@ -30,12 +30,12 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/advancedgaugeboxes_breaching
-	name = "12 Gauge Advanced Frangible Slug Ammunition Box(Destructive)"
-	desc = "A 12 gauge ammunition box for shotgun shells."
+	name = "Frangible Breaching Slug"
+	desc = "A frangible breaching slug."
 	id = "s12g_br"
 	build_type = PROTOLATHE | AWAY_LATHE
-	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 20,  /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 35 , /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 25)
-	build_path = /obj/item/ammo_box/advanced/s12gauge/frangible
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,  /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4 , /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2)
+	build_path = /obj/item/ammo_casing/shotgun/frangible
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
 	)
