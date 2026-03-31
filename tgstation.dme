@@ -6996,6 +6996,7 @@
 #include "modular_nova\master_files\code\datums\components\shielded_suit.dm"
 #include "modular_nova\master_files\code\datums\components\style.dm"
 #include "modular_nova\master_files\code\datums\components\tippable.dm"
+#include "modular_nova\master_files\code\datums\components\crafting\furniture.dm"
 #include "modular_nova\master_files\code\datums\diseases\advance\symptoms\heal.dm"
 #include "modular_nova\master_files\code\datums\greyscale\config_types\greyscale_clothes.dm"
 #include "modular_nova\master_files\code\datums\greyscale\config_types\greyscale_configs.dm"
