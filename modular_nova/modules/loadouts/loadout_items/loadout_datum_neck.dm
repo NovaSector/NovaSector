@@ -388,7 +388,7 @@
 
 /datum/loadout_item/neck/bowtielawyergood
 	name = "Tie - Lawful Good Bow Collar"
-	item_path = /obj/item/clothing/neck/tie/bunnytie/lawyer_red
+	item_path = /obj/item/clothing/neck/tie/bunnytie/lawyer_good
 
 /*
 *	CAPES, CLOAKS, MANTLES, PONCHOS, SHROUDS, AND VEILS
