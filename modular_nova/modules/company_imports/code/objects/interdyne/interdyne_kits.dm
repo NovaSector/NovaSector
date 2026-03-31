@@ -368,10 +368,10 @@
 	desc = "Only carries one tactical maid set."
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing/PopulateContents()
-	new /obj/item/clothing/head/costume/maid_headband/syndicate(src)
-	new /obj/item/clothing/under/syndicate/nova/maid(src)
-	new /obj/item/clothing/gloves/combat/maid(src)
-	new /obj/item/clothing/accessory/maidcorset/syndicate(src)
+	new /obj/item/clothing/head/costume/maid_headband/interdyne(src)
+	new /obj/item/clothing/under/costume/maid/interdyne(src)
+	new /obj/item/clothing/gloves/interdyne_maid(src)
+	new /obj/item/clothing/accessory/maidcorset/interdyne(src)
 
 /obj/item/storage/box/evilmeds/interdyne
 	name = "\improper box of Interdyne Medicines"

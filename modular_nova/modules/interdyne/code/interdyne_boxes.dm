@@ -17,9 +17,9 @@
 /obj/item/clothing/gloves/latex/nitrile/interdyne
 	name = "\improper Interdyne nitrile gloves"
 	desc = "High-quality nitrile gloves in Interdyne Pharmaceuticals corporate green. The logo is embossed on each wrist."
-	icon = 'modular_nova/modules/interdyne/icons/interdyne_gloves.dmi'
+	icon = 'modular_nova/modules/interdyne/icons/interdyne_clothing.dmi'
 	icon_state = "interdyne_nitrile"
-	worn_icon = 'modular_nova/modules/interdyne/icons/interdyne_gloves.dmi'
+	worn_icon = 'modular_nova/modules/interdyne/icons/interdyne_clothing_worn.dmi'
 	worn_icon_state = "interdyne_nitrile_worn"
 	greyscale_colors = "#3A8F12"
 
