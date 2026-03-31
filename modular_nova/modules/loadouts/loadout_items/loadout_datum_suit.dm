@@ -750,147 +750,147 @@
 	item_path = /obj/item/clothing/suit/jacket/tailcoat
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/bartender
+/datum/loadout_item/suit/tailcoatbartender
 	name = "Bartender's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/bartender
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/wizard
+/datum/loadout_item/suit/tailcoatwizard
 	name = "Magician's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/magician
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/brit
+/datum/loadout_item/suit/tailcoatbrit
 	name = "Brit's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/british
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/ussr
+/datum/loadout_item/suit/tailcoatussr
 	name = "Soviet's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/communist
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/usa
+/datum/loadout_item/suit/tailcoatusa
 	name = "Yank's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/usa
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/cargo
+/datum/loadout_item/suit/tailcoatcargo
 	name = "Cargo's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/cargo
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/cargo/bitrunner
+/datum/loadout_item/suit/tailcoatbitrunner
 	name = "Gamer's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/bitrunner
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/medical
+/datum/loadout_item/suit/tailcoatmedical
 	name = "Doctor's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/doctor_tailcoat
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/medical/para
+/datum/loadout_item/suit/tailcoatmedicalpara
 	name = "Paramedic's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/paramedic/doctor_tailcoat
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/medical/chem
+/datum/loadout_item/suit/tailcoatmedicalchem
 	name = "Chemist's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/chemist/doctor_tailcoat
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/medical/viro
+/datum/loadout_item/suit/tailcoatmedicalviro
 	name = "Pathologist's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/virologist/doctor_tailcoat
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/medical/coroner
+/datum/loadout_item/suit/tailcoatmedicalcoroner
 	name = "Edgelord's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/coroner/doctor_tailcoat
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/rnd
+/datum/loadout_item/suit/tailcoatrnd
 	name = "Scientist's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/science/doctor_tailcoat
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/rnd/robo
+/datum/loadout_item/suit/tailcoatrndrobo
 	name = "Roboticist's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/roboticist/doctor_tailcoat
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/rnd/genetics
+/datum/loadout_item/suit/tailcoatrndgenetics
 	name = "Geneticist's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/genetics/doctor_tailcoat
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/janitor
+/datum/loadout_item/suit/tailcoatjanitor
 	name = "Janitor's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/janitor
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/cook
+/datum/loadout_item/suit/tailcoatcook
 	name = "Chef's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/cook
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/hydro
+/datum/loadout_item/suit/tailcoathydro
 	name = "Botanist's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/botanist
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/clown
+/datum/loadout_item/suit/tailcoatclown
 	name = "Clown's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/clown
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/mime
+/datum/loadout_item/suit/tailcoatmime
 	name = "Mime's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/mime
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/chaplain
+/datum/loadout_item/suit/tailcoatchaplain
 	name = "Priest's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/chaplain
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/curator/red
+/datum/loadout_item/suit/tailcoatcuratorred
 	name = "Curator's Red Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/curator_red
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/curator/green
+/datum/loadout_item/suit/tailcoatcuratorgreen
 	name = "Curator's Green Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/curator_green
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/curator/teal
+/datum/loadout_item/suit/tailcoatcuratorteal
 	name = "Curator's Teal Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/curator_teal
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/lawyer/black
+/datum/loadout_item/suit/tailcoatlawyerblack
 	name = "Lawyer's Black Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/lawyer_black
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/lawyer/blue
+/datum/loadout_item/suit/tailcoatlawyerblue
 	name = "Lawyer's Blue Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/lawyer_blue
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/lawyer/red
+/datum/loadout_item/suit/tailcoatlawyerred
 	name = "Lawyer's Red Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/lawyer_red
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/lawyer/good
+/datum/loadout_item/suit/tailcoatlawyergood
 	name = "Lawyer's Good Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/lawyer_good
 	group = "Costumes"
 
-/datum/loadout_item/suit/tailcoat/shrink
+/datum/loadout_item/suit/tailcoatshrink
 	name = "Psychologist's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/psychologist
 	group = "Costumes"
@@ -946,19 +946,19 @@
 */
 
 //COM
-/datum/loadout_item/suit/tailcoat/cc
+/datum/loadout_item/suit/tailcoatcc
 	name = "Centcom Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/centcom
 	restricted_roles = list(ALL_JOBS_CC)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/cap
+/datum/loadout_item/suit/tailcoatcap
 	name = "Captain's Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/vest/capcarapace/tailcoat_captain
 	restricted_roles = list(JOB_CAPTAIN)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/hop
+/datum/loadout_item/suit/tailcoathop
 	name = "Head of Personnel's Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/hop_tailcoat
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL)
@@ -971,7 +971,7 @@
 	restricted_roles = list(JOB_QUARTERMASTER)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/qm
+/datum/loadout_item/suit/tailcoatqm
 	name = "Quartermaster's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/quartermaster
 	restricted_roles = list(JOB_QUARTERMASTER)
@@ -979,33 +979,33 @@
 
 //ENGI
 
-/datum/loadout_item/suit/tailcoat/engi/ce
+/datum/loadout_item/suit/tailcoatengi/ce
 	name = "Chief Engineer's Tailcoat"
 	item_path = /obj/item/clothing/suit/utility/fire/ce_tailcoat
 	restricted_roles = list(JOB_CHIEF_ENGINEER)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/engi
+/datum/loadout_item/suit/tailcoatengi
 	name = "Engineer's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/engineer
 	restricted_roles = list(ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/engi/atmos
+/datum/loadout_item/suit/tailcoatengi/atmos
 	name = "Atmos Tech's Tailcoat"
 	item_path = /obj/item/clothing/suit/utility/fire/atmos_tech_tailcoat
 	restricted_roles = list(ALL_JOBS_ENGI)
 	group = "Job-Locked"
 
 //MED
-/datum/loadout_item/suit/tailcoat/med/cmo
+/datum/loadout_item/suit/tailcoatmed/cmo
 	name = "Chief Medical Officer's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/cmo/doctor_tailcoat
 	restricted_roles = list(JOB_CHIEF_MEDICAL_OFFICER)
 	group = "Job-Locked"
 
 //SCI
-/datum/loadout_item/suit/tailcoat/rnd/rd
+/datum/loadout_item/suit/tailcoatrnd/rd
 	name = "Research Director's Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/research_director/tailcoat
 	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
@@ -1018,7 +1018,7 @@
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/sec/hos
+/datum/loadout_item/suit/tailcoatsec/hos
 	name = "Head of Security's Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/hos_tailcoat
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
@@ -1030,7 +1030,7 @@
 	restricted_roles = list(JOB_WARDEN)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/sec/warden
+/datum/loadout_item/suit/tailcoatsec/warden
 	name = "Warden's Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/security_tailcoat/warden
 	restricted_roles = list(JOB_WARDEN)
@@ -1078,19 +1078,19 @@
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/sec
+/datum/loadout_item/suit/tailcoatsec
 	name = "Security's Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/security_tailcoat
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/sec/dept
+/datum/loadout_item/suit/tailcoatsec/dept
 	name = "Security's Deputy Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/security_tailcoat/assistant
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/sec/medic
+/datum/loadout_item/suit/tailcoatsec/medic
 	name = "Security's Medicated Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/security_medic/doctor_tailcoat
 	restricted_roles = list(ALL_JOBS_SEC)
@@ -1133,13 +1133,13 @@
 	restricted_roles = list(JOB_DETECTIVE)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/sec/det
+/datum/loadout_item/suit/tailcoatsec/det
 	name = "Detective's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/det_suit/tailcoat
 	restricted_roles = list(JOB_DETECTIVE)
 	group = "Job-Locked"
 
-/datum/loadout_item/suit/tailcoat/sec/det/noir
+/datum/loadout_item/suit/tailcoatsec/det/noir
 	name = "Detective's Noir Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/det_suit/tailcoat/noir
 	restricted_roles = list(JOB_DETECTIVE)
