@@ -57,9 +57,10 @@
 
 /obj/item/ammo_box/advanced/s12gauge/frangible
 	name = "Frangible Slug ammo box"
-	desc = "A box of 7 Frangible slug. It's able to punches through windows, airlocks whatever with ease. Less-than-effective against people"
+	desc = "A box of 10 Frangible slug. It's able to punches through windows, airlocks whatever with ease. Less-than-effective against people"
 	icon_state = "fslug"
 	ammo_type = /obj/item/ammo_casing/shotgun/frangible
+	max_ammo = 10
 
 /obj/item/ammo_box/advanced/s12gauge/beehive
 	name = "shell box (hornet's nest)"
