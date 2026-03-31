@@ -342,7 +342,6 @@
 		spare.blooper_volume = H.blooper_volume
 		spare.blooper_speed = H.blooper_speed
 	// NOVA EDIT ADDITION END
-
 	H.transfer_quirk_datums(spare)
 	H.mind.transfer_to(spare)
 	spare.visible_message(
