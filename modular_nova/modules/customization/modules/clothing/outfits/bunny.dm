@@ -16,14 +16,14 @@
 	l_hand = /obj/item/storage/bag/tray
 	undershirt = "Nude"
 
-/datum/outfit/bunny_waiter/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/bunny_waiter/post_equip(mob/living/carbon/human/bunny, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
 
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
+	var/obj/item/card/id/bunny_id = bunny.wear_id
+	bunny_id.registered_name = bunny.real_name
+	bunny_id.update_label()
+	bunny_id.update_icon()
 	return ..()
 
 /datum/outfit/bunny_waiter/syndicate
@@ -98,4 +98,11 @@
 	W.registered_name = H.real_name
 	W.update_label()
 	W.update_icon()
-	return ..()
+/datum/outfit/centcom/centcom_bunny/post_equip(mob/living/carbon/human/bunny, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/bunny_id = bunny.wear_id
+	bunny_id.registered_name = bunny.real_name
+	bunny_id.update_label()
+	bunny_id.update_icon()

@@ -409,7 +409,6 @@
 	group = "Bunny Suit"
 	restricted_roles = list(JOB_QUARTERMASTER)
 
-
 /datum/loadout_item/under/bunny/cargo
 	name = "Bunny Suit (Cargo)"
 	item_path = /obj/item/clothing/under/rank/cargo/cargo_bunnysuit

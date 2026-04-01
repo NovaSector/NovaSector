@@ -373,7 +373,7 @@
 	group = "Bunny Suits"
 
 /datum/loadout_item/under/bunny/black
-	name = "Bunny Suit (black)"
+	name = "Bunny Suit (Black)"
 	item_path = /obj/item/clothing/under/costume/bunnylewd
 	erp_item = TRUE
 	group = "Bunny Suits"

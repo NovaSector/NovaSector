@@ -42,7 +42,6 @@
 /datum/voucher_set/mining_suit
 	blackbox_key = "suit_voucher_redeemed"
 
-
 /datum/voucher_set/mining_suit/carota
 	name = "Bunny Suit"
 	description = "Designed for Miners on the planet of Carota, while you might get some odd looks from your co-workers, decency is a foreign word around here."
@@ -56,5 +55,4 @@
 		/obj/item/clothing/shoes/workboots/mining/heeled,
 		/obj/item/clothing/mask/gas/explorer, //No bunny mask, this'll have to do.
 	)
-
 
