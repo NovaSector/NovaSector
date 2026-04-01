@@ -1,6 +1,7 @@
-///////
-/// SLIME CLEANING ABILITY -
-/// When toggled, slimes clean themselves and their equipment.
+/**
+ * SLIME CLEANING ABILITY -
+ * When toggled, slimes clean themselves and their equipment.
+ */
 /datum/action/cooldown/slime_washing
 	name = "Toggle Slime Cleaning"
 	desc = "Filter grime through your outer membrane, cleaning yourself and your equipment for sustenance. Also cleans the floor. For sustenance."

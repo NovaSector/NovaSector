@@ -1,7 +1,7 @@
-///////
-/// SLIME HYDROPHOBIA ABILITY
-/// Makes it so that slimes are waterproof, but slower, and they don't regenerate.
-
+/**
+ * SLIME HYDROPHOBIA ABILITY
+ * Makes it so that slimes are waterproof, but slower, and they don't regenerate.
+ */
 /datum/action/cooldown/slime_hydrophobia
 	name = "Toggle Hydrophobia"
 	desc = "Develop an oily layer on your outer membrane, repelling water at the cost of lower viscosity and halting regeneration."

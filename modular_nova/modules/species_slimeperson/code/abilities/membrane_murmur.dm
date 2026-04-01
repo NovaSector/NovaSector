@@ -1,6 +1,7 @@
-///////
-/// MEMBRANE MURMUR SPELL
-/// Use your core to attempt to call out for help or attention.
+/**
+ * MEMBRANE MURMUR SPELL
+ * Use your core to attempt to call out for help or attention.
+*/
 /datum/action/cooldown/membrane_murmur
 	name = "Membrane Murmur"
 	desc = "Force your core to pass gasses to make noticable sounds."

@@ -1,7 +1,7 @@
-/*
-* Wet Status Effects
-* For regular slimes when they're soaked in water
-*/
+/**
+ * Wet Status Effects
+ * For regular slimes when they're soaked in water
+ */
 
 /atom/movable/screen/alert/status_effect/wet_slime
 	name = "Wet" // haha wet
@@ -35,11 +35,10 @@
 /datum/status_effect/wet_slime/get_examine_text()
 	return span_warning("[owner.p_Their()] outer membrane is soaked, [owner.p_their()] form losing cohesion!")
 
-/*
-* Dry Status Effects
-* For water-breathing slimes when they run out of water
-*/
-
+/**
+ * Dry Status Effects
+ * For water-breathing slimes when they run out of water
+ */
 /atom/movable/screen/alert/status_effect/dry_slime
 	name = "Dry"
 	desc = "You are dried out and you're losing cohesion! Seek water as soon as possible!"

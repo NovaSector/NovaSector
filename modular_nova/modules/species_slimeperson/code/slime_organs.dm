@@ -43,8 +43,10 @@
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
-// CHEMICAL HANDLING
-// Here's where slimes heal off plasma and where they hate drinking water.
+/**
+ * CHEMICAL HANDLING
+ * Here's where slimes heal off plasma and where they hate drinking water.
+ */
 /obj/item/organ/liver/slime/handle_chemical(mob/living/carbon/organ_owner, datum/reagent/chem, seconds_per_tick)
 	. = ..()
 	if(. & COMSIG_MOB_STOP_REAGENT_TICK)

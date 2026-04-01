@@ -28,16 +28,14 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	/// The original language holder of the slime who died.
 	var/datum/language_holder/stored_language_holder
 
-///////
-/// Core storage
-//
+	// Core storage
 	var/list/stored_quirks = list()
 	var/list/stored_items = list()
 	var/alist/items_per_slot = alist()
 
-	///Item types that should never be stored in core and will drop on death. Takes priority over allowed lists.
+	/// Item types that should never be stored in core and will drop on death. Takes priority over allowed lists.
 	var/static/list/bannedcore = typecacheof(list(/obj/item/disk/nuclear))
-	//Extraneous organs not of slime origin. Usually cyber implants.
+	/// Extraneous organs not of slime origin. Usually cyber implants.
 	var/static/list/allowed_organ_types = typecacheof(list(
 		/obj/item/organ/antennae,
 		/obj/item/organ/frills,
@@ -52,7 +50,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		/obj/item/organ/heart/cursed,
 		/obj/item/organ/vocal_cords,
 	))
-	//Quirks that roll unique effects or gives items to each new body should be saved between bodies.
+	/// Quirks that roll unique effects or gives items to each new body should be saved between bodies.
 	var/static/list/saved_quirks = typecacheof(list(
 		/datum/quirk/dnr,
 		/datum/quirk/indebted,
@@ -112,8 +110,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	return ..()
 
 /**
-* Colors the slime's core (their brain) the same as their first mutant color.
-*/
+ * Colors the slime's core (their brain) the same as their first mutant color.
+ */
 /obj/item/organ/brain/slime/proc/colorize()
 	if(isjellyperson(owner))
 		core_color = owner.dna.features[FEATURE_MUTANT_COLOR]
@@ -305,10 +303,10 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		blooper_volume = slime.blooper_volume
 		blooper_speed = slime.blooper_speed
 
-///////
-/// CORE EJECTION PROC
-/// Makes it so that when a slime dies, their core ejects and their body is qdel'd.
-
+/**
+ * CORE EJECTION PROC
+ * Makes it so that when a slime dies, their core ejects and their body is qdel'd.
+ */
 /obj/item/organ/brain/slime/proc/core_ejection(mob/living/carbon/human/victim, turf/loc_override)
 	if(core_ejected)
 		return
@@ -384,10 +382,10 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	var/datum/effect_system/basic/steam_spread/steam = new(loc, 10, FALSE)
 	steam.start()
 
-///////
-/// CHECK FOR REPAIR SECTION
-/// Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
-
+/**
+ * CHECK FOR REPAIR SECTION
+ * Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
+ */
 /obj/item/organ/brain/slime/check_for_repair(obj/item/item, mob/user)
 	if(item.is_drainable() && item.reagents.has_reagent(/datum/reagent/toxin/plasma)) //attempt to heal the brain
 
@@ -443,9 +441,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(!istype(loc, /mob/living/basic/mining/legion) && !being_repaired)
 		return ..()
 
-///////
-/// PROCESS ITEMS FOR CORE EJECTION
-/// Processes different types of items and prepares them to be stored when the core is ejected.
+
+/**
+ * PROCESS ITEMS FOR CORE EJECTION
+ * Processes different types of items and prepares them to be stored when the core is ejected.
+ */
 
 /obj/item/organ/brain/slime/proc/process_items(mob/living/carbon/human/victim) // Handle all items to be stored into core.
 	var/list/focus_slots = list(

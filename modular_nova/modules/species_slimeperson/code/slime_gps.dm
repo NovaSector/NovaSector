@@ -1,6 +1,6 @@
-///////
-/// Toggle Death Signal simply adds and removes the trait required for slimepeople to transmit a GPS signal upon core ejection.
-///
+/**
+ * Toggle Death Signal simply adds and removes the trait required for slimepeople to transmit a GPS signal upon core ejection.
+ */
 /datum/action/innate/core_signal
 	name = "Toggle Core Signal"
 	desc = "Interface with the microchip placed in your core, modifying if it emits a GPS signal or not; due to how thick your liquid body is, the signal won't reach out until your core is outside of it."

@@ -132,8 +132,10 @@
 		old_stomach.moveToNullspace()
 		STOP_PROCESSING(SSobj, old_stomach)
 
-// HEALING SECTION
-// Handles passive healing and water damage for slimes and water-breathing variants.
+/**
+ * HEALING SECTION
+ * Handles passive healing and water damage for slimes and water-breathing variants.
+ */
 /datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick)
 	. = ..()
 
