@@ -27,6 +27,7 @@
 
 /datum/status_effect/slime_washing
 	id = "slime_washing"
+	tick_interval = 3 SECONDS
 	alert_type = null
 	status_type = STATUS_EFFECT_UNIQUE
 

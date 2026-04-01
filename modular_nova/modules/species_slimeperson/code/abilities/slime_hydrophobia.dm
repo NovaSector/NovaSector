@@ -26,9 +26,6 @@
 	else
 		user.apply_status_effect(/datum/status_effect/slime_hydrophobia)
 
-/datum/action/cooldown/slime_hydrophobia/proc/slime_hydrophobia_deactivate(mob/living/carbon/human/user)
-	user.remove_status_effect(/datum/status_effect/slime_hydrophobia)
-
 /datum/movespeed_modifier/status_effect/slime_hydrophobia
 	multiplicative_slowdown = 1.5
 
@@ -41,6 +38,8 @@
 /datum/status_effect/slime_hydrophobia/on_apply()
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/status_effect/slime_hydrophobia, update = TRUE)
 	ADD_TRAIT(owner, TRAIT_SLIME_HYDROPHOBIA, TRAIT_STATUS_EFFECT(id))
+	if(QDELETED(owner))
+		return
 	owner.visible_message(
 		span_purple("[owner]'s outer membrane starts to ooze out an oily coating, [owner.p_their()] body becoming more viscous!"),
 		span_purple("Your outer membrane starts to ooze out an oily coating, protecting you from water but making your body more viscous.")
@@ -50,6 +49,8 @@
 /datum/status_effect/slime_hydrophobia/on_remove()
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/slime_hydrophobia, update = TRUE)
 	REMOVE_TRAIT(owner, TRAIT_SLIME_HYDROPHOBIA, TRAIT_STATUS_EFFECT(id))
+	if(QDELETED(owner))
+		return
 	owner.visible_message(
 		span_purple("[owner]'s outer membrane returns to normal, [owner.p_their()] body drawing the oily coat back inside!"),
 		span_purple("Your outer membrane returns to normal, water being dangerous to you again.")

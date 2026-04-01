@@ -75,38 +75,43 @@
 ///
 
 /obj/item/bodypart/proc/slime_drop_limb()
-		return
-
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
 	owner.adjust_blood_volume(-SLIME_LIMB_BLOOD_LOSS)
 
 /obj/item/bodypart/head/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
-	slime_drop_limb(special)
+	if(!special)
+		slime_drop_limb()
 	return ..()
 
 /obj/item/bodypart/arm/left/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
-	slime_drop_limb(special)
+	if(!special)
+		slime_drop_limb()
 	return ..()
 
 /obj/item/bodypart/arm/right/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
-	slime_drop_limb(special)
+	if(!special)
+		slime_drop_limb()
 	return ..()
 
 /obj/item/bodypart/leg/left/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
-	slime_drop_limb(special)
+	if(!special)
+		slime_drop_limb()
 	return ..()
 
 /obj/item/bodypart/leg/right/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
-	slime_drop_limb(special)
+	if(!special)
+		slime_drop_limb()
 	return ..()
 
 /obj/item/bodypart/leg/left/digitigrade/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
-	slime_drop_limb(special)
+	if(!special)
+		slime_drop_limb()
 	return ..()
 
 /obj/item/bodypart/leg/right/digitigrade/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
-	slime_drop_limb(special)
+	if(!special)
+		slime_drop_limb()
 	return ..()
 
 #undef SLIME_LIMB_BLOOD_LOSS

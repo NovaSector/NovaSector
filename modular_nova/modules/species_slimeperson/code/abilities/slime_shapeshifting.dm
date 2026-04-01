@@ -61,11 +61,11 @@
 		return
 
 	available_choices = deep_copy_list(SSaccessories.sprite_accessories)
-	for(var/parts_list in available_choices)
-		for(var/parts in available_choices[parts_list])
-			var/datum/sprite_accessory/part = available_choices[parts_list][parts]
-			if(part.locked)
-				available_choices[parts_list] -= parts
+	for(var/feature_key, parts_list in available_choices)
+		for(var/parts, part in parts_list)
+			var/datum/sprite_accessory/part_accessory = part
+			if(part_accessory.locked)
+				parts_list -= part_accessory
 
 /datum/action/innate/alter_form/unrestricted
 	slime_restricted = FALSE
@@ -344,7 +344,9 @@
 	var/list/mutant_part_list = list()
 	for(var/datum/dna_block/feature/mutant/block as anything in subtypesof(/datum/dna_block/feature/mutant))
 		if(CONFIG_GET(flag/disable_erp_preferences) && (block::feature_key in ORGAN_ERP_LIST))
-			continue
+	var/erp_disabled = CONFIG_GET(flag/disable_erp_preferences)
+	for(var/datum/dna_block/feature/mutant/block as anything in subtypesof(/datum/dna_block/feature/mutant))
+		if(erp_disabled && (block::feature_key in ORGAN_ERP_LIST))
 		mutant_part_list[block::feature_key] = block
 	var/chosen_key = tgui_input_list(
 		alterer,

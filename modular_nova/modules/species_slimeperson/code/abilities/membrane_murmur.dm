@@ -13,16 +13,6 @@
 	cooldown_time = 25 SECONDS
 	check_flags = NONE
 
-	var/static/list/possible_cries = list(
-		"Blorp... glub... help...",
-		"Glooop... save me...",
-		"Alone... burbble too quiet...",
-		"What's left... of me...?",
-		"Can't feel... can't... think...",
-		"Plasma... need... plasma...",
-		"It's so... quiet...",
-	)
-
 /datum/action/cooldown/membrane_murmur/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
