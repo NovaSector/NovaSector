@@ -3,6 +3,8 @@
 	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE | ORGAN_EXTERNAL
 	///Size value of the genital, needs to be translated to proper lengths/diameters/cups
 	var/genital_size = 1
+	///The maximum sprite affix for this type
+	var/max_sprite_size_affix
 	///Sprite name of the genital, it's what shows up on character creation
 	var/genital_name = "Human"
 	///Type of the genital. For penises tapered/horse/human etc. for breasts quadruple/sixtuple etc...
@@ -83,6 +85,13 @@
 
 /// for specific build_from_dna behavior that also checks the genital accessory.
 /obj/item/organ/genital/proc/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
+	if(isnull(max_sprite_size_affix))
+		// snowflake for skintone alt human penis, which only has sprites up to size 4 as opposed to the non-skintone which goes to 5. and similar...
+		// This SUCKS. genitals code is simply HORRIBLE and rotted to its core. TODO: destroy and rewrite it ALL. from fucking scratch.
+		if(uses_skintones)
+			max_sprite_size_affix = accessory.skintone_max_sprite_size_affix || accessory.max_sprite_size_affix
+		else
+			max_sprite_size_affix = accessory.max_sprite_size_affix
 	return
 
 /obj/item/organ/genital/proc/is_exposed()
@@ -122,6 +131,7 @@
 	var/layer_above_undies = -(UNIFORM_LAYER - 0.06)
 	/// Ditto, but for BELOW UNDERWEAR
 	var/layer_below_undies = -(UNIFORM_LAYER + 0.06)
+	draw_on_husks = FALSE
 
 /datum/bodypart_overlay/mutant/genital/override_color(rgb_value)
 	return draw_color
@@ -265,21 +275,28 @@
 		return "[LOWER_TEXT(sheath)]_[poking_out]"
 
 	var/size_affix
-	var/measured_size = FLOOR(genital_size,1)
+	var/measured_size = FLOOR(genital_size, 1)
 	var/is_erect = 0
 	if(aroused == AROUSAL_FULL)
 		is_erect = 1
 	if(measured_size < 1)
 		measured_size = 1
 	switch(measured_size)
-		if(1 to 8)
+		if(1 to 6)
 			size_affix = "1"
-		if(9 to 15)
+		if(7 to 11)
 			size_affix = "2"
-		if(16 to 24)
+		if(12 to 36)
 			size_affix = "3"
-		else
+		if(37 to 48)
 			size_affix = "4"
+		if(49 to 56)
+			size_affix = "5"
+		if(57 to 64)
+			size_affix = "6"
+		else
+			size_affix = "7"
+	size_affix = "[min((text2num(size_affix)), max(max_sprite_size_affix, 1))]"
 	var/passed_string = "[genital_type]_[size_affix]_[is_erect]"
 	if(uses_skintones)
 		passed_string += "_s"
@@ -288,7 +305,7 @@
 /obj/item/organ/genital/penis/build_from_dna(datum/dna/DNA, associated_key)
 	girth = DNA.features["penis_girth"]
 	uses_skin_color = DNA.features["penis_uses_skincolor"]
-	set_size(DNA.features["penis_size"])
+	genital_size = DNA.features["penis_size"]
 
 	return ..()
 
@@ -298,10 +315,10 @@
 		sheath = DNA.features["penis_sheath"]
 	if(DNA.features["penis_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
+	return ..()
 
 /datum/bodypart_overlay/mutant/genital/penis/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_PENIS]
-
 
 /obj/item/organ/genital/testicles
 	name = "testicles"
@@ -318,7 +335,7 @@
 
 /datum/bodypart_overlay/mutant/genital/testicles
 	feature_key = ORGAN_SLOT_TESTICLES
-	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
 	/// Layer a bit lower, but still close to as high as possible
 	layer_above_all = -(BODY_FRONT_LAYER - 0.01)
@@ -335,7 +352,7 @@
 			return TRUE
 
 /obj/item/organ/genital/testicles/update_genital_icon_state()
-	var/measured_size = clamp(genital_size, 1, 6)
+	var/measured_size = clamp(genital_size, 1, TESTICLES_MAX_SIZE)
 	var/passed_string = "testicles_[genital_type]_[measured_size]"
 	if(uses_skintones)
 		passed_string += "_s"
@@ -349,17 +366,18 @@
 
 /obj/item/organ/genital/testicles/build_from_dna(datum/dna/DNA, associated_key)
 	uses_skin_color = DNA.features["testicles_uses_skincolor"]
-	set_size(DNA.features["balls_size"])
+	genital_size = DNA.features["balls_size"]
 
 	return ..()
 
 /obj/item/organ/genital/testicles/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
 	if(DNA.features["testicles_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
+	return ..()
 
 /obj/item/organ/genital/testicles/get_sprite_size_string()
 	var/measured_size = FLOOR(genital_size,1)
-	measured_size = clamp(measured_size, 0, 6)
+	measured_size = clamp(measured_size, 0, max_sprite_size_affix)
 	var/passed_string = "[genital_type]_[measured_size]"
 	if(uses_skintones)
 		passed_string += "_s"
@@ -554,14 +572,8 @@
 	icon_state = passed_string
 
 /obj/item/organ/genital/breasts/get_sprite_size_string()
-	var/max_size = 5
-	if(genital_type == "pair")
-		max_size = 16
 	var/current_size = FLOOR(genital_size, 1)
-	if(current_size < 0)
-		current_size = 0
-	else if (current_size > max_size)
-		current_size = max_size
+	current_size = clamp(current_size, 0, max_sprite_size_affix)
 	var/passed_string = "[genital_type]_[current_size]"
 	if(uses_skintones)
 		passed_string += "_s"
@@ -570,13 +582,14 @@
 /obj/item/organ/genital/breasts/build_from_dna(datum/dna/DNA, associated_key)
 	lactates = DNA.features["breasts_lactation"]
 	uses_skin_color = DNA.features["breasts_uses_skincolor"]
-	set_size(DNA.features["breasts_size"])
+	genital_size = DNA.features["breasts_size"]
 
 	return ..()
 
 /obj/item/organ/genital/breasts/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
 	if(DNA.features["breasts_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
+	return ..()
 
 /datum/bodypart_overlay/mutant/genital/breasts/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_BREASTS]

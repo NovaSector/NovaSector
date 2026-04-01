@@ -13852,7 +13852,7 @@
 	pixel_x = -4;
 	pixel_y = 8
 	},
-/obj/item/stack/medical/gauze{
+/obj/item/stack/medical/wrap/gauze{
 	pixel_x = 8
 	},
 /turf/open/floor/iron/white,
@@ -17383,7 +17383,7 @@
 "dzt" = (
 /obj/structure/window/spawner/directional/east,
 /obj/structure/table,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/stack/medical/suture,
 /obj/item/stack/medical/mesh,
 /obj/item/reagent_containers/syringe/multiver,
@@ -31287,6 +31287,14 @@
 /obj/item/restraints/handcuffs,
 /obj/item/assembly/flash/handheld,
 /obj/effect/turf_decal/bot,
+/obj/machinery/recharger{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/obj/machinery/recharger{
+	pixel_y = 2;
+	pixel_x = 6
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -62867,7 +62875,7 @@
 "mKs" = (
 /obj/structure/table/glass,
 /obj/structure/window/spawner/directional/east,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/machinery/vitals_reader/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
@@ -79853,7 +79861,7 @@
 "qhl" = (
 /obj/structure/table/glass,
 /obj/structure/window/spawner/directional/west,
-/obj/item/stack/medical/gauze/twelve,
+/obj/item/stack/medical/wrap/gauze/twelve,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "qhn" = (
@@ -91915,7 +91923,7 @@
 "sBa" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/bot,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/stack/medical/bruise_pack,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
@@ -119597,7 +119605,7 @@
 /area/station/maintenance/port/upper)
 "xXG" = (
 /obj/item/stack/medical/mesh,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/stack/medical/suture,
 /obj/machinery/status_display/evac/directional/east,
 /obj/structure/disposalpipe/segment{

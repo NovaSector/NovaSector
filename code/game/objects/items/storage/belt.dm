@@ -55,23 +55,24 @@
 	preload = TRUE
 
 /obj/item/storage/belt/utility/chief/full/PopulateContents()
-	SSwardrobe.provide_type(/obj/item/screwdriver, src)
-	SSwardrobe.provide_type(/obj/item/wrench, src)
-	SSwardrobe.provide_type(/obj/item/weldingtool/hugetank, src)
-	SSwardrobe.provide_type(/obj/item/crowbar, src)
-	SSwardrobe.provide_type(/obj/item/wirecutters, src)
+	SSwardrobe.provide_type(/obj/item/screwdriver/power, src)
+	SSwardrobe.provide_type(/obj/item/crowbar/power, src)
+	SSwardrobe.provide_type(/obj/item/weldingtool/experimental, src)
 	SSwardrobe.provide_type(/obj/item/multitool, src)
 	SSwardrobe.provide_type(/obj/item/stack/cable_coil, src)
+	SSwardrobe.provide_type(/obj/item/extinguisher/mini, src)
+	SSwardrobe.provide_type(/obj/item/analyzer, src)
+	//much roomier now that we've managed to remove two tools
 
 /obj/item/storage/belt/utility/chief/full/get_types_to_preload()
 	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
-	to_preload += /obj/item/screwdriver
-	to_preload += /obj/item/wrench
-	to_preload += /obj/item/weldingtool/hugetank
-	to_preload += /obj/item/crowbar
-	to_preload += /obj/item/wirecutters
+	to_preload += /obj/item/screwdriver/power
+	to_preload += /obj/item/crowbar/power
+	to_preload += /obj/item/weldingtool/experimental
 	to_preload += /obj/item/multitool
 	to_preload += /obj/item/stack/cable_coil
+	to_preload += /obj/item/extinguisher/mini
+	to_preload += /obj/item/analyzer
 	return to_preload
 
 /obj/item/storage/belt/utility/full/PopulateContents()
@@ -206,9 +207,9 @@
 
 /obj/item/storage/belt/medical/paramedic/PopulateContents()
 	SSwardrobe.provide_type(/obj/item/sensor_device, src)
-	SSwardrobe.provide_type(/obj/item/stack/medical/gauze/twelve, src)
-	SSwardrobe.provide_type(/obj/item/stack/medical/bone_gel, src)
-	SSwardrobe.provide_type(/obj/item/stack/sticky_tape/surgical, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/wrap/gauze/twelve, src)
+	SSwardrobe.provide_type(/obj/item/tourniquet, src)
+	SSwardrobe.provide_type(/obj/item/bonesetter, src)
 	SSwardrobe.provide_type(/obj/item/reagent_containers/syringe, src)
 	SSwardrobe.provide_type(/obj/item/reagent_containers/cup/bottle/ammoniated_mercury, src)
 	SSwardrobe.provide_type(/obj/item/reagent_containers/cup/bottle/formaldehyde, src)
@@ -217,9 +218,9 @@
 /obj/item/storage/belt/medical/paramedic/get_types_to_preload()
 	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
 	to_preload += /obj/item/sensor_device
-	to_preload += /obj/item/stack/medical/gauze/twelve
-	to_preload += /obj/item/stack/medical/bone_gel
-	to_preload += /obj/item/stack/sticky_tape/surgical
+	to_preload += /obj/item/stack/medical/wrap/gauze/twelve
+	to_preload += /obj/item/tourniquet
+	to_preload += /obj/item/bonesetter
 	to_preload += /obj/item/reagent_containers/syringe
 	to_preload += /obj/item/reagent_containers/cup/bottle/ammoniated_mercury
 	to_preload += /obj/item/reagent_containers/cup/bottle/formaldehyde
@@ -502,6 +503,11 @@
 	inhand_icon_state = "bandolier"
 	worn_icon_state = "bandolier"
 	storage_type = /datum/storage/bandolier_belt
+
+/obj/item/storage/belt/bandolier/china_lake_extra/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/ammo_casing/a40mm = 12,
+	), src)
 
 /obj/item/storage/belt/fannypack
 	name = "fannypack"
@@ -905,4 +911,3 @@
 	desc = "An imitation of a design grown by the infamous Tiziran Plasma Fire. Has a trigger mechanism to more forcefully draw the blade."
 	icon_state = "grass_gunsheath"
 	actions_types = list(/datum/action/innate/blade_counter/gunpowered)
-
