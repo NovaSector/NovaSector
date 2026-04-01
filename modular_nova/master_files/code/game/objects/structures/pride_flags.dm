@@ -2,7 +2,6 @@
 	. = ..()
 	icon = initial(fake_type.icon)
 
-
 // HORIZONTAL
 
 /obj/structure/sign/flag/pride
