@@ -403,13 +403,10 @@
 	greyscale_config = null
 	greyscale_config_worn = null
 
-
 /obj/item/clothing/head/playbunnyears/security/assistant
 	name = "security assistant's bunny ears"
 	desc = "A pair of red and grey bunny ears attatched to a headband. Snugly fit, to keep it attatched during long distance tackles."
 	icon_state = "sec_assistant"
-
-//TODO: Find a way to add Warden stuff that isn't hack-y.
 
 /obj/item/clothing/head/playbunnyears/warden
 	name = "warden's bunny ears"
@@ -443,7 +440,6 @@
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_worn = null
-
 
 /obj/item/clothing/head/playbunnyears/detective/noir
 	name = "noir detective's bunny ears"
