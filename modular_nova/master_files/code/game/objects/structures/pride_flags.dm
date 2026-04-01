@@ -77,6 +77,7 @@
 	name = "folded coder pride flag"
 	desc = "You probably shouldn't be seeing this. Yell at the coders about it."
 	icon = 'modular_nova/master_files/icons/obj/structures/pride_flags.dmi'
+	custom_materials = null
 
 /obj/item/sign/flag/pride/gay
 	name = "folded gay pride flag"
