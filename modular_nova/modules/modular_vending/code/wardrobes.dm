@@ -89,7 +89,7 @@
 		/obj/item/clothing/under/rank/cargo/mailman_bunnysuit = 1,
 	)
 
-	contraband_nova = (
+	contraband_nova = list(
 		/obj/item/clothing/under/suit/nova/scarface = 2,
 		/obj/item/clothing/under/rank/cargo/tech/nova/evil = 2,
 	)
