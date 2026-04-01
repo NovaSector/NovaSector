@@ -72,6 +72,10 @@
 	custom_materials = null
 	abstract_type = /obj/item/sign/flag/pride
 
+/obj/item/sign/flag/pride/examine(mob/user)
+	. = ..()
+	. += span_notice("You can hang it up on a [EXAMINE_HINT("wall")].")
+
 /obj/item/sign/flag/pride/gay
 	name = "folded gay pride flag"
 	desc = "The folded flag of gay pride."
