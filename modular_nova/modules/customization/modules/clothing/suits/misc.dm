@@ -438,7 +438,6 @@
 	greyscale_config_worn = /datum/greyscale_config/tailcoat_bar_worn
 	armor_type = /datum/armor/suit_armor
 
-
 /obj/item/clothing/suit/jacket/tailcoat/bartender/Initialize(mapload) //so bartenders can use cram their shotgun inside
 	. = ..()
 	allowed += list(
