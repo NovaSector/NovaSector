@@ -443,7 +443,6 @@
 	greyscale_config = null
 	greyscale_config_worn = null
 
-
 /obj/item/clothing/head/playbunnyears/detective/noir
 	name = "noir detective's bunny ears"
 	desc = "Black bunny ears attached to a white headband. Big ears for listening to calls from hysteric dames. In glorious black and white!"
