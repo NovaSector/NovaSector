@@ -29,7 +29,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
-/datum/design/advancedgaugeboxes_breaching
+/datum/design/shotgun_frangible_slug
 	name = "Frangible Breaching Slug"
 	desc = "A frangible breaching slug."
 	id = "s12g_br"
