@@ -53,7 +53,6 @@
 		/obj/item/clothing/under/rank/engineering/engineer_bunnysuit = 3,
 	)
 
-
 /obj/machinery/vending/wardrobe/atmos_wardrobe
 	products_nova = list(
 		/obj/item/clothing/glasses/meson/engine = 2,

@@ -459,7 +459,6 @@
 	greyscale_config_worn = null
 	greyscale_colors = null
 
-
 /obj/item/clothing/suit/jacket/tailcoat/syndicate/Initialize(mapload)
 	. = ..()
 	allowed += list(
@@ -510,7 +509,6 @@
 	greyscale_config_worn = null
 	greyscale_colors = null
 
-
 /obj/item/clothing/suit/jacket/tailcoat/british
 	name = "british flag tailcoat"
 	desc = "A tailcoat emblazoned with the Union Jack. Perfect attire for teatime."
@@ -520,7 +518,6 @@
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
-
 
 /obj/item/clothing/suit/jacket/tailcoat/communist
 	name = "really red tailcoat"
