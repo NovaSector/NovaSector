@@ -74,8 +74,7 @@
 // Slime Dismembering
 ///
 
-/obj/item/bodypart/proc/slime_drop_limb(special)
-	if(special)
+/obj/item/bodypart/proc/slime_drop_limb()
 		return
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
