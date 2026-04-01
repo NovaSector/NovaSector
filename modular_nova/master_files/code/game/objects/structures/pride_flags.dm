@@ -10,6 +10,18 @@
 	desc = "You probably shouldn't be seeing this. Yell at the coders about it."
 	icon = 'modular_nova/master_files/icons/obj/structures/pride_flags.dmi'
 	custom_materials = null
+	abstract_type = /obj/item/sign/flag/pride
+	var/vertical = FALSE
+
+/obj/structure/sign/flag/pride/click_alt(mob/user)
+	vertical = !vertical
+	if(vertical)
+		icon_state = "[icon_state]_vertical"
+	else
+		icon_state = initial(icon_state)
+	update_appearance(UPDATE_ICON_STATE)
+	to_chat(user, span_notice("You make the [name] [vertical ? "vertically" : "horizontally"] prideful"))
+	return CLICK_ACTION_SUCCESS
 
 /obj/structure/sign/flag/pride/gay
 	name = "gay pride flag"
@@ -17,19 +29,11 @@
 	icon_state = "flag_pride"
 	item_flag = /obj/item/sign/flag/pride/gay
 
-/obj/structure/sign/flag/pride/gay/click_alt(mob/user)
-	icon_state = "flag_pride_vertical"
-	.=..()
-
 /obj/structure/sign/flag/pride/ace
 	name = "asexual pride flag"
 	desc = "The flag of asexual pride."
 	icon_state = "flag_ace"
 	item_flag = /obj/item/sign/flag/pride/ace
-
-/obj/structure/sign/flag/pride/ace/click_alt(mob/user)
-	icon_state = "flag_ace_vertical"
-	.=..()
 
 /obj/structure/sign/flag/pride/bi
 	name = "bisexual pride flag"
@@ -37,9 +41,6 @@
 	icon_state = "flag_bi"
 	item_flag = /obj/item/sign/flag/pride/bi
 
-/obj/structure/sign/flag/pride/bi/click_alt(mob/user)
-	icon_state = "flag_bi_vertical"
-	.=..()
 
 /obj/structure/sign/flag/pride/lesbian
 	name = "lesbian pride flag"
@@ -47,9 +48,6 @@
 	icon_state = "flag_lesbian"
 	item_flag = /obj/item/sign/flag/pride/lesbian
 
-/obj/structure/sign/flag/pride/lesbian/click_alt(mob/user)
-	icon_state = "flag_lesbian_vertical"
-	.=..()
 
 /obj/structure/sign/flag/pride/pan
 	name = "pansexual pride flag"
@@ -57,19 +55,12 @@
 	icon_state = "flag_pan"
 	item_flag = /obj/item/sign/flag/pride/pan
 
-/obj/structure/sign/flag/pride/pan/click_alt(mob/user)
-	icon_state = "flag_pan_vertical"
-	.=..()
-
 /obj/structure/sign/flag/pride/trans
 	name = "trans pride flag"
 	desc = "The flag of trans pride."
 	icon_state = "flag_trans"
 	item_flag = /obj/item/sign/flag/pride/trans
 
-/obj/structure/sign/flag/pride/trans/click_alt(mob/user)
-	icon_state = "flag_trans_vertical"
-	.=..()
 
 // FOLDED
 
