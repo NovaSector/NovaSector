@@ -7311,7 +7311,6 @@
 #include "modular_nova\master_files\code\modules\clothing\outfits\standard.dm"
 #include "modular_nova\master_files\code\modules\clothing\shoes\bananashoes.dm"
 #include "modular_nova\master_files\code\modules\clothing\shoes\boots.dm"
-#include "modular_nova\master_files\code\modules\clothing\shoes\clown.dm"
 #include "modular_nova\master_files\code\modules\clothing\shoes\costume.dm"
 #include "modular_nova\master_files\code\modules\clothing\shoes\sneakers.dm"
 #include "modular_nova\master_files\code\modules\clothing\shoes\wheelys.dm"
