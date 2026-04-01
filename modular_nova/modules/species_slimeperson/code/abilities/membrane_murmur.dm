@@ -36,5 +36,14 @@
 	if(!istype(brainmob))
 		CRASH("[src] cast by non-brainmob [owner?.type || "(null)"]")
 	var/obj/item/organ/brain/slime/brainitem = brainmob.loc
+	var/list/possible_cries(
+		"Blorp... glub... help...",
+		"Glooop... save me...",
+		"Alone... burbble too quiet...",
+		"What's left... of me...?",
+		"Can't feel... can't... think...",
+		"Plasma... need... plasma...",
+		"It's so... quiet...",
+	)
 	var/final_cry = brainmob.Ellipsis(pick(possible_cries), chance = 30)
 	brainitem.say(final_cry, "slime", forced = "[src]", message_range = 2)
