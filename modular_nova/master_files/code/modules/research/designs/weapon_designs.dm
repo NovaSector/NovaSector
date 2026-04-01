@@ -30,7 +30,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/shotgun_frangible_slug
-	name = "Frangible Breaching Slug"
+	name = "Frangible Slug (Breaching)"
 	desc = "A frangible breaching slug."
 	id = "s12g_br"
 	build_type = PROTOLATHE | AWAY_LATHE
