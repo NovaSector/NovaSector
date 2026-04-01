@@ -76,8 +76,6 @@
 		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/supply = 3,
 		/obj/item/clothing/glasses/hud/gun_permit = 5, //from company imports module
 		/obj/item/storage/backpack/messenger = 3,
-		/obj/item/clothing/under/suit/nova/scarface = 2,
-		/obj/item/clothing/under/rank/cargo/tech/nova/evil = 2,
 		/obj/item/clothing/head/playbunnyears/bitrunner = 3,
 		/obj/item/clothing/head/playbunnyears/cargo = 3,
 		/obj/item/clothing/head/playbunnyears/mailman = 1,
@@ -89,6 +87,11 @@
 		/obj/item/clothing/under/rank/cargo/bitrunner/bunnysuit = 3,
 		/obj/item/clothing/under/rank/cargo/cargo_bunnysuit = 3,
 		/obj/item/clothing/under/rank/cargo/mailman_bunnysuit = 1,
+	)
+
+	contraband_nova = (
+		/obj/item/clothing/under/suit/nova/scarface = 2,
+		/obj/item/clothing/under/rank/cargo/tech/nova/evil = 2,
 	)
 
 /obj/machinery/vending/wardrobe/robo_wardrobe
@@ -164,14 +167,17 @@
 
 /obj/machinery/vending/wardrobe/hydro_wardrobe
 	products_nova = list(
-		/obj/item/clothing/under/suit/nova/scarface = 2,
-		/obj/item/clothing/under/misc/nova/gear_harness/adam = 2,
-		/obj/item/clothing/under/misc/nova/gear_harness/eve = 2,
 		/obj/item/storage/backpack/messenger/hyd = 3,
 		/obj/item/clothing/head/playbunnyears/botanist = 2,
 		/obj/item/clothing/neck/tie/bunnytie/botanist = 2,
 		/obj/item/clothing/suit/jacket/tailcoat/botanist = 2,
 		/obj/item/clothing/under/rank/civilian/hydroponics/bunnysuit = 2,
+	)
+
+	contraband_nova = list(
+		/obj/item/clothing/under/suit/nova/scarface = 2,
+		/obj/item/clothing/under/misc/nova/gear_harness/adam = 2,
+		/obj/item/clothing/under/misc/nova/gear_harness/eve = 2,
 	)
 
 /obj/machinery/vending/wardrobe/bar_wardrobe
