@@ -5,7 +5,7 @@
 	desc = "You probably shouldn't be seeing this. Yell at the coders about it."
 	icon = 'modular_nova/master_files/icons/obj/structures/pride_flags.dmi'
 	custom_materials = null
-	abstract_type = /obj/item/sign/flag/pride
+	abstract_type = /obj/structure/sign/flag/pride
 	///Whether or not we are currently in the vertical configuration
 	var/vertical = FALSE
 
@@ -70,6 +70,7 @@
 	desc = "You probably shouldn't be seeing this. Yell at the coders about it."
 	icon = 'modular_nova/master_files/icons/obj/structures/pride_flags.dmi'
 	custom_materials = null
+	abstract_type = /obj/item/sign/flag/pride
 
 /obj/item/sign/flag/pride/gay
 	name = "folded gay pride flag"
