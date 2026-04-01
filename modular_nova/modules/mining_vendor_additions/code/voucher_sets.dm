@@ -19,7 +19,7 @@
 	icon_state = "rabbit_white"
 	set_items = list(
 		/obj/item/storage/backpack/duffelbag/mining_bunny/conscript,
-		)
+	)
 
 /obj/item/storage/backpack/duffelbag/mining_bunny/conscript/PopulateContents()
 	..()
