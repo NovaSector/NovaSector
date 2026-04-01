@@ -13,7 +13,7 @@
 	allowed_buildtypes = COLONY_FABRICATOR
 	speedup_disabled = TRUE
 	/// techweb we intend to use for unlocking stuff.
-	var/techweb_path = /datum/techweb/autounlocking/nova/col_fab
+	var/techweb_path = /datum/techweb/colony_fabricator
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine
 	/// The sound loop played while the fabricator is making something
@@ -32,9 +32,8 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
 /obj/machinery/rnd/production/colony_lathe/proc/handle_network() //To handle the network in a modifiable way for subtypes down the way
-	if(!GLOB.autounlock_techwebs[techweb_path])
-		GLOB.autounlock_techwebs[techweb_path] = new techweb_path
-	stored_research = GLOB.autounlock_techwebs[techweb_path]
+	if(isnull(stored_research))
+		stored_research = new techweb_path
 
 /obj/machinery/rnd/production/colony_lathe/Destroy()
 	QDEL_NULL(soundloop)
