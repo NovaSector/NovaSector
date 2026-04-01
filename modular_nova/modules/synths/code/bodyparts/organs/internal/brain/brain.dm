@@ -13,6 +13,34 @@
 	var/obj/item/modular_computer/pda/synth/internal_computer
 	actions_types = list(/datum/action/item_action/synth/open_internal_computer)
 
+	///Can be set to tell ghosts what the brain will be used for
+	var/ask_role = ""
+	///Role assigned to the newly created mind
+	var/posibrain_job_path = /datum/job/positronic_brain
+	///World time tick when ghost polling will be available again
+	var/next_ask
+	///Delay after polling ghosts
+	var/ask_delay = 60 SECONDS
+	///One of these names is randomly picked as the posibrain's name on possession. If left blank, it will use the global posibrain names
+	var/list/possible_names
+	///Picked posibrain name
+	var/picked_name
+	///Whether this positronic brain is currently looking for a ghost to enter it.
+	var/searching = FALSE
+
+	///Message sent to the user when polling ghosts
+	var/begin_activation_message = span_notice("You carefully locate the manual activation switch and start the positronic brain's boot process.")
+	///Message sent as a visible message on success
+	var/success_message = span_notice("The positronic brain pings, and its lights start flashing. Success!")
+	///Message sent as a visible message on failure
+	var/fail_message = span_notice("The positronic brain buzzes quietly, and the golden lights fade away. Perhaps you could try again?")
+	///Visible message sent when a player possesses the brain
+	var/new_mob_message = span_notice("The positronic brain chimes quietly.")
+	///Examine message when the posibrain has no mob
+	var/dead_message = span_deadsay("It appears to be completely inactive. The reset light is blinking.")
+	///Examine message when the posibrain cannot poll ghosts due to cooldown
+	var/recharge_message = span_warning("The positronic brain isn't ready to activate again yet! Give it some time to recharge.")
+
 /obj/item/organ/brain/synth/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "robot", BUBBLE_ICON_PRIORITY_ORGAN)
@@ -81,6 +109,121 @@
 		return
 	if(slot == ITEM_SLOT_ID)
 		internal_computer.handle_id_slot(owner, item)
+
+/obj/item/organ/brain/synth/click_alt(mob/living/user)
+	var/input_seed = tgui_input_text(user, "Enter a personality seed", "Enter seed", ask_role, max_length = MAX_NAME_LEN)
+	if(isnull(input_seed) || !user.can_perform_action(src))
+		return CLICK_ACTION_BLOCKING
+	to_chat(user, span_notice("You set the personality seed to \"[input_seed]\"."))
+	ask_role = input_seed
+	update_appearance()
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/organ/brain/synth/attack_self(mob/user)
+	if(!brainmob)
+		brainmob = new(src)
+	if(!(GLOB.ghost_role_flags & GHOSTROLE_SILICONS))
+		to_chat(user, span_warning("Central Command has temporarily outlawed posibrain sentience in this sector..."))
+	if(brainmob.ckey)
+		to_chat(user, span_warning("This [name] is already active!"))
+		return
+	if(next_ask > world.time)
+		to_chat(user, recharge_message)
+		return
+	//Start the process of requesting a new ghost.
+	to_chat(user, begin_activation_message)
+	ping_ghosts("requested", FALSE)
+	next_ask = world.time + ask_delay
+	searching = TRUE
+	update_appearance()
+	addtimer(CALLBACK(src, PROC_REF(check_success)), ask_delay)
+
+/obj/item/organ/brain/synth/proc/check_success()
+	searching = FALSE
+	update_appearance()
+	if(QDELETED(brainmob))
+		return
+	if(brainmob.client)
+		visible_message(success_message)
+		playsound(src, 'sound/machines/ping.ogg', 15, TRUE)
+	else
+		visible_message(fail_message)
+
+///Notify ghosts that the posibrain is up for grabs
+/obj/item/organ/brain/synth/proc/ping_ghosts(msg, newlymade)
+	if(newlymade || GLOB.posibrain_notify_cooldown <= world.time)
+		notify_ghosts(
+			"[name] [msg] in [get_area(src)]! [ask_role ? "Personality requested: \[[ask_role]\]" : ""]",
+			source = src,
+			header = "Ghost in the Machine",
+			click_interact = TRUE,
+			ghost_sound = !newlymade ? 'sound/effects/ghost2.ogg':null,
+			ignore_key = POLL_IGNORE_POSIBRAIN,
+			notify_flags = (GHOST_NOTIFY_IGNORE_MAPLOAD),
+			notify_volume = 75,
+		)
+		if(!newlymade)
+			GLOB.posibrain_notify_cooldown = world.time + ask_delay
+
+/obj/item/organ/brain/synth/attack_ghost(mob/user)
+	if(QDELETED(brainmob))
+		return
+	if(brainmob.ckey || is_banned_from(user.ckey, ROLE_POSIBRAIN) || QDELETED(src) || QDELETED(user))
+		return
+	var/posi_ask = tgui_alert(user, "Become a [name]? (Warning, You can no longer be revived, and all past lives will be forgotten!)", "Confirm", list("Yes","No"))
+	if(posi_ask != "Yes" || QDELETED(src))
+		return
+	if(HAS_TRAIT(brainmob, TRAIT_SUICIDED)) //clear suicide status if the old occupant suicided.
+		brainmob.set_suicide(FALSE)
+	transfer_personality(user)
+
+/obj/item/organ/brain/synth/proc/transfer_personality(mob/candidate)
+	if(QDELETED(brainmob))
+		return
+	if(brainmob.ckey) //Prevents hostile takeover if two ghosts get the prompt or link for the same brain.
+		to_chat(candidate, span_warning("This [name] was taken over before you could get to it! Perhaps it might be available later?"))
+		return FALSE
+	if(candidate.mind && !isobserver(candidate))
+		candidate.mind.transfer_to(brainmob)
+	else
+		brainmob.PossessByPlayer(candidate.ckey)
+	name = "[initial(name)] ([brainmob.name])"
+	var/policy = get_policy(ROLE_POSIBRAIN)
+	if(policy)
+		to_chat(brainmob, policy)
+	brainmob.mind.set_assigned_role(SSjob.get_job_type(posibrain_job_path))
+	brainmob.set_stat(CONSCIOUS)
+	brainmob.grant_language(/datum/language/machine, source = LANGUAGE_ATOM)
+
+	visible_message(new_mob_message)
+	check_success()
+	return TRUE
+
+/obj/item/organ/brain/synth/examine(mob/user)
+	. = ..()
+	if(brainmob?.key)
+		switch(brainmob.stat)
+			if(CONSCIOUS)
+				if(!brainmob.client)
+					. += "It appears to be in stand-by mode." //afk
+			if(DEAD)
+				. += span_deadsay("It appears to be completely inactive.")
+	else
+		. += "[dead_message]"
+		if(ask_role)
+			. += span_notice("Current consciousness seed: \"[ask_role]\"")
+		. += span_boldnotice("Alt-click to set a consciousness seed, specifying what [src] will be used for. This can help generate a personality interested in that role.")
+
+/obj/item/organ/brain/synth/update_icon_state()
+	. = ..()
+	if(searching)
+		icon_state = "[base_icon_state]-searching"
+		return
+	if(brainmob?.key)
+		icon_state = "[base_icon_state]-occupied"
+		return
+	icon_state = "[base_icon_state]"
+	return
 
 /obj/item/organ/brain/synth/circuit
 	name = "compact AI circuit"
