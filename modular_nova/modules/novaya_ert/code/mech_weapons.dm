@@ -301,6 +301,8 @@
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "dagr_ammo"
 	rounds = 7
+	direct_load = TRUE
+	load_audio = 'sound/items/weapons/gun/general/mag_bullet_insert.ogg'
 	ammo_type = MECHA_AMMO_MISSILE_DAGR
 
 #undef MECHA_AMMO_CANNON
