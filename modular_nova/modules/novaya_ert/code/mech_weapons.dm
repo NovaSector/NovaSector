@@ -140,7 +140,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/zaibas_lmg
 	name = "\improper M/HP-22 \"Strele\" coaxial plasma pulse machinegun"
 	desc = "A weapon for combat exosuits, produced by KMIF-SŻD joint initiative. Shoots assault rifle caliber-proportionate plasma-saboted tungsten penetrators. \
-	The preloaded amounts of plasma and tungsten allow it to sustain fire indefinitely within regular combat scenarios."
+		The preloaded amounts of plasma and tungsten allow it to sustain fire indefinitely within regular combat scenarios."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "mecha_plasma_lmg"
 	equip_cooldown = 10
@@ -181,7 +181,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/dagr
 	name = "\improper M/RP-66 \"Smilgas\" anti-tank guided rocket pod"
 	desc = "A weapon for combat exosuits, produced by KMIF. Launches anti-tank guided missiles with optical and infrared guidance designed to lock-on after launch \
-	and track targets autonomously. Due to the nature of their design, turn rates remain subpar, and its design will do nothing to soft targets."
+		and track targets autonomously. Due to the nature of their design, turn rates remain subpar, and its design will do nothing to soft targets."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "mecha_dagr"
 	projectile = /obj/projectile/bullet/rocket/pep/dagr
@@ -272,7 +272,7 @@
 	armour_penetration = 35
 
 /obj/projectile/bullet/autocannon/on_hit(atom/target, blocked = 0, pierce_hit)
-	..()
+	. = ..()
 	explosion(target, light_impact_range = 1, flame_range = 1, flash_range = 1, adminlog = FALSE, silent = TRUE)
 	return BULLET_ACT_HIT
 
