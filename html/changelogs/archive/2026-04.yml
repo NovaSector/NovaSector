@@ -1,0 +1,16 @@
+2026-04-01:
+  Hatterhat:
+  - qol: The Free Trade Union, citing one customer complaint, remembered that they
+      have a source for webbing and webbing-like accessories and has patched them
+      into Nanotrasen's goodies market.
+  Stalkeros, splet for the sprites:
+  - rscadd: 'Adds three new Heliostatic Coalition-licensed mech guns: M/HP-22 "Strele"
+      coaxial plasma pulse machinegun, M/AC-41 "Seklys" flex-mount autocannon gunpod,
+      and M/RP-66 "Smilgas" anti-tank guided rocket pod.'
+  - rscadd: Adds a new and upgraded Heliostatic Coalition-licensed mech modernisation
+      kit, and consequently the upgraded mech, M/TACS-1A-LF "Arbiter". More armor,
+      less speed, and, most of all, built-in thermal sights in the year of our lord
+      2566.
+  - balance: M/FC-8-LF "Forge" fabrication cannon's spooling, printing, loading times
+      have been significantly decreased, thus increasing its fire rate to something
+      more sensible.

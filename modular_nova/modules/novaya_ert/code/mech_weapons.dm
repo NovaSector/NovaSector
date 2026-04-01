@@ -1,13 +1,16 @@
 #define MECHA_AMMO_CANNON "Cannon fodder"
+#define MECHA_AMMO_MISSILE_DAGR "Semi-guided rocket"
+#define MECHA_AMMO_AUTOCANNON "35mm Multipurpose"
 
+//Snowflakey primary weapon with a unique'ish mechanic of ammunition swapping-via-scanning.
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon
-	name = "\improper M/FC-8-LF \"Forge\" Fabrication Cannon"
-	desc = "A heavy 76mm cannon for mechs, integrated with an onboard nanoforge. It fabricates specialized rounds on-demand from a generic \
+	name = "\improper M/FC-8-LF \"Forge\" fabrication cannon"
+	desc = "A heavy 76mm cannon for mechs, integrated with an onboard nanoforge, produced by KMIF. It fabricates specialized rounds on-demand from a generic \
 		fodder canister, allowing for sustained fire support without conventional ammunition logistics. The system automatically identifies \
 		targets and selects the optimal round type."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "mecha_cannon"
-	equip_cooldown = 3 SECONDS
+	equip_cooldown = 2 SECONDS
 	fire_sound = 'modular_nova/modules/novaya_ert/sound/shell_out_med.ogg'
 	projectile = /obj/projectile/bullet/tank_cannon/smoke
 	projectiles = 7
@@ -30,7 +33,7 @@
 	///Whether the gun is currently printing/loading.
 	var/loading_in_progress = FALSE
 	///How long does it take to load a round?
-	var/loading_time = 3 SECONDS
+	var/loading_time = 2 SECONDS
 
 /// The system acts as the Commander, identifying the target and selecting ammo.
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon/proc/spot_target(atom/target)
@@ -53,18 +56,18 @@
 
 	// Commander's callout.
 	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_danger("TARGET: [target_type]. PRINT QUEUE: [uppertext(current_ammo_type)].")]")
-	addtimer(CALLBACK(src, PROC_REF(call_identified)), 1.5 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME) // Short immersive delay for the "gunner" to acquire.
+	addtimer(CALLBACK(src, PROC_REF(call_identified)), 1 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME) // Short immersive delay for the "gunner" to acquire.
 
 /// System confirms target.
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon/proc/call_identified()
 	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_notice("FORGE SPOOLING. PREPARING FOR: [uppertext(current_ammo_type)].")]")
-	addtimer(CALLBACK(src, PROC_REF(call_load)), 1.5 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME) // Short immersive delay for the "loader" to start loading.
+	addtimer(CALLBACK(src, PROC_REF(call_load)), 1 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME) // Short immersive delay for the "loader" to start loading.
 
 /// System starts loading.
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon/proc/call_load()
 	to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_notice("FORGE ACTIVE. PRINTING [uppertext(current_ammo_type)]!")]")
 	playsound(chassis, 'modular_nova/modules/colony_fabricator/sound/fabricator/fabricator_mid_2.wav', 50, TRUE)
-	addtimer(CALLBACK(src, PROC_REF(call_loading)), 1.5 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME) // Short immersive delay for the "loading" to start.
+	addtimer(CALLBACK(src, PROC_REF(call_loading)), 1 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME) // Short immersive delay for the "loading" to start.
 
 /// System is loading.
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon/proc/call_loading()
@@ -132,6 +135,58 @@
 			highest_threat = threat_type
 
 	return highest_threat
+
+//Secondary weapon that's just an effectively-infinite ammo coaxial Zaibas.
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/zaibas_lmg
+	name = "\improper M/HP-22 \"Strele\" coaxial plasma pulse machinegun"
+	desc = "A weapon for combat exosuits, produced by KMIF-SŻD joint initiative. Shoots assault rifle caliber-proportionate plasma-saboted tungsten penetrators. \
+		The preloaded amounts of plasma and tungsten allow it to sustain fire indefinitely within regular combat scenarios."
+	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
+	icon_state = "mecha_plasma_lmg"
+	equip_cooldown = 10
+	projectiles_per_shot = 4
+	variance = 5
+	randomspread = 1
+	projectile_delay = 2
+	energy_drain = 250
+	projectile = /obj/projectile/beam/laser/plasma_glob/pulse
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_shoot.ogg'
+	harmful = TRUE
+
+//35mm gunpod with an auto-ejection system when it runs dry, so you don't have to navigate UIs.
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/gunpod
+	name = "\improper M/AC-41 \"Seklys\" flex-mount autocannon gunpod"
+	desc = "A weapon for combat exosuits, produced by KMIF. Shoots a rapid, three shot burst of 35mm multipurpose shells. Jettisons itself automatically if it ever runs dry."
+	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
+	icon_state = "mecha_gunpod"
+	equip_cooldown = 12
+	projectile = /obj/projectile/bullet/autocannon
+	projectiles = 150
+	projectiles_per_shot = 3
+	fire_sound = 'modular_nova/modules/novaya_ert/sound/amr_fire.ogg'
+	variance = 2
+	randomspread = 1
+	projectile_delay = 4
+	harmful = TRUE
+	ammo_type = MECHA_AMMO_AUTOCANNON
+
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/gunpod/action(mob/source, atom/target, list/modifiers)
+	. = ..()
+	if(projectiles <= 0)
+		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_warning("Gunpod exhausted. Ejecting.")]")
+		detach()
+		return
+
+//Guided rockets, which would make them missiles, but they're rockets because their guidance is APKWS-style. 'Easy' but capacity-inefficient alternative to FC-8.
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/dagr
+	name = "\improper M/RP-66 \"Smilgas\" anti-tank guided rocket pod"
+	desc = "A weapon for combat exosuits, produced by KMIF. Launches anti-tank guided missiles with optical and infrared guidance designed to lock-on after launch \
+		and track targets autonomously. Due to the nature of their design, turn rates remain subpar, and its design will do nothing to soft targets."
+	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
+	icon_state = "mecha_dagr"
+	projectile = /obj/projectile/bullet/rocket/pep/dagr
+	projectiles = 7
+	ammo_type = MECHA_AMMO_MISSILE_DAGR
 
 /obj/projectile/bullet/tank_cannon
 	name = "nonexistent tank shell"
@@ -209,6 +264,29 @@
 		shocker.electrocute_act(30, "electric sabot", flags = SHOCK_NOGLOVES|SHOCK_NOSTUN)
 	do_sparks(5, FALSE, target)
 
+/obj/projectile/bullet/autocannon
+	name = "35mm multipurpose autocannon shell"
+	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
+	icon_state = "35mm"
+	damage = 45
+	armour_penetration = 35
+
+/obj/projectile/bullet/autocannon/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+	explosion(target, light_impact_range = 1, flame_range = 1, flash_range = 1, adminlog = FALSE, silent = TRUE)
+	return BULLET_ACT_HIT
+
+/obj/projectile/bullet/rocket/pep/dagr
+	name = "precision guided rocket"
+	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
+	icon_state = "dagr_rocket"
+	homing_turn_speed = 10
+
+/obj/projectile/bullet/rocket/pep/dagr/Initialize(mapload)
+	. = ..()
+	src.homing = TRUE
+	src.set_homing_target(original)
+
 /obj/item/mecha_ammo/cannon
 	name = "fabricator canister container"
 	desc = "A container of fabricator 'fodder' canisters for use with exosuit weapons."
@@ -217,4 +295,14 @@
 	rounds = 28
 	ammo_type = MECHA_AMMO_CANNON
 
+/obj/item/mecha_ammo/dagr
+	name = "guided rocket container"
+	desc = "A container of semi-guided rockets for use with exosuit weapons."
+	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
+	icon_state = "dagr_ammo"
+	rounds = 7
+	ammo_type = MECHA_AMMO_MISSILE_DAGR
+
 #undef MECHA_AMMO_CANNON
+#undef MECHA_AMMO_MISSILE_DAGR
+#undef MECHA_AMMO_AUTOCANNON

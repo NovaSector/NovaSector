@@ -325,7 +325,7 @@
 
 /obj/item/ammo_casing/shotgun/frangible
 	name = "frangible slug"
-	desc = "A weak anti materiel shell intended for dislodging airlock, breaking down barricades and structures. Not effective against people."
+	desc = "A weak anti material shell intended for dislodging airlock, breaking down barricades and structures. Not effective against people."
 	icon_state = "breacher"
 	projectile_type = /obj/projectile/bullet/frangible_slug
 
