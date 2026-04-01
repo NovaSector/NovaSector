@@ -8,7 +8,31 @@
 	icon_state = "captain"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	post_init_icon_state = "cypherkey_cube"
-	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_AI_PRIVATE = 1, RADIO_CHANNEL_CENTCOM = 1, RADIO_CHANNEL_CTF_BLUE = 1, RADIO_CHANNEL_CTF_GREEN = 1, RADIO_CHANNEL_CTF_RED = 1, RADIO_CHANNEL_CTF_YELLOW = 1, RADIO_CHANNEL_CYBERSUN = 1, RADIO_CHANNEL_ENTERTAINMENT = 1, RADIO_CHANNEL_FACTION = 1, RADIO_CHANNEL_GUILD = 1, RADIO_CHANNEL_INTERDYNE = 1, RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_TARKON = 1, RADIO_CHANNEL_SYNDICATE = 1, RADIO_CHANNEL_UPLINK = 1)
+	channels = list(
+		RADIO_CHANNEL_COMMAND = 1,
+		RADIO_CHANNEL_SECURITY = 1,
+		RADIO_CHANNEL_ENGINEERING = 1,
+		RADIO_CHANNEL_SCIENCE = 1,
+		RADIO_CHANNEL_MEDICAL = 1,
+		RADIO_CHANNEL_SUPPLY = 1,
+		RADIO_CHANNEL_SERVICE = 1,
+		RADIO_CHANNEL_AI_PRIVATE = 1,
+		RADIO_CHANNEL_CENTCOM = 1,
+		RADIO_CHANNEL_CTF_BLUE = 1,
+		RADIO_CHANNEL_CTF_GREEN = 1,
+		RADIO_CHANNEL_CTF_RED = 1,
+		RADIO_CHANNEL_CTF_YELLOW = 1,
+		RADIO_CHANNEL_CYBERSUN = 1,
+		RADIO_CHANNEL_ENTERTAINMENT = 1,
+		RADIO_CHANNEL_FACTION = 1,
+		RADIO_CHANNEL_GUILD = 1,
+		RADIO_CHANNEL_INTERDYNE = 1,
+		RADIO_CHANNEL_SOLFED = 1,
+		RADIO_CHANNEL_TARKON = 1,
+		RADIO_CHANNEL_SYNDICATE = 1,
+		RADIO_CHANNEL_UPLINK = 1
+	)
+	//var/list/channels = list()
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#2b2793#dca01b"
 
@@ -25,9 +49,12 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/radio/headset/headset/admin/Initialize(mapload)
+// I tried but it didn't work. Can you fix this, dear reader?
+obj/item/radio/headset/headset/admin/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, EAR_PROTECTION_HEAVY)
+//	for (var/channels in GLOB.channel_tokens)
+//		channels += channels
 
 /obj/item/radio/headset/admin/subspace
 	name = "subspace headset"
@@ -91,7 +118,7 @@
 	human_user.update_sight()
 	return CLICK_ACTION_SUCCESS
 
-// we move phasing, inspect blocking, godmode. later needs a visual indicator of some kind
+// needs phasing and inspect blocking on separate toggles.  later needs a visual effect.
 // Attempts to create a wall-phasing mode that you can enable with the visor.
 /// Whether phasing is currently active
 /obj/item/clothing/head/helmet/perceptomatrix/admin/item_ctrl_click(mob/user)
@@ -100,7 +127,6 @@
 
     // Must be worn, not just held
     var/mob/living/wearer = user
-    if(wearer.get_slot_by_item(src) != ITEM_SLOT_HEAD)
     if(wearer.get_slot_by_item(src) != ITEM_SLOT_HEAD)
         balloon_alert(user, "must be worn!")
         return CLICK_ACTION_BLOCKING
@@ -124,7 +150,6 @@
 /obj/item/clothing/head/helmet/perceptomatrix/admin/examine(mob/user)
     . = ..()
     . += span_notice("Ctrl-click while wearing to toggle phasing. Currently [admin_phasing ? "active" : "inactive"].")
-//
 
 // Admin Helmet
 // We love casting spells. Did you know the perceptomatrix counts for spell clothing? Aint that neat.
@@ -149,8 +174,7 @@
 
 /obj/item/clothing/head/helmet/perceptomatrix/admin/update_icon_state()
 	return
-//
-//
+
 //Now we get really magical.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
 	name = "subspace visor"
@@ -301,6 +325,37 @@
 	armor_type = /datum/armor/admin/badmin
 
 //Debug magbooties
+//Spacewalking toggle
+/obj/item/clothing/shoes/magboots/advance/admin/item_ctrl_click(mob/user)
+    if(!isliving(user))
+        return CLICK_ACTION_BLOCKING
+
+    // Must be worn, not just held
+    var/mob/living/wearer = user
+    if(wearer.get_slot_by_item(src) != ITEM_SLOT_FEET)
+        balloon_alert(user, "must be worn!")
+        return CLICK_ACTION_BLOCKING
+
+    admin_spacewalk = !admin_spacewalk
+    if(admin_spacewalk)
+        attach_clothing_traits(TRAIT_SPACEWALK)
+    else
+        detach_clothing_traits(TRAIT_SPACEWALK)
+
+    balloon_alert(user, "spacewalking [admin_spacewalk ? "enabled" : "disabled"]")
+    return CLICK_ACTION_SUCCESS
+
+/obj/item/clothing/shoes/magboots/advance/admin/dropped(mob/user)
+    . = ..()
+    if(admin_spacewalk)
+        admin_spacewalk = FALSE
+        // detach_clothing_traits is already called by the parent unequip logic,
+        // but we reset our state variable here
+
+/obj/item/clothing/shoes/magboots/advance/admin/examine(mob/user)
+    . = ..()
+    . += span_notice("Ctrl-click while wearing to toggle spacewalking. Currently [admin_spacewalk ? "active" : "inactive"].")
+
 /obj/item/clothing/shoes/magboots/advance/admin//code\modules\clothing\shoes\magboots.dm
 	name = "bluespace magboots"
 	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
@@ -313,10 +368,11 @@
 	fishing_modifier = 10
 	w_class = WEIGHT_CLASS_TINY
 	armor_type = /datum/armor/admin
+	var/admin_spacewalk = FALSE
 
 /obj/item/clothing/shoes/magboots/advance/admin/Initialize(mapload)// Give them pockets, damnit
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/admin)//big pockets,,,
+	create_storage(storage_type = /datum/storage/admin/pockets)//big pockets,,,
 	AddElement(/datum/element/ignites_matches)
 
 /obj/item/clothing/shoes/magboots/advance/admin/subspace

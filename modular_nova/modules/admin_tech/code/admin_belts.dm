@@ -8,9 +8,10 @@
 	icon_state = "admeme_satchel"
 	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
 	worn_icon_state = "admeme_satchel"
-	storage_type = /datum/storage/debug
+	storage_type = /datum/storage/admin
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	slot_flags = ITEM_SLOT_BELT//belt slot only aaaaah!
 
 // Chief engineer tools variant, probably should just be killed off in favor the the bst bag
 /obj/item/storage/belt/utility/full/powertools/admin
@@ -20,9 +21,10 @@
 	icon_state = "admeme_satchel"
 	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
 	worn_icon_state = "admeme_satchel"
-	storage_type = /datum/storage/debug
+	storage_type = /datum/storage/admin
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	slot_flags = ITEM_SLOT_BELT//belt slot only aaaaah!
 
 // Yes hello I would like some tools in a debug outfit's belt
 /obj/item/storage/belt/utility/admin/bluespace
@@ -33,7 +35,7 @@
 	icon_state = "admeme_satchel"
 	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
 	worn_icon_state = "admeme_satchel"
-	storage_type = /datum/storage/debug
+	storage_type = /datum/storage/admin
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
@@ -69,7 +71,7 @@
 	icon_state = "admeme_satchel"
 	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
 	worn_icon_state = "admeme_satchel"
-	storage_type = /datum/storage/debug
+	storage_type = /datum/storage/admin
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 

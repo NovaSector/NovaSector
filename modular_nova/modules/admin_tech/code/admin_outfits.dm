@@ -14,7 +14,7 @@
 	mask = /obj/item/clothing/mask/gas/atmos/admin
 	id = /obj/item/card/id/advanced/debug/bluespace
 	box = /obj/item/storage/box/debug/tools
-	l_pocket = null
+	l_pocket = /obj/item/storage/bag/admin
 	r_pocket = null
 	back = /obj/item/mod/control/pre_equipped/bluespace
 	backpack_contents = list(
@@ -44,7 +44,7 @@
 	mask = /obj/item/clothing/mask/gas/atmos/admin/subspace
 	id = /obj/item/card/id/advanced/debug/subspace
 	box = /obj/item/storage/box/debug/tools
-	l_pocket = null
+	l_pocket = /obj/item/storage/bag/admin/subspace
 	r_pocket = null
 	back = /obj/item/mod/control/pre_equipped/subspace
 	backpack_contents = list(

@@ -12,12 +12,12 @@
 	incompatible_modules = null
 
 //Modsuit storage modules create their own storage datums, and dont reference a storage datum type
-/obj/item/mod/module/storage/debug
+/obj/item/mod/module/storage/admin
 	name = "MOD subspace storage module"
 	desc = "A storage system developed by CentCom, these compartments employ \
 		miniaturized bluespace pockets for the ultimate in storage technology; regardless of the weight of objects put inside."
 	icon_state = "storage_large"
-	storage_type = /datum/storage/debug
+	storage_type = /datum/storage/admin
 
 //New and Improved BST Plates, overwriting the old
 /datum/mod_theme/bluespace
@@ -83,7 +83,7 @@
 	starting_frequency = MODLINK_FREQ_CENTCOM
 	applied_core = /obj/item/mod/core/infinite
 	applied_modules = list(
-		/obj/item/mod/module/storage/bluespace,
+		/obj/item/mod/module/storage/admin,
 		/obj/item/mod/module/emp_shield/advanced,
 		/obj/item/mod/module/welding,
 		/obj/item/mod/module/rad_protection,
@@ -167,7 +167,7 @@
 	starting_frequency = MODLINK_FREQ_CENTCOM
 	applied_core = /obj/item/mod/core/infinite
 	applied_modules = list(
-		/obj/item/mod/module/storage/debug,
+		/obj/item/mod/module/storage/admin,
 		/obj/item/mod/module/infiltrator/debug,
 		/obj/item/mod/module/emp_shield/advanced,
 		/obj/item/mod/module/energy_shield/debug,

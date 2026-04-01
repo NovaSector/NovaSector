@@ -1,18 +1,40 @@
-//todo:subspace boxcutter, bluespace trashbag / pocket, incorporeal movement / jaunt on visor using the voidling effect
+//todo:subspace boxcutter, surgical tray, admin medicell gun, slime core / useful clothing traits necklace. add spacewalk toggle to admin boots. admin pda, clear, works w/o tcomms, give infini cell
+//Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
+//This will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
+//todo: pickup people or machiens with it too? wouldn't that be cool.
+//check admin_datums for the storage datum for this
+/obj/item/storage/bag/admin
+	name = "bluespace pocket"
+	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials."
+	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon_state = "blue-pocket"
+	worn_icon_state = "null"
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_POCKETS | ITEM_SLOT_POCKETS | ITEM_SLOT_BELT | ITEM_SLOT_BACK//I know someone will want a backpack with no worn icon so here shut up in advance
+	storage_type = /datum/storage/admin/bag
+
+/obj/item/storage/bag/admin/subspace
+	name = "subspace pocket"
+	desc = parent_type::desc + "This advanced version fills you with a sense of dread when you open it and peer inside."
+	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon_state = "sub-pocket"
+	worn_icon_state = "null"
+	storage_type = /datum/storage/admin/bag/badmin
+
 // The sheetsnatcher extreme is really ugly, misses features, and misses materials. Lets make our own.
 // Using a construction bag as our base, instead of the sheetsnatcher.
 // I can probably adapt the BST-BRPED manufacturing function to this, but for now, an improvement is better than nothing
 /obj/item/storage/bag/construction/admin//code\game\objects\items\storage\bags.dm
-	name = "subspace construction pouch"
+	name = "bluespace construction bag"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
 	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
-	icon_state = "subspace_bag"
+	icon_state = "blue-bag"
 	worn_icon_state = "null"//Dont fuck with my drip, todo: make drip-pouch worn visible
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	slot_flags = ITEM_SLOT_POCKETS//pockets only >:(
-	storage_type = /datum/storage/bag/construction/admin
+	storage_type = /datum/storage/admin/bag
 
 /obj/item/storage/bag/construction/admin/PopulateContents()
 	var/static/items_inside = list(
@@ -72,6 +94,13 @@
 		var/amt = items_inside[stack_type]
 		new stack_type(src, amt, FALSE)
 
+/obj/item/storage/bag/construction/admin/subspace
+	name = "subspace construction bag"
+	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
+	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
+	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon_state = "sub-bag"
+
 // Badmin pinpointer. The bool lets you find people, even if they aren't wearing clothes, as long as you share a z-layer
 /obj/item/pinpointer/crew/admin//code\game\objects\items\pinpointer.dm
 	name = "subspace target locator"
@@ -114,7 +143,8 @@
 // weapon + metal hydrogen fire axe inspired
 // todo: channeled gutting / organ carving ability, steal the channel attack from extinguishers
 // "only if it can unbox people and just dumps human skin on the floor and all their organs"
-//		/obj/item/boxcutter
+///obj/item/boxcutter
+//code\game\objects\objs.dm & code\game\objects\items.dm
 
 //Debug Global Access Door Remote
 //code\game\objects\items\tools\control_wand.dm
@@ -246,7 +276,7 @@
 //todo:variant icon
 //code\game\objects\items\rcd\RPLD.dm
 /obj/item/construction/plumbing/admin
-	name = "subspace plumbing constructor"
+	name = "subspace omniplumber"//thanks cosmiclaer, cute name
 	desc = "An expertly modified RCD outfitted to construct plumbing machinery."
 	icon_state = "plumberer2"
 	inhand_icon_state = "plumberer"
