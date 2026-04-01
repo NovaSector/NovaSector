@@ -2162,7 +2162,7 @@
 	default_raw_text = "Admiral, due to increased Nanotrasen presence in your sector, we are providing some extra supplies to deal with it. The telecrystals are to be held for a contact that will come to collect them in the coming weeks, a solo operative. Please ensure they get the crystals, as their mission is gravely important.";
 	name = "CONFIDENTIAL - DS-2 Admiral's Eyes Only"
 	},
-/obj/item/stack/telecrystal{
+/obj/item/stack/sheet/telecrystal{
 	amount = 10
 	},
 /turf/open/floor/iron/dark,

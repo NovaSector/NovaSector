@@ -17,7 +17,7 @@
 		/obj/item/stack/sheet/mineral/diamond = 0.4,
 		/obj/item/stack/sheet/mineral/adamantine = 0.3,
 		/obj/item/stack/sheet/hauntium = 0.3,
-		/obj/item/stack/telecrystal = 0.3,
+		/obj/item/stack/sheet/telecrystal = 0.3,
 		/obj/item/stack/ore/bluespace_crystal = 0.4,
 	)
 

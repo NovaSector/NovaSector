@@ -227,6 +227,6 @@
 /obj/structure/closet/crate/secure/tradership_cargo_very_valuable/PopulateContents()
 	..()
 	//45 TC, but no uplink. Better find a cantor
-	new /obj/item/stack/telecrystal/twenty(src)
-	new /obj/item/stack/telecrystal/twenty(src)
-	new /obj/item/stack/telecrystal/five(src)
+	new /obj/item/stack/sheet/telecrystal/twenty(src)
+	new /obj/item/stack/sheet/telecrystal/twenty(src)
+	new /obj/item/stack/sheet/telecrystal/five(src)

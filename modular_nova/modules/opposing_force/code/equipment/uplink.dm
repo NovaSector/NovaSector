@@ -14,17 +14,17 @@
 	admin_note = "Implanter for a Traitor uplink with no TC."
 
 /datum/opposing_force_equipment/uplink/tc1
-	item_type = /obj/item/stack/telecrystal
+	item_type = /obj/item/stack/sheet/telecrystal
 	name = "1 Raw Telecrystal"
 	description = "A telecrystal in its rawest and purest form; can be utilized on active uplinks to increase their telecrystal count."
 
 /datum/opposing_force_equipment/uplink/tc5
-	item_type = /obj/item/stack/telecrystal/five
+	item_type = /obj/item/stack/sheet/telecrystal/five
 	name = "5 Raw Telecrystals"
 	description = "A bunch of telecrystals in their rawest and purest form; can be utilized on active uplinks to increase their telecrystal count."
 
 /datum/opposing_force_equipment/uplink/tc10
-	item_type = /obj/item/stack/telecrystal/twenty
+	item_type = /obj/item/stack/sheet/telecrystal/twenty
 	name = "20 Raw Telecrystals"
 	description = "A bundle of telecrystals in their rawest and purest form; can be utilized on active uplinks to increase their telecrystal count."
 

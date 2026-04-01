@@ -4912,7 +4912,7 @@
 	pixel_x = -5;
 	pixel_y = 1
 	},
-/obj/item/stack/telecrystal/five,
+/obj/item/stack/sheet/telecrystal/five,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/maintsroom)
 "qj" = (

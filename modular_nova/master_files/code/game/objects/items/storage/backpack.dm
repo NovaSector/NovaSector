@@ -10,7 +10,7 @@
 		/obj/item/storage/toolbox/syndicate = 7,
 		/obj/item/card/id/advanced/chameleon = 6,
 		/obj/item/stack/spacecash/c5000 = 3,
-		/obj/item/stack/telecrystal = 2,
+		/obj/item/stack/sheet/telecrystal = 2,
 		/obj/item/storage/belt/military = 12,
 		/obj/item/storage/fancy/cigarettes/cigpack_syndicate = 8,
 		/obj/item/storage/box/fireworks/dangerous = 11,

@@ -98,7 +98,7 @@
 	title = ROLE_MARAUDER
 	paycheck_department = ACCOUNT_DS2
 	exclusive_mail_goodies = TRUE
-	mail_goodies = list(/obj/item/stack/telecrystal/five)
+	mail_goodies = list(/obj/item/stack/sheet/telecrystal/five)
 	outfit = /datum/outfit/marauder
 	plasmaman_outfit = /datum/outfit/marauder/plasmaman
 	akula_outfit = /datum/outfit/marauder/akula
