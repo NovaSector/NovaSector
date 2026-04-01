@@ -1,8 +1,4 @@
-/obj/item/sign/set_sign_type(obj/structure/sign/fake_type)
-	. = ..()
-	icon = initial(fake_type.icon)
-
-// HORIZONTAL
+//PRIDE FLAGS
 
 /obj/structure/sign/flag/pride
 	name = "coder pride flag"
@@ -10,6 +6,7 @@
 	icon = 'modular_nova/master_files/icons/obj/structures/pride_flags.dmi'
 	custom_materials = null
 	abstract_type = /obj/item/sign/flag/pride
+	///Whether or not we are currently in the vertical configuration
 	var/vertical = FALSE
 
 /obj/structure/sign/flag/pride/click_alt(mob/user)
@@ -21,6 +18,14 @@
 	update_appearance(UPDATE_ICON_STATE)
 	to_chat(user, span_notice("You make the [name] [vertical ? "vertically" : "horizontally"] prideful"))
 	return CLICK_ACTION_SUCCESS
+
+/obj/structure/sign/flag/pride/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+	if(vertical)
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Hang horizontally"
+	else
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Hang vertically"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/sign/flag/pride/gay
 	name = "gay pride flag"
@@ -40,13 +45,11 @@
 	icon_state = "flag_bi"
 	item_flag = /obj/item/sign/flag/pride/bi
 
-
 /obj/structure/sign/flag/pride/lesbian
 	name = "lesbian pride flag"
 	desc = "The flag of lesbian pride."
 	icon_state = "flag_lesbian"
 	item_flag = /obj/item/sign/flag/pride/lesbian
-
 
 /obj/structure/sign/flag/pride/pan
 	name = "pansexual pride flag"
@@ -59,7 +62,6 @@
 	desc = "The flag of trans pride."
 	icon_state = "flag_trans"
 	item_flag = /obj/item/sign/flag/pride/trans
-
 
 // FOLDED
 
