@@ -46,7 +46,6 @@
 		span_purple("Your outer membrane starts to ooze out an oily coating, protecting you from water but making your body more viscous.")
 	)
 	owner.balloon_alert_to_viewers("starts oozing a hydrophobic coating!")
-	return TRUE
 
 /datum/status_effect/slime_hydrophobia/on_remove()
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/slime_hydrophobia, update = TRUE)
