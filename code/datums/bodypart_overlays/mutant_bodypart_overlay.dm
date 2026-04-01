@@ -17,6 +17,7 @@
 	var/color_source = ORGAN_COLOR_INHERIT
 	///Take on the dna/preference from whoever we're gonna be inserted in
 	var/imprint_on_next_insertion = TRUE
+	draw_on_husks = TRUE
 
 /datum/bodypart_overlay/mutant/New(obj/item/organ/attached_organ)
 	. = ..()
