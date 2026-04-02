@@ -13,14 +13,13 @@
 	w_class = WEIGHT_CLASS_TINY
 	obj_flags_nova = ERP_ITEM
 	/// The current color of the condom, can be changed and affects sprite
-	var/current_color = "pink"
+	var/current_color
 
 /obj/item/condom_pack/Initialize(mapload)
 	. = ..()
-	//color chosen randomly when item spawned
-	current_color = "pink"
-	if(prob(50))
-		current_color = "teal"
+	//color chosen randomly when item spawned, unless already preset
+	if(!current_color)
+		current_color = pick("pink", "teal")
 	update_icon_state()
 	update_icon()
 
@@ -36,11 +35,10 @@
 	var/obj/item/clothing/sextoy/condom/removed_condom = new /obj/item/clothing/sextoy/condom
 
 	user.put_in_hands(removed_condom)
-	switch(current_color)
-		if("pink")
-			removed_condom.current_color = "pink"
-		if("teal")
-			removed_condom.current_color = "teal"
+	if(current_color == "pink")
+		removed_condom.current_color = "pink"
+	else
+		removed_condom.current_color = "teal"
 	removed_condom.update_icon_state()
 	removed_condom.update_icon()
 	qdel(src)
@@ -78,14 +76,12 @@
 			if(prob(10)) //chance of condom to break on first time.
 				name = "broken condom"
 				condom_state = "broken"
-			update_icon_state()
-			update_icon()
 
 		if("dirty")
 			name = "broken condom"
 			condom_state = "broken"
-			update_icon_state()
-			update_icon()
+	update_icon_state()
+	update_icon()
 
 //When condom equipped we doing stuff
 /obj/item/clothing/sextoy/condom/lewd_equipped(mob/user, slot, initial)

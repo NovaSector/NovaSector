@@ -119,6 +119,17 @@
 		RND_CATEGORY_HC_MEDICAL,
 	)
 
+/datum/design/condom_pack
+	name = "Colonial Condom Pack"
+	id = "slavic_condom"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 50)
+	build_path = /obj/item/condom_pack/colonial
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_HC_MEDICAL,
+	)
+
 #undef RND_CATEGORY_HC_FOOD
 #undef RND_CATEGORY_HC_MEDICAL
 #undef RND_CATEGORY_HC_CLOTHING

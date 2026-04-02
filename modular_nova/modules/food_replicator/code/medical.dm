@@ -68,3 +68,9 @@
 
 	amount_per_transfer_from_this = initial(amount_per_transfer_from_this) * 0.5
 	return ..()
+
+/obj/item/condom_pack/colonial
+	name = "colonial condom pack"
+	desc = "You don't want to <i>overpopulate</i>, do you?"
+	icon = 'modular_nova/modules/food_replicator/icons/medicine.dmi'
+	current_color = "colonial"
