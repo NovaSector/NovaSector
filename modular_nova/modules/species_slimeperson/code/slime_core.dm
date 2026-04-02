@@ -28,9 +28,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	/// The original language holder of the slime who died.
 	var/datum/language_holder/stored_language_holder
 
-	// Core storage
-	var/list/stored_quirks = list()
-	var/list/stored_items = list()
+	/// Quirks stored inside the core after death
+	var/list/stored_quirks
+	/// Items stored inside the core after death
+	var/list/stored_items
+	/// Original item slots for stored items so a rebuilt slime can re-equip them
 	var/alist/items_per_slot = alist()
 
 	/// Item types that should never be stored in core and will drop on death. Takes priority over allowed lists.
@@ -93,7 +95,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	GLOB.dead_slime_cores -= src
 	QDEL_NULL(membrane_mur)
 	QDEL_NULL(stored_dna)
-	QDEL_LIST(stored_quirks)
+	QDEL_LAZYLIST(stored_quirks)
 	QDEL_NULL(stored_language_holder)
 
 	mind = null
@@ -103,7 +105,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		if(drop_loc)
 			drop_items_to_ground(drop_loc, explode = TRUE)
 		else
-			QDEL_LIST(stored_items)
+			QDEL_LAZYLIST(stored_items)
 
 	items_per_slot = null
 
@@ -122,7 +124,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(istype(held_item, /obj/item/reagent_containers))
 		context[SCREENTIP_CONTEXT_LMB] = "Pour Beaker (Requires 100u Plasma)"
 	if(!held_item)
-		if(length(stored_items))
+		if(LAZYLEN(stored_items))
 			context[SCREENTIP_CONTEXT_LMB] = "Steal Items"
 		if(gps_active)
 			context[SCREENTIP_CONTEXT_RMB] = "Disable GPS Signal"
@@ -147,7 +149,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 /obj/item/organ/brain/slime/examine_more(mob/user)
 	. = ..()
 	. += span_notice("You look closer through the core's hazy interior and see...")
-	if(length(stored_items))
+	if(LAZYLEN(stored_items))
 		for(var/atom/movable/item as anything in stored_items)
 			. += " [icon2html(item, user)] <a href='byond://?src=[REF(src)];core_item=[REF(item)]'>[item.get_examine_name(user)]</a>"
 		. += span_notice("floating inside...")
@@ -158,7 +160,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(DOING_INTERACTION_WITH_TARGET(user, src))
 		return
 
-	if(!length(stored_items))
+	if(!LAZYLEN(stored_items))
 		to_chat(user, span_notice("There is nothing remaining inside [src]!"))
 		return
 
@@ -324,7 +326,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		if(!is_type_in_typecache(quirk, saved_quirks) || is_type_in_typecache(quirk, skip_quirks))
 			continue
 		quirk.remove_from_current_holder(quirk_transfer = TRUE)
-		stored_quirks |= quirk
+		LAZYADD(stored_quirks, quirk)
 
 	store_item_slots(victim)
 	victim.drop_all_held_items()
@@ -507,7 +509,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		item.forceMove(victim.drop_location()) // Move banned item from victim to the victim's turf if banned.
 	else
 		item.forceMove(src)
-		stored_items |= item
+		LAZYADD(stored_items, item)
 
 /obj/item/organ/brain/slime/proc/drop_items_to_ground(turf/turf, list/dropping = stored_items, explode = FALSE)
 	for(var/atom/movable/item as anything in dropping)
@@ -519,7 +521,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			brainmob.dropItemToGround(item)
 		else
 			item.forceMove(turf)
-		stored_items -= item
+		LAZYREMOVE(stored_items, item)
 
 /obj/item/organ/brain/slime/proc/reequip_items(mob/living/carbon/human/body)
 	for(var/i, slot in items_per_slot)
@@ -528,7 +530,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			continue
 		body.equip_to_slot(item, slot)
 		if(body.get_item_by_slot(slot) == item)
-			stored_items -= item
+			LAZYREMOVE(stored_items, item)
 	items_per_slot.Cut()
 
 /obj/item/organ/brain/slime/proc/rebuild_body(mob/user, nugget = TRUE) as /mob/living/carbon/human
@@ -597,10 +599,10 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		new_body.set_nutrition(NUTRITION_LEVEL_FED)
 		reequip_items(new_body)
 	REMOVE_TRAIT(new_body, TRAIT_NO_TRANSFORM, REF(src))
-	if(!isnull(stored_quirks))
+	if(LAZYLEN(stored_quirks))
 		for(var/datum/quirk/quirk in stored_quirks)
 			quirk.add_to_holder(new_body, quirk_transfer = TRUE) // Return their old quirk to them.
-		stored_quirks.Cut()
+		LAZYCLEARLIST(stored_quirks)
 	if(original_client)
 		SSquirks.AssignQuirks(new_body, original_client, blacklist = assoc_to_keys(skip_quirks)) // Still need to copy over the rest of their quirks.
 	replace_into(new_body)

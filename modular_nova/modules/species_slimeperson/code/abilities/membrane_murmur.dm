@@ -27,7 +27,7 @@
 	if(!istype(brainmob))
 		CRASH("[src] cast by non-brainmob [owner?.type || "(null)"]")
 	var/obj/item/organ/brain/slime/brainitem = brainmob.loc
-	var/list/possible_cries(
+	var/list/possible_cries = list(
 		"Blorp... glub... help...",
 		"Glooop... save me...",
 		"Alone... burbble too quiet...",
