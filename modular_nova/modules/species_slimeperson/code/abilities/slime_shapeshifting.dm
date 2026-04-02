@@ -380,7 +380,6 @@
 		else
 			var/obj/item/organ/got_organ = alterer.get_organ_slot(chosen_key)
 			if(got_organ)
-				got_organ.Remove(alterer)
 				qdel(got_organ)
 			else
 				alterer.dna.mutant_bodyparts -= chosen_key
