@@ -305,7 +305,7 @@
 // static medibot, heals double like the delerict one you can fetch from the delerict or similar ruins.
 /mob/living/basic/bot/medbot/xenoarch
 	name = "\improper Dirt Covered Medibot"
-	desc = "A medibot whose chasis seems to be still covered with clunks of hardened dirt. It wheels seem broken."
+	desc = "A medibot whose chasis seems to be still covered with clunks of hardened dirt. Its wheels seem broken."
 	skin = "adv"
 	medical_mode_flags = MEDBOT_STATIONARY_MODE | MEDBOT_SPEAK_MODE
 	damage_type_healer = HEAL_ALL_DAMAGE
