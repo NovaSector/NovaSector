@@ -6,7 +6,7 @@
 		/obj/item/coin/gold/ancient = 1,
 		/obj/item/xenoarch/broken_item/plant = 2,
 		/obj/item/xenoarch/broken_item/animal = 2,
-		/obj/item/xenoarch/broken_item/t1 = 3,
+		/obj/item/xenoarch/broken_item/t1 = 4,
 	)
 
 /obj/effect/spawner/random/xenoarch/tier2
@@ -15,7 +15,7 @@
 	loot = list(
 		/obj/item/coin/gold/ancient = 2, // always ensure coins are 20-25% of the total weight.
 		/obj/item/coin/adamantine/ancient = 1,
-		/obj/item/xenoarch/broken_item = 3,
+		/obj/item/xenoarch/broken_item = 4,
 		/obj/item/xenoarch/broken_item/weapon = 2,
 		/obj/item/xenoarch/broken_item/clothing = 3,
 		/obj/item/xenoarch/broken_item/illegal = 2,
@@ -72,12 +72,11 @@
 	name = "Xenoarch Technological Rewards"
 	desc = "Xenoarchaeology station mid tier."
 	loot = list(
-		/obj/effect/spawner/random/medical/medkit_rare = 1,
-		/obj/effect/spawner/random/exotic/technology = 1,
 		/obj/item/stock_parts/power_store/cell/self_charge/exotic = 1,
 		/obj/item/survivalcapsule/luxury = 1,
-		/obj/item/pickaxe/drill/diamonddrill = 1,
+		/obj/item/clothing/glasses/hud/health/night/meson = 1,
 		/obj/item/v8_engine = 1,
+		/mob/living/basic/bot/medbot/xenoarch = 1,
 		/obj/item/storage/box/shuttle_construction_kit = 1,
 		/obj/item/flatpacked_machine = 1, // RCF
 		/obj/item/hearthkin_ship_fragment_inactive/xenoarch = 1, // this turns into five /obj/item/stack/sheet/mineral/runite in lavaland maps
@@ -88,12 +87,12 @@
 	desc = "Xenoarchaeology station low tier."
 	loot = list(
 		/obj/item/stock_parts/power_store/cell/self_charge = 1,
-		/obj/effect/spawner/random/medical/medkit = 1,
 		/obj/item/bodybag/bluespace = 1,
 		/obj/effect/spawner/random/exotic/languagebook = 1,
 		/obj/item/storage/box/minerdeathrattle = 1,
 		/obj/item/construction/plumbing = 1,
 		/obj/item/storage/portable_chem_mixer = 1,
+		/obj/item/gun/medbeam = 1,
 		/obj/item/survivalcapsule = 1,
 		/obj/item/gun/energy/plasmacutter = 1,
 		/obj/item/grapple_gun = 1,
@@ -168,6 +167,7 @@
 		/obj/item/multitool/abductor = 1,
 		/obj/effect/spawner/random/engineering/tool_alien = 1,
 		/obj/effect/spawner/random/medical/surgery_tool_alien = 1,
+		/obj/item/slimecross/regenerative/grey = 1,
 	)
 
 /obj/effect/spawner/random/xenoarch/alien/t3

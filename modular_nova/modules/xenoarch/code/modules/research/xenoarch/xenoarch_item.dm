@@ -301,3 +301,13 @@
 	name = "dead man's brim"
 	desc = "A wide-brimmed black hat with a polished golden band. It sits just loose enough to be thrown clear at the first sign of trouble, taking the hit with it."
 	deflect_chance = 100
+
+// static medibot, heals double like the delerict one you can fetch from the delerict or similar ruins.
+/mob/living/basic/bot/medbot/xenoarch
+	name = "\improper Dirt Covered Medibot"
+	desc = "A medibot whose chasis seems to be still covered with clunks of hardened dirt. It wheels seem broken."
+	skin = "adv"
+	medical_mode_flags = MEDBOT_STATIONARY_MODE | MEDBOT_SPEAK_MODE
+	damage_type_healer = HEAL_ALL_DAMAGE
+	heal_threshold = 0
+	heal_amount = 5
