@@ -10,7 +10,7 @@
 
 /obj/item/storage/box/interdyne/medical
 	name = "\improper Interdyne medical supply box"
-	desc = "A dark storage box marked with a medical cross and Interdyne Pharmaceuticals branding. For pharmaceutical shipments."
+	desc = "A dark storage box marked with a medical cross and Interdyne Pharmaceuticals branding."
 	icon_state = "interdyne_box_med"
 
 /// Interdyne green nitrile gloves
