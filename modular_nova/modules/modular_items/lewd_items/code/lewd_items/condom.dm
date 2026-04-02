@@ -7,7 +7,7 @@
 /obj/item/condom_pack
 	name = "condom pack"
 	desc = "Don't worry, I have protection."
-	icon_state = "condom_pack_pink"
+	icon_state = "condom_pack"
 	base_icon_state = "condom_pack"
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	w_class = WEIGHT_CLASS_TINY
