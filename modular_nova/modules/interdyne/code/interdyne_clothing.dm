@@ -25,6 +25,7 @@
 	icon = 'modular_nova/modules/interdyne/icons/interdyne_clothing.dmi'
 	worn_icon = 'modular_nova/modules/interdyne/icons/interdyne_clothing_worn.dmi'
 	icon_state = "interdyne_maid_headband"
+	inhand_icon_state = null
 	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_config_worn = null
