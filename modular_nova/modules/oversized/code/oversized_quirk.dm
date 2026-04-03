@@ -1,3 +1,4 @@
+#define OVERSIZED_SPEED_SLOWDOWN 0.2
 #define OVERSIZED_HUNGER_MOD 1.5
 
 // Before making any changes to oversized, please see the module's readme.md file
@@ -22,7 +23,6 @@
 	if(!isdummy(human_holder))
 		human_holder.dna.update_body_size()
 	human_holder.mob_size = MOB_SIZE_LARGE
-	
 	ADD_TRAIT(quirk_holder, TRAIT_STURDY_FRAME, QUIRK_TRAIT)
 
 	RegisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB, PROC_REF(on_gain_limb)) // make sure we handle this when new ones are applied
@@ -33,6 +33,7 @@
 
 	human_holder.blood_volume_normal = BLOOD_VOLUME_OVERSIZED
 	human_holder.physiology.hunger_mod *= OVERSIZED_HUNGER_MOD //50% hungrier
+	human_holder.add_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
 	human_holder.dna.species.gain_oversized_organs(human_holder, src) // handles the addition of oversized organs (species default is a plain oversized stomach)
 
@@ -42,7 +43,6 @@
 	if(!isdummy(human_holder))
 		human_holder.dna.update_body_size()
 	human_holder.mob_size = MOB_SIZE_HUMAN
-
 	REMOVE_TRAIT(quirk_holder, TRAIT_STURDY_FRAME, QUIRK_TRAIT)
 
 	var/obj/item/bodypart/arm/left/left_arm = human_holder.get_bodypart(BODY_ZONE_L_ARM)
@@ -68,6 +68,7 @@
 
 	human_holder.blood_volume_normal = BLOOD_VOLUME_NORMAL
 	human_holder.physiology.hunger_mod /= OVERSIZED_HUNGER_MOD
+	human_holder.remove_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
 	for(var/obj/item/organ/organ_to_restore in old_organs)
 		old_organs -= organ_to_restore
@@ -103,4 +104,9 @@
 
 	gained.name = "oversized " + gained.name
 
+/datum/movespeed_modifier/oversized
+	multiplicative_slowdown = OVERSIZED_SPEED_SLOWDOWN
+
+
 #undef OVERSIZED_HUNGER_MOD
+#undef OVERSIZED_SPEED_SLOWDOWN
