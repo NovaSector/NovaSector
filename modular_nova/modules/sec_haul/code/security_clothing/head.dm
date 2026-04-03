@@ -46,32 +46,44 @@
 	post_init_icon_state = "security_cap"
 	greyscale_config = /datum/greyscale_config/security_cap
 	greyscale_config_worn = /datum/greyscale_config/security_cap/worn
-	greyscale_colors = "#39393F#3F3C40#375989"	//! <
+	greyscale_colors = "#A52F29#EBEBEB#A52F29"
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 	dog_fashion = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/under/rank/security/nova/officer/blue
-	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/blue"
-	greyscale_colors = "#3F6E9E#39393F#39393F"
+/obj/item/clothing/head/security_cap/blue
+	icon_state = "/obj/item/clothing/head/security_cap/blue"
+	greyscale_colors = "#3F6E9E#EBEBEB#3F6E9E"
 
-/obj/item/clothing/under/rank/security/nova/officer/white
-	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/white"
-	greyscale_colors = "#EBEBEB#39393F#39393F"
+/obj/item/clothing/head/security_cap/white
+	icon_state = "/obj/item/clothing/head/security_cap/white"
+	greyscale_colors = "#EBEBEB#EBEBEB#39393F"
 
-/obj/item/clothing/under/rank/security/nova/officer/black
-	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/black"
-	greyscale_colors = "#39393F#EBEBEB#EBEBEB"
+/obj/item/clothing/head/security_cap/black
+	icon_state = "/obj/item/clothing/head/security_cap/black"
+	greyscale_colors = "#39393F#EBEBEB#39393F"
 
 /obj/item/clothing/head/beret/sec/nova
 	icon_state = "/obj/item/clothing/head/beret/sec/nova"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
-	greyscale_colors = "#3F3C40#375989"
+	greyscale_colors = "#A52F29#EBEBEB"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/head_helmet
+
+/obj/item/clothing/head/beret/sec/nova/blue
+	icon_state = "/obj/item/clothing/head/beret/sec/nova/blue"
+	greyscale_colors = "#3F6E9E#EBEBEB"
+
+/obj/item/clothing/head/beret/sec/nova/white
+	icon_state = "/obj/item/clothing/head/beret/sec/nova/white"
+	greyscale_colors = "#EBEBEB#39393F"
+
+/obj/item/clothing/head/beret/sec/nova/black
+	icon_state = "/obj/item/clothing/head/beret/sec/nova/black"
+	greyscale_colors = "#39393F#EBEBEB"
 
 /obj/item/clothing/head/beret/sec/navywarden/nova
 	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."

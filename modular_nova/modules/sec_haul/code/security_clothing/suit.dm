@@ -33,40 +33,32 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, "zipper")
 
-/datum/atom_skin/vested_jacket
-	abstract_type = /datum/atom_skin/vested_jacket
-
-/datum/atom_skin/vested_jacket/red
-	preview_name = "Red Variant"
-	new_icon_state = "vested_jacket"
-
-/datum/atom_skin/vested_jacket/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "vested_jacket_blue"
-
-/datum/atom_skin/vested_jacket/white
-	preview_name = "White Variant"
-	new_icon_state = "vested_jacket_white"
-
-/datum/atom_skin/vested_jacket/black
-	preview_name = "Black Variant"
-	new_icon_state = "vested_jacket_black"
-
 /obj/item/clothing/suit/armor/vest/vested_jacket
 	name = "vested security jacket"
-	desc = "The company standard armor now with a stylish zipper jacket stitched in for when you don't think you'll get shot!"
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
-	icon_state = "vested_jacket"
+	desc = "The company standard armor now with a stylish unzipped jacket stitched in for when you don't think you'll get shot!"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/suit/armor/vest/vested_jacket"
+	post_init_icon_state = "vested_jacket"
+	greyscale_config = /datum/greyscale_config/vested_jacket
+	greyscale_config_worn = /datum/greyscale_config/vested_jacket/worn
+	greyscale_colors = "#A52F29#39393F#39393F"
+	flags_1 = NONE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	heat_protection = CHEST|GROIN|ARMS
 
-/obj/item/clothing/suit/armor/vest/vested_jacket/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/vested_jacket)
-	AddComponent(/datum/component/toggle_icon, "zipper")
+/obj/item/clothing/suit/armor/vest/vested_jacket/blue
+	icon_state = "/obj/item/clothing/suit/armor/vest/vested_jacket/blue"
+	greyscale_colors = "#3F6E9E#39393F#39393F"
+
+/obj/item/clothing/suit/armor/vest/vested_jacket/white
+	icon_state = "/obj/item/clothing/suit/armor/vest/vested_jacket/white"
+	greyscale_colors = "#EBEBEB#39393F#39393F"
+
+/obj/item/clothing/suit/armor/vest/vested_jacket/black
+	icon_state = "/obj/item/clothing/suit/armor/vest/vested_jacket/black"
+	greyscale_colors = "#39393F#39393F#EBEBEB"
 
 /obj/item/clothing/head/hooded/winterhood/security/blue
 	desc = "A blue, armour-padded winter hood. Definitely not bulletproof, especially not the part where your face goes."

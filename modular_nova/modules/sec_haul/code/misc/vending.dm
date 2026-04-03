@@ -55,6 +55,7 @@
 				/obj/item/clothing/under/rank/security/officer/grey = 4,
 				/obj/item/clothing/under/pants/slacks = 4,
 				/obj/item/clothing/suit/armor/vest/secjacket = 4,				//7
+				/obj/item/clothing/suit/armor/vest/vested_jacket = 4,
 				/obj/item/clothing/suit/hooded/wintercoat/security = 4,			//8
 				/obj/item/clothing/suit/armor/vest = 4,							//9
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec = 4,	//10
@@ -81,6 +82,7 @@
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
 				/obj/item/clothing/suit/armor/vest/brit = 3,
+				/obj/item/clothing/suit/armor/vest/vested_jacket/blue = 4,
 				/obj/item/clothing/neck/security_cape = 4,
 				/obj/item/clothing/neck/security_cape/armplate = 4,
 				/obj/item/clothing/under/rank/security/nova/officer = 4,
@@ -118,6 +120,7 @@
 				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4, */
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
+				/obj/item/clothing/suit/armor/vest/vested_jacket/white = 4,
 /*				/obj/item/clothing/suit/armor/vest/brit = 3,
 				/obj/item/clothing/neck/security_cape = 4,
 				/obj/item/clothing/neck/security_cape/armplate = 4,
@@ -161,6 +164,7 @@
 				/obj/item/clothing/neck/security_cape/armplate = 4,
 				/obj/item/clothing/under/rank/security/nova/officer = 4,*/
 				/obj/item/clothing/under/rank/security/nova/skirt/black = 4,
+				/obj/item/clothing/suit/armor/vest/vested_jacket/black = 4,
 //				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
 				/obj/item/clothing/under/rank/security/nova/dress/black = 4,
 				/obj/item/clothing/under/rank/security/nova/plainskirt/black = 4,

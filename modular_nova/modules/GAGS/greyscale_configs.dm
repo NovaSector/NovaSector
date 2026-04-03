@@ -81,7 +81,7 @@
 /datum/greyscale_config/security_cap/worn
 	name = "Security Cap (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/head/security_cap_worn.json'		//! <
+//	json_config = 'modular_nova/modules/GAGS/json_configs/head/security_cap_worn.json'		//! <
 
 //COWBOY
 /datum/greyscale_config/cowboy_wide
@@ -2789,6 +2789,16 @@ Security
 	name = "Security Dress (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/under/secdress_worn.json'
+
+/datum/greyscale_config/vested_jacket
+	name = "Vested Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/vested_jacket.json'
+
+/datum/greyscale_config/vested_jacket/worn
+	name = "Vested Jacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/vested_jacket_worn.json'
 
 /*
 This is all our modular PDAs, ITS LARGE!
