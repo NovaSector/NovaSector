@@ -392,6 +392,8 @@
 	if(!mag_box) //If we want to make map-spawned turrets in turret form.
 		var/auto_loader = new mag_box_type
 		mag_box = WEAKREF(auto_loader)
+	if(!raised)
+		INVOKE_ASYNC(src, PROC_REF(popUp))
 	register_context()
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/update_greyscale()
@@ -689,7 +691,6 @@
 			return TRUE
 
 	if(target)
-		popUp() //pop the turret up if it's not already up.
 		setDir(get_dir(base, target))//even if you can't shoot, follow the target
 		shootAt(target)
 		return TRUE

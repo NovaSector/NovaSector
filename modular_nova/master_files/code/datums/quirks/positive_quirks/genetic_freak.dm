@@ -5,6 +5,7 @@ GLOBAL_LIST_INIT(genetic_mutation_species_restrictions, list(
 		/datum/species/jelly,
 		/datum/species/hemophage,
 		/datum/species/pod,
+		/datum/species/shadekin,
 	),
 	"Cold adaptation" = list(
 		/datum/species/jelly,
