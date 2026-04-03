@@ -75,12 +75,14 @@
 	desc = "An outdated tech to stabilize boulders."
 	id = "xenoarch_artifact_stabilizer"
 	build_path = /obj/item/xenoarch/anomaly_stabilizer
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/xenoarch/tool/core_sampler
 	name = "Core Sampler"
 	desc = "An outdated way to take a sample of rocks and dirt."
 	id = "xenoarch_core_sampler"
 	build_path = /obj/item/xenoarch/core_sampler
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/xenoarch/tool/particles_battery
 	name = "Exotic particles power battery"
@@ -92,6 +94,7 @@
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT,
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/xenoarch/tool/xenoarch_utilizer
 	name = "Exotic particles power utilizer"
@@ -102,6 +105,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/xenoarch/tool/wave_scanner_backpack
 	name = "Wave scanner backpack"
@@ -114,6 +118,7 @@
 		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
 		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT,
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/xenoarch/tool/advanced
 	materials = list(
@@ -125,7 +130,6 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_XENOARCH_ADVANCED,
 	)
-
 
 /datum/design/xenoarch/tool/advanced/scanner
 	name = "Xenoarch Advanced Handheld Scanner"
@@ -191,12 +195,14 @@
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch researcher."
 	id = "xeno_researcher"
 	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_researcher
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/board/xenoarch/scanner
 	name = "Machine Design (Xenoarch Scanner)"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch scanner."
 	id = "xeno_scanner"
 	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_scanner
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/board/xenoarch/artifact_analyzer
 	name = "Machine Design (Artifact Analyzer)"
@@ -227,6 +233,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch digger."
 	id = "xeno_digger"
 	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_digger
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SERVICE
 
 /datum/techweb_node/basic_xenoarch
 	id = TECHWEB_NODE_XENOARCH_BASIC
