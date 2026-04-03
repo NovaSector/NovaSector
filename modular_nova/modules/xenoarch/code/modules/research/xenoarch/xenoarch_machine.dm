@@ -113,7 +113,7 @@
 /obj/machinery/xenoarch/researcher/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	var/turf/src_turf = get_turf(src)
-	var/choice = tgui_input_list(user, "Choose which reward you would like!", "Reward Choice", list("Lavaland Chest (150)", "Anomalous Crystal (150)", "Bepis Tech (100)"))
+	var/choice = tgui_input_list(user, "Choose which reward you would like!", "Reward Choice", list("Lavaland Chest (100)", "Anomalous Crystal (100)", "Bepis Tech (60)"))
 	if(!choice)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
@@ -125,6 +125,7 @@
 
 			current_research -= 100
 			new /obj/structure/closet/crate/necropolis/tendril(src_turf)
+			new /obj/item/skeleton_key(src_turf)
 
 		if("Anomalous Crystal (100)")
 			if(current_research < 100)
@@ -136,12 +137,12 @@
 			var/random_crystal = pick(choices)
 			new random_crystal(src_turf)
 
-		if("Bepis Tech (75)")
-			if(current_research < 75)
+		if("Bepis Tech (60)")
+			if(current_research < 60)
 				balloon_alert(user, "insufficient research!")
 				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-			current_research -= 75
+			current_research -= 60
 			new /obj/item/disk/design_disk/bepis/remove_tech(src_turf)
 
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
