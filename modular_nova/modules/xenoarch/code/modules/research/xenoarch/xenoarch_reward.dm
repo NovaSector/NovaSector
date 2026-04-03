@@ -76,7 +76,7 @@
 		/obj/item/survivalcapsule/luxury = 1,
 		/obj/item/clothing/glasses/hud/health/night/meson = 1,
 		/obj/item/v8_engine = 1,
-		/mob/living/basic/bot/medbot/xenoarch = 1,
+		/obj/item/gun/medbeam = 1,
 		/obj/item/storage/box/shuttle_construction_kit = 1,
 		/obj/item/flatpacked_machine = 1, // RCF
 		/obj/item/hearthkin_ship_fragment_inactive/xenoarch = 1, // this turns into five /obj/item/stack/sheet/mineral/runite in lavaland maps
@@ -92,7 +92,7 @@
 		/obj/item/storage/box/minerdeathrattle = 1,
 		/obj/item/construction/plumbing = 1,
 		/obj/item/storage/portable_chem_mixer = 1,
-		/obj/item/gun/medbeam = 1,
+		/mob/living/basic/bot/medbot/xenoarch = 1,
 		/obj/item/survivalcapsule = 1,
 		/obj/item/gun/energy/plasmacutter = 1,
 		/obj/item/grapple_gun = 1,

@@ -310,4 +310,4 @@
 	medical_mode_flags = MEDBOT_STATIONARY_MODE | MEDBOT_SPEAK_MODE
 	damage_type_healer = HEAL_ALL_DAMAGE
 	heal_threshold = 0
-	heal_amount = 5
+	heal_amount = 3.5
