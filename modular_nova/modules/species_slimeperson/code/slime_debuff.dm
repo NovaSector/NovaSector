@@ -53,7 +53,7 @@
 
 /datum/status_effect/dry_slime/tick(seconds_between_ticks)
 	if(HAS_TRAIT(owner, TRAIT_IS_WET))
-		to_chat(owner, span_info("You're now immersed in water, your form regenerating once more."))
+		to_chat(owner, span_info("You're now wet, your form regenerating once more."))
 		qdel(src)
 		return
 
@@ -63,7 +63,7 @@
 	if(SPT_PROB(25, seconds_between_ticks))
 		owner.visible_message(
 			span_danger("[owner]'s form begins to lose cohesion, seemingly drying out!"),
-			span_warning("Your body loses cohesion as it dries, only immersion can restore it!"),
+			span_warning("Your body loses cohesion as it dries, get wet to restore it!"),
 		)
 
 	owner.adjust_blood_volume(-blood_units_to_lose)
