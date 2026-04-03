@@ -139,7 +139,6 @@
 /datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick)
 	. = ..()
 
-	var/healing = TRUE
 	var/is_wet = HAS_TRAIT(slime, TRAIT_IS_WET)
 
 	// Skip if hydrophobic, dry if wet
@@ -147,6 +146,9 @@
 		if(is_wet)
 			slime.set_wet_stacks(0, remove_fire_stacks = FALSE)
 		return
+
+	// Determines if we get passive healing
+	var/healing = TRUE
 
 	// Determine if water-breathing logic should be inverted
 	var/inverted = HAS_TRAIT(slime, TRAIT_WATER_BREATHING)
