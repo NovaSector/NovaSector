@@ -57,7 +57,6 @@
 		return
 	if(owner.wash(CLEAN_WASH) && owner.nutrition <= NUTRITION_LEVEL_FED)
 		owner.adjust_nutrition(rand(5, 25)) // mmm, sustenance.
-	clean_floor()
 
 /datum/status_effect/slime_washing/proc/clean_floor()
 	SIGNAL_HANDLER
