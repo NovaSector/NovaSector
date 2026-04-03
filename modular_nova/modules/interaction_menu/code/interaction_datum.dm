@@ -93,10 +93,10 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	if(!allow_act(user, target))
 		return
 	if(!message)
-		message_admins("Interaction had a null message list. '[name]'")
+		message_admins("Interaction had a null message list. '[html_encode(name)]'")
 		return
 	if(!islist(message) && istext(message))
-		message_admins("Deprecated message handling for '[name]'. Correct format is a list with one entry. This message will only show once.")
+		message_admins("Deprecated message handling for '[html_encode(name)]'. Correct format is a list with one entry. This message will only show once.")
 		message = list(message)
 	var/msg = pick(message)
 	// We replace %USER% with nothing because manual_emote already prepends it.
@@ -139,10 +139,10 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 	if(sound_use)
 		if(!sound_possible)
-			message_admins("Interaction has sound_use set to TRUE but does not set sound! '[name]'")
+			message_admins("Interaction has sound_use set to TRUE but does not set sound! '[html_encode(name)]'")
 			return
 		if(!islist(sound_possible) && istext(sound_possible))
-			message_admins("Deprecated sound handling for '[name]'. Correct format is a list with one entry. This message will only show once.")
+			message_admins("Deprecated sound handling for '[html_encode(name)]'. Correct format is a list with one entry. This message will only show once.")
 			sound_possible = list(sound_possible)
 		sound_cache = pick(sound_possible)
 		if (lewd)
@@ -256,7 +256,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		var/datum/interaction/interaction = new()
 		if(interaction.load_from_json(directory + file))
 			GLOB.interaction_instances[interaction.name] = interaction
-		else message_admins("Error loading interaction from file: '[directory + file]'. Inform coders.")
+		else message_admins("Error loading interaction from file: '[html_encode(directory + file)]'. Inform coders.")
 
 /proc/populate_interaction_jsons_master(path)
 	if(!fexists(path))
@@ -267,12 +267,12 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 	for(var/iname in json)
 		if(GLOB.interaction_instances[iname])
-			message_admins("Interaction Master '[path]' contained a duplicate interaction! '[iname]'")
+			message_admins("Interaction Master '[html_encode(path)]' contained a duplicate interaction! '[html_encode(iname)]'")
 			continue
 
 		var/list/ijson = json[iname]
 		if(ijson["name"] != iname)
-			message_admins("Interaction Master '[path]' contained an invalid interaction! '[iname]'")
+			message_admins("Interaction Master '[html_encode(path)]' contained an invalid interaction! '[html_encode(iname)]'")
 			continue
 
 		var/datum/interaction/interaction = new()

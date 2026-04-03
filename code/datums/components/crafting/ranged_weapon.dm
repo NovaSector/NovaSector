@@ -25,7 +25,7 @@
 	result = /obj/item/weaponcrafting/receiver
 	reqs = list(
 		/obj/item/stack/sheet/iron = 5,
-		/obj/item/stack/sticky_tape = 1,
+		/obj/item/stack/medical/wrap/sticky_tape = 1,
 		/obj/item/screwdriver = 1,
 		/obj/item/assembly/mousetrap = 1,
 	)
@@ -38,7 +38,7 @@
 	result = /obj/item/weaponcrafting/stock
 	reqs = list(
 		/obj/item/stack/sheet/mineral/wood = 8,
-		/obj/item/stack/sticky_tape = 1,
+		/obj/item/stack/medical/wrap/sticky_tape = 1,
 	)
 	time = 5 SECONDS
 	category = CAT_WEAPON_RANGED
@@ -49,7 +49,7 @@
 	result = /obj/item/gun_maintenance_supplies/makeshift
 	reqs = list(
 		/obj/item/stack/sheet/iron = 5,
-		/obj/item/stack/sticky_tape = 1,
+		/obj/item/stack/medical/wrap/sticky_tape = 1,
 		/obj/item/pipe = 1,
 		/obj/item/stack/sheet/cloth = 2,
 	)
@@ -195,7 +195,7 @@
 		/obj/item/pipe = 2,
 		/obj/item/weaponcrafting/stock = 1,
 		/obj/item/storage/toolbox = 1, // for the screws
-		/obj/item/stack/sticky_tape = 1,
+		/obj/item/stack/medical/wrap/sticky_tape = 1,
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 5 SECONDS
@@ -210,7 +210,7 @@
 		/obj/item/stock_parts/servo = 2,
 		/obj/item/stack/sheet/mineral/wood = 4,
 		/obj/item/storage/toolbox = 1, // for the screws
-		/obj/item/stack/sticky_tape = 1,
+		/obj/item/stack/medical/wrap/sticky_tape = 1,
 	)
 	tool_paths = list(/obj/item/hatchet)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
@@ -328,7 +328,7 @@
 	category = CAT_WEAPON_RANGED
 	crafting_flags = CRAFT_CHECK_DENSITY
 
-/datum/crafting_recipe/Ratvarian_Repeater
+/datum/crafting_recipe/ratvarian_repeater
 	name = "Emplaced Ratvarian Repeater"
 	tool_behaviors = list(TOOL_SCREWDRIVER,TOOL_WRENCH)
 	result = /obj/structure/mounted_gun/ratvarian_repeater
@@ -344,7 +344,7 @@
 	category = CAT_WEAPON_RANGED
 	crafting_flags = CRAFT_CHECK_DENSITY
 
-/datum/crafting_recipe/Detached_Ratvarian_Repeater
+/datum/crafting_recipe/detached_ratvarian_repeater
 	name = "Iconoclast's Repeater"
 	tool_behaviors = list(TOOL_WELDER)
 	result = /obj/item/gun/energy/laser/musket/repeater

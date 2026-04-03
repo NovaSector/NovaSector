@@ -1,0 +1,110 @@
+2026-04-01:
+  DATA-xPUNGED:
+  - admin: When forcing an earthquake, admins can now pick their precise position
+      on the station.
+  Hatterhat:
+  - qol: The Free Trade Union, citing one customer complaint, remembered that they
+      have a source for webbing and webbing-like accessories and has patched them
+      into Nanotrasen's goodies market.
+  - qol: Installing electronics into windoors/interior doors only moves the electronics
+      out of your hand on a successful installation.
+  - balance: Upgraded exoscanners no longer have skyrocketing power draw when upgraded,
+      following an incident where a station's chief engineer declared vendetta upon
+      their Cargo department for drawing an excessive amount of power, resulting in
+      massive casualties.
+  - bugfix: Integrated circuit shells now only explode if they draw too much power
+      in a minute, rather than being doomed to explode if it uses too much power over
+      its entire lifetime, following complaints from at least one guy. Nanotrasen
+      representatives claim that this is entirely unrelated to missing shipments of
+      explosive alloys.
+  Jacquerel:
+  - qol: Blood worms can drag themselves onto corpses to infest them as an alternative
+      to pressing the action button.
+  JohnFulpWillard:
+  - qol: The stat panel entry for space suits has been replaced with the HUD element.
+      You can now hover over it to see exact cell percentage, and click it to turn
+      the regulator on, while it'll also display when it's off.
+  - qol: Changeling's stat panel entry has been moved to the HUD & Antag panel. Also
+      added some extra explanations on how Changelings work in there.
+  Kashargul:
+  - bugfix: admin spawn panel persistent paths, panel offsets, panel diagonal dirs
+  - bugfix: admin spawn atom verb, crash on early enter, arrow key scroll focus
+  KingkumaArt:
+  - bugfix: Fixes mech energy guns draining 100x less than intended.
+  Melbert:
+  - bugfix: You can remove embeds during surgery
+  - bugfix: Radio jammers no longer brick headsets forever
+  - admin: Admins can ban from "recovered crew", "blood worm", "fugitive" / "fugitive
+      hunter", "glitch", and "paradox clone"
+  - admin: Mind Magnification Monkeys are now affected by a sentience ban (previously
+      unbannable)
+  - bugfix: Gibbed heads don't look debrained despite having a brain
+  - rscdel: '"Cloning Lab" is no longer a traitor codeword.'
+  - balance: The Psyker hunter ship now has a bandolier and two holsters for their
+      shotgun and revolvers, as well as some backup knives.
+  - balance: The Psyker hunter ship now has a box of bandages and an emergency medkit.
+  - balance: All Psyker hunters now spawn with a headset set to a shared frequency.
+  - balance: Psyker headsets now prevent their echolocation from being disabled due
+      to deafness.
+  - balance: Psyker hunters now spawn with flavorful eyewear. The Psyker Seer now
+      spawns with the thermal monocle (which was previously on the ship).
+  - balance: Gore will now heal Psykers.
+  - qol: Height is now an element of DNA, meaning it can be changed via genetics or
+      radstorms and is carried between genetic copies (Changlings, etc)
+  - bugfix: Fix stray 0 in heretic UI
+  SmArtKar:
+  - bugfix: Fixed stack items not being refunded by failed heretic summon rituals
+  - bugfix: Fixed z-transition mirages not mirroring all objects on the other z level
+  - bugfix: Fixed parallax runtiming horribly whenever parallax SS doesnt pick a random
+      layer to display
+  - bugfix: Fixes press badges and other miscellaneous objects failing to make the
+      user examine them.
+  - bugfix: Fixed unpowered field generators yeeting people
+  - admin: Some non-critical VV actions such as mutation/organ/quirk modification
+      have been converted to TGUI
+  - admin: VV dropdown has gotten a refresh and now boasts a brand-new searchbar
+  Stalkeros:
+  - bugfix: M/RP-66 "Smilgas" semi-guided rocket pods can now be rearmed.
+  Stalkeros, splet for the sprites:
+  - rscadd: 'Adds three new Heliostatic Coalition-licensed mech guns: M/HP-22 "Strele"
+      coaxial plasma pulse machinegun, M/AC-41 "Seklys" flex-mount autocannon gunpod,
+      and M/RP-66 "Smilgas" anti-tank guided rocket pod.'
+  - rscadd: Adds a new and upgraded Heliostatic Coalition-licensed mech modernisation
+      kit, and consequently the upgraded mech, M/TACS-1A-LF "Arbiter". More armor,
+      less speed, and, most of all, built-in thermal sights in the year of our lord
+      2566.
+  - balance: M/FC-8-LF "Forge" fabrication cannon's spooling, printing, loading times
+      have been significantly decreased, thus increasing its fire rate to something
+      more sensible.
+  SyncIt21:
+  - bugfix: Any effect that changes the theme of the environment no longer break turf
+      mounted objects
+  - bugfix: destroying plating with lava/water etc will destroy any object mounted
+      to it
+  - bugfix: you cannot install infinite water recyclers in the sink frame
+  - bugfix: you can attach sink frames to walls in most cases regardless of what's
+      on the wall(except when there is already a light fixture, camera or another
+      sink)
+  TheRyeGuyWhoWillNowDie:
+  - bugfix: cyborgs are made properly unconscious when emagged
+  Time-Green:
+  - bugfix: Ethereal crystal revive no longer breaks if you change species midway
+      through
+  - bugfix: Coroner cytology grown organs can mutate again
+  Tsar-Salat:
+  - bugfix: firebreath will light objects on fire more consistently
+  Twaticus:
+  - image: resprites chicken nugget box and adds 3 new food related containers, new
+      nugget box, a wing bucket, and a fry sleeve.
+  Yobrocharlie:
+  - rscadd: Added the academy back, its now a fetch quest.
+  cebutris:
+  - rscadd: Pride flags are now available in the loadout, and can also be crafted
+      with a bit of cloth!
+  lelandkemble:
+  - spellcheck: Changed spacing an punctuation in thanatorenasia offer to ghosts
+  - bugfix: You can no longer create infinite plasteel with girders
+  vinylspiders:
+  - bugfix: gets rid of a stray pixel from the quirks menu
+  - bugfix: fixes an issue where the 'slow shuttle' station trait can sometimes not
+      be applied properly

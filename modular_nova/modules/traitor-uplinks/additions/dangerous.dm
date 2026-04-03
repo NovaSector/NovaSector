@@ -41,23 +41,46 @@
 	cost = /datum/uplink_item/low_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
+/datum/uplink_item/dangerous/combat_shotgun
+	name = "Carwo-Cawil M64 Shotgun Case"
+	desc = "A twelve guage shotgun with an eight shell capacity underneath."
+	item = /obj/item/storage/toolbox/guncase/nova/opfor/riot_sol
+	cost = /datum/uplink_item/low_cost/weaponry::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
-// MEDIUM COST
+/datum/uplink_item/dangerous/covenant
+	name = "\"Covenant\" elite energy sword"
+	desc = "Much like its more conventional sibling, the energy sword, the \"Covenant\" elite energy sword is an edged weapon with two blades of pure energy. \
+			The sword is small enough to be pocketed when inactive. Activating it produces a loud, distinctive noise, which makes subtlety very difficult."
+	item = /obj/item/melee/energy/sword/saber/covenant
+	cost = /datum/uplink_item/low_cost/weaponry::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
+
 /datum/uplink_item/dangerous/laser_carbine
 	name = "Allstar Laser-Carbine Case"
 	desc = "A modified laser gun which can shoot far faster, but each shot is far less damaging. \
 			Comes with a recharge kit."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/carbine
-	cost = /datum/uplink_item/medium_cost/weaponry::cost
+	cost = 2
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
+
+// LOW-MEDIUM COST
+/datum/uplink_item/dangerous/s120
+	name = "Cybersun S-120 Case"
+	desc = "A laser gun primarily used by syndicate security guards. It fires a rapid spray of low-power plasma beams. \
+			Comes with a recharge kit."
+	item = /obj/item/storage/toolbox/guncase/nova/opfor/carbines120
+	cost = /datum/uplink_item/low_medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/dangerous/sindano
 	name = "Carwo-Cawil Sindano Case"
 	desc = "A Sindano SMG, with spare lethal-and-non-lethal ammo, and three various magazines."
 	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/sindano
-	cost = /datum/uplink_item/medium_cost/weaponry::cost
+	cost = /datum/uplink_item/low_medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
+// MEDIUM COST
 /datum/uplink_item/dangerous/nukeop_smg
 	name = "Scarborough C-20r Case"
 	desc = "A fully-loaded Scarborough Arms bullpup submachine gun. The C-20r fires .45 rounds with a \
@@ -80,13 +103,6 @@
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
-/datum/uplink_item/dangerous/combat_shotgun
-	name = "Carwo-Cawil M64 Shotgun Case"
-	desc = "A twelve guage shotgun with an eight shell capacity underneath."
-	item = /obj/item/storage/toolbox/guncase/nova/opfor/riot_sol
-	cost = /datum/uplink_item/medium_cost/weaponry::cost
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
-
 /datum/uplink_item/dangerous/boarder980
 	name = "Boarder-980 Grenade Launcher Case"
 	desc = "A weapon case featuring the Boarder-980 grenade launcher, chambered for .980 Tydhouer with on-the-fly airburst configuration. \
@@ -96,26 +112,25 @@
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
-
-// HIGH COST
-/datum/uplink_item/dangerous/shitzu
-	name = "Shitzu Magfed Shotgun Case"
-	desc = "Everyone says a dog is a man's best friend, lets change that and make man's best friend a 12 gauge magfed shotgun! Thanks to the beloved contributions from the Gorlex Marauders."
-	item = /obj/item/storage/toolbox/guncase/nova/syndicate/shitzu
-	cost = /datum/uplink_item/high_cost/weaponry::cost
+/datum/uplink_item/dangerous/wylom
+	name = "Szot Dynamica 'Wyłom' AMR Case"
+	desc = "A massive, outdated beast of an anti materiel rifle that was once in use by CIN military forces. Fires the devastating .60 Strela caseless round, the massively overperforming penetration of which being the reason this weapon was discontinued."
+	item = /obj/item/storage/toolbox/guncase/nova/opfor/amr
+	cost = /datum/uplink_item/medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/dangerous/sol_rifle
 	name = "Carwo-Cawil MMR-2543E Assault Rifle"
 	desc = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/sol_rifle
-	cost = /datum/uplink_item/high_cost/weaponry::cost
+	cost = /datum/uplink_item/medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
-/datum/uplink_item/dangerous/wylom
-	name = "Szot Dynamica 'Wyłom' AMR Case"
-	desc = "A massive, outdated beast of an anti materiel rifle that was once in use by CIN military forces. Fires the devastating .60 Strela caseless round, the massively overperforming penetration of which being the reason this weapon was discontinued."
-	item = /obj/item/storage/toolbox/guncase/nova/opfor/amr
+// HIGH COST
+/datum/uplink_item/dangerous/shitzu
+	name = "Shitzu Magfed Shotgun Case"
+	desc = "Everyone says a dog is man's best friend, let's change that and make man's best friend a 12 gauge magfed shotgun! Thanks to the beloved contributions from the Gorlex Marauders."
+	item = /obj/item/storage/toolbox/guncase/nova/syndicate/shitzu
 	cost = /datum/uplink_item/high_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 

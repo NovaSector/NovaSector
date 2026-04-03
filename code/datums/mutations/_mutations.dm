@@ -153,7 +153,7 @@
 /datum/mutation/proc/get_visual_indicator()
 	return
 
-/datum/mutation/proc/on_life(seconds_per_tick, times_fired)
+/datum/mutation/proc/on_life(seconds_per_tick)
 	return
 
 /datum/mutation/proc/on_losing(mob/living/carbon/human/owner)
@@ -228,7 +228,6 @@
 	new_power.active_background_icon_state = "[new_power.base_background_icon_state]_active"
 	new_power.overlay_icon_state = "bg_tech_blue_border"
 	new_power.active_overlay_icon_state = "bg_spell_border_active_blue"
-	new_power.panel = "Genetic"
 	new_power.Grant(owner)
 
 	return new_power

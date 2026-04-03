@@ -712,6 +712,7 @@
 		active_program = program
 		program.alert_pending = FALSE
 		idle_threads.Remove(program)
+		program.on_made_active_program(user)
 		if(open_ui)
 			INVOKE_ASYNC(src, PROC_REF(update_tablet_open_uis), user)
 		update_appearance(UPDATE_ICON)
@@ -737,6 +738,7 @@
 
 	active_program = program
 	program.alert_pending = FALSE
+	program.on_made_active_program(user)
 	if(open_ui)
 		INVOKE_ASYNC(src, PROC_REF(update_tablet_open_uis), user)
 	update_appearance(UPDATE_ICON)
@@ -873,6 +875,8 @@
 /obj/item/modular_computer/wrench_act_secondary(mob/living/user, obj/item/tool)
 	. = ..()
 	tool.play_tool_sound(src, user, 20, volume=20)
+	if(!do_after(user, 2 SECONDS, target = physical))
+		return ITEM_INTERACT_BLOCKING
 	deconstruct(TRUE)
 	user.balloon_alert(user, "disassembled")
 	return ITEM_INTERACT_SUCCESS
@@ -965,7 +969,9 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/modular_computer/proc/photo_act(mob/user, obj/item/photo/scanned_photo)
-	if(!store_file(new /datum/computer_file/picture(scanned_photo.picture)))
+	var/datum/picture/source_picture = scanned_photo.picture
+	var/datum/computer_file/image/image_file = new /datum/computer_file/image(source_picture.picture_image, display_name = source_picture.picture_name, source_photo_or_painting = source_picture)
+	if(!store_file(image_file, user))
 		balloon_alert(user, "no space!")
 		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "photo scanned")

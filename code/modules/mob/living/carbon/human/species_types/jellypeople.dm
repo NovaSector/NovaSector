@@ -57,7 +57,7 @@
 	UnregisterSignal(former_jellyperson, COMSIG_HUMAN_ON_HANDLE_BLOOD)
 	return ..()
 
-/datum/species/jelly/proc/slime_blood(mob/living/carbon/human/slime, seconds_per_tick, times_fired)
+/datum/species/jelly/proc/slime_blood(mob/living/carbon/human/slime, seconds_per_tick)
 	SIGNAL_HANDLER
 
 	if(slime.stat == DEAD)
@@ -255,7 +255,7 @@
 /datum/species/jelly/slime/copy_properties_from(datum/species/jelly/slime/old_species)
 	bodies = old_species.bodies
 
-/datum/species/jelly/slime/spec_life(mob/living/carbon/human/H, seconds_per_tick, times_fired)
+/datum/species/jelly/slime/spec_life(mob/living/carbon/human/H, seconds_per_tick)
 	. = ..()
 	if(H.get_blood_volume() >= BLOOD_VOLUME_SLIME_SPLIT)
 		if(SPT_PROB(2.5, seconds_per_tick))
@@ -694,6 +694,7 @@
 		/datum/component/mind_linker/active_linking, \
 		network_name = "Slime Link", \
 		signals_which_destroy_us = list(COMSIG_SPECIES_LOSS), \
+		show_balloon_alert = TRUE, \
 		linker_action_path = /datum/action/innate/link_minds, \
 	)
 

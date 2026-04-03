@@ -1,8 +1,5 @@
 /obj/item/bodypart
-	/// Whether or not this bodypart can be surgically removed. Independant of the `dismemberable` variable,
-	/// meaning that you can have one and not the other, both or none, and all will still work. This only
-	/// affects amputation and augmentation surgeries.
-	var/can_be_surgically_removed = TRUE
+	disabling_threshold_percentage = 1 // Originally: disabling_threshold_percentage = LIMB_NO_DISABLE
 	/// The bodypart's currently applied style's name. Only necessary for bodyparts that come in multiple
 	/// variants, like prosthetics and cyborg bodyparts.
 	var/current_style = null

@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 15
+#define MODULAR_SAVEFILE_VERSION_MAX 17
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -21,6 +21,8 @@
 #define VERSION_EMO_LONG_REMOVAL 13
 #define VERSION_TOOLKIT_IMPLANTS 14
 #define VERSION_VOCAL_BARKS 15
+#define VERSION_FEATHERY_WINGS_FIX 16
+#define VERSION_DONK_MIGRATION 17
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -50,8 +52,6 @@
 		if(!GLOB.robotic_styles_list[augment_limb_styles[key]])
 			augment_limb_styles -= key
 
-	features = SANITIZE_LIST(save_data["features"])
-	mutant_bodyparts = SANITIZE_LIST(save_data["mutant_bodyparts"])
 	body_markings = update_markings(SANITIZE_LIST(save_data["body_markings"]))
 	mismatched_customization = save_data["mismatched_customization"]
 	allow_advanced_colors = save_data["allow_advanced_colors"]
@@ -274,8 +274,9 @@
 	if(current_version < VERSION_SKRELL_HAIR_NAME_UPDATE)
 		var/list/mutant_bodyparts = SANITIZE_LIST(save_data["mutant_bodyparts"])
 
-		if(FEATURE_SKRELL_HAIR in mutant_bodyparts)
-			var/current_skrell_hair = mutant_bodyparts[FEATURE_SKRELL_HAIR][MUTANT_INDEX_NAME]
+		var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[FEATURE_SKRELL_HAIR]
+		if(mutant_part)
+			var/current_skrell_hair = mutant_part.name
 
 			if(current_skrell_hair == "Male")
 				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Short")
@@ -315,6 +316,19 @@
 		if(current_tts_voice != TTS_VOICE_NONE && current_tts_voice != "invalid") // make sure we don't turn off TTS for people who have it on
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/vocals/voice_type], "Text-to-speech")
 
+	if(current_version < VERSION_FEATHERY_WINGS_FIX)
+		var/current_wings = save_data["feature_wings"]
+		if(current_wings == "Moth (Featherful)")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/wings], "Moth (Feathery)")
+
+	if(current_version < VERSION_DONK_MIGRATION)
+		var/current_donk = save_data["feature_penis"]
+		if(current_donk != "None")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/genital/penis], current_donk + " (Alt)")
+		var/current_pocket = save_data["feature_testicles"]
+		if(current_pocket == "Pair")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/genital/testicles], "Pair (Alt)")
+
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
 		to_chat(parent, boxed_message(span_redtext("CRITICAL FAILURE IN PREFERENCE MIGRATION, REPORT THIS IMMEDIATELY.")))
@@ -325,8 +339,6 @@
 /datum/preferences/proc/save_character_nova(list/save_data)
 	save_data["augments"] = augments
 	save_data["augment_limb_styles"] = augment_limb_styles
-	save_data["features"] = features
-	save_data["mutant_bodyparts"] = mutant_bodyparts
 	save_data["body_markings"] = body_markings
 	save_data["mismatched_customization"] = mismatched_customization
 	save_data["allow_advanced_colors"] = allow_advanced_colors
@@ -334,34 +346,6 @@
 	save_data["languages"] = languages
 	save_data["modular_version"] = MODULAR_SAVEFILE_VERSION_MAX
 	save_data["food_preferences"] = food_preferences
-
-
-/datum/preferences/proc/update_mutant_bodyparts(datum/preference/preference)
-	if (!preference.relevant_mutant_bodypart)
-		return
-	var/part = preference.relevant_mutant_bodypart
-	var/value = read_preference(preference.type)
-	if (isnull(value))
-		return
-	if (istype(preference, /datum/preference/toggle))
-		if (!value)
-			if (part in mutant_bodyparts)
-				mutant_bodyparts -= part
-		else
-			var/datum/preference/choiced/name = GLOB.preference_entries_by_key["feature_[part]"]
-			var/datum/preference/tri_color/color = GLOB.preference_entries_by_key["[part]_color"]
-			if (isnull(name) || isnull(color))
-				return
-			mutant_bodyparts[part] = list()
-			mutant_bodyparts[part][MUTANT_INDEX_NAME] = read_preference(name.type)
-			mutant_bodyparts[part][MUTANT_INDEX_COLOR_LIST] = read_preference(color.type)
-	if (istype(preference, /datum/preference/choiced))
-		if (part in mutant_bodyparts)
-			mutant_bodyparts[part][MUTANT_INDEX_NAME] = value
-	if (istype(preference, /datum/preference/tri_color))
-		if (part in mutant_bodyparts)
-			mutant_bodyparts[part][MUTANT_INDEX_COLOR_LIST] = value
-
 
 /datum/preferences/proc/update_markings(list/markings)
 	if (islist(markings))
@@ -422,3 +406,5 @@
 #undef VERSION_EMO_LONG_REMOVAL
 #undef VERSION_TOOLKIT_IMPLANTS
 #undef VERSION_VOCAL_BARKS
+#undef VERSION_FEATHERY_WINGS_FIX
+#undef VERSION_DONK_MIGRATION

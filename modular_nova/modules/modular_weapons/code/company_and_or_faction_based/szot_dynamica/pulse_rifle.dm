@@ -28,7 +28,7 @@
 	fire_delay = 0.9 SECONDS
 
 	spread = 3
-	recoil = 0.5
+	recoil = 0.25
 
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY

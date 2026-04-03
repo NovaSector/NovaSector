@@ -4,12 +4,11 @@
  * Returns STYLE_TAUR_* or NONE.
  */
 /mob/living/carbon/human/proc/get_taur_mode()
-	var/taur_mutant_bodypart = dna.mutant_bodyparts[FEATURE_TAUR]
+	var/datum/mutant_bodypart/taur_mutant_bodypart = dna.mutant_bodyparts[FEATURE_TAUR]
 	if(!taur_mutant_bodypart)
 		return NONE
 
-	var/bodypart_name = taur_mutant_bodypart[MUTANT_INDEX_NAME]
-	var/datum/sprite_accessory/taur/taur = SSaccessories.sprite_accessories[FEATURE_TAUR][bodypart_name]
+	var/datum/sprite_accessory/taur/taur = SSaccessories.sprite_accessories[FEATURE_TAUR][taur_mutant_bodypart.name]
 	if(!taur)
 		return NONE
 
@@ -81,6 +80,7 @@
 	dimension_x = 32
 	center = FALSE
 	factual = FALSE
+	natural_spawn = FALSE
 	color_src = null
 	flags_for_organ = NONE
 
@@ -249,12 +249,13 @@
 /datum/sprite_accessory/taur/biglegs
 	name = "Big Legs"
 	icon_state = "biglegs"
-	taur_mode = STYLE_TAUR_PAW
+	taur_mode = STYLE_TAUR_BIG_LEGS
 	organ_type = /obj/item/organ/taur_body/anthro
 
 /datum/sprite_accessory/taur/biglegs/stanced
 	name = "Big Legs, Stanced"
 	icon_state = "biglegs_stanced"
+	taur_mode = STYLE_TAUR_BIG_LEGS_STANCED
 
 /datum/sprite_accessory/taur/biglegs/bird
 	name = "Big Legs, Bird"

@@ -1,18 +1,14 @@
-/// Inits GLOB.surgeries
-/proc/init_surgeries()
-	var/surgeries = list()
-	for(var/path in subtypesof(/datum/surgery))
-		surgeries += new path()
-	sort_list(surgeries, GLOBAL_PROC_REF(cmp_typepaths_asc))
-	return surgeries
+//////////////////////////
+/////Initial Building/////
+//////////////////////////
 
 /// Legacy procs that really should be replaced with proper _INIT macros
 /proc/make_datum_reference_lists()
 	// I tried to eliminate this proc but I couldn't untangle their init-order interdependencies -Dominion/Cyberboss
 	init_keybindings()
-	make_nova_datum_references() //NOVA EDIT ADDITION - CUSTOMIZATION
+	make_nova_datum_references() // NOVA EDIT ADDITION - CUSTOMIZATION
 	GLOB.emote_list = init_emote_list() // WHY DOES THIS NEED TO GO HERE? IT JUST INITS DATUMS
-	init_nova_stack_recipes() //NOVA EDIT ADDITION - More sheet recipes
+	init_nova_stack_recipes() // NOVA EDIT ADDITION - More sheet recipes
 	init_crafting_recipes()
 	init_crafting_recipes_atoms()
 
@@ -35,7 +31,7 @@
 		/obj/item/stack/sheet/plasmarglass = GLOB.prglass_recipes,
 		/obj/item/stack/sheet/animalhide/gondola = GLOB.gondola_recipes,
 		/obj/item/stack/sheet/animalhide/corgi = GLOB.corgi_recipes,
-		/obj/item/stack/sheet/animalhide/monkey = GLOB.monkey_recipes,
+		/obj/item/stack/sheet/animalhide/carbon/monkey = GLOB.monkey_recipes,
 		/obj/item/stack/sheet/animalhide/xeno = GLOB.xeno_recipes,
 		/obj/item/stack/sheet/leather = GLOB.leather_recipes,
 		/obj/item/stack/sheet/sinew = GLOB.sinew_recipes,
@@ -196,6 +192,7 @@ GLOBAL_LIST_INIT(WALLITEMS_EXTERIOR, typecacheof(list(
 	/obj/machinery/camera,
 	/obj/machinery/light,
 	/obj/structure/light_construct,
+	/obj/structure/sink,
 )))
 
 /// A static typecache of all the money-based items that can be actively used as currency.

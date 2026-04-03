@@ -322,7 +322,8 @@
 		"borg_upgrade_clamp",
 		"borg_upgrade_brush",
 		"borg_upgrade_shrink",
-		"borg_upgrade_cargo_apparatus"
+		"borg_upgrade_cargo_apparatus",
+		"borg_upgrade_cargo_teleporter",
 	)
 	return ..()
 
@@ -351,9 +352,17 @@
 	)
 	return ..()
 
-// modsuit security stuff
+// modsuit stuff
 /datum/techweb_node/mod_security/New()
 	design_ids += list(
 		"mod_plating_security",
+		"mod_tether_grounded",
+	)
+	return ..()
+
+/datum/techweb_node/mod_equip/New()
+	design_ids += list(
+		"mod_retract_plates",
+		"mod_magnetic_deploy",
 	)
 	return ..()

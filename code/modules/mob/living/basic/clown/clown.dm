@@ -149,7 +149,7 @@
 		/obj/effect/gibspawner/human,
 		/obj/item/clothing/mask/gas/clown_hat,
 		/obj/item/food/meatclown,
-		/obj/item/stack/sheet/animalhide/human,
+		/obj/item/stack/sheet/animalhide/carbon/human,
 	)
 	emotes = list(
 		BB_EMOTE_SAY = list(
@@ -481,6 +481,7 @@
 	flick("glutton_mouth", src)
 
 /mob/living/basic/clown/mutant/glutton/tamed(mob/living/tamer, atom/food)
+	. = ..()
 	buckle_lying = 0
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/glutton)
 

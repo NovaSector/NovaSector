@@ -284,6 +284,9 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	fishing_modifier = 0
 	pepper_tint = FALSE
 
+/obj/item/clothing/mask/gas/syndicate/plasmaman
+	starting_filter_type = /obj/item/gas_filter/plasmaman
+
 /obj/item/clothing/mask/gas/clown_hat
 	name = "clown wig and mask"
 	desc = "A true prankster's facial attire. A clown is incomplete without his wig and mask."
@@ -397,11 +400,12 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	if(src && choice && !user.incapacitated && in_range(user,src))
 		// NOVA EDIT ADDITION START - More mask variations
 		var/mob/living/carbon/human/human_user = user
-		if(human_user.dna.species.mutant_bodyparts[FEATURE_SNOUT])
+		var/datum/mutant_bodypart/snout = human_user.dna.mutant_bodyparts[FEATURE_SNOUT]
+		if(snout)
 			icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 			worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
 			var/list/avian_snouts = list("Beak", "Big Beak", "Corvid Beak")
-			if(human_user.dna.species.mutant_bodyparts[FEATURE_SNOUT][MUTANT_INDEX_NAME] in avian_snouts)
+			if(snout.name in avian_snouts)
 				icon_state = "[options[choice]]_b"
 		else
 			icon = 'icons/obj/clothing/masks.dmi'

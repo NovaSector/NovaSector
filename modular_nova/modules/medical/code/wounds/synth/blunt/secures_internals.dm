@@ -17,7 +17,7 @@
 	/// If internals are secured, and we are ready to weld our limb closed and end the wound
 	var/ready_to_resolder = TRUE
 
-/datum/wound/blunt/robotic/secures_internals/handle_process(seconds_per_tick, times_fired)
+/datum/wound/blunt/robotic/secures_internals/handle_process(seconds_per_tick)
 	. = ..()
 
 	if (!victim || HAS_TRAIT(victim, TRAIT_STASIS))
@@ -32,12 +32,12 @@
 				regen_time_elapsed += 1 SECONDS
 
 		var/effective_damage = ((gel_damage / (regen_time_needed / 10)) * seconds_per_tick)
-		var/obj/item/stack/gauze = limb.current_gauze
-		if (gauze)
-			effective_damage *= gauze.splint_factor
+		var/splint_factor = limb.get_splint_factor()
+		effective_damage *= splint_factor
 		limb.receive_damage(effective_damage, wound_bonus = CANT_WOUND, damage_source = src)
 		if(effective_damage && prob(33))
-			var/gauze_text = (gauze?.splint_factor ? ", although the [gauze] helps to prevent some of the leakage" : "")
+			var/obj/item/stack/medical/wrap/gauze = LAZYACCESS(limb.applied_items, LIMB_ITEM_GAUZE)
+			var/gauze_text = (!isnull(gauze) ? ", although the [gauze] helps to prevent some of the leakage" : "")
 			to_chat(victim, span_danger("Your [limb.plaintext_zone] sizzles as some gel leaks and warps the exterior metal[gauze_text]..."))
 
 		if(regen_time_elapsed > regen_time_needed)
@@ -55,7 +55,8 @@
 
 	var/use_exclamation = FALSE
 
-	if (!limb.current_gauze) // gauze covers it up
+	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(limb.applied_items, LIMB_ITEM_GAUZE)
+	if (isnull(current_gauze)) // gauze covers it up
 		if (crowbarred_open)
 			. += ", [span_notice("and is violently torn open, internals visible to the outside")]"
 			use_exclamation = TRUE
@@ -210,8 +211,7 @@
 				victim_message = span_userdanger("[user] is shocked by your [limb.plaintext_zone] in [user.p_their()] efforts to tear it open!")
 
 		var/shock_damage = CROWBAR_OPEN_SHOCK_POWER
-		if (limb.current_gauze)
-			shock_damage *= limb.current_gauze.splint_factor // always good to let gauze do something
+		shock_damage *= limb.get_splint_factor() // always good to let gauze do something
 		user.electrocute_act(shock_damage, limb, flags = electrocute_flags)
 
 	if (!stunned)

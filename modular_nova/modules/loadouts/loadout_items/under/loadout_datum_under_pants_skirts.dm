@@ -139,6 +139,11 @@
 	item_path = /obj/item/clothing/under/pants/nova/yoga
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/wide_leg
+	name = "Pants - Wide Legged (Colorable)"
+	item_path = /obj/item/clothing/under/pants/nova/wide_leg
+	group = "Casualwear"
+
 /datum/loadout_item/under/miscellaneous/shorts
 	name = "Shorts  (Colorable)"
 	item_path = /obj/item/clothing/under/shorts
@@ -279,6 +284,16 @@
 /datum/loadout_item/under/miscellaneous/windowed_dress
 	name = "Windowed Dress"
 	item_path = /obj/item/clothing/under/dress/nova/windowed_dress
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/slit_dress
+	name = "Slit Dress"
+	item_path = /obj/item/clothing/under/dress/nova/slit_dress
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/shorter_dress
+	name = "Shorter Dress"
+	item_path = /obj/item/clothing/under/dress/nova/shorter_dress
 	group = "Casualwear"
 
 /datum/loadout_item/under/miscellaneous/shorter_overall

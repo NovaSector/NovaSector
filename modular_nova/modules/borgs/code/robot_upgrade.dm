@@ -318,6 +318,16 @@
 	if(big_clamp)
 		cyborg.model.remove_module(big_clamp)
 
+/obj/item/borg/upgrade/cargo_teleporter
+	name = "cargo teleporter upgrade module"
+	desc = "An upgrade to allow a cyborg to use a Cargo Teleporter."
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
+	icon_state = "module_cargo"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/cargo)
+	model_flags = BORG_MODEL_CARGO
+	items_to_add = list(/obj/item/cargo_teleporter)
+
 /*
 *	UNIVERSAL CYBORG UPGRADES
 */
@@ -446,9 +456,7 @@
 		var/prev_lockcharge = borg.lockcharge
 		borg.SetLockdown(TRUE)
 		borg.set_anchored(TRUE)
-		var/datum/effect_system/fluid_spread/smoke/smoke = new
-		smoke.set_up(1, location = get_turf(borg))
-		smoke.start()
+		do_smoke(1, borg, get_turf(borg))
 		sleep(0.2 SECONDS)
 		for(var/i in 1 to 4)
 			playsound(borg, pick('sound/items/tools/drill_use.ogg', 'sound/items/tools/jaws_cut.ogg', 'sound/items/tools/jaws_pry.ogg', 'sound/items/tools/welder.ogg', 'sound/items/tools/ratchet.ogg'), 80, TRUE, -1)
@@ -527,8 +535,8 @@
 		borg.model.remove_module(fleshlight)
 
 /obj/item/borg/upgrade/cargo_papermanipulator
-	name = "Cargo Cyborg Paper Manipulator"
-	desc = "An upgrade to the service model cyborg, to help handle foods and paper."
+	name = "Cargo Cyborg Manipulator"
+	desc = "An upgrade to the cargo model cyborg, to help manipulate items like paper, belts, and even a piping device."
 	icon_state = "module_miner"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/cargo)
@@ -538,10 +546,19 @@
 
 /obj/item/borg/apparatus/cargo_papermanipulator
 	name = "Cargo apparatus"
-	desc = "A not so special apparatus designed for the most tedious of tasks, holding paper..."
+	desc = "A not so special apparatus designed for the handling of paper, belts, and even piping devices."
 	icon_state = "borg_service_apparatus"
 	storable = list(
 		/obj/item/paper,
+		/obj/item/pipe_dispenser,
+		/obj/item/stack/conveyor,
+		/obj/item/conveyor_switch_construct,
+		/obj/item/assembly/control, // To help rewire bay doors
+		/obj/item/stock_parts, // So they can make lathes and such in front of the bay
+		/obj/machinery/rnd/production/colony_lathe,
+		/obj/item/stack/sheet/iron,
+		/obj/item/stack/sheet/glass,
+		/obj/item/holochip, // makes sense, idk.
 	)
 
 /obj/item/borg/apparatus/cargo_papermanipulator/Initialize(mapload)

@@ -30,9 +30,7 @@
 
 /mob/living/carbon/get_ear_protection(ignore_deafness = FALSE)
 	var/obj/item/organ/ears/ears = get_organ_slot(ORGAN_SLOT_EARS)
-	if(!ears)
-		return INFINITY
-	return ..() + ears.bang_protect
+	return ..() + ears?.bang_protect
 
 /mob/living/carbon/is_mouth_covered(check_flags = ALL)
 	if((check_flags & ITEM_SLOT_HEAD) && head && (head.flags_cover & HEADCOVERSMOUTH))
@@ -73,9 +71,9 @@
 /mob/living/carbon/check_projectile_dismemberment(obj/projectile/proj, def_zone)
 	var/obj/item/bodypart/affecting = get_bodypart(def_zone)
 	if(affecting && affecting.can_dismember() && !(affecting.bodypart_flags & BODYPART_UNREMOVABLE) && affecting.get_damage() >= (affecting.max_damage - proj.dismemberment))
-		affecting.dismember(proj.damtype)
-		if(proj.catastropic_dismemberment)
-			apply_damage(proj.damage, proj.damtype, BODY_ZONE_CHEST, wound_bonus = proj.wound_bonus) //stops a projectile blowing off a limb effectively doing no damage. Mostly relevant for sniper rifles.
+		if(!affecting.dismember(proj.damtype) || !proj.catastropic_dismemberment)
+			return
+		apply_damage(proj.damage, proj.damtype, BODY_ZONE_CHEST, wound_bonus = proj.wound_bonus) //stops a projectile blowing off a limb effectively doing no damage. Mostly relevant for sniper rifles.
 
 /mob/living/carbon/try_catch_item(obj/item/item, skip_throw_mode_check = FALSE, try_offhand = FALSE)
 	. = ..()
@@ -356,7 +354,7 @@
 		else
 			playsound(src, 'modular_nova/modules/emotes/sound/emotes/Nose_boop.ogg', 50, 0)
 			helper.visible_message(span_notice("[helper] boops [src]'s nose."), span_notice("You boop [src] on the nose."))
-			if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && get_location_accessible(src, BODY_ZONE_PRECISE_MOUTH))
+			if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && is_location_accessible(BODY_ZONE_PRECISE_MOUTH))
 				var/datum/quirk/sensitivesnout/poor_snout = src.get_quirk(/datum/quirk/sensitivesnout)
 				poor_snout?.get_booped(helper)
 			return
@@ -490,7 +488,7 @@
 		return
 
 	var/embeds = FALSE
-	for(var/obj/item/bodypart/limb as anything in bodyparts)
+	for(var/obj/item/bodypart/limb as anything in get_bodyparts())
 		for(var/obj/item/weapon as anything in limb.embedded_objects)
 			if(!embeds)
 				embeds = TRUE
@@ -570,15 +568,6 @@
 		if(hit_clothes)
 			hit_clothes.take_damage(damage_amount, damage_type, damage_flag, 0)
 
-/mob/living/carbon/can_hear()
-	. = FALSE
-	var/obj/item/organ/ears/ears = get_organ_slot(ORGAN_SLOT_EARS)
-	if(ears && !HAS_TRAIT(src, TRAIT_DEAF))
-		. = TRUE
-	if(health <= hardcrit_threshold && !HAS_TRAIT(src, TRAIT_NOHARDCRIT))
-		. = FALSE
-
-
 /mob/living/carbon/adjust_oxy_loss(amount, updating_health = TRUE, forced, required_biotype, required_respiration_type)
 	if(!forced && HAS_TRAIT(src, TRAIT_NOBREATH))
 		amount = min(amount, 0) //Prevents oxy damage but not healing
@@ -608,8 +597,7 @@
 
 /mob/living/carbon/get_organic_health()
 	. = health
-	for (var/_limb in bodyparts)
-		var/obj/item/bodypart/limb = _limb
+	for (var/obj/item/bodypart/limb as anything in get_bodyparts())
 		if (!IS_ORGANIC_LIMB(limb))
 			. += (limb.brute_dam * limb.body_damage_coeff) + (limb.burn_dam * limb.body_damage_coeff)
 
@@ -730,7 +718,7 @@
 		if (picked_user_part && BODYTYPE_CAN_BE_BIOSCRAMBLED(picked_user_part.bodytype))
 			changed_something = TRUE
 			new_part = new new_part()
-			new_part.replace_limb(src, special = TRUE)
+			new_part.replace_limb(src)
 			if (picked_user_part)
 				qdel(picked_user_part)
 

@@ -8,6 +8,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 GLOBAL_LIST_INIT(unrecommended_builds, list(
 	"1670" = "Bug breaking in-world text rendering.",
 	"1671" = "Bug breaking in-world text rendering.",
+	"1675" = "Frequent crashing.",
+	"1676" = "Frequent crashing.",
 ))
 #define LIMITER_SIZE 5
 #define CURRENT_SECOND 1
@@ -35,10 +37,10 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 /client/Topic(href, href_list, hsrc, hsrc_command)
 	if(!usr || usr != mob) //stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
-	//NOVA EDIT ADDITION BEGIN - MENTOR
-	if(mentor_client_procs(href_list))
+	// NOVA EDIT ADDITION BEGIN - MENTOR / other client procs
+	if(client_procs(href_list))
 		return
-	//NOVA EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 
 #ifndef TESTING
 	if (LOWER_TEXT(hsrc_command) == "_debug") //disable the integrated byond vv in the client side debugging tools since it doesn't respect vv read protections
@@ -647,8 +649,6 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 	QDEL_NULL(tooltips)
 	QDEL_NULL(loot_panel)
 	QDEL_NULL(parallax_rock)
-	QDEL_LIST(parallax_layers_cached)
-	parallax_layers = null
 	seen_messages = null
 	Master.UpdateTickRate()
 	..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
@@ -969,6 +969,10 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 		add_verb(src, /client/proc/self_playtime)
 	if(!CONFIG_GET(flag/forbid_preferences_export))
 		add_verb(src, /client/proc/export_preferences)
+	// NOVA EDIT ADDITION START
+	if(CONFIG_GET(flag/enable_relays))
+		add_verb(src, /client/proc/connect_to_relay)
+	// NOVA EDIT ADDITION END
 
 
 //checks if a client is afk
@@ -1100,11 +1104,11 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 		to_chat(src, announcement)
 
 ///Redirect proc that makes it easier to call the unlock achievement proc. Achievement type is the typepath to the award, user is the mob getting the award, and value is an optional variable used for leaderboard value increments
-/client/proc/give_award(achievement_type, mob/user, value = 1)
-	return persistent_client.achievements.unlock(achievement_type, user, value)
+/client/proc/give_award(achievement_type, mob/user, value = 1, ...)
+	return persistent_client.achievements.unlock(arglist(args))
 
 ///Redirect proc that makes it easier to get the status of an achievement. Achievement type is the typepath to the award.
-/client/proc/get_award_status(achievement_type, mob/user, value = 1)
+/client/proc/get_award_status(achievement_type)
 	return persistent_client.achievements.get_achievement_status(achievement_type)
 
 ///Gives someone hearted status for OOC, from behavior commendations
@@ -1265,17 +1269,6 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 		return
 	winset(src, "mainwindow", "menu=;is-fullscreen=[fullscreen ? "true" : "false"]")
 	attempt_auto_fit_viewport()
-
-/client/verb/toggle_status_bar()
-	set name = "Toggle Status Bar"
-	set category = "OOC"
-
-	show_status_bar = !show_status_bar
-
-	if (show_status_bar)
-		winset(src, "mapwindow.status_bar", "is-visible=true")
-	else
-		winset(src, "mapwindow.status_bar", "is-visible=false")
 
 /// Clears the client's screen, aside from ones that opt out
 /client/proc/clear_screen()

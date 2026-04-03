@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(title)
 	name = "Title Screen"
-	flags = SS_NO_FIRE
+	ss_flags = SS_NO_FIRE
 	init_stage = INITSTAGE_FIRST
 
 	var/file_path
@@ -64,6 +64,15 @@ SUBSYSTEM_DEF(title)
 			title_screens += title2use
 
 	return SS_INIT_SUCCESS
+
+/**
+ * Returns the length of the queued latejoin rulesets if we are past roundstart
+ */
+/datum/controller/subsystem/title/proc/get_latejoin_queue_count()
+	if (SSticker.current_state <= GAME_STATE_SETTING_UP)
+		return 0
+
+	return length(SSdynamic.queued_rulesets)
 
 /**
  * Make sure reference time is set up. If not, this is now time 0.
