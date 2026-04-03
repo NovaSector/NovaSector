@@ -24,11 +24,12 @@
 /obj/item/storage/backpack/duffelbag/mining_bunny/conscript/PopulateContents()
 	..()
 	new /obj/item/clothing/glasses/meson(src)
+	new /obj/item/t_scanner/adv_mining_scanner/lesser(src)
 	new /obj/item/storage/bag/ore(src)
-	new /obj/item/encryptionkey/headset_mining(src)
-	new /obj/item/card/id/advanced/mining(src)
 	new /obj/item/knife/shiv/carrot(src)
+	new /obj/item/gun/energy/recharge/kinetic_accelerator(src)
 	new /obj/item/flashlight/seclite(src)
+	new /obj/item/knife/combat/survival(src)
 	new /obj/item/storage/lunchbox/bunny/carrot(src)
 
 /obj/item/storage/lunchbox/bunny/carrot
