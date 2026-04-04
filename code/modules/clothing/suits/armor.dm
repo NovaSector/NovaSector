@@ -4,7 +4,7 @@
 	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 	abstract_type = /obj/item/clothing/suit/armor
 	allowed = null
-	body_parts_covered = CHEST
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	cold_protection = CHEST|GROIN
 	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
 	heat_protection = CHEST|GROIN
