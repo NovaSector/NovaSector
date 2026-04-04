@@ -212,10 +212,14 @@
 
 	ethereal_heart.current_crystal = null
 	COOLDOWN_START(ethereal_heart, crystalize_cooldown, CRYSTALIZE_COOLDOWN_LENGTH)
-	ethereal_heart.owner.forceMove(get_turf(src))
-	REMOVE_TRAIT(ethereal_heart.owner, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
+
+	for(var/mob/living/living in contents)
+		living.forceMove(get_turf(src))
+		REMOVE_TRAIT(living, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
+		visible_message(span_notice("The crystalline mass shatters, retreating into [living]'s newly formed body.")) // NOVA EDIT CHANGE - Ethereal Rework 2024 - This reads cooler, okay? - ORIGINAL: visible_message(span_notice("The crystals shatters, causing [living] to fall out."))
+
+
 	deltimer(crystal_heal_timer)
-	visible_message(span_notice("The crystalline mass shatters, retreating into [ethereal_heart.owner]'s newly formed body.")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - This reads cooler, okay? - ORIGINAL: visible_message(span_notice("The crystals shatters, causing [ethereal_heart.owner] to fall out."))
 	return ..()
 
 /obj/structure/ethereal_crystal/update_overlays()

@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Oversized slowdown reduced from 0.5 to 0.2, exactly like settler, or walking over light webs. Oversized also gain the perk Sturdy Frame, which allows them to reduce the slowdown items (ie, armors) cause by 80%, same as the settler perk!"
