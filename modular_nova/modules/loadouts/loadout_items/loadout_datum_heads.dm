@@ -752,7 +752,7 @@
 	restricted_roles = list(ALL_JOBS_CC)
 	group = "Costumes"
 
-/datum/loadout_item/head/rabbitplaybunny/usa
+/datum/loadout_item/head/rabbitplaybunnyusa
 	name = "American Bunny Ears"
 	item_path = /obj/item/clothing/head/playbunnyears/usa
 	group = "Costumes"
