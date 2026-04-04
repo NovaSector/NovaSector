@@ -449,7 +449,6 @@
 #include "code\__DEFINES\~nova_defines\colors.dm"
 #include "code\__DEFINES\~nova_defines\combat.dm"
 #include "code\__DEFINES\~nova_defines\computers.dm"
-#include "code\__DEFINES\~nova_defines\construction.dm"
 #include "code\__DEFINES\~nova_defines\culture.dm"
 #include "code\__DEFINES\~nova_defines\DNA.dm"
 #include "code\__DEFINES\~nova_defines\economy.dm"
