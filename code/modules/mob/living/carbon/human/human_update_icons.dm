@@ -1298,7 +1298,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		// optimization - none of our limbs or organs have the desired shape
 		return .
 
-	for(var/obj/item/bodypart/limb as anything in bodyparts)
+	for(var/obj/item/bodypart/limb as anything in get_bodyparts())
 		var/checked_bodyshape = limb.bodyshape
 		// accounts for stuff like snouts
 		for(var/obj/item/organ/organ in limb)

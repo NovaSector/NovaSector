@@ -77,14 +77,10 @@
 #define PENIS_DEFAULT_GIRTH 5 // a lil big but not by much
 #define PENIS_MIN_LENGTH 1
 #define PENIS_MAX_LENGTH 86
-/// for non oversized mobs with a 'normal' body size
-#define PENIS_MAX_LENGTH_NORMAL_SIZED 25
 #define PENIS_DEFAULT_LENGTH 6 //still a lil long but not insane
 
 #define TESTICLES_MIN_SIZE 0
-#define TESTICLES_MAX_SIZE 6
-/// for non oversized mobs with a 'normal' body size
-#define TESTICLES_MAX_NORMAL_SIZED 3
+#define TESTICLES_MAX_SIZE 8
 
 #define SHEATH_NONE	SPRITE_ACCESSORY_NONE
 #define SHEATH_NORMAL "Sheath"
@@ -182,6 +178,7 @@
 #define SPECIES_KOBOLD "kobold"
 #define SPECIES_KOBOLD_PRIMITIVE "lizard_monkey"
 #define SPECIES_RAMATAE "ramatan"
+#define SPECIES_SHADEKIN "shadekin"
 #define SPECIES_INSECTOID "insectoid"
 
 #define SPECIES_MUTANT "mutant"
