@@ -1,0 +1,22 @@
+{
+	"hanbok_chima": [
+		{
+			"type": "icon_state",
+			"icon_state": "hanbok_chima_base",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hanbok_chima_trim",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hanbok_chima_norigae",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

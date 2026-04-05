@@ -1,0 +1,10 @@
+{
+    "princess_dress": [
+        {
+            "type": "icon_state",
+            "icon_state": "princess_dress",
+            "blend_mode": "overlay",
+            "color_ids": [ 1 ]
+        }
+    ]
+}

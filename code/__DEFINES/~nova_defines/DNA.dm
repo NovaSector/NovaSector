@@ -161,6 +161,7 @@
 #define SPECIES_MAMMAL "mammal"
 #define SPECIES_PODPERSON_WEAK "podweak"
 #define SPECIES_SYNTH "synth"
+#define SPECIES_SYNTH_DRONE "synthdrone"
 #define SPECIES_SLIMESTART "slimeperson"	//There's already SPECIES_SLIMEPERSON in tg
 #define SPECIES_SKRELL "skrell"
 #define SPECIES_TAJARAN "tajaran"

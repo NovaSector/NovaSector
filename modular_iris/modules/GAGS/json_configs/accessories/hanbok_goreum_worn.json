@@ -1,0 +1,16 @@
+{
+	"hanbok_goreum": [
+		{
+			"type": "icon_state",
+			"icon_state": "hanbok_goreum_base",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hanbok_goreum_flower",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"headband_thin": [
+		{
+			"type": "icon_state",
+			"icon_state": "headband_thin",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

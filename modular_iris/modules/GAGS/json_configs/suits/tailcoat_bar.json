@@ -1,0 +1,16 @@
+{
+	"TailcoatBar": [
+		{
+			"type": "icon_state",
+			"icon_state": "TailcoatBarBase",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "TailcoatBarTail",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

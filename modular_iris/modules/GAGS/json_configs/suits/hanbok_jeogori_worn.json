@@ -1,0 +1,22 @@
+{
+	"hanbok_jeogori": [
+		{
+			"type": "icon_state",
+			"icon_state": "hanbok_jeogori_base",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hanbok_jeogori_neck",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hanbok_jeogori_sleeve",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"glasses_hipster_color": [
+		{
+			"type": "icon_state",
+			"icon_state": "glasses_hipster_color_frames",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "glasses_hipster_color_lens",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

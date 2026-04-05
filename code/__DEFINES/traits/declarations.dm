@@ -1610,6 +1610,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Allows a mob to perform any operation on themselves (with a penalty), where normally only specific operations allow self-surgery.
 #define TRAIT_SELF_SURGERY "self_surgery"
+/// a trait for synthetic. surgery allows mobs to operate on themselves without major failures, but at a higher cost in terms of speed
+#define TRAIT_NEAT_SELF_SURGERY "neat_self_surgery"
 /// This mob's surgical operations ignore ALL speed modifiers (even positive ones!) besides tool quality.
 /// The mob can also no longer fail their operations, unless the operation says otherwise
 #define TRAIT_IGNORE_SURGERY_MODIFIERS "ignore_surgery_modifiers"
