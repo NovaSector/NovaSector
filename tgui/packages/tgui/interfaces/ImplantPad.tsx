@@ -6,6 +6,7 @@ import {
   Stack,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
+import { sanitizeText } from '../sanitize';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
