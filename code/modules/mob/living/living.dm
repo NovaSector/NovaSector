@@ -549,7 +549,7 @@
 //for more info on why this is not atom/pull, see examinate() in mob.dm
 /mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
 	set name = "Pull"
-	set category = "Object"
+	set category = "IC"
 
 	if(istype(AM) && Adjacent(AM))
 		start_pulling(AM)
@@ -569,7 +569,7 @@
 	stop_pulling()
 
 //same as above
-/mob/living/pointed(atom/A as mob|obj|turf in view(client.view, src))
+/mob/living/pointed(atom/A)
 	if(INCAPACITATED_IGNORING(src, INCAPABLE_RESTRAINTS))
 		return FALSE
 
