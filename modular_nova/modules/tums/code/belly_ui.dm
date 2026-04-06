@@ -44,22 +44,29 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 /datum/erp_belly_prefshelper/ui_data(mob/user)
 	. = list()
 
-	// Figure out what tab we're in
-	var/ui_tab = 2
-	if("[user.client?.ckey]TumsTab" in tgui_shared_states)
-		ui_tab = text2num(tgui_shared_states["[user.client?.ckey]TumsTab"])
-
-
+	// Figure out if this is a local call (actual player entity and belly helper to modify) or a charprefs call.
 	var/obj/item/belly_function/belly = get_assoc_belly(user)
 	.["has_belly"] = (belly != null || (/datum/quirk/belly::name in get_assoc_client(user)?.prefs.all_quirks))
 	.["has_player"] = (belly != null)
 
+	// Figure out what tab we're in
+	var/ui_tab = 2
+	if(belly != null)
+		ui_tab = 1
+	if("[user.client?.ckey]TumsTab" in tgui_shared_states)
+		ui_tab = text2num(tgui_shared_states["[user.client?.ckey]TumsTab"])
+		if(belly == null && ui_tab == 1)
+			ui_tab = 2
+
+	// Of note here, tgui_shared_states does *not* like to be written to directly.
+	// Sanity checks here and in the TSX side *should* stop invalid tab states, but...
+	// It's not a guarantee.
+
+	// Actually fill out ui_data
 	if(ui_tab == 1)
 		if(belly == null)
-			tgui_shared_states["[user.client?.ckey]TumsTab"] = "2"
 			return
 		if(belly.lastuser == null)
-			tgui_shared_states["[user.client?.ckey]TumsTab"] = "2"
 			return
 		// == LOCAL SETTINGS BREAKER ==
 		// Send title

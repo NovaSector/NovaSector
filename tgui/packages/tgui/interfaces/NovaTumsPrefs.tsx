@@ -53,6 +53,11 @@ export const NovaTumsPrefs = (props) => {
   const { act, data } = useBackend<NovaTumsPrefsData>();
   const [currentTab, changeTab] = useSharedState(data.ckeyTab, 1);
 
+  if (data.has_player === 0 && currentTab === 1) {
+    changeTab(2);
+    act('setTab2');
+  }
+
   return (
     <Window title={data.title} width={920} height={780}>
       <Window.Content>
