@@ -32,8 +32,8 @@
 	UnregisterSignal(stomach_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
 
 /obj/item/organ/stomach/protean/on_life(seconds_per_tick, times_fired)
-	var/datum/species/protean/species = owner?.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
 	if(owner.loc == suit)
 		return
 	/// Zero out any nutrition. We do not use hunger in this species.
@@ -42,6 +42,7 @@
 	. = ..()
 	handle_protean_hunger(owner, seconds_per_tick)
 
+/// Handles protean-specific hunger mechanics, metal consumption, passive healing, and starvation damage.
 /obj/item/organ/stomach/protean/proc/handle_protean_hunger(mob/living/carbon/human/human, seconds_per_tick)
 	if(!istype(owner.dna.species, /datum/species/protean))
 		return
@@ -71,6 +72,7 @@
 		owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown, multiplicative_slowdown = 2)
 		COOLDOWN_START(src, starving_message, 20 SECONDS)
 
+/// Resets the regen cooldown on taking damage and handles iron blood loss from sharp attacks.
 /obj/item/organ/stomach/protean/proc/damage_listener(mob/living/source, damage, damagetype, def_zone, blocked, wound_bonus, exposed_wound_bonus, sharpness, attack_direction, attacking_item)
 	SIGNAL_HANDLER
 

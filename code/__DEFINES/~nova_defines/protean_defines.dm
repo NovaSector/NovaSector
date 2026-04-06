@@ -5,9 +5,6 @@
 /// Helper macro
 #define isprotean(A) (is_species(A, /datum/species/protean))
 
-/// Organ flag for nanomachine organs - next free bit after ORGAN_TUMOR_CORRUPTED (1<<18)
-#define ORGAN_NANOMACHINE (1<<19)
-
 /// Trait sources
 #define PROTEAN_TRAIT "protean"
 #define PROTEAN_SERVO_TRAIT "protean_servo"

@@ -3,7 +3,8 @@
 
 /obj/item/mod/module/protean_servo
 	name = "protean MOD servo module"
-	desc = "A module made for use in protean MOD suits that adds new subroutines while folded. Comes with three modes, each partially takes over MOD suit's motor functions to enhance the wearer's general movement, performing medical duties or construction tasks. Due to high computing power demand, protean can only use this module while worn by someone else."
+	desc = "A module made for use in protean MOD suits that adds new subroutines while folded. Comes with three modes, each partially takes over MOD suit's motor functions to enhance the wearer's general movement, performing medical duties or construction tasks. \
+		Due to high computing power demand, protean can only use this module while worn by someone else."
 	icon_state = "no_baton"
 	complexity = 3
 	use_energy_cost = DEFAULT_CHARGE_DRAIN
@@ -19,7 +20,10 @@
 	. = ..()
 
 	var/obj/item/mod/core/protean/protean_core = mod.core
-	var/mob/living/carbon/human/protean_in_suit = protean_core.linked_species.owner
+	var/mob/living/carbon/human/protean_in_suit = protean_core?.linked_protean
+	if(isnull(protean_in_suit))
+		deactivate()
+		return
 
 	if(protean_in_suit == mod.wearer)
 		to_chat(mod.wearer, span_warning("[src] needs someone else as the wearer, it can't be used on a protean."))
@@ -35,7 +39,7 @@
 /obj/item/mod/module/protean_servo/on_deactivation(display_message = TRUE, deleting = FALSE)
 	. = ..()
 	var/obj/item/mod/core/protean/protean_core = mod.core
-	var/mob/living/carbon/human/protean_in_suit = protean_core?.linked_species.owner
+	var/mob/living/carbon/human/protean_in_suit = protean_core?.linked_protean
 
 	servo_movement.Remove(protean_in_suit)
 	servo_medical.Remove(protean_in_suit)
@@ -67,8 +71,10 @@
 
 /datum/action/cooldown/protean_servo/movement/Activate()
 	var/mob/living/carbon/protean = owner
-	var/datum/species/protean/species = protean.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/bodypart/chest/robot/protean/chest = protean.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
+		return
 	var/mob/living/carbon/wearer = suit.wearer
 
 	wearer.apply_status_effect(/datum/status_effect/protean_servo_movement)
@@ -83,8 +89,10 @@
 
 /datum/action/cooldown/protean_servo/medical/Activate()
 	var/mob/living/carbon/protean = owner
-	var/datum/species/protean/species = protean.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/bodypart/chest/robot/protean/chest = protean.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
+		return
 	var/mob/living/carbon/wearer = suit.wearer
 
 	wearer.apply_status_effect(/datum/status_effect/protean_servo_medical)
@@ -99,8 +107,10 @@
 
 /datum/action/cooldown/protean_servo/engineering/Activate()
 	var/mob/living/carbon/protean = owner
-	var/datum/species/protean/species = protean.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/bodypart/chest/robot/protean/chest = protean.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
+		return
 	var/mob/living/carbon/wearer = suit.wearer
 
 	wearer.apply_status_effect(/datum/status_effect/protean_servo_engineer)

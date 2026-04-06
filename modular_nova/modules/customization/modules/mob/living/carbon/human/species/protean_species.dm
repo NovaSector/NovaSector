@@ -79,27 +79,17 @@
 	inherent_biotypes = MOB_ROBOTIC | MOB_HUMANOID
 	reagent_flags = PROCESS_SYNTHETIC
 
-	/// Reference to the species modsuit
-	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
-
-	/// Reference to the species owner
-	var/mob/living/carbon/human/owner
 	var/list/organ_slots = list(ORGAN_SLOT_BRAIN, ORGAN_SLOT_HEART, ORGAN_SLOT_STOMACH, ORGAN_SLOT_EYES)
 	language_prefs_whitelist = list(/datum/language/monkey)
 
-/datum/species/protean/Destroy(force)
-	QDEL_NULL(species_modsuit)
-	owner = null
-	. = ..()
-
 /datum/species/protean/on_species_gain(mob/living/carbon/human/gainer, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
-	owner = gainer
-	equip_modsuit(gainer)
-	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
-	var/obj/item/mod/core/protean/core = species_modsuit.core
-	core?.linked_species = src
-	var/static/list/protean_verbs = list(
+	var/obj/item/bodypart/chest/robot/protean/chest = gainer.get_bodypart(BODY_ZONE_CHEST)
+	equip_modsuit(gainer, chest)
+	RegisterSignal(gainer, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
+	var/obj/item/mod/core/protean/core = chest.species_modsuit.core
+	core?.linked_protean = gainer
+	var/list/protean_verbs = list(
 		/mob/living/carbon/proc/protean_ui,
 		/mob/living/carbon/proc/protean_heal,
 		/mob/living/carbon/proc/lock_suit,
@@ -122,6 +112,7 @@
 		return
 	addtimer(CALLBACK(src, PROC_REF(reject_now), source, inserted), 1 SECONDS)
 
+/// Forces removal of a non-nanomachine organ after a short delay, ejecting it to the ground.
 /datum/species/protean/proc/reject_now(mob/living/source, obj/item/organ/organ)
 	organ.Remove(source)
 	organ.forceMove(get_turf(source))
@@ -131,7 +122,7 @@
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
 	// Clean up verbs
-	var/static/list/protean_verbs = list(
+	var/list/protean_verbs = list(
 		/mob/living/carbon/proc/protean_ui,
 		/mob/living/carbon/proc/protean_heal,
 		/mob/living/carbon/proc/lock_suit,
@@ -146,21 +137,26 @@
 		// Clean up traits that may be active if protean is transformed or in critical state
 		REMOVE_TRAIT(gainer, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
 		gainer.remove_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown)
-	if(species_modsuit?.stored_modsuit)
-		species_modsuit.unassimilate_modsuit(gainer, TRUE)
-	gainer.dropItemToGround(species_modsuit, TRUE)
-	if(species_modsuit)
-		QDEL_NULL(species_modsuit)
-	owner = null
+	var/obj/item/bodypart/chest/robot/protean/chest = gainer.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(suit?.stored_modsuit)
+		suit.unassimilate_modsuit(gainer, TRUE)
+	gainer.dropItemToGround(suit, TRUE)
+	if(suit)
+		qdel(suit)
+	if(chest)
+		chest.species_modsuit = null
 
-/datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer)
-	species_modsuit = new()
+/// Creates and equips the protean's modsuit to the given mob's back slot, storing the ref on the chest.
+/datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer, obj/item/bodypart/chest/robot/protean/chest)
+	var/obj/item/mod/control/pre_equipped/protean/new_suit = new()
+	chest.species_modsuit = new_suit
 	var/obj/item/item_in_slot = gainer.get_item_by_slot(ITEM_SLOT_BACK)
 	if(item_in_slot)
 		if(HAS_TRAIT(item_in_slot, TRAIT_NODROP))
 			stack_trace("Protean modsuit forced dropped a TRAIT_NODROP item on species equip. Type: [item_in_slot]")
 		gainer.dropItemToGround(item_in_slot, force = TRUE)
-	return gainer.equip_to_slot_if_possible(species_modsuit, ITEM_SLOT_BACK, disable_warning = TRUE)
+	return gainer.equip_to_slot_if_possible(new_suit, ITEM_SLOT_BACK, disable_warning = TRUE)
 
 /datum/species/protean/get_default_mutant_bodyparts()
 	return list(

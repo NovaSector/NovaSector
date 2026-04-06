@@ -3,10 +3,11 @@
 	set desc = "Opens your suit UI"
 	set category = "Protean"
 
-	var/datum/species/protean/species = dna.species
-	if(!istype(species))
+	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
 		return
-	species.species_modsuit.ui_interact(src)
+	suit.ui_interact(src)
 
 /mob/living/carbon/proc/protean_heal()
 	set name = "Heal Organs and Limbs"
@@ -18,8 +19,10 @@
 	if(!istype(brain))
 		return
 
-	var/datum/species/protean/species = dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
+		return
 	if(incapacitated && loc != suit)
 		balloon_alert(src, "incapacitated!")
 		return
@@ -31,13 +34,12 @@
 	set desc = "Locks your suit on someone"
 	set category = "Protean"
 
-	var/datum/species/protean/species = dna.species
-
-	if(!istype(species))
+	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
 		return
 
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
-	species.species_modsuit.toggle_lock()
+	suit.toggle_lock()
 	to_chat(src, span_notice("You [suit.modlocked ? "<b>lock</b>" : "<b>unlock</b>"] the suit [isprotean(suit.wearer) || loc == suit ? "" : "onto [suit.wearer]"]"))
 	playsound(src, 'sound/machines/click.ogg', 25)
 
@@ -49,8 +51,11 @@
 
 	if(!istype(brain))
 		return
-	var/datum/species/protean/species = dna.species
-	if(loc == species.species_modsuit)
+	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
+		return
+	if(loc == suit)
 		brain.leave_modsuit()
 	else if(isturf(loc))
 		if(!incapacitated)
@@ -63,34 +68,37 @@
 	set desc = "Pry out an absorbed modsuit from your protean suit."
 	set category = "Protean"
 
-	var/datum/species/protean/species = dna.species
-	if(!istype(species))
+	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
 		return
-	species.species_modsuit.unassimilate_modsuit(src)
+	suit.unassimilate_modsuit(src)
 
 /mob/living/carbon/proc/remove_assimilated_plating()
 	set name = "Remove Assimilated Plating"
 	set desc = "Reset your modsuit appearance back to default."
 	set category = "Protean"
 
-	var/datum/species/protean/species = dna.species
-	if(!istype(species))
+	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
 		return
-	species.species_modsuit.unassimilate_theme()
+	suit.unassimilate_theme()
 
 /mob/living/carbon/proc/low_power()
 	set name = "Toggle Low Power Mode"
 	set desc = "Toggle whether you are running on low power mode."
 	set category = "Protean"
 
-	var/datum/species/protean/species = dna.species
-	if(!istype(species))
+	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
 		return
 	var/obj/item/organ/stomach/protean/stomach = get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(!istype(stomach))
 		to_chat(src, span_warning("You are missing a stomach and can't turn on low power mode"))
 		return
-	if(loc == species.species_modsuit)
+	if(loc == suit)
 		to_chat(src, span_notice("You can't toggle low power when in a suit form!"))
 		return
 	if(!do_after(src, 2.5 SECONDS))
@@ -100,8 +108,8 @@
 	if(istype(has_status_effect(effect), effect))
 		remove_status_effect(effect)
 	else
-		if(species.species_modsuit.active)
-			species.species_modsuit.toggle_activate(usr, TRUE)
+		if(suit.active)
+			suit.toggle_activate(usr, TRUE)
 		// Preventing low power slowdown being removed by reform cooldown
 		if(has_status_effect(/datum/status_effect/protean_low_power_mode))
 			remove_status_effect(/datum/status_effect/protean_low_power_mode)

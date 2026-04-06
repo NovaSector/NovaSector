@@ -26,7 +26,7 @@
 	COOLDOWN_DECLARE(refactory_cooldown)
 	COOLDOWN_DECLARE(orchestrator_cooldown)
 
-/obj/item/organ/brain/protean/Destroy()
+/obj/item/organ/brain/protean/Destroy(force)
 	deltimer(revive_timer_id)
 	deltimer(retreat_timer_id)
 	return ..()
@@ -54,10 +54,8 @@
 /obj/item/organ/brain/protean/proc/emergency_retreat()
 	if(dead)
 		return
-	var/datum/species/protean/protean = owner?.dna?.species
-	if(!istype(protean))
-		return
-	var/obj/item/mod/control/pre_equipped/protean/suit = protean.species_modsuit
+	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
 	if(!suit || owner.loc == suit)
 		return
 	dead = TRUE
@@ -98,9 +96,10 @@
 		go_into_suit(TRUE)
 		ADD_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
 
+/// Checks if the refactory organ is present and applies degradation damage if missing.
 /obj/item/organ/brain/protean/proc/handle_refactory(obj/item/organ)
-	var/datum/species/protean/species = owner?.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
 	if(owner.loc == suit)
 		return
 	if(isnull(organ) || !istype(organ, /obj/item/organ/stomach/protean))
@@ -109,9 +108,10 @@
 			to_chat(owner, span_warning("Your mass is slowly degrading without your refactory!"))
 			COOLDOWN_START(src, refactory_cooldown, 30 SECONDS)
 
+/// Checks if the orchestrator organ is present and applies movement penalties if missing.
 /obj/item/organ/brain/protean/proc/handle_orchestrator(obj/item/organ)
-	var/datum/species/protean/species = owner?.dna.species
-	var/obj/item/mod/control/pre_equipped/protean/suit = species.species_modsuit
+	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
 	if(owner.loc == suit)
 		return
 	if(!COOLDOWN_FINISHED(src, orchestrator_cooldown))
@@ -129,11 +129,12 @@
 /datum/movespeed_modifier/protean_slowdown
 	variable = TRUE
 
+/// Moves the protean into their modsuit, playing visuals and applying transform traits.
 /obj/item/organ/brain/protean/proc/go_into_suit(forced)
-	var/datum/species/protean/protean = owner.dna?.species
-	if(!istype(protean) || owner.loc == protean.species_modsuit)
+	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(!suit || owner.loc == suit)
 		return
-	var/obj/item/mod/control/pre_equipped/protean/suit = protean.species_modsuit
 	if(!forced)
 		if(!do_after(owner, 5 SECONDS))
 			return
@@ -149,11 +150,12 @@
 	sleep(12)
 	owner.invisibility = initial(owner.invisibility)
 
+/// Moves the protean out of their modsuit back into the world.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
-	var/datum/species/protean/protean = owner.dna?.species
-	if(!istype(protean))
+	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(isnull(suit))
 		return
-	var/obj/item/mod/control/pre_equipped/protean/suit = protean.species_modsuit
 	if(dead)
 		to_chat(owner, span_warning("Your mass is destroyed. You are unable to leave."))
 		return
@@ -181,6 +183,7 @@
 	if(!HAS_TRAIT(suit, TRAIT_NODROP))
 		ADD_TRAIT(suit, TRAIT_NODROP, "protean")
 
+/// Consumes metal to fully heal limbs and restore missing nanomachine organs.
 /obj/item/organ/brain/protean/proc/replace_limbs()
 	var/obj/item/organ/stomach/protean/stomach = owner.get_organ_slot(ORGAN_SLOT_STOMACH)
 	var/obj/item/organ/eyes/robotic/protean/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
@@ -194,8 +197,8 @@
 	if(!istype(owner.loc, /obj/item/mod/control))
 		to_chat(owner, span_warning("Not in the open. You must be inside your suit!"))
 		return
-	var/datum/species/protean/species = owner.dna.species
-	if(!do_after(owner, 30 SECONDS, species.species_modsuit, IGNORE_INCAPACITATED))
+	var/obj/item/bodypart/chest/robot/protean/chest = owner.get_bodypart(BODY_ZONE_CHEST)
+	if(!do_after(owner, 30 SECONDS, chest?.species_modsuit, IGNORE_INCAPACITATED))
 		return
 
 	stomach.metal = clamp(stomach.metal - (PROTEAN_STOMACH_FULL * 0.6), 0, 10)
@@ -242,6 +245,7 @@
 	else if(organ_flags & ORGAN_NANOMACHINE)
 		liver.set_organ_damage(0)
 
+/// Fully revives the protean from critical condition, restoring their mass.
 /obj/item/organ/brain/protean/proc/revive()
 	dead = FALSE
 	playsound(owner, 'sound/machines/ping.ogg', 30)
@@ -249,6 +253,7 @@
 	owner.fully_heal()
 	REMOVE_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
 
+/// Starts the revive countdown timer, shorter for changelings.
 /obj/item/organ/brain/protean/proc/revive_timer()
 	balloon_alert_to_viewers("repairing")
 	if(IS_CHANGELING(owner))

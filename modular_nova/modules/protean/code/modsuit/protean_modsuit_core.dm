@@ -3,24 +3,23 @@
 	icon_state = "mod-core-ethereal"
 	desc = "If you see this, go scream at a coder and tell them how you managed to do this."
 
-	/// We handle as many interactions as possible through the species datum.
-	/// The species handles cleanup on this.
-	var/datum/species/protean/linked_species
+	/// Direct reference to the protean mob. Persists even when the protean is inside the suit.
+	var/mob/living/carbon/human/linked_protean
 
-/obj/item/mod/core/protean/Destroy()
-	linked_species = null
+/obj/item/mod/core/protean/Destroy(force)
+	linked_protean = null
 	return ..()
 
 /obj/item/mod/core/protean/charge_source()
-	if(isnull(linked_species))
+	if(isnull(linked_protean))
 		return
-	if(isnull(linked_species.owner))
-		return
-	return linked_species.owner.get_organ_slot(ORGAN_SLOT_STOMACH)
+	return linked_protean.get_organ_slot(ORGAN_SLOT_STOMACH)
 
 /obj/item/mod/core/protean/charge_amount()
 	var/obj/item/organ/stomach/protean/stomach = charge_source()
-	var/obj/item/organ/brain/protean/brain = linked_species.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(isnull(linked_protean))
+		return null
+	var/obj/item/organ/brain/protean/brain = linked_protean.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!istype(stomach))
 		return null
 	if(brain.dead)
@@ -39,7 +38,9 @@
 
 /obj/item/mod/core/protean/check_charge(amount)
 	var/obj/item/organ/stomach/protean/stomach = charge_source()
-	var/obj/item/organ/brain/protean/brain = linked_species.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(isnull(linked_protean))
+		return FALSE
+	var/obj/item/organ/brain/protean/brain = linked_protean.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(stomach.metal <= PROTEAN_STOMACH_FALTERING)
 		return FALSE
 	if(!istype(brain) || brain.dead)

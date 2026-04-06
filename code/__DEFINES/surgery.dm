@@ -43,6 +43,8 @@
 #define ORGAN_SYNTHETIC_FROM_SPECIES (1<<17)
 /// Organ flag for organs of hemophage origin, or organs that have since been infected by an hemophage's tumor.
 #define ORGAN_TUMOR_CORRUPTED (1<<18)
+/// Organ flag for nanomachine organs
+#define ORGAN_NANOMACHINE (1<<19)
 // NOVA EDIT ADDITION END
 
 /// Organ flags that correspond to bodytypes
