@@ -41,7 +41,7 @@
 
 /obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
-	if(isprotean(brain_owner))
+	if(isprotean(brain_owner) && !QDELING(brain_owner))
 		brain_owner.Stun(INFINITY, TRUE)
 	UnregisterSignal(brain_owner, COMSIG_LIVING_DEATH)
 
