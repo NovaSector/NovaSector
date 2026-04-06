@@ -33,11 +33,26 @@
 
 /obj/item/organ/brain/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
+	if(!isprotean(receiver))
+		addtimer(CALLBACK(src, PROC_REF(reject_from_body), receiver), 1 SECONDS)
+		return
+	receiver.SetStun(0)
 	RegisterSignal(receiver, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
 
 /obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
+	if(isprotean(brain_owner))
+		brain_owner.Stun(INFINITY, TRUE)
 	UnregisterSignal(brain_owner, COMSIG_LIVING_DEATH)
+
+/// Rejects the protean brain from a non-protean body, ejecting it to the ground.
+/obj/item/organ/brain/protean/proc/reject_from_body(mob/living/carbon/body)
+	if(isnull(owner) || owner != body)
+		return
+	Remove(body)
+	forceMove(get_turf(body))
+	to_chat(body, span_danger("The nanomachine core is incompatible with your body!"))
+	balloon_alert_to_viewers("rejected!", vision_distance = 1)
 
 /// Intercepts direct death() calls (e.g. chasms, lava) that bypass the normal HARD_CRIT check in on_life.
 /// Schedules retreat for after death() and any caller code finishes executing.
