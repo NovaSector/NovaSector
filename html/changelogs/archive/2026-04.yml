@@ -108,3 +108,11 @@
   - bugfix: gets rid of a stray pixel from the quirks menu
   - bugfix: fixes an issue where the 'slow shuttle' station trait can sometimes not
       be applied properly
+2026-04-06:
+  DimWhat for spriting, SigmaPredator for helping me with organizing this, and my (theselfish) poor keyboard.:
+  - rscadd: Nearly every job has a Bunny outfit. I am not joking. Check your vendors.
+  OrbisAnima:
+  - balance: Oversized slowdown reduced from 0.5 to 0.2, exactly like settler, or
+      walking over light webs. Oversized also gain the perk Sturdy Frame, which allows
+      them to reduce the slowdown items (ie, armors) cause by 80%, same as the settler
+      perk!
