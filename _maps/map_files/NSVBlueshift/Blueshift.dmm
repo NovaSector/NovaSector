@@ -102195,7 +102195,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/cobweb,
-/obj/effect/landmark/start/medical_doctor,
 /turf/open/floor/iron,
 /area/station/medical/abandoned)
 "uzX" = (
