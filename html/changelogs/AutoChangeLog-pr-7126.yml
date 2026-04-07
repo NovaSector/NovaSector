@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Nanotrasen has gotten down to the Source of things regarding their invisible fuel tanks during the April Fools' season. The Engine behind tank creation had gotten a little too silly, making canisters with a painting Half-Life of approximately Two."

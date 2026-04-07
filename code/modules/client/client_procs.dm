@@ -37,10 +37,10 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 /client/Topic(href, href_list, hsrc, hsrc_command)
 	if(!usr || usr != mob) //stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
-	//NOVA EDIT ADDITION BEGIN - MENTOR
-	if(mentor_client_procs(href_list))
+	// NOVA EDIT ADDITION BEGIN - MENTOR / other client procs
+	if(client_procs(href_list))
 		return
-	//NOVA EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 
 #ifndef TESTING
 	if (LOWER_TEXT(hsrc_command) == "_debug") //disable the integrated byond vv in the client side debugging tools since it doesn't respect vv read protections
@@ -969,6 +969,10 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 		add_verb(src, /client/proc/self_playtime)
 	if(!CONFIG_GET(flag/forbid_preferences_export))
 		add_verb(src, /client/proc/export_preferences)
+	// NOVA EDIT ADDITION START
+	if(CONFIG_GET(flag/enable_relays))
+		add_verb(src, /client/proc/connect_to_relay)
+	// NOVA EDIT ADDITION END
 
 
 //checks if a client is afk

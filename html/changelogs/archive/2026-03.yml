@@ -673,3 +673,111 @@
   - qol: Your HUD prefs are respected on more mobs now.
   - qol: Improved the HUD of simple/basic animals, as well as Cyborgs, AIs, pAIs and
       Xenomorphs.
+2026-03-24:
+  Absolucy:
+  - bugfix: Some indicators (combat, ssd, temporary flavor text) will no longer be
+      completely dark sometimes on multi-Z maps.
+  - code_imp: Cleaned up the code for Necropolis Blood Crawl a bit.
+  - qol: Necropolis Blood Crawl now simply prevents you from entering forbidden areas
+      while jaunting, instead of immediately kicking you out, which could send you
+      straight into lava in some situations.
+  - qol: The med/sec/exploitable/general/background info readout in chat is now stylized
+      and easier to read.
+  ArcaneMusic:
+  - bugfix: Cargo goodies are now visible in the ordering and request consoles.
+  Bugwasabi, vinylspiders:
+  - code_imp: Uses defines instead of magic numbers on carbon_stripping.dm
+  Happyowl93:
+  - rscadd: 'Adds a new species: shadekins'
+  Iajret:
+  - balance: You once again can't perform operations on patients inside stasis units
+  - rscadd: Vitals display can be printed in ancient lathes
+  - bugfix: fixed vitals display not respecting APCs power when you attach it to a
+      wall
+  - balance: Compression plates and magnetic deployment MOD modules are now available
+      for research and printing at your local RnD department.
+  Jacquerel:
+  - rscadd: Nonhuman mobs with hands can now pick up other mobs that are smaller than
+      them and can usually be picked up
+  JohnFulpWillard:
+  - qol: The Curator's barcode scanner now lets you check books out.
+  - bugfix: The library console can no longer borrow books for an infinite amount
+      of time.
+  Melbert:
+  - bugfix: The skeleton from being shocked matches your height
+  - code_imp: Cleaned up RTG code. Admins can now VV them easier. If you come across
+      a ruin on Lavaland or in space that uses them and see any odd behavior, report
+      it as an issue.
+  - bugfix: Drinking soup will loop until it's empty or you cancel it (as it used
+      to)
+  Y0SH1M4S73R:
+  - qol: Many circuit components have had ports that effectively act as boolean inputs
+      or outputs converted into a new boolean datatype.
+  cebutris:
+  - bugfix: Fixed an oversight with package wrapping
+  - rscdel: Removed Quartermaster access from Customs Agents
+  lelandkemble:
+  - bugfix: Friendly wisps, wizard gravity balls, & tesla periphery balls are no longer
+      disabled due to shuttle transit
+  - bugfix: Glasses that were in the vending machine now still count for the completion
+      of the Beach Bar virtual domain
+  muratendmo:
+  - bugfix: Anomaly cores ordered off the departmental budget now once again come
+      in goody cases.
+  vinylspiders:
+  - qol: adds a 'Connect to Relay' option under the File menu, below 'reconnect'
+  - qol: adds a new verb, 'Connect-to-Relay' that can be typed or found in the OOC
+      tab
+2026-03-26:
+  vinylspiders:
+  - bugfix: fixes an issue where genitals were rendering the incorrect variant at
+      random
+2026-03-27:
+  Absolucy:
+  - qol: Slime Link messages now notify listeners with a balloon alert.
+  ArcaneMusic:
+  - rscadd: Centcom is now offering the ability to purchase airflow blocking plastic
+      flaps, and the ability to refill the cargo shuttle with air for the low, low
+      installation fee of 8,000 credits. Inquire today under the "Imports" category!
+  - code_imp: supply packs can now be spawned using containers different than a crate.
+  - bugfix: The Random Supply Drop event can now spawn their items as opposed to runtiming.
+  Hatterhat:
+  - bugfix: Following complaints from approximately two people with a one person margin
+      of error, cans of CHAP and associated products (sliced CHAP, grilled sliced
+      CHAP) should no longer become "meat-iron" and squishy/grey/translucent/etc.
+  LemonInTheDark:
+  - bugfix: the darken screen shake preference will no longer shake your screen underneath
+      the fullscreen overlay
+  Melbert:
+  - bugfix: Hallucinating yourself as another mob will no longer disable all of your
+      light sources
+  - qol: Health analyzer lung reports are appended by the lung organs rather than
+      at the bottom of the readout
+  OrbisAnima:
+  - balance: Teleporter Mod for modsuits has a four seconds windup, from one.
+  - balance: Cargo Anomalous mods for modsuits are no longer equal to their anomaly
+      counterparts, but a less efficient version and more complex due to their lacking.
+  Rhials:
+  - bugfix: The medisim shuttle docking port now aligns properly with most evac terminals.
+  RusselNotSCP:
+  - rscadd: Added three new liqueurs, with bottles available in the booze-o-mat.
+  - rscadd: Added 15 new cocktails that use the aforementioned liqueurs.
+  SyncIt21:
+  - bugfix: tearing a poster while placing it only creates a shred poster on the wall
+      but won't place a new one in hand
+  TealSeer:
+  - bugfix: fixed a few bugs related to arm implant surgery
+  - code_imp: added missing bitflags to bitfield defines
+  lelandkemble:
+  - bugfix: You can put a horn in a clown car
+  - map: Snow Cabin fake healing wand now holds on to its sprite
+  - spellcheck: Immobile mobile defibrillator mounts are no longer called mobile
+  - bugfix: Tape can now secure prosthetic limbs again
+  obvious650-source:
+  - rscadd: Two rechargers added to Blueshift's security department
+  vinylspiders:
+  - bugfix: fixes an issue where casting spells after your mob gets deleted can leave
+      you in a permanently bugged state.
+2026-03-29:
+  sqnztb:
+  - bugfix: non-assistant visitors should properly show on manifest with records again.

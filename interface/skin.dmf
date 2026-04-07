@@ -19,6 +19,11 @@ menu "menu"
 		command = ".reconnect"
 		category = "&File"
 		saved-params = "is-checked"
+    elem
+		name = "&Connect to Relay"
+		command = "connect-to-relay"
+        category = "&File"
+		saved-params = "is-checked"
 	elem
 		name = "&Quit\tAlt-F4"
 		command = ".quit"

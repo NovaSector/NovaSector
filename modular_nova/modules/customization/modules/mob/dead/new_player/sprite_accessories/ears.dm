@@ -289,6 +289,10 @@
 	name = "Curved Rabbit Ears (Large)"
 	icon_state = "rabbit_large"
 
+/datum/sprite_accessory/ears/external/big/playbunny_large
+	name = "Flopped Rabbit Ears (Large)"
+	icon_state = "playbunny_large"
+
 /datum/sprite_accessory/ears/external/big/sandfox_large
 	name = "Sandfox (Large)"
 	icon_state = "sandfox_large"
@@ -566,6 +570,14 @@
 /datum/sprite_accessory/ears/external/shade/
 	name = "Shade Ears"
 	icon_state = "shadekin"
+	recommended_species = list(
+		SPECIES_SHADEKIN = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMAN = 1,
+		SPECIES_SYNTH = 1,
+		SPECIES_HUMANOID = 1,
+		SPECIES_GHOUL = 1,
+	)
 
 /datum/sprite_accessory/ears/external/shade/band
 	name = "Shade Bandaged"
