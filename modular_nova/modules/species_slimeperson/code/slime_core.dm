@@ -221,7 +221,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		qdel(GetComponent(/datum/component/gps))
 	return
 
-/obj/item/organ/brain/slime/proc/drop_items(mob/living/user, list/items_to_drop)
+/// Allows user to extract a selected stored item from the core via its examine links.
+/obj/item/organ/brain/slime/proc/extract_specific_item(mob/living/user, list/items_to_drop)
 	if(user.get_active_held_item() != src)
 		to_chat(user, span_userdanger("Hold [src] in your hand to extract items from it!"))
 		return
@@ -643,7 +644,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			return
 		var/obj/item/core_item = locate(href_list["core_item"]) in stored_items
 		if(core_item)
-			drop_items(usr, list(core_item))
+			extract_specific_item(usr, list(core_item))
 
 ADMIN_VERB(cmd_admin_heal_slime, R_ADMIN, "Heal Slime Core", "Use this to heal Slime cores.", ADMIN_CATEGORY_DEBUG, obj/item/organ/brain/slime/core in GLOB.dead_slime_cores)
 	if(QDELETED(core))
