@@ -55,3 +55,21 @@
 /datum/orderable_item/accelerator/gun/m79
 	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79
 	cost_per_order = 1250
+
+/obj/item/storage/backpack/duffelbag/mining_bunny
+	name = "Bunny Kit"
+	desc = "A mining outfit kit themed around bunnies, they do live in burrows after all..."
+	icon_state = "satchel_carrot"
+	inhand_icon_state = null
+
+/obj/item/storage/backpack/duffelbag/mining_bunny/PopulateContents()
+	new /obj/item/clothing/head/playbunnyears/miner(src)
+	new /obj/item/clothing/neck/tie/bunnytie/miner(src)
+	new /obj/item/clothing/suit/jacket/tailcoat/miner(src)
+	new /obj/item/clothing/under/rank/cargo/miner/bunnysuit(src)
+	new /obj/item/clothing/shoes/workboots/mining/heeled(src)
+
+/datum/orderable_item/mining/bunny
+	purchase_path = /obj/item/storage/backpack/duffelbag/mining_bunny
+	desc = "A mining outfit kit themed around bunnies, they do live in burrows after all..."
+	cost_per_order = 500
