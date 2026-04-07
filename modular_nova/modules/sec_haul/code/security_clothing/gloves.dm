@@ -1,22 +1,24 @@
-/datum/atom_skin/sec_gloves_white
-	abstract_type = /datum/atom_skin/sec_gloves_white
 
-/datum/atom_skin/sec_gloves_white/black
-	preview_name = "Black Variant"
-	new_icon_state = "gloves_black"
+/obj/item/clothing/gloves/color/black/security
+	name = "security gloves"
+	desc = "These security gloves come with microchips that help the user quickly restrain suspects."
+	clothing_traits = list(TRAIT_FAST_CUFFING)
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/gloves/color/black/security"
+	post_init_icon_state = "secgloves"
+	greyscale_config = /datum/greyscale_config/secgloves
+	greyscale_config_worn = /datum/greyscale_config/secgloves/worn
+	greyscale_colors = "#2F2E31#A52F29"
+	flags_1 = NONE
 
-/datum/atom_skin/sec_gloves_white/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "gloves_blue"
-
-/datum/atom_skin/sec_gloves_white/white
-	preview_name = "White Variant"
-	new_icon_state = "gloves_white"
+/obj/item/clothing/gloves/color/black/security/blue
+	icon_state = "/obj/item/clothing/gloves/color/black/security/blue"
+	greyscale_colors = "#2F2E31#3F6E9E"
 
 /obj/item/clothing/gloves/color/black/security/white
-	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
-	icon_state = "gloves_white"
+	icon_state = "/obj/item/clothing/gloves/color/black/security/white"
+	greyscale_colors = "#ECECEC#2F2E31"
 
-/obj/item/clothing/gloves/color/black/security/white/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/sec_gloves_white)
+/obj/item/clothing/gloves/color/black/security/black
+	icon_state = "/obj/item/clothing/gloves/color/black/security/black"
+	greyscale_colors = "#2F2E31#ECECEC"

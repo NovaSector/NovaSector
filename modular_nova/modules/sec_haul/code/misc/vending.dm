@@ -38,11 +38,10 @@
 			"products" = list(
 		 		/obj/item/clothing/glasses/hud/security/sunglasses = 4,
 				/obj/item/clothing/glasses/hud/ar/aviator/security = 4,
-				/obj/item/clothing/head/beret/sec = 4,							//1
-				/obj/item/clothing/head/soft/sec = 4,							//2
+				/obj/item/clothing/head/beret/sec = 4,
+				/obj/item/clothing/head/soft/sec = 4,
 				/obj/item/clothing/mask/bandana/striped/security = 4,			//3
-				/obj/item/clothing/under/rank/security/nova/secjumpsuit = 4,	//4
-				/obj/item/clothing/under/rank/security/nova/officer/black = 4,  //5
+				/obj/item/clothing/under/rank/security/nova/officer = 4,
 				/obj/item/clothing/under/rank/security/nova/plainskirt = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt = 4,
 				/obj/item/clothing/under/rank/security/nova/dress = 4,
@@ -75,8 +74,8 @@
 			"products" = list(
 				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 4,
 				/obj/item/clothing/glasses/hud/ar/aviator/securityblue = 4,
-				/obj/item/clothing/head/beret/sec/nova = 4,						//19
-				/obj/item/clothing/head/security_cap = 4,						//20
+				/obj/item/clothing/head/beret/sec/nova/blue = 4,
+				/obj/item/clothing/head/security_cap/blue = 4,
 				/obj/item/clothing/head/helmet/sec/white = 3,
 				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
@@ -85,7 +84,7 @@
 				/obj/item/clothing/suit/armor/vest/vested_jacket/blue = 4,
 				/obj/item/clothing/neck/security_cape = 4,
 				/obj/item/clothing/neck/security_cape/armplate = 4,
-				/obj/item/clothing/under/rank/security/nova/officer = 4,
+				/obj/item/clothing/under/rank/security/nova/officer/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt/blue = 4,
 				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
 				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
@@ -97,8 +96,7 @@
 				/obj/item/clothing/under/rank/security/nova/trousers/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/secshorts/blue = 4,
 				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
-				/obj/item/clothing/gloves/color/black/security/white = 4,
-				/obj/item/clothing/gloves/color/black/security/blu = 4,
+				/obj/item/clothing/gloves/color/black/security/blue = 4,
 				/obj/item/clothing/head/security_garrison = 4,
 				/obj/item/clothing/head/hats/warden/police/patrol = 4,
 				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
@@ -113,10 +111,9 @@
 			"name" = "White",
 			"icon" = "shield-halved",
 			"products" = list(
-/*				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
+				/*
 				/obj/item/clothing/head/beret/sec/nova = 4,
 				/obj/item/clothing/head/security_cap = 4,
-				/obj/item/clothing/head/helmet/sec/white = 3,
 				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4, */
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
@@ -135,10 +132,9 @@
 //				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/trousers/white = 4,
 				/obj/item/clothing/under/rank/security/nova/secshorts/white = 4,
-/*				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
+//				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
 				/obj/item/clothing/gloves/color/black/security/white = 4,
-				/obj/item/clothing/gloves/color/black/security/blu = 4,
-				/obj/item/clothing/head/security_garrison = 4,
+/*				/obj/item/clothing/head/security_garrison = 4,
 				/obj/item/clothing/head/hats/warden/police/patrol = 4,
 				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
 				/obj/item/storage/backpack/security/blue = 4,
@@ -152,10 +148,9 @@
 			"name" = "Black",
 			"icon" = "shield-halved",
 			"products" = list(
-/*				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
+/*
 				/obj/item/clothing/head/beret/sec/nova = 4,
 				/obj/item/clothing/head/security_cap = 4,
-				/obj/item/clothing/head/helmet/sec/white = 3,
 				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
@@ -174,10 +169,9 @@
 //				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
 				/obj/item/clothing/under/rank/security/nova/trousers/black = 4,
 				/obj/item/clothing/under/rank/security/nova/secshorts/black = 4,
-/*				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
-				/obj/item/clothing/gloves/color/black/security/white = 4,
-				/obj/item/clothing/gloves/color/black/security/blu = 4,
-				/obj/item/clothing/head/security_garrison = 4,
+				/obj/item/clothing/shoes/jackboots = 4,
+				/obj/item/clothing/gloves/color/black/security/black = 4,
+/*				/obj/item/clothing/head/security_garrison = 4,
 				/obj/item/clothing/head/hats/warden/police/patrol = 4,
 				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
 				/obj/item/storage/backpack/security/blue = 4,

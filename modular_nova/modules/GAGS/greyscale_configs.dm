@@ -2798,7 +2798,16 @@ Security
 /datum/greyscale_config/vested_jacket/worn
 	name = "Vested Jacket (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/under/vested_jacket_worn.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/vested_jacket_worn.json'
+
+/datum/greyscale_config/secgloves
+	name = "Security Gloves"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/secgloves.json'
+
+/datum/greyscale_config/secgloves/worn
+	name = "Security Gloves (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 
 /*
 This is all our modular PDAs, ITS LARGE!
@@ -2876,6 +2885,10 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Holosystem PDA"
 	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/holosystem/pda_holosystem.json'
 
+
+/*
+Cloaks
+*/
 /datum/greyscale_config/antique_short_cloak
 	name = "Antique Shortcloak"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
