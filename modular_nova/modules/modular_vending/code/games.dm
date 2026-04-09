@@ -11,7 +11,7 @@
 				/obj/item/toy/tennis/yellow = 2,
 				/obj/item/toy/tennis/green = 2,
 				/obj/item/toy/tennis/cyan = 2,
-				/obj/item/toy/tennis/purple = 2,
+				/obj/item/toy/tennis/blue = 2,
 				/obj/item/toy/tennis/purple = 2,
 			),
 		),
