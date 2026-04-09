@@ -100,6 +100,24 @@
 	)
 	add_verb(gainer, protean_verbs)
 
+/// At roundstart, replaces any non-protean organs in protected slots with protean equivalents.
+/// This handles quirk organs (e.g. oversized) that overwrite vital slots during character creation.
+/datum/species/protean/proc/replace_incompatible_organs(mob/living/carbon/human/target)
+	var/list/slot_to_type = list(
+		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/protean,
+		ORGAN_SLOT_HEART = /obj/item/organ/heart/protean,
+		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach/protean,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes/robotic/protean,
+	)
+	for(var/slot in slot_to_type)
+		var/obj/item/organ/existing = target.get_organ_slot(slot)
+		if(existing?.organ_flags & (ORGAN_NANOMACHINE | ORGAN_ROBOTIC))
+			continue
+		qdel(existing)
+		var/replacement_type = slot_to_type[slot]
+		var/obj/item/organ/replacement = new replacement_type()
+		replacement.Insert(target, TRUE, DELETE_IF_REPLACED)
+
 /datum/species/protean/proc/organ_reject(mob/living/source, obj/item/organ/inserted)
 	SIGNAL_HANDLER
 
@@ -110,14 +128,15 @@
 		return
 	if(insert_organ.organ_flags & (ORGAN_ROBOTIC | ORGAN_NANOMACHINE | ORGAN_UNREMOVABLE))
 		return
-	addtimer(CALLBACK(src, PROC_REF(reject_now), source, inserted), 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(assimilate_organ), source, inserted), 1 SECONDS)
 
-/// Forces removal of a non-nanomachine organ after a short delay, ejecting it to the ground.
-/datum/species/protean/proc/reject_now(mob/living/source, obj/item/organ/organ)
+/// Assimilates a non-nanomachine organ, destroying it and replacing the slot with a protean equivalent.
+/datum/species/protean/proc/assimilate_organ(mob/living/source, obj/item/organ/organ)
 	organ.Remove(source)
-	organ.forceMove(get_turf(source))
-	to_chat(source, span_danger("Your mass rejected [organ]!"))
-	organ.balloon_alert_to_viewers("rejected!", vision_distance = 1)
+	qdel(organ)
+	to_chat(source, span_notice("Your nanomass assimilates the foreign organ."))
+	source.balloon_alert_to_viewers("assimilated!", vision_distance = 1)
+	replace_incompatible_organs(source)
 
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
