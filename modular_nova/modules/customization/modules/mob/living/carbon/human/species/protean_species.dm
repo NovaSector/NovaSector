@@ -100,8 +100,7 @@
 	)
 	add_verb(gainer, protean_verbs)
 
-/// At roundstart, replaces any non-protean organs in protected slots with protean equivalents.
-/// This handles quirk organs (e.g. oversized) that overwrite vital slots during character creation.
+/// Replaces organs for protean ones, handling situations where organs are inserted via surgery or changed through quirks/mutations
 /datum/species/protean/proc/replace_incompatible_organs(mob/living/carbon/human/target)
 	var/list/slot_to_type = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/protean,
