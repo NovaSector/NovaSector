@@ -1,4 +1,4 @@
-#define OVERSIZED_SPEED_SLOWDOWN 0.5
+#define OVERSIZED_SPEED_SLOWDOWN 0.2
 #define OVERSIZED_HUNGER_MOD 1.5
 
 // Before making any changes to oversized, please see the module's readme.md file
@@ -23,6 +23,7 @@
 	if(!isdummy(human_holder))
 		human_holder.dna.update_body_size()
 	human_holder.mob_size = MOB_SIZE_LARGE
+	ADD_TRAIT(quirk_holder, TRAIT_STURDY_FRAME, QUIRK_TRAIT)
 
 	RegisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB, PROC_REF(on_gain_limb)) // make sure we handle this when new ones are applied
 
@@ -42,6 +43,7 @@
 	if(!isdummy(human_holder))
 		human_holder.dna.update_body_size()
 	human_holder.mob_size = MOB_SIZE_HUMAN
+	REMOVE_TRAIT(quirk_holder, TRAIT_STURDY_FRAME, QUIRK_TRAIT)
 
 	var/obj/item/bodypart/arm/left/left_arm = human_holder.get_bodypart(BODY_ZONE_L_ARM)
 	if(left_arm)

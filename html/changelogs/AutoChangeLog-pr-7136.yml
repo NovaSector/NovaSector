@@ -1,0 +1,4 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - qol: "Roundstart doctors no longer have the possibility of spawning stuck in abandoned medical storage in blueshift"
