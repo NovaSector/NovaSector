@@ -88,6 +88,7 @@ const safeCSSProperties = [
   'font-size',
   'font-weight',
   'font-style',
+  'font-variant',
   'font-family',
   'text-align',
   'text-decoration',
