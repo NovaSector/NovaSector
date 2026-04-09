@@ -1,4 +1,4 @@
-// LOADOUT ITEM DATUMS FOR THE SHOE SLOT
+// LOADOUT ITEM DATUMS FOR THE SUIT SLOT
 /datum/loadout_item/suit/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // don't bother storing in backpack, can't fit
 	if(initial(outfit_important_for_life.suit))
 		return TRUE
@@ -753,6 +753,7 @@
 /datum/loadout_item/suit/tailcoatbartender
 	name = "Bartender's Tailcoat"
 	item_path = /obj/item/clothing/suit/jacket/tailcoat/bartender
+	restricted_roles = list(JOB_BARTENDER)
 	group = "Costumes"
 
 /datum/loadout_item/suit/tailcoatwizard
