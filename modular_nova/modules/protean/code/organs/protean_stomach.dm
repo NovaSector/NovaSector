@@ -66,7 +66,8 @@
 				need_mob_update += owner.adjust_fire_loss(healing_amount, updating_health = FALSE, forced = TRUE)
 			if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
 				hunger_modifier += 100
-				owner.adjust_blood_volume(round((BLOOD_REGEN_FACTOR * PROTEAN_METABOLISM_RATE) * PROTEAN_BLOOD_REGEN_MOD * seconds_per_tick, CHEMICAL_VOLUME_ROUNDING))
+				var/regen_amount = round((BLOOD_REGEN_FACTOR * PROTEAN_METABOLISM_RATE) * PROTEAN_BLOOD_REGEN_MOD * seconds_per_tick, CHEMICAL_VOLUME_ROUNDING)
+				owner.adjust_blood_volume(min(regen_amount, BLOOD_VOLUME_NORMAL - owner.blood_volume))
 		metal -= clamp(((PROTEAN_STOMACH_FULL / PROTEAN_METABOLISM_RATE) * hunger_modifier * seconds_per_tick), 0, metal_max)
 		if(need_mob_update)
 			owner.updatehealth()
