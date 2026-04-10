@@ -79,8 +79,6 @@
 /obj/item/organ/stomach/protean/proc/damage_listener(mob/living/source, damage, damagetype, def_zone, blocked, wound_bonus, exposed_wound_bonus, sharpness, attack_direction, attacking_item)
 	SIGNAL_HANDLER
 
-	if(COOLDOWN_STARTED(src, damage_delay))
-		COOLDOWN_RESET(src, damage_delay)
 	COOLDOWN_START(src, damage_delay, REGEN_TIME)
 
 	// Sharp attacks cause iron blood loss
