@@ -192,6 +192,8 @@ PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/right/robot/protean)
 		return
 	if(istype(equipped_item, /obj/item/mod/control/pre_equipped/protean))
 		return
+	if(!species_modsuit)
+		return // pre_equip_outfit dropped it, post_equip_outfit will handle
 	var/datum/species/protean/species = source.dna?.species
 	if(!istype(species))
 		return

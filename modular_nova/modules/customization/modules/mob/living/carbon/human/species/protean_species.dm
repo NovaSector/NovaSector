@@ -245,3 +245,61 @@
 
 /datum/species/protean/prepare_human_for_preview(mob/living/carbon/human/protean_preview)
 	protean_preview.update_body(TRUE)
+
+/// Override so outfits don't break proteans when they try to force a backpack item from an outfit
+/mob/living/carbon/human/equipOutfit(outfit, visuals_only = FALSE)
+	dna?.species.pre_equip_outfit(src)
+	. = ..()
+	dna?.species.post_equip_outfit(src)
+
+/datum/species/proc/pre_equip_outfit(mob/living/carbon/human/equipping)
+	return
+
+/datum/species/proc/post_equip_outfit(mob/living/carbon/human/equipping)
+	return
+
+/// Temporarily drops and destroys the protean modsuit to free the back slot for the outfit's back item.
+/datum/species/protean/pre_equip_outfit(mob/living/carbon/human/equipping)
+	var/obj/item/bodypart/chest/robot/protean/chest = equipping.get_bodypart(BODY_ZONE_CHEST)
+	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	if(!suit)
+		return
+	if(HAS_TRAIT(suit, TRAIT_NODROP))
+		REMOVE_TRAIT(suit, TRAIT_NODROP, "protean")
+	equipping.temporarilyRemoveItemFromInventory(suit, force = TRUE)
+	chest.species_modsuit = null
+	qdel(suit)
+
+/// After outfit equipping, assimilates any non-protean modsuit or replaces non-modsuit items.
+/datum/species/protean/post_equip_outfit(mob/living/carbon/human/equipping)
+	var/obj/item/bodypart/chest/robot/protean/chest = equipping.get_bodypart(BODY_ZONE_CHEST)
+	if(chest?.species_modsuit)
+		return
+	var/obj/item/back_item = equipping.get_item_by_slot(ITEM_SLOT_BACK)
+	var/obj/item/mod/control/as_modsuit = istype(back_item, /obj/item/mod/control) ? back_item : null
+	// Grab stored items before anything moves them
+	var/list/stashed_items
+	if(as_modsuit)
+		var/obj/item/mod/module/storage/incoming_storage = locate() in as_modsuit.modules
+		stashed_items = incoming_storage?.contents?.Copy()
+		for(var/obj/item/part as anything in as_modsuit.get_parts())
+			if(part.loc != as_modsuit)
+				as_modsuit.retract(equipping, part, instant = TRUE)
+		as_modsuit.toggle_activate(equipping, force_deactivate = TRUE)
+		equipping.temporarilyRemoveItemFromInventory(as_modsuit, force = TRUE)
+	else if(back_item)
+		stashed_items = back_item.contents?.Copy()
+	// Create protean modsuit and assimilate if applicable
+	equip_modsuit(equipping, chest)
+	if(as_modsuit)
+		as_modsuit.forceMove(equipping)
+		chest.species_modsuit.assimilate_modsuit(equipping, as_modsuit, forced = TRUE)
+	else if(back_item)
+		qdel(back_item)
+	// Restore items into the protean modsuit's storage
+	if(length(stashed_items))
+		var/obj/item/mod/module/storage/protean_storage = locate() in chest.species_modsuit.modules
+		if(protean_storage)
+			for(var/obj/item/stored in stashed_items)
+				if(!QDELETED(stored))
+					stored.forceMove(protean_storage)

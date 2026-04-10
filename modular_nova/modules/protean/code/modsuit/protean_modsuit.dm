@@ -289,8 +289,12 @@
 		if(!module.removable)
 			qdel(module)
 			continue
-		module.forceMove(get_turf(src))
-		to_chat(user, span_warning("[module] has dropped onto the floor!"))
+		var/turf/drop_turf = get_turf(src)
+		if(drop_turf)
+			module.forceMove(drop_turf)
+			to_chat(user, span_warning("[module] has dropped onto the floor!"))
+		else
+			qdel(module)
 	// Re-install the protean servo on the new configuration
 	if(servo)
 		install(servo)
