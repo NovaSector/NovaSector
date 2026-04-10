@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - qol: "Mining scanners can now attach holotags to rocky debris of interest to xenoarchaeologists."

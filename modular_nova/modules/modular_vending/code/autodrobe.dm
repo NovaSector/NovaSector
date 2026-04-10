@@ -45,7 +45,7 @@
 				/obj/item/clothing/shoes/clown_shoes/pink/heels = 5,
 				/obj/item/clothing/gloves/pink_clown = 5,
 				/obj/item/clothing/head/playbunnyears/clown = 3,
-				/obj/item/clothing/head/playbunnyears/mime = 3,,
+				/obj/item/clothing/head/playbunnyears/mime = 3,
 				/obj/item/clothing/neck/tie/clown = 3,
 				/obj/item/clothing/shoes/clown_shoes/heeled = 3,
 				/obj/item/clothing/suit/jacket/tailcoat/clown = 3,
