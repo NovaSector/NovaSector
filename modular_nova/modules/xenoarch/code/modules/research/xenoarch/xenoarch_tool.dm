@@ -216,7 +216,7 @@
 	var/turf/candidate_turf = null
 	if (!user)
 		return null
-	for(var/i = 0; i < 50; i++)
+	for(var/i in 1 to 50)
 		var/angle = rand(0, 360)
 		var/radius = rand(min_distance, max_distance)
 		var/offset_x = round(radius * cos(angle))
