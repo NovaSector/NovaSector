@@ -259,6 +259,7 @@
 	if(core_ejected)
 		return
 	core_ejected = TRUE
+	var/datum/mind/victim_mind = victim.mind // NOVA EDIT ADDITION - VAMPIRES
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
 	var/atom/death_loc = victim.drop_location()
 	victim.unequip_everything()
@@ -271,6 +272,11 @@
 
 	do_steam_effects(get_turf(victim))
 	playsound(victim, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
+
+	// NOVA EDIT ADDITION START - VAMPIRES
+	if(victim_mind)
+		SEND_SIGNAL(victim_mind, COMSIG_SLIME_CORE_EJECTED, src)
+	// NOVA EDIT ADDITION END
 
 	if(gps_active) // adding the gps signal if they have activated the ability
 		AddComponent(/datum/component/gps, "[victim]'s Core")
@@ -351,6 +357,10 @@
 			continue
 	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
+	// NOVA EDIT ADDITION START - VAMPIRES
+	if(owner.mind)
+		SEND_SIGNAL(owner.mind, COMSIG_SLIME_REVIVED, new_body, src)
+	// NOVA EDIT ADDITION END
 	return TRUE
 
 // HEALING SECTION

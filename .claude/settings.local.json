@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/alvar/Downloads/NovaSector/modular_nova/modules/bloodsucker/code/powers -type f -name *.dm)"
+    ]
+  }
+}

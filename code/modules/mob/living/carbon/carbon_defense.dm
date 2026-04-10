@@ -357,6 +357,7 @@
 			if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && is_location_accessible(BODY_ZONE_PRECISE_MOUTH))
 				var/datum/quirk/sensitivesnout/poor_snout = src.get_quirk(/datum/quirk/sensitivesnout)
 				poor_snout?.get_booped(helper)
+			SEND_SIGNAL(helper, COMSIG_LIVING_HUG_CARBON, src) // NOVA EDIT ADDITION - VAMPIRES
 			return
 	//NOVA EDIT ADDITION END
 	else if(check_zone(helper.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD)) //Headpats!
@@ -382,6 +383,7 @@
 			if(src_tail && !(src_tail.wag_flags & WAG_WAGGING))
 				emote("wag")
 		//NOVA EDIT ADDITION END
+		SEND_SIGNAL(helper, COMSIG_LIVING_HUG_CARBON, src) // NOVA EDIT ADDITION - VAMPIRES
 
 	else if ((helper.zone_selected == BODY_ZONE_PRECISE_GROIN) && !isnull(src.get_organ_by_type(/obj/item/organ/tail)))
 		helper.visible_message(span_notice("[helper] pulls on [src]'s tail!"), \
@@ -424,6 +426,7 @@
 		share_blood_on_touch(helper, ITEM_SLOT_HEAD|ITEM_SLOT_MASK|ITEM_SLOT_GLOVES)
 		// Warm them up with hugs
 		share_bodytemperature(helper)
+		SEND_SIGNAL(helper, COMSIG_LIVING_HUG_CARBON, src) // NOVA EDIT ADDITION - VAMPIRES
 
 		// No moodlets for people who hate touches
 		if(!HAS_TRAIT(src, TRAIT_BADTOUCH))

@@ -92,6 +92,10 @@
 	return HANDLE_BLOOD_NO_NUTRITION_DRAIN|HANDLE_BLOOD_NO_OXYLOSS
 
 /datum/species/jelly/proc/Cannibalize_Body(mob/living/carbon/human/H)
+	// NOVA EDIT ADDITION START - VAMPIRES
+	if(HAS_TRAIT(H, TRAIT_SLIME_NO_CANNIBALIZE))
+		return
+	// NOVA EDIT ADDITION END
 	var/list/limbs_to_consume = list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG) - H.get_missing_limbs()
 	var/obj/item/bodypart/consumed_limb
 	if(!length(limbs_to_consume))

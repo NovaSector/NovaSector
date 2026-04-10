@@ -615,6 +615,10 @@ GLOBAL_LIST_EMPTY(antagonists)
 			/datum/objective/survive,
 			///datum/objective/martyr, // NOVA EDIT REMOVAL
 			/datum/objective/exile,
+			// NOVA EDIT ADDITION START - VAMPIRES
+			/datum/objective/vampire/scourge,
+			/datum/objective/vampire/prince,
+			// NOVA EDIT ADDITION END - VAMPIRES
 		)
 		for (var/datum/objective/check_objective in objectives)
 			if (is_type_in_list(check_objective, escape_objectives))
