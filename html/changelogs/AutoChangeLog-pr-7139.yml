@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - bugfix: "pubby's hop office now has the account console, loses the extra photocopier."
