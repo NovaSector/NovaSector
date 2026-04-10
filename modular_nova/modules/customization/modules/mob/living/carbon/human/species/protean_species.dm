@@ -125,7 +125,10 @@
 		return
 	if(insert_organ.organ_flags & (ORGAN_ROBOTIC | ORGAN_NANOMACHINE | ORGAN_UNREMOVABLE))
 		return
-	addtimer(CALLBACK(src, PROC_REF(assimilate_organ), source, inserted), 1 SECONDS)
+	if(special)
+		assimilate_organ(source, inserted, special)
+	else
+		addtimer(CALLBACK(src, PROC_REF(assimilate_organ), source, inserted, special), 1 SECONDS)
 
 /// Assimilates a non-nanomachine organ, destroying it and replacing the slot with a protean equivalent.
 /datum/species/protean/proc/assimilate_organ(mob/living/source, obj/item/organ/organ)
