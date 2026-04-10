@@ -9829,14 +9829,14 @@
 /turf/open/floor/wood,
 /area/station/service/bar)
 "aQT" = (
-/obj/machinery/vending/cigarette,
 /obj/machinery/light/directional/north,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/vending/coffee,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "aQU" = (
-/obj/machinery/vending/coffee,
 /obj/machinery/camera/autoname/directional/north,
+/obj/structure/closet/secure_closet/security/service,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "aQV" = (
