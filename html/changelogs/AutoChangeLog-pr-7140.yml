@@ -1,0 +1,5 @@
+author: "theselfish"
+delete-after: True
+changes:
+  - bugfix: "Fixed the Bluescreen in the Autodrobe."
+  - bugfix: "Fixed everyone being able to get roundstart armor via the Bartender tailcoat in the loadout."
