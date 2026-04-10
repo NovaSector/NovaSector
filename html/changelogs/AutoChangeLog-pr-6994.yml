@@ -1,0 +1,7 @@
+author: "Zenitheevee"
+delete-after: True
+changes:
+  - rscadd: "Added new endless variants for ghost mining vents"
+  - rscadd: "new machine for ghost roles to better use boulder system"
+  - image: "sprites for LRM and crystal clusters"
+  - code_imp: "adds support for non-station vents to not get grabbed by BRM"
