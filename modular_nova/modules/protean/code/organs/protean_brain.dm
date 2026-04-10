@@ -186,7 +186,7 @@
 		storage.remove_single(null, suit, get_turf(suit), TRUE)
 	suit.invisibility = 101
 	new /obj/effect/temp_visual/protean_from_suit(suit.loc, owner.dir)
-	sleep(12)
+	sleep(1.2 SECONDS)
 	suit.drop_suit()
 	owner.forceMove(suit.loc)
 	if(owner.get_item_by_slot(ITEM_SLOT_BACK))
