@@ -113,7 +113,7 @@
 		qdel(existing)
 		var/replacement_type = slot_to_type[slot]
 		var/obj/item/organ/replacement = new replacement_type()
-		replacement.Insert(target, TRUE, DELETE_IF_REPLACED)
+		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/species/protean/proc/organ_reject(mob/living/source, obj/item/organ/inserted)
 	SIGNAL_HANDLER
