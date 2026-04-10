@@ -146,6 +146,7 @@
 
 /// Moves the protean into their modsuit, playing visuals and applying transform traits.
 /obj/item/organ/brain/protean/proc/go_into_suit(forced)
+	set waitfor = FALSE
 	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
 	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
 	if(!suit || owner.loc == suit)
