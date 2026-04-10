@@ -27,11 +27,11 @@
 	. = ..()
 	RegisterSignal(receiver, COMSIG_CARBON_ATTEMPT_EAT, PROC_REF(try_stomach_eat))
 	RegisterSignal(receiver, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(damage_listener))
+	RegisterSignal(receiver, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(on_fully_healed))
 
 /obj/item/organ/stomach/protean/on_mob_remove(mob/living/carbon/stomach_owner, special, movement_flags)
 	. = ..()
-	UnregisterSignal(stomach_owner, COMSIG_CARBON_ATTEMPT_EAT)
-	UnregisterSignal(stomach_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
+	UnregisterSignal(stomach_owner, list(COMSIG_CARBON_ATTEMPT_EAT, COMSIG_MOB_AFTER_APPLY_DAMAGE, COMSIG_LIVING_POST_FULLY_HEAL))
 
 /obj/item/organ/stomach/protean/on_life(seconds_per_tick, times_fired)
 	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
@@ -97,6 +97,11 @@
 		var/mob/living/carbon/carbon_owner = owner
 		var/spray_direction = attack_direction || pick(GLOB.cardinals)
 		carbon_owner.spray_blood(spray_direction, clamp(round(damage / 10), 1, 3))
+
+/// Refills metal storage when the protean is fully healed (e.g. admin heal).
+/obj/item/organ/stomach/protean/proc/on_fully_healed(mob/living/source, heal_flags)
+	SIGNAL_HANDLER
+	metal = metal_max
 
 /// Check to see if our metal storage is full.
 /obj/item/organ/stomach/protean/proc/try_stomach_eat(mob/eater, atom/eating)
