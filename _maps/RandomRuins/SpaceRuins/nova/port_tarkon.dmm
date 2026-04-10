@@ -591,7 +591,7 @@
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/port_tarkon/park)
 "cI" = (
-/obj/structure/ore_vent/ghost_mining/carp,
+/obj/structure/ore_vent/ghost_mining/carp/endless,
 /turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav)
 "cK" = (
@@ -1948,6 +1948,7 @@
 /obj/machinery/door/window/right/directional/west,
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
+/obj/item/boulder_beacon/lrm,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/mining)
 "it" = (
@@ -3025,6 +3026,10 @@
 /obj/item/mmi/posibrain/sphere,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
+"mV" = (
+/obj/structure/ore_vent/ghost_mining/starter/tarkon,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav)
 "mW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3885,6 +3890,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comlobby)
+"qx" = (
+/obj/item/flatpacked_machine/boulder_collector/tarkon,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav)
 "qB" = (
 /obj/effect/turf_decal/tile/blue/anticorner,
 /obj/machinery/computer/operating{
@@ -6489,6 +6498,12 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
+"BL" = (
+/obj/structure/fence{
+	dir = 4
+	},
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav)
 "BM" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/engineering/tool,
@@ -9106,6 +9121,10 @@
 /obj/structure/window/reinforced/tinted/spawner/directional/south,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/restroom)
+"Ni" = (
+/obj/structure/marker_beacon/bronze,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav)
 "Nj" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters{
@@ -19020,17 +19039,17 @@ gP
 Pe
 tX
 kN
-fb
-fR
-LK
-fR
-fR
-fR
-fR
-fR
-LK
-LK
-LK
+kN
+BL
+Bf
+kN
+Ni
+kN
+kN
+Wp
+kN
+kN
+kN
 LK
 fR
 fR
@@ -19112,17 +19131,17 @@ Pe
 Pe
 Mp
 Wp
-Sg
-fR
-LK
-LK
-fR
-fR
-LK
-LK
-fR
-LK
-fR
+Xo
+dY
+Wp
+kN
+kN
+kN
+kN
+kN
+kN
+kN
+kN
 LK
 LK
 fR
@@ -19206,15 +19225,15 @@ dM
 kN
 iU
 fR
-fR
-fR
 LK
-LK
-LK
-fR
-LK
-fR
-LK
+kN
+kN
+Wp
+kN
+kN
+mV
+kN
+Wp
 fR
 fR
 fR
@@ -19301,12 +19320,12 @@ wq
 fR
 LK
 LK
-fR
-LK
-LK
-fR
-fR
-fR
+qx
+kN
+kN
+kN
+kN
+kN
 LK
 fR
 fR
@@ -19395,10 +19414,10 @@ wq
 fR
 fR
 fR
-LK
-LK
-fR
-LK
+Ni
+kN
+Wp
+kN
 LK
 LK
 wq
@@ -19485,12 +19504,12 @@ wq
 wq
 wq
 wq
-wq
-LK
 fR
 LK
 fR
-wq
+LK
+fR
+fR
 LK
 fR
 wq
@@ -19581,9 +19600,9 @@ wq
 fR
 LK
 fR
+LK
+LK
 fR
-wq
-wq
 fR
 wq
 wq
@@ -19672,10 +19691,10 @@ wq
 wq
 wq
 fR
+LK
 fR
-wq
-wq
-wq
+LK
+LK
 wq
 wq
 wq
