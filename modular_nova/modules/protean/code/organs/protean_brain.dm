@@ -237,7 +237,7 @@
 	if(isnull(eyes))
 		eyes = new /obj/item/organ/eyes/robotic/protean
 		eyes.on_bodypart_insert()
-		eyes.Insert(owner, TRUE)
+		eyes.Insert(owner, special = TRUE)
 	else if(organ_flags & ORGAN_NANOMACHINE)
 		eyes.set_organ_damage(0)
 
