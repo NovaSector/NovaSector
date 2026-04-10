@@ -31,6 +31,7 @@
 		/obj/item/xenoarch/broken_item/weapon/t3 = 3,
 		/obj/item/xenoarch/broken_item/illegal/t3 = 3,
 		/obj/item/xenoarch/broken_item/alien/t3 = 3,
+		/obj/item/xenoarch/broken_item/clothing/t3 = 3,
 	)
 
 /obj/effect/spawner/random/xenoarch/plant
