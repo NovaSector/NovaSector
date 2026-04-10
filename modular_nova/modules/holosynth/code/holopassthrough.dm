@@ -17,7 +17,7 @@
 
 	passwindow_on(owner, type)
 
-	for(var/obj/item/equipped_item in ascarbon.get_equipped_items(TRUE))
+	for(var/obj/item/equipped_item in ascarbon.get_equipped_items(INCLUDE_HELD))
 		var/slot = ascarbon.get_slot_by_item(equipped_item)
 		if(slot & (ITEM_SLOT_ID | ITEM_SLOT_LPOCKET | ITEM_SLOT_RPOCKET))
 			continue
