@@ -94,34 +94,16 @@
 	greyscale_colors = "#3f6e9e#FF0000#00AEEF"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/hats_warden
-
-/datum/atom_skin/police_patrol_cap
-	abstract_type = /datum/atom_skin/police_patrol_cap
-
-/datum/atom_skin/police_patrol_cap/blue
-	preview_name = "Blue"
-	new_icon_state = "policeofficercap"
-
-/datum/atom_skin/police_patrol_cap/sillitoe
-	preview_name = "Sillitoe"
-	new_icon_state = "policetrafficcap"
-
-/datum/atom_skin/police_patrol_cap/black
-	preview_name = "Black"
-	new_icon_state = "policeofficerpatrolcap"
-
-/datum/atom_skin/police_patrol_cap/policecadetcap
-	preview_name = "Cadet"
-	new_icon_state = "policecadetcap"
-
+//!
 /obj/item/clothing/head/hats/warden/police/patrol
 	name = "police patrol cap"
 	desc = "A dark colored hat with a silver badge, for the officer interested in style."
-	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
+	post_init_icon_state = "beret_badge_fancy_twist"
 	icon_state = "policeofficerpatrolcap"
+	greyscale_config = /datum/greyscale_config/beret_badge_fancy
+	greyscale_config_worn = /datum/greyscale_config/beret_badge_fancy/worn
+	greyscale_colors = "#3f6e9e#FF0000#00AEEF"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/head_helmet
-
-/obj/item/clothing/head/hats/warden/police/patrol/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/police_patrol_cap)
+//	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+//	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'

@@ -54,6 +54,14 @@
 	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/blue"
 	greyscale_colors = "#C7B08B#3F6E9E"
 
+/obj/item/clothing/head/costume/ushanka/sec/white
+	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/white"
+	greyscale_colors = "#C7B08B#EBEBEB"
+
+/obj/item/clothing/head/costume/ushanka/sec/black
+	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/black"
+	greyscale_colors = "#C7B08B#39393F"
+
 //Pelts
 //Not made into a subtype of /costume but stored in the same file
 /obj/item/clothing/head/pelt
