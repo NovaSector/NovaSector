@@ -131,10 +131,10 @@
 		addtimer(CALLBACK(src, PROC_REF(assimilate_organ), source, inserted, special), 1 SECONDS)
 
 /// Assimilates a non-nanomachine organ, destroying it and replacing the slot with a protean equivalent.
-/datum/species/protean/proc/assimilate_organ(mob/living/source, obj/item/organ/organ)
-	organ.Remove(source)
+/datum/species/protean/proc/assimilate_organ(mob/living/source, obj/item/organ/organ, special)
 	qdel(organ)
-	to_chat(source, span_notice("Your nanomass assimilates the foreign organ."))
+	if(!special)
+		to_chat(source, span_notice("Your nanomass assimilates the foreign organ."))
 	source.balloon_alert_to_viewers("assimilated!", vision_distance = 1)
 	replace_incompatible_organs(source, special)
 
