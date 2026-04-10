@@ -30,3 +30,7 @@
 			),
 		)
 	)
+	premium_nova = list(
+		/obj/item/storage/belt/utility/xenoarch/full = 3,
+	)
+
