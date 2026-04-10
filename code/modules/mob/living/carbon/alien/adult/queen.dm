@@ -60,7 +60,7 @@
 	icon_state = "alienq"
 	melee_damage_lower = 50
 	melee_damage_upper = 50
-	alien_speed = 2
+	alien_speed = 1
 
 	default_organ_types_by_slot = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/alien,
