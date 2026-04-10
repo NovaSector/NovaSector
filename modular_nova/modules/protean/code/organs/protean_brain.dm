@@ -168,6 +168,7 @@
 
 /// Moves the protean out of their modsuit back into the world.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
+	set waitfor = FALSE
 	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
 	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
 	if(isnull(suit))
