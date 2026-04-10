@@ -116,7 +116,7 @@
 		qdel(existing)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
-/datum/species/protean/proc/organ_reject(mob/living/source, obj/item/organ/inserted)
+/datum/species/protean/proc/organ_reject(mob/living/source, obj/item/organ/inserted, special)
 	SIGNAL_HANDLER
 
 	if(isnull(source))

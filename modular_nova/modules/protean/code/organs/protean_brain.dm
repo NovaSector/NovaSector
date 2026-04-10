@@ -1,4 +1,5 @@
 #define TRANSFORM_TRAITS list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTHEAT, TRAIT_RESISTCOLD, TRAIT_FREE_GHOST)
+#define SUIT_TRANSFORMATION_DURATION (1.2 SECONDS)
 
 /**
  * HANDLES ALL OF PROTEAN EXISTENCE CODE.
@@ -163,7 +164,7 @@
 	owner.remove_status_effect(/datum/status_effect/protean_low_power_mode/low_power)
 	suit.drop_suit()
 	owner.forceMove(suit)
-	sleep(1.2 SECONDS)
+	sleep(SUIT_TRANSFORMATION_DURATION)
 	owner.invisibility = initial(owner.invisibility)
 
 /// Moves the protean out of their modsuit back into the world.
@@ -186,7 +187,7 @@
 		storage.remove_single(null, suit, get_turf(suit), TRUE)
 	suit.invisibility = 101
 	new /obj/effect/temp_visual/protean_from_suit(suit.loc, owner.dir)
-	sleep(1.2 SECONDS)
+	sleep(SUIT_TRANSFORMATION_DURATION)
 	suit.drop_suit()
 	owner.forceMove(suit.loc)
 	if(owner.get_item_by_slot(ITEM_SLOT_BACK))
@@ -282,13 +283,13 @@
 	name = "to_suit"
 	icon = PROTEAN_ORGAN_SPRITE
 	icon_state = "to_puddle"
-	duration = 1.2 SECONDS
+	duration = SUIT_TRANSFORMATION_DURATION
 
 /obj/effect/temp_visual/protean_from_suit
 	name = "from_suit"
 	icon = PROTEAN_ORGAN_SPRITE
 	icon_state = "from_puddle"
-	duration = 1.2 SECONDS
+	duration = SUIT_TRANSFORMATION_DURATION
 
 /obj/item/organ/brain/protean/emp_act(severity)
 	. = ..()
@@ -305,3 +306,4 @@
 			owner.set_drugginess_if_lower(20 SECONDS)
 
 #undef TRANSFORM_TRAITS
+#undef SUIT_TRANSFORMATION_DURATION

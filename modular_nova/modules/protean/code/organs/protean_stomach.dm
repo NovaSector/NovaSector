@@ -14,7 +14,9 @@
 	var/metal = PROTEAN_STOMACH_FULL
 	/// Multiplicative modifier to how fast we lose metal
 	var/metabolism_modifier = 1
+	/// Cooldown between starvation warning messages
 	COOLDOWN_DECLARE(starving_message)
+	/// Cooldown before passive regeneration resumes after taking damage
 	COOLDOWN_DECLARE(damage_delay)
 
 /obj/item/organ/stomach/protean/Initialize(mapload)
@@ -64,8 +66,10 @@
 				need_mob_update += owner.adjust_fire_loss(healing_amount, updating_health = FALSE, forced = TRUE)
 			if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
 				hunger_modifier += 100
-				owner.blood_volume = min(owner.blood_volume + (((BLOOD_REGEN_FACTOR * PROTEAN_METABOLISM_RATE) * 0.05) * seconds_per_tick), BLOOD_VOLUME_NORMAL)
+				owner.adjust_blood_volume(round((BLOOD_REGEN_FACTOR * PROTEAN_METABOLISM_RATE) * PROTEAN_BLOOD_REGEN_MOD * seconds_per_tick, CHEMICAL_VOLUME_ROUNDING))
 		metal -= clamp(((PROTEAN_STOMACH_FULL / PROTEAN_METABOLISM_RATE) * hunger_modifier * seconds_per_tick), 0, metal_max)
+		if(need_mob_update)
+			owner.updatehealth()
 		return
 	need_mob_update += owner.adjust_brute_loss(2, updating_health = FALSE, forced = TRUE)
 	if(COOLDOWN_FINISHED(src, starving_message))

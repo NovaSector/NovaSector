@@ -20,6 +20,8 @@
 #define PROTEAN_STOMACH_FULL 10
 #define PROTEAN_STOMACH_FALTERING 0.5
 #define PROTEAN_METABOLISM_RATE 2000
+/// Blood regeneration modifier for protean hunger calculations
+#define PROTEAN_BLOOD_REGEN_MOD 0.05
 
 /// Limb auto-delete timer
 #define PROTEAN_LIMB_TIME (30 SECONDS)
