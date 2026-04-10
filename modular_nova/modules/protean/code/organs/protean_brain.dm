@@ -39,12 +39,13 @@
 		return
 	receiver.SetStun(0)
 	RegisterSignal(receiver, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
+	RegisterSignal(receiver, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
 
 /obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
 	if(isprotean(brain_owner) && !QDELING(brain_owner))
 		brain_owner.Stun(INFINITY, TRUE)
-	UnregisterSignal(brain_owner, COMSIG_LIVING_DEATH)
+	UnregisterSignal(brain_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED))
 
 /// Rejects the protean brain from a non-protean body, ejecting it to the ground.
 /obj/item/organ/brain/protean/proc/reject_from_body(mob/living/carbon/body)
@@ -166,6 +167,19 @@
 	owner.forceMove(suit)
 	sleep(SUIT_TRANSFORMATION_DURATION)
 	owner.invisibility = initial(owner.invisibility)
+
+/// When the protean moves into or out of the suit, manages the suit movement tracking for camera perspective.
+/obj/item/organ/brain/protean/proc/on_owner_moved(mob/living/source, atom/old_loc, dir, forced, list/old_locs)
+	SIGNAL_HANDLER
+	if(istype(source.loc, /obj/item/mod/control/pre_equipped/protean))
+		RegisterSignal(source.loc, COMSIG_MOVABLE_MOVED, PROC_REF(on_suit_moved))
+	if(istype(old_loc, /obj/item/mod/control/pre_equipped/protean))
+		UnregisterSignal(old_loc, COMSIG_MOVABLE_MOVED)
+
+/// Resets the protean's camera perspective when the suit moves (e.g. picked up/dropped).
+/obj/item/organ/brain/protean/proc/on_suit_moved(obj/item/source, atom/old_loc, dir, forced, list/old_locs)
+	SIGNAL_HANDLER
+	owner?.reset_perspective()
 
 /// Moves the protean out of their modsuit back into the world.
 /obj/item/organ/brain/protean/proc/leave_modsuit()

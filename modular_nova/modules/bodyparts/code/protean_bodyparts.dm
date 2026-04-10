@@ -178,11 +178,26 @@ PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/right/robot/protean)
 	. = ..()
 	RegisterSignals(new_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY), PROC_REF(on_item_interaction))
 	RegisterSignal(new_owner, COMSIG_CARBON_REMOVE_LIMB, PROC_REF(on_limb_removed))
+	RegisterSignal(new_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_item_equipped))
 
 /obj/item/bodypart/chest/robot/protean/clear_ownership(mob/living/carbon/old_owner)
 	species_modsuit = null
-	UnregisterSignal(old_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY, COMSIG_CARBON_REMOVE_LIMB))
+	UnregisterSignal(old_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY, COMSIG_CARBON_REMOVE_LIMB, COMSIG_MOB_EQUIPPED_ITEM))
 	return ..()
+
+/// When a non-protean-modsuit item is equipped to the back slot, converts it into a protean modsuit.
+/obj/item/bodypart/chest/robot/protean/proc/on_item_equipped(mob/living/carbon/human/source, obj/item/equipped_item, slot)
+	SIGNAL_HANDLER
+	if(slot != ITEM_SLOT_BACK)
+		return
+	if(istype(equipped_item, /obj/item/mod/control/pre_equipped/protean))
+		return
+	var/datum/species/protean/species = source.dna?.species
+	if(!istype(species))
+		return
+	equipped_item.atom_storage?.remove_all(get_turf(source))
+	species.equip_modsuit(source, src)
+	qdel(equipped_item)
 
 /// When a protean limb is removed, plays dissolve effects and starts the auto-delete timer.
 /// Skipped for special removals (e.g. limb regen, species change).
