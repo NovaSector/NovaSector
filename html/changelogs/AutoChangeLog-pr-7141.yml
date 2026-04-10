@@ -1,0 +1,5 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - code_imp: "Forged katanas can now be inserted into katana sheaths"
+  - rscadd: "Adds the toy katana sheathe to loadout menu"
