@@ -810,3 +810,8 @@ export const pod_hair_emissive: Feature<boolean> = {
   description: 'Emissive parts glow in the dark.',
   component: CheckboxInput,
 };
+
+export const holo_color: Feature<string> = {
+  name: 'Holosynth Color',
+  component: FeatureColorInput,
+};
