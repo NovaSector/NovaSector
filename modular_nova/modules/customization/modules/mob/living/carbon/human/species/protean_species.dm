@@ -270,36 +270,34 @@
 	chest.species_modsuit = null
 	qdel(suit)
 
-/// After outfit equipping, assimilates any non-protean modsuit or replaces non-modsuit items.
+/// After outfit equipping, converts whatever the outfit put in the back slot into a protean modsuit.
+/// Non-protean modsuits get assimilated (theme + modules). Other items get replaced.
 /datum/species/protean/post_equip_outfit(mob/living/carbon/human/equipping)
 	var/obj/item/bodypart/chest/robot/protean/chest = equipping.get_bodypart(BODY_ZONE_CHEST)
 	if(chest?.species_modsuit)
 		return
 	var/obj/item/back_item = equipping.get_item_by_slot(ITEM_SLOT_BACK)
-	var/obj/item/mod/control/as_modsuit = istype(back_item, /obj/item/mod/control) ? back_item : null
-	// Grab stored items before anything moves them
-	var/list/stashed_items
-	if(as_modsuit)
-		var/obj/item/mod/module/storage/incoming_storage = locate() in as_modsuit.modules
-		stashed_items = incoming_storage?.contents?.Copy()
-		for(var/obj/item/part as anything in as_modsuit.get_parts())
-			if(part.loc != as_modsuit)
-				as_modsuit.retract(equipping, part, instant = TRUE)
-		as_modsuit.toggle_activate(equipping, force_deactivate = TRUE)
-		equipping.temporarilyRemoveItemFromInventory(as_modsuit, force = TRUE)
-	else if(back_item)
-		stashed_items = back_item.contents?.Copy()
-	// Create protean modsuit and assimilate if applicable
+	var/obj/item/mod/control/outfit_modsuit = istype(back_item, /obj/item/mod/control) ? back_item : null
+	// Save storage contents — assimilation and qdel both scatter them
+	var/obj/item/storage_source = outfit_modsuit ? locate(/obj/item/mod/module/storage) in outfit_modsuit.modules : back_item
+	var/list/saved_contents = storage_source?.contents?.Copy()
+	// Retract deployed modsuit parts before removing from inventory
+	if(outfit_modsuit)
+		for(var/obj/item/part as anything in outfit_modsuit.get_parts())
+			if(part.loc != outfit_modsuit)
+				outfit_modsuit.retract(equipping, part, instant = TRUE)
+		outfit_modsuit.toggle_activate(equipping, force_deactivate = TRUE)
+	// Swap: remove outfit item, equip protean modsuit, assimilate or discard
+	if(back_item)
+		equipping.temporarilyRemoveItemFromInventory(back_item, force = TRUE)
 	equip_modsuit(equipping, chest)
-	if(as_modsuit)
-		as_modsuit.forceMove(equipping)
-		chest.species_modsuit.assimilate_modsuit(equipping, as_modsuit, forced = TRUE)
+	if(outfit_modsuit)
+		outfit_modsuit.forceMove(equipping)
+		chest.species_modsuit.assimilate_modsuit(equipping, outfit_modsuit, forced = TRUE)
 	else if(back_item)
 		qdel(back_item)
-	// Restore items into the protean modsuit's storage
-	if(length(stashed_items))
-		var/obj/item/mod/module/storage/protean_storage = locate() in chest.species_modsuit.modules
-		if(protean_storage)
-			for(var/obj/item/stored in stashed_items)
-				if(!QDELETED(stored))
-					stored.forceMove(protean_storage)
+	// Restore contents into protean modsuit storage
+	var/obj/item/mod/module/storage/protean_storage = locate() in chest.species_modsuit?.modules
+	for(var/obj/item/saved in saved_contents)
+		if(!QDELETED(saved))
+			saved.forceMove(protean_storage)
