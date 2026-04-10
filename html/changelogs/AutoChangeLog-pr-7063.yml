@@ -1,0 +1,5 @@
+author: "StarHorder"
+delete-after: True
+changes:
+  - rscadd: "A new space ruin!"
+  - config: "A new space ruin to be enabled or disabled in server settings."
