@@ -133,7 +133,7 @@
 	qdel(organ)
 	to_chat(source, span_notice("Your nanomass assimilates the foreign organ."))
 	source.balloon_alert_to_viewers("assimilated!", vision_distance = 1)
-	replace_incompatible_organs(source)
+	replace_incompatible_organs(source, special)
 
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
