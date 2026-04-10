@@ -195,18 +195,9 @@ PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/right/robot/protean)
 	var/datum/species/protean/species = source.dna?.species
 	if(!istype(species))
 		return
-	var/obj/item/mod/control/as_modsuit = istype(equipped_item, /obj/item/mod/control) ? equipped_item : null
-	if(as_modsuit)
-		// Retract FIRST while wearer is still set, then deactivate
-		for(var/obj/item/part as anything in as_modsuit.get_parts())
-			if(part.loc != as_modsuit)
-				as_modsuit.retract(source, part, instant = TRUE)
-		as_modsuit.toggle_activate(source, force_deactivate = TRUE)
+	equipped_item.atom_storage?.remove_all(get_turf(source))
 	species.equip_modsuit(source, src)
-	if(as_modsuit)
-		species_modsuit?.assimilate_modsuit(source, as_modsuit, forced = TRUE)
-	else
-		qdel(equipped_item)
+	qdel(equipped_item)
 
 /// When a protean limb is removed, plays dissolve effects and starts the auto-delete timer.
 /// Skipped for special removals (e.g. limb regen, species change).
