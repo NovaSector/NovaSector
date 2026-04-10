@@ -12,7 +12,6 @@
 
 	name = "Protean"
 	sexes = TRUE
-	always_customizable = TRUE
 
 	siemens_coeff = 1.5 // Electricity messes you up.
 	payday_modifier = 1 // 30 percent poorer
@@ -61,6 +60,7 @@
 		TRAIT_GENELESS,
 		TRAIT_NO_HUSK,
 		TRAIT_NO_DNA_SCRAMBLE,
+		TRAIT_NO_PLASMA_TRANSFORM,
 		TRAIT_SYNTHETIC,
 		TRAIT_TOXIMMUNE,
 		TRAIT_NEVER_WOUNDED,
@@ -87,6 +87,7 @@
 	var/obj/item/bodypart/chest/robot/protean/chest = gainer.get_bodypart(BODY_ZONE_CHEST)
 	equip_modsuit(gainer, chest)
 	RegisterSignal(gainer, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
+	RegisterSignal(gainer, COMSIG_ATTEMPT_CARBON_ATTACH_LIMB, PROC_REF(check_limb_attach))
 	var/obj/item/mod/core/protean/core = chest.species_modsuit.core
 	core?.linked_protean = gainer
 	var/list/protean_verbs = list(
@@ -139,6 +140,16 @@
 		source.balloon_alert_to_viewers("assimilated!", vision_distance = 1)
 	replace_incompatible_organs(source, special)
 
+/// Blocks non-protean limbs from being attached, protecting against plasma river, DNA scrambler, etc.
+/datum/species/protean/proc/check_limb_attach(mob/living/carbon/source, obj/item/bodypart/new_limb, special)
+	SIGNAL_HANDLER
+	var/dominated_type = bodypart_overrides[new_limb.body_zone]
+	if(!dominated_type)
+		return
+	if(istype(new_limb, dominated_type))
+		return
+	return COMPONENT_NO_ATTACH
+
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
 	// Clean up verbs
@@ -153,7 +164,7 @@
 	)
 	remove_verb(gainer, protean_verbs)
 	if(gainer)
-		UnregisterSignal(gainer, COMSIG_CARBON_GAIN_ORGAN)
+		UnregisterSignal(gainer, list(COMSIG_CARBON_GAIN_ORGAN, COMSIG_ATTEMPT_CARBON_ATTACH_LIMB))
 		// Clean up traits that may be active if protean is transformed or in critical state
 		REMOVE_TRAIT(gainer, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
 		gainer.remove_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown)

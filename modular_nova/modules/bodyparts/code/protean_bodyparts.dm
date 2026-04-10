@@ -48,6 +48,9 @@
  */
 #define PROTEAN_LIMB_ATTACH(path) \
 ##path/can_attach_limb(limb_owner, special) {\
+	if(!isprotean(limb_owner)) {\
+		return FALSE; \
+	}\
 	. = ..(); \
 	if(!.) {\
 		return FALSE; \
@@ -69,6 +72,11 @@ PROTEAN_LIMB_ATTACH(/obj/item/bodypart/head/robot/protean)
 	head_flags = HEAD_DEFAULT_FEATURES
 
 PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/chest/robot/protean, LIMB_MAX_HP_CORE)
+
+/obj/item/bodypart/chest/robot/protean/can_attach_limb(limb_owner, special)
+	if(!isprotean(limb_owner))
+		return FALSE
+	return ..()
 
 /obj/item/bodypart/chest/robot/protean
 	is_dimorphic = TRUE
