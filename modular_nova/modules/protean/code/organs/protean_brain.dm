@@ -282,7 +282,7 @@
 	name = "to_suit"
 	icon = PROTEAN_ORGAN_SPRITE
 	icon_state = "to_puddle"
-	duration = 12
+	duration = 1.2 SECONDS
 
 /obj/effect/temp_visual/protean_from_suit
 	name = "from_suit"
