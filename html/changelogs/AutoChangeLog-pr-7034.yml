@@ -1,0 +1,8 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - qol: "Fishing and Xenoarch tech no longer require an experiment."
+  - refactor: "Refactored lesser Xenoarch ( strange rocks one, not the big rocks one), more accessible to people, too many details for it, read the PR 7034, short of it, you use a radar to find rocks now, and they have better loot, use a brush to recover items, and no more automated ways of getting the rocks."
+  - rscadd: "added the Assistant formal winter coat to the clothesmate."
+  - balance: "While strange rocks clusters are much more rare in mining, they now have a 50% chance of having a Science Xenoarch artifact, by some math I hope its not wrong, we should have 90% more big science artifacts on the mining z levels for science to get their radiation less SM, autocloners and all that cool stuff."
+  - balance: "Big Manipulators can no longer be used to interact with strange rocks."
