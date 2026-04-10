@@ -288,7 +288,7 @@
 	name = "from_suit"
 	icon = PROTEAN_ORGAN_SPRITE
 	icon_state = "from_puddle"
-	duration = 12
+	duration = 1.2 SECONDS
 
 /obj/item/organ/brain/protean/emp_act(severity)
 	. = ..()
