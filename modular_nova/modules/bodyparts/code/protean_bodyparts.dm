@@ -24,15 +24,9 @@
 	var/qdel_timerid; \
 }\
 ##path/Destroy(force) {\
-	var/turf/limb_turf = get_turf(src); \
-	var/was_dismembered = !qdel_timerid; \
 	if(qdel_timerid) {\
 		deltimer(qdel_timerid); \
 		qdel_timerid = null; \
-	}\
-	if(was_dismembered && limb_turf && !owner) {\
-		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE); \
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON)); \
 	}\
 	return ..(); \
 }
@@ -45,7 +39,6 @@
 ##path/try_dismember(wounding_type, wounding_dmg, wound_bonus, exposed_wound_bonus) {\
 	if(((get_damage() + wounding_dmg) >= max_damage)) {\
 		dismember(); \
-		qdel_timerid = QDEL_IN_STOPPABLE(src, PROTEAN_LIMB_TIME); \
 	} \
 }
 
@@ -114,14 +107,9 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 	return ..()
 
 /obj/item/bodypart/leg/right/robot/protean/Destroy(force)
-	var/turf/limb_turf = get_turf(src)
-	var/was_dismembered = !!qdel_timerid
 	if(qdel_timerid)
 		deltimer(qdel_timerid)
 		qdel_timerid = null
-	if(was_dismembered && limb_turf && !owner)
-		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
 	return ..()
 
 /obj/item/bodypart/leg/left/robot/protean
@@ -147,14 +135,9 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/robot/protean, 40)
 	return ..()
 
 /obj/item/bodypart/leg/left/robot/protean/Destroy(force)
-	var/turf/limb_turf = get_turf(src)
-	var/was_dismembered = !qdel_timerid
 	if(qdel_timerid)
 		deltimer(qdel_timerid)
 		qdel_timerid = null
-	if(was_dismembered && limb_turf && !owner)
-		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
 	return ..()
 
 /obj/item/bodypart/leg/right/robot/protean/digitigrade
@@ -186,11 +169,30 @@ PROTEAN_LIMB_ATTACH(/obj/item/bodypart/leg/right/robot/protean)
 /obj/item/bodypart/chest/robot/protean/apply_ownership(mob/living/carbon/new_owner)
 	. = ..()
 	RegisterSignals(new_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY), PROC_REF(on_item_interaction))
+	RegisterSignal(new_owner, COMSIG_CARBON_REMOVE_LIMB, PROC_REF(on_limb_removed))
 
 /obj/item/bodypart/chest/robot/protean/clear_ownership(mob/living/carbon/old_owner)
 	species_modsuit = null
-	UnregisterSignal(old_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY))
+	UnregisterSignal(old_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY, COMSIG_CARBON_REMOVE_LIMB))
 	return ..()
+
+/// When a protean limb is removed, plays dissolve effects and starts the auto-delete timer.
+/// Skipped for special removals (e.g. limb regen, species change).
+/obj/item/bodypart/chest/robot/protean/proc/on_limb_removed(mob/living/carbon/source, obj/item/bodypart/removed_limb, special, dismembered)
+	SIGNAL_HANDLER
+	if(special)
+		return
+	if(!("qdel_timerid" in removed_limb.vars))
+		return
+	removed_limb:qdel_timerid = addtimer(CALLBACK(src, PROC_REF(dissolve_limb), removed_limb), PROTEAN_LIMB_TIME, TIMER_STOPPABLE)
+
+/// Called when the dissolve timer expires. Plays effects and deletes the limb.
+/obj/item/bodypart/chest/robot/protean/proc/dissolve_limb(obj/item/bodypart/limb)
+	var/turf/limb_turf = get_turf(limb)
+	if(limb_turf)
+		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
+	qdel(limb)
 
 /obj/item/bodypart/chest/robot/protean/proc/on_item_interaction(mob/living/source, mob/living/user, obj/item/tool, list/modifiers)
 	SIGNAL_HANDLER
