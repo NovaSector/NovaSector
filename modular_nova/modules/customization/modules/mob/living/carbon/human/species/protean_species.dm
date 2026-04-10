@@ -103,10 +103,8 @@
 /// Replaces organs for protean ones, handling situations where organs are inserted via surgery or changed through quirks/mutations
 /datum/species/protean/proc/replace_incompatible_organs(mob/living/carbon/human/target)
 	var/list/slot_to_type = list(
-		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/protean,
 		ORGAN_SLOT_HEART = /obj/item/organ/heart/protean,
 		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach/protean,
-		ORGAN_SLOT_EYES = /obj/item/organ/eyes/robotic/protean,
 	)
 	for(var/slot in slot_to_type)
 		var/obj/item/organ/existing = target.get_organ_slot(slot)
