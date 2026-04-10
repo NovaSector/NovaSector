@@ -156,6 +156,33 @@
 	flick(pad.sending_state,pad)
 	pad.icon_state = pad.idle_state
 
+///The loop that calculates the value of stuff on a pirate pad, or plain sell them if dry_run is FALSE. - We rewrite this from the original as we want elasticity checks.
+/obj/machinery/computer/piratepad_control/ghostpad/pirate_export_loop(obj/machinery/piratepad/pad, dry_run = TRUE)
+	var/datum/export_report/report = new
+	for(var/atom/movable/item_on_pad as anything in get_turf(pad))
+		if(item_on_pad == pad)
+			continue
+		var/list/hidden_mobs = list()
+		var/skip_movable = FALSE
+		var/list/item_contents = item_on_pad.get_all_contents()
+		for(var/atom/movable/thing in reverse_range(item_contents))
+			///Don't destroy/sell stuff like the captain's laser gun, or borgs.
+			if(thing.resistance_flags & INDESTRUCTIBLE || is_type_in_typecache(thing, nosell_typecache))
+				skip_movable = TRUE
+				break
+			if(isliving(thing))
+				hidden_mobs += thing
+		if(skip_movable)
+			continue
+		for(var/mob/living/hidden as anything in hidden_mobs)
+			///Sell mobs, but leave their contents intact.
+			export_single_item(hidden, apply_elastic = TRUE, dry_run = dry_run, external_report = report)
+		///there are still licing mobs inside that item. Stop, don't sell it ffs.
+		if(locate(/mob/living) in item_on_pad.get_all_contents())
+			continue
+		export_item_and_contents(item_on_pad, apply_elastic = TRUE, dry_run = dry_run, delete_unsold = FALSE, external_report = report, ignore_typecache = nosell_typecache, export_markets = list(EXPORT_MARKET_STATION, EXPORT_MARKET_PIRACY))
+	return report
+
 #undef SYN_BOUNTY_PAD_WARM_TIME
 
 
