@@ -193,7 +193,7 @@
 
 	scan_digsite(user)
 
-// Checks wherever a particular turf is 
+/// Checks wherever a particular turf is 
 /obj/item/xenoarch/handheld_radar/proc/is_valid_scavenge_turf(turf/candidate_turf)
 	if (is_type_in_typecache(candidate_turf, disallowed_turfs))
 		return FALSE
@@ -202,7 +202,7 @@
 		return FALSE
 	return TRUE
 
-// Gets the profile of the user ckey, or creates a new one should it be needed.
+/// Gets the profile of the user ckey, or creates a new one should it be needed.
 /obj/item/xenoarch/handheld_radar/proc/get_profile(mob/user)
 	var/datum/scavenge_profile/profile = LAZYACCESS(profiles, user.ckey)
 	if(!profile)
@@ -211,7 +211,7 @@
 		LAZYSET(profiles, user.ckey, profile)
 	return profile
 
-// Makes 50 tries to get a turf in a radius between min and max distance of the caller, ensuring not to count places outside the map, and then validating the turf is one of the allowed types.
+/// Makes 50 tries to get a turf in a radius between min and max distance of the caller, ensuring not to count places outside the map, and then validating the turf is one of the allowed types.
 /obj/item/xenoarch/handheld_radar/proc/pick_valid_turf_in_range(mob/user)
 	var/turf/candidate_turf = null
 	if (!user)
@@ -237,7 +237,7 @@
 		candidate_turf = null
 	return candidate_turf
 
-// Initiates the scan action for the radar, checking the user is able to and on the right conditions to get a new digging site, then stores that along with the ckey of the user and special modifiers like the leeway they rolled to dig at the area.
+/// Initiates the scan action for the radar, checking the user is able to and on the right conditions to get a new digging site, then stores that along with the ckey of the user and special modifiers like the leeway they rolled to dig at the area.
 /obj/item/xenoarch/handheld_radar/proc/scan(mob/user)
 	if(!COOLDOWN_FINISHED(src, tool_scan))
 		return
@@ -288,7 +288,7 @@
 	playsound(src, 'sound/machines/compiler/compiler-stage1.ogg', 75)
 	return TRUE
 
-// This is the digging action, operates when you try to dig in the leeway area of the archeological site, its the one that spawns the rocks and calculates how many, as well as awrding xp
+/// This is the digging action, operates when you try to dig in the leeway area of the archeological site, its the one that spawns the rocks and calculates how many, as well as awrding xp
 /obj/item/xenoarch/handheld_radar/proc/check_dig(mob/user, turf/dig_turf)
 	if(!COOLDOWN_FINISHED(src, tool_scan))
 		return
@@ -335,7 +335,7 @@
 	user.mind?.adjust_experience(/datum/skill/archeology, rocks_amount*25)
 	return TRUE
 
-// This generates an arrow of color based on the distance of the archeological site, and pointing in the direction of it, when you are in the site, it will no longer show an arrow, but you will have to make an educated guess as the exact site (counting of course on the leeway you rolled previously.)
+/// This generates an arrow of color based on the distance of the archeological site, and pointing in the direction of it, when you are in the site, it will no longer show an arrow, but you will have to make an educated guess as the exact site (counting of course on the leeway you rolled previously.)
 /obj/item/xenoarch/handheld_radar/proc/scan_digsite(mob/user)
 	if(!COOLDOWN_FINISHED(src, tool_scan))
 		return
@@ -376,12 +376,12 @@
 			user.balloon_alert(user, "!")
 			arrow_color = COLOR_RED
 
-	// We create and validate the user hud
+	/// We create and validate the user hud
 	var/datum/hud/user_hud = user.hud_used
 	if(!user_hud || !istype(user_hud, /datum/hud) || !islist(user_hud.infodisplay))
 		return
 
-	// We use our data to color and move the arrow on the player's hud as needed
+	/// We use our data to color and move the arrow on the player's hud as needed
 	var/atom/movable/screen/radar_arrow/arrow = new(null, user_hud)
 	arrow.color = arrow_color
 	arrow.screen_loc = around_player
@@ -399,7 +399,7 @@
 	pixel_x = -32
 	pixel_y = -32
 
-/atom/movable/screen/radar_arrow/Destroy()
+/atom/movable/screen/radar_arrow/Destroy(force)
 	if(hud)
 		hud.infodisplay -= src
 		INVOKE_ASYNC(hud, TYPE_PROC_REF(/datum/hud, show_hud), hud.hud_version)
