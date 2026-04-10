@@ -162,7 +162,7 @@
 	owner.remove_status_effect(/datum/status_effect/protean_low_power_mode/low_power)
 	suit.drop_suit()
 	owner.forceMove(suit)
-	sleep(12)
+	sleep(1.2 SECONDS)
 	owner.invisibility = initial(owner.invisibility)
 
 /// Moves the protean out of their modsuit back into the world.
