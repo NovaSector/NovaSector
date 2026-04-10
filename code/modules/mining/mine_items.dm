@@ -82,6 +82,7 @@
 	new /obj/item/assault_pod/mining(src)
 	new /obj/item/ore_box_reinforcement(src) // NOVA EDIT ADDITION
 
+
 /obj/structure/closet/secure_closet/miner/populate_contents_immediate()
 	. = ..()
 

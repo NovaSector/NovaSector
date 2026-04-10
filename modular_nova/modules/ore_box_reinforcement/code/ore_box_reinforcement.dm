@@ -16,7 +16,7 @@
 		return NONE
 
 	var/obj/structure/ore_box/our_box = interacting_with
-	if(our_box.contents.len > 0)
+	if(length(our_box.contents))
 		balloon_alert(user, "empty ore box first!")
 		return NONE
 
