@@ -244,21 +244,21 @@
 	if(isnull(tongue))
 		tongue = new /obj/item/organ/tongue/cybernetic/protean
 		tongue.on_bodypart_insert()
-		tongue.Insert(owner, TRUE)
+		tongue.Insert(owner, special = TRUE)
 	else if(organ_flags & ORGAN_NANOMACHINE)
 		tongue.set_organ_damage(0)
 
 	if(isnull(ears))
 		ears = new /obj/item/organ/ears/cybernetic/protean
 		ears.on_bodypart_insert()
-		ears.Insert(owner, TRUE)
+		ears.Insert(owner, special = TRUE)
 	else if(organ_flags & ORGAN_NANOMACHINE)
 		ears.set_organ_damage(0)
 
 	if(isnull(liver))
 		liver = new /obj/item/organ/liver/protean
 		liver.on_bodypart_insert()
-		liver.Insert(owner, TRUE)
+		liver.Insert(owner, special = TRUE)
 	else if(organ_flags & ORGAN_NANOMACHINE)
 		liver.set_organ_damage(0)
 
