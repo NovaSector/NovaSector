@@ -110,9 +110,10 @@
 		var/obj/item/organ/existing = target.get_organ_slot(slot)
 		if(existing?.organ_flags & (ORGAN_NANOMACHINE | ORGAN_ROBOTIC))
 			continue
-		qdel(existing)
 		var/replacement_type = slot_to_type[slot]
 		var/obj/item/organ/replacement = new replacement_type()
+		replacement.copy_traits_from(existing)
+		qdel(existing)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/species/protean/proc/organ_reject(mob/living/source, obj/item/organ/inserted)
