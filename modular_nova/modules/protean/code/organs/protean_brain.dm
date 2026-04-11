@@ -247,28 +247,28 @@
 		eyes = new /obj/item/organ/eyes/robotic/protean
 		eyes.on_bodypart_insert()
 		eyes.Insert(owner, special = TRUE)
-	else if(organ_flags & ORGAN_NANOMACHINE)
+	else if(eyes.organ_flags & ORGAN_NANOMACHINE)
 		eyes.set_organ_damage(0)
 
 	if(isnull(tongue))
 		tongue = new /obj/item/organ/tongue/cybernetic/protean
 		tongue.on_bodypart_insert()
 		tongue.Insert(owner, special = TRUE)
-	else if(organ_flags & ORGAN_NANOMACHINE)
+	else if(tongue.organ_flags & ORGAN_NANOMACHINE)
 		tongue.set_organ_damage(0)
 
 	if(isnull(ears))
 		ears = new /obj/item/organ/ears/cybernetic/protean
 		ears.on_bodypart_insert()
 		ears.Insert(owner, special = TRUE)
-	else if(organ_flags & ORGAN_NANOMACHINE)
+	else if(ears.organ_flags & ORGAN_NANOMACHINE)
 		ears.set_organ_damage(0)
 
 	if(isnull(liver))
 		liver = new /obj/item/organ/liver/protean
 		liver.on_bodypart_insert()
 		liver.Insert(owner, special = TRUE)
-	else if(organ_flags & ORGAN_NANOMACHINE)
+	else if(liver.organ_flags & ORGAN_NANOMACHINE)
 		liver.set_organ_damage(0)
 
 /// Fully revives the protean from critical condition, restoring their mass.
