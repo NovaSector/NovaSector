@@ -79,6 +79,10 @@
 	name = "Toy Katana"
 	item_path = /obj/item/toy/katana
 
+/datum/loadout_item/toys/toykatanasheath
+	name = "Toy Katana (Sheathed)"
+	item_path = /obj/item/storage/belt/sheath/katana/toy
+
 /*
 *	TENNIS BALLS
 */

@@ -6,6 +6,13 @@
 			"products" = list(
 				/obj/item/storage/briefcase/secure/white/wargame_kit = 3,
 				/obj/item/laser_pointer/limited = 3,
+				/obj/item/toy/tennis = 2,
+				/obj/item/toy/tennis/red = 2,
+				/obj/item/toy/tennis/yellow = 2,
+				/obj/item/toy/tennis/green = 2,
+				/obj/item/toy/tennis/cyan = 2,
+				/obj/item/toy/tennis/blue = 2,
+				/obj/item/toy/tennis/purple = 2,
 			),
 		),
 		list(
@@ -23,3 +30,7 @@
 			),
 		)
 	)
+	premium_nova = list(
+		/obj/item/storage/belt/utility/xenoarch/full = 3,
+	)
+

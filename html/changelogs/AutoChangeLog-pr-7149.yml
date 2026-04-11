@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Made Cargo teleporters to teleport stuff 20 a time, instead of all they have in a tile, to avoid crashes. Same amount as the push broom for the same reasons."
+  - bugfix: "Separates the sound effects and particle effects of cargo teleporters to be by teleporting chunks, instead of per atom."
