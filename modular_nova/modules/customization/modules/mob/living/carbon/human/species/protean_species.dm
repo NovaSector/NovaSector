@@ -238,7 +238,7 @@
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 		SPECIES_PERK_ICON = "bolt",
 		SPECIES_PERK_NAME = "Fragile Construction",
-		SPECIES_PERK_DESC = "Proteans take extra electrical damage, are easily dismembered, and earn 30% less credits.",
+		SPECIES_PERK_DESC = "Proteans take extra electrical damage and are easily dismembered.",
 	))
 
 	return perk_descriptions
