@@ -52,9 +52,13 @@
 			"icon" = FA_ICON_SHIRT,
 			"products" = list(
 				/obj/item/clothing/under/pants/nova/chaps = 4,
+				/obj/item/clothing/under/costume/playbunny/greyscale = 5,
 				/obj/item/clothing/under/costume/bunnylewd = 5,
 				/obj/item/clothing/under/costume/bunnylewd/white = 5,
-				/obj/item/clothing/head/costume/rabbitears = 4,//Ears together, right after Bunny Suit.
+				/obj/item/clothing/head/costume/rabbitears = 5,//Ears together, right after Bunny Suit.
+				/obj/item/clothing/head/playbunnyears = 5,
+				/obj/item/clothing/suit/jacket/tailcoat = 5,
+				/obj/item/clothing/neck/tie/bunnytie = 5,
 				/obj/item/clothing/head/costume/kitty = 4,
 
 				/obj/item/clothing/head/domina_cap = 5,
