@@ -14,10 +14,11 @@
 /obj/item/clothing/accessory/energy_shield
 	name = "energy shield projector"
 	desc = "A compact personal energy shield projector. Can be clipped onto clothing as an accessory. Projects a protective barrier that absorbs incoming damage."
-	icon = 'icons/obj/clothing/neck.dmi'
-	worn_icon = 'icons/mob/clothing/neck.dmi'
-	icon_state = "modlink"
-	worn_icon_state = "modlink"
+	icon = 'modular_nova/modules/energy_shield/icons/energy_shield.dmi'
+	worn_icon = 'modular_nova/modules/energy_shield/icons/energy_shield_worn.dmi'
+	icon_state = "energy_shield"
+	worn_icon_state = "energy_shield"
+	icon_state_is_worn = FALSE
 	slot_flags = NONE
 	attachment_slot = NONE
 	above_suit = FALSE
@@ -68,6 +69,10 @@
 	/// Controls how long filters linger after a hit
 	COOLDOWN_DECLARE(visual_cooldown)
 
+/obj/item/clothing/accessory/energy_shield/Initialize(mapload)
+	. = ..()
+	update_appearance(UPDATE_ICON)
+
 /obj/item/clothing/accessory/energy_shield/Destroy()
 	if(wearer)
 		UnregisterSignal(wearer, list(COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_ATOM_PRE_BULLET_ACT, COMSIG_MOB_AFTER_APPLY_DAMAGE, COMSIG_LIVING_CHECK_BLOCK))
@@ -94,6 +99,19 @@
 	if(suit.get_armor_rating(BULLET) > max_armor_class)
 		return TRUE
 	return FALSE
+
+/obj/item/clothing/accessory/energy_shield/update_overlays()
+	. = ..()
+	var/mutable_appearance/color_overlay = mutable_appearance(icon, "energy_shield_colors")
+	color_overlay.color = shield_color
+	. += color_overlay
+
+/obj/item/clothing/accessory/energy_shield/generate_accessory_overlay(obj/item/clothing/under/attached_to)
+	var/mutable_appearance/appearance = ..()
+	var/mutable_appearance/color_overlay = mutable_appearance(worn_icon, "energy_shield_colors")
+	color_overlay.color = shield_color
+	appearance.overlays += color_overlay
+	return appearance
 
 /obj/item/clothing/accessory/energy_shield/successful_attach(obj/item/clothing/under/attached_to)
 	. = ..()
