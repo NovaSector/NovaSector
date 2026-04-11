@@ -121,18 +121,19 @@
 		return
 	to_chat(user, span_notice("You start striking [src] with your golem's fist, attempting to dredge up a boulder..."))
 	for(var/i in 1 to 3)
-		/* NOVA EDIT CHANGE START - ORIGINAL:
+		/* // NOVA EDIT REMOVAL START - ORIGINAL:
 		if(do_after(user, boulder_size * 1 SECONDS, src))
 			user.apply_damage(20, STAMINA)
 			playsound(src, 'sound/items/weapons/genhit.ogg', 50, TRUE)
-		*/ 
+		*/ // NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDITION START
 		if(!do_after(user, boulder_size * 1 SECONDS, src))
 			user.balloon_alert(user, "stay still!")
 			return
 		user.balloon_alert(user, i > 2 ? "got one!" : "digging around...")
 		user.apply_damage(20, STAMINA)
 		playsound(src, 'sound/items/weapons/genhit.ogg', 50, TRUE)
-		// NOVA EDIT CHANGE END
+		// NOVA EDIT ADDITION END
 	produce_boulder(TRUE)
 	visible_message(span_notice("You've successfully produced a boulder! Boy are your arms tired."))
 
@@ -238,6 +239,7 @@
 	Shake(duration = 3 SECONDS)
 	if(spawn_drone)
 		node = new /mob/living/basic/node_drone(loc)
+		SET_FACTION_AND_ALLIES_FROM(node, user) // NOVA EDIT ADDITION
 		node.arrive(src)
 		RegisterSignal(node, COMSIG_QDELETING, PROC_REF(handle_wave_conclusion))
 		RegisterSignal(node, COMSIG_MOVABLE_MOVED, PROC_REF(handle_wave_conclusion))

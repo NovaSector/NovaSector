@@ -2,7 +2,7 @@
 
 /obj/structure/ore_box/boulder_collector //We want this to automatically grab boulders and desync them from the bluespace boulder grabbers
 	name = "BSC Refinery Box"
-	desc = "An improvement on the normal boxes drudged around by miners, The \"Boulder Stabilizing Collector\" is capable of automatically picking up and safely storing ores or boulders in a set direction once established."
+	desc = "An improvement on the normal boxes drudged around by miners, The \"Boulder Storage Collector\" is capable of automatically picking up and safely storing ores or boulders in a set direction once established."
 	icon = 'modular_nova/modules/ghost_mining/icons/mining.dmi'
 	icon_state = "orebox"
 	resistance_flags = FIRE_PROOF|LAVA_PROOF
@@ -12,6 +12,7 @@
 	var/turf/input_turf = null
 	/// Determines if this orebox needs to pick up items yet
 	var/needs_item_input = FALSE
+	var/list/available_boulders
 	var/repacked_type = /obj/item/flatpacked_machine/boulder_collector
 	var/perpetual = FALSE //If it breaks, will it drop its compressed form? Used for gulag
 
@@ -24,6 +25,25 @@
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
 
+/obj/structure/ore_box/boulder_collector/examine(mob/user)
+	. = ..()
+	var/rock_count = 0
+	for(var/datum/weakref/num_collector in available_boulders)
+		rock_count++
+
+	. += span_notice("There are [span_boldnotice("[rock_count] boulders")] available to teleport inside.")
+	. += span_notice("The boulder collector can be linked to a <b>linked retrieval matrix</b> using a <b>multitool</b>.")
+
+/obj/structure/ore_box/boulder_collector/multitool_act(mob/living/user, obj/item/multitool/multi_tool)
+	multi_tool.set_buffer(src)
+	balloon_alert(user, "saved to multitool buffer")
+	return ITEM_INTERACT_SUCCESS
+
+/obj/structure/ore_box/boulder_collector/dump_box_contents()
+	var/drop = drop_location()
+	for(var/obj/item/weapon in src)
+		weapon.forceMove(drop)
+
 /obj/structure/ore_box/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = NONE
 	if(isnull(held_item))
@@ -33,6 +53,9 @@
 		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "Loosen" : "Anchor"]"
 	if(held_item.tool_behaviour == TOOL_CROWBAR)
 		context[SCREENTIP_CONTEXT_LMB] = "Deconstruct"
+		return CONTEXTUAL_SCREENTIP_SET
+	if(held_item.tool_behaviour == TOOL_MULTITOOL)
+		context[SCREENTIP_CONTEXT_LMB] = "Add To Buffer"
 		return CONTEXTUAL_SCREENTIP_SET
 	else if(istype(held_item, /obj/item/stack/ore) || istype(held_item, /obj/item/boulder))
 		context[SCREENTIP_CONTEXT_LMB] = "Insert Item"
@@ -83,8 +106,8 @@
 
 	ore_input.color = COLOR_MODERATE_BLUE
 	var/mutable_appearance/light_in = emissive_appearance(ore_input.icon, ore_input.icon_state, offset_spokesman = src, alpha = ore_input.alpha)
-	light_in.pixel_w = ore_input.pixel_y
-	light_in.pixel_z = ore_input.pixel_x
+	light_in.pixel_y = ore_input.pixel_y
+	light_in.pixel_x = ore_input.pixel_x
 	. += ore_input
 	. += light_in
 
@@ -120,14 +143,16 @@
 	if(istype(target_boulder, /obj/item/boulder))
 		var/obj/item/boulder/mine_now = target_boulder
 		mine_now.forceMove(src) //Pull the boulder into storage
-		SSore_generation.available_boulders -= mine_now //Decouple the boulder from the network. Cant be stolen
+		if(!mine_now.brm_stable) //if not in BRM pull list, add it to its potential pull list
+			LAZYADD(available_boulders,  WEAKREF(mine_now))
 	return
 
 /obj/structure/ore_box/boulder_collector/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/boulder))
 		var/obj/item/boulder/mine_now = attacking_item
-		SSore_generation.available_boulders -= mine_now
 		user.transferItemToLoc(attacking_item, src)
+		if(!mine_now.brm_stable)
+			LAZYADD(available_boulders,  WEAKREF(mine_now))
 	else
 		return ..()
 
