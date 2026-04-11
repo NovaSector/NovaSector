@@ -1,4 +1,6 @@
-//todo:subspace boxcutter, surgical tray, admin medicell gun, slime core / useful clothing traits necklace. add spacewalk toggle to admin boots. admin pda, clear, works w/o tcomms, give infini cell
+//todo:subspace boxcutter, surgical tray, slime core / useful clothing traits necklace. add spacewalk toggle to admin boots. admin pda, clear, works w/o tcomms, give infini cell. laser pointer of doom. stimulant injector. spessknife. black market uplink.
+//todo:implement delayed item population of pouches and boxes to decrease the intensiveness of spawning in / despawning
+//todo:radials out the ass
 //Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
 //This will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
 //todo: pickup people or machiens with it too? wouldn't that be cool.
@@ -342,10 +344,62 @@
 
 	. = ..()
 
-//Debug Amputation Shears
+//Admin Amputation Shears. This is more fun to play with than you might think.
 /obj/item/shears/admin
 	name = "subspace amputation shears"
 	desc = "What, too lazy for player-panel? These blades look sharp enough to cut space-time, they will certainly make quick work of any humanoid."
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "shears"
 	toolspeed = 0
+
+//Admin Medigun
+/obj/item/gun/energy/cell_loaded/medigun/admin
+	name = "subspace medigun"
+	desc = "VeyMed was not happy with this one, but they didn't get much of a say. This 'aftermarket' (still manufactured by VeyMed) specification comes loaded with every cell. \
+	Test users said the switching was 'cumbersome' and that a 'floating radial' was a cooler choice, but the acquisitions manager lacked ability to describe the design."
+	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/projectile.dmi'
+	icon_state = "medigun"
+	inhand_icon_state = "chronogun" // Fits best with how the medigun looks, might be changed in the future
+	abstract_type = /obj/item/gun/energy/cell_loaded/medigun
+	ammo_type = list(/obj/item/ammo_casing/energy/medical) // The default option that heals oxygen
+	w_class = WEIGHT_CLASS_TINY
+	cell_type = /obj/item/stock_parts/power_store/cell/medigun
+	maxcells = 12 // there are 12 medicells in code at the time of counting
+	allowed_cells = list(/obj/item/weaponcell/medical)
+	item_flags = null
+	gun_flags = null // parent forbids turret
+	/// A list that contains the currently installed cells.
+	installedcells = list(
+		/obj/item/weaponcell/medical/brute/tier_3,
+		/obj/item/weaponcell/medical/burn/tier_3,
+		/obj/item/weaponcell/medical/toxin/tier_3,
+		/obj/item/weaponcell/medical/oxygen/tier_3,
+		/obj/item/weaponcell/medical/utility/clotting,
+		/obj/item/weaponcell/medical/utility/temperature,
+		/obj/item/weaponcell/medical/utility/salve,
+	)
+
+/*
+* Admin Cells for Cellgun
+* I thought about making a spread of admin medicells to replace the hypospray kit, as well as relocation cells to move things around CC
+* But after looking through medicell code, I do not want to deal with repacking those procs right now. Maybe later.
+*/
+
+// Admin surgery tray, for the med box
+/obj/item/surgery_tray/admin
+	name = "technician's surgery tray"
+	desc = "Full of things that you will probably want to do surgery with. Objectively a better user experience than the omnitool, which is atrociously out of date."
+	w_class = WEIGHT_CLASS_TINY
+	starting_items = list(
+		/obj/item/reagent_containers/medigel/sterilizine,
+		/obj/item/stack/medical/bone_gel,
+		/obj/item/stack/medical/wrap/sticky_tape/surgical,
+		/obj/item/shears,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown, // NOVA EDIT ADDITION
+		/obj/item/scalpel/advanced,
+		/obj/item/retractor/advanced,
+		/obj/item/cautery/advanced,
+		/obj/item/blood_filter/advanced,
+		/obj/item/surgical_drapes,
+	)

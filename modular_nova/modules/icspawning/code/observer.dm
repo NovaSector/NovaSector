@@ -1,4 +1,5 @@
 // NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
+// todo: update spawn-in type to a list, add new spawn-in animations and types (particularly a totally silent one, similar to how ctrlshiftclick works).
 
 /mob/dead/observer/CtrlClickOn(mob/user)
 	quickicspawn(user)
