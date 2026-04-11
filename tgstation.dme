@@ -9695,4 +9695,5 @@
 #include "modular_regzt\code\modules\random_item\hand-made_drone.dm"
 #include "modular_regzt\code\modules\random_item\lockermech.dm"
 #include "modular_regzt\code\modules\random_item\synt_drone.dm"
+#include "modular_regzt\code\modules\scrap\scrap_pile.dm"
 // END_INCLUDE
