@@ -51,7 +51,7 @@
 	/// Maximum armor rating on outer clothing before the shield refuses to activate (default)
 	var/max_armor_class = 10
 	/// Whether the shield is enabled by the user (toggle via action button)
-	var/enabled = TRUE
+	var/enabled = FALSE
 	/// Fraction of shield health retained after an EMP (0 = full wipe, 0.5 = halved)
 	var/emp_retention = 0
 	/// Whether the shield blocks projectile damage
