@@ -373,7 +373,7 @@
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 		),
 	),
-	/// Specific variant data used when the skin is applied to a mining MODsuit.
+	// Specific variant data used when the skin is applied to a mining MODsuit.
 	var/list/mining_variant_data = list(
 	MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
 	MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',

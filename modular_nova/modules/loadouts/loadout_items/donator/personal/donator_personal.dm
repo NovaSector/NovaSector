@@ -1066,7 +1066,7 @@
 	name = "Stachelm"
 	item_path = /obj/item/clothing/head/helmet/donator/stachelm
 	ckeywhitelist = list("ghostof93")
-	restricted_roles = list(JOB_CAPTAIN, JOB_BLUESHIELD)
+	restricted_roles = list(JOB_CAPTAIN)
 
 /datum/loadout_item/suit/duke_armored_coat
 	name = "Duke's Armored Coat"

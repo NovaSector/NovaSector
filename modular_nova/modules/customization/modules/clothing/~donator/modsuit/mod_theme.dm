@@ -25,9 +25,10 @@
 		Its defining strength is speed—high-powered servos and actuators fused into a lightweight carbon-fiber frame allow \
 		for exceptional mobility at the cost of minimal armor plating."
 	default_skin = "paragon"
-	armor_type = /datum/armor/mod_theme_paragon
+	armor_type = /datum/mod_theme/medical::armor_type
 	charge_drain = DEFAULT_CHARGE_DRAIN * 1.5
 	slowdown_deployed = 0.5
+	hardlight_theme = STANDARD_BLUE
 	allowed_suit_storage = list(
 		/obj/item/crowbar/power/paramedic,
 		/obj/item/defibrillator/compact,
@@ -50,12 +51,11 @@
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
 			/obj/item/clothing/head/mod = list(
-				UNSEALED_LAYER = HEAD_LAYER,
+				UNSEALED_LAYER = NECK_LAYER,
 				UNSEALED_CLOTHING = SNUG_FIT,
-				UNSEALED_COVER = HEADCOVERSEYES|PEPPERPROOF,
-				UNSEALED_INVISIBILITY = HIDEHAIR|HIDEEYES|HIDESNOUT,
-				SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE,
-				SEALED_INVISIBILITY =  HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
+				SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT|HEADINTERNALS,
+				UNSEALED_INVISIBILITY = HIDEFACIALHAIR,
+				SEALED_INVISIBILITY = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
 				SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
 				UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
 				SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
@@ -63,7 +63,7 @@
 			/obj/item/clothing/suit/mod = list(
 				UNSEALED_CLOTHING = THICKMATERIAL,
 				SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
-				SEALED_INVISIBILITY = HIDEJUMPSUIT|HIDETAIL,
+				SEALED_INVISIBILITY = HIDEJUMPSUIT,
 				UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
 				SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
 			),
@@ -84,18 +84,6 @@
 		),
 	)
 
-/datum/armor/mod_theme_paragon
-	melee = 25
-	bullet = 15
-	laser = 20
-	energy = 15
-	bomb = 10
-	bio = 100
-	fire = 100
-	acid = 25
-	wound = 10
-
-
 // Bonkai Donor Item
 
 /datum/mod_theme/jumper
@@ -108,10 +96,11 @@
 		allowing the suit to do more work in carrying the weight. However, the systems used in these suits are more than \
 		a few years out of date, leading to an overall lower capacity for modules."
 	default_skin = "jumper"
-	armor_type = /datum/armor/mod_theme_jumper
+	armor_type = /datum/mod_theme/security::armor_type
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 2
 	slowdown_deployed = 0.5
 	hearing_protection = EAR_PROTECTION_NORMAL
+	hardlight_theme = ALERT_AMBER
 	allowed_suit_storage = list(
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
@@ -178,12 +167,13 @@
 					While it feels latexy in touch, it does not stick like latex, and seems to be constantly moving, like millions of tiny nanites are forming the device. \
 					The JOISuit seems to heat up and exert freezing air constantly when active."
 	default_skin = "joisuit"
-	armor_type = /datum/armor/mod_theme_joisuit
+	armor_type = /datum/mod_theme/mining::armor_type
 	resistance_flags = FIRE_PROOF|LAVA_PROOF
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	charge_drain = DEFAULT_CHARGE_DRAIN * 1.5
 	slowdown_deployed = 0.5
+	hardlight_theme = STANDARD_BLUE
 	allowed_suit_storage = list(
 		/obj/item/crowbar/power/paramedic,
 		/obj/item/defibrillator/compact,
@@ -232,14 +222,3 @@
 			),
 		),
 	)
-
-/datum/armor/mod_theme_joisuit
-	melee = 20
-	bullet = 5
-	laser = 5
-	energy = 5
-	bomb = 30
-	bio = 100
-	fire = 100
-	acid = 75
-	wound = 15

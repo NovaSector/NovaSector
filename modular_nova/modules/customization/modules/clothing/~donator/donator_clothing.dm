@@ -2699,6 +2699,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	actions_types = list(/datum/action/item_action/toggle_helmet_light)
 	armor_type = /obj/item/clothing/head/hats/caphat::armor_type
 	resistance_flags = FIRE_PROOF
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 4
 	light_power = 1
