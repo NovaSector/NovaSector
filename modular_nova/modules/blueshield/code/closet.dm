@@ -20,6 +20,8 @@
 	new /obj/item/clothing/under/rank/blueshield/russian(src)
 	new /obj/item/clothing/under/imperialvest/blueshield(src)
 	new /obj/item/clothing/under/imperialvest/blueshield(src)
+	new /obj/item/clothing/head/helmet/marine/sulaco(src)
+	new /obj/item/clothing/suit/armor/vest/marine/sulaco(src)
 
 /obj/structure/closet/secure_closet/blueshield
 	name = "blueshield's locker"
