@@ -50,8 +50,8 @@
 /obj/structure/closet/secure_closet/security/service
 	name = "\proper the service guard's locker"
 	req_access = list(ACCESS_BRIG_ENTRANCE, ACCESS_SERVICE)
-	icon_state = "cabinet"
-	icon = 'icons/obj/storage/closet.dmi'
+	icon_state = "serviceguard"
+	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 
 /obj/structure/closet/secure_closet/security/service/PopulateContents()
 	new /obj/item/ammo_box/advanced/pepperballs(src)

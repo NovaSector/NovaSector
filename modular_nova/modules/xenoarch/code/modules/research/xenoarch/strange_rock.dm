@@ -63,16 +63,16 @@
 /obj/item/xenoarch/strange_rock/proc/create_item()
 	choose_tier = rand(1,100)
 	switch(choose_tier)
-		if(1 to 60)
-			hidden_item = pick_weight(GLOB.tier1_reward)
+		if(1 to 50)
+			hidden_item = /obj/effect/spawner/random/xenoarch/tier1
 			choose_tier = REWARD_ONE
 
-		if(61 to 87)
-			hidden_item = pick_weight(GLOB.tier2_reward)
+		if(51 to 87)
+			hidden_item = /obj/effect/spawner/random/xenoarch/tier2
 			choose_tier = REWARD_TWO
 
 		if(88 to 100)
-			hidden_item = pick_weight(GLOB.tier3_reward)
+			hidden_item = /obj/effect/spawner/random/xenoarch/tier3
 			choose_tier = REWARD_THREE
 
 /obj/item/xenoarch/strange_rock/proc/create_depth()
@@ -129,6 +129,9 @@
 	return BRUSH_NONE
 
 /obj/item/xenoarch/strange_rock/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if (!user.mind)
+		user.dropItemToGround(tool)
+		return ITEM_INTERACT_BLOCKING
 	if(istype(tool, /obj/item/xenoarch/hammer))
 		var/obj/item/xenoarch/hammer/xeno_hammer = tool
 		user.balloon_alert(user, "carefully hammering...")
@@ -151,7 +154,6 @@
 
 			if(DIG_ROCK)
 				user.balloon_alert(user, "item excavated successfully")
-				user.mind?.adjust_experience(/datum/skill/archeology, 5)
 				return ITEM_INTERACT_BLOCKING
 
 		return ITEM_INTERACT_BLOCKING
@@ -172,12 +174,11 @@
 
 			if(BRUSH_UNCOVER)
 				user.balloon_alert(user, "item extracted successfully")
-				user.mind?.adjust_experience(/datum/skill/archeology, 10)
+				user.mind?.adjust_experience(/datum/skill/archeology, 20)
 				return ITEM_INTERACT_BLOCKING
 
 			if(BRUSH_NONE)
 				user.balloon_alert(user, "rock needs more brushing")
-				user.mind?.adjust_experience(/datum/skill/archeology, 2)
 				return ITEM_INTERACT_BLOCKING
 
 		return ITEM_INTERACT_BLOCKING
@@ -196,7 +197,7 @@
 
 		if(get_measured())
 			user.balloon_alert(user, "rock reporting excavation")
-			user.mind?.adjust_experience(/datum/skill/archeology, 5)
+			user.mind?.adjust_experience(/datum/skill/archeology, 10)
 			return ITEM_INTERACT_BLOCKING
 
 
@@ -211,12 +212,12 @@
 
 		if(get_scanned(item_scanner.scan_advanced))
 			var/report_string = "rock scanned"
-			user.mind?.adjust_experience(/datum/skill/archeology, 5)
+			user.mind?.adjust_experience(/datum/skill/archeology, 10)
 			if(adv_scanned)
 				report_string += ", reporting depth"
 				if(get_measured())
 					report_string += " and excavation"
-					user.mind?.adjust_experience(/datum/skill/archeology, 5)
+					user.mind?.adjust_experience(/datum/skill/archeology, 10)
 			user.balloon_alert(user, report_string)
 			return ITEM_INTERACT_BLOCKING
 
@@ -252,7 +253,7 @@
 		/obj/item/stack/ore/silver = 12,
 		/obj/item/stack/ore/titanium = 11,
 		/obj/item/stack/ore/gold = 10,
-		/turf/closed/mineral/strange_rock/volcanic = 10,
+		/turf/closed/mineral/strange_rock/volcanic = 1,
 		/obj/item/stack/ore/uranium = 5,
 		/turf/closed/mineral/gibtonite/volcanic = 4,
 		/obj/item/stack/ore/diamond = 1,
@@ -281,7 +282,7 @@
 		/obj/item/stack/ore/silver = 12,
 		/obj/item/stack/ore/titanium = 11,
 		/obj/item/stack/ore/gold = 10,
-		/turf/closed/mineral/strange_rock/ice/icemoon = 10,
+		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
 		/obj/item/stack/ore/uranium = 5,
 		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
 		/obj/item/stack/ore/diamond = 1,
@@ -301,7 +302,7 @@
 		/obj/item/stack/ore/plasma = 20,
 		/obj/item/stack/ore/iron = 20,
 		/obj/item/stack/ore/uranium = 10,
-		/turf/closed/mineral/strange_rock/ice/icemoon = 10,
+		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
 		/turf/closed/mineral/gibtonite/ice/icemoon = 8,
 		/obj/item/stack/ore/diamond = 4,
 		/obj/item/stack/ore/bluespace_crystal = 2,
@@ -341,7 +342,7 @@
 		/obj/item/stack/ore/silver = 12,
 		/obj/item/stack/ore/titanium = 11,
 		/obj/item/stack/ore/gold = 10,
-		/turf/closed/mineral/strange_rock/asteroid = 10,
+		/turf/closed/mineral/strange_rock/asteroid = 1,
 		/obj/item/stack/ore/uranium = 5,
 		/turf/closed/mineral/gibtonite/asteroid = 4,
 		/obj/item/stack/ore/bluespace_crystal = 1,
