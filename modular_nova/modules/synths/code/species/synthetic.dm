@@ -3,7 +3,6 @@
 	id = SPECIES_SYNTH
 	inherent_biotypes = MOB_ROBOTIC | MOB_HUMANOID
 	inherent_traits = list(
-		TRAIT_NEAT_SELF_SURGERY, // regzt chengeS теперь синты могут медленно оперировать сами себя
 		TRAIT_CAN_STRIP,
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_RADIMMUNE,

@@ -32,6 +32,22 @@
 	stored_loot.Cut()
 	return ..()
 
+/// Определяет размер пачки для найденных материалов
+/obj/structure/scrap_pile/proc/amount_in_stack(path)
+	if(ispath(path, /obj/item/stack/rods))
+		return rand(1, 3)
+	if(ispath(path, /obj/item/stack/sheet/plastic))
+		return rand(1, 5)
+	if(ispath(path, /obj/item/stack/sheet/iron))
+		return rand(1, 4)
+	if(ispath(path, /obj/item/stack/sheet/glass))
+		return rand(1, 3)
+	if(ispath(path, /obj/item/stack/sheet/plasteel))
+		return rand(1, 2)
+	if(ispath(path, /obj/item/stack/sheet/mineral/wood))
+		return rand(1, 5)
+	return rand(1, 3)
+
 /obj/structure/scrap_pile/shovel_act(mob/living/user, obj/item/I)
 	user.visible_message(span_notice("[user] begins to dig through \the [src]."), \
 		span_notice("You begin to dig through \the [src]..."))
@@ -108,7 +124,14 @@
 				found.forceMove(src)
 			qdel(temp_box)
 		else
-			found = new loot_path(src)
+			if(ispath(loot_path, /obj/item/stack))
+				var/stack_amount = amount_in_stack(loot_path)
+				if(stack_amount <= 0)
+					balloon_alert(user, "found only dust...")
+					return
+				found = new loot_path(src, stack_amount)
+			else
+				found = new loot_path(src)
 
 		if(found)
 			balloon_alert(user, "found [found.name]!")
