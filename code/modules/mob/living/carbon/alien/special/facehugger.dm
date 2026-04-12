@@ -305,12 +305,7 @@
 
 /obj/item/clothing/mask/facehugger/lamarr
 	name = "Lamarr"
-	desc = "The Research Director's pet, a domesticated and debeaked xenomorph facehugger. Friendly, but may still try to couple with your head."
-	// NOVA EDIT ADDITION START: job-restricted examine text
-	special_desc_requirement = EXAMINE_CHECK_ROLE
-	special_desc_roles = list("ROLE_ALIEN")
-	special_desc = "This young one has been cruelly mutilated. It lacks the capability to fill a host with our sisters."
-	// NOVA EDIT ADDITION END
+	desc = "The Research Director's pet, a domesticated and debeaked alien. Friendly, but may still try to couple with your head."
 	sterile = TRUE
 	slowdown = 1.5 //lamarr is too fat after being fed in captivity to effectively slow people down or something
 
