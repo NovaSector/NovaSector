@@ -295,6 +295,9 @@
 		outfit_modsuit.forceMove(equipping)
 		chest.species_modsuit.assimilate_modsuit(equipping, outfit_modsuit, forced = TRUE)
 	else if(back_item)
+		// Move items out before qdeling so they aren't destroyed with it
+		for(var/obj/item/saved in saved_contents)
+			saved.moveToNullspace()
 		qdel(back_item)
 	// Restore contents into protean modsuit storage
 	var/obj/item/mod/module/storage/protean_storage = locate() in chest.species_modsuit?.modules
