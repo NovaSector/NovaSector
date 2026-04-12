@@ -222,28 +222,13 @@
 			continue
 		retract(null, part, instant = TRUE)
 
-	var/list/ratios = save_theme_ratios()
+	for(var/obj/item/mod/module/existing_module in modules)
+		existing_module.on_uninstall()
 	theme = the_theme
 	the_theme.set_up_parts(src, the_theme.default_skin)
-	restore_theme_ratios(ratios)
+	for(var/obj/item/mod/module/existing_module in modules)
+		existing_module.on_install()
 	update_static_data_for_all_viewers()
-
-/// Saves the ratio of current theme-controlled values to their theme defaults.
-/// Used to preserve module modifiers (e.g. springlock halving activation time) across theme swaps.
-/obj/item/mod/control/pre_equipped/protean/proc/save_theme_ratios()
-	return list(
-		"activation_step_time" = theme.activation_step_time ? (activation_step_time / theme.activation_step_time) : 1,
-		"slowdown_deployed" = theme.slowdown_deployed ? (slowdown_deployed / theme.slowdown_deployed) : 1,
-		"charge_drain" = theme.charge_drain ? (charge_drain / theme.charge_drain) : 1,
-		"complexity_max" = theme.complexity_max ? (complexity_max / theme.complexity_max) : 1,
-	)
-
-/// Restores module-modified values after set_up_parts overwrites them with the new theme's defaults.
-/obj/item/mod/control/pre_equipped/protean/proc/restore_theme_ratios(list/ratios)
-	activation_step_time *= ratios["activation_step_time"]
-	slowdown_deployed *= ratios["slowdown_deployed"]
-	charge_drain *= ratios["charge_drain"]
-	complexity_max *= ratios["complexity_max"]
 
 /obj/item/mod/control/pre_equipped/protean/proc/unassimilate_theme()
 	if(stored_modsuit)
@@ -281,11 +266,15 @@
 			retract(null, part, instant = TRUE)
 	stored_modsuit = to_assimilate
 	stored_theme = theme
-	var/list/ratios = save_theme_ratios()
+	// Unbind modules from old parts before theme swap creates new ones
+	for(var/obj/item/mod/module/existing_module in modules)
+		existing_module.on_uninstall()
 	theme = to_assimilate.theme
 	skin = to_assimilate.skin
 	theme.set_up_parts(src, skin)
-	restore_theme_ratios(ratios)
+	// Rebind modules to the new parts
+	for(var/obj/item/mod/module/existing_module in modules)
+		existing_module.on_install()
 	name = to_assimilate.name
 	desc = to_assimilate.desc
 	extended_desc = to_assimilate.extended_desc
