@@ -1,6 +1,6 @@
-//todo:subspace boxcutter, surgical tray, slime core / useful clothing traits necklace. add spacewalk toggle to admin boots. admin pda, clear, works w/o tcomms, give infini cell. laser pointer of doom. stimulant injector. spessknife. black market uplink.
+//todo:subspace boxcutter. admin pda, clear, works w/o tcomms, give infini cell. laser pointer of doom. stimulant injector.  black market uplink. pocket extinguisher. tennis ball gun.
 //todo:implement delayed item population of pouches and boxes to decrease the intensiveness of spawning in / despawning
-//todo:radials out the ass
+//todo:radials out the ass would be nice! But they're a bit above my smooth brain at the moment. Ideas for radials: slime core / useful clothing traits necklace. admin spessknife. fix the medicell gun module to use radials instead of sequence.
 //Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
 //This will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
 //todo: pickup people or machiens with it too? wouldn't that be cool.
@@ -159,6 +159,7 @@
 	owner_trim = /datum/id_trim/admin/subspace
 	our_domain = list( /area )
 	obj_flags = EMAGGED
+	w_class = WEIGHT_CLASS_TINY
 
 //Debug RCD, but using the cooler RCD type. Did you know that there already exists a decently superior alternative to the /obj/item/construction/rcd/combat/admin?
 //It was /obj/item/construction/rcd/arcd and for whatever reason this unused one had the potential to be better. But wasn't used.
@@ -175,6 +176,7 @@
 	matter = INFINITY
 	delay_mod = 0.1
 	construction_upgrades = RCD_ALL_UPGRADES & ~RCD_UPGRADE_SILO_LINK
+	w_class = WEIGHT_CLASS_TINY
 
 //RCD Disks - What the fuck is this code man
 //Placeholder spot to put an admin RCD disk when I eventually get around to fixing upstream
@@ -193,6 +195,7 @@
 	matter = INFINITY
 	max_matter = INFINITY
 	construction_upgrades = RCD_UPGRADE_SILO_LINK
+	w_class = WEIGHT_CLASS_TINY
 
 //Debug Emag & Doorjack
 //There is already a 'bluespace emag' but its pretty ugly, so I'll just do my own quick pallete swap icons
@@ -205,6 +208,7 @@
 	worn_icon_state = "emag"
 	prox_check = FALSE
 	type_blacklist = list()
+	w_class = WEIGHT_CLASS_TINY
 
 //Debug Light Replacer
 //todo:icon variant
@@ -215,6 +219,7 @@
 	icon_state = "lightreplacer_blue"
 	uses = INFINITY
 	max_uses = INFINITY
+	w_class = WEIGHT_CLASS_TINY
 
 //Debug Atmos Holofan
 //I should probably make a version of this that places tinyfans instead.
@@ -226,6 +231,7 @@
 	icon_state = "signmaker_atmos"
 	max_signs = INFINITY
 	projectable_through = list( /obj )
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/structure/holosign/barrier/atmos
 	name = "subspace holofirelock"
@@ -246,6 +252,7 @@
 	max_fields = INFINITY
 	field_distance_limit = INFINITY
 	creation_time = 0 SECONDS
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/structure/projected_forcefield/admin
 	name = "subspace forcefield"
@@ -293,6 +300,7 @@
 	matter = INFINITY
 	max_matter = INFINITY
 	construction_upgrades = RCD_UPGRADE_SILO_LINK
+	w_class = WEIGHT_CLASS_TINY
 ///Design types for debug service constructor, I just smushed the two lists together
 	var/static/list/admin_design_types = list(
 		//Category 1 synthesizers
@@ -351,12 +359,13 @@
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "shears"
 	toolspeed = 0
+	w_class = WEIGHT_CLASS_TINY
 
 //Admin Medigun
 /obj/item/gun/energy/cell_loaded/medigun/admin
 	name = "subspace medigun"
-	desc = "VeyMed was not happy with this one, but they didn't get much of a say. This 'aftermarket' (still manufactured by VeyMed) specification comes loaded with every cell. \
-	Test users said the switching was 'cumbersome' and that a 'floating radial' was a cooler choice, but the acquisitions manager lacked ability to describe the design."
+	desc = "VeyMed was not happy with this one, but they didn't get much of a say in it's manufacture. This 'aftermarket' (still manufactured by VeyMed) specification comes loaded with every cell. \
+	Test users said the switching was 'cumbersome' and that a 'floating radial' was a cooler choice, but the acquisitions manager lacked ability to describe the design to the producer."
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/projectile.dmi'
 	icon_state = "medigun"
 	inhand_icon_state = "chronogun" // Fits best with how the medigun looks, might be changed in the future
@@ -397,9 +406,43 @@
 		/obj/item/shears,
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown, // NOVA EDIT ADDITION
+		/obj/item/surgical_drapes,
 		/obj/item/scalpel/advanced,
 		/obj/item/retractor/advanced,
 		/obj/item/cautery/advanced,
 		/obj/item/blood_filter/advanced,
-		/obj/item/surgical_drapes,
 	)
+
+// New admin PDA, thank you debug modular computer for existing.
+/obj/item/modular_computer/pda/admin
+	name = "technician's PDA"
+	device_theme = PDA_THEME_SPOOKY
+	max_capacity = INFINITY
+	hardware_flag = PROGRAM_ALL//This might cause issues? Set to PROGRAM_PDA if it do
+	contained_item = list( /obj/item/ )
+	inserted_item = /obj/item/gun/energy/meteorgun/pen
+	long_ranged = TRUE
+	allow_chunky = TRUE
+	stored_paper = 10
+	max_paper = INFINITY
+	var/obj/item/stock_parts/power_store/internal_cell = /obj/item/stock_parts/power_store/cell
+
+//I will wait for someone with more knowledge than me to tell me the correct way to smoosh these procs together
+/obj/item/modular_computer/pda/admin/Initialize(mapload)
+	starting_programs += subtypesof(/datum/computer_file/program)
+	return ..()
+
+/obj/item/modular_computer/pda/admin/Initialize(mapload)
+	. = ..()
+	emag_act(forced = TRUE)
+	var/datum/computer_file/program/themeify/theme_app = locate() in stored_files
+	if(theme_app)
+		for(var/theme_key in GLOB.pda_name_to_theme - GLOB.default_pda_themes)
+			LAZYADD(theme_app.imported_themes, theme_key)
+	var/datum/computer_file/program/messenger/msg = locate() in stored_files
+	if(msg)
+		msg.invisible = TRUE//Dont put techs on blast for existing.
+
+/obj/item/modular_computer/pda/admin/get_messenger_ending()
+	return "Sent from the space between timelines, narratively null."
+
