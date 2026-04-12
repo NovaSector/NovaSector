@@ -83,17 +83,19 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		/datum/quirk/tin_man,
 	))
 
+	/// Whether the core is alive or not
 	var/rebuilt = TRUE
-	var/datum/action/cooldown/membrane_murmur/membrane_mur
+	/// Ability to allow them to murmur while dead
+	var/datum/action/cooldown/membrane_murmur/membrane_murmur
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
-	membrane_mur = new
+	membrane_murmur = new
 	colorize()
 
 /obj/item/organ/brain/slime/Destroy(force)
 	GLOB.dead_slime_cores -= src
-	QDEL_NULL(membrane_mur)
+	QDEL_NULL(membrane_murmur)
 	QDEL_NULL(stored_dna)
 	QDEL_LAZYLIST(stored_quirks)
 	QDEL_NULL(stored_language_holder)
@@ -351,7 +353,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		if(stored_language_holder)
 			brainmob.get_language_holder()?.copy_languages(stored_language_holder)
 
-		membrane_mur.Grant(brainmob)
+		membrane_murmur.Grant(brainmob)
 
 	if(stored_dna)
 		rebuilt = FALSE
@@ -625,7 +627,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		)
 
 	if(!QDELETED(brainmob))
-		membrane_mur.Remove(brainmob)
+		membrane_murmur.Remove(brainmob)
 	brainmob?.mind?.transfer_to(new_body)
 	new_body.grab_ghost()
 	transfer_observers_to(new_body)
