@@ -1,88 +1,200 @@
 /obj/structure/scrap_pile
-	name = "scrap_pile"
-	desc = "scrap_pile. Alt-click to look inside."
+	name = "scrap pile"
+	desc = "A pile of scrap. Dig through it to find something useful."
 	icon = 'modular_nova/master_files/icons/obj/trash_piles.dmi'
 	icon_state = "randompile"
 	density = TRUE
 	anchored = TRUE
 	max_integrity = 100
+	appearance_flags = TILE_BOUND
 
-	/// Максимальный суммарный объем (w_class) предметов в куче (как maxspace у сейфа)
-	var/max_space = 30
-	/// Текущий занятый объем
-	var/used_space = 0
+	var/storage_capacity = 20
+	var/max_item_size = WEIGHT_CLASS_BULKY
+	var/loot_generated = FALSE
+	var/loot_min = 3
+	var/loot_max = 5
+	var/list/weighted_loot_list = NONE
+	var/list/stored_loot = list()
 
 /obj/structure/scrap_pile/Initialize(mapload)
-	. = ..()
+	..()
 	icon_state = pick("pile1", "pile2", "pilechair", "piletable", "pilevending", "brtrashpile", "microwavepile", "rackpile", "boxfort", "trashbag", "brokecomp")
 
-	// По аналогии с сейфом: собираем предметы, которые лежат на этой же клетке при спавне [cite: 5]
-	for(var/obj/item/I in loc)
-		if(used_space >= max_space)
-			break
-		if(I.w_class + used_space <= max_space)
-			used_space += I.w_class
-			I.forceMove(src)
+	create_storage(storage_capacity, max_item_size)
+	if(atom_storage)
+		atom_storage.click_alt_open = TRUE
+		atom_storage.set_holdable(list(/obj/item))
 
-// --- ВЗАИМОДЕЙСТВИЕ ---
+	if(weighted_loot_list)
+		try_make_loot()
 
-/obj/structure/scrap_pile/click_alt(mob/user)
-	ui_interact(user)
-	return CLICK_ACTION_SUCCESS
+/obj/structure/scrap_pile/Destroy()
+	stored_loot.Cut()
+	return ..()
 
-/obj/structure/scrap_pile/attackby(obj/item/I, mob/user, list/modifiers)
-	// Позволяем заталкивать мусор в кучу вручную [cite: 7]
-	if(I.w_class + used_space <= max_space)
-		if(!user.transferItemToLoc(I, src))
-			return
-		used_space += I.w_class
-		to_chat(user, span_notice("Вы выбрасываете [I] в [src]."))
+/obj/structure/scrap_pile/shovel_act(mob/living/user, obj/item/I)
+	user.visible_message(span_notice("[user] begins to dig through \the [src]."), \
+		span_notice("You begin to dig through \the [src]..."))
+
+	if(I.use_tool(src, user, rand(15, 25)))
+		do_search(user)
+	return ITEM_INTERACT_SUCCESS
+
+/obj/structure/scrap_pile/shovel_act_secondary(mob/living/user, obj/item/tool)
+	user.visible_message(span_notice("[user] begins to clear away \the [src]."), \
+		span_notice("You begin to clear away the debris..."))
+
+	if(tool.use_tool(src, user, 4 SECONDS))
+		to_chat(user, span_notice("You successfully clear away the [src]."))
+		qdel(src)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/structure/scrap_pile/attackby(obj/item/I, mob/user)
+	if(atom_storage && atom_storage.attempt_insert(I, user))
+		return ITEM_INTERACT_SUCCESS
+	return ..()
+
+/obj/structure/scrap_pile/attack_hand(mob/user)
+	if(!ishuman(user))
+		return ..()
+
+	if(!stored_loot.len)
+		balloon_alert(user, "it's empty!")
+		return
+
+	user.visible_message(span_notice("[user] starts rummaging through \the [src]."), \
+		span_notice("You start searching through \the [src]..."))
+
+	if(do_after(user, rand(40, 60), target = src))
+		do_search(user)
+
+/obj/structure/scrap_pile/proc/try_make_loot()
+	if(loot_generated)
+		return
+	loot_generated = TRUE
+
+	var/amt = rand(loot_min, loot_max)
+	for(var/i in 1 to amt)
+		var/loot_path = get_loot_path()
+		if(!loot_path)
+			continue
+		stored_loot += loot_path
+
+/obj/structure/scrap_pile/proc/get_loot_path()
+	var/lootspawn = pick_weight(weighted_loot_list)
+	while(islist(lootspawn))
+		lootspawn = pick_weight(lootspawn)
+	return lootspawn
+
+/obj/structure/scrap_pile/proc/do_search(mob/user)
+	if(!stored_loot.len)
+		balloon_alert(user, "nothing left inside!")
+		return
+
+	if(prob(50))
+		var/loot_path = pick(stored_loot)
+		stored_loot -= loot_path
+
+		var/obj/item/found
+
+		if(ispath(loot_path, /obj/effect/spawner))
+			var/obj/item/storage/box/temp_box = new(null)
+			var/obj/effect/spawner/S = new loot_path(temp_box)
+			if(S && !QDELETED(S))
+				qdel(S)
+
+			if(temp_box.contents.len)
+				found = pick(temp_box.contents)
+				found.forceMove(src)
+			qdel(temp_box)
+		else
+			found = new loot_path(src)
+
+		if(found)
+			balloon_alert(user, "found [found.name]!")
+			if(atom_storage)
+				atom_storage.open_storage(user)
 	else
-		to_chat(user, span_warning("[I] не помещается в эту кучу мусора!"))
+		balloon_alert(user, "nothing found...")
 
-// --- ИНТЕРФЕЙС (TGUI) ---
+// --- КУЧИ ---
 
-/obj/structure/scrap_pile/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		// Используем тот же ассет "Safe", если нет своего, или создаем новый
-		ui = new(user, src, "Safe", name)
-		ui.open()
+/obj/structure/scrap_pile/material
+	name = "material pile"
+	desc = "just a pile of material scrap"
+	loot_min = 2
+	loot_max = 3
 
-/obj/structure/scrap_pile/ui_data(mob/user)
-	var/list/data = list()
-	data["open"] = TRUE // Куча всегда "открыта" для просмотра
+/obj/structure/scrap_pile/material/Initialize(mapload)
+	weighted_loot_list = GLOB.scrap_material
+	return ..()
 
-	var/list/contents_list = list()
-	for(var/obj/item/I in contents)
-		contents_list += list(list(
-			"name" = I.name,
-			"sprite" = I.icon_state
-		))
-		// Регистрируем иконку для отображения в браузере [cite: 11]
-		user << browse_rsc(icon(I.icon, I.icon_state), "[I.icon_state].png")
+/obj/structure/scrap_pile/maintenance
+	name = "maintenance pile"
+	desc = "just a pile of maintenance scrap"
 
-	data["contents"] = contents_list
-	return data
+/obj/structure/scrap_pile/maintenance/Initialize(mapload)
+	weighted_loot_list = GLOB.scrap_maintenance
+	return ..()
 
-/obj/structure/scrap_pile/ui_act(action, list/params, datum/tgui/ui)
-	. = ..()
-	if(.)
-		return
+/obj/structure/scrap_pile/trash
+	name = "trash pile"
+	desc = "A pile of smelly trash."
+	loot_min = 3
+	loot_max = 6
 
-	var/mob/living/user = usr
-	if(!user.can_perform_action(src))
-		return
+/obj/structure/scrap_pile/trash/Initialize(mapload)
+	weighted_loot_list = GLOB.scrap_trash
+	return ..()
 
-	switch(action)
-		if("retrieve") // Достаем предмет из кучи [cite: 13]
-			var/index = text2num(params["index"])
-			if(!index || index > contents.len)
-				return
-			var/obj/item/I = contents[index]
-			if(!I || !in_range(src, user))
-				return
+/obj/structure/scrap_pile/medical
+	name = "medical refuse pile"
+	desc = "Pile of medical refuse. They sure don't cut expenses on these"
 
-			user.put_in_hands(I)
-			used_space -= I.w_class
-			return TRUE
+/obj/structure/scrap_pile/medical/Initialize(mapload)
+	weighted_loot_list = GLOB.scrap_medical
+	return ..()
+
+/obj/structure/scrap_pile/food
+	name = "food trash pile"
+	desc = "Pile of thrown away food."
+
+/obj/structure/scrap_pile/food/Initialize(mapload)
+	weighted_loot_list = GLOB.scrap_food
+	return ..()
+
+/obj/structure/scrap_pile/science
+	name = "science scrap"
+	desc = "just a pile of maintenance scrap"
+	loot_min = 0
+	loot_max = 2
+
+/obj/structure/scrap_pile/science/Initialize(mapload)
+	weighted_loot_list = GLOB.scrap_science
+	return ..()
+
+/obj/structure/scrap_pile/cloth
+	name = "cloth pile"
+	desc = "Pile of second hand clothing for charity"
+
+/obj/structure/scrap_pile/cloth/Initialize(mapload)
+	weighted_loot_list = GLOB.scrap_cloth
+	return ..()
+
+/obj/structure/scrap_pile/poor
+	name = "mixed rubbish"
+	desc = "Pile of mixed rubbish. Useless and rotten, mostly"
+	loot_min = 2
+	loot_max = 4
+
+/obj/structure/scrap_pile/poor/Initialize(mapload)
+	weighted_loot_list = GLOB.scrap_poor
+	return ..()
+
+/obj/structure/scrap_pile/industrial
+	name = "industrial scrap"
+	desc = "Industrial debris and waste."
+
+/obj/structure/scrap_pile/industrial/Initialize(mapload)
+	weighted_loot_list = GLOB.scrap_industrial
+	return ..()

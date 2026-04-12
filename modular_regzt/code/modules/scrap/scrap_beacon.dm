@@ -48,7 +48,7 @@
     for(var/turf/T in range(impact_range, src))
         if(!isfloorturf(T))
             continue
-        if(locate(/obj/structure/scrap) in T)
+        if(locate(/obj/structure/scrap_pile) in T)
             continue
         if(!prob(impact_prob))
             continue
@@ -60,15 +60,15 @@
         var/turf/newloc = pick(flooring_near_beacon)
         flooring_near_beacon -= newloc
         var/scrap_type = pick(
-            1; /obj/structure/scrap/material,
-            3; /obj/structure/scrap/maintenance,
-            4; /obj/structure/scrap/trash,
-			2; /obj/structure/scrap/food,
-			2; /obj/structure/scrap/cloth,
-			2; /obj/structure/scrap/poor,
-			2; /obj/structure/scrap/medical,
-			2; /obj/structure/scrap/industrial,
-			1; /obj/structure/scrap/science,
+            1; /obj/structure/scrap_pile/material,
+            3; /obj/structure/scrap_pile/maintenance,
+            4; /obj/structure/scrap_pile/trash,
+			2; /obj/structure/scrap_pile/food,
+			2; /obj/structure/scrap_pile/cloth,
+			2; /obj/structure/scrap_pile/poor,
+			2; /obj/structure/scrap_pile/medical,
+			2; /obj/structure/scrap_pile/industrial,
+			1; /obj/structure/scrap_pile/science,
         )
 
         new scrap_type(newloc)

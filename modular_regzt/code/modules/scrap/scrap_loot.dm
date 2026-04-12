@@ -13,30 +13,39 @@ GLOBAL_LIST_INIT(scrap_trash, list(
 	))
 
 GLOBAL_LIST_INIT(scrap_material, list(
-	GLOB.trash_loot = 1,
-	/obj/effect/spawner/random/engineering/material_rare = 1,
-	/obj/item/stack/sheet/plastic = 1,
-	/obj/item/stack/sheet/iron = 1,
-	/obj/item/stack/sheet/glass = 1,
-	/obj/item/stack/sheet/plasteel = 1,
-	/obj/item/stack/sheet/mineral/wood = 1,
-	/obj/item/shard = 1,
-	/obj/item/stack/rods = 1,
-	))
+    GLOB.trash_loot = 200,
+
+    // --- ОБЫЧНЫЕ МАТЕРИАЛЫ ---
+	/obj/item/stack/rods = 80,
+	/obj/item/shard = 70,
+    /obj/item/stack/sheet/iron = 80,
+    /obj/item/stack/sheet/glass = 60,
+    /obj/item/stack/sheet/mineral/wood = 30,
+	/obj/item/stack/sheet/plastic = 20,
+
+    // --- РЕДКИЕ МАТЕРИАЛЫ ---
+    /obj/item/stack/sheet/plasteel = 2,
+    /obj/effect/spawner/random/engineering/material_rare = 1,
+))
 
 GLOBAL_LIST_INIT(scrap_medical, list(
-	/obj/effect/spawner/random/medical/minor_healing = 4,
-	/obj/effect/spawner/random/medical/injector = 1,
-	/obj/effect/spawner/random/medical/organs = 1,
-	/obj/effect/spawner/random/medical/memeorgans = 1,
-	/obj/effect/spawner/random/medical/two_percent_xeno_egg_spawner = 1,
-	/obj/effect/spawner/random/medical/surgery_tool = 1,
-	/obj/effect/spawner/random/medical/medkit_rare = 1,
-	/obj/effect/spawner/random/medical/medkit = 1,
-	/obj/effect/spawner/random/medical/patient_stretcher = 1,
-	/obj/effect/spawner/random/medical/supplies = 1,
-	GLOB.trash_loot = 4,
-	))
+    // --- САМОЕ ЧАСТОЕ ---
+    /obj/effect/spawner/random/medical/minor_healing = 40,
+    GLOB.trash_loot = 20,
+    /obj/effect/spawner/random/medical/supplies = 20,
+
+    // --- СРЕДНЯЯ РЕДКОСТЬ ---
+    /obj/effect/spawner/random/medical/medkit = 7,
+    /obj/effect/spawner/random/medical/injector = 5,
+    /obj/effect/spawner/random/medical/surgery_tool = 3,
+    /obj/effect/spawner/random/medical/patient_stretcher = 2,
+
+    // --- ОЧЕНЬ РЕДКОЕ ---
+    /obj/effect/spawner/random/medical/organs = 1,
+    /obj/effect/spawner/random/medical/medkit_rare = 1,
+    /obj/effect/spawner/random/medical/memeorgans = 0.8,
+    /obj/effect/spawner/random/medical/two_percent_xeno_egg_spawner = 0.2,
+))
 
 GLOBAL_LIST_INIT(scrap_food, list(
 	/obj/effect/spawner/random/food_or_drink = 1,
@@ -55,22 +64,13 @@ GLOBAL_LIST_INIT(scrap_food, list(
 	/obj/item/food/monkeycube = 1,
 	GLOB.trash_loot = 1,
 	))
-/*
-//бля лан похуй потом
-//ПОЗЖЕ ДОБАВИТЬ В НИЖНИЙ СПИСОК
-GLOBAL_LIST_INIT(techscience, list(
-	/obj/effect/spawner/random/techstorage/data_disk = 1,
-	/obj/effect/spawner/random/techstorage/arcade_boards = 1,
-	/obj/effect/spawner/random/techstorage/service_all = 1,
-	/obj/effect/spawner/random/techstorage/rnd_all = 1,
-	/obj/effect/spawner/random/techstorage/tcomms_all = 1,
-	))
-*/
+
 GLOBAL_LIST_INIT(scrap_science, list(
-	GLOB.trash_loot = 2,
-	/obj/item/shard = 1,
-	/obj/item/stack/rods = 1,
-	GLOB.tier1_reward = 1,
+	GLOB.trash_loot = 20,
+	/obj/item/shard = 5,
+	/obj/item/stack/rods = 5,
+	GLOB.tier1_reward = 2,
+	GLOB.tier2_reward = 1,
 	))
 GLOBAL_LIST_INIT(scrap_cloth, list(
 	/obj/effect/spawner/random/clothing/costume = 1,
@@ -87,31 +87,39 @@ GLOBAL_LIST_INIT(scrap_cloth, list(
 	/obj/effect/spawner/random/clothing/wardrobe_closet_colored = 1,
 	/obj/effect/spawner/random/clothing/backpack = 1,
 	/obj/effect/spawner/random/clothing/funny_hats = 1,
-	GLOB.trash_loot = 10,
+	GLOB.trash_loot = 5,
 	))
 
 GLOBAL_LIST_INIT(scrap_industrial, list(
-	GLOB.trash_loot = 2,
-	/obj/effect/spawner/random/engineering/tool = 2,
-	/obj/effect/spawner/random/trash/garbage = 4,
-	/obj/effect/spawner/random/trash/deluxe_garbage = 2,
-	/obj/item/shard = 1,
-	/obj/item/stack/rods = 1,
-	/obj/item/storage/toolbox = 1,
-	/obj/item/storage/toolbox/electrical = 1,
-	/obj/item/storage/toolbox/mechanical = 1,
-	/obj/item/storage/toolbox/emergency = 1,
-	/obj/item/storage/toolbox/artistic = 1,
-	/obj/item/storage/toolbox/syndicate = 1,
-	))
+    // --- МУСОР И Т.Д---
+    /obj/effect/spawner/random/trash/garbage = 300,
+    GLOB.trash_loot = 200,
+    /obj/effect/spawner/random/trash/deluxe_garbage = 150,
+    /obj/item/shard = 40,
+    /obj/effect/spawner/random/engineering/tool = 50,
+    /obj/item/stack/rods = 40,
+
+    // --- ТУЛБОКСЫ ---
+    /obj/item/storage/toolbox = 5,
+    /obj/item/storage/toolbox/mechanical = 5,
+    /obj/item/storage/toolbox/electrical = 5,
+    /obj/item/storage/toolbox/emergency = 5,
+    /obj/item/storage/toolbox/artistic = 2, // Чуть реже
+    /obj/item/storage/toolbox/mechanical/old/clean = 15,
+    /obj/item/storage/toolbox/mechanical/old = 10,
+	/obj/item/storage/toolbox/emergency/old = 10,
+
+    // --- СИНДИКАТ ---
+    /obj/item/storage/toolbox/syndicate = 1,
+))
 
 //комбо из всего
 GLOBAL_LIST_INIT(scrap_poor, list(
-	GLOB.scrap_maintenance = 1,
-	GLOB.scrap_trash = 1,
-	GLOB.scrap_material = 1,
-	GLOB.scrap_medical = 1,
-	GLOB.scrap_food = 1,
-	GLOB.scrap_cloth = 1,
-	GLOB.scrap_industrial = 1,
-	))
+    GLOB.scrap_trash = 20,
+    GLOB.scrap_food = 10,
+    GLOB.scrap_cloth = 10,
+    GLOB.scrap_maintenance = 20,
+    GLOB.scrap_material = 5,
+    GLOB.scrap_industrial = 5,
+    GLOB.scrap_medical = 5,
+))

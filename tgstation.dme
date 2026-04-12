@@ -9696,4 +9696,6 @@
 #include "modular_regzt\code\modules\random_item\lockermech.dm"
 #include "modular_regzt\code\modules\random_item\synt_drone.dm"
 #include "modular_regzt\code\modules\scrap\scrap_pile.dm"
+#include "modular_regzt\code\modules\scrap\scrap_beacon.dm"
+#include "modular_regzt\code\modules\scrap\scrap_loot.dm"
 // END_INCLUDE
