@@ -1,6 +1,7 @@
-//todo:subspace boxcutter. admin pda, clear, works w/o tcomms, give infini cell. laser pointer of doom. stimulant injector.  black market uplink. pocket extinguisher. tennis ball gun.
+//todo:subspace boxcutter. laser pointer of doom. stimulant injector.  black market uplink. pocket extinguisher. tennis ball gun.
 //todo:implement delayed item population of pouches and boxes to decrease the intensiveness of spawning in / despawning
 //todo:radials out the ass would be nice! But they're a bit above my smooth brain at the moment. Ideas for radials: slime core / useful clothing traits necklace. admin spessknife. fix the medicell gun module to use radials instead of sequence.
+//todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
 //Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
 //This will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
 //todo: pickup people or machiens with it too? wouldn't that be cool.
@@ -32,12 +33,13 @@
 	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
 	icon_state = "blue-bag"
-	worn_icon_state = "null"//Dont fuck with my drip, todo: make drip-pouch worn visible
+	worn_icon_state = "null"//Dont fuck with my drip
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	slot_flags = ITEM_SLOT_POCKETS//pockets only >:(
+	slot_flags = ITEM_SLOT_POCKETS//pockets only >:( if i accidentally equip a construction bag to my belt slot instead of my pockets first, where the value proposition is much higher, I will explode
 	storage_type = /datum/storage/admin/bag
 
+//This makes me physically ill. My skin crawls and I can feel the walls judging me.
 /obj/item/storage/bag/construction/admin/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/stack/rods = 50,// amount should be null if it should spawn with the type's default amount
@@ -96,6 +98,7 @@
 		var/amt = items_inside[stack_type]
 		new stack_type(src, amt, FALSE)
 
+//above bag, but now its purple and has even more stuff
 /obj/item/storage/bag/construction/admin/subspace
 	name = "subspace construction bag"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
@@ -104,6 +107,7 @@
 	icon_state = "sub-bag"
 
 // Badmin pinpointer. The bool lets you find people, even if they aren't wearing clothes, as long as you share a z-layer
+// The lack of adaption of the Lifeline PDA app to these pinpointers is just disappointing. These are objectively worse when compared to lifeline.
 /obj/item/pinpointer/crew/admin//code\game\objects\items\pinpointer.dm
 	name = "subspace target locator"
 	desc = "A sleek handheld tablet with a complex looking antennae."
@@ -113,8 +117,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-//Tech's Disruptor - its a fischer but with every flavor of phasing
-//Sometimes you need something to just not work for a moment
+//Tech's Disruptor - its a fischer but with every flavor of phasing on the projectile
+//Sometimes you need something to just not work for a moment. You could just use buildmode, sure.
 //to-do:steal code from /obj/projectile/beam/emitter/hitscan/psy to make this a depression pistol when shooting a mob with a disruptor.
 //Techs do Infiltration and Lights testing.
 /obj/projectile/energy/fisher/admin//Passes essentially everything, make sure you click on what you want to disable directly
@@ -161,7 +165,7 @@
 	obj_flags = EMAGGED
 	w_class = WEIGHT_CLASS_TINY
 
-//Debug RCD, but using the cooler RCD type. Did you know that there already exists a decently superior alternative to the /obj/item/construction/rcd/combat/admin?
+//New admin RCD, but using the cooler RCD type. Did you know that there already exists a decently superior alternative to the /obj/item/construction/rcd/combat/admin?
 //It was /obj/item/construction/rcd/arcd and for whatever reason this unused one had the potential to be better. But wasn't used.
 //modular_nova\master_files\code\game\objects\items\RCD.dm
 //code\game\objects\items\rcd\RCD.dm
@@ -181,7 +185,7 @@
 //RCD Disks - What the fuck is this code man
 //Placeholder spot to put an admin RCD disk when I eventually get around to fixing upstream
 
-//Debug Rapid Lighting Device
+//Admin Rapid Lighting Device
 //code\game\objects\items\rcd\RLD.dm
 //todo:subspace icons
 /obj/item/construction/rld/admin
@@ -210,7 +214,7 @@
 	type_blacklist = list()
 	w_class = WEIGHT_CLASS_TINY
 
-//Debug Light Replacer
+//Admin Light Replacer
 //todo:icon variant
 //code\game\objects\items\devices\lightreplacer.dm
 /obj/item/lightreplacer/blue/admin
@@ -221,13 +225,13 @@
 	max_uses = INFINITY
 	w_class = WEIGHT_CLASS_TINY
 
-//Debug Atmos Holofan
+//Admin Atmos Holofan
 //I should probably make a version of this that places tinyfans instead.
 //todo:icon variants: obj icon & new forcefield, retexture the engie projector icon for use with the atmos holofan
 //code\game\objects\items\holosign_creator.dm
 /obj/item/holosign_creator/atmos/admin
 	name = "subspace ATMOS holofan projector"
-	desc = "A holographic projector that creates holographic barriers that prevent changes in atmosphere conditions."
+	desc = "A holographic projector that creates holographic barriers that prevent changes in atmosphere conditions. Did you know that right clicking this directly while it is in your active hand can turn on a 'clearview' mode?
 	icon_state = "signmaker_atmos"
 	max_signs = INFINITY
 	projectable_through = list( /obj )
@@ -301,7 +305,7 @@
 	max_matter = INFINITY
 	construction_upgrades = RCD_UPGRADE_SILO_LINK
 	w_class = WEIGHT_CLASS_TINY
-///Design types for debug service constructor, I just smushed the two lists together
+///Design types for debug service constructor, I just smushed the two lists together, because no other plumber exists with the full list. why are we like this? is this even all of them?
 	var/static/list/admin_design_types = list(
 		//Category 1 synthesizers
 		"Synthesizers" = list(
@@ -394,7 +398,7 @@
 * But after looking through medicell code, I do not want to deal with repacking those procs right now. Maybe later.
 */
 
-// Admin surgery tray, for the med box
+// Admin surgery tray, for the new med box
 /obj/item/surgery_tray/admin
 	name = "technician's surgery tray"
 	desc = "Full of things that you will probably want to do surgery with. Objectively a better user experience than the omnitool, which is atrociously out of date."
@@ -405,7 +409,7 @@
 		/obj/item/stack/medical/wrap/sticky_tape/surgical,
 		/obj/item/shears,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown, // NOVA EDIT ADDITION
+		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown,//Did you know the gowns bypass clothing for surgery, so you dont actually need to look at people naked?
 		/obj/item/surgical_drapes,
 		/obj/item/scalpel/advanced,
 		/obj/item/retractor/advanced,
@@ -413,7 +417,8 @@
 		/obj/item/blood_filter/advanced,
 	)
 
-// New admin PDA, thank you debug modular computer for existing.
+// New admin PDA, thank you debug modular computer for existing. Also competes for 'most variables set'
+// code\modules\modular_computers\computers\item\pda.dm
 /obj/item/modular_computer/pda/admin
 	name = "technician's PDA"
 	device_theme = PDA_THEME_SPOOKY
@@ -425,7 +430,11 @@
 	allow_chunky = TRUE
 	stored_paper = 10
 	max_paper = INFINITY
-	var/obj/item/stock_parts/power_store/internal_cell = /obj/item/stock_parts/power_store/cell
+	var/obj/item/stock_parts/power_store/internal_cell = /obj/item/stock_parts/power_store/cell/infinite
+	light_power = 10
+	light_range = 10
+	light_angle = 360
+	w_class = WEIGHT_CLASS_TINY
 
 //I will wait for someone with more knowledge than me to tell me the correct way to smoosh these procs together
 /obj/item/modular_computer/pda/admin/Initialize(mapload)
@@ -434,15 +443,36 @@
 
 /obj/item/modular_computer/pda/admin/Initialize(mapload)
 	. = ..()
-	emag_act(forced = TRUE)
+	emag_act(forced = TRUE)//auto-emags our pda, oh wow so nice
 	var/datum/computer_file/program/themeify/theme_app = locate() in stored_files
 	if(theme_app)
 		for(var/theme_key in GLOB.pda_name_to_theme - GLOB.default_pda_themes)
 			LAZYADD(theme_app.imported_themes, theme_key)
 	var/datum/computer_file/program/messenger/msg = locate() in stored_files
 	if(msg)
-		msg.invisible = TRUE//Dont put techs on blast for existing.
+		msg.invisible = TRUE//'UHHH HELLO, ADMIN? WHY CAN I TEXT YOU? DID YOU MEAN TO DO THAT? ARE YOU REAL?'
 
 /obj/item/modular_computer/pda/admin/get_messenger_ending()
 	return "Sent from the space between timelines, narratively null."
 
+// Admin laser pointer, because the infinite laser pointer isn't good enough.
+// The code for these things is kinda unnervingly long.
+// I wanted to add two state changes where you can do serious, legitimate damage with it, like its a hitscan beam weapon, one that just burns and the other that just melts and destroys stuff, but thats beyond my care to ability together at the moment
+/obj/item/laser_pointer/admin
+	name = "subspace laser pointer"
+	desc = "It's a fidget toy with a warning label, describing why you should definitely avoid pointing this rapidly enough for the universe to 'ratelimit' you, whatever that means. \
+	Turning it over, you notice a crudely hand-etched representation of a crying cyborg."
+	icon = 'icons/obj/service/bureaucracy.dmi'
+	icon_state = "pointer"
+	w_class = WEIGHT_CLASS_TINY
+	effectchance = 100
+	energy = INFINITY
+	max_energy = INFINITY
+	max_range = INFINITY
+	pointer_icon_state = "purple_laser" // Icon for the laser, affects both the laser dot and the laser pointer itself, as it shines a laser on the item itself. Something silly could be done here.
+
+// Hahahaha ahh....
+/obj/item/laser_pointer/admin/Initialize(mapload)
+	. = ..()
+	diode = new /obj/item/stock_parts/micro_laser/quadultra
+	crystal_lens = new /obj/item/stack/ore/bluespace_crystal/refined
