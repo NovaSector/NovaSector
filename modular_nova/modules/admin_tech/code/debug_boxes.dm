@@ -1,3 +1,5 @@
+//todo: recreational drugs box
+//todo: fix all the slime boxes, those suck
 // Fun Boxes and Spawners//
 // Nova Plushie Spawners, no filtering
 /obj/effect/spawner/random/entertainment/plushie/nova/

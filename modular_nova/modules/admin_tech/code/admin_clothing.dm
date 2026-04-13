@@ -1,3 +1,4 @@
+//todo:neck slot slime pendant which holds fun spells / clothing traits / maybe allows us to toggle a POI state category or an antag datum for orbit menu category
 // Debug Encryption Key and Headset, still manually populates the channel list because I am not a real coder, just a denthead
 /obj/item/encryptionkey/admin
 	name = "\proper the subspace encryption key"
@@ -94,7 +95,6 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	drop_sound = SFX_GOGGLES_DROP
 	equip_sound = SFX_GOGGLES_EQUIP
 
-
 //I am sorry for I must initialize and recreate procs or the drip will suffer, these goggles are too ugly
 /obj/item/clothing/glasses/meson/engine/admin/debug/Initialize(mapload)
 	. = ..()
@@ -118,8 +118,9 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	human_user.update_sight()
 	return CLICK_ACTION_SUCCESS
 
-// needs phasing and inspect blocking on separate toggles.  later needs a visual effect.
-// Attempts to create a wall-phasing mode that you can enable with the visor.
+// Admin Helmet
+// todo: add inspect blocking to phasing mode, add a visual.
+// Attempts to create a wall-phasing mode that you can enable with control clicking the helmet
 /// Whether phasing is currently active
 /obj/item/clothing/head/helmet/perceptomatrix/admin/item_ctrl_click(mob/user)
     if(!isliving(user))
@@ -147,11 +148,11 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
         // detach_clothing_traits is already called by the parent unequip logic,
         // but we reset our state variable here
 
+//Informs our silly staff that they can do this, if they bothered to inspect
 /obj/item/clothing/head/helmet/perceptomatrix/admin/examine(mob/user)
     . = ..()
-    . += span_notice("Ctrl-click while wearing to toggle phasing. Currently [admin_phasing ? "active" : "inactive"].")
+    . += span_notice("Ctrl-Click while wearing to toggle phasing. Currently [admin_phasing ? "active" : "inactive"].")
 
-// Admin Helmet
 // We love casting spells. Did you know the perceptomatrix counts for spell clothing? Aint that neat.
 /obj/item/clothing/head/helmet/perceptomatrix/admin
 	name = "bluespace visor"
@@ -163,17 +164,59 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	base_icon_state = "blue-visor"
 	worn_icon_muzzled = "blue-visor"
 	inhand_icon_state = "null"
+	core_installed = TRUE
 	armor_type = /datum/armor/admin
 	var/admin_phasing = FALSE
+	var/list/mob/dead/observer/spirits
+	COOLDOWN_DECLARE(subspace_harmonic_signaller_cooldown)
 
 //Intercepts init icon state from parent, this might not be necessary. It also might not be working right, I dont know enough to know.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/adjust_fishing_difficulty, -7) // PSYCHIC FISHING
-	AddComponent(/datum/component/hat_stabilizer, loose_hat = TRUE)
-
+	AddComponent(/datum/component/hat_stabilizer, loose_hat = FALSE)
+//Please stop eating my icon change I beg
 /obj/item/clothing/head/helmet/perceptomatrix/admin/update_icon_state()
 	return
+
+// Thank you, code\modules\mining\lavaland\mining_loot\megafauna\ash_drake.dm - /obj/item/melee/ghost_sword, very cool
+/obj/item/clothing/head/helmet/perceptomatrix/admin/click_ctrl_shift(mob/user)
+	if(!COOLDOWN_FINISHED(src, subspace_harmonic_signaller_cooldown))
+		to_chat(user, span_warning("The subspace harmonic signaller is cooling down! Using this too frequently might upset the powers that be!"))
+		return
+
+	COOLDOWN_START(src, subspace_harmonic_signaller_cooldown, 15 SECONDS)//Let just assume people are responsible.
+	to_chat(user, span_notice("The subspace harmonic signaller charges up and releases a pulse, notifying all the eyes-between-spaces of your activities!"))
+	notify_ghosts(
+		"[user.real_name] has attenuated and pulsed the subspace harmonic signaller of [user.p_their()] [name], alerting the eyes-between-spaces of their activities!",
+		source = user,
+		ignore_key = POLL_IGNORE_SPECTRAL_BLADE,//We keep this because it's going to draw the same people -- chronic observers
+		header = name
+	)
+
+/obj/item/clothing/head/helmet/perceptomatrix/admin/process()
+	ghost_check()
+
+/obj/item/clothing/head/helmet/perceptomatrix/admin/proc/ghost_check()
+	var/turf/cur_turf = get_turf(src)
+	var/list/contents = cur_turf.get_all_contents()
+	var/mob/dead/observer/current_spirits = list()
+	for(var/atom/random_thing in contents)
+		random_thing.transfer_observers_to(src)
+
+	for(var/mob/dead/observer/ghost in orbiters?.orbiter_list)
+		ghost.SetInvisibility(INVISIBILITY_NONE, id = type, priority = INVISIBILITY_PRIORITY_BASIC_ANTI_INVISIBILITY)
+		current_spirits |= ghost
+
+	for(var/mob/dead/observer/ghost in spirits - current_spirits)
+		ghost.RemoveInvisibility(type)
+
+	spirits = current_spirits
+	return length(spirits)
+
+/obj/item/clothing/head/helmet/perceptomatrix/admin/examine(mob/user)
+    . = ..()
+    . += span_notice("Ctrl-Shift-Click while wearing to ping your subspace harmonic signaller, which will notify all observers to come orbit you.")
 
 //Now we get really magical.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
@@ -383,5 +426,3 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	icon_state = "sub-magboots0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	armor_type = /datum/armor/admin/badmin
-
-

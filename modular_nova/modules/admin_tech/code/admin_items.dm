@@ -1,9 +1,11 @@
-//todo:subspace boxcutter. laser pointer of doom. stimulant injector.  black market uplink. pocket extinguisher. tennis ball gun.
+//todo:subspace boxcutter. injectors. better adminodrazine. black market uplink. pocket extinguisher. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner. new meteor pen? admin cyborgs.
 //todo:implement delayed item population of pouches and boxes to decrease the intensiveness of spawning in / despawning
 //todo:radials out the ass would be nice! But they're a bit above my smooth brain at the moment. Ideas for radials: slime core / useful clothing traits necklace. admin spessknife. fix the medicell gun module to use radials instead of sequence.
 //todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
+//todo:subspace materials?
 //Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
-//This will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
+//Sprite Credits to CEV-ERIS, y'all really fucked with this one, it has no reason to look this cool
+//These will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
 //todo: pickup people or machiens with it too? wouldn't that be cool.
 //check admin_datums for the storage datum for this
 /obj/item/storage/bag/admin
@@ -39,7 +41,7 @@
 	slot_flags = ITEM_SLOT_POCKETS//pockets only >:( if i accidentally equip a construction bag to my belt slot instead of my pockets first, where the value proposition is much higher, I will explode
 	storage_type = /datum/storage/admin/bag
 
-//This makes me physically ill. My skin crawls and I can feel the walls judging me.
+//This makes me physically ill. My skin crawls and I can feel the professionals judging me.
 /obj/item/storage/bag/construction/admin/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/stack/rods = 50,// amount should be null if it should spawn with the type's default amount
@@ -58,7 +60,7 @@
 		/obj/item/stack/sheet/plastitaniumglass/fifty = null,
 		/obj/item/stack/sheet/mineral/gold/fifty = null,
 		/obj/item/stack/sheet/mineral/silver/fifty = null,
-		/obj/item/stack/sheet/mineral/uranium = 50,
+		/obj/item/stack/sheet/mineral/uranium = 50,//Radiation stack concerns dont exist, thats how fucking old the original comment on uranium was
 		/obj/item/stack/sheet/mineral/diamond/fifty = null,
 		/obj/item/stack/sheet/bluespace_crystal/fifty = null,
 		/obj/item/stack/sheet/mineral/bananium = 50,
@@ -87,7 +89,7 @@
 		/obj/item/stack/sheet/mineral/zaukerite = 50,
 		/obj/item/stack/sheet/brussite = 50,
 		/obj/item/stack/sheet/tinumium = 50,
-		/obj/item/stack/sheet/copporcitite = 50,
+		/obj/item/stack/sheet/copporcitite = 50,//why do copper tools exist in minecraft?
 		/obj/item/stack/sheet/cobolterium = 50,
 		/obj/item/stack/sheet/pizza/fifty = 50,
 		/obj/item/stack/sheet/spaceship = 50,
@@ -231,7 +233,7 @@
 //code\game\objects\items\holosign_creator.dm
 /obj/item/holosign_creator/atmos/admin
 	name = "subspace ATMOS holofan projector"
-	desc = "A holographic projector that creates holographic barriers that prevent changes in atmosphere conditions. Did you know that right clicking this directly while it is in your active hand can turn on a 'clearview' mode?
+	desc = "A holographic projector that creates holographic barriers that prevent changes in atmosphere conditions. Did you know that right clicking this directly while it is in your active hand can turn on a 'clearview' mode, making the signs unclickable?"
 	icon_state = "signmaker_atmos"
 	max_signs = INFINITY
 	projectable_through = list( /obj )
@@ -417,20 +419,20 @@
 		/obj/item/blood_filter/advanced,
 	)
 
-// New admin PDA, thank you debug modular computer for existing. Also competes for 'most variables set'
+// New admin PDA, thank you debug modular computer for existing.
+// deadmonwonderland requested this one
 // code\modules\modular_computers\computers\item\pda.dm
 /obj/item/modular_computer/pda/admin
 	name = "technician's PDA"
 	device_theme = PDA_THEME_SPOOKY
 	max_capacity = INFINITY
 	hardware_flag = PROGRAM_ALL//This might cause issues? Set to PROGRAM_PDA if it do
-	contained_item = list( /obj/item/ )
+// contained_item = list( /obj/item/gun/energy/meteorgun/pen ) // static lists SUCK
 	inserted_item = /obj/item/gun/energy/meteorgun/pen
 	long_ranged = TRUE
 	allow_chunky = TRUE
 	stored_paper = 10
 	max_paper = INFINITY
-	var/obj/item/stock_parts/power_store/internal_cell = /obj/item/stock_parts/power_store/cell/infinite
 	light_power = 10
 	light_range = 10
 	light_angle = 360
@@ -443,6 +445,7 @@
 
 /obj/item/modular_computer/pda/admin/Initialize(mapload)
 	. = ..()
+	internal_cell = new /obj/item/stock_parts/power_store/cell/infinite
 	emag_act(forced = TRUE)//auto-emags our pda, oh wow so nice
 	var/datum/computer_file/program/themeify/theme_app = locate() in stored_files
 	if(theme_app)
@@ -457,7 +460,7 @@
 
 // Admin laser pointer, because the infinite laser pointer isn't good enough.
 // The code for these things is kinda unnervingly long.
-// I wanted to add two state changes where you can do serious, legitimate damage with it, like its a hitscan beam weapon, one that just burns and the other that just melts and destroys stuff, but thats beyond my care to ability together at the moment
+// I wanted to add two state changes where you can do serious, legitimate damage with it, like its a hitscan beam weapon, one that just burns and the other that just melts and destroys stuff, but thats beyond my ability to cobble together at the moment
 /obj/item/laser_pointer/admin
 	name = "subspace laser pointer"
 	desc = "It's a fidget toy with a warning label, describing why you should definitely avoid pointing this rapidly enough for the universe to 'ratelimit' you, whatever that means. \
@@ -476,3 +479,130 @@
 	. = ..()
 	diode = new /obj/item/stock_parts/micro_laser/quadultra
 	crystal_lens = new /obj/item/stack/ore/bluespace_crystal/refined
+
+// Admin Reagent Containers
+//todo:/obj/item/stack/medical/synth_repair adaptions for admemes
+// code\modules\reagents\reagent_containers.dm
+//Admeme syringe with included syringe gun interactions. Seems like a horrible thing to leave laying around when assaulting the Crew, but, you're a badmin, what do you care?
+// Did you know syringes have a baked in time process? Right into the proc, in a do after? Not affected by tool speed or anything. :)
+//todo:icon variant
+//code\modules\reagents\reagent_containers\syringes.dm
+/obj/item/reagent_containers/syringe/admin
+	name = "subspace syringe"
+	desc = "A curiously dense feeling, yet near weightless, syringe. A flat purple crystal is installed where the needle would normally be, and you can glimpse extreme distances peeking at it. \
+	A small adjustor dial surrounds an activator button on the side of the barrel, replacing the plunger. The form factor appears to match Nanotrasen specifications."
+	icon_state = "piercing_0"
+	inhand_icon_state = "piercing_0"
+	base_icon_state = "piercing"
+	volume = 1000
+	possible_transfer_amounts = list(1, 5, 10, 25, 100, 1000)
+	inject_flags = INJECT_CHECK_PENETRATE_THICK
+	armour_penetration = 100
+	dart_insert_casing_icon_state = "overlay_syringe_piercing"
+	dart_insert_projectile_icon_state = "overlay_syringe_piercing_proj"
+	embed_type = /datum/embedding/syringe/piercing
+
+/datum/embedding/syringe/admin
+	embed_chance = 100
+	fall_chance = 0
+	pain_stam_pct = 0
+	transfer_per_second = 1000
+	demolition_mod = 67//Obliterates synths
+
+// Admin patches, the reagent container variety. I probably won't use these in favor of the /obj/item/stack/medical ones, but, I'll make these exist anyways for funsies
+//todo:icon variant
+//code\modules\reagents\reagent_containers\patch.dm
+/obj/item/reagent_containers/applicator/patch/admin
+	name = "subspace patch"
+	desc = "A chemical patch for touch based applications. The material feels gooey and elastic in your hand."
+	icon = 'icons/obj/medical/chemical.dmi'
+	icon_state = "bandaid_blank"
+	volume = 1000
+	apply_method = "apply"
+	embed_type = /datum/embedding/med_patch/admin
+	application_delay = 0 SECONDS
+	self_delay = 0 SECONDS
+
+/obj/item/reagent_containers/applicator/patch/admin/instant
+	name = "subspace patch - instant"
+	desc = parent_type::desc + " You can't quite explain it, but you can just tell this stuff moves oddly"
+	embed_type = /datum/embedding/med_patch/admin/instant
+
+// Did you know patches are embeds? I didnt! It kind of makes sense but WOW do I hate that.
+/datum/embedding/med_patch/admin
+	embed_chance = 100//This used to be 10. That means normal med_patches have a 10% chance to stick to someone when thrown. Neat!
+	transfer_per_second = 1//used to be 0.75. Round number good, unga.
+
+// Variant which delivers all of the patch's contents at once
+/datum/embedding/med_patch/admin/instant
+	transfer_per_second = /obj/item/reagent_containers/applicator/patch/admin::volume
+
+//Admin pills. Pills here. Get your pills here.
+//code\modules\reagents\reagent_containers\pill.dm
+/obj/item/reagent_containers/applicator/pill/admin
+	name = "subspace shard"
+	desc = "A small pill shaped shard of stabilized and crystallized subspace. Its texture is like porous volcanic rock, even though you can't see any of that porosity visibly. You feel compelled to swallow it."
+	icon = 'icons/obj/medical/chemical.dmi'
+	icon_state = "pill"
+	inhand_icon_state = "pill"
+	worn_icon_state = "nothing"
+	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	volume = 1000
+	/// How many "layers" we have remaining. Each layer equates to 1 second of digestion -> var/layers_remaining = 3. This PRETTY COOL VARIABLE is used almost exclusively by unit tests. Very sad stuff.
+
+//like adderall XR, yeah? extended release. theoretical pill to shove into people for plotarmor or other extremely heinous purposes
+/obj/item/reagent_containers/applicator/pill/admin/xr
+	name = "subspace shard"
+	desc = "A slightly smaller pill shaped shard of stabilized and crystallized subspace. This one feels pliable, like putty, but there is a foreign grit that leaves you feeling uneasy. You feel compelled to swallow it."
+	volume = 600
+	layers_remaining = 600
+
+// Admin watering can
+// Adminordrazine can be used for botanical work, did you know?
+/obj/item/reagent_containers/cup/watering_can/advanced/admin
+	name = "subspace botanical can"
+	desc = "A gardening can embedded with technology that leaves you with a dull pain in your head. An ominous purple crystal wobbles and glimmers from inside the device, golden fluid leaking from momentarily visible pores like bubbling lava. \
+	You suddenly find yourself afraid of spilling the contents."
+	icon_state = "adv_watering_can"
+	inhand_icon_state = "adv_watering_can"
+	list_reagents = list(/datum/reagent/medicine/adminordrazine = 1000)
+	refill_rate = 100
+	refill_reagent = /datum/reagent/medicine/adminordrazine
+
+// admin slimes stuff? dark cerulean regenerative
+
+// /obj/item/reagent_containers/cooler_jug - code\modules\reagents\reagent_containers\cooler_jug.dm - admin cooler jug.
+// /obj/item/reagent_containers/condiment/pack - code\modules\reagents\reagent_containers\condiment.dm - i want to make go gurt tubes...
+// /obj/item/reagent_containers/cup/beaker - code\modules\reagents\reagent_containers\cups\_cup.dm - subspace beaker, try and make state change for bonus features
+// /obj/item/inhaler & /obj/item/reagent_containers/inhaler_canister - code\modules\reagents\reagent_containers\inhaler.dm - might not do anything with this
+
+// New Admin chems, this is going in its own page later
+// code\modules\reagents\chemistry\reagents\medicine_reagents.dm
+// todo: blood stabilizer, rad clear, purger. I need to go reference the full_heal globals page for making the different varieties of adminordrazine, and probably just make NEW adminordrazine to go along with the new injectors
+/datum/reagent/medicine/adminordrazine/subspace //An OP chemical for admins
+	name = "Subspace Condensate"
+	description = "The visual consistency of this material is best compared to oobleck. If you're fast enough, you can tear bits off of the mass before it returns to a thin slurry which drips through your fingers."
+	color = "#E0BB00" //golden for the gods
+	taste_description = "badmins"
+	chemical_flags = REAGENT_DEAD_PROCESS
+	metabolized_traits = list(TRAIT_ANALGESIA)
+	/// Flags to fullheal every metabolism tick code\__DEFINES\mobs.dm line 1006
+	full_heal_flags = ~(HEAL_ADMIN|HEAL_BRUTE|HEAL_BURN|HEAL_TOX|HEAL_RESTRAINTS|HEAL_ALL_REAGENTS|HEAL_ORGANS)
+
+// New Admin Injectors, to cut down on medbox spawns. Slime Jelly as your All-Heal option through the combat hypokit is cruel and unusual punishment by way of blorbo destruction.
+// Funny for upstream, less funny here where these tools are used to assist players
+// todo: probably like six unique icons? maybe ill look for a unique new model base
+// I can see myself making a big pile of these, so, lets make an admin empty
+/obj/item/reagent_containers/hypospray/combat/nanites
+	name = "experimental combat stimulant injector"
+	desc = "A modified air-needle autoinjector for use in combat situations. Prefilled with experimental medical nanites and a stimulant for rapid healing and a combat boost."
+	inhand_icon_state = "nanite_hypo"
+	icon_state = "nanite_hypo"
+	base_icon_state = "nanite_hypo"
+	volume = 100
+	list_reagents = list(/datum/reagent/medicine/adminordrazine/quantum_heal = 80, /datum/reagent/medicine/synaptizine = 20)
+
+/obj/item/reagent_containers/hypospray/combat/nanites/update_icon_state()
+	icon_state = "[base_icon_state][(reagents.total_volume > 0) ? null : 0]"
+	return ..()
