@@ -3,7 +3,8 @@
 	desc = "A set of jaws of life, compressed through the magic of science and augmented with alien technology. \
 		Depending on the installed hardlight emitter, it can pry or cut by itself, without any effort required."
 	usesound = 'sound/items/weapons/sonic_jackhammer.ogg'
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.25, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plasma = SHEET_MATERIAL_AMOUNT) 	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.25, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plasma = SHEET_MATERIAL_AMOUNT)
+	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
 	toolspeed = 0.1
 	w_class = WEIGHT_CLASS_SMALL
 
