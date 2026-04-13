@@ -40,7 +40,6 @@
 	name = "hybrid searing tool"
 	desc = "An advanced compact laser projector, augmented with alien technology, \
 		for medical applications such as cauterizing tissue or drilling bone."
-	custom_materials = HYBRID_TOOL_MATERIALS
 	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
 	toolspeed = 0.25
 	w_class = WEIGHT_CLASS_SMALL
