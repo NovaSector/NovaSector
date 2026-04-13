@@ -242,6 +242,10 @@
 #undef WATER_PROTECTION_ARM
 #undef WATER_PROTECTION_HAND
 
+/**
+ * WATER EXPOSURE
+ * Determines how much jelly (blood) a slimeperson should lose when exposed to water, and applies the damage
+ */
 /datum/species/jelly/proc/water_exposure(mob/living/carbon/human/slime, check_clothes = TRUE, quiet_if_protected = FALSE)
 	var/water_multiplier = 1
 	// thick clothing won't protect you if you just drink or inject tho
@@ -273,6 +277,7 @@
 		COOLDOWN_START(src, water_alert_cooldown, 1 SECONDS)
 	return TRUE
 
+/// Checks if slimeperson is exposed to water
 /datum/species/jelly/proc/on_reagent_expose(mob/living/carbon/human/slime, list/reagents, datum/reagents/source, methods, volume_modifier, show_message)
 	SIGNAL_HANDLER
 	if(!(locate(/datum/reagent/water) in reagents)) // we only care if we're exposed to water (duh)
@@ -285,7 +290,7 @@
 		return COMPONENT_NO_EXPOSE_REAGENTS
 	return NONE
 
-// This ensures that tongues always get moved to their chest.
+/// This ensures that tongues always get moved to their chest.
 /datum/species/jelly/proc/on_organ_gain(mob/living/carbon/slime, obj/item/organ/organ)
 	SIGNAL_HANDLER
 	if(is_type_in_list(organ, organs_to_move))
