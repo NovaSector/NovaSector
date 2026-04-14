@@ -63,6 +63,7 @@
 				/obj/item/storage/backpack/satchel/sec = 4,						//14
 				/obj/item/storage/backpack/duffelbag/sec = 4,					//15
 				/obj/item/storage/backpack/messenger/sec = 4,					//16
+				/obj/item/clothing/head/hats/warden/police/patrol = 4,
 				/obj/item/clothing/head/costume/ushanka/sec = 4					//17
 			),
 		),
@@ -98,7 +99,7 @@
 				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
 				/obj/item/clothing/gloves/color/black/security/blue = 4,
 				/obj/item/clothing/head/security_garrison = 4,
-				/obj/item/clothing/head/hats/warden/police/patrol = 4,
+				/obj/item/clothing/head/hats/warden/police/patrol/blue = 4,
 				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
 				/obj/item/storage/backpack/security/blue = 4,
 				/obj/item/storage/backpack/satchel/sec/blue = 4,
@@ -111,10 +112,9 @@
 			"name" = "White",
 			"icon" = "shield-halved",
 			"products" = list(
-				/*
-				/obj/item/clothing/head/beret/sec/nova = 4,
-				/obj/item/clothing/head/security_cap = 4,
-				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
+				/obj/item/clothing/head/beret/sec/nova/white = 4,
+				/obj/item/clothing/head/security_cap/white = 4,
+/*				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4, */
 				/obj/item/clothing/mask/bandana/striped/security/white = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
@@ -135,9 +135,9 @@
 				/obj/item/clothing/under/rank/security/nova/secshorts/white = 4,
 //				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
 				/obj/item/clothing/gloves/color/black/security/white = 4,
-/*				/obj/item/clothing/head/security_garrison = 4,
-				/obj/item/clothing/head/hats/warden/police/patrol = 4,
-				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
+//				/obj/item/clothing/head/security_garrison = 4,
+				/obj/item/clothing/head/hats/warden/police/patrol/white = 4,
+/*				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
 				/obj/item/storage/backpack/security/blue = 4,
 				/obj/item/storage/backpack/satchel/sec/blue = 4,
 				/obj/item/storage/backpack/duffelbag/sec/blue = 4,
@@ -149,10 +149,9 @@
 			"name" = "Black",
 			"icon" = "shield-halved",
 			"products" = list(
-/*
-				/obj/item/clothing/head/beret/sec/nova = 4,
-				/obj/item/clothing/head/security_cap = 4,
-				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
+				/obj/item/clothing/head/beret/sec/nova/black = 4,
+				/obj/item/clothing/head/security_cap/black = 4,
+/*				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
 				/obj/item/clothing/suit/armor/vest/brit = 3,
@@ -173,9 +172,9 @@
 				/obj/item/clothing/under/rank/security/nova/secshorts/black = 4,
 				/obj/item/clothing/shoes/jackboots = 4,
 				/obj/item/clothing/gloves/color/black/security/black = 4,
-/*				/obj/item/clothing/head/security_garrison = 4,
-				/obj/item/clothing/head/hats/warden/police/patrol = 4,
-				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
+//				/obj/item/clothing/head/security_garrison = 4,
+				/obj/item/clothing/head/hats/warden/police/patrol/black = 4,
+/*				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
 				/obj/item/storage/backpack/security/blue = 4,
 				/obj/item/storage/backpack/satchel/sec/blue = 4,
 				/obj/item/storage/backpack/duffelbag/sec/blue = 4,

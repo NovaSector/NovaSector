@@ -94,16 +94,26 @@
 	greyscale_colors = "#3f6e9e#FF0000#00AEEF"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/hats_warden
-//!
+
 /obj/item/clothing/head/hats/warden/police/patrol
 	name = "police patrol cap"
 	desc = "A dark colored hat with a silver badge, for the officer interested in style."
-	post_init_icon_state = "beret_badge_fancy_twist"
-	icon_state = "policeofficerpatrolcap"
-	greyscale_config = /datum/greyscale_config/beret_badge_fancy
-	greyscale_config_worn = /datum/greyscale_config/beret_badge_fancy/worn
-	greyscale_colors = "#3f6e9e#FF0000#00AEEF"
+	post_init_icon_state = "patrol_cap"
+	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol"
+	greyscale_config = /datum/greyscale_config/patrol_cap
+	greyscale_config_worn = /datum/greyscale_config/patrol_cap/worn
+	greyscale_colors = "#A52F29#39393F"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/head_helmet
-//	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
-//	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
+
+/obj/item/clothing/head/hats/warden/police/patrol/blue
+	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol/blue"
+	greyscale_colors = "#3F6E9E#EBEBEB"
+
+/obj/item/clothing/head/hats/warden/police/patrol/white
+	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol/white"
+	greyscale_colors = "#EBEBEB#3F6E9E"
+
+/obj/item/clothing/head/hats/warden/police/patrol/black
+	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol/black"
+	greyscale_colors = "#3F6E9E#3F6E9E"

@@ -2809,6 +2809,25 @@ Security
 	name = "Security Gloves (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 
+/datum/greyscale_config/patrol_cap
+	name = "Patrol Cap"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/patrol_cap.json'
+
+/datum/greyscale_config/patrol_cap/worn
+	name = "Patrol Cap (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
+
+/datum/greyscale_config/security_cape
+	name = "Security Cape"
+//	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi' vending + neck, sec cap too
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/security_cape.json'
+
+/datum/greyscale_config/security_cape/worn
+	name = "Security Cape (Worn)"
+//	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/security_cape_worn.json'
+
 /*
 This is all our modular PDAs, ITS LARGE!
 */

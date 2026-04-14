@@ -3,37 +3,17 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "hoscloak_blue"
 
-/datum/atom_skin/security_cape
-	abstract_type = /datum/atom_skin/security_cape
-
-/datum/atom_skin/security_cape/black
-	preview_name = "Black Variant"
-	new_icon_state = "cape_black"
-
-/datum/atom_skin/security_cape/red
-	preview_name = "Red Variant"
-	new_icon_state = "cape_red"
-
-/datum/atom_skin/security_cape/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "cape_blue"
-
-/datum/atom_skin/security_cape/white
-	preview_name = "White Variant"
-	new_icon_state = "cape_white"
-
 /obj/item/clothing/neck/security_cape
 	name = "security cape"
 	desc = "A fashionable cape worn by security officers."
-	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
-	icon_state = "cape_black"
+	icon_state = "/obj/item/clothing/neck/security_cape"
+	post_init_icon_state = "security_cape"
+	greyscale_config = /datum/greyscale_config/security_cape
+	greyscale_config_worn = /datum/greyscale_config/security_cape/worn
+	greyscale_colors = "#A52F29#EBEBEB"
 	inhand_icon_state = "" //no unique inhands
 	///Decides the shoulder it lays on, false = RIGHT, TRUE = LEFT
 	var/swapped = FALSE
-
-/obj/item/clothing/neck/security_cape/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_cape)
 
 /obj/item/clothing/neck/security_cape/click_alt(mob/user)
 	swapped = !swapped
