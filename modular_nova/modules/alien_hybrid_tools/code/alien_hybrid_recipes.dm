@@ -45,7 +45,7 @@
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/hybrid_cautery
-	result = /obj/item/scalpel/advanced/alien
+	result = /obj/item/cautery/advanced/alien
 	reqs = list(
 		/obj/item/cautery/advanced = 1,
 		/obj/item/cautery/alien = 1,
