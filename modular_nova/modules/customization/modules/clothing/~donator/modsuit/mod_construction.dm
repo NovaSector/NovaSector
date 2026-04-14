@@ -162,6 +162,7 @@
 	paragon.variants = mod.theme.variants.Copy()
 	mod.theme = paragon
 	mod.theme.variants[skin] = variant_data
+	mod.theme.armor_type = /datum/armor/mod_theme_medical
 	//Changes pre-equip modsuit name and description to custom.
 	mod.name = "\improper Homo Ludens Modsuit '[capitalize(initial(theme_type.name))]'"
 	mod.desc = initial(theme_type.desc)
@@ -255,6 +256,7 @@
 	jumper.variants = mod.theme.variants.Copy()
 	mod.theme = jumper
 	mod.theme.variants[skin] = variant_data
+	mod.theme.armor_type = /datum/armor/mod_theme_security
 	mod.name = "\improper PA-4 MK-7 J.S '[capitalize(initial(theme_type.name))]'"
 	mod.desc = initial(theme_type.desc)
 	return ..()
@@ -436,15 +438,24 @@
 
 	if(istype(mod, /obj/item/mod/control/pre_equipped/mining))
 		mod.theme.variants[skin] = mining_variant_data
+		mod.theme.armor_type = /datum/armor/mod_theme_mining
+		mod.theme.resistance_flags |= FIRE_PROOF | LAVA_PROOF
 	else
 		mod.theme.variants[skin] = variant_data
+		// You can set default armor/properties for other suits here if you want them to differ from the base suit
 
 	//Changes pre-equip modsuit name and description to custom.
 	mod.name = "\improper Java Operated Intelligence Suit '[capitalize(initial(theme_type.name))]'"
 	mod.desc = initial(theme_type.desc)
 	mod.extended_desc = initial(theme_type.extended_desc)
-	for(var/obj/item/part in mod.get_parts())
+
+	for(var/obj/item/part in mod.get_parts() + mod)
+		part.set_armor(mod.theme.armor_type)
+		part.resistance_flags = mod.theme.resistance_flags
+		if(part == mod)
+			continue
 		part.name = "[capitalize(initial(theme_type.name))] [initial(part.name)]"
 		part.desc = "[initial(part.desc)] [initial(theme_type.desc)]"
+
 	mod.theme.set_skin(mod, skin)
 	return ..()

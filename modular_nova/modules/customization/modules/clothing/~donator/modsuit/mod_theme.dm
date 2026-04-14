@@ -35,7 +35,7 @@
 		Its defining strength is speed—high-powered servos and actuators fused into a lightweight carbon-fiber frame allow \
 		for exceptional mobility at the cost of minimal armor plating."
 	default_skin = "paragon"
-	armor_type = /datum/mod_theme/medical::armor_type
+	armor_type = /datum/mod_theme/civilian::armor_type
 	charge_drain = DEFAULT_CHARGE_DRAIN * 1.5
 	slowdown_deployed = 0.5
 	hardlight_theme = STANDARD_BLUE
@@ -100,7 +100,7 @@
 		allowing the suit to do more work in carrying the weight. However, the systems used in these suits are more than \
 		a few years out of date, leading to an overall lower capacity for modules."
 	default_skin = "jumper"
-	armor_type = /datum/mod_theme/security::armor_type
+	armor_type = /datum/mod_theme/civilian::armor_type
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 2
 	slowdown_deployed = 0.5
 	hearing_protection = EAR_PROTECTION_NORMAL
@@ -154,7 +154,7 @@
 					While it feels latexy in touch, it does not stick like latex, and seems to be constantly moving, like millions of tiny nanites are forming the device. \
 					The JOISuit seems to heat up and exert freezing air constantly when active."
 	default_skin = "joisuit"
-	armor_type = /datum/mod_theme/mining::armor_type
+	armor_type = /datum/mod_theme/civilian::armor_type
 	resistance_flags = FIRE_PROOF|LAVA_PROOF
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
