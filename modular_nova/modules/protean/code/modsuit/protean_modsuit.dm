@@ -169,12 +169,7 @@
 			balloon_alert(user, "turn it off!")
 			return ITEM_INTERACT_BLOCKING
 
-		var/static/list/obj/item/mod/control/banned_modsuits = list(
-			/obj/item/mod/control/pre_equipped/infiltrator,
-			/obj/item/mod/control/pre_equipped/protean,
-		)
-
-		if(is_type_in_list(tool, banned_modsuits))
+		if(istype(tool, /obj/item/mod/control/pre_equipped/protean) || !(tool.slot_flags & ITEM_SLOT_BACK))
 			balloon_alert(user, "incompatible!")
 			return ITEM_INTERACT_BLOCKING
 
