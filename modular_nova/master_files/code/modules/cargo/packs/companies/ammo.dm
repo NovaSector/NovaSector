@@ -148,9 +148,11 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/peacekeeper_hp
 	contains = list(/obj/item/ammo_box/c9mm/hp)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/peacekeeper_ap
 	contains = list(/obj/item/ammo_box/c9mm/ap)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/peacekeeper_rubber
 	contains = list(/obj/item/ammo_box/c9mm/rubber)
@@ -160,9 +162,11 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/auto10mm_hp
 	contains = list(/obj/item/ammo_box/c10mm/hp)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/auto10mm_ap
 	contains = list(/obj/item/ammo_box/c10mm/ap)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/auto10mm_rubber
 	contains = list(/obj/item/ammo_box/c10mm/rubber)
@@ -181,6 +185,7 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/strilka_ap
 	contains = list(/obj/item/ammo_box/c310_cargo_box/piercing)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/cesarzowa_lethal
 	contains = list(/obj/item/ammo_box/c27_54cesarzowa)
@@ -196,6 +201,7 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/sol35_ripper
 	contains = list(/obj/item/ammo_box/c35sol/ripper)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/sol40
 	contains = list(/obj/item/ammo_box/c40sol)
@@ -205,9 +211,11 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/sol40_flame
 	contains = list(/obj/item/ammo_box/c40sol/incendiary)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/sol40_pierce
 	contains = list(/obj/item/ammo_box/c40sol/pierce)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/trappiste585
 	contains = list(/obj/item/ammo_box/c585trappiste)
@@ -217,6 +225,7 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/trappiste585_incendiary
 	contains = list(/obj/item/ammo_box/c585trappiste/incendiary)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/kineticballs
 	contains = list(/obj/item/ammo_box/advanced/kineticballs)
@@ -260,15 +269,18 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/magnum_buckshot
 	contains = list(/obj/item/ammo_box/advanced/s12gauge/magnum)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/express_buckshot
 	contains = list(/obj/item/ammo_box/advanced/s12gauge/express)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/hunter_slug
 	contains = list(/obj/item/ammo_box/advanced/s12gauge/hunter)
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/flechettes
 	contains = list(/obj/item/ammo_box/advanced/s12gauge/flechette)
+	cost = CARGO_CRATE_VALUE * 0.5
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/hornet_nest
 	contains = list(/obj/item/ammo_box/advanced/s12gauge/beehive)

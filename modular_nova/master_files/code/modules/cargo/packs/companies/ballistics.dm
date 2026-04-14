@@ -14,7 +14,7 @@
 /datum/supply_pack/companies/ballistics/nt/mars_single
 	name = "Colt Detective Special"
 	desc = "The HoS took your gun and your badge? No problem! Just pay the absurd taxation fee and you too can be reunited with the lethal power of a .38!"
-	cost = CARGO_CRATE_VALUE * 2.5
+	cost = CARGO_CRATE_VALUE * 4
 	auto_name = FALSE
 	access = FALSE
 	access_view = FALSE
@@ -25,7 +25,7 @@
 /datum/supply_pack/companies/ballistics/nt/double_barrel
 	name = "Double-Barreled Shotgun"
 	desc = "Lost your beloved bunny to a demonic invasion? Clown broke in and stole your beloved gun? No worries! Get a new gun as long as you can pay the absurd fees."
-	cost = CARGO_CRATE_VALUE * 2
+	cost = CARGO_CRATE_VALUE * 4
 	auto_name = FALSE
 	access = FALSE
 	access_view = FALSE
@@ -34,7 +34,7 @@
 	contains = list(/obj/item/gun/ballistic/shotgun/doublebarrel)
 
 /datum/supply_pack/companies/ballistics/nt/shotgun_automatic
-	cost = CARGO_CRATE_VALUE * 5
+	cost = CARGO_CRATE_VALUE * 7.5
 	contains = list(/obj/item/gun/ballistic/shotgun/automatic/combat)
 	required_alert_level = SEC_LEVEL_BLUE
 
@@ -56,7 +56,7 @@
 /datum/supply_pack/companies/ballistics/sol_fed
 
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm
-	cost = CARGO_CRATE_VALUE * 2
+	cost = CARGO_CRATE_VALUE * 4
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
@@ -73,20 +73,20 @@
 
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/skild
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/trappiste)
-	cost = CARGO_CRATE_VALUE * 3
+	cost = CARGO_CRATE_VALUE * 5
 
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/takbok
 	contains = list(/obj/item/gun/ballistic/revolver/takbok)
-	cost = CARGO_CRATE_VALUE * 3
+	cost = CARGO_CRATE_VALUE * 5
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm
-	cost = CARGO_CRATE_VALUE * 3
+	cost = CARGO_CRATE_VALUE * 6
 	required_alert_level = SEC_LEVEL_BLUE
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/renoster_super_kit
 	name = "Archon Systems \"KOLBEN/NACHTREIHER\" M64 Shotgun Conversion Kit"
 	desc = "A set of parts for converting an M64 shotgun into one of Archon Combat Systems's forays into improving the shotgun's end-user experience."
-	cost = CARGO_CRATE_VALUE * 3 // 600 cr at time of writing, 1200 cr total
+	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/crafting_conversion_kit/riot_sol_super)
 	auto_name = FALSE
 	access = FALSE
@@ -96,7 +96,7 @@
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/doublebarrel_super_kit
 	name = "Archon Systems \"LAMMERGEIER\" Double-Barrel Shotgun Conversion Kit"
 	desc = "A set of parts for converting a double-barrel shotgun into one of Archon Combat Systems's forays into improving the shotgun's end-user experience."
-	cost = CARGO_CRATE_VALUE * 3 // 600 cr at time of writing, 1000 cr total
+	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/crafting_conversion_kit/doublebarrel_super)
 	auto_name = FALSE
 	access = FALSE
@@ -111,29 +111,30 @@
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/type213
 	contains = list(/obj/item/gun/ballistic/automatic/type213)
+	cost = CARGO_CRATE_VALUE * 4
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/br38
 	contains = list(/obj/item/gun/ballistic/automatic/battle_rifle)
-	cost = CARGO_CRATE_VALUE * 4
+	cost = CARGO_CRATE_VALUE * 8
 	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/elite
 	contains = list(/obj/item/gun/ballistic/automatic/sol_classic/marksman)
-	cost = CARGO_CRATE_VALUE * 6
+	cost = CARGO_CRATE_VALUE * 12
 	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/bogseo
 	contains = list(/obj/item/gun/ballistic/automatic/xhihao_smg)
-	cost = CARGO_CRATE_VALUE * 5
+	cost = CARGO_CRATE_VALUE * 6.5
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/jager
 	contains = list(/obj/item/gun/ballistic/shotgun/katyusha/jager)
-	cost = CARGO_CRATE_VALUE * 8
+	cost = CARGO_CRATE_VALUE * 12.5
 	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/infanterie
 	contains = list(/obj/item/gun/ballistic/automatic/sol_classic)
-	cost = CARGO_CRATE_VALUE * 7
+	cost = CARGO_CRATE_VALUE * 11
 	required_alert_level = SEC_LEVEL_AMBER
 
 /* //
@@ -150,11 +151,12 @@
 // HC Surplus
 
 /datum/supply_pack/companies/ballistics/hc_surplus
-	cost = CARGO_CRATE_VALUE * 3
+	cost = CARGO_CRATE_VALUE * 6
 	required_alert_level = SEC_LEVEL_BLUE
 
 /datum/supply_pack/companies/ballistics/hc_surplus/shotgun_revolver
 	contains = list(/obj/item/gun/ballistic/revolver/shotgun_revolver)
+	cost = CARGO_CRATE_VALUE * 5
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
@@ -163,6 +165,7 @@
 
 /datum/supply_pack/companies/ballistics/hc_surplus/zashch
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/zashch)
+	cost = CARGO_CRATE_VALUE * 5
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
@@ -171,11 +174,11 @@
 
 /datum/supply_pack/companies/ballistics/hc_surplus/miecz
 	contains = list(/obj/item/gun/ballistic/automatic/miecz)
-	cost = CARGO_CRATE_VALUE * 5
+	cost = CARGO_CRATE_VALUE * 6.5
 
 /datum/supply_pack/companies/ballistics/hc_surplus/napad
 	contains = list(/obj/item/gun/ballistic/automatic/napad)
-	cost = CARGO_CRATE_VALUE * 6
+	cost = CARGO_CRATE_VALUE * 10
 	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/ballistics/hc_surplus/sakhno_rifle
@@ -184,12 +187,12 @@
 
 /datum/supply_pack/companies/ballistics/hc_surplus/lanca
 	contains = list(/obj/item/gun/ballistic/automatic/lanca)
-	cost = CARGO_CRATE_VALUE * 7
+	cost = CARGO_CRATE_VALUE * 11
 	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/ballistics/hc_surplus/anti_materiel_rifle
 	contains = list(/obj/item/gun/ballistic/automatic/wylom)
-	cost = CARGO_CRATE_VALUE * 8
+	cost = CARGO_CRATE_VALUE * 12.5
 	required_alert_level = SEC_LEVEL_AMBER
 
 // Donk
