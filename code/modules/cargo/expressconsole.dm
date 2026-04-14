@@ -121,7 +121,7 @@
 		if(id_card)
 			var/list/access = id_card.GetAccess()
 			has_armory_access = (ACCESS_ARMORY in access)
-	data["has_armory_access"] = has_armory_access || bypass_alert_level
+	data["has_armory_access"] = has_armory_access || bypass_alert_level || (obj_flags & EMAGGED)
 	// NOVA EDIT ADDITION END
 	data["locked"] = locked//swipe an ID to unlock
 	data["siliconUser"] = HAS_SILICON_ACCESS(user)
@@ -192,7 +192,7 @@
 				CRASH("Unknown supply pack id given by express order console ui. ID: [params["id"]]")
 
 			// NOVA EDIT ADDITION START - Alert level gating for express console purchases
-			if(!bypass_alert_level && pack.required_alert_level > SEC_LEVEL_GREEN && SSsecurity_level.get_current_level_as_number() < pack.required_alert_level)
+			if(!bypass_alert_level && !(obj_flags & EMAGGED) && pack.required_alert_level > SEC_LEVEL_GREEN && SSsecurity_level.get_current_level_as_number() < pack.required_alert_level)
 				var/has_bypass = FALSE
 				if(isliving(user))
 					var/mob/living/living_user = user

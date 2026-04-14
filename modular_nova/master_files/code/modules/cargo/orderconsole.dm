@@ -23,4 +23,4 @@
 		if(id_card)
 			var/list/access = id_card.GetAccess()
 			has_armory_access = (ACCESS_ARMORY in access)
-	.["has_armory_access"] = has_armory_access
+	.["has_armory_access"] = has_armory_access || (obj_flags & EMAGGED)
