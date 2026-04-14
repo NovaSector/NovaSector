@@ -21,6 +21,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	semi_auto = TRUE
 	fire_delay = 0.45 SECONDS
+	projectile_damage_multiplier = 0.85
 	spread = 7
 
 
