@@ -157,7 +157,7 @@
 	//recipe given to hearthkins as part of their spawner/team setting
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 	reqs = list(
-		/obj/item/xenoarch/useless_relic = 10,
+		/obj/item/xenoarch/broken_item = 5,
 	)
 	tool_behaviors = list(TOOL_HAMMER)
 	result = /obj/item/hearthkin_ship_fragment_inactive
