@@ -7552,6 +7552,7 @@
 #include "modular_nova\master_files\code\modules\research\designs\medical_designs.dm"
 #include "modular_nova\master_files\code\modules\research\designs\mining_designs.dm"
 #include "modular_nova\master_files\code\modules\research\designs\misc_designs.dm"
+#include "modular_nova\master_files\code\modules\research\designs\smelting_designs.dm"
 #include "modular_nova\master_files\code\modules\research\designs\tool_designs.dm"
 #include "modular_nova\master_files\code\modules\research\designs\weapon_designs.dm"
 #include "modular_nova\master_files\code\modules\research\machinery\_production.dm"
