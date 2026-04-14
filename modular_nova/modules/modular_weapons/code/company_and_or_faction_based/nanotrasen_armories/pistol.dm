@@ -7,7 +7,7 @@
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 	worn_icon_state = "gun"
-	fire_sound = 'modular_nova/modules/modular_weapons/sounds/pistol_light.ogg'
+	fire_sound = 'modular_nova\modules\modular_weapons\sounds\bay_gunshot_magnum.ogg'
 	fire_sound_volume = 100
 
 	w_class = WEIGHT_CLASS_NORMAL
@@ -21,7 +21,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	semi_auto = TRUE
 	fire_delay = 0.45 SECONDS
-	projectile_damage_multiplier = 0.85
+	projectile_damage_multiplier = 0.7 //crew gun using what's typically an antag round, this is more than warranted, maybe even will go lower after testing
 	spread = 7
 
 
