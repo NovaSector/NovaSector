@@ -20,8 +20,8 @@
 	need_bolt_lock_to_interact = TRUE
 	weapon_weight = WEAPON_MEDIUM
 	semi_auto = TRUE
-	fire_delay = 0.35 SECONDS
-	spread = 8
+	fire_delay = 0.45 SECONDS
+	spread = 7
 
 
 /obj/item/gun/ballistic/rifle/c96/give_manufacturer_examine()
