@@ -11,7 +11,7 @@
 	desc = "The Allstar Lasers Star Combat 1 Compact, or \"Allstar SC-1/C\", \
 		is a compact pistol variant of the venerable SC-1 designed with a focus on portability."
 	w_class = WEIGHT_CLASS_SMALL
-	projectile_damage_multiplier = 1
+	projectile_damage_multiplier = 0.8 // 25 * 0.8 = 20 damage, reduced for GREEN tier availability
 
 /obj/item/gun/energy/laser/assault
 	name = "laser assault rifle"
@@ -55,6 +55,9 @@
 
 /obj/item/gun/energy/laser/captain
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield) // 20 hellfires up from 15
+
+/obj/item/gun/energy/e_gun/mini
+	projectile_damage_multiplier = 0.8 // 25 * 0.8 = 20 damage (laser), 30 * 0.8 = 24 damage (disabler), reduced for GREEN tier availability
 
 /obj/item/gun/energy/e_gun
 	name = "energy carbine"
