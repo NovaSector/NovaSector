@@ -120,7 +120,7 @@
 		var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
 		if(id_card)
 			var/list/access = id_card.GetAccess()
-			has_armory_access = (ACCESS_ARMORY in access)
+			has_armory_access = (ACCESS_BRIG in access)
 	data["has_armory_access"] = has_armory_access || bypass_alert_level || (obj_flags & EMAGGED)
 	// NOVA EDIT ADDITION END
 	data["locked"] = locked//swipe an ID to unlock
@@ -199,7 +199,7 @@
 					var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
 					if(id_card)
 						var/list/buyer_access = id_card.GetAccess()
-						has_bypass = (ACCESS_ARMORY in buyer_access)
+						has_bypass = (ACCESS_BRIG in buyer_access)
 				if(!has_bypass)
 					say("This item is only available at a higher alert level.")
 					return

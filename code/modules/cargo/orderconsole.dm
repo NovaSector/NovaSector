@@ -259,10 +259,10 @@
 		if(istype(id_card, /obj/item/card/id/advanced/chameleon)) //We'll bypass access restrictions
 			bypass = TRUE
 
-		// NOVA EDIT ADDITION START - Alert level gating for supply packs, bypassed by armory access or emag
+		// NOVA EDIT ADDITION START - Alert level gating for supply packs, bypassed by security (brig access), emag, or chameleon ID
 		if(pack.required_alert_level > SEC_LEVEL_GREEN && SSsecurity_level.get_current_level_as_number() < pack.required_alert_level)
 			var/list/buyer_access = id_card?.GetAccess()
-			if(!bypass && !(obj_flags & EMAGGED) && !(ACCESS_ARMORY in buyer_access))
+			if(!bypass && !(obj_flags & EMAGGED) && !(ACCESS_BRIG in buyer_access))
 				say("This item is only available at a higher alert level.")
 				return
 		// NOVA EDIT ADDITION END
