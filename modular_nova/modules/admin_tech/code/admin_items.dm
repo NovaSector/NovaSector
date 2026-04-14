@@ -1,4 +1,4 @@
-//todo:subspace boxcutter. injectors. better adminodrazine. black market uplink. pocket extinguisher. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner. new meteor pen? admin cyborgs.
+//todo:subspace boxcutter. injectors. better adminodrazine. pocket extinguisher. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner. new meteor pen? admin cyborgs. /obj/item/abductor/alien_omnitool.
 //todo:implement delayed item population of pouches and boxes to decrease the intensiveness of spawning in / despawning
 //todo:radials out the ass would be nice! But they're a bit above my smooth brain at the moment. Ideas for radials: slime core / useful clothing traits necklace. admin spessknife. fix the medicell gun module to use radials instead of sequence.
 //todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
@@ -507,7 +507,6 @@
 	fall_chance = 0
 	pain_stam_pct = 0
 	transfer_per_second = 1000
-	demolition_mod = 67//Obliterates synths
 
 // Admin patches, the reagent container variety. I probably won't use these in favor of the /obj/item/stack/medical ones, but, I'll make these exist anyways for funsies
 //todo:icon variant
@@ -606,3 +605,9 @@
 /obj/item/reagent_containers/hypospray/combat/nanites/update_icon_state()
 	icon_state = "[base_icon_state][(reagents.total_volume > 0) ? null : 0]"
 	return ..()
+
+//Admin Multitool! Did you know that the check to show wire results is actually in a terrifying proc found in code\datums\wires\_wires.dm at line 269. Both the multitool and the blueprints dont give quirks or traits, they are directly checked for
+//todo variant icon
+/obj/item/multitool/abductor/admin
+	name = "subspace attenuated multitool"
+	desc = "Beautiful engineering. Pocket blueprints."

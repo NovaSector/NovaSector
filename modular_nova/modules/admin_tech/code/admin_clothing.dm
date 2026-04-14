@@ -80,6 +80,7 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	flags_cover = GLASSESCOVERSEYES
 	flash_protect = FLASH_PROTECTION_WELDER
 	lighting_cutoff = LIGHTING_CUTOFF_HIGH
+	invis_view = SEE_INVISIBLE_OBSERVER
 	glass_colour_type = FALSE
 	clothing_traits = list(
 		TRAIT_REAGENT_SCANNER,
@@ -339,6 +340,7 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	hit_reflect_chance = 100
 
 // Worlds most comfortable gloves, great for tickling spacetime
+// todo: add actions_types fun spell casting mode with a toggle, similar to xray function toggle above
 /obj/item/clothing/gloves/tackler/admin
 	name = "bluespace gauntlets"
 	desc = "Extraordinarily lightweight and pleasantly comfortable gauntlets packed full of useful technology. You feel perfectly capable of defending yourself."
