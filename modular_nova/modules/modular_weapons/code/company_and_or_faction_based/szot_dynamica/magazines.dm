@@ -128,13 +128,13 @@
 
 /obj/item/ammo_box/magazine/zashch
 	name = "\improper Zashch pistol magazine"
-	desc = "A large magazine for the Zashchitnik pistol. Holds 18 rounds of 10mm."
+	desc = "A magazine for the Zashchitnik pistol. Holds 10 rounds of 10mm."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "zashch_mag"
 	base_icon_state = "zashch_mag"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	ammo_type = /obj/item/ammo_casing/c10mm
-	max_ammo = 18
+	max_ammo = 10
 	caliber = CALIBER_10MM
 
 /obj/item/ammo_box/magazine/zashch/spawns_empty
