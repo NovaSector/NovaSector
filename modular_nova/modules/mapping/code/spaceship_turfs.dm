@@ -58,4 +58,4 @@
 
 /obj/structure/window/reinforced/shuttle/spaceship/unanchored
 	anchored = FALSE
-	custom_materials = null
+	state = WINDOW_OUT_OF_FRAME

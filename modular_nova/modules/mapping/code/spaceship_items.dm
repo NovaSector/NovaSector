@@ -21,7 +21,8 @@
 	mats_per_unit = /obj/item/stack/sheet/titaniumglass::mats_per_unit
 
 GLOBAL_LIST_INIT(spaceshipglass_recipes, list(
-	new/datum/stack_recipe("spaceship window", /obj/structure/window/reinforced/shuttle/spaceship/unanchored, 2, time = 4 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_IS_FULLTILE, category = CAT_WINDOWS), \
+	new /datum/stack_recipe("fulltile spaceship window", /obj/structure/window/reinforced/shuttle/spaceship/unanchored, 2, time = 2 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_IS_FULLTILE, category = CAT_WINDOWS), \
+	new /datum/stack_recipe("directional spaceship window", /obj/structure/window/reinforced/survival_pod/unanchored, 1, time = 0.5 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_IS_FULLTILE, category = CAT_WINDOWS), \
 	))
 
 /obj/item/stack/sheet/spaceshipglass/get_main_recipes()
