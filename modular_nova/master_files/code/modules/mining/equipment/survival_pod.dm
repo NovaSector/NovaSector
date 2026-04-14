@@ -8,6 +8,7 @@
 	receive_ricochet_chance_mod = 1.2
 	rad_insulation = RAD_MEDIUM_INSULATION
 	glass_material_datum = /datum/material/alloy/titaniumglass
+	custom_materials = list(/datum/material/alloy/titaniumglass = SHEET_MATERIAL_AMOUNT)
 
 /obj/structure/window/reinforced/survival_pod/unanchored
 	anchored = FALSE
