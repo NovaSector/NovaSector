@@ -12,6 +12,7 @@
 	cargo_account = ACCOUNT_CIV /// Change this later to something else, as this is meant to prevent runtiming
 	contraband = TRUE
 	bypass_express_lock = TRUE
+	bypass_alert_level = TRUE
 	console_flag = CARGO_CONSOLE_PDA
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod

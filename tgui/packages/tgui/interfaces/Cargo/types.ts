@@ -6,11 +6,13 @@ export type CargoData = {
   can_approve_requests: BooleanLike;
   can_send: BooleanLike;
   cart: CartEntry[];
+  current_alert_level: number;
   department: string;
   displayed_currency_full_name: string;
   displayed_currency_name: string;
   docked: BooleanLike;
   grocery: number;
+  has_armory_access: BooleanLike;
   loan_dispatched: BooleanLike;
   loan: BooleanLike;
   location: string;
@@ -30,6 +32,7 @@ export type SupplyCategory = {
 
 export type Supply = {
   access: BooleanLike;
+  required_alert_level: number;
   cost: number;
   desc: string;
   first_item_icon: string | null;

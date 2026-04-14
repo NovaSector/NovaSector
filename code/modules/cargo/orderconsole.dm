@@ -193,6 +193,7 @@
 
 		if(!(pack.console_flag & console_flag))
 			continue
+
 		// NOVA EDIT ADDITION END
 		var/obj/item/first_item = length(pack.contains) > 0 ? pack.contains[1] : null
 		packs += list(list(
@@ -205,6 +206,7 @@
 			"goody" = (pack.order_flags & ORDER_GOODY),
 			"access" = pack.access,
 			"contraband" = (pack.order_flags & ORDER_CONTRABAND),
+			"required_alert_level" = pack.required_alert_level, // NOVA EDIT ADDITION
 			"contains" = pack.get_contents_ui_data(),
 		))
 
@@ -256,6 +258,14 @@
 		var/bypass = FALSE
 		if(istype(id_card, /obj/item/card/id/advanced/chameleon)) //We'll bypass access restrictions
 			bypass = TRUE
+
+		// NOVA EDIT ADDITION START - Alert level gating for supply packs, bypassed by armory access
+		if(pack.required_alert_level > SEC_LEVEL_GREEN && SSsecurity_level.get_current_level_as_number() < pack.required_alert_level)
+			var/list/buyer_access = id_card?.GetAccess()
+			if(!bypass && !(ACCESS_ARMORY in buyer_access))
+				say("This item is only available at a higher alert level.")
+				return
+		// NOVA EDIT ADDITION END
 
 		account = id_card?.registered_account // We can still assign an account for request department purposes.
 		if(self_paid)

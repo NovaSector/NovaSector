@@ -185,6 +185,13 @@ SUBSYSTEM_DEF(shuttle)
 		else if(pack.access_view)
 			pack.desc += " Requires [SSid_access.get_access_desc(pack.access_view)] access to purchase."
 
+		// NOVA EDIT ADDITION START - Append alert level requirement to description
+		if(pack.required_alert_level > SEC_LEVEL_GREEN)
+			var/static/list/alert_level_names = list("green", "blue", "violet", "orange", "amber", "red", "delta", "epsilon", "gamma", "federal")
+			var/alert_name = alert_level_names[pack.required_alert_level + 1] // +1 because SEC_LEVEL defines are 0-indexed
+			pack.desc += " Only available at [uppertext(alert_name)] alert or higher."
+		// NOVA EDIT ADDITION END
+
 		supply_packs[pack.id] = pack
 
 	for (var/obj/machinery/computer/cargo/express/console as anything in express_consoles)

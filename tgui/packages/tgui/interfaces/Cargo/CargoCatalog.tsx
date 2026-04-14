@@ -181,12 +181,16 @@ type CatalogListProps = {
 
 function CatalogList(props: CatalogListProps) {
   const { act, data } = useBackend<CargoData>();
-  const { cart = [], max_order, self_paid, app_cost, displayed_currency_name } = data;
+  const { cart = [], max_order, self_paid, app_cost, displayed_currency_name, current_alert_level, has_armory_access } = data;
   const { packs = [], openContents } = props;
 
   return (
     <>
       {packs.map((pack) => {
+        const alertLocked = pack.required_alert_level > 0
+          && current_alert_level < pack.required_alert_level
+          && !has_armory_access;
+
         let color = '';
         const digits = Math.floor(Math.log10(pack.cost) + 1);
         if (self_paid) {
@@ -221,8 +225,9 @@ function CatalogList(props: CatalogListProps) {
             dmIcon={pack.first_item_icon}
             dmIconState={pack.first_item_icon_state}
             imageSize={32}
-            color={color}
-            disabled={amount >= max_order}
+            color={alertLocked ? 'transparent' : color}
+            disabled={amount >= max_order || alertLocked}
+            opacity={alertLocked ? 0.5 : 1}
             buttonsAlt={
               <Button
                 color="transparent"
@@ -240,7 +245,7 @@ function CatalogList(props: CatalogListProps) {
               <Stack.Item grow textAlign="left">
                 {pack.name}
               </Stack.Item>
-              {(!!pack.small_item || !!pack.access || !!pack.contraband) && (
+              {(!!pack.small_item || !!pack.access || !!pack.contraband || alertLocked) && (
                 <Stack.Item>
                   <Stack reverse>
                     {!!pack.small_item &&
@@ -249,6 +254,12 @@ function CatalogList(props: CatalogListProps) {
                       tooltipIcon('Restricted', 'lock', 'average')}
                     {!!pack.contraband &&
                       tooltipIcon('Contraband', 'pastafarianism', 'bad')}
+                    {alertLocked &&
+                      tooltipIcon(
+                        'Requires Higher Alert Level',
+                        'triangle-exclamation',
+                        pack.required_alert_level >= 4 ? 'yellow' : 'blue',
+                      )}
                   </Stack>
                 </Stack.Item>
               )}

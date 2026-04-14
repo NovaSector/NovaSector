@@ -31,6 +31,8 @@
 	var/test_ignored = FALSE
 	/// Various properties for cargo order mostly used to determine which consoles can see it
 	var/order_flags = NONE
+	/// NOVA EDIT ADDITION - Minimum security alert level required to purchase this pack. Defaults to SEC_LEVEL_GREEN (no restriction).
+	var/required_alert_level = SEC_LEVEL_GREEN
 
 /datum/supply_pack/New()
 	id = type

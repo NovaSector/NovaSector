@@ -78,6 +78,7 @@
 /datum/supply_pack/companies/mags_and_ammo/sol_grenade_standard
 	contains = list(/obj/item/ammo_box/magazine/c980_grenade/starts_empty)
 	cost = CARGO_CRATE_VALUE
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/mags_and_ammo/sol_grenade_drum
 	contains = list(/obj/item/ammo_box/magazine/c980_grenade/drum/starts_empty)
@@ -85,12 +86,14 @@
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
 	order_flags = ORDER_GOODY
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/mags_and_ammo/jager_shotgun_regular
 	contains = list(/obj/item/ammo_box/magazine/jager/empty)
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
 	order_flags = ORDER_GOODY
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/mags_and_ammo/jager_shotgun_Large
 	contains = list(/obj/item/ammo_box/magazine/jager/large/empty)
@@ -98,6 +101,7 @@
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
 	order_flags = ORDER_GOODY
+	required_alert_level = SEC_LEVEL_AMBER
 
 // HC Mags
 
@@ -110,6 +114,7 @@
 /datum/supply_pack/companies/mags_and_ammo/hc_surplus/zaibas
 	contains = list(/obj/item/ammo_box/magazine/pulse/spawns_empty)
 	cost = CARGO_CRATE_VALUE * 0.5
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/mags_and_ammo/hc_surplus/zashch
 	contains = list(/obj/item/ammo_box/magazine/zashch/spawns_empty)
@@ -119,16 +124,19 @@
 
 /datum/supply_pack/companies/mags_and_ammo/hc_surplus/napad
 	contains = list(/obj/item/ammo_box/magazine/napad/spawns_empty)
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/mags_and_ammo/hc_surplus/sakhno
 	contains = list(/obj/item/ammo_box/speedloader/strilka310)
 
 /datum/supply_pack/companies/mags_and_ammo/hc_surplus/lanca
 	contains = list(/obj/item/ammo_box/magazine/lanca/spawns_empty)
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/mags_and_ammo/hc_surplus/amr_magazine
 	contains = list(/obj/item/ammo_box/magazine/wylom)
 	cost = CARGO_CRATE_VALUE * 0.75
+	required_alert_level = SEC_LEVEL_AMBER
 
 // Vitezstv★ Boxes of non-shotgun ammo
 
@@ -163,6 +171,7 @@
 	contains = list(/obj/item/ammo_box/pulse_cargo_box)
 	//It's like, a lot of ammo compared to other packages; high-capacity universal ammo for all pulse plasma guns.
 	cost = CARGO_CRATE_VALUE
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/strilka_lethal
 	contains = list(/obj/item/ammo_box/c310_cargo_box)
@@ -289,18 +298,21 @@
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
 	order_flags = ORDER_GOODY
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/grenade_shells/phosphor
 	contains = list(/obj/item/ammo_box/c980grenade/shrapnel/phosphor)
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
 	order_flags = ORDER_GOODY
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/grenade_shells/concussion
 	contains = list(/obj/item/ammo_box/c980grenade/concussive)
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
 	order_flags = ORDER_GOODY
+	required_alert_level = SEC_LEVEL_AMBER
 
 //Blacksteel Ammo
 

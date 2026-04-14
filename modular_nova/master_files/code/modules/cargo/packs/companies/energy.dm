@@ -15,13 +15,16 @@
 	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
+	required_alert_level = SEC_LEVEL_BLUE
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_weapons/disabler
 	contains = list(/obj/item/gun/energy/disabler)
+	required_alert_level = SEC_LEVEL_GREEN
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_weapons/advtaser
 	contains = list(/obj/item/gun/energy/e_gun/advtaser)
 	cost = CARGO_CRATE_VALUE * 1.75
+	required_alert_level = SEC_LEVEL_GREEN
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_weapons/disabler_smg
 	contains = list(/obj/item/gun/energy/disabler/smg)
@@ -33,13 +36,16 @@
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_weapons/mini_egun
 	contains = list(/obj/item/gun/energy/e_gun/mini)
+	required_alert_level = SEC_LEVEL_GREEN
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_weapons/laser_pistol
 	contains = list(/obj/item/gun/energy/laser/pistol)
+	required_alert_level = SEC_LEVEL_GREEN
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_weapons/energy_holster
 	contains = list(/obj/item/storage/belt/holster/energy/thermal)
 	cost = CARGO_CRATE_VALUE * 3
+	required_alert_level = SEC_LEVEL_BLUE
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons
 
@@ -50,6 +56,7 @@
 	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
+	required_alert_level = SEC_LEVEL_BLUE
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser/soul
 	contains = list(/obj/item/gun/energy/laser/soul)
@@ -57,10 +64,12 @@
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser_carbine
 	contains = list(/obj/item/gun/energy/laser/carbine)
 	cost = CARGO_CRATE_VALUE * 1.75
+	required_alert_level = SEC_LEVEL_BLUE
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/laser_assault
 	contains = list(/obj/item/gun/energy/laser/assault)
 	cost = CARGO_CRATE_VALUE * 4
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/egun
 	contains = list(/obj/item/gun/energy/e_gun)
@@ -69,6 +78,7 @@
 	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
+	required_alert_level = SEC_LEVEL_BLUE
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/mod_laser_small
 	contains = list(/obj/item/gun/energy/modular_laser_rifle/carbine)
@@ -77,22 +87,26 @@
 	access_view = FALSE
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
+	required_alert_level = SEC_LEVEL_BLUE
 
 /datum/supply_pack/companies/energy/microstar/basic_energy_long_weapons/mod_laser_large
 	contains = list(/obj/item/gun/energy/modular_laser_rifle)
 	cost = CARGO_CRATE_VALUE * 4
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/energy/microstar/experimental_energy
 	cost = CARGO_CRATE_VALUE * 3
 
 /datum/supply_pack/companies/energy/microstar/experimental_energy/ion_carbine
 	contains = list(/obj/item/gun/energy/ionrifle/carbine)
+	required_alert_level = SEC_LEVEL_AMBER
 
 // HC Weapons
 /datum/supply_pack/companies/energy/hc_surplus
 
 /datum/supply_pack/companies/energy/hc_surplus/plasma_thrower
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/plasma_thrower)
+	required_alert_level = SEC_LEVEL_BLUE
 
 /datum/supply_pack/companies/energy/hc_surplus/plasma_marksman
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/plasma_marksman)
@@ -120,7 +134,9 @@
 /datum/supply_pack/companies/energy/hc_surplus/zaibas
 	contains = list(/obj/item/gun/ballistic/automatic/pulse_rifle)
 	cost = CARGO_CRATE_VALUE * 6
+	required_alert_level = SEC_LEVEL_AMBER
 
 /datum/supply_pack/companies/energy/hc_surplus/zaibas_a
 	contains = list(/obj/item/gun/ballistic/rifle/pulse_sniper)
 	cost = CARGO_CRATE_VALUE * 7
+	required_alert_level = SEC_LEVEL_AMBER
