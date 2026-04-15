@@ -173,9 +173,7 @@
 	gainer.dropItemToGround(suit, TRUE)
 	if(suit)
 		qdel(suit)
-	var/datum/component/protean_limb/comp = get_protean_chest_component(gainer)
-	if(comp)
-		comp.species_modsuit = null
+	set_protean_modsuit(null)
 	// Remove protean limb components from all bodyparts
 	for(var/obj/item/bodypart/limb as anything in gainer.bodyparts)
 		qdel(limb.GetComponent(/datum/component/protean_limb))
