@@ -68,7 +68,7 @@
 	heavy_burn_msg = HEAVY_NANO_BURN
 	damage_examines = list(BRUTE = BRUTE_EXAMINE_NANO, BURN = BURN_EXAMINE_NANO)
 
-// -- Legs (support digitigrade) --
+/// -- Legs (support digitigrade) --
 
 /obj/item/bodypart/leg/right/robot/protean
 	max_damage = 40
@@ -111,7 +111,7 @@
 	old_owner.update_worn_shoes()
 	return ..()
 
-// -- Digitigrade variants --
+/// -- Digitigrade variants --
 
 /obj/item/bodypart/leg/right/robot/protean/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
@@ -198,7 +198,7 @@
 	if(is_chest)
 		UnregisterSignal(owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY, COMSIG_MOB_EQUIPPED_ITEM))
 
-// -- Dismemberment at max damage --
+/// -- Dismemberment at max damage --
 
 /datum/component/protean_limb/proc/on_limb_damaged(mob/living/carbon/source, obj/item/bodypart/limb, brute, burn)
 	SIGNAL_HANDLER
@@ -207,7 +207,7 @@
 	if((limb.get_damage() + brute + burn) >= limb.max_damage)
 		limb.dismember()
 
-// -- Dissolution timer --
+/// -- Dissolution timer --
 
 /datum/component/protean_limb/proc/on_limb_removed(mob/living/carbon/source, obj/item/bodypart/removed_limb, special, dismembered)
 	SIGNAL_HANDLER
@@ -223,7 +223,7 @@
 		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
 	qdel(limb)
 
-// -- Chest: back slot interception --
+/// -- back slot interception --
 
 /datum/component/protean_limb/proc/on_item_equipped(mob/living/carbon/human/source, obj/item/equipped_item, slot)
 	SIGNAL_HANDLER
@@ -240,7 +240,7 @@
 	species.equip_modsuit(source)
 	qdel(equipped_item)
 
-// -- Chest: welder/cable healing rejection --
+/// -- welder/cable healing rejection --
 
 /datum/component/protean_limb/proc/on_item_interaction(mob/living/source, mob/living/user, obj/item/tool, list/modifiers)
 	SIGNAL_HANDLER
@@ -253,7 +253,7 @@
 		return NONE
 	return ITEM_INTERACT_SKIP_TO_ATTACK
 
-// -- Helper procs --
+/// -- Helper procs --
 
 /// Gets the protean modsuit from a mob's chest component. Returns null if not protean or no modsuit.
 /proc/get_protean_modsuit(mob/living/carbon/target)
