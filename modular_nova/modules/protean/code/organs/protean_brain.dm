@@ -83,8 +83,7 @@
 	SIGNAL_HANDLER
 	if(IS_STUMP(new_limb))
 		return
-	if(!limb_cache)
-		limb_cache = list()
+	LAZYINITLIST(limb_cache)
 	limb_cache[new_limb.body_zone] = snapshot_limb(new_limb)
 
 /// Captures limb type and visual properties.
