@@ -247,7 +247,7 @@
 		return
 	if(istype(equipped_item, /obj/item/mod/control/pre_equipped/protean))
 		return
-	if(!species_modsuit)
+	if(isnull(get_species_modsuit()))
 		return // pre_equip_outfit dropped it, post_equip_outfit will handle
 	var/datum/species/protean/species = source.dna?.species
 	if(!istype(species))
