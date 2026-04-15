@@ -84,6 +84,9 @@
 
 /datum/species/protean/on_species_gain(mob/living/carbon/human/gainer, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
+	// Add protean limb component to all bodyparts
+	for(var/obj/item/bodypart/limb as anything in gainer.bodyparts)
+		limb.AddComponent(/datum/component/protean_limb)
 	var/obj/item/bodypart/chest/robot/protean/chest = gainer.get_bodypart(BODY_ZONE_CHEST)
 	equip_modsuit(gainer, chest)
 	RegisterSignal(gainer, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
@@ -140,15 +143,11 @@
 		source.balloon_alert_to_viewers("assimilated!", vision_distance = 1)
 	replace_incompatible_organs(source, special)
 
-/// Blocks non-protean limbs from being attached, protecting against plasma river, DNA scrambler, etc.
+/// Adds the protean limb component to any new limb attached to a protean.
 /datum/species/protean/proc/check_limb_attach(mob/living/carbon/source, obj/item/bodypart/new_limb, special)
 	SIGNAL_HANDLER
-	var/dominated_type = bodypart_overrides[new_limb.body_zone]
-	if(!dominated_type)
-		return
-	if(istype(new_limb, dominated_type))
-		return
-	return COMPONENT_NO_ATTACH
+	if(!new_limb.GetComponent(/datum/component/protean_limb))
+		new_limb.AddComponent(/datum/component/protean_limb)
 
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
@@ -177,6 +176,9 @@
 		qdel(suit)
 	if(chest)
 		chest.species_modsuit = null
+	// Remove protean limb components from all bodyparts
+	for(var/obj/item/bodypart/limb as anything in gainer.bodyparts)
+		qdel(limb.GetComponent(/datum/component/protean_limb))
 
 /// Creates and equips the protean's modsuit to the given mob's back slot, storing the ref on the chest.
 /datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer, obj/item/bodypart/chest/robot/protean/chest)
