@@ -72,7 +72,7 @@
 
 /// Snapshots all current limb types and visuals into the cache.
 /obj/item/organ/brain/protean/proc/cache_limbs(mob/living/carbon/target)
-	limb_cache = list()
+	LAZYINITLIST(limb_cache)
 	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
 		if(IS_STUMP(limb))
 			continue
