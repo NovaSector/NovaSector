@@ -186,6 +186,23 @@
 		unregister_owner_signals(limb.owner)
 	UnregisterSignal(parent, COMSIG_BODYPART_CHANGED_OWNER)
 
+/// Return the species modsuit if it's still valid, if not return null and null the weakref
+/datum/component/protean_limb/proc/get_protean_modsuit()
+	var/obj/item/mod/control/pre_equipped/protean/species_modsuit = species_modsuit?.resolve()
+	if(isnull(species_modsuit))
+		species_modsuit_ref = null
+	return species_modsuit
+
+/// Sets a new weakref to a species modsuit
+/datum/component/protean_limb/proc/set_protean_modsuit(obj/item/mod/control/pre_equipped/protean/species_modsuit/new_modsuit)
+	if(isnull(new_modsuit))
+		species_modsuit_ref = null
+		return TRUE
+	if(!istype(new_modsuit))
+		CRASH("Tried to set invalid species modsuit [new_modsuit] on [parent]!")
+	species_modsuit_ref = WEAKREF(species_modsuit)
+	return TRUE
+
 /// When the limb changes owner, migrate signals and cancel dissolution timer if reattached.
 /datum/component/protean_limb/proc/on_owner_changed(obj/item/bodypart/source, mob/living/carbon/new_owner, mob/living/carbon/old_owner)
 	SIGNAL_HANDLER
