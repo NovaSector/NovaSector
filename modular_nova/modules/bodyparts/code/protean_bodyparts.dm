@@ -297,3 +297,9 @@
 /proc/get_protean_chest_component(mob/living/carbon/target)
 	var/obj/item/bodypart/chest = target?.get_bodypart(BODY_ZONE_CHEST)
 	return chest?.GetComponent(/datum/component/protean_limb)
+
+/// Try to set the new species modsuit to the one provided.
+/proc/set_protean_modsuit(obj/item/mod/control/pre_equipped/protean/species_modsuit/new_modsuit)
+	var/datum/component/protean_limb/comp = chest?.GetComponent(/datum/component/protean_limb)
+	return comp?.set_species_modsuit(new_modsuit)
+	
