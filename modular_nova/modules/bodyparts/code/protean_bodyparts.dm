@@ -171,7 +171,6 @@
 	if(qdel_timerid)
 		deltimer(qdel_timerid)
 		qdel_timerid = null
-	species_modsuit = null
 	return ..()
 
 /datum/component/protean_limb/RegisterWithParent()
