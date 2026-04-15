@@ -328,7 +328,7 @@
 	// Cache the protean servo so it stays on the protean suit
 	var/obj/item/mod/module/protean_servo/servo = locate() in modules
 	if(servo)
-		cached_modules += servo
+		LAZYADD(cached_modules, servo)
 		uninstall(servo)
 	// Copy list since we modify it during iteration
 	var/list/modules_to_return = modules.Copy()
