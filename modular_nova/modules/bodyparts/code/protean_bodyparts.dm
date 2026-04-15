@@ -207,7 +207,7 @@
 		if(isnull(get_species_modsuit()))
 			var/obj/item/back_item = owner.get_item_by_slot(ITEM_SLOT_BACK)
 			if(istype(back_item, /obj/item/mod/control/pre_equipped/protean))
-				species_modsuit = back_item
+				set_protean_modsuit(back_item)
 
 /datum/component/protean_limb/proc/unregister_owner_signals(mob/living/carbon/owner)
 	UnregisterSignal(owner, list(COMSIG_CARBON_LIMB_DAMAGED, COMSIG_CARBON_REMOVE_LIMB))
