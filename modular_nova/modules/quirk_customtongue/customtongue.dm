@@ -84,7 +84,8 @@
 
 	return TRUE
 
-/datum/quirk/custom_tongue/add(client/client_source)
+/datum/quirk/custom_tongue/post_add()
+	. = ..()
 	RegisterSignal(quirk_holder, COMSIG_SET_SAY_MODIFIERS, PROC_REF(tongue_setup))
 	tongue_setup()
 
