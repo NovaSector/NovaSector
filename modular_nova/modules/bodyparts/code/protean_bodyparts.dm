@@ -141,15 +141,16 @@
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 	/// Timer ID for the auto-dissolution of a dismembered limb
 	var/qdel_timerid
-	/// Whether this component is on the chest bodypart
-	var/is_chest = FALSE
-	/// Reference to this protean's modsuit. Only used on chest components.
+	/// Reference to this protean's modsuit. Only set on chest components.
 	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
 
-/datum/component/protean_limb/Initialize(chest = FALSE)
+/datum/component/protean_limb/Initialize()
 	if(!isbodypart(parent))
 		return COMPONENT_INCOMPATIBLE
-	is_chest = chest
+
+/// Whether this component is on a chest bodypart.
+/datum/component/protean_limb/proc/is_chest()
+	return istype(parent, /obj/item/bodypart/chest)
 
 /datum/component/protean_limb/Destroy()
 	if(qdel_timerid)
@@ -184,7 +185,7 @@
 /datum/component/protean_limb/proc/register_owner_signals(mob/living/carbon/owner)
 	RegisterSignal(owner, COMSIG_CARBON_LIMB_DAMAGED, PROC_REF(on_limb_damaged))
 	RegisterSignal(owner, COMSIG_CARBON_REMOVE_LIMB, PROC_REF(on_limb_removed))
-	if(is_chest)
+	if(is_chest())
 		RegisterSignals(owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY), PROC_REF(on_item_interaction))
 		RegisterSignal(owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_item_equipped))
 		// If the mob already has a protean modsuit equipped, link it to this new chest component
@@ -195,7 +196,7 @@
 
 /datum/component/protean_limb/proc/unregister_owner_signals(mob/living/carbon/owner)
 	UnregisterSignal(owner, list(COMSIG_CARBON_LIMB_DAMAGED, COMSIG_CARBON_REMOVE_LIMB))
-	if(is_chest)
+	if(is_chest())
 		UnregisterSignal(owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY, COMSIG_MOB_EQUIPPED_ITEM))
 
 /// -- Dismemberment at max damage --

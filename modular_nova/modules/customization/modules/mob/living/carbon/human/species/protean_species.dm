@@ -86,8 +86,7 @@
 	. = ..()
 	// Add protean limb component to all bodyparts
 	for(var/obj/item/bodypart/limb as anything in gainer.bodyparts)
-		var/is_chest = istype(limb, /obj/item/bodypart/chest)
-		limb.AddComponent(/datum/component/protean_limb, chest = is_chest)
+		limb.AddComponent(/datum/component/protean_limb)
 	equip_modsuit(gainer)
 	RegisterSignal(gainer, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
 	RegisterSignal(gainer, COMSIG_ATTEMPT_CARBON_ATTACH_LIMB, PROC_REF(check_limb_attach))
@@ -148,8 +147,7 @@
 /datum/species/protean/proc/check_limb_attach(mob/living/carbon/source, obj/item/bodypart/new_limb, special)
 	SIGNAL_HANDLER
 	if(!new_limb.GetComponent(/datum/component/protean_limb))
-		var/is_chest = istype(new_limb, /obj/item/bodypart/chest)
-		new_limb.AddComponent(/datum/component/protean_limb, chest = is_chest)
+		new_limb.AddComponent(/datum/component/protean_limb)
 
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
