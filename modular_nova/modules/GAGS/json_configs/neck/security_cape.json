@@ -11,30 +11,6 @@
 			"icon_state": "security_cape_accent",
 			"blend_mode": "overlay",
 			"color_ids": [2]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "security_cape_strap",
-			"blend_mode": "overlay"
-		}
-	],
-	"security_cape_left": [
-		{
-			"type": "icon_state",
-			"icon_state": "security_cape_base_left",
-			"blend_mode": "overlay",
-			"color_ids": [1]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "security_cape_accent_left",
-			"blend_mode": "overlay",
-			"color_ids": [2]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "security_cape_strap_left",
-			"blend_mode": "overlay"
 		}
 	]
 }

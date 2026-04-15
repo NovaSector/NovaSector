@@ -10,10 +10,22 @@
 	post_init_icon_state = "security_cape"
 	greyscale_config = /datum/greyscale_config/security_cape
 	greyscale_config_worn = /datum/greyscale_config/security_cape/worn
-	greyscale_colors = "#A52F29#EBEBEB"
+	greyscale_colors = "#A52F29#39393F"
 	inhand_icon_state = "" //no unique inhands
 	///Decides the shoulder it lays on, false = RIGHT, TRUE = LEFT
 	var/swapped = FALSE
+
+/obj/item/clothing/neck/security_cape/blue
+	icon_state = "/obj/item/clothing/neck/security_cape/blue"
+	greyscale_colors = "#3F6E9E#39393F"
+
+/obj/item/clothing/neck/security_cape/white
+	icon_state = "/obj/item/clothing/neck/security_cape/white"
+	greyscale_colors = "#EBEBEB#39393F"
+
+/obj/item/clothing/neck/security_cape/black
+	icon_state = "/obj/item/clothing/neck/security_cape/black"
+	greyscale_colors = "#39393F#39393F"
 
 /obj/item/clothing/neck/security_cape/click_alt(mob/user)
 	swapped = !swapped

@@ -2820,12 +2820,12 @@ Security
 
 /datum/greyscale_config/security_cape
 	name = "Security Cape"
-//	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi' vending + neck, sec cap too
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/neck/security_cape.json'
 
 /datum/greyscale_config/security_cape/worn
 	name = "Security Cape (Worn)"
-//	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/neck/security_cape_worn.json'
 
 /*
