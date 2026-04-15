@@ -280,7 +280,7 @@
 		if(istype(module, /obj/item/mod/module/storage))
 			var/obj/item/mod/module/storage/existing_storage = locate() in modules
 			if(existing_storage)
-				cached_modules += existing_storage
+				LAZYADD(cached_modules, existing_storage)
 				to_chat(user, span_notice("[existing_storage] has been pushed aside!"))
 				uninstall(existing_storage)
 		to_assimilate.uninstall(module)
