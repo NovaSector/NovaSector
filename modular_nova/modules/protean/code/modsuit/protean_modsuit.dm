@@ -344,7 +344,7 @@
 	for(var/obj/item/mod/module/cached in cached_to_restore)
 		install(cached)
 		if(cached in modules)
-			cached_modules -= cached
+			LAZYREMOVE(cached_modules, cached)
 			continue
 		to_chat(user, span_warning("[cached] failed to return to its original place! REPORT THIS"))
 		stack_trace("Modsuit Unassimilate: cached module [cached] failed to return to original modsuit! [src]")
