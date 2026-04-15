@@ -270,9 +270,7 @@
 	if(HAS_TRAIT(suit, TRAIT_NODROP))
 		REMOVE_TRAIT(suit, TRAIT_NODROP, "protean")
 	equipping.temporarilyRemoveItemFromInventory(suit, force = TRUE)
-	var/datum/component/protean_limb/comp = get_protean_chest_component(equipping)
-	if(comp)
-		comp.species_modsuit = null
+	set_protean_modsuit(null)
 	qdel(suit)
 
 /// After outfit equipping, converts whatever the outfit put in the back slot into a protean modsuit.
