@@ -340,7 +340,7 @@
 		to_chat(user, span_notice("[module] has fallen to the floor!"))
 		module.forceMove(get_turf(src))
 
-	var/list/cached_to_restore = cached_modules.Copy()
+	var/list/cached_to_restore = LAZYLISTDUPLICATE(cached_modules)
 	for(var/obj/item/mod/module/cached in cached_to_restore)
 		install(cached)
 		if(cached in modules)
