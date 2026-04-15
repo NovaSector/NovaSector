@@ -276,9 +276,10 @@
 			continue
 		var/list/cached = limb_cache[zone]
 		var/limb_type = cached["type"]
-		var/obj/item/bodypart/new_limb = new limb_type()
-		for(var/visual_var in cached_visual_vars)
-			new_limb.vars[visual_var] = cached[visual_var]
+		if(ispath(limb_type))
+			var/obj/item/bodypart/new_limb = new limb_type()
+			for(var/visual_var in cached_visual_vars)
+				new_limb.vars[visual_var] = cached[visual_var]
 		new_limb.try_attach_limb(owner, special = TRUE)
 		new_limb.update_limb(is_creating = TRUE)
 	owner.update_body(TRUE)
