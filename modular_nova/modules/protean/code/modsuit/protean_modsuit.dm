@@ -300,7 +300,7 @@
 	if(servo)
 		install(servo)
 		if(servo in modules)
-			cached_modules -= servo
+			LAZYREMOVE(cached_modules, servo)
 	update_static_data_for_all_viewers()
 
 /obj/item/mod/control/pre_equipped/protean/proc/unassimilate_modsuit(mob/living/user, forced = FALSE)
