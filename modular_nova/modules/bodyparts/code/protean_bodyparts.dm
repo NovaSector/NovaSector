@@ -142,7 +142,7 @@
 	/// Timer ID for the auto-dissolution of a dismembered limb
 	var/qdel_timerid
 	/// Reference to this protean's modsuit. Only set on chest components.
-	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
+	VAR_PROTECTED/datum/weakref/species_modsuit_ref
 
 /datum/component/protean_limb/Initialize()
 	if(!isbodypart(parent))
