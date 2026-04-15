@@ -32,7 +32,7 @@
 	var/obj/item/mod/core/protean/protean_core = core
 	var/mob/living/carbon/human/protean_mob = protean_core?.linked_protean
 	if(protean_mob)
-		set_species_modsuit(null)
+		set_protean_modsuit(protean_mob, null)
 	if(stored_modsuit)
 		for(var/obj/item/mod/module/modules in cached_modules)
 			if(!modules.removable)
@@ -88,10 +88,10 @@
 
 	if(isprotean(user) && slot == ITEM_SLOT_BACK)
 		var/mob/living/carbon/human/human_user = user
-		set_species_modsuit(src)
-			var/obj/item/mod/core/protean/protean_core = core
-			if(protean_core)
-				protean_core.linked_protean = human_user
+		set_protean_modsuit(human_user, src)
+		var/obj/item/mod/core/protean/protean_core = core
+		if(protean_core)
+			protean_core.linked_protean = human_user
 		return
 	if(slot == ITEM_SLOT_BACK && user)
 		if(modlocked)

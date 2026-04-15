@@ -173,7 +173,7 @@
 	gainer.dropItemToGround(suit, TRUE)
 	if(suit)
 		qdel(suit)
-	set_protean_modsuit(null)
+	set_protean_modsuit(gainer, null)
 	// Remove protean limb components from all bodyparts
 	for(var/obj/item/bodypart/limb as anything in gainer.bodyparts)
 		qdel(limb.GetComponent(/datum/component/protean_limb))
@@ -181,7 +181,7 @@
 /// Creates and equips the protean's modsuit to the given mob's back slot, storing the ref on the chest component.
 /datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer)
 	var/obj/item/mod/control/pre_equipped/protean/new_suit = new()
-	set_protean_modsuit(new_suit)
+	set_protean_modsuit(gainer, new_suit)
 	var/obj/item/item_in_slot = gainer.get_item_by_slot(ITEM_SLOT_BACK)
 	if(item_in_slot)
 		if(HAS_TRAIT(item_in_slot, TRAIT_NODROP))
@@ -266,7 +266,7 @@
 	if(HAS_TRAIT(suit, TRAIT_NODROP))
 		REMOVE_TRAIT(suit, TRAIT_NODROP, "protean")
 	equipping.temporarilyRemoveItemFromInventory(suit, force = TRUE)
-	set_protean_modsuit(null)
+	set_protean_modsuit(equipping, null)
 	qdel(suit)
 
 /// After outfit equipping, converts whatever the outfit put in the back slot into a protean modsuit.

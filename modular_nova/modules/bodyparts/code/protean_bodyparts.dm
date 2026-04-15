@@ -187,19 +187,19 @@
 
 /// Return the species modsuit if it's still valid, if not return null and null the weakref
 /datum/component/protean_limb/proc/get_protean_modsuit()
-	var/obj/item/mod/control/pre_equipped/protean/species_modsuit = species_modsuit?.resolve()
-	if(isnull(species_modsuit))
+	var/obj/item/mod/control/pre_equipped/protean/resolved = species_modsuit_ref?.resolve()
+	if(isnull(resolved))
 		species_modsuit_ref = null
-	return species_modsuit
+	return resolved
 
 /// Sets a new weakref to a species modsuit
-/datum/component/protean_limb/proc/set_protean_modsuit(obj/item/mod/control/pre_equipped/protean/species_modsuit/new_modsuit)
+/datum/component/protean_limb/proc/set_protean_modsuit(obj/item/mod/control/pre_equipped/protean/new_modsuit)
 	if(isnull(new_modsuit))
 		species_modsuit_ref = null
 		return TRUE
 	if(!istype(new_modsuit))
 		CRASH("Tried to set invalid species modsuit [new_modsuit] on [parent]!")
-	species_modsuit_ref = WEAKREF(species_modsuit)
+	species_modsuit_ref = WEAKREF(new_modsuit)
 	return TRUE
 
 /// When the limb changes owner, migrate signals and cancel dissolution timer if reattached.
@@ -220,7 +220,7 @@
 		RegisterSignals(owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY), PROC_REF(on_item_interaction))
 		RegisterSignal(owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_item_equipped))
 		// If the mob already has a protean modsuit equipped, link it to this new chest component
-		if(isnull(get_species_modsuit()))
+		if(isnull(get_protean_modsuit()))
 			var/obj/item/back_item = owner.get_item_by_slot(ITEM_SLOT_BACK)
 			if(istype(back_item, /obj/item/mod/control/pre_equipped/protean))
 				set_protean_modsuit(back_item)
@@ -263,7 +263,7 @@
 		return
 	if(istype(equipped_item, /obj/item/mod/control/pre_equipped/protean))
 		return
-	if(isnull(get_species_modsuit()))
+	if(isnull(get_protean_modsuit()))
 		return // pre_equip_outfit dropped it, post_equip_outfit will handle
 	var/datum/species/protean/species = source.dna?.species
 	if(!istype(species))
@@ -291,15 +291,15 @@
 /proc/get_protean_modsuit(mob/living/carbon/target)
 	var/obj/item/bodypart/chest = target?.get_bodypart(BODY_ZONE_CHEST)
 	var/datum/component/protean_limb/comp = chest?.GetComponent(/datum/component/protean_limb)
-	return comp?.get_species_modsuit()
+	return comp?.get_protean_modsuit()
 
 /// Gets the protean chest component from a mob. Returns null if not protean.
-/datum/species/protean/proc/get_protean_chest_component(mob/living/carbon/target)
+/proc/get_protean_chest_component(mob/living/carbon/target)
 	var/obj/item/bodypart/chest = target?.get_bodypart(BODY_ZONE_CHEST)
 	return chest?.GetComponent(/datum/component/protean_limb)
 
-/// Try to set the new species modsuit to the one provided.
-/proc/set_protean_modsuit(obj/item/mod/control/pre_equipped/protean/species_modsuit/new_modsuit)
+/// Sets the protean modsuit on a mob's chest component. Returns TRUE on success.
+/proc/set_protean_modsuit(mob/living/carbon/target, obj/item/mod/control/pre_equipped/protean/new_modsuit)
+	var/obj/item/bodypart/chest = target?.get_bodypart(BODY_ZONE_CHEST)
 	var/datum/component/protean_limb/comp = chest?.GetComponent(/datum/component/protean_limb)
-	return comp?.set_species_modsuit(new_modsuit)
-	
+	return comp?.set_protean_modsuit(new_modsuit)
