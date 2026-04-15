@@ -39,7 +39,7 @@
 				qdel(modules)
 				continue
 			modules.forceMove(get_turf(src))
-		cached_modules = null
+		LAZYNULL(cached_modules)
 		stored_modsuit.forceMove(get_turf(src))
 	stored_modsuit = null
 	stored_theme = null
