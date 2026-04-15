@@ -1,8 +1,7 @@
 /datum/job/bridge_assistant
 	total_positions = 1
 	spawn_positions = 1
-	job_flags = STATION_JOB_FLAGS
-	nova_stars_only = TRUE
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 	outfit = /datum/outfit/job/bridge_assistant
 	plasmaman_outfit = /datum/outfit/job/bridge_assistant/plasmaman
