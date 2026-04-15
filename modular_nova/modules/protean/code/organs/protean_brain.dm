@@ -23,6 +23,8 @@
 	var/revive_timer_id
 	/// Timer ID for the emergency retreat timer
 	var/retreat_timer_id
+	/// Cached limb data for regeneration. Maps body_zone → cached bodypart instance.
+	var/list/limb_cache
 	COOLDOWN_DECLARE(message_cooldown)
 	COOLDOWN_DECLARE(refactory_cooldown)
 	COOLDOWN_DECLARE(orchestrator_cooldown)
@@ -40,12 +42,14 @@
 	receiver.SetStun(0)
 	RegisterSignal(receiver, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
 	RegisterSignal(receiver, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
+	RegisterSignal(receiver, COMSIG_CARBON_ATTACH_LIMB, PROC_REF(on_limb_attached))
+	cache_limbs(receiver)
 
 /obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
 	if(isprotean(brain_owner) && !QDELING(brain_owner))
 		brain_owner.Stun(INFINITY, TRUE)
-	UnregisterSignal(brain_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED))
+	UnregisterSignal(brain_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED, COMSIG_CARBON_ATTACH_LIMB))
 
 /// Rejects the protean brain from a non-protean body, ejecting it to the ground.
 /obj/item/organ/brain/protean/proc/reject_from_body(mob/living/carbon/body)
@@ -55,6 +59,40 @@
 	forceMove(get_turf(body))
 	to_chat(body, span_danger("The nanomachine core is incompatible with your body!"))
 	balloon_alert_to_viewers("rejected!", vision_distance = 1)
+
+/// Visual vars to cache and restore when regrowing limbs.
+/obj/item/organ/brain/protean/var/static/list/cached_visual_vars = list(
+	"icon_static",
+	"icon_greyscale",
+	"limb_id",
+	"current_style",
+	"is_dimorphic",
+	"should_draw_greyscale",
+)
+
+/// Snapshots all current limb types and visuals into the cache.
+/obj/item/organ/brain/protean/proc/cache_limbs(mob/living/carbon/target)
+	limb_cache = list()
+	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+		if(IS_STUMP(limb))
+			continue
+		limb_cache[limb.body_zone] = snapshot_limb(limb)
+
+/// Updates the cache when a non-stump limb is attached.
+/obj/item/organ/brain/protean/proc/on_limb_attached(mob/living/carbon/source, obj/item/bodypart/new_limb, special)
+	SIGNAL_HANDLER
+	if(IS_STUMP(new_limb))
+		return
+	if(!limb_cache)
+		limb_cache = list()
+	limb_cache[new_limb.body_zone] = snapshot_limb(new_limb)
+
+/// Captures limb type and visual properties.
+/obj/item/organ/brain/protean/proc/snapshot_limb(obj/item/bodypart/limb)
+	var/list/data = list("type" = limb.type)
+	for(var/visual_var in cached_visual_vars)
+		data[visual_var] = limb.vars[visual_var]
+	return data
 
 /// Intercepts direct death() calls (e.g. chasms, lava) that bypass the normal HARD_CRIT check in on_life.
 /// Schedules retreat for after death() and any caller code finishes executing.
@@ -234,15 +272,24 @@
 		return
 
 	stomach.metal = clamp(stomach.metal - (PROTEAN_STOMACH_FULL * 0.6), 0, 10)
-	owner.fully_heal(HEAL_LIMBS)
-	if(owner.dna.features[FEATURE_LEGS] == DIGITIGRADE_LEGS)
-		var/obj/item/bodypart/new_left = new /obj/item/bodypart/leg/left/robot/protean/digitigrade()
-		var/obj/item/bodypart/new_right = new /obj/item/bodypart/leg/right/robot/protean/digitigrade()
-		owner.del_and_replace_bodypart(new_left, special = TRUE)
-		owner.del_and_replace_bodypart(new_right, special = TRUE)
-		new_left.update_limb(is_creating = TRUE)
-		new_right.update_limb(is_creating = TRUE)
-		owner.update_body_parts()
+	// Heal existing limbs first
+	for(var/obj/item/bodypart/existing as anything in owner.bodyparts)
+		if(IS_STUMP(existing))
+			continue
+		existing.heal_damage(existing.brute_dam, existing.burn_dam)
+	// Regrow missing limbs from the cache
+	for(var/zone in limb_cache)
+		if(owner.get_bodypart(zone))
+			continue
+		var/list/cached = limb_cache[zone]
+		var/limb_type = cached["type"]
+		var/obj/item/bodypart/new_limb = new limb_type()
+		for(var/visual_var in cached_visual_vars)
+			new_limb.vars[visual_var] = cached[visual_var]
+		new_limb.try_attach_limb(owner, special = TRUE)
+		new_limb.update_limb(is_creating = TRUE)
+	owner.update_body(TRUE)
+	owner.update_body_parts()
 	if(isnull(eyes))
 		eyes = new /obj/item/organ/eyes/robotic/protean
 		eyes.on_bodypart_insert()
