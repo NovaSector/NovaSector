@@ -352,7 +352,7 @@
 			continue
 		to_chat(user, span_warning("[cached] failed to return to its original place! REPORT THIS"))
 		stack_trace("Modsuit Unassimilate: cached module [cached] failed to return to original modsuit! [src]")
-		cached_modules -= cached
+		LAZYREMOVE(cached_modules, cached)
 
 	theme = stored_theme
 	stored_theme = null
