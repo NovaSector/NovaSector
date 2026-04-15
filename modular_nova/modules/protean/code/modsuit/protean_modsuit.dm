@@ -272,7 +272,7 @@
 	// Cache the protean servo module before transferring absorbed suit's modules
 	var/obj/item/mod/module/protean_servo/servo = locate() in modules
 	if(servo)
-		cached_modules += servo
+		LAZYADD(cached_modules, servo)
 		uninstall(servo)
 	// Copy the list since we're modifying it during iteration
 	var/list/modules_to_transfer = to_assimilate.modules.Copy()
