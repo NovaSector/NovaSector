@@ -1,5 +1,5 @@
 /obj/item/mod/control/pre_equipped/protean
-	name = "protean modsuit"
+	name = "modsuit"
 	desc = "The modsuit unit of a Protean, allowing them to retract into it, or to deploy a suit that protects against various environments."
 	theme = /datum/mod_theme/protean
 
