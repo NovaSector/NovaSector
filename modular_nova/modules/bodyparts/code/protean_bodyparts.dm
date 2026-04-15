@@ -275,7 +275,7 @@
 /proc/get_protean_modsuit(mob/living/carbon/target)
 	var/obj/item/bodypart/chest = target?.get_bodypart(BODY_ZONE_CHEST)
 	var/datum/component/protean_limb/comp = chest?.GetComponent(/datum/component/protean_limb)
-	return comp?.species_modsuit
+	return comp?.get_species_modsuit()
 
 /// Gets the protean chest component from a mob. Returns null if not protean.
 /proc/get_protean_chest_component(mob/living/carbon/target)
