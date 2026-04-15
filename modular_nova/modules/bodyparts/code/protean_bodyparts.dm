@@ -147,6 +147,21 @@
 /datum/component/protean_limb/Initialize()
 	if(!isbodypart(parent))
 		return COMPONENT_INCOMPATIBLE
+	// Override limb stats to protean values
+	var/obj/item/bodypart/limb = parent
+	if(istype(limb, /obj/item/bodypart/head))
+		limb.max_damage = 120
+	else if(istype(limb, /obj/item/bodypart/chest))
+		limb.max_damage = LIMB_MAX_HP_CORE
+	else
+		limb.max_damage = 40
+	limb.light_brute_msg = LIGHT_NANO_BRUTE
+	limb.medium_brute_msg = MEDIUM_NANO_BRUTE
+	limb.heavy_brute_msg = HEAVY_NANO_BRUTE
+	limb.light_burn_msg = LIGHT_NANO_BURN
+	limb.medium_burn_msg = MEDIUM_NANO_BURN
+	limb.heavy_burn_msg = HEAVY_NANO_BURN
+	limb.damage_examines = list(BRUTE = BRUTE_EXAMINE_NANO, BURN = BURN_EXAMINE_NANO)
 
 /// Whether this component is on a chest bodypart.
 /datum/component/protean_limb/proc/is_chest()
