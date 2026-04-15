@@ -32,9 +32,7 @@
 	var/obj/item/mod/core/protean/protean_core = core
 	var/mob/living/carbon/human/protean_mob = protean_core?.linked_protean
 	if(protean_mob)
-		var/datum/component/protean_limb/comp = get_protean_chest_component(protean_mob)
-		if(comp?.species_modsuit == src)
-			comp.species_modsuit = null
+		set_species_modsuit(null)
 	if(stored_modsuit)
 		for(var/obj/item/mod/module/modules in cached_modules)
 			if(!modules.removable)
