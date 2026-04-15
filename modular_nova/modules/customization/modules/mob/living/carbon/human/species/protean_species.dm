@@ -181,9 +181,7 @@
 /// Creates and equips the protean's modsuit to the given mob's back slot, storing the ref on the chest component.
 /datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer)
 	var/obj/item/mod/control/pre_equipped/protean/new_suit = new()
-	var/datum/component/protean_limb/comp = get_protean_chest_component(gainer)
-	if(comp)
-		comp.species_modsuit = new_suit
+	set_protean_modsuit(new_suit)
 	var/obj/item/item_in_slot = gainer.get_item_by_slot(ITEM_SLOT_BACK)
 	if(item_in_slot)
 		if(HAS_TRAIT(item_in_slot, TRAIT_NODROP))
