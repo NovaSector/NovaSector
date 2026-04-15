@@ -24,7 +24,7 @@
 	/// Timer ID for the emergency retreat timer
 	var/retreat_timer_id
 	/// Cached limb data for regeneration. Maps body_zone → cached bodypart instance.
-	var/list/limb_cache
+	VAR_PROTECTED/list/limb_cache
 	COOLDOWN_DECLARE(message_cooldown)
 	COOLDOWN_DECLARE(refactory_cooldown)
 	COOLDOWN_DECLARE(orchestrator_cooldown)
