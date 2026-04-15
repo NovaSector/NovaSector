@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - bugfix: "Fixed an exploit with hunter slugs which caused them to do 5 times more damage than they should be doing"
