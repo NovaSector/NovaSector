@@ -32,9 +32,9 @@
 	var/obj/item/mod/core/protean/protean_core = core
 	var/mob/living/carbon/human/protean_mob = protean_core?.linked_protean
 	if(protean_mob)
-		var/obj/item/bodypart/chest/robot/protean/chest = protean_mob.get_bodypart(BODY_ZONE_CHEST)
-		if(chest?.species_modsuit == src)
-			chest.species_modsuit = null
+		var/datum/component/protean_limb/comp = get_protean_chest_component(protean_mob)
+		if(comp?.species_modsuit == src)
+			comp.species_modsuit = null
 	if(stored_modsuit)
 		for(var/obj/item/mod/module/modules in cached_modules)
 			if(!modules.removable)
@@ -90,9 +90,9 @@
 
 	if(isprotean(user) && slot == ITEM_SLOT_BACK)
 		var/mob/living/carbon/human/human_user = user
-		var/obj/item/bodypart/chest/robot/protean/chest = human_user.get_bodypart(BODY_ZONE_CHEST)
-		if(chest)
-			chest.species_modsuit = src
+		var/datum/component/protean_limb/comp = get_protean_chest_component(human_user)
+		if(comp)
+			comp.species_modsuit = src
 			var/obj/item/mod/core/protean/protean_core = core
 			if(protean_core)
 				protean_core.linked_protean = human_user

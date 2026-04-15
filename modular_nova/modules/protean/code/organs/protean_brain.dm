@@ -109,8 +109,7 @@
 /obj/item/organ/brain/protean/proc/emergency_retreat()
 	if(dead)
 		return
-	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
 	if(!suit || owner.loc == suit)
 		return
 	dead = TRUE
@@ -153,8 +152,7 @@
 
 /// Checks if the refactory organ is present and applies degradation damage if missing.
 /obj/item/organ/brain/protean/proc/handle_refactory(obj/item/organ)
-	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
 	if(owner.loc == suit)
 		return
 	if(isnull(organ) || !istype(organ, /obj/item/organ/stomach/protean))
@@ -165,8 +163,7 @@
 
 /// Checks if the orchestrator organ is present and applies movement penalties if missing.
 /obj/item/organ/brain/protean/proc/handle_orchestrator(obj/item/organ)
-	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
 	if(owner.loc == suit)
 		return
 	if(!COOLDOWN_FINISHED(src, orchestrator_cooldown))
@@ -187,8 +184,7 @@
 /// Moves the protean into their modsuit, playing visuals and applying transform traits.
 /obj/item/organ/brain/protean/proc/go_into_suit(forced)
 	set waitfor = FALSE
-	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
 	if(!suit || owner.loc == suit)
 		return
 	if(!forced)
@@ -222,8 +218,7 @@
 /// Moves the protean out of their modsuit back into the world.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
 	set waitfor = FALSE
-	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
 	if(isnull(suit))
 		return
 	if(dead)
@@ -267,8 +262,7 @@
 	if(!istype(owner.loc, /obj/item/mod/control))
 		to_chat(owner, span_warning("Not in the open. You must be inside your suit!"))
 		return
-	var/obj/item/bodypart/chest/robot/protean/chest = owner.get_bodypart(BODY_ZONE_CHEST)
-	if(!do_after(owner, 30 SECONDS, chest?.species_modsuit, IGNORE_INCAPACITATED))
+	if(!do_after(owner, 30 SECONDS, get_protean_modsuit(owner), IGNORE_INCAPACITATED))
 		return
 
 	stomach.metal = clamp(stomach.metal - (PROTEAN_STOMACH_FULL * 0.6), 0, 10)

@@ -2,11 +2,12 @@
  * Protean Bodypart Types
  *
  * Thin subtypes that set protean-specific appearance and stats.
- * All limb behavior (dissolution, dismemberment) is handled by /datum/component/protean_limb.
- * Chest keeps species_modsuit var and signal registrations for modsuit management.
+ * All behavior (dissolution, dismemberment, modsuit management) is handled
+ * by /datum/component/protean_limb, added during species gain.
  */
 
-/// -- Core bodyparts --
+// -- Core bodyparts --
+
 /obj/item/bodypart/head/robot/protean
 	max_damage = 120
 	icon_greyscale = BODYPART_ICON_MAMMAL
@@ -38,8 +39,6 @@
 	medium_burn_msg = MEDIUM_NANO_BURN
 	heavy_burn_msg = HEAVY_NANO_BURN
 	damage_examines = list(BRUTE = BRUTE_EXAMINE_NANO, BURN = BURN_EXAMINE_NANO)
-	/// Reference to this protean's modsuit.
-	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
 
 /obj/item/bodypart/arm/left/robot/protean
 	max_damage = 40
@@ -69,7 +68,8 @@
 	heavy_burn_msg = HEAVY_NANO_BURN
 	damage_examines = list(BRUTE = BRUTE_EXAMINE_NANO, BURN = BURN_EXAMINE_NANO)
 
-/// -- Legs (support digitigrade) --
+// -- Legs (support digitigrade) --
+
 /obj/item/bodypart/leg/right/robot/protean
 	max_damage = 40
 	biological_state = (BIO_ROBOTIC|BIO_JOINTED|BIO_BLOODED)
@@ -111,7 +111,7 @@
 	old_owner.update_worn_shoes()
 	return ..()
 
-/// -- Digitigrade variants --
+// -- Digitigrade variants --
 
 /obj/item/bodypart/leg/right/robot/protean/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
@@ -125,67 +125,37 @@
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 	base_limb_id = BODYPART_ID_DIGITIGRADE
 
-/// -- Chest: modsuit management (stays on the chest, not the component) --
-
-/obj/item/bodypart/chest/robot/protean/apply_ownership(mob/living/carbon/new_owner)
-	. = ..()
-	RegisterSignals(new_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY), PROC_REF(on_item_interaction))
-	RegisterSignal(new_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_item_equipped))
-
-/obj/item/bodypart/chest/robot/protean/clear_ownership(mob/living/carbon/old_owner)
-	species_modsuit = null
-	UnregisterSignal(old_owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY, COMSIG_MOB_EQUIPPED_ITEM))
-	return ..()
-
-/// When a non-protean-modsuit item is equipped to the back slot, converts it into a protean modsuit.
-/obj/item/bodypart/chest/robot/protean/proc/on_item_equipped(mob/living/carbon/human/source, obj/item/equipped_item, slot)
-	SIGNAL_HANDLER
-	if(slot != ITEM_SLOT_BACK)
-		return
-	if(istype(equipped_item, /obj/item/mod/control/pre_equipped/protean))
-		return
-	if(!species_modsuit)
-		return // pre_equip_outfit dropped it, post_equip_outfit will handle
-	var/datum/species/protean/species = source.dna?.species
-	if(!istype(species))
-		return
-	equipped_item.atom_storage?.remove_all(get_turf(source))
-	species.equip_modsuit(source, src)
-	qdel(equipped_item)
-
-/// Protean limbs reject welder/cable healing.
-/obj/item/bodypart/chest/robot/protean/proc/on_item_interaction(mob/living/source, mob/living/user, obj/item/tool, list/modifiers)
-	SIGNAL_HANDLER
-	if(!istype(tool, /obj/item/weldingtool) && !istype(tool, /obj/item/stack/cable_coil))
-		return NONE
-	if(user.combat_mode)
-		return NONE
-	var/obj/item/bodypart/affecting = source.get_bodypart(check_zone(user.zone_selected))
-	if(isnull(affecting) || !IS_ROBOTIC_LIMB(affecting))
-		return NONE
-	return ITEM_INTERACT_SKIP_TO_ATTACK
-
 /**
  * Protean Limb Component
  *
  * Attached to each bodypart when a mob gains the protean species.
- * Handles limb-specific protean behavior via signals:
+ * Handles all protean-specific limb behavior via signals:
  * - Dismemberment at max damage (instead of wound-based)
  * - Dissolution timer + effects when limbs are removed
  * - Timer cancellation when limbs are reattached
+ * - Modsuit management (chest only)
+ * - Welder/cable healing rejection (chest only)
+ * - Back slot item interception (chest only)
  */
 /datum/component/protean_limb
+	dupe_mode = COMPONENT_DUPE_UNIQUE
 	/// Timer ID for the auto-dissolution of a dismembered limb
 	var/qdel_timerid
+	/// Whether this component is on the chest bodypart
+	var/is_chest = FALSE
+	/// Reference to this protean's modsuit. Only used on chest components.
+	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
 
-/datum/component/protean_limb/Initialize()
+/datum/component/protean_limb/Initialize(chest = FALSE)
 	if(!isbodypart(parent))
 		return COMPONENT_INCOMPATIBLE
+	is_chest = chest
 
 /datum/component/protean_limb/Destroy()
 	if(qdel_timerid)
 		deltimer(qdel_timerid)
 		qdel_timerid = null
+	species_modsuit = null
 	return ..()
 
 /datum/component/protean_limb/RegisterWithParent()
@@ -214,11 +184,22 @@
 /datum/component/protean_limb/proc/register_owner_signals(mob/living/carbon/owner)
 	RegisterSignal(owner, COMSIG_CARBON_LIMB_DAMAGED, PROC_REF(on_limb_damaged))
 	RegisterSignal(owner, COMSIG_CARBON_REMOVE_LIMB, PROC_REF(on_limb_removed))
+	if(is_chest)
+		RegisterSignals(owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY), PROC_REF(on_item_interaction))
+		RegisterSignal(owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_item_equipped))
+		// If the mob already has a protean modsuit equipped, link it to this new chest component
+		if(!species_modsuit)
+			var/obj/item/back_item = owner.get_item_by_slot(ITEM_SLOT_BACK)
+			if(istype(back_item, /obj/item/mod/control/pre_equipped/protean))
+				species_modsuit = back_item
 
 /datum/component/protean_limb/proc/unregister_owner_signals(mob/living/carbon/owner)
 	UnregisterSignal(owner, list(COMSIG_CARBON_LIMB_DAMAGED, COMSIG_CARBON_REMOVE_LIMB))
+	if(is_chest)
+		UnregisterSignal(owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY, COMSIG_MOB_EQUIPPED_ITEM))
 
-/// -- Dismemberment at max damage --
+// -- Dismemberment at max damage --
+
 /datum/component/protean_limb/proc/on_limb_damaged(mob/living/carbon/source, obj/item/bodypart/limb, brute, burn)
 	SIGNAL_HANDLER
 	if(limb != parent)
@@ -226,7 +207,8 @@
 	if((limb.get_damage() + brute + burn) >= limb.max_damage)
 		limb.dismember()
 
-/// -- Dissolution timer --
+// -- Dissolution timer --
+
 /datum/component/protean_limb/proc/on_limb_removed(mob/living/carbon/source, obj/item/bodypart/removed_limb, special, dismembered)
 	SIGNAL_HANDLER
 	if(removed_limb != parent || special)
@@ -240,3 +222,46 @@
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
 		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
 	qdel(limb)
+
+// -- Chest: back slot interception --
+
+/datum/component/protean_limb/proc/on_item_equipped(mob/living/carbon/human/source, obj/item/equipped_item, slot)
+	SIGNAL_HANDLER
+	if(slot != ITEM_SLOT_BACK)
+		return
+	if(istype(equipped_item, /obj/item/mod/control/pre_equipped/protean))
+		return
+	if(!species_modsuit)
+		return // pre_equip_outfit dropped it, post_equip_outfit will handle
+	var/datum/species/protean/species = source.dna?.species
+	if(!istype(species))
+		return
+	equipped_item.atom_storage?.remove_all(get_turf(source))
+	species.equip_modsuit(source)
+	qdel(equipped_item)
+
+// -- Chest: welder/cable healing rejection --
+
+/datum/component/protean_limb/proc/on_item_interaction(mob/living/source, mob/living/user, obj/item/tool, list/modifiers)
+	SIGNAL_HANDLER
+	if(!istype(tool, /obj/item/weldingtool) && !istype(tool, /obj/item/stack/cable_coil))
+		return NONE
+	if(user.combat_mode)
+		return NONE
+	var/obj/item/bodypart/affecting = source.get_bodypart(check_zone(user.zone_selected))
+	if(isnull(affecting) || !IS_ROBOTIC_LIMB(affecting))
+		return NONE
+	return ITEM_INTERACT_SKIP_TO_ATTACK
+
+// -- Helper procs --
+
+/// Gets the protean modsuit from a mob's chest component. Returns null if not protean or no modsuit.
+/proc/get_protean_modsuit(mob/living/carbon/target)
+	var/obj/item/bodypart/chest = target?.get_bodypart(BODY_ZONE_CHEST)
+	var/datum/component/protean_limb/comp = chest?.GetComponent(/datum/component/protean_limb)
+	return comp?.species_modsuit
+
+/// Gets the protean chest component from a mob. Returns null if not protean.
+/proc/get_protean_chest_component(mob/living/carbon/target)
+	var/obj/item/bodypart/chest = target?.get_bodypart(BODY_ZONE_CHEST)
+	return chest?.GetComponent(/datum/component/protean_limb)

@@ -86,12 +86,13 @@
 	. = ..()
 	// Add protean limb component to all bodyparts
 	for(var/obj/item/bodypart/limb as anything in gainer.bodyparts)
-		limb.AddComponent(/datum/component/protean_limb)
-	var/obj/item/bodypart/chest/robot/protean/chest = gainer.get_bodypart(BODY_ZONE_CHEST)
-	equip_modsuit(gainer, chest)
+		var/is_chest = istype(limb, /obj/item/bodypart/chest)
+		limb.AddComponent(/datum/component/protean_limb, chest = is_chest)
+	equip_modsuit(gainer)
 	RegisterSignal(gainer, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(organ_reject))
 	RegisterSignal(gainer, COMSIG_ATTEMPT_CARBON_ATTACH_LIMB, PROC_REF(check_limb_attach))
-	var/obj/item/mod/core/protean/core = chest.species_modsuit.core
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(gainer)
+	var/obj/item/mod/core/protean/core = suit?.core
 	core?.linked_protean = gainer
 	var/list/protean_verbs = list(
 		/mob/living/carbon/proc/protean_ui,
@@ -147,7 +148,8 @@
 /datum/species/protean/proc/check_limb_attach(mob/living/carbon/source, obj/item/bodypart/new_limb, special)
 	SIGNAL_HANDLER
 	if(!new_limb.GetComponent(/datum/component/protean_limb))
-		new_limb.AddComponent(/datum/component/protean_limb)
+		var/is_chest = istype(new_limb, /obj/item/bodypart/chest)
+		new_limb.AddComponent(/datum/component/protean_limb, chest = is_chest)
 
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
@@ -167,23 +169,25 @@
 		// Clean up traits that may be active if protean is transformed or in critical state
 		REMOVE_TRAIT(gainer, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
 		gainer.remove_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown)
-	var/obj/item/bodypart/chest/robot/protean/chest = gainer.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(gainer)
 	if(suit?.stored_modsuit)
 		suit.unassimilate_modsuit(gainer, TRUE)
 	gainer.dropItemToGround(suit, TRUE)
 	if(suit)
 		qdel(suit)
-	if(chest)
-		chest.species_modsuit = null
+	var/datum/component/protean_limb/comp = get_protean_chest_component(gainer)
+	if(comp)
+		comp.species_modsuit = null
 	// Remove protean limb components from all bodyparts
 	for(var/obj/item/bodypart/limb as anything in gainer.bodyparts)
 		qdel(limb.GetComponent(/datum/component/protean_limb))
 
-/// Creates and equips the protean's modsuit to the given mob's back slot, storing the ref on the chest.
-/datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer, obj/item/bodypart/chest/robot/protean/chest)
+/// Creates and equips the protean's modsuit to the given mob's back slot, storing the ref on the chest component.
+/datum/species/protean/proc/equip_modsuit(mob/living/carbon/human/gainer)
 	var/obj/item/mod/control/pre_equipped/protean/new_suit = new()
-	chest.species_modsuit = new_suit
+	var/datum/component/protean_limb/comp = get_protean_chest_component(gainer)
+	if(comp)
+		comp.species_modsuit = new_suit
 	var/obj/item/item_in_slot = gainer.get_item_by_slot(ITEM_SLOT_BACK)
 	if(item_in_slot)
 		if(HAS_TRAIT(item_in_slot, TRAIT_NODROP))
@@ -262,21 +266,21 @@
 
 /// Temporarily drops and destroys the protean modsuit to free the back slot for the outfit's back item.
 /datum/species/protean/pre_equip_outfit(mob/living/carbon/human/equipping)
-	var/obj/item/bodypart/chest/robot/protean/chest = equipping.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(equipping)
 	if(!suit)
 		return
 	if(HAS_TRAIT(suit, TRAIT_NODROP))
 		REMOVE_TRAIT(suit, TRAIT_NODROP, "protean")
 	equipping.temporarilyRemoveItemFromInventory(suit, force = TRUE)
-	chest.species_modsuit = null
+	var/datum/component/protean_limb/comp = get_protean_chest_component(equipping)
+	if(comp)
+		comp.species_modsuit = null
 	qdel(suit)
 
 /// After outfit equipping, converts whatever the outfit put in the back slot into a protean modsuit.
 /// Non-protean modsuits get assimilated (theme + modules). Other items get replaced.
 /datum/species/protean/post_equip_outfit(mob/living/carbon/human/equipping)
-	var/obj/item/bodypart/chest/robot/protean/chest = equipping.get_bodypart(BODY_ZONE_CHEST)
-	if(chest?.species_modsuit)
+	if(get_protean_modsuit(equipping))
 		return
 	var/obj/item/back_item = equipping.get_item_by_slot(ITEM_SLOT_BACK)
 	var/obj/item/mod/control/outfit_modsuit = istype(back_item, /obj/item/mod/control) ? back_item : null
@@ -292,17 +296,18 @@
 	// Swap: remove outfit item, equip protean modsuit, assimilate or discard
 	if(back_item)
 		equipping.temporarilyRemoveItemFromInventory(back_item, force = TRUE)
-	equip_modsuit(equipping, chest)
+	equip_modsuit(equipping)
+	var/obj/item/mod/control/pre_equipped/protean/new_suit = get_protean_modsuit(equipping)
 	if(outfit_modsuit)
 		outfit_modsuit.forceMove(equipping)
-		chest.species_modsuit.assimilate_modsuit(equipping, outfit_modsuit, forced = TRUE)
+		new_suit?.assimilate_modsuit(equipping, outfit_modsuit, forced = TRUE)
 	else if(back_item)
 		// Move items out before qdeling so they aren't destroyed with it
 		for(var/obj/item/saved in saved_contents)
 			saved.moveToNullspace()
 		qdel(back_item)
 	// Restore contents into protean modsuit storage
-	var/obj/item/mod/module/storage/protean_storage = locate() in chest.species_modsuit?.modules
+	var/obj/item/mod/module/storage/protean_storage = locate() in new_suit?.modules
 	for(var/obj/item/saved in saved_contents)
 		if(!QDELETED(saved))
 			saved.forceMove(protean_storage)

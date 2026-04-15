@@ -71,8 +71,7 @@
 
 /datum/action/cooldown/protean_servo/movement/Activate()
 	var/mob/living/carbon/protean = owner
-	var/obj/item/bodypart/chest/robot/protean/chest = protean.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(protean)
 	if(isnull(suit))
 		return
 	var/mob/living/carbon/wearer = suit.wearer
@@ -89,8 +88,7 @@
 
 /datum/action/cooldown/protean_servo/medical/Activate()
 	var/mob/living/carbon/protean = owner
-	var/obj/item/bodypart/chest/robot/protean/chest = protean.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(protean)
 	if(isnull(suit))
 		return
 	var/mob/living/carbon/wearer = suit.wearer
@@ -107,8 +105,7 @@
 
 /datum/action/cooldown/protean_servo/engineering/Activate()
 	var/mob/living/carbon/protean = owner
-	var/obj/item/bodypart/chest/robot/protean/chest = protean.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(protean)
 	if(isnull(suit))
 		return
 	var/mob/living/carbon/wearer = suit.wearer

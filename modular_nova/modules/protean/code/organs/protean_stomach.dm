@@ -34,8 +34,7 @@
 	UnregisterSignal(stomach_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
 
 /obj/item/organ/stomach/protean/on_life(seconds_per_tick, times_fired)
-	var/obj/item/bodypart/chest/robot/protean/chest = owner?.get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
 	if(owner.loc == suit)
 		return
 	/// Zero out any nutrition. We do not use hunger in this species.

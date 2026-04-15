@@ -3,8 +3,7 @@
 	set desc = "Opens your suit UI"
 	set category = "Protean"
 
-	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(src)
 	if(isnull(suit))
 		return
 	suit.ui_interact(src)
@@ -19,8 +18,7 @@
 	if(!istype(brain))
 		return
 
-	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(src)
 	if(isnull(suit))
 		return
 	if(incapacitated && loc != suit)
@@ -34,8 +32,7 @@
 	set desc = "Locks your suit on someone"
 	set category = "Protean"
 
-	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(src)
 	if(isnull(suit))
 		return
 
@@ -51,8 +48,7 @@
 
 	if(!istype(brain))
 		return
-	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(src)
 	if(isnull(suit))
 		return
 	if(loc == suit)
@@ -68,8 +64,7 @@
 	set desc = "Pry out an absorbed modsuit from your protean suit."
 	set category = "Protean"
 
-	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(src)
 	if(isnull(suit))
 		return
 	suit.unassimilate_modsuit(src)
@@ -79,8 +74,7 @@
 	set desc = "Reset your modsuit appearance back to default."
 	set category = "Protean"
 
-	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(src)
 	if(isnull(suit))
 		return
 	suit.unassimilate_theme()
@@ -90,8 +84,7 @@
 	set desc = "Toggle whether you are running on low power mode."
 	set category = "Protean"
 
-	var/obj/item/bodypart/chest/robot/protean/chest = get_bodypart(BODY_ZONE_CHEST)
-	var/obj/item/mod/control/pre_equipped/protean/suit = chest?.species_modsuit
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(src)
 	if(isnull(suit))
 		return
 	var/obj/item/organ/stomach/protean/stomach = get_organ_slot(ORGAN_SLOT_STOMACH)
