@@ -15,7 +15,7 @@
 	/// Reference to an assimilated modsuit stored inside this one
 	var/obj/item/mod/control/stored_modsuit
 	/// Modules cached during assimilation that need to be restored on unassimilate
-	var/list/cached_modules = list()
+	var/list/cached_modules
 	/// The original theme stored before assimilating another suit's theme
 	var/datum/mod_theme/stored_theme
 
