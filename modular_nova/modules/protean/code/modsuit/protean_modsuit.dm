@@ -88,9 +88,7 @@
 
 	if(isprotean(user) && slot == ITEM_SLOT_BACK)
 		var/mob/living/carbon/human/human_user = user
-		var/datum/component/protean_limb/comp = get_protean_chest_component(human_user)
-		if(comp)
-			comp.species_modsuit = src
+		set_species_modsuit(src)
 			var/obj/item/mod/core/protean/protean_core = core
 			if(protean_core)
 				protean_core.linked_protean = human_user
