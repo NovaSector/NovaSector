@@ -204,7 +204,7 @@
 		RegisterSignals(owner, list(COMSIG_ATOM_ITEM_INTERACTION, COMSIG_ATOM_ITEM_INTERACTION_SECONDARY), PROC_REF(on_item_interaction))
 		RegisterSignal(owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_item_equipped))
 		// If the mob already has a protean modsuit equipped, link it to this new chest component
-		if(!species_modsuit)
+		if(isnull(get_species_modsuit()))
 			var/obj/item/back_item = owner.get_item_by_slot(ITEM_SLOT_BACK)
 			if(istype(back_item, /obj/item/mod/control/pre_equipped/protean))
 				species_modsuit = back_item
