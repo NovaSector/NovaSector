@@ -4,7 +4,7 @@
 	/// variants, like prosthetics and cyborg bodyparts.
 	var/current_style = null
 	/// Used for taur limbs that do not get rendered at all
-	VAR_PRIVATE/is_actually_just_invisible = FALSE
+	VAR_PROTECTED/is_actually_just_invisible = FALSE
 
 /obj/item/bodypart/generate_icon_key()
 	RETURN_TYPE(/list)
