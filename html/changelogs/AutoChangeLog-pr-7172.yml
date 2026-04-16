@@ -1,4 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - bugfix: "Fixes custom tongue not working on characters that have joined at the start of the round"

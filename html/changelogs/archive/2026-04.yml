@@ -180,3 +180,23 @@
       damage than they should be doing
   vinylspiders:
   - config: adds a server config for nova star restrictions
+2026-04-16:
+  Hardly:
+  - bugfix: Fixes custom tongue not working on characters that have joined at the
+      start of the round
+  Melbert:
+  - rscadd: Some undergarmants will now use a generic replacement on lizard body shapes
+      that fit more appropriately
+  - refactor: Refactored how undergarmants generate their icons, report any oddities
+      with that
+  OrbisAnima:
+  - balance: Bridge assistant no longer rolls for antags... hopefully.
+  SyncIt21:
+  - refactor: random recipes like metalgen & secret sause have been refactored. Please
+      report bugs on github
+  Zenitheevee:
+  - code_imp: makes the colony fabricator easier to make subtypes of for future use.
+  vinylspiders:
+  - bugfix: fixes an issue that would cause taur legs to stack overlays on each rerender
+      and eventually hit the overlay cap
+  - bugfix: fixes the 'soft' hemi option sprite size progression being backwards
