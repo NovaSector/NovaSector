@@ -174,3 +174,9 @@
       reasons.
   - bugfix: Separates the sound effects and particle effects of cargo teleporters
       to be by teleporting chunks, instead of per atom.
+2026-04-15:
+  OrbisAnima:
+  - bugfix: Fixed an exploit with hunter slugs which caused them to do 5 times more
+      damage than they should be doing
+  vinylspiders:
+  - config: adds a server config for nova star restrictions

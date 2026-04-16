@@ -7556,6 +7556,7 @@
 #include "modular_nova\master_files\code\modules\research\designs\weapon_designs.dm"
 #include "modular_nova\master_files\code\modules\research\machinery\_production.dm"
 #include "modular_nova\master_files\code\modules\research\techweb\all_nodes.dm"
+#include "modular_nova\master_files\code\modules\research\techweb\techweb_types.dm"
 #include "modular_nova\master_files\code\modules\shuttle\shuttle.dm"
 #include "modular_nova\master_files\code\modules\shuttle\shuttle_events\meteors.dm"
 #include "modular_nova\master_files\code\modules\sleep\code\datums\status_effects\_status_effect.dm"
