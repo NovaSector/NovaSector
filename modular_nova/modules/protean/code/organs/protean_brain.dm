@@ -212,7 +212,11 @@
 /// Resets the protean's camera perspective when the suit moves (e.g. picked up/dropped).
 /obj/item/organ/brain/protean/proc/on_suit_moved(obj/item/source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
-	owner?.reset_perspective()
+	if(isnull(owner?.client))
+		return
+	// Pin view to the suit's turf. Using the turf (not the suit itself) ensures
+	// set_eye() doesn't early-return when the suit is handed around between mobs.
+	owner.reset_perspective(get_turf(source))
 
 /// Moves the protean out of their modsuit back into the world.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
@@ -227,6 +231,7 @@
 		return
 	var/mob/living/carbon/mob = suit.loc
 	if(istype(mob))
+		REMOVE_TRAIT(suit, TRAIT_NODROP, "protean")
 		mob.dropItemToGround(suit, TRUE)
 	var/datum/storage/storage = suit.loc.atom_storage
 	if(istype(storage))
