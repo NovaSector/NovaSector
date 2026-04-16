@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes an issue that would cause taur legs to stack overlays on each rerender and eventually hit the overlay cap"

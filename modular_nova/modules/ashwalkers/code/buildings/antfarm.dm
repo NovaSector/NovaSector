@@ -19,7 +19,6 @@
 		/obj/item/stack/ore/glass/basalt = 20,
 		/obj/item/stack/ore/plasma = 14,
 		/obj/item/stack/ore/silver = 8,
-		/obj/item/xenoarch/strange_rock = 8,
 		/obj/item/stack/stone = 8,
 		/obj/item/stack/sheet/mineral/coal = 8,
 		/obj/item/stack/ore/titanium = 8,

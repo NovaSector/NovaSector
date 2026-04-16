@@ -108,3 +108,75 @@
   - bugfix: gets rid of a stray pixel from the quirks menu
   - bugfix: fixes an issue where the 'slow shuttle' station trait can sometimes not
       be applied properly
+2026-04-06:
+  DimWhat for spriting, SigmaPredator for helping me with organizing this, and my (theselfish) poor keyboard.:
+  - rscadd: Nearly every job has a Bunny outfit. I am not joking. Check your vendors.
+  OrbisAnima:
+  - balance: Oversized slowdown reduced from 0.5 to 0.2, exactly like settler, or
+      walking over light webs. Oversized also gain the perk Sturdy Frame, which allows
+      them to reduce the slowdown items (ie, armors) cause by 80%, same as the settler
+      perk!
+2026-04-10:
+  Hardly:
+  - qol: Roundstart doctors no longer have the possibility of spawning stuck in abandoned
+      medical storage in blueshift
+  - code_imp: Forged katanas can now be inserted into katana sheaths
+  - rscadd: Adds the toy katana sheathe to loadout menu
+  Hatterhat:
+  - bugfix: Nanotrasen has gotten down to the Source of things regarding their invisible
+      fuel tanks during the April Fools' season. The Engine behind tank creation had
+      gotten a little too silly, making canisters with a painting Half-Life of approximately
+      Two.
+  - qol: Mining scanners can now attach holotags to rocky debris of interest to xenoarchaeologists.
+  - qol: 'Following lobbying from Big High-Performance Thermoplastic, Nanotrasen has
+      begun issuing ore box reinforcement kits to their mining teams, which can be
+      found in their lockers and used to make an ore box thermally insulated (read:
+      fire/lavaproof).'
+  OrbisAnima:
+  - qol: Fishing and Xenoarch tech no longer require an experiment.
+  - refactor: Refactored lesser Xenoarch ( strange rocks one, not the big rocks one),
+      more accessible to people, too many details for it, read the PR 7034, short
+      of it, you use a radar to find rocks now, and they have better loot, use a brush
+      to recover items, and no more automated ways of getting the rocks.
+  - rscadd: added the Assistant formal winter coat to the clothesmate.
+  - balance: While strange rocks clusters are much more rare in mining, they now have
+      a 50% chance of having a Science Xenoarch artifact, by some math I hope its
+      not wrong, we should have 90% more big science artifacts on the mining z levels
+      for science to get their radiation less SM, autocloners and all that cool stuff.
+  - balance: Big Manipulators can no longer be used to interact with strange rocks.
+  Skies-Of-Blue:
+  - bugfix: Plantigrade harpy legs and markings now render as intended
+  StarHorder:
+  - rscadd: A new space ruin!
+  - config: A new space ruin to be enabled or disabled in server settings.
+  Zenitheevee:
+  - rscadd: Added new endless variants for ghost mining vents
+  - rscadd: new machine for ghost roles to better use boulder system
+  - image: sprites for LRM and crystal clusters
+  - code_imp: adds support for non-station vents to not get grabbed by BRM
+  cebutris:
+  - rscadd: In a win for puppies dogs everywhere, tennis balls are now available at
+      Good Clean Fun vendors
+  sergeirocks100:
+  - map: Meta, Delta, Ice Box, Pubby, Tram, Nebula, Wawa, and Catwalk now all have
+      service guard lockers that can be found in their respective bar backrooms.
+  sqnztb:
+  - bugfix: pubby's hop office now has the account console, loses the extra photocopier.
+  theselfish:
+  - bugfix: Fixed the Bluescreen in the Autodrobe.
+  - bugfix: Fixed everyone being able to get roundstart armor via the Bartender tailcoat
+      in the loadout.
+2026-04-13:
+  OrbisAnima:
+  - bugfix: Xenoarch t3 clothing objects were readded to the rewards pool.
+  - balance: Made Cargo teleporters to teleport stuff 20 a time, instead of all they
+      have in a tile, to avoid crashes. Same amount as the push broom for the same
+      reasons.
+  - bugfix: Separates the sound effects and particle effects of cargo teleporters
+      to be by teleporting chunks, instead of per atom.
+2026-04-15:
+  OrbisAnima:
+  - bugfix: Fixed an exploit with hunter slugs which caused them to do 5 times more
+      damage than they should be doing
+  vinylspiders:
+  - config: adds a server config for nova star restrictions
