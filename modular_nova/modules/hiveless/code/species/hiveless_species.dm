@@ -63,7 +63,7 @@
 		SPECIES_PERK_ICON = "dna",
 		SPECIES_PERK_NAME = "Inherited Biology",
 		SPECIES_PERK_DESC = "Some vestigial shard from their previous hivemind still linger inside them,\
-		granting them access to some manipulations of the flesh"
+		granting them access to some manipulations of the flesh."
 	))
 
 	to_add += list(list(
