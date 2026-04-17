@@ -9701,4 +9701,5 @@
 #include "modular_regzt\code\modules\scrap\scrap_beacon.dm"
 #include "modular_regzt\code\modules\scrap\scrap_loot.dm"
 #include "modular_regzt\code\modules\scrap\slime_extract_list.dm"
+#include "modular_regzt\code\modules\random_item\portable_lathe.dm"
 // END_INCLUDE
