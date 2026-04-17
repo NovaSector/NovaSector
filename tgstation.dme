@@ -8453,6 +8453,7 @@
 #include "modular_nova\modules\holidays\flora.dm"
 #include "modular_nova\modules\holidays\sky_lanterns\code\sky_lanterns.dm"
 #include "modular_nova\modules\holosynth\code\holopassthrough.dm"
+#include "modular_nova\modules\holosynth\code\holoray_trail.dm"
 #include "modular_nova\modules\holosynth\code\holosynth.dm"
 #include "modular_nova\modules\holosynth\code\holosynth_effects.dm"
 #include "modular_nova\modules\holosynth\code\holosynth_projector.dm"

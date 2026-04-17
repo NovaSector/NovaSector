@@ -43,6 +43,7 @@
 			force_teleport_out_effect = /obj/effect/temp_visual/guardian/phase/out,\
 			force_teleport_in_effect = /obj/effect/temp_visual/guardian/phase,\
 		)
+		AddComponent(/datum/component/holoray_trail, linked_mob)
 	else
 		linked_mob_ref = null
 
