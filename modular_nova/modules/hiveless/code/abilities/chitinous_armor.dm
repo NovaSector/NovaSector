@@ -1,7 +1,7 @@
 /// Toggle: equips or strips a chitinous suit and helmet.
 /datum/action/cooldown/spell/hiveless/chitinous_armor
 	name = "Chitinous Armor"
-	desc = "Harden your flesh into a suit of black chitin. Toggle off to reabsorb it."
+	desc = "Harden your flesh into a suit of black chitin. Toggle off to reabsorb it. Costs protein to activate and has an upkeep"
 	button_icon_state = "chitinous_armor"
 	cooldown_time = 2 SECONDS
 	protein_cost = HIVELESS_COST_ARMOR
