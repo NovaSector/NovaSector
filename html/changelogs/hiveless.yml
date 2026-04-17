@@ -1,0 +1,24 @@
+author: "pepe"
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the hiveless — a new roundstart species, a crew-friendly offshoot of the changeling lineage. Hiveless are obligate carnivores that store raw protein in an internal bank to fuel six intrinsic biological abilities (arm blade, chitinous armor, fleshmend, resonant shriek, limb regrowth, and a hydralisk-style ranged spine spit)."
+  - rscadd: "Hiveless can shape-shift into any of their own saved character slots at will — clothing and inventory stay in place, only the body underneath changes. A 'revert to true form' option is always available."
+  - rscadd: "Hiveless now have a protein-reserve HUD element on the left edge of the screen, styled after the changeling chemical meter. Hovering it shows maximum capacity."
+  - balance: "Hiveless spine spit is now faster than a pistol round, the spine sprite is smaller, drips dark green ichor from its back as it flies, and rotates correctly to face its travel direction. Spines stick in the ground after landing as tiny improvised shivs. The ability stays primed between shots — click targets freely, with a 1-second throttle between each launch."
+  - imageadd: "Body-based hiveless abilities (arm blade, armor, regenerate, shriek, fleshmend, shapeshift) now splatter blood on the caster's tile, adjacent tiles, AND smear the hiveless's own clothing, leaving visible evidence of every cast."
+  - soundadd: "Hiveless spine spit now plays a hydralisk-style spit sound on each launch."
+  - balance: "Hiveless spines now deliver a small amount of burn damage on top of their brute damage, simulating the acidic ichor coating the tip. They also ignore more armor than before and have a 35%% chance to embed in struck targets, causing painful jostling until yanked free."
+  - imageadd: "A green ichor splash now erupts from the hiveless when a spine is launched, pointing in the direction of the shot."
+  - qol: "Spine Spit is now a toggleable mode — click the action to prime or holster it. While primed the button glows red, middle-click fires at a target, and cooldown recovers normally between shots."
+  - bugfix: "Knit Flesh no longer leaves its action button stuck red between uses. The 'nothing to regrow' check moved out of the button's availability logic and into the cast path, so the button reflects only protein and base cast conditions."
+  - bugfix: "Persona Shift now properly swaps mutant bodyparts (tails, snouts, ears, horns, wings) and body markings between personas instead of leaving stale entries from a previous form when the new form lacks that feature."
+  - rscadd: "Hiveless can now speak to each other over the changeling hivemind with the :g prefix."
+  - rscadd: "Hiveless now have a decoy brain — their brain is non-vital, so decapitation or brain destruction doesn't kill them. They also read as soulless and brainless to certain scanners/checks."
+  - balance: "Hiveless take 50% more heat damage. All hiveless abilities are disabled while the hiveless is on fire or has BZ metabolites in their bloodstream — matching how BZ gets into their system the same way a changeling gets it, via normal breathing."
+  - imageadd: "The hydralisk icon for Spine Spit got a lighting pass — the top-left reads as a highlight and the shadowed underside is darker, with subtle per-pixel noise so the silhouette reads as painted rather than flat."
+  - bugfix: "Knit Flesh action button now refreshes its available/unavailable visual whenever the hiveless gains or loses a limb, instead of getting stuck looking disabled."
+  - imageadd: "The hiveless preview in the character setup menu now wears its chitinous armor suit and helmet."
+  - balance: "Hiveless protein reserves are separate from nutrition and only refill by digesting the protein reagent (e.g. from eaten meat). Reserves now slowly decay over time even when idle, and wearing chitinous armor triples that decay as passive upkeep. Retracting the arm blade also costs a pulse of protein, matching the cost to summon it. Brute and toxin damage still ticks when protein is empty."
+  - config: "Added the 'hiveless' species to ROUNDSTART_RACES in game_options.txt. Comment the line to disable selection at character setup."
