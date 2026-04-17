@@ -1,18 +1,17 @@
-/// Ability types granted and revoked with the hiveless species.
-GLOBAL_LIST_INIT(hiveless_ability_types, list(
-	/datum/action/cooldown/spell/hiveless/arm_blade,
-	/datum/action/cooldown/spell/hiveless/chitinous_armor,
-	/datum/action/cooldown/spell/hiveless/spine_spit,
-	/datum/action/cooldown/spell/hiveless/regenerate,
-	/datum/action/cooldown/spell/hiveless/shriek,
-	/datum/action/cooldown/spell/hiveless/fleshmend,
-	/datum/action/cooldown/spell/hiveless/shapeshift,
-))
-
-/// Crew-friendly species fueled by a protein bank, with intrinsic biological abilities.
+/// Species fueled by a protein bank, with intrinsic biological abilities.
 /datum/species/humanoid/hiveless
 	name = "Hiveless"
 	id = SPECIES_HIVELESS
+	/// Ability types granted and revoked with this species.
+	var/static/list/ability_types = list(
+		/datum/action/cooldown/spell/hiveless/arm_blade,
+		/datum/action/cooldown/spell/hiveless/chitinous_armor,
+		/datum/action/cooldown/spell/hiveless/spine_spit,
+		/datum/action/cooldown/spell/hiveless/regenerate,
+		/datum/action/cooldown/spell/hiveless/shriek,
+		/datum/action/cooldown/spell/hiveless/fleshmend,
+		/datum/action/cooldown/spell/hiveless/shapeshift,
+	)
 	mutantstomach = /obj/item/organ/stomach/hiveless
 	mutanttongue = /obj/item/organ/tongue/hiveless
 	meat = /obj/item/food/meat/slab/human
@@ -115,7 +114,7 @@ GLOBAL_LIST_INIT(hiveless_ability_types, list(
 	. = ..()
 	if(!ishuman(gainer))
 		return
-	for(var/ability_path in GLOB.hiveless_ability_types)
+	for(var/ability_path in ability_types)
 		if(locate(ability_path) in gainer.actions)
 			continue
 		var/datum/action/cooldown/spell/ability = new ability_path(gainer)
@@ -123,7 +122,7 @@ GLOBAL_LIST_INIT(hiveless_ability_types, list(
 	make_brain_decoy(gainer)
 
 /datum/species/humanoid/hiveless/on_species_loss(mob/living/carbon/human/loser, datum/species/new_species, pref_load)
-	for(var/ability_path in GLOB.hiveless_ability_types)
+	for(var/ability_path in ability_types)
 		var/datum/action/cooldown/spell/ability = locate(ability_path) in loser.actions
 		if(ability)
 			qdel(ability)

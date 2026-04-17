@@ -1,8 +1,3 @@
-/// Preferences skipped during shapeshift so the mob stays a hiveless mechanically.
-GLOBAL_LIST_INIT(hiveless_shapeshift_skipped_prefs, list(
-	/datum/preference/choiced/species,
-))
-
 /// Cosmetically reshapes the hiveless to match one of the player's saved character slots.
 /datum/action/cooldown/spell/hiveless/shapeshift
 	name = "Persona Shift"
@@ -10,6 +5,10 @@ GLOBAL_LIST_INIT(hiveless_shapeshift_skipped_prefs, list(
 	button_icon_state = "transform"
 	cooldown_time = 10 SECONDS
 	protein_cost = HIVELESS_COST_SHAPESHIFT
+	/// Preferences skipped when painting a new persona
+	var/static/list/skipped_prefs = list(
+		/datum/preference/choiced/species,
+	)
 
 /datum/action/cooldown/spell/hiveless/shapeshift/can_cast_spell(feedback = TRUE)
 	. = ..()
@@ -96,6 +95,6 @@ GLOBAL_LIST_INIT(hiveless_shapeshift_skipped_prefs, list(
 	if(user.dna?.species)
 		user.dna.mutant_bodyparts = user.dna.species.get_mutant_bodyparts(user.dna.features)
 		user.dna.body_markings = list()
-	prefs.apply_prefs_to(user, icon_updates = TRUE, do_not_apply = GLOB.hiveless_shapeshift_skipped_prefs, visuals_only = TRUE)
+	prefs.apply_prefs_to(user, icon_updates = TRUE, do_not_apply = skipped_prefs, visuals_only = TRUE)
 	user.dna.species.regenerate_organs(user, user.dna.species, visual_only = TRUE)
 	user.update_body(is_creating = TRUE)
