@@ -1179,7 +1179,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	// NOVA EDIT ADDITION END - Bras
 	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // NOVA EDIT CHANGE - ORIGINAL: if(undershirt))
 		var/datum/sprite_accessory/clothing/undershirt/shirt_accessory = SSaccessories.undershirt_list[undershirt]
-		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(undershirt_color, physique, active_bodyshapes)
+		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(undershirt_color, physique, active_bodyshapes) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(null, physique, active_bodyshapes)
 		if(shirt_overlay)
 			standing += shirt_overlay
 
