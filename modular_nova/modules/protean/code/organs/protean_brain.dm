@@ -23,6 +23,8 @@
 	var/revive_timer_id
 	/// Timer ID for the emergency retreat timer
 	var/retreat_timer_id
+	/// Mob currently carrying the suit. Tracked so the protean's view follows them while held.
+	var/mob/tracked_carrier
 	/// Cached limb data for regeneration. Maps body_zone → cached bodypart instance.
 	VAR_PROTECTED/list/limb_cache
 	COOLDOWN_DECLARE(message_cooldown)
@@ -32,6 +34,9 @@
 /obj/item/organ/brain/protean/Destroy(force)
 	deltimer(revive_timer_id)
 	deltimer(retreat_timer_id)
+	if(tracked_carrier)
+		UnregisterSignal(tracked_carrier, COMSIG_MOVABLE_MOVED)
+		tracked_carrier = null
 	return ..()
 
 /obj/item/organ/brain/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
@@ -201,22 +206,35 @@
 	sleep(SUIT_TRANSFORMATION_DURATION)
 	owner.invisibility = initial(owner.invisibility)
 
-/// When the protean moves into or out of the suit, manages the suit movement tracking for camera perspective.
+/// When the protean moves into or out of the suit, registers/clears suit tracking signals.
 /obj/item/organ/brain/protean/proc/on_owner_moved(mob/living/source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
 	if(istype(source.loc, /obj/item/mod/control/pre_equipped/protean))
 		RegisterSignal(source.loc, COMSIG_MOVABLE_MOVED, PROC_REF(on_suit_moved))
 	if(istype(old_loc, /obj/item/mod/control/pre_equipped/protean))
 		UnregisterSignal(old_loc, COMSIG_MOVABLE_MOVED)
+		if(tracked_carrier)
+			UnregisterSignal(tracked_carrier, COMSIG_MOVABLE_MOVED)
+			tracked_carrier = null
 
-/// Resets the protean's camera perspective when the suit moves (e.g. picked up/dropped).
+/// Re-centers the view on the suit's turf and (re)binds the carrier-follow signal as the suit changes hands.
 /obj/item/organ/brain/protean/proc/on_suit_moved(obj/item/source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
 	if(isnull(owner?.client))
 		return
-	// Pin view to the suit's turf. Using the turf (not the suit itself) ensures
-	// set_eye() doesn't early-return when the suit is handed around between mobs.
+	var/mob/new_carrier = (ismob(source.loc) && source.loc != owner) ? source.loc : null
+	if(new_carrier != tracked_carrier)
+		if(tracked_carrier)
+			UnregisterSignal(tracked_carrier, COMSIG_MOVABLE_MOVED)
+		tracked_carrier = new_carrier
+		if(tracked_carrier)
+			RegisterSignal(tracked_carrier, COMSIG_MOVABLE_MOVED, PROC_REF(on_carrier_moved))
 	owner.reset_perspective(get_turf(source))
+
+/// Re-centers the view as the carrier walks around while holding the suit.
+/obj/item/organ/brain/protean/proc/on_carrier_moved(atom/movable/source, atom/old_loc)
+	SIGNAL_HANDLER
+	owner?.reset_perspective(get_turf(source))
 
 /// Moves the protean out of their modsuit back into the world.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
@@ -325,6 +343,9 @@
 	to_chat(owner, span_warning("You have regained all your mass!"))
 	owner.fully_heal()
 	REMOVE_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
+	// Re-apply stun because fully heal removes it.
+	if(istype(owner.loc, /obj/item/mod/control/pre_equipped/protean))
+		owner.Stun(INFINITY, TRUE)
 
 /// Starts the revive countdown timer, shorter for changelings.
 /obj/item/organ/brain/protean/proc/revive_timer()
