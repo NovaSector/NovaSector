@@ -32,7 +32,6 @@
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/synth,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/synth,
 	)
-	exotic_bloodtype = BLOOD_TYPE_HOLOGEL
 	/// Our Holographic projector that we're going to make the owner of a leash component
 	var/datum/weakref/owner_projector_ref
 

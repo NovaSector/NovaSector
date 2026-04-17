@@ -52,7 +52,6 @@
 		range = 1,\
 		brute_heal = 1,\
 		burn_heal = 1.5,\
-		blood_heal = 2,\
 		simple_heal = 1.2,\
 		wound_clotting = 0.1,\
 		organ_healing = list(ORGAN_SLOT_BRAIN = 1, ORGAN_SLOT_HEART = 0.5, ORGAN_SLOT_EARS = 1, ORGAN_SLOT_EYES = 1, ORGAN_SLOT_TONGUE = 1.5),\
