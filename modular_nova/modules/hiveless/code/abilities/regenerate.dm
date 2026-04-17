@@ -1,6 +1,6 @@
 /// Regrows missing limbs after a 3-second do_after.
 /datum/action/cooldown/spell/hiveless/regenerate
-	name = "Knit Flesh"
+	name = "Weave Flesh"
 	desc = "Regrow any missing limbs in a slow, visible ritual. Costs protein."
 	button_icon_state = "regenerate"
 	cooldown_time = 15 SECONDS
