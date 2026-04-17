@@ -15,19 +15,21 @@
 	to_chat(usr, span_notice("Shows your current protein reserves. Hovering displays your maximum capacity."))
 
 /atom/movable/screen/hiveless_protein/MouseEntered(location, control, params)
-	if(usr != get_mob())
+	var/mob/user = get_mob()
+	if(usr != user)
 		return
 	. = ..()
 	hovering = TRUE
-	var/obj/item/organ/stomach/hiveless/bank = get_mob()?.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/stomach/hiveless/bank = user?.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(istype(bank))
 		bank.update_protein_hud()
 
 /atom/movable/screen/hiveless_protein/MouseExited(location, control, params)
-	if(usr != get_mob())
+	var/mob/user = get_mob()
+	if(usr != user)
 		return
 	. = ..()
 	hovering = FALSE
-	var/obj/item/organ/stomach/hiveless/bank = get_mob()?.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/stomach/hiveless/bank = user?.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(istype(bank))
 		bank.update_protein_hud()
