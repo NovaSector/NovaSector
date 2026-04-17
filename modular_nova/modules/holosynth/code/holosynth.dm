@@ -35,8 +35,6 @@
 	exotic_bloodtype = BLOOD_TYPE_HOLOGEL
 	/// Our Holographic projector that we're going to make the owner of a leash component
 	var/datum/weakref/owner_projector_ref
-	/// Tracks the emissive overlay glow for later deletion
-	var/mutable_appearance/glow
 
 /datum/species/synthetic/holosynth/get_default_mutant_bodyparts()
 	return list(
@@ -86,6 +84,8 @@
 	var/obj/item/holosynth_pen/pen_to_unlink = owner_projector_ref?.resolve()
 	if(pen_to_unlink)
 		pen_to_unlink.linked_mob_ref = null
+	else
+		owner_projector_ref = null
 
 /datum/species/synthetic/holosynth/get_species_lore()
 	return list(\
@@ -93,7 +93,7 @@
 		A niche choice more popular among wealthy customers (silicon and uploaded organics alike) - their lack of robustness makes them somewhat inept for physical activity but they are excellent at scouting or clerical work.",
 
 		"As of late the design of the required holoprojection equipment has shrunk considerably. \
-		With an electromagnetic controller suite, hologram projection aparatus, and a ball point writing implement all fitting into the sleek pen chassis. Holosynths are traditionally once human, but any species can become a hologram."
+		With an electromagnetic controller suite, hologram projection apparatus, and a ball point writing implement all fitting into the sleek pen chassis. Holosynths are traditionally once human, but any species can become a hologram."
 	)
 
 /datum/species/synthetic/holosynth/create_pref_traits_perks()

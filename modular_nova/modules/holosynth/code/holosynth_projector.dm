@@ -11,7 +11,9 @@
 	worn_icon_state = "w_holopen"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_EARS
 	w_class = WEIGHT_CLASS_TINY
+	/// The ink color used when writing with this pen
 	var/colour = BLOOD_COLOR_HOLOGEL
+	/// The font used when writing with this pen
 	var/font = FOUNTAIN_PEN_FONT
 	damtype = BURN
 	force = 5
@@ -79,6 +81,8 @@
 
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
 	var/turf/saved_loc = saved_loc_ref?.resolve()
+	if(QDELETED(saved_loc))
+		saved_loc_ref = null
 
 	if(isnull(linked_mob))
 		return COMPONENT_NO_DEFAULT_MESSAGE
@@ -90,7 +94,7 @@
 		linked_mob.forceMove(src)
 	else
 		if(get_dist(linked_mob, src) <= HOLOSYNTH_RANGE)
-			linked_mob.forceMove(saved_loc)
+			linked_mob.forceMove(saved_loc || get_turf(src))
 			linked_mob.heal_and_revive()
 			new /obj/effect/temp_visual/guardian/phase(get_turf(linked_mob))
 		else
