@@ -352,10 +352,6 @@
 		damage *= biotype_damage_multiplier
 	return ..()
 
-/obj/projectile/bullet/shotgun_slug/hunter/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = 5)
-
 /obj/item/ammo_casing/shotgun/honkshot
 	name = "confetti shell"
 	desc = "A 12 gauge buckshot shell thats been filled to the brim with confetti. Yippie!"
