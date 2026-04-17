@@ -13,6 +13,18 @@
 		return FALSE
 	return ..()
 
+/datum/action/cooldown/spell/hiveless/arm_blade/before_cast(atom/cast_on)
+	. = ..()
+	if(. & SPELL_CANCEL_CAST)
+		return .
+	if(has_existing_blade())
+		return .
+	var/mob/living/carbon/human/user = owner
+	var/obj/item/held = user.get_active_held_item()
+	if(held && !user.canUnEquip(held))
+		user.balloon_alert(user, "hand occupied!")
+		return .|SPELL_CANCEL_CAST
+
 /// Returns the held arm blade, or FALSE if none.
 /datum/action/cooldown/spell/hiveless/arm_blade/proc/has_existing_blade()
 	if(!ishuman(owner))
@@ -30,7 +42,8 @@
 	if(existing)
 		if(!spend_protein())
 			return FALSE
-		user.temporarilyRemoveItemFromInventory(existing, TRUE)
+		if(user.temporarilyRemoveItemFromInventory(existing, TRUE))
+			qdel(existing)
 		spray_cast_blood(user)
 		playsound(user, 'sound/effects/blob/blobattack.ogg', 30, TRUE)
 		user.visible_message(
@@ -43,7 +56,6 @@
 		return FALSE
 	var/obj/item/held = user.get_active_held_item()
 	if(held && !user.dropItemToGround(held))
-		user.balloon_alert(user, "hand occupied!")
 		return FALSE
 	var/obj/item/blade = new weapon_type(user)
 	user.put_in_active_hand(blade)

@@ -127,6 +127,6 @@
 	if(!protein_display)
 		return
 	if(protein_display.hovering)
-		protein_display.maptext = FORMAT_HIVELESS_PROTEIN_MAX_TEXT(protein_max)
+		protein_display.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#dd2828'>[round(protein_max)]</font></div>")
 	else
-		protein_display.maptext = FORMAT_HIVELESS_PROTEIN_TEXT(protein)
+		protein_display.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#c8402f'>[round(protein)]</font></div>")

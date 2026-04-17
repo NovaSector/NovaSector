@@ -9,6 +9,8 @@
 	var/static/list/skipped_prefs = list(
 		/datum/preference/choiced/species,
 	)
+	/// Saved-slot index selected for the current cast.
+	var/selected_slot
 
 /datum/action/cooldown/spell/hiveless/shapeshift/can_cast_spell(feedback = TRUE)
 	. = ..()
@@ -24,23 +26,26 @@
 		return FALSE
 	return TRUE
 
-/datum/action/cooldown/spell/hiveless/shapeshift/cast(atom/cast_on)
+/datum/action/cooldown/spell/hiveless/shapeshift/before_cast(atom/cast_on)
 	. = ..()
+	if(. & SPELL_CANCEL_CAST)
+		return .
 	var/mob/living/carbon/human/user = owner
 	if(!ishuman(user))
-		return FALSE
+		return .|SPELL_CANCEL_CAST
 	var/datum/preferences/prefs = user.client?.prefs
 	if(!prefs)
-		return FALSE
+		return .|SPELL_CANCEL_CAST
 	var/list/choices = build_choices(prefs)
 	if(!length(choices))
 		user.balloon_alert(user, "no saved forms!")
-		return FALSE
+		return .|SPELL_CANCEL_CAST
 	var/picked = tgui_input_list(user, "Reshape into which form?", "Persona Shift", choices)
 	if(isnull(picked))
-		return FALSE
+		return .|SPELL_CANCEL_CAST
 	if(!can_cast_spell(feedback = TRUE))
-		return FALSE
+		return .|SPELL_CANCEL_CAST
+	selected_slot = choices[picked]
 	user.visible_message(
 		span_warning("[user]'s flesh writhes and rearranges itself!"),
 		span_notice("We ripple our body into a new shape..."),
@@ -48,12 +53,25 @@
 	)
 	if(!do_after(user, 3 SECONDS, target = user, timed_action_flags = IGNORE_HELD_ITEM))
 		user.balloon_alert(user, "shapeshift interrupted!")
-		return FALSE
+		selected_slot = null
+		return .|SPELL_CANCEL_CAST
 	if(!spend_protein())
+		selected_slot = null
+		return .|SPELL_CANCEL_CAST
+	return .
+
+/datum/action/cooldown/spell/hiveless/shapeshift/cast(atom/cast_on)
+	. = ..()
+	var/mob/living/carbon/human/user = owner
+	if(!ishuman(user))
+		return FALSE
+	var/datum/preferences/prefs = user.client?.prefs
+	if(!prefs || isnull(selected_slot))
 		return FALSE
 	spray_cast_blood(user)
 	playsound(user, 'sound/effects/blob/blobattack.ogg', 30, TRUE)
-	apply_slot_as_form(user, prefs, choices[picked])
+	apply_slot_as_form(user, prefs, selected_slot)
+	selected_slot = null
 	user.visible_message(
 		span_warning("[user] settles into a new shape!"),
 		span_notice("Our flesh resettles."),
@@ -75,6 +93,8 @@
 /datum/action/cooldown/spell/hiveless/shapeshift/proc/apply_slot_as_form(mob/living/carbon/human/user, datum/preferences/prefs, slot_number)
 	var/previous_slot = prefs.default_slot
 	if(!prefs.load_character(slot_number))
+		if(previous_slot && previous_slot != slot_number)
+			prefs.load_character(previous_slot)
 		user.balloon_alert(user, "memory incomplete!")
 		return
 	paint_prefs_onto(prefs, user)

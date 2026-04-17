@@ -17,6 +17,20 @@
 		return TRUE
 	return ..()
 
+/datum/action/cooldown/spell/hiveless/chitinous_armor/before_cast(atom/cast_on)
+	. = ..()
+	if(. & SPELL_CANCEL_CAST)
+		return .
+	if(wearing_carapace())
+		return .
+	var/mob/living/carbon/human/user = owner
+	if(!user.canUnEquip(user.wear_suit))
+		user.balloon_alert(user, "body occupied!")
+		return .|SPELL_CANCEL_CAST
+	if(!user.canUnEquip(user.head))
+		user.balloon_alert(user, "head occupied!")
+		return .|SPELL_CANCEL_CAST
+
 /// TRUE if the suit or helmet is currently equipped.
 /datum/action/cooldown/spell/hiveless/chitinous_armor/proc/wearing_carapace()
 	var/mob/living/carbon/human/user = owner
@@ -28,10 +42,12 @@
 	. = ..()
 	var/mob/living/carbon/human/user = owner
 	if(wearing_carapace())
-		if(istype(user.wear_suit, suit_type))
-			user.temporarilyRemoveItemFromInventory(user.wear_suit, TRUE)
-		if(istype(user.head, helmet_type))
-			user.temporarilyRemoveItemFromInventory(user.head, TRUE)
+		var/obj/item/old_suit = user.wear_suit
+		var/obj/item/old_helmet = user.head
+		if(istype(old_suit, suit_type) && user.temporarilyRemoveItemFromInventory(old_suit, TRUE))
+			qdel(old_suit)
+		if(istype(old_helmet, helmet_type) && user.temporarilyRemoveItemFromInventory(old_helmet, TRUE))
+			qdel(old_helmet)
 		spray_cast_blood(user)
 		playsound(user, 'sound/effects/blob/blobattack.ogg', 30, TRUE)
 		user.visible_message(
@@ -43,12 +59,6 @@
 		user.update_worn_head()
 		user.update_body_parts()
 		return TRUE
-	if(!user.canUnEquip(user.wear_suit))
-		user.balloon_alert(user, "body occupied!")
-		return FALSE
-	if(!user.canUnEquip(user.head))
-		user.balloon_alert(user, "head occupied!")
-		return FALSE
 	if(!spend_protein())
 		return FALSE
 	user.dropItemToGround(user.wear_suit)

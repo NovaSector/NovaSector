@@ -1,6 +1,3 @@
-#define FORMAT_HIVELESS_PROTEIN_MAX_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#dd2828'>[round(charges)]</font></div>")
-#define FORMAT_HIVELESS_PROTEIN_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#c8402f'>[round(charges)]</font></div>")
-
 /// Left-edge HUD element showing current protein reserves.
 /atom/movable/screen/hiveless_protein
 	name = "protein reserves"
