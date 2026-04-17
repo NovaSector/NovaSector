@@ -103,6 +103,7 @@ GLOBAL_LIST_INIT(scrap_science, list(
 	/obj/item/stack/rods = 150,
 	GLOB.xenoarch_random = 50,
 	GLOB.robot_random = 50,
+	GLOB.slime_extract_random = 50,
 ))
 
 GLOBAL_LIST_INIT(scrap_cloth, list(

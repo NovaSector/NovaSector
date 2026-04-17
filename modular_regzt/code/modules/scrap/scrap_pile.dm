@@ -189,8 +189,8 @@
 /obj/structure/scrap_pile/science
 	name = "science scrap"
 	desc = "just a pile of maintenance scrap"
-	loot_min = 0
-	loot_max = 2
+	loot_min = 2
+	loot_max = 4
 
 /obj/structure/scrap_pile/science/Initialize(mapload)
 	weighted_loot_list = GLOB.scrap_science
