@@ -7061,6 +7061,7 @@
 #include "modular_nova\master_files\code\datums\emotes.dm"
 #include "modular_nova\master_files\code\datums\ert.dm"
 #include "modular_nova\master_files\code\datums\outfit.dm"
+#include "modular_nova\master_files\code\datums\sprite_accessories.dm"
 #include "modular_nova\master_files\code\datums\ai_laws\laws_ghost_role.dm"
 #include "modular_nova\master_files\code\datums\atmosphere\planetary.dm"
 #include "modular_nova\master_files\code\datums\bodypart_overlays\bodypart_overlay.dm"
