@@ -1172,14 +1172,14 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	// NOVA EDIT ADDITION START - Bras
 	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
 		var/datum/sprite_accessory/clothing/bra/bra_accessory = SSaccessories.bra_list[bra]
-		var/mutable_appearance/bra_overlay = bra_accessory?.make_appearance(null, physique, active_bodyshapes)
+		var/mutable_appearance/bra_overlay = bra_accessory?.make_appearance(bra_color, physique, active_bodyshapes)
 		if(bra_accessory)
 			standing += bra_overlay
 
 	// NOVA EDIT ADDITION END - Bras
 	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // NOVA EDIT CHANGE - ORIGINAL: if(undershirt))
 		var/datum/sprite_accessory/clothing/undershirt/shirt_accessory = SSaccessories.undershirt_list[undershirt]
-		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(null, physique, active_bodyshapes)
+		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(undershirt_color, physique, active_bodyshapes)
 		if(shirt_overlay)
 			standing += shirt_overlay
 
@@ -1195,7 +1195,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		var/datum/mutant_bodypart/taur_body = dna.mutant_bodyparts[FEATURE_TAUR]
 		if(isnull(taur_body))
 			var/datum/sprite_accessory/clothing/socks/sock_accessory = SSaccessories.socks_list[socks]
-			var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(null, physique, active_bodyshapes)
+			var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(socks_color, physique, active_bodyshapes)
 			if(socks_overlay)
 				standing += socks_overlay
 	// NOVA EDIT ADDITION END
