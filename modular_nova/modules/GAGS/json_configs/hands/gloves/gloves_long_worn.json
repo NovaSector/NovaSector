@@ -2,7 +2,7 @@
 	"gloves_long": [
 		{
 			"type": "icon_state",
-			"icon_state": "gloves_long_obj",
+			"icon_state": "gloves_long",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		}

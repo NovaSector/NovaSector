@@ -1,8 +1,8 @@
 {
-	"gloves_long": [
+	"gloves_fingerless_long": [
 		{
 			"type": "icon_state",
-			"icon_state": "gloves_long_obj",
+			"icon_state": "gloves_fingerless_long",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		}

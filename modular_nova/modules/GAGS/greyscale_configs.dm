@@ -1926,6 +1926,7 @@ TREK
 
 /datum/greyscale_config/recolorable_gloves/worn
 	name = "Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_worn.json'
 	
 /datum/greyscale_config/recolorable_gloves/fingerless
 	name = "Fingerless Gloves"
@@ -1933,6 +1934,7 @@ TREK
 
 /datum/greyscale_config/recolorable_gloves/fingerless/worn
 	name = "Fingerless Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_fingerless_worn.json'
 	
 /datum/greyscale_config/recolorable_gloves/long
 	name = "Long Gloves"
@@ -1940,6 +1942,7 @@ TREK
 
 /datum/greyscale_config/recolorable_gloves/long/worn
 	name = "Long Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_long_worn.json'
 	
 /datum/greyscale_config/recolorable_gloves/fingerless_long
 	name = "Long Fingerless Gloves"
@@ -1947,6 +1950,7 @@ TREK
 
 /datum/greyscale_config/recolorable_gloves/fingerless_long/worn
 	name = "Long Fingerless Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_fingerless_long_worn.json'
 
 // WRAPS
 
