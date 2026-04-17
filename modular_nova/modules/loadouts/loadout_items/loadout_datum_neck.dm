@@ -304,7 +304,7 @@
 
 /datum/loadout_item/neck/security_cape
 	name = "Security Cape"
-	item_path = /obj/item/clothing/neck/security_cape
+	item_path = /obj/item/clothing/neck/security_cape/shoulder
 	group = "Cloaks and Shrouds"
 
 /datum/loadout_item/neck/gags_shroud

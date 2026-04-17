@@ -1,0 +1,15 @@
+{
+	"security_gauntlet": [
+		{
+			"type": "icon_state",
+			"icon_state": "armplate_cape",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "armplate",
+			"blend_mode": "overlay"
+		}
+	]
+}

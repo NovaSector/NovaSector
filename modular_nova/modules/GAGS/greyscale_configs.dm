@@ -2828,6 +2828,15 @@ Security
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/neck/security_cape_worn.json'
 
+/datum/greyscale_config/armplate_caped
+	name = "Caped Security Gauntlet"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/security_gauntlet.json'
+
+/datum/greyscale_config/armplate_caped/worn
+	name = "Caped Security Gauntlet (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/security_gauntlet_worn.json'
 /*
 This is all our modular PDAs, ITS LARGE!
 */
