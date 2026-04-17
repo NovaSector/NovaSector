@@ -10,20 +10,6 @@ GLOBAL_LIST_INIT(hiveless_shapeshift_skipped_prefs, list(
 	button_icon_state = "transform"
 	cooldown_time = 10 SECONDS
 	protein_cost = HIVELESS_COST_SHAPESHIFT
-	/// Spawn-time appearance, used by the revert option.
-	var/datum/hiveless_persona/true_form
-
-/datum/action/cooldown/spell/hiveless/shapeshift/Grant(mob/grant_to)
-	. = ..()
-	if(!owner || !ishuman(owner))
-		return
-	if(!true_form)
-		true_form = new()
-	true_form.capture(owner)
-
-/datum/action/cooldown/spell/hiveless/shapeshift/Destroy()
-	QDEL_NULL(true_form)
-	return ..()
 
 /datum/action/cooldown/spell/hiveless/shapeshift/can_cast_spell(feedback = TRUE)
 	. = ..()
@@ -68,17 +54,14 @@ GLOBAL_LIST_INIT(hiveless_shapeshift_skipped_prefs, list(
 		return FALSE
 	spray_cast_blood(user)
 	playsound(user, 'sound/effects/blob/blobattack.ogg', 30, TRUE)
-	if(picked == "Revert to true form")
-		revert_to_true_form(user)
-	else
-		apply_slot_as_form(user, prefs, choices[picked])
+	apply_slot_as_form(user, prefs, choices[picked])
 	user.visible_message(
 		span_warning("[user] settles into a new shape!"),
 		span_notice("Our flesh resettles."),
 	)
 	return TRUE
 
-/// Returns an assoc list of display labels to slot numbers (plus the revert entry).
+/// Returns an assoc list of display labels to their savefile slot numbers.
 /datum/action/cooldown/spell/hiveless/shapeshift/proc/build_choices(datum/preferences/prefs)
 	var/list/choices = list()
 	var/list/profiles = prefs.create_character_profiles()
@@ -88,8 +71,6 @@ GLOBAL_LIST_INIT(hiveless_shapeshift_skipped_prefs, list(
 			continue
 		var/label = "Slot [slot]: [entry]"
 		choices[label] = slot
-	if(true_form)
-		choices["Revert to true form"] = "revert"
 	return choices
 
 /datum/action/cooldown/spell/hiveless/shapeshift/proc/apply_slot_as_form(mob/living/carbon/human/user, datum/preferences/prefs, slot_number)
@@ -101,37 +82,6 @@ GLOBAL_LIST_INIT(hiveless_shapeshift_skipped_prefs, list(
 	// Restore the player's active slot so the character menu isn't silently reassigned mid-round.
 	if(previous_slot && previous_slot != slot_number)
 		prefs.load_character(previous_slot)
-
-/datum/action/cooldown/spell/hiveless/shapeshift/proc/revert_to_true_form(mob/living/carbon/human/user)
-	if(!true_form)
-		return
-	var/datum/preferences/prefs = user.client?.prefs
-	if(prefs && true_form.original_slot)
-		var/previous_slot = prefs.default_slot
-		if(prefs.load_character(true_form.original_slot))
-			paint_prefs_onto(prefs, user)
-			if(previous_slot && previous_slot != true_form.original_slot)
-				prefs.load_character(previous_slot)
-			return
-	// Fallback: the player never had prefs (admin spawn) or the slot is gone.
-	// Paint the stored DNA back on them manually, but scrub the species bits first so we
-	// don't revert the mob away from being a hiveless.
-	if(true_form.dna_snapshot)
-		true_form.dna_snapshot.copy_dna(user.dna, COPY_DNA_SE)
-	if(true_form.real_name)
-		user.real_name = true_form.real_name
-		user.name = true_form.real_name
-	if(true_form.voice)
-		user.voice = true_form.voice
-		user.voice_filter = true_form.voice_filter
-	if(true_form.mob_height)
-		user.set_mob_height(true_form.mob_height)
-	if(true_form.age)
-		user.age = true_form.age
-	for(var/obj/item/bodypart/limb as anything in user.get_bodyparts())
-		limb.update_limb(is_creating = TRUE)
-	user.updateappearance(mutcolor_update = TRUE)
-	user.update_body(is_creating = TRUE)
 
 /// Applies `prefs` to `user` for a cosmetic-only persona swap. Strips out the old persona's
 /// bodypart-overlay organs (snouts, ears, tails, wings, etc.) and resets mutant bodyparts

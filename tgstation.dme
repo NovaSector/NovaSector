@@ -8445,7 +8445,6 @@
 #include "modular_nova\modules\height_scaling\code\icons.dm"
 #include "modular_nova\modules\height_scaling\code\preferences.dm"
 #include "modular_nova\modules\hiveless\code\abilities\_hiveless_ability.dm"
-#include "modular_nova\modules\hiveless\code\abilities\_hiveless_persona.dm"
 #include "modular_nova\modules\hiveless\code\abilities\arm_blade.dm"
 #include "modular_nova\modules\hiveless\code\abilities\chitinous_armor.dm"
 #include "modular_nova\modules\hiveless\code\abilities\fleshmend.dm"
