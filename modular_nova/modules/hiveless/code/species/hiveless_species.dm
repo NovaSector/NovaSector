@@ -35,18 +35,24 @@
 
 /datum/species/humanoid/hiveless/get_species_lore()
 	return list(
-		"Not all Changelings belong to a Hive. Some are born without connection; others are intentionally \
-		severed, forcibly purged, or left behind during Hive collapse events. These outliers are referred \
-		to as Hiveless, and they represent one of the greatest unknowns in the SolFed's Changeling database.",
+		"Rejected from both society and family, these free-thinkers infiltrate cultures not out of malice, \
+		but survival. Changelings are a biological scourge born from failed Ordoht terraforming, who cluster \
+		into hives and devour flesh of all kinds through shapeshifting, infiltration, and force. Hiveless \
+		Changelings have been cast out from their hive, through defect or politic, and thus wield much less \
+		destructive power. Disconnected from the hive they were birthed from, they cannot easily assimilate \
+		new DNA and transform, and serve no greater purpose.",
 
-		"Hiveless Changelings retain psionic capabilities, including limited telepathy, but lack access \
-		to the Neural Chorus that binds standard Hive minds together. Without this tether, they are cut \
-		off from collective memory, directive guidance, and shared emotional resonance.",
+		"To the galaxy, they are a terror, a bioweapon claiming pacifism or incapability as a pathetic \
+		trick to better end all life in the galaxy. To fully-hived Changelings, they are rejects, possibly \
+		traitors, but most importantly: defenseless biomass. To Nanotrasen, they are an opportunity. A \
+		small number of Hiveless took the risk of exposing themselves to Corporate in a plea for asylum, \
+		and shockingly were granted refuge.",
 
-		"Paradoxically, this disconnection amplifies individual sapience. Many Hiveless exhibit highly \
-		developed personalities, independent goals, and complex reasoning skills, sometimes even emotional \
-		nuance. However, this autonomy often comes at the cost of mental instability, identity crises, or \
-		dangerously erratic behavior.",
+		"Nanotrasen holds a database of permitted Hiveless and their assumed disguises, allowing them to \
+		serve aboard NT stations across the Frontier as standard employees. These registered disguises \
+		include deceased NT employees, freshly-invented persons, and occasionally consensual impersonations \
+		of willing adults. Corporate keeps their database a tight secret from their many enemies and from \
+		SolFed, but for some, the risk is still too high to defect.",
 	)
 
 /datum/species/humanoid/hiveless/create_pref_unique_perks()
