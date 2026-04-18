@@ -49,7 +49,7 @@
 	name = "10mm Stripper Clip Single-Pack"
 	desc = "Contains one stripper clip of standard 10mm, considered 'disposable'."
 	auto_name = FALSE
-	contains = list(/obj/item/ammo_box/speedloader/c96/)
+	contains = list(/obj/item/ammo_box/speedloader/c96)
 
 // Sol Fed Mags
 
