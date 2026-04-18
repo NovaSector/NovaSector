@@ -7,7 +7,7 @@
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 	worn_icon_state = "gun"
-	fire_sound = 'modular_nova\modules\modular_weapons\sounds\bay_gunshot_magnum.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/bay_gunshot_magnum.ogg'
 	fire_sound_volume = 100
 
 	w_class = WEIGHT_CLASS_NORMAL
