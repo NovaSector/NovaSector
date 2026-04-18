@@ -23,6 +23,5 @@
 	fire_delay = 0.45 SECONDS
 	projectile_damage_multiplier = 0.7 //crew gun using what's typically an antag round, this is more than warranted, maybe even will go lower after testing
 	spread = 7
-
 /obj/item/gun/ballistic/rifle/c96/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
