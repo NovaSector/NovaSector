@@ -48,7 +48,7 @@
 /obj/item/blood_filter/advanced/alien
 	name = "hybrid medical combitool"
 	desc = "A confusing combination of a blood filter and bonesetter, augmented with alien technology, \
-		for medical applications such as filtering blood and setting bones, including treating fractures even without surgical intervention."
+		for filtering blood and tending to bones, including treating fractures even without surgical intervention."
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 9.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.5)
 	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
 	toolspeed = 0.25
