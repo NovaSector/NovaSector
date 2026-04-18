@@ -339,19 +339,15 @@
 /obj/projectile/bullet/frangible_slug/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 
-var/static/list/valid_targets_typecache = typecacheof(list(
+	var/static/list/valid_targets_typecache = typecacheof(list(
 	/obj/structure/window,
 	/obj/machinery/door/airlock,
 	/obj/structure/grille,
 	/obj/structure/door_assembly,
 	/obj/machinery/door/window
-))
-if(is_type_in_typecache(target, valid_targets_typecache))
-		if(isobj(target))
-			demolition_mod = 50
-			damage = 30
-		else
-			demolition_mod = 2
+	))
+	if(is_type_in_typecache(target, valid_targets_typecache))
+		demolition_mod = 50
 
 /obj/item/ammo_casing/shotgun/hunter
 	name = "hunter slug shell"
