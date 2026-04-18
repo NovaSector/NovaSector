@@ -2,6 +2,11 @@
 	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
 	layer = NOVA_UNDERWEAR_UNDERSHIRT_LAYER
 
+/datum/sprite_accessory/clothing/underwear/get_icon_state(physique, bodyshape)
+	if(has_custom_digi_sprite && (bodyshape & BODYSHAPE_DIGITIGRADE))
+		return icon_state + "_d"
+	return icon_state
+
 /*
 	Adding has_custom_digi_sprite to TG stuff
 */
@@ -100,10 +105,12 @@
 /datum/sprite_accessory/clothing/underwear/loincloth
 	name = "Loincloth"
 	icon_state = "loincloth"
+	female_sprite_flags = NO_FEMALE_UNIFORM
 
 /datum/sprite_accessory/clothing/underwear/loincloth_alt
 	name = "Shorter Loincloth"
 	icon_state = "loincloth_alt"
+	female_sprite_flags = NO_FEMALE_UNIFORM
 
 //Presets
 /datum/sprite_accessory/clothing/underwear/lizared
