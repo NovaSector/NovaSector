@@ -338,7 +338,15 @@
 
 /obj/projectile/bullet/frangible_slug/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(istype(target, /obj/structure/window) || istype(target, /obj/machinery/door/airlock) || istype(target, /obj/structure/grille) || istype(target,/obj/structure/door_assembly) || istype(target,/obj/machinery/door/window/))
+
+var/static/list/valid_targets_typecache = typecacheof(list(
+	/obj/structure/window,
+	/obj/machinery/door/airlock,
+	/obj/structure/grille,
+	/obj/structure/door_assembly,
+	/obj/machinery/door/window
+))
+if(is_type_in_typecache(target, valid_targets_typecache))
 		if(isobj(target))
 			demolition_mod = 50
 			damage = 30
