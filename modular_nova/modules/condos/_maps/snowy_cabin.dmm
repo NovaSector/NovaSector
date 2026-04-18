@@ -1,5 +1,188 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aJ" = (
+"aY" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/obj/structure/railing/wooden_fencing,
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"bb" = (
+/obj/machinery/light/dim,
+/turf/open/floor/wood/parquet,
+/area/misc/condo)
+"be" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"bN" = (
+/turf/open/floor/wood/parquet,
+/area/misc/condo)
+"bQ" = (
+/obj/structure/flora/rock/pile/icy/style_random,
+/obj/structure/flora/grass/green/style_random,
+/turf/open/misc/snow,
+/area/misc/condo)
+"cz" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/bounty,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"cE" = (
+/obj/structure/decorative/shelf,
+/obj/item/storage/fancy/candle_box,
+/obj/item/storage/fancy/candle_box,
+/obj/item/lighter,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"cH" = (
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"fh" = (
+/obj/machinery/light/dim,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"hQ" = (
+/obj/machinery/light/dim,
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"iY" = (
+/obj/machinery/light/floor,
+/turf/open/water/hot_spring/cafe,
+/area/misc/condo)
+"kV" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/bounty,
+/turf/open/floor/stone,
+/area/misc/condo)
+"nx" = (
+/turf/open/misc/snow,
+/area/misc/condo)
+"qe" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"re" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"rj" = (
+/turf/open/floor/stone,
+/area/misc/condo)
+"rC" = (
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"rO" = (
+/obj/structure/flora/tree/pine/style_random,
+/turf/open/misc/snow,
+/area/misc/condo)
+"tB" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/fake_stairs/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"uS" = (
+/turf/open/floor/wood/wood_5,
+/area/misc/condo)
+"vi" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 8
+	},
+/turf/open/floor/wood/wood_5,
+/area/misc/condo)
+"vJ" = (
+/turf/closed/wall/mineral/stone,
+/area/misc/condo)
+"wd" = (
+/obj/item/kirbyplants/organic/plant17,
+/turf/open/floor/wood/parquet,
+/area/misc/condo)
+"xq" = (
+/obj/structure/decorative/shelf/crates1,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"xy" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"xz" = (
+/obj/structure/fireplace/nova{
+	pixel_x = 0
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"yk" = (
+/turf/closed/indestructible/hotelwall{
+	color = "#000000"
+	},
+/area/misc/condo)
+"ys" = (
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"yt" = (
+/obj/machinery/shower/directional/east,
+/obj/structure/decorative{
+	icon_state = "drain";
+	icon = 'modular_nova/modules/liquids/icons/obj/structures/drains.dmi';
+	base_icon_state = "drain";
+	dir = 8;
+	pixel_y = 3;
+	pixel_x = -2
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6
+	},
+/turf/open/floor/stone,
+/area/misc/condo)
+"yD" = (
+/turf/closed/indestructible/wood,
+/area/misc/condo)
+"zf" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/bounty,
+/turf/closed/indestructible/wood,
+/area/misc/condo)
+"zz" = (
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/wood/parquet,
+/area/misc/condo)
+"Cj" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/machinery/light/dim,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Cr" = (
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Ew" = (
 /obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
 	pixel_x = 5;
 	pixel_y = 7
@@ -18,72 +201,71 @@
 	},
 /turf/open/floor/stone,
 /area/misc/condo)
-"cr" = (
-/obj/structure/railing/wooden_fencing{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/misc/snow,
-/area/misc/condo)
-"cy" = (
-/obj/machinery/door/airlock/wood,
-/obj/structure/fans/tiny/invisible,
+"Fq" = (
 /turf/open/floor/wood/large,
 /area/misc/condo)
-"dt" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/wood{
-	dir = 3
-	},
-/turf/open/floor/stone,
-/area/misc/condo)
-"dL" = (
-/turf/open/misc/asteroid/snow/indestructible/planet,
-/area/misc/condo)
-"ee" = (
-/obj/machinery/light/dim{
-	dir = 4
-	},
-/obj/structure/dresser,
-/obj/effect/turf_decal/siding/wood{
-	dir = 3
-	},
-/turf/open/floor/carpet/red,
-/area/misc/condo)
-"et" = (
-/obj/structure/fake_stairs/wood/directional/east,
-/obj/machinery/door/airlock/wood,
+"Fv" = (
+/obj/structure/decorative/shelf,
+/obj/item/storage/box/slugs,
+/obj/item/storage/box/slugs,
 /turf/open/floor/iron/dark/brick,
 /area/misc/condo)
-"fd" = (
-/obj/structure/chair/sofa/corp/left{
-	dir = 8
+"GC" = (
+/obj/structure/decorative/shelf,
+/obj/item/storage/box/papersack/ration_bread_slice,
+/obj/item/storage/box/colonial_rations,
+/obj/item/storage/box/colonial_rations,
+/obj/item/storage/box/colonial_rations,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"GV" = (
+/obj/structure/decorative/shelf,
+/obj/item/mop,
+/obj/item/reagent_containers/cup/bucket/wooden,
+/obj/item/reagent_containers/spray/cleaner,
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"Ht" = (
+/obj/machinery/light/dim,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Ib" = (
+/obj/machinery/door/airlock/wood,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Kn" = (
+/obj/item/clothing/head/drake_skull{
+	anchored = 1
+	},
+/turf/closed/indestructible/wood,
+/area/misc/condo)
+"Lv" = (
+/obj/structure/flora/rock,
+/turf/open/misc/snow,
+/area/misc/condo)
+"Mo" = (
+/obj/structure/chair/sofa/corp/right,
+/turf/open/floor/wood/wood_5,
+/area/misc/condo)
+"Mp" = (
+/obj/structure/railing/wooden_fencing,
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"MC" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
 	},
 /turf/open/floor/wood/wood_5,
 /area/misc/condo)
-"fB" = (
-/obj/structure/window/green_glass_pane,
-/obj/structure/curtain/bounty,
-/turf/open/floor/iron/dark/brick,
-/area/misc/condo)
-"fO" = (
-/obj/structure/marker_beacon/burgundy,
+"MK" = (
+/obj/structure/flora/rock/pile/icy/style_3,
 /turf/open/misc/snow,
 /area/misc/condo)
-"gn" = (
-/obj/machinery/door/airlock/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
+"Nf" = (
+/obj/structure/decorative/shelf{
+	pixel_y = 2;
+	pixel_x = 3
 	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/brick,
-/area/misc/condo)
-"gq" = (
-/obj/structure/decorative/shelf,
 /obj/item/grown/log/tree,
 /obj/item/grown/log/tree,
 /obj/item/grown/log/tree,
@@ -92,24 +274,32 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
 /turf/open/floor/wood/large,
 /area/misc/condo)
-"is" = (
-/turf/closed/indestructible/wood,
-/area/misc/condo)
-"iy" = (
-/turf/open/floor/iron/dark/brick,
-/area/misc/condo)
-"iB" = (
-/obj/structure/railing{
-	dir = 8
-	},
+"Oi" = (
 /obj/effect/turf_decal/siding/wood{
-	dir = 8
+	dir = 10
 	},
+/turf/open/floor/carpet/red,
+/area/misc/condo)
+"OL" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Qb" = (
+/obj/structure/dresser,
+/turf/open/floor/wood/parquet,
+/area/misc/condo)
+"Qo" = (
+/obj/structure/chair/wood,
 /turf/open/floor/stone,
 /area/misc/condo)
-"iD" = (
+"QP" = (
 /obj/structure/window/green_glass_pane,
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed{
 	icon_state = "bounty-closed";
@@ -117,51 +307,31 @@
 	},
 /turf/open/floor/iron/dark/brick,
 /area/misc/condo)
-"jj" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/machinery/light/dim,
-/turf/open/floor/wood/large,
-/area/misc/condo)
-"kn" = (
+"Rm" = (
 /obj/structure/bookcase/random/adult,
 /turf/open/floor/wood/large,
 /area/misc/condo)
-"kN" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/misc/snow,
+"Rw" = (
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/open/floor/wood/large,
 /area/misc/condo)
-"mp" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 3
-	},
-/obj/machinery/light/dim{
-	dir = 4
-	},
-/turf/open/floor/wood/wood_5,
-/area/misc/condo)
-"nJ" = (
+"RV" = (
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/towel,
 /obj/structure/rack/wooden,
 /turf/open/floor/stone,
 /area/misc/condo)
-"nL" = (
-/obj/structure/railing/wooden_fencing,
-/obj/effect/turf_decal/siding/wood{
-	dir = 3
-	},
-/turf/open/floor/wood/large,
-/area/misc/condo)
-"oo" = (
-/obj/structure/chair/sofa/corp/right,
+"RX" = (
+/obj/structure/chair/sofa/corp/corner,
 /turf/open/floor/wood/wood_5,
 /area/misc/condo)
-"sj" = (
+"SL" = (
+/turf/open/water/hot_spring/cafe,
+/area/misc/condo)
+"TL" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
@@ -171,1609 +341,833 @@
 	},
 /turf/open/floor/stone,
 /area/misc/condo)
-"sI" = (
-/obj/structure/flora/grass/green/style_random,
-/turf/open/misc/snow,
+"TW" = (
+/turf/closed/indestructible/hoteldoor/fakedoor,
 /area/misc/condo)
-"tc" = (
-/obj/machinery/light/dim,
-/turf/open/floor/wood/large,
+"Uh" = (
+/obj/item/bedsheet/hos/double,
+/obj/structure/bed/double/pelt,
+/turf/open/floor/carpet/red,
 /area/misc/condo)
-"th" = (
-/obj/structure/chair/sofa/corp/corner,
+"Uu" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green,
 /turf/open/floor/wood/wood_5,
 /area/misc/condo)
-"tW" = (
-/obj/structure/decorative/shelf,
-/obj/item/flashlight/lantern,
-/obj/item/flashlight/lantern,
-/turf/open/floor/wood/large,
-/area/misc/condo)
-"uq" = (
-/turf/open/floor/wood/wood_5,
-/area/misc/condo)
-"uC" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/structure/window/green_glass_pane,
-/obj/structure/curtain/bounty,
-/turf/open/floor/stone,
-/area/misc/condo)
-"uG" = (
-/turf/open/floor/stone,
-/area/misc/condo)
-"vx" = (
-/obj/structure/railing/wooden_fencing{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/misc/snow,
-/area/misc/condo)
-"vF" = (
-/obj/machinery/light/floor,
-/turf/open/water/hot_spring/cafe,
-/area/misc/condo)
-"wB" = (
-/turf/open/water/hot_spring/cafe,
-/area/misc/condo)
-"wV" = (
-/turf/open/floor/wood/large,
-/area/misc/condo)
-"xt" = (
-/turf/closed/wall/ice,
-/area/misc/condo)
-"xC" = (
+"UW" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 3
 	},
+/obj/machinery/light/dim{
+	dir = 4
+	},
 /turf/open/floor/wood/wood_5,
 /area/misc/condo)
-"yi" = (
+"Vh" = (
+/obj/structure/fake_stairs/wood/directional/east,
+/obj/machinery/door/airlock/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"Wz" = (
 /obj/structure/sign/painting/library,
 /turf/closed/indestructible/wood,
 /area/misc/condo)
-"Ai" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
-/turf/open/floor/wood/large,
-/area/misc/condo)
-"CX" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 10
-	},
-/turf/open/floor/carpet/red,
-/area/misc/condo)
-"EE" = (
-/obj/structure/chair/wood{
-	dir = 4
-	},
-/turf/open/floor/stone,
-/area/misc/condo)
-"FN" = (
-/obj/structure/decorative/shelf,
-/obj/item/storage/fancy/candle_box,
-/obj/item/storage/fancy/candle_box,
-/obj/item/lighter,
-/turf/open/floor/iron/dark/brick,
-/area/misc/condo)
-"Gg" = (
-/obj/machinery/light/small/red/directional/north,
-/turf/open/floor/wood/large,
-/area/misc/condo)
-"Gv" = (
-/obj/machinery/door/airlock/wood,
-/turf/open/floor/wood/large,
-/area/misc/condo)
-"Hp" = (
-/obj/structure/flora/tree/pine/style_random,
+"WH" = (
+/obj/structure/flora/grass/green/style_random,
 /turf/open/misc/snow,
 /area/misc/condo)
-"HX" = (
-/obj/structure/decorative/shelf,
-/obj/item/storage/box/slugs,
-/obj/item/storage/box/slugs,
-/turf/open/floor/iron/dark/brick,
+"XF" = (
+/obj/structure/flora/rock/pile/icy/style_random,
+/turf/open/misc/snow,
 /area/misc/condo)
-"Iz" = (
+"Ym" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /obj/structure/railing/wooden_fencing/gate,
 /turf/open/floor/stone,
 /area/misc/condo)
-"IL" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/floor/carpet/red,
-/area/misc/condo)
-"IO" = (
-/obj/structure/decorative/shelf/crates1,
-/turf/open/floor/iron/dark/brick,
-/area/misc/condo)
-"IS" = (
-/obj/machinery/light/dim,
-/turf/open/floor/iron/dark/brick,
-/area/misc/condo)
-"Lx" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/misc/snow,
-/area/misc/condo)
-"LY" = (
-/obj/structure/window/green_glass_pane,
-/obj/structure/curtain/bounty,
-/turf/closed/indestructible/wood,
-/area/misc/condo)
-"Pa" = (
-/obj/machinery/light/dim,
-/obj/machinery/light_switch/directional/south,
-/turf/open/floor/wood/large,
-/area/misc/condo)
-"Pd" = (
-/obj/item/clothing/suit/hooded/wintercoat,
-/obj/item/clothing/suit/hooded/wintercoat,
-/obj/structure/closet/secure_closet/personal/cabinet,
-/turf/open/floor/wood/large,
-/area/misc/condo)
-"Pw" = (
-/turf/open/floor/wood/wood_11,
-/area/misc/condo)
-"Qx" = (
-/turf/open/misc/snow,
-/area/misc/condo)
-"Rk" = (
-/obj/structure/fake_stairs/wood,
-/turf/open/misc/snow,
-/area/misc/condo)
-"Rs" = (
-/obj/structure/fireplace/nova{
-	pixel_x = 0
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 10
-	},
-/turf/open/floor/stone,
-/area/misc/condo)
-"RL" = (
-/obj/machinery/light_switch/directional/south,
-/turf/open/floor/wood/wood_11,
-/area/misc/condo)
-"Tc" = (
-/turf/closed/indestructible/hoteldoor/fakedoor,
-/area/misc/condo)
-"Tv" = (
-/obj/structure/chair/wood,
-/turf/open/floor/stone,
-/area/misc/condo)
-"Uq" = (
-/obj/structure/decorative/shelf,
-/obj/item/storage/box/papersack/ration_bread_slice,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/obj/item/storage/box/colonial_rations,
-/turf/open/floor/iron/dark/brick,
-/area/misc/condo)
-"UP" = (
-/obj/structure/decorative/shelf,
-/obj/item/mop,
-/obj/item/reagent_containers/cup/bucket/wooden,
-/obj/item/reagent_containers/spray/cleaner,
-/turf/open/floor/iron/dark/brick,
-/area/misc/condo)
-"UQ" = (
-/obj/machinery/shower/directional/east,
-/obj/structure/decorative{
-	icon_state = "drain";
-	icon = 'modular_nova/modules/liquids/icons/obj/structures/drains.dmi';
-	base_icon_state = "drain";
-	dir = 8;
-	pixel_y = 3;
-	pixel_x = -2
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 6
-	},
-/turf/open/floor/stone,
-/area/misc/condo)
-"Vs" = (
-/obj/structure/bed/double,
-/obj/item/bedsheet/black/double,
-/turf/open/floor/carpet/red,
-/area/misc/condo)
-"VI" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/floor/wood/large,
-/area/misc/condo)
-"Xm" = (
-/turf/closed/wall/mineral/stone,
-/area/misc/condo)
-"Xu" = (
-/obj/structure/table/wood,
-/obj/item/flashlight/lamp/green,
-/turf/open/floor/wood/wood_5,
-/area/misc/condo)
-"XS" = (
-/obj/structure/flora/rock/pile/icy/style_random,
-/turf/open/misc/snow,
-/area/misc/condo)
-"YS" = (
-/obj/item/clothing/head/drake_skull{
-	anchored = 1
-	},
-/turf/closed/indestructible/wood,
-/area/misc/condo)
 
 (1,1,1) = {"
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
 "}
 (2,1,1) = {"
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
-xt
-xt
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
-xt
-xt
-xt
-xt
+yk
+nx
+nx
+rO
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+rO
+nx
+nx
+nx
+nx
+nx
+nx
+yk
 "}
 (3,1,1) = {"
-xt
-xt
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-XS
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+WH
+nx
+nx
+nx
+yk
 "}
 (4,1,1) = {"
-xt
-xt
-xt
-dL
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+XF
+nx
+nx
+nx
+WH
+nx
+nx
+nx
+rO
+nx
+nx
+nx
+XF
+nx
+nx
+nx
+nx
+nx
+nx
+yk
 "}
 (5,1,1) = {"
-xt
-xt
-xt
-dL
-sI
-Qx
-Qx
-Qx
-sI
-Qx
-Hp
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+rO
+nx
+nx
+yk
 "}
 (6,1,1) = {"
-xt
-xt
-dL
-dL
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+WH
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+WH
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+yk
 "}
 (7,1,1) = {"
-xt
-xt
-dL
-dL
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Hp
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
-xt
+yk
+nx
+nx
+nx
+nx
+rO
+nx
+WH
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+yk
 "}
 (8,1,1) = {"
-xt
-xt
-dL
-dL
-Qx
-XS
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-XS
-Qx
-Hp
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-XS
-xt
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+XF
+nx
+yD
+QP
+QP
+QP
+yD
+QP
+QP
+QP
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (9,1,1) = {"
-xt
-xt
-dL
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+rO
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+QP
+Qb
+bN
+wd
+yD
+cE
+GC
+GV
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (10,1,1) = {"
-xt
-xt
-dL
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+QP
+xy
+Oi
+bb
+yD
+rC
+rC
+fh
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (11,1,1) = {"
-xt
-xt
-dL
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Hp
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+QP
+cH
+aY
+zz
+yD
+rC
+xq
+Fv
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (12,1,1) = {"
-xt
-xt
-dL
-Qx
-Hp
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-is
-iD
-iD
-iD
-is
-iD
-iD
-iD
-is
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+XF
+nx
+nx
+nx
+yD
+Uh
+Mp
+tB
+yD
+Vh
+yD
+yD
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (13,1,1) = {"
-xt
-xt
-dL
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-iD
-Pw
-Pw
-Pw
-is
-FN
-Uq
-UP
-is
-Qx
-Qx
-Qx
-Qx
-Qx
-XS
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+rO
+nx
+WH
+nx
+nx
+nx
+nx
+Kn
+Nf
+Cr
+Fq
+Fq
+Fq
+Rw
+yD
+nx
+nx
+nx
+nx
+nx
+yk
 "}
 (14,1,1) = {"
-xt
-xt
-dL
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Hp
-Qx
-Qx
-Qx
-Qx
-iD
-IL
-CX
-Pw
-is
-iy
-iy
-IS
-is
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+vJ
+xz
+Fq
+Fq
+Fq
+Fq
+hQ
+yD
+nx
+nx
+nx
+nx
+nx
+yk
 "}
 (15,1,1) = {"
-xt
-xt
-dL
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-iD
-Vs
-ee
-RL
-is
-iy
-IO
-HX
-is
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Hp
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+WH
+nx
+nx
+vJ
+TL
+OL
+Cj
+Wz
+Fq
+Fq
+TW
+nx
+nx
+nx
+nx
+nx
+yk
 "}
 (16,1,1) = {"
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-is
-is
-is
-gn
-is
-et
-is
-is
-is
-cr
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+rO
+nx
+nx
+nx
+Wz
+Uu
+uS
+MC
+Fq
+Fq
+Ht
+yD
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (17,1,1) = {"
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-YS
-gq
-wV
-wV
-wV
-wV
-Pd
-is
-tW
-nL
-Qx
-Qx
-Qx
-fO
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+cz
+Mo
+uS
+MC
+Fq
+Fq
+Fq
+qe
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (18,1,1) = {"
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Xm
-Rs
-wV
-wV
-wV
-wV
-Pa
-is
-Gg
-nL
-Lx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-fO
-Qx
-Tc
+yk
+nx
+nx
+XF
+nx
+nx
+nx
+nx
+nx
+nx
+cz
+RX
+vi
+UW
+Rm
+Rm
+Fq
+qe
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (19,1,1) = {"
-xt
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Xm
-sj
-VI
-jj
-yi
-wV
-wV
-cy
-wV
-wV
-Rk
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Tc
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+XF
+nx
+yD
+yD
+yD
+yD
+yD
+yD
+Ib
+yD
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (20,1,1) = {"
-xt
-Qx
-Qx
-Qx
-Qx
-Hp
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-yi
-Xu
-uq
-xC
-wV
-wV
-tc
-is
-is
-vx
-kN
-fO
-Qx
-Qx
-Qx
-fO
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+re
+SL
+SL
+SL
+kV
+yt
+rj
+RV
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (21,1,1) = {"
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-fB
-oo
-uq
-xC
-wV
-wV
-wV
-Ai
-is
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+rO
+WH
+nx
+nx
+nx
+nx
+re
+SL
+iY
+SL
+kV
+rj
+rj
+ys
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (22,1,1) = {"
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-fB
-th
-fd
-mp
-kn
-kn
-wV
-Ai
-is
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Hp
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+re
+SL
+SL
+SL
+Ym
+rj
+Qo
+Ew
+yD
+nx
+nx
+nx
+nx
+yk
 "}
 (23,1,1) = {"
-xt
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Hp
-Qx
-Qx
-Qx
-is
-is
-is
-is
-is
-is
-Gv
-is
-is
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+yD
+be
+be
+be
+yD
+zf
+zf
+zf
+yD
+nx
+nx
+nx
+WH
+yk
 "}
 (24,1,1) = {"
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-dt
-wB
-wB
-wB
-uC
-UQ
-uG
-nJ
-is
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+Lv
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+yk
 "}
 (25,1,1) = {"
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Hp
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-dt
-wB
-vF
-wB
-uC
-uG
-uG
-EE
-is
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+WH
+nx
+nx
+nx
+nx
+nx
+WH
+nx
+nx
+nx
+nx
+nx
+nx
+WH
+nx
+nx
+nx
+XF
+nx
+nx
+nx
+yk
 "}
 (26,1,1) = {"
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-dt
-wB
-wB
-wB
-Iz
-uG
-Tv
-aJ
-is
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+rO
+nx
+nx
+nx
+WH
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+yk
 "}
 (27,1,1) = {"
-xt
-xt
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-is
-iB
-iB
-iB
-is
-LY
-LY
-LY
-is
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+rO
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+WH
+nx
+nx
+nx
+yk
 "}
 (28,1,1) = {"
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+rO
+nx
+nx
+nx
+bQ
+nx
+nx
+rO
+nx
+nx
+nx
+Lv
+nx
+yk
 "}
 (29,1,1) = {"
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-XS
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-XS
-Qx
-Qx
-Qx
-xt
+yk
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+MK
+nx
+nx
+nx
+nx
+yk
 "}
 (30,1,1) = {"
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-XS
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
-"}
-(31,1,1) = {"
-xt
-xt
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Hp
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
-xt
-"}
-(32,1,1) = {"
-xt
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Hp
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
-xt
-"}
-(33,1,1) = {"
-xt
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Hp
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-sI
-Qx
-Qx
-Qx
-Qx
-xt
-xt
-xt
-"}
-(34,1,1) = {"
-xt
-xt
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
-xt
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
-xt
-xt
-xt
-xt
-"}
-(35,1,1) = {"
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-Qx
-Qx
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-Qx
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-"}
-(36,1,1) = {"
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-xt
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
+yk
 "}
