@@ -3,8 +3,3 @@
 	var/has_custom_digi_sprite
 	/// Whether this underwear includes a top (Because gender = FEMALE doesn't actually apply here.). Hides breasts, nothing more.
 	var/hides_breasts = FALSE
-
-/datum/sprite_accessory/clothing/New()
-	if(has_custom_digi_sprite && digi_icon_state)
-		digi_icon_state = null
-	return ..()
