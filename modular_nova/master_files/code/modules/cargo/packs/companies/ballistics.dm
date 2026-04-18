@@ -59,7 +59,8 @@
 		/obj/item/ammo_box/speedloader/c96/,
 		/obj/item/ammo_box/speedloader/c96/,
 		/obj/item/ammo_box/speedloader/c96/,
-		/obj/item/ammo_box/speedloader/c96/)
+		/obj/item/ammo_box/speedloader/c96/,
+	)
 	auto_name = FALSE
 	access = FALSE
 	access_view = FALSE
