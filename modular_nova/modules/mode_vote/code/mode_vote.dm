@@ -1,8 +1,22 @@
 #define MODE_VOTE_DYNAMIC "Dynamic"
 #define MODE_VOTE_GREENSHIFT "Greenshift"
+/// Delay after pregame begins before the round-mode vote auto-triggers.
+#define MODE_VOTE_AUTO_START_DELAY (60 SECONDS)
 
-GLOBAL_VAR_INIT(chosen_round_mode, null)
+/// Tracks the winning round mode for the current round. Null until a vote finalizes.
+/// Shown to every player in the status tab and used by [/datum/vote/round_mode/can_be_initiated].
+GLOBAL_VAR(chosen_round_mode)
 
+/**
+ * Round mode vote.
+ *
+ * Auto-triggers [MODE_VOTE_AUTO_START_DELAY] into pregame and lets players pick between:
+ * * Dynamic - let [/datum/controller/subsystem/dynamic] roll its tier normally.
+ * * Greenshift - force [/datum/dynamic_tier/greenshift] so no dynamic rulesets spawn.
+ *   Only incidental [/datum/controller/subsystem/events] activity remains.
+ *
+ * Gated behind the `allow_vote_mode` config flag.
+ */
 /datum/vote/round_mode
 	name = "Round Mode"
 	override_question = "How should this round run?"
@@ -18,16 +32,17 @@ GLOBAL_VAR_INIT(chosen_round_mode, null)
 	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, PROC_REF(on_setting_up))
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_mob_login))
 
+/// Resets per-round state and schedules the auto-start of the vote.
 /datum/vote/round_mode/proc/on_pregame(datum/source)
 	SIGNAL_HANDLER
 
 	GLOB.chosen_round_mode = null
 	if(!CONFIG_GET(flag/allow_vote_mode))
 		return
-	INVOKE_ASYNC(src, PROC_REF(delayed_auto_start))
+	addtimer(CALLBACK(src, PROC_REF(try_auto_start)), MODE_VOTE_AUTO_START_DELAY)
 
-/datum/vote/round_mode/proc/delayed_auto_start()
-	sleep(60 SECONDS)
+/// Starts the vote if no one (admin or another vote) has beaten us to it.
+/datum/vote/round_mode/proc/try_auto_start()
 	if(SSticker.current_state != GAME_STATE_PREGAME)
 		return
 	if(SSdynamic.current_tier || SSvote.current_vote)
@@ -36,6 +51,7 @@ GLOBAL_VAR_INIT(chosen_round_mode, null)
 		return
 	SSvote.initiate_vote(src, "the server", forced = TRUE)
 
+/// Ends the vote early if setup begins before it naturally concludes.
 /datum/vote/round_mode/proc/on_setting_up(datum/source)
 	SIGNAL_HANDLER
 
@@ -69,8 +85,7 @@ GLOBAL_VAR_INIT(chosen_round_mode, null)
 
 	switch(winning_option)
 		if(MODE_VOTE_GREENSHIFT)
-			var/player_count = length(GLOB.clients)
-			SSdynamic.set_tier(/datum/dynamic_tier/greenshift, player_count)
+			SSdynamic.set_tier(/datum/dynamic_tier/greenshift, length(GLOB.clients))
 			log_game("Round mode vote: Players voted for [winning_option]. Dynamic tier forced to Greenshift (incidental events only).")
 			message_admins(span_adminnotice("Round mode vote: Players voted for [span_bold(winning_option)]. Tier forced to Greenshift."))
 		if(MODE_VOTE_DYNAMIC)
@@ -80,6 +95,7 @@ GLOBAL_VAR_INIT(chosen_round_mode, null)
 	for(var/mob/player as anything in GLOB.player_list)
 		RegisterSignal(player, COMSIG_MOB_GET_STATUS_TAB_ITEMS, PROC_REF(add_stat_entry), override = TRUE)
 
+/// Attaches the status-tab stat entry to any mob logging in after the vote has concluded.
 /datum/vote/round_mode/proc/on_mob_login(datum/source, mob/new_mob)
 	SIGNAL_HANDLER
 
@@ -87,6 +103,7 @@ GLOBAL_VAR_INIT(chosen_round_mode, null)
 		return
 	RegisterSignal(new_mob, COMSIG_MOB_GET_STATUS_TAB_ITEMS, PROC_REF(add_stat_entry), override = TRUE)
 
+/// Appends the chosen round mode line to a mob's status tab.
 /datum/vote/round_mode/proc/add_stat_entry(mob/source, list/items)
 	SIGNAL_HANDLER
 
@@ -94,5 +111,6 @@ GLOBAL_VAR_INIT(chosen_round_mode, null)
 		return
 	items += "Round Mode: [GLOB.chosen_round_mode]"
 
+#undef MODE_VOTE_AUTO_START_DELAY
 #undef MODE_VOTE_DYNAMIC
 #undef MODE_VOTE_GREENSHIFT
