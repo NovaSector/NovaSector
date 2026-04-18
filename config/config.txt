@@ -129,6 +129,11 @@ RETA_DEPT_COOLDOWN_DS 150
 ## allow players to initiate a map-change vote
 #ALLOW_VOTE_MAP
 
+## allow players to vote between "Dynamic" (roll however it lands) and
+## "Greenshift" (no dynamic rulesets at all - only incidental random events from SSevents).
+## Auto-triggers 60 seconds into pregame. Winning mode is posted in the status tab.
+ALLOW_VOTE_MODE
+
 ## min delay (deciseconds) between voting sessions (default 10 minutes)
 VOTE_DELAY 6000
 
