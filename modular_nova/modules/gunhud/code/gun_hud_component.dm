@@ -39,7 +39,7 @@
 	if(!ismob(hud_owner) || !hud_owner.hud_used)
 		return null
 
-	return hud_owner.hud_used.ammo_counter
+	return hud_owner.hud_used.screen_objects[HUD_MOB_AMMO]
 
 /**
  * Handles enabling the ammo HUD when the item is equipped.
