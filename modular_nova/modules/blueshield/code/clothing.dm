@@ -159,8 +159,20 @@
 	icon_state = "bs_marine"
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+	clothing_flags = null
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	cold_protection = null
+	min_cold_protection_temperature = null
+	heat_protection = null
+	resistance_flags = null
 
 /obj/item/clothing/head/helmet/marine/blueshield
 	name = "damaged tactical combat helmet"
 	desc = "A tactical black helmet, barely sealed from outside hazards with a plate of glass and not much else. Not as protective as it used to be, but it is still completely functional."
 	armor_type = /datum/armor/suit_armor
+	clothing_flags = null
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	cold_protection = null
+	min_cold_protection_temperature = null
+	heat_protection = null
+	resistance_flags = null
