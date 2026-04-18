@@ -34,5 +34,26 @@
 
 // MEDIUM COST
 
+/datum/uplink_item/bundles_tc/bunny
+	name = "Syndicate Bunny Kit"
+	desc = "Straight from the dens of Carota. The Tactical Rabbit Ensemble. \
+		Made for Tactical Rabbit Action, it's been adapted for use by the Syndicate, your welcome. \
+		This kit contains one armor-lined rabbit costume, and one single carrot shiv. (Carrot shiv may be eaten in transit.)"
+	item = /obj/item/storage/box/syndibunny
+	cost = 8
+
+/obj/item/storage/box/syndibunny
+	name = "Syndicate Bunny Assassin Outfit"
+	desc = "A box containing a high tech specialized syndicate... bunny suit?"
+	icon_state = "syndiebox"
+
+/obj/item/storage/box/syndibunny/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/clothing/head/playbunnyears/syndicate = 1,
+		/obj/item/clothing/under/syndicate/syndibunny = 1,
+		/obj/item/clothing/suit/jacket/tailcoat/syndicate = 1,
+		/obj/item/clothing/neck/tie/bunnytie/syndicate = 1,
+		/obj/item/clothing/shoes/fancy_heels/syndi = 1,
+	), src)
 
 // HIGH COST
