@@ -349,6 +349,7 @@ var/static/list/valid_targets_typecache = typecacheof(list(
 if(is_type_in_typecache(target, valid_targets_typecache))
 		if(isobj(target))
 			demolition_mod = 50
+			damage = 30
 		else
 			demolition_mod = 2
 
