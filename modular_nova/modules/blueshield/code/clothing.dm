@@ -151,3 +151,16 @@
 	icon_state = "hood_blueshield"
 	desc = "A comfy kevlar-lined hood to go with the comfy kevlar-lined coat."
 	armor_type = /datum/armor/suit_armor
+
+/obj/item/clothing/suit/armor/vest/marine/blueshield
+	name = "damaged tactical armor vest"
+	desc = "An old, roughed-up set of the finest mass produced, stamped plasteel armor. This piece of equipment has lost most of its protective qualities to time, yet it is still more than serviceable for giving xenos the middle finger."
+	armor_type = /datum/armor/suit_armor
+	icon_state = "bs_marine"
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+
+/obj/item/clothing/head/helmet/marine/blueshield
+	name = "damaged tactical combat helmet"
+	desc = "A tactical black helmet, barely sealed from outside hazards with a plate of glass and not much else. Not as protective as it used to be, but it is still completely functional."
+	armor_type = /datum/armor/suit_armor

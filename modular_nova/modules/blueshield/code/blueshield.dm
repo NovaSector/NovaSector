@@ -118,3 +118,13 @@
 	)
 
 	return selectable_gun_types
+
+/obj/item/clothing/suit/armor/vest/marine/blueshield
+	name = "damaged tactical armor vest"
+	desc = "An old, roughed-up set of the finest mass produced, stamped plasteel armor. This piece of equipment has lost most of its protective qualities to time, yet it is still more than serviceable for giving xenos the middle finger."
+	armor_type = /datum/armor/suit_armor
+
+/obj/item/clothing/head/helmet/marine/blueshield
+	name = "damaged tactical combat helmet"
+	desc = "A tactical black helmet, barely sealed from outside hazards with a plate of glass and not much else. Not as protective as it used to be, but it is still completely functional."
+	armor_type = /datum/armor/suit_armor
