@@ -74,10 +74,8 @@
 	var/max_research = 300
 	/// the value of each accepted item
 	var/list/accepted_types = list(
-		/obj/item/xenoarch/strange_rock = 1,
-		/obj/item/xenoarch/useless_relic = 5,
-		/obj/item/xenoarch/useless_relic/magnified = 10,
-		/obj/item/xenoarch/broken_item = 10,
+		/obj/item/xenoarch/strange_rock = 10,
+		/obj/item/xenoarch/broken_item = 15,
 	)
 
 /obj/machinery/xenoarch/researcher/examine(mob/user)
@@ -115,35 +113,36 @@
 /obj/machinery/xenoarch/researcher/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	var/turf/src_turf = get_turf(src)
-	var/choice = tgui_input_list(user, "Choose which reward you would like!", "Reward Choice", list("Lavaland Chest (150)", "Anomalous Crystal (150)", "Bepis Tech (100)"))
+	var/choice = tgui_input_list(user, "Choose which reward you would like!", "Reward Choice", list("Lavaland Chest (100)", "Anomalous Crystal (100)", "Bepis Tech (60)"))
 	if(!choice)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	switch(choice)
-		if("Lavaland Chest (150)")
-			if(current_research < 150)
-				balloon_alert(user, "insufficient research!")
-				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-			current_research -= 150
-			new /obj/structure/closet/crate/necropolis/tendril(src_turf)
-
-		if("Anomalous Crystal (150)")
-			if(current_research < 150)
-				balloon_alert(user, "insufficient research!")
-				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-			current_research -= 150
-			var/list/choices = subtypesof(/obj/machinery/anomalous_crystal) - /obj/machinery/anomalous_crystal/theme_warp
-			var/random_crystal = pick(choices)
-			new random_crystal(src_turf)
-
-		if("Bepis Tech (100)")
+		if("Lavaland Chest (100)")
 			if(current_research < 100)
 				balloon_alert(user, "insufficient research!")
 				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 			current_research -= 100
+			new /obj/structure/closet/crate/necropolis/tendril(src_turf)
+			new /obj/item/skeleton_key(src_turf)
+
+		if("Anomalous Crystal (100)")
+			if(current_research < 100)
+				balloon_alert(user, "insufficient research!")
+				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+			current_research -= 100
+			var/list/choices = subtypesof(/obj/machinery/anomalous_crystal) - /obj/machinery/anomalous_crystal/theme_warp
+			var/random_crystal = pick(choices)
+			new random_crystal(src_turf)
+
+		if("Bepis Tech (60)")
+			if(current_research < 60)
+				balloon_alert(user, "insufficient research!")
+				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+			current_research -= 60
 			new /obj/item/disk/design_disk/bepis/remove_tech(src_turf)
 
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -169,14 +168,14 @@
 /obj/machinery/xenoarch/scanner/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/storage/bag/xenoarch))
 		for(var/obj/item/xenoarch/strange_rock/chosen_rocks in attacking_item.contents)
-			chosen_rocks.get_scanned()
+			chosen_rocks.get_scanned(TRUE)
 
 		balloon_alert(user, "scan complete!")
 		return
 
 	if(istype(attacking_item, /obj/item/xenoarch/strange_rock))
-		var/obj/item/xenoarch/strange_rock/chosen_rock
-		if(chosen_rock.get_scanned())
+		var/obj/item/xenoarch/strange_rock/chosen_rock = attacking_item
+		if(chosen_rock.get_scanned(TRUE))
 			balloon_alert(user, "scan complete!")
 			return
 
@@ -184,90 +183,6 @@
 		return
 
 	return ..()
-
-/obj/machinery/xenoarch/recoverer
-	name = "xenoarch recoverer"
-	desc = "A machine that will recover the damaged, destroyed objects found within the strange rocks."
-	icon_state = "recoverer"
-	circuit = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_recoverer
-
-/obj/machinery/xenoarch/recoverer/examine(mob/user)
-	. = ..()
-	. += span_notice("<br>L-Click to remove all items inside [src].")
-
-/obj/machinery/xenoarch/recoverer/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/xenoarch/broken_item))
-		attacking_item.forceMove(storage_unit)
-		balloon_alert(user, "item inserted!")
-		return
-
-	return ..()
-
-/obj/machinery/xenoarch/recoverer/attack_hand(mob/living/user, list/modifiers)
-	var/choice = tgui_input_list(user, "Remove the broken items from [src]?", "Item Removal", list("Yes", "No"))
-	if(choice != "Yes")
-		return
-
-	var/turf/src_turf = get_turf(src)
-	for(var/obj/item/removed_item in storage_unit.contents)
-		removed_item.forceMove(src_turf)
-
-	balloon_alert(user, "items removed!")
-
-/obj/machinery/xenoarch/recoverer/xenoarch_process()
-	var/turf/src_turf = get_turf(src)
-	if(length(storage_unit.contents) <= 0)
-		return
-
-	var/obj/item/content_obj = storage_unit.contents[1]
-	if(!istype(content_obj, /obj/item/xenoarch/broken_item))
-		qdel(content_obj)
-		return
-
-	if(content_obj.type == /obj/item/xenoarch/broken_item)
-		var/spawn_item = pick_weight(GLOB.tech_reward)
-		recover_item(spawn_item, content_obj)
-		return
-
-	if(istype(content_obj, /obj/item/xenoarch/broken_item/weapon))
-		var/spawn_item = pick_weight(GLOB.weapon_reward)
-		recover_item(spawn_item, content_obj)
-		return
-
-	if(istype(content_obj, /obj/item/xenoarch/broken_item/illegal))
-		var/spawn_item = pick_weight(GLOB.illegal_reward)
-		recover_item(spawn_item, content_obj)
-		return
-
-	if(istype(content_obj, /obj/item/xenoarch/broken_item/alien))
-		var/spawn_item = pick_weight(GLOB.alien_reward)
-		recover_item(spawn_item, content_obj)
-		return
-
-	if(istype(content_obj, /obj/item/xenoarch/broken_item/plant))
-		var/spawn_item = pick_weight(GLOB.plant_reward)
-		recover_item(spawn_item, content_obj)
-		return
-
-	if(istype(content_obj, /obj/item/xenoarch/broken_item/clothing))
-		var/spawn_item = pick_weight(GLOB.clothing_reward)
-		recover_item(spawn_item, content_obj)
-		return
-
-	if(istype(content_obj, /obj/item/xenoarch/broken_item/animal))
-		var/spawn_item
-		for(var/looptime in 1 to rand(1,4))
-			spawn_item = pick_weight(GLOB.animal_reward)
-			new spawn_item(src_turf)
-
-		recover_item(spawn_item, content_obj)
-		return
-
-/obj/machinery/xenoarch/recoverer/proc/recover_item(obj/insert_obj, obj/delete_obj)
-	var/src_turf = get_turf(src)
-	new insert_obj(src_turf)
-	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
-	qdel(delete_obj)
 
 /obj/machinery/xenoarch/digger
 	name = "xenoarch digger"
@@ -283,12 +198,11 @@
 	if(istype(attacking_item, /obj/item/storage/bag/xenoarch))
 		for(var/obj/strange_rocks in attacking_item.contents)
 			strange_rocks.forceMove(storage_unit)
-
 		balloon_alert(user, "rocks inserted!")
 		return
 
 	if(istype(attacking_item, /obj/item/xenoarch/strange_rock))
-		attacking_item.forceMove(src)
+		attacking_item.forceMove(storage_unit)
 		balloon_alert(user, "rock inserted!")
 		return
 

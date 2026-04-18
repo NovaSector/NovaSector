@@ -12,8 +12,3 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
-// Lets colony fabricators make soup pots, removes bluespace crystal requirement. It's just a pot...
-/datum/design/soup_pot/New()
-	build_type |= COLONY_FABRICATOR
-	materials -= /datum/material/bluespace
-	return ..()
