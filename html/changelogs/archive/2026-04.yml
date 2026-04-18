@@ -166,3 +166,37 @@
   - bugfix: Fixed the Bluescreen in the Autodrobe.
   - bugfix: Fixed everyone being able to get roundstart armor via the Bartender tailcoat
       in the loadout.
+2026-04-13:
+  OrbisAnima:
+  - bugfix: Xenoarch t3 clothing objects were readded to the rewards pool.
+  - balance: Made Cargo teleporters to teleport stuff 20 a time, instead of all they
+      have in a tile, to avoid crashes. Same amount as the push broom for the same
+      reasons.
+  - bugfix: Separates the sound effects and particle effects of cargo teleporters
+      to be by teleporting chunks, instead of per atom.
+2026-04-15:
+  OrbisAnima:
+  - bugfix: Fixed an exploit with hunter slugs which caused them to do 5 times more
+      damage than they should be doing
+  vinylspiders:
+  - config: adds a server config for nova star restrictions
+2026-04-16:
+  Hardly:
+  - bugfix: Fixes custom tongue not working on characters that have joined at the
+      start of the round
+  Melbert:
+  - rscadd: Some undergarmants will now use a generic replacement on lizard body shapes
+      that fit more appropriately
+  - refactor: Refactored how undergarmants generate their icons, report any oddities
+      with that
+  OrbisAnima:
+  - balance: Bridge assistant no longer rolls for antags... hopefully.
+  SyncIt21:
+  - refactor: random recipes like metalgen & secret sause have been refactored. Please
+      report bugs on github
+  Zenitheevee:
+  - code_imp: makes the colony fabricator easier to make subtypes of for future use.
+  vinylspiders:
+  - bugfix: fixes an issue that would cause taur legs to stack overlays on each rerender
+      and eventually hit the overlay cap
+  - bugfix: fixes the 'soft' hemi option sprite size progression being backwards

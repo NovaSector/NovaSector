@@ -1328,6 +1328,10 @@
 		. += image(icon_invisible, "invisible_[body_zone]", -BODYPARTS_LAYER, dir = image_dir)
 		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
 		return .
+	// NOVA EDIT ADDITION START - For invisible taur limbs, so we are not caching invalid keys and repeatedly adding the same overlay. I hate it here
+	if(is_actually_just_invisible)
+		return list()
+	// NOVA EDIT ADDITION END
 
 	// Normal non-husk handling
 	// This is the MEAT of limb icon code
