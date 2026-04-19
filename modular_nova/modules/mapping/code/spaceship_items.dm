@@ -1,6 +1,6 @@
 /obj/item/stack/sheet/spaceship
 	name = "spaceship plating"
-	desc = "A metal sheet made out of a titanium alloy, rivited for use in spaceship walls."
+	desc = "A metal sheet made out of a titanium alloy, riveted for use in spaceship walls."
 	icon = 'modular_nova/modules/mapping/icons/unique/spaceships/shipstacks.dmi'
 	icon_state = "sheet-spaceship"
 	inhand_icon_state = "sheet-plastitaniumglass"
@@ -8,19 +8,21 @@
 	construction_path_type = "spaceship"
 	merge_type = /obj/item/stack/sheet/spaceship
 	walltype = /turf/closed/wall/mineral/titanium/spaceship
-	mats_per_unit = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT)
+	mats_per_unit = /obj/item/stack/sheet/mineral/titanium::mats_per_unit
 
 /obj/item/stack/sheet/spaceshipglass
 	name = "spaceship window plates"
-	desc = "A glass sheet made out of a titanium-silicate alloy, rivited for use in spaceship window frames."
+	desc = "A glass sheet made out of a titanium-silicate alloy, riveted for use in spaceship window frames."
 	icon = 'modular_nova/modules/mapping/icons/unique/spaceships/shipstacks.dmi'
 	icon_state = "sheet-spaceshipglass"
 	inhand_icon_state = "sheet-plastitaniumglass"
 	singular_name = "spaceship window plate"
 	merge_type = /obj/item/stack/sheet/spaceshipglass
+	mats_per_unit = /obj/item/stack/sheet/titaniumglass::mats_per_unit
 
 GLOBAL_LIST_INIT(spaceshipglass_recipes, list(
-	new/datum/stack_recipe("spaceship window", /obj/structure/window/reinforced/shuttle/spaceship/unanchored, 2, time = 4 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_IS_FULLTILE, category = CAT_WINDOWS), \
+	new /datum/stack_recipe("fulltile spaceship window", /obj/structure/window/reinforced/shuttle/spaceship/unanchored, 2, time = 2 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_IS_FULLTILE, category = CAT_WINDOWS), \
+	new /datum/stack_recipe("directional spaceship window", /obj/structure/window/reinforced/survival_pod/unanchored, 1, time = 0.5 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_IS_FULLTILE, category = CAT_WINDOWS), \
 	))
 
 /obj/item/stack/sheet/spaceshipglass/get_main_recipes()

@@ -153,16 +153,10 @@
 //This limb is a ghost limb and can phase through walls.
 #define BODYTYPE_GHOST (1<<8)
 // NOVA EDIT ADDITION START
-///The limb fits a modular custom shape
-#define BODYSHAPE_CUSTOM (1<<9)
-///The limb fits a taur body
-#define BODYSHAPE_TAUR (1<<10)
-///The limb causes shoes to no longer be displayed, useful for taurs.
-#define BODYSHAPE_HIDE_SHOES (1<<11)
-///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
-#define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<12)
 ///The limb is synthetic, this is for an additional surgery check.
-#define BODYTYPE_SYNTHETIC (1<<13)
+#define BODYTYPE_SYNTHETIC (1<<9)
+/// It's a ghoul limb, which is detachable
+#define BODYTYPE_GHOUL (1<<10)
 // NOVA EDIT ADDITION END
 
 // Bodyshape defines for how things can be worn, i.e., what "shape" the mob sprite is
@@ -176,8 +170,18 @@
 #define BODYSHAPE_SNOUTED (1<<3)
 /// Golem's wacky rocky limbs
 #define BODYSHAPE_GOLEM (1<<4)
+// NOVA EDIT ADDITION START
+///The limb fits a modular custom shape
+#define BODYSHAPE_CUSTOM (1<<5)
+///The limb fits a taur body
+#define BODYSHAPE_TAUR (1<<6)
+///The limb causes shoes to no longer be displayed, useful for taurs.
+#define BODYSHAPE_HIDE_SHOES (1<<7)
+///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
+#define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<8)
+// NOVA EDIT ADDITION END
 
-#define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
+#define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG | BODYTYPE_GHOUL) // NOVA EDIT CHANGE - ORIGINAL: #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
 #define BODYTYPE_CAN_BE_BIOSCRAMBLED(bodytype) (!(bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE))
 
 // Defines for Species IDs. Used to refer to the name of a species, for things like bodypart names or species preferences.
@@ -210,6 +214,7 @@
 #define SPECIES_VAMPIRE "vampire"
 #define SPECIES_ZOMBIE "zombie"
 #define SPECIES_ZOMBIE_INFECTIOUS "memezombie"
+#define SPECIES_ZOMBIE_INFECTIOUS_MINDLESS "mindless_memezombie"
 #define SPECIES_ZOMBIE_KROKODIL "krokodil_zombie"
 #define SPECIES_VOIDWALKER "voidwalker"
 
@@ -626,6 +631,9 @@
 #define EXAMINE_MORE_WINDOW (1 SECONDS)
 /// If you yawn while someone nearby has examined you within this time frame, it will force them to yawn as well. Tradecraft!
 #define YAWN_PROPAGATION_EXAMINE_WINDOW (2 SECONDS)
+
+// Priorities for examine overrides
+#define EXAMINE_OVERRIDE_PRIORITY_IFF 1
 
 /// How far away you can be to make eye contact with someone while examining
 #define EYE_CONTACT_RANGE 5
