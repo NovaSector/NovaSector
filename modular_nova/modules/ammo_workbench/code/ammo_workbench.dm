@@ -427,7 +427,7 @@
 
 /obj/machinery/ammo_workbench/update_icon_state()
 	. = ..()
-	icon_state = panel_open ? "[base_icon_state]-t" : base_icon_state
+	icon_state = panel_open ?"[base_icon_state]_t" : base_icon_state
 
 /obj/machinery/ammo_workbench/update_overlays()
 	. = ..()
