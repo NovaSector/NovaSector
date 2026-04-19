@@ -43,7 +43,9 @@
 			force_teleport_out_effect = /obj/effect/temp_visual/guardian/phase/out,\
 			force_teleport_in_effect = /obj/effect/temp_visual/guardian/phase,\
 		)
-		AddComponent(/datum/component/holoray_trail, linked_mob)
+		var/col_pref = linked_mob.client?.prefs?.read_preference(/datum/preference/color/mutant/holosynth_color)
+		var/ray_color = col_pref || linked_mob.dna?.features["holo_color"] || rgb(125, 180, 225)
+		AddComponent(/datum/component/holoray_trail, linked_mob, ray_color)
 	else
 		linked_mob_ref = null
 
@@ -116,6 +118,7 @@
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
 
 	if(linked_mob)
+		UnregisterSignal(linked_mob, COMSIG_LIVING_DEATH)
 		linked_mob.apply_status_effect(/datum/status_effect/holosynth_dissolving)
 		animate(linked_mob, alpha = 0, time = 5 SECONDS, flags = ANIMATION_PARALLEL)
 		linked_mob.visible_message(

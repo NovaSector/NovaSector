@@ -1,3 +1,19 @@
+/// Holoray variant that replaces the base class's render-step glow with a
+/// plain emissive appearance. The base glow uses RESET_TRANSFORM + pixel_x/y = 32,
+/// which leaves a phantom un-transformed copy of the ray one tile NE of the
+/// source. The holopad hides that under its own machine sprite; a bare pen
+/// doesn't. A mutable_appearance on EMISSIVE_PLANE inherits our transform and
+/// renders in the same place as the main sprite.
+/obj/effect/overlay/holoray/holosynth
+
+/obj/effect/overlay/holoray/holosynth/Initialize(mapload)
+	. = ..()
+	if(glow)
+		cut_overlay(glow)
+		LAZYREMOVE(update_overlays_on_z, glow)
+		QDEL_NULL(glow)
+	add_overlay(emissive_appearance(icon, icon_state, src, alpha = alpha))
+
 /// Renders a holopad-style holoray from the parent item to a linked mob.
 /// The ray follows the pen, the linked mob, and any non-linked mob carrying the pen.
 /// Right-click while held toggles the trail; examine shows the current state.
@@ -8,14 +24,17 @@
 	/// Weakref to a non-linked-mob carrier whose movement the ray follows
 	var/datum/weakref/holder_ref
 	/// The active ray overlay (only set while the mob is deployed and the trail is enabled)
-	var/obj/effect/overlay/holoray/holoray
+	var/obj/effect/overlay/holoray/holosynth/holoray
 	/// Whether the ray is rendered when conditions allow it
 	var/enabled = TRUE
+	/// Tint applied to the ray sprite; null leaves the default blue.
+	var/ray_color
 
-/datum/component/holoray_trail/Initialize(mob/linked_mob)
+/datum/component/holoray_trail/Initialize(mob/linked_mob, ray_color)
 	if(!isitem(parent) || isnull(linked_mob))
 		return COMPONENT_INCOMPATIBLE
 	linked_mob_ref = WEAKREF(linked_mob)
+	src.ray_color = ray_color
 
 /datum/component/holoray_trail/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_parent_moved))
@@ -48,7 +67,9 @@
 		QDEL_NULL(holoray)
 		return
 	if(isnull(holoray))
-		holoray = new /obj/effect/overlay/holoray(host_turf)
+		holoray = new /obj/effect/overlay/holoray/holosynth(host_turf)
+		if(ray_color)
+			holoray.color = ray_color
 	else if(holoray.loc != host_turf)
 		holoray.abstract_move(host_turf)
 	var/distx = mob_turf.x - holoray.x
@@ -58,11 +79,11 @@
 		newangle = (distx >= 0) ? 90 : 270
 	else
 		newangle = arctan(distx / disty) + (disty < 0 ? 180 : (distx < 0 ? 360 : 0))
-	var/matrix/ray_matrix = matrix().Scale(1, sqrt(distx * distx + disty * disty))
+	var/matrix/new_transform = turn(matrix().Scale(1, sqrt(distx * distx + disty * disty)), newangle)
 	if(get_dist(mob_turf, host_turf) <= 1)
-		animate(holoray, transform = turn(ray_matrix, newangle), time = 1)
+		animate(holoray, transform = new_transform, time = 1)
 	else
-		holoray.transform = turn(ray_matrix, newangle)
+		holoray.transform = new_transform
 
 /// Tracks `COMSIG_MOVABLE_MOVED` on the parent's current carrier when it's not the linked mob, so the ray follows them.
 /datum/component/holoray_trail/proc/update_holder_tracking()

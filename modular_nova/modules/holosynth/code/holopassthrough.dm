@@ -1,12 +1,16 @@
 /datum/component/glass_passer/holosynth/phase_through_glass(mob/living/owner, atom/bumpee)
 	var/mob/living/carbon/ascarbon = owner
 	var/obj/structure/window/wumpee = bumpee
-	var/modified_pass_time = pass_time
+	var/dir_to_move = get_dir(owner, wumpee) || owner.dir
+	var/turf/first_step = get_step(get_turf(owner), dir_to_move)
+	if(is_phase_blocked(first_step, wumpee, owner))
+		ascarbon.balloon_alert(ascarbon, "blocked!")
+		return
+	if(wumpee.fulltile && is_phase_blocked(get_step(first_step, dir_to_move), wumpee, owner))
+		ascarbon.balloon_alert(ascarbon, "blocked!")
+		return
 
-	if(wumpee.fulltile)
-		modified_pass_time = 3 * pass_time
-	else
-		modified_pass_time = pass_time
+	var/modified_pass_time = wumpee.fulltile ? (3 * pass_time) : pass_time
 
 	if(!do_after(owner, modified_pass_time, bumpee))
 		return
@@ -23,12 +27,23 @@
 			continue
 		ascarbon.dropItemToGround(equipped_item)
 
-	var/dirToMove = get_dir(owner, bumpee) || owner.dir
-	step(owner, dirToMove)
+	step(owner, dir_to_move)
 	if(wumpee.fulltile)
-		step(owner, dirToMove)
+		step(owner, dir_to_move)
 
 	passwindow_off(owner, type)
+
+/// Returns TRUE if the destination tile past the window can't be entered (wall, dense obstacle, etc.).
+/// Grilles don't count — holosynths phase through them the same way they phase through glass.
+/datum/component/glass_passer/holosynth/proc/is_phase_blocked(turf/destination, obj/structure/window/window, mob/owner)
+	if(isnull(destination) || destination.density)
+		return TRUE
+	for(var/atom/movable/blocker in destination)
+		if(blocker == window || blocker == owner || istype(blocker, /obj/structure/grille))
+			continue
+		if(blocker.density)
+			return TRUE
+	return FALSE
 
 /datum/component/glass_passer/holosynth/blomperize(obj/structure/structure)
 	var/obj/structure/window/wumpee = structure
