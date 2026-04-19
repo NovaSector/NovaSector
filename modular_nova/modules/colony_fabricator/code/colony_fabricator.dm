@@ -40,6 +40,7 @@
 	return ..()
 
 /obj/machinery/rnd/production/colony_lathe/update_icon_state()
+	. = ..()
 	icon_state = panel_open ? "[base_icon_state]-open" : base_icon_state
 
 // formerly NO_DECONSTRUCTION
