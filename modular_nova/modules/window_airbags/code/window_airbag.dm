@@ -157,7 +157,7 @@
 		amount = 1,
 		holder = created_object,
 		location = get_turf(created_object),
-		smoke_type = /obj/effect/particle_effect/fluid/smoke/quick,
+		smoke_type = /datum/effect_system/fluid_spread/smoke/quick,
 		log = FALSE
 	)
 	qdel(src)
