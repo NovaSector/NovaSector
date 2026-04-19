@@ -143,6 +143,7 @@
 		crowbar.play_tool_sound(src, 50)
 		visible_message(span_notice("[usr] pries open [src]."), span_notice("You pry open [src]."))
 		open_machine()
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/stasissleeper/attack_hand(mob/user)
 	if(occupant)
