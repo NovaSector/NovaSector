@@ -129,7 +129,13 @@
 /obj/machinery/stasissleeper/crowbar_act(mob/living/user, obj/item/tool)
 	return default_pry_open(user, tool, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE, deconstruct_on_fail = TRUE)
 
-/obj/machinery/stasissleeper/default_pry_open(obj/item/tool)
+/obj/machinery/stasissleeper/default_pry_open(mob/living/user,
+	obj/item/crowbar,
+	close_after_pry = FALSE,
+	open_density = FALSE,
+	closed_density = TRUE,
+	deconstruct_on_fail = FALSE,
+)
 	if(occupant)
 		thaw_them(occupant)
 	. = !(state_open || panel_open) && tool.tool_behaviour == TOOL_CROWBAR
