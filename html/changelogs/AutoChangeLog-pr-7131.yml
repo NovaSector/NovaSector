@@ -1,0 +1,5 @@
+author: "sergeirocks100"
+delete-after: True
+changes:
+  - qol: "To make them less of a hassle to load from 10mm ammo boxes, the magazine capacities of the Zashch pistol and Napad submachine gun have been changed from 18 and 50 rounds, to 20 and 40 rounds respectively."
+  - balance: "The magazine capacities of the Zashch and Napad have been altered, as described in the changelog entry above."
