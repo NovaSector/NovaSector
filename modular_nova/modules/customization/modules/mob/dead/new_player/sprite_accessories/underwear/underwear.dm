@@ -2,9 +2,20 @@
 	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
 	layer = NOVA_UNDERWEAR_UNDERSHIRT_LAYER
 
+/datum/sprite_accessory/clothing/underwear/get_icon_state(physique, bodyshape)
+	if(has_custom_digi_sprite && (bodyshape & BODYSHAPE_DIGITIGRADE))
+		return icon_state + "_d"
+	return icon_state
+
 /*
 	Adding has_custom_digi_sprite to TG stuff
 */
+/datum/sprite_accessory/clothing/underwear/female_kinky
+	name = "Panties - Lingerie"
+	icon_state = "panties_kinky"
+	gender = FEMALE
+	has_custom_digi_sprite = TRUE
+
 /datum/sprite_accessory/clothing/underwear/male_briefs
 	has_custom_digi_sprite = TRUE
 
@@ -100,21 +111,18 @@
 /datum/sprite_accessory/clothing/underwear/loincloth
 	name = "Loincloth"
 	icon_state = "loincloth"
+	female_sprite_flags = NO_FEMALE_UNIFORM
 
 /datum/sprite_accessory/clothing/underwear/loincloth_alt
 	name = "Shorter Loincloth"
 	icon_state = "loincloth_alt"
+	female_sprite_flags = NO_FEMALE_UNIFORM
 
 //Presets
 /datum/sprite_accessory/clothing/underwear/lizared
 	name = "LIZARED Underwear"
 	icon_state = "lizared"
 	use_static = TRUE
-
-/datum/sprite_accessory/clothing/underwear/female_kinky
-	name = "Panties - Lingerie"
-	icon_state = "panties_kinky"
-	gender = FEMALE
 
 /datum/sprite_accessory/clothing/underwear/female_commie
 	name = "Panties - Commie"
@@ -186,10 +194,12 @@
 	icon_state = "fishnet_lower"
 	gender = FEMALE
 	use_static = TRUE
+	has_custom_digi_sprite = TRUE
 
 /datum/sprite_accessory/clothing/underwear/fishnet_lower/alt
 	name = "Panties - Fishnet (Greyscale)"
 	icon_state = "fishnet_lower_alt"
+	has_custom_digi_sprite = TRUE
 
 //ERP Accessories
 /datum/sprite_accessory/clothing/underwear/latex

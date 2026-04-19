@@ -299,6 +299,9 @@
 	desc = "Switches between main and alternate welding modes."
 
 /datum/action/vehicle/sealed/mecha/solfed_toggle_welding/Trigger(mob/clicker, trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/item/mecha_parts/mecha_equipment/solfed_welder/welder = locate(/obj/item/mecha_parts/mecha_equipment/solfed_welder) in chassis.contents
 	welder.welding = !welder.welding
 	if(welder.welding)

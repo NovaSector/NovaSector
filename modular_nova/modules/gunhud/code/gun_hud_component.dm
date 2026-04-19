@@ -39,7 +39,7 @@
 	if(!ismob(hud_owner) || !hud_owner.hud_used)
 		return null
 
-	return hud_owner.hud_used.ammo_counter
+	return hud_owner.hud_used.screen_objects[HUD_MOB_AMMO]
 
 /**
  * Handles enabling the ammo HUD when the item is equipped.
@@ -263,8 +263,8 @@
 	hud.cut_overlays()
 	hud.maptext_x = -12
 	var/obj/item/ammo_casing/energy/shot = to_update.ammo_type[to_update.select]
-	var/batt_percent = FLOOR(clamp(to_update.cell.charge / to_update.cell.maxcharge, 0, 1) * 100, 1)
-	var/shot_cost_percent = FLOOR(clamp(shot.e_cost / to_update.cell.maxcharge, 0, 1) * 100, 1)
+	var/batt_percent = floor(clamp(to_update.cell.charge / to_update.cell.maxcharge, 0, 1) * 100)
+	var/shot_cost_percent = floor(clamp(shot.e_cost / to_update.cell.maxcharge, 0, 1) * 100)
 	if(batt_percent > 99 || shot_cost_percent > 99)
 		hud.maptext_x = -12
 	else
