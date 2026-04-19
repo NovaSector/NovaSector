@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Removed the design for the X-Ray laser. Its still obtainable in bit running, deathmatch or admin interventions."
