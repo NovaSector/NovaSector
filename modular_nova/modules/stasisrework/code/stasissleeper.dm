@@ -138,9 +138,9 @@
 )
 	if(occupant)
 		thaw_them(occupant)
-	. = !(state_open || panel_open) && tool.tool_behaviour == TOOL_CROWBAR
+	. = !(state_open || panel_open) && crowbar.tool_behaviour == TOOL_CROWBAR
 	if(.)
-		tool.play_tool_sound(src, 50)
+		crowbar.play_tool_sound(src, 50)
 		visible_message(span_notice("[usr] pries open [src]."), span_notice("You pry open [src]."))
 		open_machine()
 
