@@ -4,6 +4,11 @@
 	use_static = TRUE
 	layer = NOVA_BRA_SOCKS_LAYER
 
+/datum/sprite_accessory/clothing/socks/get_icon_state(physique, bodyshape)
+	if(has_custom_digi_sprite && (bodyshape & BODYSHAPE_DIGITIGRADE))
+		return icon_state + "_d"
+	return icon_state
+
 /datum/sprite_accessory/clothing/socks/socks_norm
 	name = "Normal (Greyscale)"
 	icon_state = "white_norm"
