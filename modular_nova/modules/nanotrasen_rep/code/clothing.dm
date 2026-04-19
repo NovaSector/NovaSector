@@ -25,7 +25,6 @@
 	worn_icon = 'icons/mob/clothing/suits/jacket.dmi'
 	icon_state = "centcom_coat"
 
-
 /obj/item/clothing/head/nanotrasen_consultant
 	name = "nanotrasen consultant's hat"
 	desc = "A cap made from durathread, it has an insignia on the front denoting the rank of \"Nanotrasen Consultant\"."
