@@ -128,46 +128,28 @@
 	return ..()
 
 /obj/item/holosynth_pen/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
+	return try_set_saved_loc(interacting_with, user)
 
-	if(isnull(linked_mob))
-		return ITEM_INTERACT_FAILURE
-	if(user == linked_mob)
+/obj/item/holosynth_pen/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isturf(interacting_with))
+		return NONE
+	return try_set_saved_loc(interacting_with, user)
+
+/// Validates targeting conditions and pins the pen's saved location to the target's turf.
+/obj/item/holosynth_pen/proc/try_set_saved_loc(atom/target, mob/living/user)
+	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
+	if(isnull(linked_mob) || user == linked_mob)
 		return ITEM_INTERACT_FAILURE
 	if(linked_mob.loc != src)
 		balloon_alert(user, "holosynth is active!")
 		return ITEM_INTERACT_FAILURE
-	if(interacting_with.density)
+	if(target.density)
 		balloon_alert(user, "solid object!")
 		return ITEM_INTERACT_FAILURE
-
-	saved_loc_ref = WEAKREF(get_turf(interacting_with))
+	saved_loc_ref = WEAKREF(get_turf(target))
 	balloon_alert(user, "location targeted")
 	playsound(src, 'sound/items/pen_click.ogg', 30, TRUE, -3)
 	return ITEM_INTERACT_SUCCESS
-
-/obj/item/holosynth_pen/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	var/turf/interacting_turf = interacting_with
-	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
-
-	if(istype(interacting_turf))
-		if(isnull(linked_mob))
-			return ITEM_INTERACT_FAILURE
-		if(user == linked_mob)
-			return ITEM_INTERACT_FAILURE
-		if(linked_mob.loc != src)
-			balloon_alert(user, "holosynth is active!")
-			return ITEM_INTERACT_FAILURE
-		if(interacting_with.density)
-			balloon_alert(user, "solid object!")
-			return ITEM_INTERACT_FAILURE
-
-		saved_loc_ref = WEAKREF(get_turf(interacting_with))
-		balloon_alert(user, "location targeted")
-		playsound(src, 'sound/items/pen_click.ogg', 30, TRUE, -3)
-		return ITEM_INTERACT_SUCCESS
-
-	return NONE
 
 /obj/item/holosynth_pen/examine()
 	. = ..()

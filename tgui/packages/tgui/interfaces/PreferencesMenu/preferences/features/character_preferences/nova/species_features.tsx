@@ -5,8 +5,10 @@ import {
   type FeatureChoiced,
   type FeatureChoicedServerData,
   FeatureColorInput,
+  type FeatureNumeric,
   FeatureNumberInput,
   FeatureShortTextInput,
+  FeatureSliderInput,
   FeatureTextInput,
   type FeatureToggle,
   FeatureTriBoolInput,
@@ -814,4 +816,17 @@ export const pod_hair_emissive: Feature<boolean> = {
 export const holo_color: Feature<string> = {
   name: 'Holosynth Color',
   component: FeatureColorInput,
+};
+
+export const holo_transparency: FeatureNumeric = {
+  name: 'Holosynth Transparency',
+  description:
+    'How solid your hologram appears. 60 = most see-through, 100 = fully solid.',
+  component: FeatureSliderInput,
+};
+
+export const holo_scanline: Feature<boolean> = {
+  name: 'Holosynth Scanline Flicker',
+  description: 'Renders a faint scanline flicker across your body.',
+  component: CheckboxInput,
 };

@@ -11,6 +11,9 @@
 		return
 
 	var/modified_pass_time = wumpee.fulltile ? (3 * pass_time) : pass_time
+	// Reuse the holographic_nature glitch — same effect a holosynth gets from damage or being walked through.
+	var/datum/component/holographic_nature/nature = owner.GetComponent(/datum/component/holographic_nature)
+	nature?.apply_effects()
 
 	if(!do_after(owner, modified_pass_time, bumpee))
 		return

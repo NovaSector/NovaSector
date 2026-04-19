@@ -58,6 +58,10 @@
 	species_holder.AddComponent(/datum/component/glass_passer/holosynth, pass_time = 1 SECONDS, deform_glass = 0.5 SECONDS)
 	species_holder.AddComponent(/datum/component/holographic_nature)
 	species_holder.AddComponent(/datum/component/holosynth_effects)
+	add_verb(species_holder, list(
+		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
+		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
+	))
 
 	if(!isdummy(species_holder))
 		var/obj/item/holosynth_pen/owner_projector = new /obj/item/holosynth_pen(get_turf(species_holder), species_holder)
@@ -70,6 +74,10 @@
 	species_holder.physiology.brute_mod /= HOLOSYNTH_BRUTEMULT
 	species_holder.physiology.burn_mod /= HOLOSYNTH_BURNMULT
 	species_holder.max_grab = GRAB_KILL
+	remove_verb(species_holder, list(
+		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
+		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
+	))
 
 	var/comps_to_delete = list(
 		species_holder.GetComponent(/datum/component/glass_passer/holosynth),
