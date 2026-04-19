@@ -312,7 +312,7 @@
 		return overlays
 
 	// Futureproofing for HARS/weird species
-	var/obj/item/bodypart/head/head = astype(limb, /obj/item/bodypart/head)
+	var/obj/item/bodypart/head/head = astype(limb, /obj/item/bodypart/head) || parent?.get_bodypart(BODY_ZONE_HEAD) // NOVA EDIT CHANGE - chest eyes dumb - ORIGINAL: var/obj/item/bodypart/head/head = astype(limb, /obj/item/bodypart/head)
 	if(head?.head_flags & HEAD_EYECOLOR)
 		if (parent)
 			eye_right.color = parent.get_right_eye_color()
