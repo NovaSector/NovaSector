@@ -24,6 +24,8 @@
 	var/locked = TRUE
 	/// Is the console in beacon mode? Exists to let beacon know when a pod may come in
 	var/using_beacon = FALSE
+	/// NOVA EDIT ADDITION - If TRUE, this console bypasses alert level restrictions on supply packs.
+	var/bypass_alert_level = FALSE
 	/// Number of beacons printed. Used to determine beacon names.
 	var/static/printed_beacons = 0
 	/// Cooldown to prevent beacon spam
@@ -110,6 +112,17 @@
 	var/datum/bank_account/account = SSeconomy.get_dep_account(cargo_account)
 	if(account)
 		data["points"] = account.account_balance
+	// NOVA EDIT ADDITION START - Alert level data for express console UI
+	data["current_alert_level"] = SSsecurity_level.get_current_level_as_number()
+	var/has_armory_access = FALSE
+	if(isliving(user))
+		var/mob/living/living_user = user
+		var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
+		if(id_card)
+			var/list/access = id_card.GetAccess()
+			has_armory_access = (ACCESS_BRIG in access)
+	data["has_armory_access"] = has_armory_access || bypass_alert_level || (obj_flags & EMAGGED)
+	// NOVA EDIT ADDITION END
 	data["locked"] = locked//swipe an ID to unlock
 	data["siliconUser"] = HAS_SILICON_ACCESS(user)
 	data["beaconzone"] = beacon ? get_area(beacon) : ""//where is the beacon located? outputs in the tgui
@@ -177,6 +190,20 @@
 
 			if(!istype(pack))
 				CRASH("Unknown supply pack id given by express order console ui. ID: [params["id"]]")
+
+			// NOVA EDIT ADDITION START - Alert level gating for express console purchases
+			if(!bypass_alert_level && !(obj_flags & EMAGGED) && pack.required_alert_level > SEC_LEVEL_GREEN && SSsecurity_level.get_current_level_as_number() < pack.required_alert_level)
+				var/has_bypass = FALSE
+				if(isliving(user))
+					var/mob/living/living_user = user
+					var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
+					if(id_card)
+						var/list/buyer_access = id_card.GetAccess()
+						has_bypass = (ACCESS_BRIG in buyer_access)
+				if(!has_bypass)
+					say("This item is only available at a higher alert level.")
+					return
+			// NOVA EDIT ADDITION END
 
 			/* NOVA EDIT REMOVAL BEGIN - We use the goody system for imports, so we remove this block in order to let cargo and ghost roles to get imports
 			if((pack.order_flags & ORDER_GOODY) && !self_paid && !(obj_flags & EMAGGED))
