@@ -293,6 +293,8 @@
   - config: Added a config option for the path to policy.json
   Macaroni:
   - rscadd: Added the sweater vest
+  - qol: Xenos can now interpret Galactic Common to enable roleplay
+  - balance: The Xeno Queen now has a movement debuff of 1 instead of 2.
   Maxipat:
   - rscadd: New css style class for use in config. Now you can notice policy text
       easier
@@ -386,6 +388,9 @@
   - bugfix: DNA mob height doesn't instantly fall back to the base height for all
       mobs.
   - bugfix: '[NOVA] Nova-specific undergarments can be colored again.'
+  OrbisAnima:
+  - rscdel: Removed the design for the X-Ray laser. Its still obtainable in bit running,
+      deathmatch or admin interventions.
   Rhials:
   - bugfix: Donk Trading Post cameras no longer show up on the station cameranet
   - spellcheck: The alien dissection guide steps have been updated to reflect changes
@@ -498,6 +503,12 @@
   - rscadd: Frangible shells for door and window breaching
   rageguy505:
   - bugfix: Metastations mining and QM disposal bins are no longer Jim Norton branded.
+  sergeirocks100:
+  - qol: To make them less of a hassle to load from 10mm ammo boxes, the magazine
+      capacities of the Zashch pistol and Napad submachine gun have been changed from
+      18 and 50 rounds, to 20 and 40 rounds respectively.
+  - balance: The magazine capacities of the Zashch and Napad have been altered, as
+      described in the changelog entry above.
   siliconOpossum:
   - admin: Adds the jump-to-ghost verb, which brings your body to your aghost, it
       has a hotkey which defaults to F4.
@@ -525,3 +536,4 @@
   - bugfix: loincloth style underwear no longer has a missing pixel in the center
       for females with digi legs
   - bugfix: fixes a bunch of TG digi socks missing their digi icons
+  - bugfix: fixes a few instances of tool interactions with machines not working properly
