@@ -141,7 +141,7 @@
 			message_client(client, target, "donator")
 		return FALSE
 
-	if(nova_stars_only && !SSplayer_ranks.is_nova_star(client))
+	if(GLOB.nova_star_restrictions && nova_stars_only && !SSplayer_ranks.is_nova_star(client))
 		if(!visuals_only)
 			message_client(client, target, "Nova star")
 		return FALSE
