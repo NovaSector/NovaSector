@@ -17,7 +17,9 @@
 /datum/crafting_recipe/food/reaction/soup/homemade_dashi
 	result = /datum/reagent/consumable/nutriment/soup/dashi
 	reaction = /datum/chemical_reaction/food/soup/homemade_dashi
-	category = CAT_MARTIAN
+	dish_category = DISH_CONDIMENT
+	meal_category = MEAL_COMPONENT
+	cuisine_category = CUISINE_MARTIAN
 
 /datum/chemical_reaction/food/soup/substitute_coconut_milk
 	required_reagents = list(
@@ -32,7 +34,7 @@
 /datum/crafting_recipe/food/reaction/food/substitute_coconut_milk
 	result = /datum/reagent/consumable/coconut_milk
 	reaction = /datum/chemical_reaction/food/soup/substitute_coconut_milk
-	category = CAT_MARTIAN
+	cuisine_category = CUISINE_MARTIAN
 
 /datum/chemical_reaction/food/soup/curry_powder
 	required_reagents = list(
@@ -46,7 +48,9 @@
 /datum/crafting_recipe/food/reaction/soup/curry_powder
 	result = /datum/reagent/consumable/curry_powder
 	reaction = /datum/chemical_reaction/food/soup/curry_powder
-	category = CAT_MARTIAN
+	dish_category = DISH_CONDIMENT
+	meal_category = MEAL_COMPONENT
+	cuisine_category = CUISINE_MARTIAN
 
 /datum/chemical_reaction/food/soup/red_bay
 	required_reagents = list(
@@ -62,7 +66,9 @@
 /datum/crafting_recipe/food/reaction/soup/red_bay
 	result = /datum/reagent/consumable/red_bay
 	reaction = /datum/chemical_reaction/food/soup/red_bay
-	category = CAT_MARTIAN
+	dish_category = DISH_CONDIMENT
+	meal_category = MEAL_COMPONENT
+	cuisine_category = CUISINE_MARTIAN
 
 /datum/chemical_reaction/food/worcestershire_sauce
 	results = list(
@@ -78,13 +84,16 @@
 
 /datum/crafting_recipe/food/reaction/worcestershire_sauce
 	reaction = /datum/chemical_reaction/food/worcestershire_sauce
-	category = CAT_MARTIAN
+	dish_category = DISH_CONDIMENT
+	cuisine_category = CUISINE_MARTIAN
 
 /datum/crafting_recipe/food/reaction/vinegar
 	reaction = /datum/chemical_reaction/food/wine_vinegar
+	dish_category = DISH_CONDIMENT
 
 /datum/crafting_recipe/food/reaction/sake
 	reaction = /datum/chemical_reaction/drink/sake
+	dish_category = DISH_CONDIMENT
 
 /datum/crafting_recipe/food/can_of_chap
 	name = "Can of CHAP"
@@ -98,16 +107,21 @@
 		/obj/item/food/meat/slab = 1,
 	)
 	result = /obj/item/food/canned/chap
-	category = CAT_MEAT
+	dish_category = DISH_MEAT
+	meal_category = MEAL_MAIN_COURSE
 	removed_foodtypes = RAW
 
 /datum/crafting_recipe/food/grinder/chili_powder
 	reqs = list(/obj/item/food/dried_chili = 1)
 	result = /datum/reagent/consumable/chili_powder
+	dish_category = DISH_CONDIMENT
+	meal_category = MEAL_COMPONENT
 
 /datum/crafting_recipe/food/grinder/bonito
 	reqs = list(/obj/item/food/dried_fish = 1)
 	result = /datum/reagent/consumable/bonito
+	dish_category = DISH_CONDIMENT
+	meal_category = MEAL_COMPONENT
 
 /datum/food_processor_process/moonfish_eggs
 	input = /obj/item/fish/moonfish/dwarf
@@ -116,22 +130,30 @@
 /datum/crafting_recipe/food/processor/moonfish_eggs
 	reqs = list(/obj/item/fish/moonfish/dwarf = 1)
 	result = /obj/item/food/moonfish_eggs
-	category = CAT_SEAFOOD
+	dish_category = DISH_MEAT
+	meal_category = MEAL_SNACK
+	cuisine_category = CUISINE_LIZARD
 
 /datum/crafting_recipe/food/drying/dried_fish
 	reqs = list(/obj/item/food/fishmeat = 1)
 	result = /obj/item/food/dried_fish
-	category = CAT_MARTIAN
+	dish_category = DISH_CONDIMENT
+	meal_category = MEAL_COMPONENT
+	cuisine_category = CUISINE_MARTIAN
 
 /datum/crafting_recipe/food/drying/dried_chili
 	reqs = list(/obj/item/food/grown/chili = 1)
 	result = /obj/item/food/dried_chili
-	category = CAT_MARTIAN
+	dish_category = DISH_CONDIMENT
+	meal_category = MEAL_COMPONENT
+	cuisine_category = CUISINE_MARTIAN
 
 /datum/crafting_recipe/food/drying/dried_herbs
 	reqs = list(/obj/item/food/grown/herbs = 1)
 	result = /obj/item/food/dried_herbs
-	category = CAT_MARTIAN
+	dish_category = DISH_CONDIMENT
+	meal_category = MEAL_COMPONENT
+	cuisine_category = CUISINE_MARTIAN
 
 // intrinsic fixes
 /obj/item/food/canned/chap

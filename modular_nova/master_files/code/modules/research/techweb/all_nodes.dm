@@ -107,6 +107,13 @@
 	)
 	return ..()
 
+/datum/techweb_node/material_processing/New()
+	design_ids += list(
+		"spaceship_plates",
+		"spaceship_glass",
+	)
+	return ..()
+
 /////////////////////////Biotech/////////////////////////
 
 /datum/techweb_node/medbay_equip_adv/New()
@@ -298,6 +305,7 @@
 	design_ids += list(
 		"mesons_prescription",
 		"bsc_nt",
+		"lrm_board",
 	)
 	return ..()
 
@@ -344,7 +352,7 @@
 	)
 	return ..()
 
-/////////////////////////Applied Bluespace /////////////////////////
+///////////////////////// Applied Bluespace /////////////////////////
 
 /datum/techweb_node/applied_bluespace/New()
 	design_ids += list(

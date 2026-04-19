@@ -23,7 +23,8 @@
 		/datum/reagent/consumable/sugar = 1
 	)
 	result = /obj/item/food/meat/bacon/syrup
-	category = CAT_MEAT
+	dish_category = DISH_MEAT
+	meal_category = MEAL_SNACK
 
 /obj/item/food/meat/bacon/syrup
 	name = "piece of syrup bacon"
