@@ -340,11 +340,11 @@
 	. = ..()
 
 	var/static/list/valid_targets_typecache = typecacheof(list(
-	/obj/structure/window,
-	/obj/machinery/door/airlock,
-	/obj/structure/grille,
-	/obj/structure/door_assembly,
-	/obj/machinery/door/window
+		/obj/structure/window,
+		/obj/machinery/door/airlock,
+		/obj/structure/grille,
+		/obj/structure/door_assembly,
+		/obj/machinery/door/window
 	))
 	if(is_type_in_typecache(target, valid_targets_typecache))
 		demolition_mod = 50
