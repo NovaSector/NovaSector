@@ -3,7 +3,7 @@
 /turf/closed/mineral/random/jungle,
 /area/template_noop)
 "c" = (
-/mob/living/basic/bat/away_caves,
+/mob/living/basic/bat,
 /turf/open/misc/dirt/station,
 /area/template_noop)
 "d" = (

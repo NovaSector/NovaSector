@@ -32,6 +32,8 @@
 
 /datum/action/item_action/synth/open_internal_computer/Trigger(trigger_flags)
 	. = ..()
+	if(!.)
+		return
 	var/obj/item/organ/brain/synth/synth_brain = target
 	if(istype(synth_brain))
 		synth_brain.internal_computer.interact(owner)

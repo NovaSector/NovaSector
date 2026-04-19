@@ -25,7 +25,7 @@
 	if (!..())
 		return FALSE
 
-	return "Custom Tongue" in preferences.all_quirks
+	return /datum/quirk/custom_tongue::name in preferences.all_quirks
 
 /datum/preference/text/custom_tongue/apply_to_human(mob/living/carbon/human/target, value)
 	return

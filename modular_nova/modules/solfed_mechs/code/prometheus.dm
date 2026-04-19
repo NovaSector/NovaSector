@@ -65,6 +65,9 @@
 	button_icon_state = "peacekeeper_hammer"
 
 /datum/action/vehicle/sealed/mecha/prometheus_ram/Trigger(mob/user, trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/turf/front_turf = get_step(chassis, chassis.dir)
 	if(!front_turf)
 		return
