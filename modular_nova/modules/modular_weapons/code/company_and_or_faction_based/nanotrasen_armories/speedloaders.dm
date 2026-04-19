@@ -17,3 +17,4 @@
 	icon_state = "10_strip"
 	base_icon_state = "10_strip"
 	max_ammo = 10
+	caliber = CALIBER_10MM

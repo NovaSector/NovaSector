@@ -53,14 +53,9 @@
 
 /datum/supply_pack/companies/ballistics/nt/c96
 	name = "NT M-96"
-	desc = "Hot off the assembly line and right into your holster, this modern reproduction of the classic C96 is chambered in 10mm. Comes with four stripper clips."
+	desc = "Hot off the assembly line and right into your holster, this modern reproduction of the classic C96 is chambered in 10mm. Comes with four stripper clips in a nifty carrying case."
 	cost = CARGO_CRATE_VALUE * 5
-	contains = list(/obj/item/gun/ballistic/rifle/c96,
-		/obj/item/ammo_box/speedloader/c96/,
-		/obj/item/ammo_box/speedloader/c96/,
-		/obj/item/ammo_box/speedloader/c96/,
-		/obj/item/ammo_box/speedloader/c96/,
-	)
+	contains = list(/obj/item/storage/toolbox/guncase/nova/ntspecial/pistol/c96)
 	auto_name = FALSE
 	access = FALSE
 	access_view = FALSE
