@@ -8,7 +8,6 @@
 			var/digi_icon_state = "[clothing_accessory::icon_state]_d"
 			has_digi_sprite = icon_exists(clothing_accessory::icon, digi_icon_state)
 
-		// Validate immediately
 		if (has_digi_sprite && !clothing_accessory::has_custom_digi_sprite)
 			TEST_FAIL("[clothing_accessory] ([clothing_accessory::icon_state]) has a '_d' version of the sprite but has_custom_digi_sprite = FALSE (should be TRUE)")
 
