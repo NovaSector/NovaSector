@@ -31,8 +31,8 @@
 	efficiency = 1
 	productivity = 3
 
-/obj/machinery/biogenerator/foodricator/default_deconstruction_crowbar()
-	return
+/obj/machinery/biogenerator/foodricator/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
+	return NONE
 
 // Deployable item for cargo for the rations printer
 

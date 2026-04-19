@@ -26,8 +26,8 @@
 	productivity = 2
 	max_items = 35
 
-/obj/machinery/biogenerator/organic_printer/default_deconstruction_crowbar()
-	return
+/obj/machinery/biogenerator/organic_printer/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
+	return NONE
 
 // Deployable item for cargo for the organics printer
 /obj/item/flatpacked_machine/organics_printer

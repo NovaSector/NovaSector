@@ -25,12 +25,8 @@
 		scanner_bottom_overlay = mutable_appearance(icon, "xenoarch_scanner_bottom", ABOVE_NORMAL_TURF_LAYER)
 	add_overlay(scanner_bottom_overlay)
 
-/obj/machinery/artifact_scanpad/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
-		update_appearance()
-		return
-	if(default_pry_open(attacking_item))
-		return
-	if(default_deconstruction_crowbar(attacking_item))
-		return
-	return ..()
+/obj/machinery/artifact_scanpad/crowbar_act(mob/living/user, obj/item/tool)
+	return default_pry_open(user, tool, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE, deconstruct_on_fail = TRUE)
+
+/obj/machinery/artifact_scanpad/screwdriver_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_screwdriver(user, tool)
