@@ -524,3 +524,4 @@
   vinylspiders:
   - bugfix: loincloth style underwear no longer has a missing pixel in the center
       for females with digi legs
+  - bugfix: fixes a bunch of TG digi socks missing their digi icons
