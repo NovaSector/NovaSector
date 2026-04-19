@@ -248,3 +248,101 @@
 	icon_state = "left_side_thigh_high"
 	use_static = TRUE
 	has_custom_digi_sprite = TRUE
+
+// TG Socks
+
+/datum/sprite_accessory/clothing/socks/ace_knee
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/black_knee
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/commie_knee
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/usa_knee
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/trans_knee
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/uk_knee
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/white_knee
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/fishnet_knee
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/black_norm
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/white_norm
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/pantyhose
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/black_short
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/white_short
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/stockings_blue
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/stockings_cyan
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/stockings_dpink
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/stockings_green
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/stockings_orange
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/stockings_programmer
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/stockings_purple
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/stockings_yellow
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/stockings_fishnet
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/ace_thigh
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/black_thigh
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/commie_thigh
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/usa_thigh
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/thin_thigh
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/trans_thigh
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/uk_thigh
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/white_thigh
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/fishnet_thigh
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/thocks
+	has_custom_digi_sprite = TRUE
