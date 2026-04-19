@@ -19,7 +19,7 @@
 
 
 /obj/item/clothing/suit/armor/vest/nanotrasen_consultant/green
-	name = "nanotrasen officers green coat"
+	name = "nanotrasen officer's green coat"
 	desc = "A premium green coat with real fur round the neck, it seems to have some armor padding inside as well."
 	icon = 'icons/obj/clothing/suits/jacket.dmi'
 	worn_icon = 'icons/mob/clothing/suits/jacket.dmi'
