@@ -311,7 +311,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				if(existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key])
 					existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
 				else
-					existing_organ.Remove(organ_holder)
+					existing_organ.Remove(organ_holder, special = TRUE)
 				// NOVA EDIT ADDITION END
 				qdel(existing_organ)
 			continue
