@@ -214,3 +214,13 @@
 	name = "Chastity Cage"
 	icon_state = "chastcage"
 	erp_accessory = TRUE
+
+// TG Underwear
+/datum/sprite_accessory/clothing/underwear/female_kinky
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/underwear/fishnet_lower
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/underwear/fishnet_lower/alt
+	has_custom_digi_sprite = TRUE
