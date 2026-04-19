@@ -193,10 +193,12 @@
 	icon_state = "fishnet_lower"
 	gender = FEMALE
 	use_static = TRUE
+	has_custom_digi_sprite = TRUE
 
 /datum/sprite_accessory/clothing/underwear/fishnet_lower/alt
 	name = "Panties - Fishnet (Greyscale)"
 	icon_state = "fishnet_lower_alt"
+	has_custom_digi_sprite = TRUE
 
 //ERP Accessories
 /datum/sprite_accessory/clothing/underwear/latex
@@ -217,10 +219,4 @@
 
 // TG Underwear
 /datum/sprite_accessory/clothing/underwear/female_kinky
-	has_custom_digi_sprite = TRUE
-
-/datum/sprite_accessory/clothing/underwear/fishnet_lower
-	has_custom_digi_sprite = TRUE
-
-/datum/sprite_accessory/clothing/underwear/fishnet_lower/alt
 	has_custom_digi_sprite = TRUE
