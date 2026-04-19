@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - rscadd: "Spaceship plates and spaceship glass can now be smelted from the ore redemption machine or made at cargo/engi/science fabricators."
+  - rscadd: "Pod windows are now buildable with spaceship glass. Pod windows have been rebalanced to account for them being titanium glass."
