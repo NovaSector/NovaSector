@@ -92,14 +92,14 @@
 
 /datum/action/cooldown/spell/hiveless/shapeshift/proc/apply_slot_as_form(mob/living/carbon/human/user, datum/preferences/prefs, slot_number)
 	var/previous_slot = prefs.default_slot
+	// load_character rewrites default_slot before checking data validity, so the restore below
+	// must run on both the success and failure paths to avoid silently reassigning the player's
+	// active character slot mid-round.
 	if(!prefs.load_character(slot_number))
-		if(previous_slot && previous_slot != slot_number)
-			prefs.load_character(previous_slot)
 		user.balloon_alert(user, "memory incomplete!")
-		return
-	paint_prefs_onto(prefs, user)
-	// Restore the player's active slot so the character menu isn't silently reassigned mid-round.
-	if(previous_slot && previous_slot != slot_number)
+	else
+		paint_prefs_onto(prefs, user)
+	if(previous_slot && prefs.default_slot != previous_slot)
 		prefs.load_character(previous_slot)
 
 /// Applies `prefs` to `user` for a cosmetic-only persona swap. Strips out the old persona's

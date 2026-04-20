@@ -30,8 +30,10 @@
 		return FALSE
 	if(!iscarbon(owner))
 		return FALSE
+	if(!needs_intact_biology())
+		return TRUE
 	var/mob/living/carbon/carbon_owner = owner
-	if(disabled_by_fire && carbon_owner.fire_stacks && carbon_owner.on_fire)
+	if(disabled_by_fire && carbon_owner.on_fire)
 		if(feedback)
 			owner.balloon_alert(owner, "on fire!")
 		return FALSE
@@ -49,6 +51,11 @@
 			owner.balloon_alert(owner, "not enough protein!")
 			last_protein_alert = world.time
 		return FALSE
+	return TRUE
+
+/// Override to FALSE for casts that should bypass the fire / BZ / stomach / protein gate entirely
+/// (e.g. toggle-off paths that just unmake what was already built and shouldn't trap the caster).
+/datum/action/cooldown/spell/hiveless/proc/needs_intact_biology()
 	return TRUE
 
 /// Deducts protein_cost. Returns the stomach on success, null on failure.

@@ -13,9 +13,10 @@
 /datum/action/cooldown/spell/hiveless/chitinous_armor/can_cast_spell(feedback = TRUE)
 	if(!ishuman(owner))
 		return FALSE
-	if(wearing_carapace())
-		return TRUE
 	return ..()
+
+/datum/action/cooldown/spell/hiveless/chitinous_armor/needs_intact_biology()
+	return !wearing_carapace()
 
 /datum/action/cooldown/spell/hiveless/chitinous_armor/before_cast(atom/cast_on)
 	. = ..()
