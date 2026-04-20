@@ -40,7 +40,7 @@
 	lore_blurb = "The Napadayuschiy is what happens when you take the Zashchitnik pistol's design principles and feed them a steady diet of \
 		growth hormones and poor life choices. It is the Zashch's bigger, uglier, and even less refined older sibling, chambered for the same \
 		ubiquitous 10mm Auto and built from the same philosophy of using sheet steel as a primary architectural component. <br><br> \
-		The colossal 50-round magazine was a solution in search of a problem, offering staggering firepower at the cost of making the \
+		The colossal 40-round magazine was a solution in search of a problem, offering staggering firepower at the cost of making the \
 		weapon a logistical nightmare. The magazine's simple, angular construction ensures it snags on every doorframe, equipment webbing, \
 		and stray thought its user might have. A notorious quirk in the manual of arms requires the charging handle to be locked in a specific \
 		loading notch before inserting a fresh magazine; failure to do so means the spring pressure of fifty rounds makes racking the slide a \

@@ -103,6 +103,7 @@
 
 /mob/living/silicon/robot/update_module_innate()
 	..()
+	var/atom/movable/screen/robot/module/hands = hud_used?.screen_objects[HUD_CYBORG_HANDS]
 	if(hands)
 		hands.icon = (model.model_select_alternate_icon ? model.model_select_alternate_icon : initial(hands.icon))
 

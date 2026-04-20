@@ -98,8 +98,9 @@
 	desc = "Turn off or on your ability to hear ghosts."
 
 /datum/action/toggle_dead_chat_mob/Trigger(trigger_flags)
-	if(!..())
-		return 0
+	. = ..()
+	if(!.)
+		return
 	var/mob/M = target
 	if(HAS_TRAIT_FROM(M,TRAIT_SIXTHSENSE,TRAIT_GHOSTROLE))
 		REMOVE_TRAIT(M,TRAIT_SIXTHSENSE,TRAIT_GHOSTROLE)
