@@ -26,7 +26,10 @@
 	return ..()
 
 /// Toggles the armed state; when armed, the button border turns red and middle-click fires.
+/// Intentionally does not chain to the parent Trigger — clicking the button must only toggle
+/// the armed flag, never drive the cast chain (which is reserved for middle-click targeting).
 /datum/action/cooldown/spell/hiveless/spine_spit/Trigger(trigger_flags, atom/target)
+	SHOULD_CALL_PARENT(FALSE)
 	if(!owner)
 		return FALSE
 	armed = !armed

@@ -102,14 +102,15 @@
 /obj/item/organ/stomach/hiveless/proc/install_protein_hud(mob/living/carbon/receiver)
 	if(!receiver)
 		return
-	if(!receiver.hud_used)
+	var/datum/hud/receiver_hud = receiver.hud_used
+	if(!receiver_hud)
 		RegisterSignal(receiver, COMSIG_MOB_HUD_CREATED, PROC_REF(on_hud_created))
 		return
 	if(protein_display)
 		return
-	protein_display = new(null, receiver.hud_used)
-	receiver.hud_used.infodisplay += protein_display
-	receiver.hud_used.show_hud(receiver.hud_used.hud_version)
+	protein_display = new(null, receiver_hud)
+	receiver_hud.infodisplay += protein_display
+	receiver_hud.show_hud(receiver_hud.hud_version)
 	update_protein_hud()
 
 /// Retries HUD install once the mob's HUD is ready.
@@ -121,8 +122,9 @@
 /// Removes and deletes the protein HUD element.
 /obj/item/organ/stomach/hiveless/proc/uninstall_protein_hud(mob/living/carbon/losing_owner)
 	UnregisterSignal(losing_owner, COMSIG_MOB_HUD_CREATED)
-	if(losing_owner?.hud_used && protein_display)
-		losing_owner.hud_used.infodisplay -= protein_display
+	var/datum/hud/losing_hud = losing_owner?.hud_used
+	if(losing_hud && protein_display)
+		losing_hud.infodisplay -= protein_display
 	QDEL_NULL(protein_display)
 
 /// Repaints the HUD maptext — max capacity on hover, current reserves otherwise.
