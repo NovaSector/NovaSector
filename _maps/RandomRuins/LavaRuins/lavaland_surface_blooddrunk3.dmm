@@ -3,8 +3,8 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
-/turf/closed/mineral/volcanic/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
+/area/template_noop)
 "c" = (
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
@@ -98,6 +98,10 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "n" = (
+/obj/structure/stone_tile/surrounding/cracked{
+	dir = 6
+	},
+/obj/structure/stone_tile/center,
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
@@ -105,7 +109,7 @@
 	dir = 4
 	},
 /mob/living/basic/boss/blood_drunk_miner/hunter,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "o" = (
 /obj/structure/stone_tile/cracked{
@@ -157,12 +161,39 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"v" = (
-/obj/structure/stone_tile/surrounding/cracked{
-	dir = 6
+"z" = (
+/obj/structure/stone_tile/block{
+	dir = 4
 	},
-/obj/structure/stone_tile/center,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"D" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"H" = (
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 4
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"K" = (
+/obj/structure/stone_tile/burnt{
+	dir = 1
+	},
+/obj/structure/stone_tile,
+/turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 
 (1,1,1) = {"
@@ -174,11 +205,11 @@ a
 a
 a
 a
-b
-b
-b
-b
-b
+a
+a
+a
+a
+a
 a
 a
 a
@@ -195,7 +226,7 @@ b
 b
 c
 c
-b
+a
 b
 b
 a
@@ -238,7 +269,7 @@ b
 b
 "}
 (5,1,1) = {"
-b
+a
 c
 c
 c
@@ -248,7 +279,7 @@ c
 g
 i
 c
-c
+H
 h
 s
 c
@@ -256,7 +287,7 @@ c
 b
 "}
 (6,1,1) = {"
-b
+a
 d
 e
 e
@@ -265,16 +296,16 @@ f
 d
 f
 e
-d
+D
 n
-f
+z
+d
 t
-v
 c
 b
 "}
 (7,1,1) = {"
-b
+a
 c
 c
 c
@@ -284,7 +315,7 @@ c
 h
 j
 c
-c
+K
 o
 u
 c
@@ -292,7 +323,7 @@ b
 b
 "}
 (8,1,1) = {"
-b
+a
 b
 b
 c
@@ -335,13 +366,13 @@ b
 b
 b
 b
-b
+a
 c
 c
 c
 c
-b
-b
+a
+a
 a
 a
 "}
@@ -351,15 +382,15 @@ a
 a
 a
 a
-b
-b
-b
-b
-b
-b
-b
-b
-b
+a
+a
+a
+a
+a
+a
+a
+a
+a
 a
 a
 "}

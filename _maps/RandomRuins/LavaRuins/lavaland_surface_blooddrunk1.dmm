@@ -3,8 +3,8 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
-/turf/closed/mineral/volcanic/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
+/area/template_noop)
 "c" = (
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
@@ -156,9 +156,9 @@
 a
 a
 a
-b
-b
-b
+a
+a
+a
 b
 b
 b
@@ -201,7 +201,7 @@ b
 a
 "}
 (4,1,1) = {"
-b
+a
 b
 c
 c
@@ -217,7 +217,7 @@ b
 b
 "}
 (5,1,1) = {"
-b
+a
 c
 d
 g
@@ -233,7 +233,7 @@ b
 b
 "}
 (6,1,1) = {"
-b
+a
 c
 c
 h
@@ -249,7 +249,7 @@ c
 b
 "}
 (7,1,1) = {"
-b
+a
 c
 c
 c
@@ -262,10 +262,10 @@ y
 p
 e
 c
-b
+a
 "}
 (8,1,1) = {"
-b
+a
 c
 e
 i
@@ -278,7 +278,7 @@ f
 d
 y
 c
-b
+a
 "}
 (9,1,1) = {"
 b
@@ -293,8 +293,8 @@ c
 c
 c
 c
-b
-b
+a
+a
 "}
 (10,1,1) = {"
 b
@@ -308,9 +308,9 @@ c
 b
 b
 c
-b
-b
-b
+a
+a
+a
 "}
 (11,1,1) = {"
 b
@@ -324,8 +324,8 @@ b
 b
 b
 b
-b
-b
+a
+a
 a
 "}
 (12,1,1) = {"
