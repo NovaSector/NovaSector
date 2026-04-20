@@ -595,7 +595,7 @@
 			return TRUE
 
 
-/obj/structure/deployable_barricade/metal/crowbar_act(mob/living/user, obj/item/I)
+/obj/structure/deployable_barricade/metal/crowbar_act(mob/living/user, obj/item/tool)
 	switch(build_state)
 		if(BARRICADE_METAL_LOOSE) //Anchor bolts loosened step. Apply crowbar to unseat the panel and take apart the whole thing. Apply wrench to resecure anchor bolts
 			user.visible_message(span_notice("[user] begins to disassemble [src]."),
