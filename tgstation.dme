@@ -8983,6 +8983,7 @@
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\conversion_kits.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\gunsets.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\pistol.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\magazines.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\revolver.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\shotgun.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\speedloaders.dm"
