@@ -121,7 +121,7 @@
 	reqs = list(/obj/item/stack/rods = 1,
 				/obj/item/stack/sheet/iron = 1)
 	tool_behaviors = list(TOOL_CROWBAR)
-	time = 20
+	time = 40
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/wirecutters
@@ -131,7 +131,7 @@
 			/obj/item/stack/sheet/iron = 2,
 			/obj/item/stack/cable_coil = 2)
 	tool_behaviors = list(TOOL_CROWBAR, TOOL_SCREWDRIVER)
-	time = 50
+	time = 40
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/wrench
@@ -140,7 +140,7 @@
 	reqs = list(/obj/item/stack/rods = 1,
 				/obj/item/stack/sheet/iron = 1)
 	tool_behaviors = list(TOOL_CROWBAR, TOOL_SCREWDRIVER)
-	time = 30
+	time = 40
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/makeshift_welder
@@ -151,7 +151,7 @@
 				/obj/item/stack/cable_coil = 5,
 				/obj/item/assembly/igniter = 1)
 	tool_behaviors = list(TOOL_CROWBAR, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	time = 30
+	time = 40
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/multitool_makeshift
@@ -181,6 +181,15 @@
 	)
 	tool_behaviors = list(TOOL_WRENCH,TOOL_WIRECUTTER,TOOL_SCREWDRIVER,TOOL_CROWBAR)
 	time = 60 SECONDS
+	category = CAT_TOOLS
+
+/datum/crafting_recipe/makeshift_shovel
+	name = "Makeshift shovel"
+	result = /obj/item/shovel/makeshift
+	reqs = list(/obj/item/stack/rods = 2,
+				/obj/item/stack/sheet/iron = 2)
+	tool_behaviors = list(TOOL_CROWBAR)
+	time = 40
 	category = CAT_TOOLS
 
 //mist

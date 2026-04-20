@@ -1,3 +1,5 @@
+//from sand
+
 /obj/item/crowbar/makeshift
 	name = "Makeshift Crowbar"
 	desc = "It's just a slightly bent metal rod."
@@ -77,6 +79,8 @@
 	desc = "A hand-held environmental scanner which reports current gas levels."
 	cooldown_time = 60 SECONDS
 	w_class = WEIGHT_CLASS_NORMAL
+	icon = 'modular_regzt/icons/obj/item/tools.dmi'
+	icon_state = "analyzer"
 
 /obj/item/multitool/makeshift
 	name = "handmade multitool"
@@ -84,3 +88,15 @@
 	toolspeed = 2.5
 	apc_scanner = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
+	icon = 'modular_regzt/icons/obj/item/tools.dmi'
+	icon_state = "multitool"
+
+//REGZT
+
+/obj/item/shovel/makeshift
+	name = "shovel"
+	desc = "A large tool for digging and moving dirt."
+	icon = 'modular_regzt/icons/obj/item/tools.dmi'
+	icon_state = "shovel"
+	toolspeed = 2.5
+	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.3)
