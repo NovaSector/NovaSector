@@ -129,6 +129,7 @@
 							/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
 							/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.5,
 						)
+	icon = 'modular_nova/modules/medical_combitool/icons/surgery_tools.dmi'
 	icon_state = "combitool"
 	inhand_icon_state = "adv_retractor"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
