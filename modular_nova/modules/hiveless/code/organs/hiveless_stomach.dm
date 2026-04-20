@@ -58,10 +58,13 @@
 	reagents.remove_reagent(protein_reagent.type, drain)
 	adjust_protein(drain * protein_per_unit)
 
-/// Adds `amount` to reserves, clamped, and refreshes the HUD.
+/// Adds `amount` to reserves, clamped, and refreshes the HUD. Pings owning abilities so their
+/// button greyed-out state can repaint when protein crosses a cost threshold.
 /obj/item/organ/stomach/hiveless/proc/adjust_protein(amount)
 	protein = clamp(protein + amount, 0, protein_max)
 	update_protein_hud()
+	if(owner)
+		SEND_SIGNAL(owner, COMSIG_HIVELESS_PROTEIN_CHANGED)
 
 /// Deducts `amount` if available. Returns TRUE on success, FALSE on shortfall.
 /obj/item/organ/stomach/hiveless/proc/try_spend_protein(amount, mob/living/spender)

@@ -9,6 +9,9 @@
 /// Extra protein lost per life tick while chitinous armor is worn.
 #define HIVELESS_ARMOR_UPKEEP 0.4
 
+/// Sent on the owner mob from /obj/item/organ/stomach/hiveless when protein reserves change.
+#define COMSIG_HIVELESS_PROTEIN_CHANGED "hiveless_protein_changed"
+
 #define HIVELESS_COST_BLADE       15
 #define HIVELESS_COST_ARMOR       20
 #define HIVELESS_COST_SPIT        8

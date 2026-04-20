@@ -17,6 +17,55 @@
 	var/last_protein_alert = 0
 	/// Whether this ability is blocked while the owner is on fire.
 	var/disabled_by_fire = TRUE
+	/// Cached result of "BZ metabolites in owner's bloodstream?" from the last reagent-holder
+	/// update. Used to skip button repaints on unrelated metabolism ticks.
+	var/last_seen_bz = FALSE
+
+/datum/action/cooldown/spell/hiveless/Grant(mob/grant_to)
+	. = ..()
+	if(!owner)
+		return
+	RegisterSignals(owner, list(
+		COMSIG_HIVELESS_PROTEIN_CHANGED,
+		COMSIG_LIVING_EXTINGUISHED,
+		COMSIG_LIVING_IGNITED,
+	), PROC_REF(refresh_button_status))
+	if(owner.reagents)
+		last_seen_bz = owner_has_bz()
+		RegisterSignal(owner.reagents, COMSIG_REAGENTS_HOLDER_UPDATED, PROC_REF(on_reagents_updated))
+
+/datum/action/cooldown/spell/hiveless/Remove(mob/remove_from)
+	if(remove_from)
+		UnregisterSignal(remove_from, list(
+			COMSIG_HIVELESS_PROTEIN_CHANGED,
+			COMSIG_LIVING_EXTINGUISHED,
+			COMSIG_LIVING_IGNITED,
+		))
+		if(remove_from.reagents)
+			UnregisterSignal(remove_from.reagents, COMSIG_REAGENTS_HOLDER_UPDATED)
+	return ..()
+
+/// Repaints the action button so its greyed-out state reflects the current can_cast_spell result.
+/datum/action/cooldown/spell/hiveless/proc/refresh_button_status(datum/source)
+	SIGNAL_HANDLER
+	build_all_button_icons(UPDATE_BUTTON_STATUS)
+
+/// Reagent-holder-updated hook: only repaints when the owner's BZ state crosses, since that
+/// signal fires on every metabolism tick regardless of which reagent changed.
+/datum/action/cooldown/spell/hiveless/proc/on_reagents_updated(datum/source)
+	SIGNAL_HANDLER
+	var/current_bz = owner_has_bz()
+	if(current_bz == last_seen_bz)
+		return
+	last_seen_bz = current_bz
+	build_all_button_icons(UPDATE_BUTTON_STATUS)
+
+/// TRUE if the owner is currently metabolizing BZ metabolites.
+/datum/action/cooldown/spell/hiveless/proc/owner_has_bz()
+	if(!iscarbon(owner))
+		return FALSE
+	var/mob/living/carbon/carbon_owner = owner
+	return carbon_owner.reagents?.has_reagent(/datum/reagent/bz_metabolites, needs_metabolizing = TRUE)
 
 /// Returns the protein-bank stomach on the owner, or null.
 /datum/action/cooldown/spell/hiveless/proc/get_protein_bank(mob/living/carbon/user)
