@@ -32,10 +32,19 @@
 /obj/item/organ/stomach/hiveless/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
 	install_protein_hud(receiver)
+	RegisterSignal(receiver, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(on_fully_healed))
 
 /obj/item/organ/stomach/hiveless/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	uninstall_protein_hud(organ_owner)
+	UnregisterSignal(organ_owner, COMSIG_LIVING_POST_FULLY_HEAL)
 	return ..()
+
+/// Tops off the protein reserves on an admin-triggered fully-heal.
+/obj/item/organ/stomach/hiveless/proc/on_fully_healed(mob/living/source, heal_flags)
+	SIGNAL_HANDLER
+	if(!(heal_flags & HEAL_ADMIN))
+		return
+	adjust_protein(protein_max)
 
 /obj/item/organ/stomach/hiveless/Destroy()
 	if(owner)
