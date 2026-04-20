@@ -26,6 +26,7 @@
 		owner.regenerate_icons()
 
 /datum/action/item_action/chameleon/change/update_item(obj/item/picked_item)
+	. = ..()
 	if(istype(target, /obj/item/clothing/))
 		var/obj/item/clothing/target_clothing = target
 		var/obj/item/clothing/picked_clothing = picked_item
