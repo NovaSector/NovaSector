@@ -537,3 +537,6 @@
       for females with digi legs
   - bugfix: fixes a bunch of TG digi socks missing their digi icons
   - bugfix: fixes a few instances of tool interactions with machines not working properly
+2026-04-20:
+  vinylspiders:
+  - bugfix: fixes windows airbags smoke
