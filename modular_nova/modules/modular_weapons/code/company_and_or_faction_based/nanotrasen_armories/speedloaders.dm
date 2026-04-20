@@ -12,7 +12,7 @@
 /obj/item/ammo_box/speedloader/c96/
 	name = "stripper clip (10mm)"
 	desc = "Designed to quickly load the NT M-96 pistol."
-	icon = 'icons/obj/weapons/guns/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/magazines.dmi'
 	ammo_type = /obj/item/ammo_casing/c10mm
 	icon_state = "10_strip"
 	base_icon_state = "10_strip"

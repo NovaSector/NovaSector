@@ -1,7 +1,7 @@
 /obj/item/gun/ballistic/rifle/c96
 	name = "\improper NT M-96" //needed to be a rifle subtype to use bolt action code for internal magazine and all sorts of extra things
 	desc = "An antiquated design revived due to its long-expired patent and interest from collectors of the original, although this model comes in at a fraction of the price as the real deal. Still pricey, however, due to its complicated construction."
-	icon = 'icons/obj/weapons/guns/ballistic.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
 	icon_state = "mauser"
 	inhand_icon_state = "gun"
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
