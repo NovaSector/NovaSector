@@ -112,7 +112,9 @@
 		our_guy.playsound_local(our_guy, 'sound/effects/singlebeat.ogg', 100, TRUE)
 		flash_color(our_guy, flash_color = "#ff0000", flash_time = 3 SECONDS)
 
-	if(SPT_PROB(5, seconds_per_tick))
+	if(our_guy.mob_biotypes & MOB_ROBOTIC)
+		make_that_synth_sweat(our_guy, seconds_per_tick, metabolization_ratio)
+	else if(SPT_PROB(5, seconds_per_tick))
 		hurt_that_mans_organs(our_guy, 3, FALSE)
 
 	if(locate(/datum/reagent/drug/twitch) in our_guy.reagents.reagent_list) // Combining this with twitch could cause some heart attack problems
@@ -140,7 +142,17 @@
 	)
 	if(really_bad)
 		our_guy.vomit(0, TRUE, FALSE, 1)
-	our_guy.adjust_organ_loss(pick(organs_we_damage), damage,required_organ_flag = affected_organ_flags)
+	our_guy.adjust_organ_loss(pick(organs_we_damage), damage, required_organ_flag = affected_organ_flags)
+
+/// Synths overheat instead of taking organ damage
+/datum/reagent/drug/demoneye/proc/make_that_synth_sweat(mob/living/carbon/our_guy, seconds_per_tick, metabolization_ratio)
+	var/heating = 3.8 * creation_purity * seconds_per_tick * metabolization_ratio
+	our_guy.reagents?.chem_temp += heating
+	our_guy.adjust_bodytemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
+	our_guy.adjust_tox_loss(0.3 * seconds_per_tick * metabolization_ratio, updating_health = FALSE, required_biotype = ALL)
+	if(ishuman(our_guy))
+		var/mob/living/carbon/human/human = our_guy
+		human.adjust_coretemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
 
 // Mood event used by demoneye, because the normal one I just didn't vibe with
 /datum/mood_event/stimulant_heavy/sundowner

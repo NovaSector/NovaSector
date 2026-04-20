@@ -208,6 +208,7 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
+/obj/machinery/autodoc,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "bT" = (
@@ -331,12 +332,14 @@
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
 "cR" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "interdyneconveyor"
+/obj/item/circuitboard/machine/ghostpad/interdyne{
+	pixel_x = -2;
+	pixel_y = 4
 	},
+/obj/structure/frame/machine/secured,
+/obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/cargo/ware)
+/area/ruin/interdyne_planetary_base/cargo)
 "cT" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white,
@@ -537,17 +540,6 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/cargo)
-"fa" = (
-/obj/structure/railing,
-/obj/machinery/door/poddoor{
-	id = "interdynecargo"
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "interdyneconveyor"
-	},
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/cargo/ware)
 "fh" = (
 /obj/effect/turf_decal/siding/brown,
 /turf/open/floor/iron/dark/diagonal,
@@ -754,23 +746,6 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
-"hl" = (
-/obj/structure/railing,
-/obj/structure/plasticflaps,
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "interdyneconveyor"
-	},
-/obj/machinery/light/small/directional/north,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/cargo/ware)
-"hq" = (
-/obj/effect/turf_decal/arrows{
-	dir = 8;
-	pixel_x = 14
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/cargo)
 "hs" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -1461,13 +1436,17 @@
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
 "ma" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "interdyneconveyor"
+/obj/item/circuitboard/computer/ghostpad/interdyne{
+	pixel_x = -4;
+	pixel_y = 2
 	},
-/obj/machinery/light/cold/directional/south,
+/obj/structure/frame/computer{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = 0
+	},
 /turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/cargo/ware)
+/area/ruin/interdyne_planetary_base/cargo)
 "mh" = (
 /obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark/textured_large,
@@ -1888,20 +1867,11 @@
 /area/ruin/interdyne_planetary_base)
 "pP" = (
 /obj/effect/turf_decal/siding/dark,
-/obj/machinery/conveyor_switch/oneway{
-	id = "interdyneconveyor"
+/obj/item/circuitboard/computer/cargo/express/ghost/interdyne{
+	pixel_y = 6
 	},
-/obj/effect/turf_decal/tile/dark_green{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
-	dir = 4
-	},
-/obj/machinery/light/cold/directional/east,
-/obj/machinery/button/door/directional/east{
-	id = "interdynecargo";
-	req_access = list("syndicate");
-	name = "Cargo Blast Door Control"
+/obj/structure/frame/computer{
+	dir = 8
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -2076,10 +2046,15 @@
 /turf/open/floor/iron/checker,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "qV" = (
-/obj/item/circuitboard/machine/stacking_machine,
 /obj/structure/frame/machine/secured,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
+	},
+/obj/item/circuitboard/machine/stacking_machine,
+/obj/item/circuitboard/machine/stacking_unit_console{
+	base_pixel_x = 4;
+	pixel_x = 3;
+	pixel_y = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
@@ -2879,6 +2854,7 @@
 /obj/structure/table/reinforced/rglass,
 /obj/item/stack/medical/suture,
 /obj/item/stack/medical/mesh,
+/obj/item/storage/box/interdyne/gloves,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "yG" = (
@@ -2975,11 +2951,6 @@
 /obj/item/rag,
 /turf/open/floor/wood/tile,
 /area/ruin/interdyne_planetary_base/serv/bar)
-"zB" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/delivery,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/cargo)
 "zE" = (
 /obj/machinery/status_display/department_balance{
 	credits_account = "IP"
@@ -3339,14 +3310,7 @@
 /turf/open/floor/grass,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "Ca" = (
-/obj/machinery/door/poddoor{
-	id = "interdynecargo"
-	},
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "interdyneconveyor"
-	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "Cb" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -5216,11 +5180,13 @@
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "RH" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "interdyneconveyor"
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/vault{
+	id_tag = "syndie_lavaland_deepspacecargo";
+	name = "Interdyne Deepspace Landing Pad"
 	},
-/obj/structure/railing,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "RI" = (
@@ -5325,10 +5291,10 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/viro)
 "SA" = (
-/obj/machinery/chem_dispenser/fullupgrade,
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
+/obj/machinery/chem_dispenser/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "SF" = (
@@ -5585,7 +5551,7 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/door/firedoor,
-/obj/machinery/chem_master/fullupgrade,
+/obj/machinery/chem_master/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "TV" = (
@@ -5709,21 +5675,6 @@
 "UE" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/syndicate/red/secretformula,
-/obj/item/circuitboard/computer/ghostpad/interdyne{
-	pixel_x = -4;
-	pixel_y = 2
-	},
-/obj/item/circuitboard/machine/ghostpad/interdyne{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/obj/item/circuitboard/computer/cargo/express/ghost/interdyne{
-	pixel_y = 6
-	},
-/obj/item/circuitboard/machine/protolathe/offstation{
-	pixel_y = 8;
-	pixel_x = 2
-	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "UN" = (
@@ -5732,8 +5683,7 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "UQ" = (
-/obj/item/circuitboard/machine/techfab/department/medical,
-/obj/structure/frame/machine/secured,
+/obj/machinery/rnd/production/interdyne_fabricator,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "UU" = (
@@ -6062,15 +6012,6 @@
 	},
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
-"Xd" = (
-/obj/structure/plasticflaps,
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "interdyneconveyor"
-	},
-/obj/machinery/light/small/directional/south,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/cargo/ware)
 "Xe" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
@@ -7983,8 +7924,8 @@ Gk
 KN
 Yd
 pA
-hq
-yn
+ym
+cR
 RY
 Rp
 IA
@@ -8024,7 +7965,7 @@ Rx
 pe
 No
 pP
-zB
+yn
 ma
 wT
 BF
@@ -8066,7 +8007,7 @@ Py
 Ha
 oW
 RH
-cR
+oW
 RY
 TA
 TQ
@@ -8106,7 +8047,7 @@ oW
 QR
 mQ
 oW
-fa
+Ca
 Ca
 oW
 oW
@@ -8147,8 +8088,8 @@ oW
 jR
 Ha
 oW
-hl
-Xd
+oW
+oW
 oW
 jv
 fX

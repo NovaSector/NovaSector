@@ -14,3 +14,4 @@
 #define CAT_HYPOS "hypos"
 #define CAT_DARTS "darts"
 #define CAT_PEN_INJECTORS "pen injectors"
+#define CAT_INTERDYNE_INJECTORS "interdyne injectors"

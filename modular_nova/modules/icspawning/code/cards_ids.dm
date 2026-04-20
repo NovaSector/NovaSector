@@ -13,3 +13,7 @@
 	department_color = COLOR_CENTCOM_BLUE
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
 	sechud_icon_state = SECHUD_SCRAMBLED
+
+/datum/id_trim/admin/bst/New()
+	. = ..()
+	access += ACCESS_INTERDYNE

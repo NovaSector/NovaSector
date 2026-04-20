@@ -1,0 +1,50 @@
+// THIS IS A NOVA SECTOR UI FILE
+.theme-interdyne {
+  &:root {
+    // Base — dark green background
+    --color-base: hsl(140, 60%, 10%);
+    --color-primary: hsl(130, 55%, 30%);
+    --secondary-lightness-adjustment: 8;
+    --base-gradient-spread: 5;
+
+    // Text
+    --color-label: hsl(130, 40%, 65%);
+
+    // Status colors
+    --color-good: hsl(130, 70%, 40%);
+    --color-bad: hsl(0, 65%, 45%);
+    --color-average: hsl(45, 80%, 45%);
+
+    // Buttons — green tones
+    --button-background-default: hsl(130, 45%, 22%);
+    --button-background-selected: hsl(130, 65%, 35%);
+    --button-background-caution: hsl(45, 80%, 38%);
+    --button-background-danger: hsl(0, 70%, 40%);
+
+    // Components
+    --notice-box-background: hsl(130, 50%, 15%);
+    --notice-box-color: var(--color-text-fixed-white);
+    --progress-bar-background: hsla(0, 0%, 0%, 0.5);
+    --tooltip-background-lightness: 15;
+  }
+
+  .Section {
+    border-color: hsl(130, 40%, 20%);
+  }
+
+  .Button--disabled {
+    background-color: hsl(130, 20%, 15%);
+    opacity: 1;
+  }
+
+  .ProgressBar {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .Layout__content {
+    background-image: url('./assets/bg-interdyne.svg');
+    background-size: 50% 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

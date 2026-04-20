@@ -25,7 +25,7 @@
 	assignment = "Interdyne Pharmacist"
 	trim_state = "trim_medicaldoctor"
 	sechud_icon_state = SECHUD_SYNDICATE_INTERDYNE
-	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS, ACCESS_SURGERY)
+	access = list(ACCESS_SYNDICATE, ACCESS_INTERDYNE, ACCESS_ROBOTICS, ACCESS_SURGERY)
 	big_pointer = FALSE
 	pointer_color = null
 
@@ -36,7 +36,7 @@
 	department_color = COLOR_SYNDIE_RED_HEAD
 	subdepartment_color = COLOR_SYNDIE_RED_HEAD
 	sechud_icon_state = SECHUD_SYNDICATE_INTERDYNE_HEAD
-	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS, ACCESS_SURGERY)
+	access = list(ACCESS_SYNDICATE, ACCESS_INTERDYNE, ACCESS_ROBOTICS, ACCESS_SURGERY)
 	big_pointer = TRUE
 	pointer_color = COLOR_SYNDIE_RED_HEAD
 

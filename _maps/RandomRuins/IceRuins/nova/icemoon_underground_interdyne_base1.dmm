@@ -2325,6 +2325,10 @@
 /obj/item/reagent_containers/cup/beaker/cryoxadone,
 /obj/item/reagent_containers/cup/beaker/cryoxadone,
 /obj/item/reagent_containers/cup/beaker/cryoxadone,
+/obj/item/storage/box/medipens{
+	pixel_x = 4;
+	pixel_y = 13
+	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "gF" = (
@@ -2529,9 +2533,6 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/science)
 "hm" = (
-/obj/item/storage/box/rndboards{
-	pixel_y = 4
-	},
 /obj/structure/table/glass/plasmaglass,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
@@ -2874,8 +2875,8 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main)
 "il" = (
-/obj/machinery/chem_dispenser/fullupgrade,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/chem_dispenser/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "im" = (
@@ -2893,6 +2894,7 @@
 /obj/item/storage/box/syndie_kit/sansufentanyl{
 	pixel_x = -9
 	},
+/obj/item/storage/box/interdyne/gloves,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "io" = (
@@ -3065,7 +3067,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "iJ" = (
-/obj/machinery/chem_master,
+/obj/machinery/chem_master/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "iK" = (
@@ -3969,6 +3971,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/frame/machine/secured,
 /obj/item/circuitboard/machine/stacking_machine,
+/obj/item/circuitboard/machine/stacking_unit_console,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "kY" = (
@@ -5942,11 +5945,7 @@
 	},
 /area/ruin/interdyne_planetary_base/main)
 "pT" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/box/medipens{
-	pixel_x = 4;
-	pixel_y = 13
-	},
+/obj/machinery/autodoc,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "pU" = (
@@ -6675,6 +6674,7 @@
 /obj/item/circuitboard/computer/bountypad,
 /obj/item/circuitboard/machine/bountypad,
 /obj/structure/rack/shelf,
+/obj/item/circuitboard/machine/interdyne_fabricator,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "CF" = (

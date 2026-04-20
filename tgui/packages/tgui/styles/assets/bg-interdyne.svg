@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" opacity="0.07">
+  <g fill="none" stroke="#4CBB17" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Staff -->
+    <line x1="100" y1="20" x2="100" y2="260" stroke-width="5"/>
+
+    <!-- Staff top knob -->
+    <circle cx="100" cy="18" r="6" fill="#4CBB17" stroke="#4CBB17" stroke-width="1"/>
+
+    <!-- Staff bottom point -->
+    <line x1="100" y1="260" x2="100" y2="268" stroke-width="3"/>
+
+    <!-- Single serpent winding around the staff (Rod of Asclepius) -->
+    <!-- The serpent winds from bottom to top in S-curves -->
+    <path d="M100,230
+             C80,225 60,215 60,200
+             C60,185 80,178 100,175
+             C120,172 140,162 140,147
+             C140,132 120,125 100,122
+             C80,119 60,109 60,94
+             C60,79 80,72 100,69
+             C120,66 140,56 140,41
+             C140,30 125,25 110,28"
+             stroke-width="5"/>
+
+    <!-- Serpent head -->
+    <circle cx="110" cy="27" r="4.5" fill="#4CBB17" stroke="#4CBB17" stroke-width="1"/>
+
+    <!-- Serpent tongue -->
+    <path d="M115,25 L122,20 M115,25 L121,30" stroke-width="2"/>
+
+    <!-- Serpent eye -->
+    <circle cx="112" cy="25" r="1" fill="none" stroke="#4CBB17" stroke-width="1"/>
+  </g>
+</svg>

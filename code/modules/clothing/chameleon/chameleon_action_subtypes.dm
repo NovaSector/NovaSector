@@ -174,6 +174,8 @@
 	add_chameleon_items(/obj/item/card/id/advanced/centcom)
 	// explicitly include the captain's spare id, even though it could be manually constructed from the gold id, for ease
 	add_chameleon_items(/obj/item/card/id/advanced/gold/captains_spare, only_root = TRUE)
+	// NOVA EDIT ADDITION — Interdyne card appearances
+	add_chameleon_items(/obj/item/card/id/advanced/interdyne)
 
 /datum/action/item_action/chameleon/change/id/update_item(obj/item/picked_item)
 	. = ..()
@@ -262,6 +264,7 @@
 		/datum/id_trim/bit_avatar,
 		/datum/id_trim/bounty_hunter,
 		/datum/id_trim/centcom,
+		/datum/id_trim/interdyne, // NOVA EDIT ADDITION — Interdyne trims available on chameleon cards
 		/datum/id_trim/job,
 		/datum/id_trim/pirate,
 		/datum/id_trim/syndicom,

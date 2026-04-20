@@ -139,8 +139,8 @@
 	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
-	id = /obj/item/card/id/advanced/silver/generic
-	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
+	id = /obj/item/card/id/advanced/chameleon/elite/interdyne
+	id_trim = /datum/id_trim/interdyne/deckofficer
 
 /obj/item/radio/headset/interdyne/green
 	name = "interdyne branded headset"
@@ -155,8 +155,8 @@
 
 /datum/outfit/interdyne_planetary_base
 	name = "Interdyne Scientist"
-	id = /obj/item/card/id/advanced/chameleon/elite
-	id_trim = /datum/id_trim/syndicom/nova/interdyne
+	id = /obj/item/card/id/advanced/interdyne
+	id_trim = /datum/id_trim/interdyne
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
 	suit = /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
 	head = /obj/item/clothing/head/beret/medical/nova/interdyne
@@ -169,8 +169,8 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	ears = /obj/item/radio/headset/interdyne/green
 	shoes = /obj/item/clothing/shoes/combat
-	l_pocket = /obj/item/gun/ballistic/automatic/pistol
-	r_hand = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil
+	belt = /obj/item/modular_computer/pda/interdyne
+	l_pocket = /obj/item/gun/energy/laser/pistol/interdyne
 	implants = list(/obj/item/implant/weapons_auth)
 	var/jobtype = /datum/job/interdyne_planetary_base
 
@@ -203,7 +203,7 @@
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
 	r_pocket = /obj/item/storage/bag/ore
-	id_trim = /datum/id_trim/syndicom/nova/interdyne/shaftminer
+	id_trim = /datum/id_trim/interdyne/shaftminer
 	back = /obj/item/storage/backpack/explorer
 	skillchips = list(/obj/item/skillchip/job/miner)
 	backpack_contents = list(
@@ -225,8 +225,8 @@
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
 	skillchips = list(/obj/item/skillchip/job/miner)
-	id = /obj/item/card/id/advanced/chameleon/elite/black/silver
-	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
+	id = /obj/item/card/id/advanced/chameleon/elite/interdyne
+	id_trim = /datum/id_trim/interdyne/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deckofficer/Destroy()
 	new/obj/structure/fluff/empty_sleeper/syndicate/captain(get_turf(src))
@@ -236,16 +236,6 @@
 	name = "Icemoon Interdyne Shaft Miner"
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
-
-// ITEMS
-
-/obj/item/radio/headset/interdyne
-	name = "\improper Interdyne headset"
-	desc = "A bowman headset with a large red cross on the earpiece, has a small 'IP' written on the top strap. Protects the ears from flashbangs."
-	icon_state = "syndie_headset"
-	inhand_icon_state = null
-	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/syndie.ogg'
-	keyslot = new /obj/item/encryptionkey/headset_syndicate/interdyne
 
 /obj/item/radio/headset/interdyne/Initialize(mapload)
 	. = ..()
