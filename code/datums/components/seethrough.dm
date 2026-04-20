@@ -15,9 +15,13 @@
 	var/clickthrough
 	/// Define for the area which is considered behind
 	var/see_through_map
+	// NOVA EDIT ADDITION START - SIGNBOARDS
+	/// Whether to always use the final turf of the parent as the "effective" parent for calculating coords.
+	var/use_parent_turf
+	// NOVA EDIT EDITION END
 
 ///see_through_map is a define pointing to a specific map. It's basically defining the area which is considered behind. See see_through_maps.dm for a list of maps
-/datum/component/seethrough/Initialize(see_through_map = SEE_THROUGH_MAP_DEFAULT, target_alpha = 100, animation_time = 0.5 SECONDS, perimeter_reset_timer = 2 SECONDS, clickthrough = TRUE)
+/datum/component/seethrough/Initialize(see_through_map = SEE_THROUGH_MAP_DEFAULT, target_alpha = 100, animation_time = 0.5 SECONDS, perimeter_reset_timer = 2 SECONDS, clickthrough = TRUE, use_parent_turf = FALSE, movement_source = null) // NOVA EDIT ADDITION: use_parent_turf and movement_source args
 	. = ..()
 
 	//GLOB.see_through_maps[see_through_map is a list of lists that represent relative coordinates to the source atom
@@ -29,8 +33,9 @@
 	src.animation_time = animation_time
 	src.perimeter_reset_timer = perimeter_reset_timer
 	src.clickthrough = clickthrough
+	src.use_parent_turf = use_parent_turf // NOVA EDIT ADDITION - SIGNBOARDS
 
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(dismantle_perimeter))
+	RegisterSignal(movement_source || parent, COMSIG_MOVABLE_MOVED, PROC_REF(dismantle_perimeter)) // NOVA EDIT ADDITION - SIGNBOARDS - ORIGINAL: RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(dismantle_perimeter))
 
 	setup_perimeter(parent)
 
@@ -38,8 +43,9 @@
 /datum/component/seethrough/proc/setup_perimeter(atom/parent)
 	watched_turfs = list()
 
+	var/atom/effective_parent = use_parent_turf ? get_turf(parent) : parent // NOVA EDIT ADDITION - SIGNBOARDS
 	for(var/list/coordinates as anything in GLOB.see_through_maps[see_through_map])
-		var/turf/target = TURF_FROM_COORDS_LIST(list(parent.x + coordinates[1], parent.y + coordinates[2], parent.z + coordinates[3]))
+		var/turf/target = TURF_FROM_COORDS_LIST(list(effective_parent.x + coordinates[1], effective_parent.y + coordinates[2], effective_parent.z + coordinates[3])) // NOVA EDIT ADDITION - SIGNBOARDS - ORIGINAL: var/turf/target = TURF_FROM_COORDS_LIST(list(parent.x + coordinates[1], parent.y + coordinates[2], parent.z + coordinates[3]))
 
 		if(isnull(target))
 			continue
