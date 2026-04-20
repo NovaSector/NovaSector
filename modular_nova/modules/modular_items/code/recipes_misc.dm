@@ -12,7 +12,7 @@
 	time = 10 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	category = CAT_WEAPON_MELEE
-
+/* //REGZT edit all move to modular_regzt/code/modules/crafting/random_item.dm
 /datum/crafting_recipe/makeshift/crowbar
 	name = "Makeshift Crowbar"
 	result = /obj/item/crowbar/makeshift
@@ -68,3 +68,4 @@
 	)
 	time = 6 SECONDS
 	category = CAT_MISC
+*/

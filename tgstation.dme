@@ -9702,4 +9702,6 @@
 #include "modular_regzt\code\modules\scrap\scrap_loot.dm"
 #include "modular_regzt\code\modules\scrap\slime_extract_list.dm"
 #include "modular_regzt\code\modules\random_item\portable_lathe.dm"
+#include "modular_regzt\code\modules\random_item\stock_parts.dm"
+#include "modular_regzt\code\modules\random_item\makeshift_tool.dm"
 // END_INCLUDE

@@ -1,5 +1,6 @@
 //Tools that are made using makeshift item crafting
 
+/* //REGZT edit all move to modular_regzt/code/modules/makeshift.dm
 /obj/item/crowbar/makeshift
 	name = "makeshift crowbar"
 	desc = "A makeshift crowbar, flimsily constructed with miscellaneous parts. It's got a strong head that looks like it could be used for hammering."
@@ -63,3 +64,4 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 1.5
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.5)
+*/
