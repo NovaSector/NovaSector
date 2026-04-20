@@ -11,6 +11,8 @@
 
 /// Sent on the owner mob from /obj/item/organ/stomach/hiveless when protein reserves change.
 #define COMSIG_HIVELESS_PROTEIN_CHANGED "hiveless_protein_changed"
+/// HUD key for the protein reserves display screen element.
+#define HUD_HIVELESS_PROTEIN "hud_hiveless_protein"
 
 #define HIVELESS_COST_BLADE       15
 #define HIVELESS_COST_ARMOR       20

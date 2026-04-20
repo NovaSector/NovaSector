@@ -108,9 +108,7 @@
 		return
 	if(protein_display)
 		return
-	protein_display = new(null, receiver_hud)
-	receiver_hud.infodisplay += protein_display
-	receiver_hud.show_hud(receiver_hud.hud_version)
+	protein_display = receiver_hud.add_screen_object(/atom/movable/screen/hiveless_protein, HUD_HIVELESS_PROTEIN, HUD_GROUP_INFO, update_screen = TRUE)
 	update_protein_hud()
 
 /// Retries HUD install once the mob's HUD is ready.
@@ -124,8 +122,8 @@
 	UnregisterSignal(losing_owner, COMSIG_MOB_HUD_CREATED)
 	var/datum/hud/losing_hud = losing_owner?.hud_used
 	if(losing_hud && protein_display)
-		losing_hud.infodisplay -= protein_display
-	QDEL_NULL(protein_display)
+		losing_hud.remove_screen_object(HUD_HIVELESS_PROTEIN)
+	protein_display = null
 
 /// Repaints the HUD maptext — max capacity on hover, current reserves otherwise.
 /obj/item/organ/stomach/hiveless/proc/update_protein_hud()
