@@ -8,7 +8,7 @@
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 	worn_icon_state = "gun"
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/bay_gunshot_magnum.ogg'
-	fire_sound_volume = 100
+	fire_sound_volume = 80
 
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
@@ -22,6 +22,6 @@
 	semi_auto = TRUE
 	fire_delay = 0.45 SECONDS
 	projectile_damage_multiplier = 0.7 //crew gun using what's typically an antag round, this is more than warranted, maybe even will go lower after testing
-	spread = 6
+	spread = 5 //maybe needs to go lower in the future, we shall see
 /obj/item/gun/ballistic/rifle/c96/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
