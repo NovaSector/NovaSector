@@ -324,7 +324,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		span_notice("You hear liquid splattering."),
 	)
 	var/turf/death_turf = loc_override || get_turf(victim)
-	var/mob/living/basic/mining/legion/legionbody = astype(victim.loc)
+	/// The location the core will forceMove into
+	var/atom/core_loc = get_core_ejection_loc(victim, death_turf)
 	for(var/datum/quirk/quirk in victim.quirks) // Store certain quirks safe to transfer between bodies.
 		if(!is_type_in_typecache(quirk, saved_quirks) || is_type_in_typecache(quirk, skip_quirks))
 			continue
@@ -337,9 +338,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
 		Remove(victim)
-	//Make this check more generalized later. For antags that eat people as they kill. Make sure they drop their
-	//contents after death; that is if that is how that item or antag works.
-	forceMove(legionbody || death_turf)
+	forceMove(core_loc)
 	wash(CLEAN_WASH)
 	new death_melt_type(death_turf, victim.dir)
 
@@ -362,6 +361,16 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	qdel(victim)
 
 	SEND_SIGNAL(mind, COMSIG_SLIME_CORE_EJECTED, src)
+
+/*
+ * Returns the location the core should eject to
+ * If slime died in a container (locker, vileworm, legion), they'll eject there, otherwise we're returning death_turf
+*/
+/obj/item/organ/brain/slime/proc/get_core_ejection_loc(mob/living/carbon/human/victim, turf/death_turf)
+	var/atom/container = victim.loc
+	if(!container || isturf(container))
+		return death_turf
+	return container
 
 /obj/item/organ/brain/slime/proc/store_item_slots(mob/living/carbon/human/victim)
 	items_per_slot = alist()
@@ -451,7 +460,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
  * PROCESS ITEMS FOR CORE EJECTION
  * Processes different types of items and prepares them to be stored when the core is ejected.
  */
-
 /obj/item/organ/brain/slime/proc/process_items(mob/living/carbon/human/victim) // Handle all items to be stored into core.
 	var/list/focus_slots = list(
 		ITEM_SLOT_SUITSTORE,
@@ -540,7 +548,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(rebuilt)
 		return owner
 
-	GLOB.dead_slime_cores -= src
 	set_organ_damage(0) // heals the brain fully
 
 	if(istype(loc, /mob/living/basic/mining/legion))
@@ -576,6 +583,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 	var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(drop_location())
 
+	GLOB.dead_slime_cores -= src
 	rebuilt = TRUE
 
 	var/client/original_client = brainmob?.client || mind?.current?.client
