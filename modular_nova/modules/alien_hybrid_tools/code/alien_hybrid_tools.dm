@@ -98,12 +98,13 @@
 	build_path = /obj/item/alien_tool_upgrade
 	build_type = PROTOLATHE | AWAY_LATHE
 	// price could probably be tuned tbh
-	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, \
-					/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 2, \
-					/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2, \
-					/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2, \
-					/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2, \
-					/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2)
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+					/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 2,
+					/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
+					/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2,
+					/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2,
+					/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2,
+				)
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MISC
 	)
