@@ -114,6 +114,9 @@
 	desc = "Put the strapon in your hand in order to use it properly."
 
 /datum/action/item_action/take_strapon/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/item/clothing/strapon/affected_item = target
 	if(istype(affected_item))
 		affected_item.check()

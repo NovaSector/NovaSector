@@ -5,6 +5,7 @@
 	gender = FEMALE
 	em_block = TRUE
 	layer = NOVA_BRA_SOCKS_LAYER
+	abstract_type = /datum/sprite_accessory/clothing/bra
 
 /datum/sprite_accessory/clothing/bra/nude
 	name = "Nude"

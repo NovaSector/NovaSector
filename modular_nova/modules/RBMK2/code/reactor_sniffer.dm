@@ -97,13 +97,11 @@
 	QDEL_NULL(stored_radio)
 	return ..()
 
-/obj/machinery/rbmk2_sniffer/screwdriver_act(mob/living/user, obj/item/attack_item)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attack_item))
-		return ITEM_INTERACT_SUCCESS
+/obj/machinery/rbmk2_sniffer/screwdriver_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_screwdriver(user, tool)
 
-/obj/machinery/rbmk2_sniffer/crowbar_act(mob/living/user, obj/item/attack_item)
-	if(default_deconstruction_crowbar(attack_item))
-		return ITEM_INTERACT_SUCCESS
+/obj/machinery/rbmk2_sniffer/crowbar_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/rbmk2_sniffer/multitool_act(mob/living/user, obj/item/multitool/tool)
 	if(panel_open)

@@ -3,6 +3,7 @@
 	desc = "A machine specifically made for manufacturing ammunition. Fits anything ammo-related, from magazines and stripper clips to boxes."
 	icon = 'modular_nova/modules/ammo_workbench/icons/ammo_workbench.dmi'
 	icon_state = "ammobench"
+	base_icon_state = "ammobench"
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	// active power usage taken from autolathes
@@ -424,6 +425,10 @@
 	materials.max_amount = mat_capacity
 	update_ammotypes()
 
+/obj/machinery/ammo_workbench/update_icon_state()
+	. = ..()
+	icon_state = panel_open ?"[base_icon_state]_t" : base_icon_state
+
 /obj/machinery/ammo_workbench/update_overlays()
 	. = ..()
 	if(loaded_magazine)
@@ -439,15 +444,16 @@
 	QDEL_NULL(materials)
 	return ..()
 
-/obj/machinery/ammo_workbench/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]_t", initial(icon_state), attacking_item))
-		return
-	if(default_deconstruction_crowbar(attacking_item))
-		return
-	if(Insert_Item(attacking_item, user))
-		return TRUE
-	else
-		return ..()
+/obj/machinery/ammo_workbench/crowbar_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_crowbar(user, tool)
+
+/obj/machinery/ammo_workbench/screwdriver_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_screwdriver(user, tool)
+
+/obj/machinery/ammo_workbench/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(insert_item(tool, user))
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /obj/machinery/ammo_workbench/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
@@ -467,7 +473,7 @@
 /obj/machinery/ammo_workbench/attack_ai_secondary(mob/user, list/modifiers)
 	return attack_hand_secondary(user, modifiers)
 
-/obj/machinery/ammo_workbench/proc/Insert_Item(obj/item/inserted, mob/living/user)
+/obj/machinery/ammo_workbench/proc/insert_item(obj/item/inserted, mob/living/user)
 	if(user.combat_mode)
 		return FALSE
 	if(!is_insertion_ready(user, inserted))
