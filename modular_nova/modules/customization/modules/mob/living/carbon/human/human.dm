@@ -37,6 +37,9 @@
 /mob/living/carbon/human/species/synth
 	race = /datum/species/synthetic
 
+/mob/living/carbon/human/species/holosynth
+	race = /datum/species/synthetic/holosynth
+
 /mob/living/carbon/human/species/mammal
 	race = /datum/species/mammal
 
