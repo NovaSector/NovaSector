@@ -17,7 +17,7 @@
 	if (!..())
 		return FALSE
 
-	return "Unusual Biochemistry" in preferences.all_quirks
+	return /datum/quirk/unusual_biochemistry::name in preferences.all_quirks
 
 /datum/preference/choiced/unusual_biochemistry/compile_constant_data()
 	var/list/data = ..()
