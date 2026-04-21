@@ -924,3 +924,7 @@
 /datum/preference/color/mutant/holosynth_color/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["holo_color"] = sanitize_hexcolor(value)
 	return TRUE
+
+/datum/preference/color/mutant/holosynth_color/create_default_value()
+	return COLOR_WHITE
+
