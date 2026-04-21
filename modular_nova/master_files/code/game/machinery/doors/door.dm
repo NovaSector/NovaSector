@@ -4,7 +4,7 @@
 #define LINK_SHOCK "<a href='byond://?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=shock'> (Shock)</a>"
 
 /// How long the same player must wait between AI-open requests on the same door.
-#define DOOR_AI_REQUEST_COOLDOWN (5 MINUTES)
+#define DOOR_AI_REQUEST_COOLDOWN (30 SECONDS)
 
 /obj/machinery/door/airlock
 	//so the AI doesn't get spammed
