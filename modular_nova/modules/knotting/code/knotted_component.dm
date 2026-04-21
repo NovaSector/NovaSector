@@ -3,17 +3,8 @@
  *
  * Simplified port of SPLURT's knotting state machine. Instead of SPLURT's bespoke
  * `COMSIG_MOVABLE_ATTEMPTED_MOVE` wall on /mob/living, we force an aggressive grab on
- * the partner — tg's grab mechanic already handles: puller drags pulled, disarm breaks it,
- * resist breaks it, throw/shove breaks it, combat log.
+ * the partner
  *
- * Lifecycle hooks:
- * - qdels on parent or partner death / qdelete
- * - auto-unties after `duration` via a timer (default KNOT_DEFAULT_DURATION)
- * - callers may qdel the component directly to untie early (e.g. for an "untie" interaction)
- *
- * Deliberately minimal: no per-hole gape tracking, no custom "knot fucked stupid" status effect,
- * no sprite overlays, no decorations of other interactions. Those are the ~5% deferred from the
- * full SPLURT port.
  */
 /datum/component/knotted
 	dupe_mode = COMPONENT_DUPE_UNIQUE
