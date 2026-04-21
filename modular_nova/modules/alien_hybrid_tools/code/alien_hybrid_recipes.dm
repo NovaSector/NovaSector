@@ -1,4 +1,3 @@
-
 // the recipes in question
 /datum/crafting_recipe/hybrid_drill
 	result = /obj/item/screwdriver/power/alien
