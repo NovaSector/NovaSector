@@ -1,7 +1,7 @@
 
 /datum/component/interactable
-	/// A hard reference to the parent
-	var/mob/living/carbon/human/self = null
+	/// A hard reference to the parent — humans and silicons (cyborg/pAI) both supported.
+	var/mob/living/self = null
 	/// A list of interactions that the user can engage in.
 	var/list/datum/interaction/interactions
 	var/interact_last = 0
@@ -16,7 +16,7 @@
 		qdel(src)
 		return
 
-	if(!ishuman(parent))
+	if(!ishuman(parent) && !iscyborg(parent) && !ispAI(parent))
 		return COMPONENT_INCOMPATIBLE
 
 	self = parent
@@ -48,13 +48,13 @@
 /datum/component/interactable/proc/open_interaction_menu(datum/source, mob/user)
 	SIGNAL_HANDLER
 
-	if(!ishuman(user))
+	if(!ishuman(user) && !iscyborg(user) && !ispAI(user))
 		return
 	build_interactions_list()
 	INVOKE_ASYNC(src, PROC_REF(ui_interact), user)
 	return CLICK_ACTION_SUCCESS
 
-/datum/component/interactable/proc/can_interact(datum/interaction/interaction, mob/living/carbon/human/target)
+/datum/component/interactable/proc/can_interact(datum/interaction/interaction, mob/living/target)
 	if(!interaction.allow_act(target, self))
 		return FALSE
 	if(interaction.lewd && !target.client?.prefs?.read_preference(/datum/preference/toggle/erp))
@@ -75,7 +75,7 @@
 		ui.open()
 
 /datum/component/interactable/ui_status(mob/user, datum/ui_state/state)
-	if(!ishuman(user))
+	if(!ishuman(user) && !iscyborg(user) && !ispAI(user))
 		return UI_CLOSE
 
 	return UI_INTERACTIVE // This UI is always interactive as we handle distance flags via can_interact
@@ -130,44 +130,50 @@
 	data["erp_interaction"] = self.client?.prefs?.read_preference(/datum/preference/toggle/erp)
 	data["has_erp_interaction"] = has_erp_interaction
 
-	var/mob/living/carbon/human/human_user = user
-
 	data["isTargetSelf"] = (user == self)
 
-	// user (the one who opened the ui)
-	var/user_pleasure = 0
-	var/user_arousal = 0
-	var/user_pain = 0
-
-	if(user)
-		user_pleasure = human_user.pleasure
-		user_arousal = human_user.arousal
-		user_pain = human_user.pain
-
-		data["pleasure"] = user_pleasure
-		data["arousal"] = user_arousal
-		data["pain"] = user_pain
-
+	// user (the one who opened the ui) — arousal/pleasure/pain are human-only vars.
+	data["pleasure"] = 0
+	data["arousal"] = 0
+	data["pain"] = 0
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		data["pleasure"] = human_user.pleasure
+		data["arousal"] = human_user.arousal
+		data["pain"] = human_user.pain
 
 	// self - the one who the interaction component belongs to, aka who it's opened on (confusing var name yep)
-	if(user != self)
-		data["theirPleasure"] = self.pleasure
-		data["theirArousal"] = self.arousal
-		data["theirPain"] = self.pain
+	if(user != self && ishuman(self))
+		var/mob/living/carbon/human/human_self = self
+		data["theirPleasure"] = human_self.pleasure
+		data["theirArousal"] = human_self.arousal
+		data["theirPain"] = human_self.pain
 
 	var/list/parts = list()
 
-	if(ishuman(user) && can_lewd_strip(user, self))
-		if(self.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy))
-			if(self.has_vagina())
-				parts += list(generate_strip_entry(ORGAN_SLOT_VAGINA, self, user, self.vagina))
-			if(self.has_penis())
-				parts += list(generate_strip_entry(ORGAN_SLOT_PENIS, self, user, self.penis))
-			if(self.has_anus())
-				parts += list(generate_strip_entry(ORGAN_SLOT_ANUS, self, user, self.anus))
-			parts += list(generate_strip_entry(ORGAN_SLOT_NIPPLES, self, user, self.nipples))
+	if(ishuman(user) && ishuman(self) && can_lewd_strip(user, self))
+		var/mob/living/carbon/human/human_self = self
+		if(human_self.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy))
+			if(human_self.has_vagina())
+				parts += list(generate_strip_entry(ORGAN_SLOT_VAGINA, human_self, user, human_self.vagina))
+			if(human_self.has_penis())
+				parts += list(generate_strip_entry(ORGAN_SLOT_PENIS, human_self, user, human_self.penis))
+			if(human_self.has_anus())
+				parts += list(generate_strip_entry(ORGAN_SLOT_ANUS, human_self, user, human_self.anus))
+			parts += list(generate_strip_entry(ORGAN_SLOT_NIPPLES, human_self, user, human_self.nipples))
 
 	data["lewd_slots"] = parts
+
+	// Cyborg "simulated genitals" — for the user of the panel, so they can toggle what slots they're advertising.
+	var/list/simulated = list()
+	if(iscyborg(user))
+		var/mob/living/silicon/robot/cyborg_user = user
+		for(var/organ_slot in cyborg_user.simulated_genitals)
+			simulated += list(list(
+				"name" = organ_slot,
+				"active" = cyborg_user.simulated_genitals[organ_slot],
+			))
+	data["simulated_genitals"] = simulated
 
 	return data
 
@@ -192,17 +198,27 @@
 	if(.)
 		return
 
-	if(!ishuman(ui.user))
+	if(!ishuman(ui.user) && !iscyborg(ui.user) && !ispAI(ui.user))
 		return
 
 	if(action == "toggle_subtler")
 		use_subtler = !use_subtler
 		return TRUE
 
+	if(action == "toggle_genital_active")
+		if(!iscyborg(ui.user))
+			return FALSE
+		var/mob/living/silicon/robot/cyborg_user = ui.user
+		var/slot = params["genital"]
+		if(!slot || !(slot in cyborg_user.simulated_genitals))
+			return FALSE
+		cyborg_user.simulated_genitals[slot] = !cyborg_user.simulated_genitals[slot]
+		return TRUE
+
 	if(params["interaction"])
 		var/interaction_id = params["interaction"]
 		if(GLOB.interaction_instances[interaction_id])
-			var/mob/living/carbon/human/user = locate(params["userref"])
+			var/mob/living/user = locate(params["userref"])
 			if(!can_interact(GLOB.interaction_instances[interaction_id], user))
 				return FALSE
 			GLOB.interaction_instances[interaction_id].act(user, locate(params["selfref"]), use_subtler)

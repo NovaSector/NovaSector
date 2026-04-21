@@ -10,6 +10,10 @@
 // If you add a new requirement you also need to implement its checking. See /datum/interaction/proc/allow_act
 #define INTERACTION_REQUIRE_SELF_HAND "self_hand"
 #define INTERACTION_REQUIRE_TARGET_HAND "target_hand"
+/// Interaction requires the user to be a human (filters cyborgs/pAIs).
+#define INTERACTION_REQUIRE_SELF_HUMAN "self_human"
+/// Interaction requires the target to be a human (filters cyborgs/pAIs).
+#define INTERACTION_REQUIRE_TARGET_HUMAN "target_human"
 
 // Interaction Types: Do we do it to ourself or someone else
 #define INTERACTION_SELF "self"

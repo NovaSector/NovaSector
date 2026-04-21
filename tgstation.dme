@@ -8540,6 +8540,7 @@
 #include "modular_nova\modules\indicators\code\ssd_indicator.dm"
 #include "modular_nova\modules\inflatables\code\inflatable.dm"
 #include "modular_nova\modules\interaction_menu\code\interaction_component.dm"
+#include "modular_nova\modules\interaction_menu\code\silicon_interactable.dm"
 #include "modular_nova\modules\interaction_menu\code\interaction_datum.dm"
 #include "modular_nova\modules\item_visuals\code\item_visuals.dm"
 #include "modular_nova\modules\jaeger_mod\code\jaeger_mod.dm"
