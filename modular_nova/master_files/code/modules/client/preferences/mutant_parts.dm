@@ -918,11 +918,16 @@
 	return COLOR_WHITE
 
 /datum/preference/color/mutant/holosynth_color/apply_to_human(mob/living/carbon/human/target, value)
-	// Reject colors with no bright channel — a hologram that reads as shadow isn't a hologram.
-	// Pure blue (low luminance but channel-bright) is fine; near-black isn't.
+	// Nudge near-black choices up to the darkest legible hologram instead of snapping to white,
+	// preserving the picked hue. Pure black has no hue to preserve → settle on dark gray.
 	if(value != COLOR_WHITE)
 		var/list/rgb_list = rgb2num(value)
-		if(max(rgb_list[1], rgb_list[2], rgb_list[3]) < 80)
-			value = COLOR_WHITE
+		var/brightest = max(rgb_list[1], rgb_list[2], rgb_list[3])
+		if(brightest < 80)
+			if(brightest == 0)
+				value = rgb(80, 80, 80)
+			else
+				var/scale = 80 / brightest
+				value = rgb(rgb_list[1] * scale, rgb_list[2] * scale, rgb_list[3] * scale)
 	target.dna.features["holo_color"] = value
 

@@ -28,15 +28,18 @@
 	)
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
-		BODY_ZONE_CHEST = /obj/item/bodypart/chest/synth,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/synth/holosynth,
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/synth,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/synth,
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/synth,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/synth,
 	)
-	/// Our Holographic projector that we're going to make the owner of a leash component
+
+/// Holosynth chest carries the hologram-effect state so the species datum can stay stateless.
+/obj/item/bodypart/chest/synth/holosynth
+	/// Weakref to the holosynth pen bound to this body.
 	var/datum/weakref/owner_projector_ref
-	/// Emissive glow appearance from makeHologram(), retained so on_species_loss can cut the overlay.
+	/// Emissive glow appearance applied to the mob via makeHologram(), retained so we can cut it on species loss.
 	var/mutable_appearance/glow
 
 /datum/species/synthetic/holosynth/get_default_mutant_bodyparts()
@@ -61,7 +64,10 @@
 
 	species_holder.AddComponent(/datum/component/glass_passer/holosynth, pass_time = 1 SECONDS, deform_glass = 0.5 SECONDS)
 	species_holder.AddComponent(/datum/component/holographic_nature)
-	glow = species_holder.makeHologram(read_opacity(species_holder), read_color(species_holder))
+
+	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)
+	if(chest)
+		chest.glow = species_holder.makeHologram(read_opacity(species_holder), read_color(species_holder))
 	refresh_scanline(species_holder)
 	add_verb(species_holder, list(
 		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
@@ -70,7 +76,8 @@
 
 	if(!isdummy(species_holder))
 		var/obj/item/holosynth_pen/owner_projector = new /obj/item/holosynth_pen(get_turf(species_holder), species_holder)
-		owner_projector_ref = WEAKREF(owner_projector)
+		if(chest)
+			chest.owner_projector_ref = WEAKREF(owner_projector)
 		species_holder.put_in_hands(owner_projector)
 
 /datum/species/synthetic/holosynth/on_species_loss(mob/living/carbon/target, datum/species/new_species, pref_load)
@@ -80,8 +87,10 @@
 	species_holder.physiology.burn_mod /= HOLOSYNTH_BURNMULT
 	species_holder.max_grab = GRAB_KILL
 	species_holder.remove_filter(list("HOLO: Color and Transparent", "HOLO: Scanline"))
-	species_holder.cut_overlay(glow)
-	glow = null
+	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)
+	if(chest)
+		species_holder.cut_overlay(chest.glow)
+		chest.glow = null
 	remove_verb(species_holder, list(
 		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
 		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
@@ -95,11 +104,11 @@
 	for(var/comp in comps_to_delete)
 		qdel(comp)
 
-	var/obj/item/holosynth_pen/pen_to_unlink = owner_projector_ref?.resolve()
-	if(pen_to_unlink)
-		pen_to_unlink.linked_mob_ref = null
-	else
-		owner_projector_ref = null
+	if(chest)
+		var/obj/item/holosynth_pen/pen_to_unlink = chest.owner_projector_ref?.resolve()
+		if(pen_to_unlink)
+			pen_to_unlink.linked_mob_ref = null
+		chest.owner_projector_ref = null
 
 /datum/species/synthetic/holosynth/get_species_lore()
 	return list(\
