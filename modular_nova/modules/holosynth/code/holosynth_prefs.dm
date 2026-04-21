@@ -16,7 +16,6 @@
 	target.dna.features["holo_transparency"] = value
 	var/datum/component/holosynth_effects/effects = target.GetComponent(/datum/component/holosynth_effects)
 	effects?.refresh_opacity()
-	return TRUE
 
 /// Whether the scanline flicker filter is rendered on the holosynth.
 /datum/preference/toggle/holosynth_scanline
