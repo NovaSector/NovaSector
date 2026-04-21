@@ -187,4 +187,7 @@
 /// Trait for quirk: Illuminated
 #define TRAIT_COSGLOW "cosmetic_glow"
 
+/// Trait for quirk: Infertile. Cannot impregnate or be impregnated.
+#define TRAIT_INFERTILE "infertile"
+
 // END TRAIT DEFINES
