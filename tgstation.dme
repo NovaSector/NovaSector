@@ -9254,7 +9254,6 @@
 #include "modular_nova\modules\pregnancy\code\oviposition_egg.dm"
 #include "modular_nova\modules\pregnancy\code\preferences.dm"
 #include "modular_nova\modules\pregnancy\code\pregnancy_status_effect.dm"
-#include "modular_nova\modules\pregnancy\code\pregnant_component.dm"
 #include "modular_nova\modules\primitive_catgirls\code\clothing.dm"
 #include "modular_nova\modules\primitive_catgirls\code\clothing_vendor.dm"
 #include "modular_nova\modules\primitive_catgirls\code\language.dm"

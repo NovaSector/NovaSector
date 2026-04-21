@@ -15,13 +15,6 @@
 /// Maximum chance to get pregnant
 #define PREGNANCY_CHANCE_MAXIMUM 100
 
-/// Default genetic distribution of pregnancies (lower = favors mother, higher = favors father)
-#define PREGNANCY_GENETIC_DISTRIBUTION_DEFAULT 10
-/// Minimum genetic distribution
-#define PREGNANCY_GENETIC_DISTRIBUTION_MINIMUM 0
-/// Maximum genetic distribution
-#define PREGNANCY_GENETIC_DISTRIBUTION_MAXIMUM 100
-
 /// Cryptic pregnancies are not detected by health analyzers
 #define PREGNANCY_FLAG_CRYPTIC (1 << 0)
 /// Pregnancy will inflate your belly (currently cosmetic: emits flavor text only, Nova lacks belly organ)

@@ -27,4 +27,4 @@
 	if(!prob(preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance)))
 		return
 
-	target.apply_status_effect(/datum/status_effect/pregnancy, target, src)
+	target.apply_status_effect(/datum/status_effect/pregnancy)
