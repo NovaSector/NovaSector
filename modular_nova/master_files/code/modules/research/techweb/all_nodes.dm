@@ -48,6 +48,7 @@
 	description = "Internal Mechanisms for Synthetics and IPC's."
 	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
 	design_ids = list(
+		"synth_posi",
 		"synth_eyes",
 		"synth_tongue",
 		"synth_liver",
