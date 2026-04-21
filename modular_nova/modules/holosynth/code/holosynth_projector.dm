@@ -121,15 +121,15 @@
 /obj/item/holosynth_pen/proc/user_qdeleted(mob/living/source)
 	SIGNAL_HANDLER
 	UnregisterSignal(source, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING))
+	linked_mob_ref = null
 	qdel(src)
 
 /obj/item/holosynth_pen/Destroy()
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
 
-	if(linked_mob)
+	if(linked_mob && !QDELETED(linked_mob))
 		UnregisterSignal(linked_mob, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING))
 		linked_mob.apply_status_effect(/datum/status_effect/holosynth_dissolving)
-		animate(linked_mob, alpha = 0, time = 5 SECONDS, flags = ANIMATION_PARALLEL)
 		linked_mob.visible_message(
 			span_danger("[linked_mob]'s whole body begins to fade away!"),
 			span_userdanger("You feel your projector being destroyed! You start to fade away!"),
@@ -198,6 +198,10 @@
 	duration = 5 SECONDS
 	show_duration = TRUE
 	alert_type = /atom/movable/screen/alert/status_effect/holosynth_death_alert
+
+/datum/status_effect/holosynth_dissolving/on_creation(mob/living/new_owner, ...)
+	. = ..()
+	animate(owner, alpha = 0, time = duration, flags = ANIMATION_PARALLEL)
 
 /datum/status_effect/holosynth_dissolving/tick()
 	if(QDELETED(owner))
