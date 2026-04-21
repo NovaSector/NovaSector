@@ -15,7 +15,8 @@
 /obj/machinery/door/airlock/attack_hand_secondary(mob/living/user, list/modifiers)
 
 	var/request_key = "[user.ckey]_[REF(src)]"
-	if(world.time < requesters[request_key] + DOOR_AI_REQUEST_COOLDOWN)
+	var/last_request = requesters[request_key]
+	if(last_request && world.time < last_request + DOOR_AI_REQUEST_COOLDOWN)
 		to_chat(user, span_warning("You've already asked the AI about this door recently."))
 		return
 
