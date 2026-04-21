@@ -6,7 +6,7 @@
 	desc = "A module made for use in protean MOD suits that adds new subroutines while folded. Comes with three modes, each partially takes over MOD suit's motor functions to enhance the wearer's general movement, performing medical duties or construction tasks. \
 		Due to high computing power demand, protean can only use this module while worn by someone else."
 	icon_state = "no_baton"
-	complexity = 3
+	complexity = 0
 	use_energy_cost = DEFAULT_CHARGE_DRAIN
 	module_type = MODULE_TOGGLE
 	removable = FALSE
