@@ -15,3 +15,7 @@
 #define TRAIT_DISPLAYING_AMMO_HUD "displaying_ammo_hud"
 /// Temporary trait used while a mob is actively sliding under a door.
 #define TRAIT_SLIDING_UNDER "sliding_under"
+/// Trait granted by the Werewolf quirk.
+#define TRAIT_WEREWOLF "werewolf"
+/// Trait granted by the Headpat Slut quirk. Receivers get mood spikes and flavor text on pats.
+#define TRAIT_HEADPAT_SLUT "headpat_slut"
