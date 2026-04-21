@@ -30,11 +30,8 @@
 		return
 
 	// Only penetrative orifices get knotted.
-	switch(climax_into_choice)
-		if(ORGAN_SLOT_VAGINA, "asshole", ORGAN_SLOT_ANUS, "mouth")
-			// proceed
-		else
-			return
+	if(!(climax_into_choice in list(ORGAN_SLOT_VAGINA, "asshole", ORGAN_SLOT_ANUS, "mouth")))
+		return
 
 	// No double-knotting the same partner.
 	if(partner.GetComponent(/datum/component/knotted))
