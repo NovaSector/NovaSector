@@ -35,6 +35,8 @@
 
 	to_chat(src, span_notice("[target] smells like [scent]."))
 
+/// Returns a list of humans adjacent to src (excluding src itself). Used as the target
+/// filter for the Lick/Smell IC verbs.
 /mob/living/proc/get_adjacent_humans()
 	var/list/nearby_humans = list()
 	for(var/mob/living/carbon/human/nearby_human in orange(1, src))

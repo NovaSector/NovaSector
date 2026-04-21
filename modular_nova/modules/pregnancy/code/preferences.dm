@@ -1,5 +1,6 @@
 // Abstract types to cut down on copypasta; all gated on master ERP pref and config.
 
+/// Abstract base for numeric pregnancy prefs
 /datum/preference/numeric/pregnancy
 	abstract_type = /datum/preference/numeric/pregnancy
 
@@ -13,6 +14,7 @@
 /datum/preference/numeric/pregnancy/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
+/// Abstract base for toggle pregnancy prefs
 /datum/preference/toggle/pregnancy
 	abstract_type = /datum/preference/toggle/pregnancy
 
@@ -26,6 +28,7 @@
 /datum/preference/toggle/pregnancy/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
+/// Abstract base for choiced pregnancy prefs
 /datum/preference/choiced/pregnancy
 	abstract_type = /datum/preference/choiced/pregnancy
 

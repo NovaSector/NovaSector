@@ -39,6 +39,8 @@
 	RegisterSignal(new_owner, COMSIG_LIVING_DEATH, PROC_REF(on_death))
 	RegisterSignal(new_owner, COMSIG_LIVING_HEALTHSCAN, PROC_REF(on_health_scan))
 
+/// Reads the gestator's character preferences into pregnancy flags + duration + egg skin.
+/// INERT is always forced ON
 /datum/status_effect/pregnancy/proc/inherit_preferences(mob/living/gestator)
 	var/client/preference_source = GET_CLIENT(gestator)
 	if(!preference_source)
@@ -56,10 +58,12 @@
 	pregnancy_duration = preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/duration) * PREGNANCY_DURATION_MULTIPLIER
 	egg_skin = preference_source.prefs.read_preference(/datum/preference/choiced/pregnancy/egg_skin)
 
+/// Miscarriage on death — drops the pregnancy status effect entirely.
 /datum/status_effect/pregnancy/proc/on_death(datum/source)
 	SIGNAL_HANDLER
 	qdel(src)
 
+/// Appends pregnancy info to the health analyzer readout unless the pregnancy is cryptic.
 /datum/status_effect/pregnancy/proc/on_health_scan(datum/source, list/render_list, advanced, mob/user, mode, tochat)
 	SIGNAL_HANDLER
 
@@ -72,6 +76,8 @@
 		render_list += conditional_tooltip("<span class='alert ml-1'>Subject is pregnant[advanced ? " (Stage [pregnancy_stage])" : "."]</span>", "Wait until patient goes into labor, or perform an abortion.", tochat)
 	render_list += "<br>"
 
+/// If TRAIT_INFERTILE is added mid-pregnancy (e.g. surgery), terminate it — with bonus vomit
+/// if the pregnancy also had the nausea flag set.
 /datum/status_effect/pregnancy/proc/on_infertile(atom/source)
 	SIGNAL_HANDLER
 
@@ -138,6 +144,8 @@
 				if(!QDELETED(src))
 					qdel(src)
 
+/// Spawns the oviposition egg at `location`, names it after `egg_species`, and applies the
+/// chosen skin icon_state. Eggs are always inert — no baby is ever spawned.
 /datum/status_effect/pregnancy/proc/lay_egg(atom/location, egg_species, egg_skin = src.egg_skin)
 	var/obj/item/food/egg/oviposition/egg = new(location)
 	egg.name = "[egg_species || "nondescript"] egg"

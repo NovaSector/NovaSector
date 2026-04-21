@@ -1,3 +1,4 @@
+/// Abstract base for knotting prefs
 /datum/preference/toggle/knotting
 	abstract_type = /datum/preference/toggle/knotting
 

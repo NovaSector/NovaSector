@@ -57,14 +57,18 @@
 	removed_from?.remove_movespeed_modifier(/datum/movespeed_modifier/eggnant)
 	return ..()
 
+/// Life-tick hook; when not on cooldown, tries to add one egg to the counter using an eligible reagent.
 /datum/action/cooldown/spell/egg_production/proc/on_life(seconds_per_tick, times_fired)
 	SIGNAL_HANDLER
 	if(can_produce)
 		create_egg()
 
+/// Flip `can_produce` to end the production cooldown (scheduled via addtimer).
 /datum/action/cooldown/spell/egg_production/proc/toggle_cooldown()
 	can_produce = !can_produce
 
+/// If the owner is carrying enough of a catalyst reagent (see egg_production_reagents),
+/// bumps eggs_stored by 1 and starts the reagent-specific cooldown. No-op otherwise.
 /datum/action/cooldown/spell/egg_production/proc/create_egg(datum/reagent/reagent)
 	if(!can_produce)
 		return FALSE
@@ -90,6 +94,7 @@
 			return TRUE
 	return FALSE
 
+/// Clamps eggs_stored by `delta`, refreshes the movespeed penalty, and emits a threshold-based chat message.
 /datum/action/cooldown/spell/egg_production/proc/egg_update(delta, mob/living/egg_holder)
 	eggs_stored = clamp((eggs_stored + delta), 0, maximum_eggs)
 	desc = "[initial(desc)]. You carry [eggs_stored] egg\s."
