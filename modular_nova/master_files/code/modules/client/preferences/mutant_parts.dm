@@ -922,8 +922,5 @@
 	return data
 
 /datum/preference/color/mutant/holosynth_color/apply_to_human(mob/living/carbon/human/target, value)
-	if(!value)
-		return FALSE
-
 	target.dna.features["holo_color"] = sanitize_hexcolor(value)
 	return TRUE
