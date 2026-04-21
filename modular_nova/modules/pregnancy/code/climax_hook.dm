@@ -16,9 +16,9 @@
 	switch(climax_into_choice)
 		if(ORGAN_SLOT_VAGINA)
 			genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/vaginal_insemination)
-		if("asshole", ORGAN_SLOT_ANUS)
+		if(CLIMAX_TARGET_ASSHOLE, ORGAN_SLOT_ANUS)
 			genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/anal_insemination)
-		if("mouth")
+		if(CLIMAX_TARGET_MOUTH)
 			genital_pass = preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/oral_insemination)
 
 	if(!genital_pass)

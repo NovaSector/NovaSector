@@ -33,18 +33,18 @@
 	var/obj/item/food/egg/egg
 	var/eggs_stored = 0
 	var/can_produce = TRUE
-	var/maximum_eggs = 100
+	var/maximum_eggs = EGG_PRODUCTION_MAX_EGGS
 	var/list/possible_egg_thoughts = list(
 		"You feel a slight weight added to you.",
 		"You feel a warm sensation inside you.",
 		"You feel slightly heavier than you were a moment ago.",
 		"You feel oddly full.",
 	)
-	/// Format: reagent name = list(minimum volume required to start production, cooldown per egg added to counter)
+	/// Format: reagent typepath = list(minimum volume required to start production, cooldown per egg added to counter)
 	var/list/egg_production_reagents = list(
-		"cum" = list(20, 10 SECONDS),
-		"crocin" = list(20, 30 SECONDS),
-		"hexacrocin" = list(4, 30 SECONDS),
+		/datum/reagent/consumable/cum = list(20, 10 SECONDS),
+		/datum/reagent/drug/aphrodisiac/crocin = list(20, 30 SECONDS),
+		/datum/reagent/drug/aphrodisiac/crocin/hexacrocin = list(4, 30 SECONDS),
 	)
 
 /datum/action/cooldown/spell/egg_production/Grant(mob/granted_to)
@@ -78,14 +78,15 @@
 		return FALSE
 
 	for(var/datum/reagent/target_reagent as anything in cached_reagents)
-		if(!(target_reagent.name in egg_production_reagents))
+		var/list/recipe = egg_production_reagents[target_reagent.type]
+		if(!recipe)
 			continue
-		if(target_reagent.volume >= egg_production_reagents[target_reagent.name][1])
+		if(target_reagent.volume >= recipe[1])
 			var/egg_thought = pick(possible_egg_thoughts)
 			to_chat(owner, span_notice("[egg_thought]"))
 			egg_update(1, egg_holder)
 			toggle_cooldown()
-			addtimer(CALLBACK(src, PROC_REF(toggle_cooldown)), egg_production_reagents[target_reagent.name][2])
+			addtimer(CALLBACK(src, PROC_REF(toggle_cooldown)), recipe[2])
 			return TRUE
 	return FALSE
 
@@ -99,7 +100,7 @@
 
 	var/slow_mult = FLOOR((eggs_stored) / (maximum_eggs), 0.01)
 	var/datum/movespeed_modifier/eggnant/modifier = new()
-	modifier.multiplicative_slowdown = CEILING((5 * slow_mult), 0.01)
+	modifier.multiplicative_slowdown = CEILING((EGG_PRODUCTION_MAX_SLOWDOWN * slow_mult), 0.01)
 	if(owner.has_movespeed_modifier(/datum/movespeed_modifier/eggnant))
 		owner.remove_movespeed_modifier(/datum/movespeed_modifier/eggnant)
 	owner.add_movespeed_modifier(modifier, update = TRUE)
@@ -107,23 +108,23 @@
 	var/is_delta_negative = delta < 0
 
 	switch(eggs_stored)
-		if(20)
+		if(EGG_PRODUCTION_THRESHOLD_LOW)
 			to_chat(owner, span_purple("You're beginning to feel [is_delta_negative ? "less weighed down, but still full..." : "rather heavy..."]"))
-		if(40)
+		if(EGG_PRODUCTION_THRESHOLD_MEDIUM)
 			to_chat(owner, span_purple("You feel [is_delta_negative ? "less swollen, but still really heavy..." : "really swollen with all these eggs..."]"))
-		if(60)
+		if(EGG_PRODUCTION_THRESHOLD_HIGH)
 			to_chat(owner, span_warning("[is_delta_negative ? "You're a bit less taut, but still feel very swollen!" : "You're overly gravid! You feel like you should really lay these eggs soon..."]"))
-		if(80)
+		if(EGG_PRODUCTION_THRESHOLD_SWOLLEN)
 			to_chat(owner, span_warning("You feel [is_delta_negative ? "a little relieved, but still extremely taut!" : "very close to full at this point, any more eggs and you'll run out of room!"]"))
-		if(100)
+		if(EGG_PRODUCTION_THRESHOLD_FULL)
 			to_chat(owner, span_alertwarning("Your body can't handle anymore eggs! You need to lay some to make room, now!"))
-		if(98)
+		if(EGG_PRODUCTION_THRESHOLD_DESCENT)
 			if(is_delta_negative)
 				to_chat(owner, span_warning("You feel like you still have very little room for anymore eggs..."))
 
 /datum/movespeed_modifier/eggnant
 	variable = TRUE
-	multiplicative_slowdown = 5
+	multiplicative_slowdown = EGG_PRODUCTION_MAX_SLOWDOWN
 
 /datum/action/cooldown/spell/egg_production/cast(mob/living/cast_on)
 	. = ..()

@@ -3,7 +3,7 @@
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
 	/// Living baby held inside the egg. Released when the egg breaks.
-	var/mob/living/baby_boy
+	var/mob/living/baby
 
 	var/mother_name
 	var/father_name
@@ -17,16 +17,16 @@
 	var/datum/dna/father_dna
 	var/datum/dna/mother_dna
 
-/datum/component/pregnant/Initialize(mob/living/baby_boy, mother_name, father_name, baby_name, datum/dna/mother_dna, datum/dna/father_dna, genetic_distribution)
+/datum/component/pregnant/Initialize(mob/living/baby, mother_name, father_name, baby_name, datum/dna/mother_dna, datum/dna/father_dna, genetic_distribution)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 
-	if(!baby_boy)
+	if(!baby)
 		qdel(src)
 		return
 
-	src.baby_boy = baby_boy
-	baby_boy.forceMove(parent)
+	src.baby = baby
+	baby.forceMove(parent)
 	if(baby_name)
 		tampering["name"] = baby_name
 		src.baby_name = baby_name
@@ -49,10 +49,10 @@
 	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 	RegisterSignal(parent, COMSIG_ATOM_BREAK, PROC_REF(hatch))
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
-	if(baby_boy)
-		RegisterSignal(baby_boy, COMSIG_MOVABLE_MOVED, PROC_REF(still_birth))
-		RegisterSignal(baby_boy, COMSIG_LIVING_DEATH, PROC_REF(still_birth))
-		RegisterSignal(baby_boy, COMSIG_QDELETING, PROC_REF(still_birth))
+	if(baby)
+		RegisterSignal(baby, COMSIG_MOVABLE_MOVED, PROC_REF(still_birth))
+		RegisterSignal(baby, COMSIG_LIVING_DEATH, PROC_REF(still_birth))
+		RegisterSignal(baby, COMSIG_QDELETING, PROC_REF(still_birth))
 
 /datum/component/pregnant/UnregisterFromParent()
 	UnregisterSignal(parent, list(\
@@ -62,15 +62,15 @@
 		COMSIG_ATOM_BREAK,\
 		COMSIG_ATOM_EXAMINE,\
 	))
-	if(!QDELETED(baby_boy))
-		UnregisterSignal(baby_boy, list(\
+	if(!QDELETED(baby))
+		UnregisterSignal(baby, list(\
 			COMSIG_MOVABLE_MOVED,\
 			COMSIG_LIVING_DEATH,\
 			COMSIG_QDELETING,\
 		))
 
 /datum/component/pregnant/Destroy(force)
-	baby_boy = null
+	baby = null
 	return ..()
 
 /// Tamper with the offspring's genetic distribution by daubing cum onto the egg.
@@ -86,7 +86,7 @@
 		return
 
 	var/diff = male_amount - female_amount
-	diff = clamp(diff, -genetic_distribution, 100 - genetic_distribution)
+	diff = clamp(diff, -genetic_distribution, PREGNANCY_GENETIC_DISTRIBUTION_MAXIMUM - genetic_distribution)
 	if(!diff)
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
@@ -136,13 +136,13 @@
 	SIGNAL_HANDLER
 
 	var/atom/atom_parent = parent
-	if(QDELETED(baby_boy))
-		baby_boy = null
+	if(QDELETED(baby))
+		baby = null
 	else
-		baby_boy.forceMove(atom_parent.drop_location())
-		baby_boy.AdjustUnconscious(20 SECONDS)
-		if(ishuman(baby_boy) && baby_name)
-			var/mob/living/carbon/human/human_baby = baby_boy
+		baby.forceMove(atom_parent.drop_location())
+		baby.AdjustUnconscious(20 SECONDS)
+		if(ishuman(baby) && baby_name)
+			var/mob/living/carbon/human/human_baby = baby
 			human_baby.real_name = baby_name
 			human_baby.name = baby_name
 			human_baby.updateappearance()
@@ -153,10 +153,10 @@
 	SIGNAL_HANDLER
 
 	var/atom/atom_parent = parent
-	if(QDELETED(baby_boy))
-		baby_boy = null
+	if(QDELETED(baby))
+		baby = null
 	else
-		QDEL_NULL(baby_boy)
+		QDEL_NULL(baby)
 	if(!QDELETED(atom_parent))
 		new /obj/effect/gibspawner/generic(atom_parent.drop_location())
 		if(atom_parent.uses_integrity)
@@ -165,12 +165,12 @@
 		qdel(src)
 
 /// Blend DNA of two parents into the baby. Simplified from SPLURT — relies on copy_dna where practical.
-/proc/determine_baby_dna(mob/living/carbon/human/baby_boy, datum/dna/mother_dna, datum/dna/father_dna, genetic_distribution = PREGNANCY_GENETIC_DISTRIBUTION_DEFAULT)
+/proc/determine_baby_dna(mob/living/carbon/human/baby, datum/dna/mother_dna, datum/dna/father_dna, genetic_distribution = PREGNANCY_GENETIC_DISTRIBUTION_DEFAULT)
 	if(!mother_dna && !father_dna)
 		return
 	// Species: always inherit from mother.
 	if(mother_dna?.species)
-		baby_boy.set_species(mother_dna.species.type)
+		baby.set_species(mother_dna.species.type)
 
 	var/datum/dna/source_dna = mother_dna
 	if(father_dna && prob(genetic_distribution))
@@ -179,11 +179,11 @@
 		source_dna = father_dna
 
 	if(source_dna)
-		source_dna.copy_dna(baby_boy.dna)
+		source_dna.copy_dna(baby.dna)
 
 	// Per-feature random mix from both parents, if we have both.
 	if(mother_dna && father_dna)
-		var/datum/dna/baby_dna = baby_boy.dna
+		var/datum/dna/baby_dna = baby.dna
 		baby_dna.features = list()
 		for(var/feature in (mother_dna.features | father_dna.features))
 			if(prob(genetic_distribution) && father_dna.features[feature])
@@ -196,7 +196,7 @@
 		else
 			baby_dna.blood_type = mother_dna.blood_type
 
-	baby_boy.underwear = "Nude"
-	baby_boy.undershirt = "Nude"
-	baby_boy.socks = "Nude"
-	baby_boy.updateappearance(icon_update = TRUE, mutcolor_update = TRUE, mutations_overlay_update = TRUE)
+	baby.underwear = "Nude"
+	baby.undershirt = "Nude"
+	baby.socks = "Nude"
+	baby.updateappearance(icon_update = TRUE, mutcolor_update = TRUE, mutations_overlay_update = TRUE)

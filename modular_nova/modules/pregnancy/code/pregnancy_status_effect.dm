@@ -41,19 +41,19 @@
 
 	mother_dna = new()
 	if(ishuman(mother))
-		var/mob/living/carbon/human/baby_momma = mother
-		baby_momma.dna.update_dna_identity()
-		baby_momma.dna.copy_dna(mother_dna)
-		mother_name = baby_momma.real_name
+		var/mob/living/carbon/human/mother_human = mother
+		mother_human.dna.update_dna_identity()
+		mother_human.dna.copy_dna(mother_dna)
+		mother_name = mother_human.real_name
 	else
 		mother_dna.initialize_dna(random_human_blood_type())
 
 	father_dna = new()
 	if(ishuman(father))
-		var/mob/living/carbon/human/baby_daddy = father
-		baby_daddy.dna.update_dna_identity()
-		baby_daddy.dna.copy_dna(father_dna)
-		father_name = baby_daddy.real_name
+		var/mob/living/carbon/human/father_human = father
+		father_human.dna.update_dna_identity()
+		father_human.dna.copy_dna(father_dna)
+		father_name = father_human.real_name
 	else
 		father_dna.initialize_dna(random_human_blood_type())
 
@@ -113,9 +113,9 @@
 	if(pregnancy_flags & PREGNANCY_FLAG_CRYPTIC)
 		return
 
-	if(pregnancy_stage >= 5)
+	if(pregnancy_stage >= PREGNANCY_STAGE_LABOR)
 		render_list += conditional_tooltip("<span class='alert ml-1'>Subject is going into labor!</span>", "Patient may suffer from extreme nausea and fatigue until they deliver their baby.", tochat)
-	else if((pregnancy_stage >= 2) || advanced)
+	else if((pregnancy_stage >= PREGNANCY_STAGE_PRESSURE) || advanced)
 		render_list += conditional_tooltip("<span class='alert ml-1'>Subject is pregnant[advanced ? " (Stage [pregnancy_stage])" : "."]</span>", "Wait until patient goes into labor, or perform an abortion.", tochat)
 	render_list += "<br>"
 
@@ -123,10 +123,10 @@
 	SIGNAL_HANDLER
 
 	if(iscarbon(source))
-		var/mob/living/carbon/abortos = source
+		var/mob/living/carbon/pregnant_carbon = source
 		if(pregnancy_flags & PREGNANCY_FLAG_NAUSEA)
-			abortos.vomit(vomit_flags = MOB_VOMIT_STUN | MOB_VOMIT_HARM | MOB_VOMIT_BLOOD, lost_nutrition = 20)
-		to_chat(abortos, span_userdanger("Your belly shrivels up!"))
+			pregnant_carbon.vomit(vomit_flags = MOB_VOMIT_STUN | MOB_VOMIT_HARM | MOB_VOMIT_BLOOD, lost_nutrition = 20)
+		to_chat(pregnant_carbon, span_userdanger("Your belly shrivels up!"))
 	qdel(src)
 
 /datum/status_effect/pregnancy/tick(seconds_between_ticks)
@@ -134,46 +134,46 @@
 
 	pregnancy_progress += (seconds_between_ticks SECONDS)
 	var/previous_stage = pregnancy_stage
-	pregnancy_stage = min(FLOOR((pregnancy_progress / pregnancy_duration) * 5, 1), 5)
+	pregnancy_stage = min(FLOOR((pregnancy_progress / pregnancy_duration) * PREGNANCY_STAGE_MAX, 1), PREGNANCY_STAGE_MAX)
 
-	if(pregnancy_stage >= 2)
-		if(previous_stage < 2)
+	if(pregnancy_stage >= PREGNANCY_STAGE_PRESSURE)
+		if(previous_stage < PREGNANCY_STAGE_PRESSURE)
 			to_chat(owner, span_warning("You can feel some pressure build up against your chest cavity."))
-		else if(SPT_PROB(1.5, seconds_between_ticks))
+		else if(SPT_PROB(PREGNANCY_KICK_CHANCE, seconds_between_ticks))
 			if(pregnancy_flags & PREGNANCY_FLAG_NAUSEA)
-				owner.adjust_disgust(30)
+				owner.adjust_disgust(PREGNANCY_NAUSEA_DISGUST)
 			to_chat(owner, span_warning("Something [pick("squirms", "shakes", "kicks")] inside you."))
 
-	if(pregnancy_stage >= 3)
-		if(previous_stage < 3)
+	if(pregnancy_stage >= PREGNANCY_STAGE_SWELL)
+		if(previous_stage < PREGNANCY_STAGE_SWELL)
 			if(pregnancy_flags & PREGNANCY_FLAG_BELLY_INFLATION)
 				to_chat(owner, span_warning("Your belly swells as your egg grows."))
-		else if(owner.get_stamina_loss() < 50)
-			owner.adjust_stamina_loss(2.5 * seconds_between_ticks)
+		else if(owner.get_stamina_loss() < PREGNANCY_STAMINA_SOFT_CAP)
+			owner.adjust_stamina_loss(PREGNANCY_SWELL_STAMINA_PER_SECOND * seconds_between_ticks)
 
-	if(pregnancy_stage >= 5)
-		if(previous_stage < 5)
+	if(pregnancy_stage >= PREGNANCY_STAGE_LABOR)
+		if(previous_stage < PREGNANCY_STAGE_LABOR)
 			owner.add_mood_event("preggers", /datum/mood_event/pregnant_labor)
-			owner.adjust_stamina_loss(rand(50, 100))
+			owner.adjust_stamina_loss(rand(PREGNANCY_STAMINA_SOFT_CAP, PREGNANCY_STAMINA_HARD_CAP))
 			owner.emote("scream")
 			to_chat(owner, span_userdanger("Your water broke! You need to lay down and squeeze the egg out!"))
 		else
 			var/can_deliver = (owner.body_position == LYING_DOWN)
 			if(can_deliver && ishuman(owner))
-				var/mob/living/carbon/human/human_momma = owner
-				var/obj/item/bodypart/covered = human_momma.get_bodypart(deprecise_zone(BODY_ZONE_PRECISE_GROIN))
-				can_deliver = (!covered || !length(human_momma.get_clothing_on_part(covered)))
-			if(!can_deliver || !SPT_PROB(5, seconds_between_ticks))
+				var/mob/living/carbon/human/pregnant_human = owner
+				var/obj/item/bodypart/covered = pregnant_human.get_bodypart(deprecise_zone(BODY_ZONE_PRECISE_GROIN))
+				can_deliver = (!covered || !length(pregnant_human.get_clothing_on_part(covered)))
+			if(!can_deliver || !SPT_PROB(PREGNANCY_DELIVERY_CHANCE, seconds_between_ticks))
 				if(pregnancy_flags & PREGNANCY_FLAG_NAUSEA)
-					owner.adjust_disgust(3 * seconds_between_ticks)
-				if((owner.get_stamina_loss() < 100) && SPT_PROB(5, seconds_between_ticks))
+					owner.adjust_disgust(PREGNANCY_LABOR_DISGUST_PER_SECOND * seconds_between_ticks)
+				if((owner.get_stamina_loss() < PREGNANCY_STAMINA_HARD_CAP) && SPT_PROB(PREGNANCY_DELIVERY_CHANCE, seconds_between_ticks))
 					owner.emote("scream")
 					to_chat(owner, "You REALLY need to give birth!")
 			else
 				var/egg_species = "animal"
 				if(ishuman(owner) && ispath(baby_type, /mob/living/carbon/human))
-					var/mob/living/carbon/human/human_momma = owner
-					egg_species = LOWER_TEXT(human_momma.dna.species.name)
+					var/mob/living/carbon/human/pregnant_human = owner
+					egg_species = LOWER_TEXT(pregnant_human.dna.species.name)
 				else
 					egg_species = LOWER_TEXT(initial(baby_type.name))
 				owner.visible_message(\
@@ -200,18 +200,18 @@
 	if(pregnancy_flags & PREGNANCY_FLAG_INERT)
 		return
 
-	var/mob/living/bouncing_baby_boy = new baby_type(location)
-	if(ishuman(bouncing_baby_boy))
-		var/mob/living/carbon/human/real_boy = bouncing_baby_boy
-		determine_baby_dna(real_boy, src.mother_dna, src.father_dna, src.pregnancy_genetic_distribution)
+	var/mob/living/baby = new baby_type(location)
+	if(ishuman(baby))
+		var/mob/living/carbon/human/human_baby = baby
+		determine_baby_dna(human_baby, src.mother_dna, src.father_dna, src.pregnancy_genetic_distribution)
 		if(baby_name)
-			real_boy.real_name = baby_name
-			real_boy.name = baby_name
-			real_boy.updateappearance()
-		real_boy.set_resting(new_resting = TRUE, silent = TRUE, instant = TRUE)
-	bouncing_baby_boy.AdjustUnconscious(30 SECONDS)
+			human_baby.real_name = baby_name
+			human_baby.name = baby_name
+			human_baby.updateappearance()
+		human_baby.set_resting(new_resting = TRUE, silent = TRUE, instant = TRUE)
+	baby.AdjustUnconscious(30 SECONDS)
 
-	egg.AddComponent(/datum/component/pregnant, bouncing_baby_boy, mother_name, father_name, baby_name, mother_dna, father_dna, pregnancy_genetic_distribution)
+	egg.AddComponent(/datum/component/pregnant, baby, mother_name, father_name, baby_name, mother_dna, father_dna, pregnancy_genetic_distribution)
 
 /atom/movable/screen/alert/status_effect/pregnancy
 	name = "Pregnant"

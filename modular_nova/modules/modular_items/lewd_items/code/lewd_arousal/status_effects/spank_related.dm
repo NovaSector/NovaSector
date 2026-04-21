@@ -30,9 +30,9 @@
 	. = ..()
 	// Arousal flavor text: shown if both parties have ERP pref enabled and the character is aroused.
 	if(dna && user?.client?.prefs?.read_preference(/datum/preference/toggle/erp) && client?.prefs?.read_preference(/datum/preference/toggle/erp))
-		var/high_flavor = dna.features["high_arousal"]
-		var/medium_flavor = dna.features["medium_arousal"]
-		var/low_flavor = dna.features["low_arousal"]
+		var/high_flavor = dna.features[FLAVOR_KEY_HIGH_AROUSAL]
+		var/medium_flavor = dna.features[FLAVOR_KEY_MEDIUM_AROUSAL]
+		var/low_flavor = dna.features[FLAVOR_KEY_LOW_AROUSAL]
 		if(arousal > AROUSAL_HIGH && high_flavor)
 			. += span_userlove(high_flavor)
 		else if(arousal > AROUSAL_LOW && medium_flavor)
