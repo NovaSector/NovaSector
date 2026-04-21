@@ -81,7 +81,7 @@
 		newangle = arctan(distx / disty) + (disty < 0 ? 180 : (distx < 0 ? 360 : 0))
 	var/matrix/new_transform = turn(matrix().Scale(1, sqrt(distx * distx + disty * disty)), newangle)
 	if(get_dist(mob_turf, host_turf) <= 1)
-		animate(holoray, transform = new_transform, time = 1)
+		animate(holoray, transform = new_transform, time = 0.1 SECONDS)
 	else
 		holoray.transform = new_transform
 
