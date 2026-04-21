@@ -216,16 +216,18 @@
 	if(istype(old_loc, /obj/item/mod/control/pre_equipped/protean))
 		UnregisterSignal(old_loc, COMSIG_MOVABLE_MOVED)
 
-/// Keeps the protean's view glued to the suit. BYOND normally follows the suit
-/// through a carrier's inventory, but when it drops from a mob to a turf the
-/// cached eye stays on the old carrier — null it first so set_eye re-centers.
+/// Keeps the protean's view glued to the suit. When the suit is inside a mob we
+/// set eye = suit so BYOND follows the carrier through inventory naturally; when
+/// it lands on a turf we pin eye to that turf so set_eye can't early-return and
+/// leave the camera stuck on the previous carrier.
 /obj/item/organ/brain/protean/proc/on_suit_moved(obj/item/source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
 	if(isnull(owner?.client))
 		return
-	if(ismob(old_loc) && isturf(source.loc))
-		owner.client.eye = null
-	owner.reset_perspective(source)
+	if(isturf(source.loc))
+		owner.reset_perspective(source.loc)
+	else
+		owner.reset_perspective(source)
 
 /// Moves the protean out of their modsuit back into the world.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
