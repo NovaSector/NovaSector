@@ -29,7 +29,6 @@
 /// Head-zone-gated variant of /datum/element/pet_bonus. Only fires when the petter's selected
 /// body zone is the head, so chest-pokes etc. don't count as pats.
 /datum/element/pet_bonus/headpat/on_attack_hand(mob/living/pet, mob/living/petter, list/modifiers)
-	SIGNAL_HANDLER
 	if(check_zone(petter.zone_selected) != BODY_ZONE_HEAD || petter == pet)
 		return
 	// Mirror the parent's "this pat can actually land" guards so the giver moodlet only fires
