@@ -23,8 +23,6 @@
 	var/revive_timer_id
 	/// Timer ID for the emergency retreat timer
 	var/retreat_timer_id
-	/// Mob currently carrying the suit. Tracked so the protean's view follows them while held.
-	var/mob/tracked_carrier
 	/// Cached limb data for regeneration. Maps body_zone → cached bodypart instance.
 	VAR_PROTECTED/list/limb_cache
 	COOLDOWN_DECLARE(message_cooldown)
@@ -34,9 +32,6 @@
 /obj/item/organ/brain/protean/Destroy(force)
 	deltimer(revive_timer_id)
 	deltimer(retreat_timer_id)
-	if(tracked_carrier)
-		UnregisterSignal(tracked_carrier, COMSIG_MOVABLE_MOVED)
-		tracked_carrier = null
 	return ..()
 
 /obj/item/organ/brain/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
@@ -48,13 +43,20 @@
 	RegisterSignal(receiver, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
 	RegisterSignal(receiver, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
 	RegisterSignal(receiver, COMSIG_CARBON_ATTACH_LIMB, PROC_REF(on_limb_attached))
+	RegisterSignal(receiver, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(block_damage_while_in_suit))
 	cache_limbs(receiver)
 
 /obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
 	if(isprotean(brain_owner) && !QDELING(brain_owner))
 		brain_owner.Stun(INFINITY, TRUE)
-	UnregisterSignal(brain_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED, COMSIG_CARBON_ATTACH_LIMB))
+	UnregisterSignal(brain_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED, COMSIG_CARBON_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS))
+
+/// Zeros out incoming (non-forced) damage whenever the protean is retracted inside their suit.
+/obj/item/organ/brain/protean/proc/block_damage_while_in_suit(mob/living/source, list/damage_mods)
+	SIGNAL_HANDLER
+	if(istype(source.loc, /obj/item/mod/control/pre_equipped/protean))
+		damage_mods += 0
 
 /// Rejects the protean brain from a non-protean body, ejecting it to the ground.
 /obj/item/organ/brain/protean/proc/reject_from_body(mob/living/carbon/body)
@@ -213,28 +215,17 @@
 		RegisterSignal(source.loc, COMSIG_MOVABLE_MOVED, PROC_REF(on_suit_moved))
 	if(istype(old_loc, /obj/item/mod/control/pre_equipped/protean))
 		UnregisterSignal(old_loc, COMSIG_MOVABLE_MOVED)
-		if(tracked_carrier)
-			UnregisterSignal(tracked_carrier, COMSIG_MOVABLE_MOVED)
-			tracked_carrier = null
 
-/// Re-centers the view on the suit's turf and (re)binds the carrier-follow signal as the suit changes hands.
+/// Keeps the protean's view glued to the suit. BYOND normally follows the suit
+/// through a carrier's inventory, but when it drops from a mob to a turf the
+/// cached eye stays on the old carrier — null it first so set_eye re-centers.
 /obj/item/organ/brain/protean/proc/on_suit_moved(obj/item/source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
 	if(isnull(owner?.client))
 		return
-	var/mob/new_carrier = (ismob(source.loc) && source.loc != owner) ? source.loc : null
-	if(new_carrier != tracked_carrier)
-		if(tracked_carrier)
-			UnregisterSignal(tracked_carrier, COMSIG_MOVABLE_MOVED)
-		tracked_carrier = new_carrier
-		if(tracked_carrier)
-			RegisterSignal(tracked_carrier, COMSIG_MOVABLE_MOVED, PROC_REF(on_carrier_moved))
-	owner.reset_perspective(get_turf(source))
-
-/// Re-centers the view as the carrier walks around while holding the suit.
-/obj/item/organ/brain/protean/proc/on_carrier_moved(atom/movable/source, atom/old_loc)
-	SIGNAL_HANDLER
-	owner?.reset_perspective(get_turf(source))
+	if(ismob(old_loc) && isturf(source.loc))
+		owner.client.eye = null
+	owner.reset_perspective(source)
 
 /// Moves the protean out of their modsuit back into the world.
 /obj/item/organ/brain/protean/proc/leave_modsuit()
