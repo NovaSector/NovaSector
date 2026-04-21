@@ -12,10 +12,17 @@ import type { BooleanLike } from 'tgui-core/react';
 import { InfoSection } from './InfoSection';
 import { MainContent } from './MainContent';
 
+type SimulatedGenital = {
+  name: string;
+  active: BooleanLike;
+};
+
 type Interaction = {
   self;
   use_subtler;
   erp_interaction: BooleanLike;
+  has_erp_interaction: BooleanLike;
+  simulated_genitals?: SimulatedGenital[];
 }
 
 export function InteractionPanel () {
@@ -25,6 +32,7 @@ export function InteractionPanel () {
     use_subtler,
     erp_interaction,
     has_erp_interaction,
+    simulated_genitals,
   } = data;
 
   return (
@@ -52,6 +60,27 @@ export function InteractionPanel () {
                 </Button.Checkbox>
               </LabeledList>
 
+            </Section>
+          )}
+
+          {!!simulated_genitals?.length && (
+            <Section title="Simulated Genitals (cyborg)">
+              <LabeledList>
+                {simulated_genitals.map((slot) => (
+                  <Button.Checkbox
+                    key={slot.name}
+                    checked={!!slot.active}
+                    onClick={() =>
+                      act('toggle_genital_active', {
+                        genital: slot.name,
+                      })
+                    }
+                    tooltip={`Toggle whether lewd interactions treat you as having a ${slot.name} slot.`}
+                  >
+                    {slot.name}
+                  </Button.Checkbox>
+                ))}
+              </LabeledList>
             </Section>
           )}
 

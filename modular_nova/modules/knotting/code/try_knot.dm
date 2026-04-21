@@ -1,0 +1,43 @@
+/**
+ * Call on the knotter (the one climaxing) after they finish inside a partner.
+ * Mirrors the pregnancy-trigger pattern in [modular_nova/modules/pregnancy/code/climax_hook.dm].
+ *
+ * Checks (all must pass, else no-op):
+ * 1. Both parties are living mobs, not same
+ * 2. Knotter has TRAIT_CAN_KNOT
+ * 3. Knotter has an accessible penis organ (humans only — cyborgs skip for now,
+ *    they'd need simulated knot state separate from the genital organ)
+ * 4. Partner has knotting_receive pref on
+ * 5. climax_into_choice names a receiving orifice (vagina / asshole / mouth)
+ * 6. Partner isn't already knotted by anyone
+ */
+/mob/living/proc/try_knot(mob/living/partner, climax_into_choice)
+	if(!isliving(partner) || partner == src)
+		return
+	if(!HAS_TRAIT(src, TRAIT_CAN_KNOT))
+		return
+
+	// Penis check — currently humans-only; cyborg knotting would need a separate code path.
+	if(!ishuman(src))
+		return
+	var/mob/living/carbon/human/knotter = src
+	if(!knotter.has_penis(REQUIRE_GENITAL_EXPOSED))
+		return
+
+	// Partner's receive pref gate.
+	var/client/partner_client = GET_CLIENT(partner)
+	if(!partner_client?.prefs?.read_preference(/datum/preference/toggle/knotting/receive))
+		return
+
+	// Only penetrative orifices get knotted.
+	switch(climax_into_choice)
+		if(ORGAN_SLOT_VAGINA, "asshole", ORGAN_SLOT_ANUS, "mouth")
+			// proceed
+		else
+			return
+
+	// No double-knotting the same partner.
+	if(partner.GetComponent(/datum/component/knotted))
+		return
+
+	knotter.AddComponent(/datum/component/knotted, partner, climax_into_choice)
