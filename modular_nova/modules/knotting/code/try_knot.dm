@@ -2,14 +2,6 @@
  * Call on the knotter (the one climaxing) after they finish inside a partner.
  * Mirrors the pregnancy-trigger pattern in [modular_nova/modules/pregnancy/code/climax_hook.dm].
  *
- * Checks (all must pass, else no-op):
- * 1. Both parties are living mobs, not same
- * 2. Knotter has TRAIT_CAN_KNOT
- * 3. Knotter has an accessible penis organ (humans only — cyborgs skip for now,
- *    they'd need simulated knot state separate from the genital organ)
- * 4. Partner has knotting_receive pref on
- * 5. climax_into_choice names a receiving orifice (vagina / asshole / mouth)
- * 6. Partner isn't already knotted by anyone
  */
 /mob/living/proc/try_knot(mob/living/partner, climax_into_choice)
 	if(!isliving(partner) || partner == src)
