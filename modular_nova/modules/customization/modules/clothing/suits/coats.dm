@@ -404,4 +404,18 @@
 	greyscale_config_worn = /datum/greyscale_config/labcoat/worn
 	greyscale_colors = "#EEEEEE#FF0000#FF0000#333333"
 
+/obj/item/clothing/suit/jacket/henchmen_coat
+	name = "henchmen coat"
+	desc = "Alright boss.. I'll handle it."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/jacket/henchmen_coat"
+	post_init_icon_state = "greyscale_coat"
+	greyscale_colors = "#201b1a"
+	greyscale_config = /datum/greyscale_config/henchmen
+	greyscale_config_worn = /datum/greyscale_config/henchmen/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+/obj/item/clothing/suit/jacket/henchmen_coat/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+
 #undef STUFF_WINTER_COATS_HOLD
