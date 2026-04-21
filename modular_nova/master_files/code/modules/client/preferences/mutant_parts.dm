@@ -914,16 +914,15 @@
 	savefile_key = "holo_color"
 	relevant_inherent_trait = TRAIT_HOLOSYNTH
 
-/datum/preference/color/mutant/holosynth_color/compile_constant_data()
-	var/list/data = list()
-	data["type"] = "color"
-	data["category"] = category
-	data["default"] = create_default_value()
-	return data
-
-/datum/preference/color/mutant/holosynth_color/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["holo_color"] = value
-
 /datum/preference/color/mutant/holosynth_color/create_default_value()
 	return COLOR_WHITE
+
+/datum/preference/color/mutant/holosynth_color/apply_to_human(mob/living/carbon/human/target, value)
+	// Reject colors with no bright channel — a hologram that reads as shadow isn't a hologram.
+	// Pure blue (low luminance but channel-bright) is fine; near-black isn't.
+	if(value != COLOR_WHITE)
+		var/list/rgb_list = rgb2num(value)
+		if(max(rgb_list[1], rgb_list[2], rgb_list[3]) < 80)
+			value = COLOR_WHITE
+	target.dna.features["holo_color"] = value
 

@@ -35,6 +35,7 @@
 		RegisterSignal(src, COMSIG_TRANSFORMING_PRE_TRANSFORM, PROC_REF(transform_check))
 		RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 		RegisterSignal(linked_mob, COMSIG_LIVING_DEATH, PROC_REF(user_death))
+		RegisterSignal(linked_mob, COMSIG_QDELETING, PROC_REF(user_qdeleted))
 
 		linked_mob.AddComponent(\
 			/datum/component/leash,\
@@ -114,11 +115,16 @@
 	linked_mob.unequip_everything()
 	linked_mob.forceMove(src)
 
+/// The linked mob is being deleted (cryopod, admin vv, etc.) — the pen has no reason to persist.
+/obj/item/holosynth_pen/proc/user_qdeleted(mob/living/source)
+	SIGNAL_HANDLER
+	qdel(src)
+
 /obj/item/holosynth_pen/Destroy()
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
 
 	if(linked_mob)
-		UnregisterSignal(linked_mob, COMSIG_LIVING_DEATH)
+		UnregisterSignal(linked_mob, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING))
 		linked_mob.apply_status_effect(/datum/status_effect/holosynth_dissolving)
 		animate(linked_mob, alpha = 0, time = 5 SECONDS, flags = ANIMATION_PARALLEL)
 		linked_mob.visible_message(

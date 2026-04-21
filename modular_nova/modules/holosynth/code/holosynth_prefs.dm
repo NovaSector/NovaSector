@@ -1,4 +1,4 @@
-// Character-scoped holosynth prefs. apply_to_human seeds dna.features and asks the component to re-read.
+// Character-scoped holosynth prefs. apply_to_human seeds dna.features and asks the species to re-apply the filter.
 
 /// How solid the holosynth looks (integer percentage). 60 is the floor — any lower invites camouflage; 100 is solid.
 /datum/preference/numeric/holosynth_transparency
@@ -14,8 +14,9 @@
 
 /datum/preference/numeric/holosynth_transparency/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["holo_transparency"] = value
-	var/datum/component/holosynth_effects/effects = target.GetComponent(/datum/component/holosynth_effects)
-	effects?.refresh_opacity()
+	var/datum/species/synthetic/holosynth/species = target.dna?.species
+	if(istype(species))
+		species.refresh_opacity(target)
 
 /// Whether the scanline flicker filter is rendered on the holosynth.
 /datum/preference/toggle/holosynth_scanline
@@ -27,5 +28,6 @@
 
 /datum/preference/toggle/holosynth_scanline/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["holo_scanline"] = value
-	var/datum/component/holosynth_effects/effects = target.GetComponent(/datum/component/holosynth_effects)
-	effects?.refresh_scanline()
+	var/datum/species/synthetic/holosynth/species = target.dna?.species
+	if(istype(species))
+		species.refresh_scanline(target)

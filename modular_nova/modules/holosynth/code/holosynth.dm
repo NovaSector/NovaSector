@@ -2,6 +2,8 @@
 #define HOLOSYNTH_BRUTEMULT 3
 /// Holosynth Incoming Burn damage multiplier
 #define HOLOSYNTH_BURNMULT 5
+/// Minimum holosynth opacity (0-1). Matches the pref's 60% floor.
+#define HOLOSYNTH_OPACITY_FLOOR 0.6
 
 /datum/species/synthetic/holosynth
 	name = "Holosynth"
@@ -34,6 +36,8 @@
 	)
 	/// Our Holographic projector that we're going to make the owner of a leash component
 	var/datum/weakref/owner_projector_ref
+	/// Emissive glow appearance from makeHologram(), retained so on_species_loss can cut the overlay.
+	var/mutable_appearance/glow
 
 /datum/species/synthetic/holosynth/get_default_mutant_bodyparts()
 	return list(
@@ -57,7 +61,8 @@
 
 	species_holder.AddComponent(/datum/component/glass_passer/holosynth, pass_time = 1 SECONDS, deform_glass = 0.5 SECONDS)
 	species_holder.AddComponent(/datum/component/holographic_nature)
-	species_holder.AddComponent(/datum/component/holosynth_effects)
+	glow = species_holder.makeHologram(read_opacity(species_holder), read_color(species_holder))
+	refresh_scanline(species_holder)
 	add_verb(species_holder, list(
 		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
 		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
@@ -74,6 +79,9 @@
 	species_holder.physiology.brute_mod /= HOLOSYNTH_BRUTEMULT
 	species_holder.physiology.burn_mod /= HOLOSYNTH_BURNMULT
 	species_holder.max_grab = GRAB_KILL
+	species_holder.remove_filter(list("HOLO: Color and Transparent", "HOLO: Scanline"))
+	species_holder.cut_overlay(glow)
+	glow = null
 	remove_verb(species_holder, list(
 		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
 		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
@@ -83,7 +91,6 @@
 		species_holder.GetComponent(/datum/component/glass_passer/holosynth),
 		species_holder.GetComponent(/datum/component/leash),
 		species_holder.GetComponent(/datum/component/holographic_nature),
-		species_holder.GetComponent(/datum/component/holosynth_effects),
 	)
 	for(var/comp in comps_to_delete)
 		qdel(comp)
@@ -161,8 +168,73 @@
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
 
+/// Re-reads the opacity + color state and reapplies the color filter.
+/datum/species/synthetic/holosynth/proc/refresh_opacity(mob/living/carbon/human/target)
+	target.remove_filter("HOLO: Color and Transparent")
+	var/list/rgb_list = rgb2num(read_color(target))
+	target.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(rgb(rgb_list[1], rgb_list[2], rgb_list[3], read_opacity(target) * 255)))
+
+/// Removes the scanline filter and re-adds it if the pref says so.
+/datum/species/synthetic/holosynth/proc/refresh_scanline(mob/living/carbon/human/target)
+	target.remove_filter("HOLO: Scanline")
+	if(!read_scanline(target))
+		return
+	var/atom/movable/scanline = new(null)
+	scanline.icon = 'icons/effects/effects.dmi'
+	scanline.icon_state = "scanline"
+	scanline.appearance_flags |= RESET_TRANSFORM
+	var/static/uid = 0
+	scanline.render_target = "*HoloScanline [uid++]"
+	target.add_filter("HOLO: Scanline", 2, alpha_mask_filter(render_source = scanline.render_target))
+	target.add_overlay(scanline)
+	qdel(scanline)
+
+/datum/species/synthetic/holosynth/proc/read_color(mob/living/carbon/human/target)
+	return target.client?.prefs?.read_preference(/datum/preference/color/mutant/holosynth_color) \
+		|| target.dna?.features["holo_color"] \
+		|| rgb(125, 180, 225)
+
+/datum/species/synthetic/holosynth/proc/read_opacity(mob/living/carbon/human/target)
+	var/raw = target.dna?.features["holo_transparency"]
+	return raw ? clamp(raw / 100, HOLOSYNTH_OPACITY_FLOOR, 1) : HOLOSYNTH_OPACITY_FLOOR
+
+/datum/species/synthetic/holosynth/proc/read_scanline(mob/living/carbon/human/target)
+	var/feature = target.dna?.features["holo_scanline"]
+	return isnull(feature) ? TRUE : feature
+
+// -- Runtime verbs -------------------------------------------------------
+// Added on species gain, removed on species loss. Both update the dna feature and ask the species to refresh.
+
+/mob/living/carbon/human/proc/holosynth_adjust_transparency()
+	set name = "Adjust Hologram Transparency"
+	set category = "IC"
+	set src = usr
+
+	var/datum/species/synthetic/holosynth/species = dna?.species
+	if(!istype(species))
+		return
+	var/new_value = tgui_input_number(src, "Set transparency. 60 = most see-through, 100 = fully solid.", "Hologram Transparency", (dna?.features["holo_transparency"] || 60), 100, 60)
+	if(!new_value)
+		return
+	dna?.features["holo_transparency"] = new_value
+	species.refresh_opacity(src)
+
+/mob/living/carbon/human/proc/holosynth_toggle_scanline()
+	set name = "Toggle Hologram Flicker"
+	set category = "IC"
+	set src = usr
+
+	var/datum/species/synthetic/holosynth/species = dna?.species
+	if(!istype(species))
+		return
+	var/new_state = !species.read_scanline(src)
+	dna?.features["holo_scanline"] = new_state
+	species.refresh_scanline(src)
+	to_chat(src, span_notice("You [new_state ? "enable" : "disable"] your hologram flicker."))
+
 /mob/living/carbon/human/species/holosynth
 	race = /datum/species/synthetic/holosynth
 
 #undef HOLOSYNTH_BRUTEMULT
 #undef HOLOSYNTH_BURNMULT
+#undef HOLOSYNTH_OPACITY_FLOOR
