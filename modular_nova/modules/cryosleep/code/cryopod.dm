@@ -430,7 +430,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	if(!HAS_TRAIT_FROM(mob_occupant, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)) // Don't let ghost cafe people store items
 		for(var/obj/item/item_content in mob_occupant)
-			if(HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & (ABSTRACT|DROPDEL)) || (item_content.flags_1 & HOLOGRAM_1))
+			if(HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & (ABSTRACT|DROPDEL)) || (item_content.flags_1 & HOLOGRAM_1) || QDELETED(item_content))
 				continue
 			if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
 				continue

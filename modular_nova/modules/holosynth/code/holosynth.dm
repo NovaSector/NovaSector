@@ -68,6 +68,8 @@
 	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)
 	if(chest)
 		chest.glow = species_holder.makeHologram(read_opacity(species_holder), read_color(species_holder))
+	var/datum/action/innate/holosynth_toggle_phase/phase_toggle = new(species_holder)
+	phase_toggle.Grant(species_holder)
 	refresh_scanline(species_holder)
 	add_verb(species_holder, list(
 		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
@@ -91,6 +93,8 @@
 	if(chest)
 		species_holder.cut_overlay(chest.glow)
 		chest.glow = null
+	for(var/datum/action/innate/holosynth_toggle_phase/phase_toggle in species_holder.actions)
+		qdel(phase_toggle)
 	remove_verb(species_holder, list(
 		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
 		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
