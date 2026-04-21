@@ -45,9 +45,6 @@
 "cH" = (
 /obj/structure/bed/double/pelt,
 /obj/item/bedsheet/hos/double,
-/obj/machinery/light/dim{
-	dir = 4
-	},
 /turf/open/floor/carpet/red,
 /area/misc/condo)
 "fh" = (
@@ -117,14 +114,7 @@
 	},
 /turf/open/floor/wood/wood_5,
 /area/misc/condo)
-"vJ" = (
-/turf/closed/wall/mineral/stone,
-/area/misc/condo)
-"wd" = (
-/obj/item/kirbyplants/organic/plant17,
-/turf/open/floor/wood/parquet,
-/area/misc/condo)
-"wH" = (
+"vr" = (
 /obj/effect/overlay/water{
 	icon_state = "OLD_bottom"
 	},
@@ -132,9 +122,16 @@
 	icon_state = "OLD_top"
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 10
+	dir = 1
 	},
 /turf/open/floor/iron/freezer,
+/area/misc/condo)
+"vJ" = (
+/turf/closed/wall/mineral/stone,
+/area/misc/condo)
+"wd" = (
+/obj/item/kirbyplants/organic/plant17,
+/turf/open/floor/wood/parquet,
 /area/misc/condo)
 "xq" = (
 /obj/structure/decorative/shelf/crates1,
@@ -196,6 +193,28 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/misc/condo)
+"zB" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/turf/open/floor/iron/freezer,
+/area/misc/condo)
+"AB" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 5
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/condo)
 "Cj" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -211,7 +230,7 @@
 	icon_state = "OLD_top"
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 4
+	dir = 10
 	},
 /turf/open/floor/iron/freezer,
 /area/misc/condo)
@@ -318,26 +337,9 @@
 /turf/open/floor/wood/large,
 /area/misc/condo)
 "Oi" = (
-/obj/effect/overlay/water{
-	icon_state = "OLD_bottom"
-	},
-/obj/effect/overlay/water/top{
-	icon_state = "OLD_top"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark,
-/turf/open/floor/iron/freezer,
-/area/misc/condo)
-"Oy" = (
-/obj/effect/overlay/water{
-	icon_state = "OLD_bottom"
-	},
-/obj/effect/overlay/water/top{
-	icon_state = "OLD_top"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 5
-	},
-/turf/open/floor/iron/freezer,
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/bouquet/rose,
+/turf/open/floor/wood/large,
 /area/misc/condo)
 "OL" = (
 /obj/effect/turf_decal/siding/wood{
@@ -347,6 +349,10 @@
 /area/misc/condo)
 "Qb" = (
 /obj/structure/dresser,
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 12;
+	pixel_x = 6
+	},
 /turf/open/floor/wood/parquet,
 /area/misc/condo)
 "Qo" = (
@@ -360,6 +366,18 @@
 	icon_type = "bounty"
 	},
 /turf/open/floor/iron/dark/brick,
+/area/misc/condo)
+"Ri" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/freezer,
 /area/misc/condo)
 "Rm" = (
 /obj/structure/bookcase/random/adult,
@@ -390,7 +408,7 @@
 	icon_state = "OLD_top"
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 9
+	dir = 6
 	},
 /turf/open/floor/iron/freezer,
 /area/misc/condo)
@@ -415,7 +433,7 @@
 	icon_state = "OLD_top"
 	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 6
+	dir = 9
 	},
 /turf/open/floor/iron/freezer,
 /area/misc/condo)
@@ -423,18 +441,6 @@
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
 /turf/open/floor/wood/wood_5,
-/area/misc/condo)
-"UJ" = (
-/obj/effect/overlay/water{
-	icon_state = "OLD_bottom"
-	},
-/obj/effect/overlay/water/top{
-	icon_state = "OLD_top"
-	},
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 1
-	},
-/turf/open/floor/iron/freezer,
 /area/misc/condo)
 "UW" = (
 /obj/effect/turf_decal/siding/wood{
@@ -741,7 +747,7 @@ nx
 nx
 nx
 nx
-nx
+rO
 nx
 nx
 QP
@@ -907,7 +913,7 @@ MC
 Fq
 Fq
 Fq
-qe
+Oi
 yD
 nx
 nx
@@ -979,9 +985,9 @@ nx
 nx
 nx
 re
-SL
+Uh
 Mp
-wH
+Cr
 kV
 yt
 rj
@@ -1005,9 +1011,9 @@ nx
 nx
 nx
 re
-UJ
+vr
 iY
-Oi
+zB
 kV
 rj
 rj
@@ -1027,13 +1033,13 @@ nx
 nx
 nx
 nx
-nx
+rO
 nx
 nx
 re
-Oy
-Cr
-Uh
+AB
+Ri
+SL
 Ym
 rj
 Qo
