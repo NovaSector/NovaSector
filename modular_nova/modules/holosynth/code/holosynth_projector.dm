@@ -110,6 +110,8 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
+	if(QDELETED(linked_mob))
+		return
 	saved_loc_ref = WEAKREF(get_turf(linked_mob))
 	new /obj/effect/temp_visual/guardian/phase/out(get_turf(linked_mob))
 	linked_mob.unequip_everything()
@@ -198,10 +200,14 @@
 	alert_type = /atom/movable/screen/alert/status_effect/holosynth_death_alert
 
 /datum/status_effect/holosynth_dissolving/tick()
+	if(QDELETED(owner))
+		return
 	apply_wibbly_filters(owner)
 	remove_wibbly_filters(owner, 0.1 SECONDS)
 
 /datum/status_effect/holosynth_dissolving/on_remove()
+	if(QDELETED(owner))
+		return
 	owner.gib(DROP_BRAIN & DROP_ITEMS)
 
 #undef HOLOSYNTH_RANGE

@@ -56,7 +56,11 @@
 	if(holder)
 		UnregisterSignal(holder, COMSIG_MOVABLE_MOVED)
 	holder_ref = null
-	QDEL_NULL(holoray)
+	// Cancel any pending animate() on the holoray before qdel — BYOND holds a ref for the
+	// remaining animation duration, which can push refcount over the GC threshold.
+	if(holoray)
+		animate(holoray)
+		QDEL_NULL(holoray)
 
 /// Self-destructs when the linked mob is deleted.
 /datum/component/holoray_trail/proc/on_linked_mob_qdel(datum/source)

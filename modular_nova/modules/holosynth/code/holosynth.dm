@@ -42,6 +42,12 @@
 	/// Emissive glow appearance applied to the mob via makeHologram(), retained so we can cut it on species loss.
 	var/mutable_appearance/glow
 
+/// Release weakref
+/obj/item/bodypart/chest/synth/holosynth/Destroy()
+	glow = null
+	owner_projector_ref = null
+	return ..()
+
 /datum/species/synthetic/holosynth/get_default_mutant_bodyparts()
 	return list(
 		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
