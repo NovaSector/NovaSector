@@ -3,7 +3,7 @@
 /obj/vehicle/sealed/mecha/makeshift
 	desc = "A locker with stolen wires, struts, electronics and airlock servos crudley assemebled into something that resembles the fuctions of a mech."
 	name = "Locker Mech"
-	icon = 'modular_regzt/icons/lockermech.dmi'
+	icon = 'modular_regzt/icons/mob/lockermech.dmi'
 	icon_state = "lockermech"
 	base_icon_state = "lockermech"
 	silicon_icon_state = "lockermech"

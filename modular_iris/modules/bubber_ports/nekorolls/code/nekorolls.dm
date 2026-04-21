@@ -40,7 +40,9 @@
 		/datum/reagent/consumable/sugar = 1
 	)
 	result = /obj/item/food/nekoroll
-	category = CAT_SEAFOOD
+	removed_foodtypes = BREAKFAST
+	dish_category = DISH_SUSHI
+	cuisine_category = CUISINE_JAPANESE
 
 /datum/crafting_recipe/food/bignekoroll
 	name = "Nekobara roll"
@@ -50,4 +52,6 @@
 		/datum/reagent/consumable/sugar = 2
 	)
 	result = /obj/item/food/bignekoroll
-	category = CAT_SEAFOOD
+	removed_foodtypes = BREAKFAST
+	dish_category = DISH_SUSHI
+	cuisine_category = CUISINE_JAPANESE
