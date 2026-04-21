@@ -29,4 +29,3 @@
 	target.dna.features["holo_scanline"] = value
 	var/datum/component/holosynth_effects/effects = target.GetComponent(/datum/component/holosynth_effects)
 	effects?.refresh_scanline()
-	return TRUE
