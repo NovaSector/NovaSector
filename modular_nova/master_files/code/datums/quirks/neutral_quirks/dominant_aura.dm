@@ -30,16 +30,16 @@
 		return
 	examine_list += span_purple("You can sense submissiveness radiating from them.")
 
-/// Emote hook. Relayed async so the emote pipeline isn't delayed by our work.
+/// Emote hook. handle_snap goes async because it eventually calls emote() on subs,
+/// which can't be invoked from a signal handler directly.
 /datum/quirk/dominant_aura/proc/on_emote(mob/source, datum/emote/firing_emote)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, PROC_REF(handle_snap), firing_emote)
-
-/// If the emote is one of the snap family, drop every nearby submissive_aura holder in a
-/// flavor-appropriate way gated on the snap variant.
-/datum/quirk/dominant_aura/proc/handle_snap(datum/emote/firing_emote)
 	if(!(firing_emote?.key in list("snap", "snap2", "snap3")))
 		return
+	INVOKE_ASYNC(src, PROC_REF(handle_snap), firing_emote)
+
+/// Drops every nearby submissive_aura holder in a flavor-appropriate way gated on the snap variant.
+/datum/quirk/dominant_aura/proc/handle_snap(datum/emote/firing_emote)
 	if(!TIMER_COOLDOWN_FINISHED(quirk_holder, DOMINANT_COOLDOWN_SNAP))
 		return
 	var/affected_someone = FALSE
