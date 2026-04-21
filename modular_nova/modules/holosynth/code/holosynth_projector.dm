@@ -118,6 +118,7 @@
 /// The linked mob is being deleted (cryopod, admin vv, etc.) — the pen has no reason to persist.
 /obj/item/holosynth_pen/proc/user_qdeleted(mob/living/source)
 	SIGNAL_HANDLER
+	UnregisterSignal(source, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING))
 	qdel(src)
 
 /obj/item/holosynth_pen/Destroy()
