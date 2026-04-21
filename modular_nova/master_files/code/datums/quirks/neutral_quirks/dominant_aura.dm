@@ -28,7 +28,7 @@
 		return
 	if(!sub.has_quirk(/datum/quirk/submissive_aura))
 		return
-	examine_list += span_purple("You can sense submissiveness irradiating from them.")
+	examine_list += span_purple("You can sense submissiveness radiating from them.")
 
 /// Emote hook. Relayed async so the emote pipeline isn't delayed by our work.
 /datum/quirk/dominant_aura/proc/on_emote(mob/source, datum/emote/firing_emote)

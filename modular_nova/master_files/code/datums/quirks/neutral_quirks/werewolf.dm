@@ -54,9 +54,9 @@
 	var/static/wolf_penis_color = "#ff7c80"
 	/// Size we force the knotted penis to in wolf form.
 	var/static/wolf_penis_size = 6
-	/// Additive scale bump applied on transform.
-	var/static/wolf_scale_delta = 0.2
-	/// Hard cap on scale after the bump — prevents runaway growth on already-large mobs.
+	/// Fallback additive body_size bump, used when the caster has no client / preference.
+	var/static/wolf_scale_delta_fallback = 0.2
+	/// Hard cap on body_size after the bump — prevents runaway growth on already-large mobs.
 	var/static/wolf_scale_cap = 1.5
 
 /datum/action/cooldown/werewolf_transform/Activate(atom/target)
@@ -111,11 +111,14 @@
 		saved_state["legs_changed"] = TRUE
 	apply_wolf_genitals(user, colors)
 	user.set_mob_height(min(user.get_base_mob_height() + 2, HUMAN_HEIGHT_TALLEST), update_dna = FALSE)
-	// Bump body_size by wolf_scale_delta, clamped at wolf_scale_cap. update_body_size handles the
-	// transform Scale + southern-bound translation + maptext_height in one pass, and writes back
-	// to dna.current_body_size so the revert is exact.
+	// Bump body_size by the caster's chosen delta preference, clamped at wolf_scale_cap.
+	// update_body_size handles transform Scale + southern-bound translation + maptext_height in
+	// one pass, and writes back to dna.current_body_size so the revert is exact.
+	var/size_delta = user.client?.prefs?.read_preference(/datum/preference/numeric/werewolf_size_delta)
+	if(isnull(size_delta))
+		size_delta = wolf_scale_delta_fallback
 	var/current_body_size = user.dna.features["body_size"] || BODY_SIZE_NORMAL
-	var/target_body_size = min(current_body_size + wolf_scale_delta, wolf_scale_cap)
+	var/target_body_size = min(current_body_size + size_delta, wolf_scale_cap)
 	if(target_body_size > current_body_size)
 		user.dna.features["body_size"] = target_body_size
 		user.dna.update_body_size()
