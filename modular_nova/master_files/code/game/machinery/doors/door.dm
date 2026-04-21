@@ -3,16 +3,27 @@
 #define LINK_BOLT "<a href='byond://?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=bolt'> (Bolt)</a>"
 #define LINK_SHOCK "<a href='byond://?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=shock'> (Shock)</a>"
 
+/// How long the same player must wait between AI-open requests on the same door.
+#define DOOR_AI_REQUEST_COOLDOWN (5 MINUTES)
+
 /obj/machinery/door/airlock
 	//so the AI doesn't get spammed
 	COOLDOWN_DECLARE(answer_cd)
-	/// List of ai door requesters
+	/// Tracks per-(player, door) AI-open-request cooldowns. Keyed by "[ckey]_[REF(door)]".
 	var/static/list/requesters = list()
 
 /obj/machinery/door/airlock/attack_hand_secondary(mob/living/user, list/modifiers)
-	if(world.time < requesters[user.ckey] + 10 SECONDS)
-		to_chat(user, span_warning("Hold on, let the AI parse your request."))
+
+	var/request_key = "[user.ckey]_[REF(src)]"
+	if(world.time < requesters[request_key] + DOOR_AI_REQUEST_COOLDOWN)
+		to_chat(user, span_warning("You've already asked the AI about this door recently."))
 		return
+
+	// Lazy cleanup: prune any expired entries now so the list stays bounded across a shift.
+	var/cutoff = world.time - DOOR_AI_REQUEST_COOLDOWN
+	for(var/key in requesters)
+		if(requesters[key] < cutoff)
+			requesters -= key
 
 	. = ..()
 
@@ -35,9 +46,10 @@
 		if(!is_station_level(AI.registered_z))
 			continue
 		to_chat(AI, "<b><a href='byond://?src=[REF(AI)];track=[html_encode(user.name)]'>[user]</a></b> is requesting you to open the [src] [LINK_DENY][LINK_OPEN][LINK_BOLT][LINK_SHOCK].")
-	requesters[user.ckey] = world.time
+	requesters[request_key] = world.time
 
 #undef LINK_DENY
 #undef LINK_OPEN
 #undef LINK_BOLT
 #undef LINK_SHOCK
+#undef DOOR_AI_REQUEST_COOLDOWN
