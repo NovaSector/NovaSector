@@ -64,13 +64,6 @@ export const pregnancy_cryptic: Feature<boolean> = {
   component: CheckboxInput,
 };
 
-export const pregnancy_inert: Feature<boolean> = {
-  name: 'Pregnancy - Inert egg',
-  description:
-    'If enabled, the egg laid will not contain a live offspring — only the egg is produced.',
-  component: CheckboxInput,
-};
-
 export const pregnancy_belly_inflation: Feature<boolean> = {
   name: 'Pregnancy - Belly inflation',
   description:

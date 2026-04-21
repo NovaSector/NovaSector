@@ -65,12 +65,6 @@
 	savefile_key = "pregnancy_cryptic"
 	default_value = FALSE
 
-/datum/preference/toggle/pregnancy/inert
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "pregnancy_inert"
-	default_value = TRUE
-
 /datum/preference/toggle/pregnancy/belly_inflation
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
