@@ -13,12 +13,11 @@
 	var/static/list/requesters = list()
 
 /obj/machinery/door/airlock/attack_hand_secondary(mob/living/user, list/modifiers)
-
 	var/request_key = "[user.ckey]_[REF(src)]"
 	var/last_request = requesters[request_key]
 	if(last_request && world.time < last_request + DOOR_AI_REQUEST_COOLDOWN)
 		to_chat(user, span_warning("You've already asked the AI about this door recently."))
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	// Lazy cleanup: prune any expired entries now so the list stays bounded across a shift.
 	var/cutoff = world.time - DOOR_AI_REQUEST_COOLDOWN
@@ -30,7 +29,7 @@
 
 	if(!hasPower())
 		to_chat(user, span_warning("This door isn't powered."))
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	src.balloon_alert(user, "ai requested!")
 
