@@ -4,12 +4,12 @@
 /// they're "simulating" and interactions flow normally from there (messaging, mood, etc.).
 /// Simple mobs intentionally don't have this var — lewd interactions remain cyborg/human only.
 /mob/living/silicon/robot
-	/// Default-on so cyborgs can participate in lewd interactions out of the box.
-	/// Players can opt out of individual slots via the `toggle_genital_active` ui_act.
+	/// Default-off so cyborgs can choose to participate in lewd interactions.
+	/// Players can opt in individual slots via the `toggle_genital_active` ui_act.
 	/// (Needs TGUI-side rendering; server-side toggle is wired.)
 	var/list/simulated_genitals = list(
-		ORGAN_SLOT_PENIS = TRUE,
-		ORGAN_SLOT_VAGINA = TRUE,
-		ORGAN_SLOT_BREASTS = TRUE,
-		ORGAN_SLOT_ANUS = TRUE,
+		ORGAN_SLOT_PENIS = FALSE,
+		ORGAN_SLOT_VAGINA = FALSE,
+		ORGAN_SLOT_BREASTS = FALSE,
+		ORGAN_SLOT_ANUS = FALSE,
 	)
