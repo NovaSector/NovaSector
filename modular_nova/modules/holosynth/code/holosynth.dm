@@ -180,10 +180,11 @@
 	return "Holosynths are a subtype of machines; they're made of soft-light, only semi-solid and dependant on a projection device."
 
 /datum/species/synthetic/holosynth/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
-	human_for_preview.set_haircolor("#4B78BD", update = FALSE)
+	human_for_preview.set_haircolor("#F2501E", update = FALSE)
 	human_for_preview.set_hairstyle("Oxton", update = TRUE)
-	human_for_preview.dna.features["holo_color"] = "#F3AAFF"
-	human_for_preview.dna.features["holo_transparency"] = 80
+	human_for_preview.set_hair_gradient_color("#FFCF39")
+	human_for_preview.set_hair_gradient_style("Fade Up")
+	human_for_preview.dna.features["holo_color"] = "#ECB3DD"
 	human_for_preview.dna.features["holo_scanline"] = FALSE
 	human_for_preview.set_eye_color("#5AADD6")
 	human_for_preview.dna.mutant_bodyparts[FEATURE_SYNTH_HEAD] = build_mutant_part("Human Head", list("#EDCDB0"))
@@ -191,17 +192,17 @@
 	apply_supplementary_body_changes(human_for_preview, visuals_only = TRUE)
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
-	refresh_opacity(human_for_preview)
 
 /datum/species/synthetic/holosynth/preview_icon_after_effects(datum/universal_icon/dummy_icon, mob/living/carbon/human/target)
 	var/list/visuals = get_holosynth_visual(target)
-
 	var/col = rgb(visuals["r"], visuals["g"], visuals["b"])
+	// we have to do all this because filters won't affect these icons
 
 	// tint
 	dummy_icon.blend_color(col, ICON_MULTIPLY)
-	dummy_icon.swap_color(rgb(0, 136, 255), rgb(0, 0, 0, 0)) // get rid of the background color that got painted in by multiply
-	dummy_icon.change_opacity(target.dna.features["holo_transparency"]/100)
+	dummy_icon.swap_color(rgb(0, 143, 221), rgb(0, 0, 0, 0)) // get rid of the background color that got painted in by multiply
+	// opacity
+	dummy_icon.change_opacity(0.6)
 
 /datum/species/synthetic/holosynth/proc/get_holosynth_visual(mob/living/carbon/human/target)
 	var/list/rgb_list = rgb2num(read_color(target))
@@ -231,7 +232,7 @@
 	scanline.render_target = "*HoloScanline [uid++]"
 	target.add_filter("HOLO: Scanline", 2, alpha_mask_filter(render_source = scanline.render_target))
 	target.add_overlay(scanline)
-	QDEL_IN(scanline, 0)
+	qdel(scanline)
 
 /datum/species/synthetic/holosynth/proc/read_color(mob/living/carbon/human/target)
 	return target.client?.prefs?.read_preference(/datum/preference/color/mutant/holosynth_color) \
