@@ -1,11 +1,9 @@
 // Medical Combitool - combines bonesetter and bloodfilter functionality
 // Ported from Bubberstation's modular_skyrat/modules/filtersandsetters
 
-#define TOOL_ALIEN_BONESET "alien bonesetter"
-
 /obj/item/bonesetter/alien
 	name = "alien bonesetter"
-	desc = "A reversed engineered bonesetter... <b> This does not look nice to be on the receiving end of... </b>."
+	desc = "While aliens generally don't have bones, their squishy subjects typically do."
 	icon = 'modular_nova/modules/medical_combitool/icons/surgery_tools.dmi'
 	icon_state = "bonesetter"
 	toolspeed = 0.25
@@ -86,11 +84,16 @@
 
 /datum/design/alienbonesetter
 	name = "Alien Bonesetter"
-	desc = "An abomination of reverse engineered tech, designed by a madman."
+	desc = "An advanced bonesetter obtained throubh Abductor technology. \
+		Theoretically useful for directly treating fractures without surgical intervention. Theoretically."
 	id = "alien_bonesetter"
 	build_path = /obj/item/bonesetter/alien
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
-	materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT, /datum/material/silver =HALF_SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/plasma =SMALL_MATERIAL_AMOUNT*5, /datum/material/titanium =HALF_SHEET_MATERIAL_AMOUNT * 1.5)
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+					/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 1.5,
+					/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5,
+					/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT * 1.5,
+				)
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL_ALIEN
 	)
@@ -98,18 +101,21 @@
 
 /obj/item/blood_filter/alien
 	name = "alien bloodfilter"
-	desc = "A reversed engineered bloodfilter... <b> This does not look nice to be on the receiving end of... </b>."
+	desc = "Do aliens have blood to filter? Probably not. Do aliens have subjects whose blood they filter? It's a distinct possibility."
 	icon = 'modular_nova/modules/medical_combitool/icons/surgery_tools.dmi'
 	icon_state = "bloodfilter"
 	toolspeed = 0.25
 
 /datum/design/alienbloodfilter
-	name = "Alien Blood filter"
-	desc = "An abomination of reverse engineered tech, designed by a madman."
+	name = "Alien Blood Filter"
+	desc = "An advanced blood filter obtained through Abductor technology."
 	id = "alien_bloodfilter"
 	build_path = /obj/item/blood_filter/alien
-	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
-	materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT, /datum/material/silver =HALF_SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/plasma =SMALL_MATERIAL_AMOUNT*5, /datum/material/titanium =HALF_SHEET_MATERIAL_AMOUNT * 1.5)
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+					/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 1.5,
+					/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5,
+					/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT * 1.5,
+				)
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL_ALIEN
 	)
@@ -118,8 +124,12 @@
 /obj/item/blood_filter/advanced
 	name = "medical combitool"
 	desc = "An unholy combination of bonesetter and bloodfilter."
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6,
+							/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+							/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
+							/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.5,
+						)
 	icon = 'modular_nova/modules/medical_combitool/icons/surgery_tools.dmi'
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*6, /datum/material/glass = SHEET_MATERIAL_AMOUNT*2, /datum/material/silver = SHEET_MATERIAL_AMOUNT*2, /datum/material/titanium =SHEET_MATERIAL_AMOUNT * 2.5)
 	icon_state = "combitool"
 	inhand_icon_state = "adv_retractor"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -164,15 +174,18 @@
 
 /obj/item/blood_filter/advanced/examine()
 	. = ..()
-	. += span_notice("It resembles a [tool_behaviour == TOOL_BLOODFILTER ? "bloodfilter" : "bonesetter"].")
+	. += span_notice("It resembles a [tool_behaviour == TOOL_BLOODFILTER ? "blood filter" : "bonesetter"].")
 
 /datum/design/combitool
 	name = "Medical Combitool"
-	desc = "This tool can be either used as bloodfilter or bonesetter."
+	desc = "This tool can be either used as a blood filter or bonesetter."
 	id = "combitool"
 	build_path = /obj/item/blood_filter/advanced
-	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
-	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*6, /datum/material/glass = SHEET_MATERIAL_AMOUNT*2, /datum/material/silver = SHEET_MATERIAL_AMOUNT*2, /datum/material/titanium =SHEET_MATERIAL_AMOUNT * 2.5)
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6,
+					/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+					/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
+					/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.5,
+				)
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL_ADVANCED
 	)
@@ -190,6 +203,3 @@
 		"alien_bonesetter",
 	)
 	return ..()
-
-#undef TOOL_ALIEN_BONESET
-
