@@ -19,8 +19,8 @@
 /// Right-click while held toggles the trail; examine shows the current state.
 /datum/component/holoray_trail
 	dupe_mode = COMPONENT_DUPE_UNIQUE
-	/// The mob the ray points at.
-	var/mob/living/linked_mob
+	/// Weakref to the mob the ray points at
+	var/datum/weakref/linked_mob_ref
 	/// Weakref to a non-linked-mob carrier whose movement the ray follows
 	var/datum/weakref/holder_ref
 	/// The active ray overlay (only set while the mob is deployed and the trail is enabled)
@@ -30,34 +30,44 @@
 	/// Tint applied to the ray sprite; null leaves the default blue.
 	var/ray_color
 
-/datum/component/holoray_trail/Initialize(mob/living/linked_mob, ray_color)
+/datum/component/holoray_trail/Initialize(mob/linked_mob, ray_color)
 	if(!isitem(parent) || isnull(linked_mob))
 		return COMPONENT_INCOMPATIBLE
-	src.linked_mob = linked_mob
+	linked_mob_ref = WEAKREF(linked_mob)
 	src.ray_color = ray_color
 
 /datum/component/holoray_trail/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_parent_moved))
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF_SECONDARY, PROC_REF(on_toggle))
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
-	RegisterSignal(linked_mob, COMSIG_MOVABLE_MOVED, PROC_REF(on_tracked_moved))
+	var/mob/linked_mob = linked_mob_ref?.resolve()
+	if(linked_mob)
+		RegisterSignal(linked_mob, COMSIG_MOVABLE_MOVED, PROC_REF(on_tracked_moved))
+		RegisterSignal(linked_mob, COMSIG_QDELETING, PROC_REF(on_linked_mob_qdel))
 	update_holder_tracking()
 	refresh_ray()
 
 /datum/component/holoray_trail/UnregisterFromParent()
 	UnregisterSignal(parent, list(COMSIG_MOVABLE_MOVED, COMSIG_ITEM_ATTACK_SELF_SECONDARY, COMSIG_ATOM_EXAMINE))
+	var/mob/linked_mob = linked_mob_ref?.resolve()
 	if(linked_mob)
-		UnregisterSignal(linked_mob, COMSIG_MOVABLE_MOVED)
-		linked_mob = null
+		UnregisterSignal(linked_mob, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING))
 	var/mob/holder = holder_ref?.resolve()
 	if(holder)
 		UnregisterSignal(holder, COMSIG_MOVABLE_MOVED)
 	holder_ref = null
 	QDEL_NULL(holoray)
 
+/// Self-destructs when the linked mob is deleted.
+/datum/component/holoray_trail/proc/on_linked_mob_qdel(datum/source)
+	SIGNAL_HANDLER
+	UnregisterSignal(source, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING))
+	qdel(src)
+
 /// Ensures the ray exists + points from the parent's turf to the linked mob's turf, or tears it down if it shouldn't exist.
 /datum/component/holoray_trail/proc/refresh_ray()
 	var/atom/movable/host = parent
+	var/mob/living/linked_mob = linked_mob_ref?.resolve()
 	var/turf/host_turf = get_turf(host)
 	var/turf/mob_turf = get_turf(linked_mob)
 	if(!enabled || isnull(linked_mob) || isnull(host_turf) || isnull(mob_turf) || linked_mob.loc == host)
@@ -86,6 +96,7 @@
 /datum/component/holoray_trail/proc/update_holder_tracking()
 	var/atom/movable/host = parent
 	var/mob/old_holder = holder_ref?.resolve()
+	var/mob/linked_mob = linked_mob_ref?.resolve()
 	var/atom/movable/new_holder = ismob(host.loc) ? host.loc : null
 	if(new_holder == linked_mob)
 		new_holder = null
