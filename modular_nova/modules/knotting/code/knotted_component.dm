@@ -45,8 +45,10 @@
 	to_chat(partner, span_userlove("[knotter]'s knot swells, locking [knotter.p_them()] inside you."))
 
 	// Aggressive grab does the movement lock: puller drags pulled, disarm/resist breaks it.
-	// If we're already grabbing partner at a lower level, upgrade; otherwise start fresh.
-	knotter.grab(partner, GRAB_AGGRESSIVE)
+	// grab() only establishes a passive pull — upgrade explicitly via setGrabState.
+	knotter.grab(partner)
+	if(knotter.pulling == partner)
+		knotter.setGrabState(GRAB_AGGRESSIVE)
 
 	untie_timer = addtimer(CALLBACK(src, PROC_REF(untie), FALSE), untie_at - world.time, TIMER_STOPPABLE)
 
