@@ -113,8 +113,8 @@ Due to some fuckery with how these templates work; the bottom left turf of your 
 /datum/map_template/condo/snowy_cabin
 	name = "Condo - Snowy Cabin"
 	mappath = "modular_nova/modules/condos/_maps/snowy_cabin.dmm"
-	landing_zone_x_offset = 15
-	landing_zone_y_offset = 8
+	landing_zone_x_offset = 14
+	landing_zone_y_offset = 7
 
 /datum/map_template/condo/station_arrivals
 	name = "Condo - Arrivals Checkpoint"
