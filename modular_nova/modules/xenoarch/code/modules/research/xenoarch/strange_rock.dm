@@ -239,13 +239,6 @@
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	defer_change = TRUE
 
-/turf/closed/mineral/random/volcanic
-	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
-	baseturfs = /turf/open/misc/asteroid/basalt/lava_land_surface
-	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-	defer_change = TRUE
-	mineral_chance = 5
-
 /turf/closed/mineral/random/volcanic/mineral_chances()
 	return ..() + list(
 		/turf/closed/mineral/strange_rock/volcanic = 1,
@@ -270,11 +263,6 @@
 	return ..() + list(
 		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
 	)
-
-/turf/closed/mineral/random/snow/underground
-	baseturfs = /turf/open/misc/asteroid/snow/icemoon
-	// abundant ore
-	mineral_chance = 10
 
 /turf/closed/mineral/random/snow/underground/mineral_chances()
 	return ..() + list(
