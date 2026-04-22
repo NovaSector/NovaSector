@@ -144,7 +144,12 @@
 	var/obj/item/organ/brain/protean/brain = protean_in_suit.get_organ_slot(ORGAN_SLOT_BRAIN)
 	var/obj/item/organ/stomach/protean/refactory = protean_in_suit.get_organ_slot(ORGAN_SLOT_STOMACH)
 
-	if(brain?.dead && open && istype(tool, /obj/item/organ/stomach/protean) && do_after(user, 10 SECONDS) && !refactory)
+	if(brain?.dead && open && istype(tool, /obj/item/organ/stomach/protean) && !refactory)
+		if(HAS_TRAIT(protean_in_suit, TRAIT_DNR) || HAS_TRAIT(protean_in_suit, TRAIT_SUICIDED))
+			balloon_alert(user, "no response — refuses repair")
+			return ITEM_INTERACT_BLOCKING
+		if(!do_after(user, 10 SECONDS))
+			return ITEM_INTERACT_BLOCKING
 		var/obj/item/organ/stomach = tool
 		stomach.Insert(protean_in_suit, TRUE, DELETE_IF_REPLACED)
 		balloon_alert(user, "inserted!")
@@ -393,7 +398,9 @@
 				. += isnull(refactory) ? span_warning("<b>Insert a new refactory</b>") : span_notice("<b>Refactory Installed! Repairing systems...</b>")
 		if(protean_in_suit.key && !protean_in_suit.client)
 			. += span_deadsay("[t_He] [t_has] entered stasis and [t_has] been completely unresponsive to anything for [round(((world.time - protean_in_suit.lastclienttime) / (1 MINUTES)),1)] minutes. [t_He] may snap out of it soon.")
-		if(!protean_in_suit.key)
+		else if(!protean_in_suit.key && protean_in_suit.mind && !HAS_TRAIT(protean_in_suit, TRAIT_DNR) && !HAS_TRAIT(protean_in_suit, TRAIT_SUICIDED))
+			. += span_deadsay("[t_He] [t_is] adrift, but still tethered. A repair may yet draw [t_him] back.")
+		else if(!protean_in_suit.key)
 			. += span_deadsay("[t_He] [t_is] totally listless. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely.")
 
 /**

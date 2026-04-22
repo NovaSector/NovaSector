@@ -44,6 +44,7 @@
 	RegisterSignal(receiver, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
 	RegisterSignal(receiver, COMSIG_CARBON_ATTACH_LIMB, PROC_REF(on_limb_attached))
 	RegisterSignal(receiver, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(block_damage_while_in_suit))
+	RegisterSignal(receiver, COMSIG_LIVING_DNR, PROC_REF(on_owner_dnr))
 	cache_limbs(receiver)
 	// If the brain was ejected mid-death and is now being reinserted into an already-dead
 	// protean, death() has already fired without us listening — trigger retreat manually.
@@ -54,13 +55,19 @@
 	. = ..()
 	if(isprotean(brain_owner) && !QDELING(brain_owner))
 		brain_owner.Stun(INFINITY, TRUE)
-	UnregisterSignal(brain_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED, COMSIG_CARBON_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS))
+	UnregisterSignal(brain_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED, COMSIG_CARBON_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_LIVING_DNR))
 
 /// Zeros out incoming (non-forced) damage whenever the protean is retracted inside their suit.
 /obj/item/organ/brain/protean/proc/block_damage_while_in_suit(mob/living/source, list/damage_mods)
 	SIGNAL_HANDLER
 	if(istype(source.loc, /obj/item/mod/control/pre_equipped/protean))
 		damage_mods += 0
+
+/// When the owner opts into DNR, stop the suit's distress beacon — no one is coming back.
+/obj/item/organ/brain/protean/proc/on_owner_dnr(mob/living/source)
+	SIGNAL_HANDLER
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(source)
+	suit?.set_distress_signal(FALSE)
 
 /// Rejects the protean brain from a non-protean body, ejecting it to the ground.
 /obj/item/organ/brain/protean/proc/reject_from_body(mob/living/carbon/body)
@@ -136,7 +143,8 @@
 		REMOVE_TRAIT(suit, TRAIT_NODROP, "protean")
 	owner.transferItemToLoc(suit, current_loc, force = TRUE)
 	owner.forceMove(suit)
-	suit.set_distress_signal(TRUE)
+	if(!HAS_TRAIT(owner, TRAIT_DNR) && !HAS_TRAIT(owner, TRAIT_SUICIDED))
+		suit.set_distress_signal(TRUE)
 	sleep(SUIT_TRANSFORMATION_DURATION)
 	owner.invisibility = initial(owner.invisibility)
 	if(IS_CHANGELING(owner))
@@ -144,7 +152,6 @@
 	else
 		qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
 		to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
-	ADD_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
 
 /obj/item/organ/brain/protean/on_life(seconds_per_tick, times_fired)
 	. = ..()
@@ -342,7 +349,6 @@
 	if(owner.stat == DEAD)
 		owner.revive(HEAL_DAMAGE | HEAL_ORGANS, force_grab_ghost = TRUE)
 	owner.fully_heal()
-	REMOVE_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
 	// Re-apply stun because fully heal removes it.
 	if(istype(owner.loc, /obj/item/mod/control/pre_equipped/protean))
 		owner.Stun(INFINITY, TRUE)
