@@ -18,3 +18,4 @@
 	base_icon_state = "10_strip"
 	max_ammo = 10
 	caliber = CALIBER_10MM
+	w_class = WEIGHT_CLASS_SMALL
