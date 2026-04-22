@@ -1,4 +1,4 @@
-#define TRANSFORM_TRAITS list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTHEAT, TRAIT_RESISTCOLD, TRAIT_FREE_GHOST)
+#define TRANSFORM_TRAITS list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTHEAT, TRAIT_RESISTCOLD, TRAIT_FREE_GHOST, TRAIT_XRAY_HEARING)
 #define SUIT_TRANSFORMATION_DURATION (1.2 SECONDS)
 
 /**
@@ -45,6 +45,10 @@
 	RegisterSignal(receiver, COMSIG_CARBON_ATTACH_LIMB, PROC_REF(on_limb_attached))
 	RegisterSignal(receiver, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(block_damage_while_in_suit))
 	cache_limbs(receiver)
+	// If the brain was ejected mid-death and is now being reinserted into an already-dead
+	// protean, death() has already fired without us listening — trigger retreat manually.
+	if(receiver.stat == DEAD && !dead)
+		retreat_timer_id = addtimer(CALLBACK(src, PROC_REF(emergency_retreat)), 0, TIMER_STOPPABLE)
 
 /obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
@@ -110,9 +114,9 @@
 	// Schedule for next tick so death() and the caller (chasm, lava, etc.) finish cleanly first
 	retreat_timer_id = addtimer(CALLBACK(src, PROC_REF(emergency_retreat)), 0, TIMER_STOPPABLE)
 
-/// Handles retreat into suit after a direct death() call. Revives the protean and moves them into their suit.
-/// Works from any location including chasm storage.
+/// Moves the protean into their suit after death. Mob stays DEAD until repaired
 /obj/item/organ/brain/protean/proc/emergency_retreat()
+	set waitfor = FALSE
 	if(dead)
 		return
 	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
@@ -120,18 +124,21 @@
 		return
 	dead = TRUE
 	// Move into suit FIRST — this exits chasm_storage, which unregisters
-	// COMSIG_LIVING_REVIVE so revive() won't trigger chasm auto-eject
+	// COMSIG_LIVING_REVIVE so any later revive won't trigger chasm auto-eject
 	var/atom/current_loc = owner.loc
+	owner.visible_message(span_warning("[owner] retreats into [suit]!"))
 	owner.extinguish_mob()
-	owner.Stun(INFINITY, TRUE)
+	owner.invisibility = 101
+	new /obj/effect/temp_visual/protean_to_suit(current_loc, owner.dir)
 	owner.add_traits(TRANSFORM_TRAITS, PROTEAN_TRAIT)
 	owner.remove_status_effect(/datum/status_effect/protean_low_power_mode/low_power)
 	if(HAS_TRAIT(suit, TRAIT_NODROP))
 		REMOVE_TRAIT(suit, TRAIT_NODROP, "protean")
 	owner.transferItemToLoc(suit, current_loc, force = TRUE)
 	owner.forceMove(suit)
-	// Now safe to revive — no chasm handler will fire
-	owner.revive(HEAL_DAMAGE | HEAL_ORGANS, force_grab_ghost = TRUE)
+	suit.set_distress_signal(TRUE)
+	sleep(SUIT_TRANSFORMATION_DURATION)
+	owner.invisibility = initial(owner.invisibility)
 	if(IS_CHANGELING(owner))
 		to_chat(owner, span_red("Something anomalous surges through your nanomass, pulling you back together..."))
 	else
@@ -146,15 +153,10 @@
 	handle_refactory(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
 	handle_orchestrator(owner.get_organ_slot(ORGAN_SLOT_HEART))
 	if(owner.stat >= HARD_CRIT && !dead)
-		dead = TRUE
-		owner.revive(HEAL_DAMAGE | HEAL_ORGANS, force_grab_ghost = TRUE)
-		if(IS_CHANGELING(owner))
-			to_chat(owner, span_red("Something anomalous surges through your nanomass, pulling you back together..."))
-		else
-			to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
-			qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
-		go_into_suit(TRUE)
-		ADD_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
+		// Retreat into the suit at HARD_CRIT before the body takes enough damage to
+		// dismember the chest and spill the core. Fires the standard death flow so
+		// polling systems (tumor, megafauna, etc.) register the defeat normally.
+		owner.death()
 
 /// Checks if the refactory organ is present and applies degradation damage if missing.
 /obj/item/organ/brain/protean/proc/handle_refactory(obj/item/organ)
@@ -329,11 +331,16 @@
 	else if(liver.organ_flags & ORGAN_NANOMACHINE)
 		liver.set_organ_damage(0)
 
-/// Fully revives the protean from critical condition, restoring their mass.
+/// Fully revives the protean from death, restoring their mass.
 /obj/item/organ/brain/protean/proc/revive()
 	dead = FALSE
 	playsound(owner, 'sound/machines/ping.ogg', 30)
 	to_chat(owner, span_warning("You have regained all your mass!"))
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
+	suit?.set_distress_signal(FALSE)
+	// Bring them back from stat = DEAD if they were held in the retreat state.
+	if(owner.stat == DEAD)
+		owner.revive(HEAL_DAMAGE | HEAL_ORGANS, force_grab_ghost = TRUE)
 	owner.fully_heal()
 	REMOVE_TRAIT(owner, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
 	// Re-apply stun because fully heal removes it.

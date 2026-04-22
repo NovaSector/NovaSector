@@ -28,6 +28,13 @@
 	ADD_TRAIT(src, TRAIT_NODROP, "protean")
 	AddElement(/datum/element/strippable/protean, GLOB.strippable_human_items, TYPE_PROC_REF(/mob/living/carbon/human/, should_strip))
 
+/// Shows or hides the blinking distress antenna overlay on the suit. Used to signal to
+/// nearby players that the protean inside has retreated and is awaiting repair.
+/obj/item/mod/control/pre_equipped/protean/proc/set_distress_signal(enabled)
+	cut_overlay(mutable_appearance('modular_nova/modules/protean/icons/mob/species/protean/distress_light.dmi', "distress"))
+	if(enabled)
+		add_overlay(mutable_appearance('modular_nova/modules/protean/icons/mob/species/protean/distress_light.dmi', "distress"))
+
 /obj/item/mod/control/pre_equipped/protean/Destroy(force)
 	var/obj/item/mod/core/protean/protean_core = core
 	var/mob/living/carbon/human/protean_mob = protean_core?.linked_protean
