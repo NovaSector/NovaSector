@@ -185,7 +185,7 @@
 	name = "dirt"
 	},
 /area/ruin/powered)
-"Y" = (
+"T" = (
 /turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
 /area/ruin/powered)
 
@@ -267,7 +267,7 @@ P
 a
 a
 a
-Y
+T
 c
 b
 t
@@ -284,8 +284,8 @@ P
 a
 a
 a
-Y
-Y
+T
+T
 L
 n
 t
@@ -302,7 +302,7 @@ a
 a
 a
 a
-Y
+T
 m
 o
 o
@@ -317,9 +317,9 @@ s
 "}
 (8,1,1) = {"
 a
-Y
-Y
-Y
+T
+T
+T
 c
 f
 o
@@ -335,7 +335,7 @@ s
 "}
 (9,1,1) = {"
 a
-Y
+T
 f
 i
 g
@@ -353,7 +353,7 @@ s
 "}
 (10,1,1) = {"
 a
-Y
+T
 S
 j
 g
@@ -363,7 +363,7 @@ f
 u
 o
 A
-Y
+T
 P
 s
 s
@@ -381,7 +381,7 @@ r
 c
 c
 c
-Y
+T
 P
 P
 s
@@ -389,14 +389,14 @@ s
 "}
 (12,1,1) = {"
 a
-Y
-Y
+T
+T
 k
 M
-Y
-Y
-Y
-Y
+T
+T
+T
+T
 a
 a
 P
@@ -408,10 +408,10 @@ E
 (13,1,1) = {"
 a
 a
-Y
-Y
-Y
-Y
+T
+T
+T
+T
 a
 a
 a

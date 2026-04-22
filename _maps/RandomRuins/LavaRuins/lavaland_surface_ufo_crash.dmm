@@ -11,6 +11,9 @@
 "d" = (
 /turf/closed/wall/mineral/abductor,
 /area/ruin/unpowered)
+"g" = (
+/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
+/area/lavaland/surface/outdoors)
 "j" = (
 /obj/machinery/abductor/experiment{
 	team_number = 100
@@ -98,9 +101,6 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/ruin/unpowered)
-"J" = (
-/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
-/area/lavaland/surface/outdoors)
 
 (1,1,1) = {"
 a
@@ -108,9 +108,9 @@ a
 a
 a
 a
-J
-J
-J
+g
+g
+g
 a
 a
 "}
@@ -118,53 +118,53 @@ a
 a
 a
 a
-J
-J
-J
-J
-J
-J
+g
+g
+g
+g
+g
+g
 a
 "}
 (3,1,1) = {"
 a
 a
-J
+g
 c
-J
-J
-J
-J
-J
-J
+g
+g
+g
+g
+g
+g
 "}
 (4,1,1) = {"
 a
-J
+g
 c
 d
-J
-J
-J
-J
-J
-J
+g
+g
+g
+g
+g
+g
 "}
 (5,1,1) = {"
 a
-J
+g
 d
 j
 k
 k
-J
+g
 y
 d
-J
+g
 "}
 (6,1,1) = {"
 a
-J
+g
 d
 k
 o
@@ -172,11 +172,11 @@ s
 v
 z
 d
-J
+g
 "}
 (7,1,1) = {"
-J
-J
+g
+g
 d
 l
 p
@@ -184,11 +184,11 @@ k
 w
 A
 d
-J
+g
 "}
 (8,1,1) = {"
-J
-J
+g
+g
 c
 d
 q
@@ -196,11 +196,11 @@ t
 q
 d
 c
-J
+g
 "}
 (9,1,1) = {"
-J
-J
+g
+g
 b
 c
 d
@@ -208,59 +208,59 @@ d
 d
 c
 b
-J
+g
 "}
 (10,1,1) = {"
 a
-J
+g
 b
 b
 b
 b
 b
 b
-J
-J
+g
+g
 "}
 (11,1,1) = {"
-J
-J
+g
+g
 b
 b
 b
 b
 b
 b
-J
-J
+g
+g
 "}
 (12,1,1) = {"
-J
-J
+g
+g
 b
 b
 b
 b
 b
 b
-J
-J
+g
+g
 "}
 (13,1,1) = {"
 a
-J
+g
 b
 b
 b
 b
 b
 b
-J
-J
+g
+g
 "}
 (14,1,1) = {"
 a
-J
+g
 b
 b
 b
@@ -268,7 +268,7 @@ b
 b
 b
 b
-J
+g
 "}
 (15,1,1) = {"
 a
@@ -279,7 +279,7 @@ b
 b
 b
 b
-J
+g
 a
 "}
 (16,1,1) = {"
@@ -291,7 +291,7 @@ b
 b
 b
 b
-J
+g
 a
 "}
 (17,1,1) = {"
@@ -303,7 +303,7 @@ b
 b
 b
 b
-J
+g
 a
 "}
 (18,1,1) = {"

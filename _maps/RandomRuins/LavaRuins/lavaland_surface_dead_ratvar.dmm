@@ -57,10 +57,6 @@
 /obj/structure/fluff/clockwork/alloy_shards/medium,
 /turf/open/floor/bronze/filled/lavaland,
 /area/ruin/unpowered/ratvar)
-"q" = (
-/obj/structure/fluff/clockwork/alloy_shards/small,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/template_noop)
 "r" = (
 /obj/structure/lattice,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -127,16 +123,20 @@
 /obj/item/stack/sheet/bronze/thirty,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ratvar)
-"H" = (
+"I" = (
 /obj/structure/fluff/clockwork/alloy_shards/large,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/template_noop)
+"J" = (
+/obj/structure/fluff/clockwork/alloy_shards/small,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/template_noop)
+"K" = (
+/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
+/area/ruin/unpowered/ratvar)
 "L" = (
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/template_noop)
-"Z" = (
-/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
-/area/ruin/unpowered/ratvar)
 
 (1,1,1) = {"
 a
@@ -172,7 +172,7 @@ a
 a
 a
 a
-H
+I
 L
 a
 h
@@ -756,7 +756,7 @@ j
 j
 l
 l
-q
+J
 l
 l
 b
@@ -873,7 +873,7 @@ a
 a
 b
 b
-Z
+K
 c
 b
 l
