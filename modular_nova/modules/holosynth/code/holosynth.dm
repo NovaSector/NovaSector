@@ -172,7 +172,7 @@
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = FA_ICON_NOTES_MEDICAL,
 		SPECIES_PERK_NAME = "Regenerator",
-		SPECIES_PERK_DESC = "Being made of light, your projector and controller will mend tears in your form and aerogel.",
+		SPECIES_PERK_DESC = "Being made of light, your projector and controller will mend tears in your form.",
 	))
 	return perks
 
@@ -180,10 +180,10 @@
 	return "Holosynths are a subtype of machines; they're made of soft-light, only semi-solid and dependant on a projection device."
 
 /datum/species/synthetic/holosynth/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
-	human_for_preview.set_haircolor("#F2501E", update = FALSE)
+	human_for_preview.set_haircolor("#D8D8D8", update = FALSE)
 	human_for_preview.set_hairstyle("Oxton", update = TRUE)
-	human_for_preview.set_hair_gradient_color("#FFCF39")
-	human_for_preview.set_hair_gradient_style("Fade Up")
+	human_for_preview.set_hair_gradient_color("#7C6AB7")
+	human_for_preview.set_hair_gradient_style("Wavy")
 	human_for_preview.dna.features["holo_color"] = "#ECB3DD"
 	human_for_preview.dna.features["holo_scanline"] = FALSE
 	human_for_preview.set_eye_color("#5AADD6")
@@ -194,15 +194,13 @@
 	human_for_preview.update_body(is_creating = TRUE)
 
 /datum/species/synthetic/holosynth/preview_icon_after_effects(datum/universal_icon/dummy_icon, mob/living/carbon/human/target)
-	var/list/visuals = get_holosynth_visual(target)
-	var/col = rgb(visuals["r"], visuals["g"], visuals["b"])
-	// we have to do all this because filters won't affect these icons
+	// we have to do all this manually for the sake of the preview because filters are terrible and won't reliably affect our flat icons
 
 	// tint
-	dummy_icon.blend_color(col, ICON_MULTIPLY)
+	dummy_icon.blend_color("#ECB3DD", ICON_MULTIPLY)
 	dummy_icon.swap_color(rgb(0, 143, 221), rgb(0, 0, 0, 0)) // get rid of the background color that got painted in by multiply
 	// opacity
-	dummy_icon.change_opacity(0.6)
+	dummy_icon.change_opacity(0.65)
 
 /datum/species/synthetic/holosynth/proc/get_holosynth_visual(mob/living/carbon/human/target)
 	var/list/rgb_list = rgb2num(read_color(target))
@@ -237,7 +235,7 @@
 /datum/species/synthetic/holosynth/proc/read_color(mob/living/carbon/human/target)
 	return target.client?.prefs?.read_preference(/datum/preference/color/mutant/holosynth_color) \
 		|| target.dna?.features["holo_color"] \
-		|| rgb(125, 180, 225)
+		|| isdummy(target) ? null : rgb(125, 180, 225)
 
 /datum/species/synthetic/holosynth/proc/read_opacity(mob/living/carbon/human/target)
 	var/raw = target.dna?.features["holo_transparency"]
