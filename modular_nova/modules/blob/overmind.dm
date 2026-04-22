@@ -20,7 +20,7 @@
 
 			// Clear the biohazard emergency display when blob is defeated - async to avoid blocking
 			INVOKE_ASYNC(src, PROC_REF(clear_biohazard_display))
-//
+
 			qdel(src)
 	else if(!victory_in_progress && (blobs_legit.len >= blobwincount))
 		victory_in_progress = TRUE
