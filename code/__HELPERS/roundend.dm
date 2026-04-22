@@ -465,7 +465,7 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 	for(var/client/C in GLOB.clients)
 		//show_roundend_report(C) // NOVA EDIT REMOVAL - Disables automatically seeing the roundend report
 		// NOVA EDIT ADDITION START - Still saves the report to disk so it appears when you use the Your Last Round verb
-		// (if we don't do this, it'll show the last report when they pressed the report button, which is non ideal)
+		// (if we don't do this, it'll show the last report they viewed using the action/chat link, which is non ideal)
 		var/list/report_parts = list(personal_report(C), GLOB.common_report)
 		var/filename = C.roundend_report_file()
 		fdel(filename)
