@@ -1,0 +1,4 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - bugfix: "[NOVA] There are no longer two options for ghost runechat, and an admin button that claims to disable it but doesn't."
