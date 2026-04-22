@@ -269,7 +269,7 @@
 /turf/closed/mineral/random/snow/mineral_chances()
 	return ..() + list(
 		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
-	s)
+	)
 
 /turf/closed/mineral/random/snow/underground
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
