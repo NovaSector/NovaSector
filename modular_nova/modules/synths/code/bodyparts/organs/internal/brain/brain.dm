@@ -7,7 +7,6 @@
 	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves. It has an IPC serial number engraved on the top. It is usually slotted into the chest of synthetic crewmembers."
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "posibrain-ipc"
-	base_icon_state = "posibrain-ipc"
 	brain_size = 0.8 // *compact* posibrain
 	/// The last time (in ticks) a message about brain damage was sent. Don't touch.
 	var/last_message_time = 0
@@ -87,9 +86,9 @@
 /obj/item/organ/brain/synth/update_icon_state()
 	. = ..()
 	if(brainmob?.key)
-		icon_state = "[base_icon_state]-occupied"
+		icon_state = "[src::name]-occupied"
 		return
-	icon_state = "[base_icon_state]"
+	icon_state = "[src::name]"
 	return
 
 /datum/design/synth_posi
