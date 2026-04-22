@@ -19,12 +19,6 @@
 		to_chat(user, span_warning("You've already asked the AI about this door recently."))
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-	// Lazy cleanup: prune any expired entries now so the list stays bounded across a shift.
-	var/cutoff = world.time - DOOR_AI_REQUEST_COOLDOWN
-	for(var/key in requesters)
-		if(requesters[key] < cutoff)
-			requesters -= key
-
 	. = ..()
 
 	if(!hasPower())
@@ -47,6 +41,14 @@
 			continue
 		to_chat(AI, "<b><a href='byond://?src=[REF(AI)];track=[html_encode(user.name)]'>[user]</a></b> is requesting you to open the [src] [LINK_DENY][LINK_OPEN][LINK_BOLT][LINK_SHOCK].")
 	requesters[request_key] = world.time
+	addtimer(CALLBACK(src, PROC_REF(clear_stale_requester), request_key, world.time), DOOR_AI_REQUEST_COOLDOWN)
+
+/// Clears a `requesters` entry only if its timestamp still matches `set_at`, so a renewed
+/// cooldown (same player re-requests the same door, or the sibling early-clear on open) isn't
+/// wiped by a stale timer.
+/obj/machinery/door/airlock/proc/clear_stale_requester(key, set_at)
+	if(requesters[key] == set_at)
+		requesters -= key
 
 #undef LINK_DENY
 #undef LINK_OPEN
