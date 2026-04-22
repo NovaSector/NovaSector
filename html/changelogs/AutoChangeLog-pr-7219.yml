@@ -1,0 +1,4 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - bugfix: "[NOVA] The report shown by the Your Last Round verb will be updated if you're connected when the round ends, instead of only being updated if you manually viewed the roundend report. This is how it behaves on TG."
