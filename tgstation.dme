@@ -8457,6 +8457,7 @@
 #include "modular_nova\modules\holosynth\code\holosynth.dm"
 #include "modular_nova\modules\holosynth\code\holosynth_prefs.dm"
 #include "modular_nova\modules\holosynth\code\holosynth_projector.dm"
+#include "modular_nova\modules\holosynth\code\holosynth_wounds.dm"
 #include "modular_nova\modules\hop_drip\code\head_of_personnel.dm"
 #include "modular_nova\modules\horrorform\code\horror_form.dm"
 #include "modular_nova\modules\horrorform\code\true_changeling.dm"

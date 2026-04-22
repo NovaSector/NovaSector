@@ -1,5 +1,12 @@
 /// How far a holosynth can stray from their projector pen
 #define HOLOSYNTH_RANGE 9
+/// Tiles around the pen within which its aura heals.
+#define HOLOSYNTH_AURA_RANGE 1
+/// Intensity (deciseconds) the pen aura subtracts from electrical-damage wounds per real second.
+/// Must outpace the wound's own progression (~10 ds/sec) to actually heal.
+#define HOLOSYNTH_WOUND_HEAL_RATE_DS 12
+/// Seconds of in-range pen exposure needed to dissolve a non-intensity synth wound
+#define HOLOSYNTH_WOUND_RESOLVE_SECONDS 15
 
 /obj/item/holosynth_pen
 	name = "holosynth projector-magnet combo"
@@ -51,12 +58,14 @@
 		linked_mob_ref = null
 
 	AddComponent(\
-		/datum/component/aura_healing,\
-		range = 1,\
+		/datum/component/aura_healing/holosynth,\
+		range = HOLOSYNTH_AURA_RANGE,\
 		brute_heal = 1,\
 		burn_heal = 1.5,\
 		simple_heal = 1.2,\
 		wound_clotting = 0.1,\
+		wound_intensity_heal = HOLOSYNTH_WOUND_HEAL_RATE_DS,\
+		wound_resolve_seconds = HOLOSYNTH_WOUND_RESOLVE_SECONDS,\
 		organ_healing = list(ORGAN_SLOT_BRAIN = 1, ORGAN_SLOT_HEART = 0.5, ORGAN_SLOT_EARS = 1, ORGAN_SLOT_EYES = 1, ORGAN_SLOT_TONGUE = 1.5),\
 		requires_visibility = FALSE,\
 		limit_to_trait = TRAIT_HOLOSYNTH,\
@@ -135,6 +144,49 @@
 			span_userdanger("You feel your projector being destroyed! You start to fade away!"),
 		)
 	return ..()
+
+/// aura_healing subclass that also resolves holosynth-style wounds on candidates in range.
+/// Inherits all the base healing knobs (brute/burn/organs/etc.) and adds two synth-wound knobs:
+/// * wound_intensity_heal — deciseconds of electrical-damage intensity drained per second.
+/// * wound_resolve_seconds — seconds of exposure needed to dissolve a non-intensity synth wound (muscle/burn/blunt).
+/datum/component/aura_healing/holosynth
+	var/wound_intensity_heal = 0
+	var/wound_resolve_seconds = 0
+
+/datum/component/aura_healing/holosynth/Initialize(
+	range = 5,
+	requires_visibility = TRUE,
+	brute_heal = 0,
+	burn_heal = 0,
+	toxin_heal = 0,
+	suffocation_heal = 0,
+	stamina_heal = 0,
+	blood_heal = 0,
+	wound_clotting = 0,
+	organ_healing = null,
+	simple_heal = 0,
+	limit_to_trait = null,
+	healing_color = COLOR_GREEN,
+	self_heal = TRUE,
+	wound_intensity_heal = 0,
+	wound_resolve_seconds = 0,
+)
+	. = ..()
+	if(. == COMPONENT_INCOMPATIBLE)
+		return
+	src.wound_intensity_heal = wound_intensity_heal
+	src.wound_resolve_seconds = wound_resolve_seconds
+
+/datum/component/aura_healing/holosynth/process(seconds_per_tick)
+	. = ..()
+
+	var/list/candidates = requires_visibility ? view(range, parent) : range(range, parent)
+	for(var/mob/living/carbon/candidate in candidates)
+		if(limit_to_trait && !HAS_TRAIT(candidate, limit_to_trait))
+			continue
+		for(var/datum/wound/iter_wound as anything in candidate.all_wounds)
+			if(GLOB.holosynth_wound_flavor[iter_wound.type])
+				iter_wound.holo_aura_tick(seconds_per_tick, wound_intensity_heal, wound_resolve_seconds)
 
 /obj/item/holosynth_pen/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	return try_set_saved_loc(interacting_with, user)
@@ -215,3 +267,6 @@
 	owner.gib(DROP_BRAIN & DROP_ITEMS)
 
 #undef HOLOSYNTH_RANGE
+#undef HOLOSYNTH_AURA_RANGE
+#undef HOLOSYNTH_WOUND_HEAL_RATE_DS
+#undef HOLOSYNTH_WOUND_RESOLVE_SECONDS
