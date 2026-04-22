@@ -54,8 +54,8 @@
 /datum/supply_pack/companies/ballistics/nt/c96
 	name = "NT M-96"
 	desc = "Hot off the assembly line and right into your holster, this modern reproduction of the classic C96 is chambered in 9mm. Comes stripper clips in a nifty carrying case."
-	cost = CARGO_CRATE_VALUE * 4.5
-	contains = list(/obj/item/storage/toolbox/guncase/nova/ntspecial/pistol/c96)
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(/obj/item/gun/ballistic/rifle/c96)
 	auto_name = FALSE
 	access = FALSE
 	access_view = FALSE
