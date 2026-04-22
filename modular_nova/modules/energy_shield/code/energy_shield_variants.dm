@@ -5,7 +5,7 @@
 		Marketed towards frontier merchants, long-haul freight crews, and civilian colonists operating beyond reliable law enforcement coverage. \
 		While its modest output won't stop military ordnance, it has saved enough lives to become standard kit in most frontier outfitters."
 	max_shield_health = 50
-	recharge_delay = 10 SECONDS
+	recharge_delay = 20 SECONDS
 	recharge_rate = 5
 	shield_color = "#88ccff"
 
