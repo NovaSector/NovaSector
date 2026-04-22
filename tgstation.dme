@@ -1910,6 +1910,8 @@
 #include "code\datums\mapgen\CaveGenerator.dm"
 #include "code\datums\mapgen\JungleGenerator.dm"
 #include "code\datums\mapgen\biomes\_biome.dm"
+#include "code\datums\mapgen\biomes\jungle.dm"
+#include "code\datums\mapgen\biomes\lavaland.dm"
 #include "code\datums\mapgen\Cavegens\IcemoonCaves.dm"
 #include "code\datums\mapgen\Cavegens\LavalandGenerator.dm"
 #include "code\datums\martial\_martial.dm"
@@ -7318,8 +7320,11 @@
 #include "modular_nova\master_files\code\modules\client\preferences\mutant_parts.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\out_of_combat_fov_darkness.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\player_panel.dm"
+<<<<<<< add-lewd
 #include "modular_nova\master_files\code\modules\client\preferences\runechat.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\scent_taste.dm"
+=======
+>>>>>>> master
 #include "modular_nova\master_files\code\modules\client\preferences\scream.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\sensitive_snout.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\sounds.dm"
@@ -8343,7 +8348,6 @@
 #include "modular_nova\modules\customization\modules\taur_mechanics\code\saddles.dm"
 #include "modular_nova\modules\customization\modules\taur_mechanics\code\taur_clothing_offset.dm"
 #include "modular_nova\modules\customization\subsystem\sprite_accessories.dm"
-#include "modular_nova\modules\dchat_runechat\verb.dm"
 #include "modular_nova\modules\death_consequences_perk\death_consequences.dm"
 #include "modular_nova\modules\death_consequences_perk\death_consequences_trauma.dm"
 #include "modular_nova\modules\deathmatch\deathmatch_loadouts.dm"
@@ -9011,6 +9015,9 @@
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\ammo\pistol.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\ammo\rifle.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\conversion_kits.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\gunsets.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\magazines.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\pistol.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\revolver.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\shotgun.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\speedloaders.dm"
