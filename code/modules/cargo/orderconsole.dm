@@ -165,9 +165,8 @@
 /**
  * returns a list of supply packs for a certain group
  * * group - the group of packs to return
- * * express - if this is an express console
  */
-/obj/machinery/computer/cargo/proc/get_packs_data(group, express = FALSE)
+/obj/machinery/computer/cargo/proc/get_packs_data(group)
 	var/list/packs = list()
 	for(var/pack_id in SSshuttle.supply_packs)
 		var/datum/supply_pack/pack = SSshuttle.supply_packs[pack_id]
@@ -177,23 +176,24 @@
 		if(pack.order_flags & ORDER_INVISIBLE)
 			continue
 
-		// Express console packs check
-		if(express && (pack.order_flags & (ORDER_EMAG_ONLY | ORDER_SPECIAL)))
+		if((pack.order_flags & ORDER_EMAG_ONLY) && !(obj_flags & EMAGGED))
 			continue
-
-		if(!express && (((pack.order_flags & ORDER_EMAG_ONLY) && !(obj_flags & EMAGGED)) || ((pack.order_flags & ORDER_SPECIAL) && !(pack.order_flags & ORDER_SPECIAL_ENABLED)) || (pack.order_flags & ORDER_POD_ONLY)))
+		if((pack.order_flags & ORDER_SPECIAL) && !(pack.order_flags & ORDER_SPECIAL_ENABLED))
 			continue
 
 		if((pack.order_flags & ORDER_CONTRABAND) && !contraband)
 			continue
 
+		if(!is_express && (pack.order_flags & ORDER_POD_ONLY))
+			continue
 		// NOVA EDIT ADDITION START
-		if (express && pack.express_lock && !bypass_express_lock)
+		if (is_express && pack.express_lock && !bypass_express_lock)
 			continue
 
 		if(!(pack.console_flag & console_flag))
 			continue
 		// NOVA EDIT ADDITION END
+
 		var/obj/item/first_item = length(pack.contains) > 0 ? pack.contains[1] : null
 		packs += list(list(
 			"name" = pack.name,
