@@ -1,4 +1,0 @@
-author: "1393F"
-delete-after: True
-changes:
-  - bugfix: "The wooden bowl no longer turns invisible upon being filled with a reagent."
