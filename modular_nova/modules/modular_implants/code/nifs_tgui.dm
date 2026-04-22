@@ -57,6 +57,7 @@
 	data["max_blood_level"] = linked_mob.blood_volume_normal
 	data["product_notes"] = manufacturer_notes
 	data["stored_points"] = rewards_points
+	data["default_examine_text"] = /datum/component/nif_examine::nif_examine_text
 
 	return data
 
@@ -80,6 +81,13 @@
 	//Durability Variables.
 	data["durability"] = durability
 
+	var/datum/component/nif_examine/examine_datum = linked_mob.GetComponent(/datum/component/nif_examine)
+
+	if(examine_datum && examine_datum.nif_examine_text != initial(examine_datum.nif_examine_text))
+		data["current_examine_text"] = examine_datum.nif_examine_text
+	else
+		data["current_examine_text"] = null
+
 	return data
 
 /obj/item/organ/cyberimp/brain/nif/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -102,7 +110,7 @@
 				return FALSE
 
 			if(!text_to_use || length(text_to_use) <= 6)
-				examine_datum.nif_examine_text = "There's a certain spark to their eyes."
+				examine_datum.nif_examine_text = initial(examine_datum.nif_examine_text)
 				return FALSE
 
 			examine_datum.nif_examine_text = text_to_use
