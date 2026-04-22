@@ -247,18 +247,9 @@
 	mineral_chance = 5
 
 /turf/closed/mineral/random/volcanic/mineral_chances()
-	return list(
-		/obj/item/stack/ore/iron = 40,
-		/obj/item/stack/ore/plasma = 20,
-		/obj/item/stack/ore/silver = 12,
-		/obj/item/stack/ore/titanium = 11,
-		/obj/item/stack/ore/gold = 10,
+	return ..() + list(
 		/turf/closed/mineral/strange_rock/volcanic = 1,
-		/obj/item/stack/ore/uranium = 5,
-		/turf/closed/mineral/gibtonite/volcanic = 4,
-		/obj/item/stack/ore/diamond = 1,
-		/obj/item/stack/ore/bluespace_crystal = 1
-		)
+	)
 
 /turf/closed/mineral/strange_rock/ice
 	MAP_SWITCH(, icon_state = "icerock_strange")
@@ -276,18 +267,9 @@
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
 /turf/closed/mineral/random/snow/mineral_chances()
-	return list(
-		/obj/item/stack/ore/iron = 40,
-		/obj/item/stack/ore/plasma = 20,
-		/obj/item/stack/ore/silver = 12,
-		/obj/item/stack/ore/titanium = 11,
-		/obj/item/stack/ore/gold = 10,
+	return ..() + list(
 		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
-		/obj/item/stack/ore/uranium = 5,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
-		/obj/item/stack/ore/diamond = 1,
-		/obj/item/stack/ore/bluespace_crystal = 1,
-		)
+	s)
 
 /turf/closed/mineral/random/snow/underground
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
@@ -295,19 +277,9 @@
 	mineral_chance = 10
 
 /turf/closed/mineral/random/snow/underground/mineral_chances()
-	return list(
-		/obj/item/stack/ore/silver = 24,
-		/obj/item/stack/ore/titanium = 22,
-		/obj/item/stack/ore/gold = 20,
-		/obj/item/stack/ore/plasma = 20,
-		/obj/item/stack/ore/iron = 20,
-		/obj/item/stack/ore/uranium = 10,
+	return ..() + list(
 		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 8,
-		/obj/item/stack/ore/diamond = 4,
-		/obj/item/stack/ore/bluespace_crystal = 2,
-		/obj/item/stack/ore/bananium = 1,
-		)
+	)
 
 //small gibonite fix
 /turf/closed/mineral/gibtonite/asteroid
