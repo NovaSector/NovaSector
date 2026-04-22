@@ -9,7 +9,11 @@
 		return FALSE
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		return FALSE
-	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+	if(CONFIG_GET(flag/disable_pregnancy))
+		return FALSE
+	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
+		return FALSE
+	return preferences.read_preference(/datum/preference/toggle/master_pregnancy_preferences)
 
 /datum/preference/numeric/pregnancy/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -23,7 +27,11 @@
 		return FALSE
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		return FALSE
-	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+	if(CONFIG_GET(flag/disable_pregnancy))
+		return FALSE
+	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
+		return FALSE
+	return preferences.read_preference(/datum/preference/toggle/master_pregnancy_preferences)
 
 /datum/preference/toggle/pregnancy/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -37,7 +45,11 @@
 		return FALSE
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		return FALSE
-	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+	if(CONFIG_GET(flag/disable_pregnancy))
+		return FALSE
+	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
+		return FALSE
+	return preferences.read_preference(/datum/preference/toggle/master_pregnancy_preferences)
 
 /datum/preference/choiced/pregnancy/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE

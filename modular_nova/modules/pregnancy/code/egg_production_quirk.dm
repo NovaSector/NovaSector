@@ -8,6 +8,8 @@
 	medical_record_text = "Patient possesses the capability to produce eggs."
 
 /datum/quirk/egg_production/add(client/client_source)
+	if(CONFIG_GET(flag/disable_oviparity))
+		return
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/datum/action/cooldown/spell/egg_production/action = new /datum/action/cooldown/spell/egg_production()
 	action.Grant(human_holder)
@@ -30,7 +32,7 @@
 
 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
 
-	var/obj/item/food/egg/egg
+	var/obj/item/food/oviparity_egg/egg
 	var/eggs_stored = 0
 	var/can_produce = TRUE
 	var/maximum_eggs = EGG_PRODUCTION_MAX_EGGS
@@ -147,3 +149,16 @@
 	owner.put_in_hands(egg)
 	owner.visible_message(span_noticealien("[owner] laid an egg!"), span_alertalien("You laid an egg!"))
 	return TRUE
+
+/// Eggs laid via Oviparity. Deliberately *not* a subtype of `/obj/item/food/egg` so can't be used as a food item.
+/obj/item/food/oviparity_egg
+	name = "laid egg"
+	desc = "An egg, freshly laid and too warm to use in normal cooking."
+	icon = 'icons/obj/food/egg.dmi'
+	icon_state = "egg"
+	inhand_icon_state = "egg"
+	food_reagents = list(/datum/reagent/water = 6)
+	// No EGG foodtype flag — keeps recipes that match on foodtype from treating this as an egg.
+	foodtypes = MEAT | RAW
+	w_class = WEIGHT_CLASS_TINY
+	ant_attracting = FALSE

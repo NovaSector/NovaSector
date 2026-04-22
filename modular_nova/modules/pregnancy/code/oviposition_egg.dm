@@ -45,6 +45,8 @@ GLOBAL_LIST_INIT(pregnancy_egg_skins, list( \
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	uses_integrity = TRUE
 	integrity_failure = 0.5
+	// Inert sac of fluid — overrides /obj/item/food/egg's eggwhite/eggyolk reagents.
+	food_reagents = list(/datum/reagent/water = 6)
 
 /obj/item/food/egg/oviposition/update_icon_state()
 	. = ..()

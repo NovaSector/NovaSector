@@ -4,6 +4,36 @@
 /datum/config_entry/flag/disable_lewd_items
 	default = FALSE
 
+/// Disables the pregnancy mechanic server-wide
+/datum/config_entry/flag/disable_pregnancy
+	default = FALSE
+
+/// Disables the Oviparity quirk server-wide
+/datum/config_entry/flag/disable_oviparity
+	default = FALSE
+
+/// Player-scoped toggle for showing pregnancy-related character prefs. Independent of master ERP
+/// so a player who wants ERP but not pregnancy content can hide the whole group.
+/datum/preference/toggle/master_pregnancy_preferences
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	savefile_identifier = PREFERENCE_PLAYER
+	savefile_key = "master_pregnancy_pref"
+	default_value = TRUE
+
+/datum/preference/toggle/master_pregnancy_preferences/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+	if(CONFIG_GET(flag/disable_pregnancy))
+		return FALSE
+	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
+
+/datum/preference/toggle/master_pregnancy_preferences/deserialize(input, datum/preferences/preferences)
+	if(CONFIG_GET(flag/disable_erp_preferences) || CONFIG_GET(flag/disable_pregnancy))
+		return FALSE
+	. = ..()
+
 /datum/config_entry/str_list/erp_emotes_to_disable
 
 /datum/config_entry/str_list/erp_emotes_to_disable/ValidateAndSet(str_val)

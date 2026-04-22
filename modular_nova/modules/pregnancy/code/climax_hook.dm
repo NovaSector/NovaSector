@@ -1,6 +1,8 @@
 /// Call on the cum-giver after they finish inside a partner. Rolls the partner's pregnancy-chance pref
 /// against the insemination-route toggle for that orifice, applying the pregnancy status effect on success.
 /mob/living/carbon/human/proc/try_pregnancy_from_climax(mob/living/carbon/human/target, climax_into_choice)
+	if(CONFIG_GET(flag/disable_pregnancy))
+		return
 	if(!ishuman(target) || target == src)
 		return
 	if(HAS_TRAIT(src, TRAIT_INFERTILE) || HAS_TRAIT(target, TRAIT_INFERTILE))
