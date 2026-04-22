@@ -123,6 +123,7 @@
 		flavor_text = " Do your best to help the station.", \
 		important_text = "While not being lawbound as cyborgs or AIs, your continued existence is still in hands of your creators, so try to behave well! You are not an antagonist but can still roll for one.", \
 	)
+	return new_posi
 
 /datum/design/synth_posi/proc/on_successful_revive(obj/item/organ/brain/synth/our_posi)
 	var/mob/living/carbon/human/owner = our_posi.owner
