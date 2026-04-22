@@ -185,7 +185,6 @@
 	human_for_preview.set_hair_gradient_color("#7C6AB7")
 	human_for_preview.set_hair_gradient_style("Wavy")
 	human_for_preview.dna.features["holo_color"] = "#ECB3DD"
-	human_for_preview.dna.features["holo_scanline"] = FALSE
 	human_for_preview.set_eye_color("#5AADD6")
 	human_for_preview.dna.mutant_bodyparts[FEATURE_SYNTH_HEAD] = build_mutant_part("Human Head", list("#EDCDB0"))
 	human_for_preview.dna.mutant_bodyparts[FEATURE_SYNTH_CHASSIS] = build_mutant_part("Human Chassis", list("#EDCDB0"))
@@ -194,11 +193,13 @@
 	human_for_preview.update_body(is_creating = TRUE)
 
 /datum/species/synthetic/holosynth/preview_icon_after_effects(datum/universal_icon/dummy_icon, mob/living/carbon/human/target)
-	// we have to do all this manually for the sake of the preview because filters are terrible and won't reliably affect our flat icons
+	// we have to do all this manually for the sake of the preview because render_targets are terrible
+
+	var/datum/icon_transformer/transform = dummy_icon.transform // We are going to surgically excise the scanlines render_target from the layers of the uni_icon
+	transform.transforms.Cut(1, 2) // It's always going to be at the front of the list
 
 	// tint
 	dummy_icon.blend_color("#ECB3DD", ICON_MULTIPLY)
-	dummy_icon.swap_color(rgb(0, 143, 221), rgb(0, 0, 0, 0)) // get rid of the background color that got painted in by multiply
 	// opacity
 	dummy_icon.change_opacity(0.65)
 
@@ -235,7 +236,7 @@
 /datum/species/synthetic/holosynth/proc/read_color(mob/living/carbon/human/target)
 	return target.client?.prefs?.read_preference(/datum/preference/color/mutant/holosynth_color) \
 		|| target.dna?.features["holo_color"] \
-		|| isdummy(target) ? null : rgb(125, 180, 225)
+		|| rgb(125, 180, 225)
 
 /datum/species/synthetic/holosynth/proc/read_opacity(mob/living/carbon/human/target)
 	var/raw = target.dna?.features["holo_transparency"]
@@ -243,7 +244,7 @@
 
 /datum/species/synthetic/holosynth/proc/read_scanline(mob/living/carbon/human/target)
 	var/feature = target.dna?.features["holo_scanline"]
-	return isnull(feature) ? isdummy(target) ? FALSE : TRUE : feature
+	return isnull(feature) ? TRUE : feature
 
 // -- Runtime verbs -------------------------------------------------------
 // Added on species gain, removed on species loss. Both update the dna feature and ask the species to refresh.
