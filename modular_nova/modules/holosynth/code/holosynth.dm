@@ -223,9 +223,13 @@
 	target.remove_filter("HOLO: Scanline")
 	if(!read_scanline(target))
 		return
+	// Use a 64x64 scanline so the alpha-mask filter covers oversized mutant overlays (wings, halos, ears).
+	// pixel_x/y re-centers the enlarged tile over the mob's body.
 	var/atom/movable/scanline = new(null)
-	scanline.icon = 'icons/effects/effects.dmi'
+	scanline.icon = 'modular_nova/modules/holosynth/icons/scanline_64.dmi'
 	scanline.icon_state = "scanline"
+	scanline.pixel_x = -16
+	scanline.pixel_y = -16
 	scanline.appearance_flags |= RESET_TRANSFORM
 	var/static/uid = 0
 	scanline.render_target = "*HoloScanline [uid++]"
