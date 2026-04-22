@@ -592,3 +592,14 @@
   - bugfix: fixes windows airbags smoke
   - bugfix: changing your gender choice in character prefs no longer modifies your
       physique preference
+2026-04-21:
+  Happyowl93:
+  - bugfix: chameleon items work again
+  Hatterhat:
+  - rscadd: Nanotrasen Central Command Research and Development has begun field-testing
+      of hybrid alloy tools. Bother your local Research department (after they have
+      alien tech) to grab a piece of assimilative superalloy and combine it with the
+      relevant tools to experience the far future's cutting edge of tool technology.
+  obvious650-source:
+  - rscadd: NT M-96, new 10mm pistol based on the C96 but in SPACE
+  - rscadd: New Condo called 'Snowy Cabin'
