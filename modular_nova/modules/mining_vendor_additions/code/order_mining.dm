@@ -21,7 +21,7 @@
 	cost_per_order = 500
 
 /datum/orderable_item/interdyne/mining_AoE
-	purchase_path = /obj/item/borg/upgrade/modkit/aoe/turfs
+	purchase_path = /obj/item/borg/upgrade/modkit/cooldown/aoe/turfs
 	cost_per_order = 750
 
 /datum/orderable_item/interdyne/night_vision_health_meson
