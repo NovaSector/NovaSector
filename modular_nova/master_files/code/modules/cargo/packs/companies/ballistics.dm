@@ -56,6 +56,11 @@
 	desc = "Hot off the assembly line and right into your holster, this modern reproduction of the classic C96 is chambered in 9mm."
 	cost = CARGO_CRATE_VALUE * 4
 	contains = list(/obj/item/gun/ballistic/rifle/c96)
+	auto_name = FALSE
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
+	order_flags = ORDER_COMPANY
 
 // Sol Fed Weapons
 /datum/supply_pack/companies/ballistics/sol_fed
@@ -106,15 +111,6 @@
 	access = FALSE
 	access_view = FALSE
 	express_lock = FALSE
-
-/datum/supply_pack/companies/ballistics/aetheon_arms/mp5
-	name = "Aetheon Arms M-94 'Rapier' Submachinegun"
-	desc = "An elegant weapon from a long ago age brought back from the dead. Automatic and magazine fed with a high cyclic rate. For when you need to breach a ship and paint it red. Chambered in 4.6x30mm."
-	cost = CARGO_CRATE_VALUE * 6
-	contains = list(/obj/item/gun/ballistic/automatic/mp5)
-	auto_name = FALSE
-	access_view = FALSE
-
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/renoster
 	contains = list(/obj/item/gun/ballistic/shotgun/riot/sol)
