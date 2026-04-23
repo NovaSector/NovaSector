@@ -9,7 +9,7 @@ type CrewMember = { name: string; job: string };
 
 type CryopodConsoleData = {
   frozen_crew: CrewMember[];
-  item_ref_list: ItemRef[];
+  item_ref_list: string[];
   item_ref_name: Record<string, string>;
   item_retrieval_allowed: BooleanLike;
 };
