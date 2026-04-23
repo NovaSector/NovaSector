@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "'load prefs onto mob' will now fully reset and apply the client's current slot prefs to the mob, including quirks and size"
