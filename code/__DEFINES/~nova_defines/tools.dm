@@ -2,3 +2,4 @@
 #define TOOL_TONG "tong"
 #define TOOL_HAMMER "hammer"
 #define TOOL_BLOWROD "blowrod"
+#define TOOL_ALIEN_BONESET "alien bonesetter"

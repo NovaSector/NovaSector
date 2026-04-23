@@ -349,7 +349,7 @@
 		emissive_left.appearance_flags &= ~RESET_TRANSFORM
 		emissive_right.appearance_flags &= ~RESET_TRANSFORM
 
-		if(head.worn_face_offset)
+		if(head?.worn_face_offset)
 			head.worn_face_offset.apply_offset(emissive_right)
 			head.worn_face_offset.apply_offset(emissive_left)
 
