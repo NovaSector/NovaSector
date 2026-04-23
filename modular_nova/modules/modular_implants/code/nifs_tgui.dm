@@ -138,6 +138,7 @@
 				return FALSE
 
 			activated_nifsoft.activate()
+			return TRUE
 
 		if("toggle_keeping_nifsoft")
 			var/datum/nifsoft/nifsoft_to_keep = locate(params["nifsoft_to_keep"]) in loaded_nifsofts
@@ -145,4 +146,4 @@
 				return FALSE
 
 			nifsoft_to_keep.keep_installed = !nifsoft_to_keep.keep_installed
-			update_static_data_for_all_viewers()
+			return TRUE

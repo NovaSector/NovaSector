@@ -62,7 +62,7 @@ export function NifPowerBar() {
         bad: [0, max_power * 0.33],
       }}
     >
-      {(power_level / max_power) * 100 +
+      {Math.trunc((power_level / max_power) * 100) +
         '%' +
         ' (' +
         (power_usage / max_power) * 100 +
