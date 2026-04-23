@@ -11,7 +11,7 @@
 	var/cooldown_timer = 0
 	///Assoc list of ckeys and their links, used to cut down on chat spam
 	var/list/stored_links = list()
-	var/static/link_regex = regex(@"i\.gyazo.com|.\.l3n\.co|images2\.imgbox\.com|thumbs2\.imgbox\.com|files\.byondhome\.com")
+	var/static/link_regex = regex(@"i\.gyazo\.com|.\.l3n\.co|images2\.imgbox\.com|thumbs2\.imgbox\.com|files\.byondhome\.com")
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
 
 /datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
