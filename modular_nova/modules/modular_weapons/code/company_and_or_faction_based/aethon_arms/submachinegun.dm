@@ -16,7 +16,7 @@
 
 /obj/item/gun/ballistic/automatic/mp5/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_AETHEON)
-	lore_blurb = "Manufactured by the upstart Aethon Arms Company, a subdivison of Hephaestus Heavy Industries, this is a ressurection of an old Terran design \
+	lore_blurb = "Manufactured by the, at the time, upstart Aethon Arms Company, a now subdivison of Hephaestus Heavy Industries, this is a ressurection of an old Terran design \
 		used by an absurd number of both state and non-state armed forces and paramilitary groups. In a bid to secure \
 		a highly lucrative arms contract with Nanotrasen, Aethon Arms re-engineered the design around the 4.6x30mm caliber, \
 		which was already in circulation and supply networds due to the outdated WT-550's formerly widespread use. While never adopted in any official capacity by Nanotrasen, \
