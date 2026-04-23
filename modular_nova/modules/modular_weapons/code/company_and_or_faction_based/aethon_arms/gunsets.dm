@@ -1,5 +1,5 @@
-// MP5 in 4.6x30mm, in SPACE
-/obj/item/storage/toolbox/guncase/nova/red/mp5
+// High RoF lower damage, full auto
+/obj/item/storage/toolbox/guncase/nova/red/rapier
 	name = "\improper Aetheon Arms 'Rapier' gunset"
-	weapon_to_spawn = /obj/item/gun/ballistic/automatic/mp5
-	extra_to_spawn = /obj/item/ammo_box/magazine/mp5
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/rapier
+	extra_to_spawn = /obj/item/ammo_box/magazine/rapier
