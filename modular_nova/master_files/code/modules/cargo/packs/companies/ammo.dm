@@ -51,6 +51,14 @@
 	auto_name = FALSE
 	contains = list(/obj/item/ammo_box/speedloader/c96/empty)
 
+// Aetheon Arms Mags
+
+/datum/supply_pack/companies/mags_and_ammo/aa/mp5
+	name = "M-94 'Rapier' Submachinegun Magazine Single-Pack"
+	desc = "Contains one standard M-94 'Rapier' Submachinegun magazine."
+	auto_name = FALSE
+	contains = list(/obj/item/ammo_box/magazine/mp5)
+
 // Sol Fed Mags
 
 /datum/supply_pack/companies/mags_and_ammo
