@@ -2,7 +2,6 @@
 import { useBackend } from 'tgui/backend';
 import {
   BlockQuote,
-  Box,
   Button,
   Collapsible,
   Stack,
