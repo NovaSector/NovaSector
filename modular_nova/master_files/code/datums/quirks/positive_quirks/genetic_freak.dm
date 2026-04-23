@@ -78,7 +78,7 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	if (!.)
 		return FALSE
 
-	return "Genetic Mutation" in preferences.all_quirks
+	return /datum/quirk/genetic_mutation::name in preferences.all_quirks
 
 /// Helper proc to check if a mutation is restricted for a given species
 /// Returns TRUE if the mutation is restricted (not allowed), FALSE otherwise

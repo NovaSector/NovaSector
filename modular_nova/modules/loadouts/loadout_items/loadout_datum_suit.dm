@@ -28,6 +28,10 @@
 	name = "Czech Coat"
 	item_path = /obj/item/clothing/suit/modernwintercoatthing
 
+/datum/loadout_item/suit/henchcoat
+	name = "Henchmen Coat"
+	item_path = /obj/item/clothing/suit/jacket/henchmen_coat
+
 /datum/loadout_item/suit/korea
 	name = "Eastern Coat"
 	item_path = /obj/item/clothing/suit/koreacoat

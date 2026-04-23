@@ -62,42 +62,44 @@
 		. += span_notice("The status display reads: Charging power: <b>[display_power(charge_rate, convert = FALSE)]</b> per cell.")
 	. += span_notice("Alt click it to remove all the cells at once!")
 
-/obj/machinery/cell_charger_multi/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/stock_parts/power_store/cell) && !panel_open)
-		if(machine_stat & BROKEN)
-			to_chat(user, span_warning("[src] is broken!"))
-			return
-		if(!anchored)
-			to_chat(user, span_warning("[src] isn't attached to the ground!"))
-			return
-		var/obj/item/stock_parts/power_store/cell/inserting_cell = attacking_item
-		if(inserting_cell.chargerate <= 0)
-			to_chat(user, span_warning("[inserting_cell] cannot be recharged!"))
-			return
-		if(LAZYLEN(charging_batteries) >= max_batteries)
-			to_chat(user, span_warning("[src] is full, and cannot hold anymore cells!"))
-			return
-		else
-			var/area/current_area = loc.loc // Gets our locations location, like a dream within a dream
-			if(!isarea(current_area))
-				return
-			if(current_area.power_equip == 0) // There's no APC in this area, don't try to cheat power!
-				to_chat(user, span_warning("[src] blinks red as you try to insert the cell!"))
-				return
-			if(!user.transferItemToLoc(attacking_item,src))
-				return
+/obj/machinery/cell_charger_multi/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/stock_parts/power_store/cell) || panel_open)
+		if(!LAZYLEN(charging_batteries) && default_deconstruction_screwdriver(user, tool))
+			return ITEM_INTERACT_SUCCESS
+		if(default_deconstruction_crowbar(user, tool))
+			return ITEM_INTERACT_SUCCESS
+		if(!LAZYLEN(charging_batteries) && default_unfasten_wrench(user, tool))
+			return ITEM_INTERACT_SUCCESS
 
-			LAZYADD(charging_batteries, attacking_item)
-			user.visible_message(span_notice("[user] inserts a cell into [src]."), span_notice("You insert a cell into [src]."))
-			update_appearance()
+		return NONE
+
+	if(machine_stat & BROKEN)
+		to_chat(user, span_warning("[src] is broken!"))
+		return ITEM_INTERACT_BLOCKING
+	if(!anchored)
+		to_chat(user, span_warning("[src] isn't attached to the ground!"))
+		return ITEM_INTERACT_BLOCKING
+	var/obj/item/stock_parts/power_store/cell/inserting_cell = tool
+	if(inserting_cell.chargerate <= 0)
+		to_chat(user, span_warning("[inserting_cell] cannot be recharged!"))
+		return ITEM_INTERACT_BLOCKING
+	if(LAZYLEN(charging_batteries) >= max_batteries)
+		to_chat(user, span_warning("[src] is full, and cannot hold anymore cells!"))
+		return ITEM_INTERACT_BLOCKING
 	else
-		if(!LAZYLEN(charging_batteries) && default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
-			return
-		if(default_deconstruction_crowbar(attacking_item))
-			return
-		if(!LAZYLEN(charging_batteries) && default_unfasten_wrench(user, attacking_item))
-			return
-		return ..()
+		var/area/current_area = loc.loc // Gets our locations location, like a dream within a dream
+		if(!isarea(current_area))
+			return ITEM_INTERACT_BLOCKING
+		if(current_area.power_equip == 0) // There's no APC in this area, don't try to cheat power!
+			to_chat(user, span_warning("[src] blinks red as you try to insert the cell!"))
+			return ITEM_INTERACT_BLOCKING
+		if(!user.transferItemToLoc(tool,src))
+			return ITEM_INTERACT_BLOCKING
+
+		LAZYADD(charging_batteries, tool)
+		user.visible_message(span_notice("[user] inserts a cell into [src]."), span_notice("You insert a cell into [src]."))
+		update_appearance()
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/cell_charger_multi/process(seconds_per_tick)
 	if(!LAZYLEN(charging_batteries) || !anchored || (machine_stat & (BROKEN|NOPOWER)))

@@ -153,6 +153,9 @@
 
 // Trigger thing for manual breath
 /datum/action/item_action/toggle_breathcontrol/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/item/clothing/mask/gas/bdsm_mask/mask = target
 	if(istype(mask))
 		mask.check(owner)
@@ -162,6 +165,9 @@
 	desc = "Toggles whether or not the wearer is able to speak."
 
 /datum/action/item_action/toggle_gag/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/item/clothing/mask/gas/bdsm_mask/mask = target
 	if(istype(mask))
 		mask.check_gag(owner)
@@ -172,9 +178,12 @@
 
 // Open the valve when press the button
 /datum/action/item_action/mask_inhale/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/item/clothing/mask/gas/bdsm_mask/mask = target
 	if(!istype(mask))
-		return ..()
+		return FALSE
 
 	if(mask.breath_status)
 		return FALSE
