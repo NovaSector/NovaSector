@@ -3,7 +3,7 @@ import { useBackend } from 'tgui/backend';
 import { Button, Dropdown, Input, LabeledList } from 'tgui-core/components';
 import type { NifPanelData } from './data';
 
-export function NifSettings(props) {
+export function NifSettings() {
   const { act, data } = useBackend<NifPanelData>();
   const {
     nutrition_drain,

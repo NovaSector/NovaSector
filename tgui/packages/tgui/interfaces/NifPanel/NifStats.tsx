@@ -3,7 +3,7 @@ import { useBackend } from 'tgui/backend';
 import { Box, LabeledList, ProgressBar } from 'tgui-core/components';
 import type { NifPanelData } from './data';
 
-export function NifStats(props) {
+export function NifStats() {
   const { data } = useBackend<NifPanelData>();
   const { nutrition_drain, blood_drain } = data;
 
@@ -71,7 +71,7 @@ export function NifPowerBar() {
   );
 }
 
-export function NifNutritionBar(props) {
+export function NifNutritionBar() {
   const { data } = useBackend<NifPanelData>();
   const { nutrition_level } = data;
   return (
@@ -88,7 +88,7 @@ export function NifNutritionBar(props) {
   );
 }
 
-export function NifBloodBar(props) {
+export function NifBloodBar() {
   const { data } = useBackend<NifPanelData>();
   const { blood_level, minimum_blood_level, max_blood_level } = data;
   return (
