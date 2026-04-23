@@ -10,7 +10,7 @@ export function NifProgramList() {
 
   return (
     <Section
-      title={`NIFSoft Programs (${max_nifsofts - loaded_nifsofts.length} slots available)`}
+      title={`NIFSoft Programs (${max_nifsofts - loaded_nifsofts.length} slot${loaded_nifsofts.length !== 1 ? 's' : ''} available)`}
     >
       {loaded_nifsofts.length ? (
         <Stack direction="column">
