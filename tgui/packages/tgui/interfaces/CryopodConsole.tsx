@@ -50,8 +50,10 @@ function CrewList() {
         </Table.Row>
         {frozen_crew.map((person) => (
           <Table.Row key={person.name} className="candystripe">
-            <Table.Cell>{person.name}</Table.Cell>
-            <Table.Cell align="right">{person.job}</Table.Cell>
+            <Table.Cell py="2px">{person.name}</Table.Cell>
+            <Table.Cell py="2px" align="right">
+              {person.job}
+            </Table.Cell>
           </Table.Row>
         ))}
       </Table>
@@ -82,13 +84,12 @@ function ItemList() {
         </Table.Row>
         {item_ref_list.map((item) => {
           return (
-            <Table.Row p="50px" key={item} className="candystripe">
-              <Table.Cell>{item_ref_name[item]}</Table.Cell>
-              <Table.Cell align="right">
+            <Table.Row key={item} className="candystripe">
+              <Table.Cell py="2px">{item_ref_name[item]}</Table.Cell>
+              <Table.Cell py="2px" align="right">
                 <Button
                   icon="arrow-up"
                   onClick={() => act('item_get', { item_get: item })}
-                  my="2px"
                 />
               </Table.Cell>
             </Table.Row>
