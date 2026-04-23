@@ -1,4 +1,0 @@
-author: "obvious650-source"
-delete-after: True
-changes:
-  - bugfix: "10mm stripper clip no longer NORMAL, now SMALL"

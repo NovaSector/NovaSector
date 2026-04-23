@@ -603,3 +603,71 @@
   obvious650-source:
   - rscadd: NT M-96, new 10mm pistol based on the C96 but in SPACE
   - rscadd: New Condo called 'Snowy Cabin'
+2026-04-22:
+  1393F:
+  - bugfix: The wooden bowl no longer turns invisible upon being filled with a reagent.
+  Absolucy, PowerfulBacon:
+  - bugfix: Screentip icons work on the latest BYOND 516 again.
+  ArcaneMusic:
+  - bugfix: More safeguards were added to the admin "Create Black Market Item" verb.
+  Ben10Omintrix:
+  - balance: the grapple gun's price has been reduced to 1500 points
+  LT3:
+  - bugfix: Fixed loss of credits for correctly denied minerals market cargo manifest
+  - bugfix: Cargo budget materials market orders arrive in crates as expected
+  Melbert:
+  - rscadd: Spacers who manage to get nograv while on a planet are given a positive
+      moodlet, and are considered in space for the purpose of their buffs/debuffs
+  - balance: Upon being successfully sacrificed by a heretic all other heretics lose
+      you as a target, and you can no longer be (re)rolled as a target by other heretics.
+  Neocloudy:
+  - bugfix: '[NOVA] The report shown by the Your Last Round verb will be updated if
+      you''re connected when the round ends, instead of only being updated if you
+      manually viewed the roundend report. This is how it behaves on TG.'
+  - bugfix: '[NOVA] There are no longer two options for ghost runechat, and an admin
+      button that claims to disable it but doesn''t.'
+  Pumpkinoe:
+  - map: Centcom's ERT wing has been updated, including a new door that leads directly
+      to the pod bay and buttons to control the doors!
+  SmArtKar, Kryson, ArcaneMusic:
+  - rscadd: 'Lavaland has received 2 new rock types: Siderite, rich in iron and titanium,
+      and Shale, full of plasma, gold and uranium.'
+  - rscadd: A guaranteed river spawn and a fishing pond have been added to the lavaland
+      outpost raptor area.
+  - rscadd: Ores now tend to spawn in veins or clusters, and are much more likely
+      to spawn near exposed rock.
+  - balance: Natural ore spawns are much more abundant than before, closer to pre-arcmining
+      levels. Vent output has been halved
+  - balance: PKA AOE mining module has been reverted to 3x3 and incurs a cooldown
+      penalty
+  - balance: Plasma cutters eat more plasma when recharging and have slightly shorter
+      range.
+  - balance: Mining MOD sphere mode no longer instamines, and now just has an extremely
+      high mining speed.
+  - balance: Goldgrubs can now tunnel extremely fast and spawn much more frequently
+      than before. Goldgrub burrowing can be interrupted by dealing damage to them.
+  - balance: Goldgrubs no longer reflect non-bomb/energy shots.
+  - balance: AOE mining methods now have a 10/25% chance to not mine siderite/shale
+      unless it has ore inside of it.
+  - refactor: Lavaland generation has been rewritten. The caves should be much more
+      wilder.
+  TheBoondock:
+  - refactor: refactored majority of gas_mix mole change into adjust_gas() proc
+  Y0SH1M4S73R:
+  - balance: Wizards with the Heart Eater perk are only invigorated by the hearts
+      of sentient beings.
+  - rscadd: To facilitate the taking of hearts from sentient beings, the Heart Eater
+      perk lets you tear the heart out of the chest of an incapacitated or dead being
+      by targeting their chest with an empty hand in combat mode.
+  Yobrocharlie:
+  - rscadd: added more things to the antag gear spawner
+  lelandkemble:
+  - bugfix: Butchering heads no longer moves their organs to nullspace, and probably
+      the same with any other method of mass removing organs.
+  - bugfix: Fixes one way to get stuck in place forever while using a fulton extraction
+      kit
+  obvious650-source:
+  - bugfix: 10mm stripper clip no longer NORMAL, now SMALL
+  vinylspiders:
+  - bugfix: fixes an issue where raptor chicks and other non-items appearing in item
+      contents would prevent any personal crafting in the vicinity
