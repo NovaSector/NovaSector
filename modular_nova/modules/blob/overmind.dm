@@ -23,16 +23,7 @@
 
 			qdel(src)
 	else if(!victory_in_progress && (blobs_legit.len >= blobwincount))
-		victory_in_progress = TRUE
-		priority_announce("Biohazard has reached critical mass. Station loss is imminent.", "Biohazard Alert")
-		SSsecurity_level.set_level(SEC_LEVEL_DELTA)
-
-		// Set status displays to biohazard alert - critical level
-		send_status_display_biohazard_alert()
-
-/*		max_blob_points = INFINITY
-		blob_points = INFINITY
-		addtimer(CALLBACK(src, PROC_REF(victory)), 45 SECONDS)*/
+		on_critical_mass()
 	else if(!free_strain_rerolls && (last_reroll_time + BLOB_POWER_REROLL_FREE_TIME<world.time))
 		to_chat(src, span_boldnotice("You have gained another free strain re-roll."))
 		free_strain_rerolls = 1
