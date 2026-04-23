@@ -86,9 +86,9 @@
 /obj/item/organ/brain/synth/update_icon_state()
 	. = ..()
 	if(brainmob?.key)
-		icon_state = "[src::name]-occupied"
+		icon_state = "[src::icon_state]-occupied"
 		return
-	icon_state = "[src::name]"
+	icon_state = "[src::icon_state]"
 	return
 
 /datum/design/synth_posi
