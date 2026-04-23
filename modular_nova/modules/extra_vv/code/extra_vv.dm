@@ -54,8 +54,17 @@
 	var/notice = tgui_alert(usr, "Are you sure you want to load the clients current prefs onto their mob?", "Load Preferences", list("Yes", "No"))
 	if(notice != "Yes")
 		return
+	var/quirks_prompt = tgui_alert(usr, "Reload their quirks too? This will clear any existing quirks on the mob.", "Load Quirks", list("Yes", "No"))
 
-	client?.prefs?.apply_prefs_to(src)
+	var/mob/living/carbon/human/human_mob = src
+	human_mob.dna.mutant_bodyparts = list()
+	client?.prefs?.apply_prefs_to(src, icon_updates = FALSE)
+	human_mob.dna.species.regenerate_organs(src, replace_current = TRUE)
+	human_mob.dna.update_body_size()
+	human_mob.update_body(is_creating = TRUE)
+	if(quirks_prompt == "Yes")
+		human_mob.cleanse_quirk_datums()
+		SSquirks.AssignQuirks(src, client)
 	var/msg = span_notice("[key_name_admin(usr)] has loaded [key_name(src)]'s preferences onto their current mob [ADMIN_VERBOSEJMP(src)].")
 	message_admins(msg)
 	admin_ticket_log(src, msg)
