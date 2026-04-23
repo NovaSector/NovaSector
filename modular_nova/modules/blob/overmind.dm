@@ -29,4 +29,5 @@
 		free_strain_rerolls = 1
 
 	if(!victory_in_progress && max_count < blobs_legit.len)
-		max_count = blobs_legit.len
+/mob/eye/blob/on_critical_mass()
+	return
