@@ -11,23 +11,18 @@
 /datum/wound/robotic_bleed/on_xadone(power)
 	return null
 
-/datum/wound_pregen_data/robot_pierce
+/datum/wound_pregen_data/robot_pierce_slash
 	abstract = TRUE
 
 	required_limb_biostate = BIO_ROBOTIC
 	require_any_biostate = TRUE
-	required_wounding_type = WOUND_PIERCE
 
-	wound_series = WOUND_SERIES_FLESH_PUNCTURE_BLEED
+	required_wounding_type = WOUND_PIERCE_AND_SLASH
 
-/datum/wound_pregen_data/robot_slash
-	abstract = TRUE
+	wound_series = WOUND_SERIES_ROBOT_PIERCE_SLASH
 
-	required_limb_biostate = BIO_ROBOTIC
-	require_any_biostate = TRUE
-	required_wounding_type = WOUND_SLASH
-
-	wound_series = WOUND_SERIES_FLESH_PUNCTURE_BLEED
+/datum/wound_pregen_data/robot_pierce_slash/wounding_types_valid(suggested_wounding_type)
+	return suggested_wounding_type == WOUND_PIERCE || suggested_wounding_type == WOUND_SLASH
 
 /datum/wound/robotic_bleed/proc/get_blood_noun()
 	var/noun_blood = "blood"
@@ -106,12 +101,7 @@
 /datum/wound/robotic_bleed/moderate/get_limb_examine_description()
 	return span_warning("The coolant tube on this limb appears to be misaligned.")
 
-/datum/wound_pregen_data/robot_slash/moderate
-	abstract = FALSE
-	wound_path_to_generate = /datum/wound/robotic_bleed/moderate
-	threshold_minimum = 30
-
-/datum/wound_pregen_data/robot_pierce/moderate
+/datum/wound_pregen_data/robot_pierce_slash/moderate
 	abstract = FALSE
 	wound_path_to_generate = /datum/wound/robotic_bleed/moderate
 	threshold_minimum = 30
@@ -156,14 +146,11 @@
 	else
 		victim.balloon_alert_to_viewers("failed to tape hole!")
 
-/datum/wound_pregen_data/robot_pierce/severe
+/datum/wound_pregen_data/robot_pierce_slash/severe
 	abstract = FALSE
-	wound_path_to_generate = /datum/wound/robotic_bleed/severe
-	threshold_minimum = 50
 
-/datum/wound_pregen_data/robot_slash/severe
-	abstract = FALSE
 	wound_path_to_generate = /datum/wound/robotic_bleed/severe
+
 	threshold_minimum = 50
 
 /datum/wound/robotic_bleed/critical
@@ -183,14 +170,11 @@
 	simple_treat_text = "<b>Replace the limb</b>."
 	homemade_treat_text = "Sufficient damage to the limb will knock it off of the chassis, but you risk leaking a lot of oil doing so."
 
-/datum/wound_pregen_data/robot_pierce/critical
+/datum/wound_pregen_data/robot_pierce_slash/critical
 	abstract = FALSE
-	wound_path_to_generate = /datum/wound/robotic_bleed/critical
-	threshold_minimum = 100
 
-/datum/wound_pregen_data/robot_slash/critical
-	abstract = FALSE
 	wound_path_to_generate = /datum/wound/robotic_bleed/critical
+
 	threshold_minimum = 100
 
 /datum/wound/robotic_blunt
@@ -201,24 +185,14 @@
 /datum/wound/robotic_blunt/on_xadone(power)
 	return null
 
-/datum/wound_pregen_data/robot_blunt
+/datum/wound_pregen_data/robot_blunt_burn
 	abstract = TRUE
 
 	required_limb_biostate = BIO_ROBOTIC
 	require_any_biostate = TRUE
-	required_wounding_type = WOUND_BLUNT
+	required_wounding_type = WOUND_BLUNT_AND_BURN
 
-	wound_series = WOUND_SERIES_BONE_BLUNT_BASIC
-
-
-/datum/wound_pregen_data/robot_burn
-	abstract = TRUE
-
-	required_limb_biostate = BIO_ROBOTIC
-	require_any_biostate = TRUE
-	required_wounding_type = WOUND_BURN
-
-	wound_series = WOUND_SERIES_BONE_BLUNT_BASIC
+	wound_series = WOUND_SERIES_ROBOT_BLUNT_BURN
 
 /datum/wound/robotic_blunt/wound_injury(datum/wound/old_wound = null, attack_direction = null)
 	do_sparks(2, FALSE, victim)
@@ -326,12 +300,7 @@
 			return
 	..()
 
-/datum/wound_pregen_data/robot_blunt/moderate
-	abstract = FALSE
-	wound_path_to_generate = /datum/wound/robotic_blunt/moderate
-	threshold_minimum = 30
-
-/datum/wound_pregen_data/robot_burn/moderate
+/datum/wound_pregen_data/robot_blunt_burn/moderate
 	abstract = FALSE
 	wound_path_to_generate = /datum/wound/robotic_blunt/moderate
 	threshold_minimum = 30
@@ -367,14 +336,11 @@
 		victim.balloon_alert_to_viewers("failed to tape panel shut!")
 
 
-/datum/wound_pregen_data/robot_burn/severe
+/datum/wound_pregen_data/robot_blunt_burn/severe
 	abstract = FALSE
-	wound_path_to_generate = /datum/wound/robotic_blunt/severe
-	threshold_minimum = 60
 
-/datum/wound_pregen_data/robot_blunt/severe
-	abstract = FALSE
 	wound_path_to_generate = /datum/wound/robotic_blunt/severe
+
 	threshold_minimum = 60
 
 /datum/wound/robotic_blunt/critical
@@ -397,12 +363,9 @@
 	simple_treat_text = "<b>Replace the limb</b>."
 	homemade_treat_text = "Sufficient damage to the limb will knock it off of the chassis, but you risk leaking a lot of oil doing so."
 
-/datum/wound_pregen_data/robot_burn/critical
+/datum/wound_pregen_data/robot_blunt_burn/critical
 	abstract = FALSE
-	wound_path_to_generate = /datum/wound/robotic_blunt/critical
-	threshold_minimum = 115
 
-/datum/wound_pregen_data/robot_blunt/critical
-	abstract = FALSE
 	wound_path_to_generate = /datum/wound/robotic_blunt/critical
+
 	threshold_minimum = 115

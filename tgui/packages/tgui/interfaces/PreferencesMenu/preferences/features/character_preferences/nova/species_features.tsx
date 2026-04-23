@@ -810,3 +810,22 @@ export const pod_hair_emissive: Feature<boolean> = {
   description: 'Emissive parts glow in the dark.',
   component: CheckboxInput,
 };
+
+export const feature_android_stomach: Feature<string> = {
+  name: 'Engine Choice',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const feature_android_appendix: Feature<string> = {
+  name: 'Extra Part Choice',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+

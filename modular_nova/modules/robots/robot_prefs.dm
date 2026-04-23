@@ -14,21 +14,21 @@
 	var/static/datum/universal_icon/base_robot_headless
 
 	if (isnull(base_robot_headless))
-		base_robot_headless = uni_icon('icons/mob/augmentation/augments.dmi', "robotic_chest")
-		base_robot_headless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_arm"), ICON_OVERLAY)
-		base_robot_headless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_arm"), ICON_OVERLAY)
-		base_robot_headless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_hand"), ICON_OVERLAY)
-		base_robot_headless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_hand"), ICON_OVERLAY)
-		base_robot_headless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_leg"), ICON_OVERLAY)
-		base_robot_headless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_leg"), ICON_OVERLAY)
+		base_robot_headless = uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_chest")
+		base_robot_headless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_arm"), ICON_OVERLAY)
+		base_robot_headless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_arm"), ICON_OVERLAY)
+		base_robot_headless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_hand"), ICON_OVERLAY)
+		base_robot_headless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_hand"), ICON_OVERLAY)
+		base_robot_headless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_leg"), ICON_OVERLAY)
+		base_robot_headless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_leg"), ICON_OVERLAY)
 		base_robot_headless.blend_color(rgb(122,122,122), ICON_MULTIPLY) // darken it so the new aug pops out
 
 	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
 
 	var/datum/universal_icon/icon_with_chassis = base_robot_headless.copy()
 	icon_with_chassis.blend_icon(uni_icon(chassis.icon, "[chassis.icon_state]_head"), ICON_OVERLAY)
-	icon_with_chassis.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_l"), ICON_OVERLAY)
-	icon_with_chassis.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_r"), ICON_OVERLAY)
+	icon_with_chassis.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_l"), ICON_OVERLAY)
+	icon_with_chassis.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_r"), ICON_OVERLAY)
 	icon_with_chassis.scale(64, 64)
 	icon_with_chassis.crop(15, 33, 46, 64)
 
@@ -56,15 +56,15 @@
 	var/static/datum/universal_icon/base_robot_chestless
 
 	if (isnull(base_robot_chestless))
-		base_robot_chestless = uni_icon('icons/mob/augmentation/augments.dmi', "robotic_head")
-		base_robot_chestless.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_l"), ICON_OVERLAY)
-		base_robot_chestless.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_r"), ICON_OVERLAY)
-		base_robot_chestless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_arm"), ICON_OVERLAY)
-		base_robot_chestless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_arm"), ICON_OVERLAY)
-		base_robot_chestless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_hand"), ICON_OVERLAY)
-		base_robot_chestless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_hand"), ICON_OVERLAY)
-		base_robot_chestless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_leg"), ICON_OVERLAY)
-		base_robot_chestless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_leg"), ICON_OVERLAY)
+		base_robot_chestless = uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_head")
+		base_robot_chestless.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_l"), ICON_OVERLAY)
+		base_robot_chestless.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_r"), ICON_OVERLAY)
+		base_robot_chestless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_arm"), ICON_OVERLAY)
+		base_robot_chestless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_arm"), ICON_OVERLAY)
+		base_robot_chestless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_hand"), ICON_OVERLAY)
+		base_robot_chestless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_hand"), ICON_OVERLAY)
+		base_robot_chestless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_leg"), ICON_OVERLAY)
+		base_robot_chestless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_leg"), ICON_OVERLAY)
 		base_robot_chestless.blend_color(rgb(64,64,64), ICON_MULTIPLY) // darken it so the new aug pops out
 
 	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
@@ -99,14 +99,14 @@
 	var/static/datum/universal_icon/base_robot_l_armless
 
 	if (isnull(base_robot_l_armless))
-		base_robot_l_armless = uni_icon('icons/mob/augmentation/augments.dmi', "robotic_head")
-		base_robot_l_armless.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_l"), ICON_OVERLAY)
-		base_robot_l_armless.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_r"), ICON_OVERLAY)
-		base_robot_l_armless = uni_icon('icons/mob/augmentation/augments.dmi', "robotic_chest")
-		base_robot_l_armless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_arm"), ICON_OVERLAY)
-		base_robot_l_armless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_hand"), ICON_OVERLAY)
-		base_robot_l_armless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_leg"), ICON_OVERLAY)
-		base_robot_l_armless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_leg"), ICON_OVERLAY)
+		base_robot_l_armless = uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_head")
+		base_robot_l_armless.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_l"), ICON_OVERLAY)
+		base_robot_l_armless.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_r"), ICON_OVERLAY)
+		base_robot_l_armless = uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_chest")
+		base_robot_l_armless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_arm"), ICON_OVERLAY)
+		base_robot_l_armless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_hand"), ICON_OVERLAY)
+		base_robot_l_armless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_leg"), ICON_OVERLAY)
+		base_robot_l_armless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_leg"), ICON_OVERLAY)
 		base_robot_l_armless.blend_color(rgb(64,64,64), ICON_MULTIPLY) // darken it so the new aug pops out
 
 	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
@@ -141,14 +141,14 @@
 	var/static/datum/universal_icon/base_robot_r_armless
 
 	if (isnull(base_robot_r_armless))
-		base_robot_r_armless = uni_icon('icons/mob/augmentation/augments.dmi', "robotic_head")
-		base_robot_r_armless.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_l"), ICON_OVERLAY)
-		base_robot_r_armless.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_r"), ICON_OVERLAY)
-		base_robot_r_armless = uni_icon('icons/mob/augmentation/augments.dmi', "robotic_chest")
-		base_robot_r_armless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_arm"), ICON_OVERLAY)
-		base_robot_r_armless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_hand"), ICON_OVERLAY)
-		base_robot_r_armless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_leg"), ICON_OVERLAY)
-		base_robot_r_armless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_leg"), ICON_OVERLAY)
+		base_robot_r_armless = uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_head")
+		base_robot_r_armless.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_l"), ICON_OVERLAY)
+		base_robot_r_armless.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_r"), ICON_OVERLAY)
+		base_robot_r_armless = uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_chest")
+		base_robot_r_armless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_arm"), ICON_OVERLAY)
+		base_robot_r_armless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_hand"), ICON_OVERLAY)
+		base_robot_r_armless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_leg"), ICON_OVERLAY)
+		base_robot_r_armless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_leg"), ICON_OVERLAY)
 		base_robot_r_armless.blend_color(rgb(64,64,64), ICON_MULTIPLY) // darken it so the new aug pops out
 
 	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
@@ -182,15 +182,15 @@
 	var/static/datum/universal_icon/base_robot_l_legless
 
 	if (isnull(base_robot_l_legless))
-		base_robot_l_legless = uni_icon('icons/mob/augmentation/augments.dmi', "robotic_head")
-		base_robot_l_legless.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_l"), ICON_OVERLAY)
-		base_robot_l_legless.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_r"), ICON_OVERLAY)
-		base_robot_l_legless = uni_icon('icons/mob/augmentation/augments.dmi', "robotic_chest")
-		base_robot_l_legless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_arm"), ICON_OVERLAY)
-		base_robot_l_legless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_hand"), ICON_OVERLAY)
-		base_robot_l_legless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_arm"), ICON_OVERLAY)
-		base_robot_l_legless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_hand"), ICON_OVERLAY)
-		base_robot_l_legless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_leg"), ICON_OVERLAY)
+		base_robot_l_legless = uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_head")
+		base_robot_l_legless.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_l"), ICON_OVERLAY)
+		base_robot_l_legless.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_r"), ICON_OVERLAY)
+		base_robot_l_legless = uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_chest")
+		base_robot_l_legless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_arm"), ICON_OVERLAY)
+		base_robot_l_legless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_hand"), ICON_OVERLAY)
+		base_robot_l_legless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_arm"), ICON_OVERLAY)
+		base_robot_l_legless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_hand"), ICON_OVERLAY)
+		base_robot_l_legless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_leg"), ICON_OVERLAY)
 		base_robot_l_legless.blend_color(rgb(64,64,64), ICON_MULTIPLY) // darken it so the new aug pops out
 
 	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
@@ -224,15 +224,15 @@
 	var/static/datum/universal_icon/base_robot_r_legless
 
 	if (isnull(base_robot_r_legless))
-		base_robot_r_legless = uni_icon('icons/mob/augmentation/augments.dmi', "robotic_head")
-		base_robot_r_legless.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_l"), ICON_OVERLAY)
-		base_robot_r_legless.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "eyes_r"), ICON_OVERLAY)
-		base_robot_r_legless = uni_icon('icons/mob/augmentation/augments.dmi', "robotic_chest")
-		base_robot_r_legless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_arm"), ICON_OVERLAY)
-		base_robot_r_legless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_hand"), ICON_OVERLAY)
-		base_robot_r_legless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_arm"), ICON_OVERLAY)
-		base_robot_r_legless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_r_hand"), ICON_OVERLAY)
-		base_robot_r_legless.blend_icon(uni_icon('icons/mob/augmentation/augments.dmi', "robotic_l_leg"), ICON_OVERLAY)
+		base_robot_r_legless = uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_head")
+		base_robot_r_legless.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_l"), ICON_OVERLAY)
+		base_robot_r_legless.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "eyes_r"), ICON_OVERLAY)
+		base_robot_r_legless = uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_chest")
+		base_robot_r_legless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_arm"), ICON_OVERLAY)
+		base_robot_r_legless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_hand"), ICON_OVERLAY)
+		base_robot_r_legless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_arm"), ICON_OVERLAY)
+		base_robot_r_legless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_r_hand"), ICON_OVERLAY)
+		base_robot_r_legless.blend_icon(uni_icon('modular_nova/modules/robots/sprites/augments.dmi', "robotic_l_leg"), ICON_OVERLAY)
 		base_robot_r_legless.blend_color(rgb(64,64,64), ICON_MULTIPLY) // darken it so the new aug pops out
 
 	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]

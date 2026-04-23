@@ -349,8 +349,8 @@
 
 /datum/area_spawn/organ_fixer
 	target_areas = list(/area/station/science/robotics/lab, /area/station/science/robotics/mechbay)
-	desired_atom = /obj/machinery/gbp_redemption
-	mode = AREA_SPAWN_MODE_HUG_WALL
+	desired_atom = /obj/machinery/organ_fixer
+	mode = AREA_SPAWN_MODE_OPEN
 
 #undef BREAKOUT_TIME
 #undef ADVERT_TIME

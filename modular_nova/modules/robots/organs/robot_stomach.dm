@@ -10,7 +10,7 @@
 	organ_traits = list(TRAIT_NOHUNGER)
 	var/offset_pixel = 0
 	var/hud_icon = "power_beer"
-	var/hud_icon_file = 'icons/hud/screen_gen.dmi'
+	var/hud_icon_file = 'modular_nova/modules/robots/sprites/screen_gen.dmi'
 	/// Is the favorite reagent an exact match?
 	var/favorite_reagent_exact = FALSE
 	var/favorite_reagent = /datum/reagent/consumable/ethanol
@@ -318,7 +318,7 @@
 /obj/item/power_plug
 	name = "power plug"
 	desc = "Plug this into an APC to start draining power. Will create a hazard, so be careful if people walk over it."
-	icon = 'icons/effects/beam.dmi'
+	icon = 'modular_nova/modules/robots/sprites/beam.dmi'
 	icon_state = "power_cord_end"
 	var/datum/beam/cable_beam
 	var/obj/item/organ/stomach/fuel_generator/power_cable/our_stomach
@@ -339,9 +339,9 @@
 		else
 			qdel(cable_beam) // DELETE AND REDRAW
 			if(!isturf(loc))
-				cable_beam = loc.Beam(get_turf(our_stomach.owner), icon_state = "power_cord")
+				cable_beam = loc.Beam(get_turf(our_stomach.owner), icon = 'modular_nova/modules/robots/sprites/beam.dmi', icon_state = "power_cord")
 			else
-				cable_beam = Beam(get_turf(our_stomach.owner), icon_state = "power_cord")
+				cable_beam = Beam(get_turf(our_stomach.owner), icon = 'modular_nova/modules/robots/sprites/beam.dmi', icon_state = "power_cord")
 
 /obj/item/power_plug/Destroy(force)
 	cancel_plug()
@@ -361,7 +361,7 @@
 		forceMove(apc)
 		if(cable_beam)
 			qdel(cable_beam)
-		cable_beam = our_stomach.owner.Beam(apc, beam_type = /obj/effect/ebeam/reacting/power_cable, icon_state = "power_cord", icon_state_end = "power_cord_end")
+		cable_beam = our_stomach.owner.Beam(apc, icon = 'modular_nova/modules/robots/sprites/beam.dmi', beam_type = /obj/effect/ebeam/reacting/power_cable, icon_state = "power_cord", icon_state_end = "power_cord_end")
 		RegisterSignal(cable_beam, COMSIG_BEAM_ENTERED, PROC_REF(beam_entered))
 		var/datum/component/leash/leash_component = our_leash?.resolve()
 		if(leash_component)
@@ -411,9 +411,8 @@
 /datum/action/toggle_cable
 	name = "Toggle Power Cable"
 	desc = "Deploy and retract your power cable to recharge off of APCs."
-	button_icon = 'icons/effects/beam.dmi'
+	button_icon = 'modular_nova/modules/robots/sprites/beam.dmi'
 	button_icon_state = "power_cord_end"
-	background_icon_state = "bg_tgmc"
 	var/obj/item/organ/stomach/fuel_generator/power_cable/our_stomach
 
 /datum/action/toggle_cable/Trigger(trigger_flags)
@@ -438,6 +437,8 @@
 
 /obj/effect/ebeam/reacting/power_cable
 	name = "power cable"
+	icon = 'modular_nova/modules/robots/sprites/beam.dmi'
 
 /obj/effect/ebeam/reacting/power_cable/on_entered(datum/source, atom/movable/entered)
 	. = ..()
+	// todo: make this zap people who walk over it who aren't the owner

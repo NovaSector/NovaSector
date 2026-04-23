@@ -59,3 +59,27 @@
 /datum/sprite_accessory/android_chassis/mariinsky
 	name = "Mariinsky Ballet Company"
 	icon_state = "mariinsky"
+
+/obj/item/bodypart/head/robot/android
+	icon = 'modular_nova/modules/robots/sprites/augments.dmi'
+	icon_static = 'modular_nova/modules/robots/sprites/augments.dmi'
+
+/obj/item/bodypart/chest/robot/android
+	icon = 'modular_nova/modules/robots/sprites/augments.dmi'
+	icon_static = 'modular_nova/modules/robots/sprites/augments.dmi'
+
+/obj/item/bodypart/arm/left/robot/android
+	icon = 'modular_nova/modules/robots/sprites/augments.dmi'
+	icon_static = 'modular_nova/modules/robots/sprites/augments.dmi'
+
+/obj/item/bodypart/arm/right/robot/android
+	icon = 'modular_nova/modules/robots/sprites/augments.dmi'
+	icon_static = 'modular_nova/modules/robots/sprites/augments.dmi'
+
+/obj/item/bodypart/leg/left/robot/android
+	icon = 'modular_nova/modules/robots/sprites/augments.dmi'
+	icon_static = 'modular_nova/modules/robots/sprites/augments.dmi'
+
+/obj/item/bodypart/leg/right/robot/android
+	icon = 'modular_nova/modules/robots/sprites/augments.dmi'
+	icon_static = 'modular_nova/modules/robots/sprites/augments.dmi'

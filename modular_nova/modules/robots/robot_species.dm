@@ -31,6 +31,7 @@
 
 	// NOVA EDIT ADDITION START - Robots
 	used_outfit_for_preview = /datum/outfit/job/security/preview
+	species_sort_priority = SPECIES_SORT_PRIORITY_ANDROID
 
 /datum/outfit/job/security/preview
 	head = /obj/item/clothing/head/soft/sec
@@ -58,6 +59,15 @@
 /datum/species/robot_nova/create_pref_traits_perks()
 	var/list/perks = list()
 	return perks
+
+/datum/species/robot_nova/get_features()
+	var/list/features = ..()
+
+	features += "feature_android_stomach"
+	features += "feature_android_appendix"
+
+	return features
+
 
 /datum/species/robot_nova/create_pref_unique_perks()
 	var/list/perks = list()

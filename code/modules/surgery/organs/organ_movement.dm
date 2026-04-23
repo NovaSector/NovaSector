@@ -332,6 +332,9 @@
 /obj/item/organ/proc/pre_surgical_insertion(mob/living/user, mob/living/carbon/new_owner, target_zone)
 	if (valid_zones)
 		swap_zone(target_zone)
+	// NOVA EDIT ADDITION START - Robots
+	return TRUE
+	// NOVA EDIT ADDITION END
 
 /// Readjusts the organ to fit into a different body zone/slot
 /obj/item/organ/proc/swap_zone(target_zone)

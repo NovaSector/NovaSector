@@ -54,6 +54,7 @@
 	icon_state = "powerbar"
 	screen_loc = ui_health
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	icon = 'modular_nova/modules/robots/sprites/screen_gen.dmi'
 	var/state
 	var/power_left
 	var/image/power_source_image
@@ -172,6 +173,7 @@
 		power_meter_bar.update_fullness(power_left, instant)
 
 /atom/movable/screen/robothud_bar
+	icon = 'modular_nova/modules/robots/sprites/screen_gen.dmi'
 	icon_state = "powerbar_bar"
 	screen_loc = ui_health
 	vis_flags = VIS_INHERIT_ID | VIS_INHERIT_PLANE
@@ -311,10 +313,11 @@
 	RegisterSignal(brain_owner, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(on_login))
 	RegisterSignal(brain_owner, COMSIG_SPECIES_HANDLE_TEMPERATURE, PROC_REF(temperature_overrides))
 	RegisterSignal(brain_owner, COMSIG_LIVING_REVIVE, PROC_REF(on_revive))
-	brain_owner.mob_mood.enable_robot()
-	brain_owner.mob_mood.enable_forced_neutral()
-	brain_owner.mob_mood.update_mood()
-	brain_owner.mob_mood.update_mood_icon()
+	if(brain_owner && brain_owner.mob_mood)
+		brain_owner.mob_mood.enable_robot()
+		brain_owner.mob_mood.enable_forced_neutral()
+		brain_owner.mob_mood.update_mood()
+		brain_owner.mob_mood.update_mood_icon()
 	brain_owner.med_hud_set_health() // fix the health bar sprite
 	brain_owner.med_hud_set_status()
 	brain_owner.add_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown) // handled by power loss
@@ -337,10 +340,11 @@
 	UnregisterSignal(organ_owner, COMSIG_MOB_CLIENT_LOGIN)
 	UnregisterSignal(organ_owner, COMSIG_SPECIES_HANDLE_TEMPERATURE)
 	UnregisterSignal(organ_owner, COMSIG_LIVING_REVIVE)
-	organ_owner.mob_mood.disable_robot()
-	organ_owner.mob_mood.disable_forced_neutral()
-	organ_owner.mob_mood.update_mood()
-	organ_owner.mob_mood.update_mood_icon()
+	if(organ_owner && organ_owner.mob_mood)
+		organ_owner.mob_mood.disable_robot()
+		organ_owner.mob_mood.disable_forced_neutral()
+		organ_owner.mob_mood.update_mood()
+		organ_owner.mob_mood.update_mood_icon()
 	organ_owner.remove_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown)
 	QDEL_NULL(our_beacon)
 	. = ..()
@@ -683,20 +687,20 @@
 	// initialize it
 	else if(target.hud_used)
 		var/datum/hud/hud_used = target.hud_used
-		var/atom/movable/screen/mood/health_hud_object = hud_used.screen_objects[HUD_MOB_HEALTH]
+		var/atom/movable/screen/healths/health_hud_object = hud_used.screen_objects[HUD_MOB_HEALTH]
 		if (istype(health_hud_object))
 			hud_used.remove_screen_object(health_hud_object)
-		power_meter = hud_used.add_screen_object(/atom/movable/screen/power_meter, HUD_MOB_ROBOT_POWER, HUD_GROUP_INFO)
-		oil_meter = hud_used.add_screen_object(/atom/movable/screen/power_meter/oil, HUD_MOB_ROBOT_OIL, HUD_GROUP_INFO)
+		power_meter = hud_used.add_screen_object(/atom/movable/screen/power_meter, HUD_MOB_ROBOT_POWER, HUD_GROUP_INFO, update_screen = TRUE)
+		oil_meter = hud_used.add_screen_object(/atom/movable/screen/power_meter/oil, HUD_MOB_ROBOT_OIL, HUD_GROUP_INFO, update_screen = TRUE)
 		power_meter.update_power_bar()
 		oil_meter.update_power_bar()
 
 /obj/item/organ/brain/robot_nova/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	var/datum/hud/hud_used = organ_owner.hud_used
 	if(hud_used)
-		hud_used.add_screen_object(/atom/movable/screen/healths, HUD_MOB_HEALTH, HUD_GROUP_INFO)
-		hud_used.remove_screen_object(power_meter)
-		hud_used.remove_screen_object(oil_meter)
+		hud_used.add_screen_object(/atom/movable/screen/healths, HUD_MOB_HEALTH, HUD_GROUP_INFO, update_screen = TRUE)
+		hud_used.remove_screen_object(power_meter, update = TRUE)
+		hud_used.remove_screen_object(oil_meter, update = TRUE)
 	. = ..()
 
 /obj/item/organ/brain/robot_nova/Destroy()

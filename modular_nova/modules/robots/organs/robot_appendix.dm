@@ -38,6 +38,7 @@
 	desc = "A beefy neural processing unit for simulating life-like emotions in synthetic life."
 	organ_flags = ORGAN_ROBOTIC
 	icon_state = "random_number_database"
+	icon = 'modular_nova/modules/robots/sprites/robot_organs.dmi'
 
 /obj/item/organ/appendix/emotion_chip/on_life(seconds_per_tick, times_fired)
 	. = ..()
