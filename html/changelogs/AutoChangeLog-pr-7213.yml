@@ -1,0 +1,4 @@
+author: "Happyowl93"
+delete-after: True
+changes:
+  - qol: "increase AI request cd to 5 mins, cd per door/player"
