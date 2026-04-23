@@ -50,8 +50,8 @@ function CrewList() {
         </Table.Row>
         {frozen_crew.map((person) => (
           <Table.Row key={person.name} className="candystripe">
-            <Table.Cell py="2px">{person.name}</Table.Cell>
-            <Table.Cell py="2px" align="right">
+            <Table.Cell py="5px">{person.name}</Table.Cell>
+            <Table.Cell py="5px" align="right">
               {person.job}
             </Table.Cell>
           </Table.Row>
