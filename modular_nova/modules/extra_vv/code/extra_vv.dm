@@ -57,12 +57,14 @@
 
 	var/mob/living/carbon/human/human_mob = src
 	human_mob.dna.mutant_bodyparts = list()
-	human_mob.cleanse_quirk_datums()
 	client?.prefs?.apply_prefs_to(src, icon_updates = FALSE)
-	SSquirks.AssignQuirks(src, client)
 	human_mob.dna.species.regenerate_organs(src, replace_current = TRUE)
 	human_mob.dna.update_body_size()
 	human_mob.update_body(is_creating = TRUE)
+	var/prompt = tgui_alert(usr, "Refresh quirks too?", "Load Quirks", list("Yes", "No"))
+	if(prompt == "Yes")
+		human_mob.cleanse_quirk_datums()
+		SSquirks.AssignQuirks(src, client)
 	var/msg = span_notice("[key_name_admin(usr)] has loaded [key_name(src)]'s preferences onto their current mob [ADMIN_VERBOSEJMP(src)].")
 	message_admins(msg)
 	admin_ticket_log(src, msg)
