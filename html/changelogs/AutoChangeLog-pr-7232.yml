@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - image: "One more resprite for the hybrid power tools to use the Nova-specific icons as a base instead of TG's icons."
