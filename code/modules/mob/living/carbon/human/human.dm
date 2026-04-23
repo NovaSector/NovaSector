@@ -1072,6 +1072,10 @@
 
 /mob/living/carbon/human/updatehealth()
 	. = ..()
+	// NOVA EDIT ADDITION START - Robots
+	if(SEND_SIGNAL(src, COMSIG_HUMAN_HEALTH_PRE_UPDATE, src))
+		return
+	// NOVA EDIT ADDITION END
 	var/health_deficiency = max((maxHealth - health), staminaloss)
 	if(health_deficiency >= 40)
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown, TRUE, multiplicative_slowdown = health_deficiency / 75)

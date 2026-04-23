@@ -9,7 +9,7 @@
 	icon_state = "robofoam"
 	inhand_icon_state = "implantcase"
 	applicable_wounds = list(
-		/datum/wound/blunt/robotic,
+		/datum/wound/robotic_blunt,
 	)
 	max_amount = 2
 	amount = 2
@@ -40,10 +40,8 @@
 	icon_state = "robofoam_super"
 	inhand_icon_state = "implantcase"
 	applicable_wounds = list(
-		/datum/wound/blunt/robotic,
-		/datum/wound/muscle/robotic,
-		/datum/wound/electrical_damage,
-		/datum/wound/burn/robotic,
+		/datum/wound/robotic_blunt,
+		/datum/wound/robotic_bleed
 	)
 	max_amount = 2
 	amount = 2

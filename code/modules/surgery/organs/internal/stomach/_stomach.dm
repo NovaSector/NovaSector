@@ -43,6 +43,16 @@
 	/// Have we been cut open with a scalpel? If so, how much damage from it we still have from it and can be recovered with a cauterizing tool.
 	/// All healing goes towards recovering this.
 	var/cut_open_damage = 0
+	// NOVA EDIT ADDITION START - Robots
+	///Disables base stomach behavior; used by the liquid fuel generator
+	var/disable_base_stomach_behavior = FALSE
+
+	///Can this stomach process solids?
+	var/can_process_solids = TRUE
+
+	///Can this stomach process liquids?
+	var/can_process_liquids = TRUE
+	// NOVA EDIT ADDITION END
 
 /obj/item/organ/stomach/Initialize(mapload)
 	. = ..()
@@ -58,6 +68,11 @@
 
 /obj/item/organ/stomach/on_life(seconds_per_tick)
 	. = ..()
+
+	// NOVA EDIT ADDITION START - Robots
+	if(disable_base_stomach_behavior)
+		return .
+	// NOVA EDIT ADDITION END
 
 	//Manage species digestion
 	if(ishuman(owner))
@@ -393,21 +408,29 @@
 
 /obj/item/organ/stomach/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
+
 	var/atom/movable/screen/hunger/hunger_bar = receiver.hud_used?.screen_objects[HUD_MOB_HUNGER]
 	if(hunger_bar)
 		hunger_bar.update_hunger_bar()
+	// NOVA EDIT ADDITION START - Robots
+	if(disable_base_stomach_behavior)
+		return .
+	// NOVA EDIT ADDITION END
 	RegisterSignal(receiver, COMSIG_CARBON_VOMITED, PROC_REF(on_vomit))
 	RegisterSignal(receiver, COMSIG_HUMAN_GOT_PUNCHED, PROC_REF(on_punched))
 
 /obj/item/organ/stomach/on_mob_remove(mob/living/carbon/stomach_owner, special, movement_flags)
-	if(ishuman(stomach_owner))
-		var/mob/living/carbon/human/human_owner = stomach_owner
-		human_owner.clear_alert(ALERT_DISGUST)
-		human_owner.clear_mood_event("disgust")
+	// NOVA EDIT ADDITION START - Robots
+	if(!disable_base_stomach_behavior)
+		if(ishuman(stomach_owner))
+			var/mob/living/carbon/human/human_owner = stomach_owner
+			human_owner.clear_alert(ALERT_DISGUST)
+			human_owner.clear_mood_event("disgust")
+		UnregisterSignal(stomach_owner, list(COMSIG_CARBON_VOMITED, COMSIG_HUMAN_GOT_PUNCHED))
 	var/atom/movable/screen/hunger/hunger_bar = stomach_owner.hud_used?.screen_objects[HUD_MOB_HUNGER]
 	if(hunger_bar)
 		hunger_bar.update_hunger_bar()
-	UnregisterSignal(stomach_owner, list(COMSIG_CARBON_VOMITED, COMSIG_HUMAN_GOT_PUNCHED))
+	// NOVA EDIT ADDITION END
 	return ..()
 
 /obj/item/organ/stomach/feel_for_damage(self_aware)

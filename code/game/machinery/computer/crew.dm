@@ -10,6 +10,9 @@
 	icon_keyboard = "med_key"
 	circuit = /obj/item/circuitboard/computer/crew
 	light_color = LIGHT_COLOR_BLUE
+	// NOVA EDIT ADDITION START - Robots
+	var/skip_existing_monitor = FALSE
+	// NOVA EDIT ADDITION END
 
 /obj/machinery/computer/crew/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
@@ -80,7 +83,10 @@
 
 /obj/machinery/computer/crew/ui_interact(mob/user)
 	. = ..()
-	GLOB.crewmonitor.show(user,src)
+	// NOVA EDIT ADDITION START - Robots
+	if(!skip_existing_monitor)
+		GLOB.crewmonitor.show(user,src)
+	// NOVA EDIT ADDITION END - Robots
 
 GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 

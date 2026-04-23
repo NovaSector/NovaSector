@@ -5,19 +5,33 @@
 	undiagnosed_name = "Puncture"
 	threshold_penalty = 5
 
+
+// NOVA EDIT ADDITION START - Robots
+/datum/wound/pierce/proc/get_blood_noun()
+	var/noun_blood = "blood"
+	if(ishuman(victim))
+		var/mob/living/carbon/human/human_victim = victim
+		if(human_victim.dna.blood_type.reagent_type)
+			var/datum/reagent/blood_reagent = human_victim.dna.blood_type.reagent_type
+			noun_blood = initial(lowertext(blood_reagent.name))
+	return noun_blood
+// NOVA EDIT ADDITION END
+
 /datum/wound/pierce/get_self_check_description(self_aware)
 	if(!limb.can_bleed())
 		return ..()
-
+	// NOVA EDIT ADDITION START - Robots
+	var/blood_noun = get_blood_noun()
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
-			return span_danger("It's leaking blood from a small [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_danger("It's leaking [blood_noun] from a small [LOWER_TEXT(undiagnosed_name || name)].")
 		if(WOUND_SEVERITY_MODERATE)
-			return span_warning("It's leaking blood from a [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_warning("It's leaking [blood_noun] from a [LOWER_TEXT(undiagnosed_name || name)].")
 		if(WOUND_SEVERITY_SEVERE)
-			return span_boldwarning("It's leaking blood from a serious [LOWER_TEXT(undiagnosed_name || name)]!")
+			return span_boldwarning("It's leaking [blood_noun] from a serious [LOWER_TEXT(undiagnosed_name || name)]!")
 		if(WOUND_SEVERITY_CRITICAL)
-			return span_boldwarning("It's leaking blood from a major [LOWER_TEXT(undiagnosed_name || name)]!!")
+			return span_boldwarning("It's leaking [blood_noun] from a major [LOWER_TEXT(undiagnosed_name || name)]!!")
+	// NOVA EDIT ADDITION END
 
 /datum/wound/pierce/bleed
 	name = "Piercing Wound"
@@ -54,33 +68,36 @@
 	if(victim.stat == DEAD || (wounding_dmg < 5) || !limb.can_bleed() || !victim.get_blood_volume() || !prob(internal_bleeding_chance + wounding_dmg))
 		return
 	var/blood_bled = rand(1, limb.get_splint_factor() * internal_bleeding_coefficient) // 12 brute toolbox can cause up to 15/18/21 bloodloss on mod/sev/crit
+	// NOVA EDIT ADDITION START - Robots
+	var/blood_noun = get_blood_noun()
 	switch(blood_bled)
 		if(1 to 6)
 			victim.bleed(blood_bled, TRUE)
 		if(7 to 13)
 			victim.visible_message(
-				span_smalldanger("Blood droplets fly from the hole in [victim]'s [limb.plaintext_zone]."),
-				span_danger("You cough up a bit of blood from the blow to your [limb.plaintext_zone]."),
+				span_smalldanger("[blood_noun] droplets fly from the hole in [victim]'s [limb.plaintext_zone]."),
+				span_danger("You cough up a bit of [blood_noun] from the blow to your [limb.plaintext_zone]."),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 			)
 			victim.bleed(blood_bled, TRUE)
 		if(14 to 19)
 			victim.visible_message(
-				span_smalldanger("A small stream of blood spurts from the hole in [victim]'s [limb.plaintext_zone]!"),
-				span_danger("You spit out a string of blood from the blow to your [limb.plaintext_zone]!"),
+				span_smalldanger("A small stream of [blood_noun] spurts from the hole in [victim]'s [limb.plaintext_zone]!"),
+				span_danger("You spit out a string of [blood_noun] from the blow to your [limb.plaintext_zone]!"),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 			)
 			victim.create_splatter(victim.dir)
 			victim.bleed(blood_bled)
 		if(20 to INFINITY)
 			victim.visible_message(
-				span_danger("A spray of blood streams from the gash in [victim]'s [limb.plaintext_zone]!"),
-				span_bolddanger("You choke up on a spray of blood from the blow to your [limb.plaintext_zone]!"),
+				span_danger("A spray of [blood_noun] streams from the gash in [victim]'s [limb.plaintext_zone]!"),
+				span_bolddanger("You choke up on a spray of [blood_noun] from the blow to your [limb.plaintext_zone]!"),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 			)
 			victim.bleed(blood_bled)
 			victim.create_splatter(victim.dir)
 			victim.add_splatter_floor(get_step(victim.loc, victim.dir))
+	// NOVA EDIT ADDITION END
 
 /datum/wound/pierce/bleed/get_bleed_rate_of_change()
 	//basically if a species doesn't bleed, the wound is stagnant and will not heal on its own (nor get worse)

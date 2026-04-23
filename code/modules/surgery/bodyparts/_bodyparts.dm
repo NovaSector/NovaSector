@@ -211,7 +211,7 @@
 	/// If false, no wound that can be applied to us can mangle our interior. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
 	var/any_existing_wound_can_mangle_our_interior
 	/// get_damage() / total_damage must surpass this to allow our limb to be disabled, even temporarily, by an EMP.
-	var/robotic_emp_paralyze_damage_percent_threshold = 0.3
+	var/robotic_emp_paralyze_damage_percent_threshold = 0 // NOVA EDIT CHANGE - Robots - var/robotic_emp_paralyze_damage_percent_threshold = 0.3
 	/// A potential texturing overlay to put on the limb
 	var/datum/bodypart_overlay/texture/texture_bodypart_overlay
 	/// Lazylist of /datum/status_effect/grouped/bodypart_effect types. Instances of this are applied to the carbon when added the limb is attached, and merged with similair limbs

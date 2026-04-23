@@ -362,7 +362,10 @@
 		var/datum/species/targetspecies = humantarget.dna.species
 		var/disguised = !ishumanbasic(humantarget) && istype(humantarget.head, /obj/item/clothing/head/hooded/human_head) && istype(humantarget.wear_suit, /obj/item/clothing/suit/hooded/bloated_human)
 		var/species_name = "[disguised ? "\"[/datum/species/human::name]\"" : targetspecies.name][mutant ? "-derived mutant" : ""]"
-
+		// NOVA EDIT ADDITION START - Robots
+		if(humantarget.get_organ_slot(ORGAN_SLOT_BRAIN) && istype(humantarget.get_organ_slot(ORGAN_SLOT_BRAIN), /obj/item/organ/brain/cybernetic))
+			species_name = "Robotic [species_name]"
+		// NOVA EDIT ADDITION END
 		render_list += "<span class='info ml-1'>Species: [species_name]</span><br>"
 		var/core_temperature_message = "Core temperature: [round(humantarget.coretemperature-T0C, 0.1)] &deg;C ([round(humantarget.coretemperature*1.8-459.67,0.1)] &deg;F)"
 		if(humantarget.coretemperature >= humantarget.get_body_temp_heat_damage_limit())

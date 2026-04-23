@@ -112,10 +112,14 @@
 	var/crit_stabilizing_reagent = /datum/reagent/medicine/epinephrine
 
 	var/breath_noise = "steady in- and exhalation"
-
+// NOVA EDIT ADDITION START - Robots
 // assign the respiration_type
 /obj/item/organ/lungs/Initialize(mapload)
 	. = ..()
+	setup_breathing()
+
+/obj/item/organ/lungs/proc/setup_breathing()
+// NOVA EDIT ADDITION END
 	breath_out = new(BREATH_VOLUME)
 
 	if(safe_nitro_min)

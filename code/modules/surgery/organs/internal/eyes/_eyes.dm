@@ -184,6 +184,12 @@
 		SIGNAL_REMOVETRAIT(TRAIT_REFLECTIVE_EYES),
 	))
 
+// NOVA EDIT ADDITION START - Robots
+/obj/item/organ/eyes/proc/damage_threshold_crossed(new_damage)
+	owner.adjust_temp_blindness(new_damage * 2 SECONDS)
+	owner.set_eye_blur_if_lower(new_damage * rand(6 SECONDS, 12 SECONDS))
+// NOVA EDIT ADDITION END
+
 ///Called whenever the luminescent and/or reflective eyes traits are added or removed
 /obj/item/organ/eyes/proc/on_shiny_eyes_trait_update(mob/living/carbon/human/source)
 	SIGNAL_HANDLER

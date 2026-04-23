@@ -106,19 +106,20 @@ function setWindowSizeBatched(vec: Point): void {
   pendingWinset.size = `${vec[0]}x${vec[1]}`;
   scheduleWinset();
 }
-
+/** NOVA EDIT ADDITION START - Robots */
 // Get screen position
-function getScreenPosition(): Point {
+export function getScreenPosition(): Point {
   return [0 - screenOffset[0], 0 - screenOffset[1]];
 }
 
 // Get screen size
-function getScreenSize(): Point {
+export function getScreenSize(): Point {
   return [
     window.screen.availWidth * pixelRatio,
     window.screen.availHeight * pixelRatio,
   ];
 }
+/** NOVA EDIT ADDITION END */
 
 /**
  * Moves an item to the top of the recents array, and keeps its length
