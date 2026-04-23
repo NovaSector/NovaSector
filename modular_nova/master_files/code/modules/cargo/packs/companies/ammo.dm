@@ -45,12 +45,6 @@
 	auto_name = FALSE
 	contains = list(/obj/item/ammo_box/magazine/m38/match/bouncy)
 
-/datum/supply_pack/companies/mags_and_ammo/nt/strip10
-	name = "9mm Stripper Clip Single-Pack"
-	desc = "Contains one stripper clip that fits standard 9mm ammunition, considered 'disposable'."
-	auto_name = FALSE
-	contains = list(/obj/item/ammo_box/speedloader/c96/empty)
-
 // Sol Fed Mags
 
 /datum/supply_pack/companies/mags_and_ammo
