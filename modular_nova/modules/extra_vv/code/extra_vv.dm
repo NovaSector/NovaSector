@@ -61,7 +61,7 @@
 	human_mob.dna.species.regenerate_organs(src, replace_current = TRUE)
 	human_mob.dna.update_body_size()
 	human_mob.update_body(is_creating = TRUE)
-	var/prompt = tgui_alert(usr, "Refresh quirks too?", "Load Quirks", list("Yes", "No"))
+	var/prompt = tgui_alert(usr, "Reload their quirks too? This will also remove existing quirks on the mob.", "Load Quirks", list("Yes", "No"))
 	if(prompt == "Yes")
 		human_mob.cleanse_quirk_datums()
 		SSquirks.AssignQuirks(src, client)
