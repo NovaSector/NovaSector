@@ -50,12 +50,18 @@
 	passwindow_off(owner, type)
 
 /// Returns TRUE if the destination tile past the window can't be entered (wall, dense obstacle, etc.).
-/// Grilles and directional (half-tile) windows don't count
+/// Unshocked grilles and directional (half-tile) windows don't count — holosynths phase through
+/// any glass. Shocked grilles and fulltile windows still block.
 /datum/component/glass_passer/holosynth/proc/is_phase_blocked(turf/destination, obj/structure/window/window, mob/owner)
 	if(isnull(destination) || destination.density)
 		return TRUE
 	for(var/atom/movable/blocker in destination)
-		if(blocker == window || blocker == owner || istype(blocker, /obj/structure/grille))
+		if(blocker == window || blocker == owner)
+			continue
+		if(istype(blocker, /obj/structure/grille))
+			var/obj/structure/grille/grille = blocker
+			if(grille.is_shocked())
+				return TRUE
 			continue
 		if(istype(blocker, /obj/structure/window))
 			var/obj/structure/window/other_window = blocker
