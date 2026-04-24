@@ -254,6 +254,10 @@
 /datum/status_effect/holosynth_dissolving/on_creation(mob/living/new_owner, ...)
 	. = ..()
 	animate(owner, alpha = 0, time = duration, flags = ANIMATION_PARALLEL)
+	// Qdel to preven runtime from remove_wibbly_filters in holographic_nature
+	var/datum/component/nature = owner.GetComponent(/datum/component/holographic_nature)
+	if(nature)
+		qdel(nature)
 
 /datum/status_effect/holosynth_dissolving/tick()
 	if(QDELETED(owner))
