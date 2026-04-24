@@ -16,7 +16,7 @@ GLOBAL_LIST_EMPTY(ckey_to_mooc_name)
 	if(!mob)
 		return
 
-	var/static/list/job_lookup = list(JOB_CAPTAIN=TRUE, JOB_CHIEF_MEDICAL_OFFICER=TRUE, JOB_CORONER=TRUE, JOB_MEDICAL_DOCTOR=TRUE, JOB_PARAMEDIC=TRUE, JOB_CHEMIST=TRUE, JOB_VIROLOGIST=TRUE, JOB_ORDERLY=TRUE)
+	var/static/list/job_lookup = list(JOB_CAPTAIN=TRUE, JOB_CHIEF_MEDICAL_OFFICER=TRUE, JOB_CORONER=TRUE, JOB_MEDICAL_DOCTOR=TRUE, JOB_PARAMEDIC=TRUE, JOB_CHEMIST=TRUE, JOB_VIROLOGIST=TRUE, JOB_ORDERLY=TRUE, JOB_PSYCHOLOGIST=TRUE)
 	if(!holder)
 		var/job = mob?.mind.assigned_role.title
 		if(!job || !job_lookup[job])
@@ -89,7 +89,7 @@ GLOBAL_LIST_EMPTY(ckey_to_mooc_name)
 	else //otherwise just toggle it
 		GLOB.mooc_allowed = !GLOB.mooc_allowed
 	var/list/listeners = list()
-	var/static/list/job_lookup = list(JOB_CAPTAIN=TRUE, JOB_CHIEF_MEDICAL_OFFICER=TRUE, JOB_CORONER=TRUE, JOB_MEDICAL_DOCTOR=TRUE, JOB_PARAMEDIC=TRUE, JOB_CHEMIST=TRUE, JOB_VIROLOGIST=TRUE, JOB_ORDERLY=TRUE)
+	var/static/list/job_lookup = list(JOB_CAPTAIN=TRUE, JOB_CHIEF_MEDICAL_OFFICER=TRUE, JOB_CORONER=TRUE, JOB_MEDICAL_DOCTOR=TRUE, JOB_PARAMEDIC=TRUE, JOB_CHEMIST=TRUE, JOB_VIROLOGIST=TRUE, JOB_ORDERLY=TRUE, JOB_PSYCHOLOGIST=TRUE)
 	for(var/iterated_player in GLOB.player_list)
 		var/mob/iterated_mob = iterated_player
 		if(!iterated_mob.client?.holder?.deadmined)
