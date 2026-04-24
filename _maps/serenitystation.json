@@ -4,9 +4,11 @@
 	"map_path": "map_files/SerenityStation",
 	"map_file": "SerenityStation.dmm",
 	"exclude_from_ci": false,
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
 	"planetary": 1,
 	"height_autosetup": 0,
-	"allow_space_when_planetary": 1,
+	"allow_space_when_planetary": 0,
 	"shuttles": {
 		"cargo": "cargo_nova",
 		"ferry": "ferry_fancy",
