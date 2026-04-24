@@ -33,6 +33,7 @@
 	mutantstomach = /obj/item/organ/stomach/roach
 	mutantliver = /obj/item/organ/liver/roach
 	mutantappendix = /obj/item/organ/appendix/roach
+	subspecies_of = /datum/species/moth
 
 /datum/species/insectoid/get_default_mutant_bodyparts()
 	return list(

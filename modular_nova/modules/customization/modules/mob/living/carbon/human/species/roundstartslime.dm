@@ -554,6 +554,7 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/jelly/slime/roundstart,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/jelly/slime/roundstart,
 	)
+	subspecies_of = /datum/species/golem/weak
 
 /datum/species/jelly/roundstartslime/create_pref_unique_perks()
 	var/list/to_add = list()

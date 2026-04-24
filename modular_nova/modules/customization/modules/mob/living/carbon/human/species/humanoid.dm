@@ -19,6 +19,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	payday_modifier = 1.0
 	examine_limb_id = SPECIES_HUMAN
+	subspecies_of = /datum/species/human
 
 /datum/species/humanoid/get_default_mutant_bodyparts()
 	return list(

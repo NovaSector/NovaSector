@@ -11,6 +11,7 @@
 		TRAIT_CAN_STRIP,
 		TRAIT_LITERATE,
 	)
+	subspecies_of = /datum/species/golem
 
 /datum/species/abductor/abductorweak
 	allow_customizable_dna_features = TRUE
