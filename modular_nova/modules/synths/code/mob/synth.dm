@@ -21,9 +21,13 @@
 	for(var/obj/item/organ/organ as anything in get_organs_for_zone(BODY_ZONE_CHEST))
 		qdel(organ)
 
+/obj/effect/mob_spawn/corpse/human/synth_chest
+	name = "Android Frame" // "The fabrication of [this var] is now complete."
+	mob_type = /mob/living/carbon/human/species/synth/chest_only
+
 /datum/design/synth_diy
-	name = "Android Assembly Kit"
-	desc = "'Your First Synth' kit. Get one today!"
+	name = "Android Frame"
+	desc = "An empty android frame. Compatible with compact positronic brains."
 	id = "synth_diy"
 	build_type = MECHFAB
 	construction_time = 30 SECONDS
@@ -34,7 +38,7 @@
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2.5,
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /mob/living/carbon/human/species/synth/chest_only
+	build_path = /obj/effect/mob_spawn/corpse/human/synth_chest
 	category = list(
 		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
 	)

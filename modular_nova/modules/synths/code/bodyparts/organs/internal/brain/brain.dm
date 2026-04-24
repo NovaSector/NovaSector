@@ -127,8 +127,11 @@
 /datum/design/synth_posi/proc/on_successful_revive(obj/item/organ/brain/synth/our_posi)
 	var/mob/living/carbon/human/owner = our_posi.owner
 	var/inputed_name = tgui_input_text(owner, "Enter your new name", "Your name", owner.real_name, max_length = MAX_NAME_LEN)
+	var/pronouns = tgui_input_list(owner, "Select your pronouns", "Your pronouns", list(MALE, FEMALE, PLURAL, NEUTER), NEUTER)
 	if(!isnull(inputed_name))
-		owner.real_name = inputed_name
+		owner.fully_replace_character_name(newname = inputed_name)
+	if(!isnull(pronouns))
+		owner.gender = pronouns
 	owner.mind.add_antag_datum(/datum/antagonist/recovered_crew) //admin tooling, to discern between normal crew and ghost crew
 
 /obj/item/organ/brain/synth/circuit
