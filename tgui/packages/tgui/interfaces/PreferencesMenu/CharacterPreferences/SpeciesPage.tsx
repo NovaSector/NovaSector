@@ -349,11 +349,6 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                 */ // NOVA EDIT REMOVAL END
                 // NOVA EDIT ADDITION START - Star-only Species and Subspecies UI
                 if (species.subspecies_of) {
-                  if (detectedSubspecies[speciesKey]) {
-                    throw new Error(
-                      `The species ID ${speciesKey} has its subspecies_of set to species ID ${species.subspecies_of}, which is also a subspecies. This is a bug.`,
-                    );
-                  }
                   return null;
                 }
                 function isNovaStarRestricted(species: Species): boolean {
