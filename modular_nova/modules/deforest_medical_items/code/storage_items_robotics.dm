@@ -35,6 +35,8 @@
 
 /obj/item/storage/medkit/robotic_repair/stocked/PopulateContents()
 	var/static/items_inside = list(
+		/obj/item/stack/cable_coil/thirty = 1,
+		/obj/item/weldingtool = 1,
 		/obj/item/stack/medical/wound_recovery/robofoam = 3,
 		/obj/item/disk/neuroware/reset = 1,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 1,
@@ -59,6 +61,7 @@
 /obj/item/storage/medkit/robotic_repair/preemo/stocked/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/stack/cable_coil/thirty = 1,
+		/obj/item/weldingtool = 1,
 		/obj/item/stack/medical/wound_recovery/robofoam = 3,
 		/obj/item/stack/medical/wound_recovery/robofoam_super = 1,
 		/obj/item/disk/neuroware/reset = 2,

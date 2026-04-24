@@ -91,6 +91,10 @@
 			QDEL_NULL(particle_effect)
 	reagents.set_temperature(1000)
 	reagents.handle_reactions()
+	for(var/datum/reagent/possible_cleaner as anything in reagents?.reagent_list) // run this first to look for cleaner immediately
+		if(istype(possible_cleaner, /datum/reagent/medicine/system_cleaner))
+			reagents.remove_all(2)
+			break
 	for(var/datum/reagent/bit as anything in reagents?.reagent_list)
 		if((favorite_reagent_exact && bit.type == favorite_reagent) || (!favorite_reagent_exact && istype(bit, favorite_reagent))) // Burn ethanol for power!
 			power_generated += handle_favorite_reagent(bit)

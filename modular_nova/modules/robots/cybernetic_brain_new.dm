@@ -794,7 +794,7 @@
 		ADD_TRAIT(owner, TRAIT_MUTE, "robot_reboot")
 		owner.become_blind("robot_reboot")
 		owner.apply_status_effect(/datum/status_effect/incapacitating/stun, "robot_reboot")
-		addtimer(CALLBACK(src, PROC_REF(wake_the_fuck_up_samurai)), 8 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(wake_the_fuck_up_samurai)), 6 SECONDS)
 		// Now that we're "shut down", start fixing shit over the next 10 seconds while we're incapacitated
 		for(var/datum/reagent/neuroware_reagent in reagents.reagent_list)
 			neuroware_reagent.on_mob_end_metabolize(owner, 1)
@@ -838,5 +838,5 @@
 	screen.icon = 'modular_nova/modules/robots/sprites/reboot_movie.dmi'
 	play_cinematic_sound(sound('modular_nova/modules/robots/sounds/reboot.ogg'))
 	flick("reboot_movie", screen)
-	stoplag(5.38 SECONDS)
+	stoplag(4 SECONDS)
 	flick("reboot_movie_reverse", screen)

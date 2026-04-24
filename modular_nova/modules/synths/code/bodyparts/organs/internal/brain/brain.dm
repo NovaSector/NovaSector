@@ -87,10 +87,11 @@
 		ADD_TRAIT(owner, TRAIT_MUTE, "robot_reboot")
 		owner.become_blind("robot_reboot")
 		owner.apply_status_effect(/datum/status_effect/incapacitating/stun, "robot_reboot")
-		addtimer(CALLBACK(src, PROC_REF(wake_the_fuck_up_samurai)), 8 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(wake_the_fuck_up_samurai)), 6 SECONDS)
 		// Now that we're "shut down", start fixing shit over the next 10 seconds while we're incapacitated
 		for(var/datum/reagent/neuroware_reagent in owner.reagents.reagent_list)
-			owner.reagents.remove_reagent(neuroware_reagent.type, neuroware_reagent.volume, TRUE)
+			if(neuroware_reagent.chemical_flags & REAGENT_NEUROWARE)
+				owner.reagents.remove_reagent(neuroware_reagent.type, neuroware_reagent.volume, TRUE)
 		owner.cure_all_traumas(TRAUMA_RESILIENCE_BASIC)
 		owner.set_disgust(0)
 		owner.remove_status_effect(/datum/status_effect/drowsiness)

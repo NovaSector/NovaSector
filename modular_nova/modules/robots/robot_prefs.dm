@@ -40,6 +40,7 @@
 		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
 			if(limb.body_zone == BODY_ZONE_HEAD)
 				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+		target.update_body()
 
 /datum/preference/choiced/android_chassis_chest
 	savefile_key = "feature_android_chassis_chest"
@@ -83,6 +84,7 @@
 		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
 			if(limb.body_zone == BODY_ZONE_CHEST)
 				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+		target.update_body()
 
 
 /datum/preference/choiced/android_chassis_l_arm
@@ -126,6 +128,7 @@
 		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
 			if(limb.body_zone == BODY_ZONE_L_ARM)
 				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+		target.update_body()
 
 
 /datum/preference/choiced/android_chassis_r_arm
@@ -169,6 +172,7 @@
 		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
 			if(limb.body_zone == BODY_ZONE_R_ARM)
 				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+		target.update_body()
 
 /datum/preference/choiced/android_chassis_l_leg
 	savefile_key = "feature_android_chassis_l_leg"
@@ -255,6 +259,7 @@
 		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
 			if(limb.body_zone == BODY_ZONE_R_LEG)
 				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+		target.update_body()
 
 /datum/preference/choiced/android_stomach
 	savefile_key = "feature_android_stomach"
