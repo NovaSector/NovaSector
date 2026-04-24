@@ -16,9 +16,9 @@
 /obj/machinery/autolathe/spot
 	name = "assembly spot"
 	desc = "place for various activities"
-	icon = 'icons/obj/machines/lathes.dmi'
-	icon_state = "autolathe"
-	base_icon_state = "autolathe"
+	icon = 'modular_regzt/icons/obj/structures/spot.dmi'
+	icon_state = "assembly spot"
+	base_icon_state = "assembly spot"
 	max_integrity = 50
 	use_power = NO_POWER_USE
 	idle_power_usage = 0
@@ -51,8 +51,8 @@
 /obj/item/autolathe_spot
 	name = "folded assembly tool"
 	desc = /obj/machinery/autolathe/spot::desc
-	icon = 'modular_nova/modules/colony_fabricator/icons/packed_machines.dmi'
-	icon_state = "colony_lathe_packed"
+	icon = 'modular_regzt/icons/obj/structures/spot.dmi'
+	icon_state = "folded_assembly_spot"
 	w_class = WEIGHT_CLASS_NORMAL
 	var/obj/type_to_deploy = /obj/machinery/autolathe/spot
 	var/deploy_time = 5 SECONDS
