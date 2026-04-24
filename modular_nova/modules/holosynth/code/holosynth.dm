@@ -39,10 +39,9 @@
 /obj/item/bodypart/chest/synth/holosynth
 	/// Weakref to the holosynth pen bound to this body.
 	var/datum/weakref/owner_projector_ref
-	/// Emissive glow appearance applied to the mob via makeHologram(), retained so we can cut it on species loss.
+	/// Emissive glow appearance applied to the mob, retained so we can cut it on species loss / re-apply.
 	var/mutable_appearance/glow
 
-/// Release weakref
 /obj/item/bodypart/chest/synth/holosynth/Destroy()
 	glow = null
 	owner_projector_ref = null
@@ -72,8 +71,11 @@
 	species_holder.AddComponent(/datum/component/holographic_nature)
 
 	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)
+	refresh_opacity(species_holder)
 	if(chest)
-		chest.glow = species_holder.makeHologram(read_opacity(species_holder), read_color(species_holder))
+		if(chest.glow)
+			species_holder.cut_overlay(chest.glow)
+		chest.glow = apply_holo_glow(species_holder)
 	var/datum/action/innate/holosynth_toggle_phase/phase_toggle = new(species_holder)
 	phase_toggle.Grant(species_holder)
 	refresh_scanline(species_holder)
@@ -218,20 +220,43 @@
 	var/list/visuals = get_holosynth_visual(target)
 	target.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(rgb(visuals["r"], visuals["g"], visuals["b"], visuals["alpha"] * 255)))
 
-/// Removes the scanline filter and re-adds it if the pref says so.
+/// 48×128 mask with four stripe pairs spaced 32 apart. The roll is driven by
+/// (cycle_scanline) to prevent interruption from other filters/animations
 /datum/species/synthetic/holosynth/proc/refresh_scanline(mob/living/carbon/human/target)
 	target.remove_filter("HOLO: Scanline")
 	if(!read_scanline(target))
 		return
-	var/atom/movable/scanline = new(null)
-	scanline.icon = 'icons/effects/effects.dmi'
-	scanline.icon_state = "scanline"
-	scanline.appearance_flags |= RESET_TRANSFORM
-	var/static/uid = 0
-	scanline.render_target = "*HoloScanline [uid++]"
-	target.add_filter("HOLO: Scanline", 2, alpha_mask_filter(render_source = scanline.render_target))
-	target.add_overlay(scanline)
-	qdel(scanline)
+	target.add_filter("HOLO: Scanline", 2, alpha_mask_filter(icon = icon('modular_nova/modules/holosynth/icons/scanline_mask.dmi', "scanline")))
+	cycle_scanline(target)
+
+/// One beat of the scanline animation. Reschedules itself every cycle; dies on its own if the
+/// mob is gone, the pref turned off, or the filter was removed externally.
+/datum/species/synthetic/holosynth/proc/cycle_scanline(mob/living/carbon/human/target)
+	if(QDELETED(target) || !read_scanline(target))
+		return
+	var/filter = target.get_filter("HOLO: Scanline")
+	if(!filter)
+		return
+	animate(filter)
+	animate(filter, y = -32, time = 0, flags = ANIMATION_PARALLEL)
+	animate(y = 0, time = 1.6 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(cycle_scanline), target), 1.6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/// Inlines makeHologram's emissive-glow portion only — skips its scanline filter (which cropped
+/// oversized mutant parts) and its scanline add_overlay (which inflated the hitbox).
+/datum/species/synthetic/holosynth/proc/apply_holo_glow(atom/target)
+	if(!target.render_target)
+		var/static/uid = 0
+		target.render_target = "HOLOGRAM [uid++]"
+	var/static/atom/movable/render_step/emissive/glow_source
+	if(!glow_source)
+		glow_source = new(null)
+	glow_source.render_source = target.render_target
+	SET_PLANE_EXPLICIT(glow_source, initial(glow_source.plane), target)
+	var/mutable_appearance/glow_appearance = new(glow_source)
+	target.add_overlay(glow_appearance)
+	LAZYADD(target.update_overlays_on_z, glow_appearance)
+	return glow_appearance
 
 /datum/species/synthetic/holosynth/proc/read_color(mob/living/carbon/human/target)
 	return target.client?.prefs?.read_preference(/datum/preference/color/mutant/holosynth_color) \
