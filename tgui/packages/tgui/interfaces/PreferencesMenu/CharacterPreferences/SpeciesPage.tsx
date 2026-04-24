@@ -267,7 +267,6 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
     },
   );
   // NOVA EDIT ADDITION START - Subspecies UI
-  const speciesList = species; // man
   /**
    * Like the Species type, with ID as an added property, as this is
    * (currently) how we switch our species to a subspecies properly.
