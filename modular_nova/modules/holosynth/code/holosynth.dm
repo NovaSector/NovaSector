@@ -220,27 +220,23 @@
 	var/list/visuals = get_holosynth_visual(target)
 	target.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(rgb(visuals["r"], visuals["g"], visuals["b"], visuals["alpha"] * 255)))
 
-/// 48×128 mask with four stripe pairs spaced 32 apart. The roll is driven by
-/// (cycle_scanline) to prevent interruption from other filters/animations
+/// Drives the 48×128 scanline mask (four stripe pairs, 32 apart) via a self-scheduling heartbeat:
+/// each call ensures the filter matches the pref, runs one 1.6s beat of the roll, then reschedules
+/// itself. Because every beat restarts the animation from scratch, any disruption to the filter
+/// queue (damage wibbly, other filters, etc.) is healed on the next beat without special-casing.
+/// The chain dies on its own when the mob is gone, the pref turns off, or the filter is removed.
 /datum/species/synthetic/holosynth/proc/refresh_scanline(mob/living/carbon/human/target)
-	target.remove_filter("HOLO: Scanline")
+	if(QDELETED(target))
+		return
 	if(!read_scanline(target))
+		target.remove_filter("HOLO: Scanline")
 		return
-	target.add_filter("HOLO: Scanline", 2, alpha_mask_filter(icon = icon('modular_nova/modules/holosynth/icons/scanline_mask.dmi', "scanline")))
-	cycle_scanline(target)
-
-/// One beat of the scanline animation. Reschedules itself every cycle; dies on its own if the
-/// mob is gone, the pref turned off, or the filter was removed externally.
-/datum/species/synthetic/holosynth/proc/cycle_scanline(mob/living/carbon/human/target)
-	if(QDELETED(target) || !read_scanline(target))
-		return
+	if(!target.get_filter("HOLO: Scanline"))
+		target.add_filter("HOLO: Scanline", 2, alpha_mask_filter(icon = icon('modular_nova/modules/holosynth/icons/scanline_mask.dmi', "scanline")))
 	var/filter = target.get_filter("HOLO: Scanline")
-	if(!filter)
-		return
-	animate(filter)
-	animate(filter, y = -32, time = 0, flags = ANIMATION_PARALLEL)
+	animate(filter, y = -32, time = 0)
 	animate(y = 0, time = 1.6 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(cycle_scanline), target), 1.6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(refresh_scanline), target), 1.6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /// Inlines makeHologram's emissive-glow portion only — skips its scanline filter (which cropped
 /// oversized mutant parts) and its scanline add_overlay (which inflated the hitbox).
