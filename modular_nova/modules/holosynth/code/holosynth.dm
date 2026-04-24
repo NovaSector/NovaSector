@@ -75,7 +75,7 @@
 	if(chest)
 		if(chest.glow)
 			species_holder.cut_overlay(chest.glow)
-		chest.glow = apply_holo_glow(species_holder)
+		chest.glow = makeHologramHolosynth(species_holder)
 	var/datum/action/innate/holosynth_toggle_phase/phase_toggle = new(species_holder)
 	phase_toggle.Grant(species_holder)
 	refresh_scanline(species_holder)
@@ -222,10 +222,13 @@
 	var/list/visuals = get_holosynth_visual(target)
 	target.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(rgb(visuals["r"], visuals["g"], visuals["b"], visuals["alpha"] * 255)))
 
-/// Animation of the scanlines done by a filter to Woraround the fact we cannot use a 32x32 sprite for an overlay
+/// Animation of the scanlines done by a filter to work around the fact we cannot use a 32x32 sprite for an overlay.
 /datum/species/synthetic/holosynth/proc/refresh_scanline(mob/living/carbon/human/target)
 	if(QDELETED(target))
 		return
+	var/existing = target.get_filter("HOLO: Scanline")
+	if(existing)
+		animate(existing)
 	target.remove_filter("HOLO: Scanline")
 	if(!read_scanline(target))
 		return
@@ -239,11 +242,12 @@
 	SIGNAL_HANDLER
 	if(damagetype != BRUTE && damagetype != BURN)
 		return
+	source.remove_filter("HOLO: Scanline")
 	addtimer(CALLBACK(src, PROC_REF(refresh_scanline), source), 0.75 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /// Inlines makeHologram's emissive-glow portion only — skips its scanline filter (which cropped
 /// oversized mutant parts) and its scanline add_overlay (which inflated the hitbox).
-/datum/species/synthetic/holosynth/proc/apply_holo_glow(atom/target)
+/datum/species/synthetic/holosynth/proc/makeHologramHolosynth(atom/target)
 	if(!target.render_target)
 		var/static/uid = 0
 		target.render_target = "HOLOGRAM [uid++]"
