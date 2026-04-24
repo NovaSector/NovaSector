@@ -41,14 +41,10 @@
 	var/datum/weakref/owner_projector_ref
 	/// Emissive glow appearance applied to the mob, retained so we can cut it on species loss / re-apply.
 	var/mutable_appearance/glow
-	/// Name of the currently-installed scanline filter. Each heartbeat rotates to a fresh name so
-	/// BYOND doesn't re-associate the old animate loop onto the new filter (which would stack).
-	var/scanline_filter_name
 
 /obj/item/bodypart/chest/synth/holosynth/Destroy()
 	glow = null
 	owner_projector_ref = null
-	scanline_filter_name = null
 	return ..()
 
 /datum/species/synthetic/holosynth/get_default_mutant_bodyparts()
@@ -83,6 +79,7 @@
 	var/datum/action/innate/holosynth_toggle_phase/phase_toggle = new(species_holder)
 	phase_toggle.Grant(species_holder)
 	refresh_scanline(species_holder)
+	RegisterSignal(species_holder, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_mob_damaged))
 	add_verb(species_holder, list(
 		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
 		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
@@ -100,12 +97,10 @@
 	species_holder.physiology.brute_mod /= HOLOSYNTH_BRUTEMULT
 	species_holder.physiology.burn_mod /= HOLOSYNTH_BURNMULT
 	species_holder.max_grab = GRAB_KILL
-	species_holder.remove_filter("HOLO: Color and Transparent")
+	UnregisterSignal(species_holder, COMSIG_MOB_APPLY_DAMAGE)
+	species_holder.remove_filter(list("HOLO: Color and Transparent", "HOLO: Scanline"))
 	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)
 	if(chest)
-		if(chest.scanline_filter_name)
-			species_holder.remove_filter(chest.scanline_filter_name)
-			chest.scanline_filter_name = null
 		species_holder.cut_overlay(chest.glow)
 		chest.glow = null
 	for(var/datum/action/innate/holosynth_toggle_phase/phase_toggle in species_holder.actions)
@@ -227,30 +222,24 @@
 	var/list/visuals = get_holosynth_visual(target)
 	target.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(rgb(visuals["r"], visuals["g"], visuals["b"], visuals["alpha"] * 255)))
 
-/// Drives the 48×128 scanline mask (four stripe pairs, 32 apart) via a self-scheduling heartbeat.
-/// Each beat rotates to a fresh filter name and installs a single animate chain there. BYOND keys
-/// filter animations by name, not datum — so replacing same-named filter doesn't drop the old
-/// loop, it just re-attaches it to the new datum and the speeds stack. Rotating the name avoids
-/// that entirely. ANIMATION_PARALLEL + no cancel keeps us from clobbering unrelated atom-level
-/// animations (dissolve alpha fade, etc.).
+/// Animation of the scanlines done by a filter to Woraround the fact we cannot use a 32x32 sprite for an overlay
 /datum/species/synthetic/holosynth/proc/refresh_scanline(mob/living/carbon/human/target)
 	if(QDELETED(target))
 		return
-	var/obj/item/bodypart/chest/synth/holosynth/chest = target.get_bodypart(BODY_ZONE_CHEST)
-	if(chest?.scanline_filter_name)
-		target.remove_filter(chest.scanline_filter_name)
-		chest.scanline_filter_name = null
+	target.remove_filter("HOLO: Scanline")
 	if(!read_scanline(target))
 		return
-	var/static/uid = 0
-	var/new_name = "HOLO: Scanline [uid++]"
-	target.add_filter(new_name, 2, alpha_mask_filter(icon = icon('modular_nova/modules/holosynth/icons/scanline_mask.dmi', "scanline")))
-	if(chest)
-		chest.scanline_filter_name = new_name
-	var/filter = target.get_filter(new_name)
+	target.add_filter("HOLO: Scanline", 2, alpha_mask_filter(icon = icon('modular_nova/modules/holosynth/icons/scanline_mask.dmi', "scanline")))
+	var/filter = target.get_filter("HOLO: Scanline")
 	animate(filter, y = 0, time = 0, loop = -1, flags = ANIMATION_PARALLEL)
 	animate(y = -32, time = 1.6 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(refresh_scanline), target), 1.6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/// Re-installs the scanline animation after damage.
+/datum/species/synthetic/holosynth/proc/on_mob_damaged(mob/living/source, damage_amount, damagetype)
+	SIGNAL_HANDLER
+	if(damagetype != BRUTE && damagetype != BURN)
+		return
+	addtimer(CALLBACK(src, PROC_REF(refresh_scanline), source), 0.75 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /// Inlines makeHologram's emissive-glow portion only — skips its scanline filter (which cropped
 /// oversized mutant parts) and its scanline add_overlay (which inflated the hitbox).
