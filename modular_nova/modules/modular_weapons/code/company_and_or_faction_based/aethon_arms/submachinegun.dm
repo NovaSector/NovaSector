@@ -1,7 +1,7 @@
 /obj/item/gun/ballistic/automatic/rapier
 	name = "\improper M-94 Rapier Submachinegun"
 	desc = "An elegant automatic submachinegun with a reputation for the roguish and unsavory sort, this weapon is able to spit lead at an impressive cyclic rate, although it often leaves want for raw stopping power."
-	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/aetheon_arms/wide_guns.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/aethon_arms/wide_guns.dmi'
 	icon_state = "burya"
 
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
