@@ -13,6 +13,8 @@
 	burst_size = 1
 	fire_delay = 0.30 SECONDS
 	projectile_damage_multiplier = 0.8
+	accepted_magazine_type = /obj/item/ammo_box/magazine/rapier
+	special_mags = FALSE
 
 /obj/item/gun/ballistic/automatic/rapier/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_AETHEON)
