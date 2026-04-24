@@ -275,13 +275,13 @@
 	success_sound = 'sound/items/taperecorder/taperecorder_close.ogg'
 	required_organ_flag = ORGAN_ROBOTIC & ORGAN_SYNTHETIC_FROM_SPECIES
 	blocked_organ_flag = NONE
-	heal_to_percent = 0
 	failure_damage_percent = 0.2
 	repeatable = TRUE
 	time = 12 SECONDS //long and complicated
 	target_type = /obj/item/organ/brain/synth
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 	requires_organ_damage = 10
+	var/heal_amount = 0.25
 
 // flavor text - preop
 /datum/surgery_operation/organ/repair/brain/mechanic/synth/on_preop(obj/item/organ/brain/synth/organ, mob/living/surgeon, obj/item/tool, list/operation_args)
@@ -299,7 +299,7 @@
 
 // flavor text - success
 /datum/surgery_operation/organ/repair/brain/mechanic/synth/on_success(obj/item/organ/brain/synth/organ, mob/living/surgeon, obj/item/tool, list/operation_args)
-	organ.apply_organ_damage(-organ.maxHealth * heal_to_percent) // no parent call, special healing for this one
+	organ.apply_organ_damage(-organ.maxHealth * heal_amount) // no parent call, special healing for this one
 	var/brain_type = "posibrain"
 	var/obj/item/organ/brain/synth/synth_brain = organ.owner.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(synth_brain)
