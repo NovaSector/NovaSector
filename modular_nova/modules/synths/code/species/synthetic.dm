@@ -1,5 +1,5 @@
 /datum/species/synthetic
-	name = "Synthetic Humanoid"
+	name = "Synthetic Humanoid (Legacy)"
 	id = SPECIES_SYNTH
 	inherent_biotypes = MOB_ROBOTIC | MOB_HUMANOID
 	inherent_traits = list(
@@ -239,6 +239,15 @@
 		SPECIES_PERK_ICON = "star-of-life",
 		SPECIES_PERK_NAME = "Unhuskable",
 		SPECIES_PERK_DESC = "[plural_form] can't be husked, disappointing changelings galaxy-wide.",
+	))
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_SATELLITE_DISH,
+		SPECIES_PERK_NAME = "Distress Beacon",
+		SPECIES_PERK_DESC = "If you die, whether from power loss or physical trauma, a distress beacon will automatically activate, flagging you up on the \
+		Distress Beacon console in Robotics. You'll show up even if your sensors were off! An EMP will shut off the \
+		beacon if it's active, however.",
 	))
 
 	perk_descriptions += list(list(

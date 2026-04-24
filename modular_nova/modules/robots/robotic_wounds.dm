@@ -86,8 +86,8 @@
 /datum/wound/robotic_bleed/moderate
 	name = "Misaligned Coolant Tube"
 	desc = "A cooolant tube has slipped out of place and is leaking."
-	treat_text = "Apply percussive maintenance to the part to get the tubing back in place."
-	treat_text_short = "Hit it with something blunt, like a toolbox."
+	treat_text = "Apply <b>percussive maintenance</b> to the part to get the tubing back in place, or apply <b>robotic break fix spray</b>."
+	treat_text_short = "Hit it with something blunt, like a <b>wrench</b>, or apply <b>robotic break fix spray.</b>"
 	examine_desc = "is dribbling coolant from the tubing seal."
 	occur_text = "starts dribbling coolant from the tubing seal"
 	severity = WOUND_SEVERITY_MODERATE
@@ -95,8 +95,8 @@
 	internal_bleeding_coefficient = 1.25
 	threshold_penalty = 20
 	status_effect_type = /datum/status_effect/wound/pierce/moderate
-	simple_treat_text = "<b>Applying percussive maintenance</b> to the damaged part will help get the tubing back in place."
-	homemade_treat_text = "<b>Applying percussive maintenance</b> to the damaged part will help get the tubing back in place."
+	simple_treat_text = "<b>Applying percussive maintenance</b> to the damaged part will help get the tubing back in place, or apply <b>robotic break fix spray</b>."
+	homemade_treat_text = "<b>Applying percussive maintenance</b> to the damaged part will help get the tubing back in place, or apply <b>robotic break fix spray</b>."
 
 /datum/wound/robotic_bleed/moderate/get_limb_examine_description()
 	return span_warning("The coolant tube on this limb appears to be misaligned.")
@@ -121,8 +121,8 @@
 /datum/wound/robotic_bleed/severe
 	name = "Coolant Tube Hole"
 	desc = "The coolant tube on this part is cut open, leaking coolant everywhere.."
-	treat_text = "Apply duct tape(or any other kind of tape) to the tubing to repair it."
-	treat_text_short = "Apply duct tape to the limb."
+	treat_text = "Apply <b>duct tape</b>(or any other kind of tape) to the tubing to repair it, or apply <b>robotic break fix spray</b>."
+	treat_text_short = "Apply <b>duct tape</b> to the limb, or apply <b>robotic break fix spray</b>."
 	examine_desc = "is pierced clear through, with coolant spewing from the damaged tubing"
 	occur_text = "looses a violent spray of blood, revealing a pierced wound"
 	severity = WOUND_SEVERITY_SEVERE
@@ -133,8 +133,8 @@
 	threshold_penalty = 35
 	status_effect_type = /datum/status_effect/wound/pierce/severe
 
-	simple_treat_text = "<b>Duct-taping</b> the hole shut will stop the bleeding."
-	homemade_treat_text = "You can use any kind of tape to seal the hole."
+	simple_treat_text = "<b>Duct-taping</b> the hole shut will stop the bleeding, or apply <b>robotic break fix spray</b>."
+	homemade_treat_text = "You can use any kind of <b>tape</b> to seal the hole, or apply <b>robotic break fix spray</b>."
 
 /datum/wound/robotic_bleed/severe/get_limb_examine_description()
 	return span_warning("The coolant tube on this limb appears to be sliced open.")
@@ -161,8 +161,8 @@
 	name = "Shredded Coolant Tubing"
 	desc = "The part's coolant tubing is completely shredded beyond any hope of repair."
 	treat_text = "Rubber coolant tubes are nearly impossible to source. Replace the limb entirely with a fresh, undamaged limb. Detatch the limb surgically \
-	or remove it via blunt force trauma."
-	treat_text_short = "Replace the limb."
+	or remove it via blunt force trauma. <b>Premium robotic break fix spray</b> can save the limb."
+	treat_text_short = "Replace the limb, or apply <b>premium robotic break fix spray</b>."
 	examine_desc = "'s coolant tube is completely shredded beyond any hope of repair."
 	occur_text = "shreds the coolant tube into ribbons, spewing coolant everywhere."
 	severity = WOUND_SEVERITY_CRITICAL
@@ -171,8 +171,8 @@
 	threshold_penalty = 50
 	status_effect_type = /datum/status_effect/wound/pierce/critical
 
-	simple_treat_text = "<b>Replace the limb</b>."
-	homemade_treat_text = "Sufficient damage to the limb will knock it off of the chassis, but you risk leaking a lot of oil doing so."
+	simple_treat_text = "<b>Replace the limb</b>, or apply <b>premium robotic break fix spray</b>."
+	homemade_treat_text = "Sufficient damage to the limb will knock it off of the chassis, but you risk leaking a lot of oil doing so, or apply <b>premium robotic break fix spray</b> to save the limb."
 
 /datum/wound_pregen_data/robot_pierce_slash/critical
 	abstract = FALSE
@@ -273,8 +273,8 @@
 	undiagnosed_name = "Dent"
 	a_or_from = "a"
 	desc = "Part has been dented from blunt force being applied, causing limping or reduced dexterity, and sparks."
-	treat_text = "Apply percussive maintenance to the dented part to hammer it back into the correct shape."
-	treat_text_short = "Hit it with something blunt, like a toolbox."
+	treat_text = "Apply <b>percussive maintenance</b> to the dented part to hammer it back into the correct shape, or apply <b>robotic break fix spray</b>."
+	treat_text_short = "Hit it with something blunt, like a toolbox, or apply <b>robotic break fix spray</b>."
 	examine_desc = "is dented"
 	occur_text = "sparks, revealing a large dent"
 	severity = WOUND_SEVERITY_MODERATE
@@ -285,8 +285,8 @@
 	status_effect_type = /datum/status_effect/wound/blunt/bone/moderate
 
 	simple_desc = "Part has been dented from blunt force being applied, causing limping or reduced dexterity, and sparks."
-	simple_treat_text = "<b>Applying percussive maintenance</b> to the damaged part will help get the metal back in shape."
-	homemade_treat_text = "<b>Applying percussive maintenance</b> to the damaged part will help get the metal back in shape."
+	simple_treat_text = "<b>Applying percussive maintenance</b> to the damaged part will help get the metal back in shape, or apply <b>robotic break fix spray</b>."
+	homemade_treat_text = "<b>Applying percussive maintenance</b> to the damaged part will help get the metal back in shape, or apply <b>robotic break fix spray</b>."
 	var/hit = FALSE
 
 /datum/wound/robotic_blunt/moderate/get_limb_examine_description()
@@ -315,8 +315,8 @@
 /datum/wound/robotic_blunt/severe
 	name = "Broken Panel Latch"
 	desc = "The part's paneling latch has been broken open and the wiring is exposed."
-	treat_text = "Apply duct tape(or any other kind of tape) to the panel latch to hold it shut."
-	treat_text_short = "Apply duct tape to the part."
+	treat_text = "Apply <b>duct tape</b>(or any other kind of tape) to the panel latch to hold it shut, or apply <b>robotic break fix spray</b>."
+	treat_text_short = "Apply <b>duct tape</b> to the part, or apply <b>robotic break fix spray</b>."
 	examine_desc = "has exposed wiring, the access panel hanging open"
 	occur_text = "'s access panel swings open as the latch is smashed to pieces"
 	treatable_tools = list(TOOL_DUCTTAPE)
@@ -328,8 +328,8 @@
 	threshold_penalty = 30
 	status_effect_type = /datum/status_effect/wound/blunt/bone/severe
 	simple_desc = "The part's paneling latch has been broken open, drastically reducing part functionality."
-	simple_treat_text = "<b>Duct-taping</b> the panel shut will fix the damage."
-	homemade_treat_text = "You can use any kind of tape to seal the panel."
+	simple_treat_text = "<b>Duct-taping</b> the panel shut will fix the damage, or apply <b>robotic break fix spray</b>."
+	homemade_treat_text = "You can use any kind of <b>tape</b> to seal the panel, or apply <b>robotic break fix spray</b>."
 
 /datum/wound/robotic_blunt/severe/treat(obj/item/I, mob/user)
 	victim.balloon_alert_to_viewers("taping panel shut")
@@ -353,8 +353,8 @@
 	name = "Smashed Circuitry"
 	desc = "The part's circuitry has been smashed to bits; the part is completely unusable and needs replaced."
 	treat_text = "Robotic limb replacement circuits are nearly impossible to source on their own. Replace the part entirely with a fresh, undamaged part.\
-	Detatch the part surgically or remove it via blunt force trauma."
-	treat_text_short = "Replace the limb."
+	Detatch the part surgically or remove it via blunt force trauma, or apply <b>premium robotic break fix spray</b> to save the limb."
+	treat_text_short = "Replace the limb, or apply <b>premium robotic break fix spray</b>."
 	examine_desc = "is smashed to pieces, completely unusable."
 	occur_text = "shatters, circuitboards, connectors, and chunks of metal falling to the floor"
 
@@ -366,8 +366,8 @@
 	disabling = TRUE
 
 	simple_desc = "The part's circuitry has been smashed to bits, causing total immobilization of the part."
-	simple_treat_text = "<b>Replace the limb</b>."
-	homemade_treat_text = "Sufficient damage to the limb will knock it off of the chassis, but you risk leaking a lot of oil doing so."
+	simple_treat_text = "<b>Replace the limb</b>, or apply <b>premium robotic break fix spray</b>."
+	homemade_treat_text = "Sufficient damage to the limb will knock it off of the chassis, but you risk leaking a lot of oil doing so, or apply <b>premium robotic break fix spray</b>."
 
 /datum/wound_pregen_data/robot_blunt_burn/critical
 	abstract = FALSE

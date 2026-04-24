@@ -125,6 +125,7 @@ type CrewSensor = {
   assignment: string | undefined;
   ijob: number;
   is_robot: any;
+  is_legacy_synth: any;
   life_status: number;
   power: number;
   oil: number;
@@ -223,6 +224,7 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
     assignment,
     ijob,
     is_robot,
+    is_legacy_synth,
     life_status,
     power,
     oil,
@@ -259,7 +261,7 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
             <Icon name="bolt" color="#FFFF00" size={1.2} />
             <HealthStat type="brute" value={power} />
             {' | '}
-            <Icon name="oil-can" color="#FFFF00" size={1.2} />
+            {is_legacy_synth ? <Icon name="heart" color="#FFFF00" size={1.2} /> : <Icon name="oil-can" color="#FFFF00" size={1.2} />}
             <HealthStat type="burn" value={oil} />
           </Box>
         ) : life_status !== STAT_DEAD ? (

@@ -98,7 +98,7 @@
 		SPECIES_PERK_NAME = "Distress Beacon",
 		SPECIES_PERK_DESC = "If you run out of power or run out of oil, a distress beacon will automatically activate, flagging you up on the \
 		Distress Beacon console in Robotics. You'll show up even if your sensors were off when you ran out of power or oil! An EMP will shut off the \
-		beacon, however.",
+		beacon if it's active, however.",
 	))
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,

@@ -12,12 +12,33 @@
 	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
 	var/obj/item/modular_computer/pda/synth/internal_computer
 	actions_types = list(/datum/action/item_action/synth/open_internal_computer)
+	var/obj/effect/dummy/lighting_obj/moblight/robot_beacon/our_beacon
+	var/distress_beacon_active = FALSE
+	var/beacon_light_timer
 
 /obj/item/organ/brain/synth/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "robot", BUBBLE_ICON_PRIORITY_ORGAN)
 	internal_computer = new(src)
 	ADD_TRAIT(src, TRAIT_SILICON_EMOTES_ALLOWED, INNATE_TRAIT)
+
+/obj/item/organ/brain/synth/proc/activate_distress_beacon()
+	distress_beacon_active = TRUE
+	pulse_beacon_light()
+	beacon_light_timer = addtimer(CALLBACK(src, PROC_REF(pulse_beacon_light)), 2 SECONDS, TIMER_STOPPABLE | TIMER_LOOP | TIMER_DELETE_ME)
+
+/obj/item/organ/brain/synth/proc/pulse_beacon_light()
+	our_beacon.set_light_on(!our_beacon.light_on) // toggle that mf
+
+/obj/item/organ/brain/synth/proc/deactivate_distress_beacon()
+	distress_beacon_active = FALSE
+	our_beacon.set_light_on(FALSE)
+	deltimer(beacon_light_timer)
+
+/obj/item/organ/brain/synth/on_life(seconds_per_tick)
+	. = ..()
+	if(owner && owner.stat != DEAD && distress_beacon_active)
+		deactivate_distress_beacon()
 
 /obj/item/organ/brain/synth/on_mob_insert(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
@@ -27,17 +48,24 @@
 
 	if(human_brain_owner.stat == DEAD && HAS_TRAIT(human_brain_owner, TRAIT_REVIVES_BY_HEALING) && human_brain_owner.health > SYNTH_BRAIN_WAKE_THRESHOLD)
 		human_brain_owner.revive(FALSE)
-
+	RegisterSignal(human_brain_owner, COMSIG_LIVING_DEATH, PROC_REF(activate_distress_beacon_death))
 	RegisterSignal(human_brain_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equip_signal))
 	if(internal_computer && human_brain_owner.wear_id)
 		internal_computer.handle_id_slot(human_brain_owner, human_brain_owner.wear_id)
 	wake_the_fuck_up_samurai()
+
+/obj/item/organ/brain/synth/proc/activate_distress_beacon_death(mob/living/target, gibbed)
+	SIGNAL_HANDLER
+	if(!distress_beacon_active)
+		activate_distress_beacon()
 
 /obj/item/organ/brain/synth/emp_act(severity) // EMP act against the posi, keep the cap far below the organ health
 	. = ..()
 
 	if(!owner || . & EMP_PROTECT_SELF)
 		return
+	if(distress_beacon_active)
+		deactivate_distress_beacon()
 
 	if(!COOLDOWN_FINISHED(src, severe_cooldown)) //So we cant just spam emp to kill people.
 		COOLDOWN_START(src, severe_cooldown, 10 SECONDS)

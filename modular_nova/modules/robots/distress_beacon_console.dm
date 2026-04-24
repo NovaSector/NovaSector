@@ -70,24 +70,38 @@ GLOBAL_DATUM_INIT(crewmonitor_robot, /datum/crewmonitor/robot, new)
 		if(!ishuman(tracked_human))
 			stack_trace("Non-human mob is in human_list: [tracked_living_mob] ([tracked_living_mob.type])")
 			continue
-
-		var/obj/item/organ/brain/robot_nova/robot_brain = tracked_human.get_organ_slot(ORGAN_SLOT_BRAIN)
-		if(!robot_brain || !istype(robot_brain))
-			continue
-
-		// Check they have a uniform
 		var/obj/item/clothing/under/uniform = tracked_human.w_uniform
 		var/sensor_mode = 0
+		// Check they have a uniform
 		if(uniform && uniform.sensor_mode)
 			sensor_mode = uniform.sensor_mode
-		if(robot_brain.distress_beacon_active)
-			sensor_mode = SENSOR_COORDS
 		// The entry for this human
 		var/list/entry = list(
 			"ref" = REF(tracked_human),
 			"name" = "Unknown Robot",
 			"ijob" = UNKNOWN_JOB_ID,
 		)
+		var/obj/item/organ/brain/robot_nova/robot_brain = tracked_human.get_organ_slot(ORGAN_SLOT_BRAIN)
+		if(robot_brain && istype(robot_brain))
+			if(robot_brain.distress_beacon_active)
+				sensor_mode = SENSOR_COORDS
+			// Damage
+			if (sensor_mode >= SENSOR_VITALS)
+				entry += list(
+					"power" = round((robot_brain.power / robot_brain.max_power) * 100, 1),
+					"oil" = round((tracked_living_mob.blood_volume / BLOOD_VOLUME_NORMAL) * 100, 1),
+				)
+		var/obj/item/organ/brain/synth/synth_brain = tracked_human.get_organ_slot(ORGAN_SLOT_BRAIN)
+		if(synth_brain && istype(synth_brain))
+			if(synth_brain.distress_beacon_active)
+				sensor_mode = SENSOR_COORDS
+			// Damage
+			if (sensor_mode >= SENSOR_VITALS)
+				entry += list(
+					"power" = round((tracked_human.nutrition / NUTRITION_LEVEL_FULL) * 100, 1), // legacy synth power is nutrition for some reason
+					"oil" = round((tracked_human.health / tracked_human.maxHealth) * 100, 1), // legacy symths don't have oil, use this to display health instead
+				)
+			entry["is_legacy_synth"] = TRUE
 
 		// ID and id-related data
 		var/obj/item/card/id/id_card = tracked_living_mob.get_idcard(hand_first = FALSE)
@@ -101,13 +115,6 @@ GLOBAL_DATUM_INIT(crewmonitor_robot, /datum/crewmonitor/robot, new)
 		entry["is_robot"] = TRUE
 
 		entry["life_status"] = tracked_living_mob.stat
-
-		// Damage
-		if (sensor_mode >= SENSOR_VITALS)
-			entry += list(
-				"power" = round((robot_brain.power / robot_brain.max_power) * 100, 1),
-				"oil" = round((tracked_living_mob.blood_volume / BLOOD_VOLUME_NORMAL) * 100, 1),
-			)
 
 		// Location
 		if (sensor_mode >= SENSOR_COORDS)

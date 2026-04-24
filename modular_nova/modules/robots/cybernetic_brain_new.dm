@@ -36,12 +36,12 @@
 	)
 	var/power = 100
 	var/max_power = 100
-	var/distress_beacon_active = FALSE
-	var/beacon_light_timer
 	var/atom/movable/screen/power_meter/power_meter
 	var/atom/movable/screen/power_meter/oil/oil_meter
 	var/temperature_disparity = 1
 	var/obj/effect/dummy/lighting_obj/moblight/robot_beacon/our_beacon
+	var/distress_beacon_active = FALSE
+	var/beacon_light_timer
 
 #define POWER_STATE_FULL_CHARGE 4
 #define POWER_STATE_CHARGED 3
@@ -677,6 +677,8 @@
 /obj/item/organ/brain/robot_nova/Initialize(mapload)
 	. = ..()
 	create_reagents(1000, NO_REACT) // no virtual explosions please
+	AddComponent(/datum/component/bubble_icon_override, "robot", BUBBLE_ICON_PRIORITY_ORGAN)
+	ADD_TRAIT(src, TRAIT_SILICON_EMOTES_ALLOWED, INNATE_TRAIT)
 
 /obj/item/organ/brain/robot_nova/on_life(seconds_per_tick)
 	. = ..()
