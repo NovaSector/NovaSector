@@ -1,3 +1,4 @@
+/*
 /obj/machinery/autolathe/portable
 	name = "autolathe"
 	desc = "It produces items using iron, glass, plastic and maybe some more."
@@ -49,6 +50,6 @@
 /obj/item/autolathe_portable/proc/give_deployable_component()
 	AddComponent(/datum/component/deployable, deploy_time, type_to_deploy)
 
-// ИСПРАВЛЕНИЕ: отключаем интерфейс при правом клике
 /obj/item/autolathe_portable/ui_interact(mob/user, datum/tgui/ui)
 	return
+*/

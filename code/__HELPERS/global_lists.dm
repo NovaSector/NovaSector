@@ -61,6 +61,8 @@
 		/obj/item/stack/ore/glass = GLOB.sand_recipes,
 		/obj/item/stack/rods = GLOB.rod_recipes,
 		/obj/item/stack/sheet/runed_metal = GLOB.runed_metal_recipes,
+		/obj/item/stack/pieces_metal = GLOB.pieces_metal_recipes,
+		/obj/item/stack/pieces_glass = GLOB.pieces_glass_recipes,
 	)
 
 	for(var/stack in global_stack_recipes)

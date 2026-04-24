@@ -100,3 +100,5 @@
 	icon_state = "shovel"
 	toolspeed = 2.5
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.3)
+
+// заготовка под паяльник /obj/item/weldingtool/electric/arc_welder
