@@ -6,7 +6,7 @@
 	"exclude_from_ci": false,
 	"planetary": 1,
 	"height_autosetup": 0,
-	"allow_space_when_planetary": 1,
+	"allow_space_when_planetary": 0,
 	"shuttles": {
 		"cargo": "cargo_nova",
 		"ferry": "ferry_fancy",
