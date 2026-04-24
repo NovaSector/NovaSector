@@ -35,10 +35,11 @@
 	return icon_with_chassis
 
 /datum/preference/choiced/android_chassis_head/apply_to_human(mob/living/carbon/human/target, value)
-	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
-	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.body_zone == BODY_ZONE_HEAD)
-			limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+	if(is_species(target, /datum/species/robot_nova))
+		var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
+		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+			if(limb.body_zone == BODY_ZONE_HEAD)
+				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
 
 /datum/preference/choiced/android_chassis_chest
 	savefile_key = "feature_android_chassis_chest"
@@ -77,10 +78,11 @@
 	return icon_with_chassis
 
 /datum/preference/choiced/android_chassis_chest/apply_to_human(mob/living/carbon/human/target, value)
-	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
-	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.body_zone == BODY_ZONE_CHEST)
-			limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+	if(is_species(target, /datum/species/robot_nova))
+		var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
+		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+			if(limb.body_zone == BODY_ZONE_CHEST)
+				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
 
 
 /datum/preference/choiced/android_chassis_l_arm
@@ -119,10 +121,11 @@
 	return icon_with_chassis
 
 /datum/preference/choiced/android_chassis_l_arm/apply_to_human(mob/living/carbon/human/target, value)
-	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
-	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.body_zone == BODY_ZONE_L_ARM)
-			limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+	if(is_species(target, /datum/species/robot_nova))
+		var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
+		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+			if(limb.body_zone == BODY_ZONE_L_ARM)
+				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
 
 
 /datum/preference/choiced/android_chassis_r_arm
@@ -161,10 +164,11 @@
 	return icon_with_chassis
 
 /datum/preference/choiced/android_chassis_r_arm/apply_to_human(mob/living/carbon/human/target, value)
-	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
-	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.body_zone == BODY_ZONE_R_ARM)
-			limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+	if(is_species(target, /datum/species/robot_nova))
+		var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
+		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+			if(limb.body_zone == BODY_ZONE_R_ARM)
+				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
 
 /datum/preference/choiced/android_chassis_l_leg
 	savefile_key = "feature_android_chassis_l_leg"
@@ -203,10 +207,11 @@
 	return icon_with_chassis
 
 /datum/preference/choiced/android_chassis_l_leg/apply_to_human(mob/living/carbon/human/target, value)
-	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
-	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.body_zone == BODY_ZONE_L_LEG)
-			limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+	if(is_species(target, /datum/species/robot_nova))
+		var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
+		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+			if(limb.body_zone == BODY_ZONE_L_LEG)
+				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
 
 /datum/preference/choiced/android_chassis_r_leg
 	savefile_key = "feature_android_chassis_r_leg"
@@ -245,10 +250,11 @@
 	return icon_with_chassis
 
 /datum/preference/choiced/android_chassis_r_leg/apply_to_human(mob/living/carbon/human/target, value)
-	var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
-	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.body_zone == BODY_ZONE_R_LEG)
-			limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
+	if(is_species(target, /datum/species/robot_nova))
+		var/datum/sprite_accessory/chassis = SSaccessories.android_chassis_list[value]
+		for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+			if(limb.body_zone == BODY_ZONE_R_LEG)
+				limb.change_appearance(chassis.icon, chassis.icon_state, FALSE, FALSE)
 
 /datum/preference/choiced/android_stomach
 	savefile_key = "feature_android_stomach"
@@ -268,22 +274,23 @@
 	)
 
 /datum/preference/choiced/android_stomach/apply_to_human(mob/living/carbon/human/target, value)
-	switch(value)
-		if("Liquid Fuel Engine (Alcohol/Flammable Liquids)")
-			var/obj/item/organ/stomach/fuel_generator/engine = new(target)
-			engine.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		if("Biofuel Engine (Solid Food)")
-			var/obj/item/organ/stomach/fuel_generator/biofuel/engine = new(target)
-			engine.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		if("Weak Combo Engine (Food/Liquids)")
-			var/obj/item/organ/stomach/fuel_generator/combo/engine = new(target)
-			engine.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		if("Soda Brand Engine (Random Soda)")
-			var/obj/item/organ/stomach/fuel_generator/brand/engine = new(target)
-			engine.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		if("Illegal APC Power Cable (CONTRABAND)")
-			var/obj/item/organ/stomach/fuel_generator/power_cable/engine = new(target)
-			engine.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	if(is_species(target, /datum/species/robot_nova))
+		switch(value)
+			if("Liquid Fuel Engine (Alcohol/Flammable Liquids)")
+				var/obj/item/organ/stomach/fuel_generator/engine = new(target)
+				engine.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			if("Biofuel Engine (Solid Food)")
+				var/obj/item/organ/stomach/fuel_generator/biofuel/engine = new(target)
+				engine.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			if("Weak Combo Engine (Food/Liquids)")
+				var/obj/item/organ/stomach/fuel_generator/combo/engine = new(target)
+				engine.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			if("Soda Brand Engine (Random Soda)")
+				var/obj/item/organ/stomach/fuel_generator/brand/engine = new(target)
+				engine.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			if("Illegal APC Power Cable (CONTRABAND)")
+				var/obj/item/organ/stomach/fuel_generator/power_cable/engine = new(target)
+				engine.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/preference/choiced/android_stomach/create_default_value()
 	return "Liquid Fuel Engine (Alcohol/Flammable Liquids)"
@@ -303,13 +310,17 @@
 	)
 
 /datum/preference/choiced/android_appendix/apply_to_human(mob/living/carbon/human/target, value)
-	switch(value)
-		if("Graphics Processing Unit (Power Generation)")
-			var/obj/item/organ/appendix/random_number_database/gpu = new(target)
-			gpu.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		if("Emotion Processing Unit (Enables Mood)")
-			var/obj/item/organ/appendix/emotion_chip/epu = new(target)
-			epu.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	if(is_species(target, /datum/species/robot_nova))
+		switch(value)
+			if("Graphics Processing Unit (Bonus Power Generation)")
+				var/obj/item/organ/appendix/random_number_database/gpu = new(target)
+				gpu.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			if("Emotion Processing Unit (Enables Mood)")
+				var/obj/item/organ/appendix/emotion_chip/epu = new(target)
+				epu.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			if("Sound Card (Enables Internal Synthesizer)")
+				var/obj/item/organ/appendix/internal_synthesizer/spu = new(target)
+				spu.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/preference/choiced/android_appendix/create_default_value()
 	return "Graphics Processing Unit (Power Generation)"

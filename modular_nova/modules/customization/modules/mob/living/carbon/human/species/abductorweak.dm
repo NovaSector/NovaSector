@@ -30,6 +30,8 @@
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/abductor,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/abductor,
 	)
+	used_outfit_for_preview = /datum/outfit/abductor
+
 
 /datum/species/abductor/abductorweak/get_physical_attributes()
 	return "Rogues do not need to breathe, eat, have a stomach, or lungs but their naturally chunky tridactyl hands make it hard to operate generic equipment."

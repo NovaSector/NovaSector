@@ -1,3 +1,31 @@
+// Reboots the robot
+/obj/item/disk/neuroware/reset
+	name = "system reboot neuroware"
+	desc = "A neuroware chip containing a system reboot program which initiates a hard reset of the robot. \
+	This clears any neuroware, fixes any speech impediments, corrects any hallucinations, and fixes any other minor \
+	neurological-simulation bugs. Deeper-rooted traumas will not be impacted. The license supports 3 uses total. Does not work on NIFs."
+	icon_state = "/obj/item/disk/neuroware/reset"
+	post_init_icon_state = "chip_deforest"
+	greyscale_colors = "#474747"
+	manufacturer_tag = NEUROWARE_DEFOREST
+	success_message = "neuroware reset"
+	uses = 3
+	is_nif_compatible = FALSE
+
+/obj/item/disk/neuroware/reset/install(mob/living/carbon/human/target, mob/living/carbon/human/user)
+	var/obj/item/organ/brain/robot_nova/robot_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(!istype(robot_brain))
+		// we might be looking at a non-new synth, check if they've got the other brain type
+		if(!robot_brain || (istype(robot_brain, /obj/item/organ/brain) && !(robot_brain.organ_flags & ORGAN_ROBOTIC)))
+			return FALSE // not a robot and/or has no brain, you aren't rebooting today
+		var/obj/item/organ/brain/synth/synth_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+		if(!istype(synth_brain))
+			return FALSE // someone must've added a new type of robot brain without adding reboot support, they should fix that
+		synth_brain.trigger_reboot()
+		return TRUE
+	robot_brain.trigger_reboot()
+	return TRUE
+
 // Grants additional music instruments to synthetic humanoids
 /obj/item/disk/neuroware/synthesizer
 	name = "blank instruments neuroware"

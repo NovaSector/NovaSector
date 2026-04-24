@@ -322,6 +322,7 @@
 	brain_owner.med_hud_set_status()
 	brain_owner.add_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown) // handled by power loss
 	our_beacon = new(brain_owner)
+	wake_the_fuck_up_samurai()
 
 /obj/item/organ/brain/robot_nova/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	UnregisterSignal(organ_owner, COMSIG_HUMAN_ON_HANDLE_BLOOD)
@@ -347,6 +348,7 @@
 		organ_owner.mob_mood.update_mood_icon()
 	organ_owner.remove_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown)
 	QDEL_NULL(our_beacon)
+	wake_the_fuck_up_samurai()
 	. = ..()
 
 /obj/item/organ/brain/robot_nova/proc/activate_distress_beacon_death(mob/living/target, gibbed)
@@ -672,11 +674,23 @@
 	source.med_hud_set_status()
 	return COMSIG_CARBON_UPDATE_STAT_NO_UPDATE // We only want to die via power loss or manual death causes, not via raw damage, so disable the whole crit system.
 
-/obj/item/organ/brain/robot_nova/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/brain/robot_nova/Initialize(mapload)
+	. = ..()
+	create_reagents(1000, NO_REACT) // no virtual explosions please
+
+/obj/item/organ/brain/robot_nova/on_life(seconds_per_tick)
 	. = ..()
 	owner.set_tox_loss(0)
 	owner.set_oxy_loss(0)
 	power -= (0.0125 * seconds_per_tick) * temperature_disparity
+	for(var/datum/reagent/neuroware_reagent in reagents.reagent_list)
+		var/metabolized_volume = neuroware_reagent.compute_metabolization(owner, seconds_per_tick)
+		var/metabolization_ratio = REM * metabolized_volume
+		neuroware_reagent.current_cycle++
+		neuroware_reagent.on_mob_life(owner, seconds_per_tick, metabolization_ratio)
+		if(round(neuroware_reagent.volume, CHEMICAL_QUANTISATION_LEVEL) - metabolized_volume <= 0)
+			neuroware_reagent.on_mob_end_metabolize(owner, metabolization_ratio)
+		neuroware_reagent.metabolize_reagent(owner, seconds_per_tick, metabolized_volume)
 	run_updates()
 
 /obj/item/organ/brain/robot_nova/proc/handle_hud(mob/living/carbon/target, instant = FALSE)
@@ -713,6 +727,7 @@
 			if(oil_meter)
 				hud_used.remove_screen_object(oil_meter)
 				qdel(oil_meter)
+		wake_the_fuck_up_samurai() // just in case
 	. = ..()
 
 /obj/item/organ/brain/robot_nova/brain_damage_examine()
@@ -769,3 +784,59 @@
 
 		return TRUE
 	return FALSE
+
+/obj/item/organ/brain/robot_nova/proc/trigger_reboot()
+	if(owner)
+		say("Powering down for reboot.")
+		SEND_SOUND(owner.client, sound(null))
+		play_cinematic(/datum/cinematic/robot_reboot, list(owner)) // start that shit
+		ADD_TRAIT(owner, TRAIT_DEAF, "robot_reboot")
+		ADD_TRAIT(owner, TRAIT_MUTE, "robot_reboot")
+		owner.become_blind("robot_reboot")
+		owner.apply_status_effect(/datum/status_effect/incapacitating/stun, "robot_reboot")
+		addtimer(CALLBACK(src, PROC_REF(wake_the_fuck_up_samurai)), 8 SECONDS)
+		// Now that we're "shut down", start fixing shit over the next 10 seconds while we're incapacitated
+		for(var/datum/reagent/neuroware_reagent in reagents.reagent_list)
+			neuroware_reagent.on_mob_end_metabolize(owner, 1)
+		reagents.remove_all(1, TRUE) // clear that shit
+		owner.cure_all_traumas(TRAUMA_RESILIENCE_BASIC)
+		owner.set_disgust(0)
+		owner.remove_status_effect(/datum/status_effect/drowsiness)
+		owner.remove_status_effect(/datum/status_effect/dizziness)
+		owner.remove_status_effect(/datum/status_effect/jitter)
+		owner.remove_status_effect(/datum/status_effect/confusion)
+		owner.remove_status_effect(/datum/status_effect/drugginess)
+		owner.remove_status_effect(/datum/status_effect/silenced)
+		owner.remove_status_effect(/datum/status_effect/hallucination)
+		owner.remove_status_effect(/datum/status_effect/speech/stutter)
+		owner.remove_status_effect(/datum/status_effect/speech/stutter/anxiety)
+		owner.remove_status_effect(/datum/status_effect/speech/stutter/derpspeech)
+		owner.remove_status_effect(/datum/status_effect/speech/slurring)
+		owner.remove_status_effect(/datum/status_effect/speech/slurring/cult)
+		owner.remove_status_effect(/datum/status_effect/speech/slurring/drunk)
+		owner.remove_status_effect(/datum/status_effect/speech/slurring/generic)
+		owner.remove_status_effect(/datum/status_effect/speech/slurring/heretic)
+		if(owner.mob_mood)
+			owner.mob_mood.remove_temp_moods()
+			owner.mob_mood.reset_sanity(SANITY_DISTURBED)
+		set_organ_damage(0)
+
+/obj/item/organ/brain/robot_nova/proc/wake_the_fuck_up_samurai()
+	if(owner)
+		REMOVE_TRAIT(owner, TRAIT_DEAF, "robot_reboot")
+		REMOVE_TRAIT(owner, TRAIT_MUTE, "robot_reboot")
+		owner.cure_blind("robot_reboot")
+		owner.remove_status_effect(/datum/status_effect/incapacitating/stun, "robot_reboot")
+
+/datum/cinematic/robot_reboot
+	is_global = FALSE
+	cleanup_time = 5.38 SECONDS
+	clear_instant = FALSE
+	lock_mobs = FALSE
+
+/datum/cinematic/robot_reboot/play_cinematic()
+	screen.icon = 'modular_nova/modules/robots/sprites/reboot_movie.dmi'
+	play_cinematic_sound(sound('modular_nova/modules/robots/sounds/reboot.ogg'))
+	flick("reboot_movie", screen)
+	stoplag(5.38 SECONDS)
+	flick("reboot_movie_reverse", screen)

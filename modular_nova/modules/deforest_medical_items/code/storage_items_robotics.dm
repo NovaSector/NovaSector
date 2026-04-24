@@ -35,9 +35,8 @@
 
 /obj/item/storage/medkit/robotic_repair/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/stack/medical/wrap/gauze = 1,
-		/obj/item/stack/medical/synth_repair = 3,
-		/obj/item/stack/medical/wound_recovery/robofoam = 1,
+		/obj/item/stack/medical/wound_recovery/robofoam = 3,
+		/obj/item/disk/neuroware/reset = 1,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 1,
 		/obj/item/healthanalyzer/simple = 1,
 	)
@@ -59,14 +58,11 @@
 
 /obj/item/storage/medkit/robotic_repair/preemo/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/stack/medical/wrap/gauze/twelve = 1,
 		/obj/item/stack/cable_coil/thirty = 1,
-		/obj/item/stack/medical/synth_repair = 4,
-		/obj/item/stack/medical/wound_recovery/robofoam = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_liquid_solder = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 1,
-		/obj/item/reagent_containers/spray/dinitrogen_plasmide = 1,
+		/obj/item/stack/medical/wound_recovery/robofoam = 3,
+		/obj/item/stack/medical/wound_recovery/robofoam_super = 1,
+		/obj/item/disk/neuroware/reset = 2,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 2,
 		/obj/item/healthanalyzer/simple = 1,
 	)
 	generate_items_inside(items_inside,src)

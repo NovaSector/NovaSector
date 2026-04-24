@@ -106,9 +106,13 @@
 	wound_path_to_generate = /datum/wound/robotic_bleed/moderate
 	threshold_minimum = 30
 
-/datum/wound/robotic_bleed/moderate/receive_damage(wounding_type, wounding_dmg, wound_bonus)
+/datum/wound/robotic_bleed/moderate/receive_damage(wounding_type, wounding_dmg, wound_bonus, attack_direction, damage_source)
 	if(wounding_type == WOUND_BLUNT)
-		if(prob((wounding_dmg + wound_bonus) * 2))
+		var/obj/item/possible_wrench = damage_source
+		var/multiplier = 1
+		if(istype(possible_wrench) && possible_wrench.tool_behaviour == TOOL_WRENCH)
+			multiplier = 2 // gotta move that gear up
+		if(prob(((wounding_dmg + wound_bonus) * 2) * multiplier))
 			victim.balloon_alert_to_viewers("tubing re-aligned")
 			remove_wound()
 			return
@@ -272,7 +276,7 @@
 	treat_text = "Apply percussive maintenance to the dented part to hammer it back into the correct shape."
 	treat_text_short = "Hit it with something blunt, like a toolbox."
 	examine_desc = "is dented"
-	occur_text = "sparks, revealing a large dent."
+	occur_text = "sparks, revealing a large dent"
 	severity = WOUND_SEVERITY_MODERATE
 	interaction_efficiency_penalty = 1.3
 	limp_slowdown = 3
@@ -283,18 +287,21 @@
 	simple_desc = "Part has been dented from blunt force being applied, causing limping or reduced dexterity, and sparks."
 	simple_treat_text = "<b>Applying percussive maintenance</b> to the damaged part will help get the metal back in shape."
 	homemade_treat_text = "<b>Applying percussive maintenance</b> to the damaged part will help get the metal back in shape."
-
 	var/hit = FALSE
 
 /datum/wound/robotic_blunt/moderate/get_limb_examine_description()
 	return span_warning("The limb has a dent in it.")
 
-/datum/wound/robotic_blunt/moderate/receive_damage(wounding_type, wounding_dmg, wound_bonus)
-	if(!hit)
+/datum/wound/robotic_blunt/moderate/receive_damage(wounding_type, wounding_dmg, wound_bonus, attack_direction, damage_source)
+	if(!hit) // prevents immediate wound healing
 		hit = TRUE
 		return ..()
 	if(wounding_type == WOUND_BLUNT)
-		if(prob((wounding_dmg + wound_bonus) * 2))
+		var/obj/item/possible_wrench = damage_source
+		var/multiplier = 1
+		if(istype(possible_wrench) && possible_wrench.tool_behaviour == TOOL_WRENCH)
+			multiplier = 2 // gotta move that gear up
+		if(prob(((wounding_dmg + wound_bonus) * 2) * multiplier))
 			victim.balloon_alert_to_viewers("dent fixed")
 			remove_wound()
 			return
@@ -311,7 +318,7 @@
 	treat_text = "Apply duct tape(or any other kind of tape) to the panel latch to hold it shut."
 	treat_text_short = "Apply duct tape to the part."
 	examine_desc = "has exposed wiring, the access panel hanging open"
-	occur_text = "'s access panel swings open as the latch is smashed to pieces."
+	occur_text = "'s access panel swings open as the latch is smashed to pieces"
 	treatable_tools = list(TOOL_DUCTTAPE)
 	base_treat_time = 3 SECONDS
 	severity = WOUND_SEVERITY_SEVERE
@@ -335,7 +342,6 @@
 	else
 		victim.balloon_alert_to_viewers("failed to tape panel shut!")
 
-
 /datum/wound_pregen_data/robot_blunt_burn/severe
 	abstract = FALSE
 
@@ -350,7 +356,7 @@
 	Detatch the part surgically or remove it via blunt force trauma."
 	treat_text_short = "Replace the limb."
 	examine_desc = "is smashed to pieces, completely unusable."
-	occur_text = "shatters, circuitboards, connectors, and chunks of metal falling to the floor."
+	occur_text = "shatters, circuitboards, connectors, and chunks of metal falling to the floor"
 
 	severity = WOUND_SEVERITY_CRITICAL
 	interaction_efficiency_penalty = 2.5

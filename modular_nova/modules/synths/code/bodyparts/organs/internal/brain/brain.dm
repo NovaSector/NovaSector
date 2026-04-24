@@ -31,6 +31,7 @@
 	RegisterSignal(human_brain_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equip_signal))
 	if(internal_computer && human_brain_owner.wear_id)
 		internal_computer.handle_id_slot(human_brain_owner, human_brain_owner.wear_id)
+	wake_the_fuck_up_samurai()
 
 /obj/item/organ/brain/synth/emp_act(severity) // EMP act against the posi, keep the cap far below the organ health
 	. = ..()
@@ -64,6 +65,7 @@
 
 /obj/item/organ/brain/synth/Destroy()
 	QDEL_NULL(internal_computer)
+	wake_the_fuck_up_samurai()
 	return ..()
 
 /obj/item/organ/brain/synth/on_mob_remove(mob/living/carbon/human/brain_owner, special)
@@ -74,6 +76,50 @@
 	if(internal_computer)
 		internal_computer.handle_id_slot(brain_owner)
 		internal_computer.clear_id_slot_signals(brain_owner.wear_id)
+	wake_the_fuck_up_samurai()
+
+/obj/item/organ/brain/synth/proc/trigger_reboot()
+	if(owner)
+		say("Powering down for reboot.")
+		SEND_SOUND(owner.client, sound(null))
+		play_cinematic(/datum/cinematic/robot_reboot, list(owner)) // start that shit
+		ADD_TRAIT(owner, TRAIT_DEAF, "robot_reboot")
+		ADD_TRAIT(owner, TRAIT_MUTE, "robot_reboot")
+		owner.become_blind("robot_reboot")
+		owner.apply_status_effect(/datum/status_effect/incapacitating/stun, "robot_reboot")
+		addtimer(CALLBACK(src, PROC_REF(wake_the_fuck_up_samurai)), 8 SECONDS)
+		// Now that we're "shut down", start fixing shit over the next 10 seconds while we're incapacitated
+		for(var/datum/reagent/neuroware_reagent in owner.reagents.reagent_list)
+			owner.reagents.remove_reagent(neuroware_reagent.type, neuroware_reagent.volume, TRUE)
+		owner.cure_all_traumas(TRAUMA_RESILIENCE_BASIC)
+		owner.set_disgust(0)
+		owner.remove_status_effect(/datum/status_effect/drowsiness)
+		owner.remove_status_effect(/datum/status_effect/dizziness)
+		owner.remove_status_effect(/datum/status_effect/jitter)
+		owner.remove_status_effect(/datum/status_effect/confusion)
+		owner.remove_status_effect(/datum/status_effect/drugginess)
+		owner.remove_status_effect(/datum/status_effect/silenced)
+		owner.remove_status_effect(/datum/status_effect/hallucination)
+		owner.remove_status_effect(/datum/status_effect/speech/stutter)
+		owner.remove_status_effect(/datum/status_effect/speech/stutter/anxiety)
+		owner.remove_status_effect(/datum/status_effect/speech/stutter/derpspeech)
+		owner.remove_status_effect(/datum/status_effect/speech/slurring)
+		owner.remove_status_effect(/datum/status_effect/speech/slurring/cult)
+		owner.remove_status_effect(/datum/status_effect/speech/slurring/drunk)
+		owner.remove_status_effect(/datum/status_effect/speech/slurring/generic)
+		owner.remove_status_effect(/datum/status_effect/speech/slurring/heretic)
+		if(owner.mob_mood)
+			owner.mob_mood.remove_temp_moods()
+			owner.mob_mood.reset_sanity(SANITY_DISTURBED)
+		set_organ_damage(0)
+
+/obj/item/organ/brain/synth/proc/wake_the_fuck_up_samurai()
+	if(owner)
+		REMOVE_TRAIT(owner, TRAIT_DEAF, "robot_reboot")
+		REMOVE_TRAIT(owner, TRAIT_MUTE, "robot_reboot")
+		owner.cure_blind("robot_reboot")
+		owner.remove_status_effect(/datum/status_effect/incapacitating/stun, "robot_reboot")
+
 
 /obj/item/organ/brain/synth/proc/on_equip_signal(datum/source, obj/item/item, slot)
 	SIGNAL_HANDLER

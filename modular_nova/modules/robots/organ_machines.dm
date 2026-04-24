@@ -67,6 +67,26 @@
 	COOLDOWN_DECLARE(advert_time)
 	COOLDOWN_DECLARE(processing_time_cooldown)
 
+/obj/machinery/robotifier/screwdriver_act(mob/living/user, obj/item/tool)
+	. = ITEM_INTERACT_BLOCKING
+	if(occupant)
+		balloon_alert(user, "occupant inside!")
+		return ITEM_INTERACT_BLOCKING
+	return default_deconstruction_screwdriver(user, tool)
+
+/obj/machinery/robotifier/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(default_unfasten_wrench(user, tool))
+		return ITEM_INTERACT_SUCCESS
+	return FALSE
+
+/obj/machinery/robotifier/crowbar_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(occupant)
+		balloon_alert(user, "occupant inside!")
+		return ITEM_INTERACT_BLOCKING
+	return default_deconstruction_crowbar(user, tool)
+
 /datum/area_spawn/chopshop
 	target_areas = list(/area/station/science/robotics/lab, /area/station/science/robotics/mechbay)
 	desired_atom = /obj/machinery/robotifier
@@ -346,6 +366,26 @@
 		user.put_in_hands(contained_organ)
 		contained_organ = null
 	update_appearance()
+
+/obj/machinery/organ_fixer/screwdriver_act(mob/living/user, obj/item/tool)
+	. = ITEM_INTERACT_BLOCKING
+	if(contained_organ)
+		balloon_alert(user, "organ inside!")
+		return ITEM_INTERACT_BLOCKING
+	return default_deconstruction_screwdriver(user, tool)
+
+/obj/machinery/organ_fixer/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(default_unfasten_wrench(user, tool))
+		return ITEM_INTERACT_SUCCESS
+	return FALSE
+
+/obj/machinery/organ_fixer/crowbar_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(contained_organ)
+		balloon_alert(user, "organ inside!")
+		return ITEM_INTERACT_BLOCKING
+	return default_deconstruction_crowbar(user, tool)
 
 /datum/area_spawn/organ_fixer
 	target_areas = list(/area/station/science/robotics/lab, /area/station/science/robotics/mechbay)
