@@ -21,10 +21,6 @@
 	for(var/obj/item/organ/organ as anything in get_organs_for_zone(BODY_ZONE_CHEST))
 		qdel(organ)
 
-/obj/effect/mob_spawn/corpse/synth_chest
-	name = "Android Frame" // "The fabrication of [this var] is now complete."
-	mob_type = /mob/living/carbon/human/species/synth/chest_only
-
 /datum/design/synth_diy
 	name = "Android Frame"
 	desc = "An empty android frame. Compatible with compact positronic brains."
@@ -38,16 +34,10 @@
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2.5,
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/effect/mob_spawn/corpse/synth_chest
+	build_path = /mob/living/carbon/human/species/synth/chest_only
 	category = list(
 		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 	research_icon = 'icons/mob/silicon/robots.dmi'
 	research_icon_state = "robot_old"
-
-/datum/design/synth_diy/create_result(atom/drop_loc, list/custom_materials, amount)
-	var/obj/effect/mob_spawn/corpse/synth_spawner = ..()
-	var/mob/living/carbon/human/our_synth = synth_spawner.spawned_mob_ref.resolve()
-	our_synth.forceMove(drop_loc)
-	our_synth.set_blood_type(/datum/species/synthetic::exotic_bloodtype) // mob_spawn breaks our blood type by re-randomizing dna :(
