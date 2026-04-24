@@ -269,14 +269,11 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
   // NOVA EDIT ADDITION START - Subspecies UI
   /**
    * Like the Species type, with ID as an added property, as this is
-   * (currently) how we switch our species to a subspecies properly.
+   * (currently) how we switch our species to a subspecies properly
    */
   type Subspecies = Species & { id: string };
   /**
-   * Dictionary of parent species ID -> array of Subspecies objects.
-   *
-   * A species ID can be undefined instead of an array, and this would
-   * represent having no subspecies at all.
+   * Dictionary of parent species ID -> array of Subspecies objects
    */
   const detectedSubspecies: Record<string, Subspecies[] | undefined> = {};
   // This block detects subspecies and gives them presence
