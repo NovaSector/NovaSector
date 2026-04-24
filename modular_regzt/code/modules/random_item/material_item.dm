@@ -25,9 +25,26 @@
 	sound_vary = TRUE
 	usable_for_construction = FALSE
 
-GLOBAL_LIST_INIT(pieces_metal_recipes, list(/
-	new /datum/stack_recipe("iron sheet", /obj/item/stack/sheet/iron, 50, 1, 3 SECONDS, category = CAT_MISC), /
-))
+/obj/item/stack/pieces_metal/update_icon_state()
+	if(novariants)
+		return ..()
+	if(amount <= (max_amount * (1/3)))
+		icon_state = icon_state = "pieces_metal"
+		return ..()
+	if (amount <= (max_amount * (2/3)))
+		icon_state = icon_state = "pieces_metal2"
+		return ..()
+	icon_state = "pieces_metal3"
+	return ..()
+
+/obj/item/stack/pieces_metal/get_weight_from_size(stack_amount)
+	if(stack_amount <= (max_amount * (1/3)))
+		return WEIGHT_CLASS_TINY
+	if(stack_amount <= (max_amount * (2/3)))
+		return WEIGHT_CLASS_SMALL
+	return WEIGHT_CLASS_NORMAL
+
+GLOBAL_LIST_INIT(pieces_metal_recipes, list(new /datum/stack_recipe("iron sheet", /obj/item/stack/sheet/iron, 50, 1, 3 SECONDS, category = CAT_MISC)))
 
 /datum/design/pieces_metal
 	name = "pieces_metal"
@@ -66,9 +83,29 @@ GLOBAL_LIST_INIT(pieces_metal_recipes, list(/
 	sound_vary = TRUE
 	usable_for_construction = FALSE
 
-GLOBAL_LIST_INIT(pieces_glass_recipes, list(/
-	new /datum/stack_recipe("glass sheet", /obj/item/stack/sheet/glass, 50, 1, 3 SECONDS, category = CAT_MISC), /
-))
+/obj/item/stack/pieces_glass/update_icon_state()
+	. = ..()
+
+/obj/item/stack/pieces_glass/get_weight_from_size(stack_amount)
+	if(stack_amount <= (max_amount * (1/3)))
+		return WEIGHT_CLASS_TINY
+	if(stack_amount <= (max_amount * (2/3)))
+		return WEIGHT_CLASS_SMALL
+	return WEIGHT_CLASS_NORMAL
+
+/obj/item/stack/pieces_glass/update_icon_state()
+	if(novariants)
+		return ..()
+	if(amount <= (max_amount * (1/3)))
+		icon_state = icon_state = "pieces_glass"
+		return ..()
+	if (amount <= (max_amount * (2/3)))
+		icon_state = icon_state = "pieces_glass2"
+		return ..()
+	icon_state = "pieces_glass3"
+	return ..()
+
+GLOBAL_LIST_INIT(pieces_glass_recipes, list(new /datum/stack_recipe("glass sheet", /obj/item/stack/sheet/glass, 50, 1, 3 SECONDS, category = CAT_MISC)))
 
 /datum/design/pieces_glass
 	name = "pieces of glass"
