@@ -4,13 +4,13 @@ import {
   Box,
   Button,
   Divider,
+  Floating, // NOVA EDIT ADDITION
   Icon,
   Section,
   Stack,
   Tooltip,
 } from 'tgui-core/components';
 import { classes } from 'tgui-core/react';
-
 import { CharacterPreview } from '../../common/CharacterPreview';
 import { LoadingScreen } from '../../common/LoadingScreen';
 import {
@@ -266,6 +266,36 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
       return [species, data];
     },
   );
+  // NOVA EDIT ADDITION START - Subspecies UI
+  /**
+   * Species type, but with ID as a property, as this is
+   * (currently) how we switch our species to a subspecies properly
+   */
+  type Subspecies = Species & { id: string };
+  /** Dictionary of parent species ID -> subspecies object */
+  const detectedSubspecies: Record<string, Subspecies[] | undefined> = {};
+  // This block detects subspecies and gives them presence
+  // in detectedSubspecies under a parent species ID
+  for (const [speciesId, speciesType] of species) {
+    if (!speciesType.subspecies_of) {
+      continue;
+    }
+    const parent = species.find(
+      ([id, _type]) => id === speciesType.subspecies_of,
+    );
+    if (!parent) {
+      continue;
+    }
+    const subspeciesData: Subspecies = {
+      ...speciesType,
+      id: speciesId,
+    };
+    detectedSubspecies[parent[0]] = [
+      ...(detectedSubspecies[parent[0]] ?? []),
+      subspeciesData,
+    ];
+  }
+  // NOVA EDIT ADDITION END - Subspecies UI
 
   // Humans are always the top of the list
   const humanIndex = species.findIndex(([species]) => species === 'human');
@@ -290,16 +320,11 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
           <Stack.Item>
             <Box height="calc(100vh - 170px)" overflowY="auto" pr={3}>
               {species.map(([speciesKey, species]) => {
-                // NOVA EDIT START - Nova star-only species
-                let speciesPage = (
+                /* // NOVA EDIT REMOVAL START - Species selection buttons have our own handling below
+                return (
                   <Button
                     key={speciesKey}
-                    onClick={() => {
-                      if (data.nova_star_restrictions && species.nova_stars_only && !data.is_nova_star) {
-                        return;
-                      }
-                      setSpecies(speciesKey);
-                    }}
+                    onClick={() => setSpecies(speciesKey)}
                     selected={
                       data.character_preferences.misc.species === speciesKey
                     }
@@ -316,16 +341,167 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                     />
                   </Button>
                 );
-                if (data.nova_star_restrictions && species.nova_stars_only && !data.is_nova_star) {
-                  const tooltipContent =
-                    species.name +
-                    ' - You need to be a Nova star to select this race, apply today!';
-                  speciesPage = (
-                    <Tooltip content={tooltipContent}>{speciesPage}</Tooltip>
+                */ // NOVA EDIT REMOVAL END
+                // NOVA EDIT ADDITION START - Star-only Species and Subspecies UI
+                if (species.subspecies_of) {
+                  return null;
+                }
+                function isNovaStarRestricted(species: Species): boolean {
+                  return !!(
+                    data.nova_star_restrictions &&
+                    species.nova_stars_only &&
+                    !data.is_nova_star
                   );
                 }
-                return speciesPage;
-                // NOVA EDIT END
+                function isUsingSpecies(speciesKey: string): boolean {
+                  return data.character_preferences.misc.species === speciesKey;
+                }
+                let speciesButton: React.JSX.Element;
+                if (!detectedSubspecies[speciesKey]) {
+                  speciesButton = (
+                    <Button
+                      position="relative"
+                      key={speciesKey}
+                      onClick={() => {
+                        if (isNovaStarRestricted(species)) {
+                          return;
+                        }
+                        setSpecies(speciesKey);
+                      }}
+                      selected={isUsingSpecies(speciesKey)}
+                      tooltip={
+                        species.name +
+                        (isNovaStarRestricted(species)
+                          ? ' - You need to be a Nova Star to select this species.'
+                          : '')
+                      }
+                      style={{
+                        display: 'block',
+                        height: '64px',
+                        width: '64px',
+                      }}
+                    >
+                      <Box
+                        className={classes(['species64x64', species.icon])}
+                        ml={-1}
+                      />
+                    </Button>
+                  );
+                } else {
+                  speciesButton = (
+                    <Button
+                      position="relative"
+                      key={speciesKey}
+                      selected={
+                        isUsingSpecies(speciesKey) ||
+                        !!detectedSubspecies[speciesKey]?.find((index) => {
+                          return (
+                            index.id === data.character_preferences.misc.species
+                          );
+                        })
+                      }
+                      tooltip={
+                        !detectedSubspecies[speciesKey]
+                          ? species.name
+                          : `${species.name} + ${detectedSubspecies[speciesKey].length} subspecies`
+                      }
+                      style={{
+                        display: 'block',
+                        height: '64px',
+                        width: '64px',
+                      }}
+                    >
+                      {!!detectedSubspecies[speciesKey] && (
+                        <Floating
+                          stopChildPropagation
+                          placement="right-start"
+                          content={
+                            <Stack className="ChoicedSelection">
+                              <Button
+                                position="relative"
+                                key={speciesKey}
+                                onClick={() => {
+                                  if (
+                                    isNovaStarRestricted(species) &&
+                                    !data.is_nova_star
+                                  ) {
+                                    return;
+                                  }
+                                  setSpecies(speciesKey);
+                                }}
+                                selected={isUsingSpecies(speciesKey)}
+                                tooltip={
+                                  species.name +
+                                  (isNovaStarRestricted(species)
+                                    ? ' - You need to be a Nova Star to select this species.'
+                                    : '')
+                                }
+                                style={{
+                                  display: 'block',
+                                  height: '64px',
+                                  width: '64px',
+                                }}
+                              >
+                                <Box
+                                  className={classes([
+                                    'species64x64',
+                                    species.icon,
+                                  ])}
+                                  ml={-1}
+                                />
+                              </Button>
+                              {detectedSubspecies[speciesKey].map(
+                                (subspecies) => (
+                                  <Stack.Item key={subspecies.name}>
+                                    <Button
+                                      tooltip={subspecies.name}
+                                      selected={
+                                        data.character_preferences.misc
+                                          .species === subspecies.id
+                                      }
+                                      onClick={(event) => {
+                                        if (
+                                          isNovaStarRestricted(species) &&
+                                          !data.is_nova_star
+                                        ) {
+                                          return;
+                                        }
+                                        setSpecies(subspecies.id);
+                                        event.stopPropagation();
+                                      }}
+                                    >
+                                      <Box
+                                        className={classes([
+                                          'species64x64',
+                                          subspecies.icon,
+                                        ])}
+                                        ml={-1}
+                                      />
+                                    </Button>
+                                  </Stack.Item>
+                                ),
+                              )}
+                            </Stack>
+                          }
+                        >
+                          <Box
+                            position="absolute"
+                            top={0}
+                            left={0}
+                            height="64px"
+                            width="64px"
+                          />
+                        </Floating>
+                      )}
+                      <Box
+                        className={classes(['species64x64', species.icon])}
+                        ml={-1}
+                      />
+                    </Button>
+                  );
+                }
+                return speciesButton;
+                // NOVA EDIT ADDITION END
               })}
             </Box>
           </Stack.Item>
@@ -345,7 +521,6 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                         )
                       }
                     >
-                      {/* NOVA EDIT CHANGE START - Adds maxHeight, scrollable*/}
                       <Section title="Description" maxHeight="14vh" scrollable>
                         {/* NOVA EDIT CHANGE END */}
                         {currentSpecies.desc}

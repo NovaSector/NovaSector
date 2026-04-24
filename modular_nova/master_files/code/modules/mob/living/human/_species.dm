@@ -2,6 +2,9 @@
 	var/monkey_species = /datum/species/monkey // for kobolds
 	/// What outfit do we use for the species job preview?
 	var/datum/outfit/used_outfit_for_preview = /datum/outfit/job/assistant/consistent
+	/// A species type that this is a subspecies of.
+	/// Subspecies will be hidden behind a `Floating` popout in the preferences window.
+	var/datum/species/subspecies_of
 
 /datum/species/proc/allows_food_preferences()
 	return TRUE
