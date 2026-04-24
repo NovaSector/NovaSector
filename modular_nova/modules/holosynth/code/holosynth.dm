@@ -67,7 +67,7 @@
 	species_holder.physiology.burn_mod *= HOLOSYNTH_BURNMULT
 	species_holder.max_grab = GRAB_PASSIVE
 
-	species_holder.AddComponent(/datum/component/glass_passer/holosynth, pass_time = 1 SECONDS, deform_glass = 0.5 SECONDS)
+	species_holder.AddComponent(/datum/component/glass_passer/holosynth)
 	species_holder.AddComponent(/datum/component/holographic_nature)
 
 	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)

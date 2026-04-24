@@ -1,6 +1,16 @@
+/// Base time (deciseconds) to phase through a directional/half-tile window.
+#define HOLOSYNTH_GLASS_PASS_TIME (5 SECONDS)
+/// Multiplier applied to the pass time for fulltile windows (they take this many times longer).
+#define HOLOSYNTH_GLASS_FULLTILE_MULTIPLIER 3
+/// How long a window stays deformed-passable after a holosynth phases through it.
+#define HOLOSYNTH_GLASS_DEFORM_TIME (0.5 SECONDS)
+
 /datum/component/glass_passer/holosynth
 	/// Whether bumping a window auto-phases; toggled via the "Toggle Glass Phasing" action.
 	var/auto_phase = TRUE
+
+/datum/component/glass_passer/holosynth/Initialize(pass_time = HOLOSYNTH_GLASS_PASS_TIME, deform_glass = HOLOSYNTH_GLASS_DEFORM_TIME)
+	return ..()
 
 /datum/component/glass_passer/holosynth/phase_through_glass(mob/living/owner, atom/bumpee)
 	if(!auto_phase)
@@ -22,10 +32,7 @@
 		ascarbon.balloon_alert(ascarbon, "too far!")
 		return
 
-	var/modified_pass_time = wumpee.fulltile ? (3 * pass_time) : pass_time
-	// Reuse the holographic_nature glitch — same effect a holosynth gets from damage or being walked through.
-	var/datum/component/holographic_nature/nature = owner.GetComponent(/datum/component/holographic_nature)
-	nature?.apply_effects()
+	var/modified_pass_time = wumpee.fulltile ? (HOLOSYNTH_GLASS_FULLTILE_MULTIPLIER * pass_time) : pass_time
 
 	if(!do_after(owner, modified_pass_time, bumpee))
 		return
@@ -35,12 +42,6 @@
 		return
 
 	passwindow_on(owner, type)
-
-	for(var/obj/item/equipped_item in ascarbon.get_equipped_items(INCLUDE_HELD))
-		var/slot = ascarbon.get_slot_by_item(equipped_item)
-		if(slot & (ITEM_SLOT_ID | ITEM_SLOT_LPOCKET | ITEM_SLOT_RPOCKET))
-			continue
-		ascarbon.dropItemToGround(equipped_item)
 
 	step(owner, dir_to_move)
 	if(wumpee.fulltile)
@@ -74,7 +75,7 @@
 /// When off, bumping a window acts like bumping a wall — useful to avoid accidentally triggering the do_after.
 /datum/action/innate/holosynth_toggle_phase
 	name = "Toggle Glass Phasing"
-	desc = "Toggle whether bumping a window automatically phases you through. Phasing through glass drops all held items except your ID and pockets"
+	desc = "Toggle whether bumping a window automatically phases you through."
 	button_icon = 'icons/hud/actions.dmi'
 	button_icon_state = "ghost"
 
@@ -95,3 +96,7 @@
 	passer.auto_phase = !passer.auto_phase
 	to_chat(owner, span_notice("Automatic glass phasing [passer.auto_phase ? "enabled" : "disabled"]."))
 	build_all_button_icons(UPDATE_BUTTON_BACKGROUND)
+
+#undef HOLOSYNTH_GLASS_PASS_TIME
+#undef HOLOSYNTH_GLASS_FULLTILE_MULTIPLIER
+#undef HOLOSYNTH_GLASS_DEFORM_TIME

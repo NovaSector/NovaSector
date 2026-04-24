@@ -32,6 +32,7 @@
 /obj/item/holosynth_pen/Initialize(mapload, mob/living/carbon/human/linked_mob)
 	. = ..()
 	AddElement(/datum/element/tool_renaming)
+	AddElement(/datum/element/strippable/holosynth_pen, GLOB.strippable_human_items, TYPE_PROC_REF(/mob/living/carbon/human/, should_strip))
 	AddComponent(/datum/component/gps/item, "HOLOSIGNAL", state = GLOB.deep_inventory_state, overlay_state = FALSE)
 
 	if(linked_mob)
@@ -102,7 +103,6 @@
 	if(active)
 		saved_loc_ref = WEAKREF(get_turf(linked_mob))
 		new /obj/effect/temp_visual/guardian/phase/out(get_turf(linked_mob))
-		linked_mob.unequip_everything()
 		linked_mob.forceMove(src)
 	else
 		if(get_dist(linked_mob, src) <= HOLOSYNTH_RANGE)
@@ -123,7 +123,6 @@
 		return
 	saved_loc_ref = WEAKREF(get_turf(linked_mob))
 	new /obj/effect/temp_visual/guardian/phase/out(get_turf(linked_mob))
-	linked_mob.unequip_everything()
 	linked_mob.forceMove(src)
 
 /// The linked mob is being deleted (cryopod, admin vv, etc.) — the pen has no reason to persist.
@@ -218,6 +217,8 @@
 
 	if(linked_mob)
 		. += span_info("This one belongs to [linked_mob].")
+		if(linked_mob.loc == src)
+			. += span_notice("<b>Ctrl+Shift click</b> to strip-search [linked_mob].")
 
 /obj/item/holosynth_pen/get_writing_implement_details()
 	if(HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
@@ -269,6 +270,61 @@
 	if(QDELETED(owner))
 		return
 	owner.gib(DROP_BRAIN & DROP_ITEMS)
+
+/// Ctrl+Shift clicking the pen opens the strip menu of the mob sealed inside
+/datum/element/strippable/holosynth_pen
+
+/datum/element/strippable/holosynth_pen/Attach(datum/target, list/items, should_strip_proc_path)
+	. = ..()
+	if(. == ELEMENT_INCOMPATIBLE)
+		return
+	RegisterSignal(target, COMSIG_CLICK_CTRL_SHIFT, PROC_REF(on_ctrl_shift_click))
+
+/datum/element/strippable/holosynth_pen/Detach(datum/source)
+	. = ..()
+	UnregisterSignal(source, COMSIG_CLICK_CTRL_SHIFT)
+
+/datum/element/strippable/holosynth_pen/proc/on_ctrl_shift_click(datum/source, mob/user)
+	SIGNAL_HANDLER
+	var/obj/item/holosynth_pen/pen = source
+	if(!istype(pen))
+		return
+	var/mob/living/carbon/human/linked_mob = pen.linked_mob_ref?.resolve()
+	if(QDELETED(linked_mob) || linked_mob == user)
+		return
+	if(linked_mob.loc != pen) // if the mob is out, normal stripping applies to them directly
+		return
+	if(!isnull(should_strip_proc_path) && !call(linked_mob, should_strip_proc_path)(user))
+		return
+	pen.balloon_alert_to_viewers("stripping")
+	user.visible_message(span_warning("[user] begins to dump the contents of [pen]!"))
+	INVOKE_ASYNC(src, PROC_REF(open_strip_menu), linked_mob, user)
+
+/datum/element/strippable/holosynth_pen/proc/open_strip_menu(mob/living/carbon/human/linked_mob, mob/user)
+	var/datum/strip_menu/holosynth_pen/strip_menu = LAZYACCESS(strip_menus, linked_mob)
+	if(isnull(strip_menu))
+		strip_menu = new(linked_mob, src)
+		LAZYSET(strip_menus, linked_mob, strip_menu)
+	strip_menu.ui_interact(user)
+
+/// Strip menu rooted at the pen's location — the owner mob sits inside the pen (its loc is the
+/// pen itself), so the adjacency / visibility checks wouldn't pass against the mob directly.
+/datum/strip_menu/holosynth_pen
+
+/datum/strip_menu/holosynth_pen/ui_status(mob/user, datum/ui_state/state)
+	var/obj/item/holosynth_pen/pen = owner.loc
+	if(!istype(pen))
+		return UI_CLOSE
+	return min(
+		ui_status_only_living(user, pen),
+		ui_status_user_has_free_hands(user, pen),
+		ui_status_user_is_adjacent(user, pen, allow_tk = FALSE),
+		HAS_TRAIT(user, TRAIT_CAN_STRIP) ? UI_INTERACTIVE : UI_UPDATE,
+		max(
+			ui_status_user_is_conscious_and_lying_down(user),
+			ui_status_user_is_abled(user, pen),
+		),
+	)
 
 #undef HOLOSYNTH_RANGE
 #undef HOLOSYNTH_AURA_RANGE
