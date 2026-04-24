@@ -8,6 +8,7 @@
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
 	inhand_icon_state = "sindano"
 
+	bolt_type = BOLT_TYPE_LOCKING
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_MEDIUM
 	burst_size = 1
