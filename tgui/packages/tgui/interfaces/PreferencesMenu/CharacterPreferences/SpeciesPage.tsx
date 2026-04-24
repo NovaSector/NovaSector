@@ -358,8 +358,6 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                 }
                 let speciesButton: React.JSX.Element;
                 if (!detectedSubspecies[speciesKey]) {
-                  // No subspecies, no need for special handling
-                  // We can just display a Button component and be done
                   speciesButton = (
                     <Button
                       position="relative"
@@ -390,7 +388,6 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                     </Button>
                   );
                 } else {
-                  // Yes subspecies,
                   speciesButton = (
                     <Button
                       position="relative"
