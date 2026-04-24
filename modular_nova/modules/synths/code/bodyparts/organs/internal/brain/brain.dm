@@ -91,6 +91,11 @@
 	icon_state = "[src::icon_state]"
 	return
 
+/obj/item/organ/brain/synth/brain_damage_examine()
+	. = ..()
+	if(. == span_info("This one is completely devoid of life.") && HAS_TRAIT(src, TRAIT_GHOSTROLE_ON_REVIVE))
+		return span_info("Forcing a reboot in this [name] may activate new positronic personality.")
+
 /datum/design/synth_posi
 	name = "Compact Positronic Brain"
 	desc = "Inactive compact positronic brain."
