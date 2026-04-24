@@ -81,8 +81,10 @@ GLOBAL_DATUM_INIT(crewmonitor_robot, /datum/crewmonitor/robot, new)
 			"name" = "Unknown Robot",
 			"ijob" = UNKNOWN_JOB_ID,
 		)
+		var/not_a_robot = TRUE
 		var/obj/item/organ/brain/robot_nova/robot_brain = tracked_human.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(robot_brain && istype(robot_brain))
+			not_a_robot = FALSE
 			if(robot_brain.distress_beacon_active)
 				sensor_mode = SENSOR_COORDS
 			// Damage
@@ -93,6 +95,7 @@ GLOBAL_DATUM_INIT(crewmonitor_robot, /datum/crewmonitor/robot, new)
 				)
 		var/obj/item/organ/brain/synth/synth_brain = tracked_human.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(synth_brain && istype(synth_brain))
+			not_a_robot = FALSE
 			if(synth_brain.distress_beacon_active)
 				sensor_mode = SENSOR_COORDS
 			// Damage
@@ -102,7 +105,8 @@ GLOBAL_DATUM_INIT(crewmonitor_robot, /datum/crewmonitor/robot, new)
 					"oil" = round((tracked_human.health / tracked_human.maxHealth) * 100, 1), // legacy symths don't have oil, use this to display health instead
 				)
 			entry["is_legacy_synth"] = TRUE
-
+		if(not_a_robot)
+			continue // get outta here
 		// ID and id-related data
 		var/obj/item/card/id/id_card = tracked_living_mob.get_idcard(hand_first = FALSE)
 		if (id_card)

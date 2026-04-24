@@ -52,6 +52,7 @@
 	RegisterSignal(human_brain_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equip_signal))
 	if(internal_computer && human_brain_owner.wear_id)
 		internal_computer.handle_id_slot(human_brain_owner, human_brain_owner.wear_id)
+	our_beacon = new(brain_owner)
 	wake_the_fuck_up_samurai()
 
 /obj/item/organ/brain/synth/proc/activate_distress_beacon_death(mob/living/target, gibbed)
@@ -104,6 +105,7 @@
 	if(internal_computer)
 		internal_computer.handle_id_slot(brain_owner)
 		internal_computer.clear_id_slot_signals(brain_owner.wear_id)
+	QDEL_NULL(our_beacon)
 	wake_the_fuck_up_samurai()
 
 /obj/item/organ/brain/synth/proc/trigger_reboot()
