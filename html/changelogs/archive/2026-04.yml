@@ -671,3 +671,25 @@
   vinylspiders:
   - bugfix: fixes an issue where raptor chicks and other non-items appearing in item
       contents would prevent any personal crafting in the vicinity
+2026-04-23:
+  Diltyrr:
+  - bugfix: Stone griddles do not have a chance to spawn invisible anymore.
+  Happyowl93:
+  - qol: increase AI request cd to 5 mins, cd per door/player
+  Hatterhat:
+  - image: One more resprite for the hybrid power tools to use the Nova-specific icons
+      as a base instead of TG's icons.
+  Iajret:
+  - bugfix: fixed double messaging during synth revival process
+  Macaroni:
+  - qol: The Standard Firing Pin can now be printed from securities tech fab
+  OrbisAnima:
+  - balance: Removes russian revolvers and replaces it with Renard revolvers. Adds
+      2k to the Greed chappel.
+  TheSelfish (code) CannibalHunter of MonkeStation (sprites):
+  - rscadd: Traitors may goon. Gooning is also in the clothes mate and the vendor.  To
+      be more specific, because people hate fun and can't find stuff. Clothesmate
+      and the Uplink have Henchmen outfits, a flatcap and a coat.
+  vinylspiders:
+  - bugfix: '''load prefs onto mob'' will now fully reset and apply the client''s
+      current slot prefs to the mob, including quirks and size'
