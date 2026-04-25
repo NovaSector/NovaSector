@@ -15,15 +15,12 @@
 	var/obj/item/card/id/internal_id
 
 /mob/living/basic/drone/handmade/Initialize(mapload)
-	// 1. Создаем карту сразу
 	internal_id = new /obj/item/card/id(src)
 	internal_id.registered_name = name
 	internal_id.assignment = "Maintenance Drone"
 
 	. = ..()
 
-	// 2. Очищаем старые доступы, которые выдал родитель /mob/living/basic/drone
-	// Родитель выдает REGION_ALL_GLOBAL по умолчанию [cite: 16]
 	var/datum/component/simple_access/SA = GetComponent(/datum/component/simple_access)
 	if(SA)
 		qdel(SA)
@@ -31,7 +28,7 @@
 	// 3. Устанавливаем нашу карту как единственный источник доступа
 	AddComponent(/datum/component/simple_access, internal_id)
 
-	// 4. Удаляем трейт кремниевого доступа, который дает врожденные права [cite: 18]
+	// 4. Удаляем трейт кремниевого доступа, который дает врожденные права
 	REMOVE_TRAIT(src, TRAIT_SILICON_ACCESS, INNATE_TRAIT)
 
 /mob/living/basic/drone/handmade/attackby(obj/item/I, mob/user, params)
@@ -47,7 +44,7 @@
 			to_chat(src, span_notice("Ваш доступ перезаписан: [target_card.assignment]."))
 			return TRUE
 
-	// Вставка MMI (логика из rjl.txt) [cite: 4]
+	// Вставка MMI
 	if(istype(I, /obj/item/mmi))
 		if(mmi)
 			to_chat(user, span_warning("[src] already has an MMI!"))
@@ -65,7 +62,7 @@
 		update_diag_hud()
 		return TRUE
 
-	// Снятие ломом [cite: 4]
+	//Снятие ломом
 	if(istype(I, /obj/item/crowbar) && mmi)
 		to_chat(user, span_notice("You start removing the MMI..."))
 		if(do_after(user, 3 SECONDS, src))
