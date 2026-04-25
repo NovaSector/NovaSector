@@ -45,6 +45,7 @@
 	icon_state = "datadisk9"
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
+		/datum/computer_file/program/citation_ticket, // NOVA EDIT ADDITION - SECURITY_CITATION_APP - PDA citation ticket issuer
 	)
 
 /obj/item/disk/computer/command/hop
@@ -73,6 +74,7 @@
 	icon_state = "datadisk9"
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
+		/datum/computer_file/program/citation_ticket, // NOVA EDIT ADDITION - SECURITY_CITATION_APP - PDA citation ticket issuer
 	)
 
 /**
