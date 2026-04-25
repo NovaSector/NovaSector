@@ -1,14 +1,46 @@
 /datum/augment_item/organ
-	category = AUGMENT_CATEGORY_ORGANS
+	abstract_type = /datum/augment_item/organ
+	category = AUGMENT_CATEGORY_INTERNAL_IMPLANTS
+	/// Whether this organ augment is visible from outside or not
+	var/is_visible
+
+/datum/augment_item/organ/New()
+	// Figure out if we should visually apply or not
+
+	// Cyberimp overlays - yes!
+	if(ispath(path, /obj/item/organ/cyberimp))
+		var/obj/item/organ/cyberimp/cybernetic_path = path
+		is_visible = !isnull(cybernetic_path::aug_overlay)
+		return ..()
+
+	// otherwise go by the organ's visual var
+	var/obj/item/organ/organ_path = path
+	is_visible = organ_path::visual
+	return ..()
 
 /datum/augment_item/organ/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
-	if(character_setup)
+	if(character_setup && !is_visible)
 		return
 
 	var/obj/item/organ/organ_path = path // cast this to an organ so we can get the slot from it using initial()
+	var/obj/item/organ/new_organ = new path()
+	new_organ.copy_traits_from(human_holder.get_organ_slot(initial(organ_path.slot)))
+	new_organ.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+
+//BRAINS
+/datum/augment_item/organ/brain
+	abstract_type = /datum/augment_item/organ/brain
+	slot = AUGMENT_SLOT_BRAIN
+	icon = FA_ICON_BRAIN
+	species_blacklist = list(SPECIES_PROTEAN = 1)
+
+/datum/augment_item/organ/brain/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
+	if(character_setup)
+		return
+
 	if(slot == AUGMENT_SLOT_BRAIN)
 		var/obj/item/organ/brain/old_brain = human_holder.get_organ_slot(ORGAN_SLOT_BRAIN)
-		var/obj/item/organ/brain/new_brain = new organ_path()
+		var/obj/item/organ/brain/new_brain = new path
 
 		var/datum/mind/holder_mind = human_holder.mind
 
@@ -25,14 +57,6 @@
 			return
 
 		holder_mind.transfer_to(human_holder, TRUE)
-	else
-		var/obj/item/organ/new_organ = new path()
-		new_organ.copy_traits_from(human_holder.get_organ_slot(initial(organ_path.slot)))
-		new_organ.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-
-//BRAINS
-/datum/augment_item/organ/brain
-	slot = AUGMENT_SLOT_BRAIN
 
 /datum/augment_item/organ/brain/cortical
 	name = "Cortically-Augmented Brain"
@@ -41,8 +65,9 @@
 
 //HEARTS
 /datum/augment_item/organ/heart
+	abstract_type = /datum/augment_item/organ/heart
 	slot = AUGMENT_SLOT_HEART
-	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+	icon = "tg-znova-heart-organ"
 
 /datum/augment_item/organ/heart/normal
 	name = "Organic heart"
@@ -58,8 +83,9 @@
 
 //LUNGS
 /datum/augment_item/organ/lungs
+	abstract_type = /datum/augment_item/organ/lungs
 	slot = AUGMENT_SLOT_LUNGS
-	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+	icon = FA_ICON_LUNGS
 
 /datum/augment_item/organ/lungs/normal
 	name = "Organic lungs"
@@ -71,8 +97,9 @@
 
 //LIVERS
 /datum/augment_item/organ/liver
+	abstract_type = /datum/augment_item/organ/liver
 	slot = AUGMENT_SLOT_LIVER
-	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+	icon = "tg-znova-liver"
 
 /datum/augment_item/organ/liver/normal
 	name = "Organic Liver"
@@ -88,8 +115,9 @@
 
 //STOMACHES
 /datum/augment_item/organ/stomach
+	abstract_type = /datum/augment_item/organ/stomach
 	slot = AUGMENT_SLOT_STOMACH
-	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+	icon = "tg-znova-stomach"
 
 /datum/augment_item/organ/stomach/normal
 	name = "Organic stomach"
@@ -110,8 +138,9 @@
 
 //EYES
 /datum/augment_item/organ/eyes
+	abstract_type = /datum/augment_item/organ/eyes
 	slot = AUGMENT_SLOT_EYES
-	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+	icon = FA_ICON_EYE
 
 /datum/augment_item/organ/eyes/normal
 	name = "Organic eyes"
@@ -140,10 +169,28 @@
 	cost = 4
 	path = /obj/item/organ/eyes/robotic/binoculars
 
+
+//MOUTH IMPLANTS
+/datum/augment_item/organ/mouth
+	abstract_type = /datum/augment_item/organ/mouth
+	slot = AUGMENT_SLOT_MOUTH_IMPLANT
+	icon = "tg-znova-lips"
+
+/datum/augment_item/organ/mouth/breathing_tube
+	name = "Breathing Tube"
+	cost = 2
+	path = /obj/item/organ/cyberimp/mouth/breathing_tube
+
+/datum/augment_item/organ/mouth/breathing_tube/hidden
+	name = "Integrated Breathing Tube (Hidden)"
+	cost = 2
+	path = /obj/item/organ/cyberimp/mouth/breathing_tube/hidden
+
 //TONGUES
 /datum/augment_item/organ/tongue
+	abstract_type = /datum/augment_item/organ/tongue
 	slot = AUGMENT_SLOT_TONGUE
-	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+	icon = "tg-znova-tongue"
 
 /datum/augment_item/organ/tongue/normal
 	name = "Organic tongue"
@@ -175,8 +222,9 @@
 
 //EARS
 /datum/augment_item/organ/ears
+	abstract_type = /datum/augment_item/organ/ears
 	slot = AUGMENT_SLOT_EARS
-	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+	icon = "tg-znova-ear"
 
 /datum/augment_item/organ/ears/normal
 	name = "Organic ears"
@@ -189,10 +237,12 @@
 /// Cyber cat ears - Cosmetic types for augments only
 
 /obj/item/organ/ears/cat/cybernetic/blue
+	icon_state = "ears-c-cat-blue"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears/cybernetic/blue
 
 /obj/item/organ/ears/cat/cybernetic/green
-	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears/cybernetic/blue
+	icon_state = "ears-c-cat-green"
+	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears/cybernetic/green
 
 /datum/augment_item/organ/ears/cybernetic/cat
 	name = "Cybernetic cat ears"

@@ -1,26 +1,29 @@
 //Subtype for most custom species that use GAGS.  Also provides Anthromorphs.
 /datum/augment_item/limb/head/species
+	abstract_type = /datum/augment_item/limb/head/species
 	cost = 0
-	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/head/species/mutant
 	name = "anthromorph head"
 	path = /obj/item/bodypart/head/mutant
 
 /datum/augment_item/limb/chest/species
+	abstract_type = /datum/augment_item/limb/chest/species
 	cost = 0
-	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/chest/species/mutant
 	name = "anthromorph chest"
 	path = /obj/item/bodypart/chest/mutant
 
 /datum/augment_item/limb/l_arm/species
+	abstract_type = /datum/augment_item/limb/chest/species
 	cost = 0
-	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/l_arm/species/mutant
 	name = "anthromorph left arm"
@@ -28,17 +31,18 @@
 
 /datum/augment_item/limb/r_arm/species
 	cost = 0
-	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/r_arm/species/mutant
 	name = "anthromorph right arm"
 	path = /obj/item/bodypart/arm/right/mutant
 
 /datum/augment_item/limb/l_leg/species
+	abstract_type = /datum/augment_item/limb/l_leg/species
 	cost = 0
-	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/l_leg/species/mutant
 	name = "anthromorph left leg"
@@ -46,16 +50,15 @@
 	supports_digitigrade = TRUE
 
 /datum/augment_item/limb/r_leg/species
+	abstract_type = /datum/augment_item/limb/r_leg/species
 	cost = 0
-	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/r_leg/species/mutant
 	name = "anthromorph right leg"
 	path = /obj/item/bodypart/leg/right/mutant
 	supports_digitigrade = TRUE
-
-
 
 /// ACTUAL CONTENT ZONE BEGINS HERE
 //Akula
@@ -163,74 +166,63 @@
 	name = "fly head"
 	path = /obj/item/bodypart/head/fly
 	cost = 0
-	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/chest/fly
 	name = "fly chest"
 	path = /obj/item/bodypart/chest/fly
 	cost = 0
-	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/l_arm/fly
 	name = "fly left arm"
 	path = /obj/item/bodypart/arm/left/fly
 	cost = 0
-	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/r_arm/fly
 	name = "fly right arm"
 	path = /obj/item/bodypart/arm/right/fly
 	cost = 0
-	uses_robotic_styles = FALSE
+	ckey_whitelist = list("vinylspiders")
 
 /datum/augment_item/limb/l_leg/fly
 	name = "fly left leg"
 	path = /obj/item/bodypart/leg/left/fly
 	cost = 0
-	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/r_leg/fly
 	name = "fly right leg"
 	path = /obj/item/bodypart/leg/right/fly
 	cost = 0
-	uses_robotic_styles = FALSE
 
 //Golems
 /datum/augment_item/limb/head/golem
 	name = "golem head"
 	path = /obj/item/bodypart/head/golem
 	cost = 0
-	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/chest/golem
 	name = "golem chest"
 	path = /obj/item/bodypart/chest/golem
 	cost = 0
-	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/l_arm/golem
 	name = "golem left arm"
 	path = /obj/item/bodypart/arm/left/golem
 	cost = 0
-	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/r_arm/golem
 	name = "golem right arm"
 	path = /obj/item/bodypart/arm/right/golem
 	cost = 0
-	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/l_leg/golem
 	name = "golem left leg"
 	path = /obj/item/bodypart/leg/left/golem
 	cost = 0
-	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/r_leg/golem
 	name = "golem right leg"
 	path = /obj/item/bodypart/leg/right/golem
 	cost = 0
-	uses_robotic_styles = FALSE
 
 //Slimes
 /datum/augment_item/limb/head/species/mutant/slime
@@ -447,6 +439,7 @@
 	name = "xenohybrid head"
 	path = /obj/item/bodypart/head/mutant/xenohybrid
 
+
 /datum/augment_item/limb/chest/species/mutant/xenohybrid
 	name = "xenohybrid chest"
 	path = /obj/item/bodypart/chest/mutant/xenohybrid
@@ -462,10 +455,12 @@
 /datum/augment_item/limb/l_leg/species/mutant/xenohybrid
 	name = "xenohybrid left leg"
 	path = /obj/item/bodypart/leg/left/digitigrade/xenohybrid
+	supports_digitigrade = TRUE
 
 /datum/augment_item/limb/r_leg/species/mutant/xenohybrid
 	name = "xenohybrid right leg"
 	path = /obj/item/bodypart/leg/right/digitigrade/xenohybrid
+	supports_digitigrade = TRUE
 
 //Ramatan Limbs (slugcats)
 /datum/augment_item/limb/head/species/mutant/ramatae
