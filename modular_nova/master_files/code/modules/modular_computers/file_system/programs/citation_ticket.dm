@@ -114,7 +114,8 @@
 	new_citation.pay_deadline = world.time + (deadline_minutes MINUTES)
 	target.citations += new_citation
 
-	var/issuer_name = computer.stored_id?.GetID()?.registered_name || user.real_name
+	var/obj/item/card/id/issuer_id = computer.stored_id?.GetID()
+	var/issuer_name = issuer_id?.registered_name || user.real_name
 	var/deadline_stamp = station_time_timestamp("hh:mm", new_citation.pay_deadline)
 
 	new_citation.alert_owner(
