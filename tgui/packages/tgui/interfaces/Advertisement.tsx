@@ -171,10 +171,7 @@ const screenSize: [number, number] = [
   window.screen.availWidth * pixelRatio,
   window.screen.availHeight * pixelRatio,
 ];
-const winSize = getWindowSize();
-const position = useRef<[number, number]>([0, 0]);
-const hasOpened = useRef(false);
-export const Advertisement = () => {
+export function Advertisement(){
   const { act, data, suspended } = useBackend<Data>();
   const { severity } = data;
 
@@ -185,7 +182,9 @@ export const Advertisement = () => {
   const [popup, setPopup] = useState<PopupQuestion | null>(null);
 
   const [showClosePrompt, setShowClosePrompt] = useState(false);
-
+  const winSize = getWindowSize();
+  const position = useRef<[number, number]>([0, 0]);
+  const hasOpened = useRef(false);
   useEffect(() => {
     const relocate_window = setTimeout(() => {
       position.current = [

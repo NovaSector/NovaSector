@@ -10,7 +10,7 @@ type Data = {
 };
 
 const resizeWindow = () => recallWindowGeometry({ size: getScreenSize() });
-export const AdvertisementCantPay = () => {
+export function AdvertisementCantPay(){
   const { act, data } = useBackend<Data>();
   resizeWindow();
   return (
