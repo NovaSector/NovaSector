@@ -7,6 +7,7 @@
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
 	inhand_icon_state = "sindano"
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
 
 	bolt_type = BOLT_TYPE_LOCKING
 	w_class = WEIGHT_CLASS_BULKY
@@ -16,13 +17,14 @@
 	projectile_damage_multiplier = 0.8
 	accepted_magazine_type = /obj/item/ammo_box/magazine/rapier
 	special_mags = FALSE
+	recoil_backtime_multiplier = 0.5
 
 /obj/item/gun/ballistic/automatic/rapier/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_AETHEON)
 	lore_blurb = "Manufactured by the, at the time, upstart Aethon Arms Company, a now subdivison of Hephaestus Heavy Industries, this is a ressurection of an old Terran design \
 		used by an absurd number of both state and non-state armed forces and paramilitary groups. In a bid to secure \
 		a highly lucrative arms contract with Nanotrasen, Aethon Arms re-engineered the design around the 4.6x30mm caliber, \
-		which was already in circulation and supply networds due to the outdated WT-550's formerly widespread use. While never adopted in any official capacity by Nanotrasen, \
+		which was already in station armory circulation and supply networks due to the outdated WT-550's formerly widespread use. While never adopted in any official capacity by Nanotrasen, \
 		the design proved popular enough with individual sales to warrant its continued serial production on the restricted arms market."
 
 
