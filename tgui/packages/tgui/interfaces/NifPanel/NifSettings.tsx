@@ -38,7 +38,7 @@ export function NifSettings() {
         <Input
           placeholder={default_examine_text}
           value={current_examine_text}
-          onChange={(value) => act('change_examine_text', { new_text: value })}
+          onEnter={(value) => act('change_examine_text', { new_text: value })}
           width="100%"
         />
       </LabeledList.Item>

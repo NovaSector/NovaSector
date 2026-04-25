@@ -97,10 +97,10 @@
 
 	switch(action)
 		if("toggle_nutrition_drain")
-			toggle_nutrition_drain()
+			return toggle_nutrition_drain()
 
 		if("toggle_blood_drain")
-			toggle_blood_drain()
+			return toggle_blood_drain()
 
 		if("change_examine_text")
 			var/text_to_use = html_encode(params["new_text"])
@@ -114,6 +114,7 @@
 				return TRUE
 
 			examine_datum.nif_examine_text = text_to_use
+			return TRUE
 
 		if("uninstall_nifsoft")
 			var/nifsoft_to_remove = locate(params["nifsoft_to_remove"]) in loaded_nifsofts
@@ -121,6 +122,7 @@
 				return FALSE
 
 			remove_nifsoft(nifsoft_to_remove)
+			update_static_data(ui.user, ui)
 
 		if("change_theme")
 			var/target_theme = params["target_theme"]
@@ -131,6 +133,7 @@
 			current_theme = target_theme
 			for(var/datum/nifsoft/installed_nifsoft as anything in loaded_nifsofts)
 				installed_nifsoft.update_theme()
+			return TRUE
 
 		if("activate_nifsoft")
 			var/datum/nifsoft/activated_nifsoft = locate(params["activated_nifsoft"]) in loaded_nifsofts
@@ -138,7 +141,7 @@
 				return FALSE
 
 			activated_nifsoft.activate()
-			return TRUE
+			update_static_data(ui.user, ui)
 
 		if("toggle_keeping_nifsoft")
 			var/datum/nifsoft/nifsoft_to_keep = locate(params["nifsoft_to_keep"]) in loaded_nifsofts
@@ -146,4 +149,4 @@
 				return FALSE
 
 			nifsoft_to_keep.keep_installed = !nifsoft_to_keep.keep_installed
-			return TRUE
+			update_static_data(ui.user, ui)
