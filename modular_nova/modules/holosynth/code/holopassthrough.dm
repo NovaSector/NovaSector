@@ -5,6 +5,24 @@
 /// How long a window stays deformed-passable after a holosynth phases through it.
 #define HOLOSYNTH_GLASS_DEFORM_TIME (0.5 SECONDS)
 
+/// Spray of small particles fired from the middle of the window edge toward the mob during the
+/// phase do_after.
+/particles/holosynth_phase
+	icon = 'icons/effects/particles/generic.dmi'
+	icon_state = list("dot" = 3, "cross" = 1, "curl" = 1)
+	width = 64
+	height = 64
+	count = 120
+	spawning = 12
+	color = "#707070a0"
+	lifespan = 0.5 SECONDS
+	fade = 0.3 SECONDS
+	fadein = 0.05 SECONDS
+	grow = -0.04
+	position = list(0, 0, 0)
+	drift = list(0)
+	scale = generator(GEN_VECTOR, list(0.9, 0.9), list(1.4, 1.4), UNIFORM_RAND)
+
 /datum/component/glass_passer/holosynth
 	/// Whether bumping a window auto-phases; toggled via the "Toggle Glass Phasing" action.
 	var/auto_phase = TRUE
@@ -34,7 +52,30 @@
 
 	var/modified_pass_time = wumpee.fulltile ? (HOLOSYNTH_GLASS_FULLTILE_MULTIPLIER * pass_time) : pass_time
 
-	if(!do_after(owner, modified_pass_time, bumpee))
+	// Animation phasing through glass
+	var/obj/effect/abstract/particle_holder/phase_particles = new(owner, /particles/holosynth_phase)
+	var/holo_color = ascarbon.dna?.features["holo_color"] || "#ECB3DD"
+	phase_particles.particles.color = "[holo_color]a0"
+	var/p_x = 0
+	var/p_y = 0
+	switch(dir_to_move)
+		if(NORTH)
+			p_y = 16
+			phase_particles.particles.velocity = generator(GEN_VECTOR, list(-6, -6), list(6, -2), UNIFORM_RAND)
+		if(SOUTH)
+			p_y = -16
+			phase_particles.particles.velocity = generator(GEN_VECTOR, list(-6, 2), list(6, 6), UNIFORM_RAND)
+		if(EAST)
+			p_x = 16
+			phase_particles.particles.velocity = generator(GEN_VECTOR, list(-6, -6), list(-2, 6), UNIFORM_RAND)
+		if(WEST)
+			p_x = -16
+			phase_particles.particles.velocity = generator(GEN_VECTOR, list(2, -6), list(6, 6), UNIFORM_RAND)
+	phase_particles.set_particle_position(p_x, p_y, 0)
+
+	var/passed = do_after(owner, modified_pass_time, bumpee)
+	qdel(phase_particles)
+	if(!passed)
 		return
 
 	if(ascarbon.handcuffed || ascarbon.legcuffed)
