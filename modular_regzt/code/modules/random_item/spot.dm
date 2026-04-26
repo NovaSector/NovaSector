@@ -17,8 +17,8 @@
 	name = "assembly spot"
 	desc = "place for various activities"
 	icon = 'modular_regzt/icons/obj/structures/spot.dmi'
-	icon_state = "assembly spot"
-	base_icon_state = "assembly spot"
+	icon_state = "assembly_spot"
+	base_icon_state = "assembly_spot"
 	max_integrity = 50
 	use_power = NO_POWER_USE
 	idle_power_usage = 0
@@ -63,3 +63,7 @@
 
 /obj/item/autolathe_spot/proc/give_deployable_component()
 	AddComponent(/datum/component/deployable, deploy_time, type_to_deploy)
+
+/obj/machinery/autolathe/spot/update_icon_state()
+	. = ..()
+	icon_state = busy ? base_icon_state : panel_open ? base_icon_state : base_icon_state

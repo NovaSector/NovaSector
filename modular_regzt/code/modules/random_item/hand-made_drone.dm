@@ -63,7 +63,7 @@
 		return TRUE
 
 	//Снятие ломом
-	if(istype(I, /obj/item/crowbar) && mmi)
+	if(I.tool_behaviour == TOOL_CROWBAR && mmi)
 		to_chat(user, span_notice("You start removing the MMI..."))
 		if(do_after(user, 3 SECONDS, src))
 			remove_mmi(user)
