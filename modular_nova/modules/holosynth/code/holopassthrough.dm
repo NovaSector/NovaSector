@@ -1,5 +1,5 @@
 /// Base time (deciseconds) to phase through a directional/half-tile window.
-#define HOLOSYNTH_GLASS_PASS_TIME (5 SECONDS)
+#define HOLOSYNTH_GLASS_PASS_TIME (3 SECONDS)
 /// Multiplier applied to the pass time for fulltile windows (they take this many times longer).
 #define HOLOSYNTH_GLASS_FULLTILE_MULTIPLIER 3
 /// How long a window stays deformed-passable after a holosynth phases through it.
