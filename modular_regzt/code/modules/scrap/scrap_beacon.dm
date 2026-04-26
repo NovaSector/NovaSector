@@ -71,7 +71,7 @@
 			if(I.use_tool(src, user, 30, volume=50))
 				screwed = FALSE
 				to_chat(user, span_notice("You unscrew the core. It is now loose."))
-				icon_state = "beacon_shell"
+				icon_state = "beacon_core"
 		return
 
 	// --- ЛОМ (CROWBAR) ---
@@ -139,8 +139,11 @@
 
 			// Возвращаем состояние оболочки
 			var/obj/structure/shell_scrap_beacon/S = new(get_turf(src))
+			if(core)
+				core.forceMove(S)
+				S.core = core
 			S.screwed = TRUE // Ядро все еще прикручено внутри
-			S.icon_state = "beacon2"
+			S.icon_state = "beacon_core"
 			qdel(src)
 		return
 
