@@ -33,7 +33,7 @@ export type NifPanelData = {
   max_durability: number;
   max_power: number;
   max_blood_level: number;
-  manufacturer_notes: string;
+  product_notes: string;
   stored_points: number;
   default_examine_text: string;
 };
