@@ -15,8 +15,8 @@
 	icon_state = "ore_vent"
 	base_icon_state = "ore_vent"
 	mineral_breakdown = list(
-		/datum/material/iron = 50,
-		/datum/material/glass = 50,
+		/datum/material/iron = 1,
+		/datum/material/glass = 1,
 	) //we don't need a separate starting list
 	unique_vent = TRUE
 	boulder_size = BOULDER_SIZE_SMALL
@@ -273,6 +273,10 @@
 					/mob/living/basic/construct/proteon/hostile,
 					/mob/living/basic/construct/wraith/hostile,
 				)
+
+	if(vent_visual) // if tapped, removed tapped visual
+		vis_contents -= vent_visual //Reversing add_tapped_visual in what i feel is the best order, correct if wrong.
+		QDEL_NULL(vent_visual) //Deletes AND sets to null? man what a time to code.
 
 	for(var/old_ore in mineral_breakdown) //We remove the old ore
 		mineral_breakdown -= old_ore
