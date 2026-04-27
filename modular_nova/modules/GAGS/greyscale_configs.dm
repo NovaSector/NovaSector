@@ -1965,6 +1965,7 @@ TREK
 
 /datum/greyscale_config/clothwraps/worn/digi
 	name = "Cloth Wraps (Worn, Digi)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/wraps/wraps_worn_digi.json'
 
 /datum/greyscale_config/legwraps
 	name = "Leg Wraps"
