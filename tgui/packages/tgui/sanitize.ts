@@ -416,6 +416,7 @@ export function sanitizeText(
       const finalConfig = { ...defaultConfig, ...config };
       if (advHtml) {
         tags = tags.concat(advTags);
+        forbidAttr = [];
       }
       const sanitized = DOMPurify.sanitize(input, {
         ALLOWED_TAGS: tags,

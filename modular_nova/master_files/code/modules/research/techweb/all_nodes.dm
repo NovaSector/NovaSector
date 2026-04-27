@@ -235,6 +235,7 @@
 /datum/techweb_node/riot_supression/New()
 	design_ids += list(
 		"ammobench_gimmick",
+		"pin_standard",
 	)
 	return ..()
 
@@ -372,5 +373,14 @@
 	design_ids += list(
 		"mod_retract_plates",
 		"mod_magnetic_deploy",
+	)
+	return ..()
+
+///////////////////////// Weapons /////////////////////////
+
+// Modularly removes x-ray
+/datum/techweb_node/beam_weapons/New()
+	design_ids -= list(
+		"xray_laser",
 	)
 	return ..()

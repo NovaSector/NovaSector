@@ -16,8 +16,8 @@
 	. = ..()
 	playsound(src, 'sound/machines/beep/beep.ogg', 30, TRUE)
 
-/obj/machinery/ore_silo/colony_lathe/default_deconstruction_crowbar()
-	return
+/obj/machinery/ore_silo/colony_lathe/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
+	return NONE
 
 // Item for deploying ore silos
 /obj/item/flatpacked_machine/ore_silo

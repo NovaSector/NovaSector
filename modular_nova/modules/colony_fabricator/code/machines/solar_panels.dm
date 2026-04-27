@@ -20,13 +20,19 @@
 	return ..()
 
 // formerly NO_DECONSTRUCTION
-/obj/machinery/power/solar/deployable/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+/obj/machinery/power/solar/deployable/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
 	return NONE
 
-/obj/machinery/power/solar/deployable/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+/obj/machinery/power/solar/deployable/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
 	return NONE
 
-/obj/machinery/power/solar/deployable/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+/obj/machinery/power/solar/deployable/default_pry_open(mob/living/user,
+	obj/item/crowbar,
+	close_after_pry = FALSE,
+	open_density = FALSE,
+	closed_density = TRUE,
+	deconstruct_on_fail = FALSE,
+)
 	return NONE
 
 // Solar panel sub-types
@@ -101,17 +107,23 @@
 	AddElement(/datum/element/repackable, repacked_type, 1 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
-/obj/machinery/power/tracker/deployable/crowbar_act(mob/user, obj/item/item_acting)
+/obj/machinery/power/tracker/deployable/crowbar_act(mob/user, obj/item/tool)
 	return NONE
 
 // formerly NO_DECONSTRUCTION
-/obj/machinery/power/tracker/deployable/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+/obj/machinery/power/tracker/deployable/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
 	return NONE
 
-/obj/machinery/power/tracker/deployable/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+/obj/machinery/power/tracker/deployable/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
 	return NONE
 
-/obj/machinery/power/tracker/deployable/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+/obj/machinery/power/tracker/deployable/default_pry_open(mob/living/user,
+	obj/item/crowbar,
+	close_after_pry = FALSE,
+	open_density = FALSE,
+	closed_density = TRUE,
+	deconstruct_on_fail = FALSE,
+)
 	return NONE
 
 /obj/machinery/power/tracker/deployable/on_deconstruction(disassembled)
