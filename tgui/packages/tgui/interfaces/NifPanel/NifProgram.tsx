@@ -5,7 +5,6 @@ import {
   Button,
   Collapsible,
   Icon,
-  Stack,
   Table,
 } from 'tgui-core/components';
 import type { NifPanelData, NifProgramData } from './data';
@@ -31,52 +30,46 @@ export function NifProgram(props: { src: NifProgramData }) {
       title={name}
       icon={ui_icon}
       buttons={
-        <Stack>
-          <Stack.Item>
-            <Button.Confirm
-              icon="trash"
-              color="red"
-              tooltip="Uninstall"
-              confirmContent="Uninstall?"
-              onClick={() =>
-                act('uninstall_nifsoft', {
-                  nifsoft_to_remove: reference,
-                })
-              }
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon="floppy-disk"
-              color={!able_to_keep ? 'grey' : keep_installed ? 'green' : null}
-              tooltip={
-                !able_to_keep
-                  ? "Can't save between shifts"
-                  : keep_installed
-                    ? 'Saving between shifts'
-                    : 'Not saving between shifts'
-              }
-              disabled={!able_to_keep}
-              onClick={() =>
-                act('toggle_keeping_nifsoft', {
-                  nifsoft_to_keep: reference,
-                })
-              }
-            />
-          </Stack.Item>
-          <Stack.Item>
-            <Button
-              icon={!active_mode ? 'power-off' : active ? 'pause' : 'play'}
-              color={active ? 'yellow' : 'green'}
-              tooltip={!active_mode ? 'Activate' : active ? 'Stop' : 'Start'}
-              onClick={() =>
-                act('activate_nifsoft', {
-                  activated_nifsoft: reference,
-                })
-              }
-            />
-          </Stack.Item>
-        </Stack>
+        <>
+          <Button.Confirm
+            icon="trash"
+            color="red"
+            tooltip="Uninstall"
+            confirmContent="Uninstall?"
+            onClick={() =>
+              act('uninstall_nifsoft', {
+                nifsoft_to_remove: reference,
+              })
+            }
+          />
+          <Button
+            icon="floppy-disk"
+            color={!able_to_keep ? 'grey' : keep_installed ? 'green' : null}
+            tooltip={
+              !able_to_keep
+                ? "Can't save between shifts"
+                : keep_installed
+                  ? 'Saving between shifts'
+                  : 'Not saving between shifts'
+            }
+            disabled={!able_to_keep}
+            onClick={() =>
+              act('toggle_keeping_nifsoft', {
+                nifsoft_to_keep: reference,
+              })
+            }
+          />
+          <Button
+            icon={!active_mode ? 'power-off' : active ? 'pause' : 'play'}
+            color={active ? 'yellow' : 'green'}
+            tooltip={!active_mode ? 'Activate' : active ? 'Stop' : 'Start'}
+            onClick={() =>
+              act('activate_nifsoft', {
+                activated_nifsoft: reference,
+              })
+            }
+          />
+        </>
       }
     >
       <Table mb="5px">
