@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Removed Player References From Posters."

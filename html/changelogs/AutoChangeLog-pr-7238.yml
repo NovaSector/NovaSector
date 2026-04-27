@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Removed footprints on snow (non snowstorm z levels) and sand."
