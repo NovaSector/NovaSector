@@ -489,11 +489,9 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	if(!(operation_flags & OPERATION_STANDING_ALLOWED) && !IS_LYING_OR_CANNOT_LIE(patient))
 		return FALSE
 
-	if(!(operation_flags & OPERATION_SELF_OPERABLE) && patient == surgeon && !HAS_TRAIT(surgeon, TRAIT_SELF_SURGERY))
-		return FALSE
-
-	if(!(operation_flags & OPERATION_SELF_OPERABLE) && patient == surgeon && !HAS_TRAIT(surgeon, TRAIT_NEAT_SELF_SURGERY))
-		return FALSE
+	if(!(operation_flags & OPERATION_SELF_OPERABLE) && patient == surgeon)
+		if(!HAS_TRAIT(surgeon, TRAIT_SELF_SURGERY) && !HAS_TRAIT(surgeon, TRAIT_NEAT_SELF_SURGERY))
+			return FALSE
 
 	return snowflake_check_availability(operating_on, surgeon, tool, operated_zone)
 
@@ -754,7 +752,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 			total_mod *= 1.5
 		// Using TRAIT_NEAT_SELF_SURGERY in an operation that normally does not allow self-surgery, without penalties
 		if(operating_on == surgeon && HAS_TRAIT(surgeon, TRAIT_NEAT_SELF_SURGERY) && !(operation_flags & OPERATION_SELF_OPERABLE))
-			total_mod *= 1.25
+			total_mod *= 1
 	return round(total_mod, 0.01)
 
 /// Returns a time modifier based on the mob's status
@@ -913,11 +911,11 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 
 		// Using TRAIT_SELF_SURGERY on a surgery which doesn't normally allow self surgery imparts a flat penalty
 		// (On top of the 1.5x real time surgery modifier, an effective time modifier of 3x under standard conditions)
-		if(patient == surgeon && HAS_TRAIT(surgeon, TRAIT_SELF_SURGERY) && !(operation_flags & OPERATION_SELF_OPERABLE))
-			operation_args[OPERATION_SPEED] += 1.5
-		// self-operation is slightly longer due to accuracy
-		if(patient == surgeon && HAS_TRAIT(surgeon, TRAIT_NEAT_SELF_SURGERY) && !(operation_flags & OPERATION_SELF_OPERABLE))
-			operation_args[OPERATION_SPEED] += 3
+		if(patient == surgeon && !(operation_flags & OPERATION_SELF_OPERABLE))
+			if(HAS_TRAIT(surgeon, TRAIT_SELF_SURGERY))
+				operation_args[OPERATION_SPEED] += 1.5
+			else if(HAS_TRAIT(surgeon, TRAIT_NEAT_SELF_SURGERY))
+				operation_args[OPERATION_SPEED] += 3
 
 		// Otherwise if we have TRAIT_IGNORE_SURGERY_MODIFIERS we cannot possibly fail, unless we specifically allow failure
 		if(HAS_TRAIT(surgeon, TRAIT_IGNORE_SURGERY_MODIFIERS) && !(operation_flags & OPERATION_ALWAYS_FAILABLE))

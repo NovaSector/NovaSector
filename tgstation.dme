@@ -9751,6 +9751,7 @@
 #include "modular_regzt\code\modules\random_item\spot.dm"
 #include "modular_regzt\code\modules\random_item\stock_parts.dm"
 #include "modular_regzt\code\modules\random_item\synt_drone.dm"
+#include "modular_regzt\code\modules\random_item\quirk\quirk_all.dm"
 #include "modular_regzt\code\modules\scrap\scrap_beacon.dm"
 #include "modular_regzt\code\modules\scrap\scrap_loot.dm"
 #include "modular_regzt\code\modules\scrap\scrap_pile.dm"
