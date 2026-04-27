@@ -25204,7 +25204,9 @@
 	department = "Law Office";
 	name = "Law Office Requests Console"
 	},
-/obj/item/fish_tank/lawyer,
+/obj/machinery/computer/records/medical{
+	dir = 1
+	},
 /turf/open/floor/carpet/blue,
 /area/station/service/lawoffice)
 "faw" = (
@@ -59677,18 +59679,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/fore/upper)
 "mcR" = (
-/obj/structure/closet/lawcloset,
-/obj/item/storage/briefcase{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/briefcase/secure,
-/obj/item/clothing/glasses/sunglasses/big{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/clothing/glasses/sunglasses,
 /obj/machinery/newscaster/directional/west,
+/obj/item/fish_tank/lawyer,
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
 "mcS" = (
@@ -69385,11 +69377,19 @@
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "ocY" = (
-/obj/machinery/computer/warrant{
-	dir = 4
-	},
 /obj/structure/noticeboard/directional/west,
 /obj/machinery/light/directional/west,
+/obj/structure/closet/lawcloset,
+/obj/item/clothing/glasses/sunglasses,
+/obj/item/clothing/glasses/sunglasses/big{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/briefcase/secure,
+/obj/item/storage/briefcase{
+	pixel_x = 3;
+	pixel_y = 3
+	},
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
 "odb" = (
@@ -88002,6 +88002,9 @@
 	dir = 8
 	},
 /obj/machinery/light_switch/directional/south,
+/obj/machinery/computer/records/security{
+	dir = 1
+	},
 /turf/open/floor/carpet/blue,
 /area/station/service/lawoffice)
 "rJm" = (

@@ -45833,7 +45833,7 @@
 "mjA" = (
 /obj/machinery/light_switch/directional/north,
 /obj/machinery/camera/autoname/directional/north,
-/obj/effect/landmark/start/hangover,
+/obj/machinery/computer/records/security,
 /turf/open/floor/carpet/red,
 /area/station/service/lawoffice)
 "mjC" = (
@@ -55746,6 +55746,7 @@
 "oRI" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/firealarm/directional/north,
+/obj/machinery/computer/records/medical,
 /turf/open/floor/carpet/red,
 /area/station/service/lawoffice)
 "oRK" = (
@@ -71521,6 +71522,7 @@
 /area/station/engineering/storage_shared)
 "til" = (
 /obj/machinery/digital_clock/directional/north,
+/obj/structure/table/wood,
 /turf/open/floor/wood/tile,
 /area/station/service/lawoffice)
 "tiq" = (
@@ -83116,8 +83118,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_arcade)
 "wjV" = (
-/obj/structure/table/wood,
-/turf/open/floor/wood/tile,
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/carpet/red,
 /area/station/service/lawoffice)
 "wko" = (
 /obj/structure/sign/warning/cold_temp,
@@ -254316,8 +254318,8 @@ whx
 qRi
 tsF
 til
+uFp
 yeZ
-wjV
 bCL
 wWZ
 tsF
@@ -254573,7 +254575,7 @@ nEY
 cyg
 tsF
 mjA
-lDr
+wjV
 gco
 mUi
 aAa
