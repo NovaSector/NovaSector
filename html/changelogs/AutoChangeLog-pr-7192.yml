@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - code_imp: "switched map mode to SIDE_MAP"
