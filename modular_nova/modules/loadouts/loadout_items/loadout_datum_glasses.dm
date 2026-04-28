@@ -29,6 +29,10 @@
 *	ITEMS BELOW HERE
 */
 
+/datum/loadout_items/glasses/welding_goggles
+	name = "Welding Goggles"
+	item_path /obj/item/clothing/glasses/welding
+
 /datum/loadout_item/glasses/biker
 	name = "Biker Goggles"
 	item_path = /obj/item/clothing/glasses/biker
@@ -295,7 +299,7 @@
 	item_path = /obj/item/clothing/glasses/hud/ar/projector/security
 	restricted_roles = list(ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC)
 	group = "Job-Locked"
-
+/
 /*
  *	DONATOR
  */
