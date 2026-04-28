@@ -162,46 +162,6 @@
 	name = "Sneakers  (Colorable)"
 	item_path = /obj/item/clothing/shoes/sneakers
 
-/datum/loadout_item/shoes/black_sneakers
-	name = "Sneakers (Black)"
-	item_path = /obj/item/clothing/shoes/sneakers/black
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/shoes/blue_sneakers
-	name = "Sneakers (Blue)"
-	item_path = /obj/item/clothing/shoes/sneakers/blue
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/shoes/brown_sneakers
-	name = "Sneakers (Brown)"
-	item_path = /obj/item/clothing/shoes/sneakers/brown
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/shoes/green_sneakers
-	name = "Sneakers (Green)"
-	item_path = /obj/item/clothing/shoes/sneakers/green
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/shoes/orange_sneakers
-	name = "Sneakers (Orange)"
-	item_path = /obj/item/clothing/shoes/sneakers/orange
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/shoes/purple_sneakers
-	name = "Sneakers (Purple)"
-	item_path = /obj/item/clothing/shoes/sneakers/purple
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/shoes/white_sneakers
-	name = "Sneakers (White)"
-	item_path = /obj/item/clothing/shoes/sneakers/white
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/shoes/yellow_sneakers
-	name = "Sneakers (Yellow)"
-	item_path = /obj/item/clothing/shoes/sneakers/yellow
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
 /*
 *	LEG WRAPS
 */

@@ -159,18 +159,6 @@
 	name = "Assistant's Formal Uniform"
 	item_path = /obj/item/clothing/under/misc/assistantformal
 
-/datum/loadout_item/under/formal/amish_suit
-	name = "Buttondown Suit (Black)"
-	item_path = /obj/item/clothing/under/costume/buttondown/slacks/service
-
-/datum/loadout_item/under/formal/blue_suit
-	name = "Buttondown Suit (Blue)"
-	item_path = /obj/item/clothing/under/rank/civilian/lawyer/bluesuit
-
-/datum/loadout_item/under/formal/blue_suitskirt
-	name = "Buttondown Suit (Blue, Skirt)"
-	item_path = /obj/item/clothing/under/rank/civilian/lawyer/bluesuit/skirt
-
 /datum/loadout_item/under/formal/recolorable_suit/casual
 	name = "Buttondown Suit - Collared"
 	item_path = /obj/item/clothing/under/suit/nova/recolorable/casual
@@ -261,31 +249,6 @@
 /datum/loadout_item/under/formal/pencil/checkered
 	name = "Pencilskirt  (Checkered)" //This is recolorable, put it right after the base type
 	item_path = /obj/item/clothing/under/suit/nova/pencil/checkered
-
-/datum/loadout_item/under/formal/pencil/burgandy
-	name = "Pencilskirt (Burgundy)"
-	item_path = /obj/item/clothing/under/suit/nova/pencil/burgundy
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/under/formal/pencil/charcoal
-	name = "Pencilskirt (Charcoal)"
-	item_path = /obj/item/clothing/under/suit/nova/pencil/charcoal
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/under/formal/pencil/green
-	name = "Pencilskirt (Green)"
-	item_path = /obj/item/clothing/under/suit/nova/pencil/green
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/under/formal/pencil/navy
-	name = "Pencilskirt (Navy)"
-	item_path = /obj/item/clothing/under/suit/nova/pencil/navy
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
-
-/datum/loadout_item/under/formal/pencil/tan
-	name = "Pencilskirt (Tan)"
-	item_path = /obj/item/clothing/under/suit/nova/pencil/tan
-	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/under/formal/pencil/noshirt
 	name = "Pencilskirt - Shirtless"
