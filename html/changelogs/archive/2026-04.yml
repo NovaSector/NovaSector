@@ -671,3 +671,151 @@
   vinylspiders:
   - bugfix: fixes an issue where raptor chicks and other non-items appearing in item
       contents would prevent any personal crafting in the vicinity
+2026-04-23:
+  Diltyrr:
+  - bugfix: Stone griddles do not have a chance to spawn invisible anymore.
+  Happyowl93:
+  - qol: increase AI request cd to 5 mins, cd per door/player
+  Hatterhat:
+  - image: One more resprite for the hybrid power tools to use the Nova-specific icons
+      as a base instead of TG's icons.
+  Iajret:
+  - bugfix: fixed double messaging during synth revival process
+  Macaroni:
+  - qol: The Standard Firing Pin can now be printed from securities tech fab
+  OrbisAnima:
+  - balance: Removes russian revolvers and replaces it with Renard revolvers. Adds
+      2k to the Greed chappel.
+  TheSelfish (code) CannibalHunter of MonkeStation (sprites):
+  - rscadd: Traitors may goon. Gooning is also in the clothes mate and the vendor.  To
+      be more specific, because people hate fun and can't find stuff. Clothesmate
+      and the Uplink have Henchmen outfits, a flatcap and a coat.
+  vinylspiders:
+  - bugfix: '''load prefs onto mob'' will now fully reset and apply the client''s
+      current slot prefs to the mob, including quirks and size'
+2026-04-27:
+  1393F:
+  - bugfix: The mushroom bowl no longer turns invisible when filled with a reagent.
+  Absolucy, LemonInTheDark:
+  - bugfix: You can no longer see lights through walls when using mesons or when ventcrawling.
+  Aliceee2ch:
+  - bugfix: LIttle map fixes for lavaland.
+  ArcaneMusic:
+  - qol: The GMM Ui can now tell you the minimum and maximum price ranges that a material
+      will sell for.
+  - qol: You can now sell materials on the edge of their buying and selling thresholds.
+      (This really only effects iron and glass, practically)
+  - rscadd: The boulder smelter and refinery may now take a plumbing input (Closely
+      examine to see the full list) to boost the mineral output of processed boulders.
+  - rscadd: Boulder refinery machines will produce a new chemical, industrial waste,
+      which must be managed, dispersed, or it will eventually overflow if too much
+      exists in the same container.
+  - balance: The smelter and refinery now produce less mining points per unit than
+      before, but the quantity of points are now better scaled to the quantity processed.
+      50% more ores means 50% more points.
+  - balance: The amount of points generated per ore within boulders is now a separate
+      variable, not a percentage of the base value. This means some ores are better/worse
+      for generating mining points as a result.
+  - balance: Completing wave defense will award 200 more points across all ore vent
+      tiers, 700/1200/1700 for small/medium/large vents.
+  Arturlang:
+  - rscadd: changes shutter and high security door sprites on the infiltrator battlecruiser
+      and the syndicate nuclear operative base
+  Ben10Omintrix:
+  - refactor: beepskies, and ed209s have been refactored. please report any bugs
+  - rscadd: ed209s can now wear hats! some hats give them new dialogue
+  - rscadd: emagged ed209s are now rideable!
+  - rscadd: added evil versions of the ed209s to the syndie uplink
+  Capsandi:
+  - sound: fire alarms are no longer stereo files condensed to mono at runtime
+  ElGitificador:
+  - balance: mutations coming from most random mutation sources can now be saved in
+      dna consoles
+  Ghommie:
+  - bugfix: Packs exclusive to the express console (crab rockets for example) can
+      now be ordered from express consoles.
+  Happyowl93:
+  - code_imp: makeHologram now allows a color override.
+  Hatterhat:
+  - balance: Following an incident where several pieces of assimilative superalloy
+      were wasted on repeatedly upgrading one specific set of tools, their pre-seeded
+      intelligences were revised to only accept the most basic form of their power
+      tool component. Unfortunately, this had the knock-on effect of preventing Science's
+      equivalent tools from being usable for upgrading. Whoops.
+  - bugfix: Medical combitools can now be printed, as they were missing the flags
+      that allowed them to be printed off techfabs/lathes.
+  JohnFulpWillard:
+  - rscadd: You can Ctrl Click a camera to set it to print monochrome photos. The
+      detective's camera is on this mode by default.
+  - qol: Photos without a scribble written on them won't have empty white space at
+      the bottom.
+  - qol: Pray verb is now a hotkey, Whisper is now a command bar button, and all say
+      verbs have been removed from the stat panel.
+  - qol: Admin button on the escape menu is now its own section for praying, as well
+      as seeing your latest ticket & admin notes.
+  - bugfix: Resizing the stat panel will no longer change the size of the command
+      bar.
+  - rscdel: Removed Station Time, now we use NST (Nanotrasen Standard Time), which
+      is IRL server time +540 years, and PT (Pay Time), the amount of time since the
+      round has started.
+  - rscdel: Station nightshift is now a Station event rather than being based on Server
+      time.
+  - balance: Time circuit's Unit of Measure now tells the amount of time in hour/minute/seconds
+      rather than giving the whole time translated to hours/minutes/seconds.
+  - qol: Added a 12-hour clock pref for people who prefer it.
+  - qol: Hovering over NST timestamps on official documents will now translate how
+      much it is in PT/Shift Time.
+  - admin: Admins can now use style/class/background in their papercode.
+  Kocma-san:
+  - bugfix: synth brain repair surgery now works
+  Melbert:
+  - balance: Codex Cicatrix is now a tier 1 heretic knowledge, and can not be drafted.
+  - balance: Warren King's Welcome is now a tier 1 heretic knowledge, but can be drafted.
+  - balance: Warren King's Welcome soft reworked. Now needs 10 cable, 1 paper, 1 multitool.
+      Now adds access to all IDs present, including worn IDs. Now adds "heretic" access
+      to the ID card. Now changes all nearby airlocks to require "heretic" access,
+      and cuts the AI wire.
+  - balance: Eldritch ID card starts with "heretic" access.
+  - admin: Adds toggle for meteor mode in secrets
+  - rscadd: Some EVA helmets now have retractable visors, which you can pull up or
+      down at will, to reveal your face.
+  - balance: The amount of blood loss from an attack to an already bleeding wound
+      has been tweaked. As an example, a 20 force attack used to range 0.1% to 4%
+      blood loss, and now ranges 1% to 3%.
+  - bugfix: Plasma works in IEDs again
+  Neocloudy:
+  - refactor: Refactored the cryogenic oversight console UI.
+  OrbisAnima:
+  - rscdel: Removed Player References From Posters.
+  - rscdel: Removed footprints on snow (non snowstorm z levels) and sand.
+  Rhials:
+  - bugfix: The bear mask in the pizzeria virtual domain is now a regular, non-cursed
+      mask.
+  Ruslanllll:
+  - bugfix: Alien plasma display works again
+  SmArtKar:
+  - admin: Planemaster Debugger now has a text search input to locate and jump to
+      planes
+  TealSeer:
+  - bugfix: fixed CSS-related errors in BYOND 516.1681+
+  forgman6:
+  - rscadd: Saviors paper hat.
+  - rscadd: Added worn and normal icon states for it in costume.dmi
+  - map: Modified bus.dmm to include the paper hat behind the main bus.
+  lelandkemble:
+  - bugfix: Looming works again
+  - bugfix: Ninja spider bomb can no longer be placed in certain situations it would
+      be unable to detonate
+  - bugfix: Stamina bars no longer invert the value they show you
+  - bugfix: Nonbinary people can respawn
+  levels0:
+  - bugfix: metalgen and secret sauce recipes are now loaded properly
+  theselfish:
+  - bugfix: Normal people no longer wear cloth foot wraps 'freaky style'. That's the
+      technical term.
+  - qol: Tailcoats, bunny suits and bunny ears are now grouped.
+  timothymtorres:
+  - map: Add Shoe Factory to lava/ice ruins.
+  vinylspiders:
+  - code_imp: switched map mode to SIDE_MAP
+  - bugfix: mobs and features should not be spawning in walls anymore in certain biomes

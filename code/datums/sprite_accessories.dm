@@ -1249,6 +1249,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	gender = NEUTER
 
 /datum/sprite_accessory/clothing
+	abstract_type = /datum/sprite_accessory/clothing
 	/// Allows you to specify a greyscale config
 	var/greyscale_config
 	/// Icon state in the digitigrade template file to use if the wearer is digitigrade.
@@ -1288,7 +1289,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 		result = mutable_appearance(icon(cached_icons[key]))
 
 	else if(greyscale_config || use_female || use_digi) // icon ops ahead
-		var/icon/created = icon(greyscale_config ? SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors) : icon, icon_state_to_use) // NOVA EDIT CHANGE - ORIGINAL: var/icon/created = icon(greyscale_config ? SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors) : icon, icon_state)
+		var/icon/created = icon(greyscale_config ? SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors) : icon, icon_state_to_use)
 		if(use_female)
 			created = wear_female_version(icon_state_to_use, icon, female_sprite_flags_to_use)
 		if(use_digi && !has_custom_digi_sprite) // NOVA EDIT CHANGE - ORIGINAL: if(use_digi)
@@ -1315,6 +1316,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	icon = 'icons/mob/clothing/underwear.dmi'
 	use_static = FALSE
 	em_block = TRUE
+	abstract_type = /datum/sprite_accessory/clothing/underwear
 
 //MALE UNDERWEAR
 /datum/sprite_accessory/clothing/underwear/nude
@@ -1511,6 +1513,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 /datum/sprite_accessory/clothing/undershirt
 	icon = 'icons/mob/clothing/underwear.dmi'
 	em_block = TRUE
+	abstract_type = /datum/sprite_accessory/clothing/undershirt
 
 /datum/sprite_accessory/clothing/undershirt/nude
 	name = "Nude"
@@ -1801,6 +1804,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 /datum/sprite_accessory/clothing/socks
 	icon = 'icons/mob/clothing/underwear.dmi'
 	em_block = TRUE
+	abstract_type = /datum/sprite_accessory/clothing/socks
 
 /datum/sprite_accessory/clothing/socks/nude
 	name = "Nude"
