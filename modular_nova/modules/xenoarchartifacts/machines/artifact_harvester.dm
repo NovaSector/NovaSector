@@ -35,29 +35,30 @@
 		owned_scanner = locate(/obj/machinery/artifact_scanpad) in orange(1, src)
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/artifact_harvester/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
-		update_appearance()
-		return
-	if(default_pry_open(attacking_item))
-		return
-	if(default_deconstruction_crowbar(attacking_item))
-		return
-	if(istype(attacking_item, /obj/item/xenoarch/particles_battery))
-		if(!inserted_battery && user.transferItemToLoc(attacking_item, src))
-			user.visible_message(
-				span_notice("[user] inserts [attacking_item] into [src]."),
-				span_notice("You insert [attacking_item] into [src]."),
-				blind_message = span_hear("You hear click."),
-			)
-			playsound(src, 'sound/machines/crate/crate_open.ogg', 30, 10)
-			src.inserted_battery = attacking_item
-			icon_state = "harvester_battery"
-			ui_interact(user)
-		else
-			to_chat(user, span_warning("There is already a battery in [src]."))
+/obj/machinery/artifact_harvester/crowbar_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_crowbar(user, tool)
+
+/obj/machinery/artifact_harvester/screwdriver_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_screwdriver(user, tool)
+
+/obj/machinery/artifact_harvester/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/xenoarch/particles_battery))
+		return NONE
+
+	if(!inserted_battery && user.transferItemToLoc(tool, src))
+		user.visible_message(
+			span_notice("[user] inserts [tool] into [src]."),
+			span_notice("You insert [tool] into [src]."),
+			blind_message = span_hear("You hear click."),
+		)
+		playsound(src, 'sound/machines/crate/crate_open.ogg', 30, 10)
+		src.inserted_battery = tool
+		icon_state = "harvester_battery"
+		ui_interact(user)
+		return ITEM_INTERACT_SUCCESS
 	else
-		return..()
+		to_chat(user, span_warning("There is already a battery in [src]."))
+		return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/artifact_harvester/ui_interact(mob/user)
 	if(machine_stat & (NOPOWER|BROKEN))

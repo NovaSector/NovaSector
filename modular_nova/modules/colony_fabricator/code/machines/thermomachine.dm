@@ -33,8 +33,8 @@
 	min_temperature = T0C
 	max_temperature = FIRE_MINIMUM_TEMPERATURE_TO_SPREAD + 50
 
-/obj/machinery/atmospherics/components/unary/thermomachine/deployable/default_deconstruction_crowbar()
-	return
+/obj/machinery/atmospherics/components/unary/thermomachine/deployable/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
+	return NONE
 
 /obj/machinery/atmospherics/components/unary/thermomachine/deployable/process_atmos()
 	if(on && !soundloop.loop_started)

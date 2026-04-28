@@ -31,22 +31,20 @@
 	circuit = /obj/item/circuitboard/machine/ghostpad
 	icon = 'modular_nova/master_files/icons/obj/machines/ghost_pad.dmi'
 	icon_state = "ghost_pad"
-	idle_state = "ghost_pad"
-	warmup_state = "ghost_pad-idle"
-	sending_state = "ghost_pad-beam"
+	base_icon_state = "ghost_pad"
 
 	// The modifier to reduce warmuptime
 	var/warmup_reduction = 0
 
-/obj/machinery/piratepad/ghostpad/screwdriver_act(mob/living/user, obj/item/tool)
+/obj/machinery/piratepad/ghostpad/update_icon_state()
 	. = ..()
-	if(!.)
-		return default_deconstruction_screwdriver(user, "[icon_state]-idle-open", "[idle_state]", tool)
+	icon_state = panel_open ? "[base_icon_state]-idle-open" : base_icon_state
+
+/obj/machinery/piratepad/ghostpad/screwdriver_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_screwdriver(user, tool)
 
 /obj/machinery/piratepad/ghostpad/crowbar_act(mob/living/user, obj/item/tool)
-	. = ..()
-	if(!.)
-		return default_deconstruction_crowbar(tool)
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/piratepad/ghostpad/RefreshParts()
 	. = ..()
@@ -153,8 +151,7 @@
 /obj/machinery/computer/piratepad_control/ghostpad/proc/reset_icon(obj/machinery/piratepad/ghostpad/pad)
 	if(!pad)
 		return
-	flick(pad.sending_state,pad)
-	pad.icon_state = pad.idle_state
+	pad.finish_sending()
 
 #undef SYN_BOUNTY_PAD_WARM_TIME
 
@@ -176,9 +173,7 @@
 	for processing. No returns!"
 
 	icon_state = "interdyne_pad"
-	idle_state = "interdyne_pad"
-	warmup_state = "interdyne_pad-idle"
-	sending_state = "interdyne_pad-beam"
+	base_icon_state = "interdyne_pad"
 
 	circuit = /obj/item/circuitboard/machine/ghostpad/interdyne
 
@@ -209,9 +204,7 @@
 	for processing. No returns!"
 
 	icon_state = "syndicate_pad"
-	idle_state = "syndicate_pad"
-	warmup_state = "syndicate_pad-idle"
-	sending_state = "syndicate_pad-beam"
+	base_icon_state = "syndicate_pad"
 
 	circuit = /obj/item/circuitboard/machine/ghostpad/syndicate
 
@@ -242,9 +235,7 @@
 		for processing. No returns!"
 
 	icon_state = "tarkon_pad"
-	idle_state = "tarkon_pad"
-	warmup_state = "tarkon_pad-idle"
-	sending_state = "tarkon_pad-beam"
+	base_icon_state = "tarkon_pad"
 
 	circuit = /obj/item/circuitboard/machine/ghostpad/tarkon
 
