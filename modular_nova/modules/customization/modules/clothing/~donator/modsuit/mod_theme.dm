@@ -209,3 +209,12 @@
 			),
 		),
 	)
+
+#undef STANDARD_BLUE
+#undef ALERT_AMBER
+#undef CONTRACTOR_RED
+#undef EXTRASHIELD_GREEN
+#undef EVIL_GREEN
+#undef ROYAL_PURPLE
+#undef HAZARD_ORANGE
+#undef COSMIC_BLUE
