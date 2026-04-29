@@ -280,7 +280,7 @@
 
 	for(var/obj/item/equipped as anything in holosynth.get_equipped_items(INCLUDE_HELD))
 		var/slot = holosynth.get_slot_by_item(equipped)
-		if(slot & (ITEM_SLOT_ID | ITEM_SLOT_LPOCKET | ITEM_SLOT_RPOCKET))
+		if(slot & (ITEM_SLOT_ID | ITEM_SLOT_LPOCKET | ITEM_SLOT_RPOCKET | ITEM_SLOT_ICLOTHING))
 			continue
 		holosynth.dropItemToGround(equipped, force = TRUE)
 

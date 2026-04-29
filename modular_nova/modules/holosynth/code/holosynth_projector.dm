@@ -126,8 +126,11 @@
 	saved_loc_ref = WEAKREF(death_turf)
 	new /obj/effect/temp_visual/guardian/phase/out(death_turf)
 	holosynth_drop_unkept_items(linked_mob)
-	// force drops the pen into the floor
-	forceMove(death_turf)
+	// Drop the pen on its own turf — wherever it currently is — so a pen carried by another player
+	// stays with them rather than teleporting to where the mob died.
+	var/turf/pen_turf = get_turf(src)
+	if(pen_turf)
+		forceMove(pen_turf)
 	linked_mob.forceMove(src)
 
 /// The linked mob is being deleted (cryopod, admin vv, etc.) — the pen has no reason to persist.
