@@ -47,7 +47,9 @@
 		if(AI_DROPPOD_CHOICE_BODY)
 			payload = build_synthetic_body(AI)
 		if(AI_DROPPOD_CHOICE_SHELL)
-			payload = new /mob/living/silicon/robot/shell(null)
+			var/mob/living/silicon/robot/shell/new_shell = new(null)
+			new_shell.cell = new /obj/item/stock_parts/power_store/cell/high(new_shell)
+			payload = new_shell
 
 	if(!payload)
 		return
