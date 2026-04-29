@@ -9,7 +9,6 @@
 	///Whether or not we are currently in the vertical configuration
 	var/vertical = FALSE
 
-
 /obj/structure/sign/flag/pride/click_alt(mob/user)
 	vertical = !vertical
 	if(vertical)
@@ -85,7 +84,6 @@
 	icon_state = "folded_pride"
 	sign_path = /obj/structure/sign/flag/pride/gay
 	worn_icon_state = "gay"
-
 
 /obj/item/sign/flag/pride/ace
 	name = "folded asexual pride flag"
