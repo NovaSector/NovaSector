@@ -14,10 +14,11 @@
 		Miraculously, it also doubles as a pen."
 	icon = 'modular_nova/modules/holosynth/icons/holosynth_pen.dmi'
 	worn_icon = 'modular_nova/modules/holosynth/icons/holosynth_pen.dmi'
-	icon_state = "Holopen"
+	icon_state = "holopen"
 	worn_icon_state = "w_holopen"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_EARS
 	w_class = WEIGHT_CLASS_TINY
+	obj_flags_nova = parent_type::obj_flags_nova | NO_CRYO_FREEZE
 	/// The ink color used when writing with this pen
 	var/colour = BLOOD_COLOR_HOLOGEL
 	/// The font used when writing with this pen
@@ -141,11 +142,6 @@
 	qdel(src)
 
 /obj/item/holosynth_pen/Destroy()
-	// Prevent cryo storage from keeping the pen, storing a ref that can cause harddels
-	if(istype(loc, /obj/machinery/computer/cryopod))
-		var/obj/machinery/computer/cryopod/cryo_console = loc
-		cryo_console.frozen_items -= src
-
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
 
 	if(linked_mob && !QDELETED(linked_mob))
