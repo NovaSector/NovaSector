@@ -1,0 +1,4 @@
+author: "YakumoChen"
+delete-after: True
+changes:
+  - qol: "Lensdump added to image hosting providers for headshots."
