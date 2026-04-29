@@ -4,7 +4,7 @@
 
 /datum/action/innate/ai_body_droppod
 	name = "Droppod Synthetic Body"
-	desc = "Order a one-time delivery of a synthetic body next to your core. The body is loaded with your character preferences and pre-fitted with an AI uplink brain, ready for you to take control."
+	desc = "Order a one-time delivery of a synthetic body next to your core. The body is loaded with your preferences and pre-fitted with an AI uplink brain, ready for remote control."
 	button_icon = 'icons/mob/actions/actions_AI.dmi'
 	button_icon_state = "ai_shell"
 
