@@ -187,4 +187,10 @@
 /// Trait for quirk: Illuminated
 #define TRAIT_COSGLOW "cosmetic_glow"
 
+/// Trait for quirk: Infertile. Cannot impregnate or be impregnated.
+#define TRAIT_INFERTILE "infertile"
+
+/// Carrier of this trait's penis has a knot: post-climax triggers /datum/component/knotted.
+#define TRAIT_CAN_KNOT "can_knot"
+
 // END TRAIT DEFINES

@@ -53,27 +53,43 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	/// What sexuality preference do we display for.
 	var/sexuality = ""
 
-/datum/interaction/proc/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/proc/allow_act(mob/living/user, mob/living/target)
 	if(target == user && usage == INTERACTION_OTHER)
 		return FALSE
 
 	if(target != user && usage == INTERACTION_SELF)
 		return FALSE
 
+	// Humans use real organs. Cyborgs use /mob/living/silicon/robot.simulated_genitals toggles.
+	// Other mob types fail the check — lewd interactions stay restricted to humans + cyborgs.
 	if(user_required_parts.len)
 		for(var/thing in user_required_parts)
-			var/obj/item/organ/genital/required_part = user.get_organ_slot(thing)
-			if(isnull(required_part))
-				return FALSE
-			if(!required_part.is_exposed())
+			if(ishuman(user))
+				var/obj/item/organ/genital/required_part = user.get_organ_slot(thing)
+				if(isnull(required_part))
+					return FALSE
+				if(!required_part.is_exposed())
+					return FALSE
+			else if(iscyborg(user))
+				var/mob/living/silicon/robot/cyborg_user = user
+				if(!cyborg_user.simulated_genitals[thing])
+					return FALSE
+			else
 				return FALSE
 
 	if(target_required_parts.len)
 		for(var/thing in target_required_parts)
-			var/obj/item/organ/genital/required_part = target.get_organ_slot(thing)
-			if(isnull(required_part))
-				return FALSE
-			if(!required_part.is_exposed())
+			if(ishuman(target))
+				var/obj/item/organ/genital/required_part = target.get_organ_slot(thing)
+				if(isnull(required_part))
+					return FALSE
+				if(!required_part.is_exposed())
+					return FALSE
+			else if(iscyborg(target))
+				var/mob/living/silicon/robot/cyborg_target = target
+				if(!cyborg_target.simulated_genitals[thing])
+					return FALSE
+			else
 				return FALSE
 
 	for(var/requirement in interaction_requires)
@@ -84,12 +100,18 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			if(INTERACTION_REQUIRE_TARGET_HAND)
 				if(!target.get_active_hand())
 					return FALSE
+			if(INTERACTION_REQUIRE_SELF_HUMAN)
+				if(!ishuman(user))
+					return FALSE
+			if(INTERACTION_REQUIRE_TARGET_HUMAN)
+				if(!ishuman(target))
+					return FALSE
 
 			else
 				CRASH("Unimplemented interaction requirement '[requirement]'")
 	return TRUE
 
-/datum/interaction/proc/act(mob/living/carbon/human/user, mob/living/carbon/human/target, use_subtler)
+/datum/interaction/proc/act(mob/living/user, mob/living/target, use_subtler)
 	if(!allow_act(user, target))
 		return
 	if(!message)
@@ -153,21 +175,28 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	INVOKE_ASYNC(src, PROC_REF(apply_effects), user, target)
 
 /// Applies side effects to the user and/or target of the interaction.
-/datum/interaction/proc/apply_effects(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	if(user_pain)
-		user.adjust_pain(user_pain)
-	if(target_pain)
-		target.adjust_pain(target_pain)
+/// pain/pleasure/arousal procs only exist on human — silicon participants are silently skipped.
+/datum/interaction/proc/apply_effects(mob/living/user, mob/living/target)
+	if(user_pain && ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		human_user.adjust_pain(user_pain)
+	if(target_pain && ishuman(target))
+		var/mob/living/carbon/human/human_target = target
+		human_target.adjust_pain(target_pain)
 	if(!lewd)
 		return
-	if(user_pleasure)
-		user.adjust_pleasure(user_pleasure)
-	if(user_arousal)
-		user.adjust_arousal(user_arousal)
-	if(target_pleasure)
-		target.adjust_pleasure(target_pleasure)
-	if(target_arousal)
-		target.adjust_arousal(target_arousal)
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		if(user_pleasure)
+			human_user.adjust_pleasure(user_pleasure)
+		if(user_arousal)
+			human_user.adjust_arousal(user_arousal)
+	if(ishuman(target))
+		var/mob/living/carbon/human/human_target = target
+		if(target_pleasure)
+			human_target.adjust_pleasure(target_pleasure)
+		if(target_arousal)
+			human_target.adjust_arousal(target_arousal)
 
 /datum/interaction/proc/load_from_json(path)
 	var/fpath = path

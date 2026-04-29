@@ -22,6 +22,8 @@
 	name = "examine panel screen"
 
 /datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
+	if(!holder || !user.client)
+		return
 	if(!examine_panel_screen)
 		examine_panel_screen = new
 		examine_panel_screen.name = "screen"
@@ -47,6 +49,9 @@
 		examine_panel_screen.display_to(user, ui.window)
 
 /datum/examine_panel/ui_data(mob/user)
+	var/list/data = list()
+	if(!holder)
+		return data
 
 	var/datum/preferences/preferences = holder.client?.prefs
 
@@ -109,7 +114,7 @@
 		if(!obscured)
 			headshot += holder_human.dna.features[EXAMINE_DNA_HEADSHOT]
 
-	var/list/data = list(
+	data = list(
 		// Danger—do not touch
 		"assigned_map" = examine_panel_screen.assigned_map,
 		// Identity

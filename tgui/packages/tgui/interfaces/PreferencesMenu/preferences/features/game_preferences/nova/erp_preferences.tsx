@@ -1,11 +1,22 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { CheckboxInput, type FeatureChoiced, type FeatureToggle } from '../../base';
+import {
+  CheckboxInput,
+  type FeatureChoiced,
+  type FeatureToggle,
+} from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
 export const master_erp_pref: FeatureToggle = {
   name: 'Show/Hide Erotic Roleplay Preferences',
   category: 'ERP',
   description: 'This shows/hides ERP preferences.',
+  component: CheckboxInput,
+};
+
+export const master_pregnancy_pref: FeatureToggle = {
+  name: 'Show/Hide Pregnancy Preferences',
+  category: 'ERP',
+  description: 'Toggles if you want to get shown pregnancy preferences',
   component: CheckboxInput,
 };
 

@@ -28,6 +28,18 @@
 
 /mob/living/carbon/human/examine(mob/user)
 	. = ..()
+	// Arousal flavor text: shown if both parties have ERP pref enabled and the character is aroused.
+	if(dna && user?.client?.prefs?.read_preference(/datum/preference/toggle/erp) && client?.prefs?.read_preference(/datum/preference/toggle/erp))
+		var/high_flavor = dna.features[FLAVOR_KEY_HIGH_AROUSAL]
+		var/medium_flavor = dna.features[FLAVOR_KEY_MEDIUM_AROUSAL]
+		var/low_flavor = dna.features[FLAVOR_KEY_LOW_AROUSAL]
+		if(arousal > AROUSAL_HIGH && high_flavor)
+			. += span_userlove(high_flavor)
+		else if(arousal > AROUSAL_LOW && medium_flavor)
+			. += span_userlove(medium_flavor)
+		else if(arousal > AROUSAL_NONE && low_flavor)
+			. += span_purple(low_flavor)
+
 	if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH) || src == user || !has_status_effect(/datum/status_effect/spanked) || !is_bottomless())
 		return
 
