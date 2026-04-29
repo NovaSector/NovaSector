@@ -827,6 +827,6 @@ export const holo_transparency: FeatureNumeric = {
 
 export const holo_scanline: Feature<boolean> = {
   name: 'Holosynth Scanline Flicker',
-  description: 'Renders a faint scanline flicker across your body.',
+  description: 'Renders a faint scanline flicker across your body (not visible until you spawn).',
   component: CheckboxInput,
 };
