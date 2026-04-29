@@ -11,6 +11,8 @@
 #define HOLOSYNTH_SCANLINE_CYCLE (2 SECONDS)
 /// identified signals that we can recover from faster
 #define HOLOSYNTH_SCANLINE_QUICK_REFRESH (0.5 SECONDS)
+/// The scanline filter, so we can remove it easily
+#define HOLOSYNTH_SCANLINE_FILTER_ID "hsfilter"
 
 /datum/species/synthetic/holosynth
 	name = "Holosynth"
@@ -118,7 +120,7 @@
 	species_holder.max_grab = GRAB_KILL
 	UnregisterSignal(species_holder, list(COMSIG_MOB_APPLY_DAMAGE, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_LIVING_ELECTROCUTE_ACT))
 	species_holder.remove_filter("HOLO: Color and Transparent")
-	target.remove_filter("scanline_filter_holosynth")
+	target.remove_filter(HOLOSYNTH_SCANLINE_FILTER_ID)
 	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)
 	if(chest)
 		species_holder.cut_overlay(chest.glow)
@@ -217,10 +219,7 @@
 	human_for_preview.update_body(is_creating = TRUE)
 
 /datum/species/synthetic/holosynth/preview_icon_after_effects(datum/universal_icon/dummy_icon, mob/living/carbon/human/target)
-	// we have to do all this manually for the sake of the preview because render_targets are terrible
-
-	var/datum/icon_transformer/transform = dummy_icon.transform // We are going to surgically excise the scanlines render_target from the layers of the uni_icon
-	transform.transforms.Cut(1, 2) // It's always going to be at the front of the list
+	// we have to do all this manually to recreate a transparent/tinted effect, for the sake of the preview because filters suck
 
 	// tint
 	dummy_icon.blend_color("#ECB3DD", ICON_MULTIPLY)
@@ -283,7 +282,7 @@
 		return
 	if(isdummy(target))
 		return
-	target.remove_filter("scanline_filter_holosynth")
+	target.remove_filter(HOLOSYNTH_SCANLINE_FILTER_ID)
 	if(!read_scanline(target))
 		return
 
@@ -298,7 +297,7 @@
 		scanline = new(null)
 
 	// Now we add it as a filter, and overlay the appearance so the render source is always around
-	target.add_filter("scanline_filter_holosynth", 2, alpha_mask_filter(render_source = scanline.render_target))
+	target.add_filter(HOLOSYNTH_SCANLINE_FILTER_ID, 2, alpha_mask_filter(render_source = scanline.render_target))
 	chest.scanline = scanline
 	target.vis_contents += scanline
 

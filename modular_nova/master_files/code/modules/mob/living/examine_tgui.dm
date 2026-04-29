@@ -32,7 +32,7 @@
 	// Awful snowflake fix for holosynth previews - scanlines mess them up
 	var/mutable_appearance/current_mob_appearance
 	if(isholosynth(holder))
-		holder.remove_filter("scanline_filter_holosynth")
+		holder.remove_filter(HOLOSYNTH_SCANLINE_FILTER_ID)
 		current_mob_appearance = new(holder)
 		var/datum/species/synthetic/holosynth/holo_species = holder.dna.species
 		holo_species.refresh_scanline(holder)

@@ -485,7 +485,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	last_canvas_state = canvas_state
 
 	canvas.cut_overlays()
-	body.remove_filter("scanline_filter_holosynth")
+	body.remove_filter(HOLOSYNTH_SCANLINE_FILTER_ID)
 	canvas.add_overlay(body.appearance)
 
 	appearance = canvas.appearance
