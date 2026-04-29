@@ -299,10 +299,15 @@
 	chest.scanline = scanline
 	target.vis_contents += scanline
 
-/// Common disruption handler
+/// Common disruption handler. Closes over a weakref instead of the mob directly to prevent harddels
 /datum/species/synthetic/holosynth/proc/on_mob_disrupted(mob/living/source)
 	SIGNAL_HANDLER
-	addtimer(CALLBACK(src, PROC_REF(refresh_scanline), source), HOLOSYNTH_SCANLINE_QUICK_REFRESH, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(deferred_scanline_refresh), WEAKREF(source)), HOLOSYNTH_SCANLINE_QUICK_REFRESH, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/datum/species/synthetic/holosynth/proc/deferred_scanline_refresh(datum/weakref/target_ref)
+	var/mob/living/carbon/human/target = target_ref?.resolve()
+	if(target)
+		refresh_scanline(target)
 
 /// Inlines makeHologram's emissive-glow portion only — skips its scanline filter (which cropped
 /// oversized mutant parts) and its scanline add_overlay (which inflated the hitbox).
