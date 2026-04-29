@@ -11,8 +11,6 @@
 #define HOLOSYNTH_SCANLINE_CYCLE (2 SECONDS)
 /// identified signals that we can recover from faster
 #define HOLOSYNTH_SCANLINE_QUICK_REFRESH (0.5 SECONDS)
-/// The scanline filter, so we can remove it easily
-#define HOLOSYNTH_SCANLINE_FILTER_ID "hsfilter"
 
 /datum/species/synthetic/holosynth
 	name = "Holosynth"
