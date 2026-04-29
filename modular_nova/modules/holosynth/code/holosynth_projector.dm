@@ -11,7 +11,7 @@
 /obj/item/holosynth_pen
 	name = "holosynth projector-magnet combo"
 	desc = "A complex mechanism that both projects the form of a hologram and manipulates its aerogel canvas. \
-	Miraculously, it also doubles as a pen."
+		Miraculously, it also doubles as a pen."
 	icon = 'modular_nova/modules/holosynth/icons/holosynth_pen.dmi'
 	worn_icon = 'modular_nova/modules/holosynth/icons/holosynth_pen.dmi'
 	icon_state = "Holopen"
