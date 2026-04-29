@@ -254,6 +254,19 @@
 	dna?.features["holo_transparency"] = new_value
 	species.refresh_opacity(src)
 
+/// Drops everything the holosynth has equipped except items in the slots they get to keep
+/// (ID + pockets).
+/proc/holosynth_drop_unkept_items(mob/living/carbon/human/holosynth)
+	var/obj/item/back_item = holosynth.get_item_by_slot(ITEM_SLOT_BACK)
+	if(back_item)
+		holosynth.dropItemToGround(back_item, force = TRUE)
+
+	for(var/obj/item/equipped as anything in holosynth.get_equipped_items(INCLUDE_HELD))
+		var/slot = holosynth.get_slot_by_item(equipped)
+		if(slot & (ITEM_SLOT_ID | ITEM_SLOT_LPOCKET | ITEM_SLOT_RPOCKET))
+			continue
+		holosynth.dropItemToGround(equipped, force = TRUE)
+
 /mob/living/carbon/human/species/holosynth
 	race = /datum/species/synthetic/holosynth
 

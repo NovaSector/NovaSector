@@ -103,6 +103,7 @@
 	if(active)
 		saved_loc_ref = WEAKREF(get_turf(linked_mob))
 		new /obj/effect/temp_visual/guardian/phase/out(get_turf(linked_mob))
+		holosynth_drop_unkept_items(linked_mob)
 		linked_mob.forceMove(src)
 	else
 		if(get_dist(linked_mob, src) <= HOLOSYNTH_RANGE)
@@ -121,8 +122,12 @@
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
 	if(QDELETED(linked_mob))
 		return
-	saved_loc_ref = WEAKREF(get_turf(linked_mob))
-	new /obj/effect/temp_visual/guardian/phase/out(get_turf(linked_mob))
+	var/turf/death_turf = get_turf(linked_mob)
+	saved_loc_ref = WEAKREF(death_turf)
+	new /obj/effect/temp_visual/guardian/phase/out(death_turf)
+	holosynth_drop_unkept_items(linked_mob)
+	// force drops the pen into the floor
+	forceMove(death_turf)
 	linked_mob.forceMove(src)
 
 /// The linked mob is being deleted (cryopod, admin vv, etc.) — the pen has no reason to persist.
