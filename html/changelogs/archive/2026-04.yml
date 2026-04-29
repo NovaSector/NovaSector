@@ -819,3 +819,21 @@
   vinylspiders:
   - code_imp: switched map mode to SIDE_MAP
   - bugfix: mobs and features should not be spawning in walls anymore in certain biomes
+2026-04-29:
+  Macaroni:
+  - image: The pride flags can now also be worn.
+  - rscdel: Xeno Hybrids can no longer communicate via the hive
+  Neocloudy:
+  - refactor: Refactored the NIF UI.
+  OrbisAnima:
+  - rscdel: Makes it impossible to mind swap or give sentience to kitten and puppies.
+  - rscdel: Removes the kitten and puppy chasis from the personal AI options.
+  YakumoChen:
+  - qol: Lensdump added to image hosting providers for headshots.
+  Zenitheevee:
+  - bugfix: Mag-Turrets no longer dissappear instead of fixing
+  - qol: Mag-Turrets display current and max integration when examined
+  - bugfix: Ghost vents with default mineral breakdown now make boulders again
+  - bugfix: Ghost vents no longer turn invisible when tapped.
+  theselfish:
+  - rscadd: Nightmares now know your darkest fears! Yay!
