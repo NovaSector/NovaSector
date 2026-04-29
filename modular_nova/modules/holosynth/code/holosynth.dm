@@ -266,9 +266,16 @@
 	name = "holosynth scanline effect"
 	icon = 'modular_nova/modules/holosynth/icons/scanline_mask.dmi'
 	icon_state = "scanline"
-	appearance_flags |= parent_type::apperance_flags | RESET_TRANSFORM
+	appearance_flags = parent_type::appearance_flags | RESET_TRANSFORM
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
+	// * so it doesn't render
+	var/static/uid_scan = 0
+
+/obj/effect/abstract/holo_scanline/Initialize(mapload)
+	. = ..()
+	render_target = "*HoloScanline [uid_scan]"
+	uid_scan++
 
 /// Periodic-rotation refresh:
 /datum/species/synthetic/holosynth/proc/refresh_scanline(mob/living/carbon/human/target)
@@ -279,18 +286,17 @@
 	target.remove_filter("scanline_filter_holosynth")
 	if(!read_scanline(target))
 		return
+
+	var/obj/effect/abstract/holo_scanline/scanline
 	var/obj/item/bodypart/chest/synth/holosynth/chest = target.get_bodypart(BODY_ZONE_CHEST)
 	if(chest)
 		if(chest.scanline)
 			target.vis_contents -= chest.scanline
-			QDEL_NULL(chest.scanline)
 
 	// Adapted from makeHologram - We do it this roundabout way because apparently animated filter icons do not work properly atm.
-	var/obj/effect/abstract/holo_scanline/scanline = new(null)
-	// * so it doesn't render
-	var/static/uid_scan = 0
-	scanline.render_target = "*HoloScanline [uid_scan]"
-	uid_scan++
+	if(isnull(scanline))
+		scanline = new(null)
+
 	// Now we add it as a filter, and overlay the appearance so the render source is always around
 	target.add_filter("scanline_filter_holosynth", 2, alpha_mask_filter(render_source = scanline.render_target))
 	chest.scanline = scanline
