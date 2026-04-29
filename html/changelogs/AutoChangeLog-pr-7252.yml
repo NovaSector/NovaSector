@@ -1,0 +1,7 @@
+author: "Zenitheevee"
+delete-after: True
+changes:
+  - bugfix: "Mag-Turrets no longer dissappear instead of fixing"
+  - qol: "Mag-Turrets display current and max integration when examined"
+  - bugfix: "Ghost vents with default mineral breakdown now make boulders again"
+  - bugfix: "Ghost vents no longer turn invisible when tapped."
