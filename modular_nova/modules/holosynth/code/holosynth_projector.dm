@@ -141,6 +141,11 @@
 	qdel(src)
 
 /obj/item/holosynth_pen/Destroy()
+	// Prevent cryo storage from keeping the pen, storing a ref that can cause harddels
+	if(istype(loc, /obj/machinery/computer/cryopod))
+		var/obj/machinery/computer/cryopod/cryo_console = loc
+		cryo_console.frozen_items -= src
+
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
 
 	if(linked_mob && !QDELETED(linked_mob))
