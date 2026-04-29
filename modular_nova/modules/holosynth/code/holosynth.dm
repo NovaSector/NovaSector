@@ -266,8 +266,15 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
 	blocks_emissive = EMISSIVE_BLOCK_NONE
-	pixel_x = -16
+	pixel_x = -32
 	render_target = "*HoloScanline"
+
+/obj/effect/abstract/holo_scanline/Destroy(force)
+	SHOULD_CALL_PARENT(FALSE)
+	if (!force)
+		stack_trace("[type] is trying to Destroy. This should not be happening!")
+		return QDEL_HINT_LETMELIVE
+	return ..()
 
 GLOBAL_DATUM_INIT(holo_scanline, /obj/effect/abstract/holo_scanline, new)
 
