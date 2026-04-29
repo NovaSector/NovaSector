@@ -24,6 +24,9 @@
 		TRAIT_NOCRITDAMAGE,
 		TRAIT_ROBOTIC_DNA_ORGANS,
 		TRAIT_HOLOSYNTH,
+		TRAIT_RESISTHEAT,
+		TRAIT_RESISTCOLD,
+		TRAIT_NOFIRE,
 	)
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
