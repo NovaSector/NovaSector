@@ -27,6 +27,7 @@
 		TRAIT_RESISTHEAT,
 		TRAIT_RESISTCOLD,
 		TRAIT_NOFIRE,
+		TRAIT_NODISMEMBER,
 	)
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
@@ -74,6 +75,7 @@
 
 	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)
 	refresh_opacity(species_holder)
+	apply_holosynth_limb_text(species_holder)
 	if(chest)
 		if(chest.glow)
 			species_holder.cut_overlay(chest.glow)
@@ -205,6 +207,21 @@
 		"b" = rgb_list[3],
 		"alpha" = read_opacity(target)
 	)
+
+/// Replaces the synth bodyparts' default damage flavor ("dented", "denting", "limp and lifeless"...)
+/// with holosynth-themed text on every limb.
+/datum/species/synthetic/holosynth/proc/apply_holosynth_limb_text(mob/living/carbon/human/target)
+	for(var/obj/item/bodypart/limb as anything in target.get_bodyparts())
+		limb.light_brute_msg = "flickering"
+		limb.medium_brute_msg = "scrambled"
+		limb.heavy_brute_msg = "fragmenting"
+		limb.light_burn_msg = "destabilized"
+		limb.medium_burn_msg = "corrupted"
+		limb.heavy_burn_msg = "burning out"
+		limb.damage_examines = list(
+			BRUTE = "fragmentation",
+			BURN = "destabilization",
+		)
 
 /// Re-reads the opacity + color state and reapplies the color filter.
 /datum/species/synthetic/holosynth/proc/refresh_opacity(mob/living/carbon/human/target)
