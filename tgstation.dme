@@ -7521,6 +7521,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\pets\dog\corgi.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\dog\doberman.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\dog\markus.dm"
+#include "modular_nova\master_files\code\modules\mob\living\sillicon\ai_body_droppod.dm"
 #include "modular_nova\master_files\code\modules\mob\living\sillicon\robot.dm"
 #include "modular_nova\master_files\code\modules\mob\living\sillicon\silicon.dm"
 #include "modular_nova\master_files\code\modules\mob\living\simple_animal\simple_animal.dm"
