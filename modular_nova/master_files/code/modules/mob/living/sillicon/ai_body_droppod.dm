@@ -1,10 +1,13 @@
 /mob/living/silicon/ai
-	/// Has this AI already used its one-shot synthetic body droppod?
+	/// Has this AI already used its one-shot droppod?
 	var/used_body_droppod = FALSE
 
+#define AI_DROPPOD_CHOICE_BODY "Synthetic Body"
+#define AI_DROPPOD_CHOICE_SHELL "Cyborg Shell"
+
 /datum/action/innate/ai_body_droppod
-	name = "Droppod Synthetic Body"
-	desc = "Order a one-time delivery of a synthetic body next to your core. The body is loaded with your preferences and pre-fitted with an AI uplink brain, ready for remote control."
+	name = "Order Droppod Chassis"
+	desc = "Order a one-time delivery of a chassis next to your core. Choose between a synthetic body loaded with your character preferences (controlled via AI uplink brain) or a stock linked cyborg shell"
 	button_icon = 'icons/mob/actions/actions_AI.dmi'
 	button_icon_state = "ai_shell"
 
@@ -17,7 +20,7 @@
 		return FALSE
 	if(AI.used_body_droppod)
 		if(feedback)
-			to_chat(AI, span_warning("You have already deployed your synthetic body this shift."))
+			to_chat(AI, span_warning("You have already deployed your chassis this shift."))
 		return FALSE
 	return TRUE
 
@@ -25,12 +28,45 @@
 	var/mob/living/silicon/ai/AI = owner
 	if(!isAI(AI) || !AI.client)
 		return
-	var/turf/core_turf = get_turf(AI)
-	if(!core_turf)
-		to_chat(AI, span_warning("Cannot determine your core's location."))
+
+	var/static/list/choices = list(
+		AI_DROPPOD_CHOICE_BODY = image(icon = 'modular_nova/master_files/icons/obj/medical/organs.dmi', icon_state = "brain-c"),
+		AI_DROPPOD_CHOICE_SHELL = image(icon = 'icons/mob/actions/actions_AI.dmi', icon_state = "ai_shell"),
+	)
+	var/choice = show_radial_menu(AI, AI, choices, radius = 42, require_near = FALSE)
+	if(!choice)
 		return
 
-	var/turf/landing
+	var/turf/landing = find_droppod_landing(AI)
+	if(!landing)
+		to_chat(AI, span_warning("No clear landing tile is available next to your core."))
+		return
+
+	var/atom/movable/payload
+	switch(choice)
+		if(AI_DROPPOD_CHOICE_BODY)
+			payload = build_synthetic_body(AI)
+		if(AI_DROPPOD_CHOICE_SHELL)
+			payload = new /mob/living/silicon/robot/shell(null)
+
+	if(!payload)
+		return
+
+	AI.used_body_droppod = TRUE
+
+	var/obj/structure/closet/supplypod/pod = new(null)
+	pod.explosionSize = list(0, 0, 0, 0)
+	pod.bluespace = TRUE
+	payload.forceMove(pod)
+	new /obj/effect/pod_landingzone(landing, pod)
+
+	to_chat(AI, span_notice("[choice] launched. Estimated arrival at ([landing.x], [landing.y])."))
+	Remove(AI)
+
+/datum/action/innate/ai_body_droppod/proc/find_droppod_landing(mob/living/silicon/ai/AI)
+	var/turf/core_turf = get_turf(AI)
+	if(!core_turf)
+		return null
 	for(var/turf/candidate as anything in shuffle(RANGE_TURFS(1, core_turf)))
 		if(candidate == core_turf)
 			continue
@@ -38,15 +74,10 @@
 			continue
 		if(candidate.is_blocked_turf(exclude_mobs = TRUE, ignore_atoms = list(/obj/machinery/door/window), type_list = TRUE))
 			continue
-		landing = candidate
-		break
+		return candidate
+	return null
 
-	if(!landing)
-		to_chat(AI, span_warning("No clear landing tile is available next to your core."))
-		return
-
-	AI.used_body_droppod = TRUE
-
+/datum/action/innate/ai_body_droppod/proc/build_synthetic_body(mob/living/silicon/ai/AI)
 	var/mob/living/carbon/human/body = new()
 	AI.client.prefs.safe_transfer_prefs_to(body)
 
@@ -76,15 +107,10 @@
 
 	var/obj/item/organ/brain/cybernetic/ai/uplink_brain = new
 	uplink_brain.Insert(body, special = TRUE)
+	return body
 
-	var/obj/structure/closet/supplypod/pod = new(null)
-	pod.explosionSize = list(0, 0, 0, 0)
-	pod.bluespace = TRUE
-	body.forceMove(pod)
-	new /obj/effect/pod_landingzone(landing, pod)
-
-	to_chat(AI, span_notice("Synthetic body launched. Estimated arrival at ([landing.x], [landing.y])."))
-	Remove(AI)
+#undef AI_DROPPOD_CHOICE_BODY
+#undef AI_DROPPOD_CHOICE_SHELL
 
 /mob/living/silicon/ai/Initialize(mapload)
 	. = ..()
