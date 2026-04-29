@@ -35,6 +35,7 @@
 		TRAIT_RESISTHEAT,
 		TRAIT_RESISTCOLD,
 		TRAIT_NOFIRE,
+		TRAIT_NODISMEMBER,
 	)
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
@@ -86,6 +87,7 @@
 
 	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)
 	refresh_opacity(species_holder)
+	apply_holosynth_limb_text(species_holder)
 	if(chest)
 		if(chest.glow)
 			species_holder.cut_overlay(chest.glow)
@@ -239,6 +241,21 @@
 		"alpha" = read_opacity(target)
 	)
 
+/// Replaces the synth bodyparts' default damage flavor ("dented", "denting", "limp and lifeless"...)
+/// with holosynth-themed text on every limb.
+/datum/species/synthetic/holosynth/proc/apply_holosynth_limb_text(mob/living/carbon/human/target)
+	for(var/obj/item/bodypart/limb as anything in target.get_bodyparts())
+		limb.light_brute_msg = "flickering"
+		limb.medium_brute_msg = "scrambled"
+		limb.heavy_brute_msg = "fragmenting"
+		limb.light_burn_msg = "destabilized"
+		limb.medium_burn_msg = "corrupted"
+		limb.heavy_burn_msg = "burning out"
+		limb.damage_examines = list(
+			BRUTE = "fragmentation",
+			BURN = "destabilization",
+		)
+
 /// Re-reads the opacity + color state and reapplies the color filter.
 /datum/species/synthetic/holosynth/proc/refresh_opacity(mob/living/carbon/human/target)
 	target.remove_filter("HOLO: Color and Transparent")
@@ -342,6 +359,19 @@
 	dna?.features["holo_scanline"] = new_state
 	species.refresh_scanline(src)
 	to_chat(src, span_notice("You [new_state ? "enable" : "disable"] your hologram flicker."))
+
+/// Drops everything the holosynth has equipped except items in the slots they get to keep
+/// (ID + pockets).
+/proc/holosynth_drop_unkept_items(mob/living/carbon/human/holosynth)
+	var/obj/item/back_item = holosynth.get_item_by_slot(ITEM_SLOT_BACK)
+	if(back_item)
+		holosynth.dropItemToGround(back_item, force = TRUE)
+
+	for(var/obj/item/equipped as anything in holosynth.get_equipped_items(INCLUDE_HELD))
+		var/slot = holosynth.get_slot_by_item(equipped)
+		if(slot & (ITEM_SLOT_ID | ITEM_SLOT_LPOCKET | ITEM_SLOT_RPOCKET | ITEM_SLOT_ICLOTHING))
+			continue
+		holosynth.dropItemToGround(equipped, force = TRUE)
 
 /mob/living/carbon/human/species/holosynth
 	race = /datum/species/synthetic/holosynth
