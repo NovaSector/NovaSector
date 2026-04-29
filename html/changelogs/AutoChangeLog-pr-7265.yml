@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Makes it impossible to mind swap or give sentience to kitten and puppies."
+  - rscdel: "Removes the kitten and puppy chasis from the personal AI options."
