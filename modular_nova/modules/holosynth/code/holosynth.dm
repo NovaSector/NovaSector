@@ -51,10 +51,14 @@
 	var/datum/weakref/owner_projector_ref
 	/// Emissive glow appearance applied to the mob, retained so we can cut it on species loss / re-apply.
 	var/mutable_appearance/glow
+	/// The scanline effect, needs to be an actual thing for vis_contents
+	var/obj/effect/abstract/scanline
 
 /obj/item/bodypart/chest/synth/holosynth/Destroy()
 	glow = null
 	owner_projector_ref = null
+	owner?.vis_contents -= scanline
+	QDEL_NULL(scanline)
 	return ..()
 
 /datum/species/synthetic/holosynth/get_default_mutant_bodyparts()
@@ -88,7 +92,8 @@
 		chest.glow = makeHologramHolosynth(species_holder)
 	var/datum/action/innate/holosynth_toggle_phase/phase_toggle = new(species_holder)
 	phase_toggle.Grant(species_holder)
-	refresh_scanline(species_holder)
+	if(!isdummy(species_holder))
+		RegisterSignal(species_holder, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED, PROC_REF(attach_scanline), override = TRUE)
 	RegisterSignal(species_holder, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_mob_disrupted))
 	RegisterSignal(species_holder, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(on_mob_disrupted))
 	RegisterSignal(species_holder, COMSIG_LIVING_ELECTROCUTE_ACT, PROC_REF(on_mob_disrupted))
@@ -111,7 +116,7 @@
 	species_holder.max_grab = GRAB_KILL
 	UnregisterSignal(species_holder, list(COMSIG_MOB_APPLY_DAMAGE, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_LIVING_ELECTROCUTE_ACT))
 	species_holder.remove_filter("HOLO: Color and Transparent")
-	clear_scanline_filters(species_holder)
+	target.remove_filter("scanline_filter_holosynth")
 	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)
 	if(chest)
 		species_holder.cut_overlay(chest.glow)
@@ -220,6 +225,11 @@
 	// opacity
 	dummy_icon.change_opacity(0.65)
 
+/datum/species/synthetic/holosynth/proc/attach_scanline(datum/source)
+	SIGNAL_HANDLER
+	refresh_scanline(source)
+	UnregisterSignal(source, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
+
 /datum/species/synthetic/holosynth/proc/get_holosynth_visual(mob/living/carbon/human/target)
 	var/list/rgb_list = rgb2num(read_color(target))
 	return list(
@@ -235,27 +245,39 @@
 	var/list/visuals = get_holosynth_visual(target)
 	target.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(rgb(visuals["r"], visuals["g"], visuals["b"], visuals["alpha"] * 255)))
 
+/obj/effect/abstract/holo_scanline
+	name = "holosynth scanline effect"
+	icon = 'modular_nova/modules/holosynth/icons/scanline_mask.dmi'
+	icon_state = "scanline"
+	appearance_flags |= parent_type::apperance_flags | RESET_TRANSFORM
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
+
 /// Periodic-rotation refresh:
 /datum/species/synthetic/holosynth/proc/refresh_scanline(mob/living/carbon/human/target)
 	if(QDELETED(target))
 		return
-	clear_scanline_filters(target)
+	if(isdummy(target))
+		return
+	target.remove_filter("scanline_filter_holosynth")
 	if(!read_scanline(target))
 		return
-	var/new_name = "HOLO: Scanline [world.time]"
-	target.add_filter(new_name, 2, alpha_mask_filter(icon = icon('modular_nova/modules/holosynth/icons/scanline_mask.dmi', "scanline")))
-	var/filter = target.get_filter(new_name)
-	animate(filter, y = 0, time = 0, loop = -1, flags = ANIMATION_PARALLEL)
-	animate(y = -32, time = HOLOSYNTH_SCANLINE_CYCLE)
-	addtimer(CALLBACK(src, PROC_REF(refresh_scanline), target), HOLOSYNTH_SCANLINE_CYCLE, TIMER_UNIQUE | TIMER_OVERRIDE)
+	var/obj/item/bodypart/chest/synth/holosynth/chest = target.get_bodypart(BODY_ZONE_CHEST)
+	if(chest)
+		if(chest.scanline)
+			target.vis_contents -= chest.scanline
+			QDEL_NULL(chest.scanline)
 
-/// Removes the active scanline filter. Rotation guarantees at most one exists, so we exit on
-/// the first match — no list build, no second iteration.
-/datum/species/synthetic/holosynth/proc/clear_scanline_filters(mob/living/target)
-	for(var/list/info as anything in target.filter_data)
-		if(findtext(info["name"], "HOLO: Scanline ") == 1)
-			target.remove_filter(info["name"])
-			return
+	// Adapted from makeHologram - We do it this roundabout way because apparently animated filter icons do not work properly atm.
+	var/obj/effect/abstract/holo_scanline/scanline = new(null)
+	// * so it doesn't render
+	var/static/uid_scan = 0
+	scanline.render_target = "*HoloScanline [uid_scan]"
+	uid_scan++
+	// Now we add it as a filter, and overlay the appearance so the render source is always around
+	target.add_filter("scanline_filter_holosynth", 2, alpha_mask_filter(render_source = scanline.render_target))
+	chest.scanline = scanline
+	target.vis_contents += scanline
 
 /// Common disruption handler
 /datum/species/synthetic/holosynth/proc/on_mob_disrupted(mob/living/source)
