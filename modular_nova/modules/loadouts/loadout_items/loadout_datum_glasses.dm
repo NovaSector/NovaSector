@@ -28,10 +28,14 @@
 /*
 *	ITEMS BELOW HERE
 */
+/datum/loadout_item/glasses/nightmare
+	name = "Nightmare Goggles"
+	item_path = /obj/item/clothing/glasses/nightmare_vision
 
-/datum/loadout_items/glasses/welding_goggles
+/datum/loadout_item/glasses/welding_goggles
 	name = "Welding Goggles"
-	item_path /obj/item/clothing/glasses/welding
+	item_path = /obj/item/clothing/glasses/welding
+	blacklisted_roles = list(JOB_PRISONER)
 
 /datum/loadout_item/glasses/biker
 	name = "Biker Goggles"
@@ -299,7 +303,7 @@
 	item_path = /obj/item/clothing/glasses/hud/ar/projector/security
 	restricted_roles = list(ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC)
 	group = "Job-Locked"
-/
+
 /*
  *	DONATOR
  */

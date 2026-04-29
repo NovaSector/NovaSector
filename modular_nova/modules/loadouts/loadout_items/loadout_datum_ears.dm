@@ -34,6 +34,6 @@
 	name = "Earmuffs"
 	item_path = /obj/item/clothing/ears/earmuffs
 
-/datum/loadout_items/ears/frontier_radio
+/datum/loadout_item/ears/frontier_radio
 	name = "Frontier Radio Headset"
 	item_path = /obj/item/radio/headset/headset_frontier_colonist

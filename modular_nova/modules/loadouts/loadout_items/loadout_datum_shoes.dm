@@ -194,6 +194,11 @@
 *	COSTUME
 */
 
+/datum/loadout_item/shoes/roman_sandles
+	name = "Roman Sandles"
+	item_path = /obj/item/clothing/shoes/roman
+	group = "Costumes"
+
 /datum/loadout_item/shoes/christmas
 	name = "Christmas Boots"
 	item_path = /obj/item/clothing/shoes/winterboots/christmas

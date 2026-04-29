@@ -83,6 +83,35 @@
 	name = "Toy Katana (Sheathed)"
 	item_path = /obj/item/storage/belt/sheath/katana/toy
 
+/datum/loadout_item/toys/purity_seal
+	name = "Box of Purity Seals"
+	item_path = /obj/item/storage/box/purity_seal_box
+
+/datum/loadout_item/pocket_items/foam_pistol
+	name = "Foam Force Pistol"
+	item_path = /obj/item/gun/ballistic/automatic/pistol/toy
+	group = "Comfort"
+
+/datum/loadout_item/pocket_items/foam_shotgun
+	name = "Foam Force Shotgun"
+	item_path = /obj/item/gun/ballistic/shotgun/toy
+	group = "Comfort"
+
+/datum/loadout_item/pocket_items/foam_lmg
+	name = "Foam Force LMG"
+	item_path = /obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted
+	group = "Comfort"
+
+/datum/loadout_item/pocket_items/foam_smg
+	name = "Foam Force SMG"
+	item_path = /obj/item/gun/ballistic/automatic/c20r/toy/unrestricted
+	group = "Comfort"
+
+/datum/loadout_item/pocket_items/ventriloquist
+	name = "Ventriloquist Dummy"
+	item_path = /obj/item/toy/dummy
+	group = "Comfort"
+
 /*
 *	TENNIS BALLS
 */

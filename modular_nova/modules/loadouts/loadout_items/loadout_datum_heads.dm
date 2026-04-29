@@ -142,7 +142,7 @@
 /datum/loadout_item/head/tarkon
 	name = "Tarkon Welder"
 	item_path = /obj/item/clothing/head/utility/welding/hat
-	blacklisted_roles = list(ALL_JOBS_SEC, ALL_JOBS_COM, JOB_PRISONER)
+	blacklisted_roles = list(JOB_PRISONER)
 	group = "Jobs"
 
 /datum/loadout_item/head/welder
@@ -280,6 +280,11 @@
 /*
 *	COSTUME
 */
+
+/datum/loadout_item/head/roman_helmet
+	name = "Roman Helmet"
+	item_path = /obj/item/clothing/head/helmet/roman/fake
+	group = "Costumes"
 
 /datum/loadout_item/head/rastafarian
 	group = "Costumes"
@@ -600,17 +605,9 @@
 	name = "Officer's Cap (Colorable)"
 	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/custom
 
-/datum/loadout_item/head/trekcapcustom_gold
-	name = "Officer's Cap (Colorable, Gold Badge)"
-	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/custom/gold
-
 /datum/loadout_item/head/navalcap
 	name = "Naval Cap (Colorable)"
 	item_path = /obj/item/clothing/head/hats/caphat/naval/custom
-
-/datum/loadout_item/head/navalcap_gold
-	name = "Naval Cap (Colorable, Gold Badge)"
-	item_path = /obj/item/clothing/head/hats/caphat/naval/custom/gold
 
 /datum/loadout_item/head/imperial_generic
 	name = "Naval Officer Cap"

@@ -42,10 +42,6 @@
 	name = "Gloves - Evening"
 	item_path = /obj/item/clothing/gloves/evening
 
-/datum/loadout_item/gloves/fingerless
-	name = "Gloves - Fingerless"
-	item_path = /obj/item/clothing/gloves/fingerless
-
 /datum/loadout_item/gloves/rainbow
 	name = "Gloves - Rainbow"
 	item_path = /obj/item/clothing/gloves/color/rainbow

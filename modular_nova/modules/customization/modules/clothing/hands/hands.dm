@@ -88,7 +88,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon =  'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "pink_clown_gloves"
-	
+
 /obj/item/clothing/gloves/recolorable
 	name = "gloves"
 	desc = "A pair of gloves, they don't look special in any way."
@@ -97,9 +97,9 @@
 	post_init_icon_state = "gloves"
 	greyscale_config = /datum/greyscale_config/recolorable_gloves
 	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/worn
-	greyscale_colors = "#FFFFFF"
+	greyscale_colors = "#252525"
 	flags_1 = IS_PLAYER_COLORABLE_1
-	
+
 /obj/item/clothing/gloves/recolorable/fingerless
 	name = "fingerless gloves"
 	desc = "A pair of gloves. These ones are fingerless."
@@ -108,7 +108,7 @@
 	greyscale_config = /datum/greyscale_config/recolorable_gloves/fingerless
 	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/fingerless/worn
 	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH)
-	
+
 /obj/item/clothing/gloves/recolorable/long
 	name = "long gloves"
 	desc = "A pair of gloves. These ones have extra long cuffs."
@@ -116,7 +116,7 @@
 	post_init_icon_state = "gloves_long"
 	greyscale_config = /datum/greyscale_config/recolorable_gloves/long
 	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/long/worn
-	
+
 /obj/item/clothing/gloves/recolorable/fingerless/long
 	name = "long fingerless gloves"
 	desc = "A pair of gloves. These ones are fingerless, and have extra long cuffs."
