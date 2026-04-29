@@ -1,0 +1,4 @@
+author: "Macaroni"
+delete-after: True
+changes:
+  - rscdel: "Xeno Hybrids can no longer communicate via the hive"
