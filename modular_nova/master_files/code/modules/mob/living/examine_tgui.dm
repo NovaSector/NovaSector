@@ -29,7 +29,7 @@
 		examine_panel_screen.del_on_map_removal = FALSE
 		examine_panel_screen.screen_loc = "[examine_panel_screen.assigned_map]:1,1"
 
-	// Awful snowflake fix for holosynth previews - TODO: maybe just make examine panels use the same cached icon previews that records console + character directory does
+	// Awful snowflake fix for holosynth previews - scanlines mess them up
 	var/mutable_appearance/current_mob_appearance
 	if(isholosynth(holder))
 		holder.remove_filter("scanline_filter_holosynth")
