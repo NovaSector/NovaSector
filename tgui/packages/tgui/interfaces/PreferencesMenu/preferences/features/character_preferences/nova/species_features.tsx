@@ -824,3 +824,9 @@ export const holo_transparency: FeatureNumeric = {
     'How solid your hologram appears. 60 = most see-through, 100 = fully solid.',
   component: FeatureSliderInput,
 };
+
+export const holo_scanline: Feature<boolean> = {
+  name: 'Holosynth Scanline Flicker',
+  description: 'Renders a faint scanline flicker across your body.',
+  component: CheckboxInput,
+};

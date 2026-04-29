@@ -4,6 +4,14 @@
 #define HOLOSYNTH_BURNMULT 5
 /// Minimum holosynth opacity (0-1). Matches the pref's 60% floor.
 #define HOLOSYNTH_OPACITY_FLOOR 0.6
+/// Visual cycle length of the scanline animation — how long it takes a stripe to traverse the
+/// mob. Doubles as the periodic-refresh interval, so the boundary lands at a cycle endpoint
+/// (visually seamless). Anything that disrupts the animation between refreshes is healed within
+/// at most one full cycle.
+#define HOLOSYNTH_SCANLINE_CYCLE (2 SECONDS)
+/// identified signals that we can recover from faster
+#define HOLOSYNTH_SCANLINE_QUICK_REFRESH (0.5 SECONDS)
+
 /datum/species/synthetic/holosynth
 	name = "Holosynth"
 	id = SPECIES_HOLOSYNTH
@@ -80,8 +88,13 @@
 		chest.glow = makeHologramHolosynth(species_holder)
 	var/datum/action/innate/holosynth_toggle_phase/phase_toggle = new(species_holder)
 	phase_toggle.Grant(species_holder)
+	refresh_scanline(species_holder)
+	RegisterSignal(species_holder, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_mob_disrupted))
+	RegisterSignal(species_holder, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(on_mob_disrupted))
+	RegisterSignal(species_holder, COMSIG_LIVING_ELECTROCUTE_ACT, PROC_REF(on_mob_disrupted))
 	add_verb(species_holder, list(
 		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
+		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
 	))
 
 	if(!isdummy(species_holder))
@@ -96,7 +109,9 @@
 	species_holder.physiology.brute_mod /= HOLOSYNTH_BRUTEMULT
 	species_holder.physiology.burn_mod /= HOLOSYNTH_BURNMULT
 	species_holder.max_grab = GRAB_KILL
+	UnregisterSignal(species_holder, list(COMSIG_MOB_APPLY_DAMAGE, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_LIVING_ELECTROCUTE_ACT))
 	species_holder.remove_filter("HOLO: Color and Transparent")
+	clear_scanline_filters(species_holder)
 	var/obj/item/bodypart/chest/synth/holosynth/chest = species_holder.get_bodypart(BODY_ZONE_CHEST)
 	if(chest)
 		species_holder.cut_overlay(chest.glow)
@@ -105,6 +120,7 @@
 		qdel(phase_toggle)
 	remove_verb(species_holder, list(
 		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
+		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
 	))
 
 	var/comps_to_delete = list(
@@ -194,7 +210,14 @@
 	human_for_preview.update_body(is_creating = TRUE)
 
 /datum/species/synthetic/holosynth/preview_icon_after_effects(datum/universal_icon/dummy_icon, mob/living/carbon/human/target)
+	// we have to do all this manually for the sake of the preview because render_targets are terrible
+
+	var/datum/icon_transformer/transform = dummy_icon.transform // We are going to surgically excise the scanlines render_target from the layers of the uni_icon
+	transform.transforms.Cut(1, 2) // It's always going to be at the front of the list
+
+	// tint
 	dummy_icon.blend_color("#ECB3DD", ICON_MULTIPLY)
+	// opacity
 	dummy_icon.change_opacity(0.65)
 
 /datum/species/synthetic/holosynth/proc/get_holosynth_visual(mob/living/carbon/human/target)
@@ -211,6 +234,33 @@
 	target.remove_filter("HOLO: Color and Transparent")
 	var/list/visuals = get_holosynth_visual(target)
 	target.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(rgb(visuals["r"], visuals["g"], visuals["b"], visuals["alpha"] * 255)))
+
+/// Periodic-rotation refresh:
+/datum/species/synthetic/holosynth/proc/refresh_scanline(mob/living/carbon/human/target)
+	if(QDELETED(target))
+		return
+	clear_scanline_filters(target)
+	if(!read_scanline(target))
+		return
+	var/new_name = "HOLO: Scanline [world.time]"
+	target.add_filter(new_name, 2, alpha_mask_filter(icon = icon('modular_nova/modules/holosynth/icons/scanline_mask.dmi', "scanline")))
+	var/filter = target.get_filter(new_name)
+	animate(filter, y = 0, time = 0, loop = -1, flags = ANIMATION_PARALLEL)
+	animate(y = -32, time = HOLOSYNTH_SCANLINE_CYCLE)
+	addtimer(CALLBACK(src, PROC_REF(refresh_scanline), target), HOLOSYNTH_SCANLINE_CYCLE, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/// Removes the active scanline filter. Rotation guarantees at most one exists, so we exit on
+/// the first match — no list build, no second iteration.
+/datum/species/synthetic/holosynth/proc/clear_scanline_filters(mob/living/target)
+	for(var/list/info as anything in target.filter_data)
+		if(findtext(info["name"], "HOLO: Scanline ") == 1)
+			target.remove_filter(info["name"])
+			return
+
+/// Common disruption handler
+/datum/species/synthetic/holosynth/proc/on_mob_disrupted(mob/living/source)
+	SIGNAL_HANDLER
+	addtimer(CALLBACK(src, PROC_REF(refresh_scanline), source), HOLOSYNTH_SCANLINE_QUICK_REFRESH, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /// Inlines makeHologram's emissive-glow portion only — skips its scanline filter (which cropped
 /// oversized mutant parts) and its scanline add_overlay (which inflated the hitbox).
@@ -237,6 +287,10 @@
 	var/raw = target.dna?.features["holo_transparency"]
 	return raw ? clamp(raw / 100, HOLOSYNTH_OPACITY_FLOOR, 1) : HOLOSYNTH_OPACITY_FLOOR
 
+/datum/species/synthetic/holosynth/proc/read_scanline(mob/living/carbon/human/target)
+	var/feature = target.dna?.features["holo_scanline"]
+	return isnull(feature) ? TRUE : feature
+
 // -- Runtime verbs -------------------------------------------------------
 // Added on species gain, removed on species loss. Both update the dna feature and ask the species to refresh.
 
@@ -253,6 +307,19 @@
 		return
 	dna?.features["holo_transparency"] = new_value
 	species.refresh_opacity(src)
+
+/mob/living/carbon/human/proc/holosynth_toggle_scanline()
+	set name = "Toggle Hologram Flicker"
+	set category = "IC"
+	set src = usr
+
+	var/datum/species/synthetic/holosynth/species = dna?.species
+	if(!istype(species))
+		return
+	var/new_state = !species.read_scanline(src)
+	dna?.features["holo_scanline"] = new_state
+	species.refresh_scanline(src)
+	to_chat(src, span_notice("You [new_state ? "enable" : "disable"] your hologram flicker."))
 
 /mob/living/carbon/human/species/holosynth
 	race = /datum/species/synthetic/holosynth
