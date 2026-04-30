@@ -1072,4 +1072,4 @@
 	name = "Duke's Armored Coat"
 	item_path = /obj/item/clothing/suit/armor/donator/duke_armored_coat
 	ckeywhitelist = list("ambermane")
-	restricted_roles = list(JOB_CAPTAIN)
+	restricted_roles = list(JOB_CAPTAIN, JOB_BLUESHIELD)
