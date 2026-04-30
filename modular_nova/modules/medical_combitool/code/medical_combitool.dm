@@ -181,6 +181,7 @@
 	desc = "This tool can be either used as a blood filter or bonesetter."
 	id = "combitool"
 	build_path = /obj/item/blood_filter/advanced
+	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6,
 					/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
 					/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
