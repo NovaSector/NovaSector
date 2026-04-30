@@ -69,46 +69,54 @@
 	hood_down_overlay_suffix = ""
 	greyscale_config = /datum/greyscale_config/sec_winter_coat
 	greyscale_config_worn = /datum/greyscale_config/sec_winter_coat/worn
-	greyscale_colors = "#CEC8BF#39393F#A52F29#39393F"
+	greyscale_colors = "#A52F29#CEC8BF#39393F#39393F"
 	flags_1 = NONE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	hoodtype = /obj/item/clothing/head/hooded/winterhood/custom
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/secnova
+	var/hood_up = FALSE
 
 /obj/item/clothing/suit/hooded/wintercoat/security/nova/blue
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/blue"
-	greyscale_colors = "#CEC8BF#39393F#3F6E9E#39393F"
+	greyscale_colors = "#3F6E9E#CEC8BF#39393F#39393F"
 
 /obj/item/clothing/suit/hooded/wintercoat/security/nova/white
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/white"
-	greyscale_colors = "#CEC8BF#39393F#EBEBEB#39393F"
+	greyscale_colors = "#EBEBEB#CEC8BF#39393F#39393F"
 
 /obj/item/clothing/suit/hooded/wintercoat/security/nova/black
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/black"
-	greyscale_colors = "#CEC8BF#39393F#39393F#39393F"
+	greyscale_colors = "#39393F#CEC8BF#39393F#39393F"
+
+/// Called when the hood is worn
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/on_hood_up(obj/item/clothing/head/hooded/hood)
+	hood_up = TRUE
+
+/// Called when the hood is hidden
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/on_hood_down(obj/item/clothing/head/hooded/hood)
+	hood_up = FALSE
 
 //In case colors are changed after initialization
 /obj/item/clothing/suit/hooded/wintercoat/security/nova/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
 	. = ..()
+
 	if(!hood)
 		return
+
 	var/list/coat_colors = SSgreyscale.ParseColorString(greyscale_colors)
-	var/list/new_coat_colors = coat_colors.Copy(1,4)
+	var/list/new_coat_colors = coat_colors.Copy(1,3)
 	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
-	hood.update_slot_icon()
 
 //But also keep old method in case the hood is (re-)created later
 /obj/item/clothing/suit/hooded/wintercoat/security/nova/on_hood_created(obj/item/clothing/head/hooded/hood)
 	. = ..()
 	var/list/coat_colors = (SSgreyscale.ParseColorString(greyscale_colors))
-	var/list/new_coat_colors = coat_colors.Copy(1,4)
+	var/list/new_coat_colors = coat_colors.Copy(1,3)
 	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
-/*
-/obj/item/clothing/head/hooded/winterhood/security
-	name = "tailored winter coat hood"
-	desc = "A heavy jacket hood made from 'synthetic' animal furs, with custom colors."
-	greyscale_config = /datum/greyscale_config/winter_hoods
-	greyscale_config_worn = /datum/greyscale_config/winter_hoods/worn
-*/
+
+/obj/item/clothing/head/hooded/winterhood/secnova
+	greyscale_config = /datum/greyscale_config/winter_hood
+	greyscale_config_worn = /datum/greyscale_config/winter_hood/worn
+
 
 /*
 *	WARDEN
