@@ -1,5 +1,5 @@
 /datum/species/synthetic
-	name = "Synthetic Humanoid (Legacy)"
+	name = "Synthetic Humanoid"
 	id = SPECIES_SYNTH
 	inherent_biotypes = MOB_ROBOTIC | MOB_HUMANOID
 	inherent_traits = list(
