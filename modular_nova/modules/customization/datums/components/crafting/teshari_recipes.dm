@@ -1,7 +1,7 @@
 /datum/crafting_recipe/food/reaction/piru_dough
 	reaction = /datum/chemical_reaction/food/piru_dough
 	result = /obj/item/food/piru_dough
-	category = CAT_TESHARI
+	cuisine_category = CUISINE_TESHARI
 
 /datum/chemical_reaction/food/piru_dough
 	required_reagents = list(
@@ -19,7 +19,9 @@
 		/datum/reagent/consumable/nakati_spice = 2,
 	)
 	result = /obj/item/food/spiced_jerky
-	category = CAT_TESHARI
+	dish_category = DISH_MEAT
+	meal_category = MEAL_SNACK
+	cuisine_category = CUISINE_TESHARI
 
 /datum/crafting_recipe/food/sirisai_wrap
 	name = "Sirisai Wrap"
@@ -30,7 +32,9 @@
 		/datum/reagent/consumable/nakati_spice = 5,
 	)
 	result = /obj/item/food/sirisai_wrap
-	category = CAT_TESHARI
+	dish_category = DISH_SANDWICH
+	meal_category = MEAL_MAIN_COURSE
+	cuisine_category = CUISINE_TESHARI
 
 /datum/crafting_recipe/food/sweet_piru_noodles
 	name = "Sweet Piru Noodles"
@@ -42,7 +46,9 @@
 		/obj/item/food/grown/carrot = 1,
 	)
 	result = /obj/item/food/sweet_piru_noodles
-	category = CAT_TESHARI
+	dish_category = DISH_NOODLES
+	meal_category = MEAL_MAIN_COURSE
+	cuisine_category = CUISINE_TESHARI
 
 /datum/crafting_recipe/food/kiri_curry
 	name = "Kiri Curry"
@@ -55,7 +61,9 @@
 		/datum/reagent/consumable/kiri_jelly = 5,
 	)
 	result = /obj/item/food/kiri_curry
-	category = CAT_TESHARI
+	dish_category = DISH_MEAT
+	meal_category = MEAL_MAIN_COURSE
+	cuisine_category = CUISINE_TESHARI
 	added_foodtypes = FRUIT|SUGAR
 
 /datum/crafting_recipe/food/sirisai_flatbread
@@ -68,7 +76,9 @@
 		/datum/reagent/consumable/nakati_spice = 5,
 	)
 	result = /obj/item/food/sirisai_flatbread
-	category = CAT_TESHARI
+	dish_category = DISH_PIZZA
+	meal_category = MEAL_MAIN_COURSE
+	cuisine_category = CUISINE_TESHARI
 
 /datum/crafting_recipe/food/bluefeather_crisp
 	name = "Bluefeather Crisp"
@@ -77,7 +87,9 @@
 		/datum/reagent/consumable/nakati_spice = 2,
 	)
 	result = /obj/item/food/bluefeather_crisp
-	category = CAT_TESHARI
+	dish_category = DISH_UNCATEGORIZED
+	meal_category = MEAL_SNACK
+	cuisine_category = CUISINE_TESHARI
 
 /datum/crafting_recipe/food/stewed_muli
 	name = "Stewed Muli"
@@ -90,7 +102,9 @@
 		/datum/reagent/consumable/nakati_spice = 5,
 	)
 	result = /obj/item/food/stewed_muli
-	category = CAT_TESHARI
+	dish_category = DISH_SOUP
+	meal_category = MEAL_MAIN_COURSE
+	cuisine_category = CUISINE_TESHARI
 
 /datum/crafting_recipe/food/stuffed_muli_pod
 	name = "Stuffed Muli Pod"
@@ -102,7 +116,9 @@
 		/datum/reagent/consumable/nakati_spice = 2,
 	)
 	result = /obj/item/food/stuffed_muli_pod
-	category = CAT_TESHARI
+	dish_category = DISH_MEAT
+	meal_category = MEAL_MAIN_COURSE
+	cuisine_category = CUISINE_TESHARI
 
 /datum/crafting_recipe/food/caramel_jelly_toast
 	name = "Caramel-jelly Toast"
@@ -112,7 +128,9 @@
 		/datum/reagent/consumable/caramel = 5,
 	)
 	result = /obj/item/food/caramel_jelly_toast
-	category = CAT_TESHARI
+	dish_category = DISH_BREAD
+	meal_category = MEAL_DESSERT
+	cuisine_category = CUISINE_TESHARI
 	added_foodtypes = FRUIT|SUGAR
 
 /datum/crafting_recipe/food/kiri_jellypuff
@@ -124,7 +142,9 @@
 		/datum/reagent/consumable/piru_flour = 5,
 	)
 	result = /obj/item/food/kiri_jellypuff
-	category = CAT_TESHARI
+	dish_category = DISH_PASTRY
+	meal_category = MEAL_DESSERT
+	cuisine_category = CUISINE_TESHARI
 	added_foodtypes = FRUIT|SUGAR
 
 /datum/crafting_recipe/food/bluefeather_crisps_and_dip
@@ -136,4 +156,6 @@
 		/datum/reagent/consumable/nakati_spice = 5,
 	)
 	result = /obj/item/food/bluefeather_crisps_and_dip
-	category = CAT_TESHARI
+	dish_category = DISH_CONDIMENT
+	meal_category = MEAL_APPETIZER
+	cuisine_category = CUISINE_TESHARI

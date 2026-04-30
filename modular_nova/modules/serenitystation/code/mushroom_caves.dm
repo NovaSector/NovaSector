@@ -10,9 +10,6 @@
 	mob_spawn_chance = 0.25 //planning to increase this once we have custom mushroom mobs to increase diversity
 	flora_spawn_chance = 25
 
-	biome_accepted_turfs = list(
-		/turf/open/misc/asteroid/forest/mushroom = TRUE,
-	)
 	possible_biomes = list(
 		BIOME_LOW_HEAT = list(
 			BIOME_LOW_HUMIDITY = /datum/biome/mushroom_cave/blue,
@@ -46,7 +43,8 @@
 	)
 
 /datum/biome/mushroom_cave
-	turf_type = /turf/open/misc/asteroid/forest/mushroom
+	open_turf_type = /turf/open/misc/asteroid/forest/mushroom
+	closed_turf_type = /turf/closed/mineral/random/forest
 	flora_density = 25
 	feature_density = 0.25
 	fauna_density = 1
@@ -72,7 +70,8 @@
 	)
 
 /datum/biome/mushroom_cave/blue
-	turf_type = /turf/open/misc/asteroid/forest/mushroom/blue
+	open_turf_type = /turf/open/misc/asteroid/forest/mushroom/blue
+	closed_turf_type = /turf/closed/mineral/random/forest
 	flora_density = 25
 	feature_density = 0.25
 	fauna_types = list(
@@ -90,7 +89,8 @@
 	)
 
 /datum/biome/mushroom_cave/green
-	turf_type = /turf/open/misc/asteroid/forest/mushroom/green
+	open_turf_type = /turf/open/misc/asteroid/forest/mushroom/green
+	closed_turf_type = /turf/closed/mineral/random/forest
 	flora_density = 25
 	feature_density = 0.25
 	fauna_types = list(

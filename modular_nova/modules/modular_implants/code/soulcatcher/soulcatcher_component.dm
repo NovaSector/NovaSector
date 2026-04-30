@@ -383,6 +383,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	name = "Enter Soulcatcher"
 	icon = 'modular_nova/master_files/icons/hud/screen_ghost.dmi'
 	icon_state = "soulcatcher"
+	screen_loc = ui_ghost_soulcatcher
 	/// Holder for maptext overlay showing how many soulcatchers there are
 	var/atom/movable/screen/num_overlay
 

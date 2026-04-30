@@ -60,8 +60,7 @@
 /obj/machinery/xenoarch/crowbar_act(mob/living/user, obj/item/tool)
 	. = ..()
 
-	if(default_deconstruction_crowbar(tool))
-		return ITEM_INTERACT_SUCCESS
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/xenoarch/researcher
 	name = "xenoarch researcher"

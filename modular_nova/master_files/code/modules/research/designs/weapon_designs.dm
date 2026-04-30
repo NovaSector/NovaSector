@@ -29,6 +29,18 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
+/datum/design/shotgun_frangible_slug
+	name = "Frangible Slug (Breaching)"
+	desc = "A frangible breaching slug."
+	id = "s12g_br"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,  /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4 , /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2)
+	build_path = /obj/item/ammo_casing/shotgun/frangible
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
 /datum/design/shotgun_dart_pen
 	name = "Penetrating Shotgun Dart (Lethal)"
 	id = "sec_dart_pen"
@@ -43,3 +55,8 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 	autolathe_exportable = FALSE
+
+// Disables xray design
+/datum/design/xray/New()
+	id = DESIGN_ID_IGNORE // Original: id = "xray_laser"
+	return ..()

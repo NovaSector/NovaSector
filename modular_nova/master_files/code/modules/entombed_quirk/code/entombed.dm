@@ -287,7 +287,7 @@
 	if (!..())
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/choiced/entombed_hardlight_theme/init_possible_values()
 	return list(
@@ -308,7 +308,7 @@
 	if (!..())
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/choiced/entombed_skin/apply_to_human(mob/living/carbon/human/target, value)
 	return
@@ -324,7 +324,7 @@
 	if (!..())
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_name/serialize(input)
 	return htmlrendertext(input)
@@ -349,7 +349,7 @@
 	if (!..())
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_desc/serialize(input)
 	return htmlrendertext(input)
@@ -375,7 +375,7 @@
 	if (!..())
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_prefix/serialize(input)
 	return htmlrendertext(input)
@@ -398,7 +398,7 @@
 	if (!..(preferences))
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/toggle/entombed_deploy_lock/apply_to_human(mob/living/carbon/human/target, value)
 	return
