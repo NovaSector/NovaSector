@@ -83,17 +83,6 @@
 
 //Kaynite Donor Item
 
-//Adding paragon as a object - Needed for crafting recipe
-/obj/item/mod/control/donor/paragon
-	theme = /datum/mod_theme/paragon
-	applied_cell = /obj/item/stock_parts/power_store/cell/super
-	applied_modules = list(
-		/obj/item/mod/module/storage/large_capacity,
-		/obj/item/mod/module/flashlight,
-		/obj/item/mod/module/health_analyzer,
-		/obj/item/mod/module/injector,
-	)
-
 //Plating - Constuction from scratch
 /obj/item/mod/construction/plating/paragon
 	name = "\improper Paragon Plating"
@@ -169,23 +158,6 @@
 	return ..()
 
 // Bonkaitheroris (Bonkai) Donor Item
-
-//Adding jumper as a object - Needed for crafting recipe
-/obj/item/mod/control/donor/jumper
-	theme = /datum/mod_theme/jumper
-	applied_modules = list(
-		/obj/item/mod/module/storage,
-		/obj/item/mod/module/magnetic_harness,
-		/obj/item/mod/module/flashlight,
-		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/pepper_shoulders,
-		/obj/item/mod/module/criminalcapture,
-		/obj/item/mod/module/quick_cuff,
-		/obj/item/mod/module/headprotector,
-	)
-	default_pins = list(
-		/obj/item/mod/module/jetpack,
-	)
 
 /obj/item/mod/construction/plating/jumper
 	name = "\improper PA-4 MK-7 J.S supply crate"
