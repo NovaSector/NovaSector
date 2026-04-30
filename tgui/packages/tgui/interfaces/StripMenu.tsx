@@ -273,6 +273,21 @@ const SLOTS: Record<
     gridSpot: getGridSpotKey([5, 4]),
     image: 'inventory-pocket.png',
   },
+
+  left_hand_lower: {
+    displayName: 'left hand (lower)',
+    gridSpot: getGridSpotKey([3, 5]),
+    image: 'inventory-hand_l.png',
+    additionalComponent: <CornerText align="right">L2</CornerText>,
+  },
+
+  right_hand_lower: {
+    displayName: 'right hand (lower)',
+    gridSpot: getGridSpotKey([3, 4]),
+    image: 'inventory-hand_r.png',
+    additionalComponent: <CornerText align="left">R2</CornerText>,
+  },
+
 };
 // NOVA EDIT END
 enum ObscuringLevel {

@@ -74,3 +74,7 @@
 	if(!.)
 		return lewd_is_hidden(target_human)
 
+/datum/sprite_accessory/fourarms/is_hidden(mob/living/carbon/human/target_human)
+	. = ..()
+	if(!.)
+		return lewd_is_hidden(target_human)

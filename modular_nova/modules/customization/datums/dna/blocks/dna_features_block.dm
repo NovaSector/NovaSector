@@ -99,6 +99,9 @@
 /datum/dna_block/feature/mutant/taur
 	feature_key = FEATURE_TAUR
 
+/datum/dna_block/feature/mutant/fourarms
+	feature_key = FEATURE_FOURARMS
+
 // Yes, that means you can change them via genetics. Needed to be here for polymorphism
 /datum/dna_block/feature/mutant/penis
 	feature_key = FEATURE_PENIS

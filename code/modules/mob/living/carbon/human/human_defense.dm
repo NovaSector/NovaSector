@@ -84,6 +84,8 @@
 		return SUCCESSFUL_BLOCK
 
 	var/block_chance_modifier = round(damage / -3)
+	var/held_items_checked = 0 // NOVA EDIT ADDITION
+	var/max_held_items = HAS_TRAIT(src, TRAIT_FOUR_ARMS) ? 2 : length(held_items) // NOVA EDIT ADDITION
 	for(var/obj/item/worn_thing in get_equipped_items(INCLUDE_HELD|INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT))
 		// Things that are supposed to be worn, being held = cannot block
 		if(isclothing(worn_thing))
@@ -93,6 +95,12 @@
 		else if(!(worn_thing in held_items))
 			continue
 
+		// NOVA EDIT ADDITION - stops shield block chance stacking on mobs with the quirk.
+		// NOVA EDIT ADDITION - Regular four_arms spell from wizard still works the same. This is only for the quirk/trait.
+		else if(HAS_TRAIT(src, TRAIT_FOUR_ARMS)) // NOVA EDIT ADDITION
+			if(held_items_checked >= max_held_items) // NOVA EDIT ADDITION
+				continue // NOVA EDIT ADDITION
+			held_items_checked++ // NOVA EDIT ADDITION
 		var/final_block_chance = worn_thing.block_chance - (clamp((armour_penetration - worn_thing.armour_penetration) / 2, 0, 100)) + block_chance_modifier
 		if(worn_thing.hit_reaction(src, hit_by, attack_text, final_block_chance, damage, attack_type, damage_type))
 			return SUCCESSFUL_BLOCK

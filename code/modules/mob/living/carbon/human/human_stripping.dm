@@ -19,6 +19,8 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 	/datum/strippable_item/mob_item_slot/pocket/right,
 	/datum/strippable_item/hand/left,
 	/datum/strippable_item/hand/right,
+	/datum/strippable_item/hand/left_lower,  // NOVA EDIT ADDITION - four arms
+	/datum/strippable_item/hand/right_lower, // NOVA EDIT ADDITION - four arms
 	/datum/strippable_item/mob_item_slot/handcuffs,
 	/datum/strippable_item/mob_item_slot/legcuffs,
 )))
