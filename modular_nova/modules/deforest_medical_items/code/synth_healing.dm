@@ -1,15 +1,18 @@
-// Used to stop synth structural damage
+// Used to cure basic robotic wounds
 /obj/item/stack/medical/wound_recovery/robofoam
-	name = "robotic repair spray"
-	singular_name = "robotic repair spray"
-	desc = "A needle-tip foam gun filled with an advanced synthetic foam that rapidly \
-		fills and stabilizes structural damage in synthetics. The damaged area will be \
-		vulnerable to further damage while the foam hardens"
+	name = "robotic break fix spray"
+	singular_name = "robotic break fix spray"
+	desc = "A needle-tip foam gun filled with an advanced foam that can be used to fix \
+	<b>dents</b>, <b>broken latches</b>, and <b>loose or pierced lubricant tubing</b>. \
+	Not rated for fully destroyed electrical parts or shredded lubricant tubing."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "robofoam"
 	inhand_icon_state = "implantcase"
 	applicable_wounds = list(
-		/datum/wound/blunt/robotic,
+		/datum/wound/robotic_blunt/moderate,
+		/datum/wound/robotic_blunt/severe,
+		/datum/wound/robotic_bleed/moderate,
+		/datum/wound/robotic_bleed/severe,
 	)
 	max_amount = 2
 	amount = 2
@@ -19,31 +22,21 @@
 
 /obj/item/stack/medical/wound_recovery/robofoam/examine(mob/user)
 	. = ..()
-	. += span_notice("This <b>cheaper</b> foam can only be used to fill <b>structural</b> wounds on synthetics.")
+	. += span_notice("This <b>cheaper</b> foam can only be used to fix <b>moderate and severe</b> wounds on robotic limbs.")
 	return .
 
-/obj/item/stack/medical/wound_recovery/robofoam/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)
-	. = ..()
-	healed_mob.reagents.add_reagent(/datum/reagent/medicine/nanite_slurry, 5)
-	healed_mob.reagents.add_reagent(/datum/reagent/medicine/coagulant/fabricated, 5)
-
-// Used to cure practically any synthetic wound
+// Used to cure all tiers of robotic wound
 /obj/item/stack/medical/wound_recovery/robofoam_super
-	name = "premium robotic repair spray"
-	singular_name = "premium robotic repair spray"
-	desc = "A needle-tip foam gun filled with an advanced synthetic foam that rapidly \
-		fills and stabilizes structural damage in synthetics. The damaged area will be \
-		vulnerable to further damage while the foam hardens. \
-		This special premium type can also be used to repair almost any possible type \
-		of synthetic damage."
-	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
+	name = "premium robotic break fix spray"
+	singular_name = "premium robotic break fix spray"
+	desc = "A needle-tip foam gun filled with an advanced foam that can fix \
+	<b>dents</b>, <b>broken latches</b>, and <b>loose or pierced lubricant tubing</b>. \
+	It's also got nanites that will <b>repair "
 	icon_state = "robofoam_super"
 	inhand_icon_state = "implantcase"
 	applicable_wounds = list(
-		/datum/wound/blunt/robotic,
-		/datum/wound/muscle/robotic,
-		/datum/wound/electrical_damage,
-		/datum/wound/burn/robotic,
+		/datum/wound/robotic_blunt,
+		/datum/wound/robotic_bleed
 	)
 	max_amount = 2
 	amount = 2
@@ -53,14 +46,8 @@
 
 /obj/item/stack/medical/wound_recovery/robofoam_super/examine(mob/user)
 	. = ..()
-	. += span_notice("This more <b>expensive</b> foam can be used to fill <b>any</b> type of wound on synthetics.")
+	. += span_notice("This more <b>expensive</b> foam can be used to fix <b>any</b> type of wound on robotic limbs.")
 	return .
-
-/obj/item/stack/medical/wound_recovery/robofoam_super/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)
-	. = ..()
-	healed_mob.reagents.add_reagent(/datum/reagent/medicine/coagulant/fabricated, 5)
-	healed_mob.reagents.add_reagent(/datum/reagent/medicine/nanite_slurry, 5)
-	healed_mob.reagents.add_reagent(/datum/reagent/dinitrogen_plasmide, 5)
 
 // Synth repair patch, gives the synth a small amount of healing chems
 /obj/item/reagent_containers/applicator/pill/patch/robotic_patch
@@ -89,47 +76,12 @@
 		return FALSE
 	return TRUE
 
-// The actual STACK of patches
-/obj/item/stack/medical/synth_repair
-	name = "robotic repair patches"
-	singular_name = "robotic repair patch piece"
-	desc = "A pack of sealed patches of small nanite swarms along with electrical coagulant reagents to repair small amounts of synthetic damage."
-	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
-	icon_state = "synth_patch"
-	amount = 3
-	max_amount = 3
-	inhand_icon_state = null
-	self_delay = 4 SECONDS
-	other_delay = 2 SECONDS
-	merge_type = /obj/item/stack/medical/synth_repair
-
-/obj/item/stack/medical/synth_repair/grind_results()
-	return list(
-			/datum/reagent/medicine/nanite_slurry = 10,
-			/datum/reagent/dinitrogen_plasmide = 5,
-			/datum/reagent/medicine/coagulant/fabricated = 10,
-		)
-
-/obj/item/stack/medical/synth_repair/try_heal_checks(mob/living/patient, mob/living/user, healed_zone, silent = FALSE)
-	var/obj/item/bodypart/limb = patient.get_bodypart(healed_zone)
-	if(isnull(limb))
-		if(!silent)
-			patient.balloon_alert(user, "no [parse_zone(healed_zone)]!")
-		return FALSE
-	if(!IS_ROBOTIC_LIMB(limb))
-		patient.balloon_alert(user, "[limb.plaintext_zone] is not synthetic!")
-		return FALSE
-	return TRUE
-
-/obj/item/stack/medical/synth_repair/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/living/user)
-	. = ..()
-	healed_mob.reagents.add_reagent_list(grind_results())
-
 // Repairs a robotic organs directly, or during organ manipulation surgery.
 // Sprites: [@splat1125](https://github.com/splat1125)
 /obj/item/cybernetic_repair_paste
-	name = "cybernetic repair paste"
-	desc = "A repair paste applicator pen which allows for cybernetic organs to be repaired when used with organ manipulation surgery."
+	name = "robotic organ repair paste"
+	desc = "Repair paste for robotic organs. Can be used directly on a robotic organ, \
+	or on a patient during organ manipulation surgery to repair damaged robotic organs."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "cyberpaste"
 	w_class = WEIGHT_CLASS_SMALL
@@ -202,18 +154,30 @@
 	if(uses <= 0)
 		balloon_alert(user, "it's been used up!")
 		return
+	if(!(target_organ.organ_flags & ORGAN_ROBOTIC))
+		balloon_alert(user, "organ isn't robotic!")
+		return
 	if(target_organ.damage <= NONE)
 		balloon_alert(user, "organ isn't broken!")
 		return
-	if(!do_after(user, 5 SECONDS, target_mob))
-		balloon_alert(user, "repair cancelled!")
-		return
+
+	if(target_mob)
+		if(!do_after(user, 5 SECONDS, target_mob))
+			balloon_alert(user, "repair cancelled!")
+			return
+	else
+		if(!do_after(user, 5 SECONDS, target_organ))
+			balloon_alert(user, "repair cancelled!")
+			return
 
 	target_organ.apply_organ_damage(-repair_amount, required_organ_flag = ORGAN_ROBOTIC)
-	balloon_alert(user, "organ repaired")
 	to_chat(user, span_notice("You successfully repair [target_organ]."))
 	if(target_organ.damage  > NONE)
+		balloon_alert(user, "organ partially repaired")
 		to_chat(user, "The [target_organ] still has some lasting system damage that can be cleared.")
+	else
+		balloon_alert(user, "organ fully repaired")
+		to_chat(user, "The [target_organ] is fully repaired!")
 
 	uses -= 1
 	if(uses <= 0)

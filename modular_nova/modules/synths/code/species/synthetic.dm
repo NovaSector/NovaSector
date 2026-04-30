@@ -47,6 +47,7 @@
 	coldmod = 1.2
 	heatmod = 2 // TWO TIMES DAMAGE FROM BEING TOO HOT?! WHAT?! No wonder lava is literal instant death for us.
 	siemens_coeff = 1 // Puts you in deep crit and near death but not outright dead
+	subspecies_of = /datum/species/robot_nova
 	/// The innate action that synths get, if they've got a screen selected on species being set.
 	var/datum/action/innate/monitor_change/screen
 	/// This is the screen that is given to the user after they get revived. On death, their screen is temporarily set to BSOD before it turns off, hence the need for this var.
@@ -238,6 +239,15 @@
 		SPECIES_PERK_ICON = "star-of-life",
 		SPECIES_PERK_NAME = "Unhuskable",
 		SPECIES_PERK_DESC = "[plural_form] can't be husked, disappointing changelings galaxy-wide.",
+	))
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_SATELLITE_DISH,
+		SPECIES_PERK_NAME = "Distress Beacon",
+		SPECIES_PERK_DESC = "If you die, whether from power loss or physical trauma, a distress beacon will automatically activate, flagging you up on the \
+		Distress Beacon console in Robotics. You'll show up even if your sensors were off! An EMP will shut off the \
+		beacon if it's active, however.",
 	))
 
 	perk_descriptions += list(list(

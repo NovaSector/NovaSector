@@ -615,7 +615,7 @@
 		clear_fullscreen("critvision")
 
 	//Oxygen damage overlay
-	if(oxyloss)
+	if(oxyloss && !HAS_TRAIT(src, TRAIT_NO_DAMAGE_OVERLAY)) // NOVA EDIT CHANGE - Robots - if(oxyloss)
 		var/severity = 0
 		switch(oxyloss)
 			if(10 to 20)
@@ -699,6 +699,10 @@
 
 
 /mob/living/carbon/update_stat()
+	// NOVA EDIT ADDITION START - Robots
+	if(SEND_SIGNAL(src, COMSIG_CARBON_UPDATE_STAT, src))
+		return
+	// NOVA EDIT ADDITION END - Robots
 	if(HAS_TRAIT(src, TRAIT_GODMODE))
 		return
 	if(stat != DEAD)

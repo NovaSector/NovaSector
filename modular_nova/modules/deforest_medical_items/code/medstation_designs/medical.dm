@@ -75,19 +75,8 @@
 		RND_CATEGORY_DEFOREST_MEDICAL,
 	)
 
-/datum/design/organic_printer_synth_patch
-	name = "Robotic Repair Patch"
-	id = "organic_repair_patch"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 100)
-	build_path = /obj/item/stack/medical/synth_repair
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_DEFOREST_MEDICAL,
-	)
-
 /datum/design/organic_printer_repair_foam
-	name = "Robotic Repair Spray"
+	name = "Robotic Break Fix Spray"
 	id = "organic_repair_foam"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)

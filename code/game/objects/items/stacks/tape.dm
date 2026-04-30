@@ -19,6 +19,11 @@
 	heal_begin_sound = 'sound/items/duct_tape/duct_tape_rip.ogg'
 	heal_end_sound = 'sound/items/duct_tape/duct_tape_rip.ogg'
 
+	// NOVA EDIT ADDITION START - Robots
+	tool_behaviour = TOOL_DUCTTAPE
+	toolspeed = 2
+	// NOVA EDIT ADDITION END
+
 	/// Prefix applied to the target when wrapped with this tape.
 	var/prefix = "sticky"
 	/// Embed applied to the target when wrapped with this tape.
@@ -101,6 +106,10 @@
 	merge_type = /obj/item/stack/medical/wrap/sticky_tape/super
 	greyscale_colors = "#4D4D4D#75433F"
 	tape_gag = /obj/item/clothing/mask/muzzle/tape/super
+	// NOVA EDIT ADDITION START - Robots
+	tool_behaviour = TOOL_DUCTTAPE
+	toolspeed = 2
+	// NOVA EDIT ADDITION END
 
 /datum/embedding/sticky_tape/super
 	embed_chance = 100
@@ -147,6 +156,10 @@
 	merge_type = /obj/item/stack/medical/wrap/sticky_tape/surgical
 	greyscale_colors = "#70BAE7#BD6A62"
 	tape_gag = /obj/item/clothing/mask/muzzle/tape/surgical
+	// NOVA EDIT ADDITION START - Robots
+	tool_behaviour = TOOL_DUCTTAPE
+	toolspeed = 2
+	// NOVA EDIT ADDITION END
 
 /datum/embedding/sticky_tape/surgical
 	embed_chance = 30
@@ -164,6 +177,11 @@
 	var/object_repair_value = 30
 	amount = 10
 	max_amount = 10
+	// NOVA EDIT ADDITION START - Robots
+	tool_behaviour = TOOL_DUCTTAPE
+	toolspeed = 1
+	// NOVA EDIT ADDITION END
+
 
 /datum/embedding/sticky_tape/duct
 	embed_chance = 0 //Wrapping something in duct tape is basically ensuring it never embeds.

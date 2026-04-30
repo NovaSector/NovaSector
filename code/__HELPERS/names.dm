@@ -374,6 +374,10 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 			return "a rolling pin"
 		if(TOOL_RUSTSCRAPER)
 			return "a rust scraper"
+		// NOVA EDIT ADDITION START - Adds support for duct tape as a tool.
+		if(TOOL_DUCTTAPE)
+			return "duct tape"
+		// NOVA EDIT ADDITION END
 		else
 			return "something... but the gods didn't set this up right (Please report this bug)"
 

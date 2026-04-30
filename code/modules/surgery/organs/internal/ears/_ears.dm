@@ -26,12 +26,18 @@
 	/// Multiplier for both long term and short term ear damage
 	var/damage_multiplier = 1
 
+// NOVA EDIT ADDITION START - Robots
 /obj/item/organ/ears/on_life(seconds_per_tick)
+	ear_damage_alert()
+	. = ..()
+	ear_healing(seconds_per_tick)
+
+/obj/item/organ/ears/proc/ear_damage_alert()
 	// only inform when things got worse, needs to happen before we heal
 	if((damage > low_threshold && prev_damage < low_threshold) || (damage > high_threshold && prev_damage < high_threshold))
 		to_chat(owner, span_warning("The ringing in your ears grows louder, blocking out any external noises for a moment."))
 
-	. = ..()
+/obj/item/organ/ears/proc/ear_healing(seconds_per_tick)
 	// if we have non-damage related deafness like mutations, quirks or clothing (earmuffs), don't bother processing here.
 	// Ear healing from earmuffs or chems happen elsewhere
 	if(HAS_TRAIT_NOT_FROM(owner, TRAIT_DEAF, EAR_DAMAGE))
@@ -43,6 +49,7 @@
 	if((damage > low_threshold) && SPT_PROB(damage / 60, seconds_per_tick))
 		adjust_temporary_deafness(4 SECONDS)
 		SEND_SOUND(owner, sound('sound/items/weapons/flash_ring.ogg'))
+// NOVA EDIT ADDITION END
 
 /obj/item/organ/ears/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()

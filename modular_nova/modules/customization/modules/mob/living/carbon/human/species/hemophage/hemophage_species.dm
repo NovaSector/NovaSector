@@ -24,6 +24,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_HUMAN
 	skinned_type = /obj/item/stack/sheet/animalhide/carbon/human
+	subspecies_of = /datum/species/human
 
 /datum/species/hemophage/allows_food_preferences()
 	return FALSE

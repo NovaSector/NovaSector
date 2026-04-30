@@ -1,0 +1,277 @@
+// flashing moving text
+.theme-advertisement {
+  // Base
+  --color-base: hsl(45, 40%, 85%);
+  --color-primary: hsl(from var(--color-base) h s calc(l - 30));
+  --color-label: hsl(from var(--color-primary) h s 65);
+  --secondary-saturation: 10;
+  --secondary-lightness-adjustment: -56;
+  --base-gradient-spread: 0;
+  --border-radius-unit: 0;
+
+  // Components
+  --button-color: var(--color-black);
+  --button-background-default: var(--color-base);
+  --button-background-selected: hsl(0, 90%, 35%);
+  --button-background-caution: hsl(30, 85%, 40%);
+  --button-background-danger: hsl(60, 100%, 30%);
+  --progress-bar-background: hsl(0, 0%, 0%, 0.5);
+  --input-background: transparent;
+
+  .Layout__content {
+    background-image: none;
+  }
+
+  .Button {
+    font-family: var(--font-family-mono);
+    border: var(--border-thickness-small) outset var(--color-base);
+    outline: var(--border-thickness-tiny) solid hsl(60, 6%, 8%);
+
+    &-disabled {
+      color: hsl(60, 6%, 77%);
+      font-family: var(--font-family-mono);
+
+      &:hover {
+        color: hsl(0, 0%, 100%);
+      }
+    }
+
+    &--selected {
+      border-style: inset;
+    }
+  }
+  // flash background and text colors randomly within a hue range
+  color: hsl(0, 0%, 80%);
+  font-size: 1em;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+  animation: flashColors 2s infinite alternate;
+  --titlebar-background: hsl(303, 84%, 35%);
+
+  * .Layout__content {
+    background-image: none;
+    background-color: hsl(0, 70%, 36%);
+  }
+}
+
+.Advertisement__Blink {
+  -webkit-animation: 1s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+  animation: 1s linear infinite condemned_blink_effect;
+}
+
+/* for Safari 4.0 - 8.0 */
+@-webkit-keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+.Advertisement__MovingText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -100%);
+  animation: marquee 6s linear infinite;
+}
+
+.Advertisement__SpinningButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  //   transform: translate(-50%, -50%);
+  animation: spinAround 5s linear infinite;
+}
+// dollarsign at the corners of the advertisement
+.Advertisement_DollarSign {
+  position: absolute;
+  font-size: 2em;
+  color: hsl(120, 100%, 50%);
+  //   flash and spin around
+  animation:
+    flashColors 1s infinite alternate,
+    spinAround 3s linear infinite;
+}
+
+.top-left {
+  top: 10px;
+  left: 10px;
+}
+.top-right {
+  top: 10px;
+  right: 10px;
+}
+.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+.bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+.Advertisement__marquee {
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-name: marquee-content;
+  animation-timing-function: linear;
+  font-family: var(--font-family-mono);
+}
+
+@keyframes marquee-content {
+  /* Element one fully ON screen at left-edge of container. */
+  from {
+    transform: translateX(0%);
+  }
+  /* Element one fully OFF screen (just beyond left-ledge of container). */
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flashColors {
+  0% {
+    color: hsl(120, 100%, 50%);
+  }
+  100% {
+    color: hsl(0, 100%, 50%);
+  }
+}
+
+.Advertisement__Cola {
+  animation: spinAround 2s linear infinite;
+}
+
+.rainbow-text {
+  background-image: repeating-linear-gradient(
+    45deg,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red,
+    violet
+  );
+  background-size: 800% 800%;
+  animation: rainbow 8s ease infinite;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Marquee styles */
+.marquee {
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+}
+
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+/* Pause animation when reduced-motion is set */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content {
+    animation-play-state: paused !important;
+  }
+}
+
+/* Enable animation */
+.enable-animation .marquee__content {
+  animation: scroll 10s linear infinite;
+}
+
+/* Reverse animation */
+.marquee--reverse .marquee__content {
+  animation-direction: reverse;
+}
+
+/* Pause on hover */
+.marquee--hover-pause:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+/* Attempt to size parent based on content. Keep in mind that the parent width is equal to both content containers that stretch to fill the parent. */
+.marquee--fit-content {
+  max-width: fit-content;
+}
+
+/* A fit-content sizing fix: Absolute position the duplicate container. This will set the size of the parent wrapper to a single child container. Shout out to Olavi's article that had this solution 👏 @link: https://olavihaapala.fi/2021/02/23/modern-marquee.html  */
+.marquee--pos-absolute .marquee__content:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Enable position absolute animation on the duplicate content (last-child) */
+.enable-animation .marquee--pos-absolute .marquee__content:last-child {
+  animation-name: scroll-abs;
+}
+
+@keyframes scroll-abs {
+  from {
+    transform: translateX(calc(100% + var(--gap)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}

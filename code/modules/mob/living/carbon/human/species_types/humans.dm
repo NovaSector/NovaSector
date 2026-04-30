@@ -7,6 +7,15 @@
 	skinned_type = /obj/item/stack/sheet/animalhide/carbon/human
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	payday_modifier = 1.1
+	// NOVA EDIT ADDITION START - Robots
+	used_outfit_for_preview = /datum/outfit/job/captain/human_preview
+	species_sort_priority = SPECIES_SORT_PRIORITY_HUMAN
+
+/datum/outfit/job/captain/human_preview
+	suit = /obj/item/clothing/suit/armor/vest/capcarapace/captains_formal
+	head = /obj/item/clothing/head/hats/caphat/parade
+
+	// NOVA EDIT ADDITION END
 
 /datum/species/human/prepare_human_for_preview(mob/living/carbon/human/human)
 	human.set_haircolor("#bb9966", update = FALSE) // brown

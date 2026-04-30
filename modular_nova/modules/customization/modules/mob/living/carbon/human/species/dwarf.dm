@@ -14,6 +14,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	payday_modifier = 1.0
 	body_size_restricted = TRUE
+	subspecies_of = /datum/species/human
 
 /datum/species/dwarf/get_species_description()
 	return placeholder_description

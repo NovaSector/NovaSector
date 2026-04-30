@@ -12,6 +12,8 @@
 #define UNDERWEAR_HIDE_BRA (1<<3)
 #define UNDERWEAR_HIDE_ALL (UNDERWEAR_HIDE_SOCKS | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_BRA)
 
+#define SPECIES_ROBOT_NOVA "robot_nova"
+
 ///Defines for icons used for modular bodyparts, created to make it easier to relocate the module or files if necessary.
 #define BODYPART_ICON_HUMAN 'modular_nova/modules/bodyparts/icons/human_parts_greyscale.dmi'
 #define BODYPART_ICON_HUMANOID 'modular_nova/modules/bodyparts/icons/humanoid_parts_greyscale.dmi'
@@ -38,3 +40,14 @@
 #define BODYPART_ICON_HARPY 'modular_nova/modules/bodyparts/icons/bespoke/harpy_parts_greyscale.dmi'
 #define BODYPART_ICON_HARPY_HUMAN 'modular_nova/modules/bodyparts/icons/bespoke/harpy_parts_skintone.dmi'
 #define BODYPART_ICON_HUMAN_CRITTER 'modular_nova/modules/bodyparts/icons/bespoke/mutant_parts_skintone.dmi'
+
+#define ROBOT_POWER_DRAIN 0.00625
+
+#define SPECIES_SORT_PRIORITY_HUMAN 100
+#define SPECIES_SORT_PRIORITY_LIZARD 99
+#define SPECIES_SORT_PRIORITY_MOTH 98
+#define SPECIES_SORT_PRIORITY_ANDROID 97
+#define SPECIES_SORT_PRIORITY_PLASMAMAN 96
+#define SPECIES_SORT_PRIORITY_ETHEREAL 95
+#define SPECIES_SORT_PRIORITY_FELINID 94
+#define SPECIES_SORT_PRIORITY_DEFAULT 0

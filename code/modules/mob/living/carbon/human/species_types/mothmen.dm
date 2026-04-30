@@ -31,6 +31,16 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/moth,
 	)
 
+	// NOVA EDIT ADDITION START - Robots
+	used_outfit_for_preview = /datum/outfit/job/cmo
+	species_sort_priority = SPECIES_SORT_PRIORITY_MOTH
+/datum/species/moth/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	human_for_preview.dna.features["moth_antennae"] = "Firewatch"
+	human_for_preview.dna.features["moth_markings"] = "None"
+	human_for_preview.dna.features["moth_wings"] = "Firewatch"
+	human_for_preview.update_body(TRUE)
+	// NOVA EDIT ADDITION END
+
 /datum/species/moth/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	RegisterSignal(human_who_gained_species, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))

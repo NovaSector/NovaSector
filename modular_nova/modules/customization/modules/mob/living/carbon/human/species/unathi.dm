@@ -22,6 +22,7 @@
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/lizard,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/lizard,
 	)
+	subspecies_of = /datum/species/lizard
 
 /datum/species/unathi/get_default_mutant_bodyparts()
 	return list(

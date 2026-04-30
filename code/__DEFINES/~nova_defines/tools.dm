@@ -3,3 +3,4 @@
 #define TOOL_HAMMER "hammer"
 #define TOOL_BLOWROD "blowrod"
 #define TOOL_ALIEN_BONESET "alien bonesetter"
+#define TOOL_DUCTTAPE "duct tape"

@@ -42,6 +42,8 @@
 	var/uses = 1
 	///Whether or not this chip requires lewd item preference enforcement.
 	var/is_lewd = FALSE
+	///Is this compatible with NIFs? TODO: Remove this in the future once you've made reboots work on NIFs
+	var/is_nif_compatible = TRUE
 
 /obj/item/disk/neuroware/Initialize(mapload)
 	. = ..()
@@ -150,7 +152,10 @@
 	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC))
 		var/obj/item/organ/cyberimp/brain/nif/nif_implant = target.get_organ_slot(ORGAN_SLOT_BRAIN_NIF)
 		if(isnull(nif_implant) || nif_implant.broken)
-			balloon_alert(user, "synthetic brain or NIF required!")
+			balloon_alert(user, "synthetic brain or nif required!")
+			return
+		if(!is_nif_compatible)
+			balloon_alert(user, "not nif compatible!")
 			return
 		// Target lacks a robotic brain, so use the NIF
 		slot_name = "[nif_implant] slot"
@@ -206,11 +211,15 @@
 /obj/item/disk/neuroware/proc/install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(isnull(list_reagents))
 		return TRUE
+	var/atom/target_real = target
+	var/obj/item/organ/brain/robot_nova/robot_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(istype(robot_brain))
+		target_real = robot_brain // Transfer to the robot brain instead of the actual mob, because it's all in your head
 	// Instantiate and transfer reagents to the target
 	var/total_units = counterlist_sum(list_reagents)
 	var/datum/reagents/chip_reagents = new(total_units)
 	chip_reagents.add_noreact_reagent_list(list_reagents)
-	chip_reagents.trans_to(target, total_units)
+	chip_reagents.trans_to(target_real, total_units)
 	if(target != user)
 		log_combat(user, target, "added neuroware to", src, chip_reagents.get_reagent_log_string())
 	return TRUE

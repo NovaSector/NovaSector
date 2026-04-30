@@ -152,6 +152,10 @@
 	// NOVA EDIT START: WOUND_BRUTE as a catch-all for all brute damage types
 	if (required_wounding_type == WOUND_BRUTE && (suggested_wounding_type == WOUND_BLUNT || suggested_wounding_type == WOUND_SLASH || suggested_wounding_type == WOUND_PIERCE))
 		return TRUE
+	if (required_wounding_type == WOUND_BLUNT_AND_BURN && (suggested_wounding_type == WOUND_BLUNT || suggested_wounding_type == WOUND_BURN))
+		return TRUE
+	if (required_wounding_type == WOUND_PIERCE_AND_SLASH && (suggested_wounding_type == WOUND_PIERCE || suggested_wounding_type == WOUND_SLASH))
+		return TRUE
 	// NOVA EDIT END
 	return suggested_wounding_type == required_wounding_type
 

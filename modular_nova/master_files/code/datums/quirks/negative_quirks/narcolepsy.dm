@@ -10,7 +10,6 @@
 	mail_goodies = list(
 		/obj/item/food/energybar,
 		/obj/item/disk/neuroware/pumpup,
-		/obj/item/disk/neuroware/synaptizine,
 	)
-	stim_medication = /obj/item/storage/box/flat/neuroware/synaptizine
+	stim_medication = /obj/item/disk/neuroware/reset
 	abstract_type = /datum/quirk/item_quirk/narcolepsy/synth

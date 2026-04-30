@@ -955,8 +955,12 @@ NOVA EDIT REMOVAL END */
 	grab_ghost(force_grab_ghost)
 	if(full_heal_flags)
 		fully_heal(full_heal_flags)
-
-	if(stat == DEAD && can_be_revived() || (full_heal_flags & HEAL_ADMIN)) //in some cases you can't revive (e.g. no brain) //NOVA EDIT ADDITION - DNR TRAIT - Added: " || (full_heal_flags & HEAL_ADMIN)"
+	// NOVA EDIT ADDITION START - Robots and DNR TRAIT
+	var/can_be_revived = can_be_revived()
+	if(SEND_SIGNAL(src, COMSIG_LIVING_CAN_REVIVE, src) || (full_heal_flags & HEAL_ADMIN))
+		can_be_revived = TRUE
+	if(stat == DEAD && can_be_revived) //in some cases you can't revive (e.g. no brain)
+	// NOVA EDIT ADDITION END
 		set_suicide(FALSE)
 		set_stat(UNCONSCIOUS) //the mob starts unconscious,
 		updatehealth() //then we check if the mob should wake up.

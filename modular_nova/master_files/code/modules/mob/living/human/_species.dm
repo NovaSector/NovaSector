@@ -1,5 +1,11 @@
 /datum/species
 	var/monkey_species = /datum/species/monkey // for kobolds
+	/// What outfit do we use for the species job preview?
+	var/datum/outfit/used_outfit_for_preview = /datum/outfit/job/assistant/consistent
+	/// A species type that this is similar to or a subspecies of.
+	/// Subspecies will be hidden behind a flyout in the preferences
+	/// window, accessed by clicking the parent species' icon.
+	var/datum/species/subspecies_of
 
 /datum/species/proc/allows_food_preferences()
 	return TRUE
@@ -24,6 +30,7 @@
 			|| (can_have_genitals && GLOB.possible_genitals[preference.relevant_mutant_bodypart]) \
 			|| (preference.relevant_inherent_trait in inherent_traits) \
 			|| (preference.relevant_head_flag && check_head_flags(preference.relevant_head_flag)) \
+			|| (preference.relevant_species == type) \
 		)
 			features += preference.savefile_key
 
