@@ -112,8 +112,8 @@
 
 /obj/item/clothing/head/hats/warden/police/patrol/white
 	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol/white"
-	greyscale_colors = "#EBEBEB#3F6E9E"
+	greyscale_colors = "#EBEBEB#39393F"
 
 /obj/item/clothing/head/hats/warden/police/patrol/black
 	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol/black"
-	greyscale_colors = "#3F6E9E#3F6E9E"
+	greyscale_colors = "#39393F#EBEBEB"

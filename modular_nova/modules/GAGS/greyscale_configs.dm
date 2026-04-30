@@ -959,22 +959,22 @@
 
 /datum/greyscale_config/winter_coat
 	name = "Winter Coat"
-	icon_file = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/winter_coat.json'
 
 /datum/greyscale_config/winter_coat_worn
 	name = "Winter Coat (Worn)"
-	icon_file = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/winter_coat_worn.json'
 
 /datum/greyscale_config/winter_hood
 	name = "Winter Coat Hood"
-	icon_file = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/winterhood.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/winter_hood.json'
 
 /datum/greyscale_config/winter_hood/worn
 	name = "Winter Coat Hood (Worn)"
-	icon_file = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/winterhood.dmi'
 
 /datum/greyscale_config/warm_coat
 	name = "Warm Coat"
@@ -2799,6 +2799,16 @@ Security
 	name = "Vested Jacket (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/vested_jacket_worn.json'
+
+/datum/greyscale_config/sec_winter_coat
+	name = "Security Winter Coat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/security_winter_coat.json'
+
+/datum/greyscale_config/sec_winter_coat/worn
+	name = "Security Winter Coat (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/security_winter_coat_worn.json'
 
 /datum/greyscale_config/secgloves
 	name = "Security Gloves"

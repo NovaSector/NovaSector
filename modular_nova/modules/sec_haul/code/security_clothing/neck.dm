@@ -44,12 +44,10 @@
 
 	usr.update_worn_neck()
 
-/datum/atom_skin/security_gauntlet
-	abstract_type = /datum/atom_skin/security_gauntlet
-
 /obj/item/clothing/neck/security_cape/armplate
 	name = "security gauntlet"
 	desc = "A fashionable full-arm gauntlet worn by security officers. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	icon_state = "armplate"
 
 /obj/item/clothing/neck/security_cape/armplate_caped

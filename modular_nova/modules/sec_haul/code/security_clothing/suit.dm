@@ -36,7 +36,7 @@
 /obj/item/clothing/suit/armor/vest/vested_jacket
 	name = "vested security jacket"
 	desc = "The company standard armor now with a stylish unzipped jacket stitched in for when you don't think you'll get shot!"
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/armor/vest/vested_jacket"
 	post_init_icon_state = "vested_jacket"
 	greyscale_config = /datum/greyscale_config/vested_jacket
@@ -60,19 +60,55 @@
 	icon_state = "/obj/item/clothing/suit/armor/vest/vested_jacket/black"
 	greyscale_colors = "#39393F#39393F#EBEBEB"
 
-/obj/item/clothing/head/hooded/winterhood/security/blue
-	desc = "A blue, armour-padded winter hood. Definitely not bulletproof, especially not the part where your face goes."
-	icon = 'modular_nova/master_files/icons/obj/clothing/head/winterhood.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/winterhood.dmi'
-	icon_state = "winterhood_security"
-
-/obj/item/clothing/suit/hooded/wintercoat/security/blue
+/obj/item/clothing/suit/hooded/wintercoat/security/nova
 	name = "security winter coat"
-	desc = "A blue, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority."
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
-	icon_state = "coatsecurity_winter"
-	hoodtype = /obj/item/clothing/head/hooded/winterhood/security/blue
+	desc = "An armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova"
+	post_init_icon_state = "sec_winter_coat"
+	hood_down_overlay_suffix = ""
+	greyscale_config = /datum/greyscale_config/sec_winter_coat
+	greyscale_config_worn = /datum/greyscale_config/sec_winter_coat/worn
+	greyscale_colors = "#CEC8BF#39393F#A52F29#39393F"
+	flags_1 = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/custom
+
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/blue
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/blue"
+	greyscale_colors = "#CEC8BF#39393F#3F6E9E#39393F"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/white
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/white"
+	greyscale_colors = "#CEC8BF#39393F#EBEBEB#39393F"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/black
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/black"
+	greyscale_colors = "#CEC8BF#39393F#39393F#39393F"
+
+//In case colors are changed after initialization
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/coat_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_coat_colors = coat_colors.Copy(1,4)
+	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
+	hood.update_slot_icon()
+
+//But also keep old method in case the hood is (re-)created later
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/coat_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_coat_colors = coat_colors.Copy(1,4)
+	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
+/*
+/obj/item/clothing/head/hooded/winterhood/security
+	name = "tailored winter coat hood"
+	desc = "A heavy jacket hood made from 'synthetic' animal furs, with custom colors."
+	greyscale_config = /datum/greyscale_config/winter_hoods
+	greyscale_config_worn = /datum/greyscale_config/winter_hoods/worn
+*/
 
 /*
 *	WARDEN

@@ -41,6 +41,7 @@
 				/obj/item/clothing/head/beret/sec = 4,
 				/obj/item/clothing/head/security_cap = 4,
 				/obj/item/clothing/mask/bandana/striped/security = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/nova = 4,
 				/obj/item/clothing/under/rank/security/nova/officer = 4,
 				/obj/item/clothing/under/rank/security/nova/plainskirt = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt = 4,
@@ -81,7 +82,7 @@
 				/obj/item/clothing/head/security_cap/blue = 4,
 				/obj/item/clothing/mask/bandana/striped/security/blue = 4,
 				/obj/item/clothing/head/helmet/sec/white = 3,
-				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/nova/blue = 4,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
 				/obj/item/clothing/suit/armor/vest/brit = 3,
@@ -117,8 +118,8 @@
 			"products" = list(
 				/obj/item/clothing/head/beret/sec/nova/white = 4,
 				/obj/item/clothing/head/security_cap/white = 4,
-/*				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
-				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4, */
+				/obj/item/clothing/suit/hooded/wintercoat/security/nova/white = 4,
+//				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
 				/obj/item/clothing/mask/bandana/striped/security/white = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
 				/obj/item/clothing/suit/armor/vest/vested_jacket/white = 4,
@@ -154,8 +155,8 @@
 			"products" = list(
 				/obj/item/clothing/head/beret/sec/nova/black = 4,
 				/obj/item/clothing/head/security_cap/black = 4,
-/*				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
-				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/nova/black = 4,
+/*				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
 				/obj/item/clothing/suit/armor/vest/brit = 3,*/
 				/obj/item/clothing/neck/security_cape/shoulder/black = 4,

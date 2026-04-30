@@ -848,7 +848,7 @@
 
 /datum/loadout_item/suit/security_wintercoat_blue
 	name = "Security Winter Coat (Blue)"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/blue
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/nova/blue
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
 
