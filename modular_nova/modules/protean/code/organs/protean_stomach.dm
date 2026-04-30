@@ -49,6 +49,9 @@
 		return
 	if(isnull(owner.client))
 		return
+	// Skip metal drain in safe zones (centcom z-levels and ghost cafe areas).
+	if(is_centcom_level(owner.z) || is_type_in_list(get_area(owner), GLOB.ghost_cafe_areas))
+		return
 	var/need_mob_update
 	if(metal > PROTEAN_STOMACH_FALTERING)
 		owner.remove_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown)
