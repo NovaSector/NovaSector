@@ -158,6 +158,11 @@
 		return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/mod/construction/plating))
+		var/obj/item/mod/construction/plating/plates = tool
+		var/datum/mod_theme/candidate_theme = GLOB.mod_themes[plates.theme]
+		if(!(candidate_theme?.slot_flags & ITEM_SLOT_BACK))
+			balloon_alert(user, "incompatible!")
+			return ITEM_INTERACT_BLOCKING
 		if(stored_modsuit)
 			balloon_alert(user, "remove assimilated suit!")
 			return ITEM_INTERACT_BLOCKING
