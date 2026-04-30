@@ -231,6 +231,7 @@
 	the_theme.set_up_parts(src, the_theme.default_skin)
 	for(var/obj/item/mod/module/existing_module in modules)
 		existing_module.on_install()
+	enforce_complexity_limit(user)
 	update_static_data_for_all_viewers()
 
 /obj/item/mod/control/pre_equipped/protean/proc/unassimilate_theme()
@@ -249,6 +250,7 @@
 	default_theme.set_up_parts(src, default_theme.default_skin)
 	name = initial(name)
 	desc = initial(desc)
+	enforce_complexity_limit(wearer)
 	update_static_data_for_all_viewers()
 	balloon_alert(wearer, "plating removed")
 
@@ -313,7 +315,32 @@
 		install(servo)
 		if(servo in modules)
 			LAZYREMOVE(cached_modules, servo)
+	enforce_complexity_limit(user)
 	update_static_data_for_all_viewers()
+
+/// Sheds modules that exceed the suit's current complexity_max. Drops removable ones
+/// to the floor and skips non-removable ones. Used after theme swaps that shrink the budget.
+/obj/item/mod/control/pre_equipped/protean/proc/enforce_complexity_limit(mob/user)
+	if(complexity <= complexity_max)
+		return
+	// Walk a copy so uninstall() can mutate `modules` safely; protect protean-essential modules.
+	for(var/obj/item/mod/module/over as anything in modules.Copy())
+		if(complexity <= complexity_max)
+			break
+		if(istype(over, /obj/item/mod/module/protean_servo))
+			continue
+		if(istype(over, /obj/item/mod/module/storage))
+			continue
+		uninstall(over)
+		if(!over.removable)
+			continue
+		var/turf/drop_turf = get_turf(src)
+		if(drop_turf)
+			over.forceMove(drop_turf)
+			if(user)
+				to_chat(user, span_warning("[over] no longer fits and falls to the floor!"))
+		else
+			qdel(over)
 
 /obj/item/mod/control/pre_equipped/protean/proc/unassimilate_modsuit(mob/living/user, forced = FALSE)
 	if(!stored_modsuit)
@@ -374,6 +401,7 @@
 	else
 		stored_modsuit.forceMove(get_turf(src))
 	stored_modsuit = null
+	enforce_complexity_limit(user)
 	update_static_data_for_all_viewers()
 
 
