@@ -73,7 +73,7 @@
 		save_languages -= language
 
 		if(istext(language))
-			language = _text2path(language)
+			language = text2path(language)
 		save_languages[language] = value
 	languages = save_languages
 
@@ -347,7 +347,7 @@
 	if(!length(augments_prefs))
 		augments = augments_prefs
 		return
-	if(current_version < VERSION_AUGMENT_ITEMS_PATH_CHANGE)
+	if(current_version != MODULAR_SAVEFILE_UP_TO_DATE && current_version < VERSION_AUGMENT_ITEMS_PATH_CHANGE)
 		migrate_augment_items(augments_prefs)
 
 	var/list/augments_sanitized = list()
@@ -592,7 +592,7 @@
 		)
 	var/list/to_remove
 	for(var/slot, path in augments_prefs)
-		var/new_path = path_to_augment[text2path(path)]
+		var/new_path = path_to_augment[istext(path) ? text2path(path) : path]
 		if(new_path)
 			augments_prefs[slot] = new_path
 		else
