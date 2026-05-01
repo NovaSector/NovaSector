@@ -435,6 +435,7 @@
 	. -= span_notice("You can repair it by <b>left-clicking</b> with a combat wrench.")
 	. -= span_notice("You can fold it by <b>right-clicking</b> with a combat wrench.")
 	if(FAST_FACTION_CHECK(faction, user.get_faction(), null, null, FALSE) || has_ally(user))
+		. += span_notice("Turret integrity is [atom_integrity]/[max_integrity]")
 		. += span_notice("You can unlock it by <b>left-clicking</b> with an <b>id card.</b>")
 		. += span_notice("You can repair it by <b>left-clicking</b> with a <b>wrench.</b>")
 		. += span_notice("You can fold it by <b>right-clicking</b> with a <b>wrench.</b>")
@@ -845,28 +846,23 @@
 			balloon_alert(user, "turret linked!")
 			return
 
-	if(attacking_item.tool_behaviour != TOOL_WRENCH)
-		return ..()
-
-	if(!attacking_item.toolspeed)
-		return
-
-	else
-		if(atom_integrity == max_integrity)
-			if(!claptrap_moment)
-				balloon_alert(user, "already repaired!")
-			return
-
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/wrench_act(mob/living/user, obj/item/attacking_item)
+	if(atom_integrity == max_integrity)
 		if(!claptrap_moment)
-			balloon_alert(user, "repairing...")
-		while(atom_integrity != max_integrity)
-			if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 20))
-				return
+			balloon_alert(user, "already repaired!")
+		return ITEM_INTERACT_SUCCESS
 
-			repair_damage(25)
+	if(!claptrap_moment)
+		balloon_alert(user, "repairing...")
+	while(atom_integrity != max_integrity)
+		if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 20))
+			return ITEM_INTERACT_FAILURE
 
-		if(!claptrap_moment)
-			balloon_alert(user, "repaired!")
+		repair_damage(25)
+
+	if(!claptrap_moment)
+		balloon_alert(user, "repaired!")
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby_secondary(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers) //IM TIRED OF MISMATCHED VAR NAMES. IT'S ATTACK_ITEM ON MAIN, WHY WEAPON HERE?
 	. = ..()

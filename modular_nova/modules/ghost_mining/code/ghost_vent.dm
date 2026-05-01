@@ -12,11 +12,11 @@
 /obj/structure/ore_vent/ghost_mining
 	name = "oxide nodule vent"
 	desc = "A vent full of rare oxide nodules, producing various minerals every time one is brought up. Scan with an advanced mining scanner to start extracting ore from it."
-	icon_state = "ore_vent_active"
-	base_icon_state = "ore_vent_active"
+	icon_state = "ore_vent"
+	base_icon_state = "ore_vent"
 	mineral_breakdown = list(
-		/datum/material/iron = 50,
-		/datum/material/glass = 50,
+		/datum/material/iron = 1,
+		/datum/material/glass = 1,
 	) //we don't need a separate starting list
 	unique_vent = TRUE
 	boulder_size = BOULDER_SIZE_SMALL
@@ -152,7 +152,6 @@
 	)
 	COOLDOWN_START(src, wave_cooldown, wave_timer)
 	addtimer(CALLBACK(src, PROC_REF(handle_wave_conclusion)), wave_timer)
-	icon_state = icon_state_tapped
 	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/ore_vent/ghost_mining/proc/reset_vent(cleared = FALSE) // We want to re-cycle the vent to an untapped state.
@@ -275,6 +274,10 @@
 					/mob/living/basic/construct/wraith/hostile,
 				)
 
+	if(vent_visual) // if tapped, removed tapped visual
+		vis_contents -= vent_visual //Reversing add_tapped_visual in what i feel is the best order, correct if wrong.
+		QDEL_NULL(vent_visual) //Deletes AND sets to null? man what a time to code.
+
 	for(var/old_ore in mineral_breakdown) //We remove the old ore
 		mineral_breakdown -= old_ore
 
@@ -299,8 +302,8 @@
 	ghost_mining = TRUE
 
 /obj/structure/ore_vent/ghost_mining/snowland
-	icon_state = "ore_vent_ice_active"
-	base_icon_state = "ore_vent_ice_active"
+	icon_state = "ore_vent_ice"
+	base_icon_state = "ore_vent_ice"
 	defending_mobs = list(/mob/living/basic/mining/wolf) //one of the easier snowies
 	threat_pool = list(COLONY_THREAT_SNOW)
 
@@ -313,8 +316,8 @@
 	ghost_mining = TRUE
 
 /obj/structure/ore_vent/ghost_mining/undersnow
-	icon_state = "ore_vent_ice_active"
-	base_icon_state = "ore_vent_ice_active"
+	icon_state = "ore_vent_ice"
+	base_icon_state = "ore_vent_ice"
 	defending_mobs = list(/mob/living/basic/mining/wolf) //one of the easier snowies
 	threat_pool = list(COLONY_THREAT_ICE_MINING)
 
@@ -457,8 +460,8 @@
 	return ..()
 
 /obj/structure/ore_vent/ghost_mining/boss/icemoon
-	icon_state = "ore_vent_ice_active"
-	base_icon_state = "ore_vent_ice_active"
+	icon_state = "ore_vent_ice"
+	base_icon_state = "ore_vent_ice"
 	summoned_boss = /mob/living/simple_animal/hostile/megafauna/demonic_frost_miner // Icemoon's angriest man
 	defending_mobs = list(
 		/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner,
@@ -489,8 +492,8 @@
 	)
 
 /obj/structure/ore_vent/ghost_mining/boss/elite/Icemoon
-	icon_state = "ore_vent_ice_active"
-	base_icon_state = "ore_vent_ice_active"
+	icon_state = "ore_vent_ice"
+	base_icon_state = "ore_vent_ice"
 	summoned_boss = /mob/living/basic/boss/blood_drunk_miner/doom // Hes angry he got demoted to elite status
 	defending_mobs = list(
 		/mob/living/simple_animal/hostile/asteroid/elite/broodmother,

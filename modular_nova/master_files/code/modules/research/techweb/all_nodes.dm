@@ -235,6 +235,7 @@
 /datum/techweb_node/riot_supression/New()
 	design_ids += list(
 		"ammobench_gimmick",
+		"pin_standard",
 	)
 	return ..()
 
