@@ -20,7 +20,6 @@
 	mutant_organs = list(
 		/obj/item/organ/alien/plasmavessel/roundstart,
 		/obj/item/organ/alien/resinspinner/roundstart,
-		/obj/item/organ/alien/hivenode,
 		)
 	exotic_bloodtype = BLOOD_TYPE_XENO
 	heatmod = 2.5
