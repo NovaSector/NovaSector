@@ -3,7 +3,7 @@
 #define CITATION_TICKET_NAME_LEN 24
 
 /datum/crime/citation/timed_ticket
-	/// world.time at which the fine is considered overdue.
+	/// value at which the fine is considered overdue.
 	var/pay_deadline = 0
 
 /**
@@ -77,10 +77,10 @@
 		author = user,
 		fine = fine,
 	)
-	new_citation.pay_deadline = world.time + (deadline_minutes MINUTES)
+	new_citation.pay_deadline = STATION_TIME_PASSED() + (deadline_minutes MINUTES)
 	target.citations += new_citation
 
-	var/deadline_stamp = station_time_timestamp("hh:mm", new_citation.pay_deadline)
+	var/deadline_stamp = round_timestamp("hh:mm", new_citation.pay_deadline)
 
 	new_citation.alert_owner(
 		user,
@@ -105,7 +105,7 @@
 <hr>
 <p><b>Issued to:</b> [target_name] ([target_rank])</p>
 <p><b>Issued by:</b> [issuer_name]</p>
-<p><b>Issued at:</b> [station_time_timestamp()]</p>
+<p><b>Issued at:</b> [round_timestamp("hh:mm")]</p>
 <hr>
 <p><b>Offense:</b> [crime_name]</p>
 [details_block]
