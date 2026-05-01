@@ -275,10 +275,10 @@
 /// Consumes metal to fully heal limbs and restore missing nanomachine organs.
 /obj/item/organ/brain/protean/proc/replace_limbs()
 	var/obj/item/organ/stomach/protean/stomach = owner.get_organ_slot(ORGAN_SLOT_STOMACH)
-	var/obj/item/organ/eyes/robotic/protean/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/eyes/synth/protean/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
 	var/obj/item/organ/tongue/cybernetic/protean/tongue = owner.get_organ_slot(ORGAN_SLOT_TONGUE)
 	var/obj/item/organ/ears/cybernetic/protean/ears = owner.get_organ_slot(ORGAN_SLOT_EARS)
-	var/obj/item/organ/liver/protean/liver = owner.get_organ_slot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/synth/protean/liver = owner.get_organ_slot(ORGAN_SLOT_LIVER)
 
 	if(stomach.metal <= PROTEAN_STOMACH_FULL * 0.6 && istype(stomach))
 		to_chat(owner, span_warning("Not enough metal to heal body!"))
@@ -311,7 +311,7 @@
 	owner.update_body(TRUE)
 	owner.update_body_parts()
 	if(isnull(eyes))
-		eyes = new /obj/item/organ/eyes/robotic/protean
+		eyes = new /obj/item/organ/eyes/synth/protean
 		eyes.on_bodypart_insert()
 		eyes.Insert(owner, special = TRUE)
 	else if(eyes.organ_flags & ORGAN_NANOMACHINE)
@@ -332,7 +332,7 @@
 		ears.set_organ_damage(0)
 
 	if(isnull(liver))
-		liver = new /obj/item/organ/liver/protean
+		liver = new /obj/item/organ/liver/synth/protean
 		liver.on_bodypart_insert()
 		liver.Insert(owner, special = TRUE)
 	else if(liver.organ_flags & ORGAN_NANOMACHINE)
