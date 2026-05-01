@@ -65,6 +65,7 @@
 	if(quirks_prompt == "Yes")
 		human_mob.cleanse_quirk_datums()
 		SSquirks.AssignQuirks(src, client)
+	SEND_SIGNAL(human_mob, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	var/msg = span_notice("[key_name_admin(usr)] has loaded [key_name(src)]'s preferences onto their current mob [ADMIN_VERBOSEJMP(src)].")
 	message_admins(msg)
 	admin_ticket_log(src, msg)
