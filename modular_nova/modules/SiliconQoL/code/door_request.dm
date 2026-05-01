@@ -35,8 +35,6 @@
 			door.open()
 			playsound(door, 'sound/machines/ping.ogg', 50, FALSE, SILENCED_SOUND_EXTRARANGE, ignore_walls = FALSE)
 			to_chat(src, "<span class='notice'>You open the [door] for [requester].</span>")
-			// Clear the per-(player, door) AI-request cooldown since the ask succeeded — they may need to ask again later.
-			door.requesters -= "[requester.ckey]_[REF(door)]"
 		if("bolt")
 			if(!door.locked)
 				door.bolt()

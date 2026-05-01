@@ -2,7 +2,7 @@
 	name = "Wizarditis"
 	max_stages = 4
 	spread_text = "Airborne"
-	cure_text = /datum/reagent/consumable/ethanol/manly_dorf::name + ", abated by magical grounding"
+	cure_text = "The Manly Dorf"
 	cures = list(/datum/reagent/consumable/ethanol/manly_dorf)
 	cure_chance = 100
 	agent = "Rincewindus Vulgaris"

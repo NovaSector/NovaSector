@@ -11,8 +11,6 @@
 
 /datum/action/item_action/nif/open_menu/Trigger(trigger_flags)
 	. = ..()
-	if(!.)
-		return
 	var/obj/item/organ/cyberimp/brain/nif/target_nif = target
 
 	if(target_nif.calibrating)

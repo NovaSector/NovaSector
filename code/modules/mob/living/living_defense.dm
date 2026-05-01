@@ -227,7 +227,8 @@
 	. = combat_mode
 	combat_mode = new_mode
 	SEND_SIGNAL(src, COMSIG_COMBAT_MODE_TOGGLED)
-	hud_used?.screen_objects[HUD_MOB_INTENTS]?.update_appearance()
+	if(hud_used?.action_intent)
+		hud_used.action_intent.update_appearance()
 	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE // NOVA EDIT ADDITION
 	if(silent || !client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode))
 		return
@@ -333,13 +334,13 @@
  */
 /mob/living/proc/grab(mob/living/target)
 	if(!istype(target))
-		return GRAB_SKIP
+		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_LIVING_GRAB, target) & (COMPONENT_CANCEL_ATTACK_CHAIN|COMPONENT_SKIP_ATTACK))
-		return GRAB_FAILURE
+		return FALSE
 	if(target.check_block(src, 0, "[src]'s grab", UNARMED_ATTACK))
-		return GRAB_FAILURE
+		return FALSE
 	target.grabbedby(src)
-	return GRAB_SUCCESS
+	return TRUE
 
 /**
  * Called when this mob is grabbed by another mob.

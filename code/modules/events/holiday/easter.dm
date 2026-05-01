@@ -143,8 +143,7 @@
 	)
 	result = /obj/item/food/hotcrossbun
 	added_foodtypes = SUGAR | BREAKFAST
-	dish_category = DISH_BREAD
-	meal_category = MEAL_SNACK
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/briochecake
 	name = "Brioche cake"
@@ -153,8 +152,7 @@
 		/datum/reagent/consumable/sugar = 2
 	)
 	result = /obj/item/food/cake/brioche
-	dish_category = DISH_PASTRY
-	meal_category = MEAL_DESSERT
+	category = CAT_MISCFOOD
 
 /obj/item/food/scotchegg
 	name = "scotch egg"
@@ -165,7 +163,7 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	crafting_complexity = FOOD_COMPLEXITY_2
-	foodtypes = MEAT|EGG
+	foodtypes = MEAT
 
 /datum/crafting_recipe/food/scotchegg
 	name = "Scotch egg"
@@ -177,8 +175,7 @@
 	)
 	result = /obj/item/food/scotchegg
 	removed_foodtypes = BREAKFAST
-	dish_category = DISH_MEAT
-	meal_category = MEAL_APPETIZER
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/mammi
 	name = "Mammi"
@@ -189,8 +186,7 @@
 	)
 	result = /obj/item/food/bowled/mammi
 	added_foodtypes = DAIRY
-	dish_category = DISH_CANDY
-	meal_category = MEAL_DESSERT
+	category = CAT_MISCFOOD
 
 /obj/item/food/chocolatebunny
 	name = "chocolate bunny"
@@ -207,5 +203,4 @@
 		/obj/item/food/chocolatebar = 1
 	)
 	result = /obj/item/food/chocolatebunny
-	dish_category = DISH_CANDY
-	meal_category = MEAL_DESSERT
+	category = CAT_MISCFOOD

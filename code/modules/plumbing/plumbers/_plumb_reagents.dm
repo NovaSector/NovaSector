@@ -72,6 +72,7 @@
 
 		if(!isnull(target_id))
 			if(reagent.type == target_id)
+				force_stop_reagent_reacting(reagent)
 				transfer_amount = min(amount, reagent.volume)
 			else
 				continue
@@ -211,6 +212,7 @@
 
 		if(!isnull(target_id))
 			if(reagent.type == target_id)
+				force_stop_reagent_reacting(reagent)
 				transfer_amount = min(amount, working_volume)
 			else
 				continue

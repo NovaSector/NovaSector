@@ -36,8 +36,6 @@
 	connect_to_network()
 	AddElement(/datum/element/repackable, deconstruction_type, 10 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
-	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
-	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 	// This is just to make sure our atmos connection spawns facing the right way
 	setDir(dir)
 
@@ -94,8 +92,18 @@
 	else if(!soundloop.is_active() && power_output)
 		soundloop.start()
 
+
+/obj/machinery/power/stirling_generator/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return
+
+
+/obj/machinery/power/stirling_generator/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return
+
+
 /obj/machinery/power/stirling_generator/wrench_act(mob/living/user, obj/item/tool)
 	return default_change_direction_wrench(user, tool)
+
 
 /obj/machinery/power/stirling_generator/default_change_direction_wrench(mob/user, obj/item/wrench)
 	if(wrench.tool_behaviour != TOOL_WRENCH)

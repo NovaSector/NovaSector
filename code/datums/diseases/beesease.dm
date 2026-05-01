@@ -1,14 +1,14 @@
 /datum/disease/beesease
 	name = "Beesease"
-	form = "Parasite"
+	form = "Infection"
 	max_stages = 4
-	spread_text = "Skin contact"
+	spread_text = "On contact"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = /datum/reagent/consumable/sugar::name
+	cure_text = "Sugar"
 	cures = list(/datum/reagent/consumable/sugar)
 	agent = "Apidae Infection"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	desc = "A strange disease that leads to the gestation of bees in the subject's stomach, which are often regurgitated."
+	desc = "If left untreated subject will regurgitate bees."
 	severity = DISEASE_SEVERITY_MEDIUM
 	infectable_biotypes = MOB_ORGANIC|MOB_UNDEAD //bees nesting in corpses
 

@@ -19,8 +19,7 @@
 #define BUGS (1<<18)
 #define GORE (1<<19)
 #define STONE (1<<20)
-#define EGG (1<<21)
-#define BLOODY (1<<22) // NOVA EDIT ADDITION - Hemophage Food
+#define BLOODY (1<<21) // NOVA EDIT - Hemophage Food
 
 DEFINE_BITFIELD(foodtypes, list(
 	"MEAT" = MEAT,
@@ -44,8 +43,7 @@ DEFINE_BITFIELD(foodtypes, list(
 	"BUGS" = BUGS,
 	"GORE" = GORE,
 	"STONE" = STONE,
-	"EGG" = EGG,
-	"BLOODY" = BLOODY, // NOVA EDIT ADDITION - Hemophage Food
+	"BLOODY" = BLOODY, // NOVA EDIT - Hemophage Food
 ))
 
 /// A list of food type names, in order of their flags
@@ -71,8 +69,7 @@ DEFINE_BITFIELD(foodtypes, list(
 	"BUGS", \
 	"GORE", \
 	"STONE", \
-	"EGG", \
-	"BLOODY", /* NOVA EDIT ADDITION - Hemophage Food */ \
+	"BLOODY", /* NOVA EDIT - Hemophage Food */ \
 )
 
 /// IC meaning (more or less) for food flags
@@ -98,8 +95,7 @@ DEFINE_BITFIELD(foodtypes, list(
 	"Bugs", \
 	"Gore", \
 	"Rocks", \
-	"Eggs", \
-	"Bloody", /* NOVA EDIT ADDITION - Hemophage Food */ \
+	"Bloody", /* NOVA EDIT - Hemophage Food */ \
 )
 
 /// Food types assigned to all podperson organs

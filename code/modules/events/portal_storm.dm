@@ -68,7 +68,7 @@
 	while(number_of_hostiles > hostiles_spawn.len)
 		hostiles_spawn += get_random_station_turf()
 
-	next_boss_spawn = start_when + ceil(2 * number_of_hostiles / number_of_bosses)
+	next_boss_spawn = start_when + CEILING(2 * number_of_hostiles / number_of_bosses, 1)
 
 /datum/round_event/portal_storm/announce(fake)
 	set waitfor = 0
@@ -124,7 +124,7 @@
 		return FALSE
 
 	if(activeFor == next_boss_spawn)
-		next_boss_spawn += ceil(number_of_hostiles / number_of_bosses)
+		next_boss_spawn += CEILING(number_of_hostiles / number_of_bosses, 1)
 		return TRUE
 	return FALSE
 

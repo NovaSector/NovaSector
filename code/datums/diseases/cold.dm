@@ -1,8 +1,8 @@
 /datum/disease/cold
 	name = "The Cold"
-	desc = "A common, mildly annoying contagion. If left untreated the subject will contract the flu."
+	desc = "If left untreated the subject will contract the flu."
 	max_stages = 3
-	cure_text = /datum/reagent/medicine/spaceacillin::name + " or rest"
+	cure_text = "Rest & Spaceacillin"
 	cures = list(/datum/reagent/medicine/spaceacillin)
 	agent = "XY-rhinovirus"
 	viable_mobtypes = list(/mob/living/carbon/human)
@@ -11,11 +11,6 @@
 	severity = DISEASE_SEVERITY_NONTHREAT
 	required_organ = ORGAN_SLOT_LUNGS
 
-/datum/disease/cold/cure(add_resistance)
-	// buy one, get one free
-	if(add_resistance && affected_mob)
-		LAZYOR(affected_mob.disease_resistances, "[/datum/disease/cold9]")
-	return ..()
 
 /datum/disease/cold/stage_act(seconds_per_tick)
 	. = ..()

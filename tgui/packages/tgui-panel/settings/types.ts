@@ -27,7 +27,6 @@ export type HighlightSetting = {
   id: string;
   matchCase: boolean;
   matchWord: boolean;
-  enabled: boolean;
 };
 
 export type HighlightState = {

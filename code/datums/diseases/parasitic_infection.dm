@@ -2,13 +2,12 @@
 	form = "Parasite"
 	name = "Parasitic Infection"
 	max_stages = 4
-	cure_text = "Surgical removal of the liver"
-	agent = "Food-bourne Parasite"
-	spread_text = "None"
+	cure_text = "Surgical removal of the liver."
+	agent = "Consuming Live Parasites"
+	spread_text = "Non-Biological"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	spreading_modifier = 1
-	desc = "An unknown parasite, likely entering the body via improperly prepared food, has infected the subject's liver. \
-		If left untreated the subject will passively lose nutrients, and eventually lose their liver."
+	desc = "If left untreated the subject will passively lose nutrients, and eventually lose their liver."
 	severity = DISEASE_SEVERITY_HARMFUL
 	disease_flags = CAN_CARRY|CAN_RESIST
 	spread_flags = DISEASE_SPREAD_NON_CONTAGIOUS

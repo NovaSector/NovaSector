@@ -17,4 +17,4 @@
 	if (!.)
 		return FALSE
 
-	return /datum/quirk/sensitivesnout::name in preferences.all_quirks
+	return "Sensitive Snout" in preferences.all_quirks

@@ -78,6 +78,7 @@
 	if(check_pipe_on_turf())
 		set_anchored(FALSE)
 		set_panel_open(TRUE)
+		icon_state = "thermo-open"
 		balloon_alert(user, "the port is already in use!")
 
 /obj/machinery/atmospherics/components/unary/thermomachine/RefreshParts()
@@ -202,8 +203,9 @@
 	if(!anchored)
 		balloon_alert(user, "anchor!")
 		return ITEM_INTERACT_SUCCESS
-
-	return default_deconstruction_screwdriver(user, tool)
+	if(default_deconstruction_screwdriver(user, "thermo-open", "thermo-0", tool))
+		update_appearance(UPDATE_ICON)
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/atmospherics/components/unary/thermomachine/wrench_act(mob/living/user, obj/item/tool)
 	return default_change_direction_wrench(user, tool)

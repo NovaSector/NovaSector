@@ -639,7 +639,7 @@
 /turf/open/floor/wood,
 /area/awaymission/cabin)
 "cN" = (
-/obj/effect/spawner/random/entertainment/slot_machine,
+/obj/machinery/computer/slot_machine,
 /turf/open/floor/carpet,
 /area/awaymission/cabin)
 "cO" = (

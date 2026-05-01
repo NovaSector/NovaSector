@@ -101,6 +101,3 @@
 ///The maximum file size allowed by savefile uploading, in kilobytes
 /datum/config_entry/number/savefile_upload_limit
 	default = 2000
-
-/datum/config_entry/flag/enable_nova_star_restrictions
-	default = TRUE

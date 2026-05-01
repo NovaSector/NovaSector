@@ -393,7 +393,13 @@ Doesn't work on other aliens/AI.*/
 	var/obj/item/organ/alien/plasmavessel/vessel = get_organ_by_type(/obj/item/organ/alien/plasmavessel)
 	if(!vessel)
 		return FALSE
-	vessel.adjust_plasma(amount)
+	vessel.stored_plasma = max(vessel.stored_plasma + amount,0)
+	vessel.stored_plasma = min(vessel.stored_plasma, vessel.max_plasma) //upper limit of max_plasma, lower limit of 0
 	for(var/datum/action/cooldown/alien/ability in actions)
 		ability.build_all_button_icons()
 	return TRUE
+
+/mob/living/carbon/alien/adjustPlasma(amount)
+	. = ..()
+	updatePlasmaDisplay()
+

@@ -80,9 +80,6 @@
 		span_notice("[surgeon] sends a powerful shock to [patient]'s [brain_type] with [tool]..."),
 		span_notice("[surgeon] sends a powerful shock to [patient]'s [brain_type]..."),
 	)
-	if (patient.stat < DEAD)
-		patient.visible_message(span_notice("...[patient] is completely unaffected! Seems like they're already active!"))
-		return
 	patient.grab_ghost()
 	if(iscarbon(patient))
 		var/mob/living/carbon/carbon_patient = patient
@@ -95,14 +92,23 @@
 
 /// Call when successfully revived
 /datum/surgery_operation/basic/revive_synth/proc/on_revived(mob/living/surgeon, mob/living/patient)
-	patient.emote("chime")
-	patient.visible_message(span_notice("...[patient] reactivates, their chassis coming online!"))
-	to_chat(patient, span_danger("[CONFIG_GET(string/blackoutpolicy)]"))
+	if (patient.stat < DEAD)
+		patient.visible_message(span_notice("...[patient] is completely unaffected! Seems like they're already active!"))
+		return TRUE
+	patient.grab_ghost()
+	if(patient.revive())
+		patient.emote("chime")
+		patient.visible_message(span_notice("...[patient] reactivates, their chassis coming online!"))
+		if(HAS_MIND_TRAIT(surgeon, TRAIT_MORBID)) // Contrary to their typical hatred of resurrection, it wouldn't be very thematic if morbid people didn't love playing god
+			surgeon.add_mood_event("morbid_revival_success", /datum/mood_event/morbid_revival_success)
+		to_chat(patient, span_danger("[CONFIG_GET(string/blackoutpolicy)]"))
+	patient.adjust_organ_loss(ORGAN_SLOT_BRAIN, 15, 180)
 
 /// Called when revival fails
 /datum/surgery_operation/basic/revive_synth/proc/on_no_revive(mob/living/surgeon, mob/living/patient)
 	patient.emote("buzz")
 	patient.visible_message(span_warning("...[patient.p_they()] convulses, then goes offline."))
+	patient.adjust_organ_loss(ORGAN_SLOT_BRAIN, 50, 199) // MAD SCIENCE
 
 /// Flavor for failure
 /datum/surgery_operation/basic/revive_synth/on_failure(mob/living/patient, mob/living/surgeon, obj/item/tool, list/operation_args)

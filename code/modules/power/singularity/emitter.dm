@@ -329,10 +329,14 @@
 		return remove_gun(user)
 	if(panel_open && diskie)
 		return remove_disk(user)
-	return default_deconstruction_crowbar(user, item)
+	default_deconstruction_crowbar(item)
+	return TRUE
 
 /obj/machinery/power/emitter/screwdriver_act(mob/living/user, obj/item/item)
-	return default_deconstruction_screwdriver(user, item)
+	if(..())
+		return TRUE
+	default_deconstruction_screwdriver(user, "[base_icon_state]_open", base_icon_state, item)
+	return TRUE
 
 /// Attempt to toggle the controls lock of the emitter
 /obj/machinery/power/emitter/proc/togglelock(mob/user)

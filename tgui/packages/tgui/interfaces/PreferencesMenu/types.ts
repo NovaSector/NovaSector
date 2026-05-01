@@ -12,7 +12,6 @@ export enum Food {
   Alcohol = 'ALCOHOL',
   Breakfast = 'BREAKFAST',
   Bugs = 'BUGS',
-  Bloody = 'BLOODY', // NOVA EDIT ADDITION - Hemophage Food
   Cloth = 'CLOTH',
   Dairy = 'DAIRY',
   Fried = 'FRIED',
@@ -31,7 +30,7 @@ export enum Food {
   Sugar = 'SUGAR',
   Toxic = 'TOXIC',
   Vegetables = 'VEGETABLES',
-  Egg = 'EGG',
+  Bloody = 'BLOODY', // NOVA EDIT ADDITION - Hemophage Food
 }
 
 export enum JobPriority {

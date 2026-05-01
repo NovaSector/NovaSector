@@ -36,4 +36,3 @@
 /datum/disease/transformation/gondola/virtual_domain
 	stage_prob = 9
 	new_form = /mob/living/basic/pet/gondola/virtual_domain
-	visibility_flags = parent_type::visibility_flags | HIDDEN_BOOK

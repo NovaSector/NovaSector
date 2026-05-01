@@ -187,6 +187,9 @@ SUBSYSTEM_DEF(shuttle)
 
 		supply_packs[pack.id] = pack
 
+	for (var/obj/machinery/computer/cargo/express/console as anything in express_consoles)
+		console.packin_up(TRUE)
+
 	setup_shuttles(stationary_docking_ports)
 	has_purchase_shuttle_access = init_has_purchase_shuttle_access()
 
@@ -426,7 +429,7 @@ SUBSYSTEM_DEF(shuttle)
 	if(emergency.timer != old_timer)
 		return FALSE
 
-	if(!cancel_evac(user, hide_origin = TRUE))
+	if(!cancel_evac(user))
 		return FALSE //feedback handled in cancel_evac()
 
 	if(!admiral_message)
@@ -454,17 +457,14 @@ SUBSYSTEM_DEF(shuttle)
 	src.emergency = src.backup_shuttle
 
 /// Actually work on canceling the emergency shuttle recall. Returns TRUE if successful, FALSE otherwise.
-/// If hide_origin is TRUE, the recaller's area will not be revealed in announcements (used by admin tools)
-/datum/controller/subsystem/shuttle/proc/cancel_evac(mob/user, hide_origin = FALSE)
+/datum/controller/subsystem/shuttle/proc/cancel_evac(mob/user)
 	if(!can_recall(user))
 		return FALSE
 
-	var/area/signal_origin = hide_origin ? null : get_area(user)
-	emergency.cancel(signal_origin)
+	emergency.cancel(get_area(user))
 	log_shuttle("[key_name(user)] has recalled the shuttle.")
 	message_admins("[ADMIN_LOOKUPFLW(user)] has recalled the shuttle.")
-	if(!hide_origin)
-		deadchat_broadcast(" has recalled the shuttle from [span_name("[get_area_name(user, TRUE)]")].", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
+	deadchat_broadcast(" has recalled the shuttle from [span_name("[get_area_name(user, TRUE)]")].", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
 	return TRUE
 
 /// Can this user recall the emergency shuttle? Returns TRUE if they can, otherwise returns FALSE.

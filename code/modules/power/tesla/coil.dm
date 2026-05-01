@@ -3,7 +3,6 @@
 	desc = "For the union!"
 	icon = 'icons/obj/machines/engine/tesla_coil.dmi'
 	icon_state = "coil0"
-	base_icon_state = "coil"
 
 	// Executing a traitor caught releasing tesla was never this fun!
 	can_buckle = TRUE
@@ -63,24 +62,32 @@
 			"Stored <b>[display_energy(get_stored_joules())]</b>.<br>" + \
 			"Processing <b>[display_power(processed_energy)]</b>.")
 
-/obj/machinery/power/energy_accumulator/tesla_coil/set_anchored(anchorvalue)
+/obj/machinery/power/energy_accumulator/tesla_coil/default_unfasten_wrench(mob/user, obj/item/I, time = 20)
 	. = ..()
-	update_cable_icons_on_turf(get_turf(src))
+	if(. == SUCCESSFUL_UNFASTEN)
+		if(panel_open)
+			icon_state = "coil_open[anchored]"
+		else
+			icon_state = "coil[anchored]"
+		update_cable_icons_on_turf(get_turf(src))
 
 /obj/machinery/power/energy_accumulator/tesla_coil/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	default_unfasten_wrench(user, tool)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/power/energy_accumulator/tesla_coil/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state][panel_open ? "_open" : ""][anchored]"
+/obj/machinery/power/energy_accumulator/tesla_coil/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
+	if(default_deconstruction_screwdriver(user, "coil_open[anchored]", "coil[anchored]", W))
+		return
 
-/obj/machinery/power/energy_accumulator/tesla_coil/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	if(default_deconstruction_crowbar(W))
+		return
 
-/obj/machinery/power/energy_accumulator/tesla_coil/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	if(is_wire_tool(W) && panel_open)
+		wires.interact(user)
+		return
+
+	return ..()
 
 /obj/machinery/power/energy_accumulator/tesla_coil/process(seconds_per_tick)
 	. = ..()
@@ -92,7 +99,7 @@
 		return ..()
 	ADD_TRAIT(src, TRAIT_BEING_SHOCKED, WAS_SHOCKED)
 	addtimer(TRAIT_CALLBACK_REMOVE(src, TRAIT_BEING_SHOCKED, WAS_SHOCKED), 1 SECONDS)
-	flick("[base_icon_state]hit", src)
+	flick("coilhit", src)
 	if(!(zap_flags & ZAP_GENERATES_POWER)) //Prevent infinite recursive power
 		return 0
 	if(zap_flags & ZAP_LOW_POWER_GEN)
@@ -118,7 +125,6 @@
 	desc = "Keeps an area from being fried by Edison's Bane."
 	icon = 'icons/obj/machines/engine/tesla_coil.dmi'
 	icon_state = "grounding_rod0"
-	base_icon_state = "grounding_rod"
 	anchored = FALSE
 	density = TRUE
 	wants_powernet = FALSE
@@ -139,29 +145,36 @@
 			"Recently grounded <b>[display_energy(get_stored_joules())]</b>.<br>" + \
 			"This energy would sustainably release <b>[display_power(calculate_sustainable_power(), convert = FALSE)]</b>.")
 
+/obj/machinery/power/energy_accumulator/grounding_rod/default_unfasten_wrench(mob/user, obj/item/I, time = 20)
+	. = ..()
+	if(. == SUCCESSFUL_UNFASTEN)
+		if(panel_open)
+			icon_state = "grounding_rod_open[anchored]"
+		else
+			icon_state = "grounding_rod[anchored]"
+
 /obj/machinery/power/energy_accumulator/grounding_rod/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	default_unfasten_wrench(user, tool)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/power/energy_accumulator/grounding_rod/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state][panel_open ? "_open" : ""][anchored]"
+/obj/machinery/power/energy_accumulator/grounding_rod/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
+	if(default_deconstruction_screwdriver(user, "grounding_rod_open[anchored]", "grounding_rod[anchored]", W))
+		return
 
-/obj/machinery/power/energy_accumulator/grounding_rod/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	if(default_deconstruction_crowbar(W))
+		return
 
-/obj/machinery/power/energy_accumulator/grounding_rod/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	return ..()
 
 /obj/machinery/power/energy_accumulator/grounding_rod/zap_act(energy, zap_flags)
 	if(anchored && !panel_open)
-		flick("[base_icon_state]hit", src)
+		flick("grounding_rodhit", src)
 		zap_buckle_check(energy)
 		stored_energy += energy
 		return 0
-	return ..()
-
+	else
+		. = ..()
 /obj/machinery/power/energy_accumulator/grounding_rod/release_energy(joules = 0)
 	stored_energy -= joules
 	processed_energy = joules

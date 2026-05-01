@@ -147,8 +147,7 @@
 /obj/effect/mapping_helpers/broken_machine,
 /obj/machinery/camera/autoname/directional/east{
 	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
+	camera_enabled = 0
 	},
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
@@ -813,9 +812,9 @@
 "hf" = (
 /obj/structure/cable/layer1,
 /obj/structure/sign/poster/contraband/syndicate_pistol/directional/west,
-/mob/living/basic/bot/secbot{
+/mob/living/simple_animal/bot/secbot{
 	faction = list("Syndicate");
-	bot_access_flags = 4;
+	bot_cover_flags = 4;
 	baton_type = /obj/item/melee/baton/security/cattleprod;
 	name = "\improper Syndicate Securitron";
 	desc = "A little security robot, reprogrammed by the syndicate. He looks downright surly.";
@@ -1693,8 +1692,7 @@
 	},
 /obj/machinery/camera/autoname/directional/west{
 	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
+	camera_enabled = 0
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/hauntedtradingpost/employees)
@@ -3085,8 +3083,7 @@
 	},
 /obj/machinery/camera/autoname/directional/south{
 	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
+	camera_enabled = 0
 	},
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
@@ -4092,8 +4089,7 @@
 /obj/item/shard,
 /obj/machinery/camera/autoname/directional/east{
 	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
+	camera_enabled = 0
 	},
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
@@ -4187,8 +4183,7 @@
 /obj/machinery/duct,
 /obj/machinery/camera/autoname/directional/west{
 	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
+	camera_enabled = 0
 	},
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/ruin/space/has_grav/hauntedtradingpost/public/corridor)
@@ -4440,8 +4435,7 @@
 "Mr" = (
 /obj/machinery/camera/autoname/directional/west{
 	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
+	camera_enabled = 0
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hauntedtradingpost/public)
@@ -6021,8 +6015,7 @@
 "ZZ" = (
 /obj/machinery/camera/autoname/directional/east{
 	camera_construction_state = 1;
-	camera_enabled = 0;
-	network = list("donk")
+	camera_enabled = 0
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/hauntedtradingpost/public)

@@ -1,14 +1,14 @@
 /datum/disease/anxiety
 	name = "Severe Anxiety"
-	form = "Condition"
+	form = "Infection"
 	max_stages = 4
-	spread_text = "Skin contact"
+	spread_text = "On contact"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = /datum/reagent/consumable/ethanol::name + " (Liquid Courage)"
+	cure_text = "Ethanol (Liquid Courage)"
 	cures = list(/datum/reagent/consumable/ethanol)
 	agent = "Excess Lepidopticides"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	desc = "A well documented condition leading to 'butterflies in the stomach' in a literal sense, which are often regurgitated."
+	desc = "If left untreated subject will regurgitate butterflies."
 	severity = DISEASE_SEVERITY_MINOR
 
 

@@ -58,9 +58,6 @@
 	desc = "Makes it impossible to see anything."
 
 /datum/action/item_action/toggle_vision/Trigger(trigger_flags)
-	. = ..()
-	if(!.)
-		return
 	var/obj/item/clothing/head/deprivation_helmet/deprivation_helmet = target
 	var/mob/living/carbon/affected_carbon = usr
 	if(istype(deprivation_helmet))
@@ -75,9 +72,6 @@
 	desc = "Makes it impossible to hear anything."
 
 /datum/action/item_action/toggle_hearing/Trigger(trigger_flags)
-	. = ..()
-	if(!.)
-		return
 	var/obj/item/clothing/head/deprivation_helmet/deprivation_helmet = target
 	var/mob/living/carbon/affected_carbon = usr
 	if(istype(deprivation_helmet))
@@ -92,9 +86,6 @@
 	desc = "Makes it impossible to say anything."
 
 /datum/action/item_action/toggle_speech/Trigger(trigger_flags)
-	. = ..()
-	if(!.)
-		return
 	var/obj/item/clothing/head/deprivation_helmet/deprivation_helmet = target
 	var/mob/living/carbon/affected_carbon = usr
 	if(istype(deprivation_helmet))

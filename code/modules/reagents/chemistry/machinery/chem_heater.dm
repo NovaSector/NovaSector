@@ -80,7 +80,7 @@
 			. += span_notice("Its panel can be [EXAMINE_HINT("pried")] open")
 
 /obj/machinery/chem_heater/update_icon_state()
-	icon_state = "[base_icon_state][(beaker && !panel_open) ? 1 : 0]b"
+	icon_state = "[base_icon_state][beaker ? 1 : 0]b"
 	return ..()
 
 /obj/machinery/chem_heater/RefreshParts()
@@ -108,15 +108,28 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/chem_heater/wrench_act(mob/living/user, obj/item/tool)
+	if(user.combat_mode)
+		return NONE
+
+	. = ITEM_INTERACT_BLOCKING
 	if(default_unfasten_wrench(user, tool) == SUCCESSFUL_UNFASTEN)
 		return ITEM_INTERACT_SUCCESS
-	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/chem_heater/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	if(user.combat_mode)
+		return NONE
+
+	. = ITEM_INTERACT_BLOCKING
+	if(default_deconstruction_screwdriver(user, "mixer0b", "[base_icon_state][beaker ? 1 : 0]b", tool))
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/chem_heater/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	if(user.combat_mode)
+		return NONE
+
+	. = ITEM_INTERACT_BLOCKING
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/chem_heater/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()

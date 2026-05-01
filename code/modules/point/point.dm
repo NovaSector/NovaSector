@@ -99,11 +99,13 @@
  *
  * overridden here and in /mob/dead/observer for different point span classes and sanity checks
  */
-/mob/verb/pointed(atom/A as mob|obj|turf in view(client.view, src))
+/mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
+	set category = "Object"
 
-	if(isnull(A) || istype(A, /obj/effect/temp_visual/point) || isarea(A))
+	if(istype(A, /obj/effect/temp_visual/point))
 		return FALSE
+
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(_pointed), A))
 
 /// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].

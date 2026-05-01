@@ -102,10 +102,15 @@
 		. += "[base_icon_state]_panel"
 
 /obj/machinery/photobooth/screwdriver_act(mob/living/user, obj/item/tool)
-	return has_buckled_mobs() ? NONE : default_deconstruction_screwdriver(user, tool)
+	if(!has_buckled_mobs() && default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
+		update_appearance(UPDATE_ICON)
+		return ITEM_INTERACT_SUCCESS
+	return ..()
 
 /obj/machinery/photobooth/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
+	return ..()
 
 /obj/machinery/photobooth/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)

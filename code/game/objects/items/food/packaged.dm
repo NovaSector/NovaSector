@@ -2,7 +2,7 @@
 
 // Cans
 /obj/item/food/canned
-	name = "canned air"
+	name = "Canned Air"
 	desc = "If you ever wondered where air came from..."
 	food_reagents = list(
 		/datum/reagent/oxygen = 6,
@@ -65,7 +65,7 @@
 	foodtypes = FRUIT | SUGAR
 
 /obj/item/food/canned/peaches/maint
-	name = "maintenance peaches"
+	name = "Maintenance Peaches"
 	desc = "I have a mouth and I must eat."
 	icon_state = "peachcanmaint"
 	trash_type = /obj/item/trash/can/food/peaches/maint

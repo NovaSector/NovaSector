@@ -1,7 +1,6 @@
 /obj/machinery/mecha_part_fabricator
 	icon = 'icons/obj/machines/robotics.dmi'
 	icon_state = "fab-idle"
-	base_icon_state = "fab"
 	name = "exosuit fabricator"
 	desc = "Nothing is being built."
 	density = TRUE
@@ -178,17 +177,16 @@
  * Adds the overlay to show the fab working and sets active power usage settings.
  */
 /obj/machinery/mecha_part_fabricator/proc/on_start_printing()
-	add_overlay("[base_icon_state]-active")
+	add_overlay("fab-active")
 	update_use_power(ACTIVE_POWER_USE)
 	print_sound.start()
-
 /**
  * Intended to be called when the exofab has stopped working and is no longer printing items.
  *
  * Removes the overlay to show the fab working and sets idle power usage settings. Additionally resets the description and turns off queue processing.
  */
 /obj/machinery/mecha_part_fabricator/proc/on_finish_printing()
-	cut_overlay("[base_icon_state]-active")
+	cut_overlay("fab-active")
 	update_use_power(IDLE_POWER_USE)
 	desc = initial(desc)
 	process_queue = FALSE
@@ -496,26 +494,24 @@
 
 /obj/machinery/mecha_part_fabricator/proc/AfterMaterialInsert(item_inserted, id_inserted, amount_inserted)
 	var/datum/material/M = id_inserted
-	add_overlay("[base_icon_state]-load-[M.name]")
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), "[base_icon_state]-load-[M.name]"), 1 SECONDS)
-
-/obj/machinery/mecha_part_fabricator/update_icon_state()
-	. = ..()
-	icon_state = panel_open ? "[base_icon_state]-o" : "[base_icon_state]-idle"
+	add_overlay("fab-load-[M.name]")
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), "fab-load-[M.name]"), 1 SECONDS)
 
 /obj/machinery/mecha_part_fabricator/screwdriver_act(mob/living/user, obj/item/I)
+	if(..())
+		return TRUE
 	if(being_built)
 		to_chat(user, span_warning("\The [src] is currently processing! Please wait until completion."))
-		return NONE
-
-	return default_deconstruction_screwdriver(user, I)
+		return FALSE
+	return default_deconstruction_screwdriver(user, "fab-o", "fab-idle", I)
 
 /obj/machinery/mecha_part_fabricator/crowbar_act(mob/living/user, obj/item/I)
+	if(..())
+		return TRUE
 	if(being_built)
 		to_chat(user, span_warning("\The [src] is currently processing! Please wait until completion."))
-		return NONE
-
-	return default_deconstruction_crowbar(user, I)
+		return FALSE
+	return default_deconstruction_crowbar(I)
 
 /obj/machinery/mecha_part_fabricator/maint
 	link_on_init = FALSE

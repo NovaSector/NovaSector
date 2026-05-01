@@ -1,7 +1,6 @@
 /datum/crafting_recipe/food/reaction/soup
 	machinery = list(/obj/machinery/stove)
-	dish_category = DISH_SOUP
-	meal_category = MEAL_MAIN_COURSE
+	category = CAT_SOUP
 	non_craftable = TRUE
 	/// What contained is this reaction expected to be served in?
 	/// Used to determine the icon to display in the crafting UI.
@@ -20,12 +19,17 @@
 
 	return ..()
 
-/datum/crafting_recipe/food/reaction/soup/get_food_types()
+/datum/crafting_recipe/food/reaction/soup/crafting_ui_data()
+	if(ispath(result, /obj/item/food))
+		return ..()
+
+	var/list/data = list()
+
 	var/datum/glass_style/has_foodtype/soup_style = GLOB.glass_style_singletons[expected_container][result]
 	if(istype(soup_style))
-		return soup_style.drink_type
+		data["foodtypes"] = bitfield_to_list(soup_style.drink_type, FOOD_FLAGS)
 
-	return ..()
+	return data
 
 /datum/crafting_recipe/food/reaction/soup/setup_chemical_reaction_details(datum/chemical_reaction/food/soup/chemical_reaction)
 	. = ..()
@@ -145,4 +149,4 @@
 		/obj/item/reagent_containers/cup/bowl = 1
 	)
 	result= /obj/item/food/bowled/wish
-	dish_category = DISH_SOUP
+	category = CAT_SOUP

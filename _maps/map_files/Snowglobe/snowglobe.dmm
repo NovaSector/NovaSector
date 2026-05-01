@@ -16279,7 +16279,7 @@
 	location = "UH18";
 	codes_txt = "patrol;next_patrol=UH19"
 	},
-/mob/living/basic/bot/secbot/beepsky/officer,
+/mob/living/simple_animal/bot/secbot/beepsky/officer,
 /turf/open/floor/iron/brick,
 /area/station/hallway/primary/foreporthall)
 "era" = (
@@ -21680,7 +21680,7 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "fOU" = (
-/mob/living/basic/bot/secbot/beepsky/armsky,
+/mob/living/simple_animal/bot/secbot/beepsky/armsky,
 /obj/machinery/light/floor,
 /turf/open/floor/engine,
 /area/station/security/armory)
@@ -71117,7 +71117,7 @@
 	location = "LH12";
 	codes_txt = "patrol;next_patrol=LH13"
 	},
-/mob/living/basic/bot/secbot/beepsky/officer,
+/mob/living/simple_animal/bot/secbot/beepsky/officer,
 /turf/open/floor/iron,
 /area/station/hallway/floor2)
 "tcu" = (

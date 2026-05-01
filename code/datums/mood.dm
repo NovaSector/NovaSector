@@ -36,6 +36,8 @@
 	var/sanity_level = SANITY_LEVEL_NEUTRAL
 	/// Is the owner being punished for low mood? if so, how much?
 	var/insanity_effect = 0
+	/// The screen object for the current mood level
+	var/atom/movable/screen/mood/mood_screen_object
 
 	/// List of mood events currently active on this datum
 	var/list/mood_events = list()
@@ -306,11 +308,7 @@
 
 /// Updates the mob's mood icon
 /datum/mood/proc/update_mood_icon()
-	if (!mob_parent.client || !mob_parent.hud_used)
-		return
-
-	var/atom/movable/screen/mood/mood_screen_object = mob_parent.hud_used.screen_objects[HUD_MOB_MOOD]
-	if (!istype(mood_screen_object))
+	if (!(mob_parent.client || mob_parent.hud_used) || isnull(mood_screen_object))
 		return
 
 	mood_screen_object.cut_overlays()
@@ -364,8 +362,9 @@
 	SIGNAL_HANDLER
 
 	var/datum/hud/hud = mob_parent.hud_used
-	var/atom/movable/screen/mood/mood_screen_object = hud.add_screen_object(/atom/movable/screen/mood, HUD_MOB_MOOD, HUD_GROUP_INFO, update_screen = TRUE)
+	mood_screen_object = new
 	mood_screen_object.color = "#4b96c4"
+	hud.infodisplay += mood_screen_object
 	RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(unmodify_hud))
 	RegisterSignal(mood_screen_object, COMSIG_SCREEN_ELEMENT_CLICK, PROC_REF(hud_click))
 
@@ -373,17 +372,12 @@
 /datum/mood/proc/unmodify_hud(datum/source)
 	SIGNAL_HANDLER
 
-	var/datum/hud/hud = mob_parent.hud_used
-	if (!hud)
-		return
-
-	var/atom/movable/screen/mood/mood_screen_object = hud.screen_objects[HUD_MOB_MOOD]
 	if(!mood_screen_object)
 		return
-
+	var/datum/hud/hud = mob_parent.hud_used
+	if(hud?.infodisplay)
+		hud.infodisplay -= mood_screen_object
 	QDEL_NULL(mood_screen_object)
-	if (!QDELETED(hud))
-		hud.show_hud(hud.hud_version)
 	UnregisterSignal(hud, COMSIG_QDELETING)
 
 /// Handles clicking on the mood HUD object

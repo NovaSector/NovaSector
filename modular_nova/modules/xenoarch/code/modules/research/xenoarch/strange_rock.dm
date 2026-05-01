@@ -63,16 +63,16 @@
 /obj/item/xenoarch/strange_rock/proc/create_item()
 	choose_tier = rand(1,100)
 	switch(choose_tier)
-		if(1 to 50)
-			hidden_item = /obj/effect/spawner/random/xenoarch/tier1
+		if(1 to 60)
+			hidden_item = pick_weight(GLOB.tier1_reward)
 			choose_tier = REWARD_ONE
 
-		if(51 to 87)
-			hidden_item = /obj/effect/spawner/random/xenoarch/tier2
+		if(61 to 87)
+			hidden_item = pick_weight(GLOB.tier2_reward)
 			choose_tier = REWARD_TWO
 
 		if(88 to 100)
-			hidden_item = /obj/effect/spawner/random/xenoarch/tier3
+			hidden_item = pick_weight(GLOB.tier3_reward)
 			choose_tier = REWARD_THREE
 
 /obj/item/xenoarch/strange_rock/proc/create_depth()
@@ -129,9 +129,6 @@
 	return BRUSH_NONE
 
 /obj/item/xenoarch/strange_rock/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if (!user.mind)
-		user.dropItemToGround(tool)
-		return ITEM_INTERACT_BLOCKING
 	if(istype(tool, /obj/item/xenoarch/hammer))
 		var/obj/item/xenoarch/hammer/xeno_hammer = tool
 		user.balloon_alert(user, "carefully hammering...")
@@ -154,6 +151,7 @@
 
 			if(DIG_ROCK)
 				user.balloon_alert(user, "item excavated successfully")
+				user.mind?.adjust_experience(/datum/skill/archeology, 5)
 				return ITEM_INTERACT_BLOCKING
 
 		return ITEM_INTERACT_BLOCKING
@@ -174,11 +172,12 @@
 
 			if(BRUSH_UNCOVER)
 				user.balloon_alert(user, "item extracted successfully")
-				user.mind?.adjust_experience(/datum/skill/archeology, 20)
+				user.mind?.adjust_experience(/datum/skill/archeology, 10)
 				return ITEM_INTERACT_BLOCKING
 
 			if(BRUSH_NONE)
 				user.balloon_alert(user, "rock needs more brushing")
+				user.mind?.adjust_experience(/datum/skill/archeology, 2)
 				return ITEM_INTERACT_BLOCKING
 
 		return ITEM_INTERACT_BLOCKING
@@ -197,7 +196,7 @@
 
 		if(get_measured())
 			user.balloon_alert(user, "rock reporting excavation")
-			user.mind?.adjust_experience(/datum/skill/archeology, 10)
+			user.mind?.adjust_experience(/datum/skill/archeology, 5)
 			return ITEM_INTERACT_BLOCKING
 
 
@@ -212,12 +211,12 @@
 
 		if(get_scanned(item_scanner.scan_advanced))
 			var/report_string = "rock scanned"
-			user.mind?.adjust_experience(/datum/skill/archeology, 10)
+			user.mind?.adjust_experience(/datum/skill/archeology, 5)
 			if(adv_scanned)
 				report_string += ", reporting depth"
 				if(get_measured())
 					report_string += " and excavation"
-					user.mind?.adjust_experience(/datum/skill/archeology, 10)
+					user.mind?.adjust_experience(/datum/skill/archeology, 5)
 			user.balloon_alert(user, report_string)
 			return ITEM_INTERACT_BLOCKING
 
@@ -226,12 +225,12 @@
 
 //turfs
 /turf/closed/mineral/strange_rock
-	mineral_amt = 1
-	MAP_SWITCH(, icon_state = "rock_strange")
+	mineralAmt = 1
 	icon = MAP_SWITCH('modular_nova/modules/liquids/icons/turf/smoothrocks.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
+	icon_state = "rock_strange"
 	scan_icon = 'modular_nova/modules/xenoarch/icons/ore_visuals.dmi'
 	scan_state = "rock_strange"
-	mineral_type = /obj/item/xenoarch/strange_rock
+	mineralType = /obj/item/xenoarch/strange_rock
 
 /turf/closed/mineral/strange_rock/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -244,7 +243,7 @@
 	baseturfs = /turf/open/misc/asteroid/basalt/lava_land_surface
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	defer_change = TRUE
-	mineral_chance = 5
+	mineralChance = 10
 
 /turf/closed/mineral/random/volcanic/mineral_chances()
 	return list(
@@ -253,7 +252,7 @@
 		/obj/item/stack/ore/silver = 12,
 		/obj/item/stack/ore/titanium = 11,
 		/obj/item/stack/ore/gold = 10,
-		/turf/closed/mineral/strange_rock/volcanic = 1,
+		/turf/closed/mineral/strange_rock/volcanic = 10,
 		/obj/item/stack/ore/uranium = 5,
 		/turf/closed/mineral/gibtonite/volcanic = 4,
 		/obj/item/stack/ore/diamond = 1,
@@ -261,8 +260,8 @@
 		)
 
 /turf/closed/mineral/strange_rock/ice
-	MAP_SWITCH(, icon_state = "icerock_strange")
 	icon = MAP_SWITCH('icons/turf/walls/icerock_wall.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
+	icon_state = "icerock_strange"
 	base_icon_state = "icerock_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	turf_type = /turf/open/misc/asteroid/snow/ice
@@ -282,7 +281,7 @@
 		/obj/item/stack/ore/silver = 12,
 		/obj/item/stack/ore/titanium = 11,
 		/obj/item/stack/ore/gold = 10,
-		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
+		/turf/closed/mineral/strange_rock/ice/icemoon = 10,
 		/obj/item/stack/ore/uranium = 5,
 		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
 		/obj/item/stack/ore/diamond = 1,
@@ -292,7 +291,7 @@
 /turf/closed/mineral/random/snow/underground
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
 	// abundant ore
-	mineral_chance = 10
+	mineralChance = 20
 
 /turf/closed/mineral/random/snow/underground/mineral_chances()
 	return list(
@@ -302,7 +301,7 @@
 		/obj/item/stack/ore/plasma = 20,
 		/obj/item/stack/ore/iron = 20,
 		/obj/item/stack/ore/uranium = 10,
-		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
+		/turf/closed/mineral/strange_rock/ice/icemoon = 10,
 		/turf/closed/mineral/gibtonite/ice/icemoon = 8,
 		/obj/item/stack/ore/diamond = 4,
 		/obj/item/stack/ore/bluespace_crystal = 2,
@@ -311,9 +310,9 @@
 
 //small gibonite fix
 /turf/closed/mineral/gibtonite/asteroid
-	MAP_SWITCH(, icon_state = "red_rock_Gibtonite_inactive")
-	icon = MAP_SWITCH('icons/turf/walls/red_rock.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
-	base_icon_state = "red_rock"
+	icon = MAP_SWITCH('icons/turf/walls/red_wall.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
+	icon_state = "redrock_Gibonite_inactive"
+	base_icon_state = "red_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	turf_type = /turf/open/misc/asteroid
 	baseturfs = /turf/open/misc/asteroid
@@ -321,9 +320,9 @@
 	defer_change = TRUE
 
 /turf/closed/mineral/strange_rock/asteroid
-	MAP_SWITCH(, icon_state = "red_rock_strange")
-	icon = MAP_SWITCH('icons/turf/walls/red_rock.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
-	base_icon_state = "red_rock"
+	icon = MAP_SWITCH('icons/turf/walls/red_wall.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
+	icon_state = "redrock_strange"
+	base_icon_state = "red_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	turf_type = /turf/open/misc/asteroid
 	baseturfs = /turf/open/misc/asteroid
@@ -333,7 +332,7 @@
 /turf/closed/mineral/random/stationside/asteroid/rockplanet
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	turf_type = /turf/open/misc/asteroid
-	mineral_chance = 15
+	mineralChance = 30
 
 /turf/closed/mineral/random/stationside/asteroid/rockplanet/mineral_chances()
 	return list(
@@ -342,7 +341,7 @@
 		/obj/item/stack/ore/silver = 12,
 		/obj/item/stack/ore/titanium = 11,
 		/obj/item/stack/ore/gold = 10,
-		/turf/closed/mineral/strange_rock/asteroid = 1,
+		/turf/closed/mineral/strange_rock/asteroid = 10,
 		/obj/item/stack/ore/uranium = 5,
 		/turf/closed/mineral/gibtonite/asteroid = 4,
 		/obj/item/stack/ore/bluespace_crystal = 1,

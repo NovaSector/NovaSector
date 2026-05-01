@@ -42,8 +42,7 @@
 	button_icon_state = "mech_damtype_brute"
 
 /datum/action/vehicle/sealed/mecha/mech_switch_damtype/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
 	if(!chassis || !(owner in chassis.occupants))
 		return
@@ -68,8 +67,7 @@
 	button_icon_state = "mech_phasing_off"
 
 /datum/action/vehicle/sealed/mecha/mech_toggle_phasing/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
 	if(!chassis || !(owner in chassis.occupants))
 		return

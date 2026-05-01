@@ -22,27 +22,16 @@
 	strip_delay = 5 SECONDS
 	equip_delay_other = 5 SECONDS
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	visor_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | HEADINTERNALS
-	visor_flags_inv = HIDEMASK | HIDEEYES | HIDEFACE | HIDESNOUT
-	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	visor_vars_to_toggle = VISOR_FLASHPROTECT | VISOR_TINT
 	resistance_flags = NONE
 	dog_fashion = null
 	sound_vary = TRUE
 	equip_sound = 'sound/items/handling/helmet/helmet_equip1.ogg'
 	pickup_sound = 'sound/items/handling/helmet/helmet_pickup1.ogg'
 	drop_sound = 'sound/items/handling/helmet/helmet_drop1.ogg'
-	visor_toggle_up_sound = SFX_VISOR_UP
-	visor_toggle_down_sound = SFX_VISOR_DOWN
-	actions_types = list(/datum/action/item_action/adjust_visor)
-	toggle_message = "You pull your helmet's visor down."
-	alt_toggle_message = "You pull your helmet's visor up."
 	///How much this helmet affects fishing difficulty
 	var/fishing_modifier = 3
 	///Icon state applied when we get spraypainted/peppersprayed. If null, does not add the dirt component
 	var/visor_dirt = "helm_dirt"
-	/// Whether the helmet has a visor you can flip up
-	var/has_visor = FALSE
 
 /obj/item/clothing/head/helmet/space/Initialize(mapload)
 	. = ..()
@@ -54,23 +43,6 @@
 
 /obj/item/clothing/head/helmet/space/proc/add_stabilizer(loose_hat = TRUE)
 	AddComponent(/datum/component/hat_stabilizer, loose_hat = loose_hat)
-
-/obj/item/clothing/head/helmet/space/attack_self(mob/living/user)
-	. = ..()
-	if(. || !has_visor)
-		return
-
-	return adjust_visor(user)
-
-/obj/item/clothing/head/helmet/space/click_alt(mob/user)
-	if(!has_visor)
-		return NONE
-
-	return adjust_visor(user) ? CLICK_ACTION_SUCCESS : CLICK_ACTION_BLOCKING
-
-/obj/item/clothing/head/helmet/space/update_icon_state()
-	. = ..()
-	icon_state = "[initial(icon_state)][up ? "-novisor" : ""]"
 
 /datum/armor/helmet_space
 	bio = 100
@@ -151,9 +123,7 @@
 	STOP_PROCESSING(SSobj, src)
 	var/mob/living/carbon/human/human_user = user
 	if(istype(human_user) && human_user.hud_used)
-		var/atom/movable/screen/spacesuit/spacesuit_hud = human_user.hud_used.screen_objects[HUD_MOB_SPACESUIT]
-		if (spacesuit_hud)
-			spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_NO_ICON)
+		human_user.hud_used.spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_NO_ICON)
 
 // Space Suit temperature regulation and power usage
 /obj/item/clothing/suit/space/process(seconds_per_tick)
@@ -189,9 +159,7 @@
 		QDEL_NULL(cell)
 	var/mob/living/carbon/human/human = src.loc
 	if(istype(human) && human.hud_used)
-		var/atom/movable/screen/spacesuit/spacesuit_hud = human.hud_used.screen_objects[HUD_MOB_SPACESUIT]
-		if (spacesuit_hud)
-			spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_NO_ICON)
+		human.hud_used.spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_NO_ICON)
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
@@ -338,12 +306,8 @@
 	if(!show_hud || human.wear_suit != src || isnull(human.hud_used))
 		return
 
-	var/atom/movable/screen/spacesuit/spacesuit_hud = human.hud_used.screen_objects[HUD_MOB_SPACESUIT]
-	if(!spacesuit_hud)
-		return
-
 	if(!cell)
-		spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_MISSING, 0, thermal_on)
+		human.hud_used.spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_MISSING, 0, thermal_on)
 		return
 
 	var/cell_percent = cell.percent()
@@ -351,17 +315,17 @@
 	// if there is, whethere the cell's capacity indicates high, medium or low
 	// charge based on it.
 	if(cell.charge < THERMAL_REGULATOR_COST)
-		spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_EMPTY, cell_percent, thermal_on)
+		human.hud_used.spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_EMPTY, cell_percent, thermal_on)
 		return
 	switch(cell_percent)
 		if(0 to 20)
-			spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_VERY_LOW, cell_percent, thermal_on)
+			human.hud_used.spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_VERY_LOW, cell_percent, thermal_on)
 		if(21 to 40)
-			spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_LOW, cell_percent, thermal_on)
+			human.hud_used.spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_LOW, cell_percent, thermal_on)
 		if(41 to 60)
-			spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_MID, cell_percent, thermal_on)
+			human.hud_used.spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_MID, cell_percent, thermal_on)
 		if(61 to 100)
-			spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_HIGH, cell_percent, thermal_on)
+			human.hud_used.spacesuit_hud.update_spacesuit_hud_icon(SPACESUIT_CELL_HIGH, cell_percent, thermal_on)
 
 // zap the cell if we get hit with an emp
 /obj/item/clothing/suit/space/emp_act(severity)

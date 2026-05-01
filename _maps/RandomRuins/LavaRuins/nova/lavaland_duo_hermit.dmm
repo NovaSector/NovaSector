@@ -121,6 +121,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/powered/hermit)
 "qr" = (
+/obj/item/xenoarch/handheld_recoverer,
 /obj/structure/closet/crate/grave/filled,
 /obj/effect/decal/remains/human,
 /obj/item/pickaxe/silver,
@@ -240,7 +241,8 @@
 "Dh" = (
 /obj/structure/decorative/shelf,
 /obj/item/flashlight/lantern,
-/obj/item/storage/belt/utility/xenoarch/full,
+/obj/item/xenoarch,
+/obj/item/xenoarch/brush,
 /turf/open/floor/wood/large,
 /area/ruin/powered/hermit)
 "Gs" = (

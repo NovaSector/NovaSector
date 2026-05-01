@@ -58,6 +58,12 @@
 	QDEL_NULL(materials)
 	return ..()
 
+// Stuff for the stripe on the department machines
+/obj/machinery/rnd/production/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	. = ..()
+
+	update_icon(UPDATE_OVERLAYS)
+
 /obj/machinery/rnd/production/update_overlays()
 	. = ..()
 
@@ -354,7 +360,8 @@
 			busy = TRUE
 			SStgui.update_uis(src)
 			print_sound.start()
-			update_appearance()
+			if(production_animation)
+				icon_state = production_animation
 			start_printing_visuals() // NOVA EDIT ADDITION - COLONY FABRICATOR STUFF
 			var/turf/target_location
 			if(drop_direction)
@@ -463,7 +470,7 @@
 	print_sound.stop()
 	busy = FALSE
 	SStgui.update_uis(src)
-	update_appearance()
+	icon_state = initial(icon_state)
 
 /obj/machinery/rnd/production/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(!can_interact(user) || (!HAS_SILICON_ACCESS(user) && !isAdminGhostAI(user)) && !Adjacent(user))
@@ -486,10 +493,3 @@
 	balloon_alert(user, "drop direction reset")
 	drop_direction = 0
 	return CLICK_ACTION_SUCCESS
-
-/obj/machinery/rnd/production/update_icon_state()
-	. = ..()
-	if(busy && production_animation)
-		icon_state = production_animation
-	else if(!panel_open) // use what is set by parent if panel is open
-		icon_state = base_icon_state || initial(icon_state)

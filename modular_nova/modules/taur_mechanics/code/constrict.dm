@@ -25,9 +25,8 @@
 	return ..()
 
 /datum/action/innate/constrict/Trigger(trigger_flags)
-	. = ..()
-	if(!.)
-		return
+	if(!..())
+		return FALSE
 
 	if (trigger_flags & TRIGGER_SECONDARY_ACTION)
 		unset_ranged_ability(owner)

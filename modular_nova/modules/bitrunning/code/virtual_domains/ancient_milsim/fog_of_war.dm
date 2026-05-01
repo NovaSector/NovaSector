@@ -38,14 +38,14 @@
 	AddElement(/datum/element/update_icon_blocker)
 	return ..()
 
-/obj/machinery/door/poddoor/ancient_milsim/screwdriver_act(mob/living/user, obj/item/tool)
+/obj/machinery/door/poddoor/ancient_milsim/screwdriver_act()
 	return
 
-/obj/machinery/door/poddoor/ancient_milsim/crowbar_act(mob/living/user, obj/item/tool)
+/obj/machinery/door/poddoor/ancient_milsim/crowbar_act()
 	return
 
-/obj/machinery/door/poddoor/ancient_milsim/welder_act(mob/living/user, obj/item/tool)
+/obj/machinery/door/poddoor/ancient_milsim/welder_act()
 	return
 
-/obj/machinery/door/poddoor/ancient_milsim/open(mob/living/user, obj/item/tool)
+/obj/machinery/door/poddoor/ancient_milsim/open()
 	qdel(src)

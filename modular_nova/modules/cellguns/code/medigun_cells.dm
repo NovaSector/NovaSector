@@ -494,7 +494,10 @@
 /obj/structure/bed/medical/medigun/Initialize(mapload)
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(check_bed)), deploy_time)
-	AddElement(/datum/element/tool_blocker, TOOL_WRENCH, TOOL_ACT_SECONDARY)
+
+// formerly NO_DECONSTRUCTION
+/obj/structure/bed/medical/medigun/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return NONE
 
 /obj/structure/bed/medical/medigun/proc/check_bed() //Checks to see if anyone is buckled to the bed, if not the bed will qdel itself.
 	if(!has_buckled_mobs())

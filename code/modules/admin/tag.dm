@@ -9,9 +9,6 @@
 		to_chat(owner, span_warning("[target_datum] is already tagged!"))
 		return
 
-	if(!target_datum.allow_mark_datum())
-		return
-
 	LAZYADD(tagged_datums, target_datum)
 	RegisterSignal(target_datum, COMSIG_QDELETING, PROC_REF(handle_tagged_del), override = TRUE)
 	to_chat(owner, span_notice("[target_datum] has been tagged."))

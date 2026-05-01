@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
+/turf/closed/mineral/volcanic/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "b" = (
 /obj/structure/stone_tile/surrounding_tile,
@@ -34,6 +34,9 @@
 "j" = (
 /obj/effect/mapping_helpers/bombable_wall,
 /turf/closed/indestructible/riveted/boss/wasteland,
+/area/lavaland/surface/outdoors)
+"l" = (
+/turf/closed/mineral/gibtonite/volcanic,
 /area/lavaland/surface/outdoors)
 "m" = (
 /turf/open/chasm/lavaland,
@@ -149,7 +152,7 @@ I
 I
 I
 I
-a
+l
 a
 a
 a
@@ -222,7 +225,7 @@ I
 "}
 (8,1,1) = {"
 I
-a
+l
 a
 R
 y
@@ -262,7 +265,7 @@ h
 c
 R
 a
-a
+l
 I
 "}
 (11,1,1) = {"

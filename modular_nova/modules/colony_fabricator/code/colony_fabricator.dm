@@ -12,8 +12,6 @@
 	light_power = 5
 	allowed_buildtypes = COLONY_FABRICATOR
 	speedup_disabled = TRUE
-	/// techweb we intend to use for unlocking stuff.
-	var/techweb_path = /datum/techweb/colony_fabricator
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine
 	/// The sound loop played while the fabricator is making something
@@ -21,29 +19,27 @@
 
 /obj/machinery/rnd/production/colony_lathe/Initialize(mapload)
 	. = ..()
-	handle_network()
-	give_manufacturer_examine()
 	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	// We don't get new designs but can't print stuff if something's not researched, so we use the web that has everything researched
+	stored_research = locate(/datum/techweb/admin) in SSresearch.techwebs
 	soundloop = new(src, FALSE)
 	if(!mapload)
 		flick("colony_lathe_deploy", src) // Sick ass deployment animation
-	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
-	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
-
-/obj/machinery/rnd/production/colony_lathe/proc/give_manufacturer_examine() //remaking this is like 7x less annoying than remaking an entire init
-	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
-
-/obj/machinery/rnd/production/colony_lathe/proc/handle_network() //To handle the network in a modifiable way for subtypes down the way
-	if(isnull(stored_research))
-		stored_research = new techweb_path
 
 /obj/machinery/rnd/production/colony_lathe/Destroy()
 	QDEL_NULL(soundloop)
 	return ..()
 
-/obj/machinery/rnd/production/colony_lathe/update_icon_state()
-	. = ..()
-	icon_state = panel_open ? "[base_icon_state]-open" : base_icon_state
+// formerly NO_DECONSTRUCTION
+/obj/machinery/rnd/production/colony_lathe/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/rnd/production/colony_lathe/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/rnd/production/colony_lathe/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
 
 /// Proc for starting extra printing visuals, because upstream removed any nice way to do this
 /obj/machinery/rnd/production/proc/start_printing_visuals()
@@ -66,18 +62,18 @@
 /obj/machinery/rnd/production/colony_lathe/build_efficiency()
 	return 1
 
-// Rewrite to avoid limitations
+// We take from all nodes even unresearched ones
 /obj/machinery/rnd/production/colony_lathe/update_designs()
 	var/previous_design_count = cached_designs.len
 
 	cached_designs.Cut()
 
 	var/allow_any = isnull(allowed_department_flags)
-	for(var/design_id in stored_research.researched_designs)
-		var/datum/design/design = SSresearch.techweb_design_by_id(design_id)
+	for(var/design_id, design in SSresearch.techweb_designs)
+		var/datum/design/current_design = design
 
-		if(allow_any || ((design.departmental_flags & allowed_department_flags) && (design.build_type & allowed_buildtypes)))
-			cached_designs |= design
+		if(allow_any || ((current_design.departmental_flags & allowed_department_flags) && (current_design.build_type & allowed_buildtypes)))
+			cached_designs |= current_design
 
 	var/design_delta = length(cached_designs) - previous_design_count
 

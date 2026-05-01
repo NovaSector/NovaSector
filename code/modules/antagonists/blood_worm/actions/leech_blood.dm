@@ -79,10 +79,9 @@
 	if (!do_after(leech, leech_grab_delay, target, extra_checks = CALLBACK(src, PROC_REF(leech_living_start_check), leech, target)))
 		return
 
-	if (leech.pulling != target && leech.grab(target) != GRAB_SUCCESS)
+	if (leech.pulling != target && !leech.grab(target))
 		target.balloon_alert(leech, "unable to grab!")
 		return
-
 	if (leech.grab_state < GRAB_AGGRESSIVE)
 		leech.setGrabState(GRAB_AGGRESSIVE)
 
@@ -119,7 +118,7 @@
 	if (synth_content >= 1)
 		target.balloon_alert(leech, "fully synthetic")
 	else if (synth_content > 0)
-		target.balloon_alert(leech, "[ceil(synth_content * 100)]% synthetic")
+		target.balloon_alert(leech, "[CEILING(synth_content * 100, 1)]% synthetic")
 
 	// Because of DO_AFTER_CHECK_NEXT_MOVE
 	leech.next_move = 0
@@ -230,7 +229,7 @@
 	if (synth_content >= 1)
 		target.balloon_alert(leech, "fully synthetic")
 	else if (synth_content > 0)
-		target.balloon_alert(leech, "[ceil(synth_content * 100)]% synthetic")
+		target.balloon_alert(leech, "[CEILING(synth_content * 100, 1)]% synthetic")
 
 /datum/action/cooldown/mob_cooldown/blood_worm/leech/proc/leech_container_start_check(mob/living/basic/blood_worm/leech, obj/item/reagent_containers/target, feedback = FALSE)
 	if (!length(get_blood_in_container(target)))

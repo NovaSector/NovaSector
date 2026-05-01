@@ -261,15 +261,15 @@
 
 	return ..()
 
-/obj/machinery/flatpacker/update_icon_state()
-	. = ..()
-	icon_state = panel_open ? "[base_icon_state]_o" : base_icon_state
-
 /obj/machinery/flatpacker/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	. = ITEM_INTERACT_BLOCKING
+	if(default_deconstruction_screwdriver(user, "[base_icon_state]_o", base_icon_state, tool))
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/flatpacker/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	. = ITEM_INTERACT_BLOCKING
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/flatpacker/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

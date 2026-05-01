@@ -24,8 +24,6 @@
 	owner.update_icon(UPDATE_OVERLAYS)
 
 /datum/status_effect/void_chill/on_apply()
-	if(owner.can_block_magic())
-		return FALSE
 	if(issilicon(owner))
 		return FALSE
 	if(IS_HERETIC_OR_MONSTER(owner))

@@ -13,9 +13,7 @@ import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 type NtosCameraCommonData = {
-  width: number;
-  height: number;
-  size: string;
+  size: number;
   minSize: number;
   maxSize: number;
   maxNameLength: number;
@@ -50,8 +48,6 @@ export const NtosCamera = (props) => {
 export const NtosCameraContent = (props) => {
   const { act, data } = useBackend<NtosCameraData>();
   const {
-    width,
-    height,
     size,
     minSize,
     maxSize,
@@ -78,7 +74,7 @@ export const NtosCameraContent = (props) => {
               maxWidth="100%"
               height="auto"
               fixErrors
-              src={`data:image/jpeg;base64,${photo}`}
+              src={photo}
             />
           </Stack.Item>
           <Stack.Item>
@@ -90,11 +86,7 @@ export const NtosCameraContent = (props) => {
               disabled={!canEditMetadata}
               value={name}
               maxLength={maxNameLength}
-              onChange={(value) =>
-                act('setName', {
-                  value: value,
-                })
-              }
+              onChange={(value) => act('setName', { value })}
             />
           </Stack.Item>
           <Stack.Item>
@@ -106,11 +98,7 @@ export const NtosCameraContent = (props) => {
               disabled={!canEditMetadata}
               value={desc}
               maxLength={maxDescLength}
-              onChange={(value) =>
-                act('setDesc', {
-                  value: value,
-                })
-              }
+              onChange={(value) => act('setDesc', { value })}
             />
           </Stack.Item>
           <Stack.Item>
@@ -123,11 +111,7 @@ export const NtosCameraContent = (props) => {
               disabled={!canEditMetadata}
               value={caption}
               maxLength={maxCaptionLength}
-              onChange={(value) =>
-                act('setCaption', {
-                  value: value,
-                })
-              }
+              onChange={(value) => act('setCaption', { value })}
             />
           </Stack.Item>
           <Stack.Item align="center">
@@ -154,39 +138,17 @@ export const NtosCameraContent = (props) => {
           </NoticeBox>
         </Stack.Item>
       )}
-      <Stack.Item align="center">{size}</Stack.Item>
       <Stack.Item align="center">
         <Box bold inline textColor="label" mr="0.5rem">
-          Half Width Aperture:
+          Photo Size:
         </Box>
         <Slider
           inline
-          value={width}
+          value={size}
           minValue={minSize}
           maxValue={maxSize}
           step={1}
-          onChange={(e, value) =>
-            act('adjustWidth', {
-              value: value,
-            })
-          }
-        />
-      </Stack.Item>
-      <Stack.Item align="center">
-        <Box bold inline textColor="label" mr="0.5rem">
-          Half Height Aperture:
-        </Box>
-        <Slider
-          inline
-          value={height}
-          minValue={minSize}
-          maxValue={maxSize}
-          step={1}
-          onChange={(e, value) =>
-            act('adjustHeight', {
-              value: value,
-            })
-          }
+          onChange={(value) => act('adjustSize', { value })}
         />
       </Stack.Item>
     </Stack>

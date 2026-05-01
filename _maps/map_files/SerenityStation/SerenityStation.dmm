@@ -1406,6 +1406,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/sushi_maint)
+"avO" = (
+/obj/docking_port/stationary/escape_pod,
+/turf/open/space/basic,
+/area/space/nearstation)
 "avQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6107,6 +6111,9 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/central/greater)
 "bKJ" = (
+/obj/machinery/computer/shuttle/planetary_ferry{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/thinplating/dark,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/dock)
@@ -6133,6 +6140,11 @@
 /turf/open/floor/wood,
 /area/station/service/library/abandoned)
 "bLy" = (
+/obj/docking_port/stationary/mining_home/common{
+	dir = 2;
+	roundstart_template = null;
+	name = "SS13: Mining Space Dock"
+	},
 /turf/open/space/basic,
 /area/space/nearstation)
 "bLM" = (
@@ -10837,6 +10849,21 @@
 /obj/structure/sign/poster/official/cleanliness/directional/west,
 /turf/open/floor/iron/checker,
 /area/station/medical/virology)
+"ddf" = (
+/obj/docking_port/stationary{
+	height = 6;
+	name = "Planetary Dock";
+	width = 4;
+	shuttle_id = "planetary_dock";
+	dir = 4;
+	roundstart_template = /datum/map_template/shuttle/planetary/planetary_ferry;
+	dwidth = 1
+	},
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/station/hallway/secondary/dock)
 "ddt" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /obj/machinery/atmospherics/pipe/smart/manifold/green/visible{
@@ -14617,7 +14644,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/mob/living/basic/bot/secbot/beepsky/armsky,
+/mob/living/simple_animal/bot/secbot/beepsky/armsky,
 /turf/open/floor/iron/dark,
 /area/station/security/armory)
 "ekz" = (
@@ -24457,7 +24484,7 @@
 /area/station/maintenance/fore/greater)
 "gZc" = (
 /obj/structure/cable,
-/mob/living/basic/bot/secbot/beepsky/officer,
+/mob/living/simple_animal/bot/secbot/beepsky/officer,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
@@ -28581,6 +28608,16 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/central/greater)
+"igN" = (
+/obj/docking_port/stationary{
+	height = 6;
+	name = "Orbital Dock";
+	width = 4;
+	shuttle_id = "orbital_dock";
+	dwidth = 1
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "igO" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/purple/filled/warning{
@@ -45179,16 +45216,14 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/maintenance/sushi_maint)
 "mWJ" = (
+/obj/machinery/power/smes{
+	charge = 5e+006
+	},
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
-/obj/machinery/power/smes/magical{
-	name = "bluespace-powered power storage unit";
-	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit. Produces power through an unstable bluespace pocket.";
-	output_level = 200000
-	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/orbital_utilities)
 "mWO" = (
@@ -47969,6 +48004,17 @@
 	dir = 8
 	},
 /area/station/science/ordnance)
+"nRO" = (
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 8;
+	height = 24;
+	name = "SS13: Auxiliary Dock, Station-Port";
+	shuttle_id = "whiteship_home";
+	width = 35
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "nSy" = (
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/flowers_pp,
@@ -60668,11 +60714,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass{
 	name = "Shuttle Dock"
-	},
-/obj/effect/mapping_helpers/airlock_note_placer{
-	name = "Orbital Access Closed";
-	note_info = "Orbital access temporarily closed as the shuttle undergoes repairs at a local drydock.";
-	note_name = "Orbital Access Closed"
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/dock)
@@ -76451,6 +76492,14 @@
 	dir = 8
 	},
 /area/station/maintenance/department/science/lower)
+"wkB" = (
+/obj/structure/lattice,
+/obj/docking_port/stationary/random{
+	name = "lavaland";
+	shuttle_id = "pod_lavaland"
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "wkE" = (
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
@@ -80910,7 +80959,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/storage/tech)
 "xAc" = (
-/mob/living/basic/bot/secbot/pingsky,
+/mob/living/simple_animal/bot/secbot/pingsky,
 /turf/open/floor/vault,
 /area/station/ai/satellite/interior)
 "xAi" = (
@@ -186557,7 +186606,7 @@ siI
 eCg
 ucZ
 vWp
-vWp
+ddf
 vWp
 vWp
 bAV
@@ -242827,7 +242876,7 @@ cwL
 cwL
 cwL
 cwL
-bLy
+nRO
 cwL
 cwL
 cwL
@@ -243845,11 +243894,11 @@ cwL
 cwL
 cwL
 cwL
-nAK
+wkB
 cwL
 cwL
 cwL
-bLy
+avO
 gmP
 tBd
 doa
@@ -244877,7 +244926,7 @@ cwL
 cwL
 cwL
 cwL
-bLy
+igN
 rVZ
 tBd
 qhr

@@ -139,6 +139,7 @@
 
 /obj/item/reagent_containers/spray/verb/empty()
 	set name = "Empty Spray Bottle"
+	set category = "Object"
 	set src in usr
 	if(usr.incapacitated)
 		return

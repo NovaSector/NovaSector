@@ -311,6 +311,25 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	suicide_cry = "FOR THE SOL FEDERATION!!"
 	var/department = "Some stupid shit"
 
+/datum/antagonist/ert/request_911/apply_innate_effects(mob/living/mob_override)
+	..()
+	var/mob/living/M = mob_override || owner.current
+	if(M.hud_used)
+		var/datum/hud/H = M.hud_used
+		var/atom/movable/screen/wanted/giving_wanted_lvl = new /atom/movable/screen/wanted(null, H)
+		H.wanted_lvl = giving_wanted_lvl
+		H.infodisplay += giving_wanted_lvl
+		H.mymob.client.screen += giving_wanted_lvl
+
+
+/datum/antagonist/ert/request_911/remove_innate_effects(mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
+	if(M.hud_used)
+		var/datum/hud/H = M.hud_used
+		H.infodisplay -= H.wanted_lvl
+		QDEL_NULL(H.wanted_lvl)
+	..()
+
 /datum/antagonist/ert/request_911/greet()
 	var/missiondesc =  ""
 	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You work for the Sol Federation as a [role].</font></B>"

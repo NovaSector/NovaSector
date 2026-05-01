@@ -1,6 +1,4 @@
 GLOBAL_LIST_EMPTY(cargo_marks)
-#define MAX_CARGO_TELEPORTER_ITEMS 20 // same as the push broom.
-#define CARGO_TELEPORTER_COOLDOWN 8 SECONDS
 
 /obj/item/cargo_teleporter
 	name = "cargo teleporter"
@@ -77,11 +75,7 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 
 	var/turf/moving_turf = get_turf(selected_mark)
 	var/turf/target_turf = get_turf(interacting_with)
-	var/teleported = 0
 	for(var/check_content in target_turf.contents)
-		if (teleported >= MAX_CARGO_TELEPORTER_ITEMS)
-			break
-
 		if(isobserver(check_content))
 			continue
 
@@ -98,15 +92,10 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 		if(movable_content.anchored)
 			continue
 
-		do_teleport(movable_content, moving_turf, no_effects = TRUE)
-		teleported++
+		do_teleport(movable_content, moving_turf, asoundout = 'sound/effects/magic/Disable_Tech.ogg')
 
-	playsound(target_turf, 'sound/effects/magic/Disable_Tech.ogg', 50)
-	playsound(moving_turf, 'sound/effects/magic/Disable_Tech.ogg', 50)
-	do_sparks(2, FALSE, target_turf)
-	do_sparks(2, FALSE, moving_turf)
 	new /obj/effect/decal/cleanable/ash(target_turf)
-	COOLDOWN_START(src, use_cooldown, CARGO_TELEPORTER_COOLDOWN)
+	COOLDOWN_START(src, use_cooldown, 8 SECONDS)
 	return ITEM_INTERACT_SUCCESS
 
 /datum/design/cargo_teleporter

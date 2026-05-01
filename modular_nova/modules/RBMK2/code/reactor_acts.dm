@@ -15,14 +15,14 @@
 	return ITEM_INTERACT_SUCCESS
 
 //Deconstruct.
-/obj/machinery/power/rbmk2/crowbar_act(mob/living/user, obj/item/tool)
+/obj/machinery/power/rbmk2/crowbar_act(mob/living/user, obj/item/attack_item)
 	if(jammed)
-		force_unjam(tool, user, 25)
+		force_unjam(attack_item, user, 25)
 		return ITEM_INTERACT_SUCCESS
 	if(stored_rod)
 		balloon_alert(user, "remove the rod first!")
 		return ITEM_INTERACT_BLOCKING
-	if(!meltdown && default_deconstruction_crowbar(user, tool))
+	if(!meltdown && default_deconstruction_crowbar(attack_item))
 		if(user)
 			var/turf/our_turf = get_turf(user)
 			message_admins("[src] was deconstructed by [ADMIN_LOOKUPFLW(user)] at [ADMIN_VERBOSEJMP(our_turf)].")
@@ -31,11 +31,12 @@
 	return ITEM_INTERACT_SUCCESS
 
 //Open the panel.
-/obj/machinery/power/rbmk2/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+/obj/machinery/power/rbmk2/screwdriver_act(mob/living/user, obj/item/attack_item)
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attack_item))
+		return ITEM_INTERACT_SUCCESS
 
 //Toggle the reactor on/off.
-/obj/machinery/power/rbmk2/wrench_act(mob/living/user, obj/item/tool)
+/obj/machinery/power/rbmk2/wrench_act(mob/living/user, obj/item/attack_item)
 	if(jammed)
 		balloon_alert(user, "refuses to budge!")
 		return ITEM_INTERACT_BLOCKING
@@ -44,18 +45,18 @@
 
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/power/rbmk2/welder_act(mob/living/user, obj/item/tool)
+/obj/machinery/power/rbmk2/welder_act(mob/living/user, obj/item/attack_item)
 	if(atom_integrity >= max_integrity)
 		balloon_alert(user, "already repaired!")
 		return ITEM_INTERACT_BLOCKING
 	if (machine_stat & BROKEN)
 		balloon_alert(user, "too damaged to repair!")
 		return ITEM_INTERACT_BLOCKING
-	if(!tool.tool_start_check(user, amount = 1))
+	if(!attack_item.tool_start_check(user, amount = 1))
 		return ITEM_INTERACT_BLOCKING
 
 	balloon_alert(user, "repairing...")
-	if(tool.use_tool(src, user, 4 SECONDS, volume = 50))
+	if(attack_item.use_tool(src, user, 4 SECONDS, volume = 50))
 		update_integrity(min(atom_integrity + 50, max_integrity))
 
 		if(atom_integrity >= max_integrity)

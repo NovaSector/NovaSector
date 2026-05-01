@@ -469,7 +469,7 @@
 		/datum/reagent/consumable/nutriment/protein = 6,
 	)
 	tastes = list("bacon" = 1, "eggs" = 1)
-	foodtypes = MEAT|GRAIN|FRIED|EGG
+	foodtypes = MEAT|GRAIN|FRIED
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_4
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)

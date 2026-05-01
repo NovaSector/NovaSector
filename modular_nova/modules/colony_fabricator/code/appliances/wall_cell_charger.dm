@@ -17,8 +17,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi/wall_mounted, 29)
 	if(mapload)
 		find_and_mount_on_atom()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
-	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
-	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/cell_charger_multi/wall_mounted/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -28,6 +26,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi/wall_mounted, 29)
 		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 		deconstruct(TRUE)
 		return
+
+// formerly NO_DECONSTRUCTION
+/obj/machinery/cell_charger_multi/wall_mounted/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/cell_charger_multi/wall_mounted/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/cell_charger_multi/wall_mounted/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
 
 /obj/machinery/cell_charger_multi/wall_mounted/on_deconstruction(disassembled)
 	if(disassembled)

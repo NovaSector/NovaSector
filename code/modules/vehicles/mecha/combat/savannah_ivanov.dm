@@ -81,8 +81,7 @@
 	var/skyfall_charge_level = 0
 
 /datum/action/vehicle/sealed/mecha/skyfall/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
@@ -254,8 +253,7 @@
 	return ..()
 
 /datum/action/vehicle/sealed/mecha/ivanov_strike/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
 	if(!chassis || !(owner in chassis.occupants))
 		return

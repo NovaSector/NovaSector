@@ -91,6 +91,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/item_retrieval_allowed = allowed(user)
 	data["item_retrieval_allowed"] = item_retrieval_allowed
 
+	var/obj/item/card/id/id_card
+	if(isliving(user))
+		var/mob/living/person = user
+		id_card = person.get_idcard()
+	if(id_card?.registered_name)
+		data["account_name"] = id_card.registered_name
+
 	return data
 
 /obj/machinery/computer/cryopod/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)

@@ -16,6 +16,7 @@
 	var/original_sprite_datum
 
 	var/drift_force = MOTH_WING_FORCE
+	var/stabilizer_force = MOTH_WING_FORCE
 
 /obj/item/organ/wings/moth/Initialize(mapload)
 	. = ..()
@@ -23,6 +24,7 @@
 		/datum/component/jetpack, \
 		TRUE, \
 		drift_force, \
+		stabilizer_force, \
 		COMSIG_ORGAN_IMPLANTED, \
 		COMSIG_ORGAN_REMOVED, \
 		null, \

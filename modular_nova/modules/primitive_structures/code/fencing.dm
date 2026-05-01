@@ -21,11 +21,14 @@
 		"fence_3",
 	)
 	update_appearance()
-	AddElement(/datum/element/tool_blocker, TOOL_WIRECUTTER)
 
 /obj/structure/railing/wooden_fencing/atom_deconstruct(disassembled)
 	var/obj/plank = new /obj/item/stack/sheet/mineral/wood(drop_location(), 5)
 	transfer_fingerprints_to(plank)
+
+// formerly NO_DECONSTRUCTION
+/obj/structure/railing/wooden_fencing/wirecutter_act(mob/living/user, obj/item/tool)
+	return NONE
 
 /obj/structure/railing/wooden_fencing/crowbar_act(mob/living/user, obj/item/tool)
 	. = ..()

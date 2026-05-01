@@ -4,7 +4,6 @@
 /mob/living/basic/boss
 	combat_mode = TRUE
 	status_flags = NONE
-	abstract_type = /mob/living/basic/boss
 	sentience_type = SENTIENCE_BOSS
 	mob_biotypes = MOB_ORGANIC|MOB_SPECIAL
 	faction = list(FACTION_MINING, FACTION_BOSS)

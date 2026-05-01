@@ -388,7 +388,7 @@
 	animate(src, color = initial(color), 0.5 SECONDS)
 	move_to_delay += CHARGE_MODIFIER
 	update_phase()
-	sleep(ceil(MARKED_ONE_STUN_DURATION * modifier))
+	sleep(CEILING(MARKED_ONE_STUN_DURATION * modifier, 1))
 	stunned = FALSE
 
 /// Teleport makes him teleport. woah.

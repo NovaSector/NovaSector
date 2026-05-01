@@ -278,9 +278,9 @@ SUBSYSTEM_DEF(dynamic)
 		log_dynamic("Roundstart: Ruleset [picked_ruleset.config_tag] (Chance: [round(rulesets_weighted[picked_ruleset] / total_weight * 100, 0.01)]%)")
 		if(picked_ruleset.solo)
 			log_dynamic("Roundstart: Ruleset is a solo ruleset. Cancelling other picks.")
-			picked_rulesets.Cut()
+			QDEL_LIST(picked_rulesets)
 			rulesets_weighted -= picked_ruleset
-			picked_rulesets += picked_ruleset.type
+			picked_rulesets += picked_ruleset
 			break
 		if(current_tier.tier != DYNAMIC_TIER_HIGH && (picked_ruleset.ruleset_flags & RULESET_HIGH_IMPACT))
 			for(var/datum/dynamic_ruleset/roundstart/high_impact_ruleset as anything in rulesets_weighted)
@@ -290,7 +290,7 @@ SUBSYSTEM_DEF(dynamic)
 				rulesets_weighted -= high_impact_ruleset
 		if(!picked_ruleset.repeatable)
 			rulesets_weighted -= picked_ruleset
-			picked_rulesets += picked_ruleset.type
+			picked_rulesets += picked_ruleset
 			continue
 
 		rulesets_weighted[picked_ruleset] -= picked_ruleset.repeatable_weight_decrease

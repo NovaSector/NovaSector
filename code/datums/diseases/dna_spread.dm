@@ -1,18 +1,16 @@
 /datum/disease/dnaspread
 	name = "Space Retrovirus"
 	max_stages = 4
-	spread_text = "Skin contact"
+	spread_text = "On contact"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = /datum/reagent/medicine/mutadone::name
+	cure_text = "Mutadone"
 	cures = list(/datum/reagent/medicine/mutadone)
 	disease_flags = CAN_CARRY|CAN_RESIST|CURABLE
-	agent = "S4E1 Retrovirus"
+	agent = "S4E1 retrovirus"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	var/datum/dna/original_dna = null
 	var/transformed = 0
-	desc = "A disease which transplants the genetic code of the initial vector into new hosts. \
-		While patient zero will be asymptomatic, all subsequent hosts will shows symptoms similar to that of a common cold or flu \
-		- until eventually transforming into a genetic copy of patient zero."
+	desc = "This disease transplants the genetic code of the initial vector into new hosts."
 	severity = DISEASE_SEVERITY_MEDIUM
 	bypasses_immunity = TRUE
 

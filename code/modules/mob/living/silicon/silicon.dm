@@ -53,7 +53,8 @@
 
 /mob/living/silicon/Initialize(mapload)
 	. = ..()
-	voice = SStts.random_tts_voice()
+	if(SStts.tts_enabled)
+		voice = pick(SStts.available_speakers)
 	GLOB.silicon_mobs += src
 	add_faction(FACTION_SILICON)
 	if(ispath(radio))
@@ -487,7 +488,7 @@
 		create_modularInterface()
 	var/mob/living/silicon/robot/robo = modularInterface.silicon_owner
 	if(istype(robo))
-		modularInterface.borglog += "[round_timestamp()] - [string]"
+		modularInterface.borglog += "[station_time_timestamp()] - [string]"
 	var/datum/computer_file/program/robotact/program = modularInterface.get_robotact()
 	if(program)
 		var/datum/tgui/active_ui = SStgui.get_open_ui(src, program.computer)

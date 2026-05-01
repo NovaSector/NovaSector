@@ -49,6 +49,9 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/ruin/unpowered)
+"gP" = (
+/turf/closed/mineral/titanium/volcanic,
+/area/ruin/unpowered)
 "hT" = (
 /turf/closed/wall/mineral/titanium{
 	initial_gas_mix = "LAVALAND_ATMOS"
@@ -128,6 +131,9 @@
 /obj/item/shard/titanium,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
+"sZ" = (
+/turf/closed/mineral/random/volcanic,
+/area/ruin/unpowered)
 "tp" = (
 /obj/item/stack/sheet/iron,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -146,6 +152,9 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/ruin/unpowered)
+"uh" = (
+/turf/closed/mineral/random/volcanic,
+/area/lavaland/surface)
 "uH" = (
 /obj/effect/spawner/random/structure/crate,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -161,7 +170,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
 "yZ" = (
-/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
+/turf/closed/mineral/volcanic/lava_land_surface,
 /area/ruin/unpowered)
 "zk" = (
 /obj/effect/spawner/random/structure/crate,
@@ -231,7 +240,7 @@
 /turf/open/floor/plating/lavaland_atmos,
 /area/ruin/unpowered)
 "FL" = (
-/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
+/turf/closed/mineral/volcanic/lava_land_surface,
 /area/lavaland/surface)
 "FR" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -262,6 +271,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
+"GZ" = (
+/turf/closed/mineral/titanium/volcanic,
+/area/lavaland/surface)
 "Hy" = (
 /obj/machinery/computer/communications{
 	dir = 8
@@ -402,7 +414,9 @@
 /obj/item/stack/sheet/mineral/titanium/fifty{
 	amount = 4
 	},
-/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
+/turf/open/floor/mineral/titanium/yellow{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
 /area/ruin/unpowered)
 "XZ" = (
 /obj/structure/chair/comfy/shuttle{
@@ -432,8 +446,8 @@ SV
 SV
 SV
 SV
-FL
-FL
+GZ
+GZ
 Fq
 Fq
 Fq
@@ -453,8 +467,8 @@ SV
 SV
 SV
 FL
-FL
-yZ
+GZ
+gP
 yZ
 fy
 iU
@@ -471,8 +485,8 @@ SV
 (3,1,1) = {"
 SV
 SV
-FL
-FL
+uh
+uh
 yZ
 hT
 hT
@@ -492,8 +506,8 @@ SV
 "}
 (4,1,1) = {"
 SV
-FL
-yZ
+uh
+sZ
 hT
 ky
 HM
@@ -641,13 +655,13 @@ yZ
 CX
 yZ
 yZ
-FL
+uh
 FL
 "}
 (11,1,1) = {"
 Fq
-FL
-yZ
+GZ
+gP
 bw
 Tt
 JD
@@ -662,15 +676,15 @@ DZ
 XU
 FI
 Ga
-FL
-FL
+uh
+uh
 FL
 "}
 (12,1,1) = {"
 SV
-FL
-yZ
-yZ
+GZ
+gP
+gP
 VN
 Ee
 Hy
@@ -684,14 +698,14 @@ oE
 yZ
 yZ
 FL
-FL
-FL
+uh
+uh
 SV
 "}
 (13,1,1) = {"
 SV
-FL
-yZ
+GZ
+gP
 Lz
 py
 hT
@@ -712,7 +726,7 @@ SV
 "}
 (14,1,1) = {"
 SV
-FL
+GZ
 Fq
 Lz
 lu
@@ -723,7 +737,7 @@ JN
 Dy
 On
 Om
-FL
+GZ
 FL
 FL
 SV
@@ -744,8 +758,8 @@ XT
 yZ
 St
 St
-yZ
-FL
+gP
+GZ
 SV
 SV
 SV
@@ -765,8 +779,8 @@ py
 St
 yZ
 FL
-FL
-FL
+GZ
+GZ
 SV
 SV
 SV
@@ -826,9 +840,9 @@ SV
 SV
 FL
 FL
-FL
-FL
-FL
+uh
+uh
+uh
 FL
 FL
 SV
@@ -849,8 +863,8 @@ SV
 SV
 SV
 FL
-FL
-FL
+uh
+uh
 FL
 SV
 SV

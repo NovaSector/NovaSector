@@ -2,17 +2,16 @@
 	form = "Condition"
 	name = "Adrenal Crisis"
 	max_stages = 2
-	cure_text = "Trauma (Adrenaline / \"" + /datum/reagent/determination::name + "\")"
+	cure_text = "Trauma"
 	cures = list(/datum/reagent/determination)
 	cure_chance = 10
-	agent = "Kronkaine Abuse"
+	agent = "Shitty Adrenal Glands"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	spreading_modifier = 1
-	desc = "A rare condition caused by continued abuse of Kronkaine. \
-		If left untreated the subject will suffer from lethargy, dizziness and periodic loss of consciousness."
+	desc = "If left untreated the subject will suffer from lethargy, dizziness and periodic loss of consciousness."
 	severity = DISEASE_SEVERITY_MEDIUM
 	spread_flags = DISEASE_SPREAD_NON_CONTAGIOUS
-	spread_text = "None"
+	spread_text = "Organ failure"
 	visibility_flags = HIDDEN_PANDEMIC
 	bypasses_immunity = TRUE
 

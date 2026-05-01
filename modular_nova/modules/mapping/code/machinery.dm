@@ -60,12 +60,20 @@
 	. = ..()
 	soundloop = new(src, active)
 	connect_to_network()
-	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
-	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/power/micro_reactor/Destroy()
 	QDEL_NULL(soundloop)
 	return ..()
+
+// formerly NO_DECONSTRUCTION
+/obj/machinery/power/micro_reactor/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/power/micro_reactor/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/power/micro_reactor/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
 
 /obj/machinery/power/micro_reactor/update_icon_state()
 	icon_state = "[base_icon_state]_[active]"

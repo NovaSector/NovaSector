@@ -193,7 +193,6 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 	name = "scanner array"
 	icon = 'icons/obj/exploration.dmi'
 	icon_state = "scanner_off"
-	base_icon_state = "scanner"
 	desc = "A sophisticated scanning array. Easily influenced by its environment."
 	circuit = /obj/item/circuitboard/machine/exoscanner
 	///the scan power of this array to supply to scanner_controller
@@ -227,10 +226,15 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 	update_current_power_usage()
 
 /obj/machinery/exoscanner/screwdriver_act(mob/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	. = ..()
+	if(!.)
+		. = default_deconstruction_screwdriver(user, "scanner_open", "scanner_off", tool)
+		update_readiness()
 
 /obj/machinery/exoscanner/crowbar_act(mob/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	..()
+	if(default_deconstruction_crowbar(tool))
+		return TRUE
 
 /obj/machinery/exoscanner/proc/scan_change()
 	SIGNAL_HANDLER
@@ -256,15 +260,13 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 
 /obj/machinery/exoscanner/update_icon_state()
 	. = ..()
-	if(panel_open)
-		icon_state = "[base_icon_state]_open"
-	else if(is_ready())
+	if(is_ready())
 		if(GLOB.exoscanner_controller.current_scan)
-			icon_state = "[base_icon_state]_on"
+			icon_state = "scanner_on"
 		else
-			icon_state = "[base_icon_state]_ready"
+			icon_state = "scanner_ready"
 	else
-		icon_state = "[base_icon_state]_off"
+		icon_state = "scanner_off"
 
 /obj/machinery/exoscanner/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -277,9 +279,6 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 
 /obj/machinery/exoscanner/on_set_is_operational(old_value)
 	. = ..()
-	update_readiness()
-
-/obj/machinery/exoscanner/on_set_panel_open(old_value)
 	update_readiness()
 
 ///Helper datum to calculate and store scanning power and track in progress scans

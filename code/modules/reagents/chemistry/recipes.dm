@@ -7,16 +7,18 @@
  */
 /datum/chemical_reaction
 	///Results of the chemical reactions
-	var/list/results = list()
+	var/list/results = new/list()
 	///Required chemicals that are USED in the reaction
-	var/list/required_reagents = list()
+	var/list/required_reagents = new/list()
 	///Required chemicals that must be present in the container but are not USED.
-	var/list/required_catalysts = list()
+	var/list/required_catalysts = new/list()
 
 	/// If required_container will check for the exact type, or will also accept subtypes
 	var/required_container_accepts_subtypes = FALSE
 	/// If required_container_accepts_subtypes is FALSE, the exact type of what container this reaction can take place in. Otherwise, what type including subtypes are acceptable.
 	var/atom/required_container
+	/// Set this to true to call pre_reaction_other_checks() on react and do some more interesting reaction logic
+	var/required_other = FALSE
 
 	///Determines if a chemical reaction can occur inside a mob
 	var/mob_react = TRUE
@@ -52,7 +54,7 @@
 	var/rate_up_lim = 30
 	/// If purity is below 0.15, it calls OverlyImpure() too. Set to 0 to disable this.
 	var/purity_min = 0.15
-	/// bitflags for clear conversions; see code/__DEFINES/reagents.dm
+	/// bitflags for clear conversions; REACTION_CLEAR_IMPURE, REACTION_CLEAR_INVERSE, REACTION_CLEAR_RETAIN, REACTION_INSTANT
 	var/reaction_flags = NONE
 	///Tagging vars
 	///A bitflag var for tagging reagents for the reagent loopup functon
@@ -102,7 +104,11 @@
 	return
 
 /**
- * Stuff that should happen at the end of the reaction. Presently only REACTION_CLEAR_INVERSE is respected here
+ * Stuff that occurs at the end of a reaction. This will proc if the beaker is forced to stop and start again (say for sudden temperature changes).
+ * Only procs at the END of reaction
+ * If reaction_flags & REACTION_INSTANT then this isn't called
+ * if reaction_flags REACTION_CLEAR_IMPURE then the impurity chem is handled here, producing the result in the beaker instead of in a mob
+ * Likewise for REACTION_CLEAR_INVERSE the inverse chem is produced at the end of the reaction in the beaker
  * You should be calling ..() if you're writing a child function of this proc otherwise purity methods won't work correctly
  *
  * Proc where the additional magic happens.
@@ -112,24 +118,39 @@
  * * react_volume - volume created across the whole reaction
  */
 /datum/chemical_reaction/proc/reaction_finish(datum/reagents/holder, datum/equilibrium/reaction, react_vol)
-	if(!(reaction_flags & REACTION_CLEAR_INVERSE))
-		return
-
-	var/list/inverse_data = list()
-	for(var/datum/reagent/reagent as anything in holder.reagent_list)
-		if(!results[reagent.type] || !reagent.inverse_chem || reagent.purity == 1 || reagent.purity > reagent.inverse_chem_val)
-			continue
-
-		inverse_data += reagent.inverse_chem
-		inverse_data += reagent.volume
-		inverse_data += reagent.get_inverse_purity(reagent.purity)
-		reagent.volume = 0
-
-	holder.update_total()
-
+	//failed_chem handler
 	var/cached_temp = holder.chem_temp
-	while(inverse_data.len)
-		holder.add_reagent(popleft(inverse_data), popleft(inverse_data), reagtemp = cached_temp, added_purity = popleft(inverse_data))
+	for(var/id in results)
+		var/datum/reagent/reagent = holder.has_reagent(id)
+		if(!reagent)
+			continue
+		//Split like this so it's easier for people to edit this function in a child
+		reaction_clear_check(reagent, holder)
+	holder.chem_temp = cached_temp
+
+/**
+ * REACTION_CLEAR handler
+ * If the reaction has the REACTION_CLEAR flag, then it will split using purity methods in the beaker instead
+ *
+ * Arguments:
+ * * reagent - the target reagent to convert
+ */
+/datum/chemical_reaction/proc/reaction_clear_check(datum/reagent/reagent, datum/reagents/holder)
+	if(!reagent)//Failures can delete R
+		return
+	if(reaction_flags & (REACTION_CLEAR_IMPURE | REACTION_CLEAR_INVERSE))
+		if(reagent.purity == 1)
+			return
+
+		if((reaction_flags & REACTION_CLEAR_INVERSE) && reagent.inverse_chem)
+			if(reagent.inverse_chem_val > reagent.purity)
+				var/inverse_chem = reagent.inverse_chem
+				var/cached_volume = reagent.volume
+				var/cached_purity = reagent.get_inverse_purity(reagent.purity)
+				reagent.volume = 0
+				holder.update_total()
+				holder.add_reagent(inverse_chem, cached_volume, FALSE, added_purity = cached_purity)
+				return
 
 /**
  * Occurs when a reation is overheated (i.e. past its overheatTemp)
@@ -144,9 +165,10 @@
  * * step_volume_added - how much product (across all products) was added for this single step
  */
 /datum/chemical_reaction/proc/overheated(datum/reagents/holder, datum/equilibrium/equilibrium, step_volume_added)
-	for(var/datum/reagent/reagent as anything in holder.reagent_list)
-		if(!results[reagent.type])
-			continue
+	for(var/id in results)
+		var/datum/reagent/reagent = holder.has_reagent(id)
+		if(!reagent)
+			return
 		reagent.volume *= 0.98 //Slowly lower yield per tick
 	holder.update_total()
 

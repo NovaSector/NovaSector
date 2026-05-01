@@ -3,12 +3,10 @@
 /// Caused by dirty food. Makes you growl at people and bite them spontaneously.
 /datum/disease/carpellosis
 	name = "Carpellosis"
-	desc = "An angry space carp inside has infested the host's stomach, \
-		leading to an uncontrollable urge to gnash at people and wag your tail."
+	desc = "You have an angry space carp inside."
 	form = "Parasite"
 	agent = "Carp Ella"
-	cure_text = /datum/reagent/chlorine::name
-	spread_text = "None"
+	cure_text = "Chlorine"
 	cures = list(/datum/reagent/chlorine)
 	viable_mobtypes = list(/mob/living/carbon/human)
 	spread_flags = DISEASE_SPREAD_NON_CONTAGIOUS

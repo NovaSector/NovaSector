@@ -57049,7 +57049,7 @@
 /turf/open/floor/pod/dark,
 /area/station/service/chapel)
 "pVK" = (
-/mob/living/basic/bot/secbot/beepsky/armsky,
+/mob/living/simple_animal/bot/secbot/beepsky/armsky,
 /obj/effect/landmark/event_spawn,
 /obj/machinery/holopad/secure,
 /obj/effect/turf_decal/bot,
@@ -72470,7 +72470,7 @@
 /area/station/hallway/secondary/command)
 "ueg" = (
 /obj/machinery/airalarm/directional/south,
-/mob/living/basic/bot/secbot/pingsky,
+/mob/living/simple_animal/bot/secbot/pingsky,
 /obj/structure/railing{
 	dir = 4
 	},
@@ -76831,7 +76831,7 @@
 /turf/closed/wall/r_wall,
 /area/station/medical/virology)
 "vnv" = (
-/mob/living/basic/bot/secbot/beepsky/officer,
+/mob/living/simple_animal/bot/secbot/beepsky/officer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/office)
 "vnO" = (

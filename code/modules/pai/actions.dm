@@ -7,7 +7,6 @@
 	if(!ispAI(owner))
 		return FALSE
 	pai_owner = owner
-	return ..()
 
 /datum/action/innate/pai/software
 	name = "Software Interface"
@@ -16,9 +15,7 @@
 	overlay_icon_state = "bg_tech_border"
 
 /datum/action/innate/pai/software/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
-		return
+	..()
 	pai_owner.ui_act()
 
 /datum/action/innate/pai/shell
@@ -28,9 +25,7 @@
 	overlay_icon_state = "bg_tech_border"
 
 /datum/action/innate/pai/shell/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
-		return
+	..()
 	if(pai_owner.holoform)
 		pai_owner.fold_in(0)
 	else
@@ -43,9 +38,7 @@
 	overlay_icon_state = "bg_tech_border"
 
 /datum/action/innate/pai/chassis/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
-		return
+	..()
 	pai_owner.choose_chassis()
 
 /datum/action/innate/pai/rest
@@ -55,9 +48,7 @@
 	overlay_icon_state = "bg_tech_border"
 
 /datum/action/innate/pai/rest/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
-		return
+	..()
 	pai_owner.toggle_resting()
 
 /datum/action/innate/pai/light
@@ -68,9 +59,7 @@
 	overlay_icon_state = "bg_tech_border"
 
 /datum/action/innate/pai/light/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
-		return
+	..()
 	pai_owner.toggle_integrated_light()
 
 /datum/action/innate/pai/messenger
@@ -81,8 +70,6 @@
 
 /datum/action/innate/pai/messenger/Trigger(mob/clicker, trigger_flags)
 	. = ..()
-	if(!.)
-		return
 	var/obj/item/pai_card/pai_holder = owner.loc
 	if(!istype(pai_holder.loc, /obj/item/modular_computer))
 		owner.balloon_alert(owner, "not in a pda!")

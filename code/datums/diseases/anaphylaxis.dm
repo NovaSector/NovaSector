@@ -1,9 +1,9 @@
 /datum/disease/anaphylaxis
-	form = "Condition"
+	form = "Shock"
 	name = "Anaphylaxis"
 	desc = "Patient is undergoing a life-threatening allergic reaction and will die if not treated."
 	max_stages = 3
-	cure_text = /datum/reagent/medicine/epinephrine::name
+	cure_text = "Epinephrine"
 	cures = list(/datum/reagent/medicine/epinephrine)
 	cure_chance = 20
 	agent = "Allergy"

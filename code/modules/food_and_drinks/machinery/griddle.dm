@@ -27,8 +27,7 @@
 	. = ..()
 	grill_loop = new(src, FALSE)
 	if(isnum(variant))
-		variant = rand(1, 3)
-		update_appearance()
+		variant = rand(1,3)
 	RegisterSignal(src, COMSIG_ATOM_EXPOSE_REAGENT, PROC_REF(on_expose_reagent))
 	RegisterSignal(src, COMSIG_STORAGE_DUMP_CONTENT, PROC_REF(on_storage_dump))
 
@@ -37,15 +36,10 @@
 	return ..()
 
 /obj/machinery/griddle/crowbar_act(mob/living/user, obj/item/I)
-	. = default_deconstruction_crowbar(user, I)
-	if(.)
+	. = ..()
+	if(default_deconstruction_crowbar(I, ignore_panel = TRUE))
 		return
-	// this is dead code... default_deconstruction_crowbar will never fail
-	variant = rand(1, 3)
-	update_appearance()
-
-/obj/machinery/griddle/can_crowbar_deconstruct()
-	return TRUE
+	variant = rand(1,3)
 
 /obj/machinery/griddle/IsContainedAtomAccessible(atom/contained, atom/movable/user)
 	return ..() || (contained in griddled_objects)

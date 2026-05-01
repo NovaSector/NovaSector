@@ -117,20 +117,21 @@
 	to_chat(user, span_notice("You insert [tool] into [src]"))
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/research/anomaly_refinery/update_icon_state()
-	. = ..()
-	icon_state = panel_open ? "[base_icon_state]-off" : base_icon_state
-
 /obj/machinery/research/anomaly_refinery/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	default_unfasten_wrench(user, tool)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/research/anomaly_refinery/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	if(!default_deconstruction_screwdriver(user, "[base_icon_state]-off", "[base_icon_state]", tool))
+		return FALSE
+	update_appearance()
+	return TRUE
 
 /obj/machinery/research/anomaly_refinery/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	if(!default_deconstruction_crowbar(tool))
+		return FALSE
+	return TRUE
 
 /obj/machinery/research/anomaly_refinery/emag_act(mob/user, obj/item/card/emag/emag_card)
 	. = ..()

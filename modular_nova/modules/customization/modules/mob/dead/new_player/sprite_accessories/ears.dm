@@ -289,10 +289,6 @@
 	name = "Curved Rabbit Ears (Large)"
 	icon_state = "rabbit_large"
 
-/datum/sprite_accessory/ears/external/big/playbunny_large
-	name = "Flopped Rabbit Ears (Large)"
-	icon_state = "playbunny_large"
-
 /datum/sprite_accessory/ears/external/big/sandfox_large
 	name = "Sandfox (Large)"
 	icon_state = "sandfox_large"

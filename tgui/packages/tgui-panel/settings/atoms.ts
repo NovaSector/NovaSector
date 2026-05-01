@@ -26,7 +26,6 @@ export const defaultHighlightSetting: HighlightSetting = {
   highlightWholeMessage: true,
   matchWord: false,
   matchCase: false,
-  enabled: true,
 };
 
 export const defaultHighlights: HighlightState = {

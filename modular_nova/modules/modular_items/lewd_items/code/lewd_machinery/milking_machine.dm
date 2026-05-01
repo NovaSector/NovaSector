@@ -71,9 +71,6 @@
 // Object initialization
 /obj/structure/chair/milking_machine/Initialize(mapload)
 	. = ..()
-
-	AddElement(/datum/element/tool_blocker, TOOL_WRENCH, TOOL_ACT_SECONDARY)
-
 	milk_vessel = new()
 	milk_vessel.name = "MilkContainer"
 	milk_vessel.reagents.maximum_volume = MILKING_PUMP_MAX_CAPACITY
@@ -127,6 +124,10 @@
 /obj/structure/chair/milking_machine/examine(mob/user)
 	. = ..()
 	. += span_notice("What are these metal mounts on the armrests for...?")
+
+// formerly NO_DECONSTRUCTION
+/obj/structure/chair/milking_machine/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return NONE
 
 /*
 *	APPEARANCE MANAGEMENT

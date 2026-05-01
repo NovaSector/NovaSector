@@ -250,7 +250,7 @@
 
 /obj/item/organ/genital/penis/update_genital_icon_state()
 	var/size_affix
-	var/measured_size = floor(genital_size)
+	var/measured_size = FLOOR(genital_size,1)
 	if(measured_size < 1)
 		measured_size = 1
 	switch(measured_size)
@@ -275,7 +275,7 @@
 		return "[LOWER_TEXT(sheath)]_[poking_out]"
 
 	var/size_affix
-	var/measured_size = floor(genital_size)
+	var/measured_size = FLOOR(genital_size, 1)
 	var/is_erect = 0
 	if(aroused == AROUSAL_FULL)
 		is_erect = 1
@@ -376,7 +376,7 @@
 	return ..()
 
 /obj/item/organ/genital/testicles/get_sprite_size_string()
-	var/measured_size = floor(genital_size)
+	var/measured_size = FLOOR(genital_size,1)
 	measured_size = clamp(measured_size, 0, max_sprite_size_affix)
 	var/passed_string = "[genital_type]_[measured_size]"
 	if(uses_skintones)
@@ -561,7 +561,7 @@
 
 /obj/item/organ/genital/breasts/update_genital_icon_state()
 	var/max_size = 5
-	var/current_size = floor(genital_size)
+	var/current_size = FLOOR(genital_size, 1)
 	if(current_size < 0)
 		current_size = 0
 	else if (current_size > max_size)
@@ -572,7 +572,7 @@
 	icon_state = passed_string
 
 /obj/item/organ/genital/breasts/get_sprite_size_string()
-	var/current_size = floor(genital_size)
+	var/current_size = FLOOR(genital_size, 1)
 	current_size = clamp(current_size, 0, max_sprite_size_affix)
 	var/passed_string = "[genital_type]_[current_size]"
 	if(uses_skintones)

@@ -57,9 +57,6 @@
 	property_minimums = list(
 		MATERIAL_HARDNESS = 2,
 	)
-	property_maximums = list(
-		MATERIAL_FLEXIBILITY = 5,
-	)
 
 /datum/material_requirement/rigid_material
 	required_flags = MATERIAL_CLASS_RIGID

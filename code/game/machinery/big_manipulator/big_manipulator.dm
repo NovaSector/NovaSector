@@ -373,10 +373,15 @@
 			remove_all_huds()
 
 /obj/machinery/big_manipulator/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/big_manipulator/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	. = ..()
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/big_manipulator/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(user.combat_mode)

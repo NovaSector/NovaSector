@@ -1,7 +1,7 @@
 /datum/job/bridge_assistant
 	total_positions = 1
 	spawn_positions = 1
-	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
+	job_flags = STATION_JOB_FLAGS
 	nova_stars_only = TRUE
 
 	outfit = /datum/outfit/job/bridge_assistant

@@ -353,7 +353,7 @@
 	)
 	time = 10 SECONDS
 	category = CAT_WEAPON_RANGED
-	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_CHECK_DENSITY
 
 
 /datum/crafting_recipe/large_ballista

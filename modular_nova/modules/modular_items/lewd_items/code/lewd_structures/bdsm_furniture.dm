@@ -15,10 +15,6 @@
 	icon_state = "bdsm_bed_kit"
 	w_class = WEIGHT_CLASS_HUGE
 
-/obj/item/bdsm_bed_kit/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/tool_blocker, TOOL_WRENCH, TOOL_ACT_SECONDARY)
-
 /obj/item/bdsm_bed_kit/click_ctrl_shift(mob/user)
 	add_fingerprint(user)
 	if((item_flags & IN_INVENTORY) || (item_flags & IN_STORAGE))
@@ -38,6 +34,10 @@
 /obj/item/bdsm_bed_kit/examine(mob/user)
 	. = ..()
 	. += span_purple("[src] can be assembled by using Ctrl+Shift+Click while [src] is on the floor.")
+
+// formerly NO_DECONSTRUCTION
+/obj/structure/bed/bdsm_bed/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return NONE
 
 /obj/structure/bed/bdsm_bed/post_buckle_mob(mob/living/affected_mob)
 	density = TRUE

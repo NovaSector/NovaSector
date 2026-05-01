@@ -76,5 +76,4 @@
 
 #define INVISIBILITY_SOURCE_INVISIMIN "invisimin"
 #define INVISIBILITY_SOURCE_STEALTHMODE "stealthmode"
-#define INVISIBILITY_SOURCE_SLEEP_HUD_BUTTON "sleep_hud_button"
 

@@ -52,15 +52,15 @@
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: Power generation at <b>[display_power(power_gen, convert = FALSE)]</b>.")
 
-/obj/machinery/power/rtg/update_icon_state()
-	. = ..()
-	icon_state = panel_open ? "[base_icon_state]-open" : base_icon_state
-
 /obj/machinery/power/rtg/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	if(default_deconstruction_screwdriver(user, "[base_icon_state]-open", base_icon_state, tool))
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/power/rtg/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
+	return panel_open ? ITEM_INTERACT_BLOCKING : NONE
 
 /obj/machinery/power/rtg/vv_edit_var(vname, vval)
 	. = ..()
@@ -157,17 +157,16 @@
 	power_gen = 0.75 KILO WATTS
 	anchored = TRUE
 
-/obj/machinery/power/rtg/old_station/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
+/obj/machinery/power/rtg/old_station/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
 	. = ..()
-	if(. & ITEM_INTERACT_SUCCESS)
-		to_chat(user, span_warning("You feel [src] crumbling under your hands!"))
+	if(.)
+		to_chat(user, span_warning("You feel it crumbling under your hands!"))
 
-/obj/machinery/power/rtg/old_station/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar, ignore_panel, custom_deconstruct)
+/obj/machinery/power/rtg/old_station/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct, mob/user)
 	to_chat(user, span_warning("As you pry, [src] starts to fall apart!"))
 	if(!crowbar.use_tool(src, user, 3 SECONDS, volume = 50))
-		return ITEM_INTERACT_BLOCKING
-
+		return FALSE
 	to_chat(user, span_warning("You feel like you made a mistake."))
 	new /obj/effect/decal/cleanable/ash/large(drop_location())
 	deconstruct(FALSE)
-	return ITEM_INTERACT_SUCCESS
+	return TRUE

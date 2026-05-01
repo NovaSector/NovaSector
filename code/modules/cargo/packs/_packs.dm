@@ -139,7 +139,7 @@
 	name = "materials order"
 	crate_name = "galactic materials market delivery crate"
 	access = FALSE
-	crate_type = /obj/structure/closet/crate/cargo/mining
+	crate_type = /obj/structure/closet/crate/cardboard
 
 /datum/supply_pack/custom/minerals/New(purchaser, cost, list/contains)
 	. = ..()

@@ -6,7 +6,6 @@
 	desc = "A machine that accepts ore and instantly transforms it into workable material sheets. Points for ore are generated based on type and can be redeemed at a mining equipment vendor."
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "ore_redemption"
-	base_icon_state = "ore_redemption"
 	density = TRUE
 	input_dir = NORTH
 	output_dir = SOUTH
@@ -218,10 +217,12 @@
 		unregister_input_turf() // someone just un-wrenched us, unregister the turf
 
 /obj/machinery/mineral/ore_redemption/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	default_deconstruction_screwdriver(user, "ore_redemption-open", "ore_redemption", tool)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/mineral/ore_redemption/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	default_deconstruction_crowbar(tool)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/mineral/ore_redemption/wrench_act(mob/living/user, obj/item/tool)
 	default_unfasten_wrench(user, tool)
@@ -384,7 +385,7 @@
 	return ..()
 
 /obj/machinery/mineral/ore_redemption/update_icon_state()
-	icon_state = "[base_icon_state][panel_open ? "-open" : powered() ? null : "-off"]"
+	icon_state = "[initial(icon_state)][powered() ? null : "-off"]"
 	return ..()
 
 /obj/machinery/mineral/ore_redemption/update_overlays()

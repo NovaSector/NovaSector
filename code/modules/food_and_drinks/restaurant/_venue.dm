@@ -210,10 +210,6 @@
 	if(!linked_venue?.open) //Any open venues
 		. += mutable_appearance(icon, "portal_door")
 
-/obj/machinery/restaurant_portal/update_icon_state()
-	. = ..()
-	icon_state = panel_open ? "[base_icon_state]-open" : base_icon_state
-
 /obj/machinery/restaurant_portal/attack_hand(mob/living/user)
 	var/obj/item/card/id/used_id = user.get_idcard(TRUE)
 
@@ -268,10 +264,14 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/restaurant_portal/screwdriver_act(mob/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	if (default_deconstruction_screwdriver(user, "[base_icon_state]-open", base_icon_state, tool))
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/restaurant_portal/crowbar_act(mob/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/restaurant_portal/wrench_act(mob/living/user, obj/item/tool)
 	if(!panel_open)

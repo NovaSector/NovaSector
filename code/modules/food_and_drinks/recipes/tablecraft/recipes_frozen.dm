@@ -11,8 +11,7 @@
 		/obj/item/food/icecream = 1
 	)
 	result = /obj/item/food/icecreamsandwich
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 /datum/crafting_recipe/food/strawberryicecreamsandwich
 	name = "Strawberry ice cream sandwich"
@@ -23,8 +22,7 @@
 		/obj/item/food/icecream = 1
 	)
 	result = /obj/item/food/strawberryicecreamsandwich
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 /datum/crafting_recipe/food/spacefreezy
 	name ="Space freezy"
@@ -35,8 +33,7 @@
 	)
 	result = /obj/item/food/spacefreezy
 	added_foodtypes = FRUIT
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 /datum/crafting_recipe/food/sundae
 	name ="Sundae"
@@ -47,8 +44,7 @@
 		/obj/item/food/icecream = 1
 	)
 	result = /obj/item/food/sundae
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 /datum/crafting_recipe/food/honkdae
 	name ="Honkdae"
@@ -60,8 +56,7 @@
 		/obj/item/food/icecream = 1
 	)
 	result = /obj/item/food/honkdae
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 /datum/crafting_recipe/food/cornuto
 	name = "Cornuto"
@@ -74,8 +69,7 @@
 	)
 	result = /obj/item/food/cornuto
 	removed_foodtypes = JUNKFOOD
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 //////////////////////////SNOW CONES///////////////////////
 
@@ -86,8 +80,7 @@
 		/datum/reagent/consumable/ice = 15
 	)
 	result = /obj/item/food/snowcones
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 /datum/crafting_recipe/food/snowcone/pineapple
 	name = "Pineapple snowcone"
@@ -261,8 +254,7 @@
 		/datum/reagent/consumable/sugar = 2
 	)
 	result = /obj/item/food/popsicle/creamsicle_orange
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 /datum/crafting_recipe/food/berry_popsicle
 	name = "Berry popsicle"
@@ -275,8 +267,7 @@
 		/datum/reagent/consumable/sugar = 2
 	)
 	result = /obj/item/food/popsicle/creamsicle_berry
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 /datum/crafting_recipe/food/jumbo
 	name = "Jumbo icecream"
@@ -291,8 +282,7 @@
 	result = /obj/item/food/popsicle/jumbo
 	added_foodtypes = DAIRY
 	removed_foodtypes = JUNKFOOD
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 /datum/crafting_recipe/food/licorice_creamsicle
 	name = "Licorice popsicle"
@@ -306,8 +296,7 @@
 		/datum/reagent/consumable/sugar = 2
 	)
 	result = /obj/item/food/popsicle/licorice_creamsicle
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE
 
 /datum/crafting_recipe/food/meatsicle
 	name = "Meatsicle"
@@ -319,5 +308,4 @@
 	)
 	result = /obj/item/food/popsicle/meatsicle
 	added_foodtypes = SUGAR
-	dish_category = DISH_FROZEN
-	meal_category = MEAL_DESSERT
+	category = CAT_ICE

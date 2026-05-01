@@ -21,7 +21,7 @@
 	if (!..(preferences))
 		return FALSE
 
-	return /datum/quirk/item_quirk/nearsighted::name in preferences.all_quirks
+	return "Nearsighted" in preferences.all_quirks
 
 /datum/preference/choiced/glasses/apply_to_human(mob/living/carbon/human/target, value)
 	return

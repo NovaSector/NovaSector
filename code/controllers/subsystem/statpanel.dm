@@ -38,8 +38,9 @@ SUBSYSTEM_DEF(statpanels)
 
 		global_data += list(
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
-			"Server Time/NST: [server_timestamp(format = "YYYY-MM-DD hh:mm:ss")]",
-			"Shift Time/PT: [(SSticker.round_start_time == 0) ? "Pre-Game" : round_timestamp()]",
+			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss", world.timezone)]",
+			"Round Time: [ROUND_TIME()]",
+			"Station Time: [station_time_timestamp()]",
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 		)
 		*/ // NOVA EDIT REMOVAL END
@@ -65,9 +66,9 @@ SUBSYSTEM_DEF(statpanels)
 			" ",
 			"OOC: [GLOB.ooc_allowed ? "Enabled" : "Disabled"]",
 			" ",
-			"Server Time: [server_timestamp(format = "YYYY-MM-DD hh:mm:ss")]",
-			"Station Time: [server_timestamp(ic_time = TRUE)]",
-			"Round Timer: [round_timestamp()]",
+			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
+			"Station Time: [station_time_timestamp()]",
+			"Round Timer: [ROUND_TIME()]",
 			"Actual Round Timer: [time2text(real_round_time, "hh:mm:ss", 0)]"
 		)
 		// NOVA EDIT ADDITION END

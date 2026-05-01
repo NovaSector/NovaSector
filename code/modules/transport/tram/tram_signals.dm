@@ -118,10 +118,14 @@
 	. = ..()
 
 /obj/machinery/transport/crossing_signal/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /obj/machinery/transport/crossing_signal/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /obj/machinery/transport/crossing_signal/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
@@ -513,10 +517,14 @@
 			. += span_notice("The status display reads: Repair required.")
 
 /obj/machinery/transport/guideway_sensor/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /obj/machinery/transport/guideway_sensor/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /obj/machinery/transport/guideway_sensor/proc/pair_sensor()
 	set_machine_stat(machine_stat | MAINT)

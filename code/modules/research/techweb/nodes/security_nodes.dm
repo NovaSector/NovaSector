@@ -16,7 +16,6 @@
 		"sec_dart",
 		"sec_Islug",
 		"sec_rshot",
-		"s12g_br",
 	)
 
 /datum/techweb_node/sec_equip

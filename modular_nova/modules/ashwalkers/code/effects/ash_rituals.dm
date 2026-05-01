@@ -320,11 +320,11 @@
 		"north" = /obj/item/stack/ore/bluespace_crystal,
 		"south" = /obj/item/stack/sheet/animalhide/goliath_hide,
 		"east" = /obj/item/xenoarch/brush,
-		"west" = /obj/item/xenoarch/broken_item,
+		"west" = /obj/item/xenoarch/useless_relic,
 	)
 	consumed_components = list(
 		/obj/item/stack/sheet/animalhide/goliath_hide,
-		/obj/item/xenoarch/broken_item,
+		/obj/item/xenoarch/useless_relic,
 	)
 
 /datum/ash_ritual/uncover_rocks/ritual_success(obj/effect/ash_rune/success_rune)

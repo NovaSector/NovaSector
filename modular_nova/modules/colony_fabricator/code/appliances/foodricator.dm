@@ -25,12 +25,14 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
-	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/biogenerator/foodricator/RefreshParts()
 	. = ..()
 	efficiency = 1
 	productivity = 3
+
+/obj/machinery/biogenerator/foodricator/default_deconstruction_crowbar()
+	return
 
 // Deployable item for cargo for the rations printer
 

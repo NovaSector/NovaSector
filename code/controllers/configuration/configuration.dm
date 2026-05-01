@@ -121,7 +121,6 @@
 	populate_interaction_instances()
 	remove_erp_things()
 	setup_gas_prices()
-	GLOB.nova_star_restrictions = CONFIG_GET(flag/enable_nova_star_restrictions)
 	// NOVA EDIT ADDITION END
 
 	loaded = TRUE
@@ -371,13 +370,12 @@ Example config:
 */
 /datum/controller/configuration/proc/LoadPolicy()
 	policy = list()
-	var/json_path = CONFIG_GET(string/policy_json_path)
-	var/rawpolicy = file2text("[directory]/[json_path]")
+	var/rawpolicy = file2text("[directory]/policy.json")
 	if(rawpolicy)
 		var/parsed = safe_json_decode(rawpolicy)
 		if(!parsed)
-			log_config("JSON parsing failure for policy.json {[json_path]}")
-			DelayedMessageAdmins("JSON parsing failure for policy.json {[json_path]}")
+			log_config("JSON parsing failure for policy.json")
+			DelayedMessageAdmins("JSON parsing failure for policy.json")
 		else
 			policy = parsed
 

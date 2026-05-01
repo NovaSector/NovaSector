@@ -172,10 +172,13 @@
 	else if(HAS_TRAIT(L_occupant, TRAIT_STASIS))
 		thaw_them(L_occupant)
 
-/obj/machinery/stasis/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+/obj/machinery/stasis/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	. |= default_deconstruction_screwdriver(user, "stasis_maintenance", "stasis", I)
+	update_appearance()
 
-/obj/machinery/stasis/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
+/obj/machinery/stasis/crowbar_act(mob/living/user, obj/item/I)
+	. = ..()
+	return default_deconstruction_crowbar(I) || .
 
 #undef STASIS_TOGGLE_COOLDOWN

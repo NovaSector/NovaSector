@@ -47,14 +47,14 @@
 	setup_particles()
 
 /obj/machinery/byteforge/screwdriver_act(mob/living/user, obj/item/screwdriver)
-	return default_deconstruction_screwdriver(user, screwdriver)
+	. = ITEM_INTERACT_FAILURE
+	if(default_deconstruction_screwdriver(user, "[base_icon_state]_panel", base_icon_state, screwdriver))
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/byteforge/crowbar_act(mob/living/user, obj/item/crowbar)
-	return default_deconstruction_crowbar(user, crowbar)
-
-/obj/machinery/byteforge/update_icon_state()
-	. = ..()
-	icon_state = panel_open ? "[base_icon_state]_panel" : base_icon_state
+	. = ITEM_INTERACT_FAILURE
+	if(default_deconstruction_crowbar(crowbar))
+		return ITEM_INTERACT_SUCCESS
 
 /// Does some sparks after it's done
 /obj/machinery/byteforge/proc/flash(atom/movable/thing)
@@ -93,3 +93,4 @@
 	flicker()
 
 	addtimer(CALLBACK(src, PROC_REF(spawn_cache), cache), 1 SECONDS)
+

@@ -691,7 +691,6 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	name = "scanner control interface"
 	icon = 'icons/obj/service/library.dmi'
 	icon_state = "bigscanner"
-	base_icon_state = "bigscanner"
 	desc = "It's an industrial strength book scanner. Perfect!"
 	circuit = /obj/item/circuitboard/machine/libraryscanner
 	density = TRUE
@@ -700,14 +699,14 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	var/datum/book_info/cache
 
 /obj/machinery/libraryscanner/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	. = ..()
+	if(default_deconstruction_screwdriver(user, "bigscanner2", "bigscanner", tool))
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/libraryscanner/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
-
-/obj/machinery/libraryscanner/update_icon_state()
 	. = ..()
-	icon_state = panel_open ? "[base_icon_state]2" : base_icon_state
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/libraryscanner/Destroy()
 	held_book = null
@@ -775,7 +774,6 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	name = "book binder"
 	icon = 'icons/obj/service/library.dmi'
 	icon_state = "binder"
-	base_icon_state = "binder"
 	desc = "Only intended for binding paper products."
 	circuit = /obj/item/circuitboard/machine/bookbinder
 	density = TRUE
@@ -787,14 +785,14 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	var/scanned_name
 
 /obj/machinery/bookbinder/screwdriver_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_screwdriver(user, tool)
+	. = ..()
+	if(default_deconstruction_screwdriver(user, "binder2", "binder", tool))
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/bookbinder/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(user, tool)
-
-/obj/machinery/bookbinder/update_icon_state()
 	. = ..()
-	icon_state = panel_open ? "[base_icon_state]2" : base_icon_state
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/bookbinder/attackby(obj/hitby, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(hitby, /obj/item/paper))

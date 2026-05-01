@@ -1,4 +1,5 @@
 #define FUNCTIONAL_WING_FORCE 2.25 NEWTONS
+#define FUNCTIONAL_WING_STABILIZATION 4.5 NEWTONS
 
 ///hud action for starting and stopping flight
 /datum/action/innate/flight
@@ -28,6 +29,7 @@
 	food_reagents = list(/datum/reagent/flightpotion = 5)
 
 	var/drift_force = FUNCTIONAL_WING_FORCE
+	var/stabilizer_force = FUNCTIONAL_WING_STABILIZATION
 
 /obj/item/organ/wings/functional/Initialize(mapload)
 	. = ..()
@@ -35,6 +37,7 @@
 		/datum/component/jetpack, \
 		TRUE, \
 		drift_force, \
+		stabilizer_force, \
 		COMSIG_WINGS_OPENED, \
 		COMSIG_WINGS_CLOSED, \
 		null, \
@@ -242,3 +245,4 @@
 	sprite_accessory_override = /datum/sprite_accessory/wings/slime
 
 #undef FUNCTIONAL_WING_FORCE
+#undef FUNCTIONAL_WING_STABILIZATION

@@ -26,8 +26,11 @@
 #define REALTIMEOFDAY (world.timeofday + (MIDNIGHT_ROLLOVER * MIDNIGHT_ROLLOVER_CHECK))
 #define MIDNIGHT_ROLLOVER_CHECK ( GLOB.rollovercheck_last_timeofday != world.timeofday ? update_midnight_rollover() : GLOB.midnight_rollovers )
 
+/// Gets the sign of x, returns -1 if negative, 0 if 0, 1 if positive
+#define SIGN(x) ( ((x) > 0) - ((x) < 0) )
+
 /// Returns the integer closest to 0 from a division
-#define SIGNED_FLOOR_DIVISION(x, y) (sign(x) * floor(abs(x) / y))
+#define SIGNED_FLOOR_DIVISION(x, y) (SIGN(x) * FLOOR(abs(x) / y, 1))
 
 #define CEILING(x, y) ( -round(-(x) / (y)) * (y) )
 
@@ -53,8 +56,8 @@
 /// Helper that increments and wraps the passed in number when it hits the integer limit
 #define WRAP_UID(val) WRAP_UP(val, SHORT_REAL_LIMIT - 1)
 
-// Real modulus that handles decimals, now just a wrapper for BYOND's %% operator
-#define MODULUS(x, y) ((x) %% (y))
+// Real modulus that handles decimals
+#define MODULUS(x, y) ( (x) - FLOOR(x, y))
 
 // Cotangent
 #define COT(x) (1 / tan(x))

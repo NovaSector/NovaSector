@@ -378,7 +378,7 @@ function QuirkPage() {
       }
     }
     // NOVA EDIT START - Nova star quirks
-    if (data.nova_star_restrictions && quirk.nova_stars_only && !data.is_nova_star) {
+    if (quirk.nova_stars_only && !data.is_nova_star) {
       return 'You need to be a Nova star to select this quirk, apply today!';
     }
     // NOVA EDIT END

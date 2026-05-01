@@ -40,12 +40,6 @@
 	if(isnull(ai_controller))
 		return
 
-
-	var/atom/move_target = ai_controller.current_movement_target
-	if(move_target != ai_controller.blackboard[BB_BEACON_TARGET])
-		return
-
-
 	//Removes path images and handles removing hud client images
 	clear_path_hud()
 
@@ -53,6 +47,11 @@
 
 	var/list/path_images = active_hud_list[DIAG_PATH_HUD]
 	LAZYCLEARLIST(path_images)
+
+
+	var/atom/move_target = ai_controller.current_movement_target
+	if(move_target != ai_controller.blackboard[BB_BEACON_TARGET])
+		return
 
 	var/list/our_path = source.movement_path
 	if(!length(our_path))
@@ -95,6 +94,11 @@
 	if(client || !length(current_pathed_turfs) || isnull(ai_controller))
 		return
 
+	var/atom/move_target = ai_controller.current_movement_target
+
+	if(move_target != ai_controller.blackboard[BB_BEACON_TARGET])
+		clear_path_hud()
+
 	var/turf/our_turf = get_turf(src)
 	var/image/target_image = current_pathed_turfs[our_turf]
 	if(target_image)
@@ -102,14 +106,11 @@
 	current_pathed_turfs -= our_turf
 
 ///proc that handles deleting the bot's drawn path when needed
-/mob/living/basic/bot/proc/clear_path_hud(remove_hud = TRUE)
+/mob/living/basic/bot/proc/clear_path_hud()
 	for(var/turf/index as anything in current_pathed_turfs)
 		var/image/our_image = current_pathed_turfs[index]
 		animate(our_image, alpha = 0, time = 0.3 SECONDS)
 		current_pathed_turfs -= index
-
-	if(!remove_hud)
-		return
 
 	// Call hud remove handlers to ensure viewing user client images are removed
 	var/list/path_huds_watching_me = list(GLOB.huds[DATA_HUD_DIAGNOSTIC], GLOB.huds[DATA_HUD_BOT_PATH])

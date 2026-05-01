@@ -10,9 +10,8 @@
 		/datum/reagent/consumable/salt = 1,
 	)
 	result = /obj/item/food/snacks/store/bread/haggis
-	added_foodtypes = MEAT
-	dish_category = DISH_MEAT
-	meal_category = MEAL_MAIN_COURSE
+	category = CAT_MISCFOOD
+	added_foodtypes =  MEAT
 
 /datum/crafting_recipe/food/neep_tatty_haggis
 	name = "Haggis With Neeps and Tatties"
@@ -23,8 +22,7 @@
 		/obj/item/food/grown/whitebeet = 1
 		)
 	result = /obj/item/food/snacks/neep_tatty_haggis
-	dish_category = DISH_MEAT
-	meal_category = MEAL_MAIN_COURSE
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/raw_battered_sausage
 	name = "Raw Battered Sausage"
@@ -34,8 +32,7 @@
 		/obj/item/food/meat/rawcutlet = 2
 	)
 	result = /obj/item/food/raw_sausage/battered
-	dish_category = DISH_MEAT
-	meal_category = MEAL_SNACK
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/shortbread
 	name = "Shortbread"
@@ -46,8 +43,7 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/cookie/shortbread
-	dish_category = DISH_COOKIE
-	meal_category = MEAL_DESSERT
+	category = CAT_PASTRY
 	added_foodtypes = JUNKFOOD | SUGAR
 
 /datum/crafting_recipe/food/tuna
@@ -57,7 +53,7 @@
 		/obj/item/food/fishmeat = 2
 	)
 	result = /obj/item/food/canned/tuna
-	dish_category = DISH_MEAT
+	category = CAT_SEAFOOD
 
 // Recipes that provide crafting instructions and don't yield any result
 

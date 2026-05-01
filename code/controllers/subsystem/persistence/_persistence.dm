@@ -72,6 +72,7 @@ SUBSYSTEM_DEF(persistence)
 	load_trophies()
 	load_recent_maps()
 	load_photo_persistence()
+	load_randomized_recipes()
 	load_custom_outfits()
 	load_delamination_counter()
 	load_panic_bunker() //NOVA EDIT ADDITION - PANICBUNKER

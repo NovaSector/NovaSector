@@ -212,9 +212,6 @@
 	name = "Toggle Nightvision"
 
 /datum/action/item_action/toggle_nv_helmet/Trigger(trigger_flags)
-	. = ..()
-	if(!.)
-		return
 	var/obj/item/clothing/head/helmet/expeditionary_corps/my_helmet = target
 	if(!my_helmet.current_user)
 		return

@@ -38,7 +38,7 @@
 		return
 
 	. = TRUE
-	if(grab(target) != GRAB_SKIP)
+	if(grab(target))
 		changeNext_move(CLICK_CD_MELEE)
 		return
 	pulled(target)

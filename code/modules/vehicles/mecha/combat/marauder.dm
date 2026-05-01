@@ -59,8 +59,7 @@
 	button_icon_state = "mech_smoke"
 
 /datum/action/vehicle/sealed/mecha/mech_smoke/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
 	if(!chassis || !(owner in chassis.occupants))
 		return
@@ -74,8 +73,7 @@
 	button_icon_state = "mech_zoom_off"
 
 /datum/action/vehicle/sealed/mecha/mech_zoom/Trigger(mob/clicker, trigger_flags)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
 	if(!owner.client || !chassis || !(owner in chassis.occupants))
 		return

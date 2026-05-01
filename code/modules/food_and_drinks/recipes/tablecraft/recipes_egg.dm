@@ -10,7 +10,7 @@
 		/obj/item/food/friedegg = 1,
 	)
 	result = /obj/item/food/eggsausage
-	dish_category = DISH_MEAT
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/omelette
 	name = "Omelette du fromage"
@@ -21,6 +21,7 @@
 	result = /obj/item/food/omelette
 	added_foodtypes = BREAKFAST
 	removed_foodtypes = RAW
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/chocolateegg
 	name = "Chocolate egg"
@@ -30,8 +31,7 @@
 	)
 	result = /obj/item/food/chocolateegg
 	removed_foodtypes = MEAT|BREAKFAST //This recipe is very wrong, please change it ffs
-	dish_category = DISH_CANDY
-	meal_category = MEAL_DESSERT
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/eggsbenedict
 	name = "Eggs benedict"
@@ -41,7 +41,7 @@
 		/obj/item/food/breadslice/plain = 1,
 	)
 	result = /obj/item/food/benedict
-	dish_category = DISH_MEAT
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/eggbowl
 	name = "Egg bowl"
@@ -54,7 +54,7 @@
 	)
 	result = /obj/item/food/salad/eggbowl
 	removed_foodtypes = BREAKFAST
-	dish_category = DISH_RICE
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/wrap
 	name = "Egg Wrap"
@@ -64,8 +64,7 @@
 	)
 	result = /obj/item/food/eggwrap
 	removed_foodtypes = BREAKFAST
-	cuisine_category = CUISINE_MEXICAN
-	dish_category = DISH_BURRITO
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/chawanmushi
 	name = "Chawanmushi"
@@ -77,4 +76,5 @@
 	)
 	result = /obj/item/food/chawanmushi
 	removed_foodtypes = BREAKFAST
-	cuisine_category = CUISINE_JAPANESE
+	category = CAT_EGG
+

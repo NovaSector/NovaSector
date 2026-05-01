@@ -191,6 +191,3 @@ SAVEFILE_UPLOAD_LIMIT 2000
 #RELAY_OPTION Connect to Asia (Singapore),byond://asia.placeholder.com:1337
 #RELAY_OPTION Connect to South America (Brazil),byond://south-america.placeholder.com:1337
 #RELAY_OPTION Connect Directly (No Relay),byond://placeholder.com:1337
-
-## Uncomment to disable the Star rank restrictions
-#ENABLE_NOVA_STAR_RESTRICTIONS 0

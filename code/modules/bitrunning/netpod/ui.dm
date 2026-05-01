@@ -39,7 +39,3 @@
 				return TRUE
 
 	return FALSE
-
-
-/obj/machinery/netpod/ui_status(mob/user, datum/ui_state/state)
-	return panel_open ? UI_CLOSE : ..()
