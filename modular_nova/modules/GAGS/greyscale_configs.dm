@@ -2792,13 +2792,12 @@ Security
 
 /datum/greyscale_config/vested_jacket
 	name = "Vested Jacket"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/vested_jacket.json'
 
 /datum/greyscale_config/vested_jacket/worn
 	name = "Vested Jacket (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/vested_jacket_worn.json'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
 
 /datum/greyscale_config/sec_winter_coat
 	name = "Security Winter Coat"
@@ -2808,7 +2807,15 @@ Security
 /datum/greyscale_config/sec_winter_coat/worn
 	name = "Security Winter Coat (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/security_winter_coat_worn.json'
+
+/datum/greyscale_config/sec_bomber
+	name = "Security Bomber Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/sec_bomber.json'
+
+/datum/greyscale_config/sec_bomber/worn
+	name = "Security Winter Coat (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
 
 /datum/greyscale_config/secgloves
 	name = "Security Gloves"

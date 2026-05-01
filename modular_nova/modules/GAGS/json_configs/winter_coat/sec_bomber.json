@@ -1,34 +1,28 @@
 {
-	"vested_jacket": [
+	"sec_bomber": [
 		{
 			"type": "icon_state",
-			"icon_state": "vested_jacket_base",
+			"icon_state": "security_bomber_base",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "vested_jacket_vest",
+			"icon_state": "security_bomber_accent",
 			"blend_mode": "overlay",
 			"color_ids": [2]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "vested_jacket_accent",
-			"blend_mode": "overlay",
-			"color_ids": [3]
 		}
 	],
-	"vested_jacket_t": [
+	"sec_bomber_t": [
 		{
 			"type": "icon_state",
-			"icon_state": "vested_jacket_base_t",
+			"icon_state": "security_bomber_base_t",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "vested_jacket_vest_t",
+			"icon_state": "security_bomber_accent_t",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}

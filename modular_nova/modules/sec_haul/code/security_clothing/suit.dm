@@ -29,35 +29,38 @@
 	icon_state = "hazardbg"
 	worn_icon_state = "hazardbg"
 
-/obj/item/clothing/suit/armor/vest/brit/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_icon, "zipper")
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/bomber
+	name = "security bomber jacket"
+	desc = "A comfortable jacket in security red. Probably against uniform regulations."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/bomber"
+	post_init_icon_state = "sec_bomber"
+	greyscale_config = /datum/greyscale_config/sec_bomber
+	greyscale_config_worn = /datum/greyscale_config/sec_bomber/worn
+	greyscale_colors = "#A52F29#39393F"
+	flags_1 = NONE
 
-/obj/item/clothing/suit/armor/vest/vested_jacket
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket
 	name = "vested security jacket"
 	desc = "The company standard armor now with a stylish unzipped jacket stitched in for when you don't think you'll get shot!"
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/vested_jacket"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket"
 	post_init_icon_state = "vested_jacket"
 	greyscale_config = /datum/greyscale_config/vested_jacket
 	greyscale_config_worn = /datum/greyscale_config/vested_jacket/worn
 	greyscale_colors = "#A52F29#39393F#39393F"
 	flags_1 = NONE
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	body_parts_covered = CHEST|GROIN|ARMS
-	cold_protection = CHEST|GROIN|ARMS
-	heat_protection = CHEST|GROIN|ARMS
 
-/obj/item/clothing/suit/armor/vest/vested_jacket/blue
-	icon_state = "/obj/item/clothing/suit/armor/vest/vested_jacket/blue"
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket/blue
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket/blue"
 	greyscale_colors = "#3F6E9E#39393F#39393F"
 
-/obj/item/clothing/suit/armor/vest/vested_jacket/white
-	icon_state = "/obj/item/clothing/suit/armor/vest/vested_jacket/white"
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket/white
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket/white"
 	greyscale_colors = "#EBEBEB#39393F#39393F"
 
-/obj/item/clothing/suit/armor/vest/vested_jacket/black
-	icon_state = "/obj/item/clothing/suit/armor/vest/vested_jacket/black"
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket/black
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket/black"
 	greyscale_colors = "#39393F#39393F#EBEBEB"
 
 /obj/item/clothing/suit/hooded/wintercoat/security/nova
@@ -85,7 +88,7 @@
 
 /obj/item/clothing/suit/hooded/wintercoat/security/nova/black
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/black"
-	greyscale_colors = "#39393F#CEC8BF#39393F#39393F"
+	greyscale_colors = "#39393F#CEC8BF#39393F#EBEBEB"
 
 /// Called when the hood is worn
 /obj/item/clothing/suit/hooded/wintercoat/security/nova/on_hood_up(obj/item/clothing/head/hooded/hood)

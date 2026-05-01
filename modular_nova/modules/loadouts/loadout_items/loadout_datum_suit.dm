@@ -833,13 +833,13 @@
 	item_path = /obj/item/clothing/suit/armor/vest/brit
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
-
+/*
 /datum/loadout_item/suit/vested_jacket
 	name = "Vested Security Jacket"
 	item_path = /obj/item/clothing/suit/armor/vest/vested_jacket
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Job-Locked"
-
+*/
 /datum/loadout_item/suit/security_wintercoat
 	name = "Security Winter Jacket"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
