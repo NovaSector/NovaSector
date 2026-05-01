@@ -237,6 +237,159 @@
 
 /datum/loadout_item/neck/necktie_disco
 	name = "Tie - Ugly"
+
+/datum/loadout_item/neck/bowtie
+	name = "Tie - Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie
+
+/datum/loadout_item/neck/bowtiewizard
+	name = "Tie - Magical Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/magician
+
+/datum/loadout_item/neck/bowtiecc
+	name = "Tie - Centcom Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/centcom
+
+/datum/loadout_item/neck/bowtiesoviet
+	name = "Tie - Soviet Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/communist
+
+/datum/loadout_item/neck/bowtieblue
+	name = "Tie - Blue Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/blue
+
+/datum/loadout_item/neck/bowtienocap
+	name = "Tie - Captain Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/captain
+
+/datum/loadout_item/neck/bowtiecargo
+	name = "Tie - Cargo Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/cargo
+
+/datum/loadout_item/neck/bowtiemail
+	name = "Tie - Courier Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/mailman
+
+/datum/loadout_item/neck/bowtiebitrunner
+	name = "Tie - Gamer Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/bitrunner
+
+/datum/loadout_item/neck/bowtieengi
+	name = "Tie - Engineer Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/engineer
+
+/datum/loadout_item/neck/bowtieengiatmos
+	name = "Tie - Atmos Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/atmos_tech
+
+/datum/loadout_item/neck/bowtieengice
+	name = "Tie - Chief Engineer Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/ce
+
+/datum/loadout_item/neck/bowtiemed
+	name = "Tie - Medical Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/doctor
+
+/datum/loadout_item/neck/bowtiemedpara
+	name = "Tie - Paramedical Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/paramedic
+
+/datum/loadout_item/neck/bowtiemedchem
+	name = "Tie - Chemical Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/chemist
+
+/datum/loadout_item/neck/bowtiemedviro
+	name = "Tie - Pathological Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/pathologist
+
+/datum/loadout_item/neck/bowtiemedcoroner
+	name = "Tie - Coroner's Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/coroner
+
+/datum/loadout_item/neck/bowtiemedcmo
+	name = "Tie - Chief Medical Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/cmo
+
+/datum/loadout_item/neck/bowtiernd
+	name = "Tie - Scientific Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/scientist
+
+/datum/loadout_item/neck/bowtierndrobo
+	name = "Tie - Robotical Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/roboticist
+
+/datum/loadout_item/neck/bowtierndgene
+	name = "Tie - Genetical Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/geneticist
+
+/datum/loadout_item/neck/bowtierndrd
+	name = "Tie - Director Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/rd
+
+/datum/loadout_item/neck/bowtiesec
+	name = "Tie - Secure Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/security
+
+/datum/loadout_item/neck/bowtiesecdept
+	name = "Tie - Less Secure Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/security_assistant
+
+/datum/loadout_item/neck/bowtiesecdept
+	name = "Tie - Secure Medical Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/brig_phys
+
+/datum/loadout_item/neck/bowtiesecdet
+	name = "Tie - Curious Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/detective
+
+/datum/loadout_item/neck/bowtiesecprison
+	name = "Tie - Criminal Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/prisoner
+
+/datum/loadout_item/neck/bowtiehop
+	name = "Tie - Paper Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/hop
+
+/datum/loadout_item/neck/bowtiejanitor
+	name = "Tie - Clean Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/janitor
+
+/datum/loadout_item/neck/bowtiebar
+	name = "Tie - Drunk Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/bartender
+
+/datum/loadout_item/neck/bowtiecook
+	name = "Tie - Hungry Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/cook
+
+/datum/loadout_item/neck/bowtiehydro
+	name = "Tie - Botanical Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/botanist
+
+/datum/loadout_item/neck/bowtieclown
+	name = "Tie - Large Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/clown
+
+/datum/loadout_item/neck/rabbit
+	name = "Rabbit Necklace"
+	item_path = /obj/item/clothing/neck/bunny_pendant
+
+/datum/loadout_item/neck/bowtielawyerblack
+	name = "Tie - Black Lawful Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/lawyer_black
+
+/datum/loadout_item/neck/bowtielawyerblue
+	name = "Tie - Blue Lawful Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/lawyer_blue
+
+/datum/loadout_item/neck/bowtielawyerred
+	name = "Tie - Red Lawful Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/lawyer_red
+
+/datum/loadout_item/neck/bowtielawyergood
+	name = "Tie - Lawful Good Bow Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/lawyer_good
+
 /*
 *	CAPES, CLOAKS, MANTLES, PONCHOS, SHROUDS, AND VEILS
 */

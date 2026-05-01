@@ -368,17 +368,162 @@
 *	erp_item
 */
 
-/datum/loadout_item/under/miscellaneous/black_bunnysuit
-	name = "Bunny Suit"
+/datum/loadout_item/under/bunny
+	abstract_type = /datum/loadout_item/under/bunny
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/black
+	name = "Bunny Suit (Black)"
 	item_path = /obj/item/clothing/under/costume/bunnylewd
 	erp_item = TRUE
-	group = "Costumes"
+	group = "Bunny Suits"
 
-/datum/loadout_item/under/miscellaneous/white_bunnysuit
+/datum/loadout_item/under/bunny/white
 	name = "Bunny Suit (White)"
 	item_path = /obj/item/clothing/under/costume/bunnylewd/white
 	erp_item = TRUE
-	group = "Costumes"
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/color
+	name = "Bunny Suit (Colorable)"
+	item_path = /obj/item/clothing/under/costume/playbunny/greyscale
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/wizard
+	name = "Bunny Suit (Magician)"
+	item_path = /obj/item/clothing/under/costume/playbunny/magician
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/centcom
+	name = "Bunny Suit (Centcom)"
+	item_path = /obj/item/clothing/under/costume/playbunny/centcom
+	erp_item = TRUE
+	group = "Bunny Suits"
+	restricted_roles = list(ALL_JOBS_CC)
+
+/datum/loadout_item/under/bunny/brit
+	name = "Bunny Suit (British)"
+	item_path = /obj/item/clothing/under/costume/playbunny/british
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/ussr
+	name = "Bunny Suit (Communist)"
+	item_path = /obj/item/clothing/under/costume/playbunny/communist
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/usa
+	name = "Bunny Suit (USA)"
+	item_path = /obj/item/clothing/under/costume/playbunny/usa
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/tailor
+	name = "Bunny Suit (Tailormade)"
+	item_path = /obj/item/clothing/under/costume/playbunny/custom_playbunny
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/mailman
+	name = "Bunny Suit (Courier)"
+	item_path = /obj/item/clothing/under/rank/cargo/mailman_bunnysuit
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/gamer
+	name = "Bunny Suit (Gamer)"
+	item_path = /obj/item/clothing/under/rank/cargo/bitrunner/bunnysuit
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/prisoner
+	name = "Bunny Suit (Prisoner)"
+	item_path = /obj/item/clothing/under/rank/security/prisoner_bunnysuit
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/janitor
+	name = "Bunny Suit (Janitor)"
+	item_path = /obj/item/clothing/under/rank/civilian/janitor/bunnysuit
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/bartender
+	name = "Bunny Suit (Bartender)"
+	item_path = /obj/item/clothing/under/rank/civilian/bartender_bunnysuit
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/chef
+	name = "Bunny Suit (Cook)"
+	item_path = /obj/item/clothing/under/rank/civilian/cook_bunnysuit
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/hydro
+	name = "Bunny Suit (Botany)"
+	item_path = /obj/item/clothing/under/rank/civilian/hydroponics/bunnysuit
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/chaplain
+	name = "Bunny Suit (Chaplain)"
+	item_path = /obj/item/clothing/under/rank/civilian/chaplain_bunnysuit
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/curatorred
+	name = "Bunny Suit (Curator, Red)"
+	item_path = /obj/item/clothing/under/rank/civilian/curator_bunnysuit_red
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/curatorgreen
+	name = "Bunny Suit (Curator, Green)"
+	item_path = /obj/item/clothing/under/rank/civilian/curator_bunnysuit_green
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/curatorteal
+	name = "Bunny Suit (Curator, Teal)"
+	item_path = /obj/item/clothing/under/rank/civilian/curator_bunnysuit_teal
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/lawyerblack
+	name = "Bunny Suit (Lawyer, Black)"
+	item_path = /obj/item/clothing/under/rank/civilian/lawyer_bunnysuit_black
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/lawyerblue
+	name = "Bunny Suit (Lawyer, Blue)"
+	item_path = /obj/item/clothing/under/rank/civilian/lawyer_bunnysuit_blue
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+
+/datum/loadout_item/under/bunny/lawyerred
+	name = "Bunny Suit (Lawyer, Red)"
+	item_path = /obj/item/clothing/under/rank/civilian/lawyer_bunnysuit_red
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+
+/datum/loadout_item/under/bunny/lawyergood
+	name = "Bunny Suit (Lawyer, Good)"
+	item_path = /obj/item/clothing/under/rank/civilian/lawyer_bunnysuit_good
+	erp_item = TRUE
+	group = "Bunny Suits"
+
+/datum/loadout_item/under/bunny/psychologist
+	name = "Bunny Suit (Lawyer, Good)"
+	item_path = /obj/item/clothing/under/rank/civilian/psychologist_bunnysuit
+	erp_item = TRUE
+	group = "Bunny Suits"
 
 /datum/loadout_item/under/miscellaneous/latex_catsuit
 	name = "Latex Catsuit"

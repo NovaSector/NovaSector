@@ -175,7 +175,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "aaY" = (
@@ -1272,7 +1271,7 @@
 /area/station/cargo/drone_bay)
 "afP" = (
 /obj/machinery/holopad/secure,
-/mob/living/simple_animal/bot/secbot/pingsky,
+/mob/living/basic/bot/secbot/pingsky,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "afQ" = (
@@ -6701,6 +6700,10 @@
 	pixel_y = 2
 	},
 /obj/machinery/computer/security/telescreen/vault/directional/north,
+/obj/item/stamp/head/hop{
+	pixel_x = -4;
+	pixel_y = 4
+	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "aBB" = (
@@ -9826,14 +9829,14 @@
 /turf/open/floor/wood,
 /area/station/service/bar)
 "aQT" = (
-/obj/machinery/vending/cigarette,
 /obj/machinery/light/directional/north,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/vending/coffee,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "aQU" = (
-/obj/machinery/vending/coffee,
 /obj/machinery/camera/autoname/directional/north,
+/obj/structure/closet/secure_closet/security/service,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "aQV" = (
@@ -20603,7 +20606,6 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/engine_equipment,
-/obj/effect/mapping_helpers/airlock/abandoned,
 /turf/open/floor/iron,
 /area/station/engineering/gravity_generator)
 "bRI" = (
@@ -26957,15 +26959,9 @@
 /turf/open/floor/iron,
 /area/station/security/prison)
 "cYk" = (
-/obj/structure/table/wood,
-/obj/item/stamp/head/hop{
-	pixel_x = -4;
-	pixel_y = 4
-	},
 /obj/machinery/button/ticket_machine{
 	pixel_x = 28
 	},
-/obj/item/paper_bin/carbon,
 /obj/machinery/button/door/directional/south{
 	id = "hop";
 	name = "Privacy Shutters Control";
@@ -26983,6 +26979,9 @@
 /obj/machinery/button/photobooth{
 	pixel_x = 27;
 	pixel_y = -10
+	},
+/obj/machinery/computer/accounting{
+	dir = 8
 	},
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hop)
@@ -49914,7 +49913,7 @@
 /area/station/security/prison/work)
 "tpb" = (
 /obj/effect/mapping_helpers/burnt_floor,
-/mob/living/simple_animal/bot/secbot/beepsky{
+/mob/living/basic/bot/secbot/beepsky{
 	name = "Officer Beepsky"
 	},
 /turf/open/floor/plating,
@@ -51461,7 +51460,7 @@
 /area/station/medical/morgue)
 "ulV" = (
 /obj/effect/landmark/event_spawn,
-/mob/living/simple_animal/bot/secbot/beepsky/armsky,
+/mob/living/basic/bot/secbot/beepsky/armsky,
 /turf/open/floor/iron/large,
 /area/station/security/armory)
 "umb" = (

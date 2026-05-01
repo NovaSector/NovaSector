@@ -68,7 +68,7 @@
 
 	/// the rating change for the max power (upgrades)
 	var/power_rating = 450 KILO WATTS
-	
+
 	/// power cap, if its 0 it will be ignored, otherwise caps the max power the system will have (better than using taxes for small operations)
 	var/power_cap = 0
 
@@ -178,7 +178,7 @@
 	var/datum/bank_account/primary_account = SSeconomy.get_dep_account(credits_account)
 	var/money_ratio = round(current_power * (1/divide_ratio) * ((100-tax) / 100))
 	primary_account.adjust_money(money_ratio)
-	credits_made += money_ratio 
+	credits_made += money_ratio
 
 /obj/machinery/powerator/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
@@ -211,8 +211,7 @@
 		cut_overlay("error")
 
 /obj/machinery/powerator/crowbar_act(mob/user, obj/item/tool)
-	if(default_deconstruction_crowbar(tool))
-		return ITEM_INTERACT_SUCCESS
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/powerator/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()

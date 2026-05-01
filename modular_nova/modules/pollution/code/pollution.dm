@@ -116,7 +116,7 @@
 	height = calculate_height(total_amount)
 
 /datum/pollution/proc/calculate_height(passed_amount)
-	return CEILING(passed_amount / POLLUTION_HEIGHT_DIVISOR, 1)
+	return ceil(passed_amount / POLLUTION_HEIGHT_DIVISOR)
 
 /datum/pollution/Destroy()
 	if(managed_overlay)
@@ -235,7 +235,7 @@
 		return
 
 	var/obj/effect/abstract/pollution/overlay = new()
-	overlay.alpha = FLOOR(pollutant.alpha * total_thickness * THICKNESS_ALPHA_COEFFICIENT, 1)
+	overlay.alpha = floor(pollutant.alpha * total_thickness * THICKNESS_ALPHA_COEFFICIENT)
 	overlay.color = pollutant.color
 	return overlay
 

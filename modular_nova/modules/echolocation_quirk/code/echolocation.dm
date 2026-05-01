@@ -72,7 +72,7 @@
 	if (!..(preferences))
 		return FALSE
 
-	return "Echolocation" in preferences.all_quirks
+	return /datum/quirk/echolocation::name in preferences.all_quirks
 
 /datum/preference/color/echolocation_outline/apply_to_human(mob/living/carbon/human/target, value)
 	return
@@ -87,7 +87,7 @@
 	if (!..(preferences))
 		return FALSE
 
-	return "Echolocation" in preferences.all_quirks
+	return /datum/quirk/echolocation::name in preferences.all_quirks
 
 /datum/preference/toggle/echolocation_overlay/apply_to_human(mob/living/carbon/human/target, value)
 	return

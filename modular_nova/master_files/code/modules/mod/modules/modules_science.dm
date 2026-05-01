@@ -12,11 +12,11 @@
 	. = ..()
 	if(!mod.wearer)
 		return
-	
+
 	// Check to see if the users has the spacer quirk. If not null, will result in the negation of gravity sickness.
 	var/datum/quirk/spacer_born/spacer_quirk = mod.wearer.get_quirk(/datum/quirk/spacer_born)
 	if (!isnull(spacer_quirk))
-		spacer_quirk.check_z(mod.wearer)
+		spacer_quirk.update_effects(mod.wearer)
 
 /obj/item/mod/module/anomaly_locked/kinesis/commercial
 	name = "MOD kinesis module (commercial variant)"
