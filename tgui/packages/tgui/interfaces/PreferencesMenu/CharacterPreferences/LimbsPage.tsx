@@ -311,22 +311,33 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
     () => stylesForAug(limb.selectedAug),
     [server_data.robotic_styles, limb.selectedAug, limb.slot_flag, data.digi_legs],
   );
+  const isTaurRestrictedLeg = !!data.taur_legs && isLegSlot(limb.slot_flag);
 
   return (
     <div style={{ marginBottom: '1.5em' }}>
       <Section fill title={limb.slot}>
         <Stack fill vertical>
-          <LabeledDropdown
-            label="Augmentation:"
-            options={aug_options.map((aug) => displayName(aug))}
-            selected={limb.selectedAug ? displayName(limb.selectedAug) : undefined}
-            tooltip={limb.selectedAug?.extra_info}
-            onSelected={(name) => {
-              const option = aug_options.find((aug) => displayName(aug) === name);
-              if (showCost && (balance - (limb.selectedAug?.cost ?? 0)) + (option?.cost ?? 0) > 0) return;
-              act('set_bodypart_aug', { slot: limb.slot, augment_path: option?.path ?? null });
-            }}
-          />
+          {isTaurRestrictedLeg ? (
+            <LabeledDropdown
+              label="Augmentation:"
+              options={['Not available']}
+              selected="Not available"
+              disabled
+              onSelected={() => {}}
+            />
+          ) : (
+            <LabeledDropdown
+              label="Augmentation:"
+              options={aug_options.map((aug) => displayName(aug))}
+              selected={limb.selectedAug ? displayName(limb.selectedAug) : undefined}
+              tooltip={limb.selectedAug?.extra_info}
+              onSelected={(name) => {
+                const option = aug_options.find((aug) => displayName(aug) === name);
+                if (showCost && (balance - (limb.selectedAug?.cost ?? 0)) + (option?.cost ?? 0) > 0) return;
+                act('set_bodypart_aug', { slot: limb.slot, augment_path: option?.path ?? null });
+              }}
+            />
+          )}
           {limb.selectedAug?.path && limb.selectedAug?.allows_styles !== 0 && (
             available_styles.length <= 1 ? (
               <LabeledDropdown
