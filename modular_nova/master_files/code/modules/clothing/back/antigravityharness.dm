@@ -156,7 +156,7 @@
 
 			//are we a spacer? if so, make the quirk assert the correct condition based on where we are
 			if (!isnull(spacer))
-				spacer.check_z(user)
+				spacer.update_effects(user)
 
 		else
 			return FALSE

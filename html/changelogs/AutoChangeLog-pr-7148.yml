@@ -1,0 +1,5 @@
+author: "Happyowl93"
+delete-after: True
+changes:
+  - rscadd: "Adds the holosynth"
+  - bugfix: "geneless species no longer can use the genetics freak quirk"

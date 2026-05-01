@@ -56,6 +56,9 @@
 	view_exploitables = TRUE
 	give_objectives = FALSE
 
+/datum/antagonist/nightmare
+	view_exploitables = TRUE
+
 /datum/antagonist/pirate
 	view_exploitables = TRUE // pirates are flexible antags, not strictly bound by their objective. i could see this working
 
