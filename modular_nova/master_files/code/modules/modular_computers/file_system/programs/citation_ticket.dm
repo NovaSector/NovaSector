@@ -111,7 +111,7 @@
 [details_block]
 <hr>
 <p><b>Fine:</b> [fine][MONEY_SYMBOL]</p>
-<p><b>Pay before:</b> [deadline_stamp] Station Time (within [deadline_minutes] minute\s of issue)</p>
+<p><b>Pay before:</b> [deadline_stamp] (within [deadline_minutes] minute\s of issue)</p>
 <hr>
 <p><i>Fines are payable at the Security Office. Failure to pay before the listed deadline may escalate enforcement.</i></p>"}
 
