@@ -921,7 +921,7 @@
 	// default case, nothing to do here either, so skip processing
 	if(value == COLOR_WHITE)
 		target.dna.features["holo_color"] = value
-	return
+		return
 
 	// Nudge near-black choices up to the darkest legible hologram instead of snapping to white,
 	// preserving the picked hue. Pure black has no hue to preserve → settle on dark gray.
