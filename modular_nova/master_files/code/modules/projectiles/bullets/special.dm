@@ -1,2 +1,3 @@
-/obj/projectile/bullet/honker
-	projectile_piercing = PASSTABLE | PASSGLASS | PASSGRILLE | PASSBLOB | PASSMOB | PASSMACHINE | PASSFLAPS | PASSDOORS | PASSVEHICLE | PASSITEM | PASSWINDOW
+/obj/projectile/bullet/honker/Initialize(mapload)
+	projectile_piercing &= ~PASSCLOSEDTURF
+	return ..()
