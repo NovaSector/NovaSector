@@ -834,6 +834,7 @@
 		/obj/item/borg/cyborghug/peacekeeper,
 		/obj/item/extinguisher,
 		/obj/item/borg/projectile_dampen,
+		/obj/item/borg/citation_pad, // NOVA EDIT ADDITION - SECURITY_CITATION_APP - cyborg citation issuer
 	)
 	emag_modules = list(
 		/obj/item/reagent_containers/borghypo/peace/hacked,
@@ -857,6 +858,7 @@
 		/obj/item/gun/energy/disabler/cyborg,
 		/obj/item/clothing/mask/gas/sechailer/cyborg,
 		/obj/item/extinguisher/mini,
+		/obj/item/borg/citation_pad, // NOVA EDIT ADDITION - SECURITY_CITATION_APP - cyborg citation issuer
 	)
 	radio_channels = list(RADIO_CHANNEL_SECURITY)
 	emag_modules = list(

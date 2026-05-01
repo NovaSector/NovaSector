@@ -2,35 +2,132 @@
 #define CITATION_MAX_DEADLINE_MINUTES 60
 #define CITATION_TICKET_NAME_LEN 24
 
-/**
- * A citation that records a deadline for the offender to pay.
- *
- * Used by the Security Citation PDA app. Behaves identically to a
- * regular [/datum/crime/citation] aside from carrying [pay_deadline]
- * (an absolute world.time) so the deadline survives in the offender's
- * record and is visible in the security records console.
- */
 /datum/crime/citation/timed_ticket
 	/// world.time at which the fine is considered overdue.
 	var/pay_deadline = 0
 
-/datum/computer_file/program/citation_ticket
-	filename = "secticket"
-	filedesc = "Security Citation Issuer"
-	downloader_category = PROGRAM_CATEGORY_SECURITY
-	program_open_overlay = "citation"
-	extended_desc = "Issue citations against crew records and print carbon-copy enforcement tickets. Restricted to security personnel."
-	program_flags = PROGRAM_ON_NTNET_STORE
-	can_run_on_flags = PROGRAM_ALL
-	download_access = list(ACCESS_SECURITY)
-	run_access = list(ACCESS_SECURITY)
-	size = 4
-	tgui_id = "NtosCitation"
-	program_icon = "gavel"
-	program_open_overlay_icon = 'modular_nova/master_files/icons/obj/devices/modular_pda_overlays.dmi'
-	alert_able = TRUE
+/**
+ * Shared issuance helper used by both the PDA program and the cyborg
+ * citation pad. Validates the form, appends a citation to the target's
+ * record, fires a PDA alert, logs it, and prints a carbon-copy ticket
+ * into the issuer's free hand.
+ *
+ * * if the host is a [/obj/item/modular_computer] the issuer name is
+ *   sourced from the inserted ID and stored_paper is decremented; an
+ *   empty paper tray refuses the issue.
+ * * otherwise (cyborg pad) the issuer is the user's real_name and paper
+ *   is treated as effectively unlimited.
+ *
+ * Returns TRUE on success, FALSE on any validation failure.
+ */
+/proc/issue_security_citation(atom/host, mob/user, list/params)
+	if(QDELETED(host) || QDELETED(user))
+		return FALSE
 
-/datum/computer_file/program/citation_ticket/ui_data(mob/user)
+	var/input_name = strip_html_full(params["crime_name"], CITATION_TICKET_NAME_LEN)
+	if(!input_name)
+		host.balloon_alert(user, "no crime name!")
+		return FALSE
+
+	var/input_details
+	if(params["details"])
+		input_details = strip_html_full(params["details"], MAX_MESSAGE_LEN)
+
+	var/fine = round(text2num(params["fine"]))
+	if(!isnum(fine) || fine <= 0)
+		host.balloon_alert(user, "fine must be > 0!")
+		return FALSE
+
+	var/max_fine = CONFIG_GET(number/maxfine)
+	if(fine > max_fine)
+		host.balloon_alert(user, "max fine is [max_fine]!")
+		return FALSE
+
+	var/deadline_minutes = round(text2num(params["deadline_minutes"]))
+	if(!isnum(deadline_minutes) || deadline_minutes <= 0)
+		deadline_minutes = CITATION_DEFAULT_DEADLINE_MINUTES
+	if(deadline_minutes > CITATION_MAX_DEADLINE_MINUTES)
+		deadline_minutes = CITATION_MAX_DEADLINE_MINUTES
+
+	var/target_name = params["target_name"]
+	if(!target_name)
+		host.balloon_alert(user, "no target selected!")
+		return FALSE
+
+	var/datum/record/crew/target = find_record(target_name)
+	if(!target)
+		host.balloon_alert(user, "target not found in records!")
+		return FALSE
+
+	var/obj/item/modular_computer/host_computer
+	if(istype(host, /obj/item/modular_computer))
+		host_computer = host
+		if(host_computer.stored_paper <= 0)
+			host.balloon_alert(user, "out of paper!")
+			return FALSE
+
+	var/issuer_name = user.real_name
+	if(host_computer)
+		var/obj/item/card/id/issuer_id = host_computer.stored_id?.GetID()
+		issuer_name = issuer_id?.registered_name || user.real_name
+
+	var/datum/crime/citation/timed_ticket/new_citation = new(
+		name = input_name,
+		details = input_details,
+		author = user,
+		fine = fine,
+	)
+	new_citation.pay_deadline = world.time + (deadline_minutes MINUTES)
+	target.citations += new_citation
+
+	var/deadline_stamp = station_time_timestamp("hh:mm", new_citation.pay_deadline)
+
+	new_citation.alert_owner(
+		user,
+		host,
+		target.name,
+		"You have been issued a [fine][MONEY_SYMBOL] citation for [input_name] by [issuer_name]. Payable at Security before [deadline_stamp] ([deadline_minutes] min).",
+	)
+
+	host.investigate_log("New Citation: <strong>[input_name]</strong> Fine: [fine] Deadline: [deadline_minutes]m | Added to [target.name] by [key_name(user)]", INVESTIGATE_RECORDS)
+	SSblackbox.ReportCitation(REF(new_citation), user.ckey, user.real_name, target.name, input_name, input_details, fine)
+
+	print_security_citation_ticket(host, user, target.name, target.rank, issuer_name, input_name, input_details, fine, deadline_stamp, deadline_minutes)
+	if(host_computer)
+		host_computer.stored_paper--
+
+	playsound(host, 'sound/items/poster/poster_being_created.ogg', 30, TRUE)
+	host.visible_message(span_notice("\The [host] prints a citation ticket."))
+	host.balloon_alert(user, "ticket issued")
+	return TRUE
+
+/// Prints a single sheet of carbon paper containing the citation and places it in the issuer's free hand.
+/proc/print_security_citation_ticket(atom/host, mob/user, target_name, target_rank, issuer_name, crime_name, details, fine, deadline_stamp, deadline_minutes)
+	var/details_block = details ? "<p><b>Details:</b><br>[details]</p>" : ""
+	var/contents = {"<h3>Nanotrasen Security Citation</h3>
+<hr>
+<p><b>Issued to:</b> [target_name] ([target_rank])</p>
+<p><b>Issued by:</b> [issuer_name]</p>
+<p><b>Issued at:</b> [station_time_timestamp()]</p>
+<hr>
+<p><b>Offense:</b> [crime_name]</p>
+[details_block]
+<hr>
+<p><b>Fine:</b> [fine][MONEY_SYMBOL]</p>
+<p><b>Pay before:</b> [deadline_stamp] Station Time (within [deadline_minutes] minute\s of issue)</p>
+<hr>
+<p><i>Fines are payable at the Security Office. Failure to pay before the listed deadline may escalate enforcement.</i></p>"}
+
+	var/obj/item/paper/carbon/ticket = new(host.drop_location())
+	ticket.name = "citation - [target_name]"
+	ticket.add_raw_text(contents)
+	ticket.update_appearance()
+	if(!isnull(user))
+		user.put_in_hands(ticket)
+	return ticket
+
+/// Builds the TGUI data
+/proc/build_citation_ui_data(paper_left)
 	var/list/data = list()
 
 	var/list/crew = list()
@@ -49,8 +146,28 @@
 	data["max_details_len"] = MAX_MESSAGE_LEN
 	data["default_deadline_minutes"] = CITATION_DEFAULT_DEADLINE_MINUTES
 	data["max_deadline_minutes"] = CITATION_MAX_DEADLINE_MINUTES
-	data["paper_left"] = computer?.stored_paper
+	data["paper_left"] = paper_left
 	return data
+
+/// PDA
+/datum/computer_file/program/citation_ticket
+	filename = "secticket"
+	filedesc = "Security Citation Issuer"
+	downloader_category = PROGRAM_CATEGORY_SECURITY
+	program_open_overlay = "citation"
+	extended_desc = "Issue citations against crew records and print carbon-copy enforcement tickets. Restricted to security personnel."
+	program_flags = PROGRAM_ON_NTNET_STORE
+	can_run_on_flags = PROGRAM_ALL
+	download_access = list(ACCESS_SECURITY)
+	run_access = list(ACCESS_SECURITY)
+	size = 4
+	tgui_id = "NtosCitation"
+	program_icon = "gavel"
+	program_open_overlay_icon = 'modular_nova/master_files/icons/obj/devices/modular_pda_overlays.dmi'
+	alert_able = TRUE
+
+/datum/computer_file/program/citation_ticket/ui_data(mob/user)
+	return build_citation_ui_data(computer?.stored_paper)
 
 /datum/computer_file/program/citation_ticket/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -59,112 +176,41 @@
 
 	switch(action)
 		if("issue_citation")
-			return issue_citation(ui.user, params)
+			if(!computer)
+				return FALSE
+			return issue_security_citation(computer, ui.user, params)
 
-/// Validates the form, creates the citation, prints the carbon ticket.
-/datum/computer_file/program/citation_ticket/proc/issue_citation(mob/user, list/params)
-	if(!computer)
-		return FALSE
+/// Borg tool
+/obj/item/borg/citation_pad
+	name = "citation issuer"
+	desc = "An on-board terminal for issuing security citations and printing carbon-copy enforcement tickets on the spot."
+	icon = 'icons/obj/service/bureaucracy.dmi'
+	icon_state = "labeler0"
+	w_class = WEIGHT_CLASS_SMALL
 
-	var/input_name = strip_html_full(params["crime_name"], CITATION_TICKET_NAME_LEN)
-	if(!input_name)
-		balloon_alert_to_user(user, "no crime name!")
-		return FALSE
+/obj/item/borg/citation_pad/attack_self(mob/user)
+	ui_interact(user)
 
-	var/input_details
-	if(params["details"])
-		input_details = strip_html_full(params["details"], MAX_MESSAGE_LEN)
+/obj/item/borg/citation_pad/ui_state(mob/user)
+	return GLOB.hands_state
 
-	var/fine = round(text2num(params["fine"]))
-	if(!isnum(fine) || fine <= 0)
-		balloon_alert_to_user(user, "fine must be > 0!")
-		return FALSE
+/obj/item/borg/citation_pad/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "NtosCitation")
+		ui.open()
 
-	var/max_fine = CONFIG_GET(number/maxfine)
-	if(fine > max_fine)
-		balloon_alert_to_user(user, "max fine is [max_fine]!")
-		return FALSE
+/obj/item/borg/citation_pad/ui_data(mob/user)
+	return build_citation_ui_data(/* paper_left = */ 999)
 
-	var/deadline_minutes = round(text2num(params["deadline_minutes"]))
-	if(!isnum(deadline_minutes) || deadline_minutes <= 0)
-		deadline_minutes = CITATION_DEFAULT_DEADLINE_MINUTES
-	if(deadline_minutes > CITATION_MAX_DEADLINE_MINUTES)
-		deadline_minutes = CITATION_MAX_DEADLINE_MINUTES
+/obj/item/borg/citation_pad/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	var/target_name = params["target_name"]
-	if(!target_name)
-		balloon_alert_to_user(user, "no target selected!")
-		return FALSE
-
-	var/datum/record/crew/target = find_record(target_name)
-	if(!target)
-		balloon_alert_to_user(user, "target not found in records!")
-		return FALSE
-
-	if(computer.stored_paper <= 0)
-		balloon_alert_to_user(user, "out of paper!")
-		return FALSE
-
-	var/datum/crime/citation/timed_ticket/new_citation = new(
-		name = input_name,
-		details = input_details,
-		author = user,
-		fine = fine,
-	)
-	new_citation.pay_deadline = world.time + (deadline_minutes MINUTES)
-	target.citations += new_citation
-
-	var/obj/item/card/id/issuer_id = computer.stored_id?.GetID()
-	var/issuer_name = issuer_id?.registered_name || user.real_name
-	var/deadline_stamp = station_time_timestamp("hh:mm", new_citation.pay_deadline)
-
-	new_citation.alert_owner(
-		user,
-		computer,
-		target.name,
-		"You have been issued a [fine][MONEY_SYMBOL] citation for [input_name] by [issuer_name]. Payable at Security before [deadline_stamp] ([deadline_minutes] min).",
-	)
-
-	computer.investigate_log("New PDA Citation: <strong>[input_name]</strong> Fine: [fine] Deadline: [deadline_minutes]m | Added to [target.name] by [key_name(user)]", INVESTIGATE_RECORDS)
-	SSblackbox.ReportCitation(REF(new_citation), user.ckey, user.real_name, target.name, input_name, input_details, fine)
-
-	print_ticket(user, target.name, target.rank, issuer_name, input_name, input_details, fine, deadline_stamp, deadline_minutes)
-	playsound(computer, 'sound/items/poster/poster_being_created.ogg', 30, TRUE)
-	computer.visible_message(span_notice("\The [computer] prints a citation ticket."))
-	balloon_alert_to_user(user, "ticket issued")
-	return TRUE
-
-/// Prints a single sheet of carbon paper containing the citation. Tries to place it in the issuing officer's free hand; falls back to the computer's drop location.
-/datum/computer_file/program/citation_ticket/proc/print_ticket(mob/user, target_name, target_rank, issuer_name, crime_name, details, fine, deadline_stamp, deadline_minutes)
-	var/details_block = details ? "<p><b>Details:</b><br>[details]</p>" : ""
-	var/contents = {"<h3>Nanotrasen Security Citation</h3>
-<hr>
-<p><b>Issued to:</b> [target_name] ([target_rank])</p>
-<p><b>Issued by:</b> [issuer_name]</p>
-<p><b>Issued at:</b> [station_time_timestamp()]</p>
-<hr>
-<p><b>Offense:</b> [crime_name]</p>
-[details_block]
-<hr>
-<p><b>Fine:</b> [fine][MONEY_SYMBOL]</p>
-<p><b>Pay before:</b> [deadline_stamp] (within [deadline_minutes] minute\s of issue)</p>
-<hr>
-<p><i>Fines are payable at the Security Office. Failure to pay before the listed deadline may escalate enforcement.</i></p>
-<p><i>Right-click this paper to detach the carbon copy.</i></p>"}
-
-	var/obj/item/paper/carbon/ticket = new(computer.drop_location())
-	ticket.name = "citation - [target_name]"
-	ticket.add_raw_text(contents)
-	ticket.update_appearance()
-	computer.stored_paper--
-	if(!isnull(user))
-		user.put_in_hands(ticket)
-	return ticket
-
-/// Wraps balloon_alert when called from a PDA, since the alert needs an atom not a datum.
-/datum/computer_file/program/citation_ticket/proc/balloon_alert_to_user(mob/user, message)
-	if(computer)
-		computer.balloon_alert(user, message)
+	switch(action)
+		if("issue_citation")
+			return issue_security_citation(src, ui.user, params)
 
 #undef CITATION_DEFAULT_DEADLINE_MINUTES
 #undef CITATION_MAX_DEADLINE_MINUTES
