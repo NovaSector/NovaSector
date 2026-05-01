@@ -387,7 +387,7 @@
 
 /obj/item/bodypart/leg/left/synth/digitigrade
 	icon_greyscale = BODYPART_ICON_SYNTHLIZARD
-	limb_id = SPECIES_SYNTH
+	limb_id = "synthliz"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 
 /datum/design/synth_l_d_leg
@@ -407,7 +407,7 @@
 
 /obj/item/bodypart/leg/right/synth/digitigrade
 	icon_greyscale = BODYPART_ICON_SYNTHLIZARD
-	limb_id = SPECIES_SYNTH
+	limb_id = "synthliz"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 
 /datum/design/synth_r_d_leg
