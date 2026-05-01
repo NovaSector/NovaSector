@@ -109,6 +109,7 @@
 
 	var/obj/item/organ/brain/cybernetic/ai/uplink_brain = new
 	uplink_brain.Insert(body, special = TRUE)
+	body.update_body_parts()
 	return body
 
 #undef AI_DROPPOD_CHOICE_BODY
