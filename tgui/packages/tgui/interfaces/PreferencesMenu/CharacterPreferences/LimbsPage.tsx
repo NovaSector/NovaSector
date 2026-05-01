@@ -174,7 +174,7 @@ export const RotateCharacterButtons = () => {
 
 // Various helpers
 
-// Slot bitflags -- these must match DM defines in robotic_styles.dm
+// Slot bitflags -- these must match DM defines in code\__DEFINES\inventory.dm
 const SLOT_LEGS = (1 << 3) | (1 << 4); // LEG_LEFT | LEG_RIGHT
 
 // ── Slot predicates ───────────────────────────────────────────────────────────
@@ -289,8 +289,8 @@ const Markings = (props: {
 
 const BodypartAugmentSection = (props: { limb: BodypartData }) => {
   const { act, data } = useBackend<PreferencesMenuData>();
-  const sd = useServerPrefs()?.limbs_and_markings;
-  if (!sd) return null;
+  const server_data = useServerPrefs()?.limbs_and_markings;
+  if (!server_data) return null;
 
   const { limb } = props;
   const showCost = !!data.quirk_points_enabled;
@@ -300,7 +300,7 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
   const implant_options = limb.implant_options ?? [];
 
   const stylesForAug = (aug: AugmentItem | undefined) =>
-    (sd.robotic_styles ?? []).filter((style) => {
+    (server_data.robotic_styles ?? []).filter((style) => {
       if (!aug?.allows_styles && style.name !== 'None') return false;
       if (limb.slot_flag && !(style.supported_slots & limb.slot_flag)) return false;
       if (isLegSlot(limb.slot_flag) && data.digi_legs && !style.has_digi) return false;
@@ -309,7 +309,7 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
 
   const available_styles = useMemo(
     () => stylesForAug(limb.selectedAug),
-    [sd.robotic_styles, limb.selectedAug, limb.slot_flag, data.digi_legs],
+    [server_data.robotic_styles, limb.selectedAug, limb.slot_flag, data.digi_legs],
   );
 
   return (
@@ -400,7 +400,7 @@ const InternalImplantSection = (props: { internal_implant: AugmentData }) => {
 };
 
 const MarkingsColumn = (props: { limbs: BodypartData[]; act: (action: string, params?: Record<string, unknown>) => void }) => (
-  <Section fill scrollable title="Markings" height="197%">
+  <Section fill title="Markings">
     {props.limbs.map((bodypart) => (
       <div key={bodypart.slot} style={{ marginBottom: '1.5em' }}>
         <Section fill title={bodypart.slot}>
@@ -412,7 +412,7 @@ const MarkingsColumn = (props: { limbs: BodypartData[]; act: (action: string, pa
 );
 
 const BodyPartsColumn = (props: { limbs: BodypartData[] }) => (
-  <Section fill scrollable title="Augmentations" height="197%">
+  <Section fill title="Augmentations">
     <QuirkBalance style={{ marginBottom: '1em' }} />
     {props.limbs.map((bodypart) => (
       <BodypartAugmentSection key={bodypart.slot} limb={bodypart} />
@@ -421,7 +421,7 @@ const BodyPartsColumn = (props: { limbs: BodypartData[] }) => (
 );
 
 const InternalImplantsColumn = (props: { internal_implants: AugmentData[] }) => (
-  <Section fill scrollable title="Internal Implants" height="197%">
+  <Section fill title="Internal Implants">
     {props.internal_implants.map((internal_implant) => (
       <InternalImplantSection key={internal_implant.slot} internal_implant={internal_implant} />
     ))}
@@ -490,7 +490,7 @@ export const LimbsPage = ({ onTabChange }: {
   onTabChange?: (tab: AugmentsTab) => void;
 }) => {
   const { data, act } = useBackend<PreferencesMenuData>();
-  const sd = useServerPrefs()?.limbs_and_markings;
+  const server_data = useServerPrefs()?.limbs_and_markings;
   const [tab, setTab] = useState<AugmentsTab | null>(() => {
     onTabChange?.(AugmentsTab.Markings);
     return AugmentsTab.Markings;
@@ -515,7 +515,7 @@ export const LimbsPage = ({ onTabChange }: {
 
   // Build all column data — split augment_items into bodyparts and internal implants
   const columns: ColumnData | null = useMemo(() => {
-    if (!sd?.augment_items) return null;
+    if (!server_data?.augment_items) return null;
 
     const species = data.character_preferences?.misc?.species ?? '';
     const ckey = data.ckey ?? '';
@@ -523,14 +523,14 @@ export const LimbsPage = ({ onTabChange }: {
 
     // Filter marking choices and presets by species/mismatched parts
     const markingChoices: Record<string, string[]> = {};
-    for (const [slot, choices] of Object.entries(sd.marking_choices ?? {})) {
+    for (const [slot, choices] of Object.entries(server_data.marking_choices ?? {})) {
       markingChoices[slot] = filterBySpecies(choices, species, allowMismatched).map((choice) => choice.name);
     }
-    const filteredMarkingPresets = filterBySpecies(sd.marking_presets ?? [], species, allowMismatched).map((preset) => preset.name);
+    const filteredMarkingPresets = filterBySpecies(server_data.marking_presets ?? [], species, allowMismatched).map((preset) => preset.name);
 
-    const styles = sd.robotic_styles ?? [];
+    const styles = server_data.robotic_styles ?? [];
 
-    const limbs: BodypartData[] = sd.augment_items
+    const limbs: BodypartData[] = server_data.augment_items
       .filter(isBodypart)
       .map((item) => {
         const aug_options = (item.aug_options ?? []).filter(
@@ -554,7 +554,7 @@ export const LimbsPage = ({ onTabChange }: {
         };
       });
 
-    const internal_implants = sd.augment_items.filter(isImplant);
+    const internal_implants = server_data.augment_items.filter(isImplant);
     const mid = Math.ceil(internal_implants.length / 2);
 
     return {
@@ -567,12 +567,12 @@ export const LimbsPage = ({ onTabChange }: {
       },
       filteredMarkingPresets,
     };
-  }, [sd, data]);
+  }, [server_data, data]);
 
   const columnForTab = (limbs: BodypartData[], internal_implants: AugmentData[]) => {
-    if (tab === AugmentsTab.Markings)   return <MarkingsColumn limbs={limbs} act={actAndResetPresetWarning} />;
+    if (tab === AugmentsTab.Markings) return <MarkingsColumn limbs={limbs} act={actAndResetPresetWarning} />;
     if (tab === AugmentsTab.BodyParts) return <BodyPartsColumn limbs={limbs.filter((b) => showsInBodyPartsTab(b, data.taur_legs))} />;
-    if (tab === AugmentsTab.InternalImplants)   return <InternalImplantsColumn internal_implants={internal_implants} />;
+    if (tab === AugmentsTab.InternalImplants) return <InternalImplantsColumn internal_implants={internal_implants} />;
     return null;
   };
 
@@ -614,7 +614,7 @@ export const LimbsPage = ({ onTabChange }: {
         <Stack.Item grow>
           <Stack minHeight="100%">
 
-            <Stack.Item minWidth="33%" minHeight="100%">
+            <Stack.Item minWidth="33%">
               {columnForTab(columns?.left ?? [], columns?.internalImplants.left ?? [])}
             </Stack.Item>
 
@@ -641,10 +641,14 @@ export const LimbsPage = ({ onTabChange }: {
                   </Box>
                 )}
               </Section>
-              {columns && <CenterColumnExtras tab={tab} center={columns.center} act={actAndResetPresetWarning} />}
+              {columns && (tab !== AugmentsTab.InternalImplants || !!data.quirk_points_enabled) && (
+                <Section>
+                  <CenterColumnExtras tab={tab} center={columns.center} act={actAndResetPresetWarning} />
+                </Section>
+              )}
             </Stack.Item>
 
-            <Stack.Item minWidth="33%" minHeight="100%">
+            <Stack.Item minWidth="33%">
               {columnForTab(columns?.right ?? [], columns?.internalImplants.right ?? [])}
             </Stack.Item>
 

@@ -79,7 +79,7 @@
 	abstract_type = /datum/augment_item/limb/head
 	slot = AUGMENT_SLOT_HEAD
 	slot_flag = HEAD
-	body_zone = BODY_ZONE_CHEST
+	body_zone = BODY_ZONE_HEAD
 
 /datum/augment_item/limb/head/cyborg
 	name = "Cyborg head"
