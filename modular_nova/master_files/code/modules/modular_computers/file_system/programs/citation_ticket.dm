@@ -89,9 +89,6 @@
 		"You have been issued a [fine][MONEY_SYMBOL] citation for [input_name] by [issuer_name]. Payable at Security before [deadline_stamp] ([deadline_minutes] min).",
 	)
 
-	host.investigate_log("New Citation: <strong>[input_name]</strong> Fine: [fine] Deadline: [deadline_minutes]m | Added to [target.name] by [key_name(user)]", INVESTIGATE_RECORDS)
-	SSblackbox.ReportCitation(REF(new_citation), user.ckey, user.real_name, target.name, input_name, input_details, fine)
-
 	print_security_citation_ticket(host, user, target.name, target.rank, issuer_name, input_name, input_details, fine, deadline_stamp, deadline_minutes)
 	if(host_computer)
 		host_computer.stored_paper--
