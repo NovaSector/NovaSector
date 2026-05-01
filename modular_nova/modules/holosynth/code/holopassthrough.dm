@@ -107,7 +107,7 @@
 			continue
 		if(istype(blocker, /obj/structure/window))
 			var/obj/structure/window/other_window = blocker
-			if(!other_window.fulltile)
+			if(!other_window.fulltile) // fulltile windows fall through to density check below
 				continue
 		if(blocker.density)
 			return TRUE
