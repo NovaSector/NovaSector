@@ -9,10 +9,6 @@
 	if(!ismovable(objective))
 		return ELEMENT_INCOMPATIBLE
 
-	var/area/area = get_area(objective)
-	if(!(area.area_flags_mapping & (VIRTUAL_AREA|VIRTUAL_SAFE_AREA)))
-		return ELEMENT_INCOMPATIBLE
-
 	RegisterSignal(objective, COMSIG_ATOM_CAN_BE_PULLED, PROC_REF(on_try_pull))
 	RegisterSignal(objective, COMSIG_MOVABLE_BUMP_PUSHED, PROC_REF(on_try_push))
 	RegisterSignals(objective, list(COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_ATTACK_HAND_SECONDARY), PROC_REF(on_attack_hand))
