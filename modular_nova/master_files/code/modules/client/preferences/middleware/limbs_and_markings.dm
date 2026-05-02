@@ -20,9 +20,11 @@
 	var/list/visited_body_zones = list()
 	for(var/key in preferences.augments)
 		var/augment_path = preferences.augments[key]
-		var/datum/augment_item/aug = new augment_path()
-		var/visited_body_zone = aug.apply(target, visuals_only, prefs = preferences)
-		qdel(aug)
+		var/visited_body_zone
+		if(is_aug_valid_for_prefs(GLOB.augment_items[augment_path], target, preferences))
+			var/datum/augment_item/aug = new augment_path()
+			visited_body_zone = aug.apply(target, visuals_only, prefs = preferences)
+			qdel(aug)
 		if(visited_body_zone)
 			visited_body_zones += visited_body_zone
 
@@ -248,6 +250,24 @@
 
 	return data
 
+/datum/preference_middleware/limbs_and_markings/proc/is_aug_valid_for_prefs(datum/augment_item/aug, mob/user, datum/preferences/prefs)
+	var/species_type = prefs.read_preference(/datum/preference/choiced/species)
+	var/datum/species/species = GLOB.species_prototypes[species_type]
+	if(aug.species_blacklist?[species.id])
+		return FALSE
+	if(aug.species_whitelist && !aug.species_whitelist[species.id])
+		return FALSE
+	var/digi_legs = prefs.read_preference(/datum/preference/choiced/digitigrade_legs) == DIGITIGRADE_LEGS
+	if(digi_legs && aug.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)) && !aug.supports_digitigrade)
+		return FALSE
+	if(aug.ckey_whitelist && !aug.ckey_whitelist.Find(user?.client?.ckey))
+		return FALSE
+	var/datum/preference/choiced/mutant_choice/taur/taur_choice = GLOB.preference_entries[/datum/preference/choiced/mutant_choice/taur]
+	if(taur_choice.is_accessible(prefs) && prefs.read_preference(/datum/preference/choiced/mutant_choice/taur) != SPRITE_ACCESSORY_NONE)
+		if(aug.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)))
+			return FALSE
+	return TRUE
+
 // Action procs
 /datum/preference_middleware/limbs_and_markings/proc/set_bodypart_aug(list/params, mob/user)
 	var/augment_path = text2path(params["augment_path"])
@@ -258,22 +278,8 @@
 		var/datum/augment_item/aug = GLOB.augment_items[augment_path]
 		if(!aug)
 			return
-		// Validate species
-		if(aug.species_blacklist?[preferences.read_preference(/datum/preference/choiced/species)])
+		if(!is_aug_valid_for_prefs(GLOB.augment_items[augment_path], user, preferences))
 			return
-		if(aug.species_whitelist && !aug.species_whitelist[preferences.read_preference(/datum/preference/choiced/species)])
-			return
-		if(aug.ckey_whitelist && !aug.ckey_whitelist.Find(user?.client?.ckey))
-			return
-		// Validate digi legs
-		var/digi_legs = preferences.read_preference(/datum/preference/choiced/digitigrade_legs) == DIGITIGRADE_LEGS
-		if(digi_legs && aug.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)) && !aug.supports_digitigrade)
-			return
-		// Validate taur legs
-		var/datum/preference/choiced/mutant_choice/taur/taur_choice = GLOB.preference_entries[/datum/preference/choiced/mutant_choice/taur]
-		if(taur_choice.is_accessible(preferences) && preferences.read_preference(/datum/preference/choiced/mutant_choice/taur) != SPRITE_ACCESSORY_NONE)
-			if(aug.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)))
-				return
 		preferences.augments[augment_slot] = augment_path
 	filter_quirks_and_refresh(user)
 	preferences.character_preview_view.update_body()
@@ -288,17 +294,6 @@
 		var/datum/robotic_style/style = GLOB.robotic_styles_list[style_name]
 		if(isnull(style))
 			return
-		// Validate digi legs
-		var/digi_legs = preferences.read_preference(/datum/preference/choiced/digitigrade_legs) == DIGITIGRADE_LEGS
-		var/augment_path = preferences.augments[augment_slot]
-		var/datum/augment_item/aug = augment_path ? GLOB.augment_items[augment_path] : null
-		if(aug?.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)) && digi_legs && !style.has_digi)
-			return
-		// Validate taur legs
-		var/datum/preference/choiced/mutant_choice/taur/taur_choice = GLOB.preference_entries[/datum/preference/choiced/mutant_choice/taur]
-		if(taur_choice.is_accessible(preferences) && preferences.read_preference(/datum/preference/choiced/mutant_choice/taur) != SPRITE_ACCESSORY_NONE)
-			if(aug.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)))
-				return
 		preferences.augment_limb_styles[augment_slot] = style_name
 	preferences.character_preview_view.update_body()
 	return TRUE
@@ -312,12 +307,7 @@
 		var/datum/augment_item/aug = GLOB.augment_items[augment_path]
 		if(isnull(aug))
 			return
-		// Validate species
-		if(aug.species_blacklist?[preferences.read_preference(/datum/preference/choiced/species)])
-			return
-		if(aug.species_whitelist && !aug.species_whitelist[preferences.read_preference(/datum/preference/choiced/species)])
-			return
-		if(aug.ckey_whitelist && !aug.ckey_whitelist.Find(user?.client?.ckey))
+		if(!is_aug_valid_for_prefs(GLOB.augment_items[augment_path], user, preferences))
 			return
 		preferences.augments[slot] = augment_path
 	filter_quirks_and_refresh(user)
