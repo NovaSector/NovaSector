@@ -1,4 +1,5 @@
 /obj/item/organ/genital
+	organ_flags = parent_type::organ_flags | ORGAN_HIDDEN
 	/// The fluid count of the genital.
 	var/internal_fluid_count = 0
 

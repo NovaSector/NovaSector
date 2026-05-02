@@ -27,6 +27,8 @@
 	soundloop = new(src, FALSE)
 	if(!mapload)
 		flick("colony_lathe_deploy", src) // Sick ass deployment animation
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/rnd/production/colony_lathe/proc/give_manufacturer_examine() //remaking this is like 7x less annoying than remaking an entire init
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
@@ -42,22 +44,6 @@
 /obj/machinery/rnd/production/colony_lathe/update_icon_state()
 	. = ..()
 	icon_state = panel_open ? "[base_icon_state]-open" : base_icon_state
-
-// formerly NO_DECONSTRUCTION
-/obj/machinery/rnd/production/colony_lathe/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/rnd/production/colony_lathe/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
-	return NONE
-
-/obj/machinery/rnd/production/colony_lathe/default_pry_open(mob/living/user,
-	obj/item/crowbar,
-	close_after_pry = FALSE,
-	open_density = FALSE,
-	closed_density = TRUE,
-	deconstruct_on_fail = FALSE,
-)
-	return NONE
 
 /// Proc for starting extra printing visuals, because upstream removed any nice way to do this
 /obj/machinery/rnd/production/proc/start_printing_visuals()
