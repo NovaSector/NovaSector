@@ -1,4 +1,4 @@
-//todo:subspace boxcutter. injectors. better adminodrazine. pocket extinguisher. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner. new meteor pen? admin cyborgs. /obj/item/abductor/alien_omnitool.
+//todo:subspace boxcutter. injectors. better adminodrazine. pocket extinguisher. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner. new meteor pen? admin cyborgs. /obj/item/abductor/alien_omnitool. /obj/item/soap/omega. syringe gun.
 //todo:implement delayed item population of pouches and boxes to decrease the intensiveness of spawning in / despawning
 //todo:radials out the ass would be nice! But they're a bit above my smooth brain at the moment. Ideas for radials: slime core / useful clothing traits necklace. admin spessknife. fix the medicell gun module to use radials instead of sequence.
 //todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
@@ -156,7 +156,7 @@
 
 //Debug Global Access Door Remote
 //code\game\objects\items\tools\control_wand.dm
-//todo:subspace icon variant
+//todo:subspace icon variant, and maybe, fix this lazy behavior where emagging removes the useful screen-mode shit.
 /obj/item/door_remote/admin
 	name = "subspace door remote"
 	desc = "This remote controls airlocks through narrative will alone. Also comes emagged, did you know that you can emag door remotes?"
@@ -212,8 +212,8 @@
 	desc = "It's a card with a magnetic strip attached to some circuitry that hurts to look at. Don't wave this at anything you care about."
 	icon_state = "emag"
 	worn_icon_state = "emag"
-	prox_check = FALSE
-	type_blacklist = list()
+	prox_check = FALSE//makes wireless. be careful
+	type_blacklist = list()//this is the crucial change to restore global emag function
 	w_class = WEIGHT_CLASS_TINY
 
 //Admin Light Replacer
@@ -484,7 +484,7 @@
 //todo:/obj/item/stack/medical/synth_repair adaptions for admemes
 // code\modules\reagents\reagent_containers.dm
 //Admeme syringe with included syringe gun interactions. Seems like a horrible thing to leave laying around when assaulting the Crew, but, you're a badmin, what do you care?
-// Did you know syringes have a baked in time process? Right into the proc, in a do after? Not affected by tool speed or anything. :)
+//Did you know syringes have a baked in time for their action? Right into the proc, in a do after? Not affected by tool speed or anything. :)
 //todo:icon variant
 //code\modules\reagents\reagent_containers\syringes.dm
 /obj/item/reagent_containers/syringe/admin
@@ -496,7 +496,7 @@
 	base_icon_state = "piercing"
 	volume = 1000
 	possible_transfer_amounts = list(1, 5, 10, 25, 100, 1000)
-	inject_flags = INJECT_CHECK_PENETRATE_THICK
+	inject_flags = INJECT_CHECK_PENETRATE_THICK | NO_REACT
 	armour_penetration = 100
 	dart_insert_casing_icon_state = "overlay_syringe_piercing"
 	dart_insert_projectile_icon_state = "overlay_syringe_piercing_proj"

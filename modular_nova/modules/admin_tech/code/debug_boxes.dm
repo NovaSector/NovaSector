@@ -66,8 +66,8 @@
 	spawn_all_loot = TRUE
 
 /obj/item/storage/box/hug/plushes/nova/donator/all/PopulateContents()
-		var/plush_path = /obj/effect/spawner/random/entertainment/plushie/nova/donator/all
-		new plush_path(src)
+	var/plush_path = /obj/effect/spawner/random/entertainment/plushie/nova/donator/all
+	new plush_path(src)
 
 //Scatter Donator Plushies. Plushie explosions!
 //Use these with buildmode for fun times. Or as mapping features, as intended.
