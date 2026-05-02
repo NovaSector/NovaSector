@@ -93,12 +93,12 @@
 		soundloop.start()
 
 
-/obj/machinery/power/stirling_generator/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
-	return
+/obj/machinery/power/stirling_generator/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
+	return NONE
 
 
-/obj/machinery/power/stirling_generator/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
-	return
+/obj/machinery/power/stirling_generator/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
+	return NONE
 
 
 /obj/machinery/power/stirling_generator/wrench_act(mob/living/user, obj/item/tool)

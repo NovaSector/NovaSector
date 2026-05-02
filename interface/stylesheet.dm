@@ -137,16 +137,25 @@ h1.alert, h2.alert		{color: #000000;}
 .clown					{color: #FF69Bf;	font-size: 3;	font-family: "Comic Sans MS", cursive, sans-serif;	font-weight: bold;}
 .singing				{font-family: "Trebuchet MS", cursive, sans-serif; font-style: italic;}
 .his_grace				{color: #15D512;	font-family: "Courier New", cursive, sans-serif;	font-style: italic;}
-.hypnophrase			{color: #3bb5d3;	font-weight: bold;	animation: hypnocolor 1500ms infinite; animation-direction: alternate;}
-	@keyframes hypnocolor {
-		0%		{color: #0d0d0d;}
-		25%		{color: #410194;}
-		50%		{color: #7f17d8;}
-		75%		{color: #410194;}
-		100%	{color: #3bb5d3;}
-}
-// NOVA EDIT ADDITION BEGIN
+.hypnophrase			{color: #3bb5d3;	font-weight: bold;}
 
+.phobia			{color: #dd0000;	font-weight: bold;}
+
+.icon					{height: 1em;	width: auto;}
+
+.memo					{color: #638500;	text-align: center;}
+.memoedit				{text-align: center;	font-size: 2;}
+.abductor				{color: #800080;	font-style: italic;}
+.mind_control			{color: #A00D6F;	font-size: 3;	font-weight: bold;	font-style: italic;}
+.slime					{color: #00CED1;}
+.drone					{color: #ffff00;	background-color: #7c2395;	font-style: italic;}
+.monkey					{color: #975032;}
+.swarmer				{color: #2C75FF;}
+.resonate				{color: #298F85;}
+.policy					{color: #9730db;	font-style: italic;		text-align: center;		font-size: 2;}
+
+.upside_down			{display: inline; -moz-transform: scale(-1, -1); -webkit-transform: scale(-1, -1); -o-transform: scale(-1, -1); -ms-transform: scale(-1, -1); transform: scale(-1, -1);}
+// NOVA EDIT ADDITION BEGIN
 .velvet					{color: #660015; 	font-weight: bold; animation: velvet 5000ms infinite;}
 	@keyframes velvet {
 		0% 		{color: #400020; }
@@ -248,27 +257,5 @@ h1.alert, h2.alert		{color: #000000;}
 .horizonblue {
 	color: #7ca2b8;
 }
-
 // NOVA EDIT ADDITION END
-
-.phobia			{color: #dd0000;	font-weight: bold;	animation: phobia 750ms infinite;}
-	@keyframes phobia {
-		0%		{color: #0d0d0d;}
-		50%		{color: #dd0000;}
-		100%	{color: #0d0d0d;}
-}
-
-.icon					{height: 1em;	width: auto;}
-
-.memo					{color: #638500;	text-align: center;}
-.memoedit				{text-align: center;	font-size: 2;}
-.abductor				{color: #800080;	font-style: italic;}
-.mind_control			{color: #A00D6F;	font-size: 3;	font-weight: bold;	font-style: italic;}
-.slime					{color: #00CED1;}
-.drone					{color: #ffff00;	background-color: #7c2395;	font-style: italic;}
-.monkey					{color: #975032;}
-.swarmer				{color: #2C75FF;}
-.resonate				{color: #298F85;}
-
-.upside_down			{display: inline; -moz-transform: scale(-1, -1); -webkit-transform: scale(-1, -1); -o-transform: scale(-1, -1); -ms-transform: scale(-1, -1); transform: scale(-1, -1);}
 </style>"}

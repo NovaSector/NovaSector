@@ -122,6 +122,11 @@
 	name = "12 gauge milspec slug shells"
 	ammo_type = /obj/item/ammo_casing/shotgun/milspec
 
+/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/frangible
+	name = "12 gauge frangible shells"
+	ammo_type = /obj/item/ammo_casing/shotgun/frangible
+	icon_state = "stack_spec"
+
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot/milspec
 	name = "12 gauge milspec buckshot shells"
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot/milspec

@@ -139,7 +139,9 @@
 	SEND_SIGNAL(target_mob, COMSIG_GLASS_DRANK, src, user) // NOVA EDIT ADDITION - Hemophages can't casually drink what's not going to regenerate their blood
 	var/fraction = min(gulp_size / reagents.total_volume, 1)
 	reagents.trans_to(target_mob, gulp_size, transferred_by = user, methods = reagent_consumption_method)
-	user.hud_used?.hunger?.update_hunger_bar()
+	var/atom/movable/screen/hunger/hunger_bar = user.hud_used?.screen_objects[HUD_MOB_HUNGER]
+	if (istype(hunger_bar))
+		hunger_bar.update_hunger_bar()
 	checkLiked(fraction, target_mob)
 	playsound_if_pref(target_mob, consumption_sound, rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT CHANGE - Original: playsound(target_mob, consumption_sound, rand(10,50), TRUE)
 	var/list/datum/disease/diseases_to_add

@@ -377,7 +377,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		return TRUE
 
 /datum/preferences/proc/create_character_preview_view(mob/user)
-	character_preview_view = new(null, src)
+	character_preview_view = new(null, null, src)
 	character_preview_view.generate_view("character_preview_[REF(character_preview_view)]")
 	character_preview_view.update_body()
 
@@ -435,7 +435,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/last_canvas_state
 	// NOVA EDIT ADDITION END
 
-/atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/preferences/preferences)
+/atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/hud/hud_owner, datum/preferences/preferences)
 	. = ..()
 	src.preferences = preferences
 
@@ -463,7 +463,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/canvas_state = preferences.read_preference(/datum/preference/choiced/background_state)
 
 	// if oversized trait (fixes size at 2.0) or over 1.1, scales up
-	if (("Oversized" in preferences.all_quirks) || (body.dna.features["body_size"] > 1.1))
+	if ((/datum/quirk/oversized::name in preferences.all_quirks) || (body.dna.features["body_size"] > 1.1))
 		canvas_size += 1
 	if (body.dna.mutant_bodyparts["taur"])
 		// taurs can be extra wide, so scale up in attempt to see their tails

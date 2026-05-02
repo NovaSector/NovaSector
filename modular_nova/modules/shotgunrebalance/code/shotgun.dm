@@ -323,6 +323,32 @@
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
 	ammo_categories = AMMO_CLASS_NICHE_LTL
 
+/obj/item/ammo_casing/shotgun/frangible
+	name = "frangible slug"
+	desc = "A weak anti material shell intended for dislodging airlock, breaking down barricades and structures. Not effective against people."
+	icon_state = "breacher"
+	projectile_type = /obj/projectile/bullet/frangible_slug
+
+/obj/projectile/bullet/frangible_slug
+	name = "frangible slug"
+	damage = 15 //I'd kill you if you manage to kill someone with this shit
+	wound_bonus = 30
+	exposed_wound_bonus = 30
+	demolition_mod = 2
+
+/obj/projectile/bullet/frangible_slug/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+
+	var/static/list/valid_targets_typecache = typecacheof(list(
+		/obj/structure/window,
+		/obj/machinery/door/airlock,
+		/obj/structure/grille,
+		/obj/structure/door_assembly,
+		/obj/machinery/door/window
+	))
+	if(is_type_in_typecache(target, valid_targets_typecache))
+		demolition_mod = 50
+
 /obj/item/ammo_casing/shotgun/hunter
 	name = "hunter slug shell"
 	desc = "A 12 gauge slug shell that fires specially designed slugs that deal extra damage to local fauna."
@@ -341,7 +367,7 @@
 /obj/projectile/bullet/shotgun_slug/hunter/on_hit(atom/target, blocked, pierce_hit)
 	if(ismineralturf(target))
 		var/turf/closed/mineral/mineral_turf = target
-		mineral_turf.gets_drilled(firer, FALSE)
+		mineral_turf.gets_drilled(firer)
 		if(range > 0)
 			return BULLET_ACT_FORCE_PIERCE
 		return ..()
@@ -351,10 +377,6 @@
 	if(target_mob.mob_biotypes & biotype_we_look_for || istype(target_mob, /mob/living/simple_animal/hostile/megafauna))
 		damage *= biotype_damage_multiplier
 	return ..()
-
-/obj/projectile/bullet/shotgun_slug/hunter/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = 5)
 
 /obj/item/ammo_casing/shotgun/honkshot
 	name = "confetti shell"

@@ -27,8 +27,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 	heating_energy = src::heating_energy
 	efficiency = src::efficiency
 
-/obj/machinery/space_heater/wall_mounted/default_deconstruction_crowbar()
-	return
+/obj/machinery/space_heater/wall_mounted/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
+	return NONE
 
 /obj/machinery/space_heater/wall_mounted/default_unfasten_wrench(mob/living/user, obj/item/wrench, time)
 	user.balloon_alert(user, "deconstructing...")

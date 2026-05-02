@@ -128,46 +128,49 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_CARPET_SIMPLE_NEON_VIOLET_NODOTS S_TURF(50) //![turf/open/floor/carpet/neon/simple/violet/nodots]
 #define SMOOTH_GROUP_CARPET_SIMPLE_NEON_PINK_NODOTS S_TURF(51) //![turf/open/floor/carpet/neon/simple/pink/nodots]
 #define SMOOTH_GROUP_BAMBOO_FLOOR S_TURF(52) //![/turf/open/floor/bamboo]
+#define SMOOTH_GROUP_FLOOR_WATER_LAVALAND S_TURF(53) //![/turf/open/water/lavaland_atmos/basalt]
 
-#define SMOOTH_GROUP_CLOSED_TURFS S_TURF(53) ///turf/closed
-#define SMOOTH_GROUP_MATERIAL_WALLS S_TURF(54) ///turf/closed/wall/material
-#define SMOOTH_GROUP_SYNDICATE_WALLS S_TURF(55) ///turf/closed/wall/r_wall/plastitanium/syndicate, /turf/closed/indestructible/syndicate
-#define SMOOTH_GROUP_HOTEL_WALLS S_TURF(56) ///turf/closed/indestructible/hotelwall
-#define SMOOTH_GROUP_MINERAL_WALLS S_TURF(57) ///turf/closed/mineral, /turf/closed/indestructible
-#define SMOOTH_GROUP_BOSS_WALLS S_TURF(58) ///turf/closed/indestructible/riveted/boss
-#define SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS S_TURF(59) ///turf/closed/wall/mineral/titanium/survival
-#define SMOOTH_GROUP_TURF_OPEN_CLIFF S_TURF(60) ///turf/open/cliff
-#define SMOOTH_GROUP_HIEROPHANT S_TURF(61) ///turf/closed/indestructible/riveted/hierophant
-#define SMOOTH_GROUP_PLASTINUM_WALLS S_TURF(62) ///turf/closed/indestructible/riveted/plastinum
+#define SMOOTH_GROUP_CLOSED_TURFS S_TURF(54) ///turf/closed
+#define SMOOTH_GROUP_MATERIAL_WALLS S_TURF(55) ///turf/closed/wall/material
+#define SMOOTH_GROUP_SYNDICATE_WALLS S_TURF(56) ///turf/closed/wall/r_wall/plastitanium/syndicate, /turf/closed/indestructible/syndicate
+#define SMOOTH_GROUP_HOTEL_WALLS S_TURF(57) ///turf/closed/indestructible/hotelwall
+#define SMOOTH_GROUP_MINERAL_WALLS S_TURF(58) ///turf/closed/mineral, /turf/closed/indestructible
+#define SMOOTH_GROUP_RED_ROCK_WALLS S_TURF(59) ///turf/closed/mineral/asteroid, /turf/closed/mineral/random/stationside/asteroid
+#define SMOOTH_GROUP_SHALE_WALLS S_TURF(60) ///turf/closed/mineral/random/volcanic/shale
+#define SMOOTH_GROUP_BOSS_WALLS S_TURF(61) ///turf/closed/indestructible/riveted/boss
+#define SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS S_TURF(62) ///turf/closed/wall/mineral/titanium/survival
+#define SMOOTH_GROUP_TURF_OPEN_CLIFF S_TURF(63) ///turf/open/cliff
+#define SMOOTH_GROUP_HIEROPHANT S_TURF(64) ///turf/closed/indestructible/riveted/hierophant
+#define SMOOTH_GROUP_PLASTINUM_WALLS S_TURF(65) ///turf/closed/indestructible/riveted/plastinum
 // NOVA EDIT ADDITION START
-#define SMOOTH_GROUP_ELEVATED_PLASTEEL S_TURF(63)
-#define SMOOTH_GROUP_LOWERED_PLASTEEL S_TURF(64)
-#define SMOOTH_GROUP_FISSURE S_TURF(65)
-#define SMOOTH_GROUP_MUSHROOM S_TURF(66)
-#define SMOOTH_GROUP_CARPET_KINARIS S_TURF(67)
-#define SMOOTH_GROUP_CARPET_KINARIS_RED S_TURF(68)
-#define SMOOTH_GROUP_CARPET_KINARIS_ORANGE S_TURF(69)
-#define SMOOTH_GROUP_CARPET_KINARIS_YELLOW S_TURF(70)
-#define SMOOTH_GROUP_CARPET_KINARIS_GREEN S_TURF(71)
-#define SMOOTH_GROUP_CARPET_KINARIS_PURPLE S_TURF(72)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACKTRIM S_TURF(73)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK S_TURF(74)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_RED S_TURF(75)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_ORANGE S_TURF(76)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_YELLOW S_TURF(77)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_GREEN S_TURF(78)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_PURPLE S_TURF(79)
-#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_WHITETRIM S_TURF(80)
-#define SMOOTH_GROUP_CARPET_POLITE_BLACK S_TURF(81)
-#define SMOOTH_GROUP_CARPET_POLITE_RED S_TURF(82)
-#define SMOOTH_GROUP_CARPET_POLITE_ORANGE S_TURF(83)
-#define SMOOTH_GROUP_CARPET_POLITE_YELLOW S_TURF(84)
-#define SMOOTH_GROUP_CARPET_POLITE_GREEN S_TURF(85)
-#define SMOOTH_GROUP_CARPET_POLITE_BLUE S_TURF(86)
-#define SMOOTH_GROUP_CARPET_POLITE_PURPLE S_TURF(87)
+#define SMOOTH_GROUP_ELEVATED_PLASTEEL S_TURF(66)
+#define SMOOTH_GROUP_LOWERED_PLASTEEL S_TURF(67)
+#define SMOOTH_GROUP_FISSURE S_TURF(68)
+#define SMOOTH_GROUP_MUSHROOM S_TURF(69)
+#define SMOOTH_GROUP_CARPET_KINARIS S_TURF(70)
+#define SMOOTH_GROUP_CARPET_KINARIS_RED S_TURF(71)
+#define SMOOTH_GROUP_CARPET_KINARIS_ORANGE S_TURF(72)
+#define SMOOTH_GROUP_CARPET_KINARIS_YELLOW S_TURF(73)
+#define SMOOTH_GROUP_CARPET_KINARIS_GREEN S_TURF(74)
+#define SMOOTH_GROUP_CARPET_KINARIS_PURPLE S_TURF(75)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACKTRIM S_TURF(76)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK S_TURF(77)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_RED S_TURF(78)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_ORANGE S_TURF(79)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_YELLOW S_TURF(80)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_GREEN S_TURF(81)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_PURPLE S_TURF(82)
+#define SMOOTH_GROUP_CARPET_KINARIS_BLACK_WHITETRIM S_TURF(83)
+#define SMOOTH_GROUP_CARPET_POLITE_BLACK S_TURF(84)
+#define SMOOTH_GROUP_CARPET_POLITE_RED S_TURF(85)
+#define SMOOTH_GROUP_CARPET_POLITE_ORANGE S_TURF(86)
+#define SMOOTH_GROUP_CARPET_POLITE_YELLOW S_TURF(87)
+#define SMOOTH_GROUP_CARPET_POLITE_GREEN S_TURF(88)
+#define SMOOTH_GROUP_CARPET_POLITE_BLUE S_TURF(89)
+#define SMOOTH_GROUP_CARPET_POLITE_PURPLE S_TURF(90)
 //NOVA EDIT ADDITION END
 
-#define MAX_S_TURF 87 //Always match this value with the one above it. // NOVA EDIT CHANGE - ORIGINAL: #define MAX_S_TURF 62 //Always match this value with the one above it.
+#define MAX_S_TURF 90 //Always match this value with the one above it. // NOVA EDIT CHANGE - ORIGINAL: #define MAX_S_TURF 65 //Always match this value with the one above it.
 
 #define S_OBJ(num) ("-" + #num + ",")
 /* /obj included */

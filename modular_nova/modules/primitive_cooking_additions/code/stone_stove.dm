@@ -30,10 +30,10 @@
 	. += span_notice("It can be taken apart with a <b>crowbar</b>.")
 
 // formerly NO_DECONSTRUCTION
-/obj/machinery/primitive_stove/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+/obj/machinery/primitive_stove/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
 	return NONE
 
-/obj/machinery/primitive_stove/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+/obj/machinery/primitive_stove/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
 	return NONE
 
 /obj/machinery/primitive_stove/crowbar_act(mob/living/user, obj/item/tool)

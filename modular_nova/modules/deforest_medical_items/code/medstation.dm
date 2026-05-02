@@ -35,8 +35,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/biogenerator/medstation, 29)
 	if(disassembled)
 		new repacked_type(drop_location())
 
-/obj/machinery/biogenerator/medstation/default_deconstruction_crowbar()
-	return
+/obj/machinery/biogenerator/medstation/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
+	return NONE
 
 // Deployable item for cargo for the medstation
 

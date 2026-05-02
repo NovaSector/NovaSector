@@ -33,8 +33,9 @@
 		/obj/item/food/pastrybase = 1
 	)
 	result = /obj/item/food/mince_pie
-	category = CAT_PASTRY
 	removed_foodtypes = JUNKFOOD
+	dish_category = DISH_PASTRY
+	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/mimce_pie
 	name = "Mimce pie"
@@ -45,6 +46,7 @@
 		/obj/item/food/pastrybase = 1
 	)
 	result = /obj/item/food/mimce_pie
-	category = CAT_PASTRY
 
 	removed_foodtypes = JUNKFOOD
+	dish_category = DISH_PASTRY
+	meal_category = MEAL_DESSERT

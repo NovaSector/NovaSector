@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	if (!..())
 		return FALSE
 
-	return "Pet Owner" in preferences.all_quirks
+	return /datum/quirk/item_quirk/pet_owner::name in preferences.all_quirks
 
 /datum/preference/choiced/pet_owner/apply_to_human(mob/living/carbon/human/target, value)
 	return
@@ -134,7 +134,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	if (!..())
 		return FALSE
 
-	return "Pet Owner" in preferences.all_quirks
+	return /datum/quirk/item_quirk/pet_owner::name in preferences.all_quirks
 
 /datum/preference/text/pet_name/serialize(input)
 	return htmlrendertext(input)
@@ -152,7 +152,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	if (!..())
 		return FALSE
 
-	return "Pet Owner" in preferences.all_quirks
+	return /datum/quirk/item_quirk/pet_owner::name in preferences.all_quirks
 
 /datum/preference/text/pet_desc/serialize(input)
 	return htmlrendertext(input)
@@ -176,7 +176,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	if (!..())
 		return FALSE
 
-	return "Pet Owner" in preferences.all_quirks
+	return /datum/quirk/item_quirk/pet_owner::name in preferences.all_quirks
 
 /datum/preference/choiced/pet_gender/apply_to_human(mob/living/carbon/human/target, value)
 	return

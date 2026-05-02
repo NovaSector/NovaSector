@@ -193,7 +193,7 @@
 
 	scan_digsite(user)
 
-/// Checks wherever a particular turf is 
+/// Checks wherever a particular turf is
 /obj/item/xenoarch/handheld_radar/proc/is_valid_scavenge_turf(turf/candidate_turf)
 	if (is_type_in_typecache(candidate_turf, disallowed_turfs))
 		return FALSE
@@ -256,7 +256,7 @@
 		return FALSE
 
 	var/datum/scavenge_profile/profile = get_profile(user)
-	
+
 	user.visible_message(span_notice("[user] triggers a pulse from their handheld radar, scanning the surrounding area."), \
 	span_notice("You trigger a pulse from the handheld radar, scanning for potential dig sites."))
 	user.balloon_alert(user, "scanning signal..!")
@@ -318,7 +318,7 @@
 		return FALSE
 
 	profile.site = null
-	
+
 	var/rocks_amount = 1
 	to_chat(user, span_notice("You sift through the sediment and recover some rock fragments."))
 	if(prob(user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_PROBS_MODIFIER)))
@@ -346,13 +346,13 @@
 		user.balloon_alert(user, "error!")
 		to_chat(user, span_warning("You don't have a site locked in! You need to do a long range scan first."))
 		return
-	
+
 	var/turf/candidate_turf = profile.site
 	if(profile.site.z != user.z)
 		user.balloon_alert(user, "error!")
 		to_chat(user, span_warning("You are not in the same sector as the scanned site."))
 		return
-	
+
 	// We get the distance and direction from the user/tool to the turf we are heading towards.
 	var/dist = get_dist(src, candidate_turf)
 	var/dir = get_dir(user, candidate_turf)
@@ -378,17 +378,13 @@
 
 	/// We create and validate the user hud
 	var/datum/hud/user_hud = user.hud_used
-	if(!user_hud || !istype(user_hud, /datum/hud) || !islist(user_hud.infodisplay))
+	if(isnull(user_hud))
 		return
 
 	/// We use our data to color and move the arrow on the player's hud as needed
-	var/atom/movable/screen/radar_arrow/arrow = new(null, user_hud)
+	var/atom/movable/screen/radar_arrow/arrow = user_hud.add_screen_object(/atom/movable/screen/radar_arrow, HUD_XENO_ARROW, HUD_GROUP_INFO, update_screen = TRUE)
 	arrow.color = arrow_color
-	arrow.screen_loc = around_player
 	arrow.transform = matrix(dir2angle(dir), MATRIX_ROTATE)
-
-	user_hud.infodisplay += arrow
-	user_hud.show_hud(user_hud.hud_version)
 
 	// We kill the arrow hud after a bit to avoid clutter.
 	QDEL_IN(arrow, 1.5 SECONDS)
@@ -398,12 +394,13 @@
 	icon_state = "multitool_arrow"
 	pixel_x = -32
 	pixel_y = -32
+	screen_loc = around_player
 
 /atom/movable/screen/radar_arrow/Destroy(force)
-	if(hud)
-		hud.infodisplay -= src
-		INVOKE_ASYNC(hud, TYPE_PROC_REF(/datum/hud, show_hud), hud.hud_version)
-	return ..()
+	var/datum/hud/our_hud = hud
+	. = ..()
+	if(!QDELETED(our_hud))
+		INVOKE_ASYNC(our_hud, TYPE_PROC_REF(/datum/hud, show_hud), our_hud.hud_version)
 
 /obj/item/xenoarch/brush/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	. = ..()

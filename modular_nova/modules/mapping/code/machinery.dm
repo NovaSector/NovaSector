@@ -66,13 +66,19 @@
 	return ..()
 
 // formerly NO_DECONSTRUCTION
-/obj/machinery/power/micro_reactor/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+/obj/machinery/power/micro_reactor/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
 	return NONE
 
-/obj/machinery/power/micro_reactor/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+/obj/machinery/power/micro_reactor/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
 	return NONE
 
-/obj/machinery/power/micro_reactor/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+/obj/machinery/power/micro_reactor/default_pry_open(mob/living/user,
+	obj/item/crowbar,
+	close_after_pry = FALSE,
+	open_density = FALSE,
+	closed_density = TRUE,
+	deconstruct_on_fail = FALSE,
+)
 	return NONE
 
 /obj/machinery/power/micro_reactor/update_icon_state()

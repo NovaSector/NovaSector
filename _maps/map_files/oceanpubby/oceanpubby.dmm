@@ -1271,7 +1271,7 @@
 /area/station/cargo/drone_bay)
 "afP" = (
 /obj/machinery/holopad/secure,
-/mob/living/simple_animal/bot/secbot/pingsky,
+/mob/living/basic/bot/secbot/pingsky,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "afQ" = (
@@ -49913,7 +49913,7 @@
 /area/station/security/prison/work)
 "tpb" = (
 /obj/effect/mapping_helpers/burnt_floor,
-/mob/living/simple_animal/bot/secbot/beepsky{
+/mob/living/basic/bot/secbot/beepsky{
 	name = "Officer Beepsky"
 	},
 /turf/open/floor/plating,
@@ -51460,7 +51460,7 @@
 /area/station/medical/morgue)
 "ulV" = (
 /obj/effect/landmark/event_spawn,
-/mob/living/simple_animal/bot/secbot/beepsky/armsky,
+/mob/living/basic/bot/secbot/beepsky/armsky,
 /turf/open/floor/iron/large,
 /area/station/security/armory)
 "umb" = (

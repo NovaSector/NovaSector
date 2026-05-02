@@ -104,13 +104,19 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 // formerly NO_DECONSTRUCTION
-/obj/machinery/computer/shuttle/slaver/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+/obj/machinery/computer/shuttle/slaver/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
 	return NONE
 
-/obj/machinery/computer/shuttle/slaver/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+/obj/machinery/computer/shuttle/slaver/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
 	return NONE
 
-/obj/machinery/computer/shuttle/slaver/default_pry_open(obj/item/crowbar, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE)
+/obj/machinery/computer/shuttle/slaver/default_pry_open(mob/living/user,
+	obj/item/crowbar,
+	close_after_pry = FALSE,
+	open_density = FALSE,
+	closed_density = TRUE,
+	deconstruct_on_fail = FALSE,
+)
 	return NONE
 
 /datum/map_template/shuttle/slaver_ship

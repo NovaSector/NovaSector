@@ -18,6 +18,8 @@
 
 /datum/action/item_action/organ_action/use/internal_analyzer/Trigger(trigger_flags)
 	. = ..()
+	if(!.)
+		return
 	var/obj/item/organ/cyberimp/chest/scanner/our_scanner = target
 	if(our_scanner.organ_flags & ORGAN_FAILING)
 		to_chat(owner, span_warning("Your health analyzer relays an error! It can't interface with your body in its current condition!"))
@@ -77,7 +79,7 @@
 		RegisterSignal(owner, COMSIG_LIVING_MOB_BUMP, PROC_REF(unstealth))
 	RegisterSignal(owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
 	RegisterSignal(owner, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
-	RegisterSignals(owner, 
+	RegisterSignals(owner,
 		list(
 			COMSIG_MOB_ITEM_ATTACK,
 			COMSIG_ATOM_ATTACKBY,

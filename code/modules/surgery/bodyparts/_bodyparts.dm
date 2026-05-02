@@ -474,9 +474,8 @@
 
 	return jointext(check_list, "<br>")
 
-/// Returns surgery self-check information for this bodypart
-/obj/item/bodypart/proc/get_surgery_self_check()
-	var/list/surgery_message = list()
+/// Returns all surgical states, filtering out stuff which should not be reported
+/obj/item/bodypart/proc/get_reported_surgery_state()
 	var/reported_state = surgery_state
 	if(!LIMB_HAS_SKIN(src))
 		reported_state &= ~SKINLESS_SURGERY_STATES
@@ -484,6 +483,18 @@
 		reported_state &= ~BONELESS_SURGERY_STATES
 	if(!LIMB_HAS_VESSELS(src))
 		reported_state &= ~VESSELLESS_SURGERY_STATES
+
+	// hide surgical states applied by wounds if the limb isn't being operated on, to keep it simple
+	if(!HAS_TRAIT(src, TRAIT_READY_TO_OPERATE))
+		for(var/datum/wound/wound as anything in wounds)
+			reported_state &= ~wound.surgery_states
+
+	return reported_state
+
+/// Returns surgery self-check information for this bodypart
+/obj/item/bodypart/proc/get_surgery_self_check()
+	var/list/surgery_message = list()
+	var/reported_state = get_reported_surgery_state()
 
 	if(HAS_SURGERY_STATE(reported_state, SURGERY_SKIN_CUT))
 		surgery_message += "skin has been incised"
@@ -513,7 +524,7 @@
 
 	if(length(surgery_message))
 		return span_tooltip("Your limb is undergoing surgery. If no doctors are around, \
-			you could suture or cauterize yourself to cancel it.", span_warning("Its [english_list(surgery_message)]!"))
+			you could suture or cauterize yourself to cancel it.", span_smalldanger("Its [english_list(surgery_message)]!"))
 	return ""
 
 /// Returns surgery examine information for this bodypart
@@ -522,13 +533,7 @@
 	var/capital_zone = owner ? "[owner.p_Their()] [plaintext_zone]" : capitalize("[src]")
 	var/single_message = ""
 	var/list/sub_messages = list()
-	var/reported_state = surgery_state
-	if(!LIMB_HAS_SKIN(src))
-		reported_state &= ~SKINLESS_SURGERY_STATES
-	if(!LIMB_HAS_BONES(src))
-		reported_state &= ~BONELESS_SURGERY_STATES
-	if(!LIMB_HAS_VESSELS(src))
-		reported_state &= ~VESSELLESS_SURGERY_STATES
+	var/reported_state = get_reported_surgery_state()
 
 	if(HAS_SURGERY_STATE(reported_state, SURGERY_SKIN_CUT))
 		sub_messages += "skin has been incised"
@@ -567,9 +572,9 @@
 		single_message = "[owner?.p_Their() || "The"] chest cavity is wide open!"
 
 	if(length(sub_messages) >= 2)
-		return span_danger("[capital_zone]'s [english_list(sub_messages)].")
+		return span_smalldanger("[capital_zone]'s [english_list(sub_messages)].")
 	if(single_message)
-		return span_danger(single_message)
+		return span_smalldanger(single_message)
 	return ""
 
 /obj/item/bodypart/blob_act()
@@ -646,8 +651,7 @@
 			bodypart_organ.apply_organ_damage(bodypart_organ.maxHealth * 0.5)
 
 		if(owner)
-			if(!bodypart_organ.Remove(bodypart_organ.owner))
-				continue
+			bodypart_organ.Remove(bodypart_organ.owner)
 		else if(!bodypart_organ.bodypart_remove(src))
 			continue
 
@@ -1328,6 +1332,10 @@
 		. += image(icon_invisible, "invisible_[body_zone]", -BODYPARTS_LAYER, dir = image_dir)
 		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
 		return .
+	// NOVA EDIT ADDITION START - For invisible taur limbs, so we are not caching invalid keys and repeatedly adding the same overlay. I hate it here
+	if(is_actually_just_invisible)
+		return list()
+	// NOVA EDIT ADDITION END
 
 	// Normal non-husk handling
 	// This is the MEAT of limb icon code
@@ -1749,7 +1757,7 @@
  */
 /obj/item/bodypart/proc/seep_gauze(seep_amt = 0)
 	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(applied_items, LIMB_ITEM_GAUZE)
-	if(!current_gauze)
+	if(!current_gauze || !current_gauze.absorption_capacity)
 		return FALSE
 	current_gauze.absorption_capacity -= seep_amt
 	if(current_gauze.absorption_capacity <= 0)

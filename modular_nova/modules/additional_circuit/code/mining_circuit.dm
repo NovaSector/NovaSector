@@ -25,4 +25,4 @@
 	if(!istype(shell) || get_dist(shell, target_mineral) > 1 || shell.z != target_mineral.z)
 		return
 
-	target_mineral.gets_drilled(shell, FALSE)
+	target_mineral.gets_drilled(shell)
