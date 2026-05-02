@@ -196,7 +196,7 @@
 	cost = -2
 
 /datum/augment_item/limb/r_arm/stump
-	name = "No Right Arm"
+	name = "No right arm"
 	path = /obj/item/bodypart/arm/right/stump
 	cost = -3
 	allows_implants = FALSE
