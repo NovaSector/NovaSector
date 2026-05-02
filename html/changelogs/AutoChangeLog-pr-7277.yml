@@ -1,0 +1,4 @@
+author: "Happyowl93"
+delete-after: True
+changes:
+  - bugfix: "Fix latejoin queue indicator on title screen so it shows the actual number of latejoin slots at the moment of the title screen refresh"
