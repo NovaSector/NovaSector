@@ -10,6 +10,7 @@
 
 /obj/item/bodypart/head/robot/protean
 	max_damage = 120
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
 	should_draw_greyscale = TRUE
@@ -26,6 +27,7 @@
 
 /obj/item/bodypart/chest/robot/protean
 	max_damage = LIMB_MAX_HP_CORE
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
 	should_draw_greyscale = TRUE
@@ -42,6 +44,7 @@
 
 /obj/item/bodypart/arm/left/robot/protean
 	max_damage = 40
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED|BIO_BLOODED)
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
 	should_draw_greyscale = TRUE
@@ -56,6 +59,7 @@
 
 /obj/item/bodypart/arm/right/robot/protean
 	max_damage = 40
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED|BIO_BLOODED)
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
 	should_draw_greyscale = TRUE
@@ -93,6 +97,7 @@
 
 /obj/item/bodypart/leg/left/robot/protean
 	max_damage = 40
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED|BIO_BLOODED)
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
 	should_draw_greyscale = TRUE
@@ -238,6 +243,15 @@
 		return
 	if((limb.get_damage() + brute + burn) >= limb.max_damage)
 		limb.dismember()
+
+/// Die if protean core is about to spill out
+/obj/item/bodypart/chest/robot/protean/dismember(dam_type = BRUTE, silent = TRUE, wounding_type)
+	if(owner)
+		var/obj/item/organ/brain/protean/brain = owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+		if(istype(brain) && !brain.dead && get_protean_modsuit(owner))
+			owner.death()
+			return FALSE
+	return ..()
 
 /// -- Dissolution timer --
 
