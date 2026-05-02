@@ -21,6 +21,7 @@
 	soundloop = new(src, FALSE)
 	AddElement(/datum/element/repackable, repacked_type, 2 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 	flick("thermo_deploy", src)
 
 	// Makes for certain that we are visually facing the correct way
@@ -32,9 +33,6 @@
 	heat_capacity = 10000
 	min_temperature = T0C
 	max_temperature = FIRE_MINIMUM_TEMPERATURE_TO_SPREAD + 50
-
-/obj/machinery/atmospherics/components/unary/thermomachine/deployable/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
-	return NONE
 
 /obj/machinery/atmospherics/components/unary/thermomachine/deployable/process_atmos()
 	if(on && !soundloop.loop_started)
