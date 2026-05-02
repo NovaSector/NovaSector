@@ -18,8 +18,7 @@
 	target.dna.body_markings = LAZYCOPY(preferences.body_markings)
 
 	var/list/visited_body_zones = list()
-	for(var/key in preferences.augments)
-		var/augment_path = preferences.augments[key]
+	for(var/key, augment_path in preferences.augments)
 		var/visited_body_zone
 		if(is_aug_valid_for_prefs(GLOB.augment_items[augment_path], target, preferences))
 			var/datum/augment_item/aug = new augment_path()
@@ -265,6 +264,15 @@
 	var/datum/preference/choiced/mutant_choice/taur/taur_choice = GLOB.preference_entries[/datum/preference/choiced/mutant_choice/taur]
 	if(taur_choice.is_accessible(prefs) && prefs.read_preference(/datum/preference/choiced/mutant_choice/taur) != SPRITE_ACCESSORY_NONE)
 		if(aug.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)))
+			return FALSE
+	if(SSquirks.points_enabled && aug.cost > 0)
+		var/total
+		for(var/slot, augment_path in preferences.augments)
+			if(!ispath(augment_path, /datum/augment_item))
+				continue
+			var/datum/augment_item/existing_augment = GLOB.augment_items[augment_path]
+			total += existing_augment.cost
+		if((total + aug.cost) > 6) // TODO: use the var on SSquirks
 			return FALSE
 	return TRUE
 

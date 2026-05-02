@@ -211,11 +211,11 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 
 	var/list/all_quirks = get_quirks()
 
-	// NOVA EDIT BEGIN - AUGMENTS+
-	for(var/key in augments)
-		var/datum/augment_item/aug = GLOB.augment_items[augments[key]]
+	// NOVA EDIT ADDITION BEGIN - AUGMENTS+
+	for(var/key, aug_path in augments)
+		var/datum/augment_item/aug = GLOB.augment_items[aug_path]
 		balance += aug.cost
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	for (var/quirk_name in quirks)
 		var/datum/quirk/quirk = all_quirks[quirk_name]
 		if (isnull(quirk))
