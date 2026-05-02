@@ -15,7 +15,7 @@
 
 	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
 		if(!istype(bodypart, /obj/item/bodypart/chest))
-			bodypart.drop_limb(move_to_floor = FALSE)
+			bodypart.drop_limb(special = TRUE, move_to_floor = FALSE)
 			continue
 
 	for(var/obj/item/organ/organ as anything in get_organs_for_zone(BODY_ZONE_CHEST))
