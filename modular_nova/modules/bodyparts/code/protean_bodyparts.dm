@@ -120,15 +120,11 @@
 
 /obj/item/bodypart/leg/right/robot/protean/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
-	limb_id = BODYPART_ID_DIGITIGRADE
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = BODYPART_ID_DIGITIGRADE
 
 /obj/item/bodypart/leg/left/robot/protean/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
-	limb_id = BODYPART_ID_DIGITIGRADE
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = BODYPART_ID_DIGITIGRADE
 
 /**
  * Protean Limb Component
