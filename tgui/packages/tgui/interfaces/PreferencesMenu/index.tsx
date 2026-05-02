@@ -22,8 +22,8 @@ import { AugmentsTab } from './CharacterPreferences/LimbsPage';
 
 // Window dimensions per state
 const WINDOW_WIDTH  = 920;
-const WINDOW_HEIGHT_DEFAULT  = 780; // NOVA EDIT - height 770 to 780
-const WINDOW_HEIGHT_MARKINGS_BODYPARTS = 965; // taller to fit three-column markings layout
+const WINDOW_HEIGHT_DEFAULT  = 780;
+const WINDOW_HEIGHT_MARKINGS_BODYPARTS = 940; // taller to fit three-column markings layout
 // NOVA EDIT ADDITION END
 
 export function PreferencesMenu(props) {

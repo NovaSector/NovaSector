@@ -7,6 +7,7 @@ import {
   Box,
   Button,
   ColorBox,
+  Divider,
   Dropdown,
   Icon,
   Modal,
@@ -48,7 +49,9 @@ type ColumnData = {
   filteredMarkingPresets: string[];
 };
 
-// On hover, used to display extra_info tooltips
+// On hover, used to display extra_info tooltips.
+// Uses visibility/opacity toggle instead of conditional rendering to avoid
+// DOM node insertion/removal
 const HoverText = (props: { text: string; children: any }) => {
   const [visible, setVisible] = useState(false);
   return (
@@ -59,26 +62,26 @@ const HoverText = (props: { text: string; children: any }) => {
       onMouseDown={() => setVisible(false)}
     >
       {props.children}
-      {visible && props.text && (
-        <div style={{
-          position: 'absolute',
-          top: '100%',
-          marginTop: '2px',
-          left: '0',
-          background: '#222',
-          color: '#fff',
-          padding: '3px 6px',
-          fontSize: '11px',
-          whiteSpace: 'normal',
-          wordBreak: 'break-word',
-          maxWidth: '250px',
-          zIndex: 100,
-          pointerEvents: 'none',
-          border: '1px solid #555',
-        }}>
-          {props.text}
-        </div>
-      )}
+      <div style={{
+        position: 'absolute',
+        top: '100%',
+        marginTop: '2px',
+        left: '0',
+        background: '#222',
+        color: '#fff',
+        padding: '3px 6px',
+        fontSize: '11px',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        maxWidth: '250px',
+        zIndex: 100,
+        pointerEvents: 'none',
+        border: '1px solid #555',
+        visibility: visible && props.text ? 'visible' : 'hidden',
+        opacity: visible && props.text ? 1 : 0,
+      }}>
+        {props.text}
+      </div>
     </div>
   );
 };
@@ -104,12 +107,8 @@ const LabeledDropdown = (props: {
   );
   return (
     <Stack.Item>
-      <Stack fill vertical>
-        <Stack.Item>{props.label}</Stack.Item>
-        <Stack.Item grow>
-          {props.tooltip ? <HoverText text={props.tooltip}>{dropdown}</HoverText> : dropdown}
-        </Stack.Item>
-      </Stack>
+      <Box>{props.label}</Box>
+      {props.tooltip ? <HoverText text={props.tooltip}>{dropdown}</HoverText> : dropdown}
     </Stack.Item>
   );
 };
@@ -183,7 +182,7 @@ const isLeft      = (item: AugmentSlot) => item.slot?.startsWith('Left') ?? fals
 const isRight     = (item: AugmentSlot) => item.slot?.startsWith('Right') ?? false;
 const isCenter    = (item: AugmentSlot) => !isLeft(item) && !isRight(item);
 const isBodypart  = (item: AugmentSlot) => item.is_bodypart;
-const isImplant     = (item: AugmentSlot) => !item.is_bodypart;
+const isImplant   = (item: AugmentSlot) => !item.is_bodypart;
 
 // ── Display helpers ───────────────────────────────────────────────────────────
 const augDisplayName = (aug: AugmentItem, showCost?: boolean) =>
@@ -333,7 +332,7 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
               tooltip={limb.selectedAug?.extra_info}
               onSelected={(name) => {
                 const option = aug_options.find((aug) => displayName(aug) === name);
-                if (showCost && (balance - (limb.selectedAug?.cost ?? 0)) + (option?.cost ?? 0) > 0) return;
+                if (showCost && (option?.cost ?? 0) > 0 && (balance - (limb.selectedAug?.cost ?? 0)) + (option?.cost ?? 0) > 0) return;
                 act('set_bodypart_aug', { slot: limb.slot, augment_path: option?.path ?? null });
               }}
             />
@@ -364,7 +363,7 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
               tooltip={limb.selectedImplant?.extra_info}
               onSelected={(name) => {
                 const option = implant_options.find((aug) => displayName(aug) === name);
-                if (showCost && (balance - (limb.selectedImplant?.cost ?? 0)) + (option?.cost ?? 0) > 0) return;
+                if (showCost && (option?.cost ?? 0) > 0 && (balance - (limb.selectedImplant?.cost ?? 0)) + (option?.cost ?? 0) > 0) return;
                 act('set_internal_implant_aug', { internal_implant_slot: limb.slot + ' implant', augment_path: option?.path ?? null });
               }}
             />
@@ -401,7 +400,7 @@ const InternalImplantSection = (props: { internal_implant: AugmentData }) => {
           selected={internal_implant.selectedAug ? displayName(internal_implant.selectedAug) : undefined}
           onSelected={(name) => {
             const option = aug_options.find((aug) => displayName(aug) === name);
-            if (showCost && (balance - (internal_implant.selectedAug?.cost ?? 0)) + (option?.cost ?? 0) > 0) return;
+            if (showCost && (option?.cost ?? 0) > 0 && (balance - (internal_implant.selectedAug?.cost ?? 0)) + (option?.cost ?? 0) > 0) return;
             act('set_internal_implant_aug', { internal_implant_slot: internal_implant.slot, augment_path: option?.path ?? null });
           }}
         />
@@ -411,7 +410,7 @@ const InternalImplantSection = (props: { internal_implant: AugmentData }) => {
 };
 
 const MarkingsColumn = (props: { limbs: BodypartData[]; act: (action: string, params?: Record<string, unknown>) => void }) => (
-  <Section fill title="Markings">
+  <Section fill scrollable title="Markings">
     {props.limbs.map((bodypart) => (
       <div key={bodypart.slot} style={{ marginBottom: '1.5em' }}>
         <Section fill title={bodypart.slot}>
@@ -423,7 +422,7 @@ const MarkingsColumn = (props: { limbs: BodypartData[]; act: (action: string, pa
 );
 
 const BodyPartsColumn = (props: { limbs: BodypartData[] }) => (
-  <Section fill title="Augmentations">
+  <Section fill scrollable title="Augmentations">
     <QuirkBalance style={{ marginBottom: '1em' }} />
     {props.limbs.map((bodypart) => (
       <BodypartAugmentSection key={bodypart.slot} limb={bodypart} />
@@ -432,7 +431,7 @@ const BodyPartsColumn = (props: { limbs: BodypartData[] }) => (
 );
 
 const InternalImplantsColumn = (props: { internal_implants: AugmentData[] }) => (
-  <Section fill title="Internal Implants">
+  <Section fill scrollable title="Internal Implants">
     {props.internal_implants.map((internal_implant) => (
       <InternalImplantSection key={internal_implant.slot} internal_implant={internal_implant} />
     ))}
@@ -489,6 +488,23 @@ const CenterColumnExtras = (props: { tab: AugmentsTab | null; center: BodypartDa
   return null;
 };
 
+// The character preview section at the top of the center column
+const PreviewSection = (props: {
+  id: string;
+}) => (
+  <Section fill title="Character Preview" align="center">
+    <Stack vertical fill>
+      <Stack.Item grow align="center">
+        <CharacterPreview id={props.id} height="100%" width="280px" />
+      </Stack.Item>
+      <Stack.Divider />
+      <Stack.Item align="center">
+        <RotateCharacterButtons />
+      </Stack.Item>
+    </Stack>
+  </Section>
+);
+
 // Root page
 
 export enum AugmentsTab {
@@ -524,7 +540,7 @@ export const LimbsPage = ({ onTabChange }: {
 
   const pendingPresetStyle = { position: 'fixed' as const, top: '60%', left: '50%', transform: 'translate(-50%, -50%)', width: '400px', zIndex: 100 };
 
-  // Build all column data — split augment_items into bodyparts and internal implants
+  // Build all column data, splitting augment_items into bodyparts and internal implants
   const columns: ColumnData | null = useMemo(() => {
     if (!server_data?.augment_items) return null;
 
@@ -623,42 +639,52 @@ export const LimbsPage = ({ onTabChange }: {
           </Stack>
         </Stack.Item>
         <Stack.Item grow>
-          <Stack minHeight="100%">
+          <Stack fill>
 
+            {/* Left column */}
             <Stack.Item minWidth="33%">
               {columnForTab(columns?.left ?? [], columns?.internalImplants.left ?? [])}
             </Stack.Item>
 
-            {/* Center column is always kept alive, CharacterPreview never remounts */}
-            <Stack.Item minWidth="33%">
-              <Section title="Character Preview" align="center">
-                <CharacterPreview id={data.character_preview_view} height="300px" width="100%" />
-                <RotateCharacterButtons />
-                {tab === AugmentsTab.Markings && (
-                  <Box mt={1}>
-                    <Dropdown
-                      width="100%"
-                      options={columns?.filteredMarkingPresets ?? []}
-                      selected={null}
-                      placeholder="Apply a preset..."
-                      onSelected={(value) => {
-                        if (!hasWarnedRef.current) {
-                          setPendingPreset(value);
-                        } else {
-                          act('set_preset', { preset: value });
-                        }
-                      }}
-                    />
-                  </Box>
+            {/* Center column — fixed width so CharacterPreview anchors correctly */}
+            <Stack.Item width="300px">
+              <Stack vertical fill>
+
+                {/* Preview: takes 45% of the column height */}
+                <Stack.Item height="45%" style={{ overflow: 'hidden', position: 'relative' }}>
+                  <PreviewSection id={data.character_preview_view} />
+                </Stack.Item>
+
+                {/* Extras: anything rendering below the preview, takes remaining space */}
+                {columns && (tab !== AugmentsTab.InternalImplants || !!data.quirk_points_enabled) && (
+                  <Stack.Item height="55%" style={{ overflow: 'hidden' }}>
+                    <Section fill scrollable>
+                      {tab === AugmentsTab.Markings && (
+                        <>
+                          <Box mb={1}>
+                            <Dropdown
+                              width="100%"
+                              options={columns.filteredMarkingPresets}
+                              selected={null}
+                              placeholder="Apply a preset..."
+                              onSelected={(value) => {
+                                if (!hasWarnedRef.current) setPendingPreset(value);
+                                else act('set_preset', { preset: value });
+                              }}
+                            />
+                          </Box>
+                          <Divider />
+                        </>
+                      )}
+                      <CenterColumnExtras tab={tab} center={columns.center} act={actAndResetPresetWarning} />
+                    </Section>
+                  </Stack.Item>
                 )}
-              </Section>
-              {columns && (tab !== AugmentsTab.InternalImplants || !!data.quirk_points_enabled) && (
-                <Section>
-                  <CenterColumnExtras tab={tab} center={columns.center} act={actAndResetPresetWarning} />
-                </Section>
-              )}
+
+              </Stack>
             </Stack.Item>
 
+            {/* Right column */}
             <Stack.Item minWidth="33%">
               {columnForTab(columns?.right ?? [], columns?.internalImplants.right ?? [])}
             </Stack.Item>
