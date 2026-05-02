@@ -9522,6 +9522,7 @@
 #include "modular_nova\modules\synths\code\bodyparts\organs\internal\lungs\lungs.dm"
 #include "modular_nova\modules\synths\code\bodyparts\organs\internal\stomach\stomach.dm"
 #include "modular_nova\modules\synths\code\bodyparts\organs\internal\tongue\tongue.dm"
+#include "modular_nova\modules\synths\code\mob\synth.dm"
 #include "modular_nova\modules\synths\code\reagents\blood_pack.dm"
 #include "modular_nova\modules\synths\code\reagents\other_reagents.dm"
 #include "modular_nova\modules\synths\code\reagents\pill.dm"
