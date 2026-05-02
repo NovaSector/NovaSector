@@ -181,7 +181,6 @@
 	name = "fly right arm"
 	path = /obj/item/bodypart/arm/right/fly
 	cost = 0
-	ckey_whitelist = list("vinylspiders")
 
 /datum/augment_item/limb/l_leg/fly
 	name = "fly left leg"
