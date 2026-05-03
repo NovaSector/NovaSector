@@ -424,6 +424,7 @@
 	if(need_mob_update)
 		burn_living.updatehealth()
 
+/* //NOVA EDIT REMOVAL START - PLASMAMAN TRANSFORMATION - (It's practically a RR most of the time.)
 	if(QDELETED(burn_living) \
 		|| !ishuman(burn_living) \
 		|| HAS_TRAIT(burn_living, TRAIT_NODISMEMBER) \
@@ -476,6 +477,8 @@
 	burn_human.set_species(/datum/species/plasmaman)
 	burn_human.visible_message(span_warning("[burn_human] bursts into flame as the last of [burn_human.p_their()] body is coated in fungus!"), \
 		span_userdanger("Your senses numb as what remains of your flesh sloughs off, revealing the plasma-encrusted bone beneath!"))
+
+*/ // NOVA EDIT REMOVAL END
 
 //mafia specific tame happy plasma (normal atmos, no slowdown)
 /turf/open/lava/plasma/mafia
