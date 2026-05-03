@@ -79,6 +79,7 @@ export function CharacterPreferenceWindow(props: {
       document.querySelector('[style*="overflow"]')?.scrollTo(0, 0);
     setCurrentPageRaw(page);
   };
+// NOVA EDIT ADDITION END
 
   let pageContents;
 
