@@ -121,6 +121,17 @@
 			src.add_overlay(overlay)
 			playsound(get_turf(src), 'sound/items/weapons/thudswoosh.ogg', 25, TRUE)
 
+		if("coil")
+			name = "tail"
+			desc = "It's a scaly tail."
+			icon = 'modular_nova/master_files/icons/effects/turf_effects_64.dmi'
+			icon_state = "naga"
+			pixel_x = -16
+			var/mutable_appearance/overlay = mutable_appearance('modular_nova/master_files/icons/effects/turf_effects_64.dmi', "naga_top", EXTRA_ABOVE_MOB_LAYER, src)
+			overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
+			src.add_overlay(overlay)
+			playsound(get_turf(src), 'modular_nova/modules/emotes/sound/emotes/hiss.ogg', 25, TRUE)
+
 		//prints
 		if("pawprint")
 			name = "pawprint"

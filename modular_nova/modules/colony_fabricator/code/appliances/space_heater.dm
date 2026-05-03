@@ -21,14 +21,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 	RemoveElement(/datum/element/elevation, pixel_shift = 8) //they're on the wall, you can't climb this
 	RemoveElement(/datum/element/climbable)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/space_heater/wall_mounted/RefreshParts()
 	. = ..()
 	heating_energy = src::heating_energy
 	efficiency = src::efficiency
-
-/obj/machinery/space_heater/wall_mounted/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
-	return NONE
 
 /obj/machinery/space_heater/wall_mounted/default_unfasten_wrench(mob/living/user, obj/item/wrench, time)
 	user.balloon_alert(user, "deconstructing...")
