@@ -1,7 +1,0 @@
-author: "Macaroni"
-delete-after: True
-changes:
-  - rscadd: "Added the Roman Costume, Ventriloquist Dummy, Donksoft Weapons, Purity Seals, Cyborg Mask, Drink Shaker, Pizza Voucher, Primitive Centrifuge, Spess Knife, Jerry Can, Nightmare Goggles, Frontier Headset, and Welding Goggles to the loadout menu"
-  - qol: "Organized the \"Job-Locked\" section of hats and suits into a general \"Jobs\" category for any job specific clothing"
-  - qol: "Organized the diverse selection of bunny outfits into their own sections"
-  - qol: "Separated the \"Other\" tabs inner category between comfort and gear items"
