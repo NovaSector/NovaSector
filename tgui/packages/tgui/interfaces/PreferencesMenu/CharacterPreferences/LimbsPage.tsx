@@ -92,7 +92,10 @@ const LabeledDropdown = (props: {
   label: string;
   options: string[];
   selected: string | undefined;
+  displayText: string | undefined;
   onSelected: (value: string) => void;
+  searchInput: boolean;
+  maxItems: number;
   tooltip?: string;
   disabled?: boolean;
 }) => {
@@ -101,8 +104,12 @@ const LabeledDropdown = (props: {
       width="100%"
       options={props.options}
       selected={props.selected}
+      displayText={props.displayText}
       disabled={props.disabled}
       onSelected={props.onSelected}
+      //maxItems={props.maxItems}
+      //searchInput={props.searchInput}
+      //styledInput
     />
   );
   return (
@@ -244,39 +251,45 @@ const Markings = (props: {
   return (
     <Stack fill vertical>
       <Stack.Item>Markings:</Stack.Item>
-      {(chosen_markings ?? []).map((marking) => (
-        <Stack.Item key={marking.marking_id}>
-          <Stack fill>
-            <Stack.Item grow>
-              <Dropdown
-                width="100%"
-                options={marking_choices}
-                selected={marking.name}
-                onSelected={(value) => act('change_marking', { bodypart_slot: body_zone, marking_id: marking.marking_id, marking_name: value })}
-              />
-            </Stack.Item>
-            <Stack.Item>
-              <Button onClick={() => act('color_marking', { bodypart_slot: body_zone, marking_id: marking.marking_id })}>
-                <ColorBox color={marking.color} />
-              </Button>
-            </Stack.Item>
-            <Stack.Item>
-              <Button
-                color={marking.emissive ? 'good' : 'bad'}
-                tooltip="The 'E' is for 'Emissive' — does it glow? Green = glow, Red = no glow."
-                onClick={() => act('change_emissive', { bodypart_slot: body_zone, marking_id: marking.marking_id, emissive: marking.emissive })}
-              >
-                E
-              </Button>
-            </Stack.Item>
-            <Stack.Item>
-              <Button color="bad" onClick={() => act('remove_marking', { bodypart_slot: body_zone, marking_id: marking.marking_id })}>
-                -
-              </Button>
-            </Stack.Item>
-          </Stack>
-        </Stack.Item>
-      ))}
+      {(chosen_markings ?? []).map((marking) => {
+        return (
+          <Stack.Item key={marking.marking_id}>
+            <Stack fill>
+              <Stack.Item grow>
+                <Dropdown
+                  width="100%"
+                  options={marking_choices}
+                  selected={marking.name}
+                  displayText={marking.name}
+                  //maxItems={7}
+                  //searchInput
+                  //styledInput
+                  onSelected={(value) => act('change_marking', { bodypart_slot: body_zone, marking_id: marking.marking_id, marking_name: value })}
+                />
+              </Stack.Item>
+              <Stack.Item>
+                <Button onClick={() => act('color_marking', { bodypart_slot: body_zone, marking_id: marking.marking_id })}>
+                  <ColorBox color={marking.color} />
+                </Button>
+              </Stack.Item>
+              <Stack.Item>
+                <Button
+                  color={marking.emissive ? 'good' : 'bad'}
+                  tooltip="The 'E' is for 'Emissive' — does it glow? Green = glow, Red = no glow."
+                  onClick={() => act('change_emissive', { bodypart_slot: body_zone, marking_id: marking.marking_id, emissive: marking.emissive })}
+                >
+                  E
+                </Button>
+              </Stack.Item>
+              <Stack.Item>
+                <Button color="bad" onClick={() => act('remove_marking', { bodypart_slot: body_zone, marking_id: marking.marking_id })}>
+                  -
+                </Button>
+              </Stack.Item>
+            </Stack>
+          </Stack.Item>
+        );
+      })}
       <Stack.Item>
         <Button color="good" onClick={() => act('add_marking', { bodypart_slot: body_zone })}>+</Button>
       </Stack.Item>
@@ -321,7 +334,10 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
               label="Augmentation:"
               options={['Not available']}
               selected="Not available"
+              displayText={"Not available"}
               disabled
+              //searchInput
+              //maxItems={7}
               onSelected={() => {}}
             />
           ) : (
@@ -329,7 +345,10 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
               label="Augmentation:"
               options={aug_options.map((aug) => displayName(aug))}
               selected={limb.selectedAug ? displayName(limb.selectedAug) : undefined}
+              displayText={limb.selectedAug ? displayName(limb.selectedAug) : undefined}
               tooltip={limb.selectedAug?.extra_info}
+              //searchInput
+              //maxItems={7}
               onSelected={(name) => {
                 const option = aug_options.find((aug) => displayName(aug) === name);
                 if (showCost && (option?.cost ?? 0) > 0 && (balance - (limb.selectedAug?.cost ?? 0)) + (option?.cost ?? 0) > 0) return;
@@ -343,6 +362,9 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
                 label="Style:"
                 options={['No available styles']}
                 selected="No available styles"
+                displayText="No available styles"
+                //searchInput
+                //maxItems={7}
                 disabled
                 onSelected={() => {}}
               />
@@ -351,6 +373,8 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
                 label="Style:"
                 options={available_styles.map((style) => style.name)}
                 selected={limb.chosen_style?.name ?? 'None'}
+                displayText={limb.chosen_style?.name ?? 'None'}
+                searchInput
                 onSelected={(value) => act('set_bodypart_aug_style', { slot: limb.slot, style_name: value })}
               />
             )
@@ -360,6 +384,9 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
               label="Implant slot:"
               options={implant_options.map((aug) => displayName(aug))}
               selected={limb.selectedImplant ? displayName(limb.selectedImplant) : undefined}
+              displayText={limb.selectedImplant ? displayName(limb.selectedImplant) : undefined}
+              //searchInput
+              //maxItems={7}
               tooltip={limb.selectedImplant?.extra_info}
               onSelected={(name) => {
                 const option = implant_options.find((aug) => displayName(aug) === name);
@@ -372,6 +399,9 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
               label="Implant slot:"
               options={['None available']}
               selected="None available"
+              displayText="None available"
+              //searchInput
+              //maxItems={7}
               disabled
               onSelected={() => {}}
             />
@@ -398,6 +428,9 @@ const InternalImplantSection = (props: { internal_implant: AugmentData }) => {
           label="Implant:"
           options={aug_options.map(displayName)}
           selected={internal_implant.selectedAug ? displayName(internal_implant.selectedAug) : undefined}
+          displayText={internal_implant.selectedAug ? displayName(internal_implant.selectedAug) : undefined}
+          //searchInput
+          //maxItems={7}
           onSelected={(name) => {
             const option = aug_options.find((aug) => displayName(aug) === name);
             if (showCost && (option?.cost ?? 0) > 0 && (balance - (internal_implant.selectedAug?.cost ?? 0)) + (option?.cost ?? 0) > 0) return;
@@ -518,10 +551,7 @@ export const LimbsPage = ({ onTabChange }: {
 }) => {
   const { data, act } = useBackend<PreferencesMenuData>();
   const server_data = useServerPrefs()?.limbs_and_markings;
-  const [tab, setTab] = useState<AugmentsTab | null>(() => {
-    onTabChange?.(AugmentsTab.Markings);
-    return AugmentsTab.Markings;
-  });
+  const [tab, setTab] = useState<AugmentsTab>(AugmentsTab.Markings);
   const [pendingPreset, setPendingPreset] = useState<string | null>(null);
   const hasWarnedRef = useRef(false);
 
@@ -667,6 +697,9 @@ export const LimbsPage = ({ onTabChange }: {
                               options={columns.filteredMarkingPresets}
                               selected={null}
                               placeholder="Apply a preset..."
+                              //maxItems={7}
+                              //searchInput
+                              //styledInput
                               onSelected={(value) => {
                                 if (!hasWarnedRef.current) setPendingPreset(value);
                                 else act('set_preset', { preset: value });
