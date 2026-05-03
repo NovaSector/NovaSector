@@ -70,6 +70,25 @@
 	name = "Bandana  (Colorable, Skull)"
 	item_path = /obj/item/clothing/mask/bandana/skull
 
+/datum/loadout_item/mask/black_bandana
+	name = "Bandana (Black)"
+	item_path = /obj/item/clothing/mask/bandana/black
+
+/datum/loadout_item/mask/blue_bandana
+	name = "Bandana (Blue)"
+	item_path = /obj/item/clothing/mask/bandana/blue
+
+/datum/loadout_item/mask/gold_bandana
+	name = "Bandana (Gold)"
+	item_path = /obj/item/clothing/mask/bandana/gold
+
+/datum/loadout_item/mask/green_bandana
+	name = "Bandana (Green)"
+	item_path = /obj/item/clothing/mask/bandana/green
+
+/datum/loadout_item/mask/red_bandana
+	name = "Bandana (Red)"
+	item_path = /obj/item/clothing/mask/bandana/red
 /*
 *	BALACLAVAS
 */

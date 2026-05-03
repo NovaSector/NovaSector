@@ -184,8 +184,20 @@
 */
 
 /datum/loadout_item/suit/recolorable
-	name = "Suit Jacket  (Colorable)"
+	name = "Suit Jacket (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/lawyer/greyscale
+
+/datum/loadout_item/suit/black_suit_jacket
+	name = "Suit Jacket (Black)"
+	item_path = /obj/item/clothing/suit/toggle/lawyer/black
+
+/datum/loadout_item/suit/blue_suit_jacket
+	name = "Suit Jacket (Blue)"
+	item_path = /obj/item/clothing/suit/toggle/lawyer
+
+/datum/loadout_item/suit/purple_suit_jacket
+	name = "Suit Jacket (Purple)"
+	item_path = /obj/item/clothing/suit/toggle/lawyer/purple
 
 /datum/loadout_item/suit/suitwhite
 	name = "Suit Jacket - Texan"
@@ -454,16 +466,44 @@
 	abstract_type = /datum/loadout_item/suit/hoodie
 
 /datum/loadout_item/suit/hoodie/greyscale
-	name = "Hoodie  (Colorable)"
+	name = "Hoodie (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie
 
 /datum/loadout_item/suit/hoodie/greyscale_trim_alt
-	name = "Hoodie  (Colorable, Pocket Trim)"
+	name = "Hoodie (Colorable, Pocket Trim)"
 	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim/alt
 
 /datum/loadout_item/suit/hoodie/greyscale_trim
-	name = "Hoodie  (Colorable, Zipper Trim)"
+	name = "Hoodie (Colorable, Zipper Trim)"
 	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim
+
+/datum/loadout_item/suit/hoodie/black
+	name = "Hoodie (Black)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/black
+
+/datum/loadout_item/suit/hoodie/red
+	name = "Hoodie (Red)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/red
+
+/datum/loadout_item/suit/hoodie/blue
+	name = "Hoodie (Blue)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/blue
+
+/datum/loadout_item/suit/hoodie/green
+	name = "Hoodie (Green)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/green
+
+/datum/loadout_item/suit/hoodie/orange
+	name = "Hoodie (Orange)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/orange
+
+/datum/loadout_item/suit/hoodie/yellow
+	name = "Hoodie (Yellow)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/yellow
+
+/datum/loadout_item/suit/hoodie/grey
+	name = "Hoodie (Grey)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/grey
 
 /datum/loadout_item/suit/hoodie/nt
 	name = "Hoodie - NT"

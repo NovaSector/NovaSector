@@ -30,6 +30,54 @@
 	name = "Arm Wraps (Colorable)"
 	item_path = /obj/item/clothing/gloves/bracer/wraps
 
+/datum/loadout_item/gloves/black
+	name = "Gloves (Black)"
+	item_path = /obj/item/clothing/gloves/color/black
+
+/datum/loadout_item/gloves/brown
+	name = "Gloves (Brown)"
+	item_path = /obj/item/clothing/gloves/color/brown
+
+/datum/loadout_item/gloves/blue
+	name = "Gloves (Blue)"
+	item_path = /obj/item/clothing/gloves/color/blue
+
+/datum/loadout_item/gloves/green
+	name = "Gloves (Green)"
+	item_path = /obj/item/clothing/gloves/color/green
+
+/datum/loadout_item/gloves/grey
+	name = "Gloves (Grey)"
+	item_path = /obj/item/clothing/gloves/color/grey
+
+/datum/loadout_item/gloves/light_brown
+	name = "Gloves (Light Brown)"
+	item_path = /obj/item/clothing/gloves/color/light_brown
+
+/datum/loadout_item/gloves/orange
+	name = "Gloves (Orange)"
+	item_path = /obj/item/clothing/gloves/color/orange
+
+/datum/loadout_item/gloves/purple
+	name = "Gloves (Purple)"
+	item_path = /obj/item/clothing/gloves/color/purple
+
+/datum/loadout_item/gloves/red
+	name = "Gloves (Red)"
+	item_path = /obj/item/clothing/gloves/color/red
+
+/datum/loadout_item/gloves/white
+	name = "Gloves (White)"
+	item_path = /obj/item/clothing/gloves/color/white
+
+/datum/loadout_item/gloves/yellow
+	name = "Gloves (Yellow)"
+	item_path = /obj/item/clothing/gloves/color/ffyellow
+
+/datum/loadout_item/gloves/yellow/get_item_information()
+	. = ..()
+	.[FA_ICON_BOLT] = "Non-Insulating"
+
 /datum/loadout_item/gloves/kim
 	name = "Gloves - Aerostatic"
 	item_path = /obj/item/clothing/gloves/kim
