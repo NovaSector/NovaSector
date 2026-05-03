@@ -2719,3 +2719,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/head/helmet/donator/stachelm/attack_self(mob/living/user)
 	toggle_helmet_light(user)
+
+/obj/structure/sign/flag/pride/bon
+	name = "\improper Bon's cape"
+	desc = "The cape of Bon in all its glory, looks yummy."
+	icon_state = "flag_bon"
+	item_flag = /obj/item/sign/flag/pride/bon
+
+/obj/item/sign/flag/pride/bon
+	name = "folded Bon's cape"
+	desc = "The folded cape of Bon's ice cone hair."
+	icon_state = "folded_pride_bon"
+	sign_path = /obj/structure/sign/flag/pride/bon
+	worn_icon_state = "bon"
