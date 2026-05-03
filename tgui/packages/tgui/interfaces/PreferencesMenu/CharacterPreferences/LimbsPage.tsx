@@ -55,31 +55,14 @@ const HoverText = (props: { text: string; children: any }) => {
   const [visible, setVisible] = useState(false);
   return (
     <div
-      style={{ position: 'relative', display: 'block' }}
+      className="LimbsPage__hover-text"
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
       onMouseDown={() => setVisible(false)}
     >
       {props.children}
       <div
-        style={{
-          position: 'absolute',
-          top: '100%',
-          marginTop: '2px',
-          left: '0',
-          background: '#222',
-          color: '#fff',
-          padding: '3px 6px',
-          fontSize: '11px',
-          whiteSpace: 'normal',
-          wordBreak: 'break-word',
-          maxWidth: '250px',
-          zIndex: 100,
-          pointerEvents: 'none',
-          border: '1px solid #555',
-          visibility: visible && props.text ? 'visible' : 'hidden',
-          opacity: visible && props.text ? 1 : 0,
-        }}
+        className={`LimbsPage__hover-text--tooltip${visible && props.text ? '--visible' : ''}`}
       >
         {props.text}
       </div>
@@ -89,17 +72,20 @@ const HoverText = (props: { text: string; children: any }) => {
 
 // The dropdown components with fancy HoverText
 
-const LabeledDropdown = (props: {
-  label: string;
-  options: string[];
-  selected: string | undefined;
-  displayText: string | undefined;
-  onSelected: (value: string) => void;
-  searchInput?: boolean;
-  maxItems?: number;
-  tooltip?: string;
-  disabled?: boolean;
-}) => {
+const LabeledDropdown = (
+  props: {
+    label: string;
+    options: string[];
+    selected: string | undefined;
+    onSelected: (value: string) => void;
+  } & Partial<{
+    displayText: string;
+    searchInput: boolean;
+    maxItems: number;
+    tooltip: string;
+    disabled: boolean;
+  }>,
+) => {
   const dropdown = (
     <Dropdown
       width="100%"

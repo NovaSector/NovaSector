@@ -1,0 +1,18 @@
+// THIS IS A NOVA SECTOR UI FILE
+.LimbsPage {
+  &__hover-text {
+    position: relative;
+    display: block;
+  }
+
+  &__hover-text--tooltip {
+    ...
+    visibility: hidden;
+    opacity: 0;
+
+    &--visible {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
