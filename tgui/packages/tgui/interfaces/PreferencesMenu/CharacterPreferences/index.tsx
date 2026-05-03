@@ -9,7 +9,7 @@ import { AntagsPage } from './AntagsPage';
 import { JobsPage } from './JobsPage';
 // NOVA EDIT ADDITION START
 import { LanguagesPage } from './LanguagesMenu';
-import { LimbsPage, AugmentsTab } from './LimbsPage';
+import { AugmentsTab, LimbsPage } from './LimbsPage';
 // NOVA EDIT ADDITION END
 import { LoadoutPage } from './loadout';
 import { MainPage } from './MainPage';
@@ -71,16 +71,16 @@ export function CharacterPreferenceWindow(props) {
 export function CharacterPreferenceWindow(props: {
   onAugmentsTabChange?: (tab: import('./LimbsPage').AugmentsTab | null) => void;
 }) {
-    const { act, data } = useBackend<PreferencesMenuData>();
-    const [augmentsTab, setAugmentsTab] = useState<AugmentsTab | null>(null);
-    const [currentPage, setCurrentPageRaw] = useState(Page.Main);
-    const setCurrentPage = (page: Page) => {
+  const { act, data } = useBackend<PreferencesMenuData>();
+  const [augmentsTab, setAugmentsTab] = useState<AugmentsTab | null>(null);
+  const [currentPage, setCurrentPageRaw] = useState(Page.Main);
+  const setCurrentPage = (page: Page) => {
     if (page !== Page.Limbs) props.onAugmentsTabChange?.(null);
     else props.onAugmentsTabChange?.(AugmentsTab.Markings);
     document.querySelector('[style*="overflow"]')?.scrollTo(0, 0);
     setCurrentPageRaw(page);
   };
-// NOVA EDIT ADDITION END
+  // NOVA EDIT ADDITION END
 
   let pageContents;
 
@@ -112,7 +112,14 @@ export function CharacterPreferenceWindow(props: {
       break;
     // NOVA EDIT ADDITION START
     case Page.Limbs:
-      pageContents = <LimbsPage onTabChange={(tab) => { props.onAugmentsTabChange?.(tab); setAugmentsTab(tab); }} />;
+      pageContents = (
+        <LimbsPage
+          onTabChange={(tab) => {
+            props.onAugmentsTabChange?.(tab);
+            setAugmentsTab(tab);
+          }}
+        />
+      );
       break;
     case Page.Languages:
       pageContents = <LanguagesPage />;
