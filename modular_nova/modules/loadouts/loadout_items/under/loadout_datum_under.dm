@@ -27,6 +27,11 @@
 *	ITEMS BELOW HERE
 */
 
+/datum/loadout_item/under/roman_costume
+	name = "Roman Skirt"
+	item_path = /obj/item/clothing/under/costume/roman
+	group = "Costumes"
+
 /*
  *	JUMPSUITS
  *	To cheat at alphabetization, these have extra spaces at the front of their name.
