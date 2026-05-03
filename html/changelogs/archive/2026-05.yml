@@ -51,3 +51,20 @@
   - bugfix: fixes blue and green cybernetic cat ears being switched
   - bugfix: fixes an issue where protean genitals were visible as 'cybernetic modifications'
       on health scanners
+2026-05-03:
+  Bobinater:
+  - balance: NT M-96 swapped to 9mm
+  Happyowl93:
+  - bugfix: Fix latejoin queue indicator on title screen so it shows the actual number
+      of latejoin slots at the moment of the title screen refresh
+  Iajret:
+  - rscadd: Added ability to create androids from scratch, including mechfab design
+      for compact posibrain.
+  OrbisAnima:
+  - balance: Staff of the Honk Mother no longer shoots through the wall. It still
+      shots through everything else and still has ridiculous range.
+  - balance: Changed the minimum age of drinking and smoking to 18 instead of 21.
+  WhiteSnek, Gandalf2k15:
+  - rscadd: Naga once again able to use their turf command
+  theselfish:
+  - rscadd: Forged weapons may now be used for jousting.
