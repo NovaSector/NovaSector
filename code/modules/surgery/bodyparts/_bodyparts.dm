@@ -1437,7 +1437,7 @@
 		override_color = "#888888"
 	// We need to check that the owner exists(could be a placed bodypart) and that it's not a chainsawhand and that they're a human with usable DNA.
 	if(!(bodypart_flags & (BODYPART_PSEUDOPART | BODYPART_STUMP)) && (!(bodyshape & BODYSHAPE_TAUR))) // taur legs never ever render
-		for(var/key in markings) // Cycle through all of our currently selected markings.
+		for(var/key, marking in markings) // Cycle through all of our currently selected markings.
 			var/datum/body_marking/body_marking = GLOB.body_markings[key]
 			if (!body_marking) // Edge case prevention.
 				continue
@@ -1453,18 +1453,18 @@
 			var/mutable_appearance/emissive
 			accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[digi_modifier][body_zone][gender_modifier]", -BODYPARTS_LAYER)
 			accessory_overlay.alpha = markings_alpha
-			if(markings[key][2])
+			if(marking[2])
 				emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
 			if(override_color)
 				accessory_overlay.color = override_color
 			else
-				accessory_overlay.color = markings[key][1]
+				accessory_overlay.color = marking[1]
 			. += accessory_overlay
 			if (emissive)
 				. += emissive
 
 		if(aux_zone)
-			for(var/key in aux_zone_markings)
+			for(var/key, marking in aux_zone_markings)
 				var/datum/body_marking/body_marking = GLOB.body_markings[key]
 				if (!body_marking) // Edge case prevention.
 					continue
@@ -1475,12 +1475,12 @@
 				var/mutable_appearance/accessory_overlay
 				accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string]", -aux_layer)
 				accessory_overlay.alpha = markings_alpha
-				if (aux_zone_markings[key][2])
+				if (marking[2])
 					emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
 				if(override_color)
 					accessory_overlay.color = override_color
 				else
-					accessory_overlay.color = aux_zone_markings[key][1]
+					accessory_overlay.color = marking[1]
 				. += accessory_overlay
 				if (emissive)
 					. += emissive

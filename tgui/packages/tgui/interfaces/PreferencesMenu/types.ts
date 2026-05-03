@@ -165,7 +165,6 @@ export type AugmentSlot = {
 };
 
 // NOVA EDIT ADDITION END
-
 export type QuirkInfo = {
   max_positive_quirks: number;
   quirk_info: Record<string, Quirk>;
@@ -288,8 +287,8 @@ export type PreferencesMenuData = {
   ckey: string;
   is_donator: BooleanLike;
   is_nova_star: BooleanLike;
-  // NOVA EDIT ADDITION END
 
+  // NOVA EDIT ADDITION END
   keybindings: Record<string, string[]>;
   overflow_role: string;
   default_quirk_balance: number;
