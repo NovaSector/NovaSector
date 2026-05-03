@@ -596,6 +596,18 @@
 	name = "Flat-Brimmed Hat with Cowl"
 	item_path = /obj/item/clothing/head/cowboy/nova/flat/cowl
 
+/datum/loadout_item/head/cowboyhat_winter
+	name = "Flat-Brimmed Hat with Cowl - Winter"
+	item_path = /obj/item/clothing/head/cowboy/nova/flat/cowl/sheriff
+
+/datum/loadout_item/head/cowboyhat_sheriff
+	name = "Flat-Brimmed Hat - Sherrif"
+	item_path = /obj/item/clothing/head/cowboy/nova/flat/sheriff
+
+/datum/loadout_item/head/cowboyhat_deputy
+	name = "Flat-Brimmed Hat - Deputy"
+	item_path = /obj/item/clothing/head/cowboy/nova/flat/deputy
+
 // Legacy unpaintable cowboy hat because it fits a character better
 /datum/loadout_item/head/cowboyhat_legacy
 	name = "Cowboy Hat (Legacy)"
@@ -634,9 +646,18 @@
 	name = "Officer's Cap (Colorable)"
 	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/custom
 
+/datum/loadout_item/head/trekcapcustom_gold
+	name = "Officer's Cap (Colorable, Gold Badge)"
+	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/custom/gold
+
 /datum/loadout_item/head/navalcap
 	name = "Naval Cap (Colorable)"
 	item_path = /obj/item/clothing/head/hats/caphat/naval/custom
+
+/datum/loadout_item/head/navalcap_gold
+	name = "Naval Cap (Colorable, Gold Badge)"
+	item_path = /obj/item/clothing/head/hats/caphat/naval/custom/gold
+
 
 /datum/loadout_item/head/imperial_generic
 	name = "Naval Officer Cap"
