@@ -76,7 +76,8 @@ export function CharacterPreferenceWindow(props: {
     const [currentPage, setCurrentPageRaw] = useState(Page.Main);
     const setCurrentPage = (page: Page) => {
     if (page !== Page.Limbs) props.onAugmentsTabChange?.(null);
-      document.querySelector('[style*="overflow"]')?.scrollTo(0, 0);
+    else props.onAugmentsTabChange?.(AugmentsTab.Markings);
+    document.querySelector('[style*="overflow"]')?.scrollTo(0, 0);
     setCurrentPageRaw(page);
   };
 // NOVA EDIT ADDITION END
