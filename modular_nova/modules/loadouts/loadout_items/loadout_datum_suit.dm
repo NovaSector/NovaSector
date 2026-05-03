@@ -186,26 +186,32 @@
 /datum/loadout_item/suit/recolorable
 	name = "Suit Jacket (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/lawyer/greyscale
+	group = "Jackets"
 
 /datum/loadout_item/suit/black_suit_jacket
 	name = "Suit Jacket (Black)"
 	item_path = /obj/item/clothing/suit/toggle/lawyer/black
+	group = "Jackets"
 
 /datum/loadout_item/suit/blue_suit_jacket
 	name = "Suit Jacket (Blue)"
 	item_path = /obj/item/clothing/suit/toggle/lawyer
+	group = "Jackets"
 
 /datum/loadout_item/suit/purple_suit_jacket
 	name = "Suit Jacket (Purple)"
 	item_path = /obj/item/clothing/suit/toggle/lawyer/purple
+	group = "Jackets"
 
 /datum/loadout_item/suit/suitwhite
 	name = "Suit Jacket - Texan"
 	item_path = /obj/item/clothing/suit/texas
+	group = "Jackets"
 
 /datum/loadout_item/suit/dutchjacket
 	name = "Suit Jacket - Western"
 	item_path = /obj/item/clothing/suit/dutchjacketsr
+	group = "Jackets"
 
 /*
 *	JACKETS
@@ -322,6 +328,7 @@
 /datum/loadout_item/suit/frontierjacket/short
 	name = "Frontier Jacket (Short)"
 	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
+	group = "Jackets"
 
 /datum/loadout_item/suit/maxson
 	name = "Furred Coat (Brown)"
@@ -334,14 +341,17 @@
 /datum/loadout_item/suit/leather_jacket
 	name = "Leather Jacket"
 	item_path = /obj/item/clothing/suit/jacket/leather
+	group = "Jackets"
 
 /datum/loadout_item/suit/leather_jacket/hooded
 	name = "Leather Jacket with Hoodie"
 	item_path = /obj/item/clothing/suit/hooded/leather
+	group = "Jackets"
 
 /datum/loadout_item/suit/leather_jacket/biker
 	name = "Leather Jacket with Zipper"
 	item_path = /obj/item/clothing/suit/jacket/leather/biker
+	group = "Jackets"
 
 /datum/loadout_item/suit/woolcoat
 	name = "Leather Overcoat"
@@ -350,6 +360,7 @@
 /datum/loadout_item/suit/military_jacket
 	name = "Military Jacket"
 	item_path = /obj/item/clothing/suit/jacket/miljacket
+	group = "Jackets"
 
 /datum/loadout_item/suit/jacket_oversized
 	name = "Oversized Jacket (Colorable)"
@@ -437,6 +448,7 @@
 /datum/loadout_item/suit/offdep_jacket
 	name = "Work Jacket - Off-Department"
 	item_path = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber
+	group = "Jackets"
 
 /datum/loadout_item/suit/engi_jacket
 	name = "Work Jacket - Engineering"

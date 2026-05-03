@@ -183,6 +183,10 @@
 	name = "Fedora  (Colorable)"
 	item_path = /obj/item/clothing/head/fedora/greyscale
 
+/datum/loadout_item/head/brown_fedora
+	name = "Fedora (Brown)"
+	item_path = /obj/item/clothing/head/fedora/brown
+
 /*
 *	HARDHATS
 */
