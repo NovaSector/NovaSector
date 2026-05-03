@@ -18,7 +18,7 @@ import {
 import { RandomToggleState } from './useRandomToggleState';
 import { ServerPrefs } from './useServerPrefs';
 // NOVA EDIT ADDITION START
-import { AugmentsTab } from './CharacterPreferences/LimbsPage';
+import type { AugmentsTab } from './CharacterPreferences/LimbsPage';
 
 // Window dimensions per state
 const WINDOW_WIDTH  = 920;

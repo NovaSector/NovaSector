@@ -95,8 +95,8 @@ const LabeledDropdown = (props: {
   selected: string | undefined;
   displayText: string | undefined;
   onSelected: (value: string) => void;
-  searchInput: boolean;
-  maxItems: number;
+  searchInput?: boolean;
+  maxItems?: number;
   tooltip?: string;
   disabled?: boolean;
 }) => {
@@ -499,7 +499,7 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
                   )
                     return;
                   act('set_internal_implant_aug', {
-                    internal_implant_slot: limb.slot + ' implant',
+                    internal_implant_slot: `${limb.slot} implant`,
                     augment_path: option?.path ?? null,
                   });
                 }}
@@ -825,7 +825,7 @@ export const LimbsPage = ({
           selectedAug:
             augByPath[data.augments?.[item.slot] ?? ''] ?? aug_options[0],
           selectedImplant:
-            implantByPath[data.augments?.[item.slot + ' implant'] ?? ''] ??
+            implantByPath[data.augments?.[`${item.slot} implant`] ?? ''] ??
             implant_options[0] ??
             null,
         };
