@@ -62,9 +62,11 @@ const HoverText = (props: { text: string; children: any }) => {
     >
       {props.children}
       <div
-        className={`LimbsPage__hover-text--tooltip${visible && props.text ? ' visible' : ''}`}
+        className={`LimbsPage__hover-text--tooltip-wrapper${visible && props.text ? ' visible' : ''}`}
       >
-        {props.text}
+        <div className="LimbsPage__hover-text--tooltip">
+          {props.text}
+        </div>
       </div>
     </div>
   );

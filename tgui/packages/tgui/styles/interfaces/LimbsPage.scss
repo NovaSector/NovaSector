@@ -1,32 +1,54 @@
 // THIS IS A NOVA SECTOR UI FILE
+@keyframes LimbsPage__fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes LimbsPage__flicker {
+  0%   { opacity: 1; }
+  82%  { opacity: 1; color: #00e5d4; }
+  93%  { opacity: 0.6; color: #ffe600; }
+  95%  { opacity: 1; color: #00e5d4; }
+  97%  { opacity: 0.8; color: #ffe600; }
+  100% { opacity: 1; color: #00e5d4; }
+}
+
 .LimbsPage {
   &__hover-text {
     position: relative;
     display: block;
   }
 
-  &__hover-text--tooltip {
+  &__hover-text--tooltip-wrapper {
     position: absolute;
     top: 100%;
-    margin-top: 2px;
-    left: 0;
-    background: #0f0505;
-    color: #00e5d4;
-    padding: 4px 8px;
-    font-size: 11px;
-    white-space: normal;
-    word-break: break-word;
+    margin-top: 4px;
+    left: 6px;
     max-width: 250px;
     z-index: 100;
     pointer-events: none;
-    border: 1px solid #c0152a;
-    box-shadow: 0 0 8px #c0152a99, inset 0 0 8px #c0152a11;
+    background: #c0152a;
+    clip-path: polygon(0% 0%, calc(100% - 12px) 0%, 100% 100%, 12px 100%);
+    padding: 1px;
     visibility: hidden;
     opacity: 0;
+    filter: drop-shadow(0 0 6px #c0152a) drop-shadow(0 0 12px #c0152a66);
 
     &.visible {
       visibility: visible;
-      opacity: 1;
+      animation:
+        LimbsPage__fade-in 0.2s ease-out forwards,
+        LimbsPage__flicker 3s ease-in-out 1.5s infinite;
     }
+  }
+
+  &__hover-text--tooltip {
+    background: #0f0505;
+    color: #00e5d4;
+    padding: 4px 12px;
+    font-size: 11px;
+    white-space: normal;
+    word-break: break-word;
+    clip-path: polygon(0% 0%, calc(100% - 12px) 0%, 100% 100%, 12px 100%);
   }
 }
