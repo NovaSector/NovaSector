@@ -81,7 +81,7 @@
 	user.visible_message(span_notice("[user] starts rummaging through \the [src]."), \
 		span_notice("You start searching through \the [src]..."))
 
-	if(do_after(user, rand(40, 60), target = src))
+	if(do_after(user, rand(100, 120), target = src))
 		do_search(user)
 
 /obj/structure/scrap_pile/proc/try_make_loot()

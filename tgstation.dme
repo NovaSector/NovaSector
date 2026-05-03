@@ -9771,6 +9771,7 @@
 #include "modular_nova\modules\xenomorph\alien.dm"
 #include "modular_nova\modules\xenomorph\queen.dm"
 #include "modular_regzt\code\modules\crafting\random_items.dm"
+#include "modular_regzt\code\modules\random_item\borg_hand.dm"
 #include "modular_regzt\code\modules\random_item\dynamo_machine.dm"
 #include "modular_regzt\code\modules\random_item\hand-made_drone.dm"
 #include "modular_regzt\code\modules\random_item\implant.dm"
