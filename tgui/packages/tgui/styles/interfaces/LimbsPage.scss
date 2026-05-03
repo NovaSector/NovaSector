@@ -6,11 +6,24 @@
   }
 
   &__hover-text--tooltip {
-    ...
+    position: absolute;
+    top: 100%;
+    margin-top: 2px;
+    left: 0;
+    background: #222;
+    color: #fff;
+    padding: 3px 6px;
+    font-size: 11px;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 250px;
+    z-index: 100;
+    pointer-events: none;
+    border: 1px solid #555;
     visibility: hidden;
     opacity: 0;
 
-    &--visible {
+    &.visible {
       visibility: visible;
       opacity: 1;
     }

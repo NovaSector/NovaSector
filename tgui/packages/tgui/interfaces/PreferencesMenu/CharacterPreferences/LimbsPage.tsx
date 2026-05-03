@@ -62,7 +62,7 @@ const HoverText = (props: { text: string; children: any }) => {
     >
       {props.children}
       <div
-        className={`LimbsPage__hover-text--tooltip${visible && props.text ? '--visible' : ''}`}
+        className={`LimbsPage__hover-text--tooltip${visible && props.text ? ' visible' : ''}`}
       >
         {props.text}
       </div>
@@ -409,6 +409,8 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
                 const option = aug_options.find(
                   (aug) => displayName(aug) === name,
                 );
+                if (option?.path === limb.selectedAug?.path)
+                  return;
                 if (
                   showCost &&
                   (option?.cost ?? 0) > 0 &&
@@ -445,12 +447,13 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
                 selected={limb.chosen_style?.name ?? 'None'}
                 displayText={limb.chosen_style?.name ?? 'None'}
                 searchInput
-                onSelected={(value) =>
+                onSelected={(value) => {
+                  if (value === limb.chosen_style?.name) return;
                   act('set_bodypart_aug_style', {
                     slot: limb.slot,
                     style_name: value,
-                  })
-                }
+                  });
+                }}
               />
             ))}
           {limb.selectedAug?.allows_implants !== 0 &&
@@ -484,6 +487,7 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
                       0
                   )
                     return;
+                  if (option?.path === limb.selectedImplant?.path) return;
                   act('set_internal_implant_aug', {
                     internal_implant_slot: `${limb.slot} implant`,
                     augment_path: option?.path ?? null,
@@ -554,6 +558,7 @@ const InternalImplantSection = (props: { internal_implant: AugmentData }) => {
                 0
             )
               return;
+            if (option?.path === internal_implant.selectedAug?.path) return;
             act('set_internal_implant_aug', {
               internal_implant_slot: internal_implant.slot,
               augment_path: option?.path ?? null,

@@ -1,5 +1,4 @@
-#define INTERNAL_IMPLANTS_DEFAULT_NAME "None"
-#define LIMBS_DEFAULT_NAME "None"
+#define DEFAULT_NAME "None"
 
 /datum/preference_middleware/limbs_and_markings
 	action_delegations = list(
@@ -130,7 +129,7 @@
 		if(limb_catalogue[augment_slot])
 			var/list/options = list(list(
 				"path"       = null,
-				"name"       = LIMBS_DEFAULT_NAME,
+				"name"       = DEFAULT_NAME,
 				"cost"       = 0,
 				"extra_info" = "",
 				"has_digi"   = TRUE,
@@ -141,7 +140,7 @@
 			if(limb_implant_catalogue[augment_slot])
 				implant_options = list(list(
 					"path"       = null,
-					"name"       = INTERNAL_IMPLANTS_DEFAULT_NAME,
+					"name"       = DEFAULT_NAME,
 					"cost"       = 0,
 					"extra_info" = "",
 				))
@@ -163,7 +162,7 @@
 		var/list/internal_implants = internal_implant_slots[slot]
 		var/list/options = list(list(
 			"path"       = null,
-			"name"       = INTERNAL_IMPLANTS_DEFAULT_NAME,
+			"name"       = DEFAULT_NAME,
 			"cost"       = 0,
 			"extra_info" = "",
 		))
@@ -209,7 +208,7 @@
 	var/list/data = list()
 
 	var/list/robotic_styles = list(list(
-			"name"            = LIMBS_DEFAULT_NAME,
+			"name"            = NAME,
 			"icon"            = 'icons/mob/augmentation/augments.dmi',
 			"supported_slots" = ALL,
 			"has_digi"        = TRUE,
@@ -249,30 +248,25 @@
 
 	return data
 
+/// Performs DM-side validation for anything we are reading from prefs
 /datum/preference_middleware/limbs_and_markings/proc/is_aug_valid_for_prefs(datum/augment_item/aug, mob/user, datum/preferences/prefs)
 	var/species_type = prefs.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = GLOB.species_prototypes[species_type]
-	if(aug.species_blacklist?[species.id])
+	if(aug.species_blacklist && aug.species_blacklist[species.id])
 		return FALSE
 	if(aug.species_whitelist && !aug.species_whitelist[species.id])
 		return FALSE
 	var/digi_legs = prefs.read_preference(/datum/preference/choiced/digitigrade_legs) == DIGITIGRADE_LEGS
 	if(digi_legs && aug.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)) && !aug.supports_digitigrade)
 		return FALSE
-	if(aug.ckey_whitelist && !aug.ckey_whitelist.Find(user?.client?.ckey))
+	if(aug.ckey_whitelist && !LAZYFIND(aug.ckey_whitelist, user?.client?.ckey))
 		return FALSE
 	var/datum/preference/choiced/mutant_choice/taur/taur_choice = GLOB.preference_entries[/datum/preference/choiced/mutant_choice/taur]
 	if(taur_choice.is_accessible(prefs) && prefs.read_preference(/datum/preference/choiced/mutant_choice/taur) != SPRITE_ACCESSORY_NONE)
 		if(aug.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)))
 			return FALSE
 	if(SSquirks.points_enabled && aug.cost > 0)
-		var/total
-		for(var/slot, augment_path in preferences.augments)
-			if(!ispath(augment_path, /datum/augment_item))
-				continue
-			var/datum/augment_item/existing_augment = GLOB.augment_items[augment_path]
-			total += existing_augment.cost
-		if((total + aug.cost) > 6) // TODO: use the var on SSquirks
+		if((preferences.GetQuirkBalance() - aug.cost) < 0)
 			return FALSE
 	return TRUE
 
@@ -283,7 +277,7 @@
 	if(!augment_path)
 		preferences.augments -= augment_slot
 	else
-		var/datum/augment_item/aug = GLOB.augment_items[augment_path]
+		var/datum/augment_item/aug = GLOB.augment_items[augment_path] // This augment path does not exist
 		if(!aug)
 			return
 		if(!is_aug_valid_for_prefs(GLOB.augment_items[augment_path], user, preferences))
@@ -296,7 +290,7 @@
 /datum/preference_middleware/limbs_and_markings/proc/set_bodypart_aug_style(list/params, mob/user)
 	var/augment_slot = params["slot"]
 	var/style_name = params["style_name"]
-	if(!style_name || style_name == LIMBS_DEFAULT_NAME)
+	if(!style_name || style_name == DEFAULT_NAME)
 		preferences.augment_limb_styles -= augment_slot
 	else
 		var/datum/robotic_style/style = GLOB.robotic_styles_list[style_name]
@@ -459,5 +453,4 @@
 	preferences.character_preview_view.update_body()
 	return TRUE
 
-#undef INTERNAL_IMPLANTS_DEFAULT_NAME
-#undef LIMBS_DEFAULT_NAME
+#undef DEFAULT_NAME
