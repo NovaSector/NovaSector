@@ -2727,7 +2727,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	item_flag = /obj/item/sign/flag/pride/bon
 
 /obj/item/sign/flag/pride/bon
-	name = "\improper folded Bon's cape"
+	name = "folded Bon's cape"
 	desc = "The folded cape of Bon's ice cone hair."
 	icon_state = "folded_pride_bon"
 	sign_path = /obj/structure/sign/flag/pride/bon
