@@ -173,6 +173,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//NOVA EDIT ADDITION BEGIN
 	data["preview_selection"] = preview_pref
 	data["erp_pref"] = read_preference(/datum/preference/toggle/master_erp_preferences)
+	data["erp_belly_pref"] = read_preference(/datum/preference/toggle/erp/belly_master)
 	data["quirk_points_enabled"] = !CONFIG_GET(flag/disable_quirk_points)
 	data["quirks_balance"] = GetQuirkBalance()
 	data["positive_quirk_count"] = GetPositiveQuirkCount()
@@ -312,6 +313,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if("update_background")
 			update_preference(GLOB.preference_entries[/datum/preference/choiced/background_state], params["new_background"])
 			return TRUE
+
+		if ("open_belly_prefs")
+			GLOB.erp_belly_prefshelper.ui_interact(usr)
+			return TRUE
 		// NOVA EDIT ADDITION END
 
 		if ("set_tricolor_preference")
@@ -351,7 +356,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		// For the quirks in the prefs menu.
 		if ("get_quirks_balance")
 			return TRUE
-		//NOVA EDIT ADDITION END
 
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 		var/delegation = preference_middleware.action_delegations[action]

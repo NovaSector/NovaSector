@@ -1,3 +1,5 @@
+#define MECHANICAL_CATEGORY "Mechanical"
+#define VORE_ACT "Vore"
 
 /datum/component/interactable
 	/// A hard reference to the parent
@@ -111,6 +113,45 @@
 
 		descriptions[interaction.name] = interaction.description
 		colors[interaction.name] = interaction.color
+	// Main check to see if the user is even opted into bellies on this character.
+	if(TRAIT_PREDATORY in user._status_traits)
+		// Retrieving the pred state from the belly object requires some effort
+		var/pred_mode = "Never"
+		var/datum/quirk/belly/bellyquirk
+		var/obj/item/belly_function/a_belly
+		var/mob/living/carbon/human/human_user = user
+		// Search their quirks to find the right one
+		for(var/datum/quirk/some_quirk in human_user?.quirks)
+			bellyquirk = some_quirk
+			if(istype(bellyquirk))
+				break
+			else
+				bellyquirk = null
+		// Retrieve the belly helper instance from it
+		if(bellyquirk != null)
+			a_belly = bellyquirk.the_bwelly
+		// Read the pred mode from it if possible
+		if(a_belly != null)
+			pred_mode = a_belly.pred_mode
+		// Targets currently use prefs rather than having a dedicated on-character object or datum.
+		var/prey_mode = self.client?.prefs?.read_preference(/datum/preference/choiced/erp_vore_prey_pref)
+		if(pred_mode != "Never" && prey_mode != "Never")
+			var/sanity_checks = TRUE
+			// Sanity check: if they're already in your tum, or you're already in them, *don't do it*
+			if((self.loc in user.contents) || (user.loc in self.contents) || (self.loc.loc == user) || (user.loc.loc == self))
+				sanity_checks = FALSE
+			// Sanity check: don't even pretend you can inception yourself
+			if(user == self)
+				sanity_checks = FALSE
+			if(sanity_checks == TRUE)
+				if(categories[MECHANICAL_CATEGORY] != null)
+					categories[MECHANICAL_CATEGORY] += VORE_ACT
+					var/list/sorted_category = sort_list(categories[MECHANICAL_CATEGORY])
+					categories[MECHANICAL_CATEGORY] = sorted_category
+				else
+					categories[MECHANICAL_CATEGORY] = list(VORE_ACT)
+				descriptions[VORE_ACT] += "Put someone in your belly- if they're cool with it."
+				colors[VORE_ACT] = "red"
 
 	// Sort category contents once
 	for (var/category in categories)
@@ -201,7 +242,27 @@
 
 	if(params["interaction"])
 		var/interaction_id = params["interaction"]
-		if(GLOB.interaction_instances[interaction_id])
+		// Vore is a bespoke interaction added programmatically until such time as a better setup is figured out.
+		if(interaction_id == VORE_ACT)
+			// Grab the associated player mobs.
+			var/mob/living/carbon/human/source = locate(params["userref"])
+			var/mob/living/carbon/human/target = locate(params["selfref"])
+			// Retrieving the belly object requires some effort
+			var/datum/quirk/belly/bellyquirk
+			var/obj/item/belly_function/a_belly
+			// We start by digging through the pred's quirks to find Big Boned
+			bellyquirk = locate() in source.quirks
+			// If they have it (which they should, but sanity checks are important) we pull the belly object from the quirk
+			if(bellyquirk != null)
+				a_belly = bellyquirk.the_bwelly
+			// And if the belly object is there as expected, we move to the next phase: actually trying to nom.
+			if(a_belly != null)
+				a_belly.try_nom(target, source)
+				return TRUE
+			else
+				source.show_message(span_warning("Couldn't find the belly helper to try to do vore with- yell at an admin!"))
+				return
+		else if(GLOB.interaction_instances[interaction_id])
 			var/mob/living/carbon/human/user = locate(params["userref"])
 			if(!can_interact(GLOB.interaction_instances[interaction_id], user))
 				return FALSE
@@ -217,6 +278,7 @@
 		var/item_index = params["item_slot"]
 		var/mob/living/carbon/human/source = locate(params["userref"])
 		var/mob/living/carbon/human/target = locate(params["selfref"])
+
 		var/obj/item/clothing/sextoy/new_item = source.get_active_held_item()
 		var/obj/item/clothing/sextoy/existing_item = target.vars[item_index]
 
@@ -311,3 +373,6 @@
 			return item.lewd_slot_flags & LEWD_SLOT_NIPPLES
 		else
 			return FALSE
+
+#undef MECHANICAL_CATEGORY
+#undef VORE_ACT

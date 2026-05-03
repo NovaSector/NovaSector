@@ -243,6 +243,7 @@ export type PreferencesMenuData = {
   preview_selection: string;
 
   erp_pref: BooleanLike;
+  erp_belly_pref: BooleanLike;
 
   job_alt_titles: Record<string, string>;
 
