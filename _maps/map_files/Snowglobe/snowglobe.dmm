@@ -13265,6 +13265,10 @@
 	},
 /turf/open/floor/wood,
 /area/station/common/pool/sauna)
+"dBC" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood/tile,
+/area/station/service/lawoffice)
 "dBH" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/airalarm/directional/north,
@@ -45833,7 +45837,7 @@
 "mjA" = (
 /obj/machinery/light_switch/directional/north,
 /obj/machinery/camera/autoname/directional/north,
-/obj/machinery/computer/records/security,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/carpet/red,
 /area/station/service/lawoffice)
 "mjC" = (
@@ -55746,7 +55750,6 @@
 "oRI" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/firealarm/directional/north,
-/obj/machinery/computer/records/medical,
 /turf/open/floor/carpet/red,
 /area/station/service/lawoffice)
 "oRK" = (
@@ -71522,7 +71525,6 @@
 /area/station/engineering/storage_shared)
 "til" = (
 /obj/machinery/digital_clock/directional/north,
-/obj/structure/table/wood,
 /turf/open/floor/wood/tile,
 /area/station/service/lawoffice)
 "tiq" = (
@@ -83117,10 +83119,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_arcade)
-"wjV" = (
-/obj/effect/landmark/start/hangover,
-/turf/open/floor/carpet/red,
-/area/station/service/lawoffice)
 "wko" = (
 /obj/structure/sign/warning/cold_temp,
 /turf/closed/wall/r_wall,
@@ -254318,8 +254316,8 @@ whx
 qRi
 tsF
 til
-uFp
 yeZ
+dBC
 bCL
 wWZ
 tsF
@@ -254575,7 +254573,7 @@ nEY
 cyg
 tsF
 mjA
-wjV
+lDr
 gco
 mUi
 aAa
