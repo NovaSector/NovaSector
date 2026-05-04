@@ -270,3 +270,14 @@
 		return
 
 	borgi_pawn.shoot_at(target)
+
+/mob/living/basic/pet/dog/corgi/borgi/robocorgo
+	name = "\improper robocorgi"
+	real_name = "corgi"
+	desc = "They're a corgi with various mechanical modifications. The first stage in an E-N's life cycle."
+	icon_state = "robocorgi"
+	icon_living = "robocorgi"
+	icon_dead = "robocorgi_dead"
+	held_state = "corgi"
+	gold_core_spawnable = FRIENDLY_SPAWN
+	collar_icon_state = "robocorgi"
