@@ -180,7 +180,7 @@
 		compatible_glasses_names += glasses_name
 
 	if(length(compatible_glasses_names))
-		. += span_cyan("\n This item will work on the following glasses: [english_list(compatible_glasses_names)].")
+		. += span_cyan_nova("\n This item will work on the following glasses: [english_list(compatible_glasses_names)].")
 
 	return .
 

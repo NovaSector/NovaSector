@@ -90,10 +90,6 @@
 	name = "Gloves - Evening"
 	item_path = /obj/item/clothing/gloves/evening
 
-/datum/loadout_item/gloves/fingerless
-	name = "Gloves - Fingerless"
-	item_path = /obj/item/clothing/gloves/fingerless
-
 /datum/loadout_item/gloves/rainbow
 	name = "Gloves - Rainbow"
 	item_path = /obj/item/clothing/gloves/color/rainbow
@@ -109,6 +105,22 @@
 /datum/loadout_item/gloves/pink_clown_gloves
 	name = "Pink Clown Gloves"
 	item_path = /obj/item/clothing/gloves/pink_clown
+
+/datum/loadout_item/gloves/recolorable
+	name = "Gloves (Colorable)"
+	item_path = /obj/item/clothing/gloves/recolorable
+
+/datum/loadout_item/gloves/recolorable_fingerless
+	name = "Fingerless Gloves (Colorable)"
+	item_path = /obj/item/clothing/gloves/recolorable/fingerless
+
+/datum/loadout_item/gloves/recolorable_long
+	name = "Long Gloves (Colorable)"
+	item_path = /obj/item/clothing/gloves/recolorable/long
+
+/datum/loadout_item/gloves/recolorable_fingerless_long
+	name = "Long Fingerless Gloves (Colorable)"
+	item_path = /obj/item/clothing/gloves/recolorable/fingerless/long
 
 /*
 *	RINGS

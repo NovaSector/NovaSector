@@ -80,7 +80,7 @@
 /datum/element/nifsoft_hud/proc/on_examine(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_cyan("Wearing this item in your glasses slot will allow you to use NIFSoft HUDs.")
+	examine_text += span_cyan_nova("Wearing this item in your glasses slot will allow you to use NIFSoft HUDs.")
 
 /datum/element/nifsoft_hud/Detach(datum/target)
 	UnregisterSignal(target, COMSIG_ATOM_EXAMINE)

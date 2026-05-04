@@ -1312,9 +1312,9 @@ NOVA EDIT REMOVAL END */
 			//NOVA EDIT ADDITION
 			// Akula break-out flavor
 			if(HAS_TRAIT(src, TRAIT_SLIPPERY))
-				visible_message(span_cyan("[src] slips free of [pulledby]'s grip!"), \
-								span_cyan("You slip free of [pulledby]'s grip!"), null, null, pulledby)
-				to_chat(pulledby, span_cyan("[src] slips free of your grip!"))
+				visible_message(span_cyan_nova("[src] slips free of [pulledby]'s grip!"), \
+								span_cyan_nova("You slip free of [pulledby]'s grip!"), null, null, pulledby)
+				to_chat(pulledby, span_cyan_nova("[src] slips free of your grip!"))
 				playsound(loc, 'sound/misc/slip.ogg', 50, TRUE, -1)
 				log_combat(pulledby, src, "broke grab")
 				pulledby.stop_pulling()
