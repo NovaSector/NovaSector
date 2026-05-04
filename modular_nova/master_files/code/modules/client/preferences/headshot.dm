@@ -11,7 +11,7 @@
 	var/cooldown_timer = 0
 	///Assoc list of ckeys and their links, used to cut down on chat spam
 	var/list/stored_links = list()
-	var/static/link_regex = regex("i.gyazo.com|files.byondhome.com|images2.imgbox.com")
+	var/static/link_regex = regex(@"i\.gyazo\.com|[a-z]\.l3n\.co|images2\.imgbox\.com|thumbs2\.imgbox\.com|files\.byondhome\.com")
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
 
 /datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
@@ -39,7 +39,7 @@
 
 	find_index = findtext(value, link_regex)
 	if(find_index != 9)
-		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Byond (files.byondhome.com), Imgbox (images2.imgbox.com)'"))
+		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Byond (files.byondhome.com), Imgbox (images2.imgbox.com, thumbs2.imgbox.com), Lensdump (x.l3n.co)'"))
 		return
 
 	if(stored_links[usr.ckey] && stored_links[usr.ckey][type] != value && cooldown_timer <= world.time)

@@ -913,6 +913,13 @@ h2.alert {
   font-size: 125%;
 }
 
+.policy {
+  text-align: center;
+  font-size: 125%;
+  color: hsl(276, 70%, 52%);
+  font-style: italic;
+}
+
 .abductor {
   color: hsl(300, 100%, 25.1%);
   font-style: italic;
@@ -950,6 +957,11 @@ h2.alert {
 .upside_down {
   transform: rotate(180deg);
   display: inline-block;
+}
+
+.cyan {
+  color: #95afac;
+  text-shadow: 0 0 6px #95afac;
 }
 
 .connectionClosed,
@@ -1351,7 +1363,7 @@ $border-width-px: $border-width * 1px;
   font-weight: bold;
 }
 
-.cyan {
+.cyan_nova {
   color: #0ea1e6;
   font-weight: bold;
 }
