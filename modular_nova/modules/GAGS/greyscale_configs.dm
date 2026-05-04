@@ -2824,6 +2824,15 @@ Security
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/under/secdress_worn.json'
 
+/datum/greyscale_config/sec_hazard
+	name = "High Vis Armored Vest"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/armor/sec_hazard.json'
+
+/datum/greyscale_config/sec_hazard/worn
+	name = "High Vis Armored Vest (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+
 /datum/greyscale_config/vested_jacket
 	name = "Vested Jacket"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'

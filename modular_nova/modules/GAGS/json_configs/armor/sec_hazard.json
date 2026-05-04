@@ -1,0 +1,30 @@
+{
+	"sec_hazard": [
+		{
+			"type": "icon_state",
+			"icon_state": "hazard_sec_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hazard_sec_accent",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"sec_hazard_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "hazard_sec_base_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hazard_sec_accent_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

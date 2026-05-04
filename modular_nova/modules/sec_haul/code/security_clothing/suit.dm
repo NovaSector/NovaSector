@@ -21,13 +21,20 @@
 /obj/item/clothing/suit/armor/vest/alt/sec/white/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_armor_vest_white)
 
-/obj/item/clothing/suit/armor/vest/brit
+/obj/item/clothing/suit/armor/vest/sec_hazard
 	name = "high vis armored vest"
 	desc = "Oi bruv, you got a loicence for that?"
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
-	icon_state = "hazardbg"
-	worn_icon_state = "hazardbg"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/armor/vest/sec_hazard"
+	post_init_icon_state = "sec_hazard"
+	greyscale_config = /datum/greyscale_config/sec_hazard
+	greyscale_config_worn = /datum/greyscale_config/sec_hazard/worn
+	greyscale_colors = "#BAEA3E#EBEBEB"
+	flags_1 = NONE
+
+/obj/item/clothing/suit/armor/vest/sec_hazard/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon, "zipper")
 
 /obj/item/clothing/suit/hooded/wintercoat/security/nova/bomber
 	name = "security bomber jacket"

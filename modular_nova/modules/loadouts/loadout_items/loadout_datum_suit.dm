@@ -1089,7 +1089,7 @@
 	item_path = /obj/item/clothing/suit/jacket/officer/blue
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Jobs"
-
+/*
 /datum/loadout_item/suit/brit
 	name = "Security High Vis Armored Vest"
 	item_path = /obj/item/clothing/suit/armor/vest/brit
@@ -1101,19 +1101,19 @@
 	item_path = /obj/item/clothing/suit/armor/vest/vested_jacket
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Jobs"
-
+*/
 /datum/loadout_item/suit/security_wintercoat
 	name = "Security Winter Jacket"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Jobs"
-
+/*
 /datum/loadout_item/suit/security_wintercoat_blue
 	name = "Security Winter Coat (Blue)"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/blue
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Jobs"
-
+*/
 /datum/loadout_item/suit/security_jacket
 	name = "Security Work Jacket"
 	item_path = /obj/item/clothing/suit/toggle/jacket/nova/sec
