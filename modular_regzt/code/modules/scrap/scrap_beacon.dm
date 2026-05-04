@@ -110,12 +110,12 @@
 	name = "Scrap Beacon"
 	desc = "This machine generates directional gravity rays which catch trash orbiting around."
 	icon = 'modular_regzt/icons/obj/structures/scrap/scrap_beacon.dmi'
-	icon_state = "beacon0" // Убедись, что для готового маяка тоже есть стейт
-	max_integrity = INFINITY // Сделал разрушимым, 500 — стандарт для машин
+	icon_state = "beacon0"
+	max_integrity = INFINITY
 	anchored = TRUE
 	density = TRUE
 	layer = MOB_LAYER + 1
-	var/summon_cooldown = 120 SECONDS
+	var/summon_cooldown = 90 SECONDS //120 таукеки
 	var/impact_speed = 3
 	var/impact_prob = 100
 	var/impact_range = 1
@@ -142,7 +142,7 @@
 			if(core)
 				core.forceMove(S)
 				S.core = core
-			S.screwed = TRUE // Ядро все еще прикручено внутри
+			S.screwed = TRUE
 			S.icon_state = "beacon_core"
 			qdel(src)
 		return
