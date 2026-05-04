@@ -166,62 +166,74 @@
 	name = "Fly head"
 	path = /obj/item/bodypart/head/fly
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/chest/fly
 	name = "Fly chest"
 	path = /obj/item/bodypart/chest/fly
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/l_arm/fly
 	name = "Fly left arm"
 	path = /obj/item/bodypart/arm/left/fly
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/r_arm/fly
 	name = "Fly right arm"
 	path = /obj/item/bodypart/arm/right/fly
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/l_leg/fly
 	name = "Fly left leg"
 	path = /obj/item/bodypart/leg/left/fly
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/r_leg/fly
 	name = "Fly right leg"
 	path = /obj/item/bodypart/leg/right/fly
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 //Golems
 /datum/augment_item/limb/head/golem
 	name = "Golem head"
 	path = /obj/item/bodypart/head/golem
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/chest/golem
 	name = "Golem chest"
 	path = /obj/item/bodypart/chest/golem
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/l_arm/golem
 	name = "Golem left arm"
 	path = /obj/item/bodypart/arm/left/golem
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/r_arm/golem
 	name = "Golem right arm"
 	path = /obj/item/bodypart/arm/right/golem
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/l_leg/golem
 	name = "Golem left leg"
 	path = /obj/item/bodypart/leg/left/golem
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/r_leg/golem
 	name = "Golem right leg"
 	path = /obj/item/bodypart/leg/right/golem
 	cost = 0
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 //Slimes
 /datum/augment_item/limb/head/species/mutant/slime

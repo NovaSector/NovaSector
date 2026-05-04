@@ -1,9 +1,19 @@
 /datum/augment_item/limb
 	category = AUGMENT_CATEGORY_LIMBS
 	abstract_type = /datum/augment_item/limb
-	allows_implants = TRUE
+	/// Does this limb allow implants?
+	var/allows_implants = TRUE
+	/// Slot flag for the augment - e.g. CHEST, HEAD, LEG_LEFT, LEG_RIGHT, ARM_RIGHT, ARM_LEFT
+	var/slot_flag = NONE
+	/// What body zone the augment belongs to - e.g. BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_L_HAND, etc...
+	var/body_zone
+	/// If this augment item has a digi version?
+	var/supports_digitigrade
 	///Should we draw these greyscale?
 	var/uses_greyscale = FALSE
+	/// Does this augment item allow for robotic_styles?
+	var/uses_robotic_styles
+	/// Does this augment_item allow sub-implants?
 
 /datum/augment_item/limb/apply(mob/living/carbon/human/augmented, character_setup = FALSE, datum/preferences/prefs)
 	var/digi_legs = prefs?.read_preference(/datum/preference/choiced/digitigrade_legs) == DIGITIGRADE_LEGS
@@ -139,6 +149,7 @@
 /datum/augment_item/limb/l_arm/plasmaman
 	name = "Plasmaman left arm"
 	path = /obj/item/bodypart/arm/left/plasmaman
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/l_arm/peg
 	name = "Left peg arm"
@@ -189,6 +200,7 @@
 /datum/augment_item/limb/r_arm/plasmaman
 	name = "Plasmaman right arm"
 	path = /obj/item/bodypart/arm/right/plasmaman
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/r_arm/peg
 	name = "Right peg arm"
@@ -214,12 +226,6 @@
 	slot = AUGMENT_SLOT_L_LEG
 	slot_flag = LEG_LEFT
 	body_zone = BODY_ZONE_L_LEG
-
-/datum/augment_item/limb/l_leg/New()
-	var/obj/item/bodypart/leg/left/leg_path = path
-	if(leg_path::bodyshape & BODYSHAPE_DIGITIGRADE)
-		supports_digitigrade = TRUE
-	return ..()
 
 /datum/augment_item/limb/l_leg/prosthetic
 	name = "Prosthetic left leg"
@@ -250,6 +256,7 @@
 /datum/augment_item/limb/l_leg/plasmaman
 	name = "Plasmaman left leg"
 	path = /obj/item/bodypart/leg/left/plasmaman
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/l_leg/peg
 	name = "Left peg leg"
@@ -269,12 +276,6 @@
 	slot = AUGMENT_SLOT_R_LEG
 	slot_flag = LEG_RIGHT
 	body_zone = BODY_ZONE_R_LEG
-
-/datum/augment_item/limb/r_leg/New()
-	var/obj/item/bodypart/leg/right/leg_path = path
-	if(leg_path::bodyshape & BODYSHAPE_DIGITIGRADE)
-		supports_digitigrade = TRUE
-	return ..()
 
 /datum/augment_item/limb/r_leg/prosthetic
 	name = "Prosthetic right leg"
@@ -304,6 +305,7 @@
 /datum/augment_item/limb/r_leg/plasmaman
 	name = "Plasmaman right leg"
 	path = /obj/item/bodypart/leg/right/plasmaman
+	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
 
 /datum/augment_item/limb/r_leg/peg
 	name = "Right peg leg"

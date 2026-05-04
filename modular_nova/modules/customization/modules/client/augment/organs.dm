@@ -3,6 +3,8 @@
 	category = AUGMENT_CATEGORY_INTERNAL_IMPLANTS
 	/// Whether this organ augment is visible from outside or not
 	var/is_visible
+	/// Any icon to display (for internal implant categories)
+	var/icon
 
 /datum/augment_item/organ/New()
 	// Figure out if we should visually apply or not

@@ -60,14 +60,15 @@
 			continue
 
 		var/slot = augment.slot
+		var/datum/augment_item/limb/limb_augment = astype(augment_instance, /datum/augment_item/limb)
 		var/list/entry = list(
 			"path"               = augment.type,
 			"name"               = augment.name,
 			"cost"               = augment.cost,
 			"extra_info"         = augment.extra_info,
-			"has_digi"           = augment.supports_digitigrade,
-			"allows_styles"      = augment.uses_robotic_styles,
-			"allows_implants"    = augment.allows_implants,
+			"has_digi"           = limb_augment?.supports_digitigrade,
+			"allows_styles"      = limb_augment?.uses_robotic_styles,
+			"allows_implants"    = limb_augment?.allows_implants,
 			"species_blacklist"  = LAZYLISTDUPLICATE(augment.species_blacklist),
 			"species_whitelist"  = LAZYLISTDUPLICATE(augment.species_whitelist),
 			"ckey_whitelist"     = LAZYLISTDUPLICATE(augment.ckey_whitelist),
@@ -80,7 +81,7 @@
 			if(AUGMENT_CATEGORY_INTERNAL_IMPLANTS)
 				if(!internal_implant_slots[slot])
 					internal_implant_slots[slot] = list(
-						"icon"    = initial(augment.icon),
+						"icon"    = astype(augment_instance, /datum/augment_item/organ)?.icon,
 						"options" = list(),
 					)
 				internal_implant_slots[slot]["options"] += list(entry)
@@ -257,13 +258,16 @@
 	if(aug.species_whitelist && !aug.species_whitelist[species.id])
 		return FALSE
 	var/digi_legs = prefs.read_preference(/datum/preference/choiced/digitigrade_legs) == DIGITIGRADE_LEGS
-	if(digi_legs && aug.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)) && !aug.supports_digitigrade)
-		return FALSE
+	if(digi_legs)
+		var/datum/augment_item/limb/limb_aug = astype(aug, /datum/augment_item/limb)
+		if(limb_aug?.slot_flag && (limb_aug.slot_flag & (LEG_LEFT|LEG_RIGHT)) && !limb_aug.supports_digitigrade)
+			return FALSE
 	if(aug.ckey_whitelist && !LAZYFIND(aug.ckey_whitelist, user?.client?.ckey))
 		return FALSE
 	var/datum/preference/choiced/mutant_choice/taur/taur_choice = GLOB.preference_entries[/datum/preference/choiced/mutant_choice/taur]
 	if(taur_choice.is_accessible(prefs) && prefs.read_preference(/datum/preference/choiced/mutant_choice/taur) != SPRITE_ACCESSORY_NONE)
-		if(aug.slot_flag && (aug.slot_flag & (LEG_LEFT|LEG_RIGHT)))
+		var/datum/augment_item/limb/limb_aug = astype(aug, /datum/augment_item/limb)
+		if(limb_aug?.slot_flag && (limb_aug.slot_flag & (LEG_LEFT|LEG_RIGHT)))
 			return FALSE
 	if(SSquirks.points_enabled && aug.cost > 0)
 		if((preferences.GetQuirkBalance() - aug.cost) < 0)

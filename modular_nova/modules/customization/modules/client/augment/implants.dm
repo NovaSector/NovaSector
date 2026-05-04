@@ -27,8 +27,6 @@
 //CHEST IMPLANTS
 /datum/augment_item/implant/chest
 	slot = AUGMENT_SLOT_CHEST
-	slot_flag = CHEST
-	body_zone = BODY_ZONE_CHEST
 
 /datum/augment_item/implant/chest/nutriment_pump
 	name = "Nutriment Pump"
@@ -48,8 +46,6 @@
 //LEFT ARM IMPLANTS
 /datum/augment_item/implant/l_arm
 	slot = AUGMENT_SLOT_L_ARM
-	slot_flag = ARM_LEFT
-	body_zone = BODY_ZONE_L_ARM
 
 /datum/augment_item/implant/l_arm/mantis_blade_left
 	name = "Obsolete Mantis Blade"
@@ -127,8 +123,6 @@
 //RIGHT ARM IMPLANTS
 /datum/augment_item/implant/r_arm
 	slot = AUGMENT_SLOT_R_ARM
-	slot_flag = ARM_RIGHT
-	body_zone = BODY_ZONE_R_ARM
 
 /datum/augment_item/implant/r_arm/mantis_blade_right
 	name = "Obsolete Mantis Blade"

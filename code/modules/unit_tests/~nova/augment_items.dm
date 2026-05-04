@@ -27,19 +27,27 @@
 
 		var/slot = aug.slot
 		if(isnull(aug.slot))
-			TEST_FAIL("[aug] does not have a slot set!")
-			continue
-		var/body_zone = aug.body_zone
-		if(isnull(body_zone))
-			TEST_FAIL("[aug] does not have a body_zone set!")
-			continue
-		var/slot_flag = aug.slot_flag
-		if(isnull(flag_to_display[slot_flag]))
-			TEST_FAIL("[aug] has an invalid slot_flag value of [slot_flag]! valid values include: CHEST, LEG_LEFT, NONE")
+			TEST_FAIL("[augment_path] does not have a slot set!")
 			continue
 
-		var/expected_slot = slot_to_display[body_zone]
-		TEST_ASSERT_EQUAL(slot, expected_slot, "augment_item [augment_path] has slot '[aug.slot]' but expected '[expected_slot]' from body_zone '[body_zone]'")
+		// Limb augment-specific
+		var/datum/augment_item/limb/limb_aug = aug
+		if(istype(limb_aug))
+			var/slot_flag = limb_aug.slot_flag
+			if(isnull(flag_to_display[slot_flag]))
+				TEST_FAIL("[augment_path] has an invalid slot_flag value of [slot_flag]! valid values include: CHEST, LEG_LEFT, NONE")
+				continue
+			var/body_zone = aug.body_zone
+			if(isnull(body_zone))
+				TEST_FAIL("[augment_path] does not have a body_zone set!")
+				continue
 
-		var/expected_flag = flag_to_display[slot_flag]
-		TEST_ASSERT_EQUAL(slot_flag, expected_flag, "augment_item [augment_path] has slot_flag '[aug.slot_flag]' but expected '[expected_flag]' for slot '[aug.slot]'")
+			var/expected_slot = slot_to_display[body_zone]
+			TEST_ASSERT_EQUAL(slot, expected_slot, "augment_item ([augment_path]) has slot '[aug.slot]' but expected '[expected_slot]' from body_zone '[body_zone]'")
+
+			var/expected_flag = flag_to_display[slot_flag]
+			TEST_ASSERT_EQUAL(slot_flag, expected_flag, "augment_item ([augment_path]) has slot_flag '[aug.slot_flag]' but expected '[expected_flag]' for slot '[aug.slot]'")
+
+			var/obj/item/bodypart/bodypart_path = aug.path
+			var/expected_digitigrade = !!(bodypart_path::bodyshape & BODYSHAPE_DIGITIGRADE)
+			TEST_ASSERT_EQUAL(aug.supports_digitigrade, expected_digitigrade, "augment_item ([augment_path]) should have supports_digitigrade = [expected_digitigrade])")

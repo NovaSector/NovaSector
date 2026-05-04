@@ -55,7 +55,7 @@
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 	is_emissive = FALSE
 
-// ─── Greyscale variants ───────────────────────────────────────────────────────
+// Greyscale variants
 
 /obj/item/bodypart/leg/right/robot/surplus/digi/greyscale
 	icon_static = null
