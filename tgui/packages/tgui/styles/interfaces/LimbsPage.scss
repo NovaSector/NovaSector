@@ -15,7 +15,9 @@
 }
 
 @keyframes LimbsPage__glitch {
-  0% {
+  0%,
+  100% { clip-path: none; transform: translate(0, 0); }
+  2% {
     clip-path: polygon(
       0% 43%, 83% 43%, 83% 22%, 23% 22%, 23% 24%, 91% 24%,
       91% 26%, 18% 26%, 18% 83%, 29% 83%, 29% 17%, 41% 17%,
@@ -26,7 +28,7 @@
     );
     transform: translate(-2px, 0);
   }
-  5% {
+  4% {
     clip-path: polygon(
       0% 29%, 44% 29%, 44% 83%, 94% 83%, 94% 56%, 11% 56%,
       11% 64%, 94% 64%, 94% 70%, 88% 70%, 88% 32%, 18% 32%,
@@ -37,7 +39,20 @@
     transform: translate(2px, 0);
   }
   6%,
-  29% { clip-path: none; transform: translate(0, 0); }
+  89% { clip-path: none; transform: translate(0, 0); }
+  91% {
+    clip-path: polygon(
+      0% 41%, 13% 41%, 13% 6%, 87% 6%, 87% 93%, 10% 93%,
+      10% 13%, 89% 13%, 89% 6%, 3% 6%, 3% 8%, 16% 8%,
+      16% 79%, 0% 79%, 0% 99%, 92% 99%, 92% 90%, 5% 90%,
+      5% 60%, 0% 60%, 0% 48%, 89% 48%, 89% 13%, 80% 13%,
+      80% 43%, 95% 43%, 95% 19%, 80% 19%, 80% 85%, 38% 85%,
+      38% 62%
+    );
+    transform: translate(2px, 0);
+  }
+  93%,
+  99% { clip-path: none; transform: translate(0, 0); }
 }
 
 .LimbsPage {
@@ -63,10 +78,10 @@
 
     &.visible {
       visibility: visible;
-      animation: LimbsPage__fade-in 0.6s ease-out forwards;
+      animation: LimbsPage__fade-in 1.2s ease-out forwards;
 
       .LimbsPage__hover-text--tooltip {
-        animation: LimbsPage__glitch 10s step-end 0.8s 1;
+        animation: LimbsPage__glitch 8s step-end 1.2s 1;
       }
     }
   }
