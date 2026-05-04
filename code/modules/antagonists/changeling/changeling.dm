@@ -807,8 +807,6 @@
 	user.dna.mutant_bodyparts = LAZYCOPY(chosen_dna.mutant_bodyparts)
 	user.dna.body_markings = chosen_dna.body_markings.Copy()
 
-	user.selected_scream = null
-	user.selected_laugh = null
 	user.selected_scream = GLOB.scream_types[chosen_profile.scream_type]
 	user.selected_laugh = GLOB.laugh_types[chosen_profile.laugh_type]
 	user.mob_size = chosen_profile.target_mob_size
