@@ -65,7 +65,7 @@
 	desc = "Your station needs a little more Wah? Some more red tails? Order this. You'll never escape your sadness."
 	cost = CARGO_CRATE_VALUE * 4
 	contains = list(
-		/mob/living/basic/pet/fox/redpanda, = 2,)
+		/mob/living/basic/pet/fox/redpanda = 2,)
 	crate_name = "wah crate"
 
 /*
