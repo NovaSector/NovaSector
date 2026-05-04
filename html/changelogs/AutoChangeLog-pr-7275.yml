@@ -1,0 +1,9 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - qol: "augments+ tab has been completely remodeled with new qol features, check it out!"
+  - bugfix: "fixes issue where markings would carry over to the next slot in char prefs"
+  - bugfix: "fixes issue where hand markings would not update your prefs dummy unless you selected a limb marking"
+  - bugfix: "it will no longer be possible to select invalid augments that lead to invisible sprites"
+  - bugfix: "fixed an issue where selecting 'No limb\" as an option in augments+ would give you a pale white human limb on the dummy"
+  - refactor: "augments+ has undergone an overhaul on the backend and frontend, please report any issues"
