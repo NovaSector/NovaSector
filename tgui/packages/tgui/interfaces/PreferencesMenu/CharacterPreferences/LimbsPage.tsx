@@ -64,9 +64,7 @@ const HoverText = (props: { text: string; children: any }) => {
       <div
         className={`LimbsPage__hover-text--tooltip-wrapper${visible && props.text ? ' visible' : ''}`}
       >
-        <div className="LimbsPage__hover-text--tooltip">
-          {props.text}
-        </div>
+        <div className="LimbsPage__hover-text--tooltip">{props.text}</div>
       </div>
     </div>
   );
@@ -411,8 +409,7 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
                 const option = aug_options.find(
                   (aug) => displayName(aug) === name,
                 );
-                if (option?.path === limb.selectedAug?.path)
-                  return;
+                if (option?.path === limb.selectedAug?.path) return;
                 if (
                   showCost &&
                   (option?.cost ?? 0) > 0 &&
