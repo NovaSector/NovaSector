@@ -56,23 +56,16 @@
 	desc = "Contains three pitbulls. Verified at the top of Mount Bullmore to be Pedigree Studs.."
 	cost = CARGO_CRATE_VALUE * 9
 	contains = list(
-		/mob/living/basic/pet/dog/pitbull,
+		/mob/living/basic/pet/dog/pitbull = 3,
 	)
 	crate_name = "pedigree stud pitbull crate"
-
-/datum/supply_pack/critter/pitbull/pimpy/generate()
-	. = ..()
-	for(var/i in 1 to 3)
-		new /mob/living/basic/pet/dog/pitbull(.)
 
 /datum/supply_pack/critter/redpanda
 	name = "Red Panda Crate"
 	desc = "Your station needs a little more Wah? Some more red tails? Order this. You'll never escape your sadness."
 	cost = CARGO_CRATE_VALUE * 4
 	contains = list(
-		/mob/living/basic/pet/fox/redpanda,
-		/mob/living/basic/pet/fox/redpanda,
-	)
+		/mob/living/basic/pet/fox/redpanda, = 2,)
 	crate_name = "wah crate"
 
 /*
