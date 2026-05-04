@@ -1,38 +1,50 @@
-/datum/atom_skin/security_armor_vest_white
-	abstract_type = /datum/atom_skin/security_armor_vest_white
-
-/datum/atom_skin/security_armor_vest_white/black
-	preview_name = "Black Variant"
-	new_icon_state = "vest_black"
-
-/datum/atom_skin/security_armor_vest_white/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "vest_blue"
-
-/datum/atom_skin/security_armor_vest_white/white
-	preview_name = "White Variant"
-	new_icon_state = "vest_white"
-
-/obj/item/clothing/suit/armor/vest/alt/sec/white
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
-	icon_state = "vest_white"
-
-/obj/item/clothing/suit/armor/vest/alt/sec/white/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_armor_vest_white)
-
-/obj/item/clothing/suit/armor/vest/sec_hazard
-	name = "high vis armored vest"
-	desc = "Oi bruv, you got a loicence for that?"
+/obj/item/clothing/suit/armor/vest/alt/sec/sec_depgag
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/sec_hazard"
-	post_init_icon_state = "sec_hazard"
-	greyscale_config = /datum/greyscale_config/sec_hazard
-	greyscale_config_worn = /datum/greyscale_config/sec_hazard/worn
+	icon_state = "/obj/item/clothing/suit/armor/vest/alt/sec/sec_depgag"
+	post_init_icon_state = "sec_vest"
+	greyscale_config = /datum/greyscale_config/sec_department_vest
+	greyscale_config_worn = /datum/greyscale_config/sec_department_vest/worn
 	greyscale_colors = "#BAEA3E#EBEBEB"
 	flags_1 = NONE
 
-/obj/item/clothing/suit/armor/vest/sec_hazard/Initialize(mapload)
+/obj/item/clothing/suit/armor/vest/alt/sec/sec_depgag_slim
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/armor/vest/alt/sec/sec_depgag_slim"
+	post_init_icon_state = "sec_vest"
+	greyscale_config = /datum/greyscale_config/sec_department_slim_vest
+	greyscale_config_worn = /datum/greyscale_config/sec_department_slim_vest/worn
+	greyscale_colors = "#BAEA3E#EBEBEB"
+	flags_1 = NONE
+
+/obj/item/clothing/suit/armor/vest/depgag_hazard
+	name = "high vis armored vest"
+	desc = "Oi bruv, you got a loicence for that?"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard"
+	post_init_icon_state = "sec_hazard"
+	greyscale_config = /datum/greyscale_config/depgag_hazard
+	greyscale_config_worn = /datum/greyscale_config/depgag_hazard/worn
+	greyscale_colors = "#BAEA3E#EBEBEB"
+	flags_1 = NONE
+
+/obj/item/clothing/suit/armor/vest/depgag_hazard/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon, "zipper")
+
+/obj/item/clothing/suit/armor/vest/secjacket/depgag
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/armor/vest/secjacket/depgag"
+	post_init_icon_state = "depgag_hazard_jacket"
+	greyscale_config = /datum/greyscale_config/hazard_jacket_depgag
+	greyscale_config_worn = /datum/greyscale_config/hazard_jacket_depgag/worn
+	greyscale_colors = "#BAEA3E#EBEBEB"
+	flags_1 = NONE
+
+/obj/item/clothing/suit/armor/vest/secjacket/depgag/white
+	icon_state = "/obj/item/clothing/suit/armor/vest/secjacket/depgag/white"
+	greyscale_colors = "#A52F29#EBEBEB"
+
+/obj/item/clothing/suit/armor/vest/secjacket/depgag/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, "zipper")
 
