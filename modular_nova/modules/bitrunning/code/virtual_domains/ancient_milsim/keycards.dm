@@ -3,7 +3,7 @@
 
 /obj/item/keycard/milsim_reward_room
 	name = "reward room keycard"
-	color = "#f0da12"
+	color = /obj/item/keycard/yellow::color
 	puzzle_id = MILSIM_REWARD_ROOM_ID
 
 /obj/item/keycard/milsim_reward_room/Initialize(mapload)
@@ -16,7 +16,7 @@
 
 /obj/item/keycard/milsim_exit_tunnel
 	name = "exit tunnel keycard"
-	color = "#3bbbdb"
+	color = /obj/item/keycard/blue::color
 	puzzle_id = MILSIM_EXIT_TUNNEL_ID
 
 /obj/item/keycard/milsim_exit_tunnel/Initialize(mapload)
