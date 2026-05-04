@@ -70,7 +70,7 @@
 				/obj/item/storage/backpack/duffelbag/sec = 4,					//15
 				/obj/item/storage/backpack/messenger/sec = 4,					//16
 				/obj/item/clothing/head/hats/warden/police/patrol = 4,
-				/obj/item/clothing/head/costume/ushanka/sec = 4					//17,
+				/obj/item/clothing/head/costume/ushanka/sec = 4,					//17,
 				/obj/item/clothing/head/playbunnyears/security = 6,
 				/obj/item/clothing/under/rank/security/security_bunnysuit = 6,
 				/obj/item/clothing/suit/armor/security_tailcoat = 6,
