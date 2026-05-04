@@ -1,16 +1,8 @@
 // THIS IS A NOVA SECTOR UI FILE
 @keyframes LimbsPage__fade-in {
   0%   { opacity: 0; }
-  6%   { opacity: 0.19; }
-  14%  { opacity: 0; }
-  21%  { opacity: 0.52; }
-  38%  { opacity: 0.39; }
-  61%  { opacity: 0.81; }
-  62%  { opacity: 0.94; }
-  68%  { opacity: 0.99; }
-  70%  { opacity: 0.50; }
-  97%  { opacity: 0.91; }
-  99%  { opacity: 0.67; }
+  20%  { opacity: 0.52; }
+  60%  { opacity: 0.39; }
   100% { opacity: 1; }
 }
 
@@ -78,10 +70,10 @@
 
     &.visible {
       visibility: visible;
-      animation: LimbsPage__fade-in 1.2s ease-out forwards;
+      animation: LimbsPage__fade-in 0.6s ease-out forwards;
 
       .LimbsPage__hover-text--tooltip {
-        animation: LimbsPage__glitch 8s step-end 1.2s 1;
+        animation: LimbsPage__glitch 8s step-end 0.6s 1;
       }
     }
   }
