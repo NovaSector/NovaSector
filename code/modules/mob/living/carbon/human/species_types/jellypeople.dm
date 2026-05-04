@@ -162,6 +162,11 @@
 	if(!length(limbs_to_heal))
 		to_chat(H, span_notice("You feel intact enough as it is."))
 		return
+	// NOVA EDIT ADDITION START
+	if(HAS_TRAIT(H, TRAIT_SLIME_HYDROPHOBIA))
+		to_chat(H, span_warning("Your membrane is too viscous to regenerate your limbs!"))
+		return
+	// NOVA EDIT ADDITION END
 	to_chat(H, span_notice("You focus intently on your missing [length(limbs_to_heal) >= 2 ? "limbs" : "limb"]..."))
 	if(H.get_blood_volume() >= blood_per_limb * length(limbs_to_heal) + BLOOD_VOLUME_OKAY)
 		H.regenerate_limbs()
@@ -329,6 +334,14 @@
 	var/datum/species/jelly/slime/spare_datum = spare.dna.species
 	spare_datum.bodies = origin_datum.bodies
 
+	// NOVA EDIT ADDITION BEGIN
+	if(H.blooper_id)
+		spare.set_blooper(H.blooper_id)
+		spare.blooper_pitch = H.blooper_pitch
+		spare.blooper_pitch_range = H.blooper_pitch_range
+		spare.blooper_volume = H.blooper_volume
+		spare.blooper_speed = H.blooper_speed
+	// NOVA EDIT ADDITION END
 	H.transfer_quirk_datums(spare)
 	H.mind.transfer_to(spare)
 	spare.visible_message(
