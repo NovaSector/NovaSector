@@ -268,7 +268,7 @@ const Markings = (props: {
         return (
           <Stack.Item key={marking.marking_id}>
             <Stack fill>
-              <Stack.Item grow>
+              <Stack.Item grow style={{ minWidth: 0, overflow: 'hidden' }}>
                 <Dropdown
                   width="100%"
                   options={marking_choices}
