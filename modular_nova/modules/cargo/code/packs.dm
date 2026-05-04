@@ -60,7 +60,7 @@
 	)
 	crate_name = "pedigree stud pitbull crate"
 
-/datum/supply_pack/critter/pitbull/generate()
+/datum/supply_pack/critter/pitbull/pimpy/generate()
 	. = ..()
 	for(var/i in 1 to 3)
 		new /mob/living/basic/pet/dog/pitbull(.)
