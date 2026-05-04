@@ -204,16 +204,15 @@
 
 /datum/species/synthetic/holosynth/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.set_haircolor("#D8D8D8", update = FALSE)
-	human_for_preview.set_hairstyle("Oxton", update = TRUE)
-	human_for_preview.set_hair_gradient_color("#7C6AB7")
-	human_for_preview.set_hair_gradient_style("Wavy")
+	human_for_preview.set_hairstyle("Oxton", update = FALSE)
+	human_for_preview.set_hair_gradient_color("#7C6AB7", update = FALSE)
+	human_for_preview.set_hair_gradient_style("Wavy", update = TRUE)
 	human_for_preview.dna.features["holo_color"] = "#ECB3DD"
 	human_for_preview.set_eye_color("#5AADD6")
 	human_for_preview.dna.mutant_bodyparts[FEATURE_SYNTH_HEAD] = build_mutant_part("Human Head", list("#EDCDB0"))
 	human_for_preview.dna.mutant_bodyparts[FEATURE_SYNTH_CHASSIS] = build_mutant_part("Human Chassis", list("#EDCDB0"))
 	apply_supplementary_body_changes(human_for_preview, visuals_only = TRUE)
-	regenerate_organs(human_for_preview)
-	human_for_preview.update_body(is_creating = TRUE)
+	human_for_preview.update_body_parts(TRUE)
 
 /datum/species/synthetic/holosynth/preview_icon_after_effects(datum/universal_icon/dummy_icon, mob/living/carbon/human/target)
 	// we have to do all this manually to recreate a transparent/tinted effect, for the sake of the preview because filters suck
