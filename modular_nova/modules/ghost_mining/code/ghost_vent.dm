@@ -12,23 +12,29 @@
 /obj/structure/ore_vent/ghost_mining
 	name = "oxide nodule vent"
 	desc = "A vent full of rare oxide nodules, producing various minerals every time one is brought up. Scan with an advanced mining scanner to start extracting ore from it."
-	icon_state = "ore_vent_active"
-	base_icon_state = "ore_vent_active"
+	icon_state = "ore_vent"
+	base_icon_state = "ore_vent"
 	mineral_breakdown = list(
-		/datum/material/iron = 50,
-		/datum/material/glass = 50,
+		/datum/material/iron = 1,
+		/datum/material/glass = 1,
 	) //we don't need a separate starting list
 	unique_vent = TRUE
 	boulder_size = BOULDER_SIZE_SMALL
 	defending_mobs = list(/mob/living/basic/carp)
 	var/clear_tally = 0 //so we can track how many time it clears for data-testing purposes.
 	var/boulder_bounty = 10 //how many boulders per clear attempt. First one is small and easy
+	var/boulder_infinite = FALSE //does it have infinite boulders per cycle?
 	var/new_ore_cycle = TRUE //We want this to generate new ore types upon untapping. Var incase we want some wacky shit later.
 	var/static_threat = FALSE //Is this a static threat? Useful for boss/elite vents
 	var/static_magnitude = null //Does this vent have a static magnitude?
 	var/static_boulder_size = null //Does this vent have a static boulder size?
 	var/static_boulder_bounty = null //does this vent have a static boulder bounty?
+	var/manual_reset = FALSE //Can we force a reset on materials?
+	var/min_to_reset = 3 //Minimal amount of boulders needed for manual reset.
+	var/reset_timer = 5 //active amount till vent can reset.
 	var/random_start = FALSE  //does this vent randomize at start?
+	var/ghost_mining = FALSE //are boulders for a ghost role exclusive vent?
+	var/reset_message = "Search for different mineral types?"
 	var/threat_pool = list(
 		COLONY_THREAT_CARP,
 		COLONY_THREAT_PIRATES,
@@ -37,25 +43,100 @@
 
 /obj/structure/ore_vent/ghost_mining/examine(mob/user)
 	. = ..()
-	switch(tapped)
-		if(TRUE)
-			. += span_notice("The current nodule holds [boulder_bounty] chunks worth of ore.")
-		if(FALSE)
-			. += span_notice("The vent holds a nodule breakable into [boulder_bounty] ore chunks.")
+	if(!boulder_infinite)
+		switch(tapped)
+			if(TRUE)
+				. += span_notice("The current nodule holds [boulder_bounty] chunks worth of ore.")
+			if(FALSE)
+				. += span_notice("The vent holds a nodule breakable into [boulder_bounty] ore chunks.")
+	if(manual_reset)
+		. += span_notice("The ore gouger needs [reset_timer] more cycles to get new minerals")
 	if(clear_tally >= 1)
-		. += span_notice("This vent has hauled up [clear_tally] nodules.")
+		. += span_notice("This vent has hauled up [clear_tally] different nodule types.")
 
 /obj/structure/ore_vent/ghost_mining/produce_boulder(apply_cooldown)
-	. = ..()
-	if(tapped) //its either this or nuke gold grub ai and i aint touching mob AI with a 10 tile spear.
-		boulder_bounty -= 1
-	if(boulder_bounty == 0)
-		reset_vent(TRUE)
+	RETURN_TYPE(/obj/item/boulder)
+
+	//cooldown applies only for manual processing by hand
+	if(apply_cooldown && !COOLDOWN_FINISHED(src, manual_vent_cooldown))
+		return
+
+	//produce the boulder
+	var/obj/item/boulder/new_rock
+	if(ghost_mining)
+		new_rock = new /obj/item/boulder/ghost_mining(loc)
+	else
+		if(prob(artifact_chance))
+			new_rock = new /obj/item/boulder/artifact(loc)
+		else
+			new_rock = new /obj/item/boulder(loc)
+	Shake(duration = 1.5 SECONDS)
+
+	//decorate the boulder with materials
+	var/list/mats_list = list()
+	for(var/iteration in 1 to 3) //There's like a potential balance vector in how this was a define... But it most of the time just pointed to 3 anyways
+		var/datum/material/material = pick_weight(mineral_breakdown)
+		mats_list[material] += ore_quantity_function(iteration)
+	new_rock.set_custom_materials(mats_list)
+
+	//set size & durability
+	new_rock.boulder_size = boulder_size
+	new_rock.durability = rand(2, boulder_size) //randomize durability a bit for some flavor.
+	new_rock.boulder_string = boulder_icon_state
+
+	switch(boulder_size)
+		if(BOULDER_SIZE_SMALL)
+			new_rock.platform_lifespan = PLATFORM_LIFE_SMALL
+		if(BOULDER_SIZE_MEDIUM)
+			new_rock.platform_lifespan = PLATFORM_LIFE_MEDIUM
+		if(BOULDER_SIZE_LARGE)
+			new_rock.platform_lifespan = PLATFORM_LIFE_LARGE
+
+	new_rock.update_appearance(UPDATE_ICON_STATE)
+
+	//The entire code addition as to why this went from a small addition to produce boulder to a whole re-write.
+	if(ghost_mining)
+		SSore_generation.available_boulders -= new_rock
+
+	//start the cooldown & return the boulder
+	if(apply_cooldown)
+		COOLDOWN_START(src, manual_vent_cooldown, 10 SECONDS)
+
+	if(manual_reset && reset_timer > 0)
+		reset_timer -= 1
+
+	if(!boulder_infinite)
+		if(tapped) //its either this or nuke gold grub ai and i aint touching mob AI with a 10 tile spear.
+			boulder_bounty -= 1
+		if(boulder_bounty <= 0)
+			reset_vent(TRUE)
+
+	return new_rock
 
 /obj/structure/ore_vent/ghost_mining/Initialize(mapload)
 	. = ..()
 	if(random_start)
 		reset_vent(FALSE)
+	if(ghost_mining)
+		boulder_icon_state = "crystal"
+
+/obj/structure/ore_vent/ghost_mining/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(manual_reset)
+		if(reset_timer <= 0)
+			if(tgui_alert(user, reset_message, "Reset the ore vent?", list("Yes", "No")) != "Yes")
+				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			reset_vent(TRUE)
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		else
+			balloon_alert_to_viewers("ore gouger still recharging!")
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/structure/ore_vent/ghost_mining/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+	if(manual_reset)
+		context[SCREENTIP_CONTEXT_RMB] = "Cycle Ores"
+		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ore_vent/ghost_mining/start_wave_defense() //We add faction and change spawn text a bit. tbh we could rebalance a bit but thats for later ideas
 	AddComponent(\
@@ -71,7 +152,6 @@
 	)
 	COOLDOWN_START(src, wave_cooldown, wave_timer)
 	addtimer(CALLBACK(src, PROC_REF(handle_wave_conclusion)), wave_timer)
-	icon_state = icon_state_tapped
 	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/ore_vent/ghost_mining/proc/reset_vent(cleared = FALSE) // We want to re-cycle the vent to an untapped state.
@@ -90,6 +170,8 @@
 		reset_ores(new_boulder_size) // title. We use the variable thing PURELY for the sake of having the GPS tied here and not to reset ores
 		generate_description() // makes the description register the new ores
 		gps_name = "[new_boulder_size] oxide chunk" // should generate as "large oxide chunk"
+		if(manual_reset)
+			reset_timer = min_to_reset
 	else
 		boulder_bounty = initial(boulder_bounty) //Just resets to what it started with. Yes, this is all this needs.
 
@@ -129,6 +211,9 @@
 		boulder_bounty = static_boulder_bounty
 	else
 		boulder_bounty = (magnitude * boulder_size) // minimal 5, maximum is 60. tbh not that hard in space
+
+	if(manual_reset)
+		reset_timer = min_to_reset
 
 	var/threat_pick = pick(threat_pool) //We choose from the threat pool list and use it to generate a defending_mobs list. todo: complex additive mode for funny shenanigans
 
@@ -189,6 +274,10 @@
 					/mob/living/basic/construct/wraith/hostile,
 				)
 
+	if(vent_visual) // if tapped, removed tapped visual
+		vis_contents -= vent_visual //Reversing add_tapped_visual in what i feel is the best order, correct if wrong.
+		QDEL_NULL(vent_visual) //Deletes AND sets to null? man what a time to code.
+
 	for(var/old_ore in mineral_breakdown) //We remove the old ore
 		mineral_breakdown -= old_ore
 
@@ -207,35 +296,60 @@
 /obj/structure/ore_vent/ghost_mining/lavaland/ras //random at start
 	random_start = TRUE
 
+/obj/structure/ore_vent/ghost_mining/lavaland/endless
+	boulder_infinite = TRUE
+	manual_reset = TRUE
+	ghost_mining = TRUE
+
 /obj/structure/ore_vent/ghost_mining/snowland
-	icon_state = "ore_vent_ice_active"
-	base_icon_state = "ore_vent_ice_active"
+	icon_state = "ore_vent_ice"
+	base_icon_state = "ore_vent_ice"
 	defending_mobs = list(/mob/living/basic/mining/wolf) //one of the easier snowies
 	threat_pool = list(COLONY_THREAT_SNOW)
 
 /obj/structure/ore_vent/ghost_mining/snowland/ras
 	random_start = TRUE
 
+/obj/structure/ore_vent/ghost_mining/snowland/endless
+	boulder_infinite = TRUE
+	manual_reset = TRUE
+	ghost_mining = TRUE
+
 /obj/structure/ore_vent/ghost_mining/undersnow
-	icon_state = "ore_vent_ice_active"
-	base_icon_state = "ore_vent_ice_active"
+	icon_state = "ore_vent_ice"
+	base_icon_state = "ore_vent_ice"
 	defending_mobs = list(/mob/living/basic/mining/wolf) //one of the easier snowies
 	threat_pool = list(COLONY_THREAT_ICE_MINING)
 
 /obj/structure/ore_vent/ghost_mining/pirate
 	defending_mobs = list(
-		/mob/living/basic/trooper/pirate/melee,
-		/mob/living/basic/trooper/pirate/ranged,
-	) //you can space cheese the starting ones, but only the starting ones
+		/mob/living/basic/trooper/pirate/melee/space,
+		/mob/living/basic/trooper/pirate/ranged/space,
+	)
 	threat_pool = list(COLONY_THREAT_PIRATES)
+
+/obj/structure/ore_vent/ghost_mining/pirate/endless
+	boulder_infinite = TRUE
+	manual_reset = TRUE
+	ghost_mining = TRUE
 
 /obj/structure/ore_vent/ghost_mining/xenos
 	defending_mobs = list(/mob/living/basic/alien/drone)
 	threat_pool = list(COLONY_THREAT_XENOS)
 
+/obj/structure/ore_vent/ghost_mining/xenos/endless
+	boulder_infinite = TRUE
+	manual_reset = TRUE
+	ghost_mining = TRUE
+
 /obj/structure/ore_vent/ghost_mining/carp
 	defending_mobs = list(/mob/living/basic/carp)
 	threat_pool = list(COLONY_THREAT_CARP)
+
+/obj/structure/ore_vent/ghost_mining/carp/endless
+	boulder_infinite = TRUE
+	manual_reset = TRUE
+	ghost_mining = TRUE
 
 /obj/structure/ore_vent/ghost_mining/crab
 	defending_mobs = list(/mob/living/basic/crab)
@@ -244,6 +358,30 @@
 /obj/structure/ore_vent/ghost_mining/cult
 	defending_mobs = list(/mob/living/basic/construct/proteon/hostile)
 	threat_pool = list(COLONY_THREAT_CULT)
+
+/obj/structure/ore_vent/ghost_mining/cult/endless
+	boulder_infinite = TRUE
+	manual_reset = TRUE
+	ghost_mining = TRUE
+
+/// Starter vents. Change threats for appropriate roles
+
+/obj/structure/ore_vent/ghost_mining/starter
+	tapped = TRUE
+	discovered = TRUE
+	boulder_infinite = TRUE
+	manual_reset = TRUE //allowed to be reset, but only if people really want to.
+	ghost_mining = TRUE
+	boulder_size = BOULDER_SIZE_SMALL
+	mineral_breakdown = list(
+		/datum/material/iron = 1,
+		/datum/material/glass = 1,
+	)
+
+/obj/structure/ore_vent/ghost_mining/starter/tarkon
+	threat_pool = list(COLONY_THREAT_XENOS)
+
+/// Boss Vents. For the purpose of making bosses repeatable
 
 /obj/structure/ore_vent/ghost_mining/boss
 	name = "swirling oxide pool"
@@ -322,8 +460,8 @@
 	return ..()
 
 /obj/structure/ore_vent/ghost_mining/boss/icemoon
-	icon_state = "ore_vent_ice_active"
-	base_icon_state = "ore_vent_ice_active"
+	icon_state = "ore_vent_ice"
+	base_icon_state = "ore_vent_ice"
 	summoned_boss = /mob/living/simple_animal/hostile/megafauna/demonic_frost_miner // Icemoon's angriest man
 	defending_mobs = list(
 		/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner,
@@ -354,8 +492,8 @@
 	)
 
 /obj/structure/ore_vent/ghost_mining/boss/elite/Icemoon
-	icon_state = "ore_vent_ice_active"
-	base_icon_state = "ore_vent_ice_active"
+	icon_state = "ore_vent_ice"
+	base_icon_state = "ore_vent_ice"
 	summoned_boss = /mob/living/basic/boss/blood_drunk_miner/doom // Hes angry he got demoted to elite status
 	defending_mobs = list(
 		/mob/living/simple_animal/hostile/asteroid/elite/broodmother,
@@ -364,6 +502,17 @@
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
 		/mob/living/basic/boss/blood_drunk_miner/doom,
 	)
+
+/obj/item/boulder
+	/// Decides whether a BRM should pick up the boulder or whether it's limited to LRM/Manual Labor
+	var/brm_stable = TRUE
+
+/obj/item/boulder/ghost_mining
+	name = "crystal cluster"
+	desc = "They're not rocks, they're minerals."
+	icon = 'modular_nova/modules/ghost_mining/icons/ore.dmi'
+	icon_state = "crystal"
+	brm_stable = FALSE
 
 #undef COLONY_THREAT_XENOS
 #undef COLONY_THREAT_PIRATES

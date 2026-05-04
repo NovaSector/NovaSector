@@ -1047,6 +1047,15 @@
 	name = "Dr. Percival Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/percy
 
+/datum/loadout_item/toys/plush/plushie_bon
+	name = "Bon Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/bon
+
+/datum/loadout_item/pocket_items/bon_cape
+	name = "Bon's Cape"
+	item_path = /obj/item/sign/flag/pride/bon
+	ckeywhitelist = list("bonbyte")
+
 /datum/loadout_item/pocket_items/espatier
 	name = "dated Espatier holster"
 	item_path = /obj/item/storage/belt/espatier

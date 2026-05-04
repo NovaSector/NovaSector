@@ -9,6 +9,8 @@
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 1 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/power/solar/deployable/crowbar_act(mob/user, obj/item/I)
 	return
@@ -18,16 +20,6 @@
 	if(assembly)
 		qdel(assembly)
 	return ..()
-
-// formerly NO_DECONSTRUCTION
-/obj/machinery/power/solar/deployable/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/power/solar/deployable/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
-	return NONE
-
-/obj/machinery/power/solar/deployable/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
-	return NONE
 
 // Solar panel sub-types
 /obj/machinery/power/solar/deployable/titaniumglass
@@ -100,19 +92,8 @@
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 1 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
-
-/obj/machinery/power/tracker/deployable/crowbar_act(mob/user, obj/item/item_acting)
-	return NONE
-
-// formerly NO_DECONSTRUCTION
-/obj/machinery/power/tracker/deployable/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/power/tracker/deployable/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
-	return NONE
-
-/obj/machinery/power/tracker/deployable/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
-	return NONE
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/power/tracker/deployable/on_deconstruction(disassembled)
 	var/obj/item/solar_assembly/assembly = locate() in src

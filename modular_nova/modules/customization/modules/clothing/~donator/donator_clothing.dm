@@ -1303,6 +1303,9 @@
 
 /// We need to do a bit of code duplication here to ensure that we do the right kind of ui_action_click(), while keeping it modular.
 /datum/action/item_action/toggle_steampunk_goggles_welding_protection/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	if(!IsAvailable())
 		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_ACTION_TRIGGER, src) & COMPONENT_ACTION_BLOCK_TRIGGER)
@@ -2716,3 +2719,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/head/helmet/donator/stachelm/attack_self(mob/living/user)
 	toggle_helmet_light(user)
+
+/obj/structure/sign/flag/pride/bon
+	name = "\improper Bon's cape"
+	desc = "The cape of Bon in all its glory, looks yummy."
+	icon_state = "flag_bon"
+	item_flag = /obj/item/sign/flag/pride/bon
+
+/obj/item/sign/flag/pride/bon
+	name = "folded Bon's cape"
+	desc = "The folded cape of Bon's ice cone hair."
+	icon_state = "folded_pride_bon"
+	sign_path = /obj/structure/sign/flag/pride/bon
+	worn_icon_state = "bon"

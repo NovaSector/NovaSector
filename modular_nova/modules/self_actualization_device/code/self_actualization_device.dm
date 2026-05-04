@@ -297,28 +297,19 @@
 			span_notice("You successfully break out of [src]!"))
 		eject_old_you(damaged_goods = TRUE)
 
-/obj/machinery/self_actualization_device/screwdriver_act(mob/living/user, obj/item/used_item)
-	. = TRUE
-	if(..())
-		return
-
+/obj/machinery/self_actualization_device/screwdriver_act(mob/living/user, obj/item/tool)
 	if(occupant)
 		to_chat(user, span_warning("[src] is currently occupied!"))
-		return
+		return NONE
 
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, used_item))
-		update_appearance()
-		return
+	return default_deconstruction_screwdriver(user, tool)
 
-	return FALSE
-
-/obj/machinery/self_actualization_device/crowbar_act(mob/living/user, obj/item/used_item)
+/obj/machinery/self_actualization_device/crowbar_act(mob/living/user, obj/item/tool)
 	if(occupant)
 		to_chat(user, span_warning("[src] is currently occupied!"))
-		return
+		return NONE
 
-	if(default_deconstruction_crowbar(used_item))
-		return TRUE
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/self_actualization_device/RefreshParts()
 	. = ..()
