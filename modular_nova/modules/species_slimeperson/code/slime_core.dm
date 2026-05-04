@@ -283,7 +283,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 	mind = victim.mind || victim.last_mind
 	copy_mind_and_dna(victim)
-	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim, victim_loc), 0) // explode them after the current proc chain ends, to avoid weirdness
+	INVOKE_ASYNC(src, PROC_REF(core_ejection), victim, victim_loc)
 
 /obj/item/organ/brain/slime/proc/copy_mind_and_dna(mob/living/carbon/human/slime)
 	if(QDELETED(mind))
