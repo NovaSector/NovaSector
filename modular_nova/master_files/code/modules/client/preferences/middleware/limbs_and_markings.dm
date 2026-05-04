@@ -208,7 +208,7 @@
 	var/list/data = list()
 
 	var/list/robotic_styles = list(list(
-			"name"            = NAME,
+			"name"            = DEFAULT_NAME,
 			"icon"            = 'icons/mob/augmentation/augments.dmi',
 			"supported_slots" = ALL,
 			"has_digi"        = TRUE,
