@@ -1,9 +1,17 @@
 GLOBAL_LIST_EMPTY(scream_types)
+GLOBAL_LIST_EMPTY(scream_types_by_name)
 
 /datum/scream_type
+	abstract_type = /datum/scream_type
 	var/name
 	var/list/male_screamsounds
 	var/list/female_screamsounds
+
+/datum/scream_type/Destroy(force)
+	if(!force)
+		stack_trace("Something is trying to delete a singleton [type]")
+		return QDEL_HINT_LETMELIVE
+	return ..()
 
 /datum/scream_type/none //Why would you want this?
 	name = "No Scream"

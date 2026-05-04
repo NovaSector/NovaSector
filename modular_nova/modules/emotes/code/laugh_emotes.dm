@@ -8,13 +8,14 @@
 	if(!istype(human_user)) // pais
 		return
 
-	if(isnull(human_user.selected_laugh)) //For things that don't have a selected laugh(npcs)
+	var/datum/laugh_type/laugh_type = human_user.selected_laugh
+	if(isnull(laugh_type)) //For things that don't have a selected laugh(npcs)
 		return ..()
 
-	if(human_user.gender == MALE || !LAZYLEN(human_user.selected_laugh.female_laughsounds))
-		return pick(human_user.selected_laugh.male_laughsounds)
+	if(human_user.gender == MALE || !LAZYLEN(laugh_type.female_laughsounds))
+		return pick(laugh_type.male_laughsounds)
 	else
-		return pick(human_user.selected_laugh.female_laughsounds)
+		return pick(laugh_type.female_laughsounds)
 
 // human laugh - for males use tg audio females use our version
 /datum/species/human/get_laugh_sound(mob/living/carbon/human/human)

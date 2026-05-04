@@ -1,9 +1,17 @@
 GLOBAL_LIST_EMPTY(laugh_types)
+GLOBAL_LIST_EMPTY(laugh_types_by_name)
 
 /datum/laugh_type
+	abstract_type = /datum/laugh_type
 	var/name
 	var/list/male_laughsounds
 	var/list/female_laughsounds
+
+/datum/laugh_type/Destroy(force)
+	if(!force)
+		stack_trace("Something is trying to delete a singleton [type]")
+		return QDEL_HINT_LETMELIVE
+	return ..()
 
 /datum/laugh_type/none //Why would you want this?
 	name = "No Laugh"
