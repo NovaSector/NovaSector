@@ -325,7 +325,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	)
 	var/turf/death_turf = loc_override || get_turf(victim)
 	/// The location the core will forceMove into
-	var/atom/core_loc = get_core_ejection_loc(victim, death_turf)
+	var/atom/core_loc = get_core_ejection_loc(victim, death_turf, loc_override)
 	for(var/datum/quirk/quirk in victim.quirks) // Store certain quirks safe to transfer between bodies.
 		if(!is_type_in_typecache(quirk, saved_quirks) || is_type_in_typecache(quirk, skip_quirks))
 			continue
@@ -366,11 +366,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
  * Returns the location the core should eject to
  * If slime died in a container (locker, vileworm, legion), they'll eject there, otherwise we're returning death_turf
 */
-/obj/item/organ/brain/slime/proc/get_core_ejection_loc(mob/living/carbon/human/victim, turf/death_turf)
-	var/atom/container = victim.loc
-	if(!container || isturf(container))
-		return death_turf
-	return container
+/obj/item/organ/brain/slime/proc/get_core_ejection_loc(mob/living/carbon/human/victim, turf/death_turf, turf/loc_override)
+	var/atom/container = victim?.loc
+	if(container && !isturf(container))
+		return container
+	return loc_override || death_turf
 
 /obj/item/organ/brain/slime/proc/store_item_slots(mob/living/carbon/human/victim)
 	items_per_slot = alist()
@@ -450,9 +450,9 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		return TRUE
 	return ..()
 
-// Don't decay if someone's pouring plasma on us, or if we're inside a legion.
+// Don't decay while someone's pouring plasma on us.
 /obj/item/organ/brain/slime/on_death(seconds_per_tick)
-	if(!istype(loc, /mob/living/basic/mining/legion) && !being_repaired)
+	if(!being_repaired)
 		return ..()
 
 
@@ -509,19 +509,20 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			organ.Remove(victim)
 			process_and_store_item(organ, victim)
 
+/// Processes a single item (and its contents) for core storage, drops banned items and stores the rest.
 /obj/item/organ/brain/slime/proc/process_and_store_item(atom/movable/item, mob/living/carbon/human/victim) // Helper proc to finally move items
 	if(QDELETED(item))
 		return
-	if(!isnull(item.contents))
-		for(var/atom/movable/content_item as anything in item.get_all_contents())
-			if(is_type_in_typecache(content_item, bannedcore))
-				content_item.forceMove(victim.drop_location()) // Move item from container to victims turf if banned
+	for(var/atom/movable/content_item as anything in item.get_all_contents())
+		if(is_type_in_typecache(content_item, bannedcore))
+			content_item.forceMove(victim.drop_location()) // Move item from container to victims turf if banned
 	if(is_type_in_typecache(item, bannedcore))
 		item.forceMove(victim.drop_location()) // Move banned item from victim to the victim's turf if banned.
 	else
 		item.forceMove(src)
 		LAZYADD(stored_items, item)
 
+/// Drops a set of items to the ground.
 /obj/item/organ/brain/slime/proc/drop_items_to_ground(turf/turf, list/dropping = stored_items, explode = FALSE)
 	for(var/atom/movable/item as anything in dropping)
 		if(!(item in stored_items))
@@ -534,6 +535,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			item.forceMove(turf)
 		LAZYREMOVE(stored_items, item)
 
+/// Re-equips the items. Used if the core is rebuilt as a non-nugget.
 /obj/item/organ/brain/slime/proc/reequip_items(mob/living/carbon/human/body)
 	for(var/i, slot in items_per_slot)
 		var/obj/item/item = i
@@ -544,6 +546,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			LAZYREMOVE(stored_items, item)
 	items_per_slot.Cut()
 
+/// Handles core revival.
 /obj/item/organ/brain/slime/proc/rebuild_body(mob/user, nugget = TRUE) as /mob/living/carbon/human
 	if(rebuilt)
 		return owner
@@ -597,9 +600,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		new_body.blooper_pitch_range = blooper_pitch_range
 		new_body.blooper_volume = blooper_volume
 		new_body.blooper_speed = blooper_speed
-	new_body.underwear = "Nude"
-	new_body.undershirt = "Nude"
-	new_body.socks = "Nude"
 	stored_dna.copy_dna(new_body.dna, COPY_DNA_SE | COPY_DNA_SPECIES)
 	new_body.real_name = new_body.dna.real_name
 	new_body.name = new_body.dna.real_name
@@ -623,8 +623,13 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 				continue
 			bodypart.drop_limb() // Drop limb should delete the limb for slimes unless someone changes it.
 		new_body.set_blood_volume(BLOOD_VOLUME_OKAY)
-		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
-		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
+		new_body.bra = "Nude"
+		new_body.underwear = "Nude"
+		new_body.undershirt = "Nude"
+		new_body.socks = "Nude"
+		new_body.visible_message(
+			span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."),
+			span_purple("Your torso fully forms out of your core, yet to form the rest."))
 		//Make slimes revive similar to other species.
 		new_body.set_jitter_if_lower(200 SECONDS)
 		INVOKE_ASYNC(new_body, TYPE_PROC_REF(/mob, emote), "scream")
