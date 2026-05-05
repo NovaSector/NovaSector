@@ -1,0 +1,4 @@
+author: "Diltyrr"
+delete-after: True
+changes:
+  - rscdel: "Removed the plasma river plasmaman transformation mechanic."

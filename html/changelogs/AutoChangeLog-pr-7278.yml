@@ -1,0 +1,6 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - balance: "[NOVA] Encrypted curiosities can't be interacted with by Bitrunning threats."
+  - balance: "[NOVA] In the Ancient Military Simulator domain, the fog control button and keycards also can't be interacted with by Bitrunning threats."
+  - bugfix: "[NOVA] Also in the Ancient Military Simulator, CIN SNPCs gain the antag datum they're supposed to have (to make the above work)."
