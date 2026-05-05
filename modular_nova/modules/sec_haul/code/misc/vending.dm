@@ -90,8 +90,8 @@
 				/obj/item/clothing/head/helmet/sec/white = 3,
 //				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
 				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
-				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
-				/obj/item/clothing/suit/armor/vest/sec_hazard = 3,
+				/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest = 3,
+				/obj/item/clothing/suit/armor/vest/secjacket/depgag = 3,
 				/obj/item/clothing/neck/security_cape/shoulder = 4,
 				/obj/item/clothing/neck/security_cape/armplate = 4,
 				/obj/item/clothing/under/rank/security/nova/officer = 4,
@@ -118,7 +118,7 @@
 	)
 
 	premium = list(
-		/obj/item/clothing/suit/armor/vest/sec_hazard = 3,
+		/obj/item/clothing/suit/armor/vest/depgag_hazard = 3,
 		/obj/item/clothing/under/rank/security/officer/formal = 3,
 		/obj/item/clothing/suit/jacket/officer/blue = 3,
 		/obj/item/clothing/head/beret/sec/navyofficer = 3,

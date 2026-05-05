@@ -2824,30 +2824,48 @@ Security
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/under/secdress_worn.json'
 
-/datum/greyscale_config/hazard_jacket_depgag
+/datum/greyscale_config/depgag_vest
+	name = "Department Protection Armor Vest"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/armor/depgag_vest.json'
+
+/datum/greyscale_config/depgag_vest/worn
+	name = "Department Protection Armor Vest (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+
+/datum/greyscale_config/depgag_vest_slim
+	name = "Department Protection Armor Vest (Slim)"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/armor/depgag_vest_slim.json'
+
+/datum/greyscale_config/depgag_vest_slim/worn
+	name = "Department Protection Armor Vest (Worn, Slim)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+
+/datum/greyscale_config/depgag_hazard_jacket
 	name = "Department Protection Hazard Jacket"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/armor/depgag_hazard_jacket.json'
 
-/datum/greyscale_config/hazard_jacket_depgag/worn
+/datum/greyscale_config/depgag_hazard_jacket/worn
 	name = "Department Protection Hazard Jacket (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 
-/datum/greyscale_config/sec_hazard
+/datum/greyscale_config/depgag_hazard
 	name = "High Vis Armored Vest"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/armor/sec_hazard.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/armor/depgag_hazard.json'
 
-/datum/greyscale_config/sec_hazard/worn
+/datum/greyscale_config/depgag_hazard/worn
 	name = "High Vis Armored Vest (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 
-/datum/greyscale_config/vested_jacket
+/datum/greyscale_config/depgag_vested_jacket
 	name = "Vested Jacket"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/vested_jacket.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/depgag_vested_jacket.json'
 
-/datum/greyscale_config/vested_jacket/worn
+/datum/greyscale_config/depgag_vested_jacket/worn
 	name = "Vested Jacket (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
 

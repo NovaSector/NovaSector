@@ -1,5 +1,5 @@
 {
-	"vested_jacket": [
+	"depgag_vested_jacket": [
 		{
 			"type": "icon_state",
 			"icon_state": "vested_jacket_base",
@@ -19,7 +19,7 @@
 			"color_ids": [3]
 		}
 	],
-	"vested_jacket_t": [
+	"depgag_vested_jacket_t": [
 		{
 			"type": "icon_state",
 			"icon_state": "vested_jacket_base_t",

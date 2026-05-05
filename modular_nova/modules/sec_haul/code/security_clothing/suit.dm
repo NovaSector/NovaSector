@@ -1,18 +1,18 @@
-/obj/item/clothing/suit/armor/vest/alt/sec/sec_depgag
+/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/armor/vest/alt/sec/sec_depgag"
-	post_init_icon_state = "sec_vest"
-	greyscale_config = /datum/greyscale_config/sec_department_vest
-	greyscale_config_worn = /datum/greyscale_config/sec_department_vest/worn
+	post_init_icon_state = "depgag_vest"
+	greyscale_config = /datum/greyscale_config/depgag_vest
+	greyscale_config_worn = /datum/greyscale_config/depgag_vest/worn
 	greyscale_colors = "#BAEA3E#EBEBEB"
 	flags_1 = NONE
 
-/obj/item/clothing/suit/armor/vest/alt/sec/sec_depgag_slim
+/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/armor/vest/alt/sec/sec_depgag_slim"
-	post_init_icon_state = "sec_vest"
-	greyscale_config = /datum/greyscale_config/sec_department_slim_vest
-	greyscale_config_worn = /datum/greyscale_config/sec_department_slim_vest/worn
+	post_init_icon_state = "depgag_vest_slim"
+	greyscale_config = /datum/greyscale_config/depgag_vest_slim
+	greyscale_config_worn = /datum/greyscale_config/depgag_vest_slim/worn
 	greyscale_colors = "#BAEA3E#EBEBEB"
 	flags_1 = NONE
 
@@ -21,7 +21,7 @@
 	desc = "Oi bruv, you got a loicence for that?"
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard"
-	post_init_icon_state = "sec_hazard"
+	post_init_icon_state = "depgag_hazard"
 	greyscale_config = /datum/greyscale_config/depgag_hazard
 	greyscale_config_worn = /datum/greyscale_config/depgag_hazard/worn
 	greyscale_colors = "#BAEA3E#EBEBEB"
@@ -35,14 +35,19 @@
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/armor/vest/secjacket/depgag"
 	post_init_icon_state = "depgag_hazard_jacket"
-	greyscale_config = /datum/greyscale_config/hazard_jacket_depgag
-	greyscale_config_worn = /datum/greyscale_config/hazard_jacket_depgag/worn
-	greyscale_colors = "#BAEA3E#EBEBEB"
+	greyscale_config = /datum/greyscale_config/depgag_hazard_jacket
+	greyscale_config_worn = /datum/greyscale_config/depgag_hazard_jacket/worn
+	greyscale_colors = "#BAEA3E#EBEBEB#EBEBEB"
 	flags_1 = NONE
 
 /obj/item/clothing/suit/armor/vest/secjacket/depgag/white
 	icon_state = "/obj/item/clothing/suit/armor/vest/secjacket/depgag/white"
-	greyscale_colors = "#A52F29#EBEBEB"
+	greyscale_colors = "#A52F29#EBEBEB#EBEBEB"
+
+/obj/item/clothing/suit/armor/vest/secjacket/depgag/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands)
+		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha, effect_type = EMISSIVE_SPECULAR)
 
 /obj/item/clothing/suit/armor/vest/secjacket/depgag/Initialize(mapload)
 	. = ..()
@@ -59,17 +64,17 @@
 	greyscale_colors = "#A52F29#39393F"
 	flags_1 = NONE
 
-/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket
+/obj/item/clothing/suit/hooded/wintercoat/security/nova/depgag_vested_jacket
 	name = "vested security jacket"
 	desc = "The company standard armor now with a stylish unzipped jacket stitched in for when you don't think you'll get shot!"
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket"
-	post_init_icon_state = "vested_jacket"
-	greyscale_config = /datum/greyscale_config/vested_jacket
-	greyscale_config_worn = /datum/greyscale_config/vested_jacket/worn
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/depgag_vested_jacket"
+	post_init_icon_state = "depgag_vested_jacket"
+	greyscale_config = /datum/greyscale_config/depgag_vested_jacket
+	greyscale_config_worn = /datum/greyscale_config/depgag_vested_jacket/worn
 	greyscale_colors = "#A52F29#39393F#39393F"
 	flags_1 = NONE
-
+/*
 /obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket/blue
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket/blue"
 	greyscale_colors = "#3F6E9E#39393F#39393F"
@@ -81,7 +86,7 @@
 /obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket/black
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/nova/vested_jacket/black"
 	greyscale_colors = "#39393F#39393F#EBEBEB"
-
+*/
 /obj/item/clothing/suit/hooded/wintercoat/security/nova
 	name = "security winter coat"
 	desc = "An armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority."
