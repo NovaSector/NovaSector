@@ -24,6 +24,8 @@ SUBSYSTEM_DEF(atc)
 	var/secchannel
 	var/sdfchannel
 
+	var/mob/atc_voice/talking_head
+
 /datum/controller/subsystem/atc/Initialize()
 	//generate our static event frequencies for the shift. alternately they can be completely fixed, up in the core block
 	ertchannel = "[rand(700,749)].[rand(1,9)]"
@@ -31,6 +33,8 @@ SUBSYSTEM_DEF(atc)
 	engchannel = "[rand(800,849)].[rand(1,9)]"
 	secchannel = "[rand(850,899)].[rand(1,9)]"
 	sdfchannel = "[rand(900,999)].[rand(1,9)]"
+	talking_head = new /mob/atc_voice(src)
+	talking_head.name = "Traffic Control"
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/atc/fire()
@@ -77,9 +81,13 @@ SUBSYSTEM_DEF(atc)
 
 /datum/controller/subsystem/atc/proc/msg(var/message)
 	ASSERT(message)
-	var/obj/machinery/announcement_system/aas = get_announcement_system()
-	if(aas)
-		aas.broadcast("[message]", list(RADIO_CHANNEL_COMMON))
+	if(talking_head)
+		talking_head.say(message)
+	else
+		// Fallback to direct announcement if talking_head is not available
+		var/obj/machinery/announcement_system/aas = get_announcement_system()
+		if(aas)
+			aas.broadcast("[message]", list(RADIO_CHANNEL_COMMON))
 
 /datum/controller/subsystem/atc/proc/is_squelched()
 	return squelched

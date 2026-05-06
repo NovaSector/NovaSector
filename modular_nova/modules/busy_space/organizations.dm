@@ -196,7 +196,7 @@
 			"Freedom Ain't Free",
 			"Pay It Forward",
 			"All Expenses Paid",
-			"Tanstaafl", /* There Ain't No Such Thing As A Free Lunch */
+			"Tanstaafl",
 			"Hold My Beer",
 			"Das Bootleg",
 			"Unplanned Lithobraking Incident",
@@ -353,7 +353,7 @@
 			"Bluespace Tourist",
 			"Fortunate Son",
 			"Unfortunate Son",
-			"Hazard Pay"
+			"Hazard Pay",
 			)
 	var/list/added_ship_names = list()	//List of ship names to add to the above, rather than wholesale replacing
 	var/list/destination_names = list()	//Names of static holdings that the organization's ships visit
