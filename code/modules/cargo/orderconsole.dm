@@ -165,32 +165,35 @@
 /**
  * returns a list of supply packs for a certain group
  * * group - the group of packs to return
- * * express - if this is an express console
  */
-/obj/machinery/computer/cargo/proc/get_packs_data(group, express = FALSE)
+/obj/machinery/computer/cargo/proc/get_packs_data(group)
 	var/list/packs = list()
 	for(var/pack_id in SSshuttle.supply_packs)
 		var/datum/supply_pack/pack = SSshuttle.supply_packs[pack_id]
 		if(pack.group != group)
 			continue
 
-		// Express console packs check
-		if(express && (pack.hidden || pack.special))
+		if(pack.order_flags & ORDER_INVISIBLE)
 			continue
 
-		if(!express && ((pack.hidden && !(obj_flags & EMAGGED)) || (pack.special && !pack.special_enabled) || pack.drop_pod_only))
+		if((pack.order_flags & ORDER_EMAG_ONLY) && !(obj_flags & EMAGGED))
+			continue
+		if((pack.order_flags & ORDER_SPECIAL) && !(pack.order_flags & ORDER_SPECIAL_ENABLED))
 			continue
 
-		if(pack.contraband && !contraband)
+		if((pack.order_flags & ORDER_CONTRABAND) && !contraband)
 			continue
 
+		if(!is_express && (pack.order_flags & ORDER_POD_ONLY))
+			continue
 		// NOVA EDIT ADDITION START
-		if (express && pack.express_lock && !bypass_express_lock)
+		if (is_express && pack.express_lock && !bypass_express_lock)
 			continue
 
 		if(!(pack.console_flag & console_flag))
 			continue
 		// NOVA EDIT ADDITION END
+
 		var/obj/item/first_item = length(pack.contains) > 0 ? pack.contains[1] : null
 		packs += list(list(
 			"name" = pack.name,
@@ -199,9 +202,9 @@
 			"desc" = pack.desc || pack.name, // If there is a description, use it. Otherwise use the pack's name.
 			"first_item_icon" = first_item?.icon,
 			"first_item_icon_state" = first_item?.icon_state,
-			"goody" = pack.goody,
+			"goody" = (pack.order_flags & ORDER_GOODY),
 			"access" = pack.access,
-			"contraband" = pack.contraband,
+			"contraband" = (pack.order_flags & ORDER_CONTRABAND),
 			"contains" = pack.get_contents_ui_data(),
 		))
 
@@ -229,7 +232,8 @@
 		CRASH("Unknown supply pack id given by order console ui. ID: [id]")
 	if(amount > CARGO_MAX_ORDER || amount < 1) // Holy shit fuck off
 		CRASH("Invalid amount passed into add_item")
-	if((pack.hidden && !(obj_flags & EMAGGED)) || (pack.contraband && !contraband) || pack.drop_pod_only || (pack.special && !pack.special_enabled))
+
+	if(((pack.order_flags & ORDER_EMAG_ONLY) && !(obj_flags & EMAGGED)) || ((pack.order_flags & ORDER_CONTRABAND) && !contraband) || (pack.order_flags & ORDER_POD_ONLY) || ((pack.order_flags & ORDER_SPECIAL) && !(pack.order_flags & ORDER_SPECIAL_ENABLED)))
 		return
 
 	var/name = "*None Provided*"
@@ -244,9 +248,15 @@
 		rank = "Silicon"
 
 	var/datum/bank_account/account
+
 	if(isliving(user))
 		var/mob/living/living_user = user
 		var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
+
+		var/bypass = FALSE
+		if(istype(id_card, /obj/item/card/id/advanced/chameleon)) //We'll bypass access restrictions
+			bypass = TRUE
+
 		account = id_card?.registered_account // We can still assign an account for request department purposes.
 		if(self_paid)
 			if(!istype(id_card))
@@ -259,7 +269,7 @@
 				say("Invalid bank account.")
 				return
 			var/list/access = id_card.GetAccess()
-			if(pack.access_view && !(pack.access_view in access))
+			if((pack.access_view && !(pack.access_view in access)) && !bypass)
 				say("[id_card] lacks the requisite access for this purchase.")
 				return
 
@@ -268,7 +278,7 @@
 	var/reason = ""
 	var/datum/bank_account/personal_department
 	var/uses_cargo_budget = FALSE // NOVA EDIT ADDITION - boolean flag to check if we are using the cargo budget without doing excessive shenanigans.
-	if(requestonly && !self_paid && (!pack.goody || pack.departamental_goody)) // NOVA EDIT CHANGE - should never have a dept goodie thats not a goody. ORIGINAL: if(requestonly && !self_paid && !pack.goody)
+	if(requestonly && !self_paid && (!(pack.order_flags & ORDER_GOODY) || (pack.order_flags & ORDER_DEPARTMENTAL_GOODY))) // NOVA EDIT CHANGE - should never have a dept goodie thats not a goody. ORIGINAL: if(requestonly && !self_paid && !(pack.order_flags & ORDER_GOODY))
 		working_list = SSshuttle.request_list
 		reason = tgui_input_text(user, "Reason", name, max_length = MAX_MESSAGE_LEN)
 		if(isnull(reason))
@@ -289,7 +299,22 @@
 				uses_cargo_budget = TRUE // NOVA EDIT ADDITION
 			// NOVA EDIT ADDITION END
 
-	if((pack.goody && (!pack.departamental_goody || uses_cargo_budget)) && (!self_paid || !requestonly)) // NOVA EDIT CHANGE - ORIGINAL: if(pack.goody && !self_paid)
+
+		if(isliving(user))
+			var/mob/living/living_user = user
+			var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
+			var/list/access = id_card?.GetAccess()
+			if(!id_card || !living_user || !access)
+				living_user = user
+				id_card = living_user.get_idcard(TRUE)
+			if(pack.access_view && !(pack.access_view in access) && personal_department)
+				// We want to block cargo requests when a player is requesting a restricted pack that they don't have access to.
+				// BUT only when it's requested with non-cargo funds, as cargo had direct oversight over their own purchases with their own budget.
+				// HOWEVER, this shouldn't prevent someone from buying something using their own personal funds.
+				say("ERROR: User lacks the requisite access for this purchase request.")
+				return
+
+	if(((pack.order_flags & ORDER_GOODY) && (!(pack.order_flags & ORDER_DEPARTMENTAL_GOODY) || uses_cargo_budget)) && (!self_paid || !requestonly))
 		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 		say("ERROR: Small crates may only be purchased by private accounts.")
 		return
@@ -303,7 +328,7 @@
 	if(!self_paid)
 		account = personal_department
 		// NOVA EDIT ADDITION START
-		if ((uses_cargo_budget || !requestonly) && pack.goody && pack.departamental_goody)
+		if ((uses_cargo_budget || !requestonly) && ((pack.order_flags & ORDER_COMPANY) == ORDER_COMPANY))
 			playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 			say("ERROR: Small crates may only be purchased by private accounts.")
 			return
@@ -388,10 +413,10 @@
 				//create the paper from the SSshuttle.shopping_list
 				if(length(SSshuttle.shopping_list))
 					var/obj/item/paper/requisition/requisition_paper = new(get_turf(src))
-					requisition_paper.name = "requisition form - [station_time_timestamp()]"
+					requisition_paper.name = "requisition form - [server_timestamp(ic_time = TRUE)] (PT: [round_timestamp()])"
 					var/requisition_text = "<h2>[station_name()] Supply Requisition</h2>"
 					requisition_text += "<hr/>"
-					requisition_text += "Time of Order: [station_time_timestamp()]<br/><br/>"
+					requisition_text += "Time of Order: [UNDERLINED_HTML_TEXT("[server_timestamp(ic_time = TRUE)]", "Shift Time: [round_timestamp()]")]<br/><br/>"
 					for(var/datum/supply_order/order as anything in SSshuttle.shopping_list)
 						requisition_text += "<b>[order.pack.name]</b></br>"
 						requisition_text += "- Order ID: [order.id]</br>"
@@ -406,7 +431,7 @@
 						if(reason)
 							requisition_text += "- Reason Given: [reason]</br>"
 						requisition_text += "</br></br>"
-					requisition_paper.add_raw_text(requisition_text)
+					requisition_paper.add_raw_text(requisition_text, advanced_html = TRUE)
 					requisition_paper.color = "#9ef5ff"
 					requisition_paper.update_appearance()
 

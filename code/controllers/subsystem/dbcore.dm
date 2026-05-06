@@ -1,7 +1,7 @@
 #define SHUTDOWN_QUERY_TIMELIMIT (1 MINUTES)
 SUBSYSTEM_DEF(dbcore)
 	name = "Database"
-	flags = SS_TICKER
+	ss_flags = SS_TICKER
 	init_stage = INITSTAGE_FIRST
 	wait = 10 // Not seconds because we're running on SS_TICKER
 	runlevels = RUNLEVEL_LOBBY|RUNLEVELS_DEFAULT
@@ -334,6 +334,8 @@ SUBSYSTEM_DEF(dbcore)
 	query_round_initialize.Execute(async = FALSE)
 	GLOB.round_id = "[query_round_initialize.last_insert_id]"
 	qdel(query_round_initialize)
+
+	log_world("Round ID: [GLOB.round_id]")
 
 /datum/controller/subsystem/dbcore/proc/SetRoundStart()
 	if(!Connect())

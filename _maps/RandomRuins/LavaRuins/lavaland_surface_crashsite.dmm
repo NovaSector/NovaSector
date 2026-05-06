@@ -54,7 +54,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/obj/item/bitrunning_disk/item/pka_mods,
+/obj/item/disk/bitrunning/item/pka_mods,
 /turf/open/floor/mineral/titanium/blue,
 /area/ruin/unpowered)
 "k" = (
@@ -74,7 +74,7 @@
 	},
 /area/ruin/unpowered)
 "o" = (
-/turf/closed/mineral/volcanic/lava_land_surface,
+/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
 /area/lavaland/surface/outdoors)
 "p" = (
 /obj/structure/rack,
@@ -219,6 +219,9 @@
 /obj/structure/table/survival_pod,
 /obj/item/food/meat/steak/goliath,
 /turf/open/floor/pod/dark,
+/area/ruin/powered)
+"W" = (
+/turf/closed/mineral/volcanic/lava_land_surface/biome_replace,
 /area/ruin/powered)
 "Y" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst{
@@ -731,7 +734,7 @@ N
 N
 N
 N
-N
+W
 o
 q
 H

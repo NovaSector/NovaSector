@@ -2707,7 +2707,7 @@
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
-/obj/item/stack/medical/gauze{
+/obj/item/stack/medical/wrap/gauze{
 	pixel_x = -2;
 	pixel_y = 7
 	},
@@ -2839,11 +2839,11 @@
 /turf/open/floor/plating,
 /area/station/science/ordnance/burnchamber)
 "aTd" = (
-/obj/machinery/digital_clock/directional/south,
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 8
 	},
 /obj/machinery/smartfridge/organ,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -8068,7 +8068,7 @@
 	dwidth = 16
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "csv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -9057,7 +9057,7 @@
 	width = 20
 	},
 /turf/open/space/openspace,
-/area/space/nearstation)
+/area/space)
 "cHO" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/bot,
@@ -24435,9 +24435,9 @@
 	dir = 4
 	},
 /obj/machinery/airalarm/directional/west,
-/obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/box/white,
 /obj/machinery/computer/operating,
+/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/surgery/fore)
 "hgp" = (
@@ -24494,7 +24494,7 @@
 	shuttle_id = "pod_3_lavaland"
 	},
 /turf/open/space/openspace,
-/area/space/nearstation)
+/area/space)
 "hgA" = (
 /obj/structure/rack,
 /obj/item/relic,
@@ -29478,7 +29478,7 @@
 	width = 5
 	},
 /turf/open/space/openspace,
-/area/space/nearstation)
+/area/space)
 "iAM" = (
 /obj/structure/railing{
 	dir = 6
@@ -30174,7 +30174,7 @@
 /area/station/service/salon)
 "iMi" = (
 /obj/structure/table/glass,
-/obj/item/stack/sticky_tape/surgical,
+/obj/item/stack/medical/wrap/sticky_tape/surgical,
 /obj/item/stack/medical/bone_gel,
 /obj/machinery/camera/directional/west{
 	c_tag = "Medbay - Surgery Room B";
@@ -30187,6 +30187,7 @@
 	dir = 4
 	},
 /obj/item/tank/internals/anesthetic,
+/obj/machinery/digital_clock/directional/west,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -30212,7 +30213,7 @@
 	dir = 4
 	},
 /obj/machinery/light/cold/no_nightlight/directional/south,
-/obj/machinery/firealarm/directional/south,
+/obj/machinery/vitals_reader/directional/south,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -32358,7 +32359,7 @@
 	width = 12
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "jsf" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 8
@@ -38224,6 +38225,7 @@
 	},
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /obj/machinery/light/cold/directional/east,
+/obj/machinery/vitals_reader/directional/north,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/robotics/augments)
 "kXs" = (
@@ -38806,7 +38808,7 @@
 	c_tag = "MiniSat Antechamber";
 	network = list("minisat")
 	},
-/mob/living/simple_animal/bot/secbot/pingsky,
+/mob/living/basic/bot/secbot/pingsky,
 /turf/open/floor/wood/large,
 /area/station/tcommsat/computer)
 "lgd" = (
@@ -40266,6 +40268,7 @@
 	name = "privacy shutters control"
 	},
 /obj/effect/turf_decal/box/white,
+/obj/machinery/vitals_reader/directional/west,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/medical/surgery/theatre)
 "lCL" = (
@@ -40931,22 +40934,22 @@
 "lMg" = (
 /obj/machinery/firealarm/directional/north,
 /obj/structure/table/glass,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_y = 4;
 	pixel_x = -3
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -5;
 	pixel_y = 2
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -3
 	},
 /obj/item/book/manual/wiki/ordnance{
 	pixel_x = 15;
 	pixel_y = 3
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = 5;
 	pixel_y = -1
 	},
@@ -44651,7 +44654,7 @@
 	dir = 2
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "mNS" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -46395,7 +46398,7 @@
 /area/station/service/barber)
 "nlK" = (
 /obj/machinery/dna_infuser,
-/obj/item/infuser_book{
+/obj/item/tgui_book/manual/infuser{
 	pixel_x = -6
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -47101,7 +47104,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "nvx" = (
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=hall20";
@@ -47484,10 +47487,10 @@
 	pixel_y = 14;
 	pixel_x = -6
 	},
-/obj/item/computer_disk/medical{
+/obj/item/disk/computer/medical{
 	pixel_x = -3
 	},
-/obj/item/computer_disk/medical{
+/obj/item/disk/computer/medical{
 	pixel_x = 3
 	},
 /obj/machinery/light/warm/directional/south,
@@ -49240,7 +49243,7 @@
 "oeh" = (
 /obj/docking_port/stationary/mining_home/common,
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "oen" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
@@ -50651,14 +50654,14 @@
 /area/station/maintenance/starboard/fore)
 "oAe" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_y = 14
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_y = 8;
 	pixel_x = 4
 	},
-/obj/item/computer_disk/engineering{
+/obj/item/disk/computer/engineering{
 	pixel_y = 8;
 	pixel_x = -4
 	},
@@ -54116,7 +54119,7 @@
 	dir = 4
 	},
 /obj/structure/table/glass,
-/obj/item/stack/sticky_tape/surgical,
+/obj/item/stack/medical/wrap/sticky_tape/surgical,
 /obj/item/stack/medical/bone_gel,
 /obj/item/tank/internals/anesthetic,
 /turf/open/floor/iron/dark/smooth_large,
@@ -56289,6 +56292,7 @@
 /obj/structure/cable,
 /obj/structure/secure_safe/caps_spare,
 /obj/effect/turf_decal/bot_white,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "qjr" = (
@@ -56597,7 +56601,7 @@
 	shuttle_id = "pod_4_lavaland"
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "qnp" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -58070,11 +58074,11 @@
 /turf/open/floor/iron/white/diagonal,
 /area/station/common/spa)
 "qKI" = (
-/obj/machinery/digital_clock/directional/north,
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 8
 	},
 /obj/machinery/smartfridge/organ,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -60334,6 +60338,7 @@
 	name = "privacy shutters control"
 	},
 /obj/effect/turf_decal/box/white,
+/obj/machinery/vitals_reader/directional/east,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/medical/surgery/theatre)
 "rwy" = (
@@ -60888,6 +60893,7 @@
 /obj/effect/turf_decal/bot_white,
 /obj/structure/table/optable,
 /obj/effect/turf_decal/tile/blue/full,
+/obj/machinery/digital_clock/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/surgery/fore)
 "rGe" = (
@@ -64171,8 +64177,8 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/computer_disk/quartermaster,
-/obj/item/computer_disk/quartermaster,
+/obj/item/disk/computer/quartermaster,
+/obj/item/disk/computer/quartermaster,
 /obj/structure/table/wood,
 /obj/machinery/status_display/supply{
 	pixel_y = 32
@@ -64500,7 +64506,7 @@
 	dir = 2
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "sGB" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -65774,7 +65780,7 @@
 	dir = 2
 	},
 /turf/open/space/openspace,
-/area/space/nearstation)
+/area/space)
 "sYM" = (
 /obj/effect/spawner/random/structure/girder,
 /obj/effect/spawner/random/structure/grille,
@@ -65965,7 +65971,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/mob/living/simple_animal/bot/secbot/beepsky,
+/mob/living/basic/bot/secbot/beepsky,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
 "tbm" = (
@@ -69902,7 +69908,7 @@
 	shuttle_id = "pod_1_lavaland"
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "ukK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/effect/turf_decal/stripes/line{
@@ -80538,7 +80544,7 @@
 /turf/open/floor/engine/co2,
 /area/station/engineering/atmos/upper)
 "xis" = (
-/mob/living/simple_animal/bot/secbot/beepsky/armsky,
+/mob/living/basic/bot/secbot/beepsky/armsky,
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/diagonal,
@@ -83065,7 +83071,7 @@
 	shuttle_id = "pod_2_lavaland"
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/space)
 "xXv" = (
 /obj/effect/turf_decal/tile/yellow/opposingcorners{
 	dir = 1

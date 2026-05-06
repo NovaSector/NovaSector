@@ -22,16 +22,18 @@
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = 1,
 		/obj/item/clothing/mask/gas/hc_police = 1,
 		/obj/item/modular_computer/pda/hc_police = 1,
+		/obj/item/stack/spacecash/c1000 = 1,
 	)
 	l_pocket = /obj/item/folder/blue/hc_cop
 	r_pocket = /obj/item/storage/pouch/ammo
 
 	id = /obj/item/card/id/advanced/hc_police
 	id_trim = /datum/id_trim/hc_police
+	implants = list(/obj/item/implant/mindshield)
 
 /datum/outfit/hc_officer/post_equip(mob/living/carbon/human/equipped)
 	. = ..()
-	equipped.faction |= "coalition"
+	equipped.add_faction("coalition")
 
 	// make sure we update the ID's name too
 	var/obj/item/card/id/id_card = equipped.wear_id
@@ -80,19 +82,16 @@
 	), src)
 
 /obj/item/storage/box/nri_survival_pack/inspector
-	w_class = WEIGHT_CLASS_SMALL
 	desc = "A box filled with useful inspection items, supplied by the HC."
 
 /obj/item/storage/box/nri_survival_pack/inspector/PopulateContents()
 	new /obj/item/oxygen_candle(src)
 	new /obj/item/tank/internals/emergency_oxygen(src)
-	new /obj/item/stack/spacecash/c1000(src)
-	new /obj/item/storage/pill_bottle/iron(src)
+	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/reagent_containers/hypospray/medipen/blood_loss(src)
 	new /obj/item/reagent_containers/hypospray/medipen(src)
 	new /obj/item/flashlight/flare(src)
 	new /obj/item/crowbar/red(src)
-	new /obj/item/clipboard(src)
-	new /obj/item/pen(src)
 
 /obj/item/folder/blue/hc_cop
 	name = "HC police SOPs"

@@ -134,12 +134,12 @@
 		if(held_item && victim.dropItemToGround(held_item))
 			victim.visible_message(span_danger("[victim] drops [held_item] in shock!"), span_warning("<b>The force on your [limb.plaintext_zone] causes you to drop [held_item]!</b>"), vision_distance=COMBAT_MESSAGE_RANGE)
 
-/datum/wound/blunt/robotic/remove_wound(ignore_limb, replaced)
+/datum/wound/blunt/robotic/remove_wound(ignore_limb, replaced, destroying)
 	. = ..()
 
 	QDEL_NULL(active_trauma)
 
-/datum/wound/blunt/robotic/handle_process(seconds_per_tick, times_fired)
+/datum/wound/blunt/robotic/handle_process(seconds_per_tick)
 	. = ..()
 
 	if (!victim || HAS_TRAIT(victim, TRAIT_STASIS))
@@ -191,9 +191,7 @@
 
 	var/effective_damage = (damage - blocked)
 
-	var/obj/item/stack/gauze = limb.current_gauze
-	if(gauze)
-		effective_damage *= gauze.splint_factor
+	effective_damage *= limb.get_splint_factor()
 
 	switch (limb.body_zone)
 
@@ -347,9 +345,7 @@
 
 	var/overall_mult = 1
 
-	var/obj/item/stack/gauze = limb.current_gauze
-	if (gauze)
-		overall_mult *= gauze.splint_factor
+	overall_mult *= limb.get_splint_factor()
 	if (!victim.has_gravity(get_turf(victim)))
 		overall_mult *= VICTIM_MOVED_NO_GRAVITY_EFFECT_MULT
 	else if (victim.body_position == LYING_DOWN || (!forced && victim.move_intent == MOVE_INTENT_WALK))

@@ -20,17 +20,17 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	//list(/datum/quirk/quadruple_amputee, /datum/quirk/frail), // NOVA EDIT REMOVAL- Since we have synth wounds now, frail has a large downside for prosthetics and such
 	list(/datum/quirk/social_anxiety, /datum/quirk/mute),
 	list(/datum/quirk/mute, /datum/quirk/softspoken),
-	list(/datum/quirk/poor_aim, /datum/quirk/bighands),
 	list(/datum/quirk/bilingual, /datum/quirk/foreigner, /datum/quirk/csl),
 	list(/datum/quirk/spacer_born, /datum/quirk/settler),
 	list(/datum/quirk/photophobia, /datum/quirk/nyctophobia),
 	list(/datum/quirk/settler, /datum/quirk/freerunning),
 	list(/datum/quirk/numb, /datum/quirk/selfaware),
 	list(/datum/quirk/empath, /datum/quirk/evil),
-	//NOVA EDIT ADDITION BEGIN
+	list(/datum/quirk/keen_nose, /datum/quirk/item_quirk/anosmia),
+	// NOVA EDIT ADDITION BEGIN
 	list(/datum/quirk/equipping/nerve_staple, /datum/quirk/nonviolent),
 	list(/datum/quirk/equipping/nerve_staple, /datum/quirk/item_quirk/nearsighted),
-	list(/datum/quirk/no_guns, /datum/quirk/bighands, /datum/quirk/poor_aim),
+	list(/datum/quirk/no_guns, /datum/quirk/poor_aim),
 	list(/datum/quirk/no_guns, /datum/quirk/nonviolent),
 	list(/datum/quirk/spacer_born, /datum/quirk/oversized),
 	list(/datum/quirk/feline_aspect, /datum/quirk/canine_aspect, /datum/quirk/avian_aspect),
@@ -44,7 +44,9 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/visitor, /datum/quirk/item_quirk/underworld_connections),
 	list(/datum/quirk/adapted_lungs, /datum/quirk/item_quirk/breather/water_breather, /datum/quirk/item_quirk/breather/nitrogen_breather, /datum/quirk/item_quirk/breather/plasma_breather),
 	list(/datum/quirk/psionic_dampener, /datum/quirk/telepathic),
-	//NOVA EDIT ADDITION END
+	list(/datum/quirk/hydrophobia, /datum/quirk/item_quirk/breather/water_breather),
+	list(/datum/quirk/unblinking, /datum/quirk/item_quirk/fluoride_stare),
+	// NOVA EDIT ADDITION END
 ))
 
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
@@ -63,7 +65,7 @@ GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
 // - Quirk datums are stored and hold different effects, as well as being a vector for applying trait string
 PROCESSING_SUBSYSTEM_DEF(quirks)
 	name = "Quirks"
-	flags = SS_BACKGROUND
+	ss_flags = SS_BACKGROUND
 	runlevels = RUNLEVEL_GAME
 	wait = 1 SECONDS
 
@@ -72,8 +74,17 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	var/list/quirk_points = list() //Assoc. list of quirk names and their "point cost"; positive numbers are good traits, and negative ones are bad
 	///An assoc list of quirks that can be obtained as a hardcore character, and their hardcore value.
 	var/list/hardcore_quirks = list()
+	/// Whether or not quirk points are enabled, per server config
+	var/points_enabled
+	/// The number of max positive quirks that we allow, per server config
+	var/max_positive_quirks
+	// The default number of quirk points that you get to spend, per server config
+	var/default_quirk_points
 
 /datum/controller/subsystem/processing/quirks/Initialize()
+	points_enabled = !CONFIG_GET(flag/disable_quirk_points)
+	max_positive_quirks = CONFIG_GET(number/max_positive_quirks)
+	default_quirk_points = CONFIG_GET(number/default_quirk_points)
 	get_quirks()
 	return SS_INIT_SUCCESS
 
@@ -87,13 +98,10 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 
 /datum/controller/subsystem/processing/quirks/proc/SetupQuirks()
 	// Sort by Positive, Negative, Neutral; and then by name
-	var/list/quirk_list = sort_list(subtypesof(/datum/quirk), GLOBAL_PROC_REF(cmp_quirk_asc))
+	var/list/quirk_list = sort_list(valid_subtypesof(/datum/quirk), GLOBAL_PROC_REF(cmp_quirk_asc))
 
 	for(var/type in quirk_list)
 		var/datum/quirk/quirk_type = type
-
-		if(initial(quirk_type.abstract_parent_type) == type)
-			continue
 		// NOVA EDIT ADDITION START
 		if(initial(quirk_type.erp_quirk) && CONFIG_GET(flag/disable_erp_preferences))
 			continue
@@ -138,7 +146,6 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	///Cached list of possible quirks
 	var/list/possible_quirks = quirks.Copy()
 
-	var/max_positive_quirks = CONFIG_GET(number/max_positive_quirks)
 	if(max_positive_quirks < 0)
 		max_positive_quirks = 6
 
@@ -202,17 +209,15 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 /datum/controller/subsystem/processing/quirks/proc/filter_invalid_quirks(list/quirks, list/augments) // NOVA EDIT CHANGE - AUGMENTS+ - ORIGINAL: /datum/controller/subsystem/processing/quirks/proc/filter_invalid_quirks(list/quirks)
 	var/list/new_quirks = list()
 	var/list/positive_quirks = list()
-	var/points_enabled = !CONFIG_GET(flag/disable_quirk_points)
-	var/max_positive_quirks = CONFIG_GET(number/max_positive_quirks)
-	var/balance = -CONFIG_GET(number/default_quirk_points)
+	var/balance = -default_quirk_points
 
 	var/list/all_quirks = get_quirks()
 
-	// NOVA EDIT BEGIN - AUGMENTS+
-	for(var/key in augments)
-		var/datum/augment_item/aug = GLOB.augment_items[augments[key]]
+	// NOVA EDIT ADDITION BEGIN - AUGMENTS+
+	for(var/key, aug_path in augments)
+		var/datum/augment_item/aug = GLOB.augment_items[aug_path]
 		balance += aug.cost
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	for (var/quirk_name in quirks)
 		var/datum/quirk/quirk = all_quirks[quirk_name]
 		if (isnull(quirk))

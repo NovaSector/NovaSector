@@ -16,6 +16,13 @@
 /obj/effect/spawner/armory_spawn/shotguns,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/security/armory)
+"r" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/secure_safe/directional/east,
+/obj/machinery/camera/autoname/motion/directional/east,
+/obj/structure/closet/secure_closet/armory_kiboko,
+/turf/open/floor/iron/dark/textured_large,
+/area/template_noop)
 "s" = (
 /obj/structure/rack,
 /obj/item/gun/energy/e_gun/dragnet{
@@ -155,7 +162,7 @@ a
 a
 a
 a
-a
+r
 a
 a
 a

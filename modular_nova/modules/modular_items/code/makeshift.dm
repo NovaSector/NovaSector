@@ -48,6 +48,10 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 1.5
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
+	greyscale_config = null
+	greyscale_config_inhand_left = null
+	greyscale_config_inhand_right = null
+	greyscale_colors = null
 
 /obj/item/wrench/makeshift
 	name = "makeshift wrench"

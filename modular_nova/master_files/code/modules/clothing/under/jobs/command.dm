@@ -15,12 +15,21 @@
 	desc = "A midnight blue kilt, padded with nano-kevlar and adorned with gold and a tartan sash."
 	icon_state = "capkilt"
 
-/obj/item/clothing/under/rank/captain/nova/imperial
+/obj/item/clothing/under/imperial/captain
 	name = "captain's naval jumpsuit"
-	desc = "A white naval suit adorned with golden epaulets and a rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
-	//Rank pins of the Grand Admiral, not a Captain.
-	icon_state = "impcap"
-	can_adjust = FALSE
+	desc = "A white naval suit adorned with a gold rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
+	icon_state = "/obj/item/clothing/under/imperial/captain"
+	greyscale_colors = "#eeeeee#eeeeee#eeeeee#373741#FFCE5B#FFCE5B#FFCE5B"
+	flags_1 = NONE
+	armor_type = /datum/armor/clothing_under/rank_captain
+
+/obj/item/clothing/under/imperialskirt/captain
+	name = "captain's naval skirt"
+	desc = "A white naval suit adorned with a gold rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
+	greyscale_colors = "#eeeeee#eeeeee#373741#FFCE5B#FFCE5B#FFCE5B"
+	icon_state = "/obj/item/clothing/under/imperialskirt/captain"
+	flags_1 = NONE
+	armor_type = /datum/armor/clothing_under/rank_captain
 
 //Donor item for Gandalf - all donors have access
 /obj/item/clothing/under/rank/captain/nova/black
@@ -107,11 +116,21 @@
 	desc = "A budget efficient uniform, making yourself stand out from others yet not drawing too much attention."
 	icon_state = "bs_formal"
 
-/obj/item/clothing/under/rank/blueshield/naval
-	name = "blueshield's naval uniform"
+/obj/item/clothing/under/imperialvest/blueshield
+	name = "blueshield's naval skirt"
 	desc = "An upper level uniform granted to shields alike, representing CentCom's grand naval fleet."
-	icon_state = "bs_grandnaval"
-	can_adjust = FALSE
+	icon_state = "/obj/item/clothing/under/imperialvest/bs"
+	greyscale_colors = "#363740#363740#3c485a#373741#bbbbbb#21212B#bbbbbb#bbbbbb"
+	flags_1 = NONE
+	armor_type = /datum/armor/clothing_under/rank_blueshield
+
+/obj/item/clothing/under/imperialskirtvest/blueshield
+	name = "blueshield's naval skirt"
+	desc = "An upper level uniform granted to shields alike, representing CentCom's grand naval fleet."
+	greyscale_colors = "#363740#3c485a#373741#bbbbbb#21212B#bbbbbb#bbbbbb"
+	icon_state = "/obj/item/clothing/under/imperialskirtvest/bs"
+	flags_1 = NONE
+	armor_type = /datum/armor/clothing_under/rank_blueshield
 
 /*
 *	NT CONSULTANT
@@ -138,11 +157,20 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/under/rank/nanotrasen_consultant/naval
+/obj/item/clothing/under/imperial/nanotrasen_consultant
 	name = "nanotrasen consultant's naval uniform"
 	desc = "An upper level uniform granted to consultants and representatives alike, representing CentCom's grand naval fleet."
-	icon_state = "nt_grandnaval"
-	can_adjust = FALSE
+	icon_state = "/obj/item/clothing/under/imperial/nanotrasen_consultant"
+	greyscale_colors = "#54a57e#54a57e#47464e#373741#ffce5b#ffce5b#f2b050"
+	flags_1 = NONE
+
+/obj/item/clothing/under/imperialskirt/nanotrasen_consultant
+	name = "nanotrasen consultant's naval skirt"
+	desc = "An upper level uniform granted to consultants and representatives alike, representing CentCom's grand naval fleet."
+	greyscale_colors = "#54a57e#47464e#373741#ffce5b#ffce5b#f2b050"
+	icon_state = "/obj/item/clothing/under/imperialskirt/nanotrasen_consultant"
+	flags_1 = NONE
+
 /*
 *	Bridge Officer
 */
@@ -174,6 +202,20 @@
 	icon_state = "bo_skirtleneck"
 	gets_cropped_on_taurs = FALSE
 
+/obj/item/clothing/under/imperial/bridge_officer
+	name = "bridge officer's naval uniform"
+	desc = "An \"upper\" level uniform granted to bridge attendants. You did clear your internship, right?"
+	icon_state = "/obj/item/clothing/under/imperial/bridge_officer"
+	greyscale_colors = "#41579a#41579a#3b3c3f#373741#ccced1#41579a#ccced1"
+	flags_1 = NONE
+
+/obj/item/clothing/under/imperialskirt/bridge_officer
+	name = "bridge officer's naval skirt"
+	desc = "An \"upper\" level uniform granted to bridge attendants. You did clear your internship, right?"
+	greyscale_colors = "#41579a#3b3c3f#373741#ccced1#41579a#ccced1"
+	icon_state = "/obj/item/clothing/under/imperialskirt/bridge_officer"
+	flags_1 = NONE
+
 /*
 *	UNASSIGNED (Any head of staff)
 */
@@ -182,7 +224,7 @@
 	name = "command utility uniform"
 	desc = "A utility uniform worn by Station Command."
 	icon_state = "util_com"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 
@@ -190,29 +232,63 @@
 	armor_type = /datum/armor/clothing_under/utility_syndicate
 	has_sensor = NO_SENSORS
 
-/obj/item/clothing/under/rank/captain/nova/imperial/generic
-	desc = "A grey naval suit with a rank badge denoting an Officer. Doesn't protect against blaster fire."
-	name = "grey officer's naval jumpsuit"
-	icon_state = "impcom"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
-
-/obj/item/clothing/under/rank/captain/nova/imperial/generic/pants
-	desc = "A grey naval suit over black pants, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
+/obj/item/clothing/under/imperial
+	desc = "A naval uniform, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
 	name = "officer's naval jumpsuit"
-	icon_state = "impcom_pants"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	greyscale_colors = "#A49C9C#A49C9C#A49C9C#373741#FFFFFF#FFFFFF#FFFFFF"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/imperial"
+	post_init_icon_state = "officersnaval"
+	greyscale_config = /datum/greyscale_config/officersnaval
+	greyscale_config_worn = /datum/greyscale_config/officersnaval/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/officersnaval/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/captain/nova/imperial/generic/grey
-	desc = "A dark grey naval suit with a rank badge denoting an Officer. Doesn't protect against blaster fire."
-	name = "dark grey officer's naval jumpsuit"
-	icon_state = "impcom_dark"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+/obj/item/clothing/under/imperialskirt
+	desc = "A naval skirt, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
+	name = "officer's naval jumpskirt"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	greyscale_colors = "#A49C9C#A49C9C#373741#FFFFFF#FFFFFF#FFFFFF"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/imperialskirt"
+	post_init_icon_state = "officersnavalskirt"
+	greyscale_config = /datum/greyscale_config/officersnavalskirt
+	greyscale_config_worn = /datum/greyscale_config/officersnavalskirt/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/captain/nova/imperial/generic/red
-	desc = "A red naval suit with a rank badge denoting an Officer. Doesn't protect against blaster fire."
-	name = "red officer's naval jumpsuit"
-	icon_state = "impcom_red"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+/obj/item/clothing/under/imperialvest
+	post_init_icon_state = "officersnavalvest"
+	greyscale_colors = "#39393f#39393f#39393f#373741#FFFFFF#21212B#f8d860#a52f29"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	greyscale_config = /datum/greyscale_config/officersnavalvest
+	greyscale_config_worn = /datum/greyscale_config/officersnavalvest/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/officersnavalvest/worn/digi
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	armor_type = /datum/armor/clothing_under/security_head_of_security
+	can_adjust = FALSE
+
+/obj/item/clothing/under/imperialskirtvest
+	post_init_icon_state = "officersnavalskirtvest"
+	greyscale_colors = "#39393f#39393f#373741#FFFFFF#21212B#f8d860#a52f29"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	greyscale_config = /datum/greyscale_config/officersnavalskirtvest
+	greyscale_config_worn = /datum/greyscale_config/officersnavalskirtvest/worn
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	armor_type = /datum/armor/clothing_under/security_head_of_security
+	can_adjust = FALSE
+
+/obj/item/clothing/under/imperial/red
+	name = "red naval jumpsuit"
+	desc = "A generic red naval jumpsuit with rank badges pinned to it's chest."
+	icon_state = "/obj/item/clothing/under/imperial/red"
+	greyscale_colors = "#C12E24#C12E24#C12E24#373741#FFFFFF#2979CD#2979CD"
+	flags_1 = NONE
 
 /*
 *	MISC

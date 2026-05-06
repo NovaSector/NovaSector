@@ -21,14 +21,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 	RemoveElement(/datum/element/elevation, pixel_shift = 8) //they're on the wall, you can't climb this
 	RemoveElement(/datum/element/climbable)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/space_heater/wall_mounted/RefreshParts()
 	. = ..()
 	heating_energy = src::heating_energy
 	efficiency = src::efficiency
-
-/obj/machinery/space_heater/wall_mounted/default_deconstruction_crowbar()
-	return
 
 /obj/machinery/space_heater/wall_mounted/default_unfasten_wrench(mob/living/user, obj/item/wrench, time)
 	user.balloon_alert(user, "deconstructing...")
@@ -44,7 +42,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 		frame.cell = cell
 		cell?.forceMove(frame)
 	else
-		cell.forceMove(drop_location())
+		cell?.forceMove(drop_location())
 	cell = null
 	return ..()
 
@@ -66,10 +64,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 	)
 	/// lazy-initialized cell stored in the actual heater (so that it can start with one without making a new one every placement)
 	var/obj/item/stock_parts/power_store/cell = /obj/machinery/space_heater::cell
-
-/obj/item/wallframe/wall_heater/Initialize(mapload)
-	. = ..()
-	register_context()
 
 /obj/item/wallframe/wall_heater/after_attach(obj/machinery/space_heater/wall_mounted/attached_to)
 	. = ..()

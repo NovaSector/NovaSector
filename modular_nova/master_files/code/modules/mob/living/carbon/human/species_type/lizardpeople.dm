@@ -17,24 +17,26 @@ Lizard subspecies: Silverscale
 /datum/species/lizard/silverscale/on_species_gain(mob/living/carbon/human/new_silverscale, datum/species/old_species, pref_load, regenerate_icons)
 	if(istype(old_species, /datum/species/lizard/silverscale) && old_mutcolor2) // If we are somehow doing silverscale->silverscale don't override the old stored colors
 		return ..()
-	old_mutcolor2 = new_silverscale.dna.features["mcolor2"]
-	old_mutcolor3 = new_silverscale.dna.features["mcolor3"]
+	old_mutcolor2 = new_silverscale.dna.features[FEATURE_MUTANT_COLOR_TWO]
+	old_mutcolor3 = new_silverscale.dna.features[FEATURE_MUTANT_COLOR_THREE]
 	old_mutant_bodyparts_colors = list()
-	for(var/key in new_silverscale.dna.mutant_bodyparts)
-		old_mutant_bodyparts_colors[key] = new_silverscale.dna.mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST]
-		new_silverscale.dna.mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = list("#eeeeee", "#eeeeee", "#eeeeee")
+	for(var/key, part in new_silverscale.dna.mutant_bodyparts)
+		var/datum/mutant_bodypart/mutant_part = part
+		old_mutant_bodyparts_colors[key] = mutant_part.get_colors()
+		mutant_part.set_colors(list("#eeeeee", "#eeeeee", "#eeeeee"))
 
-	new_silverscale.dna.features["mcolor2"] = "#eeeeee"
-	new_silverscale.dna.features["mcolor3"] = "#eeeeee"
+	new_silverscale.dna.features[FEATURE_MUTANT_COLOR_TWO] = "#eeeeee"
+	new_silverscale.dna.features[FEATURE_MUTANT_COLOR_THREE] = "#eeeeee"
 	regenerate_organs(new_silverscale, src, visual_only = TRUE)
 
 	return ..()
 
 /datum/species/lizard/silverscale/on_species_loss(mob/living/carbon/human/was_silverscale, datum/species/new_species, pref_load)
-	was_silverscale.dna.features["mcolor2"] = old_mutcolor2
-	was_silverscale.dna.features["mcolor3"] = old_mutcolor3
-	for(var/key in was_silverscale.dna.mutant_bodyparts)
-		was_silverscale.dna.mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = old_mutant_bodyparts_colors[key]
+	was_silverscale.dna.features[FEATURE_MUTANT_COLOR_TWO] = old_mutcolor2
+	was_silverscale.dna.features[FEATURE_MUTANT_COLOR_THREE] = old_mutcolor3
+	for(var/key, part in was_silverscale.dna.mutant_bodyparts)
+		var/datum/mutant_bodypart/mutant_part = part
+		mutant_part.set_colors(old_mutant_bodyparts_colors[key])
 	regenerate_organs(was_silverscale, src, visual_only = TRUE)
 	return ..()
 

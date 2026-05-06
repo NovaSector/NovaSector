@@ -1,22 +1,25 @@
+/datum/atom_skin/security_armor_vest_white
+	abstract_type = /datum/atom_skin/security_armor_vest_white
+
+/datum/atom_skin/security_armor_vest_white/black
+	preview_name = "Black Variant"
+	new_icon_state = "vest_black"
+
+/datum/atom_skin/security_armor_vest_white/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "vest_blue"
+
+/datum/atom_skin/security_armor_vest_white/white
+	preview_name = "White Variant"
+	new_icon_state = "vest_white"
+
 /obj/item/clothing/suit/armor/vest/alt/sec/white
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "vest_white"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "vest_black",
-			RESKIN_WORN_ICON_STATE = "vest_black"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "vest_blue",
-			RESKIN_WORN_ICON_STATE = "vest_blue"
-		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "vest_white",
-			RESKIN_WORN_ICON_STATE = "vest_white"
-		),
-	)
+
+/obj/item/clothing/suit/armor/vest/alt/sec/white/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_armor_vest_white)
 
 /obj/item/clothing/suit/armor/vest/brit
 	name = "high vis armored vest"
@@ -30,26 +33,40 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, "zipper")
 
-/obj/item/clothing/suit/armor/vest/jacket
-	name = "high vis security jacket"
-	desc = "A slightly vintage canvas and aramid jacket; hi-vis checkers included. Armored and stylish? Implausible."
+/datum/atom_skin/vested_jacket
+	abstract_type = /datum/atom_skin/vested_jacket
+
+/datum/atom_skin/vested_jacket/red
+	preview_name = "Red Variant"
+	new_icon_state = "vested_jacket"
+
+/datum/atom_skin/vested_jacket/blue
+	preview_name = "Blue Variant"
+	new_icon_state = "vested_jacket_blue"
+
+/datum/atom_skin/vested_jacket/white
+	preview_name = "White Variant"
+	new_icon_state = "vested_jacket_white"
+
+/datum/atom_skin/vested_jacket/black
+	preview_name = "Black Variant"
+	new_icon_state = "vested_jacket_black"
+
+/obj/item/clothing/suit/armor/vest/vested_jacket
+	name = "vested security jacket"
+	desc = "The company standard armor now with a stylish zipper jacket stitched in for when you don't think you'll get shot!"
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
-	icon_state = "highvis_jacket"
+	icon_state = "vested_jacket"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	heat_protection = CHEST|GROIN|ARMS
 
-/obj/item/clothing/suit/armor/vest/peacekeeper/jacket/Initialize(mapload)
+/obj/item/clothing/suit/armor/vest/vested_jacket/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/vested_jacket)
 	AddComponent(/datum/component/toggle_icon, "zipper")
-
-/obj/item/clothing/suit/armor/vest/jacket/badge
-	name = "badged high vis security jacket"
-	desc = "A slightly vintage canvas and aramid jacket; hi-vis checkers and chevron badge included. Armored and stylish? Implausible."
-	icon_state = "highvis_jacket_badge"
-
 
 /obj/item/clothing/head/hooded/winterhood/security/blue
 	desc = "A blue, armour-padded winter hood. Definitely not bulletproof, especially not the part where your face goes."
@@ -83,5 +100,3 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "hosformal_black"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	uses_advanced_reskins = FALSE
-	unique_reskin = null

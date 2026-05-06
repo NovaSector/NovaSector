@@ -3,6 +3,7 @@
 	desc = "We debase ourselves and become lesser. We become a monkey. Costs 5 chemicals."
 	helptext = "The transformation greatly reduces our size, allowing us to slip out of cuffs and climb through vents."
 	button_icon_state = "lesser_form"
+	category = "stealth"
 	chemical_cost = 5
 	dna_cost = 1
 	/// Whether to allow the transformation animation to play
@@ -31,7 +32,7 @@
 		user.balloon_alert(user, "can't transform in pipes!")
 		return FALSE
 	var/datum/antagonist/changeling/changeling = IS_CHANGELING(user)
-	var/datum/changeling_profile/chosen_form = select_form(changeling, user)
+	var/datum/changeling_profile/chosen_form = changeling?.current_profile // NOVA EDIT CHANGE - ORIGINAL: var/datum/changeling_profile/chosen_form = select_form(changeling, user)
 	if(!chosen_form)
 		return FALSE
 	to_chat(user, span_notice("We transform our appearance."))
@@ -53,6 +54,14 @@
 /// Become a monkey
 /datum/action/changeling/lesserform/proc/become_monkey(mob/living/carbon/human/user)
 	to_chat(user, span_warning("Our genes cry out!"))
+	// NOVA EDIT ADDITION START - Clean up organs from previous transformation so they don't persist into monkey form
+	for(var/obj/item/organ/old_organ as anything in user.organs)
+		if(old_organ.bodypart_overlay)
+			old_organ.Remove(user, special = TRUE)
+			qdel(old_organ)
+			continue
+		old_organ.organ_flags &= ~ORGAN_UNREMOVABLE // Allow regenerate_organs to replace even unremovable organs (e.g. hemophage tumor) during changeling transformation
+	// NOVA EDIT ADDITION END
 	user.monkeyize(instant = transform_instantly)
 	return TRUE
 

@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 15
+#define MODULAR_SAVEFILE_VERSION_MAX 18
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -21,6 +21,9 @@
 #define VERSION_EMO_LONG_REMOVAL 13
 #define VERSION_TOOLKIT_IMPLANTS 14
 #define VERSION_VOCAL_BARKS 15
+#define VERSION_FEATHERY_WINGS_FIX 16
+#define VERSION_DONK_MIGRATION 17
+#define VERSION_AUGMENT_ITEMS_PATH_CHANGE 18
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -43,15 +46,15 @@
 	if(!save_data)
 		save_data = list()
 
-	load_augments(SANITIZE_LIST(save_data["augments"]))
+	var/needs_nova_update = savefile_needs_update_nova(save_data)
+
+	load_augments(SANITIZE_LIST(save_data["augments"]), needs_nova_update)
 
 	augment_limb_styles = SANITIZE_LIST(save_data["augment_limb_styles"])
 	for(var/key in augment_limb_styles)
 		if(!GLOB.robotic_styles_list[augment_limb_styles[key]])
 			augment_limb_styles -= key
 
-	features = SANITIZE_LIST(save_data["features"])
-	mutant_bodyparts = SANITIZE_LIST(save_data["mutant_bodyparts"])
 	body_markings = update_markings(SANITIZE_LIST(save_data["body_markings"]))
 	mismatched_customization = save_data["mismatched_customization"]
 	allow_advanced_colors = save_data["allow_advanced_colors"]
@@ -70,7 +73,7 @@
 		save_languages -= language
 
 		if(istext(language))
-			language = _text2path(language)
+			language = text2path(language)
 		save_languages[language] = value
 	languages = save_languages
 
@@ -86,7 +89,6 @@
 
 	food_preferences = SANITIZE_LIST(save_data["food_preferences"])
 
-	var/needs_nova_update = savefile_needs_update_nova(save_data)
 	if(needs_nova_update >= 0)
 		update_character_nova(needs_nova_update, save_data) // needs_nova_update == savefile_version if we need an update (positive integer)
 
@@ -260,22 +262,12 @@
 		if (length(loadout_list)) // We only want to write these changes down if we're certain that there was anything in that.
 			write_preference(GLOB.preference_entries[/datum/preference/loadout], loadout_list)
 
-	if(current_version < VERSION_INTERNAL_EXTERNAL_ORGANS)
-		var/list/save_augments = SANITIZE_LIST(save_data["augments"])
-		var/prefix_length = length("/obj/item/organ/internal") // Shouldn't be any external augments, but if there are, it's the same length
-		for(var/augment_name in save_augments)
-			var/augment_path_string = save_augments[augment_name]
-			if(!(findtext(augment_path_string, "/obj/item/organ/internal") || findtext(augment_path_string, "/obj/item/organ/external")))
-				continue // Make sure we don't strip something that isn't there
-			var/augment_path_string_stripped = copytext(save_augments[augment_name], prefix_length + 1)
-			save_augments[augment_name] = "/obj/item/organ[augment_path_string_stripped]"
-		load_augments(save_augments)
-
 	if(current_version < VERSION_SKRELL_HAIR_NAME_UPDATE)
 		var/list/mutant_bodyparts = SANITIZE_LIST(save_data["mutant_bodyparts"])
 
-		if(FEATURE_SKRELL_HAIR in mutant_bodyparts)
-			var/current_skrell_hair = mutant_bodyparts[FEATURE_SKRELL_HAIR][MUTANT_INDEX_NAME]
+		var/datum/mutant_bodypart/mutant_part = mutant_bodyparts[FEATURE_SKRELL_HAIR]
+		if(mutant_part)
+			var/current_skrell_hair = mutant_part.name
 
 			if(current_skrell_hair == "Male")
 				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Short")
@@ -307,26 +299,34 @@
 		var/current_hair = save_data["hairstyle_name"]
 		if(current_hair == "Emo Long")
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/hairstyle], "Long Emo")
-	if(current_version < VERSION_TOOLKIT_IMPLANTS)
-		migrate_toolset_implants(save_data)
 
 	if(current_version < VERSION_VOCAL_BARKS)
 		var/current_tts_voice = save_data["tts_voice"]
 		if(current_tts_voice != TTS_VOICE_NONE && current_tts_voice != "invalid") // make sure we don't turn off TTS for people who have it on
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/vocals/voice_type], "Text-to-speech")
 
+	if(current_version < VERSION_FEATHERY_WINGS_FIX)
+		var/current_wings = save_data["feature_wings"]
+		if(current_wings == "Moth (Featherful)")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/wings], "Moth (Feathery)")
+
+	if(current_version < VERSION_DONK_MIGRATION)
+		var/current_donk = save_data["feature_penis"]
+		if(current_donk != "None")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/genital/penis], current_donk + " (Alt)")
+		var/current_pocket = save_data["feature_testicles"]
+		if(current_pocket == "Pair")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/genital/testicles], "Pair (Alt)")
+
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
 		to_chat(parent, boxed_message(span_redtext("CRITICAL FAILURE IN PREFERENCE MIGRATION, REPORT THIS IMMEDIATELY.")))
 		message_admins("PREFERENCE MIGRATION: [ADMIN_LOOKUPFLW(parent)] has failed the process for migrating PREFERENCES. Check runtimes.")
 
-
 /// Saves the modular customizations of a character on the savefile
 /datum/preferences/proc/save_character_nova(list/save_data)
 	save_data["augments"] = augments
 	save_data["augment_limb_styles"] = augment_limb_styles
-	save_data["features"] = features
-	save_data["mutant_bodyparts"] = mutant_bodyparts
 	save_data["body_markings"] = body_markings
 	save_data["mismatched_customization"] = mismatched_customization
 	save_data["allow_advanced_colors"] = allow_advanced_colors
@@ -334,34 +334,6 @@
 	save_data["languages"] = languages
 	save_data["modular_version"] = MODULAR_SAVEFILE_VERSION_MAX
 	save_data["food_preferences"] = food_preferences
-
-
-/datum/preferences/proc/update_mutant_bodyparts(datum/preference/preference)
-	if (!preference.relevant_mutant_bodypart)
-		return
-	var/part = preference.relevant_mutant_bodypart
-	var/value = read_preference(preference.type)
-	if (isnull(value))
-		return
-	if (istype(preference, /datum/preference/toggle))
-		if (!value)
-			if (part in mutant_bodyparts)
-				mutant_bodyparts -= part
-		else
-			var/datum/preference/choiced/name = GLOB.preference_entries_by_key["feature_[part]"]
-			var/datum/preference/tri_color/color = GLOB.preference_entries_by_key["[part]_color"]
-			if (isnull(name) || isnull(color))
-				return
-			mutant_bodyparts[part] = list()
-			mutant_bodyparts[part][MUTANT_INDEX_NAME] = read_preference(name.type)
-			mutant_bodyparts[part][MUTANT_INDEX_COLOR_LIST] = read_preference(color.type)
-	if (istype(preference, /datum/preference/choiced))
-		if (part in mutant_bodyparts)
-			mutant_bodyparts[part][MUTANT_INDEX_NAME] = value
-	if (istype(preference, /datum/preference/tri_color))
-		if (part in mutant_bodyparts)
-			mutant_bodyparts[part][MUTANT_INDEX_COLOR_LIST] = value
-
 
 /datum/preferences/proc/update_markings(list/markings)
 	if (islist(markings))
@@ -371,39 +343,262 @@
 					markings[marking][title] = list(sanitize_hexcolor(markings[marking][title]), FALSE)
 	return markings
 
-/datum/preferences/proc/load_augments(list/augments_prefs)
+/datum/preferences/proc/load_augments(list/augments_prefs, current_version)
+	if(!length(augments_prefs))
+		augments = augments_prefs
+		return
+	if(current_version != MODULAR_SAVEFILE_UP_TO_DATE && current_version < VERSION_AUGMENT_ITEMS_PATH_CHANGE)
+		migrate_augment_items(augments_prefs)
+
 	var/list/augments_sanitized = list()
-	for(var/aug_slot in augments_prefs)
-		var/aug_entry = augments_prefs[aug_slot]
+	for(var/aug_slot, augment in augments_prefs)
+		var/aug_entry = augment
 
 		if(istext(aug_entry))
-			aug_entry = _text2path(aug_entry)
+			aug_entry = text2path(aug_entry)
 
 		var/datum/augment_item/aug = GLOB.augment_items[aug_entry]
 		if(aug)
 			augments_sanitized[aug_slot] = aug_entry
 	augments = augments_sanitized
 
-/// Migration for loadout augments, replaces augments with /toolkit versions if the original doesn't exist
-/datum/preferences/proc/migrate_toolset_implants(list/save_data)
-	var/list/save_augments = SANITIZE_LIST(save_data["augments"])
-	if(!length(save_augments))
-		return
-	for(var/augment_name in save_augments)
-		var/augment_path_string = save_augments[augment_name]
-		var/augment_path = GLOB.augment_items[_text2path(augment_path_string)]
-		if(augment_path) // The augment already exists, neat!
-			continue
-		// Saved augment doesn't exist, try the toolkit version
-		augment_path_string = replacetext(augment_path_string, "/cyberimp/arm/", "/cyberimp/arm/toolkit/")
-		augment_path = GLOB.augment_items[_text2path(augment_path_string)]
-		if(augment_path) // Toolkit version exists, save that instead
-			save_augments[augment_name] = augment_path_string
-			continue
-		stack_trace("Attempt to migrate augment item [save_augments[augment_name]] failed!")
-		save_augments -= augment_name
-
-	load_augments(save_augments)
+/// Migrates everyone's prefs augments over to the new format, (slot, /datum/augment_item)
+/datum/preferences/proc/migrate_augment_items(list/augments_prefs)
+	var/static/list/path_to_augment
+	if(isnull(path_to_augment))
+		path_to_augment = list(
+			/obj/item/organ/cyberimp/chest/nutriment = /datum/augment_item/implant/chest/nutriment_pump,
+			/obj/item/organ/cyberimp/chest/opticalcamo = /datum/augment_item/implant/chest/optical_camo,
+			/obj/item/organ/cyberimp/chest/scanner/lite = /datum/augment_item/implant/chest/internal_health_analyzer/lite,
+			/obj/item/organ/cyberimp/arm/toolkit/armblade/early/l = /datum/augment_item/implant/l_arm/mantis_blade_left,
+			/obj/item/organ/cyberimp/arm/toolkit/power_cord/left_arm = /datum/augment_item/implant/l_arm/charging_implant,
+			/obj/item/organ/cyberimp/arm/toolkit/civilian_lighter/left_arm = /datum/augment_item/implant/l_arm/civilian_lighter,
+			/obj/item/organ/cyberimp/arm/toolkit/razor_claws/left_arm = /datum/augment_item/implant/l_arm/razor_claws,
+			/obj/item/organ/cyberimp/arm/toolkit/adjuster/left_arm = /datum/augment_item/implant/l_arm/adjuster,
+			/obj/item/organ/cyberimp/arm/toolkit/bureaucracy/left_arm = /datum/augment_item/implant/l_arm/bureaucracy,
+			/obj/item/organ/cyberimp/arm/toolkit/cargo/left_arm = /datum/augment_item/implant/l_arm/cargo,
+			/obj/item/organ/cyberimp/arm/toolkit/civilian_barstaff/left_arm = /datum/augment_item/implant/l_arm/civilian_barstaff,
+			/obj/item/organ/cyberimp/arm/toolkit/emt_triage/left_arm = /datum/augment_item/implant/l_arm/emt_triage,
+			/obj/item/organ/cyberimp/arm/toolkit/blacksteel_forging/left_arm = /datum/augment_item/implant/l_arm/blacksteel_forging,
+			/obj/item/organ/cyberimp/arm/toolkit/arc_welder/left_arm = /datum/augment_item/implant/l_arm/arc_welder,
+			/obj/item/organ/cyberimp/arm/toolkit/electrical_toolset/left_arm = /datum/augment_item/implant/l_arm/electrical_toolset,
+			/obj/item/organ/cyberimp/arm/toolkit/mining_drill/left_arm = /datum/augment_item/implant/l_arm/mining_drill,
+			/obj/item/organ/cyberimp/arm/toolkit/armblade/early = /datum/augment_item/implant/r_arm/mantis_blade_right,
+			/obj/item/organ/cyberimp/arm/toolkit/power_cord/right_arm = /datum/augment_item/implant/r_arm/charging_implant,
+			/obj/item/organ/cyberimp/arm/toolkit/civilian_lighter/right_arm = /datum/augment_item/implant/r_arm/civilian_lighter,
+			/obj/item/organ/cyberimp/arm/toolkit/razor_claws/right_arm = /datum/augment_item/implant/r_arm/razor_claws,
+			/obj/item/organ/cyberimp/arm/toolkit/adjuster/right_arm = /datum/augment_item/implant/r_arm/adjuster,
+			/obj/item/organ/cyberimp/arm/toolkit/bureaucracy/right_arm = /datum/augment_item/implant/r_arm/bureaucracy,
+			/obj/item/organ/cyberimp/arm/toolkit/cargo/right_arm = /datum/augment_item/implant/r_arm/cargo,
+			/obj/item/organ/cyberimp/arm/toolkit/civilian_barstaff/right_arm = /datum/augment_item/implant/r_arm/civilian_barstaff,
+			/obj/item/organ/cyberimp/arm/toolkit/emt_triage/right_arm = /datum/augment_item/implant/r_arm/emt_triage,
+			/obj/item/organ/cyberimp/arm/toolkit/blacksteel_forging/right_arm = /datum/augment_item/implant/r_arm/blacksteel_forging,
+			/obj/item/organ/cyberimp/arm/toolkit/arc_welder/right_arm = /datum/augment_item/implant/r_arm/arc_welder,
+			/obj/item/organ/cyberimp/arm/toolkit/electrical_toolset/right_arm = /datum/augment_item/implant/r_arm/electrical_toolset,
+			/obj/item/organ/cyberimp/arm/toolkit/mining_drill/right_arm = /datum/augment_item/implant/r_arm/mining_drill,
+			/obj/item/bodypart/head/robot/weak = /datum/augment_item/limb/head/cyborg,
+			/obj/item/bodypart/head/robot/weak/greyscale = /datum/augment_item/limb/head/cyborg/greyscale,
+			/obj/item/bodypart/chest/robot/weak = /datum/augment_item/limb/chest/cyborg,
+			/obj/item/bodypart/chest/robot/weak/greyscale = /datum/augment_item/limb/chest/cyborg/greyscale,
+			/obj/item/bodypart/arm/left/robot/surplus = /datum/augment_item/limb/l_arm/prosthetic,
+			/obj/item/bodypart/arm/left/robot/surplus/greyscale = /datum/augment_item/limb/l_arm/prosthetic/greyscale,
+			/obj/item/bodypart/arm/left/robot/weak = /datum/augment_item/limb/l_arm/cyborg,
+			/obj/item/bodypart/arm/left/robot/weak/greyscale = /datum/augment_item/limb/l_arm/cyborg/greyscale,
+			/obj/item/bodypart/arm/left/plasmaman = /datum/augment_item/limb/l_arm/plasmaman,
+			/obj/item/bodypart/arm/left/ghetto = /datum/augment_item/limb/l_arm/peg,
+			/obj/item/bodypart/arm/left/stump = /datum/augment_item/limb/l_arm/stump,
+			/obj/item/bodypart/arm/right/robot/surplus = /datum/augment_item/limb/r_arm/prosthetic,
+			/obj/item/bodypart/arm/right/robot/surplus/greyscale = /datum/augment_item/limb/r_arm/prosthetic/greyscale,
+			/obj/item/bodypart/arm/right/robot/weak = /datum/augment_item/limb/r_arm/cyborg,
+			/obj/item/bodypart/arm/right/robot/weak/greyscale = /datum/augment_item/limb/r_arm/cyborg/greyscale,
+			/obj/item/bodypart/arm/right/plasmaman = /datum/augment_item/limb/r_arm/plasmaman,
+			/obj/item/bodypart/arm/right/ghetto = /datum/augment_item/limb/r_arm/peg,
+			/obj/item/bodypart/arm/right/stump = /datum/augment_item/limb/r_arm/stump,
+			/obj/item/bodypart/leg/left/robot/surplus = /datum/augment_item/limb/l_leg/prosthetic,
+			/obj/item/bodypart/leg/left/robot/surplus/greyscale = /datum/augment_item/limb/l_leg/prosthetic/greyscale,
+			/obj/item/bodypart/leg/left/robot/weak = /datum/augment_item/limb/l_leg/cyborg,
+			/obj/item/bodypart/leg/left/robot/weak/greyscale = /datum/augment_item/limb/l_leg/cyborg/greyscale,
+			/obj/item/bodypart/leg/left/plasmaman = /datum/augment_item/limb/l_leg/plasmaman,
+			/obj/item/bodypart/leg/left/ghetto = /datum/augment_item/limb/l_leg/peg,
+			/obj/item/bodypart/leg/left/stump = /datum/augment_item/limb/l_leg/stump,
+			/obj/item/bodypart/leg/right/robot/surplus = /datum/augment_item/limb/r_leg/prosthetic,
+			/obj/item/bodypart/leg/right/robot/surplus/greyscale = /datum/augment_item/limb/r_leg/prosthetic/greyscale,
+			/obj/item/bodypart/leg/right/robot/weak = /datum/augment_item/limb/r_leg/cyborg,
+			/obj/item/bodypart/leg/right/robot/weak/greyscale = /datum/augment_item/limb/r_leg/cyborg/greyscale,
+			/obj/item/bodypart/leg/right/plasmaman = /datum/augment_item/limb/r_leg/plasmaman,
+			/obj/item/bodypart/leg/right/ghetto = /datum/augment_item/limb/r_leg/peg,
+			/obj/item/bodypart/leg/right/stump = /datum/augment_item/limb/r_leg/stump,
+			/obj/item/organ/brain/cybernetic/cortical = /datum/augment_item/organ/brain/cortical,
+			/obj/item/organ/heart = /datum/augment_item/organ/heart/normal,
+			/obj/item/organ/heart/cybernetic = /datum/augment_item/organ/heart/cybernetic,
+			/obj/item/organ/heart/synth = /datum/augment_item/organ/heart/synth,
+			/obj/item/organ/lungs = /datum/augment_item/organ/lungs/normal,
+			/obj/item/organ/lungs/cybernetic = /datum/augment_item/organ/lungs/cybernetic,
+			/obj/item/organ/liver = /datum/augment_item/organ/liver/normal,
+			/obj/item/organ/liver/cybernetic = /datum/augment_item/organ/liver/cybernetic,
+			/obj/item/organ/liver/synth = /datum/augment_item/organ/liver/synth,
+			/obj/item/organ/stomach = /datum/augment_item/organ/stomach/normal,
+			/obj/item/organ/stomach/cybernetic = /datum/augment_item/organ/stomach/cybernetic,
+			/obj/item/organ/stomach/lithovore = /datum/augment_item/organ/stomach/lithovore,
+			/obj/item/organ/eyes = /datum/augment_item/organ/eyes/normal,
+			/obj/item/organ/eyes/robotic = /datum/augment_item/organ/eyes/cybernetic,
+			/obj/item/organ/eyes/robotic/moth = /datum/augment_item/organ/eyes/cybernetic/moth,
+			/obj/item/organ/eyes/robotic/glow = /datum/augment_item/organ/eyes/highlumi,
+			/obj/item/organ/eyes/robotic/glow/moth = /datum/augment_item/organ/eyes/highlumi/moth,
+			/obj/item/organ/eyes/robotic/binoculars = /datum/augment_item/organ/eyes/binoculars,
+			/obj/item/organ/cyberimp/mouth/breathing_tube = /datum/augment_item/organ/mouth/breathing_tube,
+			/obj/item/organ/cyberimp/mouth/breathing_tube/hidden = /datum/augment_item/organ/mouth/breathing_tube/hidden,
+			/obj/item/organ/tongue/human = /datum/augment_item/organ/tongue/normal,
+			/obj/item/organ/tongue/robot = /datum/augment_item/organ/tongue/robo,
+			/obj/item/organ/tongue/lizard/robot = /datum/augment_item/organ/tongue/robo/forked,
+			/obj/item/organ/tongue/cybernetic = /datum/augment_item/organ/tongue/cybernetic,
+			/obj/item/organ/tongue/lizard/cybernetic = /datum/augment_item/organ/tongue/cybernetic/forked,
+			/obj/item/organ/tongue/lizard = /datum/augment_item/organ/tongue/forked,
+			/obj/item/organ/tongue/lizard/filterless = /datum/augment_item/organ/tongue/forked/filterless,
+			/obj/item/organ/ears = /datum/augment_item/organ/ears/normal,
+			/obj/item/organ/ears/cybernetic = /datum/augment_item/organ/ears/cybernetic,
+			/obj/item/organ/ears/cat/cybernetic = /datum/augment_item/organ/ears/cybernetic/cat,
+			/obj/item/organ/ears/cat/cybernetic/blue = /datum/augment_item/organ/ears/cybernetic/cat/blue,
+			/obj/item/organ/ears/cat/cybernetic/green = /datum/augment_item/organ/ears/cybernetic/cat/green,
+			/obj/item/bodypart/head/mutant = /datum/augment_item/limb/head/species/mutant,
+			/obj/item/bodypart/chest/mutant = /datum/augment_item/limb/chest/species/mutant,
+			/obj/item/bodypart/arm/left/mutant = /datum/augment_item/limb/l_arm/species/mutant,
+			/obj/item/bodypart/arm/right/mutant = /datum/augment_item/limb/r_arm/species/mutant,
+			/obj/item/bodypart/leg/left/mutant = /datum/augment_item/limb/l_leg/species/mutant,
+			/obj/item/bodypart/leg/right/mutant = /datum/augment_item/limb/r_leg/species/mutant,
+			/obj/item/bodypart/head/mutant/akula = /datum/augment_item/limb/head/species/akula,
+			/obj/item/bodypart/chest/mutant/akula = /datum/augment_item/limb/chest/species/akula,
+			/obj/item/bodypart/arm/left/mutant/akula = /datum/augment_item/limb/l_arm/species/akula,
+			/obj/item/bodypart/arm/right/mutant/akula = /datum/augment_item/limb/r_arm/species/akula,
+			/obj/item/bodypart/leg/left/mutant/akula = /datum/augment_item/limb/l_leg/species/akula,
+			/obj/item/bodypart/leg/right/mutant/akula = /datum/augment_item/limb/r_leg/species/akula,
+			/obj/item/bodypart/head/mutant/aquatic = /datum/augment_item/limb/head/species/mutant/aquatic,
+			/obj/item/bodypart/chest/mutant/aquatic = /datum/augment_item/limb/chest/species/mutant/aquatic,
+			/obj/item/bodypart/arm/left/mutant/aquatic = /datum/augment_item/limb/l_arm/species/mutant/aquatic,
+			/obj/item/bodypart/arm/right/mutant/aquatic = /datum/augment_item/limb/r_arm/species/mutant/aquatic,
+			/obj/item/bodypart/leg/left/mutant/aquatic = /datum/augment_item/limb/l_leg/species/mutant/aquatic,
+			/obj/item/bodypart/leg/right/mutant/aquatic = /datum/augment_item/limb/r_leg/species/mutant/aquatic,
+			/obj/item/bodypart/head/mutant/insect = /datum/augment_item/limb/head/species/insect,
+			/obj/item/bodypart/chest/mutant/insect = /datum/augment_item/limb/chest/species/insect,
+			/obj/item/bodypart/arm/left/mutant/insect = /datum/augment_item/limb/l_arm/species/insect,
+			/obj/item/bodypart/arm/right/mutant/insect = /datum/augment_item/limb/r_arm/species/insect,
+			/obj/item/bodypart/leg/left/mutant/insect = /datum/augment_item/limb/l_leg/species/insect,
+			/obj/item/bodypart/leg/right/mutant/insect = /datum/augment_item/limb/r_leg/species/insect,
+			/obj/item/bodypart/head/lizard = /datum/augment_item/limb/head/species/mutant/lizard,
+			/obj/item/bodypart/chest/lizard = /datum/augment_item/limb/chest/species/mutant/lizard,
+			/obj/item/bodypart/arm/left/lizard = /datum/augment_item/limb/l_arm/species/mutant/lizard,
+			/obj/item/bodypart/arm/right/lizard = /datum/augment_item/limb/r_arm/species/mutant/lizard,
+			/obj/item/bodypart/leg/left/lizard = /datum/augment_item/limb/l_leg/species/mutant/lizard,
+			/obj/item/bodypart/leg/right/lizard = /datum/augment_item/limb/r_leg/species/mutant/lizard,
+			/obj/item/bodypart/head/fly = /datum/augment_item/limb/head/fly,
+			/obj/item/bodypart/chest/fly = /datum/augment_item/limb/chest/fly,
+			/obj/item/bodypart/arm/left/fly = /datum/augment_item/limb/l_arm/fly,
+			/obj/item/bodypart/arm/right/fly = /datum/augment_item/limb/r_arm/fly,
+			/obj/item/bodypart/leg/left/fly = /datum/augment_item/limb/l_leg/fly,
+			/obj/item/bodypart/leg/right/fly = /datum/augment_item/limb/r_leg/fly,
+			/obj/item/bodypart/head/golem = /datum/augment_item/limb/head/golem,
+			/obj/item/bodypart/chest/golem = /datum/augment_item/limb/chest/golem,
+			/obj/item/bodypart/arm/left/golem = /datum/augment_item/limb/l_arm/golem,
+			/obj/item/bodypart/arm/right/golem = /datum/augment_item/limb/r_arm/golem,
+			/obj/item/bodypart/leg/left/golem = /datum/augment_item/limb/l_leg/golem,
+			/obj/item/bodypart/leg/right/golem = /datum/augment_item/limb/r_leg/golem,
+			/obj/item/bodypart/head/jelly/slime/roundstart = /datum/augment_item/limb/head/species/mutant/slime,
+			/obj/item/bodypart/chest/jelly/slime/roundstart = /datum/augment_item/limb/chest/species/mutant/slime,
+			/obj/item/bodypart/arm/left/jelly/slime/roundstart = /datum/augment_item/limb/l_arm/species/mutant/slime,
+			/obj/item/bodypart/arm/right/jelly/slime/roundstart = /datum/augment_item/limb/r_arm/species/mutant/slime,
+			/obj/item/bodypart/leg/left/jelly/slime/roundstart = /datum/augment_item/limb/l_leg/species/mutant/slime,
+			/obj/item/bodypart/leg/right/jelly/slime/roundstart = /datum/augment_item/limb/r_leg/species/mutant/slime,
+			/obj/item/bodypart/head/moth = /datum/augment_item/limb/head/species/moth,
+			/obj/item/bodypart/chest/moth = /datum/augment_item/limb/chest/species/moth,
+			/obj/item/bodypart/arm/left/moth = /datum/augment_item/limb/l_arm/species/moth,
+			/obj/item/bodypart/arm/right/moth = /datum/augment_item/limb/r_arm/species/moth,
+			/obj/item/bodypart/leg/left/moth = /datum/augment_item/limb/l_leg/species/moth,
+			/obj/item/bodypart/leg/right/moth = /datum/augment_item/limb/r_leg/species/moth,
+			/obj/item/bodypart/head/mushroom = /datum/augment_item/limb/head/species/mushroom,
+			/obj/item/bodypart/chest/mushroom = /datum/augment_item/limb/chest/species/mushroom,
+			/obj/item/bodypart/arm/left/mushroom = /datum/augment_item/limb/l_arm/species/mushroom,
+			/obj/item/bodypart/arm/right/mushroom = /datum/augment_item/limb/r_arm/species/mushroom,
+			/obj/item/bodypart/leg/left/mushroom = /datum/augment_item/limb/l_leg/species/mushroom,
+			/obj/item/bodypart/leg/right/mushroom = /datum/augment_item/limb/r_leg/species/mushroom,
+			/obj/item/bodypart/head/pod = /datum/augment_item/limb/head/species/pod,
+			/obj/item/bodypart/chest/pod = /datum/augment_item/limb/chest/species/pod,
+			/obj/item/bodypart/arm/left/pod = /datum/augment_item/limb/l_arm/species/pod,
+			/obj/item/bodypart/arm/right/pod = /datum/augment_item/limb/r_arm/species/pod,
+			/obj/item/bodypart/leg/left/pod = /datum/augment_item/limb/l_leg/species/pod,
+			/obj/item/bodypart/leg/right/pod = /datum/augment_item/limb/r_leg/species/pod,
+			/obj/item/bodypart/head = /datum/augment_item/limb/head/species/human,
+			/obj/item/bodypart/chest = /datum/augment_item/limb/chest/species/human,
+			/obj/item/bodypart/arm/left = /datum/augment_item/limb/l_arm/species/human,
+			/obj/item/bodypart/arm/right = /datum/augment_item/limb/r_arm/species/human,
+			/obj/item/bodypart/leg/left = /datum/augment_item/limb/l_leg/species/human,
+			/obj/item/bodypart/leg/right = /datum/augment_item/limb/r_leg/species/human,
+			/obj/item/bodypart/leg/left/human_digi_capable = /datum/augment_item/limb/l_leg/species/human_digi_capable,
+			/obj/item/bodypart/leg/right/human_digi_capable = /datum/augment_item/limb/r_leg/species/human_digi_capable,
+			/obj/item/bodypart/head/ethereal = /datum/augment_item/limb/head/species/ethereal,
+			/obj/item/bodypart/chest/ethereal = /datum/augment_item/limb/chest/species/ethereal,
+			/obj/item/bodypart/arm/left/ethereal = /datum/augment_item/limb/l_arm/species/ethereal,
+			/obj/item/bodypart/arm/right/ethereal = /datum/augment_item/limb/r_arm/species/ethereal,
+			/obj/item/bodypart/leg/left/ethereal = /datum/augment_item/limb/l_leg/species/ethereal,
+			/obj/item/bodypart/leg/right/ethereal = /datum/augment_item/limb/r_leg/species/ethereal,
+			/obj/item/bodypart/head/mutant/skrell = /datum/augment_item/limb/head/species/skrell,
+			/obj/item/bodypart/chest/mutant/skrell = /datum/augment_item/limb/chest/species/skrell,
+			/obj/item/bodypart/arm/left/mutant/skrell = /datum/augment_item/limb/l_arm/species/skrell,
+			/obj/item/bodypart/arm/right/mutant/skrell = /datum/augment_item/limb/r_arm/species/skrell,
+			/obj/item/bodypart/leg/left/mutant/skrell = /datum/augment_item/limb/l_leg/species/skrell,
+			/obj/item/bodypart/leg/right/mutant/skrell = /datum/augment_item/limb/r_leg/species/skrell,
+			/obj/item/bodypart/head/mutant/vox = /datum/augment_item/limb/head/species/mutant/vox,
+			/obj/item/bodypart/chest/mutant/vox = /datum/augment_item/limb/chest/species/mutant/vox,
+			/obj/item/bodypart/arm/left/mutant/vox = /datum/augment_item/limb/l_arm/species/mutant/vox,
+			/obj/item/bodypart/arm/right/mutant/vox = /datum/augment_item/limb/r_arm/species/mutant/vox,
+			/obj/item/bodypart/leg/left/mutant/vox = /datum/augment_item/limb/l_leg/species/mutant/vox,
+			/obj/item/bodypart/leg/right/mutant/vox = /datum/augment_item/limb/r_leg/species/mutant/vox,
+			/obj/item/bodypart/head/mutant/xenohybrid = /datum/augment_item/limb/head/species/mutant/xenohybrid,
+			/obj/item/bodypart/chest/mutant/xenohybrid = /datum/augment_item/limb/chest/species/mutant/xenohybrid,
+			/obj/item/bodypart/arm/left/mutant/xenohybrid = /datum/augment_item/limb/l_arm/species/mutant/xenohybrid,
+			/obj/item/bodypart/arm/right/mutant/xenohybrid = /datum/augment_item/limb/r_arm/species/mutant/xenohybrid,
+			/obj/item/bodypart/leg/left/digitigrade/xenohybrid = /datum/augment_item/limb/l_leg/species/mutant/xenohybrid,
+			/obj/item/bodypart/leg/right/digitigrade/xenohybrid = /datum/augment_item/limb/r_leg/species/mutant/xenohybrid,
+			/obj/item/bodypart/head/mutant/ramatae = /datum/augment_item/limb/head/species/mutant/ramatae,
+			/obj/item/bodypart/head/mutant/ramatae/eyes = /datum/augment_item/limb/head/species/mutant/ramatae/eyes,
+			/obj/item/bodypart/chest/mutant/ramatae = /datum/augment_item/limb/chest/species/mutant/ramatae,
+			/obj/item/bodypart/arm/left/mutant/ramatae = /datum/augment_item/limb/l_arm/species/mutant/ramatae,
+			/obj/item/bodypart/arm/right/mutant/ramatae = /datum/augment_item/limb/r_arm/species/mutant/ramatae,
+			/obj/item/bodypart/leg/left/mutant/ramatae = /datum/augment_item/limb/l_leg/species/mutant/ramatae,
+			/obj/item/bodypart/leg/right/mutant/ramatae = /datum/augment_item/limb/r_leg/species/mutant/ramatae,
+			/obj/item/bodypart/head/mutant/shadekin = /datum/augment_item/limb/head/species/shadekin,
+			/obj/item/bodypart/chest/mutant/shadekin = /datum/augment_item/limb/chest/species/shadekin,
+			/obj/item/bodypart/arm/left/mutant/shadekin = /datum/augment_item/limb/l_arm/species/shadekin,
+			/obj/item/bodypart/arm/right/mutant/shadekin = /datum/augment_item/limb/r_arm/species/shadekin,
+			/obj/item/bodypart/leg/left/mutant/shadekin = /datum/augment_item/limb/l_leg/species/shadekin,
+			/obj/item/bodypart/leg/right/mutant/shadekin = /datum/augment_item/limb/r_leg/species/shadekin,
+			/obj/item/bodypart/leg/left/mutant/harpy = /datum/augment_item/limb/l_leg/species/mutant/harpy,
+			/obj/item/bodypart/leg/right/mutant/harpy = /datum/augment_item/limb/r_leg/species/mutant/harpy,
+			/obj/item/bodypart/leg/left/mutant/harpy_skin = /datum/augment_item/limb/l_leg/species/harpy,
+			/obj/item/bodypart/leg/right/mutant/harpy_skin = /datum/augment_item/limb/r_leg/species/harpy,
+			/obj/item/bodypart/leg/left/robot/surplus/digi = /datum/augment_item/limb/l_leg/digi_prosthetic,
+			/obj/item/bodypart/leg/left/robot/digi = /datum/augment_item/limb/l_leg/digi_cybernetic,
+			/obj/item/bodypart/leg/right/robot/surplus/digi = /datum/augment_item/limb/r_leg/digi_prosthetic,
+			/obj/item/bodypart/leg/right/robot/digi = /datum/augment_item/limb/r_leg/digi_cybernetic,
+			/obj/item/bodypart/head/robot/teshari = /datum/augment_item/limb/head/teshari_cyborg,
+			/obj/item/bodypart/chest/robot/teshari = /datum/augment_item/limb/chest/teshari_cyborg,
+			/obj/item/bodypart/arm/left/robot/teshari_surplus = /datum/augment_item/limb/l_arm/teshari_prosthetic,
+			/obj/item/bodypart/arm/left/robot/teshari = /datum/augment_item/limb/l_arm/teshari_cybernetic,
+			/obj/item/bodypart/arm/right/robot/teshari_surplus = /datum/augment_item/limb/r_arm/teshari_prosthetic,
+			/obj/item/bodypart/arm/right/robot/teshari = /datum/augment_item/limb/r_arm/teshari_cybernetic,
+			/obj/item/bodypart/leg/left/robot/teshari_surplus = /datum/augment_item/limb/l_leg/teshari_prosthetic,
+			/obj/item/bodypart/leg/left/robot/teshari = /datum/augment_item/limb/l_leg/teshari_cybernetic,
+			/obj/item/bodypart/leg/right/robot/teshari_surplus = /datum/augment_item/limb/r_leg/teshari_prosthetic,
+			/obj/item/bodypart/leg/right/robot/teshari = /datum/augment_item/limb/r_leg/teshari_cybernetic,
+		)
+	var/list/to_remove
+	for(var/slot, path in augments_prefs)
+		var/new_path = path_to_augment[istext(path) ? text2path(path) : path]
+		if(new_path)
+			augments_prefs[slot] = new_path
+		else
+			LAZYADD(to_remove, slot)
+	for(var/slot in to_remove)
+		augments_prefs -= slot
 
 #undef MODULAR_SAVEFILE_VERSION_MAX
 #undef MODULAR_SAVEFILE_UP_TO_DATE
@@ -422,3 +617,6 @@
 #undef VERSION_EMO_LONG_REMOVAL
 #undef VERSION_TOOLKIT_IMPLANTS
 #undef VERSION_VOCAL_BARKS
+#undef VERSION_FEATHERY_WINGS_FIX
+#undef VERSION_DONK_MIGRATION
+#undef VERSION_AUGMENT_ITEMS_PATH_CHANGE

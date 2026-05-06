@@ -10,7 +10,6 @@
 	throwforce = 15
 	resistance_flags = FIRE_PROOF
 	merge_type = /obj/item/stack/sheet/mineral/stone
-	grind_results = null
 	material_type = /datum/material/stone
 	source = null
 	walltype = /turf/closed/wall/mineral/stone
@@ -37,14 +36,20 @@ GLOBAL_LIST_INIT(stone_recipes, list (
 /datum/material/stone
 	name = "stone"
 	desc = "It's stone."
-	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
+	mat_flags = MATERIAL_CLASS_RIGID | MATERIAL_BASIC_RECIPES
+	mat_properties = list(
+		MATERIAL_DENSITY = 5,
+		MATERIAL_HARDNESS = 5,
+		MATERIAL_FLEXIBILITY = 1,
+		MATERIAL_REFLECTIVITY = 2,
+		MATERIAL_ELECTRICAL = 1,
+		MATERIAL_THERMAL = 8,
+		MATERIAL_CHEMICAL = 4,
+	)
 	sheet_type = /obj/item/stack/sheet/mineral/stone
 	value_per_unit = 0.005
-	beauty_modifier = 0.01
 	color = "#59595a"
 	value_per_unit = 0.0025
-	armor_modifiers = list(MELEE = 0.75, BULLET = 0.5, LASER = 1.25, ENERGY = 0.5, BOMB = 0.5, BIO = 0.25, FIRE = 1.5, ACID = 1.5)
-	beauty_modifier = 0.3
 	turf_sound_override = FOOTSTEP_PLATING
 
 /obj/item/stack/stone
@@ -142,7 +147,7 @@ GLOBAL_LIST_INIT(stone_recipes, list (
 	smoothing_groups = SMOOTH_GROUP_STONE_WALLS + SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
 	canSmoothWith = SMOOTH_GROUP_STONE_WALLS
 
-/turf/closed/mineral/gets_drilled(mob/user, give_exp = FALSE)
+/turf/closed/mineral/gets_drilled(mob/user, exp_multiplier = 0, triggered_by_explosion = FALSE)
 	if(prob(5))
 		new /obj/item/stack/stone(src)
 

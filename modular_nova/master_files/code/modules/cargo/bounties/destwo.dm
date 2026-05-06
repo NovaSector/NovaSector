@@ -36,7 +36,7 @@
 	required_count = 3
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(
-		/obj/item/stack/sticky_tape/pointy/super = TRUE,
+		/obj/item/stack/medical/wrap/sticky_tape/pointy/super = TRUE,
 	)
 
 /datum/bounty/item/ds2/gambling
@@ -162,5 +162,5 @@
 	required_count = 5
 	reward = CARGO_CRATE_VALUE * 5
 	wanted_types = list(
-		/obj/item/computer_disk = TRUE,
+		/obj/item/disk/computer = TRUE,
 	)

@@ -54,15 +54,20 @@
 
 	owner.log_message("triggered their qani-laaca implant in [(injection_amount > 10) ? "overdose" : "normal"] mode", LOG_ATTACK)
 
-	human_owner.reagents.add_reagent(/datum/reagent/drug/twitch, injection_amount)
+	if(human_owner.is_neuroware_compatible())
+		human_owner.reagents.add_reagent(/datum/reagent/drug/twitch/synth, injection_amount)
+		owner.visible_message(span_danger("[owner.name] jolts suddenly as their Qani-Laaca system whirs to life, uploading a program into their computing matrix."), \
+				span_userdanger("You jolt suddenly as your Qani-Laaca system begins uploading a sensory acceleration program into your computing matrix."))
+		playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
+	else
+		human_owner.reagents.add_reagent(/datum/reagent/drug/twitch, injection_amount)
+		owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
+				span_userdanger("You jolt suddenly as your Qani-Laaca system ejects two empty glass vials rearward, shattering as they land."))
+		playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
 
-	owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
-			span_userdanger("You jolt suddenly as your Qani-Laaca system ejects two empty glass vials rearward, shattering as they land."))
-	playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
-
-	var/obj/item/telegraph_vial = new /obj/item/qani_laaca_telegraph(get_turf(owner))
-	var/turf/turf_we_throw_at = get_step(owner, REVERSE_DIR(owner.dir))
-	telegraph_vial.throw_at(turf_we_throw_at, 1, 3, gentle = FALSE, quickstart = TRUE)
+		var/obj/item/telegraph_vial = new /obj/item/qani_laaca_telegraph(get_turf(owner))
+		var/turf/turf_we_throw_at = get_step(owner, REVERSE_DIR(owner.dir))
+		telegraph_vial.throw_at(turf_we_throw_at, 1, 3, gentle = FALSE, quickstart = TRUE)
 
 /obj/item/qani_laaca_telegraph
 	name = "spent Qani-Laaca cartridge"
@@ -96,7 +101,7 @@
 	human_owner.Knockdown(6 SECONDS)
 	human_owner.Stun(4 SECONDS)
 	human_owner.do_jitter_animation(18 SECONDS)
-	human_owner.blood_volume -= 90
+	human_owner.adjust_blood_volume(-90)
 	addtimer(CALLBACK(src, PROC_REF(vomit_blood)), 3 SECONDS)
 
 // Hackerman deck, lets you emag or doorjack things (NO CYBORGS) within a short range of yourself

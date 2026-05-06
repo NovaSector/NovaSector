@@ -26,38 +26,38 @@
 	// Sample of the rock we need to scan
 	var/obj/item/xenoarch/core_sampler/current_sample
 
-/obj/machinery/radiocarbon_spectrometer/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
-		update_appearance()
-		return
-	if(default_pry_open(attacking_item))
-		return
-	if(default_deconstruction_crowbar(attacking_item))
-		return
-	if(istype(attacking_item, /obj/item/xenoarch/core_sampler))
-		var/obj/item/xenoarch/core_sampler/sampler = attacking_item
-		if(!powered())
-			return
-		if(scanning)
-			to_chat(user, span_notice("The machine is currently working."))
-			return
-		if(!sampler.sample)
-			balloon_alert(user, "core sampler is empty!")
-			return
-		if(!user.transferItemToLoc(sampler, src))
-			to_chat(user, span_warning("\The [sampler] is stuck to your hand, you cannot put it in the machine!"))
-			return TRUE
-		current_sample = sampler
-		scanning = TRUE
-		user.visible_message(
-			span_notice("[user] inserts [sampler] into [src]."),
-			span_notice("You insert [sampler] into [src]."),
-			blind_message = span_notice("You hear click nearby."),
-		)
-		process_sample()
-	else
+/obj/machinery/radiocarbon_spectrometer/crowbar_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_crowbar(user, tool)
+
+/obj/machinery/radiocarbon_spectrometer/screwdriver_act(mob/living/user, obj/item/tool)
+	return default_pry_open(user, tool, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE, deconstruct_on_fail = TRUE)
+
+/obj/machinery/radiocarbon_spectrometer/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/xenoarch/core_sampler))
 		balloon_alert(user, "geosamples only!")
-	return ..()
+		return NONE
+
+	var/obj/item/xenoarch/core_sampler/sampler = tool
+	if(!powered())
+		return ITEM_INTERACT_BLOCKING
+	if(scanning)
+		to_chat(user, span_notice("The machine is currently working."))
+		return ITEM_INTERACT_BLOCKING
+	if(!sampler.sample)
+		balloon_alert(user, "core sampler is empty!")
+		return ITEM_INTERACT_BLOCKING
+	if(!user.transferItemToLoc(sampler, src))
+		to_chat(user, span_warning("\The [sampler] is stuck to your hand, you cannot put it in the machine!"))
+		return ITEM_INTERACT_BLOCKING
+	current_sample = sampler
+	scanning = TRUE
+	user.visible_message(
+		span_notice("[user] inserts [sampler] into [src]."),
+		span_notice("You insert [sampler] into [src]."),
+		blind_message = span_notice("You hear click nearby."),
+	)
+	process_sample()
+	return ITEM_INTERACT_SUCCESS
 
 /**
  * Tries to process inserted geosample.
@@ -89,7 +89,7 @@
 		artifact_report.name = "[src] report"
 		artifact_report.add_raw_text(data)
 		artifact_report.update_icon()
-		var/obj/item/stamp/our_stamp = new
+		var/obj/item/stamp/granted/our_stamp = new
 		var/stamp_data = our_stamp.get_writing_implement_details()
 		artifact_report.add_stamp(stamp_data["stamp_class"], rand(0, 300), rand(0, 400), rand(0, 360), stamp_data["stamp_icon_state"])
 		playsound(src, 'sound/machines/printer.ogg', 25, FALSE)

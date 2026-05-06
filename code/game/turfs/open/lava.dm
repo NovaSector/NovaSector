@@ -23,6 +23,7 @@
 	clawfootstep = FOOTSTEP_LAVA
 	heavyfootstep = FOOTSTEP_LAVA
 	rust_resistance = RUST_RESISTANCE_ABSOLUTE
+	turf_flags = NO_RUST
 	/// How much fire damage we deal to living mobs stepping on us
 	var/lava_damage = 20
 	/// How many firestacks we add to living mobs stepping on us
@@ -352,7 +353,7 @@
  */
 /turf/open/lava/proc/drop_contents_into_lava()
 	SIGNAL_HANDLER
-	balloon_alert_to_viewers("[pick("splash","pshhhh","hiss","blorble")]!")
+	balloon_alert_to_hearers("[pick("splash","pshhhh","hiss","blorble")]!")
 	playsound(src, 'sound/items/match_strike.ogg', 15, TRUE)
 	for(var/atom/movable/each_content as anything in contents)
 		on_atom_inited(src, each_content)
@@ -423,6 +424,7 @@
 	if(need_mob_update)
 		burn_living.updatehealth()
 
+/* //NOVA EDIT REMOVAL START - PLASMAMAN TRANSFORMATION - (It's practically a RR most of the time.)
 	if(QDELETED(burn_living) \
 		|| !ishuman(burn_living) \
 		|| HAS_TRAIT(burn_living, TRAIT_NODISMEMBER) \
@@ -436,7 +438,7 @@
 	var/list/immune_parts = list() // Parts we can't transform because they're not organic or can't be dismembered
 	var/list/transform_parts = list() // Parts we want to transform
 
-	for(var/obj/item/bodypart/burn_limb as anything in burn_human.bodyparts)
+	for(var/obj/item/bodypart/burn_limb as anything in burn_human.get_bodyparts())
 		if(!IS_ORGANIC_LIMB(burn_limb) || !burn_limb.can_dismember())
 			immune_parts += burn_limb
 			continue
@@ -476,6 +478,7 @@
 	burn_human.visible_message(span_warning("[burn_human] bursts into flame as the last of [burn_human.p_their()] body is coated in fungus!"), \
 		span_userdanger("Your senses numb as what remains of your flesh sloughs off, revealing the plasma-encrusted bone beneath!"))
 
+*/ // NOVA EDIT REMOVAL END
 //mafia specific tame happy plasma (normal atmos, no slowdown)
 /turf/open/lava/plasma/mafia
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS

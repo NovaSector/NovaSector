@@ -1,19 +1,21 @@
 /datum/disease/tuberculosis
-	form = "Disease"
-	name = "Fungal tuberculosis"
+	form = "Fungus"
+	name = "Fungal Tuberculosis"
 	max_stages = 5
 	spread_text = "Airborne"
-	cure_text = "Spaceacillin & Convermol"
+	cure_text = /datum/reagent/medicine/spaceacillin::name + " & " + /datum/reagent/medicine/c2/convermol::name
 	cures = list(/datum/reagent/medicine/spaceacillin, /datum/reagent/medicine/c2/convermol)
-	agent = "Fungal Tubercle bacillus Cosmosis"
+	agent = "Fungal Tubercle Bacillus Cosmosis"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	cure_chance = 2.5 //like hell are you getting out of hell
-	desc = "A rare highly transmissible virulent virus. Few samples exist, rumoured to be carefully grown and cultured by clandestine bio-weapon specialists. Causes fever, blood vomiting, lung damage, weight loss, and fatigue."
+	desc = "A rare and highly transmissible virulent fungus. \
+		Few samples exist, rumoured to be carefully grown and cultured by clandestine bio-weapon specialists. \
+		Causes fever, blood vomiting, lung damage, weight loss, fatigue, and eventually death."
 	required_organ = ORGAN_SLOT_LUNGS
 	severity = DISEASE_SEVERITY_BIOHAZARD
 	bypasses_immunity = TRUE // TB primarily impacts the lungs; it's also bacterial or fungal in nature; viral immunity should do nothing.
 
-/datum/disease/tuberculosis/stage_act(seconds_per_tick, times_fired) //it begins
+/datum/disease/tuberculosis/stage_act(seconds_per_tick) //it begins
 	. = ..()
 	if(!.)
 		return
@@ -62,7 +64,11 @@
 				affected_mob.overeatduration = max(affected_mob.overeatduration - (200 SECONDS), 0)
 				affected_mob.adjust_nutrition(-100)
 			if(SPT_PROB(7.5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("[pick("You feel uncomfortably hot...", "You feel like unzipping your jumpsuit...", "You feel like taking off some clothes...")]"))
+				if(ishuman(affected_mob))
+					var/mob/living/carbon/human/human_victim = affected_mob
+					to_chat(human_victim, span_danger("[human_victim.w_uniform? pick("You feel uncomfortably hot...", "You feel like unzipping your jumpsuit...", "You feel like taking off some clothes...") : "You feel uncomfortably hot..."]"))
+				else
+					to_chat(affected_mob, span_danger("You feel uncomfortably hot..."))
 				affected_mob.adjust_bodytemperature(40)
 			if(need_mob_update)
 				affected_mob.updatehealth()

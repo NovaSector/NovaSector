@@ -31,7 +31,7 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = TRUE
 	icon_greyscale = BODYPART_ICON_IPC
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -86,7 +86,7 @@
 	is_dimorphic = FALSE
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -181,7 +181,7 @@
 	is_dimorphic = FALSE
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -234,7 +234,7 @@
 	is_dimorphic = FALSE
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -289,7 +289,7 @@
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
 	digitigrade_type = /obj/item/bodypart/leg/left/synth/digitigrade
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -344,7 +344,7 @@
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
 	digitigrade_type = /obj/item/bodypart/leg/right/synth/digitigrade
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -387,9 +387,8 @@
 
 /obj/item/bodypart/leg/left/synth/digitigrade
 	icon_greyscale = BODYPART_ICON_SYNTHLIZARD
-	limb_id = BODYPART_ID_DIGITIGRADE
+	limb_id = "synthliz"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = BODYPART_ID_DIGITIGRADE
 
 /datum/design/synth_l_d_leg
 	name = "Android Digitigrade Left Leg Base"
@@ -408,9 +407,8 @@
 
 /obj/item/bodypart/leg/right/synth/digitigrade
 	icon_greyscale = BODYPART_ICON_SYNTHLIZARD
-	limb_id = BODYPART_ID_DIGITIGRADE
+	limb_id = "synthliz"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = BODYPART_ID_DIGITIGRADE
 
 /datum/design/synth_r_d_leg
 	name = "Android Digitigrade Right Leg Base"

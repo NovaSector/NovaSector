@@ -11,54 +11,49 @@
 	user.log_message("learned the spell bloodcrawl (Mining) ([new_spell])", LOG_ATTACK, color="orange")
 	qdel(src)
 
-/datum/action/cooldown/spell/jaunt/bloodcrawl/mining/can_cast_spell(feedback = TRUE)
-	var/owner_area = get_area(owner)
-	if (!is_type_in_typecache(owner_area, allowed_areas) || is_type_in_typecache(owner_area, disallowed_areas))
-		if(feedback)
-			to_chat(owner, failure_message)
-		return FALSE
-	return ..()
-
 /datum/action/cooldown/spell/jaunt/bloodcrawl/mining
 	name = "Necropolis Blood Crawl"
 	/// Instant was a bit too much.
 	enter_blood_time = 2 SECONDS
-	var/failure_message = "This ability can only be used on planetary areas untainted by civilization!"
 	/// special snowflake jaunt type to eject on mining areas.
 	jaunt_type = /obj/effect/dummy/phased_mob/blood/mining
-	/// Mining areas we got.
-	var/static/list/allowed_areas = typecacheof(list(
-			/area/forestplanet,
-			/area/icemoon,
-			/area/lavaland,
-			/area/ocean/generated,
-			/area/ruin,
-	))
-	var/static/list/disallowed_areas = typecacheof(list(
-			/area/ruin/interdyne_planetary_base,
-			/area/ruin/unpowered/ash_walkers,
-			/area/ruin/unpowered/primitive_catgirl_den,
-	))
+	var/failure_message = "This ability can only be used on planetary areas untainted by civilization!"
 
-/obj/effect/dummy/phased_mob/blood/mining/
-	var/static/list/allowed_areas = typecacheof(list(
-			/area/forestplanet,
-			/area/icemoon,
-			/area/lavaland,
-			/area/ocean/generated,
-			/area/ruin,
-	))
-	var/static/list/disallowed_areas = typecacheof(list(
-			/area/ruin/interdyne_planetary_base,
-			/area/ruin/unpowered/ash_walkers,
-			/area/ruin/unpowered/primitive_catgirl_den,
-	))
+/datum/action/cooldown/spell/jaunt/bloodcrawl/mining/can_cast_spell(feedback = TRUE)
+	var/owner_area = get_area(owner)
+	if(!is_necropolis_bloodcrawl_allowed(owner_area))
+		if(feedback)
+			to_chat(owner, span_warning(failure_message), type = MESSAGE_TYPE_WARNING)
+		return FALSE
+	return ..()
 
-/obj/effect/dummy/phased_mob/blood/mining/relaymove(mob/living/user, direction)
-	var/turf/oldloc = loc
+/obj/effect/dummy/phased_mob/blood/mining
+	/// Small cooldown for the "can't enter that area!" message so it doesn't get spammed 500 times.
+	COOLDOWN_DECLARE(alert_cooldown)
+
+/obj/effect/dummy/phased_mob/blood/mining/phased_check(mob/living/user, direction)
 	. = ..()
-	if(loc != oldloc)
-		var/user_area = get_area(user)
-		if (!is_type_in_typecache(user_area, allowed_areas) || is_type_in_typecache(user_area, disallowed_areas))
-			to_chat(user, "You are forcibly ejected!")
-			eject_jaunter(TRUE)
+	if(!.)
+		return
+	if(!is_necropolis_bloodcrawl_allowed(get_area(.)))
+		if(COOLDOWN_FINISHED(src, alert_cooldown))
+			to_chat(user, span_warning("Something stops you from jaunting into that area!"), type = MESSAGE_TYPE_WARNING)
+			balloon_alert(user, "can't enter that area!")
+			COOLDOWN_START(src, alert_cooldown, 1 SECONDS)
+		return null
+
+/proc/is_necropolis_bloodcrawl_allowed(area)
+	// Lazy initialized typecache, to avoid taking up memory if nobody ever uses necropolis bloodcrawl
+	var/static/list/allowed_areas_typecache
+	if(isnull(allowed_areas_typecache))
+		allowed_areas_typecache = zebra_typecacheof(list(
+			/area/forestplanet = TRUE,
+			/area/icemoon = TRUE,
+			/area/lavaland = TRUE,
+			/area/ocean = TRUE,
+			/area/ruin = TRUE,
+			/area/ruin/interdyne_planetary_base = FALSE,
+			/area/ruin/unpowered/ash_walkers = FALSE,
+			/area/ruin/unpowered/primitive_catgirl_den = FALSE,
+		))
+	return is_type_in_typecache(area, allowed_areas_typecache)

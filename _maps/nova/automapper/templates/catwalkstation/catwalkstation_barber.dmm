@@ -8,72 +8,59 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 8
-	},
 /turf/open/floor/plating,
 /area/station/service/barber)
 "g" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/template_noop,
+/area/template_noop)
+"h" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/camera/autoname/directional/north,
+/obj/structure/table/glass,
+/obj/item/razor{
+	pixel_x = -3
 	},
-/obj/effect/turf_decal/tile/purple,
-/obj/machinery/vending/barbervend,
+/obj/item/dyespray{
+	pixel_x = 5;
+	pixel_y = 6
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "i" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/purple,
-/obj/machinery/light/directional/east,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "j" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
+/obj/structure/window/reinforced/tinted/spawner/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
 	},
-/obj/effect/turf_decal/tile/purple,
-/obj/structure/table/glass,
-/obj/structure/mirror/directional/east,
-/obj/item/hairbrush/comb{
-	pixel_y = 10
-	},
-/obj/item/lipstick/random,
-/turf/open/floor/iron/dark,
+/turf/open/floor/wood/tile,
 /area/station/service/barber)
 "m" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/purple,
-/obj/structure/closet/secure_closet/barber,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "n" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/purple,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "o" = (
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/template_noop,
 /area/template_noop)
 "q" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/turf_decal/tile/purple,
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/light_switch/directional/west,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "r" = (
@@ -86,26 +73,42 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/obj/effect/turf_decal/tile/purple,
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "t" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/public/glass{
-	name = "Barbershop"
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/landmark/navigate_destination,
+/obj/machinery/door/airlock/public/glass{
+	name = "Barber Shop"
+	},
 /turf/open/floor/plating,
 /area/station/service/barber)
+"u" = (
+/obj/structure/table/glass,
+/obj/structure/mirror/directional/east,
+/obj/item/hairbrush/comb{
+	pixel_y = 10
+	},
+/obj/item/lipstick/random,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/turf/open/floor/iron/dark,
+/area/station/service/barber)
+"w" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/spawner/random/structure/crate,
+/turf/open/floor/plating,
+/area/station/maintenance/port/greater)
 "x" = (
 /obj/structure/closet/firecloset,
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -115,16 +118,15 @@
 /obj/effect/landmark/start/hangover,
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/iron,
-/area/station/service/barber)
+/area/station/hallway/primary/port)
 "y" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
+/obj/structure/chair/comfy/barber_chair{
+	dir = 4
 	},
-/obj/effect/turf_decal/tile/purple,
-/obj/structure/table/glass,
-/obj/structure/mirror/directional/east,
-/obj/item/hairbrush,
-/turf/open/floor/iron/dark,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood/tile,
 /area/station/service/barber)
 "C" = (
 /obj/structure/closet/emcloset,
@@ -135,28 +137,29 @@
 /obj/machinery/airalarm/directional/west,
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
-/area/station/service/barber)
+/area/station/hallway/primary/port)
 "D" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
 	},
-/obj/effect/turf_decal/tile/purple,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
-"E" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 1
-	},
-/turf/open/floor/plating,
+"F" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/turf/open/floor/iron/dark,
+/area/station/service/barber)
+"G" = (
+/obj/machinery/light/directional/east,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/vending/barbervend,
+/turf/open/floor/iron/dark,
 /area/station/service/barber)
 "H" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/purple,
-/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "I" = (
@@ -166,14 +169,30 @@
 /turf/template_noop,
 /area/template_noop)
 "J" = (
-/obj/effect/turf_decal/tile/purple{
+/obj/effect/landmark/start/barber,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/iron/dark,
+/area/station/service/barber)
+"K" = (
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
+/obj/machinery/door/airlock/public/glass{
+	name = "Barber Shop"
+	},
+/turf/open/floor/plating,
+/area/station/service/barber)
+"O" = (
+/obj/structure/table/glass,
+/obj/structure/mirror/directional/east,
+/obj/item/hairbrush,
+/obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/purple,
-/obj/structure/chair/comfy/barber_chair{
-	dir = 4
+/obj/item/reagent_containers/spray/barbers_aid{
+	pixel_x = 6
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/wood/tile,
 /area/station/service/barber)
 "P" = (
 /turf/template_noop,
@@ -182,49 +201,55 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/station/service/barber)
-"U" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/purple,
-/obj/machinery/light/directional/west,
+"T" = (
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
-"W" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
+"U" = (
+/obj/effect/spawner/random/vending/snackvend,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 5
 	},
-/obj/effect/turf_decal/tile/purple,
-/obj/effect/landmark/start/barber,
+/obj/effect/turf_decal/trimline/red/corner{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/port)
+"W" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/structure/closet/secure_closet/barber,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "X" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/purple,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/light_switch/directional/west,
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
+"Y" = (
+/obj/structure/chair/comfy/barber_chair{
+	dir = 4
+	},
+/obj/structure/window/reinforced/tinted/spawner/directional/north,
+/obj/machinery/light/floor,
+/turf/open/floor/wood/tile,
+/area/station/service/barber)
 "Z" = (
-/obj/effect/turf_decal/tile/purple,
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
+/obj/effect/turf_decal/tile/purple/opposingcorners,
 /obj/machinery/airalarm/directional/east,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
+/obj/machinery/light/floor,
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 
 (1,1,1) = {"
-a
-a
-a
+P
+w
+P
 a
 c
 a
@@ -234,9 +259,9 @@ P
 "}
 (2,1,1) = {"
 a
-g
-U
-n
+a
+a
+a
 s
 q
 t
@@ -244,26 +269,26 @@ I
 o
 "}
 (3,1,1) = {"
-a
+W
 m
 X
-W
-D
+F
+T
 Z
 S
 r
-P
+g
 "}
 (4,1,1) = {"
-E
-D
+a
+h
 D
 J
-J
+n
 a
 a
 P
-P
+g
 "}
 (5,1,1) = {"
 a
@@ -274,16 +299,27 @@ j
 a
 C
 P
-P
+g
 "}
 (6,1,1) = {"
-a
-a
-a
-a
-a
+K
+i
+G
+O
+Y
 a
 x
+P
+g
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+u
+a
+U
 P
 P
 "}

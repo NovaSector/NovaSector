@@ -47,6 +47,7 @@
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	loot = list(/obj/structure/closet/crate/necropolis/gladiator, /obj/structure/dead_gladiator)
 	crusher_loot = list(/obj/structure/closet/crate/necropolis/gladiator/crusher, /obj/structure/dead_gladiator)
+	replace_crusher_drop = TRUE
 	/// Boss phase, from 1 to 3
 	var/phase = MARKED_ONE_FIRST_PHASE
 	/// People we have introduced ourselves to - WEAKREF list
@@ -71,8 +72,7 @@
 	var/next_intro_scan = 0
 	/// Used for avoiding chasms
 	var/static/list/chasm_avoid_offsets
-	replace_crusher_drop = TRUE // prevents people from butchering him for duping chests
-	del_on_death = TRUE
+	del_on_death = TRUE // prevents people from butchering him for duping chests
 
 /mob/living/simple_animal/hostile/megafauna/gladiator/Initialize(mapload)
 	. = ..()
@@ -82,7 +82,7 @@
 	get_calm()
 	return ..()
 
-/mob/living/simple_animal/hostile/megafauna/gladiator/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/hostile/megafauna/gladiator/Life(seconds_per_tick = SSMOBS_DT)
 	. = ..()
 	if(stat >= DEAD)
 		return
@@ -224,22 +224,22 @@
 		// The gladiator hates non-humans, he especially hates ash walkers.
 		if(targetspecies.id == SPECIES_HUMAN)
 			var/static/list/human_messages = list(
-									"Is this all that is left?",
-									"Show the necropolis it was wrong to choose me.",
-									"Ironic that I become what I once fought like you.",
-									"Sometimes, the abyss gazes back.",
-									"Show me a good time, miner!",
-									"I'll give you the first hit.",
-								)
+				"Is this all that is left?",
+				"Show the necropolis it was wrong to choose me.",
+				"Ironic that I become what I once fought like you.",
+				"Sometimes, the abyss gazes back.",
+				"Show me a good time, miner!",
+				"I'll give you the first hit.",
+			)
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(human_messages))
 			introduced[mob_ref] = TRUE
 		else if(targetspecies.id == SPECIES_LIZARD_ASH)
 			var/static/list/ashie_messages = list(
-									"Foolishness, ash walker!",
-									"I've had enough of you for a lifetime!",
-									"I don't need a crusher to KICK YOUR ASS!",
-									"GET OVER HERE!!",
-								)
+				"Foolishness, ash walker!",
+				"I've had enough of you for a lifetime!",
+				"I don't need a crusher to KICK YOUR ASS!",
+				"GET OVER HERE!!",
+			)
 
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(ashie_messages), language = /datum/language/ashtongue)
 			introduced[mob_ref] = TRUE
@@ -247,12 +247,12 @@
 			GiveTarget(target)
 		else
 			var/static/list/other_humanoid_messages = list(
-									"I will smite you!",
-									"I will show you true power!",
-									"Let us see how worthy you are!",
-									"You will make a fine rug!",
-									"For the necropolis!"
-									)
+				"I will smite you!",
+				"I will show you true power!",
+				"Let us see how worthy you are!",
+				"You will make a fine rug!",
+				"For the necropolis!",
+			)
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(other_humanoid_messages))
 			introduced[mob_ref] = TRUE
 			get_angry()
@@ -312,16 +312,16 @@
 	if(!istype(our_turf))
 		return
 	var/static/list/spin_messages = list(
-							"Duck!",
-							"I'll break your legs!",
-							"Plain, dead, simple!",
-							"SWING AND A MISS!",
-							"Only one of us makes it outta here!",
-							"JUMP-ROPE!!",
-							"Slice and dice, right?!",
-							"Come on, HIT ME!",
-							"CLANG!!",
-						)
+		"Duck!",
+		"I'll break your legs!",
+		"Plain, dead, simple!",
+		"SWING AND A MISS!",
+		"Only one of us makes it outta here!",
+		"JUMP-ROPE!!",
+		"Slice and dice, right?!",
+		"Come on, HIT ME!",
+		"CLANG!!",
+	)
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(spin_messages))
 	spinning = TRUE
 	animate(src, color = "#ff6666", 1 SECONDS)
@@ -342,7 +342,7 @@
 		var/obj/effect/temp_visual/small_smoke/smonk = new /obj/effect/temp_visual/small_smoke(targeted)
 		QDEL_IN(smonk, 0.5 SECONDS)
 		for(var/mob/living/slapped in targeted)
-			if(!faction_check(faction, slapped.faction) && !(slapped in hit_things))
+			if(!FAST_FACTION_CHECK(faction, slapped.faction, null, null, FALSE) && !(slapped in hit_things))
 				playsound(src, 'modular_nova/modules/gladiator/Clang_cut.ogg', 75, 0)
 				if(slapped.apply_damage(40, BRUTE, BODY_ZONE_CHEST, slapped.run_armor_check(BODY_ZONE_CHEST), wound_bonus = CANT_WOUND))
 					visible_message(span_danger("[src] slashes through [slapped] with his spinning blade!"))
@@ -361,14 +361,14 @@
 /mob/living/simple_animal/hostile/megafauna/gladiator/proc/charge(atom/target, range = 1)
 	face_atom(target)
 	var/static/list/charge_messages = list(
-							"Heads up!",
-							"Coming through!",
-							"This ends only one way!",
-							"Hold still!",
-							"GET OVER HERE!",
-							"Looking for this?!",
-							"COME ON!!",
-						)
+		"Heads up!",
+		"Coming through!",
+		"This ends only one way!",
+		"Hold still!",
+		"GET OVER HERE!",
+		"Looking for this?!",
+		"COME ON!!",
+	)
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, say), message = pick(charge_messages))
 	animate(src, color = "#ff6666", 0.3 SECONDS)
 	SLEEP_CHECK_DEATH(4, src)
@@ -388,7 +388,7 @@
 	animate(src, color = initial(color), 0.5 SECONDS)
 	move_to_delay += CHARGE_MODIFIER
 	update_phase()
-	sleep(CEILING(MARKED_ONE_STUN_DURATION * modifier, 1))
+	sleep(ceil(MARKED_ONE_STUN_DURATION * modifier))
 	stunned = FALSE
 
 /// Teleport makes him teleport. woah.

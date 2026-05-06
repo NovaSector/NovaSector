@@ -33,7 +33,6 @@
 	desc = "A sharp, one-handed sword most adept at blocking opposing melee strikes."
 	force = 20
 	armour_penetration = 20
-	demolition_mod = 1.2
 	icon_state = "sword"
 	inhand_icon_state = "sword"
 	worn_icon_state = "sword_back"
@@ -111,6 +110,11 @@
 	attack_verb_continuous = list("bonks", "bashes", "whacks", "pokes", "prods")
 	attack_verb_simple = list("bonk", "bash", "whack", "poke", "prod")
 
+
+/obj/item/forging/reagent_weapon/staff/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/jousting)
+
 /obj/item/forging/reagent_weapon/spear
 	name = "forged spear"
 	desc = "A long spear that can be wielded in two hands to boost damage at the cost of single-handed versatility."
@@ -136,13 +140,13 @@
 /obj/item/forging/reagent_weapon/spear/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded = 13, force_wielded = 23)
+	AddComponent(/datum/component/jousting)
 
 /obj/item/forging/reagent_weapon/axe
 	name = "forged axe"
 	desc = "An axe especially balanced for throwing. Nonetheless useful as a traditional melee tool."
 	force = 15
 	armour_penetration = 10
-	demolition_mod = 1.2
 	icon_state = "axe"
 	inhand_icon_state = "axe"
 	worn_icon_state = "axe_back"
@@ -165,7 +169,6 @@
 	desc = "A heavy, weighted hammer that packs an incredible punch but can prove to be unwieldy. Useful for forging!"
 	force = 10
 	armour_penetration = 10
-	demolition_mod = 2
 	icon_state = "crush_hammer"
 	inhand_icon_state = "crush_hammer"
 	worn_icon_state = "hammer_back"
@@ -347,6 +350,7 @@
 		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
 		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
 	)
+	AddComponent(/datum/component/jousting)
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_wield()
 	wielded = TRUE

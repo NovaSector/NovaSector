@@ -14,7 +14,7 @@ import type {
   FeatureValueProps,
 } from './base';
 
-type DropdownInputProps = FeatureValueProps<
+export type DropdownInputProps = FeatureValueProps<
   string,
   string,
   FeatureChoicedServerData
@@ -34,38 +34,42 @@ export type FeatureWithIcons<T> = Feature<string, T, FeatureChoicedServerData>;
 
 type DropdownOptions = ComponentProps<typeof Dropdown>['options'];
 
-export function FeatureDropdownInput(props: DropdownInputProps) {
-  const { serverData, disabled, buttons, handleSetValue, value } = props;
+type DropdownEntry = {
+  displayText: ReactNode;
+  value: string | number;
+};
 
-  const [dropdownOptions, setDropdownOptions] = useState<DropdownOptions>([]);
+export function generateOptions(
+  serverData: FeatureChoicedServerData,
+): DropdownEntry[] {
+  const { choices = [] } = serverData;
 
-  function populateOptions() {
-    if (!serverData) return;
+  const newOptions: DropdownEntry[] = [];
 
-    const { choices = [] } = serverData;
+  for (const choice of choices) {
+    const displayText: ReactNode = serverData.display_names
+      ? serverData.display_names[choice]
+      : capitalizeFirst(choice);
 
-    const newOptions: DropdownOptions = [];
-
-    for (const choice of choices) {
-      const displayText: ReactNode = serverData.display_names
-        ? serverData.display_names[choice]
-        : capitalizeFirst(choice);
-
-      newOptions.push({
-        displayText,
-        value: choice,
-      });
-    }
-
-    setDropdownOptions(newOptions);
+    newOptions.push({
+      displayText,
+      value: choice,
+    });
   }
 
-  useEffect(() => {
-    if (serverData) {
-      populateOptions();
-    }
-  }, [serverData]);
+  return newOptions;
+}
 
+export function FeatureDropdownInput(props: DropdownInputProps) {
+  return FeatureDropdownInputCore(props, generateOptions);
+}
+
+export function FeatureDropdownInputCore(
+  props: DropdownInputProps,
+  populateOptions: (serverData: FeatureChoicedServerData) => DropdownOptions,
+) {
+  const { serverData, disabled, buttons, handleSetValue, value } = props;
+  const dropdownOptions = serverData ? populateOptions(serverData) : [];
   const displayText = serverData?.display_names?.[value] || String(value);
 
   return (
@@ -136,6 +140,7 @@ export function FeatureIconnedDropdownInput(props: IconnedDropdownInputProps) {
       options={dropdownOptions}
       selected={value}
       width="100%"
+      menuWidth="max-content"
     />
   );
 }

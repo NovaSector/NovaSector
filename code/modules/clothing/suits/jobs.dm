@@ -49,6 +49,7 @@
 	post_init_icon_state = "overalls"
 	inhand_icon_state = ""
 	body_parts_covered = CHEST|GROIN|LEGS
+	gender = PLURAL
 	species_exception = list(/datum/species/golem)
 	greyscale_config = /datum/greyscale_config/overalls
 	greyscale_config_worn = /datum/greyscale_config/overalls/worn
@@ -57,7 +58,7 @@
 
 /obj/item/clothing/suit/apron/overalls/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -4)
+	AddElement(/datum/element/adjust_fishing_difficulty, -4)
 
 //Captain
 /obj/item/clothing/suit/jacket/capjacket
@@ -363,7 +364,7 @@
 
 /obj/item/clothing/suit/apron/surgical/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -3) // FISH DOCTOR?!
+	AddElement(/datum/element/adjust_fishing_difficulty, -3) // FISH DOCTOR?!
 
 //Curator
 /obj/item/clothing/suit/jacket/curator

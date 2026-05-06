@@ -214,8 +214,8 @@
 	pixel_x = base_pixel_x + rand(-4, 4)
 	pixel_y = base_pixel_y + rand(-4, 4)
 
-/obj/item/food/grown/ash_flora/shavings //So we can't craft bowls from everything.
-	grind_results = list(/datum/reagent/toxin/mushroom_powder = 5)
+/obj/item/food/grown/ash_flora/shavings/grind_results()
+	return list(/datum/reagent/toxin/mushroom_powder = 5)
 
 /obj/item/food/grown/ash_flora/mushroom_leaf
 	name = "mushroom leaf"
@@ -414,12 +414,9 @@
 	name = "mushroom bowl"
 	desc = "A bowl made out of mushrooms. Not food, though it might have contained some at some point."
 	icon = 'icons/obj/mining_zones/ash_flora.dmi'
+	base_icon_state = "mushroom_bowl"
 	icon_state = "mushroom_bowl"
 	fill_icon_state = "fullbowl"
 	fill_icon = 'icons/obj/mining_zones/ash_flora.dmi'
 	custom_materials = null
 
-/obj/item/reagent_containers/cup/bowl/mushroom_bowl/update_icon_state()
-	if(!reagents.total_volume)
-		icon_state = "mushroom_bowl"
-	return ..()

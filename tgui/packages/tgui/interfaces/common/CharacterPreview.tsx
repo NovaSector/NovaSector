@@ -6,7 +6,7 @@ export const CharacterPreview = (props: {
   id: string;
 }) => {
   // NOVA EDIT
-  const { width = '220px' } = props;
+  const { width = '272px' } = props;
   // NOVA EDIT END
   return (
     <ByondUi

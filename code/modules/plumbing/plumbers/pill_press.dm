@@ -1,7 +1,5 @@
 ///the minimum size of a pill or patch
 #define MIN_VOLUME 5
-///max amount of pills allowed on our tile before we start storing them instead
-#define MAX_FLOOR_PRODUCTS 10
 
 ///We take a constant input of reagents, and produce a pill once a set volume is reached
 /obj/machinery/plumbing/pill_press
@@ -23,14 +21,9 @@
 	var/obj/item/reagent_containers/packaging_type
 	///Category of packaging
 	var/packaging_category
-	/// list of products stored in the machine, so we dont have 610 pills on one tile
-	var/list/stored_products = list()
-	// NOVA EDIT ADDITION START
-	/// Increases the standard plumbing machine buffer to account for the increased max volume
-	buffer = 100
-	// NOVA EDIT ADDITION END
+	buffer = 100 // NOVA EDIT ADDITION - Increases the standard plumbing machine buffer to account for the increased max volume
 
-/obj/machinery/plumbing/pill_press/Initialize(mapload, bolt, layer)
+/obj/machinery/plumbing/pill_press/Initialize(mapload, layer)
 	. = ..()
 
 	if(!packaging_types)
@@ -41,7 +34,7 @@
 			CAT_PATCHES = GLOB.reagent_containers[CAT_PATCHES],
 			"Bottles" = list(/obj/item/reagent_containers/cup/bottle),
 			CAT_HYPOS = GLOB.reagent_containers[CAT_HYPOS], // NOVA EDIT ADDITION - Hypovials
-
+			CAT_PEN_INJECTORS = GLOB.reagent_containers[CAT_PEN_INJECTORS], // NOVA EDIT ADDITION - pen_medipens
 		)
 
 		packaging_types = list()
@@ -63,54 +56,31 @@
 	max_volume = initial(packaging_type.volume)
 	current_volume = clamp(current_volume, MIN_VOLUME, max_volume)
 
-	AddComponent(/datum/component/plumbing/simple_demand, bolt, layer)
-
-/obj/machinery/plumbing/pill_press/Destroy(force)
-	QDEL_LAZYLIST(stored_products)
-	return ..()
-
-/obj/machinery/plumbing/pill_press/examine(mob/user)
-	. = ..()
-	. += span_notice("\The [src] currently has [stored_products.len] stored. There needs to be less than [MAX_FLOOR_PRODUCTS] on the floor to continue dispensing.")
+	AddComponent(/datum/component/plumbing/pill_press, layer)
 
 /obj/machinery/plumbing/pill_press/process(seconds_per_tick)
-	if(!is_operational)
+	if(!is_operational || reagents.total_volume < current_volume)
 		return
 
-	//shift & check to account for floating point inaccuracies
-	if(reagents.total_volume >= current_volume)
-		var/obj/item/reagent_containers/container = new packaging_type(src)
-
-		var/suffix
-		switch(packaging_category)
-			if(CAT_PILLS)
-				suffix = "pill"
-			if(CAT_PATCHES)
-				suffix = "patch"
-			//NOVA EDIT ADDITION BEGIN - HYPOVIALS
-			if (CAT_HYPOS)
-				suffix = "vial"
-			//NOVA EDIT ADDITION END - HYPOVIALS
-			else
-				suffix = "bottle"
-		container.name = "[product_name] [suffix]"
-		reagents.trans_to(container, current_volume)
-		if (istype(container, /obj/item/reagent_containers/applicator/pill))
-			var/obj/item/reagent_containers/applicator/pill/pill = container
-			pill.layers_remaining = pill_duration
-		stored_products += container
-
-	//dispense stored products on the floor
-	if(stored_products.len)
-		var/pill_amount = 0
-		for(var/obj/item/reagent_containers/thing in loc)
-			pill_amount++
-			if(pill_amount >= MAX_FLOOR_PRODUCTS) //too much so just stop
-				break
-		if(pill_amount < MAX_FLOOR_PRODUCTS && anchored)
-			var/atom/movable/AM = stored_products[1] //AM because forceMove is all we need
-			stored_products -= AM
-			AM.forceMove(drop_location())
+	var/obj/item/reagent_containers/container = new packaging_type(src)
+	var/suffix
+	switch(packaging_category)
+		if(CAT_PILLS)
+			suffix = "pill"
+		if(CAT_PATCHES)
+			suffix = "patch"
+		//NOVA EDIT ADDITION BEGIN - HYPOVIALS
+		if (CAT_HYPOS)
+			suffix = "vial"
+		//NOVA EDIT ADDITION END - HYPOVIALS
+		else
+			suffix = "bottle"
+	container.name = "[product_name] [suffix]"
+	reagents.trans_to(container, current_volume)
+	if (istype(container, /obj/item/reagent_containers/applicator/pill))
+		var/obj/item/reagent_containers/applicator/pill/pill = container
+		pill.layers_remaining = pill_duration
+	container.forceMove(drop_location())
 
 	use_energy(active_power_usage * seconds_per_tick)
 
@@ -210,6 +180,8 @@
 			// NOVA EDIT ADDITION START
 			else if(ispath(packaging_type, /obj/item/reagent_containers/cup/vial))
 				packaging_category = CAT_HYPOS
+			else if(ispath(packaging_type, /obj/item/reagent_containers/hypospray/medipen/deforest/printable))
+				packaging_category = CAT_PEN_INJECTORS
 			// NOVA EDIT ADDITION END
 			else
 				packaging_category = "Bottles"
@@ -220,4 +192,3 @@
 			return TRUE
 
 #undef MIN_VOLUME
-#undef MAX_FLOOR_PRODUCTS

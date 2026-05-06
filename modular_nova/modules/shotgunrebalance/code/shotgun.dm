@@ -41,7 +41,7 @@
 	// adjustment: -5 damage (still +10 from base slugs), +0.25 speed (tiles/sec?), +10 wound bonus, -10 exposed wound bonus (still 15 total wound bonus)
 	// frankly I think leaving it at 50 would be fine because crewside milspecs should be dead with the same PR this comment is in
 	// *shrug
-	damage = 45
+	damage = 50
 	armour_penetration = 30
 	speed = 1.5
 	wound_bonus = 10
@@ -114,7 +114,7 @@
 	can_be_printed = FALSE // it's just not good
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
-	damage = 5
+	damage = 6
 	wound_bonus = 5
 	exposed_wound_bonus = 10
 
@@ -126,7 +126,7 @@
 	custom_materials = AMMO_MATS_AP
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
-	damage = 6 // 6 * 8 = 48
+	damage = 7 // 7 * 8 = 56
 	damage_falloff_tile = -0.1
 	wound_falloff_tile = -0.25
 	speed = 1.5
@@ -170,7 +170,7 @@
 	// adjustments: +2.5 damage per pellet (4*8=32 pb damage), damage falloff taken to -0.1, exposed wound buffed +5 to 10
 	// pellets, but specialized for AP/embeds. not as good for raw damage but more for making people regret running
 	name = "shredder flechette"
-	damage = 4
+	damage = 5
 	damage_falloff_tile = -0.1
 	speed = 1.35 // you can have above average projectile speed. as a treat
 	wound_bonus = 5
@@ -226,7 +226,7 @@
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	name = "magnum blockshot"
-	damage = 10
+	damage = 13
 	exposed_wound_bonus = 5
 	wound_bonus = 5
 	armour_penetration = 5
@@ -270,7 +270,7 @@
 	name = "ripper flechette"
 	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "flechette"
-	damage = 6
+	damage = 7
 	wound_bonus = 0
 	exposed_wound_bonus = 15
 	sharpness = SHARP_EDGED //Did you knew flechettes fly sideways into people
@@ -296,7 +296,7 @@
 	name = "hornet flechette"
 	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "hornet"
-	damage = 4
+	damage = 5
 	stamina = 15
 	damage_falloff_tile = -0.1
 	stamina_falloff_tile = -0.1
@@ -323,6 +323,32 @@
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
 	ammo_categories = AMMO_CLASS_NICHE_LTL
 
+/obj/item/ammo_casing/shotgun/frangible
+	name = "frangible slug"
+	desc = "A weak anti material shell intended for dislodging airlock, breaking down barricades and structures. Not effective against people."
+	icon_state = "breacher"
+	projectile_type = /obj/projectile/bullet/frangible_slug
+
+/obj/projectile/bullet/frangible_slug
+	name = "frangible slug"
+	damage = 15 //I'd kill you if you manage to kill someone with this shit
+	wound_bonus = 30
+	exposed_wound_bonus = 30
+	demolition_mod = 2
+
+/obj/projectile/bullet/frangible_slug/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+
+	var/static/list/valid_targets_typecache = typecacheof(list(
+		/obj/structure/window,
+		/obj/machinery/door/airlock,
+		/obj/structure/grille,
+		/obj/structure/door_assembly,
+		/obj/machinery/door/window
+	))
+	if(is_type_in_typecache(target, valid_targets_typecache))
+		demolition_mod = 50
+
 /obj/item/ammo_casing/shotgun/hunter
 	name = "hunter slug shell"
 	desc = "A 12 gauge slug shell that fires specially designed slugs that deal extra damage to local fauna."
@@ -341,7 +367,7 @@
 /obj/projectile/bullet/shotgun_slug/hunter/on_hit(atom/target, blocked, pierce_hit)
 	if(ismineralturf(target))
 		var/turf/closed/mineral/mineral_turf = target
-		mineral_turf.gets_drilled(firer, FALSE)
+		mineral_turf.gets_drilled(firer)
 		if(range > 0)
 			return BULLET_ACT_FORCE_PIERCE
 		return ..()
@@ -351,10 +377,6 @@
 	if(target_mob.mob_biotypes & biotype_we_look_for || istype(target_mob, /mob/living/simple_animal/hostile/megafauna))
 		damage *= biotype_damage_multiplier
 	return ..()
-
-/obj/projectile/bullet/shotgun_slug/hunter/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = 5)
 
 /obj/item/ammo_casing/shotgun/honkshot
 	name = "confetti shell"

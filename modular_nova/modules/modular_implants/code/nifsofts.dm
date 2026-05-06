@@ -80,7 +80,7 @@
 
 	var/obj/item/organ/cyberimp/brain/nif/installed_nif = parent_nif?.resolve()
 	if(installed_nif)
-		installed_nif.loaded_nifsofts.Remove(src)
+		LAZYREMOVE(installed_nif.loaded_nifsofts, src)
 
 	return ..()
 
@@ -167,6 +167,7 @@
 	desc = "A stylised nanite-infused 'magnetic' tape is perpetually spinning inside. It can be used to upload a loaded NIFSoft to the user's NIF."
 	icon = 'modular_nova/modules/modular_implants/icons/obj/disks.dmi'
 	icon_state = "base_disk"
+	sticker_icon_state = null
 	///What NIFSoft is currently loaded in?
 	var/datum/nifsoft/loaded_nifsoft = /datum/nifsoft
 	///Is the datadisk reusable?
@@ -180,13 +181,16 @@
 
 	name = "[initial(loaded_nifsoft.name)] datadisk"
 
+/obj/item/disk/nifsoft_uploader/setup_reskins()
+	return
+
 /obj/item/disk/nifsoft_uploader/examine(mob/user)
 	. = ..()
 
 	var/nifsoft_desc = initial(loaded_nifsoft.program_desc)
 
 	if(nifsoft_desc)
-		. += span_cyan("Program description: [nifsoft_desc]")
+		. += span_cyan_nova("Program description: [nifsoft_desc]")
 
 
 /// Attempts to install the NIFSoft on the disk to the target

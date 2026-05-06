@@ -47,6 +47,11 @@
 /obj/structure/sign/poster/random/directional/south,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
+"by" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/mecha_ammo/cannon,
+/turf/open/floor/iron/dark,
+/area/virtual_domain/ancient_milsim/carrier)
 "bB" = (
 /obj/structure/inflatable{
 	color = "#556B2F";
@@ -142,7 +147,7 @@
 /area/virtual_domain)
 "et" = (
 /obj/structure/chair/stool/bar/directional/south,
-/obj/effect/mob_spawn/ghost_role/human/ancient_milsim,
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim,
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "eC" = (
@@ -158,7 +163,7 @@
 /turf/closed/wall/r_wall,
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "eJ" = (
-/obj/effect/mob_spawn/ghost_role/human/ancient_milsim,
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "eQ" = (
@@ -195,7 +200,7 @@
 /turf/closed/indestructible/reinforced,
 /area/virtual_domain/ancient_milsim/snpc_reward)
 "gb" = (
-/obj/item/keycard/yellow,
+/obj/item/keycard/milsim_reward_room,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "go" = (
@@ -530,7 +535,6 @@
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/maintenance)
 "ol" = (
-/obj/item/ammo_box/magazine/mmg_box,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "or" = (
@@ -673,7 +677,7 @@
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "sa" = (
-/obj/machinery/door/puzzle/keycard/blue_required,
+/obj/machinery/door/puzzle/keycard/milsim_exit_tunnel,
 /turf/open/floor/iron/smooth_large,
 /area/virtual_domain/ancient_milsim/snpc_exit)
 "ss" = (
@@ -998,7 +1002,7 @@
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "zp" = (
-/obj/machinery/door/puzzle/keycard/yellow_required,
+/obj/machinery/door/puzzle/keycard/milsim_reward_room,
 /turf/open/floor/iron/smooth_large,
 /area/virtual_domain/ancient_milsim/snpc_reward)
 "zx" = (
@@ -1193,7 +1197,6 @@
 /area/virtual_domain/ancient_milsim/atrium)
 "DS" = (
 /obj/effect/mapping_helpers/broken_floor,
-/obj/item/ammo_box/magazine/mmg_box,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "DT" = (
@@ -1230,7 +1233,7 @@
 	},
 /area/virtual_domain/ancient_milsim/atrium)
 "El" = (
-/obj/item/keycard/yellow,
+/obj/item/keycard/milsim_reward_room,
 /turf/open/floor/iron/smooth,
 /area/virtual_domain/ancient_milsim/atrium)
 "Ey" = (
@@ -1244,7 +1247,7 @@
 /area/virtual_domain/ancient_milsim/carrier)
 "ED" = (
 /obj/structure/closet/crate/secure,
-/obj/item/keycard/blue,
+/obj/item/keycard/milsim_exit_tunnel,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/snpc_cave)
 "EE" = (
@@ -1287,7 +1290,7 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/obj/effect/mob_spawn/ghost_role/human/ancient_milsim,
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "Fr" = (
@@ -1398,7 +1401,7 @@
 "Ib" = (
 /obj/structure/toilet,
 /obj/machinery/light/small/dim/directional/north,
-/obj/effect/mob_spawn/ghost_role/human/ancient_milsim,
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_toilet)
 "Ir" = (
@@ -1555,7 +1558,7 @@
 /turf/open/misc/dirt/planet,
 /area/virtual_domain/ancient_milsim/snpc_cave)
 "MQ" = (
-/obj/item/keycard/yellow,
+/obj/item/keycard/milsim_reward_room,
 /obj/effect/landmark/bitrunning/mob_segment,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/janitor)
@@ -1665,7 +1668,7 @@
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
 "PE" = (
-/obj/machinery/door/puzzle/keycard/yellow_required,
+/obj/machinery/door/puzzle/keycard/milsim_reward_room,
 /turf/open/floor/iron/smooth_large,
 /area/virtual_domain/ancient_milsim/snpc_exit)
 "PM" = (
@@ -1783,7 +1786,7 @@
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "RP" = (
 /obj/effect/mapping_helpers/broken_floor,
-/obj/item/mounted_machine_gun_folded,
+/obj/vehicle/sealed/mecha/warden/loaded,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "RU" = (
@@ -1933,7 +1936,7 @@
 /obj/machinery/dryer{
 	pixel_y = -26
 	},
-/obj/item/keycard/blue,
+/obj/item/keycard/milsim_exit_tunnel,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_toilet)
 "VO" = (
@@ -2542,7 +2545,7 @@ Cd
 Cd
 Eh
 Rl
-DS
+by
 DS
 EB
 RP

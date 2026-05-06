@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(title)
 	name = "Title Screen"
-	flags = SS_NO_FIRE
+	ss_flags = SS_NO_FIRE
 	init_stage = INITSTAGE_FIRST
 
 	var/file_path
@@ -64,6 +64,16 @@ SUBSYSTEM_DEF(title)
 			title_screens += title2use
 
 	return SS_INIT_SUCCESS
+
+/**
+ * Returns the number of remaining latejoin antagonist slots if we are past roundstart,
+ * otherwise returns "PRE-ROUND".
+ */
+/datum/controller/subsystem/title/proc/get_latejoin_queue_count()
+	if (SSticker.current_state < GAME_STATE_PLAYING)
+		return "PRE-ROUND"
+
+	return max(SSdynamic.rulesets_to_spawn[LATEJOIN], 0)
 
 /**
  * Make sure reference time is set up. If not, this is now time 0.

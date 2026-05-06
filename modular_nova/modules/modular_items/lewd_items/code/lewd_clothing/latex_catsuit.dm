@@ -14,7 +14,7 @@
 	equip_sound = 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg'
 	can_adjust = FALSE
 	strip_delay = 10
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 //this fragment of code makes unequipping not instant
 /obj/item/clothing/under/misc/latex_catsuit/attack_hand(mob/user)
