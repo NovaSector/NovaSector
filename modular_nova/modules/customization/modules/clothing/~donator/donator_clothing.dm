@@ -672,9 +672,9 @@
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	icon_state = "avipilotup"
 	inhand_icon_state = "rus_ushanka"
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEHAIR
 	cold_protection = HEAD
-	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT //about as warm as an ushanka
+	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT //about as warm as a ushanka
 	actions_types = list(/datum/action/item_action/adjust)
 	supports_variations_flags = NONE
 	var/goggles = FALSE
