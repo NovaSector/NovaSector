@@ -1,5 +1,5 @@
 {
-	"sec_winter_coat": [
+	"depgag_winter_coat": [
 		{
 			"type": "icon_state",
 			"icon_state": "winter_coat_body",
@@ -14,7 +14,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_winter_coat_vest",
+			"icon_state": "depgag_winter_coat_vest",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		},
@@ -25,7 +25,7 @@
 			"color_ids": [4]
 		}
 	],
-	"sec_winter_coat_t": [
+	"depgag_winter_coat_t": [
 		{
 			"type": "icon_state",
 			"icon_state": "winter_coat_body_t",
@@ -40,7 +40,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_winter_coat_vest_t",
+			"icon_state": "depgag_winter_coat_vest_t",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		},

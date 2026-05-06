@@ -5,9 +5,9 @@
 	clothing_traits = list(TRAIT_FAST_CUFFING)
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/gloves/color/black/security"
-	post_init_icon_state = "secgloves"
-	greyscale_config = /datum/greyscale_config/secgloves
-	greyscale_config_worn = /datum/greyscale_config/secgloves/worn
+	post_init_icon_state = "depgag_gloves"
+	greyscale_config = /datum/greyscale_config/depgag_gloves
+	greyscale_config_worn = /datum/greyscale_config/depgag_gloves/worn
 	greyscale_colors = "#2F2E31#A52F29"
 	flags_1 = NONE
 

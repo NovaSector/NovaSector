@@ -45,7 +45,7 @@
 				/obj/item/clothing/under/rank/security/officer/skirt = 4,
 				/obj/item/clothing/under/rank/security/nova/dress = 4,
 				/obj/item/clothing/under/rank/security/officer/skirt = 4,
-				/obj/item/clothing/suit/hooded/wintercoat/security/nova/bomber = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber = 4,
 				/obj/item/clothing/under/rank/security/nova/dress = 4,
 //				/obj/item/clothing/under/rank/security/nova/skirt/mini = 4,
 				/obj/item/clothing/under/rank/security/nova/turtleneck = 4,

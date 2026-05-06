@@ -43,9 +43,9 @@
 	name = "security cap"
 	desc = "A robust cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon_state = "/obj/item/clothing/head/security_cap"
-	post_init_icon_state = "security_cap"
-	greyscale_config = /datum/greyscale_config/security_cap
-	greyscale_config_worn = /datum/greyscale_config/security_cap/worn
+	post_init_icon_state = "depgag_cap"
+	greyscale_config = /datum/greyscale_config/depgag_cap
+	greyscale_config_worn = /datum/greyscale_config/depgag_cap/worn
 	greyscale_colors = "#A52F29#EBEBEB#A52F29"
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
