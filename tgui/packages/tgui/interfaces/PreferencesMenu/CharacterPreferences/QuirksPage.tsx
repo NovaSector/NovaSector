@@ -378,7 +378,11 @@ function QuirkPage() {
       }
     }
     // NOVA EDIT START - Nova star quirks
-    if (data.nova_star_restrictions && quirk.nova_stars_only && !data.is_nova_star) {
+    if (
+      data.nova_star_restrictions &&
+      quirk.nova_stars_only &&
+      !data.is_nova_star
+    ) {
       return 'You need to be a Nova star to select this quirk, apply today!';
     }
     // NOVA EDIT END
@@ -489,7 +493,7 @@ function QuirkPage() {
       </Stack.Item>
 
       <Stack.Item align="center">
-        { /* <Icon name="exchange-alt" size={1.5} ml={2} mr={2} /> // NOVA EDIT REMOVAL - moved down */ }
+        {/* <Icon name="exchange-alt" size={1.5} ml={2} mr={2} /> // NOVA EDIT REMOVAL - moved down */}
         {/* NOVA EDIT ADDITION START */}
         <Stack vertical fill align="center">
           {/* Keep the CharacterPreview alive but "hidden", so that traits that affect appearance (e.g. Oversized) refresh rendering calculations immediately. */}

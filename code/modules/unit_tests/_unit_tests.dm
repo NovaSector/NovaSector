@@ -352,6 +352,7 @@
 #include "weird_food.dm"
 #include "wizard_loadout.dm"
 // NOVA EDIT START
+#include "~nova\augment_items.dm"
 #include "~nova\automapper.dm"
 #include "~nova\digi_underclothes.dm"
 #include "~nova\liver_nova.dm"

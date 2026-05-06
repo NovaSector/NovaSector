@@ -17,13 +17,28 @@ import {
 } from './types';
 import { RandomToggleState } from './useRandomToggleState';
 import { ServerPrefs } from './useServerPrefs';
+// NOVA EDIT ADDITION START
+import type { AugmentsTab } from './CharacterPreferences/LimbsPage';
+
+// Window dimensions per state
+const WINDOW_WIDTH  = 920;
+const WINDOW_HEIGHT_DEFAULT  = 780;
+const WINDOW_HEIGHT_MARKINGS_BODYPARTS = 940; // taller to fit three-column markings layout
+// NOVA EDIT ADDITION END
 
 export function PreferencesMenu(props) {
+  // NOVA EDIT ADDITION START
+  const [augmentsTab, setAugmentsTab] = useState<AugmentsTab | null>(null);
+
+  const height = augmentsTab !== null
+    ? WINDOW_HEIGHT_MARKINGS_BODYPARTS
+    : WINDOW_HEIGHT_DEFAULT;
+  // NOVA EDIT ADDITION END
   return (
-    <Window width={920} height={780} /* NOVA EDIT - height 770 to 780 */>
+    <Window width={WINDOW_WIDTH} height={height} /* NOVA EDIT CHANGE - ORIGINAL: <Window width={920} height={770}> */>
       <Window.Content>
         <Suspense fallback={<LoadingScreen />}>
-          <PrefsWindowInner />
+          <PrefsWindowInner onAugmentsTabChange={setAugmentsTab} /* NOVA EDIT CHANGE - ORIGINAL: <PrefsWindowInner /> *//>
         </Suspense>
       </Window.Content>
     </Window>
@@ -31,7 +46,12 @@ export function PreferencesMenu(props) {
 }
 
 /** We're abstracting this by one level to use Suspense */
-function PrefsWindowInner(props) {
+//function PrefsWindowInner(props) { // NOVA EDIT REMOVAL
+// NOVA EDIT ADDITION START
+function PrefsWindowInner(props: {
+  onAugmentsTabChange: (tab: AugmentsTab) => void;
+}) {
+// NOVA EDIT ADDITION END
   const { data } = useBackend<PreferencesMenuData>();
   const { window } = data;
 
@@ -53,7 +73,7 @@ function PrefsWindowInner(props) {
   let title;
   switch (window) {
     case PrefsWindow.Character:
-      content = <CharacterPreferenceWindow />;
+      content = <CharacterPreferenceWindow onAugmentsTabChange={props.onAugmentsTabChange} /* NOVA EDIT CHANGE - ORIGINAL: content = <CharacterPreferenceWindow />; */ />
       title = 'Character Preferences';
       break;
     case PrefsWindow.Game:
