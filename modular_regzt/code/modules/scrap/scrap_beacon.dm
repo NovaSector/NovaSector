@@ -118,7 +118,7 @@
 	var/summon_cooldown = 90 SECONDS //120 таукеки
 	var/impact_speed = 3
 	var/impact_prob = 100
-	var/impact_range = 1
+	var/impact_range = 1 //2 таукеки
 	var/last_summon = -3000
 	var/active = FALSE
 	var/emagged = FALSE

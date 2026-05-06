@@ -91,14 +91,25 @@
 	icon = 'modular_regzt/icons/obj/item/tools.dmi'
 	icon_state = "multitool"
 
-//REGZT
+//чистый REGZT
 
 /obj/item/shovel/makeshift
-	name = "shovel"
+	name = "handmade shovel"
 	desc = "A large tool for digging and moving dirt."
 	icon = 'modular_regzt/icons/obj/item/tools.dmi'
 	icon_state = "shovel"
-	toolspeed = 2.5
+	toolspeed = 1.25
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.3)
 
-// заготовка под паяльник /obj/item/weldingtool/electric/arc_welder
+/obj/item/weldingtool/electric/arc_welder/makeshift
+	name = "makeshift arc welder"
+	desc = "A specialized welding tool utilizing high powered arcs of electricity to weld things together. \
+		Compared to other electrically-powered welders, this model is slow and highly power inefficient, \
+		but it still gets the job done and chances are you printed this bad boy off for free."
+	icon = 'modular_regzt/icons/obj/item/tools.dmi'
+	icon_state = "arc_welder"
+	usesound = 'modular_nova/modules/colony_fabricator/sound/arc_welder/arc_welder.ogg'
+	light_range = 2
+	light_power = 1
+	toolspeed = 2.5
+	power_use_amount = POWER_CELL_USE_INSANE
