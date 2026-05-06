@@ -99,18 +99,12 @@
 		slogan = pick(source.slogans)			//god help you all
 		org_type = source.org_type				//which group do we belong to?
 		//pick our second ship
-		secondname = secondary.name			//not used atm, commented out to suppress errors
+		secondname = secondary.name			//not used atm
 		secondowner = secondary.short_name
 		secondprefix = pick(secondary.ship_prefixes)	//Pick a random prefix
 		secondid = "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 		secondshipname = pick(secondary.ship_names)		//Pick a random ship name
 		org_type2 = secondary.org_type
-
-		//DEBUG BLOCK
-		//to_world("DEBUG OUTPUT 1: [name], [owner], [prefix], [firstid], [mission], [shipname], [org_type], [destname]")
-		//to_world("DEBUG OUTPUT 2: [secondowner], [secondprefix], [secondid], [secondshipname], [org_type2]")
-		//to_world("DEBUG OUTPUT 3: Chose [chatter_type]")
-		//DEBUG BLOCK ENDS
 
 		combined_first_name = "[prefix] [firstid] |[shipname]|"	//formal traffic control identifier for use in messages
 		short_first_name = "[prefix] |[shipname]|"	//special variant for certain events
