@@ -22,5 +22,17 @@
 /mob/atc_voice/get_default_say_verb()
 	return "transmits"
 
-/mob/atc_voice/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = "radio")
+/mob/atc_voice/say(
+	message,
+	bubble_type,
+	list/spans = list(),
+	sanitize = TRUE,
+	language,
+	ignore_spam = FALSE,
+	forced = "radio",
+	message_range = -1,
+	saymode,
+	message_mods,
+	)
+
 	radio.talk_into(src, message, RADIO_CHANNEL_COMMON)
