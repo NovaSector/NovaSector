@@ -718,13 +718,13 @@
 	item_path = /obj/item/clothing/head/beret/sec/navyofficer
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Jobs"
-
+/*
 /datum/loadout_item/head/officercap
 	name = "Security Cap"
 	item_path = /obj/item/clothing/head/security_cap
 	restricted_roles = list(ALL_JOBS_SEC)
 	group = "Jobs"
-
+*/
 /datum/loadout_item/head/officergarrisoncap
 	name = "Security Cap - Garrison"
 	item_path = /obj/item/clothing/head/security_garrison

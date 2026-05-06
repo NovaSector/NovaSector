@@ -45,7 +45,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "depgag_accent_d",
+			"icon_state": "depgag_insignia_d",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		},

@@ -28,7 +28,7 @@
 
 /obj/item/clothing/head/security_garrison
 	name = "security garrison cap"
-	desc = "A robust garrison cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	desc = "A robust garrison cap with the nanotrasen insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "garrison_black"
@@ -39,9 +39,9 @@
 /obj/item/clothing/head/security_garrison/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_garrison_cap)
 
-/obj/item/clothing/head/soft/depgag_cap
-	name = "ntf protection cap"
-	desc = "A robust cap with the NTF defense insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+/obj/item/clothing/head/security_cap
+	name = "security cap"
+	desc = "A robust cap with the Nanotrasen insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon_state = "/obj/item/clothing/head/depgag_cap"
 	post_init_icon_state = "depgag_cap"
 	greyscale_config = /datum/greyscale_config/depgag_cap
@@ -100,8 +100,8 @@
 	desc = "A dark colored hat with a silver badge, for the officer interested in style."
 	post_init_icon_state = "patrol_cap"
 	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol"
-	greyscale_config = /datum/greyscale_config/patrol_cap
-	greyscale_config_worn = /datum/greyscale_config/patrol_cap/worn
+	greyscale_config = /datum/greyscale_config/depgag_patrol_cap
+	greyscale_config_worn = /datum/greyscale_config/depgag_patrol_cap/worn
 	greyscale_colors = "#A52F29#39393F"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/head_helmet

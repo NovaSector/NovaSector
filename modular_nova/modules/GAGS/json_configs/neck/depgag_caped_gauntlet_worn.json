@@ -1,8 +1,8 @@
 {
-	"security_gauntlet": [
+	"depgag_gauntlet": [
 		{
 			"type": "icon_state",
-			"icon_state": "armplate_cape",
+			"icon_state": "depgag_armplate_cape",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
@@ -12,10 +12,10 @@
 			"blend_mode": "overlay"
 		}
 	],
-	"security_gauntlet_left": [
+	"depgag_gauntlet_left": [
 		{
 			"type": "icon_state",
-			"icon_state": "armplate_cape_left",
+			"icon_state": "depgag_armplate_cape_left",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},

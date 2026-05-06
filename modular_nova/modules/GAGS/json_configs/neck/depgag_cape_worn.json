@@ -1,28 +1,28 @@
 {
-	"security_cape": [
+	"depgag_cape": [
 		{
 			"type": "icon_state",
-			"icon_state": "security_cape_base",
+			"icon_state": "depgag_cape_base",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_cape_accent",
+			"icon_state": "depgag_cape_accent",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
 	],
-	"security_cape_left": [
+	"depgag_cape_left": [
 		{
 			"type": "icon_state",
-			"icon_state": "security_cape_base_left",
+			"icon_state": "depgag_cape_base_left",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_cape_accent_left",
+			"icon_state": "depgag_cape_accent_left",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}

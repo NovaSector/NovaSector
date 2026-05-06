@@ -2686,18 +2686,18 @@ Departmental Gags
 	name = "Department Protection Cap (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
 
-/datum/greyscale_config/depgag_uniform
-	name = "Department Protection Uniform"
+/datum/greyscale_config/depgag_jumpsuit
+	name = "Department Protection Jumpsuit"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_uniform.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_jumpsuit.json'
 
-/datum/greyscale_config/depgag_uniform/worn
-	name = "Department Protection Uniform (Worn)"
+/datum/greyscale_config/depgag_jumpsuit/worn
+	name = "Department Protection Jumpsuit (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_uniform_worn.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_jumpsuit_worn.json'
 
-/datum/greyscale_config/depgag_uniform/worn/digi
-	name = "Department Protection Uniform (Worn, Digi)"
+/datum/greyscale_config/depgag_jumpsuit/worn/digi
+	name = "Department Protection Jumpsuit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
 
 /datum/greyscale_config/depgag_formal
@@ -2896,9 +2896,9 @@ Departmental Gags
 /datum/greyscale_config/depgag_patrol_cap
 	name = "Department Protection Patrol Cap"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/head/patrol_cap.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/depgag_patrol_cap.json'
 
-/datum/greyscale_config/patrol_cap/worn
+/datum/greyscale_config/depgag_patrol_cap/worn
 	name = "Department Protection Patrol Cap (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
 
@@ -2921,8 +2921,9 @@ Departmental Gags
 	name = "Department Protection Caped Gauntlet (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/neck/depgag_caped_gauntlet_worn.json'
+
 /*
-This is all our modular PDAs, ITS LARGE!
+Modular PDAs
 */
 
 /// Ported from VOREstation

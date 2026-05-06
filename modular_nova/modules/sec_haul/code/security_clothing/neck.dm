@@ -9,14 +9,14 @@
 	var/swapped = FALSE
 
 /obj/item/clothing/neck/security_cape/shoulder
-	name = "security cape"
-	desc = "A fashionable cape worn by security officers."
+	name = "frontier protection cape"
+	desc = "A fashionable cape worn by officers."
 	icon_state = "/obj/item/clothing/neck/security_cape/shoulder"
-	post_init_icon_state = "security_cape"
-	greyscale_config = /datum/greyscale_config/security_cape
-	greyscale_config_worn = /datum/greyscale_config/security_cape/worn
+	post_init_icon_state = "depgag_cape"
+	greyscale_config = /datum/greyscale_config/depgag_cape
+	greyscale_config_worn = /datum/greyscale_config/depgag_cape/worn
 	greyscale_colors = "#A52F29#39393F"
-
+/*
 /obj/item/clothing/neck/security_cape/shoulder/blue
 	icon_state = "/obj/item/clothing/neck/security_cape/shoulder/blue"
 	greyscale_colors = "#3F6E9E#39393F"
@@ -28,7 +28,7 @@
 /obj/item/clothing/neck/security_cape/shoulder/black
 	icon_state = "/obj/item/clothing/neck/security_cape/shoulder/black"
 	greyscale_colors = "#39393F#39393F"
-
+*/
 /obj/item/clothing/neck/security_cape/click_alt(mob/user)
 	swapped = !swapped
 	to_chat(user, span_notice("You swap which arm [src] will lay over."))
@@ -55,8 +55,8 @@
 	desc = "A fashionable full-arm gauntlet worn by security officers. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
 	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped"
 	post_init_icon_state = "security_gauntlet"
-	greyscale_config = /datum/greyscale_config/armplate_caped
-	greyscale_config_worn = /datum/greyscale_config/armplate_caped/worn
+	greyscale_config = /datum/greyscale_config/depgag_caped_gauntlet
+	greyscale_config_worn = /datum/greyscale_config/depgag_caped_gauntlet/worn
 	greyscale_colors = "#A52F29"
 
 /obj/item/clothing/neck/security_cape/armplate_caped/blue
