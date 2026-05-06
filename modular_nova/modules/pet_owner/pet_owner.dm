@@ -74,6 +74,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Bull terrier" = /mob/living/basic/pet/dog/bullterrier,
 	"Butterfly" = /mob/living/basic/butterfly,
 	"Cat" = /mob/living/basic/pet/cat,
+	"Cat (Black)" = /mob/living/basic/pet/cat/black,
 	"Cat (Clown)" = /mob/living/basic/pet/cat/clown,
 	"Cat (Mime)" = /mob/living/basic/pet/cat/mime,
 	"Carp (Clown)" = /mob/living/basic/carp/clarp,
@@ -107,12 +108,14 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Red Panda" = /mob/living/basic/pet/fox/redpanda,
 	"Shorg" = /mob/living/basic/pet/dog/shorg,
 	"Sloth" = /mob/living/basic/sloth,
-	"Snake" = /mob/living/basic/snake,
+	"Snake (Green)" = /mob/living/basic/snake,
+	"Snake (Banded)" = /mob/living/basic/snake/banded,
 	"Spider" = /mob/living/basic/spider/maintenance,
 	"Stoat" = /mob/living/basic/stoat,
 	"Tegu" = /mob/living/basic/lizard/tegu,
 	"Tiger" = /mob/living/basic/pet/cat/tiger,
 	"Turtle" = /mob/living/basic/turtle,
+	"Wolf" = /mob/living/basic/pet/dog/wolf,
 )) //some of these are too big to be put back into the pet carrier once taken out, so I put a warning on the carrier.
 
 /datum/preference/choiced/pet_owner/init_possible_values()
