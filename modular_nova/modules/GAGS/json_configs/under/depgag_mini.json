@@ -1,20 +1,20 @@
 {
-	"secmini": [
+	"depgag_mini": [
 		{
 			"type": "icon_state",
-			"icon_state": "miniskirt_base",
+			"icon_state": "depgag_mini_base",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "miniskirt_trim",
+			"icon_state": "depgag_mini_trim",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_skirt_belt",
+			"icon_state": "depgag_skirt_belt",
 			"blend_mode": "overlay"
 		}
 	]

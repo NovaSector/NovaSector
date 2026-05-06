@@ -1,26 +1,26 @@
 {
-	"secjumpsuit": [
+	"depgag_turtleneck": [
 		{
 			"type": "icon_state",
-			"icon_state": "security_base",
+			"icon_state": "trousers",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_zipper",
+			"icon_state": "turtleneck",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_accent",
+			"icon_state": "depgag_insignia",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "secargobelt",
+			"icon_state": "depgag_belt",
 			"blend_mode": "overlay"
 		}
 	]

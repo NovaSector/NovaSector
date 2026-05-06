@@ -1,32 +1,32 @@
 {
-	"secskirtplain": [
+	"depgag_skirt": [
 		{
 			"type": "icon_state",
-			"icon_state": "security_skirt_shirt",
+			"icon_state": "turtleneck",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_skirt",
+			"icon_state": "depgag_skirt",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_accent",
+			"icon_state": "depgag_insignia",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_skirt_trim",
+			"icon_state": "depgag_skirt_trim",
 			"blend_mode": "overlay",
 			"color_ids": [4]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_skirt_belt",
+			"icon_state": "depgag_skirt_belt",
 			"blend_mode": "overlay"
 		}
 	]

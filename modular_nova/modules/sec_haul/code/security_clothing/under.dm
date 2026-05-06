@@ -20,41 +20,19 @@
 *	SECURITY OFFICER
 */
 
-//Redsec uniform with black pants
-/datum/atom_skin/security_uniform_black
-	abstract_type = /datum/atom_skin/security_uniform_black
-
-/datum/atom_skin/security_uniform_black/black
-	preview_name = "Black Variant"
-	new_icon_state = "/obj/item/clothing/under/rank/security/nova/secjumpsuit/black"
-	new_worn_icon = 'icons/map_icons/clothing/under/_under.dmi'
-
-/datum/atom_skin/security_uniform_black/white
-	preview_name = "White Variant"
-	new_icon_state = "/obj/item/clothing/under/rank/security/nova/secjumpsuit/white"
-	new_worn_icon = 'icons/map_icons/clothing/under/_under.dmi'
-
-/obj/item/clothing/under/rank/security/nova/officer/black
-	icon_state = "security_black"
-	alt_covers_chest = TRUE
-//PLEASE ^
-/obj/item/clothing/under/rank/security/nova/officer/black/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_uniform_black)
-
-//Bluesec uniform
-/obj/item/clothing/under/rank/security/nova/officer
-	name = "security uniform"
-	desc = "A tactical security uniform for officers complete with Nanotrasen belt buckle."
+/obj/item/clothing/under/rank/security/nova/depgag
+	name = "frontier protection uniform"
+	desc = "A tactical frontier protection uniform for officers complete with Nanotrasen belt buckle."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/rank/security/nova/officer"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/depgag"
 	post_init_icon_state = "secuniform"
-	greyscale_config = /datum/greyscale_config/secuniform
-	greyscale_config_worn = /datum/greyscale_config/secuniform/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/secuniform/worn/digi
+	greyscale_config = /datum/greyscale_config/depgag_uniform
+	greyscale_config_worn = /datum/greyscale_config/depgag_uniform/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/depgag_uniform/worn/digi
 	greyscale_colors = "#A52F29#39393F#39393F"
 	flags_1 = NONE
 	alt_covers_chest = TRUE
-
+/*
 /obj/item/clothing/under/rank/security/nova/officer/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/blue"
 	greyscale_colors = "#3F6E9E#39393F#39393F"
@@ -66,7 +44,7 @@
 /obj/item/clothing/under/rank/security/nova/officer/black
 	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/black"
 	greyscale_colors = "#39393F#EBEBEB#EBEBEB"
-
+*/
 /obj/item/clothing/under/rank/security/nova/formal
 	name = "security formal suit"
 	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
@@ -152,7 +130,7 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 	flags_1 = NONE
-
+/*
 /obj/item/clothing/under/rank/security/nova/plainskirt/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/blue"
 	greyscale_colors = "#3F6E9E#39393F#3F6E9E#3F6E9E"
@@ -164,7 +142,7 @@
 /obj/item/clothing/under/rank/security/nova/plainskirt/black
 	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/black"
 	greyscale_colors = "#39393F#39393F#ECECEC#ECECEC"
-
+*/
 /obj/item/clothing/under/rank/security/nova/miniskirt
 	name = "security miniskirt"
 	desc = "This miniskirt was originally featured in a gag calendar, but entered official use once they realized its potential for arid climates."

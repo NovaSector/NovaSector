@@ -415,7 +415,7 @@
 	erp_item = TRUE
 	group = "Bunny Suits"
 //restricted_roles = list(ALL_JOBS_CARGO)
-
+/*
 //SEC
 /datum/loadout_item/under/jumpsuit/imphos
 	name = "Head of Security's Naval Uniform"
@@ -555,3 +555,4 @@
 	erp_item = TRUE
 	group = "Bunny Suits"
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+*/

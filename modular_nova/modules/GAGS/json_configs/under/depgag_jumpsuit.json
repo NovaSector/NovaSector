@@ -1,28 +1,27 @@
 {
-	"secformal": [
+	"depgag_jumpsuit": [
 		{
 			"type": "icon_state",
-			"icon_state": "security_base",
+			"icon_state": "jumpsuit",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "formal_undershirt",
+			"icon_state": "depgag_zipper",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "formal_jacket",
+			"icon_state": "depgag_insignia",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_accent",
-			"blend_mode": "overlay",
-			"color_ids": [4]
+			"icon_state": "depgag_belt",
+			"blend_mode": "overlay"
 		}
 	]
 }

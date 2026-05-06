@@ -1,8 +1,8 @@
 {
-	"secformal": [
+	"depgag_formal": [
 		{
 			"type": "icon_state",
-			"icon_state": "security_base",
+			"icon_state": "jumpsuit",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
@@ -20,15 +20,15 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_accent",
+			"icon_state": "depgag_insignia",
 			"blend_mode": "overlay",
 			"color_ids": [4]
 		}
 	],
-	"secformal_d": [
+	"depgag_formal_d": [
 		{
 			"type": "icon_state",
-			"icon_state": "security_base_d",
+			"icon_state": "jumpsuit_d",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
@@ -46,7 +46,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_accent_d",
+			"icon_state": "depgag_insignia_d",
 			"blend_mode": "overlay",
 			"color_ids": [4]
 		}

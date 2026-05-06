@@ -1,63 +1,51 @@
 {
-	"secskirt": [
+	"depgag_turtleneck": [
 		{
 			"type": "icon_state",
-			"icon_state": "security_sweater",
+			"icon_state": "trousers",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_skirt",
+			"icon_state": "turtleneck",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_accent",
+			"icon_state": "depgag_insignia",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_skirt_trim",
-			"blend_mode": "overlay",
-			"color_ids": [4]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "security_skirt_belt",
+			"icon_state": "depgag_belt",
 			"blend_mode": "overlay"
 		}
 	],
-	"secskirt_d": [
+	"depgag_turtleneck_d": [
 		{
 			"type": "icon_state",
-			"icon_state": "security_sweater_d",
+			"icon_state": "trousers",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_skirt",
+			"icon_state": "turtleneck_d",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_accent_d",
+			"icon_state": "depgag_insignia_d",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "security_skirt_trim",
-			"blend_mode": "overlay",
-			"color_ids": [4]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "security_skirt_belt",
+			"icon_state": "depgag_belt",
 			"blend_mode": "overlay"
 		}
 	]
