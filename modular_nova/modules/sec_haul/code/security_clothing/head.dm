@@ -39,19 +39,19 @@
 /obj/item/clothing/head/security_garrison/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_garrison_cap)
 
-/obj/item/clothing/head/security_cap
-	name = "security cap"
-	desc = "A robust cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
-	icon_state = "/obj/item/clothing/head/security_cap"
+/obj/item/clothing/head/soft/depgag_cap
+	name = "ntf protection cap"
+	desc = "A robust cap with the NTF defense insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/depgag_cap"
 	post_init_icon_state = "depgag_cap"
 	greyscale_config = /datum/greyscale_config/depgag_cap
 	greyscale_config_worn = /datum/greyscale_config/depgag_cap/worn
 	greyscale_colors = "#A52F29#EBEBEB#A52F29"
-	armor_type = /datum/armor/head_helmet
+	armor_type = /datum/armor/cosmetic_sec
 	strip_delay = 60
 	dog_fashion = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
+/*
 /obj/item/clothing/head/security_cap/blue
 	icon_state = "/obj/item/clothing/head/security_cap/blue"
 	greyscale_colors = "#3F6E9E#EBEBEB#3F6E9E"
@@ -63,7 +63,7 @@
 /obj/item/clothing/head/security_cap/black
 	icon_state = "/obj/item/clothing/head/security_cap/black"
 	greyscale_colors = "#39393F#EBEBEB#39393F"
-
+*/
 /obj/item/clothing/head/beret/sec/nova
 	icon_state = "/obj/item/clothing/head/beret/sec/nova"
 	post_init_icon_state = "beret_badge"
