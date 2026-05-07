@@ -53,7 +53,7 @@
 	desc = "A comfortable jacket in security red. Probably against uniform regulations."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber"
-	post_init_icon_state = "sec_bomber"
+	post_init_icon_state = "depgag_bomber"
 	greyscale_config = /datum/greyscale_config/depgag_bomber
 	greyscale_config_worn = /datum/greyscale_config/depgag_bomber/worn
 	greyscale_colors = "#A52F29#39393F"

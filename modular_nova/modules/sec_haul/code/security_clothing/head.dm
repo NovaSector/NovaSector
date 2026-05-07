@@ -98,7 +98,7 @@
 /obj/item/clothing/head/hats/warden/police/patrol
 	name = "police patrol cap"
 	desc = "A dark colored hat with a silver badge, for the officer interested in style."
-	post_init_icon_state = "patrol_cap"
+	post_init_icon_state = "depgag_patrol_cap"
 	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol"
 	greyscale_config = /datum/greyscale_config/depgag_patrol_cap
 	greyscale_config_worn = /datum/greyscale_config/depgag_patrol_cap/worn

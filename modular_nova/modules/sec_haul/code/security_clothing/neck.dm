@@ -54,7 +54,7 @@
 	name = "caped security gauntlet"
 	desc = "A fashionable full-arm gauntlet worn by security officers. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
 	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped"
-	post_init_icon_state = "security_gauntlet"
+	post_init_icon_state = "depgag_gauntlet"
 	greyscale_config = /datum/greyscale_config/depgag_caped_gauntlet
 	greyscale_config_worn = /datum/greyscale_config/depgag_caped_gauntlet/worn
 	greyscale_colors = "#A52F29"
