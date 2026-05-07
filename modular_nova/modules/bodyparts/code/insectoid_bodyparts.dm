@@ -23,6 +23,7 @@
 
 /obj/item/bodypart/leg/left/digitigrade/insectoid
 	icon_greyscale = BODYPART_ICON_INSECTOID
+	limb_id = SPECIES_INSECTOID
 
 /obj/item/bodypart/leg/right/insectoid
 	icon_greyscale = BODYPART_ICON_INSECTOID
@@ -31,3 +32,4 @@
 
 /obj/item/bodypart/leg/right/digitigrade/insectoid
 	icon_greyscale = BODYPART_ICON_INSECTOID
+	limb_id = SPECIES_INSECTOID

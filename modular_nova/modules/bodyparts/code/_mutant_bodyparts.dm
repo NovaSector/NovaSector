@@ -6,15 +6,22 @@
 	/// The alpha override of our markings.
 	var/markings_alpha
 	/// What is our normal limb ID? used for squashing legs.
-	var/base_limb_id = SPECIES_MAMMAL
+
+/obj/item/bodypart/leg
+	/// This is used in digitigrade legs, when this leg is swapped out with the digitigrade version.
+	var/obj/item/bodypart/leg/digitigrade_type
 
 /obj/item/bodypart/leg/right
-	/// This is used in digitigrade legs, when this leg is swapped out with the digitigrade version.
-	var/digitigrade_type = /obj/item/bodypart/leg/right/digitigrade
+	digitigrade_type = /obj/item/bodypart/leg/right/digitigrade
 
 /obj/item/bodypart/leg/left
-	/// This is used in digitigrade legs, when this leg is swapped out with the digitigrade version.
-	var/digitigrade_type = /obj/item/bodypart/leg/left/digitigrade
+	digitigrade_type = /obj/item/bodypart/leg/left/digitigrade
+
+/obj/item/bodypart/leg/left/stump
+	digitigrade_type = null
+
+/obj/item/bodypart/leg/right/stump
+	digitigrade_type = null
 
 // Just blanket apply the footstep pref on limb addition, it gets far too complicated otherwise as limbs are getting replaced more often than you'd think
 /obj/item/bodypart/leg/on_adding(mob/living/carbon/new_owner)
@@ -64,10 +71,10 @@
 
 /obj/item/bodypart/leg/left/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
+	limb_id = SPECIES_MAMMAL
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = BODYPART_ID_DIGITIGRADE
 
 /obj/item/bodypart/leg/right/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
+	limb_id = SPECIES_MAMMAL
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = BODYPART_ID_DIGITIGRADE

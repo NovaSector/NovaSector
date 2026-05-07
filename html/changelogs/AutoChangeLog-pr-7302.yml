@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixed an issue where selecting 'No left leg' etc in augments and then selecting 'None' immediately after would not give your leg back in the preview until you select another augment"

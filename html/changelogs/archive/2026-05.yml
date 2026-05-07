@@ -99,3 +99,100 @@
   vinylspiders:
   - code_imp: fixes mining mobs being able to spawn too close to one another under
       certain circumstances
+2026-05-06:
+  Absolucy:
+  - qol: Changed how chat highlights are styled - any color should look good now,
+      regardless of light or dark mode.
+  Diltyrr:
+  - rscdel: Removed the plasma river plasmaman transformation mechanic.
+  LT3:
+  - balance: Cargo manifest stamp payments/penalties are now consistently applied
+      as a percentage of the order value
+  - balance: Maximum payment for an approved cargo manifest raised to 120cr
+  - balance: Cargo orders that arrive empty and stamped denied receive a full refund
+      regardless of crate return
+  Melbert:
+  - rscadd: Adds Penguin tier zero gene infusion (gives you penguin ears, which make
+      you waddle)
+  - rscadd: Adds Plant tier zero gene infusion (gives you plant hair / organs, which
+      do nothing)
+  - rscadd: Adds Stoat tier one gene infusion (makes you tall, snouted, gives you
+      finer instincts, allows you to dodge large foes)
+  - rscadd: April 26th is Chernobyl Disaster Remembrance Day.
+  Neocloudy:
+  - balance: '[NOVA] Encrypted curiosities can''t be interacted with by Bitrunning
+      threats.'
+  - balance: '[NOVA] In the Ancient Military Simulator domain, the fog control button
+      and keycards also can''t be interacted with by Bitrunning threats.'
+  - bugfix: '[NOVA] Also in the Ancient Military Simulator, CIN SNPCs gain the antag
+      datum they''re supposed to have (to make the above work).'
+  SmArtKar:
+  - admin: Added a new debug tool which displays a detailed breakdown of in-game visuals
+  Stan:
+  - image: "Fixed donator item Bovin\xE6 Overcoat"
+  Time-Green:
+  - rscadd: Adds three new maintpill-only chems! Go eat more maintpills, and maybe
+      you'll find out what they are :)
+  - rscadd: Adds a new secret chem, which can rarely be found on a petrified piece
+      of paper somewhere in maintenance...
+  - bugfix: Fixes miscellaneous sources of petrification lasting 10x as long as intended
+  Y0SH1M4S73R:
+  - rscadd: Ghosts and spirits have once again been split into two species. Becoming
+      a ghost is only possible through a lucky polymorph, or the "Forsake Body" spell,
+      available for two points in a wizard's spellbook.
+  - rscdel: Spirits no longer have the passthrough ability.
+  - balance: Ghost's passthrough ability has unlimited range and no longer leaves
+      behind a grave. It is affected by holy water, and makes you drop all your equipment,
+      along with any bodyparts and organs that are not ghostly in nature.
+  lelandkemble:
+  - bugfix: You can now get the paddles from a compact defib by clicking on it
+  strandsofivy:
+  - bugfix: The PDA direct messenger will no longer overzealously break words, resulting
+      in cleaner chat message formatting overall.
+  theselfish:
+  - bugfix: Smuggler's Cap now shows ears.
+  - bugfix: You can now get Telecomms Drip if it burns off.
+  vinylspiders:
+  - qol: augments+ tab has been completely remodeled with new qol features, check
+      it out!
+  - bugfix: fixes issue where markings would carry over to the next slot in char prefs
+  - bugfix: fixes issue where hand markings would not update your prefs dummy unless
+      you selected a limb marking
+  - bugfix: it will no longer be possible to select invalid augments that lead to
+      invisible sprites
+  - bugfix: fixed an issue where selecting 'No limb" as an option in augments+ would
+      give you a pale white human limb on the dummy
+  - refactor: augments+ has undergone an overhaul on the backend and frontend, please
+      report any issues
+  - bugfix: you should once again no longer be able to remove genitals during surgery
+  - code_imp: speeds ghost runechat up a bit, and makes it show as italic
+  - admin: adds a 'toggle dead runechat' admin verb in case you need to disable it
+      midround for an event or something
+  - admin: invisimin now makes the admin invisible to ghosts/observers, as well as
+      pierce-immune and able to phase through walls
+  - qol: aghosting while invisimin'd or stealthmin'd will carry over your invisibility
+      to the aghost so you no longer have to trigger it again
+  - admin: added a new admin verb, 'Toggle Admin ESP', which lets you see ghosts and
+      invisimins while active
+2026-05-07:
+  Absolucy, vinylspiders, neocloudy:
+  - rscadd: Added a pair of signboards that can be crafted in the crafting menu, a
+      wooden one, and a holographic one. Perfect for advertising or otherwise getting
+      your VERY important message across to passersby.
+  Hatterhat:
+  - admin: Admins can now varedit blob overminds (the eye mob) to not kill everyone
+      on the station if they hit critical mass. (Admins will still have to remove
+      the blob from the shuttle subsystem's "hostile environments" tracker, though.)
+  Higgin:
+  - bugfix: positive viruses no longer self-cure when not having spaceacillin or meeting
+      the nutrition/satiety requirements.
+  JlereHda3oHbl1984:
+  - bugfix: fixed acrador snouts
+  Shroopy:
+  - bugfix: Fixed syndicate bombs having a maximum timer of 1000 minutes instead of
+      100 minutes.
+  lelandkemble:
+  - bugfix: animating a wand of animation works, and that animated wand of animation
+      animating a wand of animation does not runtime
+  theselfish:
+  - qol: Moved Smuggler's Flying Cap to Ushanka subtype.
