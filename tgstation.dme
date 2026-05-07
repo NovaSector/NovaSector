@@ -7253,6 +7253,7 @@
 #include "modular_nova\master_files\code\modules\admin\transform.dm"
 #include "modular_nova\master_files\code\modules\antagonists\_common\antag_datum.dm"
 #include "modular_nova\master_files\code\modules\antagonists\ashwalker\ashwalker.dm"
+#include "modular_nova\master_files\code\modules\antagonists\blob\overmind.dm"
 #include "modular_nova\master_files\code\modules\antagonists\changeling\changeling.dm"
 #include "modular_nova\master_files\code\modules\antagonists\changeling\powers\tiny_prick.dm"
 #include "modular_nova\master_files\code\modules\antagonists\cult\cult_armor.dm"
