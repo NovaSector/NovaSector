@@ -77,11 +77,11 @@
 	greyscale_config_worn = /datum/greyscale_config/depgag_turtleneck/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/depgag_turtleneck/worn/digi
 	greyscale_colors = "#39393F#A52F29#39393F"
-/*
+
 /obj/item/clothing/under/rank/security/nova/turtleneck/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/blue"
 	greyscale_colors = "#39393F#3F6E9E#39393F"
-
+/*
 /obj/item/clothing/under/rank/security/nova/turtleneck/white
 	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/white"
 	greyscale_colors = "#ECECEC#ECECEC#39393F"
