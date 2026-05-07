@@ -839,14 +839,14 @@
 		switch(hair_reset)
 			if("Hair")
 				alterer.hair_color = sanitize_hexcolor(new_mutant_colour)
-				alterer.update_body_parts()
+				alterer.update_hair()
 			if("Facial Hair")
 				alterer.facial_hair_color = sanitize_hexcolor(new_mutant_colour)
-				alterer.update_body_parts()
+				alterer.update_hair()
 			if("Both")
 				alterer.hair_color = sanitize_hexcolor(new_mutant_colour)
 				alterer.facial_hair_color = sanitize_hexcolor(new_mutant_colour)
-				alterer.update_body_parts()
+				alterer.update_hair()
 
 	alterer.update_body(is_creating = TRUE)
 

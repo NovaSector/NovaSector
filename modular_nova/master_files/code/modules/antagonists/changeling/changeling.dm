@@ -38,10 +38,6 @@
 	var/socks_color
 	/// The color of the bra used by the profile source
 	var/bra_color
-	/// The profile source's left eye color
-	var/eye_color_left
-	/// The profile source's right eye color
-	var/eye_color_right
 	/// Does the profile source's eyes glow
 	var/emissive_eyes
 	/// Profile source digi leg icons
