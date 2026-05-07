@@ -1,15 +1,15 @@
 //Datums for different factions that can be used by busy_space
 /datum/lore/organization
 	var/name = ""				// Organization's name
-	var/short_name = ""			// Organization's shortname (NanoTrasen for "NanoTrasen Incorporated")
-	var/acronym = ""			// Organization's acronym, e.g. 'NT' for NanoTrasen'.
+	var/short_name = ""			// Organization's shortname (Nanotrasen for "Nanotrasen Incorporated")
+	var/acronym = ""			// Organization's acronym, e.g. 'NT' for Nanotrasen'.
 	var/desc = ""				// One or two paragraph description of the organization, but only current stuff.  Currently unused.
 	var/history = ""			// Historical discription of the organization's origins  Currently unused.
 	var/work = ""				// Short description of their work, eg "an arms manufacturer"
 	var/headquarters = ""		// Location of the organization's HQ.  Currently unused.
 	var/motto = ""				// A motto/jingle/whatever, if they have one.  Currently unused.
 
-	var/list/ship_prefixes = list()	//Some might have more than one! Like NanoTrasen. Value is the mission they perform, e.g. ("ABC" = "mission desc")
+	var/list/ship_prefixes = list()	//Some might have more than one! Like Nanotrasen. Value is the mission they perform, e.g. ("ABC" = "mission desc")
 	var/complex_tasks = FALSE	//enables complex task generation
 
 	//how does it work? simple: if you have complex tasks enabled, it goes; PREFIX + TASK_TYPE + FLIGHT_TYPE
@@ -475,11 +475,11 @@
 // TSCs
 /datum/lore/organization/tsc/nanotrasen
 	name = "Nanotrasen Incorporated"
-	short_name = "NanoTrasen"
+	short_name = "Nanotrasen"
 	acronym = "NT"
-	desc = "NanoTrasen is one of the foremost research and development companies in Commonwealth space. \
+	desc = "Nanotrasen is one of the foremost research and development companies in Commonwealth space. \
 	Originally focused on consumer products, their swift move into the field of Phoron has lead to \
-	them being the foremost experts on the substance and its uses. In the modern day, NanoTrasen prides \
+	them being the foremost experts on the substance and its uses. In the modern day, Nanotrasen prides \
 	itself on being an early adopter to as many new technologies as possible, often offering the newest \
 	products to their employees. In an effort to combat complaints about being 'guinea pigs', Nanotrasen \
 	also offers one of the most comprehensive medical plans in Commonwealth space, up to and including cloning, \
@@ -497,9 +497,9 @@
 
 	org_type = "corporate"
 	slogans = list(
-			"NanoTrasen - Phoron Makes The Galaxy Go 'Round.",
-			"NanoTrasen - Join for the Medical, stay for the Company.",
-			"NanoTrasen - Advancing Humanity."
+			"Nanotrasen - Phoron Makes The Galaxy Go 'Round.",
+			"Nanotrasen - Join for the Medical, stay for the Company.",
+			"Nanotrasen - Advancing Humanity."
 			)
 	ship_prefixes = list("NTV" = "a general operations", "NEV" = "an exploration", "NGV" = "a hauling", "NDV" = "a patrol", "NRV" = "an emergency response", "NDV" = "an asset protection")
 	//Scientist naming scheme
@@ -673,7 +673,7 @@
 	the sale of medical equipment-- from surgical tools to large medical devices to the Odysseus trauma response mecha \
 	and everything in between. Their equipment tends to be top-of-the-line, most obviously shown by their incredibly \
 	human-like FBP designs. Vey's rise to stardom came from their introduction of resurrective cloning, although in \
-	recent years they've been forced to diversify as their patents expired and NanoTrasen-made medications became \
+	recent years they've been forced to diversify as their patents expired and Nanotrasen-made medications became \
 	essential to modern cloning and resleeving procedures. \
 	<br><br> \
 	For reasons known only to the board, Vey-Med's ship names seem to follow the same naming pattern as the Dionae use."
@@ -1556,7 +1556,7 @@
 	name = "Einstein Engines"
 	short_name = "Einstein"
 	acronym = "EEN"
-	desc = "Einstein is an old company that has survived through rampant respecialization. In the age of phoron-powered exotic engines and ubiquitous solar power, Einstein makes its living through the sale of engine designs for power sources it has no access to, and emergency fission or hydrocarbon power supplies. Accusations of corporate espionage against research-heavy corporations like NanoTrasen and its chief rival Focal Point are probably unfounded. Probably."
+	desc = "Einstein is an old company that has survived through rampant respecialization. In the age of phoron-powered exotic engines and ubiquitous solar power, Einstein makes its living through the sale of engine designs for power sources it has no access to, and emergency fission or hydrocarbon power supplies. Accusations of corporate espionage against research-heavy corporations like Nanotrasen and its chief rival Focal Point are probably unfounded. Probably."
 	history = ""
 	work = "catering, food, drinks"
 	headquarters = ""
