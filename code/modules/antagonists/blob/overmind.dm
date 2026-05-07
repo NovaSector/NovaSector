@@ -231,6 +231,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		priority_announce("Experimental, classified, and very expensive emergency countermeasures have been activated to prevent total station loss, \
 			but the initial failure to contain the viral biohazard will be noted on the station's performance report. Expect further penalties.", \
 			"Emergency Biohazard Countermeasure Alert")
+		SSsecurity_level.set_level(SEC_LEVEL_RED) // NOVA EDIT ADDITION
 
 /// Kill everyone who's still on the station area and not already part of the blob's faction, and cover every station area with blob icons. Everyone's soup now.
 /mob/eye/blob/proc/victory_sequence()
