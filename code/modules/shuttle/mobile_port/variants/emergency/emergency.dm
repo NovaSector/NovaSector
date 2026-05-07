@@ -50,7 +50,6 @@
 	// NOVA EDIT ADDITION START
 	if(silent)
 		return
-	SSatc.shift_ending()
 	// NOVA EDIT ADDITION END
 	priority_announce(
 		text = "The emergency shuttle has been called. [red_alert ? "Red Alert state confirmed: Dispatching priority shuttle. " : "" ]It will arrive in [timeLeft(60 SECONDS)] minute\s.[reason][SSshuttle.emergency_last_call_loc ? "\n\nCall signal traced. Results can be viewed on any communications console." : "" ][SSshuttle.admin_emergency_no_recall ? "\n\nWarning: Shuttle recall subroutines disabled; Recall not possible." : ""]",
@@ -233,7 +232,7 @@
 				launch_status = ENDGAME_LAUNCHED
 				bolt_all_doors() // NOVA EDIT ADDITION
 				setTimer(SSshuttle.emergency_escape_time * engine_coeff)
-				SSatc.shift_ending() // NOVA EDIT ADDITION
+				SSatc.shift_ending(FALSE) // NOVA EDIT ADDITION
 				priority_announce(
 					text = "The emergency shuttle has left the station. Estimate [timeLeft(60 SECONDS)] minutes until the shuttle docks at [command_name()].",
 					title = "Emergency Shuttle Departure",

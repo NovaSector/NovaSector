@@ -10,3 +10,4 @@
 	emergency_no_recall = TRUE
 	endvote_passed = TRUE
 	SSevents.can_fire = FALSE // we're going home
+	SSatc.shift_ending(TRUE)

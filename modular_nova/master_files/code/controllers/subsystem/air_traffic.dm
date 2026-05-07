@@ -47,8 +47,8 @@ SUBSYSTEM_DEF(atc)
 /datum/controller/subsystem/atc/proc/shift_starting()
 	new /datum/atc_chatter/shift_start()
 
-/datum/controller/subsystem/atc/proc/shift_ending()
-	new /datum/atc_chatter/shift_end()
+/datum/controller/subsystem/atc/proc/shift_ending(var/crew_transfer)
+	new /datum/atc_chatter/shift_end(crew_transfer)
 
 /datum/controller/subsystem/atc/proc/random_convo()
 	// Pick from the organizations in the LOREMASTER, so we can find out what these ships are doing
