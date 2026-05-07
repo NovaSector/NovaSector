@@ -48,6 +48,7 @@
 	name = "security gauntlet"
 	desc = "A fashionable full-arm gauntlet worn by security officers. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
 	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "armplate"
 
 /obj/item/clothing/neck/security_cape/armplate_caped
