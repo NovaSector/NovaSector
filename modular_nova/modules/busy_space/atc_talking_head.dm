@@ -2,6 +2,9 @@
 /mob/atc_voice
 	name = "Traffic Control"
 	desc = "A voice on the radio."
+	verb_ask = "transmits"
+	verb_exclaim = "transmits"
+	verb_yell = "transmits"
 	/// Radio for sending guild messages
 	var/obj/item/radio/radio
 

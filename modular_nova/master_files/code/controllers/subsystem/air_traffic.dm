@@ -3,13 +3,12 @@ SUBSYSTEM_DEF(atc)
 	priority = FIRE_PRIORITY_AMBIENCE
 	runlevels = RUNLEVEL_GAME
 	wait = 2 SECONDS
-	flags = SS_BACKGROUND
+	ss_flags = SS_BACKGROUND
 
 	VAR_PRIVATE/next_tick = 0
 	VAR_PRIVATE/datum/atc_chatter_type/chatter_datum = new() // don't change, override the chatter_box() proc
 	VAR_PRIVATE/delay_min = 20 MINUTES				//How long between ATC traffic, minimum
 	VAR_PRIVATE/delay_max = 30 MINUTES				//Ditto, maximum
-							//Shorter delays means more traffic, which gives the impression of a busier system, but also means a lot more radio noise
 	VAR_PRIVATE/backoff_delay = 5 MINUTES			//How long to back off if we can't talk and want to.  Default is 5 mins.
 	VAR_PRIVATE/initial_delay = 10 MINUTES			//How long to wait before sending the first message of the shift.
 
@@ -30,7 +29,7 @@ SUBSYSTEM_DEF(atc)
 	secchannel = "[rand(850,899)].[rand(1,9)]"
 	sdfchannel = "[rand(900,999)].[rand(1,9)]"
 	talking_head = new /mob/atc_voice(src)
-	talking_head.name = "Traffic Control"
+	talking_head.real_name = "Traffic Control"
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/atc/fire()
@@ -46,10 +45,10 @@ SUBSYSTEM_DEF(atc)
 	INVOKE_ASYNC(src,PROC_REF(random_convo))
 
 /datum/controller/subsystem/atc/proc/shift_starting()
-	new /datum/atc_chatter/shift_start(null,null)
+	new /datum/atc_chatter/shift_start()
 
 /datum/controller/subsystem/atc/proc/shift_ending()
-	new /datum/atc_chatter/shift_end(null,null)
+	new /datum/atc_chatter/shift_end()
 
 /datum/controller/subsystem/atc/proc/random_convo()
 	// Pick from the organizations in the LOREMASTER, so we can find out what these ships are doing

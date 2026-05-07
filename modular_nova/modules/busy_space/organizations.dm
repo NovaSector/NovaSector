@@ -474,7 +474,7 @@
 
 // TSCs
 /datum/lore/organization/tsc/nanotrasen
-	name = "NanoTrasen Incorporated"
+	name = "Nanotrasen Incorporated"
 	short_name = "NanoTrasen"
 	acronym = "NT"
 	desc = "NanoTrasen is one of the foremost research and development companies in Commonwealth space. \
@@ -553,14 +553,6 @@
 			"an asteroid orbiting Virgo 3",
 			"Vir Interstellar Spaceport"
 			)
-
-/datum/lore/organization/tsc/nanotrasen/New()
-	..()
-	spawn(1) // BYOND shenanigans means using_map is not initialized yet.  Wait a tick.
-		// Get rid of the current map from the list, so ships flying in don't say they're coming to the current map.
-		var/string_to_test = "[GLOB.station_name] in Nova Sector"
-		if(string_to_test in destination_names)
-			destination_names.Remove(string_to_test)
 
 /datum/lore/organization/tsc/hephaestus
 	name = "Hephaestus Industries"
@@ -673,7 +665,7 @@
 			)
 
 /datum/lore/organization/tsc/vey_med
-	name = "Vey-Medical" //The Wiki displays them as Vey-Medical.
+	name = "Vey-Medical"
 	short_name = "Vey-Med"
 	acronym = "VM"
 	desc = "Vey-Med is one of the newer TSCs on the block and is notable for being largely owned and operated by Skrell. \

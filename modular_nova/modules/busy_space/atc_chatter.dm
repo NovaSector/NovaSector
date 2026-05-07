@@ -140,18 +140,6 @@
 	// calls acknowledge at each message phase until final, where it qdel(src)
 	return
 
-/datum/atc_chatter/proc/get_speaker_name(speaker_type, comm_name, combined_name)
-	// Returns formatted name for the mob
-	switch(speaker_type)
-		if("control")
-			return "[callname] (Air Traffic Control)"
-		if("vessel")
-			return "[combined_name] ([comm_name])"
-		if("secondary")
-			return "[combined_second_name] ([comm_second_name])"
-		else
-			return "[comm_name]"
-
 /datum/atc_chatter/proc/say_line(message, speaker_type)
 	if(!SSatc.talking_head)
 		return
