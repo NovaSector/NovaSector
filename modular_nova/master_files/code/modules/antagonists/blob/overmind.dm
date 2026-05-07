@@ -5,6 +5,6 @@
 	. = ..()
 	SSshuttle.clearHostileEnvironment(src)
 
-/mob/eye/blob/proc/victory()
+/mob/eye/blob/victory()
 		. = ..()
 		SSsecurity_level.set_level(SEC_LEVEL_RED)
