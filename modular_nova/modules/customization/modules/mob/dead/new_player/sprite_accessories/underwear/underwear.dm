@@ -10,6 +10,12 @@
 /*
 	Adding has_custom_digi_sprite to TG stuff
 */
+/datum/sprite_accessory/clothing/underwear/female_kinky
+	name = "Panties - Lingerie"
+	icon_state = "panties_kinky"
+	gender = FEMALE
+	has_custom_digi_sprite = TRUE
+
 /datum/sprite_accessory/clothing/underwear/male_briefs
 	has_custom_digi_sprite = TRUE
 
@@ -118,11 +124,6 @@
 	icon_state = "lizared"
 	use_static = TRUE
 
-/datum/sprite_accessory/clothing/underwear/female_kinky
-	name = "Panties - Lingerie"
-	icon_state = "panties_kinky"
-	gender = FEMALE
-
 /datum/sprite_accessory/clothing/underwear/female_commie
 	name = "Panties - Commie"
 	icon_state = "panties_commie"
@@ -193,10 +194,12 @@
 	icon_state = "fishnet_lower"
 	gender = FEMALE
 	use_static = TRUE
+	has_custom_digi_sprite = TRUE
 
 /datum/sprite_accessory/clothing/underwear/fishnet_lower/alt
 	name = "Panties - Fishnet (Greyscale)"
 	icon_state = "fishnet_lower_alt"
+	has_custom_digi_sprite = TRUE
 
 //ERP Accessories
 /datum/sprite_accessory/clothing/underwear/latex

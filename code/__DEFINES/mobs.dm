@@ -197,6 +197,7 @@
 #define SPECIES_HUMAN "human"
 #define SPECIES_JELLYPERSON "jelly"
 #define SPECIES_SLIMEPERSON "slime"
+#define SPECIES_SPIRIT "spirit"
 #define SPECIES_LUMINESCENT "luminescent"
 #define SPECIES_STARGAZER "stargazer"
 #define SPECIES_LIZARD "lizard"
@@ -488,7 +489,7 @@
 #define AGE_MIN 18 //youngest a character can be
 #define AGE_MAX 100 //oldest a character can be //NOVA EDIT CHANGE - Increase max character age to 100 - ORIGINAL: #define AGE_MAX 85 //oldest a character can be
 #define AGE_CHRONO_MAX 400 //NOVA EDIT ADDITION - Chronological age
-#define AGE_MINOR 20 //legal age of space drinking and smoking
+#define AGE_MINOR 18 //NOVA EDIT CHANGE - We dont use these features, and its easier to just patch it from here. Original: AGE_MINOR 20 //legal age of space drinking and smoking
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
 #define APPRENTICE_AGE_MIN 29 //youngest an apprentice can be
 
@@ -1013,6 +1014,14 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define NO_BUCKLE_LYING -1
 /// Possible value of [/atom/movable/buckle_dir]. If set to a different (positive-or-zero) value than this, the buckling thing will force a dir on the buckled.
 #define BUCKLE_MATCH_DIR -1
+
+// Defines for [/datum/component/riding/var/other_unbuckle]
+/// Other mobs cannot force riders to unbuckle in any means
+#define CANNOT_FORCE_UNBUCKLE 0
+/// Other mobs can force riders to unbuckle by simply clicking on the parent
+#define CAN_FORCE_UNBUCKLE 1
+/// Other mobs can force riders to unbuckle by disarming the parent or the rider minimum twice
+#define CAN_DISARM_UNBUCKLE 2
 
 // Flags for fully_heal().
 

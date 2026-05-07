@@ -528,6 +528,11 @@
 		. += limb_gender
 	. += limb_id
 	. += body_zone
+	// NOVA EDIT ADDITION START
+	var/is_digi = (bodyshape & BODYSHAPE_DIGITIGRADE)
+	if(is_digi)
+		. += ICON_KEY_DIGI
+	// NOVA EDIT ADDITION END
 	if(should_draw_greyscale && draw_color)
 		. += draw_color
 	if(is_invisible)
