@@ -1,5 +1,5 @@
 /datum/species/monkey/kobold
-	name = "\improper Kobold"
+	name = "\improper Primitive Kobold"
 	id = SPECIES_KOBOLD_PRIMITIVE
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
 	mutant_organs = list()
@@ -132,6 +132,7 @@
 
 // Same as regular kobolds except they cannot be butchered, and are smart enough to use devices (debatable)
 /datum/species/monkey/kobold/roundstart
+	name = "\improper Kobold"
 	id = SPECIES_KOBOLD
 	examine_limb_id = SPECIES_KOBOLD
 	mutantbrain = /obj/item/organ/brain/lizard
