@@ -1,4 +1,4 @@
-//todo:subspace boxcutter. injectors. better adminodrazine. pocket extinguisher. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner. new meteor pen? admin cyborgs. /obj/item/abductor/alien_omnitool. /obj/item/soap/omega. syringe gun.
+//todo:subspace boxcutter. injectors. better adminodrazine. pocket extinguisher. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner. new meteor pen? admin cyborgs. /obj/item/abductor/alien_omnitool. /obj/item/soap/omega. admeme syringe gun. maldium, use char as example.
 //todo:implement delayed item population of pouches and boxes to decrease the intensiveness of spawning in / despawning
 //todo:radials out the ass would be nice! But they're a bit above my smooth brain at the moment. Ideas for radials: slime core / useful clothing traits necklace. admin spessknife. fix the medicell gun module to use radials instead of sequence.
 //todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
@@ -585,6 +585,7 @@
 	color = "#E0BB00" //golden for the gods
 	taste_description = "badmins"
 	chemical_flags = REAGENT_DEAD_PROCESS
+	self_consuming = TRUE
 	metabolized_traits = list(TRAIT_ANALGESIA)
 	/// Flags to fullheal every metabolism tick code\__DEFINES\mobs.dm line 1006
 	full_heal_flags = ~(HEAL_ADMIN|HEAL_BRUTE|HEAL_BURN|HEAL_TOX|HEAL_RESTRAINTS|HEAL_ALL_REAGENTS|HEAL_ORGANS)

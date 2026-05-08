@@ -133,8 +133,8 @@
 	spawn_all_loot = TRUE
 
 /obj/item/storage/box/hug/plushes/nova/team/all/PopulateContents()
-		var/plush_path = /obj/effect/spawner/random/entertainment/plushie/nova/team/all
-		new plush_path(src)
+	var/plush_path = /obj/effect/spawner/random/entertainment/plushie/nova/team/all
+	new plush_path(src)
 
 //Same as above but spawns everything possible. This might not be a good thing to have existing
 /obj/effect/spawner/random/entertainment/plushie/nova/team/all/scatter
