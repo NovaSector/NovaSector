@@ -283,6 +283,8 @@
 	name = "researcher serpent plushie"
 	desc = "A deceptively soft plushie of a familiar slime scientist. It seems far too tired for existence and smells oddly of vanilla."
 	icon_state = "plushie_celica"
+	throw_range = 1
+	throw_speed = 1
 	attack_verb_continuous = list(
 		"glomps",
 	)
