@@ -9,8 +9,8 @@
 	var/swapped = FALSE
 
 /obj/item/clothing/neck/security_cape/shoulder
-	name = "frontier protection cape"
-	desc = "A fashionable cape worn by officers."
+	name = "security cape"
+	desc = "A fashionable cape worn by guards."
 	icon_state = "/obj/item/clothing/neck/security_cape/shoulder"
 	post_init_icon_state = "depgag_cape"
 	greyscale_config = /datum/greyscale_config/depgag_cape
@@ -46,14 +46,14 @@
 
 /obj/item/clothing/neck/security_cape/armplate
 	name = "security gauntlet"
-	desc = "A fashionable full-arm gauntlet worn by security officers. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
+	desc = "A fashionable full-arm gauntlet worn by guards. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
 	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "armplate"
 
 /obj/item/clothing/neck/security_cape/armplate_caped
 	name = "caped security gauntlet"
-	desc = "A fashionable full-arm gauntlet worn by security officers. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
+	desc = "A fashionable full-arm gauntlet worn by guards. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
 	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped"
 	post_init_icon_state = "depgag_gauntlet"
 	greyscale_config = /datum/greyscale_config/depgag_caped_gauntlet
@@ -64,10 +64,27 @@
 	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/blue"
 	greyscale_colors = "#3F6E9E"
 
-/obj/item/clothing/neck/security_cape/armplate_caped/white
-	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/white"
+/obj/item/clothing/neck/security_cape/armplate_caped/engineer
+	name = "caped engineer guard gauntlet"
+	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/engineer"
 	greyscale_colors = "#EBEBEB"
 
-/obj/item/clothing/neck/security_cape/armplate_caped/black
-	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/black"
+/obj/item/clothing/neck/security_cape/armplate_caped/research
+	name = "caped research guard gauntlet"
+	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/research"
+	greyscale_colors = "#39393F"
+
+/obj/item/clothing/neck/security_cape/armplate_caped/medical
+	name = "caped orderly gauntlet"
+	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/medical"
+	greyscale_colors = "#39393F"
+
+/obj/item/clothing/neck/security_cape/armplate_caped/cargo
+	name = "caped cargo guard gauntlet"
+	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/cargo"
+	greyscale_colors = "#39393F"
+
+/obj/item/clothing/neck/security_cape/armplate_caped/service
+	name = "caped service guard gauntlet"
+	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/service"
 	greyscale_colors = "#39393F"
