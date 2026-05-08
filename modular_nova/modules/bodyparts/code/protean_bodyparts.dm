@@ -16,7 +16,7 @@
 	should_draw_greyscale = TRUE
 	change_exempt_flags = NONE
 	is_dimorphic = TRUE
-	head_flags = HEAD_DEFAULT_FEATURES
+	head_flags = HEAD_DEFAULT_FEATURES & (~HEAD_DEBRAIN) // brain stored inside their chest, not their head
 	light_brute_msg = LIGHT_NANO_BRUTE
 	medium_brute_msg = MEDIUM_NANO_BRUTE
 	heavy_brute_msg = HEAVY_NANO_BRUTE
