@@ -179,20 +179,40 @@
   - rscadd: Added a pair of signboards that can be crafted in the crafting menu, a
       wooden one, and a holographic one. Perfect for advertising or otherwise getting
       your VERY important message across to passersby.
+  ArcaneMusic:
+  - rscadd: Adds the E-2 Earthcracker device as a purchasable traitor item for 2 TC.
+      Use it to create potentially devastating weakpoints onto the station!
   Hatterhat:
   - admin: Admins can now varedit blob overminds (the eye mob) to not kill everyone
       on the station if they hit critical mass. (Admins will still have to remove
       the blob from the shuttle subsystem's "hostile environments" tracker, though.)
+  - balance: Blobs no longer end the round by default nor count as a hostile environment.
+      The IC repercussions for abandoning a blob-infested station, though, are...
+      definitely someone else's problem.
   Higgin:
   - bugfix: positive viruses no longer self-cure when not having spaceacillin or meeting
       the nutrition/satiety requirements.
   JlereHda3oHbl1984:
   - bugfix: fixed acrador snouts
+  Melbert:
+  - bugfix: Facial hair color can be separate from hair color again
+  - bugfix: Hair covering things update when they need up
+  - refactor: Refactored hair and eye rendering a bit, they're now rendered separately
+      to the head - report any oddities with either. Lips too but to a lesser degree.
   Shroopy:
   - bugfix: Fixed syndicate bombs having a maximum timer of 1000 minutes instead of
       100 minutes.
+  SmArtKar, SentryPrimis:
+  - rscadd: Siderite and Shale lavaland biomes now have unique floors, as well as
+      flora, features and fauna!
+  - bugfix: Fixed some ruins generating with default basalt walls instead of their
+      biome's walls
   lelandkemble:
   - bugfix: animating a wand of animation works, and that animated wand of animation
       animating a wand of animation does not runtime
   theselfish:
   - qol: Moved Smuggler's Flying Cap to Ushanka subtype.
+  vinylspiders:
+  - bugfix: fixed an issue where selecting 'No left leg' etc in augments and then
+      selecting 'None' immediately after would not give your leg back in the preview
+      until you select another augment
