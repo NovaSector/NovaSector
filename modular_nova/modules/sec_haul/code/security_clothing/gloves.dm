@@ -6,14 +6,15 @@
 	greyscale_config_worn = /datum/greyscale_config/depgag_gloves/worn
 	greyscale_colors = "#2F2E31#A52F29"
 
-/obj/item/clothing/gloves/color/black/security/blue
-	icon_state = "/obj/item/clothing/gloves/color/black/security/blue"
+/obj/item/clothing/gloves/color/black/security/depgag/blue
+	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag/blue"
 	greyscale_colors = "#2F2E31#3F6E9E"
 
-/obj/item/clothing/gloves/color/black/security/white
-	icon_state = "/obj/item/clothing/gloves/color/black/security/white"
+/obj/item/clothing/gloves/color/black/security/depgag/white
+	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag/white"
 	greyscale_colors = "#ECECEC#2F2E31"
-
+/*
 /obj/item/clothing/gloves/color/black/security/black
 	icon_state = "/obj/item/clothing/gloves/color/black/security/black"
 	greyscale_colors = "#2F2E31#ECECEC"
+*/

@@ -1021,7 +1021,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
-/obj/item/clothing/gloves/color/black/security/white,
+/obj/item/clothing/gloves/color/black/security/depgag/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "jp" = (
@@ -1236,7 +1236,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
-/obj/item/clothing/gloves/color/black/security/white,
+/obj/item/clothing/gloves/color/black/security/depgag/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "lu" = (
@@ -1855,7 +1855,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
-/obj/item/clothing/gloves/color/black/security/white,
+/obj/item/clothing/gloves/color/black/security/depgag/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "qE" = (
@@ -2698,7 +2698,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
-/obj/item/clothing/gloves/color/black/security/white,
+/obj/item/clothing/gloves/color/black/security/depgag/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "ze" = (
@@ -3219,7 +3219,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
-/obj/item/clothing/gloves/color/black/security/white,
+/obj/item/clothing/gloves/color/black/security/depgag/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "CR" = (
@@ -3963,7 +3963,7 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
-/obj/item/clothing/gloves/color/black/security/white,
+/obj/item/clothing/gloves/color/black/security/depgag/white,
 /turf/open/floor/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "KI" = (

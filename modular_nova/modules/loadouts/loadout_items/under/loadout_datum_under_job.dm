@@ -414,7 +414,7 @@
 	item_path = /obj/item/clothing/under/rank/cargo/cargo_bunnysuit
 	erp_item = TRUE
 	group = "Bunny Suits"
-//restricted_roles = list(ALL_JOBS_CARGO)
+	restricted_roles = list(ALL_JOBS_CARGO)
 /*
 //SEC
 /datum/loadout_item/under/jumpsuit/imphos

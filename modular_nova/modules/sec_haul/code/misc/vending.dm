@@ -104,7 +104,7 @@
 //				/obj/item/clothing/under/rank/security/nova/formal/blue = 4,
 //				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
 				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
-				/obj/item/clothing/gloves/color/black/security/white = 4,
+				/obj/item/clothing/gloves/color/black/security/depgag/white = 4,
 				/obj/item/clothing/gloves/color/black/security/blu = 4,
 				/obj/item/clothing/head/security_garrison = 4,
 				/obj/item/clothing/head/hats/warden/police/patrol = 4,
