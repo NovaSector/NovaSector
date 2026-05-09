@@ -1,18 +1,18 @@
 // This is the elements from the skin.dmf that we need to adjust the fontsize of
 const ELEMENTS_TO_ADJUST = [
-  'infobuttons.changelog',
-  'infobuttons.rules',
-  'infobuttons.wiki',
-  'infobuttons.forum',
-  'infobuttons.github',
-  'infobuttons.report-issue',
+  'infobuttons.options',
+  'infobuttons.hotkeys',
+  'infobuttons.emotes',
   'infobuttons.fullscreen-toggle',
+  'infobuttons.reconnect',
+  'infobuttons.chat',
   'inputwindow.input',
   'inputbuttons.saybutton',
   'inputbuttons.mebutton',
   'inputbuttons.oocbutton',
   'inputbuttons.whisperbutton',
   'mapwindow.status_bar',
+  'infobuttons.nova-connect-to-relay', // NOVA EDIT ADDITION
 ];
 
 const DEFAULT_BUTTON_FONT_SIZE = 4;
