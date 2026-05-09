@@ -1,4 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - balance: "Blobs no longer end the round by default nor count as a hostile environment. The IC repercussions for abandoning a blob-infested station, though, are... definitely someone else's problem."

@@ -48,27 +48,27 @@ There are several things that need to be remembered:
 /* --------------------------------------- */
 //For legacy support.
 /mob/living/carbon/human/regenerate_icons()
-
-	if(!..())
-		update_worn_undersuit()
-		update_worn_id()
-		update_worn_glasses()
-		update_worn_gloves()
-		update_worn_ears()
-		update_worn_shoes()
-		update_suit_storage()
-		update_worn_mask()
-		update_worn_head()
-		update_worn_belt()
-		update_worn_back()
-		update_worn_oversuit()
-		update_pockets()
-		update_worn_neck()
-		update_transform()
-		//mutations
-		update_mutations_overlay()
-		//damage overlays
-		update_damage_overlays()
+	. = ..()
+	update_worn_undersuit()
+	update_worn_id()
+	update_worn_glasses()
+	update_worn_gloves()
+	update_worn_ears()
+	update_worn_shoes()
+	update_suit_storage()
+	update_worn_mask()
+	update_worn_head()
+	update_worn_belt()
+	update_worn_back()
+	update_worn_oversuit()
+	update_pockets()
+	update_worn_neck()
+	update_transform()
+	update_mutations_overlay()
+	update_damage_overlays()
+	// These are done via parent call update_body(), keeping them here for clarity
+	// update_hair()
+	// update_eyes()
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
@@ -1152,43 +1152,52 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 					break
 
 /mob/living/carbon/human/update_body(is_creating = FALSE)
-	update_eyes()
-	update_underwear()
+	remove_overlay(BODY_LAYER)
+
+	var/list/body_overlays = list()
+	body_overlays += get_underwear_overlays()
+
+	if(length(body_overlays))
+		overlays_standing[BODY_LAYER] = body_overlays
+		apply_overlay(BODY_LAYER)
+
+	// parent call will update the actual bodyparts
 	return ..()
 
-/mob/living/carbon/human/proc/update_underwear()
-	remove_overlay(BODY_LAYER)
+/// Returns a list of all underclothing overlays to be applied to the mob
+/mob/living/carbon/human/proc/get_underwear_overlays()
+	. = list()
 	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN) || HAS_TRAIT(src, TRAIT_NO_UNDERWEAR))
-		return
+		return .
+
 	// Underwear, Undershirts & Socks
-	var/list/standing = list()
 	var/active_bodyshapes = get_active_bodyshapes()
 	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES)) // NOVA EDIT CHANGE - ORIGINAL: if(underwear)
 		var/datum/sprite_accessory/clothing/underwear/undie_accessory = SSaccessories.underwear_list[underwear]
 		var/mutable_appearance/underwear_overlay = undie_accessory?.make_appearance(underwear_color, physique, active_bodyshapes)
 		if(underwear_overlay)
-			standing += underwear_overlay
+			. += underwear_overlay
 
 	// NOVA EDIT ADDITION START - Bras
 	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
 		var/datum/sprite_accessory/clothing/bra/bra_accessory = SSaccessories.bra_list[bra]
 		var/mutable_appearance/bra_overlay = bra_accessory?.make_appearance(bra_color, physique, active_bodyshapes)
 		if(bra_accessory)
-			standing += bra_overlay
+			. += bra_overlay
 
 	// NOVA EDIT ADDITION END - Bras
 	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // NOVA EDIT CHANGE - ORIGINAL: if(undershirt))
 		var/datum/sprite_accessory/clothing/undershirt/shirt_accessory = SSaccessories.undershirt_list[undershirt]
 		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(undershirt_color, physique, active_bodyshapes) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(null, physique, active_bodyshapes)
 		if(shirt_overlay)
-			standing += shirt_overlay
+			. += shirt_overlay
 
 	/* // NOVA EDIT REMOVAL START - Original TG sock handling
 	if(socks && num_legs >= 2 && !(bodyshape & BODYSHAPE_DIGITIGRADE))
 		var/datum/sprite_accessory/clothing/socks/sock_accessory = SSaccessories.socks_list[socks]
 		var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(null, physique, active_bodyshapes)
 		if(socks_overlay)
-			standing += socks_overlay
+			. += socks_overlay
 	*/ // NOVA EDIT REMOVAL END
 	// NOVA EDIT ADDITION START - Nova socks - digi supported
 	if(socks && num_legs >= 2 && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS))
@@ -1197,31 +1206,43 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			var/datum/sprite_accessory/clothing/socks/sock_accessory = SSaccessories.socks_list[socks]
 			var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(socks_color, physique, active_bodyshapes)
 			if(socks_overlay)
-				standing += socks_overlay
+				. += socks_overlay
 	// NOVA EDIT ADDITION END
 
-	if(standing.len)
-		overlays_standing[BODY_LAYER] = standing
+	return .
 
-	apply_overlay(BODY_LAYER)
+/// Updates eye sprites if relevant
+/mob/living/proc/update_eyes(refresh = TRUE)
+	return
 
-/mob/living/carbon/human/proc/update_eyes()
+/mob/living/carbon/human/update_eyes(refresh = TRUE)
 	remove_overlay(EYES_LAYER)
-	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+
+	var/obj/item/bodypart/head/noggin = get_bodypart(BODY_ZONE_HEAD)
+	if(isnull(noggin) || noggin.is_husked || noggin.is_invisible)
 		return
 
-	// eyes (missing eye sprites get handled by the head itself, but sadly we have to do this stupid shit here, for now)
-	var/obj/item/organ/eyes/eye_organ = get_organ_slot(ORGAN_SLOT_EYES)
-	if (!eye_organ)
-		return
+	if(refresh)
+		var/obj/item/organ/eyes/eyes = locate() in noggin
+		eyes?.refresh(src, call_update = FALSE)
 
-	var/obj/item/bodypart/head/noggin = get_bodypart(deprecise_zone(eye_organ.zone)) // Futureproofing for HARS/weird species
-	if(istype(noggin) && !(noggin?.head_flags & HEAD_EYESPRITES))
-		return
+	var/list/eye_overlays = noggin.get_eye_overlays()
+	if(length(eye_overlays))
+		overlays_standing[EYES_LAYER] = eye_overlays
+		apply_overlay(EYES_LAYER)
 
-	eye_organ.refresh(call_update = FALSE)
-	overlays_standing[EYES_LAYER] = eye_organ.generate_body_overlay(src, noggin)
-	apply_overlay(EYES_LAYER)
+/// Updates hair sprites if relevant
+/mob/living/proc/update_hair()
+	return
+
+/mob/living/carbon/human/update_hair()
+	remove_overlay(HAIR_LAYER)
+
+	var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
+	var/list/head_overlays = head?.get_hair_overlays()
+	if(length(head_overlays))
+		overlays_standing[HAIR_LAYER] = head_overlays
+		apply_overlay(HAIR_LAYER)
 
 /// Updates face (as of now, only eye) offsets
 /mob/living/carbon/human/update_face_offset()
@@ -1242,8 +1263,8 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	apply_overlay(EYES_LAYER)
 
 
-// Only renders the head of the human
-/mob/living/carbon/human/proc/update_body_parts_head_only(update_limb_data)
+/// Makes all aspects of the mob invisibile but the head and its associated sprites
+/mob/living/carbon/human/proc/render_only_head()
 	if(!dna?.species)
 		return
 
@@ -1252,11 +1273,13 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	if(!istype(my_head))
 		return
 
-	my_head.update_limb(is_creating = update_limb_data)
-
-	add_overlay(my_head.get_limb_icon(dropped = FALSE, update_on = src))
+	cut_overlays()
+	my_head.update_limb()
+	add_overlay(my_head.get_limb_icon())
 	update_worn_head()
 	update_worn_mask()
+	update_eyes()
+	update_hair()
 
 /**
  * Used to perform regular updates to the limbs of humans with special bodyshapes

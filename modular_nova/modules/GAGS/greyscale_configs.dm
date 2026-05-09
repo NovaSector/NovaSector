@@ -2902,6 +2902,15 @@ Departmental Gags
 	name = "Department Protection Patrol Cap (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
 
+/datum/greyscale_config/depgag_garrison
+	name = "Department Protection Garrison Hat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/depgag_garrison.json'
+
+/datum/greyscale_config/depgag_garrison/worn
+	name = "Department Protection Garrison Hat (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
+
 /datum/greyscale_config/depgag_cape
 	name = "Department Protection Cape"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
