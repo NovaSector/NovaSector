@@ -1,197 +1,146 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/turf/open/floor/iron/white,
-/area/station/common/cryopods)
 "b" = (
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
-/area/station/common/cryopods)
-"e" = (
-/mob/living/basic/pet/cat/space{
-	name = "Tomas"
-	},
-/obj/effect/turf_decal/siding{
-	dir = 10
-	},
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/west,
-/turf/open/floor/iron/white,
-/area/station/common/cryopods)
-"f" = (
-/obj/machinery/door/airlock/public/glass{
-	name = "Cryopods"
-	},
-/obj/effect/landmark/navigate_destination,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/large,
-/area/station/common/cryopods)
-"g" = (
-/obj/effect/turf_decal/siding,
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
-	},
-/turf/open/floor/iron/white,
-/area/station/common/cryopods)
-"i" = (
-/turf/template_noop,
-/area/template_noop)
-"k" = (
-/obj/machinery/cryopod,
-/obj/effect/turf_decal/siding{
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/spawner/random/clothing/backpack,
+/obj/effect/turf_decal/tile/dark_green/half/contrasted{
 	dir = 1
 	},
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/machinery/computer/cryopod/directional/north,
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"g" = (
+/turf/template_noop,
+/area/station/common/cryopods)
+"i" = (
+/obj/effect/turf_decal/tile/dark_green/half/contrasted,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "q" = (
 /turf/closed/wall,
 /area/station/common/cryopods)
 "r" = (
-/obj/effect/turf_decal/siding,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/iron/white,
-/area/station/common/cryopods)
-"u" = (
-/obj/structure/sign/directions/dorms{
-	dir = 1;
-	pixel_y = 4
-	},
-/turf/closed/wall,
-/area/station/common/cryopods)
-"B" = (
-/obj/structure/cable,
-/turf/template_noop,
-/area/template_noop)
-"C" = (
-/obj/effect/turf_decal/siding,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/white,
-/area/station/common/cryopods)
-"D" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/large,
-/area/station/hallway/primary/central)
-"H" = (
-/obj/machinery/camera/autoname/directional/north,
-/obj/item/kirbyplants/random,
-/obj/effect/turf_decal/siding{
-	dir = 9
-	},
-/turf/open/floor/iron/white,
-/area/station/common/cryopods)
-"M" = (
-/obj/effect/turf_decal/siding{
-	dir = 8
-	},
-/turf/open/floor/iron/white,
-/area/station/common/cryopods)
-"P" = (
-/obj/machinery/cryopod,
-/obj/effect/turf_decal/siding{
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/spawner/random/clothing/backpack,
+/obj/effect/turf_decal/tile/dark_green/half/contrasted{
 	dir = 1
 	},
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/machinery/airalarm/directional/north,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/shoes/winterboots,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"C" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/turf_decal/tile/dark_green/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/spawner/random/clothing/backpack,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/shoes/winterboots,
+/obj/machinery/modular_computer/preset/time_clock/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"D" = (
+/obj/effect/turf_decal/tile/dark_green/half/contrasted,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/light/small/directional/south,
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "R" = (
-/obj/effect/turf_decal/siding{
-	dir = 6
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/turf_decal/tile/dark_green/half/contrasted{
+	dir = 1
 	},
-/turf/open/floor/iron/white,
-/area/station/common/cryopods)
-"S" = (
-/obj/effect/turf_decal/siding{
-	dir = 4
-	},
-/obj/machinery/modular_computer/preset/time_clock/directional/east,
-/turf/open/floor/iron/white,
-/area/station/common/cryopods)
-"V" = (
-/obj/machinery/computer/cryopod/directional/north,
-/obj/structure/table,
-/obj/effect/turf_decal/siding{
-	dir = 5
-	},
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/item/radio/intercom/directional/north,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat,
+/turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 
 (1,1,1) = {"
-q
-q
-q
-q
-q
-i
-i
+g
+g
+g
+g
+g
 "}
 (2,1,1) = {"
-q
-H
-M
-e
-b
-i
-i
+g
+g
+g
+g
+g
 "}
 (3,1,1) = {"
-q
-k
-a
 g
-q
-i
-i
+g
+g
+g
+g
 "}
 (4,1,1) = {"
-q
-P
-a
+g
 C
-f
+g
 D
-B
+g
 "}
 (5,1,1) = {"
-q
-k
-a
+g
 r
-b
+g
 i
-B
+g
 "}
 (6,1,1) = {"
-q
-V
-S
+g
 R
-b
+g
 i
-B
+g
 "}
 (7,1,1) = {"
 q
-q
-q
 b
-u
-i
-B
+g
+D
+g
 "}
 (8,1,1) = {"
-i
-i
-i
-i
-i
-i
-B
+g
+g
+g
+g
+g
+"}
+(9,1,1) = {"
+g
+g
+g
+g
+g
+"}
+(10,1,1) = {"
+g
+g
+g
+g
+g
 "}

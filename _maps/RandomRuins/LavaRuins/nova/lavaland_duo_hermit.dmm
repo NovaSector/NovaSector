@@ -67,7 +67,6 @@
 /obj/item/storage/medkit/regular,
 /obj/structure/decorative/shelf,
 /obj/item/storage/medkit/surgery,
-/obj/item/clothing/neck/stethoscope,
 /turf/open/floor/wood/large,
 /area/ruin/powered/hermit)
 "lm" = (
@@ -122,7 +121,6 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/powered/hermit)
 "qr" = (
-/obj/item/xenoarch/handheld_recoverer,
 /obj/structure/closet/crate/grave/filled,
 /obj/effect/decal/remains/human,
 /obj/item/pickaxe/silver,
@@ -242,8 +240,7 @@
 "Dh" = (
 /obj/structure/decorative/shelf,
 /obj/item/flashlight/lantern,
-/obj/item/xenoarch,
-/obj/item/xenoarch/brush,
+/obj/item/storage/belt/utility/xenoarch/full,
 /turf/open/floor/wood/large,
 /area/ruin/powered/hermit)
 "Gs" = (
@@ -267,11 +264,11 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/powered/hermit)
 "PT" = (
-/obj/structure/safe/floor,
 /obj/item/flatpacked_machine/wind_turbine,
 /obj/item/flatpacked_machine/wind_turbine,
 /obj/item/pipe_dispenser,
 /obj/item/circuitboard/machine/autolathe,
+/obj/structure/decorative/shelf,
 /turf/open/floor/wood/large,
 /area/ruin/powered/hermit)
 "Rd" = (

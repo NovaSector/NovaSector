@@ -22,6 +22,7 @@
 			var/datum/language_holder/holder = spawned_human.get_language_holder()
 			holder.get_selected_language() //we need this here so a language starts off selected
 			post_transfer_prefs(spawned_human)
+			SEND_SIGNAL(spawned_human, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 			return spawned_human
 
 		spawned_human?.client?.prefs?.safe_transfer_prefs_to(spawned_human)
@@ -42,6 +43,7 @@
 		var/mutable_appearance/character_appearance = new(spawned_human.appearance)
 		GLOB.name_to_appearance[spawned_human.real_name] = character_appearance // Cache this for Character Directory
 
+	SEND_SIGNAL(spawned_mob, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	return spawned_mob
 
 // Anything that can potentially be overwritten by transferring prefs must go in this proc

@@ -1,5 +1,7 @@
-// LOOC Module
+/// LOOC Module
 GLOBAL_VAR_INIT(looc_allowed, TRUE)
+/// Star restrictions enabled
+GLOBAL_VAR(nova_star_restrictions)
 
 /datum/config_entry/number/rockplanet_budget
 	config_entry_value = 60
@@ -69,3 +71,6 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 
 // Are borgs/silicons blacklisted from entering the gateway
 /datum/config_entry/flag/borg_gateway_blacklist
+
+/// Are the TG gas prices being overridden? See modular_nova\modules\customization\__HELPERS\global_lists.dm to configure the prices.
+/datum/config_entry/flag/override_gas_prices

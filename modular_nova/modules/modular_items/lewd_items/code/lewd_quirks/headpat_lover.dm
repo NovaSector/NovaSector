@@ -29,10 +29,6 @@
 	special_screen_obj = "mood_happiness_good"
 
 /datum/mood_event/better_headpat_lover/add_effects(mob/petter)
-	if(HAS_PERSONALITY(owner, /datum/personality/aromantic))
-		mood_change = 2
-		description = "[petter.name] gives great headpats, but that's it."
-		return
 	if(HAS_PERSONALITY(owner, /datum/personality/aloof))
 		mood_change = 2
 		description = "[petter.name] gives great headpats, but I wish they'd stop touching me."

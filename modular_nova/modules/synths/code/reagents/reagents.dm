@@ -13,22 +13,17 @@
 	return TRUE
 
 // Fuels for the synthetic fuel cell
-/datum/reagent/stable_plasma/on_mob_life(mob/living/carbon/affected_mob)
+/datum/reagent/stable_plasma/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(can_fuel_synth(affected_mob))
 		affected_mob.nutrition = min(affected_mob.nutrition + 5, NUTRITION_LEVEL_FULL-1)
 	return ..()
 
-/datum/reagent/fuel/on_mob_life(mob/living/carbon/affected_mob)
+/datum/reagent/fuel/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(can_fuel_synth(affected_mob))
 		affected_mob.nutrition = min(affected_mob.nutrition + 5, NUTRITION_LEVEL_FULL-1)
 	return ..()
 
-/datum/reagent/fuel/oil/on_mob_life(mob/living/carbon/affected_mob)
-	if((affected_mob.mob_biotypes & MOB_ROBOTIC) && affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
-		affected_mob.blood_volume += 0.5
-	return ..()
-
-/datum/reagent/carbondioxide/on_mob_life(mob/living/carbon/affected_mob)
+/datum/reagent/carbondioxide/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(can_fuel_synth(affected_mob))
 		affected_mob.nutrition = min(affected_mob.nutrition + 5, NUTRITION_LEVEL_FULL-1)
 	return ..()
@@ -44,11 +39,11 @@
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 	affected_biotype = MOB_ROBOTIC
 
-/datum/reagent/medicine/system_cleaner/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-	if(affected_mob.adjust_tox_loss(-2 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
+/datum/reagent/medicine/system_cleaner/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	if(affected_mob.adjust_tox_loss(-0.5 * seconds_per_tick * metabolization_ratio, updating_health = FALSE, required_biotype = affected_biotype))
 		. = UPDATE_MOB_HEALTH
-	affected_mob.adjust_disgust(-5 * REM * seconds_per_tick)
-	var/remove_amount = 1 * REM * seconds_per_tick;
+	affected_mob.adjust_disgust(-1.25 * seconds_per_tick * metabolization_ratio)
+	var/remove_amount = 0.25 * seconds_per_tick * metabolization_ratio
 	for(var/thing in affected_mob.reagents.reagent_list)
 		var/datum/reagent/reagent = thing
 		if(reagent.chemical_flags & REAGENT_NEUROWARE)
@@ -66,8 +61,8 @@
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 	affected_organ_flags = ORGAN_ROBOTIC
 
-/datum/reagent/medicine/liquid_solder/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
-	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, -3 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
+/datum/reagent/medicine/liquid_solder/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, -1.5 * seconds_per_tick * metabolization_ratio, required_organ_flag = affected_organ_flags)
 	if(prob(10))
 		var/obj/item/organ/brain/owner_brain = affected_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(!isnull(owner_brain) || !(owner_brain.organ_flags & affected_organ_flags))
@@ -86,19 +81,19 @@
 	affected_bodytype = BODYTYPE_ROBOTIC
 	affected_biotype = MOB_ROBOTIC
 	/// How much brute and burn individually is healed per tick
-	var/healing = 3
+	var/healing = 1.4
 	/// How much body temperature is increased by per overdose cycle on robotic bodyparts.
-	var/temperature_change = 50
+	var/temperature_change = 20
 
 
-/datum/reagent/medicine/nanite_slurry/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
-	var/heal_amount = healing * REM * seconds_per_tick
+/datum/reagent/medicine/nanite_slurry/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	var/heal_amount = healing * seconds_per_tick * metabolization_ratio
 	affected_mob.heal_bodypart_damage(heal_amount, heal_amount, required_bodytype = affected_bodytype)
 	return ..()
 
-/datum/reagent/medicine/nanite_slurry/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/medicine/nanite_slurry/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	if(affected_mob.mob_biotypes & affected_biotype)
-		affected_mob.adjust_bodytemperature(temperature_change * REM * seconds_per_tick)
+		affected_mob.adjust_bodytemperature(temperature_change * seconds_per_tick * metabolization_ratio)
 		return ..()
 	affected_mob.reagents.remove_reagent(type, NANITE_SLURRY_ORGANIC_PURGE_RATE) //gets removed from organics very fast
 	if(prob(NANITE_SLURRY_ORGANIC_VOMIT_CHANCE))

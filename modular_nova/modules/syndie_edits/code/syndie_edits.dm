@@ -65,7 +65,7 @@
 	desc = "For the agent wanting to keep a low profile whilst concealing their identity. Has a small respirator to be used with internals."
 	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
 	icon_state = "/obj/item/clothing/mask/neck_gaiter/syndicate"
-	greyscale_colors = "#333333"
+	greyscale_colors = "#2c2c2e"
 
 /obj/item/clothing/shoes/combat //TO-DO: Move these overrides out of a syndicate file!
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
@@ -102,7 +102,9 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "webbingds"
 	worn_icon_state = "webbingds"
-	uses_advanced_reskins = FALSE
+
+/obj/item/storage/belt/security/webbing/ds/setup_reskins()
+	return
 
 /obj/item/clothing/suit/armor/bulletproof/old
 	desc = "A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent."
@@ -123,7 +125,7 @@
 	icon_state = "syndicate_overallskirt"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/head/soft/sec/syndicate
 	name = "engine tech utility cover"
@@ -217,7 +219,7 @@
 	icon_state = "ip_turtleneck"
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	name = "interdyne jumpsuit"
@@ -280,8 +282,9 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
-	uses_advanced_reskins = FALSE
-	unique_reskin = null
+
+/obj/item/clothing/suit/armor/hos/deckofficer/setup_reskins()
+	return
 
 /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/black
 	name = "interdyne black labcoat"

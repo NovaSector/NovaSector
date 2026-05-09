@@ -18,6 +18,10 @@
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/biogenerator/medstation, 29)
 
+/obj/machinery/biogenerator/medstation/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
+
 /obj/machinery/biogenerator/medstation/RefreshParts()
 	. = ..()
 	efficiency = 1
@@ -34,9 +38,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/biogenerator/medstation, 29)
 /obj/machinery/biogenerator/medstation/on_deconstruction(disassembled)
 	if(disassembled)
 		new repacked_type(drop_location())
-
-/obj/machinery/biogenerator/medstation/default_deconstruction_crowbar()
-	return
 
 // Deployable item for cargo for the medstation
 

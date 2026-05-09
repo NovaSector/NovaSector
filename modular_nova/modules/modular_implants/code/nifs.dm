@@ -90,11 +90,11 @@
 	///How many programs can the NIF store at once?
 	var/max_nifsofts = 5
 	///What programs are currently loaded onto the NIF?
-	var/list/loaded_nifsofts = list()
+	var/list/loaded_nifsofts
 	///What programs come already installed on the NIF?
 	var/list/preinstalled_nifsofts = list(/datum/nifsoft/soul_poem)
 	///What programs do we want to carry between rounds?
-	var/list/persistent_nifsofts = list()
+	var/list/persistent_nifsofts
 	///This shows up in the NIF settings screen as a way to ICly display lore.
 	var/manufacturer_notes = "There is no data currently avalible for this product."
 
@@ -124,7 +124,7 @@
 
 	linked_mob = null
 
-	QDEL_LIST(loaded_nifsofts)
+	QDEL_LAZYLIST(loaded_nifsofts)
 	return ..()
 
 /obj/item/organ/cyberimp/brain/nif/on_mob_insert(mob/living/carbon/human/insertee, special = FALSE, movement_flags = DELETE_IF_REPLACED)
@@ -168,7 +168,7 @@
 		UnregisterSignal(linked_mob, COMSIG_LIVING_DEATH, PROC_REF(damage_on_death))
 	linked_mob = null
 
-	QDEL_LIST(loaded_nifsofts)
+	QDEL_LAZYLIST(loaded_nifsofts)
 
 ///Installs preinstalled NIFSofts
 /obj/item/organ/cyberimp/brain/nif/proc/install_preinstalled_nifsofts()
@@ -201,7 +201,7 @@
 		toggle_blood_drain(TRUE)
 
 	if(blood_drain)
-		linked_mob.blood_volume -= blood_drain_rate
+		linked_mob.adjust_blood_volume(-blood_drain_rate)
 
 	if(power_usage > power_level)
 		for(var/datum/nifsoft/nifsoft as anything in loaded_nifsofts)
@@ -258,7 +258,7 @@
 ///Toggles Blood Drain. Bypasss -  Ignores the need to perform the blood_check proc.
 /obj/item/organ/cyberimp/brain/nif/proc/toggle_blood_drain(bypass = FALSE)
 	if(!bypass && !blood_check())
-		return
+		return FALSE
 
 	blood_drain = !blood_drain
 
@@ -266,14 +266,15 @@
 		power_usage += (blood_drain_rate * blood_conversion_rate)
 
 		balloon_alert(linked_mob, "blood draining disabled")
-		return
+		return TRUE
 
 	power_usage -= (blood_drain_rate * blood_conversion_rate)
 	balloon_alert(linked_mob, "blood draining enabled")
+	return TRUE
 
 ///Checks if the NIF is able to draw blood as a power source?
 /obj/item/organ/cyberimp/brain/nif/proc/blood_check()
-	if(!linked_mob || !linked_mob.blood_volume || (linked_mob.blood_volume <= minimum_blood_level))
+	if(!linked_mob || !linked_mob.get_blood_volume() || (linked_mob.get_blood_volume() <= minimum_blood_level))
 		return FALSE
 
 	return TRUE
@@ -316,7 +317,7 @@
 	if(broken || calibrating) //NIFSofts can't be installed to a broken NIF
 		return FALSE
 
-	if(length(loaded_nifsofts) >= max_nifsofts)
+	if(LAZYLEN(loaded_nifsofts) >= max_nifsofts)
 		send_message("You cannot install any additional NIFSofts, please uninstall one to make room!", alert = TRUE)
 		return FALSE
 
@@ -333,7 +334,7 @@
 			send_message("[current_nifsoft] is preventing [loaded_nifsoft] from being installed.", TRUE)
 			return FALSE
 
-	loaded_nifsofts += loaded_nifsoft
+	LAZYADD(loaded_nifsofts, loaded_nifsoft)
 	loaded_nifsoft.parent_nif = WEAKREF(src)
 	loaded_nifsoft.linked_mob = linked_mob
 	rewards_points += (loaded_nifsoft.rewards_points_rate * loaded_nifsoft.purchase_price)
@@ -383,7 +384,7 @@
 		linked_mob.playsound_local(linked_mob, bad_sound, 60, FALSE)
 		return
 
-	to_chat(linked_mob, span_cyan("[nif_icon] <b>NIF Message</b>: [message_to_send]"))
+	to_chat(linked_mob, span_cyan_nova("[nif_icon] <b>NIF Message</b>: [message_to_send]"))
 	linked_mob.playsound_local(linked_mob, good_sound, 60, FALSE)
 
 

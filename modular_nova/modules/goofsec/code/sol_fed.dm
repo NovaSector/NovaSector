@@ -311,25 +311,6 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	suicide_cry = "FOR THE SOL FEDERATION!!"
 	var/department = "Some stupid shit"
 
-/datum/antagonist/ert/request_911/apply_innate_effects(mob/living/mob_override)
-	..()
-	var/mob/living/M = mob_override || owner.current
-	if(M.hud_used)
-		var/datum/hud/H = M.hud_used
-		var/atom/movable/screen/wanted/giving_wanted_lvl = new /atom/movable/screen/wanted(null, H)
-		H.wanted_lvl = giving_wanted_lvl
-		H.infodisplay += giving_wanted_lvl
-		H.mymob.client.screen += giving_wanted_lvl
-
-
-/datum/antagonist/ert/request_911/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	if(M.hud_used)
-		var/datum/hud/H = M.hud_used
-		H.infodisplay -= H.wanted_lvl
-		QDEL_NULL(H.wanted_lvl)
-	..()
-
 /datum/antagonist/ert/request_911/greet()
 	var/missiondesc =  ""
 	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You work for the Sol Federation as a [role].</font></B>"
@@ -877,17 +858,11 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 					message_admins("[ADMIN_LOOKUPFLW(user)] has beamed out [living_user.pulling] alongside them.")
 				var/turf/pulling_turf = get_turf(living_user.pulling)
 				playsound(pulling_turf, 'sound/effects/magic/Repulse.ogg', 100, 1)
-				var/datum/effect_system/spark_spread/quantum/sparks = new
-				sparks.set_up(10, 1, pulling_turf)
-				sparks.attach(pulling_turf)
-				sparks.start()
+				do_sparks(10, TRUE, pulling_turf, spark_type = /datum/effect_system/basic/spark_spread/quantum)
 				qdel(living_user.pulling)
 			var/turf/user_turf = get_turf(living_user)
 			playsound(user_turf, 'sound/effects/magic/Repulse.ogg', 100, 1)
-			var/datum/effect_system/spark_spread/quantum/sparks = new
-			sparks.set_up(10, 1, user_turf)
-			sparks.attach(user_turf)
-			sparks.start()
+			do_sparks(10, TRUE, user_turf, spark_type = /datum/effect_system/basic/spark_spread/quantum)
 			qdel(user)
 	else
 		user.balloon_alert(user, "beam-out cancelled")

@@ -32,7 +32,7 @@
 	access = ACCESS_WEAPONS
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
-	departamental_goody = FALSE
+	order_flags = ORDER_GOODY
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
 
 // MOD cores & Fuel
@@ -157,6 +157,10 @@
 	contains = list(/obj/item/mod/module/storage/large_capacity)
 	cost = CARGO_CRATE_VALUE * 0.5
 
+/datum/supply_pack/companies/modsuits/utility_modules/holster
+	contains = list(/obj/item/mod/module/holster)
+	cost = CARGO_CRATE_VALUE * 0.5
+
 /datum/supply_pack/companies/modsuits/utility_modules/retract_plates
 	contains = list(/obj/item/mod/module/plate_compression)
 	cost = CARGO_CRATE_VALUE * 0.5
@@ -230,11 +234,11 @@
 	cost = CARGO_CRATE_VALUE * 7.5
 
 /datum/supply_pack/companies/modsuits/anomalock/kinesis
-	contains = list(/obj/item/mod/module/anomaly_locked/kinesis/prebuilt/locked)
+	contains = list(/obj/item/mod/module/anomaly_locked/kinesis/commercial)
 
 /datum/supply_pack/companies/modsuits/anomalock/antigrav
-	contains = list(/obj/item/mod/module/anomaly_locked/antigrav/prebuilt/locked)
+	contains = list(/obj/item/mod/module/anomaly_locked/antigrav/commercial)
 
 /datum/supply_pack/companies/modsuits/anomalock/teleporter
-	contains = list(/obj/item/mod/module/anomaly_locked/teleporter/prebuilt/locked)
+	contains = list(/obj/item/mod/module/anomaly_locked/teleporter/commercial)
 	cost = CARGO_CRATE_VALUE * 10

@@ -96,7 +96,6 @@
 	time = 4 SECONDS
 	category = CAT_WEAPON_MELEE
 
-
 /datum/crafting_recipe/balloon_mallet
 	name = "Balloon Mallet"
 	result = /obj/item/balloon_mallet
@@ -151,6 +150,16 @@
 		/obj/item/stack/rods = 1,
 	)
 	time = 4 SECONDS
+	category = CAT_WEAPON_MELEE
+
+/datum/crafting_recipe/wireprod
+	name = "Wireprod assembly"
+	result = /obj/item/wireprod
+	reqs = list(
+		/obj/item/restraints/handcuffs/cable = 1,
+		/obj/item/stack/rods = 1,
+	)
+	time = 2 SECONDS
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/toysword
@@ -262,3 +271,15 @@
 	)
 	time = 120 SECONDS
 	category = CAT_WEAPON_MELEE
+
+/datum/crafting_recipe/dragonator_spear_untreated
+	name = "Untreated Giant-Killer Spear"
+	result = /obj/item/spear/dragonator_untreated
+	reqs = list(
+		/obj/item/stack/sheet/plasteel = 15,
+		/obj/item/stack/sheet/mineral/titanium = 5,
+		/obj/item/knife = 7,
+	)
+	time = 5 SECONDS
+	category = CAT_WEAPON_MELEE
+

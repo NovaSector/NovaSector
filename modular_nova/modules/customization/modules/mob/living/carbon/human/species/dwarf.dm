@@ -10,7 +10,7 @@
 		TRAIT_USES_SKINTONES,
 	)
 	mutanttongue = /obj/item/organ/tongue/dwarven
-	skinned_type = /obj/item/stack/sheet/animalhide/human
+	skinned_type = /obj/item/stack/sheet/animalhide/carbon/human
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	payday_modifier = 1.0
 	body_size_restricted = TRUE
@@ -22,7 +22,5 @@
 	return list(placeholder_lore)
 
 /datum/species/dwarf/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.facial_hairstyle = "Beard (Dwarf)"
-	human.facial_hair_color = "#a55310"
-	regenerate_organs(human, src, visual_only = TRUE)
-	human.update_body(TRUE)
+	human.set_facial_haircolor("#a55310", update = FALSE)
+	human.set_facial_hairstyle("Beard (Dwarf)")

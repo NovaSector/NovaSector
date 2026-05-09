@@ -91,13 +91,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/item_retrieval_allowed = allowed(user)
 	data["item_retrieval_allowed"] = item_retrieval_allowed
 
-	var/obj/item/card/id/id_card
-	if(isliving(user))
-		var/mob/living/person = user
-		id_card = person.get_idcard()
-	if(id_card?.registered_name)
-		data["account_name"] = id_card.registered_name
-
 	return data
 
 /obj/machinery/computer/cryopod/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -430,7 +423,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	if(!HAS_TRAIT_FROM(mob_occupant, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)) // Don't let ghost cafe people store items
 		for(var/obj/item/item_content in mob_occupant)
-			if(HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & (ABSTRACT|DROPDEL)) || (item_content.flags_1 & HOLOGRAM_1))
+			if(HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & (ABSTRACT|DROPDEL)) || (item_content.flags_1 & HOLOGRAM_1) || (item_content.obj_flags_nova & NO_CRYO_FREEZE) || QDELETED(item_content))
 				continue
 			if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
 				continue
@@ -530,8 +523,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_Theyre()] conscious."))
 		return
 
-	if(target == user && (tgui_alert(target, "Would you like to enter cryosleep?", "Enter Cryopod?", list("Yes", "No")) != "Yes"))
-		return
+	if(target == user)
+		var/fridge_text = "Enter cryosleep?"
+		if(!despawn_to_ghostcafe || !quiet)
+			fridge_text += " ([CONFIG_GET(string/cryo_policy)])"
+		if(tgui_alert(target, fridge_text, "Enter Cryopod?", list("Yes", "No")) != "Yes")
+			return
 
 	if(target == user)
 		if(target.mind.assigned_role.req_admin_notify)

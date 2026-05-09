@@ -3010,7 +3010,7 @@
 "zg" = (
 /obj/structure/extinguisher_cabinet/directional/west,
 /obj/structure/table/glass,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/stack/medical/mesh,
 /obj/item/stack/medical/suture,
 /turf/open/floor/plating,
@@ -5668,7 +5668,7 @@
 /obj/machinery/door/airlock{
 	name = "Central Emergency Storage"
 	},
-/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/virtual_domain)
 "VP" = (

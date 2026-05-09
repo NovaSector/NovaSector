@@ -27,7 +27,7 @@
 		fishing_modifier -= 8
 	MakeRotate()
 	if(can_buckle && fishing_modifier)
-		AddComponent(/datum/component/adjust_fishing_difficulty, fishing_modifier)
+		AddElement(/datum/element/adjust_fishing_difficulty, fishing_modifier)
 
 /obj/structure/chair/buckle_feedback(mob/living/being_buckled, mob/buckler)
 	if(HAS_TRAIT(being_buckled, TRAIT_RESTRAINED))
@@ -71,7 +71,7 @@
 
 ///This proc adds the rotate component, overwrite this if you for some reason want to change some specific args.
 /obj/structure/chair/proc/MakeRotate()
-	AddComponent(/datum/component/simple_rotation, ROTATION_IGNORE_ANCHORED|ROTATION_GHOSTS_ALLOWED)
+	AddElement(/datum/element/simple_rotation, ROTATION_IGNORE_ANCHORED|ROTATION_GHOSTS_ALLOWED)
 
 /obj/structure/chair/Destroy()
 	SSjob.latejoin_trackers -= src //These may be here due to the arrivals shuttle
@@ -242,6 +242,10 @@
 	max_integrity = 120
 	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2)
 
+/obj/structure/chair/comfy/shuttle/Initialize(mapload)
+	. = ..()
+	update_appearance()
+
 /obj/structure/chair/comfy/shuttle/electrify_self(obj/item/assembly/shock_kit/input_shock_kit, mob/user, list/overlays_from_child_procs)
 	if(!overlays_from_child_procs)
 		var/mutable_appearance/echair_overlay = mutable_appearance('icons/obj/chairs.dmi', "echair_over", OBJ_LAYER, src, appearance_flags = KEEP_APART)
@@ -330,10 +334,16 @@
 	name = "stool"
 	desc = "Apply butt."
 	icon_state = "stool"
-	can_buckle = FALSE
 	buildstackamount = 1
 	item_chair = /obj/item/chair/stool
 	max_integrity = 300
+
+/obj/structure/chair/stool/post_buckle_mob(mob/living/Mob)
+	Mob.add_offsets(type, z_add = 4)
+	. = ..()
+
+/obj/structure/chair/stool/post_unbuckle_mob(mob/living/Mob)
+	Mob.remove_offsets(type)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool, 0)
 
@@ -366,13 +376,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool, 0)
 	desc = "It has some unsavory stains on it..."
 	icon_state = "bar"
 	item_chair = /obj/item/chair/stool/bar
-	can_buckle = TRUE
 
-/obj/structure/chair/stool/bar/post_buckle_mob(mob/living/M)
-	M.pixel_y += 4
-
-/obj/structure/chair/stool/bar/post_unbuckle_mob(mob/living/M)
-	M.pixel_y -= 4
+/obj/structure/chair/stool/bar/post_buckle_mob(mob/living/Mob)
+	. = ..()
+	Mob.add_offsets(type, z_add = 7)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 
@@ -468,7 +475,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 	if(remaining_mats)
 		for(var/M=1 to remaining_mats)
 			new stack_type(get_turf(loc))
-	else if(custom_materials[GET_MATERIAL_REF(/datum/material/iron)])
+	else if(custom_materials[SSmaterials.get_material(/datum/material/iron)])
 		new /obj/item/stack/rods(get_turf(loc), 2)
 	qdel(src)
 
@@ -622,8 +629,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 	fishing_modifier = -21 //it only lives for 25 seconds, so we make them worth it.
 	custom_materials = null
 
-/obj/structure/chair/mime/wrench_act_secondary(mob/living/user, obj/item/weapon)
-	return NONE
+/obj/structure/chair/mime/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/tool_blocker, TOOL_WRENCH, TOOL_ACT_SECONDARY)
 
 /obj/structure/chair/mime/post_buckle_mob(mob/living/M)
 	M.add_offsets(type, z_add = 5)

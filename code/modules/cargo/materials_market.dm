@@ -36,19 +36,14 @@
 		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/materials_market/screwdriver_act(mob/living/user, obj/item/tool)
-	. = ..()
-	if(default_deconstruction_screwdriver(user, "[base_icon_state]_open", "[base_icon_state]", tool))
-		return ITEM_INTERACT_SUCCESS
+	return default_deconstruction_screwdriver(user, tool)
 
 /obj/machinery/materials_market/crowbar_act(mob/living/user, obj/item/tool)
-	. = ..()
-	if(default_deconstruction_crowbar(tool))
-		return ITEM_INTERACT_SUCCESS
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/materials_market/item_interaction(mob/living/user, obj/item/stack/exportable, list/modifiers)
-	. = NONE
 	if(!isstack(exportable))
-		return
+		return NONE
 
 	if(!is_operational)
 		balloon_alert(user, "no power!")
@@ -71,7 +66,7 @@
 	var/obj/item/stock_block/new_block = new /obj/item/stock_block(drop_location())
 	new_block.export_value = price
 	new_block.set_custom_materials(materials)
-	to_chat(user, span_notice("You have created a stock block worth [new_block.export_value * exportable.amount] cr! Sell it before it becomes liquid!"))
+	to_chat(user, span_notice("You have created a stock block worth [new_block.export_value * exportable.amount] [MONEY_SYMBOL]! Sell it before it becomes liquid!"))
 	playsound(src, 'sound/machines/synth/synth_yes.ogg', 50, FALSE)
 	qdel(exportable)
 	use_energy(active_power_usage)
@@ -135,6 +130,7 @@
 	var/sheet_to_buy
 	var/requested_amount
 	var/minimum_value_threshold = 0
+	var/maximum_value_threshold = 0
 	var/elastic_mult = 1
 	for(var/datum/material/traded_mat as anything in SSstock_market.materials_prices)
 		//convert trend into text
@@ -173,6 +169,8 @@
 		else
 			minimum_value_threshold = round(initial(traded_mat.value_per_unit) * SHEET_MATERIAL_AMOUNT * 0.5)
 
+		maximum_value_threshold = round(initial(traded_mat.value_per_unit) * SHEET_MATERIAL_AMOUNT * 3)
+
 		//Pulling elastic modifier into data.
 		for(var/datum/export/material/market/export_est in GLOB.exports_list)
 			if(export_est.material_id == traded_mat)
@@ -182,7 +180,8 @@
 			"name" = initial(traded_mat.name),
 			"price" = SSstock_market.materials_prices[traded_mat],
 			"rarity" = initial(traded_mat.value_per_unit),
-			"threshold" = minimum_value_threshold,
+			"min_threshold" = minimum_value_threshold,
+			"max_threshold" = maximum_value_threshold,
 			"quantity" = SSstock_market.materials_quantity[traded_mat],
 			"trend" = trend_string,
 			"color" = color_string,
@@ -363,7 +362,7 @@
 
 	var/datum/material/export_mat = custom_materials[1]
 	var/quantity = custom_materials[export_mat] / SHEET_MATERIAL_AMOUNT
-	. += span_notice("\The [src] is worth [quantity * export_value] cr, from selling [quantity] sheets of [export_mat.name].")
+	. += span_notice("\The [src] is worth [quantity * export_value] [MONEY_SYMBOL], from selling [quantity] sheets of [export_mat.name].")
 
 	if(fluid)
 		. += span_warning("\The [src] is currently liquid! Its value is based on the market price.")

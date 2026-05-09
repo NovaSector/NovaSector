@@ -124,6 +124,15 @@
 	new /obj/item/gun/energy/laser/carbine(src)
 	new /obj/item/storage/box/syndie_kit/recharger(src)
 
+/datum/opposing_force_equipment/ranged/carbines120
+	name = "Cybersun S-120"
+	description = "A laser gun primarily used by syndicate security guards. It fires a rapid spray of low-power plasma beams."
+	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/carbines120
+
+/obj/item/storage/toolbox/guncase/nova/opfor/carbines120/PopulateContents()
+	new /obj/item/gun/energy/laser/cybersun/unrestricted(src)
+	new /obj/item/storage/box/syndie_kit/recharger(src)
+
 /datum/opposing_force_equipment/ranged/laser
 	name = "laser gun"
 	description = "A basic energy-based laser gun that fires concentrated beams of light which pass through glass and thin metal."

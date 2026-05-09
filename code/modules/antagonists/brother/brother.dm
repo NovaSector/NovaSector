@@ -93,7 +93,7 @@
 		flashed.balloon_alert(source, "[flashed.p_theyre()] loyal to someone else!")
 		return
 
-	if (HAS_TRAIT(flashed, TRAIT_UNCONVERTABLE))
+	if (HAS_MIND_TRAIT(flashed, TRAIT_UNCONVERTABLE))
 		flashed.balloon_alert(source, "[flashed.p_they()] resist!")
 		return
 
@@ -137,25 +137,25 @@
 	brother1.set_species(/datum/species/ethereal)
 
 	brother2.dna.features[FEATURE_MUTANT_COLOR] = "#E5CD99" // NOVA EDIT ADDITION - Customization
-	brother2.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = list(MUTANT_INDEX_NAME = "Plain", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // NOVA EDIT - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_ANTENNAE] = "Plain"
-	brother2.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // NOVA EDIT - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_MARKINGS] = "None"
-	brother2.dna.mutant_bodyparts[FEATURE_WINGS] = list(MUTANT_INDEX_NAME = "Moth (Plain)", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF")) // NOVA EDIT - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_WINGS] = "Plain"
+	brother2.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = build_mutant_part("Plain") // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_ANTENNAE] = "Plain"
+	brother2.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = build_mutant_part(SPRITE_ACCESSORY_NONE) // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_MARKINGS] = "None"
+	brother2.dna.mutant_bodyparts[FEATURE_WINGS] = build_mutant_part("Moth (Plain)") // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_WINGS] = "Plain"
 	brother2.set_species(/datum/species/moth)
 
-	var/icon/brother1_icon = render_preview_outfit(/datum/outfit/job/quartermaster, brother1)
-	var/icon/brother1_blood_icon = icon('icons/effects/blood.dmi', "maskblood")
-	brother1_blood_icon.Blend(BLOOD_COLOR_RED, ICON_MULTIPLY)
-	brother1_icon.Blend(brother1_blood_icon, ICON_OVERLAY)
-	brother1_icon.Shift(WEST, 8)
+	var/datum/universal_icon/brother1_icon = render_preview_outfit(/datum/outfit/job/quartermaster, brother1)
+	var/datum/universal_icon/brother1_blood_icon = uni_icon('icons/effects/blood.dmi', "maskblood")
+	brother1_blood_icon.blend_color(BLOOD_COLOR_RED, ICON_MULTIPLY)
+	brother1_icon.blend_icon(brother1_blood_icon, ICON_OVERLAY)
+	brother1_icon.shift(WEST, 8)
 
-	var/icon/brother2_icon = render_preview_outfit(/datum/outfit/job/scientist/consistent, brother2)
-	var/icon/brother2_blood_icon = icon('icons/effects/blood.dmi', "uniformblood")
-	brother2_blood_icon.Blend(BLOOD_COLOR_RED, ICON_MULTIPLY)
-	brother2_icon.Blend(brother2_blood_icon, ICON_OVERLAY)
-	brother2_icon.Shift(EAST, 8)
+	var/datum/universal_icon/brother2_icon = render_preview_outfit(/datum/outfit/job/scientist/consistent, brother2)
+	var/datum/universal_icon/brother2_blood_icon = uni_icon('icons/effects/blood.dmi', "uniformblood")
+	brother2_blood_icon.blend_color(BLOOD_COLOR_RED, ICON_MULTIPLY)
+	brother2_icon.blend_icon(brother2_blood_icon, ICON_OVERLAY)
+	brother2_icon.shift(EAST, 8)
 
-	var/icon/final_icon = brother1_icon
-	final_icon.Blend(brother2_icon, ICON_OVERLAY)
+	var/datum/universal_icon/final_icon = brother1_icon
+	final_icon.blend_icon(brother2_icon, ICON_OVERLAY)
 
 	qdel(brother1)
 	qdel(brother2)

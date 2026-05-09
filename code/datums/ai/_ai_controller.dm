@@ -84,6 +84,10 @@ multiple modular subtrees with behaviors
 	UnpossessPawn(FALSE)
 	if(ai_status)
 		GLOB.ai_controllers_by_status[ai_status] -= src
+		for(var/datum/controller/subsystem/ai_controllers/controller_subsystem in Master.subsystems)
+			if(controller_subsystem.planning_status == ai_status)
+				controller_subsystem.currentrun -= src
+				break
 	our_cells = null
 	set_movement_target(type, null)
 	if(ai_movement.moving_controllers[src])
@@ -431,6 +435,10 @@ multiple modular subtrees with behaviors
 	//remove old status, if we've got one
 	if(ai_status)
 		GLOB.ai_controllers_by_status[ai_status] -= src
+		for(var/datum/controller/subsystem/ai_controllers/controller_subsystem in Master.subsystems)
+			if(controller_subsystem.planning_status == ai_status)
+				controller_subsystem.currentrun -= src
+				break
 	remove_from_unplanned_controllers()
 	stop_previous_processing()
 	ai_status = new_ai_status
@@ -866,6 +874,8 @@ multiple modular subtrees with behaviors
  */
 /datum/ai_controller/proc/remove_thing_from_blackboard_key(key, thing)
 	var/associated_value = blackboard[key]
+	if(isnull(associated_value))
+		return
 	if(thing == associated_value)
 		stack_trace("remove_thing_from_blackboard_key was called un-necessarily in a situation where clear_blackboard_key would suffice. ")
 		clear_blackboard_key(key)

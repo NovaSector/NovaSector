@@ -110,6 +110,12 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/powered/prison_shuttle)
+"jl" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "kx" = (
 /mob/living/basic/trooper/russian,
 /turf/open/floor/mineral/plastitanium,
@@ -452,12 +458,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/powered/prison_shuttle)
-"QP" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "Rj" = (
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/light/small/directional/east,
@@ -534,7 +534,7 @@ da
 da
 da
 da
-QP
+jl
 Yp
 ys
 ys
@@ -806,7 +806,7 @@ Hy
 tm
 Cv
 xp
-ys
+ET
 ys
 da
 "}
@@ -1046,7 +1046,7 @@ da
 da
 da
 da
-QP
+jl
 Yp
 ys
 ys

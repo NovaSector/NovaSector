@@ -80,17 +80,13 @@
 
 /obj/structure/table/abductor/wabbajack/Initialize(mapload, obj/structure/table_frame/frame_used, obj/item/stack/stack_used)
 	. = ..()
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER, TOOL_ACT_PRIMARY)
+	AddElement(/datum/element/tool_blocker, TOOL_WRENCH, TOOL_ACT_PRIMARY)
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/table/abductor/wabbajack/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
-
-/obj/structure/table/abductor/wabbajack/screwdriver_act(mob/living/user, obj/item/tool)
-	return NONE
-
-/obj/structure/table/abductor/wabbajack/wrench_act(mob/living/user, obj/item/tool)
-	return NONE
 
 /obj/structure/table/abductor/wabbajack/process()
 	if(isnull(our_statue))
@@ -186,12 +182,8 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_climbed),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
-
-/obj/structure/table/wood/shuttle_bar/screwdriver_act(mob/living/user, obj/item/tool)
-	return NONE
-
-/obj/structure/table/wood/shuttle_bar/wrench_act(mob/living/user, obj/item/tool)
-	return NONE
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_WRENCH)
 
 /obj/structure/table/wood/shuttle_bar/proc/on_climbed(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
@@ -384,7 +376,7 @@
 		for(var/obj/I in counted_money)
 			qdel(I)
 		if(!check_times[AM] || check_times[AM] < world.time) //Let's not spam the message
-			to_chat(AM, span_notice("[payees[AM]] cr received. You need [threshold-payees[AM]] cr more."))
+			to_chat(AM, span_notice("[payees[AM]] [MONEY_SYMBOL] received. You need [threshold-payees[AM]] [MONEY_SYMBOL] more."))
 			check_times[AM] = world.time + LUXURY_MESSAGE_COOLDOWN
 		alarm_beep()
 		return ..()
@@ -405,7 +397,7 @@
 	pixel_x = -32
 	pixel_y = -32
 
-/obj/effect/decal/hammerandsickle/shuttleRotate(rotation)
+/obj/effect/decal/hammerandsickle/shuttleRotate(rotation, params)
 	setDir(angle2dir(rotation+dir2angle(dir))) // No parentcall, rest of the rotate code breaks the pixel offset.
 
 #undef LUXURY_MESSAGE_COOLDOWN

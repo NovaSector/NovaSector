@@ -429,6 +429,14 @@
 	name = "Neck Gaiter (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/gaiter/gaiter_worn.json'
 
+/datum/greyscale_config/neck_gaiter/worn/muzzled
+	name = "Neck gaiter (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+/datum/greyscale_config/neck_gaiter/worn/teshari
+	name = "Neck gaiter (Worn, Teshari)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
+
 /*
 *	EYES
 */
@@ -762,6 +770,61 @@
 	name = "Pencilskirt + Suit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
 
+//Officer's Naval Uniform
+
+/datum/greyscale_config/navalcap
+	name = "Naval Officer's Cap"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/navalcap.json'
+
+/datum/greyscale_config/navalcap/worn
+	name = "Naval Officer's Cap (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
+
+/datum/greyscale_config/officersnaval
+	name = "Officer's Naval Uniform"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/officersnaval.json'
+
+/datum/greyscale_config/officersnaval/worn
+	name = "Officer's Naval Uniform (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/officersnaval/worn/digi
+	name = "Officer's Naval Uniform (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/officersnavalskirt
+	name = "Officer's Naval Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/officersnavalskirt.json'
+
+/datum/greyscale_config/officersnavalskirt/worn
+	name = "Officer's Naval Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/officersnavalvest
+	name = "Officer's Naval Uniform (Vest)"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/officersnavalvest.json'
+
+/datum/greyscale_config/officersnavalvest/worn
+	name = "Officer's Naval Uniform (Vest, Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/officersnavalvest/worn/digi
+	name = "Officer's Naval Uniform (Vest, Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/officersnavalskirtvest
+	name = "Officer's Naval Skirt (Vest)"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/officersnavalskirtvest.json'
+
+/datum/greyscale_config/officersnavalskirtvest/worn
+	name = "Officer's Naval Skirt (Vest, Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
 // DOUBLE SKIRT DRESS
 /datum/greyscale_config/double_skirt_dress
 	name = "Double Skirt Dress"
@@ -860,6 +923,15 @@
 /datum/greyscale_config/overalls/worn/better_vox
 	name = "Overalls (Worn, Better Vox)"
 	icon_file = 'modular_nova/modules/better_vox/icons/clothing/suit.dmi'
+
+/datum/greyscale_config/overalls/shorted_overall
+	name = "shorted overalls"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/shorted_overall.json'
+
+/datum/greyscale_config/overalls/shorted_overall/worn
+	name = "shorted overalls (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 
 // URBAN COAT
 
@@ -1177,6 +1249,7 @@
 /datum/greyscale_config/jeans_ripped/worn
 	name = "Ripped Jeans (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/jeans_ripped_worn.json'
 
 /datum/greyscale_config/jeans_ripped/worn/digi
 	name = "Ripped Jeans (Worn, Digi)"
@@ -1243,6 +1316,19 @@
 
 /datum/greyscale_config/big_pants/worn/digi
 	name = "'JUNCO' megacargo pants (Worn, Digi)"
+	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
+
+/datum/greyscale_config/wide_leg
+	name = "Wide Pants"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/wide_leg.json'
+
+/datum/greyscale_config/wide_leg/worn
+	name = "Wide Pants (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/wide_leg/worn/digi
+	name = "Wide Pants (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
 
 // DRESSES / SKIRTS
@@ -1382,6 +1468,42 @@
 
 /datum/greyscale_config/windowed_dress/worn
 	name = "Windowed Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/slit_dress
+	name = "Slit Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/slit_dress.json'
+
+/datum/greyscale_config/slit_dress/worn
+	name = "Slit Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/shorter_dress
+	name = "Shorter Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/shorter_dress.json'
+
+/datum/greyscale_config/shorter_dress/worn
+	name = "Shorter Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/pen_skirt
+	name = "Pen Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/pen_skirt.json'
+
+/datum/greyscale_config/pen_skirt/worn
+	name = "Pen Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/formal_pen_skirt
+	name = "Formal Pen Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/formal_pen_skirt.json'
+
+/datum/greyscale_config/formal_pen_skirt/worn
+	name = "Formal Pen Dress (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
 // COSTUMES
@@ -1706,7 +1828,6 @@ TREK
 	name = "christmas_boots (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
-
 /datum/greyscale_config/sport_boots
 	name = "Sport Boots"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
@@ -1719,6 +1840,15 @@ TREK
 /datum/greyscale_config/sport_boots/worn/digi
 	name = "Sport Boots (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+
+/datum/greyscale_config/knee_boots
+	name = "Knee Boots"
+	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/knee_boots.json'
+
+/datum/greyscale_config/knee_boots/worn
+	name = "Knee Boots (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/knee_boots_worn.json'
 
 // Laceups
 
@@ -1789,6 +1919,39 @@ TREK
 	name = "Designer Gloves (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 
+/datum/greyscale_config/recolorable_gloves
+	name = "Gloves"
+	icon_file = 'modular_nova/modules/GAGS/icons/gloves.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves.json'
+
+/datum/greyscale_config/recolorable_gloves/worn
+	name = "Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_worn.json'
+
+/datum/greyscale_config/recolorable_gloves/fingerless
+	name = "Fingerless Gloves"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_fingerless.json'
+
+/datum/greyscale_config/recolorable_gloves/fingerless/worn
+	name = "Fingerless Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_fingerless_worn.json'
+
+/datum/greyscale_config/recolorable_gloves/long
+	name = "Long Gloves"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_long.json'
+
+/datum/greyscale_config/recolorable_gloves/long/worn
+	name = "Long Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_long_worn.json'
+
+/datum/greyscale_config/recolorable_gloves/fingerless_long
+	name = "Long Fingerless Gloves"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_fingerless_long.json'
+
+/datum/greyscale_config/recolorable_gloves/fingerless_long/worn
+	name = "Long Fingerless Gloves (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/gloves/gloves_fingerless_long_worn.json'
+
 // WRAPS
 
 /datum/greyscale_config/clothwraps
@@ -1802,6 +1965,7 @@ TREK
 
 /datum/greyscale_config/clothwraps/worn/digi
 	name = "Cloth Wraps (Worn, Digi)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/wraps/wraps_worn_digi.json'
 
 /datum/greyscale_config/legwraps
 	name = "Leg Wraps"
@@ -2015,6 +2179,14 @@ TREK
 	name = "Hypovial"
 	icon_file = 'modular_nova/modules/hyposprays/icons/vials.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypovial.json'
+
+/datum/greyscale_config/hypovial/large
+	name = "Hypovial (Large)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypovial_large.json'
+
+/datum/greyscale_config/hypovial/interdyne
+	name = "Hypovial (Interdyne)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypovial_interdyne.json'
 
 // Evil primitive catgirl clothing
 
@@ -2479,6 +2651,16 @@ TREK
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweater.json'
 
+/datum/greyscale_config/sweater_nova_2
+	name = "Big Sweater With Bow"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweaterbow.json'
+
+/datum/greyscale_config/sweater_nova_2/worn
+	name = "Big Sweater With Bow (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/sweater/sweaterbow.json'
+
 /datum/greyscale_config/playsuit
 	name = "Playsuit"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
@@ -2604,3 +2786,77 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Antique Seecloak (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 
+//Bunny stuff, sprites from MonkieStation
+
+/datum/greyscale_config/bunnysuit
+	name = "Bunny Suit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/bunnysuit.json'
+
+/datum/greyscale_config/bunnysuit_worn
+	name = "Worn Bunny Suit"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/bunnysuit_worn.json'
+
+/datum/greyscale_config/custom_bunnysuit
+	name = "Tailormade Bunny Suit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/custom_bunnysuit.json'
+
+/datum/greyscale_config/custom_bunnysuit_worn
+	name = "Worn Tailormade Bunny Suit"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/custom_bunnysuit_worn.json'
+
+/datum/greyscale_config/custom_bunnysuit_worn/digi
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
+
+/datum/greyscale_config/tailcoat
+	name = "Tailcoat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/tailcoat.json'
+
+/datum/greyscale_config/tailcoat_worn
+	name = "Worn Tailcoat"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/tailcoat_worn.json'
+
+/datum/greyscale_config/tailcoat_bar
+	name = "Bartender's Tailcoat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/tailcoat_bar.json'
+
+/datum/greyscale_config/tailcoat_bar_worn
+	name = "Worn Bartender's Tailcoat"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/tailcoat_bar_worn.json'
+
+/datum/greyscale_config/bowtie_collar
+	name = "Bowtie Collar"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/bowtie_collar.json'
+
+/datum/greyscale_config/bowtie_collar_worn
+	name = "Worn Bowtie Collar"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/bowtie_collar_worn.json'
+
+/datum/greyscale_config/playbunnyears
+	name = "Playbunny Ears"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/playbunny_ears.json'
+
+/datum/greyscale_config/playbunnyears_worn
+	name = "Worn Playbunny Ears"
+	icon_file = 'modular_nova/master_files/icons/mob/large-worn-icons/32x48/bunnyears.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/bunny_stuff/playbunny_ears_worn.json'
+
+/datum/greyscale_config/henchmen
+	name = "Henchmen"
+	icon_file = 'modular_nova/modules/GAGS/icons/monkehenchmenobj.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/henchmen/henchmen.json'
+
+/datum/greyscale_config/henchmen/worn
+	name = "Henchmen Worn"
+	icon_file = 'modular_nova/modules/GAGS/icons/monkehenchmenmob.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/henchmen/henchmen.json'

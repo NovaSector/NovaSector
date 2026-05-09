@@ -34,15 +34,11 @@
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/artifact_analyser/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
-		update_appearance()
-		return
-	if(default_pry_open(attacking_item))
-		return
-	if(default_deconstruction_crowbar(attacking_item))
-		return
-	return ..()
+/obj/machinery/artifact_analyser/crowbar_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_crowbar(user, tool)
+
+/obj/machinery/artifact_analyser/screwdriver_act(mob/living/user, obj/item/tool)
+	return default_pry_open(user, tool, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE, deconstruct_on_fail = TRUE)
 
 /**
  * Tries to reconnect nearby scanpad to itself
@@ -83,7 +79,7 @@
 	var/artifact_first_effect
 	var/artifact_second_effect
 
-/obj/machinery/artifact_analyser/process(seconds_per_tick, times_fired)
+/obj/machinery/artifact_analyser/process(seconds_per_tick)
 	if(scan_in_progress && world.time > scan_completion_time)
 		// finish scanning
 		scan_in_progress = FALSE
@@ -111,7 +107,7 @@
 		artifact_report.add_raw_text("[scanned_object] -- [results]")
 		artifact_report.update_icon()
 
-		var/obj/item/stamp/our_stamp = new
+		var/obj/item/stamp/granted/our_stamp = new
 		var/stamp_data = our_stamp.get_writing_implement_details()
 		artifact_report.add_stamp(stamp_data["stamp_class"], rand(0, 300), rand(0, 400), rand(0, 360), stamp_data["stamp_icon_state"])
 		playsound(src, 'sound/machines/printer.ogg', 25, FALSE)

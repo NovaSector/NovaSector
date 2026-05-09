@@ -74,10 +74,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/mining)
-"bd" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space/nearstation)
 "bj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/tile,
@@ -193,6 +189,28 @@
 /obj/machinery/holopad,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
+"cX" = (
+/obj/item/stack/sheet/iron/twenty,
+/obj/item/circuitboard/machine/ore_silo,
+/obj/item/circuitboard/machine/ore_redemption{
+	pixel_x = 5;
+	pixel_y = -6
+	},
+/obj/structure/closet/crate,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/circuitboard/machine/protolathe/offstation,
+/obj/effect/spawner/random/engineering/toolbox,
+/obj/item/circuitboard/machine/circuit_imprinter/department,
+/obj/item/folded_navigation_gigabeacon,
+/obj/structure/cable,
+/obj/item/circuitboard/computer/powermonitor,
+/obj/item/circuitboard/machine/biogenerator/food_replicator,
+/obj/item/flatpacked_machine,
+/obj/item/storage/box/stockparts/basic,
+/obj/item/storage/box/stockparts/basic,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/cargodise_freighter/utility)
 "dc" = (
 /obj/effect/turf_decal/tile/yellow/half,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -942,6 +960,14 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
+"oj" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/machinery/button/door/directional/south{
+	id = "cargolockdown";
+	name = "Loading Bay Blastdoors"
+	},
+/turf/open/floor/iron/dark/smooth_half,
+/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "ok" = (
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/all_access,
@@ -951,14 +977,6 @@
 /obj/item/mod/core/standard,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
-"op" = (
-/obj/effect/turf_decal/tile/yellow,
-/obj/machinery/button/door/directional/south{
-	id = "cargolockdown";
-	name = "Loading Bay Blastdoors"
-	},
-/turf/open/floor/iron/dark/smooth_half,
-/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "oz" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/structure/rack/shelf,
@@ -1190,31 +1208,6 @@
 "th" = (
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
-"ti" = (
-/obj/item/stack/sheet/iron/twenty,
-/obj/item/circuitboard/machine/ore_silo,
-/obj/item/circuitboard/machine/ore_redemption{
-	pixel_x = 5;
-	pixel_y = -6
-	},
-/obj/item/storage/box/stockparts/deluxe,
-/obj/item/storage/box/stockparts/deluxe,
-/obj/structure/closet/crate,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/circuitboard/machine/protolathe/offstation,
-/obj/effect/spawner/random/engineering/toolbox,
-/obj/item/circuitboard/machine/circuit_imprinter/department,
-/obj/item/circuitboard/machine/rtg/advanced,
-/obj/item/circuitboard/machine/rtg/advanced,
-/obj/item/circuitboard/machine/rtg/advanced,
-/obj/item/folded_navigation_gigabeacon,
-/obj/structure/cable,
-/obj/item/circuitboard/computer/powermonitor,
-/obj/item/circuitboard/machine/biogenerator/food_replicator,
-/obj/item/flatpacked_machine,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/cargodise_freighter/utility)
 "ty" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1499,11 +1492,6 @@
 "xF" = (
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/cargodise_freighter/exterior)
-"xO" = (
-/obj/structure/lattice,
-/mob,
-/turf/template_noop,
-/area/space/nearstation)
 "xX" = (
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
@@ -1711,20 +1699,6 @@
 /obj/structure/closet/freighterammo,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
-"AE" = (
-/obj/structure/closet/crate/science{
-	req_access = list("science");
-	name = "Delivery - Nanotrasen Science Division"
-	},
-/obj/effect/spawner/random/exotic/technology,
-/obj/effect/spawner/random/exotic/technology,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/effect/spawner/random/exotic/tool,
-/obj/effect/spawner/random/exotic/tool,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "AN" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/cargodise_freighter/exterior)
@@ -1832,6 +1806,14 @@
 	},
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
+"Cy" = (
+/mob/living/basic/looter/ranged/space/laser,
+/obj/machinery/button/door/directional/south{
+	id = "bridgelockdown";
+	name = "Bridge Blastdoors"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/cargodise_freighter/vault)
 "Cz" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 8
@@ -1908,11 +1890,27 @@
 /obj/item/storage/box/beakers/variety,
 /turf/open/floor/iron/kitchen,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
+"Eb" = (
+/obj/structure/closet/crate/science{
+	req_access = list("science");
+	name = "Delivery - Nanotrasen Science Division"
+	},
+/obj/effect/spawner/random/exotic/technology,
+/obj/effect/spawner/random/exotic/technology,
+/obj/item/raw_anomaly_core/random,
+/obj/effect/spawner/random/exotic/tool,
+/obj/effect/spawner/random/exotic/tool,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "Ee" = (
 /obj/effect/turf_decal/tile/yellow/half,
 /obj/machinery/door/firedoor/closed,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
+"Ef" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space/nearstation)
 "Ej" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2100,6 +2098,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
+"GW" = (
+/obj/structure/closet/crate/medical,
+/obj/effect/spawner/random/medical/medkit,
+/obj/effect/spawner/random/medical/medkit,
+/obj/effect/spawner/random/medical/medkit_rare,
+/obj/effect/spawner/random/medical/surgery_tool_advanced,
+/obj/effect/spawner/random/medical/surgery_tool_advanced,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "Ha" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/kitchen,
@@ -2976,16 +2983,6 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
-"TU" = (
-/obj/structure/closet/crate/medical,
-/obj/effect/spawner/random/medical/medkit,
-/obj/effect/spawner/random/medical/medkit,
-/obj/effect/spawner/random/medical/medkit_rare,
-/obj/effect/spawner/random/medical/surgery_tool_advanced,
-/obj/effect/spawner/random/medical/surgery_tool_advanced,
-/obj/effect/spawner/random/medical/surgery_tool_alien,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/cargodise_freighter/cargo)
 "TZ" = (
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
@@ -3431,14 +3428,6 @@
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
-"Zx" = (
-/mob/living/basic/looter/ranged/space/laser,
-/obj/machinery/button/door/directional/south{
-	id = "bridgelockdown";
-	name = "Bridge Blastdoors"
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/cargodise_freighter/vault)
 "Zz" = (
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 4
@@ -3608,7 +3597,7 @@ Gh
 Gh
 Gh
 Gh
-bd
+Ef
 Gh
 Tg
 AN
@@ -3620,7 +3609,7 @@ AN
 AN
 Tg
 Gh
-bd
+Ef
 Gh
 Gh
 Gh
@@ -3649,7 +3638,7 @@ Gh
 Gh
 Gh
 Gh
-bd
+Ef
 Gh
 mb
 Yf
@@ -3661,7 +3650,7 @@ Yf
 Yf
 Tg
 Gh
-bd
+Ef
 Gh
 Gh
 Gh
@@ -3690,7 +3679,7 @@ Gh
 nU
 OT
 Gh
-bd
+Ef
 Gh
 mb
 vP
@@ -3702,7 +3691,7 @@ ax
 yv
 mb
 Gh
-bd
+Ef
 Gh
 KS
 UH
@@ -3944,7 +3933,7 @@ ok
 SP
 Bl
 wQ
-ti
+cX
 Nr
 NE
 Dn
@@ -3970,9 +3959,9 @@ Gh
 Gh
 Gh
 JQ
-xO
-bd
-bd
+Ef
+Ef
+Ef
 Yr
 Yr
 OF
@@ -3994,9 +3983,9 @@ NE
 NE
 NE
 NE
-bd
-bd
-bd
+Ef
+Ef
+Ef
 JQ
 Gh
 Gh
@@ -4158,9 +4147,9 @@ lH
 lH
 lH
 lH
-bd
-bd
-bd
+Ef
+Ef
+Ef
 JQ
 Gh
 Gh
@@ -4240,8 +4229,8 @@ xX
 xX
 VR
 lH
-bd
-bd
+Ef
+Ef
 JQ
 Gh
 Gh
@@ -4258,8 +4247,8 @@ Gh
 Gh
 Gh
 JQ
-bd
-bd
+Ef
+Ef
 Gg
 Gg
 Gg
@@ -4317,7 +4306,7 @@ lH
 HO
 xX
 xX
-AE
+Eb
 xX
 YL
 Wl
@@ -4360,7 +4349,7 @@ xX
 LW
 Ii
 xX
-TU
+GW
 Wl
 nu
 Gh
@@ -4486,8 +4475,8 @@ xX
 xX
 iE
 lH
-bd
-bd
+Ef
+Ef
 JQ
 Gh
 Gh
@@ -4558,7 +4547,7 @@ rY
 Gg
 zF
 tV
-op
+oj
 Hv
 Hv
 Jx
@@ -4568,9 +4557,9 @@ Hv
 Hv
 Hv
 Hv
-bd
-bd
-bd
+Ef
+Ef
+Ef
 JQ
 Gh
 Gh
@@ -4872,8 +4861,8 @@ Gh
 Gh
 Gh
 JQ
-bd
-bd
+Ef
+Ef
 Gg
 Gg
 Gg
@@ -4896,9 +4885,9 @@ EI
 UB
 UB
 UB
-bd
-bd
-bd
+Ef
+Ef
+Ef
 JQ
 Gh
 Gh
@@ -5128,7 +5117,7 @@ do
 Eo
 Eo
 jl
-Zx
+Cy
 vh
 UL
 tV
@@ -5305,8 +5294,8 @@ Sx
 FW
 Ck
 NV
-bd
-bd
+Ef
+Ef
 JQ
 Gh
 Gh
@@ -5469,7 +5458,7 @@ kX
 Ze
 kX
 kX
-bd
+Ef
 JQ
 Gh
 Gh
@@ -5495,7 +5484,7 @@ Gh
 Gh
 Gh
 JQ
-bd
+Ef
 kX
 wx
 xE
@@ -5658,8 +5647,8 @@ Gh
 Gh
 Gh
 JQ
-bd
-bd
+Ef
+Ef
 kX
 ao
 hT
@@ -5752,7 +5741,7 @@ mf
 kX
 Zk
 Gh
-bd
+Ef
 Gh
 Gh
 vH
@@ -5793,7 +5782,7 @@ dy
 kX
 Gh
 Gh
-bd
+Ef
 vH
 vH
 vH

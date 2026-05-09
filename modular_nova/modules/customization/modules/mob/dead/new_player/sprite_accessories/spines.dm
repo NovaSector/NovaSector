@@ -1,7 +1,12 @@
 /datum/sprite_accessory/spines
 	key = FEATURE_SPINES
 	default_color = DEFAULT_SECONDARY
-	recommended_species = list(SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER)
+	recommended_species = list(
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/spines
 
@@ -29,6 +34,8 @@
 /datum/sprite_accessory/tail_spines/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/tail_spines/is_hidden(mob/living/carbon/human/wearer)
 	if(wearer.owned_turf?.name == "tail")

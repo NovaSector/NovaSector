@@ -32,17 +32,14 @@
 	return values
 
 /datum/preference/choiced/species/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/prefs)
-	target.set_species(value, FALSE, TRUE, TRUE, prefs?.features.Copy(), prefs?.mutant_bodyparts.Copy(), prefs?.body_markings.Copy()) // NOVA EDIT CHANGE - Customization - ORIGINAL: target.set_species(value, icon_update = FALSE, pref_load = TRUE)
-
-	//NOVA EDIT ADDITION
-	target.dna.update_body_size()
-
+	target.set_species(value, icon_update = FALSE, pref_load = TRUE, replace_missing = TRUE, override_markings = prefs?.body_markings.Copy()) // NOVA EDIT CHANGE - Customization - ORIGINAL: target.set_species(value, icon_update = FALSE, pref_load = TRUE)
+	// NOVA EDIT ADDITION START
 	for(var/organ_key in list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_PENIS, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS))
 		var/obj/item/organ/genital/gent = target.get_organ_slot(organ_key)
 		if(gent)
 			gent.aroused = prefs.arousal_preview
 			gent.update_sprite_suffix()
-	//NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 /datum/preference/choiced/species/compile_constant_data()
 	var/list/data = list()

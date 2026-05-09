@@ -151,25 +151,25 @@
 		return
 
 	var/head_hitter = user.zone_selected == BODY_ZONE_HEAD && isliving(target)
-
-	// An attack that targets the head of a living mob will attempt to knock them down
-	if(head_hitter)
-		var/mob/living/living_target = target
-		var/knockdown_effectiveness = 0
-		if(!HAS_TRAIT(target, TRAIT_HEAD_INJURY_BLOCKED))
-			knockdown_effectiveness = bottle_knockdown_duration + ((force / 10) * 1 SECONDS) - living_target.getarmor(BODY_ZONE_HEAD, MELEE)
-		if(prob(knockdown_effectiveness))
-			living_target.Knockdown(min(knockdown_effectiveness, 20 SECONDS))
+	if(!QDELETED(target))
+		// An attack that targets the head of a living mob will attempt to knock them down
+		if(head_hitter)
+			var/mob/living/living_target = target
+			var/knockdown_effectiveness = 0
+			if(!HAS_TRAIT(target, TRAIT_HEAD_INJURY_BLOCKED))
+				knockdown_effectiveness = bottle_knockdown_duration + ((force / 10) * 1 SECONDS) - living_target.getarmor(BODY_ZONE_HEAD, MELEE)
+			if(prob(knockdown_effectiveness))
+				living_target.Knockdown(min(knockdown_effectiveness, 20 SECONDS))
 
 	// Displays a custom message which follows the attack
 	if(target == user)
-		target.visible_message(
+		user.visible_message(
 			span_warning("[user] smashes [src] [head_hitter ? "over [user.p_their()] head" : "against [user.p_them()]selves"]!"),
 			span_warning("You smash [src] [head_hitter ? "over your head" : "against yourself"]!"),
 		)
 
 	else
-		target.visible_message(
+		user.visible_message(
 			span_warning("[user] smashes [src] [head_hitter ? "over [target]'s head" : "against [target]"]!"),
 			span_warning("[user] smashes [src] [head_hitter ? "over your head" : "against you"]!"),
 		)
@@ -874,6 +874,27 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/coconut_rum = 100)
 	drink_type = ALCOHOL
 
+/obj/item/reagent_containers/cup/glass/bottle/aperitivo
+	name = "Camillo Aperitivo Rosso"
+	desc = "The bottle that led to the creation of the modern Camillo Group beverage conglomerate. Despite what you might expect, there's a good chance that whoever makes your favorite liquor is at least in part owned by Camillo."
+	icon_state = "aperitivo_bottle"
+	list_reagents = list(/datum/reagent/consumable/ethanol/aperitivo = 100)
+	drink_type = ALCOHOL
+
+/obj/item/reagent_containers/cup/glass/bottle/herbal_liqueur
+	name = "Bellarmine D.O.P Herbal Liqueur"
+	desc = "An almost millenia old herbal liqueur made from a secret recipe passed down over generations of monks. It's not great to know that the herbs and spices used in this are a better-kept secret than the codes to Nanotrasen's nuclear arsenal."
+	icon_state = "herbal_liqueur_bottle"
+	list_reagents = list(/datum/reagent/consumable/ethanol/herbal_liqueur = 100)
+	drink_type = ALCOHOL
+
+/obj/item/reagent_containers/cup/glass/bottle/maraschino
+	name = "Dalmazia Originale Maraschino Liqueur"
+	desc = "A small note on the back of the bottle instructs all customers who complain about a lack of cherry flavor to direct their concerns to what appears to be a defunct phone number."
+	icon_state = "maraschino_bottle"
+	list_reagents = list(/datum/reagent/consumable/ethanol/maraschino = 100)
+	drink_type = ALCOHOL
+
 ////////////////////////// MOLOTOV ///////////////////////
 /obj/item/reagent_containers/cup/glass/bottle/molotov
 	name = "molotov cocktail"
@@ -916,12 +937,14 @@
 				break
 	..()
 	if(firestarter && active)
-		target.fire_act()
+		if(!QDELETED(target))
+			target.fire_act()
 		new /obj/effect/hotspot(get_turf(target))
 
 /obj/item/reagent_containers/cup/glass/bottle/molotov/item_interaction(mob/living/user, obj/item/item, list/modifiers)
-	if(!item.get_temperature() || active)
+	if(item.get_temperature() < FIRE_MINIMUM_TEMPERATURE_TO_EXIST || active)
 		return NONE
+
 	active = TRUE
 	log_bomber(user, "has primed a", src, "for detonation")
 
@@ -1030,6 +1053,14 @@
 	icon_state = "orangejuice"
 	list_reagents = list(/datum/reagent/consumable/orangejuice = 100)
 	drink_type = FRUIT | BREAKFAST
+
+/obj/item/reagent_containers/cup/glass/bottle/juice/lemonjuice
+	name = "lemon juice"
+	desc = "Some like to pour a few drops of this over their fish."
+	icon = 'icons/obj/drinks/boxes.dmi'
+	icon_state = "lemonjuice"
+	list_reagents = list(/datum/reagent/consumable/lemonjuice = 100)
+	drink_type = FRUIT
 
 /obj/item/reagent_containers/cup/glass/bottle/juice/cream
 	name = "milk cream"

@@ -23,12 +23,12 @@
 	INVOKE_ASYNC(src, PROC_REF(async_set_color), attacked_mob, user)
 
 /obj/item/lipstick/quantum/proc/async_set_color(mob/attacked_mob, mob/user)
-	var/new_color = input(
+	var/new_color = tgui_color_picker(
 			user,
 			"Select lipstick color",
 			null,
 			COLOR_WHITE,
-		) as color | null
+		)
 
 	var/mob/living/carbon/human/target = attacked_mob
 	if(target.is_mouth_covered())
@@ -118,8 +118,9 @@
 			to_chat(user, span_warning("There is no facial hair to shave!"))
 			return
 
-		if(!get_location_accessible(target_human, location))
-			to_chat(user, span_warning("The mask is in the way!"))
+		var/covering = target_human.is_mouth_covered()
+		if(covering)
+			to_chat(user, span_warning("[covering] is in the way!"))
 			return
 
 		if(HAS_TRAIT(target_human, TRAIT_SHAVED))
@@ -145,7 +146,7 @@
 			to_chat(user, span_warning("There is no hair to shave!"))
 			return
 
-		if(!get_location_accessible(target_human, location))
+		if(!target_human.is_location_accessible(location))
 			to_chat(user, span_warning("The headgear is in the way!"))
 			return
 

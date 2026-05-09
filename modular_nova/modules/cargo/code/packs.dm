@@ -23,7 +23,7 @@
 	)
 	crate_name = "mouse crate"
 
-/datum/supply_pack/critter/mouse/generate()
+/datum/supply_pack/critter/mouse/generate(atom/A, datum/bank_account/paying_account, crate_override)
 	. = ..()
 	for(var/i in 1 to 5)
 		new /mob/living/basic/mouse(.)
@@ -37,7 +37,7 @@
 	)
 	crate_name = "chinchilla crate"
 
-/datum/supply_pack/critter/chinchilla/generate()
+/datum/supply_pack/critter/chinchilla/generate(atom/A, datum/bank_account/paying_account, crate_override)
 	. = ..()
 	for(var/i in 1 to 3)
 		new /mob/living/basic/pet/chinchilla(.)
@@ -126,7 +126,7 @@
 
 /datum/supply_pack/medical/medigun
 	name = "CWM-479 Medigun"
-	desc = "Contains a single VeyMedical CWM-479 model medical gun; cells not included."
+	desc = "Contains a single Vey-Medical CWM-479 model medigun; medicells not included."
 	cost = CARGO_CRATE_VALUE * 30
 	access = ACCESS_MEDICAL
 	contains = list(/obj/item/storage/briefcase/medicalgunset/standard)
@@ -134,7 +134,7 @@
 
 /datum/supply_pack/medical/medicells
 	name = "Medicell Replacement Crate"
-	desc = "Contains the tier I Medigun cells."
+	desc = "Contains a set of tier I brute, burn, and toxin medicells for Vey-Medical mediguns."
 	cost = CARGO_CRATE_VALUE * 5
 	access = ACCESS_MEDICAL
 	contains = list(
@@ -410,7 +410,7 @@
 	contains = list(/obj/item/gravity_harness)
 
 /datum/supply_pack/misc/commandkeys
-	hidden = TRUE
+	order_flags = ORDER_EMAG_ONLY
 
 /*
 *	FOOD
@@ -680,7 +680,7 @@
 	name = "Authentic Renaissance Faire Crate"
 	desc = "Contains two authentic suits of armor, swords, and two bows and cuirass' for the cowards hiding in the back."
 	cost = CARGO_CRATE_VALUE * 30
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 	contains = list(
 		/obj/item/clothing/suit/armor/riot/knight/larp/red,
 		/obj/item/clothing/gloves/plate/larp/red,
@@ -752,7 +752,7 @@
 	contains = list(/obj/item/grown/log)
 	crate_name = "lumber crate"
 
-/datum/supply_pack/materials/rawlumber/generate()
+/datum/supply_pack/materials/rawlumber/generate(atom/A, datum/bank_account/paying_account, crate_override)
 	. = ..()
 	for(var/i in 1 to 19)
 		new /obj/item/grown/log(.)

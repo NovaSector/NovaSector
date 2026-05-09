@@ -17,12 +17,9 @@
 	name = "wooden bowl"
 	desc = "A bowl made out of wood. Primitive, but effective."
 	icon = 'modular_nova/modules/tribal_extended/icons/crafting.dmi'
+	base_icon_state = "wood_bowl"
 	icon_state = "wood_bowl"
 	fill_icon_state = "fullbowl"
 	fill_icon = 'icons/obj/mining_zones/ash_flora.dmi'
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3)
 
-/obj/item/reagent_containers/cup/bowl/mushroom_bowl/update_icon_state()
-	if(!reagents.total_volume)
-		icon_state = "wood_bowl"
-	return ..()

@@ -16,13 +16,13 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	in_use = FALSE
 	return ..()
 
-/mob/living/carbon/human/dummy/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/carbon/human/dummy/Life(seconds_per_tick = SSMOBS_DT)
 	return
 
 /mob/living/carbon/human/dummy/attach_rot(mapload)
 	return
 
-/mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // NOVA EDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
+/mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE, list/override_features, list/override_mutantparts, list/override_markings) // NOVA EDIT CHANGE - Customization. ORIGINAL: /mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, replace_missing = TRUE)
 	harvest_organs()
 	return ..()
 
@@ -76,8 +76,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	item.item_flags |= IN_INVENTORY
 	if(!item.visual_equipped(src, slot, initial))
 		return FALSE
-
+	if(!(slot & item.slot_flags)) // Things below only update if slotted in (ie: not held)
+		return TRUE
 	add_item_coverage(item)
+	if(item.hair_mask)
+		LAZYADD(hair_masks, item.hair_mask)
+		update_hair()
 	return TRUE
 
 /mob/living/carbon/human/dummy/proc/wipe_state()

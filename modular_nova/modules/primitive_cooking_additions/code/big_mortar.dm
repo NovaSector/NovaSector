@@ -85,7 +85,7 @@
 			if(length(contents) >= maximum_contained_items)
 				break
 
-			if(target_item.juice_typepath || target_item.grind_results)
+			if(target_item.juice_typepath() || target_item.grind_results())
 				target_item.forceMove(src)
 
 		if (length(contents) >= maximum_contained_items)
@@ -152,7 +152,7 @@
 						balloon_alert(user, "overflowing!")
 						break
 
-					if(target_item.juice_typepath)
+					if(target_item.juice_typepath())
 						juice_target_item(target_item, user)
 
 					else
@@ -164,7 +164,7 @@
 						balloon_alert(user, "overflowing!")
 						break
 
-					if(target_item.grind_results)
+					if(target_item.grind_results() || target_item.reagents?.total_volume)
 						grind_target_item(target_item, user)
 
 					else
@@ -174,7 +174,7 @@
 
 		return ITEM_INTERACT_SUCCESS
 
-	if(!tool.grind_results && !tool.juice_typepath)
+	if(!tool.grind_results() && !tool.juice_typepath() && !tool.reagents?.total_volume)
 		balloon_alert(user, "can't grind this!")
 		return ITEM_INTERACT_BLOCKING
 
@@ -220,7 +220,7 @@
 ///Mixes contained reagents, creating butter/mayo/whipped cream
 /obj/structure/large_mortar/proc/mix(mob/user)
 	//Recipe to make Butter
-	var/butter_amt = FLOOR(reagents.get_reagent_amount(/datum/reagent/consumable/milk) / MILK_TO_BUTTER_COEFF, 1)
+	var/butter_amt = floor(reagents.get_reagent_amount(/datum/reagent/consumable/milk) / MILK_TO_BUTTER_COEFF)
 	var/purity = reagents.get_reagent_purity(/datum/reagent/consumable/milk)
 	reagents.remove_reagent(/datum/reagent/consumable/milk, MILK_TO_BUTTER_COEFF * butter_amt)
 	for(var/i in 1 to butter_amt)

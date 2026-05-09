@@ -1,5 +1,5 @@
-#define CHIP_LABEL_BISHOP "It has a <b>[span_cyan("Bishop Cybernetics, Inc.")]</b> label visible on it."
-#define CHIP_LABEL_DEFOREST "It has <b>[span_cyan("DeForest Medical Corporation")]</b> laser-etched into it."
+#define CHIP_LABEL_BISHOP "It has a <b>[span_cyan_nova("Bishop Cybernetics, Inc.")]</b> label visible on it."
+#define CHIP_LABEL_DEFOREST "It has <b>[span_cyan_nova("DeForest Medical Corporation")]</b> laser-etched into it."
 #define CHIP_LABEL_DONK "It has a <b>[span_green("Donk Corporation")]</b> label visible on it."
 #define CHIP_LABEL_MAINT "It has <b>[span_sans("XLR8.EXE")]</b> and <b>[span_sans("wakes you up!")]</b> drawn onto it."
 #define CHIP_LABEL_NT "It has a <b>[span_blue("Nanotrasen Systems, Inc.")]</b> label visible on it."
@@ -21,6 +21,7 @@
 	greyscale_config = /datum/greyscale_config/neuroware
 	// Color of circuitboard underlay.
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	sticker_icon_state = null
 
 	///Balloon message upon successful installation.
 	var/success_message = "inserted neuroware chip"
@@ -66,6 +67,9 @@
 			desc += CHIP_LABEL_WARD
 		if(NEUROWARE_ZENGHU)
 			desc += CHIP_LABEL_ZENGHU
+
+/obj/item/disk/neuroware/setup_reskins()
+	return
 
 /obj/item/disk/neuroware/examine()
 	. = ..()
