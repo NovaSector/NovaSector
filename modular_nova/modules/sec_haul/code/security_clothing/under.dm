@@ -5,7 +5,6 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/security_digi.dmi'
-	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/security/warden/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
@@ -258,11 +257,11 @@
 	greyscale_colors = "#4E4E54#A52F29"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	flags_1 = NONE
-/*
+
 /obj/item/clothing/under/rank/security/nova/modskin/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin/blue"
 	greyscale_colors = "#4E4E54#3F6E9E"
-
+/*
 /obj/item/clothing/under/rank/security/nova/modskin/white
 	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin/white"
 	greyscale_colors = "#4E4E54#ECECEC"
@@ -271,24 +270,23 @@
 	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin/black"
 	greyscale_colors = "#4E4E54#4E4E54"
 */
-/*
-/obj/item/clothing/under/rank/security/nova/pants_jumpsuit
+
+/obj/item/clothing/under/rank/security/nova/depgag_pantsuit
 	name = "security uniform"
 	desc = "A tactical security jumpsuit for officers complete with Nanotrasen belt buckle."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/rank/security/nova/secjumpsuit"
-	post_init_icon_state = "secjumpsuit"
-	greyscale_config = /datum/greyscale_config/secjumpsuit
-	greyscale_config_worn = /datum/greyscale_config/secjumpsuit/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/secjumpsuit/worn/digi
+	icon_state = "/obj/item/clothing/under/rank/security/nova/depgag_pantsuit"
+	post_init_icon_state = "depgag_pantsuit"
+	greyscale_config = /datum/greyscale_config/depgag_pantsuit
+	greyscale_config_worn = /datum/greyscale_config/depgag_pantsuit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/depgag_pantsuit/worn/digi
 	greyscale_colors = "#A52F29#39393F#39393F"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	flags_1 = NONE
 
-/obj/item/clothing/under/rank/security/nova/secjumpsuit/blue
-	icon_state = "/obj/item/clothing/under/rank/security/nova/secjumpsuit/blue"
+/obj/item/clothing/under/rank/security/nova/depgag_pantsuit/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/depgag_pantsuit/blue"
 	greyscale_colors = "#3F6E9E#39393F#39393F"
-
+/*
 /obj/item/clothing/under/rank/security/nova/secjumpsuit/white
 	icon_state = "/obj/item/clothing/under/rank/security/nova/secjumpsuit/white"
 	greyscale_colors = "#ECECEC#39393F#39393F"

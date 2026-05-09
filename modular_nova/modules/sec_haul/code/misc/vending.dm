@@ -137,3 +137,29 @@
 		)
 
 	payment_department = ACCOUNT_SEC
+/*
+/obj/item/clothing/under/rank/security/nova/uniform
+/obj/item/clothing/under/rank/security/nova/formal
+/obj/item/clothing/under/rank/security/nova/turtleneck
+/obj/item/clothing/under/rank/security/nova/skirt
+/obj/item/clothing/under/rank/security/nova/plainskirt
+/obj/item/clothing/under/rank/security/nova/miniskirt
+/obj/item/clothing/under/rank/security/nova/dress
+/obj/item/clothing/under/rank/security/nova/shorts
+/obj/item/clothing/under/rank/security/nova/trousers
+/obj/item/clothing/under/rank/security/nova/modskin
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
