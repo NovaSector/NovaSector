@@ -351,7 +351,7 @@ function QuirkPage() {
     }
   });
 
-  let balance = -data.quirks_balance;
+  const balance = -data.quirks_balance; // NOVA EDIT CHANGE - ORIGINAL: let balance = -data.default_quirk_balance;
   let positiveQuirks = 0;
 
   for (const selectedQuirkName of selectedQuirks) {
@@ -364,7 +364,7 @@ function QuirkPage() {
       positiveQuirks += 1;
     }
 
-    // balance += selectedQuirk.value; // NOVA EDIT REMOVAL - use DM data.quirks_balance instead
+    // balance += selectedQuirk.value; // NOVA EDIT REMOVAL - use DM data.quirks_balance
   }
 
   function getReasonToNotAdd(quirkName: string) {

@@ -412,7 +412,6 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
                 if (option?.path === limb.selectedAug?.path) return;
                 if (
                   showCost &&
-                  (option?.cost ?? 0) != 0 &&
                   balance -
                     (limb.selectedAug?.cost ?? 0) +
                     (option?.cost ?? 0) >
@@ -479,7 +478,6 @@ const BodypartAugmentSection = (props: { limb: BodypartData }) => {
                   );
                   if (
                     showCost &&
-                    (option?.cost ?? 0) > 0 &&
                     balance -
                       (limb.selectedImplant?.cost ?? 0) +
                       (option?.cost ?? 0) >
@@ -550,7 +548,6 @@ const InternalImplantSection = (props: { internal_implant: AugmentData }) => {
             const option = aug_options.find((aug) => displayName(aug) === name);
             if (
               showCost &&
-              (option?.cost ?? 0) != 0 &&
               balance -
                 (internal_implant.selectedAug?.cost ?? 0) +
                 (option?.cost ?? 0) >
