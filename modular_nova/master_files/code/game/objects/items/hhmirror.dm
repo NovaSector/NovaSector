@@ -116,14 +116,14 @@
 			else
 				var/new_hair_color = tgui_color_picker(human_user, "Choose your hair color", "Hair Color", human_user.hair_color)
 				if(new_hair_color)
-					human_user.hair_color = sanitize_hexcolor(new_hair_color)
+					human_user.set_haircolor(sanitize_hexcolor(new_hair_color), update = FALSE)
 					human_user.dna.update_ui_block(/datum/dna_block/identity/hair_color)
 				if(human_user.gender == "male")
 					var/new_face_color = tgui_color_picker(human_user, "Choose your facial hair color", "Hair Color", human_user.facial_hair_color)
 					if(new_face_color)
-						human_user.facial_hair_color = sanitize_hexcolor(new_face_color)
+						human_user.set_facial_haircolor(sanitize_hexcolor(new_face_color), update = FALSE)
 						human_user.dna.update_ui_block(/datum/dna_block/identity/facial_color)
-				human_user.update_body_parts()
+				human_user.update_hair()
 
 		if(BODY_ZONE_PRECISE_EYES)
 			var/new_eye_color = tgui_color_picker(human_user, "Choose your eye color", "Eye Color", human_user.eye_color_left)
@@ -132,7 +132,7 @@
 			if(new_eye_color)
 				human_user.set_eye_color(sanitize_hexcolor(new_eye_color))
 				human_user.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
-				human_user.update_body()
+				human_user.update_eyes()
 
 /obj/item/hhmirror/wracemagic
 	name = "raceless handheld magic mirror"

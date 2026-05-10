@@ -58,8 +58,8 @@
 
 	var/mob/living/carbon/human/human_mob = src
 	human_mob.dna.mutant_bodyparts = list()
-	client?.prefs?.apply_prefs_to(src, icon_updates = FALSE)
 	human_mob.dna.species.regenerate_organs(src, replace_current = TRUE)
+	client?.prefs?.apply_prefs_to(src, icon_updates = FALSE)
 	human_mob.dna.update_body_size()
 	human_mob.update_body(is_creating = TRUE)
 	if(quirks_prompt == "Yes")

@@ -1,0 +1,5 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - bugfix: "Fixes Kobold Kubes spawning unbutcherable Kobolds"
+  - code_imp: "Changed species name so it's easier to tell which Kobold is primitive and which isn't"
