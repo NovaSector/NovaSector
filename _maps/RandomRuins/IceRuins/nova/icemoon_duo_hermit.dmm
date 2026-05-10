@@ -48,8 +48,7 @@
 /obj/structure/decorative/shelf,
 /obj/item/raptor_dex,
 /obj/structure/table/wood,
-/obj/item/xenoarch/brush,
-/obj/item/xenoarch,
+/obj/item/storage/belt/utility/xenoarch/full,
 /turf/open/floor/wood,
 /area/ruin/powered/hermit)
 "gP" = (
@@ -171,7 +170,6 @@
 /area/ruin/powered/hermit)
 "vV" = (
 /obj/structure/closet/crate/grave/filled,
-/obj/item/xenoarch/handheld_recoverer,
 /obj/effect/decal/remains/human,
 /obj/item/pickaxe/silver,
 /obj/item/stack/cable_coil/five,

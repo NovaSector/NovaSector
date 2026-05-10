@@ -7,6 +7,7 @@
 	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves. It has an IPC serial number engraved on the top. It is usually slotted into the chest of synthetic crewmembers."
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "posibrain-ipc"
+	brain_size = 0.8 // *compact* posibrain
 	/// The last time (in ticks) a message about brain damage was sent. Don't touch.
 	var/last_message_time = 0
 	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
@@ -81,6 +82,62 @@
 		return
 	if(slot == ITEM_SLOT_ID)
 		internal_computer.handle_id_slot(owner, item)
+
+/obj/item/organ/brain/synth/update_icon_state()
+	. = ..()
+	if(brainmob?.key)
+		icon_state = "[src::icon_state]-occupied"
+		return
+	icon_state = "[src::icon_state]"
+	return
+
+/obj/item/organ/brain/synth/brain_damage_examine()
+	. = ..()
+	if(. == span_info("This one is completely devoid of life.") && HAS_TRAIT(src, TRAIT_GHOSTROLE_ON_REVIVE))
+		return span_info("Forcing a reboot in this [name] may activate new positronic personality.")
+
+/datum/design/synth_posi
+	name = "Compact Positronic Brain"
+	desc = "Inactive compact positronic brain."
+	id = "synth_posi"
+	build_type = MECHFAB
+	construction_time = 30 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2.5,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2.5,
+		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/organ/brain/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_ORGANS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
+/datum/design/synth_posi/create_result(atom/drop_loc, list/custom_materials, amount)
+	var/obj/item/organ/brain/synth/new_posi = ..()
+	new_posi.AddComponent( \
+		/datum/component/ghostrole_on_revive, \
+		refuse_revival_if_failed = TRUE, \
+		on_successful_revive = CALLBACK(src, PROC_REF(on_successful_revive), new_posi), \
+		revive_title = "a newly created android", \
+		spawn_text = "New Android", \
+		you_are_text = "You are a newly created android.", \
+		flavor_text = " Do your best to help the station.", \
+		important_text = "While not being lawbound as cyborgs or AIs, your continued existence is still in hands of your creators, so try to behave well! You are not an antagonist but can still roll for one.", \
+	)
+	return new_posi
+
+/datum/design/synth_posi/proc/on_successful_revive(obj/item/organ/brain/synth/our_posi)
+	var/mob/living/carbon/human/owner = our_posi.owner
+	var/inputed_name = tgui_input_text(owner, "Enter your new name", "Your name", owner.real_name, max_length = MAX_NAME_LEN)
+	var/pronouns = tgui_input_list(owner, "Select your pronouns", "Your pronouns", list(MALE, FEMALE, PLURAL, NEUTER), NEUTER)
+	if(!isnull(inputed_name))
+		owner.fully_replace_character_name(newname = inputed_name)
+	if(!isnull(pronouns))
+		owner.gender = pronouns
+	owner.mind.add_antag_datum(/datum/antagonist/recovered_crew) //admin tooling, to discern between normal crew and ghost crew
 
 /obj/item/organ/brain/synth/circuit
 	name = "compact AI circuit"

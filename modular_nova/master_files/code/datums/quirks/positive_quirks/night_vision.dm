@@ -48,7 +48,7 @@
 	if (!..(preferences))
 		return FALSE
 
-	return "Night Vision" in preferences.all_quirks
+	return /datum/quirk/night_vision::name in preferences.all_quirks
 
 /datum/preference/color/nv_color/apply_to_human(mob/living/carbon/human/target, value)
 	return

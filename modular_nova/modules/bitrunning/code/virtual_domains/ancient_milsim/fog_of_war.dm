@@ -10,6 +10,7 @@
 	radio.keyslot = new /obj/item/encryptionkey/headset_syndicate/cybersun()
 	radio.set_listening(FALSE)
 	radio.recalculateChannels()
+	AddElement(/datum/element/bitrunning_objective)
 
 /obj/machinery/button/door/indestructible/ancient_milsim/screwdriver_act()
 	return
@@ -20,7 +21,7 @@
 /obj/machinery/button/door/indestructible/ancient_milsim/emag_act()
 	return
 
-/obj/machinery/button/door/indestructible/ancient_milsim/attack_hand()
+/obj/machinery/button/door/indestructible/ancient_milsim/interact(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -38,14 +39,14 @@
 	AddElement(/datum/element/update_icon_blocker)
 	return ..()
 
-/obj/machinery/door/poddoor/ancient_milsim/screwdriver_act()
+/obj/machinery/door/poddoor/ancient_milsim/screwdriver_act(mob/living/user, obj/item/tool)
 	return
 
-/obj/machinery/door/poddoor/ancient_milsim/crowbar_act()
+/obj/machinery/door/poddoor/ancient_milsim/crowbar_act(mob/living/user, obj/item/tool)
 	return
 
-/obj/machinery/door/poddoor/ancient_milsim/welder_act()
+/obj/machinery/door/poddoor/ancient_milsim/welder_act(mob/living/user, obj/item/tool)
 	return
 
-/obj/machinery/door/poddoor/ancient_milsim/open()
+/obj/machinery/door/poddoor/ancient_milsim/open(mob/living/user, obj/item/tool)
 	qdel(src)

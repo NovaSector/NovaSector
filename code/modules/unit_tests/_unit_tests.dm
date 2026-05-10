@@ -287,6 +287,7 @@
 #include "screenshot_airlocks.dm"
 #include "screenshot_antag_icons.dm"
 #include "screenshot_basic.dm"
+#include "screenshot_debrain.dm"
 #include "screenshot_digi.dm"
 #include "screenshot_dynamic_human_icons.dm"
 #include "screenshot_high_luminosity_eyes.dm"
@@ -352,7 +353,9 @@
 #include "weird_food.dm"
 #include "wizard_loadout.dm"
 // NOVA EDIT START
+#include "~nova\augment_items.dm"
 #include "~nova\automapper.dm"
+#include "~nova\digi_underclothes.dm"
 #include "~nova\liver_nova.dm"
 #include "~nova\neuroware_chips.dm"
 #include "~nova\opposing_force.dm"

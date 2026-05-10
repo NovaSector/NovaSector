@@ -48,6 +48,8 @@
 
 /datum/action/vehicle/sealed/mecha/kinetic_dampener/Trigger(mob/clicker, trigger_flags)
 	. = ..()
+	if(!.)
+		return
 	var/obj/item/mecha_parts/mecha_equipment/kinetic_dampener/dampener = locate(/obj/item/mecha_parts/mecha_equipment/kinetic_dampener) in chassis.contents
 	if(!dampener)
 		to_chat(clicker, span_warning("No dampener module found."))

@@ -1,0 +1,36 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"G" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/structure/closet/secure_closet/bar,
+/obj/item/storage/photo_album/bar,
+/obj/machinery/camera/autoname/directional/north,
+/obj/machinery/airalarm/directional/west,
+/obj/item/gun/ballistic/shotgun/doublebarrel,
+/turf/open/floor/iron/dark,
+/area/station/service/bar/backroom)
+"S" = (
+/obj/effect/turf_decal/tile/dark_red/opposingcorners,
+/obj/item/radio/intercom/directional/west,
+/obj/structure/cable,
+/obj/structure/closet/secure_closet/security/service,
+/turf/open/floor/iron/dark,
+/area/station/service/bar/backroom)
+
+(1,1,1) = {"
+G
+S
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+"}
