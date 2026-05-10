@@ -1,5 +1,5 @@
 {
-	"depgag_jumpsuit": [
+	"depgag_pantsuit": [
 		{
 			"type": "icon_state",
 			"icon_state": "jumpsuit",
@@ -20,7 +20,13 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "depgag_suitbelt",
+			"icon_state": "jumpsuit_pants",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_suit_belt",
 			"blend_mode": "overlay"
 		}
 	]

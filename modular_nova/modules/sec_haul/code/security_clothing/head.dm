@@ -72,16 +72,6 @@
 	icon_state = "/obj/item/clothing/head/beret/sec/depgag/black"
 	greyscale_colors = "#39393F#EBEBEB"
 
-/obj/item/clothing/head/beret/sec/navywarden/nova
-	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."
-	icon_state = "/obj/item/clothing/head/beret/sec/navywarden/nova"
-	post_init_icon_state = "beret_badge_fancy_twist"
-	greyscale_config = /datum/greyscale_config/beret_badge_fancy
-	greyscale_config_worn = /datum/greyscale_config/beret_badge_fancy/worn
-	greyscale_colors = "#3f6e9e#FF0000#00AEEF"
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-	armor_type = /datum/armor/hats_warden
-
 /obj/item/clothing/head/hats/warden/police/patrol
 	name = "guard patrol cap"
 	desc = "A dark colored hat with a silver badge, for the officer interested in style."
@@ -104,3 +94,13 @@
 /obj/item/clothing/head/hats/warden/police/patrol/black
 	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol/black"
 	greyscale_colors = "#39393F#EBEBEB"
+
+/obj/item/clothing/head/beret/sec/navywarden/nova
+	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."
+	icon_state = "/obj/item/clothing/head/beret/sec/navywarden/nova"
+	post_init_icon_state = "beret_badge_fancy_twist"
+	greyscale_config = /datum/greyscale_config/beret_badge_fancy
+	greyscale_config_worn = /datum/greyscale_config/beret_badge_fancy/worn
+	greyscale_colors = "#3f6e9e#FF0000#00AEEF"
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	armor_type = /datum/armor/hats_warden

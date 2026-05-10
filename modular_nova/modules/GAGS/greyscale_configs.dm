@@ -2811,6 +2811,20 @@ Departmental Gags
 	name = "Department Protection Jumpsuit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
 
+/datum/greyscale_config/depgag_pantsuit
+	name = "Department Protection Pantsuit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_pantsuit.json'
+
+/datum/greyscale_config/depgag_pantsuit/worn
+	name = "Department Protection Pantsuit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_pantsuit_worn.json'
+
+/datum/greyscale_config/depgag_pantsuit/worn/digi
+	name = "Department Protection Pantsuit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
 /datum/greyscale_config/depgag_dress
 	name = "Department Protection Dress"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'

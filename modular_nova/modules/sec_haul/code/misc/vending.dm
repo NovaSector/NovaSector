@@ -115,6 +115,35 @@
 				/obj/item/storage/backpack/messenger/sec/blue = 4,
 			),
 		),
+
+		list(
+			"name" = "NEW!",
+			"icon" = "shield-halved",
+			"products" = list(
+				/obj/item/clothing/under/rank/security/nova/uniform = 4,
+				/obj/item/clothing/under/rank/security/nova/formal = 4,
+				/obj/item/clothing/under/rank/security/nova/turtleneck = 4,
+				/obj/item/clothing/under/rank/security/nova/skirt = 4,
+				/obj/item/clothing/under/rank/security/nova/plainskirt = 4,
+				/obj/item/clothing/under/rank/security/nova/miniskirt = 4,
+				/obj/item/clothing/under/rank/security/nova/dress = 4,
+				/obj/item/clothing/under/rank/security/nova/shorts = 4,
+				/obj/item/clothing/under/rank/security/nova/trousers = 4,
+				/obj/item/clothing/under/rank/security/nova/modskin = 4,
+				/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest = 4,
+				/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim = 4,
+				/obj/item/clothing/suit/armor/vest/depgag_hazard = 4,
+				/obj/item/clothing/suit/armor/vest/secjacket/depgag = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/depgag = 4,
+				/obj/item/clothing/gloves/color/black/security/depgag = 4,
+				/obj/item/clothing/head/security_garrison = 4,
+				/obj/item/clothing/head/security_cap = 4,
+				/obj/item/clothing/head/beret/sec/depgag = 4,
+				/obj/item/clothing/head/hats/warden/police/patrol = 4,
+			),
+		),
 	)
 
 	premium = list(
@@ -148,18 +177,30 @@
 /obj/item/clothing/under/rank/security/nova/shorts
 /obj/item/clothing/under/rank/security/nova/trousers
 /obj/item/clothing/under/rank/security/nova/modskin
+/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest
+/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim
+/obj/item/clothing/suit/armor/vest/depgag_hazard
+/obj/item/clothing/suit/armor/vest/secjacket/depgag
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag
+/obj/item/clothing/gloves/color/black/security/depgag
+/obj/item/clothing/head/security_garrison
+/obj/item/clothing/head/security_cap
+/obj/item/clothing/head/beret/sec/depgag
+/obj/item/clothing/head/hats/warden/police/patrol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-

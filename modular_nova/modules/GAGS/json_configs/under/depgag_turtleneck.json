@@ -2,7 +2,7 @@
 	"depgag_turtleneck": [
 		{
 			"type": "icon_state",
-			"icon_state": "trousers",
+			"icon_state": "suit_trousers",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
@@ -20,7 +20,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "depgag_belt",
+			"icon_state": "depgag_suit_belt",
 			"blend_mode": "overlay"
 		}
 	]
