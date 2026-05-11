@@ -1,0 +1,4 @@
+author: "Time-Green"
+delete-after: True
+changes:
+  - bugfix: "Fixes voidwalker being unable to vomit jump if anyone vomits on a non-station z-level"
