@@ -16,7 +16,7 @@
 	id = "medkit"
 	build_type = PROTOLATHE
 	materials = list(
-		/datum/material/plastic =  HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plastic =  SHEET_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/storage/medkit
 	category = list(
