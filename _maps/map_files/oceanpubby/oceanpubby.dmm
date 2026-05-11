@@ -32307,6 +32307,9 @@
 	pixel_y = 7
 	},
 /obj/item/radio/intercom/directional/north,
+/obj/item/stamp/centcom{
+	pixel_x = 6
+	},
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "gHR" = (
