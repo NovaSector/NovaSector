@@ -875,6 +875,9 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	"[EYES_LAYER]" = UPPER_BODY,
 	// Long belts (sabre sheathe) will get cut off by filter
 	"[BELT_LAYER]" = LOWER_BODY,
+	// NOVA EDIT ADDITION - hair clipping fix PR#7002
+	"[OUTER_HAIR_LAYER]" = UPPER_BODY,
+	// NOVA EDIT END
 	// Everything below looks fine with or without a filter, so we can skip it and just offset
 	// (In practice they'd be fine if they got a filter but we can optimize a bit by not.)
 	"[NECK_LAYER]" = UPPER_BODY,
