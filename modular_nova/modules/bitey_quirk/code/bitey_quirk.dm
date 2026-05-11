@@ -184,7 +184,7 @@
 	/// The action button that allows toggling bite mode
 	var/datum/action/innate/toggle_bite/bite_action
 
-/datum/quirk/bitey/proc/add_to_holder(mob/living/new_holder, quirk_transfer = FALSE, client/client_source, unique = TRUE, announce = TRUE)
+/datum/quirk/bitey/add_to_holder(mob/living/new_holder, quirk_transfer = FALSE, client/client_source, unique = TRUE, announce = TRUE)
 	if(!new_holder)
 		return FALSE
 	var/mob/living/carbon/human/human_holder = new_holder
@@ -192,7 +192,7 @@
 		return FALSE
 
 	// Avoid giving this quirk to someone who already has built-in feline biting.
-	if(istype(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/cat) || isfeline(human_holder))
+	if(istype(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/cat) || isfelinid(human_holder))
 		return FALSE
 
 	return ..(new_holder, quirk_transfer = quirk_transfer, client_source = client_source, unique = unique, announce = announce)
@@ -213,7 +213,7 @@
 	// Felinids and others with a feline tongue already have this ability built-in,
 	// so don't give them a duplicate quirk.
 	var/obj/item/organ/tongue/cat/cat_tongue = human_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
-	if(istype(cat_tongue) || isfeline(human_holder))
+	if(istype(cat_tongue) || isfelinid(human_holder))
 		return
 
 	// Give them the action button to toggle bite mode
