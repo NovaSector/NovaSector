@@ -75,38 +75,13 @@
 		Deactivate()
 	return ..()
 
-/datum/quirk/bitey/proc/handle_random_bite(mob/living/carbon/human/source, mob/living/target, datum/martial_art/attacker_style)
-SIGNAL_HANDLER
-
-    // If the toggle is already ON, don't do anything (they are already biting)
-    if(bite_action?.active)
-        return
-
-    // 10% chance to "snap" and bite instead of punching
-    if(prob(10))
-        // Briefly apply the biter trait so the combat system processes this attack as a bite
-        ADD_TRAIT(source, TRAIT_FERAL_BITER, "random_bite_snap")
-
-        // We use a timer to remove it immediately after the attack cycle finishes
-        addtimer(CALLBACK(GLOBAL_PROC, .proc/_remove_random_bite, source), 1)
-
-        // Optional: Add a little flavor message so the player knows why they bit
-        if(prob(50))
-            source.visible_message(span_danger("[source] snaps their teeth at [target]!"), \
-                span_danger("You feel a sudden urge to bite [target]!"))
-
-/proc/_remove_random_bite(mob/living/carbon/human/source)
-    REMOVE_TRAIT(source, TRAIT_FERAL_BITER, "random_bite_snap")
-/**
- * Signal handler for when an organ is added to the mob.
- * If a cat tongue is implanted while bite mode is active with our bonuses,
- * remove our bonuses (cat tongue provides them) and switch to listening for organ loss.
- */
-/datum/action/innate/toggle_bite/proc/check_added_organ(mob/living/carbon/human/recipient, obj/item/organ/organ_gained)
-	SIGNAL_HANDLER
-
+/datum/action/innate/toggle_bite/proc/check_added_organ(mol, org)
 	if(!active || !bite_bonuses_applied)
 		return
+	if(!istype(mol, /mob/living/carbon/human))
+		return
+	var/mob/living/carbon/human/recipient = mol
+	var/obj/item/organ/organ_gained = org
 	var/obj/item/bodypart/head/head = recipient.get_bodypart(BODY_ZONE_HEAD)
 	if(isnull(head))
 		return
@@ -217,6 +192,7 @@ SIGNAL_HANDLER
 	bite_action.Grant(human_holder)
 	// Watch out in case they get a cat tongue implanted later - we'll remove ourselves then too
 	RegisterSignal(human_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(check_cat_tongue_gained))
+	// Register for random bite chance on unarmed attacks
 	RegisterSignal(human_holder, COMSIG_MOB_ATTACK_HAND, PROC_REF(handle_random_bite))
 
 /*
@@ -228,6 +204,33 @@ SIGNAL_HANDLER
 	UnregisterSignal(quirk_holder, COMSIG_MOB_ATTACK_HAND)
 	if(bite_action)
 		QDEL_NULL(bite_action)
+
+/**
+ * Random bite chance handler - triggers on unarmed attacks.
+ * 10% chance to snap and bite instead of normal punch.
+ */
+/datum/quirk/bitey/proc/handle_random_bite(mob/attacker, mob/defender, datum/martial_art/style)
+	// If toggle is already on, don't interfere
+	if(bite_action?.active)
+		return
+	// 10% chance to snap and bite
+	if(!prob(10))
+		return
+	// Apply the biter trait temporarily
+	ADD_TRAIT(attacker, TRAIT_FERAL_BITER, "bitey_snap")
+	// Remove it after the attack resolves (1 decisecond)
+	addtimer(CALLBACK(src, PROC_REF(remove_random_bite_trait), attacker), 1)
+	// Optional flavor message
+	if(prob(50))
+		attacker.visible_message(span_danger("[attacker] suddenly snaps at [defender]!"), \
+			span_danger("You feel an urge to bite!"))
+
+/**
+ * Helper proc to remove the temporary bite trait.
+ */
+/datum/quirk/bitey/proc/remove_random_bite_trait(mob/living/biter)
+	if(biter)
+		REMOVE_TRAIT(biter, TRAIT_FERAL_BITER, "bitey_snap")
 
 /**
  * Signal handler for when an organ is added to the quirk holder.
