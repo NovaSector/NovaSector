@@ -479,7 +479,7 @@
 	desc = "The civilian administrative arm of the Sol Federation, this sprawling bureaucracy manages everything from interstellar diplomacy and Federal law to trade regulations and the maintenance of the Charter. These are the diplomats, clerks, and functionaries who keep the fractious union of member states from flying apart."
 	work = "interstellar governance and diplomacy"
 	headquarters = "Geneva, Earth, Sol System"
-	motto = "Unity, Progress, Peace" // More aspirational than factual
+	motto = ""
 	autogenerate_destination_names = TRUE
 
 	org_type = "government"
@@ -519,7 +519,7 @@
 	desc = "A facade of unity for the corporate-owned systems of SolFed. The Council 'governs' the Corporate Territories from Luna, but in reality, it's a stage for the Sovereign Corporations to coordinate diplomacy, suppress open conflict between themselves, and project a single voice in the Federal Assembly to protect their collective profit motive."
 	work = "corporate syndicational governance"
 	headquarters = "Luna, Sol System"
-	motto = "Prosperity Through Enterprise"
+	motto = ""
 	autogenerate_destination_names = TRUE
 
 	org_type = "government" // It fills the role of a government for these territories
@@ -555,7 +555,7 @@
 	desc = "The complex web of Wards that governs daily life within the Talunan Imperium. Following the near-extinction of their species, the Tizirans reorganized into a network of decentralized, hyper-local councils bound by mutual aid pacts and unwavering loyalty to the anonymizing Throne. These vessels handle internal civil service, resource distribution, and inter-Ward cooperation."
 	work = "civil service and mutual aid administration"
 	headquarters = "The Silent City, Tizira"
-	motto = "" // The Throne does not need a motto.
+	motto = ""
 	autogenerate_destination_names = TRUE
 
 	org_type = "government"
@@ -593,7 +593,7 @@
 	desc = "The ruling council of the Shattered Empire, consisting of representatives from the Six Great Houses and, when one exists, the Seventh. This division handles the highest levels of interstellar diplomacy, the enforcement of the Seven-Part Mandate, and the intricate, deadly political dance between the Houses. Their vessels are ostentatious displays of a House's Face."
 	work = "imperial Tajaran governance"
 	headquarters = "The Emperor's Palace, Sleepless Throne System"
-	motto = "" // Varies wildly by House
+	motto = ""
 	autogenerate_destination_names = TRUE
 
 	org_type = "government"
@@ -631,8 +631,8 @@
 	acronym = "TC"
 	desc = "The sociable and exploratory Teshari people organize themselves into a series of loosely-allied, migratory groups known as Confederations. They are explorers, traders, and the Talunan Imperium's only trusted alien ally. Their governing body, such as it is, focuses on coordinating exploration, establishing new enclaves, and maintaining their special relationship with the Tizirans."
 	work = "nomadic governance and exploration"
-	headquarters = "Sirisai System (Teshari Homeworlds)"
-	motto = "Always Forward."
+	headquarters = "Sirisai System"
+	motto = ""
 	autogenerate_destination_names = TRUE
 
 	org_type = "government"
@@ -668,7 +668,7 @@
 	desc = "The unified, and often fractious, military of the Sol Federation. Born from the Unity Clique's ambitions and tempered in the fires of the Tiziran and Rimward Wars, the SFAF is a complex command structure balancing Federal regulars with vast numbers of specialized troops on loan from member states. It prioritizes space superiority above all else."
 	work = "the unified defense of the Sol Federation"
 	headquarters = "The Pentagon, Earth, Sol System"
-	motto = "For The Federation."
+	motto = ""
 	autogenerate_destination_names = TRUE
 
 	org_type = "military"
@@ -707,7 +707,7 @@
 	desc = "The largest and most aggressive military within SolFed's southern frontier. The Triumvirate's forces are forged in the crucible of the genocidal Tiziran War and harbor a burning hatred for all things alien. They are the backbone of the Unity Clique, constantly pushing for a fully unified, militarized, and human-dominated galaxy."
 	work = "the aggressive defense of the Sagittarian Triumvirate"
 	headquarters = "Triumvirate Capital, Sagittarius Transit"
-	motto = "Never Again." // Referring to the Tiziran attack
+	motto = ""
 	autogenerate_destination_names = TRUE
 
 	org_type = "military"
@@ -744,7 +744,7 @@
 	desc = "The unified, adaptive military of the Heliostatic Coalition. Unlike the SFAF, the HCAF is a truly integrated force built around the doctrine of Network-Centric Adaptive Dominance. Its strength lies not in a single branch, but in the seamless, AI-augmented coordination of its Starfleet, Integrated Tactical Forces, Aerospace Corps, and Special Operations."
 	work = "the network-centric defense of the Heliostatic Coalition"
 	headquarters = "Vistula, Zvirdnya System"
-	motto = "One Mind, Many Hands."
+	motto = ""
 	autogenerate_destination_names = TRUE
 
 	org_type = "military"
@@ -780,7 +780,7 @@
 	desc = "The Coalition's long arm in the dark: part police, part first contact, part stabilization force. Born from a 'No Help Coming' philosophy, the EPF operates heavily-armed patrol ships far beyond Coalition borders, finding lost colonies, suppressing pirates, and building walls of stability. Their default mission is to help, but their capacity for violence is absolute."
 	work = "expeditionary law enforcement and stabilization"
 	headquarters = "Fleet Tender 'Long Arm', Mobile Position"
-	motto = "We Stand. We Do Not Move."
+	motto = ""
 	autogenerate_destination_names = TRUE
 
 	org_type = "system defense" // Their role is wide-ranging but fundamentally about defense and order.
@@ -816,7 +816,7 @@
 	desc = "The decentralized, compulsory defense forces of the Talunan Imperium. Every Tiziran serves, blurring the line between civilian and soldier. From the elite Cataphracts in their combat hardsuits to the voidfaring Rangers and the reconstruction-focused Sappers, the Tiziran military is a hardened instrument of survival, honed by apocalyptic war and motivated by racial trauma."
 	work = "the survival and defense of the Tiziran people"
 	headquarters = "The Command Ward, Tizira"
-	motto = "" // Service is its own motto.
+	motto = ""
 	autogenerate_destination_names = TRUE
 
 	org_type = "military"
@@ -853,7 +853,7 @@
 	acronym = "SFC"
 	desc = "Civilian vessels from the wealthy, developed, and politically dominant systems at the heart of the Federation like Earth, Mars, and Enkai. Their traffic is a mix of luxury liners, high-end trade, and sophisticated research expeditions."
 	work = "civilian transport, commerce, and research"
-	headquarters = "Varies" // Earth, Mars, etc.
+	headquarters = "Geneva, Earth, Sol System"
 	motto = ""
 	autogenerate_destination_names = TRUE
 
@@ -873,7 +873,7 @@
 	acronym = "SFF"
 	desc = "The ramshackle, hopeful, and often desperate ships of those pushing the boundaries of Federation space. This includes independent colonists, wildcat miners, and scrappy freighters trying to carve out a life far from the safety of the Core."
 	work = "frontier colonization and trade"
-	headquarters = "Varies" // The Frontier
+	headquarters = "Local SolFed Frontier Center"
 	motto = ""
 	autogenerate_destination_names = TRUE
 
@@ -1026,7 +1026,7 @@
 	desc = "The jovial, terrifying privateers and mariners of House Morikann. Operating under cloaking fields and barraging engines, Morikann ships are 'coastal raiders' for the Empire, known for their war masks and wicked laughter. Even their 'civilian' vessels are heavily armed."
 	work = "imperial privateering"
 	headquarters = "Salnai, the Never Land"
-	motto = "" // "Laugh as you take." - Unofficial
+	motto = "" // "Laugh as you take."
 	autogenerate_destination_names = TRUE
 
 	org_type = "pirate"
