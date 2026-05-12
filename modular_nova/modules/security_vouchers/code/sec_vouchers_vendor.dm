@@ -2,7 +2,7 @@
 /obj/item/security_voucher
 	name = "security voucher"
 	desc = "A token to redeem a piece of equipment. Use it on a SecTech vendor."
-	icon = 'modular_zubbers/icons/obj/security_voucher.dmi'
+	icon = 'modular_nova/modules/security_vouchers/icons/security_voucher.dmi'
 	icon_state = "security_voucher_primary"
 	w_class = WEIGHT_CLASS_TINY
 
