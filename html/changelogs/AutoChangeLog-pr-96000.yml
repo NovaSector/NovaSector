@@ -1,0 +1,7 @@
+author: "SmArtKar"
+delete-after: True
+changes:
+  - rscadd: "Mining MOD sphere mode now fires a barrage of micromissiles instead of a singular delayed explosive"
+  - balance: "Raptor are now immune to ice slippage"
+  - balance: "Mining MOD has had its ore digging speed increased"
+  - bugfix: "Buckled mobs can no longer \"slip\" (get stunned) on wet/icy tiles."
