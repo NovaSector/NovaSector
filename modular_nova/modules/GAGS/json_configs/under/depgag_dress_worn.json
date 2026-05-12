@@ -9,13 +9,19 @@
 		{
 			"type": "icon_state",
 			"icon_state": "depgag_dress",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_dress_belt",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "depgag_dress_trimline",
 			"blend_mode": "overlay",
-			"color_ids": [2]
+			"color_ids": [3]
 		}
 	],
 	"depgag_dress_d": [
@@ -28,13 +34,19 @@
 		{
 			"type": "icon_state",
 			"icon_state": "depgag_dress_d",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_dress_belt",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "depgag_dress_trimline",
 			"blend_mode": "overlay",
-			"color_ids": [2]
+			"color_ids": [3]
 		}
 	]
 }

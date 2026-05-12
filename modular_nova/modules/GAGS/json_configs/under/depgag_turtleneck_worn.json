@@ -2,13 +2,13 @@
 	"depgag_turtleneck": [
 		{
 			"type": "icon_state",
-			"icon_state": "trousers",
+			"icon_state": "turtleneck",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "turtleneck",
+			"icon_state": "trousers",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
@@ -27,13 +27,13 @@
 	"depgag_turtleneck_d": [
 		{
 			"type": "icon_state",
-			"icon_state": "trousers",
+			"icon_state": "turtleneck_d",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "turtleneck_d",
+			"icon_state": "trousers",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},

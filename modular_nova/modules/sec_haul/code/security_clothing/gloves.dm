@@ -13,8 +13,3 @@
 /obj/item/clothing/gloves/color/black/security/depgag/white
 	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag/white"
 	greyscale_colors = "#ECECEC#2F2E31"
-/*
-/obj/item/clothing/gloves/color/black/security/black
-	icon_state = "/obj/item/clothing/gloves/color/black/security/black"
-	greyscale_colors = "#2F2E31#ECECEC"
-*/

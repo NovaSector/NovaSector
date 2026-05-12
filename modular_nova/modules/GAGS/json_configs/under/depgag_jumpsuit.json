@@ -20,7 +20,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "depgag_suitbelt",
+			"icon_state": "depgag_suit_belt",
 			"blend_mode": "overlay"
 		}
 	]

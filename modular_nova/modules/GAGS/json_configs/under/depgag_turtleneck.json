@@ -2,13 +2,13 @@
 	"depgag_turtleneck": [
 		{
 			"type": "icon_state",
-			"icon_state": "suit_trousers",
+			"icon_state": "turtleneck",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "turtleneck",
+			"icon_state": "suit_trousers",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},

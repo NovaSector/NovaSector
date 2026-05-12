@@ -115,7 +115,7 @@
 	name = "engineer officer beret"
 	desc = "A robust beret with a hazard symbol emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon_state = "/obj/item/clothing/head/beret/sec/engineering"
-	greyscale_colors = "#FFBC30#F2F2F2"
+	greyscale_colors = "#FFE12F#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/cargo
 	name = "cargo officer beret"

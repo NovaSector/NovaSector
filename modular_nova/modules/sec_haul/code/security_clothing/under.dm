@@ -45,7 +45,7 @@
 	greyscale_colors = "#3F6E9E#39393F#39393F"
 
 /obj/item/clothing/under/rank/security/nova/officer/research
-	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/researc"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/research"
 	greyscale_colors = "#3F6E9E#39393F#39393F"
 
 /obj/item/clothing/under/rank/security/nova/officer/medical
@@ -85,6 +85,31 @@
 /obj/item/clothing/under/rank/security/nova/turtleneck/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/blue"
 	greyscale_colors = "#39393F#3F6E9E#39393F"
+//turtleneck trousers patches
+/obj/item/clothing/under/rank/security/nova/turtleneck/cargo
+	name = "customs agent turtleneck"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/cargo"
+	greyscale_colors = "#39393F#ba832f#ba832f"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/engineering
+	name = "engineering guard turtleneck"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/engineering"
+	greyscale_colors = "#ee7900#a78962#FFE12F"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/research
+	name = "research guard turtleneck"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/research"
+	greyscale_colors = "#daeaf0#66748c#830085"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/medical
+	name = "orderly turtleneck"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/medical"
+	greyscale_colors = "#CBCDD1#39393F#40657b"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/service
+	name = "bouncer turtleneck"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/service"
+	greyscale_colors = "#39393F#4876A1#57852A"
 
 /obj/item/clothing/under/rank/security/nova/skirt
 	name = "security jumpskirt"
@@ -150,11 +175,11 @@
 	post_init_icon_state = "depgag_dress"
 	greyscale_config = /datum/greyscale_config/depgag_dress
 	greyscale_config_worn = /datum/greyscale_config/depgag_dress/worn
-	greyscale_colors = "#A52F29#A52F29"
-
+	greyscale_colors = "#A52F29#39393F#A52F29"
+//shirt dress trim
 /obj/item/clothing/under/rank/security/nova/dress/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/blue"
-	greyscale_colors = "#3F6E9E#3F6E9E"
+	greyscale_colors = "#3F6E9E#39393F#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/shorts
 	name = "security shorts"
@@ -225,7 +250,7 @@
 
 /obj/item/clothing/under/rank/security/nova/depgag_pantsuit/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/depgag_pantsuit/blue"
-	greyscale_colors = "#3F6E9E#39393F#39393F"
+	greyscale_colors = "#3F6E9E#39393F#39393F#39393F"
 
 /*
 *	WARDEN
