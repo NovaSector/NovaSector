@@ -1,0 +1,5 @@
+author: "kuricityy"
+delete-after: True
+changes:
+  - balance: "Flesh spiders are now slightly slower than your average spessmen. (10%)"
+  - balance: "Flesh spiders now regenerate after 3 seconds of not taking damage, compared to 4."
