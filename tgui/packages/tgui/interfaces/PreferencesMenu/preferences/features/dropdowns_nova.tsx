@@ -1,9 +1,18 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { type ComponentProps, type ReactNode, useEffect, useState } from 'react';
+import {
+  type ComponentProps,
+  type ReactNode,
+  useEffect,
+  useState,
+} from 'react';
 import { Box, ColorBox, Dropdown, Stack } from 'tgui-core/components';
 import { capitalizeFirst } from 'tgui-core/string';
 
-import type { Feature, FeatureChoicedServerData, FeatureValueProps } from './base';
+import type {
+  Feature,
+  FeatureChoicedServerData,
+  FeatureValueProps,
+} from './base';
 
 type ColorDropdownInputProps = FeatureValueProps<
   string,
@@ -17,9 +26,7 @@ export type FeatureWithExtraQuirkData<T> = Feature<
   FeatureChoicedServerData
 >;
 
-
-type ExtraQuirk =
-{
+type ExtraQuirk = {
   color: string;
   chemical: string;
   blurb: string;
@@ -33,44 +40,45 @@ export function FeatureBloodTypeDropdownInput(props: ColorDropdownInputProps) {
   const [dropdownOptions, setDropdownOptions] = useState<DropdownOptions>([]);
 
   function populateOptions() {
-  if (!serverData) return;
+    if (!serverData) return;
 
-  const { choices = [] } = serverData;
-  const newOptions: DropdownOptions = [];
+    const { choices = [] } = serverData;
+    const newOptions: DropdownOptions = [];
 
-  for (const choice of choices) {
-    let displayText: ReactNode =
-      serverData.display_names?.[choice] ??
-      capitalizeFirst(choice);
+    for (const choice of choices) {
+      let displayText: ReactNode =
+        serverData.display_names?.[choice] ?? capitalizeFirst(choice);
 
-    const quirk = serverData.extra_quirk_data?.[choice] as ExtraQuirk | undefined;
-    const color = quirk?.color;
+      const quirk = serverData.extra_quirk_data?.[choice] as
+        | ExtraQuirk
+        | undefined;
+      const color = quirk?.color;
 
-    if (quirk) {
-      displayText = (
-        <Stack>
-          <Stack.Item>
-            <ColorBox
-              style={{
-                border: '2px solid white',
-                boxSizing: 'content-box',
-              }}
-              color={color}
-            />
-          </Stack.Item>
-          <Stack.Item grow>{displayText}</Stack.Item>
-        </Stack>
-      );
+      if (quirk) {
+        displayText = (
+          <Stack>
+            <Stack.Item>
+              <ColorBox
+                style={{
+                  border: '2px solid white',
+                  boxSizing: 'content-box',
+                }}
+                color={color}
+              />
+            </Stack.Item>
+            <Stack.Item grow>{displayText}</Stack.Item>
+          </Stack>
+        );
+      }
+
+      newOptions.push({
+        displayText,
+        value: choice,
+      });
     }
 
-    newOptions.push({
-      displayText,
-      value: choice,
-    });
+    setDropdownOptions(newOptions);
   }
-
-  setDropdownOptions(newOptions);
-}
 
   useEffect(() => {
     if (serverData) {
