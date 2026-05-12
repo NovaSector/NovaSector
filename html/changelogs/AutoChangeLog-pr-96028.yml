@@ -1,0 +1,7 @@
+author: "SmArtKar, thgvr"
+delete-after: True
+changes:
+  - balance: "Goliaths no longer hardstun, but instead bind and drag their targets in with their tentacles. They are, however, much faster now."
+  - balance: "Brimdemon beams can no longer wound, but deal a bit more DOT damage. Their beams can also be interrupted by hitting them from the side or back in melee."
+  - balance: "Watchers and legions now try to maintain a few tiles of distance from their targets instead of retreating."
+  - bugfix: "Lobstrocity AI should no longer sometimes flee out of their aggro range when retreating."
