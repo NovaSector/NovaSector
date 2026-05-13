@@ -50207,6 +50207,11 @@
 /obj/machinery/holopad,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/command)
+"odv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/structure/girder,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/department/science/xenobiology)
 "odD" = (
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/medical)
@@ -85516,6 +85521,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/engine/atmos)
+"xJV" = (
+/obj/effect/spawner/random/structure/table,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/department/science/xenobiology)
 "xJW" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/machinery/power/shuttle_engine/heater{
@@ -106211,7 +106220,7 @@ ttw
 ttw
 ttw
 dWX
-mIm
+odv
 wJo
 bMr
 djc
@@ -106468,7 +106477,7 @@ ttw
 ttw
 fYK
 dWX
-dWX
+xJV
 mIm
 vfx
 kVR
