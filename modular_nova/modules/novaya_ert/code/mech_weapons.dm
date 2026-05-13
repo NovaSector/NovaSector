@@ -149,7 +149,7 @@
 	randomspread = 1
 	projectile_delay = 2
 	energy_drain = 250
-	projectile = /obj/projectile/beam/laser/plasma_glob/pulse
+	projectile = /obj/projectile/bullet/pulse
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/pulse_shoot.ogg'
 	harmful = TRUE
 
