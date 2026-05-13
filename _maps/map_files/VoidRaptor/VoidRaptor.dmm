@@ -77646,6 +77646,10 @@
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/ordnance_maint)
+"vzi" = (
+/obj/machinery/light/floor,
+/turf/open/floor/engine,
+/area/station/science/xenobiology)
 "vzj" = (
 /obj/structure/closet/firecloset/wall{
 	pixel_x = -32
@@ -105464,7 +105468,7 @@ tAl
 eCK
 eCK
 aIs
-uiw
+vzi
 sYn
 hbZ
 bxT
