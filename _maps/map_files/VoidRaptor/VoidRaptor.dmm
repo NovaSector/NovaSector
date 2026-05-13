@@ -20837,9 +20837,6 @@
 	},
 /turf/open/floor/iron/grimy,
 /area/station/commons/lounge)
-"gco" = (
-/turf/closed/wall,
-/area/space)
 "gcp" = (
 /obj/effect/turf_decal/stripes/end{
 	dir = 8
@@ -55560,6 +55557,14 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
+"pzF" = (
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 8;
+	name = "Xenobio Junction";
+	sortType = 28
+	},
+/turf/closed/wall,
+/area/station/maintenance/department/science/xenobiology)
 "pzG" = (
 /obj/structure/table/wood,
 /obj/item/restraints/handcuffs,
@@ -104413,7 +104418,7 @@ ttw
 ttw
 ttw
 ttw
-gco
+dWX
 dWX
 hag
 tJM
@@ -104669,7 +104674,7 @@ ttw
 ttw
 ttw
 ttw
-ttw
+pzF
 dWX
 bnf
 bnf
@@ -104927,7 +104932,7 @@ iLW
 iLW
 dWX
 dWX
-dWX
+woJ
 bnf
 kVR
 kVR
@@ -105446,7 +105451,7 @@ axD
 kVR
 eCK
 eCK
-eCK
+tAl
 eCK
 eCK
 aIs
@@ -105701,7 +105706,7 @@ oMA
 dfs
 lSP
 kVR
-eCK
+jRP
 eCK
 rHL
 eCK
@@ -105958,7 +105963,7 @@ djc
 ajP
 ajP
 kVR
-jRP
+eCK
 eCK
 abP
 nlj
