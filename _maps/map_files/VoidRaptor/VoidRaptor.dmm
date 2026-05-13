@@ -56750,9 +56750,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/pod/dark,
 /area/station/service/chapel)
-"pQq" = (
-/turf/closed/wall/r_wall,
-/area/space/nearstation)
 "pQK" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -82684,10 +82681,6 @@
 	},
 /turf/open/floor/pod/dark,
 /area/station/service/chapel/office)
-"wQC" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/space)
 "wQL" = (
 /obj/effect/turf_decal/trimline/brown/filled/warning{
 	dir = 5
@@ -103670,12 +103663,12 @@ xXo
 rLn
 ttw
 ttw
-pQq
-wQC
-wQC
-wQC
-wQC
-pQq
+oMs
+seE
+seE
+seE
+seE
+oMs
 ttw
 ttw
 ttw
