@@ -89,6 +89,9 @@
 		if(!silent)
 			patient.balloon_alert(user, "no [parse_zone(healed_zone)]!")
 		return FALSE
+	if(patient.reagents.has_reagent(/datum/reagent/medicine/nanite_slurry, 2))
+		patient.balloon_alert(user, "patch already applied on patient!")
+		return FALSE
 	if(!IS_ROBOTIC_LIMB(limb))
 		patient.balloon_alert(user, "[limb.plaintext_zone] is not synthetic!")
 		return FALSE
