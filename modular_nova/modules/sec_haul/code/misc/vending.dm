@@ -167,11 +167,11 @@
 
 	payment_department = ACCOUNT_SEC
 /*
-/obj/item/clothing/under/rank/security/nova/uniform								1
+/obj/item/clothing/under/rank/security/nova/uniform
 /obj/item/clothing/under/rank/security/nova/formal
-/obj/item/clothing/under/rank/security/nova/turtleneck							2
-/obj/item/clothing/under/rank/security/nova/skirt								3
-/obj/item/clothing/under/rank/security/nova/plainskirt
+/obj/item/clothing/under/rank/security/nova/turtleneck							1 X
+/obj/item/clothing/under/rank/security/nova/skirt								2
+/obj/item/clothing/under/rank/security/nova/plainskirt							3
 /obj/item/clothing/under/rank/security/nova/miniskirt
 /obj/item/clothing/under/rank/security/nova/dress								4
 /obj/item/clothing/under/rank/security/nova/shorts								5
@@ -182,25 +182,12 @@
 /obj/item/clothing/suit/armor/vest/depgag_hazard								8
 /obj/item/clothing/suit/armor/vest/secjacket/depgag								9
 /obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber				10
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket	11
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag						12
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag						11
 /obj/item/clothing/gloves/color/black/security/depgag
-/obj/item/clothing/head/security_garrison
+/obj/item/clothing/head/security_garrison										12
 /obj/item/clothing/head/security_cap											13
 /obj/item/clothing/head/beret/sec/depgag
 /obj/item/clothing/head/hats/warden/police/patrol
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/obj/item/clothing/gloves/color/black/security/depgag							14 X
 */

@@ -79,21 +79,14 @@
 	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol"
 	greyscale_config = /datum/greyscale_config/depgag_patrol_cap
 	greyscale_config_worn = /datum/greyscale_config/depgag_patrol_cap/worn
-	greyscale_colors = "#A52F29#39393F"
+	greyscale_colors = "#39393F#A52F29"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/head_helmet
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/hats/warden/police/patrol/blue
 	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol/blue"
-	greyscale_colors = "#3F6E9E#EBEBEB"
-
-/obj/item/clothing/head/hats/warden/police/patrol/white
-	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol/white"
-	greyscale_colors = "#EBEBEB#39393F"
-
-/obj/item/clothing/head/hats/warden/police/patrol/black
-	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol/black"
-	greyscale_colors = "#39393F#EBEBEB"
+	greyscale_colors = "#39393F#3F6E9E"
 
 /obj/item/clothing/head/beret/sec/navywarden/nova
 	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."

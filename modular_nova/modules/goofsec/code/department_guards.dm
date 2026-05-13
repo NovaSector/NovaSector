@@ -49,6 +49,56 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/civilian.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/civilian_digi.dmi'
 
+/obj/item/clothing/under/rank/security/nova/turtleneck/cargo
+	name = "customs agent turtleneck"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/cargo"
+	greyscale_colors = "#39393F#ba832f#ba832f"//turtleneck trousers patches
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/engineering
+	name = "engineering guard turtleneck"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/engineering"
+	greyscale_colors = "#ee7900#a78962#FFE12F"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/science
+	name = "science guard turtleneck"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/science"
+	greyscale_colors = "#daeaf0#66748c#830085"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/medical
+	name = "orderly turtleneck"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/medical"
+	greyscale_colors = "#CBCDD1#39393F#40657b"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/service
+	name = "bouncer turtleneck"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/service"
+	greyscale_colors = "#39393F#4876A1#57852A"
+
+/obj/item/clothing/under/rank/security/nova/skirt/cargo
+	name = "customs agent skirt"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/cargo"
+	greyscale_colors = "#39393F#ba832f#ba832f#39393F" //shirt skirt badge trim
+
+/obj/item/clothing/under/rank/security/nova/skirt/engineering
+	name = "engineering guard skirt"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/engineering"
+	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E" //shirt skirt badge trim   <- unset colors
+
+/obj/item/clothing/under/rank/security/nova/skirt/science
+	name = "science guard skirt"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/science"
+	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E" //shirt skirt badge trim
+
+/obj/item/clothing/under/rank/security/nova/skirt/medical
+	name = "orderly skirt"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/medical"
+	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E" //shirt skirt badge trim
+
+/obj/item/clothing/under/rank/security/nova/skirt/service
+	name = "bouncer skirt"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/service"
+	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E" //shirt skirt badge trim
+
 /*
 	SUITS
 */
@@ -864,13 +914,13 @@
 
 /obj/item/storage/bag/garment/science_guard/PopulateContents()
 	generate_items_inside(list(
-		/obj/item/radio/headset/headset_sci = 2,
-		/obj/item/clothing/shoes/sneakers/black = 2,
-		/obj/item/clothing/under/rank/security/officer/blueshirt/nova = 2,
-		/obj/item/clothing/head/helmet/blueshirt/nova = 2,
-		/obj/item/clothing/head/beret/sec/science = 2,
-		/obj/item/clothing/suit/armor/vest/blueshirt/nova = 2,
-		/obj/item/clothing/glasses/hud/security = 2,
+		/obj/item/radio/headset/headset_sci = 1,
+		/obj/item/clothing/shoes/sneakers/black = 1,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova = 1,
+		/obj/item/clothing/head/helmet/blueshirt/nova = 1,
+		/obj/item/clothing/head/beret/sec/science = 1,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova = 1,
+		/obj/item/clothing/glasses/hud/security = 1,
 	), src)
 
 /obj/item/storage/bag/garment/orderly
@@ -879,13 +929,13 @@
 
 /obj/item/storage/bag/garment/orderly/PopulateContents()
 	generate_items_inside(list(
-		/obj/item/radio/headset/headset_med = 2,
-		/obj/item/clothing/shoes/sneakers/white = 2,
-		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly = 2,
-		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 2,
-		/obj/item/clothing/head/beret/sec/medical = 2,
-		/obj/item/clothing/suit/armor/vest/blueshirt/nova/orderly = 2,
-		/obj/item/clothing/glasses/hud/security = 2,
+		/obj/item/radio/headset/headset_med = 1,
+		/obj/item/clothing/shoes/sneakers/white = 1,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly = 1,
+		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 1,
+		/obj/item/clothing/head/beret/sec/medical = 1,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova/orderly = 1,
+		/obj/item/clothing/glasses/hud/security = 1,
 	), src)
 
 /obj/item/storage/bag/garment/engineering_guard
@@ -894,13 +944,13 @@
 
 /obj/item/storage/bag/garment/engineering_guard/PopulateContents()
 	generate_items_inside(list(
-		/obj/item/radio/headset/headset_eng = 2,
-		/obj/item/clothing/shoes/workboots = 2,
-		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/engineering_guard = 2,
-		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 2,
-		/obj/item/clothing/head/beret/sec/engineering = 2,
-		/obj/item/clothing/suit/armor/vest/blueshirt/nova/engineering_guard = 2,
-		/obj/item/clothing/glasses/hud/security = 2,
+		/obj/item/radio/headset/headset_eng = 1,
+		/obj/item/clothing/shoes/workboots = 1,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/engineering_guard = 1,
+		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 1,
+		/obj/item/clothing/head/beret/sec/engineering = 1,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova/engineering_guard = 1,
+		/obj/item/clothing/glasses/hud/security = 1,
 	), src)
 
 /obj/item/storage/bag/garment/customs_agent
@@ -909,14 +959,14 @@
 
 /obj/item/storage/bag/garment/customs_agent/PopulateContents()
 	generate_items_inside(list(
-		/obj/item/radio/headset/headset_cargo = 2,
-		/obj/item/clothing/shoes/sneakers/black = 2,
-		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/customs_agent = 2,
-		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 2,
-		/obj/item/clothing/head/beret/sec/cargo = 2,
-		/obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent = 2,
-		/obj/item/clothing/glasses/hud/security = 2,
-		/obj/item/clothing/glasses/hud/gun_permit = 2,
+		/obj/item/radio/headset/headset_cargo = 1,
+		/obj/item/clothing/shoes/sneakers/black = 1,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/customs_agent = 1,
+		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 1,
+		/obj/item/clothing/head/beret/sec/cargo = 1,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent = 1,
+		/obj/item/clothing/glasses/hud/security = 1,
+		/obj/item/clothing/glasses/hud/gun_permit = 1,
 	), src)
 
 /obj/item/storage/bag/garment/service_guard
@@ -925,11 +975,11 @@
 
 /obj/item/storage/bag/garment/service_guard/PopulateContents()
 	generate_items_inside(list(
-		/obj/item/radio/headset/headset_srv = 2,
-		/obj/item/clothing/shoes/sneakers/black = 2,
-		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/bouncer = 2,
-		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 2,
-		/obj/item/clothing/head/beret/sec/service = 2,
-		/obj/item/clothing/suit/armor/vest/blueshirt/nova/guard = 2,
-		/obj/item/clothing/glasses/hud/security = 2,
+		/obj/item/radio/headset/headset_srv = 1,
+		/obj/item/clothing/shoes/sneakers/black = 1,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/bouncer = 1,
+		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 1,
+		/obj/item/clothing/head/beret/sec/service = 1,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova/guard = 1,
+		/obj/item/clothing/glasses/hud/security = 1,
 	), src)
