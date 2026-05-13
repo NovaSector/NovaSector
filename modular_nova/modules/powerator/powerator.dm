@@ -24,7 +24,7 @@
 	crate_type = /obj/structure/closet/crate
 
 /datum/design/board/powerator
-	name = "Machine Design (Powerator)"
+	name = "Powerator Board"
 	desc = "Allows for the construction of circuit boards used to build a powerator."
 	id = "powerator"
 	build_path = /obj/item/circuitboard/machine/powerator
