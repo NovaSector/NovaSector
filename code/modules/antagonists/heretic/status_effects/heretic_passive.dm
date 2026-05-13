@@ -51,8 +51,10 @@
 	passive_level = HERETIC_LEVEL_UPGRADE
 	heretic_datum.passive_level = HERETIC_LEVEL_UPGRADE
 	heretic_datum.update_data_for_all_viewers()
+	/* //NOVA EDIT REMOVAL START - Moves blade breaking disable to knowledge ritual
 	if(!heretic_datum.unlimited_blades)
 		heretic_datum.disable_blade_breaking()
+	*/ //NOVA EDIT REMOVAL END
 
 /// Gives our final upgrade
 /datum/status_effect/heretic_passive/proc/heretic_level_final()
@@ -63,6 +65,10 @@
 	passive_level = HERETIC_LEVEL_FINAL
 	heretic_datum.passive_level = HERETIC_LEVEL_FINAL
 	heretic_datum.update_data_for_all_viewers()
+	// NOVA EDIT ADDITION START - As said above
+	if(!heretic_datum.unlimited_blades)
+		heretic_datum.disable_blade_breaking()
+	// NOVA EDIT ADDITION END
 
 
 //---- Ash Passive
