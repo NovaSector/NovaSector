@@ -1,0 +1,4 @@
+author: "lelandkemble"
+delete-after: True
+changes:
+  - bugfix: "The Junkie quirk gives you the addiction you ask it for"
