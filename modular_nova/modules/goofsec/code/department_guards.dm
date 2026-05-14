@@ -82,22 +82,22 @@
 /obj/item/clothing/under/rank/security/nova/skirt/engineering
 	name = "engineering guard skirt"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/engineering"
-	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E" //shirt skirt badge trim   <- unset colors
+	greyscale_colors = "#ee7900#a78962#FFE12F#FFE12F" //shirt skirt badge trim   <- unset colors
 
 /obj/item/clothing/under/rank/security/nova/skirt/science
 	name = "science guard skirt"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/science"
-	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E" //shirt skirt badge trim
+	greyscale_colors = "#daeaf0#66748c#830085#830085" //shirt skirt badge trim
 
 /obj/item/clothing/under/rank/security/nova/skirt/medical
 	name = "orderly skirt"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/medical"
-	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E" //shirt skirt badge trim
+	greyscale_colors = "#CBCDD1#39393F#40657b#40657b" //shirt skirt badge trim
 
 /obj/item/clothing/under/rank/security/nova/skirt/service
 	name = "bouncer skirt"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/service"
-	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E" //shirt skirt badge trim
+	greyscale_colors = "#39393F#4876A1#57852A#57852A" //shirt skirt badge trim
 
 /*
 	SUITS
