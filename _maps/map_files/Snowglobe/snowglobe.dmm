@@ -1620,6 +1620,10 @@
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/iron/freezer,
 /area/station/commons/dorms/room3)
+"atu" = (
+/obj/item/beacon,
+/turf/open/floor/carpet/executive,
+/area/station/command/bridge)
 "atx" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1886,6 +1890,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/beacon,
 /turf/open/floor/iron,
 /area/station/ai/satellite/foyer)
 "awQ" = (
@@ -4099,6 +4104,10 @@
 	dir = 4
 	},
 /area/station/hallway/secondary/entry)
+"baz" = (
+/obj/item/beacon,
+/turf/open/floor/iron/dark,
+/area/station/science/explab)
 "baC" = (
 /obj/machinery/computer/message_monitor,
 /obj/effect/turf_decal/siding/yellow{
@@ -13973,7 +13982,8 @@
 /turf/open/floor/engine,
 /area/station/ai/satellite/chamber)
 "dLU" = (
-/obj/item/radio/intercom/directional/north,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/side{
 	dir = 9
 	},
@@ -15348,6 +15358,10 @@
 /obj/structure/trash_pile,
 /turf/open/floor/plating,
 /area/station/maintenance/fore/greater)
+"edZ" = (
+/obj/item/beacon,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/exit/departure_lounge)
 "eec" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "visitationbridgeshutters";
@@ -18728,6 +18742,10 @@
 /obj/structure/chair/sofa/bench/solo,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
+"eZV" = (
+/obj/item/beacon,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
 "eZW" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/iron,
@@ -20612,8 +20630,8 @@
 /area/station/service/kitchen/diner)
 "fBa" = (
 /obj/structure/chair/sofa/bench,
-/obj/effect/spawner/random/engineering/tracking_beacon,
 /obj/structure/window/reinforced/spawner/directional/north,
+/obj/item/beacon,
 /turf/open/floor/iron/white/small,
 /area/station/medical/medbay/lobby)
 "fBi" = (
@@ -21534,6 +21552,7 @@
 	},
 /area/station/service/chapel)
 "fMe" = (
+/obj/machinery/teleport/station,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -22589,6 +22608,8 @@
 	dir = 5
 	},
 /obj/machinery/status_display/evac/directional/north,
+/obj/effect/spawner/random/techstorage/custom_shuttle,
+/obj/structure/table,
 /turf/open/floor/iron/corner{
 	dir = 8
 	},
@@ -24878,7 +24899,6 @@
 /area/station/maintenance/solars/starboard/aft)
 "gGv" = (
 /obj/structure/cable,
-/obj/effect/spawner/random/engineering/tracking_beacon,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/dark_blue/full,
@@ -28896,7 +28916,6 @@
 	pixel_y = -24;
 	control_area = "/area/station/ai/satellite/chamber"
 	},
-/obj/machinery/teleport/hub,
 /turf/open/floor/circuit/green,
 /area/station/ai/satellite/hallway)
 "hKH" = (
@@ -31851,7 +31870,7 @@
 /area/station/hallway/secondary/recreation)
 "ixf" = (
 /obj/effect/landmark/event_spawn,
-/obj/effect/spawner/random/engineering/tracking_beacon,
+/obj/item/beacon,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/engineering/lobby)
 "ixu" = (
@@ -31875,6 +31894,7 @@
 "ixO" = (
 /obj/machinery/airalarm/directional/west,
 /obj/machinery/recharge_station,
+/obj/effect/landmark/start/cyborg,
 /turf/open/floor/circuit/green,
 /area/station/ai/satellite/hallway)
 "iyb" = (
@@ -33294,8 +33314,8 @@
 /turf/open/floor/plating,
 /area/station/service/hydroponics)
 "iRa" = (
-/obj/effect/spawner/random/engineering/tracking_beacon,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/item/beacon,
 /turf/open/floor/iron,
 /area/station/command/teleporter)
 "iRo" = (
@@ -34507,6 +34527,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/edge,
 /area/station/engineering/lobby)
+"jhG" = (
+/obj/effect/turf_decal/trimline/dark_blue/filled/line{
+	dir = 1
+	},
+/obj/item/beacon,
+/turf/open/floor/iron,
+/area/station/command/eva)
 "jhR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/dark,
@@ -35858,7 +35885,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/spawner/random/engineering/tracking_beacon,
+/obj/item/beacon,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "jBV" = (
@@ -39495,6 +39522,10 @@
 	dir = 1
 	},
 /area/station/medical/virology)
+"kwx" = (
+/obj/item/beacon,
+/turf/open/floor/iron/dark,
+/area/station/science/lab)
 "kwF" = (
 /obj/item/tank/internals/emergency_oxygen,
 /turf/open/floor/plating,
@@ -46394,7 +46425,6 @@
 	},
 /area/station/engineering/atmos/office)
 "mqy" = (
-/obj/structure/cable,
 /turf/open/floor/iron/dark/corner{
 	dir = 1
 	},
@@ -53767,6 +53797,10 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/morgue)
+"opU" = (
+/obj/item/beacon,
+/turf/open/floor/engine/xenobio,
+/area/station/science/xenobiology)
 "oqc" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
@@ -58383,6 +58417,7 @@
 /area/station/hallway/primary/port)
 "pCZ" = (
 /obj/machinery/light_switch/directional/east,
+/obj/machinery/teleport/hub,
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
@@ -65421,7 +65456,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "rFD" = (
-/obj/machinery/light/floor,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
@@ -67412,7 +67446,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/spawner/random/engineering/tracking_beacon,
+/obj/item/beacon,
 /turf/open/floor/iron/dark,
 /area/station/science/research)
 "sew" = (
@@ -68487,6 +68521,7 @@
 	},
 /obj/machinery/airalarm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/space_heater,
 /turf/open/floor/iron/dark/side{
 	dir = 6
 	},
@@ -75041,7 +75076,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/floor2)
 "ucm" = (
-/obj/effect/spawner/random/engineering/tracking_beacon,
+/obj/item/beacon,
 /turf/open/floor/plating/icemoon,
 /area/station/science/ordnance/bomb)
 "ucn" = (
@@ -76791,9 +76826,9 @@
 /turf/open/floor/iron/sepia,
 /area/station/service/kitchen/diner)
 "uBH" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/machinery/space_heater,
+/obj/machinery/computer/teleporter{
+	dir = 0
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 9
 	},
@@ -81362,7 +81397,7 @@
 	network = list("ss13","minisat")
 	},
 /obj/machinery/light_switch/directional/south,
-/obj/machinery/teleport/station,
+/obj/machinery/porta_turret/ai,
 /turf/open/floor/circuit/green,
 /area/station/ai/satellite/hallway)
 "vKO" = (
@@ -81621,9 +81656,6 @@
 /area/station/service/library)
 "vNL" = (
 /obj/machinery/light/directional/west,
-/obj/machinery/computer/teleporter{
-	dir = 4
-	},
 /turf/open/floor/circuit/green,
 /area/station/ai/satellite/hallway)
 "vNN" = (
@@ -88952,8 +88984,8 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/spawner/random/engineering/tracking_beacon,
 /obj/effect/landmark/event_spawn,
+/obj/machinery/light/floor,
 /turf/open/floor/engine,
 /area/station/ai/satellite/hallway)
 "xHu" = (
@@ -210924,7 +210956,7 @@ vBO
 aYD
 eXN
 eXN
-eXN
+opU
 tZf
 eXN
 aYD
@@ -255316,7 +255348,7 @@ xFr
 xFr
 qGV
 cIU
-vgU
+jhG
 gvr
 fcw
 nRk
@@ -257863,7 +257895,7 @@ vMu
 vMu
 xcM
 iBj
-uTv
+atu
 dRS
 tNX
 ggl
@@ -265931,7 +265963,7 @@ nAK
 jkO
 xFd
 dQU
-xFd
+eZV
 xFd
 xFd
 xFd
@@ -266427,7 +266459,7 @@ wNV
 gEs
 umS
 wYm
-wYm
+kwx
 wYm
 wYm
 gRw
@@ -268427,7 +268459,7 @@ wnP
 wnP
 wnP
 wnP
-wnP
+edZ
 iBI
 ktX
 cns
@@ -268723,7 +268755,7 @@ cnS
 gHN
 rnB
 xiw
-xiw
+baz
 maY
 rWR
 nEt
@@ -277726,7 +277758,7 @@ jcZ
 jcZ
 keu
 keu
-mRH
+keu
 fMe
 nfE
 cly
