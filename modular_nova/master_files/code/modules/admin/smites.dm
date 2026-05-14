@@ -36,8 +36,7 @@
 		return
 	qdel(thecone)
 
-// Applies the
-/// Applies the dreaded cone of shame to a target.
+// Applies a prim and proper maid uniform to your target.
 /datum/smite/maidification
 	name = "Maid-ification"
 
@@ -74,26 +73,25 @@
 	if (!iscarbon(target))
 		to_chat(user, span_warning("This must be used on a carbon mob."), confidential = TRUE)
 		return
-	var/obj/item/clothing/head/cone_of_shame/bad_dog/thecone = new
 	var/obj/item/clothing/head/costume/maid_headband/maidsmite/headband = new
 	var/obj/item/clothing/neck/maid_neck_cover/maidsmite/neck_cover = new
 	var/obj/item/clothing/gloves/maid_arm_covers/maidsmite/arm_cover = new
 	var/obj/item/clothing/under/costume/maid/maidsmite/uniform = new
-
 	if(iscarbon(target))
-		var/mob/living/carbon/shamed = target
+		var/mob/living/carbon/human/shamed = target
 		var/obj/item/worn_neck = shamed.wear_neck
 		var/obj/item/worn_head = shamed.head
 		var/obj/item/worn_hand = shamed.gloves
 		var/obj/item/worn_body = shamed.w_uniform
+
 		if(istype(worn_neck))
 			shamed.dropItemToGround(worn_neck)
 		if(istype(worn_head))
-			shamed.dropItemToGround(wear_head)
+			shamed.dropItemToGround(worn_head)
 		if(istype(worn_hand))
-			shamed.dropItemToGround(wear_hand)
+			shamed.dropItemToGround(worn_hand)
 		if(istype(worn_body))
-			shamed.dropItemToGround(wear_body)
+			shamed.dropItemToGround(worn_body)
 		shamed.visible_message(span_warning("A Cone of Shame appears around [shamed]'s neck!"))
 		shamed.equip_to_slot_if_possible(neck_cover, ITEM_SLOT_NECK ,qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE)
 		shamed.equip_to_slot_if_possible(headband, ITEM_SLOT_HEAD ,qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE)
