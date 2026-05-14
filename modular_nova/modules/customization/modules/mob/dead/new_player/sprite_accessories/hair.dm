@@ -724,7 +724,6 @@
 
 	/datum/sprite_accessory/hair/nova/dreadtail
 	name = "Dreadtail"
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/hair.dmi'
 	icon_state = "hair_dreadtail"
 
 // Facial hair
