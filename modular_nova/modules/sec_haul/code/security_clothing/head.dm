@@ -26,6 +26,17 @@
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/costume/ushanka/sec/red
+	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/red"
+	greyscale_colors = "#C7B08B#A52F29"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/costume/ushanka/sec/blue
+	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/blue"
+	greyscale_colors = "#C7B08B#3F6E9E"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/security_cap
 	name = "security cap"
@@ -39,19 +50,12 @@
 	strip_delay = 60
 	dog_fashion = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-/*
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/head/security_cap/blue
 	icon_state = "/obj/item/clothing/head/security_cap/blue"
 	greyscale_colors = "#3F6E9E#EBEBEB#3F6E9E"
 
-/obj/item/clothing/head/security_cap/white
-	icon_state = "/obj/item/clothing/head/security_cap/white"
-	greyscale_colors = "#EBEBEB#EBEBEB#39393F"
-
-/obj/item/clothing/head/security_cap/black
-	icon_state = "/obj/item/clothing/head/security_cap/black"
-	greyscale_colors = "#39393F#EBEBEB#39393F"
-*/
 /obj/item/clothing/head/beret/sec/depgag
 	icon_state = "/obj/item/clothing/head/beret/sec/depgag"
 	post_init_icon_state = "beret_badge"
@@ -59,18 +63,11 @@
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#A52F29#EBEBEB"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/beret/sec/depgag/blue
 	icon_state = "/obj/item/clothing/head/beret/sec/depgag/blue"
 	greyscale_colors = "#3F6E9E#EBEBEB"
-
-/obj/item/clothing/head/beret/sec/depgag/white
-	icon_state = "/obj/item/clothing/head/beret/sec/depgag/white"
-	greyscale_colors = "#EBEBEB#39393F"
-
-/obj/item/clothing/head/beret/sec/depgag/black
-	icon_state = "/obj/item/clothing/head/beret/sec/depgag/black"
-	greyscale_colors = "#39393F#EBEBEB"
 
 /obj/item/clothing/head/hats/warden/police/patrol
 	name = "guard patrol cap"

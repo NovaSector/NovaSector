@@ -17,12 +17,12 @@
 	post_init_icon_state = "depgag_vest_slim"
 	greyscale_config = /datum/greyscale_config/depgag_vest_slim
 	greyscale_config_worn = /datum/greyscale_config/depgag_vest_slim/worn
-	greyscale_colors = "#39393F#a52f29"
+	greyscale_colors = "#252426#a52f29"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim/blue
 	icon_state = "/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim/blue"
-	greyscale_colors = "#39393F#3F6E9E"
+	greyscale_colors = "#252426#3F6E9E"
 
 /obj/item/clothing/suit/armor/vest/depgag_hazard
 	name = "hi-vis armored vest"
@@ -42,7 +42,6 @@
 /obj/item/clothing/suit/armor/vest/depgag_hazard/blue
 	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard/blue"
 	greyscale_colors = "#3F6E9E#EBEBEB"
-
 
 /obj/item/clothing/suit/armor/vest/depgag_hazard/Initialize(mapload)
 	. = ..()
@@ -65,36 +64,6 @@
 /obj/item/clothing/suit/armor/vest/secjacket/depgag/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, "zipper")
-
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber
-	name = "security bomber jacket"
-	desc = "A comfortable jacket in security red. Probably against uniform regulations."
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber"
-	post_init_icon_state = "depgag_bomber"
-	greyscale_config = /datum/greyscale_config/depgag_bomber
-	greyscale_config_worn = /datum/greyscale_config/depgag_bomber/worn
-	greyscale_colors = "#A52F29#39393F"
-	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/blue
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/blue"
-	greyscale_colors = "#3F6E9E#39393F"
-
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket
-	name = "vested security jacket"
-	desc = "The company standard armor now with a stylish unzipped jacket stitched in for when you don't think you'll get shot!"
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket"
-	post_init_icon_state = "depgag_vested_jacket"
-	greyscale_config = /datum/greyscale_config/depgag_vested_jacket
-	greyscale_config_worn = /datum/greyscale_config/depgag_vested_jacket/worn
-	greyscale_colors = "#A52F29#39393F#39393F"
-	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket/blue
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/vested_jacket/blue"
-	greyscale_colors = "#3F6E9E#39393F#EBEBEB"
 
 /obj/item/clothing/suit/hooded/wintercoat/security/depgag
 	name = "security winter coat"
@@ -145,6 +114,35 @@
 	greyscale_config = /datum/greyscale_config/winter_hood
 	greyscale_config_worn = /datum/greyscale_config/winter_hood/worn
 
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber
+	name = "security bomber jacket"
+	desc = "A comfortable jacket in security red. Probably against uniform regulations."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber"
+	post_init_icon_state = "depgag_bomber"
+	greyscale_config = /datum/greyscale_config/depgag_bomber
+	greyscale_config_worn = /datum/greyscale_config/depgag_bomber/worn
+	greyscale_colors = "#A52F29#39393F"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/blue
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/blue"
+	greyscale_colors = "#3F6E9E#39393F"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket
+	name = "vested security jacket"
+	desc = "The company standard armor now with a stylish unzipped jacket stitched in for when you don't think you'll get shot!"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket"
+	post_init_icon_state = "depgag_vested_jacket"
+	greyscale_config = /datum/greyscale_config/depgag_vested_jacket
+	greyscale_config_worn = /datum/greyscale_config/depgag_vested_jacket/worn
+	greyscale_colors = "#A52F29#39393F#39393F"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket/blue
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/vested_jacket/blue"
+	greyscale_colors = "#3F6E9E#39393F#EBEBEB"
 
 /*
 *	WARDEN

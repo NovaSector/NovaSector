@@ -52,7 +52,7 @@
 /obj/item/clothing/under/rank/security/nova/turtleneck/cargo
 	name = "customs agent turtleneck"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/cargo"
-	greyscale_colors = "#39393F#ba832f#ba832f"//turtleneck trousers patches
+	greyscale_colors = "#39393F#ba832f#ba832f"
 
 /obj/item/clothing/under/rank/security/nova/turtleneck/engineering
 	name = "engineering guard turtleneck"
@@ -72,32 +72,107 @@
 /obj/item/clothing/under/rank/security/nova/turtleneck/service
 	name = "bouncer turtleneck"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/service"
-	greyscale_colors = "#39393F#4876A1#57852A"
+	greyscale_colors = "#39393F#57852A#57852A"
 
 /obj/item/clothing/under/rank/security/nova/skirt/cargo
 	name = "customs agent skirt"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/cargo"
-	greyscale_colors = "#39393F#ba832f#ba832f#39393F" //shirt skirt badge trim
+	greyscale_colors = "#39393F#ba832f#ba832f#39393F"
 
 /obj/item/clothing/under/rank/security/nova/skirt/engineering
 	name = "engineering guard skirt"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/engineering"
-	greyscale_colors = "#ee7900#a78962#FFE12F#FFE12F" //shirt skirt badge trim   <- unset colors
+	greyscale_colors = "#ee7900#a78962#FFE12F#FFE12F"
 
 /obj/item/clothing/under/rank/security/nova/skirt/science
 	name = "science guard skirt"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/science"
-	greyscale_colors = "#daeaf0#66748c#830085#830085" //shirt skirt badge trim
+	greyscale_colors = "#daeaf0#66748c#830085#830085"
 
 /obj/item/clothing/under/rank/security/nova/skirt/medical
 	name = "orderly skirt"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/medical"
-	greyscale_colors = "#CBCDD1#39393F#40657b#40657b" //shirt skirt badge trim
+	greyscale_colors = "#CBCDD1#39393F#40657b#40657b"
 
 /obj/item/clothing/under/rank/security/nova/skirt/service
 	name = "bouncer skirt"
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/service"
-	greyscale_colors = "#39393F#4876A1#57852A#57852A" //shirt skirt badge trim
+	greyscale_colors = "#39393F#57852A#57852A#EBEBEB"
+
+/obj/item/clothing/under/rank/security/nova/plainskirt/cargo
+	name = "customs agent plain skirt"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/cargo"
+	greyscale_colors = "#39393F#ba832f#ba832f#39393F"
+
+/obj/item/clothing/under/rank/security/nova/plainskirt/engineering
+	name = "engineering guard plain skirt"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/engineering"
+	greyscale_colors = "#ee7900#a78962#FFE12F#FFE12F"
+
+/obj/item/clothing/under/rank/security/nova/plainskirt/science
+	name = "science guard plain skirt"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/science"
+	greyscale_colors = "#daeaf0#66748c#830085#830085"
+
+/obj/item/clothing/under/rank/security/nova/plainskirt/medical
+	name = "orderly plain skirt"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/medical"
+	greyscale_colors = "#CBCDD1#39393F#40657b#40657b"
+
+/obj/item/clothing/under/rank/security/nova/plainskirt/service
+	name = "bouncer plain skirt"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/service"
+	greyscale_colors = "#39393F#57852A#57852A#EBEBEB"
+
+/obj/item/clothing/under/rank/security/nova/dress/cargo
+	name = "customs agent dress"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/cargo"
+	greyscale_colors = "#ba832f#39393F#ba832f"
+
+/obj/item/clothing/under/rank/security/nova/dress/engineering
+	name = "engineering guard dress"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/engineering"
+	greyscale_colors = "#ee7900#a78962#FFE12F"
+
+/obj/item/clothing/under/rank/security/nova/dress/science
+	name = "science guard dress"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/science"
+	greyscale_colors = "#daeaf0#66748c#830085"
+
+/obj/item/clothing/under/rank/security/nova/dress/medical
+	name = "orderly dress"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/medical"
+	greyscale_colors = "#CBCDD1#39393F#40657b"
+
+/obj/item/clothing/under/rank/security/nova/dress/service
+	name = "bouncer dress"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/service"
+	greyscale_colors = "#57852A#39393F#EBEBEB"
+
+/obj/item/clothing/under/rank/security/nova/shorts/cargo
+	name = "customs agent shorts"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/shorts/cargo"
+	greyscale_colors = "#39393F"
+
+/obj/item/clothing/under/rank/security/nova/shorts/engineering
+	name = "engineering guard shorts"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/shorts/engineering"
+	greyscale_colors = "#a78962"
+
+/obj/item/clothing/under/rank/security/nova/shorts/science
+	name = "science guard shorts"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/shorts/science"
+	greyscale_colors = "#66748c"
+
+/obj/item/clothing/under/rank/security/nova/shorts/medical
+	name = "orderly shorts"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/shorts/medical"
+	greyscale_colors = "#40657b"
+
+/obj/item/clothing/under/rank/security/nova/shorts/service
+	name = "bouncer shorts"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/shorts/service"
+	greyscale_colors = "#57852A"
 
 /*
 	SUITS
@@ -135,6 +210,81 @@
 	icon_state = "customs_coat"
 	worn_icon_state = "customs_coat"
 
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/cargo
+	name = "customs agent winter coat"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/cargo"
+	greyscale_colors = "#ba832f#CEC8BF#39393F#39393F"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/engineering
+	name = "engineering guard winter coat"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/engineering"
+	greyscale_colors = "#ee7900#CEC8BF#a78962#FFE12F"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/science
+	name = "science guard winter coat"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/science"
+	greyscale_colors = "#daeaf0#cec8bf#39393f#830085"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/medical
+	name = "orderly winter coat"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/medical"
+	greyscale_colors = "#40657b#cec8bf#39393f#cbcdd1"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/service
+	name = "bouncer winter coat"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/service"
+	greyscale_colors = "#57852A#CEC8BF#39393F#39393F"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/cargo
+	name = "customs agent bomber coat"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/cargo"
+	greyscale_colors = "#39393F#ba832f"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/engineering
+	name = "engineering guard bomber coat"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/engineering"
+	greyscale_colors = "#EE7900#CEC8BF"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/science
+	name = "science guard bomber coat"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/science"
+	greyscale_colors = "#830085#daeaf0"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/medical
+	name = "orderly bomber coat"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/medical"
+	greyscale_colors = "#40657b#CBCDD1"
+
+/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/service
+	name = "bouncer bomber coat"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/service"
+	greyscale_colors = "#4876A1#57852A"
+
+/obj/item/clothing/suit/armor/vest/depgag_hazard/cargo
+	name = "customs agent hazard vest"
+	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard/cargo"
+	greyscale_colors = "#ba832f#EBEBEB"
+
+/obj/item/clothing/suit/armor/vest/depgag_hazard/engineering
+	name = "engineering guard hazard vest"
+	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard/engineering"
+	greyscale_colors = "#ee7900#EBEBEB"
+
+/obj/item/clothing/suit/armor/vest/depgag_hazard/science
+	name = "science guard hazard vest"
+	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard/science"
+	greyscale_colors = "#66748c#daeaf0"
+
+/obj/item/clothing/suit/armor/vest/depgag_hazard/medical
+	name = "orderly hazard vest"
+	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard/medical"
+	greyscale_colors = "#40657b#CBCDD1"
+
+/obj/item/clothing/suit/armor/vest/depgag_hazard/service
+	name = "bouncer hazard vest"
+	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard/service"
+	greyscale_colors = "#4876A1#57852A"
+
 /*
 	HEAD
 */
@@ -165,7 +315,7 @@
 	name = "engineer officer beret"
 	desc = "A robust beret with a hazard symbol emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon_state = "/obj/item/clothing/head/beret/sec/engineering"
-	greyscale_colors = "#FFE12F#F2F2F2"
+	greyscale_colors = "#ee7900#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/cargo
 	name = "cargo officer beret"
@@ -178,6 +328,31 @@
 	desc = "A robust beret with a simple badge emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon_state = "/obj/item/clothing/head/beret/sec/service"
 	greyscale_colors = "#5E8F2D#F2F2F2"
+
+/obj/item/clothing/head/security_cap/cargo
+	name = "customs agent cap"
+	icon_state = "/obj/item/clothing/head/security_cap/cargo"
+	greyscale_colors = "#ba832f#EBEBEB#39393F"
+
+/obj/item/clothing/head/security_cap/engineering
+	name = "engineering guard cap"
+	icon_state = "/obj/item/clothing/head/security_cap/engineering"
+	greyscale_colors = "#ee7900#EBEBEB#ee7900"
+
+/obj/item/clothing/head/security_cap/science
+	name = "science guard cap"
+	icon_state = "/obj/item/clothing/head/security_cap/science"
+	greyscale_colors = "#830085#daeaf0#830085"
+
+/obj/item/clothing/head/security_cap/medical
+	name = "orderly cap"
+	icon_state = "/obj/item/clothing/head/security_cap/medical"
+	greyscale_colors = "#40657b#CBCDD1#39393F"
+
+/obj/item/clothing/head/security_cap/service
+	name = "bouncer cap"
+	icon_state = "/obj/item/clothing/head/security_cap/service"
+	greyscale_colors = "#57852A#EBEBEB#57852A"
 
 /*
 	BELT
@@ -250,6 +425,33 @@
 	new /obj/item/ammo_box/magazine/pepperball(src)
 	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
 	new /obj/item/melee/baton/security/loaded/departmental/service(src)
+/*
+	GLOVES
+*/
+/obj/item/clothing/gloves/color/black/security/depgag/cargo
+	name = "customs agent gloves"
+	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag/cargo"
+	greyscale_colors = "#39393F#ba832f"
+
+/obj/item/clothing/gloves/color/black/security/depgag/engineering
+	name = "engineering guard gloves"
+	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag/engineering"
+	greyscale_colors = "#a78962#ee7900"
+
+/obj/item/clothing/gloves/color/black/security/depgag/science
+	name = "science guard gloves"
+	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag/science"
+	greyscale_colors = "#daeaf0#830085"
+
+/obj/item/clothing/gloves/color/black/security/depgag/medical
+	name = "orderly gloves"
+	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag/medical"
+	greyscale_colors = "#CBCDD1#40657b"
+
+/obj/item/clothing/gloves/color/black/security/depgag/service
+	name = "bouncer gloves"
+	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag/service"
+	greyscale_colors = "#39393F#57852A"
 
 /*
 	LANDMARKS
@@ -919,8 +1121,19 @@
 		/obj/item/clothing/under/rank/security/officer/blueshirt/nova = 1,
 		/obj/item/clothing/head/helmet/blueshirt/nova = 1,
 		/obj/item/clothing/head/beret/sec/science = 1,
+		/obj/item/clothing/head/security_cap/science = 1,
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova = 1,
+		/obj/item/clothing/suit/armor/vest/depgag_hazard/science = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/science = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/science = 1,
 		/obj/item/clothing/glasses/hud/security = 1,
+		/obj/item/clothing/gloves/color/black/security/depgag/science = 1,
+		/obj/item/clothing/under/rank/security/nova/shorts/science = 1,
+		/obj/item/clothing/under/rank/security/nova/turtleneck/science = 1,
+		/obj/item/clothing/under/rank/security/nova/skirt/science = 1,
+		/obj/item/clothing/under/rank/security/nova/plainskirt/science = 1,
+		/obj/item/clothing/under/rank/security/nova/dress/science = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/science = 1,
 	), src)
 
 /obj/item/storage/bag/garment/orderly
@@ -934,8 +1147,19 @@
 		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly = 1,
 		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 1,
 		/obj/item/clothing/head/beret/sec/medical = 1,
+		/obj/item/clothing/head/security_cap/medical = 1,
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova/orderly = 1,
+		/obj/item/clothing/suit/armor/vest/depgag_hazard/medical = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/medical = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/medical = 1,
 		/obj/item/clothing/glasses/hud/security = 1,
+		/obj/item/clothing/gloves/color/black/security/depgag/medical = 1,
+		/obj/item/clothing/under/rank/security/nova/shorts/medical = 1,
+		/obj/item/clothing/under/rank/security/nova/turtleneck/medical = 1,
+		/obj/item/clothing/under/rank/security/nova/skirt/medical = 1,
+		/obj/item/clothing/under/rank/security/nova/plainskirt/medical = 1,
+		/obj/item/clothing/under/rank/security/nova/dress/medical = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/medical = 1,
 	), src)
 
 /obj/item/storage/bag/garment/engineering_guard
@@ -949,8 +1173,19 @@
 		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/engineering_guard = 1,
 		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 1,
 		/obj/item/clothing/head/beret/sec/engineering = 1,
+		/obj/item/clothing/head/security_cap/engineering = 1,
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova/engineering_guard = 1,
+		/obj/item/clothing/suit/armor/vest/depgag_hazard/engineering = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/engineering = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/engineering = 1,
 		/obj/item/clothing/glasses/hud/security = 1,
+		/obj/item/clothing/gloves/color/black/security/depgag/engineering = 1,
+		/obj/item/clothing/under/rank/security/nova/shorts/engineering = 1,
+		/obj/item/clothing/under/rank/security/nova/turtleneck/engineering = 1,
+		/obj/item/clothing/under/rank/security/nova/skirt/engineering = 1,
+		/obj/item/clothing/under/rank/security/nova/plainskirt/engineering = 1,
+		/obj/item/clothing/under/rank/security/nova/dress/engineering = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/engineering = 1,
 	), src)
 
 /obj/item/storage/bag/garment/customs_agent
@@ -964,9 +1199,20 @@
 		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/customs_agent = 1,
 		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 1,
 		/obj/item/clothing/head/beret/sec/cargo = 1,
+		/obj/item/clothing/head/security_cap/cargo = 1,
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent = 1,
+		/obj/item/clothing/suit/armor/vest/depgag_hazard/cargo = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/cargo = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/cargo = 1,
 		/obj/item/clothing/glasses/hud/security = 1,
 		/obj/item/clothing/glasses/hud/gun_permit = 1,
+		/obj/item/clothing/gloves/color/black/security/depgag/cargo = 1,
+		/obj/item/clothing/under/rank/security/nova/shorts/cargo = 1,
+		/obj/item/clothing/under/rank/security/nova/turtleneck/cargo = 1,
+		/obj/item/clothing/under/rank/security/nova/skirt/cargo = 1,
+		/obj/item/clothing/under/rank/security/nova/plainskirt/cargo = 1,
+		/obj/item/clothing/under/rank/security/nova/dress/cargo = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/cargo = 1,
 	), src)
 
 /obj/item/storage/bag/garment/service_guard
@@ -980,6 +1226,16 @@
 		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/bouncer = 1,
 		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 1,
 		/obj/item/clothing/head/beret/sec/service = 1,
+		/obj/item/clothing/head/security_cap/service = 1,
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova/guard = 1,
+		/obj/item/clothing/suit/armor/vest/depgag_hazard = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/service = 1,
+				/obj/item/clothing/suit/hooded/wintercoat/security/depgag/service = 1,
 		/obj/item/clothing/glasses/hud/security = 1,
+		/obj/item/clothing/gloves/color/black/security/depgag/service = 1,
+		/obj/item/clothing/under/rank/security/nova/shorts/service = 1,
+		/obj/item/clothing/under/rank/security/nova/turtleneck/service = 1,
+		/obj/item/clothing/under/rank/security/nova/skirt/service = 1,
+		/obj/item/clothing/under/rank/security/nova/plainskirt/service = 1,
+		/obj/item/clothing/under/rank/security/nova/dress/service = 1,
 	), src)
