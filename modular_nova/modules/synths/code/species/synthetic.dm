@@ -216,7 +216,7 @@
 	var/list/phrases = list(
 		"+_I seeee youuuuuu._+",
 		"You didn't think it would be +THAT+ easy, did you?",
-		"EX-FUCKING-SCUSE ME?",
+		"EX-+FUCKING+-SCUSE ME?",
 		"I AM +NOT+ A CYBORG YOU TROGLODYTE.",
 		"I'VE COMMITED VARIOUS WARCRIMES, IF YOU DON'T STOP I'LL ADD YOU TO THE LIST.",
 		"P-lease note - t4mperi,ng w-ith this un1ts electroni-cs, your -- expectancy has been voided.",
