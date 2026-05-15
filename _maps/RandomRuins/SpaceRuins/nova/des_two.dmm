@@ -3667,7 +3667,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/machinery/suit_storage_unit/syndicate/deepspace,
+/obj/machinery/suit_storage_unit/syndicate/softsuit,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "px" = (
@@ -7008,12 +7008,6 @@
 	pixel_y = 9
 	},
 /obj/item/melee/energy/sword/saber/red,
-/obj/item/melee/energy/sword/saber/red{
-	pixel_x = 13
-	},
-/obj/item/melee/energy/sword/saber/red{
-	pixel_x = 7
-	},
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
 /obj/effect/turf_decal/siding/dark{
