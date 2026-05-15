@@ -1,4 +1,5 @@
 /obj/item/clothing/gloves/color/black/security/depgag
+	name = "guard gloves"
 	desc = "These gloves come with microchips that help the user quickly restrain suspects."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/gloves/color/black/security"

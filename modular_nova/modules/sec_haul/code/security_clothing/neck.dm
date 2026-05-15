@@ -10,7 +10,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/neck/security_cape/shoulder
-	name = "security cape"
+	name = "guard cape"
 	desc = "A fashionable cape worn by guards."
 	icon_state = "/obj/item/clothing/neck/security_cape/shoulder"
 	post_init_icon_state = "depgag_cape"
@@ -38,14 +38,14 @@
 	usr.update_worn_neck()
 
 /obj/item/clothing/neck/security_cape/armplate
-	name = "security gauntlet"
+	name = "guard gauntlet"
 	desc = "A fashionable full-arm gauntlet worn by guards. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
 	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "armplate"
 
 /obj/item/clothing/neck/security_cape/armplate_caped
-	name = "caped security gauntlet"
+	name = "caped guard gauntlet"
 	desc = "A fashionable full-arm gauntlet worn by guards. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
 	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped"
 	post_init_icon_state = "depgag_gauntlet"

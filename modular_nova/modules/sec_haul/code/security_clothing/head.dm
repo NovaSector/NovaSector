@@ -16,7 +16,7 @@
 		flags_cover |= PEPPERPROOF
 
 /obj/item/clothing/head/security_garrison
-	name = "security garrison cap"
+	name = "guard garrison cap"
 	desc = "A robust garrison cap with the nanotrasen insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon_state = "/obj/item/clothing/head/depgag_cap"
 	post_init_icon_state = "depgag_garrison"
@@ -33,17 +33,19 @@
 	greyscale_colors = "#3F6E9E"
 
 /obj/item/clothing/head/costume/ushanka/sec/red
+	name = "Guard Ushanka"
 	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/red"
 	greyscale_colors = "#C7B08B#A52F29"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/costume/ushanka/sec/blue
+	name = "Guard Ushanka"
 	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/blue"
 	greyscale_colors = "#C7B08B#3F6E9E"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/security_cap
-	name = "security cap"
+	name = "guard cap"
 	desc = "A robust cap with the Nanotrasen insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	icon_state = "/obj/item/clothing/head/depgag_cap"
 	post_init_icon_state = "depgag_cap"
@@ -61,6 +63,7 @@
 	greyscale_colors = "#3F6E9E#EBEBEB#3F6E9E"
 
 /obj/item/clothing/head/beret/sec/depgag
+	name = "guard beret"
 	icon_state = "/obj/item/clothing/head/beret/sec/depgag"
 	greyscale_colors = "#A52F29#F2F2F2"
 	flags_1 = IS_PLAYER_COLORABLE_1

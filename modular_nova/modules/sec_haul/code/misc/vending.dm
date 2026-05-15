@@ -80,7 +80,6 @@
 			"icon" = "shield-halved",
 			"products" = list(
 				/obj/item/clothing/neck/security_cape/shoulder/blue = 4,
-				/obj/item/clothing/neck/security_cape/armplate = 4,
 				/obj/item/clothing/neck/security_cape/armplate_caped/blue = 4,
 				/obj/item/clothing/glasses/hud/ar/aviator/securityblue = 4,
 				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 4,
@@ -119,6 +118,7 @@
 	)
 
 	premium = list(
+		/obj/item/clothing/neck/security_cape/armplate = 4,
 		/obj/item/clothing/suit/armor/vest/depgag_hazard = 3,
 		/obj/item/clothing/under/rank/security/officer/formal = 3,
 		/obj/item/clothing/suit/jacket/officer/blue = 3,

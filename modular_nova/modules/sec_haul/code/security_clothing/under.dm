@@ -136,7 +136,7 @@
 	greyscale_colors = "#3F6E9E#39393F#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/shorts
-	name = "guard shorts"
+	name = "pair of guard shorts"
 	desc = "Some \"combat\" shorts. Please don't actually wear these."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts"
