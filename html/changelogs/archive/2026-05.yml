@@ -216,3 +216,19 @@
   - bugfix: fixed an issue where selecting 'No left leg' etc in augments and then
       selecting 'None' immediately after would not give your leg back in the preview
       until you select another augment
+2026-05-11:
+  FlufflesTheDog:
+  - bugfix: Augments are applied when using vv apply prefs
+  - bugfix: '[Quirk points enabled] Fix needing extra points on top of your budget
+      to spawn with augments'
+  - bugfix: '[Quirk points enabled] Fix not being able to switch to augments that
+      you would only have enough points to switch to after the old augment was removed'
+  - bugfix: '[Quirk points enabled] Fix being able to go from a negative-point augment
+      to none without validation (which would result in positive quirks being removed
+      to maintain balance)'
+  - bugfix: '[Quirk points enabled] Fix quirk screen balance not accounting for augment
+      quirk balance'
+  Hardly:
+  - bugfix: Fixes Kobold Kubes spawning unbutcherable Kobolds
+  - code_imp: Changed species name so it's easier to tell which Kobold is primitive
+      and which isn't
