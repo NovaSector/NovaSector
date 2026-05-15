@@ -1,14 +1,9 @@
+/obj/item/clothing/mask/bandana/striped/security/red
+	icon_state = "/obj/item/clothing/mask/bandana/striped/security/red"
+	greyscale_colors = "#A52F29#2e2e2e"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/mask/bandana/striped/security/blue
 	icon_state = "/obj/item/clothing/mask/bandana/striped/security/blue"
-	greyscale_colors = "#3F6E9E#39393F"
-	flags_1 = NONE
-
-/obj/item/clothing/mask/bandana/striped/security/white
-	icon_state = "/obj/item/clothing/mask/bandana/striped/security/white"
-	greyscale_colors = "#EBEBEB#39393F"
-	flags_1 = NONE
-
-/obj/item/clothing/mask/bandana/striped/security/black
-	icon_state = "/obj/item/clothing/mask/bandana/striped/security/black"
-	greyscale_colors = "#39393F#EBEBEB"
-	flags_1 = NONE
+	greyscale_colors = "#3F6E9E#2e2e2e"
+	flags_1 = IS_PLAYER_COLORABLE_1

@@ -22,11 +22,15 @@
 	post_init_icon_state = "depgag_garrison"
 	greyscale_config = /datum/greyscale_config/depgag_garrison
 	greyscale_config_worn = /datum/greyscale_config/depgag_garrison/worn
-	greyscale_colors = "#A52F29"
+	greyscale_colors = "#39393F"
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/security_garrison/blue
+	icon_state = "/obj/item/clothing/head/security_garrison/blue"
+	greyscale_colors = "#3F6E9E"
 
 /obj/item/clothing/head/costume/ushanka/sec/red
 	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/red"
@@ -58,16 +62,12 @@
 
 /obj/item/clothing/head/beret/sec/depgag
 	icon_state = "/obj/item/clothing/head/beret/sec/depgag"
-	post_init_icon_state = "beret_badge"
-	greyscale_config = /datum/greyscale_config/beret_badge
-	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
-	greyscale_colors = "#A52F29#EBEBEB"
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	greyscale_colors = "#A52F29#F2F2F2"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/beret/sec/depgag/blue
 	icon_state = "/obj/item/clothing/head/beret/sec/depgag/blue"
-	greyscale_colors = "#3F6E9E#EBEBEB"
+	greyscale_colors = "#3F6E9E#F2F2F2"
 
 /obj/item/clothing/head/hats/warden/police/patrol
 	name = "guard patrol cap"

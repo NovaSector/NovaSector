@@ -541,3 +541,115 @@
 	item_path = /obj/item/clothing/under/tearaway_garments
 	erp_item = TRUE
 	group = "Costumes"
+
+/*
+	SECURITY
+*/
+
+/datum/loadout_item/under/secuniform
+    name = "Guard Uniform (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/uniform
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secformal
+    name = "Formal Guard Uniform (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/formal
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secturtleneck
+    name = "Guard Turtleneck (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/turtleneck
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secuniform
+    name = "Guard Uniform (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/uniform
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secskirt
+    name = "Guard Skirt (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/skirt
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secskirtplain
+    name = "Guard Plain Skirt (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/plainskirt
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secmini
+    name = "Guard miniskirt (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/miniskirt
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secdress
+    name = "Guard Dress (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/dress
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secshorts
+    name = "Guard Shorts (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/shorts
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secshorts
+    name = "Guard Shorts (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/shorts
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/sectrousers
+    name = "Guard Trousers (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/trousers
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secmodskin
+    name = "Guard M.O.D. Skinsuit (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/modskin
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC)
+
+/datum/loadout_item/under/secpantsuit
+    name = "Guard Pantsuit (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/depgag_pantsuit
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC)
+
+/datum/loadout_item/under/secshorts
+    name = "Guard Shorts (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/shorts
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secshorts
+    name = "Guard Shorts (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/shorts
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secshorts
+    name = "Guard Shorts (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/shorts
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secshorts
+    name = "Guard Shorts (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/shorts
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+
+/datum/loadout_item/under/secshorts
+    name = "Guard Shorts (Colorable)"
+    item_path = /obj/item/clothing/under/rank/security/nova/shorts
+    group = "Guard"
+    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)

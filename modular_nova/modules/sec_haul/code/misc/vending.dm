@@ -37,76 +37,11 @@
 			"name" = "Main",
 			"icon" = "shield",
 			"products" = list(
-				/obj/item/clothing/head/costume/ushanka/sec/red = 4,
-				/obj/item/clothing/mask/bandana/striped/security = 4,
-//				/obj/item/clothing/under/rank/security/nova/officer/black = 4,
-				/obj/item/clothing/under/rank/security/nova/modskin = 4,
-//				/obj/item/clothing/under/rank/security/nova/skirt/mini = 4,
-				/obj/item/clothing/under/rank/security/nova/utility = 4,
-				/obj/item/clothing/under/rank/security/officer/grey = 4,
-				/obj/item/clothing/under/pants/slacks = 4,
-				/obj/item/clothing/suit/armor/vest = 4,
-				/obj/item/clothing/gloves/color/black/security = 4,
-				/obj/item/clothing/shoes/jackboots/sec = 4,
-				/obj/item/clothing/shoes/jackboots/gogo_boots = 4,
-				/obj/item/storage/backpack/security = 4,
-				/obj/item/storage/backpack/satchel/sec = 4,
-				/obj/item/storage/backpack/duffelbag/sec = 4,
-				/obj/item/storage/backpack/messenger/sec = 4,
-				/obj/item/clothing/head/costume/ushanka/sec = 4,
-				/obj/item/clothing/head/playbunnyears/security = 6,
-				/obj/item/clothing/under/rank/security/security_bunnysuit = 6,
-				/obj/item/clothing/suit/armor/security_tailcoat = 6,
-				/obj/item/clothing/neck/tie/bunnytie/security = 6,
-				/obj/item/clothing/head/playbunnyears/security/assistant = 6,
-				/obj/item/clothing/under/rank/security/security_assistant_bunnysuit = 6,
-				/obj/item/clothing/suit/armor/security_tailcoat/assistant = 6,
-				/obj/item/clothing/neck/tie/bunnytie/security_assistant = 6,
-			),
-		),
-
-		list(
-			"name" = "Alternate",
-			"icon" = "shield-halved",
-			"products" = list(
-				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
-				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
-				/obj/item/clothing/head/beret/sec/nova = 4,
-//				/obj/item/clothing/head/security_cap = 4,
-				/obj/item/clothing/head/helmet/sec/white = 3,
-//				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
-				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
-				/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest = 3,
-				/obj/item/clothing/suit/armor/vest/secjacket/depgag = 3,
 				/obj/item/clothing/neck/security_cape/shoulder = 4,
 				/obj/item/clothing/neck/security_cape/armplate = 4,
-//				/obj/item/clothing/under/rank/security/nova/officer = 4,
-				/obj/item/clothing/under/rank/security/nova/skirt = 4,
-				/obj/item/clothing/under/rank/security/officer/blueshirt = 4,
-//				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
-//				/obj/item/clothing/under/rank/security/nova/skirt/plain = 4,
-//				/obj/item/clothing/under/rank/security/nova/skirt/mini/blue = 4,
-//				/obj/item/clothing/under/rank/security/nova/turtleneck/blue = 4,
-//				/obj/item/clothing/under/rank/security/nova/formal/blue = 4,
-//				/obj/item/clothing/under/rank/security/nova/utility/blue = 4,
-				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
-				/obj/item/clothing/gloves/color/black/security/depgag/white = 4,
-				/obj/item/clothing/gloves/color/black/security/blu = 4,
-				/obj/item/clothing/head/security_garrison = 4,
-				/obj/item/clothing/head/hats/warden/police/patrol = 4,
-				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
-				/obj/item/storage/backpack/security/blue = 4,
-				/obj/item/storage/backpack/satchel/sec/blue = 4,
-				/obj/item/storage/backpack/duffelbag/sec/blue = 4,
-				/obj/item/storage/backpack/messenger/sec/blue = 4,
-			),
-		),
-
-		list(
-			"name" = "NEW!",
-			"icon" = "shield-halved",
-			"products" = list(
-				/obj/item/clothing/under/rank/security/nova/uniform = 4,
+				/obj/item/clothing/neck/security_cape/armplate_caped = 4,
+				/obj/item/clothing/glasses/hud/ar/aviator/security = 4,
+				/obj/item/clothing/glasses/hud/security/sunglasses = 4,
 				/obj/item/clothing/under/rank/security/nova/formal = 4,
 				/obj/item/clothing/under/rank/security/nova/turtleneck = 4,
 				/obj/item/clothing/under/rank/security/nova/skirt = 4,
@@ -115,10 +50,9 @@
 				/obj/item/clothing/under/rank/security/nova/dress = 4,
 				/obj/item/clothing/under/rank/security/nova/shorts = 4,
 				/obj/item/clothing/under/rank/security/nova/trousers = 4,
-				/obj/item/clothing/under/rank/security/nova/modskin = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest = 4,
 				/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim = 4,
-				/obj/item/clothing/suit/armor/vest/depgag_hazard = 4,
+				/obj/item/clothing/suit/armor/vest/depgag_hazard/red = 4,
 				/obj/item/clothing/suit/armor/vest/secjacket/depgag = 4,
 				/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber = 4,
 				/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket = 4,
@@ -126,8 +60,60 @@
 				/obj/item/clothing/gloves/color/black/security/depgag = 4,
 				/obj/item/clothing/head/security_garrison = 4,
 				/obj/item/clothing/head/security_cap = 4,
-				/obj/item/clothing/head/beret/sec/depgag = 4,
 				/obj/item/clothing/head/hats/warden/police/patrol = 4,
+				/obj/item/clothing/head/beret/sec/depgag = 4,
+				/obj/item/clothing/head/costume/ushanka/sec/red = 4,
+				/obj/item/clothing/mask/bandana/striped/security/red = 4,
+				/obj/item/clothing/under/rank/security/nova/uniform = 4,
+				/obj/item/clothing/under/rank/security/nova/modskin = 4,
+				/obj/item/clothing/under/rank/security/nova/depgag_pantsuit = 4,
+				/obj/item/clothing/shoes/jackboots/sec = 4,
+				/obj/item/storage/backpack/security = 4,
+				/obj/item/storage/backpack/satchel/sec = 4,
+				/obj/item/storage/backpack/duffelbag/sec = 4,
+				/obj/item/storage/backpack/messenger/sec = 4,
+			),
+		),
+
+		list(
+			"name" = "Alternate",
+			"icon" = "shield-halved",
+			"products" = list(
+				/obj/item/clothing/neck/security_cape/shoulder/blue = 4,
+				/obj/item/clothing/neck/security_cape/armplate = 4,
+				/obj/item/clothing/neck/security_cape/armplate_caped/blue = 4,
+				/obj/item/clothing/glasses/hud/ar/aviator/securityblue = 4,
+				/obj/item/clothing/glasses/hud/security/sunglasses/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/formal/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/turtleneck/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/skirt/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/plainskirt/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/miniskirt/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/dress/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/shorts/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/trousers/blue = 4,
+				/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest/blue = 4,
+				/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim/blue = 4,
+				/obj/item/clothing/suit/armor/vest/depgag_hazard/blue = 4,
+				/obj/item/clothing/suit/armor/vest/secjacket/depgag/blue = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/blue = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket/blue = 4,
+				/obj/item/clothing/suit/hooded/wintercoat/security/depgag/blue = 4,
+				/obj/item/clothing/gloves/color/black/security/depgag/blue = 4,
+				/obj/item/clothing/head/security_garrison/blue = 4,
+				/obj/item/clothing/head/security_cap/blue = 4,
+				/obj/item/clothing/head/hats/warden/police/patrol/blue = 4,
+				/obj/item/clothing/head/beret/sec/depgag/blue = 4,
+				/obj/item/clothing/head/costume/ushanka/sec/blue = 4,
+				/obj/item/clothing/mask/bandana/striped/security/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/uniform/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/modskin/blue = 4,
+				/obj/item/clothing/under/rank/security/nova/depgag_pantsuit/blue = 4,
+				/obj/item/clothing/shoes/jackboots/sec/blue = 4,
+				/obj/item/storage/backpack/security/blue = 4,
+				/obj/item/storage/backpack/satchel/sec/blue = 4,
+				/obj/item/storage/backpack/duffelbag/sec/blue = 4,
+				/obj/item/storage/backpack/messenger/sec/blue = 4,
 			),
 		),
 	)
@@ -149,30 +135,18 @@
 		/obj/item/clothing/suit/armor/vest/hc_police_jacket/suit = 3,
 		/obj/item/clothing/suit/armor/vest/hc_police = 3,
 		/obj/item/clothing/suit/armor/vest/hc_police_jacket = 3,
+		/obj/item/clothing/shoes/jackboots/gogo_boots = 4,
+		/obj/item/clothing/head/playbunnyears/security = 6,
+		/obj/item/clothing/under/rank/security/security_bunnysuit = 6,
+		/obj/item/clothing/suit/armor/security_tailcoat = 6,
+		/obj/item/clothing/neck/tie/bunnytie/security = 6,
+		/obj/item/clothing/head/playbunnyears/security/assistant = 6,
+		/obj/item/clothing/under/rank/security/security_assistant_bunnysuit = 6,
+		/obj/item/clothing/suit/armor/security_tailcoat/assistant = 6,
+		/obj/item/clothing/neck/tie/bunnytie/security_assistant = 6,
+		/obj/item/clothing/head/helmet/sec/white = 3,
+		/obj/item/clothing/under/rank/security/officer/grey = 4,
+		/obj/item/clothing/under/pants/slacks = 4,
 		)
 
 	payment_department = ACCOUNT_SEC
-/*
-/obj/item/clothing/under/rank/security/nova/uniform
-/obj/item/clothing/under/rank/security/nova/formal
-/obj/item/clothing/under/rank/security/nova/turtleneck							1 X
-/obj/item/clothing/under/rank/security/nova/skirt								2 X
-/obj/item/clothing/under/rank/security/nova/plainskirt							3 X
-/obj/item/clothing/under/rank/security/nova/miniskirt
-/obj/item/clothing/under/rank/security/nova/dress								4 X
-/obj/item/clothing/under/rank/security/nova/shorts								5 X
-/obj/item/clothing/under/rank/security/nova/trousers
-/obj/item/clothing/under/rank/security/nova/modskin
-/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest
-/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim						7 X
-/obj/item/clothing/suit/armor/vest/depgag_hazard								8 X
-/obj/item/clothing/suit/armor/vest/secjacket/depgag
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber				10 X
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag						11 X
-/obj/item/clothing/head/security_garrison										12
-/obj/item/clothing/head/security_cap											13
-/obj/item/clothing/head/beret/sec/depgag
-/obj/item/clothing/head/hats/warden/police/patrol
-/obj/item/clothing/gloves/color/black/security/depgag							14 X
-*/

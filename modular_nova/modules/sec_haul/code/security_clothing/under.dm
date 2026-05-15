@@ -20,9 +20,8 @@
 /*
 *	SECURITY OFFICER
 */
-
 /obj/item/clothing/under/rank/security/nova/uniform
-	name = "security jumpsuit"
+	name = "guard jumpsuit"
 	desc = "A tactical jumpsuit for guards complete with Nanotrasen belt buckle."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/uniform"
@@ -32,12 +31,12 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/depgag_jumpsuit/worn/digi
 	greyscale_colors = "#A52F29#39393F#39393F"
 
-/obj/item/clothing/under/rank/security/nova/officer/blue
+/obj/item/clothing/under/rank/security/nova/uniform/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/blue"
 	greyscale_colors = "#3F6E9E#39393F#39393F"
 
 /obj/item/clothing/under/rank/security/nova/formal
-	name = "security formal suit"
+	name = "guard formal suit"
 	desc = "A formal suit for guards complete with Nanotrasen belt buckle."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/formal"
@@ -52,7 +51,7 @@
 	greyscale_colors = "#39393F#EBEBEB#3F6E9E#39393F"
 
 /obj/item/clothing/under/rank/security/nova/turtleneck
-	name = "security turtleneck"
+	name = "guard turtleneck"
 	desc = "A turtleneck issued to guards complete with Nanotrasen belt buckle."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck"
@@ -64,10 +63,10 @@
 
 /obj/item/clothing/under/rank/security/nova/turtleneck/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/blue"
-	greyscale_colors = "#3F6E9E#39393F#39393F" //turtleneck trousers patches
+	greyscale_colors = "#3F6E9E#39393F#39393F"
 
 /obj/item/clothing/under/rank/security/nova/skirt
-	name = "security jumpskirt"
+	name = "guard jumpskirt"
 	desc = "A \"tactical\" uniform with the legs replaced by a skirt."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt"
@@ -83,7 +82,7 @@
 	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/plainskirt
-	name = "security plain skirt"
+	name = "guard plain skirt"
 	desc = "Plain-shirted uniform commonly worn by Nanotrasen protection guards, attached with a skirt."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt"
@@ -99,7 +98,7 @@
 	greyscale_colors = "#3F6E9E#39393F#3F6E9E#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/miniskirt
-	name = "security miniskirt"
+	name = "guard miniskirt"
 	desc = "This miniskirt was originally featured in a gag calendar, but entered official use once they realized its potential for arid climates."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/miniskirt"
@@ -114,7 +113,7 @@
 	greyscale_colors = "#3F6E9E#39393F"
 
 /obj/item/clothing/under/rank/security/nova/utility
-	name = "security utility uniform"
+	name = "guard utility uniform"
 	desc = "A utility uniform worn by trained guards."
 	icon_state = "util_sec"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
@@ -122,7 +121,7 @@
 	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/security/nova/dress
-	name = "security battle dress"
+	name = "guard battle dress"
 	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt."
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
@@ -131,13 +130,13 @@
 	greyscale_config = /datum/greyscale_config/depgag_dress
 	greyscale_config_worn = /datum/greyscale_config/depgag_dress/worn
 	greyscale_colors = "#A52F29#39393F#A52F29"
-//shirt dress trim
+
 /obj/item/clothing/under/rank/security/nova/dress/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/blue"
 	greyscale_colors = "#3F6E9E#39393F#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/shorts
-	name = "security shorts"
+	name = "guard shorts"
 	desc = "Some \"combat\" shorts. Please don't actually wear these."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts"
@@ -151,12 +150,12 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS|FEMALE_UNIFORM_TOP_ONLY
 
-/obj/item/clothing/under/rank/security/nova/secshorts/blue
-	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts/blue"
+/obj/item/clothing/under/rank/security/nova/shorts/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/shorts/blue"
 	greyscale_colors = "#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/trousers
-	name = "pair of security trousers"
+	name = "pair of guard trousers"
 	desc = "Some \"combat\" trousers. Probably should pair it with a vest for safety."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers"
@@ -175,7 +174,7 @@
 	greyscale_colors = "#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/modskin
-	name = "security M.O.D. skinsuit"
+	name = "guard M.O.D. skinsuit"
 	desc = "A M.O.D. skinsuit worn by trained Security officers."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin"
@@ -183,16 +182,16 @@
 	greyscale_config = /datum/greyscale_config/modskin
 	greyscale_config_worn = /datum/greyscale_config/modskin/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/modskin/worn/digi
-	greyscale_colors = "#4E4E54#A52F29"
+	greyscale_colors = "#39393F#A52F29"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	flags_1 = NONE
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/rank/security/nova/modskin/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin/blue"
-	greyscale_colors = "#4E4E54#3F6E9E"
+	greyscale_colors = "#39393F#3F6E9E"
 
 /obj/item/clothing/under/rank/security/nova/depgag_pantsuit
-	name = "security pantsuit"
+	name = "guard pantsuit"
 	desc = "A tactical jumpsuit for officers complete with Nanotrasen belt buckle."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/security/nova/depgag_pantsuit"
@@ -206,7 +205,6 @@
 /obj/item/clothing/under/rank/security/nova/depgag_pantsuit/blue
 	icon_state = "/obj/item/clothing/under/rank/security/nova/depgag_pantsuit/blue"
 	greyscale_colors = "#3F6E9E#39393F#39393F#39393F"
-
 /*
 *	WARDEN
 */
