@@ -22,11 +22,7 @@
 		/obj/item/clothing/under/rank/medical/doctor_bunnysuit = 3,
 		/obj/item/clothing/under/rank/medical/paramedic_bunnysuit = 3,
 	)
-/obj/machinery/vending/wardrobe/medi_wardrobe/proc/build_access_list(list/access_lists)
-    access_lists[ACCESS_SECURITY] = list(
-        /obj/item/clothing/under/rank/security/nova/modskin = 3,
-    )
-//obj/item/clothing/under/rank/security/nova/modskin = list(3, list(ACCESS_SECURITY))
+
 /obj/machinery/vending/wardrobe/coroner_wardrobe
 	products_nova = list(
 		/obj/item/clothing/head/playbunnyears/coroner = 2,

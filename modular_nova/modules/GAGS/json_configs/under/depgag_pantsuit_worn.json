@@ -1,14 +1,14 @@
 {
-	"depgag_turtleneck": [
+	"depgag_pantsuit": [
 		{
 			"type": "icon_state",
-			"icon_state": "turtleneck",
+			"icon_state": "jumpsuit",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "trousers",
+			"icon_state": "depgag_zipper",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
@@ -20,20 +20,26 @@
 		},
 		{
 			"type": "icon_state",
+			"icon_state": "jumpsuit_pants",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		},
+		{
+			"type": "icon_state",
 			"icon_state": "depgag_belt",
 			"blend_mode": "overlay"
 		}
 	],
-	"depgag_turtleneck_d": [
+	"depgag_pantsuit_d": [
 		{
 			"type": "icon_state",
-			"icon_state": "turtleneck_d",
+			"icon_state": "jumpsuit_d",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "trousers",
+			"icon_state": "depgag_zipper",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
@@ -42,6 +48,12 @@
 			"icon_state": "depgag_insignia_d",
 			"blend_mode": "overlay",
 			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "jumpsuit_pants",
+			"blend_mode": "overlay",
+			"color_ids": [4]
 		},
 		{
 			"type": "icon_state",
