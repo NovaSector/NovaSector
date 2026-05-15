@@ -1,106 +1,40 @@
-// NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
-/obj/item/gun/energy/taser/debug
-	ammo_type = list(/obj/item/ammo_casing/energy/electrode/debug)
-	w_class = WEIGHT_CLASS_TINY
-
-/obj/item/ammo_casing/energy/electrode/debug
-	e_cost = LASER_SHOTS(1000, STANDARD_CELL_CHARGE)
-
-/obj/item/clothing/suit/armor/vest/debug
-	name = "Bluespace Tech vest"
-	desc = "A sleek piece of armour designed for Bluespace agents."
-	armor_type = /datum/armor/vest_debug
-	w_class = WEIGHT_CLASS_TINY
-
-/datum/armor/vest_debug
-	melee = 95
-	melee = 95
-	laser = 95
-	energy = 95
-	bomb = 95
-	bio = 95
-	fire = 98
-	acid = 98
-
-/obj/item/clothing/shoes/combat/debug
-	w_class = WEIGHT_CLASS_TINY
-
-/obj/item/storage/belt/utility/full/powertools/debug
-	name = "\improper Bluespace Tech's belt"
-	w_class = WEIGHT_CLASS_TINY
-	storage_type = /datum/storage/debug
-	desc = "Can hold a boatload of things...  Why do you have this?!"
-	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
-	icon_state = "admeme_satchel"
-	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
-	worn_icon_state = "admeme_satchel"
-
-
-/datum/storage/debug
-	max_specific_storage = WEIGHT_CLASS_GIGANTIC
-	max_total_storage = WEIGHT_CLASS_GIGANTIC * 21
-	max_slots = 21
-
-
-/datum/outfit/debug/bst //Debug objs
-	name = "Bluespace Tech"
-	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/full/powertools/debug
-	shoes = /obj/item/clothing/shoes/combat/debug
-	id = /obj/item/card/id/advanced/debug/bst
-	box = /obj/item/storage/box/debugtools
-	backpack_contents = list(
-		/obj/item/melee/energy/axe = 1,
-		/obj/item/storage/part_replacer/bluespace/tier4/bst = 1,
-		/obj/item/gun/magic/wand/resurrection/debug = 1,
-		/obj/item/gun/magic/wand/death/debug = 1,
-		/obj/item/debug/human_spawner = 1,
-		/obj/item/debug/omnitool = 1,
-		/obj/item/storage/box/stabilized = 1,
-		/obj/item/storage/hypospraykit/cmo/combat = 1,
-		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
-		/obj/item/choice_beacon/job_locker/debug = 1,
-	)
-
-/datum/outfit/admin/bst //Debug objs plus modsuit
-	name = "Bluespace Tech (MODsuit)"
-	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/full/powertools/debug
-	shoes = /obj/item/clothing/shoes/combat/debug
-	id = /obj/item/card/id/advanced/debug/bst
-	box = /obj/item/storage/box/debugtools
-	backpack_contents = list(
-		/obj/item/melee/energy/axe = 1,
-		/obj/item/storage/part_replacer/bluespace/tier4/bst = 1,
-		/obj/item/gun/magic/wand/resurrection/debug = 1,
-		/obj/item/gun/magic/wand/death/debug = 1,
-		/obj/item/debug/human_spawner = 1,
-		/obj/item/debug/omnitool = 1,
-		/obj/item/storage/box/stabilized = 1,
-		/obj/item/storage/hypospraykit/cmo/combat = 1,
-		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
-		/obj/item/choice_beacon/job_locker/debug = 1,
-	)
-
-/obj/item/storage/part_replacer/bluespace/tier4/bst
-	name = "\improper Bluespace Tech RPED"
+// Originally from: NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
+/obj/item/storage/part_replacer/bluespace/admin
+	name = "subspace rped"
 	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly. Alt-Right-Click to manufacture parts, change settings, or clear its internal storage."
-	storage_type = /datum/storage/rped/bluespace/silly
+	storage_type = /datum/storage/rped/bluespace/admin
+	w_class = WEIGHT_CLASS_TINY
 	/// Whether or not auto-clear is enabled
 	var/auto_clear = TRUE
 	/// List of valid types for pick_stock_part().
 	var/static/list/valid_stock_part_types = list(
 		/obj/item/circuitboard/machine,
+		/obj/item/circuitboard/computer,
 		/obj/item/stock_parts,
 		/obj/item/reagent_containers/cup/beaker,
 	)
 
-/datum/storage/rped/bluespace/silly
+/datum/storage/rped/bluespace/admin
 	max_slots = 1000
 	max_total_storage = 20000
 
+/obj/item/storage/part_replacer/bluespace/admin/PopulateContents()
+	for(var/i in 1 to 30)
+		new /obj/item/stock_parts/capacitor/quadratic(src)
+		new /obj/item/stock_parts/scanning_module/triphasic(src)
+		new /obj/item/stock_parts/servo/femto(src)
+		new /obj/item/stock_parts/micro_laser/quadultra(src)
+		new /obj/item/stock_parts/matter_bin/bluespace(src)
+		new /obj/item/stock_parts/power_store/cell/bluespace(src)
+		new /obj/item/stock_parts/power_store/battery/bluespace(src)
+		new /obj/item/reagent_containers/cup/beaker/bluespace(src)
+		new /obj/item/stack/cable_coil/(src)
+		new /obj/item/stack/sheet/glass(src)
+		new /obj/item/stack/sheet/plasteel(src)
+		new /obj/item/stack/sheet/bluespace_crystal(src)
+
 /// An extension to the default RPED part replacement action - if you don't have the requisite parts in the RPED already, it will spawn T4 versions to use.
-/obj/item/storage/part_replacer/bluespace/tier4/bst/interact_with_atom(obj/attacked_object, mob/living/user, list/modifiers)
+/obj/item/storage/part_replacer/bluespace/admin/interact_with_atom(obj/attacked_object, mob/living/user, list/modifiers)
 	//duplicate checks from parent since
 	if(user.combat_mode)
 		return ITEM_INTERACT_SKIP_TO_ATTACK
@@ -142,7 +76,7 @@
 				qdel(stored_item)
 
 /// A bespoke proc for spawning in parts
-/obj/item/storage/part_replacer/bluespace/tier4/bst/proc/spawn_parts_for_components(mob/living/user, list/required_components)
+/obj/item/storage/part_replacer/bluespace/admin/proc/spawn_parts_for_components(mob/living/user, list/required_components)
 	// Since req_components in machineboards can list item types *OR* /datum/stock_part subtypes this gets a little complicated.
 	var/list/subtypes = list()
 	for(var/req_component in required_components)
@@ -239,9 +173,9 @@
 			to_chat(user, span_notice("Something went wrong manufacturing [req_component]. Alert the devs, and let them know what machine it was!"))
 
 /// BSTs' special Bluespace RPED can manufacture parts on Alt-RMB, either cables, glass, machine boards, or stock parts.
-/obj/item/storage/part_replacer/bluespace/tier4/bst/click_alt_secondary(mob/user)
+/obj/item/storage/part_replacer/bluespace/admin/click_alt_secondary(mob/user)
 	// Ask the user what they want to make, or if they want to clear the storage.
-	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Toggle Auto-Clear", "Cables", "Glass", "Spare T4s", "Machine Board", "Stock Part", "Beaker"))
+	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Toggle Auto-Clear", "Tier 4 Parts", "Cable Coils", "Glass Sheets", "Plasteel Sheets", "Bluespace Crystals", "Infinite Megacell", "Infinite Power Cell", "Machine Boards", "Computer Boards", "Stock Parts", "Beakers"))
 	// If they didn't cancel out of the list selection, we do things.  Clear-all removes all items, auto-clear destroys left-overs after upgrades, and everything else is pretty self-explanatory.
 	// Machine boards and stock parts use a recursive subtype selector.
 	if(isnull(spawn_selection))
@@ -252,34 +186,52 @@
 			qdel(stored_item)
 	else if(spawn_selection == "Toggle Auto-Clear")
 		auto_clear = !auto_clear
-		to_chat(user, span_notice("The RPED will now [(auto_clear ? "destroy" : "keep")] items left-over after upgrades."))
-	else if(spawn_selection == "Cables")
-		atom_storage.attempt_insert(new /obj/item/stack/cable_coil(src), user, TRUE)
-	else if(spawn_selection == "Glass")
-		atom_storage.attempt_insert(new /obj/item/stack/sheet/glass/fifty(src), user, TRUE)
-	else if(spawn_selection == "Spare T4s")
-		for(var/i in 1 to 10)
+		to_chat(user, span_notice("The RPED will now [(auto_clear ? "destroy" : "keep")] items left over after upgrades."))
+	else if(spawn_selection == "Tier 4 Parts")
+		for(var/i in 1 to 30)
 			atom_storage.attempt_insert(new /obj/item/stock_parts/capacitor/quadratic(src), user, TRUE)
 			atom_storage.attempt_insert(new /obj/item/stock_parts/scanning_module/triphasic(src), user, TRUE)
 			atom_storage.attempt_insert(new /obj/item/stock_parts/servo/femto(src), user, TRUE)
 			atom_storage.attempt_insert(new /obj/item/stock_parts/micro_laser/quadultra(src), user, TRUE)
 			atom_storage.attempt_insert(new /obj/item/stock_parts/matter_bin/bluespace(src), user, TRUE)
 			atom_storage.attempt_insert(new /obj/item/stock_parts/power_store/cell/bluespace(src), user, TRUE)
+			atom_storage.attempt_insert(new /obj/item/stock_parts/power_store/battery/bluespace(src), user, TRUE)
+	else if(spawn_selection == "Cable Coils")
+		atom_storage.attempt_insert(new /obj/item/stack/cable_coil(src), user, TRUE)
+	else if(spawn_selection == "Glass Sheets")
+		for(var/i in 1 to 30)
+			atom_storage.attempt_insert(new /obj/item/stack/sheet/glass(src), user, TRUE)
+	else if(spawn_selection == "Plasteel Sheets")
+		for(var/i in 1 to 30)
+			atom_storage.attempt_insert(new /obj/item/stack/sheet/plasteel(src), user, TRUE)
+	else if(spawn_selection == "Bluespace Crystals")
+		for(var/i in 1 to 30)
+			atom_storage.attempt_insert(new /obj/item/stack/sheet/bluespace_crystal(src), user, TRUE)
+	else if(spawn_selection == "Infinite Megacell")
+		for(var/i in 1 to 30)
+			atom_storage.attempt_insert(new /obj/item/stock_parts/power_store/battery/infinite(src), user, TRUE)
+	else if(spawn_selection == "Infinite Power Cell")
+		for(var/i in 1 to 30)
+			atom_storage.attempt_insert(new /obj/item/stock_parts/power_store/cell/infinite(src), user, TRUE)
 	else
 		var/subtype
-		if(spawn_selection == "Machine Board")
+		if(spawn_selection == "Machine Boards")
 			subtype = /obj/item/circuitboard/machine
-		else if(spawn_selection == "Stock Part")
+		else if(spawn_selection == "Computer Boards")
+			subtype = /obj/item/circuitboard/computer
+		else if(spawn_selection == "Material Sheets")
+			subtype = /obj/item/stack/sheet
+		else if(spawn_selection == "Stock Parts")
 			subtype = /obj/item/stock_parts
-		else if(spawn_selection == "Beaker")
+		else if(spawn_selection == "Beakers")
 			subtype = /obj/item/reagent_containers/cup/beaker
 		if(subtype)
 			pick_stock_part(user, FALSE, subtype)
 
 /// A bespoke proc for picking a subtype to spawn in a relatively user-friendly way.
-/obj/item/storage/part_replacer/bluespace/tier4/bst/proc/pick_stock_part(mob/user, recurse, subtype)
+/obj/item/storage/part_replacer/bluespace/admin/proc/pick_stock_part(mob/user, recurse, subtype)
 	// Sanity check: make sure it's actually an item, and not an atom, machine, or whatever else someone might try to feed it down the line.
-	if(!is_path_in_list(subtype, valid_stock_part_types))
+	if(!is_path_in_list(subtype, valid_stock_part_types))//This line is what eats new stock parts in the subtype check, update in var at top
 		return
 	// Stores a list of pretty type names : actual paths.
 	var/list/items_temp = list()

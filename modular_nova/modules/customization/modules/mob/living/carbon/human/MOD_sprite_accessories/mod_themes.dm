@@ -109,6 +109,11 @@
 /datum/mod_theme/administrative
 	hardlight_theme = COSMIC_BLUE
 
+/datum/mod_theme/bluespace
+	hardlight_theme = COSMIC_BLUE
+
+/datum/mod_theme/subspace
+	hardlight_theme = ROYAL_PURPLE
 
 #undef STANDARD_BLUE
 #undef ALERT_AMBER

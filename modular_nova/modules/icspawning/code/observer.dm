@@ -1,4 +1,5 @@
 // NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
+// todo: update spawn-in type to a list, add new spawn-in animations and types (particularly a totally silent one, similar to how ctrlshiftclick works).
 
 /mob/dead/observer/CtrlClickOn(mob/user)
 	quickicspawn(user)
@@ -7,7 +8,8 @@
 	if(isobserver(user) && check_rights(R_SPAWN))
 		var/list/outfits = list()
 		outfits["Bluespace Tech"] = /datum/outfit/debug/bst
-		outfits["Bluespace Tech (MODsuit)"] = /datum/outfit/admin/bst
+		outfits["Bluespace Tech (MODsuit)"] = /datum/outfit/admin/bluespace
+		outfits["Subspace Tech (MODsuit)"] = /datum/outfit/admin/subspace
 		outfits["Show All"] = "Show All"
 
 		var/dresscode
@@ -17,14 +19,16 @@
 		var/character_option = tgui_alert(usr, "Which character?", "IC Quick Spawn", list("Selected Character", "Randomly Created", "Cancel"))
 		if (character_option == "Cancel")
 			return
-		var/initial_outfits = tgui_alert(usr, "Select outfit", "Quick Dress", list("Bluespace Tech", "Show All", "Cancel"))
+		var/initial_outfits = tgui_input_list(usr, "Select outfit", "Quick Dress", list("Show All Outfits", "Bluespace Tech", "Subspace Tech", "Cancel"))
 		if (initial_outfits == "Cancel")
 			return
 
 		switch(initial_outfits)
 			if("Bluespace Tech")
-				dresscode = /datum/outfit/admin/bst
-			if("Show All")
+				dresscode = /datum/outfit/admin/bluespace
+			if("Subspace Tech")
+				dresscode = /datum/outfit/admin/subspace
+			if("Show All Outfits")
 				dresscode = client.robust_dress_shop_skyrat()
 				if (!dresscode)
 					return
