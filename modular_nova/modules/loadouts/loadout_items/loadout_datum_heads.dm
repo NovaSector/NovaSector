@@ -699,61 +699,55 @@
 	name = "Head of Security's Naval Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/hos
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
-	group = "Jobs"
+	group = "Guard"
 
 /datum/loadout_item/head/navybluewardenberet
 	name = "Warden's Beret (Navy Blue)"
 	item_path = /obj/item/clothing/head/beret/sec/navywarden
 	restricted_roles = list(JOB_WARDEN)
-	group = "Jobs"
+	group = "Guard"
 
 /datum/loadout_item/head/officerberet
-	name = "Security Beret"
-	item_path = /obj/item/clothing/head/beret/sec/nova
+	name = "Guard Beret"
+	item_path = /obj/item/clothing/head/beret/sec/depgag
 	restricted_roles = list(ALL_JOBS_SEC)
-	group = "Jobs"
+	group = "Guard"
 
 /datum/loadout_item/head/navyblueofficerberet
-	name = "Security Beret (Navy Blue)"
+	name = "Guard Beret (Navy Blue)"
 	item_path = /obj/item/clothing/head/beret/sec/navyofficer
 	restricted_roles = list(ALL_JOBS_SEC)
-	group = "Jobs"
-/*
-/datum/loadout_item/head/officercap
-	name = "Security Cap"
-	item_path = /obj/item/clothing/head/security_cap
-	restricted_roles = list(ALL_JOBS_SEC)
-	group = "Jobs"
-*/
+	group = "Guard"
+
 /datum/loadout_item/head/officergarrisoncap
-	name = "Security Cap - Garrison"
+	name = "Guard Cap - Garrison"
 	item_path = /obj/item/clothing/head/security_garrison
 	restricted_roles = list(ALL_JOBS_SEC)
-	group = "Jobs"
+	group = "Guard"
 
 /datum/loadout_item/head/officerpatrolcap
-	name = "Security Cap - Patrol"
+	name = "Guard Cap - Patrol"
 	item_path = /obj/item/clothing/head/hats/warden/police/patrol
 	restricted_roles = list(ALL_JOBS_SEC)
-	group = "Jobs"
+	group = "Guard"
 
 /datum/loadout_item/head/cowboyhat_sec
-	name = "Security Cattleman Hat"
+	name = "Guard Cattleman Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/sec
 	restricted_roles = list(ALL_JOBS_SEC)
-	group = "Jobs"
+	group = "Guard"
 
 /datum/loadout_item/head/cowboyhat_secwide
-	name = "Security Cattleman Hat - Wide-Brimmed"
+	name = "Guard Cattleman Hat - Wide-Brimmed"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/wide/sec
 	restricted_roles = list(ALL_JOBS_SEC)
-	group = "Jobs"
+	group = "Guard"
 
 /datum/loadout_item/head/ushanka/sec
-	name = "Security Ushanka"
-	item_path = /obj/item/clothing/head/costume/ushanka/sec
+	name = "Guard Ushanka (Colorable)"
+	item_path = /obj/item/clothing/head/costume/ushanka/sec/red
 	restricted_roles = list(ALL_JOBS_SEC)
-	group = "Jobs"
+	group = "Guard"
 
 /datum/loadout_item/head/cybergoggles //Cyberpunk-P.I. Outfit
 	name = "Detective's Type-34P Forensics Headwear"

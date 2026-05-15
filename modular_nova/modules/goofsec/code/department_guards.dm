@@ -180,27 +180,27 @@
 /obj/item/clothing/neck/security_cape/armplate_caped/engineer
 	name = "caped engineer guard gauntlet"
 	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/engineer"
-	greyscale_colors = "#EBEBEB"
+	greyscale_colors = "#ee7900"
 
 /obj/item/clothing/neck/security_cape/armplate_caped/science
 	name = "caped science guard gauntlet"
 	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/science"
-	greyscale_colors = "#39393F"
+	greyscale_colors = "#830085"
 
 /obj/item/clothing/neck/security_cape/armplate_caped/medical
 	name = "caped orderly gauntlet"
 	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/medical"
-	greyscale_colors = "#39393F"
+	greyscale_colors = "#16313D"
 
 /obj/item/clothing/neck/security_cape/armplate_caped/cargo
 	name = "caped cargo guard gauntlet"
 	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/cargo"
-	greyscale_colors = "#39393F"
+	greyscale_colors = "#ba832f"
 
 /obj/item/clothing/neck/security_cape/armplate_caped/service
 	name = "caped service guard gauntlet"
 	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/service"
-	greyscale_colors = "#39393F"
+	greyscale_colors = "#57852A"
 
 /*
 	SUITS
@@ -286,7 +286,7 @@
 /obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket/service
 	name = "bouncer vested jacket"
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket/service"
-	greyscale_colors = "#4876A1#39393F#57852A"
+	greyscale_colors = "#57852a#39393F#ebebeb"
 
 /obj/item/clothing/suit/armor/vest/depgag_hazard/cargo
 	name = "customs agent hazard vest"

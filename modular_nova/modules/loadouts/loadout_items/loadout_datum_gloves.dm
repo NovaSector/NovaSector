@@ -122,7 +122,7 @@
 	name = "Long Fingerless Gloves (Colorable)"
 	item_path = /obj/item/clothing/gloves/recolorable/fingerless/long
 
-/datum/loadout_item/suit/secgloves
+/datum/loadout_item/gloves/secgloves
     name = "Guard Gloves (Colorable)"
     item_path = /obj/item/clothing/gloves/color/black/security/depgag
     restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
