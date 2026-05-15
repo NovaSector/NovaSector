@@ -13183,11 +13183,10 @@
 /obj/item/airlock_painter/decal,
 /obj/item/airlock_painter/decal,
 /obj/item/airlock_painter/decal,
-/obj/item/toner/infinite,
-/obj/item/toner/infinite,
-/obj/item/toner/infinite,
-/obj/item/toner/infinite,
-/obj/item/toner/infinite,
+/obj/item/toner,
+/obj/item/toner,
+/obj/item/toner,
+/obj/item/toner,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central/aft)
 "bgt" = (
