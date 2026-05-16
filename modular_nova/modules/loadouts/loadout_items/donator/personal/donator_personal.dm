@@ -824,6 +824,16 @@
 	item_path = /obj/item/clothing/under/bwake
 	ckeywhitelist = list("ignari")
 
+/datum/loadout_item/under/jumpsuit/ig_harness
+	name = "Body Harness"
+	item_path = /obj/item/clothing/under/ig_harness
+	ckeywhitelist = list("ignari")
+
+/datum/loadout_item/neck/ig_cloak
+	name = "Kiara's Cloak"
+	item_path = /obj/item/clothing/neck/ig_cloak
+	ckeywhitelist = list("ignari")
+
 /datum/loadout_item/inhand/pet/mrfluff_mothroach
 	name = "Mr. Fluff"
 	item_path = /obj/item/mob_holder/pet/donator/centralsmith
