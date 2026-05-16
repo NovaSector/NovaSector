@@ -1055,161 +1055,161 @@
 
 //SEC
 /datum/loadout_item/suit/armorvest
-    name = "Armor Vest (Colorable)"
-    item_path = /obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Guard"
+	name = "Armor Vest (Colorable)"
+	item_path = /obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Guard"
 
 /datum/loadout_item/suit/flakvest
-    name = "Flak Vest (Colorable)"
-    item_path = /obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Guard"
+	name = "Flak Vest (Colorable)"
+	item_path = /obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Guard"
 
 /datum/loadout_item/suit/hazardvest
-    name = "Hazard Vest (Colorable)"
-    item_path = /obj/item/clothing/suit/armor/vest/depgag_hazard
-    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
-    group = "Guard"
+	name = "Hazard Vest (Colorable)"
+	item_path = /obj/item/clothing/suit/armor/vest/depgag_hazard
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+	group = "Guard"
 
 /datum/loadout_item/suit/hazardjacket
-    name = "Hazard Jacket (Colorable)"
-    item_path = /obj/item/clothing/suit/armor/vest/secjacket/depgag
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Guard"
+	name = "Hazard Jacket (Colorable)"
+	item_path = /obj/item/clothing/suit/armor/vest/secjacket/depgag
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Guard"
 
 /datum/loadout_item/suit/secwintercoat
-    name = "Guard Winter Coat (Colorable)"
-    item_path = /obj/item/clothing/suit/hooded/wintercoat/security/depgag
-    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
-    group = "Guard"
+	name = "Guard Winter Coat (Colorable)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/depgag
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+	group = "Guard"
 
 /datum/loadout_item/suit/secbomber
-    name = "Guard Bomber Jacket (Colorable)"
-    item_path = /obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Guard"
+	name = "Guard Bomber Jacket (Colorable)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Guard"
 
 /datum/loadout_item/suit/vestedjacket
-    name = "Vested Guard Jacket (Colorable)"
-    item_path = /obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket
-    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
-    group = "Guard"
+	name = "Vested Guard Jacket (Colorable)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+	group = "Guard"
 
 /datum/loadout_item/suit/navybluejackethos
-    name = "Head of Security's Formal Jacket (Navy Blue)"
-    item_path = /obj/item/clothing/suit/jacket/hos/blue
-    restricted_roles = list(JOB_HEAD_OF_SECURITY)
-    group = "Guard"
+	name = "Head of Security's Formal Jacket (Navy Blue)"
+	item_path = /obj/item/clothing/suit/jacket/hos/blue
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Guard"
 
 /datum/loadout_item/suit/tailcoatsechos
-    name = "Head of Security's Tailcoat"
-    item_path = /obj/item/clothing/suit/armor/hos_tailcoat
-    restricted_roles = list(JOB_HEAD_OF_SECURITY)
-    group = "Guard"
+	name = "Head of Security's Tailcoat"
+	item_path = /obj/item/clothing/suit/armor/hos_tailcoat
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Guard"
 
 /datum/loadout_item/suit/navybluejacketwarden
-    name = "Warden's Formal Jacket (Navy Blue)"
-    item_path = /obj/item/clothing/suit/jacket/warden/blue
-    restricted_roles = list(JOB_WARDEN)
-    group = "Guard"
+	name = "Warden's Formal Jacket (Navy Blue)"
+	item_path = /obj/item/clothing/suit/jacket/warden/blue
+	restricted_roles = list(JOB_WARDEN)
+	group = "Guard"
 
 /datum/loadout_item/suit/tailcoatsecwarden
-    name = "Warden's Tailcoat"
-    item_path = /obj/item/clothing/suit/armor/security_tailcoat/warden
-    restricted_roles = list(JOB_WARDEN)
-    group = "Guard"
+	name = "Warden's Tailcoat"
+	item_path = /obj/item/clothing/suit/armor/security_tailcoat/warden
+	restricted_roles = list(JOB_WARDEN)
+	group = "Guard"
 
 /datum/loadout_item/suit/british_jacket
-    name = "Guard British Coat"
-    item_path = /obj/item/clothing/suit/british_officer
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Guard"
+	name = "Guard British Coat"
+	item_path = /obj/item/clothing/suit/british_officer
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Guard"
 
 /datum/loadout_item/suit/navybluejacketofficer
-    name = "Guard Formal Jacket (Navy Blue)"
-    item_path = /obj/item/clothing/suit/jacket/officer/blue
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Guard"
+	name = "Guard Formal Jacket (Navy Blue)"
+	item_path = /obj/item/clothing/suit/jacket/officer/blue
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Guard"
 
 /datum/loadout_item/suit/security_wintercoat
-    name = "Guard Winter Jacket"
-    item_path = /obj/item/clothing/suit/hooded/wintercoat/security
-    restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
-    group = "Guard"
+	name = "Guard Winter Jacket"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
+	group = "Guard"
 
 /datum/loadout_item/suit/security_jacket
-    name = "Guard Work Jacket"
-    item_path = /obj/item/clothing/suit/toggle/jacket/nova/sec
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Guard"
+	name = "Guard Work Jacket"
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/sec
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Guard"
 
 /datum/loadout_item/suit/tailcoatsec
-    name = "Guard's Tailcoat"
-    item_path = /obj/item/clothing/suit/armor/security_tailcoat
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Guard"
+	name = "Guard's Tailcoat"
+	item_path = /obj/item/clothing/suit/armor/security_tailcoat
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Guard"
 
 /datum/loadout_item/suit/tailcoatsecdept
-    name = "Guard's Deputy Tailcoat"
-    item_path = /obj/item/clothing/suit/armor/security_tailcoat/assistant
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Guard"
+	name = "Guard's Deputy Tailcoat"
+	item_path = /obj/item/clothing/suit/armor/security_tailcoat/assistant
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Guard"
 
 /datum/loadout_item/suit/tailcoatsecmedic
-    name = "Guard's Medicated Tailcoat"
-    item_path = /obj/item/clothing/suit/toggle/labcoat/nova/security_medic/doctor_tailcoat
-    restricted_roles = list(ALL_JOBS_SEC)
-    group = "Guard"
+	name = "Guard's Medicated Tailcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/security_medic/doctor_tailcoat
+	restricted_roles = list(ALL_JOBS_SEC)
+	group = "Guard"
 
 //Detective
 /datum/loadout_item/suit/deckard
-    name = "Detective Runner Coat"
-    item_path = /obj/item/clothing/suit/toggle/deckard
-    restricted_roles = list(JOB_DETECTIVE)
-    group = "Guard"
+	name = "Detective Runner Coat"
+	item_path = /obj/item/clothing/suit/toggle/deckard
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Guard"
 
 /datum/loadout_item/suit/detectivearmorvest
-    name = "Detective's Armor Vest"
-    item_path = /obj/item/clothing/suit/armor/vest/det_suit
-    restricted_roles = list(JOB_DETECTIVE)
-    group = "Guard"
+	name = "Detective's Armor Vest"
+	item_path = /obj/item/clothing/suit/armor/vest/det_suit
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Guard"
 
 /datum/loadout_item/suit/detjacketbrown
-    name = "Detective's Jacket"
-    item_path = /obj/item/clothing/suit/jacket/det_suit
-    restricted_roles = list(JOB_DETECTIVE)
-    group = "Guard"
+	name = "Detective's Jacket"
+	item_path = /obj/item/clothing/suit/jacket/det_suit
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Guard"
 
 /datum/loadout_item/suit/detjackenoir
-    name = "Detective's Jacket (Noir)"
-    item_path = /obj/item/clothing/suit/jacket/det_suit/noir
-    restricted_roles = list(JOB_DETECTIVE)
-    group = "Guard"
+	name = "Detective's Jacket (Noir)"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/noir
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Guard"
 
 /datum/loadout_item/suit/detjacketplain
-    name = "Detective's Trenchcoat"
-    item_path = /obj/item/clothing/suit/toggle/jacket/det_trench
-    restricted_roles = list(JOB_DETECTIVE)
-    group = "Guard"
+	name = "Detective's Trenchcoat"
+	item_path = /obj/item/clothing/suit/toggle/jacket/det_trench
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Guard"
 
 /datum/loadout_item/suit/detjacket
-    name = "Detective's Trenchcoat (Dark)"
-    item_path = /obj/item/clothing/suit/toggle/jacket/det_trench/noir
-    restricted_roles = list(JOB_DETECTIVE)
-    group = "Guard"
+	name = "Detective's Trenchcoat (Dark)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/det_trench/noir
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Guard"
 
 /datum/loadout_item/suit/tailcoatsecdet
-    name = "Detective's Tailcoat"
-    item_path = /obj/item/clothing/suit/jacket/det_suit/tailcoat
-    restricted_roles = list(JOB_DETECTIVE)
-    group = "Guard"
+	name = "Detective's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/tailcoat
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Guard"
 
 /datum/loadout_item/suit/tailcoatsecdetnoir
-    name = "Detective's Noir Tailcoat"
-    item_path = /obj/item/clothing/suit/jacket/det_suit/tailcoat/noir
-    restricted_roles = list(JOB_DETECTIVE)
-    group = "Guard"
+	name = "Detective's Noir Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/tailcoat/noir
+	restricted_roles = list(JOB_DETECTIVE)
+	group = "Guard"
 /*
 *	DONATOR
 */
