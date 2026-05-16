@@ -1,4 +1,4 @@
 author: "pepe"
 delete-after: True
 changes:
-  - rscadd: "Adds the Undersized quirk (admin-grant only; ships hidden until balance is settled). Tiny half-scale character with longer melee click cooldown, 15% lower maxHealth, weak unarmed damage, no neck-grabs, table/grille passability, and a step-crush hazard from combat-mode walkers (or any walker if they're prone) and dense structures. No zero-G crushing, no crushing by pacifists or smaller mobs."
+  - rscadd: "Adds the Undersized quirk. Tiny half-scale character with longer melee click cooldown, 15% lower maxHealth, weak unarmed damage, no neck-grabs, table/grille passability, and a step-crush hazard from combat-mode walkers (or any walker if they're prone) and dense structures. No zero-G crushing, no crushing by pacifists or smaller mobs."

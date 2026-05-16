@@ -10,8 +10,6 @@ The quirk does *not* grant `TRAIT_UNDENSE` — phasing through other mobs would 
 
 Ports `Undersized` from DopplerShift (`modular_doppler/modular_quirks/undersized/`), forwarding examine, ID/access, and breath behavior through the `mob_holder` so a held undersized still functions.
 
-Ships **`hidden_quirk = TRUE`** so only admins can grant it during the bake-in period; flip it to `FALSE` in a follow-up PR once interactions and balance are settled.
-
 ### Design notes:
 
 The load-bearing combat nerf is the **melee click-cooldown extension**, not the unarmed damage bonuses. SS13's combat is decided by who can chain stuns/disables first, not damage per click — so a 0.5× damage multiplier is mostly cosmetic, while a +0.6s delay between swings actually keeps the quirk holder out of arms-race scenarios.
