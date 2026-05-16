@@ -8802,6 +8802,8 @@
 #include "modular_nova\modules\mining_pka\code\projectiles.dm"
 #include "modular_nova\modules\mining_vendor_additions\code\order_mining.dm"
 #include "modular_nova\modules\mining_vendor_additions\code\voucher_sets.dm"
+#include "modular_nova\modules\mode_vote\code\config_entry.dm"
+#include "modular_nova\modules\mode_vote\code\mode_vote.dm"
 #include "modular_nova\modules\modsuit_overrides\modsuit_armor.dm"
 #include "modular_nova\modules\modsuit_overrides\modsuit_overrides.dm"
 #include "modular_nova\modules\modsuit_pai\code\mod_pai.dm"
