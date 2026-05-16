@@ -1,0 +1,4 @@
+author: "pepe"
+delete-after: True
+changes:
+  - rscadd: "Adds the Undersized quirk (admin-grant only; ships hidden until balance is settled). Tiny half-scale character with weak unarmed damage, no neck-grabs, table/grille passability, and a step-crush hazard from combat-mode walkers and dense structures."
