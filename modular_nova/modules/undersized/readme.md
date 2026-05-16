@@ -6,7 +6,7 @@ MODULE ID: UNDERSIZED
 
 Adds the `Undersized` quirk: a tiny carbon humanoid (`MOB_SIZE_TINY`, half-scale sprite) with reduced movement speed, weakened unarmed damage, longer melee click cooldown, 15% lower maxHealth, no neck-grabs, table/grille passability, and a custom step-crush component that pulps them under combat-mode walkers (or any walker, if they're prone) and dense structures. Pacifists, characters too small (`MOB_SIZE_SMALL` and below), and anyone in zero-G can't squash an undersized.
 
-The quirk does *not* grant `TRAIT_UNDENSE` — phasing through other mobs would bypass the step-crush hazard entirely. Table/grille passability is handled separately via `passtable_on()`.
+`TRAIT_UNDENSE` is granted (in addition to `passtable_on()` for tables/grilles). Without it, the holder stays dense and crewmates bump them at the tile edge instead of crossing onto the tile — the squash component listens via `COMSIG_ATOM_ENTERED`, which only fires when a `Cross()` succeeds, so a dense undersized is effectively uncrushable. The stacking-bypass concerns from the original dev-suggest are addressed elsewhere: the crusher's `movement_type & MOVETYPES_NOT_TOUCHING_GROUND` check (for slime/wing-flying stacks) and the victim's gravity check (for zero-G).
 
 Ports `Undersized` from DopplerShift (`modular_doppler/modular_quirks/undersized/`), forwarding examine, ID/access, and breath behavior through the `mob_holder` so a held undersized still functions.
 

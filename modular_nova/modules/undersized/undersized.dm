@@ -22,12 +22,13 @@
 	var/list/obj/item/organ/old_organs
 	/// Stored maxHealth pre-shrink so /remove restores cleanly.
 	var/saved_max_health
-	/// `TRAIT_UNDENSE` is intentionally NOT granted here — it bypasses the step-crush hazard
-	/// because the squash component only fires on `COMSIG_ATOM_ENTERED` on the holder's turf.
-	/// `passtable_on()` covers the "small things slip under tables/grilles" intent without
-	/// also letting players phase through everyone who might step on them.
+	/// `TRAIT_UNDENSE` is load-bearing for the step-crush mechanic: without it, the holder
+	/// blocks Cross() at their tile edge and crewmates never enter the tile, so the
+	/// `COMSIG_ATOM_ENTERED`-based squash component never fires. Granting it makes the
+	/// holder non-dense, which is what lets people walk *onto* the tile and trigger the crush.
 	var/list/undersized_traits = list(
 		TRAIT_HATED_BY_DOGS,
+		TRAIT_UNDENSE,
 		TRAIT_EASILY_WOUNDED,
 		TRAIT_GRABWEAKNESS,
 	)
