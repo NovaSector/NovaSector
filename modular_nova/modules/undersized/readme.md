@@ -25,6 +25,7 @@ The 15% maxHealth reduction is the "organic holosynth" identity lever: less to r
 - `/obj/item/gun/shoot_live_shot` — `MOB_SIZE_TINY` shooters are thrown back proportional to the projectile's damage
 - `/obj/item/gun/before_firing` — caches projectile-damage-derived `kickback_*` vars for the throwback above
 - `/obj/item/mob_holder` — examine, examine_more, get_examine_name/icon, GetAccess, GetID, handle_internal_lifeform now defer to a held carbon
+- `/obj/item/mob_holder/release` — clears `held_mob` before `dropItemToGround` so the `Moved` auto-release hook doesn't recursively re-enter (latent base bug: thrown mob_holder qdels itself inside the inner release, then the outer release's `forceMove(drop_location())` crashes with null because the holder is gone)
 
 ### Defines:
 
@@ -42,6 +43,7 @@ The 15% maxHealth reduction is the "organic holosynth" identity lever: less to r
 - `code/controllers/subsystem/processing/quirks.dm` — incompatibility with `frail` and `oversized`
 - `code/datums/components/squashable.dm` — callback istype gate
 - `code/modules/mob/living/living.dm` — `will_escape_storage` gate
+- `code/modules/mob/living/inhand_holder.dm` — re-entrant `release()` guard
 
 ### Credits:
 
