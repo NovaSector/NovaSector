@@ -19,9 +19,7 @@
 /obj/item/forging/reagent_weapon/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/basic/mining/legion, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddComponent(/datum/component/bane, affected_biotypes = (MOB_MINING | MOB_BEAST), damage_multiplier = FAUNA_MULTIPLIER)
 
 /obj/item/forging/reagent_weapon/examine(mob/user)
 	. = ..()
@@ -241,9 +239,7 @@
 /obj/item/shield/buckler/reagent_weapon/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/basic/mining/legion, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddComponent(/datum/component/bane, affected_biotypes = (MOB_MINING | MOB_BEAST), damage_multiplier = FAUNA_MULTIPLIER)
 
 /obj/item/shield/buckler/reagent_weapon/examine(mob/user)
 	. = ..()
@@ -306,8 +302,7 @@
 /obj/item/pickaxe/reagent_weapon/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddComponent(/datum/component/bane, affected_biotypes = (MOB_MINING | MOB_BEAST), damage_multiplier = FAUNA_MULTIPLIER)
 
 /obj/item/shovel/reagent_weapon
 	name = "forged shovel"
@@ -316,8 +311,7 @@
 /obj/item/shovel/reagent_weapon/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddComponent(/datum/component/bane, affected_biotypes = (MOB_MINING | MOB_BEAST), damage_multiplier = FAUNA_MULTIPLIER)
 
 /obj/item/ammo_casing/arrow/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	var/spawned_item
