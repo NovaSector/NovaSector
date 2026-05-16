@@ -31,6 +31,7 @@
 		TRAIT_UNDENSE,
 		TRAIT_EASILY_WOUNDED,
 		TRAIT_GRABWEAKNESS,
+		TRAIT_NO_GUN_AKIMBO,
 	)
 
 /datum/quirk/undersized/add(client/client_source)
@@ -50,7 +51,7 @@
 
 	RegisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB, PROC_REF(on_gain_limb))
 	RegisterSignal(human_holder, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_weakness))
-	RegisterSignal(human_holder, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(extend_melee_cd))
+	RegisterSignals(human_holder, list(COMSIG_LIVING_UNARMED_ATTACK, COMSIG_MOB_ITEM_ATTACK), PROC_REF(extend_melee_cd))
 
 	saved_max_health = human_holder.maxHealth
 	human_holder.maxHealth = saved_max_health * UNDERSIZED_MAXHEALTH_MULT
@@ -96,7 +97,7 @@
 	for(var/obj/item/bodypart/bodypart as anything in human_holder.bodyparts)
 		bodypart.name = replacetext(bodypart.name, "tiny ", "")
 
-	UnregisterSignal(human_holder, list(COMSIG_CARBON_POST_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_LIVING_UNARMED_ATTACK))
+	UnregisterSignal(human_holder, list(COMSIG_CARBON_POST_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_LIVING_UNARMED_ATTACK, COMSIG_MOB_ITEM_ATTACK))
 
 	if(saved_max_health)
 		human_holder.maxHealth = saved_max_health
@@ -157,20 +158,16 @@
 	if(istype(attacking_item, /obj/item/melee/flyswatter))
 		damage_mods += 50 // :)
 
-/// On each unarmed swing, schedule a click-cooldown bump for the next tick. We defer with
-/// addtimer because the natural CLICK_CD_MELEE assignment happens inside the attack chain
-/// *after* this signal fires; the timer runs after the chain settles and pushes next_move
-/// further out. SS13 combat is decided by click rate, not damage-per-click — this is the
-/// load-bearing nerf, the unarmed damage bonuses are flavor.
-/datum/quirk/undersized/proc/extend_melee_cd(mob/living/source, atom/target, proximity, list/modifiers)
+/// Bump the post-attack click cooldown for any melee swing — unarmed (via
+/// COMSIG_LIVING_UNARMED_ATTACK, fires after click.dm's changeNext_move(CLICK_CD_MELEE))
+/// or weapon (via COMSIG_MOB_ITEM_ATTACK, fires after attackby's
+/// changeNext_move(attack_speed)).
+/// Only bumps next_move if the natural cooldown was shorter than UNDERSIZED_MELEE_CD,
+/// so heavy weapons with already-long attack_speed don't get sped up.
+/datum/quirk/undersized/proc/extend_melee_cd(mob/living/source, atom/target)
 	SIGNAL_HANDLER
-	addtimer(CALLBACK(src, PROC_REF(apply_melee_cd), source), 1)
-
-/datum/quirk/undersized/proc/apply_melee_cd(mob/living/holder)
-	if(QDELETED(holder))
-		return
-	if(holder.next_move - world.time < UNDERSIZED_MELEE_CD)
-		holder.changeNext_move(UNDERSIZED_MELEE_CD)
+	if(source.next_move - world.time < UNDERSIZED_MELEE_CD)
+		source.changeNext_move(UNDERSIZED_MELEE_CD)
 
 #undef UNDERSIZED_HUNGER_MOD
 #undef UNDERSIZED_SPEED_SLOWDOWN

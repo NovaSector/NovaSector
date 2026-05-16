@@ -12,9 +12,11 @@ Ports `Undersized` from DopplerShift (`modular_doppler/modular_quirks/undersized
 
 ### Design notes:
 
-The load-bearing combat nerf is the **melee click-cooldown extension**, not the unarmed damage bonuses. SS13's combat is decided by who can chain stuns/disables first, not damage per click — so a 0.5× damage multiplier is mostly cosmetic, while a +0.6s delay between swings actually keeps the quirk holder out of arms-race scenarios.
+Melee CD is increased (applies to both unarmed swings via `COMSIG_LIVING_UNARMED_ATTACK` and weapon swings via `COMSIG_MOB_ITEM_ATTACK`), not the unarmed damage bonuses. Heavy weapons with attack_speed already longer than `UNDERSIZED_MELEE_CD` aren't sped up.
 
-The **combat-mode-or-prone** step-crush gate is intentionally permissive: most crew don't run combat-mode by default, so accidental Frogger deaths from incidental movement basically end. Griefers who *want* to crush a tiny crewmate must consciously toggle combat (which is `attack_log`-loggable). A soap-slipped or knocked-down undersized can still be casually trampled, which preserves the original RP hazard.
+`TRAIT_NO_GUN_AKIMBO` is granted so the holder can't dual-wield firearms.
+
+The **combat-mode-or-prone** step-crush gate is intentionally permissive: most crew don't run combat-mode by default, so accidental Frogger deaths from incidental movement basically end. Griefers who _want_ to crush a tiny crewmate must consciously toggle combat (which is `attack_log`-loggable). A soap-slipped or knocked-down undersized can still be casually trampled, which preserves the original RP hazard.
 
 The 15% maxHealth reduction is the "organic holosynth" identity lever: less to repair, every chem heals a proportionally larger fraction of the bar.
 
