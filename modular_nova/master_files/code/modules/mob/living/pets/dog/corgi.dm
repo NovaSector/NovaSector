@@ -270,3 +270,25 @@
 		return
 
 	borgi_pawn.shoot_at(target)
+
+/mob/living/basic/pet/dog/corgi/robocorgo
+	name = "\improper robocorgi"
+	real_name = "corgi"
+	desc = "They're a corgi with various mechanical modifications. The first stage in an E-N's life cycle."
+	icon_state = "robocorgi"
+	icon_living = "robocorgi"
+	icon_dead = "robocorgi_dead"
+	held_state = "corgi"
+	gold_core_spawnable = FRIENDLY_SPAWN
+	collar_icon_state = "robocorgi"
+	maxHealth = 150
+	health = 150
+	butcher_results = list(
+		/obj/item/clothing/head/costume/nova/en = 1,
+		/obj/item/clothing/suit/corgisuit/en = 1,
+	)
+	death_message = "beeps, its mechanical parts hissing before the chassis collapses in a loud thud."
+	gold_core_spawnable = NO_SPAWN
+	can_be_shaved = FALSE
+	ai_controller = /datum/ai_controller/basic_controller/dog/borgi
+

@@ -340,3 +340,11 @@
 	faction = list(FACTION_HOSTILE)
 	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
+
+/mob/living/basic/gorilla/pitbull
+	name = "\improper pitbull"
+	desc = "Lover of Blood. Hater of Toddlers. Doesn't look too happy to see you."
+	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
+	icon_state = "pitbull"
+	icon_dead = "pitbull_dead"
+	icon_living = "pitbull"
