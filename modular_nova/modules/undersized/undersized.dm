@@ -5,6 +5,8 @@
 #define UNDERSIZED_SQUASH_CHANCE 100
 #define UNDERSIZED_SQUASH_DAMAGE 20
 #define UNDERSIZED_SHOULD_GIB FALSE
+#define UNDERSIZED_MAXHEALTH_MULT 0.85 // small frame: less HP to heal, same chems mend a larger fraction
+#define UNDERSIZED_MELEE_CD (1.4 SECONDS) // ~1.75x base CLICK_CD_MELEE — outgoing damage is a placebo when speed is war
 
 /datum/quirk/undersized
 	name = "Undersized"
@@ -19,9 +21,14 @@
 	hidden_quirk = TRUE // PR some fixes and improvements before setting this back to FALSE!
 	/// Saves refs to the original (normal size) organs, which are on ice in nullspace in case this quirk gets removed somehow.
 	var/list/obj/item/organ/old_organs
+	/// Stored maxHealth pre-shrink so /remove restores cleanly.
+	var/saved_max_health
+	/// `TRAIT_UNDENSE` is intentionally NOT granted here — it bypasses the step-crush hazard
+	/// because the squash component only fires on `COMSIG_ATOM_ENTERED` on the holder's turf.
+	/// `passtable_on()` covers the "small things slip under tables/grilles" intent without
+	/// also letting players phase through everyone who might step on them.
 	var/list/undersized_traits = list(
 		TRAIT_HATED_BY_DOGS,
-		TRAIT_UNDENSE,
 		TRAIT_EASILY_WOUNDED,
 		TRAIT_GRABWEAKNESS,
 	)
@@ -43,6 +50,12 @@
 
 	RegisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB, PROC_REF(on_gain_limb))
 	RegisterSignal(human_holder, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_weakness))
+	RegisterSignal(human_holder, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(extend_melee_cd))
+
+	saved_max_health = human_holder.maxHealth
+	human_holder.maxHealth = saved_max_health * UNDERSIZED_MAXHEALTH_MULT
+	human_holder.health = min(human_holder.health, human_holder.maxHealth)
+	human_holder.update_health_hud()
 
 	for(var/obj/item/bodypart/bodypart as anything in human_holder.bodyparts)
 		on_gain_limb(src, bodypart, special = FALSE)
@@ -83,7 +96,12 @@
 	for(var/obj/item/bodypart/bodypart as anything in human_holder.bodyparts)
 		bodypart.name = replacetext(bodypart.name, "tiny ", "")
 
-	UnregisterSignal(human_holder, list(COMSIG_CARBON_POST_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS))
+	UnregisterSignal(human_holder, list(COMSIG_CARBON_POST_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_LIVING_UNARMED_ATTACK))
+
+	if(saved_max_health)
+		human_holder.maxHealth = saved_max_health
+		saved_max_health = null
+		human_holder.update_health_hud()
 
 	human_holder.remove_traits(undersized_traits, QUIRK_TRAIT)
 
@@ -139,6 +157,21 @@
 	if(istype(attacking_item, /obj/item/melee/flyswatter))
 		damage_mods += 50 // :)
 
+/// On each unarmed swing, schedule a click-cooldown bump for the next tick. We defer with
+/// addtimer because the natural CLICK_CD_MELEE assignment happens inside the attack chain
+/// *after* this signal fires; the timer runs after the chain settles and pushes next_move
+/// further out. SS13 combat is decided by click rate, not damage-per-click — this is the
+/// load-bearing nerf, the unarmed damage bonuses are flavor.
+/datum/quirk/undersized/proc/extend_melee_cd(mob/living/source, atom/target, proximity, list/modifiers)
+	SIGNAL_HANDLER
+	addtimer(CALLBACK(src, PROC_REF(apply_melee_cd), source), 1)
+
+/datum/quirk/undersized/proc/apply_melee_cd(mob/living/holder)
+	if(QDELETED(holder))
+		return
+	if(holder.next_move - world.time < UNDERSIZED_MELEE_CD)
+		holder.changeNext_move(UNDERSIZED_MELEE_CD)
+
 #undef UNDERSIZED_HUNGER_MOD
 #undef UNDERSIZED_SPEED_SLOWDOWN
 #undef UNDERSIZED_HARM_DAMAGE_BONUS
@@ -146,3 +179,5 @@
 #undef UNDERSIZED_SQUASH_CHANCE
 #undef UNDERSIZED_SQUASH_DAMAGE
 #undef UNDERSIZED_SHOULD_GIB
+#undef UNDERSIZED_MAXHEALTH_MULT
+#undef UNDERSIZED_MELEE_CD

@@ -67,17 +67,22 @@
 	// If they're not touching the ground, they're not stepping on us either
 	if(crossing_living.movement_type & MOVETYPES_NOT_TOUCHING_GROUND)
 		return
+	// Zero-G on either party: no footing to crush from, no weight to crush with.
+	if(!crossing_living.has_gravity() || !parent_as_living.has_gravity())
+		return
 
 	// If they're a pacifist, they won't harm us.
 	if(HAS_TRAIT(crossing_living, TRAIT_PACIFISM))
 		crossing_living.visible_message(span_notice("[crossing_living] carefully steps over [parent_as_living]."), span_notice("You carefully step over [parent_as_living] to avoid hurting it."))
 		return
-	// If you're walking and not on Combat intent, you will avoid squashing.
-	if(crossing_living.move_intent == MOVE_INTENT_WALK && crossing_living.combat_mode == FALSE)
-		crossing_living.visible_message(span_notice("[crossing_living] carefully walks around [parent_as_living]."), span_notice("You carefully walk around [parent_as_living] to avoid hurting it."))
+	// Default-safe: only crush if the crosser is on combat mode, OR the undersized is prone
+	// (soap-slipped, knocked down, etc — they couldn't get out of the way).
+	// Stops accidental Frogger deaths from incidental crew movement.
+	if(!crossing_living.combat_mode && parent_as_living.body_position != LYING_DOWN)
+		crossing_living.visible_message(span_notice("[crossing_living] carefully steps around [parent_as_living]."), span_notice("You carefully step around [parent_as_living] to avoid hurting it."))
 		return
 	// Tiny flying creatures are only squashed if the squasher is explicitly on combat mode.
-	if(parent_as_living.movement_type & MOVETYPES_NOT_TOUCHING_GROUND && crossing_living.combat_mode == FALSE)
+	if(parent_as_living.movement_type & MOVETYPES_NOT_TOUCHING_GROUND && !crossing_living.combat_mode)
 		return
 
 	if(!should_squash)

@@ -4,11 +4,21 @@ MODULE ID: UNDERSIZED
 
 ### Description:
 
-Adds the `Undersized` quirk: a tiny carbon humanoid (`MOB_SIZE_TINY`, half-scale sprite) with reduced movement speed, weakened unarmed damage, no neck-grabs, table/grille passability, and a custom step-crush component that pulps them under combat-mode walkers and dense structures. Pacifists, walking non-combat-mode characters, and characters too small (`MOB_SIZE_SMALL` and below) won't squash an undersized.
+Adds the `Undersized` quirk: a tiny carbon humanoid (`MOB_SIZE_TINY`, half-scale sprite) with reduced movement speed, weakened unarmed damage, longer melee click cooldown, 15% lower maxHealth, no neck-grabs, table/grille passability, and a custom step-crush component that pulps them under combat-mode walkers (or any walker, if they're prone) and dense structures. Pacifists, characters too small (`MOB_SIZE_SMALL` and below), and anyone in zero-G can't squash an undersized.
+
+The quirk does *not* grant `TRAIT_UNDENSE` — phasing through other mobs would bypass the step-crush hazard entirely. Table/grille passability is handled separately via `passtable_on()`.
 
 Ports `Undersized` from DopplerShift (`modular_doppler/modular_quirks/undersized/`), forwarding examine, ID/access, and breath behavior through the `mob_holder` so a held undersized still functions.
 
 Ships **`hidden_quirk = TRUE`** so only admins can grant it during the bake-in period; flip it to `FALSE` in a follow-up PR once interactions and balance are settled.
+
+### Design notes:
+
+The load-bearing combat nerf is the **melee click-cooldown extension**, not the unarmed damage bonuses. SS13's combat is decided by who can chain stuns/disables first, not damage per click — so a 0.5× damage multiplier is mostly cosmetic, while a +0.6s delay between swings actually keeps the quirk holder out of arms-race scenarios.
+
+The **combat-mode-or-prone** step-crush gate is intentionally permissive: most crew don't run combat-mode by default, so accidental Frogger deaths from incidental movement basically end. Griefers who *want* to crush a tiny crewmate must consciously toggle combat (which is `attack_log`-loggable). A soap-slipped or knocked-down undersized can still be casually trampled, which preserves the original RP hazard.
+
+The 15% maxHealth reduction is the "organic holosynth" identity lever: less to repair, every chem heals a proportionally larger fraction of the bar.
 
 ### TG Proc Changes:
 
