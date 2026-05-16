@@ -106,18 +106,6 @@
 		base_icon_state = "icerock_wall"
 		smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 
-/turf/closed/mineral/random/forest/mineral_chances()
-	return list(
-		/obj/item/stack/ore/bluespace_crystal = 1,
-		/obj/item/stack/ore/diamond = 1,
-		/obj/item/stack/ore/gold = 10,
-		/obj/item/stack/ore/iron = 40,
-		/obj/item/stack/ore/plasma = 20,
-		/obj/item/stack/ore/silver = 12,
-		/obj/item/stack/ore/titanium = 11,
-		/obj/item/stack/ore/uranium = 5,
-	)
-
 /turf/open/floor/engine/hull/reinforced/planetary
 	desc = "Sturdy exterior hull plating that separates you from the outside world"
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
