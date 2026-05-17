@@ -1,0 +1,30 @@
+{
+	"depgag_bomber": [
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_bomber_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_bomber_accent",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"depgag_bomber_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_bomber_base_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_bomber_accent_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

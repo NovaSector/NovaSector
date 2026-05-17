@@ -3,37 +3,24 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "hoscloak_blue"
 
-/datum/atom_skin/security_cape
-	abstract_type = /datum/atom_skin/security_cape
-
-/datum/atom_skin/security_cape/black
-	preview_name = "Black Variant"
-	new_icon_state = "cape_black"
-
-/datum/atom_skin/security_cape/red
-	preview_name = "Red Variant"
-	new_icon_state = "cape_red"
-
-/datum/atom_skin/security_cape/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "cape_blue"
-
-/datum/atom_skin/security_cape/white
-	preview_name = "White Variant"
-	new_icon_state = "cape_white"
-
 /obj/item/clothing/neck/security_cape
-	name = "security cape"
-	desc = "A fashionable cape worn by security officers."
-	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
-	icon_state = "cape_black"
 	inhand_icon_state = "" //no unique inhands
 	///Decides the shoulder it lays on, false = RIGHT, TRUE = LEFT
 	var/swapped = FALSE
+	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/neck/security_cape/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_cape)
+/obj/item/clothing/neck/security_cape/shoulder
+	name = "guard cape"
+	desc = "A fashionable cape worn by guards."
+	icon_state = "/obj/item/clothing/neck/security_cape/shoulder"
+	post_init_icon_state = "depgag_cape"
+	greyscale_config = /datum/greyscale_config/depgag_cape
+	greyscale_config_worn = /datum/greyscale_config/depgag_cape/worn
+	greyscale_colors = "#A52F29#39393F"
+
+/obj/item/clothing/neck/security_cape/shoulder/blue
+	icon_state = "/obj/item/clothing/neck/security_cape/shoulder/blue"
+	greyscale_colors = "#3F6E9E#39393F"
 
 /obj/item/clothing/neck/security_cape/click_alt(mob/user)
 	swapped = !swapped
@@ -50,29 +37,22 @@
 
 	usr.update_worn_neck()
 
-/datum/atom_skin/security_gauntlet
-	abstract_type = /datum/atom_skin/security_gauntlet
-
-/datum/atom_skin/security_gauntlet/black
-	preview_name = "Black Variant"
-	new_icon_state = "armplate_black"
-
-/datum/atom_skin/security_gauntlet/red
-	preview_name = "Red Variant"
-	new_icon_state = "armplate_red"
-
-/datum/atom_skin/security_gauntlet/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "armplate_blue"
-
-/datum/atom_skin/security_gauntlet/capeless
-	preview_name = "Capeless Variant"
-	new_icon_state = "armplate"
-
 /obj/item/clothing/neck/security_cape/armplate
-	name = "security gauntlet"
-	desc = "A fashionable full-arm gauntlet worn by security officers. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
-	icon_state = "armplate_black"
+	name = "guard gauntlet"
+	desc = "A fashionable full-arm gauntlet worn by guards. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	icon_state = "armplate"
 
-/obj/item/clothing/neck/security_cape/armplate/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_gauntlet)
+/obj/item/clothing/neck/security_cape/armplate_caped
+	name = "caped guard gauntlet"
+	desc = "A fashionable full-arm gauntlet worn by guards. The gauntlet itself is made of plastic, and provides no protection, but it looks cool as hell."
+	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped"
+	post_init_icon_state = "depgag_gauntlet"
+	greyscale_config = /datum/greyscale_config/depgag_caped_gauntlet
+	greyscale_config_worn = /datum/greyscale_config/depgag_caped_gauntlet/worn
+	greyscale_colors = "#A52F29"
+
+/obj/item/clothing/neck/security_cape/armplate_caped/blue
+	icon_state = "/obj/item/clothing/neck/security_cape/armplate_caped/blue"
+	greyscale_colors = "#3F6E9E"

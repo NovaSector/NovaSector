@@ -414,8 +414,8 @@
 	item_path = /obj/item/clothing/under/rank/cargo/cargo_bunnysuit
 	erp_item = TRUE
 	group = "Bunny Suits"
-//restricted_roles = list(ALL_JOBS_CARGO)
-
+	restricted_roles = list(ALL_JOBS_CARGO)
+/*
 //SEC
 /datum/loadout_item/under/jumpsuit/imphos
 	name = "Head of Security's Naval Uniform"
@@ -449,7 +449,7 @@
 
 /datum/loadout_item/under/jumpsuit/security_plain_skirt
 	name = "Security Jumpskirt (Blue, Plain)"
-	item_path = /obj/item/clothing/under/rank/security/nova/skirt/plain
+	item_path = /obj/item/clothing/under/rank/security/nova/plainskirt
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
@@ -467,19 +467,19 @@
 
 /datum/loadout_item/under/jumpsuit/security_miniskirt
 	name = "Security Miniskirt"
-	item_path = /obj/item/clothing/under/rank/security/nova/skirt/mini
+	item_path = /obj/item/clothing/under/rank/security/nova/miniskirt
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_miniskirt_blue
 	name = "Security Miniskirt (Blue)"
-	item_path = /obj/item/clothing/under/rank/security/nova/skirt/mini/blue
+	item_path = /obj/item/clothing/under/rank/security/nova/miniskirt/blue
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
 /datum/loadout_item/under/jumpsuit/security_shorts
 	name = "Security Shorts"
-	item_path = /obj/item/clothing/under/rank/security/nova/trousers/shorts
+	item_path = /obj/item/clothing/under/rank/security/nova/secshorts
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 	group = "Job-Locked"
 
@@ -555,3 +555,4 @@
 	erp_item = TRUE
 	group = "Bunny Suits"
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+*/

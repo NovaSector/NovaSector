@@ -15,67 +15,78 @@
 	else
 		flags_cover |= PEPPERPROOF
 
-/datum/atom_skin/security_garrison_cap
-	abstract_type = /datum/atom_skin/security_garrison_cap
-
-/datum/atom_skin/security_garrison_cap/black
-	preview_name = "Black Variant"
-	new_icon_state = "garrison_black"
-
-/datum/atom_skin/security_garrison_cap/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "garrison_blue"
-
 /obj/item/clothing/head/security_garrison
-	name = "security garrison cap"
-	desc = "A robust garrison cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
-	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "garrison_black"
+	name = "guard garrison cap"
+	desc = "A robust garrison cap with the nanotrasen insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/depgag_cap"
+	post_init_icon_state = "depgag_garrison"
+	greyscale_config = /datum/greyscale_config/depgag_garrison
+	greyscale_config_worn = /datum/greyscale_config/depgag_garrison/worn
+	greyscale_colors = "#39393F"
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/head/security_garrison/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_garrison_cap)
+/obj/item/clothing/head/security_garrison/blue
+	icon_state = "/obj/item/clothing/head/security_garrison/blue"
+	greyscale_colors = "#3F6E9E"
 
-/datum/atom_skin/security_cap
-	abstract_type = /datum/atom_skin/security_cap
+/obj/item/clothing/head/costume/ushanka/sec/red
+	name = "Guard Ushanka"
+	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/red"
+	greyscale_colors = "#C7B08B#A52F29"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
-/datum/atom_skin/security_cap/black
-	preview_name = "Black Variant"
-	new_icon_state = "security_cap_black"
-
-/datum/atom_skin/security_cap/blue
-	preview_name = "Blue Variant"
-	new_icon_state = "security_cap_blue"
-
-/datum/atom_skin/security_cap/white
-	preview_name = "White Variant"
-	new_icon_state = "security_cap_white"
+/obj/item/clothing/head/costume/ushanka/sec/blue
+	name = "Guard Ushanka"
+	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/blue"
+	greyscale_colors = "#C7B08B#3F6E9E"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/security_cap
-	name = "security cap"
-	desc = "A robust cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
-	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "security_cap_black"
-	armor_type = /datum/armor/head_helmet
+	name = "guard cap"
+	desc = "A robust cap with the Nanotrasen insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/depgag_cap"
+	post_init_icon_state = "depgag_cap"
+	greyscale_config = /datum/greyscale_config/depgag_cap
+	greyscale_config_worn = /datum/greyscale_config/depgag_cap/worn
+	greyscale_colors = "#A52F29#EBEBEB#A52F29"
+	armor_type = /datum/armor/cosmetic_sec
 	strip_delay = 60
 	dog_fashion = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/head/security_cap/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/security_cap)
+/obj/item/clothing/head/security_cap/blue
+	icon_state = "/obj/item/clothing/head/security_cap/blue"
+	greyscale_colors = "#3F6E9E#EBEBEB#3F6E9E"
 
-/obj/item/clothing/head/beret/sec/nova
-	icon_state = "/obj/item/clothing/head/beret/sec/nova"
-	post_init_icon_state = "beret_badge"
-	greyscale_config = /datum/greyscale_config/beret_badge
-	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
-	greyscale_colors = "#3F3C40#375989"
+/obj/item/clothing/head/beret/sec/depgag
+	name = "guard beret"
+	icon_state = "/obj/item/clothing/head/beret/sec/depgag"
+	greyscale_colors = "#A52F29#F2F2F2"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/beret/sec/depgag/blue
+	icon_state = "/obj/item/clothing/head/beret/sec/depgag/blue"
+	greyscale_colors = "#3F6E9E#F2F2F2"
+
+/obj/item/clothing/head/hats/warden/police/patrol
+	name = "guard patrol cap"
+	desc = "A dark colored hat with a silver badge, for the officer interested in style."
+	post_init_icon_state = "depgag_patrol_cap"
+	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol"
+	greyscale_config = /datum/greyscale_config/depgag_patrol_cap
+	greyscale_config_worn = /datum/greyscale_config/depgag_patrol_cap/worn
+	greyscale_colors = "#39393F#A52F29"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/head_helmet
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/hats/warden/police/patrol/blue
+	icon_state = "/obj/item/clothing/head/hats/warden/police/patrol/blue"
+	greyscale_colors = "#39393F#3F6E9E"
 
 /obj/item/clothing/head/beret/sec/navywarden/nova
 	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."
@@ -86,34 +97,3 @@
 	greyscale_colors = "#3f6e9e#FF0000#00AEEF"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/hats_warden
-
-/datum/atom_skin/police_patrol_cap
-	abstract_type = /datum/atom_skin/police_patrol_cap
-
-/datum/atom_skin/police_patrol_cap/blue
-	preview_name = "Blue"
-	new_icon_state = "policeofficercap"
-
-/datum/atom_skin/police_patrol_cap/sillitoe
-	preview_name = "Sillitoe"
-	new_icon_state = "policetrafficcap"
-
-/datum/atom_skin/police_patrol_cap/black
-	preview_name = "Black"
-	new_icon_state = "policeofficerpatrolcap"
-
-/datum/atom_skin/police_patrol_cap/policecadetcap
-	preview_name = "Cadet"
-	new_icon_state = "policecadetcap"
-
-/obj/item/clothing/head/hats/warden/police/patrol
-	name = "police patrol cap"
-	desc = "A dark colored hat with a silver badge, for the officer interested in style."
-	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "policeofficerpatrolcap"
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-	armor_type = /datum/armor/head_helmet
-
-/obj/item/clothing/head/hats/warden/police/patrol/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/police_patrol_cap)

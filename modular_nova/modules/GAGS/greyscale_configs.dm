@@ -71,7 +71,6 @@
 	name = "Beret With Clown Badge (Worn, Teshari)"
 	icon_file = 'modular_nova/modules/GAGS/icons/beret_teshari.dmi'
 
-
 //COWBOY
 /datum/greyscale_config/cowboy_wide
 	name = "Wide Brimmed Hat"
@@ -948,22 +947,22 @@
 
 /datum/greyscale_config/winter_coat
 	name = "Winter Coat"
-	icon_file = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/winter_coat.json'
 
 /datum/greyscale_config/winter_coat_worn
 	name = "Winter Coat (Worn)"
-	icon_file = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/winter_coat_worn.json'
 
 /datum/greyscale_config/winter_hood
 	name = "Winter Coat Hood"
-	icon_file = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/winterhood.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/winter_hood.json'
 
 /datum/greyscale_config/winter_hood/worn
 	name = "Winter Coat Hood (Worn)"
-	icon_file = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/winterhood.dmi'
 
 /datum/greyscale_config/warm_coat
 	name = "Warm Coat"
@@ -2675,7 +2674,279 @@ TREK
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
 
 /*
-This is all our modular PDAs, ITS LARGE!
+Departmental Gags
+*/
+
+/datum/greyscale_config/depgag_cap
+	name = "Department Protection Cap"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/depgag_cap.json'
+
+/datum/greyscale_config/depgag_cap/worn
+	name = "Department Protection Cap (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
+
+/datum/greyscale_config/depgag_jumpsuit
+	name = "Department Protection Jumpsuit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_jumpsuit.json'
+
+/datum/greyscale_config/depgag_jumpsuit/worn
+	name = "Department Protection Jumpsuit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_jumpsuit_worn.json'
+
+/datum/greyscale_config/depgag_jumpsuit/worn/digi
+	name = "Department Protection Jumpsuit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/depgag_formal
+	name = "Department Protection Formal Suit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_formal.json'
+
+/datum/greyscale_config/depgag_formal/worn
+	name = "Department Protection Formal Suit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_formal_worn.json'
+
+/datum/greyscale_config/depgag_formal/worn/digi
+	name = "Department Protection Formal Suit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/depgag_turtleneck
+	name = "Department Protection Turtleneck"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_turtleneck.json'
+
+/datum/greyscale_config/depgag_turtleneck/worn
+	name = "Department Protection Turtleneck (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_turtleneck_worn.json'
+
+/datum/greyscale_config/depgag_turtleneck/worn/digi
+	name = "Department Protection Turtleneck (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/depgag_skirt
+	name = "Department Protection Sweatered Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_skirt.json'
+
+/datum/greyscale_config/depgag_skirt/worn
+	name = "Department Protection Sweatered Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_skirt_worn.json'
+
+/datum/greyscale_config/depgag_skirt_plain
+	name = "Department Protection Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_skirt_plain.json'
+
+/datum/greyscale_config/depgag_skirt_plain/worn
+	name = "Department Protection Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_skirt_plain_worn.json'
+
+/datum/greyscale_config/depgag_mini
+	name = "Department Protection Skirt (Mini)"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_mini.json'
+
+/datum/greyscale_config/depgag_mini/worn
+	name = "Department Protection Skirt (Mini, Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/depgag_shorts
+	name = "Department Protection Cargo Shorts"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_shorts.json'
+
+/datum/greyscale_config/depgag_shorts/worn
+	name = "Department Protection Cargo Shorts (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/depgag_shorts/worn/digi
+	name = "Department Protection Cargo Shorts (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/depgag_trousers
+	name = "Department Protection Trousers"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_trousers.json'
+
+/datum/greyscale_config/depgag_trousers/worn
+	name = "Department Protection Trousers (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/depgag_trousers/worn/digi
+	name = "Department Protection Trousers (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/modskin
+	name = "Department Protection M.O.D. Skinsuit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/modskin.json'
+
+/datum/greyscale_config/modskin/worn
+	name = "Department Protection M.O.D. Skinsuit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/modskin_worn.json'
+
+/datum/greyscale_config/modskin/worn/digi
+	name = "Department Protection M.O.D. Skinsuit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/depgag_jumpsuit
+	name = "Department Protection Jumpsuit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_jumpsuit.json'
+
+/datum/greyscale_config/depgag_jumpsuit/worn
+	name = "Department Protection Jumpsuit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_jumpsuit_worn.json'
+
+/datum/greyscale_config/depgag_jumpsuit/worn/digi
+	name = "Department Protection Jumpsuit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/depgag_pantsuit
+	name = "Department Protection Pantsuit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_pantsuit.json'
+
+/datum/greyscale_config/depgag_pantsuit/worn
+	name = "Department Protection Pantsuit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_pantsuit_worn.json'
+
+/datum/greyscale_config/depgag_pantsuit/worn/digi
+	name = "Department Protection Pantsuit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
+
+/datum/greyscale_config/depgag_dress
+	name = "Department Protection Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_dress.json'
+
+/datum/greyscale_config/depgag_dress/worn
+	name = "Department Protection Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/under/depgag_dress_worn.json'
+
+/datum/greyscale_config/depgag_vest
+	name = "Department Protection Armor Vest"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/armor/depgag_vest.json'
+
+/datum/greyscale_config/depgag_vest/worn
+	name = "Department Protection Armor Vest (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+
+/datum/greyscale_config/depgag_vest_slim
+	name = "Department Protection Armor Vest (Slim)"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/armor/depgag_vest_slim.json'
+
+/datum/greyscale_config/depgag_vest_slim/worn
+	name = "Department Protection Armor Vest (Worn, Slim)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+
+/datum/greyscale_config/depgag_hazard_jacket
+	name = "Department Protection Hazard Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/armor/depgag_hazard_jacket.json'
+
+/datum/greyscale_config/depgag_hazard_jacket/worn
+	name = "Department Protection Hazard Jacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+
+/datum/greyscale_config/depgag_hazard
+	name = "Department Protection Hazard Vest"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/armor/depgag_hazard.json'
+
+/datum/greyscale_config/depgag_hazard/worn
+	name = "Department Protection Hazard Vest (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+
+/datum/greyscale_config/depgag_vested_jacket
+	name = "Department Protection Vested Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/depgag_vested_jacket.json'
+
+/datum/greyscale_config/depgag_vested_jacket/worn
+	name = "Department Protection Vested Jacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
+
+/datum/greyscale_config/depgag_winter_coat
+	name = "Department Protection Winter Coat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/depgag_winter_coat.json'
+
+/datum/greyscale_config/depgag_winter_coat/worn
+	name = "Department Protection Winter Coat (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
+
+/datum/greyscale_config/depgag_bomber
+	name = "Department Protection Bomber Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/winter_coat/depgag_bomber.json'
+
+/datum/greyscale_config/depgag_bomber/worn
+	name = "Department Protection Winter Coat (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
+
+/datum/greyscale_config/depgag_gloves
+	name = "Department Protection Gloves"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/depgag_gloves.json'
+
+/datum/greyscale_config/depgag_gloves/worn
+	name = "Department Protection Gloves (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+
+/datum/greyscale_config/depgag_patrol_cap
+	name = "Department Protection Patrol Cap"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/depgag_patrol_cap.json'
+
+/datum/greyscale_config/depgag_patrol_cap/worn
+	name = "Department Protection Patrol Cap (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
+
+/datum/greyscale_config/depgag_garrison
+	name = "Department Protection Garrison Hat"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/gags_hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/depgag_garrison.json'
+
+/datum/greyscale_config/depgag_garrison/worn
+	name = "Department Protection Garrison Hat (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/gags_hats.dmi'
+
+/datum/greyscale_config/depgag_cape
+	name = "Department Protection Cape"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/depgag_cape.json'
+
+/datum/greyscale_config/depgag_cape/worn
+	name = "Department Protection Cape (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/depgag_cape_worn.json'
+
+/datum/greyscale_config/depgag_caped_gauntlet
+	name = "Department Protection Caped Gauntlet"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/depgag_caped_gauntlet.json'
+
+/datum/greyscale_config/depgag_caped_gauntlet/worn
+	name = "Department Protection Caped Gauntlet (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/depgag_caped_gauntlet_worn.json'
+
+/*
+Modular PDAs
 */
 
 /// Ported from VOREstation
@@ -2750,6 +3021,10 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Holosystem PDA"
 	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/holosystem/pda_holosystem.json'
 
+
+/*
+Cloaks
+*/
 /datum/greyscale_config/antique_short_cloak
 	name = "Antique Shortcloak"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'

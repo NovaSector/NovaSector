@@ -1,0 +1,42 @@
+{
+	"depgag_cap": [
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_cap_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_cap_accent",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_cap_symbol",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"depgag_cap_flipped": [
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_cap_base_flipped",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_cap_accent_flipped",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_cap_symbol_flipped",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

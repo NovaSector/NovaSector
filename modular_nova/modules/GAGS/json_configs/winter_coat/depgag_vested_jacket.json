@@ -1,0 +1,42 @@
+{
+	"depgag_vested_jacket": [
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_vested_jacket_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_vested_jacket_vest",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_vested_jacket_accent",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"depgag_vested_jacket_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_vested_jacket_base_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_vested_jacket_vest_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_vested_jacket_accent",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

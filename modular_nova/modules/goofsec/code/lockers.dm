@@ -10,6 +10,7 @@
 	new /obj/item/restraints/handcuffs/cable/orange(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/storage/bag/garment/customs_agent(src)
+	new /obj/item/storage/bag/garment/customs_agent(src)
 
 /obj/structure/closet/secure_closet/security/engine
 	name = "\proper engineering guard's locker"
@@ -21,6 +22,7 @@
 	new /obj/item/ammo_box/advanced/pepperballs(src)
 	new /obj/item/restraints/handcuffs/cable/yellow(src)
 	new /obj/item/assembly/flash/handheld(src)
+	new /obj/item/storage/bag/garment/engineering_guard(src)
 	new /obj/item/storage/bag/garment/engineering_guard(src)
 
 /obj/structure/closet/secure_closet/security/science
@@ -34,6 +36,7 @@
 	new /obj/item/restraints/handcuffs/cable/pink(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/storage/bag/garment/science_guard(src)
+	new /obj/item/storage/bag/garment/science_guard(src)
 
 /obj/structure/closet/secure_closet/security/med
 	name = "\proper orderly's locker"
@@ -46,6 +49,7 @@
 	new /obj/item/restraints/handcuffs/cable/blue(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/storage/bag/garment/orderly(src)
+	new /obj/item/storage/bag/garment/orderly(src)
 
 /obj/structure/closet/secure_closet/security/service
 	name = "\proper the service guard's locker"
@@ -57,6 +61,7 @@
 	new /obj/item/ammo_box/advanced/pepperballs(src)
 	new /obj/item/restraints/handcuffs/cable/green(src)
 	new /obj/item/assembly/flash/handheld(src)
+	new /obj/item/storage/bag/garment/service_guard(src)
 	new /obj/item/storage/bag/garment/service_guard(src)
 
 //Prisoner Lockers

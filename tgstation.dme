@@ -9421,6 +9421,7 @@
 #include "modular_nova\modules\sec_haul\code\security_clothing\garment.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\gloves.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\head.dm"
+#include "modular_nova\modules\sec_haul\code\security_clothing\mask.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\neck.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\peacekeeper_clothing.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\plasmaman.dm"
