@@ -1,0 +1,7 @@
+author: "Macaroni"
+delete-after: True
+changes:
+  - rscadd: "Added teleporter beacons to Snowglobes expirementor room, bridge, xenobiology, arrivals, departures, science bay, brig, and EVA storage"
+  - rscadd: "Added the custom shuttle building kit to Ocean Pubby and Snowglobes tech storage"
+  - bugfix: "fixed Snowglobes teleporter beacon network"
+  - qol: "Improved Snowglobes AI sat mapping"

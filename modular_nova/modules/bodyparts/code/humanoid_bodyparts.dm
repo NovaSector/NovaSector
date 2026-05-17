@@ -27,7 +27,9 @@
 	digitigrade_type = /obj/item/bodypart/leg/right/digitigrade/human/humanoid
 
 /obj/item/bodypart/leg/left/digitigrade/human/humanoid
+	limb_id = SPECIES_HUMANOID
 	icon_greyscale = BODYPART_ICON_HUMANOID
 
 /obj/item/bodypart/leg/right/digitigrade/human/humanoid
+	limb_id = SPECIES_HUMANOID
 	icon_greyscale = BODYPART_ICON_HUMANOID

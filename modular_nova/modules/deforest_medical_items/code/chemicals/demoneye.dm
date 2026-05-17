@@ -43,7 +43,7 @@
 	user_right_eye_color = our_guy.eye_color_right
 
 	our_guy.set_eye_color(BLOODCULT_EYE)
-	our_guy.update_body()
+	our_guy.update_eyes()
 
 	our_guy.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
 
@@ -63,7 +63,7 @@
 	. = ..()
 
 	our_guy.set_eye_color(user_left_eye_color,user_right_eye_color)
-	our_guy.update_body()
+	our_guy.update_eyes()
 
 	our_guy.sound_environment_override = NONE
 

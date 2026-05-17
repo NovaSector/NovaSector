@@ -59,8 +59,8 @@
 	. = list()
 	. += "[get_base_icon_state()]"
 	. += "[get_feature_key_for_overlay()]"
-
-	. += cache_key_extra_information // We can do it like this because it's meant to be a list of strings anyway. BYOND list operations actually being useful for once.
+	if(LAZYLEN(cache_key_extra_information))
+		. += cache_key_extra_information // We can do it like this because it's meant to be a list of strings anyway. BYOND list operations actually being useful for once.
 
 	if(islist(draw_color))
 		for(var/sub_color in draw_color)
@@ -114,8 +114,8 @@
 	var/mutable_appearance/mod_overlay
 	var/icon/custom_mod_icon = sprite_datum.get_custom_mod_icon(owner)
 
-	cache_key_extra_information = list()
 	last_built_icon_states = list()
+	LAZYCLEARLIST(cache_key_extra_information)
 
 	if(custom_mod_icon)
 		mod_overlay = get_singular_image(image_layer = image_layer, owner = owner, icon_override = custom_mod_icon)
@@ -149,9 +149,15 @@
 	// Gets the icon_state of a single or matrix colored accessory and overlays it with a texture
 	if(mod_overlay)
 		returned_images += mod_overlay
-		cache_key_extra_information += "MOD"
+		LAZYADD(cache_key_extra_information, "MOD")
 
 	return returned_images
+
+
+// Cybernetic cat ears - special case - need a unique version for each inner color.
+/datum/bodypart_overlay/mutant/cat_ears/cybernetic/generate_icon_cache()
+	. = ..()
+	. += inner_color
 
 
 /**

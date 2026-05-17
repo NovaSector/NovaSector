@@ -34,10 +34,10 @@
 
 /obj/item/bodypart/leg/left/digitigrade/xenohybrid
 	icon_greyscale = BODYPART_ICON_XENO
-	base_limb_id = SPECIES_XENO
+	limb_id = SPECIES_XENO
 	bodytype = BODYTYPE_ALIEN | BODYTYPE_ORGANIC
 
 /obj/item/bodypart/leg/right/digitigrade/xenohybrid
 	icon_greyscale = BODYPART_ICON_XENO
-	base_limb_id = SPECIES_XENO
+	limb_id = SPECIES_XENO
 	bodytype = BODYTYPE_ALIEN | BODYTYPE_ORGANIC

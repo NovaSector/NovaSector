@@ -19,9 +19,11 @@
 
 /obj/item/bodypart/leg/left/digitigrade/ramatae
 	icon_greyscale = BODYPART_ICON_RAMATAE
+	limb_id = SPECIES_RAMATAE
 
 /obj/item/bodypart/leg/right/digitigrade/ramatae
 	icon_greyscale = BODYPART_ICON_RAMATAE
+	limb_id = SPECIES_RAMATAE
 
 /obj/item/bodypart/leg/left/mutant/ramatae
 	icon_greyscale = BODYPART_ICON_RAMATAE
