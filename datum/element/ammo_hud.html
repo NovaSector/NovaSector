@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>/datum/element/ammo_hud - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a> — <a href="datum/element/ammo_hud.html#proc">Proc Details</a></header><main><h1>ammo_hud <aside>/<a href="datum.html">datum</a>/<a href="datum/element.html">element</a>/<a href="datum/element/ammo_hud.html">ammo_hud</a></aside> <a href="https://github.com/NovaSector/NovaSector/blob/67d563f85c904e5b25e850593ef1a3276979d49a/modular_nova/modules/gunhud/code/gun_hud_component.dm#L1"><img src="git.png" width="16" height="16" title="modular_nova/modules/gunhud/code/gun_hud_component.dm 1"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Procs</h2></td></tr><tr><th><a href="datum/element/ammo_hud.html#proc/get_hud">get_hud</a></th><td>Resolves the ammo HUD screen object for a given holder or item.</td></tr><tr><th><a href="datum/element/ammo_hud.html#proc/on_dropped">on_dropped</a></th><td>Handles disabling the ammo HUD when the item is dropped.</td></tr><tr><th><a href="datum/element/ammo_hud.html#proc/on_equipped">on_equipped</a></th><td>Handles enabling the ammo HUD when the item is equipped.</td></tr><tr><th><a href="datum/element/ammo_hud.html#proc/on_hands_swap">on_hands_swap</a></th><td>Updates the ammo HUD when the mob swaps active hands.</td></tr><tr><th><a href="datum/element/ammo_hud.html#proc/should_update">should_update</a></th><td>Determines whether the given item should currently update the ammo HUD.</td></tr><tr><th><a href="datum/element/ammo_hud.html#proc/update_ballistic">update_ballistic</a></th><td>Updates the ammo HUD for ballistic firearms.</td></tr><tr><th><a href="datum/element/ammo_hud.html#proc/update_energy">update_energy</a></th><td>Updates the ammo HUD for energy-based firearms.</td></tr><tr><th><a href="datum/element/ammo_hud.html#proc/update_hud">update_hud</a></th><td>Dispatches an ammo HUD update based on the item's type.</td></tr><tr><th><a href="datum/element/ammo_hud.html#proc/update_welder">update_welder</a></th><td>Updates the ammo HUD for welding tools.</td></tr></table><h2 id="proc">Proc Details</h2><h3 id="proc/get_hud"><aside class="declaration">proc </aside>get_hud<aside>(/<a href="mob.html">mob</a>/holder, /<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/parent_item)  <a href="https://github.com/NovaSector/NovaSector/blob/67d563f85c904e5b25e850593ef1a3276979d49a/modular_nova/modules/gunhud/code/gun_hud_component.dm#L34"><img src="git.png" width="16" height="16" title="modular_nova/modules/gunhud/code/gun_hud_component.dm 34"></a></aside></h3><p>Resolves the ammo HUD screen object for a given holder or item.</p>
+<p>Attempts to locate the human mob currently responsible for displaying
+the ammo HUD, either via an explicitly provided holder or by checking
+the item's current location.</p>
+<p>Will return null if no valid human HUD exists or if the mob has not
+initialized their HUD yet.</p>
+<p>Arguments:</p>
+<ul>
+<li>holder - Optional mob currently holding the item.</li>
+<li>parent_item - Item whose location may contain a valid mob holder.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>/atom/movable/screen/ammo_counter if available, otherwise null.</li>
+</ul><h3 id="proc/on_dropped"><aside class="declaration">proc </aside>on_dropped<aside>(/<a href="datum.html">datum</a>/source, /<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/dropper)  <a href="https://github.com/NovaSector/NovaSector/blob/67d563f85c904e5b25e850593ef1a3276979d49a/modular_nova/modules/gunhud/code/gun_hud_component.dm#L93"><img src="git.png" width="16" height="16" title="modular_nova/modules/gunhud/code/gun_hud_component.dm 93"></a></aside></h3><p>Handles disabling the ammo HUD when the item is dropped.</p>
+<p>Removes the HUD-displaying trait from the dropped item and disables
+the ammo HUD if no other held items are currently displaying it.</p>
+<p>Also unregisters the hand-swap signal from the dropper to prevent
+stale callbacks after the item leaves their hands.</p>
+<p>Signal handler for COMSIG_ITEM_DROPPED.</p>
+<p>Arguments:</p>
+<ul>
+<li>source - The item being dropped.</li>
+<li>dropper - The mob dropping the item.</li>
+</ul><h3 id="proc/on_equipped"><aside class="declaration">proc </aside>on_equipped<aside>(/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/source, /<a href="mob.html">mob</a>/equipper, slot)  <a href="https://github.com/NovaSector/NovaSector/blob/67d563f85c904e5b25e850593ef1a3276979d49a/modular_nova/modules/gunhud/code/gun_hud_component.dm#L61"><img src="git.png" width="16" height="16" title="modular_nova/modules/gunhud/code/gun_hud_component.dm 61"></a></aside></h3><p>Handles enabling the ammo HUD when the item is equipped.</p>
+<p>Ensures the equipper is a human and is actively holding the item.
+If a valid ammo HUD is available, it is enabled and the item is
+marked as displaying an ammo HUD via a trait.</p>
+<p>Also registers a hand-swap signal when both hands are holding
+HUD-capable items to ensure the display reflects the active hand.</p>
+<p>Signal handler for COMSIG_ITEM_EQUIPPED.</p>
+<p>Arguments:</p>
+<ul>
+<li>source - The item being equipped.</li>
+<li>equipper - The mob equipping the item.</li>
+<li>slot - Inventory slot the item was equipped into.</li>
+</ul><h3 id="proc/on_hands_swap"><aside class="declaration">proc </aside>on_hands_swap<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/source, /<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/swapped_to, /<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/swapped_from)  <a href="https://github.com/NovaSector/NovaSector/blob/67d563f85c904e5b25e850593ef1a3276979d49a/modular_nova/modules/gunhud/code/gun_hud_component.dm#L130"><img src="git.png" width="16" height="16" title="modular_nova/modules/gunhud/code/gun_hud_component.dm 130"></a></aside></h3><p>Updates the ammo HUD when the mob swaps active hands.</p>
+<p>Ensures the newly active held item is eligible for ammo HUD display
+before refreshing the HUD contents to reflect the active hand.</p>
+<p>Signal handler for COMSIG_MOB_SWAP_HANDS.</p>
+<p>Arguments:</p>
+<ul>
+<li>source - The mob swapping hands.</li>
+<li>swapped_to - The current active hand item that we swapped to.</li>
+<li>swapped_from - The previous, now inactive hand item that we swapped from.</li>
+</ul><h3 id="proc/should_update"><aside class="declaration">proc </aside>should_update<aside>(/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/to_update)  <a href="https://github.com/NovaSector/NovaSector/blob/67d563f85c904e5b25e850593ef1a3276979d49a/modular_nova/modules/gunhud/code/gun_hud_component.dm#L155"><img src="git.png" width="16" height="16" title="modular_nova/modules/gunhud/code/gun_hud_component.dm 155"></a></aside></h3><p>Determines whether the given item should currently update the ammo HUD.</p>
+<p>Prevents inactive-hand items from updating the HUD while another
+actively held item is already responsible for displaying ammo data.</p>
+<p>This avoids conflicting updates when both hands contain HUD-capable items.</p>
+<p>Arguments:</p>
+<ul>
+<li>to_update - The item requesting a HUD update.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>TRUE if the item may update the HUD.</li>
+<li>FALSE if the update should be suppressed.</li>
+</ul><h3 id="proc/update_ballistic"><aside class="declaration">proc </aside>update_ballistic<aside>(/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/<a href="obj/item/gun.html">gun</a>/<a href="obj/item/gun/ballistic.html">ballistic</a>/to_update, /<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/<a href="atom/movable/screen.html">screen</a>/<a href="atom/movable/screen/ammo_counter.html">ammo_counter</a>/hud)  <a href="https://github.com/NovaSector/NovaSector/blob/67d563f85c904e5b25e850593ef1a3276979d49a/modular_nova/modules/gunhud/code/gun_hud_component.dm#L198"><img src="git.png" width="16" height="16" title="modular_nova/modules/gunhud/code/gun_hud_component.dm 198"></a></aside></h3><p>Updates the ammo HUD for ballistic firearms.</p>
+<p>Displays remaining ammunition using digit overlays and handles special
+states such as missing magazines or empty weapons.</p>
+<p>Signal handler for COMSIG_UPDATE_AMMO_HUD and COMSIG_GUN_CHAMBER_PROCESSED.</p>
+<p>Arguments:</p>
+<ul>
+<li>to_update - The ballistic firearm being evaluated.</li>
+<li>hud - Optional ammo HUD screen object to update.</li>
+</ul><h3 id="proc/update_energy"><aside class="declaration">proc </aside>update_energy<aside>(/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/<a href="obj/item/gun.html">gun</a>/<a href="obj/item/gun/energy.html">energy</a>/to_update, /<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/<a href="atom/movable/screen.html">screen</a>/<a href="atom/movable/screen/ammo_counter.html">ammo_counter</a>/hud)  <a href="https://github.com/NovaSector/NovaSector/blob/67d563f85c904e5b25e850593ef1a3276979d49a/modular_nova/modules/gunhud/code/gun_hud_component.dm#L252"><img src="git.png" width="16" height="16" title="modular_nova/modules/gunhud/code/gun_hud_component.dm 252"></a></aside></h3><p>Updates the ammo HUD for energy-based firearms.</p>
+<p>Displays current battery percentage and per-shot energy cost using
+maptext overlays, with color-coded thresholds for low power states.</p>
+<p>Signal handler for COMSIG_UPDATE_AMMO_HUD and COMSIG_GUN_CHAMBER_PROCESSED.</p>
+<p>Arguments:</p>
+<ul>
+<li>to_update - The energy firearm being evaluated.</li>
+<li>hud - Optional ammo HUD screen object to update.</li>
+</ul><h3 id="proc/update_hud"><aside class="declaration">proc </aside>update_hud<aside>(/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/source, /<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/<a href="atom/movable/screen.html">screen</a>/<a href="atom/movable/screen/ammo_counter.html">ammo_counter</a>/hud)  <a href="https://github.com/NovaSector/NovaSector/blob/67d563f85c904e5b25e850593ef1a3276979d49a/modular_nova/modules/gunhud/code/gun_hud_component.dm#L177"><img src="git.png" width="16" height="16" title="modular_nova/modules/gunhud/code/gun_hud_component.dm 177"></a></aside></h3><p>Dispatches an ammo HUD update based on the item's type.</p>
+<p>Routes the update call to the appropriate handler for ballistic guns,
+energy guns, or welding tools.</p>
+<p>Arguments:</p>
+<ul>
+<li>source - The item whose ammo display should be updated.</li>
+<li>hud - Optional ammo HUD screen object to update.</li>
+</ul><h3 id="proc/update_welder"><aside class="declaration">proc </aside>update_welder<aside>(/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/<a href="obj/item/weldingtool.html">weldingtool</a>/to_update, /<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/<a href="atom/movable/screen.html">screen</a>/<a href="atom/movable/screen/ammo_counter.html">ammo_counter</a>/hud)  <a href="https://github.com/NovaSector/NovaSector/blob/67d563f85c904e5b25e850593ef1a3276979d49a/modular_nova/modules/gunhud/code/gun_hud_component.dm#L293"><img src="git.png" width="16" height="16" title="modular_nova/modules/gunhud/code/gun_hud_component.dm 293"></a></aside></h3><p>Updates the ammo HUD for welding tools.</p>
+<p>Displays remaining fuel amount and welding state using digit overlays.
+Handles empty fuel tanks and active flame indication.</p>
+<p>Signal handler for COMSIG_UPDATE_AMMO_HUD.</p>
+<p>Arguments:</p>
+<ul>
+<li>to_update - The welding tool being evaluated.</li>
+<li>hud - Optional ammo HUD screen object to update.</li>
+</ul></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/67d563f85c904e5b25e850593ef1a3276979d49a">67d563f</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>
