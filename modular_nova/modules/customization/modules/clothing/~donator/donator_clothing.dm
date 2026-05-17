@@ -2199,6 +2199,27 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "bwake_uniform"
 	can_adjust = FALSE
 
+/obj/item/clothing/under/ig_harness
+	name = "\improper Body Harness"
+	desc = "An overly complicated network of securing straps and buckles. There remains plenty of slack and clips to fit any size."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	worn_icon_taur_snake = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "ig_harness"
+	body_parts_covered = NONE
+	attachment_slot_override = CHEST
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+	can_adjust = FALSE
+	slot_flags = ITEM_SLOT_ICLOTHING | ITEM_SLOT_OCLOTHING
+
+/obj/item/clothing/neck/ig_cloak
+	name = "\improper Kiara's cloak"
+	desc = "A form fitting cloak that seems exceptional at insulating the wearer."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon_state = "ig_cloak"
+
 // Donator reward for Latinfishy
 /obj/item/clothing/under/syndicate/tacticool/skirt/long
 	name = "long tacticool skirtleneck"
