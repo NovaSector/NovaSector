@@ -44,37 +44,19 @@
 	name = "Maid-ification"
 
 /datum/smite/maidification/effect(client/user, mob/living/target)
-	. = ..()
-	if (!iscarbon(target))
-		to_chat(user, span_warning("This must be used on a carbon mob."), confidential = TRUE)
-		return
-	var/obj/item/clothing/head/costume/maid_headband/headband = new
-	var/obj/item/clothing/neck/maid_neck_cover/neck_cover = new
-	var/obj/item/clothing/gloves/maid_arm_covers/arm_cover = new
-	var/obj/item/clothing/under/costume/maid/uniform = new
-	if(iscarbon(target))
-		var/mob/living/carbon/human/shamed = target
-		var/obj/item/worn_neck = shamed.wear_neck
-		var/obj/item/worn_head = shamed.head
-		var/obj/item/worn_hand = shamed.gloves
-		var/obj/item/worn_body = shamed.w_uniform
-
-		if(istype(worn_neck))
-			shamed.dropItemToGround(worn_neck)
-		if(istype(worn_head))
-			shamed.dropItemToGround(worn_head)
-		if(istype(worn_hand))
-			shamed.dropItemToGround(worn_hand)
-		if(istype(worn_body))
-			shamed.dropItemToGround(worn_body)
-		if(shamed.equip_to_slot_if_possible(neck_cover, ITEM_SLOT_NECK ,qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE))
-			smite_uparmor(neck_cover)
-		if(shamed.equip_to_slot_if_possible(headband, ITEM_SLOT_HEAD ,qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE))
-			smite_uparmor(headband)
-		if(shamed.equip_to_slot_if_possible(arm_cover, ITEM_SLOT_GLOVES ,qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE))
-			smite_uparmor(arm_cover)
-		if(shamed.equip_to_slot_if_possible(uniform, ITEM_SLOT_ICLOTHING ,qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE))
-			smite_uparmor(uniform)
-		shamed.visible_message(span_warning("A maid uniform appears on [shamed]!"))
-		return
-	//qdel(thecone)
+    . = ..()
+    if (!iscarbon(target))
+        to_chat(user, span_warning("This must be used on a carbon mob."), confidential = TRUE)
+        return
+    var/list/items = list(
+        /obj/item/clothing/head/costume/maid_headband = ITEM_SLOT_HEAD,
+        /obj/item/clothing/neck/maid_neck_cover = ITEM_SLOT_NECK,
+        /obj/item/clothing/gloves/maid_arm_covers = ITEM_SLOT_GLOVES,
+        /obj/item/clothing/under/costume/maid = ITEM_SLOT_ICLOTHING,
+    )
+    for(var/path, slot in items)
+        target.dropItemToGround(target.get_item_by_slot(slot))
+        var/obj/item/clothing/new_item = new path
+        if(target.equip_to_slot_or_del(new_item, slot))
+            smite_uparmor(new_item)
+    shamed.visible_message(span_warning("A maid uniform appears on [shamed]!"))
