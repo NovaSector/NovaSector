@@ -722,6 +722,10 @@
 	name = "Teshari Mohawk Alt"
 	icon_state = "hair_teshmohawkalt"
 
+	/datum/sprite_accessory/hair/nova/dreadtail
+	name = "Dreadtail"
+	icon_state = "hair_dreadtail"
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/nova
