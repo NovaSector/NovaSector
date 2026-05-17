@@ -46,7 +46,7 @@
 	quirk_holder.mind.handle_exploitables()
 
 	// Also let the user know that they need to OPFOR if they want to do heavy antagonism. Policy request.
-	to_chat(quirk_holder, span_boldwarning("REMEMBER: The Underworld Connections quirk does NOT make you an antagonist. Please make an OPFOR request if you intend to do serious criminal activity."))
+	// MoonPol Removal: to_chat(quirk_holder, span_boldwarning("REMEMBER: The Underworld Connections quirk does NOT make you an antagonist. Please make an OPFOR request if you intend to do serious criminal activity."))
 
 	// Set us as 'suspected' on HUDs at roundstart and leave a note about our dark and mysterious past. No permits for us! If we're human.
 	if (ishuman(quirk_holder))
