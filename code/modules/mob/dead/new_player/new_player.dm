@@ -143,6 +143,8 @@
 			return "[jobtitle] requires you to have flavour text for your character."
 		if(JOB_UNAVAILABLE_AUGMENT)
 			return "[jobtitle] is restricted due to your selected body augments."
+		if(JOB_UNAVAILABLE_PLAYTIME_BAN)
+			return "You need more playtime before you can play [jobtitle]."
 		//NOVA EDIT END
 		if(JOB_UNAVAILABLE_ANTAG_INCOMPAT)
 			return "[jobtitle] is not compatible with some antagonist role assigned to you."
@@ -193,7 +195,7 @@
 
 	var/error = IsJobUnavailable(rank)
 	if(error != JOB_AVAILABLE)
-		tgui_alert(usr, get_job_unavailable_error_message(error, rank))
+		tgui_alert(usr, error == JOB_UNAVAILABLE_PLAYTIME_BAN ? get_playtime_ban_unavailable_message(ckey, rank) : get_job_unavailable_error_message(error, rank))
 		return FALSE
 
 	if(SSshuttle.arrivals)
@@ -239,7 +241,7 @@
 		is_captain = IS_FULL_CAPTAIN
 		captain_sound = ANNOUNCER_DEPARTMENTAL // NOVA EDIT CHANGE - Announcer Sounds - ORIGINAL: captain_sound = 'sound/announcer/announcement/announce.ogg'
 	// If we don't have an assigned cap yet, check if this person qualifies for some from of captaincy.
-	else if(!SSjob.assigned_captain && ishuman(character) && SSjob.chain_of_command[rank] && !is_banned_from(character.ckey, list(JOB_CAPTAIN)))
+	else if(!SSjob.assigned_captain && ishuman(character) && SSjob.chain_of_command[rank] && !is_banned_from(character.ckey, list(JOB_CAPTAIN)) && !get_playtime_banned_role(character.ckey, JOB_CAPTAIN))
 		is_captain = IS_ACTING_CAPTAIN
 	if(is_captain != IS_NOT_CAPTAIN)
 		minor_announce(job.get_captaincy_announcement(character), sound_override = captain_sound)

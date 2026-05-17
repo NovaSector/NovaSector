@@ -252,6 +252,10 @@
 	if(is_banned_from(user.ckey, BAN_GHOST_ROLE_SPAWNER)) // Ghost role bans
 		to_chat(user, span_warning("Error, you are banned from playing ghost roles!"))
 		return FALL_STOP_INTERCEPTING
+	var/playtime_banned_role = get_playtime_banned_role(user.ckey, list(role_ban, BAN_GHOST_ROLE_SPAWNER))
+	if(playtime_banned_role)
+		to_chat(user, span_warning(get_playtime_ban_unavailable_message(user.ckey, playtime_banned_role, "this ghost role")))
+		return FALL_STOP_INTERCEPTING
 	// NOVA EDIT ADDITION END
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
 		to_chat(user, span_warning("An admin has temporarily disabled non-admin ghost roles!"))

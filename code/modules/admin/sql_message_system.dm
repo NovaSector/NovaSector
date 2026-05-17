@@ -1,4 +1,87 @@
-/proc/create_message(type, target_key, admin_ckey, text, timestamp, server, secret, logged = 1, browse, expiry, note_severity)
+/proc/ensure_playtime_note_schema()
+	var/static/playtime_note_schema_checked = FALSE
+	if(playtime_note_schema_checked)
+		return TRUE
+	if(!SSdbcore.Connect())
+		return FALSE
+
+	var/table_name = format_table_name("messages")
+	var/datum/db_query/query_playtime_note_columns = SSdbcore.NewQuery({"
+		SELECT COLUMN_NAME
+		FROM INFORMATION_SCHEMA.COLUMNS
+		WHERE TABLE_SCHEMA = DATABASE()
+			AND TABLE_NAME = :table_name
+			AND COLUMN_NAME IN ('expire_playtime', 'expire_playtime_type')
+	"}, list("table_name" = table_name))
+	if(!query_playtime_note_columns.Execute(async = FALSE, log_error = FALSE))
+		qdel(query_playtime_note_columns)
+		return FALSE
+
+	var/has_expire_playtime = FALSE
+	var/has_expire_playtime_type = FALSE
+	while(query_playtime_note_columns.NextRow())
+		switch(query_playtime_note_columns.item[1])
+			if("expire_playtime")
+				has_expire_playtime = TRUE
+			if("expire_playtime_type")
+				has_expire_playtime_type = TRUE
+	qdel(query_playtime_note_columns)
+
+	if(!has_expire_playtime)
+		var/datum/db_query/query_add_expire_playtime = SSdbcore.NewQuery({"
+			ALTER TABLE [table_name]
+			ADD COLUMN `expire_playtime` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `playtime`
+		"})
+		if(!query_add_expire_playtime.Execute(async = FALSE, log_error = FALSE))
+			qdel(query_add_expire_playtime)
+			return FALSE
+		qdel(query_add_expire_playtime)
+
+	if(!has_expire_playtime_type)
+		var/datum/db_query/query_add_expire_playtime_type = SSdbcore.NewQuery({"
+			ALTER TABLE [table_name]
+			ADD COLUMN `expire_playtime_type` VARCHAR(32) NULL DEFAULT NULL AFTER `expire_playtime`
+		"})
+		if(!query_add_expire_playtime_type.Execute(async = FALSE, log_error = FALSE))
+			qdel(query_add_expire_playtime_type)
+			return FALSE
+		qdel(query_add_expire_playtime_type)
+
+	playtime_note_schema_checked = TRUE
+	return TRUE
+
+/proc/playtime_note_source_choices()
+	return get_available_playtime_sources()
+
+/proc/get_cached_message_playtime(player_ckey, playtime_type, list/playtime_cache)
+	playtime_type ||= EXP_TYPE_LIVING
+	var/cache_key = "[ckey(player_ckey)]|[playtime_type]"
+	if(cache_key in playtime_cache)
+		return playtime_cache[cache_key]
+
+	var/current_playtime = get_ckey_playtime_for_type(player_ckey, playtime_type)
+	playtime_cache[cache_key] = current_playtime
+	return current_playtime
+
+/proc/is_playtime_message_expired(player_ckey, expire_playtime, expire_playtime_type, list/playtime_cache)
+	expire_playtime = text2num(expire_playtime)
+	if(!expire_playtime)
+		return FALSE
+
+	return get_cached_message_playtime(player_ckey, expire_playtime_type, playtime_cache) >= expire_playtime
+
+/proc/prompt_note_playtime_expiry_minutes(mob/user, playtime_type = EXP_TYPE_LIVING)
+	var/playtime_hours = tgui_input_number(user, "Set how many additional [playtime_type] playtime hours must pass before this note expires. Decimals are allowed.", "Set playtime expiry (hours)", default = 1, min_value = 0, max_value = 100000, round_value = FALSE)
+	if(isnull(playtime_hours))
+		return null
+
+	var/playtime_minutes = playtime_duration_to_minutes(playtime_hours, "HOUR")
+	if(playtime_minutes <= 0)
+		to_chat(user, "Playtime expiry must be greater than zero.", confidential = TRUE)
+		return null
+	return playtime_minutes
+
+/proc/create_message(type, target_key, admin_ckey, text, timestamp, server, secret, logged = 1, browse, expiry, note_severity, playtime_expiry, playtime_expiry_type)
 	if(!SSdbcore.Connect())
 		to_chat(usr, span_danger("Failed to establish database connection."), confidential = TRUE)
 		return
@@ -50,26 +133,48 @@
 				secret = 0
 			else
 				return
-	if(isnull(expiry))
-		if(tgui_alert(usr, "Set an expiry time? Expired messages are hidden like deleted ones.", "Expiry time?", list("Yes", "No", "Cancel")) == "Yes")
-			var/expire_time = input("Set expiry time for [type] as format YYYY-MM-DD HH:MM:SS. All times in server time. HH:MM:SS is optional and 24-hour. Must be later than current time for obvious reasons.", "Set expiry time", ISOtime()) as null|text
-			if(!expire_time)
+	if(isnull(expiry) && isnull(playtime_expiry))
+		var/expiry_choice
+		if(type == "note")
+			expiry_choice = tgui_input_list(usr, "Set an expiry time? Expired messages are hidden like deleted ones.", "Expiry time?", list("No", "Date", "Playtime", "Cancel"), "No")
+		else
+			expiry_choice = tgui_alert(usr, "Set an expiry time? Expired messages are hidden like deleted ones.", "Expiry time?", list("Yes", "No", "Cancel"))
+			if(expiry_choice == "Yes")
+				expiry_choice = "Date"
+		switch(expiry_choice)
+			if("Cancel")
 				return
-			var/datum/db_query/query_validate_expire_time = SSdbcore.NewQuery(
-				"SELECT IF(STR_TO_DATE(:expire_time,'%Y-%c-%d %T') > NOW(), STR_TO_DATE(:expire_time,'%Y-%c-%d %T'), 0)",
-				list("expire_time" = expire_time)
-			)
-			if(!query_validate_expire_time.warn_execute())
-				qdel(query_validate_expire_time)
-				return
-			if(query_validate_expire_time.NextRow())
-				var/checktime = text2num(query_validate_expire_time.item[1])
-				if(!checktime)
-					to_chat(usr, "Datetime entered is improperly formatted or not later than current server time.", confidential = TRUE)
+			if("Date")
+				var/expire_time = input("Set expiry time for [type] as format YYYY-MM-DD HH:MM:SS. All times in server time. HH:MM:SS is optional and 24-hour. Must be later than current time for obvious reasons.", "Set expiry time", ISOtime()) as null|text
+				if(!expire_time)
+					return
+				var/datum/db_query/query_validate_expire_time = SSdbcore.NewQuery(
+					"SELECT IF(STR_TO_DATE(:expire_time,'%Y-%c-%d %T') > NOW(), STR_TO_DATE(:expire_time,'%Y-%c-%d %T'), 0)",
+					list("expire_time" = expire_time)
+				)
+				if(!query_validate_expire_time.warn_execute())
 					qdel(query_validate_expire_time)
 					return
-				expiry = query_validate_expire_time.item[1]
-			qdel(query_validate_expire_time)
+				if(query_validate_expire_time.NextRow())
+					var/checktime = text2num(query_validate_expire_time.item[1])
+					if(!checktime)
+						to_chat(usr, "Datetime entered is improperly formatted or not later than current server time.", confidential = TRUE)
+						qdel(query_validate_expire_time)
+						return
+					expiry = query_validate_expire_time.item[1]
+				qdel(query_validate_expire_time)
+			if("Playtime")
+				playtime_expiry_type = tgui_input_list(usr, "Choose which tracked playtime this note should expire from.", "Set playtime source", playtime_note_source_choices(), EXP_TYPE_LIVING)
+				if(!playtime_expiry_type)
+					return
+				var/playtime_minutes = prompt_note_playtime_expiry_minutes(usr, playtime_expiry_type)
+				if(isnull(playtime_minutes))
+					return
+				playtime_expiry = get_ckey_playtime_for_type(target_ckey, playtime_expiry_type) + playtime_minutes
+			if("No")
+				expiry = null
+			else
+				return
 	if(type == "note" && isnull(note_severity))
 		note_severity = input("Set the severity of the note.", "Severity", null, null) as null|anything in list("High", "Medium", "Minor", "None")
 		if(!note_severity)
@@ -86,12 +191,14 @@
 		"secret" = secret,
 		"expiry" = expiry || null,
 		"note_severity" = note_severity,
+		"playtime_expiry" = playtime_expiry || null,
+		"playtime_expiry_type" = playtime_expiry ? (playtime_expiry_type || EXP_TYPE_LIVING) : null,
 	)
 	if(timestamp)
 		parameters["timestamp"] = timestamp
 	var/datum/db_query/query_create_message = SSdbcore.NewQuery({"
-		INSERT INTO [format_table_name("messages")] (type, targetckey, adminckey, text, timestamp, server, server_ip, server_port, round_id, secret, expire_timestamp, severity, playtime)
-		VALUES (:type, :target_ckey, :admin_ckey, :text, [timestamp? ":timestamp" : "Now()"], :server, INET_ATON(:internet_address), :port, :round_id, :secret, :expiry, :note_severity, (SELECT `minutes` FROM [format_table_name("role_time")] WHERE `ckey` = :target_ckey AND `job` = 'Living'))
+		INSERT INTO [format_table_name("messages")] (type, targetckey, adminckey, text, timestamp, server, server_ip, server_port, round_id, secret, expire_timestamp, severity, playtime, expire_playtime, expire_playtime_type)
+		VALUES (:type, :target_ckey, :admin_ckey, :text, [timestamp? ":timestamp" : "Now()"], :server, INET_ATON(:internet_address), :port, :round_id, :secret, :expiry, :note_severity, (SELECT `minutes` FROM [format_table_name("role_time")] WHERE `ckey` = :target_ckey AND `job` = 'Living'), :playtime_expiry, :playtime_expiry_type)
 	"}, parameters)
 	var/pm = "[key_name(usr)] has created a [secret ? "secret " : ""][type][(type == "note" || type == "message" || type == "watchlist entry") ? " for [target_key]" : ""]: [text]"
 	var/header = "[key_name_admin(usr)] has created a [secret ? "secret " : ""][type][(type == "note" || type == "message" || type == "watchlist entry") ? " for [target_key]" : ""]"
@@ -216,8 +323,11 @@
 		SELECT
 			type,
 			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE ckey = targetckey), targetckey),
+			targetckey,
 			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE ckey = adminckey), adminckey),
-			expire_timestamp
+			expire_timestamp,
+			expire_playtime,
+			expire_playtime_type
 		FROM [format_table_name("messages")]
 		WHERE id = :id AND deleted = 0
 	"}, list("id" = message_id))
@@ -227,45 +337,78 @@
 	if(query_find_edit_expiry_message.NextRow())
 		var/type = query_find_edit_expiry_message.item[1]
 		var/target_key = query_find_edit_expiry_message.item[2]
-		var/admin_key = query_find_edit_expiry_message.item[3]
-		var/old_expiry = query_find_edit_expiry_message.item[4]
+		var/target_ckey = query_find_edit_expiry_message.item[3]
+		var/admin_key = query_find_edit_expiry_message.item[4]
+		var/old_expiry = query_find_edit_expiry_message.item[5]
+		var/old_playtime_expiry = text2num(query_find_edit_expiry_message.item[6])
+		var/old_playtime_expiry_type = query_find_edit_expiry_message.item[7] || EXP_TYPE_LIVING
+		var/old_expiry_text = old_expiry ? old_expiry : (old_playtime_expiry ? "[get_exp_format(old_playtime_expiry)] [old_playtime_expiry_type] playtime" : "no expiration date")
+		var/new_expiry_text
 		var/new_expiry
-		var/expire_time = input("Set expiry time for [type] as format YYYY-MM-DD HH:MM:SS. All times in server time. HH:MM:SS is optional and 24-hour. Must be later than current time for obvious reasons. Enter -1 to remove expiry time.", "Set expiry time", old_expiry) as null|text
-		if(!expire_time)
+		var/new_playtime_expiry
+		var/new_playtime_expiry_type
+		var/expiry_choice
+		if(type == "note")
+			expiry_choice = tgui_input_list(usr, "Choose the new expiry mode for this [type].", "Set expiry time", list("Date", "Playtime", "Remove", "Cancel"), "Date")
+		else
+			expiry_choice = tgui_alert(usr, "Choose the new expiry mode for this [type].", "Set expiry time", list("Date", "Remove", "Cancel"))
+		if(!expiry_choice || expiry_choice == "Cancel")
 			qdel(query_find_edit_expiry_message)
 			return
-		if(expire_time == "-1")
-			new_expiry = "non-expiring"
-		else
-			var/datum/db_query/query_validate_expire_time_edit = SSdbcore.NewQuery({"
-				SELECT IF(STR_TO_DATE(:expire_time,'%Y-%c-%d %T') > NOW(), STR_TO_DATE(:expire_time,'%Y-%c-%d %T'), 0)
-			"}, list("expire_time" = expire_time))
-			if(!query_validate_expire_time_edit.warn_execute())
-				qdel(query_validate_expire_time_edit)
-				qdel(query_find_edit_expiry_message)
-				return
-			if(query_validate_expire_time_edit.NextRow())
-				var/checktime = text2num(query_validate_expire_time_edit.item[1])
-				if(!checktime)
-					to_chat(usr, "Datetime entered is improperly formatted or not later than current server time.", confidential = TRUE)
+
+		switch(expiry_choice)
+			if("Date")
+				var/expire_time = input("Set expiry time for [type] as format YYYY-MM-DD HH:MM:SS. All times in server time. HH:MM:SS is optional and 24-hour. Must be later than current time for obvious reasons.", "Set expiry time", old_expiry) as null|text
+				if(!expire_time)
+					qdel(query_find_edit_expiry_message)
+					return
+				var/datum/db_query/query_validate_expire_time_edit = SSdbcore.NewQuery({"
+					SELECT IF(STR_TO_DATE(:expire_time,'%Y-%c-%d %T') > NOW(), STR_TO_DATE(:expire_time,'%Y-%c-%d %T'), 0)
+				"}, list("expire_time" = expire_time))
+				if(!query_validate_expire_time_edit.warn_execute())
 					qdel(query_validate_expire_time_edit)
 					qdel(query_find_edit_expiry_message)
 					return
-				new_expiry = query_validate_expire_time_edit.item[1]
-			qdel(query_validate_expire_time_edit)
-		var/edit_text = "Expiration time edited by [editor_key] on [ISOtime()] from [(old_expiry ? old_expiry : "no expiration date")] to [new_expiry]<hr>"
+				if(query_validate_expire_time_edit.NextRow())
+					var/checktime = text2num(query_validate_expire_time_edit.item[1])
+					if(!checktime)
+						to_chat(usr, "Datetime entered is improperly formatted or not later than current server time.", confidential = TRUE)
+						qdel(query_validate_expire_time_edit)
+						qdel(query_find_edit_expiry_message)
+						return
+					new_expiry = query_validate_expire_time_edit.item[1]
+					new_expiry_text = new_expiry
+				qdel(query_validate_expire_time_edit)
+			if("Playtime")
+				new_playtime_expiry_type = tgui_input_list(usr, "Choose which tracked playtime this note should expire from.", "Set playtime source", playtime_note_source_choices(), old_playtime_expiry_type)
+				if(!new_playtime_expiry_type)
+					qdel(query_find_edit_expiry_message)
+					return
+				var/playtime_minutes = prompt_note_playtime_expiry_minutes(usr, new_playtime_expiry_type)
+				if(isnull(playtime_minutes))
+					qdel(query_find_edit_expiry_message)
+					return
+				new_playtime_expiry = get_ckey_playtime_for_type(target_ckey, new_playtime_expiry_type) + playtime_minutes
+				new_expiry_text = "[get_exp_format(new_playtime_expiry)] [new_playtime_expiry_type] playtime"
+			if("Remove")
+				new_expiry_text = "non-expiring"
+			else
+				qdel(query_find_edit_expiry_message)
+				return
+
+		var/edit_text = "Expiration time edited by [editor_key] on [ISOtime()] from [old_expiry_text] to [new_expiry_text]<hr>"
 		var/datum/db_query/query_edit_message_expiry = SSdbcore.NewQuery({"
 			UPDATE [format_table_name("messages")]
-			SET expire_timestamp = :expire_time, lasteditor = :lasteditor, edits = CONCAT(IFNULL(edits,''),:edit_text)
+			SET expire_timestamp = :expire_time, expire_playtime = :expire_playtime, expire_playtime_type = :expire_playtime_type, lasteditor = :lasteditor, edits = CONCAT(IFNULL(edits,''),:edit_text)
 			WHERE id = :id AND deleted = 0
-		"}, list("expire_time" = (expire_time == "-1" ? null : new_expiry), "lasteditor" = editor_ckey, "edit_text" = edit_text, "id" = message_id))
+		"}, list("expire_time" = new_expiry || null, "expire_playtime" = new_playtime_expiry || null, "expire_playtime_type" = new_playtime_expiry ? new_playtime_expiry_type : null, "lasteditor" = editor_ckey, "edit_text" = edit_text, "id" = message_id))
 		if(!query_edit_message_expiry.warn_execute())
 			qdel(query_edit_message_expiry)
 			qdel(query_find_edit_expiry_message)
 			return
 		qdel(query_edit_message_expiry)
-		log_admin_private("[kn] has edited the expiration time of a [type] [(type == "note" || type == "message" || type == "watchlist entry") ? " for [target_key]" : ""] made by [admin_key] from [(old_expiry ? old_expiry : "no expiration date")] to [new_expiry]")
-		message_admins("[kna] has edited the expiration time of a [type] [(type == "note" || type == "message" || type == "watchlist entry") ? " for [target_key]" : ""] made by [admin_key] from [(old_expiry ? old_expiry : "no expiration date")] to [new_expiry]")
+		log_admin_private("[kn] has edited the expiration time of a [type] [(type == "note" || type == "message" || type == "watchlist entry") ? " for [target_key]" : ""] made by [admin_key] from [old_expiry_text] to [new_expiry_text]")
+		message_admins("[kna] has edited the expiration time of a [type] [(type == "note" || type == "message" || type == "watchlist entry") ? " for [target_key]" : ""] made by [admin_key] from [old_expiry_text] to [new_expiry_text]")
 		if(browse)
 			browse_messages("[type]")
 		else
@@ -412,13 +555,18 @@
 				IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE ckey = lasteditor), lasteditor),
 				expire_timestamp,
 				playtime,
+				expire_playtime,
+				expire_playtime_type,
 				round_id
 			FROM [format_table_name("messages")]
-			WHERE type = :type AND deleted = 0 AND (expire_timestamp > NOW() OR expire_timestamp IS NULL)
+			WHERE type = :type
+				AND deleted = 0
+				AND (expire_timestamp > NOW() OR expire_timestamp IS NULL)
 		"}, list("type" = type))
 		if(!query_get_type_messages.warn_execute())
 			qdel(query_get_type_messages)
 			return
+		var/list/playtime_expiry_cache = list()
 		while(query_get_type_messages.NextRow())
 			if(QDELETED(usr))
 				return
@@ -434,7 +582,11 @@
 			var/editor_key = query_get_type_messages.item[8]
 			var/expire_timestamp = query_get_type_messages.item[9]
 			var/playtime = query_get_type_messages.item[10]
-			var/round_id = query_get_type_messages.item[11]
+			var/expire_playtime = text2num(query_get_type_messages.item[11])
+			var/expire_playtime_type = query_get_type_messages.item[12] || EXP_TYPE_LIVING
+			var/round_id = query_get_type_messages.item[13]
+			if(is_playtime_message_expired(t_ckey, expire_playtime, expire_playtime_type, playtime_expiry_cache))
+				continue
 			output += "<b>"
 			if(type == "watchlist entry")
 				output += "[t_key] | "
@@ -443,6 +595,8 @@
 				output += " | [get_exp_format(text2num(playtime))] Living Playtime"
 			if(expire_timestamp)
 				output += " | Expires [expire_timestamp]"
+			if(expire_playtime)
+				output += " | Expires at [get_exp_format(expire_playtime)] [expire_playtime_type] playtime"
 			output += "</b>"
 			output += " <a href='byond://?_src_=holder;[HrefToken()];editmessageexpiryempty=[id]'>Change Expiry Time</a>"
 			output += " <a href='byond://?_src_=holder;[HrefToken()];deletemessageempty=[id]'>Delete</a>"
@@ -468,9 +622,14 @@
 				expire_timestamp,
 				severity,
 				playtime,
+				expire_playtime,
+				expire_playtime_type,
 				round_id
 			FROM [format_table_name("messages")]
-			WHERE type <> 'memo' AND targetckey = :targetckey AND deleted = 0 AND (expire_timestamp > NOW() OR expire_timestamp IS NULL)
+			WHERE type <> 'memo'
+				AND targetckey = :targetckey
+				AND deleted = 0
+				AND (expire_timestamp > NOW() OR expire_timestamp IS NULL)
 			ORDER BY timestamp DESC
 		"}, list("targetckey" = target_ckey))
 		if(!query_get_messages.warn_execute())
@@ -479,6 +638,7 @@
 		var/list/messagedata = list()
 		var/list/watchdata = list()
 		var/list/notedata = list()
+		var/list/playtime_expiry_cache = list()
 		var/skipped = 0
 		while(query_get_messages.NextRow())
 			if(QDELETED(usr))
@@ -500,7 +660,11 @@
 			var/expire_timestamp = query_get_messages.item[11]
 			var/severity = query_get_messages.item[12]
 			var/playtime = query_get_messages.item[13]
-			var/round_id = query_get_messages.item[14]
+			var/expire_playtime = text2num(query_get_messages.item[14])
+			var/expire_playtime_type = query_get_messages.item[15] || EXP_TYPE_LIVING
+			var/round_id = query_get_messages.item[16]
+			if(is_playtime_message_expired(target_ckey, expire_playtime, expire_playtime_type, playtime_expiry_cache))
+				continue
 			var/alphatext = ""
 			var/nsd = CONFIG_GET(number/note_stale_days)
 			var/nfd = CONFIG_GET(number/note_fresh_days)
@@ -520,6 +684,8 @@
 			data += "<b>[timestamp] | [server] | Round [round_id] | [admin_key][secret ? " | <i>- Secret</i>" : ""] | [get_exp_format(text2num(playtime))] Living Playtime"
 			if(expire_timestamp)
 				data += " | Expires [expire_timestamp]"
+			if(expire_playtime && !linkless)
+				data += " | Expires at [get_exp_format(expire_playtime)] [expire_playtime_type] playtime"
 			data += "</b></p><center>"
 			if(!linkless)
 				if(type == "note")
@@ -599,9 +765,11 @@
 			else
 				search = "^[index]"
 		var/datum/db_query/query_list_messages = SSdbcore.NewQuery({"
-			SELECT DISTINCT
+			SELECT
 				targetckey,
-				(SELECT byond_key FROM [format_table_name("player")] WHERE ckey = targetckey)
+				(SELECT byond_key FROM [format_table_name("player")] WHERE ckey = targetckey),
+				expire_playtime,
+				expire_playtime_type
 			FROM [format_table_name("messages")]
 			WHERE type <> 'memo'
 				AND targetckey REGEXP :search
@@ -612,11 +780,18 @@
 		if(!query_list_messages.warn_execute())
 			qdel(query_list_messages)
 			return
+		var/list/playtime_expiry_cache = list()
+		var/list/listed_ckeys = list()
 		while(query_list_messages.NextRow())
 			if(QDELETED(usr))
 				return
 			var/index_ckey = query_list_messages.item[1]
 			var/index_key = query_list_messages.item[2]
+			var/expire_playtime = text2num(query_list_messages.item[3])
+			var/expire_playtime_type = query_list_messages.item[4] || EXP_TYPE_LIVING
+			if(listed_ckeys[index_ckey] || is_playtime_message_expired(index_ckey, expire_playtime, expire_playtime_type, playtime_expiry_cache))
+				continue
+			listed_ckeys[index_ckey] = TRUE
 			if(!index_key)
 				index_key = index_ckey
 			output += "<a href='byond://?_src_=holder;[HrefToken()];showmessageckey=[index_ckey]'>[index_key]</a><br>"
@@ -660,7 +835,9 @@
 			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE ckey = adminckey), adminckey),
 			text,
 			timestamp,
-			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE ckey = lasteditor), lasteditor)
+			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE ckey = lasteditor), lasteditor),
+			expire_playtime,
+			expire_playtime_type
 		FROM [format_table_name("messages")]
 		WHERE type = :type
 		AND deleted = 0
@@ -673,7 +850,12 @@
 		qdel(query_get_message_output)
 		return
 	var/list/datum/admin_message/messages = list()
+	var/list/playtime_expiry_cache = list()
 	while(query_get_message_output.NextRow())
+		var/expire_playtime = text2num(query_get_message_output.item[6])
+		var/expire_playtime_type = query_get_message_output.item[7] || EXP_TYPE_LIVING
+		if(is_playtime_message_expired(target_ckey, expire_playtime, expire_playtime_type, playtime_expiry_cache))
+			continue
 		var/datum/admin_message/message = new()
 		message.id = query_get_message_output.item[1]
 		message.admin_key = query_get_message_output.item[2]

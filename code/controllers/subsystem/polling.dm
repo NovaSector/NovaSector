@@ -293,6 +293,10 @@ SUBSYSTEM_DEF(polling)
 	if(is_banned_from(potential_candidate.ckey, BAN_GHOST_TAKEOVER) || is_banned_from(potential_candidate.ckey, BAN_ANTAGONIST))
 		to_chat(potential_candidate, "There was a ghost prompt for: [role], unfortunately you are banned from ghost takeovers.")
 		return FALSE
+	var/playtime_banned_role = get_playtime_banned_role(potential_candidate.ckey, list(BAN_GHOST_TAKEOVER, BAN_ANTAGONIST))
+	if(playtime_banned_role)
+		to_chat(potential_candidate, get_playtime_ban_unavailable_message(potential_candidate.ckey, playtime_banned_role, "this ghost role"))
+		return FALSE
 	// NOVA EDIT ADDITION END
 	if(role && potential_candidate.client)
 		if(!(role in potential_candidate.client.prefs.be_special))
@@ -301,7 +305,11 @@ SUBSYSTEM_DEF(polling)
 			return FALSE
 
 	if(check_jobban)
-		if(is_banned_from(potential_candidate.ckey, list(ROLE_SYNDICATE) + check_jobban))
+		var/list/roles_to_check = list(ROLE_SYNDICATE) + check_jobban
+		if(is_banned_from(potential_candidate.ckey, roles_to_check))
+			return FALSE
+		playtime_banned_role = get_playtime_banned_role(potential_candidate.ckey, roles_to_check)
+		if(playtime_banned_role)
 			return FALSE
 
 	return TRUE

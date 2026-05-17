@@ -102,6 +102,42 @@ CREATE TABLE `ban` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `playtime_ban`
+--
+
+DROP TABLE IF EXISTS `playtime_ban`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playtime_ban` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `bantime` DATETIME NOT NULL,
+  `server_name` VARCHAR(32) DEFAULT NULL,
+  `server_ip` INT(10) UNSIGNED NOT NULL,
+  `server_port` SMALLINT(5) UNSIGNED NOT NULL,
+  `round_id` INT(11) UNSIGNED NULL,
+  `role` VARCHAR(32) NOT NULL,
+  `required_playtime_type` VARCHAR(32) NOT NULL DEFAULT 'Living',
+  `start_playtime` INT(11) UNSIGNED NOT NULL,
+  `duration` INT(11) UNSIGNED NOT NULL,
+  `target_playtime` INT(11) UNSIGNED NOT NULL,
+  `applies_to_admins` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
+  `reason` VARCHAR(2048) NOT NULL,
+  `ckey` VARCHAR(32) NOT NULL,
+  `a_ckey` VARCHAR(32) NOT NULL,
+  `a_ip` INT(10) UNSIGNED NOT NULL,
+  `a_computerid` VARCHAR(32) NOT NULL,
+  `who` VARCHAR(2048) NOT NULL,
+  `adminwho` VARCHAR(2048) NOT NULL,
+  `unbanned_datetime` DATETIME NULL DEFAULT NULL,
+  `unbanned_ckey` VARCHAR(32) NULL DEFAULT NULL,
+  `unbanned_round_id` INT(11) UNSIGNED NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_playtime_ban_active` (`ckey`,`role`,`unbanned_datetime`,`target_playtime`),
+  KEY `idx_playtime_ban_count` (`bantime`,`a_ckey`,`applies_to_admins`,`unbanned_datetime`,`target_playtime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `citation`
 --
 DROP TABLE IF EXISTS `citation`;
@@ -344,6 +380,8 @@ CREATE TABLE `messages` (
   `expire_timestamp` datetime DEFAULT NULL,
   `severity` enum('high','medium','minor','none') DEFAULT NULL,
   `playtime` int(11) unsigned NULL DEFAULT NULL,
+  `expire_playtime` int(11) unsigned NULL DEFAULT NULL,
+  `expire_playtime_type` varchar(32) NULL DEFAULT NULL,
   `lasteditor` varchar(32) DEFAULT NULL,
   `edits` text,
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
