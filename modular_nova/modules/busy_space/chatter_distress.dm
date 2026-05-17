@@ -1,0 +1,50 @@
+/datum/atc_chatter/emerg/squak()
+	//mayday call
+	switch(phase)
+		if(1)
+			var/problem = pick("We have hull breaches on multiple decks","We have unknown hostile life forms on board","Our primary drive is failing","We have [pick("asteroids","space debris")] impacting the hull","We're experiencing a total loss of engine power","We have hostile ships closing fast","There's smoke [pick("in the cockpit","on the bridge")]","We have unidentified boarders","Our reaction control system is malfunctioning and we're losing stability","Our life support [pick("is failing","has failed")]")
+			say_line("+[pick("Mayday, mayday, mayday!","Mayday, mayday!","Mayday! Mayday!")]+ [combined_first_name], declaring an emergency! [problem]!", "vessel")
+			next_line()
+		if(2)
+			say_line("[combined_first_name], [callname]. Switch to emergency responder channel [SSatc.ertchannel].", "control")
+			next_line()
+		else
+			say_line("[callname], [combined_first_name] switching now.", "vessel")
+			finish()
+
+/datum/atc_chatter/distress
+	var/state = null
+
+/datum/atc_chatter/distress/squak()
+	//Ship event: distress call, under attack
+	if(!state)
+		state = pick(66;"calm",34;"panic")
+	switch(state)
+		if("calm")
+			switch(phase)
+				if(1)
+					say_line("Nova Sector Defense Control, [combined_first_name].", "vessel")
+					next_line()
+				if(2)
+					say_line("[combined_first_name], Nova Sector Defense Control.", "control")
+					next_line()
+				if(3)
+					say_line("Another vessel in our area is moving [pick("aggressively","suspiciously","erratically","unpredictably","with clear hostile intent")], please advise? Forwarding sensor data now.", "vessel")
+					next_line()
+				if(4)
+					say_line("[combined_first_name], Nova Sector Defense Control copies. Sensor data matches logged profile for [secondprefix] |[secondshipname]|. SDF units are en route to your location.", "control")
+					next_line()
+				else
+					say_line("[pick("Appreciated","Copy that","Understood")], Control. Switching to [SSatc.sdfchannel] to coordinate.", "vessel")
+					finish()
+		if("panic")
+			switch(phase)
+				if(1)
+					say_line("+Mayday, mayday, mayday!+ This is [combined_first_name] declaring an emergency! We are under attack! Requesting immediate assistance!", "vessel")
+					next_line()
+				if(2)
+					say_line("[combined_first_name], Nova Sector Defense Control. SDF is en route, contact on [SSatc.sdfchannel].", "control")
+					next_line()
+				else
+					say_line("[pick("Copy that","Understood")] Nova Sector Defense Control, switching now!", "vessel")
+					finish()

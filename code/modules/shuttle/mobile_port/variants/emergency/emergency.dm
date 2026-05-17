@@ -232,6 +232,7 @@
 				launch_status = ENDGAME_LAUNCHED
 				bolt_all_doors() // NOVA EDIT ADDITION
 				setTimer(SSshuttle.emergency_escape_time * engine_coeff)
+				SSatc.shift_ending(FALSE) // NOVA EDIT ADDITION
 				priority_announce(
 					text = "The emergency shuttle has left the station. Estimate [timeLeft(60 SECONDS)] minutes until the shuttle docks at [command_name()].",
 					title = "Emergency Shuttle Departure",
