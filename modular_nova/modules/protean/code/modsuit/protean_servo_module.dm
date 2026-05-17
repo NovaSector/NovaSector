@@ -1,0 +1,202 @@
+///////// Protean servo module ////////
+// Module meant to give temporary passive buffs to wearer, gives three options with different effects and shared cooldowns.
+
+/obj/item/mod/module/protean_servo
+	name = "protean MOD servo module"
+	desc = "A module made for use in protean MOD suits that adds new subroutines while folded. Comes with three modes, each partially takes over MOD suit's motor functions to enhance the wearer's general movement, performing medical duties or construction tasks. \
+		Due to high computing power demand, protean can only use this module while worn by someone else."
+	icon_state = "no_baton"
+	complexity = 0
+	use_energy_cost = DEFAULT_CHARGE_DRAIN
+	module_type = MODULE_TOGGLE
+	removable = FALSE
+
+	// Abilities granted to Protean by activating the module
+	var/datum/action/cooldown/protean_servo/movement/servo_movement = new /datum/action/cooldown/protean_servo/movement
+	var/datum/action/cooldown/protean_servo/medical/servo_medical = new /datum/action/cooldown/protean_servo/medical
+	var/datum/action/cooldown/protean_servo/engineering/servo_engineering = new /datum/action/cooldown/protean_servo/engineering
+
+/obj/item/mod/module/protean_servo/on_activation()
+	. = ..()
+
+	var/obj/item/mod/core/protean/protean_core = mod.core
+	var/mob/living/carbon/human/protean_in_suit = protean_core?.linked_protean
+	if(isnull(protean_in_suit))
+		deactivate()
+		return
+
+	if(protean_in_suit == mod.wearer)
+		to_chat(mod.wearer, span_warning("[src] needs someone else as the wearer, it can't be used on a protean."))
+		deactivate()
+		return
+	playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
+	servo_movement.Grant(protean_in_suit)
+	servo_medical.Grant(protean_in_suit)
+	servo_engineering.Grant(protean_in_suit)
+	to_chat(protean_in_suit, span_notice("Servo subroutines activated. Enhancement modes are now available."))
+	to_chat(mod.wearer, span_notice("You feel the suit's servos	whir to life."))
+
+/obj/item/mod/module/protean_servo/on_deactivation(display_message = TRUE, deleting = FALSE)
+	. = ..()
+	var/obj/item/mod/core/protean/protean_core = mod.core
+	var/mob/living/carbon/human/protean_in_suit = protean_core?.linked_protean
+
+	servo_movement.Remove(protean_in_suit)
+	servo_medical.Remove(protean_in_suit)
+	servo_engineering.Remove(protean_in_suit)
+
+	mod.wearer.remove_status_effect(/datum/status_effect/protean_servo_movement)
+	mod.wearer.remove_status_effect(/datum/status_effect/protean_servo_medical)
+	mod.wearer.remove_status_effect(/datum/status_effect/protean_servo_engineer)
+
+	if(display_message)
+		playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
+		to_chat(protean_in_suit, span_notice("Servo subroutines deactivated."))
+		to_chat(mod.wearer, span_notice("The suit's servos wind down."))
+
+//// Protean servo module: Abilities ////
+
+/datum/action/cooldown/protean_servo
+	background_icon_state = "bg_mod"
+	cooldown_time = 60 SECONDS
+	cooldown_rounding = 1
+	shared_cooldown = MOB_SHARED_COOLDOWN_1
+	text_cooldown = TRUE
+
+/datum/action/cooldown/protean_servo/movement
+	name = "Enhance movement"
+	desc = "Aids your wearer's movement for few seconds but restrains their hands and makes them easier to get grabbed"
+	button_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon_state = "bci_electricity"
+
+/datum/action/cooldown/protean_servo/movement/Activate()
+	var/mob/living/carbon/protean = owner
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(protean)
+	if(isnull(suit))
+		return
+	var/mob/living/carbon/wearer = suit.wearer
+
+	wearer.apply_status_effect(/datum/status_effect/protean_servo_movement)
+	wearer.visible_message(span_warning("[protean] speeds up [wearer]'s movement!"))
+	StartCooldown()
+
+/datum/action/cooldown/protean_servo/medical
+	name = "Enhance medical actions"
+	desc = "Aids in your wearer's surgeries, medicine applications and carrying patients for moderate amount of time."
+	button_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon_state = "bci_blood"
+
+/datum/action/cooldown/protean_servo/medical/Activate()
+	var/mob/living/carbon/protean = owner
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(protean)
+	if(isnull(suit))
+		return
+	var/mob/living/carbon/wearer = suit.wearer
+
+	wearer.apply_status_effect(/datum/status_effect/protean_servo_medical)
+	wearer.visible_message(span_warning("[protean] assists in [wearer]'s medical actions!"))
+	StartCooldown()
+
+/datum/action/cooldown/protean_servo/engineering
+	name = "Enhance building"
+	desc = "Aids in your wearer's construction efforts and broader actions for moderate amount of time."
+	button_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon_state = "bci_repair"
+
+/datum/action/cooldown/protean_servo/engineering/Activate()
+	var/mob/living/carbon/protean = owner
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(protean)
+	if(isnull(suit))
+		return
+	var/mob/living/carbon/wearer = suit.wearer
+
+	wearer.apply_status_effect(/datum/status_effect/protean_servo_engineer)
+	wearer.visible_message(span_warning("[protean] assists in [wearer]'s construction tasks!"))
+	StartCooldown()
+
+//// Protean servo module: Status Effects ////
+
+/atom/movable/screen/alert/status_effect/protean_servo_movement
+	name = "Faster but clumsy"
+	desc = "Your MOD is making you faster but also easier to grab and unable to use hands."
+	icon = 'icons/mob/actions/actions_items.dmi'
+	icon_state = "bci_electricity"
+
+/datum/status_effect/protean_servo_movement
+	id = "protean_servo_movement"
+	duration = 7 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/protean_servo_movement
+
+/datum/status_effect/protean_servo_movement/on_apply()
+	. = ..()
+	owner.add_movespeed_modifier(/datum/movespeed_modifier/protean_servo/movement)
+	for(var/obj/item/thing in owner.held_items)
+		ADD_TRAIT(thing, TRAIT_NODROP, PROTEAN_SERVO_TRAIT)
+		RegisterSignals(thing, list(COMSIG_ITEM_DROPPED, COMSIG_MOVABLE_MOVED), PROC_REF(clear_servo_trait))
+	owner.add_traits(list(TRAIT_RESTRAINED), PROTEAN_SERVO_TRAIT)
+
+/datum/status_effect/protean_servo_movement/on_remove()
+	. = ..()
+	owner.remove_movespeed_modifier(/datum/movespeed_modifier/protean_servo/movement)
+	owner.remove_traits(list(TRAIT_RESTRAINED), PROTEAN_SERVO_TRAIT)
+	for(var/obj/item/thing in owner.held_items)
+		clear_servo_trait(thing)
+	owner.visible_message(span_warning("[owner]'s movement return to normal as protean module runs out of power"))
+
+/datum/status_effect/protean_servo_movement/proc/clear_servo_trait(obj/item/thing, ...)
+	SIGNAL_HANDLER
+	REMOVE_TRAIT(thing, TRAIT_NODROP, PROTEAN_SERVO_TRAIT)
+	UnregisterSignal(thing, list(COMSIG_ITEM_DROPPED, COMSIG_MOVABLE_MOVED))
+
+/datum/movespeed_modifier/protean_servo/movement
+	multiplicative_slowdown = -0.4
+	blacklisted_movetypes = (FLYING|FLOATING)
+
+// Medical option
+/atom/movable/screen/alert/status_effect/protean_servo_medical
+	name = "Helping hand"
+	desc = "Your MOD suit is guiding your hands to speed up surgery, applying medication or carrying patients."
+	icon = 'icons/mob/actions/actions_items.dmi'
+	icon_state = "bci_blood"
+
+/datum/status_effect/protean_servo_medical
+	id = "protean_servo_medical"
+	duration = 60 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/protean_servo_medical
+
+/datum/status_effect/protean_servo_medical/on_apply()
+	. = ..()
+	owner.add_surgery_speed_mod("protean_servo_medical", 4) // 4x faster surgery
+	owner.add_traits(list(TRAIT_QUICKER_CARRY, TRAIT_FASTMED), PROTEAN_SERVO_TRAIT)
+
+/datum/status_effect/protean_servo_medical/on_remove()
+	. = ..()
+	LAZYREMOVE(owner.mob_surgery_speed_mods, "protean_servo_medical")
+	owner.remove_traits(list(TRAIT_QUICKER_CARRY, TRAIT_FASTMED), PROTEAN_SERVO_TRAIT)
+	owner.visible_message(span_warning("[owner]'s movement return to normal as protean module runs out of power"))
+
+// Engineering option
+/atom/movable/screen/alert/status_effect/protean_servo_engineer
+	name = "Adaptable grip"
+	desc = "Your MOD suit's gloves are adapting their shape to better handle construction and item usage."
+	icon = 'icons/mob/actions/actions_items.dmi'
+	icon_state = "bci_repair"
+
+/datum/status_effect/protean_servo_engineer
+	id = "protean_servo_engineer"
+	duration = 60 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/protean_servo_engineer
+
+/datum/status_effect/protean_servo_engineer/on_apply()
+	. = ..()
+	owner.add_actionspeed_modifier(/datum/actionspeed_modifier/protean_servo_engineer)
+	owner.add_traits(list(TRAIT_QUICK_BUILD), PROTEAN_SERVO_TRAIT)
+
+/datum/status_effect/protean_servo_engineer/on_remove()
+	. = ..()
+	owner.remove_actionspeed_modifier(/datum/actionspeed_modifier/protean_servo_engineer)
+	owner.remove_traits(list(TRAIT_QUICK_BUILD), PROTEAN_SERVO_TRAIT)
+	owner.visible_message(span_warning("[owner]'s movement return to normal as protean module runs out of power"))
+
+/datum/actionspeed_modifier/protean_servo_engineer
+	multiplicative_slowdown = -0.35

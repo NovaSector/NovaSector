@@ -1,0 +1,391 @@
+#define TRANSFORM_TRAITS list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTHEAT, TRAIT_RESISTCOLD, TRAIT_XRAY_HEARING)
+#define SUIT_TRANSFORMATION_DURATION (1.2 SECONDS)
+
+/**
+ * HANDLES ALL OF PROTEAN EXISTENCE CODE.
+ * Communication chain:
+ * Brain > Refactory > Modsuit Core > Modsuit
+ * Brain > Orchestrator
+ * Brain > Murder every other organ you try to shove in this thing.
+ */
+
+/obj/item/organ/brain/protean
+	name = "protean core"
+	desc = "An advanced positronic brain, typically found in the core of a protean."
+	icon = PROTEAN_ORGAN_SPRITE
+	icon_state = "posi1"
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_ROBOTIC | ORGAN_NANOMACHINE
+	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
+	/// Whether or not the protean is stuck in their suit or not.
+	var/dead = FALSE
+	/// Timer ID for the revive timer, stored so it can be cleaned up on Destroy()
+	var/revive_timer_id
+	/// Timer ID for the emergency retreat timer
+	var/retreat_timer_id
+	/// Cached limb data for regeneration. Maps body_zone → cached bodypart instance.
+	VAR_PROTECTED/list/limb_cache
+	COOLDOWN_DECLARE(message_cooldown)
+	COOLDOWN_DECLARE(refactory_cooldown)
+	COOLDOWN_DECLARE(orchestrator_cooldown)
+
+/obj/item/organ/brain/protean/Destroy(force)
+	deltimer(revive_timer_id)
+	deltimer(retreat_timer_id)
+	return ..()
+
+/obj/item/organ/brain/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
+	. = ..()
+	if(!isprotean(receiver))
+		addtimer(CALLBACK(src, PROC_REF(reject_from_body), receiver), 1 SECONDS)
+		return
+	receiver.SetStun(0)
+	RegisterSignal(receiver, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
+	RegisterSignal(receiver, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
+	RegisterSignal(receiver, COMSIG_CARBON_ATTACH_LIMB, PROC_REF(on_limb_attached))
+	RegisterSignal(receiver, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(block_damage_while_in_suit))
+	RegisterSignal(receiver, COMSIG_LIVING_DNR, PROC_REF(on_owner_dnr))
+	cache_limbs(receiver)
+	// If the brain was ejected mid-death and is now being reinserted into an already-dead
+	// protean, death() has already fired without us listening — trigger retreat manually.
+	if(receiver.stat == DEAD && !dead)
+		retreat_timer_id = addtimer(CALLBACK(src, PROC_REF(emergency_retreat)), 0, TIMER_STOPPABLE)
+
+/obj/item/organ/brain/protean/on_mob_remove(mob/living/carbon/brain_owner, special, movement_flags)
+	. = ..()
+	if(isprotean(brain_owner) && !QDELING(brain_owner))
+		brain_owner.Stun(INFINITY, TRUE)
+	UnregisterSignal(brain_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED, COMSIG_CARBON_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_LIVING_DNR))
+
+/// Zeros out incoming (non-forced) damage whenever the protean is retracted inside their suit.
+/obj/item/organ/brain/protean/proc/block_damage_while_in_suit(mob/living/source, list/damage_mods)
+	SIGNAL_HANDLER
+	if(istype(source.loc, /obj/item/mod/control/pre_equipped/protean))
+		damage_mods += 0
+
+/// When the owner opts into DNR, stop the suit's distress beacon — no one is coming back.
+/obj/item/organ/brain/protean/proc/on_owner_dnr(mob/living/source)
+	SIGNAL_HANDLER
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(source)
+	suit?.set_distress_signal(FALSE)
+
+/// Rejects the protean brain from a non-protean body, ejecting it to the ground.
+/obj/item/organ/brain/protean/proc/reject_from_body(mob/living/carbon/body)
+	if(isnull(owner) || owner != body)
+		return
+	Remove(body)
+	forceMove(get_turf(body))
+	to_chat(body, span_danger("The nanomachine core is incompatible with your body!"))
+	balloon_alert_to_viewers("rejected!", vision_distance = 1)
+
+/// Visual vars to cache and restore when regrowing limbs.
+/obj/item/organ/brain/protean/var/static/list/cached_visual_vars = list(
+	"icon_static",
+	"icon_greyscale",
+	"limb_id",
+	"current_style",
+	"is_dimorphic",
+	"should_draw_greyscale",
+)
+
+/// Snapshots all current limb types and visuals into the cache.
+/obj/item/organ/brain/protean/proc/cache_limbs(mob/living/carbon/target)
+	LAZYINITLIST(limb_cache)
+	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
+		if(IS_STUMP(limb))
+			continue
+		limb_cache[limb.body_zone] = snapshot_limb(limb)
+
+/// Updates the cache when a non-stump limb is attached.
+/obj/item/organ/brain/protean/proc/on_limb_attached(mob/living/carbon/source, obj/item/bodypart/new_limb, special)
+	SIGNAL_HANDLER
+	if(IS_STUMP(new_limb))
+		return
+	LAZYINITLIST(limb_cache)
+	limb_cache[new_limb.body_zone] = snapshot_limb(new_limb)
+
+/// Captures limb type and visual properties.
+/obj/item/organ/brain/protean/proc/snapshot_limb(obj/item/bodypart/limb)
+	var/list/data = list("type" = limb.type)
+	for(var/visual_var in cached_visual_vars)
+		data[visual_var] = limb.vars[visual_var]
+	return data
+
+/// Intercepts direct death() calls (e.g. chasms, lava) that bypass the normal HARD_CRIT check in on_life.
+/// Schedules retreat for after death() and any caller code finishes executing.
+/obj/item/organ/brain/protean/proc/on_owner_death(mob/living/source, gibbed)
+	SIGNAL_HANDLER
+
+	if(dead)
+		return
+	// Schedule for next tick so death() and the caller (chasm, lava, etc.) finish cleanly first
+	retreat_timer_id = addtimer(CALLBACK(src, PROC_REF(emergency_retreat)), 0, TIMER_STOPPABLE)
+
+/// Moves the protean into their suit after death. Mob stays DEAD until repaired
+/obj/item/organ/brain/protean/proc/emergency_retreat()
+	set waitfor = FALSE
+	if(dead)
+		return
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
+	if(!suit || owner.loc == suit)
+		return
+	dead = TRUE
+	// Move into suit FIRST — this exits chasm_storage, which unregisters
+	// COMSIG_LIVING_REVIVE so any later revive won't trigger chasm auto-eject
+	var/atom/current_loc = owner.loc
+	owner.visible_message(span_warning("[owner] retreats into [suit]!"))
+	owner.extinguish_mob()
+	owner.invisibility = 101
+	new /obj/effect/temp_visual/protean_to_suit(current_loc, owner.dir)
+	owner.add_traits(TRANSFORM_TRAITS, PROTEAN_TRAIT)
+	owner.remove_status_effect(/datum/status_effect/protean_low_power_mode/low_power)
+	if(HAS_TRAIT(suit, TRAIT_NODROP))
+		REMOVE_TRAIT(suit, TRAIT_NODROP, "protean")
+	owner.transferItemToLoc(suit, current_loc, force = TRUE)
+	owner.forceMove(suit)
+	if(!HAS_TRAIT(owner, TRAIT_DNR) && !HAS_TRAIT(owner, TRAIT_SUICIDED))
+		suit.set_distress_signal(TRUE)
+	sleep(SUIT_TRANSFORMATION_DURATION)
+	owner.invisibility = initial(owner.invisibility)
+	if(IS_CHANGELING(owner))
+		to_chat(owner, span_red("Something anomalous surges through your nanomass, pulling you back together..."))
+	else
+		qdel(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
+		to_chat(owner, span_red("Your fragile refactory withers away with your mass reduced to scraps. Someone will have to help you."))
+
+/obj/item/organ/brain/protean/on_life(seconds_per_tick, times_fired)
+	. = ..()
+	if(dead)
+		return
+	handle_refactory(owner.get_organ_slot(ORGAN_SLOT_STOMACH))
+	handle_orchestrator(owner.get_organ_slot(ORGAN_SLOT_HEART))
+	if(owner.stat >= HARD_CRIT && !dead)
+		// Retreat into the suit at HARD_CRIT before the body takes enough damage to
+		// dismember the chest and spill the core. Fires the standard death flow so
+		// polling systems (tumor, megafauna, etc.) register the defeat normally.
+		owner.death()
+
+/// Checks if the refactory organ is present and applies degradation damage if missing.
+/obj/item/organ/brain/protean/proc/handle_refactory(obj/item/organ)
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
+	if(owner.loc == suit)
+		return
+	if(isnull(organ) || !istype(organ, /obj/item/organ/stomach/protean))
+		owner.adjust_brute_loss(3, forced = TRUE)
+		if(COOLDOWN_FINISHED(src, refactory_cooldown))
+			to_chat(owner, span_warning("Your mass is slowly degrading without your refactory!"))
+			COOLDOWN_START(src, refactory_cooldown, 30 SECONDS)
+
+/// Checks if the orchestrator organ is present and applies movement penalties if missing.
+/obj/item/organ/brain/protean/proc/handle_orchestrator(obj/item/organ)
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
+	if(owner.loc == suit)
+		return
+	if(!COOLDOWN_FINISHED(src, orchestrator_cooldown))
+		return
+
+	if(isnull(organ) || !istype(organ, /obj/item/organ/heart/protean))
+		owner.KnockToFloor(TRUE, TRUE, 1 SECONDS)
+		owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown, multiplicative_slowdown = 2)
+		to_chat(owner, span_warning("You're struggling to walk without your orchestrator!"))
+	else
+		owner.remove_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown)
+
+	COOLDOWN_START(src, orchestrator_cooldown, 30 SECONDS)
+
+/datum/movespeed_modifier/protean_slowdown
+	variable = TRUE
+
+/// Moves the protean into their modsuit, playing visuals and applying transform traits.
+/obj/item/organ/brain/protean/proc/go_into_suit(forced)
+	set waitfor = FALSE
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
+	if(!suit || owner.loc == suit)
+		return
+	if(!forced)
+		if(!do_after(owner, 5 SECONDS))
+			return
+	owner.visible_message(span_warning("[owner] retreats into [suit]!"))
+	owner.extinguish_mob()
+	owner.invisibility = 101
+	new /obj/effect/temp_visual/protean_to_suit(owner.loc, owner.dir)
+	owner.Stun(INFINITY, TRUE)
+	owner.add_traits(TRANSFORM_TRAITS, PROTEAN_TRAIT)
+	owner.remove_status_effect(/datum/status_effect/protean_low_power_mode/low_power)
+	suit.drop_suit()
+	owner.forceMove(suit)
+	sleep(SUIT_TRANSFORMATION_DURATION)
+	owner.invisibility = initial(owner.invisibility)
+
+/// When the protean moves into or out of the suit, registers/clears suit tracking signals.
+/obj/item/organ/brain/protean/proc/on_owner_moved(mob/living/source, atom/old_loc, dir, forced, list/old_locs)
+	SIGNAL_HANDLER
+	if(istype(source.loc, /obj/item/mod/control/pre_equipped/protean))
+		RegisterSignal(source.loc, COMSIG_MOVABLE_MOVED, PROC_REF(on_suit_moved))
+	if(istype(old_loc, /obj/item/mod/control/pre_equipped/protean))
+		UnregisterSignal(old_loc, COMSIG_MOVABLE_MOVED)
+
+/// Keeps the protean's view glued to the suit. When the suit is inside a mob we
+/// set eye = suit so BYOND follows the carrier through inventory naturally; when
+/// it lands on a turf we pin eye to that turf so set_eye can't early-return and
+/// leave the camera stuck on the previous carrier.
+/obj/item/organ/brain/protean/proc/on_suit_moved(obj/item/source, atom/old_loc, dir, forced, list/old_locs)
+	SIGNAL_HANDLER
+	if(isnull(owner?.client))
+		return
+	if(isturf(source.loc))
+		owner.reset_perspective(source.loc)
+	else
+		owner.reset_perspective(source)
+
+/// Moves the protean out of their modsuit back into the world.
+/obj/item/organ/brain/protean/proc/leave_modsuit()
+	set waitfor = FALSE
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
+	if(isnull(suit))
+		return
+	if(dead)
+		to_chat(owner, span_warning("Your mass is destroyed. You are unable to leave."))
+		return
+	if(!do_after(owner, 5 SECONDS, suit, IGNORE_INCAPACITATED))
+		return
+	var/mob/living/carbon/mob = suit.loc
+	if(istype(mob))
+		REMOVE_TRAIT(suit, TRAIT_NODROP, "protean")
+		mob.dropItemToGround(suit, TRUE)
+	var/datum/storage/storage = suit.loc.atom_storage
+	if(istype(storage))
+		storage.remove_single(null, suit, get_turf(suit), TRUE)
+	suit.invisibility = 101
+	new /obj/effect/temp_visual/protean_from_suit(suit.loc, owner.dir)
+	sleep(SUIT_TRANSFORMATION_DURATION)
+	suit.drop_suit()
+	owner.forceMove(suit.loc)
+	if(owner.get_item_by_slot(ITEM_SLOT_BACK))
+		owner.dropItemToGround(owner.get_item_by_slot(ITEM_SLOT_BACK), TRUE, TRUE, TRUE)
+	owner.equip_to_slot_if_possible(suit, ITEM_SLOT_BACK, disable_warning = TRUE)
+	suit.invisibility = initial(suit.invisibility)
+	owner.SetStun(0)
+	owner.remove_traits(TRANSFORM_TRAITS, PROTEAN_TRAIT)
+	owner.apply_status_effect(/datum/status_effect/protean_low_power_mode/reform)
+	owner.visible_message(span_warning("[owner] reforms from [suit]!"))
+	if(!HAS_TRAIT(suit, TRAIT_NODROP))
+		ADD_TRAIT(suit, TRAIT_NODROP, "protean")
+
+/// Consumes metal to fully heal limbs and restore missing nanomachine organs.
+/obj/item/organ/brain/protean/proc/replace_limbs()
+	var/obj/item/organ/stomach/protean/stomach = owner.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/eyes/synth/protean/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/tongue/cybernetic/protean/tongue = owner.get_organ_slot(ORGAN_SLOT_TONGUE)
+	var/obj/item/organ/ears/cybernetic/protean/ears = owner.get_organ_slot(ORGAN_SLOT_EARS)
+	var/obj/item/organ/liver/synth/protean/liver = owner.get_organ_slot(ORGAN_SLOT_LIVER)
+
+	if(stomach.metal <= PROTEAN_STOMACH_FULL * 0.6 && istype(stomach))
+		to_chat(owner, span_warning("Not enough metal to heal body!"))
+		return
+	if(!istype(owner.loc, /obj/item/mod/control))
+		to_chat(owner, span_warning("Not in the open. You must be inside your suit!"))
+		return
+	if(!do_after(owner, 30 SECONDS, get_protean_modsuit(owner), IGNORE_INCAPACITATED))
+		return
+
+	stomach.metal = clamp(stomach.metal - (PROTEAN_STOMACH_FULL * 0.6), 0, 10)
+	// Heal existing limbs first
+	for(var/obj/item/bodypart/existing as anything in owner.bodyparts)
+		if(IS_STUMP(existing))
+			continue
+		existing.heal_damage(existing.brute_dam, existing.burn_dam)
+	// Regrow missing limbs from the cache
+	for(var/zone in limb_cache)
+		if(owner.get_bodypart(zone))
+			continue
+		var/list/cached = limb_cache[zone]
+		var/limb_type = cached["type"]
+		if(!ispath(limb_type))
+			continue
+		var/obj/item/bodypart/new_limb = new limb_type()
+		for(var/visual_var in cached_visual_vars)
+			new_limb.vars[visual_var] = cached[visual_var]
+		new_limb.try_attach_limb(owner, special = TRUE)
+		new_limb.update_limb(is_creating = TRUE)
+	owner.update_body(TRUE)
+	owner.update_body_parts()
+	if(isnull(eyes))
+		eyes = new /obj/item/organ/eyes/synth/protean
+		eyes.on_bodypart_insert()
+		eyes.Insert(owner, special = TRUE)
+	else if(eyes.organ_flags & ORGAN_NANOMACHINE)
+		eyes.set_organ_damage(0)
+
+	if(isnull(tongue))
+		tongue = new /obj/item/organ/tongue/cybernetic/protean
+		tongue.on_bodypart_insert()
+		tongue.Insert(owner, special = TRUE)
+	else if(tongue.organ_flags & ORGAN_NANOMACHINE)
+		tongue.set_organ_damage(0)
+
+	if(isnull(ears))
+		ears = new /obj/item/organ/ears/cybernetic/protean
+		ears.on_bodypart_insert()
+		ears.Insert(owner, special = TRUE)
+	else if(ears.organ_flags & ORGAN_NANOMACHINE)
+		ears.set_organ_damage(0)
+
+	if(isnull(liver))
+		liver = new /obj/item/organ/liver/synth/protean
+		liver.on_bodypart_insert()
+		liver.Insert(owner, special = TRUE)
+	else if(liver.organ_flags & ORGAN_NANOMACHINE)
+		liver.set_organ_damage(0)
+
+/// Fully revives the protean from death, restoring their mass.
+/obj/item/organ/brain/protean/proc/revive()
+	dead = FALSE
+	playsound(owner, 'sound/machines/ping.ogg', 30)
+	to_chat(owner, span_warning("You have regained all your mass!"))
+	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(owner)
+	suit?.set_distress_signal(FALSE)
+	// Bring them back from stat = DEAD if they were held in the retreat state.
+	if(owner.stat == DEAD)
+		owner.revive(HEAL_DAMAGE | HEAL_ORGANS, force_grab_ghost = TRUE)
+	owner.fully_heal()
+	// Re-apply stun because fully heal removes it.
+	if(istype(owner.loc, /obj/item/mod/control/pre_equipped/protean))
+		owner.Stun(INFINITY, TRUE)
+
+/// Starts the revive countdown timer, shorter for changelings.
+/obj/item/organ/brain/protean/proc/revive_timer()
+	balloon_alert_to_viewers("repairing")
+	if(IS_CHANGELING(owner))
+		revive_timer_id = addtimer(CALLBACK(src, PROC_REF(revive)), 40 SECONDS, TIMER_STOPPABLE)
+	else
+		revive_timer_id = addtimer(CALLBACK(src, PROC_REF(revive)), 5 MINUTES, TIMER_STOPPABLE)
+
+/obj/effect/temp_visual/protean_to_suit
+	name = "to_suit"
+	icon = PROTEAN_ORGAN_SPRITE
+	icon_state = "to_puddle"
+	duration = SUIT_TRANSFORMATION_DURATION
+
+/obj/effect/temp_visual/protean_from_suit
+	name = "from_suit"
+	icon = PROTEAN_ORGAN_SPRITE
+	icon_state = "from_puddle"
+	duration = SUIT_TRANSFORMATION_DURATION
+
+/obj/item/organ/brain/protean/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	if(owner.stat == DEAD)
+		return
+	switch(severity)
+		if(EMP_HEAVY)
+			to_chat(owner, span_boldwarning("Your core nanites [pick("buzz erratically", "surge chaotically")]!"))
+			owner.set_drugginess_if_lower(40 SECONDS)
+		if(EMP_LIGHT)
+			to_chat(owner, span_warning("Your core nanites feel [pick("fuzzy", "unruly", "sluggish")]."))
+			owner.set_drugginess_if_lower(20 SECONDS)
+
+#undef TRANSFORM_TRAITS
+#undef SUIT_TRANSFORMATION_DURATION

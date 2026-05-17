@@ -45,6 +45,8 @@
 	if(!isnull(prefs))
 		prefs.safe_transfer_prefs_to(avatar)
 	ADD_TRAIT(avatar, TRAIT_CANNOT_CRYSTALIZE, "Bitrunning") // Stops the funny ethereal bug
+	if(isprotean(avatar)) // Protean mechanics (TRAIT_NODEATH, suit retreat) are incompatible with bitrunning ejection
+		avatar.set_species(/datum/species/human)
 	// NOVA EDIT ADDITION END
 	var/outfit_path = generated_domain.forced_outfit || netsuit
 	var/datum/outfit/to_wear = new outfit_path()
