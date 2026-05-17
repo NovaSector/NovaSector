@@ -10,7 +10,7 @@
 #define LASER_POWER_USAGE 7.2 MEGA WATTS
 
 /datum/design/board/self_actualization_device
-	name = "Machine Design (Self-Actualization Device)"
+	name = "Self-Actualization Device Board"
 	desc = "The circuit board for a Self-Actualization Device by Vey-Medical."
 	id = "self_actualization_device"
 	build_path = /obj/item/circuitboard/machine/self_actualization_device
@@ -18,7 +18,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /obj/item/circuitboard/machine/self_actualization_device
-	name = "Self-Actualization Device (Machine Board)"
+	name = "Self-Actualization Device"
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/self_actualization_device
 	req_components = list(/datum/stock_part/micro_laser = 1)

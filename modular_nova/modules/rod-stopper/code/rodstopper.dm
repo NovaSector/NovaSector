@@ -1,5 +1,5 @@
 /obj/item/circuitboard/machine/rodstopper
-	name = "Rodstopper (Machine Board)"
+	name = "Rodstopper"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/rodstopper
 	req_components = list(

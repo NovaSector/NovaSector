@@ -101,15 +101,15 @@
 	needs_anchored = TRUE
 
 /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_researcher
-	name = "Xenoarch Researcher (Machine Board)"
+	name = "Xenoarch Researcher"
 	build_path = /obj/machinery/xenoarch/researcher
 
 /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_scanner
-	name = "Xenoarch Scanner (Machine Board)"
+	name = "Xenoarch Scanner"
 	build_path = /obj/machinery/xenoarch/scanner
 
 /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_digger
-	name = "Xenoarch Digger (Machine Board)"
+	name = "Xenoarch Digger"
 	build_path = /obj/machinery/xenoarch/digger
 
 /obj/item/paper/fluff/xenoarch_guide
@@ -210,7 +210,7 @@
 	desc = "A set of items that contain chameleon technology allowing you to disguise as pretty much anything on the station, and more! \
 			This one seems to have some stuff missing, and clearly put in a box smaller than what it should be."
 
-/obj/item/storage/box/incomplete_chameleon/PopulateContents() 
+/obj/item/storage/box/incomplete_chameleon/PopulateContents()
 	new /obj/item/clothing/under/chameleon(src)
 	new /obj/item/clothing/suit/chameleon(src)
 	new /obj/item/clothing/gloves/chameleon(src)
@@ -225,7 +225,7 @@
 	name = "boxed voskhod replica space suit and helmet"
 	desc = "A sleek, sturdy box used to hold toy- wait, this has the real thing!"
 
-/obj/item/storage/box/fakesyndiesuit/voskhod/PopulateContents() 
+/obj/item/storage/box/fakesyndiesuit/voskhod/PopulateContents()
 	new /obj/item/clothing/suit/space/voskhod(src)
 	new /obj/item/clothing/head/helmet/space/voskhod(src)
 
@@ -257,7 +257,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = null
 
-/// A raptor egg that piggy backs on the watcher podometer and uses a spawn for 
+/// A raptor egg that piggy backs on the watcher podometer and uses a spawn for
 /obj/item/food/egg/watcher/raptor
 	name = "cold raptor egg"
 	desc = "A lonely egg still pulsing with life, somehow untouched by the corruption of the Necropolis."
@@ -288,7 +288,7 @@
 	desc = "An old shuttle construction kit, its contents worn but intact. Inside are faded blueprints and the circuitboards needed to \
 			assemble a basic shuttle. The instructions on the side of the box are unreadable though."
 
-/obj/item/storage/box/shuttle_construction_kit/PopulateContents() 
+/obj/item/storage/box/shuttle_construction_kit/PopulateContents()
 	new /obj/item/circuitboard/computer/shuttle/docker(src)
 	new	/obj/item/circuitboard/computer/shuttle/flight_control(src)
 	new	/obj/item/circuitboard/machine/engine/propulsion(src)
@@ -296,7 +296,7 @@
 	new	/obj/item/shuttle_blueprints(src)
 	new	/obj/item/stack/rods/shuttle/fifty(src)
 
-// This is just a cowboy hat (with minimal armor) that its sole function is to perfectly block a hit to the head and then flip out of the head of the user and away 3-5 tiles. It has a few seconds of cooldown from such, so even if players find a way to quickly reattach it, it wont be a sure protection. 
+// This is just a cowboy hat (with minimal armor) that its sole function is to perfectly block a hit to the head and then flip out of the head of the user and away 3-5 tiles. It has a few seconds of cooldown from such, so even if players find a way to quickly reattach it, it wont be a sure protection.
 /obj/item/clothing/head/cowboy/bounty/deadman
 	name = "dead man's brim"
 	desc = "A wide-brimmed black hat with a polished golden band. It sits just loose enough to be thrown clear at the first sign of trouble, taking the hit with it."

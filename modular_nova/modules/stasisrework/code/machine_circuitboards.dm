@@ -1,5 +1,5 @@
 /obj/item/circuitboard/machine/stasissleeper
-	name = "\improper Lifeform Stasis Unit (Machine Board)"
+	name = "Lifeform Stasis Unit"
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/stasissleeper
 	req_components = list(

@@ -1,5 +1,5 @@
 /obj/item/circuitboard/machine/rna_recombinator
-	name = "RNA Recombinator (Machine Board)"
+	name = "RNA Recombinator"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/rnd/rna_recombinator
 	req_components = list(
@@ -51,7 +51,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/board/rna_recombinator
-	name = "Machine Design (RNA Recombinator)"
+	name = "RNA Recombinator Board"
 	desc = "The MRNA Recombinator is one of Nanotrasens most advanced technologies and allows the exact recombination of virus RNA."
 	id = "rna_recombinator"
 	build_path = /obj/item/circuitboard/machine/rna_recombinator
