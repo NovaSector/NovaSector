@@ -59,6 +59,9 @@
 
 /// If they have the DNR trait
 #define DNR_HUD "27"
+
+/// Energy shield charge level
+#define SHIELD_HUD "28"
 // NOVA EDIT ADDITION END
 
 //by default everything in the hud_list of an atom is an image
