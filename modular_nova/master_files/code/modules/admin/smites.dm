@@ -53,7 +53,7 @@
 		/obj/item/clothing/neck/maid_neck_cover = ITEM_SLOT_NECK,
 		/obj/item/clothing/gloves/maid_arm_covers = ITEM_SLOT_GLOVES,
 		/obj/item/clothing/under/costume/maid = ITEM_SLOT_ICLOTHING,
-    )
+	)
 	var/mob/living/carbon/human/shamed = target
 	for(var/path, slot in items)
 		target.dropItemToGround(target.get_item_by_slot(slot))
