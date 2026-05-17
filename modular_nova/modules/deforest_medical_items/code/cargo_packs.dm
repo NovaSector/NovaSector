@@ -29,16 +29,6 @@
 		/obj/item/storage/medkit/combat_surgeon/stocked = 3,
 	)
 
-/datum/supply_pack/medical/kit_technician
-	name = "Heavy Duty Medical Kit Crate - Technician"
-	crate_name = "technician kit crate"
-	desc = "Contains a pink medical technician kit."
-	access = ACCESS_MEDICAL
-	cost = CARGO_CRATE_VALUE * 5.5
-	contains = list(
-		/obj/item/storage/backpack/duffelbag/deforest_paramedic/stocked,
-	)
-
 /datum/supply_pack/medical/kit_surgical
 	name = "Heavy Duty Medical Kit Crate - Surgical"
 	crate_name = "surgical kit crate"
