@@ -1,5 +1,5 @@
 /// Maximimum number of characters that we allow on paper.
-#define MAX_PAPER_LENGTH 5000
+#define MAX_PAPER_LENGTH 10000 // NOVA EDIT CHANGE - ORIGINAL: - #define MAX_PAPER_LENGTH 5000
 /// Maximimum number of characters that we allow in a book, after unfolding and encoding html.
 #define MAX_BOOK_LENGTH (MAX_PAPER_LENGTH * 2)
 /// Max number of stamps that can be applied to the paper in tgui.
