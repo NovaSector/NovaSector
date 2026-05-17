@@ -44,19 +44,20 @@
 	name = "Maid-ification"
 
 /datum/smite/maidification/effect(client/user, mob/living/target)
-    . = ..()
-    if (!iscarbon(target))
-        to_chat(user, span_warning("This must be used on a carbon mob."), confidential = TRUE)
-        return
-    var/list/items = list(
-        /obj/item/clothing/head/costume/maid_headband = ITEM_SLOT_HEAD,
-        /obj/item/clothing/neck/maid_neck_cover = ITEM_SLOT_NECK,
-        /obj/item/clothing/gloves/maid_arm_covers = ITEM_SLOT_GLOVES,
-        /obj/item/clothing/under/costume/maid = ITEM_SLOT_ICLOTHING,
+	. = ..()
+	if (!iscarbon(target))
+		to_chat(user, span_warning("This must be used on a carbon mob."), confidential = TRUE)
+		return
+	var/list/items = list(
+		/obj/item/clothing/head/costume/maid_headband = ITEM_SLOT_HEAD,
+		/obj/item/clothing/neck/maid_neck_cover = ITEM_SLOT_NECK,
+		/obj/item/clothing/gloves/maid_arm_covers = ITEM_SLOT_GLOVES,
+		/obj/item/clothing/under/costume/maid = ITEM_SLOT_ICLOTHING,
     )
-    for(var/path, slot in items)
-        target.dropItemToGround(target.get_item_by_slot(slot))
-        var/obj/item/clothing/new_item = new path
-        if(target.equip_to_slot_or_del(new_item, slot))
-            smite_uparmor(new_item)
-    shamed.visible_message(span_warning("A maid uniform appears on [shamed]!"))
+	var/mob/living/carbon/human/shamed = target
+	for(var/path, slot in items)
+		target.dropItemToGround(target.get_item_by_slot(slot))
+		var/obj/item/clothing/new_item = new path
+		if(target.equip_to_slot_or_del(new_item, slot))
+			smite_uparmor(new_item)
+	shamed.visible_message(span_warning("A maid uniform appears on [shamed]!"))
