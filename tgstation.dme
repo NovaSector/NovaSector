@@ -9429,6 +9429,7 @@
 #include "modular_nova\modules\sec_haul\code\security_clothing\suit.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\under.dm"
 #include "modular_nova\modules\security_designs\code\security_designs.dm"
+#include "modular_nova\modules\security_vouchers\code\sec_vouchers_vendor.dm"
 #include "modular_nova\modules\self_actualization_device\code\self_actualization_device.dm"
 #include "modular_nova\modules\serenitystation\code\areas.dm"
 #include "modular_nova\modules\serenitystation\code\atmosphere.dm"
