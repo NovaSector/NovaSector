@@ -100,7 +100,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /obj/item/blood_filter/alien
-	name = "alien bloodfilter"
+	name = "alien blood filter"
 	desc = "Do aliens have blood to filter? Probably not. Do aliens have subjects whose blood they filter? It's a distinct possibility."
 	icon = 'modular_nova/modules/medical_combitool/icons/surgery_tools.dmi'
 	icon_state = "bloodfilter"
