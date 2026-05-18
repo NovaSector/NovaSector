@@ -13270,6 +13270,10 @@
 	},
 /turf/open/floor/wood,
 /area/station/common/pool/sauna)
+"dBC" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood/tile,
+/area/station/service/lawoffice)
 "dBH" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/airalarm/directional/north,
@@ -83130,10 +83134,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_arcade)
-"wjV" = (
-/obj/structure/table/wood,
-/turf/open/floor/wood/tile,
-/area/station/service/lawoffice)
 "wko" = (
 /obj/structure/sign/warning/cold_temp,
 /turf/closed/wall/r_wall,
@@ -254339,7 +254339,7 @@ qRi
 tsF
 til
 yeZ
-wjV
+dBC
 bCL
 wWZ
 tsF
