@@ -2666,6 +2666,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	heat_protection = CHEST|ARM_LEFT
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	armor_type = /obj/item/clothing/suit/armor/vest/capcarapace::armor_type
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
 
 //Towa's Donor Items
 /obj/item/clothing/head/helmet/donator/stachelm
@@ -2682,6 +2684,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	actions_types = list(/datum/action/item_action/toggle_helmet_light)
 	armor_type = /obj/item/clothing/head/hats/caphat::armor_type
 	resistance_flags = FIRE_PROOF
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 4
 	light_power = 1

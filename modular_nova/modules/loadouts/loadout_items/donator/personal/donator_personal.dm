@@ -1061,6 +1061,16 @@
 	item_path = /obj/item/storage/belt/espatier
 	ckeywhitelist = list("pyriteChimera", "darkinite", "deadmon_wonderland", "nonplayer775", "rilomatic")
 
+/datum/loadout_item/pocket_items/joissuit_skinapplier
+	name = "Java Operated Intelligence Suit Modification Kit 'JOISuit' (Skinapplier)"
+	item_path = /obj/item/mod/skin_applier/joisuit
+	ckeywhitelist = list("hisakaki", "darkinite", "rilomatic")
+
+/datum/loadout_item/pocket_items/joissuit_plates
+	name = "JOISuit Modification Core"
+	item_path = /obj/item/mod/construction/plating/joisuit
+	ckeywhitelist = list("hisakaki", "darkinite", "rilomatic")
+
 /datum/loadout_item/head/stachelm
 	name = "Stachelm"
 	item_path = /obj/item/clothing/head/helmet/donator/stachelm
