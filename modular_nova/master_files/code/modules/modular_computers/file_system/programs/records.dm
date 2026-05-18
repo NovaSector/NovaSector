@@ -1,7 +1,7 @@
 /datum/computer_file/program/records/medical/New()
 	if(!download_access)
 		download_access = list()
-	download_access |= list(ACCESS_ROBOTICS, ACCESS_LAWYER, ACCESS_COMMAND)
+	download_access |= list(ACCESS_ROBOTICS, ACCESS_COMMAND)
 	return ..()
 
 /datum/computer_file/program/records/security/New()
