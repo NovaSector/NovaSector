@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Fastball bluespace grounders should actually have grenades when crafted, and now have enough to fill their case."

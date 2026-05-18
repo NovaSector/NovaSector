@@ -1,0 +1,5 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - qol: "Robotic patches wont be able to OD you anymore."
+  - code_imp: "synth_healing.dm code cleanup"

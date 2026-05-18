@@ -13183,11 +13183,10 @@
 /obj/item/airlock_painter/decal,
 /obj/item/airlock_painter/decal,
 /obj/item/airlock_painter/decal,
-/obj/item/toner/infinite,
-/obj/item/toner/infinite,
-/obj/item/toner/infinite,
-/obj/item/toner/infinite,
-/obj/item/toner/infinite,
+/obj/item/toner,
+/obj/item/toner,
+/obj/item/toner,
+/obj/item/toner,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central/aft)
 "bgt" = (
@@ -20389,12 +20388,13 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
 "bQz" = (
-/obj/effect/spawner/random/entertainment/arcade,
 /obj/machinery/requests_console/directional/north{
 	department = "Tech storage";
 	name = "Tech Storage RD"
 	},
 /obj/effect/turf_decal/tile/green/fourcorners,
+/obj/structure/rack,
+/obj/effect/spawner/random/techstorage/custom_shuttle,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
 "bQA" = (
@@ -32307,6 +32307,9 @@
 	pixel_y = 7
 	},
 /obj/item/radio/intercom/directional/north,
+/obj/item/stamp/centcom{
+	pixel_x = 6
+	},
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "gHR" = (
@@ -33745,6 +33748,9 @@
 /obj/structure/sign/warning/radiation/rad_area/directional/west,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
+	},
+/obj/effect/spawner/random/entertainment/arcade{
+	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)

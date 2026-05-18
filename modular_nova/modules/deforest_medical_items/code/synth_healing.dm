@@ -62,34 +62,7 @@
 	healed_mob.reagents.add_reagent(/datum/reagent/medicine/nanite_slurry, 5)
 	healed_mob.reagents.add_reagent(/datum/reagent/dinitrogen_plasmide, 5)
 
-// Synth repair patch, gives the synth a small amount of healing chems
-/obj/item/reagent_containers/applicator/pill/patch/robotic_patch
-	name = "robotic patch"
-	desc = "A chemical patch for touch-based applications on synthetics."
-	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
-	icon_state = "synth_patch"
-	inhand_icon_state = null
-	possible_transfer_amounts = list()
-	volume = 40
-	self_delay = 3 SECONDS
-
-/obj/item/reagent_containers/applicator/pill/patch/robotic_patch/attack(mob/living/L, mob/user)
-	if(ishuman(L))
-		var/obj/item/bodypart/affecting = L.get_bodypart(check_zone(user.zone_selected))
-		if(!affecting)
-			to_chat(user, span_warning("The limb is missing!"))
-			return
-		if(!IS_ROBOTIC_LIMB(affecting))
-			to_chat(user, span_notice("Robotic patches won't work on an organic limb!"))
-			return
-	return ..()
-
-/obj/item/reagent_containers/applicator/pill/patch/robotic_patch/canconsume(mob/eater, mob/user)
-	if(!iscarbon(eater))
-		return FALSE
-	return TRUE
-
-// The actual STACK of patches
+// Synth repair patch, gives the synth a small amount of healing chems. Stack of 3
 /obj/item/stack/medical/synth_repair
 	name = "robotic repair patches"
 	singular_name = "robotic repair patch piece"
@@ -115,6 +88,9 @@
 	if(isnull(limb))
 		if(!silent)
 			patient.balloon_alert(user, "no [parse_zone(healed_zone)]!")
+		return FALSE
+	if(patient.reagents.has_reagent(/datum/reagent/medicine/nanite_slurry, 2))
+		patient.balloon_alert(user, "patch already applied on patient!")
 		return FALSE
 	if(!IS_ROBOTIC_LIMB(limb))
 		patient.balloon_alert(user, "[limb.plaintext_zone] is not synthetic!")

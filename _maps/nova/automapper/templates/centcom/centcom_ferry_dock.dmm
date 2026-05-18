@@ -473,9 +473,11 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/stamp,
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/item/stamp/granted{
+	pixel_x = 5
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/ferry)
 "Yy" = (
