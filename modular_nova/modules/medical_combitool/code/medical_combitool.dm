@@ -111,6 +111,7 @@
 	desc = "An advanced blood filter obtained through Abductor technology."
 	id = "alien_bloodfilter"
 	build_path = /obj/item/blood_filter/alien
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 					/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 1.5,
 					/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5,
