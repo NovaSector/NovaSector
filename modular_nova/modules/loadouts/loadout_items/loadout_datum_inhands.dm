@@ -119,6 +119,10 @@
 	name = "Saddlebags"
 	item_path = /obj/item/storage/backpack/saddlebags
 
+/datum/loadout_item/inhand/wheelchair
+	name = "Folded Wheelchair"
+	item_path = /obj/item/wheelchair
+
 /datum/loadout_item/inhand/pet
 	abstract_type = /datum/loadout_item/inhand/pet
 
