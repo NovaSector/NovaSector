@@ -542,7 +542,7 @@
 		else
 			target.mind.transfer_to(newstruct, force_key_move = TRUE)
 
-	else if (!target.ckey || isnull(target.mind) || is_banned_from(target.ckey, ROLE_CULTIST))
+	else if (!target.ckey || isnull(target.mind) || is_banned_from(target.ckey, ROLE_CULTIST) || get_playtime_banned_role(target.ckey, ROLE_CULTIST))
 		to_chat(stoner, span_userdanger("Shell imbuement failed!"))
 		to_chat(stoner, span_warning("The soul has already fled its mortal frame. You attempt to bring it back..."))
 		target = SSpolling.poll_ghosts_for_target(

@@ -170,7 +170,7 @@
 	new_borg.notify_ai(AI_NOTIFICATION_NEW_BORG)
 
 	. = new_borg
-	if(new_borg.ckey && is_banned_from(new_borg.ckey, JOB_CYBORG))
+	if(new_borg.ckey && (is_banned_from(new_borg.ckey, JOB_CYBORG) || get_playtime_banned_role(new_borg.ckey, JOB_CYBORG)))
 		INVOKE_ASYNC(new_borg, TYPE_PROC_REF(/mob/living/silicon/robot, replace_banned_cyborg))
 	qdel(src)
 

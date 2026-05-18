@@ -2,19 +2,58 @@ Any time you make a change to the schema files, remember to increment the databa
 
 Make sure to also update `DB_MAJOR_VERSION` and `DB_MINOR_VERSION`, which can be found in `code/__DEFINES/subsystem.dm`.
 
-The latest database version is 5.38 (5.34 for /tg/); The query to update the schema revision table is:
+The latest database version is 5.39 (5.34 for /tg/); The query to update the schema revision table is:
 
 ```sql
-INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 38);
+INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 39);
 ```
 
 or
 
 ```sql
-INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 38);
+INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 39);
 ```
 
 In any query remember to add a prefix to the table names if you use one.
+
+---
+
+Version 5.39, 19 April 2026, by SilverWolves
+adds playtime bans and playtime notes expiration
+
+```sql
+CREATE TABLE `playtime_ban` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `bantime` DATETIME NOT NULL,
+  `server_name` VARCHAR(32) DEFAULT NULL,
+  `server_ip` INT(10) UNSIGNED NOT NULL,
+  `server_port` SMALLINT(5) UNSIGNED NOT NULL,
+  `round_id` INT(11) UNSIGNED NULL,
+  `role` VARCHAR(32) NOT NULL,
+  `required_playtime_type` VARCHAR(32) NOT NULL DEFAULT 'Living',
+  `start_playtime` INT(11) UNSIGNED NOT NULL,
+  `duration` INT(11) UNSIGNED NOT NULL,
+  `target_playtime` INT(11) UNSIGNED NOT NULL,
+  `applies_to_admins` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
+  `reason` VARCHAR(2048) NOT NULL,
+  `ckey` VARCHAR(32) NOT NULL,
+  `a_ckey` VARCHAR(32) NOT NULL,
+  `a_ip` INT(10) UNSIGNED NOT NULL,
+  `a_computerid` VARCHAR(32) NOT NULL,
+  `who` VARCHAR(2048) NOT NULL,
+  `adminwho` VARCHAR(2048) NOT NULL,
+  `unbanned_datetime` DATETIME NULL DEFAULT NULL,
+  `unbanned_ckey` VARCHAR(32) NULL DEFAULT NULL,
+  `unbanned_round_id` INT(11) UNSIGNED NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_playtime_ban_active` (`ckey`,`role`,`unbanned_datetime`,`target_playtime`),
+  KEY `idx_playtime_ban_count` (`bantime`,`a_ckey`,`applies_to_admins`,`unbanned_datetime`,`target_playtime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `messages`
+  ADD COLUMN `expire_playtime` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `playtime`,
+  ADD COLUMN `expire_playtime_type` VARCHAR(32) NULL DEFAULT NULL AFTER `expire_playtime`;
+```
 
 ---
 

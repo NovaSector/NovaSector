@@ -297,7 +297,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 	if(!player.ckey)
 		return FALSE
 
-	return (is_banned_from(player.ckey, list(ROLE_SYNDICATE, jobban_flag || pref_flag)) || QDELETED(player))
+	var/list/roles_to_check = list(ROLE_SYNDICATE, jobban_flag || pref_flag)
+	return (is_banned_from(player.ckey, roles_to_check) || get_playtime_banned_role(player.ckey, roles_to_check) || QDELETED(player))
 
 /**
  * Proc that replaces a player who cannot play a specific antagonist due to being banned via a poll, and alerts the player of their being on the banlist.

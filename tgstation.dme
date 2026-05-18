@@ -3281,6 +3281,7 @@
 #include "code\modules\admin\painting_manager.dm"
 #include "code\modules\admin\permissionedit.dm"
 #include "code\modules\admin\player_panel.dm"
+#include "code\modules\admin\playtime_ban_system.dm"
 #include "code\modules\admin\poll_management.dm"
 #include "code\modules\admin\skill_panel.dm"
 #include "code\modules\admin\sound_emitter.dm"

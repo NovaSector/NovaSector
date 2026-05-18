@@ -855,11 +855,15 @@ GLOBAL_LIST_INIT(slime_extract_auto_activate_reactions, init_slime_auto_activate
 		return ITEM_INTERACT_BLOCKING
 
 	var/job_banned = is_banned_from(user.ckey, ROLE_MIND_TRANSFER)
+	var/playtime_banned = get_playtime_banned_role(user.ckey, ROLE_MIND_TRANSFER)
 	if(QDELETED(src) || QDELETED(switchy_mob) || QDELETED(user))
 		return ITEM_INTERACT_BLOCKING
 
 	if(job_banned)
 		balloon_alert(user, "you're banned!")
+		return ITEM_INTERACT_BLOCKING
+	if(playtime_banned)
+		balloon_alert(user, "more playtime needed!")
 		return ITEM_INTERACT_BLOCKING
 
 	user.do_attack_animation(interacting_with)

@@ -182,6 +182,7 @@ BEGIN
 	UPDATE IGNORE `ban` SET ckey = new_ckey WHERE ckey = old_ckey;
 	UPDATE IGNORE `library` SET ckey = new_ckey WHERE ckey = old_ckey;
 	UPDATE IGNORE `messages` SET targetckey = new_ckey WHERE targetckey= old_ckey;
+	UPDATE IGNORE `playtime_ban` SET ckey = new_ckey WHERE ckey = old_ckey;
 	UPDATE IGNORE `player_rank` SET ckey = new_ckey WHERE ckey = old_ckey;
 	UPDATE IGNORE `role_time` SET ckey = new_ckey WHERE ckey = old_ckey;
 	UPDATE IGNORE `tutorial_completions` SET ckey = new_ckey WHERE ckey = old_ckey;

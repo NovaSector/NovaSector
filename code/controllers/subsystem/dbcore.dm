@@ -317,6 +317,8 @@ SUBSYSTEM_DEF(dbcore)
 				schema_mismatch = 2 //flag admin message about no schema version
 				log_sql("Could not get schema version from database")
 			qdel(query_db_version)
+			ensure_playtime_ban_schema()
+			ensure_playtime_note_schema()
 		else
 			log_sql("Your server failed to establish a connection with the database.")
 	else

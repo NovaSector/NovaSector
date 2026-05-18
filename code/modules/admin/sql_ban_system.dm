@@ -253,6 +253,8 @@
 			<label class='inputlabel radio'>Role
 			<input type='radio' id='role' name='radioban' value='role'[role == "Server" ? "" : " checked"][edit_id ? " disabled" : ""]>
 			<div class='inputbox'></div></label>
+			<br>
+			<input type='submit' name='playtimebanpanel' value='Playtime'[edit_id ? " disabled" : ""]>
 		</div>
 		<div class='column right'>
 			Severity
@@ -814,6 +816,7 @@
 				output += "<br><a href='byond://?_src_=holder;[HrefToken()];unbanlog=[ban_id]'>Edit log</a>"
 			output += "</div></div></div>"
 		qdel(query_unban_search_bans)
+		output += playtime_unban_panel_entries(player_key, admin_key, player_ip, player_cid)
 		output += "</div>"
 	unban_panel.set_content(jointext(output, ""))
 	unban_panel.open()

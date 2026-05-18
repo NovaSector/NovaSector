@@ -138,6 +138,12 @@
 
 			continue
 
+		var/playtime_ban_remaining = get_playtime_ban_remaining(user.client?.ckey, job.title)
+		if (playtime_ban_remaining)
+			job_required_experience[job.title] = get_playtime_ban_required_experience(user.client?.ckey, job.title)
+
+			continue
+
 		if (!job.player_old_enough(user.client))
 			job_days_left[job.title] = job.available_in_days(user.client)
 

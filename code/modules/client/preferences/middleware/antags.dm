@@ -67,9 +67,9 @@ GLOBAL_LIST_INIT(non_ruleset_antagonists, list(
 /datum/preference_middleware/antags/proc/get_antag_bans()
 	var/list/antag_bans = list()
 
-	var/is_banned_from_all = is_banned_from(preferences.parent.ckey, ROLE_SYNDICATE)
+	var/is_banned_from_all = is_banned_from(preferences.parent.ckey, ROLE_SYNDICATE) || get_playtime_banned_role(preferences.parent.ckey, list(ROLE_SYNDICATE, BAN_ANTAGONIST))
 	for (var/antag_flag in get_all_antag_flags())
-		if (is_banned_from_all || is_banned_from(preferences.parent.ckey, antag_flag))
+		if (is_banned_from_all || is_banned_from(preferences.parent.ckey, antag_flag) || get_playtime_banned_role(preferences.parent.ckey, antag_flag))
 			antag_bans += serialize_antag_name(antag_flag)
 
 	return antag_bans
