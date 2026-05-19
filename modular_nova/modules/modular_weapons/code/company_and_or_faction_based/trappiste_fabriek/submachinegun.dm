@@ -22,7 +22,10 @@
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
 	can_suppress = FALSE
 
-	bolt_type = BOLT_TYPE_NO_BOLT
+	// Open-bolt SMG: Z cocks the bolt (matching the sindano), bolt isn't shown
+	// as a visible overlay since the P90's bolt is internal in this view.
+	bolt_type = BOLT_TYPE_OPEN
+	show_bolt_icon = FALSE
 
 	mag_display = FALSE
 
