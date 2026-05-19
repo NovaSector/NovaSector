@@ -2,7 +2,7 @@
 
 /obj/item/gun/ballistic/automatic/sol_pdw
 	name = "\improper Alacrán Personal Defense Weapon"
-	desc = "A compact bullpup PDW chambered in .35 Sol Short, fed from a fifty-round magazine seated atop the receiver. \
+	desc = "A compact bullpup PDW chambered in .35 Sol Short, fed from a forty-eight-round magazine seated atop the receiver. \
 		Popular with Sol Federation vehicle crews and tunnel-rats who need full-auto firepower without the bulk of a rifle."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
@@ -104,7 +104,7 @@
 /obj/item/gun/ballistic/automatic/sol_pdw/evil/no_mag
 	spawnwithmagazine = FALSE
 
-// Uplink gun case — evil Alacrán + three full 50-round magazines.
+// Uplink gun case — evil Alacrán + three full 48-round magazines.
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/alacran/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/sol_pdw/evil(src)
 	new /obj/item/ammo_box/magazine/c35sol_alacran(src)

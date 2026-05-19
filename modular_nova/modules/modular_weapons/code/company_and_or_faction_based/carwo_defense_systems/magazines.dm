@@ -31,11 +31,11 @@
 /obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty
 	start_empty = TRUE
 
-// .35 Sol PDW magazine — fifty-round translucent magazine for the Alacrán
+// .35 Sol PDW magazine
 
 /obj/item/ammo_box/magazine/c35sol_alacran
 	name = "\improper Alacrán PDW magazine"
-	desc = "A fifty-round translucent polymer magazine for the Trappiste Alacrán PDW. \
+	desc = "A forty-eight-round translucent polymer magazine for the Trappiste Alacrán PDW. \
 		The bullets are visible through the cyan-tinted shell, letting the operator gauge remaining \
 		rounds at a glance."
 
@@ -47,7 +47,7 @@
 
 	ammo_type = /obj/item/ammo_casing/c35sol
 	caliber = CALIBER_SOL35SHORT
-	max_ammo = 50
+	max_ammo = 48
 
 /obj/item/ammo_box/magazine/c35sol_alacran/update_icon_state()
 	. = ..()
