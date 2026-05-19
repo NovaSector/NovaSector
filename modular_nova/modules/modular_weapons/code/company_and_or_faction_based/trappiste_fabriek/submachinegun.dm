@@ -69,11 +69,24 @@
 
 /obj/item/gun/ballistic/automatic/sol_pdw/update_icon_state()
 	. = ..()
-	// Swap the in-hand sprite to the "loaded" variant when a mag is inserted.
-	// The world sprite (icon_state) stays as the bare receiver; the mag
-	// overlay above covers the well.
+	// Pick the in-hand sprite variant based on whether a mag is inserted and
+	// how full it is, so the held gun matches the world sprite's mag state.
 	var/base_state = initial(icon_state)
-	var/new_inhand = magazine ? "[base_state]_loaded" : base_state
+	var/new_inhand
+	if(!magazine || internal_magazine)
+		new_inhand = base_state
+	else
+		var/ratio = get_ammo() / magazine.max_ammo
+		var/suffix
+		if(ratio >= 0.75)
+			suffix = "full"
+		else if(ratio >= 0.25)
+			suffix = "mid"
+		else if(ratio > 0)
+			suffix = "low"
+		else
+			suffix = "empty"
+		new_inhand = "[base_state]_[suffix]"
 	if(inhand_icon_state != new_inhand)
 		inhand_icon_state = new_inhand
 		// Force whichever mob is holding the gun to refresh its held-items
