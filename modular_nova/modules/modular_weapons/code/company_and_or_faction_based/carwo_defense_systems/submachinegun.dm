@@ -61,7 +61,7 @@
 /obj/item/gun/ballistic/automatic/sol_smg/evil/no_mag
 	spawnwithmagazine = FALSE
 
-// .35 PDW — Trappiste Alacrán
+// .35 PDW — Alacrán
 
 /obj/item/gun/ballistic/automatic/sol_pdw
 	name = "\improper Alacrán Personal Defense Weapon"
@@ -94,7 +94,7 @@
 	suppressor_x_offset = 8
 
 	burst_size = 1
-	fire_delay = 0.20 SECONDS
+	fire_delay = 0.17 SECONDS
 
 	spread = 8
 	recoil = 0
