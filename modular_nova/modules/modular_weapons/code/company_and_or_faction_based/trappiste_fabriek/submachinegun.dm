@@ -19,7 +19,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/c35sol_alacran
 	spawn_magazine_type = /obj/item/ammo_box/magazine/c35sol_alacran
 
-	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/alacran_fire.ogg'
 	can_suppress = TRUE
 
 	bolt_type = BOLT_TYPE_OPEN
@@ -28,7 +28,7 @@
 	suppressor_x_offset = 8
 
 	burst_size = 1
-	fire_delay = 0.14 SECONDS
+	fire_delay = 0.20 SECONDS
 
 	spread = 8
 	recoil = 0
@@ -103,3 +103,10 @@
 
 /obj/item/gun/ballistic/automatic/sol_pdw/evil/no_mag
 	spawnwithmagazine = FALSE
+
+// Uplink gun case — evil Alacrán + three full 50-round magazines.
+/obj/item/storage/toolbox/guncase/nova/pistol/opfor/alacran/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/sol_pdw/evil(src)
+	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
+	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
+	new /obj/item/ammo_box/magazine/c35sol_alacran(src)

@@ -80,6 +80,14 @@
 	cost = /datum/uplink_item/low_medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
+/datum/uplink_item/dangerous/alacran
+	name = "Trappiste Alacrán PDW Case"
+	desc = "A Trappiste Fabriek Alacrán, a compact bullpup PDW chambered in .35 Sol Short. \
+			Comes with three full fifty-round magazines for sustained suppressive fire."
+	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/alacran
+	cost = /datum/uplink_item/low_medium_cost/weaponry::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
+
 // MEDIUM COST
 /datum/uplink_item/dangerous/nukeop_smg
 	name = "Scarborough C-20r Case"
