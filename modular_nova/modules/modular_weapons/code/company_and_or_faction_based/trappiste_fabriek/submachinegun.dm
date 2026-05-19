@@ -26,8 +26,6 @@
 	show_bolt_icon = FALSE
 
 	// Custom per-state mag overlays are handled in update_overlays below.
-	// Disable the parent's auto-added `[icon_state]_mag` so it doesn't try to
-	// fetch a non-existent `alacran_mag` icon state.
 	mag_display = FALSE
 
 	suppressor_x_offset = 8
