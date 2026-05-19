@@ -170,7 +170,7 @@
 /obj/item/gun/ballistic/automatic/sol_pdw/evil
 	desc = parent_type::desc + " This one is painted in a tacticool black and appears to have been extensively modified to increase its performance to peak values. This is a weapon of war."
 
-	projectile_damage_multiplier = 0.9
+	projectile_damage_multiplier = 0.85
 	icon_state = "alacran_evil"
 	inhand_icon_state = "alacran_evil"
 
