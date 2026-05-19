@@ -20,16 +20,14 @@
 	spawn_magazine_type = /obj/item/ammo_box/magazine/c35sol_alacran
 
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
-	can_suppress = FALSE
+	can_suppress = TRUE
 
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 
-	mag_display = FALSE
-
 	burst_size = 1
 	burst_delay = 0.1 SECONDS
-	fire_delay = 0.17 SECONDS
+	fire_delay = 0.14 SECONDS
 
 	spread = 8
 	recoil = 0
@@ -38,7 +36,7 @@
 		began life as an answer to a Sol Federation Navy tender for a 'tunnel weapon'; something compact enough for \
 		shuttle decks and maintenance corridors, yet capable of sustained automatic fire against boarders in vacuum suits. \
 		The result was a bullpup PDW chambered in the same .35 Sol Short cartridge used across the Federation's pistol line, \
-		fed from an oversized polymer magazine seated horizontally atop the receiver."
+		fed from a high capacity oversized polymer magazine seated horizontally atop the receiver."
 
 /obj/item/gun/ballistic/automatic/sol_pdw/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_TRAPPISTE)
