@@ -107,6 +107,10 @@
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/sindano
 	contains = list(/obj/item/gun/ballistic/automatic/sol_smg)
 
+/datum/supply_pack/companies/ballistics/sol_fed/longarm/frelon
+	contains = list(/obj/item/gun/ballistic/automatic/sol_pdw)
+	cost = CARGO_CRATE_VALUE * 4
+
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/type213
 	contains = list(/obj/item/gun/ballistic/automatic/type213)
 

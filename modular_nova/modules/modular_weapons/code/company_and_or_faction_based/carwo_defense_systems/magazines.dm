@@ -31,6 +31,40 @@
 /obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty
 	start_empty = TRUE
 
+// .35 Sol PDW magazine — fifty-round translucent magazine for the Frelon
+
+/obj/item/ammo_box/magazine/c35sol_pdw
+	name = "\improper Sol PDW magazine"
+	desc = "An oversized fifty-round translucent polymer magazine for Sol Federation PDWs. \
+		The bullets are visible through the shell, letting the operator gauge remaining rounds at a glance."
+
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon_state = "p90_50-full"
+	base_icon_state = "p90_50"
+
+	w_class = WEIGHT_CLASS_SMALL
+
+	ammo_type = /obj/item/ammo_casing/c35sol
+	caliber = CALIBER_SOL35SHORT
+	max_ammo = 50
+
+/obj/item/ammo_box/magazine/c35sol_pdw/update_icon_state()
+	. = ..()
+	var/ratio = ammo_count() / max_ammo
+	var/suffix
+	if(ratio >= 0.75)
+		suffix = "full"
+	else if(ratio >= 0.25)
+		suffix = "mid"
+	else if(ratio > 0)
+		suffix = "low"
+	else
+		suffix = "empty"
+	icon_state = "[base_icon_state]-[suffix]"
+
+/obj/item/ammo_box/magazine/c35sol_pdw/starts_empty
+	start_empty = TRUE
+
 // .40 Sol rifle magazines
 
 /obj/item/ammo_box/magazine/c40sol_rifle
