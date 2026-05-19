@@ -34,14 +34,15 @@
 	return ..()
 
 /datum/id_trim/job/chaplain/New()
-	honorifics += list("Father", "Mother", "Rabbi", "Imam", "Monk", "Pontifex", "Magister", "High Priest", "High Priestess", "Rev." "Reverend")
+	job = /datum/job/chaplain
+	honorifics += list("Father", "Mother", "Rabbi", "Imam", "Monk", "Pontifex", "Magister", "High Priest", "High Priestess", "Rev.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 	return ..()
 
-/datum/id_trim/job/assistant/New()
+/datum/id_trim/job/assistant
 	honorifics = list("Assistant", "Mr.", "Ms.", "Mrs.", "Miss", "Mx.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
-	return ..()
+
 
 /datum/id_trim/job/blueshield
 	assignment = "Blueshield"
