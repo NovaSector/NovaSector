@@ -12,39 +12,18 @@
 		/datum/stock_part/matter_bin/tier4 = 1,
 	)
 
-/obj/machinery/processor/slime/fullupgrade/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/processor/slime/fullupgrade/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
-	return NONE
-
-/obj/machinery/processor/slime/fullupgrade/default_pry_open(mob/living/user,
-	obj/item/crowbar,
-	close_after_pry = FALSE,
-	open_density = FALSE,
-	closed_density = TRUE,
-	deconstruct_on_fail = FALSE,
-)
-	return NONE
+/obj/machinery/processor/slime/fullupgrade/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/monkey_recycler/fullupgrade
 	circuit = /obj/item/circuitboard/machine/monkey_recycler/fullupgrade
 
-// formerly NO_DECONSTRUCTION
-/obj/machinery/monkey_recycler/fullupgrade/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/monkey_recycler/fullupgrade/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
-	return NONE
-
-/obj/machinery/monkey_recycler/fullupgrade/default_pry_open(mob/living/user,
-	obj/item/crowbar,
-	close_after_pry = FALSE,
-	open_density = FALSE,
-	closed_density = TRUE,
-	deconstruct_on_fail = FALSE,
-)
-	return NONE
+/obj/machinery/monkey_recycler/fullupgrade/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/item/circuitboard/machine/monkey_recycler/fullupgrade
 	name = "\improper Monkey Recycler"
@@ -74,20 +53,10 @@
 /obj/machinery/biogenerator/fullupgrade
 	circuit = /obj/item/circuitboard/machine/biogenerator/fullupgrade
 
-/obj/machinery/biogenerator/fullupgrade/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/biogenerator/fullupgrade/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
-	return NONE
-
-/obj/machinery/biogenerator/fullupgrade/default_pry_open(mob/living/user,
-	obj/item/crowbar,
-	close_after_pry = FALSE,
-	open_density = FALSE,
-	closed_density = TRUE,
-	deconstruct_on_fail = FALSE,
-)
-	return NONE
+/obj/machinery/biogenerator/fullupgrade/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/item/circuitboard/machine/biogenerator/fullupgrade
 	name = "\improper Biogenerator"

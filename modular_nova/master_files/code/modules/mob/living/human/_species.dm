@@ -50,3 +50,7 @@
 			SPECIES_PERK_NAME = "Waterbreathing",
 			SPECIES_PERK_DESC = "[plural_form] can breathe in water, making pools a lot safer to be in!",
 		))
+
+/// Applies any after effects to the preview icon (such as opacity, color multiplication, etc)
+/datum/species/proc/preview_icon_after_effects(datum/universal_icon/dummy_icon, mob/living/carbon/human/target)
+	return

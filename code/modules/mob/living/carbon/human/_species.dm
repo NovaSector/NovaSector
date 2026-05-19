@@ -2028,7 +2028,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				body_choice = chassis_accessory[chassis.name]
 			if(body_choice && !body_choice.is_digi_compatible)
 				ignore_digi = TRUE
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 	var/list/final_bodypart_overrides = new_species.bodypart_overrides.Copy()
 	if(!ignore_digi && ((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features[FEATURE_LEGS] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)) //if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features[FEATURE_LEGS] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED) // NOVA EDIT - Digitigrade customization - ORIGINAL
@@ -2042,7 +2042,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		var/obj/item/bodypart/leg/left/l_leg = new_species.bodypart_overrides[BODY_ZONE_L_LEG]
 		if(l_leg)
 			final_bodypart_overrides[BODY_ZONE_L_LEG] = initial(l_leg.digitigrade_type)
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
 
 	for(var/obj/item/bodypart/old_part as anything in target.get_bodyparts())
 		if((old_part.change_exempt_flags & BP_BLOCK_CHANGE_SPECIES) || (old_part.bodypart_flags & BODYPART_IMPLANTED))

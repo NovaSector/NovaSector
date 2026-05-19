@@ -973,3 +973,13 @@
 	squeak_override = list(
 		'sound/items/handling/surgery/saw.ogg' = 1,
 	)
+
+// Donation reward for bonbyte
+/obj/item/toy/plush/nova/donator/bon
+	name = "\improper Bon plushie"
+	desc = "Bonnie Bon, your favorite hot bully in plush! Push her belly to make it pop! Bonbonbonbonbon..."
+	icon_state = "plushie_bon"
+	gender = FEMALE
+	squeak_override = list(
+		'modular_nova/modules/emotes/sound/voice/slime_pop.ogg' = 1,
+	)

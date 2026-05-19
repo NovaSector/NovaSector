@@ -23,18 +23,13 @@
 		mapload_container = new(loc)
 
 	AddComponent(/datum/component/stove/primitive, container_x = -7, container_y = 7, spawn_container = mapload_container)
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/primitive_stove/examine(mob/user)
 	. = ..()
 
 	. += span_notice("It can be taken apart with a <b>crowbar</b>.")
-
-// formerly NO_DECONSTRUCTION
-/obj/machinery/primitive_stove/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/primitive_stove/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
-	return NONE
 
 /obj/machinery/primitive_stove/crowbar_act(mob/living/user, obj/item/tool)
 	user.balloon_alert_to_viewers("disassembling...")
