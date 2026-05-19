@@ -79,8 +79,8 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BELT
 
-	accepted_magazine_type = /obj/item/ammo_box/magazine/c35sol_alacran
-	spawn_magazine_type = /obj/item/ammo_box/magazine/c35sol_alacran
+	accepted_magazine_type = /obj/item/ammo_box/magazine/alacran_pdw
+	spawn_magazine_type = /obj/item/ammo_box/magazine/alacran_pdw
 
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/alacran_fire.ogg'
 	can_suppress = TRUE
@@ -108,7 +108,7 @@
 		began life as an answer to a Sol Federation Navy tender for a 'tunnel weapon'; something compact enough for \
 		shuttle decks, vehicle crew and maintenance corridors, yet capable of sustained automatic fire against boarders in vacuum suits. \
 		The result was a bullpup PDW chambered in .27-54 Cesarzowa, munition valued by its availability, and resilience.\
-		Standard .35 was discarded due to its limited armor piercing capabilities, the finer tip and stronger charge of the HC alternative more suitable for the job."
+		Standard .35 was discarded due to its limited armor piercing capabilities, the finer tip and stronger charge of the HC alternative more suitable for the job. The shorter barrel causes some of the energy potential of the bullet to be lost along the way"
 
 /obj/item/gun/ballistic/automatic/sol_pdw/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)

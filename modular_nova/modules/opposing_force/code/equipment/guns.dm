@@ -192,9 +192,9 @@
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/alacran/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/sol_pdw/evil(src)
-	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
-	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
-	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
+	new /obj/item/ammo_box/magazine/alacran_pdw(src)
+	new /obj/item/ammo_box/magazine/alacran_pdw(src)
+	new /obj/item/ammo_box/magazine/alacran_pdw(src)
 
 /datum/opposing_force_equipment/ranged_stealth/wespe
 	name = "Wespe Pistol"
