@@ -1,4 +1,4 @@
-// .35 Sol P90-style PDW — Trappiste Alacrán
+// .35 PDW — Trappiste Alacrán
 
 /obj/item/gun/ballistic/automatic/sol_pdw
 	name = "\improper Alacrán Personal Defense Weapon"
@@ -29,8 +29,6 @@
 
 	mag_display = FALSE
 
-	// Burst-select toggle (action button) flips between semi and 2-round burst.
-	// Holding click still triggers full-auto via the automatic_fire component.
 	burst_size = 1
 	burst_delay = 0.1 SECONDS
 	fire_delay = 0.17 SECONDS
