@@ -190,6 +190,12 @@
 	new /obj/item/ammo_box/magazine/c35sol_pistol/stendo(src)
 	new /obj/item/ammo_box/magazine/c35sol_pistol/stendo(src)
 
+/obj/item/storage/toolbox/guncase/nova/pistol/opfor/alacran/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/sol_pdw/evil(src)
+	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
+	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
+	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
+
 /datum/opposing_force_equipment/ranged_stealth/wespe
 	name = "Wespe Pistol"
 	description = "The standard issue service pistol of SolFed's various military branches. Comes with attached light."

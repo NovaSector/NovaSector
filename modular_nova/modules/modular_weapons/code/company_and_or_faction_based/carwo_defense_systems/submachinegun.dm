@@ -175,13 +175,6 @@
 /obj/item/gun/ballistic/automatic/sol_pdw/evil/no_mag
 	spawnwithmagazine = FALSE
 
-// Uplink gun case — evil Alacrán + three full 48-round magazines.
-/obj/item/storage/toolbox/guncase/nova/pistol/opfor/alacran/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/sol_pdw/evil(src)
-	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
-	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
-	new /obj/item/ammo_box/magazine/c35sol_alacran(src)
-
 // Civilian carbine — longer barrel, semi-automatic only.
 /obj/item/gun/ballistic/automatic/sol_pdw/civil
 	name = "\improper Alacrán Carbine"
