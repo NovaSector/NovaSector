@@ -64,7 +64,7 @@
 
 /datum/supply_pack/companies/mags_and_ammo/c35_alacran
 	name = "Alacrán PDW Magazine Single-Pack"
-	desc = "Contains one empty forty-eight-round Alacrán PDW magazine. Compatible with .35 Sol Short ammunition."
+	desc = "Contains one empty forty-eight-round Alacrán PDW magazine, chambered in .27-54 Cesarzowa."
 	contains = list(/obj/item/ammo_box/magazine/c35sol_alacran/starts_empty)
 	cost = CARGO_CRATE_VALUE * 0.5
 	auto_name = FALSE

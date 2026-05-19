@@ -61,11 +61,11 @@
 /obj/item/gun/ballistic/automatic/sol_smg/evil/no_mag
 	spawnwithmagazine = FALSE
 
-// .35 PDW — Alacrán
+// .27-54 PDW — Alacrán
 
 /obj/item/gun/ballistic/automatic/sol_pdw
 	name = "\improper Alacrán Personal Defense Weapon"
-	desc = "A compact bullpup PDW chambered in .35 Sol Short, fed from a forty-eight-round magazine seated atop the receiver. \
+	desc = "A compact bullpup PDW chambered in .27-54 Cesarzowa, fed from a forty-eight-round magazine seated atop the receiver. \
 		Popular with Sol Federation vehicle crews and tunnel-rats who need full-auto firepower without the bulk of a rifle."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns32x.dmi'
@@ -95,6 +95,7 @@
 
 	burst_size = 1
 	fire_delay = 0.17 SECONDS
+	projectile_damage_multiplier = 0.6
 
 	spread = 8
 	recoil = 0
@@ -103,14 +104,14 @@
 	/// The civilian carbine sets this to FALSE so it stays semi-only.
 	var/has_autofire = TRUE
 
-	lore_blurb = "The Alacrán, marketed under Trappiste Fabriek's defensive-arms line as a complement to the Guêpe service pistol, \
+	lore_blurb = "The Alacrán, marketed under Carwo Defense Systems' defensive-arms line as a complement to the Sindano submachine gun, \
 		began life as an answer to a Sol Federation Navy tender for a 'tunnel weapon'; something compact enough for \
-		shuttle decks and maintenance corridors, yet capable of sustained automatic fire against boarders in vacuum suits. \
-		The result was a bullpup PDW chambered in the same .35 Sol Short cartridge used across the Federation's pistol line, \
-		fed from a high capacity oversized polymer magazine seated horizontally atop the receiver."
+		shuttle decks, vehicle crew and maintenance corridors, yet capable of sustained automatic fire against boarders in vacuum suits. \
+		The result was a bullpup PDW chambered in .27-54 Cesarzowa, munition valued by its availability, and resilience.\
+		Standard .35 was discarded due to its limited armor piercing capabilities, the finer tip and stronger charge of the HC alternative more suitable for the job."
 
 /obj/item/gun/ballistic/automatic/sol_pdw/give_manufacturer_examine()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_TRAPPISTE)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)
 
 /obj/item/gun/ballistic/automatic/sol_pdw/Initialize(mapload)
 	. = ..()
@@ -169,6 +170,7 @@
 /obj/item/gun/ballistic/automatic/sol_pdw/evil
 	desc = parent_type::desc + " This one is painted in a tacticool black."
 
+	projectile_damage_multiplier = 0.7
 	icon_state = "alacran_evil"
 	inhand_icon_state = "alacran_evil"
 
@@ -185,6 +187,7 @@
 	icon_state = "alacran_civil"
 	inhand_icon_state = "alacran_civil"
 
+	projectile_damage_multiplier = 0.9
 	has_autofire = FALSE
 	spread = 5
 	fire_delay = 0.2 SECONDS
