@@ -2,7 +2,7 @@
 
 /obj/item/gun/ballistic/automatic/sol_pdw
 	name = "\improper Alacrán Personal Defense Weapon"
-	desc = "A compact bullpup PDW chambered in .35 Sol Short, fed from a translucent fifty-round magazine seated atop the receiver. \
+	desc = "A compact bullpup PDW chambered in .35 Sol Short, fed from a fifty-round magazine seated atop the receiver. \
 		Popular with Sol Federation vehicle crews and tunnel-rats who need full-auto firepower without the bulk of a rifle."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
@@ -29,8 +29,11 @@
 
 	mag_display = FALSE
 
+	// Burst-select toggle (action button) flips between semi and 2-round burst.
+	// Holding click still triggers full-auto via the automatic_fire component.
 	burst_size = 1
-	fire_delay = 0.15 SECONDS
+	burst_delay = 0.1 SECONDS
+	fire_delay = 0.17 SECONDS
 
 	spread = 8
 	recoil = 0
