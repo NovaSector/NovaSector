@@ -31,16 +31,17 @@
 /obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty
 	start_empty = TRUE
 
-// .35 Sol PDW magazine — fifty-round translucent magazine for the Frelon
+// .35 Sol PDW magazine — fifty-round translucent magazine for the Alacrán
 
-/obj/item/ammo_box/magazine/c35sol_pdw
-	name = "\improper Sol PDW magazine"
-	desc = "An oversized fifty-round translucent polymer magazine for Sol Federation PDWs. \
-		The bullets are visible through the shell, letting the operator gauge remaining rounds at a glance."
+/obj/item/ammo_box/magazine/c35sol_alacran
+	name = "\improper Alacrán PDW magazine"
+	desc = "A fifty-round translucent polymer magazine for the Trappiste Alacrán PDW. \
+		The bullets are visible through the cyan-tinted shell, letting the operator gauge remaining \
+		rounds at a glance."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
-	icon_state = "p90_50-full"
-	base_icon_state = "p90_50"
+	icon_state = "alacran_mag-full"
+	base_icon_state = "alacran_mag"
 
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -48,7 +49,7 @@
 	caliber = CALIBER_SOL35SHORT
 	max_ammo = 50
 
-/obj/item/ammo_box/magazine/c35sol_pdw/update_icon_state()
+/obj/item/ammo_box/magazine/c35sol_alacran/update_icon_state()
 	. = ..()
 	var/ratio = ammo_count() / max_ammo
 	var/suffix
@@ -62,7 +63,7 @@
 		suffix = "empty"
 	icon_state = "[base_icon_state]-[suffix]"
 
-/obj/item/ammo_box/magazine/c35sol_pdw/starts_empty
+/obj/item/ammo_box/magazine/c35sol_alacran/starts_empty
 	start_empty = TRUE
 
 // .40 Sol rifle magazines

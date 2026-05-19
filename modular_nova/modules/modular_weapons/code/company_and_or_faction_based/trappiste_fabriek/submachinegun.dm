@@ -1,23 +1,23 @@
-// .35 Sol P90-style PDW — Trappiste Frelon
+// .35 Sol P90-style PDW — Trappiste Alacrán
 
 /obj/item/gun/ballistic/automatic/sol_pdw
-	name = "\improper Frelon Personal Defense Weapon"
+	name = "\improper Alacrán Personal Defense Weapon"
 	desc = "A compact bullpup PDW chambered in .35 Sol Short, fed from a translucent fifty-round magazine seated atop the receiver. \
 		Popular with Sol Federation vehicle crews and tunnel-rats who need full-auto firepower without the bulk of a rifle."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
-	icon_state = "frelon"
+	icon_state = "alacran"
 
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
-	inhand_icon_state = "frelon"
+	inhand_icon_state = "alacran"
 
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
 	slot_flags = ITEM_SLOT_BELT
 
-	accepted_magazine_type = /obj/item/ammo_box/magazine/c35sol_pdw
-	spawn_magazine_type = /obj/item/ammo_box/magazine/c35sol_pdw
+	accepted_magazine_type = /obj/item/ammo_box/magazine/c35sol_alacran
+	spawn_magazine_type = /obj/item/ammo_box/magazine/c35sol_alacran
 
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
 	can_suppress = FALSE
@@ -35,14 +35,11 @@
 	spread = 8
 	recoil = 0
 
-	lore_blurb = "The Frelon, marketed under Trappiste Fabriek's defensive-arms line as a complement to the Guêpe service pistol, \
+	lore_blurb = "The Alacrán, marketed under Trappiste Fabriek's defensive-arms line as a complement to the Guêpe service pistol, \
 		began life as an answer to a Sol Federation Navy tender for a 'tunnel weapon'; something compact enough for \
 		shuttle decks and maintenance corridors, yet capable of sustained automatic fire against boarders in vacuum suits. \
 		The result was a bullpup PDW chambered in the same .35 Sol Short cartridge used across the Federation's pistol line, \
-		fed from an oversized polymer magazine seated horizontally atop the receiver. The translucent shell of that magazine \
-		— a deliberate carryover from the Guêpe's marketing identity — lets the operator gauge remaining rounds at a glance, \
-		a feature endlessly mocked by the more puritanical rifle-school instructors and endlessly cherished by everyone \
-		who has ever fumbled a reload in the dark."
+		fed from an oversized polymer magazine seated horizontally atop the receiver."
 
 /obj/item/gun/ballistic/automatic/sol_pdw/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_TRAPPISTE)
@@ -65,7 +62,7 @@
 		suffix = "low"
 	else
 		suffix = "empty"
-	. += "[icon_state]_mag_p90_50_[suffix]"
+	. += "[icon_state]_mag_[suffix]"
 
 /obj/item/gun/ballistic/automatic/sol_pdw/update_icon_state()
 	. = ..()
@@ -98,13 +95,13 @@
 /obj/item/gun/ballistic/automatic/sol_pdw/no_mag
 	spawnwithmagazine = FALSE
 
-// Frelon (evil)
+// Alacrán (evil)
 
 /obj/item/gun/ballistic/automatic/sol_pdw/evil
 	desc = parent_type::desc + " This one is painted in a tacticool black."
 
-	icon_state = "frelon_evil"
-	inhand_icon_state = "frelon_evil"
+	icon_state = "alacran_evil"
+	inhand_icon_state = "alacran_evil"
 
 /obj/item/gun/ballistic/automatic/sol_pdw/evil/no_mag
 	spawnwithmagazine = FALSE
