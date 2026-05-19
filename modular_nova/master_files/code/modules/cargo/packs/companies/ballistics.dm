@@ -78,6 +78,10 @@
 	contains = list(/obj/item/gun/ballistic/revolver/takbok)
 	cost = CARGO_CRATE_VALUE * 3
 
+/datum/supply_pack/companies/ballistics/sol_fed/sidearm/alacran_civil
+	contains = list(/obj/item/gun/ballistic/automatic/sol_pdw/civil)
+	cost = CARGO_CRATE_VALUE * 2.5
+
 /datum/supply_pack/companies/ballistics/sol_fed/longarm
 	cost = CARGO_CRATE_VALUE * 3
 
