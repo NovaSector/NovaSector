@@ -43,7 +43,7 @@
 	icon_state = "alacran_mag-full"
 	base_icon_state = "alacran_mag"
 
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	ammo_type = /obj/item/ammo_casing/c35sol
 	caliber = CALIBER_SOL35SHORT

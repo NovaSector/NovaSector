@@ -56,6 +56,10 @@
 /datum/supply_pack/companies/mags_and_ammo/c35_extended
 	contains = list(/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty)
 
+/datum/supply_pack/companies/mags_and_ammo/c35_alacran
+	contains = list(/obj/item/ammo_box/magazine/c35sol_alacran/starts_empty)
+	cost = CARGO_CRATE_VALUE * 0.5
+
 /datum/supply_pack/companies/mags_and_ammo/c585_mag
 	contains = list(/obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty)
 
