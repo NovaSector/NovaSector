@@ -25,8 +25,9 @@
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 
+	suppressor_x_offset = 8
+
 	burst_size = 1
-	burst_delay = 0.1 SECONDS
 	fire_delay = 0.14 SECONDS
 
 	spread = 8
