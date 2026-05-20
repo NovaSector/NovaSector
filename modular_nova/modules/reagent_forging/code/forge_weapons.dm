@@ -48,9 +48,6 @@
 
 /obj/item/forging/reagent_weapon/sword/Initialize(mapload)
 	. = ..()
-	alt_continuous = string_list(alt_continuous)
-	alt_simple = string_list(alt_simple)
-	make_stabby()
 	AddComponent(/datum/component/butchering, \
 	speed = 4 SECONDS, \
 	effectiveness = 105, \
