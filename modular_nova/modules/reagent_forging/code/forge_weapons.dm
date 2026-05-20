@@ -46,6 +46,17 @@
 	sharpness = SHARP_EDGED
 	max_integrity = 150
 
+/obj/item/forging/reagent_weapon/sword/Initialize(mapload)
+	. = ..()
+	alt_continuous = string_list(alt_continuous)
+	alt_simple = string_list(alt_simple)
+	make_stabby()
+	AddComponent(/datum/component/butchering, \
+	speed = 4 SECONDS, \
+	effectiveness = 105, \
+	)
+
+
 /obj/item/forging/reagent_weapon/katana
 	name = "forged katana"
 	desc = "A katana sharp enough to penetrate body armor, but not quite million-times-folded sharp."
@@ -56,6 +67,7 @@
 	worn_icon_state = "katana_back"
 	inside_belt_icon_state = "katana_belt"
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
+	pickup_sound = 'sound/items/unsheath.ogg'
 	block_chance = 10
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
@@ -82,6 +94,9 @@
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
+	operating_sound = SFX_KNIFE_SLICE
+	pickup_sound = SFX_KNIFE_PICKUP
+	drop_sound = SFX_KNIFE_DROP
 
 /obj/item/forging/reagent_weapon/dagger/Initialize(mapload)
 	. = ..()
@@ -159,6 +174,13 @@
 	attack_verb_simple = list("slash", "bash")
 	sharpness = SHARP_EDGED
 
+/obj/item/forging/reagent_weapon/axe/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/butchering, \
+	speed = 7 SECONDS, \
+	effectiveness = 100, \
+	)
+
 /datum/embedding/forged_axe
 	embed_chance = 40
 	fall_chance = 10
@@ -180,6 +202,9 @@
 	attack_verb_continuous = list("bashes", "whacks")
 	attack_verb_simple = list("bash", "whack")
 	tool_behaviour = TOOL_HAMMER
+	drop_sound = 'sound/items/handling/tools/crowbar_drop.ogg'
+	pickup_sound = 'sound/items/handling/tools/crowbar_pickup.ogg'
+
 
 /obj/item/forging/reagent_weapon/hammer/Initialize(mapload)
 	. = ..()
