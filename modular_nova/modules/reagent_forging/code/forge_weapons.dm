@@ -125,7 +125,7 @@
 
 /obj/item/forging/reagent_weapon/staff/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/jousting),
+	AddComponent(/datum/component/jousting)
 
 /obj/item/forging/reagent_weapon/spear
 	name = "forged spear"
