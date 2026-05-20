@@ -47,7 +47,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/nonbinary_pride_flag
-	name = "Nonbinary Pride Flag"
+	name = "Non-binary Pride Flag"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)

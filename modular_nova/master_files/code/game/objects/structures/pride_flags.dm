@@ -64,8 +64,8 @@
 	item_flag = /obj/item/sign/flag/pride/trans
 
 /obj/structure/sign/flag/pride/nonbinary
-	name = "nonbinary pride flag"
-	desc = "The flag of nonbinary pride."
+	name = "non-binary pride flag"
+	desc = "The flag of non-binary pride."
 	icon_state = "flag_nb"
 	item_flag = /obj/item/sign/flag/pride/nonbinary
 
@@ -127,8 +127,8 @@
 	worn_icon_state = "trans"
 
 /obj/item/sign/flag/pride/nonbinary
-	name = "folded nonbinary pride flag"
-	desc = "The folded flag of nonbinary pride."
+	name = "folded non-binary pride flag"
+	desc = "The folded flag of non-binary pride."
 	icon_state = "folded_pride_nb"
 	sign_path = /obj/structure/sign/flag/pride/nonbinary
 	worn_icon_state = "nb"
