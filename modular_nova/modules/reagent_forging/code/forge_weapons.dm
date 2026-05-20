@@ -153,10 +153,7 @@
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded = 13, force_wielded = 23)
 	AddComponent(/datum/component/jousting)
-	AddComponent(/datum/component/butchering, \
-	speed = 10 SECONDS, \
-	effectiveness = 70, \
-	)
+	AddComponent(/datum/component/butchering, speed = 10 SECONDS, effectiveness = 70)
 
 /obj/item/forging/reagent_weapon/axe
 	name = "forged axe"
