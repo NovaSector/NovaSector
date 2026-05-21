@@ -180,7 +180,7 @@
 // Civilian carbine — longer barrel, semi-automatic only.
 /obj/item/gun/ballistic/automatic/sol_pdw/civil
 	name = "\improper Alacrán Carbine"
-	desc = "The civilian-market carbine variant of the Alacrán PDW, with a longer barrel and semi-automatic-only \
+	desc = "The civilian-market carbine variant of the Alacrán PDW, with a longer barrel, added weight to prevent one handed use and semi-automatic-only \
 		operation to comply with Sol Federation civil arms regulations. Popular with shooting clubs and homesteaders \
 		on the outer colonies. Still accepts the same forty-eight-round magazine as the military model."
 
