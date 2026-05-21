@@ -6693,7 +6693,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/security/corrections_officer)
@@ -29383,7 +29382,6 @@
 	name = "Prison Satellite Maintenance"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -29683,7 +29681,6 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain)
 "iwq" = (
-/obj/structure/cable,
 /obj/item/stack/sheet/cardboard,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -59240,7 +59237,6 @@
 	id_tag = "Cell4Privacy";
 	name = "Cell 4"
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/prison)
@@ -63683,7 +63679,6 @@
 	id_tag = "Cell5Privacy";
 	name = "Cell 5"
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/prison)
@@ -74844,7 +74839,6 @@
 "uGj" = (
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/security/glass{
@@ -85938,9 +85932,6 @@
 /area/station/engineering/main)
 "xMA" = (
 /obj/structure/closet/emcloset/wall{
-	pixel_y = 32
-	},
-/obj/structure/closet/emcloset/wall{
 	pixel_x = 32
 	},
 /turf/open/floor/iron/dark/smooth_large,
@@ -86878,7 +86869,6 @@
 /area/station/maintenance/port/central)
 "yaf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/grunge{
 	id_tag = "Cell6Privacy";
 	name = "Cell 6"
