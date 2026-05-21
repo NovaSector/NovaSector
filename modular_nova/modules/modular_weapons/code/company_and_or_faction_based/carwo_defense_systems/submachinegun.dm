@@ -76,7 +76,7 @@
 	inhand_icon_state = "alacran"
 
 	w_class = WEIGHT_CLASS_NORMAL
-	weapon_weight = WEAPON_HEAVY
+	weapon_weight = WEAPON_MEDIUM
 	slot_flags = ITEM_SLOT_BELT
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/alacran_pdw
@@ -95,7 +95,7 @@
 
 	burst_size = 1
 	fire_delay = 0.17 SECONDS
-	projectile_damage_multiplier = 0.6
+	projectile_damage_multiplier = 0.66
 
 	spread = 8
 	recoil = 0
@@ -170,7 +170,7 @@
 /obj/item/gun/ballistic/automatic/sol_pdw/evil
 	desc = parent_type::desc + " This one is painted in a tacticool black and appears to have been extensively modified to increase its performance to peak values. This is a weapon of war."
 
-	projectile_damage_multiplier = 0.85
+	projectile_damage_multiplier = 1
 	icon_state = "alacran_evil"
 	inhand_icon_state = "alacran_evil"
 
@@ -187,6 +187,7 @@
 	icon_state = "alacran_civil"
 	inhand_icon_state = "alacran_civil"
 
+	weapon_weight = WEAPON_HEAVY
 	projectile_damage_multiplier = 0.9
 	has_autofire = FALSE
 	spread = 5
