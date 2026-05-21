@@ -62,6 +62,14 @@
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
+// Aethon and HHI Weapons
+
+/datum/supply_pack/companies/ballistics/atheon/rapier
+	name = "M94 'Rapier' Submachinegun"
+	desc = "Big and mean, spits hot lead and fills halls with casings. Perfect for when collateral damage is on the table. Chambered in 4.6mm."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(/obj/item/gun/ballistic/automatic/rapier)
+
 // Sol Fed Weapons
 /datum/supply_pack/companies/ballistics/sol_fed
 

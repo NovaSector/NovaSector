@@ -62,6 +62,12 @@
 /datum/supply_pack/companies/mags_and_ammo/c35_extended
 	contains = list(/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty)
 
+/datum/supply_pack/companies/mags_and_ammo/rapiermag
+	contains = list(/obj/item/ammo_box/magazine/rapier/empty)
+	desc = "Contains one empty M94 'Rapier' magazine, chambered in 4.6mm."
+	cost = CARGO_CRATE_VALUE * 0.5
+	auto_name = FALSE
+
 /datum/supply_pack/companies/mags_and_ammo/c585_mag
 	contains = list(/obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty)
 
