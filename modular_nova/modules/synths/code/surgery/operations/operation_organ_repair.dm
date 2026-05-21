@@ -275,7 +275,7 @@
 	success_sound = 'sound/items/taperecorder/taperecorder_close.ogg'
 	required_organ_flag = ORGAN_ROBOTIC & ORGAN_SYNTHETIC_FROM_SPECIES
 	blocked_organ_flag = NONE
-	heal_to_percent = 0
+	heal_to_percent = 0.1 // Silly variable. It works completely differently here than in other organ repair surgeries
 	failure_damage_percent = 0.2
 	repeatable = TRUE
 	time = 12 SECONDS //long and complicated
@@ -312,15 +312,15 @@
 		span_notice("[surgeon] completes the surgery on [FORMAT_ORGAN_OWNER(organ)]'s [brain_type]."),
 	)
 	display_pain(organ.owner, "The fragmentation errors start clearing.")
-		// Remove all neuroware
+	// Remove all neuroware
 	if(!isnull(organ.owner.has_status_effect(/datum/status_effect/neuroware)))
 		organ.owner.balloon_alert_to_viewers("neuroware reset")
 		for(var/datum/reagent/reagent as anything in organ.owner.reagents.reagent_list)
 			if(reagent.chemical_flags & REAGENT_NEUROWARE)
 				organ.owner.reagents.del_reagent(reagent.type)
-	if (organ.owner)
+	if(organ.owner)
 		organ.owner.mind?.remove_antag_datum(/datum/antagonist/brainwashed)
-	else if (organ.brainmob)
+	else if(organ.brainmob)
 		organ.brainmob.mind?.remove_antag_datum(/datum/antagonist/brainwashed)
 	organ.cure_all_traumas(TRAUMA_RESILIENCE_SURGERY)
 	if(organ.damage > organ.maxHealth * 0.1)

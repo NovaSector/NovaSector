@@ -7,7 +7,7 @@
 #define COMPANY_VEYMED "It has <b>[span_nicegreen("Vey-Medical")]</b> precisely cut into it."
 
 #define COMPANY_VELDJEN_KUIPER "It has a small <b>[span_horizonblue("compass rose")]</b> alongside <b>[span_horizonblue("Veldjen-Kuiper Armories")]</b> etched into it."
-#define COMPANY_CARWO "It has a small <b>[span_cyan("four pointed star")]</b> alongside <b>[span_cyan("Carwo Defense Systems")]</b> etched into it."
+#define COMPANY_CARWO "It has a small <b>[span_cyan_nova("four pointed star")]</b> alongside <b>[span_cyan_nova("Carwo Defense Systems")]</b> etched into it."
 #define COMPANY_TRAPPISTE "It has a small <b>[span_red("pattern of five squares")]</b> alongside <b>[span_red("Trappiste Fabriek")]</b> etched into it."
 #define COMPANY_SOLFED "It has <b>[span_cyan_nova("✧︎ Solar Federation Surplus ✧︎")]</b> stamped into it."
 #define COMPANY_AETHEON "It has a small <b>[span_red("stylized eagle clutching a star")]</b> alongside <b>[span_red("Aetheon Arms Company")]</b> etched into it."
@@ -20,7 +20,7 @@
 #define COMPANY_SYNDICATE "It has a <b>[span_red("snake with three heads")]</b> alongside <b>[span_red("Syndicate Conglomerate")]</b> etched on the side of it... rather suspiciously..."
 
 #define COMPANY_ALLSTAR "It has <b>[span_red("Allstar Lasers Inc.")]</b> stamped onto it."
-#define COMPANY_MICRON "It has <b>[span_cyan("Micron Control Sys.")]</b> cut into it."
+#define COMPANY_MICRON "It has <b>[span_cyan_nova("Micron Control Sys.")]</b> cut into it."
 
 #define COMPANY_NAKAMURA "It has <b>[span_orange("Nakamura Engineering")]</b> embossed onto it."
 #define COMPANY_BLACKSTEEL "It bears the <b>[span_grey("crossed sword and hammer")]</b> crafter's mark of the <b>[span_grey("Jarnsmiour Blacksteel Foundation")]</b> upon its fore."

@@ -29,6 +29,7 @@
 		/obj/item/ammo_box/magazine, // Just magazine, because the sec-belt can hold these aswell
 		/obj/item/ammo_box/speedloader,
 		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
+		/obj/item/gun/ballistic/rifle/c96,
 		// additional functionality changes in modular_nova\modules\sec_haul\code\security_clothing\sec_clothing_overrides.dm
 		// e.g. one-gun limit, additional slots
 		// NOVA EDIT ADDITION END

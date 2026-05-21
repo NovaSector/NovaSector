@@ -115,8 +115,8 @@
 		"mouse" = TRUE,
 		"rabbit" = TRUE,
 		"repairbot" = TRUE,
-		"kitten" = TRUE,
-		"puppy" = TRUE,
+		// "kitten" = TRUE, // NOVA EDIT REMOVAL
+		// "puppy" = TRUE, // NOVA EDIT REMOVAL
 		"spider" = TRUE,
 	)
 

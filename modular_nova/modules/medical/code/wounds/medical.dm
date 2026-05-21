@@ -42,7 +42,7 @@
 
 	var/suffix = gauzed_bodypart.body_zone
 	if(gauzed_bodypart.bodyshape & BODYSHAPE_DIGITIGRADE)
-		suffix += "_digitigrade"
+		suffix += "_[BODYPART_ID_DIGITIGRADE]"
 
 	return "[prefix]_[suffix]"
 
