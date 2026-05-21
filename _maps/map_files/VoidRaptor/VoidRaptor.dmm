@@ -78045,10 +78045,9 @@
 /obj/item/tank/internals/oxygen/red{
 	pixel_x = 3
 	},
-/obj/machinery/door/window/left/directional/east{
+/obj/machinery/door/window/right/directional/north{
 	name = "Justice Storage";
-	req_access = list("armory");
-	dir = 1
+	req_access = list("armory")
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/execution/education)
@@ -79222,10 +79221,9 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/crew_quarters/bar)
 "vSk" = (
-/obj/machinery/door/window/right/directional/east{
-	name = "Justice Storage";
+/obj/machinery/door/window/left/directional/north{
 	req_access = list("armory");
-	dir = 1
+	name = "Justice Storage"
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/execution/education)
