@@ -1,12 +1,10 @@
 /obj/item/gun/ballistic/automatic/rapier
-	name = "\improper M-94 Rapier Submachinegun"
+	name = "\improper M-94 'Rapier' Submachinegun"
 	desc = "An elegant automatic submachinegun with a reputation for the roguish and unsavory sort, this weapon is able to spit lead at an impressive cyclic rate, although it often leaves want for raw stopping power."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/aethon_arms/wide_guns.dmi'
 	icon_state = "rapier"
 
-	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
-	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
-	inhand_icon_state = "sindano"
+	inhand_icon_state = "arg"
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
 
 	bolt_type = BOLT_TYPE_LOCKING
@@ -15,6 +13,7 @@
 	burst_size = 1
 	fire_delay = 0.30 SECONDS
 	projectile_damage_multiplier = 0.8
+	projectile_speed_multiplier = 1.1 //BR-38 is 1.2, so this should be a touch less for a weapon as
 	accepted_magazine_type = /obj/item/ammo_box/magazine/rapier
 	special_mags = FALSE
 	recoil_backtime_multiplier = 0.5
