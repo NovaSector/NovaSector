@@ -43,7 +43,7 @@
 	icon_state = "energy"
 	set_items = list(
 		/obj/item/gun/energy/e_gun,
-		)
+	)
 
 /datum/voucher_set/security/primary/disabler_smg
 	name = "Pepperball AGH"
