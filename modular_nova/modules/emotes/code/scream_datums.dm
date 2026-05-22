@@ -172,7 +172,6 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 		'sound/mobs/non-humanoids/monkey/monkey_screech_5.ogg',
 		'sound/mobs/non-humanoids/monkey/monkey_screech_6.ogg',
 		'sound/mobs/non-humanoids/monkey/monkey_screech_7.ogg',)
-	female_screamsounds = null
 
 /datum/scream_type/gorilla
 	name = "Gorilla Scream"
