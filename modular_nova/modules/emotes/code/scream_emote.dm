@@ -21,7 +21,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/datum/scream_type/selected_scream = human_user.selected_scream
-		if(isnull(selected_scream) || !(LAZYLEN(selected_scream.scream_sounds) || isnull(selected_scream.female_scream_type)) //For things that don't have a selected scream(npcs)
+		if(isnull(selected_scream) || !(LAZYLEN(selected_scream.scream_sounds) || isnull(selected_scream.female_scream_type))) //For things that don't have a selected scream(npcs)
 			if(prob(1))
 				return 'sound/mobs/humanoids/human/scream/wilhelm_scream.ogg'
 			return human_user.dna.species.get_scream_sound(human_user)
