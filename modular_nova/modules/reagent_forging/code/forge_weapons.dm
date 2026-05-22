@@ -53,7 +53,6 @@
 		effectiveness = 105, \
 	)
 
-
 /obj/item/forging/reagent_weapon/katana
 	name = "forged katana"
 	desc = "A katana sharp enough to penetrate body armor, but not quite million-times-folded sharp."
