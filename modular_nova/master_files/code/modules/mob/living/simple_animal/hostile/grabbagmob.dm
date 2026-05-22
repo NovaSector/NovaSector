@@ -342,7 +342,7 @@
 	gold_core_spawnable = HOSTILE_SPAWN
 
 /mob/living/basic/gorilla/pitbull
-	name = "\improper pitbull"
+	name = "pitbull"
 	desc = "Lover of Blood. Hater of Toddlers. Doesn't look too happy to see you."
 	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "pitbull"
