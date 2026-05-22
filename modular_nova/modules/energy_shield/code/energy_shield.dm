@@ -497,9 +497,9 @@
 		clear_shield_hud()
 	else
 		update_shield_hud()
+		update_item_action_buttons(UPDATE_BUTTON_STATUS)
 	if(!quiet && should_play_sound && wearer)
 		playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
-	update_item_action_buttons(UPDATE_BUTTON_STATUS)
 	if(detach_wearer && wearer)
 		UnregisterSignal(wearer, list(COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_ATOM_PRE_BULLET_ACT, COMSIG_MOB_AFTER_APPLY_DAMAGE, COMSIG_LIVING_CHECK_BLOCK))
 		REMOVE_TRAIT(wearer, TRAIT_ENERGY_SHIELDED, ENERGY_SHIELD_TRAIT)
