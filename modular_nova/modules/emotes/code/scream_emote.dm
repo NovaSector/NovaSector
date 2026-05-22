@@ -6,8 +6,9 @@
 		var/datum/scream_type/selected_scream = silicon_user.selected_scream
 		if(isnull(selected_scream))
 			return 'modular_nova/modules/emotes/sound/voice/scream_silicon.ogg'
-		if(user.gender == FEMALE && LAZYLEN(selected_scream.female_screamsounds))
-			return pick(selected_scream.female_screamsounds)
+		if(user.gender == FEMALE && selected_scream.female_scream_type)
+			var/datum/scream_type/female_scream = GLOB.scream_types[selected_scream.female_scream_type]
+			return pick(female_scream.scream_sounds)
 		else
 			return pick(selected_scream.scream_sounds)
 	if(ismonkey(user))
