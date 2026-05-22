@@ -45,3 +45,11 @@
 	)
 	result = /obj/item/sign/flag/pride/trans
 	category = CAT_FURNITURE
+
+/datum/crafting_recipe/nonbinary_pride_flag
+	name = "Non-binary Pride Flag"
+	reqs = list(
+		/obj/item/stack/sheet/cloth = 3,
+	)
+	result = /obj/item/sign/flag/pride/nonbinary
+	category = CAT_FURNITURE
