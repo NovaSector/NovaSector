@@ -49,8 +49,8 @@
 /obj/item/forging/reagent_weapon/sword/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-	speed = 4 SECONDS, \
-	effectiveness = 105, \
+		speed = 4 SECONDS, \
+		effectiveness = 105, \
 	)
 
 
