@@ -20,12 +20,14 @@
 	AddElement(/datum/element/voucher_redeemer, /obj/item/security_voucher/utility, /datum/voucher_set/security/utility)
 
 /datum/voucher_set/security
+	abstract_type = /datum/voucher_set/security
 	blackbox_key = "security_voucher_redeemed"
 
 /datum/voucher_set/security/primary
+	abstract_type = /datum/voucher_set/security/primary
 
 /datum/voucher_set/security/utility
-
+	abstract_type = /datum/voucher_set/security/utility
 
 /datum/voucher_set/security/primary/disabler
 	name = "Disabler"
@@ -53,7 +55,7 @@
 	set_items = list(
 		/obj/item/gun/ballistic/automatic/pistol/pepperball,
 		/obj/item/ammo_box/magazine/pepperball
-		)
+	)
 
 /datum/voucher_set/security/primary/strobe_shield
 	name = "Strobe Shield"
@@ -73,7 +75,7 @@
 	set_items = list(
 		/obj/item/storage/fancy/donut_box,
 		/obj/item/reagent_containers/cup/glass/coffee,
-		)
+	)
 
 /datum/voucher_set/security/utility/barrier
 	name = "Barrier Grenades"
@@ -83,7 +85,7 @@
 	set_items = list(
 		/obj/item/grenade/barrier,
 		/obj/item/grenade/barrier,
-		)
+	)
 
 /datum/voucher_set/security/utility/stingbang
 	name = "Stingbang Grenades"
@@ -93,7 +95,7 @@
 	set_items = list(
 		/obj/item/grenade/stingbang,
 		/obj/item/grenade/stingbang,
-		)
+	)
 
 /datum/voucher_set/security/utility/justice_helmet
 	name = "Helmet of Justice"
@@ -103,7 +105,7 @@
 	set_items = list(
 		/obj/item/clothing/mask/gas/sechailer/swat,
 		/obj/item/clothing/head/helmet/toggleable/justice,
-		)
+	)
 
 /datum/voucher_set/security/utility/pinpointer_pairs
 	name = "Pinpointer Pair"
