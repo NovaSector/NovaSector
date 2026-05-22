@@ -62,7 +62,7 @@
 	icon_state = "flashshield"
 	set_items = list(
 		/obj/item/shield/riot/flash,
-		)
+	)
 
 
 /datum/voucher_set/security/utility/donut_box
