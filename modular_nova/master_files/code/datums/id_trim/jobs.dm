@@ -43,7 +43,6 @@
 	honorifics = list("Assistant", "Mr.", "Ms.", "Mrs.", "Miss", "Mx.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
-
 /datum/id_trim/job/blueshield
 	assignment = "Blueshield"
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
