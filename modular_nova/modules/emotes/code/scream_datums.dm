@@ -59,7 +59,6 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 		'sound/mobs/humanoids/human/scream/femalescream_2.ogg',
 		'sound/mobs/humanoids/human/scream/femalescream_3.ogg',
 		'sound/mobs/humanoids/human/scream/femalescream_4.ogg',
-		'sound/mobs/humanoids/human/scream/femalescream_5.ogg',
 	scream_sounds = list(
 		'sound/mobs/humanoids/human/scream/malescream_1.ogg',
 		'sound/mobs/humanoids/human/scream/malescream_2.ogg',
