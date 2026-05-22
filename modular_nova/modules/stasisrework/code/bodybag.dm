@@ -1,5 +1,5 @@
 /obj/item/bodybag/stasis_longterm
-	name = "long-term stasis body bag"
+	name = "mortuary stasis body bag"
 	desc = "A folded long-term stasis body bag designed for the storage and stasis of cadavers."
 	icon = 'modular_nova/modules/stasisrework/icons/stasisbag.dmi'
 	icon_state = "greenbodybag_folded"

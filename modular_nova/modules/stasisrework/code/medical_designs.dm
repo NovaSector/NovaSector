@@ -1,7 +1,7 @@
 /datum/design/stasisbag_longterm
-	name = "Long-Term Stasis Bodybag"
-	desc = "A long-term stasis body bag, powered by integrated stasis technology. It can hold only one body, but it prevents decay. \
-		The reinforced materials and improved stasis generator prevents it from falling apart easily."
+	name = "Mortuary Stasis Bodybag"
+	desc = "A long-term cadaver stasis body bag, powered by integrated stasis technology. It can hold only one body, but it prevents decay. \
+		The reinforced materials and improved stasis generator prevent it from falling apart easily."
 	id = "stasisbag"
 	build_type = PROTOLATHE | AWAY_LATHE
 	build_path = /obj/item/bodybag/stasis_longterm
