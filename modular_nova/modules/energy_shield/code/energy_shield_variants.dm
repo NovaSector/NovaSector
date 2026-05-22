@@ -15,7 +15,7 @@
 
 /// NT-issue tactical shield. Hardened circuitry allows integration with standard body armor up to class II.
 /obj/item/clothing/accessory/energy_shield/military
-	name = "NT tactical shield projector"
+	name = "\improper NT tactical shield projector"
 	desc = "A military-spec energy shield designed for Nanotrasen security forces. Hardened circuitry allows integration with standard-issue clothing except hardened body armour."
 	max_shield_health = 100
 	recharge_delay = 8 SECONDS
@@ -25,7 +25,7 @@
 
 /// High-performance Syndicate shield. No armor restriction and partial EMP resistance.
 /obj/item/clothing/accessory/energy_shield/syndicate
-	name = "Gorlex energy shield"
+	name = "\improper Gorlex energy shield"
 	desc = "A high-performance personal shield of Syndicate manufacture. Overclocked power cells and military-grade shielding emitters make it superior to anything on the legal market."
 	max_shield_health = 125
 	recharge_delay = 6 SECONDS
@@ -36,7 +36,7 @@
 
 /// Syndicate shield tuned for projectile interception only. Transparent to melee.
 /obj/item/clothing/accessory/energy_shield/syndicate/phasic
-	name = "Gorlex phasic deflector"
+	name = "\improper Gorlex phasic deflector"
 	desc = "A Syndicate shield tuned exclusively for high-velocity projectile interception. Its phase-shifted barrier is completely transparent to melee attacks."
 	max_shield_health = 150
 	shield_color = "#cc44ff"
@@ -44,7 +44,7 @@
 
 /// Massive Syndicate shield that slows the wearer while active.
 /obj/item/clothing/accessory/energy_shield/syndicate/bulwark
-	name = "Gorlex bulwark generator"
+	name = "\improper Gorlex bulwark generator"
 	desc = "A heavy-duty Syndicate shield generator that projects an immensely powerful barrier at the cost of mobility. Graviton field emitters interfere with normal locomotion while the shield is active."
 	max_shield_health = 200
 	recharge_delay = 8 SECONDS
