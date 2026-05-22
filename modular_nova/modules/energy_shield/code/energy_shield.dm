@@ -134,7 +134,7 @@
 	RegisterSignal(wearer, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(on_check_block))
 
 	if(!enabled)
-		to_chat(wearer, span_notice("The [src] is disabled. Use it in hand to open the control panel."))
+		to_chat(wearer, span_notice("The [src] is disabled."))
 	else if(wearer_has_heavy_armor())
 		turn_off(quiet = TRUE)
 		to_chat(wearer, span_warning("The [src] fails to activate — your armor is too heavy for the energy field to form."))
