@@ -118,7 +118,6 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 	name = "Rodent Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/emotes/rodentscream.ogg')
 
-
 /datum/scream_type/chicken
 	name = "Chicken Scream"
 	scream_sounds = list('sound/mobs/non-humanoids/chicken/bagawk.ogg')
