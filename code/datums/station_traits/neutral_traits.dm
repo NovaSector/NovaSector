@@ -195,7 +195,7 @@
 			// NOVA EDIT ADDITION START
 			if(human.client?.prefs?.read_preference(/datum/preference/toggle/birthday_opt_out))
 				continue
-				// NOVA EDIT ADDITION END
+			// NOVA EDIT ADDITION END
 			if(human.mind?.assigned_role.job_flags & JOB_CREW_MEMBER)
 				birthday_options += human
 		if(length(birthday_options))
