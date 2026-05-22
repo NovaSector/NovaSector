@@ -203,7 +203,6 @@
 	drop_sound = 'sound/items/handling/tools/crowbar_drop.ogg'
 	pickup_sound = 'sound/items/handling/tools/crowbar_pickup.ogg'
 
-
 /obj/item/forging/reagent_weapon/hammer/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded = 10, force_wielded = 25, require_twohands = TRUE)
