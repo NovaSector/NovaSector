@@ -19,7 +19,6 @@
 	AddElement(/datum/element/voucher_redeemer, /obj/item/security_voucher/primary, /datum/voucher_set/security/primary)
 	AddElement(/datum/element/voucher_redeemer, /obj/item/security_voucher/utility, /datum/voucher_set/security/utility)
 
-
 /datum/voucher_set/security
 	blackbox_key = "security_voucher_redeemed"
 
