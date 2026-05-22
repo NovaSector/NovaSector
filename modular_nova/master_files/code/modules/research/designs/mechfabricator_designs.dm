@@ -28,3 +28,13 @@
 	category = list(
 		RND_CATEGORY_MODSUIT_MODULES + RND_SUBCATEGORY_MODSUIT_MODULES_SECURITY
 	)
+
+/datum/design/module/retract_plates
+	name = "Plate Compression Module"
+	id = "mod_retract_plates"
+	build_path = /obj/item/mod/module/plate_compression
+
+/datum/design/module/magnetic_deploy
+	name = "Magnetic Deployment Module"
+	id = "mod_magnetic_deploy"
+	build_path = /obj/item/mod/module/springlock/contractor

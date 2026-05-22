@@ -1,0 +1,4 @@
+author: "burgerenergy"
+delete-after: True
+changes:
+  - rscadd: "Manual, foldable wheelchairs added to loadout."

@@ -1,0 +1,53 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"C" = (
+/obj/structure/closet/secure_closet/bar,
+/obj/machinery/light/small/directional/west,
+/obj/machinery/light_switch/directional/north,
+/obj/item/vending_refill/cigarette,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/sheet/iron{
+	amount = 30
+	},
+/obj/item/stack/sheet/glass{
+	amount = 30
+	},
+/obj/item/wrench,
+/turf/open/floor/wood,
+/area/station/service/bar/backroom)
+"E" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/structure/closet/secure_closet/security/service,
+/turf/open/floor/wood,
+/area/station/service/bar/backroom)
+
+(1,1,1) = {"
+C
+a
+"}
+(2,1,1) = {"
+a
+a
+"}
+(3,1,1) = {"
+a
+E
+"}
+(4,1,1) = {"
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+"}

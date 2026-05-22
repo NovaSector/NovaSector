@@ -67,7 +67,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	var/tmp/lighting_corners_initialised = FALSE
 
 	///Our lighting object.
-	var/tmp/datum/lighting_object/lighting_object
+	var/tmp/atom/movable/lighting_object/lighting_object
 	///Lighting Corner datums.
 	var/tmp/datum/lighting_corner/lighting_corner_NE
 	var/tmp/datum/lighting_corner/lighting_corner_SE
@@ -177,12 +177,12 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	if (opacity)
 		directional_opacity = ALL_CARDINALS
 
-	// apply materials properly from the default custom_materials value
-	if (!length(custom_materials))
-		set_custom_materials(custom_materials)
-
 	if(uses_integrity)
 		atom_integrity = max_integrity
+
+	// apply materials properly from the default custom_materials value
+	if (length(custom_materials))
+		set_custom_materials(custom_materials)
 
 	return INITIALIZE_HINT_NORMAL
 

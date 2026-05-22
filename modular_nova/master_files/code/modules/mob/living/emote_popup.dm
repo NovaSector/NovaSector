@@ -5,6 +5,7 @@
 	plane = GAME_PLANE
 	appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	vis_flags = VIS_INHERIT_PLANE | VIS_INHERIT_ID
 
 /**
  * A proc type that, when called, causes a image/sprite to appear above whatever entity it is called on.

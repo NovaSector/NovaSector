@@ -1,0 +1,6 @@
+author: "ItzAngel505"
+delete-after: True
+changes:
+  - rscadd: "Gave Science and Engineering Guards 3 new alt titles."
+  - rscadd: "Gave Service and Cargo Guards 2 new alt titles."
+  - rscadd: "Gave Medical Guards 1 new alt title."

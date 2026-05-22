@@ -458,7 +458,6 @@
 
 /obj/item/clothing/under/verb/toggle()
 	set name = "Adjust Suit Sensors"
-	set category = "Object"
 	set src in usr
 	var/mob/user_mob = usr
 	if(!can_toggle_sensors(user_mob))

@@ -48,7 +48,7 @@ GLOBAL_LIST_INIT(skill_choices, init_skill_choices())
 	if (!..())
 		return FALSE
 
-	return "Skilled" in preferences.all_quirks
+	return /datum/quirk/skilled::name in preferences.all_quirks
 
 /datum/preference/choiced/skilled/apply_to_human(mob/living/carbon/human/target, value)
 	return

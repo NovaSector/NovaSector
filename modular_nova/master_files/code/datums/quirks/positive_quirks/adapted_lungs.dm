@@ -191,7 +191,7 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	if (!..())
 		return FALSE
 
-	return "Adapted Lungs" in preferences.all_quirks
+	return /datum/quirk/adapted_lungs::name in preferences.all_quirks
 
 /datum/preference/choiced/adapted_lungs/apply_to_human(mob/living/carbon/human/target, value)
 	return

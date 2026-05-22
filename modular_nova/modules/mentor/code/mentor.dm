@@ -70,3 +70,5 @@ GLOBAL_PROTECT(mentor_href_token)
 /client
 	/// Acts the same way holder does towards admin: it holds the mentor datum. if set, the guy's a mentor.
 	var/datum/mentors/mentor_datum
+	/// Whether or not the client has had the relay suggested to them this session
+	var/relay_tip_shown

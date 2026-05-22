@@ -34,15 +34,11 @@
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/artifact_analyser/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
-		update_appearance()
-		return
-	if(default_pry_open(attacking_item))
-		return
-	if(default_deconstruction_crowbar(attacking_item))
-		return
-	return ..()
+/obj/machinery/artifact_analyser/crowbar_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_crowbar(user, tool)
+
+/obj/machinery/artifact_analyser/screwdriver_act(mob/living/user, obj/item/tool)
+	return default_pry_open(user, tool, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE, deconstruct_on_fail = TRUE)
 
 /**
  * Tries to reconnect nearby scanpad to itself

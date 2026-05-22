@@ -51,6 +51,17 @@
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
+/datum/supply_pack/companies/ballistics/nt/c96
+	name = "NT M-96"
+	desc = "Hot off the assembly line and right into your holster, this modern reproduction of the classic C96 is chambered in 9mm."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(/obj/item/gun/ballistic/rifle/c96)
+	auto_name = FALSE
+	access = FALSE
+	access_view = FALSE
+	express_lock = FALSE
+	order_flags = ORDER_COMPANY
+
 // Sol Fed Weapons
 /datum/supply_pack/companies/ballistics/sol_fed
 

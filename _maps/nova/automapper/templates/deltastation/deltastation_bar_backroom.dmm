@@ -1,0 +1,59 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/closet/secure_closet/bar,
+/obj/item/storage/photo_album/bar,
+/obj/item/radio/intercom/directional/east,
+/obj/item/storage/dice,
+/obj/item/vending_refill/coffee,
+/obj/item/circuitboard/computer/arcade/orion_trail,
+/obj/item/circuitboard/computer/arcade/battle,
+/obj/item/circuitboard/computer/slot_machine,
+/obj/item/circuitboard/computer/slot_machine,
+/obj/item/vending_refill/cigarette,
+/obj/item/wrench,
+/obj/item/stack/cable_coil,
+/obj/item/stack/sheet/iron{
+	amount = 30
+	},
+/obj/item/stack/sheet/glass{
+	amount = 30
+	},
+/turf/open/floor/iron/checker,
+/area/station/service/bar/backroom)
+"z" = (
+/obj/machinery/airalarm/directional/south,
+/obj/structure/closet/secure_closet/security/service,
+/turf/open/floor/iron/checker,
+/area/station/service/bar/backroom)
+"J" = (
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+J
+J
+J
+J
+J
+"}
+(2,1,1) = {"
+J
+J
+J
+J
+z
+"}
+(3,1,1) = {"
+J
+J
+J
+J
+J
+"}
+(4,1,1) = {"
+J
+J
+J
+a
+J
+"}

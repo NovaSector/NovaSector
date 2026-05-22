@@ -229,6 +229,8 @@
 	var/static/list/butcher_drop_cache = list()
 	/// What state is the bodypart in for determining surgery availability
 	VAR_FINAL/surgery_state = NONE
+	/// Typepath of this limb as a stump
+	var/stump_typepath
 
 /obj/item/bodypart/apply_fantasy_bonuses(bonus)
 	. = ..()
@@ -277,6 +279,7 @@
 	if (length(drop_results))
 		butcher_drops = string_list(drop_results)
 		butcher_drop_cache[type] = butcher_drops
+	update_limb(TRUE)
 	update_icon_dropped()
 	refresh_bleed_rate()
 
@@ -472,9 +475,8 @@
 
 	return jointext(check_list, "<br>")
 
-/// Returns surgery self-check information for this bodypart
-/obj/item/bodypart/proc/get_surgery_self_check()
-	var/list/surgery_message = list()
+/// Returns all surgical states, filtering out stuff which should not be reported
+/obj/item/bodypart/proc/get_reported_surgery_state()
 	var/reported_state = surgery_state
 	if(!LIMB_HAS_SKIN(src))
 		reported_state &= ~SKINLESS_SURGERY_STATES
@@ -482,6 +484,18 @@
 		reported_state &= ~BONELESS_SURGERY_STATES
 	if(!LIMB_HAS_VESSELS(src))
 		reported_state &= ~VESSELLESS_SURGERY_STATES
+
+	// hide surgical states applied by wounds if the limb isn't being operated on, to keep it simple
+	if(!HAS_TRAIT(src, TRAIT_READY_TO_OPERATE))
+		for(var/datum/wound/wound as anything in wounds)
+			reported_state &= ~wound.surgery_states
+
+	return reported_state
+
+/// Returns surgery self-check information for this bodypart
+/obj/item/bodypart/proc/get_surgery_self_check()
+	var/list/surgery_message = list()
+	var/reported_state = get_reported_surgery_state()
 
 	if(HAS_SURGERY_STATE(reported_state, SURGERY_SKIN_CUT))
 		surgery_message += "skin has been incised"
@@ -511,7 +525,7 @@
 
 	if(length(surgery_message))
 		return span_tooltip("Your limb is undergoing surgery. If no doctors are around, \
-			you could suture or cauterize yourself to cancel it.", span_warning("Its [english_list(surgery_message)]!"))
+			you could suture or cauterize yourself to cancel it.", span_smalldanger("Its [english_list(surgery_message)]!"))
 	return ""
 
 /// Returns surgery examine information for this bodypart
@@ -520,13 +534,7 @@
 	var/capital_zone = owner ? "[owner.p_Their()] [plaintext_zone]" : capitalize("[src]")
 	var/single_message = ""
 	var/list/sub_messages = list()
-	var/reported_state = surgery_state
-	if(!LIMB_HAS_SKIN(src))
-		reported_state &= ~SKINLESS_SURGERY_STATES
-	if(!LIMB_HAS_BONES(src))
-		reported_state &= ~BONELESS_SURGERY_STATES
-	if(!LIMB_HAS_VESSELS(src))
-		reported_state &= ~VESSELLESS_SURGERY_STATES
+	var/reported_state = get_reported_surgery_state()
 
 	if(HAS_SURGERY_STATE(reported_state, SURGERY_SKIN_CUT))
 		sub_messages += "skin has been incised"
@@ -565,9 +573,9 @@
 		single_message = "[owner?.p_Their() || "The"] chest cavity is wide open!"
 
 	if(length(sub_messages) >= 2)
-		return span_danger("[capital_zone]'s [english_list(sub_messages)].")
+		return span_smalldanger("[capital_zone]'s [english_list(sub_messages)].")
 	if(single_message)
-		return span_danger(single_message)
+		return span_smalldanger(single_message)
 	return ""
 
 /obj/item/bodypart/blob_act()
@@ -634,8 +642,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	var/atom/drop_loc = drop_location()
-	if(IS_ORGANIC_LIMB(src))
-		playsound(drop_loc, 'sound/misc/splort.ogg', 50, TRUE, -1)
+	var/play_sfx = FALSE
 
 	for(var/obj/item/organ/bodypart_organ in contents)
 		if(bodypart_organ.organ_flags & ORGAN_UNREMOVABLE)
@@ -645,17 +652,21 @@
 			bodypart_organ.apply_organ_damage(bodypart_organ.maxHealth * 0.5)
 
 		if(owner)
-			if(!bodypart_organ.Remove(bodypart_organ.owner))
-				continue
+			bodypart_organ.Remove(bodypart_organ.owner)
 		else if(!bodypart_organ.bodypart_remove(src))
 			continue
 
 		if(drop_loc) //can be null if being deleted
 			bodypart_organ.forceMove(get_turf(drop_loc))
+			play_sfx = TRUE
 
 	if(drop_loc) //can be null during deletion
 		for(var/atom/movable/movable as anything in src)
 			movable.forceMove(drop_loc)
+			play_sfx = TRUE
+
+	if(play_sfx && IS_ORGANIC_LIMB(src))
+		playsound(drop_loc, 'sound/misc/splort.ogg', 50, TRUE, -1)
 
 	update_icon_dropped()
 
@@ -1187,7 +1198,7 @@
 	update_draw_color()
 
 	if(!is_creating || !owner)
-		return
+		return FALSE
 
 	// There should technically to be an ishuman(owner) check here, but it is absent because no basetype carbons use bodyparts
 	// No, xenos don't actually use bodyparts. Don't ask.
@@ -1210,21 +1221,27 @@
 
 	update_draw_color()
 
-	// NOVA EDIT ADDITION
+	// NOVA EDIT ADDITION START - Alpha + Markings
 	var/datum/dna/owner_dna = human_owner.dna
 	var/datum/species/owner_species = owner_dna.species
 
 	if(owner_species && owner_species.specific_alpha != 255)
 		alpha = owner_species.specific_alpha
 
-	if(body_zone in owner_dna.body_markings)
-		markings = LAZYCOPY(owner_dna.body_markings[body_zone])
+	if(!(bodypart_flags & (BODYPART_PSEUDOPART | BODYPART_STUMP)) && !(bodyshape & BODYSHAPE_TAUR))
+		if(body_zone in owner_dna.body_markings)
+			markings = LAZYLISTDUPLICATE(owner_dna.body_markings[body_zone])
+		else
+			LAZYNULL(markings)
 		if(aux_zone && (aux_zone in owner_dna.body_markings))
-			aux_zone_markings = LAZYCOPY(owner_dna.body_markings[aux_zone])
+			aux_zone_markings = LAZYLISTDUPLICATE(owner_dna.body_markings[aux_zone])
+		else
+			LAZYNULL(aux_zone_markings)
 		markings_alpha = owner_species.markings_alpha
 	else
-		markings = list()
-	// NOVA EDIT END
+		LAZYNULL(markings)
+		LAZYNULL(aux_zone_markings)
+	// NOVA EDIT ADDITION END
 	// Recolors mutant overlays to match new mutant colors
 	for(var/datum/bodypart_overlay/mutant/overlay in bodypart_overlays)
 		overlay.inherit_color(src, force = TRUE)
@@ -1306,7 +1323,7 @@
 		update_icon_dropped()
 
 ///Generates an /image for the limb to be used as an overlay
-/obj/item/bodypart/proc/get_limb_icon(dropped, mob/living/carbon/update_on)
+/obj/item/bodypart/proc/get_limb_icon(dropped)
 	SHOULD_CALL_PARENT(TRUE)
 	RETURN_TYPE(/list)
 
@@ -1320,8 +1337,12 @@
 	// Handles invisibility (not alpha or actual invisibility but invisibility)
 	if(is_invisible)
 		. += image(icon_invisible, "invisible_[body_zone]", -BODYPARTS_LAYER, dir = image_dir)
-		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped, update_on)
+		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
 		return .
+	// NOVA EDIT ADDITION START - For invisible taur limbs, so we are not caching invalid keys and repeatedly adding the same overlay. I hate it here
+	if(is_actually_just_invisible)
+		return list()
+	// NOVA EDIT ADDITION END
 
 	// Normal non-husk handling
 	// This is the MEAT of limb icon code
@@ -1332,6 +1353,10 @@
 	var/used_state = "[limb_id]_[body_zone]"
 	if(is_dimorphic) // Does this type of limb have sexual dimorphism?
 		used_state = "[limb_id]_[body_zone]_[limb_gender]"
+	// NOVA EDIT ADDITION START
+	if(bodyshape & BODYSHAPE_DIGITIGRADE) // Is this a digi limb?
+		used_state += "_[ICON_KEY_DIGI]"
+	// NOVA EDIT ADDITION END
 
 	var/image/limb = image(used_icon, used_state, -BODYPARTS_LAYER, dir = image_dir)
 	var/image/aux = null
@@ -1348,7 +1373,7 @@
 		if(brutestate)
 			// divided into two overlays: one that gets colored and one that doesn't.
 			var/image/brute_blood_overlay = image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0", -DAMAGE_LAYER, dir = SOUTH)
-			brute_blood_overlay.color = get_color_from_blood_list(update_on ? update_on.get_blood_dna_list() : blood_dna_info) // living mobs can just get it fresh, dropped limbs use blood_dna_info
+			brute_blood_overlay.color = get_color_from_blood_list(blood_dna_info)
 			var/mutable_appearance/brute_damage_overlay = mutable_appearance('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0_overlay", -DAMAGE_LAYER, appearance_flags = RESET_COLOR)
 			if(brute_damage_overlay)
 				brute_blood_overlay.overlays += brute_damage_overlay
@@ -1412,34 +1437,35 @@
 	if(is_husked)
 		override_color = "#888888"
 	// We need to check that the owner exists(could be a placed bodypart) and that it's not a chainsawhand and that they're a human with usable DNA.
-	if(!(bodypart_flags & BODYPART_PSEUDOPART) && (!(bodyshape & BODYSHAPE_TAUR))) // taur legs never ever render
-		for(var/key in markings) // Cycle through all of our currently selected markings.
+	if(!(bodypart_flags & (BODYPART_PSEUDOPART | BODYPART_STUMP)) && (!(bodyshape & BODYSHAPE_TAUR))) // taur legs never ever render
+		for(var/key, marking in markings) // Cycle through all of our currently selected markings.
 			var/datum/body_marking/body_marking = GLOB.body_markings[key]
 			if (!body_marking) // Edge case prevention.
 				continue
 
-			var/render_limb_string = limb_id == BODYPART_ID_DIGITIGRADE ? "[BODYPART_ID_DIGITIGRADE]_[body_zone]" : body_zone
 			var/gender_modifier = ""
 			if(body_zone == BODY_ZONE_CHEST) // Chest markings have male and female versions.
 				if(body_marking.gendered)
 					gender_modifier = is_dimorphic ? "_[limb_gender]" : "_m"
-
+			var/digi_modifier = ""
+			if(bodyshape & BODYSHAPE_DIGITIGRADE)
+				digi_modifier = "digitigrade_"
 			var/mutable_appearance/accessory_overlay
 			var/mutable_appearance/emissive
-			accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string][gender_modifier]", -BODYPARTS_LAYER)
+			accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[digi_modifier][body_zone][gender_modifier]", -BODYPARTS_LAYER)
 			accessory_overlay.alpha = markings_alpha
-			if(markings[key][2])
+			if(marking[2])
 				emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
 			if(override_color)
 				accessory_overlay.color = override_color
 			else
-				accessory_overlay.color = markings[key][1]
+				accessory_overlay.color = marking[1]
 			. += accessory_overlay
 			if (emissive)
 				. += emissive
 
 		if(aux_zone)
-			for(var/key in aux_zone_markings)
+			for(var/key, marking in aux_zone_markings)
 				var/datum/body_marking/body_marking = GLOB.body_markings[key]
 				if (!body_marking) // Edge case prevention.
 					continue
@@ -1450,12 +1476,12 @@
 				var/mutable_appearance/accessory_overlay
 				accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string]", -aux_layer)
 				accessory_overlay.alpha = markings_alpha
-				if (aux_zone_markings[key][2])
+				if (marking[2])
 					emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
 				if(override_color)
 					accessory_overlay.color = override_color
 				else
-					accessory_overlay.color = aux_zone_markings[key][1]
+					accessory_overlay.color = marking[1]
 				. += accessory_overlay
 				if (emissive)
 					. += emissive
@@ -1485,7 +1511,7 @@
 		for(var/datum/layer in .)
 			overlay.modify_bodypart_appearance(layer)
 
-	SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped, update_on)
+	SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
 	return .
 
 /obj/item/bodypart/proc/huskify_image(image/thing_to_husk)
@@ -1497,11 +1523,7 @@
 	husk_blood.blend_mode = BLEND_INSET_OVERLAY
 	husk_blood.dir = thing_to_husk.dir
 	husk_blood.layer = thing_to_husk.layer
-	var/list/blood_dna = blood_dna_info || owner?.get_blood_dna_list()
-	if (LAZYLEN(blood_dna))
-		husk_blood.color = get_color_from_blood_list(blood_dna)
-	else
-		husk_blood.color = BLOOD_COLOR_RED
+	husk_blood.color = LAZYLEN(blood_dna_info) ? get_color_from_blood_list(blood_dna_info) : BLOOD_COLOR_RED
 	return husk_blood
 
 ///Add a bodypart overlay and call the appropriate update procs
@@ -1747,7 +1769,7 @@
  */
 /obj/item/bodypart/proc/seep_gauze(seep_amt = 0)
 	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(applied_items, LIMB_ITEM_GAUZE)
-	if(!current_gauze)
+	if(!current_gauze || !current_gauze.absorption_capacity)
 		return FALSE
 	current_gauze.absorption_capacity -= seep_amt
 	if(current_gauze.absorption_capacity <= 0)
@@ -1779,7 +1801,7 @@
 		owner.update_body_parts()
 
 	//This foot gun needs a safety
-	if(!icon_exists(icon_holder, "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""]"))
+	if(!icon_exists(icon_holder, "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""][(bodyshape & BODYSHAPE_DIGITIGRADE) ? "_[ICON_KEY_DIGI]" : ""]")) // NOVA EDIT CHANGE - ORIGINAL: if(!icon_exists(icon_holder, "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""]"))
 		reset_appearance()
 		stack_trace("change_appearance([icon], [id], [greyscale], [dimorphic]) generated null icon")
 
