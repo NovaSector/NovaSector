@@ -26,7 +26,6 @@
 		/datum/ai_planning_subtree/random_speech/dog,
 	)
 
-
 /mob/living/basic/pet/dog/pitbull/Initialize(mapload)
 	. = ..()
 	if(prob(1))

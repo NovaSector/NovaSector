@@ -8,6 +8,3 @@
 	icon_living = "clarp"
 	icon_state = "clarp"
 	greyscale_config = NONE
-
-/mob/living/basic/carp/petcarp
-	faction = list(FACTION_NEUTRAL)
