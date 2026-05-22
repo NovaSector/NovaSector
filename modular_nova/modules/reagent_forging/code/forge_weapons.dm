@@ -1,5 +1,5 @@
-#define FAUNA_MULTIPLIER 1
-#define MEGAFAUNA_MULTIPLIER 1
+#define FAUNA_MULTIPLIER 2
+#define MEGAFAUNA_MULTIPLIER 2
 
 /obj/item/forging/reagent_weapon
 	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi'
@@ -14,7 +14,6 @@
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 7
-	var/static/list/nemesis = MOB_BEAST
 
 /obj/item/forging/reagent_weapon/Initialize(mapload)
 	. = ..()
