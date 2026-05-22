@@ -74,13 +74,7 @@
 	update_appearance(UPDATE_ICON)
 
 /obj/item/clothing/accessory/energy_shield/Destroy()
-	if(wearer)
-		UnregisterSignal(wearer, list(COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_ATOM_PRE_BULLET_ACT, COMSIG_MOB_AFTER_APPLY_DAMAGE, COMSIG_LIVING_CHECK_BLOCK))
-		REMOVE_TRAIT(wearer, TRAIT_ENERGY_SHIELDED, ENERGY_SHIELD_TRAIT)
-		hide_shield_visuals()
-		clear_shield_hud()
-		wearer = null
-	STOP_PROCESSING(SSobj, src)
+	turn_off(detach_wearer = TRUE, quiet = TRUE)
 	return ..()
 
 /// Returns TRUE if the wearer's outer clothing has LASER, ENERGY, or BULLET armor above class II.
@@ -142,7 +136,9 @@
 	if(!enabled)
 		to_chat(wearer, span_notice("The [src] is disabled. Use it in hand to open the control panel."))
 	else if(wearer_has_heavy_armor())
+		turn_off(quiet = TRUE)
 		to_chat(wearer, span_warning("The [src] fails to activate — your armor is too heavy for the energy field to form."))
+		return
 	else if(shield_health > 0)
 		shield_active = TRUE
 	else
@@ -154,18 +150,7 @@
 	. = ..()
 	if(isnull(wearer))
 		return
-	UnregisterSignal(wearer, list(COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_ATOM_PRE_BULLET_ACT, COMSIG_MOB_AFTER_APPLY_DAMAGE, COMSIG_LIVING_CHECK_BLOCK))
-	REMOVE_TRAIT(wearer, TRAIT_ENERGY_SHIELDED, ENERGY_SHIELD_TRAIT)
-	if(shield_health > 0)
-		playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
-	shield_health = 0
-	shield_active = FALSE
-	showing_recharge = FALSE
-	recharge_visual_pending = TRUE
-	hide_shield_visuals()
-	clear_shield_hud()
-	STOP_PROCESSING(SSobj, src)
-	wearer = null
+	turn_off(detach_wearer = TRUE)
 
 /obj/item/clothing/accessory/energy_shield/examine(mob/user)
 	. = ..()
@@ -191,21 +176,15 @@
 	if(!enabled)
 		enabled = TRUE
 		if(wearer_has_heavy_armor())
-			enabled = FALSE
+			turn_off(quiet = TRUE)
 			to_chat(wearer, span_warning("The [src] fails to activate — your armor is too heavy for the energy field to form."))
 		else if(wearer)
 			COOLDOWN_START(src, recharge_cooldown, recharge_delay)
 			recharge_visual_pending = TRUE
+			START_PROCESSING(SSobj, src)
 			to_chat(wearer, span_notice("You activate the energy shield. It will begin charging shortly."))
 	else
-		enabled = FALSE
-		if(shield_active)
-			shield_active = FALSE
-			shield_health = 0
-			showing_recharge = FALSE
-			hide_shield_visuals()
-			update_shield_hud()
-			playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
+		turn_off()
 		to_chat(wearer, span_notice("You deactivate the energy shield."))
 	action.build_all_button_icons()
 
@@ -221,6 +200,7 @@
 
 	shield_health = round(shield_health * emp_retention)
 	COOLDOWN_START(src, recharge_cooldown, recharge_delay)
+	recharge_visual_pending = TRUE
 	if(shield_health <= 0)
 		shield_collapse()
 	else
@@ -342,6 +322,7 @@
 /obj/item/clothing/accessory/energy_shield/proc/get_shield_tint_color()
 	var/tint_alpha = shield_health > 0 ? round((shield_health / max_shield_health) * 200 + 5) : 5
 	var/static/hex_digits = "0123456789abcdef"
+	// Convert alpha into two hex digits and append it to the base "#RRGGBB" shield color.
 	return "[shield_color][hex_digits[round(tint_alpha / 16) + 1]][hex_digits[(tint_alpha % 16) + 1]]"
 
 /// Applies outline glow and texture pattern filters to the wearer.
@@ -501,6 +482,30 @@
 	wearer.visible_message(span_warning("[wearer]'s energy shield collapses!"))
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(do_sparks), 3, TRUE, wearer)
 
+/// Disables the shield and clears transient combat/recharge state.
+/obj/item/clothing/accessory/energy_shield/proc/turn_off(detach_wearer = FALSE, quiet = FALSE, force_sound = FALSE)
+	var/should_play_sound = force_sound || shield_active || (detach_wearer && shield_health > 0)
+	enabled = FALSE
+	shield_health = 0
+	shield_active = FALSE
+	showing_recharge = FALSE
+	recharge_visual_pending = TRUE
+	pending_absorption = 0
+	pending_def_zone = null
+	hide_shield_visuals()
+	if(detach_wearer)
+		clear_shield_hud()
+	else
+		update_shield_hud()
+	if(!quiet && should_play_sound && wearer)
+		playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
+	update_item_action_buttons(UPDATE_BUTTON_STATUS)
+	if(detach_wearer && wearer)
+		UnregisterSignal(wearer, list(COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_ATOM_PRE_BULLET_ACT, COMSIG_MOB_AFTER_APPLY_DAMAGE, COMSIG_LIVING_CHECK_BLOCK))
+		REMOVE_TRAIT(wearer, TRAIT_ENERGY_SHIELDED, ENERGY_SHIELD_TRAIT)
+		wearer = null
+	STOP_PROCESSING(SSobj, src)
+
 /// Handles passive recharge after the cooldown expires.
 /obj/item/clothing/accessory/energy_shield/process(seconds_per_tick)
 	// Don't recharge or activate while disabled
@@ -509,13 +514,7 @@
 
 	// Disable shield while wearing heavy armor
 	if(wearer_has_heavy_armor())
-		enabled = FALSE
-		shield_active = FALSE
-		shield_health = 0
-		showing_recharge = FALSE
-		hide_shield_visuals()
-		update_shield_hud()
-		playsound(wearer, 'sound/vehicles/mecha/mech_shield_drop.ogg', 40, TRUE)
+		turn_off(force_sound = TRUE)
 		to_chat(wearer, span_warning("Your heavy armor disrupts the energy shield! Disabling.."))
 		return
 
@@ -564,6 +563,13 @@
 
 /datum/action/item_action/toggle_energy_shield/apply_button_icon(atom/movable/screen/movable/action_button/button, force)
 	return ..()
+
+/datum/action/item_action/toggle_energy_shield/update_button_status(atom/movable/screen/movable/action_button/button, force = FALSE)
+	. = ..()
+	var/obj/item/clothing/accessory/energy_shield/shield = target
+	if(!istype(shield))
+		return
+	button.color = shield.enabled ? COLOR_BLUE : COLOR_RED
 
 #undef ENERGY_SHIELD_FILTER
 #undef ENERGY_SHIELD_PATTERN_FILTER
