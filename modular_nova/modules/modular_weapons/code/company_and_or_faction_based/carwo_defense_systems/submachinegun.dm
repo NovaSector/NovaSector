@@ -75,7 +75,7 @@
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
 	inhand_icon_state = "alacran"
 
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_MEDIUM
 	slot_flags = ITEM_SLOT_BELT
 
@@ -118,20 +118,23 @@
 	if(has_autofire)
 		AddComponent(/datum/component/automatic_fire, fire_delay)
 
-/obj/item/gun/ballistic/automatic/sol_pdw/update_overlays()
-	. = ..()
+/obj/item/gun/ballistic/automatic/sol_pdw/proc/get_ammo_suffix()
 	if(!magazine || internal_magazine)
 		return
 	var/ratio = get_ammo() / magazine.max_ammo
-	var/suffix
 	if(ratio >= 0.75)
-		suffix = "full"
-	else if(ratio >= 0.25)
-		suffix = "mid"
-	else if(ratio > 0)
-		suffix = "low"
-	else
-		suffix = "empty"
+		return "full"
+	if(ratio >= 0.25)
+		return "mid"
+	if(ratio > 0)
+		return "low"
+	return "empty"
+
+/obj/item/gun/ballistic/automatic/sol_pdw/update_overlays()
+	. = ..()
+	var/suffix = get_ammo_suffix()
+	if(!suffix)
+		return
 	. += "[icon_state]_mag_[suffix]"
 
 /obj/item/gun/ballistic/automatic/sol_pdw/update_icon_state()
@@ -143,16 +146,7 @@
 	if(!magazine || internal_magazine)
 		new_inhand = base_state
 	else
-		var/ratio = get_ammo() / magazine.max_ammo
-		var/suffix
-		if(ratio >= 0.75)
-			suffix = "full"
-		else if(ratio >= 0.25)
-			suffix = "mid"
-		else if(ratio > 0)
-			suffix = "low"
-		else
-			suffix = "empty"
+		var/suffix = get_ammo_suffix()
 		new_inhand = "[base_state]_[suffix]"
 	if(inhand_icon_state != new_inhand)
 		inhand_icon_state = new_inhand
