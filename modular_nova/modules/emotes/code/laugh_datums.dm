@@ -53,7 +53,7 @@ GLOBAL_LIST_EMPTY(laugh_types_by_name)
 
 /datum/laugh_type/skrell
 	name = "Skrell Laugh"
-	male_laughsounds = list(
+	laugh_sounds = list(
 		'modular_nova/modules/emotes/sound/emotes/skrelllaugh1.ogg',
 		'modular_nova/modules/emotes/sound/emotes/skrelllaugh2.ogg',
 	)
