@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - spellcheck: "Adjusts the naming of Nova-specific stasis bodybags to \"long-term stasis bodybags\", as they don't fall apart but only work on dead people."
+  - bugfix: "Nova-specific stasis bodybags now print their own (green) bodybags, TG stasis bodybags (blue) restored."
