@@ -9230,6 +9230,7 @@
 #include "modular_nova\modules\ore_box_reinforcement\code\ore_box_reinforcement.dm"
 #include "modular_nova\modules\organs\code\brain.dm"
 #include "modular_nova\modules\organs\code\ears.dm"
+#include "modular_nova\modules\organs\code\eyes.dm"
 #include "modular_nova\modules\organs\code\heart.dm"
 #include "modular_nova\modules\organs\code\liver.dm"
 #include "modular_nova\modules\organs\code\lungs.dm"
