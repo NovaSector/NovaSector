@@ -11,6 +11,7 @@
 	if(isnull(human_user.selected_laugh)) //For things that don't have a selected laugh(npcs)
 		return ..()
 
+	var/datum/laugh_type/laugh_type = human_user.selected_laugh
 	if(human_user.gender == MALE || isnull(laugh_type.female_laugh_type))
 		return pick(laugh_type.laugh_sounds)
 else
