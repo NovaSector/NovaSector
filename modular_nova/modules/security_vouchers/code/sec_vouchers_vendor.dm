@@ -112,7 +112,7 @@
 	icon_state = "pinpointer"
 	set_items = list(
 		/obj/item/storage/box/pinpointer_pairs,
-		)
+	)
 
 /datum/voucher_set/security/utility/laptop
 	name = "Security Laptop"
