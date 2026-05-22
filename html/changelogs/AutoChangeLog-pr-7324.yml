@@ -1,0 +1,6 @@
+author: "Sockssq"
+delete-after: True
+changes:
+  - rscadd: "Added Dreadtail hairstyle, a cute looking ponytail option for curly hair"
+  - image: "added hair_dreadtail into hair.dmi"
+  - image: "modified the north state of dreadlocks in human_face.dmi so it fits the human better"
