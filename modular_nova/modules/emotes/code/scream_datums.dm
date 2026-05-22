@@ -18,7 +18,7 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 /datum/scream_type/none //Why would you want this?
 	name = "No Scream"
 	scream_sounds = null
-	female_screamsounds = null
+
 
 /datum/scream_type/human
 	name = "Human Scream"
@@ -69,7 +69,7 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 /datum/scream_type/robotic
 	name = "Robotic Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/voice/scream_silicon.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/lizard
 	name = "Lizard Scream"
@@ -78,47 +78,47 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 		'sound/mobs/humanoids/lizard/lizard_scream_2.ogg',
 		'sound/mobs/humanoids/lizard/lizard_scream_3.ogg',
 	)
-	female_screamsounds = null
+
 
 /datum/scream_type/lizard2
 	name = "Lizard Scream 2"
 	scream_sounds = list('modular_nova/modules/emotes/sound/voice/scream_lizard.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/cat
 	name = "Cat Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/voice/scream_cat.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/moth
 	name = "Moth Scream"
 	scream_sounds = list('sound/mobs/humanoids/moth/scream_moth.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/jelly
 	name = "Jelly Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/emotes/jelly_scream.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/vox
 	name = "Vox Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/emotes/voxscream.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/xeno
 	name = "Xeno Scream"
 	scream_sounds = list('sound/mobs/non-humanoids/hiss/hiss6.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/raptor //This is the Teshari scream ported from CitRP which was a cockatoo scream edited by BlackMajor.
 	name = "Raptor Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/emotes/raptorscream.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/rodent //Ported from Polaris/Virgo.
 	name = "Rodent Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/emotes/rodentscream.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/chicken
 	name = "Chicken Scream"
@@ -130,18 +130,18 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 		'sound/mobs/humanoids/ethereal/ethereal_scream_1.ogg',
 		'sound/mobs/humanoids/ethereal/ethereal_scream_2.ogg',
 		'sound/mobs/humanoids/ethereal/ethereal_scream_3.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/slugcat
 	name = "Slugcat Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/voice/scugscream_1.ogg')
-	female_screamsounds = null
+
 
 //DONATOR SCREAMS
 /datum/scream_type/zombie
 	name = "Zombie Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/emotes/zombie_scream.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/monkey
 	name = "Monkey Scream"
@@ -159,12 +159,12 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 /datum/scream_type/gorilla
 	name = "Gorilla Scream"
 	scream_sounds = list('sound/mobs/non-humanoids/gorilla/gorilla.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/skeleton
 	name = "Skeleton Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/voice/scream_skeleton.ogg')
-	female_screamsounds = null
+
 
 /datum/scream_type/plasmaman
 	name = "Plasmaman Scream"
@@ -172,4 +172,4 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 		'sound/mobs/humanoids/plasmaman/plasmeme_scream_1.ogg',
 		'sound/mobs/humanoids/plasmaman/plasmeme_scream_2.ogg',
 		'sound/mobs/humanoids/plasmaman/plasmeme_scream_3.ogg')
-	female_screamsounds = null
+
