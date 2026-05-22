@@ -29,7 +29,7 @@ GLOBAL_LIST_EMPTY(laugh_types_by_name)
 	name = "Human Laugh (Feminine)"
 	laugh_sounds = list(
 		'modular_nova/modules/emotes/sound/emotes/female/female_giggle_1.ogg',
-		'modular_nova/modules/emotes/sound/emotes/female/female_giggle_2.ogg'
+		'modular_nova/modules/emotes/sound/emotes/female/female_giggle_2.ogg',
 	)
 
 /datum/laugh_type/felinid
