@@ -14,7 +14,7 @@
 	var/datum/laugh_type/laugh_type = human_user.selected_laugh
 	if(human_user.gender == MALE || isnull(laugh_type.female_laugh_type))
 		return pick(laugh_type.laugh_sounds)
-else
+	else
 		var/datum/laugh_type/female_laugh = GLOB.laugh_types[laugh_type.female_laugh_type]
 		return pick(female_laugh.laugh_sounds)
 

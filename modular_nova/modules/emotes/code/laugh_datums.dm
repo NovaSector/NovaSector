@@ -25,6 +25,10 @@ GLOBAL_LIST_EMPTY(laugh_types_by_name)
 						'sound/mobs/humanoids/human/laugh/manlaugh2.ogg',)
 	female_laugh_type = /datum/laugh_type/human/female
 
+/datum/laugh_type/human/male
+	name = "Human Laugh (Masculine)"
+	female_laugh_type = null
+
 /datum/laugh_type/human/female
 	name = "Human Laugh (Feminine)"
 	laugh_sounds = list(
