@@ -166,7 +166,7 @@
 
 /datum/loadout_item/head/avipilot
 	name = "Smuggler's Flying Cap"
-	item_path = /obj/item/clothing/head/avipilot
+	item_path = /obj/item/clothing/head/costume/ushanka/avipilot
 	ckeywhitelist = list("slippyjoe")
 
 /datum/loadout_item/shoes/britches_shoes

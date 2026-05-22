@@ -665,39 +665,19 @@
 	user.whisper(message, spans = spans)
 
 // Donation reward for SlippyJoe
-/obj/item/clothing/head/avipilot
+/obj/item/clothing/head/costume/ushanka/avipilot
 	name = "smuggler's flying cap"
 	desc = "Shockingly, despite space winds, and the lack of any practicality, this pilot cap seems to be fairly well standing, there's a rabbit head seemingly stamped into the side of it."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	icon_state = "avipilotup"
 	inhand_icon_state = "rus_ushanka"
-	flags_inv = HIDEEARS|HIDEHAIR
-	cold_protection = HEAD
-	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT //about as warm as an ushanka
-	actions_types = list(/datum/action/item_action/adjust)
+	upsprite = "avipilotup"
+	downsprite = "avipilotdown"
 	supports_variations_flags = NONE
-	var/goggles = FALSE
-
-/obj/item/clothing/head/avipilot/proc/adjust_goggles(mob/living/carbon/user)
-	if(user?.incapacitated)
-		return
-	if(goggles)
-		icon_state = "avipilotup"
-		to_chat(user, span_notice("You put all your effort into pulling the goggles up."))
-	else
-		icon_state = "avipilotdown"
-		to_chat(user, span_notice("You focus all your willpower to put the goggles down on your eyes."))
-	goggles = !goggles
-	if(user)
-		user.update_worn_head()
-		user.update_mob_action_buttons()
-
-/obj/item/clothing/head/avipilot/ui_action_click(mob/living/carbon/user, action)
-	adjust_goggles(user)
-
-/obj/item/clothing/head/avipilot/attack_self(mob/living/carbon/user)
-	adjust_goggles(user)
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
 
 // Donation reward for NetraKyram - public use allowed via the command vendor
 /obj/item/clothing/under/rank/captain/dress
