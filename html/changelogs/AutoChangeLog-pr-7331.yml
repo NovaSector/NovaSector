@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - spellcheck: "Various Nova machines (multi-cell chargers, xenoarch machines, etc.) have had their board names/design names adjusted for consistency with other TG machines."
