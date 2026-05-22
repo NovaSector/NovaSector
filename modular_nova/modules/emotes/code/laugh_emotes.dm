@@ -15,7 +15,8 @@
 	if(human_user.gender == MALE || isnull(laugh_type.female_laugh_type))
 		return pick(laugh_type.laugh_sounds)
 else
-		return pick(laugh_type.female_laugh_type.laugh_sounds)
+		var/datum/laugh_type/female_laugh = GLOB.laugh_types[laugh_type.female_laugh_type])
+		return pick(female_laugh.laugh_sounds)
 
 // human laugh - for males use tg audio females use our version
 /datum/species/human/get_laugh_sound(mob/living/carbon/human/human)
