@@ -34,7 +34,7 @@
 	icon_state = "disabler"
 	set_items = list(
 		/obj/item/storage/belt/holster/energy/disabler,
-		)
+	)
 
 /datum/voucher_set/security/primary/e_carbine
 	name = "Energy Carbine"
