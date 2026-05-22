@@ -251,3 +251,47 @@
   - code_imp: synth_healing.dm code cleanup
   theselfish:
   - rscadd: Clown Slots can be opened once more.
+2026-05-22:
+  Absolucy:
+  - rscadd: Added a character pref to opt-out of being chosen for the "Employee Birthday"
+      station trait.
+  Cebutris & Toriate:
+  - rscadd: Added the Non-binary flag
+  Hatterhat:
+  - spellcheck: Various Nova machines (multi-cell chargers, xenoarch machines, etc.)
+      have had their board names/design names adjusted for consistency with other
+      TG machines.
+  - spellcheck: Adjusts the naming of Nova-specific stasis bodybags to "long-term
+      stasis bodybags", as they don't fall apart but only work on dead people.
+  - bugfix: Nova-specific stasis bodybags now print their own (green) bodybags, TG
+      stasis bodybags (blue) restored.
+  - bugfix: Alien blood filters are printable now.
+  ItzAngel505:
+  - rscadd: Gave Science and Engineering Guards 3 new alt titles.
+  - rscadd: Gave Service and Cargo Guards 2 new alt titles.
+  - rscadd: Gave Medical Guards 1 new alt title.
+  Richard Blonski:
+  - rscadd: The Medkit is now printable from the Medical Techfab.
+  Sockssq:
+  - rscadd: Added Dreadtail hairstyle, a cute looking ponytail option for curly hair
+  - image: added hair_dreadtail into hair.dmi
+  - image: modified the north state of dreadlocks in human_face.dmi so it fits the
+      human better
+  Stalkeros:
+  - balance: Plasma pulse ammo is now a bullet with bonus laser damage, not a laser
+      with bonus bullet damage.
+  - bugfix: Plasma pulse ammo now should deal its full damage against everything,
+      not just mobs.
+  burgerenergy:
+  - rscadd: Manual, foldable wheelchairs added to loadout.
+  sqnztb:
+  - qol: moves starfruit jelly from to food crafting menu.
+  theselfish:
+  - qol: Forged Weapons (that are sharp) can now butcher. Yay.
+  - rscadd: New laughs and screams! Be gendered no more! Monkey scream is now in line
+      with actual apes! Six new fixed-gender laughs+screams for humans
+  - rscadd: The Clown Mask was never a mask... Now you can wear the hair and makeup
+      (as Markings in Augments+)
+  - rscadd: Multiple new pets in the carrier. A few are even in Cargo...
+  - rscadd: Assistant, Brig Officer, Blueshield Chaplain, and NTR have honorifics
+      now!!!
