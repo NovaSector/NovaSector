@@ -1,10 +1,10 @@
-/obj/structure/closet/body_bag/stasis_longterm
+/obj/structure/closet/body_bag/stasis_mortuary
 	name = "mortuary stasis bodybag"
 	desc = "A body bag designed for the preservation of cadavers via integrated cryogenic technology and an insulative diamond mesh. \
 		Due to generator limitations, the stasis effect only works on dead bodies."
 	icon = 'modular_nova/modules/stasisrework/icons/stasisbag.dmi'
 	icon_state = "greenbodybag"
-	foldedbag_path = /obj/item/bodybag/stasis_longterm
+	foldedbag_path = /obj/item/bodybag/stasis_mortuary
 	mob_storage_capacity = 1
 	max_mob_size = MOB_SIZE_LARGE
 
