@@ -8,11 +8,10 @@
 	if(!istype(human_user)) // pais
 		return
 
-	var/datum/laugh_type/laugh_type = human_user.selected_laugh.female_laugh_type.laughsounds
-	if(isnull(laugh_type)) //For things that don't have a selected laugh(npcs)
+	if(isnull(human_user.selected_laugh)) //For things that don't have a selected laugh(npcs)
 		return ..()
 
-	if(human_user.gender == MALE || !LAZYLEN(laugh_type.female_laughsounds))
+	if(human_user.gender == MALE || isnull(laugh_type.female_laugh_type))
 		return pick(laugh_type.male_laughsounds)
 	else
 		return pick(laugh_type.female_laughsounds)
