@@ -1,6 +1,6 @@
 /mob/living/basic/pet/dog/pitbull
 	name = "\improper pitbull"
-	desc = "Lover of Blood. Hater of Toddlers"
+	desc = "There is no such thing as a bad dog, only bad owners. Though, it's best to keep it away from toddlers. Just in case..."
 	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "pitbull"
 	icon_dead = "pitbull_dead"

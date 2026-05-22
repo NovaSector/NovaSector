@@ -1,6 +1,6 @@
 /mob/living/basic/pet/cat/tiger
 	name = "tiger cat"
-	desc = "A tiger made of paper."
+	desc = "A small cat with tiger stripes."
 	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	ai_controller = /datum/ai_controller/basic_controller/cat/tiger
 	icon_state = "tiger"
