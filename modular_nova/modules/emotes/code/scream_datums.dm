@@ -70,7 +70,6 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 	name = "Robotic Scream"
 	scream_sounds = list('modular_nova/modules/emotes/sound/voice/scream_silicon.ogg')
 
-
 /datum/scream_type/lizard
 	name = "Lizard Scream"
 	scream_sounds = list(
