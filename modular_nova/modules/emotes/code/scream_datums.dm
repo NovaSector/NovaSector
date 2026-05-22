@@ -4,8 +4,10 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 /datum/scream_type
 	abstract_type = /datum/scream_type
 	var/name
-	var/list/male_screamsounds
-	var/list/female_screamsounds
+	/// The list of scream sounds to use for this scream_type
+	var/list/scream_sounds
+	/// The female scream_type datum to use for this scream_type, if it exists
+	var/datum/scream_type/female_scream_type
 
 /datum/scream_type/Destroy(force)
 	if(!force)
@@ -32,6 +34,14 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 		'modular_nova/modules/emotes/sound/voice/scream_f1.ogg',
 		'modular_nova/modules/emotes/sound/voice/scream_f2.ogg',
 		'modular_nova/modules/emotes/sound/voice/scream_f3.ogg',
+	female_scream_type = /datum/scream_type/human/female
+
+/datum/scream_type/human/female
+	name = "Human Scream (Feminine)"
+	screamsounds = list(
+		'modular_nova/modules/emotes/sound/voice/scream_f1.ogg',
+		'modular_nova/modules/emotes/sound/voice/scream_f2.ogg',
+		'modular_nova/modules/emotes/sound/voice/scream_f3.ogg',
 	)
 
 /datum/scream_type/human_two
@@ -50,11 +60,7 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 		'sound/mobs/humanoids/human/scream/femalescream_3.ogg',
 		'sound/mobs/humanoids/human/scream/femalescream_4.ogg',
 		'sound/mobs/humanoids/human/scream/femalescream_5.ogg',
-	)
-
-/datum/scream_type/human_masc
-	name = "Masculine Human Scream"
-	male_screamsounds = list(
+	scream_sounds = list(
 		'sound/mobs/humanoids/human/scream/malescream_1.ogg',
 		'sound/mobs/humanoids/human/scream/malescream_2.ogg',
 		'sound/mobs/humanoids/human/scream/malescream_3.ogg',
@@ -62,26 +68,32 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 		'sound/mobs/humanoids/human/scream/malescream_5.ogg',
 		'sound/mobs/humanoids/human/scream/malescream_6.ogg',
 	)
-	female_screamsounds = null
+	female_scream_type = /datum/scream_type/human_two/female
 
-/datum/scream_type/human/female
-	name = "Feminine Human Scream"
-	male_screamsounds = list(
+/datum/scream_type/human_masc
+	name = "Human Scream (Masculine)"
+	scream_sounds = list(
+		'sound/mobs/humanoids/human/scream/malescream_1.ogg',
+		'sound/mobs/humanoids/human/scream/malescream_2.ogg',
+		'sound/mobs/humanoids/human/scream/malescream_3.ogg',
+		'sound/mobs/humanoids/human/scream/malescream_4.ogg',
+		'sound/mobs/humanoids/human/scream/malescream_5.ogg',
+		'sound/mobs/humanoids/human/scream/malescream_6.ogg',
+	)
+
+/datum/scream_type/human_two/female
+	name = "Human Scream 2 (Feminine)"
+	scream_sounds = list(
 		'sound/mobs/humanoids/human/scream/femalescream_1.ogg',
 		'sound/mobs/humanoids/human/scream/femalescream_2.ogg',
 		'sound/mobs/humanoids/human/scream/femalescream_3.ogg',
 		'sound/mobs/humanoids/human/scream/femalescream_4.ogg',
 		'sound/mobs/humanoids/human/scream/femalescream_5.ogg',
-		'modular_nova/modules/emotes/sound/voice/scream_f1.ogg',
-		'modular_nova/modules/emotes/sound/voice/scream_f2.ogg',
-		'modular_nova/modules/emotes/sound/voice/scream_f3.ogg',
 	)
-	female_screamsounds = null
 
 /datum/scream_type/wilhelm
 	name = "Classic Scream"
-	male_screamsounds = list('sound/mobs/humanoids/human/scream/wilhelm_scream.ogg')
-	female_screamsounds = null
+	scream_sounds = list('sound/mobs/humanoids/human/scream/wilhelm_scream.ogg')
 
 /datum/scream_type/robotic
 	name = "Robotic Scream"
@@ -139,8 +151,7 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 
 /datum/scream_type/chicken
 	name = "Chicken Scream"
-	male_screamsounds = list('sound/mobs/non-humanoids/chicken/bagawk.ogg')
-	female_screamsounds = null
+	scream_sounds = list('sound/mobs/non-humanoids/chicken/bagawk.ogg')
 
 /datum/scream_type/ethereal
 	name = "Ethereal Scream"
@@ -163,7 +174,7 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 
 /datum/scream_type/monkey
 	name = "Monkey Scream"
-	male_screamsounds = list(
+	scream_sounds = list(
 		'modular_nova/modules/emotes/sound/voice/scream_monkey.ogg',
 		'sound/mobs/non-humanoids/monkey/monkey_screech_1.ogg',
 		'sound/mobs/non-humanoids/monkey/monkey_screech_2.ogg',
@@ -171,8 +182,8 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 		'sound/mobs/non-humanoids/monkey/monkey_screech_4.ogg',
 		'sound/mobs/non-humanoids/monkey/monkey_screech_5.ogg',
 		'sound/mobs/non-humanoids/monkey/monkey_screech_6.ogg',
-		'sound/mobs/non-humanoids/monkey/monkey_screech_7.ogg',)
-	female_screamsounds = null
+		'sound/mobs/non-humanoids/monkey/monkey_screech_7.ogg'
+	)
 
 /datum/scream_type/gorilla
 	name = "Gorilla Scream"

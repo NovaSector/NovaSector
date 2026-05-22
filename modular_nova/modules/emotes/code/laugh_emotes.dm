@@ -8,13 +8,13 @@
 	if(!istype(human_user)) // pais
 		return
 
-	var/datum/laugh_type/laugh_type = human_user.selected_laugh.female_laugh_type.laughsounds
-	if(isnull(laugh_type)) //For things that don't have a selected laugh(npcs)
+	if(isnull(human_user.selected_laugh)) //For things that don't have a selected laugh(npcs)
 		return ..()
 
-		return pick(laugh_type.laugh_sounds)
-else
-		return pick(laugh_type.female_laugh_type.laugh_sounds)
+	if(human_user.gender == MALE || isnull(laugh_type.female_laugh_type))
+		return pick(laugh_type.male_laughsounds)
+	else
+		return pick(laugh_type.female_laughsounds)
 
 // human laugh - for males use tg audio females use our version
 /datum/species/human/get_laugh_sound(mob/living/carbon/human/human)
