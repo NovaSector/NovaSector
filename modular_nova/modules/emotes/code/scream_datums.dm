@@ -31,6 +31,10 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 	)
 	female_scream_type = /datum/scream_type/human/female
 
+/datum/scream_type/human/male
+	name = "Human Scream (Masculine)"
+	female_scream_type = null
+
 /datum/scream_type/human/female
 	name = "Human Scream (Feminine)"
 	scream_sounds = list(
@@ -50,6 +54,10 @@ GLOBAL_LIST_EMPTY(scream_types_by_name)
 		'sound/mobs/humanoids/human/scream/malescream_6.ogg',
 	)
 	female_scream_type = /datum/scream_type/human_two/female
+
+/datum/scream_type/human_two/male
+	name = "Human Scream 2 (Masculine)"
+	female_scream_type = null
 
 /datum/scream_type/human_two/female
 	name = "Human Scream 2 (Feminine)"
