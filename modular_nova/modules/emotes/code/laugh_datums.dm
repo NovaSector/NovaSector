@@ -22,19 +22,16 @@ GLOBAL_LIST_EMPTY(laugh_types_by_name)
 
 /datum/laugh_type/human
 	name = "Human Laugh"
-	male_laughsounds = list('sound/mobs/humanoids/human/laugh/manlaugh1.ogg',
+	laugh_sounds = list('sound/mobs/humanoids/human/laugh/manlaugh1.ogg',
 						'sound/mobs/humanoids/human/laugh/manlaugh2.ogg',)
-	female_laughsounds = null
-var/datum/laugh_type/female_laugh_type = /datum/laugh_type/human/female
-
+	female_laugh_type = /datum/laugh_type/human/female
 
 /datum/laugh_type/human/female
-	name = "Feminine Human Laugh"
-	male_laughsounds = list(
+	name = "Human Laugh (Feminine)"
+	laugh_sounds = list(
 		'modular_nova/modules/emotes/sound/emotes/female/female_giggle_1.ogg',
 		'modular_nova/modules/emotes/sound/emotes/female/female_giggle_2.ogg'
 	)
-	female_laughsounds = null
 
 /datum/laugh_type/felinid
 	name = "Felinid Laugh"
