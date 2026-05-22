@@ -34,33 +34,33 @@ GLOBAL_LIST_EMPTY(laugh_types_by_name)
 
 /datum/laugh_type/felinid
 	name = "Felinid Laugh"
-	male_laughsounds = list('modular_nova/modules/emotes/sound/emotes/nyahaha1.ogg',
+	laugh_sounds = list('modular_nova/modules/emotes/sound/emotes/nyahaha1.ogg',
 			'modular_nova/modules/emotes/sound/emotes/nyahaha2.ogg',
 			'modular_nova/modules/emotes/sound/emotes/nyaha.ogg',
 			'modular_nova/modules/emotes/sound/emotes/nyahehe.ogg')
 
 /datum/laugh_type/moth
 	name = "Insect Laugh (Moth)"
-	male_laughsounds = list('sound/mobs/humanoids/moth/moth_laugh1.ogg')
+	laugh_sounds = list('sound/mobs/humanoids/moth/moth_laugh1.ogg')
 
 /datum/laugh_type/lizard
 	name = "Lizard Laugh"
-	male_laughsounds = list('sound/mobs/humanoids/lizard/lizard_laugh1.ogg')
+	laugh_sounds = list('sound/mobs/humanoids/lizard/lizard_laugh1.ogg')
 
 /datum/laugh_type/skrell
 	name = "Skrell Laugh"
-	male_laughsounds = list(
+	laugh_sounds = list(
 		'modular_nova/modules/emotes/sound/emotes/skrelllaugh1.ogg',
 		'modular_nova/modules/emotes/sound/emotes/skrelllaugh2.ogg',
 	)
 
 /datum/laugh_type/slugcat
 	name = "Slugcat Laugh"
-	male_laughsounds = list('modular_nova/modules/emotes/sound/voice/scuglaugh_1.ogg')
+	laugh_sounds = list('modular_nova/modules/emotes/sound/voice/scuglaugh_1.ogg')
 
 /datum/laugh_type/clown
 	name = "Clown Laugh"
-	male_laughsounds = list(
+	laugh_sounds = list(
 		'sound/mobs/non-humanoids/clown/hohoho.ogg',
 		'sound/mobs/non-humanoids/clown/hehe.ogg',
 	)
