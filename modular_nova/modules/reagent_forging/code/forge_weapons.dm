@@ -175,8 +175,8 @@
 /obj/item/forging/reagent_weapon/axe/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-	speed = 7 SECONDS, \
-	effectiveness = 100, \
+		speed = 7 SECONDS, \
+		effectiveness = 100, \
 	)
 
 /datum/embedding/forged_axe
