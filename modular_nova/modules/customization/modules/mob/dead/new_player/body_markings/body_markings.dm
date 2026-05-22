@@ -158,7 +158,6 @@
 	default_color = "#FFFF00"
 	affected_bodyparts = HEAD
 
-
 /datum/body_marking/other/clownlips
 	name = "Clown Lips"
 	icon_state = "clownlips"
