@@ -1,0 +1,5 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - balance: "Plasma pulse ammo is now a bullet with bonus laser damage, not a laser with bonus bullet damage."
+  - bugfix: "Plasma pulse ammo now should deal its full damage against everything, not just mobs."
