@@ -4,8 +4,10 @@ GLOBAL_LIST_EMPTY(laugh_types_by_name)
 /datum/laugh_type
 	abstract_type = /datum/laugh_type
 	var/name
-	var/list/male_laughsounds
-	var/list/female_laughsounds
+	/// The list of laugh sounds belonging to this laugh_type
+	var/list/laugh_sounds
+	/// The female laugh datum to use, if it exists
+	var/datum/laugh_type/female_laugh_type
 
 /datum/laugh_type/Destroy(force)
 	if(!force)
