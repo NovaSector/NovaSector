@@ -2200,7 +2200,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	can_adjust = FALSE
 
 /obj/item/clothing/under/ig_harness
-	name = "\improper Body Harness"
+	name = "\improper body harness"
 	desc = "An overly complicated network of securing straps and buckles. There remains plenty of slack and clips to fit any size."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
