@@ -39,6 +39,7 @@
 
 /datum/species/human/felinid/primitive/on_species_gain(mob/living/carbon/new_primitive, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
+	ADD_TRAIT(new_primitive, TRAIT_TRIBAL_DEN_ACCESS, SPECIES_TRAIT)
 	var/mob/living/carbon/human/hearthkin = new_primitive
 	if(!istype(hearthkin))
 		return
@@ -48,6 +49,7 @@
 
 /datum/species/human/felinid/primitive/on_species_loss(mob/living/carbon/former_primitive, datum/species/new_species, pref_load)
 	. = ..()
+	REMOVE_TRAIT(former_primitive, TRAIT_TRIBAL_DEN_ACCESS, SPECIES_TRAIT)
 	var/mob/living/carbon/human/hearthkin = former_primitive
 	if(!istype(hearthkin))
 		return

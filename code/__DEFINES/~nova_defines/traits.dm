@@ -15,3 +15,5 @@
 #define TRAIT_DISPLAYING_AMMO_HUD "displaying_ammo_hud"
 /// Temporary trait used while a mob is actively sliding under a door.
 #define TRAIT_SLIDING_UNDER "sliding_under"
+/// Allows non-tribal mobs to enter tribal den holes.
+#define TRAIT_TRIBAL_DEN_ACCESS "tribal_den_access"

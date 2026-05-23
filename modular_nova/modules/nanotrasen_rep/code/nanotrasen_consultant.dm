@@ -71,6 +71,13 @@
 	id = /obj/item/card/id/advanced/centcom/station
 	id_trim = /datum/id_trim/job/nanotrasen_consultant
 
+/datum/outfit/job/nanotrasen_consultant/post_equip(mob/living/carbon/human/consultant, visuals_only = FALSE)
+	. = ..()
+	if(visuals_only)
+		return
+
+	ADD_TRAIT(consultant, TRAIT_TRIBAL_DEN_ACCESS, JOB_TRAIT)
+
 /obj/item/encryptionkey/headset_cent/ccrep
 	name = "\improper CentCom representative's encryption key"
 	channels = list(RADIO_CHANNEL_CENTCOM = 1, RADIO_CHANNEL_SECURITY = 1)
