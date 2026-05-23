@@ -289,6 +289,7 @@
 
 /datum/job/engineering_guard //see orderly
 	alt_titles = list(
+		"Engineering Guard",
 		"Tide Deterrent",
 		"Power Plant Guard",
 		"Construction Guard",
@@ -441,6 +442,7 @@
 
 /datum/job/science_guard //See orderly
 	alt_titles = list(
+		"Science Guard",
 		"Hazardous Experiment Overwatch",
 		"Xenobiological Recontainment Officer",
 		"Expedition Protection Agent",
