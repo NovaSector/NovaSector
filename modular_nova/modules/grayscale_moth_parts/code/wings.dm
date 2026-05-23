@@ -14,7 +14,7 @@
 	icon_state = "clockwork"
 
 /datum/sprite_accessory/wings/moth/greyscale
-	feature_key_override = FEATURE_WINGS //I don't know why it doesn't work without it
+	feature_key_override = null // base moth wings use the TG feature key scheme, which we do not want here
 	icon = 'modular_nova/modules/grayscale_moth_parts/icons/moth_wings.dmi'
 	dimension_x = 32
 	dimension_y = 32
