@@ -227,3 +227,18 @@
 /obj/item/clothing/under/trek/medsci
 	greyscale_config_worn_digi = /datum/greyscale_config/trek/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/camo/gags
+	name = "\improper camouflage jumpsuit"
+	desc = "The space mall ninja fears the space mall soldier."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/solfed/marines"
+	post_init_icon_state = "solfed_camo"
+	worn_icon_state = "solfed_camo"
+	worn_icon_digi = "solfed_camo"
+	greyscale_config = /datum/greyscale_config/solfedcamo
+	greyscale_config_worn = /datum/greyscale_config/solfedcamo/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfedcamo/worn/digi
+	greyscale_colors = "#4d4d4d#333333#292929"
+	can_adjust = FALSE
+	flags_1 = IS_PLAYER_COLORABLE_1
