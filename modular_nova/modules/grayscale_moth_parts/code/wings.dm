@@ -20,8 +20,8 @@
 	dimension_y = 32
 	color_src = USE_MATRIXED_COLORS
 
-/datum/sprite_accessory/wings/moth/greyscale/citheroniagrey
-	name = "Moth (Citheronia Greyscale)"
+/datum/sprite_accessory/wings/moth/greyscale/citheronia
+	name = "Moth (Citheronia)"
 	icon_state = "citheroniagrey"
 
 /datum/sprite_accessory/wings/moth/greyscale/whiteflygrey
