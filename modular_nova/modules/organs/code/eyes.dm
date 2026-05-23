@@ -11,17 +11,17 @@
 	blink_animation = FALSE
 
 /obj/item/organ/eyes/neweyespack/insect
-	name = "insect eyes"
+	name = "Insect eyes"
 	desc = "Prettier than moff eyes"
 	eye_icon_state = "insect"
 	pupils_name = "there is no pupils"
 
 /datum/augment_item/organ/eyes/insect
-	name = "insect eyes"
+	name = "Insect eyes"
 	path = /obj/item/organ/eyes/neweyespack/insect
 
 /obj/item/organ/eyes/robotic/neweyespack/insect
-	name = "robotic insect eyes"
+	name = "Robotic insect eyes"
 	desc = "Prettier than robotic moff eyes"
 	eye_icon_state = "insect"
 	pupils_name = "there is no pupils"
