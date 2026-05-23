@@ -12,7 +12,7 @@
 	name = "insect eyes"
 	desc = "Prettier than moff eyes."
 	eye_icon_state = "insect"
-	pupils_name = "there is no pupils"
+	pupils_name = "ommatidia"
 
 /datum/augment_item/organ/eyes/insect
 	name = "Insect eyes"
