@@ -1,5 +1,0 @@
-author: "Happyowl93"
-delete-after: True
-changes:
-  - rscadd: "Adds the Alacrán PDW"
-  - bugfix: "Fixed a runtime triggered when an automatic gun was fired with the safety on."
