@@ -121,10 +121,10 @@
 	))
 
 /obj/item/clothing/neck/necklace/translator/proc/grant_access(mob/living/carbon/human/wearer)
-	ADD_TRAIT(wearer, TRAIT_TRIBAL_DEN_ACCESS, src)
+	ADD_TRAIT(wearer, TRAIT_TRIBAL_DEN_ACCESS, REF(src))
 
 /obj/item/clothing/neck/necklace/translator/proc/remove_access(mob/living/carbon/human/wearer)
-	REMOVE_TRAIT(wearer, TRAIT_TRIBAL_DEN_ACCESS, src)
+	REMOVE_TRAIT(wearer, TRAIT_TRIBAL_DEN_ACCESS, REF(src))
 
 /obj/item/clothing/neck/necklace/translator/proc/on_wearer_examine(mob/living/carbon/human/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
