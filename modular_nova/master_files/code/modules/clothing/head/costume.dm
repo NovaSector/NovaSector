@@ -16,7 +16,6 @@
 	resistance_flags = FIRE_PROOF
 	flags_inv = null
 	flags_cover = HEADCOVERSMOUTH | PEPPERPROOF
-	var/obj/item/clothing/head/attached_hat
 	/obj/item/clothing/head/helmet/glassdome/Destroy()
 	var/mob/user = loc
 	if(attached_hat)
