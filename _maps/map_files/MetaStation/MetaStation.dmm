@@ -6344,10 +6344,6 @@
 /obj/effect/turf_decal/tile/yellow/half/contrasted,
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
-"cjD" = (
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/iron/white,
-/area/station/science/explab)
 "cky" = (
 /obj/machinery/power/shieldwallgen,
 /obj/machinery/light/cold/directional/east,
@@ -7407,6 +7403,13 @@
 	},
 /turf/open/floor/plating,
 /area/station/science/robotics/mechbay)
+"cBZ" = (
+/obj/machinery/bouldertech/refinery/smelter,
+/obj/machinery/conveyor{
+	id = "mining"
+	},
+/turf/open/floor/iron,
+/area/station/cargo/miningoffice)
 "cCM" = (
 /obj/structure/lattice/catwalk,
 /obj/item/reagent_containers/cup/glass/bottle/rum{
@@ -12879,6 +12882,10 @@
 	dir = 1
 	},
 /area/station/engineering/atmos)
+"etR" = (
+/obj/effect/spawner/random/gizmo,
+/turf/open/floor/engine,
+/area/station/science/explab)
 "etV" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -51526,6 +51533,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/supply)
+"rBT" = (
+/obj/machinery/airalarm/directional/north,
+/obj/machinery/gizmo/toggle/tucker_tubes,
+/turf/open/floor/iron/white,
+/area/station/science/explab)
 "rBU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -54611,13 +54623,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/service/kitchen)
-"sFK" = (
-/obj/machinery/bouldertech/refinery/smelter,
-/obj/machinery/conveyor{
-	id = "mining"
-	},
-/turf/open/floor/iron,
-/area/station/cargo/miningoffice)
 "sFQ" = (
 /obj/structure/table,
 /obj/item/clipboard,
@@ -89741,7 +89746,7 @@ hzb
 xzf
 mRP
 aKs
-sFK
+cBZ
 wyP
 hKg
 kyf
@@ -104445,7 +104450,7 @@ kMG
 tUn
 hKV
 wXF
-cjD
+rBT
 dJo
 rCx
 nBj
@@ -105987,7 +105992,7 @@ jgK
 tUn
 dQT
 wXF
-jSk
+etR
 ukF
 sIW
 jSk
