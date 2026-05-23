@@ -269,6 +269,10 @@
 					WD = new/obj/structure/window/reinforced/plasma/plastitanium(drop_location())
 				else if(istype(W, /obj/item/stack/sheet/bronze))
 					WD = new/obj/structure/window/bronze/fulltile(drop_location())
+				// NOVA EDIT ADDITION START
+				else if (istype(W, /obj/item/stack/sheet/spaceshipglass))
+					WD = new /obj/structure/window/reinforced/shuttle/spaceship(drop_location())
+				// NOVA EDIT ADDITION END
 				else
 					WD = new/obj/structure/window/fulltile(drop_location()) //normal window
 				WD.setDir(dir_to_set)

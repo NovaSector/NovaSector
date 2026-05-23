@@ -53,6 +53,9 @@
 	desc = "Plays a selection of some rather meditative music."
 
 /datum/action/item_action/toggle_dorms_headphones/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/item/clothing/ears/dorms_headphones/headphones = target
 	if(istype(headphones))
 		headphones.toggle(owner)

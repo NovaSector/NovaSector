@@ -409,7 +409,7 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 	fdel(roundend_file)
 	WRITE_FILE(roundend_file, content)
 
-/datum/controller/subsystem/ticker/proc/show_roundend_report(client/C, report_type = null)
+/datum/controller/subsystem/ticker/proc/show_roundend_report(client/C, report_type = null, save_to_disk_only = FALSE) // NOVA EDIT CHANGE - Allows only saving the report and not showing it - ORIGINAL: /datum/controller/subsystem/ticker/proc/show_roundend_report(client/C, report_type = null)
 	var/datum/browser/roundend_report = new(C, "roundend")
 	roundend_report.width = 800
 	roundend_report.height = 600
@@ -425,6 +425,7 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 		fdel(filename)
 		text2file(content, filename)
 
+	if (save_to_disk_only) { return } // NOVA EDIT ADDITION - This is ugly, but allows only saving the report and not showing it
 	roundend_report.set_content(content)
 	roundend_report.stylesheets = list()
 	roundend_report.add_stylesheet("roundend", 'html/browser/roundend.css')
@@ -463,7 +464,7 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 	GLOB.survivor_report = survivor_report(popcount)
 	log_roundend_report()
 	for(var/client/C in GLOB.clients)
-		//show_roundend_report(C) NOVA EDIT - Disables this from auto-showing at the end of round, maybe
+		show_roundend_report(C, save_to_disk_only = TRUE) // NOVA EDIT CHANGE - Only saves the roundend report to the filesystem, doesn't show it to the player - ORIGINAL: show_roundend_report(C)
 		give_show_report_button(C)
 		CHECK_TICK
 
@@ -696,7 +697,10 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 	show_to_observers = FALSE
 
 /datum/action/report/Trigger(mob/clicker, trigger_flags)
-	if(owner && GLOB.common_report && SSticker.current_state == GAME_STATE_FINISHED)
+	. = ..()
+	if(!.)
+		return
+	if(GLOB.common_report && SSticker.current_state == GAME_STATE_FINISHED)
 		SSticker.show_roundend_report(owner.client)
 
 /datum/action/report/IsAvailable(feedback = FALSE)

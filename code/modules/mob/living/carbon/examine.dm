@@ -300,15 +300,15 @@
 	if(length(gunpointed))
 		for(var/datum/gunpoint/GP in gunpointed)
 			. += "<span class='warning'><b>[GP.source.name] [GP.source.p_are()] holding [t_him] at gunpoint with [GP.aimed_gun.name]!</b></span>\n"
-
-	for(var/genital in GLOB.possible_genitals)
-		var/datum/mutant_bodypart/genital_part = dna.mutant_bodyparts[genital]
-		if(genital_part)
-			var/datum/sprite_accessory/genital/genital_accessory = SSaccessories.sprite_accessories[genital][genital_part.name]
-			if(genital_accessory)
-				if(!(genital_accessory.is_hidden(src)))
-					. += "<span class='notice'>[t_He] [t_has] exposed genitals... <a href='byond://?src=[REF(src)];lookup_info=genitals'>\[Look closer...\]</a></span>"
-					break
+	if(has_dna(src))
+		for(var/genital in GLOB.possible_genitals)
+			var/datum/mutant_bodypart/genital_part = dna.mutant_bodyparts[genital]
+			if(genital_part)
+				var/datum/sprite_accessory/genital/genital_accessory = SSaccessories.sprite_accessories[genital][genital_part.name]
+				if(genital_accessory)
+					if(!(genital_accessory.is_hidden(src)))
+						. += "<span class='notice'>[t_He] [t_has] exposed genitals... <a href='byond://?src=[REF(src)];lookup_info=genitals'>\[Look closer...\]</a></span>"
+						break
 
 	var/flavor_text_link
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's "flavor_text" DNA feature. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.

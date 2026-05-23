@@ -1,0 +1,1469 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"af" = (
+/obj/effect/decal/cleanable/blood/splatter/over_window,
+/obj/machinery/door/airlock/multi_tile/metal{
+	dir = 4;
+	opacity = 1
+	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/unpowered)
+"ag" = (
+/obj/structure/closet/wardrobe/genetics_white,
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
+"am" = (
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = -5;
+	pixel_y = -11
+	},
+/turf/open/floor/iron/white/side{
+	dir = 6
+	},
+/area/ruin/space/unpowered)
+"aq" = (
+/turf/open/floor/iron/white,
+/area/ruin/space/unpowered)
+"at" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/syringe{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"az" = (
+/obj/effect/decal/cleanable/blood/gibs/up{
+	pixel_x = -1;
+	pixel_y = 16
+	},
+/obj/effect/decal/cleanable/blood/gibs/torso{
+	dir = 1;
+	pixel_x = 1;
+	pixel_y = -12
+	},
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"aC" = (
+/turf/open/floor/iron/white/side{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
+"aD" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"bK" = (
+/obj/machinery/light/broken/directional/north,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"co" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"cq" = (
+/obj/machinery/light/broken/directional/north,
+/obj/item/wallframe/closet{
+	pixel_x = -29;
+	pixel_y = 0
+	},
+/obj/item/gps/spaceruin{
+	gpstag = "Distress Signal"
+	},
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
+"cW" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
+/obj/item/knife/combat/survival,
+/obj/structure/sign/warning/secure_area/directional/north,
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
+"ft" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/iron/white,
+/area/ruin/space/unpowered)
+"ge" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/iron/white,
+/area/ruin/space/unpowered)
+"gm" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/iron/white,
+/area/ruin/space/unpowered)
+"go" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/syringe{
+	pixel_x = -3;
+	pixel_y = -9
+	},
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"gw" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"gP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"gW" = (
+/obj/item/ammo_casing/c357,
+/obj/item/ammo_casing/c357{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/obj/item/ammo_casing/c357{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/obj/item/ammo_casing/c357{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/open/floor/iron/white/side{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/area/ruin/space/unpowered)
+"ii" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/syringe{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"iR" = (
+/obj/effect/gibspawner/human,
+/turf/open/floor/iron/white,
+/area/ruin/space/unpowered)
+"iX" = (
+/obj/structure/frame/computer{
+	dir = 8
+	},
+/turf/open/floor/iron/white/side{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
+"jL" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe{
+	pixel_y = -9
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_y = -7;
+	pixel_x = 1
+	},
+/obj/machinery/light/broken/directional/south,
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"jW" = (
+/obj/effect/mob_spawn/corpse/human/doctor,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"ld" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"mo" = (
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/external,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"mE" = (
+/obj/effect/spawner/random/structure/grille,
+/obj/effect/spawner/random/structure/grille,
+/turf/open/space/basic,
+/area/ruin/space/unpowered)
+"mQ" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"os" = (
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"oB" = (
+/obj/effect/spawner/random/trash/graffiti,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"oO" = (
+/obj/structure/closet/crate/science,
+/obj/item/gun/syringe,
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"pg" = (
+/obj/structure/grille/broken,
+/turf/open/space/basic,
+/area/ruin/space/unpowered)
+"pL" = (
+/obj/structure/closet/crate/science,
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"qP" = (
+/turf/open/floor/iron/dark,
+/area/ruin/space/unpowered)
+"rZ" = (
+/turf/open/floor/iron/white/side{
+	dir = 9
+	},
+/area/ruin/space/unpowered)
+"sI" = (
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/machinery/light/broken/directional/south,
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"sM" = (
+/obj/effect/decal/cleanable/blood,
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 14;
+	pixel_y = 4
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 11;
+	pixel_y = 8
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 10;
+	pixel_y = 4
+	},
+/obj/item/gun/ballistic/automatic/wt550{
+	pixel_x = 4;
+	pixel_y = -7;
+	can_misfire = 1;
+	spawnwithmagazine = 0;
+	misfire_probability = 10
+	},
+/obj/effect/mob_spawn/corpse/human/engineer,
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"ue" = (
+/obj/machinery/light/broken/directional/south,
+/turf/open/floor/iron/white/corner{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
+"uT" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 5
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
+"vm" = (
+/obj/effect/spawner/liquids_spawner/ankles{
+	reagent_list = list(/datum/reagent/blood = 80)
+	},
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
+"vv" = (
+/obj/effect/mob_spawn/corpse/human/scientist,
+/turf/open/floor/iron/white/side{
+	dir = 10
+	},
+/area/ruin/space/unpowered)
+"wi" = (
+/obj/structure/grille,
+/turf/open/space/basic,
+/area/ruin/space/unpowered)
+"wm" = (
+/obj/machinery/light/broken/directional/north,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"wo" = (
+/obj/machinery/light/small/red/dim/directional/north,
+/turf/open/floor/iron/dark,
+/area/ruin/space/unpowered)
+"wD" = (
+/obj/effect/decal/cleanable/blood,
+/obj/item/gun/ballistic/revolver/badass{
+	can_misfire = 1;
+	misfire_probability = 25
+	},
+/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
+/turf/open/floor/iron/white/corner{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
+"wW" = (
+/obj/effect/gibspawner/human,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"xk" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"xG" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
+"xR" = (
+/turf/closed/wall/mineral/titanium,
+/area/ruin/space/unpowered)
+"xV" = (
+/mob/living/basic/trooper/syndicate/ranged/smg/anthro,
+/turf/open/floor/iron/white/corner{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
+"yk" = (
+/turf/open/floor/iron/white/side{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
+"zI" = (
+/obj/item/ammo_casing/c357,
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"zT" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe{
+	pixel_y = -9
+	},
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"Bh" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ruin/space/unpowered)
+"BF" = (
+/obj/item/ammo_casing/c357,
+/turf/open/floor/iron/white/side{
+	dir = 5
+	},
+/area/ruin/space/unpowered)
+"Cc" = (
+/turf/open/floor/iron/white/side{
+	dir = 5
+	},
+/area/ruin/space/unpowered)
+"Ck" = (
+/obj/machinery/power/shuttle_engine/large{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"Cr" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"Dr" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"DK" = (
+/obj/machinery/power/shuttle_engine/large{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"ED" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"EL" = (
+/obj/structure/closet/crate/science,
+/obj/effect/mine/explosive/light{
+	range_flame = 3
+	},
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"FG" = (
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 24;
+	pixel_y = -12
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 10;
+	pixel_y = -6
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	pixel_x = 8;
+	pixel_y = -19
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/obj/item/ammo_casing/c46x30mm/ap{
+	pixel_x = 9;
+	pixel_y = -6
+	},
+/turf/open/floor/iron/white,
+/area/ruin/space/unpowered)
+"Gj" = (
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/effect/gibspawner/human,
+/turf/open/floor/iron/white,
+/area/ruin/space/unpowered)
+"Gs" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"GM" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"GS" = (
+/obj/structure/closet/crate/science,
+/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/syringe{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_x = 1;
+	pixel_y = -9
+	},
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"HF" = (
+/obj/machinery/door/airlock/multi_tile/metal{
+	dir = 4;
+	opacity = 1
+	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/unpowered)
+"HZ" = (
+/obj/effect/decal/cleanable/blood/gibs/down{
+	pixel_y = 12
+	},
+/turf/open/floor/iron/white,
+/area/ruin/space/unpowered)
+"IQ" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"Jm" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/white/corner{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
+"Kt" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/sign/warning/secure_area/directional/south,
+/turf/open/floor/iron/white/corner{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
+"LF" = (
+/turf/open/floor/iron/white/corner{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
+"Mh" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"MF" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/syringe{
+	pixel_x = -1;
+	pixel_y = -9
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
+"Nj" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/iron/white/side{
+	dir = 6
+	},
+/area/ruin/space/unpowered)
+"NQ" = (
+/obj/item/crowbar/large,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"Oh" = (
+/obj/machinery/light/broken/directional/south,
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"On" = (
+/obj/machinery/door/airlock/external,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"Px" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 8
+	},
+/area/ruin/space/unpowered)
+"PL" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/syringe{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_y = -9
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_y = -7;
+	pixel_x = 1
+	},
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"Qa" = (
+/mob/living/simple_animal/hostile/true_changeling,
+/turf/open/floor/iron/white/side{
+	dir = 4
+	},
+/area/ruin/space/unpowered)
+"QC" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"QT" = (
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"RX" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/syringe{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_y = -9
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_y = -7;
+	pixel_x = 1
+	},
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"Sl" = (
+/obj/item/wirecutters/advanced,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"Tr" = (
+/obj/effect/spawner/random/structure/grille,
+/turf/open/space/basic,
+/area/ruin/space/unpowered)
+"TR" = (
+/obj/effect/turf_decal/stripes/end,
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"Uy" = (
+/obj/effect/decal/cleanable/blood/splatter/over_window,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/iron/dark,
+/area/ruin/space/unpowered)
+"UE" = (
+/turf/template_noop,
+/area/template_noop)
+"Vf" = (
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"Vo" = (
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/machinery/light/small/red/dim/directional/south,
+/turf/open/floor/iron/dark,
+/area/ruin/space/unpowered)
+"Wb" = (
+/obj/structure/chair/office{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/ruin/space/unpowered)
+"Wp" = (
+/obj/machinery/light/broken/directional/south,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white/side{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"Wu" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"Wy" = (
+/turf/open/floor/iron/white/corner,
+/area/ruin/space/unpowered)
+"WH" = (
+/obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"WQ" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 6
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"WX" = (
+/obj/effect/turf_decal/stripes/end{
+	dir = 1
+	},
+/obj/machinery/power/shuttle_engine/heater,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"Xv" = (
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"XM" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe,
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+"XP" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/ruin/space/unpowered)
+"Yv" = (
+/obj/effect/mob_spawn/corpse/human/scientist,
+/obj/effect/spawner/liquids_spawner/ankles{
+	reagent_list = list(/datum/reagent/blood = 80)
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
+/area/ruin/space/unpowered)
+"YL" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
+"YU" = (
+/obj/structure/rack/shelf,
+/obj/item/reagent_containers/syringe{
+	pixel_y = -9
+	},
+/obj/machinery/light/broken/directional/north,
+/turf/open/floor/iron/white/side,
+/area/ruin/space/unpowered)
+
+(1,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(2,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+XP
+XP
+XP
+XP
+XP
+XP
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(3,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+XP
+vm
+yk
+Qa
+LF
+XP
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(4,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+XP
+jW
+aq
+aq
+IQ
+XP
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(5,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+XP
+gw
+aq
+iR
+IQ
+XP
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(6,1,1) = {"
+UE
+XP
+GM
+Ck
+XP
+UE
+UE
+XP
+xV
+vv
+rZ
+Yv
+XP
+UE
+UE
+XP
+GM
+Ck
+XP
+UE
+"}
+(7,1,1) = {"
+UE
+XP
+gP
+mQ
+XP
+UE
+Tr
+Bh
+Bh
+uT
+WQ
+Bh
+Bh
+wi
+wi
+XP
+gP
+mQ
+XP
+UE
+"}
+(8,1,1) = {"
+UE
+XP
+Wu
+aD
+XP
+UE
+UE
+wi
+XP
+qP
+af
+XP
+wi
+UE
+UE
+XP
+Wu
+aD
+XP
+UE
+"}
+(9,1,1) = {"
+UE
+XP
+os
+os
+XP
+UE
+UE
+pg
+XP
+wo
+Vo
+XP
+wi
+UE
+UE
+XP
+os
+os
+XP
+UE
+"}
+(10,1,1) = {"
+UE
+XP
+os
+os
+XP
+UE
+UE
+pg
+XP
+Uy
+HF
+XP
+wi
+UE
+UE
+XP
+os
+os
+XP
+UE
+"}
+(11,1,1) = {"
+UE
+XP
+On
+On
+Bh
+UE
+pg
+Bh
+XP
+cW
+Kt
+XP
+Bh
+Tr
+Tr
+Bh
+On
+On
+XP
+UE
+"}
+(12,1,1) = {"
+UE
+XP
+Sl
+wW
+Cr
+pg
+wi
+XP
+ag
+Nj
+Cc
+LF
+XP
+Tr
+Tr
+os
+os
+os
+XP
+UE
+"}
+(13,1,1) = {"
+UE
+XP
+oB
+NQ
+os
+wi
+wi
+XP
+az
+gm
+HZ
+sI
+XP
+mE
+Tr
+os
+os
+os
+XP
+UE
+"}
+(14,1,1) = {"
+UE
+XP
+On
+On
+Bh
+wi
+wi
+XP
+oO
+ge
+aq
+pL
+XP
+wi
+wi
+Bh
+On
+On
+XP
+UE
+"}
+(15,1,1) = {"
+UE
+XP
+os
+os
+XP
+UE
+UE
+XP
+GS
+ft
+aq
+EL
+XP
+UE
+UE
+XP
+os
+os
+XP
+UE
+"}
+(16,1,1) = {"
+UE
+XP
+Mh
+Dr
+XP
+UE
+UE
+XP
+PL
+aq
+Gj
+zT
+XP
+UE
+UE
+XP
+Mh
+Dr
+XP
+UE
+"}
+(17,1,1) = {"
+UE
+XP
+os
+DK
+XP
+wi
+wi
+XP
+XM
+aq
+aq
+RX
+XP
+wi
+wi
+XP
+os
+DK
+XP
+UE
+"}
+(18,1,1) = {"
+UE
+XP
+QC
+YL
+XP
+UE
+UE
+XP
+go
+aq
+aq
+at
+XP
+UE
+UE
+XP
+QC
+YL
+XP
+UE
+"}
+(19,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+XP
+YU
+aq
+aq
+jL
+XP
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(20,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+XP
+MF
+aC
+aC
+ii
+XP
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(21,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+XP
+XP
+XP
+qP
+HF
+XP
+XP
+XP
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(22,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+ld
+TR
+mo
+xG
+Jm
+mo
+WX
+Gs
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(23,1,1) = {"
+UE
+Bh
+xk
+xk
+xk
+XP
+XP
+XP
+XP
+wm
+Wp
+XP
+XP
+XP
+XP
+xk
+xk
+xk
+Bh
+UE
+"}
+(24,1,1) = {"
+UE
+On
+os
+os
+os
+os
+WH
+os
+On
+QT
+Vf
+On
+os
+WH
+os
+os
+os
+os
+On
+UE
+"}
+(25,1,1) = {"
+UE
+XP
+xk
+xk
+xk
+XP
+XP
+XP
+XP
+bK
+Oh
+XP
+XP
+XP
+XP
+xk
+xk
+xk
+XP
+UE
+"}
+(26,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+ld
+TR
+mo
+Px
+ED
+mo
+WX
+Gs
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(27,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+xR
+xR
+xR
+qP
+HF
+xR
+xR
+xR
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(28,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+xR
+cq
+yk
+LF
+Wy
+yk
+ue
+xR
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(29,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+co
+zI
+aq
+BF
+am
+FG
+Vf
+co
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(30,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+co
+gW
+Wb
+Wb
+Wb
+Wb
+sM
+co
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(31,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+co
+wD
+iX
+aC
+iX
+iX
+Xv
+co
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(32,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+xR
+xR
+co
+co
+co
+co
+xR
+xR
+UE
+UE
+UE
+UE
+UE
+UE
+"}
+(33,1,1) = {"
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+UE
+"}

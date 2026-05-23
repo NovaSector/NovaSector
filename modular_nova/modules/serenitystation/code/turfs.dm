@@ -98,9 +98,9 @@
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
 	weak_turf = TRUE
 
-/turf/closed/mineral/random/forest/Change_Ore(ore_type, random = 0)
+/turf/closed/mineral/random/forest/change_ore(ore_type, random = 0)
 	. = ..()
-	if(mineralType)
+	if(mineral_type)
 		icon = 'icons/turf/walls/icerock_wall.dmi'
 		icon_state = "icerock_wall-0"
 		base_icon_state = "icerock_wall"

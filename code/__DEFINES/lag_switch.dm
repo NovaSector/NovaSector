@@ -16,8 +16,11 @@
 #define DISABLE_PARALLAX 7
 /// Disables footsteps, TRAIT_BYPASS_MEASURES exempted
 #define DISABLE_FOOTSTEPS 8
-// NOVA EDIT ADDITION
+/// Disables runechat for ghosts
+#define DISABLE_DEAD_RUNECHAT 9
+// NOVA EDIT ADDITION START
 /// Stops people from changing things in the character creator. Entirely.
-#define DISABLE_CREATOR 9
-// NOVA EDIT END
-#define MEASURES_AMOUNT 9 // The total number of switches defined above // NOVA EDIT ADDITION
+#define DISABLE_CREATOR 10
+// NOVA EDIT ADDITION END
+
+#define MEASURES_AMOUNT 10 // The total number of switches defined above // NOVA EDIT CHANGE - ORIGINAL: 9

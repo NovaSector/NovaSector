@@ -3,8 +3,8 @@
 
 	dna?.species?.on_owner_login(src)
 
-	if(SStts.tts_enabled && isnull(voice)) // NOVA EDIT - None option for TTS - ORIGINAL: if(SStts.tts_enabled && !voice)
-		voice = pick(SStts.available_speakers)
+	if(SStts.tts_enabled && isnull(voice)) // NOVA EDIT CHANGE - None option for TTS - ORIGINAL: if(SStts.tts_enabled && !voice)
+		voice = SStts.random_tts_voice(gender)
 
 	if(!LAZYLEN(afk_thefts))
 		return

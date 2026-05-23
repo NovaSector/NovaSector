@@ -1,5 +1,7 @@
-// LOOC Module
+/// LOOC Module
 GLOBAL_VAR_INIT(looc_allowed, TRUE)
+/// Star restrictions enabled
+GLOBAL_VAR(nova_star_restrictions)
 
 /datum/config_entry/number/rockplanet_budget
 	config_entry_value = 60

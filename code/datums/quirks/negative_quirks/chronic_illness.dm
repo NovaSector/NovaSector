@@ -1,3 +1,6 @@
+/datum/disease/chronic_illness
+	stage_prob = 0.10 // Originally: stage_prob = 0.25
+
 /datum/quirk/item_quirk/chronic_illness
 	name = "Eradicative Chronic Illness"
 	desc = "You have an anomalous chronic illness that requires constant medication to keep under control, or else causes timestream correction."
