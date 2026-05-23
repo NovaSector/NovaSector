@@ -1,0 +1,4 @@
+author: "ItzAngel505"
+delete-after: True
+changes:
+  - bugfix: "Fixed the Science and Engineering guards not having their respective original titles in their alt lists."
