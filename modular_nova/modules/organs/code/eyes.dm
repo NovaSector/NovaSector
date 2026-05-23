@@ -1,31 +1,29 @@
-/obj/item/organ/eyes/neweyespack // You can create new eyes here. Modify eyes.dmi in icon folder
-	name = "new eyes pack eyes"
-	desc = "If you see this item, report to maintainer"
+/obj/item/organ/eyes/nova
+	abstract_type = /obj/item/organ/eyes/nova
 	eye_icon = 'modular_nova/modules/organs/icons/eyes.dmi'
 	blink_animation = FALSE
 
-/obj/item/organ/eyes/robotic/neweyespack // You can create new eyes here. This one is for robotic versions. Modify eyes.dmi in icon folder
-	name = "robotic new eyes pack eyes"
-	desc = "If you see this item, report to maintainer"
+/obj/item/organ/eyes/robotic/nova
+	abstract_type = /obj/item/organ/eyes/robotic/nova
 	eye_icon = 'modular_nova/modules/organs/icons/eyes.dmi'
 	blink_animation = FALSE
 
-/obj/item/organ/eyes/neweyespack/insect
-	name = "Insect eyes"
-	desc = "Prettier than moff eyes"
+/obj/item/organ/eyes/nova/insect
+	name = "insect eyes"
+	desc = "Prettier than moff eyes."
 	eye_icon_state = "insect"
 	pupils_name = "there is no pupils"
 
 /datum/augment_item/organ/eyes/insect
 	name = "Insect eyes"
-	path = /obj/item/organ/eyes/neweyespack/insect
+	path = /obj/item/organ/eyes/nova/insect
 
-/obj/item/organ/eyes/robotic/neweyespack/insect
-	name = "Robotic insect eyes"
-	desc = "Prettier than robotic moff eyes"
+/obj/item/organ/eyes/robotic/nova/insect
+	name = "robotic insect eyes"
+	desc = "Prettier than robotic moff eyes."
 	eye_icon_state = "insect"
-	pupils_name = "there is no pupils"
+	pupils_name = "ommatidia"
 
-/datum/augment_item/organ/eyes/cyberinsect
+/datum/augment_item/organ/eyes/cybernetic/insect
 	name = "Cybernetic insect eyes"
-	path = /obj/item/organ/eyes/robotic/neweyespack/insect
+	path =/obj/item/organ/eyes/robotic/nova/insect
