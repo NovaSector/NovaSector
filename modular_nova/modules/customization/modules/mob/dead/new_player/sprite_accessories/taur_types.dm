@@ -124,6 +124,7 @@
 	name = "Tarantula"
 	icon_state = "tarantula"
 	organ_type = /obj/item/organ/taur_body/spider
+	taur_mode = STYLE_TAUR_PAW
 	can_lay_down = TRUE
 	laydown_offset = -3
 
@@ -131,6 +132,7 @@
 	name = "Drider"
 	icon_state = "drider"
 	organ_type = /obj/item/organ/taur_body/spider
+	taur_mode = STYLE_TAUR_PAW
 
 /datum/sprite_accessory/taur/eevee
 	name = "Eevee"
