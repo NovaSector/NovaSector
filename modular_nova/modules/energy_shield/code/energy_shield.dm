@@ -221,9 +221,9 @@
 		shield_collapse()
 	update_shield_hud()
 
-/// Absorbs projectile damage and stamina with the shield. Brute first, then stamina with leftover.
+/// Absorbs projectile damage, secondary damage, and stamina with the shield.
 /// Fully blocked projectiles return COMPONENT_BULLET_BLOCKED (prevents wounds/embed/blood).
-/// Partially absorbed projectiles have their damage/stamina reduced and proceed normally.
+/// Partially absorbed projectiles have each absorbed damage pool reduced and proceed normally.
 /obj/item/clothing/accessory/energy_shield/proc/on_pre_bullet(mob/living/carbon/source, obj/projectile/proj, def_zone, piercing_hit)
 	SIGNAL_HANDLER
 
@@ -231,7 +231,10 @@
 		return
 	if(shield_health <= 0 || !shield_active)
 		return
-	var/total_damage = proj.damage + proj.stamina
+	//Special case for ammunition with secondary damage (pulse/plasma ammo)
+	var/has_secondary_damage = ("secondary_damage" in proj.vars)
+	var/secondary_damage = has_secondary_damage ? proj.vars["secondary_damage"] : 0
+	var/total_damage = proj.damage + proj.stamina + secondary_damage
 	if(total_damage <= 0)
 		return
 
@@ -239,19 +242,24 @@
 	// Absorb brute first
 	var/brute_absorbed = min(proj.damage, remaining_shield)
 	remaining_shield -= brute_absorbed
+	// Then secondary damage with whatever shield is left
+	var/secondary_absorbed = min(secondary_damage, remaining_shield)
+	remaining_shield -= secondary_absorbed
 	// Then stamina with whatever shield is left
 	var/stamina_absorbed = min(proj.stamina, remaining_shield)
 
-	var/total_absorbed = brute_absorbed + stamina_absorbed
+	var/total_absorbed = brute_absorbed + secondary_absorbed + stamina_absorbed
 	var/obj/item/bodypart/limb = wearer.get_bodypart(check_zone(def_zone))
 	apply_shield_hit(total_absorbed, limb)
 
 	// Reduce the projectile's damage for whatever passes through
 	proj.damage -= brute_absorbed
+	if(has_secondary_damage && secondary_absorbed)
+		proj.vars["secondary_damage"] -= secondary_absorbed
 	proj.stamina -= stamina_absorbed
 
 	// Fully absorbed — block the bullet entirely
-	if(proj.damage <= 0 && proj.stamina <= 0)
+	if(total_absorbed >= total_damage)
 		return COMPONENT_BULLET_BLOCKED
 
 /// Fully blocks melee and thrown attacks when the shield can absorb the entire hit.
