@@ -295,3 +295,23 @@
   - rscadd: Multiple new pets in the carrier. A few are even in Cargo...
   - rscadd: Assistant, Brig Officer, Blueshield Chaplain, and NTR have honorifics
       now!!!
+2026-05-23:
+  Happyowl93:
+  - rscadd: "Adds the Alacr\xE1n PDW"
+  - bugfix: Fixed a runtime triggered when an automatic gun was fired with the safety
+      on.
+  Iajret:
+  - balance: Unnerfed ore generation and BRM For better or worse.
+  Ignari-contrib:
+  - rscadd: Added my donator items so I can use them once more!
+  ItzAngel505:
+  - bugfix: Fixed the Science and Engineering guards not having their respective original
+      titles in their alt lists.
+  Macaroni:
+  - bugfix: fixed the palette inconsistency between the captains beret, dress, and
+      cap
+  Morskoikot:
+  - rscadd: Added moth antennaes and wings greyscales
+  - rscadd: Added insect eyes
+  theselfish:
+  - rscadd: Various fish, fries and garlic items are in the lunchbox now.
