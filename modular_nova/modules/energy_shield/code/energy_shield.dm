@@ -234,7 +234,7 @@
 	//Special case for ammunition with secondary damage (pulse/plasma ammo)
 	var/secondary_damage = 0
 	var/obj/projectile/bullet/pulse/pulse_proj
-	if(istype(proj, /obj/projectile/bullet/pulse)
+	if(istype(proj, /obj/projectile/bullet/pulse))
 		pulse_proj = proj
 		secondary_damage = pulse_proj.secondary_damage
 	var/total_damage = proj.damage + proj.stamina + secondary_damage
