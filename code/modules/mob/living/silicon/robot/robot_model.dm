@@ -418,7 +418,6 @@
 		/obj/item/construction/rcd/borg,
 		/obj/item/pipe_dispenser,
 		/obj/item/extinguisher,
-		/obj/item/weldingtool/largetank/cyborg,
 		/obj/item/borg/cyborg_omnitool/engineering,
 		/obj/item/multitool/cyborg, // NOVA EDIT CHANGE - Keep multiool here for quicker access - ORIGINAL: obj/item/borg/cyborg_omnitool/engineering,
 		/obj/item/crowbar/cyborg/power, // NOVA EDIT ADDITION
@@ -1006,7 +1005,6 @@
 		/obj/item/pipe_dispenser,
 		/obj/item/restraints/handcuffs/cable/zipties,
 		/obj/item/extinguisher,
-		/obj/item/weldingtool/largetank/cyborg,
 		/obj/item/analyzer,
 		/obj/item/borg/cyborg_omnitool/engineering,
 		/obj/item/borg/cyborg_omnitool/engineering,
