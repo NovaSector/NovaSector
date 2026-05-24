@@ -8487,6 +8487,7 @@
 #include "modular_nova\modules\food_replicator\code\replicator_designs\replicator_clothing.dm"
 #include "modular_nova\modules\food_replicator\code\replicator_designs\replicator_food.dm"
 #include "modular_nova\modules\food_replicator\code\replicator_designs\replicator_medical.dm"
+#include "modular_nova\modules\flatpacks\code\flatpacks.dm"
 #include "modular_nova\modules\GAGS\greyscale_configs.dm"
 #include "modular_nova\modules\GAGS\nsfw\belt.dm"
 #include "modular_nova\modules\GAGS\nsfw\ears.dm"
