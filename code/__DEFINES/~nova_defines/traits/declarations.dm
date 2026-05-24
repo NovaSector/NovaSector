@@ -192,5 +192,7 @@
 
 /// Carrier of this trait's penis has a knot: post-climax triggers /datum/component/knotted.
 #define TRAIT_CAN_KNOT "can_knot"
+/// The trait for Holosynths
+#define TRAIT_HOLOSYNTH "holosynthetic"
 
 // END TRAIT DEFINES

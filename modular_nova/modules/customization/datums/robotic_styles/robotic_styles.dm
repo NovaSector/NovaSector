@@ -2,8 +2,14 @@
 	var/name = "None"
 	/// The .dmi path for this robotic style
 	var/icon = "None"
-	/// If this style should override the default limb_id
+	/// If this style should override the  it is applied to's limb_id
 	var/limb_id_override
+	/// If this style should override the limb it is applied to's bodyshape
+	var/bodyshape_override
+	/// What slots this style work on
+	var/supported_slots = ALL
+	/// Whether this style supports digi
+	var/has_digi
 	/// If this style's source utilizes a dimorphic bodypart, it goes in this list assoc list keyed to the body_zone
 	var/list/dimorphic_overrides
 
@@ -15,86 +21,130 @@
 /datum/robotic_style/scrappyipc
 	name = "Scrappy"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/scrappyipc.dmi' // for ones that don't have associated limb atoms just setting icon works fine
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/scrappyipc_greyscale
 	name = "Scrappy (Greyscale)"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/scrappyipc_greyscale.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/surplus
 	name = "Surplus"
 	icon = 'icons/mob/augmentation/surplus_augments.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/cyborg
 	name = "Cyborg"
 	icon = 'icons/mob/augmentation/augments.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/engineering
 	name = "Engineering"
 	icon = 'icons/mob/augmentation/augments_engineer.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/mining
 	name = "Mining"
 	icon = 'icons/mob/augmentation/augments_mining.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/security
 	name = "Security"
 	icon = 'icons/mob/augmentation/augments_security.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/mcgipc
 	name = "Morpheus Cyberkinetics"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/mcgipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/bshipc
 	name = "Bishop Cyberkinetics"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/bshipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/bs2ipc
 	name = "Bishop Cyberkinetics 2.0"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/bs2ipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/e3n
 	name = "E3N AI"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/e3n.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/hsiipc
 	name = "Hephaestus Industries"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/hsiipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/hi2ipc
 	name = "Hephaestus Industries 2.0"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/hi2ipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/sgmipc
 	name = "Shellguard Munitions Standard Series"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/sgmipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/wtmipc
 	name = "Ward-Takahashi Manufacturing"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/wtmipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/xmgipc
 	name = "Xion Manufacturing Group"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/xmgipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/xm2ipc
 	name = "Xion Manufacturing Group 2.0"
 	icon ='modular_nova/master_files/icons/mob/augmentation/xm2ipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/zhpipc
 	name = "Zeng-Hu Pharmaceuticals"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/zhpipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/mariinskyipc
 	name = "Mariinsky Ballet Company"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/mariinskyipc.dmi'
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/zhenkovipc
 	name = "Zhenkov & Co. Foundries"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/zhenkovipc.dmi'
+	supported_slots = LEGS
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/zhenkovipc_dark
 	name = "Zhenkov & Co. Foundries - Dark"
 	icon = 'modular_nova/master_files/icons/mob/augmentation/zhenkovipc_dark.dmi'
+	supported_slots = LEGS
+	bodyshape_override = BODYSHAPE_HUMANOID
+	has_digi = TRUE
 
 /datum/robotic_style/dimorphic // subtype so we don't have to define dimorphic head+chest every single time
 	abstract_type = /datum/robotic_style/dimorphic
@@ -112,6 +162,7 @@
 	name = "Anthro"
 	icon = BODYPART_ICON_MAMMAL
 	limb_id_override = /obj/item/bodypart/chest/mutant::limb_id
+	has_digi = TRUE
 
 /datum/robotic_style/dimorphic/lizard
 	name = "Lizard"
@@ -121,6 +172,7 @@
 		BODY_ZONE_HEAD = FALSE,
 		BODY_ZONE_CHEST = TRUE,
 	)
+	has_digi = TRUE
 
 /datum/robotic_style/dimorphic/moth
 	name = "Moth"
@@ -131,17 +183,16 @@
 	name = "Ramatan"
 	icon = BODYPART_ICON_RAMATAE
 	limb_id_override = /obj/item/bodypart/chest/mutant/ramatae::limb_id
+	has_digi = TRUE
 
 /datum/robotic_style/dimorphic/vox
 	name = "Vox"
 	icon = BODYPART_ICON_VOX
 	limb_id_override = /obj/item/bodypart/chest/mutant/vox::limb_id
+	has_digi = TRUE
 
 /datum/robotic_style/dimorphic/xenohybrid
 	name = "Xenohybrid"
 	icon = BODYPART_ICON_XENO
 	limb_id_override = /obj/item/bodypart/chest/mutant/xenohybrid::limb_id
-
-// kept at the bottom for parity with other augment dropdowns
-/datum/robotic_style/none
-	icon = 'icons/mob/augmentation/augments.dmi'
+	has_digi = TRUE

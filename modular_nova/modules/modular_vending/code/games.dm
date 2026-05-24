@@ -34,3 +34,6 @@
 		/obj/item/storage/belt/utility/xenoarch/full = 3,
 	)
 
+/obj/machinery/vending/games/Initialize(mapload)
+	contraband -= /obj/item/gun/ballistic/revolver/russian
+	return ..()

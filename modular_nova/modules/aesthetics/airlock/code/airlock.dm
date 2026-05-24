@@ -55,6 +55,8 @@
 	. = ..()
 	if(QDELETED(src))
 		return
+	if(isnull(overlays_file))
+		return
 	var/frame_state
 	var/light_state = AIRLOCK_LIGHT_POWERON
 	var/pre_light_color

@@ -810,7 +810,7 @@
 	dir = 5
 	},
 /obj/machinery/camera/autoname/directional/east,
-/mob/living/simple_animal/bot/secbot/pingsky,
+/mob/living/basic/bot/secbot/pingsky,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
@@ -970,6 +970,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/exam_room)
+"apL" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating,
+/area/station/cargo/miningoffice)
 "apQ" = (
 /turf/closed/wall,
 /area/station/service/library)
@@ -5752,7 +5759,7 @@
 /area/station/service/lawoffice)
 "bZI" = (
 /obj/effect/turf_decal/bot,
-/mob/living/simple_animal/bot/secbot/beepsky/armsky,
+/mob/living/basic/bot/secbot/beepsky/armsky,
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/security/armory)
@@ -5824,15 +5831,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/interior)
-"cbn" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "brm"
-	},
-/obj/effect/turf_decal/sand/plating,
-/obj/machinery/light/small/directional/north,
-/turf/open/floor/plating,
-/area/station/cargo/miningoffice)
 "cbr" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -9039,6 +9037,11 @@
 /obj/item/dice/d2,
 /turf/open/floor/plating,
 /area/station/maintenance/port/lesser)
+"djR" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/machinery/light/small/directional/north,
+/turf/open/misc/asteroid,
+/area/station/cargo/miningoffice)
 "djU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/effect/turf_decal/stripes{
@@ -9134,6 +9137,10 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
+"dkB" = (
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating,
+/area/station/cargo/miningoffice)
 "dkC" = (
 /obj/effect/mapping_helpers/airlock/access/all/service/theatre,
 /obj/machinery/door/airlock{
@@ -13072,6 +13079,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/lab)
+"eBD" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating,
+/area/station/cargo/miningoffice)
 "eBE" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -16098,7 +16115,8 @@
 /area/station/medical/treatment_center)
 "fFE" = (
 /obj/effect/decal/cleanable/rubble,
-/turf/open/misc/asteroid,
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating,
 /area/station/cargo/miningoffice)
 "fFT" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -23793,7 +23811,11 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/misc/asteroid,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating,
 /area/station/cargo/miningoffice)
 "ilQ" = (
 /obj/structure/railing,
@@ -39223,6 +39245,13 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/sand/plating,
+/obj/item/stack/ducts{
+	pixel_y = 3
+	},
+/obj/item/stack/ducts,
+/obj/item/stack/ducts{
+	pixel_y = 7
+	},
 /obj/item/storage/box/bandages,
 /turf/open/floor/plating,
 /area/station/cargo/miningoffice)
@@ -51406,7 +51435,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/mob/living/simple_animal/bot/secbot/beepsky/officer,
+/mob/living/basic/bot/secbot/beepsky/officer,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "rFX" = (
@@ -60563,6 +60592,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/security/prison)
+"uGG" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/plating,
+/area/station/cargo/miningoffice)
 "uGS" = (
 /obj/structure/chair/office/tactical{
 	dir = 8
@@ -67888,7 +67922,7 @@
 /area/station/maintenance/port/lesser)
 "xkc" = (
 /obj/structure/cable/layer3,
-/mob/living/simple_animal/bot/secbot/pingsky,
+/mob/living/basic/bot/secbot/pingsky,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/foyer)
 "xkx" = (
@@ -148146,7 +148180,7 @@ lyP
 lyP
 lyP
 lyP
-lyP
+pEH
 pEH
 pEH
 pEH
@@ -148402,9 +148436,9 @@ lyP
 lyP
 lyP
 lyP
-lyP
+wPb
 pEH
-pEH
+wPb
 wPb
 wPb
 iaN
@@ -148659,8 +148693,8 @@ lyP
 lyP
 lyP
 lyP
-lyP
-pEH
+wPb
+wPb
 ixo
 dcg
 nxd
@@ -148916,10 +148950,10 @@ lyP
 lyP
 lyP
 lyP
-lyP
 pEH
+djR
 xok
-ljG
+eBD
 fFE
 iaN
 mPH
@@ -149173,10 +149207,10 @@ lyP
 lyP
 lyP
 lyP
-lyP
-pEH
-cbn
-ljG
+wPb
+apL
+efm
+qXY
 qXY
 iaN
 gEQ
@@ -149430,8 +149464,8 @@ lyP
 lyP
 lyP
 lyP
-lyP
 pEH
+dkB
 nuu
 ilO
 qXY
@@ -149687,8 +149721,8 @@ dOG
 dOG
 dOG
 lyP
-lyP
 wPb
+dkB
 efm
 ljG
 qXY
@@ -149944,8 +149978,8 @@ gcQ
 bEn
 dOG
 lyP
-lyP
-wPb
+pEH
+uGG
 iee
 bPu
 wPb
@@ -150202,7 +150236,7 @@ mkN
 dOG
 lyP
 lyP
-lyP
+wPb
 wPb
 wPb
 wPb
@@ -150460,9 +150494,9 @@ dOG
 lyP
 lyP
 lyP
-lyP
-lyP
-lyP
+pEH
+wPb
+pEH
 iaN
 qIa
 fBm

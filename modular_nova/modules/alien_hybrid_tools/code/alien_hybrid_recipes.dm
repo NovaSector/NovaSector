@@ -10,6 +10,10 @@
 	time = 10 SECONDS
 	category = CAT_TOOLS
 
+/datum/crafting_recipe/hybrid_drill/New()
+	..()
+	LAZYOR(blacklist, subtypesof(/obj/item/screwdriver/power))
+
 /datum/crafting_recipe/hybrid_jaws
 	result = /obj/item/crowbar/power/alien
 	reqs = list(
@@ -20,6 +24,10 @@
 	)
 	time = 10 SECONDS
 	category = CAT_TOOLS
+
+/datum/crafting_recipe/hybrid_jaws/New()
+	..()
+	LAZYOR(blacklist, subtypesof(/obj/item/crowbar/power) - list(/obj/item/crowbar/power/syndicate))
 
 /datum/crafting_recipe/hybrid_scalpel
 	result = /obj/item/scalpel/advanced/alien
@@ -32,6 +40,10 @@
 	time = 10 SECONDS
 	category = CAT_TOOLS
 
+/datum/crafting_recipe/hybrid_scalpel/New()
+	..()
+	LAZYOR(blacklist, subtypesof(/obj/item/scalpel/advanced))
+
 /datum/crafting_recipe/hybrid_retractor
 	result = /obj/item/retractor/advanced/alien
 	reqs = list(
@@ -42,6 +54,10 @@
 	)
 	time = 10 SECONDS
 	category = CAT_TOOLS
+
+/datum/crafting_recipe/hybrid_retractor/New()
+	..()
+	LAZYOR(blacklist, subtypesof(/obj/item/retractor/advanced))
 
 /datum/crafting_recipe/hybrid_cautery
 	result = /obj/item/cautery/advanced/alien
@@ -54,6 +70,10 @@
 	time = 10 SECONDS
 	category = CAT_TOOLS
 
+/datum/crafting_recipe/hybrid_cautery/New()
+	..()
+	LAZYOR(blacklist, subtypesof(/obj/item/cautery/advanced))
+
 /datum/crafting_recipe/hybrid_med_combi
 	result = /obj/item/blood_filter/advanced/alien
 	reqs = list(
@@ -64,3 +84,7 @@
 	)
 	time = 10 SECONDS
 	category = CAT_TOOLS
+
+/datum/crafting_recipe/hybrid_med_combi/New()
+	..()
+	LAZYOR(blacklist, subtypesof(/obj/item/blood_filter/advanced))

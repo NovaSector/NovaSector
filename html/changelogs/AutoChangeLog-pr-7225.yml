@@ -1,4 +1,0 @@
-author: "Diltyrr"
-delete-after: True
-changes:
-  - bugfix: "Stone griddles do not have a chance to spawn invisible anymore."
