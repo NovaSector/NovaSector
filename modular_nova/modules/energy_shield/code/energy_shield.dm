@@ -232,8 +232,11 @@
 	if(shield_health <= 0 || !shield_active)
 		return
 	//Special case for ammunition with secondary damage (pulse/plasma ammo)
-	var/has_secondary_damage = ("secondary_damage" in proj.vars)
-	var/secondary_damage = has_secondary_damage ? proj.vars["secondary_damage"] : 0
+	var/secondary_damage = 0
+	var/obj/projectile/bullet/pulse/pulse_proj
+	if(istype(proj, /obj/projectile/bullet/pulse)
+		pulse_proj = proj
+		secondary_damage = pulse_proj.secondary_damage
 	var/total_damage = proj.damage + proj.stamina + secondary_damage
 	if(total_damage <= 0)
 		return
@@ -254,8 +257,8 @@
 
 	// Reduce the projectile's damage for whatever passes through
 	proj.damage -= brute_absorbed
-	if(has_secondary_damage && secondary_absorbed)
-		proj.vars["secondary_damage"] -= secondary_absorbed
+	if(secondary_damage && secondary_absorbed)
+		pulse_proj.secondary_damage -= secondary_absorbed
 	proj.stamina -= stamina_absorbed
 
 	// Fully absorbed — block the bullet entirely
