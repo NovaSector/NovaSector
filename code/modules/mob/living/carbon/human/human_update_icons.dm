@@ -139,8 +139,6 @@ There are several things that need to be remembered:
 				uniform.worn_x_offset = -16
 			else if ((mutant_styles & STYLE_TAUR_HOOF) && uniform.worn_icon_taur_hoof)
 				uniform.worn_x_offset = -16
-			else if ((mutant_styles & STYLE_TAUR_GENERIC) && uniform.worn_icon_taur_generic)
-				uniform.worn_x_offset = -16
 			//big legs
 			if((mutant_styles & STYLE_TAUR_BIG_LEGS_ALL) && (uniform.supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
 				icon_file = mutant_styles & STYLE_TAUR_BIG_LEGS ? BIG_LEGS_UNIFORM_FILE : BIG_LEGS_STANCED_UNIFORM_FILE
@@ -577,8 +575,6 @@ There are several things that need to be remembered:
 			else if ((mutant_styles & STYLE_TAUR_PAW) && worn_suit.worn_icon_taur_paw)
 				worn_suit.worn_x_offset = -16
 			else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_suit.worn_icon_taur_hoof)
-				worn_suit.worn_x_offset = -16
-			else if ((mutant_styles & STYLE_TAUR_GENERIC) && worn_suit.worn_icon_taur_generic)
 				worn_suit.worn_x_offset = -16
 		else
 			wear_suit.worn_x_offset = 0
@@ -1046,9 +1042,6 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			using_taur_variant = TRUE
 		else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
 			override_file = worn_icon_taur_hoof
-			using_taur_variant = TRUE
-		else if ((mutant_styles & STYLE_TAUR_GENERIC) && worn_icon_taur_generic)
-			override_file = worn_icon_taur_generic
 			using_taur_variant = TRUE
 	// NOVA EDIT ADDITION END
 	//Find a valid icon_state from variables+arguments
