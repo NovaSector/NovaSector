@@ -25,6 +25,7 @@
 	flags_for_organ = SPRITE_ACCESSORY_HIDE_SHOES
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/taur_mode = NONE
+	taur_mode = STYLE_TAUR_GENERIC /// So that every taur would crop clothes
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/alt_taur_mode = NONE
 
@@ -54,6 +55,9 @@
 				if (STYLE_TAUR_HOOF)
 					if (worn_suit.worn_icon_taur_hoof)
 						return TRUE
+				if (STYLE_TAUR_GENERIC)
+					if (worn_suit.worn_icon_taur_generic)
+						return TRUE
 
 	var/obj/item/clothing/under/worn_uniform = target.w_uniform
 	if (istype(worn_uniform))
@@ -67,6 +71,9 @@
 						return TRUE
 				if (STYLE_TAUR_HOOF)
 					if (worn_suit.worn_icon_taur_hoof)
+						return TRUE
+				if (STYLE_TAUR_GENERIC)
+					if (worn_suit.worn_icon_taur_generic)
 						return TRUE
 
 	if(target.owned_turf)

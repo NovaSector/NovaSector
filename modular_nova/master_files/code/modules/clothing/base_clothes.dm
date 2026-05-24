@@ -42,12 +42,16 @@
 	var/icon/worn_icon_taur_paw
 	/// Icon file for mob worn overlays, for characters with a hoof'd taur sprite accessory.
 	var/icon/worn_icon_taur_hoof
+	/// Icon file for mob worn overlays, for characters with a generic taur sprite accessory.
+	var/icon/worn_icon_taur_generic
 	///  The config type to use for greyscaled worn sprites for characters using taur snake sprite accessory. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn_taur_snake
 	///  The config type to use for greyscaled worn sprites for characters using taur paws sprite accessory. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn_taur_paw
 	///  The config type to use for greyscaled worn sprites for characters using taur hoofs sprite accessory. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn_taur_hoof
+	///  The config type to use for greyscaled worn sprites for characters using taur hoofs sprite accessory. Both this and greyscale_colors must be assigned to work.
+	var/greyscale_config_worn_taur_generic
 
 	/// Used for BODYSHAPE_CUSTOM: Needs to follow this syntax: a list() with the x and y coordinates of the pixel you want to get the color from. Colors are filled in as GAGs values for fallback.
 	var/list/species_clothing_color_coords[3]
