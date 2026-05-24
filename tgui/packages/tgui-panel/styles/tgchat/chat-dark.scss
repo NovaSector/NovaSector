@@ -1053,6 +1053,11 @@ em {
   display: inline-block;
 }
 
+.cyan {
+  color: #bde0dc;
+  text-shadow: 0 0 6px #bde0dc;
+}
+
 .connectionClosed,
 .fatalError {
   background: red;
@@ -1480,7 +1485,7 @@ $border-width-px: $border-width * 1px;
   font-weight: bold;
 }
 
-.cyan {
+.cyan_nova {
   color: #0ea1e6;
   font-weight: bold;
 }

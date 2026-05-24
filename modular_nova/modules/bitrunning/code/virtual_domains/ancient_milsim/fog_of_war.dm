@@ -10,6 +10,7 @@
 	radio.keyslot = new /obj/item/encryptionkey/headset_syndicate/cybersun()
 	radio.set_listening(FALSE)
 	radio.recalculateChannels()
+	AddElement(/datum/element/bitrunning_objective)
 
 /obj/machinery/button/door/indestructible/ancient_milsim/screwdriver_act()
 	return
@@ -20,7 +21,7 @@
 /obj/machinery/button/door/indestructible/ancient_milsim/emag_act()
 	return
 
-/obj/machinery/button/door/indestructible/ancient_milsim/attack_hand()
+/obj/machinery/button/door/indestructible/ancient_milsim/interact(mob/user)
 	. = ..()
 	if(.)
 		return

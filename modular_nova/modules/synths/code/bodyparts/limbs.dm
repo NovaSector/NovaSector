@@ -55,6 +55,7 @@
 	)
 
 	bodypart_flags = BODYPART_UNHUSKABLE
+	head_flags = HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_LIPS|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_EYEHOLES // All the default flags minus HEAD_DEBRAIN
 
 /datum/design/synth_head
 	name = "Android Head Base"
@@ -387,9 +388,8 @@
 
 /obj/item/bodypart/leg/left/synth/digitigrade
 	icon_greyscale = BODYPART_ICON_SYNTHLIZARD
-	limb_id = BODYPART_ID_DIGITIGRADE
+	limb_id = "synthliz"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = BODYPART_ID_DIGITIGRADE
 
 /datum/design/synth_l_d_leg
 	name = "Android Digitigrade Left Leg Base"
@@ -408,9 +408,8 @@
 
 /obj/item/bodypart/leg/right/synth/digitigrade
 	icon_greyscale = BODYPART_ICON_SYNTHLIZARD
-	limb_id = BODYPART_ID_DIGITIGRADE
+	limb_id = "synthliz"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = BODYPART_ID_DIGITIGRADE
 
 /datum/design/synth_r_d_leg
 	name = "Android Digitigrade Right Leg Base"

@@ -85,10 +85,9 @@
 
 /datum/species/hemophage/prepare_human_for_preview(mob/living/carbon/human/human)
 	human.skin_tone = "albino"
-	human.hair_color = "#1d1d1d"
-	human.hairstyle = "Pompadour (Big)"
-	regenerate_organs(human, src, visual_only = TRUE)
-	human.update_body(TRUE)
+	human.set_haircolor("#1d1d1d", update = FALSE)
+	human.set_hairstyle("Pompadour (Big)", update = FALSE)
+	human.update_body_parts(TRUE)
 
 
 /datum/species/hemophage/create_pref_unique_perks()

@@ -429,6 +429,7 @@ ROUNDSTART_RACES dullahan
 ROUNDSTART_RACES kobold
 ROUNDSTART_RACES protean
 ROUNDSTART_RACES shadekin
+ROUNDSTART_RACES holosynth
 
 ##-------------------------------------------------------------------------------------------
 

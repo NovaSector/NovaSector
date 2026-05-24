@@ -129,13 +129,12 @@
 	var/obj/item/organ/ears/cat/cat_ears = human_for_preview.get_organ_by_type(/obj/item/organ/ears/cat)
 	if (cat_ears)
 		cat_ears.color = human_for_preview.hair_color
-		human_for_preview.update_body()
+		human_for_preview.update_hair()
 	*/ // NOVA EDIT REMOVAL END
 	// NOVA EDIT ADDITION START
 	human_for_preview.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Cat", list(human_for_preview.hair_color))
 	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = build_mutant_part("Cat", list(human_for_preview.hair_color))
 	regenerate_organs(human_for_preview, src, visual_only = TRUE)
-	human_for_preview.update_body(TRUE)
 	// NOVA EDIT ADDITION END
 
 /datum/species/human/felinid/get_physical_attributes()
