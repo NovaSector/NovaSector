@@ -24,46 +24,13 @@
 
 /datum/antagonist/cult/bloodwashed/on_gain()
 	forge_objectives()
-	var/datum/action/antag_info/info_button
-	if(!owner)
-		CRASH("[src] ran on_gain() without a mind")
-	if(!owner.current)
-		CRASH("[src] ran on_gain() on a mind without a mob")
-	if(ui_name)
-		info_button = new(src)
-		if(antag_flags & ANTAG_OBSERVER_VISIBLE_PANEL)
-			info_button.show_to_observers = TRUE
-			info_button.allow_observer_click = TRUE
-		info_button.Grant(owner.current)
-		info_button_ref = WEAKREF(info_button)
-	if(!silent)
-		greet()
-		if(ui_name)
-			to_chat(owner.current, span_boldnotice("For more info, read the panel. \
-				You can always come back to it using the button in the top left."))
-			info_button.Trigger()
-		var/type_policy = get_policy("[type]")
-		if(type_policy)
-			to_chat(owner.current, type_policy)
-
-	owner.desensitized_level *= max(DESENSITIZED_MINIMUM, desensitized_modifier)
-	apply_innate_effects()
-	give_antag_moodies()
-	RegisterSignal(owner, COMSIG_PRE_MINDSHIELD_IMPLANT, PROC_REF(pre_mindshield))
-	RegisterSignal(owner, COMSIG_MINDSHIELD_IMPLANTED, PROC_REF(on_mindshield))
-	if(is_banned(owner.current) && replace_banned)
-		replace_banned_player()
-	else if(owner.current.client?.holder && (CONFIG_GET(flag/auto_deadmin_antagonists) || owner.current.client.prefs?.toggles & DEADMIN_ANTAGONIST))
-		owner.current.client.holder.auto_deadmin()
-	if(owner.current.stat != DEAD && owner.current.client)
-		owner.current.add_to_current_living_antags()
-
-	for(var/datum/atom_hud/alternate_appearance/basic/antag_hud as anything in GLOB.active_alternate_appearances)
-		antag_hud.apply_to_new_mob(owner.current)
-
-	LAZYADD(owner.special_roles, (jobban_flag || pref_flag))
-
-	SEND_SIGNAL(owner, COMSIG_ANTAGONIST_GAINED, src)
+	if(isnull(cult_team))
+		create_team()
+	var/was_giving_equipment = give_equipment
+	give_equipment = FALSE
+	. = ..()
+	give_equipment = was_giving_equipment
+	remove_full_cult_tools()
 
 	var/mob/living/current = owner.current
 	if(give_equipment)
@@ -73,6 +40,18 @@
 		magic.Grant(current)
 
 	current.log_message("has been bloodwashed by Nar'Sie's lingering influence!", LOG_ATTACK, color = COLOR_CULT_RED)
+
+/datum/antagonist/cult/bloodwashed/proc/remove_full_cult_tools()
+	var/mob/living/current = owner?.current
+	if(!current)
+		return
+
+	for(var/datum/action/innate/cult/comm/communion in current.actions)
+		qdel(communion)
+
+	for(var/datum/action/innate/cult/blood_magic/magic in current.actions)
+		if(!istype(magic, /datum/action/innate/cult/blood_magic/bloodwashed))
+			qdel(magic)
 
 /datum/antagonist/cult/bloodwashed/greet()
 	. = ..()
