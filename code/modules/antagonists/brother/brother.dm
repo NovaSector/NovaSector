@@ -140,6 +140,7 @@
 	brother2.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = build_mutant_part("Plain") // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_ANTENNAE] = "Plain"
 	brother2.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = build_mutant_part(SPRITE_ACCESSORY_NONE) // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_MARKINGS] = "None"
 	brother2.dna.mutant_bodyparts[FEATURE_WINGS] = build_mutant_part("Moth (Plain)") // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_WINGS] = "Plain"
+	brother2.set_eye_color(COLOR_WHITE) // NOVA EDIT ADDITION
 	brother2.set_species(/datum/species/moth)
 
 	var/datum/universal_icon/brother1_icon = render_preview_outfit(/datum/outfit/job/quartermaster, brother1)
