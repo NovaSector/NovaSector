@@ -162,7 +162,6 @@
 	RegisterSignals(human_holder, list(
 		COMSIG_CARBON_GAIN_ORGAN,
 		COMSIG_CARBON_LOSE_ORGAN,
-		COMSIG_MOB_STATCHANGE,
 		COMSIG_LIVING_SET_BODY_POSITION,
 		COMSIG_MOVABLE_MOVED,
 	), PROC_REF(on_featherweight_state_changed))
@@ -181,6 +180,11 @@
 
 /datum/quirk/featherweight/process(seconds_per_tick)
 	if(!get_featherweight_functional_wings()?.can_fly(silent = TRUE))
+		stop_featherweight_flight()
+
+/datum/quirk/featherweight/on_stat_changed(mob/living/source, new_stat)
+	. = ..()
+	if(is_featherweight_flying() && !get_featherweight_functional_wings()?.can_fly(silent = TRUE))
 		stop_featherweight_flight()
 
 /datum/quirk/featherweight/proc/on_featherweight_state_changed(datum/source, changed_thing = null)
@@ -374,7 +378,6 @@
 	UnregisterSignal(human_holder, list(
 		COMSIG_CARBON_GAIN_ORGAN,
 		COMSIG_CARBON_LOSE_ORGAN,
-		COMSIG_MOB_STATCHANGE,
 		COMSIG_LIVING_SET_BODY_POSITION,
 		COMSIG_MOVABLE_MOVED,
 		COMSIG_LIVING_HEALTH_UPDATE,
