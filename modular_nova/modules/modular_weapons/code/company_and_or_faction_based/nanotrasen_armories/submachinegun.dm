@@ -59,6 +59,10 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 	caliber = CALIBER_9MM
 	max_ammo = 24
 
+/obj/item/ammo_box/magazine/smg_nt20/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[round(ammo_count(), 2)]"
+
 /obj/item/ammo_box/magazine/smg_nt20/empty
 	start_empty = TRUE
 
