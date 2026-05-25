@@ -19,7 +19,6 @@
 		and the cap features a wider brim in order to shield Azulean eyes from the alien suns they intend to grasp."
 	icon_state = "upstartcap"
 
-
 /obj/item/clothing/head/helmet/space/akula_wetsuit
 	name = "\improper Shoredress helm"
 	desc = "Known simply as a 'Glass' throughout Azulean society as a whole, these spheroidal helmets are often the main source of comfort for workers on land; domestic and abroad. \
