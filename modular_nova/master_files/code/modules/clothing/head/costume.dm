@@ -2,7 +2,6 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
 
-
 /obj/item/clothing/head/helmet/glassdome
 	name = "glass bowl helmet"
 	desc = "Despite the temptation, this won't protect you in space."

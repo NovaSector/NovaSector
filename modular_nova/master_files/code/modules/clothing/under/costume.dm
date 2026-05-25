@@ -229,7 +229,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/camo/gags
-	name = "\improper camouflage jumpsuit"
+	name = "camouflage jumpsuit"
 	desc = "The space mall ninja fears the space mall soldier."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/solfed/marines"

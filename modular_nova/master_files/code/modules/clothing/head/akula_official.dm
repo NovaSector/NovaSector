@@ -24,7 +24,7 @@
 	desc = "Known simply as a 'Glass' throughout Azulean society as a whole, these spheroidal helmets are often the main source of comfort for workers on land; domestic and abroad. \
 		More advanced than humans would ever give them credit for, a Shoredress's Glass is a piece of technology unto itself. \n\n\
 		These helmets employ a near-invisible system of cameras and sensors to prevent refraction from the water kept inside. \
-		The 'flexiglass' glass comprising the unit is chemically strengthened to be thin, light, and damage-resistant, but capable of bending even in half without shattering; all to allow you to touch your face. \n\
+		The 'flexiglass' comprising the unit is chemically strengthened to be thin, light, and damage-resistant, but capable of bending even in half without shattering; all to allow you to touch your face. \n\
 		Some have taken to putting electronic displays around the face to help express emotion, or to signal nonverbally. \
 		These helms are normally attached to Shoredresses or Stardresses, but comes with a fitted neoprene collar to allow wear on essentially anything."
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/akula.dmi'
@@ -35,12 +35,12 @@
 	strip_delay = 6 SECONDS
 	armor_type = /datum/armor/wetsuit_helmet
 	resistance_flags = FIRE_PROOF
-	/// Variable for storing hats which are worn inside the bubble helmet
-	var/obj/item/clothing/head/attached_hat
 	flags_inv = null
 	flags_cover = HEADCOVERSMOUTH | PEPPERPROOF
+	/// Variable for storing hats which are worn inside the bubble helmet
+	var/obj/item/clothing/head/attached_hat
 
-	/// Helmet armor
+/// Helmet armor
 /datum/armor/wetsuit_helmet
 	bio = 100
 	fire = 100
@@ -50,14 +50,15 @@
 	AddComponent(/datum/component/wetsuit)
 	update_appearance()
 
-/obj/item/clothing/head/helmet/space/akula_wetsuit/Destroy()
-	var/mob/user = loc
-	if(attached_hat)
-		attached_hat.forceMove(drop_location())
-		attached_hat = null
-
-	if(!istype(user))
+/obj/item/clothing/head/helmet/space/akula_wetsuit/Destroy(force)
+	var/turf/drop_loc = drop_location()
+	if(!istype(drop_loc))
+		QDEL_NULL(attached_hat)
 		return ..()
+
+	if(attached_hat)
+		attached_hat.forceMove(drop_loc)
+		attached_hat = null
 
 	return ..()
 
@@ -65,28 +66,29 @@
 /obj/item/clothing/head/helmet/space/akula_wetsuit/examine()
 	. = ..()
 	if(attached_hat)
-		. += span_notice("There's [attached_hat] placed in the helmet.")
+		. += span_notice("There's \a [attached_hat] placed in the helmet.")
 		. += span_bold("Right-click to remove it.")
 	else
 		. += span_notice("There's nothing placed in the helmet.")
 
-/obj/item/clothing/head/helmet/space/akula_wetsuit/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	. = ..()
-	if(!istype(attacking_item, /obj/item/clothing/head))
+/obj/item/clothing/head/helmet/space/akula_wetsuit/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	. = NONE
+	if(!istype(tool, /obj/item/clothing/head))
 		return
-	var/obj/item/clothing/hitting_hat = attacking_item
+	var/obj/item/clothing/hitting_hat = tool
 	if(hitting_hat.clothing_flags & STACKABLE_HELMET_EXEMPT)
 		balloon_alert(user, "doesn't fit!")
-		return
+		return ITEM_INTERACT_BLOCKING
 	if(attached_hat)
 		balloon_alert(user, "already something inside!")
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	attached_hat = hitting_hat
 	balloon_alert(user, "[hitting_hat] put inside")
 	hitting_hat.forceMove(src)
 	icon_state = "empty"
 	update_appearance()
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/clothing/head/helmet/space/akula_wetsuit/worn_overlays(mutable_appearance/standing, isinhands)
 	. = ..()
@@ -97,15 +99,13 @@
 	attached_hat_appearance.add_overlay(mutable_appearance(worn_icon, "helmet", -HEAD_LAYER))
 	. += attached_hat_appearance
 
-
-/obj/item/clothing/head/helmet/space/akula_wetsuit/attack_hand_secondary(mob/user)
-	..()
+/obj/item/clothing/head/helmet/space/akula_wetsuit/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
 	if(!attached_hat)
-		return
+		return NONE
 
 	user.put_in_active_hand(attached_hat)
 	balloon_alert(user, "[attached_hat] removed")
 	attached_hat = null
 	icon_state = "helmet"
 	update_appearance()
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return ITEM_INTERACT_SUCCESS
