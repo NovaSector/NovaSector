@@ -132,7 +132,7 @@
 	lose_text = span_notice("Your body feels slightly more dense.")
 	medical_record_text = "Subject's body is lighter and more fragile than usual, they can be carried with relative ease."
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_PROCESSES
-	mail_goodies = list(/obj/item/food/lollipop)
+	mail_goodies = list(/obj/item/reagent_containers/cup/soda_cans/grey_bull)
 	var/next_flight_allowed = 0
 	var/last_brute_loss = 0
 	var/last_burn_loss = 0
