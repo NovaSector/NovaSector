@@ -25,6 +25,7 @@
 	// let me have this
 	var/mob/living/carbon/human/moth = allocate(/mob/living/carbon/human/dummy/consistent)
 	moth.dna.features[FEATURE_MUTANT_COLOR] = "#E5CD99" // NOVA EDIT ADDITION - Customization
+	moth.set_eye_color(COLOR_WHITE) // NOVA EDIT ADDITION
 	moth.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = build_mutant_part("Firewatch") // NOVA EDIT CHANGE - Customization - ORIGINAL: moth.dna.features[FEATURE_MOTH_ANTENNAE] = "Firewatch"
 	moth.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = build_mutant_part(SPRITE_ACCESSORY_NONE) // NOVA EDIT CHANGE - Customization - ORIGINAL: moth.dna.features[FEATURE_MOTH_MARKINGS] = "None"
 	moth.dna.mutant_bodyparts[FEATURE_WINGS] = build_mutant_part("Moth (Firewatch)") // NOVA EDIT CHANGE - Customization - ORIGINAL: moth.dna.features[FEATURE_MOTH_WINGS] = "Firewatch"
