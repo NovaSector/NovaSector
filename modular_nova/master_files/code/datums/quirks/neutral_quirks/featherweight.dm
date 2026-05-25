@@ -6,6 +6,7 @@
 	return SS_INIT_SUCCESS
 
 #define FEATHERWEIGHT_FLIGHT_TRAIT "featherweight_flight"
+#define FEATHERWEIGHT_CARRY_TRAIT "featherweight_carry"
 #define FEATHERWEIGHT_FRAGILITY_MOD 1.5
 #define FEATHERWEIGHT_FLIGHT_DISABLE_TIME (6 SECONDS)
 #define FEATHERWEIGHT_HIT_KNOCKDOWN_TIME (2 SECONDS)
@@ -415,107 +416,29 @@
 		human_holder.physiology.burn_mod /= FEATHERWEIGHT_FRAGILITY_MOD
 		fragility_applied = FALSE
 
-#define FEATHERWEIGHT_OFFSET 6
-#define FEATHERWEIGHT_SIDE_OFFSET 3
-#define FEATHERWEIGHT_OVERSIZED_OFFSET 18
-#define FEATHERWEIGHT_OVERSIZED_SIDE_OFFSET 11
-#define FEATHERWEIGHT_REGULAR_OFFSET 6
-#define FEATHERWEIGHT_REGULAR_SIDE_OFFSET 4
+/mob/living/carbon/human/fireman_carry(mob/living/carbon/target)
+	if(target?.has_quirk(/datum/quirk/featherweight) && !HAS_TRAIT(src, TRAIT_QUICKER_CARRY))
+		ADD_TRAIT(src, TRAIT_QUICKER_CARRY, FEATHERWEIGHT_CARRY_TRAIT)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, remove_traits), list(TRAIT_QUICKER_CARRY), FEATHERWEIGHT_CARRY_TRAIT), 0)
 
-/datum/component/riding/creature/human
-	/// Hand used by the carrier for Featherweight side-carry offsets.
-	var/obj/item/bodypart/featherweight_used_hand
+	return ..()
 
-/datum/component/riding/creature/human/Initialize(mob/living/riding_mob, force = FALSE, ride_check_flags = NONE)
+/mob/living/update_pull_movespeed()
 	. = ..()
-	var/mob/living/carbon/human/human_parent = parent
-	//human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry) // NOVA EDIT REMOVAL
-	// NOVA EDIT ADDITION START - Taur saddles
-	if (!(ride_check_flags & RIDING_TAUR))
-		human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry)
-	// NOVA EDIT ADDITION END
+	if(!isliving(pulling))
+		return
 
-	if(ride_check_flags & RIDER_NEEDS_ARMS || (ride_check_flags & RIDING_TAUR)) // NOVA CHANGE - ORIGINAL: if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback
-		human_parent.buckle_lying = 0
-		// the riding mob is made nondense so they don't bump into any dense atoms the carrier is pulling,
-		// since pulled movables are moved before buckled movables
-		ADD_TRAIT(riding_mob, TRAIT_UNDENSE, VEHICLE_TRAIT)
-	else if(ride_check_flags & CARRIER_NEEDS_ARM) // fireman
-		if(riding_mob.has_quirk(/datum/quirk/featherweight))
-			human_parent.buckle_lying = 0
-			featherweight_used_hand = human_parent.get_active_hand()
-			ADD_TRAIT(riding_mob, TRAIT_UNDENSE, VEHICLE_TRAIT)
-		else
-			human_parent.buckle_lying = 90
+	var/mob/living/pulled_living = pulling
+	if(!pulled_living.has_quirk(/datum/quirk/featherweight))
+		return
+	if(HAS_TRAIT(pulled_living, TRAIT_HEAVYSET) || HAS_TRAIT(pulled_living, TRAIT_OVERSIZED))
+		return
+	if(pulled_living.body_position == STANDING_UP || pulled_living.buckled || grab_state >= GRAB_AGGRESSIVE)
+		return
 
-/datum/component/riding/creature/human/proc/get_featherweight_side_carry_offsets()
-	if(featherweight_used_hand?.body_zone == BODY_ZONE_L_ARM)
-		return list(
-			TEXT_NORTH = list(-FEATHERWEIGHT_OFFSET, 0, MOB_BELOW_PIGGYBACK_LAYER),
-			TEXT_SOUTH = list(FEATHERWEIGHT_OFFSET, 0, MOB_ABOVE_PIGGYBACK_LAYER),
-			TEXT_EAST = list(FEATHERWEIGHT_SIDE_OFFSET, 0, MOB_BELOW_PIGGYBACK_LAYER),
-			TEXT_WEST = list(-FEATHERWEIGHT_SIDE_OFFSET, 0, MOB_ABOVE_PIGGYBACK_LAYER),
-		)
+	remove_movespeed_modifier(/datum/movespeed_modifier/bulky_drag)
 
-	return list(
-		TEXT_NORTH = list(FEATHERWEIGHT_OFFSET, 0, MOB_BELOW_PIGGYBACK_LAYER),
-		TEXT_SOUTH = list(-FEATHERWEIGHT_OFFSET, 0, MOB_ABOVE_PIGGYBACK_LAYER),
-		TEXT_EAST = list(FEATHERWEIGHT_SIDE_OFFSET, 0, MOB_ABOVE_PIGGYBACK_LAYER),
-		TEXT_WEST = list(-FEATHERWEIGHT_SIDE_OFFSET, 0, MOB_BELOW_PIGGYBACK_LAYER),
-	)
-
-/datum/component/riding/creature/human/proc/get_featherweight_fireman_offsets(oversized)
-	if(oversized)
-		return list(
-			TEXT_NORTH = list(0, FEATHERWEIGHT_OVERSIZED_OFFSET, MOB_ABOVE_PIGGYBACK_LAYER),
-			TEXT_SOUTH = list(0, FEATHERWEIGHT_OVERSIZED_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-			TEXT_EAST = list(0, FEATHERWEIGHT_OVERSIZED_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-			TEXT_WEST = list(0, FEATHERWEIGHT_OVERSIZED_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-		)
-
-	return list(
-		TEXT_NORTH = list(0, FEATHERWEIGHT_REGULAR_OFFSET, MOB_ABOVE_PIGGYBACK_LAYER),
-		TEXT_SOUTH = list(0, FEATHERWEIGHT_REGULAR_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-		TEXT_EAST = list(0, FEATHERWEIGHT_REGULAR_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-		TEXT_WEST = list(0, FEATHERWEIGHT_REGULAR_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-	)
-
-/datum/component/riding/creature/human/proc/get_featherweight_piggyback_offsets(oversized)
-	if(oversized)
-		return list(
-			TEXT_NORTH = list(0, FEATHERWEIGHT_OVERSIZED_OFFSET, MOB_ABOVE_PIGGYBACK_LAYER),
-			TEXT_SOUTH = list(0, FEATHERWEIGHT_OVERSIZED_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-			TEXT_EAST = list(-FEATHERWEIGHT_OVERSIZED_SIDE_OFFSET, FEATHERWEIGHT_OVERSIZED_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-			TEXT_WEST = list(FEATHERWEIGHT_OVERSIZED_SIDE_OFFSET, FEATHERWEIGHT_OVERSIZED_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-		)
-
-	return list(
-		TEXT_NORTH = list(0, FEATHERWEIGHT_REGULAR_OFFSET, MOB_ABOVE_PIGGYBACK_LAYER),
-		TEXT_SOUTH = list(0, FEATHERWEIGHT_REGULAR_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-		TEXT_EAST = list(-FEATHERWEIGHT_REGULAR_OFFSET, FEATHERWEIGHT_REGULAR_SIDE_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-		TEXT_WEST = list(FEATHERWEIGHT_REGULAR_OFFSET, FEATHERWEIGHT_REGULAR_SIDE_OFFSET, MOB_BELOW_PIGGYBACK_LAYER),
-	)
-
-/datum/component/riding/creature/human/get_rider_offsets_and_layers(pass_index, mob/offsetter)
-	var/mob/living/carbon/human/seat = parent
-	if(ride_check_flags & RIDING_TAUR)
-		var/obj/item/organ/taur_body/taur_body = seat.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
-		return taur_body.get_riding_offset(oversized = HAS_TRAIT(seat, TRAIT_OVERSIZED))
-	else if(ride_check_flags & CARRIER_NEEDS_ARM)
-		var/mob/living/living_offsetter = offsetter
-		if(istype(living_offsetter) && living_offsetter.has_quirk(/datum/quirk/featherweight))
-			return get_featherweight_side_carry_offsets()
-
-		return get_featherweight_fireman_offsets(HAS_TRAIT(seat, TRAIT_OVERSIZED))
-	else if(ride_check_flags & RIDER_NEEDS_ARMS)
-		return get_featherweight_piggyback_offsets(HAS_TRAIT(seat, TRAIT_OVERSIZED))
-
-#undef FEATHERWEIGHT_OFFSET
-#undef FEATHERWEIGHT_SIDE_OFFSET
-#undef FEATHERWEIGHT_OVERSIZED_OFFSET
-#undef FEATHERWEIGHT_OVERSIZED_SIDE_OFFSET
-#undef FEATHERWEIGHT_REGULAR_OFFSET
-#undef FEATHERWEIGHT_REGULAR_SIDE_OFFSET
+#undef FEATHERWEIGHT_CARRY_TRAIT
 #undef FEATHERWEIGHT_FLIGHT_TRAIT
 #undef FEATHERWEIGHT_FRAGILITY_MOD
 #undef FEATHERWEIGHT_FLIGHT_DISABLE_TIME
