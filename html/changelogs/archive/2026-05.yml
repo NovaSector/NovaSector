@@ -334,6 +334,9 @@
   - qol: Grills now have screentips when using tools on them.
   - qol: In-line with other deconstruction processes, grills now deconstruct on right
       click.
+  Bobinater:
+  - rscadd: Security now gets VOUCHERS for a weapon and utility
+  - rscadd: M94 Rapier SMG (MP5)
   CabinetOnFire:
   - bugfix: Fixes an issue were bots would try to blacklist qdeleted atoms
   - bugfix: Fixes the spawn panel being unable to spawn turfs
@@ -593,6 +596,9 @@
   soulware1:
   - rscadd: New reactions for water variants that make foam
   - code_imp: New foam types that either slip or last longer or shorter
+  theselfish:
+  - rscadd: Added a waterless version of the shoredress hat, and armorless gags camo
+      in the loadout.
   timothymtorres:
   - map: Added a "Prison Block" holodeck simulation, accessible via the disabled safety/emagged
       menu.
