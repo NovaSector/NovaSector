@@ -135,7 +135,7 @@
 
 /datum/quirk/featherweight
 	name = "Featherweight"
-	desc = "Your body is lighter and more fragile than others'. You can be picked up with ease, and wings can carry you through the air."
+	desc = "Due to hollow bones, a chassis made of light alloys or other esoteric means, your body is lighter and more fragile than others'. You can be picked up with ease, and wings can carry you through the air. Your body will suffer more wounds and be more fragile as a result."
 	icon = FA_ICON_FEATHER
 	value = 0
 	mob_trait = TRAIT_GRABWEAKNESS
