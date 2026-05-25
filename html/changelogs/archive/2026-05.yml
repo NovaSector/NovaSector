@@ -365,6 +365,9 @@
   - bugfix: Quantum pads now use their screwdrivered-open state when depowered.
   - image: Deep fryers now have a sprite with an open maintenance panel instead of
       becoming invisible when screwdrivered.
+  - rscdel: Mining grenade launchers (the KA-likes that fired mining bombs) no longer
+      exist due to an unfortunate industrial accident that atomized both the warehouse
+      and factory that assembled them.
   Higgin:
   - bugfix: A single space twinkie no longer cures a virus or makes it harder to get
       rid of one.
