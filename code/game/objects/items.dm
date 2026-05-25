@@ -413,8 +413,6 @@
 		worn_icon_taur_paw = SSgreyscale.GetColoredIconByType(greyscale_config_worn_taur_paw, greyscale_colors)
 	if(greyscale_config_worn_taur_hoof)
 		worn_icon_taur_hoof = SSgreyscale.GetColoredIconByType(greyscale_config_worn_taur_hoof, greyscale_colors)
-	if(greyscale_config_worn_taur_generic)
-		worn_icon_taur_generic = SSgreyscale.GetColoredIconByType(greyscale_config_worn_taur_generic, greyscale_colors)
 	// NOVA EDIT ADDITION END
 	if(greyscale_config_inhand_left)
 		lefthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_left, greyscale_colors)
