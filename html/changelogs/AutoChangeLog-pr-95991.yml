@@ -1,0 +1,6 @@
+author: "Melbert"
+delete-after: True
+changes:
+  - balance: "Cuffing items to yourself no longer prevents you from dropping or being disarmed of the item- instead, the item becomes \"chained\" to you, forcing it to stay within one tile's reach under all circumstances."
+  - balance: "You can cuff shields to yourself again. Unless we figure out it's still oppressive in which case it'll probably be removed (again)"
+  - bugfix: "IV drops should break your character's offsets less often"
