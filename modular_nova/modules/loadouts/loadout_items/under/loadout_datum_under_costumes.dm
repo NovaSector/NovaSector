@@ -130,7 +130,12 @@
 
 /datum/loadout_item/under/formal/maid_uniform
 	name = "Maid Uniform"
-	item_path = /obj/item/clothing/under/rank/civilian/janitor/maid
+	item_path = /obj/item/clothing/under/costume/nova/maid_uniform
+	group = "Costumes"
+
+/datum/loadout_item/under/formal/maid_uniform_alt
+	name = "Maid Uniform (Alternative)"
+	item_path = /obj/item/clothing/under/costume/nova/maid_uniform_alt
 	group = "Costumes"
 
 /datum/loadout_item/under/miscellaneous/maid_costume
