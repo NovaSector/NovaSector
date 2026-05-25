@@ -11,23 +11,14 @@
 #define FEATHERWEIGHT_FLIGHT_DISABLE_TIME (6 SECONDS)
 #define FEATHERWEIGHT_HIT_KNOCKDOWN_TIME (2 SECONDS)
 
-/datum/reagent/flightpotion/New(data)
-	. = ..()
-	RegisterSignal(src, COMSIG_REAGENT_EXPOSE_MOB, PROC_REF(on_featherweight_flight_potion_exposure))
+/datum/reagent/flightpotion/expose_mob(mob/living/exposed_mob, methods = TOUCH, reac_volume, show_message = TRUE)
+	if(ishuman(exposed_mob) && exposed_mob.stat != DEAD && (methods & (INGEST | TOUCH)))
+		var/mob/living/carbon/human/exposed_human = exposed_mob
+		var/obj/item/bodypart/chest/chest = exposed_human.get_bodypart(BODY_ZONE_CHEST)
+		if(chest?.wing_types && reac_volume >= 5 && exposed_human.dna && exposed_human.has_quirk(/datum/quirk/featherweight))
+			exposed_human.remove_quirk(/datum/quirk/featherweight)
 
-/datum/reagent/flightpotion/proc/on_featherweight_flight_potion_exposure(datum/source, mob/living/exposed_mob, methods, reac_volume, show_message, touch_protection)
-	SIGNAL_HANDLER
-
-	if(!ishuman(exposed_mob) || exposed_mob.stat == DEAD || !(methods & (INGEST | TOUCH)))
-		return
-
-	var/mob/living/carbon/human/exposed_human = exposed_mob
-	var/obj/item/bodypart/chest/chest = exposed_human.get_bodypart(BODY_ZONE_CHEST)
-	if(!chest?.wing_types || reac_volume < 5 || !exposed_human.dna)
-		return
-
-	if(exposed_human.has_quirk(/datum/quirk/featherweight))
-		exposed_human.remove_quirk(/datum/quirk/featherweight)
+	return ..()
 
 /datum/action/innate/flight/featherweight
 	name = "Toggle Featherweight Flight"
@@ -143,7 +134,6 @@
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_PROCESSES
 	mail_goodies = list(/obj/item/food/lollipop)
 	var/next_flight_allowed = 0
-	var/last_flight_disable = 0
 	var/last_brute_loss = 0
 	var/last_burn_loss = 0
 	var/obj/item/organ/wings/original_featherweight_wings
@@ -218,6 +208,7 @@
 	if(QDELETED(quirk_holder) || swapping_featherweight_wings)
 		return
 
+	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/wings/wings = get_featherweight_wings()
 	if(istype(wings, /obj/item/organ/wings/functional/featherweight))
 		featherweight_wings = wings
@@ -226,7 +217,12 @@
 		return
 
 	if(istype(wings, /obj/item/organ/wings/functional))
-		release_original_featherweight_wings()
+		if(!QDELETED(original_featherweight_wings))
+			original_featherweight_wings.forceMove(get_turf(human_holder))
+		if(featherweight_wings && !QDELETED(featherweight_wings) && featherweight_wings.owner != human_holder)
+			qdel(featherweight_wings)
+		original_featherweight_wings = null
+		featherweight_wings = null
 		sync_featherweight_flight()
 		return
 
@@ -256,17 +252,6 @@
 	human_holder.update_body_parts()
 	sync_featherweight_flight()
 
-/datum/quirk/featherweight/proc/release_original_featherweight_wings()
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	var/obj/item/organ/wings/functional/featherweight/stored_wings = featherweight_wings
-
-	if(!QDELETED(original_featherweight_wings))
-		original_featherweight_wings.forceMove(get_turf(human_holder))
-	if(stored_wings && !QDELETED(stored_wings) && stored_wings.owner != human_holder)
-		qdel(stored_wings)
-	original_featherweight_wings = null
-	featherweight_wings = null
-
 /datum/quirk/featherweight/proc/restore_featherweight_wings()
 	if(swapping_featherweight_wings)
 		return
@@ -275,8 +260,8 @@
 	var/obj/item/organ/wings/functional/featherweight/current_wings = get_featherweight_functional_wings()
 	var/obj/item/organ/wings/functional/featherweight/stored_wings = current_wings || featherweight_wings
 	var/obj/item/organ/wings/original_wings = original_featherweight_wings
-	REMOVE_TRAIT(human_holder, TRAIT_SILENT_FOOTSTEPS, FEATHERWEIGHT_FLIGHT_TRAIT)
 	if(!stored_wings && !original_wings)
+		sync_featherweight_flight()
 		return
 
 	swapping_featherweight_wings = TRUE
@@ -339,16 +324,17 @@
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	if(HAS_TRAIT_FROM(human_holder, TRAIT_MOVE_FLOATING, SPECIES_FLIGHT_TRAIT))
 		wings.toggle_flight(human_holder)
-	else if(wings.wings_open)
+		return
+
+	if(wings.wings_open)
 		wings.close_wings()
 	sync_featherweight_flight()
 
 /datum/quirk/featherweight/proc/disable_featherweight_flight(knock_down = TRUE, show_message = TRUE)
-	if(QDELETED(quirk_holder) || last_flight_disable == world.time || !is_featherweight_flying())
+	if(QDELETED(quirk_holder) || !is_featherweight_flying())
 		return
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	last_flight_disable = world.time
 	next_flight_allowed = max(next_flight_allowed, world.time + FEATHERWEIGHT_FLIGHT_DISABLE_TIME)
 	stop_featherweight_flight()
 
@@ -385,9 +371,7 @@
 	))
 
 	restore_featherweight_wings()
-	if(added_passmachine)
-		human_holder.pass_flags &= ~PASSMACHINE
-		added_passmachine = FALSE
+	sync_featherweight_flight()
 
 	REMOVE_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_FLIGHT_TRAIT)
 	human_holder.physiology.brute_mod /= FEATHERWEIGHT_FRAGILITY_MOD
