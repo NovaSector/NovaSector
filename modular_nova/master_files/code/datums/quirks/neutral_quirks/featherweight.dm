@@ -149,6 +149,7 @@
 	var/obj/item/organ/wings/original_featherweight_wings
 	var/obj/item/organ/wings/functional/featherweight/featherweight_wings
 	var/swapping_featherweight_wings = FALSE
+	var/added_passmachine = FALSE
 
 /datum/quirk/featherweight/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -299,7 +300,7 @@
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	return human_holder?.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
 
-/datum/quirk/featherweight/proc/get_featherweight_functional_wings()
+/datum/quirk/featherweight/proc/get_featherweight_functional_wings() as /obj/item/organ/wings/functional/featherweight
 	var/obj/item/organ/wings/functional/featherweight/wings = get_featherweight_wings()
 	if(istype(wings))
 		return wings
@@ -315,8 +316,14 @@
 
 	if(is_featherweight_flying())
 		ADD_TRAIT(human_holder, TRAIT_SILENT_FOOTSTEPS, FEATHERWEIGHT_FLIGHT_TRAIT)
+		if(!(human_holder.pass_flags & PASSMACHINE))
+			added_passmachine = TRUE
+		human_holder.pass_flags |= PASSMACHINE
 	else
 		REMOVE_TRAIT(human_holder, TRAIT_SILENT_FOOTSTEPS, FEATHERWEIGHT_FLIGHT_TRAIT)
+		if(added_passmachine)
+			human_holder.pass_flags &= ~PASSMACHINE
+			added_passmachine = FALSE
 
 	update_process()
 
@@ -375,6 +382,9 @@
 	))
 
 	restore_featherweight_wings()
+	if(added_passmachine)
+		human_holder.pass_flags &= ~PASSMACHINE
+		added_passmachine = FALSE
 
 	REMOVE_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_FLIGHT_TRAIT)
 	human_holder.physiology.brute_mod /= FEATHERWEIGHT_FRAGILITY_MOD
