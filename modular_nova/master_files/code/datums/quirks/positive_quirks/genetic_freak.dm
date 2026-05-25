@@ -5,6 +5,7 @@ GLOBAL_LIST_INIT(genetic_mutation_species_restrictions, list(
 		/datum/species/jelly,
 		/datum/species/hemophage,
 		/datum/species/pod,
+		/datum/species/shadekin,
 	),
 	"Cold adaptation" = list(
 		/datum/species/jelly,
@@ -41,6 +42,12 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	/// The mutation that's applied to the mob, for ease of removal
 	var/applied_mutation
 
+/datum/quirk/genetic_mutation/is_species_appropriate(datum/species/mob_species)
+	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
+	if(TRAIT_GENELESS in species_traits)
+		return FALSE
+	return ..()
+
 /datum/quirk_constant_data/genetic_mutation
 	associated_typepath = /datum/quirk/genetic_mutation
 	customization_options = list(/datum/preference/choiced/genetic_mutation)
@@ -71,7 +78,7 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	if (!.)
 		return FALSE
 
-	return "Genetic Mutation" in preferences.all_quirks
+	return /datum/quirk/genetic_mutation::name in preferences.all_quirks
 
 /// Helper proc to check if a mutation is restricted for a given species
 /// Returns TRUE if the mutation is restricted (not allowed), FALSE otherwise

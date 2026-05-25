@@ -165,7 +165,7 @@
 
 /obj/item/storage/toolbox/guncase/nova/solfed/examine(mob/user)
 	. = ..()
-	. += "<i>It is stamped with the <b>[span_cyan("Solar Federation")]</b> emblem.</i>"
+	. += "<i>It is stamped with the <b>[span_cyan_nova("Solar Federation")]</b> emblem.</i>"
 
 /obj/item/storage/toolbox/guncase/nova/solfed/pistol
 	name = "small gun case"
@@ -181,7 +181,7 @@
 
 /obj/item/storage/toolbox/guncase/nova/solfedspec/examine(mob/user)
 	. = ..()
-	. += "<i>It is stamped with the <b>[span_cyan("Solar Federation")]</b> emblem.</i>"
+	. += "<i>It is stamped with the <b>[span_cyan_nova("Solar Federation")]</b> emblem.</i>"
 
 /obj/item/storage/toolbox/guncase/nova/solfedspec/pistol
 	name = "small gun case"

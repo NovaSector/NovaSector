@@ -10,7 +10,7 @@
 #define LASER_POWER_USAGE 7.2 MEGA WATTS
 
 /datum/design/board/self_actualization_device
-	name = "Machine Design (Self-Actualization Device)"
+	name = "Self-Actualization Device Board"
 	desc = "The circuit board for a Self-Actualization Device by Vey-Medical."
 	id = "self_actualization_device"
 	build_path = /obj/item/circuitboard/machine/self_actualization_device
@@ -18,7 +18,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /obj/item/circuitboard/machine/self_actualization_device
-	name = "Self-Actualization Device (Machine Board)"
+	name = "Self-Actualization Device"
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/self_actualization_device
 	req_components = list(/datum/stock_part/micro_laser = 1)
@@ -297,28 +297,19 @@
 			span_notice("You successfully break out of [src]!"))
 		eject_old_you(damaged_goods = TRUE)
 
-/obj/machinery/self_actualization_device/screwdriver_act(mob/living/user, obj/item/used_item)
-	. = TRUE
-	if(..())
-		return
-
+/obj/machinery/self_actualization_device/screwdriver_act(mob/living/user, obj/item/tool)
 	if(occupant)
 		to_chat(user, span_warning("[src] is currently occupied!"))
-		return
+		return NONE
 
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, used_item))
-		update_appearance()
-		return
+	return default_deconstruction_screwdriver(user, tool)
 
-	return FALSE
-
-/obj/machinery/self_actualization_device/crowbar_act(mob/living/user, obj/item/used_item)
+/obj/machinery/self_actualization_device/crowbar_act(mob/living/user, obj/item/tool)
 	if(occupant)
 		to_chat(user, span_warning("[src] is currently occupied!"))
-		return
+		return NONE
 
-	if(default_deconstruction_crowbar(used_item))
-		return TRUE
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/self_actualization_device/RefreshParts()
 	. = ..()

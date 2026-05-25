@@ -1,8 +1,10 @@
 /obj/item/bodypart/leg/left/digitigrade/harpy
 	icon_greyscale = BODYPART_ICON_HARPY
+	limb_id = LIMBS_HARPY
 
 /obj/item/bodypart/leg/right/digitigrade/harpy
 	icon_greyscale = BODYPART_ICON_HARPY
+	limb_id = LIMBS_HARPY
 
 /obj/item/bodypart/leg/left/mutant/harpy
 	icon_greyscale = BODYPART_ICON_HARPY
@@ -17,9 +19,11 @@
 /// Skintone variants to better fit on human-base critters if needed.
 /obj/item/bodypart/leg/left/digitigrade/harpy_skin
 	icon_greyscale = BODYPART_ICON_HARPY_HUMAN
+	limb_id = LIMBS_HARPY
 
 /obj/item/bodypart/leg/right/digitigrade/harpy_skin
 	icon_greyscale = BODYPART_ICON_HARPY_HUMAN
+	limb_id = LIMBS_HARPY
 
 /obj/item/bodypart/leg/left/mutant/harpy_skin
 	icon_greyscale = BODYPART_ICON_HARPY_HUMAN

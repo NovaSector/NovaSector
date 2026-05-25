@@ -20,7 +20,7 @@
 	if (!..())
 		return FALSE
 
-	if("Unusual Biochemistry" in preferences.all_quirks)
+	if(/datum/quirk/unusual_biochemistry::name in preferences.all_quirks)
 		return FALSE
 
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)

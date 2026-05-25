@@ -79,7 +79,7 @@
 	return !(state_open) && is_operational
 
 /obj/machinery/stasissleeper/update_icon_state()
-	icon_state = "[occupant ? "o-" : null][base_icon_state][state_open ? "-open" : null]"
+	icon_state = "[occupant ? "o-" : null][base_icon_state][panel_open ? "-o" : state_open ? "-open" : null]"
 	return ..()
 
 /obj/machinery/stasissleeper/power_change()
@@ -114,36 +114,37 @@
 	else if(HAS_TRAIT(L_occupant, TRAIT_STASIS))
 		thaw_them(L_occupant)
 
-/obj/machinery/stasissleeper/screwdriver_act(mob/living/user, obj/item/used_item)
-	. = ..()
-	if(.)
-		return
+/obj/machinery/stasissleeper/screwdriver_act(mob/living/user, obj/item/tool)
 	if(occupant)
 		to_chat(user, span_warning("[src] is currently occupied!"))
 		return
 	if(state_open)
 		to_chat(user, span_warning("[src] must be closed to [panel_open ? "close" : "open"] its maintenance hatch!"))
 		return
-	default_deconstruction_screwdriver(user, "[initial(icon_state)]-o", initial(icon_state), used_item)
+	return default_deconstruction_screwdriver(user, tool)
 
-/obj/machinery/stasissleeper/wrench_act(mob/living/user, obj/item/used_item)
-	. = ..()
-	default_change_direction_wrench(user, used_item)
+/obj/machinery/stasissleeper/wrench_act(mob/living/user, obj/item/tool)
+	return default_change_direction_wrench(user, tool)
 
-/obj/machinery/stasissleeper/crowbar_act(mob/living/user, obj/item/used_item)
-	. = ..()
-	if(default_pry_open(used_item))
-		return TRUE
-	default_deconstruction_crowbar(used_item)
+/obj/machinery/stasissleeper/crowbar_act(mob/living/user, obj/item/tool)
+	return default_pry_open(user, tool, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE, deconstruct_on_fail = TRUE)
 
-/obj/machinery/stasissleeper/default_pry_open(obj/item/used_item)
+/obj/machinery/stasissleeper/default_pry_open(mob/living/user,
+	obj/item/crowbar,
+	close_after_pry = FALSE,
+	open_density = FALSE,
+	closed_density = TRUE,
+	deconstruct_on_fail = FALSE,
+)
 	if(occupant)
 		thaw_them(occupant)
-	. = !(state_open || panel_open) && used_item.tool_behaviour == TOOL_CROWBAR
+	. = !(state_open || panel_open) && crowbar.tool_behaviour == TOOL_CROWBAR
 	if(.)
-		used_item.play_tool_sound(src, 50)
+		crowbar.play_tool_sound(src, 50)
 		visible_message(span_notice("[usr] pries open [src]."), span_notice("You pry open [src]."))
 		open_machine()
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/stasissleeper/attack_hand(mob/user)
 	if(occupant)

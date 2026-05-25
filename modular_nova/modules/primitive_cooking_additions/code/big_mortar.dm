@@ -220,7 +220,7 @@
 ///Mixes contained reagents, creating butter/mayo/whipped cream
 /obj/structure/large_mortar/proc/mix(mob/user)
 	//Recipe to make Butter
-	var/butter_amt = FLOOR(reagents.get_reagent_amount(/datum/reagent/consumable/milk) / MILK_TO_BUTTER_COEFF, 1)
+	var/butter_amt = floor(reagents.get_reagent_amount(/datum/reagent/consumable/milk) / MILK_TO_BUTTER_COEFF)
 	var/purity = reagents.get_reagent_purity(/datum/reagent/consumable/milk)
 	reagents.remove_reagent(/datum/reagent/consumable/milk, MILK_TO_BUTTER_COEFF * butter_amt)
 	for(var/i in 1 to butter_amt)

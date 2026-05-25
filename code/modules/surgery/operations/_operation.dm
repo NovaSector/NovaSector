@@ -848,6 +848,13 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	if(!check_availability(patient, operating_on, surgeon, tool, operation_args[OPERATION_TARGET_ZONE]))
 		return ITEM_INTERACT_BLOCKING
 
+	// NOVA EDIT ADDITION START - Makes it so you cannot operate on people in turned on Stasis Beds
+	if(patient.buckled)
+		var/obj/machinery/stasis/stasis_bed = patient.buckled
+		if(istype(stasis_bed) && stasis_bed.stasis_enabled)
+			to_chat(surgeon, span_warning("[patient] cannot be operated in the [patient.buckled] while it is turned on!"))
+			return ITEM_INTERACT_BLOCKING
+	// NOVA EDIT ADDITION END
 	if(isitem(tool))
 		var/obj/item/realtool = tool
 		var/tool_return = SEND_SIGNAL(realtool, COMSIG_ITEM_USED_IN_SURGERY, src, operating_on, surgeon)
@@ -1120,8 +1127,13 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	if(!pre_preop(operating_on, surgeon, tool, operation_args))
 		return FALSE
 	// if pre_preop slept, sanity check that everything is still valid
-	if(preop_time != world.time && (patient != get_patient(operating_on) || !surgeon.Adjacent(patient || operating_on) || !surgeon.is_holding(tool) || !operate_check(patient, operating_on, surgeon, tool, operation_args)))
-		return FALSE
+	if(preop_time != world.time)
+		if(patient != get_patient(operating_on))
+			return FALSE
+		if(!in_range(patient || operating_on, surgeon))
+			return FALSE
+		if(!operate_check(patient, operating_on, surgeon, tool, operation_args))
+			return FALSE
 
 	play_operation_sound(operating_on, surgeon, tool, preop_sound)
 	on_preop(operating_on, surgeon, tool, operation_args)

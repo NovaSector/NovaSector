@@ -1,9 +1,10 @@
-/obj/structure/closet/body_bag/stasis
-	name = "stasis body bag"
-	desc = "A body bag designed for the preservation of cadavers via integrated cryogenic technology and cryo-insulative mesh. Due to size limitations, it only works on dead bodies."
+/obj/structure/closet/body_bag/stasis_mortuary
+	name = "mortuary stasis bodybag"
+	desc = "A body bag designed for the preservation of cadavers via integrated cryogenic technology and an insulative diamond mesh. \
+		Due to generator limitations, the stasis effect only works on dead bodies."
 	icon = 'modular_nova/modules/stasisrework/icons/stasisbag.dmi'
 	icon_state = "greenbodybag"
-	foldedbag_path = /obj/item/bodybag/stasis
+	foldedbag_path = /obj/item/bodybag/stasis_mortuary
 	mob_storage_capacity = 1
 	max_mob_size = MOB_SIZE_LARGE
 
@@ -27,9 +28,7 @@
 	var/freq = rand(24750, 26550)
 	playsound(src, 'sound/effects/spray.ogg', 5, TRUE, 2, frequency = freq)
 	target.apply_status_effect(/datum/status_effect/grouped/stasis, STASIS_MACHINE_EFFECT)
-	ADD_TRAIT(target, TRAIT_TUMOR_SUPPRESSED, TRAIT_GENERIC)
 	target.extinguish_mob()
 
 /obj/structure/closet/body_bag/stasis/proc/thaw_them(mob/living/target)
 	target.remove_status_effect(/datum/status_effect/grouped/stasis, STASIS_MACHINE_EFFECT)
-	REMOVE_TRAIT(target, TRAIT_TUMOR_SUPPRESSED, TRAIT_GENERIC)

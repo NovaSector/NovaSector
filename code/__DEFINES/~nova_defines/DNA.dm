@@ -178,7 +178,9 @@
 #define SPECIES_KOBOLD "kobold"
 #define SPECIES_KOBOLD_PRIMITIVE "lizard_monkey"
 #define SPECIES_RAMATAE "ramatan"
+#define SPECIES_SHADEKIN "shadekin"
 #define SPECIES_INSECTOID "insectoid"
+#define SPECIES_HOLOSYNTH "holosynth"
 
 #define SPECIES_MUTANT "mutant"
 #define SPECIES_MUTANT_INFECTIOUS "infectious_mutant"

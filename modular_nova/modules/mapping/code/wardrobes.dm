@@ -38,6 +38,10 @@
 		/obj/item/clothing/under/syndicate/nova/maid = 5,
 		/obj/item/clothing/gloves/combat/maid = 5,
 		/obj/item/clothing/head/costume/maid_headband/syndicate = 5,
+		/obj/item/clothing/head/playbunnyears/syndicate = 5,
+		/obj/item/clothing/neck/tie/bunnytie/syndicate = 5,
+		/obj/item/clothing/suit/jacket/tailcoat/syndicate = 5,
+		/obj/item/clothing/under/syndicate/syndibunny = 5,
 	)
 
 	refill_canister = /obj/item/vending_refill/wardrobe/syndie_wardrobe

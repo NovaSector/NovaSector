@@ -21,6 +21,8 @@
 
 /obj/item/bodypart/leg/left/digitigrade/lizard
 	icon_greyscale = BODYPART_ICON_LIZARD
+	limb_id = SPECIES_LIZARD
 
 /obj/item/bodypart/leg/right/digitigrade/lizard
 	icon_greyscale = BODYPART_ICON_LIZARD
+	limb_id = SPECIES_LIZARD
