@@ -34,9 +34,7 @@
 	desc = "Beat your wings to fly."
 
 /datum/bodypart_overlay/mutant/wings/functional/featherweight
-	/// Name of the owner's normal wing sprite, used when the open-wing list has no matching sprite.
 	var/closed_accessory_name
-	/// If true, render from FEATURE_WINGS_OPEN while the wings are open.
 	var/using_open_sprite = FALSE
 
 /datum/bodypart_overlay/mutant/wings/functional/featherweight/get_global_feature_list()
@@ -76,7 +74,6 @@
 	desc = "A pair of wings made flight-capable by an unusually light body."
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/featherweight
 	food_reagents = list()
-	/// Quirk that owns this temporary functional-wing organ.
 	var/datum/quirk/featherweight/featherweight_quirk
 
 /obj/item/organ/wings/functional/featherweight/Destroy()
@@ -145,19 +142,12 @@
 	medical_record_text = "Subject's body is lighter and more fragile than usual, they can be carried with relative ease."
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_PROCESSES
 	mail_goodies = list(/obj/item/food/lollipop)
-	/// Track physiology changes so removal only reverts what this quirk applied.
-	var/fragility_applied = FALSE
-	/// World time after which Featherweight flight can be used again.
 	var/next_flight_allowed = 0
-	/// Prevents duplicate grounding signals from stacking from one event.
 	var/last_flight_disable = 0
 	var/last_brute_loss = 0
 	var/last_burn_loss = 0
-	/// The holder's normal wings, stored while Featherweight temporarily upgrades them.
 	var/obj/item/organ/wings/original_featherweight_wings
-	/// Temporary functional wings that reuse the strange-elixir flight implementation.
 	var/obj/item/organ/wings/functional/featherweight/featherweight_wings
-	/// Prevents organ gain/loss signals from recursing while swapping wings.
 	var/swapping_featherweight_wings = FALSE
 
 /datum/quirk/featherweight/add(client/client_source)
@@ -165,7 +155,6 @@
 	ADD_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_FLIGHT_TRAIT)
 	human_holder.physiology.brute_mod *= FEATHERWEIGHT_FRAGILITY_MOD
 	human_holder.physiology.burn_mod *= FEATHERWEIGHT_FRAGILITY_MOD
-	fragility_applied = TRUE
 	last_brute_loss = human_holder.get_brute_loss()
 	last_burn_loss = human_holder.get_fire_loss()
 
@@ -190,8 +179,7 @@
 	return is_featherweight_flying() && ..()
 
 /datum/quirk/featherweight/process(seconds_per_tick)
-	var/obj/item/organ/wings/functional/featherweight/wings = get_featherweight_functional_wings()
-	if(!wings?.can_fly(silent = TRUE))
+	if(!get_featherweight_functional_wings()?.can_fly(silent = TRUE))
 		stop_featherweight_flight()
 
 /datum/quirk/featherweight/proc/on_featherweight_state_changed(datum/source, changed_thing = null)
@@ -203,8 +191,7 @@
 		update_featherweight_wings()
 		return
 
-	var/obj/item/organ/wings/functional/featherweight/wings = get_featherweight_functional_wings()
-	if(is_featherweight_flying() && !wings?.can_fly(silent = TRUE))
+	if(is_featherweight_flying() && !get_featherweight_functional_wings()?.can_fly(silent = TRUE))
 		stop_featherweight_flight()
 
 /datum/quirk/featherweight/proc/on_featherweight_grounding_signal(mob/living/source, knockdown_amount = null)
@@ -223,7 +210,7 @@
 	last_burn_loss = current_burn_loss
 
 /datum/quirk/featherweight/proc/update_featherweight_wings()
-	if(QDELETED(quirk_holder))
+	if(QDELETED(quirk_holder) || swapping_featherweight_wings)
 		return
 
 	var/obj/item/organ/wings/wings = get_featherweight_wings()
@@ -245,7 +232,7 @@
 	restore_featherweight_wings()
 
 /datum/quirk/featherweight/proc/replace_with_featherweight_wings(obj/item/organ/wings/wings)
-	if(swapping_featherweight_wings || QDELETED(wings) || istype(wings, /obj/item/organ/wings/functional))
+	if(QDELETED(wings) || istype(wings, /obj/item/organ/wings/functional))
 		return
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -267,14 +254,6 @@
 /datum/quirk/featherweight/proc/release_original_featherweight_wings()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/wings/functional/featherweight/stored_wings = featherweight_wings
-	if(human_holder && !QDELETED(human_holder))
-		REMOVE_TRAIT(human_holder, TRAIT_SILENT_FOOTSTEPS, FEATHERWEIGHT_FLIGHT_TRAIT)
-
-	if(!original_featherweight_wings)
-		if(stored_wings && !QDELETED(stored_wings) && stored_wings.owner != human_holder)
-			qdel(stored_wings)
-		featherweight_wings = null
-		return
 
 	if(!QDELETED(original_featherweight_wings))
 		original_featherweight_wings.forceMove(get_turf(human_holder))
@@ -297,10 +276,7 @@
 
 	swapping_featherweight_wings = TRUE
 	if(current_wings)
-		if(is_featherweight_flying())
-			current_wings.toggle_flight(human_holder)
-		else if(current_wings.wings_open)
-			current_wings.close_wings()
+		stop_featherweight_flight()
 		current_wings.Remove(human_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
 
 	var/obj/item/organ/wings/current_slot_wings = get_featherweight_wings()
@@ -342,10 +318,7 @@
 	else
 		REMOVE_TRAIT(human_holder, TRAIT_SILENT_FOOTSTEPS, FEATHERWEIGHT_FLIGHT_TRAIT)
 
-	if(should_process())
-		START_PROCESSING(SSquirks, src)
-	else
-		STOP_PROCESSING(SSquirks, src)
+	update_process()
 
 /datum/quirk/featherweight/proc/stop_featherweight_flight()
 	var/obj/item/organ/wings/functional/featherweight/wings = get_featherweight_functional_wings()
@@ -353,23 +326,17 @@
 		return
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	if(is_featherweight_flying())
+	if(HAS_TRAIT_FROM(human_holder, TRAIT_MOVE_FLOATING, SPECIES_FLIGHT_TRAIT))
 		wings.toggle_flight(human_holder)
 	else if(wings.wings_open)
 		wings.close_wings()
 	sync_featherweight_flight()
 
 /datum/quirk/featherweight/proc/disable_featherweight_flight(knock_down = TRUE, show_message = TRUE)
-	if(QDELETED(quirk_holder) || !get_featherweight_functional_wings())
-		return
-	if(last_flight_disable == world.time)
+	if(QDELETED(quirk_holder) || last_flight_disable == world.time || !is_featherweight_flying())
 		return
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	var/was_flying = is_featherweight_flying()
-	if(!was_flying)
-		return
-
 	last_flight_disable = world.time
 	next_flight_allowed = max(next_flight_allowed, world.time + FEATHERWEIGHT_FLIGHT_DISABLE_TIME)
 	stop_featherweight_flight()
@@ -407,14 +374,11 @@
 		COMSIG_LIVING_STATUS_KNOCKDOWN,
 	))
 
-	REMOVE_TRAIT(human_holder, TRAIT_SILENT_FOOTSTEPS, FEATHERWEIGHT_FLIGHT_TRAIT)
 	restore_featherweight_wings()
 
-	if(fragility_applied)
-		REMOVE_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_FLIGHT_TRAIT)
-		human_holder.physiology.brute_mod /= FEATHERWEIGHT_FRAGILITY_MOD
-		human_holder.physiology.burn_mod /= FEATHERWEIGHT_FRAGILITY_MOD
-		fragility_applied = FALSE
+	REMOVE_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_FLIGHT_TRAIT)
+	human_holder.physiology.brute_mod /= FEATHERWEIGHT_FRAGILITY_MOD
+	human_holder.physiology.burn_mod /= FEATHERWEIGHT_FRAGILITY_MOD
 
 /mob/living/carbon/human/fireman_carry(mob/living/carbon/target)
 	if(target?.has_quirk(/datum/quirk/featherweight) && !HAS_TRAIT(src, TRAIT_QUICKER_CARRY))
@@ -429,9 +393,7 @@
 		return
 
 	var/mob/living/pulled_living = pulling
-	if(!pulled_living.has_quirk(/datum/quirk/featherweight))
-		return
-	if(HAS_TRAIT(pulled_living, TRAIT_HEAVYSET) || HAS_TRAIT(pulled_living, TRAIT_OVERSIZED))
+	if(!pulled_living.has_quirk(/datum/quirk/featherweight) || HAS_TRAIT(pulled_living, TRAIT_HEAVYSET) || HAS_TRAIT(pulled_living, TRAIT_OVERSIZED))
 		return
 	if(pulled_living.body_position == STANDING_UP || pulled_living.buckled || grab_state >= GRAB_AGGRESSIVE)
 		return
