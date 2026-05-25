@@ -53,9 +53,9 @@
 
 /datum/supply_pack/companies/ballistics/nt/c96
 	name = "NT M-96"
-	desc = "Hot off the assembly line and right into your holster, this modern reproduction of the classic C96 is chambered in 10mm. Comes stripper clips in a nifty carrying case."
+	desc = "Hot off the assembly line and right into your holster, this modern reproduction of the classic C96 is chambered in 9mm."
 	cost = CARGO_CRATE_VALUE * 4
-	contains = list(/obj/item/storage/toolbox/guncase/nova/ntspecial/pistol/c96)
+	contains = list(/obj/item/gun/ballistic/rifle/c96)
 	auto_name = FALSE
 	access = FALSE
 	access_view = FALSE
@@ -89,6 +89,10 @@
 	contains = list(/obj/item/gun/ballistic/revolver/takbok)
 	cost = CARGO_CRATE_VALUE * 3
 
+/datum/supply_pack/companies/ballistics/sol_fed/sidearm/alacran_civil
+	contains = list(/obj/item/gun/ballistic/automatic/sol_pdw/civil)
+	cost = CARGO_CRATE_VALUE * 2.5
+
 /datum/supply_pack/companies/ballistics/sol_fed/longarm
 	cost = CARGO_CRATE_VALUE * 3
 
@@ -117,6 +121,10 @@
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/sindano
 	contains = list(/obj/item/gun/ballistic/automatic/sol_smg)
+
+/datum/supply_pack/companies/ballistics/sol_fed/longarm/alacran
+	contains = list(/obj/item/gun/ballistic/automatic/sol_pdw)
+	cost = CARGO_CRATE_VALUE * 4
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/type213
 	contains = list(/obj/item/gun/ballistic/automatic/type213)

@@ -63,12 +63,20 @@
 	icon_state = "flag_trans"
 	item_flag = /obj/item/sign/flag/pride/trans
 
+/obj/structure/sign/flag/pride/nonbinary
+	name = "non-binary pride flag"
+	desc = "The flag of non-binary pride."
+	icon_state = "flag_nb"
+	item_flag = /obj/item/sign/flag/pride/nonbinary
+
 // FOLDED
 
 /obj/item/sign/flag/pride
 	name = "folded coder pride flag"
 	desc = "You probably shouldn't be seeing this. Yell at the coders about it."
 	icon = 'modular_nova/master_files/icons/obj/structures/pride_flags.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	slot_flags = ITEM_SLOT_NECK
 	custom_materials = null
 	abstract_type = /obj/item/sign/flag/pride
 
@@ -81,33 +89,46 @@
 	desc = "The folded flag of gay pride."
 	icon_state = "folded_pride"
 	sign_path = /obj/structure/sign/flag/pride/gay
+	worn_icon_state = "gay"
 
 /obj/item/sign/flag/pride/ace
 	name = "folded asexual pride flag"
 	desc = "The folded flag of asexual pride."
 	icon_state = "folded_pride_ace"
 	sign_path = /obj/structure/sign/flag/pride/ace
+	worn_icon_state = "ace"
 
 /obj/item/sign/flag/pride/bi
 	name = "folded bisexual pride flag"
 	desc = "The folded flag of bisexual pride."
 	icon_state = "folded_pride_bi"
 	sign_path = /obj/structure/sign/flag/pride/bi
+	worn_icon_state = "bi"
 
 /obj/item/sign/flag/pride/lesbian
 	name = "folded lesbian pride flag"
 	desc = "The folded flag of lesbian pride."
 	icon_state = "folded_pride_lesbian"
 	sign_path = /obj/structure/sign/flag/pride/lesbian
+	worn_icon_state = "les"
 
 /obj/item/sign/flag/pride/pan
 	name = "folded pansexual pride flag"
 	desc = "The folded flag of pansexual pride."
 	icon_state = "folded_pride_pan"
 	sign_path = /obj/structure/sign/flag/pride/pan
+	worn_icon_state = "pan"
 
 /obj/item/sign/flag/pride/trans
 	name = "folded trans pride flag"
 	desc = "The folded flag of trans pride."
 	icon_state = "folded_pride_trans"
 	sign_path = /obj/structure/sign/flag/pride/trans
+	worn_icon_state = "trans"
+
+/obj/item/sign/flag/pride/nonbinary
+	name = "folded non-binary pride flag"
+	desc = "The folded flag of non-binary pride."
+	icon_state = "folded_pride_nb"
+	sign_path = /obj/structure/sign/flag/pride/nonbinary
+	worn_icon_state = "nb"

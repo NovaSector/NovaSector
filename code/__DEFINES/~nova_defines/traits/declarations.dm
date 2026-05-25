@@ -187,4 +187,7 @@
 /// Trait for quirk: Illuminated
 #define TRAIT_COSGLOW "cosmetic_glow"
 
+/// The trait for Holosynths
+#define TRAIT_HOLOSYNTH "holosynthetic"
+
 // END TRAIT DEFINES

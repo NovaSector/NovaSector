@@ -21,7 +21,8 @@
 	weapon_weight = WEAPON_MEDIUM
 	semi_auto = TRUE
 	fire_delay = 0.45 SECONDS
-	projectile_damage_multiplier = 0.7 //crew gun using what's typically an antag round, this is more than warranted, maybe even will go lower after testing
-	spread = 5 //maybe needs to go lower in the future, we shall see
+	recoil_backtime_multiplier = 1
+	projectile_damage_multiplier = 0.75 //crew gun using what's typically an antag round, this is more than warranted, maybe even will go lower after testing
+	spread = 3.5 //maybe needs to go lower in the future, we shall see
 /obj/item/gun/ballistic/rifle/c96/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)

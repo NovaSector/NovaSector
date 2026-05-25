@@ -1,5 +1,5 @@
-#define FAUNA_MULTIPLIER 1
-#define MEGAFAUNA_MULTIPLIER 1
+#define FAUNA_MULTIPLIER 2
+#define MEGAFAUNA_MULTIPLIER 2
 
 /obj/item/forging/reagent_weapon
 	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi'
@@ -14,14 +14,11 @@
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 7
-	var/static/list/nemesis = MOB_BEAST
 
 /obj/item/forging/reagent_weapon/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/basic/mining/legion, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddComponent(/datum/component/bane, affected_biotypes = (MOB_MINING | MOB_BEAST), damage_multiplier = FAUNA_MULTIPLIER)
 
 /obj/item/forging/reagent_weapon/examine(mob/user)
 	. = ..()
@@ -46,6 +43,13 @@
 	sharpness = SHARP_EDGED
 	max_integrity = 150
 
+/obj/item/forging/reagent_weapon/sword/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/butchering, \
+		speed = 4 SECONDS, \
+		effectiveness = 105, \
+	)
+
 /obj/item/forging/reagent_weapon/katana
 	name = "forged katana"
 	desc = "A katana sharp enough to penetrate body armor, but not quite million-times-folded sharp."
@@ -56,6 +60,7 @@
 	worn_icon_state = "katana_back"
 	inside_belt_icon_state = "katana_belt"
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
+	pickup_sound = 'sound/items/unsheath.ogg'
 	block_chance = 10
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
@@ -82,6 +87,9 @@
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
+	operating_sound = SFX_KNIFE_SLICE
+	pickup_sound = SFX_KNIFE_PICKUP
+	drop_sound = SFX_KNIFE_DROP
 
 /obj/item/forging/reagent_weapon/dagger/Initialize(mapload)
 	. = ..()
@@ -110,6 +118,11 @@
 	attack_verb_continuous = list("bonks", "bashes", "whacks", "pokes", "prods")
 	attack_verb_simple = list("bonk", "bash", "whack", "poke", "prod")
 
+
+/obj/item/forging/reagent_weapon/staff/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/jousting)
+
 /obj/item/forging/reagent_weapon/spear
 	name = "forged spear"
 	desc = "A long spear that can be wielded in two hands to boost damage at the cost of single-handed versatility."
@@ -135,6 +148,8 @@
 /obj/item/forging/reagent_weapon/spear/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded = 13, force_wielded = 23)
+	AddComponent(/datum/component/jousting)
+	AddComponent(/datum/component/butchering, speed = 10 SECONDS, effectiveness = 70)
 
 /obj/item/forging/reagent_weapon/axe
 	name = "forged axe"
@@ -152,6 +167,13 @@
 	attack_verb_continuous = list("slashes", "bashes")
 	attack_verb_simple = list("slash", "bash")
 	sharpness = SHARP_EDGED
+
+/obj/item/forging/reagent_weapon/axe/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/butchering, \
+		speed = 7 SECONDS, \
+		effectiveness = 100, \
+	)
 
 /datum/embedding/forged_axe
 	embed_chance = 40
@@ -174,6 +196,8 @@
 	attack_verb_continuous = list("bashes", "whacks")
 	attack_verb_simple = list("bash", "whack")
 	tool_behaviour = TOOL_HAMMER
+	drop_sound = 'sound/items/handling/tools/crowbar_drop.ogg'
+	pickup_sound = 'sound/items/handling/tools/crowbar_pickup.ogg'
 
 /obj/item/forging/reagent_weapon/hammer/Initialize(mapload)
 	. = ..()
@@ -214,9 +238,7 @@
 /obj/item/shield/buckler/reagent_weapon/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/basic/mining/legion, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddComponent(/datum/component/bane, affected_biotypes = (MOB_MINING | MOB_BEAST), damage_multiplier = FAUNA_MULTIPLIER)
 
 /obj/item/shield/buckler/reagent_weapon/examine(mob/user)
 	. = ..()
@@ -279,8 +301,7 @@
 /obj/item/pickaxe/reagent_weapon/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddComponent(/datum/component/bane, affected_biotypes = (MOB_MINING | MOB_BEAST), damage_multiplier = FAUNA_MULTIPLIER)
 
 /obj/item/shovel/reagent_weapon
 	name = "forged shovel"
@@ -289,8 +310,7 @@
 /obj/item/shovel/reagent_weapon/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
-	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddComponent(/datum/component/bane, affected_biotypes = (MOB_MINING | MOB_BEAST), damage_multiplier = FAUNA_MULTIPLIER)
 
 /obj/item/ammo_casing/arrow/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	var/spawned_item
@@ -344,6 +364,7 @@
 		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
 		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
 	)
+	AddComponent(/datum/component/jousting)
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_wield()
 	wielded = TRUE

@@ -66,13 +66,14 @@ SUBSYSTEM_DEF(title)
 	return SS_INIT_SUCCESS
 
 /**
- * Returns the length of the queued latejoin rulesets if we are past roundstart
+ * Returns the number of remaining latejoin antagonist slots if we are past roundstart,
+ * otherwise returns "PRE-ROUND".
  */
 /datum/controller/subsystem/title/proc/get_latejoin_queue_count()
-	if (SSticker.current_state <= GAME_STATE_SETTING_UP)
-		return 0
+	if (SSticker.current_state < GAME_STATE_PLAYING)
+		return "PRE-ROUND"
 
-	return length(SSdynamic.queued_rulesets)
+	return max(SSdynamic.rulesets_to_spawn[LATEJOIN], 0)
 
 /**
  * Make sure reference time is set up. If not, this is now time 0.

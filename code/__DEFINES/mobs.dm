@@ -127,6 +127,26 @@
 ///The mob is all boney
 #define MOB_SKELETAL (1 << 15)
 
+/// Readable biotypes, keep this in the same order as the flags are
+#define MOB_BIOTYPES_READABLE list(\
+	"organic", \
+	"mineral", \
+	"robotic", \
+	"undead", \
+	"humanoid", \
+	"insectoid", \
+	"beast", \
+	"monstrous", \
+	"reptile", \
+	"spirit", \
+	"plant", \
+	"slime", \
+	"aquatic", \
+	"mining", \
+	"crustacean", \
+	"skeletal", \
+)
+
 //Lung respiration type flags
 #define RESPIRATION_OXYGEN (1 << 0)
 #define RESPIRATION_N2 (1 << 1)
@@ -181,8 +201,10 @@
 #define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<8)
 // NOVA EDIT ADDITION END
 
+/// List of body part flags that can not be bioscrambled
 #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG | BODYTYPE_GHOUL) // NOVA EDIT CHANGE - ORIGINAL: #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
-#define BODYTYPE_CAN_BE_BIOSCRAMBLED(bodytype) (!(bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE))
+/// Check to see if a bodypart limb can be bioscrambled
+#define BODYPART_CAN_BE_BIOSCRAMBLED(bodypart) (!(bodypart.bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE) && !(bodypart.flags_1 & HOLOGRAM_1))
 
 // Defines for Species IDs. Used to refer to the name of a species, for things like bodypart names or species preferences.
 #define SPECIES_ABDUCTOR "abductor"
@@ -197,6 +219,7 @@
 #define SPECIES_HUMAN "human"
 #define SPECIES_JELLYPERSON "jelly"
 #define SPECIES_SLIMEPERSON "slime"
+#define SPECIES_SPIRIT "spirit"
 #define SPECIES_LUMINESCENT "luminescent"
 #define SPECIES_STARGAZER "stargazer"
 #define SPECIES_LIZARD "lizard"
@@ -488,7 +511,7 @@
 #define AGE_MIN 18 //youngest a character can be
 #define AGE_MAX 100 //oldest a character can be //NOVA EDIT CHANGE - Increase max character age to 100 - ORIGINAL: #define AGE_MAX 85 //oldest a character can be
 #define AGE_CHRONO_MAX 400 //NOVA EDIT ADDITION - Chronological age
-#define AGE_MINOR 20 //legal age of space drinking and smoking
+#define AGE_MINOR 18 //NOVA EDIT CHANGE - We dont use these features, and its easier to just patch it from here. Original: AGE_MINOR 20 //legal age of space drinking and smoking
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
 #define APPRENTICE_AGE_MIN 29 //youngest an apprentice can be
 
@@ -870,7 +893,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	"[HEAD_LAYER]" = UPPER_BODY,
 	// Hair will get cut off by filter
 	"[HAIR_LAYER]" = UPPER_BODY,
-	"[BENEATH_HAIR_LAYER]" = UPPER_BODY,
+	// Doesn't do much
+	"[EYES_LAYER]" = UPPER_BODY,
 	// Long belts (sabre sheathe) will get cut off by filter
 	"[BELT_LAYER]" = LOWER_BODY,
 	// Everything below looks fine with or without a filter, so we can skip it and just offset
@@ -887,6 +911,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	"[ID_LAYER]" = UPPER_BODY,
 	"[FACEMASK_LAYER]" = UPPER_BODY,
 	"[LOW_FACEMASK_LAYER]" = UPPER_BODY,
+	"[BENEATH_HAIR_LAYER]" = UPPER_BODY, // alt mask layer
 	// These two are cached, and have their appearance shared(?), so it's safer to just not touch it
 	"[MUTATIONS_LAYER]" = NO_MODIFY,
 	"[FRONT_MUTATIONS_LAYER]" = NO_MODIFY,
@@ -895,7 +920,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	// BACK_LAYER (backpacks are big)
 	// BODYPARTS_HIGH_LAYER (arms)
 	// BODY_LAYER (body markings (full body), underwear (full body))
-	// EYES_LAYER,
 	// BODY_ADJ_LAYER (external organs like wings)
 	// BODY_BEHIND_LAYER (external organs like wings)
 	// BODY_FRONT_LAYER (external organs like wings)
