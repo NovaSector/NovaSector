@@ -102,12 +102,8 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		if (iscarbon(new_dna.holder))
 			var/mob/living/carbon/as_carbon = new_dna.holder
 			as_carbon.set_blood_type(blood_type)
-		// new_dna.holder.set_species(species.type, icon_update = 0) // NOVA EDIT REMOVAL
-			// NOVA EDIT ADDITION START
-			as_carbon.set_species(species.type, icon_update = TRUE, pref_load = FALSE, override_features = features.Copy(), override_mutantparts = LAZYCOPY(mutant_bodyparts), override_markings = body_markings.Copy())
-		else
-			new_dna.holder.set_species(species.type, icon_update = 0)
-			// NOVA EDIT ADDITION END
+			if(transfer_flags & COPY_DNA_SPECIES)
+				as_carbon.set_species(species.type, icon_update = 0, pref_load = FALSE, override_features = features.Copy(), override_mutantparts = LAZYCOPY(mutant_bodyparts), override_markings = body_markings.Copy())
 	else
 		new_dna.blood_type = blood_type
 		if(transfer_flags & COPY_DNA_SPECIES)

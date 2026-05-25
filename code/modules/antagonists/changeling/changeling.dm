@@ -807,10 +807,8 @@
 	user.dna.mutant_bodyparts = LAZYCOPY(chosen_dna.mutant_bodyparts)
 	user.dna.body_markings = chosen_dna.body_markings.Copy()
 
-	qdel(user.selected_scream)
-	qdel(user.selected_laugh)
-	user.selected_scream = new chosen_profile.scream_type
-	user.selected_laugh = new chosen_profile.laugh_type
+	user.selected_scream = GLOB.scream_types[chosen_profile.scream_type]
+	user.selected_laugh = GLOB.laugh_types[chosen_profile.laugh_type]
 	user.mob_size = chosen_profile.target_mob_size
 	user.set_mob_height(chosen_profile.target_height)
 
@@ -940,9 +938,7 @@
 	user.regenerate_icons()
 	user.name = user.get_visible_name()
 	current_profile = chosen_profile
-	// NOVA EDIT START
-	user.updateappearance(mutcolor_update = TRUE)
-	user.regenerate_icons()
+	// NOVA EDIT ADDITION START
 	user.name = user.get_visible_name()
 	user.blooper = null
 	user.blooper_id = chosen_profile.blooper_id

@@ -1,5 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - balance: "Following an incident where several pieces of assimilative superalloy were wasted on repeatedly upgrading one specific set of tools, their pre-seeded intelligences were revised to only accept the most basic form of their power tool component. Unfortunately, this had the knock-on effect of preventing Science's equivalent tools from being usable for upgrading. Whoops."
-  - bugfix: "Medical combitools can now be printed, as they were missing the flags that allowed them to be printed off techfabs/lathes."

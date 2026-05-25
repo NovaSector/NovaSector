@@ -6,13 +6,12 @@ import {
   type Feature,
   type FeatureChoiced,
   type FeatureChoicedServerData,
-  type FeatureNumeric,
   FeatureColorInput,
+  type FeatureNumeric,
   FeatureSliderInput,
-  type FeatureValueProps
+  type FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
-
 
 function FeatureSecondVoiceDropdownInput(
   props: FeatureValueProps<string, string, FeatureChoicedServerData>,

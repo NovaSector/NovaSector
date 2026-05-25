@@ -70,79 +70,66 @@
 //Security
 /datum/job/security_officer
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
-	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
 	species_blacklist = list(SEC_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/detective
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
-	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
 	species_blacklist = list(SPECIES_DULLAHAN = TRUE)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/warden
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
-	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
 	species_blacklist = list(SEC_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/blueshield
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
-	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
 	species_blacklist = list(SEC_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/corrections_officer
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
-	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
 	species_blacklist = list(SEC_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 // Command
 /datum/job/captain
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 	species_blacklist = list(HEAD_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/nanotrasen_consultant
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 	species_blacklist = list(HEAD_RESTRICTED_SPECIES)
 
 /datum/job/head_of_security
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS, HEAD_RESTRICTED_QUIRKS)
-	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
 	species_blacklist = list(HEAD_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/chief_medical_officer
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 	species_blacklist = list(HEAD_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/chief_engineer
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS, "Paraplegic" = TRUE)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 	species_blacklist = list(HEAD_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/research_director
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 	species_blacklist = list(HEAD_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/head_of_personnel
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 	species_blacklist = list(HEAD_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/quartermaster
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS_QM)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 	species_blacklist = list(HEAD_RESTRICTED_SPECIES)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
@@ -227,16 +214,12 @@
 // Nanotrasen Fleet
 /datum/job/fleetmaster
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 
 /datum/job/operations_inspector
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 
 /datum/job/deck_crew
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 
 /datum/job/bridge_officer
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
-	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
