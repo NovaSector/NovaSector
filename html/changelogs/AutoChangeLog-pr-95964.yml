@@ -1,4 +1,0 @@
-author: "Glu-furro"
-delete-after: True
-changes:
-  - rscadd: "Increased max prisoners from 2 to 4.\n:cl:"

@@ -1,4 +1,0 @@
-author: "Melbert"
-delete-after: True
-changes:
-  - code_imp: "Solar arrays don't check for the pressence of space vines every process tick"

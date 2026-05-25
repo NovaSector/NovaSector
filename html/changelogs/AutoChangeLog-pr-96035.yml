@@ -1,4 +1,0 @@
-author: "CabinetOnFire"
-delete-after: True
-changes:
-  - refactor: "Implements \"Event Logging\" an improved way for programmers to debug specific datums."

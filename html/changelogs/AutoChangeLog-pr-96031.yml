@@ -1,4 +1,0 @@
-author: "CabinetOnFire"
-delete-after: True
-changes:
-  - bugfix: "Fixes the spawn panel being unable to spawn turfs"

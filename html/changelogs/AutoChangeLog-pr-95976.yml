@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "disable dead keyloop lagswitch measure now properly affects new ghosts, and fixes an issue where people can revive and still be frozen"

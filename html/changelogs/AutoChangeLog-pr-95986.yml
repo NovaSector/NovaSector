@@ -1,5 +1,0 @@
-author: "Melbert"
-delete-after: True
-changes:
-  - bugfix: "Some masks no longer hide lizard frills."
-  - rscadd: "Hats that flatten hair now also flatten lizard frills a bit."

@@ -1,4 +1,0 @@
-author: "ElGitificador"
-delete-after: True
-changes:
-  - bugfix: "fixes a certain explosions message related to influences"

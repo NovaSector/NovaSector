@@ -1,4 +1,0 @@
-author: "Melbert"
-delete-after: True
-changes:
-  - bugfix: "Re-adding limbs surgically requires you do surgery again (ie, incise -> retract -> clamp)."
