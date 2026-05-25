@@ -1,0 +1,4 @@
+author: "Bobinater"
+delete-after: True
+changes:
+  - rscadd: "Security now gets VOUCHERS for a weapon and utility"
