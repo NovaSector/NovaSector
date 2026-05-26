@@ -45,8 +45,6 @@
 	quirk_holder.mind.has_exploitables_override = TRUE
 	quirk_holder.mind.handle_exploitables()
 
-	// Also let the user know that they need to OPFOR if they want to do heavy antagonism. Policy request.
-
 	// Set us as 'suspected' on HUDs at roundstart and leave a note about our dark and mysterious past. No permits for us! If we're human.
 	if (ishuman(quirk_holder))
 		var/mob/living/carbon/human/human_holder = quirk_holder
