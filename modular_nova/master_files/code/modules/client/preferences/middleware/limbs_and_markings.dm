@@ -19,10 +19,9 @@
 	var/list/visited_body_zones = list()
 	for(var/key, augment_path in preferences.augments)
 		var/visited_body_zone
-		if(is_aug_valid_for_prefs(GLOB.augment_items[augment_path], target, preferences))
-			var/datum/augment_item/aug = new augment_path()
+		if(is_aug_valid_for_prefs(GLOB.augment_items[augment_path], key, target, preferences))
+			var/datum/augment_item/aug = GLOB.augment_items[augment_path]
 			visited_body_zone = aug.apply(target, visuals_only, prefs = preferences)
-			qdel(aug)
 		if(visited_body_zone)
 			visited_body_zones += visited_body_zone
 
@@ -251,7 +250,7 @@
 	return data
 
 /// Performs DM-side validation for anything we are reading from prefs
-/datum/preference_middleware/limbs_and_markings/proc/is_aug_valid_for_prefs(datum/augment_item/aug, mob/user, datum/preferences/prefs)
+/datum/preference_middleware/limbs_and_markings/proc/is_aug_valid_for_prefs(datum/augment_item/aug, augment_slot, mob/user, datum/preferences/prefs)
 	var/species_type = prefs.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = GLOB.species_prototypes[species_type]
 	if(aug.species_blacklist && aug.species_blacklist[species.id])
@@ -270,8 +269,9 @@
 		var/datum/augment_item/limb/limb_aug = astype(aug, /datum/augment_item/limb)
 		if(limb_aug?.slot_flag && (limb_aug.slot_flag & (LEG_LEFT|LEG_RIGHT)))
 			return FALSE
-	if(SSquirks.points_enabled && aug.cost > 0)
-		if((preferences.GetQuirkBalance() - aug.cost) < 0)
+	if(SSquirks.points_enabled)
+		var/datum/augment_item/replaced_augment = GLOB.augment_items[prefs.augments[augment_slot]]
+		if((preferences.GetQuirkBalance() + replaced_augment?.cost - aug.cost) < 0)
 			return FALSE
 	return TRUE
 
@@ -279,13 +279,15 @@
 /datum/preference_middleware/limbs_and_markings/proc/set_bodypart_aug(list/params, mob/user)
 	var/augment_path = text2path(params["augment_path"])
 	var/augment_slot = params["slot"]
+	var/datum/augment_item/old_augment = GLOB.augment_items[preferences.augments[augment_slot]]
 	if(!augment_path)
-		preferences.augments -= augment_slot
+		if(!SSquirks.points_enabled || preferences.GetQuirkBalance() + old_augment?.cost > 0)
+			preferences.augments -= augment_slot
 	else
 		var/datum/augment_item/aug = GLOB.augment_items[augment_path] // This augment path does not exist
 		if(!aug)
 			return
-		if(!is_aug_valid_for_prefs(GLOB.augment_items[augment_path], user, preferences))
+		if(!is_aug_valid_for_prefs(GLOB.augment_items[augment_path], augment_slot, user, preferences))
 			return
 		preferences.augments[augment_slot] = augment_path
 	filter_quirks_and_refresh(user)
@@ -308,13 +310,15 @@
 /datum/preference_middleware/limbs_and_markings/proc/set_internal_implant_aug(list/params, mob/user)
 	var/slot = params["internal_implant_slot"]
 	var/augment_path = text2path(params["augment_path"])
+	var/datum/augment_item/old_augment = GLOB.augment_items[preferences.augments[slot]]
 	if(!augment_path)
-		preferences.augments -= slot
+		if(!SSquirks.points_enabled || preferences.GetQuirkBalance() + old_augment?.cost > 0)
+			preferences.augments -= slot
 	else
 		var/datum/augment_item/aug = GLOB.augment_items[augment_path]
 		if(isnull(aug))
 			return
-		if(!is_aug_valid_for_prefs(GLOB.augment_items[augment_path], user, preferences))
+		if(!is_aug_valid_for_prefs(GLOB.augment_items[augment_path], slot, user, preferences))
 			return
 		preferences.augments[slot] = augment_path
 	filter_quirks_and_refresh(user)

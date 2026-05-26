@@ -31,7 +31,7 @@
  * * feature_key - same as with accessory_key, you can optionally pass a feature_key explicitly
  * appearance.
  */
-/datum/bodypart_overlay/mutant/proc/set_appearance_from_dna(datum/dna/dna, accessory_name, feature_key)
+/datum/bodypart_overlay/mutant/proc/set_appearance_from_dna(datum/dna/dna, accessory_name, feature_key, obj/item/bodypart/limb)
 	if(isnull(feature_key)) // if not explicitly set, just use the feature_key of the bodypart_overlay
 		feature_key = src.feature_key
 	var/list/mutantparts_list = dna.mutant_bodyparts
@@ -42,7 +42,7 @@
 	modsuit_affected = sprite_datum.use_custom_mod_icon
 	draw_color = mutant_part.get_colors()
 	emissive_eligibility_by_color_index = mutant_part.get_emissive_tri_bool_list()
-	cache_key = jointext(generate_icon_cache(), "_")
+	cache_key = jointext(generate_icon_cache(limb), "_")
 	return TRUE
 
 // We do this here like this so that we handle matrixed color bodypart overlays and emissives.
@@ -55,7 +55,7 @@
 
 /// Generate a unique key based on our sprites. So that if we've aleady drawn these sprites,
 /// they can be found in the cache and wont have to be drawn again (blessing and curse, but mostly curse)
-/datum/bodypart_overlay/mutant/generate_icon_cache()
+/datum/bodypart_overlay/mutant/generate_icon_cache(obj/item/bodypart/limb)
 	. = list()
 	. += "[get_base_icon_state()]"
 	. += "[get_feature_key_for_overlay()]"
@@ -118,15 +118,15 @@
 	LAZYCLEARLIST(cache_key_extra_information)
 
 	if(custom_mod_icon)
-		mod_overlay = get_singular_image(image_layer = image_layer, owner = owner, icon_override = custom_mod_icon)
+		mod_overlay = get_singular_image(image_layer = image_layer, owner = owner, icon_override = custom_mod_icon, limb = limb)
 
 	switch(sprite_datum.color_src)
 		if(USE_MATRIXED_COLORS)
-			var/list/color_layer_names = get_color_layer_names(build_icon_state(gender, image_layer))
+			var/list/color_layer_names = get_color_layer_names(build_icon_state_nova(gender, image_layer))
 
 			for (var/color_index in color_layer_names)
 
-				var/mutable_appearance/color_layer_image = get_singular_image(build_icon_state(gender, image_layer, color_layer_names[color_index]), image_layer, owner)
+				var/mutable_appearance/color_layer_image = get_singular_image(build_icon_state_nova(gender, image_layer, color_layer_names[color_index]), image_layer, owner, limb = limb)
 				returned_images += color_layer_image
 
 				overlay_indexes_to_color += index
@@ -136,7 +136,7 @@
 					mod_overlay.add_overlay(sprite_datum.get_custom_mod_icon(owner, color_layer_image))
 
 		else
-			var/mutable_appearance/image_to_return = get_singular_image(build_icon_state(gender, image_layer), image_layer, owner)
+			var/mutable_appearance/image_to_return = get_singular_image(build_icon_state_nova(gender, image_layer), image_layer, owner, limb = limb)
 			returned_images = list(image_to_return)
 			overlay_indexes_to_color += index
 
@@ -144,7 +144,7 @@
 				mod_overlay.add_overlay(sprite_datum.get_custom_mod_icon(owner, image_to_return))
 
 	if(sprite_datum.has_inner)
-		returned_images += get_singular_image(build_icon_state(gender, image_layer, feature_key_suffix = "inner"), image_layer, owner)
+		returned_images += get_singular_image(build_icon_state_nova(gender, image_layer, feature_key_suffix = "inner"), image_layer, owner, limb = limb)
 
 	// Gets the icon_state of a single or matrix colored accessory and overlays it with a texture
 	if(mod_overlay)
@@ -155,7 +155,7 @@
 
 
 // Cybernetic cat ears - special case - need a unique version for each inner color.
-/datum/bodypart_overlay/mutant/cat_ears/cybernetic/generate_icon_cache()
+/datum/bodypart_overlay/mutant/cat_ears/cybernetic/generate_icon_cache(obj/item/bodypart/limb)
 	. = ..()
 	. += inner_color
 
@@ -218,7 +218,7 @@
  * * feature_key_suffix - A string that will be directly appended to the result
  * of `get_feature_key_for_overlay()`. Defaults to `null`.
  */
-/datum/bodypart_overlay/mutant/proc/build_icon_state(gender, image_layer, color_layer = null, feature_key_suffix = null)
+/datum/bodypart_overlay/mutant/proc/build_icon_state_nova(gender, image_layer, color_layer = null, feature_key_suffix = null)
 	var/list/icon_state_builder = list()
 
 	icon_state_builder += sprite_datum.gender_specific ? gender : "m" //Male is default because sprite accessories are so ancient they predate the concept of not hardcoding gender
@@ -248,13 +248,24 @@
  * `sprite_datum.icon`. Default is `null`, and its value will be used if it's
  * anything else.
  */
-/datum/bodypart_overlay/mutant/proc/get_singular_image(image_icon_state, image_layer, mob/living/carbon/human/owner, icon_override = null)
+/datum/bodypart_overlay/mutant/proc/get_singular_image(image_icon_state, image_layer, mob/living/carbon/human/owner, icon_override = null, obj/item/bodypart/limb)
 	// We get from icon_override if it is filled, and from sprite_datum.icon if not.
 	var/mutable_appearance/appearance = mutable_appearance(icon_override || sprite_datum.get_special_icon(owner), image_icon_state, layer = image_layer)
 
 	if(sprite_datum.center)
 		center_image(appearance, sprite_datum.special_x_dimension ? sprite_datum.get_special_x_dimension(owner) : sprite_datum.dimension_x, sprite_datum.dimension_y)
 
+	return appearance
+
+
+// Special case - fish tail
+/datum/bodypart_overlay/mutant/tail/fish/get_singular_image(image_icon_state, image_layer, mob/living/carbon/human/owner, icon_override = null, obj/item/bodypart/limb)
+	var/mutable_appearance/appearance = ..()
+	// We add all appearances the parent bodypart has to the tail to inherit scales and fancy effects
+	// but most other organs don't want to inherit those so we do it here and not on parent
+	for (var/datum/bodypart_overlay/texture/texture in limb.bodypart_overlays)
+		if(texture.can_draw_on_bodypart(limb, limb.owner, limb.is_husked))
+			texture.modify_bodypart_appearance(appearance)
 	return appearance
 
 

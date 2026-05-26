@@ -191,45 +191,45 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/board/xenoarch/researcher
-	name = "Machine Design (Xenoarch Researcher)"
+	name = "Xenoarch Researcher Board"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch researcher."
 	id = "xeno_researcher"
 	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_researcher
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/board/xenoarch/scanner
-	name = "Machine Design (Xenoarch Scanner)"
+	name = "Xenoarch Scanner Board"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch scanner."
 	id = "xeno_scanner"
 	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_scanner
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/board/xenoarch/artifact_analyzer
-	name = "Machine Design (Artifact Analyzer)"
+	name = "Artifact Analyzer Board"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch artifact analyzer."
 	id = "artifact_analyzer"
 	build_path = /obj/item/circuitboard/machine/artifact_analyser
 
 /datum/design/board/xenoarch/radiocarbon_spectrometer
-	name = "Machine Design (Radiocarbon spectrometer)"
+	name = "Radiocarbon spectrometer Board"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch radiocarbon spectrometer."
 	id = "radiocarbon spectrometer"
 	build_path = /obj/item/circuitboard/machine/radiocarbon_spectrometer
 
 /datum/design/board/xenoarch/artifact_harvester
-	name = "Machine Design (Exotic Particle Harvester)"
+	name = "Exotic Particle Harvester Board"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch exotic particle harvester."
 	id = "artifact_harvester"
 	build_path = /obj/item/circuitboard/machine/artifact_harvester
 
 /datum/design/board/xenoarch/artifact_scanpad
-	name = "Machine Design (Artifact Scanpad)"
+	name = "Artifact Scanpad Board"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch artifact scanpad."
 	id = "artifact_scanpad"
 	build_path = /obj/item/circuitboard/machine/artifact_scanpad
 
 /datum/design/board/xenoarch/digger
-	name = "Machine Design (Xenoarch Digger)"
+	name = "Xenoarch Digger Board"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch digger."
 	id = "xeno_digger"
 	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_digger

@@ -21,7 +21,7 @@
 	access_lists[ACCESS_CAPTAIN] = list(
 		// CAPTAIN
 		/obj/item/clothing/head/hats/caphat = 1,
-		/obj/item/clothing/head/caphat/beret = 1,
+		/obj/item/clothing/head/caphat/beret/nova = 1,
 		/obj/item/clothing/head/caphat/beret/alt = 1,
 		/obj/item/clothing/head/hats/imperial/cap = 1,
 		/obj/item/clothing/under/rank/captain = 1,
