@@ -84,7 +84,7 @@
 	custom_materials = list(/datum/material/titanium = COIN_MATERIAL_AMOUNT)
 
 /obj/item/coin/mark/mark //oh hi mark
-	name = "\improper Mark"
+	name = "\improper Guild Mark"
 	desc = "A 2cm round tungsten carbide coin with serrated edges and the Coalition seal. \
 	One Mark is the price of a decent meal at a sit-down Mid-world restaurant, as proper as they can get, when that \
 	'proper' sells experience more than the food itself."
