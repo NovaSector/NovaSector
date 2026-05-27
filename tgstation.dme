@@ -8261,6 +8261,7 @@
 #include "modular_nova\modules\customization\modules\jobs\_job.dm"
 #include "modular_nova\modules\customization\modules\language\_foreigner.dm"
 #include "modular_nova\modules\customization\modules\language\_language_holder.dm"
+#include "modular_nova\modules\customization\modules\language\acradorian.dm"
 #include "modular_nova\modules\customization\modules\language\ashtongue.dm"
 #include "modular_nova\modules\customization\modules\language\canilunzt.dm"
 #include "modular_nova\modules\customization\modules\language\chitinclick.dm"
