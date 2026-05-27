@@ -51,8 +51,18 @@
 	cost = 128 * 1.25
 
 /datum/supply_pack/companies/general/hc_surplus/bit
-	contains = list(/obj/item/coin/mark/bit)
-	cost = /obj/item/coin/mark/bit::value * 1.25
+	name = "Eight Bits"
+	contains = list(
+		/obj/item/coin/mark/bit,
+		/obj/item/coin/mark/bit,
+		/obj/item/coin/mark/bit,
+		/obj/item/coin/mark/bit,
+		/obj/item/coin/mark/bit,
+		/obj/item/coin/mark/bit,
+		/obj/item/coin/mark/bit,
+		/obj/item/coin/mark/bit,
+	)
+	cost = 400 // using ::value breaks it a bit, what a pity
 
 /datum/supply_pack/companies/general/hc_surplus/mark
 	contains = list(/obj/item/coin/mark/mark)
