@@ -31364,6 +31364,12 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/maintenance/department/security/greater)
+"iWb" = (
+/obj/effect/turf_decal/tile/dark_red/diagonal_centre,
+/obj/effect/turf_decal/tile/neutral/diagonal_centre,
+/obj/effect/landmark/firealarm_sanity,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/security/execution/transfer)
 "iWi" = (
 /obj/structure/toilet{
 	dir = 8
@@ -133245,7 +133251,7 @@ kfC
 kfC
 kfC
 pFg
-vDx
+iWb
 mpF
 tzH
 wZb
