@@ -147,11 +147,11 @@
 	name = "joisuit"
 	desc = "A prototype design of the Java Operated Intelligence Suit, Inside holds the very being of a JOI, \
 			an artificial intelligence designed to increase morale and combat aptitude of soldiers that wear it. \
-			While it feels latexy in touch, it does not stick like latex, and seems to be constantly moving, like millions of tiny nanites are forming the device. \
+			While it feels latex-y in touch, it does not stick like latex, and seems to be constantly moving, like millions of tiny nanites are forming the device. \
 			The JOISuit seems to heat up and exert freezing air constantly when active."
 	extended_desc = "A prototype design of the Java Operated Intelligence Suit, Inside holds the very being of a JOI, \
 					an artificial intelligence designed to increase morale and combat aptitude of soldiers that wear it. \
-					While it feels latexy in touch, it does not stick like latex, and seems to be constantly moving, like millions of tiny nanites are forming the device. \
+					While it feels latex-y in touch, it does not stick like latex, and seems to be constantly moving, like millions of tiny nanites are forming the device. \
 					The JOISuit seems to heat up and exert freezing air constantly when active."
 	default_skin = "joisuit"
 	armor_type = /datum/mod_theme/civilian::armor_type
