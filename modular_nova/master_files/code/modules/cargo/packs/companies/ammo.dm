@@ -45,6 +45,12 @@
 	auto_name = FALSE
 	contains = list(/obj/item/ammo_box/magazine/m38/match/bouncy)
 
+/datum/supply_pack/companies/mags_and_ammo/nt/strip10
+	name = "9mm Stripper Clip Single-Pack"
+	desc = "Contains one stripper clip that fits standard 9mm ammunition, considered 'disposable'."
+	auto_name = FALSE
+	contains = list(/obj/item/ammo_box/speedloader/c96/empty)
+
 // Sol Fed Mags
 
 /datum/supply_pack/companies/mags_and_ammo
@@ -55,6 +61,17 @@
 
 /datum/supply_pack/companies/mags_and_ammo/c35_extended
 	contains = list(/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty)
+
+/datum/supply_pack/companies/mags_and_ammo/alacran_pdw
+	name = "Alacrán PDW Magazine Single-Pack"
+	desc = "Contains one empty forty-eight-round Alacrán PDW magazine, chambered in .27-54 Cesarzowa."
+	contains = list(/obj/item/ammo_box/magazine/alacran_pdw/starts_empty)
+
+/datum/supply_pack/companies/mags_and_ammo/rapiermag
+	contains = list(/obj/item/ammo_box/magazine/rapier/empty)
+	desc = "Contains one empty M94 'Rapier' magazine, chambered in 4.6mm."
+	cost = CARGO_CRATE_VALUE * 0.5
+	auto_name = FALSE
 
 /datum/supply_pack/companies/mags_and_ammo/c585_mag
 	contains = list(/obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty)

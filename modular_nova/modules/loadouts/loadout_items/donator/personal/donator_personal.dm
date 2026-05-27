@@ -166,7 +166,7 @@
 
 /datum/loadout_item/head/avipilot
 	name = "Smuggler's Flying Cap"
-	item_path = /obj/item/clothing/head/avipilot
+	item_path = /obj/item/clothing/head/costume/ushanka/avipilot
 	ckeywhitelist = list("slippyjoe")
 
 /datum/loadout_item/shoes/britches_shoes
@@ -824,6 +824,16 @@
 	item_path = /obj/item/clothing/under/bwake
 	ckeywhitelist = list("ignari")
 
+/datum/loadout_item/under/jumpsuit/ig_harness
+	name = "Body Harness"
+	item_path = /obj/item/clothing/under/ig_harness
+	ckeywhitelist = list("ignari")
+
+/datum/loadout_item/neck/ig_cloak
+	name = "Kiara's Cloak"
+	item_path = /obj/item/clothing/neck/ig_cloak
+	ckeywhitelist = list("ignari")
+
 /datum/loadout_item/inhand/pet/mrfluff_mothroach
 	name = "Mr. Fluff"
 	item_path = /obj/item/mob_holder/pet/donator/centralsmith
@@ -1046,6 +1056,15 @@
 /datum/loadout_item/toys/plush/plushe_percy
 	name = "Dr. Percival Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/percy
+
+/datum/loadout_item/toys/plush/plushie_bon
+	name = "Bon Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/bon
+
+/datum/loadout_item/pocket_items/bon_cape
+	name = "Bon's Cape"
+	item_path = /obj/item/sign/flag/pride/bon
+	ckeywhitelist = list("bonbyte")
 
 /datum/loadout_item/pocket_items/espatier
 	name = "dated Espatier holster"

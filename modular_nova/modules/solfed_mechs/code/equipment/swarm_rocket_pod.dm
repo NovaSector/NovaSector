@@ -90,6 +90,9 @@
 	button_icon_state = "mech_ivanov"
 
 /datum/action/vehicle/sealed/mecha/swarm_rocket_pod/Trigger(mob/clicker, trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/item/mecha_parts/mecha_equipment/swarm_rocket_pod/pod = locate(/obj/item/mecha_parts/mecha_equipment/swarm_rocket_pod) in chassis.equip_by_category[MECHA_UTILITY]
 	if (pod.trigger_swarm_rocket(clicker))
 		button_icon_state = "mech_ivanov_cooldown"

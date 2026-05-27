@@ -33,7 +33,6 @@
 		/obj/item/stack/sheet/mineral/silver = 8,
 		/obj/item/stack/sheet/mineral/titanium = 8,
 		/obj/item/stack/sheet/mineral/uranium = 3,
-		/obj/item/xenoarch/strange_rock = 3,
 		/obj/item/stack/sheet/mineral/gold = 3,
 		/obj/item/stack/sheet/mineral/diamond = 1,
 	)
@@ -210,19 +209,10 @@
 	playsound(src, 'sound/machines/ping.ogg', 50, FALSE, SILENCED_SOUND_EXTRARANGE, ignore_walls = FALSE)
 
 /obj/machinery/bluespace_miner/crowbar_act(mob/living/user, obj/item/tool)
-	if(default_deconstruction_crowbar(tool))
-		return TRUE
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/bluespace_miner/screwdriver_act(mob/living/user, obj/item/tool)
-	. = TRUE
-	if(..())
-		return
-
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
-		update_appearance()
-		return
-
-	return FALSE
+	return default_deconstruction_screwdriver(user, tool)
 
 /obj/machinery/bluespace_miner/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)

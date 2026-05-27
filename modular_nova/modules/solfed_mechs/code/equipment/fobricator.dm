@@ -88,6 +88,9 @@
 	desc = "Deploy SolFed field structures."
 
 /datum/action/vehicle/sealed/mecha/solfed_3d_printer_open_menu/Trigger(mob/user, trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer/printer = locate(/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer) in chassis.equip_by_category[MECHA_UTILITY]
 	if (!printer)
 		to_chat(user, "No printer module detected.")
@@ -111,6 +114,9 @@
 	desc = "Automatically lays cable while moving across valid tiles."
 
 /datum/action/vehicle/sealed/mecha/toggle_cablelay/Trigger(mob/clicker, trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer/printer = locate(/obj/item/mecha_parts/mecha_equipment/utility/fob_3d_printer) in chassis.equip_by_category[MECHA_UTILITY]
 	if (!printer)
 		to_chat(clicker, "No cable-laying module detected.")
@@ -155,6 +161,9 @@
 	desc = "Deploy SolFed field structures."
 
 /datum/action/vehicle/sealed/mecha/open_fob_menu/Trigger(mob/user, trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	if(!chassis)
 		return
 

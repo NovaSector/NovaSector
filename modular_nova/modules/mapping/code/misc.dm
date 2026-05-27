@@ -46,7 +46,6 @@
 	fragments -= gone
 
 /obj/item/claymore/cutlass/luna/crowbar_act(mob/living/user, obj/item/tool)
-	. = ..()
 	if(LAZYLEN(fragments))
 		to_chat(user, span_notice("You remove [src]'s array of addons."))
 		tool.play_tool_sound(src)

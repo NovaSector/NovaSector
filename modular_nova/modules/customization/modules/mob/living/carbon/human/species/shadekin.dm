@@ -90,7 +90,7 @@
 			var/datum/mutant_bodypart/mutant_part = target.dna.mutant_bodyparts[overlay.feature_key]
 			if(!istype(mutant_part))
 				continue
-			overlay.set_appearance_from_dna(target.dna)
+			overlay.set_appearance_from_dna(target.dna, limb = bodypart)
 
 /datum/species/shadekin/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
 	clamp_primary_colors(target)

@@ -9,16 +9,16 @@
 
 /proc/init_prefs_emotes()
 	//Scream types
-	for(var/spath in subtypesof(/datum/scream_type))
-		var/datum/scream_type/S = new spath()
-		GLOB.scream_types[S.name] = spath
-	sort_list(GLOB.scream_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
+	for(var/datum/scream_type/scream_path as anything in valid_subtypesof(/datum/scream_type))
+		var/datum/scream_type/scream_type_instance = new scream_path()
+		GLOB.scream_types[scream_path] = GLOB.scream_types_by_name[scream_type_instance.name] = scream_type_instance
+	sort_list(GLOB.scream_types_by_name, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
 	//Laugh types
-	for(var/spath in subtypesof(/datum/laugh_type))
-		var/datum/laugh_type/L = new spath()
-		GLOB.laugh_types[L.name] = spath
-	sort_list(GLOB.laugh_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
+	for(var/datum/laugh_type/laugh_path as anything in valid_subtypesof(/datum/laugh_type))
+		var/datum/laugh_type/laugh_type_instance = new laugh_path()
+		GLOB.laugh_types[laugh_path] = GLOB.laugh_types_by_name[laugh_path.name] = laugh_type_instance
+	sort_list(GLOB.laugh_types_by_name, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
 	//Voice_Bark
 	for(var/sound_blooper_path in subtypesof(/datum/blooper))
@@ -107,18 +107,8 @@
 
 /proc/make_augment_references()
 	// Here we build the global loadout lists
-	for(var/path in subtypesof(/datum/augment_item))
-		var/datum/augment_item/L = path
-		if(initial(L.path))
-			L = new path()
-			GLOB.augment_items[L.path] = L
-
-			if(!GLOB.augment_slot_to_items[L.slot])
-				GLOB.augment_slot_to_items[L.slot] = list()
-				if(!GLOB.augment_categories_to_slots[L.category])
-					GLOB.augment_categories_to_slots[L.category] = list()
-				GLOB.augment_categories_to_slots[L.category] += L.slot
-			GLOB.augment_slot_to_items[L.slot] += L.path
+	for(var/datum/augment_item/aug_path as anything in valid_subtypesof(/datum/augment_item))
+		GLOB.augment_items[aug_path] = new aug_path()
 
 /// If the "Remove ERP Interaction" config is disabled, remove ERP things from various lists
 /proc/remove_erp_things()

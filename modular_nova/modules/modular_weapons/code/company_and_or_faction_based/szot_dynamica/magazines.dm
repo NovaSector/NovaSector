@@ -38,7 +38,7 @@
 
 /obj/item/ammo_box/magazine/napad
 	name = "\improper Napad submachinegun magazine"
-	desc = "A massive magazine for the Napadayuschiy submachine gun. Holds fifty rounds of 10mm ammunition."
+	desc = "A massive magazine for the Napadayuschiy submachine gun. Holds forty rounds of 10mm ammunition."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "napad_mag"
@@ -48,7 +48,7 @@
 
 	ammo_type = /obj/item/ammo_casing/c10mm
 	caliber = CALIBER_10MM
-	max_ammo = 50
+	max_ammo = 40
 
 /obj/item/ammo_box/magazine/napad/spawns_empty
 	start_empty = TRUE
@@ -128,13 +128,13 @@
 
 /obj/item/ammo_box/magazine/zashch
 	name = "\improper Zashch pistol magazine"
-	desc = "A large magazine for the Zashchitnik pistol. Holds 18 rounds of 10mm."
+	desc = "A large magazine for the Zashchitnik pistol. Holds twenty rounds of 10mm."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "zashch_mag"
 	base_icon_state = "zashch_mag"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	ammo_type = /obj/item/ammo_casing/c10mm
-	max_ammo = 18
+	max_ammo = 20
 	caliber = CALIBER_10MM
 
 /obj/item/ammo_box/magazine/zashch/spawns_empty
