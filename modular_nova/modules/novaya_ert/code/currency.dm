@@ -26,6 +26,10 @@
 	. = ..()
 	desc = "[initial(desc)] <br>" + desc
 
+/obj/item/stack/spacecash/shaving/full
+	icon_state = "shaving_4"
+	amount = 128
+
 /obj/item/coin/mark
 	icon = 'modular_nova/modules/novaya_ert/icons/currency.dmi'
 	resistance_flags = FIRE_PROOF|FIRE_PROOF
@@ -74,6 +78,7 @@
 	A round of drinks with friends? That's usually Marks. The Bit's enduring design, unchanged for over a century, is a quiet statement of stability. \
 	While SolFed's Solari fluctuates with political whims, the Bit buys the same stick of gum today that it bought fifty years ago. \
 	Which is to say: almost nothing, but reliably almost nothing."
+	icon_state = "bit"
 	base_icon_state = "bit"
 	value = 4
 	custom_materials = list(/datum/material/titanium = COIN_MATERIAL_AMOUNT)
@@ -94,6 +99,7 @@
 	like trading a small piece of real, physical value. The Morozov Matrix wants every citizen to feel that their money is real, that it represents something \
 	tangible, that it is not merely a number in a distant ledger. Whether this psychological engineering is benevolent or merely efficient is a matter of \
 	ongoing debate in Coalition philosophy circles."
+	icon_state = "mark"
 	base_icon_state = "mark"
 	value = 128
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT)
@@ -113,6 +119,7 @@
 	a substantial amount of money, while a 'loose Crown' means an unexpected expense. 'Counting Crowns' is Rim slang for taking stock of one's situation, financial \
 	or otherwise. The EPF's extended field manual notes that a patrol can often de-escalate a tense situation simply by producing a visible string of Crowns, \
 	a demonstration of material backing that speaks louder than any verbal reassurance."
+	icon_state = "crown"
 	base_icon_state = "crown"
 	value = 4096
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 4)
@@ -134,6 +141,7 @@
 	-though they will certainly try-, but because the sight of that much concentrated value tends to make people behave unpredictably. A Forge Mark is four \
 	months' wages for an unskilled worker. It is the difference between life and death for a Rim-world settlement. Let the Forge Mark sit in its belt pouch, \
 	a quiet reassurance, a promise that the Coalition's reach extends even here, even now, even to the edge of nowhere."
+	icon_state = "forge_mark"
 	base_icon_state = "forge_mark"
 	value = 16384
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 16)

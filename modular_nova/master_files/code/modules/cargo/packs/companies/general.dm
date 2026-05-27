@@ -46,6 +46,26 @@
 	contains = list(/obj/item/sign/flag/hc)
 	cost = CARGO_CRATE_VALUE * 0.2
 
+/datum/supply_pack/companies/general/hc_surplus/shaving
+	contains = list(/obj/item/stack/spacecash/shaving/full)
+	cost = 128 * 1.25
+
+/datum/supply_pack/companies/general/hc_surplus/bit
+	contains = list(/obj/item/coin/mark/bit)
+	cost = /obj/item/coin/mark/bit::value * 1.25
+
+/datum/supply_pack/companies/general/hc_surplus/mark
+	contains = list(/obj/item/coin/mark/mark)
+	cost = /obj/item/coin/mark/mark::value * 1.25
+
+/datum/supply_pack/companies/general/hc_surplus/crown
+	contains = list(/obj/item/coin/mark/crown)
+	cost = /obj/item/coin/mark/crown::value * 1.25
+
+/datum/supply_pack/companies/general/hc_surplus/forge_mark
+	contains = list(/obj/item/coin/mark/forge_mark)
+	cost = /obj/item/coin/mark/forge_mark::value * 1.25
+
 // Donk
 /datum/supply_pack/companies/general/donk
 	cost = CARGO_CRATE_VALUE * 0.25
