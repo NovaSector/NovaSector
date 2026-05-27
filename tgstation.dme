@@ -9764,5 +9764,6 @@
 #include "modular_nova\modules\xenoarchartifacts\obj\particle_battery.dm"
 #include "modular_nova\modules\xenoarchartifacts\obj\wave_scanner.dm"
 #include "modular_nova\modules\xenomorph\alien.dm"
+#include "modular_nova\modules\xenomorph\praetorian.dm"
 #include "modular_nova\modules\xenomorph\queen.dm"
 // END_INCLUDE
