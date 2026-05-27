@@ -329,6 +329,8 @@
 		"Ask (L)OOC",
 		"Check OOC Notes",
 		"Always/Whenever",
+		"Yes/Sub",
+		"Yes/Dom",
 		"Gameplay Only",
 	)
 
