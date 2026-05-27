@@ -33,6 +33,7 @@
 
 /obj/item/coin/mark
 	icon = 'modular_nova/modules/novaya_ert/icons/currency.dmi'
+	icon_state = "mark"
 	resistance_flags = FIRE_PROOF|FIRE_PROOF
 	override_material_worth = TRUE
 	material_flags = NONE
