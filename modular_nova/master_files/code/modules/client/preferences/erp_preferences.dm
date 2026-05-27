@@ -192,9 +192,9 @@
 		"Ask (L)OOC",
 		"Check OOC Notes",
 		"Yes",
-		"Yes - Switch",
 		"Yes - Dom",
 		"Yes - Sub",
+		"Yes - Switch",
 	)
 
 /datum/preference/choiced/erp_status_nc/create_default_value()
