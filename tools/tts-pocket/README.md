@@ -57,7 +57,7 @@ Use clean clips with permission from the speaker. PocketTTS reproduces the recor
 
 Keep `Man` or `Woman` in display names when you want the game's random gender matching to pick them appropriately.
 
-## Runtime knobs
+## Variables
 
 - `TTS_AUTHORIZATION_TOKEN`: must match `TTS_HTTP_TOKEN`.
 - `POCKETTTS_LANGUAGE`: PocketTTS model language, default `english`.
@@ -115,11 +115,3 @@ Watch the container logs after a player speaks. Lines like this show where time 
 ```
 
 If `synth` is high, tune `POCKETTTS_WORKERS`, `POCKETTTS_TORCH_THREADS`, and `POCKETTTS_QUANTIZE`. If backend `total` is low but the game still speaks late, the remaining delay is likely BYOND-side HTTP queueing or waiting for earlier queued speech from the same speaker.
-
-You can also warm voices manually while the server is running:
-
-```powershell
-Invoke-RestMethod -Method Post -Headers @{Authorization="coolio"} -ContentType "application/json" -Body '{"voices":["Man Marius"]}' http://localhost:5002/voices/warmup
-```
-
-`/tts-blips` uses a cheap deterministic blip generator instead of running PocketTTS again, because the game requests normal speech and blips together for non-local speech.
