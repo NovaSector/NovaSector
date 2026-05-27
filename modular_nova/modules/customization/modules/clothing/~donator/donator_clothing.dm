@@ -2685,7 +2685,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	armor_type = /obj/item/clothing/suit/armor/vest/capcarapace::armor_type
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-
 //Towa's Donor Items
 /obj/item/clothing/head/helmet/donator/stachelm
 	name = "\improper Stachelm"
