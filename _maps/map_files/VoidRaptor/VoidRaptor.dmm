@@ -1815,7 +1815,6 @@
 /area/station/hallway/primary/fore)
 "azx" = (
 /obj/machinery/door/airlock/grunge{
-	id_tag = "Cell3Privacy";
 	name = "Cell 3"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -13268,6 +13267,18 @@
 /obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
 /turf/open/floor/iron/smooth_large,
 /area/station/maintenance/department/security/brig)
+"dRb" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "brigprison";
+	name = "Prison Blast Door"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/stairs/medium{
+	dir = 4
+	},
+/area/station/security/execution/transfer)
 "dRs" = (
 /obj/structure/disposalpipe/junction/yjunction,
 /turf/open/floor/iron/white/smooth_large,
@@ -42996,7 +43007,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/grunge{
-	id_tag = "Cell2Privacy";
 	name = "Cell 2"
 	},
 /obj/machinery/door/firedoor,
@@ -50874,7 +50884,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/grunge{
-	id_tag = "Cell1Privacy";
 	name = "Cell 1"
 	},
 /obj/machinery/door/firedoor,
@@ -52631,6 +52640,7 @@
 	dir = 10
 	},
 /obj/machinery/light/small/directional/west,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
 "oIv" = (
@@ -57140,6 +57150,7 @@
 	dir = 9
 	},
 /obj/machinery/light/small/directional/west,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
 "pSw" = (
@@ -59224,6 +59235,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/execution/transfer)
 "qtl" = (
@@ -59234,7 +59248,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/grunge{
-	id_tag = "Cell4Privacy";
 	name = "Cell 4"
 	},
 /obj/machinery/door/firedoor,
@@ -63676,7 +63689,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/grunge{
-	id_tag = "Cell5Privacy";
 	name = "Cell 5"
 	},
 /obj/machinery/door/firedoor,
@@ -67690,6 +67702,7 @@
 /obj/structure/chair/sofa/bench/left{
 	dir = 4
 	},
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
 "sMi" = (
@@ -79592,6 +79605,7 @@
 	dir = 9
 	},
 /obj/machinery/light/small/directional/west,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
 "vXf" = (
@@ -86868,7 +86882,6 @@
 "yaf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/grunge{
-	id_tag = "Cell6Privacy";
 	name = "Cell 6"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -131948,7 +131961,7 @@ sIj
 xMA
 nFD
 ddP
-ddP
+dRb
 nnj
 tdY
 mpu
