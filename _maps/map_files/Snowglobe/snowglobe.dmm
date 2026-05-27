@@ -1728,6 +1728,7 @@
 	},
 /obj/structure/sign/poster/official/plasma_effects/directional/north,
 /obj/structure/sign/warning/test_chamber/directional/west,
+/obj/effect/spawner/random/gizmo,
 /turf/open/floor/engine,
 /area/station/science/explab)
 "auK" = (
