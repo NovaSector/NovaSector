@@ -216,7 +216,7 @@
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 		),
-	),
+	)
 
 /obj/item/mod/skin_applier/jumper/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!istype(interacting_with, /obj/item/mod/control/pre_equipped/security))
