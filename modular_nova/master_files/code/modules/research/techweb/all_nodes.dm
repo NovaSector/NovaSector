@@ -106,6 +106,7 @@
 		"smartdartgun",
 		"cone_of_shame",
 		"defibrillator",
+		"medkit",
 	)
 	return ..()
 

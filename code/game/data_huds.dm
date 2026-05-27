@@ -18,7 +18,7 @@
 /datum/atom_hud/data
 
 /datum/atom_hud/data/human/medical
-	hud_icons = list(STATUS_HUD, HEALTH_HUD, DNR_HUD) // NOVA EDIT ADDITION - DNR_HUD
+	hud_icons = list(STATUS_HUD, HEALTH_HUD, DNR_HUD, SHIELD_HUD) // NOVA EDIT ADDITION - DNR_HUD, SHIELD_HUD
 
 /// Sees health (0-100) status (alive, dead), but relies on suit sensors being on
 /datum/atom_hud/data/human/medical/basic
@@ -44,7 +44,7 @@
 	hud_icons = list(FAN_HUD)
 
 /datum/atom_hud/data/diagnostic
-	hud_icons = list(DIAG_HUD, DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD, DIAG_BOT_HUD, DIAG_TRACK_HUD, DIAG_CAMERA_HUD, DIAG_AIRLOCK_HUD, DIAG_LAUNCHPAD_HUD, BIG_MANIP_HUD)
+	hud_icons = list(DIAG_HUD, DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD, DIAG_BOT_HUD, DIAG_TRACK_HUD, DIAG_CAMERA_HUD, DIAG_AIRLOCK_HUD, DIAG_LAUNCHPAD_HUD)
 
 /datum/atom_hud/data/bot_path
 	hud_icons = list(DIAG_PATH_HUD)

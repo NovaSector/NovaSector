@@ -43,7 +43,7 @@
 #define PLATFORM_LIFE_LARGE 90 SECONDS
 
 /// The number of points a miner gets for discovering a vent, multiplied by BOULDER_SIZE when completing a wave defense minus the discovery bonus.
-#define MINER_POINT_MULTIPLIER 150 // NOVA EDIT: ORIGINAL #define MINER_POINT_MULTIPLIER 100
+#define MINER_POINT_MULTIPLIER 100
 
 // String defines to use with CaveGenerator presets for what ore breakdown to use.
 #define OREGEN_PRESET_LAVALAND "lavaland"
