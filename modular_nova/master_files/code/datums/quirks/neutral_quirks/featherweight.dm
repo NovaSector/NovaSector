@@ -59,15 +59,15 @@
 	RegisterSignal(wing_parent, COMSIG_ORGAN_IMPLANTED, PROC_REF(on_wing_inserted))
 	RegisterSignal(wing_parent, COMSIG_ORGAN_REMOVED, PROC_REF(on_wing_removed))
 	if(!istype(wing_parent, /obj/item/organ/wings/functional))
-		jetpack_component = wing_parent.AddComponent(
-			/datum/component/jetpack/featherweight,
-			TRUE,
-			FEATHERWEIGHT_WING_FORCE,
-			COMSIG_WINGS_OPENED,
-			COMSIG_WINGS_CLOSED,
-			null,
-			CALLBACK(src, PROC_REF(can_jetpack)),
-			CALLBACK(src, PROC_REF(can_jetpack)),
+		jetpack_component = wing_parent.AddComponent( \
+			/datum/component/jetpack/featherweight, \
+			TRUE, \
+			FEATHERWEIGHT_WING_FORCE, \
+			COMSIG_WINGS_OPENED, \
+			COMSIG_WINGS_CLOSED, \
+			null, \
+			CALLBACK(src, PROC_REF(can_jetpack)), \
+			CALLBACK(src, PROC_REF(can_jetpack)), \
 		)
 
 	var/mob/living/carbon/human/human = get_human_owner()
