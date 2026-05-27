@@ -29,6 +29,8 @@
 				/obj/item/clothing/under/costume/playbunny/greyscale = 6,
 				/obj/item/clothing/under/costume/playbunny/magician = 6,
 				/obj/item/clothing/under/costume/playbunny/usa = 6,
+				/obj/item/clothing/head/helmet/glassdome = 6,
+				/obj/item/clothing/under/camo/gags = 6,
 			),
 		),
 		list(
