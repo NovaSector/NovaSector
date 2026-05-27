@@ -69,6 +69,7 @@ RESPONSE_CACHE_ENABLED = os.getenv("POCKETTTS_RESPONSE_CACHE", "1").strip().lowe
 LOG_TIMINGS = os.getenv("POCKETTTS_LOG_TIMINGS", "1").strip().lower() in {"1", "true", "yes", "on"}
 
 BLIP_SAMPLE_RATE = 24_000
+RADIO_CLICK_STYLE_VERSION = 2
 SILICON_FILTER = (
     "aresample=44100,"
     "acrusher=samples=2:level_out=3,"
@@ -225,6 +226,7 @@ def response_cache_key(
         "special_filters": sorted(special_filters),
         "pitch": pitch if ENABLE_PITCH else 0,
         "ogg_bitrate": OGG_BITRATE,
+        "radio_click_style": RADIO_CLICK_STYLE_VERSION if "radio" in special_filters else None,
     }
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
@@ -341,6 +343,20 @@ def silence_samples(duration_ms: int) -> bytes:
     return b"\x00\x00" * total_samples
 
 
+def wav_sample_rate(wav_bytes: bytes) -> int:
+    try:
+        with wave.open(io.BytesIO(wav_bytes), "rb") as wav_file:
+            return wav_file.getframerate()
+    except wave.Error:
+        return BLIP_SAMPLE_RATE
+
+
+def format_filter_chain(filter_chain: str, wav_bytes: bytes) -> str:
+    if not filter_chain:
+        return ""
+    return filter_chain.replace("%SAMPLE_RATE%", str(wav_sample_rate(wav_bytes)))
+
+
 def wav_to_ogg(
     wav_bytes: bytes,
     filter_chain: str,
@@ -352,7 +368,7 @@ def wav_to_ogg(
     if ENABLE_PITCH and pitch and not is_blips:
         filters.append(f"rubberband=pitch={math.pow(2, pitch / 12):.6f}")
     if filter_chain:
-        filters.append(filter_chain)
+        filters.append(format_filter_chain(filter_chain, wav_bytes))
     if "silicon" in special_filters:
         filters.append(SILICON_FILTER)
 
@@ -395,24 +411,35 @@ def add_radio_clicks(ogg_bytes: bytes) -> bytes:
 
 
 def radio_click(start: bool) -> AudioSegment:
-    duration = 45 if start else 65
-    base = 1850 if start else 900
-    chirp = bytearray()
-    for sample_index in range(int(BLIP_SAMPLE_RATE * duration / 1000)):
-        progress = sample_index / max(1, int(BLIP_SAMPLE_RATE * duration / 1000) - 1)
-        frequency = base + (420 * progress if start else -240 * progress)
-        value = math.sin(2 * math.pi * frequency * sample_index / BLIP_SAMPLE_RATE)
-        noise = (random.random() - 0.5) * 0.25
-        envelope = min(progress * 8, 1, (1 - progress) * 6)
-        sample = int(max(-1, min(1, (value * 0.55 + noise) * envelope)) * 32767)
-        chirp.extend(sample.to_bytes(2, byteorder="little", signed=True))
+    duration = 85 if start else 120
+    total_samples = max(1, int(BLIP_SAMPLE_RATE * duration / 1000))
+    rng = np.random.default_rng(random.getrandbits(32))
+
+    noise = rng.normal(0.0, 1.0, total_samples).astype(np.float32)
+    short_average = np.convolve(noise, np.ones(5, dtype=np.float32) / 5, mode="same")
+    long_average = np.convolve(noise, np.ones(28, dtype=np.float32) / 28, mode="same")
+    static = short_average - (long_average * 0.45)
+
+    progress = np.linspace(0, 1, total_samples, dtype=np.float32)
+    attack = np.minimum(progress * (18 if start else 10), 1.0)
+    release = np.power(np.maximum(1 - progress, 0.0), 0.55 if start else 0.75)
+    envelope = attack * release
+
+    timeline = np.arange(total_samples, dtype=np.float32) / BLIP_SAMPLE_RATE
+    pop_frequency = 120 if start else 85
+    pop_decay = np.exp(-timeline * (55 if start else 38))
+    pop = np.sin(2 * np.pi * pop_frequency * timeline) * pop_decay
+
+    samples = (static * envelope * 0.34) + (pop * 0.18)
+    samples = np.tanh(samples * 1.7) / 1.7
+    pcm = (np.clip(samples, -1.0, 1.0) * 32767).astype("<i2").tobytes()
 
     return AudioSegment(
-        data=bytes(chirp),
+        data=pcm,
         sample_width=2,
         frame_rate=BLIP_SAMPLE_RATE,
         channels=1,
-    ).apply_gain(-5)
+    ).apply_gain(-7)
 
 
 def audio_duration_seconds(ogg_bytes: bytes) -> float:
