@@ -307,7 +307,7 @@
 	name = "\improper Java Operated Intelligence Suit 'JOISuit'"
 	desc = "An amalgamation of smart metals that when attached to a MODSuit, slowly assimilates it, \
 			wrapping the original in thousands of tiny tendrils to reform the design to that more akin to a Java Operated Intelligence Suit. \
-			The core itself feels latexy, yet it doesn't stick like latex."
+			The core itself feels latex-y, yet it doesn't stick like latex."
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "joisuit-plating"
 	skin = "joisuit"
