@@ -38,14 +38,14 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		"Straight",
 		"Lesbian",
 		"Gay",
-		"Bi",
-		"Pan",
-		"Poly",
-		"Ace",
-		"Aro",
+		"Bisexual",
+		"Pansexual",
+		"Polysexual",
+		"Asexual",
+		"Aromantic",
 		"Aro/Ace",
-		"Skolio",
-		"Omni",
+		"Skoliosexual",
+		"Omnisexual",
 	)
 
 /datum/preference/choiced/attraction/create_default_value()
@@ -66,13 +66,13 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		"Male",
 		"Female",
 		"Nonbinary",
-		"Fluid",
+		"Genderfluid",
 		"Trans",
-		"Andro",
-		"Gyno",
-		"Null",
+		"Andromorph",
+		"Gynomorph",
+		"Agender",
 		"Plural",
-		"Omni",
+		"Omnigender",
 	)
 
 /datum/preference/choiced/display_gender/create_default_value()
