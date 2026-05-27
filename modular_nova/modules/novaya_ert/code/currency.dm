@@ -19,6 +19,7 @@
 	icon_state = "shaving"
 	value = 1
 	max_amount = 128
+	merge_type = /obj/item/stack/spacecash/shaving
 	resistance_flags = LAVA_PROOF|FIRE_PROOF // Tungsten carbide has an extremely high melting point.
 	custom_materials = list(/datum/material/titanium = COIN_MATERIAL_AMOUNT * 0.1) //Tungsten carbide also doesn't exist so we'll supplement.
 
