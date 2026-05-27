@@ -46,9 +46,10 @@
 	contains = list(/obj/item/sign/flag/hc)
 	cost = CARGO_CRATE_VALUE * 0.2
 
+// General currency pricing rule is: Original price, multiplied by 1.25 (anti-arbitrage fees), plus 100 (anti-exploit shenanigans).
 /datum/supply_pack/companies/general/hc_surplus/shaving
 	contains = list(/obj/item/stack/spacecash/shaving/full)
-	cost = 128 * 1.25
+	cost = 260
 
 /datum/supply_pack/companies/general/hc_surplus/bit
 	name = "Eight Bits"
@@ -62,19 +63,19 @@
 		/obj/item/coin/mark/bit,
 		/obj/item/coin/mark/bit,
 	)
-	cost = 400 // using ::value breaks it a bit, what a pity
+	cost = 140
 
 /datum/supply_pack/companies/general/hc_surplus/mark
 	contains = list(/obj/item/coin/mark/mark)
-	cost = /obj/item/coin/mark/mark::value * 1.25
+	cost = 260
 
 /datum/supply_pack/companies/general/hc_surplus/crown
 	contains = list(/obj/item/coin/mark/crown)
-	cost = /obj/item/coin/mark/crown::value * 1.25
+	cost = 5220
 
 /datum/supply_pack/companies/general/hc_surplus/forge_mark
 	contains = list(/obj/item/coin/mark/forge_mark)
-	cost = /obj/item/coin/mark/forge_mark::value * 1.25
+	cost = 20580
 
 // Donk
 /datum/supply_pack/companies/general/donk
