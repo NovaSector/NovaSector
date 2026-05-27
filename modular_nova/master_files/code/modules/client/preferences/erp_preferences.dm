@@ -230,9 +230,9 @@
 		"Ask (L)OOC",
 		"Check OOC Notes",
 		"Yes",
-		"Yes - Switch",
-		"Yes - Prey",
 		"Yes - Pred",
+		"Yes - Prey",
+		"Yes - Switch",
 	)
 
 /datum/preference/choiced/erp_status_v/create_default_value()
