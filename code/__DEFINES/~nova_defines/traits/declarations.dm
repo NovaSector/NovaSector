@@ -187,6 +187,10 @@
 /// Trait for quirk: Illuminated
 #define TRAIT_COSGLOW "cosmetic_glow"
 
+/// The trait for Holosynths
+#define TRAIT_HOLOSYNTH "holosynthetic"
+
+// Trait that stops you from entering stamina crit ever.
 #define TRAIT_NOSTAMCRIT "nostamcrit"
 
 // END TRAIT DEFINES

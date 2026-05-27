@@ -1,0 +1,5 @@
+author: "Macaroni"
+delete-after: True
+changes:
+  - bugfix: "The NT Rep now has their stamp on Ocean Pubby"
+  - bugfix: "The CentCom ferry bay now has a granted stamp again"

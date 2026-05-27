@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "tgfont";
-	src: url("tgfont.woff2?t=1747971548188") format("woff2");
+    src: url('tgfont.woff2?t=1777242148283') format('woff2');
 }
 
 [class^="tg-"],
@@ -27,6 +27,14 @@
 	--tg-sound-minus: "\ea0a";
 	--tg-sound-plus: "\ea0b";
 	--tg-syndicate-logo: "\ea0c";
+    /* NOVA EDIT ADDITION START - These start with 'znova' because they get assigned by alphabetical order */
+    --tg-znova-ear: "\ea0f";
+    --tg-znova-heart-organ: "\ea10";
+    --tg-znova-lips: "\ea11";
+    --tg-znova-liver: "\ea12";
+    --tg-znova-stomach: "\ea13";
+    --tg-znova-tongue: "\ea14";
+    /* NOVA EDIT ADDITION END */
     /* biome-ignore-end lint/suspicious/noUselessEscapeInString: The escapes are needed */
 }
 .tg-air-tank-slash::before {
@@ -65,3 +73,23 @@
 .tg-syndicate-logo::before {
 	content: var(--tg-syndicate-logo);
 }
+/* NOVA EDIT ADDITION START */
+.tg-znova-ear::before {
+    content: var(--tg-znova-ear);
+}
+.tg-znova-heart-organ::before {
+	content: var(--tg-znova-heart-organ);
+}
+.tg-znova-liver::before {
+	content: var(--tg-znova-liver);
+}
+.tg-znova-stomach::before {
+	content: var(--tg-znova-stomach);
+}
+.tg-znova-lips::before {
+	content: var(--tg-znova-lips);
+}
+.tg-znova-tongue::before {
+	content: var(--tg-znova-tongue);
+}
+/* NOVA EDIT ADDITION END */

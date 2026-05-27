@@ -110,6 +110,11 @@
 	attack_verb_continuous = list("bonks", "bashes", "whacks", "pokes", "prods")
 	attack_verb_simple = list("bonk", "bash", "whack", "poke", "prod")
 
+
+/obj/item/forging/reagent_weapon/staff/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/jousting)
+
 /obj/item/forging/reagent_weapon/spear
 	name = "forged spear"
 	desc = "A long spear that can be wielded in two hands to boost damage at the cost of single-handed versatility."
@@ -135,6 +140,7 @@
 /obj/item/forging/reagent_weapon/spear/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded = 13, force_wielded = 23)
+	AddComponent(/datum/component/jousting)
 
 /obj/item/forging/reagent_weapon/axe
 	name = "forged axe"
@@ -344,6 +350,7 @@
 		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
 		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
 	)
+	AddComponent(/datum/component/jousting)
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_wield()
 	wielded = TRUE

@@ -70,6 +70,7 @@
 		desired_mob.PossessByPlayer(key)
 
 	SEND_SIGNAL(src, COMSIG_MOB_CHANGED_TYPE, desired_mob)
+	SEND_SIGNAL(desired_mob, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED) // NOVA EDIT ADDITION
 	if(delete_old_mob)
 		QDEL_IN(src, 1)
 	return desired_mob
