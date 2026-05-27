@@ -137,7 +137,7 @@
 			CAN_OVERSLOT = TRUE,
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
-		),
+		)
 	)
 
 /obj/item/mod/skin_applier/paragon/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
@@ -215,7 +215,7 @@
 			CAN_OVERSLOT = TRUE,
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
-		),
+		)
 	)
 
 /obj/item/mod/skin_applier/jumper/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
@@ -275,7 +275,7 @@
 			CAN_OVERSLOT = TRUE,
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
-		),
+		)
 	)
 
 /obj/item/mod/skin_applier/akari/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
@@ -345,7 +345,7 @@
 			CAN_OVERSLOT = TRUE,
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
-		),
+		)
 	)
 	// Specific variant data used when the skin is applied to a mining MODsuit.
 	var/list/mining_variant_data = list(
@@ -380,7 +380,7 @@
 			CAN_OVERSLOT = TRUE,
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
-		),
+		)
 	)
 
 //Apply skin to multiple type of modsuit while remaining isolated from sharing
