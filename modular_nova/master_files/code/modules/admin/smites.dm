@@ -6,7 +6,11 @@
 	name = "Cone of Shame (Divine)"
 	smite_flags = SMITE_DIVINE
 
-/datum/smite/proc/smite_uparmor(obj/item/protected_item)
+/*
+ * Smite-specific helper to take a clothing item and apply indestructible, lava_proof, fire_proof
+ * unacidable, and acid_proof, then adds the nodrop trait to it to keep it from being unequipped.
+*/
+/datum/smite/proc/smite_item_protection(obj/item/clothing/protected_item)
 	if(QDELETED(protected_item))
 		return
 	protected_item.resistance_flags |= INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -27,14 +31,14 @@
 		var/obj/item/worn_necky = shamed.wear_neck
 		if(istype(worn_necky))
 			shamed.dropItemToGround(worn_necky)
-		if(shamed.equip_to_slot_if_possible(thecone, ITEM_SLOT_NECK ,qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE))
-			smite_uparmor(thecone)
+		if(shamed.equip_to_slot_if_possible(thecone, ITEM_SLOT_NECK, qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE))
+			smite_item_protection(thecone)
 			shamed.visible_message(span_warning("A Cone of Shame appears around [shamed]'s neck!"))
 		return
 	if(iscyborg(target))
 		var/mob/living/silicon/robot/borgy = target
 		borgy.place_on_head(thecone)
-		smite_uparmor(thecone)
+		smite_item_protection(thecone)
 		borgy.visible_message(span_warning("A Cone of Shame appears around [borgy]'s neck!"))
 		return
 	qdel(thecone)
@@ -59,5 +63,5 @@
 		target.dropItemToGround(target.get_item_by_slot(slot))
 		var/obj/item/clothing/new_item = new path
 		if(target.equip_to_slot_or_del(new_item, slot))
-			smite_uparmor(new_item)
+			smite_item_protection(new_item)
 	shamed.visible_message(span_warning("A maid uniform appears on [shamed]!"))
