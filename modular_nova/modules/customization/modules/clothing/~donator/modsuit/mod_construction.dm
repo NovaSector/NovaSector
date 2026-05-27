@@ -346,7 +346,7 @@
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 		),
-	),
+	)
 	// Specific variant data used when the skin is applied to a mining MODsuit.
 	var/list/mining_variant_data = list(
 	MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
@@ -381,7 +381,7 @@
 			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 		),
-	),
+	)
 
 //Apply skin to multiple type of modsuit while remaining isolated from sharing
 /obj/item/mod/skin_applier/joisuit/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
@@ -391,13 +391,7 @@
 		/obj/item/mod/control/pre_equipped/mining,
 	)
 
-	var/is_valid = FALSE
-	for(var/T in allowed_types)
-		if(istype(interacting_with, T))
-			is_valid = TRUE
-			break
-
-	if(!is_valid)
+	if(!is_type_in_list(interacting_with, allowed_types))
 		return ..()
 
 	var/obj/item/mod/control/mod = interacting_with
@@ -421,7 +415,7 @@
 	mod.desc = initial(theme_type.desc)
 	mod.extended_desc = initial(theme_type.extended_desc)
 
-	for(var/obj/item/part in mod.get_parts() + mod)
+	for(var/obj/item/part as anything in mod.get_parts(all = TRUE))
 		part.set_armor(mod.theme.armor_type)
 		part.resistance_flags = mod.theme.resistance_flags
 		if(part == mod)
