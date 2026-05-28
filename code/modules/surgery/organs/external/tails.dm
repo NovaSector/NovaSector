@@ -71,7 +71,7 @@
 	// NOVA EDIT ADDITION END
 	var/datum/mutant_bodypart/mutant_bodypart = bodypart.owner.dna.mutant_bodyparts[FEATURE_SPINES]
 	var/feature_name = mutant_bodypart.name // NOVA EDIT CHANGE - ORIGINAL: var/feature_name = bodypart.owner.dna.features[FEATURE_SPINES] //tail spines don't live in DNA, but share feature names with regular spines
-	tail_spines_overlay.set_appearance_from_dna(bodypart.owner.dna, feature_name, feature_key = FEATURE_SPINES) // NOVA EDIT CHANGE - ORIGINAL: tail_spines_overlay.set_appearance_from_name(feature_name)
+	tail_spines_overlay.set_appearance_from_dna(bodypart.owner.dna, feature_name, feature_key = FEATURE_SPINES, limb = bodypart_owner) // NOVA EDIT CHANGE - ORIGINAL: tail_spines_overlay.set_appearance_from_name(feature_name)
 	bodypart.add_bodypart_overlay(tail_spines_overlay)
 
 /// If we have a tail spines overlay, delete it

@@ -216,7 +216,7 @@
 
 	var/datum/mutant_bodypart/screen = transformer.dna.mutant_bodyparts[FEATURE_SYNTH_SCREEN]
 	screen.name = screen_name
-	screen_organ.bodypart_overlay.set_appearance_from_dna(transformer.dna)
+	screen_organ.bodypart_overlay.set_appearance_from_dna(transformer.dna, limb = screen_organ.bodypart_owner)
 	transformer.update_body()
 
 /datum/species/synthetic/get_types_to_preload()

@@ -2813,6 +2813,7 @@
 /area/station/service/chapel/funeral)
 "aOs" = (
 /obj/structure/window/reinforced/spawner/directional/south,
+/obj/effect/spawner/random/gizmo,
 /turf/open/floor/engine,
 /area/station/science/explab)
 "aOI" = (

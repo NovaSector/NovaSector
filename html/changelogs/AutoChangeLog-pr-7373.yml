@@ -1,0 +1,4 @@
+author: "Bobinater"
+delete-after: True
+changes:
+  - bugfix: "M94 'Rapier' magazine's cargo name unborked"
