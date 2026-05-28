@@ -48,8 +48,6 @@
 #define MALF_APC_HUD "22"
 /// Blood volume bar, visible to blood worms
 #define BLOOD_HUD "23"
-/// Big Manipulator interaction point HUDs
-#define BIG_MANIP_HUD "24"
 
 // NOVA EDIT ADDITION BEGIN - gun permits and DNR
 /// ammo of guns
@@ -59,6 +57,9 @@
 
 /// If they have the DNR trait
 #define DNR_HUD "27"
+
+/// Energy shield charge level
+#define SHIELD_HUD "28"
 // NOVA EDIT ADDITION END
 
 //by default everything in the hud_list of an atom is an image

@@ -62,6 +62,17 @@
 /datum/supply_pack/companies/mags_and_ammo/c35_extended
 	contains = list(/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty)
 
+/datum/supply_pack/companies/mags_and_ammo/alacran_pdw
+	name = "Alacrán PDW Magazine Single-Pack"
+	desc = "Contains one empty forty-eight-round Alacrán PDW magazine, chambered in .27-54 Cesarzowa."
+	contains = list(/obj/item/ammo_box/magazine/alacran_pdw/starts_empty)
+
+/datum/supply_pack/companies/mags_and_ammo/rapiermag
+	contains = list(/obj/item/ammo_box/magazine/rapier/empty)
+	name = "M94 'Rapier' SMG Magazine Single-Pack"
+	desc = "Contains one empty M94 'Rapier' magazine, chambered in 4.6mm."
+	cost = CARGO_CRATE_VALUE * 0.5
+
 /datum/supply_pack/companies/mags_and_ammo/c585_mag
 	contains = list(/obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty)
 

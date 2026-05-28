@@ -1,0 +1,5 @@
+author: "moonridden"
+delete-after: True
+changes:
+  - admin: "Reorganizes some Character Prefs menus, and sets ERP Status to No by default."
+  - rscadd: "Adds a new ERP Status."
