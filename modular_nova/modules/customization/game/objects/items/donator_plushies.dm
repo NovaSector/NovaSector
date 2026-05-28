@@ -291,11 +291,11 @@
 	attack_verb_simple = list(
 		"glomp",
 	)
-	squeak_override = list('modular_nova/modules/emotes/sound/voice/slime_bubble.ogg'= 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/slime_bubble.ogg' = 1)
 	gender = FEMALE
 
 /obj/item/toy/plush/nova/donator/plush_lasti
-	name = "Espatier Captain fox plushie"
+	name = "\improper Espatier Captain fox plushie"
 	desc = "A marketable plushie of a veteran, white-furred fox created by the Espatiers to try and boost recruitment numbers. \
 			Strangely, while holding this you feel like someone's got your back."
 	icon_state = "plushie_lasti"
@@ -307,7 +307,7 @@
 		"bark an order at",
 		"issue an NJP to",
 	)
-	squeak_override = list('modular_nova/modules/emotes/sound/voice/fox_squeak.ogg'= 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/fox_squeak.ogg' = 1)
 	gender = MALE
 
 /*
