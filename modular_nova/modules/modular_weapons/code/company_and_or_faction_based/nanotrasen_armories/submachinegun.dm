@@ -49,12 +49,12 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 	update_appearance()
 
 /obj/item/ammo_box/magazine/smg_nt20
-	name = "NT20 magazine (9mm)"
+	name = "\improper NT20 magazine (9mm)"
 	desc = "A long 9mm magazine, suitable for the NT20 SMG. Just geometrically different enough to not fit in other similar bullpup submachine guns."
-	icon_state = "c20r45"
-	base_icon_state = "c20r45"
-	ammo_band_icon = "+c20rab"
-	ammo_band_color = null
+	icon_state = /obj/item/ammo_box/magazine/smgm45::icon_state
+	base_icon_state = /obj/item/ammo_box/magazine/smgm45::base_icon_state
+	ammo_band_icon = /obj/item/ammo_box/magazine/smgm45::ammo_band_icon
+	ammo_band_color = /obj/item/ammo_box/magazine/smgm45::ammo_band_color
 	ammo_type = /obj/item/ammo_casing/c9mm
 	caliber = CALIBER_9MM
 	max_ammo = 24
