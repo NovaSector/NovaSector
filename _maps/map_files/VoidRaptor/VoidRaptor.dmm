@@ -34446,6 +34446,7 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 10
 	},
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/security/execution/education)
 "jKG" = (
@@ -59014,7 +59015,6 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 9
 	},
-/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/execution/education)
 "qpg" = (
