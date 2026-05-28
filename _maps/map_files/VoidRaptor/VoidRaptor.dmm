@@ -7409,6 +7409,7 @@
 /obj/structure/chair/plastic{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/station/security/prison/work)
 "cjY" = (
@@ -15348,6 +15349,14 @@
 /obj/effect/turf_decal/tile/neutral/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/execution/transfer)
+"ete" = (
+/obj/machinery/plate_press{
+	pixel_y = -3
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/small,
+/area/station/security/prison/work)
 "eti" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
@@ -16443,6 +16452,7 @@
 	dir = 1
 	},
 /obj/machinery/light/cold/directional/north,
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
 "eJc" = (
@@ -27825,6 +27835,7 @@
 	},
 /obj/machinery/vending/coffee,
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/security/prison)
 "hXj" = (
@@ -31114,6 +31125,7 @@
 	},
 /obj/machinery/vending/cigarette,
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/security/prison)
 "iSI" = (
@@ -37026,14 +37038,6 @@
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
-"kxX" = (
-/obj/machinery/plate_press{
-	pixel_y = -3
-	},
-/obj/structure/cable,
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron/dark/small,
-/area/station/security/prison/work)
 "kyd" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/item/radio/intercom/directional/west,
@@ -42326,6 +42330,7 @@
 /area/station/command/gateway)
 "lRp" = (
 /obj/structure/chair/plastic,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/station/security/prison/work)
 "lRv" = (
@@ -42377,7 +42382,6 @@
 	c_tag = "Prison - Work Room";
 	network = list("ss13","prison")
 	},
-/obj/structure/cable,
 /obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark/small,
@@ -50603,6 +50607,10 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/engine/atmos/lesser)
+"ofC" = (
+/obj/structure/cable,
+/turf/open/floor/glass/reinforced,
+/area/station/security/execution/transfer)
 "ofF" = (
 /obj/structure/trash_pile,
 /turf/open/floor/plating,
@@ -51275,10 +51283,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/gateway)
-"opr" = (
-/obj/structure/cable,
-/turf/closed/wall/r_wall,
-/area/station/security/prison)
 "opy" = (
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron/smooth,
@@ -51553,7 +51557,6 @@
 /obj/item/stack/package_wrap,
 /obj/item/stack/license_plates/empty/fifty,
 /obj/item/radio/intercom/prison/directional/north,
-/obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/station/security/prison/work)
 "osS" = (
@@ -52977,6 +52980,7 @@
 "oNP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/station/security/prison/work)
 "oNR" = (
@@ -56761,6 +56765,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/science/ordnance_maint)
 "pMx" = (
+/obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/station/security/prison/work)
 "pMA" = (
@@ -58484,6 +58489,7 @@
 	},
 /obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/security/prison)
 "qhK" = (
@@ -61194,6 +61200,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/station/security/prison/work)
 "qVj" = (
@@ -67305,6 +67312,7 @@
 /area/station/security/execution/transfer)
 "sIx" = (
 /obj/machinery/firealarm/directional/south,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/execution/transfer)
 "sIy" = (
@@ -68061,6 +68069,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
 "sQk" = (
@@ -87186,6 +87195,7 @@
 /area/station/science/ordnance)
 "yec" = (
 /obj/machinery/light/cold/directional/south,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/execution/transfer)
 "yef" = (
@@ -131196,7 +131206,7 @@ rPq
 rPq
 rPq
 rPq
-rPq
+ofC
 byh
 osb
 byh
@@ -137370,11 +137380,11 @@ iyU
 iyU
 iyU
 iyU
-kxX
+leQ
 cjT
 pMx
 lRp
-leQ
+ete
 acO
 ttw
 ttw
@@ -137868,11 +137878,11 @@ ttw
 ttw
 ttw
 tHI
-opr
-opr
-opr
-opr
-opr
+tHI
+tHI
+tHI
+tHI
+tHI
 tHI
 tHI
 fJz
