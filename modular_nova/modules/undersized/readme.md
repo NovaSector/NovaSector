@@ -4,7 +4,7 @@ MODULE ID: UNDERSIZED
 
 ### Description:
 
-Adds the `Undersized` quirk: a tiny carbon humanoid (`MOB_SIZE_TINY`, half-scale sprite) with reduced movement speed, weakened unarmed damage, longer melee click cooldown, 15% lower maxHealth, no neck-grabs, table/grille passability, and a custom step-crush component that pulps them under combat-mode walkers (or any walker, if they're prone) and dense structures. Pacifists, characters too small (`MOB_SIZE_SMALL` and below), and anyone in zero-G can't squash an undersized.
+Adds the `Undersized` quirk: a tiny carbon humanoid (`MOB_SIZE_TINY`, half-scale sprite) with reduced movement speed, weakened unarmed damage, longer melee click cooldown, 15% lower maxHealth, no neck-grabs, table/grille passability, and a custom step-crush component that pulps them under combat-mode walkers (or any walker, if they're prone) and dense structures. Pacifists, characters too small (`MOB_SIZE_SMALL` and below), and anyone in zero-G can't squash an undersized. Undersized characters can still drag small living things and other undersized characters, but not larger living targets.
 
 `TRAIT_UNDENSE` is granted (in addition to `passtable_on()` for tables/grilles). Without it, the holder stays dense and crewmates bump them at the tile edge instead of crossing onto the tile — the squash component listens via `COMSIG_ATOM_ENTERED`, which only fires when a `Cross()` succeeds, so a dense undersized is effectively uncrushable. The stacking-bypass concerns from the original dev-suggest are addressed elsewhere: the crusher's `movement_type & MOVETYPES_NOT_TOUCHING_GROUND` check (for slime/wing-flying stacks) and the victim's gravity check (for zero-G).
 
@@ -15,6 +15,8 @@ Ports `Undersized` from DopplerShift (`modular_doppler/modular_quirks/undersized
 Melee CD is increased (applies to both unarmed swings via `COMSIG_LIVING_UNARMED_ATTACK` and weapon swings via `COMSIG_MOB_ITEM_ATTACK`), not the unarmed damage bonuses. Heavy weapons with attack_speed already longer than `UNDERSIZED_MELEE_CD` aren't sped up.
 
 `TRAIT_NO_GUN_AKIMBO` is granted so the holder can't dual-wield firearms.
+
+Undersized holders cannot scoop up other undersized mobs. This avoids nested mob-holder stacks while preserving normal-sized characters picking undersized characters up.
 
 The **combat-mode-or-prone** step-crush gate is intentionally permissive: most crew don't run combat-mode by default, so accidental Frogger deaths from incidental movement basically end. Griefers who _want_ to crush a tiny crewmate must consciously toggle combat (which is `attack_log`-loggable). A soap-slipped or knocked-down undersized can still be casually trampled, which preserves the original RP hazard.
 

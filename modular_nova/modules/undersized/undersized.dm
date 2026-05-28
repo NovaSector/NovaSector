@@ -51,6 +51,7 @@
 
 	RegisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB, PROC_REF(on_gain_limb))
 	RegisterSignal(human_holder, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_weakness))
+	RegisterSignal(human_holder, COMSIG_LIVING_TRY_PULL, PROC_REF(block_large_pull))
 	RegisterSignals(human_holder, list(COMSIG_LIVING_UNARMED_ATTACK, COMSIG_MOB_ITEM_ATTACK), PROC_REF(extend_melee_cd))
 
 	saved_max_health = human_holder.maxHealth
@@ -97,7 +98,7 @@
 	for(var/obj/item/bodypart/bodypart as anything in human_holder.bodyparts)
 		bodypart.name = replacetext(bodypart.name, "tiny ", "")
 
-	UnregisterSignal(human_holder, list(COMSIG_CARBON_POST_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_LIVING_UNARMED_ATTACK, COMSIG_MOB_ITEM_ATTACK))
+	UnregisterSignal(human_holder, list(COMSIG_CARBON_POST_ATTACH_LIMB, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, COMSIG_LIVING_TRY_PULL, COMSIG_LIVING_UNARMED_ATTACK, COMSIG_MOB_ITEM_ATTACK))
 
 	if(saved_max_health)
 		human_holder.maxHealth = saved_max_health
@@ -152,11 +153,30 @@
 /datum/movespeed_modifier/undersized
 	multiplicative_slowdown = UNDERSIZED_SPEED_SLOWDOWN
 
+/mob/living/carbon/human/mob_try_pickup(mob/living/user, instant = FALSE)
+	if(HAS_TRAIT(user, TRAIT_UNDERSIZED) && HAS_TRAIT(src, TRAIT_UNDERSIZED))
+		to_chat(user, span_warning("[src] is too close to your size to pick up!"))
+		return FALSE
+	return ..()
+
 /// Tweak the effectiveness/damage values of inbound attacks
 /datum/quirk/undersized/proc/damage_weakness(datum/source, list/damage_mods, damage_amount, damagetype, def_zone, sharpness, attack_direction, obj/item/attacking_item)
 	SIGNAL_HANDLER
 	if(istype(attacking_item, /obj/item/melee/flyswatter))
 		damage_mods += 50 // :)
+
+/// Undersized mobs can tug small things around, but not full-sized living targets.
+/datum/quirk/undersized/proc/block_large_pull(mob/living/source, atom/movable/pulled_atom, force)
+	SIGNAL_HANDLER
+	if(!isliving(pulled_atom))
+		return
+
+	var/mob/living/pulled_living = pulled_atom
+	if(HAS_TRAIT(pulled_living, TRAIT_UNDERSIZED) || pulled_living.mob_size <= MOB_SIZE_SMALL)
+		return
+
+	pulled_living.balloon_alert(source, "too big to drag!")
+	return COMSIG_LIVING_CANCEL_PULL
 
 /// Bump the post-attack click cooldown for any melee swing — unarmed (via
 /// COMSIG_LIVING_UNARMED_ATTACK, fires after click.dm's changeNext_move(CLICK_CD_MELEE))
