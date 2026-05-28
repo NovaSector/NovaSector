@@ -1,0 +1,5 @@
+author: "Bobinater"
+delete-after: True
+changes:
+  - balance: "Contractor now spawns with a gear set instead of RNG taking the wheel on it"
+  - bugfix: "Contractor now spawns with radiation projection (radioactive nebula would just kill them before)"
