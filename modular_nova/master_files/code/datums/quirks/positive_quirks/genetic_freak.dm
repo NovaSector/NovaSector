@@ -37,7 +37,7 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 
 /datum/quirk/genetic_mutation
 	name = "Genetic Mutation"
-	desc = "For some reason or another, you've got an unusual genetic mutation, the rest is up to fate."
+	desc = "Usually when you go one on one with another spaceman, you've got a 50/50 chance of winning. But, you've got an unusual genetic mutation, and you're not normal. Now the chance is still 50/50!"
 	icon = FA_ICON_RECEIPT
 	value = 6
 	gain_text = "If everyone's super, no one is."
