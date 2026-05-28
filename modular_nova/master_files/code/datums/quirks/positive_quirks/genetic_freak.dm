@@ -40,8 +40,8 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	desc = "Usually when you go one on one with another spaceman, you've got a 50/50 chance of winning. But, you've got an unusual genetic mutation, and you're not normal. Now the chance is still 50/50!"
 	icon = FA_ICON_RECEIPT
 	value = 6
-	gain_text = "If everyone's super, no one is."
-	lose_text = "You feel like everyone else might be super after all."
+	gain_text = "You got a 33 and 1/3 chance of winning!"
+	lose_text = "The numbers don't lie, and they spell disaster for you!."
 	medical_record_text = "Patient has unusual genetic sequences."
 	/// The mutation that's applied to the mob, for ease of removal
 	var/applied_mutation
