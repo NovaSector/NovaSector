@@ -4479,8 +4479,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/solars/starboard/aft)
 "bfT" = (
-/obj/structure/falsewall,
 /obj/structure/cable,
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/unres,
 /turf/open/floor/plating,
 /area/station/hallway/primary/starboard)
 "bfZ" = (
@@ -21891,8 +21893,10 @@
 /turf/open/floor/wood,
 /area/station/security/courtroom)
 "fRj" = (
-/obj/structure/falsewall,
 /obj/structure/cable,
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_art_studio)
 "fRF" = (
