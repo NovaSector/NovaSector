@@ -81,7 +81,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 			for(var/paper_blank in nova_json)
 			{
 				if(paper_blank["code"])
-				parsed_blanks[paper_blank["code"]] = paper_blank
+					parsed_blanks[paper_blank["code"]] = paper_blank
 			}
 		}
 	}
