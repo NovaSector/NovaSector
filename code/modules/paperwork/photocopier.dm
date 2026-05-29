@@ -49,46 +49,48 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 {
 	// NOVA SECTOR - Modular Photocopier Templates.
 	// For more info look into `modular_nova/modules/paperwork/readme.md`
-    var upstream_path = BLANKS_FILE_NAME
-    var nova_path = NOVA_BLANKS_FILE_NAME
-    var parsed_blanks = list()
+	var upstream_path = BLANKS_FILE_NAME
+	var nova_path = NOVA_BLANKS_FILE_NAME
+	var parsed_blanks = list()
 
 	// Handle Upstream `blanks.json` templates.
-    if(fexists(upstream_path))
-    {
-        var upstream_json = json_decode(file2text(upstream_path))
-        if(istype(upstream_json, /list))
-        {
-            for(var/paper_blank in upstream_json)
-            {
-                if(paper_blank["code"])
-                    parsed_blanks[paper_blank["code"]] = paper_blank
-            }
-        }
-    }
+	if(fexists(upstream_path))
+	{
+		var upstream_json = json_decode(file2text(upstream_path))
+		if(istype(upstream_json, /list))
+		{
+			for(var/paper_blank in upstream_json)
+			{
+				if(paper_blank["code"])
+					parsed_blanks[paper_blank["code"]] = paper_blank
+			}
+		}
+	}
 
-	// Second Handle Nova's `blanks.json` templates, which will overwrite \
-	upstream templates if there are any code conflicts. \
-	This allows Nova Sector to add new templates and modify existing ones without \
+	/*
+	Second Handle Nova's `blanks.json` templates, which will overwrite
+	upstream templates if there are any code conflicts.
+	This allows Nova Sector to add new templates and modify existing ones without
 	needing to change the upstream file `config/blanks.json`.
-    if(fexists(nova_path))
-    {
-        var nova_json = json_decode(file2text(nova_path))
-        if(istype(nova_json, /list))
-        {
-            for(var/paper_blank in nova_json)
-            {
-                if(paper_blank["code"])
-                    parsed_blanks[paper_blank["code"]] = paper_blank
-            }
-        }
-    }
+	*/
+	if(fexists(nova_path))
+	{
+		var nova_json = json_decode(file2text(nova_path))
+		if(istype(nova_json, /list))
+		{
+			for(var/paper_blank in nova_json)
+			{
+				if(paper_blank["code"])
+				parsed_blanks[paper_blank["code"]] = paper_blank
+			}
+		}
+	}
 
-    if(!length(parsed_blanks))
-        return null
+	if(!length(parsed_blanks))
+		return null
 
 	// NOVA END
-    return parsed_blanks
+	return parsed_blanks
 }
 
 /obj/machinery/photocopier
@@ -949,6 +951,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 
 #undef PHOTOCOPIER_FEE
 #undef BLANKS_FILE_NAME
+#undef NOVA_BLANKS_FILE_NAME // NOVA SECTOR - Modular Paper Templates
 #undef PAPER_PAPER_USE
 #undef PHOTO_PAPER_USE
 #undef DOCUMENT_PAPER_USE

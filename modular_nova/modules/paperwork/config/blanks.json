@@ -75,8 +75,8 @@
 		"name": "Physical Evaluation Form",
 		"info": [
 			"<h1><table border=\"2\" cellspacing=\"0\" cellpadding=\"5\" width=\"100%\"><tr><td bgcolor=\"SteelBlue\" width=\"20px\" valign=\"middle\"><div align=\"center\"><font color=\"white\" face=\"Verdana, Arial, sans-serif\" size=\"6\"><strong>NT</strong></font></div></td><td bgcolor=\"#f5f5f5\" valign=\"middle\"><div align=\"left\"><font color=\"SteelBlue\" size=\"5\"><strong>Medical Department</strong></font> <font color=\"SteelBlue\" size=\"6\"><strong>+</strong></font><br><font color=\"black\" size=\"3\"><i>Physical Evaluation Form</i></font></div></td></tr></table></h1>",
-			"<p><font size=\"3\">This form is to be completed exclusively by Qualified Medical Personnel.</font><br><font color=\"grey\">",
-			"<i>All entries must be recorded while the subject is in stable condition, in strict accordance with the Medical Standard Operating Procedures Guidebook §14-5.2a. Non-compliance with these standardized diagnostic protocols may result in the rejection of this filing and require the subject to report to another evaluation.</i></font></p>",
+			"<p><font size=\"3\">This form is to be completed exclusively by Qualified Medical Personnel.</font><br><font color=\"grey\"></p>",
+			"<p><i>All entries must be recorded while the subject is in stable condition, in strict accordance with the Medical Standard Operating Procedures Guidebook §14-5.2a. Non-compliance with these standardized diagnostic protocols may result in the rejection of this filing and require the subject to report to another evaluation.</i></font></p>",
 			"<hr />",
 			"<p><strong>DATE:</strong> [_____________]</p>",
 			"<hr />",
@@ -135,8 +135,8 @@
 		"name": "Neurosurgery Consent Form",
 		"info": [
 			"<h1><table border=\"2\" cellspacing=\"0\" cellpadding=\"5\" width=\"100%\"><tr><td bgcolor=\"SteelBlue\" width=\"20px\" valign=\"middle\"><div align=\"center\"><font color=\"white\" face=\"Verdana, Arial, sans-serif\" size=\"6\"><strong>NT</strong></font></div></td><td bgcolor=\"#f5f5f5\" valign=\"middle\"><div align=\"left\"><font color=\"SteelBlue\" size=\"5\"><strong>Medical Department</strong></font> <font color=\"SteelBlue\" size=\"6\"><strong>+</strong></font><br><font color=\"black\" size=\"3\"><i>Informed Consent for Neurosurgical Intervention</i></font></div></td></tr></table></h1>",
-			"<p><font size=\"3\">This form must be completed in full prior to any invasive neurological procedures.</font><br><font color=\"grey\">",
-			"<i>All protocols must be recorded while the patient is fully lucid or authorized by legal proxy, in strict accordance with the Nanotrasen Medical Standard Operating Procedures Guidebook §32-CA. Non-compliance with these standardized corporate bio-ethics protocols will result in an immediate cancellation of the procedure and immediate suspension until a mandatory review by internal legal counsel can be done.</i></font></p>",
+			"<p><font size=\"3\">This form must be completed in full prior to any invasive neurological procedures.</font><br><font color=\"grey\"></p>",
+			"<p><i>All protocols must be recorded while the patient is fully lucid or authorized by legal proxy, in strict accordance with the Nanotrasen Medical Standard Operating Procedures Guidebook §32-CA. Non-compliance with these standardized corporate bio-ethics protocols will result in an immediate cancellation of the procedure and immediate suspension until a mandatory review by internal legal counsel can be done.</i></font></p>",
 			"<hr />",
 			"<p><strong>DATE:</strong> [_____________]</p>",
 			"<hr />",
