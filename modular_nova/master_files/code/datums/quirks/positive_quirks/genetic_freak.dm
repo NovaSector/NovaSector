@@ -14,12 +14,12 @@ GLOBAL_LIST_INIT(genetic_mutation_species_restrictions, list(
 
 GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	"Antenna" = /datum/mutation/antenna,
-	"Autotomy" = /datum/mutation/self_amputation,
 	"Anti-Glowy" = /datum/mutation/glow/anti,
+	"Autotomy" = /datum/mutation/self_amputation,
+	"Chav" = /datum/mutation/chav,
 	"Cough" = /datum/mutation/cough,
 	"Cold Adaptation" = /datum/mutation/adaptation/cold,
 	"Cindikinesis" = /datum/mutation/cindikinesis,
-	"Chav" = /datum/mutation/chav,
 	"Elastic Arms" = /datum/mutation/elastic_arms,
 	"Geladikinesis" = /datum/mutation/geladikinesis,
 	"Glowy" = /datum/mutation/glow,
@@ -27,11 +27,11 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	"Mending Touch" = /datum/mutation/lay_on_hands,
 	"Medieval" = /datum/mutation/medieval,
 	"Nervousness" = /datum/mutation/nervousness,
+	"Pressure Adaptation" = /datum/mutation/adaptation/pressure,
 	"Restorative Metabolism" = /datum/mutation/restorative_metabolism,
 	"Strength" = /datum/mutation/strong,
 	"Stimmed" = /datum/mutation/stimmed,
 	"Transcendent Olfaction" = /datum/mutation/olfaction,
-	"Pressure Adaptation" = /datum/mutation/adaptation/pressure,
 	"Webbing" = /datum/mutation/webbing,
 ))
 
