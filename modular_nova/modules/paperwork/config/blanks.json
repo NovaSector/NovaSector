@@ -6,7 +6,7 @@
 		"info": [
 			"<h1><table border=\"2\" cellspacing=\"0\" cellpadding=\"5\" width=\"100%\"><tr><td bgcolor=\"SteelBlue\" width=\"20px\" valign=\"middle\"><div align=\"center\"><font color=\"white\" face=\"Verdana, Arial, sans-serif\" size=\"6\"><strong>NT</strong></font></div></td><td bgcolor=\"#f5f5f5\" valign=\"middle\"><div align=\"left\"><font color=\"SteelBlue\" size=\"5\"><strong>Medical Department</strong></font> <font color=\"SteelBlue\" size=\"6\"><strong>+</strong></font><br><font color=\"black\" size=\"3\"><i>Medical Records Form</i></font></div></td></tr></table></h1>",
 			"<hr />",
-			"<p><font color=\"grey\">*This form serves as an official Medical Record File, as mandated by the Nanotrasen Health Insurance Handbook §3-2.2c. Please be advised that the provision of false or misleading information within these documents shall result in the immediate forfeiture of eligibility for the Nanotrasen Medical Care Program and all associated corporate health benefits.*</font></p>",
+			"<p><font color=\"grey\">This form serves as an official Medical Record File, as mandated by the Nanotrasen Health Insurance Handbook §3-2.2c. Please be advised that the provision of false or misleading information within these documents shall result in the immediate forfeiture of eligibility for the Nanotrasen Medical Care Program and all associated corporate health benefits.</font></p>",
 			"<p><strong>NAME:</strong></p>",
 			"<p>[____________________________________________]</p>",
 			"<p><strong>BIRTHDATE:</strong> [__]/[__]/[____]</p>",
@@ -65,7 +65,7 @@
 			"<hr />",
 			"<p>[_____________________________________]</p>",
 			"<hr />",
-			"<p><font color=\"grey\">*Please submit this form to your evaluating Medical Officer. This document requires a concurrent physical and psychological evaluation to be considered fully valid. Failure to meet these requirements within thirty (30) days of employment, as outlined in the Nanotrasen Health Insurance Handbook §3-2.5c, will result in the invalidation of this form and the termination of your medical insurance coverage under the Nanotrasen Medical Care Program.*</font></p>",
+			"<p><font color=\"grey\">Please submit this form to your evaluating Medical Officer. This document requires a concurrent physical and psychological evaluation to be considered fully valid. Failure to meet these requirements within thirty (30) days of employment, as outlined in the Nanotrasen Health Insurance Handbook §3-2.5c, will result in the invalidation of this form and the termination of your medical insurance coverage under the Nanotrasen Medical Care Program.</font></p>",
 			"<div style=\"all: initial;\" class=\"notranslate\"></div>"
 		]
 	},
@@ -75,7 +75,8 @@
 		"name": "Physical Evaluation Form",
 		"info": [
 			"<h1><table border=\"2\" cellspacing=\"0\" cellpadding=\"5\" width=\"100%\"><tr><td bgcolor=\"SteelBlue\" width=\"20px\" valign=\"middle\"><div align=\"center\"><font color=\"white\" face=\"Verdana, Arial, sans-serif\" size=\"6\"><strong>NT</strong></font></div></td><td bgcolor=\"#f5f5f5\" valign=\"middle\"><div align=\"left\"><font color=\"SteelBlue\" size=\"5\"><strong>Medical Department</strong></font> <font color=\"SteelBlue\" size=\"6\"><strong>+</strong></font><br><font color=\"black\" size=\"3\"><i>Physical Evaluation Form</i></font></div></td></tr></table></h1>",
-			"<p><font size=\"3\">This form is to be completed exclusively by Qualified Medical Personnel.</font><br><font color=\"grey\"><i>All entries must be recorded while the subject is in stable condition, in strict accordance with the Medical Standard Operating Procedures Guidebook §14-5.2a. Non-compliance with these standardized diagnostic protocols may result in the rejection of this filing and require the subject to report to another evaluation.</i></font></p>",
+			"<p><font size=\"3\">This form is to be completed exclusively by Qualified Medical Personnel.</font><br><font color=\"grey\">",
+			"<i>All entries must be recorded while the subject is in stable condition, in strict accordance with the Medical Standard Operating Procedures Guidebook §14-5.2a. Non-compliance with these standardized diagnostic protocols may result in the rejection of this filing and require the subject to report to another evaluation.</i></font></p>",
 			"<hr />",
 			"<p><strong>DATE:</strong> [_____________]</p>",
 			"<hr />",
@@ -134,7 +135,8 @@
 		"name": "Neurosurgery Consent Form",
 		"info": [
 			"<h1><table border=\"2\" cellspacing=\"0\" cellpadding=\"5\" width=\"100%\"><tr><td bgcolor=\"SteelBlue\" width=\"20px\" valign=\"middle\"><div align=\"center\"><font color=\"white\" face=\"Verdana, Arial, sans-serif\" size=\"6\"><strong>NT</strong></font></div></td><td bgcolor=\"#f5f5f5\" valign=\"middle\"><div align=\"left\"><font color=\"SteelBlue\" size=\"5\"><strong>Medical Department</strong></font> <font color=\"SteelBlue\" size=\"6\"><strong>+</strong></font><br><font color=\"black\" size=\"3\"><i>Informed Consent for Neurosurgical Intervention</i></font></div></td></tr></table></h1>",
-			"<p><font size=\"3\">This form must be completed in full prior to any invasive neurological procedures.</font><br><font color=\"grey\"><i>All protocols must be recorded while the patient is fully lucid or authorized by legal proxy, in strict accordance with the Nanotrasen Medical Standard Operating Procedures Guidebook §32-CA. Non-compliance with these standardized corporate bio-ethics protocols will result in an immediate cancellation of the procedure and immediate suspension until a mandatory review by internal legal counsel can be done.</i></font></p>",
+			"<p><font size=\"3\">This form must be completed in full prior to any invasive neurological procedures.</font><br><font color=\"grey\">",
+			"<i>All protocols must be recorded while the patient is fully lucid or authorized by legal proxy, in strict accordance with the Nanotrasen Medical Standard Operating Procedures Guidebook §32-CA. Non-compliance with these standardized corporate bio-ethics protocols will result in an immediate cancellation of the procedure and immediate suspension until a mandatory review by internal legal counsel can be done.</i></font></p>",
 			"<hr />",
 			"<p><strong>DATE:</strong> [_____________]</p>",
 			"<hr />",
