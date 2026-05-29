@@ -551,10 +551,7 @@
 	SEND_SIGNAL(src, COMSIG_MOVE_INTENT_TOGGLED)
 
 ///Moves a mob upwards in z level
-/mob/verb/up()
-	set name = "Move Upwards"
-	set category = "IC"
-
+/mob/proc/up()
 	if(remote_control)
 		return remote_control.relaymove(src, UP)
 
@@ -578,10 +575,7 @@
 		to_chat(src, span_notice("You move upwards."))
 
 ///Moves a mob down a z level
-/mob/verb/down()
-	set name = "Move Down"
-	set category = "IC"
-
+/mob/proc/down()
 	if(remote_control)
 		return remote_control.relaymove(src, DOWN)
 
