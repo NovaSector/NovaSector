@@ -42278,6 +42278,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/hos)
+"mcY" = (
+/obj/effect/spawner/random/gizmo,
+/turf/open/floor/engine,
+/area/station/science/explab)
 "mdj" = (
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
@@ -183927,7 +183931,7 @@ uqE
 gtX
 xkB
 rvF
-eNs
+mcY
 oSl
 xLb
 gtX
