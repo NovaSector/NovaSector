@@ -383,8 +383,6 @@
 /// Do some very specific checks to see if we *would* get shocked. Returns TRUE if it's shocked
 /obj/structure/grille/proc/is_shocked()
 	var/turf/turf = get_turf(src)
-	if(!anchored || broken)
-		return FALSE
 	var/obj/structure/cable/cable = turf.get_cable_node()
 	var/list/powernet_info = get_powernet_info_from_source(cable)
 
