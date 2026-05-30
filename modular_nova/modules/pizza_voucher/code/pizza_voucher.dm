@@ -6,10 +6,27 @@
 	w_class = WEIGHT_CLASS_SMALL
 	///Whether we announce our presence loudly or not.
 	var/special_delivery = FALSE
-	/// The custom tag to default to if we have no name (like mothic pizzas/lizard flatbreads)
+	/// The custom tag to default to if we have no name (like mothic pizzas/lizard flatbreads).
 	var/box_tag = "Low Orbit Pie Cannon"
-	/// The empty box waiting for a pizza selection
+	/// The empty box waiting for a pizza selection.
 	var/obj/item/pizzabox/our_box
+	/// Pizzas that we aren't allowed to pick, for one reason or another.
+	var/list/excluded_pizzas = list(
+		/obj/item/food/pizza,
+		/obj/item/food/pizza/custom,
+		/obj/item/food/pizza/flatbread,
+		/obj/item/food/pizza/arnold,
+		/obj/item/food/pizza/margherita/raw,
+		/obj/item/food/pizza/meat/raw,
+		/obj/item/food/pizza/mushroom/raw,
+		/obj/item/food/pizza/vegetable/raw,
+		/obj/item/food/pizza/donkpocket/raw,
+		/obj/item/food/pizza/dank/raw,
+		/obj/item/food/pizza/sassysage/raw,
+		/obj/item/food/pizza/pineapple/raw,
+		/obj/item/food/pizza/arnold/raw,
+		/obj/item/food/pizza/energy/raw,
+	)
 
 /obj/item/pizzavoucher/Initialize(mapload)
 	. = ..()
@@ -30,11 +47,12 @@
 	. = ..()
 	user.visible_message(span_notice("[user] presses a button on [src]!"))
 
-	// Build radial menu from EDIBLE_PIZZA_LIST
+	// Build radial menu from all the pizzalikes
 	var/list/pizza_choices = list()
-	for(var/obj/item/food/pizza/pizza_type as anything in EDIBLE_PIZZA_LIST)
-		var/pizza_name = initial(pizza_type.name)
-		pizza_choices[pizza_name] = pizza_type
+	for(var/obj/item/food/pizza/pizza_type as anything in subtypesof(/obj/item/food/pizza))
+		if(!(pizza_type in excluded_pizzas))
+			var/pizza_name = initial(pizza_type.name)
+			pizza_choices[pizza_name] = pizza_type
 
 	// Show radial menu for pizza selection
 	var/selection = show_radial_menu(user, src, pizza_choices)
