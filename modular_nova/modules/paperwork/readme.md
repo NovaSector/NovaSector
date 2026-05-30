@@ -4,18 +4,11 @@ MODULE ID: PAPERWORK
 
 ### Description
 
-Adds modular photocopier paper templates for Nova Sector.
-The photocopier now loads upstream templates from `config/blanks.json` and merges/overrides them with module templates from `modular_nova/modules/paperwork/config/blanks.json`.
-
-### What changed
-
-- Added `NOVA_BLANKS_FILE_NAME` define in `code/modules/paperwork/photocopier.dm`.
-- Modified `init_paper_blanks()` to load and merge two JSON sources:
-  - Upstream: `config/blanks.json`
-  - Nova module: `modular_nova/modules/paperwork/config/blanks.json`
-- Merge policy: Nova module entries override upstream entries.
+Adds modular photocopier paper templates for Nova Sector without modifying core files.
+The module hooks into the photocopier's UI data generation process to seamlessly inject custom Nova templates from `modular_nova/modules/paperwork/config/blanks.json` into the global `paper_blanks` list on first interaction.
+Templates from the Modular `blanks.json` will merge/overwrite the ones in the core `blanks.json`, avoiding merge conflicts if upstream updates the core `blanks.json`
 
 ### Files added / edited
 
-- Edited: `code/modules/paperwork/photocopier.dm` — added modular blanks support and merge logic.
-- Added (module): `modular_nova/modules/paperwork/config/blanks.json` Modular file for putting Nova photocopier templates.
+- **Added (Module Code):** `modular_nova/modules/paperwork/photocopier.dm` - Contains the object proc override and associative data injection logic.
+- **Added (Module Config):** `modular_nova/modules/paperwork/config/blanks.json` - The dedicated modular JSON file for defining Nova-specific photocopier templates.

@@ -1,6 +1,5 @@
 /// Name of the blanks file
 #define BLANKS_FILE_NAME "config/blanks.json"
-#define NOVA_BLANKS_FILE_NAME "modular_nova/modules/paperwork/config/blanks.json" // NOVA SECTOR - Modular Paper Templates.
 
 /// For use with the `color_mode` var. Photos will be printed in greyscale while the var has this value.
 #define PHOTO_GREYSCALE "Greyscale"
@@ -46,52 +45,17 @@
 GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 
 /proc/init_paper_blanks()
-{
-	// NOVA SECTOR - Modular Photocopier Templates.
-	// For more info look into `modular_nova/modules/paperwork/readme.md`
-	var upstream_path = BLANKS_FILE_NAME
-	var nova_path = NOVA_BLANKS_FILE_NAME
-	var parsed_blanks = list()
-
-	// Handle Upstream `blanks.json` templates.
-	if(fexists(upstream_path))
-	{
-		var upstream_json = json_decode(file2text(upstream_path))
-		if(istype(upstream_json, /list))
-		{
-			for(var/paper_blank in upstream_json)
-			{
-				if(paper_blank["code"])
-					parsed_blanks[paper_blank["code"]] = paper_blank
-			}
-		}
-	}
-
-	/*
-	Second Handle Nova's `blanks.json` templates, which will overwrite
-	upstream templates if there are any code conflicts.
-	This allows Nova Sector to add new templates and modify existing ones without
-	needing to change the upstream file `config/blanks.json`.
-	*/
-	if(fexists(nova_path))
-	{
-		var nova_json = json_decode(file2text(nova_path))
-		if(istype(nova_json, /list))
-		{
-			for(var/paper_blank in nova_json)
-			{
-				if(paper_blank["code"])
-					parsed_blanks[paper_blank["code"]] = paper_blank
-			}
-		}
-	}
-
-	if(!length(parsed_blanks))
+	if(!fexists(BLANKS_FILE_NAME))
+		return null
+	var/list/blanks_json = json_decode(file2text(BLANKS_FILE_NAME))
+	if(!length(blanks_json))
 		return null
 
-	// NOVA END
+	var/list/parsed_blanks = list()
+	for(var/paper_blank in blanks_json)
+		parsed_blanks += list("[paper_blank["code"]]" = paper_blank)
+
 	return parsed_blanks
-}
 
 /obj/machinery/photocopier
 	name = "photocopier"
@@ -951,7 +915,6 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 
 #undef PHOTOCOPIER_FEE
 #undef BLANKS_FILE_NAME
-#undef NOVA_BLANKS_FILE_NAME // NOVA SECTOR - Modular Paper Templates
 #undef PAPER_PAPER_USE
 #undef PHOTO_PAPER_USE
 #undef DOCUMENT_PAPER_USE
