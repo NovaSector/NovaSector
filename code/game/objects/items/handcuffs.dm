@@ -587,7 +587,7 @@
 
 /obj/item/restraints/legcuffs/beartrap/energy/cyborg
 	breakouttime = 2 SECONDS // Cyborgs shouldn't have a strong restraint
-	slowdown = 1
+	slowdown = 3
 
 /obj/item/restraints/legcuffs/bola
 	name = "bola"
@@ -597,8 +597,7 @@
 	inhand_icon_state = "bola"
 	lefthand_file = 'icons/mob/inhands/weapons/thrown_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/thrown_righthand.dmi'
-	breakouttime = 2.5 SECONDS//easy to apply, easy to break out of
-	slowdown = 1.5
+	breakouttime = 3.5 SECONDS//easy to apply, easy to break out of
 	gender = NEUTER
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6.1, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 1.5)
 	///Amount of time to knock the target down for once it's hit in deciseconds.
