@@ -31,7 +31,6 @@
 	return ..()
 
 /datum/component/glass_passer/holosynth/on_cross_over(mob/passer, atom/crosser)
-	SIGNAL_HANDLER
 	if(istype(crosser, /obj/structure/grille))
 		var/obj/structure/grille/grille = crosser
 		if(grille.broken)
