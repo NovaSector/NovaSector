@@ -1473,7 +1473,7 @@
 /obj/machinery/vending/robotics{
 	onstation_override = 1
 	},
-/obj/item/stack/sticky_tape/pointy/super{
+/obj/item/stack/medical/wrap/sticky_tape/pointy/super{
 	pixel_x = 3;
 	pixel_y = 17
 	},

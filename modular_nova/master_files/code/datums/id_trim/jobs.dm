@@ -29,6 +29,20 @@
 	minimal_access |= ACCESS_WEAPONS
 	return ..()
 
+/datum/id_trim/job/human_ai/New()
+	template_access  |= ACCESS_CAPTAIN
+	return ..()
+
+/datum/id_trim/job/chaplain/New()
+	job = /datum/job/chaplain
+	honorifics += list("Father", "Mother", "Rabbi", "Imam", "Monk", "Pontifex", "Magister", "High Priest", "High Priestess", "Rev.")
+	honorific_positions |= HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
+	return ..()
+
+/datum/id_trim/job/assistant
+	honorifics = list("Assistant", "Mr.", "Ms.", "Mrs.", "Miss", "Mx.")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
+
 /datum/id_trim/job/blueshield
 	assignment = "Blueshield"
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
@@ -36,6 +50,8 @@
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_CENTCOM_BLUE // Not the other way around. I think.
 	sechud_icon_state = SECHUD_BLUESHIELD
+	honorifics = list("Agent", "Lieutenant", "Lt.") //Beret says they're an LT.
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 	extra_access = list(
 		ACCESS_BRIG,
 		ACCESS_COURT,
@@ -71,6 +87,8 @@
 	department_color = COLOR_GREEN
 	subdepartment_color = COLOR_GREEN
 	sechud_icon_state = SECHUD_NT_CONSULTANT
+	honorifics = list("Advisor", "Consultant", "Representative", "Rep.", "Liason")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 	extra_access = list()
 	minimal_access = list(
 		ACCESS_AI_UPLOAD,
@@ -126,6 +144,8 @@
 	department_color = COLOR_SECURITY_RED
 	subdepartment_color = COLOR_SECURITY_RED
 	sechud_icon_state = SECHUD_CORRECTIONS_OFFICER
+	honorifics = list("Officer", "Corrections Officer", "C.O.")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 	extra_access = list()
 	minimal_access = list(
 		ACCESS_BRIG,

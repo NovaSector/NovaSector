@@ -125,7 +125,7 @@
 	icon_state = "syndicate_overallskirt"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/head/soft/sec/syndicate
 	name = "engine tech utility cover"
@@ -219,7 +219,7 @@
 	icon_state = "ip_turtleneck"
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	name = "interdyne jumpsuit"

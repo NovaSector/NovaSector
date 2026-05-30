@@ -452,7 +452,7 @@
 
 	var/datum/mutant_bodypart/penis = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_PENIS]
 	if(isnull(penis))
-		penis = exposed_mob.dna.species.build_mutant_part(
+		penis = build_mutant_part(
 			data["mutant_index"],
 			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/penis),
 			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/penis),
@@ -463,7 +463,7 @@
 
 	var/datum/mutant_bodypart/testicles = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_TESTICLES]
 	if(isnull(testicles))
-		testicles = exposed_mob.dna.species.build_mutant_part(
+		testicles = build_mutant_part(
 			data["balls"],
 			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/testicles),
 			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/testicles),
@@ -530,7 +530,7 @@
 	// If the user has not defined their own prefs for their breast type, default to two breasts
 	var/datum/mutant_bodypart/breasts = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_BREASTS]
 	if(isnull(breasts))
-		breasts = exposed_mob.dna.species.build_mutant_part(
+		breasts = build_mutant_part(
 			"Pair",
 			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/breasts),
 			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/breasts),
@@ -576,7 +576,7 @@
 
 	var/datum/mutant_bodypart/vagina = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_VAGINA]
 	if(isnull(vagina))
-		vagina = exposed_mob.dna.species.build_mutant_part(
+		vagina = build_mutant_part(
 			"Human",
 			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/vagina),
 			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/vagina),
@@ -607,7 +607,7 @@
 
 	var/datum/mutant_bodypart/womb = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_WOMB]
 	if(isnull(womb))
-		womb = exposed_mob.dna.species.build_mutant_part("Normal")
+		womb = build_mutant_part("Normal")
 		LAZYSET(exposed_mob.dna.mutant_bodyparts, FEATURE_WOMB, womb)
 	else if(womb.name == SPRITE_ACCESSORY_NONE)
 		womb.name = "Normal"

@@ -64,7 +64,7 @@
 
 	var/datum/bank_account/buyer = SSeconomy.get_dep_account(cargo_account)
 	var/obj/item/card/id/id_card = computer.stored_id?.GetID()
-	if(id_card?.registered_account)
+	if(id_card?.registered_account?.account_job?.paycheck_department)
 		buyer = SSeconomy.get_dep_account(id_card?.registered_account.account_job.paycheck_department)
 		if((ACCESS_BUDGET in id_card.access))
 			requestonly = FALSE
@@ -219,7 +219,7 @@
 				user.log_message("accepted a shuttle loan event.", LOG_GAME)
 				. = TRUE
 		if("add")
-			var/id = text2path(params["id"])
+			var/id = text2path(params["id"]) || params["id"]
 			var/datum/supply_pack/pack = SSshuttle.supply_packs[id]
 			if(!istype(pack))
 				return

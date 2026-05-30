@@ -61,3 +61,12 @@
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	list_reagents = list(/datum/reagent/drug/thc/synth = 15)
 	manufacturer_tag = NEUROWARE_DONK
+
+/obj/item/disk/neuroware/twitch
+	name = "\improper Speedster neuroware"
+	desc = "A neuroware chip containing a sensory acceleration program, which drastically increases processing speed at the cost of system stability."
+	icon_state = "/obj/item/disk/neuroware/twitch"
+	post_init_icon_state = "chip_maint"
+	greyscale_colors = CIRCUIT_COLOR_SECURITY
+	list_reagents = list(/datum/reagent/drug/twitch/synth = 14)
+	manufacturer_tag = NEUROWARE_MAINT

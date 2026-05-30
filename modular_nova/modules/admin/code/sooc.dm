@@ -71,12 +71,11 @@ GLOBAL_LIST_EMPTY(ckey_to_sooc_name)
 				if(job_lookup[mob_mind.assigned_role?.title])
 					listeners[iterated_mob.client] = SOOC_LISTEN_PLAYER
 
-	for(var/iterated_listener in listeners)
-		var/client/iterated_client = iterated_listener
-		var/mode = listeners[iterated_listener]
+	for(var/client/iterated_client as anything in listeners)
+		var/mode = listeners[iterated_client]
 		var/color = (!anon && CONFIG_GET(flag/allow_admin_ooccolor) && iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color)) ? iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color) : GLOB.SOOC_COLOR
 		var/name = (mode == SOOC_LISTEN_ADMIN && anon) ? "([key])[keyname]" : keyname
-		to_chat(iterated_client, span_oocplain("<font color='[color]'><b><span class='prefix'>SOOC:</span> <EM>[name]:</EM> <span class='message linkify'>[msg]</span></b></font>"))
+		to_chat(iterated_client, span_oocplain("<font color='[color]'><b><span class='prefix'>SOOC:</span> <EM>[name]:</EM> <span class='message linkify'>[msg]</span></b></font>"), avoid_highlighting = (iterated_client == src))
 
 #undef SOOC_LISTEN_PLAYER
 #undef SOOC_LISTEN_ADMIN

@@ -63,7 +63,7 @@
 		for (var/mob/hearing_player as anything in SSmobs.clients_by_zlevel[user.z])
 			if (get_dist(hearing_player, user) >= 170)
 				continue
-			if (!hearing_player.can_hear())
+			if (HAS_TRAIT(hearing_player, TRAIT_DEAF))
 				continue
 			var/direction_text = span_bold("[dir2text(get_dir(get_turf(hearing_player), bhorn_origin))]")
 			hearing_player.playsound_local(bhorn_origin, 'modular_nova/master_files/sound/items/blow_horn.ogg', 150, TRUE)
@@ -157,7 +157,7 @@
 		span_warning("You blow the war horn with all your strength.")
 	)
 	for (var/mob/hearing_player in GLOB.player_list)
-		if (!is_mining_level(hearing_player.z) || !hearing_player.can_hear())
+		if (!is_mining_level(hearing_player.z) || HAS_TRAIT(hearing_player, TRAIT_DEAF))
 			continue
 		hearing_player.show_message(span_big("The sound of a war horn echoes from [loc_text] — its rhythm: '[current_tune]'."))
 		hearing_player.playsound_local(location, 'modular_nova/master_files/sound/items/war_horn.ogg', 150, TRUE)

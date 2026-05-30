@@ -456,9 +456,7 @@
 		var/prev_lockcharge = borg.lockcharge
 		borg.SetLockdown(TRUE)
 		borg.set_anchored(TRUE)
-		var/datum/effect_system/fluid_spread/smoke/smoke = new
-		smoke.set_up(1, location = get_turf(borg))
-		smoke.start()
+		do_smoke(1, borg, get_turf(borg))
 		sleep(0.2 SECONDS)
 		for(var/i in 1 to 4)
 			playsound(borg, pick('sound/items/tools/drill_use.ogg', 'sound/items/tools/jaws_cut.ogg', 'sound/items/tools/jaws_pry.ogg', 'sound/items/tools/welder.ogg', 'sound/items/tools/ratchet.ogg'), 80, TRUE, -1)

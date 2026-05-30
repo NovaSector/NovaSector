@@ -45,9 +45,6 @@
 	quirk_holder.mind.has_exploitables_override = TRUE
 	quirk_holder.mind.handle_exploitables()
 
-	// Also let the user know that they need to OPFOR if they want to do heavy antagonism. Policy request.
-	to_chat(quirk_holder, span_boldwarning("REMEMBER: The Underworld Connections quirk does NOT make you an antagonist. Please make an OPFOR request if you intend to do serious criminal activity."))
-
 	// Set us as 'suspected' on HUDs at roundstart and leave a note about our dark and mysterious past. No permits for us! If we're human.
 	if (ishuman(quirk_holder))
 		var/mob/living/carbon/human/human_holder = quirk_holder
@@ -106,7 +103,7 @@ GLOBAL_LIST_INIT(possible_uplink_skins, list(
 	if (!..())
 		return FALSE
 
-	return "Underworld Connections" in preferences.all_quirks
+	return /datum/quirk/item_quirk/underworld_connections::name in preferences.all_quirks
 
 /datum/preference/choiced/uplink_skin/apply_to_human(mob/living/carbon/human/target, value)
 	return
@@ -122,7 +119,7 @@ GLOBAL_LIST_INIT(possible_uplink_skins, list(
 	if (!..())
 		return FALSE
 
-	return "Underworld Connections" in preferences.all_quirks
+	return /datum/quirk/item_quirk/underworld_connections::name in preferences.all_quirks
 
 /datum/preference/text/uplink_name/serialize(input)
 	return htmlrendertext(input)
@@ -140,7 +137,7 @@ GLOBAL_LIST_INIT(possible_uplink_skins, list(
 	if (!..())
 		return FALSE
 
-	return "Underworld Connections" in preferences.all_quirks
+	return /datum/quirk/item_quirk/underworld_connections::name in preferences.all_quirks
 
 /datum/preference/text/uplink_desc/serialize(input)
 	return htmlrendertext(input)

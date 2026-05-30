@@ -200,6 +200,10 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define CLOTHING_SNOUTED_BETTER_VOX_VARIATION (1<<7)
 /// The sprite works fine for vox snouts as is.
 #define CLOTHING_SNOUTED_BETTER_VOX_VARIATION_NO_NEW_ICON (1<<8)
+/// The clothing item has a custom sprite for the big legs type taur bodyshape
+#define CLOTHING_BIG_LEGS_VARIATION (1<<9)
+/// The sprite mask particularly for the big legs type taur bodyshape
+#define CLOTHING_BIG_LEGS_MASK (1<<10)
 // NOVA EDIT ADDITION END
 
 /// All variation flags which render "correctly" on a digitigrade leg setup
@@ -213,7 +217,9 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define HEADCOVERSMOUTH (1<<4)
 #define PEPPERPROOF (1<<5) //protects against pepperspray
 #define EARS_COVERED (1<<6)
+#define ALLOW_SURGERY_THROUGH (1<<7) //item will not obstruct body part access, such as for surgery, despite covering the body part
 
+#define TINT_MILD 1.5 //Threshold of tint level to apply mild tint overlay
 #define TINT_DARKENED 2 //Threshold of tint level to apply weld mask overlay
 #define TINT_BLIND 3 //Threshold of tint level to obscure vision fully
 
@@ -242,7 +248,7 @@ GLOBAL_LIST_INIT(any_suit_storage, typecacheof(list(
 	/obj/item/lighter,
 	/obj/item/pen,
 	/obj/item/modular_computer/pda,
-	/obj/item/toy,
+	/obj/item/toy/plush,
 	/obj/item/radio,
 	/obj/item/storage/bag/books,
 	/obj/item/storage/fancy/cigarettes,

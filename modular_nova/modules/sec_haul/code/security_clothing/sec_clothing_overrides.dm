@@ -292,6 +292,7 @@
 	preview_name = "Sol Cap"
 	new_icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
 	new_icon_state = "policechiefcap"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 
 /datum/atom_skin/hos_cap/sheriff
 	preview_name = "Sheriff Hat"

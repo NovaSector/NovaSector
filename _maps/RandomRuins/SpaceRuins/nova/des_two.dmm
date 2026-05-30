@@ -179,7 +179,6 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east{
 	pixel_x = 4
 	},
-/obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "aK" = (
@@ -875,7 +874,6 @@
 	},
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "dF" = (
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/medical/medkit_rare,
 /obj/structure/closet/crate/wooden,
 /obj/effect/spawner/random/bedsheet/any/double,
@@ -1123,10 +1121,10 @@
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "eK" = (
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/clothing/twentyfive_percent_cyborg_mask,
 /obj/structure/closet/crate/wooden,
 /obj/effect/spawner/random/bedsheet/any/double,
+/obj/effect/spawner/random/clothing/costume,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
 "eL" = (
@@ -1625,8 +1623,8 @@
 /area/ruin/space/has_grav/nova/des_two/security/intel)
 "gJ" = (
 /obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/engineering/tool,
+/obj/effect/spawner/random/clothing/costume,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
 "gK" = (
@@ -1844,7 +1842,6 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "hR" = (
 /obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/medical/medkit,
 /obj/effect/spawner/random/engineering/flashlight,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -2582,7 +2579,6 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "lh" = (
 /obj/structure/rack/shelf,
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/engineering/tool,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
@@ -2836,7 +2832,6 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "mf" = (
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/medical/medkit,
 /obj/structure/closet/crate/wooden,
 /obj/item/sign/flag/syndicate{
@@ -3151,7 +3146,6 @@
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "nq" = (
 /obj/effect/turf_decal/bot,
-/obj/effect/spawner/random/maintenance/two,
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/engineering/flashlight,
 /obj/effect/spawner/random/clothing/twentyfive_percent_cyborg_mask,
@@ -5205,8 +5199,8 @@
 	pixel_x = 4
 	},
 /obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/engineering/tool_advanced,
+/obj/effect/spawner/random/trash/janitor_supplies,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "wi" = (
@@ -7650,7 +7644,6 @@
 /area/ruin/space/has_grav/nova/des_two/service/sauna)
 "Gv" = (
 /obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/medical/medkit,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
@@ -9730,7 +9723,6 @@
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "Px" = (
 /obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/engineering/tool,
 /obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor/iron/dark/diagonal,
@@ -9806,7 +9798,6 @@
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "PL" = (
 /obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/engineering/flashlight,
 /obj/effect/spawner/random/bedsheet/any/double,
 /turf/open/floor/iron/dark/textured_large,
@@ -10102,9 +10093,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "Rj" = (
-/obj/effect/spawner/random/maintenance/two,
-/obj/structure/closet/crate,
-/obj/effect/spawner/random/engineering/tool,
+/obj/effect/spawner/random/engineering/atmospherics_portable,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Rk" = (
@@ -11418,9 +11407,9 @@
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "WC" = (
-/obj/effect/spawner/random/maintenance/three,
 /obj/structure/closet/crate/wooden,
 /obj/effect/spawner/random/engineering/tool,
+/obj/effect/spawner/random/trash/janitor_supplies,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo/storage)
 "WF" = (
@@ -11438,7 +11427,6 @@
 /area/ruin/space/has_grav/nova/des_two/research)
 "WL" = (
 /obj/structure/closet/crate/cardboard,
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/engineering/tool,
 /obj/effect/turf_decal/trimline/dark_red/filled/warning{
 	dir = 8

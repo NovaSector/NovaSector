@@ -10,11 +10,11 @@
 
 // MEDIUM COST
 /datum/uplink_item/explosives/c4bag
-	cost = /datum/uplink_item/medium_cost/explosive::cost
+	cost = /datum/uplink_item/low_cost/explosive::cost
 //	cost = 5
 
 /datum/uplink_item/explosives/emp
-	cost = /datum/uplink_item/medium_cost/explosive::cost //big step up from TG's pricing, but vastly more potent here
+	cost = /datum/uplink_item/low_cost/explosive::cost //big step up from TG's pricing, but vastly more potent here
 //	cost = 2
 
 /datum/uplink_item/explosives/detomatix

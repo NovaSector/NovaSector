@@ -79,7 +79,7 @@
 	// snowflakey but vox legs weird.
 	if(item_slot == LOADOUT_ITEM_SHOES)
 		var/obj/item/bodypart/leg = bodypart_overrides[BODY_ZONE_L_LEG] || bodypart_overrides[BODY_ZONE_R_LEG]
-		if(leg && initial(leg.limb_id) != BODYPART_ID_DIGITIGRADE)
+		if(leg && !(initial(leg.bodyshape) & BODYSHAPE_DIGITIGRADE))
 			// normal legs, use normal human shoes
 			return DEFAULT_SHOES_FILE
 
@@ -98,6 +98,6 @@
 	vox.dna.features[FEATURE_MUTANT_COLOR] = "#77DD88"
 	vox.dna.features[FEATURE_MUTANT_COLOR_TWO] = "#EEDD88"
 	vox.dna.features[FEATURE_MUTANT_COLOR_THREE] = "#222222"
-	vox.dna.mutant_bodyparts[FEATURE_SNOUT] = vox.dna.species.build_mutant_part("Vox Snout", list("#EEDD88"))
+	vox.dna.mutant_bodyparts[FEATURE_SNOUT] = build_mutant_part("Vox Snout", list("#EEDD88"))
 	regenerate_organs(vox, src, visual_only = TRUE)
 	vox.update_body(TRUE)

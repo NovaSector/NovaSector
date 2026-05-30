@@ -89,6 +89,9 @@
 	desc = "Activate or deactivate Hermes' adaptive camouflage."
 
 /datum/action/vehicle/sealed/mecha/hermes_toggle_chameleon/Trigger(mob/user, trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/vehicle/sealed/mecha/solfed/hermes/camod_mech = chassis
 	if(!camod_mech)
 		return

@@ -16,4 +16,5 @@
 		msg = span_mentor("<b><font color ='#8A2BE2'><span class='prefix'>MENTOR:</span> <EM>[key_name(src, 0, 0)]</EM>: <span class='message'>[msg]</span></font></b>")
 	else
 		msg = span_mentor("<b><font color ='#E236D8'><span class='prefix'>MENTOR:</span> <EM>[key_name(src, 0, 0)]</EM>: <span class='message'>[msg]</span></font></b>")
-	to_chat(GLOB.admins | GLOB.mentors, msg)
+	for(var/client/mentor as anything in GLOB.admins | GLOB.mentors)
+		to_chat(mentor, msg, avoid_highlighting = (mentor == src))

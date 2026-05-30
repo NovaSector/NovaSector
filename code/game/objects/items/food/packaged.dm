@@ -2,7 +2,7 @@
 
 // Cans
 /obj/item/food/canned
-	name = "Canned Air"
+	name = "canned air"
 	desc = "If you ever wondered where air came from..."
 	food_reagents = list(
 		/datum/reagent/oxygen = 6,
@@ -65,7 +65,7 @@
 	foodtypes = FRUIT | SUGAR
 
 /obj/item/food/canned/peaches/maint
-	name = "Maintenance Peaches"
+	name = "maintenance peaches"
 	desc = "I have a mouth and I must eat."
 	icon_state = "peachcanmaint"
 	trash_type = /obj/item/trash/can/food/peaches/maint
@@ -117,6 +117,7 @@
 	if(!check_buffability(user))
 		return ..()
 	apply_buff(user)
+	return TRUE
 
 /obj/item/food/canned/envirochow/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!check_buffability(interacting_with))
@@ -197,7 +198,6 @@
 	tastes = list("meat" = 1)
 	foodtypes = MEAT
 	w_class = WEIGHT_CLASS_SMALL
-	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 1.2, /datum/material/iron = MEATDISH_MATERIAL_AMOUNT * 0.15) // NOVA EDIT ADDITION - no idea why this is needed here and not upstream.
 
 /obj/item/food/chapslice/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/grilled_chapslice, rand(20 SECONDS, 40 SECONDS), TRUE, TRUE)
@@ -213,7 +213,6 @@
 	tastes = list("meat" = 1)
 	foodtypes = MEAT
 	w_class = WEIGHT_CLASS_SMALL
-	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 1.2, /datum/material/iron = MEATDISH_MATERIAL_AMOUNT * 0.15) // NOVA EDIT ADDITION - no idea why this is needed here and not upstream.
 
 // DONK DINNER: THE INNOVATIVE WAY TO GET YOUR DAILY RECOMMENDED ALLOWANCE OF SALT... AND THEN SOME!
 /obj/item/food/ready_donk

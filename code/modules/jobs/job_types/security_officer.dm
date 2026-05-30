@@ -62,7 +62,7 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 	if(!ishuman(spawned) || !prob(PIG_COP_PROBABILITY))
 		return
 	var/mob/living/carbon/human/piggy = spawned
-	for (var/obj/item/bodypart/ham as anything in piggy.bodyparts)
+	for (var/obj/item/bodypart/ham as anything in piggy.get_bodyparts())
 		// These are string lists
 		ham.butcher_drops = ham.butcher_drops.Copy()
 		for (var/meat_type in ham.butcher_drops)
@@ -241,9 +241,10 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 	id_trim = /datum/id_trim/job/security_officer
 	uniform = /obj/item/clothing/under/rank/security/officer
 	suit = /obj/item/clothing/suit/armor/vest/alt/sec
-	suit_store = /obj/item/gun/energy/disabler
 	backpack_contents = list(
 		/obj/item/evidencebag = 1,
+		/obj/item/security_voucher/primary = 1,
+		/obj/item/security_voucher/utility = 1
 		)
 	belt = /obj/item/modular_computer/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt

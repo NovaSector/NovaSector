@@ -7,17 +7,23 @@
 	desc = "Cobolterium"
 	color = list(0.2,0.5,0.7,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	greyscale_color = "#264d61"
-	categories = list(
-		MAT_CATEGORY_RIGID = TRUE,
-		MAT_CATEGORY_BASE_RECIPES = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = TRUE,
+	mat_flags = MATERIAL_CLASS_RIGID | MATERIAL_BASIC_RECIPES | MATERIAL_CLASS_METAL
+	mat_properties = list(
+		MATERIAL_DENSITY = 7,
+		MATERIAL_HARDNESS = 7,
+		MATERIAL_FLEXIBILITY = 2,
+		MATERIAL_REFLECTIVITY = 4,
+		MATERIAL_ELECTRICAL = 6,
+		MATERIAL_THERMAL = 6,
+		MATERIAL_CHEMICAL = 6,
 	)
 	sheet_type = /obj/item/stack/sheet/cobolterium
 
 /datum/material/cobolterium/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
-	victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
-	return TRUE
+	. = ..()
+	if(!HAS_TRAIT(victim, TRAIT_ROCK_EATER))
+		victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
+		return TRUE
 
 /obj/item/stack/sheet/cobolterium
 	name = "cobolterium bars"
@@ -41,17 +47,23 @@
 	desc = "Copporcitite"
 	color = list(0.8,0.35,0.1,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	greyscale_color = "#c55a1d"
-	categories = list(
-		MAT_CATEGORY_RIGID = TRUE,
-		MAT_CATEGORY_BASE_RECIPES = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = TRUE,
+	mat_flags = MATERIAL_CLASS_RIGID | MATERIAL_BASIC_RECIPES | MATERIAL_CLASS_METAL
+	mat_properties = list(
+		MATERIAL_DENSITY = 6,
+		MATERIAL_HARDNESS = 5,
+		MATERIAL_FLEXIBILITY = 2,
+		MATERIAL_REFLECTIVITY = 3,
+		MATERIAL_ELECTRICAL = 8,
+		MATERIAL_THERMAL = 8,
+		MATERIAL_CHEMICAL = 3,
 	)
 	sheet_type = /obj/item/stack/sheet/copporcitite
 
 /datum/material/copporcitite/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
-	victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
-	return TRUE
+	. = ..()
+	if(!HAS_TRAIT(victim, TRAIT_ROCK_EATER))
+		victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
+		return TRUE
 
 /obj/item/stack/sheet/copporcitite
 	name = "copporcitite bars"
@@ -75,17 +87,23 @@
 	desc = "Tinumium"
 	color = list(0.45,0.5,0.6,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	greyscale_color = "#717e97"
-	categories = list(
-		MAT_CATEGORY_RIGID = TRUE,
-		MAT_CATEGORY_BASE_RECIPES = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = TRUE,
+	mat_flags = MATERIAL_CLASS_RIGID | MATERIAL_BASIC_RECIPES | MATERIAL_CLASS_METAL
+	mat_properties = list(
+		MATERIAL_DENSITY = 4,
+		MATERIAL_HARDNESS = 5,
+		MATERIAL_FLEXIBILITY = 3,
+		MATERIAL_REFLECTIVITY = 3,
+		MATERIAL_ELECTRICAL = 4,
+		MATERIAL_THERMAL = 5,
+		MATERIAL_CHEMICAL = 5,
 	)
 	sheet_type = /obj/item/stack/sheet/tinumium
 
 /datum/material/tinumium/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
-	victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
-	return TRUE
+	. = ..()
+	if(!HAS_TRAIT(victim, TRAIT_ROCK_EATER))
+		victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
+		return TRUE
 
 /obj/item/stack/sheet/tinumium
 	name = "tinumium bars"
@@ -109,17 +127,23 @@
 	desc = "Brussite"
 	color = list(0.9,0.75,0.4,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	greyscale_color = "#E1C16E"
-	categories = list(
-		MAT_CATEGORY_RIGID = TRUE,
-		MAT_CATEGORY_BASE_RECIPES = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = TRUE,
+	mat_flags = MATERIAL_CLASS_RIGID | MATERIAL_BASIC_RECIPES | MATERIAL_CLASS_METAL
+	mat_properties = list(
+		MATERIAL_DENSITY = 6,
+		MATERIAL_HARDNESS = 6,
+		MATERIAL_FLEXIBILITY = 3,
+		MATERIAL_REFLECTIVITY = 4,
+		MATERIAL_ELECTRICAL = 8,
+		MATERIAL_THERMAL = 8,
+		MATERIAL_CHEMICAL = 3,
 	)
 	sheet_type = /obj/item/stack/sheet/brussite
 
 /datum/material/brussite/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
-	victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
-	return TRUE
+	. = ..()
+	if(!HAS_TRAIT(victim, TRAIT_ROCK_EATER))
+		victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
+		return TRUE
 
 /obj/item/stack/sheet/brussite
 	name = "brussite bars"

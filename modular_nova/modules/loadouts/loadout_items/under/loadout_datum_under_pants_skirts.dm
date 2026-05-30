@@ -286,7 +286,27 @@
 	item_path = /obj/item/clothing/under/dress/nova/windowed_dress
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/slit_dress
+	name = "Slit Dress"
+	item_path = /obj/item/clothing/under/dress/nova/slit_dress
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/shorter_dress
+	name = "Shorter Dress"
+	item_path = /obj/item/clothing/under/dress/nova/shorter_dress
+	group = "Casualwear"
+
 /datum/loadout_item/under/miscellaneous/shorter_overall
 	name = "Shorter Overall"
 	item_path = /obj/item/clothing/under/pants/nova/shorted_overall
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/pen_skirt
+	name = "Pen Skirt"
+	item_path = /obj/item/clothing/under/dress/nova/pen_skirt
+	group = "Casualwear"
+
+/datum/loadout_item/under/miscellaneous/formal_pen_skirt
+	name = "Formal Pen Skirt"
+	item_path = /obj/item/clothing/under/dress/nova/formal_pen_skirt
 	group = "Casualwear"

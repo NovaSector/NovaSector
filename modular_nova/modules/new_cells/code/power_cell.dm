@@ -39,10 +39,22 @@
 	desc = "A special cell that will recharge itself over time."
 	icon = 'modular_nova/modules/new_cells/icons/power.dmi'
 	icon_state = "chargecell"
-	maxcharge = STANDARD_CELL_CHARGE * 2.5
+	maxcharge = STANDARD_CELL_CHARGE * 5
 	charge_light_type = "old"
 	/// how much is recharged every process
-	var/recharge_amount = STANDARD_CELL_CHARGE * 0.2
+	var/recharge_amount = STANDARD_CELL_CHARGE * 0.34
+
+/obj/item/stock_parts/power_store/cell/self_charge/exotic
+	name = "exotic charging cell"
+	desc = "A special cell that will recharge itself over time. The casing doesn't seem to have seams."
+	maxcharge = STANDARD_CELL_CHARGE * 15
+	recharge_amount = STANDARD_CELL_CHARGE
+
+/obj/item/stock_parts/power_store/cell/self_charge/anomalous
+	name = "anomalous charge cell"
+	desc = "A power cell of unfamiliar construction. Its casing is perfectly smooth, and it appears to recover energy on its own."
+	maxcharge = STANDARD_CELL_CHARGE * 30
+	recharge_amount = STANDARD_CELL_CHARGE * 2
 
 /obj/item/stock_parts/power_store/cell/self_charge/Initialize(mapload, override_maxcharge)
 	. = ..()

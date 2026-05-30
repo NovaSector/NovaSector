@@ -164,7 +164,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/grenade/smokebomb = 1,
 		/obj/item/radio/off = 1,
 		/obj/item/stack/spacecash/c10 = 1,
-		/obj/item/stack/sticky_tape = 1,
+		/obj/item/stack/medical/wrap/sticky_tape = 1,
 		/obj/item/tank/internals/emergency_oxygen = 1,
 		/obj/item/paper/paperslip/fishing_tip = 1,
 
@@ -235,7 +235,7 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 
 	list(//medical and chemicals
 		list(//basic healing items
-			/obj/item/stack/medical/gauze = 1,
+			/obj/item/stack/medical/wrap/gauze = 1,
 			/obj/item/stack/medical/mesh = 1,
 			/obj/item/stack/medical/suture = 1,
 			/obj/item/stack/medical/bandage = 1,
@@ -373,11 +373,15 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 			/obj/item/storage/medkit/emergency = 1,
 			/obj/item/storage/medkit/regular = 1,
 			/obj/item/storage/box/bandages = 1,
-			) = 1,
+			) = 2,
 		list(//medical chems
 			/obj/item/reagent_containers/hypospray/medipen/oxandrolone = 1,
 			/obj/item/reagent_containers/hypospray/medipen/salacid = 1,
 			/obj/item/reagent_containers/syringe/contraband/methamphetamine = 1,
+			) = 2,
+		list(
+			/obj/item/paper/secretrecipe/gorgium = 1,
+			/obj/item/paper/secretrecipe/metalgen = 1,
 			) = 1,
 		) = 1,
 
@@ -385,6 +389,7 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 		/obj/item/book/granter/crafting_recipe/dusting/pipegun_prime = 1,
 		/obj/item/book/granter/crafting_recipe/trash_cannon = 1,
 		/obj/item/book/granter/crafting_recipe/dusting/laser_musket_prime = 1,
+		/obj/item/book/granter/crafting_recipe/dusting/detached_ratvarian_repeater = 1,
 		/obj/item/book/granter/sign_language = 1,
 		/obj/item/disk/nuclear/fake = 1,
 		/obj/item/disk/surgery/advanced_plastic_surgery = 1,

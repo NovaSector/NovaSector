@@ -4,7 +4,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/uniform.dmi'
 	icon_state = "tracksuit_blue"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/tachawaiian
 	name = "orange tactical hawaiian outfit"
@@ -12,7 +12,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/uniform.dmi'
 	icon_state = "tacticool_hawaiian_orange"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/tachawaiian/blue
 	name = "blue tactical hawaiian outfit"

@@ -24,22 +24,10 @@
 	new /obj/item/fulton_core(src)
 
 /obj/item/storage/box/syndicate/contract_kit/midround/PopulateContents()
-	var/static/list/item_list = list(
-		/obj/item/storage/box/syndie_kit/throwing_weapons,
-		/obj/item/pen/edagger,
-		/obj/item/pen/sleepy,
-		/obj/item/flashlight/emp,
-		/obj/item/reagent_containers/hypospray/medipen/stimulants,
-		/obj/item/storage/box/syndie_kit/imp_freedom,
-		/obj/item/crowbar/power/syndicate,
-		/obj/item/storage/box/syndie_kit/emp,
-		/obj/item/shield/energy,
-		/obj/item/healthanalyzer/rad_laser,
-	)
-	// All about 4 TC or less - some nukeops only items, but fit nicely to the theme.
-	for(var/iteration in 1 to SMALL_ITEM_AMOUNT)
-		var/obj/item/small_item = pick_n_take(item_list)
-		new small_item(src)
+	new	/obj/item/crowbar/power/syndicate(src)
+	new	/obj/item/storage/box/syndie_kit/emp(src)
+	new	/obj/item/shield/energy(src)
+
 	// finally. a real gun
 	new /obj/item/storage/toolbox/guncase/traitor/contractor_fisher(src)
 

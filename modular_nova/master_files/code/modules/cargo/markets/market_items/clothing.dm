@@ -37,8 +37,8 @@
 
 /datum/market_item/clothing/military_belt
 	name = "Old Military Belt"
-	desc = "A dusty belt which used to fit a military that's no longer active, reviews state their old MREs are sometimes found within these belts."
-	item = /obj/item/storage/belt/military/nri/plus_mre
+	desc = "A dusty belt which used to fit a military that's no longer active."
+	item = /obj/item/storage/belt/military/nri
 	price_min = CARGO_CRATE_VALUE * 0.5
 	price_max = CARGO_CRATE_VALUE
 	stock_max = 3

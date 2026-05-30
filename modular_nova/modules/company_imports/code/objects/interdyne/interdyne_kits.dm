@@ -82,14 +82,14 @@
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/healthanalyzer/advanced = 1,
-		/obj/item/stack/medical/gauze = 1,
+		/obj/item/stack/medical/wrap/gauze = 1,
 		/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,
 		/obj/item/cautery/advanced = 1,
 		/obj/item/defibrillator/compact/combat/loaded/interdyne = 1,
 		/obj/item/circular_saw/field_medic/lowforce = 1,
 		/obj/item/bonesetter = 1,
-		/obj/item/stack/sticky_tape/surgical = 1,
+		/obj/item/stack/medical/wrap/sticky_tape/surgical = 1,
 		/obj/item/reagent_containers/medigel/sterilizine = 1,
 		/obj/item/stack/medical/bone_gel = 1,
 	)
@@ -117,7 +117,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/penacid = 2,
 		/obj/item/reagent_containers/hypospray/medipen/salbutamol = 2,
 		/obj/item/healthanalyzer/advanced = 1,
-		/obj/item/stack/medical/gauze = 1,
+		/obj/item/stack/medical/wrap/gauze = 1,
 	)
 	generate_items_inside(items_inside, src)
 
@@ -174,7 +174,7 @@
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/healthanalyzer/advanced = 1,
-		/obj/item/stack/medical/gauze = 2,
+		/obj/item/stack/medical/wrap/gauze = 2,
 		/obj/item/storage/box/bandages/interdyne = 1,
 		/obj/item/storage/box/bandages/interdyne/burn = 1,
 		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
@@ -203,7 +203,7 @@
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/healthanalyzer/advanced = 1,
-		/obj/item/stack/medical/gauze = 2,
+		/obj/item/stack/medical/wrap/gauze = 2,
 		/obj/item/storage/box/bandages/interdyne = 1,
 		/obj/item/storage/box/bandages/interdyne/burn = 1,
 		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
@@ -228,11 +228,11 @@
 		/obj/item/bonesetter = 1,
 		/obj/item/surgical_drapes = 1,
 		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
-		/obj/item/stack/sticky_tape/surgical = 3,
+		/obj/item/stack/medical/wrap/sticky_tape/surgical = 3,
 		/obj/item/stack/medical/bone_gel = 3,
 		/obj/item/storage/pill_bottle/painkiller = 2,
 		/obj/item/reagent_containers/medigel/sterilizine = 2,
-		/obj/item/stack/medical/gauze/sterilized = 3,
+		/obj/item/stack/medical/wrap/gauze/sterilized = 3,
 	)
 	generate_items_inside(items_inside,src)
 

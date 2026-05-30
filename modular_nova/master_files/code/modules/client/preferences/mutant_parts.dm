@@ -44,6 +44,27 @@
 /datum/preference/toggle/allow_emissives/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return TRUE // we dont actually want this to do anything
 
+/datum/preference/toggle/skin_tone_toggle
+	priority = PREFERENCE_PRIORITY_BODYPARTS // we override species trait thus we go after species
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "skin_tone_toggle"
+	can_randomize = FALSE
+	relevant_inherent_trait = TRAIT_USES_SKINTONES
+
+/datum/preference/toggle/skin_tone_toggle/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	if (is_accessible(preferences) && !value)
+		REMOVE_TRAIT(target, TRAIT_USES_SKINTONES, SPECIES_TRAIT)
+		ADD_TRAIT(target, TRAIT_MUTANT_COLORS, SPECIES_TRAIT)
+		for(var/obj/item/bodypart/bodypart_to_change as anything in target.bodyparts)
+			bodypart_to_change.change_appearance(icon = BODYPART_ICON_HUMANOID, id = SPECIES_HUMANOID, greyscale = TRUE)
+	return TRUE
+
+/datum/preference/choiced/skin_tone/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return
+	return preferences.read_preference(/datum/preference/toggle/skin_tone_toggle)
+
 /datum/preference/tri_color/mutant_colors
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -904,3 +925,31 @@
 	savefile_key = "fourarms_color"
 	relevant_mutant_bodypart = FEATURE_FOURARMS
 	type_to_check = /datum/preference/toggle/mutant_toggle/fourarms
+// Holosynth color preference
+/datum/preference/color/mutant/holosynth_color
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "holo_color"
+	relevant_inherent_trait = TRAIT_HOLOSYNTH
+
+/datum/preference/color/mutant/holosynth_color/create_default_value()
+	return COLOR_WHITE
+
+/datum/preference/color/mutant/holosynth_color/apply_to_human(mob/living/carbon/human/target, value)
+	// default case, nothing to do here either, so skip processing
+	if(value == COLOR_WHITE)
+		target.dna.features["holo_color"] = value
+		return
+
+	// Nudge near-black choices up to the darkest legible hologram instead of snapping to white,
+	// preserving the picked hue. Pure black has no hue to preserve → settle on dark gray.
+	var/list/rgb_list = rgb2num(value)
+	var/brightest = max(rgb_list[1], rgb_list[2], rgb_list[3])
+	if(brightest < 80)
+		if(brightest == 0)
+			value = rgb(80, 80, 80)
+		else
+			var/scale = 80 / brightest
+			value = rgb(rgb_list[1] * scale, rgb_list[2] * scale, rgb_list[3] * scale)
+	target.dna.features["holo_color"] = value
+

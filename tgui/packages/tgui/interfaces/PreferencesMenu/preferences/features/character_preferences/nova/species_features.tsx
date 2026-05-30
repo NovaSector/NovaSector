@@ -6,7 +6,9 @@ import {
   type FeatureChoicedServerData,
   FeatureColorInput,
   FeatureNumberInput,
+  type FeatureNumeric,
   FeatureShortTextInput,
+  FeatureSliderInput,
   FeatureTextInput,
   type FeatureToggle,
   FeatureTriBoolInput,
@@ -181,6 +183,15 @@ export const allow_emissives_toggle: FeatureToggle = {
 export const eye_emissives: FeatureToggle = {
   name: 'Eye Emissives',
   description: 'Emissive parts glow in the dark.',
+  component: CheckboxInput,
+};
+
+export const skin_tone_toggle: FeatureToggle = {
+  name: 'Skin Tone',
+  description:
+    'If we should use skin tones (an array of options \
+    close to human natural skin colors) or mutant \
+    colors (free color selection).',
   component: CheckboxInput,
 };
 
@@ -819,4 +830,21 @@ export const feature_fourarms: Feature<string> = {
 export const fourarms_color: Feature<string[]> = {
   name: 'Quad Arms Color',
   component: FeatureTriColorInput,
+export const holo_color: Feature<string> = {
+  name: 'Holosynth Color',
+  component: FeatureColorInput,
+};
+
+export const holo_transparency: FeatureNumeric = {
+  name: 'Holosynth Transparency',
+  description:
+    'How solid your hologram appears. 60 = most see-through, 100 = fully solid.',
+  component: FeatureSliderInput,
+};
+
+export const holo_scanline: Feature<boolean> = {
+  name: 'Holosynth Scanline Flicker',
+  description:
+    'Renders a faint scanline flicker across your body (not visible until you spawn).',
+  component: CheckboxInput,
 };

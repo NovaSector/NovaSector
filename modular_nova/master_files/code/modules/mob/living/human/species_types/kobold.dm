@@ -1,5 +1,5 @@
 /datum/species/monkey/kobold
-	name = "\improper Kobold"
+	name = "\improper Primitive Kobold"
 	id = SPECIES_KOBOLD_PRIMITIVE
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
 	mutant_organs = list()
@@ -123,15 +123,16 @@
 	kobold.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	kobold.dna.features[FEATURE_MUTANT_COLOR_TWO] = second_color
 	kobold.dna.features[FEATURE_MUTANT_COLOR_THREE] = third_color
-	kobold.dna.mutant_bodyparts[FEATURE_SNOUT] = kobold.dna.species.build_mutant_part("Round", list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_TAIL] = kobold.dna.species.build_mutant_part("Smooth", list(second_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_HORNS] = kobold.dna.species.build_mutant_part("Curled", list(main_color, main_color, main_color))
-	kobold.dna.mutant_bodyparts[FEATURE_FRILLS] = kobold.dna.species.build_mutant_part("Short", list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_SNOUT] = build_mutant_part("Round", list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Smooth", list(second_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_HORNS] = build_mutant_part("Curled", list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts[FEATURE_FRILLS] = build_mutant_part("Short", list(main_color, main_color, main_color))
 	regenerate_organs(kobold, src, visual_only = TRUE)
 	kobold.update_body(TRUE)
 
 // Same as regular kobolds except they cannot be butchered, and are smart enough to use devices (debatable)
 /datum/species/monkey/kobold/roundstart
+	name = "\improper Kobold"
 	id = SPECIES_KOBOLD
 	examine_limb_id = SPECIES_KOBOLD
 	mutantbrain = /obj/item/organ/brain/lizard

@@ -86,8 +86,7 @@
 
 	var/datum/mutant_bodypart/mutant_part = target.dna.mutant_bodyparts[relevant_mutant_bodypart]
 	if(mutant_part)
-		var/color_value = sanitize_hexcolor(value)
-		mutant_part.set_colors(list(color_value, color_value, color_value))
+		mutant_part.set_colors(list(value, value, value))
 
 /**
  * Base class for character feature togglers
@@ -226,7 +225,7 @@
 	if(mutant_bodypart)
 		mutant_bodypart.name = value
 	else
-		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = target.dna.species.build_mutant_part(value)
+		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = build_mutant_part(value)
 	return bodypart_is_visible
 
 /datum/preference/toggle/emissive
@@ -254,7 +253,7 @@
 	if(mutant_bodypart)
 		mutant_bodypart.set_emissive_tri_bool_list(sanitize_integer(value), sanitize_integer(value), sanitize_integer(value))
 	else
-		var/datum/mutant_bodypart/new_mutant_bodypart = target.dna.species.build_mutant_part()
+		var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part()
 		new_mutant_bodypart.set_emissive_tri_bool_list(sanitize_integer(value), sanitize_integer(value), sanitize_integer(value))
 		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = new_mutant_bodypart
 

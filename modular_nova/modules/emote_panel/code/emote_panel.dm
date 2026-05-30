@@ -7,7 +7,8 @@
 	// code\modules\mob\emote.dm
 	var/static/list/mob_emotes = list(
 		/mob/proc/emote_flip,
-		/mob/proc/emote_spin
+		/mob/proc/emote_spin,
+		/mob/proc/emote_rolld20,
 	)
 	all_emotes += mob_emotes
 
@@ -283,6 +284,10 @@
 	set category = "Emotes"
 	usr.emote("spin", intentional = TRUE)
 
+/mob/proc/emote_rolld20()
+	set name = "| Roll 20 |"
+	set category = "Emotes"
+	usr.emote("rolld20", intentional = TRUE)
 // code\modules\mob\living\emote.dm
 
 /mob/living/proc/emote_blush()

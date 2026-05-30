@@ -7,6 +7,15 @@
 	)
 	crate_name = "Sindano Submachinegun Crate"
 
+/datum/supply_pack/security/armory/rapier
+	name = "Rapier Submachinegun Crate"
+	desc = "Two M94 'Rapier' Submachineguns, chambered in 4.6x30mm. Each kit contains three loaded magazines and a firearm."
+	cost = CARGO_CRATE_VALUE * 10
+	contains = list(
+		/obj/item/storage/toolbox/guncase/nova/red/rapier = 2,
+	)
+	crate_name = "Rapier Submachinegun Crate"
+
 /datum/supply_pack/security/armory/renoster
 	name = "M64 Riot Shotgun Crate"
 	desc = "Three M64 12ga riot shotguns, with matching bandoliers for each."

@@ -19,23 +19,25 @@
 	icon_state = "punchcard_1"
 	punches = 1 // GBP_PUNCH_REWARD credits by default
 
-/obj/item/gbp_punchcard/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	. = ..()
-	if(istype(attacking_item, /obj/item/gbp_puncher))
-		if(!COOLDOWN_FINISHED(src, gbp_punch_cooldown))
-			balloon_alert(user, "cooldown! [DisplayTimeText(COOLDOWN_TIMELEFT(src, gbp_punch_cooldown))]")
-			return
-		if(punches < max_punches)
-			punches++
-			icon_state = "punchcard_[punches]"
-			COOLDOWN_START(src, gbp_punch_cooldown, 90 SECONDS)
-			log_econ("[user] punched a GAP card that is now at [punches]/[max_punches] punches.")
-			playsound(attacking_item, 'sound/items/boxcutter_activate.ogg', 100)
-			if(punches == max_punches)
-				playsound(src, 'sound/items/party_horn.ogg', 100)
-				say("Congratulations, you have finished your punchcard!")
-		else
-			balloon_alert(user, "no room!")
+/obj/item/gbp_punchcard/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/gbp_puncher))
+		return NONE
+	if(!COOLDOWN_FINISHED(src, gbp_punch_cooldown))
+		balloon_alert(user, "cooldown! [DisplayTimeText(COOLDOWN_TIMELEFT(src, gbp_punch_cooldown))]")
+		return ITEM_INTERACT_BLOCKING
+	if(punches >= max_punches)
+		balloon_alert(user, "no room!")
+		return ITEM_INTERACT_BLOCKING
+
+	punches++
+	icon_state = "punchcard_[punches]"
+	COOLDOWN_START(src, gbp_punch_cooldown, 90 SECONDS)
+	log_econ("[user] punched a GAP card that is now at [punches]/[max_punches] punches.")
+	playsound(tool, 'sound/items/boxcutter_activate.ogg', 100)
+	if(punches == max_punches)
+		playsound(src, 'sound/items/party_horn.ogg', 100)
+		say("Congratulations, you have finished your punchcard!")
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/gbp_puncher
 	name = "Good Assistant Points puncher"
@@ -49,72 +51,72 @@
 	desc = "Turn your Good Assistant Points punchcards in here for a payout based on the amount of punches you have, and get a new card!"
 	icon = 'modular_nova/modules/cargo/icons/punchcard.dmi'
 	icon_state = "gbp_machine"
+	base_icon_state = "gbp_machine"
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/gbp_redemption
 
-/obj/machinery/gbp_redemption/wrench_act(mob/living/user, obj/item/tool)
+/obj/machinery/gbp_redemption/update_icon_state()
 	. = ..()
-	default_unfasten_wrench(user, tool)
+	icon_state = panel_open ? "[base_icon_state]_open" : base_icon_state
+
+/obj/machinery/gbp_redemption/wrench_act(mob/living/user, obj/item/tool)
+	return default_unfasten_wrench(user, tool)
+
+/obj/machinery/gbp_redemption/screwdriver_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_screwdriver(user, tool)
+
+/obj/machinery/gbp_redemption/crowbar_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_crowbar(user, tool)
+
+/obj/machinery/gbp_redemption/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/gbp_punchcard))
+		return NONE
+
+	var/obj/item/gbp_punchcard/punchcard = tool
+	var/amount_to_reward = punchcard.punches * GBP_PUNCH_REWARD
+	if(!punchcard.punches)
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 100)
+		say("You can't redeem an unpunched card!")
+		return ITEM_INTERACT_BLOCKING
+
+	var/obj/item/card/id/card_used
+	if(isliving(user))
+		var/mob/living/living_user = user
+		card_used = living_user.get_idcard(TRUE)
+
+	if(isnull(card_used))
+		return ITEM_INTERACT_BLOCKING
+
+	if(!COOLDOWN_FINISHED(card_used, gbp_redeem_cooldown))
+		balloon_alert(user, "cooldown! [DisplayTimeText(COOLDOWN_TIMELEFT(card_used, gbp_redeem_cooldown))]")
+		return ITEM_INTERACT_BLOCKING
+
+	if(!card_used.registered_account || !istype(card_used.registered_account.account_job, /datum/job/assistant))
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 100)
+		say("You cannot redeem a punchcard without a valid assistant bank account!")
+		return ITEM_INTERACT_BLOCKING
+
+	if(punchcard.punches < punchcard.max_punches)
+		if(tgui_alert(user, "You haven't finished the punchcard! Are you sure you want to redeem, starting the 15 minute timer?", "A real goof effort right here", list("No", "Yes")) != "Yes")
+			return
+
+	if(!punchcard.punches) // check to see if someone left the dialog open to redeem a card twice
+		return
+
+	var/validated_punches = punchcard.punches
+	punchcard.punches = 0
+	playsound(src, 'sound/machines/printer.ogg', 100)
+	card_used.registered_account.adjust_money(amount_to_reward, "GAP: [validated_punches] punches")
+	log_econ("[amount_to_reward] credits were rewarded to [card_used.registered_account.account_holder]'s account for redeeming a GAP card.")
+	say("Rewarded [amount_to_reward] to your account, and dispensed a ration pack! Thank you for being a Good Assistant! Please take your new punchcard.")
+	COOLDOWN_START(card_used, gbp_redeem_cooldown, 12 MINUTES)
+	user.temporarilyRemoveItemFromInventory(punchcard)
+	qdel(punchcard)
+	var/obj/item/storage/fancy/nugget_box/nuggies = new(get_turf(src))
+	var/obj/item/gbp_punchcard/replacement_card = new(get_turf(src))
+	user.put_in_hands(nuggies)
+	user.put_in_hands(replacement_card)
 	return ITEM_INTERACT_SUCCESS
-
-/obj/machinery/gbp_redemption/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(default_deconstruction_screwdriver(user, "gbp_machine_open", "gbp_machine", attacking_item))
-		return
-
-	if(default_pry_open(attacking_item, close_after_pry = TRUE))
-		return
-
-	if(default_deconstruction_crowbar(attacking_item))
-		return
-
-	if(istype(attacking_item, /obj/item/gbp_punchcard))
-		var/obj/item/gbp_punchcard/punchcard = attacking_item
-		var/amount_to_reward = punchcard.punches * GBP_PUNCH_REWARD
-		if(!punchcard.punches)
-			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 100)
-			say("You can't redeem an unpunched card!")
-			return
-
-		var/obj/item/card/id/card_used
-		if(isliving(user))
-			var/mob/living/living_user = user
-			card_used = living_user.get_idcard(TRUE)
-
-		if(isnull(card_used))
-			return
-
-		if(!COOLDOWN_FINISHED(card_used, gbp_redeem_cooldown))
-			balloon_alert(user, "cooldown! [DisplayTimeText(COOLDOWN_TIMELEFT(card_used, gbp_redeem_cooldown))]")
-			return
-
-		if(!card_used.registered_account || !istype(card_used.registered_account.account_job, /datum/job/assistant))
-			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 100)
-			say("You cannot redeem a punchcard without a valid assistant bank account!")
-			return
-
-		if(punchcard.punches < punchcard.max_punches)
-			if(tgui_alert(user, "You haven't finished the punchcard! Are you sure you want to redeem, starting the 15 minute timer?", "A real goof effort right here", list("No", "Yes")) != "Yes")
-				return
-
-		if(!punchcard.punches) // check to see if someone left the dialog open to redeem a card twice
-			return
-
-		var/validated_punches = punchcard.punches
-		punchcard.punches = 0
-		playsound(src, 'sound/machines/printer.ogg', 100)
-		card_used.registered_account.adjust_money(amount_to_reward, "GAP: [validated_punches] punches")
-		log_econ("[amount_to_reward] credits were rewarded to [card_used.registered_account.account_holder]'s account for redeeming a GAP card.")
-		say("Rewarded [amount_to_reward] to your account, and dispensed a ration pack! Thank you for being a Good Assistant! Please take your new punchcard.")
-		COOLDOWN_START(card_used, gbp_redeem_cooldown, 12 MINUTES)
-		user.temporarilyRemoveItemFromInventory(punchcard)
-		qdel(punchcard)
-		var/obj/item/storage/fancy/nugget_box/nuggies = new(get_turf(src))
-		var/obj/item/gbp_punchcard/replacement_card = new(get_turf(src))
-		user.put_in_hands(nuggies)
-		user.put_in_hands(replacement_card)
-		return
-
-	return ..()
 
 /obj/item/circuitboard/machine/gbp_redemption
 	name = "Good Assistant Point Redemption Machine"

@@ -14,7 +14,7 @@
 
 		var/mob/player_mob = player
 
-		if(!player_mob.client?.prefs.read_preference(/datum/preference/toggle/sound_announcements) || !player_mob.can_hear())
+		if(!player_mob.client?.prefs.read_preference(/datum/preference/toggle/sound_announcements) || HAS_TRAIT(player_mob, TRAIT_DEAF))
 			continue
 
 		var/volume_for_player = volume

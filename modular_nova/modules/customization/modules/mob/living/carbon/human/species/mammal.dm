@@ -108,8 +108,8 @@
 	human.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	human.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
 	human.dna.features[FEATURE_MUTANT_COLOR_THREE] = secondary_color
-	human.dna.mutant_bodyparts[FEATURE_EARS] = human.dna.species.build_mutant_part("Husky", list(main_color, secondary_color, "#464646"))
-	human.dna.mutant_bodyparts[FEATURE_SNOUT] = human.dna.species.build_mutant_part("Husky", list(main_color, secondary_color, secondary_color))
-	human.dna.mutant_bodyparts[FEATURE_TAIL] = human.dna.species.build_mutant_part("Husky", list(main_color, "#4D4D4D", secondary_color))
+	human.dna.mutant_bodyparts[FEATURE_EARS] = build_mutant_part("Husky", list(main_color, secondary_color, "#464646"))
+	human.dna.mutant_bodyparts[FEATURE_SNOUT] = build_mutant_part("Husky", list(main_color, secondary_color, secondary_color))
+	human.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Husky", list(main_color, "#4D4D4D", secondary_color))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)

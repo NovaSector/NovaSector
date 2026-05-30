@@ -27,7 +27,7 @@
 	SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_OUTPOST_OF_COGS)
 
 	for(var/mob/target as anything in GLOB.player_list)
-		if(!isnewplayer(target) && target.can_hear() && is_station_level(target.z))
+		if(!isnewplayer(target) && !HAS_TRAIT(target, TRAIT_DEAF) && is_station_level(target.z))
 			to_chat(target, span_brass("You hear a distant, faint clanking of cogs..."))
 
 	sleep(7 SECONDS)
@@ -111,7 +111,7 @@
 
 /datum/outfit/blood_cultist/post_equip(mob/living/carbon/human/equipped, visualsOnly)
 	equipped.set_eye_color(BLOODCULT_EYE)
-	equipped.update_body()
+	equipped.update_eyes()
 
 	var/obj/item/clothing/suit/hooded/hooded = equipped.wear_suit
 	var/datum/component/toggle_attached_clothing/hood = hooded.GetComponent(/datum/component/toggle_attached_clothing)

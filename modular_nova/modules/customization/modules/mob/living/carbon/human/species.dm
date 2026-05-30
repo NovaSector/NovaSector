@@ -72,6 +72,8 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	return list(
 		FEATURE_TAIL = MUTPART_BLUEPRINT("Cat", is_randomizable = FALSE),
 		FEATURE_EARS = MUTPART_BLUEPRINT("Cat", is_randomizable = FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
 	)
 
 /datum/species/human/felinid/create_pref_unique_perks()
