@@ -11,6 +11,8 @@
 	name = ".38 DumDum Speedloader Single-Pack"
 	desc = "Contains one speedloader of .38 DumDum ammunition, good for embedding in soft targets."
 	contains = list(/obj/item/ammo_box/speedloader/c38/dumdum)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 	auto_name = FALSE
 
 /datum/supply_pack/companies/mags_and_ammo/nt/match38
@@ -29,6 +31,8 @@
 /datum/supply_pack/companies/mags_and_ammo/nt/dumdum38br
 	name = ".38 DumDum Magazine Single-Pack"
 	desc = "Contains one magazine of .38 DumDum ammunition, good for embedding in soft targets."
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 	auto_name = FALSE
 	contains = list(/obj/item/ammo_box/magazine/m38/dumdum)
 
@@ -157,9 +161,13 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/peacekeeper_hp
 	contains = list(/obj/item/ammo_box/c9mm/hp)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/peacekeeper_ap
 	contains = list(/obj/item/ammo_box/c9mm/ap)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/peacekeeper_rubber
 	contains = list(/obj/item/ammo_box/c9mm/rubber)
@@ -169,9 +177,13 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/auto10mm_hp
 	contains = list(/obj/item/ammo_box/c10mm/hp)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/auto10mm_ap
 	contains = list(/obj/item/ammo_box/c10mm/ap)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/auto10mm_rubber
 	contains = list(/obj/item/ammo_box/c10mm/rubber)
@@ -189,6 +201,8 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/strilka_ap
 	contains = list(/obj/item/ammo_box/c310_cargo_box/piercing)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/cesarzowa_lethal
 	contains = list(/obj/item/ammo_box/c27_54cesarzowa)
@@ -204,6 +218,8 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/sol35_ripper
 	contains = list(/obj/item/ammo_box/c35sol/ripper)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/sol40
 	contains = list(/obj/item/ammo_box/c40sol)
@@ -213,9 +229,13 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/sol40_flame
 	contains = list(/obj/item/ammo_box/c40sol/incendiary)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/sol40_pierce
 	contains = list(/obj/item/ammo_box/c40sol/pierce)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/trappiste585
 	contains = list(/obj/item/ammo_box/c585trappiste)
@@ -225,6 +245,8 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/trappiste585_incendiary
 	contains = list(/obj/item/ammo_box/c585trappiste/incendiary)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/ammo_boxes/kineticballs
 	contains = list(/obj/item/ammo_box/advanced/kineticballs)
@@ -239,6 +261,8 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/speedloader/detective_dumdum
 	contains = list(/obj/item/ammo_box/speedloader/c38/dumdum)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/speedloader/detective_bouncy
 	contains = list(/obj/item/ammo_box/speedloader/c38/match)
@@ -268,15 +292,21 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/magnum_buckshot
 	contains = list(/obj/item/ammo_box/advanced/s12gauge/magnum)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/express_buckshot
 	contains = list(/obj/item/ammo_box/advanced/s12gauge/express)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/hunter_slug
 	contains = list(/obj/item/ammo_box/advanced/s12gauge/hunter)
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/flechettes
 	contains = list(/obj/item/ammo_box/advanced/s12gauge/flechette)
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/shot_shells/hornet_nest
 	contains = list(/obj/item/ammo_box/advanced/s12gauge/beehive)
@@ -309,6 +339,7 @@
 
 /datum/supply_pack/companies/mags_and_ammo/vitezstvi/grenade_shells/phosphor
 	contains = list(/obj/item/ammo_box/c980grenade/shrapnel/phosphor)
+	access = ACCESS_WEAPONS
 	access_view = ACCESS_WEAPONS
 	express_lock = TRUE
 	order_flags = ORDER_GOODY
