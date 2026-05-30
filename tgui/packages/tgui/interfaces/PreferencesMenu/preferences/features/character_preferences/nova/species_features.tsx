@@ -830,6 +830,8 @@ export const feature_fourarms: Feature<string> = {
 export const fourarms_color: Feature<string[]> = {
   name: 'Quad Arms Color',
   component: FeatureTriColorInput,
+};
+
 export const holo_color: Feature<string> = {
   name: 'Holosynth Color',
   component: FeatureColorInput,

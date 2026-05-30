@@ -37,10 +37,10 @@
 /mob/living/carbon/human/proc/change_number_of_arms(amt)
 	var/old_limbs = held_items.len
 	if(amt < old_limbs)
-		for(var/i in hand_bodyparts.len to amt step -1)
+		for(var/i in hand_bodyparts.len to amt + 1 step -1)
 			var/obj/item/bodypart/BP = hand_bodyparts[i]
 			if(i > 2)
-				remove_bodypart(BP)
+				remove_bodypart(BP, special = TRUE)
 				qdel(BP)
 			else
 				BP.dismember()
@@ -68,6 +68,7 @@
 						offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0, "northwest" = 0, "southwest" = 0, "northeast" = 0, "southeast" = 0),
 						offset_y = list("north" = -20, "south" = -20, "east" = -20, "west" = -20),
 					)
+
 				else
 					new_bodypart.held_hand_offset = new(
 						attached_part = new_bodypart,
