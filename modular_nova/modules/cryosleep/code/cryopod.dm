@@ -149,7 +149,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /// Adds an item from the frozen items list.
 /// Use this or you will get hard deletes.
 /obj/machinery/computer/cryopod/proc/freeze_item(obj/item/item)
-	SIGNAL_HANDLER
+	if(QDELETED(item))
+		return
 	LAZYADD(frozen_items, item)
 	RegisterSignal(item, COMSIG_QDELETING, PROC_REF(unfreeze_item))
 
@@ -448,8 +449,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 					for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
 						message_app.invisible = TRUE
 				mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
-				if(QDELETED(item_content))
-					continue
 				control_computer.freeze_item(item_content)
 			else
 				mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
