@@ -229,7 +229,7 @@
 
 // xray laser no wallbang variant
 /datum/crafting_recipe/laser/xraylaser
-	result = /obj/item/gun/energry/laser/xray/no_wallbang
+	result = /obj/item/gun/energy/laser/xray/no_wallbang
 
 /obj/item/gun/energy/laser/xray/no_wallbang
 	name = "\improper Type 6/RP X-ray laser gun"
