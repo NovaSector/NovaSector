@@ -78,11 +78,6 @@
 	item_path = /obj/item/storage/fancy/cigarettes/cigpack_candy
 	group = "Smoking"
 
-/datum/loadout_item/pocket_items/xenocig
-	name = "Xeno Filtered Cigarette Pack"
-	item_path = /obj/item/storage/fancy/cigarettes/cigpack_xeno
-	group = "Smoking"
-
 /datum/loadout_item/pocket_items/weedcig
 	name = "Freak Brothers' Special Cigarette Pack"
 	item_path = /obj/item/storage/fancy/cigarettes/cigpack_cannabis
