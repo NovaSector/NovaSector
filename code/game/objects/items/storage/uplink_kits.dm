@@ -481,7 +481,7 @@
 	new /obj/item/reagent_containers/cup/bottle/polonium(src)
 	new /obj/item/reagent_containers/cup/bottle/venom(src)
 	new /obj/item/reagent_containers/cup/bottle/fentanyl(src)
-	new /obj/item/reagent_containers/cup/bottle/formaldehyde(src)
+	new /obj/item/reagent_containers/cup/bottle/anacea(src)
 	new /obj/item/reagent_containers/cup/bottle/spewium(src)
 	new /obj/item/reagent_containers/cup/bottle/syndol(src)
 	new /obj/item/reagent_containers/cup/bottle/cyanide(src)
@@ -493,6 +493,11 @@
 	new /obj/item/reagent_containers/cup/bottle/curare(src)
 	new /obj/item/reagent_containers/cup/bottle/amanitin(src)
 	new /obj/item/reagent_containers/syringe(src)
+
+/obj/item/storage/box/syndie_kit/carnivorous_blood/PopulateContents()
+	new /obj/item/reagent_containers/cup/bottle/carnivorous_blood(src)
+	new /obj/item/reagent_containers/syringe(src)
+	new /obj/item/food/meat/slab/human(src)
 
 /obj/item/storage/box/syndie_kit/nuke
 	name = "nuke core extraction kit"

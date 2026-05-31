@@ -4,7 +4,7 @@
 	var/chemical_flags_nova = NONE
 
 /datum/reagent/drug/nicotine
-	addiction_types = list(/datum/addiction/nicotine = 4) // 1.6 per 2 seconds
+	addiction_types = list(/datum/addiction/nicotine = 40)
 
 /datum/reagent/toxin/pestkiller/expose_obj(obj/exposed_obj, reac_volume, methods=TOUCH, show_message=TRUE)
 	. = ..()

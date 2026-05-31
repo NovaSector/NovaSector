@@ -30,6 +30,8 @@
 	return draw_color
 
 /datum/bodypart_overlay/mutant/snout/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+	if(!..())
+		return FALSE
 	var/mob/living/carbon/human/human = bodypart_owner.owner
 	if(!istype(human))
 		return TRUE
@@ -538,7 +540,7 @@
 	icon_state = "acrador_short"
 	color_src = USE_MATRIXED_COLORS
 
-/datum/sprite_accessory/snouts/snouts/mammal/acrador/normal_1
+/datum/sprite_accessory/snouts/mammal/acrador/normal_1
 	name = "Acrador 1 (Normal)"
 	icon_state = "acrador_1"
 
@@ -554,7 +556,7 @@
 	name = "Acrador 4 (Normal)"
 	icon_state = "acrador_4"
 
-/datum/sprite_accessory/snouts/mammal/acrador/normal_1/alt
+/datum/sprite_accessory/snouts/mammal/acrador/alt
 	name = "Acrador (Short) (Alt)"
 	icon_state = "acrador_short_alt"
 

@@ -157,7 +157,6 @@
 		player_mob.AddComponent( \
 			/datum/component/temporary_body, \
 			old_mind = new_member_mind, \
-			old_body = new_member_mind.current, \
 		)
 
 	player_mob.ckey = new_team_member.ckey
@@ -462,11 +461,10 @@
 /obj/structure/table/reinforced/ctf
 	resistance_flags = INDESTRUCTIBLE
 
-/obj/structure/table/reinforced/ctf/wrench_act_secondary(mob/living/user, obj/item/tool)
-	return NONE
-
-/obj/structure/table/reinforced/ctf/screwdriver_act_secondary(mob/living/user, obj/item/tool)
-	return NONE
+/obj/structure/table/reinforced/ctf/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER, TOOL_ACT_SECONDARY)
+	AddElement(/datum/element/tool_blocker, TOOL_WRENCH, TOOL_ACT_SECONDARY)
 
 #define CTF_LOADING_UNLOADED 0
 #define CTF_LOADING_LOADING 1

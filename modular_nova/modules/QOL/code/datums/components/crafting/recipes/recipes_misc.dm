@@ -19,7 +19,7 @@
 /datum/crafting_recipe/doubletank
 	reqs = list(
 		/obj/item/tank/internals/emergency_oxygen/engi = 2,
-		/obj/item/stack/sticky_tape = 1,
+		/obj/item/stack/medical/wrap/sticky_tape = 1,
 	)
 	result = /obj/item/tank/internals/emergency_oxygen/double/empty/crafted
 	category = CAT_MISC

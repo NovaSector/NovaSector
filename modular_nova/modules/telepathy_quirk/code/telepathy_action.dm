@@ -79,7 +79,7 @@
 		blocked = FALSE
 		return
 
-	. = ..()
+	return ..()
 
 /datum/action/cooldown/spell/pointed/telepathy/cast(mob/living/cast_on)
 	. = ..()

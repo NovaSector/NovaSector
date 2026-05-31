@@ -13,10 +13,10 @@
 /// Amount of oxyloss that KOs a human
 #define OXYLOSS_PASSOUT_THRESHOLD 50
 //Blood levels
-#define BLOOD_VOLUME_MAX_LETHAL 2150
-#define BLOOD_VOLUME_EXCESS 2100
-#define BLOOD_VOLUME_MAXIMUM 1000 // NOVA EDIT - Blood volume balancing (mainly for Hemophages as nobody else really goes much above regular blood volume) - ORIGINAL VALUE: 2000
-#define BLOOD_VOLUME_SLIME_SPLIT 1120
+#define BLOOD_VOLUME_MAXIMUM 1000 // NOVA EDIT CHANGE - Blood volume balancing (mainly for Hemophages as nobody else really goes much above regular blood volume) - ORIGINAL: #define BLOOD_VOLUME_MAXIMUM 1000
+#define BLOOD_VOLUME_MAX_LETHAL (BLOOD_VOLUME_MAXIMUM * 1.075) // 2150 units if BLOOD_VOLUME_MAXIMUM is 2000
+#define BLOOD_VOLUME_EXCESS (BLOOD_VOLUME_MAXIMUM * 1.05) // 2100 units if BLOOD_VOLUME_MAXIMUM is 2000
+#define BLOOD_VOLUME_SLIME_SPLIT (BLOOD_VOLUME_MAXIMUM * 0.56) // 1120 units if BLOOD_VOLUME_MAXIMUM is 2000
 #define BLOOD_VOLUME_NORMAL 560
 #define BLOOD_VOLUME_SAFE (BLOOD_VOLUME_NORMAL * (1 - 0.15)) // Latter number is percentage of blood lost, for readability!
 #define BLOOD_VOLUME_OKAY (BLOOD_VOLUME_NORMAL * (1 - 0.30))
@@ -127,6 +127,26 @@
 ///The mob is all boney
 #define MOB_SKELETAL (1 << 15)
 
+/// Readable biotypes, keep this in the same order as the flags are
+#define MOB_BIOTYPES_READABLE list(\
+	"organic", \
+	"mineral", \
+	"robotic", \
+	"undead", \
+	"humanoid", \
+	"insectoid", \
+	"beast", \
+	"monstrous", \
+	"reptile", \
+	"spirit", \
+	"plant", \
+	"slime", \
+	"aquatic", \
+	"mining", \
+	"crustacean", \
+	"skeletal", \
+)
+
 //Lung respiration type flags
 #define RESPIRATION_OXYGEN (1 << 0)
 #define RESPIRATION_N2 (1 << 1)
@@ -153,16 +173,10 @@
 //This limb is a ghost limb and can phase through walls.
 #define BODYTYPE_GHOST (1<<8)
 // NOVA EDIT ADDITION START
-///The limb fits a modular custom shape
-#define BODYSHAPE_CUSTOM (1<<9)
-///The limb fits a taur body
-#define BODYSHAPE_TAUR (1<<10)
-///The limb causes shoes to no longer be displayed, useful for taurs.
-#define BODYSHAPE_HIDE_SHOES (1<<11)
-///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
-#define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<12)
 ///The limb is synthetic, this is for an additional surgery check.
-#define BODYTYPE_SYNTHETIC (1<<13)
+#define BODYTYPE_SYNTHETIC (1<<9)
+/// It's a ghoul limb, which is detachable
+#define BODYTYPE_GHOUL (1<<10)
 // NOVA EDIT ADDITION END
 
 // Bodyshape defines for how things can be worn, i.e., what "shape" the mob sprite is
@@ -176,9 +190,21 @@
 #define BODYSHAPE_SNOUTED (1<<3)
 /// Golem's wacky rocky limbs
 #define BODYSHAPE_GOLEM (1<<4)
+// NOVA EDIT ADDITION START
+///The limb fits a modular custom shape
+#define BODYSHAPE_CUSTOM (1<<5)
+///The limb fits a taur body
+#define BODYSHAPE_TAUR (1<<6)
+///The limb causes shoes to no longer be displayed, useful for taurs.
+#define BODYSHAPE_HIDE_SHOES (1<<7)
+///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
+#define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<8)
+// NOVA EDIT ADDITION END
 
-#define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
-#define BODYTYPE_CAN_BE_BIOSCRAMBLED(bodytype) (!(bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE))
+/// List of body part flags that can not be bioscrambled
+#define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG | BODYTYPE_GHOUL) // NOVA EDIT CHANGE - ORIGINAL: #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
+/// Check to see if a bodypart limb can be bioscrambled
+#define BODYPART_CAN_BE_BIOSCRAMBLED(bodypart) (!(bodypart.bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE) && !(bodypart.flags_1 & HOLOGRAM_1))
 
 // Defines for Species IDs. Used to refer to the name of a species, for things like bodypart names or species preferences.
 #define SPECIES_ABDUCTOR "abductor"
@@ -193,6 +219,7 @@
 #define SPECIES_HUMAN "human"
 #define SPECIES_JELLYPERSON "jelly"
 #define SPECIES_SLIMEPERSON "slime"
+#define SPECIES_SPIRIT "spirit"
 #define SPECIES_LUMINESCENT "luminescent"
 #define SPECIES_STARGAZER "stargazer"
 #define SPECIES_LIZARD "lizard"
@@ -210,6 +237,7 @@
 #define SPECIES_VAMPIRE "vampire"
 #define SPECIES_ZOMBIE "zombie"
 #define SPECIES_ZOMBIE_INFECTIOUS "memezombie"
+#define SPECIES_ZOMBIE_INFECTIOUS_MINDLESS "mindless_memezombie"
 #define SPECIES_ZOMBIE_KROKODIL "krokodil_zombie"
 #define SPECIES_VOIDWALKER "voidwalker"
 
@@ -483,7 +511,7 @@
 #define AGE_MIN 18 //youngest a character can be
 #define AGE_MAX 100 //oldest a character can be //NOVA EDIT CHANGE - Increase max character age to 100 - ORIGINAL: #define AGE_MAX 85 //oldest a character can be
 #define AGE_CHRONO_MAX 400 //NOVA EDIT ADDITION - Chronological age
-#define AGE_MINOR 20 //legal age of space drinking and smoking
+#define AGE_MINOR 18 //NOVA EDIT CHANGE - We dont use these features, and its easier to just patch it from here. Original: AGE_MINOR 20 //legal age of space drinking and smoking
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
 #define APPRENTICE_AGE_MIN 29 //youngest an apprentice can be
 
@@ -626,6 +654,9 @@
 #define EXAMINE_MORE_WINDOW (1 SECONDS)
 /// If you yawn while someone nearby has examined you within this time frame, it will force them to yawn as well. Tradecraft!
 #define YAWN_PROPAGATION_EXAMINE_WINDOW (2 SECONDS)
+
+// Priorities for examine overrides
+#define EXAMINE_OVERRIDE_PRIORITY_IFF 1
 
 /// How far away you can be to make eye contact with someone while examining
 #define EYE_CONTACT_RANGE 5
@@ -862,7 +893,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	"[HEAD_LAYER]" = UPPER_BODY,
 	// Hair will get cut off by filter
 	"[HAIR_LAYER]" = UPPER_BODY,
-	"[BENEATH_HAIR_LAYER]" = UPPER_BODY,
+	// Doesn't do much
+	"[EYES_LAYER]" = UPPER_BODY,
 	// Long belts (sabre sheathe) will get cut off by filter
 	"[BELT_LAYER]" = LOWER_BODY,
 	// Everything below looks fine with or without a filter, so we can skip it and just offset
@@ -879,6 +911,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	"[ID_LAYER]" = UPPER_BODY,
 	"[FACEMASK_LAYER]" = UPPER_BODY,
 	"[LOW_FACEMASK_LAYER]" = UPPER_BODY,
+	"[BENEATH_HAIR_LAYER]" = UPPER_BODY, // alt mask layer
 	// These two are cached, and have their appearance shared(?), so it's safer to just not touch it
 	"[MUTATIONS_LAYER]" = NO_MODIFY,
 	"[FRONT_MUTATIONS_LAYER]" = NO_MODIFY,
@@ -887,7 +920,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	// BACK_LAYER (backpacks are big)
 	// BODYPARTS_HIGH_LAYER (arms)
 	// BODY_LAYER (body markings (full body), underwear (full body))
-	// EYES_LAYER,
 	// BODY_ADJ_LAYER (external organs like wings)
 	// BODY_BEHIND_LAYER (external organs like wings)
 	// BODY_FRONT_LAYER (external organs like wings)
@@ -1002,6 +1034,14 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define NO_BUCKLE_LYING -1
 /// Possible value of [/atom/movable/buckle_dir]. If set to a different (positive-or-zero) value than this, the buckling thing will force a dir on the buckled.
 #define BUCKLE_MATCH_DIR -1
+
+// Defines for [/datum/component/riding/var/other_unbuckle]
+/// Other mobs cannot force riders to unbuckle in any means
+#define CANNOT_FORCE_UNBUCKLE 0
+/// Other mobs can force riders to unbuckle by simply clicking on the parent
+#define CAN_FORCE_UNBUCKLE 1
+/// Other mobs can force riders to unbuckle by disarming the parent or the rider minimum twice
+#define CAN_DISARM_UNBUCKLE 2
 
 // Flags for fully_heal().
 

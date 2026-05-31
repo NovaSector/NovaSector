@@ -8,6 +8,11 @@
 	interaction_flags_mouse_drop = NEED_DEXTERITY
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 2)
 
+
+/obj/structure/rack/wooden/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/tool_blocker, TOOL_WRENCH, TOOL_ACT_SECONDARY)
+
 /obj/structure/rack/wooden/mouse_drop_receive(atom/dropping, mob/user, params)
 	if ((!isitem(dropping) || user.get_active_held_item() != dropping))
 		return
@@ -24,9 +29,6 @@
 
 	dropping.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(ICON_SIZE_X / 3), ICON_SIZE_X / 3)
 	dropping.pixel_y = text2num(LAZYACCESS(modifiers, ICON_Y)) > 16 ? 10 : -4
-
-/obj/structure/rack/wooden/wrench_act_secondary(mob/living/user, obj/item/tool)
-	return NONE
 
 /obj/structure/rack/wooden/crowbar_act(mob/living/user, obj/item/tool)
 	user.balloon_alert_to_viewers("disassembling...")
@@ -78,18 +80,11 @@
 	if(type == /obj/machinery/smartfridge/wooden) // don't even let these prototypes exist
 		return INITIALIZE_HINT_QDEL
 
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
+
 /obj/machinery/smartfridge/wooden/visible_items()
 	return contents.len
-
-// formerly NO_DECONSTRUCTION
-/obj/machinery/smartfridge/wooden/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/smartfridge/wooden/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
-	return NONE
-
-/obj/machinery/smartfridge/wooden/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
-	return NONE
 
 /obj/machinery/smartfridge/wooden/crowbar_act(mob/living/user, obj/item/tool)
 	user.balloon_alert_to_viewers("disassembling...")

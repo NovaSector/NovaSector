@@ -136,7 +136,7 @@
 			. += heat_overlay
 
 		if(!active && !jammed && rod_mix.gases[/datum/gas/tritium])
-			var/meter_icon_num = CEILING( min(rod_mix.gases[/datum/gas/tritium][MOLES] / 10, 1) * 5, 1)
+			var/meter_icon_num = ceil( min(rod_mix.gases[/datum/gas/tritium][MOLES] / 10, 1) * 5)
 			if(meter_icon_num > 0)
 				var/rod_mix_pressure = rod_mix.return_pressure()
 				var/mutable_appearance/meter_overlay = mutable_appearance(icon, "platform_rod_glow_[meter_icon_num]")
@@ -586,10 +586,11 @@
 
 	return TRUE
 
-/obj/machinery/power/rbmk2/proc/shock(mob/living/victim, shock_multiplier = 1)
+/obj/machinery/power/rbmk2/shock(mob/living/victim, mob/living/shocking, chance, shock_source, siemens_coeff)
 	if(!powernet)
 		return FALSE
-	if(!electrocute_mob(victim, powernet, src, shock_multiplier, TRUE))
+	if(machine_stat & (BROKEN|NOPOWER))
 		return FALSE
-	do_sparks(5, TRUE, src)
-	return TRUE
+	if(isnull(siemens_coeff))
+		siemens_coeff = 0.7
+	return ..()

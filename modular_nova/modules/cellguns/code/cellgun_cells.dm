@@ -31,9 +31,3 @@
 		. += span_noticealien("Using this on a cell-based gun will unlock the [shot_name] firing mode.")
 	return .
 
-/obj/item/weaponcell/attack_self(mob/living/user)
-	if(refresh_shot_name())
-		balloon_alert(user, "set to [shot_name]")
-
-	return
-

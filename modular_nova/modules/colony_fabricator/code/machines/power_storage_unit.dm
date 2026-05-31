@@ -16,33 +16,13 @@
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 	// we dont use parts, but we need at least one cell to hold charge for us
 	var/obj/item/stock_parts/power_store/battery/megacell = locate() in component_parts
 	megacell.maxcharge = total_capacity
 
 	if(!mapload)
 		flick("smes_deploy", src)
-
-/obj/machinery/power/smes/battery_pack/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
-	if(screwdriver.tool_behaviour != TOOL_SCREWDRIVER)
-		return FALSE
-
-	screwdriver.play_tool_sound(src, 50)
-	toggle_panel_open()
-	if(panel_open)
-		icon_state = icon_state_open
-		to_chat(user, span_notice("You open the maintenance hatch of [src]."))
-	else
-		icon_state = icon_state_closed
-		to_chat(user, span_notice("You close the maintenance hatch of [src]."))
-	return TRUE
-
-// formerly NO_DECONSTRUCTION
-/obj/machinery/power/smes/battery_pack/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
-	return NONE
-
-/obj/machinery/power/smes/battery_pack/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
-	return NONE
 
 // We don't care about the parts updates because we don't want them to change
 /obj/machinery/power/smes/battery_pack/RefreshParts()

@@ -53,6 +53,11 @@
 	if(holomark_adv)
 		. += span_notice("The item depth is [target_excavation_level] cm.")
 	. += span_notice("[measured ? "This boulder has been measured. Dug Depth: [excavation_level]." : "This boulder has not been measured."]")
+	var/datum/component/gps/our_gps = GetComponent(/datum/component/gps)
+	if(our_gps)
+		. += span_notice("A holotag's been attached, projecting \"<b>[artifact_id]</b>\".")
+	else
+		. += span_notice("It looks like you could probably scan and tag it with a <b>mining scanner</b> of some kind.")
 
 /obj/structure/boulder/Initialize(mapload)
 	. = ..()
@@ -80,7 +85,7 @@
 		"Chlorine diffusion emissions",
 		"Phoron saturated field",
 	))
-	artifact_id = "[pick("kappa","sigma","antaeres","beta","omicron","iota","epsilon","omega","gamma","delta","tau","alpha","fluffy","zeta")]-[rand(0,9999)]"
+	artifact_id = "[pick("Kappa","Sigma","Antaeres","Beta","Omicron","Iota","Epsilon","Omega","Gamma","Delta","Tau","Alpha","Fluffy","Zeta")]-[rand(0,9999)]"
 
 /**
  * Spawns artifact and check for it's stabilization status.
@@ -175,8 +180,21 @@
 	try_dig(1)
 	return BRUSH_NONE
 
+/// Tag the debris, giving it a GPS identifier.
+/obj/structure/boulder/proc/gps_tag(mob/user)
+	var/datum/component/gps/our_gps = GetComponent(/datum/component/gps)
+	if(our_gps)
+		to_chat(user, span_warning("[src] already has a holotag attached!"))
+		return
+	to_chat(user, span_notice("You affix a holotag to [src]."))
+	playsound(src, 'sound/machines/beep/twobeep.ogg', 100)
+	AddComponent(/datum/component/gps, "\[[artifact_id]\] Xenoarch Debris")
+
 /obj/structure/boulder/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
+	if(istype(attacking_item, /obj/item/mining_scanner) || istype(attacking_item, /obj/item/t_scanner/adv_mining_scanner))
+		gps_tag(user)
+		return TRUE
 	if(istype(attacking_item, /obj/item/pickaxe))
 		user.visible_message(
 			span_notice("[user] begins smashing the [src]..."),
@@ -288,7 +306,7 @@
 			if(BRUSH_NONE)
 				to_chat(user, span_notice("You brush around the item, but it wasn't revealed... hammer some more."))
 
-	if(istype(attacking_item, /obj/item/xenoarch/handheld_recoverer))
+	if(istype(attacking_item, /obj/item/xenoarch/handheld_radar))
 		to_chat(user, span_warning("The boulder must be stabilized using a different tool."))
 
 	if(istype(attacking_item, /obj/item/xenoarch/core_sampler))

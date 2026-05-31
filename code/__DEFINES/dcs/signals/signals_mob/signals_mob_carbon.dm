@@ -32,9 +32,9 @@
 ///from /obj/item/bodypart/proc/receive_damage, sent from the limb owner (limb, brute, burn)
 #define COMSIG_CARBON_LIMB_DAMAGED "carbon_limb_damaged"
 	#define COMPONENT_PREVENT_LIMB_DAMAGE (1 << 0)
-/// from /obj/item/bodypart/proc/apply_gauze(/obj/item/stack/gauze): (/obj/item/stack/medical/gauze/applied_gauze, /obj/item/stack/medical/gauze/stack_used)
+/// from /obj/item/bodypart/proc/apply_gauze(/obj/item/stack/gauze): (/obj/item/stack/medical/wrap/gauze/applied_gauze, /obj/item/stack/medical/wrap/gauze/stack_used)
 #define COMSIG_BODYPART_GAUZED "bodypart_gauzed"
-/// from /obj/item/stack/medical/gauze/Destroy(): (/obj/item/stack/medical/gauze/removed_gauze)
+/// from /obj/item/stack/medical/wrap/gauze/Destroy(): (/obj/item/stack/medical/wrap/gauze/removed_gauze)
 #define COMSIG_BODYPART_UNGAUZED "bodypart_ungauzed"
 
 /// Called from bodypart changing owner, which could be on attach or detachment. Either argument can be null. (mob/living/carbon/new_owner, mob/living/carbon/old_owner)
@@ -63,7 +63,7 @@
 /// Sent to a limb when something *attempts* to change its surgery state (old_state, new_state, changed_states)
 #define COMSIG_BODYPART_UPDATING_SURGERY_STATE "bodypart_updating_surgery_state"
 
-/// Called from /obj/item/bodypart/proc/get_limb_icon(dropped, mob/living/carbon/update_on) : (list/limb_icons, dropped, mob/living/carbon/update_on)
+/// Called from /obj/item/bodypart/proc/get_limb_icon(dropped) : (list/limb_icons, dropped, mob/living/carbon/update_on)
 #define COMSIG_BODYPART_GET_LIMB_ICON "bodypart_get_limb_icon"
 
 /// Called from /obj/item/bodypart/proc/generate_icon_key() : (list/icon_keys)
@@ -205,3 +205,10 @@
 #define COMSIG_HUMAN_NON_STORAGE_HOTKEY "human_storage_hotkey"
 	/// Return to prevent the storage fail message
 	#define COMPONENT_STORAGE_HOTKEY_HANDLED (1<<0)
+
+/// Before a mob starts dreaming - you can add dream datums to the dream pool to override the selection: (list/dream_pool)
+#define COMSIG_PRE_DREAMING "pre_dreaming"
+/// A mob has started dreaming: (datum/dream/current_dream)
+#define COMSIG_START_DREAMING "start_dreaming"
+/// A mob has finished dreaming: (datum/dream/finished_dream)
+#define COMSIG_END_DREAMING "end_dreaming"

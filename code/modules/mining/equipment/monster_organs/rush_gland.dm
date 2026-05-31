@@ -34,7 +34,9 @@
 
 /obj/item/organ/monster_core/rush_gland/proc/trigger_organ_action_on_sig(datum/source)
 	SIGNAL_HANDLER
+
 	INVOKE_ASYNC(src, PROC_REF(trigger_organ_action))
+	return COMPONENT_GOLIATH_CANCEL_TENTACLE_GRAB
 
 /**
  * Status effect: Makes you run faster and ignore damage speed penalties for a short duration.
@@ -51,7 +53,7 @@
 /atom/movable/screen/alert/status_effect/lobster_rush
 	name = "Lobster Rush"
 	desc = "Adrenaline is surging through you!"
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "lobster"
 
 /datum/status_effect/lobster_rush/on_apply()

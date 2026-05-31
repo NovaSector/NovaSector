@@ -9,6 +9,10 @@
 /datum/surgery_operation/organ/proc/make_operable(obj/item/organ/organ)
 	REMOVE_TRAIT(organ, TRAIT_ORGAN_OPERATED_ON, TRAIT_GENERIC)
 
+/datum/surgery_operation/basic
+	/// Body type blocked from performing this operation
+	var/blocked_bodytype = NONE
+
 /datum/surgery_operation/limb
 	/// Body type blocked from performing this operation
 	var/blocked_bodytype = NONE

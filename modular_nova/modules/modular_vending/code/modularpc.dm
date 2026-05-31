@@ -32,4 +32,5 @@
 		/obj/item/disk/neuroware/thc = 2,
 		/obj/item/disk/neuroware/mushroomhallucinogen = 2,
 		/obj/item/disk/neuroware/mindbreaker = 3,
+		/obj/item/disk/neuroware/twitch = 2,
 	)

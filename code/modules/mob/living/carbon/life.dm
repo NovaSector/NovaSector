@@ -35,7 +35,7 @@
 
 		if(stat != DEAD) // still not dead (blood could have changed that)
 			for(var/key in mind?.addiction_points)
-				SSaddiction.all_addictions[key].process_addiction(src, seconds_per_tick)
+				GLOB.addictions[key].process_addiction(src, seconds_per_tick)
 			handle_brain_damage(seconds_per_tick)
 
 	if(stat != DEAD)
@@ -87,8 +87,10 @@
 
 	var/datum/gas_mixture/breath
 
-	if(!get_organ_slot(ORGAN_SLOT_BREATHING_TUBE))
-		if(health <= HEALTH_THRESHOLD_FULLCRIT || (pulledby?.grab_state >= GRAB_KILL) || (lungs?.organ_flags & ORGAN_FAILING))
+	if(lungs?.organ_flags & ORGAN_FAILING)
+		losebreath++
+	else if(!get_organ_slot(ORGAN_SLOT_BREATHING_TUBE))
+		if(health <= HEALTH_THRESHOLD_FULLCRIT || pulledby?.grab_state >= GRAB_KILL)
 			losebreath++  //You can't breath at all when in critical or when being choked, so you're going to miss a breath
 
 		else if(health <= crit_threshold)
@@ -536,7 +538,7 @@
 	return COMPONENT_NO_EXPOSE_REAGENTS
 
 /mob/living/carbon/proc/handle_bodyparts(seconds_per_tick)
-	for(var/obj/item/bodypart/limb as anything in bodyparts)
+	for(var/obj/item/bodypart/limb as anything in get_bodyparts(include_stumps = TRUE))
 		. |= limb.on_life(seconds_per_tick)
 
 /mob/living/carbon/proc/handle_organs(seconds_per_tick)
@@ -602,6 +604,21 @@
 					dna.previous.Remove("blood_type")
 				LAZYREMOVE(dna.temporary_mutations, mut)
 				continue
+
+/**
+ * Returns a multiplier representing how effectively this mob can regenerate blood
+ *
+ * A return value of 0 means the mob cannot regenerate blood at all. (missing heart or the heart has stopped or is failing)
+ * Mobs that do not require a heart always return 1, as their blood regeneration is unaffected by heart status.
+ */
+/mob/living/carbon/proc/get_heart_blood_regeneration_multiplier()
+	if(!needs_heart())
+		return 1
+	var/obj/item/organ/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
+	if(isnull(heart))
+		return 0
+
+	return heart.get_blood_regeneration_multiplier()
 
 /**
  * Handles calling metabolization for dead people.

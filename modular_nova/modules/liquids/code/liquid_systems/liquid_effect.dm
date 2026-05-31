@@ -336,7 +336,7 @@
 	color = mix_color_from_reagent_list(reagent_list)
 
 /obj/effect/abstract/liquid_turf/proc/calculate_height()
-	var/new_height = CEILING(total_reagents, 1)/LIQUID_HEIGHT_DIVISOR
+	var/new_height = ceil(total_reagents)/LIQUID_HEIGHT_DIVISOR
 	set_height(new_height)
 	var/determined_new_state
 	//We add the turf height if it's positive to state calculations
@@ -357,7 +357,7 @@
 		set_new_liquid_state(determined_new_state)
 
 /obj/effect/abstract/liquid_turf/immutable/calculate_height()
-	var/new_height = CEILING(total_reagents, 1)/LIQUID_HEIGHT_DIVISOR
+	var/new_height = ceil(total_reagents)/LIQUID_HEIGHT_DIVISOR
 	set_height(new_height)
 	var/determined_new_state
 	switch(new_height)

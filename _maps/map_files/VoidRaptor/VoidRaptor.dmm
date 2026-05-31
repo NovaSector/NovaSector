@@ -2813,6 +2813,7 @@
 /area/station/service/chapel/funeral)
 "aOs" = (
 /obj/structure/window/reinforced/spawner/directional/south,
+/obj/effect/spawner/random/gizmo,
 /turf/open/floor/engine,
 /area/station/science/explab)
 "aOI" = (
@@ -14877,7 +14878,7 @@
 /area/station/cargo/drone_bay)
 "ent" = (
 /obj/structure/table/glass,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/radio/intercom/directional/west{
 	pixel_y = 6;
 	pixel_x = -28
@@ -17182,7 +17183,7 @@
 	},
 /obj/effect/turf_decal/tile/blue/full,
 /obj/structure/window/spawner/directional/west,
-/obj/item/stack/sticky_tape/surgical,
+/obj/item/stack/medical/wrap/sticky_tape/surgical,
 /obj/item/stack/medical/bone_gel,
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/machinery/light/cold/directional/north,
@@ -30240,7 +30241,7 @@
 	name = "Medbay Requests Console"
 	},
 /obj/structure/table/glass,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/stack/medical/mesh,
 /obj/item/stack/medical/suture,
 /obj/effect/turf_decal/stripes/line{
@@ -39786,7 +39787,7 @@
 /area/station/security/office)
 "llk" = (
 /obj/structure/table,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/stack/medical/mesh,
 /obj/item/stack/medical/suture,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -44492,7 +44493,7 @@
 "mAQ" = (
 /obj/structure/table/reinforced/rglass,
 /obj/machinery/door/firedoor,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/item/stack/medical/mesh,
 /obj/item/stack/medical/suture,
 /obj/machinery/door/poddoor/shutters/window/preopen{
@@ -57049,7 +57050,7 @@
 /turf/open/floor/pod/dark,
 /area/station/service/chapel)
 "pVK" = (
-/mob/living/simple_animal/bot/secbot/beepsky/armsky,
+/mob/living/basic/bot/secbot/beepsky/armsky,
 /obj/effect/landmark/event_spawn,
 /obj/machinery/holopad/secure,
 /obj/effect/turf_decal/bot,
@@ -72470,7 +72471,7 @@
 /area/station/hallway/secondary/command)
 "ueg" = (
 /obj/machinery/airalarm/directional/south,
-/mob/living/simple_animal/bot/secbot/pingsky,
+/mob/living/basic/bot/secbot/pingsky,
 /obj/structure/railing{
 	dir = 4
 	},
@@ -76831,7 +76832,7 @@
 /turf/closed/wall/r_wall,
 /area/station/medical/virology)
 "vnv" = (
-/mob/living/simple_animal/bot/secbot/beepsky/officer,
+/mob/living/basic/bot/secbot/beepsky/officer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/office)
 "vnO" = (
@@ -81372,7 +81373,7 @@
 	pixel_y = 3
 	},
 /obj/item/book/manual/wiki/surgery,
-/obj/item/stack/medical/gauze,
+/obj/item/stack/medical/wrap/gauze,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
