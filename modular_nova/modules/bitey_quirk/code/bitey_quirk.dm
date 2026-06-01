@@ -4,10 +4,12 @@
 	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bite_off"
 	check_flags = AB_CHECK_CONSCIOUS
+///Prevents biting from stacking with cat tongue bonuses - we use this to track whether we've applied our own bonuses or if the cat tongue is providing them so we know whether to remove them if the cat tongue is removed or if we deactivate bite mode.
 	var/bite_bonuses_applied = FALSE
 
 /// Randomly picks a name from the ability_name list for flavor
 /datum/action/innate/toggle_bite/New(Target)
+/// This is just for fun - gives a random name to the bite action each time it's created for some variety and flavor. It doesn't affect functionality at all.
 	var/list/ability_name = list(
 		"Go Feral",
 		"Show Your Rage",
@@ -67,7 +69,7 @@
 	remove_bite_bonuses(head)
 
 	REMOVE_TRAIT(human_owner, TRAIT_FERAL_BITER, REF(src))
-	
+
 	if(QDELETED(human_owner))
 		return
 
@@ -92,15 +94,6 @@
 		return
 	if(!istype(source, /mob/living/carbon/human))
 		return
-
-	var/obj/item/bodypart/head/head = recipient.get_bodypart(BODY_ZONE_HEAD)
-	if(isnull(head))
-		return
-
-	if(istype(organ_gained, /obj/item/organ/tongue/cat))
-		remove_bite_bonuses(head)
-		UnregisterSignal(recipient, COMSIG_CARBON_GAIN_ORGAN)
-		RegisterSignal(recipient, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(check_removed_organ))
 
 /**
  * Signal handler for when an organ is removed from the mob.
