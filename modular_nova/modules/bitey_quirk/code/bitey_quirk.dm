@@ -19,7 +19,7 @@
  */
 /datum/action/innate/toggle_bite/Activate()
 	var/mob/living/carbon/human/human_owner = owner
-	if(!ishuman(human_owner))
+	if(!istype(human_owner))
 		return
 
 	// Can't bite without a head
