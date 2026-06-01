@@ -76471,11 +76471,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
-"uwJ" = (
-/obj/structure/cable,
-/obj/structure/cable,
-/turf/open/floor/plating/snowed/smoothed/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "uwN" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -268831,7 +268826,7 @@ jcZ
 jcZ
 jcZ
 aIO
-uwJ
+stA
 tvO
 jcZ
 oaq
