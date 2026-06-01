@@ -4,7 +4,6 @@
 	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bite_off"
 	check_flags = AB_CHECK_CONSCIOUS
-	var/list/ability_name = list("Go Feral", "Show Your Rage", "Shred Them", "Gremlin Mode", "Nom Mode", "Dehumanize Yourself", "Misbehave")
 	var/bite_bonuses_applied = FALSE
 
 /// Randomly picks a name from the ability_name list for flavor
