@@ -222,7 +222,7 @@
 	// Apply the biter trait temporarily
 	ADD_TRAIT(attacker, TRAIT_FERAL_BITER, "bitey_snap")
 	// Remove it after the attack resolves (1 decisecond)
-	addtimer(CALLBACK(src, PROC_REF(remove_random_bite_trait), attacker), 1)
+	addtimer(CALLBACK(src, PROC_REF(remove_random_bite_trait), attacker), 0.1 SECONDS)
 	// Optional flavor message
 	if(prob(50))
 		attacker.visible_message(span_danger("[attacker] suddenly snaps at [defender]!"), \
