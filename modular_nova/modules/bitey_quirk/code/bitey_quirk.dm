@@ -78,7 +78,8 @@
 		Deactivate()
 	return ..()
 
-/datum/action/innate/toggle_bite/proc/check_added_organ(mol, org)
+/datum/action/innate/toggle_bite/proc/check_added_organ(mob/living/carbon/source, obj/item/organ/organ_gained, special)
+	SIGNAL_HANDLER
 	if(!active || !bite_bonuses_applied)
 		return
 	if(!istype(mol, /mob/living/carbon/human))
