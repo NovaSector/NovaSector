@@ -82,10 +82,9 @@
 	SIGNAL_HANDLER
 	if(!active || !bite_bonuses_applied)
 		return
-	if(!istype(mol, /mob/living/carbon/human))
+	if(!istype(source, /mob/living/carbon/human))
 		return
-	var/mob/living/carbon/human/recipient = mol
-	var/obj/item/organ/organ_gained = org
+
 	var/obj/item/bodypart/head/head = recipient.get_bodypart(BODY_ZONE_HEAD)
 	if(isnull(head))
 		return
