@@ -8,6 +8,15 @@
 
 /// Randomly picks a name from the ability_name list for flavor
 /datum/action/innate/toggle_bite/New(Target)
+	var/list/ability_name = list(
+		"Go Feral",
+		"Show Your Rage",
+		"Shred Them",
+		"Gremlin Mode",
+		"Nom Mode",
+		"Dehumanize Yourself",
+		"Misbehave",
+	)
 	name = pick(ability_name)
 	return ..()
 
