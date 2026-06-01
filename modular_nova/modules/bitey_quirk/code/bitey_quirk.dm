@@ -49,7 +49,7 @@
 /datum/action/innate/toggle_bite/Deactivate()
 	UnregisterSignal(owner, list(COMSIG_CARBON_GAIN_ORGAN, COMSIG_CARBON_LOSE_ORGAN))
 	var/mob/living/carbon/human/human_owner = owner
-	if(!ishuman(human_owner))
+	if(!istype(human_owner))
 		return
 
 	var/obj/item/bodypart/head/head = human_owner.get_bodypart(BODY_ZONE_HEAD)
