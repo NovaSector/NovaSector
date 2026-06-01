@@ -21,7 +21,6 @@
 	lowering_to_configuration_key = /datum/config_entry/string/alert_delta_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_delta_upto
 	sound = 'modular_nova/modules/alerts/sound/security_levels/delta.ogg'
-	looping_sound_interval = 8 SECONDS
 	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
 
