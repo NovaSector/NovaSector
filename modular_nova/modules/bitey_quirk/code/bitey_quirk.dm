@@ -103,7 +103,7 @@
  * * loser - The mob that lost the organ
  * * organ_lost - The organ that was removed
  */
-/datum/action/innate/toggle_bite/proc/check_removed_organ(mob/living/carbon/human/loser, obj/item/organ/organ_lost)
+/datum/action/innate/toggle_bite/proc/check_removed_organ(mob/living/carbon/human/loser, obj/item/organ/organ_lost, special)
 	SIGNAL_HANDLER
 
 	if(!active)
