@@ -59,6 +59,9 @@
 	remove_bite_bonuses(head)
 
 	REMOVE_TRAIT(human_owner, TRAIT_FERAL_BITER, REF(src))
+	
+	if(QDELETED(human_owner))
+		return
 
 	active = FALSE
 	background_icon_state = "bg_default"
