@@ -3,8 +3,6 @@
 	desc = "Toggle whether you bite instead of doing unarmed attacks."
 	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bite_off"
-	base_background_icon_state = "bg_default"
-	active_background_icon_state = "bg_default_on"
 	check_flags = AB_CHECK_CONSCIOUS
 	///Prevents biting from stacking with cat tongue bonuses - we use this to track whether we've applied our own bonuses or if the cat tongue is providing them so we know whether to remove them if the cat tongue is removed or if we deactivate bite mode.
 	var/bite_bonuses_applied = FALSE
@@ -50,6 +48,7 @@
 	ADD_TRAIT(human_owner, TRAIT_FERAL_BITER, REF(src))
 
 	active = TRUE
+	background_icon_state = "bg_default_on"
 	button_icon_state = "bite_on"
 	to_chat(human_owner, span_notice("You will bite when making an unarmed attack."))
 	build_all_button_icons()
@@ -75,6 +74,7 @@
 		return
 
 	active = FALSE
+	background_icon_state = "bg_default"
 	button_icon_state = "bite_off"
 	to_chat(human_owner, span_notice("You will make unarmed attacks normally."))
 	build_all_button_icons()
