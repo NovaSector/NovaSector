@@ -15,6 +15,11 @@
 	desc = "A midnight blue kilt, padded with nano-kevlar and adorned with gold and a tartan sash."
 	icon_state = "capkilt"
 
+/obj/item/clothing/under/rank/captain/nova/lewd
+	name = "captain's lewd outfit"
+	desc = "What? How'd this get here..."
+	icon_state = "lewdcap"
+
 /obj/item/clothing/under/imperial/captain
 	name = "captain's naval jumpsuit"
 	desc = "A white naval suit adorned with a gold rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
