@@ -38,7 +38,7 @@
 	/// What type of span class do we change heard speech to?
 	var/speech_effect_span
 	/// How much the mob heating is multiplied by, if the target is a robot or has muscled veins
-	var/mob_heating_muliplier = 2
+	var/mob_heating_muliplier = 2.25
 
 
 /datum/reagent/drug/twitch/on_mob_metabolize(mob/living/our_guy)
