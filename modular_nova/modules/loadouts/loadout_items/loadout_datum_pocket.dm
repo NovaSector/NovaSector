@@ -63,7 +63,6 @@
 	item_path = /obj/item/storage/fancy/cigarettes/cigpack_robustgold
 	group = "Smoking"
 
-
 /datum/loadout_item/pocket_items/midori
 	name = "Midori Cigarette Pack"
 	item_path = /obj/item/storage/fancy/cigarettes/cigpack_midori
