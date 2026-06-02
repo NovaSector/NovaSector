@@ -4,12 +4,12 @@
 	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bite_off"
 	check_flags = AB_CHECK_CONSCIOUS
-///Prevents biting from stacking with cat tongue bonuses - we use this to track whether we've applied our own bonuses or if the cat tongue is providing them so we know whether to remove them if the cat tongue is removed or if we deactivate bite mode.
+	///Prevents biting from stacking with cat tongue bonuses - we use this to track whether we've applied our own bonuses or if the cat tongue is providing them so we know whether to remove them if the cat tongue is removed or if we deactivate bite mode.
 	var/bite_bonuses_applied = FALSE
 
-/// Randomly picks a name from the ability_name list for flavor
+// Randomly picks a name from the ability_name list for flavor
 /datum/action/innate/toggle_bite/New(Target)
-/// This is just for fun - gives a random name to the bite action each time it's created for some variety and flavor. It doesn't affect functionality at all.
+	/// This is just for fun - gives a random name to the bite action each time it's created for some variety and flavor. It doesn't affect functionality at all.
 	var/list/ability_name = list(
 		"Go Feral",
 		"Show Your Rage",
