@@ -29,6 +29,8 @@
 				/obj/item/clothing/under/costume/playbunny/greyscale = 6,
 				/obj/item/clothing/under/costume/playbunny/magician = 6,
 				/obj/item/clothing/under/costume/playbunny/usa = 6,
+				/obj/item/clothing/head/helmet/glassdome = 6,
+				/obj/item/clothing/under/camo/gags = 6,
 			),
 		),
 		list(
@@ -87,6 +89,8 @@
 				/obj/item/clothing/suit/apron/overalls = 1,
 				/obj/item/clothing/head/costume/maid_headband = 1,
 				/obj/item/clothing/under/costume/maid = 1,
+				/obj/item/clothing/under/costume/nova/maid_uniform = 1,
+				/obj/item/clothing/under/costume/nova/maid_uniform_alt = 1,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 1,
 				/obj/item/clothing/accessory/maidapron = 1,
 				/obj/item/clothing/gloves/maid_arm_covers = 1,

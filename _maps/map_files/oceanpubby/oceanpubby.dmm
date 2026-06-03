@@ -148,6 +148,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/circuit,
 /area/station/ai/satellite/chamber)
 "aaO" = (
@@ -408,6 +409,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/circuit,
 /area/station/ai/satellite/chamber)
 "acD" = (
@@ -425,6 +427,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/structure/cable/layer3,
 /turf/open/floor/circuit,
 /area/station/ai/satellite/chamber)
 "acF" = (
@@ -471,6 +474,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/white,
 /area/station/ai/satellite/chamber)
 "acM" = (
@@ -527,6 +531,7 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/airlock/access/any/science/minisat,
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/chamber)
 "add" = (
@@ -748,6 +753,7 @@
 	cycle_id = "ai-sat-center"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/science/minisat,
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "adO" = (
@@ -921,6 +927,7 @@
 	cycle_id = "ai-sat-center"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/science/minisat,
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "aeR" = (
@@ -1047,6 +1054,7 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "afg" = (
@@ -1062,6 +1070,7 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "afh" = (
@@ -1185,7 +1194,6 @@
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "afz" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
 	},
@@ -1197,6 +1205,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "afE" = (
@@ -1374,7 +1383,6 @@
 	department = "AI";
 	name = "AI Satellite Requests Console"
 	},
-/obj/structure/cable/multilayer/connected,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
 	},
@@ -1387,6 +1395,7 @@
 /obj/structure/transit_tube/station/dispenser/reverse/flipped{
 	dir = 4
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/plating,
 /area/station/ai/satellite/interior)
 "agi" = (
@@ -1449,6 +1458,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/plating,
 /area/station/ai/satellite/interior)
 "agv" = (
@@ -1485,6 +1495,7 @@
 "agE" = (
 /obj/structure/window/reinforced/fulltile,
 /obj/structure/transit_tube,
+/obj/structure/cable/layer3,
 /turf/open/floor/plating,
 /area/station/ai/satellite/interior)
 "agF" = (
@@ -1538,6 +1549,7 @@
 "agS" = (
 /obj/structure/transit_tube,
 /obj/structure/lattice/catwalk,
+/obj/structure/cable/layer3,
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/ocean)
 "agX" = (
@@ -1624,6 +1636,7 @@
 "ahs" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/transit_tube,
+/obj/structure/cable/layer3,
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/ocean)
 "aht" = (
@@ -1749,6 +1762,7 @@
 "ahR" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/transit_tube/crossing,
+/obj/structure/cable/layer3,
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/ocean)
 "ahS" = (
@@ -2812,6 +2826,7 @@
 "alO" = (
 /obj/structure/transit_tube/diagonal,
 /obj/structure/lattice/catwalk,
+/obj/structure/cable/layer3,
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/ocean)
 "alQ" = (
@@ -2997,11 +3012,13 @@
 "amB" = (
 /obj/structure/transit_tube/crossing/horizontal,
 /obj/structure/lattice/catwalk,
+/obj/structure/cable/layer3,
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/ocean)
 "amC" = (
 /obj/structure/transit_tube/horizontal,
 /obj/structure/lattice/catwalk,
+/obj/structure/cable/layer3,
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/ocean)
 "amD" = (
@@ -3690,6 +3707,7 @@
 "apo" = (
 /obj/structure/transit_tube/diagonal/crossing,
 /obj/structure/lattice/catwalk,
+/obj/structure/cable/layer3,
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/ocean)
 "app" = (
@@ -3844,6 +3862,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk,
+/obj/structure/cable/layer3,
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/ocean)
 "apT" = (
@@ -4177,6 +4196,7 @@
 /obj/structure/transit_tube/station/dispenser/reverse/flipped{
 	dir = 1
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/plating,
 /area/station/command/bridge)
 "arD" = (
@@ -4185,6 +4205,7 @@
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/transit_tube/horizontal,
+/obj/structure/cable/layer3,
 /turf/open/floor/plating,
 /area/station/command/bridge)
 "arE" = (
@@ -4196,6 +4217,7 @@
 /obj/structure/transit_tube/curved/flipped{
 	dir = 8
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/plating,
 /area/station/command/bridge)
 "arF" = (
@@ -7274,6 +7296,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "aEc" = (
@@ -21994,6 +22017,7 @@
 	name = "AI Core"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/science/minisat,
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/white,
 /area/station/ai/satellite/chamber)
 "bXi" = (
@@ -25158,7 +25182,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/port_gen/pacman/pre_loaded,
 /turf/open/floor/plating,
 /area/station/maintenance/department/chapel/monastery)
 "crd" = (
@@ -27562,6 +27586,11 @@
 /obj/effect/turf_decal/tile/yellow/half/contrasted,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"dwA" = (
+/obj/structure/cable/layer3,
+/obj/structure/lattice/catwalk,
+/turf/open/water/deep_beach/lethal/planet_surface,
+/area/ocean)
 "dwZ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
@@ -30726,6 +30755,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "fBp" = (
@@ -30863,6 +30893,10 @@
 /obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/processing/cremation)
+"fGQ" = (
+/obj/structure/cable/layer3,
+/turf/open/floor/iron/dark,
+/area/station/ai/satellite/interior)
 "fGU" = (
 /obj/machinery/light/directional/north,
 /obj/structure/sign/directions/evac{
@@ -31563,6 +31597,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/ai/satellite/interior)
 "gkQ" = (
@@ -33724,6 +33759,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/ai/satellite/interior)
 "hQh" = (
@@ -34107,6 +34143,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/grimy,
 /area/station/ai/satellite/interior)
 "ifr" = (
@@ -35139,6 +35176,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
+/obj/structure/cable/layer3,
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/ocean)
 "iWD" = (
@@ -37856,6 +37894,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/ai/satellite/interior)
 "kUw" = (
@@ -47247,6 +47286,11 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/station/maintenance/department/science/xenobiology)
+"ryg" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/spawner/random/gizmo,
+/turf/open/floor/engine,
+/area/station/science/lab)
 "ryC" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/shower/directional/south,
@@ -48860,6 +48904,7 @@
 "sFL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/grimy,
 /area/station/ai/satellite/interior)
 "sGc" = (
@@ -49247,6 +49292,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/cable/layer3,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/chamber)
 "sZb" = (
@@ -52762,6 +52808,14 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/testlab)
+"veR" = (
+/obj/structure/transit_tube/curved/flipped{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/layer3,
+/turf/open/water/deep_beach/lethal/planet_surface,
+/area/ocean)
 "vfp" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -53684,6 +53738,7 @@
 "vNT" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/brig)
 "vOB" = (
@@ -54259,6 +54314,12 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/station/science/lab)
+"wgl" = (
+/obj/structure/transit_tube/curved,
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/layer3,
+/turf/open/water/deep_beach/lethal/planet_surface,
+/area/ocean)
 "wha" = (
 /obj/structure/table/glass,
 /obj/item/folder/white{
@@ -86381,10 +86442,10 @@ ayF
 ayF
 ayF
 ayF
-fpT
-kOb
+dwA
+wgl
 iWj
-fpT
+dwA
 arA
 atP
 aLS
@@ -86637,7 +86698,7 @@ ayF
 ayF
 ayF
 ayF
-fpT
+dwA
 apo
 fpT
 arA
@@ -86893,7 +86954,7 @@ ayF
 ayF
 ayF
 ayF
-fpT
+dwA
 alO
 fpT
 ayF
@@ -87149,7 +87210,7 @@ abJ
 abJ
 ayF
 ayF
-fpT
+dwA
 alO
 fpT
 ayF
@@ -87405,7 +87466,7 @@ abJ
 abJ
 abJ
 ayF
-fpT
+dwA
 alO
 fpT
 ayF
@@ -87662,7 +87723,7 @@ abJ
 abJ
 abJ
 ayF
-sjA
+veR
 fpT
 ayF
 ayF
@@ -90990,7 +91051,7 @@ adX
 aEb
 afA
 fAL
-agf
+fGQ
 ags
 adX
 adX
@@ -91003,7 +91064,7 @@ ayF
 ayF
 fpT
 alO
-fpT
+dwA
 ayF
 ayF
 pVS
@@ -91259,7 +91320,7 @@ ahs
 ahs
 ahR
 iWj
-fpT
+dwA
 ayF
 ayF
 ayF
@@ -99281,7 +99342,7 @@ pBg
 iSi
 aaA
 eSv
-jnp
+ryg
 bqt
 jJQ
 cCt

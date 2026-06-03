@@ -190,6 +190,18 @@
 	new /obj/item/ammo_box/magazine/c35sol_pistol/stendo(src)
 	new /obj/item/ammo_box/magazine/c35sol_pistol/stendo(src)
 
+/datum/opposing_force_equipment/ranged_stealth/alacran
+	name = "Alacrán PDW"
+	description = "A compact bullpup PDW chambered in .27-54 Cesarzowa, this one is painted in tacticool black. \
+		Comes with three full forty-eight-round magazines."
+	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/alacran
+
+/obj/item/storage/toolbox/guncase/nova/pistol/opfor/alacran/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/sol_pdw/evil(src)
+	new /obj/item/ammo_box/magazine/alacran_pdw(src)
+	new /obj/item/ammo_box/magazine/alacran_pdw(src)
+	new /obj/item/ammo_box/magazine/alacran_pdw(src)
+
 /datum/opposing_force_equipment/ranged_stealth/wespe
 	name = "Wespe Pistol"
 	description = "The standard issue service pistol of SolFed's various military branches. Comes with attached light."
