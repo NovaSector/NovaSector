@@ -91,10 +91,7 @@
 	new /obj/item/circuitboard/machine/techfab/department/medical(src)
 	new /obj/item/storage/photo_album/cmo(src)
 	new /obj/item/storage/lockbox/medal/med(src)
-	// NOVA EDIT CHANGE - S.A.D & Limb Grower Flatpacks
-	new /obj/item/flatpacked_machine/self_actualization_device(src)
-	new /obj/item/flatpacked_machine/limb_grower(src)
-	// NOVA END
+	new /obj/item/flatpacked_machine/self_actualization_device(src) // NOVA EDIT ADDITION
 
 /obj/structure/closet/secure_closet/chief_medical/populate_contents_immediate()
 	. = ..()
