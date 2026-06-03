@@ -1,5 +1,0 @@
-author: "Richard Blonski"
-delete-after: True
-changes:
-  - rscadd: "The Cheif Medical Officer's Locker now comes included with deployable flat-pack of the Self Actualization Device."
-  - code_imp: "Added a new Nova-Module for addding new flatpacks."
