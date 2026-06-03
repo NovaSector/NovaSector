@@ -1,0 +1,5 @@
+author: "Richard Blonski"
+delete-after: True
+changes:
+  - rscadd: "Photocopier - added (Physical Evaluation Form, Neurosurgery Consent Form, Medical Records Form), and (NanoTrasen Survey)."
+  - code_imp: "The Photocopier now merges/overwrites upstream `config/blanks.json` with `modular_nova/modules/paperwork/config/blanks.json`."
