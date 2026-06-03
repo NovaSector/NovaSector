@@ -1,4 +1,4 @@
-#define NOVA_BLANKS_FILE_NAME "modular_nova/modules/paperwork/config/blanks.json"
+#define NOVA_BLANKS_FILE_NAME "config/nova/blanks.json"
 
 // This is a copy of the original init_paper_blanks() function, but it loads from the NOVA_BLANKS_FILE_NAME instead of the TG one. If the file doesn't exist or is invalid, it falls back to the TG blanks instead of returning null.
 /proc/init_paper_blanks_nova()
