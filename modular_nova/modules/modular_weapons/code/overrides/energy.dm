@@ -240,8 +240,9 @@
 /obj/item/ammo_casing/energy/xray/no_wallbang
 	projectile_type = /obj/projectile/beam/xray/no_wallbang
 
-/obj/projectile/beam/xray/no_wallbang
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+/obj/projectile/beam/xray/no_wallbang/Initialize(mapload)
+	pass_flags &= ~(PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE | PASSDOORS)
+	return ..()
 
 // Laser Carbine
 
