@@ -56,6 +56,10 @@
 /obj/item/gun/energy/laser/captain
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield) // 20 hellfires up from 15
 
+/obj/item/gun/energy/laser/captain/Initialize(mapload)
+	. = ..()
+	pin.pin_removable = FALSE
+
 /obj/item/gun/energy/e_gun
 	name = "energy carbine"
 	desc = "The Allstar Lasers Star Combat 2, or \"Allstar SC-2\", \
