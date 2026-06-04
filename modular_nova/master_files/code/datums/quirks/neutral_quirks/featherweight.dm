@@ -259,8 +259,24 @@
 		return
 
 	wings_open = open
+	set_wing_sprite(open)
 	human?.update_body_parts()
 	SEND_SIGNAL(wing_parent, open ? COMSIG_WINGS_OPENED : COMSIG_WINGS_CLOSED, human)
+
+/datum/component/featherweight_wing_flight/proc/set_wing_sprite(open)
+	var/datum/bodypart_overlay/mutant/wings/wings_overlay = wing_parent.bodypart_overlay
+	if(!wings_overlay)
+		return
+
+	var/target_feature = open ? FEATURE_WINGS_OPEN : FEATURE_WINGS
+	var/datum/sprite_accessory/wing_sprite_datum = SSaccessories.sprite_accessories[target_feature]?[wings_overlay.sprite_datum?.name]
+	if(!wing_sprite_datum)
+		return
+
+	wings_overlay.sprite_datum = wing_sprite_datum
+	wings_overlay.feature_key = target_feature
+
+	wings_overlay.cache_key = jointext(wings_overlay.generate_icon_cache(), "_")
 
 /datum/component/featherweight_wing_flight/proc/wings_blocked(mob/living/carbon/human/human)
 	var/obj/item/organ/wings/functional/functional_wings = wing_parent
