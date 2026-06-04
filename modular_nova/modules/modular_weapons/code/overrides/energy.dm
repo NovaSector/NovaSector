@@ -212,7 +212,7 @@
 		lore = "The NT Type 6 Heat Delivery System (sometimes referred to as the HDS6 in research notes) is a breakthrough in the \
 			development of directed energy weaponry, using modified Allstar SC-1s as a base.<br>\
 			<br>\
-			Very little is known about the Type 6, as it is a relatively new experimental weapon only accessible to Nanotrasen security forces.\
+			Very little is known about the Type 6, as it is a relatively new experimental weapon only accessible to Nanotrasen security forces. \
 			Somehow, Nanotrasen has found a means to 'slip' the energy beams produced by the Type 6 through unintended targets, only impacting \
 			once it has made contact with a pre-designated target by the weapon's user. It appears to be unable to slip past organic matter reliably, \
 			which hampers its potential for eliminating friendly-fire. However, inorganic targets are left unscathed unless the weapon is directed towards \
@@ -226,6 +226,23 @@
 			Whatever the truth may be, the weapon seems to function as advertised, and matches the energy efficiency of the SC-1. Nanotrasen \
 			expects full commercial rollout sometime in the next quarter." \
 	)
+
+// xray laser no wallbang variant
+/datum/crafting_recipe/laser/xraylaser
+	result = /obj/item/gun/energy/laser/xray/no_wallbang
+
+/obj/item/gun/energy/laser/xray/no_wallbang
+	name = "\improper Type 6/RP X-ray laser gun"
+	desc = "The Type 6 Heat Delivery System, Reduced Penetration variant, developed by Nanotrasen. \
+		Capable of expelling concentrated 'X-ray' blasts that pass through armor, but not denser structures."
+	ammo_type = list(/obj/item/ammo_casing/energy/xray/no_wallbang)
+
+/obj/item/ammo_casing/energy/xray/no_wallbang
+	projectile_type = /obj/projectile/beam/xray/no_wallbang
+
+/obj/projectile/beam/xray/no_wallbang/Initialize(mapload)
+	pass_flags &= ~(PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE | PASSDOORS)
+	return ..()
 
 // Laser Carbine
 

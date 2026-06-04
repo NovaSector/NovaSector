@@ -1742,6 +1742,30 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/maid_costume_worn.dmi'
 
 /*
+GREYSCALE MAID UNIFORM
+*/
+
+/datum/greyscale_config/maid_uniform
+	name = "Maid Uniform"
+	icon_file = 'modular_nova/modules/GAGS/icons/maid_uniform.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/maid_uniform/maid_uniform.json'
+
+/datum/greyscale_config/maid_uniform/worn
+	name = "Maid Uniform (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/maid_uniform_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/maid_uniform/maid_uniform_worn.json'
+
+/datum/greyscale_config/maid_uniform_alt
+	name = "Maid Uniform"
+	icon_file = 'modular_nova/modules/GAGS/icons/maid_uniform.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/maid_uniform/maid_uniform_alt.json'
+
+/datum/greyscale_config/maid_uniform_alt/worn
+	name = "Maid Uniform (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/maid_uniform_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/maid_uniform/maid_uniform_alt_worn.json'
+
+/*
 TREK
 */
 

@@ -1,0 +1,37 @@
+2026-06-01:
+  Happyowl93:
+  - bugfix: Hemophages cannot select different heart organs in the augments tab
+  - bugfix: Holosynths can cross broken electrified grilles now.
+  - balance: Special lethal ammunitions require a weapons permit now.
+  theselfish:
+  - bugfix: The new Captain gear is also in the ComDrobe!
+2026-06-03:
+  Absolucy:
+  - bugfix: Fixed some hard deletes related to cryopod item storage.
+  Hatterhat:
+  - balance: Reintroduces the X-ray laser by adding a "reduced penetration" variant
+      that can't wallbang, but still has the 100 AP per shot. For dealing with particularly
+      pesky exosuit pilots or big, bulky broadshields.
+  Iajret:
+  - rscadd: Added weather towers on snowglobe
+  Iamgoofball:
+  - balance: Makes the Luxury Shuttle cost more on account of the crew being much
+      richer by base here than on /tg/.
+  Macaroni:
+  - rscadd: Added the visitation center to Perma.
+  - qol: Made the maint tunnel outside of T-Comms and the chem factory more accessible.
+  - qol: Made a link between the north and south maint tunnel for security, granting
+      accessibility.
+  - rscadd: Adds the bitey quirk
+  Richard Blonski:
+  - rscadd: The Cheif Medical Officer's Locker now comes included with deployable
+      flat-pack of the Self Actualization Device.
+  - code_imp: Added a new Nova-Module for addding new flatpacks.
+  - rscadd: Photocopier - added (Physical Evaluation Form, Neurosurgery Consent Form,
+      Medical Records Form), and (NanoTrasen Survey).
+  - code_imp: The Photocopier now merges/overwrites upstream `config/blanks.json`
+      with `modular_nova/modules/paperwork/config/blanks.json`.
+  theselfish:
+  - rscadd: Chav, Medieval and Cough were added to Genetic Freak.
+  - spellcheck: Genetic Freak Quirk is now alphabetically sorted.
+  - rscadd: Bunch of cigarette packs are in the loadout now!
