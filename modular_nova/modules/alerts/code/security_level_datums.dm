@@ -21,6 +21,8 @@
 	lowering_to_configuration_key = /datum/config_entry/string/alert_delta_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_delta_upto
 	sound = 'modular_nova/modules/alerts/sound/security_levels/delta.ogg'
+	looping_sound = 'modular_nova/modules/alerts/sound/misc/alarm_delta.ogg'
+	looping_sound_interval = 8 SECONDS
 	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
 
@@ -93,6 +95,8 @@
 	elevating_to_configuration_key = /datum/config_entry/string/alert_epsilon_upto
 	shuttle_call_time_mod = ALERT_COEFF_NOVA
 	sound = 'modular_nova/modules/alerts/sound/security_levels/epsilon.ogg'
+	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/epsilon_loop.ogg'
+	looping_sound_interval = 15 SECONDS
 
 /**
  * Gamma
@@ -110,6 +114,8 @@
 	elevating_to_configuration_key = /datum/config_entry/string/alert_gamma_upto
 	shuttle_call_time_mod = ALERT_COEFF_NOVA
 	sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
+	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
+	looping_sound_interval = 13 SECONDS
 
 /**
  * Epsilon
@@ -126,6 +132,8 @@
 	fire_alarm_light_color = COLOR_THEME_GLASS
 	elevating_to_configuration_key = /datum/config_entry/string/alert_federal
 	sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
+	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
+	looping_sound_interval = 13 SECONDS
 	shuttle_call_time_mod = ALERT_COEFF_NOVA
 
 #undef ALERT_COEFF_NOVA
