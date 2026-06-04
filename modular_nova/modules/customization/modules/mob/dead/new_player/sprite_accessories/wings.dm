@@ -459,10 +459,24 @@
 	icon_state = "feathered_arms_top"
 	color_src = USE_MATRIXED_COLORS
 
+/datum/sprite_accessory/wings/mammal/top/feathered_wings_alt
+	name = "Feathered Wings (Alt)"
+	icon_state = "feathered_wings_alt_top"
+	color_src = USE_MATRIXED_COLORS
+
 /datum/sprite_accessory/wings_open/mammal/top/feathered_arms
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/wings.dmi'
 	name = "Feathered Arms"
 	icon_state = "feathered_arms_top"
+	color_src = USE_MATRIXED_COLORS
+	dimension_x = 46
+	dimension_y = 34
+	center = TRUE
+
+/datum/sprite_accessory/wings_open/mammal/top/feathered_wings_alt
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/wings.dmi'
+	name = "Feathered Wings (Alt)"
+	icon_state = "feathered_wings_alt_top"
 	color_src = USE_MATRIXED_COLORS
 	dimension_x = 46
 	dimension_y = 34
