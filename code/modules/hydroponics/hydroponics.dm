@@ -1116,6 +1116,7 @@
 		if(!do_after(user, 2 SECONDS, src))
 			return
 
+		current_soil = oursoil.transfer_soil(src, inside_tray = TRUE)
 		oursoil.transfer_soil(src, inside_tray = TRUE)
 
 		RefreshParts()
