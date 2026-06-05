@@ -617,3 +617,110 @@
   vinylspiders:
   - bugfix: disable dead keyloop lagswitch measure now properly affects new ghosts,
       and fixes an issue where people can revive and still be frozen
+2026-05-29:
+  1393F:
+  - spellcheck: Some references to the cult flagellant robes have been removed
+  ArrisFairburne:
+  - qol: Added more description text to tank transfer valves so it's clearer what
+      can be done with them
+  - qol: Clicking on a tank with a tank transfer valve will now attach it directly
+  Bobinater:
+  - balance: Contractor now spawns with a gear set instead of RNG taking the wheel
+      on it
+  - bugfix: Contractor now spawns with radiation projection (radioactive nebula would
+      just kill them before)
+  - bugfix: M94 'Rapier' magazine's cargo name unborked
+  ElGitificador:
+  - sound: supplexing rods sound fix
+  FalloutFalconPlays, Ben10Omintrix:
+  - rscadd: Adds an element for Runescape hitsplats
+  Fghj240:
+  - balance: mending touch can partially heal limbs
+  - balance: mending touch no longer always transfers critical wounds when powered
+      up
+  - bugfix: mending touch blood drain properly capped
+  - code_imp: removed unnecessary check from mending touch
+  - spellcheck: mending touch lose text reworded for clarity and it no longer assumes
+      you only have one hand.
+  FlufflesTheDog:
+  - bugfix: Fix an error when trying to use the cargo app with an id card lacking
+      a job
+  - bugfix: Fix sometimes spawning with a scarred eye despite not having the quirk
+  Hatterhat:
+  - balance: Following the NT M-96's rechambering to 9mm, Nanotrasen Arms has decided
+      to experiment with rechambering all currently in-service NT20s to 9mm, citing
+      simplified logistics.
+  Hollandasie:
+  - rscadd: Added two maid outfits
+  JohnFulpWillard:
+  - bugfix: pAIs can use their instruments.
+  LT3:
+  - rscadd: Janitors now have perfect aim when throwing things into disposal units
+  Melbert:
+  - code_imp: The "power failure" event should be less laggy.
+  - bugfix: Fixed APCs reporting an incorrect duration during "power failure" events.
+      Previously, the reported duration was half of the expected time. You may see
+      the timer go up to 4 minutes now - however in practice, the duration of the
+      event is unchanged.
+  - bugfix: Fixed saboteur effect on APCs being 2x the expected duration - very similar
+      to the aforementioned APC issue.
+  Moonridden:
+  - admin: Removes the threatening line sent to chat for spawning with the Underworld
+      Connections quirk.
+  Morskoikot:
+  - rscadd: Added 6 spider legs sprites
+  Rilomatic:
+  - rscadd: Added Donor Suit 'JOISuit'
+  SirNightKnight (sprites), JohnFulpWillard:
+  - rscdel: Deleted the "IC" tab of the stat panel.
+  - bugfix: Lightgeists can't emote or pull as intended.
+  - bugfix: Blob minions can't pull again.
+  - qol: Martial Art users now have an action button for their artstyle-related businesses,
+      rather than it being in the stat panel.
+  - qol: You can now right-click the move up/down UI buttons to look in the direction
+      without moving.
+  SmArtKar:
+  - balance: Mining mobs now prioritize humans over basicmobs, with exception of red
+      and black raptors - those are prioritized over humans instead.
+  - bugfix: Fixed inventory items being stuck in ghosts' screens
+  TheRyeGuyWhoWillNowDie:
+  - bugfix: the your mother hallucination for plasmapeople shows the plasmapersons
+      actual mother
+  Thunder12345:
+  - bugfix: The stray slow tile in Icebox perma has been removed.
+  Thunder12345 and Hugbug:
+  - bugfix: CQC can no longer steal backtank misters and other tethered items.
+  Wisemonster:
+  - rscadd: Added a flash to the QM's locker
+  lelandkemble:
+  - spellcheck: Maximum quality food is referred to as "Divine" rather than "Godlike"
+  - qol: Scanned wounds stay scanned while being healed
+  - bugfix: Ghost of Poly possession pulses the purple aura like it's supposed to
+  mcbalaam:
+  - bugfix: Vote panel doesn't close for the admin cancelling the vote now
+  moonridden:
+  - admin: Reorganizes some Character Prefs menus, and sets ERP Status to No by default.
+  - rscadd: Adds a new ERP Status.
+  sqnztb:
+  - rscadd: Two new plushies are available in the loadout. The Researcher Serpent
+      and the Espatier Captain!
+  - map: wired up a missed APC and the AI sat for Pubby
+  - map: gizmo spawners added to Nova Sector maps
+  - rscadd: Admins can now smite you to the realm of cleanliness.
+  theselfish:
+  - rscadd: Oh yeah the camo and fishbowl are now in vendors too, sorry.
+  theselfish, INFRARED_BARON:
+  - rscadd: The Captain now has a Bicorne, and matching attire...
+  timothymtorres:
+  - bugfix: Fix limping not switching legs when using a cane
+  - bugfix: Fix negative bloodloss effects being ignored by determined status
+  - rscadd: Podpeople blood can now be restored by E-Z Nutrient, which functions similarly
+      to iron pills for humans.
+  - rscadd: Plant nutriment (Liquid Earthsquake, Robust Harvest, E-Z Nutrient, Left
+      4 Zed, Enduro Grow) now heals toxin damage for mobs with the MOB_PLANT biotype.
+  - rscadd: The heart organ now controls how fast or slow the blood rate is regenerated
+      for a mob. The health of the heart organ also affects the blood rate, so the
+      more damage it takes, the less blood it pumps.
+  vinylspiders:
+  - bugfix: internal organs should not trigger needless updates in the char preview
+      anymore
