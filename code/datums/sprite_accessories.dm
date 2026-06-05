@@ -1300,7 +1300,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 		result = mutable_appearance(created)
 
 	else // no caching necessary
-		result = mutable_appearance(icon, icon_state)
+		result = mutable_appearance(icon, icon_state_to_use) // NOVA EDIT CHANGE - ORIGINAL - result = mutable_appearance(icon, icon_state)
 
 	result.layer = -layer
 	result.color = use_static ? null : color
