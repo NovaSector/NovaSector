@@ -21,22 +21,6 @@
 	/obj/item/food/pizza/flatbread/mushroom, \
 	/obj/item/food/pizza/flatbread/nutty, \
 )
-/// Pizzas that we aren't allowed to pick, for one reason or another.
-#define EXCLUDED_PIZZA_LIST list( \
-	/obj/item/food/pizza/custom, \
-	/obj/item/food/pizza/flatbread, \
-	/obj/item/food/pizza/arnold, \
-	/obj/item/food/pizza/margherita/raw, \
-	/obj/item/food/pizza/meat/raw, \
-	/obj/item/food/pizza/mushroom/raw, \
-	/obj/item/food/pizza/vegetable/raw, \
-	/obj/item/food/pizza/donkpocket/raw, \
-	/obj/item/food/pizza/dank/raw, \
-	/obj/item/food/pizza/sassysage/raw, \
-	/obj/item/food/pizza/pineapple/raw, \
-	/obj/item/food/pizza/arnold/raw, \
-	/obj/item/food/pizza/energy/raw, \
-)
 
 /obj/item/pizzabox/random
 	boxtag = "Randy's Surprise"
@@ -49,4 +33,3 @@
 		pizza = new random_pizza(src)
 
 #undef EDIBLE_PIZZA_LIST
-#undef EXCLUDED_PIZZA_LIST
