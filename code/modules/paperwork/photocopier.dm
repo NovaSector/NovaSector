@@ -42,7 +42,7 @@
 
 /// Paper blanks (form templates, basically). Loaded from `config/blanks.json`.
 /// If invalid or not found, set to null.
-GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
+GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks_nova()) // NOVA EDIT CHANGE - ORIGINAL: GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 
 /proc/init_paper_blanks()
 	if(!fexists(BLANKS_FILE_NAME))

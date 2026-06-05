@@ -19,14 +19,14 @@
 	name = "captain's naval jumpsuit"
 	desc = "A white naval suit adorned with a gold rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
 	icon_state = "/obj/item/clothing/under/imperial/captain"
-	greyscale_colors = "#eeeeee#eeeeee#eeeeee#373741#FFCE5B#FFCE5B#FFCE5B"
+	greyscale_colors = "#FFFFFF#FFFFFF#FFFFFF#373741#FFCE5B#FFCE5B#FFCE5B"
 	flags_1 = NONE
 	armor_type = /datum/armor/clothing_under/rank_captain
 
 /obj/item/clothing/under/imperialskirt/captain
 	name = "captain's naval skirt"
 	desc = "A white naval suit adorned with a gold rank badge denoting a Captain. There are two ways to destroy a person, kill him, or ruin his reputation."
-	greyscale_colors = "#eeeeee#eeeeee#373741#FFCE5B#FFCE5B#FFCE5B"
+	greyscale_colors = "#FFFFFF#FFFFFF#373741#FFCE5B#FFCE5B#FFCE5B"
 	icon_state = "/obj/item/clothing/under/imperialskirt/captain"
 	flags_1 = NONE
 	armor_type = /datum/armor/clothing_under/rank_captain

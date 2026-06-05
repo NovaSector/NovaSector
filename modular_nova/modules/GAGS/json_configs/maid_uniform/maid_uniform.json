@@ -1,0 +1,16 @@
+{
+	"maid_uniform": [
+		{
+			"type": "icon_state",
+			"icon_state": "maid_dress_obj",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "maid_apron_obj",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

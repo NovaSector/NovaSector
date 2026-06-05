@@ -94,6 +94,12 @@
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
+/datum/body_marking/other/blank_face3
+	name = "Blank Round Face, Flat"
+	icon_state = "blankface3"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/monster_mouth
 	name = "Monster Mouth"
 	icon_state = "monster"
@@ -144,6 +150,18 @@
 /datum/body_marking/other/eyeliner
 	name = "Eyeliner"
 	icon_state = "eyeliner"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/clowncross
+	name = "Clown Cross"
+	icon_state = "clowncross"
+	default_color = "#FFFF00"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/clownlips
+	name = "Clown Lips"
+	icon_state = "clownlips"
+	default_color = "#FF0033"
 	affected_bodyparts = HEAD
 
 /datum/body_marking/other/topscars
