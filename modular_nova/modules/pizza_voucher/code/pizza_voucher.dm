@@ -10,23 +10,6 @@
 	var/box_tag = "Low Orbit Pie Cannon"
 	/// The empty box waiting for a pizza selection.
 	var/obj/item/pizzabox/our_box
-	/// Pizzas that we aren't allowed to pick, for one reason or another.
-	var/list/excluded_pizzas = list(
-		/obj/item/food/pizza,
-		/obj/item/food/pizza/custom,
-		/obj/item/food/pizza/flatbread,
-		/obj/item/food/pizza/arnold,
-		/obj/item/food/pizza/margherita/raw,
-		/obj/item/food/pizza/meat/raw,
-		/obj/item/food/pizza/mushroom/raw,
-		/obj/item/food/pizza/vegetable/raw,
-		/obj/item/food/pizza/donkpocket/raw,
-		/obj/item/food/pizza/dank/raw,
-		/obj/item/food/pizza/sassysage/raw,
-		/obj/item/food/pizza/pineapple/raw,
-		/obj/item/food/pizza/arnold/raw,
-		/obj/item/food/pizza/energy/raw,
-	)
 
 /obj/item/pizzavoucher/Initialize(mapload)
 	. = ..()
@@ -71,9 +54,9 @@
 		)
 		fill_pizza(user, our_box, pizza_choices[selection]) // Look up the path using the name key
 		podspawn(list(
-		"target" = get_turf(src),
-		"style" = /datum/pod_style/seethrough,
-		"spawn" = our_box,
+			"target" = get_turf(src),
+			"style" = /datum/pod_style/seethrough,
+			"spawn" = our_box,
 		))
 		to_chat(user, span_warning("[src] self-immolates into a pile of ash!"))
 		new /obj/effect/decal/cleanable/ash(get_turf(src))
