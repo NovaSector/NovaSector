@@ -49,10 +49,9 @@
 
 	// Build radial menu from all the pizzalikes
 	var/list/pizza_choices = list()
-	for(var/obj/item/food/pizza/pizza_type as anything in subtypesof(/obj/item/food/pizza))
-		if(!(pizza_type in excluded_pizzas))
-			var/pizza_name = initial(pizza_type.name)
-			pizza_choices[pizza_name] = pizza_type
+	for(var/obj/item/food/pizza/pizza_type as anything in valid_subtypesof(/obj/item/food/pizza) - EXCLUDED_PIZZA_LIST)
+		var/pizza_name = initial(pizza_type.name)
+		pizza_choices[pizza_name] = pizza_type
 
 	// Show radial menu for pizza selection
 	var/selection = show_radial_menu(user, src, pizza_choices)
@@ -96,7 +95,6 @@
 	var/obj/item/food/pizza/pizza = new pizza_type(our_box)
 	our_box.pizza = pizza
 	our_box.boxtag = box_tag
-	our_box.update_desc()
 	our_box.update_appearance()
 
 /obj/item/pizzavoucher/free
