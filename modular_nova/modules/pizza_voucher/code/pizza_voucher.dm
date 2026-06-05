@@ -32,6 +32,22 @@
 
 	// Build radial menu from all the pizzalikes
 	var/list/pizza_choices = list()
+	/// Pizzas that we aren't allowed to pick, for one reason or another.
+	var/list/excluded_pizzas = list(
+		/obj/item/food/pizza/custom,
+		/obj/item/food/pizza/flatbread,
+		/obj/item/food/pizza/arnold,
+		/obj/item/food/pizza/margherita/raw,
+		/obj/item/food/pizza/meat/raw,
+		/obj/item/food/pizza/mushroom/raw,
+		/obj/item/food/pizza/vegetable/raw,
+		/obj/item/food/pizza/donkpocket/raw,
+		/obj/item/food/pizza/dank/raw,
+		/obj/item/food/pizza/sassysage/raw,
+		/obj/item/food/pizza/pineapple/raw,
+		/obj/item/food/pizza/arnold/raw,
+		/obj/item/food/pizza/energy/raw,
+	)
 	for(var/obj/item/food/pizza/pizza_type as anything in valid_subtypesof(/obj/item/food/pizza) - EXCLUDED_PIZZA_LIST)
 		var/pizza_name = initial(pizza_type.name)
 		pizza_choices[pizza_name] = pizza_type
