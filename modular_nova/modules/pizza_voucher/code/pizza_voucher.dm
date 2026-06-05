@@ -1,3 +1,20 @@
+/// Pizzas that we aren't allowed to pick, for one reason or another.
+#define EXCLUDED_PIZZA_LIST list( \
+	/obj/item/food/pizza/custom, \
+	/obj/item/food/pizza/flatbread, \
+	/obj/item/food/pizza/arnold, \
+	/obj/item/food/pizza/margherita/raw, \
+	/obj/item/food/pizza/meat/raw, \
+	/obj/item/food/pizza/mushroom/raw, \
+	/obj/item/food/pizza/vegetable/raw, \
+	/obj/item/food/pizza/donkpocket/raw, \
+	/obj/item/food/pizza/dank/raw, \
+	/obj/item/food/pizza/sassysage/raw, \
+	/obj/item/food/pizza/pineapple/raw, \
+	/obj/item/food/pizza/arnold/raw, \
+	/obj/item/food/pizza/energy/raw, \
+)
+
 /obj/item/pizzavoucher
 	name = "pizza voucher"
 	desc = "A pocket-sized plastic slip with a button in the middle. The writing on it seems to have faded."
@@ -85,3 +102,5 @@
 /obj/item/pizzavoucher/free/Initialize(mapload)
 	. = ..()
 	desc += "<br> And it's free! Wow!"
+
+#undef EXCLUDED_PIZZA_LIST
