@@ -324,6 +324,11 @@
 /datum/loadout_item/head/rabbit_ears
 	group = "Playbunny Ears"
 
+/datum/loadout_item/head/glassdome
+	name = "Fish Bowl Helmet"
+	item_path = /obj/item/clothing/head/helmet/glassdome
+	group = "Costumes"
+
 /datum/loadout_item/head/synde
 	name = "Black Space-Helmet Replica"
 	item_path = /obj/item/clothing/head/syndicatefake
