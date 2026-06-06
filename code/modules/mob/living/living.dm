@@ -1204,13 +1204,15 @@ NOVA EDIT REMOVAL END */
 		return
 	changeNext_move(CLICK_CD_RESIST)
 
-	SEND_SIGNAL(src, COMSIG_LIVING_RESIST, src)
+	if(SEND_SIGNAL(src, COMSIG_LIVING_RESIST) & COMPONENT_BLOCK_RESIST)
+		return
 	// NOVA EDIT ADDITION BEGIN - Enhanced sleep
 	// Allows resisting if the sleep verb was used
 	if(IsSleeping())
 		SetSleeping(0)
 		return
 	// NOVA EDIT ADDITION END
+
 	//resisting grabs (as if it helps anyone...)
 	if(!HAS_TRAIT(src, TRAIT_RESTRAINED) && pulledby)
 		log_combat(src, pulledby, "resisted grab")
