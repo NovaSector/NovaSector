@@ -7660,6 +7660,7 @@
 #include "modular_nova\modules\admin_tech\code\admin_idcards.dm"
 #include "modular_nova\modules\admin_tech\code\admin_internals.dm"
 #include "modular_nova\modules\admin_tech\code\admin_items.dm"
+#include "modular_nova\modules\admin_tech\code\admin_modsuit_modules.dm"
 #include "modular_nova\modules\admin_tech\code\admin_modsuits.dm"
 #include "modular_nova\modules\admin_tech\code\admin_outfits.dm"
 #include "modular_nova\modules\admin_tech\code\admin_rped.dm"

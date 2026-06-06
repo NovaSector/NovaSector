@@ -1,8 +1,11 @@
-//todo:subspace boxcutter. injectors. better adminodrazine. pocket extinguisher. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner. new meteor pen? admin cyborgs. /obj/item/abductor/alien_omnitool. /obj/item/soap/omega. admeme syringe gun. maldium, use char as example.
+//todo:subspace boxcutter. injectors. better adminodrazine. pocket extinguisher. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner having single charge. new meteor pen / edagger combo, use anti-tank wand projectile? admin cyborgs and modules. /obj/item/abductor/alien_omnitool. /obj/item/soap/omega. admeme syringe gun.
 //todo:implement delayed item population of pouches and boxes to decrease the intensiveness of spawning in / despawning
-//todo:radials out the ass would be nice! But they're a bit above my smooth brain at the moment. Ideas for radials: slime core / useful clothing traits necklace. admin spessknife. fix the medicell gun module to use radials instead of sequence.
 //todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
-//todo:subspace materials?
+//todo:neck slot slime pendant which holds fun spells / clothing traits / maybe allows us to toggle a POI state category or an antag datum for orbit menu category
+//
+// player panel: add pref reload to player panel
+//
+//
 //Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
 //Sprite Credits to CEV-ERIS, y'all really fucked with this one, it has no reason to look this cool
 //These will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
@@ -15,7 +18,7 @@
 	icon_state = "blue-pocket"
 	worn_icon_state = "null"
 	w_class = WEIGHT_CLASS_TINY
-	slot_flags = ITEM_SLOT_POCKETS | ITEM_SLOT_POCKETS | ITEM_SLOT_BELT | ITEM_SLOT_BACK//I know someone will want a backpack with no worn icon so here shut up in advance
+	slot_flags = ITEM_SLOT_POCKETS | ITEM_SLOT_BELT | ITEM_SLOT_BACK//I know someone will want a backpack with no worn icon so here shut up in advance
 	storage_type = /datum/storage/admin/bag
 
 /obj/item/storage/bag/admin/subspace
@@ -26,9 +29,28 @@
 	worn_icon_state = "null"
 	storage_type = /datum/storage/admin/bag/badmin
 
+// Seperate storage for inside of things that you dont want to move
+// This is meant to be spawned inside of other storages.
+/obj/item/storage/subspace_pouch
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+	name = "subspace pouch"
+	desc = span_notice("Click to open the pouch.")
+	icon_state = "storage_pouch_icon"
+	worn_icon_state = "storage_pouch_icon"
+	w_class = WEIGHT_CLASS_TINY
+	anchored = 1//Dont want people taking it out with their hands
+	storage_type = /datum/storage/admin
+
+//Opens the bag on click - considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories
+/obj/item/storage/subspace_pouch/attack_hand(mob/user, list/modifiers)
+	. = ..()
+	atom_storage.show_contents(user)
+
 // The sheetsnatcher extreme is really ugly, misses features, and misses materials. Lets make our own.
 // Using a construction bag as our base, instead of the sheetsnatcher.
 // I can probably adapt the BST-BRPED manufacturing function to this, but for now, an improvement is better than nothing
+// todo: quick button to refill
 /obj/item/storage/bag/construction/admin//code\game\objects\items\storage\bags.dm
 	name = "bluespace construction bag"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
@@ -587,8 +609,8 @@
 	chemical_flags = REAGENT_DEAD_PROCESS
 	self_consuming = TRUE
 	metabolized_traits = list(TRAIT_ANALGESIA)
-	/// Flags to fullheal every metabolism tick code\__DEFINES\mobs.dm line 1006
-	full_heal_flags = ~(HEAL_ADMIN|HEAL_BRUTE|HEAL_BURN|HEAL_TOX|HEAL_RESTRAINTS|HEAL_ALL_REAGENTS|HEAL_ORGANS)
+	/// Flags to fullheal every metabolism tick code\__DEFINES\mobs.dm line 1022
+	full_heal_flags = ~(HEAL_BRUTE|HEAL_BURN|HEAL_TOX|HEAL_OXY|HEAL_STAM|HEAL_LIMBS|HEAL_ORGANS|HEAL_TRAUMAS|HEAL_ALL_REAGENTS|HEAL_NEGATIVE_DISEASES|HEAL_TEMP|HEAL_BLOOD|HEAL_STATUS|HEAL_CC_STATUS|HEAL_RESTRAINTS)
 
 // New Admin Injectors, to cut down on medbox spawns. Slime Jelly as your All-Heal option through the combat hypokit is cruel and unusual punishment by way of blorbo destruction.
 // Funny for upstream, less funny here where these tools are used to assist players

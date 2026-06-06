@@ -1,4 +1,3 @@
-//todo:neck slot slime pendant which holds fun spells / clothing traits / maybe allows us to toggle a POI state category or an antag datum for orbit menu category
 // Debug Encryption Key and Headset, still manually populates the channel list because I am not a real coder, just a denthead
 /obj/item/encryptionkey/admin
 	name = "\proper the subspace encryption key"
@@ -67,6 +66,7 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 
 //Hey check out this cancerous atompath.
 //Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
+//New trait code at modular_nova\master_files\code\datums\wires\_wires.dm to show all wires w/o needing to hold blueprints or abductor multitool
 //The one set of lenses to rule them all
 /obj/item/clothing/glasses/meson/engine/admin/debug//code\modules\clothing\glasses\engine_goggles.dm & code\modules\clothing\glasses\_glasses.dm
 	name = "subspace contacts"
@@ -83,6 +83,7 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	invis_view = SEE_INVISIBLE_OBSERVER
 	glass_colour_type = FALSE
 	clothing_traits = list(
+		TRAIT_SHOW_ALL_WIRES,
 		TRAIT_REAGENT_SCANNER,
 		TRAIT_MADNESS_IMMUNE,
 		TRAIT_MEDICAL_HUD,
@@ -96,16 +97,11 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	drop_sound = SFX_GOGGLES_DROP
 	equip_sound = SFX_GOGGLES_EQUIP
 
-//I am sorry for I must initialize and recreate procs or the drip will suffer, these goggles are too ugly
-/obj/item/clothing/glasses/meson/engine/admin/debug/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/adjust_fishing_difficulty, -15)
-
 //Please stop updating icon states, youre ugly
 /obj/item/clothing/glasses/meson/engine/admin/debug/update_icon_state()
 	return
 
-/obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl(mob/user)
+/obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl_shift(mob/user)
 	if(!ishuman(user))
 		return CLICK_ACTION_BLOCKING
 	if(xray)
@@ -121,6 +117,23 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 
 // Admin Helmet
 // todo: add inspect blocking to phasing mode, add a visual.
+// We love casting spells. Did you know the perceptomatrix counts for spell clothing? Aint that neat.
+/obj/item/clothing/head/helmet/perceptomatrix/admin
+	name = "bluespace visor"
+	desc = "This exceptional piece of headgear seems to be one of the main reality-warping sources of the administrative kit. It feels nearly weightless on your head."
+	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon_state = "blue-visor"
+	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon_state = "blue-visor"
+	base_icon_state = "blue-visor"
+	worn_icon_muzzled = "blue-visor"
+	inhand_icon_state = "null"
+	core_installed = TRUE
+	armor_type = /datum/armor/admin
+	var/admin_phasing = FALSE
+	var/list/mob/dead/observer/spirits
+	COOLDOWN_DECLARE(subspace_harmonic_signaller_cooldown)
+
 // Attempts to create a wall-phasing mode that you can enable with control clicking the helmet
 /// Whether phasing is currently active
 /obj/item/clothing/head/helmet/perceptomatrix/admin/item_ctrl_click(mob/user)
@@ -146,30 +159,12 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
     . = ..()
     if(admin_phasing)
         admin_phasing = FALSE
-        // detach_clothing_traits is already called by the parent unequip logic,
-        // but we reset our state variable here
+        // detach_clothing_traits is already called by the parent unequip logic, but we reset our state variable here
 
 //Informs our silly staff that they can do this, if they bothered to inspect
 /obj/item/clothing/head/helmet/perceptomatrix/admin/examine(mob/user)
     . = ..()
     . += span_notice("Ctrl-Click while wearing to toggle phasing. Currently [admin_phasing ? "active" : "inactive"].")
-
-// We love casting spells. Did you know the perceptomatrix counts for spell clothing? Aint that neat.
-/obj/item/clothing/head/helmet/perceptomatrix/admin
-	name = "bluespace visor"
-	desc = "This exceptional piece of headgear seems to be one of the main reality-warping sources of the administrative kit. It feels nearly weightless on your head."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
-	icon_state = "blue-visor"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	worn_icon_state = "blue-visor"
-	base_icon_state = "blue-visor"
-	worn_icon_muzzled = "blue-visor"
-	inhand_icon_state = "null"
-	core_installed = TRUE
-	armor_type = /datum/armor/admin
-	var/admin_phasing = FALSE
-	var/list/mob/dead/observer/spirits
-	COOLDOWN_DECLARE(subspace_harmonic_signaller_cooldown)
 
 //Intercepts init icon state from parent, this might not be necessary. It also might not be working right, I dont know enough to know.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/Initialize(mapload)
@@ -282,6 +277,137 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	worn_icon_state = "sub-mask"
 	armor_type = /datum/armor/admin/badmin
 
+// Glorious Stable Slime Management System
+// Cytotheca is greek!
+// todo: icons
+/obj/item/storage/neck/admin/cytotheca
+	name = "bluespace cytotheca"
+	desc = "Why is it squishy?"
+	worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/neck.dmi'
+	icon = 'modular_nova/modules/tarkon/icons/obj/clothing/neck.dmi'
+	icon_state = "armplate_shemaugh"
+	slot_flags = ITEM_SLOT_NECK | ITEM_SLOT_POCKETS
+	var/admin_godmode = FALSE
+
+// Creates a storage on the cytotheca, which acts as our base level storage for stablizied slime cores to interact with out mob
+// We populate with a subspace_pouch
+/obj/item/storage/neck/admin/cytotheca/PopulateContents()
+	new /obj/item/storage/subspace_pouch/cytotheca(src)
+
+/obj/item/storage/neck/admin/cytotheca/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(
+		can_hold_list = list(
+			/obj/item/slimecross/stabilized
+		),
+		cant_hold_list = list()
+	)
+
+/obj/item/storage/neck/admin/cytotheca/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+
+//Overrides normal dumping code to instead dump from the pouch item inside
+/obj/item/storage/neck/admin/cytotheca/dump_content_at(atom/dest_object, dump_loc, mob/user)
+	var/atom/used_belt = parent
+	if(!used_belt)
+		return
+	var/obj/item/storage/belt/storage_pouch/pouch = locate() in real_location
+	if(!pouch)
+		pouch.balloon_alert(user, "no pouch!")
+		return //oopsie!! If we don't have a pouch! You're fucked!
+	if(locked)
+		pouch.balloon_alert(user, "locked!")
+		return
+	pouch.atom_storage.dump_content_at(dest_object, user = user)
+
+/obj/item/storage/neck/admin/cytotheca/item_ctrl_click(mob/user)	//Makes ctrl-click also open the inventory, so that you can open it with full hands without dropping the sword
+	. = ..()
+	atom_storage.show_contents(user)
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/storage/neck/admin/cytotheca/equipped(mob/user, slot, initial = FALSE)
+	. = ..()
+    if(admin_godmode)
+		ADD_TRAIT(wearer, TRAIT_GODMODE, REF(tk_user))
+    if(slot & slot_flags)
+        ADD_TRAIT(user, TRAIT_GODMODE, REF(src))
+
+/obj/item/storage/neck/admin/cytotheca/dropped(mob/user)
+    if(admin_godmode)
+        admin_godmode = FALSE
+        // detach_clothing_traits is already called by the parent unequip logic, but we reset our state variable here
+	if(admin_godmode)
+		REMOVE_TRAIT(user, TRAIT_GODMODE, REF(src))
+
+/// Whether godmode is currently active
+/obj/item/storage/neck/admin/cytotheca/click_ctrl_shift(mob/user)
+    if(!isliving(user))
+        return CLICK_ACTION_BLOCKING
+
+    // Must be worn, not just held
+    var/mob/living/wearer = user
+    if(wearer.get_slot_by_item(src) != ITEM_SLOT_NECK)
+        balloon_alert(user, "must be worn!")
+        return CLICK_ACTION_BLOCKING
+
+    admin_godmode = !admin_godmode
+    if(admin_godmode)
+		ADD_TRAIT(wearer, TRAIT_GODMODE, REF(tk_user))
+    else
+        REMOVE_TRAIT(wearer, TRAIT_GODMODE, REF(tk_user))
+    balloon_alert(user, "godmode [admin_godmode ? "enabled" : "disabled"]")
+    return CLICK_ACTION_SUCCESS
+
+
+//Informs our silly staff that they can do this, if they bothered to inspect
+/obj/item/storage/neck/admin/cytotheca/examine(mob/user)
+    . = ..()
+    . += span_notice("Ctrl-Click while wearing to toggle godmode. Currently [admin_godmode ? "active" : "inactive"].")
+
+// Special pouch full of stabilized slimes! This replaces the stabilized extracts box
+/obj/item/storage/subspace_pouch/cytotheca
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+	name = "slimy subspace pouch"
+	desc = span_notice("Gross. Click to open the pouch.")
+	icon_state = "storage_pouch_icon"
+	worn_icon_state = "storage_pouch_icon"
+
+// Highway robbery off the box, idk if this is current
+/obj/item/storage/subspace_pouch/cytotheca/PopulateContents()
+	new /obj/item/slimecross/stabilized/adamantine(src)
+	new /obj/item/slimecross/stabilized/black(src)
+	new /obj/item/slimecross/stabilized/blue(src)
+	new /obj/item/slimecross/stabilized/bluespace(src)
+	new /obj/item/slimecross/stabilized/cerulean(src)
+	new /obj/item/slimecross/stabilized/darkblue(src)
+	new /obj/item/slimecross/stabilized/darkpurple(src)
+	new /obj/item/slimecross/stabilized/gold(src)
+	new /obj/item/slimecross/stabilized/green(src)
+	new /obj/item/slimecross/stabilized/grey(src)
+	new /obj/item/slimecross/stabilized/lightpink(src)
+	new /obj/item/slimecross/stabilized/metal(src)
+	new /obj/item/slimecross/stabilized/oil(src)
+	new /obj/item/slimecross/stabilized/orange(src)
+	new /obj/item/slimecross/stabilized/pink(src)
+	new /obj/item/slimecross/stabilized/purple(src)
+	new /obj/item/slimecross/stabilized/pyrite(src)
+	new /obj/item/slimecross/stabilized/rainbow(src)
+	new /obj/item/slimecross/stabilized/red(src)
+	new /obj/item/slimecross/stabilized/sepia(src)
+	new /obj/item/slimecross/stabilized/silver(src)
+	new /obj/item/slimecross/stabilized/yellow(src)
+
+// Keeping it thematic
+// todo: icon
+/obj/item/storage/neck/admin/cytotheca/subspace
+	name = "subspace cytotheca"
+	desc = "How is this squishier?"
+	worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/neck.dmi'
+	icon = 'modular_nova/modules/tarkon/icons/obj/clothing/neck.dmi'
+	icon_state = "armplate_shemaugh"
+
 // New admin undersuit
 /obj/item/clothing/under/admin
 	name = "bluespace techsuit"
@@ -300,10 +426,6 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
-
-/obj/item/clothing/under/admin/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/adjust_fishing_difficulty, -25)
 
 /obj/item/clothing/under/admin/subspace
 	name = "subspace techsuit"
@@ -419,6 +541,8 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	. = ..()
 	create_storage(storage_type = /datum/storage/admin/pockets)//big pockets,,,
 	AddElement(/datum/element/ignites_matches)
+	AddComponent(/datum/component/squeak, list('sound/effects/jingle.ogg'=1), 25, 50, 16)
+
 
 /obj/item/clothing/shoes/magboots/advance/admin/subspace
 	name = "subspace magboots"

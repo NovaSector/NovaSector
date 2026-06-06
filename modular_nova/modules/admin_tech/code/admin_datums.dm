@@ -1,6 +1,5 @@
 // Debug Datums
 // TODO: merge traits, weight classes, and shit into these, to reduce input on the items themselves. Need one thats just armor, and one thats got the additional bonuses
-// todo: make defines?
 // Debug Storage Datums. Need more slots? Raise the number on max_slots
 // This top level datum contains a copy-paste of the base storage datum readout, because I expect people to learn off these eventually.
 // I researched the progenitor for each subtype in the making of each of these admin types, which will have a relative path next to it
@@ -21,7 +20,7 @@
 	//var/open_sound
 	open_sound_vary = TRUE
 	/// The maximum amount of items that can be inserted into this storage.
-	max_slots = 78 //max columns X max rows, selected because it doesn't cover the player icon
+	max_slots = 65 //max columns X max rows, selected because it doesn't cover the player icon
 	/// The largest weight class that can be inserted into this storage, inclusive.
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC//fixes boxes down the chain too
 	/// Determines the maximum amount of weight that can be inserted into this storage.
@@ -39,7 +38,7 @@
 	/// Maximum amount of columns a storage object can have
 	screen_max_columns = 13//I personally think that more columns and fewer rows looks better. So Im doing that.
 	/// Maximum amount of rows a storage object can have
-	screen_max_rows = 6
+	screen_max_rows = 5
 	/// X-pixel location of the boxes and close button
 	screen_pixel_x = 16
 	/// Y-pixel location of the boxes and close button
