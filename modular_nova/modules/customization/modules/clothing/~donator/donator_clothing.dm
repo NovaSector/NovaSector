@@ -2603,7 +2603,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	. = ..()
 	allowed = GLOB.security_vest_allowed
 
-//Pyrite's Espatier Belt
+//Pyrite's Espatier Belt (DarkRilo)
 /obj/item/storage/belt/espatier
 	name = "dated Espatier holster"
 	desc = "An old outdated holster used by the Sol Federation Espatiers during the Rimward War \
@@ -2738,6 +2738,21 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	female_sprite_flags = NO_FEMALE_UNIFORM
+
+//Tora's Body Pillow (DarkRilo)
+/obj/item/toy/pillow/torapillow
+	name = "Tora Body Pillow"
+	desc = "A poofy, soft looking pillow depicting a certain sharkette. One side a little less scandalous than the other."
+	icon_state = "torapillbod"
+	inhand_icon_state =
+	icon =
+
+/obj/item/toy/pillow/torapillow/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/torapillow)
+
+/datum/atom_skin/torapillow/lewd
+	preview_name = "Lewd (NSFW)"
+	new_icon_state = "torapillbod-t"
 
 /obj/structure/sign/flag/pride/bon
 	name = "\improper Bon's cape"
