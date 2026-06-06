@@ -150,10 +150,10 @@
 		"Verse-Bottom - Dom",
 		"Verse-Bottom - Sub",
 		"Verse-Bottom - Switch",
+		"Side",
 		"Pillow Princesss - Dom",
 		"Pillow Princesss - Sub",
 		"Pillow Princesss - Switch",
-		"Side",
 		"Free Use",
 	)
 
