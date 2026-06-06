@@ -1,7 +1,6 @@
 //todo: recreational drugs box
 //todo: fix all the slime boxes, those suck
 //TODO: Antag box, Research box, Security box, Service Box, Cargo Box, Medical Box revisit
-//todo:
 //Globals! Wow!
 GLOBAL_LIST_INIT(subspace_box_types, list(
 		"Clear All Items",
@@ -51,6 +50,7 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/clothing/glasses/meson/engine/admin/debug = 1,
 			/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
 			/obj/item/choice_beacon/job_locker/debug = 1,
+			/obj/item/modular_computer/pda/admin = 1,
 			/obj/item/modular_computer/debug = 1,
 			/obj/item/healthanalyzer/advanced = 1,
 			/obj/item/pinpointer/crew/admin = 1,
@@ -112,7 +112,8 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/gun/energy/wormhole_projector/core_inserted = 1,
 			/obj/item/gun/energy/gravity_gun = 1,
 			/obj/item/flashlight/lamp/space_bubble/preactivated = 1,
-			/obj/item/rolling_table_dock = 1
+			/obj/item/rolling_table_dock = 1,
+			/obj/item/pneumatic_cannon/subspace = 1,
         ),
 ))
 
@@ -136,12 +137,54 @@ GLOBAL_LIST_INIT(subspace_box_illustrations, list(
 	desc = "A hand manufactured storage container composed of rare alloys and with exotic processes.\
 		Stores an ungodly amount of anything. Your oversized Xeno wife will fit in this.\
 		Its a box shaped bag of holding on cocaine. Reality warping recursion issues not included.\
-		Alt + Right Click to Populate. Ctrl + Shift + Left Click to clear contents."
+		Ctrl + click to Populate. Ctrl + Shift + Left Click to clear contents."
 	icon_state = "alienbox"
-	storage_type = /datum/storage/box/debug
+	storage_type = /datum/storage/admin
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	illustration = null
+	// Thank you traitor guncases for this box.
+	// Timer for the bomb in the case.
+	var/explosion_timer
+	// Whether or not our case is exploding. Used for determining sprite changes.
+	var/currently_exploding = FALSE
+
+/obj/item/storage/box/debug/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/item/storage/box/debug/examine(mob/user)
+	. = ..()
+	. += span_notice("Activate the Subspace Catalyst using Alt-Right-Click.")
+
+/obj/item/storage/box/debug/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+
+	context[SCREENTIP_CONTEXT_ALT_RMB] = "Activate Subspace Catalyst"
+	return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/storage/box/debug/click_alt_secondary(mob/user)
+	. = ..()
+	if(currently_exploding)
+		user.balloon_alert(user, "already exploding!")
+		return
+
+	var/i_dont_even_think_once_about_blowing_stuff_up = tgui_alert(user, "Would you like to activate the subspace catalyst now?", "BYE BYE", list("Yes","No"))
+
+	if(i_dont_even_think_once_about_blowing_stuff_up != "Yes" || currently_exploding || QDELETED(user) || QDELETED(src) || !user.can_perform_action(src, NEED_DEXTERITY|NEED_HANDS|ALLOW_RESTING))
+		return
+
+	explosion_timer = addtimer(CALLBACK(src, PROC_REF(think_fast_chucklenuts)), 5 SECONDS, (TIMER_UNIQUE|TIMER_OVERRIDE))
+	to_chat(user, span_warning("You prime [src]'s subspace catalyst!"))
+	log_bomber(user, "has activated a", src, "for detonation")
+	playsound(src, 'sound/items/weapons/armbomb.ogg', 50, TRUE)
+	currently_exploding = TRUE
+	update_appearance()
+
+/// proc to handle our detonation
+/obj/item/storage/box/debug/proc/think_fast_chucklenuts()
+	explosion(src, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 2, explosion_cause = src)
+	qdel(src)
 
 /obj/item/storage/box/debug/click_ctrl_shift(mob/user)
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
@@ -149,7 +192,7 @@ GLOBAL_LIST_INIT(subspace_box_illustrations, list(
 		qdel(stored_item)
 	return
 
-/obj/item/storage/box/debug/click_alt_secondary(mob/user)
+/obj/item/storage/box/debug/item_ctrl_click(mob/user)
 	// Ask the user what they want to make, or if they want to clear the storage.
 	var/choice = tgui_input_list(user, "Populate the Box", "Subspace Box Stuffer", GLOB.subspace_box_types)
 	// If they didn't cancel out of the list selection, we do things.  Clear-all removes all items.
@@ -171,7 +214,7 @@ GLOBAL_LIST_INIT(subspace_box_illustrations, list(
 //	if(choice in GLOB.subspace_box_icontype)
 //		icon_state = GLOB.subspace_box_icontype[choice]
 	update_appearance()
-	return
+	return CLICK_ACTION_SUCCESS
 
 // Box which was made to boilerplate the box populating method used here.
 // Because of the way I insert the cats, the cat can't be removed from the storage. This is funny to me. Don't let the cat suffocate!

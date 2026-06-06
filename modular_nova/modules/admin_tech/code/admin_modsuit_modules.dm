@@ -32,3 +32,4 @@
 	cooldown_time = 2 SECONDS
 	required_slots = list()
 	dispense_type = /obj/item/storage/box/debug
+	allow_flags = MODULE_ALLOW_INACTIVE

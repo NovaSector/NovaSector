@@ -84,6 +84,11 @@
 	/// Maximum amount of rows a storage object can have
 	screen_max_rows = INFINITY
 
+// Storage datum standalone for a dropped proc overwrite in admin_clothing
+/datum/storage/admin/cytotheca
+	/// If we support smartly removing/inserting things from ourselves
+	supports_smart_equip = TRUE
+
 //Debug Pockets!
 /datum/storage/admin/pockets
 	max_slots = 2

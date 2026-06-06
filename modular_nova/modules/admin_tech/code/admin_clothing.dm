@@ -1,3 +1,4 @@
+// knownbugs: contacts icon state fucky
 // Debug Encryption Key and Headset, still manually populates the channel list because I am not a real coder, just a denthead
 /obj/item/encryptionkey/admin
 	name = "\proper the subspace encryption key"
@@ -9,33 +10,36 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	post_init_icon_state = "cypherkey_cube"
 	channels = list(
-		RADIO_CHANNEL_COMMAND = 1,
-		RADIO_CHANNEL_SECURITY = 1,
-		RADIO_CHANNEL_ENGINEERING = 1,
-		RADIO_CHANNEL_SCIENCE = 1,
-		RADIO_CHANNEL_MEDICAL = 1,
-		RADIO_CHANNEL_SUPPLY = 1,
-		RADIO_CHANNEL_SERVICE = 1,
 		RADIO_CHANNEL_AI_PRIVATE = 1,
 		RADIO_CHANNEL_CENTCOM = 1,
-		RADIO_CHANNEL_CTF_BLUE = 1,
-		RADIO_CHANNEL_CTF_GREEN = 1,
-		RADIO_CHANNEL_CTF_RED = 1,
-		RADIO_CHANNEL_CTF_YELLOW = 1,
+		RADIO_CHANNEL_COMMAND = 1,
 		RADIO_CHANNEL_CYBERSUN = 1,
+		RADIO_CHANNEL_ENGINEERING = 1,
 		RADIO_CHANNEL_ENTERTAINMENT = 1,
 		RADIO_CHANNEL_FACTION = 1,
 		RADIO_CHANNEL_GUILD = 1,
 		RADIO_CHANNEL_INTERDYNE = 1,
+		RADIO_CHANNEL_MEDICAL = 1,
+		RADIO_CHANNEL_SCIENCE = 1,
+		RADIO_CHANNEL_SECURITY = 1,
+		RADIO_CHANNEL_SERVICE = 1,
 		RADIO_CHANNEL_SOLFED = 1,
-		RADIO_CHANNEL_TARKON = 1,
+		RADIO_CHANNEL_SUPPLY = 1,
 		RADIO_CHANNEL_SYNDICATE = 1,
+		RADIO_CHANNEL_TARKON = 1,
 		RADIO_CHANNEL_UPLINK = 1
 	)
 	//var/list/channels = list()
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#2b2793#dca01b"
 
+// How to get this working...? Pls help, I am not a real coder.
+/obj/item/encryptionkey/admin/Initialize(mapload)
+	. = ..()
+	for (var/channels in GLOB.channel_tokens)
+		channels += channels
+
+//todo: balloon popup on ghost ping use
 /obj/item/radio/headset/admin
 	name = "bluespace headset"
 	desc = "You can hear all of them. All oF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
@@ -48,13 +52,53 @@
 	inhand_icon_state = "null"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	w_class = WEIGHT_CLASS_TINY
+	var/list/mob/dead/observer/spirits
+	COOLDOWN_DECLARE(subspace_harmonic_signaller_cooldown)
 
-// I tried but it didn't work. Can you fix this, dear reader?
-obj/item/radio/headset/headset/admin/Initialize(mapload)
+/obj/item/radio/headset/admin/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, EAR_PROTECTION_HEAVY)
-//	for (var/channels in GLOB.channel_tokens)
-//		channels += channels
+
+// Thank you, code\modules\mining\lavaland\mining_loot\megafauna\ash_drake.dm - /obj/item/melee/ghost_sword, very cool
+/obj/item/radio/headset/admin/item_ctrl_click(mob/user)
+	. = ..()
+	if(!COOLDOWN_FINISHED(src, subspace_harmonic_signaller_cooldown))
+		to_chat(user, span_warning("The subspace harmonic signaller is cooling down! Using this too frequently might upset the powers that be!"))
+		return
+
+	COOLDOWN_START(src, subspace_harmonic_signaller_cooldown, 15 SECONDS)//Let just assume people are responsible.
+	to_chat(user, span_notice("The subspace harmonic signaller charges up and releases a pulse, notifying all the eyes-between-spaces of your activities!"))
+	notify_ghosts(
+		"[user.real_name] has attenuated and pulsed the subspace harmonic signaller of [user.p_their()] [name], alerting the eyes-between-spaces of their activities!",
+		source = user,
+		ignore_key = POLL_IGNORE_SPECTRAL_BLADE,//We keep this because it's going to draw the same people -- chronic observers
+		header = name
+	)
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/radio/headset/admin/process()
+	ghost_check()
+
+/obj/item/radio/headset/admin/proc/ghost_check()
+	var/turf/cur_turf = get_turf(src)
+	var/list/contents = cur_turf.get_all_contents()
+	var/mob/dead/observer/current_spirits = list()
+	for(var/atom/random_thing in contents)
+		random_thing.transfer_observers_to(src)
+
+	for(var/mob/dead/observer/ghost in orbiters?.orbiter_list)
+		ghost.SetInvisibility(INVISIBILITY_NONE, id = type, priority = INVISIBILITY_PRIORITY_BASIC_ANTI_INVISIBILITY)
+		current_spirits |= ghost
+
+	for(var/mob/dead/observer/ghost in spirits - current_spirits)
+		ghost.RemoveInvisibility(type)
+
+	spirits = current_spirits
+	return length(spirits)
+
+/obj/item/radio/headset/admin/examine(mob/user)
+	. = ..()
+	. += span_notice("Ctrl-Shift-Click while wearing to ping your subspace harmonic signaller, which will notify all observers to come orbit you.")
 
 /obj/item/radio/headset/admin/subspace
 	name = "subspace headset"
@@ -68,6 +112,7 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 //Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
 //New trait code at modular_nova\master_files\code\datums\wires\_wires.dm to show all wires w/o needing to hold blueprints or abductor multitool
 //The one set of lenses to rule them all
+//todo: icon fuckery in procs. verify show wires element is working.
 /obj/item/clothing/glasses/meson/engine/admin/debug//code\modules\clothing\glasses\engine_goggles.dm & code\modules\clothing\glasses\_glasses.dm
 	name = "subspace contacts"
 	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."
@@ -82,6 +127,7 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	lighting_cutoff = LIGHTING_CUTOFF_HIGH
 	invis_view = SEE_INVISIBLE_OBSERVER
 	glass_colour_type = FALSE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	clothing_traits = list(
 		TRAIT_SHOW_ALL_WIRES,
 		TRAIT_REAGENT_SCANNER,
@@ -98,8 +144,8 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	equip_sound = SFX_GOGGLES_EQUIP
 
 //Please stop updating icon states, youre ugly
-/obj/item/clothing/glasses/meson/engine/admin/debug/update_icon_state()
-	return
+///obj/item/clothing/glasses/meson/engine/admin/debug/update_icon_state()
+//	return
 
 /obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl_shift(mob/user)
 	if(!ishuman(user))
@@ -130,89 +176,48 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	inhand_icon_state = "null"
 	core_installed = TRUE
 	armor_type = /datum/armor/admin
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	var/admin_phasing = FALSE
-	var/list/mob/dead/observer/spirits
-	COOLDOWN_DECLARE(subspace_harmonic_signaller_cooldown)
 
 // Attempts to create a wall-phasing mode that you can enable with control clicking the helmet
 /// Whether phasing is currently active
 /obj/item/clothing/head/helmet/perceptomatrix/admin/item_ctrl_click(mob/user)
-    if(!isliving(user))
-        return CLICK_ACTION_BLOCKING
+	if(!isliving(user))
+		return CLICK_ACTION_BLOCKING
 
-    // Must be worn, not just held
-    var/mob/living/wearer = user
-    if(wearer.get_slot_by_item(src) != ITEM_SLOT_HEAD)
-        balloon_alert(user, "must be worn!")
-        return CLICK_ACTION_BLOCKING
+	// Must be worn, not just held
+	var/mob/living/wearer = user
+	if(wearer.get_slot_by_item(src) != ITEM_SLOT_HEAD)
+		balloon_alert(user, "must be worn!")
+		return CLICK_ACTION_BLOCKING
 
-    admin_phasing = !admin_phasing
-    if(admin_phasing)
-        attach_clothing_traits(TRAIT_MOVE_PHASING)
-    else
-        detach_clothing_traits(TRAIT_MOVE_PHASING)
+	admin_phasing = !admin_phasing
+	if(admin_phasing)
+		attach_clothing_traits(TRAIT_MOVE_PHASING)
+	else
+		detach_clothing_traits(TRAIT_MOVE_PHASING)
 
-    balloon_alert(user, "phasing [admin_phasing ? "enabled" : "disabled"]")
-    return CLICK_ACTION_SUCCESS
+	balloon_alert(user, "phasing [admin_phasing ? "enabled" : "disabled"]")
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/head/helmet/perceptomatrix/admin/dropped(mob/user)
-    . = ..()
-    if(admin_phasing)
-        admin_phasing = FALSE
-        // detach_clothing_traits is already called by the parent unequip logic, but we reset our state variable here
+	. = ..()
+	if(admin_phasing)
+		admin_phasing = FALSE
+		// detach_clothing_traits is already called by the parent unequip logic, but we reset our state variable here
 
 //Informs our silly staff that they can do this, if they bothered to inspect
 /obj/item/clothing/head/helmet/perceptomatrix/admin/examine(mob/user)
-    . = ..()
-    . += span_notice("Ctrl-Click while wearing to toggle phasing. Currently [admin_phasing ? "active" : "inactive"].")
+	. = ..()
+	. += span_notice("Ctrl-Click while wearing to toggle phasing. Currently [admin_phasing ? "active" : "inactive"].")
 
 //Intercepts init icon state from parent, this might not be necessary. It also might not be working right, I dont know enough to know.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/adjust_fishing_difficulty, -7) // PSYCHIC FISHING
 	AddComponent(/datum/component/hat_stabilizer, loose_hat = FALSE)
 //Please stop eating my icon change I beg
-/obj/item/clothing/head/helmet/perceptomatrix/admin/update_icon_state()
-	return
-
-// Thank you, code\modules\mining\lavaland\mining_loot\megafauna\ash_drake.dm - /obj/item/melee/ghost_sword, very cool
-/obj/item/clothing/head/helmet/perceptomatrix/admin/click_ctrl_shift(mob/user)
-	if(!COOLDOWN_FINISHED(src, subspace_harmonic_signaller_cooldown))
-		to_chat(user, span_warning("The subspace harmonic signaller is cooling down! Using this too frequently might upset the powers that be!"))
-		return
-
-	COOLDOWN_START(src, subspace_harmonic_signaller_cooldown, 15 SECONDS)//Let just assume people are responsible.
-	to_chat(user, span_notice("The subspace harmonic signaller charges up and releases a pulse, notifying all the eyes-between-spaces of your activities!"))
-	notify_ghosts(
-		"[user.real_name] has attenuated and pulsed the subspace harmonic signaller of [user.p_their()] [name], alerting the eyes-between-spaces of their activities!",
-		source = user,
-		ignore_key = POLL_IGNORE_SPECTRAL_BLADE,//We keep this because it's going to draw the same people -- chronic observers
-		header = name
-	)
-
-/obj/item/clothing/head/helmet/perceptomatrix/admin/process()
-	ghost_check()
-
-/obj/item/clothing/head/helmet/perceptomatrix/admin/proc/ghost_check()
-	var/turf/cur_turf = get_turf(src)
-	var/list/contents = cur_turf.get_all_contents()
-	var/mob/dead/observer/current_spirits = list()
-	for(var/atom/random_thing in contents)
-		random_thing.transfer_observers_to(src)
-
-	for(var/mob/dead/observer/ghost in orbiters?.orbiter_list)
-		ghost.SetInvisibility(INVISIBILITY_NONE, id = type, priority = INVISIBILITY_PRIORITY_BASIC_ANTI_INVISIBILITY)
-		current_spirits |= ghost
-
-	for(var/mob/dead/observer/ghost in spirits - current_spirits)
-		ghost.RemoveInvisibility(type)
-
-	spirits = current_spirits
-	return length(spirits)
-
-/obj/item/clothing/head/helmet/perceptomatrix/admin/examine(mob/user)
-    . = ..()
-    . += span_notice("Ctrl-Shift-Click while wearing to ping your subspace harmonic signaller, which will notify all observers to come orbit you.")
+///obj/item/clothing/head/helmet/perceptomatrix/admin/update_icon_state()
+//	return
 
 //Now we get really magical.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
@@ -287,14 +292,20 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	icon = 'modular_nova/modules/tarkon/icons/obj/clothing/neck.dmi'
 	icon_state = "armplate_shemaugh"
 	slot_flags = ITEM_SLOT_NECK | ITEM_SLOT_POCKETS
-	var/admin_godmode = FALSE
+	storage_type = /datum/storage/admin/cytotheca
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	var/admin_godmode = TRUE
+
+/obj/item/storage/neck/admin/cytotheca/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
 
 // Creates a storage on the cytotheca, which acts as our base level storage for stablizied slime cores to interact with out mob
 // We populate with a subspace_pouch
 /obj/item/storage/neck/admin/cytotheca/PopulateContents()
 	new /obj/item/storage/subspace_pouch/cytotheca(src)
 
-/obj/item/storage/neck/admin/cytotheca/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/datum/storage/admin/cytotheca/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
 	set_holdable(
 		can_hold_list = list(
@@ -303,67 +314,56 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 		cant_hold_list = list()
 	)
 
-/obj/item/storage/neck/admin/cytotheca/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob)
-
 //Overrides normal dumping code to instead dump from the pouch item inside
-/obj/item/storage/neck/admin/cytotheca/dump_content_at(atom/dest_object, dump_loc, mob/user)
+/datum/storage/admin/cytotheca/dump_content_at(atom/dest_object, dump_loc, mob/user)
 	var/atom/used_belt = parent
 	if(!used_belt)
 		return
-	var/obj/item/storage/belt/storage_pouch/pouch = locate() in real_location
-	if(!pouch)
-		pouch.balloon_alert(user, "no pouch!")
+	var/obj/item/storage/subspace_pouch/cytotheca = locate() in real_location
+	if(!cytotheca)
+		cytotheca.balloon_alert(user, "no pouch!")
 		return //oopsie!! If we don't have a pouch! You're fucked!
 	if(locked)
-		pouch.balloon_alert(user, "locked!")
+		cytotheca.balloon_alert(user, "locked!")
 		return
-	pouch.atom_storage.dump_content_at(dest_object, user = user)
-
-/obj/item/storage/neck/admin/cytotheca/item_ctrl_click(mob/user)	//Makes ctrl-click also open the inventory, so that you can open it with full hands without dropping the sword
-	. = ..()
-	atom_storage.show_contents(user)
-	return CLICK_ACTION_SUCCESS
-
-/obj/item/storage/neck/admin/cytotheca/equipped(mob/user, slot, initial = FALSE)
-	. = ..()
-    if(admin_godmode)
-		ADD_TRAIT(wearer, TRAIT_GODMODE, REF(tk_user))
-    if(slot & slot_flags)
-        ADD_TRAIT(user, TRAIT_GODMODE, REF(src))
+	cytotheca.atom_storage.dump_content_at(dest_object, user = user)
 
 /obj/item/storage/neck/admin/cytotheca/dropped(mob/user)
-    if(admin_godmode)
-        admin_godmode = FALSE
-        // detach_clothing_traits is already called by the parent unequip logic, but we reset our state variable here
+	. = ..()
+	if(!user)
+		admin_godmode = FALSE
+	REMOVE_TRAIT(user, TRAIT_GODMODE, REF(src))
+
+/obj/item/storage/neck/admin/cytotheca/equipped(mob/user, slot, initial = TRUE)
+	. = ..()
 	if(admin_godmode)
-		REMOVE_TRAIT(user, TRAIT_GODMODE, REF(src))
+		ADD_TRAIT(user, TRAIT_GODMODE, REF(user))
+	if(user & slot & slot_flags & admin_godmode)
+		ADD_TRAIT(user, TRAIT_GODMODE, REF(user))
 
 /// Whether godmode is currently active
-/obj/item/storage/neck/admin/cytotheca/click_ctrl_shift(mob/user)
-    if(!isliving(user))
-        return CLICK_ACTION_BLOCKING
+/obj/item/storage/neck/admin/cytotheca/item_ctrl_click(mob/user)
+	. = ..()
+	if(!isliving(user))
+		return CLICK_ACTION_BLOCKING
 
-    // Must be worn, not just held
-    var/mob/living/wearer = user
-    if(wearer.get_slot_by_item(src) != ITEM_SLOT_NECK)
-        balloon_alert(user, "must be worn!")
-        return CLICK_ACTION_BLOCKING
-
-    admin_godmode = !admin_godmode
-    if(admin_godmode)
-		ADD_TRAIT(wearer, TRAIT_GODMODE, REF(tk_user))
-    else
-        REMOVE_TRAIT(wearer, TRAIT_GODMODE, REF(tk_user))
-    balloon_alert(user, "godmode [admin_godmode ? "enabled" : "disabled"]")
-    return CLICK_ACTION_SUCCESS
-
+	// Must be worn, not just held
+	var/mob/living/wearer = user
+	if(wearer.get_slot_by_item(src) != ITEM_SLOT_NECK)
+		balloon_alert(user, "must be worn!")
+		return CLICK_ACTION_BLOCKING
+	admin_godmode = !admin_godmode
+	if(admin_godmode)
+		ADD_TRAIT(wearer, TRAIT_GODMODE, REF(src))
+	else
+		REMOVE_TRAIT(wearer, TRAIT_GODMODE, REF(src))
+	balloon_alert(user, "godmode [admin_godmode ? "enabled" : "disabled"]")
+	return CLICK_ACTION_SUCCESS
 
 //Informs our silly staff that they can do this, if they bothered to inspect
 /obj/item/storage/neck/admin/cytotheca/examine(mob/user)
-    . = ..()
-    . += span_notice("Ctrl-Click while wearing to toggle godmode. Currently [admin_godmode ? "active" : "inactive"].")
+	. = ..()
+	. += span_notice("Ctrl-Click while wearing to toggle godmode. Currently [admin_godmode ? "active" : "inactive"].")
 
 // Special pouch full of stabilized slimes! This replaces the stabilized extracts box
 /obj/item/storage/subspace_pouch/cytotheca
@@ -373,6 +373,16 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	desc = span_notice("Gross. Click to open the pouch.")
 	icon_state = "storage_pouch_icon"
 	worn_icon_state = "storage_pouch_icon"
+	storage_type = /datum/storage/admin/cytotheca
+
+/datum/storage/admin/cytotheca/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(
+		can_hold_list = list(
+			/obj/item/slimecross/stabilized
+		),
+		cant_hold_list = list()
+	)
 
 // Highway robbery off the box, idk if this is current
 /obj/item/storage/subspace_pouch/cytotheca/PopulateContents()
@@ -448,6 +458,7 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	armor_type = /datum/armor/admin
 	strip_delay = 3 SECONDS
 	equip_delay_other = 4 SECONDS
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	var/hit_reflect_chance = 50
 
 /obj/item/clothing/suit/admin/IsReflect(def_zone)
@@ -494,34 +505,34 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 //Debug magbooties
 //Spacewalking toggle
 /obj/item/clothing/shoes/magboots/advance/admin/item_ctrl_click(mob/user)
-    if(!isliving(user))
-        return CLICK_ACTION_BLOCKING
+	if(!isliving(user))
+		return CLICK_ACTION_BLOCKING
 
-    // Must be worn, not just held
-    var/mob/living/wearer = user
-    if(wearer.get_slot_by_item(src) != ITEM_SLOT_FEET)
-        balloon_alert(user, "must be worn!")
-        return CLICK_ACTION_BLOCKING
+	// Must be worn, not just held
+	var/mob/living/wearer = user
+	if(wearer.get_slot_by_item(src) != ITEM_SLOT_FEET)
+		balloon_alert(user, "must be worn!")
+		return CLICK_ACTION_BLOCKING
 
-    admin_spacewalk = !admin_spacewalk
-    if(admin_spacewalk)
-        attach_clothing_traits(TRAIT_SPACEWALK)
-    else
-        detach_clothing_traits(TRAIT_SPACEWALK)
+	admin_spacewalk = !admin_spacewalk
+	if(admin_spacewalk)
+		attach_clothing_traits(TRAIT_SPACEWALK)
+	else
+		detach_clothing_traits(TRAIT_SPACEWALK)
 
-    balloon_alert(user, "spacewalking [admin_spacewalk ? "enabled" : "disabled"]")
-    return CLICK_ACTION_SUCCESS
+	balloon_alert(user, "spacewalking [admin_spacewalk ? "enabled" : "disabled"]")
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/shoes/magboots/advance/admin/dropped(mob/user)
-    . = ..()
-    if(admin_spacewalk)
-        admin_spacewalk = FALSE
-        // detach_clothing_traits is already called by the parent unequip logic,
-        // but we reset our state variable here
+	. = ..()
+	if(admin_spacewalk)
+		admin_spacewalk = FALSE
+		// detach_clothing_traits is already called by the parent unequip logic,
+		// but we reset our state variable here
 
 /obj/item/clothing/shoes/magboots/advance/admin/examine(mob/user)
-    . = ..()
-    . += span_notice("Ctrl-click while wearing to toggle spacewalking. Currently [admin_spacewalk ? "active" : "inactive"].")
+	. = ..()
+	. += span_notice("Ctrl-click while wearing to toggle spacewalking. Currently [admin_spacewalk ? "active" : "inactive"].")
 
 /obj/item/clothing/shoes/magboots/advance/admin//code\modules\clothing\shoes\magboots.dm
 	name = "bluespace magboots"
@@ -542,7 +553,6 @@ obj/item/radio/headset/headset/admin/Initialize(mapload)
 	create_storage(storage_type = /datum/storage/admin/pockets)//big pockets,,,
 	AddElement(/datum/element/ignites_matches)
 	AddComponent(/datum/component/squeak, list('sound/effects/jingle.ogg'=1), 25, 50, 16)
-
 
 /obj/item/clothing/shoes/magboots/advance/admin/subspace
 	name = "subspace magboots"

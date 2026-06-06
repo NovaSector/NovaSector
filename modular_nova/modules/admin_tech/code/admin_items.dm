@@ -1,15 +1,20 @@
-//todo:subspace boxcutter. injectors. better adminodrazine. pocket extinguisher. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner having single charge. new meteor pen / edagger combo, use anti-tank wand projectile? admin cyborgs and modules. /obj/item/abductor/alien_omnitool. /obj/item/soap/omega. admeme syringe gun.
-//todo:implement delayed item population of pouches and boxes to decrease the intensiveness of spawning in / despawning
+//todo:subspace boxcutter. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner having single charge. new meteor pen / edagger combo, use anti-tank wand projectile? admin cyborgs and modules. /obj/item/abductor/alien_omnitool. /obj/item/soap/omega. admeme syringe gun. subspace baseball bat. pepper ball, like the pepperball projectile, but causes pepperspray on impact with a mob.
 //todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
-//todo:neck slot slime pendant which holds fun spells / clothing traits / maybe allows us to toggle a POI state category or an antag datum for orbit menu category
+//todo: handheld air scrubber + hvac, new admin dune shield to replace the, seeds box
 //
-// player panel: add pref reload to player panel
+//todo: intentionally re-instate the ability to have structures deployed inside of an admin storage
+//player panel: add pref reload to player panel
 //
+//pocket drones / mobs for repair / medbots / construction bots / combat bots / janibots / etc. maybe even a pocket mech? drone beacon spawner, see debug gas miner for exp
+//
+//
+//investigat robotact pda app functionality
 //
 //Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
 //Sprite Credits to CEV-ERIS, y'all really fucked with this one, it has no reason to look this cool
 //These will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
-//todo: pickup people or machiens with it too? wouldn't that be cool.
+//todo: pickup people or machines with it too? wouldn't that be cool.
+//todo: click interaction inspects
 //check admin_datums for the storage datum for this
 /obj/item/storage/bag/admin
 	name = "bluespace pocket"
@@ -20,6 +25,12 @@
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_POCKETS | ITEM_SLOT_BELT | ITEM_SLOT_BACK//I know someone will want a backpack with no worn icon so here shut up in advance
 	storage_type = /datum/storage/admin/bag
+
+/obj/item/storage/bag/admin/click_ctrl_shift(mob/user)
+	var/list/inv_grab = atom_storage.return_inv(FALSE)
+	for(var/obj/item/stored_item in inv_grab)
+		qdel(stored_item)
+	return
 
 /obj/item/storage/bag/admin/subspace
 	name = "subspace pocket"
@@ -50,7 +61,7 @@
 // The sheetsnatcher extreme is really ugly, misses features, and misses materials. Lets make our own.
 // Using a construction bag as our base, instead of the sheetsnatcher.
 // I can probably adapt the BST-BRPED manufacturing function to this, but for now, an improvement is better than nothing
-// todo: quick button to refill
+// todo: descriptions and inspects
 /obj/item/storage/bag/construction/admin//code\game\objects\items\storage\bags.dm
 	name = "bluespace construction bag"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
@@ -62,6 +73,21 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	slot_flags = ITEM_SLOT_POCKETS//pockets only >:( if i accidentally equip a construction bag to my belt slot instead of my pockets first, where the value proposition is much higher, I will explode
 	storage_type = /datum/storage/admin/bag
+
+// Clears the bag
+/obj/item/storage/bag/construction/admin/click_alt_secondary(mob/user)
+	var/list/inv_grab = atom_storage.return_inv(FALSE)
+	for(var/obj/item/stored_item in inv_grab)
+		qdel(stored_item)
+	return
+
+// Refreshes the bac contents
+/obj/item/storage/bag/construction/admin/click_ctrl_shift(mob/user)
+	var/list/inv_grab = atom_storage.return_inv(FALSE)
+	for(var/obj/item/stored_item in inv_grab)
+		qdel(stored_item)
+	PopulateContents()
+	return
 
 //This makes me physically ill. My skin crawls and I can feel the professionals judging me.
 /obj/item/storage/bag/construction/admin/PopulateContents()
@@ -227,7 +253,7 @@
 
 //Debug Emag & Doorjack
 //There is already a 'bluespace emag' but its pretty ugly, so I'll just do my own quick pallete swap icons
-//todo:icon variants
+//todo:icon variants, fix blacklist issues
 //code\game\objects\items\emags.dm
 /obj/item/card/emag/admin
 	name = "subspace emag-doorjack"
@@ -616,21 +642,96 @@
 // Funny for upstream, less funny here where these tools are used to assist players
 // todo: probably like six unique icons? maybe ill look for a unique new model base
 // I can see myself making a big pile of these, so, lets make an admin empty
-/obj/item/reagent_containers/hypospray/combat/nanites
-	name = "experimental combat stimulant injector"
+/obj/item/reagent_containers/hypospray/combat/subspace
+	name = "subspace combat injector"
 	desc = "A modified air-needle autoinjector for use in combat situations. Prefilled with experimental medical nanites and a stimulant for rapid healing and a combat boost."
 	inhand_icon_state = "nanite_hypo"
 	icon_state = "nanite_hypo"
 	base_icon_state = "nanite_hypo"
 	volume = 100
-	list_reagents = list(/datum/reagent/medicine/adminordrazine/quantum_heal = 80, /datum/reagent/medicine/synaptizine = 20)
+	list_reagents = list(/datum/reagent/medicine/adminordrazine/subspace = 100)
 
 /obj/item/reagent_containers/hypospray/combat/nanites/update_icon_state()
 	icon_state = "[base_icon_state][(reagents.total_volume > 0) ? null : 0]"
 	return ..()
 
-//Admin Multitool! Did you know that the check to show wire results is actually in a terrifying proc found in code\datums\wires\_wires.dm at line 269. Both the multitool and the blueprints dont give quirks or traits, they are directly checked for
-//todo variant icon
-/obj/item/multitool/abductor/admin
-	name = "subspace attenuated multitool"
-	desc = "Beautiful engineering. Pocket blueprints."
+// todo: the width of the spray, tile collision logic for the spray, and the spray tool speed are embedded in the ranged attack proc on the parent, and should be revisited in the future
+// todo: icon
+/obj/item/extinguisher/subspace
+	name = "subspace extinguisher"
+	desc = "A tiny fire extinguisher, designed for putting out small fires. It feels like it has an infinite amount of water. How you can tell this, you aren't sure."
+	icon_state = "mini_extinguisher"
+	max_water = INFINITY
+	starting_water = TRUE
+	chem = /datum/reagent/water
+	refilling = FALSE
+	/// Maximum distance launched water will travel.
+	power = 10
+	/// By default, turfs picked from a spray are random, set to TRUE to make it always have at least one water effect per row.
+	precision = TRUE
+	/// Sets the cooling_temperature of the water reagent datum inside of the extinguisher when it is refilled.
+	cooling_power = 10
+
+// Balls.
+// todo: cap charge? it spams chat. also fix the ctrl click interact
+/obj/item/pneumatic_cannon/subspace
+	name = "subspace ballmatter mass projector"
+	desc = "A subspace condensant powered cannon that can fire any object loaded into it. Also contains a shard of the elusive Ballmatter, which can be attenuated to different spherical wavelengths."
+	w_class = WEIGHT_CLASS_BULKY
+	force = 8 //Very heavy
+	attack_verb_continuous = list("bludgeons", "smashes", "beats")
+	attack_verb_simple = list("bludgeon", "smash", "beat")
+	icon = 'icons/obj/weapons/pneumaticCannon.dmi'
+	icon_state = "pneumaticCannon"
+	inhand_icon_state = "bulldog"
+	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+	maxWeightClass = 100
+	/// How powerful the cannon is - higher pressure = more gas but more powerful throws
+	pressure_setting = 3
+	/// Additional multiplier that adjusts how much farther thrown objects can travel.
+	range_multiplier = 3
+	/// Allows you to hold down LMB to continuously fire.
+	automatic = TRUE
+	/// Determines if a pneumatic cannon needs an air tank to fire. False for things like the pie cannons.
+	needs_air = FALSE
+	clumsyCheck = TRUE
+	///Leave as null to allow all. Otherwise whitelists what can be inserted into the cannon.
+	allowed_typecache = null
+	charge_amount = 1
+	charge_ticks = 1
+	selfcharge = TRUE
+	fire_sound = 'sound/items/weapons/sonic_jackhammer.ogg'
+	spin_item = TRUE
+	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
+	charge_type = /obj/item/toy/tennis/rainbow
+
+GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
+		"Tennis" = /obj/item/toy/tennis,
+		"Red" = /obj/item/toy/tennis/red,
+		"Yellow" = /obj/item/toy/tennis/yellow,
+		"Green" = /obj/item/toy/tennis/green,
+		"Cyan" = /obj/item/toy/tennis/cyan,
+		"Blue" = /obj/item/toy/tennis/blue,
+		"Purple" = /obj/item/toy/tennis/purple,
+		"Rainbow" = /obj/item/toy/tennis/rainbow,
+		"Beach" = /obj/item/toy/beach_ball,
+		"Base" = /obj/item/toy/beach_ball/baseball,
+		"Basket" = /obj/item/toy/basketball,
+		"Dodge" = /obj/item/toy/dodgeball,
+		"Eight" = /obj/item/toy/eightball,
+		"Snow" = /obj/item/toy/snowball,
+		"Dough" = /obj/item/food/dough,
+))
+
+/obj/item/pneumatic_cannon/subspace/item_ctrl_click(mob/user)
+	// Ask the user what they want to make, or if they want to clear the storage.
+	var/pick_a_sphere = tgui_input_list(user, "Tune the Subspace Ballmatter", "Ballmatter", "Clear All", GLOB.subspace_ballmatter_spheres)
+// If they didn't cancel out of the list selection, we do things.  Clear-all removes all items, auto-clear destroys left-overs after upgrades, and everything else is pretty self-explanatory.
+	if(isnull(pick_a_sphere))
+		return
+	if(pick_a_sphere == "Clear All")
+		charge_type = null
+		return
+	charge_type = GLOB.subspace_ballmatter_spheres[pick_a_sphere]
+	return CLICK_ACTION_SUCCESS
