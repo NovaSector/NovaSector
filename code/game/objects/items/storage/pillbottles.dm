@@ -79,10 +79,10 @@
 	spawn_count = 7
 	spawn_type = /obj/item/reagent_containers/applicator/pill/mannitol
 
-//Contains 4 pills instead of 7, and 5u pills instead of 50u (50u pills heal 250 brain damage, 5u pills heal 25)
+//NOVA EDIT CHANGE - ORIGINAL: spawn_count = 4
 /obj/item/storage/pill_bottle/mannitol/braintumor
 	desc = "Contains diluted pills used to treat brain tumor symptoms. Take one when feeling lightheaded."
-	spawn_count = 4
+	spawn_count = 7
 	spawn_type = /obj/item/reagent_containers/applicator/pill/mannitol/braintumor
 
 /obj/item/storage/pill_bottle/stimulant
