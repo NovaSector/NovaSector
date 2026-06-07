@@ -1,4 +1,5 @@
-//todo:subspace boxcutter. tennis ball gun. /obj/item/teleportation_scroll code theft? admin vendor spawner /obj/item/summon_beacon/vendors. fix the locker spawner having single charge. new meteor pen / edagger combo, use anti-tank wand projectile? admin cyborgs and modules. /obj/item/abductor/alien_omnitool. /obj/item/soap/omega. admeme syringe gun. subspace baseball bat. pepper ball, like the pepperball projectile, but causes pepperspray on impact with a mob.
+//todo:subspace boxcutter.
+//todo: admin firing pin. admin cyborgs and modules. /obj/item/soap/omega. admeme syringe gun. subspace baseball bat. pepper ball, like the pepperball projectile, but causes pepperspray on impact with a mob. admin modular laser rifle.
 //todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
 //todo: handheld air scrubber + hvac, new admin dune shield to replace the, seeds box
 //
@@ -7,6 +8,8 @@
 //
 //pocket drones / mobs for repair / medbots / construction bots / combat bots / janibots / etc. maybe even a pocket mech? drone beacon spawner, see debug gas miner for exp
 //
+///obj/item/pen/screwdriver/get_all_tool_behaviours()
+//	return list(TOOL_SCREWDRIVER)
 //
 //investigat robotact pda app functionality
 //
@@ -672,7 +675,7 @@
 	/// Sets the cooling_temperature of the water reagent datum inside of the extinguisher when it is refilled.
 	cooling_power = 10
 
-// Balls.
+// Balls. Empty the stored balls in a directed space.
 // todo: cap charge? it spams chat. also fix the ctrl click interact
 /obj/item/pneumatic_cannon/subspace
 	name = "subspace ballmatter mass projector"
@@ -686,16 +689,16 @@
 	inhand_icon_state = "bulldog"
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
-	maxWeightClass = 100
+	maxWeightClass = 20
 	/// How powerful the cannon is - higher pressure = more gas but more powerful throws
-	pressure_setting = 3
+	pressure_setting = 2
 	/// Additional multiplier that adjusts how much farther thrown objects can travel.
 	range_multiplier = 3
 	/// Allows you to hold down LMB to continuously fire.
-	automatic = TRUE
+	automatic = FALSE
 	/// Determines if a pneumatic cannon needs an air tank to fire. False for things like the pie cannons.
 	needs_air = FALSE
-	clumsyCheck = TRUE
+	clumsyCheck = FALSE
 	///Leave as null to allow all. Otherwise whitelists what can be inserted into the cannon.
 	allowed_typecache = null
 	charge_amount = 1
@@ -706,6 +709,7 @@
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
 	charge_type = /obj/item/toy/tennis/rainbow
 
+/* All of this code is broken for some reason, I spent hours trying to fix it and I just cannot figure out why. The sbmp can just launch the best balls, for now.
 GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 		"Tennis" = /obj/item/toy/tennis,
 		"Red" = /obj/item/toy/tennis/red,
@@ -731,7 +735,179 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	if(isnull(pick_a_sphere))
 		return
 	if(pick_a_sphere == "Clear All")
+		var/list/inv_grab = atom_storage.return_inv(FALSE)
+		for(var/obj/item/stored_item in inv_grab)
+			qdel(stored_item)
 		charge_type = null
 		return
-	charge_type = GLOB.subspace_ballmatter_spheres[pick_a_sphere]
+	if(pick_a_sphere in GLOB.subspace_ballmatter_spheres)
+		charge_type = GLOB.subspace_ballmatter_spheres[pick_a_sphere]
 	return CLICK_ACTION_SUCCESS
+*/
+
+// Consumes the job locker module, originally made by carpotoxin/honkpocket, because we use the code for a debug job locker spawn beacon.
+// Creates a beacon that can spawn a locker with the items of a specified job. The locker spawns when the beacon is activated, and the locker type is determined by the beacon's internal list of locker paths, which is populated by the admin who holds it.
+/obj/item/choice_beacon/job_locker
+	name = "job locker beacon"
+	desc = "A beacon which summons a locker with a job's items, what more is there to tell."
+	company_source = "Nanotrasen"
+	var/locker_path = list()
+
+/obj/item/choice_beacon/job_locker/generate_display_names()
+	if(!locker_path)
+		return
+	var/locker_list = list()
+	for(var/obj/structure/closet/secure_closet/path as anything in locker_path)
+		locker_list[initial(path.name)] = path
+	return locker_list
+
+// The beacon is a debug variant which has access to all lockers in the game, for reasons.
+/obj/item/choice_beacon/job_locker/debug
+	name = "debug job locker beacon"
+	company_source = /obj/item/choice_beacon::company_source
+	uses = INFINITY
+
+/obj/item/choice_beacon/job_locker/debug/generate_display_names()
+	var/locker_list = list()
+	for(var/obj/structure/closet/secure_closet/path as anything in subtypesof(/obj/structure/closet/secure_closet))
+		locker_list[initial(path.name)] = path
+	return locker_list
+
+// Spawn all the vendors that you want.
+// This really isn't a great debug tool at the moment, as it uses a radial menu to select the vendor you want to spawn, which is really clunky with the number of vendors in the game, but, it works for now.
+// Maybe I'll make a tguilist for it later.
+/obj/item/summon_beacon/vendors/debug
+	name = "debug vendor beacon"
+	desc = "Delivers a Vendor via orbital drop with patented Donk Co. SafeTec Technology!"
+	uses = INFINITY
+
+// It is time we create something terrible; a multicolor-pen-wand/gun that shoots anti-tank rounds. And also is an edagger. Fun admin-pda pen slot filler.
+/*
+/obj/item/gun/energy/meteorgun/pen
+/obj/item/pen/edagger
+/obj/item/gun/magic/wand/anti_tank
+/obj/item/gun/ballistic/automatic/lahti
+*/
+// First lets make a new base that we might use again later. At minimum, it'll be a good blank to throw shit onto.
+/obj/item/gun/magic/subspace/
+	name = "subspace wand"
+	desc = "That's not magic, that's a gun in the shape of a stick."
+	w_class = WEIGHT_CLASS_TINY
+	can_muzzle_flash = FALSE
+	clumsy_check = FALSE
+	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
+	//todo: admin firing pin
+	pin = /obj/item/firing_pin/magic
+	pinless = TRUE
+	school = SCHOOL_UNSET
+	antimagic_flags = null
+	max_charges = INFINITY
+	charges = INFINITY
+
+/obj/item/gun/magic/subspace/dagenblicky
+	name = "subspace mass projector pen"
+	desc = "The pen is still mightier than a 20x138mm."
+	icon = 'icons/obj/service/bureaucracy.dmi'
+	icon_state = "digging_pen"
+	inhand_icon_state = "pen"
+	worn_icon_state = "pen"
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	fire_sound = 'sound/items/weapons/emitter.ogg'
+	attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts") //these won't show up if the pen is off
+	attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	sharpness = SHARP_POINTY
+	armour_penetration = 20
+	exposed_wound_bonus = 10
+	item_flags = NO_BLOOD_ON_ITEM
+	light_system = OVERLAY_LIGHT
+	light_range = 1.5
+	light_power = 1.3
+	light_color = "#FA8282"
+	light_on = FALSE
+	about_to_shoot_inside_mail_text = "It's humming with energy!"
+	pitch_with_charges = TRUE
+	ammo_type = /obj/item/ammo_casing/mm20x138
+	can_hold_up = TRUE
+	var/colour = COLOR_PURPLE_GRAY //what colour the ink is!
+	var/degrees = 67
+	var/font = PEN_FONT
+	var/requires_gravity = TRUE
+	/// The real name of our item when extended.
+	var/hidden_name = "subspace energy dagger"
+	/// The real desc of our item when extended.
+	var/hidden_desc = "Visceral."
+	/// The real icons used when extended.
+	var/hidden_icon = "edagger"
+	var/list/alt_continuous = list("stabs", "pierces", "shanks")
+	var/list/alt_simple = list("stab", "pierce", "shank")
+	/// If this pen can be clicked in order to retract it
+	var/can_click = TRUE
+
+/obj/item/gun/magic/wand/subspace/dagenblicky/proc/create_transform_component()
+	AddComponent( \
+		/datum/component/transforming, \
+		force_on = 18, \
+		throwforce_on = 35, \
+		throw_speed_on = 4, \
+		sharpness_on = SHARP_EDGED, \
+		w_class_on = WEIGHT_CLASS_NORMAL, \
+		inhand_icon_change = FALSE, \
+	)
+
+/obj/item/gun/magic/wand/subspace/dagenblicky/Initialize(mapload)
+	. = ..()
+	alt_continuous = string_list(alt_continuous)
+	alt_simple = string_list(alt_simple)
+	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple, -5, TRAIT_TRANSFORM_ACTIVE)
+	AddComponent(/datum/component/butchering, \
+	speed = 6 SECONDS, \
+	butcher_sound = 'sound/items/weapons/blade1.ogg', \
+	)
+	if (!can_click)
+		return
+	create_transform_component()
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
+
+/obj/item/gun/magic/wand/subspace/dagenblicky/get_writing_implement_details()
+	if (HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
+		return null
+	return list(
+		interaction_mode = MODE_WRITING,
+		font = font,
+		color = colour,
+		use_bold = FALSE,
+	)
+
+/*
+ * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
+ *
+ * Handles swapping their icon files to edagger related icon files -
+ * as they're supposed to look like a normal pen.
+ */
+/obj/item/gun/magic/wand/subspace/dagenblicky/proc/on_transform(obj/item/source, mob/user, active)
+	if(active)
+		name = hidden_name
+		desc = hidden_desc
+		icon_state = hidden_icon
+		inhand_icon_state = hidden_icon
+		lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+		righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+		set_embed(/datum/embedding/edagger_active)
+	else
+		name = initial(name)
+		desc = initial(desc)
+		icon_state = initial(icon_state)
+		inhand_icon_state = initial(inhand_icon_state)
+		lefthand_file = initial(lefthand_file)
+		righthand_file = initial(righthand_file)
+		set_embed(embed_type)
+
+	if(user)
+		balloon_alert(user, "[hidden_name] [active ? "active" : "concealed"]")
+	playsound(src, active ? 'sound/items/weapons/saberon.ogg' : 'sound/items/weapons/saberoff.ogg', 5, TRUE)
+	set_light_on(active)
+	return COMPONENT_NO_DEFAULT_MESSAGE
+
+/datum/embedding/edagger_active
+	embed_chance = 100

@@ -8566,7 +8566,6 @@
 #include "modular_nova\modules\item_visuals\code\item_visuals.dm"
 #include "modular_nova\modules\jaeger_mod\code\jaeger_mod.dm"
 #include "modular_nova\modules\job_estimation\job_estimation.dm"
-#include "modular_nova\modules\job_locker_beacon\code\job_locker_beacon.dm"
 #include "modular_nova\modules\jungle\code\flora.dm"
 #include "modular_nova\modules\kahraman_equipment\code\gps_beacon.dm"
 #include "modular_nova\modules\kahraman_equipment\code\looping_sounds.dm"

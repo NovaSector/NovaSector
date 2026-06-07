@@ -338,7 +338,7 @@
 	. = ..()
 	if(admin_godmode)
 		ADD_TRAIT(user, TRAIT_GODMODE, REF(user))
-	if(user & slot & slot_flags & admin_godmode)
+//	if(user & slot & slot_flags & admin_godmode)
 		ADD_TRAIT(user, TRAIT_GODMODE, REF(user))
 
 /// Whether godmode is currently active
@@ -436,6 +436,19 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
+
+//Gives the undersuit the ability to teleport.
+//todo: apparently just doesnt work. fix this at some point.
+//todo: non-restricted teleport_loc setup and new spell just for this. This'll do for now though.
+/obj/item/clothing/under/admin/Initialize(mapload)
+	. = ..()
+	// In the future, this can be generalized into just "magic scrolls that give you a specific spell".
+	var/datum/action/cooldown/spell/teleport/area_teleport = locate() in actions
+	if(!area_teleport)
+		return
+	area_teleport.name = name
+	area_teleport.button_icon = icon
+	area_teleport.button_icon_state = icon_state
 
 /obj/item/clothing/under/admin/subspace
 	name = "subspace techsuit"
