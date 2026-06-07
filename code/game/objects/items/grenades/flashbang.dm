@@ -83,7 +83,7 @@
 		return
 
 	if(distance <= sweetspot_range)
-		living_mob.soundbang_act(SOUNDBANG_NORMAL, 0, rand(0, 5)) // NOVA MODULAR EDIT - Remove stuns from flashbangs - original living_mob.soundbang_act(SOUNDBANG_NORMAL, max(20 SECONDS / max(1, distance), 60), rand(0, 5))
+		living_mob.soundbang_act(SOUNDBANG_NORMAL, stun_pwr = 0 SECONDS, damage_pwr = rand(0, 5)) // NOVA EDIT CHANGE - Remove stuns from flashbangs - ORIGINAL: living_mob.soundbang_act(SOUNDBANG_NORMAL, max(20 SECONDS / max(1, distance), 60), rand(0, 5))
 		return
 
 	if(!living_mob.soundbang_act(SOUNDBANG_NORMAL, 0, rand(0, 2)))
