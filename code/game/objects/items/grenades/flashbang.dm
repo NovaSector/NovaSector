@@ -79,7 +79,7 @@
 		return
 
 	if(distance <= 1) // Adds more stun as to not prime n' pull (#45381)
-		living_mob.soundbang_act(SOUNDBANG_STRONG, 0, 5) // NOVA MODULAR EDIT - Remove stuns from flashbangs - original living_mob.soundbang_act(SOUNDBANG_STRONG, 3 SECONDS, 5)
+		living_mob.soundbang_act(SOUNDBANG_STRONG, stun_pwr = 0 SECONDS, damage_pwr = 5) // NOVA EDIT CHANGE - Remove stuns from flashbangs - ORIGINAL: living_mob.soundbang_act(SOUNDBANG_STRONG, 3 SECONDS, 5)
 		return
 
 	if(distance <= sweetspot_range)
