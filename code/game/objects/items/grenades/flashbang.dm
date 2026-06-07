@@ -75,7 +75,7 @@
 		return
 
 	if(!distance)
-		living_mob.soundbang_act(SOUNDBANG_OVERWHELMING, 0, 10, 15) // NOVA MODULAR EDIT - Remove stuns from flashbangs - original living_mob.soundbang_act(SOUNDBANG_OVERWHELMING, 20 SECONDS, 10, 15)
+		living_mob.soundbang_act(SOUNDBANG_OVERWHELMING, stun_pwr = 0 SECONDS, damage_pwr = 10, deafen_pwr = 15 SECONDS) // NOVA EDIT CHANGE - Remove stuns from flashbangs - ORIGINAL: living_mob.soundbang_act(SOUNDBANG_OVERWHELMING, 20 SECONDS, 10, 15)
 		return
 
 	if(distance <= 1) // Adds more stun as to not prime n' pull (#45381)
