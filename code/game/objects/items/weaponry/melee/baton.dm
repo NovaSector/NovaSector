@@ -341,9 +341,7 @@
 	pickup_sound = 'sound/items/baton/telescopic_baton_folded_pickup.ogg'
 	drop_sound = 'sound/items/baton/telescopic_baton_folded_drop.ogg'
 	sound_vary = TRUE
-	// MODULAR NOVA EDIT BEGIN
-	knockdown_time = (0.1 SECONDS)
-	// MODULAR NOVA EDIT END
+	knockdown_time = (0.1 SECONDS) // NOVA EDIT ADDITION
 	/// The sound effecte played when our baton is extended.
 	var/on_sound = 'sound/items/weapons/batonextend.ogg'
 	/// The inhand iconstate used when our baton is extended.
