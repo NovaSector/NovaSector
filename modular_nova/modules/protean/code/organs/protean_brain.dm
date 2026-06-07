@@ -359,7 +359,7 @@
 	if(IS_CHANGELING(owner))
 		revive_timer_id = addtimer(CALLBACK(src, PROC_REF(revive)), 40 SECONDS, TIMER_STOPPABLE)
 	else
-		revive_timer_id = addtimer(CALLBACK(src, PROC_REF(revive)), 5 MINUTES, TIMER_STOPPABLE)
+		revive_timer_id = addtimer(CALLBACK(src, PROC_REF(revive)), 1 MINUTES, TIMER_STOPPABLE)
 
 /obj/effect/temp_visual/protean_to_suit
 	name = "to_suit"
