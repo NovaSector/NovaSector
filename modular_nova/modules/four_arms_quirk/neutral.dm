@@ -14,72 +14,27 @@
 	By keeping traits and sprite overlays separate, players aren't forced to engage with finnicky four-arm mechanics if they...
 	...just want a different appearance.
 */
+#define EXTRA_ARM_HELD_OFFSET_Y -20
 
+/datum/quirk/four_arms/proc/make_extra_arm_offset(obj/item/bodypart/arm/limb)
+	return new /datum/worn_feature_offset(
+		attached_part = limb,
+		feature_key = OFFSET_HELD,
+		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0, "northwest" = 0, "southwest" = 0, "northeast" = 0, "southeast" = 0),
+		offset_y = list("north" = EXTRA_ARM_HELD_OFFSET_Y, "south" = EXTRA_ARM_HELD_OFFSET_Y, "east" = EXTRA_ARM_HELD_OFFSET_Y, "west" = EXTRA_ARM_HELD_OFFSET_Y),
+	)
+
+#undef EXTRA_ARM_HELD_OFFSET_Y
 
 /datum/quirk/four_arms/add(client/client_source)
 	var/mob/living/carbon/human/quad_arm = quirk_holder
 	quad_arm.change_number_of_arms(4)
 	quad_arm.update_body_parts()
-
+	quad_arm.change_number_of_hands(4)
+	for(var/obj/item/bodypart/arm/limb in quad_arm.hand_bodyparts)
+		if(limb.held_index > 2)
+			limb.held_hand_offset ||= make_extra_arm_offset(limb)
 /datum/quirk/four_arms/remove()
 	var/mob/living/carbon/human/quad_arm = quirk_holder
-	quad_arm.change_number_of_arms(2)
-	quad_arm.update_body_parts()
+	quad_arm.change_number_of_hands(2)
 
-// Based off the change_number_of_hands(amt) proc in inventory.dm
-// This is a separate proc for two reasons:
-// 1) Modularity,
-// 2) Removing the ugly white overlay that is superimposed atop the old arms when the 'base' proc is used.
-// ...
-// I'm aware that the way this is just dropped in here is a horrid code smell and anti-pattern but I couldn't ...
-// ... think of a better/quicker/easier way to do this in .dm; Will gladly alter this if someone more knowledgeable ...
-// ... has a better solution in mind that doesn't involve tremenduous effort for a niche feature. - bwsb/SunriseOYH
-/mob/living/carbon/human/proc/change_number_of_arms(amt)
-	var/old_limbs = held_items.len
-	if(amt < old_limbs)
-		for(var/i in hand_bodyparts.len to amt + 1 step -1)
-			var/obj/item/bodypart/BP = hand_bodyparts[i]
-			if(i > 2)
-				remove_bodypart(BP, special = TRUE)
-				qdel(BP)
-			else
-				BP.dismember()
-			hand_bodyparts[i] = null
-		hand_bodyparts.len = amt
-	else if(amt > old_limbs)
-		hand_bodyparts.len = amt
-		for(var/i in old_limbs + 1 to amt)
-			var/obj/item/bodypart/arm/new_bodypart
-			if(IS_RIGHT_INDEX(i))
-				new_bodypart = newBodyPart(BODY_ZONE_R_ARM)
-			else
-				new_bodypart = newBodyPart(BODY_ZONE_L_ARM)
-			new_bodypart.held_index = i
-			if(i <= 2)
-				new_bodypart.try_attach_limb(src, TRUE)
-			else
-				add_bodypart(new_bodypart)
-			new_bodypart.update_limb(is_creating = TRUE)
-			if(i > 2)
-				if(IS_RIGHT_INDEX(i))
-					new_bodypart.held_hand_offset = new(
-						attached_part = new_bodypart,
-						feature_key = OFFSET_HELD,
-						offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0, "northwest" = 0, "southwest" = 0, "northeast" = 0, "southeast" = 0),
-						offset_y = list("north" = -20, "south" = -20, "east" = -20, "west" = -20),
-					)
-
-				else
-					new_bodypart.held_hand_offset = new(
-						attached_part = new_bodypart,
-						feature_key = OFFSET_HELD,
-						offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0, "northwest" = 0, "southwest" = 0, "northeast" = 0, "southeast" = 0),
-						offset_y = list("north" = -20, "south" = -20, "east" = -20, "west" = -20),
-					)
-			hand_bodyparts[i] = new_bodypart
-	if(amt < held_items.len)
-		for(var/i in held_items.len to amt step -1)
-			dropItemToGround(held_items[i])
-	held_items.len = amt
-	if(hud_used)
-		hud_used.build_hand_slots()

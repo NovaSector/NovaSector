@@ -924,7 +924,9 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "fourarms_color"
 	relevant_mutant_bodypart = FEATURE_FOURARMS
-	type_to_check = /datum/preference/toggle/mutant_toggle/fourarms
+	check_mode = TRICOLOR_CHECK_ACCESSORY
+	type_to_check = /datum/preference/choiced/mutant_choice/fourarms
+
 // Holosynth color preference
 /datum/preference/color/mutant/holosynth_color
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES

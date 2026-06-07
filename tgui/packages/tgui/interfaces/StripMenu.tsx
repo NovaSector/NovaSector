@@ -249,7 +249,7 @@ const SLOTS: Record<
     gridSpot: getGridSpotKey([4, 5]),
     image: 'inventory-pocket.png',
   },
-  // NOVA EDIT ADDITION
+  // NOVA EDIT ADDITION START
   vagina: {
     displayName: 'vagina',
     gridSpot: getGridSpotKey([5, 1]),
@@ -289,7 +289,7 @@ const SLOTS: Record<
   },
 
 };
-// NOVA EDIT END
+// NOVA EDIT ADDITION END
 enum ObscuringLevel {
   Completely = 1,
   Hidden = 2,
