@@ -66,7 +66,7 @@
 			living_mob.adjust_dizzy_up_to(max(200/max(1, distance), 5), 20 SECONDS)
 		living_mob.adjust_dizzy_up_to(max(200/max(1, distance), 5), 20 SECONDS)
 		*/ // NOVA EDIT REMOVAL END
-			living_mob.adjust_dizzy_up_to(max(200/max(1, distance), 5), 20 SECONDS) // NOVA EDIT ADDITION
+		living_mob.adjust_dizzy_up_to(max(200/max(1, distance), 5), 20 SECONDS) // NOVA EDIT ADDITION
 		living_mob.dropItemToGround(living_mob.get_active_held_item())
 		living_mob.dropItemToGround(living_mob.get_inactive_held_item())
 
