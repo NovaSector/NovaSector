@@ -41,7 +41,8 @@ GLOBAL_LIST_INIT(conflict_optin_forcing_on_spawn_antag_categories, list())
 /datum/mind/proc/get_effective_conflict_opt_in_level()
 	var/step_1 = max(ideal_conflict_opt_in_level, get_job_conflict_opt_in_level())
 	var/step_2 = max(step_1, get_conflict_opt_in_level())
-	return step_2
+	var/step_3 = max(step_2, get_effective_antag_opt_in_level())
+	return step_3
 
 /// Returns the opt in level of our job.
 /datum/mind/proc/get_job_conflict_opt_in_level()
