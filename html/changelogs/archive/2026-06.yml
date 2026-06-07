@@ -52,3 +52,18 @@
   - spellcheck: The Command Outfitting Station is now a drobe, same as every other
       clothing vendor.
   - qol: Looping alarm sounds are sadly not gone, but they are a pref!!
+2026-06-07:
+  Absolucy:
+  - bugfix: The examine line indicating temporary flavor text now actually uses the
+      examinee's pronouns, instead of always using "they".
+  Happyowl93:
+  - balance: Advanced Energy Gun's recharge rate is set to the recharge rate of the
+      captain's antique.
+  Iajret:
+  - bugfix: fixed DO showing maptext (runechat) only to DOer for every mob in their
+      view range
+  YuiY1997:
+  - rscadd: Adds more sexual roles in ERP preferences and new self-identifying descriptors
+      for the character directory
+  theselfish:
+  - rscdel: TG Maps have their unique shuttles back.
