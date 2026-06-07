@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "fixed DO showing maptext (runechat) only to DOer for every mob in their view range"
