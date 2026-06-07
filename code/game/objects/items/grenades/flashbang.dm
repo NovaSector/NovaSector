@@ -58,9 +58,15 @@
 	//Flash
 	var/attempt_flash = living_mob.flash_act(affect_silicon = 1)
 	if(attempt_flash == FLASH_COMPLETED)
-		// NOVA MODULAR EDIT BEGIN
+		/* // NOVA EDIT REMOVAL START
+		if(distance <= sweetspot_range || issilicon(living_mob))
+			living_mob.Paralyze(max(20/max(1, distance), 5))
+			living_mob.Knockdown(max(200/max(1, distance), 60))
+		else
+			living_mob.adjust_dizzy_up_to(max(200/max(1, distance), 5), 20 SECONDS)
 		living_mob.adjust_dizzy_up_to(max(200/max(1, distance), 5), 20 SECONDS)
-		// NOVA MODULAR EDIT END
+		*/ // NOVA EDIT REMOVAL END
+			living_mob.adjust_dizzy_up_to(max(200/max(1, distance), 5), 20 SECONDS) // NOVA EDIT ADDITION
 		living_mob.dropItemToGround(living_mob.get_active_held_item())
 		living_mob.dropItemToGround(living_mob.get_inactive_held_item())
 
