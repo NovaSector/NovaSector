@@ -144,10 +144,10 @@
 		"flavor_text_nsfw" = flavor_text_nsfw,
 		"ooc_notes_nsfw" = ooc_notes_nsfw,
 		// Antaggery
-		"ideal_antag_optin_status" = ideal_antag_optin_status, // Our opt-in status from prefs when we joined the game
-		"current_antag_optin_status" = current_antag_optin_status, // What it's being forced to if applicable
-		"ideal_conflict_optin_status" = ideal_conflict_optin_status, // Our opt-in status from prefs when we joined the game
-		"current_conflict_optin_status" = current_conflict_optin_status, // What it's being forced to if applicable
+		"ideal_antag_optin_status" = ideal_antag_optin_status, // Our antag opt-in status from prefs when we joined the game
+		"current_antag_optin_status" = current_antag_optin_status, // The current antag opt-in status, if it was forced to be something different
+		"ideal_conflict_optin_status" = ideal_conflict_optin_status, // Our conflict opt-in status from prefs when we joined the game
+		"current_conflict_optin_status" = current_conflict_optin_status, // The current conflict opt-in status, if it was forced to be something different
 	)
 	return data
 

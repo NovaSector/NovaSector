@@ -139,7 +139,7 @@ ARRIVALS_WAIT 150
 ## Uncomment to completely disable the antag opt-in system, which is a system that forces objectives to only roll on individuals who consent to it.
 #DISABLE_ANTAG_OPT_IN_PREFERENCES
 
-## Uncomment to completely disable the opt-in system, which provides a preference on inspect to indicate someones willingness to engage with hostilities
+## Uncomment to completely disable the conflict opt-in system, which provides a preference on inspect to indicate someones willingness to engage with hostilities
 #DISABLE_CONFLICT_OPT_IN_PREFERENCES
 
 ## Uncomment to enable the replacing of flashbangs in secbelts with energy bolas

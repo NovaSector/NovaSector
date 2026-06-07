@@ -20,8 +20,8 @@ Adds functionality to allow players to 'opt-in' to being an antagonist's mechani
 
 ### Defines:
 
-- antag_opt_in - code\_\_DEFINES\~nova_defines\antag_optin_defines.dm
-- ANTAG_OPT_IN_YES_KILL, ANTAG_OPT_IN_YES_PARTIAL, ANTAG_OPT_IN_YES_ROUND_REMOVE, and OPT_IN_NOT_TARGET - used for managing opt in stuff.
+- antag_opt_in - code/\_\_DEFINES/~nova_defines/antag_optin_defines.dm
+  - `ANTAG_OPT_IN_YES_KILL`, `ANTAG_OPT_IN_YES_PARTIAL`, `ANTAG_OPT_IN_YES_ROUND_REMOVE`, and `OPT_IN_NOT_TARGET` - used for managing antag opt in stuff.
 
 ### Included files that are not contained in this module:
 

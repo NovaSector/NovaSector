@@ -13,7 +13,7 @@
 #define ANTAG_OPT_IN_ANTAG_ENABLED_LEVEL ANTAG_OPT_IN_YES_PARTIAL
 
 // Each level decides how the dyanmic system can select a player as a target for antagonist objectives. The higher the level, the more severe the objectives they are consenting to be a target of.
-// These are used in preferences and in objective targetting checks.
+// These are used in preferences and in objective targeting checks.
 /// Prefers not to be a target. Will still be a potential target if playing sec or command.
 #define ANTAG_OPT_OUT 0
 /// For temporary or otherwise 'inconvenient' objectives like kidnapping or theft
@@ -42,5 +42,5 @@ GLOBAL_LIST_INIT(antag_opt_in_colors, list(
 	ANTAG_OPT_OUT_STRING = COLOR_GRAY,
 	ANTAG_OPT_IN_YES_PARTIAL_STRING = COLOR_EMERALD,
 	ANTAG_OPT_IN_YES_KILL_STRING = COLOR_ORANGE,
-	ANTAG_OPT_IN_YES_ROUND_REMOVE_STRING = COLOR_RED
+	ANTAG_OPT_IN_YES_ROUND_REMOVE_STRING = COLOR_RED,
 ))

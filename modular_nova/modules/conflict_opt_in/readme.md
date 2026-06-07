@@ -1,4 +1,4 @@
-https://github.com/NovaSector/NovaSector/pull/121
+https://github.com/NovaSector/NovaSector/pull/7439
 
 ## \<Title Antagonist Opt In>
 
@@ -19,8 +19,8 @@ Adds a new social and policy preference which shows on inspect to indicate the l
 
 ### Defines:
 
-- conflict_opt_in - code\_\_DEFINES\~nova_defines\conflict_optin_defines.dm
-- ANTAG_OPT_IN_YES_KILL, ANTAG_OPT_IN_YES_PARTIAL, ANTAG_OPT_IN_YES_ROUND_REMOVE, and OPT_IN_NOT_TARGET - used for managing opt in stuff.
+- conflict_opt_in - code/\_\_DEFINES/~nova_defines/conflict_optin_defines.dm
+	- `ANTAG_OPT_IN_YES_KILL`, `ANTAG_OPT_IN_YES_PARTIAL`, `ANTAG_OPT_IN_YES_ROUND_REMOVE`, and `OPT_IN_NOT_TARGET` - used for managing opt in stuff.
 
 ### Included files that are not contained in this module:
 
