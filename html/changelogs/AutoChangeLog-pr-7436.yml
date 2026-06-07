@@ -1,4 +1,0 @@
-author: "Absolucy"
-delete-after: True
-changes:
-  - bugfix: "The examine line indicating temporary flavor text now actually uses the examinee's pronouns, instead of always using \"they\"."
