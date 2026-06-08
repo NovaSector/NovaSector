@@ -127,8 +127,10 @@
 	var/obj/item/food/egg/oviposition/egg = new(location)
 	egg.name = "[egg_species || "nondescript"] egg"
 	if(egg_skin)
-		var/egg_icon_state = GLOB.pregnancy_egg_skins[egg_skin]
+		var/egg_icon_state = GLOB.pregnancy_egg_skins[egg_skin] || egg_skin
 		if(egg_icon_state)
+			if(egg_icon_state != "egg" && findtext(egg_icon_state, "egg_") != 1)
+				egg_icon_state = "egg_[egg_icon_state]"
 			egg.icon_state = egg_icon_state
 			egg.base_icon_state = egg_icon_state
 			egg.update_appearance(UPDATE_ICON)

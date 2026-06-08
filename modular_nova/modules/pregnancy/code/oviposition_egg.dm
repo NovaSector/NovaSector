@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(pregnancy_egg_skins, list( \
 	"Purple" = "purple",\
 	"Red" = "red",\
 	"Rainbow" = "rainbow",\
-	"Pink" = "pink",\
+	"Pink" = "pinkspots",\
 	"Honeycomb" = "honeycomb",\
 	"Floppy" = "floppy",\
 	"File" = "file",\

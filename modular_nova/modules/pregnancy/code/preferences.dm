@@ -80,7 +80,7 @@
 	savefile_key = "pregnancy_egg_skin"
 
 /datum/preference/choiced/pregnancy/egg_skin/create_default_value()
-	return GLOB.pregnancy_egg_skins[GLOB.pregnancy_egg_skins.Find("Chicken") || 1]
+	return "Chicken"
 
 /datum/preference/choiced/pregnancy/egg_skin/init_possible_values()
 	return assoc_to_keys(GLOB.pregnancy_egg_skins)

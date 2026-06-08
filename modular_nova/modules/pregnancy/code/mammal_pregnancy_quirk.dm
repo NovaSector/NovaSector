@@ -25,7 +25,7 @@
 
 /datum/quirk/mammal_pregnancy/proc/read_customization(client/client_source)
 	if(!client_source?.prefs)
-		egg_skin = GLOB.pregnancy_egg_skins[GLOB.pregnancy_egg_skins.Find("Chicken") || 1]
+		egg_skin = "Chicken"
 		return
 
 	pregnancy_chance = client_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance)
