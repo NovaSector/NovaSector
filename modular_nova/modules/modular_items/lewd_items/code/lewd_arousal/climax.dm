@@ -173,6 +173,7 @@
 						visible_message(span_userlove("[src] hilts [self_their] cock into [target_human]'s [climax_into_choice], shooting cum into [target_human_them]!"), \
 							span_userlove("You hilt your cock into [target_human]'s [climax_into_choice], shooting cum into [target_human_them]!"), pref_to_check = /datum/preference/toggle/erp)
 						to_chat(target_human, span_userlove("Your [climax_into_choice] fills with warm cum as [src] shoots [self_their] load into it."))
+						try_pregnancy_from_climax(target_human, climax_into_choice)
 						SEND_SIGNAL(src, COMSIG_MOB_POST_CLIMAX, target_human, climax_into_choice)
 						if(climax_into_choice == ORGAN_SLOT_VAGINA)
 							target_human.create_carbon_reagents()

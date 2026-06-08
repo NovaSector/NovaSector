@@ -13,6 +13,13 @@ export const master_erp_pref: FeatureToggle = {
   component: CheckboxInput,
 };
 
+export const master_pregnancy_pref: FeatureToggle = {
+  name: 'Show/Hide Pregnancy Preferences',
+  category: 'ERP',
+  description: 'Toggles if you want to see pregnancy preferences.',
+  component: CheckboxInput,
+};
+
 export const erp_pref: FeatureToggle = {
   name: 'Erotic Roleplay Interaction',
   category: 'ERP',
