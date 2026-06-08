@@ -9,12 +9,8 @@
 	erp_quirk = TRUE
 	/// Percent chance that an internal climax causes pregnancy.
 	var/pregnancy_chance = PREGNANCY_CHANCE_DEFAULT
-	/// Pregnancy duration in deciseconds.
-	var/pregnancy_duration = PREGNANCY_DURATION_DEFAULT * PREGNANCY_DURATION_MULTIPLIER
 	/// Runtime pregnancy behavior flags.
-	var/pregnancy_flags = PREGNANCY_FLAG_INERT | PREGNANCY_FLAGS_DEFAULT
-	/// Selected egg sprite key.
-	var/egg_skin
+	var/pregnancy_flags = PREGNANCY_FLAGS_DEFAULT
 
 /datum/quirk/mammal_pregnancy/add(client/client_source)
 	read_customization(client_source)
@@ -25,13 +21,11 @@
 
 /datum/quirk/mammal_pregnancy/proc/read_customization(client/client_source)
 	if(!client_source?.prefs)
-		egg_skin = "Chicken"
 		return
 
 	pregnancy_chance = client_source.prefs.read_preference(/datum/preference/numeric/pregnancy/chance)
-	pregnancy_duration = client_source.prefs.read_preference(/datum/preference/numeric/pregnancy/duration) * PREGNANCY_DURATION_MULTIPLIER
 
-	pregnancy_flags = PREGNANCY_FLAG_INERT
+	pregnancy_flags = NONE
 	if(client_source.prefs.read_preference(/datum/preference/toggle/pregnancy/cryptic))
 		pregnancy_flags |= PREGNANCY_FLAG_CRYPTIC
 	if(client_source.prefs.read_preference(/datum/preference/toggle/pregnancy/belly_inflation))
@@ -39,15 +33,11 @@
 	if(client_source.prefs.read_preference(/datum/preference/toggle/pregnancy/nausea))
 		pregnancy_flags |= PREGNANCY_FLAG_NAUSEA
 
-	egg_skin = client_source.prefs.read_preference(/datum/preference/choiced/pregnancy/egg_skin)
-
 /datum/quirk_constant_data/mammal_pregnancy
 	associated_typepath = /datum/quirk/mammal_pregnancy
 	customization_options = list(
 		/datum/preference/numeric/pregnancy/chance,
-		/datum/preference/numeric/pregnancy/duration,
 		/datum/preference/toggle/pregnancy/cryptic,
 		/datum/preference/toggle/pregnancy/belly_inflation,
 		/datum/preference/toggle/pregnancy/nausea,
-		/datum/preference/choiced/pregnancy/egg_skin,
 	)

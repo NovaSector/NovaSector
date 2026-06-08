@@ -24,18 +24,6 @@
 /datum/preference/toggle/pregnancy/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
-/// Abstract base for choiced pregnancy prefs
-/datum/preference/choiced/pregnancy
-	abstract_type = /datum/preference/choiced/pregnancy
-
-/datum/preference/choiced/pregnancy/is_accessible(datum/preferences/preferences)
-	if(!..(preferences))
-		return FALSE
-	return /datum/quirk/mammal_pregnancy::name in preferences.all_quirks
-
-/datum/preference/choiced/pregnancy/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE
-
 /datum/preference/numeric/pregnancy/chance
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -45,16 +33,6 @@
 
 /datum/preference/numeric/pregnancy/chance/create_default_value()
 	return PREGNANCY_CHANCE_DEFAULT
-
-/datum/preference/numeric/pregnancy/duration
-	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "pregnancy_duration"
-	minimum = PREGNANCY_DURATION_MINIMUM
-	maximum = PREGNANCY_DURATION_MAXIMUM
-
-/datum/preference/numeric/pregnancy/duration/create_default_value()
-	return PREGNANCY_DURATION_DEFAULT
 
 /datum/preference/toggle/pregnancy/cryptic
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
@@ -73,14 +51,3 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pregnancy_nausea"
 	default_value = FALSE
-
-/datum/preference/choiced/pregnancy/egg_skin
-	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "pregnancy_egg_skin"
-
-/datum/preference/choiced/pregnancy/egg_skin/create_default_value()
-	return "Chicken"
-
-/datum/preference/choiced/pregnancy/egg_skin/init_possible_values()
-	return assoc_to_keys(GLOB.pregnancy_egg_skins)

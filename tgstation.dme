@@ -9289,8 +9289,6 @@
 #include "modular_nova\modules\powerator\powerator.dm"
 #include "modular_nova\modules\pregnancy\code\mammal_pregnancy_quirk.dm"
 #include "modular_nova\modules\pregnancy\code\climax_hook.dm"
-#include "modular_nova\modules\pregnancy\code\mood_events.dm"
-#include "modular_nova\modules\pregnancy\code\oviposition_egg.dm"
 #include "modular_nova\modules\pregnancy\code\preferences.dm"
 #include "modular_nova\modules\pregnancy\code\pregnancy_status_effect.dm"
 #include "modular_nova\modules\primitive_catgirls\code\clothing.dm"
