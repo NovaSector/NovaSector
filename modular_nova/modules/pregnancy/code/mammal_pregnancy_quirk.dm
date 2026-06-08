@@ -7,3 +7,17 @@
 	lose_text = span_warning("You no longer feel fertile.")
 	medical_record_text = "Patient is capable of mammalian pregnancy."
 	erp_quirk = TRUE
+
+/datum/quirk_constant_data/mammal_pregnancy
+	associated_typepath = /datum/quirk/mammal_pregnancy
+	customization_options = list(
+		/datum/preference/numeric/pregnancy/chance,
+		/datum/preference/numeric/pregnancy/duration,
+		/datum/preference/toggle/pregnancy/cryptic,
+		/datum/preference/toggle/pregnancy/belly_inflation,
+		/datum/preference/toggle/pregnancy/nausea,
+		/datum/preference/toggle/pregnancy/vaginal_insemination,
+		/datum/preference/toggle/pregnancy/anal_insemination,
+		/datum/preference/toggle/pregnancy/oral_insemination,
+		/datum/preference/choiced/pregnancy/egg_skin,
+	)

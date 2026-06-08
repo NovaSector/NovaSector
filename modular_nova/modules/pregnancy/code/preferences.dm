@@ -1,19 +1,13 @@
-// Abstract types to cut down on copypasta; all gated on master ERP pref and config.
+// Abstract types to cut down on copypasta; rendered through the Mammal Pregnancy quirk customization menu.
 
 /// Abstract base for numeric pregnancy prefs
 /datum/preference/numeric/pregnancy
 	abstract_type = /datum/preference/numeric/pregnancy
 
 /datum/preference/numeric/pregnancy/is_accessible(datum/preferences/preferences)
-	if (!..(preferences))
+	if(!..(preferences))
 		return FALSE
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		return FALSE
-	if(CONFIG_GET(flag/disable_pregnancy))
-		return FALSE
-	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
-		return FALSE
-	return preferences.read_preference(/datum/preference/toggle/master_pregnancy_preferences)
+	return /datum/quirk/mammal_pregnancy::name in preferences.all_quirks
 
 /datum/preference/numeric/pregnancy/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -23,15 +17,9 @@
 	abstract_type = /datum/preference/toggle/pregnancy
 
 /datum/preference/toggle/pregnancy/is_accessible(datum/preferences/preferences)
-	if (!..(preferences))
+	if(!..(preferences))
 		return FALSE
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		return FALSE
-	if(CONFIG_GET(flag/disable_pregnancy))
-		return FALSE
-	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
-		return FALSE
-	return preferences.read_preference(/datum/preference/toggle/master_pregnancy_preferences)
+	return /datum/quirk/mammal_pregnancy::name in preferences.all_quirks
 
 /datum/preference/toggle/pregnancy/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -41,21 +29,15 @@
 	abstract_type = /datum/preference/choiced/pregnancy
 
 /datum/preference/choiced/pregnancy/is_accessible(datum/preferences/preferences)
-	if (!..(preferences))
+	if(!..(preferences))
 		return FALSE
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		return FALSE
-	if(CONFIG_GET(flag/disable_pregnancy))
-		return FALSE
-	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
-		return FALSE
-	return preferences.read_preference(/datum/preference/toggle/master_pregnancy_preferences)
+	return /datum/quirk/mammal_pregnancy::name in preferences.all_quirks
 
 /datum/preference/choiced/pregnancy/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
 /datum/preference/numeric/pregnancy/chance
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pregnancy_chance"
 	minimum = PREGNANCY_CHANCE_MINIMUM
@@ -65,7 +47,7 @@
 	return PREGNANCY_CHANCE_DEFAULT
 
 /datum/preference/numeric/pregnancy/duration
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pregnancy_duration"
 	minimum = PREGNANCY_DURATION_MINIMUM
@@ -75,43 +57,43 @@
 	return PREGNANCY_DURATION_DEFAULT
 
 /datum/preference/toggle/pregnancy/cryptic
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pregnancy_cryptic"
 	default_value = FALSE
 
 /datum/preference/toggle/pregnancy/belly_inflation
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pregnancy_belly_inflation"
 	default_value = TRUE
 
 /datum/preference/toggle/pregnancy/nausea
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pregnancy_nausea"
 	default_value = FALSE
 
 /datum/preference/toggle/pregnancy/vaginal_insemination
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pregnancy_insemination_vagina"
 	default_value = TRUE
 
 /datum/preference/toggle/pregnancy/anal_insemination
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pregnancy_insemination_anus"
 	default_value = FALSE
 
 /datum/preference/toggle/pregnancy/oral_insemination
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pregnancy_insemination_mouth"
 	default_value = FALSE
 
 /datum/preference/choiced/pregnancy/egg_skin
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pregnancy_egg_skin"
 
