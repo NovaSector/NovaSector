@@ -7,6 +7,9 @@
 	/// Local reference to our connected belly helper object.
 	var/obj/item/belly_function/my_belly
 
+/datum/action/item_action/belly_menu/do_effect(trigger_flags)
+	return TRUE
+
 /datum/action/item_action/belly_menu/New(Target)
 	. = ..()
 	if(!istype(Target, /obj/item/belly_function))
@@ -29,6 +32,7 @@
 	desc = "LMB: Activate the belly-config menu without needing to alt-click. RMB: Access the config menu for your guests."
 
 /datum/action/item_action/belly_menu/access/Trigger(mob/clicker, trigger_flags)
+	. = ..()
 	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
 		my_belly.release_menu(owner)
 	else
@@ -63,6 +67,7 @@
 	)
 
 /datum/action/item_action/belly_menu/escape/Trigger(mob/clicker, trigger_flags)
+	. = ..()
 	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
 		if(owner in my_belly.nommeds)
 			my_belly.free_target(owner)
