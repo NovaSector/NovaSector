@@ -8,6 +8,12 @@
 	medical_record_text = "Patient is capable of mammalian pregnancy."
 	erp_quirk = TRUE
 
+/datum/quirk/mammal_pregnancy/add(client/client_source)
+	RegisterSignal(quirk_holder, COMSIG_MOB_POST_CLIMAX, PROC_REF(try_pregnancy_from_climax))
+
+/datum/quirk/mammal_pregnancy/remove()
+	UnregisterSignal(quirk_holder, COMSIG_MOB_POST_CLIMAX, PROC_REF(try_pregnancy_from_climax))
+
 /datum/quirk_constant_data/mammal_pregnancy
 	associated_typepath = /datum/quirk/mammal_pregnancy
 	customization_options = list(

@@ -13,7 +13,7 @@
 #define COMSIG_HOSTILE_MOB_LOST_TARGET "hostile_mob_lost_target"
 ///When a client is given direct control of a mob via [/datum/admin_verb/cmd_give_direct_control()].
 #define COMSIG_MOB_GIVE_DIRECT_CONTROL "mob_give_direct_control"
-/// Fired on a mob after a successful climax into a partner orifice: (mob/living/partner, climax_into_choice)
+/// Fired on a mob after a partner successfully climaxes into their orifice: (mob/living/partner, climax_into_choice)
 #define COMSIG_MOB_POST_CLIMAX "mob_post_climax"
 
 //Gun signals

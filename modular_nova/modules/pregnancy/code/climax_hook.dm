@@ -1,9 +1,10 @@
-/// Call on the cum-giver after they finish inside a partner. Rolls the partner's Mammal Pregnancy quirk chance pref
-/// against the insemination-route toggle for that orifice, applying the pregnancy status effect on success.
-/mob/living/carbon/human/proc/try_pregnancy_from_climax(mob/living/carbon/human/target, climax_into_choice)
-	if(!ishuman(target) || target == src)
+/// Rolls the quirk holder's Mammal Pregnancy chance pref against the insemination-route toggle for the signaled orifice.
+/datum/quirk/mammal_pregnancy/proc/try_pregnancy_from_climax(mob/living/carbon/human/target, mob/living/carbon/human/climax_partner, climax_into_choice)
+	SIGNAL_HANDLER
+
+	if(!ishuman(target) || !ishuman(climax_partner) || target == climax_partner)
 		return
-	if(!target.has_quirk(/datum/quirk/mammal_pregnancy))
+	if(target != quirk_holder)
 		return
 	if(target.has_status_effect(/datum/status_effect/pregnancy))
 		return
