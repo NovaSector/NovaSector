@@ -162,6 +162,10 @@
 	greyscale_config_worn = /datum/greyscale_config/beret_badge_clown/worn
 	greyscale_colors = "#FFBAFF"
 
+/obj/item/clothing/head/caphat/beret/nova
+	icon_state = "/obj/item/clothing/head/caphat/beret/nova"
+	greyscale_colors = "#41579A#FFCE5B"
+
 /obj/item/clothing/head/caphat/beret/alt
 	name = "captain's beret"
 	desc = "For the Captains known for their sense of fashion. This one is made out of white fabric. Fancy"

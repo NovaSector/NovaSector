@@ -183,10 +183,6 @@
 		log_world("map_config shuttles is not a list!")
 		return
 
-	// NOVA ADD BEGIN - EMERGENCY SHUTTLE OVERRIDE
-	shuttles["emergency"] = "emergency_nova"
-	// NOVA ADD END
-
 	traits = json["traits"]
 	// "traits": [{"Linkage": "Cross"}, {"Space Ruins": true}]
 	if (islist(traits))

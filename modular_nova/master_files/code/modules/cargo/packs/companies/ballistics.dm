@@ -62,6 +62,14 @@
 	express_lock = FALSE
 	order_flags = ORDER_COMPANY
 
+// Aethon and HHI Weapons
+
+/datum/supply_pack/companies/ballistics/atheon/rapier
+	name = "M94 'Rapier' Submachinegun"
+	desc = "Big and mean, spits hot lead and fills halls with casings. Perfect for when collateral damage is on the table. Chambered in 4.6mm."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(/obj/item/gun/ballistic/automatic/rapier)
+
 // Sol Fed Weapons
 /datum/supply_pack/companies/ballistics/sol_fed
 
@@ -88,6 +96,10 @@
 /datum/supply_pack/companies/ballistics/sol_fed/sidearm/takbok
 	contains = list(/obj/item/gun/ballistic/revolver/takbok)
 	cost = CARGO_CRATE_VALUE * 3
+
+/datum/supply_pack/companies/ballistics/sol_fed/sidearm/alacran_civil
+	contains = list(/obj/item/gun/ballistic/automatic/sol_pdw/civil)
+	cost = CARGO_CRATE_VALUE * 2.5
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm
 	cost = CARGO_CRATE_VALUE * 3
@@ -117,6 +129,10 @@
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/sindano
 	contains = list(/obj/item/gun/ballistic/automatic/sol_smg)
+
+/datum/supply_pack/companies/ballistics/sol_fed/longarm/alacran
+	contains = list(/obj/item/gun/ballistic/automatic/sol_pdw)
+	cost = CARGO_CRATE_VALUE * 4
 
 /datum/supply_pack/companies/ballistics/sol_fed/longarm/type213
 	contains = list(/obj/item/gun/ballistic/automatic/type213)

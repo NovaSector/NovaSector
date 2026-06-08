@@ -2,3 +2,9 @@
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "sound_eating"
 	savefile_identifier = PREFERENCE_PLAYER
+
+/datum/preference/toggle/sound_loopalarm
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	savefile_key = "sound_loopalarm"
+	savefile_identifier = PREFERENCE_PLAYER
+

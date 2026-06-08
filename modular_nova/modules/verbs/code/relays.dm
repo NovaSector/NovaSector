@@ -6,9 +6,10 @@
 	lowercase_key = FALSE
 	splitter = ","
 
-/client/proc/connect_to_relay()
+/client/verb/connect_to_relay()
 	set name = "Connect to Relay"
-	set category = "OOC"
+	set hidden = TRUE
+
 	if(!CONFIG_GET(flag/enable_relays))
 		to_chat(src, span_danger("Relays are currently disabled!"))
 		return

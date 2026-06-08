@@ -241,9 +241,10 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 	id_trim = /datum/id_trim/job/security_officer
 	uniform = /obj/item/clothing/under/rank/security/officer
 	suit = /obj/item/clothing/suit/armor/vest/alt/sec
-	suit_store = /obj/item/gun/energy/disabler
 	backpack_contents = list(
 		/obj/item/evidencebag = 1,
+		/obj/item/security_voucher/primary = 1,
+		/obj/item/security_voucher/utility = 1
 		)
 	belt = /obj/item/modular_computer/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt

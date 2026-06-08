@@ -7,11 +7,11 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 /obj/item/gun/ballistic/automatic/nt20
 	name = "\improper NT20 Submachine Gun"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
-	desc = "A sleek, select-fire SMG chambered in the venerable .45 cartridge. The Blueshield's favorite toy."
+	desc = "A sleek, select-fire SMG chambered in the venerable 9mm cartridge. The Blueshield's favorite toy."
 	icon_state = "nt20"
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
-	accepted_magazine_type = /obj/item/ammo_box/magazine/smgm45
+	accepted_magazine_type = /obj/item/ammo_box/magazine/smg_nt20
 	fire_delay = 1.5
 	burst_size = 2 // 30 damage a burst at 1.5s delay is about 3.5s
 	pin = /obj/item/firing_pin
@@ -23,9 +23,10 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 
 	lore_blurb = "The Nanotrasen Armories NT20 is a recent release from NT's esteemed private arms division, \
 		and it's received a warm welcome from the Shield teams and other NT armed forces who have been \
-		issued it in its ongoing rollout.<br><br>\
+		issued it in its ongoing rollout.<br>\
+		<br>\
 		Though certain rival manufacturers have dismissed the NT20 as a \"fake\" or a \"blatant bootleg,\" \
-		the venerable .45 round and a patent-pending multi-stage delayed blowback system \
+		the venerable 9mm round and a patent-pending multi-stage delayed blowback system \
 		make the NT20 powerful, reliable, accurate, and shockingly comfortable to fire."
 
 /obj/item/gun/ballistic/automatic/nt20/give_manufacturer_examine()
@@ -47,10 +48,28 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 	. = ..()
 	update_appearance()
 
+/obj/item/ammo_box/magazine/smg_nt20
+	name = "\improper NT20 magazine (9mm)"
+	desc = "A long 9mm magazine, suitable for the NT20 SMG. Just geometrically different enough to not fit in other similar bullpup submachine guns."
+	icon_state = /obj/item/ammo_box/magazine/smgm45::icon_state
+	base_icon_state = /obj/item/ammo_box/magazine/smgm45::base_icon_state
+	ammo_band_icon = /obj/item/ammo_box/magazine/smgm45::ammo_band_icon
+	ammo_band_color = /obj/item/ammo_box/magazine/smgm45::ammo_band_color
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = CALIBER_9MM
+	max_ammo = 24
+
+/obj/item/ammo_box/magazine/smg_nt20/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]-[round(ammo_count(), 2)]"
+
+/obj/item/ammo_box/magazine/smg_nt20/empty
+	start_empty = TRUE
+
 /obj/item/storage/toolbox/guncase/nova/ntspecial/nt20
 	name = "\improper Nanotrasen Armories \"NT20\" gunset"
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/nt20
-	extra_to_spawn = /obj/item/ammo_box/magazine/smgm45
+	extra_to_spawn = /obj/item/ammo_box/magazine/smg_nt20
 
 /obj/item/storage/toolbox/guncase/nova/ntspecial/nt20/PopulateContents()
 	. = ..()
