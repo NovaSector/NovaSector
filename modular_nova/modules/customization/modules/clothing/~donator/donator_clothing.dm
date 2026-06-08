@@ -2744,15 +2744,29 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	name = "Tora Body Pillow"
 	desc = "A poofy, soft looking pillow depicting a certain sharkette. One side a little less scandalous than the other."
 	icon_state = "torapillbod"
-	inhand_icon_state =
-	icon =
+	inhand_icon_state = null
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/torabod_pillow.dmi'
+	throw_range = 1
 
-/obj/item/toy/pillow/torapillow/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/torapillow)
+/obj/item/toy/pillow/torapillow/attack_self(mob/user)
+	adjust_item_style(user)
 
-/datum/atom_skin/torapillow/lewd
-	preview_name = "Lewd (NSFW)"
-	new_icon_state = "torapillbod-t"
+/obj/item/toy/pillow/torapillow/click_alt(mob/user)
+    adjust_item_style(user)
+    return CLICK_ACTION_SUCCESS
+
+/obj/item/toy/pillow/torapillow/examine(mob/user)
+    . = ..()
+    . += span_notice("Alt-click [src] to flip it. It currently shows the '[src.icon_state]' side.")
+
+/obj/item/toy/pillow/torapillow/proc/adjust_item_style(mob/user)
+	if (icon_state == "torapillbod")
+		icon_state = "torapillbod-t"
+	else
+		icon_state = "torapillbod"
+	user.visible_message(span_notice("[user] adjusts the [src]."))
 
 /obj/structure/sign/flag/pride/bon
 	name = "\improper Bon's cape"
