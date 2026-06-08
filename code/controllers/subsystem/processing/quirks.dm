@@ -52,8 +52,6 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
 
 /proc/generate_quirk_string_blacklist()
-	add_conditional_quirk_blacklists()
-
 	var/list/string_blacklist = list()
 	for(var/blacklist in GLOB.quirk_blacklist)
 		var/list/string_list = list()
@@ -61,17 +59,6 @@ GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
 			string_list += initial(typepath.name)
 		string_blacklist += list(string_list)
 	return string_blacklist
-
-/proc/add_conditional_quirk_blacklists()
-	var/datum/quirk/egg_production_quirk = text2path("/datum/quirk/egg_production")
-	if(!egg_production_quirk)
-		return
-
-	for(var/list/blacklist as anything in GLOB.quirk_blacklist)
-		if((/datum/quirk/mammal_pregnancy in blacklist) && (egg_production_quirk in blacklist))
-			return
-
-	GLOB.quirk_blacklist += list(list(/datum/quirk/mammal_pregnancy, egg_production_quirk))
 
 //Used to process and handle roundstart quirks
 // - Quirk strings are used for faster checking in code
