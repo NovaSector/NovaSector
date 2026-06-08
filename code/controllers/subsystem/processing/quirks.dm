@@ -41,7 +41,6 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/echolocation, /datum/quirk/monochromatic),
 	list(/datum/quirk/echolocation, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/nearsighted, /datum/quirk/item_quirk/deafness),
 	list(/datum/quirk/sensitive_hearing, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/deafness, /datum/quirk/echolocation),
-	list(/datum/quirk/mammal_pregnancy, /datum/quirk/egg_production),
 	list(/datum/quirk/visitor, /datum/quirk/item_quirk/underworld_connections),
 	list(/datum/quirk/adapted_lungs, /datum/quirk/item_quirk/breather/water_breather, /datum/quirk/item_quirk/breather/nitrogen_breather, /datum/quirk/item_quirk/breather/plasma_breather),
 	list(/datum/quirk/psionic_dampener, /datum/quirk/telepathic),
@@ -53,6 +52,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
 
 /proc/generate_quirk_string_blacklist()
+	add_conditional_quirk_blacklists()
+
 	var/list/string_blacklist = list()
 	for(var/blacklist in GLOB.quirk_blacklist)
 		var/list/string_list = list()
@@ -60,6 +61,17 @@ GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
 			string_list += initial(typepath.name)
 		string_blacklist += list(string_list)
 	return string_blacklist
+
+/proc/add_conditional_quirk_blacklists()
+	var/datum/quirk/egg_production_quirk = text2path("/datum/quirk/egg_production")
+	if(!egg_production_quirk)
+		return
+
+	for(var/list/blacklist as anything in GLOB.quirk_blacklist)
+		if((/datum/quirk/mammal_pregnancy in blacklist) && (egg_production_quirk in blacklist))
+			return
+
+	GLOB.quirk_blacklist += list(list(/datum/quirk/mammal_pregnancy, egg_production_quirk))
 
 //Used to process and handle roundstart quirks
 // - Quirk strings are used for faster checking in code

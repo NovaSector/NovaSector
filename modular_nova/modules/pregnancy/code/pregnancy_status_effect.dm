@@ -11,7 +11,7 @@
 
 	var/egg_skin
 
-	var/pregnancy_flags = NONE
+	var/pregnancy_flags = PREGNANCY_FLAG_INERT | PREGNANCY_FLAGS_DEFAULT
 	var/pregnancy_duration = PREGNANCY_DURATION_DEFAULT * PREGNANCY_DURATION_MULTIPLIER
 	var/pregnancy_progress = 0
 	var/pregnancy_stage = 0
@@ -25,11 +25,15 @@
 		owner.clear_mood_event("pregnancy_labor")
 	return ..()
 
-/datum/status_effect/pregnancy/on_creation(mob/living/new_owner, baby_type_override)
+/datum/status_effect/pregnancy/on_creation(mob/living/new_owner, source_data, baby_type_override)
+	if(istype(source_data, /datum/quirk/mammal_pregnancy))
+		var/datum/quirk/mammal_pregnancy/source_quirk = source_data
+		inherit_quirk(source_quirk)
+	else if(ispath(source_data, /mob/living))
+		baby_type = source_data
 	if(ispath(baby_type_override, /mob/living))
-		src.baby_type = baby_type_override
+		baby_type = baby_type_override
 
-	inherit_preferences(new_owner)
 	. = ..()
 	if(QDELETED(src))
 		return
@@ -37,24 +41,11 @@
 	RegisterSignal(new_owner, COMSIG_LIVING_DEATH, PROC_REF(on_death))
 	RegisterSignal(new_owner, COMSIG_LIVING_HEALTHSCAN, PROC_REF(on_health_scan))
 
-/// Reads the gestator's character preferences into pregnancy flags + duration + egg skin.
-/// INERT is always forced ON
-/datum/status_effect/pregnancy/proc/inherit_preferences(mob/living/gestator)
-	var/client/preference_source = GET_CLIENT(gestator)
-	if(!preference_source)
-		return FALSE
-
-	// Eggs are unconditionally inert; the opt-out pref was removed so no live offspring spawns.
-	pregnancy_flags = PREGNANCY_FLAG_INERT
-	if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/cryptic))
-		pregnancy_flags |= PREGNANCY_FLAG_CRYPTIC
-	if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/belly_inflation))
-		pregnancy_flags |= PREGNANCY_FLAG_BELLY_INFLATION
-	if(preference_source.prefs.read_preference(/datum/preference/toggle/pregnancy/nausea))
-		pregnancy_flags |= PREGNANCY_FLAG_NAUSEA
-
-	pregnancy_duration = preference_source.prefs.read_preference(/datum/preference/numeric/pregnancy/duration) * PREGNANCY_DURATION_MULTIPLIER
-	egg_skin = preference_source.prefs.read_preference(/datum/preference/choiced/pregnancy/egg_skin)
+/// Copies runtime settings from the quirk instance that caused this pregnancy.
+/datum/status_effect/pregnancy/proc/inherit_quirk(datum/quirk/mammal_pregnancy/source_quirk)
+	pregnancy_flags = source_quirk.pregnancy_flags
+	pregnancy_duration = source_quirk.pregnancy_duration
+	egg_skin = source_quirk.egg_skin
 
 /// Miscarriage on death; drops the pregnancy status effect entirely.
 /datum/status_effect/pregnancy/proc/on_death(datum/source)

@@ -12,7 +12,7 @@ import { FeatureDropdownInput } from '../../dropdowns';
 export const pregnancy_chance: Feature<number> = {
   name: 'Pregnancy - Chance %',
   description:
-    'Percent chance to become pregnant when someone climaxes inside you through an enabled insemination route.',
+    'Percent chance to become pregnant when someone climaxes inside you.',
   component: FeatureNumberInput,
 };
 
@@ -38,26 +38,6 @@ export const pregnancy_belly_inflation: Feature<boolean> = {
 export const pregnancy_nausea: Feature<boolean> = {
   name: 'Pregnancy - Nausea',
   description: 'If enabled, pregnancy periodically causes disgust buildup.',
-  component: CheckboxInput,
-};
-
-export const pregnancy_insemination_vagina: Feature<boolean> = {
-  name: 'Pregnancy - Route: Vaginal',
-  description:
-    'If enabled, cum deposited in your vagina can trigger pregnancy.',
-  component: CheckboxInput,
-};
-
-export const pregnancy_insemination_anus: Feature<boolean> = {
-  name: 'Pregnancy - Route: Anal',
-  description: 'If enabled, cum deposited in your anus can trigger pregnancy.',
-  component: CheckboxInput,
-};
-
-export const pregnancy_insemination_mouth: Feature<boolean> = {
-  name: 'Pregnancy - Route: Oral',
-  description:
-    'If enabled, cum deposited in your mouth can trigger pregnancy.',
   component: CheckboxInput,
 };
 

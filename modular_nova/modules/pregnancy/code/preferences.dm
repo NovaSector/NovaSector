@@ -74,24 +74,6 @@
 	savefile_key = "pregnancy_nausea"
 	default_value = FALSE
 
-/datum/preference/toggle/pregnancy/vaginal_insemination
-	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "pregnancy_insemination_vagina"
-	default_value = TRUE
-
-/datum/preference/toggle/pregnancy/anal_insemination
-	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "pregnancy_insemination_anus"
-	default_value = FALSE
-
-/datum/preference/toggle/pregnancy/oral_insemination
-	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "pregnancy_insemination_mouth"
-	default_value = FALSE
-
 /datum/preference/choiced/pregnancy/egg_skin
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
