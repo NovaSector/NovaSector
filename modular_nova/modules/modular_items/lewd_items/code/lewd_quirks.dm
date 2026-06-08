@@ -200,7 +200,7 @@
 /datum/quirk/egg_production
 	name = "Oviparity"
 	desc = "Whether by genetics or some other factor, you can produce and lay eggs."
-	icon = FA_ICON_EGG
+	icon = FA_ICON_PERSON_PREGNANT
 	value = 0
 	gain_text = span_notice("You suddenly feel rather productive.")
 	lose_text = span_warning("You no longer feel productive.")
