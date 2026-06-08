@@ -28498,7 +28498,9 @@
 	},
 /area/station/security/prison/rec)
 "hEr" = (
-/obj/machinery/bouldertech/refinery,
+/obj/machinery/bouldertech/refinery{
+	dir = 1
+	},
 /obj/effect/turf_decal/stripes{
 	dir = 4
 	},

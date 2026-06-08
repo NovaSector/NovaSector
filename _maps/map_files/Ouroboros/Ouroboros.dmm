@@ -169,7 +169,9 @@
 	dir = 8;
 	id = "mining"
 	},
-/obj/machinery/bouldertech/refinery,
+/obj/machinery/bouldertech/refinery{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/station/cargo/office)
 "adr" = (
