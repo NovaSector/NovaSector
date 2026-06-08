@@ -7,6 +7,10 @@
 #define AROUSAL_AUTO_CLIMAX_THRESHOLD 90
 #define AROUSAL_LIMIT 100
 
+// Climax target strings built by climax.dm.
+#define CLIMAX_TARGET_ASSHOLE "asshole"
+#define CLIMAX_TARGET_MOUTH "mouth"
+
 #define REQUIRE_GENITAL_EXPOSED 1
 #define REQUIRE_GENITAL_UNEXPOSED 2
 #define REQUIRE_GENITAL_ANY 3
