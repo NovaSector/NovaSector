@@ -22,14 +22,17 @@ type Interaction = {
   ref_user: string;
   block_interact: BooleanLike;
   use_subtler: BooleanLike;
-}
+};
 
 interface InteractionsTabPropsData {
   searchText;
   showCategories;
-};
+}
 
-export const InteractionsTab = ({searchText, showCategories}: InteractionsTabPropsData) => {
+export const InteractionsTab = ({
+  searchText,
+  showCategories,
+}: InteractionsTabPropsData) => {
   const { act, data } = useBackend<Interaction>();
   const {
     categories = [],
@@ -52,9 +55,11 @@ export const InteractionsTab = ({searchText, showCategories}: InteractionsTabPro
         lineHeight={1.75}
         disabled={block_interact}
         color={block_interact ? 'grey' : colors[interaction]}
-        tooltip={block_interact
-          ? 'You cannot interact right now'
-          : descriptions[interaction]}
+        tooltip={
+          block_interact
+            ? 'You cannot interact right now'
+            : descriptions[interaction]
+        }
         icon="exclamation-circle"
         onClick={() =>
           act('interact', {
@@ -80,56 +85,56 @@ export const InteractionsTab = ({searchText, showCategories}: InteractionsTabPro
     return categoryInteractions;
   };
 
-const allInteractions = useMemo(() => {
-  return categories.flatMap((category) =>
-    filterInteractions(category).map((interaction) => ({
-      name: interaction,
-      category,
-    })),
-  );
-}, [categories, searchLower]);
+  const allInteractions = useMemo(() => {
+    return categories.flatMap((category) =>
+      filterInteractions(category).map((interaction) => ({
+        name: interaction,
+        category,
+      })),
+    );
+  }, [categories, searchLower]);
 
   return (
-        <Stack fill vertical>
-          <NoticeBox>
-            {block_interact ? 'Unable to Interact' : 'Able to Interact'}
-          </NoticeBox>
-          <Stack.Item grow>
-            {showCategories ? (
-              categories.map((category) => {
-                const filteredInteractions = filterInteractions(category);
-                if (filteredInteractions.length === 0) return null;
-                return (
-                  <Collapsible
-                    key={category}
-                    title={category}
-                    buttons={
-                      <Box inline color="grey" fontSize={0.9}>
-                        {filteredInteractions.length}
-                        {' interactions'}
-                      </Box>
-                    }
-                  >
-                    <Section fill>
-                      <Box mt={0.2}>
-                        {filteredInteractions.map((interaction) => (
-                          renderInteractionButton(interaction)
-                        ))}
-                      </Box>
-                    </Section>
-                  </Collapsible>
-                );
-              })
-            ) : (
-              <Section fill>
-                <Box mt={0.2}>
-                  {allInteractions.map(({ name, category }) => (
-                    renderInteractionButton(name)
-                  ))}
-                </Box>
-              </Section>
-            )}
-          </Stack.Item>
-        </Stack>
+    <Stack fill vertical>
+      <NoticeBox>
+        {block_interact ? 'Unable to Interact' : 'Able to Interact'}
+      </NoticeBox>
+      <Stack.Item grow>
+        {showCategories ? (
+          categories.map((category) => {
+            const filteredInteractions = filterInteractions(category);
+            if (filteredInteractions.length === 0) return null;
+            return (
+              <Collapsible
+                key={category}
+                title={category}
+                buttons={
+                  <Box inline color="grey" fontSize={0.9}>
+                    {filteredInteractions.length}
+                    {' interactions'}
+                  </Box>
+                }
+              >
+                <Section fill>
+                  <Box mt={0.2}>
+                    {filteredInteractions.map((interaction) =>
+                      renderInteractionButton(interaction),
+                    )}
+                  </Box>
+                </Section>
+              </Collapsible>
+            );
+          })
+        ) : (
+          <Section fill>
+            <Box mt={0.2}>
+              {allInteractions.map(({ name, category }) =>
+                renderInteractionButton(name),
+              )}
+            </Box>
+          </Section>
+        )}
+      </Stack.Item>
+    </Stack>
   );
 };

@@ -5,7 +5,8 @@
 			"icon" = "hat-cowboy",
 			"products" = list(
 				/obj/item/clothing/head/beret/badge = 5,
-				/obj/item/clothing/head/colourable_flatcap= 5,
+				/obj/item/clothing/head/colourable_flatcap = 5,
+				/obj/item/clothing/head/henchmen_hat = 5,
 				/obj/item/clothing/head/cowboy/nova/cattleman = 5,
 				/obj/item/clothing/head/cowboy/nova/cattleman/wide = 5,
 				/obj/item/clothing/head/cowboy/nova/wide = 5,
@@ -98,6 +99,7 @@
 				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
 				/obj/item/clothing/under/misc/nova/gear_harness = 5,
 				/obj/item/clothing/under/shorts/nova/shortershorts = 5,
+				/obj/item/clothing/under/camo/gags = 5,
 			),
 		),
 
@@ -136,6 +138,7 @@
 				/obj/item/clothing/suit/toggle/jacket/nova/cardigan = 5,
 				/obj/item/clothing/suit/tailored_jacket = 5,
 				/obj/item/clothing/suit/tailored_jacket/short = 5,
+				/obj/item/clothing/suit/jacket/henchmen_coat = 5,
 				/obj/item/clothing/suit/toggle/peacoat = 5,
 				/obj/item/clothing/suit/toggle/trackjacket = 5,
 				/obj/item/clothing/suit/urban = 5,

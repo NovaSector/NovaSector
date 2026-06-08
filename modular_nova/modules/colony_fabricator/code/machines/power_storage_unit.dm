@@ -16,25 +16,13 @@
 	. = ..()
 	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 	// we dont use parts, but we need at least one cell to hold charge for us
 	var/obj/item/stock_parts/power_store/battery/megacell = locate() in component_parts
 	megacell.maxcharge = total_capacity
 
 	if(!mapload)
 		flick("smes_deploy", src)
-
-// formerly NO_DECONSTRUCTION
-/obj/machinery/power/smes/battery_pack/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
-	return NONE
-
-/obj/machinery/power/smes/battery_pack/default_pry_open(mob/living/user,
-	obj/item/crowbar,
-	close_after_pry = FALSE,
-	open_density = FALSE,
-	closed_density = TRUE,
-	deconstruct_on_fail = FALSE,
-)
-	return NONE
 
 // We don't care about the parts updates because we don't want them to change
 /obj/machinery/power/smes/battery_pack/RefreshParts()

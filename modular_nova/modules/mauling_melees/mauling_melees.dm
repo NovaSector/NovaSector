@@ -39,7 +39,7 @@
 	bonus_modifier = force - 10, \
 	)
 	// but it's good for murdering plantpeople
-	AddElement(/datum/element/bane, mob_biotypes = MOB_PLANT, damage_multiplier = 0.5, requires_combat_mode = FALSE)
+	AddComponent(/datum/component/bane, affected_biotypes = MOB_PLANT, damage_multiplier = 1.5)
 	// Kill.
 	AddElement(/datum/element/mauling, swing_delay = 2 SECONDS, mauling_damage_mult = 2) // 40 force on maul
 

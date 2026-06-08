@@ -13,8 +13,8 @@ GLOBAL_DATUM_INIT(temporary_flavor_text_vis, /obj/effect/overlay/indicator/tempo
 		to_chat(usr, span_warning("You can't set your temporary flavor text now..."))
 		return
 
-	var/msg = tgui_input_text(usr, "Set the temporary flavor text in your 'examine' verb. This is for describing what people can tell by looking at your character.", "Temporary Flavor Text", temporary_flavor_text, max_length = MAX_FLAVOR_LEN, multiline = TRUE)
-	if(msg == null)
+	var/msg = tgui_input_text(usr, "Set the temporary flavor text in your 'examine' verb. This is for describing what people can tell by looking at your character.", "Temporary Flavor Text", html_decode(temporary_flavor_text), max_length = MAX_FLAVOR_LEN, multiline = TRUE)
+	if(isnull(msg))
 		return
 
 	// Turn empty input into no flavor text

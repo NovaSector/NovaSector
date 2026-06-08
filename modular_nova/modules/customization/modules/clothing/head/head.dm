@@ -95,7 +95,7 @@
 	name = "captain's naval officer cap"
 	desc = "A white naval cap with a pin signifying captainship in the center."
 	icon_state = "/obj/item/clothing/head/hats/imperial/cap"
-	greyscale_colors = "#EEEEEE#FFCE5B"
+	greyscale_colors = "#FFFFFF#FFCE5B"
 	armor_type = /datum/armor/hats_caphat
 	flags_1 = null
 
@@ -305,3 +305,14 @@
 		"Short Diadema" = "short_diadema_silver",
 		"Chain" = "chain_silver",
 	)
+
+/obj/item/clothing/head/henchmen_hat
+	name = "henchmen cap"
+	desc = "Alright boss.. I'll handle it."
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/henchmen_hat"
+	post_init_icon_state = "greyscale_cap"
+	greyscale_colors = "#201b1a"
+	greyscale_config = /datum/greyscale_config/henchmen
+	greyscale_config_worn = /datum/greyscale_config/henchmen/worn
+	flags_1 = IS_PLAYER_COLORABLE_1

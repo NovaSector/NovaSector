@@ -226,12 +226,12 @@
 
 //turfs
 /turf/closed/mineral/strange_rock
-	mineralAmt = 1
+	mineral_amt = 1
+	MAP_SWITCH(, icon_state = "rock_strange")
 	icon = MAP_SWITCH('modular_nova/modules/liquids/icons/turf/smoothrocks.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
-	icon_state = "rock_strange"
 	scan_icon = 'modular_nova/modules/xenoarch/icons/ore_visuals.dmi'
 	scan_state = "rock_strange"
-	mineralType = /obj/item/xenoarch/strange_rock
+	mineral_type = /obj/item/xenoarch/strange_rock
 
 /turf/closed/mineral/strange_rock/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -239,30 +239,14 @@
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	defer_change = TRUE
 
-/turf/closed/mineral/random/volcanic
-	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
-	baseturfs = /turf/open/misc/asteroid/basalt/lava_land_surface
-	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-	defer_change = TRUE
-	mineralChance = 10
-
 /turf/closed/mineral/random/volcanic/mineral_chances()
-	return list(
-		/obj/item/stack/ore/iron = 40,
-		/obj/item/stack/ore/plasma = 20,
-		/obj/item/stack/ore/silver = 12,
-		/obj/item/stack/ore/titanium = 11,
-		/obj/item/stack/ore/gold = 10,
+	return ..() + list(
 		/turf/closed/mineral/strange_rock/volcanic = 1,
-		/obj/item/stack/ore/uranium = 5,
-		/turf/closed/mineral/gibtonite/volcanic = 4,
-		/obj/item/stack/ore/diamond = 1,
-		/obj/item/stack/ore/bluespace_crystal = 1
-		)
+	)
 
 /turf/closed/mineral/strange_rock/ice
+	MAP_SWITCH(, icon_state = "icerock_strange")
 	icon = MAP_SWITCH('icons/turf/walls/icerock_wall.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
-	icon_state = "icerock_strange"
 	base_icon_state = "icerock_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	turf_type = /turf/open/misc/asteroid/snow/ice
@@ -276,44 +260,20 @@
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
 /turf/closed/mineral/random/snow/mineral_chances()
-	return list(
-		/obj/item/stack/ore/iron = 40,
-		/obj/item/stack/ore/plasma = 20,
-		/obj/item/stack/ore/silver = 12,
-		/obj/item/stack/ore/titanium = 11,
-		/obj/item/stack/ore/gold = 10,
+	return ..() + list(
 		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
-		/obj/item/stack/ore/uranium = 5,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
-		/obj/item/stack/ore/diamond = 1,
-		/obj/item/stack/ore/bluespace_crystal = 1,
-		)
-
-/turf/closed/mineral/random/snow/underground
-	baseturfs = /turf/open/misc/asteroid/snow/icemoon
-	// abundant ore
-	mineralChance = 20
+	)
 
 /turf/closed/mineral/random/snow/underground/mineral_chances()
-	return list(
-		/obj/item/stack/ore/silver = 24,
-		/obj/item/stack/ore/titanium = 22,
-		/obj/item/stack/ore/gold = 20,
-		/obj/item/stack/ore/plasma = 20,
-		/obj/item/stack/ore/iron = 20,
-		/obj/item/stack/ore/uranium = 10,
+	return ..() + list(
 		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 8,
-		/obj/item/stack/ore/diamond = 4,
-		/obj/item/stack/ore/bluespace_crystal = 2,
-		/obj/item/stack/ore/bananium = 1,
-		)
+	)
 
 //small gibonite fix
 /turf/closed/mineral/gibtonite/asteroid
-	icon = MAP_SWITCH('icons/turf/walls/red_wall.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
-	icon_state = "redrock_Gibonite_inactive"
-	base_icon_state = "red_wall"
+	MAP_SWITCH(, icon_state = "red_rock_Gibtonite_inactive")
+	icon = MAP_SWITCH('icons/turf/walls/red_rock.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
+	base_icon_state = "red_rock"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	turf_type = /turf/open/misc/asteroid
 	baseturfs = /turf/open/misc/asteroid
@@ -321,9 +281,9 @@
 	defer_change = TRUE
 
 /turf/closed/mineral/strange_rock/asteroid
-	icon = MAP_SWITCH('icons/turf/walls/red_wall.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
-	icon_state = "redrock_strange"
-	base_icon_state = "red_wall"
+	MAP_SWITCH(, icon_state = "red_rock_strange")
+	icon = MAP_SWITCH('icons/turf/walls/red_rock.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
+	base_icon_state = "red_rock"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	turf_type = /turf/open/misc/asteroid
 	baseturfs = /turf/open/misc/asteroid
@@ -333,7 +293,7 @@
 /turf/closed/mineral/random/stationside/asteroid/rockplanet
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	turf_type = /turf/open/misc/asteroid
-	mineralChance = 30
+	mineral_chance = 15
 
 /turf/closed/mineral/random/stationside/asteroid/rockplanet/mineral_chances()
 	return list(
