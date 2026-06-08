@@ -47,8 +47,9 @@
 
 	attempt_amount = clamp(attempt_amount, 0, internal_fluid_count)
 	if(reagent_container)
-		reagent_container.add_reagent(internal_fluid_datum, attempt_amount)
+		attempt_amount = reagent_container.add_reagent(internal_fluid_datum, attempt_amount, added_purity = 1)
 	internal_fluid_count -= attempt_amount
+	return attempt_amount
 
 //This translates the float size into a sprite string
 /obj/item/organ/genital/proc/get_sprite_size_string()

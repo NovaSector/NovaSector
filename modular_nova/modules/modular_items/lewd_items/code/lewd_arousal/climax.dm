@@ -95,6 +95,7 @@
 			var/penis_climax_choice = tgui_alert(src, "Choose where to shoot your load.", "Load preference!", buttons)
 
 			var/create_cum_decal = FALSE
+			var/datum/reagents/target_reagents
 
 			if(isnull(penis_climax_choice) || penis_climax_choice == CLIMAX_ON_FLOOR)
 				create_cum_decal = TRUE
@@ -111,7 +112,7 @@
 					var/obj/item/reagent_containers/cup/target_open_container = interactable_inrange_open_containers[target_choice]
 					if(target_open_container.is_refillable() && target_open_container.is_drainable())
 						var/obj/item/organ/genital/testicles/src_testicles = src.get_organ_slot(ORGAN_SLOT_TESTICLES)
-						var/load_volume = src_testicles.genital_size * 10
+						var/load_volume = src_testicles.get_climax_fluid_amount()
 						playsound_if_pref(get_turf(src), SFX_DESECRATION, 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
 						if(target_open_container.reagents.holder_full())
 							// reagent container is full
@@ -172,9 +173,16 @@
 						visible_message(span_userlove("[src] hilts [self_their] cock into [target_human]'s [climax_into_choice], shooting cum into [target_human_them]!"), \
 							span_userlove("You hilt your cock into [target_human]'s [climax_into_choice], shooting cum into [target_human_them]!"), pref_to_check = /datum/preference/toggle/erp)
 						to_chat(target_human, span_userlove("Your [climax_into_choice] fills with warm cum as [src] shoots [self_their] load into it."))
+						if(climax_into_choice == ORGAN_SLOT_VAGINA)
+							target_human.create_carbon_reagents()
+							target_reagents = target_human.reagents
+						else
+							var/obj/item/organ/stomach/target_stomach = target_human.get_organ_slot(ORGAN_SLOT_STOMACH)
+							target_reagents = target_stomach?.reagents
 
 			var/obj/item/organ/genital/testicles/testicles = get_organ_slot(ORGAN_SLOT_TESTICLES)
-			testicles.transfer_internal_fluid(null, testicles.internal_fluid_count * 0.6) // yep. we are sending semen to nullspace
+			var/load_volume = target_reagents ? testicles.prepare_targeted_climax_fluid() : testicles.get_climax_drain_amount()
+			testicles.transfer_internal_fluid(target_reagents, load_volume)
 			if(create_cum_decal)
 				add_cum_splatter_floor(get_turf(src))
 

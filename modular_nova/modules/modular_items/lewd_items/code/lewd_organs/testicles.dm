@@ -1,3 +1,7 @@
+#define TESTICLES_INTERNAL_FLUID_MULTIPLIER 20
+#define TESTICLES_CLIMAX_FLUID_MULTIPLIER 10
+#define TESTICLES_CLIMAX_DRAIN_RATIO 0.6
+
 /obj/item/organ/genital/testicles
 	name = "testicles"
 	desc = "A male reproductive organ."
@@ -50,7 +54,7 @@
 	if(DNA.features["balls_size"] > 0)
 		size = DNA.features["balls_size"]
 
-	internal_fluid_maximum = size * 20
+	internal_fluid_maximum = size * TESTICLES_INTERNAL_FLUID_MULTIPLIER
 
 	return ..()
 
@@ -83,3 +87,18 @@
 		if(GLOB.balls_size_translation[key] == cup)
 			return text2num(key)
 	return 0
+
+/obj/item/organ/genital/testicles/proc/get_climax_fluid_amount()
+	return genital_size * TESTICLES_CLIMAX_FLUID_MULTIPLIER
+
+/obj/item/organ/genital/testicles/proc/get_climax_drain_amount()
+	return internal_fluid_count * TESTICLES_CLIMAX_DRAIN_RATIO
+
+/obj/item/organ/genital/testicles/proc/prepare_targeted_climax_fluid()
+	var/fluid_amount = max(get_climax_drain_amount(), get_climax_fluid_amount())
+	adjust_internal_fluid(fluid_amount - internal_fluid_count)
+	return fluid_amount
+
+#undef TESTICLES_INTERNAL_FLUID_MULTIPLIER
+#undef TESTICLES_CLIMAX_FLUID_MULTIPLIER
+#undef TESTICLES_CLIMAX_DRAIN_RATIO
