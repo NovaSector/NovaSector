@@ -11,10 +11,14 @@
 	var/pregnancy_chance = PREGNANCY_CHANCE_DEFAULT
 	/// Runtime pregnancy behavior flags.
 	var/pregnancy_flags = PREGNANCY_FLAGS_DEFAULT
+	/// Whether the quirk holder should start the round already pregnant.
+	var/start_pregnant = FALSE
 
 /datum/quirk/mammal_pregnancy/add(client/client_source)
 	read_customization(client_source)
 	RegisterSignal(quirk_holder, COMSIG_MOB_POST_CLIMAX, PROC_REF(try_pregnancy_from_climax))
+	if(start_pregnant && !quirk_holder.has_status_effect(/datum/status_effect/pregnancy))
+		quirk_holder.apply_status_effect(/datum/status_effect/pregnancy, src)
 
 /datum/quirk/mammal_pregnancy/remove()
 	UnregisterSignal(quirk_holder, COMSIG_MOB_POST_CLIMAX, PROC_REF(try_pregnancy_from_climax))
@@ -32,11 +36,13 @@
 		pregnancy_flags |= PREGNANCY_FLAG_BELLY_INFLATION
 	if(client_source.prefs.read_preference(/datum/preference/toggle/pregnancy/nausea))
 		pregnancy_flags |= PREGNANCY_FLAG_NAUSEA
+	start_pregnant = client_source.prefs.read_preference(/datum/preference/toggle/pregnancy/start_pregnant)
 
 /datum/quirk_constant_data/mammal_pregnancy
 	associated_typepath = /datum/quirk/mammal_pregnancy
 	customization_options = list(
 		/datum/preference/numeric/pregnancy/chance,
+		/datum/preference/toggle/pregnancy/start_pregnant,
 		/datum/preference/toggle/pregnancy/cryptic,
 		/datum/preference/toggle/pregnancy/belly_inflation,
 		/datum/preference/toggle/pregnancy/nausea,

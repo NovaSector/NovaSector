@@ -34,6 +34,12 @@
 /datum/preference/numeric/pregnancy/chance/create_default_value()
 	return PREGNANCY_CHANCE_DEFAULT
 
+/datum/preference/toggle/pregnancy/start_pregnant
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "pregnancy_start_pregnant"
+	default_value = FALSE
+
 /datum/preference/toggle/pregnancy/cryptic
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER

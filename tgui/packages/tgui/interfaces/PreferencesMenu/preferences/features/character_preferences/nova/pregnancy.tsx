@@ -12,6 +12,12 @@ export const pregnancy_chance: Feature<number> = {
   component: FeatureNumberInput,
 };
 
+export const pregnancy_start_pregnant: Feature<boolean> = {
+  name: 'Pregnancy - Start pregnant',
+  description: 'If enabled, you will start the round already pregnant.',
+  component: CheckboxInput,
+};
+
 export const pregnancy_cryptic: Feature<boolean> = {
   name: 'Pregnancy - Cryptic',
   description: 'If enabled, health analyzers will not reveal the pregnancy.',
