@@ -1,6 +1,26 @@
 
 GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
+/mob/living/proc/has_interaction_part(organ_slot)
+	return FALSE
+
+/mob/living/carbon/human/has_interaction_part(organ_slot)
+	var/obj/item/organ/genital/required_part = get_organ_slot(organ_slot)
+	return !isnull(required_part) && required_part.is_exposed()
+
+/mob/living/proc/apply_interaction_effects(pleasure_amount, arousal_amount, pain_amount, lewd_interaction)
+	return
+
+/mob/living/carbon/human/apply_interaction_effects(pleasure_amount, arousal_amount, pain_amount, lewd_interaction)
+	if(pain_amount)
+		adjust_pain(pain_amount)
+	if(!lewd_interaction)
+		return
+	if(pleasure_amount)
+		adjust_pleasure(pleasure_amount)
+	if(arousal_amount)
+		adjust_arousal(arousal_amount)
+
 /datum/interaction
 	/// The name to be displayed in the interaction menu for this interaction
 	var/name = "broken interaction"
@@ -53,28 +73,20 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	/// What sexuality preference do we display for.
 	var/sexuality = ""
 
-/datum/interaction/proc/allow_act(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/proc/allow_act(mob/living/user, mob/living/target)
 	if(target == user && usage == INTERACTION_OTHER)
 		return FALSE
 
 	if(target != user && usage == INTERACTION_SELF)
 		return FALSE
 
-	if(user_required_parts.len)
-		for(var/thing in user_required_parts)
-			var/obj/item/organ/genital/required_part = user.get_organ_slot(thing)
-			if(isnull(required_part))
-				return FALSE
-			if(!required_part.is_exposed())
-				return FALSE
+	for(var/organ_slot in user_required_parts)
+		if(!user.has_interaction_part(organ_slot))
+			return FALSE
 
-	if(target_required_parts.len)
-		for(var/thing in target_required_parts)
-			var/obj/item/organ/genital/required_part = target.get_organ_slot(thing)
-			if(isnull(required_part))
-				return FALSE
-			if(!required_part.is_exposed())
-				return FALSE
+	for(var/organ_slot in target_required_parts)
+		if(!target.has_interaction_part(organ_slot))
+			return FALSE
 
 	for(var/requirement in interaction_requires)
 		switch(requirement)
@@ -84,12 +96,18 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			if(INTERACTION_REQUIRE_TARGET_HAND)
 				if(!target.get_active_hand())
 					return FALSE
+			if(INTERACTION_REQUIRE_SELF_HUMAN)
+				if(!ishuman(user))
+					return FALSE
+			if(INTERACTION_REQUIRE_TARGET_HUMAN)
+				if(!ishuman(target))
+					return FALSE
 
 			else
 				CRASH("Unimplemented interaction requirement '[requirement]'")
 	return TRUE
 
-/datum/interaction/proc/act(mob/living/carbon/human/user, mob/living/carbon/human/target, use_subtler)
+/datum/interaction/proc/act(mob/living/user, mob/living/target, use_subtler)
 	if(!allow_act(user, target))
 		return
 	if(!message)
@@ -153,21 +171,9 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	INVOKE_ASYNC(src, PROC_REF(apply_effects), user, target)
 
 /// Applies side effects to the user and/or target of the interaction.
-/datum/interaction/proc/apply_effects(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	if(user_pain)
-		user.adjust_pain(user_pain)
-	if(target_pain)
-		target.adjust_pain(target_pain)
-	if(!lewd)
-		return
-	if(user_pleasure)
-		user.adjust_pleasure(user_pleasure)
-	if(user_arousal)
-		user.adjust_arousal(user_arousal)
-	if(target_pleasure)
-		target.adjust_pleasure(target_pleasure)
-	if(target_arousal)
-		target.adjust_arousal(target_arousal)
+/datum/interaction/proc/apply_effects(mob/living/user, mob/living/target)
+	user.apply_interaction_effects(user_pleasure, user_arousal, user_pain, lewd)
+	target.apply_interaction_effects(target_pleasure, target_arousal, target_pain, lewd)
 
 /datum/interaction/proc/load_from_json(path)
 	var/fpath = path
