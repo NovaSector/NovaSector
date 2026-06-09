@@ -7,6 +7,10 @@
 	mutantlungs = /obj/item/organ/lungs/lavaland
 	mutantbrain = /obj/item/organ/brain/primitive
 	species_language_holder = /datum/language_holder/lizard/ash
+	inherent_traits = list(
+		TRAIT_VIRUSIMMUNE,
+		TRAIT_RESISTHEAT,
+	)
 		bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/ashwalker,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/ashwalker,
@@ -17,10 +21,7 @@
 	)
 
 
-	inherent_traits = list(
-		TRAIT_VIRUSIMMUNE,
-		TRAIT_RESISTHEAT,
-	)
+
 
 	always_customizable = TRUE
 
