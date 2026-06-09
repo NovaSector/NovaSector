@@ -146,17 +146,32 @@
 
 	initial_gas_mix = OPENTURF_LOW_PRESSURE
 
+/turf/open/misc/asteroid/basalt/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/misc/asteroid/basalt/standard_air
+
+/turf/open/misc/asteroid/basalt/smooth/shale/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/shale/standard_air
+	
+/turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+
 /turf/closed/mineral/random/volcanic/standard_air
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	baseturfs = /turf/open/misc/asteroid/basalt
-	turf_type = /turf/open/misc/asteroid/basalt
+	baseturfs = /turf/open/misc/asteroid/basalt/standard_air
+	turf_type = /turf/open/misc/asteroid/basalt/standard_air
 
 /turf/closed/mineral/random/volcanic/red_rock/standard_air
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	baseturfs = /turf/open/misc/asteroid/basalt/smooth/siderite
-	turf_type = /turf/open/misc/asteroid/basalt/smooth/siderite
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+	turf_type = /turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
 
 /turf/closed/mineral/random/volcanic/shale/standard_air
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	baseturfs = /turf/open/misc/asteroid/basalt/smooth/shale
-	turf_type = /turf/open/misc/asteroid/basalt/smooth/shale
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/shale/standard_air
+	turf_type = /turf/open/misc/asteroid/basalt/smooth/shale/standard_air
