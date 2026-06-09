@@ -43,13 +43,13 @@
 		return
 
 	var/mob/living/carbon/human/human_user = user
-	if(istype(human_user.dna.species, /datum/species/lizard/ashwalker) || istype human_user.dna.species, /datum/species/human/ashwalker))
+	if(istype(human_user.dna.species, /datum/species/lizard/ashwalker) || istype(human_user.dna.species, /datum/species/human/ashwalker))
 		return
 
 	var/allow_transform = 0
 
 	for(var/mob/living/carbon/human/count_human in range(2, src))
-		if(!istype(count_human.dna.species, /datum/species/lizard/ashwalker) || istype(count_human.dna.species, /datum/species/human/ashwalker))
+		if(!istype(count_human.dna.species, /datum/species/lizard/ashwalker) || !istype(count_human.dna.species, /datum/species/human/ashwalker))
 			continue
 
 		allow_transform++
