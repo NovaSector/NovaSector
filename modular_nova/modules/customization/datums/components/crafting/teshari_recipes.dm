@@ -159,3 +159,28 @@
 	dish_category = DISH_CONDIMENT
 	meal_category = MEAL_APPETIZER
 	cuisine_category = CUISINE_TESHARI
+
+/datum/crafting_recipe/food/fried_teshari
+	name = "Kiri Fried Teshari"
+	reqs = list(
+		/obj/item/food/meat/steak/chicken/human = 1,
+		/datum/reagent/consumable/flour = 5,
+		/datum/reagent/consumable/corn_starch = 5,
+
+	)
+	result = /obj/item/food/fried_chicken
+	removed_foodtypes = RAW
+	added_foodtypes = FRIED
+	dish_category = DISH_MEAT
+
+
+/datum/crafting_recipe/food/chickenburger/human
+	name = "Birdman Sandwich"
+	reqs = list(
+			/obj/item/food/patty/human/chicken = 1,
+			/datum/reagent/consumable/mayonnaise = 5,
+			/obj/item/food/bun = 1
+	)
+	result = /obj/item/food/burger/human/chicken
+	category = CAT_BURGER
+

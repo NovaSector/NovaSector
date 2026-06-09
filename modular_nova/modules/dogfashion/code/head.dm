@@ -9,3 +9,9 @@
 	desc = "This poor woofer. Stripped of their rights to happiness."
 	icon_file = 'modular_nova/master_files/icons/mob/dog/corgi_head.dmi'
 	obj_icon_state = "cone"
+
+/datum/dog_fashion/head/fried_tesh
+	name = "Colonel %REAL_NAME%"
+	desc = "Keep away from Teshari!"
+	icon_file = 'modular_nova/master_files/icons/mob/dog/corgi_head.dmi'
+	obj_icon_state = "fried_tesh"
