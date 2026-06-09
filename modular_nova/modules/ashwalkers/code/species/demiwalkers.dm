@@ -1,5 +1,6 @@
 /datum/species/human/ashwalker
 	name = "Ash-Kin"
+	id = SPECIES_ASHKIN
 	mutanteyes = /obj/item/organ/eyes/night_vision/ashwalker
 	coldmod = 1.5
 	heatmod = 0.67
