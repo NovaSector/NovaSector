@@ -177,6 +177,7 @@
 		/obj/item/trash/vendor_trash/moth_bag = 1,
 		/obj/item/trash/vendor_trash/lizard_bag = 1,
 		/obj/item/trash/vendor_trash/lizard_box = 1,
+		/obj/item/clothing/head/hats/fried_tesh = 1,
 		// NOVA EDIT END
 	)
 
