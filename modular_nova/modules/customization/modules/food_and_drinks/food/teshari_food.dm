@@ -315,7 +315,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("chicken" = 3, "fried batter" = 1)
 	trash_type = /obj/item/clothing/head/hats/fried_tesh
-	foodtypes = MEAT | FRIED
+	foodtypes = MEAT | FRIED | GORE
 	junkiness = 25
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
