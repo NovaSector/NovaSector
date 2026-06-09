@@ -38,6 +38,7 @@
 		"synth_r_leg",
 		"synth_l_d_leg",
 		"synth_r_d_leg",
+		"synth_diy",
 	)
 
 /datum/techweb_node/android_organs
@@ -47,6 +48,7 @@
 	description = "Internal Mechanisms for Synthetics and IPC's."
 	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
 	design_ids = list(
+		"synth_posi",
 		"synth_eyes",
 		"synth_tongue",
 		"synth_liver",
@@ -104,6 +106,7 @@
 		"smartdartgun",
 		"cone_of_shame",
 		"defibrillator",
+		"medkit",
 	)
 	return ..()
 
@@ -376,11 +379,3 @@
 	)
 	return ..()
 
-///////////////////////// Weapons /////////////////////////
-
-// Modularly removes x-ray
-/datum/techweb_node/beam_weapons/New()
-	design_ids -= list(
-		"xray_laser",
-	)
-	return ..()

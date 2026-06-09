@@ -21,9 +21,11 @@
 //Critterized/anthromorph-esque human legs meant for digitigrade use.
 /obj/item/bodypart/leg/left/digitigrade/human
 	icon_greyscale = BODYPART_ICON_HUMAN_CRITTER
+	limb_id = SPECIES_HUMAN
 
 /obj/item/bodypart/leg/right/digitigrade/human
 	icon_greyscale = BODYPART_ICON_HUMAN_CRITTER
+	limb_id = SPECIES_HUMAN
 
 // subtype legs that are capable of being digi, because apparently attempting to assign this to the base legs breaks everything.
 /obj/item/bodypart/leg/left/human_digi_capable

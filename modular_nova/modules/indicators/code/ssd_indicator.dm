@@ -29,7 +29,7 @@ GLOBAL_DATUM_INIT(ssd_indicator_vis, /obj/effect/overlay/indicator/ssd, new)
 	. = ..()
 
 //Temporary, look below for the reason
-/mob/living/ghostize(can_reenter_corpse = TRUE)
+/mob/living/ghostize(can_reenter_corpse = TRUE, forced = FALSE)
 	. = ..()
 	set_ssd_indicator(FALSE)
 

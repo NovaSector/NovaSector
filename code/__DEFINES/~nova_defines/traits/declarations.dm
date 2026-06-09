@@ -190,4 +190,7 @@
 // Trait which shows wire legend when applied to something
 #define TRAIT_SHOW_ALL_WIRES "show_all_wires"
 
+/// The trait for Holosynths
+#define TRAIT_HOLOSYNTH "holosynthetic"
+
 // END TRAIT DEFINES
