@@ -9,10 +9,8 @@
 	species_language_holder = /datum/language_holder/lizard/ash
 
 	inherent_traits = list(
-		TRAIT_CATLIKE_GRACE,
 		TRAIT_VIRUSIMMUNE,
 		TRAIT_RESISTHEAT,
-		TRAIT_USES_SKINTONES,
 	)
 
 	always_customizable = TRUE
