@@ -7121,6 +7121,7 @@
 #include "modular_nova\master_files\code\datums\id_trim\solfed.dm"
 #include "modular_nova\master_files\code\datums\id_trim\syndicate.dm"
 #include "modular_nova\master_files\code\datums\items\toggles.dm"
+#include "modular_nova\master_files\code\datums\keybinding\admin.dm"
 #include "modular_nova\master_files\code\datums\keybinding\mob.dm"
 #include "modular_nova\master_files\code\datums\keybinding\movement.dm"
 #include "modular_nova\master_files\code\datums\mind\_mind.dm"
