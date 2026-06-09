@@ -43,3 +43,6 @@
 		ashie_damage = living_target.apply_status_effect(/datum/status_effect/ashwalker_damage)
 
 	ashie_damage.register_mob_damage(living_target)
+
+/datum/species/human/ashwalker/get_species_lore()
+	return list(placeholder_lore)

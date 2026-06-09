@@ -50,7 +50,7 @@
 /// Ashwalker Camp
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker
-	restricted_species = list(/datum/species/lizard/ashwalker)
+	restricted_species = list(/datum/species/lizard/ashwalker, /datum/species/human/ashwalker)
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/carbon/human/spawned_human, mob/mob_possessor, apply_prefs)
