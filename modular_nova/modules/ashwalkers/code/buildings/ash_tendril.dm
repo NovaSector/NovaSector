@@ -43,13 +43,13 @@
 		return
 
 	var/mob/living/carbon/human/human_user = user
-	if(istype(human_user.dna.species, /datum/species/lizard/ashwalker))
+	if(istype(human_user.dna.species, /datum/species/lizard/ashwalker) || istype human_user.dna.species, /datum/species/human/ashwalker))
 		return
 
 	var/allow_transform = 0
 
 	for(var/mob/living/carbon/human/count_human in range(2, src))
-		if(!istype(count_human.dna.species, /datum/species/lizard/ashwalker))
+		if(!istype(count_human.dna.species, /datum/species/lizard/ashwalker) || istype(count_human.dna.species, /datum/species/human/ashwalker))
 			continue
 
 		allow_transform++
@@ -72,7 +72,6 @@
 
 		balloon_alert_to_viewers("[src] rejoices and transforms [human_user]!")
 		human_user.unequip_everything()
-		human_user.set_species(/datum/species/lizard/ashwalker)
 		human_user.underwear = "Nude"
 		human_user.update_body()
 		human_user.mind.add_antag_datum(/datum/antagonist/ashwalker)
