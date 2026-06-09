@@ -132,7 +132,7 @@
 */
 /turf/closed/mineral/asteroid/has_more_air //this one is for if your checks are failing it might be because ya got dis rock, this can stay too as it will be convient for mappers in the future.
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	baseturfs = /turf/open/misc/asteroid/lowpressure
+	baseturfs = /turf/open/misc/asteroid
 
 /turf/open/chasm/sandy	//just a retexture of the other chasm. making this was nothing but painful.
 	icon = 'modular_nova/modules/mapping/icons/turf/open/sandychasm.dmi'
