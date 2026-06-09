@@ -1,5 +1,5 @@
 //todo:subspace boxcutter.
-//todo: admin firing pin. admin cyborgs and modules. /obj/item/soap/omega. admeme syringe gun. subspace baseball bat. pepper ball, like the pepperball projectile, but causes pepperspray on impact with a mob. admin modular laser rifle.
+//todo: admin firing pin. admin cyborgs and modules. /obj/item/soap/omega. subspace mop / liquids solution? admeme syringe gun. subspace baseball bat. pepper ball, like the pepperball projectile, but causes pepperspray on impact with a mob. admin modular laser rifle.
 //todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
 //todo: handheld air scrubber + hvac, new admin dune shield to replace the, seeds box
 //
@@ -11,7 +11,7 @@
 ///obj/item/pen/screwdriver/get_all_tool_behaviours()
 //	return list(TOOL_SCREWDRIVER)
 //
-//investigat robotact pda app functionality
+//investigate robotact pda app functionality
 //
 //Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
 //Sprite Credits to CEV-ERIS, y'all really fucked with this one, it has no reason to look this cool
