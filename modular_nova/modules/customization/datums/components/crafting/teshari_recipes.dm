@@ -175,6 +175,7 @@
 
 
 /datum/crafting_recipe/food/chickenburger/human
+	added_foodtypes = FRIED | GORE
 	name = "Birdman Sandwich"
 	reqs = list(
 			/obj/item/food/patty/human/chicken = 1,
@@ -182,5 +183,5 @@
 			/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/human/chicken
-	category = CAT_BURGER
+	dish_category = DISH_BURGER
 
