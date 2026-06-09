@@ -25,13 +25,13 @@
 /obj/structure/spawner/lavaland/Destroy()
 	if(cursed)
 		for(var/mob/living/carbon/human/selected_human in range(7))
-			if(is_species(selected_human, /datum/species/lizard/ashwalker) || (is_species human_user.dna.species, /datum/species/human/ashwalker))
+			if(isashwalker(selected_human))
 				continue
 
 			selected_human.AddComponent(/datum/component/ash_cursed)
 
 		for(var/mob/select_mob in GLOB.player_list)
-			if(!is_species(select_mob, /datum/species/lizard/ashwalker) || (is_species human_user.dna.species, /datum/species/human/ashwalker))
+			if(!isashwalker(select_mob))
 				continue
 
 			to_chat(select_mob, span_boldwarning("A cursed tendril has been broken! The target has been marked until they flee the lands!"))
@@ -62,7 +62,7 @@
 /datum/component/ash_cursed/proc/remove_curse()
 	SIGNAL_HANDLER
 	for(var/mob/select_mob in GLOB.player_list)
-		if(!is_species(select_mob, /datum/species/lizard/ashwalker) || (is_species human_user.dna.species, /datum/species/human/ashwalker))
+		if(!isashwalker(select_mob))
 			continue
 
 		to_chat(select_mob, span_boldwarning("A target has died, the curse has been lifted!"))
@@ -75,7 +75,7 @@
 	var/turf/human_turf = get_turf(human_target)
 	if(!is_mining_level(human_turf.z))
 		for(var/mob/select_mob in GLOB.player_list)
-			if(!is_species(select_mob, /datum/species/lizard/ashwalker) || (is_species human_user.dna.species, /datum/species/human/ashwalker))
+			if(!isashwalker(select_mob))
 				continue
 
 			to_chat(select_mob, span_boldwarning("A target has fled from the land, breaking the curse!"))
