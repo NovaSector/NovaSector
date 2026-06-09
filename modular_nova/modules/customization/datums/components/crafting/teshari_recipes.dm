@@ -166,9 +166,9 @@
 		/obj/item/food/meat/steak/chicken/human = 1,
 		/datum/reagent/consumable/flour = 5,
 		/datum/reagent/consumable/corn_starch = 5,
-
+		/obj/item/stack/sheet/cardboard = 1,
 	)
-	result = /obj/item/food/fried_chicken
+	result = /obj/item/food/fried_teshari
 	removed_foodtypes = RAW
 	added_foodtypes = FRIED
 	dish_category = DISH_MEAT
