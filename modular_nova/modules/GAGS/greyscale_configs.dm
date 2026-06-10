@@ -2884,3 +2884,14 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Henchmen Worn"
 	icon_file = 'modular_nova/modules/GAGS/icons/monkehenchmenmob.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/henchmen/henchmen.json'
+
+// Croptop Bomber Jacket
+
+/datum/greyscale_config/croptopbomberjacket
+	name = "Croptop Bomber Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/croptopbomberjacket.json'
+
+/datum/greyscale_config/croptopbomberjacket/worn
+	name = "Croptop Bomber Jacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'

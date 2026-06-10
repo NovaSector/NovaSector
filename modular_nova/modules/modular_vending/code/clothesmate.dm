@@ -136,6 +136,7 @@
 				/obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/smw = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/nrti = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova/cardigan = 5,
+				/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket = 5,
 				/obj/item/clothing/suit/tailored_jacket = 5,
 				/obj/item/clothing/suit/tailored_jacket/short = 5,
 				/obj/item/clothing/suit/jacket/henchmen_coat = 5,
