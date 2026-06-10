@@ -206,6 +206,11 @@
 	contains = list(/obj/item/gun/ballistic/automatic/wylom)
 	cost = CARGO_CRATE_VALUE * 8
 
+/datum/supply_pack/companies/ballistics/hc_surplus/sokol
+	contains = list(/obj/item/gun/ballistic/automatic/sokol)
+	cost = CARGO_CRATE_VALUE * 10
+
+
 // Donk
 
 /datum/supply_pack/companies/ballistics/donk

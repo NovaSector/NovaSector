@@ -40,10 +40,10 @@
 	burst_size = 2
 	fire_delay = 1 SECONDS
 	actions_types = list()
-	spread = 5
+	spread = 3
 
 	projectile_damage_multiplier = 0.67
-	// 4.6 shots to kill using standard = 3 bursts to kill = 3s minimum TTK
+	// 4.5 shots to kill using standard = 3 bursts to kill = 3s minimum TTK
 	// By comparison, the Renpaard is at 4.5 shots to kill with an automatic fire delay of 0.4s which means a 2s minimum TTK, Meanwhile, the similar caliber Lanca has a TTK of 3.6 seconds, requiring 3 shots to kill and a delay of 1.2 seconds between shots. The Lanca is a DMR equipped with a long range scope.
 
 	lore_blurb = "The M/BR-7 was the flashy prototype of the bygone era of the Coalition's \"advanced ballistics\" phase, before the introduction of plasma pulse weaponry. \
@@ -61,7 +61,7 @@
 		While this left the weapon lacking in stopping power compared to the BR-8, it more than made up for it by the ability to allow for two, \
 		almost simultaneous impacts on target at distances of up to 600 meters."
 
-/obj/item/gun/ballistic/automatic/lanca/Initialize(mapload)
+/obj/item/gun/ballistic/automatic/sokol/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 1.2)
 
