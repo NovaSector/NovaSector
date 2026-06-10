@@ -321,16 +321,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 4, /datum/material/cardboard = SHEET_MATERIAL_AMOUNT)
 
-/obj/item/food/meat/slab/chicken/human
+/obj/item/food/meat/slab/chicken/tesh
 	name = "meat"
 	tastes = list("tender meat" = 1)
 	foodtypes = MEAT | RAW | GORE
-	venue_value = FOOD_MEAT_HUMAN
+	venue_value = FOOD_MEAT_tesh
 
-/obj/item/food/meat/slab/chicken/human/make_grillable()
-	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/chicken/human, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
+/obj/item/food/meat/slab/chicken/tesh/make_grillable()
+	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/chicken/tesh, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
 
-/obj/item/food/meat/steak/chicken/human/on_microwave_cooked(datum/source, atom/source_item, cooking_efficiency = 1)
+/obj/item/food/meat/steak/chicken/tesh/on_microwave_cooked(datum/source, atom/source_item, cooking_efficiency = 1)
 	. = ..()
 	if(!istype(source_item, /obj/item/food/meat))
 		return
@@ -343,22 +343,22 @@
 	else if(subjectjob)
 		name = "[origin_meat.subjectjob] meatsteak"
 
-/obj/item/food/meat/slab/chicken/human/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/chicken/human, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut")
+/obj/item/food/meat/slab/chicken/tesh/make_processable()
+	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/chicken/tesh, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut")
 
-/obj/item/food/meat/steak/chicken/human
+/obj/item/food/meat/steak/chicken/tesh
 	tastes = list("tender meat" = 1)
 	foodtypes = MEAT | GORE
 
-/obj/item/food/meat/rawcutlet/chicken/human
+/obj/item/food/meat/rawcutlet/chicken/tesh
 	tastes = list("tender meat" = 1)
 	foodtypes = MEAT | RAW | GORE
 
-/obj/item/food/meat/cutlet/chicken/human
+/obj/item/food/meat/cutlet/chicken/tesh
 	tastes = list("tender meat" = 1)
 	foodtypes = MEAT | GORE
 
-/obj/item/food/meat/cutlet/chicken/human/on_microwave_cooked(datum/source, atom/source_item, cooking_efficiency)
+/obj/item/food/meat/cutlet/chicken/tesh/on_microwave_cooked(datum/source, atom/source_item, cooking_efficiency)
 	. = ..()
 	if(!istype(source_item, /obj/item/food/meat))
 		return
@@ -369,32 +369,32 @@
 	else if(subjectjob)
 		name = "[origin_meat.subjectjob] [initial(name)]"
 
-/obj/item/food/raw_meatball/chicken/human
+/obj/item/food/raw_meatball/chicken/tesh
 	name = "strange raw chicken meatball"
-	meatball_type = /obj/item/food/meatball/chicken/human
-	patty_type = /obj/item/food/raw_patty/chicken/human
+	meatball_type = /obj/item/food/meatball/chicken/tesh
+	patty_type = /obj/item/food/raw_patty/chicken/tesh
 
-/obj/item/food/meatball/chicken/human
+/obj/item/food/meatball/chicken/tesh
 	name = "strange chicken meatball"
 
-/obj/item/food/raw_patty/chicken/human
+/obj/item/food/raw_patty/chicken/tesh
 	name = "strange raw chicken patty"
-	patty_type = /obj/item/food/patty/human/chicken
+	patty_type = /obj/item/food/patty/tesh/chicken
 
-/obj/item/food/patty/human/chicken
+/obj/item/food/patty/tesh/chicken
 	name = "strange chicken patty"
 	tastes = list("chikun" = 1)
 	icon_state = "chicken_patty"
 
 /datum/food_processor_process/meat/chicken
-	blacklist = list(/obj/item/food/meat/slab/chicken/human)
+	blacklist = list(/obj/item/food/meat/slab/chicken/tesh)
 
-/datum/food_processor_process/meat/chicken/human
-	input = /obj/item/food/meat/slab/chicken/human
-	output = /obj/item/food/raw_meatball/chicken/human
+/datum/food_processor_process/meat/chicken/tesh
+	input = /obj/item/food/meat/slab/chicken/tesh
+	output = /obj/item/food/raw_meatball/chicken/tesh
 	blacklist = null
 
-/obj/item/food/burger/human/chicken
+/obj/item/food/burger/tesh/chicken
 	name = "birdman sandwich"
 	desc = "You're pretty sure this sandwich doesn't fund a good cause..."
 	icon_state = "chickenburger"
@@ -410,7 +410,7 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 	venue_value = FOOD_PRICE_CHEAP
 
-/obj/item/food/burger/human/chicken/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
+/obj/item/food/burger/tesh/chicken/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
 	. = ..()
 	for(var/datum/material/meat/mob_meat/mob_meat_material in custom_materials)
 		if(mob_meat_material.subjectname)
