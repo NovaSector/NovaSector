@@ -9077,6 +9077,8 @@
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\aethon_arms\submachinegun.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\archon_combat_systems\conversion_kits.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\archon_combat_systems\shotgun.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\baikal_heavy_industry_concern\magazines.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\baikal_heavy_industry_concern\rifle.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\bolt_fabrications\ammo.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\bolt_fabrications\longarm.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\bolt_fabrications\magazine.dm"
