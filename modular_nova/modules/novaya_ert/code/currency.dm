@@ -83,18 +83,18 @@
 /obj/item/coin/mark/crown
 	name = "\improper Crown"
 	desc = "A 3cm tungsten carbide coin with a central hole and a red trace band. One Crown buys three Zaibas plasma rifles on the Rim. A significant purchase, \
-	the kind of money that changes a frontier settlement's defensive capabilities."
+		the kind of money that changes a frontier settlement's defensive capabilities."
 	special_desc = "The Crown is where the Mark ceases to be 'pocket change' and becomes 'real money'. A 3cm coin of tungsten carbide alloyed with trace \
-	elements that give it a distinctive reddish sheen when held to light, the Crown features a central hole — a deliberate design choice allowing the coins to be \
-	strung on a cord or wire for secure transport. Frontier traders have been known to wear belts of Crowns, a conspicuous display of wealth that doubles as a \
-	last-resort emergency fund. The red trace band around the coin's edge is not decorative. It is a visible authentication feature, a strip of specially treated \
-	alloy that reacts to common counterfeit detection wands. What does a Crown buy? In the Coalition Core, a Crown buys one Zaibas rifle and leaves you with \
-	22.60Ɱ in change, enough for ammunition, a knife, a bag of chips, and a very nice dinner. On the Rim, where everything is marked up and the Coalition's reach \
-	is thin, that same Crown buys three Zaibas rifles. The difference is transport costs, risk premiums, and the simple fact that a Rim-world militia will pay \
-	anything for reliable firepower. The practice of stringing Crowns on leather cords has given rise to a peculiar frontier idiom: a 'string' of Crowns means \
-	a substantial amount of money, while a 'loose Crown' means an unexpected expense. 'Counting Crowns' is Rim slang for taking stock of one's situation, financial \
-	or otherwise. The EPF's extended field manual notes that a patrol can often de-escalate a tense situation simply by producing a visible string of Crowns, \
-	a demonstration of material backing that speaks louder than any verbal reassurance."
+		elements that give it a distinctive reddish sheen when held to light, the Crown features a central hole — a deliberate design choice allowing the coins to be \
+		strung on a cord or wire for secure transport. Frontier traders have been known to wear belts of Crowns, a conspicuous display of wealth that doubles as a \
+		last-resort emergency fund. The red trace band around the coin's edge is not decorative. It is a visible authentication feature, a strip of specially treated \
+		alloy that reacts to common counterfeit detection wands. What does a Crown buy? In the Coalition Core, a Crown buys one Zaibas rifle and leaves you with \
+		22.60Ɱ in change, enough for ammunition, a knife, a bag of chips, and a very nice dinner. On the Rim, where everything is marked up and the Coalition's reach \
+		is thin, that same Crown buys three Zaibas rifles. The difference is transport costs, risk premiums, and the simple fact that a Rim-world militia will pay \
+		anything for reliable firepower. The practice of stringing Crowns on leather cords has given rise to a peculiar frontier idiom: a 'string' of Crowns means \
+		a substantial amount of money, while a 'loose Crown' means an unexpected expense. 'Counting Crowns' is Rim slang for taking stock of one's situation, financial \
+		or otherwise. The EPF's extended field manual notes that a patrol can often de-escalate a tense situation simply by producing a visible string of Crowns, \
+		a demonstration of material backing that speaks louder than any verbal reassurance."
 	icon_state = "crown"
 	base_icon_state = "crown"
 	sideslist = list("crown's heads(?)","crown's tails(?)")
