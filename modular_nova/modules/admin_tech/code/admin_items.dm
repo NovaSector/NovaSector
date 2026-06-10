@@ -1,15 +1,15 @@
 //todo:subspace boxcutter.
-//todo: admin firing pin. admin cyborgs and modules. /obj/item/soap/omega. subspace mop / liquids solution? admeme syringe gun. subspace baseball bat. pepper ball, like the pepperball projectile, but causes pepperspray on impact with a mob. admin modular laser rifle.
+//todo: admin cyborgs and modules. /obj/item/soap/omega. subspace mop / liquids solution? new admin dune shield to replace the, seeds box
 //todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
-//todo: handheld air scrubber + hvac, new admin dune shield to replace the, seeds box
-//
-//todo: intentionally re-instate the ability to have structures deployed inside of an admin storage
+//todo:
+//todo: pulse rifle attached to admin modsuit
+//todo:
 //player panel: add pref reload to player panel
 //
-//pocket drones / mobs for repair / medbots / construction bots / combat bots / janibots / etc. maybe even a pocket mech? drone beacon spawner, see debug gas miner for exp
-//
+// find a solution for reach_length passing a collisions check for BST radio headset. TRAIT_SKIP_BASIC_REACH_CHECK.
 ///obj/item/pen/screwdriver/get_all_tool_behaviours()
 //	return list(TOOL_SCREWDRIVER)
+// admin manufacturing company
 //
 //investigate robotact pda app functionality
 //
@@ -911,3 +911,354 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 /datum/embedding/edagger_active
 	embed_chance = 100
+
+// todo: sprites
+/obj/item/firing_pin/admin
+	name = "subspace firing pin"
+	desc = "A small authentication device, to be inserted into a firearm receiver to allow operation. Central Command's Technicians have had their bodies attenuated in a way that can be sampled with 'simple' technology."
+	icon = 'icons/obj/devices/gunmod.dmi'
+	icon_state = "firing_pin_ayy"
+	inhand_icon_state = "pen"
+	worn_icon_state = "pen"
+	obj_flags = null
+	attack_verb_continuous = list("pokes")
+	attack_verb_simple = list("poke")
+	fail_message = "not an admin!"
+	force_replace = TRUE
+	pin_hot_swappable = FALSE
+	pin_removable = FALSE
+	default_pin_auth = TRUE
+
+/obj/item/firing_pin/admin/pin_auth(mob/living/user)
+	if(check_rights_for(client, R_ADMIN))
+		return TRUE
+	return FALSE
+
+// todo: sprites, reagent selector, utilize laser gun code to create and load syringes based on reagent selector
+/obj/item/gun/syringe/admin
+	name = "subspace syringe projector"
+	desc = "A modification of the syringe gun design to be more compact and use a rotating cylinder to store up to six syringes."
+	icon_state = "rapidsyringegun"
+	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+	inhand_icon_state = "syringegun"
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+	worn_icon_state = "gun"
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE | ITEM_SLOT_POCKETS | ITEM_SLOT_BACK
+	base_pixel_x = 0
+	pixel_x = 0
+	max_syringes = 10
+	force = 0
+
+// todo: sprites
+/obj/item/melee/baseball_bat/admin
+	name = "subspace baseball bat"
+	desc = "There ain't a skull in the league that can withstand a nuclear bomb on a stick."
+	icon = 'icons/obj/weapons/bat.dmi'
+	icon_state = "baseball_bat"
+	inhand_icon_state = "baseball_bat"
+	icon_angle = -45
+	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
+	force = 48
+	wound_bonus = 10
+	throwforce = 48
+	demolition_mod = 5
+	attack_verb_continuous = list("beats", "smacks")
+	attack_verb_simple = list("beat", "smack")
+	resistance_flags = null
+	w_class = WEIGHT_CLASS_TINY
+	/// Are we able to do a homerun?
+	homerun_able = TRUE
+	/// Are we ready to do a homerun?
+	homerun_ready = TRUE
+	/// Can we launch mobs thrown at us away?
+	mob_thrower = TRUE
+
+//Modular Admin Rifle. Another heretical creation.
+/obj/item/gun/energy/modular_laser_rifle/carbine
+	name = "\improper modular subspace rifle"
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns32x.dmi'
+	icon_state = "hoshi_kill"
+	inhand_icon_state = "hoshi_kill"
+	worn_icon_state = "hoshi_kill"
+	base_icon_state = "hoshi"
+	charge_sections = 3
+	cell_type = /obj/item/stock_parts/power_store/cell/infinite
+	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_small_hellfire)
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
+	SET_BASE_PIXEL(0, 0)
+	weapon_weight = WEAPON_LIGHT
+	w_class = WEIGHT_CLASS_TINY
+	weapon_mode_options = list(
+			/datum/laser_weapon_mode/admin,
+			/datum/laser_weapon_mode/admin/destroyer_pulse,
+			/datum/laser_weapon_mode/admin/event_horizon,
+			/datum/laser_weapon_mode/admin/sniper,
+			/datum/laser_weapon_mode/admin/ebow,
+			/datum/laser_weapon_mode/admin/instakill,
+			/datum/laser_weapon_mode/admin/xray,
+			/datum/laser_weapon_mode/admin/super_disabler,
+			/datum/laser_weapon_mode/admin/meteor,
+			/datum/laser_weapon_mode/admin/ion,
+			/datum/laser_weapon_mode/admin/plasmacutter,
+			/datum/laser_weapon_mode/admin/gravity
+	)
+	default_selected_mode = "Incinerate"
+	speech_json_file = SHORT_MOD_LASER_SPEECH
+	lore_blurb = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
+		Cybersun Industries.<br><br>\
+		Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by SolFed \
+		to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. \
+		A lithe and mobile weapon, the Hoshi stars in close-quarters battle, trickshots, and area-of-effect blasts, \
+		at the cost of longer-ranged combat performance.<br><br>\
+		Her onboard machine intelligence, at first devised to support the operator and manage the internal reactor, \
+		was originally shipped with a more energetic personality—since influenced by 'negligence' \
+		from users in wiping the intelligence's memory before resale or transport."
+
+/obj/item/gun/energy/modular_laser_rifle/carbine/emp_act(severity)
+	. = ..()
+	speak_up("emp", TRUE) // She gets very upset if you emp her
+
+
+// Base datum for our new weapon
+// ideas: ebow, instakill, xray, super disabler, meteor, ion, plasmacutter, gravity
+// base firing mode needs no damage but inflicts hallucinations / causes people to collapse and freakout / causes traumas
+// icons\obj\weapons\guns\projectiles.dmi
+// candidate for base: /obj/projectile/beam/mindflayer icon arcane_barrage
+
+/obj/item/ammo_casing/energy/mindflayer/admin
+	projectile_type = /obj/projectile/beam/mindflayer
+	select_name = "Fourth Wall"
+	fire_sound = 'sound/items/weapons/laser.ogg'
+
+/obj/item/ammo_casing/energy/mindflayer/admin
+	name = "fourth wall blast"
+
+/obj/item/ammo_casing/energy/admin/admin/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/human_hit = target
+		human_hit.adjust_organ_loss(ORGAN_SLOT_BRAIN, 20)
+		human_hit.adjust_hallucinations(60 SECONDS)
+
+/datum/laser_weapon_mode/admin
+	/// What name does this weapon mode have? Will appear in the weapon's radial menu
+	name = "Disturb"
+	/// What casing does this variant of weapon use?
+	obj/item/ammo_casing/casing = /obj/item/ammo_casing/energy/mindflayer/admin
+	/// What icon_state does this weapon mode use?
+	weapon_icon_state = "kill"
+	/// How many charge sections does this variant of weapon have?
+	charge_sections = 10
+	/// What is the shot cooldown this variant applies to the weapon?
+	shot_delay = 0 SECONDS
+	/// What json string do we check for when making chat messages with this mode?
+	json_speech_string = "disturb"
+	/// What do we change the gun's runetext color to when applied
+	gun_runetext_color = "#cd4456"
+
+///obj/item/gun/energy/pulse/destroyer
+/datum/laser_weapon_mode/admin/destroyer_pulse
+	name = "Destruction Pulse"
+	casing = /obj/item/ammo_casing/energy/laser/pulse
+	weapon_icon_state = "kill"
+	json_speech_string = "shotgun"
+	gun_runetext_color = "#7a0bb7"
+
+/datum/laser_weapon_mode/admin/event_horizon
+	name = "Black Hole"
+	casing = /obj/item/ammo_casing/energy/event_horizon
+	weapon_icon_state = "kill"
+	json_speech_string = "blackhole"
+	gun_runetext_color = "#7a0bb7"
+	var/datum/component/scope/scope_component
+
+/datum/laser_weapon_mode/admin/event_horizon/apply_to_weapon(obj/item/gun/energy/applied_gun)
+	scope_component = applied_gun.AddComponent(/datum/component/scope, 3)
+
+/datum/laser_weapon_mode/admin/event_horizon/remove_from_weapon(obj/item/gun/energy/applied_gun)
+	QDEL_NULL(scope_component)
+
+/datum/laser_weapon_mode/admin/sniper
+	name = "Marksman"
+	casing = /obj/item/ammo_casing/mm20x138
+	weapon_icon_state = "kill"
+	json_speech_string = "sniper"
+	gun_runetext_color = "#7a0bb7"
+	/// Keeps track of the scope component for deleting later
+	var/datum/component/scope/scope_component
+
+/datum/laser_weapon_mode/admin/sniper/apply_to_weapon(obj/item/gun/energy/applied_gun)
+	scope_component = applied_gun.AddComponent(/datum/component/scope, 3)
+
+/datum/laser_weapon_mode/admin/sniper/remove_from_weapon(obj/item/gun/energy/applied_gun)
+	QDEL_NULL(scope_component)
+
+/datum/laser_weapon_mode/admin/ebow
+	name = "Energy Bow"
+	casing = /obj/item/ammo_casing/energy/bolt
+	weapon_icon_state = "kill"
+	json_speech_string = "ebow"
+	gun_runetext_color = "#7a0bb7"
+
+/datum/laser_weapon_mode/admin/instakill
+	name = "Instakill"
+	casing = /obj/item/ammo_casing/energy/instakill
+	weapon_icon_state = "kill"
+	json_speech_string = "instakill"
+	gun_runetext_color = "#7a0bb7"
+
+/datum/laser_weapon_mode/admin/xray
+	name = "X-Ray"
+	casing = /obj/item/ammo_casing/energy/xray
+	weapon_icon_state = "kill"
+	json_speech_string = "xray"
+	gun_runetext_color = "#7a0bb7"
+
+// Meme disabler.
+/obj/projectile/beam/disabler/admin
+	name = "subspace disabler beam"
+	icon_state = "omnilaser"
+	damage = 100
+	damage_type = STAMINA
+	armor_flag = ENERGY
+	hitsound = 'sound/items/weapons/sear_disabler.ogg'
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
+	light_color = LIGHT_COLOR_BLUE
+	tracer_type = /obj/effect/projectile/tracer/disabler
+	muzzle_type = /obj/effect/projectile/muzzle/disabler
+	impact_type = /obj/effect/projectile/impact/disabler
+
+// Casing for meme disabler
+/obj/item/ammo_casing/energy/disabler/admin
+	projectile_type = /obj/projectile/beam/disabler/admin
+	select_name = "disable"
+	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE)
+	fire_sound = 'sound/items/weapons/taser2.ogg'
+	harmful = FALSE
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/blue
+	muzzle_flash_color = LIGHT_COLOR_CYAN
+
+/datum/laser_weapon_mode/admin/super_disabler
+	name = "Super Disabler"
+	casing = /obj/item/ammo_casing/energy/disabler/admin
+	weapon_icon_state = "kill"
+	json_speech_string = "super_disabler"
+	gun_runetext_color = "#7a0bb7"
+
+/datum/laser_weapon_mode/admin/meteor
+	name = "Meteor"
+	casing = /obj/item/ammo_casing/energy/meteor
+	weapon_icon_state = "kill"
+	json_speech_string = "meteor"
+	gun_runetext_color = "#7a0bb7"
+
+/datum/laser_weapon_mode/admin/ion
+	name = "Ion"
+	casing = /obj/item/ammo_casing/energy/ion
+	weapon_icon_state = "kill"
+	json_speech_string = "ion"
+	gun_runetext_color = "#7a0bb7"
+
+/obj/projectile/plasma/admin
+	name = "plasma sear"
+	icon_state = "plasmacutter"
+	damage_type = BURN
+	armor_flag = ENERGY
+	damage = 5
+	range = 10
+	dismemberment = 100
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/purple_laser
+	mine_range = 67
+
+/obj/item/ammo_casing/energy/plasma/admin
+	projectile_type = /obj/projectile/plasma/admin
+	select_name = "plasma burst"
+	fire_sound = 'sound/items/weapons/plasma_cutter.ogg'
+	delay = 0
+	e_cost = 0
+
+/datum/laser_weapon_mode/admin/plasmacutter
+	name = "Excision"
+	casing = /obj/item/ammo_casing/energy/plasma
+	weapon_icon_state = "kill"
+	json_speech_string = "plasmacutter"
+	gun_runetext_color = "#7a0bb7"
+
+/datum/laser_weapon_mode/admin/gravity
+	name = "Gravitational Chaos"
+	casing = /obj/item/ammo_casing/energy/gravity/chaos
+	weapon_icon_state = "kill"
+	json_speech_string = "gravity"
+	gun_runetext_color = "#7a0bb7"
+
+// Melee mode for the small laser, yeah this one will be weird
+/datum/laser_weapon_mode/admin/melee
+	name = "Blade"
+	// This mode doesn't actually shoot but we gotta have a casing regardless so it doesn't runtime times a million
+	// And also so the visuals work :3
+	casing = /obj/item/ammo_casing/energy/cybersun_small_blade
+	weapon_icon_state = "blade"
+	charge_sections = 2
+	json_speech_string = "blade"
+	gun_runetext_color = "#f8d860"
+
+/datum/laser_weapon_mode/admin/melee/apply_to_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
+	playsound(src, 'sound/items/unsheath.ogg', 25, TRUE)
+	applied_gun.force = 18
+	applied_gun.sharpness = SHARP_EDGED
+	applied_gun.exposed_wound_bonus = 10
+	applied_gun.disabled_for_other_reasons = TRUE
+	applied_gun.attack_verb_continuous = list("slashes", "cuts")
+	applied_gun.attack_verb_simple = list("slash", "cut")
+	applied_gun.hitsound = 'sound/items/weapons/rapierhit.ogg'
+
+/datum/laser_weapon_mode/admin/melee/remove_from_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
+	playsound(src, 'sound/items/sheath.ogg', 25, TRUE)
+	applied_gun.force = initial(applied_gun.force)
+	applied_gun.sharpness = initial(applied_gun.sharpness)
+	applied_gun.exposed_wound_bonus = initial(applied_gun.exposed_wound_bonus)
+	applied_gun.disabled_for_other_reasons = FALSE
+	applied_gun.attack_verb_continuous = initial(applied_gun.attack_verb_continuous)
+	applied_gun.attack_verb_simple = initial(applied_gun.attack_verb_simple)
+	applied_gun.hitsound = initial(applied_gun.hitsound)
+
+// Admin lathe
+// techweb: modular_nova\master_files\code\modules\research\techweb\techweb_types.dm
+// machine.dm define w/ nova edit code\__DEFINES\machines.dm
+/obj/machinery/rnd/production/colony_lathe
+	name = "rapid construction fabricator"
+	desc = "These bad boys are seen just about anywhere someone would want or need to build fast, damn the consequences. \
+		That tends to be colonies, especially on dangerous worlds, where the influences of this one machine can be seen \
+		in every bit of architecture."
+	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
+	icon_state = "colony_lathe"
+	base_icon_state = "colony_lathe"
+	circuit = null
+	production_animation = "colony_lathe_n"
+	light_color = LIGHT_COLOR_BRIGHT_YELLOW
+	light_power = 5
+	allowed_buildtypes = COLONY_FABRICATOR
+	speedup_disabled = TRUE
+	/// techweb we intend to use for unlocking stuff.
+	var/techweb_path = /datum/techweb/colony_fabricator
+	/// The item we turn into when repacked
+	var/repacked_type = /obj/item/flatpacked_machine
+	/// The sound loop played while the fabricator is making something
+	var/datum/looping_sound/colony_fabricator_running/soundloop
+
+/obj/item/flatpacked_machine
+	name = "flat-packed rapid construction fabricator"
+	/// For all flatpacked machines, set the desc to the type_to_deploy followed by ::desc to reuse the type_to_deploy's description
+	desc = /obj/machinery/rnd/production/colony_lathe::desc
+	icon = 'modular_nova/modules/colony_fabricator/icons/packed_machines.dmi'
+	icon_state = "colony_lathe_packed"
+	w_class = WEIGHT_CLASS_BULKY
+	/// What structure is created by this item.
+	var/obj/type_to_deploy = /obj/machinery/rnd/production/colony_lathe
+	/// How long it takes to create the structure in question.
+	var/deploy_time = 4 SECONDS
+
