@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - map: "Nova-specific maps boulder refineries are now oriented properly."
