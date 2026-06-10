@@ -14,7 +14,7 @@
 /datum/crafting_recipe/food/fried_vox
 	name = "Green Bird Chicken"
 	reqs = list(
-		/obj/item/food/meat/slab/chicken/vox = 1,
+		/obj/item/food/meat/slab/chicken/human/vox = 1,
 		/datum/reagent/consumable/flour = 5,
 		/datum/reagent/consumable/corn_starch = 5,
 		/obj/item/stack/sheet/cardboard = 1,
