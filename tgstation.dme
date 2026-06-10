@@ -8179,6 +8179,7 @@
 #include "modular_nova\modules\customization\__HELPERS\text.dm"
 #include "modular_nova\modules\customization\_globalvars\lists.dm"
 #include "modular_nova\modules\customization\_globalvars\names.dm"
+#include "modular_nova\modules\customization\datums\components\crafting\cannibalism.dm"
 #include "modular_nova\modules\customization\datums\components\crafting\clothing.dm"
 #include "modular_nova\modules\customization\datums\components\crafting\hemophage_recipes.dm"
 #include "modular_nova\modules\customization\datums\components\crafting\recipes.dm"
