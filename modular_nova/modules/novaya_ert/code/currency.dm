@@ -53,7 +53,6 @@
 		While SolFed's Solari fluctuates with political whims, the Bit buys the same stick of gum today that it bought fifty years ago. \
 		Which is to say: almost nothing, but reliably almost nothing."
 	icon_state = "bit"
-	base_icon_state = "bit"
 	sideslist = list("bit's heads","bit's tails")
 	value = 4
 	custom_materials = list(/datum/material/titanium = COIN_MATERIAL_AMOUNT)
@@ -75,7 +74,6 @@
 		tangible, that it is not merely a number in a distant ledger. Whether this psychological engineering is benevolent or merely efficient is a matter of \
 		ongoing debate in Coalition philosophy circles."
 	icon_state = "mark"
-	base_icon_state = "mark"
 	sideslist = list("mark's heads","mark's tails")
 	value = 128
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT)
@@ -96,7 +94,6 @@
 		or otherwise. The EPF's extended field manual notes that a patrol can often de-escalate a tense situation simply by producing a visible string of Crowns, \
 		a demonstration of material backing that speaks louder than any verbal reassurance."
 	icon_state = "crown"
-	base_icon_state = "crown"
 	sideslist = list("crown's heads(?)","crown's tails(?)")
 	value = 4096
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 4)
@@ -119,7 +116,6 @@
 		months' wages for an unskilled worker. It is the difference between life and death for a Rim-world settlement. Let the Forge Mark sit in its belt pouch, \
 		a quiet reassurance, a promise that the Coalition's reach extends even here, even now, even to the edge of nowhere."
 	icon_state = "forge_mark"
-	base_icon_state = "forge_mark"
 	sideslist = list("forge_mark_up")
 	value = 16384
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 16)
