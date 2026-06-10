@@ -145,8 +145,7 @@
 
 ///Tail parent type, with wagging functionality
 /datum/bodypart_overlay/mutant/tail
-	layers = EXTERNAL_FRONT|EXTERNAL_BEHIND
-	var/layer_above_all = -(BODY_FRONT_LAYER - 0.03) // Ensures the tail renders slightly above the butt
+	layers = EXTERNAL_FRONT
 	dyable = TRUE
 	var/wagging = FALSE
 
