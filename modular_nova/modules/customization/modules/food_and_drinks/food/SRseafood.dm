@@ -24,13 +24,13 @@
 	foodtypes = SEAFOOD | GORE
 	venue_value = FOOD_MEAT_HUMAN
 
-/obj/item/food/meat/slab/chicken/vox
+/obj/item/food/meat/slab/chicken/human/vox
 	name = "meat"
 	tastes = list("tender meat" = 1)
 	foodtypes = MEAT | RAW | GORE
 	venue_value = FOOD_MEAT_HUMAN
 
-/obj/item/food/meat/slab/chicken/vox/make_grillable()
+/obj/item/food/meat/slab/chicken/human/vox/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/chicken/vox, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/steak/chicken/vox/on_microwave_cooked(datum/source, atom/source_item, cooking_efficiency = 1)
@@ -46,7 +46,7 @@
 	else if(subjectjob)
 		name = "[origin_meat.subjectjob] meatsteak"
 
-/obj/item/food/meat/slab/chicken/vox/make_processable()
+/obj/item/food/meat/slab/chicken/human/vox/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/chicken/vox, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut")
 
 /obj/item/food/meat/steak/chicken/vox
@@ -90,16 +90,16 @@
 	icon_state = "chicken_patty"
 
 /datum/food_processor_process/meat/chicken
-	blacklist = list(/obj/item/food/meat/slab/chicken/vox)
+	blacklist = list(/obj/item/food/meat/slab/chicken/human/vox)
 
 /datum/food_processor_process/meat/chicken/vox
-	input = /obj/item/food/meat/slab/chicken/vox
+	input = /obj/item/food/meat/slab/chicken/human/vox
 	output = /obj/item/food/raw_meatball/chicken/vox
 	blacklist = null
 
 /obj/item/food/fried_vox
-	name = "kingulliq fried vox"
-	desc = "A juicy hunk of 'chicken' meat, fried to perfection."
+	name = "green bird chicken"
+	desc = "A juicy hunk of 'chicken' meat, fried to perfection in a red bucket. Has a faded set of letters reading 'KFV' on the side. How odd..."
 	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "fried_vox"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)

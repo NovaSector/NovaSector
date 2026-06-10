@@ -308,8 +308,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/fried_teshari
-	name = "kiri fried teshari"
-	desc = "A juicy hunk of 'chicken' meat, fried to perfection. Despite the name, there is no kiri in the meal."
+	name = "blue bird chicken"
+	desc = "A juicy hunk of 'chicken' meat, fried to perfection in a red bucket. Has a faded set of letters reading 'KFT' on the side. How odd..."
 	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "fried_tesh"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
