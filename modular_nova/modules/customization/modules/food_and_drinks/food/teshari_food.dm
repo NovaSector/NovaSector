@@ -409,6 +409,7 @@
 	foodtypes = GRAIN | MEAT | FRIED | GORE
 	crafting_complexity = FOOD_COMPLEXITY_3
 	venue_value = FOOD_PRICE_CHEAP
+	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 1.3)
 
 /obj/item/food/burger/tesh/chicken/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
 	. = ..()
