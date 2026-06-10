@@ -28,42 +28,14 @@
 	desc = "[initial(desc)] <br>" + desc
 
 /obj/item/stack/spacecash/shaving/full
-	icon_state = "shaving_4"
 	amount = 128
 
 /obj/item/coin/mark
 	icon = 'modular_nova/modules/novaya_ert/icons/currency.dmi'
-	icon_state = "mark"
+	icon_state = "coin_mark"
 	resistance_flags = FIRE_PROOF|FIRE_PROOF
 	override_material_worth = TRUE
 	material_flags = NONE
-
-/obj/item/coin/mark/Initialize(mapload)
-	. = ..()
-	icon_state = "[base_icon_state]_[coinflip]"
-
-/obj/item/coin/mark/attack_self(mob/user)
-	if(cooldown < world.time)
-		if(string_attached) //does the coin have a wire attached
-			to_chat(user, span_warning("The coin won't flip very well with something attached!") )
-			return FALSE//do not flip the coin
-		cooldown = world.time + 15
-		flick("coin_flip", src)
-		coinflip = pick(sideslist)
-		icon_state = "[base_icon_state]_[coinflip]"
-		playsound(user.loc, 'sound/items/coinflip.ogg', 50, TRUE)
-		var/oldloc = loc
-		sleep(1 SECONDS)
-		if(loc == oldloc && user && !user.incapacitated)
-			user.visible_message(span_notice("[user] flips [src]. It lands on [coinflip]."), \
-				span_notice("You flip [src]. It lands on [coinflip]."), \
-				span_hear("You hear the clattering of loose change."))
-		if(has_action)
-			if(coinflip == heads_name)
-				heads_action(user)
-			else
-				tails_action(user)
-	return TRUE
 
 /obj/item/coin/mark/bit
 	name = "bit"
@@ -82,6 +54,7 @@
 	Which is to say: almost nothing, but reliably almost nothing."
 	icon_state = "bit"
 	base_icon_state = "bit"
+	sideslist = list("bit's heads","bit's tails")
 	value = 4
 	custom_materials = list(/datum/material/titanium = COIN_MATERIAL_AMOUNT)
 
@@ -103,6 +76,7 @@
 	ongoing debate in Coalition philosophy circles."
 	icon_state = "mark"
 	base_icon_state = "mark"
+	sideslist = list("mark's heads","mark's tails")
 	value = 128
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT)
 
@@ -123,6 +97,7 @@
 	a demonstration of material backing that speaks louder than any verbal reassurance."
 	icon_state = "crown"
 	base_icon_state = "crown"
+	sideslist = list("crown's heads(?)","crown's tails(?)")
 	value = 4096
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 4)
 
@@ -145,10 +120,13 @@
 	a quiet reassurance, a promise that the Coalition's reach extends even here, even now, even to the edge of nowhere."
 	icon_state = "forge_mark"
 	base_icon_state = "forge_mark"
+	sideslist = list("forge_mark_up")
 	value = 16384
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 16)
 
 /obj/item/coin/mark/forge_mark/attack_self(mob/user)
-	to_chat(user, span_warning("You heave [src] a bit, intending to flip it, before realizing that tossing a clumsy \
-	quarter-kilogram ingot of tungsten carbide into the air is somewhat ill-advised!") )
-	return FALSE
+	if(sideslist.len >= 1)
+		to_chat(user, span_warning("You heave [src] a bit, intending to flip it, before realizing that tossing a clumsy \
+		quarter-kilogram ingot of tungsten carbide into the air is somewhat ill-advised!") )
+		return FALSE
+	. = ..()
