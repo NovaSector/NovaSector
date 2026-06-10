@@ -96,3 +96,17 @@
 	input = /obj/item/food/meat/slab/chicken/vox
 	output = /obj/item/food/raw_meatball/chicken/vox
 	blacklist = null
+
+/obj/item/food/fried_vox
+	name = "kingulliq fried vox"
+	desc = "A juicy hunk of 'chicken' meat, fried to perfection."
+	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
+	icon_state = "fried_vox"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
+	tastes = list("chicken" = 3, "fried batter" = 1)
+	trash_type = /obj/item/clothing/head/hats/fried_tesh
+	foodtypes = MEAT | FRIED | GORE
+	junkiness = 25
+	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 4, /datum/material/cardboard = SHEET_MATERIAL_AMOUNT)
