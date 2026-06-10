@@ -9027,6 +9027,7 @@
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_organs\_genital.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_organs\anus.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_organs\breasts.dm"
+#include "modular_nova\modules\modular_items\lewd_items\code\lewd_organs\butt.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_organs\penis.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_organs\testicles.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_organs\vagina.dm"
