@@ -17,7 +17,7 @@
 	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "tunacan_empty"
 
-/obj/item/food/fishmeat/moonfish/akula
+/obj/item/food/fishmeat/moonfish/human
 	name = "aquatic fillet"
 	desc = "A fillet of a rather large fish..."
 	tastes = list("tender fish" = 1)
@@ -61,7 +61,7 @@
 	tastes = list("tender meat" = 1)
 	foodtypes = MEAT | GORE
 
-/obj/item/food/meat/cutlet/chicken/vox/on_microwave_cooked(datum/source, atom/source_item, cooking_efficiency)
+/obj/item/food/meat/cutlet/chicken/human/on_microwave_cooked(datum/source, atom/source_item, cooking_efficiency)
 	. = ..()
 	if(!istype(source_item, /obj/item/food/meat))
 		return

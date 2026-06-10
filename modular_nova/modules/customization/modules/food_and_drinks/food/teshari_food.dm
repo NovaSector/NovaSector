@@ -321,7 +321,7 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 4, /datum/material/cardboard = SHEET_MATERIAL_AMOUNT)
 
-/obj/item/food/meat/slab/chicken/tesh
+/obj/item/food/meat/slab/chicken/human/teshari
 	name = "meat"
 	tastes = list("tender meat" = 1)
 	foodtypes = MEAT | RAW | GORE
@@ -411,12 +411,11 @@
 	venue_value = FOOD_PRICE_CHEAP
 	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 1.3)
 
-/obj/item/food/burger/tesh/chicken/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
+/obj/item/food/burger/chicken/human/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
 	. = ..()
 	for(var/datum/material/meat/mob_meat/mob_meat_material in custom_materials)
 		if(mob_meat_material.subjectname)
 			name = "[mob_meat_material.subjectname] burger"
 		else if(mob_meat_material.subjectjob)
 			name = "[mob_meat_material.subjectjob] burger"
-
 

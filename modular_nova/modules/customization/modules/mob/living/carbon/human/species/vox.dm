@@ -44,8 +44,7 @@
 		LOADOUT_ITEM_EARS = VOX_EARS_ICON
 	)
 
-	meat = /obj/item/food/meat/slab/chicken/vox
-
+	meat = /obj/item/food/meat/slab/chicken/human/vox
 /datum/species/vox/get_default_mutant_bodyparts()
 	return list(
 		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),

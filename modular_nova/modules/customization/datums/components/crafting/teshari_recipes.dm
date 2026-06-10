@@ -187,7 +187,7 @@
 	dish_category = DISH_MEAT
 
 
-/datum/crafting_recipe/food/chickenburger/tesh
+/datum/crafting_recipe/food/chickenburger/human
 	added_foodtypes = FRIED | GORE
 	name = "Birdman Sandwich (Teshari)"
 	reqs = list(
@@ -195,18 +195,7 @@
 			/datum/reagent/consumable/mayonnaise = 5,
 			/obj/item/food/bun = 1
 	)
-	result = /obj/item/food/burger/tesh/chicken
+	result = /obj/item/food/burger/chicken/human
 	dish_category = DISH_BURGER
 
-
-/datum/crafting_recipe/food/chickenburger/vox
-	added_foodtypes = FRIED | GORE
-	name = "Birdman Sandwich (Vox)"
-	reqs = list(
-			/obj/item/food/patty/vox/chicken = 1,
-			/datum/reagent/consumable/mayonnaise = 5,
-			/obj/item/food/bun = 1
-	)
-	result = /obj/item/food/burger/tesh/chicken //The Illusion of Choice
-	dish_category = DISH_BURGER
 
