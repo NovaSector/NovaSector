@@ -307,20 +307,6 @@
 	foodtypes = VEGETABLES | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_4
 
-/obj/item/food/fried_teshari
-	name = "blue bird chicken"
-	desc = "A juicy hunk of 'chicken' meat, fried to perfection in a red bucket. Has a faded set of letters reading 'KFT' on the side. How odd..."
-	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
-	icon_state = "fried_tesh"
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("chicken" = 3, "fried batter" = 1)
-	trash_type = /obj/item/clothing/head/hats/fried_tesh
-	foodtypes = MEAT | FRIED | GORE
-	junkiness = 25
-	w_class = WEIGHT_CLASS_SMALL
-	crafting_complexity = FOOD_COMPLEXITY_3
-	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 4, /datum/material/cardboard = SHEET_MATERIAL_AMOUNT)
-
 /obj/item/food/meat/slab/chicken/human/teshari
 	name = "meat"
 	tastes = list("tender meat" = 1)

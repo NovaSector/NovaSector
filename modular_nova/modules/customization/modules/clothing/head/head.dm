@@ -317,11 +317,3 @@
 	greyscale_config_worn = /datum/greyscale_config/henchmen/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/head/hats/fried_tesh
-	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
-	name = "fried chicken bucket"
-	icon_state = "fried_tesh"
-	desc = "An empty chicken bucket, soon to be filled with your two weeks notice."
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-	dog_fashion = /datum/dog_fashion/head/fried_tesh
