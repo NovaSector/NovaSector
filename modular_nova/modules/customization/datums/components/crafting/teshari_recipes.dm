@@ -195,7 +195,7 @@
 			/datum/reagent/consumable/mayonnaise = 5,
 			/obj/item/food/bun = 1
 	)
-	result = /obj/item/food/burger/human/chicken
+	result = /obj/item/food/burger/tesh/chicken
 	dish_category = DISH_BURGER
 
 
@@ -207,6 +207,6 @@
 			/datum/reagent/consumable/mayonnaise = 5,
 			/obj/item/food/bun = 1
 	)
-	result = /obj/item/food/burger/human/chicken
+	result = /obj/item/food/burger/tesh/chicken //The Illusion of Choice
 	dish_category = DISH_BURGER
 

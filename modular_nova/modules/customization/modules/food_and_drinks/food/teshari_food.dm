@@ -325,7 +325,7 @@
 	name = "meat"
 	tastes = list("tender meat" = 1)
 	foodtypes = MEAT | RAW | GORE
-	venue_value = FOOD_MEAT_tesh
+	venue_value = FOOD_MEAT_HUMAN
 
 /obj/item/food/meat/slab/chicken/tesh/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/chicken/tesh, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
