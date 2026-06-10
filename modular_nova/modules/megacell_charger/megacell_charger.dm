@@ -9,7 +9,7 @@
 	icon = 'icons/obj/machines/cell_charger.dmi'
 	icon_state = "ccharger"
 	power_channel = AREA_USAGE_EQUIP
-	circuit = /obj/item/circuitboard/machine/cell_charger
+	circuit = /obj/item/circuitboard/machine/megacell_charger
 	pass_flags = PASSTABLE
 	var/obj/item/stock_parts/power_store/battery/charging = null
 	var/charge_rate = STANDARD_BATTERY_RATE
