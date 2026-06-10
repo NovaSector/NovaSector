@@ -54,14 +54,7 @@
 /datum/supply_pack/companies/general/hc_surplus/bit
 	name = "Eight Bits"
 	contains = list(
-		/obj/item/coin/mark/bit,
-		/obj/item/coin/mark/bit,
-		/obj/item/coin/mark/bit,
-		/obj/item/coin/mark/bit,
-		/obj/item/coin/mark/bit,
-		/obj/item/coin/mark/bit,
-		/obj/item/coin/mark/bit,
-		/obj/item/coin/mark/bit,
+		/obj/item/coin/mark/bit = 8,
 	)
 	cost = 140
 
