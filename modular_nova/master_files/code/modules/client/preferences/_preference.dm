@@ -4,6 +4,9 @@
 	/// If the selected species has this in its /datum/species/mutant_bodyparts,
 	/// will show the feature as selectable.
 	var/relevant_mutant_bodypart = null
+	/// If the selected species is this,
+	/// will show the feature as selectable.
+	var/relevant_species = null
 
 /datum/preference/tri_color
 	abstract_type = /datum/preference/tri_color

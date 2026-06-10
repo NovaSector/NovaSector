@@ -30,6 +30,8 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	var/lore_protected = FALSE
 	/// When set to FALSE, prevents customizable dna features from being applied
 	var/allow_customizable_dna_features = TRUE
+	/// What's our priority on the character selection list? Used to sort stock /tg/ species to the top of the list along with any species we want additional player eyes on, like in-dev species.
+	var/species_sort_priority = SPECIES_SORT_PRIORITY_DEFAULT
 
 /// Returns a list of the default mutant bodyparts, and whether or not they can be randomized or not
 /datum/species/proc/get_default_mutant_bodyparts()

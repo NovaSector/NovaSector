@@ -37,6 +37,7 @@
 	)
 	exotic_bloodtype = BLOOD_TYPE_LIZARD
 	payday_modifier = 1
+	subspecies_of = /datum/species/lizard
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(

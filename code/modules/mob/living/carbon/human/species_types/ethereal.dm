@@ -37,6 +37,11 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/ethereal,
 	)
 
+	// NOVA EDIT ADDITION START - Robots
+	used_outfit_for_preview = /datum/outfit/job/scientist
+	species_sort_priority = SPECIES_SORT_PRIORITY_ETHEREAL
+	// NOVA EDIT ADDITION END
+
 	var/current_color
 	var/default_color
 	var/disrupted = FALSE

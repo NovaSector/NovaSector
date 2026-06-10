@@ -21,6 +21,7 @@
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/mutant/aquatic,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/aquatic,
 	)
+	subspecies_of = /datum/species/vulpkanin
 
 /datum/species/aquatic/get_default_mutant_bodyparts()
 	return list(

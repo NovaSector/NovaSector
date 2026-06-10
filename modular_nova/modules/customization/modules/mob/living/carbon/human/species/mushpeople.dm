@@ -13,3 +13,6 @@
 	shrooman.dna.mutant_bodyparts[FEATURE_MUSH_CAP] = build_mutant_part("Round", list("#FF4B19"))
 	regenerate_organs(shrooman, src, visual_only = TRUE)
 	shrooman.update_body(TRUE)
+
+/datum/species/mush
+	subspecies_of = /datum/species/golem/weak

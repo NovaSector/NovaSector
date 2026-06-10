@@ -18,8 +18,8 @@
 /obj/item/modular_computer/pda/synth/Initialize(mapload)
 	. = ..()
 
-	// prevent these from being created outside of valid brains
-	if(!istype(loc, /obj/item/organ/brain/synth) && !istype(loc, /obj/item/organ/brain/cybernetic/cortical))
+	// prevent these from being created outside of valid brains and appendixes
+	if(!istype(loc, /obj/item/organ/brain/synth) && !istype(loc, /obj/item/organ/brain/cybernetic/cortical) && !istype(loc, /obj/item/organ/appendix/cpu))
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/modular_computer/pda/synth/check_power_override()

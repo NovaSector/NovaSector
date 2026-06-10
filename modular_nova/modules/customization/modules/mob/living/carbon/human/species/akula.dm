@@ -41,6 +41,7 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/akula,
 	)
 	/// This variable stores the timer datum which appears if the mob becomes wet
+	subspecies_of = /datum/species/vulpkanin
 	var/dry_up_timer = TIMER_ID_NULL
 
 /datum/species/akula/get_default_mutant_bodyparts()

@@ -42,6 +42,10 @@
 	var/override_target_pixel_y = null
 	///the layer of our beam
 	var/beam_layer
+	// NOVA EDIT ADDITION START - Robots
+	///icon_state of the ending of the beam
+	var/icon_state_end = null
+	// NOVA EDIT ADDITION END
 
 /datum/beam/New(
 	origin,
@@ -57,7 +61,10 @@
 	override_origin_pixel_y = null,
 	override_target_pixel_x = null,
 	override_target_pixel_y = null,
-	beam_layer = ABOVE_ALL_MOB_LAYER
+	beam_layer = ABOVE_ALL_MOB_LAYER,
+	// NOVA EDIT ADDITION START - Robots
+	icon_state_end = null
+	// NOVA EDIT ADDITION END
 )
 	src.origin = origin
 	src.target = target
@@ -72,6 +79,9 @@
 	src.override_target_pixel_x = override_target_pixel_x
 	src.override_target_pixel_y = override_target_pixel_y
 	src.beam_layer = beam_layer
+	// NOVA EDIT ADDITION START - Robots
+	src.icon_state_end = icon_state_end
+	// NOVA EDIT ADDITION END
 	if(time < INFINITY)
 		QDEL_IN(src, time)
 
@@ -142,7 +152,7 @@
 
 		//ends are cropped by a transparent box icon of length-N pixel size laid over the visuals obj
 		if(N+32>length) //went past the target, we draw a box of space to cut away from the beam sprite so the icon actually ends at the center of the target sprite
-			var/icon/terminal_icon = new(icon, icon_state)//this means we exclude the overshooting object from the visual contents which does mean those visuals don't show up for the final bit of the beam...
+			var/icon/terminal_icon = new(icon, icon_state_end ? icon_state_end : icon_state)//this means we exclude the overshooting object from the visual contents which does mean those visuals don't show up for the final bit of the beam... // NOVA EDIT CHANGE - Robots - var/icon/terminal_icon = new(icon, icon_state)
 			terminal_icon.DrawBox(null,1,(length-N),32,32)//in the future if you want to improve this, remove the drawbox and instead use a 513 filter to cut away at the final object's icon
 			segment.icon = terminal_icon
 			segment.color = beam_color
@@ -211,6 +221,9 @@
 	override_target_pixel_x = null,
 	override_target_pixel_y = null,
 	beam_layer = ABOVE_ALL_MOB_LAYER,
+	// NOVA EDIT ADDITION START - Robots
+	icon_state_end = null,
+	// NOVA EDIT ADDITION END
 	icon_state_variants = 1
 	)
 	. = ..()
@@ -337,12 +350,15 @@
 	override_target_pixel_y = null,
 	layer = ABOVE_ALL_MOB_LAYER,
 	icon_state_variants = 0,
+	// NOVA EDIT ADDITION START - Robots
+	icon_state_end = null,
+	// NOVA EDIT ADDITION END
 )
 	var/datum/beam/newbeam
 
 	if(icon_state_variants <= 0)
-		newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type, beam_color, emissive, override_origin_pixel_x, override_origin_pixel_y, override_target_pixel_x, override_target_pixel_y, layer)
+		newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type, beam_color, emissive, override_origin_pixel_x, override_origin_pixel_y, override_target_pixel_x, override_target_pixel_y, layer, icon_state_end) // NOVA EDIT CHANGE - Robots - newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type, beam_color, emissive, override_origin_pixel_x, override_origin_pixel_y, override_target_pixel_x, override_target_pixel_y, layer)
 	else
-		newbeam = new /datum/beam/varied(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type, beam_color, emissive, override_origin_pixel_x, override_origin_pixel_y, override_target_pixel_x, override_target_pixel_y, layer, icon_state_variants)
+		newbeam = new /datum/beam/varied(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type, beam_color, emissive, override_origin_pixel_x, override_origin_pixel_y, override_target_pixel_x, override_target_pixel_y, layer, icon_state_variants, icon_state_end) // NOVA EDIT CHANGE - Robots -newbeam = new /datum/beam/varied(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type, beam_color, emissive, override_origin_pixel_x, override_origin_pixel_y, override_target_pixel_x, override_target_pixel_y, layer, icon_state_variants)
 	INVOKE_ASYNC(newbeam, TYPE_PROC_REF(/datum/beam/, Start))
 	return newbeam

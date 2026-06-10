@@ -45,6 +45,7 @@
 		LOADOUT_ITEM_MISC = VOX_PRIMALIS_BACK_ICON,
 		LOADOUT_ITEM_EARS = VOX_PRIMALIS_EARS_ICON,
 	)
+	subspecies_of = /datum/species/vox
 
 /datum/species/vox_primalis/get_default_mutant_bodyparts()
 	return list(

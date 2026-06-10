@@ -558,7 +558,12 @@ Behavior that's still missing from this component that original food items had t
 	if(eater.is_mouth_covered())
 		eater.balloon_alert(feeder, "mouth is covered!")
 		return FALSE
-
+	// NOVA EDIT ADDITION START - Robots
+	var/obj/item/organ/stomach/stomach = eater.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(stomach && istype(stomach) && !stomach.can_process_solids)
+		eater.balloon_alert(feeder, "can't eat solids!")
+		return FALSE
+	// NOVA EDIT ADDITION END - Robots
 	var/atom/food = parent
 
 	if(food.flags_1 & HOLOGRAM_1)

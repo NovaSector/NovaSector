@@ -82,10 +82,6 @@
 	contains = list(/obj/item/storage/pill_bottle/painkiller)
 	cost = CARGO_CRATE_VALUE * 0.25
 
-/datum/supply_pack/companies/medical/first_aid/robo_patch
-	contains = list(/obj/item/stack/medical/synth_repair)
-	cost = CARGO_CRATE_VALUE * 0.25
-
 /datum/supply_pack/companies/medical/first_aid/bandaid
 	contains = list(/obj/item/storage/box/bandages)
 	cost = CARGO_CRATE_VALUE * 0.375
@@ -141,9 +137,6 @@
 /datum/supply_pack/companies/medical/medpens/halobinin
 	contains = list(/obj/item/reagent_containers/hypospray/medipen/deforest/halobinin)
 
-/datum/supply_pack/companies/medical/medpens/robo_solder
-	contains = list(/obj/item/reagent_containers/hypospray/medipen/deforest/robot_liquid_solder)
-
 /datum/supply_pack/companies/medical/medpens/robo_cleaner
 	contains = list(/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner)
 
@@ -156,9 +149,6 @@
 /datum/supply_pack/companies/medical/neuroware/reset
 	contains = list(/obj/item/disk/neuroware/reset)
 
-/datum/supply_pack/companies/medical/neuroware/brain
-	contains = list(/obj/item/disk/neuroware/brain)
-
 /datum/supply_pack/companies/medical/neuroware/morphine
 	contains = list(/obj/item/disk/neuroware/morphine)
 
@@ -167,12 +157,6 @@
 
 /datum/supply_pack/companies/medical/neuroware/neuroware/happiness
 	contains = list(/obj/item/disk/neuroware/happiness)
-
-/datum/supply_pack/companies/medical/neuroware/synaptizine
-	contains = list(/obj/item/disk/neuroware/synaptizine)
-
-/datum/supply_pack/companies/medical/neuroware/psicodine
-	contains = list(/obj/item/disk/neuroware/psicodine)
 
 // Autoinjectors for fighting
 

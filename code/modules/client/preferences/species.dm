@@ -59,5 +59,6 @@
 		data[species_id]["perks"] = species.get_species_perks()
 		data[species_id]["diet"] =  species.get_species_diet()
 		data[species_id]["nova_stars_only"] = species.nova_stars_only // NOVA EDIT ADDITION - Veteran races
+		data[species_id]["subspecies_of"] = species.subspecies_of::id // NOVA EDIT ADDITION - Subspecies UI
 
 	return data

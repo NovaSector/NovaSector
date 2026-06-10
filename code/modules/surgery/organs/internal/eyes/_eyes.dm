@@ -187,6 +187,11 @@
 		SIGNAL_REMOVETRAIT(TRAIT_REFLECTIVE_EYES),
 	))
 
+// NOVA EDIT ADDITION START - Robots
+/obj/item/organ/eyes/proc/damage_threshold_crossed(new_damage)
+	owner.adjust_temp_blindness(new_damage * 2 SECONDS)
+	owner.set_eye_blur_if_lower(new_damage * rand(6 SECONDS, 12 SECONDS))
+// NOVA EDIT ADDITION END
 /obj/item/organ/eyes/on_bodypart_insert(obj/item/bodypart/limb)
 	. = ..()
 	if(ishuman(limb.owner))

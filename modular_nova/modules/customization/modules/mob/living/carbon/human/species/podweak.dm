@@ -9,6 +9,7 @@
 
 	mutant_organs = list() // Removes the pod hair organ from here, messes up unit tests (we handle that differently here)
 	payday_modifier = 1.0
+	subspecies_of = /datum/species/golem/weak
 
 /datum/species/pod/get_default_mutant_bodyparts()
 	return list(

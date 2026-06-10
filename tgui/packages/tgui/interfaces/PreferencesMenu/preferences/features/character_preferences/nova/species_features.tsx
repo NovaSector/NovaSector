@@ -831,3 +831,22 @@ export const holo_scanline: Feature<boolean> = {
     'Renders a faint scanline flicker across your body (not visible until you spawn).',
   component: CheckboxInput,
 };
+
+export const feature_android_stomach: Feature<string> = {
+  name: 'Engine Choice',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const feature_android_appendix: Feature<string> = {
+  name: 'Extra Part Choice',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+

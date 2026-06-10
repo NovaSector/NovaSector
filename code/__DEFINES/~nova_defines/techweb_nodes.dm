@@ -32,3 +32,4 @@
 #define TECHWEB_NODE_XENOARCH_STORAGE "xenoarch_storage"
 #define TECHWEB_NODE_AMMOBENCH_MORE "ammobench_addtl"
 #define TECHWEB_NODE_RBMK "rbmk2"
+#define TECHWEB_NODE_ROBOT_ORGANS "robot_organs"

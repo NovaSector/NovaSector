@@ -67,6 +67,11 @@
 		/datum/outfit/syndicate/full/loneop = /datum/outfit/syndicate/full/plasmaman/loneop,
 	)
 
+	// NOVA EDIT ADDITION START - Robots
+	used_outfit_for_preview =  /datum/outfit/plasmaman/engineering
+	species_sort_priority = SPECIES_SORT_PRIORITY_PLASMAMAN
+	// NOVA EDIT ADDITION END
+
 /datum/species/plasmaman/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
 	if(job?.plasmaman_outfit)
 		equipping.equipOutfit(job.plasmaman_outfit, visuals_only)

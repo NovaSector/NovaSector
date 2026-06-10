@@ -19,7 +19,7 @@
 		/obj/item/dice/d20,
 		/obj/item/storage/pouch/medical/firstaid/stabilizer,
 		/obj/item/storage/pouch/cin_medkit,
-		/obj/item/storage/medkit/robotic_repair/preemo/stocked,
+		/obj/item/storage/medkit/robotic_repair/stocked,
 	)
 
 /obj/item/disk/bitrunning/prefs

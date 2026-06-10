@@ -1,10 +1,10 @@
-/mob/proc/overlay_fullscreen(category, type, severity)
+/mob/proc/overlay_fullscreen(category, type, severity, screen_alpha, screen_alpha_animated = 10) // NOVA EDIT CHANGE - Adds support for fading overlays for Robots - /mob/proc/overlay_fullscreen(category, type, severity)
 	var/atom/movable/screen/fullscreen/screen = screens[category]
 	if (!screen || screen.type != type)
 		// needs to be recreated
 		clear_fullscreen(category, FALSE)
 		screens[category] = screen = new type()
-	else if ((!severity || severity == screen.severity) && (!client || screen.screen_loc != "CENTER-7,CENTER-7" || screen.view == client.view))
+	else if ((!severity || severity == screen.severity) && (!screen_alpha || screen_alpha == screen.alpha) && (!client || screen.screen_loc != "CENTER-7,CENTER-7" || screen.view == client.view)) // NOVA EDIT CHANGE - else if ((!severity || severity == screen.severity) && (!client || screen.screen_loc != "CENTER-7,CENTER-7" || screen.view == client.view))
 		// doesn't need to be updated
 		return screen
 
@@ -13,6 +13,13 @@
 	if (client && screen.should_show_to(src))
 		screen.update_for_view(client.view)
 		client.screen += screen
+	// NOVA EDIT ADDITION START
+	if(screen_alpha)
+		if(screen_alpha_animated)
+			animate(screen, alpha = screen_alpha, time = screen_alpha_animated)
+		else
+			screen.alpha = screen_alpha
+	// NOVA EDIT ADDITION END
 
 	if(screen.needs_offsetting)
 		SET_PLANE_EXPLICIT(screen, PLANE_TO_TRUE(screen.plane), src)

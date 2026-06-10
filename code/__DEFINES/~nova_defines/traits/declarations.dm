@@ -190,4 +190,7 @@
 /// The trait for Holosynths
 #define TRAIT_HOLOSYNTH "holosynthetic"
 
+// Trait that stops you from entering stamina crit ever.
+#define TRAIT_NOSTAMCRIT "nostamcrit"
+
 // END TRAIT DEFINES

@@ -341,7 +341,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 
 /// Checks if this preference is relevant and thus visible to the passed preferences object.
 /datum/preference/proc/has_relevant_feature(datum/preferences/preferences)
-	if(isnull(relevant_inherent_trait) && isnull(relevant_organ) && isnull(relevant_head_flag) && isnull(relevant_body_markings) && isnull(relevant_mutant_bodypart)) // NOVA EDIT CHANGE - Add check for relevant_mutant_bodypart - Original: if(isnull(relevant_inherent_trait) && isnull(relevant_organ) && isnull(relevant_head_flag) && isnull(relevant_body_markings))
+	if(isnull(relevant_inherent_trait) && isnull(relevant_organ) && isnull(relevant_head_flag) && isnull(relevant_body_markings) && isnull(relevant_mutant_bodypart) && isnull(relevant_species)) // NOVA EDIT CHANGE - Add check for relevant_mutant_bodypart - Original: if(isnull(relevant_inherent_trait) && isnull(relevant_organ) && isnull(relevant_head_flag) && isnull(relevant_body_markings))
 		return TRUE
 
 	return current_species_has_savekey(preferences)

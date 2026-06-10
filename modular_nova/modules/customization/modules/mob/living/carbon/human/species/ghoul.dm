@@ -29,6 +29,7 @@
 	//the chest and head cannot be turned into meat
 	//i dont have to worry about sprites due to limbs_icon, thank god
 	//also the head needs to be normal for hair to work
+	subspecies_of = /datum/species/golem/weak
 
 /datum/species/ghoul/get_default_mutant_bodyparts()
 	return list(

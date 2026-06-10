@@ -28,8 +28,8 @@
 	change_exempt_flags = BP_BLOCK_CHANGE_SPECIES
 	dmg_overlay_type = "robotic"
 
-	brute_modifier = 0.8
-	burn_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - brute_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - burn_modifier = 0.8
 
 	light_brute_msg = ROBOTIC_LIGHT_BRUTE_MSG
 	medium_brute_msg = ROBOTIC_MEDIUM_BRUTE_MSG
@@ -39,12 +39,18 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED|BIO_JOINTED) // NOVA EDIT CHANGE - ROBOTS - biological_state = (BIO_ROBOTIC|BIO_JOINTED)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	disabling_threshold_percentage = 1
 	bodypart_flags = BODYPART_UNHUSKABLE
 	butcher_replacement = null
+
+// NOVA EDIT ADDITION START - Robots
+/obj/item/bodypart/arm/left/robot/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/robotic_limb_openable)
+// NOVA EDIT ADDITION END
 
 /obj/item/bodypart/arm/right/robot
 	name = "cyborg right arm"
@@ -63,8 +69,8 @@
 	change_exempt_flags = BP_BLOCK_CHANGE_SPECIES
 	dmg_overlay_type = "robotic"
 
-	brute_modifier = 0.8
-	burn_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - brute_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - burn_modifier = 0.8
 
 	disabling_threshold_percentage = 1
 
@@ -76,11 +82,17 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED|BIO_JOINTED) // NOVA EDIT CHANGE - ROBOTS - biological_state = (BIO_ROBOTIC|BIO_JOINTED)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	bodypart_flags = BODYPART_UNHUSKABLE
 	butcher_replacement = null
+
+// NOVA EDIT ADDITION START - Robots
+/obj/item/bodypart/arm/right/robot/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/robotic_limb_openable)
+// NOVA EDIT ADDITION END
 
 /obj/item/bodypart/leg/left/robot
 	name = "cyborg left leg"
@@ -99,8 +111,8 @@
 	change_exempt_flags = BP_BLOCK_CHANGE_SPECIES
 	dmg_overlay_type = "robotic"
 
-	brute_modifier = 0.8
-	burn_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - brute_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - burn_modifier = 0.8
 
 	disabling_threshold_percentage = 1
 
@@ -112,12 +124,18 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED|BIO_JOINTED) // NOVA EDIT CHANGE - ROBOTS - biological_state = (BIO_ROBOTIC|BIO_JOINTED)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	bodypart_flags = BODYPART_UNHUSKABLE
 	butcher_replacement = null
 
+// NOVA EDIT ADDITION START - Robots
+/obj/item/bodypart/leg/left/robot/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/robotic_limb_openable)
+// NOVA EDIT ADDITION END
+/* NOVA EDIT REMOVAL START - Robots
 /obj/item/bodypart/leg/left/robot/emp_effect(severity, protection)
 	. = ..()
 	if(!. || isnull(owner))
@@ -131,6 +149,7 @@
 		return
 	to_chat(owner, span_danger("As your [plaintext_zone] unexpectedly malfunctions, it causes you to fall to the ground!"))
 	return
+NOVA EDIT REMOVAL END */
 
 /obj/item/bodypart/leg/right/robot
 	name = "cyborg right leg"
@@ -149,8 +168,8 @@
 	change_exempt_flags = BP_BLOCK_CHANGE_SPECIES
 	dmg_overlay_type = "robotic"
 
-	brute_modifier = 0.8
-	burn_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - brute_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - burn_modifier = 0.8
 
 	disabling_threshold_percentage = 1
 
@@ -162,12 +181,18 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED|BIO_JOINTED) // NOVA EDIT CHANGE - ROBOTS - biological_state = (BIO_ROBOTIC|BIO_JOINTED)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	bodypart_flags = BODYPART_UNHUSKABLE
 	butcher_replacement = null
 
+// NOVA EDIT ADDITION START - Robots
+/obj/item/bodypart/leg/right/robot/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/robotic_limb_openable)
+// NOVA EDIT ADDITION END
+/* NOVA EDIT REMOVAL START - Robots
 /obj/item/bodypart/leg/right/robot/emp_effect(severity, protection)
 	. = ..()
 	if(!. || isnull(owner))
@@ -181,6 +206,7 @@
 		return
 	to_chat(owner, span_danger("As your [plaintext_zone] unexpectedly malfunctions, it causes you to fall to the ground!"))
 	return
+NOVA EDIT REMOVAL END */
 
 /obj/item/bodypart/chest/robot
 	name = "cyborg torso"
@@ -198,8 +224,8 @@
 	change_exempt_flags = BP_BLOCK_CHANGE_SPECIES
 	dmg_overlay_type = "robotic"
 
-	brute_modifier = 0.8
-	burn_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - brute_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - burn_modifier = 0.8
 
 	light_brute_msg = ROBOTIC_LIGHT_BRUTE_MSG
 	medium_brute_msg = ROBOTIC_MEDIUM_BRUTE_MSG
@@ -209,19 +235,20 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED) // NOVA EDIT CHANGE - ROBOTS - biological_state = (BIO_ROBOTIC)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	bodypart_flags = BODYPART_UNHUSKABLE
 	butcher_replacement = null
 
-	robotic_emp_paralyze_damage_percent_threshold = 0.6
+	robotic_emp_paralyze_damage_percent_threshold = 0 // NOVA EDIT CHANGE - Robots - robotic_emp_paralyze_damage_percent_threshold = 0.6
 
 	wing_types = list(/obj/item/organ/wings/functional/robotic)
 
 	var/wired = FALSE
 	var/obj/item/stock_parts/power_store/cell = null
 
+/* NOVA EDIT REMOVAL START - Robots
 /obj/item/bodypart/chest/robot/emp_effect(severity, protection)
 	. = ..()
 	if(!. || isnull(owner))
@@ -244,6 +271,7 @@
 		owner.Stun(stun_time)
 	owner.Shake(pixelshiftx = shift_x, pixelshifty = shift_y, duration = shake_duration)
 	return
+NOVA EDIT REMOVAL END */
 
 /obj/item/bodypart/chest/robot/get_cell()
 	return cell
@@ -262,6 +290,9 @@
 	. = ..()
 	RegisterSignal(src, COMSIG_BODYPART_ATTACHED, PROC_REF(on_attached))
 	RegisterSignal(src, COMSIG_BODYPART_REMOVED, PROC_REF(on_detached))
+	// NOVA EDIT ADDITION START - Robots
+	AddComponent(/datum/component/robotic_limb_openable)
+	// NOVA EDIT ADDITION END
 
 /obj/item/bodypart/chest/robot/proc/on_attached(obj/item/bodypart/chest/robot/this_bodypart, mob/living/carbon/human/new_owner)
 	SIGNAL_HANDLER
@@ -380,8 +411,8 @@
 	change_exempt_flags = BP_BLOCK_CHANGE_SPECIES
 	dmg_overlay_type = "robotic"
 
-	brute_modifier = 0.8
-	burn_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - brute_modifier = 0.8
+	// NOVA EDIT CHANGE - Robots - burn_modifier = 0.8
 
 	light_brute_msg = ROBOTIC_LIGHT_BRUTE_MSG
 	medium_brute_msg = ROBOTIC_MEDIUM_BRUTE_MSG
@@ -391,7 +422,7 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED) // NOVA EDIT CHANGE - ROBOTS - biological_state = (BIO_ROBOTIC)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 
@@ -402,6 +433,13 @@
 	var/obj/item/assembly/flash/handheld/flash1 = null
 	var/obj/item/assembly/flash/handheld/flash2 = null
 
+// NOVA EDIT ADDITION START - Robots
+/obj/item/bodypart/head/robot/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/robotic_limb_openable)
+// NOVA EDIT ADDITION END
+
+/* NOVA EDIT REMOVAL START - Robots
 #define EMP_GLITCH "EMP_GLITCH"
 
 /obj/item/bodypart/head/robot/emp_effect(severity, protection)
@@ -418,6 +456,7 @@
 	QDEL_IN(owner.add_client_colour(/datum/client_colour/malfunction, HEAD_TRAIT), glitch_duration)
 
 #undef EMP_GLITCH
+NOVA EDIT REMOVAL END */
 
 /obj/item/bodypart/head/robot/Exited(atom/movable/gone, direction)
 	. = ..()

@@ -28,7 +28,9 @@
 	mutantlungs = null
 	skinned_type = /obj/item/stack/sheet/animalhide/carbon/human
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
-
+	// NOVA EDIT ADDITION START - Species menu sorting
+	subspecies_of = /datum/species/human
+	// NOVA EDIT ADDITION END
 	/// The dullahan relay that's associated with the owner, used to handle many things such as talking and hearing.
 	var/obj/item/dullahan_relay/my_head
 	/// Did our owner's first client connection get handled yet? Useful for when some proc needs to be called once we're sure that a client has moved into our owner, like for Dullahans.

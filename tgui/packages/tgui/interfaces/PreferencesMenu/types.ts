@@ -58,7 +58,8 @@ export type Species = {
 
   enabled_features: string[];
 
-  nova_stars_only: boolean; // NOVA EDIT - Nova star quirks
+  nova_stars_only: boolean; // NOVA EDIT ADDITION - Star-locked Species
+  subspecies_of?: string; // NOVA EDIT ADDITION - Subspecies UI
 
   perks: {
     positive: Perk[];
@@ -214,7 +215,6 @@ export enum PrefsWindow {
 }
 
 export type CharacterPreferencesData = {
-
   clothing: Record<string, string>;
   features: Record<string, string>;
   game_preferences: Record<string, unknown>;
@@ -287,7 +287,7 @@ export type PreferencesMenuData = {
   ckey: string;
   is_donator: BooleanLike;
   is_nova_star: BooleanLike;
-
+  nova_star_restrictions: BooleanLike;
   // NOVA EDIT ADDITION END
   keybindings: Record<string, string[]>;
   overflow_role: string;

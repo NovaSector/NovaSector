@@ -20,6 +20,9 @@ GLOBAL_LIST_INIT(all_tool_behaviours, list(
 	TOOL_WELDER,
 	TOOL_WIRECUTTER,
 	TOOL_WRENCH,
+	// NOVA EDIT ADDITION START - Robots
+	TOOL_DUCTTAPE
+	// NOVA EDIT ADDITION END - Robots
 ))
 
 GLOBAL_LIST_INIT(all_mechanical_tools, list(
@@ -30,6 +33,9 @@ GLOBAL_LIST_INIT(all_mechanical_tools, list(
 	TOOL_WELDER,
 	TOOL_WIRECUTTER,
 	TOOL_WRENCH,
+	// NOVA EDIT ADDITION START - Robots
+	TOOL_DUCTTAPE
+	// NOVA EDIT ADDITION END - Robots
 ))
 
 GLOBAL_LIST_INIT(all_surgical_tools, list(
@@ -63,4 +69,7 @@ GLOBAL_LIST_INIT(tool_to_image, list(
 	TOOL_BLOODFILTER = image(/obj/item/blood_filter),
 	TOOL_ROLLINGPIN = image(/obj/item/kitchen/rollingpin),
 	TOOL_RUSTSCRAPER = image(/obj/item/wirebrush),
+	// NOVA EDIT ADDITION START - Robots
+	TOOL_DUCTTAPE = image(/obj/item/stack/medical/wrap/sticky_tape/duct)
+	// NOVA EDIT ADDITION END - Robots
 ))

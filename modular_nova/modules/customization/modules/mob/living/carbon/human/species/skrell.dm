@@ -29,6 +29,7 @@
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/mutant/skrell,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/skrell,
 	)
+	subspecies_of = /datum/species/vox
 
 /datum/species/skrell/get_default_mutant_bodyparts()
 	return list(

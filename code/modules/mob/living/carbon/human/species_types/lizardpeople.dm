@@ -48,6 +48,24 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/lizard,
 	)
 
+	// NOVA EDIT ADDITION START - Robots
+	used_outfit_for_preview = /datum/outfit/job/janitor/preview
+	species_sort_priority = SPECIES_SORT_PRIORITY_LIZARD
+/datum/species/lizard/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	human_for_preview.dna.features["mcolor"] = "#099"
+	human_for_preview.dna.features["tail_lizard"] = "Light Tiger"
+	human_for_preview.dna.features["snout"] = "Sharp + Light"
+	human_for_preview.dna.features["horns"] = "Simple"
+	human_for_preview.dna.features["frills"] = "Aquatic"
+	human_for_preview.dna.features["legs"] = "Normal Legs"
+	human_for_preview.update_body(TRUE)
+
+/datum/outfit/job/janitor/preview
+	head = /obj/item/clothing/head/soft/purple
+
+	// NOVA EDIT ADDITION END
+
+
 /// Lizards are cold blooded and do not stabilize body temperature naturally
 /datum/species/lizard/body_temperature_core(mob/living/carbon/human/humi, seconds_per_tick)
 	return

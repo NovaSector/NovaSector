@@ -39,13 +39,6 @@
 	for(var/i in 1 to 5)
 		new /obj/item/disk/neuroware/space_drugs(src)
 
-/obj/item/storage/box/flat/neuroware/synaptizine
-	name = "neuroware chips (SynapTuner)"
-
-/obj/item/storage/box/flat/neuroware/synaptizine/PopulateContents()
-	for(var/i in 1 to 5)
-		new /obj/item/disk/neuroware/synaptizine(src)
-
 /obj/item/storage/box/flat/neuroware/thc
 	name = "neuroware chips (Mr.Stoned v1)"
 

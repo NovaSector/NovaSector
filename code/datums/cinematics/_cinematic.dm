@@ -44,6 +44,12 @@
 	var/cleanup_time = 30 SECONDS
 	/// Whether the cinematic turns off ooc when played globally.
 	var/stop_ooc = TRUE
+	// NOVA EDIT ADDITION START - Robots
+	/// Should we lock mobs in place who are viewing this cinematic?
+	var/lock_mobs = TRUE
+	/// Should we clear the cinematic instantly? If not, set a time here instead of FALSE.
+	var/clear_instant = 1 SECONDS
+	// NOVA EDIT ADDITION END
 
 /datum/cinematic/New(watcher, datum/callback/special_callback)
 	screen = new(src)
@@ -107,9 +113,11 @@
 /// Whenever a mob watching the cinematic logs in, show them the ongoing cinematic
 /datum/cinematic/proc/show_to(mob/watching_mob, client/watching_client)
 	SIGNAL_HANDLER
-
-	if(!HAS_TRAIT_FROM(watching_mob, TRAIT_NO_TRANSFORM, CINEMATIC_SOURCE))
-		lock_mob(watching_mob)
+	// NOVA EDIT ADDITION START - Robots
+	if(lock_mobs)
+		if(!HAS_TRAIT_FROM(watching_mob, TRAIT_NO_TRANSFORM, CINEMATIC_SOURCE))
+			lock_mob(watching_mob)
+	// NOVA EDIT ADDITION END
 
 	// Only show the actual cinematic to cliented mobs.
 	if(!watching_client || (watching_client in watching))
@@ -141,9 +149,17 @@
 /datum/cinematic/proc/stop_cinematic()
 	for(var/client/viewing_client as anything in watching)
 		remove_watcher(viewing_client)
-
-	for(var/datum/weakref/locked_ref as anything in locked)
-		unlock_mob(locked_ref)
+	// NOVA EDIT ADDITION START - Robots
+	if(lock_mobs)
+		for(var/datum/weakref/locked_ref as anything in locked)
+			unlock_mob(locked_ref)
+	else
+		for(var/datum/weakref/locked_ref as anything in locked)
+			var/mob/locked_mob = locked_ref.resolve()
+			if(isnull(locked_mob))
+				continue
+			UnregisterSignal(locked_mob, COMSIG_MOB_CLIENT_LOGIN)
+	// NOVA EDIT ADDITION END
 
 	qdel(src)
 
@@ -170,7 +186,7 @@
 	UnregisterSignal(no_longer_watching, COMSIG_QDELETING)
 	// We'll clear the cinematic if they have a mob which has one,
 	// but we won't remove TRAIT_NO_TRANSFORM. Wait for the cinematic end to do that.
-	no_longer_watching.mob?.clear_fullscreen("cinematic")
+	no_longer_watching.mob?.clear_fullscreen("cinematic", clear_instant) // NOVA EDIT CHANGE - Robots - no_longer_watching.mob?.clear_fullscreen("cinematic")
 	no_longer_watching.screen -= screen
 
 	watching -= no_longer_watching

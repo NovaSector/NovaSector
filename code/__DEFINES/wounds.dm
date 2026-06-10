@@ -52,6 +52,11 @@ GLOBAL_LIST_INIT(wound_severities_chronological, list(
 // NOVA ADDITION: covers all brute-type damage sources, e.g. blunt/slash/pierce
 #define WOUND_BRUTE "wound_brute"
 
+// NOVA EDIT ADDITION START - Robots
+#define WOUND_PIERCE_AND_SLASH "wound_pierce_and_slash"
+#define WOUND_BLUNT_AND_BURN "wound_blunt_and_burn"
+// NOVA EDIT ADDITION END
+
 /// Mainly a define used for wound_pregen_data, if a pregen data instance expects this, it will accept any and all wound types, even none at all
 #define WOUND_ALL "wound_all"
 
@@ -147,10 +152,8 @@ GLOBAL_LIST_INIT(bio_state_anatomy, list(
 /// See muscle.dm and robotic_blunt.dm
 #define WOUND_SERIES_MUSCLE_DAMAGE "nova_wound_series_muscle_damage"
 
-#define WOUND_SERIES_METAL_BLUNT_BASIC "wound_series_metal_blunt_basic"
-#define WOUND_SERIES_METAL_BURN_OVERHEAT "wound_series_metal_burn_basic"
-#define WOUND_SERIES_WIRE_SLASH_ELECTRICAL_DAMAGE "wound_series_metal_slash_electrical_damage_basic"
-#define WOUND_SERIES_WIRE_PIERCE_ELECTRICAL_DAMAGE "wound_series_metal_pierce_electrical_damage_basic"
+#define WOUND_SERIES_ROBOT_BLUNT_BURN "wound_series_robot_blunt_burn"
+#define WOUND_SERIES_ROBOT_PIERCE_SLASH "wound_series_robot_pierce_slash"
 // NOVA EDIT ADDITION END
 
 /// A assoc list of (wound typepath -> wound_pregen_data instance). Every wound should have a pregen data.
@@ -226,23 +229,23 @@ GLOBAL_LIST_INIT(wounding_types_to_series, list(
 	WOUND_BLUNT = list(
 		WOUND_SERIES_BONE_BLUNT_BASIC,
 		WOUND_SERIES_MUSCLE_DAMAGE, // NOVA EDIT -- MUSCLE WOUNDS
-		WOUND_SERIES_METAL_BLUNT_BASIC, // NOVA EDIT ADDITION - SYNTH WOUNDS
+		WOUND_SERIES_ROBOT_BLUNT_BURN, // NOVA EDIT ADDITION - ROBOTS
 
 	),
 	WOUND_SLASH = list(
 		WOUND_SERIES_FLESH_SLASH_BLEED,
 		WOUND_SERIES_MUSCLE_DAMAGE, // NOVA EDIT ADDITION - MUSCLE WOUNDS
-		WOUND_SERIES_WIRE_SLASH_ELECTRICAL_DAMAGE, // NOVA EDIT ADDITION - SYNTH WOUNDS
+		WOUND_SERIES_ROBOT_PIERCE_SLASH, // NOVA EDIT ADDITION - ROBOTS
 
 	),
 	WOUND_BURN = list(
 		WOUND_SERIES_FLESH_BURN_BASIC,
-		WOUND_SERIES_METAL_BURN_OVERHEAT, // NOVA EDIT ADDITION - SYNTH WOUNDS
+		WOUND_SERIES_ROBOT_BLUNT_BURN, // NOVA EDIT ADDITION - ROBOTS
 	),
 	WOUND_PIERCE = list(
 		WOUND_SERIES_FLESH_PUNCTURE_BLEED,
 		WOUND_SERIES_MUSCLE_DAMAGE, // NOVA EDIT ADDITION - MUSCLE WOUNDS
-		WOUND_SERIES_WIRE_PIERCE_ELECTRICAL_DAMAGE, // NOVA EDIT ADDITION - SYNTH WOUNDS
+		WOUND_SERIES_ROBOT_PIERCE_SLASH, // NOVA EDIT ADDITION - ROBOTS
 	),
 ))
 
