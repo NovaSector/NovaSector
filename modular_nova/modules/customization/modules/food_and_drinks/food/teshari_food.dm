@@ -394,8 +394,8 @@
 	output = /obj/item/food/raw_meatball/chicken/tesh
 	blacklist = null
 
-/obj/item/food/burger/tesh/chicken
-	name = "birdman sandwich"
+/obj/item/food/burger/chicken/human
+	name = "birdperson sandwich"
 	desc = "You're pretty sure this sandwich doesn't fund a good cause..."
 	icon_state = "chickenburger"
 	food_reagents = list(
@@ -405,7 +405,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 		/datum/reagent/consumable/nutriment/fat/oil = 2,
 	)
-	tastes = list("bun" = 2, "chikun" = 4, "Against God and Nature" = 1)
+	tastes = list("bun" = 2, "chikun" = 4)
 	foodtypes = GRAIN | MEAT | FRIED | GORE
 	crafting_complexity = FOOD_COMPLEXITY_3
 	venue_value = FOOD_PRICE_CHEAP
