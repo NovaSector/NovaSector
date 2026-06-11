@@ -71,3 +71,69 @@
 
 /obj/item/gun/ballistic/automatic/sokol/no_mag
 	spawnwithmagazine = FALSE
+
+
+/obj/item/gun/ballistic/automatic/voron
+	name = "\improper M/BC-7S 'Voron' Battle Carbine"
+	desc = "A bullpup hyperburst battle carbine chambered in the .310 Strilka caseless cartridge equipped with a 1-2x variable magnification scope. \
+		Due to the high caliber of the weapon and the necessity for quick cycling and follow up shots, an overcomplicated hyperburst mechanism is employed. \
+		This mechanism greatly decreases the power of the fired rounds due to re-utilizing the gas produced by ignition to cycle the action extremely quick. \
+		The Voron is an even more obscure offshoot of the more popular M/BR-7 Sokol, sold only to the most covert and unscrupulous clients."
+
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/baikal_heavy_industry_concern/guns_48.dmi'
+	icon_state = "voron"
+
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_worn.dmi'
+	inhand_icon_state = "infanterie_evil"
+
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_worn.dmi'
+	worn_icon_state = "infanterie_evil"
+
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
+	inhand_icon_state = "infanterie_evil"
+
+	SET_BASE_PIXEL(-8, 0)
+
+	special_mags = FALSE
+
+	bolt_type = BOLT_TYPE_LOCKING
+
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_MEDIUM
+	slot_flags = ITEM_SLOT_BACK
+
+	accepted_magazine_type = /obj/item/ammo_box/magazine/sokol
+
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
+	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
+	suppressed = SUPPRESSED_QUIET
+	can_suppress = FALSE
+	can_unsuppress = FALSE
+
+	burst_size = 2
+	fire_delay = 1 SECONDS
+	actions_types = list()
+	spread = 3
+
+	projectile_damage_multiplier = 1
+	// 3 shots to kill using standard = 2 bursts to kill = 2s minimum TTK
+
+	lore_blurb = "The M/BC-7S was an offshoot of an already rare and ellusive weapon, the Heliostatic Coalition's Falcon, or Sokol in their native language. \
+	But while the falcon flies high and mighty, the raven's way of achieving success is through cunning, subterfuge and stealth. That is exactly the purpose the \
+	Voron was designed for. A shoter length, integrally suppressed answer to the Sokol, featuring experimental magnetic technology that until recently, was only known to \
+	be present on the weapon by the Coalition's chief military procurement officers. Alas, it was not to be. Pulse plasma had entrenched itself too hard within the HC's \
+	Military for ballistic alternatives, even ones as cutting edge and deadly as the Voron to be sought out actively by army-wide procurement. Instead, the Voron fell into \
+	less scrupulous hands. Coalition Black Ops teams, state funded terrorists and the cream of the crop of special forces, and, of course... Less legitimate users... \
+	Namely, the Syndicate, which through a series of backroom deals, procured a hefty amount of Voron carbines from Baikal Heavy Industry Concern without the knowledge or approval of the Coalition."
+
+/obj/item/gun/ballistic/automatic/voron/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 1.2)
+
+
+/obj/item/gun/ballistic/automatic/voron/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_BAIKAL)
+
+/obj/item/gun/ballistic/automatic/voron/no_mag
+	spawnwithmagazine = FALSE

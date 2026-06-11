@@ -31,6 +31,16 @@
 	new /obj/item/ammo_box/magazine/miecz(src)
 	new /obj/item/ammo_box/magazine/miecz(src)
 
+/datum/opposing_force_equipment/ranged/voron
+	name = "'Voron' Battle Carbine"
+	description = "An exceedingly rare version of the Sokol rifle, integrally suppressed and featuring a magnetic accelerator array around the barrel. Comes with two magazines"
+	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/voron
+
+/obj/item/storage/toolbox/guncase/nova/opfor/voron/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/voron(src)
+	new /obj/item/ammo_box/magazine/sokol(src)
+	new /obj/item/ammo_box/magazine/sokol(src)
+
 /datum/opposing_force_equipment/ranged/pulse_rifle
 	name = "'Žaibas' Plasma Pulse Projector"
 	description = "A high-capacity, hybrid assault rifle running on fifteen shot 'plugs' instead of conventional bullets; with three available per magazine."
