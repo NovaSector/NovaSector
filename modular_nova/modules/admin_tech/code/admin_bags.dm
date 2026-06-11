@@ -32,8 +32,6 @@
 	return
 
 /obj/item/storage/bag/construction/admin/PopulateContents()
-	// TODO: This could be more optimized by having /fifty subtypes for the types that don't already have /fifty subtypes
-	// (allegedly that's faster than initializing 50 objects and then having them all merge into one big stack?)
 	var/static/items_inside = list(
 		/obj/item/stack/rods = 50,// amount should be null if it should spawn with the type's default amount
 		/obj/item/stack/sheet/iron/fifty = null,
