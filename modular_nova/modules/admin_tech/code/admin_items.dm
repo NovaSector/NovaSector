@@ -44,8 +44,6 @@
 	. = ..()
 	atom_storage.show_contents(user)
 
-
-
 // Badmin pinpointer. The bool lets you find people, even if they aren't wearing clothes, as long as you share a z-layer
 // The lack of adaption of the Lifeline PDA app to these pinpointers is just disappointing. These are objectively worse when compared to lifeline.
 /obj/item/pinpointer/crew/admin//code\game\objects\items\pinpointer.dm
