@@ -334,3 +334,5 @@
 /obj/structure/closet/secure_closet/tarkon/engi
 	name = "Circuit Storage"
 	icon_state = "eng"
+
+#undef ROLE_TARKALIEN

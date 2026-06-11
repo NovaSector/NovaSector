@@ -867,6 +867,11 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	else
 		user.balloon_alert(user, "beam-out cancelled")
 
+#undef SOLFED_AMT
+#undef SOLFED_VOTES
+#undef SOLFED_DECLARED
+#undef SOLFED_FINE_AMOUNT
+
 #undef EMERGENCY_RESPONSE_POLICE
 #undef EMERGENCY_RESPONSE_ATMOS
 #undef EMERGENCY_RESPONSE_EMT

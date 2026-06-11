@@ -504,4 +504,5 @@
 	greyscale_colors = "#46464d"
 	flags_1 = null
 
-
+#undef MODULAR_SHOES_ICON
+#undef MODULAR_SHOES_WORN_ICON
