@@ -143,10 +143,6 @@
 	drop_sound = SFX_GOGGLES_DROP
 	equip_sound = SFX_GOGGLES_EQUIP
 
-//Please stop updating icon states, youre ugly
-///obj/item/clothing/glasses/meson/engine/admin/debug/update_icon_state()
-//	return
-
 /obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl_shift(mob/user)
 	if(!ishuman(user))
 		return CLICK_ACTION_BLOCKING
@@ -215,9 +211,6 @@
 /obj/item/clothing/head/helmet/perceptomatrix/admin/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/hat_stabilizer, loose_hat = FALSE)
-//Please stop eating my icon change I beg
-///obj/item/clothing/head/helmet/perceptomatrix/admin/update_icon_state()
-//	return
 
 //Now we get really magical.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
@@ -300,7 +293,7 @@
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 
-// Creates a storage on the cytotheca, which acts as our base level storage for stablizied slime cores to interact with out mob
+// Creates a storage on the cytotheca, which acts as our base level storage for stablizied slime cores to interact with our mob
 // We populate with a subspace_pouch
 /obj/item/storage/neck/admin/cytotheca/PopulateContents()
 	new /obj/item/storage/subspace_pouch/cytotheca(src)
@@ -314,7 +307,8 @@
 		cant_hold_list = list()
 	)
 
-//Overrides normal dumping code to instead dump from the pouch item inside
+// Overrides normal dumping code to instead dump from the pouch item inside
+// todo: veryify this works
 /datum/storage/admin/cytotheca/dump_content_at(atom/dest_object, dump_loc, mob/user)
 	var/atom/used_belt = parent
 	if(!used_belt)
@@ -360,7 +354,7 @@
 	balloon_alert(user, "godmode [admin_godmode ? "enabled" : "disabled"]")
 	return CLICK_ACTION_SUCCESS
 
-//Informs our silly staff that they can do this, if they bothered to inspect
+// Informs our silly staff that they can do this, if they bothered to inspect
 /obj/item/storage/neck/admin/cytotheca/examine(mob/user)
 	. = ..()
 	. += span_notice("Ctrl-Click while wearing to toggle godmode. Currently [admin_godmode ? "active" : "inactive"].")
@@ -384,7 +378,7 @@
 		cant_hold_list = list()
 	)
 
-// Highway robbery off the box, idk if this is current
+// Highway robbery off the stable slime box, idk if this is current for all available stables or not
 /obj/item/storage/subspace_pouch/cytotheca/PopulateContents()
 	new /obj/item/slimecross/stabilized/adamantine(src)
 	new /obj/item/slimecross/stabilized/black(src)
@@ -427,6 +421,7 @@
 	icon_state = "blue-techsuit"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = "blue-techsuit"
+	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/mob/clothing_digi.dmi'
 	inhand_icon_state = "null"
 	has_sensor = NO_SENSORS//admin techs should NEVER be on sensors
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -452,9 +447,7 @@
 
 /obj/item/clothing/under/admin/subspace
 	name = "subspace techsuit"
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "sub-techsuit"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = "sub-techsuit"
 	armor_type = /datum/armor/admin/badmin
 

@@ -922,6 +922,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	default_pin_auth = TRUE
 
 /obj/item/firing_pin/admin/pin_auth(mob/living/user)
+	. = ..()
 	if(check_rights_for(user.client, R_ADMIN))
 		return TRUE
 	return FALSE
@@ -942,7 +943,6 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	base_pixel_x = 0
 	pixel_x = 0
 	max_syringes = 10
-
 	force = 0
 
 // todo: sprites. demo mod with this force ALMOST totally cracks a standard fulltile r-window. this is a 'soft demolition' tool, to 'soften' up the environment without utterly destroying it.

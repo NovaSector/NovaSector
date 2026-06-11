@@ -51,7 +51,8 @@ Icons. Everywhere. They all need icons. Either you do it, or hope I eventually d
 Defines
 Globs file
 Atomize admin_items.dm?
-Atomize admin_items.dm?
+Revisit the currently used spawner wands and retheme / update them. Human spawner wand doesnt use tguilist for example.
+Add active outlines to click-toggle altered items
 Player appropriate tech loadout with considerations to reduce the need for admins to support them when they wish to test mechanics
 subspace boxcutter, to replace the energy axe. probably sub-path the spess knife. split state checks for combat mode -> interact to toggle the combat function, or non-combat mode for tool adjustments. add action to rclick open turf to tear hole in reality that only admins can enter to despawn. integrate the subspace baseball bat onto this. radial navigation menu, with tgui input functions. expand the radial, reduce popup times, make this a true omnitool.
 admin cyborgs and modules. /obj/item/soap/omega. subspace mop / liquids solution? new admin dune shield to replace the, seeds box
@@ -64,7 +65,7 @@ find a solution for reach_length passing a collisions check for BST radio headse
 /obj/item/pen/screwdriver/get_all_tool_behaviours()
 return list(TOOL_SCREWDRIVER)
 admin manufacturing company
-strip speed checks
+strip speed checks on admin items
 check traits list from protean mage cloak you made on the syndiehomepod
 investigate robotact pda app functionality
 investigate lifeline pda app functionality
