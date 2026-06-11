@@ -199,7 +199,6 @@
 		/obj/item/mod/module/balloon/advanced,
 	)
 
-#ifdef TESTING
 /// Extremely cursed modsuit that will self install every modsuit module in existence
 /obj/item/mod/control/pre_equipped/bluespace/danger_module_debug
 	applied_modules = list()
@@ -213,4 +212,3 @@
 		modules += module
 		module.on_install()
 		module.forceMove(src)
-#endif
