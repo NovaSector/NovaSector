@@ -1,4 +1,5 @@
-// Nova Bluespace Tech Modsuits //
+//! MODsuit modules made for use with modsuits from [admin_modsuits.dm]
+
 // Subspace Modules
 /obj/item/mod/module/energy_shield/debug
 	shield_icon = "none"

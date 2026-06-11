@@ -1,5 +1,7 @@
-// NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
-//Bluespace Tech bits
+//! Admin ID cards and ID trims
+
+// NOVA MODULE ICSPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
+
 /obj/item/card/id/advanced/debug/bluespace
 	name = "\improper Bluespace ID"
 	desc = "A Bluespace ID card. Has ALL the all access, you really shouldn't have this."

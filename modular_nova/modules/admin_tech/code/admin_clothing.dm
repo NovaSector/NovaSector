@@ -1,5 +1,7 @@
 // knownbugs: contacts icon state fucky
 // Debug Encryption Key and Headset, still manually populates the channel list because I am not a real coder, just a denthead
+
+/// Admin encryption key with basically every channel
 /obj/item/encryptionkey/admin
 	name = "\proper the subspace encryption key"
 	desc = "Holding and looking at this little chip fills you with a sense of existential dread. The taste of metaknowledge fills your mouth. \
@@ -27,22 +29,15 @@
 		RADIO_CHANNEL_SUPPLY = 1,
 		RADIO_CHANNEL_SYNDICATE = 1,
 		RADIO_CHANNEL_TARKON = 1,
-		RADIO_CHANNEL_UPLINK = 1
+		RADIO_CHANNEL_UPLINK = 1,
 	)
-	//var/list/channels = list()
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#2b2793#dca01b"
-
-// How to get this working...? Pls help, I am not a real coder.
-/obj/item/encryptionkey/admin/Initialize(mapload)
-	. = ..()
-	for (var/channels in GLOB.channel_tokens)
-		channels += channels
 
 //todo: balloon popup on ghost ping use
 /obj/item/radio/headset/admin
 	name = "bluespace headset"
-	desc = "You can hear all of them. All oF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
+	desc = "You can hear all of them. All OF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "blue-headset"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
@@ -52,7 +47,9 @@
 	inhand_icon_state = "null"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	w_class = WEIGHT_CLASS_TINY
+	/// A cache of ghosts orbiting this item
 	var/list/mob/dead/observer/spirits
+	/// Cooldown for pinging ghosts
 	COOLDOWN_DECLARE(subspace_harmonic_signaller_cooldown)
 
 /obj/item/radio/headset/admin/Initialize(mapload)
@@ -66,13 +63,13 @@
 		to_chat(user, span_warning("The subspace harmonic signaller is cooling down! Using this too frequently might upset the powers that be!"))
 		return
 
-	COOLDOWN_START(src, subspace_harmonic_signaller_cooldown, 15 SECONDS)//Let just assume people are responsible.
+	COOLDOWN_START(src, subspace_harmonic_signaller_cooldown, 15 SECONDS) // let's just assume the admin is responsible behind the wheel
 	to_chat(user, span_notice("The subspace harmonic signaller charges up and releases a pulse, notifying all the eyes-between-spaces of your activities!"))
 	notify_ghosts(
 		"[user.real_name] has attenuated and pulsed the subspace harmonic signaller of [user.p_their()] [name], alerting the eyes-between-spaces of their activities!",
 		source = user,
-		ignore_key = POLL_IGNORE_SPECTRAL_BLADE,//We keep this because it's going to draw the same people -- chronic observers
-		header = name
+		ignore_key = POLL_IGNORE_SPECTRAL_BLADE, // we keep this because it's going to draw the same people—chronic observers
+		header = name,
 	)
 	return CLICK_ACTION_SUCCESS
 
@@ -102,10 +99,7 @@
 
 /obj/item/radio/headset/admin/subspace
 	name = "subspace headset"
-	desc = "You can hear all of them. All oF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "sub-headset"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = "sub-headset"
 
 //Hey check out this cancerous atompath.
@@ -136,7 +130,7 @@
 		TRAIT_SECURITY_HUD,
 		TRAIT_DIAGNOSTIC_HUD,
 		TRAIT_BOT_PATH_HUD,
-		TRAIT_NEARSIGHTED_CORRECTED
+		TRAIT_NEARSIGHTED_CORRECTED,
 	)
 	var/xray = FALSE
 	pickup_sound = SFX_GOGGLES_PICKUP
@@ -298,30 +292,6 @@
 /obj/item/storage/neck/admin/cytotheca/PopulateContents()
 	new /obj/item/storage/subspace_pouch/cytotheca(src)
 
-/datum/storage/admin/cytotheca/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
-	. = ..()
-	set_holdable(
-		can_hold_list = list(
-			/obj/item/slimecross/stabilized
-		),
-		cant_hold_list = list()
-	)
-
-// Overrides normal dumping code to instead dump from the pouch item inside
-// todo: veryify this works
-/datum/storage/admin/cytotheca/dump_content_at(atom/dest_object, dump_loc, mob/user)
-	var/atom/used_belt = parent
-	if(!used_belt)
-		return
-	var/obj/item/storage/subspace_pouch/cytotheca = locate() in real_location
-	if(!cytotheca)
-		cytotheca.balloon_alert(user, "no pouch!")
-		return //oopsie!! If we don't have a pouch! You're fucked!
-	if(locked)
-		cytotheca.balloon_alert(user, "locked!")
-		return
-	cytotheca.atom_storage.dump_content_at(dest_object, user = user)
-
 /obj/item/storage/neck/admin/cytotheca/dropped(mob/user)
 	. = ..()
 	if(!user)
@@ -368,15 +338,6 @@
 	icon_state = "storage_pouch_icon"
 	worn_icon_state = "storage_pouch_icon"
 	storage_type = /datum/storage/admin/cytotheca
-
-/datum/storage/admin/cytotheca/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
-	. = ..()
-	set_holdable(
-		can_hold_list = list(
-			/obj/item/slimecross/stabilized
-		),
-		cant_hold_list = list()
-	)
 
 // Highway robbery off the stable slime box, idk if this is current for all available stables or not
 /obj/item/storage/subspace_pouch/cytotheca/PopulateContents()
