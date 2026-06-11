@@ -143,7 +143,7 @@
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
 /datum/uplink_item/dangerous/voron
-	name = "'Voron' Battle Carbine Shotgun Case"
+	name = "'Voron' Battle Carbine Case"
 	desc = "An exceedingly rare version of the Sokol rifle, integrally suppressed and featuring a magnetic accelerator array around the barrel. Comes with two magazines"
 	item = /obj/item/storage/toolbox/guncase/nova/opfor/voron
 	cost = /datum/uplink_item/high_cost/weaponry::cost
