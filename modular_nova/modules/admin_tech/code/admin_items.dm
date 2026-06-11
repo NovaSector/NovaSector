@@ -93,7 +93,7 @@
 		/obj/item/stack/sheet/plastitaniumglass/fifty = null,
 		/obj/item/stack/sheet/mineral/gold/fifty = null,
 		/obj/item/stack/sheet/mineral/silver/fifty = null,
-		/obj/item/stack/sheet/mineral/uranium/fifty = null, // uranium stacks irradiating shit is not real
+		/obj/item/stack/sheet/mineral/uranium/fifty = null,//Radiation stack concerns dont exist, thats how fucking old the original comment on uranium was
 		/obj/item/stack/sheet/mineral/diamond/fifty = null,
 		/obj/item/stack/sheet/bluespace_crystal/fifty = null,
 		/obj/item/stack/sheet/mineral/bananium = 50,
