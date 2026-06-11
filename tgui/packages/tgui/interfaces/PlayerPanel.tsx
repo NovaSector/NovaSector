@@ -247,12 +247,11 @@ export const PlayerPanel = () => {
           <Flex.Item>
             <Section fitted>
               <Tabs vertical>
-                {PAGES
-                  .map((page, index) =>
-                    !page.canAccess || page.canAccess(data)
-                      ? { page, index }
-                      : null
-                  )
+                {PAGES.map((page, index) =>
+                  !page.canAccess || page.canAccess(data)
+                    ? { page, index }
+                    : null,
+                )
                   .filter(isPresent)
                   .map(({ page, index }) => (
                     <Tabs.Tab
@@ -1145,6 +1144,18 @@ const OtherActions = () => {
           onClick={() => act('apply_client_quirks')}
         >
           Apply Client Quirks
+        </Button>
+        <Button
+          width="100%"
+          p=".5rem"
+          mb=".5rem"
+          textAlign="center"
+          disabled={
+            !client_ckey || !mob_type.includes('/mob/living/carbon/human')
+          }
+          onClick={() => act('apply_client_quirks')}
+        >
+          Load Prefs Onto Mob
         </Button>
       </Section>
     </Section>

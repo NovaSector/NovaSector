@@ -4,7 +4,7 @@
 //todo:
 //todo: pulse rifle attached to admin modsuit
 //todo:
-//player panel: add pref reload to player panel
+//player panel: add pref reload to player panel. this is already partially done at tgui\packages\tgui\interfaces\PlayerPanel.tsx but it is not complete and doesnt fully work yet
 //
 // find a solution for reach_length passing a collisions check for BST radio headset. TRAIT_SKIP_BASIC_REACH_CHECK.
 ///obj/item/pen/screwdriver/get_all_tool_behaviours()
@@ -804,6 +804,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	max_charges = INFINITY
 	charges = INFINITY
 
+// todo: sprites, add trigger guard, add minimum interact range, fix insertion on admin pda
 /obj/item/gun/magic/subspace/dagenblicky
 	name = "subspace mass projector pen"
 	desc = "The pen is still mightier than a 20x138mm."
@@ -844,7 +845,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	/// If this pen can be clicked in order to retract it
 	var/can_click = TRUE
 
-/obj/item/gun/magic/wand/subspace/dagenblicky/proc/create_transform_component()
+/obj/item/gun/magic/subspace/dagenblicky/proc/create_transform_component()
 	AddComponent( \
 		/datum/component/transforming, \
 		force_on = 18, \
@@ -855,7 +856,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 		inhand_icon_change = FALSE, \
 	)
 
-/obj/item/gun/magic/wand/subspace/dagenblicky/Initialize(mapload)
+/obj/item/gun/magic/subspace/dagenblicky/Initialize(mapload)
 	. = ..()
 	alt_continuous = string_list(alt_continuous)
 	alt_simple = string_list(alt_simple)
@@ -869,7 +870,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	create_transform_component()
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
-/obj/item/gun/magic/wand/subspace/dagenblicky/get_writing_implement_details()
+/obj/item/gun/magic/subspace/dagenblicky/get_writing_implement_details()
 	if (HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
 		return null
 	return list(
@@ -885,7 +886,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
  * Handles swapping their icon files to edagger related icon files -
  * as they're supposed to look like a normal pen.
  */
-/obj/item/gun/magic/wand/subspace/dagenblicky/proc/on_transform(obj/item/source, mob/user, active)
+/obj/item/gun/magic/subspace/dagenblicky/proc/on_transform(obj/item/source, mob/user, active)
 	if(active)
 		name = hidden_name
 		desc = hidden_desc
@@ -930,11 +931,11 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	default_pin_auth = TRUE
 
 /obj/item/firing_pin/admin/pin_auth(mob/living/user)
-	if(check_rights_for(client, R_ADMIN))
+	if(check_rights_for(user, R_ADMIN))
 		return TRUE
 	return FALSE
 
-// todo: sprites, reagent selector, utilize laser gun code to create and load syringes based on reagent selector
+// todo: sprites, reagent selector, utilize laser gun code to create and load syringes based on reagent selector, or create a reagent_container within contents which can be fed chems to fill syringes with.
 /obj/item/gun/syringe/admin
 	name = "subspace syringe projector"
 	desc = "A modification of the syringe gun design to be more compact and use a rotating cylinder to store up to six syringes."
@@ -978,7 +979,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	mob_thrower = TRUE
 
 //Modular Admin Rifle. Another heretical creation.
-/obj/item/gun/energy/modular_laser_rifle/carbine
+// todo: sprites, make and adjust speech json, adjust fire modes for damage
+/obj/item/gun/energy/modular_laser_rifle/admin
 	name = "\improper modular subspace rifle"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns32x.dmi'
 	icon_state = "hoshi_kill"
@@ -1006,8 +1008,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 			/datum/laser_weapon_mode/admin/plasmacutter,
 			/datum/laser_weapon_mode/admin/gravity
 	)
-	default_selected_mode = "Incinerate"
-	speech_json_file = SHORT_MOD_LASER_SPEECH
+	default_selected_mode = "Disturb"
+//	speech_json_file = SHORT_MOD_LASER_SPEECH
 	lore_blurb = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
 		Cybersun Industries.<br><br>\
 		Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by SolFed \
@@ -1018,7 +1020,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 		was originally shipped with a more energetic personality—since influenced by 'negligence' \
 		from users in wiping the intelligence's memory before resale or transport."
 
-/obj/item/gun/energy/modular_laser_rifle/carbine/emp_act(severity)
+/obj/item/gun/energy/modular_laser_rifle/admin/emp_act(severity)
 	. = ..()
 	speak_up("emp", TRUE) // She gets very upset if you emp her
 
@@ -1034,10 +1036,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	select_name = "Fourth Wall"
 	fire_sound = 'sound/items/weapons/laser.ogg'
 
-/obj/item/ammo_casing/energy/mindflayer/admin
+/obj/projectile/beam/mindflayer/admin
 	name = "fourth wall blast"
 
-/obj/item/ammo_casing/energy/admin/admin/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/beam/mindflayer/admin/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_hit = target
@@ -1048,7 +1050,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	/// What name does this weapon mode have? Will appear in the weapon's radial menu
 	name = "Disturb"
 	/// What casing does this variant of weapon use?
-	obj/item/ammo_casing/casing = /obj/item/ammo_casing/energy/mindflayer/admin
+	casing = /obj/item/ammo_casing/energy/mindflayer/admin
 	/// What icon_state does this weapon mode use?
 	weapon_icon_state = "kill"
 	/// How many charge sections does this variant of weapon have?
@@ -1183,7 +1185,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 /datum/laser_weapon_mode/admin/plasmacutter
 	name = "Excision"
-	casing = /obj/item/ammo_casing/energy/plasma
+	casing = /obj/item/ammo_casing/energy/plasma/admin
 	weapon_icon_state = "kill"
 	json_speech_string = "plasmacutter"
 	gun_runetext_color = "#7a0bb7"
@@ -1229,8 +1231,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 // Admin lathe
 // techweb: modular_nova\master_files\code\modules\research\techweb\techweb_types.dm
 // machine.dm define w/ nova edit code\__DEFINES\machines.dm
-/obj/machinery/rnd/production/colony_lathe
-	name = "rapid construction fabricator"
+/obj/machinery/rnd/production/colony_lathe/admin
+	name = "administrative fabricator"
 	desc = "These bad boys are seen just about anywhere someone would want or need to build fast, damn the consequences. \
 		That tends to be colonies, especially on dangerous worlds, where the influences of this one machine can be seen \
 		in every bit of architecture."
@@ -1244,21 +1246,20 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	allowed_buildtypes = COLONY_FABRICATOR
 	speedup_disabled = TRUE
 	/// techweb we intend to use for unlocking stuff.
-	var/techweb_path = /datum/techweb/colony_fabricator
+	techweb_path = /datum/techweb/colony_fabricator
 	/// The item we turn into when repacked
-	var/repacked_type = /obj/item/flatpacked_machine
+	repacked_type = /obj/item/flatpacked_machine
 	/// The sound loop played while the fabricator is making something
-	var/datum/looping_sound/colony_fabricator_running/soundloop
+//	var/datum/looping_sound/colony_fabricator_running/soundloop
 
-/obj/item/flatpacked_machine
+/obj/item/flatpacked_machine/admin
 	name = "flat-packed rapid construction fabricator"
 	/// For all flatpacked machines, set the desc to the type_to_deploy followed by ::desc to reuse the type_to_deploy's description
 	desc = /obj/machinery/rnd/production/colony_lathe::desc
 	icon = 'modular_nova/modules/colony_fabricator/icons/packed_machines.dmi'
 	icon_state = "colony_lathe_packed"
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_TINY
 	/// What structure is created by this item.
-	var/obj/type_to_deploy = /obj/machinery/rnd/production/colony_lathe
+	type_to_deploy = /obj/machinery/rnd/production/colony_lathe
 	/// How long it takes to create the structure in question.
-	var/deploy_time = 4 SECONDS
-
+	deploy_time = 4 SECONDS
