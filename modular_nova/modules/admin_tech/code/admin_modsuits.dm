@@ -213,5 +213,4 @@
 		modules += module
 		module.on_install()
 		module.forceMove(src)
-		CHECK_TICK
 #endif

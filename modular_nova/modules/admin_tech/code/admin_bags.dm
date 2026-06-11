@@ -90,7 +90,6 @@
 	for(var/obj/item/stack/stack_type as anything in items_inside)
 		var/amt = items_inside[stack_type]
 		new stack_type(src, amt, FALSE)
-		CHECK_TICK
 
 /obj/item/storage/bag/construction/admin/subspace
 	name = "subspace construction bag"

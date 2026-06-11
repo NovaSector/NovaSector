@@ -20,7 +20,6 @@
 
 /obj/item/storage/part_replacer/bluespace/admin/PopulateContents()
 	for(var/i in 1 to 30)
-		CHECK_TICK
 		new /obj/item/stock_parts/capacitor/quadratic(src)
 		new /obj/item/stock_parts/scanning_module/triphasic(src)
 		new /obj/item/stock_parts/servo/femto(src)
@@ -28,13 +27,11 @@
 		new /obj/item/stock_parts/matter_bin/bluespace(src)
 		new /obj/item/stock_parts/power_store/cell/bluespace(src)
 		new /obj/item/stock_parts/power_store/battery/bluespace(src)
-		CHECK_TICK
 		new /obj/item/reagent_containers/cup/beaker/bluespace(src)
 		new /obj/item/stack/cable_coil/(src)
 		new /obj/item/stack/sheet/glass(src)
 		new /obj/item/stack/sheet/plasteel(src)
 		new /obj/item/stack/sheet/bluespace_crystal(src)
-		CHECK_TICK
 
 /// An extension to the default RPED part replacement action - if you don't have the requisite parts in the RPED already, it will spawn T4 versions to use.
 /obj/item/storage/part_replacer/bluespace/admin/interact_with_atom(obj/attacked_object, mob/living/user, list/modifiers)
