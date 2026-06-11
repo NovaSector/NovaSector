@@ -21,7 +21,7 @@
 /datum/outfit/debug/bst
 	name = "Bluespace Tech"
 	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/full/powertools/admin
+	belt = /obj/item/storage/belt/utility/admin/full
 	shoes = /obj/item/clothing/shoes/combat/debug
 	id = /obj/item/card/id/advanced/debug/bluespace
 	box = /obj/item/storage/box/debugtools
