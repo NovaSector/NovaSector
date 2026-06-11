@@ -5,6 +5,7 @@
 //! TODO:
 //! - pickup people or machines with it too? wouldn't that be cool
 //! - click interaction inspects
+
 /obj/item/storage/bag/admin
 	name = "bluespace pocket"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials."
@@ -38,7 +39,7 @@
 	anchored = 1
 	storage_type = /datum/storage/admin
 
-///  Opens the bag on click. Considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories
+/// Opens the bag on click. Considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories
 /obj/item/storage/subspace_pouch/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	atom_storage.show_contents(user)

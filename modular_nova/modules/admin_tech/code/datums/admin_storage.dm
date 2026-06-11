@@ -15,6 +15,8 @@
 	supports_smart_equip = FALSE
 	numerical_stacking = TRUE
 
+/datum/storage/admin/bag/badmin
+
 /datum/storage/admin/bag/subspace
 	max_slots = 78 // max columns X max rows, selected because it doesn't cover the player icon
 
