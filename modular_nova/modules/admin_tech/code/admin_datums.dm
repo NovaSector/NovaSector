@@ -80,7 +80,7 @@
 // Used by the subspace pocket. Be careful with this!
 /datum/storage/admin/bag/badmin
 	/// The maximum amount of items that can be inserted into this storage.
-	max_slots = 78 //max columns X max rows, selected because it doesn't cover the player icon
+	max_slots = 65 //max columns X max rows, selected because it doesn't cover the player icon
 	/// Maximum amount of rows a storage object can have
 	screen_max_rows = INFINITY
 
