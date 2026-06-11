@@ -24,9 +24,7 @@
 		"bluespace" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/obj/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/mod_clothing.dmi',
-//			MOD_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/obj/clothing/modsuit/mod_clothing.dmi',
-//			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/clothing/modsuit/mod_clothing.dmi',
-//			MOD_DIGITIGRADE_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi',
+			MOD_DIGITIGRADE_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/mod_clothing_mutant.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL|STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT|HEADINTERNALS,
 				UNSEALED_INVISIBILITY = HIDEFACIALHAIR|HIDEEARS|HIDEHAIR|HIDESNOUT,
@@ -109,9 +107,7 @@
 		"subspace" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/obj/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/mod_clothing.dmi',
-//			MOD_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/obj/clothing/modsuit/mod_clothing.dmi',
-//			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/clothing/modsuit/mod_clothing.dmi',
-//			MOD_DIGITIGRADE_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi',
+			MOD_DIGITIGRADE_ICON_OVERRIDE = 'modular_nova/modules/admin_tech/icons/mob/mod_clothing_mutant.dmi',,
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL|STOPSPRESSUREDAMAGE|BLOCK_GAS_SMOKE_EFFECT|HEADINTERNALS,
 				UNSEALED_INVISIBILITY = HIDEFACIALHAIR|HIDEEARS|HIDEHAIR|HIDESNOUT,
