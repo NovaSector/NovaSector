@@ -501,6 +501,7 @@
 	You suddenly find yourself afraid of spilling the contents."
 	icon_state = "adv_watering_can"
 	inhand_icon_state = "adv_watering_can"
+	volume = 1000
 	list_reagents = list(/datum/reagent/medicine/adminordrazine = 1000)
 	refill_rate = 100
 	refill_reagent = /datum/reagent/medicine/adminordrazine
@@ -548,7 +549,7 @@
 /obj/item/extinguisher/subspace
 	name = "subspace extinguisher"
 	desc = "A tiny fire extinguisher, designed for putting out small fires. It feels like it has an infinite amount of water. How you can tell this, you aren't sure."
-	icon_state = "mini_extinguisher"
+	icon_state = "minife"
 	max_water = INFINITY
 	starting_water = TRUE
 	chem = /datum/reagent/water
@@ -942,8 +943,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	casing = /obj/item/ammo_casing/energy/mindflayer/admin
 	/// What icon_state does this weapon mode use?
 	weapon_icon_state = "kill"
-	/// How many charge sections does this variant of weapon have?
-	charge_sections = 10
+	/// How many charge sections does this variant of weapon have? This is used for deciding icon states to don't be dumb.
+	charge_sections = 3
 	/// What is the shot cooldown this variant applies to the weapon?
 	shot_delay = 0 SECONDS
 	/// What json string do we check for when making chat messages with this mode?
