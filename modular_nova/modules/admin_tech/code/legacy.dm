@@ -1,4 +1,5 @@
-// Legacy Debug items
+//! Contains old admin loadout stuff
+
 /obj/item/clothing/shoes/combat/debug // This was made for a reason, I'm not going to question it
 	w_class = WEIGHT_CLASS_TINY // tiny ahh feet
 
@@ -9,7 +10,7 @@
 /obj/item/ammo_casing/energy/electrode/debug
 	e_cost = LASER_SHOTS(1000, STANDARD_CELL_CHARGE)
 
-// Legacy armor, but keeping it for now. Minor touchups
+/// Legacy bluespace tech armor, but keeping it for now. Minor touchups
 /obj/item/clothing/suit/armor/vest/debug
 	name = "\improper technician's vest"
 	desc = "A sleek piece of armour designed for Bluespace agents."
@@ -17,11 +18,11 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-//Legacy Skinmode Outfit
+/// Legacy bluespace tech outfit
 /datum/outfit/debug/bst
 	name = "Bluespace Tech"
 	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/full/powertools/admin
+	belt = /obj/item/storage/belt/utility/admin/full
 	shoes = /obj/item/clothing/shoes/combat/debug
 	id = /obj/item/card/id/advanced/debug/bluespace
 	box = /obj/item/storage/box/debugtools

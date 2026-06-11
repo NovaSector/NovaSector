@@ -1,10 +1,11 @@
 
-// Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
-// Sprite Credits to CEV-ERIS, y'all really fucked with this one, it has no reason to look this cool
-// These will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
-// todo: pickup people or machines with it too? wouldn't that be cool.
-// todo: click interaction inspects
-// check admin_datums for the storage datum for this
+//! Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
+//! These will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly.
+//! Sprite redits to CEV-ERIS, y'all really fucked with this one, it has no reason to look this cool.
+//! TODO:
+//! - pickup people or machines with it too? wouldn't that be cool
+//! - click interaction inspects
+
 /obj/item/storage/bag/admin
 	name = "bluespace pocket"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials."
@@ -19,58 +20,54 @@
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
 		qdel(stored_item)
-	return
 
 /obj/item/storage/bag/admin/subspace
 	name = "subspace pocket"
-	desc = parent_type::desc + "This advanced version fills you with a sense of dread when you open it and peer inside."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	desc = parent_type::desc + " This advanced version fills you with a sense of dread when you open it and peer inside."
 	icon_state = "sub-pocket"
-	worn_icon_state = "null"
-	storage_type = /datum/storage/admin/bag/badmin
+	storage_type = /datum/storage/admin/bag/subspace
 
-// Seperate storage to put inside of things that you dont want to be removed from
-// This is meant to be spawned inside of other storages. Will stick to your paw like glue.
+/// Separate type to put inside of other atoms. Will probably not be droppable by default.
 /obj/item/storage/subspace_pouch
-	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	name = "subspace pouch"
 	desc = span_notice("Click to open the pouch.")
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	icon_state = "storage_pouch_icon"
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	worn_icon_state = "storage_pouch_icon"
 	w_class = WEIGHT_CLASS_TINY
-	anchored = 1//Dont want people taking it out with their hands
+	anchored = 1
 	storage_type = /datum/storage/admin
 
-// Opens the bag on click - considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories
+/// Opens the bag on click. Considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories
 /obj/item/storage/subspace_pouch/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	atom_storage.show_contents(user)
 
-// The sheetsnatcher extreme is really ugly, misses features, and misses materials. Lets make our own.
-// Using a construction bag as our base, instead of the sheetsnatcher.
-// I can probably adapt the BST-BRPED manufacturing function to this, but for now, an improvement is better than nothing
-// todo: descriptions and inspects
-/obj/item/storage/bag/construction/admin//code\game\objects\items\storage\bags.dm
+/// The sheetsnatcher extreme is really ugly, misses features, and misses materials. Let's make our own.
+/// Using a construction bag as our base, instead of the sheetsnatcher.
+/// I can probably adapt the BST-BRPED manufacturing function to this, but for now, an improvement is better than nothing.
+/// TODO: Descriptions and inspects.
+/obj/item/storage/bag/construction/admin
 	name = "bluespace construction bag"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
 	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
 	icon_state = "blue-bag"
-	worn_icon_state = "null"//Dont fuck with my drip
+	worn_icon_state = "null" // Don't fuck with my drip
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	slot_flags = ITEM_SLOT_POCKETS//pockets only >:( if i accidentally equip a construction bag to my belt slot instead of my pockets first, where the value proposition is much higher, I will explode
+	slot_flags = ITEM_SLOT_POCKETS // pockets only >:( if i accidentally equip a construction bag to my belt slot instead of my pockets first, where the value proposition is much higher, i will explode
 	storage_type = /datum/storage/admin/bag
 
-// Clears the bag
+/// Clears the bag
 /obj/item/storage/bag/construction/admin/click_alt_secondary(mob/user)
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
 		qdel(stored_item)
 	return
 
-// Refreshes the bag contents
+/// Refreshes the bag's contents
 /obj/item/storage/bag/construction/admin/click_ctrl_shift(mob/user)
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
@@ -78,7 +75,6 @@
 	PopulateContents()
 	return
 
-// This makes me physically ill. My skin crawls and I can feel the professionals judging me.
 /obj/item/storage/bag/construction/admin/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/stack/rods = 50,// amount should be null if it should spawn with the type's default amount
@@ -97,7 +93,7 @@
 		/obj/item/stack/sheet/plastitaniumglass/fifty = null,
 		/obj/item/stack/sheet/mineral/gold/fifty = null,
 		/obj/item/stack/sheet/mineral/silver/fifty = null,
-		/obj/item/stack/sheet/mineral/uranium = 50,//Radiation stack concerns dont exist, thats how fucking old the original comment on uranium was
+		/obj/item/stack/sheet/mineral/uranium/fifty = null,//Radiation stack concerns dont exist, thats how fucking old the original comment on uranium was
 		/obj/item/stack/sheet/mineral/diamond/fifty = null,
 		/obj/item/stack/sheet/bluespace_crystal/fifty = null,
 		/obj/item/stack/sheet/mineral/bananium = 50,
@@ -112,7 +108,7 @@
 		/obj/item/stack/sheet/hot_ice = 50,
 		/obj/item/stack/sheet/mineral/sandbags/fifty = null,
 		/obj/item/stack/sheet/cloth = 50,
-		/obj/item/stack/cable_coil = MAXCOIL,
+		/obj/item/stack/cable_coil/thirty = null,
 		/obj/item/stack/sheet/mineral/snow = 50,
 		/obj/item/stack/sheet/mineral/adamantine = 50,
 		/obj/item/stack/sheet/mineral/runite = 50,
@@ -137,13 +133,10 @@
 		var/amt = items_inside[stack_type]
 		new stack_type(src, amt, FALSE)
 
-// above bag, but now its purple and has even more stuff
-// todo: the 'more stuff' statement from above??? we definitely will need to offset atom generation by interact for this one, but, we can do a subtype check for sheets
 /obj/item/storage/bag/construction/admin/subspace
 	name = "subspace construction bag"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
 	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
 	icon_state = "sub-bag"
 
 // Badmin pinpointer. The bool lets you find people, even if they aren't wearing clothes, as long as you share a z-layer
@@ -924,7 +917,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 /obj/item/firing_pin/admin/pin_auth(mob/living/user)
 	. = ..()
-	if(check_rights_for(user.client, R_ADMIN))
+	if(check_rights_for(CLIENT_FROM_VAR(user), R_ADMIN))
 		return TRUE
 	return FALSE
 

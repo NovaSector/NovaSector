@@ -1,4 +1,5 @@
-//Debug & Admin Internals Tanks
+//! Debug & Admin Internals Tanks
+
 //code\game\objects\items\tanks\tank_types.dm
 //todo:variant icons
 //define TANK_LEAK_PRESSURE (30.*ONE_ATMOSPHERE) = The internal pressure in kPa at which a handheld gas tank begins to take damage.
