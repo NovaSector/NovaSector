@@ -2,26 +2,51 @@
 
 /// A storage datum with infinite weight and many slots
 /datum/storage/admin
-	max_slots = 65 // max columns X max rows, selected because it doesn't cover the player icon
-	max_specific_storage = WEIGHT_CLASS_GIGANTIC // fixes boxes down the chain too
+	max_slots = 65
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
 	max_total_storage = INFINITY
 	allow_quick_empty = TRUE
 	screen_max_columns = 13
 	allow_big_nesting = TRUE
 
-/// This one is optimized for bags
 /datum/storage/admin/bag
 	allow_quick_gather = TRUE
 	supports_smart_equip = FALSE
 	numerical_stacking = TRUE
 
 /datum/storage/admin/bag/badmin
+	max_slots = 65
+	screen_max_rows = INFINITY
 
 /datum/storage/admin/bag/subspace
 	max_slots = 78 // max columns X max rows, selected because it doesn't cover the player icon
 
-/// Standalone for a dropped proc overwrite in [admin_clothing.dm]
+/// Standalone for a dropped proc override
 /datum/storage/admin/cytotheca
+
+/datum/storage/admin/cytotheca/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(
+		can_hold_list = list(
+			/obj/item/slimecross/stabilized,
+		),
+		cant_hold_list = list()
+	)
+
+// Overrides normal dumping code to instead dump from the pouch item inside
+// todo: veryify this works
+/datum/storage/admin/cytotheca/dump_content_at(atom/dest_object, dump_loc, mob/user)
+	var/atom/used_belt = parent
+	if(!used_belt)
+		return
+	var/obj/item/storage/subspace_pouch/cytotheca = locate() in real_location
+	if(!cytotheca)
+		cytotheca.balloon_alert(user, "no pouch!")
+		return //oopsie!! If we don't have a pouch! You're fucked!
+	if(locked)
+		cytotheca.balloon_alert(user, "locked!")
+		return
+	cytotheca.atom_storage.dump_content_at(dest_object, user = user)
 
 /// 2 slots, used by boots
 /datum/storage/admin/pockets

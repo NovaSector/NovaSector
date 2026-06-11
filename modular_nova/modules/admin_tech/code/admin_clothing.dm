@@ -292,30 +292,6 @@
 /obj/item/storage/neck/admin/cytotheca/PopulateContents()
 	new /obj/item/storage/subspace_pouch/cytotheca(src)
 
-/datum/storage/admin/cytotheca/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
-	. = ..()
-	set_holdable(
-		can_hold_list = list(
-			/obj/item/slimecross/stabilized,
-		),
-		cant_hold_list = list()
-	)
-
-// Overrides normal dumping code to instead dump from the pouch item inside
-// todo: veryify this works
-/datum/storage/admin/cytotheca/dump_content_at(atom/dest_object, dump_loc, mob/user)
-	var/atom/used_belt = parent
-	if(!used_belt)
-		return
-	var/obj/item/storage/subspace_pouch/cytotheca = locate() in real_location
-	if(!cytotheca)
-		cytotheca.balloon_alert(user, "no pouch!")
-		return //oopsie!! If we don't have a pouch! You're fucked!
-	if(locked)
-		cytotheca.balloon_alert(user, "locked!")
-		return
-	cytotheca.atom_storage.dump_content_at(dest_object, user = user)
-
 /obj/item/storage/neck/admin/cytotheca/dropped(mob/user)
 	. = ..()
 	if(!user)
@@ -362,15 +338,6 @@
 	icon_state = "storage_pouch_icon"
 	worn_icon_state = "storage_pouch_icon"
 	storage_type = /datum/storage/admin/cytotheca
-
-/datum/storage/admin/cytotheca/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
-	. = ..()
-	set_holdable(
-		can_hold_list = list(
-			/obj/item/slimecross/stabilized
-		),
-		cant_hold_list = list()
-	)
 
 // Highway robbery off the stable slime box, idk if this is current for all available stables or not
 /obj/item/storage/subspace_pouch/cytotheca/PopulateContents()
