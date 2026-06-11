@@ -1,18 +1,4 @@
-//todo:subspace boxcutter.
-//todo: admin cyborgs and modules. /obj/item/soap/omega. subspace mop / liquids solution? new admin dune shield to replace the, seeds box
-//todo:subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
-//todo:
-//todo: pulse rifle attached to admin modsuit
-//todo:
-//player panel: add pref reload to player panel. this is already partially done at tgui\packages\tgui\interfaces\PlayerPanel.tsx but it is not complete and doesnt fully work yet
-//
-// find a solution for reach_length passing a collisions check for BST radio headset. TRAIT_SKIP_BASIC_REACH_CHECK.
-///obj/item/pen/screwdriver/get_all_tool_behaviours()
-//	return list(TOOL_SCREWDRIVER)
-// admin manufacturing company
-//
-//investigate robotact pda app functionality
-//
+
 //Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
 //Sprite Credits to CEV-ERIS, y'all really fucked with this one, it has no reason to look this cool
 //These will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
@@ -43,8 +29,8 @@
 	worn_icon_state = "null"
 	storage_type = /datum/storage/admin/bag/badmin
 
-// Seperate storage for inside of things that you dont want to move
-// This is meant to be spawned inside of other storages.
+// Seperate storage to put inside of things that you dont want to be removed from
+// This is meant to be spawned inside of other storages. Will stick to your paw like glue.
 /obj/item/storage/subspace_pouch
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
@@ -84,7 +70,7 @@
 		qdel(stored_item)
 	return
 
-// Refreshes the bac contents
+// Refreshes the bag contents
 /obj/item/storage/bag/construction/admin/click_ctrl_shift(mob/user)
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
@@ -152,6 +138,7 @@
 		new stack_type(src, amt, FALSE)
 
 //above bag, but now its purple and has even more stuff
+// todo: the 'more stuff' statement from above??? we definitely will need to offset atom generation by interact for this one, but, we can do a subtype check for sheets
 /obj/item/storage/bag/construction/admin/subspace
 	name = "subspace construction bag"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
@@ -172,7 +159,7 @@
 
 //Tech's Disruptor - its a fischer but with every flavor of phasing on the projectile
 //Sometimes you need something to just not work for a moment. You could just use buildmode, sure.
-//to-do:steal code from /obj/projectile/beam/emitter/hitscan/psy to make this a depression pistol when shooting a mob with a disruptor.
+//to-do: integrate various state application modes, such as remote emag and similar. Make this the utility version of the subspace rifle, instead of the fisher as it currently is. integrate radial, consider common state applications, and make projectiles to fit.
 //Techs do Infiltration and Lights testing.
 /obj/projectile/energy/fisher/admin//Passes essentially everything, make sure you click on what you want to disable directly
 	projectile_phasing = PASSTABLE | PASSMOB | PASSMACHINE | PASSSTRUCTURE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSDOORS
@@ -191,7 +178,7 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/fisher/admin)
 
 // We need updated money for the debug box. Space cash is not splittable, and spawning 10 stacks of 5000 credits is not an ok solution to that problem
-//code\game\objects\items\credit_holochip.dm
+// code\game\objects\items\credit_holochip.dm
 /obj/item/holochip/fiftythousand
 	name = "unusually dense holochip"
 	desc = "Oh lawd she thicc."
@@ -202,12 +189,12 @@
 // weapon + metal hydrogen fire axe inspired
 // todo: channeled gutting / organ carving ability, steal the channel attack from extinguishers
 // "only if it can unbox people and just dumps human skin on the floor and all their organs"
-///obj/item/boxcutter
-//code\game\objects\objs.dm & code\game\objects\items.dm
+/// obj/item/boxcutter
+// code\game\objects\objs.dm & code\game\objects\items.dm
 
-//Debug Global Access Door Remote
-//code\game\objects\items\tools\control_wand.dm
-//todo:subspace icon variant, and maybe, fix this lazy behavior where emagging removes the useful screen-mode shit.
+// Debug Global Access Door Remote
+// code\game\objects\items\tools\control_wand.dm
+// todo:subspace icon variant, and maybe, fix this lazy behavior where emagging removes the useful screen-mode shit.
 /obj/item/door_remote/admin
 	name = "subspace door remote"
 	desc = "This remote controls airlocks through narrative will alone. Also comes emagged, did you know that you can emag door remotes?"
@@ -774,7 +761,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	return locker_list
 
 // Spawn all the vendors that you want.
-// This really isn't a great debug tool at the moment, as it uses a radial menu to select the vendor you want to spawn, which is really clunky with the number of vendors in the game, but, it works for now.
+// todo: This really isn't a great debug tool at the moment, as it uses a radial menu to select the vendor you want to spawn, which is really clunky with the number of vendors in the game, but, it works for now.
+// Also it has a limited list. Better than nothing, but still not finished.
 // Maybe I'll make a tguilist for it later.
 /obj/item/summon_beacon/vendors/debug
 	name = "debug vendor beacon"
@@ -910,8 +898,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	set_light_on(active)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
+/* Holding this here for now in case I want to make this more interesting.
 /datum/embedding/edagger_active
 	embed_chance = 100
+*/
 
 // todo: sprites
 /obj/item/firing_pin/admin
@@ -931,14 +921,14 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	default_pin_auth = TRUE
 
 /obj/item/firing_pin/admin/pin_auth(mob/living/user)
-	if(check_rights_for(user, R_ADMIN))
+	if(check_rights_for(holder, R_ADMIN))
 		return TRUE
 	return FALSE
 
 // todo: sprites, reagent selector, utilize laser gun code to create and load syringes based on reagent selector, or create a reagent_container within contents which can be fed chems to fill syringes with.
 /obj/item/gun/syringe/admin
 	name = "subspace syringe projector"
-	desc = "A modification of the syringe gun design to be more compact and use a rotating cylinder to store up to six syringes."
+	desc = "A modification of the syringe gun design to be more compact and use a rotating cylinder to store up to ten syringes."
 	icon_state = "rapidsyringegun"
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
@@ -953,7 +943,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	max_syringes = 10
 	force = 0
 
-// todo: sprites
+// todo: sprites. demo mod with this force ALMOST totally cracks a standard fulltile r-window. this is a 'soft demolition' tool, to 'soften' up the environment without utterly destroying it.
+// todo: add input popup for demo modifier.
 /obj/item/melee/baseball_bat/admin
 	name = "subspace baseball bat"
 	desc = "There ain't a skull in the league that can withstand a nuclear bomb on a stick."
@@ -978,9 +969,9 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	/// Can we launch mobs thrown at us away?
 	mob_thrower = TRUE
 
-//Modular Admin Rifle. Another heretical creation.
+// Modular Admin Rifle. Another heretical creation.
 // todo: sprites, make and adjust speech json, adjust fire modes for damage
-/obj/item/gun/energy/modular_laser_rifle/admin
+/obj/item/gun/energy/modular_laser_rifle/carbine/admin
 	name = "\improper modular subspace rifle"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns32x.dmi'
 	icon_state = "hoshi_kill"
@@ -1024,13 +1015,9 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	. = ..()
 	speak_up("emp", TRUE) // She gets very upset if you emp her
 
-
-// Base datum for our new weapon
-// ideas: ebow, instakill, xray, super disabler, meteor, ion, plasmacutter, gravity
-// base firing mode needs no damage but inflicts hallucinations / causes people to collapse and freakout / causes traumas
-// icons\obj\weapons\guns\projectiles.dmi
-// candidate for base: /obj/projectile/beam/mindflayer icon arcane_barrage
-
+// todo: base firing mode needs no damage but inflicts hallucinations / causes people to collapse and freakout / causes traumas
+// icons\obj\weapons\guns\projectiles.dmi icon arcane_barrage
+// candidate for base: /obj/projectile/beam/mindflayer
 /obj/item/ammo_casing/energy/mindflayer/admin
 	projectile_type = /obj/projectile/beam/mindflayer
 	select_name = "Fourth Wall"
@@ -1046,6 +1033,9 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 		human_hit.adjust_organ_loss(ORGAN_SLOT_BRAIN, 20)
 		human_hit.adjust_hallucinations(60 SECONDS)
 
+// Base datum for our new weapon
+// Fire mode to be used against idiot players interfering with you. Gives medical something to do.
+// todo: see above for the projectile itself. this has a lot of potential but needs better considerations that the mindflayer bolt. also its causing damage for some reason. infact all of these are causing additional burn damage. maybe look into that, dumbass
 /datum/laser_weapon_mode/admin
 	/// What name does this weapon mode have? Will appear in the weapon's radial menu
 	name = "Disturb"
@@ -1062,7 +1052,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	/// What do we change the gun's runetext color to when applied
 	gun_runetext_color = "#cd4456"
 
-///obj/item/gun/energy/pulse/destroyer
+// /obj/item/gun/energy/pulse/destroyer, an admin classic
 /datum/laser_weapon_mode/admin/destroyer_pulse
 	name = "Destruction Pulse"
 	casing = /obj/item/ammo_casing/energy/laser/pulse
@@ -1070,6 +1060,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	json_speech_string = "shotgun"
 	gun_runetext_color = "#7a0bb7"
 
+// This belongs here, you cannot convince me otherwise.
 /datum/laser_weapon_mode/admin/event_horizon
 	name = "Black Hole"
 	casing = /obj/item/ammo_casing/energy/event_horizon
@@ -1084,6 +1075,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 /datum/laser_weapon_mode/admin/event_horizon/remove_from_weapon(obj/item/gun/energy/applied_gun)
 	QDEL_NULL(scope_component)
 
+// Exists more for the component, but this is supposed to be a lahti
+// todo: seems to not like it being a literal bullet. make an even more ridiculous destroyer pulse shot and stick it here
 /datum/laser_weapon_mode/admin/sniper
 	name = "Marksman"
 	casing = /obj/item/ammo_casing/mm20x138
@@ -1106,6 +1099,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	json_speech_string = "ebow"
 	gun_runetext_color = "#7a0bb7"
 
+// Megafauna solutions
 /datum/laser_weapon_mode/admin/instakill
 	name = "Instakill"
 	casing = /obj/item/ammo_casing/energy/instakill
@@ -1113,6 +1107,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	json_speech_string = "instakill"
 	gun_runetext_color = "#7a0bb7"
 
+// Functional testing
 /datum/laser_weapon_mode/admin/xray
 	name = "X-Ray"
 	casing = /obj/item/ammo_casing/energy/xray
@@ -1120,7 +1115,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	json_speech_string = "xray"
 	gun_runetext_color = "#7a0bb7"
 
-// Meme disabler.
+// Meme disabler projectile setup for the mode
 /obj/projectile/beam/disabler/admin
 	name = "subspace disabler beam"
 	icon_state = "omnilaser"
@@ -1144,6 +1139,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/blue
 	muzzle_flash_color = LIGHT_COLOR_CYAN
 
+// For testing resistances, really.
 /datum/laser_weapon_mode/admin/super_disabler
 	name = "Super Disabler"
 	casing = /obj/item/ammo_casing/energy/disabler/admin
@@ -1151,6 +1147,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	json_speech_string = "super_disabler"
 	gun_runetext_color = "#7a0bb7"
 
+// I find the meteor pen really funny if you didn't notice
 /datum/laser_weapon_mode/admin/meteor
 	name = "Meteor"
 	casing = /obj/item/ammo_casing/energy/meteor
@@ -1229,6 +1226,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	applied_gun.hitsound = initial(applied_gun.hitsound)
 
 // Admin lathe
+// todo: doesnt open ui, probably because nothing else is setup. the machines exist without issue though, they just don't work.
+// todo: sprites, techweb define, flatpacks of common admin machines like the debug chem spawner, etc
 // techweb: modular_nova\master_files\code\modules\research\techweb\techweb_types.dm
 // machine.dm define w/ nova edit code\__DEFINES\machines.dm
 /obj/machinery/rnd/production/colony_lathe/admin

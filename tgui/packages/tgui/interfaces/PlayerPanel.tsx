@@ -1153,9 +1153,9 @@ const OtherActions = () => {
           disabled={
             !client_ckey || !mob_type.includes('/mob/living/carbon/human')
           }
-          onClick={() => act('apply_client_quirks')}
+          onClick={() => act('vv_load_prefs')}
         >
-          Load Prefs Onto Mob
+          Load Client Prefs Onto Mob
         </Button>
       </Section>
     </Section>
