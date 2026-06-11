@@ -115,6 +115,7 @@
 		"Custom Hellfire Laser Carbine" = /obj/item/gun/energy/laser/hellgun/blueshield,
 		"NT20 Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/ntspecial/nt20,
 		"Katyusha Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/katyusha,
+		"IC-44 Shock Whip" = /obj/item/melee/baton/security/shockwhip/loaded,
 	)
 
 	return selectable_gun_types
