@@ -1,6 +1,5 @@
 //! Contains old admin loadout stuff
 
-// Legacy Debug items
 /obj/item/clothing/shoes/combat/debug // This was made for a reason, I'm not going to question it
 	w_class = WEIGHT_CLASS_TINY // tiny ahh feet
 
