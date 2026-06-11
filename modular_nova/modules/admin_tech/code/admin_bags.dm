@@ -3,7 +3,7 @@
 /// The sheetsnatcher extreme is really ugly, misses features, and misses materials. Let's make our own.
 /// Using a construction bag as our base, instead of the sheetsnatcher.
 /// I can probably adapt the BST-BRPED manufacturing function to this, but for now, an improvement is better than nothing.
-/// **TODO:** Descriptions and inspects.
+/// TODO: Descriptions and inspects.
 /obj/item/storage/bag/construction/admin
 	name = "bluespace construction bag"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
@@ -90,6 +90,7 @@
 	for(var/obj/item/stack/stack_type as anything in items_inside)
 		var/amt = items_inside[stack_type]
 		new stack_type(src, amt, FALSE)
+		CHECK_TICK
 
 /obj/item/storage/bag/construction/admin/subspace
 	name = "subspace construction bag"

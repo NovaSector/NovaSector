@@ -1,4 +1,6 @@
-//New and Improved BST Plates, overwriting the old
+//! MODsuits made for admin outfits
+
+/// New and Improved BST Plates, overwriting the old
 /datum/mod_theme/bluespace
 	name = "bluespace"
 	desc = "A suit made of metallic bluespace crystals. Wait, what? Really?"
@@ -54,7 +56,7 @@
 		),
 	)
 
-//New Bluespace Tech Modsuit
+/// New Bluespace Tech MODsuit
 /obj/item/mod/control/pre_equipped/bluespace
 	theme = /datum/mod_theme/bluespace
 	starting_frequency = MODLINK_FREQ_CENTCOM
@@ -81,7 +83,6 @@
 		/obj/item/mod/module/anomaly_locked/kinesis/admin,
 	)
 
-//Subspace plates
 /datum/mod_theme/subspace
 	name = "subspace"
 	desc = "A suit made of the condensed essence of suffering caused by thousands of ahelps."
@@ -137,7 +138,7 @@
 		),
 	)
 
-//The Subspace Technician's Modsuit. Lots of frills.
+/// The Subspace Technician's MODsuit. Lots of frills.
 /obj/item/mod/control/pre_equipped/subspace
 	theme = /datum/mod_theme/subspace
 	starting_frequency = MODLINK_FREQ_CENTCOM
@@ -198,17 +199,19 @@
 		/obj/item/mod/module/balloon/advanced,
 	)
 
-// Extremely cursed modsuit that will self install any modsuit module in existence
-// Do NOT spawn this on a live server. The lag from this being created is impressive.
-/obj/item/mod/control/pre_equipped/administrative/dangerspawn_module_debug
-    default_pins = list()
-    applied_modules = list()
+#ifdef TESTING
+/// Extremely cursed modsuit that will self install every modsuit module in existence
+/obj/item/mod/control/pre_equipped/bluespace/danger_module_debug
+	applied_modules = list()
+	default_pins = list()
 
-/obj/item/mod/control/pre_equipped/administrative/debug/Initialize(mapload, new_theme, new_skin, new_core)
-    . = ..()
-    for(var/path in subtypesof(/obj/item/mod/module))
-        var/obj/item/mod/module/module = new path(src)
-        module.mod = src
-        modules += module
-        module.on_install()
-        module.forceMove(src)
+/obj/item/mod/control/pre_equipped/bluespace/danger_module_debug/Initialize(mapload, new_theme, new_skin, new_core)
+	. = ..()
+	for(var/path in subtypesof(/obj/item/mod/module))
+		var/obj/item/mod/module/module = new path(src)
+		module.mod = src
+		modules += module
+		module.on_install()
+		module.forceMove(src)
+		CHECK_TICK
+#endif

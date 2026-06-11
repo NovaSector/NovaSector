@@ -190,7 +190,6 @@ GLOBAL_LIST_INIT(subspace_box_illustrations, list(
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
 		qdel(stored_item)
-	return
 
 /obj/item/storage/box/debug/item_ctrl_click(mob/user)
 	// Ask the user what they want to make, or if they want to clear the storage.

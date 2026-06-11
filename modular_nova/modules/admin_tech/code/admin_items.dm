@@ -19,7 +19,6 @@
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
 		qdel(stored_item)
-	return
 
 /obj/item/storage/bag/admin/subspace
 	name = "subspace pocket"

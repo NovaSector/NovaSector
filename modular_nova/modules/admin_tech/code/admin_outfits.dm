@@ -9,7 +9,7 @@
 	glasses = /obj/item/clothing/glasses/meson/engine/admin/debug
 	neck = /obj/item/storage/neck/admin/cytotheca
 	gloves = /obj/item/clothing/gloves/tackler/admin
-	belt = /obj/item/storage/belt/utility/admin/bluespace
+	belt = /obj/item/storage/belt/utility/admin/full
 	shoes = /obj/item/clothing/shoes/magboots/advance/admin
 	mask = /obj/item/clothing/mask/gas/atmos/admin
 	id = /obj/item/card/id/advanced/debug/bluespace

@@ -1,5 +1,6 @@
 // knownbugs: contacts icon state fucky
 // Debug Encryption Key and Headset, still manually populates the channel list because I am not a real coder, just a denthead
+/// Admin encryption key with basically every channel
 /obj/item/encryptionkey/admin
 	name = "\proper the subspace encryption key"
 	desc = "Holding and looking at this little chip fills you with a sense of existential dread. The taste of metaknowledge fills your mouth. \
@@ -29,20 +30,13 @@
 		RADIO_CHANNEL_TARKON = 1,
 		RADIO_CHANNEL_UPLINK = 1
 	)
-	//var/list/channels = list()
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#2b2793#dca01b"
-
-// How to get this working...? Pls help, I am not a real coder.
-/obj/item/encryptionkey/admin/Initialize(mapload)
-	. = ..()
-	for (var/channels in GLOB.channel_tokens)
-		channels += channels
 
 //todo: balloon popup on ghost ping use
 /obj/item/radio/headset/admin
 	name = "bluespace headset"
-	desc = "You can hear all of them. All oF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
+	desc = "You can hear all of them. All OF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "blue-headset"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
@@ -52,7 +46,9 @@
 	inhand_icon_state = "null"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	w_class = WEIGHT_CLASS_TINY
+	/// A cache of ghosts orbiting this item
 	var/list/mob/dead/observer/spirits
+	/// Cooldown for pinging ghosts
 	COOLDOWN_DECLARE(subspace_harmonic_signaller_cooldown)
 
 /obj/item/radio/headset/admin/Initialize(mapload)
@@ -66,13 +62,13 @@
 		to_chat(user, span_warning("The subspace harmonic signaller is cooling down! Using this too frequently might upset the powers that be!"))
 		return
 
-	COOLDOWN_START(src, subspace_harmonic_signaller_cooldown, 15 SECONDS)//Let just assume people are responsible.
+	COOLDOWN_START(src, subspace_harmonic_signaller_cooldown, 15 SECONDS) // let's just assume the admin is responsible behind the wheel
 	to_chat(user, span_notice("The subspace harmonic signaller charges up and releases a pulse, notifying all the eyes-between-spaces of your activities!"))
 	notify_ghosts(
 		"[user.real_name] has attenuated and pulsed the subspace harmonic signaller of [user.p_their()] [name], alerting the eyes-between-spaces of their activities!",
 		source = user,
-		ignore_key = POLL_IGNORE_SPECTRAL_BLADE,//We keep this because it's going to draw the same people -- chronic observers
-		header = name
+		ignore_key = POLL_IGNORE_SPECTRAL_BLADE, // we keep this because it's going to draw the same people—chronic observers
+		header = name,
 	)
 	return CLICK_ACTION_SUCCESS
 
@@ -102,10 +98,7 @@
 
 /obj/item/radio/headset/admin/subspace
 	name = "subspace headset"
-	desc = "You can hear all of them. All oF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "sub-headset"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = "sub-headset"
 
 //Hey check out this cancerous atompath.
