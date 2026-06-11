@@ -1,5 +1,6 @@
 // knownbugs: contacts icon state fucky
 // Debug Encryption Key and Headset, still manually populates the channel list because I am not a real coder, just a denthead
+
 /// Admin encryption key with basically every channel
 /obj/item/encryptionkey/admin
 	name = "\proper the subspace encryption key"
@@ -28,7 +29,7 @@
 		RADIO_CHANNEL_SUPPLY = 1,
 		RADIO_CHANNEL_SYNDICATE = 1,
 		RADIO_CHANNEL_TARKON = 1,
-		RADIO_CHANNEL_UPLINK = 1
+		RADIO_CHANNEL_UPLINK = 1,
 	)
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#2b2793#dca01b"
@@ -129,7 +130,7 @@
 		TRAIT_SECURITY_HUD,
 		TRAIT_DIAGNOSTIC_HUD,
 		TRAIT_BOT_PATH_HUD,
-		TRAIT_NEARSIGHTED_CORRECTED
+		TRAIT_NEARSIGHTED_CORRECTED,
 	)
 	var/xray = FALSE
 	pickup_sound = SFX_GOGGLES_PICKUP
@@ -295,7 +296,7 @@
 	. = ..()
 	set_holdable(
 		can_hold_list = list(
-			/obj/item/slimecross/stabilized
+			/obj/item/slimecross/stabilized,
 		),
 		cant_hold_list = list()
 	)
