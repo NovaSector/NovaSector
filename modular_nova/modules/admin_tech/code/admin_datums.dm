@@ -34,7 +34,7 @@
 	)
 
 // Overrides normal dumping code to instead dump from the pouch item inside
-// todo: veryify this works
+// TODO: verify this works
 /datum/storage/admin/cytotheca/dump_content_at(atom/dest_object, dump_loc, mob/user)
 	var/atom/used_belt = parent
 	if(!used_belt)

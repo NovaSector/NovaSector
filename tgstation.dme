@@ -7718,6 +7718,8 @@
 #include "modular_nova\modules\admin_tech\code\admin_modsuit_modules.dm"
 #include "modular_nova\modules\admin_tech\code\admin_modsuits.dm"
 #include "modular_nova\modules\admin_tech\code\admin_outfits.dm"
+#include "modular_nova\modules\admin_tech\code\admin_robot_modules.dm"
+#include "modular_nova\modules\admin_tech\code\admin_robots.dm"
 #include "modular_nova\modules\admin_tech\code\admin_rped.dm"
 #include "modular_nova\modules\admin_tech\code\debug_boxes.dm"
 #include "modular_nova\modules\admin_tech\code\legacy.dm"
