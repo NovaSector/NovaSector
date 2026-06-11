@@ -1,10 +1,10 @@
 
-//Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
-//Sprite Credits to CEV-ERIS, y'all really fucked with this one, it has no reason to look this cool
-//These will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
-//todo: pickup people or machines with it too? wouldn't that be cool.
-//todo: click interaction inspects
-//check admin_datums for the storage datum for this
+// Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
+// Sprite Credits to CEV-ERIS, y'all really fucked with this one, it has no reason to look this cool
+// These will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly
+// todo: pickup people or machines with it too? wouldn't that be cool.
+// todo: click interaction inspects
+// check admin_datums for the storage datum for this
 /obj/item/storage/bag/admin
 	name = "bluespace pocket"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials."
@@ -42,7 +42,7 @@
 	anchored = 1//Dont want people taking it out with their hands
 	storage_type = /datum/storage/admin
 
-//Opens the bag on click - considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories
+// Opens the bag on click - considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories
 /obj/item/storage/subspace_pouch/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	atom_storage.show_contents(user)
@@ -78,7 +78,7 @@
 	PopulateContents()
 	return
 
-//This makes me physically ill. My skin crawls and I can feel the professionals judging me.
+// This makes me physically ill. My skin crawls and I can feel the professionals judging me.
 /obj/item/storage/bag/construction/admin/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/stack/rods = 50,// amount should be null if it should spawn with the type's default amount
@@ -137,7 +137,7 @@
 		var/amt = items_inside[stack_type]
 		new stack_type(src, amt, FALSE)
 
-//above bag, but now its purple and has even more stuff
+// above bag, but now its purple and has even more stuff
 // todo: the 'more stuff' statement from above??? we definitely will need to offset atom generation by interact for this one, but, we can do a subtype check for sheets
 /obj/item/storage/bag/construction/admin/subspace
 	name = "subspace construction bag"
@@ -157,10 +157,10 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-//Tech's Disruptor - its a fischer but with every flavor of phasing on the projectile
-//Sometimes you need something to just not work for a moment. You could just use buildmode, sure.
-//to-do: integrate various state application modes, such as remote emag and similar. Make this the utility version of the subspace rifle, instead of the fisher as it currently is. integrate radial, consider common state applications, and make projectiles to fit.
-//Techs do Infiltration and Lights testing.
+// Tech's Disruptor - its a fischer but with every flavor of phasing on the projectile
+// Sometimes you need something to just not work for a moment. You could just use buildmode, sure.
+// to-do: integrate various state application modes, such as remote emag and similar. Make this the utility version of the subspace rifle, instead of the fisher as it currently is. integrate radial, consider common state applications, and make projectiles to fit.
+// Techs do Infiltration and Lights testing.
 /obj/projectile/energy/fisher/admin//Passes essentially everything, make sure you click on what you want to disable directly
 	projectile_phasing = PASSTABLE | PASSMOB | PASSMACHINE | PASSSTRUCTURE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSDOORS
 
@@ -205,11 +205,11 @@
 	obj_flags = EMAGGED
 	w_class = WEIGHT_CLASS_TINY
 
-//New admin RCD, but using the cooler RCD type. Did you know that there already exists a decently superior alternative to the /obj/item/construction/rcd/combat/admin?
-//It was /obj/item/construction/rcd/arcd and for whatever reason this unused one had the potential to be better. But wasn't used.
-//modular_nova\master_files\code\game\objects\items\RCD.dm
-//code\game\objects\items\rcd\RCD.dm
-//todo:subspace icons
+// New admin RCD, but using the cooler RCD type. Did you know that there already exists a decently superior alternative to the /obj/item/construction/rcd/combat/admin?
+// It was /obj/item/construction/rcd/arcd and for whatever reason this unused one had the potential to be better. But wasn't used.
+// modular_nova\master_files\code\game\objects\items\RCD.dm
+// code\game\objects\items\rcd\RCD.dm
+// todo:subspace icons
 /obj/item/construction/rcd/arcd/mattermanipulator/admin
 	name = "subspace matter manipulator"
 	desc = "Holding this fabulous piece of legally distinct technology fills you with a sense of determination. Works at range, and can deconstruct reinforced walls."
@@ -222,12 +222,12 @@
 	construction_upgrades = RCD_ALL_UPGRADES & ~RCD_UPGRADE_SILO_LINK
 	w_class = WEIGHT_CLASS_TINY
 
-//RCD Disks - What the fuck is this code man
-//Placeholder spot to put an admin RCD disk when I eventually get around to fixing upstream
+// RCD Disks - What the fuck is this code man
+// Placeholder spot to put an admin RCD disk when I eventually get around to fixing upstream
 
-//Admin Rapid Lighting Device
-//code\game\objects\items\rcd\RLD.dm
-//todo:subspace icons
+// Admin Rapid Lighting Device
+// code\game\objects\items\rcd\RLD.dm
+// todo:subspace icons
 /obj/item/construction/rld/admin
 	name = "subspace rapid lighting device"
 	desc = "A device used to rapidly provide lighting sources to an area. Reload with iron, plasteel, glass or compressed matter cartridges."
@@ -241,10 +241,10 @@
 	construction_upgrades = RCD_UPGRADE_SILO_LINK
 	w_class = WEIGHT_CLASS_TINY
 
-//Debug Emag & Doorjack
-//There is already a 'bluespace emag' but its pretty ugly, so I'll just do my own quick pallete swap icons
-//todo:icon variants, fix blacklist issues
-//code\game\objects\items\emags.dm
+// Debug Emag & Doorjack
+// There is already a 'bluespace emag' but its pretty ugly, so I'll just do my own quick pallete swap icons
+// todo:icon variants, fix blacklist issues
+// code\game\objects\items\emags.dm
 /obj/item/card/emag/admin
 	name = "subspace emag-doorjack"
 	desc = "It's a card with a magnetic strip attached to some circuitry that hurts to look at. Don't wave this at anything you care about."
@@ -254,9 +254,9 @@
 	type_blacklist = list()//this is the crucial change to restore global emag function
 	w_class = WEIGHT_CLASS_TINY
 
-//Admin Light Replacer
-//todo:icon variant
-//code\game\objects\items\devices\lightreplacer.dm
+// Admin Light Replacer
+// todo:icon variant
+// code\game\objects\items\devices\lightreplacer.dm
 /obj/item/lightreplacer/blue/admin
 	name = "subspace light replacer"
 	desc = "A modified light replacer that zaps lights into place by crystallizing your irritation caused by a lack of lux. Oddly, has endless material."
@@ -265,10 +265,10 @@
 	max_uses = INFINITY
 	w_class = WEIGHT_CLASS_TINY
 
-//Admin Atmos Holofan
-//I should probably make a version of this that places tinyfans instead.
-//todo:icon variants: obj icon & new forcefield, retexture the engie projector icon for use with the atmos holofan
-//code\game\objects\items\holosign_creator.dm
+// Admin Atmos Holofan
+// I should probably make a version of this that places tinyfans instead.
+// todo:icon variants: obj icon & new forcefield, retexture the engie projector icon for use with the atmos holofan
+// code\game\objects\items\holosign_creator.dm
 /obj/item/holosign_creator/atmos/admin
 	name = "subspace ATMOS holofan projector"
 	desc = "A holographic projector that creates holographic barriers that prevent changes in atmosphere conditions. Did you know that right clicking this directly while it is in your active hand can turn on a 'clearview' mode, making the signs unclickable?"
@@ -285,7 +285,7 @@
 	rad_insulation = RAD_FULL_INSULATION
 	resistance_flags = FIRE_PROOF | FREEZE_PROOF
 
-//Debug Forcefield Projector & It's Structure
+// Debug Forcefield Projector & It's Structure
 /obj/item/forcefield_projector/admin
 	name = "subspace forcefield projector"
 	desc = "An experimental device that can create several forcefields at a distance."
@@ -308,8 +308,8 @@
 	can_atmos_pass = ATMOS_PASS_NO
 	armor_type = /datum/armor/admin/badmin
 
-//Admin Capsules - Capsules to spawn things that players shouldnt be spawning on the regular
-//Tiny Fan Capsule
+// Admin Capsules - Capsules to spawn things that players shouldnt be spawning on the regular
+// Tiny Fan Capsule
 /datum/map_template/shelter/admin/tinyfan
 	name = "self-powered tiny fan deployer"
 	shelter_id = "capsule_tinyfan"
@@ -325,9 +325,9 @@
 	template_id = "capsule_tinyfan"
 	used = FALSE
 
-//Debug Plumbing Tool
-//todo:variant icon
-//code\game\objects\items\rcd\RPLD.dm
+// Debug Plumbing Tool
+// todo:variant icon
+// code\game\objects\items\rcd\RPLD.dm
 /obj/item/construction/plumbing/admin
 	name = "subspace omniplumber"//thanks cosmiclaer, cute name
 	desc = "An expertly modified RCD outfitted to construct plumbing machinery."
@@ -345,7 +345,7 @@
 	max_matter = INFINITY
 	construction_upgrades = RCD_UPGRADE_SILO_LINK
 	w_class = WEIGHT_CLASS_TINY
-///Design types for debug service constructor, I just smushed the two lists together, because no other plumber exists with the full list. why are we like this? is this even all of them?
+// Design types for debug service constructor, I just smushed the two lists together, because no other plumber exists with the full list. why are we like this? is this even all of them?
 	var/static/list/admin_design_types = list(
 		//Category 1 synthesizers
 		"Synthesizers" = list(
@@ -396,7 +396,7 @@
 
 	. = ..()
 
-//Admin Amputation Shears. This is more fun to play with than you might think.
+// Admin Amputation Shears. This is more fun to play with than you might think.
 /obj/item/shears/admin
 	name = "subspace amputation shears"
 	desc = "What, too lazy for player-panel? These blades look sharp enough to cut space-time, they will certainly make quick work of any humanoid."
@@ -405,7 +405,8 @@
 	toolspeed = 0
 	w_class = WEIGHT_CLASS_TINY
 
-//Admin Medigun
+// Admin Medigun
+// todo: REALLY I should go fix the base gun. Why do we cycle mode this??? We cant actually think list cycling is the best way to handle these. Make them radials, or make it configurable on how they interact. 'ctrl shift click to swap between radial and processive cell selection' or some shit
 /obj/item/gun/energy/cell_loaded/medigun/admin
 	name = "subspace medigun"
 	desc = "VeyMed was not happy with this one, but they didn't get much of a say in it's manufacture. This 'aftermarket' (still manufactured by VeyMed) specification comes loaded with every cell. \
@@ -476,7 +477,7 @@
 	light_angle = 360
 	w_class = WEIGHT_CLASS_TINY
 
-//I will wait for someone with more knowledge than me to tell me the correct way to smoosh these procs together
+// I will wait for someone with more knowledge than me to tell me the correct way to smoosh these procs together
 /obj/item/modular_computer/pda/admin/Initialize(mapload)
 	starting_programs += subtypesof(/datum/computer_file/program)
 	return ..()
@@ -512,19 +513,19 @@
 	max_range = INFINITY
 	pointer_icon_state = "purple_laser" // Icon for the laser, affects both the laser dot and the laser pointer itself, as it shines a laser on the item itself. Something silly could be done here.
 
-// Hahahaha ahh....
+// sets up our pointer to not be shit
 /obj/item/laser_pointer/admin/Initialize(mapload)
 	. = ..()
 	diode = new /obj/item/stock_parts/micro_laser/quadultra
 	crystal_lens = new /obj/item/stack/ore/bluespace_crystal/refined
 
 // Admin Reagent Containers
-//todo:/obj/item/stack/medical/synth_repair adaptions for admemes
+// todo:/obj/item/stack/medical/synth_repair adaptions for admemes
 // code\modules\reagents\reagent_containers.dm
-//Admeme syringe with included syringe gun interactions. Seems like a horrible thing to leave laying around when assaulting the Crew, but, you're a badmin, what do you care?
-//Did you know syringes have a baked in time for their action? Right into the proc, in a do after? Not affected by tool speed or anything. :)
-//todo:icon variant
-//code\modules\reagents\reagent_containers\syringes.dm
+// Admeme syringe with included syringe gun interactions. Seems like a horrible thing to leave laying around when assaulting the Crew, but, you're a badmin, what do you care?
+// Did you know syringes have a baked in time for their action? Right into the proc, in a do after? Not affected by tool speed or anything. :)
+// todo:icon variant
+// code\modules\reagents\reagent_containers\syringes.dm
 /obj/item/reagent_containers/syringe/admin
 	name = "subspace syringe"
 	desc = "A curiously dense feeling, yet near weightless, syringe. A flat purple crystal is installed where the needle would normally be, and you can glimpse extreme distances peeking at it. \
@@ -547,8 +548,8 @@
 	transfer_per_second = 1000
 
 // Admin patches, the reagent container variety. I probably won't use these in favor of the /obj/item/stack/medical ones, but, I'll make these exist anyways for funsies
-//todo:icon variant
-//code\modules\reagents\reagent_containers\patch.dm
+// todo:icon variant
+// code\modules\reagents\reagent_containers\patch.dm
 /obj/item/reagent_containers/applicator/patch/admin
 	name = "subspace patch"
 	desc = "A chemical patch for touch based applications. The material feels gooey and elastic in your hand."
@@ -574,8 +575,8 @@
 /datum/embedding/med_patch/admin/instant
 	transfer_per_second = /obj/item/reagent_containers/applicator/patch/admin::volume
 
-//Admin pills. Pills here. Get your pills here.
-//code\modules\reagents\reagent_containers\pill.dm
+// Admin pills. Pills here. Get your pills here.
+// code\modules\reagents\reagent_containers\pill.dm
 /obj/item/reagent_containers/applicator/pill/admin
 	name = "subspace shard"
 	desc = "A small pill shaped shard of stabilized and crystallized subspace. Its texture is like porous volcanic rock, even though you can't see any of that porosity visibly. You feel compelled to swallow it."
@@ -588,7 +589,7 @@
 	volume = 1000
 	/// How many "layers" we have remaining. Each layer equates to 1 second of digestion -> var/layers_remaining = 3. This PRETTY COOL VARIABLE is used almost exclusively by unit tests. Very sad stuff.
 
-//like adderall XR, yeah? extended release. theoretical pill to shove into people for plotarmor or other extremely heinous purposes
+// like adderall XR, yeah? extended release. theoretical pill to shove into people for plotarmor or other extremely heinous purposes
 /obj/item/reagent_containers/applicator/pill/admin/xr
 	name = "subspace shard"
 	desc = "A slightly smaller pill shaped shard of stabilized and crystallized subspace. This one feels pliable, like putty, but there is a foreign grit that leaves you feeling uneasy. You feel compelled to swallow it."
@@ -921,7 +922,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	default_pin_auth = TRUE
 
 /obj/item/firing_pin/admin/pin_auth(mob/living/user)
-	if(check_rights_for(holder, R_ADMIN))
+	if(check_rights_for(user.client, R_ADMIN))
 		return TRUE
 	return FALSE
 
@@ -941,6 +942,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	base_pixel_x = 0
 	pixel_x = 0
 	max_syringes = 10
+
 	force = 0
 
 // todo: sprites. demo mod with this force ALMOST totally cracks a standard fulltile r-window. this is a 'soft demolition' tool, to 'soften' up the environment without utterly destroying it.
@@ -970,7 +972,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	mob_thrower = TRUE
 
 // Modular Admin Rifle. Another heretical creation.
-// todo: sprites, make and adjust speech json, adjust fire modes for damage
+// todo: sprites, make and adjust speech json, adjust fire modes for damage, fix double fire that its inheriting for w/e reason
 /obj/item/gun/energy/modular_laser_rifle/carbine/admin
 	name = "\improper modular subspace rifle"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns32x.dmi'
@@ -1155,6 +1157,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	json_speech_string = "meteor"
 	gun_runetext_color = "#7a0bb7"
 
+// Comes in useful more than you think
 /datum/laser_weapon_mode/admin/ion
 	name = "Ion"
 	casing = /obj/item/ammo_casing/energy/ion
@@ -1162,6 +1165,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	json_speech_string = "ion"
 	gun_runetext_color = "#7a0bb7"
 
+// todo: finish this and confirm it works
+// dismemberment and mining mode
 /obj/projectile/plasma/admin
 	name = "plasma sear"
 	icon_state = "plasmacutter"
@@ -1194,6 +1199,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	json_speech_string = "gravity"
 	gun_runetext_color = "#7a0bb7"
 
+// Currently copied directly from the carbine and subtyped for later editing
+// todo: finish this one, it isnt even integrated atm
 // Melee mode for the small laser, yeah this one will be weird
 /datum/laser_weapon_mode/admin/melee
 	name = "Blade"
