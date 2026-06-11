@@ -821,7 +821,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 /obj/item/firing_pin/admin/pin_auth(mob/living/user)
 	. = ..()
-	if(check_rights_for(user.client, R_ADMIN))
+	if(check_rights_for(CLIENT_FROM_VAR(user), R_ADMIN))
 		return TRUE
 	return FALSE
 
