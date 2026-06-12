@@ -36,6 +36,7 @@
 		/obj/item/cane/white/nanite,
 		/obj/item/lighter/nanite,
 		/obj/item/holocigarette/nanite,
+		/obj/item/toy/eightball/nanite,
 	)
 
 	///The objects currently summoned by the NIFSoft
@@ -207,6 +208,9 @@
 
 /datum/nifsoft/summoner/combat
 	mutually_exclusive_programs = list(/datum/nifsoft/summoner/combat) //One combat grimoire per person
+
+/obj/item/toy/eightball/nanite
+	desc = "A black ball with a number eight etched on the side. It's full of a liquid-like nanite slurry.\nThe instructions state that you should ask your question aloud, and then shake. "
 
 #undef SUMMONED_ITEM_ALPHA
 #undef SUMMONED_ITEM_LIGHT
