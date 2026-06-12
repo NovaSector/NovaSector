@@ -453,6 +453,7 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 	// Edited - Only log this for admins, no need to spam their chat.
 	if(alert_mob_dupe_login && !holder)
 		if (alert_admin_multikey)
+			message_admins(span_danger("<B>MULTIKEYING: </B></span><span class='notice'>[key_name_admin(src)] has a matching CID+IP with another player."))
 			log_admin_private("MULTIKEYING: [key_name(src)] has a matching CID+IP with another player.")
 	// NOVA SECTOR - END
 
