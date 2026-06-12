@@ -63,9 +63,7 @@
 /// Applies the DNA to the mob
 /datum/status_effect/temporary_transformation/proc/apply_dna()
 	var/mob/living/carbon/transforming = owner
-	transforming.visual_only_organs = TRUE // NOVA EDIT ADDITION - Customization
 	new_dna.copy_dna(transforming.dna, copy_dna_flags)
-	transforming.visual_only_organs = FALSE // NOVA EDIT ADDITION - Customization
 	transforming.real_name = new_dna.real_name
 	transforming.name = transforming.get_visible_name()
 	transforming.updateappearance(mutcolor_update = TRUE)

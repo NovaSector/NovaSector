@@ -260,7 +260,7 @@
 	bodies = old_species.bodies
 
 /datum/species/jelly/slime/on_life(mob/living/carbon/human/source, seconds_per_tick) // NOVA EDIT CHANGE - Original: /datum/species/jelly/slime/proc/on_life(mob/living/carbon/human/source, seconds_per_tick) - Remove /proc to make this an override
-	SIGNAL_HANDLER
+	. = ..() // NOVA EDIT CHANGE - ORIGINAL: SIGNAL_HANDLER
 	if(source.get_blood_volume() >= BLOOD_VOLUME_SLIME_SPLIT)
 		if(SPT_PROB(2.5, seconds_per_tick))
 			to_chat(source, span_notice("You feel very bloated!"))
