@@ -848,3 +848,5 @@
 	message = "lets out a mar!"
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/mar.ogg'
+
+#undef EMOTE_DELAY

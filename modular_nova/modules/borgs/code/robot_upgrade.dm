@@ -583,3 +583,4 @@
 		. += "The apparatus currently has [stored] secured."
 	. += span_notice("<i>Alt-click</i> will drop the currently secured item.")
 
+#undef ENGINEERING_CYBORG_CHARGE_PER_STACK

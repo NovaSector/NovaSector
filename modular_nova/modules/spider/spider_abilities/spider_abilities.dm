@@ -301,3 +301,5 @@
 /datum/action/cooldown/spell/pointed/projectile/webhook/greater
 	name = "enhanced hooked web"
 	cooldown_time = 1 MINUTES
+
+#undef BUILDING_EMP_TOTEM
