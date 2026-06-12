@@ -450,7 +450,7 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 			alert(mob, dupe_login_message) //players get banned if they don't see this message, do not convert to tgui_alert (or even tg_alert) please.
 			to_chat_immediate(mob, span_danger(dupe_login_message))
 	*/
-	// Edited - Only log this for admins, no need to spam their chat.
+	// Edited - Only log this for admins.
 	if(alert_mob_dupe_login && !holder)
 		if (alert_admin_multikey)
 			message_admins(span_danger("<B>MULTIKEYING: </B></span><span class='notice'>[key_name_admin(src)] has a matching CID+IP with another player."))
