@@ -59,3 +59,5 @@
 	footstep_type = FOOTSTEP_MOB_CLAW
 	brute_modifier = 1.2
 	burn_modifier = 1.2
+
+#undef BODYPART_ICON_SHADEKIN
