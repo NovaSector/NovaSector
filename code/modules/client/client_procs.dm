@@ -438,6 +438,8 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 
 	tgui_say.initialize()
 
+	// NOVA SECTOR - This is a false positive for multikeying that almost always triggers on innocent players, and can scare players who do not know to ignore this message.
+	/* Original
 	if(alert_mob_dupe_login && !holder)
 		var/dupe_login_message = "Your ComputerID has already logged in with another key this round, please log out of this one NOW or risk being banned!"
 		if (alert_admin_multikey)
@@ -447,6 +449,12 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 		spawn(0.5 SECONDS) //needs to run during world init, do not convert to add timer
 			alert(mob, dupe_login_message) //players get banned if they don't see this message, do not convert to tgui_alert (or even tg_alert) please.
 			to_chat_immediate(mob, span_danger(dupe_login_message))
+	*/
+	// Edited - Only log this for admins, no need to spam their chat.
+	if(alert_mob_dupe_login && !holder)
+		if (alert_admin_multikey)
+			log_admin_private("MULTIKEYING: [key_name(src)] has a matching CID+IP with another player.")
+	// NOVA SECTOR - END
 
 
 	connection_time = world.time
