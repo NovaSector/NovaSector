@@ -1118,8 +1118,6 @@
 			return
 
 		current_soil = oursoil.transfer_soil(src, inside_tray = TRUE)
-		oursoil.transfer_soil(src, inside_tray = TRUE)
-
 		RefreshParts()
 		tray_flags = current_soil.tray_flags
 
