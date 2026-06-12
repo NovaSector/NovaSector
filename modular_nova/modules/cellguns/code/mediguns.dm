@@ -20,7 +20,6 @@
 /obj/item/gun/energy/cell_loaded/medigun/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_VEYMED)
-	add_deep_lore()
 
 // Standard medigun - this is what you will get from Cargo, most likely.
 /obj/item/gun/energy/cell_loaded/medigun/standard
@@ -72,7 +71,7 @@
 // End of power cells
 
 //Medigun lore
-/obj/item/gun/energy/cell_loaded/medigun/proc/add_deep_lore()
+/obj/item/gun/energy/cell_loaded/medigun/add_deep_lore()
 	AddElement(/datum/element/examine_lore, \
 		lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
 		lore = "The Vey-Medical CWM-479 line of mediguns is widely considered the foothold that brought the medical titan into \

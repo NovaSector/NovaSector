@@ -469,3 +469,7 @@
 		browning.barrel_heat -= clamp(browning.barrel_heat, 0, browning.barrel_heat_per_shot * 7)
 		playsound(browning, 'sound/effects/wounds/sizzle2.ogg', 100)
 		browning.balloon_alert_to_viewers("water cooled!")
+
+#undef BARREL_HEAT_THRESHOLD_LOW
+#undef BARREL_HEAT_THRESHOLD_HIGH
+#undef REPAIR_WELDER_COST

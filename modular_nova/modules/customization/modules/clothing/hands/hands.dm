@@ -124,3 +124,6 @@
 	post_init_icon_state = "gloves_fingerless_long"
 	greyscale_config = /datum/greyscale_config/recolorable_gloves/fingerless_long
 	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/fingerless_long/worn
+
+#undef MODULAR_HANDS_ICON
+#undef MODULAR_HANDS_WORN_ICON
