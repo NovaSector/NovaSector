@@ -17,7 +17,7 @@
 		/obj/item/clothing/mask/gas/clown_hat = 1,
 	)
 
-/mob/living/basic/pet/cat/clown/Initialize()
+/mob/living/basic/pet/cat/clown/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg' = 1), 50)
 	AddElement(/datum/element/waddling)

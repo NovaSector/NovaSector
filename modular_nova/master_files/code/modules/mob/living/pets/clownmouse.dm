@@ -8,7 +8,7 @@
 	held_state = "mouse_white"
 	body_color = "clown"
 
-/mob/living/basic/mouse/clown/Initialize()
+/mob/living/basic/mouse/clown/Initialize(mapload)
 	. = ..()
 	RemoveElement(/datum/element/animal_variety)
 	AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg' = 1), 50)
