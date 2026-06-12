@@ -67,3 +67,5 @@
 	icon_state = "messenger_robo"
 	inhand_icon_state = "messenger_robo"
 	NOVA_BACKPACK_ICON_DEFINES
+
+#undef NOVA_BACKPACK_ICON_DEFINES

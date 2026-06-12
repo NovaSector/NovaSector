@@ -126,3 +126,5 @@
 
 		playsound(src.loc, 'sound/effects/spray2.ogg', 50, TRUE)
 
+#undef COLOR_MODE_SPECIFIC
+#undef COLOR_MODE_GENERAL

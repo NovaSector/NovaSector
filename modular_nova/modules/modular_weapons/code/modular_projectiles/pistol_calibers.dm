@@ -135,6 +135,11 @@
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
 
+/obj/item/ammo_casing/c45/reaper
+	can_be_printed = FALSE
+	// it's a hitscan 50 damage 40 AP bullet designed to be fired out of a gun with a 2rnd burst and 1.25x damage multiplier
+	// Let's Not
+
 /obj/item/ammo_box/c45/large
 	name = "deluxe ammo box (.45)"
 	max_ammo = 60
@@ -233,11 +238,6 @@
 	projectile_type = /obj/projectile/bullet/c10mm/downer
 	ammo_categories = AMMO_CLASS_SUPER_LTL
 	harmful = FALSE
-
-/obj/item/ammo_casing/c10mm/reaper
-	can_be_printed = FALSE
-	// it's a hitscan 50 damage 40 AP bullet designed to be fired out of a gun with a 2rnd burst and 1.25x damage multiplier
-	// Let's Not
 
 /obj/item/ammo_box/c10mm/large
 	name = "deluxe ammo box (10mm)"
