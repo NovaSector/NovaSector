@@ -15,8 +15,14 @@
 		/obj/item/organ/ears/cat = 1,
 		/obj/item/organ/tail/cat = 1,
 		/obj/item/clothing/mask/gas/clown_hat = 1,
-
 	)
+
+/mob/living/basic/pet/cat/clown/Initialize()
+	. = ..()
+	AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg' = 1), 50)
+	AddElement(/datum/element/waddling)
+
+
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "asks to not joke about that"

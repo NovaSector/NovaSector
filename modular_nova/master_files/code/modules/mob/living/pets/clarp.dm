@@ -8,3 +8,8 @@
 	icon_living = "clarp"
 	icon_state = "clarp"
 	greyscale_config = NONE
+
+/mob/living/basic/carp/clarp/Initialize()
+	. = ..()
+	AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg' = 1), 50)
+	AddElement(/datum/element/waddling)
