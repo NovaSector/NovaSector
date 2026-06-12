@@ -1,6 +1,3 @@
-#define RND_CATEGORY_HC_FOOD "Provision"
-#define RND_CATEGORY_HC_MEDICAL "Medicine"
-#define RND_CATEGORY_HC_CLOTHING "Apparel"
 
 /obj/machinery/biogenerator/food_replicator
 	name = "\improper Pioneer-Class Matter Resequencer"

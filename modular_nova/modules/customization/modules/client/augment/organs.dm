@@ -35,10 +35,12 @@
 	slot = AUGMENT_SLOT_BRAIN
 	icon = FA_ICON_BRAIN
 #ifndef SPECIES_PROTEAN // TODO - REMOVE THIS
-	#define SPECIES_protean "protean"
+	#define SPECIES_PROTEAN "protean"
 #endif // For testmerge purposes only
 	species_blacklist = list(SPECIES_PROTEAN = 1)
-
+#ifdef SPECIES_PROTEAN // TODO - PROTEANS - this might break the TM but otherwise linters complain
+	#undef SPECIES_PROTEAN
+#endif
 /datum/augment_item/organ/brain/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
 	if(character_setup)
 		return
