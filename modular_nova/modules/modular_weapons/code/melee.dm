@@ -56,7 +56,7 @@
 
 
 /obj/item/melee/baton/security/shockwhip
-	name = "IC-44 Shock Whip"
+	name = "\improper IC-44 Shock Whip"
 	desc = "A highly specialized conductive monofilament wire whip. With the use of a power cell at the handle, the whip can be used to both kill and incapacitate. Due to it's expensive and complex nature, it is only made available to highly specialized users."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi'
 	icon_state = "stunbaton"
