@@ -43,3 +43,7 @@ GLOBAL_LIST_INIT(antag_opt_in_colors, list(
 
 /// If the player has any non-ghost role antags enabled, they are forced to use a minimum of this.
 #define OPT_IN_ANTAG_ENABLED_LEVEL OPT_IN_YES_TEMP
+
+#define ROLE_BLOODWASHED "Bloodwashed"
+#define ROLE_BLOODWASHED_LATEJOIN "Bloodwashed (Latejoin)"
+#define ROLE_BLOODWASHED_MIDROUND "Bloodwashed (Midround)"
