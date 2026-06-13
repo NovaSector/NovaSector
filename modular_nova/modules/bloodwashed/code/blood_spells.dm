@@ -3,14 +3,48 @@
 	desc += "<br><b><u>Has [charges] use\s remaining</u></b>."
 	build_all_button_icons()
 
-/datum/action/innate/cult/blood_spell/bloodwashed/blood_mist
+/datum/action/innate/cult/bloodwashed_spell
+	button_icon = 'icons/mob/actions/actions_cult.dmi'
+	background_icon_state = "bg_demon"
+	overlay_icon_state = "bg_demon_border"
+	/// Amount of times this spell can be used before disappearing.
+	var/charges = 1
+	/// The base desc, used to rebuild the tooltip when charges change.
+	var/base_desc
+	/// Ref to the action that prepared this spell.
+	var/datum/action/innate/cult/blood_magic/all_magic
+	/// Phrase whispered when invoking the spell.
+	var/invocation
+
+/datum/action/innate/cult/bloodwashed_spell/Grant(mob/living/owner, datum/action/innate/cult/blood_magic/BM)
+	base_desc = desc
+	bloodwashed_refresh_uses()
+	all_magic = BM
+	return ..(owner)
+
+/datum/action/innate/cult/bloodwashed_spell/Remove()
+	if(all_magic)
+		all_magic.spells -= src
+	return ..()
+
+/datum/action/innate/cult/bloodwashed_spell/IsAvailable(feedback = FALSE)
+	if(!IS_CULTIST(owner) || owner.incapacitated || !charges)
+		return FALSE
+	return ..()
+
+/datum/action/innate/cult/bloodwashed_spell/proc/bloodwashed_refresh_uses()
+	desc = base_desc
+	desc += "<br><b><u>Has [charges] use\s remaining</u></b>."
+	build_all_button_icons()
+
+/datum/action/innate/cult/bloodwashed_spell/blood_mist
 	name = "Blood Mist"
 	desc = "Bleeds into a cloud of mist and slips away to a random teleport rune."
 	button_icon_state = "gone"
 	charges = 2
 	invocation = "Vel'kiir mal nath!"
 
-/datum/action/innate/cult/blood_spell/bloodwashed/blood_mist/Activate()
+/datum/action/innate/cult/bloodwashed_spell/blood_mist/Activate()
 	var/turf/origin = get_turf(owner)
 	if(!origin)
 		return

@@ -19,12 +19,12 @@
 			return
 		qdel(nullify_spell)
 	var/entered_spell_name
-	var/datum/action/innate/cult/blood_spell/BS
+	var/datum/action/innate/selected_spell_type
 	var/list/possible_spells = list()
 	for(var/I in bloodwashed_spell_types())
-		var/datum/action/innate/cult/blood_spell/J = I
-		var/cult_name = initial(J.name)
-		possible_spells[cult_name] = J
+		var/datum/action/innate/possible_spell_type = I
+		var/cult_name = initial(possible_spell_type.name)
+		possible_spells[cult_name] = possible_spell_type
 	possible_spells += "(REMOVE SPELL)"
 	entered_spell_name = tgui_input_list(owner, "Blood spell to prepare", "Spell Choices", possible_spells)
 	if(isnull(entered_spell_name))
@@ -34,8 +34,8 @@
 		if(isnull(nullify_spell))
 			return
 		qdel(nullify_spell)
-	BS = possible_spells[entered_spell_name]
-	if(QDELETED(src) || owner.incapacitated || !BS || (rune && !(locate(/obj/effect/rune/empower) in range(1, owner))) || (length(spells) >= limit))
+	selected_spell_type = possible_spells[entered_spell_name]
+	if(QDELETED(src) || owner.incapacitated || !selected_spell_type || (rune && !(locate(/obj/effect/rune/empower) in range(1, owner))) || (length(spells) >= limit))
 		return
 	to_chat(owner, span_warning("You begin to carve unnatural symbols into your flesh!"))
 	SEND_SOUND(owner, sound('sound/items/weapons/slice.ogg', 0, 1, 10))
@@ -53,7 +53,7 @@
 		if(ishuman(owner))
 			var/mob/living/carbon/human/human_owner = owner
 			human_owner.bleed(rune ? 8 : 40)
-		var/datum/action/innate/cult/blood_spell/new_spell = new BS(owner.mind)
+		var/datum/action/innate/new_spell = new selected_spell_type(owner.mind)
 		new_spell.Grant(owner, src)
 		spells += new_spell
 		Positioning()

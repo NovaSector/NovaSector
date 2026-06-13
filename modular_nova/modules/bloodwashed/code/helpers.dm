@@ -9,8 +9,6 @@
 		var/obj/effect/rune/rune_type = GLOB.rune_types[rune_name]
 		if(ispath(rune_type, /obj/effect/rune/empower) || ispath(rune_type, /obj/effect/rune/teleport) || ispath(rune_type, /obj/effect/rune/wall))
 			bloodwashed_runes[rune_name] = rune_type
-	var/obj/effect/rune/bloodwashed_soulstone/soulstone_rune = /obj/effect/rune/bloodwashed_soulstone
-	bloodwashed_runes[initial(soulstone_rune.cultist_name)] = soulstone_rune
 	return bloodwashed_runes
 
 /// Returns the trimmed set of blood spells available to the Bloodwashed.
@@ -23,7 +21,7 @@
 		/datum/action/innate/cult/blood_spell/construction,
 		/datum/action/innate/cult/blood_spell/equipment,
 		/datum/action/innate/cult/blood_spell/dagger,
-		/datum/action/innate/cult/blood_spell/bloodwashed/blood_mist,
+		/datum/action/innate/cult/bloodwashed_spell/blood_mist,
 		/datum/action/innate/cult/blood_spell/horror,
 		/datum/action/innate/cult/blood_spell/veiling,
 		/datum/action/innate/cult/blood_spell/manipulation,
