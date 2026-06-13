@@ -129,9 +129,6 @@
 	new /obj/item/analyzer(src)
 	new /obj/item/holosign_creator/atmos(src)// Drones handle atmos issues
 
-/obj/item/stack/sheet/mineral/wood/ten
-	amount = 10
-
 /obj/item/storage/box/drone_tools_misc/PopulateContents()
 	new /obj/item/lightreplacer(src)// Drones fix the station
 	new /obj/item/t_scanner(src)
