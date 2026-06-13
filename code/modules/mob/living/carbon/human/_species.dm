@@ -303,18 +303,26 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		// if we have an extra organ that before changing that the species didnt have, remove it
 		if(!new_organ)
+			/* // NOVA EDIT REMOVAL START = Original
 			if(existing_organ && (old_organ_type == existing_organ.type || replace_current))
-				//existing_organ.Remove(organ_holder) // NOVA EDIT REMOVAL
-				// NOVA EDIT ADDITION START - Remove so it can be reinserted + handled in modular_nova\modules\customization\modules\mob\living\carbon\human\species.dm
-				// We basically just want to keep from removing it from mutant_bodyparts
-				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
-				if(existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key])
-					existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
-				else
-					existing_organ.Remove(organ_holder, special = TRUE)
-				// NOVA EDIT ADDITION END
+				existing_organ.Remove(organ_holder)
 				qdel(existing_organ)
 			continue
+			*/ // NOVA EDIT REMOVAL END
+			// NOVA EDIT ADDITION START
+			if(existing_organ)
+				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
+				if(old_organ_type == existing_organ.type || replace_current)
+					if(existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key])
+						existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
+					else
+						existing_organ.Remove(organ_holder, special = TRUE)
+					qdel(existing_organ)
+				else if(existing_organ_feature_key && isnull(organ_holder.dna.mutant_bodyparts[existing_organ_feature_key]))
+					existing_organ.Remove(organ_holder, special = TRUE)
+					qdel(existing_organ)
+			continue
+			// NOVA EDIT ADDITION END
 
 		if(existing_organ && allow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
 			// we dont want to remove organs that were not from the old species (such as from freak surgery or prosthetics)
@@ -409,7 +417,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		else if(old_species.exotic_bloodtype && isnull(exotic_bloodtype))
 			human_who_gained_species.set_blood_type(random_human_blood_type())
 
-	regenerate_organs(human_who_gained_species, old_species, replace_current = human_who_gained_species.visual_only_organs, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing) // NOVA EDIT CHANGE - Allows existing organs to be properly removed when regenerating organs - ORIGINAL: regenerate_organs(human_who_gained_species, old_species, replace_current = FALSE, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing)
+	regenerate_organs(human_who_gained_species, old_species, replace_current = FALSE, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing)
 	// Update locked slots AFTER all organ and body stuff is handled
 	human_who_gained_species.hud_used?.update_locked_slots()
 	// Drop the items the new species can't wear
@@ -561,11 +569,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		new_features["[sample_overlay.feature_key]"] = sample_overlay.get_random_appearance().name
 
 	return new_features
-
-/datum/species/proc/spec_life(mob/living/carbon/human/H, seconds_per_tick)
-	SHOULD_CALL_PARENT(TRUE)
-	if(HAS_TRAIT(H, TRAIT_NOBREATH) && (H.health < H.crit_threshold) && !HAS_TRAIT(H, TRAIT_NOCRITDAMAGE))
-		H.adjust_brute_loss(0.5 * seconds_per_tick)
 
 /datum/species/proc/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
 	if(no_equip_flags & slot && !(I.is_mod_shell_component() && (modsuit_slot_exceptions & slot))) // NOVA EDIT ADDITION - ORIGINAL: if(no_equip_flags & slot)

@@ -1,0 +1,4 @@
+author: "Richard Blonski"
+delete-after: True
+changes:
+  - bugfix: "Wide Characters (such as Cyborgs), will be able now to properly pixel shift."

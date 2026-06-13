@@ -1,0 +1,69 @@
+2026-06-01:
+  Happyowl93:
+  - bugfix: Hemophages cannot select different heart organs in the augments tab
+  - bugfix: Holosynths can cross broken electrified grilles now.
+  - balance: Special lethal ammunitions require a weapons permit now.
+  theselfish:
+  - bugfix: The new Captain gear is also in the ComDrobe!
+2026-06-03:
+  Absolucy:
+  - bugfix: Fixed some hard deletes related to cryopod item storage.
+  Hatterhat:
+  - balance: Reintroduces the X-ray laser by adding a "reduced penetration" variant
+      that can't wallbang, but still has the 100 AP per shot. For dealing with particularly
+      pesky exosuit pilots or big, bulky broadshields.
+  Iajret:
+  - rscadd: Added weather towers on snowglobe
+  Iamgoofball:
+  - balance: Makes the Luxury Shuttle cost more on account of the crew being much
+      richer by base here than on /tg/.
+  Macaroni:
+  - rscadd: Added the visitation center to Perma.
+  - qol: Made the maint tunnel outside of T-Comms and the chem factory more accessible.
+  - qol: Made a link between the north and south maint tunnel for security, granting
+      accessibility.
+  - rscadd: Adds the bitey quirk
+  Richard Blonski:
+  - rscadd: The Cheif Medical Officer's Locker now comes included with deployable
+      flat-pack of the Self Actualization Device.
+  - code_imp: Added a new Nova-Module for addding new flatpacks.
+  - rscadd: Photocopier - added (Physical Evaluation Form, Neurosurgery Consent Form,
+      Medical Records Form), and (NanoTrasen Survey).
+  - code_imp: The Photocopier now merges/overwrites upstream `config/blanks.json`
+      with `modular_nova/modules/paperwork/config/blanks.json`.
+  theselfish:
+  - rscadd: Chav, Medieval and Cough were added to Genetic Freak.
+  - spellcheck: Genetic Freak Quirk is now alphabetically sorted.
+  - rscadd: Bunch of cigarette packs are in the loadout now!
+2026-06-05:
+  Happyowl93:
+  - balance: The captain's antique laser gun is so old it uses a fixed firing pin
+      system, replacing it is impossible.
+  - bugfix: All bunnysuits should have digi sprites now
+  Macaroni:
+  - rscadd: Two thigh highs now have grayscale options.
+  Stalkeros:
+  - rscadd: There are certain rumors of certain rumors of rumors about pizza vouchers,
+      slips of plastic with an RF-transmitting button? You can do something to them,
+      something electromagnetically cryptographic and sometimes explosive.
+  - qol: Pizza vouchers now let you select the pizza that you want to get, instead
+      of making you rely on sheer luck alone.
+  theselfish:
+  - spellcheck: The Command Outfitting Station is now a drobe, same as every other
+      clothing vendor.
+  - qol: Looping alarm sounds are sadly not gone, but they are a pref!!
+2026-06-07:
+  Absolucy:
+  - bugfix: The examine line indicating temporary flavor text now actually uses the
+      examinee's pronouns, instead of always using "they".
+  Happyowl93:
+  - balance: Advanced Energy Gun's recharge rate is set to the recharge rate of the
+      captain's antique.
+  Iajret:
+  - bugfix: fixed DO showing maptext (runechat) only to DOer for every mob in their
+      view range
+  YuiY1997:
+  - rscadd: Adds more sexual roles in ERP preferences and new self-identifying descriptors
+      for the character directory
+  theselfish:
+  - rscdel: TG Maps have their unique shuttles back.

@@ -426,10 +426,6 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/floor/noslip,
 /area/ruin/powered/clownplanet)
-"fh" = (
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface/biome_replace,
-/area/lavaland/surface/outdoors/explored)
 "gg" = (
 /obj/effect/decal/cleanable/food/pie_smudge,
 /obj/effect/turf_decal/tile/yellow/fourcorners,
@@ -537,6 +533,11 @@
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /turf/open/indestructible/permalube,
 /area/ruin/powered/clownplanet)
+"qO" = (
+/obj/machinery/light/directional/west,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface/biome_replace,
+/area/ruin/powered/clownplanet)
 "rP" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -559,11 +560,6 @@
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /turf/open/indestructible/permalube,
 /area/ruin/powered/clownplanet)
-"tU" = (
-/obj/machinery/light/directional/east,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface/biome_replace,
-/area/ruin/powered/clownplanet)
 "uJ" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/yellow/fourcorners,
@@ -572,11 +568,10 @@
 "ye" = (
 /turf/open/lava/smooth,
 /area/ruin/powered/clownplanet)
-"Br" = (
-/obj/machinery/light/directional/west,
+"Am" = (
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface/biome_replace,
-/area/ruin/powered/clownplanet)
+/area/lavaland/surface/outdoors/explored)
 "BO" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -628,6 +623,11 @@
 	},
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /turf/open/indestructible/permalube,
+/area/ruin/powered/clownplanet)
+"Ig" = (
+/obj/machinery/light/directional/east,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface/biome_replace,
 /area/ruin/powered/clownplanet)
 "JU" = (
 /obj/item/bikehorn,
@@ -753,11 +753,11 @@ aa
 aa
 aa
 aa
-fh
-fh
-fh
-fh
-fh
+Am
+Am
+Am
+Am
+Am
 aa
 aa
 aa
@@ -786,11 +786,11 @@ cc
 cc
 cc
 cc
-tU
-fh
+Ig
+Am
 gX
-fh
-fh
+Am
+Am
 gX
 Or
 cc
@@ -1738,11 +1738,11 @@ cc
 cc
 cc
 cc
-Br
-fh
+qO
+Am
 gX
-fh
-fh
+Am
+Am
 gX
 Zg
 cc
@@ -1773,11 +1773,11 @@ aa
 aa
 aa
 aa
-fh
-fh
-fh
-fh
-fh
+Am
+Am
+Am
+Am
+Am
 aa
 aa
 aa
