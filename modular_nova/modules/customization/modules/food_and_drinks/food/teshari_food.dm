@@ -372,9 +372,6 @@
 	tastes = list("chikun" = 1)
 	icon_state = "chicken_patty"
 
-/datum/food_processor_process/meat/chicken
-	blacklist = list(/obj/item/food/meat/slab/chicken/tesh)
-
 /datum/food_processor_process/meat/chicken/tesh
 	input = /obj/item/food/meat/slab/chicken/tesh
 	output = /obj/item/food/raw_meatball/chicken/tesh
