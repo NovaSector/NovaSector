@@ -187,13 +187,23 @@
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 	/// Extra burn damage applied when the projectile hits a living target.
 	var/bonus_burn_damage = 5
+	/// Minimum direct blood loss applied to carbon targets.
+	var/bonus_bleed_min = 4
+	/// Maximum direct blood loss applied to carbon targets.
+	var/bonus_bleed_max = 10
 
-/datum/component/bloodwashed_corrupted_projectile/Initialize(bonus_burn_damage = 5)
+/datum/component/bloodwashed_corrupted_projectile/Initialize(
+	bonus_burn_damage = 5,
+	bonus_bleed_min = 4,
+	bonus_bleed_max = 10,
+)
 	. = ..()
 	if(!isprojectile(parent))
 		return COMPONENT_INCOMPATIBLE
 
 	src.bonus_burn_damage = bonus_burn_damage
+	src.bonus_bleed_min = bonus_bleed_min
+	src.bonus_bleed_max = bonus_bleed_max
 
 /datum/component/bloodwashed_corrupted_projectile/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(on_projectile_hit))
@@ -217,4 +227,7 @@
 
 	var/mob/living/living_target = target
 	living_target.apply_damage(bonus_burn_damage, BURN, hit_zone, blocked, wound_bonus = CANT_WOUND)
+	if(iscarbon(living_target))
+		var/mob/living/carbon/carbon_target = living_target
+		carbon_target.bleed(rand(bonus_bleed_min, bonus_bleed_max))
 	new /obj/effect/temp_visual/cult/sparks(get_turf(living_target))

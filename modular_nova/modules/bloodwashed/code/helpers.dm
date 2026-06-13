@@ -14,7 +14,6 @@
 /// Returns the trimmed set of blood spells available to the Bloodwashed.
 /proc/bloodwashed_spell_types()
 	return list(
-		/datum/action/innate/cult/blood_spell/stun,
 		/datum/action/innate/cult/blood_spell/teleport,
 		/datum/action/innate/cult/blood_spell/emp,
 		/datum/action/innate/cult/blood_spell/shackles,
