@@ -34,7 +34,8 @@
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#2b2793#dca01b"
 
-//todo: balloon popup on ghost ping use
+// TODO: balloon popup on ghost ping use
+// TODO: revisit base model for vars to modify
 /obj/item/radio/headset/admin
 	name = "bluespace headset"
 	desc = "You can hear all of them. All OF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"

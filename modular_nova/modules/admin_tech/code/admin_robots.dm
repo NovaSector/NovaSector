@@ -1,10 +1,11 @@
 //! Contains admin and CC varianted robot models
 // Admin Cyborg Models.
-// TODO: player usable cc model, admin cc model, bluespace borg, subspace borg
+// TODO: player usable cc model, admin cc model, subspace borg, administrative (like literally about paperwork and shit)
 // TODO: modules
-//Baseline CC model
+// Baseline CC model, total generalist. Can do a bit of everything but lacks specialized tools.
+// When you need a general ERT or CC Borg, pick this.
 /obj/item/robot_model/admin
-	name = "Syndicate"
+	name = "Central Command"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/extinguisher,
@@ -35,44 +36,22 @@
 		/obj/item/stamp/chameleon,
 		/obj/item/borg_shapeshifter,
 		)
-	cyborg_base_icon = "synd_engi"
-	model_select_icon = "malf"
 	model_traits = list(TRAIT_NEGATES_GRAVITY, TRAIT_PUSHIMMUNE)
-	hat_offset = INFINITY
 	canDispose = TRUE
+	cyborg_base_icon = "tachi"
+	model_select_icon = "tachi"
+	hat_offset = INFINITY
 	borg_skins = list(
 		/// 32x32 Skins
-		"Saboteur" = list(SKIN_ICON_STATE = "synd_engi", SKIN_ICON = 'icons/mob/silicon/robots.dmi'),
-		"Medical" = list(SKIN_ICON_STATE = "synd_medical", SKIN_ICON = 'icons/mob/silicon/robots.dmi'),
-		"Assault" = list(SKIN_ICON_STATE = "synd_sec", SKIN_ICON = 'icons/mob/silicon/robots.dmi'),
-		"ARACHNE" = list(SKIN_ICON_STATE = "arachne_syndie", SKIN_ICON = CYBORG_ICON_SYNDIE),
-		"Heavy" = list(SKIN_ICON_STATE = "syndieheavy", SKIN_ICON = CYBORG_ICON_SYNDIE),
-		"Miss M" = list(SKIN_ICON_STATE = "missm_syndie", SKIN_ICON = CYBORG_ICON_SYNDIE),
-		"Spider" = list(SKIN_ICON_STATE = "spidersyndi", SKIN_ICON = CYBORG_ICON_SYNDIE),
-		"Booty Striker" = list(SKIN_ICON_STATE = "bootynukie", SKIN_ICON = CYBORG_ICON_SYNDIE),
-		"Booty Syndicate" = list(SKIN_ICON_STATE = "bootysyndie", SKIN_ICON = CYBORG_ICON_SYNDIE),
-		"Bird Syndicate" = list(SKIN_ICON_STATE = "bird_synd", SKIN_ICON = CYBORG_ICON_SYNDIE),
-		"Male Booty Striker" = list(SKIN_ICON_STATE = "male_bootynukie", SKIN_ICON = CYBORG_ICON_SYNDIE),
-		"Male Booty Syndicate" = list(SKIN_ICON_STATE = "male_bootysyndie", SKIN_ICON = CYBORG_ICON_SYNDIE),
-		"Mech" = list(SKIN_ICON_STATE = "chesty", SKIN_ICON = CYBORG_ICON_SYNDIE),
-		/// 32x64 Skins
-		"Meka" = list(SKIN_ICON_STATE = "mekasyndi", SKIN_ICON = CYBORG_ICON_SYNDIE_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = list("north" = list(1, 15), "south" = list(1, 15), "east" = list(2, 15), "west" = list(-2, 15))),
-		"K4T" = list(SKIN_ICON_STATE = "k4tsyndi", SKIN_ICON = CYBORG_ICON_SYNDIE_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = list("north" = list(1, 15), "south" = list(1, 15), "east" = list(2, 15), "west" = list(-2, 15))),
-		"NiKA" = list(SKIN_ICON_STATE = "fmekasyndi", SKIN_ICON = CYBORG_ICON_SYNDIE_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = list("north" = list(1, 15), "south" = list(1, 15), "east" = list(2, 15), "west" = list(-2, 15))),
-		"NiKO" = list(SKIN_ICON_STATE = "mmekasyndi", SKIN_ICON = CYBORG_ICON_SYNDIE_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = list("north" = list(1, 15), "south" = list(1, 15), "east" = list(2, 15), "west" = list(-2, 15))),
-		"Dullahan" = list(SKIN_ICON_STATE = "dullahansyndi", SKIN_ICON = CYBORG_ICON_SYNDIE_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL, TRAIT_R_UNIQUEPANEL), SKIN_HAT_OFFSET = list("north" = list(1, 15), "south" = list(1, 15), "east" = list(2, 15), "west" = list(-2, 15))),
-		"Dullahan (Taur)" = list(SKIN_ICON_STATE = "dullahantaursyndi", SKIN_ICON = CYBORG_ICON_SYNDIE_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL, TRAIT_R_UNIQUEPANEL), SKIN_HAT_OFFSET = list("north" = list(1, 15), "south" = list(1, 15), "east" = list(7, 15), "west" = list(-7, 15))),
-		/// 64x32 Skins
-		"SmolRaptor" = list(SKIN_ICON_STATE = "smolraptor", SKIN_ICON = CYBORG_ICON_SYNDIE_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_SMALL, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, -1), "east" = list(37, 0), "west" = list(-5, 0))),
+		"Walker Tank" = list(SKIN_ICON_STATE = "tachi", SKIN_ICON = 'modular_nova/modules/admin_tech/icons/mob/admin_robots.dmi'),
 	)
-	/// Weakref to the thermal vision action
 	var/datum/weakref/thermal_vision_ref
 
-/obj/item/robot_model/syndicatejack/Destroy(force)
+/obj/item/robot_model/admin/Destroy(force)
 	QDEL_NULL(thermal_vision_ref)
 	return ..()
 
-/obj/item/robot_model/syndicatejack/be_transformed_to(obj/item/robot_model/old_model, forced = FALSE)
+/obj/item/robot_model/admin/be_transformed_to(obj/item/robot_model/old_model, forced = FALSE)
 	var/datum/action/cooldown/borg_thermal/thermal_vision = new(loc)
 	. = ..()
 	if(!.)
@@ -80,17 +59,31 @@
 	thermal_vision.Grant(loc)
 	thermal_vision_ref = WEAKREF(thermal_vision)
 
-/obj/item/robot_model/syndicatejack/rebuild_modules()
-	. = ..()
-	var/mob/living/silicon/robot/syndicatejack = loc
-	syndicatejack.scrambledcodes = TRUE // We're rouge now
+// Spawnable Mob for the base model + additional config and benefits
+/mob/living/silicon/robot/model/admin
+	icon = 'modular_nova/modules/admin_tech/icons/mob/admin_robots.dmi'
+	icon_state = "tachi"
+	designation = "CC"
+	faction = list(FACTION_ERT)
+	bubble_icon = "tachi"
+	req_access = list(ACCESS_CENT_GENERAL)
+	lawupdate = FALSE
+	scrambledcodes = FALSE
+	ionpulse = TRUE
+	var/playstyle_string = "<span class='big bold'>You are a Syndicate assault cyborg!</span><br>\
+		<b>You are armed with powerful offensive tools to aid you in your mission: help the operatives secure the nuclear authentication disk. \
+		Your cyborg LMG will slowly produce ammunition from your power supply, and your operative pinpointer will find and locate fellow nuclear operatives. \
+		<i>Help the operatives secure the disk at all costs!</i></b>"
+	set_model = /obj/item/robot_model/admin
+	cell = /obj/item/stock_parts/power_store/cell/infinite
+	radio = /obj/item/radio/borg/syndicate
 
-/obj/item/robot_model/syndicatejack/remove_module(obj/item/removed_module)
-	var/mob/living/silicon/robot/syndicatejack = loc
-	syndicatejack.scrambledcodes = FALSE // Friends with the AI again
-	return ..()
+// Admin Borg, Bluespace-tech Equivalent.
+// Just a placeholder for the moment
+/obj/item/robot_model/admin/subspace
 
-/obj/item/robot_model/syndicate
+// Assault / Frontline Establishment
+/obj/item/robot_model/admin/frontline
 	name = "Syndicate Assault"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
@@ -102,22 +95,9 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/pinpointer/syndicate_cyborg,
 	)
-	cyborg_base_icon = "synd_sec"
-	model_select_icon = "malf"
-	model_traits = list(TRAIT_PUSHIMMUNE)
-	hat_offset = list("north" = list(0, 3), "south" = list(0, 3), "east" = list(4, 3), "west" = list(-4, 3))
 
-/obj/item/robot_model/syndicate/rebuild_modules()
-	..()
-	var/mob/living/silicon/robot/cyborg = loc
-	cyborg.remove_faction(FACTION_SILICON) //ai turrets
-
-/obj/item/robot_model/syndicate/remove_module(obj/item/removed_module)
-	..()
-	var/mob/living/silicon/robot/cyborg = loc
-	cyborg.add_faction(FACTION_SILICON) //ai is your bff now!
-
-/obj/item/robot_model/syndicate_medical
+// Backline Support
+/obj/item/robot_model/admin/support
 	name = "Syndicate Medical"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
@@ -138,12 +118,9 @@
 		/obj/item/borg/apparatus/organ_storage,
 		/obj/item/storage/bag/chemistry,
 	)
-	cyborg_base_icon = "synd_medical"
-	model_select_icon = "malf"
-	model_traits = list(TRAIT_PUSHIMMUNE)
-	hat_offset = list("north" = list(0, 3), "south" = list(0, 3), "east" = list(-1, 3), "west" = list(1, 3))
 
-/obj/item/robot_model/saboteur
+// Engineering Generalist
+/obj/item/robot_model/admin/engineer
 	name = "Syndicate Saboteur"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
@@ -167,13 +144,6 @@
 		/obj/item/borg_chameleon,
 		/obj/item/card/emag,
 	)
-	cyborg_base_icon = "synd_engi"
-	model_select_icon = "malf"
-	model_traits = list(TRAIT_PUSHIMMUNE, TRAIT_NEGATES_GRAVITY)
-	hat_offset = list("north" = list(0, -4), "south" = list(0, -4), "east" = list(4, -4), "west" = list(-4, -4))
-	canDispose = TRUE
-	var/datum/weakref/thermal_vision_ref
-
 
 // Modules to transform pre-existing borgs into an admin borg
 /obj/item/borg/upgrade/transform/syndicatejack

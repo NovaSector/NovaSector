@@ -9,27 +9,31 @@
 	active_power_cost = 0
 	incompatible_modules = null
 
+///Creates new subspace boxes.
+/obj/item/mod/module/dispenser/subspacebox
+	name = "MOD subspace box dispenser module"
+	desc = "The pipeline of creation."
+	icon_state = "dispenser"
+	complexity = 0
+	idle_power_cost = 0
+	active_power_cost = 0
+	use_energy_cost = 0
+	incompatible_modules = list()
+	cooldown_time = 2 SECONDS
+	required_slots = list()
+	dispense_type = /obj/item/storage/box/debug
+
 /obj/item/mod/module/admin/carbine
 	name = "MOD linked subspace carbine module"
 	desc = "Provides technicians with a weapon they cannot be separated from."
 	icon_state = "holster"
-	icon = 'modular_nova/modules/marines/icons/items/module.dmi'
-	overlay_icon_file = 'modular_nova/modules/marines/icons/mobs/mod_modules.dmi'
+	icon = 'icons/obj/clothing/modsuit/mod_modules.dmi'
+	overlay_icon_file = 'icons/obj/clothing/modsuit/mod_modules.dmi'
 	module_type = MODULE_ACTIVE
 	device = /obj/item/gun/energy/modular_laser_rifle/carbine/admin
 	cooldown_time = 0.5 SECONDS
-	required_slots = list(ITEM_SLOT_GLOVES)
+	required_slots = list()
 	/// Power consumed per bullet fired
-	var/power_per_bullet = 0
-
-/obj/item/mod/module/admin/carbine/on_activation()
-	. = ..()
-	RegisterSignal(device, COMSIG_GUN_FIRED, PROC_REF(consume_energy))
-
-/obj/item/mod/module/subspace/carbine/proc/consume_energy(mob/user, atom/target, params, zone_override)
-	SIGNAL_HANDLER
-
-	drain_power(power_per_bullet)
 
 // TODO: Should probably be removed, and we should use the new personal energy dune shields instead
 /obj/item/mod/module/energy_shield/admin
