@@ -20,7 +20,7 @@
 /mob/living/basic/pet/cat/clown/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg' = 1), 50)
-	AddElement(/datum/element/waddling)
+	AddElementTrait(TRAIT_WADDLING, REF(src), /datum/element/waddling)
 
 
 	response_help_continuous = "pets"
