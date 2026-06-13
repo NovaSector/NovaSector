@@ -1,5 +1,0 @@
-author: "DriftingSkies"
-delete-after: True
-changes:
-  - rscdel: "removes handheld monitors from cargo"
-  - balance: "removes handheld monitors from cargo"

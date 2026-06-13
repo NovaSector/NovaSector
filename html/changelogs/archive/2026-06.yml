@@ -67,3 +67,190 @@
       for the character directory
   theselfish:
   - rscdel: TG Maps have their unique shuttles back.
+2026-06-13:
+  AnturK:
+  - balance: polar bears are tiny bit faster
+  ArcaneMusic:
+  - balance: Non-boss ore vents may no longer contain bluespace crystals and diamonds.
+  - balance: All ore vents now have a flat 7% chance to spawn an artifact boulder.
+  - balance: There are now 2 new artifact boulder types, which may contain 1-5 sheets
+      worth of bluespace crystals or diamonds respectively. These boulders may have
+      their rare ore boosted via chemical boosting.
+  - balance: ore distribution in vents have been adjusted to accommodate for bluespace
+      and diamonds being removed from vents accordingly.
+  - spellcheck: ' Ore vents now explain the artifact boulder mechanic on examine.'
+  Arturlang:
+  - bugfix: moonatics switching bodies (including slimeperson swap) giving you duplicate
+      action buttons
+  - bugfix: lock path not having 1 point discounts
+  Charlotte-Sugar:
+  - rscadd: adds the Slime Tails hairstyle
+  DriftingSkies:
+  - rscdel: removes handheld monitors from cargo
+  - balance: removes handheld monitors from cargo
+  FalloutFalcon:
+  - bugfix: Stumps aren't see through
+  Fghj240:
+  - bugfix: Cybernetic cat ears can no longer be restyled with flesh reshapers (because
+      it broke them)
+  Frfor17:
+  - bugfix: fixed NT shop printing infiniti papers, now its linked to computer's(laptop,
+      pda, any) paper storage
+  Glamyrio:
+  - bugfix: Renamed 2 cameras on MetaStation; first cam was with wrong name and second
+      one was a badnamed
+  Hatterhat:
+  - bugfix: Bileworm spewlet trophies no longer spit bullets instead of acidic bile.
+  - bugfix: The Nova-specific options on the escape menu should actually be usable/no
+      longer squished (in the case of the OPFOR button).
+  - bugfix: Xenomorph queens are no longer slowed down by their own giant tails, by
+      virtue of also being giant.
+  - bugfix: Stasis body bags are no longer dense when closed.
+  - spellcheck: Fixed a typo relating to the spelling of "cinched" in body bags with
+      buckles (prisoner bags, et cetera).
+  Iajret:
+  - bugfix: granted stamps are back on nova maps
+  - bugfix: Mending touch works once again
+  JohnFulpWillard:
+  - qol: People who are handcuffed/resting/anyone who can't pull people won't be prompted
+      to pull things in the dropdown menu.
+  Macaroni:
+  - qol: The alt jester outfit now has grayscale and is buyable
+  Melbert:
+  - map: Roundstart nuclear operatives now spawn in the nuke base elevator, rather
+      than in the base itself. This change was done so we could reduce the lag from
+      loading the nuke base during round startup.
+  - bugfix: Cutting an airlock's ID wire prevents ID usage again (instead of changing
+      the door to all access)
+  - bugfix: Fix mutators printed from genetics
+  - refactor: Refactored dna injectors (both the ones that change appearance and activate
+      mutations), report any oddities with them like failing to revert your appearance
+      or mutations not applying correctly
+  - code_imp: Ever so slightly changed how diseases tick, report any oddities
+  - code_imp: Ever so slightly changed how some species mechanics tick, like golems
+      and slimes, report any oddities
+  - code_imp: The code behind printing appearance modifying dna injectors from genetics
+      has changed, report any oddities
+  - code_imp: Some backend transformation sting code changed slightly, report any
+      oddities
+  - code_imp: Zombie "idle" groaning is now tied to the tongue rather than the species
+      itself
+  - admin: Force-injecting someone with HARS give an admin alert, the same as force-injecting
+      someone with Monkey
+  - bugfix: Several methods of copying DNA (including transformation sting) mistakenly
+      copied "active mutations", this has been fixed
+  MelokG000:
+  - rscadd: added botanic trays - hydroponic trays with soil instead of water, just
+      fill a tray with any soil and done!
+  - image: resprited auto-growth mode and added emissives to it
+  - image: resprited hydroponic trays
+  - rscadd: added old-designed mode for hydroponic trays - use a screwdriver or a
+      plant analyzer on the circuit!
+  - image: added emissives to hydroponic tray indicators
+  Neocloudy:
+  - bugfix: '[NOVA] Fixed long form text boxes (flavor text, OOC notes, etc.) causing
+      players to hit the topic limit.'
+  - rscadd: '[NOVA] Adds a new underwear, Groin Plating, based off the Tattoo - Heart
+      (Groin) marking.'
+  NiklasNeighbor:
+  - qol: gives the voidwalker nightvision. Why wasn't this a thing before??
+  QuiteLiterallyAnything:
+  - bugfix: Made discounts from toxins papers show up in research UIs properly.
+  - refactor: Refactored research techwebs such that toxins discounts are now stored
+      per techweb node rather than per techweb.
+  Richard Blonski:
+  - bugfix: Engineering Plumbing Constructor Sprites
+  - bugfix: Wide Characters (such as Cyborgs), will be able now to properly pixel
+      shift.
+  - rscadd: Photocopier, Medical, Psychological Evaluation Form Template.
+  - rscadd: Photocopier, Fun, Mothroach/Lizard Jumpscare Templates.
+  SmArtKar:
+  - bugfix: Fixed brimdust overlay on wide mobs leaking onto other objects
+  - balance: You can make toolboxes out of meat and paper again
+  - bugfix: Drake tail trophy no longer pushes immovable mobs
+  - bugfix: Fixed Gene Stim missing an icon in ling UI
+  - bugfix: Fixed spilled flour not containing any flour
+  - bugfix: Drake swoop no longer misleadingly claims you fall into lava if it fails
+      to spawn said lava
+  Stalkeros:
+  - rscadd: Pan-slavic has been reflavored to comply with our lore.
+  - rscdel: Spinwarder is gone in its player-facing entirety.
+  Stalkeros for the code, splet and Gooorn for the sprites:
+  - rscadd: Heliostatic Coalition Guild Bank Cash-in-transit Carrier Fleet has finally
+      finished its thoroughly exhausting licensing process, bringing you and especially
+      Cargo (as is tradition) an excessive amount of tungsten carbide coins to tinker
+      with.
+  StrangeWeirdKitten:
+  - bugfix: Blobs can no longer destroy indestructible items, like the disk.
+  TelevisionStatic:
+  - rscadd: Adds an autolathe circuit board as one of the purchasable goodies in the
+      cargo market.
+  TheRyeGuyWhoWillNowDie:
+  - balance: instead of the hard requirement for sleeping, cryox's healing power is
+      doubled by being asleep instead
+  - bugfix: on default settings a cryo tube filled with cryoxadone can no longer softlock
+      you by outdamaging its own healing potential
+  - bugfix: storage module of holding now triggers bluespace interference as intended
+  - refactor: teleporter interference checks check an item flag rather than hard type-checking
+      bags of holding
+  - spellcheck: Securiy
+  - bugfix: jaws of recovery are blacklisted from crafting the jaws of recovery
+  - rscadd: Added the limper quirk, which makes you limp.
+  Thunder12345:
+  - bugfix: The honkbot on the casino emergency shuttle has been told not to abandon
+      its post.
+  UgoManzo:
+  - bugfix: Fixed a server crash caused by igniting plasma-covered floor lights.
+  Wisemonster:
+  - code_imp: Wizard Apprentices now use the mid-round wizard pref, instead of the
+      round start wizard pref.
+  - bugfix: Fixed Nebula's boulder refinery being constantly spaced.
+  - bugfix: Starting boulder refineries and smelters should start facing the correct
+      direction.
+  - qol: Debug bluespace rpeds now come stocked with their respective tier of mega
+      cells
+  Y0SH1M4S73R:
+  - bugfix: Non-square paint canvases and Nanopaint projects correctly save to icons.
+  - bugfix: You can no longer enter empty filenames when saving Nanopaint files.
+  - spellcheck: User-provided modular computer filenames are now checked against the
+      pda IC filter.
+  Zergspower:
+  - rscadd: Emagging a synth may void your warranty instantly, expands the emag proc
+      on synthetics.
+  lelandkemble:
+  - bugfix: Toxin bees get toxin
+  - balance: Bitrunners can't back out of domains via the ladder while bitrunning
+      glitches remain in them
+  - qol: Support holoparasites can teleport things between two station Z-levels
+  - bugfix: Support holoparasite teleportation no longer runtimes when attempting
+      to teleport a turf
+  - balance: For every living, connected bitrunner remaining in a domain, bitrunning
+      glitches will take five times longer to escape.
+  - bugfix: You can no longer softlock any virtual domain that uses points by crowbarring
+      the reward turf before the crate spawns.
+  - balance: Smartfridges no longer block atmos when broken & no longer let creatures
+      pass until broken
+  - bugfix: Bitrunners no longer take double damage in-domain, and do take damage
+      to their real bodies
+  - bugfix: Material spears no longer partially avoid the force malus from being unwielded
+  - bugfix: Patrol bounties properly pay those who complete them
+  - balance: The RNG instant kill via organ removal of the mech drill has been removed,
+      and replaced with a very high wounding chance
+  levels0:
+  - bugfix: random recipes can no longer have upper pH bound above 14
+  moonridden:
+  - admin: Adds an unbound hotkey option for Admin ESP, which lets you quickly toggle
+      ghost-vision eyes.
+  - admin: Adds a button to refresh character prefs to the Other tab of Player Panel.
+      No more VV, huzzah.
+  necromanceranne:
+  - spellcheck: Adds some additional deep lore to some of the pistols in the game.
+      FInd your favourite and see if I cared to add one.
+  - spellcheck: Rewrote the lore for contractor batons and stun batons.
+  - code_imp: Repathed Liberators. This has no bearing on their function.
+  - code_imp: Rechambers Regal Condors in .45 and 10mm Reaper rounds to .45 Reaper
+      rounds. This has no impact on their function.
+  sqnztb:
+  - map: Nova-specific maps boulder refineries are now oriented properly.
+  timothymtorres:
+  - spellcheck: Add security misspelling checks to CI
