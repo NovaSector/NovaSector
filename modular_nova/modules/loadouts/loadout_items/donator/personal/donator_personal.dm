@@ -824,6 +824,16 @@
 	item_path = /obj/item/clothing/under/bwake
 	ckeywhitelist = list("ignari")
 
+/datum/loadout_item/under/jumpsuit/ig_harness
+	name = "Body Harness"
+	item_path = /obj/item/clothing/under/ig_harness
+	ckeywhitelist = list("ignari")
+
+/datum/loadout_item/neck/ig_cloak
+	name = "Kiara's Cloak"
+	item_path = /obj/item/clothing/neck/ig_cloak
+	ckeywhitelist = list("ignari")
+
 /datum/loadout_item/inhand/pet/mrfluff_mothroach
 	name = "Mr. Fluff"
 	item_path = /obj/item/mob_holder/pet/donator/centralsmith
@@ -1060,6 +1070,16 @@
 	name = "dated Espatier holster"
 	item_path = /obj/item/storage/belt/espatier
 	ckeywhitelist = list("pyriteChimera", "darkinite", "deadmon_wonderland", "nonplayer775", "rilomatic")
+
+/datum/loadout_item/pocket_items/joissuit_skinapplier
+	name = "Java Operated Intelligence Suit Modification Kit 'JOISuit' (Skinapplier)"
+	item_path = /obj/item/mod/skin_applier/joisuit
+	ckeywhitelist = list("hisakaki", "darkinite", "rilomatic")
+
+/datum/loadout_item/pocket_items/joissuit_plates
+	name = "JOISuit Modification Core"
+	item_path = /obj/item/mod/construction/plating/joisuit
+	ckeywhitelist = list("hisakaki", "darkinite", "rilomatic")
 
 /datum/loadout_item/head/stachelm
 	name = "Stachelm"

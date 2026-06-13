@@ -18,7 +18,7 @@
 
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim/special(mob/living/carbon/human/spawned_human, mob/mob_possessor, apply_prefs)
 	. = ..()
-	spawned_human.grant_language(/datum/language/panslavic, source = LANGUAGE_SPAWNER)
+	spawned_human.grant_language(/datum/language/spinwarder, source = LANGUAGE_SPAWNER)
 
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim/post_transfer_prefs(mob/living/carbon/human/spawned_human)
 	. = ..()

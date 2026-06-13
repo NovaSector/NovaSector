@@ -3,7 +3,6 @@ This is the decay subsystem that is run once at startup.
 These procs are incredibly expensive and should only really be run once. That's why the only run once.
 */
 
-
 #define FLOOR_DIRT_PERCENT_CHANCE 15
 #define FLOOR_BLOOD_PERCENT_CHANCE 1
 #define FLOOR_VOMIT_PERCENT_CHANCE 1
@@ -148,3 +147,12 @@ SUBSYSTEM_DEF(decay)
 			for(var/obj/machinery/light/iterating_light in iterating_medical)
 				if(prob(LIGHT_FLICKER_PERCENT_CHANCE))
 					iterating_light.start_flickering()
+
+#undef FLOOR_DIRT_PERCENT_CHANCE
+#undef FLOOR_BLOOD_PERCENT_CHANCE
+#undef FLOOR_VOMIT_PERCENT_CHANCE
+#undef FLOOR_OIL_PERCENT_CHANCE
+#undef FLOOR_TILE_MISSING_PERCENT_CHANCE
+#undef FLOOR_COBWEB_PERCENT_CHANCE
+#undef NEST_PERCENT_CHANCE
+#undef LIGHT_FLICKER_PERCENT_CHANCE
