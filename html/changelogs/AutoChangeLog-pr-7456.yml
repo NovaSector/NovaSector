@@ -1,0 +1,4 @@
+author: "moonridden"
+delete-after: True
+changes:
+  - admin: "Adds an unbound hotkey option for Admin ESP, which lets you quickly toggle ghost-vision eyes."
