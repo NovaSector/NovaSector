@@ -127,6 +127,26 @@
 ///The mob is all boney
 #define MOB_SKELETAL (1 << 15)
 
+/// Readable biotypes, keep this in the same order as the flags are
+#define MOB_BIOTYPES_READABLE list(\
+	"organic", \
+	"mineral", \
+	"robotic", \
+	"undead", \
+	"humanoid", \
+	"insectoid", \
+	"beast", \
+	"monstrous", \
+	"reptile", \
+	"spirit", \
+	"plant", \
+	"slime", \
+	"aquatic", \
+	"mining", \
+	"crustacean", \
+	"skeletal", \
+)
+
 //Lung respiration type flags
 #define RESPIRATION_OXYGEN (1 << 0)
 #define RESPIRATION_N2 (1 << 1)
@@ -181,8 +201,10 @@
 #define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<8)
 // NOVA EDIT ADDITION END
 
+/// List of body part flags that can not be bioscrambled
 #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG | BODYTYPE_GHOUL) // NOVA EDIT CHANGE - ORIGINAL: #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
-#define BODYTYPE_CAN_BE_BIOSCRAMBLED(bodytype) (!(bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE))
+/// Check to see if a bodypart limb can be bioscrambled
+#define BODYPART_CAN_BE_BIOSCRAMBLED(bodypart) (!(bodypart.bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE) && !(bodypart.flags_1 & HOLOGRAM_1))
 
 // Defines for Species IDs. Used to refer to the name of a species, for things like bodypart names or species preferences.
 #define SPECIES_ABDUCTOR "abductor"

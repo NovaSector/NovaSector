@@ -670,10 +670,6 @@
 
 	update_icon_dropped()
 
-//Return TRUE to get whatever mob this is in to update health.
-/obj/item/bodypart/proc/on_life(seconds_per_tick)
-	SHOULD_CALL_PARENT(TRUE)
-
 /**
  * #receive_damage
  *
@@ -1953,3 +1949,34 @@
 	var/old_state = surgery_state
 	. = ..()
 	update_surgical_state(old_state, surgery_state ^ old_state)
+
+/// Adds biostate to the limb and ensures surgical states are updated accordingly
+/obj/item/bodypart/proc/add_biostate(new_biostate)
+	if(biological_state & new_biostate)
+		return
+
+	var/had_skin = LIMB_HAS_SKIN(src)
+	var/had_bones = LIMB_HAS_BONES(src)
+	var/had_vessels = LIMB_HAS_VESSELS(src)
+
+	biological_state |= new_biostate
+
+	if(!had_skin && LIMB_HAS_SKIN(src))
+		remove_surgical_state(SKINLESS_SURGERY_STATES)
+	if(!had_bones && LIMB_HAS_BONES(src))
+		remove_surgical_state(BONELESS_SURGERY_STATES)
+	if(!had_vessels && LIMB_HAS_VESSELS(src))
+		remove_surgical_state(VESSELLESS_SURGERY_STATES)
+
+/// Removes biostate from the limb and ensures surgical states are updated accordingly
+/obj/item/bodypart/proc/remove_biostate(old_biostate)
+	if(!(biological_state & old_biostate))
+		return
+
+	biological_state &= ~old_biostate
+	if(!LIMB_HAS_SKIN(src))
+		add_surgical_state(SKINLESS_SURGERY_STATES)
+	if(!LIMB_HAS_BONES(src))
+		add_surgical_state(BONELESS_SURGERY_STATES)
+	if(!LIMB_HAS_VESSELS(src))
+		add_surgical_state(VESSELLESS_SURGERY_STATES)

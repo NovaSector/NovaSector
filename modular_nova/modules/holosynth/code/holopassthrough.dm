@@ -30,6 +30,13 @@
 /datum/component/glass_passer/holosynth/Initialize(pass_time = HOLOSYNTH_GLASS_PASS_TIME, deform_glass = HOLOSYNTH_GLASS_DEFORM_TIME)
 	return ..()
 
+/datum/component/glass_passer/holosynth/on_cross_over(mob/passer, atom/crosser)
+	if(istype(crosser, /obj/structure/grille))
+		var/obj/structure/grille/grille = crosser
+		if(grille.broken)
+			return null
+	return ..()
+
 /datum/component/glass_passer/holosynth/phase_through_glass(mob/living/owner, atom/bumpee)
 	if(!auto_phase)
 		return
@@ -102,7 +109,7 @@
 			continue
 		if(istype(blocker, /obj/structure/grille))
 			var/obj/structure/grille/grille = blocker
-			if(grille.is_shocked())
+			if(!grille.broken && grille.is_shocked())
 				return TRUE
 			continue
 		if(istype(blocker, /obj/structure/window))
