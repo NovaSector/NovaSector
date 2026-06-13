@@ -31,18 +31,7 @@ GLOBAL_LIST_INIT(antag_optin_forcing_on_spawn_antag_categories, list(
 	/// Set to TRUE on a successful transfer_mind() call. If TRUE, transfer_mind() will not refresh opt in.
 	var/antag_opt_in_initialized
 
-/mob/living/Login()
-	. = ..()
-	if(CONFIG_GET(flag/disable_antag_opt_in_preferences)) //lets not annoy our fellow players with useless info if we don't use this system at all
-		return
-	if (isnull(mind))
-		return
-	if (isnull(client?.prefs))
-		return
-	if (!mind.antag_opt_in_initialized)
-		mind.update_antag_opt_in(client.prefs)
-		mind.send_antag_optin_reminder()
-		mind.antag_opt_in_initialized = TRUE
+// There was a /mob/living/Login() proc here once, it now lives with all its siblings at modular_nova\master_files\code\modules\mob\living\living.dm
 
 /// Refreshes our ideal/on spawn antag opt in level by accessing preferences.
 /datum/mind/proc/update_antag_opt_in(datum/preferences/preference_instance = GLOB.preferences_datums[ckey(key)])

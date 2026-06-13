@@ -1,9 +1,3 @@
-/mob/living/Login()
-	. = ..()
-	if(ckey)
-		if(is_banned_from(ckey, BAN_PACIFICATION))
-			ADD_TRAIT(src, TRAIT_PACIFISM, ROUNDSTART_TRAIT)
-
 /mob/dead/observer/Login()
 	. = ..()
 	if(ckey)
@@ -18,3 +12,4 @@
 			iterating_player.visible_message(span_notice("[iterating_player] is teleported back home, hopefully to an everloving family!"), span_userdanger("As you are end of round banned, you will now be deleted."))
 			qdel(iterating_player)
 
+// There was a /mob/living/Login() proc here once, it now lives with all its siblings at modular_nova\master_files\code\modules\mob\living\living.dm

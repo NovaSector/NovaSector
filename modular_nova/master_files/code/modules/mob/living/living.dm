@@ -41,3 +41,30 @@
 		to_chat(src, span_userdanger("An admin has [!admin_sleeping ? "un": ""]slept you."))
 		log_admin("[key_name(admin)] toggled admin-sleep on [key_name(src)].")
 		message_admins("[key_name_admin(admin)] toggled admin-sleep on [key_name_admin(src)].")
+
+/// Living mob login modular override
+/mob/living/Login()
+	. = ..()
+	if(CONFIG_GET(flag/disable_antag_opt_in_preferences)) //lets not annoy our fellow players with useless info if we don't use this system at all
+		return
+	if (isnull(mind))
+		return
+	if (isnull(client?.prefs))
+		return
+	if (!mind.antag_opt_in_initialized)
+		mind.update_antag_opt_in(client.prefs)
+		mind.send_antag_optin_reminder()
+		mind.antag_opt_in_initialized = TRUE
+	if(ckey)
+		if(is_banned_from(ckey, BAN_PACIFICATION))
+			ADD_TRAIT(src, TRAIT_PACIFISM, ROUNDSTART_TRAIT)
+	if(CONFIG_GET(flag/disable_conflict_opt_in_preferences)) //lets not annoy our fellow players with useless info if we don't use this system at all
+		return
+	if (isnull(mind))
+		return
+	if (isnull(client?.prefs))
+		return
+	if (!mind.conflict_opt_in_initialized)
+		mind.update_conflict_opt_in(client.prefs)
+		mind.conflict_opt_in_initialized = TRUE
+	set_ssd_indicator(FALSE)
