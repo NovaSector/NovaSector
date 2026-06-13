@@ -9,4 +9,3 @@
 	result = /obj/item/food/burger/chicken/human
 	dish_category = DISH_BURGER
 
-
