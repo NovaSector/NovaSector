@@ -182,7 +182,7 @@ export function ExaminePanel(props) {
                         <Stack.Item>
                           {ideal_antag_optin_status && (
                             <Stack.Item>
-                              Current Antag Opt-In Status:{' '}
+                              Dynamic Opt-In:{' '}
                               <span
                                 style={{
                                   fontWeight: 'bold',
@@ -199,7 +199,7 @@ export function ExaminePanel(props) {
                           )}
                           {ideal_conflict_optin_status && (
                             <Stack.Item>
-                              Current Conflict Opt-In Status:{' '}
+                              Conflict Opt-In:{' '}
                               <span
                                 style={{
                                   fontWeight: 'bold',
