@@ -42,7 +42,7 @@
 		log_admin("[key_name(admin)] toggled admin-sleep on [key_name(src)].")
 		message_admins("[key_name_admin(admin)] toggled admin-sleep on [key_name_admin(src)].")
 
-/// Living mob login modular override
+/// Living mob login modular extension
 /mob/living/Login()
 	. = ..()
 	if(CONFIG_GET(flag/disable_antag_opt_in_preferences)) //lets not annoy our fellow players with useless info if we don't use this system at all
