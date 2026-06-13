@@ -168,7 +168,7 @@
 /datum/component/protean_limb/proc/is_chest()
 	return istype(parent, /obj/item/bodypart/chest)
 
-/datum/component/protean_limb/Destroy()
+/datum/component/protean_limb/Destroy(force)
 	if(qdel_timerid)
 		deltimer(qdel_timerid)
 		qdel_timerid = null
