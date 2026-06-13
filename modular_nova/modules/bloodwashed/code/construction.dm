@@ -47,6 +47,12 @@
 			span_cult_italic("You twist [candidate] into a profane weapon."),
 		)
 		SEND_SOUND(user, sound('sound/effects/magic.ogg', FALSE, 0, 25))
-		return ..()
+		if(invocation)
+			user.whisper(invocation, language = /datum/language/common, forced = "cult invocation")
+		if(health_cost)
+			var/target_arm = user.active_hand_index == 1 ? BODY_ZONE_L_ARM : BODY_ZONE_R_ARM
+			user.apply_damage(health_cost, BRUTE, target_arm, wound_bonus = CANT_WOUND)
+		qdel(src)
+		return TRUE
 
 	return ..()
