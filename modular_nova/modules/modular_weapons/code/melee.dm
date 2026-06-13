@@ -92,7 +92,6 @@
 	hitsound = 'sound/items/weapons/whip.ogg'
 	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
 
-
 /obj/item/melee/baton/security/shockwhip/update_icon_state()
 	var/base_inhand = base_inhand_state || base_icon_state
 	if(active)
