@@ -1,0 +1,4 @@
+author: "moonridden"
+delete-after: True
+changes:
+  - admin: "Adds a button to refresh character prefs to the Other tab of Player Panel. No more VV, huzzah."
