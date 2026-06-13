@@ -5,6 +5,9 @@
 /obj/item/melee/blood_magic/construction/cast_spell(atom/target, mob/living/carbon/user)
 	if(istype(target, /obj/item/gun))
 		var/obj/item/gun/candidate = target
+		if(candidate.pinless)
+			to_chat(user, span_warning("[candidate] has no firing pin receiver for the spell to twist!"))
+			return
 		if(candidate.GetComponent(/datum/component/bloodwashed_corrupted_gun))
 			to_chat(user, span_warning("[candidate] has already been twisted by blood magic!"))
 			return
