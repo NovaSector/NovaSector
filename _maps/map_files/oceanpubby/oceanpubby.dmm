@@ -34707,6 +34707,14 @@
 /obj/item/paper_bin/carbon,
 /obj/item/coin/silver,
 /obj/item/stamp/head/qm,
+/obj/item/stamp/denied{
+	pixel_y = 6;
+	pixel_x = -6
+	},
+/obj/item/stamp/granted{
+	pixel_y = 6;
+	pixel_x = 9
+	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/qm)
 "iBk" = (
@@ -47823,6 +47831,14 @@
 "rSR" = (
 /obj/item/universal_scanner,
 /obj/structure/table/reinforced,
+/obj/item/stamp/granted{
+	pixel_y = 5;
+	pixel_x = 9
+	},
+/obj/item/stamp/denied{
+	pixel_y = 6;
+	pixel_x = -5
+	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "rTb" = (

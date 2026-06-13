@@ -7313,7 +7313,7 @@
 /obj/item/stamp/head/hop{
 	pixel_y = 12
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_y = 6;
 	pixel_x = 6
 	},
@@ -20651,7 +20651,7 @@
 /obj/item/stamp/head/qm{
 	pixel_y = 5
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = 5
 	},
 /obj/item/stamp/denied{
@@ -38091,7 +38091,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = 10;
 	pixel_y = 6
 	},
@@ -44762,7 +44762,7 @@
 	pixel_x = -7;
 	pixel_y = 9
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = -7;
 	pixel_y = 1
 	},
@@ -67705,7 +67705,7 @@
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = -3
 	},
 /turf/open/floor/iron/dark,

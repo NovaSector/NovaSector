@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "The Nova-specific options on the escape menu should actually be usable/no longer squished (in the case of the OPFOR button)."

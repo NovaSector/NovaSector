@@ -27,7 +27,7 @@
 /obj/effect/mob_spawn/ghost_role/human/hc_officer/post_transfer_prefs(mob/living/spawned_mob)
 	. = ..()
 	spawned_mob.mind.add_antag_datum(/datum/antagonist/cop)
-	spawned_mob.grant_language(/datum/language/panslavic, source = LANGUAGE_SPAWNER)
+	spawned_mob.grant_language(/datum/language/spinwarder, source = LANGUAGE_SPAWNER)
 	spawned_mob.grant_language(/datum/language/uncommon, source = LANGUAGE_SPAWNER)
 	spawned_mob.grant_language(/datum/language/yangyu, source = LANGUAGE_SPAWNER)
 	spawned_mob.grant_language(/datum/language/akulan, source = LANGUAGE_SPAWNER)
