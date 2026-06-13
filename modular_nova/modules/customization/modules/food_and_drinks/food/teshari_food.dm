@@ -402,3 +402,10 @@
 		else if(mob_meat_material.subjectjob)
 			name = "[mob_meat_material.subjectjob] burger"
 
+// tg override to exclude the special types
+/datum/food_processor_process/meat/chicken/New()
+	blacklist |= list(
+		/obj/item/food/meat/slab/chicken/human/teshari,
+		/obj/item/food/meat/slab/chicken/human/vox,
+	)
+
