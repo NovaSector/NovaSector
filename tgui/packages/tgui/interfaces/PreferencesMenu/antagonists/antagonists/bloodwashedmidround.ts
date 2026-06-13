@@ -1,4 +1,5 @@
 import { type Antagonist, Category } from '../base';
+import { BLOODWASHED_MECHANICAL_DESCRIPTION } from './bloodwashed';
 
 const BloodwashedMidround: Antagonist = {
   key: 'bloodwashedmidround',
@@ -8,11 +9,7 @@ const BloodwashedMidround: Antagonist = {
       A lone occult antagonist whose mind cracks open partway through the
       shift under lingering blood cult influence.
     `,
-
-    `
-      You have scraps of cult rites, limited blood magic, and your own
-      objectives. You cannot convert others or summon Nar'Sie.
-    `,
+    BLOODWASHED_MECHANICAL_DESCRIPTION,
   ],
   category: Category.Midround,
 };

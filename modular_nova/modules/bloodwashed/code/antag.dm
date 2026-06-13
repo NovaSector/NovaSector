@@ -14,7 +14,14 @@
 	return ..()
 
 /datum/antagonist/cult/bloodwashed/create_team(datum/team/cult/new_team)
-	cult_team = new /datum/team/cult/bloodwashed
+	if(isnull(new_team))
+		cult_team = new /datum/team/cult/bloodwashed
+		return
+	if(!istype(new_team, /datum/team/cult/bloodwashed))
+		stack_trace("Wrong team type passed to [type] initialization.")
+		cult_team = new /datum/team/cult/bloodwashed
+		return
+	cult_team = new_team
 
 /datum/antagonist/cult/bloodwashed/admin_add(datum/mind/new_owner, mob/admin)
 	give_equipment = TRUE
@@ -34,7 +41,7 @@
 
 	var/mob/living/current = owner.current
 	if(give_equipment)
-		equip_bloodwashed(TRUE)
+		equip_bloodwashed(metal = TRUE)
 	if(ishuman(current))
 		var/datum/action/innate/cult/blood_magic/bloodwashed/magic = new(owner)
 		magic.Grant(current)
@@ -88,15 +95,19 @@
 
 /datum/antagonist/cult/bloodwashed/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/current = owner.current || mob_override
+	if(!current)
+		return ..()
+	for(var/obj/item/melee/cultblade/dagger/dagger in current.get_all_contents())
+		bloodwashed_restore_ritual_dagger(dagger)
 	UnregisterSignal(current, COMSIG_LIVING_PICKED_UP_ITEM)
 	return ..()
 
 /datum/antagonist/cult/bloodwashed/proc/on_pickup_item(mob/living/source, obj/item/item)
 	SIGNAL_HANDLER
 
-	var/obj/item/melee/cultblade/dagger/dagger = item
-	if(istype(dagger))
-		bloodwashed_restrict_ritual_dagger(dagger)
+	var/obj/item/melee/cultblade/dagger/picked_up_dagger = item
+	if(istype(picked_up_dagger))
+		bloodwashed_restrict_ritual_dagger(picked_up_dagger)
 
 /datum/antagonist/cult/bloodwashed/check_invoke_validity()
 	return FALSE
@@ -125,32 +136,32 @@
 	return ..()
 
 /datum/antagonist/cult/bloodwashed/proc/equip_bloodwashed(metal = TRUE)
-	var/mob/living/carbon/H = owner.current
-	if(!istype(H))
+	var/mob/living/carbon/bloodwashed_mob = owner.current
+	if(!istype(bloodwashed_mob))
 		return
-	. += bloodwashed_give_item(/obj/item/melee/cultblade/dagger, H)
+	. += bloodwashed_give_item(/obj/item/melee/cultblade/dagger, bloodwashed_mob)
 	if(metal)
-		. += bloodwashed_give_item(/obj/item/stack/sheet/runed_metal/ten, H)
+		. += bloodwashed_give_item(/obj/item/stack/sheet/runed_metal/ten, bloodwashed_mob)
 	to_chat(owner, "These are the tools your stained visions remember. You are alone, and you cannot bring others fully into the fold.")
 
-/datum/antagonist/cult/bloodwashed/proc/bloodwashed_give_item(obj/item/item_path, mob/living/carbon/mob)
-	var/obj/item/item = new item_path(mob)
+/datum/antagonist/cult/bloodwashed/proc/bloodwashed_give_item(obj/item/item_path, mob/living/carbon/receiving_mob)
+	var/obj/item/item = new item_path(receiving_mob)
 	ADD_TRAIT(item, TRAIT_CONTRABAND, INNATE_TRAIT)
 	var/obj/item/melee/cultblade/dagger/dagger = item
 	if(istype(dagger))
 		bloodwashed_restrict_ritual_dagger(dagger)
 
-	var/where = mob.equip_conspicuous_item(item, delete_item_if_failed = FALSE)
+	var/where = receiving_mob.equip_conspicuous_item(item, delete_item_if_failed = FALSE)
 	if(where)
-		to_chat(mob, span_danger("You have [item] in your [where]."))
+		to_chat(receiving_mob, span_danger("You have [item] in your [where]."))
 		if(where == "backpack")
-			mob.back.atom_storage?.show_contents(mob)
+			receiving_mob.back.atom_storage?.show_contents(receiving_mob)
 		return TRUE
 
-	if(mob.put_in_hands(item))
-		to_chat(mob, span_danger("You have [item] in your hands."))
+	if(receiving_mob.put_in_hands(item))
+		to_chat(receiving_mob, span_danger("You have [item] in your hands."))
 		return TRUE
 
-	item.forceMove(get_turf(mob))
-	to_chat(mob, span_warning("There was no room for [item], so it appears at your feet."))
+	item.forceMove(get_turf(receiving_mob))
+	to_chat(receiving_mob, span_warning("There was no room for [item], so it appears at your feet."))
 	return TRUE

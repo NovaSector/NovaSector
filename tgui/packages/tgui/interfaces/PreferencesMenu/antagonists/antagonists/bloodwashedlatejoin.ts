@@ -1,4 +1,5 @@
 import { type Antagonist, Category } from '../base';
+import { BLOODWASHED_MECHANICAL_DESCRIPTION } from './bloodwashed';
 
 const BloodwashedLatejoin: Antagonist = {
   key: 'bloodwashedlatejoin',
@@ -8,11 +9,7 @@ const BloodwashedLatejoin: Antagonist = {
       A lone occult antagonist touched by lingering blood cult influence,
       joining the shift already marked by Nar'Sie's echoes.
     `,
-
-    `
-      You have scraps of cult rites, limited blood magic, and your own
-      objectives. You cannot convert others or summon Nar'Sie.
-    `,
+    BLOODWASHED_MECHANICAL_DESCRIPTION,
   ],
   category: Category.Latejoin,
 };

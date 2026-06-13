@@ -1,12 +1,4 @@
-/datum/action/innate/cult/blood_spell/proc/bloodwashed_refresh_uses()
-	desc = base_desc
-	desc += "<br><b><u>Has [charges] use\s remaining</u></b>."
-	build_all_button_icons()
-
 /datum/action/innate/cult/bloodwashed_spell
-	button_icon = 'icons/mob/actions/actions_cult.dmi'
-	background_icon_state = "bg_demon"
-	overlay_icon_state = "bg_demon_border"
 	/// Amount of times this spell can be used before disappearing.
 	var/charges = 1
 	/// The base desc, used to rebuild the tooltip when charges change.
@@ -15,12 +7,14 @@
 	var/datum/action/innate/cult/blood_magic/all_magic
 	/// Phrase whispered when invoking the spell.
 	var/invocation
+	/// Have we already been positioned into our starting location?
+	var/positioned = FALSE
 
-/datum/action/innate/cult/bloodwashed_spell/Grant(mob/living/owner, datum/action/innate/cult/blood_magic/BM)
+/datum/action/innate/cult/bloodwashed_spell/Grant(mob/living/grant_to, datum/action/innate/cult/blood_magic/blood_magic)
 	base_desc = desc
 	bloodwashed_refresh_uses()
-	all_magic = BM
-	return ..(owner)
+	all_magic = blood_magic
+	return ..(grant_to)
 
 /datum/action/innate/cult/bloodwashed_spell/Remove()
 	if(all_magic)
@@ -28,7 +22,7 @@
 	return ..()
 
 /datum/action/innate/cult/bloodwashed_spell/IsAvailable(feedback = FALSE)
-	if(!IS_CULTIST(owner) || owner.incapacitated || !charges)
+	if(!owner?.mind?.has_antag_datum(/datum/antagonist/cult/bloodwashed) || owner.incapacitated || !charges)
 		return FALSE
 	return ..()
 
@@ -51,8 +45,8 @@
 
 	var/list/potential_runes = list()
 	for(var/obj/effect/rune/teleport/teleport_rune as anything in GLOB.teleport_runes)
-		var/turf/rune_turf = get_turf(teleport_rune)
-		if(!rune_turf || rune_turf == origin || is_away_level(rune_turf.z) || rune_turf.is_blocked_turf(TRUE))
+		var/turf/teleport_turf = get_turf(teleport_rune)
+		if(!teleport_turf || teleport_turf == origin || is_away_level(teleport_turf.z) || teleport_turf.is_blocked_turf(TRUE))
 			continue
 		potential_runes += teleport_rune
 
@@ -63,16 +57,18 @@
 		to_chat(owner, span_cult_italic("You are not in the right dimension!"))
 		return
 
-	var/obj/effect/rune/teleport/actual_selected_rune = pick(potential_runes)
-	if(QDELETED(src) || owner.incapacitated || !actual_selected_rune)
+	var/obj/effect/rune/teleport/selected_rune = pick(potential_runes)
+	if(QDELETED(src) || owner.incapacitated || !selected_rune)
 		return
 
-	var/turf/destination = get_turf(actual_selected_rune)
+	var/turf/destination = get_turf(selected_rune)
+	if(!destination)
+		return
 
 	owner.whisper(invocation, language = /datum/language/common, forced = "cult invocation")
 	owner.visible_message(
 		span_warning("A red-black mist spills from [owner], swallowing [owner.p_them()] whole!"),
-		span_cult_italic("You dissolve into a bloody mist and tear yourself toward [actual_selected_rune]."),
+		span_cult_italic("You dissolve into a bloody mist and tear yourself toward [selected_rune]."),
 		span_hear("You hear a wet, distant hiss."),
 	)
 	do_chem_smoke(2, owner, origin, /datum/reagent/blood, 20, smoke_type = /datum/effect_system/fluid_spread/smoke/chem/quick)

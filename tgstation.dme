@@ -7929,6 +7929,7 @@
 #include "modular_nova\modules\bloodwashed\code\midround_ruleset.dm"
 #include "modular_nova\modules\bloodwashed\code\roundstart_ruleset.dm"
 #include "modular_nova\modules\bloodwashed\code\team.dm"
+#include "modular_nova\modules\bloodwashed\code\undefs.dm"
 #include "modular_nova\modules\blooper\atoms_movable.dm"
 #include "modular_nova\modules\blooper\bark.dm"
 #include "modular_nova\modules\blooper\bark_list.dm"
