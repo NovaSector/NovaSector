@@ -36,6 +36,7 @@
 	resistance_flags = FIRE_PROOF|FIRE_PROOF
 	override_material_worth = TRUE
 	material_flags = NONE
+	abstract_type = /obj/item/coin/mark
 
 /obj/item/coin/mark/bit
 	name = "bit"
@@ -121,8 +122,8 @@
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 16)
 
 /obj/item/coin/mark/forge_mark/attack_self(mob/user)
-	if(sideslist.len >= 1)
+	if(length(sideslist) >= 1)
 		to_chat(user, span_warning("You heave [src] a bit, intending to flip it, before realizing that tossing a clumsy \
 		quarter-kilogram ingot of tungsten carbide into the air is somewhat ill-advised!") )
 		return FALSE
-	. = ..()
+	return ..()
