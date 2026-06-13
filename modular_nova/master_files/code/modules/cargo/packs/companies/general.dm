@@ -46,6 +46,30 @@
 	contains = list(/obj/item/sign/flag/hc)
 	cost = CARGO_CRATE_VALUE * 0.2
 
+// General currency pricing rule is: Original price, multiplied by 1.25 (anti-arbitrage fees), plus 100 (anti-exploit shenanigans).
+/datum/supply_pack/companies/general/hc_surplus/shaving
+	contains = list(/obj/item/stack/spacecash/shaving/full)
+	cost = 260
+
+/datum/supply_pack/companies/general/hc_surplus/bit
+	name = "Eight Bits"
+	contains = list(
+		/obj/item/coin/mark/bit = 8,
+	)
+	cost = 140
+
+/datum/supply_pack/companies/general/hc_surplus/mark
+	contains = list(/obj/item/coin/mark/mark)
+	cost = 260
+
+/datum/supply_pack/companies/general/hc_surplus/crown
+	contains = list(/obj/item/coin/mark/crown)
+	cost = 5220
+
+/datum/supply_pack/companies/general/hc_surplus/forge_mark
+	contains = list(/obj/item/coin/mark/forge_mark)
+	cost = 20580
+
 // Donk
 /datum/supply_pack/companies/general/donk
 	cost = CARGO_CRATE_VALUE * 0.25
