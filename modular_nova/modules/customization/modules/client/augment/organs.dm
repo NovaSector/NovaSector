@@ -35,7 +35,7 @@
 	slot = AUGMENT_SLOT_BRAIN
 	icon = FA_ICON_BRAIN
 	species_blacklist = list(SPECIES_PROTEAN = 1)
-#endif
+
 /datum/augment_item/organ/brain/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
 	if(character_setup)
 		return
