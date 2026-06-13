@@ -93,7 +93,7 @@
 "n" = (
 /obj/structure/table/wood,
 /obj/structure/cable,
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = -2;
 	pixel_y = 6
 	},
