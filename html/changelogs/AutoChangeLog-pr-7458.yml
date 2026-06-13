@@ -1,0 +1,5 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - rscadd: "Pan-slavic has been reflavored to comply with our lore."
+  - rscdel: "Spinwarder is gone in its player-facing entirety."
