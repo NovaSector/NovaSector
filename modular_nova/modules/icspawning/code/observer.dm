@@ -1,4 +1,5 @@
-// NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
+// NOVA MODULE ICSPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
+// todo: update spawn-in type to a list, add new spawn-in animations and types (particularly a totally silent one, similar to how ctrlshiftclick works).
 
 /mob/dead/observer/CtrlClickOn(mob/user)
 	quickicspawn(user)
@@ -7,7 +8,8 @@
 	if(isobserver(user) && check_rights(R_SPAWN))
 		var/list/outfits = list()
 		outfits["Bluespace Tech"] = /datum/outfit/debug/bst
-		outfits["Bluespace Tech (MODsuit)"] = /datum/outfit/admin/bst
+		outfits["Bluespace Tech (MODsuit)"] = /datum/outfit/admin/bluespace
+		outfits["Subspace Tech (MODsuit)"] = /datum/outfit/admin/subspace
 		outfits["Show All"] = "Show All"
 
 		var/dresscode
@@ -17,22 +19,24 @@
 		var/character_option = tgui_alert(usr, "Which character?", "IC Quick Spawn", list("Selected Character", "Randomly Created", "Cancel"))
 		if (character_option == "Cancel")
 			return
-		var/initial_outfits = tgui_alert(usr, "Select outfit", "Quick Dress", list("Bluespace Tech", "Show All", "Cancel"))
+		var/initial_outfits = tgui_input_list(usr, "Select outfit", "Quick Dress", list("Show All Outfits", "Bluespace Tech", "Subspace Tech", "Cancel"))
 		if (initial_outfits == "Cancel")
 			return
 
 		switch(initial_outfits)
 			if("Bluespace Tech")
-				dresscode = /datum/outfit/admin/bst
-			if("Show All")
-				dresscode = client.robust_dress_shop_skyrat()
+				dresscode = /datum/outfit/admin/bluespace
+			if("Subspace Tech")
+				dresscode = /datum/outfit/admin/subspace
+			if("Show All Outfits")
+				dresscode = client.robust_dress_shop_nova()
 				if (!dresscode)
 					return
 
 		// We're spawning someone else
 		var/give_return
 		if (user != usr)
-			give_return = tgui_alert(usr, "Do you want to give them the power to return? Not recommended for non-admins.", "Give power?", list("Yes", "No"))
+			give_return = tgui_alert(usr, "Do you want to give them the Return spell? This lets them instantly erase their character, so be careful.", "Give power?", list("Yes", "No"))
 			if(!give_return)
 				return
 
@@ -95,8 +99,8 @@
 
 				new /obj/effect/pod_landingzone(current_turf, empty_pod)
 
-/client/proc/robust_dress_shop_skyrat()
-	var/list/baseoutfits = list("Naked","Custom","As Job...", "As Plasmaman...")
+/client/proc/robust_dress_shop_nova()
+	var/list/baseoutfits = list("Naked", "Custom", "As Job...", "As Plasmaman...")
 	var/list/outfits = list()
 	var/list/paths = subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman)
 
@@ -119,11 +123,13 @@
 		for(var/path in job_paths)
 			var/datum/outfit/O = path
 			job_outfits[initial(O.name)] = path
+		dresscode = tgui_input_list(src, "Select job equipment", "Robust quick dress shop", sort_list(job_outfits))
 
-		dresscode = input("Select job equipment", "Robust quick dress shop") as null|anything in sort_list(job_outfits)
-		dresscode = job_outfits[dresscode]
+//		dresscode = input("Select job equipment", "Robust quick dress shop") as null|anything in sort_list(job_outfits)
+//		dresscode = job_outfits[dresscode]
 		if(isnull(dresscode))
 			return
+		return job_outfits[dresscode]
 
 	if (dresscode == "As Plasmaman...")
 		var/list/plasmaman_paths = typesof(/datum/outfit/plasmaman)
@@ -132,18 +138,21 @@
 			var/datum/outfit/O = path
 			plasmaman_outfits[initial(O.name)] = path
 
-		dresscode = input("Select plasmeme equipment", "Robust quick dress shop") as null|anything in sort_list(plasmaman_outfits)
-		dresscode = plasmaman_outfits[dresscode]
+//		dresscode = input("Select plasmeme equipment", "Robust quick dress shop") as null|anything in sort_list(plasmaman_outfits)
+		dresscode = tgui_input_list(src, "Select plasmeme equipment", "Robust quick dress shop", sort_list(plasmaman_outfits))
+//		dresscode = plasmaman_outfits[dresscode]
 		if(isnull(dresscode))
 			return
+		return plasmaman_outfits[dresscode]
 
 	if (dresscode == "Custom")
-		var/list/custom_names = list()
+		var/list/custom_outfits = list()
 		for(var/datum/outfit/req_outfit in GLOB.custom_outfits)
-			custom_names[req_outfit.name] = req_outfit
-		var/selected_name = input("Select outfit", "Robust quick dress shop") as null|anything in sort_list(custom_names)
-		dresscode = custom_names[selected_name]
+			custom_outfits[req_outfit.name] = req_outfit
+		var/selected_name = tgui_input_list(src, "Select outfit", "Robust quick dress shop", sort_list(custom_outfits))
+		dresscode = custom_outfits[selected_name]
 		if(isnull(dresscode))
 			return
+		return custom_outfits[dresscode]
 
 	return dresscode

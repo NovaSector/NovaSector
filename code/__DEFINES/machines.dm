@@ -77,6 +77,8 @@
 // NOVA EDIT ADDITION
 /// Can be made by the orderable colony fabricator
 #define COLONY_FABRICATOR (1<<11)
+/// Used by Admin fabricators to select from admin / debug / useful / fun prints
+#define ADMIN_TECHWEB (1<<12)
 // NOVA EDIT END
 
 #define HYPERTORUS_INACTIVE 0 // No or minimal energy
