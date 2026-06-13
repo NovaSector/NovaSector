@@ -4,7 +4,34 @@
 
 /obj/item/melee/blood_magic/construction/cast_spell(atom/target, mob/living/carbon/user)
 	if(istype(target, /obj/item/gun))
+		if(channeling)
+			to_chat(user, span_cult_italic("You are already invoking twisted construction!"))
+			return
+
 		var/obj/item/gun/candidate = target
+		if(candidate.pinless)
+			to_chat(user, span_warning("[candidate] has no firing pin receiver for the spell to twist!"))
+			return
+		if(candidate.GetComponent(/datum/component/bloodwashed_corrupted_gun))
+			to_chat(user, span_warning("[candidate] has already been twisted by blood magic!"))
+			return
+
+		channeling = TRUE
+		var/turf/candidate_turf = get_turf(candidate)
+		user.visible_message(span_danger("A dark cloud emanates from [user]'s hand and swirls around [candidate]!"))
+		playsound(candidate_turf, 'sound/machines/airlock/airlock_alien_prying.ogg', 80, TRUE)
+		var/previous_color = candidate.color
+		candidate.color = COLOR_BLACK
+		if(!do_after(user, 5 SECONDS, target = candidate))
+			channeling = FALSE
+			if(!QDELETED(candidate))
+				candidate.color = previous_color
+			return
+
+		channeling = FALSE
+		if(QDELETED(candidate))
+			return
+		candidate.color = previous_color
 		if(candidate.pinless)
 			to_chat(user, span_warning("[candidate] has no firing pin receiver for the spell to twist!"))
 			return
