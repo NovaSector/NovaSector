@@ -1,16 +1,16 @@
 /datum/language/spinwarder
 	name = "Pan-Slavic"
 	desc = "The primary language of the Heliostatic Coalition, Pan-Slavic evolved organically from the Eastern and Central European linguistic \
-	roots of the founding colonists who settled Vistula and its surrounding systems during the First Great Interstellar Migration. Isolated from \
-	Sol for centuries during the 'Quiet Century', the scattered colonies saw their inherited languages drift, merge, and simplify under the \
-	pressures of survival and limited communication between settlements. When the colonies re-established contact in the late 2390s and formalized \
-	the Heliostatic Compact in 2405, the artificially engineered Pan-Slavic emerged as the natural standard. Linguistically, Pan-Slavic retains \
-	the Slavic verbal aspect system and much of its foundational vocabulary: body parts, family, nature, and basic actions. However, centuries \
-	of separation and the mixing of settlers from different regional backgrounds simplified its noun morphology dramatically. Today, Pan-Slavic \
-	is spoken natively by the human majority of the CZD and as a second language by most other Coalition citizens. While Sol Common remains \
-	the language of interstellar communication, Pan-Slavic is the language of home, of the Chamber, and of the Long Arm. To an outsider, \
-	it sounds simultaneously familiar and alien - recognizably Slavic in its rhythm and structure, but punctuated by loanwords from the \
-	Turkic and Persian linguistic strata that survived the Quiet Century."
+		roots of the founding colonists who settled Vistula and its surrounding systems during the First Great Interstellar Migration. Isolated from \
+		Sol for centuries during the 'Quiet Century', the scattered colonies saw their inherited languages drift, merge, and simplify under the \
+		pressures of survival and limited communication between settlements. When the colonies re-established contact in the late 2390s and formalized \
+		the Heliostatic Compact in 2405, the artificially engineered Pan-Slavic emerged as the natural standard. Linguistically, Pan-Slavic retains \
+		the Slavic verbal aspect system and much of its foundational vocabulary: body parts, family, nature, and basic actions. However, centuries \
+		of separation and the mixing of settlers from different regional backgrounds simplified its noun morphology dramatically. Today, Pan-Slavic \
+		is spoken natively by the human majority of the CZD and as a second language by most other Coalition citizens. While Sol Common remains \
+		the language of interstellar communication, Pan-Slavic is the language of home, of the Chamber, and of the Long Arm. To an outsider, \
+		it sounds simultaneously familiar and alien - recognizably Slavic in its rhythm and structure, but punctuated by loanwords from the \
+		Turkic and Persian linguistic strata that survived the Quiet Century."
 	key = "P"
 	flags = TONGUELESS_SPEECH
 	space_chance = 35
