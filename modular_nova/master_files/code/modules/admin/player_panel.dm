@@ -539,3 +539,6 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 			log_admin("[key_name(adminClient)] applied client quirks to [key_name(specified_humanoid)].")
 			message_admins(span_adminnotice("[key_name_admin(adminClient)] applied client quirks to [key_name_admin(specified_humanoid)]."))
 
+		/// Applies the client's currently loaded pref-sheet.
+		if ("vv_load_prefs")
+			targetMob.vv_load_prefs()
