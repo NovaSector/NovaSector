@@ -19,7 +19,9 @@
 	RegisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(on_update_overlays))
 	RegisterSignal(parent, COMSIG_ITEM_GET_WORN_OVERLAYS, PROC_REF(on_worn_overlays))
 	RegisterSignal(parent, COMSIG_PROJECTILE_BEFORE_FIRE, PROC_REF(on_projectile_before_fire))
+	RegisterSignal(parent, COMSIG_GUN_PIN_REMOVED, PROC_REF(on_pin_removed))
 	var/obj/item/gun/corrupted_gun = parent
+	ensure_cult_firing_pin()
 	corrupted_gun.update_appearance(UPDATE_OVERLAYS)
 	animate_rune_glow()
 
@@ -29,6 +31,7 @@
 		COMSIG_ATOM_UPDATE_OVERLAYS,
 		COMSIG_ITEM_GET_WORN_OVERLAYS,
 		COMSIG_PROJECTILE_BEFORE_FIRE,
+		COMSIG_GUN_PIN_REMOVED,
 	))
 	if(!QDELETED(parent))
 		var/obj/item/gun/corrupted_gun = parent
@@ -52,7 +55,7 @@
 	SIGNAL_HANDLER
 
 	examine_list += span_cult_italic("A blasphemous film crawls over it. Blood-red lines breathe across its \
-		brown metal, and its profane will hungers for unclean hands.")
+		brown metal, and its firing pin rejects unclean hands.")
 
 /datum/component/bloodwashed_corrupted_gun/proc/on_update_overlays(obj/item/gun/source, list/overlays)
 	SIGNAL_HANDLER
@@ -114,7 +117,6 @@
 	if(QDELETED(fired_projectile))
 		return
 
-	punish_unclean_firer(source, fired_projectile.firer)
 	fired_projectile.add_atom_colour(RUNE_COLOR_MEDIUMRED, TEMPORARY_COLOUR_PRIORITY)
 	fired_projectile.hitsound = SFX_DESECRATION
 	fired_projectile.hitsound_wall = SFX_DESECRATION
@@ -124,20 +126,62 @@
 	fired_projectile.AddComponent(/datum/component/bloodwashed_corrupted_projectile, bonus_burn_damage)
 	playsound(source, 'sound/effects/magic/enter_blood.ogg', 35, TRUE)
 
-/datum/component/bloodwashed_corrupted_gun/proc/punish_unclean_firer(obj/item/gun/source, atom/movable/firer)
-	if(!isliving(firer))
+/datum/component/bloodwashed_corrupted_gun/proc/on_pin_removed(
+	obj/item/gun/source,
+	obj/item/firing_pin/old_pin,
+	mob/living/user,
+)
+	SIGNAL_HANDLER
+
+	addtimer(CALLBACK(src, PROC_REF(ensure_cult_firing_pin)), 0.1 SECONDS)
+
+/datum/component/bloodwashed_corrupted_gun/proc/ensure_cult_firing_pin()
+	if(QDELETED(parent))
 		return
 
-	var/mob/living/living_firer = firer
-	if(IS_CULTIST(living_firer))
+	var/obj/item/gun/corrupted_gun = parent
+	if(corrupted_gun.pinless || istype(corrupted_gun.pin, /obj/item/firing_pin/bloodwashed))
 		return
 
-	living_firer.visible_message(
-		span_warning("The runes carved into [source] flare as [living_firer] fires it!"),
-		span_userdanger("A thousand dead voices scream through [source], clawing bloody scripture into your mind!"),
+	QDEL_NULL(corrupted_gun.pin)
+	var/obj/item/firing_pin/bloodwashed/cult_pin = new
+	cult_pin.gun_insert(new_gun = corrupted_gun, starting = TRUE)
+
+/obj/item/firing_pin/bloodwashed
+	name = "runic firing pin"
+	desc = "A rune-scored authentication spike that pulses with profane geometry."
+	fail_message = "profane authentication failed!"
+	pin_removable = FALSE
+
+/obj/item/firing_pin/bloodwashed/pin_auth(mob/living/user)
+	if(!istype(user))
+		return FALSE
+	if(IS_CULTIST(user))
+		return TRUE
+
+	user.visible_message(
+		span_warning("The runes carved into [gun] howl as [user] touches its trigger!"),
+		span_userdanger("The Geometer's impossible face burns across your sight, laughing at your stolen hand!"),
 	)
-	living_firer.adjust_organ_loss(ORGAN_SLOT_BRAIN, 5, 190)
-	living_firer.add_mood_event("bloodwashed_corrupted_gun", /datum/mood_event/bloodwashed_corrupted_gun)
+	user.adjust_organ_loss(ORGAN_SLOT_BRAIN, rand(25, 40), 190)
+	user.overlay_fullscreen(
+		"bloodwashed_geometer_mockery",
+		/atom/movable/screen/fullscreen/bloodwashed_geometer_mockery,
+	)
+	addtimer(CALLBACK(src, PROC_REF(clear_geometer_mockery), user), 1.5 SECONDS)
+	playsound(user, SFX_DESECRATION, 60, TRUE)
+	return FALSE
+
+/obj/item/firing_pin/bloodwashed/proc/clear_geometer_mockery(mob/living/user)
+	if(!QDELETED(user))
+		user.clear_fullscreen("bloodwashed_geometer_mockery", 1 SECONDS)
+
+/atom/movable/screen/fullscreen/bloodwashed_geometer_mockery
+	icon = 'icons/obj/antags/cult/narsie.dmi'
+	icon_state = "narsie"
+	color = RUNE_COLOR_MEDIUMRED
+	alpha = 230
+	show_when_dead = TRUE
 
 /datum/component/bloodwashed_corrupted_projectile
 	dupe_mode = COMPONENT_DUPE_UNIQUE
@@ -174,8 +218,3 @@
 	var/mob/living/living_target = target
 	living_target.apply_damage(bonus_burn_damage, BURN, hit_zone, blocked, wound_bonus = CANT_WOUND)
 	new /obj/effect/temp_visual/cult/sparks(get_turf(living_target))
-
-/datum/mood_event/bloodwashed_corrupted_gun
-	description = "The weapon's screaming runes are still inside my skull!"
-	mood_change = -20
-	timeout = 10 SECONDS

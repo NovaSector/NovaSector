@@ -9,6 +9,10 @@
 			return
 
 		var/obj/item/gun/candidate = target
+		if(candidate.pinless)
+			to_chat(user, span_warning("[candidate] has no firing pin receiver for blood magic to corrupt!"))
+			return
+
 		if(candidate.GetComponent(/datum/component/bloodwashed_corrupted_gun))
 			to_chat(user, span_warning("[candidate] has already been twisted by blood magic!"))
 			return
@@ -29,6 +33,10 @@
 		if(QDELETED(candidate))
 			return
 		candidate.color = previous_color
+		if(candidate.pinless)
+			to_chat(user, span_warning("[candidate] has no firing pin receiver for blood magic to corrupt!"))
+			return
+
 		if(candidate.GetComponent(/datum/component/bloodwashed_corrupted_gun))
 			to_chat(user, span_warning("[candidate] has already been twisted by blood magic!"))
 			return
