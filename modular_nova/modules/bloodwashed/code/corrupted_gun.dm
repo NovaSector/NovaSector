@@ -4,6 +4,8 @@
 	var/bonus_burn_damage = 5
 	/// The filter ID used for the animated rune glow.
 	var/static/rune_glow_filter = "bloodwashed_rune_glow"
+	/// Cached rune line icons, masked against each corrupted gun's base icon state.
+	var/static/list/rune_line_cache = list()
 
 /datum/component/bloodwashed_corrupted_gun/Initialize(bonus_burn_damage = 5)
 	. = ..()
@@ -75,10 +77,33 @@
 	cult_body.alpha = 155
 	overlays += cult_body
 
-	var/mutable_appearance/rune_lines = mutable_appearance(source.icon, source.icon_state)
-	rune_lines.color = RUNE_COLOR_MEDIUMRED
-	rune_lines.alpha = 70
+	var/mutable_appearance/rune_lines = mutable_appearance(
+		get_masked_rune_lines(source),
+		icon_state = "",
+		appearance_flags = RESET_COLOR,
+	)
+	rune_lines.blend_mode = BLEND_ADD
 	overlays += rune_lines
+
+/datum/component/bloodwashed_corrupted_gun/proc/get_masked_rune_lines(obj/item/gun/source)
+	var/icon/gun_mask = icon(source.icon, source.icon_state)
+	var/gun_width = gun_mask.Width()
+	var/gun_height = gun_mask.Height()
+	var/cache_key = "[REF(source.icon)]-[source.icon_state]-[gun_width]x[gun_height]"
+	var/icon/cached_rune_lines = rune_line_cache[cache_key]
+	if(cached_rune_lines)
+		return cached_rune_lines
+
+	gun_mask.Blend("#ffffff", ICON_ADD)
+
+	var/icon/rune_lines = icon('modular_nova/modules/bloodwashed/icons/corrupted_gun_overlays.dmi', "runes")
+	if(rune_lines.Width() != gun_width || rune_lines.Height() != gun_height)
+		rune_lines.Scale(gun_width, gun_height)
+
+	rune_lines.Blend(gun_mask, ICON_MULTIPLY)
+	rune_lines = fcopy_rsc(rune_lines)
+	rune_line_cache[cache_key] = rune_lines
+	return rune_lines
 
 /datum/component/bloodwashed_corrupted_gun/proc/on_worn_overlays(
 	obj/item/gun/source,
@@ -171,4 +196,7 @@
 	default_pin_auth = FALSE
 
 /obj/item/firing_pin/bloodwashed/pin_auth(mob/living/user)
+	if(!istype(user))
+		return FALSE
+
 	return IS_CULTIST(user)
