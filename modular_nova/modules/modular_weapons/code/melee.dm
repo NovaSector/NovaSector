@@ -99,13 +99,12 @@
 		icon_state = "[base_icon_state]_active"
 		if(active_changes_inhand)
 			inhand_icon_state = base_inhand
-		return ..()
-	if(!cell)
+	else if(!cell)
 		icon_state = "[base_icon_state]"
 		inhand_icon_state = base_inhand
-		return ..()
-	icon_state = base_icon_state
-	inhand_icon_state = base_inhand
+	else
+		icon_state = base_icon_state
+		inhand_icon_state = base_inhand
 	return ..()
 
 /obj/item/melee/baton/security/shockwhip/loaded
