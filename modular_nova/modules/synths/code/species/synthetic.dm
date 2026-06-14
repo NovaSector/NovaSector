@@ -71,8 +71,8 @@
 		FEATURE_SYNTH_HEAD = MUTPART_BLUEPRINT("Default Head", is_randomizable = FALSE),
 	)
 
-/datum/species/synthetic/spec_life(mob/living/carbon/human/human)
-	. = ..()
+/datum/species/synthetic/proc/on_life(mob/living/carbon/human/human)
+	SIGNAL_HANDLER
 
 	if(human.stat == SOFT_CRIT || human.stat == HARD_CRIT)
 		human.adjust_fire_loss(1) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
@@ -90,6 +90,7 @@
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 
+	RegisterSignal(transformer, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
 
 	var/datum/action/sing_tones/sing_action = new
@@ -150,7 +151,10 @@
 /datum/species/synthetic/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
 
-	UnregisterSignal(human, COMSIG_ATOM_EMAG_ACT)
+	UnregisterSignal(human, list(
+		COMSIG_ATOM_EMAG_ACT,
+		COMSIG_LIVING_LIFE,
+	))
 
 	var/obj/item/organ/eyes/eyes = human.get_organ_slot(ORGAN_SLOT_EYES)
 
