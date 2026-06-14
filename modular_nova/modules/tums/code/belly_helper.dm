@@ -333,6 +333,8 @@
 	if(lifeform_inside_me in nommed_gasmixes)
 		if(breath_request <= 0)
 			return null
-		return nommed_gasmixes[lifeform_inside_me].Copy()
+		return nommed_gasmixes[lifeform_inside_me].copy()
 	else
 		return ..()
+
+#undef BELLY_VOLUME
