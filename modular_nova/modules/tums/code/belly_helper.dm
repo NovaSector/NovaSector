@@ -142,15 +142,15 @@
 
 /// Handles all sanity checks during destruction.
 /// Frees everyone, tries to avoid any hanging refs, destroys acts, etc.
-/obj/item/belly_function/Destroy()
-	. = ..()
-	for(var/mob/living/carbon/human/nommed in nommeds)
+/obj/item/belly_function/Destroy(force)
+	for(var/mob/living/carbon/human/nommed in LAZYCOPY(nommeds))
 		free_target(nommed)
 	LAZYNULL(nommeds)
 	QDEL_LAZYLIST(nommed_sizes)
 	QDEL_LAZYLIST(nommed_gasmixes)
 	QDEL_LAZYLIST(belly_acts)
 	QDEL_LAZYLIST(escape_helpers)
+	return ..()
 
 /// Signal handler that allows for the various movement/jostling sounds to play.
 /obj/item/belly_function/proc/on_step()
@@ -247,6 +247,7 @@
 	if(overlay_south != null)
 		do_alt_appearance(user, TRUE, last_size)
 	lastuser = null
+	UnregisterSignal(lastuser, list,(COMSIG_GENERAL_STEP_ACTION, COMSIG_QDELETING))
 
 /// Helper function that recalculates the total endo size from nommed guests.
 /obj/item/belly_function/proc/recalculate_guest_sizes()
