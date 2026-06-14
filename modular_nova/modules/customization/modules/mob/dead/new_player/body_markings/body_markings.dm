@@ -49,6 +49,13 @@
 	icon = 'modular_nova/master_files/icons/mob/body_markings/other_markings.dmi'
 	recommended_species = null
 
+/datum/body_marking/other/eyebags
+	name = "Eye Bags"
+	icon = 'icons/mob/human/species/misc/bodypart_overlay_simple.dmi'
+	icon_state = "bags"
+	default_color = "#484848"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/drake_bone
 	name = "Drake Bone"
 	icon_state = "drakebone"
