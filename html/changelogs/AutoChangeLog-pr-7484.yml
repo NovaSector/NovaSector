@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes an issue where changing an external organ in the preferences menu would not update your character preview"
