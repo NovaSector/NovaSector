@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - qol: "Drone duffelbags now have a slightly more organized inventory. Drones drop their pocket contents properly on death."
