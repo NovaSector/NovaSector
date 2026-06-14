@@ -132,8 +132,7 @@ CREATE TABLE `playtime_ban` (
   `unbanned_ckey` VARCHAR(32) NULL DEFAULT NULL,
   `unbanned_round_id` INT(11) UNSIGNED NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `idx_playtime_ban_active` (`ckey`,`role`,`unbanned_datetime`,`target_playtime`),
-  KEY `idx_playtime_ban_count` (`bantime`,`a_ckey`,`applies_to_admins`,`unbanned_datetime`,`target_playtime`)
+  KEY `idx_playtime_ban_active` (`ckey`,`role`,`unbanned_datetime`,`target_playtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

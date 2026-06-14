@@ -50,9 +50,6 @@
 	playtime_note_schema_checked = TRUE
 	return TRUE
 
-/proc/playtime_note_source_choices()
-	return get_available_playtime_sources()
-
 /proc/get_cached_message_playtime(player_ckey, playtime_type, list/playtime_cache)
 	playtime_type ||= EXP_TYPE_LIVING
 	var/cache_key = "[ckey(player_ckey)]|[playtime_type]"
@@ -164,7 +161,7 @@
 					expiry = query_validate_expire_time.item[1]
 				qdel(query_validate_expire_time)
 			if("Playtime")
-				playtime_expiry_type = tgui_input_list(usr, "Choose which tracked playtime this note should expire from.", "Set playtime source", playtime_note_source_choices(), EXP_TYPE_LIVING)
+				playtime_expiry_type = tgui_input_list(usr, "Choose which tracked playtime this note should expire from.", "Set playtime source", get_available_playtime_sources(), EXP_TYPE_LIVING)
 				if(!playtime_expiry_type)
 					return
 				var/playtime_minutes = prompt_note_playtime_expiry_minutes(usr, playtime_expiry_type)
@@ -380,7 +377,7 @@
 					new_expiry_text = new_expiry
 				qdel(query_validate_expire_time_edit)
 			if("Playtime")
-				new_playtime_expiry_type = tgui_input_list(usr, "Choose which tracked playtime this note should expire from.", "Set playtime source", playtime_note_source_choices(), old_playtime_expiry_type)
+				new_playtime_expiry_type = tgui_input_list(usr, "Choose which tracked playtime this note should expire from.", "Set playtime source", get_available_playtime_sources(), old_playtime_expiry_type)
 				if(!new_playtime_expiry_type)
 					qdel(query_find_edit_expiry_message)
 					return

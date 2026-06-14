@@ -145,7 +145,7 @@
 			return "[jobtitle] is restricted due to your selected body augments."
 		if(JOB_UNAVAILABLE_PLAYTIME_BAN)
 			return "You need more playtime before you can play [jobtitle]."
-		//NOVA EDIT END
+		// NOVA EDIT ADDITION END
 		if(JOB_UNAVAILABLE_ANTAG_INCOMPAT)
 			return "[jobtitle] is not compatible with some antagonist role assigned to you."
 		if(JOB_UNAVAILABLE_AGE)

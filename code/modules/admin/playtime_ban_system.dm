@@ -948,7 +948,7 @@
 			"reason" = reason,
 			"ckey" = player_ckey,
 			"a_ckey" = admin_ckey,
-			"a_ip" = admin_ip || null,
+			"a_ip" = admin_ip || 0,
 			"a_computerid" = admin_cid,
 			"who" = who,
 			"adminwho" = adminwho,
@@ -965,7 +965,7 @@
 		send2adminchat("BAN ALERT", "[kn] [msg]")
 
 	var/note_reason = "Playtime banned from Roles: [roles_to_ban.Join(", ")] until [get_exp_format(target_playtime)] [required_playtime_type] playtime ([time_message] from [get_exp_format(current_required_playtime)]) - [reason]"
-	create_message("note", player_ckey, admin_ckey, note_reason, null, null, 0, 0, null, 0, severity)
+	create_message("note", player_ckey, admin_ckey, note_reason, null, null, 0, 0, null, 0, severity, null, null)
 
 	var/client/player_client = GLOB.directory[player_ckey]
 	if(player_client)
