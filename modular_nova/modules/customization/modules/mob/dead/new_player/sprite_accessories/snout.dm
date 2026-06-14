@@ -320,8 +320,8 @@
 	icon_state = "caninealt"	
 
 /datum/sprite_accessory/snouts/mammal/vulptwoshade
-    name = "Vulp Twoshade"
-    icon_state = "vulptwoshade"
+	name = "Vulp Twoshade"
+	icon_state = "vulptwoshade"
 
 /******************************************
 **************** Snouts *******************
