@@ -94,3 +94,20 @@
 			name = "[mob_meat_material.subjectname] burger"
 		else if(mob_meat_material.subjectjob)
 			name = "[mob_meat_material.subjectjob] burger"
+
+/obj/item/food/burger/chicken/human
+	name = "birdperson sandwich"
+	desc = "You're pretty sure this sandwich doesn't fund a good cause..."
+	icon_state = "chickenburger"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/mayonnaise = 3,
+		/datum/reagent/consumable/nutriment/protein = 7,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+		/datum/reagent/consumable/nutriment/fat/oil = 2,
+	)
+	tastes = list("bun" = 2, "chikun" = 4)
+	foodtypes = GRAIN | MEAT | FRIED | GORE
+	crafting_complexity = FOOD_COMPLEXITY_3
+	venue_value = FOOD_PRICE_CHEAP
+	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 1.3)
