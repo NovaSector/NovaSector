@@ -309,7 +309,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if ("open_food")
 			GLOB.food_prefs_menu.ui_interact(usr)
 			return TRUE
-		// NOVA EDIT ADDITION START: Background Selection
+
 		if("update_background")
 			update_preference(GLOB.preference_entries[/datum/preference/choiced/background_state], params["new_background"])
 			return TRUE
