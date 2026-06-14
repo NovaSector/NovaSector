@@ -317,7 +317,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if ("open_belly_prefs")
 			GLOB.erp_belly_prefshelper.ui_interact(usr)
 			return TRUE
-		// NOVA EDIT ADDITION END
 
 		if ("set_tricolor_preference")
 			var/requested_preference_key = params["preference"]
@@ -356,6 +355,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		// For the quirks in the prefs menu.
 		if ("get_quirks_balance")
 			return TRUE
+		// NOVA EDIT ADDITION END
 
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 		var/delegation = preference_middleware.action_delegations[action]

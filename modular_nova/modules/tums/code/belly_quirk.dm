@@ -22,8 +22,6 @@
 	the_bwelly.color = client_source?.prefs.read_preference(/datum/preference/color/erp_bellyquirk_color) || "#FFFFFF"
 	/// Skintone toggle - this adjusts the sprite files.
 	the_bwelly.use_skintone = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
-	/// Slime alpha toggle - this reduces the alpha to 155, as per normal slimepeople.
-	the_bwelly.use_slime_alpha = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_use_slime_alpha) || FALSE
 
 	/// Size modifier - overall.
 	the_bwelly.sizemod = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 1

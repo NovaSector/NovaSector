@@ -156,16 +156,6 @@
 /datum/preference/toggle/erp_bellyquirk_skintone/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
-/// Per-character pref, a toggle for whether this belly should use slimepeople body alpha.
-/datum/preference/toggle/erp_bellyquirk_use_slime_alpha
-	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "erp_bellyquirk_use_slime_alpha"
-	default_value = FALSE
-
-/datum/preference/toggle/erp_bellyquirk_use_slime_alpha/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE
-
 /// Per-character pref, an overall sprite size modifier.
 /datum/preference/numeric/erp_bellyquirk_sizemod
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED

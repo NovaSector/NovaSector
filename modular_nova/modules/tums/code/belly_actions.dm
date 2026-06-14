@@ -20,11 +20,10 @@
 		LAZYADD(my_belly.belly_acts, src)
 
 /datum/action/item_action/belly_menu/Destroy(force)
-	. = ..()
-	if(src in my_belly.belly_acts)
+	if(src in my_belly?.belly_acts)
 		LAZYREMOVE(my_belly.belly_acts, src)
 	my_belly = null
-
+	return ..()
 
 /// Access helper for the belly-haver.  This lets them configure it & interact with guests.
 /datum/action/item_action/belly_menu/access
@@ -73,21 +72,19 @@
 			my_belly.free_target(owner)
 		else
 			to_chat(owner, span_danger("You're not supposed to be able to use this action!"))
-			src.Remove(owner)
-	else
-		if(my_belly.lastuser != null)
-			var/message_index = rand(1, length(squirm_messages_owner))
-			to_chat(owner, span_notice(replacetext(squirm_messages_owner[message_index], "%USER%", my_belly.lastuser.name)))
-			to_chat(my_belly.lastuser, span_notice(replacetext(squirm_messages_host[message_index], "%USER%", owner.name)))
-			if(my_belly.allow_sound_move_creaks)
-				playsound_if_pref(my_belly.lastuser, pick(my_belly.move_creaks), min(10 + round(my_belly.total_fullness/40, 1), 30), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_creaks)
-			if(my_belly.stuffed_temp > 1 && prob(100) <= my_belly.stuffed_temp * 100 && my_belly.allow_sound_move_sloshes)
-				playsound_if_pref(my_belly.lastuser, pick(my_belly.slosh_sounds), min(20 + round(my_belly.total_fullness/32, 1), 50), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_sloshes)
-		else
-			if(my_belly.allow_sound_move_creaks)
-				playsound_if_pref(my_belly, pick(my_belly.move_creaks), min(10 + round(my_belly.total_fullness/40, 1), 30), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_creaks)
-			if(my_belly.stuffed_temp > 1 && prob(100) <= my_belly.stuffed_temp * 100 && my_belly.allow_sound_move_sloshes)
-				playsound_if_pref(my_belly, pick(my_belly.slosh_sounds), min(20 + round(my_belly.total_fullness/32, 1), 50), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_sloshes)
+			Remove(owner)
+		return TRUE
+
+	// Squirm path
+	var/sound_target = my_belly.lastuser || my_belly
+	if(my_belly.lastuser)
+		var/message_index = rand(1, length(squirm_messages_owner))
+		to_chat(owner, span_notice(replacetext(squirm_messages_owner[message_index], "%USER%", my_belly.lastuser.name)))
+		to_chat(my_belly.lastuser, span_notice(replacetext(squirm_messages_host[message_index], "%USER%", owner.name)))
+	if(my_belly.allow_sound_move_creaks)
+		playsound_if_pref(sound_target, pick(my_belly.move_creaks), min(10 + round(my_belly.total_fullness / 40, 1), 30), TRUE, frequency = rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_creaks)
+	if(my_belly.stuffed_temp > 1 && my_belly.allow_sound_move_sloshes)
+		playsound_if_pref(sound_target, pick(my_belly.slosh_sounds), min(20 + round(my_belly.total_fullness / 32, 1), 50), TRUE, frequency = rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_sloshes)
 	return TRUE
 
 /datum/action/item_action/belly_menu/escape/Destroy()
@@ -119,7 +116,7 @@
 
 	/// Query the target if applicable.  Their client has to be present, with this character opted in to be a prey, and the pred has to have already consented.
 	var/prey_mode = target.client?.prefs?.read_preference(/datum/preference/choiced/erp_vore_prey_pref)
-	if(consent_pred == TRUE)
+	if(consent_pred)
 		if(prey_mode == "Query")
 			var/mode_select = tgui_alert(target, "Allow [user] to vore you?", "Nomnom?", list_yesno)
 			if(isnull(mode_select) || QDELETED(target) || QDELETED(src))
@@ -129,10 +126,10 @@
 			consent_prey = TRUE
 
 	/// If everybody consents, go ahead and try to nom...
-	if(consent_pred == TRUE && consent_prey == TRUE)
+	if(consent_pred && consent_prey)
 		do_nom(target, user)
 	/// ...or if the target says no, display the standard interact deny message.
-	else if(consent_pred == TRUE && consent_prey == FALSE)
+	else if(consent_pred && !consent_prey)
 		to_chat(user, span_danger("[target] doesn't want you to do that."))
 
 /// This is where the magic happens to actually nom someone.
@@ -157,7 +154,7 @@
 			var/datum/gas/a_gas = new something_in_list()
 			if(istype(a_gas))
 				last_gasmix = "[last_gasmix][a_gas.id]=20;"
-		last_gasmix = "[last_gasmix]TEMP=[(hopefully_lungs.heat_level_1_threshold + hopefully_lungs.cold_level_1_threshold) / 2]]"
+		last_gasmix = "[last_gasmix]TEMP=[(hopefully_lungs.heat_level_1_threshold + hopefully_lungs.cold_level_1_threshold) / 2]"
 	else
 		last_gasmix = "o2=5;n2=10;TEMP=293.15"
 

@@ -75,35 +75,30 @@ GLOBAL_LIST_EMPTY(aaerp_maskcache)
 		return FALSE
 	if(!islist(target.alternate_appearances))
 		return FALSE
-	var/key = "[base_key][(size+1)]"
-	if(isnull(key))
-		return FALSE
-	/// Determine the max size for the target to be able to view.
-	var/maxsize = get_max_size(viewer)
+
 	/// If we're already above the viewer's maximum size pref, back out.
+	var/maxsize = get_max_size(viewer)
 	if(size > maxsize)
 		return FALSE
+
 	/// There is a higher size to render, either stop here or hide.
-	if(target.alternate_appearances[key] != null)
-		/// If it's too big for the user we won't render it, so stop here- this is the highest layer.
-		if(size + 1 > maxsize)
-			return TRUE
-		/// Otherwise, hide this to avoid wasted draw calls.
+	var/key = "[base_key][size + 1]"
+	if(!isnull(target.alternate_appearances[key]) && (size + 1 <= maxsize))
+		/// hide this to avoid wasted draw calls.
 		return FALSE
-	else
-		/// This is the top layer and nothing else says no: go ahead and render.
-		return TRUE
+	return TRUE
 
 /// Helper function for getting a viewer's maximum size pref.
 /// Base form: return viewer.client?.prefs?.read_preference(some_numeric_preference)
 /datum/atom_hud/alternate_appearance/erp/proc/get_max_size(mob/viewer)
 	return 0
 
-/datum/atom_hud/alternate_appearance/erp/Destroy()
-	. = ..()
-	LAZYREMOVE(target.update_on_z, image)
+/datum/atom_hud/alternate_appearance/erp/Destroy(force)
+	if(target)
+		LAZYREMOVE(target.update_on_z, image)
 	QDEL_NULL(image)
 	target = null
+	return ..()
 
 /datum/atom_hud/alternate_appearance/erp/track_mob(mob/new_viewer)
 	RegisterSignals(new_viewer, signals_registering, PROC_REF(check_hud), override = TRUE)
@@ -123,47 +118,52 @@ GLOBAL_LIST_EMPTY(aaerp_maskcache)
 	if(. && !QDELETED(src))
 		qdel(src)
 
+/// Builds (and caches) a masked copy of source_overlay's icon, blended against the
+/// given mask iconstate.  Caches both the loaded mask icon and the per-icon masked result.
+/datum/atom_hud/alternate_appearance/erp/proc/get_masked_icon(image/source_overlay, mask_iconstate)
+	var/static/list/mask_icons = list()
+	if(!(mask_iconstate in mask_icons))
+		mask_icons[mask_iconstate] = icon('modular_nova/modules/tums/icons/helpers.dmi', mask_iconstate)
+
+	var/source_icon = source_overlay.icon
+	if(!(source_icon in GLOB.aaerp_maskcache))
+		GLOB.aaerp_maskcache[source_icon] = list()
+	var/list/icon_cache = GLOB.aaerp_maskcache[source_icon]
+
+	if(!(mask_iconstate in icon_cache))
+		var/icon/masked_iconfile = icon(source_icon)
+		masked_iconfile.Blend(mask_icons[mask_iconstate], ICON_MULTIPLY)
+		icon_cache[mask_iconstate] = masked_iconfile
+	return icon_cache[mask_iconstate]
+
 /// This is where the magic happens.  This overrides base copy_overlays.
 /// By copying only overlays that would layer above the core image...
 /// ...and using BLEND_INSET_OVERLAY, they only overlay over the core image.
 /// This means you don't get duplicate parts or pixels that then render over your actual appearance.overlays.
 /datum/atom_hud/alternate_appearance/erp/copy_overlays(atom/other, cut_old)
 	var/list/cached_other = target.overlays
-	if(length(image.overlays) != length(cached_other) + 1)
-		image.overlays -= image.overlays
-		for(var/an_overlay in cached_other)
-			var/arm_check = FALSE
-			if(findtext(an_overlay:icon_state, "_arm"))
-				if(an_overlay:layer == -BODYPARTS_LAYER)
-					arm_check = TRUE
-			if(an_overlay:layer >= image.layer || arm_check)
-				var/image/new_overlay = image(an_overlay)
-				var/static/mask_icons = list()
-				if(arm_check)
-					new_overlay.layer = -BODYPARTS_HIGH_LAYER
-				if(new_overlay.layer == -HANDS_LAYER || new_overlay.layer == -GLOVES_LAYER || new_overlay.layer == -BODYPARTS_HIGH_LAYER || arm_check)
-					if(!(offhand_iconstate in mask_icons))
-						mask_icons[offhand_iconstate] = icon('modular_nova/modules/tums/icons/helpers.dmi', offhand_iconstate)
-					if(!(new_overlay.icon in GLOB.aaerp_maskcache))
-						GLOB.aaerp_maskcache[new_overlay.icon] = list()
-					if(!(offhand_iconstate in GLOB.aaerp_maskcache[new_overlay.icon]))
-						var/icon/masked_iconfile = icon(new_overlay.icon)
-						masked_iconfile.Blend(mask_icons[offhand_iconstate], ICON_MULTIPLY)
-						GLOB.aaerp_maskcache[new_overlay.icon][offhand_iconstate] = masked_iconfile
-					new_overlay.icon = GLOB.aaerp_maskcache[new_overlay.icon][offhand_iconstate]
-				else if(new_overlay.layer == -SHOES_LAYER)
-					if(!(shoe_iconstate in mask_icons))
-						mask_icons[shoe_iconstate] = icon('modular_nova/modules/tums/icons/helpers.dmi', shoe_iconstate)
-					if(!(new_overlay.icon in GLOB.aaerp_maskcache))
-						GLOB.aaerp_maskcache[new_overlay.icon] = list()
-					if(!(shoe_iconstate in GLOB.aaerp_maskcache[new_overlay.icon]))
-						var/icon/masked_iconfile = icon(new_overlay.icon)
-						masked_iconfile.Blend(mask_icons[shoe_iconstate], ICON_MULTIPLY)
-						GLOB.aaerp_maskcache[new_overlay.icon][shoe_iconstate] = masked_iconfile
-					new_overlay.icon = GLOB.aaerp_maskcache[new_overlay.icon][shoe_iconstate]
-				else
-					new_overlay.blend_mode = BLEND_INSET_OVERLAY
-				new_overlay.pixel_x -= image.pixel_x
-				new_overlay.pixel_y -= image.pixel_y
-				image.overlays += new_overlay
-		image.overlays += original_image
+	if(length(image.overlays) == length(cached_other) + 1)
+		return
+
+	image.overlays -= image.overlays
+	for(var/an_overlay in cached_other)
+		var/arm_check = findtext(an_overlay:icon_state, "_arm") && (an_overlay:layer == -BODYPARTS_LAYER)
+		if(an_overlay:layer < image.layer && !arm_check)
+			continue
+
+		var/image/new_overlay = image(an_overlay)
+		if(arm_check)
+			new_overlay.layer = -BODYPARTS_HIGH_LAYER
+
+		if(new_overlay.layer == -HANDS_LAYER || new_overlay.layer == -GLOVES_LAYER || new_overlay.layer == -BODYPARTS_HIGH_LAYER || arm_check)
+			new_overlay.icon = get_masked_icon(new_overlay, offhand_iconstate)
+		else if(new_overlay.layer == -SHOES_LAYER)
+			new_overlay.icon = get_masked_icon(new_overlay, shoe_iconstate)
+		else
+			new_overlay.blend_mode = BLEND_INSET_OVERLAY
+
+		new_overlay.pixel_x -= image.pixel_x
+		new_overlay.pixel_y -= image.pixel_y
+		image.overlays += new_overlay
+
+	image.overlays += original_image

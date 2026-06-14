@@ -1,3 +1,5 @@
+#define BELLY_VOLUME(x) ((((x) ** 1.5) / (4/3) / PI) ** (1/3))
+
 /obj/item/belly_function
 	name = "bwelly"
 	desc = "You shouldn't see this, yell at an admin!!"
@@ -21,9 +23,6 @@
 	/// Bespoke icons used for skintone bellies.  No teshi subvariant as of yet as it's PROBABLY unneeded.
 	var/icon/skintone_worn_icon = 'modular_nova/modules/tums/icons/skintone_bellies.dmi'
 	var/icon/skintone_worn_icon_64x ='modular_nova/modules/tums/icons/skintone_bellies_64x.dmi'
-
-	/// Whether or not to bump the alpha down to 155 to match the standard body alpha of slimepeople.
-	var/use_slime_alpha = FALSE
 
 	actions_types = list(
 		/datum/action/item_action/belly_menu/access,
@@ -122,7 +121,7 @@
 	var/static/list/slosh_sounds = list("modular_nova/modules/tums/sounds/Sloshes/BigSlosh1.ogg", "modular_nova/modules/tums/sounds/Sloshes/BigSlosh2.ogg", "modular_nova/modules/tums/sounds/Sloshes/BigSlosh3.ogg", "modular_nova/modules/tums/sounds/Sloshes/BigSlosh4.ogg", "modular_nova/modules/tums/sounds/Sloshes/Slosh1.ogg", "modular_nova/modules/tums/sounds/Sloshes/Slosh2.ogg")
 
 	/// Live editable layers in case things go scrungy.
-	var/hori_layer = UNIFORM_LAYER
+	var/horizontal_layer = UNIFORM_LAYER
 	var/south_layer = UNIFORM_LAYER
 	var/north_layer = BODY_BEHIND_LAYER
 
@@ -146,8 +145,10 @@
 	for(var/mob/living/carbon/human/nommed in LAZYCOPY(nommeds))
 		free_target(nommed)
 	LAZYNULL(nommeds)
-	QDEL_LAZYLIST(nommed_sizes)
-	QDEL_LAZYLIST(nommed_gasmixes)
+	LAZYNULL(nommed_sizes)
+	for(var/mob/m in nommed_gasmixes)
+		qdel(nommed_gasmixes[m])
+	LAZYNULL(nommed_gasmixes)
 	QDEL_LAZYLIST(belly_acts)
 	QDEL_LAZYLIST(escape_helpers)
 	return ..()
@@ -185,7 +186,7 @@
 	var/datum/action/item_action/belly_menu/escape/helper = LAZYACCESS(escape_helpers, nommed)
 	if(helper in belly_acts)
 		LAZYREMOVE(belly_acts, helper)
-	helper.Remove(remove_from = nommed)
+	helper?.Remove(remove_from = nommed)
 	LAZYREMOVE(escape_helpers, nommed)
 	recalculate_guest_sizes()
 
@@ -218,8 +219,9 @@
 /// Helper for activating the belly.
 /// Culls old appearances as needed and registers signals & actions.
 /obj/item/belly_function/proc/apply_to_user(mob/living/carbon/human/user)
-	if(lastuser != user && overlay_south != null && lastuser != null)
-		do_alt_appearance(lastuser, TRUE, last_size)
+	if(lastuser && lastuser != user)
+		if(overlay_south != null)
+			do_alt_appearance(lastuser, TRUE, last_size)
 		UnregisterSignal(lastuser, COMSIG_GENERAL_STEP_ACTION)
 		UnregisterSignal(lastuser, COMSIG_QDELETING)
 		lastuser = null
@@ -234,7 +236,9 @@
 /// Simple little signal to avoid hanging onto lastuser & clear things if this gets nullspaced.
 /// Part of the CI Sacrifice Suite.
 /obj/item/belly_function/proc/on_user_deleted()
-	remove_from_user(lastuser)
+	SIGNAL_HANDLER
+
+	lastuser = null
 	if(!QDELETED(src))
 		qdel(src)
 
@@ -246,8 +250,9 @@
 		action_item_has.Remove(user)
 	if(overlay_south != null)
 		do_alt_appearance(user, TRUE, last_size)
+	if(user)
+		UnregisterSignal(user, list(COMSIG_GENERAL_STEP_ACTION, COMSIG_QDELETING))
 	lastuser = null
-	UnregisterSignal(lastuser, list,(COMSIG_GENERAL_STEP_ACTION, COMSIG_QDELETING))
 
 /// Helper function that recalculates the total endo size from nommed guests.
 /obj/item/belly_function/proc/recalculate_guest_sizes()
@@ -275,72 +280,59 @@
 	/// 1 unit of Nutriment counts as about 22.5 nutrition.
 	/// Exact volume gained from reagents varies due to varying metabolism rates & other things.
 	/// get_fullness is very scrungly.
-	var/stuffed_temp_orig = (user.get_fullness() - (user.nutrition * 0.6) - 500) * sizemod_autostuffed
-	if(stuffed_temp_orig < 0)
-		stuffed_temp_orig = 0
+	var/stuffed_temp_orig = max(0, (user.get_fullness() - (user.nutrition * 0.6) - 500) * sizemod_autostuffed)
 	stuffed_temp_orig += base_size_stuffed
 
 	/// Calculate the baseline, nonexponential sizes...
 	var/total_fullness_orig = guest_temp + stuffed_temp_orig
-	var/total_size_orig = total_fullness_orig + base_size_cosmetic
-	var/total_size = total_size_orig / 10 * sizemod
+	var/total_size = (total_fullness_orig + base_size_cosmetic) / 10 * sizemod
 
-	/// Then calculate the sprite size using the volume equation above.
-	total_size = (((total_size)**1.5) / (4/3) / PI)**(1/3)
+	// Then calculate the sprite size using the volume equation above.
+	total_size = BELLY_VOLUME(total_size)
 	current_size_unclamped = total_size
 	/// Finally, pick a sprite size to use & apply it.
-	var/spr_size = FLOOR(total_size, 1)
-	if(spr_size > 16)
-		spr_size = 16
-	if(spr_size > maxsize)
-		spr_size = maxsize
-	if(spr_size < 0)
-		spr_size = 0
-	update_icon_state()
+	var/spr_size = clamp(round(total_size, 1), 0, min(maxsize, 16))
 	update_icon()
 	if(last_size != spr_size)
 		refresh_overlays(user, spr_size)
 		last_size = spr_size
 
-	/// Calculations for sound sizes here.  The divisor of 10 is used to stop these from getting obscenely loud.
-	total_fullness = total_fullness_orig / 10 * sizemod_audio
-	stuffed_temp = stuffed_temp_orig / 10 * sizemod_audio
-	/// Apply the volume equation.
-	total_fullness = (((total_fullness)**1.5) / (4/3) / PI)**(1/3)
-	stuffed_temp = (((stuffed_temp)**1.5) / (4/3) / PI)**(1/3)
-	/// And finally apply some minor nonexponential additions.
-	/// Just because it doesn't increase radius much doesn't mean it's not adding volume.
+	// Calculations for sound sizes here.  The divisor of 10 is used to stop these from getting obscenely loud.
+	total_fullness = BELLY_VOLUME(total_fullness_orig / 10 * sizemod_audio)
+	stuffed_temp   = BELLY_VOLUME(stuffed_temp_orig   / 10 * sizemod_audio)
+	// And finally apply some minor nonexponential additions.
+	// Just because it doesn't increase radius much doesn't mean it's not adding volume.
 	total_fullness = (total_fullness/3) + (total_fullness_orig / 1000)
 	stuffed_temp = (stuffed_temp/3) + (stuffed_temp_orig / 1000)
 
-	/// Play random sounds as applicable.
-	if(total_fullness >= 1 && allow_sound_groans)
-		full_cooldown = full_cooldown - (seconds_per_tick * total_fullness)
+	/// Play random sounds as applicable - check cooldowns first.
+	if(allow_sound_groans && total_fullness >= 1)
+		full_cooldown -= seconds_per_tick * total_fullness
 		if(full_cooldown < 0)
 			full_cooldown = rand(6, 36)
-			playsound_if_pref(user, pick(full_sounds), min(10 + round(total_fullness/40, 1), 30), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_groans)
-	if(stuffed_temp >= 1 && allow_sound_gurgles)
-		stuff_minor_cooldown= stuff_minor_cooldown- (seconds_per_tick * (stuffed_temp + (total_fullness/5)))
-		if(stuff_minor_cooldown< 0)
-			stuff_minor_cooldown= rand(3, 6)
-			playsound_if_pref(user, pick(stuff_minor), min(12 + round(total_fullness/40, 1), 30), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_gurgles)
-	if(stuffed_temp >= 3 && allow_sound_gurgles)
-		stuff_major_cooldown= stuff_major_cooldown- (seconds_per_tick * (stuffed_temp + (total_fullness/10)))
-		if(stuff_major_cooldown< 0)
-			stuff_major_cooldown= rand(9, 60)
-			playsound_if_pref(user, pick(stuff_major), min(20 + round(total_fullness/32, 1), 50), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_gurgles)
-	if(move_creak_cooldown < 0 && allow_sound_move_creaks)
+			playsound_if_pref(user, pick(full_sounds), min(10 + round(total_fullness / 40, 1), 30), TRUE, frequency = rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_groans)
+	if(allow_sound_gurgles && stuffed_temp >= 1)
+		stuff_minor_cooldown -= seconds_per_tick * (stuffed_temp + total_fullness / 5)
+		if(stuff_minor_cooldown < 0)
+			stuff_minor_cooldown = rand(3, 6)
+			playsound_if_pref(user, pick(stuff_minor), min(12 + round(total_fullness / 40, 1), 30), TRUE, frequency = rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_gurgles)
+	if(allow_sound_gurgles && stuffed_temp >= 3)
+		stuff_major_cooldown -= seconds_per_tick * (stuffed_temp + total_fullness / 10)
+		if(stuff_major_cooldown < 0)
+			stuff_major_cooldown = rand(9, 60)
+			playsound_if_pref(user, pick(stuff_major), min(20 + round(total_fullness / 32, 1), 50), TRUE, frequency = rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_gurgles)
+	if(allow_sound_move_creaks && move_creak_cooldown < 0)
 		move_creak_cooldown = rand(15, 60)
-		playsound_if_pref(user, pick(move_creaks), min(10 + round(total_fullness/40, 1), 30), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_creaks)
-	if(move_slosh_cooldown < 0 && allow_sound_move_sloshes)
+		playsound_if_pref(user, pick(move_creaks), min(10 + round(total_fullness / 40, 1), 30), TRUE, frequency = rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_creaks)
+	if(allow_sound_move_sloshes && move_slosh_cooldown < 0)
 		move_slosh_cooldown = rand(15, 60)
-		playsound_if_pref(user, pick(slosh_sounds), min(20 + round(total_fullness/32, 1), 50), TRUE, frequency=rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_sloshes)
+		playsound_if_pref(user, pick(slosh_sounds), min(20 + round(total_fullness / 32, 1), 50), TRUE, frequency = rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_sloshes)
 
 /// This is what provides healthy air for occupants to breathe.
 /obj/item/belly_function/handle_internal_lifeform(mob/lifeform_inside_me, breath_request)
 	if(lifeform_inside_me in nommed_gasmixes)
 		if(breath_request <= 0)
 			return null
-		return nommed_gasmixes[lifeform_inside_me].copy()
+		return nommed_gasmixes[lifeform_inside_me].Copy()
 	else
 		return ..()

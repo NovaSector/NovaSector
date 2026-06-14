@@ -21,7 +21,7 @@ export function FeatureBellyButton(props: FeatureValueProps<number>) {
         });
       }}
     >
-      Open
+      Change
     </Button>
   );
 }
