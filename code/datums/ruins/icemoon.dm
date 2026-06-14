@@ -96,7 +96,7 @@
 	cost = 10
 
 // above and below ground together
-/* NOVA EDIT REMOVAL START - Mapping
+
 /datum/map_template/ruin/icemoon/mining_site
 	name = "Ice-Ruin Mining Site"
 	id = "miningsite"
@@ -114,7 +114,6 @@
 	has_ceiling = FALSE
 	unpickable = TRUE
 	enclosed_for_terrain = TRUE
-*/ // NOVA EDIT REMOVAL END
 
 // below ground only
 
