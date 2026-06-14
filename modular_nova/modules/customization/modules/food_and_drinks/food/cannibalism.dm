@@ -72,7 +72,7 @@
 	blacklist = null
 
 /obj/item/food/burger/human/chicken
-	name = "birdman sandwich"
+	name = "birdperson sandwich"
 	desc = "You're pretty sure this sandwich doesn't fund a good cause..."
 	icon_state = "chickenburger"
 	food_reagents = list(
