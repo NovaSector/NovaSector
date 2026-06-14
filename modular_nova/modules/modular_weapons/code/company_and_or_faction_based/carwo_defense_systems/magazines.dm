@@ -31,6 +31,42 @@
 /obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty
 	start_empty = TRUE
 
+// .27-54 PDW magazine — sprites live in szot_dynamica's ammo.dmi alongside
+// the other Cesarzowa magazines (miecz, etc.).
+
+/obj/item/ammo_box/magazine/alacran_pdw
+	name = "\improper Alacrán PDW magazine"
+	desc = "A forty-eight-round translucent polymer magazine for the Carwo Alacrán PDW, \
+		chambered in .27-54 Cesarzowa. The bullets are visible through the cyan-tinted shell, \
+		letting the operator gauge remaining rounds at a glance."
+
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon_state = "alacran_mag-full"
+	base_icon_state = "alacran_mag"
+
+	w_class = WEIGHT_CLASS_NORMAL
+
+	ammo_type = /obj/item/ammo_casing/c27_54cesarzowa
+	caliber = CALIBER_CESARZOWA
+	max_ammo = 48
+
+/obj/item/ammo_box/magazine/alacran_pdw/update_icon_state()
+	. = ..()
+	var/ratio = ammo_count() / max_ammo
+	var/suffix
+	if(ratio >= 0.75)
+		suffix = "full"
+	else if(ratio >= 0.25)
+		suffix = "mid"
+	else if(ratio > 0)
+		suffix = "low"
+	else
+		suffix = "empty"
+	icon_state = "[base_icon_state]-[suffix]"
+
+/obj/item/ammo_box/magazine/alacran_pdw/starts_empty
+	start_empty = TRUE
+
 // .40 Sol rifle magazines
 
 /obj/item/ammo_box/magazine/c40sol_rifle

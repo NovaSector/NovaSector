@@ -36,6 +36,7 @@
 		/obj/item/cane/white/nanite,
 		/obj/item/lighter/nanite,
 		/obj/item/holocigarette/nanite,
+		/obj/item/toy/eightball/nanite,
 	)
 
 	///The objects currently summoned by the NIFSoft
@@ -207,6 +208,12 @@
 
 /datum/nifsoft/summoner/combat
 	mutually_exclusive_programs = list(/datum/nifsoft/summoner/combat) //One combat grimoire per person
+
+/obj/item/toy/eightball/nanite
+	special_desc = "A staple of adolescent sleepovers and drunken revelry for centuries, the humble eightball has seen a resurgence in popularity with its inclusion in the Grimoire. \
+		A simple nanite shell filled with a colloidal suspension of nanites programmed for pure divination: a chaos engine rendered into a toy. \
+		It's a topic of hot debate on whether or not there's an actual pseudorandom number generator embedded in it, or if it truly does just \
+		let its answer slosh around inside like the original would."
 
 #undef SUMMONED_ITEM_ALPHA
 #undef SUMMONED_ITEM_LIGHT

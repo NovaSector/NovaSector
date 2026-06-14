@@ -241,7 +241,7 @@
 	return processed_count > 0
 
 /obj/item/circuitboard/machine/trash_compactor
-	name = "\improper DeForest trash reclamation terminal (Machine Board)"
+	name = "DeForest Trash Reclamation Terminal"
 	build_path = /obj/machinery/trash_compactor
 	req_components = list()
 
@@ -249,3 +249,8 @@
 	name = "\improper DeForest trash reclamation terminal"
 	board = /obj/item/circuitboard/machine/trash_compactor
 	custom_premium_price = PAYCHECK_CREW * 1.5
+
+#undef REQUIRED_TRASH_CREW
+#undef REQUIRED_TRASH_JANITOR
+#undef JANITOR_WAGE_BONUS
+#undef LUXURY_TICKET_THRESHOLD

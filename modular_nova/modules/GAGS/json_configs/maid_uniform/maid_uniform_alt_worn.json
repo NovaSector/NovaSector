@@ -1,0 +1,30 @@
+{
+	"maid_uniform_alt": [
+		{
+			"type": "icon_state",
+			"icon_state": "maid_dress_alt",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "maid_apron_alt",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"maid_uniform_alt_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "maid_dress_alt_d",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "maid_apron_alt_d",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}
