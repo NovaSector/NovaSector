@@ -26,4 +26,3 @@
 	icon = /obj/item/food/fishmeat/moonfish::icon
 	icon_state = /obj/item/food/fishmeat/moonfish::icon_state
 
-
