@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "Fixed broken access on kitchen doors, removed black z-level adapter pipe and added custom shuttle kit on ouro"
