@@ -272,3 +272,6 @@
   - rscadd: Eyebags are now a marking if you want it. Do you want some more? Do you
       want it?
   - rscadd: Butchering Nova races will produce more accurate meats.
+  vinylspiders:
+  - bugfix: fixes an issue where changing an external organ in the preferences menu
+      would not update your character preview
