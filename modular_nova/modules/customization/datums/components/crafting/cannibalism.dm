@@ -1,8 +1,8 @@
 /datum/crafting_recipe/food/chickenburger/human
 	added_foodtypes = FRIED | GORE
-	name = "Birdman Sandwich"
+	name = "Birdperson Sandwich"
 	reqs = list(
-			/obj/item/food/patty/tesh/chicken = 1,
+			/obj/item/food/patty/human/chicken = 1,
 			/datum/reagent/consumable/mayonnaise = 5,
 			/obj/item/food/bun = 1
 	)
