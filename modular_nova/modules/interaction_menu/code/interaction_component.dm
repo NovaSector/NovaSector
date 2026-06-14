@@ -113,45 +113,25 @@
 
 		descriptions[interaction.name] = interaction.description
 		colors[interaction.name] = interaction.color
+
 	// Main check to see if the user is even opted into bellies on this character.
 	if(TRAIT_PREDATORY in user._status_traits)
-		// Retrieving the pred state from the belly object requires some effort
-		var/pred_mode = "Never"
-		var/datum/quirk/belly/bellyquirk
-		var/obj/item/belly_function/a_belly
 		var/mob/living/carbon/human/human_user = user
-		// Search their quirks to find the right one
-		for(var/datum/quirk/some_quirk in human_user?.quirks)
-			bellyquirk = some_quirk
-			if(istype(bellyquirk))
-				break
-			else
-				bellyquirk = null
-		// Retrieve the belly helper instance from it
-		if(bellyquirk != null)
-			a_belly = bellyquirk.the_bwelly
-		// Read the pred mode from it if possible
-		if(a_belly != null)
-			pred_mode = a_belly.pred_mode
+		// Pull the belly helper from the pred's belly quirk, if present.
+		var/datum/quirk/belly/bellyquirk = locate() in human_user.quirks
+		var/obj/item/belly_function/a_belly = bellyquirk?.the_bwelly
+		var/pred_mode = a_belly?.pred_mode || "Never"
 		// Targets currently use prefs rather than having a dedicated on-character object or datum.
-		var/prey_mode = self.client?.prefs?.read_preference(/datum/preference/choiced/erp_vore_prey_pref)
-		if(pred_mode != "Never" && prey_mode != "Never")
-			var/sanity_checks = TRUE
-			// Sanity check: if they're already in your tum, or you're already in them, *don't do it*
-			if((self.loc in user.contents) || (user.loc in self.contents) || (self.loc.loc == user) || (user.loc.loc == self))
-				sanity_checks = FALSE
-			// Sanity check: don't even pretend you can inception yourself
-			if(user == self)
-				sanity_checks = FALSE
-			if(sanity_checks == TRUE)
-				if(categories[MECHANICAL_CATEGORY] != null)
-					categories[MECHANICAL_CATEGORY] += VORE_ACT
-					var/list/sorted_category = sort_list(categories[MECHANICAL_CATEGORY])
-					categories[MECHANICAL_CATEGORY] = sorted_category
-				else
-					categories[MECHANICAL_CATEGORY] = list(VORE_ACT)
-				descriptions[VORE_ACT] += "Put someone in your belly- if they're cool with it."
-				colors[VORE_ACT] = "red"
+		var/prey_mode = self.client?.prefs?.read_preference(/datum/preference/choiced/erp_vore_prey_pref) || "Never"
+
+		// Don't offer vore if either party opts out, you're targeting yourself,
+		// or one of you is already inside the other.
+		var/already_nested = (self.loc in user.contents) || (user.loc in self.contents) || (self.loc?.loc == user) || (user.loc?.loc == self)
+		if(pred_mode != "Never" && prey_mode != "Never" && user != self && !already_nested)
+			LAZYADD(categories[MECHANICAL_CATEGORY], VORE_ACT)
+			categories[MECHANICAL_CATEGORY] = sort_list(categories[MECHANICAL_CATEGORY])
+			descriptions[VORE_ACT] = "Put someone in your belly - if they're cool with it."
+			colors[VORE_ACT] = "red"
 
 	// Sort category contents once
 	for (var/category in categories)
@@ -176,19 +156,10 @@
 	data["isTargetSelf"] = (user == self)
 
 	// user (the one who opened the ui)
-	var/user_pleasure = 0
-	var/user_arousal = 0
-	var/user_pain = 0
-
 	if(user)
-		user_pleasure = human_user.pleasure
-		user_arousal = human_user.arousal
-		user_pain = human_user.pain
-
-		data["pleasure"] = user_pleasure
-		data["arousal"] = user_arousal
-		data["pain"] = user_pain
-
+		data["pleasure"] = human_user.pleasure
+		data["arousal"] = human_user.arousal
+		data["pain"] = human_user.pain
 
 	// self - the one who the interaction component belongs to, aka who it's opened on (confusing var name yep)
 	if(user != self)
@@ -247,14 +218,9 @@
 			// Grab the associated player mobs.
 			var/mob/living/carbon/human/source = locate(params["userref"])
 			var/mob/living/carbon/human/target = locate(params["selfref"])
-			// Retrieving the belly object requires some effort
-			var/datum/quirk/belly/bellyquirk
-			var/obj/item/belly_function/a_belly
-			// We start by digging through the pred's quirks to find Big Boned
-			bellyquirk = locate() in source.quirks
-			// If they have it (which they should, but sanity checks are important) we pull the belly object from the quirk
-			if(bellyquirk != null)
-				a_belly = bellyquirk.the_bwelly
+			// Pull the belly object from the pred's belly quirk.
+			var/datum/quirk/belly/bellyquirk = locate() in source.quirks
+			var/obj/item/belly_function/a_belly = bellyquirk?.the_bwelly
 			// And if the belly object is there as expected, we move to the next phase: actually trying to nom.
 			if(a_belly != null)
 				a_belly.try_nom(target, source)
@@ -305,7 +271,7 @@
 			else if (new_item)
 				source.visible_message(span_purple("[source.name] starts trying to [insert_or_attach] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You start to [insert_or_attach] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You hear someone trying to [insert_or_attach] something [into_or_onto] someone nearby."), vision_distance = SAMETILE_MESSAGE_RANGE, ignored_mobs = ignoring_mobs + list(target))
 			if (source != target)
-				target.show_message(span_warning("[source.name] is trying to [existing_item ? "remove the [existing_item.name] [internal ? "in" : "on"]" : new_item ? "is trying to [insert_or_attach] the [new_item.name] [into_or_onto]" : span_alert("What the fuck, impossible condition? interaction_component.dm!")] your [item_index]!"))
+				target.show_message(span_warning("[source.name] is trying to [existing_item ? "remove the [existing_item.name] [internal ? "in" : "on"]" : new_item ? "[insert_or_attach] the [new_item.name] [into_or_onto]" : span_alert("What the fuck, impossible condition? interaction_component.dm!")] your [item_index]!"))
 			if(do_after(
 				source,
 				5 SECONDS,
