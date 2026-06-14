@@ -1,0 +1,4 @@
+author: "theselfish"
+delete-after: True
+changes:
+  - rscadd: "Butchering Nova races will produce more accurate meats."
