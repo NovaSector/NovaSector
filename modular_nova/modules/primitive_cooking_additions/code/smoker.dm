@@ -105,8 +105,13 @@
 			particles.position = list(6, 4, 0)
 
 /obj/machinery/smartfridge/drying/rack/smoker/examine(mob/user)
-	. = list()
-	. += ..()
+	. = ..()
+
+	// Strip the smartfridge status display line
+	for(var/i in 1 to length(.))
+		var/msg = .[i]
+		if(istext(msg) && findtext(msg, "The status display reads"))
+			.[i] = null
 
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("The chamber looks like it can hold up to <b>[max_n_of_items]</b> items for drying.")
