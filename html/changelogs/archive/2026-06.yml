@@ -254,3 +254,24 @@
   - map: Nova-specific maps boulder refineries are now oriented properly.
   timothymtorres:
   - spellcheck: Add security misspelling checks to CI
+2026-06-14:
+  Happyowl93:
+  - rscadd: Added Proteans (again)
+  Hatterhat:
+  - qol: Drone duffelbags now have a slightly more organized inventory. Drones drop
+      their pocket contents properly on death.
+  Iajret:
+  - bugfix: Fixed broken access on kitchen doors, removed black z-level adapter pipe
+      and added custom shuttle kit on ouro
+  sqnztb:
+  - rscadd: the grimoire caeruleam can now summon a magic(ish) 8 ball
+  theselfish:
+  - rscadd: Faxes have opened up. You may now fax the HC, FTU, IRA, IBS and a bunch
+      of other two-three letter groups. Sadly the last two no longer own faxes. So
+      we gave you Clowns and Mimes instead.
+  - rscadd: Eyebags are now a marking if you want it. Do you want some more? Do you
+      want it?
+  - rscadd: Butchering Nova races will produce more accurate meats.
+  vinylspiders:
+  - bugfix: fixes an issue where changing an external organ in the preferences menu
+      would not update your character preview

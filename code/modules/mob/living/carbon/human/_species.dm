@@ -312,14 +312,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			// NOVA EDIT ADDITION START
 			if(existing_organ)
 				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
-				if(old_organ_type == existing_organ.type || replace_current)
-					if(existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key])
+				var/keep_in_mutant_bodyparts = existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key]
+				if(old_organ_type == existing_organ.type || replace_current || existing_organ_feature_key)
+					if(keep_in_mutant_bodyparts)
 						existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
 					else
 						existing_organ.Remove(organ_holder, special = TRUE)
-					qdel(existing_organ)
-				else if(existing_organ_feature_key && isnull(organ_holder.dna.mutant_bodyparts[existing_organ_feature_key]))
-					existing_organ.Remove(organ_holder, special = TRUE)
 					qdel(existing_organ)
 			continue
 			// NOVA EDIT ADDITION END
