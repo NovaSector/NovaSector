@@ -13,10 +13,10 @@ Design notes:
 - Effective ranks above Gamma cause psionic actions to interfere with nearby technology. The effect scales with effective rank and power cost: lights can flicker, machines can suffer light EMP disruption, and robotic bodyparts can take minor burn damage.
 
 Current schools:
-- Bioscrambler: neural, somatic, and identity resonance. Starter power: `Telepathic Whisper`.
+- Bioscrambler: neural, somatic, and identity resonance. Current powers: `Telepathic Whisper`, `Sense Health`.
 - Gravity: mass, inertia, and kinetic pressure. Starter power: `Kinetic Shove`.
 - Bluespace: distance, folds, and spatial discontinuity. Starter power: `Spatial Slip`.
-- Flux: interference, disruption, and reactive static. Starter power: `Psychic Guard`.
+- Flux: interference, disruption, reactive static, and thermal shaping. Current powers: `Psychic Guard`, `Pyro Bolt`, `Pyro Assault`.
 
 Psionic Gift ranks:
 - Lambda: 0 imprint points. Sensitivity only.

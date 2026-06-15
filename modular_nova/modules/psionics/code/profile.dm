@@ -94,6 +94,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		return COMPONENT_INCOMPATIBLE
 
 	psion = parent
+	RegisterSignal(psion, COMSIG_MOB_HUD_CREATED, PROC_REF(on_hud_created))
+	RegisterSignal(psion, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 	available_points = max(points, 0)
 	last_strain_decay = world.time
 	add_source(source)
@@ -107,6 +109,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 /datum/component/psionic_profile/Destroy(force)
 	if(psion)
+		UnregisterSignal(psion, list(COMSIG_MOB_HUD_CREATED, COMSIG_LIVING_LIFE))
+		remove_strain_hud()
 		psion.remove_traits(list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD), PSIONIC_TRAIT_SOURCE)
 	for(var/action_type in granted_actions)
 		var/datum/action/action = granted_actions[action_type]
@@ -121,7 +125,39 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 /datum/component/psionic_profile/proc/awaken()
 	update_rank_traits()
 	grant_action(/datum/action/cooldown/psionic/open_menu)
+	install_strain_hud()
 	to_chat(psion, span_purple("Something latent unfolds behind your eyes. Your psionic potential awakens."))
+
+/datum/component/psionic_profile/proc/on_hud_created(datum/source)
+	SIGNAL_HANDLER
+
+	install_strain_hud()
+
+/datum/component/psionic_profile/proc/on_life(datum/source, seconds_per_tick)
+	SIGNAL_HANDLER
+
+	decay_strain()
+	update_strain_hud()
+
+/datum/component/psionic_profile/proc/install_strain_hud()
+	var/datum/hud/psion_hud = psion?.hud_used
+	if(!psion_hud)
+		return
+
+	var/atom/movable/screen/psionic/strain/strain_hud = psion_hud.screen_objects[HUD_PSIONIC_STRAIN]
+	if(!strain_hud)
+		strain_hud = psion_hud.add_screen_object(/atom/movable/screen/psionic/strain, HUD_PSIONIC_STRAIN, HUD_GROUP_INFO, update_screen = TRUE)
+	update_strain_hud()
+
+/datum/component/psionic_profile/proc/remove_strain_hud()
+	psion?.hud_used?.remove_screen_object(HUD_PSIONIC_STRAIN)
+
+/datum/component/psionic_profile/proc/update_strain_hud()
+	var/atom/movable/screen/psionic/strain/strain_hud = psion?.hud_used?.screen_objects[HUD_PSIONIC_STRAIN]
+	if(!strain_hud)
+		return
+
+	strain_hud.update_strain(strain, max_strain, is_burned_out())
 
 /datum/component/psionic_profile/proc/add_points(points)
 	if(!isnum(points) || points <= 0)
@@ -153,6 +189,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		max_strain = new_max_strain
 		strain = min(strain, max_strain)
 	update_rank_traits()
+	update_strain_hud()
 
 /datum/component/psionic_profile/proc/update_rank_traits()
 	if(!psion)
@@ -286,6 +323,13 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		return "That discipline cannot be imprinted."
 	if(power.action_type in known_powers)
 		return "You already know that discipline."
+	if(length(power.required_powers))
+		for(var/required_power_type in power.required_powers)
+			if(required_power_type in known_powers)
+				continue
+
+			var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
+			return "Imprint [required_power?.name || "the prerequisite discipline"] first."
 	if(power.cost > available_points)
 		return "You need [power.cost] imprint point[power.cost == 1 ? "" : "s"] for that discipline."
 	if(power.required_school_points > get_spent_school_points(power.school))
@@ -295,7 +339,16 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	return null
 
 /datum/component/psionic_profile/proc/get_power_tier(datum/psionic_power/power)
-	return max(round(power.required_school_points / 2) + 1, 1)
+	var/power_tier = max(round(power.required_school_points / 2) + 1, 1)
+	if(length(power.required_powers))
+		for(var/required_power_type in power.required_powers)
+			var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
+			if(!required_power || required_power == power)
+				continue
+
+			power_tier = max(power_tier, get_power_tier(required_power) + 1)
+
+	return power_tier
 
 /datum/component/psionic_profile/proc/get_power_ui_data(datum/psionic_power/power)
 	var/lock_reason = get_power_lock_reason(power)
@@ -405,6 +458,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	if(decay_amount > 0)
 		strain = max(strain - decay_amount, 0)
 		last_strain_decay = world.time
+		update_strain_hud()
 
 /datum/component/psionic_profile/proc/try_gain_strain(amount)
 	decay_strain()
@@ -416,6 +470,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		return FALSE
 
 	strain += amount
+	update_strain_hud()
 	if(strain >= max_strain * 0.75)
 		to_chat(psion, span_warning("Pressure claws at the edge of your thoughts."))
 	else if(strain >= max_strain * 0.5)
@@ -428,6 +483,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 /datum/component/psionic_profile/proc/trigger_burnout()
 	burnout_until = world.time + PSIONIC_BURNOUT_TIME
 	strain = max_strain
+	update_strain_hud()
 	to_chat(psion, span_userdanger("Your psionic focus collapses into static."))
 	psion.Knockdown(2 SECONDS)
 

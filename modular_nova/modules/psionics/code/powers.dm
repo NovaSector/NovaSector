@@ -125,6 +125,8 @@
 	var/cost = 1
 	/// Points that must already be spent in this power's school before it can be imprinted.
 	var/required_school_points = 0
+	/// Action type paths that must already be known before this power can be imprinted.
+	var/list/required_powers
 	/// Anomaly resonance school this power belongs to.
 	var/datum/psionic_school/school
 	/// Action type granted when learned.
@@ -195,6 +197,29 @@
 	cost = 1
 	school = PSIONIC_SCHOOL_FLUX
 	action_type = /datum/action/cooldown/psionic/psychic_guard
+
+/datum/psionic_power/sense_health
+	name = "Sense Health"
+	desc = "Read a living target's physical condition at range as an advanced health analyzer."
+	cost = 1
+	school = PSIONIC_SCHOOL_BIOSCRAMBLER
+	action_type = /datum/action/cooldown/psionic/pointed/sense_health
+
+/datum/psionic_power/pyro_bolt
+	name = "Pyro Bolt"
+	desc = "Ignite your hand and lance a short barrage of orange thermal beams."
+	cost = 1
+	school = PSIONIC_SCHOOL_FLUX
+	action_type = /datum/action/cooldown/psionic/pointed/projectile/pyro_bolt
+
+/datum/psionic_power/pyro_assault
+	name = "Pyro Assault"
+	desc = "Compress psionic heat into an explosive fireball."
+	cost = 2
+	required_school_points = 1
+	required_powers = list(/datum/action/cooldown/psionic/pointed/projectile/pyro_bolt)
+	school = PSIONIC_SCHOOL_FLUX
+	action_type = /datum/action/cooldown/psionic/pointed/projectile/pyro_assault
 
 /datum/action/cooldown/psionic/pointed/telepathy
 	name = "Telepathic Whisper"
@@ -281,6 +306,38 @@
 		var/to_link = FOLLOW_LINK(ghost, target)
 		to_chat(ghost, "[from_link] [span_purple("<b>\[Psionics\]</b> [caster] impresses, \"[thought]\" on [target]")] [to_link]")
 
+	return TRUE
+
+/datum/action/cooldown/psionic/pointed/sense_health
+	name = "Sense Health"
+	desc = "Read a nearby living target's condition as an advanced health analyzer."
+	button_icon_state = "mindread"
+	cooldown_time = 8 SECONDS
+	cast_range = 8
+	point_cost = 1
+	strain_gain = 7
+	psionic_flags = PSIONIC_SENSORY
+	school = PSIONIC_SCHOOL_BIOSCRAMBLER
+
+/datum/action/cooldown/psionic/pointed/sense_health/is_valid_target(atom/target)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!isliving(target))
+		owner.balloon_alert(owner, "no vitals!")
+		return FALSE
+
+	return TRUE
+
+/datum/action/cooldown/psionic/pointed/sense_health/psionic_activate(atom/target)
+	var/mob/living/living_target = target
+	if(living_target.can_block_psionics(PSIONIC_SENSORY, charge_cost = 1))
+		owner.balloon_alert(owner, "sense blurred!")
+		to_chat(owner, span_warning("[living_target]'s condition blurs behind psionic dampening."))
+		return FALSE
+
+	to_chat(owner, span_purple("You unfold [living_target]'s condition into a diagnostic impression."))
+	healthscan(owner, living_target, mode = SCANNER_VERBOSE, advanced = TRUE)
 	return TRUE
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove
@@ -385,3 +442,179 @@
 	var/datum/component/anti_psionic/shield = shield_ref?.resolve()
 	if(shield)
 		qdel(shield)
+
+/datum/action/cooldown/psionic/pointed/projectile/pyro_bolt
+	name = "Pyro Bolt"
+	desc = "Ignite your hand and lance a short barrage of orange thermal beams."
+	button_icon_state = "firebeam"
+	active_msg = "Flame gathers over your palm."
+	deactive_msg = "The flame drains back into your skin."
+	cooldown_time = 12 SECONDS
+	cast_range = 9
+	point_cost = 1
+	strain_gain = 14
+	psionic_flags = PSIONIC_THERMAL
+	school = PSIONIC_SCHOOL_FLUX
+	projectile_type = /obj/projectile/psionic/pyro_bolt
+	projectile_hand_visual_type = /obj/item/psionic_pyro_hand
+	projectiles_per_fire = 3
+	projectile_spread = 8
+	projectile_sound = 'sound/items/weapons/laser.ogg'
+
+/datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/psionic_activate(atom/target)
+	owner.visible_message(
+		span_warning("[owner]'s hand blooms with orange fire."),
+		span_purple("Your hand blooms with orange fire."),
+	)
+	return ..()
+
+/datum/action/cooldown/psionic/pointed/projectile/pyro_assault
+	name = "Pyro Assault"
+	desc = "Compress psionic heat into an explosive fireball."
+	button_icon_state = "fireball0"
+	active_msg = "A bright pressure gathers in your burning hand."
+	deactive_msg = "You let the fireball gutter out."
+	cooldown_time = 30 SECONDS
+	cast_range = 8
+	point_cost = 2
+	strain_gain = 32
+	psionic_flags = PSIONIC_THERMAL
+	school = PSIONIC_SCHOOL_FLUX
+	projectile_type = /obj/projectile/psionic/pyro_fireball
+	projectile_hand_visual_type = /obj/item/psionic_pyro_hand
+	projectile_sound = 'sound/effects/magic/fireball.ogg'
+
+/datum/action/cooldown/psionic/pointed/projectile/pyro_assault/psionic_activate(atom/target)
+	owner.visible_message(
+		span_warning("[owner] hurls a dense knot of orange fire."),
+		span_purple("You hurl a dense knot of orange fire."),
+	)
+	return ..()
+
+/obj/item/psionic_pyro_hand
+	name = "\improper psionic flame"
+	desc = "A flame-shaped pressure shimmering around the hand."
+	icon = 'icons/obj/weapons/hand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/touchspell_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/touchspell_righthand.dmi'
+	icon_state = "greyscale"
+	inhand_icon_state = "greyscale"
+	color = COLOR_ORANGE
+	item_flags = ABSTRACT | HAND_ITEM | DROPDEL | NOBLUDGEON
+	w_class = WEIGHT_CLASS_HUGE
+	force = 0
+	throwforce = 0
+	throw_range = 0
+	throw_speed = 0
+
+/obj/item/psionic_pyro_hand/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, PSIONIC_TRAIT_SOURCE)
+
+/obj/projectile/psionic
+	name = "psionic bolt"
+	icon_state = "energy"
+	damage_type = BURN
+	armor_flag = ENERGY
+	/// Psionic category checked by anti-psionic counters when this projectile hits.
+	var/psionic_flags = PSIONIC_THERMAL
+	/// Anti-psionic charge cost to block this projectile.
+	var/psionic_charge_cost = 1
+
+/obj/projectile/psionic/prehit_pierce(atom/target)
+	. = ..()
+	if(!isliving(target))
+		return .
+
+	var/mob/living/living_target = target
+	if(living_target.can_block_psionics(psionic_flags, psionic_charge_cost))
+		visible_message(span_warning("[src] unravels against [living_target]'s psionic dampening."))
+		return PROJECTILE_DELETE_WITHOUT_HITTING
+
+/obj/projectile/psionic/pyro_bolt
+	name = "pyro bolt"
+	icon_state = "firebeam"
+	damage = 10
+	damage_type = BURN
+	armor_flag = LASER
+	range = 9
+	color = COLOR_ORANGE
+	hitsound = 'sound/items/weapons/sear.ogg'
+	hitsound_wall = 'sound/items/weapons/effects/searwall.ogg'
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/yellow_laser
+	tracer_type = /obj/effect/projectile/tracer/laser/emitter/blast
+	muzzle_type = /obj/effect/projectile/muzzle/laser/emitter/blast
+	impact_type = /obj/effect/projectile/impact/laser/emitter/blast
+	light_system = OVERLAY_LIGHT
+	light_range = 1
+	light_power = 1.4
+	light_color = LIGHT_COLOR_ORANGE
+	/// Temperature used when igniting targets and exposed objects.
+	var/temperature = 350
+
+/obj/projectile/psionic/pyro_bolt/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+	if(!.)
+		return
+
+	if(isobj(target))
+		var/obj/object_target = target
+		if(object_target.resistance_flags & ON_FIRE)
+			return
+
+		object_target.fire_act(temperature)
+		return
+
+	if(isliving(target))
+		var/mob/living/living_target = target
+		living_target.adjust_fire_stacks(2)
+		living_target.ignite_mob()
+
+/obj/projectile/psionic/pyro_bolt/on_range()
+	var/turf/location = get_turf(src)
+	if(location)
+		new /obj/effect/hotspot(location)
+		location.hotspot_expose(700, 50, 1)
+	return ..()
+
+/obj/projectile/psionic/pyro_fireball
+	name = "psionic fireball"
+	icon_state = "fireball"
+	damage = 10
+	damage_type = BURN
+	range = 8
+	color = COLOR_ORANGE
+	light_system = OVERLAY_LIGHT
+	light_range = 2
+	light_power = 1.8
+	light_color = LIGHT_COLOR_ORANGE
+	psionic_charge_cost = 2
+	/// Heavy explosion range of the fireball.
+	var/exp_heavy = 0
+	/// Light explosion range of the fireball.
+	var/exp_light = 2
+	/// Fire radius of the fireball.
+	var/exp_fire = 2
+	/// Flash radius of the fireball.
+	var/exp_flash = 3
+
+/obj/projectile/psionic/pyro_fireball/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+	if(isliving(target))
+		var/mob/living/living_target = target
+		living_target.take_overall_damage(burn = 10)
+
+	var/turf/target_turf = get_turf(target)
+	if(!target_turf)
+		return
+
+	explosion(
+		target_turf,
+		devastation_range = -1,
+		heavy_impact_range = exp_heavy,
+		light_impact_range = exp_light,
+		flame_range = exp_fire,
+		flash_range = exp_flash,
+		adminlog = FALSE,
+		explosion_cause = src,
+	)

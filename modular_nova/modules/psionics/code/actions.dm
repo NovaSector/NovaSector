@@ -140,6 +140,115 @@
 
 	return TRUE
 
+/datum/action/cooldown/psionic/pointed/projectile
+	/// Projectile type launched by this psionic discipline.
+	var/obj/projectile/projectile_type
+	/// Optional hand item shown while this projectile discipline is readied.
+	var/obj/item/projectile_hand_visual_type
+	/// Hand item instance currently shown while this projectile discipline is readied.
+	var/obj/item/projectile_hand_visual
+	/// TRUE while the hand visual is being intentionally removed.
+	var/removing_projectile_hand_visual = FALSE
+	/// Number of projectiles released by one activation.
+	var/projectiles_per_fire = 1
+	/// Degrees between projectiles in a multi-projectile spread.
+	var/projectile_spread = 0
+	/// Sound played once when projectiles are launched.
+	var/projectile_sound
+
+/datum/action/cooldown/psionic/pointed/projectile/Remove(mob/living/remove_from)
+	remove_projectile_hand_visual(remove_from)
+	return ..()
+
+/datum/action/cooldown/psionic/pointed/projectile/set_click_ability(mob/on_who)
+	if(projectile_hand_visual_type && !create_projectile_hand_visual(on_who))
+		return FALSE
+
+	. = ..()
+	if(!.)
+		remove_projectile_hand_visual(on_who)
+
+/datum/action/cooldown/psionic/pointed/projectile/unset_click_ability(mob/on_who, refund_cooldown = TRUE)
+	. = ..()
+	remove_projectile_hand_visual(on_who)
+
+/datum/action/cooldown/psionic/pointed/projectile/psionic_activate(atom/target)
+	if(!projectile_type)
+		return FALSE
+	if(!isturf(owner.loc))
+		return FALSE
+
+	if(projectile_sound)
+		playsound(get_turf(owner), projectile_sound, 65, TRUE)
+
+	var/fired_projectile = FALSE
+	for(var/i in 1 to projectiles_per_fire)
+		var/obj/projectile/to_fire = new projectile_type()
+		if(!ready_projectile(to_fire, target, owner, i))
+			qdel(to_fire)
+			continue
+
+		to_fire.fire()
+		fired_projectile = TRUE
+
+	return fired_projectile
+
+/datum/action/cooldown/psionic/pointed/projectile/proc/ready_projectile(obj/projectile/to_fire, atom/target, mob/user, iteration)
+	to_fire.firer = user
+	to_fire.fired_from = src
+
+	var/deviation = 0
+	if(projectile_spread && projectiles_per_fire > 1)
+		deviation = (iteration - ((projectiles_per_fire + 1) / 2)) * projectile_spread
+
+	return to_fire.aim_projectile(target, user, null, deviation)
+
+/datum/action/cooldown/psionic/pointed/projectile/proc/create_projectile_hand_visual(mob/on_who)
+	if(projectile_hand_visual && !QDELETED(projectile_hand_visual))
+		if(projectile_hand_visual.loc == on_who)
+			return TRUE
+		remove_projectile_hand_visual(on_who)
+
+	var/obj/item/new_hand_visual = new projectile_hand_visual_type(on_who)
+	if(!on_who.put_in_hands(new_hand_visual, del_on_fail = TRUE))
+		on_who.balloon_alert(on_who, "free a hand!")
+		to_chat(on_who, span_warning("You need a free hand to focus [src]."))
+		return FALSE
+
+	projectile_hand_visual = new_hand_visual
+	RegisterSignal(projectile_hand_visual, COMSIG_QDELETING, PROC_REF(on_projectile_hand_visual_deleted))
+	RegisterSignal(projectile_hand_visual, COMSIG_ITEM_DROPPED, PROC_REF(on_projectile_hand_visual_dropped))
+	return TRUE
+
+/datum/action/cooldown/psionic/pointed/projectile/proc/remove_projectile_hand_visual(mob/hand_owner)
+	if(!projectile_hand_visual || QDELETED(projectile_hand_visual))
+		projectile_hand_visual = null
+		return
+
+	removing_projectile_hand_visual = TRUE
+	UnregisterSignal(projectile_hand_visual, list(COMSIG_QDELETING, COMSIG_ITEM_DROPPED))
+	hand_owner?.temporarilyRemoveItemFromInventory(projectile_hand_visual, force = TRUE)
+	QDEL_NULL(projectile_hand_visual)
+	removing_projectile_hand_visual = FALSE
+
+/datum/action/cooldown/psionic/pointed/projectile/proc/on_projectile_hand_visual_deleted(datum/source)
+	SIGNAL_HANDLER
+
+	projectile_hand_visual = null
+	if(removing_projectile_hand_visual || QDELETED(owner))
+		return
+	if(owner.click_intercept == src)
+		unset_click_ability(owner, refund_cooldown = TRUE)
+
+/datum/action/cooldown/psionic/pointed/projectile/proc/on_projectile_hand_visual_dropped(datum/source, mob/living/dropper)
+	SIGNAL_HANDLER
+
+	projectile_hand_visual = null
+	if(removing_projectile_hand_visual || QDELETED(owner))
+		return
+	if(owner.click_intercept == src)
+		unset_click_ability(owner, refund_cooldown = TRUE)
+
 /datum/action/cooldown/psionic/open_menu
 	name = "Psionic Imprinting"
 	desc = "Review strain and imprint new psionic disciplines."

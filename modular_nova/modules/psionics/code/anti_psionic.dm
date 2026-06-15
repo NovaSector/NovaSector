@@ -95,6 +95,8 @@
 		examine_list["guard-dampened"] = "It disrupts protective psionic shaping."
 	if(psionic_flags & PSIONIC_SPATIAL)
 		examine_list["spatial-dampened"] = "It disrupts psionic spatial folding."
+	if(psionic_flags & PSIONIC_THERMAL)
+		examine_list["thermal-dampened"] = "It disperses psionic thermal shaping."
 
 /datum/component/anti_psionic/proc/on_equip(atom/movable/source, mob/equipper, slot)
 	SIGNAL_HANDLER
