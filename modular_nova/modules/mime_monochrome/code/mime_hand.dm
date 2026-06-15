@@ -27,7 +27,7 @@
 	caster.visible_message(
 		span_danger("[caster.name] reaches out and drains the color from [victim.name], turning it monochrome!"),
 		span_danger("You unleash the power of silence upon [victim.name]!")
-		)
+	)
 	if(isitem(victim) && isliving(victim.loc))
 		var/obj/item/target_item = victim
 		var/mob/living/holder = victim.loc
