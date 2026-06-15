@@ -511,7 +511,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "butt_size"
 	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
-	minimum = 1
+	minimum = 0
 	maximum = 8
 
 /datum/preference/numeric/butt_size/is_accessible(datum/preferences/preferences)
