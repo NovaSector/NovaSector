@@ -91,6 +91,8 @@
 /obj/item/clothing/head/psionic_dampener
 	name = "psionic dampener"
 	desc = "A close-worn lattice that scatters psionic phenomena before they can resolve."
+	icon = 'icons/obj/clothing/head/costume.dmi'
+	worn_icon = 'icons/mob/clothing/head/costume.dmi'
 	icon_state = "foilhat"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_SMALL
