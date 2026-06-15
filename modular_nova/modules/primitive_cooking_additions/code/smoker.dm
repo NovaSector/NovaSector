@@ -124,8 +124,6 @@
 		else
 			. += span_warning("The firebox is cold. Feed it logs or planks to produce smoke.")
 
-	. += structure_examine()
-
 /datum/crafting_recipe/primitive_smoker
 	name = "Primitive Smoker"
 	result = /obj/machinery/smartfridge/drying/rack/smoker
