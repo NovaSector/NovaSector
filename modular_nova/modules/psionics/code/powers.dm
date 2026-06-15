@@ -224,7 +224,7 @@
 /datum/action/cooldown/psionic/pointed/telepathy
 	name = "Telepathic Whisper"
 	desc = "<b>Left click</b>: project a thought to a target. <b>Right click</b>: project to your last target."
-	button_icon_state = "telepathy"
+	button_icon_state = "psi_whisper"
 	cooldown_time = 3 SECONDS
 	cast_range = 7
 	point_cost = 1
@@ -311,7 +311,7 @@
 /datum/action/cooldown/psionic/pointed/sense_health
 	name = "Sense Health"
 	desc = "Read a nearby living target's condition as an advanced health analyzer."
-	button_icon_state = "mindread"
+	button_icon_state = "psi_sense_health"
 	cooldown_time = 8 SECONDS
 	cast_range = 8
 	point_cost = 1
@@ -343,7 +343,7 @@
 /datum/action/cooldown/psionic/pointed/kinetic_shove
 	name = "Kinetic Shove"
 	desc = "Throw a nearby target away with focused psionic force."
-	button_icon_state = "repulse"
+	button_icon_state = "psi_kinetic_shove"
 	cooldown_time = 12 SECONDS
 	cast_range = 5
 	point_cost = 1
@@ -393,7 +393,7 @@
 /datum/action/cooldown/psionic/spatial_slip
 	name = "Spatial Slip"
 	desc = "Blink a short distance through a bluespace fold."
-	button_icon_state = "blink"
+	button_icon_state = "psi_spatial_slip"
 	cooldown_time = 15 SECONDS
 	point_cost = 1
 	strain_gain = 20
@@ -417,7 +417,7 @@
 /datum/action/cooldown/psionic/psychic_guard
 	name = "Psychic Guard"
 	desc = "Briefly shield yourself from intrusive and sensory psionics."
-	button_icon_state = "shield"
+	button_icon_state = "psi_psychic_guard"
 	cooldown_time = 30 SECONDS
 	point_cost = 1
 	strain_gain = 15
@@ -446,7 +446,7 @@
 /datum/action/cooldown/psionic/pointed/projectile/pyro_bolt
 	name = "Pyro Bolt"
 	desc = "Ignite your hand and lance a short barrage of orange thermal beams."
-	button_icon_state = "firebeam"
+	button_icon_state = "psi_pyro_bolt"
 	active_msg = "Flame gathers over your palm."
 	deactive_msg = "The flame drains back into your skin."
 	cooldown_time = 12 SECONDS
@@ -471,7 +471,7 @@
 /datum/action/cooldown/psionic/pointed/projectile/pyro_assault
 	name = "Pyro Assault"
 	desc = "Compress psionic heat into an explosive fireball."
-	button_icon_state = "fireball0"
+	button_icon_state = "psi_pyro_assault"
 	active_msg = "A bright pressure gathers in your burning hand."
 	deactive_msg = "You let the fireball gutter out."
 	cooldown_time = 30 SECONDS

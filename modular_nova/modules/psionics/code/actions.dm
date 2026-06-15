@@ -3,7 +3,7 @@
 	desc = "Project a psionic discipline."
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
 	button_icon = 'modular_nova/modules/psionics/icons/actions.dmi'
-	button_icon_state = "spell_default"
+	button_icon_state = "psi_imprint"
 	background_icon_state = "bg_tech_blue"
 	active_background_icon_state = "bg_tech_blue_active"
 	overlay_icon_state = "bg_tech_blue_border"
@@ -252,7 +252,7 @@
 /datum/action/cooldown/psionic/open_menu
 	name = "Psionic Imprinting"
 	desc = "Review strain and imprint new psionic disciplines."
-	button_icon_state = "spell_default"
+	button_icon_state = "psi_imprint"
 	psionic_flags = NONE
 	point_cost = 0
 	strain_gain = 0
