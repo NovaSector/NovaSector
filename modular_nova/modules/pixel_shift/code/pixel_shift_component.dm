@@ -75,19 +75,19 @@
 	var/mob/living/owner = parent
 	switch(direct)
 		if(NORTH)
-			if(pixel_shift_y <= maximum_pixel_shift + owner.base_pixel_y)
+			if(pixel_shift_y <= maximum_pixel_shift + owner.base_pixel_z)
 				pixel_shift_y++
 				is_shifted = TRUE
 		if(EAST)
-			if(pixel_shift_x <= maximum_pixel_shift + owner.base_pixel_x)
+			if(pixel_shift_x <= maximum_pixel_shift + owner.base_pixel_w)
 				pixel_shift_x++
 				is_shifted = TRUE
 		if(SOUTH)
-			if(pixel_shift_y >= -maximum_pixel_shift + owner.base_pixel_y)
+			if(pixel_shift_y >= -maximum_pixel_shift + owner.base_pixel_z)
 				pixel_shift_y--
 				is_shifted = TRUE
 		if(WEST)
-			if(pixel_shift_x >= -maximum_pixel_shift + owner.base_pixel_x)
+			if(pixel_shift_x >= -maximum_pixel_shift + owner.base_pixel_w)
 				pixel_shift_x--
 				is_shifted = TRUE
 	if(is_shifted)

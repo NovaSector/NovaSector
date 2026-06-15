@@ -159,3 +159,4 @@
 	dish_category = DISH_CONDIMENT
 	meal_category = MEAL_APPETIZER
 	cuisine_category = CUISINE_TESHARI
+
