@@ -86,6 +86,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	var/list/granted_actions = list()
 	/// Imprint points spent by anomaly school typepath.
 	var/list/spent_points_by_school = list()
+	/// Anomaly schools attuned through matching anomaly cores.
+	var/list/attuned_schools = list()
 	/// Active systems that have granted this profile.
 	var/list/profile_sources = list()
 
@@ -118,6 +120,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	granted_actions.Cut()
 	known_powers.Cut()
 	spent_points_by_school.Cut()
+	attuned_schools.Cut()
 	profile_sources.Cut()
 	psion = null
 	return ..()
@@ -210,7 +213,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	if(!psion)
 		return
 
-	if(is_psionic_rank_above(potential_rank, PSIONIC_RANK_GAMMA))
+	if(is_psionic_rank_above(psionic_rank, PSIONIC_RANK_GAMMA))
 		psion.add_traits(list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD), PSIONIC_TRAIT_SOURCE)
 	else
 		psion.remove_traits(list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD), PSIONIC_TRAIT_SOURCE)
@@ -223,6 +226,45 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 /datum/component/psionic_profile/proc/get_spent_school_points(school)
 	return spent_points_by_school[school] || 0
+
+/datum/component/psionic_profile/proc/is_school_attuned(school)
+	return !!attuned_schools[school]
+
+/datum/component/psionic_profile/proc/attune_school(school)
+	if(!ispath(school, /datum/psionic_school))
+		return FALSE
+	if(is_school_attuned(school))
+		var/datum/psionic_school/attuned_school = get_psionic_school(school)
+		to_chat(psion, span_notice("Your thoughts are already attuned to [attuned_school?.name || "that resonance"]."))
+		return FALSE
+
+	var/datum/psionic_school/attuning_school = get_psionic_school(school)
+	attuned_schools[school] = TRUE
+	to_chat(psion, span_purple("The core collapses into a stable [attuning_school?.name || "psionic"] resonance. That branch will build less strain."))
+	return TRUE
+
+/datum/component/psionic_profile/proc/get_school_strain_discount(school)
+	if(!ispath(school, /datum/psionic_school))
+		return 0
+
+	var/discount = 0
+	if(get_spent_school_points(school) >= PSIONIC_BRANCH_COMMITMENT_POINTS)
+		discount += PSIONIC_BRANCH_COMMITMENT_STRAIN_DISCOUNT
+	if(is_school_attuned(school))
+		discount += PSIONIC_CORE_ATTUNEMENT_STRAIN_DISCOUNT
+
+	return min(discount, PSIONIC_MAX_STRAIN_DISCOUNT)
+
+/datum/component/psionic_profile/proc/get_action_strain_gain(amount, datum/action/cooldown/psionic/source_action)
+	amount = max(round(amount), 0)
+	if(amount <= 0)
+		return 0
+
+	var/discount = get_school_strain_discount(source_action?.school)
+	if(discount <= 0)
+		return amount
+
+	return max(round(amount * (100 - discount) / 100), 1)
 
 /datum/component/psionic_profile/proc/get_interference_tier(datum/action/cooldown/psionic/source_action)
 	var/rank_tier = max(get_psionic_rank_level(psionic_rank) - get_psionic_rank_level(PSIONIC_RANK_GAMMA), 0)
@@ -436,6 +478,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 			"name" = school.name,
 			"desc" = school.desc,
 			"spent_points" = get_spent_school_points(school_type),
+			"attuned" = is_school_attuned(school_type),
+			"strain_discount" = get_school_strain_discount(school_type),
 			"icon" = school.ui_icon,
 			"icon_state" = school.ui_icon_state,
 			"color" = school.ui_color,
@@ -475,8 +519,11 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		last_strain_decay = world.time
 		update_strain_hud()
 
-/datum/component/psionic_profile/proc/try_gain_strain(amount)
+/datum/component/psionic_profile/proc/try_gain_strain(amount, datum/action/cooldown/psionic/source_action)
 	decay_strain()
+	amount = get_action_strain_gain(amount, source_action)
+	if(amount <= 0)
+		return TRUE
 	if(is_burned_out())
 		to_chat(psion, span_warning("Your mind is still ringing from psionic burnout."))
 		return FALSE

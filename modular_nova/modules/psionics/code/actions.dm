@@ -64,7 +64,7 @@
 		return FALSE
 	if(!before_psionic(target))
 		return FALSE
-	if(strain_gain && !profile.try_gain_strain(strain_gain))
+	if(strain_gain && !profile.try_gain_strain(strain_gain, src))
 		return FALSE
 	if(!psionic_activate(target))
 		return FALSE

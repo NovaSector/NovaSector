@@ -14,6 +14,24 @@
 	living_user.awaken_psionics(PSIONIC_DEFAULT_POINTS, source = PSIONIC_SOURCE_RESONATOR)
 	to_chat(living_user, span_purple("[src] hums once, perfectly in tune with your thoughts."))
 
+/obj/item/assembly/signaler/anomaly/attack_self(mob/user, modifiers)
+	if(!isliving(user))
+		return
+
+	var/mob/living/living_user = user
+	var/datum/component/psionic_profile/profile = living_user.get_psionic_profile()
+	if(!profile)
+		return
+
+	var/datum/psionic_school/school = get_psionic_school_for_anomaly_core(type)
+	if(!school)
+		to_chat(living_user, span_notice("[src] hums against your thoughts, but its resonance does not match an imprinted branch."))
+		return TRUE
+
+	if(profile.attune_school(school.type))
+		qdel(src)
+	return TRUE
+
 /obj/item/implant/psionic_limiter
 	name = "psionic limiter implant"
 	desc = "A subdermal regulator that suppresses dangerous psionic potential until removed."

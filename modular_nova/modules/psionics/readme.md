@@ -6,12 +6,15 @@ Design notes:
 
 - Psionics are not spells and do not inherit `/datum/action/cooldown/spell`.
 - Antimagic does not block psionics. Psionic counters use `COMSIG_MOB_RECEIVE_PSIONICS` and `/datum/component/anti_psionic`.
-- Psions with latent ranks above Gamma receive `TRAIT_NOGUNS` and `TRAIT_TOSS_GUN_HARD` from `PSIONIC_TRAIT_SOURCE`.
+- Psions with effective ranks above Gamma receive `TRAIT_NOGUNS` and `TRAIT_TOSS_GUN_HARD` from `PSIONIC_TRAIT_SOURCE`.
 - Powers use individual cooldowns plus profile-level strain, not mana.
 - Genetics and anomalies should interact through `mob/living/proc/awaken_psionics()` rather than editing this module's internals.
 - Psionic schools are anomaly resonance metadata, currently mapped to bioscrambler, gravity, bluespace, and flux signatures.
 - `get_psionic_school_for_anomaly_source()` maps either live anomaly paths or anomaly core item paths to a school.
 - Effective ranks above Gamma cause psionic actions to interfere with nearby technology. The effect scales with effective rank and power cost: lights can flicker, machines can suffer light EMP disruption, and robotic bodyparts can take minor burn damage.
+- Psionic limiter implants fully respec the holder while installed: all imprinted disciplines are removed, the holder receives Gamma's point pool to spend, and removing the limiter resets them again to their full latent point pool.
+- Spending at least 3 imprint points in one branch reduces strain gained by that branch's powers by 15%.
+- Activating a matching anomaly core while awakened consumes it and attunes that branch, reducing strain gained by that branch's powers by 20%.
 
 Current schools:
 

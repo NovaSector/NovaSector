@@ -35,6 +35,8 @@ type PsionicSchool = {
   name: string;
   desc: string;
   spent_points: number;
+  attuned: BooleanLike;
+  strain_discount: number;
   icon: string;
   icon_state: string;
   color: string;
@@ -226,6 +228,12 @@ const SchoolBranch = (props: { school: PsionicSchool }) => {
         <Box color="label">
           Points imprinted in branch: {school.spent_points}
         </Box>
+        {!!school.strain_discount && (
+          <Box color="good">
+            Strain discount: {school.strain_discount}%
+            {!!school.attuned && ' | core attuned'}
+          </Box>
+        )}
       </Box>
       <Stack vertical className="PsionicImprinting__tierTrack">
         {groupedPowers.map((tier) => (
