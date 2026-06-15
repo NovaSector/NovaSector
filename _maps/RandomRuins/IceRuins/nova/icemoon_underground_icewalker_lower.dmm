@@ -2050,10 +2050,6 @@
 /obj/structure/stairs/wood,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"TB" = (
-/obj/machinery/smartfridge/drying/rack/smoker,
-/turf/closed/mineral/snowmountain/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
 "TK" = (
 /obj/structure/ore_vein/iron,
 /turf/open/misc/asteroid/snow/icemoon,
@@ -3145,7 +3141,7 @@ oJ
 oJ
 oJ
 yp
-TB
+JQ
 wF
 Iq
 RW
