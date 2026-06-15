@@ -43,6 +43,8 @@
 					new_latejoin += shuttle_chair
 				if(isnull(console))
 					console = locate() in arrival_turf
+					if(SStts.tts_enabled && console)
+						console.voice = SStts.tram_voice
 					RegisterSignal(console, COMSIG_QDELETING, PROC_REF(find_console))
 		areas += arrival_area
 
@@ -116,6 +118,8 @@
 				var/obj/machinery/requests_console/target = locate() in arrival_turf
 				if(!QDELETED(target))
 					console = target
+					if(SStts.tts_enabled && console)
+						console.voice = SStts.tram_voice
 					RegisterSignal(console, COMSIG_QDELETING, PROC_REF(find_console))
 					return
 
