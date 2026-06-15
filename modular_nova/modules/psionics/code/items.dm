@@ -22,8 +22,8 @@
 	implant_info = "Automatically suppresses psionic output to a calibrated safe rank while preserving latent potential."
 	implant_lore = "Psionic limiter implants are tuned against a subject's anomalous neural resonance. They do not remove psionic potential; they keep it folded down until the implant is removed."
 
-	/// Imprint points held back by this limiter.
-	var/stored_points = 0
+	/// Total imprint point pool restored when this limiter is removed.
+	var/potential_points = PSIONIC_DEFAULT_POINTS
 	/// Rank enforced while the limiter is installed.
 	var/limited_rank = PSIONIC_ROUNDSTART_LIMIT_RANK
 	/// Rank restored when the limiter is removed.
@@ -37,7 +37,7 @@
 		<b>Name:</b> Psionic Limiter Implant<BR>
 		<b>Suppression:</b> [limited_rank]<BR>
 		<b>Latent Rating:</b> [potential_rank]<BR>
-		<b>Held Potential:</b> [stored_points] imprint point[stored_points == 1 ? "" : "s"]<BR>
+		<b>Latent Potential:</b> [potential_points] imprint point[potential_points == 1 ? "" : "s"]<BR>
 	"}
 
 /obj/item/implant/psionic_limiter/implant(mob/living/target, mob/user, silent = FALSE, force = FALSE)
@@ -46,9 +46,11 @@
 		return FALSE
 
 	var/datum/component/psionic_profile/profile = target.get_psionic_profile()
-	if(profile)
+	var/limiter_active = profile && is_psionic_rank_above(potential_rank, limited_rank)
+	if(limiter_active)
 		profile.set_rank(limited_rank, potential_rank, TRUE, PSIONIC_DEFAULT_MAX_STRAIN)
-	if(!silent)
+		profile.reset_imprints(get_psionic_rank_points(limited_rank), TRUE)
+	if(!silent && limiter_active)
 		to_chat(target, span_warning("A cold pressure folds your psionic potential down to [limited_rank]."))
 	return TRUE
 
@@ -60,11 +62,11 @@
 		return TRUE
 
 	var/datum/component/psionic_profile/profile = source.get_psionic_profile()
-	if(profile)
+	var/limiter_active = profile && is_psionic_rank_above(potential_rank, limited_rank)
+	if(limiter_active)
 		profile.set_rank(potential_rank, potential_rank, FALSE, potential_max_strain)
-		if(stored_points > 0)
-			profile.add_points(stored_points)
-	if(!silent)
+		profile.reset_imprints(potential_points, TRUE)
+	if(!silent && limiter_active)
 		to_chat(source, span_purple("Your psionic limiter comes free, and the pressure behind it unfolds."))
 	return TRUE
 

@@ -25,23 +25,23 @@
 		psionic_rank = PSIONIC_DEFAULT_RANK
 
 	var/full_points = get_psionic_rank_points(psionic_rank)
-	var/roundstart_points = min(full_points, PSIONIC_ROUNDSTART_LIMIT_POINTS)
-	psionic_points = roundstart_points
+	psionic_points = full_points
 	var/max_strain = GLOB.psionic_rank_max_strain[psionic_rank]
-	var/datum/component/psionic_profile/profile = quirk_holder.awaken_psionics(roundstart_points, source = PSIONIC_SOURCE_QUIRK)
+	var/datum/component/psionic_profile/profile = quirk_holder.awaken_psionics(full_points, source = PSIONIC_SOURCE_QUIRK)
 	if(profile && !isnull(max_strain))
 		original_max_strain = profile.max_strain
 		if(full_points > PSIONIC_ROUNDSTART_LIMIT_POINTS)
 			profile.set_rank(PSIONIC_ROUNDSTART_LIMIT_RANK, psionic_rank, TRUE, PSIONIC_DEFAULT_MAX_STRAIN)
-			grant_limiter_implant(full_points - roundstart_points, max_strain)
+			profile.reset_imprints(get_psionic_rank_points(PSIONIC_ROUNDSTART_LIMIT_RANK), TRUE)
+			grant_limiter_implant(full_points, max_strain)
 		else
 			profile.set_rank(psionic_rank, psionic_rank, FALSE, max_strain)
 
 	gain_text = span_purple("Your latent psionic rating resolves as [psionic_rank].")
 
-/datum/quirk/psionic_gift/proc/grant_limiter_implant(stored_points, potential_max_strain)
+/datum/quirk/psionic_gift/proc/grant_limiter_implant(potential_points, potential_max_strain)
 	var/obj/item/implant/psionic_limiter/limiter = new(quirk_holder)
-	limiter.stored_points = stored_points
+	limiter.potential_points = potential_points
 	limiter.limited_rank = PSIONIC_ROUNDSTART_LIMIT_RANK
 	limiter.potential_rank = psionic_rank
 	limiter.potential_max_strain = potential_max_strain

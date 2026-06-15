@@ -165,6 +165,21 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	available_points += points
 	to_chat(psion, span_notice("Your psionic potential deepens. You have [available_points] unspent imprint point[available_points == 1 ? "" : "s"]."))
 
+/datum/component/psionic_profile/proc/reset_imprints(points = 0, silent = FALSE)
+	points = max(points, 0)
+	for(var/action_type in known_powers.Copy())
+		var/datum/action/action = granted_actions[action_type]
+		if(action)
+			qdel(action)
+		granted_actions -= action_type
+
+	known_powers.Cut()
+	spent_points_by_school.Cut()
+	spent_points = 0
+	available_points = points
+	if(!silent)
+		to_chat(psion, span_notice("Your imprinted disciplines fold away. You have [available_points] imprint point[available_points == 1 ? "" : "s"] to spend."))
+
 /datum/component/psionic_profile/proc/add_source(source)
 	if(!source)
 		return
