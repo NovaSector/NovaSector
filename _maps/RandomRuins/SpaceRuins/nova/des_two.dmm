@@ -1172,7 +1172,7 @@
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = -7;
 	pixel_y = 6
 	},

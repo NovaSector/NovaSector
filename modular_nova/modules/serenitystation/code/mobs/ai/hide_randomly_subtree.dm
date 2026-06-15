@@ -55,3 +55,5 @@
 	controller.set_blackboard_key(cooldown_before_stop_hiding_key, new_cooldown)
 
 	return SUBTREE_RETURN_FINISH_PLANNING
+
+#undef START_HIDING_COOLDOWN_COEFFICIENT
