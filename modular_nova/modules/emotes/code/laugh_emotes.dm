@@ -11,10 +11,12 @@
 	if(isnull(human_user.selected_laugh)) //For things that don't have a selected laugh(npcs)
 		return ..()
 
-	if(human_user.gender == MALE || !LAZYLEN(human_user.selected_laugh.female_laughsounds))
-		return pick(human_user.selected_laugh.male_laughsounds)
+	var/datum/laugh_type/laugh_type = human_user.selected_laugh
+	if(human_user.gender == MALE || isnull(laugh_type.female_laugh_type))
+		return pick(laugh_type.laugh_sounds)
 	else
-		return pick(human_user.selected_laugh.female_laughsounds)
+		var/datum/laugh_type/female_laugh = GLOB.laugh_types[laugh_type.female_laugh_type]
+		return pick(female_laugh.laugh_sounds)
 
 // human laugh - for males use tg audio females use our version
 /datum/species/human/get_laugh_sound(mob/living/carbon/human/human)

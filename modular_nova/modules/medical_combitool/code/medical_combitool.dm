@@ -100,7 +100,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /obj/item/blood_filter/alien
-	name = "alien bloodfilter"
+	name = "alien blood filter"
 	desc = "Do aliens have blood to filter? Probably not. Do aliens have subjects whose blood they filter? It's a distinct possibility."
 	icon = 'modular_nova/modules/medical_combitool/icons/surgery_tools.dmi'
 	icon_state = "bloodfilter"
@@ -111,6 +111,7 @@
 	desc = "An advanced blood filter obtained through Abductor technology."
 	id = "alien_bloodfilter"
 	build_path = /obj/item/blood_filter/alien
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 					/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 1.5,
 					/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5,

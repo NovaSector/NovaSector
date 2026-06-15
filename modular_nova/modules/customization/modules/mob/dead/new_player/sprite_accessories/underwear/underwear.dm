@@ -118,6 +118,10 @@
 	icon_state = "loincloth_alt"
 	female_sprite_flags = NO_FEMALE_UNIFORM
 
+/datum/sprite_accessory/clothing/underwear/groin_plating
+	name = "Groin Plating"
+	icon_state = "groin_plating"
+
 //Presets
 /datum/sprite_accessory/clothing/underwear/lizared
 	name = "LIZARED Underwear"

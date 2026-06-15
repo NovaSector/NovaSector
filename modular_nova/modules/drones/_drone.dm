@@ -113,22 +113,36 @@
 	// Sets our new storage
 	default_storage = /obj/item/storage/backpack/duffelbag/drone
 
+/mob/living/basic/drone/death(gibbed)
+	. = ..()
+	if(l_store)
+		dropItemToGround(l_store)
+	if(r_store)
+		dropItemToGround(r_store)
+
+/obj/item/storage/box/drone_tools/PopulateContents()
+	new /obj/item/screwdriver/omni_drill(src)
+	new /obj/item/multitool(src)
+	new /obj/item/crowbar(src)
+	new /obj/item/weldingtool(src)
+	new /obj/item/stack/cable_coil/thirty(src)
+	new /obj/item/analyzer(src)
+	new /obj/item/holosign_creator/atmos(src)// Drones handle atmos issues
+
+/obj/item/storage/box/drone_tools_misc/PopulateContents()
+	new /obj/item/lightreplacer(src)// Drones fix the station
+	new /obj/item/t_scanner(src)
+	new /obj/item/soap/nanotrasen(src)// Drones clean
+	new /obj/item/airlock_painter/decal(src) // for floor decals
+	new /obj/item/stack/sheet/mineral/wood/ten(src) // for fixing broken wood floors
+
 // Then populates the drone duffelbag with our extra items
 // Overwrites original proc because new tools means overwrites, also reorganization because :>
 /obj/item/storage/backpack/duffelbag/drone/PopulateContents()
-	new /obj/item/storage/box(src)// Reduce bag bloat
-	new /obj/item/crowbar(src)
-	new /obj/item/screwdriver/omni_drill(src)// Reduce bag bloat
-	new /obj/item/weldingtool(src)
-	new /obj/item/analyzer(src)
+	new /obj/item/storage/box/drone_tools(src)
+	new /obj/item/storage/box/drone_tools_misc(src)
 	new /obj/item/pipe_dispenser(src)
-	new /obj/item/lightreplacer(src)// Drones fix the station
 	new /obj/item/construction/rtd/loaded(src)// Drones fix the station
-	new /obj/item/holosign_creator/atmos(src)// Drones handle atmos issues
-	new /obj/item/multitool(src)
-	new /obj/item/t_scanner(src)
-	new /obj/item/stack/cable_coil(src)
-	new /obj/item/soap/nanotrasen(src)// Drones clean
 
 //
 // Babylon Drones
