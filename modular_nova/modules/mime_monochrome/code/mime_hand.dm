@@ -38,7 +38,7 @@
 	return TRUE
 
 /obj/item/melee/touch_attack/monochrome
-	name = "\improper monochrome touch"
+	name = "monochrome touch"
 	desc = "The station is far too noisy, thankfully you have these hands to wash the colors away."
 	icon = 'modular_nova/modules/mime_monochrome/icons/mime_assets.dmi'
 	icon_state = "mime"
