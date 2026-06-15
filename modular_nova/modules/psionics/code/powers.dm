@@ -11,6 +11,14 @@
 	var/list/related_anomaly_paths
 	/// Additional anomaly core variants that should be treated as the same school.
 	var/list/related_anomaly_core_paths
+	/// Stable TGUI key used for school-specific presentation.
+	var/ui_key = "unaligned"
+	/// Icon used for the imprinting branch display.
+	var/ui_icon = "icons/effects/anomalies.dmi"
+	/// Icon state used for the imprinting branch display.
+	var/ui_icon_state = "vortex"
+	/// Accent color used for the imprinting branch display.
+	var/ui_color = "#8dd8ff"
 
 /datum/psionic_school/New()
 	. = ..()
@@ -24,6 +32,9 @@
 	desc = "Neural, somatic, and identity resonance."
 	anomaly_path = /obj/effect/anomaly/bioscrambler
 	anomaly_core_path = /obj/item/assembly/signaler/anomaly/bioscrambler
+	ui_key = "bioscrambler"
+	ui_icon_state = "bioscrambler"
+	ui_color = "#d86fff"
 
 /datum/psionic_school/gravity
 	name = "Gravity"
@@ -31,18 +42,29 @@
 	anomaly_path = /obj/effect/anomaly/grav
 	anomaly_core_path = /obj/item/assembly/signaler/anomaly/grav
 	related_anomaly_paths = list(/obj/effect/anomaly/grav, /obj/effect/anomaly/grav/high)
+	ui_key = "gravity"
+	ui_icon = "icons/effects/effects.dmi"
+	ui_icon_state = "shield2"
+	ui_color = "#61d878"
 
 /datum/psionic_school/bluespace
 	name = "Bluespace"
 	desc = "Distance, folds, and spatial discontinuity."
 	anomaly_path = /obj/effect/anomaly/bluespace
 	anomaly_core_path = /obj/item/assembly/signaler/anomaly/bluespace
+	ui_key = "bluespace"
+	ui_icon = "icons/obj/weapons/guns/projectiles.dmi"
+	ui_icon_state = "bluespace"
+	ui_color = "#3fd6ff"
 
 /datum/psionic_school/flux
 	name = "Flux"
 	desc = "Interference, disruption, and reactive static."
 	anomaly_path = /obj/effect/anomaly/flux
 	anomaly_core_path = /obj/item/assembly/signaler/anomaly/flux
+	ui_key = "flux"
+	ui_icon_state = "flux"
+	ui_color = "#ffe36b"
 
 /proc/get_psionic_school_catalog()
 	var/static/list/catalog
@@ -101,6 +123,8 @@
 	var/desc = "A psionic discipline."
 	/// Imprint point cost.
 	var/cost = 1
+	/// Points that must already be spent in this power's school before it can be imprinted.
+	var/required_school_points = 0
 	/// Anomaly resonance school this power belongs to.
 	var/datum/psionic_school/school
 	/// Action type granted when learned.
@@ -175,7 +199,7 @@
 /datum/action/cooldown/psionic/pointed/telepathy
 	name = "Telepathic Whisper"
 	desc = "<b>Left click</b>: project a thought to a target. <b>Right click</b>: project to your last target."
-	button_icon_state = "r_transmit"
+	button_icon_state = "telepathy"
 	cooldown_time = 3 SECONDS
 	cast_range = 7
 	point_cost = 1
@@ -312,7 +336,7 @@
 /datum/action/cooldown/psionic/spatial_slip
 	name = "Spatial Slip"
 	desc = "Blink a short distance through a bluespace fold."
-	button_icon_state = "spell_default"
+	button_icon_state = "blink"
 	cooldown_time = 15 SECONDS
 	point_cost = 1
 	strain_gain = 20

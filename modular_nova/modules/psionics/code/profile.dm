@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 	return psionic_rank
 
-/datum/component/psionic_profile/proc/get_spent_school_points(datum/psionic_school/school)
+/datum/component/psionic_profile/proc/get_spent_school_points(school)
 	return spent_points_by_school[school] || 0
 
 /datum/component/psionic_profile/proc/get_interference_tier(datum/action/cooldown/psionic/source_action)
@@ -240,10 +240,17 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 /datum/component/psionic_profile/proc/learn_power(action_type, cost = 1, silent = FALSE)
 	if(!ispath(action_type, /datum/action/cooldown/psionic))
 		return FALSE
+	var/datum/psionic_power/catalog_power = get_psionic_power_for_action(action_type)
 	if(action_type in known_powers)
 		if(!silent)
 			to_chat(psion, span_warning("You already know that discipline."))
 		return FALSE
+	if(cost > 0 && catalog_power)
+		var/lock_reason = get_power_lock_reason(catalog_power)
+		if(lock_reason)
+			if(!silent)
+				to_chat(psion, span_warning(lock_reason))
+			return FALSE
 	if(cost > available_points)
 		if(!silent)
 			to_chat(psion, span_warning("You need [cost] imprint point[cost == 1 ? "" : "s"] for that discipline."))
@@ -252,7 +259,6 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	available_points -= cost
 	spent_points += cost
 	known_powers += action_type
-	var/datum/psionic_power/catalog_power = get_psionic_power_for_action(action_type)
 	if(cost > 0 && catalog_power?.school)
 		spent_points_by_school[catalog_power.school] = get_spent_school_points(catalog_power.school) + cost
 	grant_action(action_type)
@@ -273,33 +279,118 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 /datum/component/psionic_profile/proc/open_power_menu(mob/living/user)
 	decay_strain()
-	var/rank_text = get_rank_text()
-	if(available_points <= 0)
-		to_chat(user, span_notice("Rank: [rank_text]. Strain: [round(strain)]/[max_strain]. You have no unspent imprint points."))
+	ui_interact(user)
+
+/datum/component/psionic_profile/proc/get_power_lock_reason(datum/psionic_power/power)
+	if(!power)
+		return "That discipline cannot be imprinted."
+	if(power.action_type in known_powers)
+		return "You already know that discipline."
+	if(power.cost > available_points)
+		return "You need [power.cost] imprint point[power.cost == 1 ? "" : "s"] for that discipline."
+	if(power.required_school_points > get_spent_school_points(power.school))
+		var/datum/psionic_school/school = get_psionic_school(power.school)
+		return "Spend [power.required_school_points] point[power.required_school_points == 1 ? "" : "s"] in [school?.name || "this school"] first."
+
+	return null
+
+/datum/component/psionic_profile/proc/get_power_tier(datum/psionic_power/power)
+	return max(round(power.required_school_points / 2) + 1, 1)
+
+/datum/component/psionic_profile/proc/get_power_ui_data(datum/psionic_power/power)
+	var/lock_reason = get_power_lock_reason(power)
+	var/datum/action/cooldown/psionic/action_type = power.action_type
+	return list(
+		"action_type" = "[action_type]",
+		"name" = power.name,
+		"desc" = power.desc,
+		"cost" = power.cost,
+		"required_school_points" = power.required_school_points,
+		"tier" = get_power_tier(power),
+		"learned" = (action_type in known_powers),
+		"can_buy" = isnull(lock_reason),
+		"lock_reason" = lock_reason,
+		"icon" = initial(action_type.button_icon),
+		"icon_state" = initial(action_type.button_icon_state),
+	)
+
+/datum/component/psionic_profile/ui_state(mob/user)
+	return GLOB.always_state
+
+/datum/component/psionic_profile/ui_status(mob/user, datum/ui_state/state)
+	if(user != psion)
+		return UI_CLOSE
+
+	return ..()
+
+/datum/component/psionic_profile/ui_interact(mob/user, datum/tgui/ui)
+	if(user != psion)
 		return
 
-	var/list/options = list()
-	var/list/option_to_power = list()
+	decay_strain()
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "PsionicImprinting", "Psionic Imprinting")
+		ui.open()
+
+/datum/component/psionic_profile/ui_data(mob/user)
+	decay_strain()
+	var/list/data = list()
+	data["rank"] = psionic_rank
+	data["rank_text"] = get_rank_text()
+	data["potential_rank"] = potential_rank
+	data["rank_limited"] = rank_limited
+	data["available_points"] = available_points
+	data["spent_points"] = spent_points
+	data["strain"] = round(strain)
+	data["max_strain"] = max_strain
+	data["schools"] = list()
+
+	var/list/powers_by_school = list()
 	for(var/datum/psionic_power/power as anything in get_psionic_power_catalog())
-		if(power.action_type in known_powers)
+		if(!power.school)
 			continue
-		if(power.cost > available_points)
+		LAZYADD(powers_by_school[power.school], power)
+
+	for(var/school_type in get_psionic_school_catalog())
+		var/list/school_powers = powers_by_school[school_type]
+		if(!length(school_powers))
 			continue
-		var/option = "[power.get_school_name()]: [power.name] ([power.cost]) - [power.desc]"
-		options += option
-		option_to_power[option] = power
 
-	if(!length(options))
-		to_chat(user, span_notice("Rank: [rank_text]. Strain: [round(strain)]/[max_strain]. No available disciplines can be imprinted with your current points."))
+		var/datum/psionic_school/school = get_psionic_school(school_type)
+		var/list/power_data = list()
+		for(var/datum/psionic_power/power as anything in school_powers)
+			power_data += list(get_power_ui_data(power))
+
+		data["schools"] += list(list(
+			"id" = "[school_type]",
+			"key" = school.ui_key,
+			"name" = school.name,
+			"desc" = school.desc,
+			"spent_points" = get_spent_school_points(school_type),
+			"icon" = school.ui_icon,
+			"icon_state" = school.ui_icon_state,
+			"color" = school.ui_color,
+			"powers" = power_data,
+		))
+
+	return data
+
+/datum/component/psionic_profile/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
+	if(ui.user != psion)
+		return FALSE
 
-	var/choice = tgui_input_list(user, "Rank: [rank_text]. Strain: [round(strain)]/[max_strain]. Unspent points: [available_points].", "Psionic Imprinting", options)
-	if(!choice || QDELETED(src) || QDELETED(user))
-		return
+	switch(action)
+		if("imprint")
+			var/action_type = text2path(params["action_type"])
+			var/datum/psionic_power/power = get_psionic_power_for_action(action_type)
+			if(!power)
+				return FALSE
 
-	var/datum/psionic_power/chosen_power = option_to_power[choice]
-	if(chosen_power)
-		learn_power(chosen_power.action_type, chosen_power.cost)
+			return learn_power(action_type, power.cost)
 
 /datum/component/psionic_profile/proc/decay_strain()
 	if(!last_strain_decay)

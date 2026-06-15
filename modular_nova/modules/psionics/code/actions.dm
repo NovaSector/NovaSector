@@ -2,10 +2,11 @@
 	name = "Psionic Ability"
 	desc = "Project a psionic discipline."
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
+	button_icon = 'modular_nova/modules/psionics/icons/actions.dmi'
 	button_icon_state = "spell_default"
 	background_icon_state = "bg_tech_blue"
 	active_background_icon_state = "bg_tech_blue_active"
-	overlay_icon_state = "bg_spell_border"
+	overlay_icon_state = "bg_tech_blue_border"
 	active_overlay_icon_state = "bg_spell_border_active_blue"
 
 	/// Profile point cost when learned through imprinting.
