@@ -197,21 +197,12 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 				var/new_use_skintone = !(client.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE)
 				client.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_skintone], new_use_skintone)
 				var/new_color = null
-				if(new_use_skintone)
-					var/inherit = tgui_alert(prompt_target, "Auto-set color based on your skintone?", "Inherit Skintone?", list_yesno)
-					if(inherit == "Yes" && !QDELETED(src))
-						new_color = skintone2hex(client.prefs.read_preference(/datum/preference/choiced/skin_tone)) //why this isn't in DNA hurts me
-						client.prefs.write_preference(GLOB.preference_entries[/datum/preference/color/erp_bellyquirk_color], new_color)
 				if(belly != null && confirm_sync(belly))
 					belly.use_skintone = new_use_skintone
 					if(new_color != null)
 						belly.color = new_color
 			else if(belly != null)
 				belly.use_skintone = !belly.use_skintone
-				if(belly.use_skintone)
-					var/inherit = tgui_alert(belly.lastuser, "Auto-set color based on your skintone?", "Inherit Skintone?", list_yesno)
-					if(inherit == "Yes" && !QDELETED(belly.lastuser) && !QDELETED(src))
-						belly.color = skintone2hex(belly.lastuser.skin_tone) //why this isn't in DNA hurts me
 			belly?.do_alt_appearance(belly?.lastuser, TRUE, belly?.last_size)
 			belly?.last_size = -1
 		if("changeSizemod")

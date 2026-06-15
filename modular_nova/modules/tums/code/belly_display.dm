@@ -64,6 +64,9 @@
 	/// Dummies don't need advanced layering, as they directly use add_overlay.
 	if(isdummy(user))
 		max = 1
+		/// Manually clamp to maxsize.
+		if(maxsize < counter)
+			counter = maxsize
 
 	/// Slimes need translucency
 	if(istype(user.dna.species, /datum/species/jelly))
