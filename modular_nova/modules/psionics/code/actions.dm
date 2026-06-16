@@ -7,6 +7,8 @@
 	var/description
 	/// Strain gained when this form is used. If unset, the action's normal strain is used.
 	var/strain_gain
+	/// Strain gained each second while this form is maintained. If unset, the action's normal active strain is used.
+	var/active_strain_gain_per_second
 	/// Cooldown applied when this form is used. If unset, the action's normal cooldown is used.
 	var/cooldown_time
 	/// Range used by pointed actions. If unset, the action's normal range is used.
@@ -24,6 +26,12 @@
 		return strain_gain
 
 	return action.strain_gain
+
+/datum/psionic_rank_variant/proc/get_active_strain_gain_per_second(datum/action/cooldown/psionic/action)
+	if(!isnull(active_strain_gain_per_second))
+		return active_strain_gain_per_second
+
+	return action.active_strain_gain_per_second
 
 /datum/psionic_rank_variant/proc/get_cooldown_time(datum/action/cooldown/psionic/action)
 	if(!isnull(cooldown_time))
@@ -45,7 +53,11 @@
 
 /datum/psionic_rank_variant/proc/get_description(datum/action/cooldown/psionic/action)
 	var/form_description = description || get_name(action)
-	return "[form_description] ([get_strain_gain(action)] strain, [get_cooldown_time(action) / 10]s cooldown)"
+	var/strain_description = "[get_strain_gain(action)] strain"
+	var/active_strain_gain = get_active_strain_gain_per_second(action)
+	if(active_strain_gain > 0)
+		strain_description += ", [active_strain_gain] strain/s"
+	return "[form_description] ([strain_description], [get_cooldown_time(action) / 10]s cooldown)"
 
 /datum/action/cooldown/psionic
 	name = "Psionic Ability"
@@ -62,6 +74,8 @@
 	var/point_cost = 1
 	/// Strain gained when this ability is successfully used.
 	var/strain_gain = 0
+	/// Strain gained each second while this ability is maintained.
+	var/active_strain_gain_per_second = 0
 	/// Psionic category flags used by counters.
 	var/psionic_flags = PSIONIC_INTRUSIVE
 	/// Anomaly resonance school this ability belongs to.
@@ -187,6 +201,27 @@
 		return variant.get_strain_gain(src)
 
 	return strain_gain
+
+/datum/action/cooldown/psionic/proc/get_psionic_active_strain_gain_per_second(datum/component/psionic_profile/profile)
+	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
+	if(variant)
+		return variant.get_active_strain_gain_per_second(src)
+
+	return active_strain_gain_per_second
+
+/datum/action/cooldown/psionic/proc/try_gain_active_strain(datum/component/psionic_profile/profile, seconds_per_tick)
+	if(!profile)
+		return FALSE
+
+	var/active_strain_gain = get_psionic_active_strain_gain_per_second(profile)
+	if(active_strain_gain <= 0 || seconds_per_tick <= 0)
+		return TRUE
+
+	var/strain_to_gain = round(active_strain_gain * seconds_per_tick)
+	if(strain_to_gain <= 0)
+		return TRUE
+
+	return profile.try_gain_strain(strain_to_gain, src)
 
 /datum/action/cooldown/psionic/proc/get_psionic_cooldown_time(datum/component/psionic_profile/profile)
 	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)

@@ -8,14 +8,11 @@
 	cooldown_time = 0
 	point_cost = 1
 	strain_gain = 0
+	active_strain_gain_per_second = 3
 	psionic_flags = PSIONIC_KINETIC
 	school = PSIONIC_SCHOOL_GRAVITY
 	/// TRUE while the psion is actively maintaining levitation.
 	var/levitating = FALSE
-	/// Strain gained per second while levitation is maintained, before normal strain decay.
-	var/levitation_strain_per_second = 3
-	/// Fractional strain waiting to be applied.
-	var/levitation_strain_buffer = 0
 
 /datum/action/cooldown/psionic/levitate/Remove(mob/living/remove_from)
 	if(remove_from)
@@ -58,7 +55,6 @@
 		return FALSE
 
 	levitating = TRUE
-	levitation_strain_buffer = 0
 	living_owner.AddElement(/datum/element/forced_gravity, gravity = 0, can_override = TRUE)
 	ADD_TRAIT(living_owner, TRAIT_SILENT_FOOTSTEPS, PSIONIC_LEVITATION_TRAIT_SOURCE)
 	living_owner.set_resting(FALSE, TRUE)
@@ -101,13 +97,7 @@
 		clear_levitation(living_owner)
 		return
 
-	levitation_strain_buffer += levitation_strain_per_second * seconds_per_tick
-	var/strain_to_gain = FLOOR(levitation_strain_buffer, 1)
-	if(strain_to_gain <= 0)
-		return
-
-	levitation_strain_buffer -= strain_to_gain
-	if(!profile.try_gain_strain(strain_to_gain, src))
+	if(!try_gain_active_strain(profile, seconds_per_tick))
 		clear_levitation(living_owner)
 
 /datum/action/cooldown/psionic/levitate/proc/on_levitation_death(datum/source, gibbed)
@@ -121,7 +111,6 @@
 		return FALSE
 
 	levitating = FALSE
-	levitation_strain_buffer = 0
 	if(istype(living_owner))
 		UnregisterSignal(living_owner, list(COMSIG_LIVING_LIFE, COMSIG_LIVING_DEATH))
 		REMOVE_TRAIT(living_owner, TRAIT_SILENT_FOOTSTEPS, PSIONIC_LEVITATION_TRAIT_SOURCE)

@@ -9405,6 +9405,7 @@
 #include "modular_nova\modules\psionics\code\profile.dm"
 #include "modular_nova\modules\psionics\code\quirk.dm"
 #include "modular_nova\modules\psionics\code\power\_catalog.dm"
+#include "modular_nova\modules\psionics\code\power\biomend.dm"
 #include "modular_nova\modules\psionics\code\power\kinetic_shove.dm"
 #include "modular_nova\modules\psionics\code\power\levitate.dm"
 #include "modular_nova\modules\psionics\code\power\psiblade.dm"
