@@ -100,7 +100,7 @@
 	return get_rank_variant_name(variant_rank)
 
 /datum/action/cooldown/psionic/proc/on_rank_variant_selected(mob/living/living_owner, variant_rank)
-	living_owner.balloon_alert(living_owner, "[lowertext(get_rank_variant_name(variant_rank))] selected")
+	living_owner.balloon_alert(living_owner, "[LOWER_TEXT(get_rank_variant_name(variant_rank))] selected")
 	to_chat(living_owner, span_notice("[name] will manifest as [get_rank_variant_description(variant_rank)]."))
 
 /datum/action/cooldown/psionic/proc/get_psionic_strain_gain(datum/component/psionic_profile/profile)
