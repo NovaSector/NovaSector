@@ -2,7 +2,6 @@
 #define PSIONIC_LEVITATION_TRAIT_SOURCE "psionic_levitation"
 #define PSIONIC_SOURCE_MUTATION "psionic_mutation"
 #define PSIONIC_SOURCE_QUIRK "psionic_quirk"
-#define PSIONIC_SOURCE_RESONATOR "psionic_resonator"
 
 #define PSIONIC_DEFAULT_POINTS 3
 #define PSIONIC_DEFAULT_MAX_STRAIN 100

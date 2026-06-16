@@ -1,19 +1,3 @@
-/obj/item/psionic_resonator
-	name = "psionic resonator"
-	desc = "A diagnostic resonance device tuned to provoke latent psionic expression."
-	icon = 'icons/obj/devices/scanner.dmi'
-	icon_state = "t-ray0"
-	inhand_icon_state = "electronic"
-	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/psionic_resonator/attack_self(mob/user)
-	if(!isliving(user))
-		return
-
-	var/mob/living/living_user = user
-	living_user.awaken_psionics(PSIONIC_DEFAULT_POINTS, source = PSIONIC_SOURCE_RESONATOR)
-	to_chat(living_user, span_purple("[src] hums once, perfectly in tune with your thoughts."))
-
 /obj/item/assembly/signaler/anomaly/attack_self(mob/user, modifiers)
 	if(!isliving(user))
 		return
