@@ -84,6 +84,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	var/list/known_powers = list()
 	/// Granted actions keyed by action type path.
 	var/list/granted_actions = list()
+	/// Selected lower-rank variants keyed by psionic action type.
+	var/list/selected_power_rank_variants = list()
 	/// Imprint points spent by anomaly school typepath.
 	var/list/spent_points_by_school = list()
 	/// Anomaly schools attuned through matching anomaly cores.
@@ -127,6 +129,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		qdel(action)
 	granted_actions.Cut()
 	known_powers.Cut()
+	selected_power_rank_variants.Cut()
 	spent_points_by_school.Cut()
 	attuned_schools.Cut()
 	profile_sources.Cut()
@@ -176,10 +179,26 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 	strain_hud.update_strain(strain, max_strain, is_burned_out())
 
-/datum/component/psionic_profile/proc/update_psionic_action_buttons()
+/datum/component/psionic_profile/proc/update_psionic_action_buttons(update_flags = UPDATE_BUTTON_STATUS)
 	for(var/action_type in granted_actions)
 		var/datum/action/action = granted_actions[action_type]
-		action?.build_all_button_icons(UPDATE_BUTTON_STATUS)
+		action?.build_all_button_icons(update_flags)
+
+/datum/component/psionic_profile/proc/get_power_rank_variant(action_type)
+	if(!ispath(action_type, /datum/action/cooldown/psionic))
+		return null
+
+	return selected_power_rank_variants[action_type]
+
+/datum/component/psionic_profile/proc/set_power_rank_variant(action_type, variant_rank)
+	if(!ispath(action_type, /datum/action/cooldown/psionic))
+		return FALSE
+	if(!variant_rank)
+		selected_power_rank_variants -= action_type
+		return TRUE
+
+	selected_power_rank_variants[action_type] = variant_rank
+	return TRUE
 
 /datum/component/psionic_profile/proc/add_points(points, silent = FALSE)
 	if(!isnum(points))
@@ -295,6 +314,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		strain = min(strain, max_strain)
 	update_rank_traits()
 	update_strain_hud()
+	update_psionic_action_buttons(UPDATE_BUTTON_NAME|UPDATE_BUTTON_STATUS)
 
 /datum/component/psionic_profile/proc/update_rank_traits()
 	if(!psion)

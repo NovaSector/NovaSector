@@ -8,6 +8,7 @@ Design notes:
 - Antimagic does not block psionics. Psionic counters use `COMSIG_MOB_RECEIVE_PSIONICS` and `/datum/component/anti_psionic`.
 - Psions with effective ranks above Gamma receive `TRAIT_NOGUNS` and `TRAIT_TOSS_GUN_HARD` from `PSIONIC_TRAIT_SOURCE`.
 - Powers use individual cooldowns plus profile-level strain, not mana.
+- Powers that scale by rank should offer selectable lower-rank forms where practical, usually through right-clicking the action button; the selected form should be remembered per power.
 - Genetics and anomalies should interact through `mob/living/proc/awaken_psionics()` rather than editing this module's internals.
 - Psionic schools are anomaly resonance metadata, currently mapped to bioscrambler, gravity, bluespace, and flux signatures.
 - `get_psionic_school_for_anomaly_source()` maps either live anomaly paths or anomaly core item paths to a school.
@@ -21,7 +22,7 @@ Current schools:
 - Bioscrambler: neural, somatic, and identity resonance. Current powers: `Telepathic Whisper`, `Sense Health`.
 - Gravity: mass, inertia, and kinetic pressure. Current powers: `Kinetic Shove`, `Levitate`.
 - Bluespace: distance, folds, and spatial discontinuity. Starter power: `Spatial Slip`.
-- Flux: interference, disruption, reactive static, and thermal shaping. Current powers: `Psychic Guard`, `Pyro Bolt`, `Pyro Assault`.
+- Flux: interference, disruption, reactive static, and thermal shaping. Current powers: `Psychic Guard`, `Psiblade`, `Pyro Bolt`, `Pyro Assault`.
 
 Psionic Gift ranks:
 
@@ -36,7 +37,6 @@ Current hooks:
 
 - `/datum/mutation/psionic_resonance` awakens a human with the default point grant.
 - `/datum/quirk/psionic_gift` awakens a character with the default point grant at round start.
-- `/obj/item/psionic_resonator` is a reusable admin/test item for awakening a living mob.
 - `/obj/item/clothing/head/psionic_dampener` is a psionic-only counter item.
 
 Adding powers:
