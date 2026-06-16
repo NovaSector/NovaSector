@@ -2750,7 +2750,6 @@
 	name = "Kitchen Maintenance"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/service/hydroponics,
-/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/hydroponics)
 "aSl" = (
@@ -7313,7 +7312,7 @@
 /obj/item/stamp/head/hop{
 	pixel_y = 12
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_y = 6;
 	pixel_x = 6
 	},
@@ -20651,7 +20650,7 @@
 /obj/item/stamp/head/qm{
 	pixel_y = 5
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = 5
 	},
 /obj/item/stamp/denied{
@@ -21180,7 +21179,6 @@
 /obj/effect/turf_decal/stripes/end{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/multiz/dark/visible,
 /obj/machinery/atmospherics/pipe/multiz/violet/visible,
 /obj/structure/railing{
 	dir = 1
@@ -30556,8 +30554,8 @@
 /turf/open/floor/iron/dark/corner,
 /area/station/hallway/secondary/recreation)
 "iRz" = (
-/obj/effect/spawner/random/techstorage/tcomms_all,
 /obj/structure/table/glass,
+/obj/effect/spawner/random/techstorage/custom_shuttle,
 /turf/open/floor/iron/dark/small,
 /area/station/engineering/storage/tech)
 "iRN" = (
@@ -38091,7 +38089,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = 10;
 	pixel_y = 6
 	},
@@ -44762,7 +44760,7 @@
 	pixel_x = -7;
 	pixel_y = 9
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = -7;
 	pixel_y = 1
 	},
@@ -55118,7 +55116,6 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Kitchen Maintenance"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen)
 "pSI" = (
@@ -61832,7 +61829,6 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Kitchen Freezer Maintenance"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -67705,7 +67701,7 @@
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = -3
 	},
 /turf/open/floor/iron/dark,
@@ -76325,14 +76321,7 @@
 "vYq" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/rack/shelf,
-/obj/item/circuitboard/machine/telecomms/broadcaster{
-	pixel_y = 2;
-	pixel_x = -2
-	},
-/obj/item/circuitboard/machine/telecomms/bus{
-	pixel_y = -3;
-	pixel_x = 2
-	},
+/obj/effect/spawner/random/techstorage/tcomms_all,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/storage/tcomms)
 "vYt" = (
