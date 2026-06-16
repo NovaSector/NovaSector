@@ -396,11 +396,11 @@
 	forceMove(owner_turf)
 	var/barrier_dir = get_psionic_barrier_dir(isnull(override_dir) ? living_owner.dir : override_dir)
 	setDir(barrier_dir)
-	pixel_x = 0
+	pixel_w = 0
 	if(barrier_dir & EAST)
-		pixel_x = 6
+		pixel_w = 6
 	else if(barrier_dir & WEST)
-		pixel_x = -6
+		pixel_w = -6
 	return TRUE
 
 /obj/effect/psionic_barrier/proc/show_impact()
