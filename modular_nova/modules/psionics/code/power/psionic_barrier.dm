@@ -59,7 +59,6 @@
 	strain_gain = 0
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_FLUX
-	causes_interference = FALSE
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/psionic_barrier,
 		/datum/psionic_rank_variant/psionic_barrier/beta,

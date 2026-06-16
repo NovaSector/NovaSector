@@ -66,9 +66,6 @@
 	var/psionic_flags = PSIONIC_INTRUSIVE
 	/// Anomaly resonance school this ability belongs to.
 	var/datum/psionic_school/school
-	/// If TRUE, higher-rank psions may disrupt nearby technology when using this action.
-	/// Disruption strength scales with effective psionic rank and this action's point_cost.
-	var/causes_interference = TRUE
 	/// If TRUE, this action can be used during burnout.
 	var/can_use_during_burnout = FALSE
 	/// If TRUE, this action requires usable hands.
@@ -270,7 +267,6 @@
 	if(!psionic_activate(target))
 		return FALSE
 
-	profile.emit_interference(src)
 	StartCooldown(get_psionic_cooldown_time(profile))
 	return TRUE
 
@@ -522,7 +518,6 @@
 	strain_gain = 0
 	cooldown_time = 0
 	can_use_during_burnout = TRUE
-	causes_interference = FALSE
 
 /datum/action/cooldown/psionic/open_menu/psionic_activate(atom/target)
 	var/mob/living/living_owner = owner

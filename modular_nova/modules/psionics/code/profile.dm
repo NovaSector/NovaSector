@@ -386,64 +386,6 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 	return max(round(amount * (100 - discount) / 100), 1)
 
-/datum/component/psionic_profile/proc/get_interference_tier(datum/action/cooldown/psionic/source_action)
-	var/rank_tier = max(get_psionic_rank_level(psionic_rank) - get_psionic_rank_level(PSIONIC_RANK_GAMMA), 0)
-	if(rank_tier <= 0)
-		return 0
-
-	var/action_tier = 1
-	if(source_action)
-		action_tier = max(source_action.point_cost, 1)
-	return rank_tier + (action_tier - 1)
-
-/datum/component/psionic_profile/proc/emit_interference(datum/action/cooldown/psionic/source_action)
-	if(!source_action?.causes_interference)
-		return
-
-	var/interference_tier = get_interference_tier(source_action)
-	if(interference_tier <= 0)
-		return
-
-	var/turf/epicenter = get_turf(psion)
-	if(!epicenter)
-		return
-
-	flicker_nearby_lights(epicenter, interference_tier)
-	disrupt_nearby_machines(epicenter, interference_tier)
-	damage_robotic_bodypart(interference_tier)
-
-/datum/component/psionic_profile/proc/flicker_nearby_lights(turf/epicenter, interference_tier)
-	var/flicker_range = PSIONIC_INTERFERENCE_RANGE + interference_tier
-	for(var/obj/machinery/light/light in range(flicker_range, epicenter))
-		if(prob(35 + (interference_tier * 15)))
-			light.flicker(rand(1, min(interference_tier + 1, 5)))
-
-/datum/component/psionic_profile/proc/disrupt_nearby_machines(turf/epicenter, interference_tier)
-	var/disrupted = 0
-	var/disrupt_range = PSIONIC_INTERFERENCE_RANGE + interference_tier
-	for(var/obj/machinery/machine in range(disrupt_range, epicenter))
-		if(istype(machine, /obj/machinery/light))
-			continue
-		if(prob(8 + (interference_tier * 7)))
-			machine.emp_act(EMP_LIGHT)
-			disrupted++
-		if(disrupted >= min(interference_tier, PSIONIC_INTERFERENCE_MACHINE_CAP))
-			break
-
-/datum/component/psionic_profile/proc/damage_robotic_bodypart(interference_tier)
-	if(!iscarbon(psion) || !prob(20 + (interference_tier * 10)))
-		return
-
-	var/mob/living/carbon/carbon_psion = psion
-	var/list/robotic_parts = carbon_psion.get_damageable_bodyparts(BODYTYPE_ROBOTIC)
-	if(!length(robotic_parts))
-		return
-
-	var/obj/item/bodypart/robotic_part = pick(robotic_parts)
-	robotic_part.receive_damage(burn = 2 + (interference_tier * 2), forced = TRUE, required_bodytype = BODYTYPE_ROBOTIC, wound_bonus = CANT_WOUND)
-	carbon_psion.update_damage_overlays()
-	to_chat(carbon_psion, span_warning("Psionic static bites through [robotic_part]."))
-
 /datum/component/psionic_profile/proc/learn_starting_powers(list/starting_powers)
 	if(!length(starting_powers))
 		return
