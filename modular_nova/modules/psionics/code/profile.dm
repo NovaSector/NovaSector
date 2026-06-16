@@ -24,12 +24,30 @@ GLOBAL_LIST_INIT(psionic_rank_points, list(
 ))
 
 GLOBAL_LIST_INIT(psionic_rank_max_strain, list(
-	PSIONIC_RANK_LAMBDA = PSIONIC_DEFAULT_MAX_STRAIN,
-	PSIONIC_RANK_EPSILON = PSIONIC_DEFAULT_MAX_STRAIN,
+	PSIONIC_RANK_LAMBDA = 80,
+	PSIONIC_RANK_EPSILON = 90,
 	PSIONIC_RANK_GAMMA = PSIONIC_DEFAULT_MAX_STRAIN,
-	PSIONIC_RANK_DELTA = PSIONIC_DEFAULT_MAX_STRAIN,
-	PSIONIC_RANK_BETA = PSIONIC_DEFAULT_MAX_STRAIN,
+	PSIONIC_RANK_DELTA = 120,
+	PSIONIC_RANK_BETA = 140,
 	PSIONIC_RANK_ALPHA = PSIONIC_ALPHA_MAX_STRAIN,
+))
+
+GLOBAL_LIST_INIT(psionic_rank_strain_decay, list(
+	PSIONIC_RANK_LAMBDA = 1,
+	PSIONIC_RANK_EPSILON = 1.5,
+	PSIONIC_RANK_GAMMA = PSIONIC_DEFAULT_STRAIN_DECAY,
+	PSIONIC_RANK_DELTA = 2.5,
+	PSIONIC_RANK_BETA = 3,
+	PSIONIC_RANK_ALPHA = 3.5,
+))
+
+GLOBAL_LIST_INIT(psionic_mutation_rank_weights, list(
+	PSIONIC_RANK_LAMBDA = 30,
+	PSIONIC_RANK_EPSILON = 30,
+	PSIONIC_RANK_GAMMA = 20,
+	PSIONIC_RANK_DELTA = 10,
+	PSIONIC_RANK_BETA = 8,
+	PSIONIC_RANK_ALPHA = 2,
 ))
 
 GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
@@ -316,7 +334,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 	remove_points(source_points, TRUE)
 
-/datum/component/psionic_profile/proc/set_rank(rank = PSIONIC_DEFAULT_RANK, latent_rank = null, limited = FALSE, new_max_strain = null)
+/datum/component/psionic_profile/proc/set_rank(rank = PSIONIC_DEFAULT_RANK, latent_rank = null, limited = FALSE, new_max_strain = null, new_strain_decay = null)
 	if(rank)
 		psionic_rank = rank
 	if(latent_rank)
@@ -325,6 +343,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	if(!isnull(new_max_strain))
 		max_strain = new_max_strain
 		strain = min(strain, max_strain)
+	if(!isnull(new_strain_decay))
+		strain_decay = new_strain_decay
 	update_rank_traits()
 	update_strain_hud()
 	update_psionic_action_buttons(UPDATE_BUTTON_NAME|UPDATE_BUTTON_STATUS)

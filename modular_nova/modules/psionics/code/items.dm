@@ -58,7 +58,8 @@
 		rank = limited_rank,
 		latent_rank = potential_rank,
 		limited = TRUE,
-		new_max_strain = PSIONIC_DEFAULT_MAX_STRAIN,
+		new_max_strain = GLOB.psionic_rank_max_strain[limited_rank],
+		new_strain_decay = GLOB.psionic_rank_strain_decay[limited_rank],
 	)
 	set_profile_points(profile, get_psionic_rank_points(limited_rank))
 
@@ -68,6 +69,7 @@
 		latent_rank = potential_rank,
 		limited = FALSE,
 		new_max_strain = potential_max_strain,
+		new_strain_decay = GLOB.psionic_rank_strain_decay[potential_rank],
 	)
 	set_profile_points(profile, potential_points)
 
