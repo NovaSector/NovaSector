@@ -231,6 +231,12 @@
 	use_static = TRUE
 	has_custom_digi_sprite = TRUE
 
+/datum/sprite_accessory/clothing/socks/thigh_high_grayscale
+	name = "Black Thigh-highs (Grayscale)"
+	icon_state = "thigh_high_grayscale"
+	use_static = FALSE
+	has_custom_digi_sprite = TRUE
+
 /datum/sprite_accessory/clothing/socks/thigh_high
 	name = "Black Thigh-highs"
 	icon_state = "thigh_high"
@@ -247,6 +253,12 @@
 	name = "Left sided Black Thigh-highs"
 	icon_state = "left_side_thigh_high"
 	use_static = TRUE
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/thin_thigh_grayscale
+	name = "Thigh-high (Thin, Grayscale)"
+	icon_state = "thin_thigh_grayscale"
+	use_static = FALSE
 	has_custom_digi_sprite = TRUE
 
 // TG Socks

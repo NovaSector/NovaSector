@@ -933,6 +933,10 @@ GLOBAL_LIST_EMPTY(map_model_default)
 			old_area.turfs_to_uncontain_by_zlevel[crds.z] += crds
 			area_instance.turfs_by_zlevel[crds.z] += crds
 		area_instance.contents.Add(crds)
+		// NOVA EDIT ADDITION START
+		if(!isnull(old_area) && !old_area.has_contained_turfs())
+			qdel(old_area)
+		// NOVA EDIT ADDITION END
 
 		if(GLOB.use_preloader)
 			world.preloader_load(area_instance)
