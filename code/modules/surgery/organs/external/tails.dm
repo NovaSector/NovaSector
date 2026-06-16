@@ -145,7 +145,7 @@
 
 ///Tail parent type, with wagging functionality
 /datum/bodypart_overlay/mutant/tail
-	layers = EXTERNAL_FRONT
+	layers = ALL_EXTERNAL_OVERLAYS | EXTERNAL_FRONT
 	dyable = TRUE
 	var/wagging = FALSE
 
