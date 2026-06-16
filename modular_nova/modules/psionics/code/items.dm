@@ -16,13 +16,15 @@
 		qdel(src)
 	return TRUE
 
-/obj/item/implant/psionic_limiter
+/obj/item/organ/cyberimp/brain/psionic_limiter
 	name = "psionic limiter implant"
 	desc = "A subdermal regulator that suppresses dangerous psionic potential until removed."
-	actions_types = null
-	implant_color = "r"
-	implant_info = "Automatically suppresses psionic output to a calibrated safe rank while preserving latent potential."
-	implant_lore = "Psionic limiter implants are tuned against a subject's anomalous neural resonance. They do not remove psionic potential; they keep it folded down until the implant is removed."
+	icon = 'modular_nova/modules/psionics/icons/implants.dmi'
+	icon_state = "psionic_limiter"
+	w_class = WEIGHT_CLASS_TINY
+	slot = ORGAN_SLOT_PSIONIC_LIMITER
+	aug_icon = 'modular_nova/modules/psionics/icons/implants.dmi'
+	aug_overlay = "psionic_limiter_body"
 
 	/// Total imprint point pool restored when this limiter is removed.
 	var/potential_points = PSIONIC_DEFAULT_POINTS
@@ -33,42 +35,25 @@
 	/// Max strain restored when the limiter is removed.
 	var/potential_max_strain = PSIONIC_DEFAULT_MAX_STRAIN
 
-/obj/item/implant/psionic_limiter/get_data()
-	return {"
-		<b>Implant Specifications:</b><BR>
-		<b>Name:</b> Psionic Limiter Implant<BR>
-		<b>Suppression:</b> [limited_rank]<BR>
-		<b>Latent Rating:</b> [potential_rank]<BR>
-		<b>Latent Potential:</b> [potential_points] imprint point[potential_points == 1 ? "" : "s"]<BR>
-	"}
-
-/obj/item/implant/psionic_limiter/implant(mob/living/target, mob/user, silent = FALSE, force = FALSE)
+/obj/item/organ/cyberimp/brain/psionic_limiter/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
-	if(!. || !isliving(target))
-		return FALSE
 
-	var/datum/component/psionic_profile/profile = target.get_psionic_profile()
+	var/datum/component/psionic_profile/profile = organ_owner.get_psionic_profile()
 	var/limiter_active = profile && is_psionic_rank_above(potential_rank, limited_rank)
 	if(limiter_active)
 		apply_limit(profile)
-	if(!silent && limiter_active)
-		to_chat(target, span_warning("A cold pressure folds your psionic potential down to [limited_rank]."))
 	return TRUE
 
-/obj/item/implant/psionic_limiter/removed(mob/living/source, silent = FALSE, special = FALSE)
+/obj/item/organ/cyberimp/brain/psionic_limiter/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
-	if(!. || !isliving(source))
-		return FALSE
 
-	var/datum/component/psionic_profile/profile = source.get_psionic_profile()
+	var/datum/component/psionic_profile/profile = organ_owner.get_psionic_profile()
 	var/limiter_active = profile && is_psionic_rank_above(potential_rank, limited_rank)
 	if(limiter_active)
 		remove_limit(profile)
-	if(!silent && limiter_active)
-		to_chat(source, span_purple("Your psionic limiter comes free, and the pressure behind it unfolds."))
 	return TRUE
 
-/obj/item/implant/psionic_limiter/proc/apply_limit(datum/component/psionic_profile/profile)
+/obj/item/organ/cyberimp/brain/psionic_limiter/proc/apply_limit(datum/component/psionic_profile/profile)
 	profile.set_rank(
 		rank = limited_rank,
 		latent_rank = potential_rank,
@@ -77,7 +62,7 @@
 	)
 	set_profile_points(profile, get_psionic_rank_points(limited_rank))
 
-/obj/item/implant/psionic_limiter/proc/remove_limit(datum/component/psionic_profile/profile)
+/obj/item/organ/cyberimp/brain/psionic_limiter/proc/remove_limit(datum/component/psionic_profile/profile)
 	profile.set_rank(
 		rank = potential_rank,
 		latent_rank = potential_rank,
@@ -86,7 +71,7 @@
 	)
 	set_profile_points(profile, potential_points)
 
-/obj/item/implant/psionic_limiter/proc/set_profile_points(datum/component/psionic_profile/profile, points)
+/obj/item/organ/cyberimp/brain/psionic_limiter/proc/set_profile_points(datum/component/psionic_profile/profile, points)
 	if(profile.has_source(PSIONIC_SOURCE_QUIRK))
 		profile.set_source_points(PSIONIC_SOURCE_QUIRK, points, silent = TRUE)
 		profile.reset_imprints(profile.get_total_source_points(), silent = TRUE)

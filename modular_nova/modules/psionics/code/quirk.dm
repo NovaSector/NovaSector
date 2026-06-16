@@ -31,16 +31,13 @@
 	if(profile && !isnull(max_strain))
 		original_max_strain = profile.max_strain
 		if(full_points > PSIONIC_ROUNDSTART_LIMIT_POINTS)
-			var/limited_points = get_psionic_rank_points(PSIONIC_ROUNDSTART_LIMIT_RANK)
-			profile.set_rank(
-				rank = PSIONIC_ROUNDSTART_LIMIT_RANK,
-				latent_rank = psionic_rank,
-				limited = TRUE,
-				new_max_strain = PSIONIC_DEFAULT_MAX_STRAIN,
-			)
-			profile.set_source_points(PSIONIC_SOURCE_QUIRK, limited_points, silent = TRUE)
-			profile.reset_imprints(profile.get_total_source_points(), silent = TRUE)
-			grant_limiter_implant(full_points, max_strain)
+			if(!grant_limiter_implant(full_points, max_strain))
+				profile.set_rank(
+					rank = psionic_rank,
+					latent_rank = psionic_rank,
+					limited = FALSE,
+					new_max_strain = max_strain,
+				)
 		else
 			profile.set_rank(
 				rank = psionic_rank,
@@ -52,24 +49,29 @@
 	gain_text = span_purple("Your latent psionic rating resolves as [psionic_rank].")
 
 /datum/quirk/psionic_gift/proc/grant_limiter_implant(potential_points, potential_max_strain)
-	var/obj/item/implant/psionic_limiter/limiter = new(quirk_holder)
+	if(!iscarbon(quirk_holder))
+		return FALSE
+
+	var/mob/living/carbon/carbon_holder = quirk_holder
+	var/obj/item/organ/cyberimp/brain/psionic_limiter/limiter = new()
 	limiter.potential_points = potential_points
 	limiter.limited_rank = PSIONIC_ROUNDSTART_LIMIT_RANK
 	limiter.potential_rank = psionic_rank
 	limiter.potential_max_strain = potential_max_strain
-	if(!limiter.implant(quirk_holder, user = null, silent = TRUE, force = TRUE))
+	if(!limiter.Insert(carbon_holder, movement_flags = DELETE_IF_REPLACED))
 		qdel(limiter)
-		return
+		return FALSE
 
 	limiter_ref = WEAKREF(limiter)
 	to_chat(quirk_holder, span_warning("A psionic limiter implant hums beneath your skin, holding your excess potential in check."))
+	return TRUE
 
 /datum/quirk/psionic_gift/remove()
 	if(!isliving(quirk_holder))
 		return
 
-	var/obj/item/implant/psionic_limiter/limiter = limiter_ref?.resolve()
-	if(limiter?.imp_in == quirk_holder)
+	var/obj/item/organ/cyberimp/brain/psionic_limiter/limiter = limiter_ref?.resolve()
+	if(limiter?.owner == quirk_holder)
 		qdel(limiter)
 	limiter_ref = null
 
