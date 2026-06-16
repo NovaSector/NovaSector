@@ -72,11 +72,15 @@
 
 /datum/component/anti_psionic/proc/on_buckle(atom/movable/source, mob/living/bucklee)
 	SIGNAL_HANDLER
+
 	register_psionic_signals(bucklee)
+	update_psionic_action_buttons(bucklee)
 
 /datum/component/anti_psionic/proc/on_unbuckle(atom/movable/source, mob/living/bucklee)
 	SIGNAL_HANDLER
+
 	unregister_psionic_signals(bucklee)
+	update_psionic_action_buttons(bucklee)
 
 /datum/component/anti_psionic/proc/get_examine_tags(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
@@ -103,13 +107,24 @@
 
 	if(!(inventory_flags & slot))
 		unregister_psionic_signals(equipper)
+		update_psionic_action_buttons(equipper)
 		return
 
 	register_psionic_signals(equipper)
+	update_psionic_action_buttons(equipper)
 
 /datum/component/anti_psionic/proc/on_drop(atom/movable/source, mob/user)
 	SIGNAL_HANDLER
+
 	unregister_psionic_signals(user)
+	update_psionic_action_buttons(user)
+
+/datum/component/anti_psionic/proc/update_psionic_action_buttons(mob/user)
+	if(!isliving(user))
+		return
+
+	var/mob/living/living_user = user
+	living_user.get_psionic_profile()?.update_psionic_action_buttons()
 
 /datum/component/anti_psionic/proc/block_receiving_psionics(mob/living/source, incoming_psionic_flags, charge_cost, list/psionic_sources)
 	SIGNAL_HANDLER

@@ -98,6 +98,11 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	psion = parent
 	RegisterSignal(psion, COMSIG_MOB_HUD_CREATED, PROC_REF(on_hud_created))
 	RegisterSignal(psion, COMSIG_LIVING_LIFE, PROC_REF(on_life))
+	RegisterSignals(
+		psion,
+		list(SIGNAL_ADDTRAIT(TRAIT_PSIONIC_DAMPENER), SIGNAL_REMOVETRAIT(TRAIT_PSIONIC_DAMPENER)),
+		PROC_REF(on_psionic_availability_changed),
+	)
 	last_strain_decay = world.time
 	add_source(source, points, TRUE)
 	awaken()
@@ -109,7 +114,12 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 /datum/component/psionic_profile/Destroy(force)
 	if(psion)
-		UnregisterSignal(psion, list(COMSIG_MOB_HUD_CREATED, COMSIG_LIVING_LIFE))
+		UnregisterSignal(psion, list(
+			COMSIG_MOB_HUD_CREATED,
+			COMSIG_LIVING_LIFE,
+			SIGNAL_ADDTRAIT(TRAIT_PSIONIC_DAMPENER),
+			SIGNAL_REMOVETRAIT(TRAIT_PSIONIC_DAMPENER),
+		))
 		remove_strain_hud()
 		psion.remove_traits(list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD), PSIONIC_TRAIT_SOURCE)
 	for(var/action_type in granted_actions)
@@ -139,6 +149,12 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 	decay_strain()
 	update_strain_hud()
+	update_psionic_action_buttons()
+
+/datum/component/psionic_profile/proc/on_psionic_availability_changed(datum/source)
+	SIGNAL_HANDLER
+
+	update_psionic_action_buttons()
 
 /datum/component/psionic_profile/proc/install_strain_hud()
 	var/datum/hud/psion_hud = psion?.hud_used
@@ -159,6 +175,11 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		return
 
 	strain_hud.update_strain(strain, max_strain, is_burned_out())
+
+/datum/component/psionic_profile/proc/update_psionic_action_buttons()
+	for(var/action_type in granted_actions)
+		var/datum/action/action = granted_actions[action_type]
+		action?.build_all_button_icons(UPDATE_BUTTON_STATUS)
 
 /datum/component/psionic_profile/proc/add_points(points, silent = FALSE)
 	if(!isnum(points))
@@ -619,6 +640,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	burnout_until = world.time + PSIONIC_BURNOUT_TIME
 	strain = max_strain
 	update_strain_hud()
+	update_psionic_action_buttons()
 	to_chat(psion, span_userdanger("Your psionic focus collapses into static."))
 	psion.Knockdown(2 SECONDS)
 
