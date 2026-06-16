@@ -84,6 +84,10 @@
 	var/can_use_during_burnout = FALSE
 	/// If TRUE, this action requires usable hands.
 	var/needs_hands = FALSE
+	/// If TRUE, this action requires the psion to stand still and avoid severe pain while active.
+	var/requires_concentration = FALSE
+	/// Turf the psion must remain on while concentrating.
+	var/turf/concentration_turf
 	/// Ordered psionic rank variant datum types this action can use.
 	var/list/rank_variant_types
 	/// Cached rank variant datums.
@@ -93,6 +97,10 @@
 	for(var/datum/psionic_rank_variant/variant as anything in rank_variants)
 		qdel(variant)
 	rank_variants = null
+	return ..()
+
+/datum/action/cooldown/psionic/Remove(mob/remove_from)
+	stop_concentration(remove_from)
 	return ..()
 
 /datum/action/cooldown/psionic/Trigger(mob/clicker, trigger_flags, atom/target)
@@ -239,6 +247,107 @@
 		living_owner.balloon_alert(living_owner, "hands blocked!")
 	return FALSE
 
+/datum/action/cooldown/psionic/proc/can_concentrate(mob/living/living_owner, datum/component/psionic_profile/profile, feedback = FALSE)
+	if(!requires_concentration)
+		return TRUE
+	if(action_disabled || !istype(living_owner) || !profile)
+		return FALSE
+	if(living_owner.stat != CONSCIOUS)
+		return FALSE
+	if(HAS_TRAIT(living_owner, TRAIT_INCAPACITATED))
+		return FALSE
+	if(!isturf(living_owner.loc))
+		return FALSE
+	if(living_owner.body_position != STANDING_UP)
+		if(feedback)
+			living_owner.balloon_alert(living_owner, "stand up!")
+		return FALSE
+	if(profile.is_burned_out())
+		return FALSE
+	if(concentration_turf && get_turf(living_owner) != concentration_turf)
+		if(feedback)
+			living_owner.balloon_alert(living_owner, "stand still!")
+		return FALSE
+	if(is_concentration_painful(living_owner))
+		if(feedback)
+			living_owner.balloon_alert(living_owner, "pain breaks focus!")
+		return FALSE
+	if(!living_owner.can_cast_psionics(psionic_flags))
+		return FALSE
+
+	return TRUE
+
+/datum/action/cooldown/psionic/proc/start_concentration(mob/living/living_owner, datum/component/psionic_profile/profile, feedback = FALSE)
+	if(!requires_concentration)
+		return TRUE
+	if(!can_concentrate(living_owner, profile, feedback))
+		return FALSE
+
+	concentration_turf = get_turf(living_owner)
+	RegisterSignal(living_owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_concentration_moved))
+	RegisterSignal(living_owner, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(on_concentration_health_update))
+	RegisterSignal(living_owner, COMSIG_LIVING_LIFE, PROC_REF(on_concentration_life))
+	return TRUE
+
+/datum/action/cooldown/psionic/proc/stop_concentration(mob/living/living_owner)
+	if(!requires_concentration)
+		return
+
+	if(istype(living_owner))
+		UnregisterSignal(living_owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_concentration_moved))
+		UnregisterSignal(living_owner, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(on_concentration_health_update))
+		UnregisterSignal(living_owner, COMSIG_LIVING_LIFE, PROC_REF(on_concentration_life))
+	concentration_turf = null
+
+/datum/action/cooldown/psionic/proc/is_concentration_painful(mob/living/living_owner)
+	if(!istype(living_owner))
+		return FALSE
+	if(HAS_TRAIT(living_owner, TRAIT_ANALGESIA))
+		return FALSE
+
+	var/brute_loss = living_owner.get_brute_loss()
+	var/burn_loss = living_owner.get_fire_loss()
+	if(brute_loss > PSIONIC_CONCENTRATION_PAIN_THRESHOLD)
+		return TRUE
+
+	return burn_loss > PSIONIC_CONCENTRATION_PAIN_THRESHOLD
+
+/datum/action/cooldown/psionic/proc/on_concentration_moved(datum/source)
+	SIGNAL_HANDLER
+
+	var/mob/living/living_owner = source
+	if(!istype(living_owner))
+		living_owner = owner
+	if(istype(living_owner))
+		living_owner.balloon_alert(living_owner, "focus broken!")
+	on_concentration_broken(living_owner)
+
+/datum/action/cooldown/psionic/proc/on_concentration_health_update(datum/source)
+	SIGNAL_HANDLER
+
+	var/mob/living/living_owner = source
+	if(!is_concentration_painful(living_owner))
+		return
+
+	living_owner.balloon_alert(living_owner, "pain breaks focus!")
+	on_concentration_broken(living_owner)
+
+/datum/action/cooldown/psionic/proc/on_concentration_life(datum/source, seconds_per_tick)
+	SIGNAL_HANDLER
+
+	var/mob/living/living_owner = source
+	if(!istype(living_owner))
+		living_owner = owner
+	var/datum/component/psionic_profile/profile = living_owner?.get_psionic_profile()
+	if(can_concentrate(living_owner, profile))
+		return
+
+	on_concentration_broken(living_owner)
+
+/datum/action/cooldown/psionic/proc/on_concentration_broken(mob/living/living_owner)
+	stop_concentration(living_owner)
+	return FALSE
+
 /datum/action/cooldown/psionic/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
@@ -276,6 +385,8 @@
 		if(feedback)
 			living_owner.balloon_alert(living_owner, "psionics dampened!")
 		return FALSE
+	if(!can_concentrate(living_owner, profile, feedback))
+		return FALSE
 
 	return TRUE
 
@@ -299,7 +410,10 @@
 	var/activation_strain_gain = get_psionic_strain_gain(profile)
 	if(activation_strain_gain && !profile.try_gain_strain(activation_strain_gain, src))
 		return FALSE
+	if(!start_concentration(living_owner, profile, TRUE))
+		return FALSE
 	if(!psionic_activate(target))
+		stop_concentration(living_owner)
 		return FALSE
 
 	StartCooldown(get_psionic_cooldown_time(profile))

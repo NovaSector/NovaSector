@@ -13,6 +13,7 @@
 	active_strain_gain_per_second = 10
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
+	requires_concentration = TRUE
 	active_msg = "You gather a restorative pattern..."
 	deactive_msg = "You let the restorative pattern dissolve."
 	no_living_target_alert = "no patient!"
@@ -31,8 +32,6 @@
 	var/datum/beam/biomend_beam
 	/// Unique filter name used for the patient's outline.
 	var/biomend_filter_name
-	/// Stored turf used to break concentration when the caster moves.
-	var/turf/concentration_turf
 	/// TRUE while this action is intentionally tearing down its beam.
 	var/clearing_biomend = FALSE
 
@@ -78,19 +77,10 @@
 
 	return TRUE
 
-/datum/action/cooldown/psionic/pointed/living_target/biomend/before_psionic(atom/target)
-	var/mob/living/living_owner = owner
-	if(!can_concentrate(living_owner, living_owner?.get_psionic_profile(), TRUE))
-		return FALSE
-
-	return TRUE
-
 /datum/action/cooldown/psionic/pointed/living_target/biomend/psionic_activate(atom/target)
 	var/mob/living/living_owner = owner
 	var/mob/living/carbon/carbon_target = target
 	var/datum/component/psionic_profile/profile = living_owner?.get_psionic_profile()
-	if(!can_concentrate(living_owner, profile, TRUE))
-		return FALSE
 	if(!istype(carbon_target))
 		return FALSE
 	if(carbon_target.can_block_psionics(psionic_flags, charge_cost = dampener_charge_cost))
@@ -100,7 +90,6 @@
 
 	biomending = TRUE
 	biomend_target = carbon_target
-	concentration_turf = get_turf(living_owner)
 	var/manifestation_color = get_biomend_color(profile)
 	biomend_filter_name = "psionic_biomend_[REF(src)]"
 	biomend_target.add_filter(biomend_filter_name, 2, outline_filter(size = 1, color = manifestation_color))
@@ -112,8 +101,6 @@
 		beam_color = manifestation_color,
 	)
 	RegisterSignal(biomend_beam, COMSIG_QDELETING, PROC_REF(on_biomend_beam_deleted))
-	RegisterSignal(living_owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
-	RegisterSignal(living_owner, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(on_owner_health_update))
 	RegisterSignal(living_owner, COMSIG_LIVING_LIFE, PROC_REF(on_owner_life))
 	RegisterSignal(living_owner, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
 	RegisterSignal(biomend_target, COMSIG_LIVING_DEATH, PROC_REF(on_target_death))
@@ -138,39 +125,6 @@
 /datum/action/cooldown/psionic/pointed/living_target/biomend/proc/get_biomend_color(datum/component/psionic_profile/profile)
 	return profile?.psionic_color || PSIONIC_DEFAULT_COLOR
 
-/datum/action/cooldown/psionic/pointed/living_target/biomend/proc/can_concentrate(mob/living/living_owner, datum/component/psionic_profile/profile, feedback = FALSE)
-	if(action_disabled || !istype(living_owner) || !profile)
-		return FALSE
-	if(living_owner.stat != CONSCIOUS)
-		return FALSE
-	if(HAS_TRAIT(living_owner, TRAIT_INCAPACITATED))
-		return FALSE
-	if(!isturf(living_owner.loc))
-		return FALSE
-	if(living_owner.body_position != STANDING_UP)
-		if(feedback)
-			living_owner.balloon_alert(living_owner, "stand up!")
-		return FALSE
-	if(profile.is_burned_out())
-		return FALSE
-	if(concentration_turf && get_turf(living_owner) != concentration_turf)
-		if(feedback)
-			living_owner.balloon_alert(living_owner, "stand still!")
-		return FALSE
-	if(is_feeling_pain(living_owner))
-		if(feedback)
-			living_owner.balloon_alert(living_owner, "pain breaks focus!")
-		return FALSE
-
-	return living_owner.can_cast_psionics(psionic_flags)
-
-/datum/action/cooldown/psionic/pointed/living_target/biomend/proc/is_feeling_pain(mob/living/living_owner)
-	// The codebase has no central pain value; brute and burn loss are the closest concentration-breaking proxy.
-	if(!istype(living_owner))
-		return FALSE
-
-	return living_owner.get_brute_loss() > 0 || living_owner.get_fire_loss() > 0
-
 /datum/action/cooldown/psionic/pointed/living_target/biomend/proc/on_owner_life(datum/source, seconds_per_tick)
 	SIGNAL_HANDLER
 
@@ -179,9 +133,6 @@
 
 	var/mob/living/living_owner = source
 	var/datum/component/psionic_profile/profile = living_owner?.get_psionic_profile()
-	if(!can_concentrate(living_owner, profile))
-		clear_biomend(living_owner)
-		return
 	if(!istype(biomend_target) || QDELETED(biomend_target) || biomend_target.stat == DEAD)
 		clear_biomend(living_owner, TRUE)
 		return
@@ -206,23 +157,9 @@
 	if(!try_gain_active_strain(profile, seconds_per_tick))
 		clear_biomend(living_owner)
 
-/datum/action/cooldown/psionic/pointed/living_target/biomend/proc/on_owner_moved(datum/source)
-	SIGNAL_HANDLER
-
-	var/mob/living/living_owner = owner
-	if(istype(living_owner))
-		living_owner.balloon_alert(living_owner, "focus broken!")
+/datum/action/cooldown/psionic/pointed/living_target/biomend/on_concentration_broken(mob/living/living_owner)
 	clear_biomend(living_owner)
-
-/datum/action/cooldown/psionic/pointed/living_target/biomend/proc/on_owner_health_update(datum/source)
-	SIGNAL_HANDLER
-
-	var/mob/living/living_owner = source
-	if(!is_feeling_pain(living_owner))
-		return
-
-	living_owner.balloon_alert(living_owner, "pain breaks focus!")
-	clear_biomend(living_owner)
+	return TRUE
 
 /datum/action/cooldown/psionic/pointed/living_target/biomend/proc/on_owner_death(datum/source, gibbed)
 	SIGNAL_HANDLER
@@ -257,15 +194,11 @@
 		return FALSE
 
 	biomending = FALSE
-	concentration_turf = null
 	clearing_biomend = TRUE
+	stop_concentration(living_owner)
 	if(istype(living_owner))
-		UnregisterSignal(living_owner, list(
-			COMSIG_MOVABLE_MOVED,
-			COMSIG_LIVING_HEALTH_UPDATE,
-			COMSIG_LIVING_LIFE,
-			COMSIG_LIVING_DEATH,
-		))
+		UnregisterSignal(living_owner, COMSIG_LIVING_LIFE, PROC_REF(on_owner_life))
+		UnregisterSignal(living_owner, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
 		if(!silent)
 			to_chat(living_owner, span_notice("The restorative pattern collapses."))
 	if(istype(biomend_target))
