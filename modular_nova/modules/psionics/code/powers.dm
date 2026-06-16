@@ -217,6 +217,9 @@
 /datum/psionic_power/kinetic_shove
 	action_type = /datum/action/cooldown/psionic/pointed/kinetic_shove
 
+/datum/psionic_power/levitate
+	action_type = /datum/action/cooldown/psionic/levitate
+
 /datum/psionic_power/spatial_slip
 	action_type = /datum/action/cooldown/psionic/spatial_slip
 
@@ -402,6 +405,75 @@
 
 	movable_target.safe_throw_at(throw_target, range = 3, speed = 1, thrower = owner, gentle = TRUE)
 	return TRUE
+
+/datum/action/cooldown/psionic/levitate
+	name = "Levitate"
+	desc = "Bias gravity around yourself, lifting into a brief hover."
+	button_icon_state = "psi_levitate"
+	cooldown_time = 20 SECONDS
+	point_cost = 1
+	strain_gain = 18
+	psionic_flags = PSIONIC_KINETIC
+	school = PSIONIC_SCHOOL_GRAVITY
+	/// How long the hover remains stable.
+	var/levitation_duration = 30 SECONDS
+	/// world.time at which the current levitation effect should expire.
+	var/levitation_expires_at = 0
+
+/datum/action/cooldown/psionic/levitate/Remove(mob/living/remove_from)
+	if(remove_from)
+		clear_levitation(WEAKREF(remove_from), 0, TRUE)
+	return ..()
+
+/datum/action/cooldown/psionic/levitate/is_valid_target(atom/target)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	var/mob/living/living_owner = owner
+	if(!istype(living_owner) || !isturf(living_owner.loc))
+		return FALSE
+	if(living_owner.buckled)
+		living_owner.balloon_alert(living_owner, "buckled!")
+		return FALSE
+
+	return TRUE
+
+/datum/action/cooldown/psionic/levitate/psionic_activate(atom/target)
+	var/mob/living/living_owner = owner
+	if(!istype(living_owner))
+		return FALSE
+
+	var/already_levitating = HAS_TRAIT_FROM(living_owner, TRAIT_MOVE_FLOATING, PSIONIC_LEVITATION_TRAIT_SOURCE)
+	ADD_TRAIT(living_owner, TRAIT_MOVE_FLOATING, PSIONIC_LEVITATION_TRAIT_SOURCE)
+	living_owner.set_resting(FALSE, TRUE)
+
+	levitation_expires_at = world.time + levitation_duration
+	addtimer(CALLBACK(src, PROC_REF(clear_levitation), WEAKREF(living_owner), levitation_expires_at), levitation_duration)
+
+	if(already_levitating)
+		to_chat(living_owner, span_purple("You reinforce the gravitic pattern holding you aloft."))
+	else
+		living_owner.visible_message(
+			span_notice("[living_owner] rises a handspan above the floor as the air warps around [living_owner.p_them()]."),
+			span_purple("You bias gravity around yourself and lift into a careful hover."),
+		)
+	return TRUE
+
+/datum/action/cooldown/psionic/levitate/proc/clear_levitation(datum/weakref/living_ref, expected_expires_at = 0, force = FALSE)
+	if(!force && expected_expires_at < levitation_expires_at)
+		return
+
+	var/mob/living/living_owner = living_ref?.resolve()
+	if(!istype(living_owner))
+		return
+
+	var/had_psionic_levitation = HAS_TRAIT_FROM(living_owner, TRAIT_MOVE_FLOATING, PSIONIC_LEVITATION_TRAIT_SOURCE)
+	REMOVE_TRAIT(living_owner, TRAIT_MOVE_FLOATING, PSIONIC_LEVITATION_TRAIT_SOURCE)
+	levitation_expires_at = 0
+
+	if(!force && had_psionic_levitation && !HAS_TRAIT(living_owner, TRAIT_MOVE_FLOATING))
+		to_chat(living_owner, span_notice("The levitation pattern slips, and gravity takes hold again."))
 
 /datum/action/cooldown/psionic/spatial_slip
 	name = "Spatial Slip"

@@ -19,7 +19,7 @@ Design notes:
 Current schools:
 
 - Bioscrambler: neural, somatic, and identity resonance. Current powers: `Telepathic Whisper`, `Sense Health`.
-- Gravity: mass, inertia, and kinetic pressure. Starter power: `Kinetic Shove`.
+- Gravity: mass, inertia, and kinetic pressure. Current powers: `Kinetic Shove`, `Levitate`.
 - Bluespace: distance, folds, and spatial discontinuity. Starter power: `Spatial Slip`.
 - Flux: interference, disruption, reactive static, and thermal shaping. Current powers: `Psychic Guard`, `Pyro Bolt`, `Pyro Assault`.
 
