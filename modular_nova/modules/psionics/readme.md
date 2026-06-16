@@ -22,7 +22,7 @@ Current schools:
 - Bioscrambler: neural, somatic, and identity resonance. Current powers: `Telepathic Whisper`, `Sense Health`.
 - Gravity: mass, inertia, and kinetic pressure. Current powers: `Kinetic Shove`, `Levitate`.
 - Bluespace: distance, folds, and spatial discontinuity. Starter power: `Spatial Slip`.
-- Flux: interference, disruption, reactive static, and thermal shaping. Current powers: `Psychic Guard`, `Psiblade`, `Pyro Bolt`, `Pyro Assault`.
+- Flux: interference, disruption, reactive static, and thermal shaping. Current powers: `Psychic Guard`, `Psiblade`, `Pyro Bolt`.
 
 Psionic Gift ranks:
 
@@ -40,6 +40,11 @@ Current hooks:
 - `/obj/item/clothing/head/psionic_dampener` is a psionic-only counter item.
 
 Adding powers:
+
+Power files live in `code/power`. Keep each concrete power in its own file with
+its `/datum/psionic_power` tree entry, action, rank variants, and owned helper
+objects or projectiles. Shared school and catalog code lives in
+`code/power/_catalog.dm`.
 
 Power metadata lives on the action. The `/datum/psionic_power` entry only exposes
 that action to the imprinting tree and declares tree-only requirements.

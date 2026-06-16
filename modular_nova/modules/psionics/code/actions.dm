@@ -9,6 +9,12 @@
 	var/strain_gain
 	/// Cooldown applied when this form is used. If unset, the action's normal cooldown is used.
 	var/cooldown_time
+	/// Range used by pointed actions. If unset, the action's normal range is used.
+	var/cast_range
+	/// Readied message used by pointed actions. If unset, the action's normal message is used.
+	var/active_msg
+	/// Cancel message used by pointed actions. If unset, the action's normal message is used.
+	var/deactive_msg
 
 /datum/psionic_rank_variant/proc/get_name(datum/action/cooldown/psionic/action)
 	return variant_name || rank
@@ -24,6 +30,18 @@
 		return cooldown_time
 
 	return action.cooldown_time
+
+/datum/psionic_rank_variant/proc/get_cast_range(datum/action/cooldown/psionic/pointed/action)
+	if(!isnull(cast_range))
+		return cast_range
+
+	return action.cast_range
+
+/datum/psionic_rank_variant/proc/get_active_msg(datum/action/cooldown/psionic/pointed/action)
+	return active_msg || action.active_msg
+
+/datum/psionic_rank_variant/proc/get_deactive_msg(datum/action/cooldown/psionic/pointed/action)
+	return deactive_msg || action.deactive_msg
 
 /datum/psionic_rank_variant/proc/get_description(datum/action/cooldown/psionic/action)
 	var/form_description = description || get_name(action)
@@ -266,7 +284,11 @@
 	if(!.)
 		return
 
-	to_chat(on_who, span_notice("[active_msg] <b>Left-click a target.</b>"))
+	var/datum/component/psionic_profile/profile
+	var/mob/living/living_owner = on_who
+	if(istype(living_owner))
+		profile = living_owner.get_psionic_profile()
+	to_chat(on_who, span_notice("[get_psionic_active_msg(profile)] <b>Left-click a target.</b>"))
 	build_all_button_icons()
 
 /datum/action/cooldown/psionic/pointed/unset_click_ability(mob/on_who, refund_cooldown = TRUE)
@@ -275,7 +297,11 @@
 		return
 
 	if(refund_cooldown)
-		to_chat(on_who, span_notice("[deactive_msg]"))
+		var/datum/component/psionic_profile/profile
+		var/mob/living/living_owner = on_who
+		if(istype(living_owner))
+			profile = living_owner.get_psionic_profile()
+		to_chat(on_who, span_notice("[get_psionic_deactive_msg(profile)]"))
 	build_all_button_icons()
 
 /datum/action/cooldown/psionic/pointed/InterceptClickOn(mob/living/clicker, params, atom/target)
@@ -291,14 +317,40 @@
 	return locate(/mob/living/carbon/human) in target || locate(/mob/living) in target
 
 /datum/action/cooldown/psionic/pointed/is_valid_target(atom/target)
-	if(target == owner)
-		to_chat(owner, span_warning("You cannot focus [src] on yourself."))
+	var/mob/living/living_owner = owner
+	if(!istype(living_owner))
 		return FALSE
-	if(!get_turf(target) || get_dist(get_turf(owner), get_turf(target)) > cast_range)
-		owner.balloon_alert(owner, "too far away!")
+
+	if(target == living_owner)
+		to_chat(living_owner, span_warning("You cannot focus [src] on yourself."))
+		return FALSE
+	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
+	if(!get_turf(target) || get_dist(get_turf(living_owner), get_turf(target)) > get_psionic_cast_range(profile))
+		living_owner.balloon_alert(living_owner, "too far away!")
 		return FALSE
 
 	return TRUE
+
+/datum/action/cooldown/psionic/pointed/proc/get_psionic_cast_range(datum/component/psionic_profile/profile)
+	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
+	if(variant)
+		return variant.get_cast_range(src)
+
+	return cast_range
+
+/datum/action/cooldown/psionic/pointed/proc/get_psionic_active_msg(datum/component/psionic_profile/profile)
+	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
+	if(variant)
+		return variant.get_active_msg(src)
+
+	return active_msg
+
+/datum/action/cooldown/psionic/pointed/proc/get_psionic_deactive_msg(datum/component/psionic_profile/profile)
+	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
+	if(variant)
+		return variant.get_deactive_msg(src)
+
+	return deactive_msg
 
 /datum/action/cooldown/psionic/pointed/living_target
 	/// If TRUE, dead living mobs can be targeted.
