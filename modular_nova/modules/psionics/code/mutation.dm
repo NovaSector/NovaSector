@@ -13,3 +13,10 @@
 		return
 
 	acquirer.awaken_psionics(PSIONIC_DEFAULT_POINTS, source = PSIONIC_SOURCE_MUTATION)
+
+/datum/mutation/psionic_resonance/on_losing(mob/living/carbon/human/owner)
+	. = ..()
+	if(.)
+		return
+
+	owner.revoke_psionics(PSIONIC_SOURCE_MUTATION)

@@ -1,3 +1,34 @@
+/datum/psionic_rank_variant
+	/// Rank required to unlock this selectable form.
+	var/rank = PSIONIC_DEFAULT_RANK
+	/// Player-facing form name.
+	var/variant_name
+	/// Optional player-facing description. If unset, the form name is used.
+	var/description
+	/// Strain gained when this form is used. If unset, the action's normal strain is used.
+	var/strain_gain
+	/// Cooldown applied when this form is used. If unset, the action's normal cooldown is used.
+	var/cooldown_time
+
+/datum/psionic_rank_variant/proc/get_name(datum/action/cooldown/psionic/action)
+	return variant_name || rank
+
+/datum/psionic_rank_variant/proc/get_strain_gain(datum/action/cooldown/psionic/action)
+	if(!isnull(strain_gain))
+		return strain_gain
+
+	return action.strain_gain
+
+/datum/psionic_rank_variant/proc/get_cooldown_time(datum/action/cooldown/psionic/action)
+	if(!isnull(cooldown_time))
+		return cooldown_time
+
+	return action.cooldown_time
+
+/datum/psionic_rank_variant/proc/get_description(datum/action/cooldown/psionic/action)
+	var/form_description = description || get_name(action)
+	return "[form_description] ([get_strain_gain(action)] strain, [get_cooldown_time(action) / 10]s cooldown)"
+
 /datum/action/cooldown/psionic
 	name = "Psionic Ability"
 	desc = "Project a psionic discipline."
@@ -22,11 +53,19 @@
 	var/causes_interference = TRUE
 	/// If TRUE, this action can be used during burnout.
 	var/can_use_during_burnout = FALSE
-	/// Ordered psionic ranks that unlock selectable variants of this action.
-	var/list/rank_variant_order
+	/// Ordered psionic rank variant datum types this action can use.
+	var/list/rank_variant_types
+	/// Cached rank variant datums.
+	var/list/rank_variants
+
+/datum/action/cooldown/psionic/Destroy()
+	for(var/datum/psionic_rank_variant/variant as anything in rank_variants)
+		qdel(variant)
+	rank_variants = null
+	return ..()
 
 /datum/action/cooldown/psionic/Trigger(mob/clicker, trigger_flags, atom/target)
-	if((trigger_flags & TRIGGER_SECONDARY_ACTION) && length(rank_variant_order))
+	if((trigger_flags & TRIGGER_SECONDARY_ACTION) && length(get_rank_variants()))
 		var/mob/living/living_owner = owner
 		if(istype(living_owner))
 			return cycle_rank_variant(living_owner)
@@ -35,7 +74,7 @@
 
 /datum/action/cooldown/psionic/update_button_name(atom/movable/screen/movable/action_button/button, force = FALSE)
 	. = ..()
-	if(!length(rank_variant_order))
+	if(!length(get_rank_variants()))
 		return
 
 	var/mob/living/living_owner = owner
@@ -43,23 +82,44 @@
 		return
 
 	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	var/variant_rank = get_selected_rank_variant(profile)
-	if(!variant_rank)
+	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
+	if(!variant)
 		return
 
-	button.name = "[name] ([get_rank_variant_name(variant_rank)])"
+	button.name = "[name] ([get_rank_variant_name(variant)])"
 	if(desc)
-		button.desc = "[desc]<br><b>Selected:</b> [get_rank_variant_description(variant_rank)].<br><b>Right-click</b> to cycle unlocked forms."
+		button.desc = "[desc]<br><b>Selected:</b> [get_rank_variant_description(variant)].<br><b>Right-click</b> to cycle unlocked forms."
+
+/datum/action/cooldown/psionic/proc/get_rank_variants()
+	if(rank_variants)
+		return rank_variants
+
+	rank_variants = list()
+	for(var/variant_type in rank_variant_types)
+		if(!ispath(variant_type, /datum/psionic_rank_variant))
+			continue
+
+		var/datum/psionic_rank_variant/variant = new variant_type
+		rank_variants += variant
+
+	return rank_variants
+
+/datum/action/cooldown/psionic/proc/get_rank_variant(variant_rank)
+	for(var/datum/psionic_rank_variant/variant as anything in get_rank_variants())
+		if(variant.rank == variant_rank)
+			return variant
+
+	return null
 
 /datum/action/cooldown/psionic/proc/get_unlocked_rank_variants(datum/component/psionic_profile/profile)
 	var/list/unlocked_variants = list()
-	if(!profile || !length(rank_variant_order))
+	if(!profile)
 		return unlocked_variants
 
 	var/profile_rank_level = get_psionic_rank_level(profile.psionic_rank)
-	for(var/variant_rank in rank_variant_order)
-		if(profile_rank_level >= get_psionic_rank_level(variant_rank))
-			unlocked_variants += variant_rank
+	for(var/datum/psionic_rank_variant/variant as anything in get_rank_variants())
+		if(profile_rank_level >= get_psionic_rank_level(variant.rank))
+			unlocked_variants += variant
 
 	return unlocked_variants
 
@@ -68,8 +128,9 @@
 	if(!length(unlocked_variants))
 		return null
 
-	var/stored_variant = profile.get_power_rank_variant(type)
-	if(stored_variant in unlocked_variants)
+	var/stored_variant_rank = profile.get_power_rank_variant(type)
+	var/datum/psionic_rank_variant/stored_variant = get_rank_variant(stored_variant_rank)
+	if(stored_variant && (stored_variant in unlocked_variants))
 		return stored_variant
 
 	return unlocked_variants[length(unlocked_variants)]
@@ -83,30 +144,38 @@
 		living_owner.balloon_alert(living_owner, "only one form!")
 		return TRUE
 
-	var/current_variant = get_selected_rank_variant(profile)
+	var/datum/psionic_rank_variant/current_variant = get_selected_rank_variant(profile)
 	var/current_index = unlocked_variants.Find(current_variant)
 	if(!current_index)
 		current_index = length(unlocked_variants)
-	var/new_variant = unlocked_variants[(current_index % length(unlocked_variants)) + 1]
-	profile.set_power_rank_variant(type, new_variant)
+	var/datum/psionic_rank_variant/new_variant = unlocked_variants[(current_index % length(unlocked_variants)) + 1]
+	profile.set_power_rank_variant(type, new_variant.rank)
 	on_rank_variant_selected(living_owner, new_variant)
 	build_all_button_icons(UPDATE_BUTTON_NAME)
 	return TRUE
 
-/datum/action/cooldown/psionic/proc/get_rank_variant_name(variant_rank)
-	return "[variant_rank]"
+/datum/action/cooldown/psionic/proc/get_rank_variant_name(datum/psionic_rank_variant/variant)
+	return variant?.get_name(src)
 
-/datum/action/cooldown/psionic/proc/get_rank_variant_description(variant_rank)
-	return get_rank_variant_name(variant_rank)
+/datum/action/cooldown/psionic/proc/get_rank_variant_description(datum/psionic_rank_variant/variant)
+	return variant?.get_description(src)
 
-/datum/action/cooldown/psionic/proc/on_rank_variant_selected(mob/living/living_owner, variant_rank)
-	living_owner.balloon_alert(living_owner, "[LOWER_TEXT(get_rank_variant_name(variant_rank))] selected")
-	to_chat(living_owner, span_notice("[name] will manifest as [get_rank_variant_description(variant_rank)]."))
+/datum/action/cooldown/psionic/proc/on_rank_variant_selected(mob/living/living_owner, datum/psionic_rank_variant/variant)
+	living_owner.balloon_alert(living_owner, "[LOWER_TEXT(get_rank_variant_name(variant))] selected")
+	to_chat(living_owner, span_notice("[name] will manifest as [get_rank_variant_description(variant)]."))
 
 /datum/action/cooldown/psionic/proc/get_psionic_strain_gain(datum/component/psionic_profile/profile)
+	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
+	if(variant)
+		return variant.get_strain_gain(src)
+
 	return strain_gain
 
 /datum/action/cooldown/psionic/proc/get_psionic_cooldown_time(datum/component/psionic_profile/profile)
+	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
+	if(variant)
+		return variant.get_cooldown_time(src)
+
 	return cooldown_time
 
 /datum/action/cooldown/psionic/IsAvailable(feedback = FALSE)

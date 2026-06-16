@@ -579,7 +579,12 @@
 
 /datum/action/cooldown/psionic/psychic_guard/psionic_activate(atom/target)
 	var/datum/callback/block_callback = CALLBACK(src, PROC_REF(on_guard_block))
-	var/datum/component/anti_psionic/shield = owner.AddComponent(/datum/component/anti_psionic, PSIONIC_INTRUSIVE|PSIONIC_SENSORY, guard_charges, ALL, block_callback)
+	var/datum/component/anti_psionic/shield = owner.AddComponent(
+		/datum/component/anti_psionic,
+		psionic_flags = PSIONIC_INTRUSIVE|PSIONIC_SENSORY,
+		charges = guard_charges,
+		block_psionic = block_callback,
+	)
 	addtimer(CALLBACK(src, PROC_REF(clear_guard), WEAKREF(shield)), guard_duration)
 	to_chat(owner, span_purple("You draw a quiet guard around your thoughts."))
 	return TRUE
@@ -592,6 +597,42 @@
 	if(shield)
 		qdel(shield)
 
+/datum/psionic_rank_variant/psiblade
+	rank = PSIONIC_RANK_GAMMA
+	variant_name = "machete"
+	strain_gain = 10
+	cooldown_time = 8 SECONDS
+	/// Psiblade item spawned for this form.
+	var/obj/item/psionic_blade/blade_type = /obj/item/psionic_blade/machete
+
+/datum/psionic_rank_variant/psiblade/epsilon
+	rank = PSIONIC_RANK_EPSILON
+	variant_name = "knife"
+	blade_type = /obj/item/psionic_blade/knife
+	strain_gain = 5
+	cooldown_time = 4 SECONDS
+
+/datum/psionic_rank_variant/psiblade/delta
+	rank = PSIONIC_RANK_DELTA
+	variant_name = "sabre"
+	blade_type = /obj/item/psionic_blade/sabre
+	strain_gain = 14
+	cooldown_time = 10 SECONDS
+
+/datum/psionic_rank_variant/psiblade/beta
+	rank = PSIONIC_RANK_BETA
+	variant_name = "energy blade"
+	blade_type = /obj/item/psionic_blade/energy
+	strain_gain = 18
+	cooldown_time = 12 SECONDS
+
+/datum/psionic_rank_variant/psiblade/alpha
+	rank = PSIONIC_RANK_ALPHA
+	variant_name = "twinblade"
+	blade_type = /obj/item/psionic_blade/twinblade
+	strain_gain = 24
+	cooldown_time = 16 SECONDS
+
 /datum/action/cooldown/psionic/psiblade
 	name = "Psiblade"
 	desc = "Shape hardlight into a melee weapon. Higher ranks form stronger blades."
@@ -601,12 +642,12 @@
 	strain_gain = 18
 	psionic_flags = PSIONIC_KINETIC|PSIONIC_THERMAL
 	school = PSIONIC_SCHOOL_FLUX
-	rank_variant_order = list(
-		PSIONIC_RANK_EPSILON,
-		PSIONIC_RANK_GAMMA,
-		PSIONIC_RANK_DELTA,
-		PSIONIC_RANK_BETA,
-		PSIONIC_RANK_ALPHA,
+	rank_variant_types = list(
+		/datum/psionic_rank_variant/psiblade/epsilon,
+		/datum/psionic_rank_variant/psiblade,
+		/datum/psionic_rank_variant/psiblade/delta,
+		/datum/psionic_rank_variant/psiblade/beta,
+		/datum/psionic_rank_variant/psiblade/alpha,
 	)
 	/// Currently manifested psiblade.
 	var/obj/item/psionic_blade/psiblade
@@ -650,11 +691,14 @@
 	if(!profile)
 		return FALSE
 
-	var/variant_rank = get_selected_rank_variant(profile)
-	if(!variant_rank)
+	var/datum/psionic_rank_variant/selected_variant = get_selected_rank_variant(profile)
+	var/datum/psionic_rank_variant/psiblade/form
+	if(istype(selected_variant, /datum/psionic_rank_variant/psiblade))
+		form = selected_variant
+	if(!form?.blade_type)
 		return FALSE
 
-	var/obj/item/psionic_blade/new_psiblade = new(living_owner, variant_rank)
+	var/obj/item/psionic_blade/new_psiblade = new form.blade_type(living_owner)
 	if(!living_owner.put_in_hands(new_psiblade, del_on_fail = TRUE))
 		living_owner.balloon_alert(living_owner, "free a hand!")
 		to_chat(living_owner, span_warning("You need a free hand to shape [src]."))
@@ -673,60 +717,6 @@
 	)
 	playsound(living_owner, 'sound/items/weapons/saberon.ogg', 35, TRUE)
 	return TRUE
-
-/datum/action/cooldown/psionic/psiblade/get_rank_variant_name(variant_rank)
-	switch(variant_rank)
-		if(PSIONIC_RANK_EPSILON)
-			return "knife"
-		if(PSIONIC_RANK_GAMMA)
-			return "machete"
-		if(PSIONIC_RANK_DELTA)
-			return "sabre"
-		if(PSIONIC_RANK_BETA)
-			return "energy blade"
-		if(PSIONIC_RANK_ALPHA)
-			return "twinblade"
-
-	return ..()
-
-/datum/action/cooldown/psionic/psiblade/get_rank_variant_description(variant_rank)
-	return "[get_rank_variant_name(variant_rank)] ([get_psiblade_strain_gain(variant_rank)] strain, [get_psiblade_cooldown_time(variant_rank) / 10]s cooldown)"
-
-/datum/action/cooldown/psionic/psiblade/get_psionic_strain_gain(datum/component/psionic_profile/profile)
-	return get_psiblade_strain_gain(get_selected_rank_variant(profile))
-
-/datum/action/cooldown/psionic/psiblade/get_psionic_cooldown_time(datum/component/psionic_profile/profile)
-	return get_psiblade_cooldown_time(get_selected_rank_variant(profile))
-
-/datum/action/cooldown/psionic/psiblade/proc/get_psiblade_strain_gain(variant_rank)
-	switch(variant_rank)
-		if(PSIONIC_RANK_EPSILON)
-			return 5
-		if(PSIONIC_RANK_GAMMA)
-			return 10
-		if(PSIONIC_RANK_DELTA)
-			return 14
-		if(PSIONIC_RANK_BETA)
-			return 18
-		if(PSIONIC_RANK_ALPHA)
-			return 24
-
-	return strain_gain
-
-/datum/action/cooldown/psionic/psiblade/proc/get_psiblade_cooldown_time(variant_rank)
-	switch(variant_rank)
-		if(PSIONIC_RANK_EPSILON)
-			return 4 SECONDS
-		if(PSIONIC_RANK_GAMMA)
-			return 8 SECONDS
-		if(PSIONIC_RANK_DELTA)
-			return 10 SECONDS
-		if(PSIONIC_RANK_BETA)
-			return 12 SECONDS
-		if(PSIONIC_RANK_ALPHA)
-			return 16 SECONDS
-
-	return cooldown_time
 
 /datum/action/cooldown/psionic/psiblade/proc/has_active_psiblade()
 	return psiblade && !QDELETED(psiblade)
@@ -868,7 +858,7 @@
 	ADD_TRAIT(src, TRAIT_NODROP, PSIONIC_TRAIT_SOURCE)
 
 /obj/item/psionic_blade
-	name = "psiblade"
+	name = "psionic machete"
 	desc = "A shimmering blade of psionically-shaped hardlight."
 	icon = 'modular_nova/modules/psionics/icons/psiblades.dmi'
 	icon_state = "psiblade_gamma"
@@ -895,82 +885,22 @@
 	light_on = TRUE
 	wound_bonus = 10
 	exposed_wound_bonus = 20
-	var/psionic_rank = PSIONIC_DEFAULT_RANK
+	var/psionic_rank = PSIONIC_RANK_GAMMA
 	var/list/alt_continuous = list("stabs", "pierces", "impales")
 	var/list/alt_simple = list("stab", "pierce", "impale")
 
-/obj/item/psionic_blade/Initialize(mapload, rank = PSIONIC_DEFAULT_RANK)
+/obj/item/psionic_blade/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, PSIONIC_TRAIT_SOURCE)
 	alt_continuous = string_list(alt_continuous)
 	alt_simple = string_list(alt_simple)
 	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple, -5)
-	apply_rank(rank)
 
-/obj/item/psionic_blade/proc/apply_rank(rank)
-	psionic_rank = rank ? rank : PSIONIC_DEFAULT_RANK
-	var/rank_level = get_psionic_rank_level(psionic_rank)
-
-	if(rank_level >= get_psionic_rank_level(PSIONIC_RANK_ALPHA))
-		name = "psionic twinblade"
-		desc = "A double-ended hardlight blade burning with paramount psionic focus."
-		icon_state = "psiblade_alpha"
-		inhand_icon_state = icon_state
-		force = 40
-		w_class = WEIGHT_CLASS_BULKY
-		armour_penetration = 35
-		block_chance = 75
-		wound_bonus = -10
-		exposed_wound_bonus = 20
-		light_range = 6
-		return
-
-	if(rank_level >= get_psionic_rank_level(PSIONIC_RANK_BETA))
-		name = "psionic energy blade"
-		desc = "A lethal hardlight blade burning with grandmaster psionic focus."
-		icon_state = "psiblade_beta"
-		inhand_icon_state = icon_state
-		force = 30
-		w_class = WEIGHT_CLASS_BULKY
-		armour_penetration = 35
-		block_chance = 50
-		wound_bonus = 0
-		exposed_wound_bonus = 20
-		light_range = 3
-		return
-
-	if(rank_level >= get_psionic_rank_level(PSIONIC_RANK_DELTA))
-		name = "psionic sabre"
-		desc = "A focused hardlight sabre shaped by master-rank psionics."
-		icon_state = "psiblade_delta"
-		inhand_icon_state = icon_state
-		force = 25
-		w_class = WEIGHT_CLASS_NORMAL
-		armour_penetration = 20
-		block_chance = 30
-		wound_bonus = 10
-		exposed_wound_bonus = 20
-		light_range = 2
-		return
-
-	if(rank_level >= get_psionic_rank_level(PSIONIC_RANK_GAMMA))
-		name = "psionic machete"
-		desc = "A chopping hardlight blade shaped by operant-rank psionics."
-		icon_state = "psiblade_gamma"
-		inhand_icon_state = icon_state
-		force = 20
-		w_class = WEIGHT_CLASS_BULKY
-		armour_penetration = 0
-		block_chance = 0
-		wound_bonus = 10
-		exposed_wound_bonus = 20
-		light_range = 2
-		return
-
+/obj/item/psionic_blade/knife
 	name = "psionic knife"
 	desc = "A compact hardlight knife shaped by minor psionic focus."
 	icon_state = "psiblade_epsilon"
-	inhand_icon_state = icon_state
+	inhand_icon_state = "psiblade_epsilon"
 	force = 10
 	w_class = WEIGHT_CLASS_SMALL
 	armour_penetration = 0
@@ -978,6 +908,45 @@
 	wound_bonus = 5
 	exposed_wound_bonus = 15
 	light_range = 1
+	psionic_rank = PSIONIC_RANK_EPSILON
+
+/obj/item/psionic_blade/machete
+	desc = "A chopping hardlight blade shaped by operant-rank psionics."
+
+/obj/item/psionic_blade/sabre
+	name = "psionic sabre"
+	desc = "A focused hardlight sabre shaped by master-rank psionics."
+	icon_state = "psiblade_delta"
+	inhand_icon_state = "psiblade_delta"
+	force = 25
+	w_class = WEIGHT_CLASS_NORMAL
+	armour_penetration = 20
+	block_chance = 30
+	psionic_rank = PSIONIC_RANK_DELTA
+
+/obj/item/psionic_blade/energy
+	name = "psionic energy blade"
+	desc = "A lethal hardlight blade burning with grandmaster psionic focus."
+	icon_state = "psiblade_beta"
+	inhand_icon_state = "psiblade_beta"
+	force = 30
+	armour_penetration = 35
+	block_chance = 50
+	wound_bonus = 0
+	light_range = 3
+	psionic_rank = PSIONIC_RANK_BETA
+
+/obj/item/psionic_blade/twinblade
+	name = "psionic twinblade"
+	desc = "A double-ended hardlight blade burning with paramount psionic focus."
+	icon_state = "psiblade_alpha"
+	inhand_icon_state = "psiblade_alpha"
+	force = 40
+	armour_penetration = 35
+	block_chance = 75
+	wound_bonus = -10
+	light_range = 6
+	psionic_rank = PSIONIC_RANK_ALPHA
 
 /obj/item/psionic_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == OVERWHELMING_ATTACK)

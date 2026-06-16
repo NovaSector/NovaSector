@@ -5,7 +5,7 @@
 	name = "psionic strain"
 	desc = "A liminal pressure gauge for psionic exertion."
 	icon_state = "strain0"
-	screen_loc = ui_psionic_strain
+	screen_loc = UI_PSIONIC_STRAIN
 	mouse_over_pointer = MOUSE_HAND_POINTER
 	maptext_width = 64
 	maptext_height = 12

@@ -50,13 +50,7 @@
 	var/datum/component/psionic_profile/profile = target.get_psionic_profile()
 	var/limiter_active = profile && is_psionic_rank_above(potential_rank, limited_rank)
 	if(limiter_active)
-		var/limited_points = get_psionic_rank_points(limited_rank)
-		profile.set_rank(limited_rank, potential_rank, TRUE, PSIONIC_DEFAULT_MAX_STRAIN)
-		if(profile.has_source(PSIONIC_SOURCE_QUIRK))
-			profile.set_source_points(PSIONIC_SOURCE_QUIRK, limited_points, TRUE)
-			profile.reset_imprints(profile.get_total_source_points(), TRUE)
-		else
-			profile.reset_imprints(limited_points, TRUE)
+		apply_limit(profile)
 	if(!silent && limiter_active)
 		to_chat(target, span_warning("A cold pressure folds your psionic potential down to [limited_rank]."))
 	return TRUE
@@ -65,21 +59,40 @@
 	. = ..()
 	if(!. || !isliving(source))
 		return FALSE
-	if(special)
-		return TRUE
 
 	var/datum/component/psionic_profile/profile = source.get_psionic_profile()
 	var/limiter_active = profile && is_psionic_rank_above(potential_rank, limited_rank)
 	if(limiter_active)
-		profile.set_rank(potential_rank, potential_rank, FALSE, potential_max_strain)
-		if(profile.has_source(PSIONIC_SOURCE_QUIRK))
-			profile.set_source_points(PSIONIC_SOURCE_QUIRK, potential_points, TRUE)
-			profile.reset_imprints(profile.get_total_source_points(), TRUE)
-		else
-			profile.reset_imprints(potential_points, TRUE)
+		remove_limit(profile)
 	if(!silent && limiter_active)
 		to_chat(source, span_purple("Your psionic limiter comes free, and the pressure behind it unfolds."))
 	return TRUE
+
+/obj/item/implant/psionic_limiter/proc/apply_limit(datum/component/psionic_profile/profile)
+	profile.set_rank(
+		rank = limited_rank,
+		latent_rank = potential_rank,
+		limited = TRUE,
+		new_max_strain = PSIONIC_DEFAULT_MAX_STRAIN,
+	)
+	set_profile_points(profile, get_psionic_rank_points(limited_rank))
+
+/obj/item/implant/psionic_limiter/proc/remove_limit(datum/component/psionic_profile/profile)
+	profile.set_rank(
+		rank = potential_rank,
+		latent_rank = potential_rank,
+		limited = FALSE,
+		new_max_strain = potential_max_strain,
+	)
+	set_profile_points(profile, potential_points)
+
+/obj/item/implant/psionic_limiter/proc/set_profile_points(datum/component/psionic_profile/profile, points)
+	if(profile.has_source(PSIONIC_SOURCE_QUIRK))
+		profile.set_source_points(PSIONIC_SOURCE_QUIRK, points, silent = TRUE)
+		profile.reset_imprints(profile.get_total_source_points(), silent = TRUE)
+		return
+
+	profile.reset_imprints(points, silent = TRUE)
 
 /obj/item/clothing/head/psionic_dampener
 	name = "psionic dampener"
@@ -92,4 +105,10 @@
 
 /obj/item/clothing/head/psionic_dampener/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/anti_psionic, PSIONIC_ALL, 6, ITEM_SLOT_HEAD, null, null, null, TRUE)
+	AddComponent(
+		/datum/component/anti_psionic,
+		psionic_flags = PSIONIC_ALL,
+		charges = 6,
+		inventory_flags = ITEM_SLOT_HEAD,
+		restrict_user = TRUE,
+	)

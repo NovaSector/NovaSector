@@ -26,7 +26,7 @@
 #define PSIONIC_MAX_STRAIN_DISCOUNT 50
 
 #define HUD_PSIONIC_STRAIN "psionic_strain"
-#define ui_psionic_strain "WEST,CENTER+1:15"
+#define UI_PSIONIC_STRAIN "WEST,CENTER+1:15"
 
 #define PSIONIC_INTRUSIVE (1<<0)
 #define PSIONIC_KINETIC (1<<1)

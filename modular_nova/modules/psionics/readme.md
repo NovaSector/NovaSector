@@ -78,6 +78,30 @@ Self-cast action template:
 	return TRUE
 ```
 
+Ranked forms can be attached to any psionic action through `rank_variant_types`.
+Only the listed forms exist; for example, a power can offer an Epsilon form and a
+Beta form without defining Gamma or Delta forms.
+
+```dm
+/datum/psionic_rank_variant/my_power/small
+	rank = PSIONIC_RANK_EPSILON
+	variant_name = "focused"
+	strain_gain = 5
+	cooldown_time = 4 SECONDS
+
+/datum/psionic_rank_variant/my_power/large
+	rank = PSIONIC_RANK_BETA
+	variant_name = "overwhelming"
+	strain_gain = 20
+	cooldown_time = 12 SECONDS
+
+/datum/action/cooldown/psionic/my_power
+	rank_variant_types = list(
+		/datum/psionic_rank_variant/my_power/small,
+		/datum/psionic_rank_variant/my_power/large,
+	)
+```
+
 Pointed living-target action template:
 
 ```dm

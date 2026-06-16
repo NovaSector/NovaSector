@@ -32,12 +32,22 @@
 		original_max_strain = profile.max_strain
 		if(full_points > PSIONIC_ROUNDSTART_LIMIT_POINTS)
 			var/limited_points = get_psionic_rank_points(PSIONIC_ROUNDSTART_LIMIT_RANK)
-			profile.set_rank(PSIONIC_ROUNDSTART_LIMIT_RANK, psionic_rank, TRUE, PSIONIC_DEFAULT_MAX_STRAIN)
-			profile.set_source_points(PSIONIC_SOURCE_QUIRK, limited_points, TRUE)
-			profile.reset_imprints(profile.get_total_source_points(), TRUE)
+			profile.set_rank(
+				rank = PSIONIC_ROUNDSTART_LIMIT_RANK,
+				latent_rank = psionic_rank,
+				limited = TRUE,
+				new_max_strain = PSIONIC_DEFAULT_MAX_STRAIN,
+			)
+			profile.set_source_points(PSIONIC_SOURCE_QUIRK, limited_points, silent = TRUE)
+			profile.reset_imprints(profile.get_total_source_points(), silent = TRUE)
 			grant_limiter_implant(full_points, max_strain)
 		else
-			profile.set_rank(psionic_rank, psionic_rank, FALSE, max_strain)
+			profile.set_rank(
+				rank = psionic_rank,
+				latent_rank = psionic_rank,
+				limited = FALSE,
+				new_max_strain = max_strain,
+			)
 
 	gain_text = span_purple("Your latent psionic rating resolves as [psionic_rank].")
 
@@ -47,7 +57,7 @@
 	limiter.limited_rank = PSIONIC_ROUNDSTART_LIMIT_RANK
 	limiter.potential_rank = psionic_rank
 	limiter.potential_max_strain = potential_max_strain
-	if(!limiter.implant(quirk_holder, null, TRUE, TRUE))
+	if(!limiter.implant(quirk_holder, user = null, silent = TRUE, force = TRUE))
 		qdel(limiter)
 		return
 
