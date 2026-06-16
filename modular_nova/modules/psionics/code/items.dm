@@ -22,7 +22,7 @@
 	icon = 'modular_nova/modules/psionics/icons/implants.dmi'
 	icon_state = "psionic_limiter"
 	w_class = WEIGHT_CLASS_TINY
-	slot = ORGAN_SLOT_PSIONIC_LIMITER
+	slot = ORGAN_SLOT_PSIONIC_IMPLANT
 	aug_icon = 'modular_nova/modules/psionics/icons/implants.dmi'
 	aug_overlay = "psionic_limiter_body"
 
