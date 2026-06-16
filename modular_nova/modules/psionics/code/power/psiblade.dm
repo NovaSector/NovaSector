@@ -46,6 +46,7 @@
 	strain_gain = 18
 	psionic_flags = PSIONIC_KINETIC|PSIONIC_THERMAL
 	school = PSIONIC_SCHOOL_FLUX
+	needs_hands = TRUE
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/psiblade/epsilon,
 		/datum/psionic_rank_variant/psiblade,
@@ -132,6 +133,8 @@
 	if(living_owner.stat != CONSCIOUS)
 		return FALSE
 	if(HAS_TRAIT(living_owner, TRAIT_INCAPACITATED))
+		return FALSE
+	if(!can_use_hands(living_owner))
 		return FALSE
 	if(profile.is_burned_out())
 		return FALSE

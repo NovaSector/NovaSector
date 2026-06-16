@@ -162,6 +162,32 @@
 
 	return resonance_school.name
 
+/datum/psionic_power/proc/get_minimum_rank()
+	if(!action_type)
+		return null
+
+	var/list/action_rank_variant_types = initial(action_type.rank_variant_types)
+	if(!length(action_rank_variant_types))
+		return null
+
+	var/minimum_rank
+	var/minimum_rank_level
+	for(var/variant_type in action_rank_variant_types)
+		if(!ispath(variant_type, /datum/psionic_rank_variant))
+			continue
+
+		var/datum/psionic_rank_variant/variant = new variant_type
+		var/variant_rank = variant.rank
+		qdel(variant)
+		var/variant_rank_level = get_psionic_rank_level(variant_rank)
+		if(!variant_rank_level)
+			continue
+		if(isnull(minimum_rank_level) || variant_rank_level < minimum_rank_level)
+			minimum_rank = variant_rank
+			minimum_rank_level = variant_rank_level
+
+	return minimum_rank
+
 /datum/psionic_power/proc/get_catalog_error()
 	if(!ispath(action_type, /datum/action/cooldown/psionic))
 		return "has no valid psionic action_type"

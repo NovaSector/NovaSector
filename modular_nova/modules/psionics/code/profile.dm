@@ -194,7 +194,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		return
 
 	var/color_to_apply = psionic_color || PSIONIC_DEFAULT_COLOR
-	manifestation.add_atom_colour(color_to_apply, FIXED_COLOUR_PRIORITY)
+	manifestation.add_atom_colour(color_transition_filter(color_to_apply, SATURATION_OVERRIDE), FIXED_COLOUR_PRIORITY)
 	manifestation.set_light_color(color_to_apply)
 
 /datum/component/psionic_profile/proc/get_power_rank_variant(action_type)
@@ -511,6 +511,10 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 			var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
 			var/required_power_name = required_power ? required_power.get_name() : "the prerequisite discipline"
 			return "Imprint [required_power_name] first."
+	var/minimum_rank = power.get_minimum_rank()
+	if(minimum_rank && get_psionic_rank_level(psionic_rank) < get_psionic_rank_level(minimum_rank))
+		return "Requires [minimum_rank] psionic rank."
+
 	var/power_cost = power.get_cost()
 	if(power_cost > available_points)
 		return "You need [power_cost] imprint point[power_cost == 1 ? "" : "s"] for that discipline."

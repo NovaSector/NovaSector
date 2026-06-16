@@ -98,6 +98,7 @@
 	strain_gain = 14
 	psionic_flags = PSIONIC_THERMAL
 	school = PSIONIC_SCHOOL_FLUX
+	needs_hands = TRUE
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/pyro_bolt/epsilon,
 		/datum/psionic_rank_variant/pyro_bolt,

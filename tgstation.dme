@@ -9408,6 +9408,7 @@
 #include "modular_nova\modules\psionics\code\power\kinetic_shove.dm"
 #include "modular_nova\modules\psionics\code\power\levitate.dm"
 #include "modular_nova\modules\psionics\code\power\psiblade.dm"
+#include "modular_nova\modules\psionics\code\power\psionic_barrier.dm"
 #include "modular_nova\modules\psionics\code\power\psychic_guard.dm"
 #include "modular_nova\modules\psionics\code\power\pyro_bolt.dm"
 #include "modular_nova\modules\psionics\code\power\sense_health.dm"

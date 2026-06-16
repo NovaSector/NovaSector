@@ -71,6 +71,8 @@
 	var/causes_interference = TRUE
 	/// If TRUE, this action can be used during burnout.
 	var/can_use_during_burnout = FALSE
+	/// If TRUE, this action requires usable hands.
+	var/needs_hands = FALSE
 	/// Ordered psionic rank variant datum types this action can use.
 	var/list/rank_variant_types
 	/// Cached rank variant datums.
@@ -196,6 +198,15 @@
 
 	return cooldown_time
 
+/datum/action/cooldown/psionic/proc/can_use_hands(mob/living/living_owner, feedback = FALSE)
+	if(!needs_hands)
+		return TRUE
+	if(!HAS_TRAIT(living_owner, TRAIT_HANDS_BLOCKED))
+		return TRUE
+	if(feedback)
+		living_owner.balloon_alert(living_owner, "hands blocked!")
+	return FALSE
+
 /datum/action/cooldown/psionic/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
@@ -203,6 +214,10 @@
 
 	var/mob/living/living_owner = owner
 	if(!istype(living_owner))
+		return FALSE
+	if(ismecha(living_owner.loc))
+		if(feedback)
+			living_owner.balloon_alert(living_owner, "inside mech!")
 		return FALSE
 
 	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
@@ -215,6 +230,14 @@
 	if(!can_use_during_burnout && profile.is_burned_out())
 		if(feedback)
 			living_owner.balloon_alert(living_owner, "psionic burnout!")
+		return FALSE
+
+	if(length(get_rank_variants()) && !length(get_unlocked_rank_variants(profile)))
+		if(feedback)
+			living_owner.balloon_alert(living_owner, "rank too low!")
+		return FALSE
+
+	if(!can_use_hands(living_owner, feedback))
 		return FALSE
 
 	if(!living_owner.can_cast_psionics(psionic_flags))
@@ -280,6 +303,9 @@
 		deactive_msg = "You let [src] fade."
 
 /datum/action/cooldown/psionic/pointed/set_click_ability(mob/on_who)
+	if(!IsAvailable(feedback = TRUE))
+		return FALSE
+
 	. = ..()
 	if(!.)
 		return
@@ -396,6 +422,9 @@
 	return ..()
 
 /datum/action/cooldown/psionic/pointed/projectile/set_click_ability(mob/on_who)
+	if(!IsAvailable(feedback = TRUE))
+		return FALSE
+
 	if(projectile_hand_visual_type && !create_projectile_hand_visual(on_who))
 		return FALSE
 

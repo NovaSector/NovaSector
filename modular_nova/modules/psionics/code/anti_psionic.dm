@@ -125,7 +125,8 @@
 
 	var/mob/living/living_user = user
 	var/datum/component/psionic_profile/profile = living_user.get_psionic_profile()
-	profile?.update_psionic_action_buttons()
+	if(profile)
+		profile.update_psionic_action_buttons()
 
 /datum/component/anti_psionic/proc/block_receiving_psionics(mob/living/source, incoming_psionic_flags, charge_cost, list/psionic_sources)
 	SIGNAL_HANDLER
