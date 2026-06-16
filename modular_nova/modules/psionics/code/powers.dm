@@ -580,10 +580,10 @@
 /datum/action/cooldown/psionic/psychic_guard/psionic_activate(atom/target)
 	var/datum/callback/block_callback = CALLBACK(src, PROC_REF(on_guard_block))
 	var/datum/component/anti_psionic/shield = owner.AddComponent(
-		/datum/component/anti_psionic,
-		psionic_flags = PSIONIC_INTRUSIVE|PSIONIC_SENSORY,
-		charges = guard_charges,
-		block_psionic = block_callback,
+		/datum/component/anti_psionic, \
+		psionic_flags = PSIONIC_INTRUSIVE|PSIONIC_SENSORY, \
+		charges = guard_charges, \
+		block_psionic = block_callback \
 	)
 	addtimer(CALLBACK(src, PROC_REF(clear_guard), WEAKREF(shield)), guard_duration)
 	to_chat(owner, span_purple("You draw a quiet guard around your thoughts."))

@@ -106,9 +106,9 @@
 /obj/item/clothing/head/psionic_dampener/Initialize(mapload)
 	. = ..()
 	AddComponent(
-		/datum/component/anti_psionic,
-		psionic_flags = PSIONIC_ALL,
-		charges = 6,
-		inventory_flags = ITEM_SLOT_HEAD,
-		restrict_user = TRUE,
+		/datum/component/anti_psionic, \
+		psionic_flags = PSIONIC_ALL, \
+		charges = 6, \
+		inventory_flags = ITEM_SLOT_HEAD, \
+		restrict_user = TRUE \
 	)
