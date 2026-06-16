@@ -27,7 +27,12 @@
 	var/full_points = get_psionic_rank_points(psionic_rank)
 	psionic_points = full_points
 	var/max_strain = GLOB.psionic_rank_max_strain[psionic_rank]
+	var/manifestation_color = client_source?.prefs?.read_preference(/datum/preference/color/psionic_color)
+	if(!manifestation_color)
+		manifestation_color = PSIONIC_DEFAULT_COLOR
 	var/datum/component/psionic_profile/profile = quirk_holder.awaken_psionics(full_points, source = PSIONIC_SOURCE_QUIRK)
+	if(profile)
+		profile.psionic_color = manifestation_color
 	if(profile && !isnull(max_strain))
 		original_max_strain = profile.max_strain
 		if(full_points > PSIONIC_ROUNDSTART_LIMIT_POINTS)
@@ -102,7 +107,7 @@
 	return PSIONIC_DEFAULT_RANK
 
 /datum/preference/choiced/psionic_rank/is_accessible(datum/preferences/preferences)
-	if(!..())
+	if(!..(preferences))
 		return FALSE
 
 	return /datum/quirk/psionic_gift::name in preferences.all_quirks
@@ -122,4 +127,22 @@
 	return data
 
 /datum/preference/choiced/psionic_rank/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+/datum/preference/color/psionic_color
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "psionic_color"
+	savefile_identifier = PREFERENCE_CHARACTER
+	can_randomize = FALSE
+
+/datum/preference/color/psionic_color/create_default_value()
+	return PSIONIC_DEFAULT_COLOR
+
+/datum/preference/color/psionic_color/is_accessible(datum/preferences/preferences)
+	if(!..(preferences))
+		return FALSE
+
+	return /datum/quirk/psionic_gift::name in preferences.all_quirks
+
+/datum/preference/color/psionic_color/apply_to_human(mob/living/carbon/human/target, value)
 	return

@@ -103,6 +103,7 @@
 		return FALSE
 
 	var/obj/item/psionic_blade/new_psiblade = new form.blade_type(living_owner)
+	profile.apply_manifestation_color(new_psiblade)
 	if(!living_owner.put_in_hands(new_psiblade, del_on_fail = TRUE))
 		living_owner.balloon_alert(living_owner, "free a hand!")
 		to_chat(living_owner, span_warning("You need a free hand to shape [src]."))
@@ -228,6 +229,8 @@
 
 /obj/item/psionic_blade/Initialize(mapload)
 	. = ..()
+	add_atom_colour(PSIONIC_DEFAULT_COLOR, FIXED_COLOUR_PRIORITY)
+	set_light_color(PSIONIC_DEFAULT_COLOR)
 	ADD_TRAIT(src, TRAIT_NODROP, PSIONIC_TRAIT_SOURCE)
 	alt_continuous = string_list(alt_continuous)
 	alt_simple = string_list(alt_simple)

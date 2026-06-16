@@ -1,6 +1,9 @@
 /datum/quirk_constant_data/psionic_gift
 	associated_typepath = /datum/quirk/psionic_gift
-	customization_options = list(/datum/preference/choiced/psionic_rank)
+	customization_options = list(
+		/datum/preference/choiced/psionic_rank,
+		/datum/preference/color/psionic_color,
+	)
 
 GLOBAL_LIST_INIT(psionic_rank_order, list(
 	PSIONIC_RANK_LAMBDA = 1,
@@ -70,6 +73,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	var/max_strain = PSIONIC_DEFAULT_MAX_STRAIN
 	/// Current effective psionic rank.
 	var/psionic_rank = PSIONIC_DEFAULT_RANK
+	/// Color used by psionic manifestations.
+	var/psionic_color = PSIONIC_DEFAULT_COLOR
 	/// Highest latent psionic rank known to this profile.
 	var/potential_rank = PSIONIC_DEFAULT_RANK
 	/// If TRUE, an external limiter is suppressing the effective rank.
@@ -183,6 +188,14 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	for(var/action_type in granted_actions)
 		var/datum/action/action = granted_actions[action_type]
 		action?.build_all_button_icons(update_flags)
+
+/datum/component/psionic_profile/proc/apply_manifestation_color(atom/manifestation)
+	if(!manifestation)
+		return
+
+	var/color_to_apply = psionic_color || PSIONIC_DEFAULT_COLOR
+	manifestation.add_atom_colour(color_to_apply, FIXED_COLOUR_PRIORITY)
+	manifestation.set_light_color(color_to_apply)
 
 /datum/component/psionic_profile/proc/get_power_rank_variant(action_type)
 	if(!ispath(action_type, /datum/action/cooldown/psionic))
