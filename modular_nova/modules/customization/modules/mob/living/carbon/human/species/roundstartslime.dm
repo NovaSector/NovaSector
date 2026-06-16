@@ -329,28 +329,40 @@
 		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
 
+	// Make a new body for them to put the brain in, and move the brain into it, effectively reviving them.
+	// This uses a basic human as a base
 	var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
 
-	brainmob.client?.prefs?.safe_transfer_prefs_to(new_body)
+	// Transfer player prefrences to the new body
+	if(brainmob.client)
+		brainmob.client.prefs.apply_prefs_to(new_body)
+
+	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
 	new_body.underwear = "Nude"
 	new_body.bra = "Nude"
-	new_body.undershirt = "Nude" //Which undershirt the player wants
-	new_body.socks = "Nude" //Which socks the player wants
-	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
-	new_body.dna.features[FEATURE_MUTANT_COLOR] = new_body.dna.features[FEATURE_MUTANT_COLOR]
-	new_body.dna.update_uf_block(FEATURE_MUTANT_COLOR)
-	new_body.real_name = new_body.dna.real_name
-	new_body.name = new_body.dna.real_name
-	new_body.updateappearance(mutcolor_update=1)
-	new_body.domutcheck()
-	new_body.forceMove(get_turf(src))
+	new_body.undershirt = "Nude"
+	new_body.socks = "Nude"
+
+	// Handle Blood and Quriks
 	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 	SSquirks.AssignQuirks(new_body, brainmob.client)
+	// TODO: Handle removing quirk items spawning
+
+	// Move the brain/core into the new body
 	src.replace_into(new_body)
-	for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
+
+	// Remove non-chest body parts
+	var/list/to_remove = list()
+	for(var/obj/item/bodypart/bodypart in new_body.bodyparts)
 		if(!istype(bodypart, /obj/item/bodypart/chest))
-			bodypart.drop_limb()
-			continue
+			to_remove += bodypart
+
+	for(var/obj/item/bodypart/rem in to_remove)
+		rem.moveToNullspace()
+		STOP_PROCESSING(SSobj, rem)
+		qdel(rem)
+
+	// Notify the player that their body has been rebuilt
 	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 	return TRUE
