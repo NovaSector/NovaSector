@@ -239,6 +239,7 @@
 	design_ids += list(
 		"ammobench_gimmick",
 		"pin_standard",
+		"psionic_dampener_cuffs",
 	)
 	return ..()
 
@@ -378,4 +379,3 @@
 		"mod_magnetic_deploy",
 	)
 	return ..()
-

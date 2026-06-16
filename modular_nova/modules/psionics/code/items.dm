@@ -81,6 +81,28 @@
 
 	profile.reset_imprints(points, silent = TRUE)
 
+/obj/item/restraints/handcuffs/psionic_dampener
+	name = "psionic dampener cuffs"
+	desc = "A pair of reinforced restraints threaded with a psionic dampening lattice. They suppress psionic projection while locked around someone's wrists."
+	icon = 'modular_nova/modules/psionics/icons/dampener_cuffs.dmi'
+	worn_icon = 'modular_nova/modules/psionics/icons/dampener_cuffs_belt.dmi'
+	lefthand_file = 'modular_nova/modules/psionics/icons/dampener_cuffs_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/psionics/icons/dampener_cuffs_righthand.dmi'
+	icon_state = "psionic_dampener"
+	worn_icon_state = "psionic_dampener"
+	inhand_icon_state = "psionic_dampener"
+	handcuff_time = 5 SECONDS
+	breakouttime = 2 MINUTES
+	custom_materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 2,
+	)
+
+/obj/item/restraints/handcuffs/psionic_dampener/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/block_host_psionics, inventory_flags = ITEM_SLOT_HANDCUFFED)
+
 /obj/item/clothing/head/psionic_dampener
 	name = "psionic dampener"
 	desc = "A close-worn lattice that scatters psionic phenomena before they can resolve."
@@ -92,10 +114,4 @@
 
 /obj/item/clothing/head/psionic_dampener/Initialize(mapload)
 	. = ..()
-	AddComponent(
-		/datum/component/anti_psionic, \
-		psionic_flags = PSIONIC_ALL, \
-		charges = 6, \
-		inventory_flags = ITEM_SLOT_HEAD, \
-		restrict_user = TRUE \
-	)
+	AddComponent(/datum/component/psionic_protection, charges = 6, inventory_flags = ITEM_SLOT_HEAD)
