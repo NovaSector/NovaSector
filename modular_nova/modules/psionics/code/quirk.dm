@@ -31,8 +31,10 @@
 	if(profile && !isnull(max_strain))
 		original_max_strain = profile.max_strain
 		if(full_points > PSIONIC_ROUNDSTART_LIMIT_POINTS)
+			var/limited_points = get_psionic_rank_points(PSIONIC_ROUNDSTART_LIMIT_RANK)
 			profile.set_rank(PSIONIC_ROUNDSTART_LIMIT_RANK, psionic_rank, TRUE, PSIONIC_DEFAULT_MAX_STRAIN)
-			profile.reset_imprints(get_psionic_rank_points(PSIONIC_ROUNDSTART_LIMIT_RANK), TRUE)
+			profile.set_source_points(PSIONIC_SOURCE_QUIRK, limited_points, TRUE)
+			profile.reset_imprints(profile.get_total_source_points(), TRUE)
 			grant_limiter_implant(full_points, max_strain)
 		else
 			profile.set_rank(psionic_rank, psionic_rank, FALSE, max_strain)

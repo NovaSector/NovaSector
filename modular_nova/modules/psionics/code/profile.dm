@@ -88,7 +88,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	var/list/spent_points_by_school = list()
 	/// Anomaly schools attuned through matching anomaly cores.
 	var/list/attuned_schools = list()
-	/// Active systems that have granted this profile.
+	/// Active systems that have granted this profile, mapped to their current point grant.
 	var/list/profile_sources = list()
 
 /datum/component/psionic_profile/Initialize(points = PSIONIC_DEFAULT_POINTS, list/starting_powers, source = PSIONIC_TRAIT_SOURCE)
@@ -98,16 +98,14 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	psion = parent
 	RegisterSignal(psion, COMSIG_MOB_HUD_CREATED, PROC_REF(on_hud_created))
 	RegisterSignal(psion, COMSIG_LIVING_LIFE, PROC_REF(on_life))
-	available_points = max(points, 0)
 	last_strain_decay = world.time
-	add_source(source)
+	add_source(source, points, TRUE)
 	awaken()
 	learn_starting_powers(starting_powers)
 
 /datum/component/psionic_profile/InheritComponent(points = PSIONIC_DEFAULT_POINTS, list/starting_powers, source = PSIONIC_TRAIT_SOURCE)
-	add_source(source)
-	add_points(points)
-	learn_starting_powers(starting_powers)
+	if(add_source(source, points))
+		learn_starting_powers(starting_powers)
 
 /datum/component/psionic_profile/Destroy(force)
 	if(psion)
@@ -162,11 +160,32 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 	strain_hud.update_strain(strain, max_strain, is_burned_out())
 
-/datum/component/psionic_profile/proc/add_points(points)
-	if(!isnum(points) || points <= 0)
-		return
+/datum/component/psionic_profile/proc/add_points(points, silent = FALSE)
+	if(!isnum(points))
+		return FALSE
+	points = max(round(points), 0)
+	if(points <= 0)
+		return FALSE
+
 	available_points += points
-	to_chat(psion, span_notice("Your psionic potential deepens. You have [available_points] unspent imprint point[available_points == 1 ? "" : "s"]."))
+	if(!silent)
+		to_chat(psion, span_notice("Your psionic potential deepens. You have [available_points] unspent imprint point[available_points == 1 ? "" : "s"]."))
+	return TRUE
+
+/datum/component/psionic_profile/proc/remove_points(points, silent = FALSE)
+	if(!isnum(points))
+		return FALSE
+	points = max(round(points), 0)
+	if(points <= 0)
+		return FALSE
+
+	if(points > available_points)
+		reset_imprints(get_total_source_points(), TRUE)
+	else
+		available_points -= points
+	if(!silent)
+		to_chat(psion, span_notice("Your psionic potential recedes. You have [available_points] unspent imprint point[available_points == 1 ? "" : "s"]."))
+	return TRUE
 
 /datum/component/psionic_profile/proc/reset_imprints(points = 0, silent = FALSE)
 	points = max(points, 0)
@@ -183,19 +202,66 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	if(!silent)
 		to_chat(psion, span_notice("Your imprinted disciplines fold away. You have [available_points] imprint point[available_points == 1 ? "" : "s"] to spend."))
 
-/datum/component/psionic_profile/proc/add_source(source)
+/datum/component/psionic_profile/proc/add_source(source, points = 0, silent = FALSE)
 	if(!source)
-		return
+		return FALSE
+	if(!isnum(points))
+		points = 0
+	points = max(round(points), 0)
 
-	profile_sources[source] = TRUE
+	if(source in profile_sources)
+		var/current_points = profile_sources[source] || 0
+		if(points <= current_points)
+			return FALSE
+
+		profile_sources[source] = points
+		add_points(points - current_points, silent)
+		return TRUE
+
+	profile_sources[source] = points
+	add_points(points, silent)
+	return TRUE
+
+/datum/component/psionic_profile/proc/set_source_points(source, points = 0, silent = FALSE)
+	if(!source)
+		return FALSE
+	if(!isnum(points))
+		points = 0
+	points = max(round(points), 0)
+	if(!(source in profile_sources))
+		return add_source(source, points, silent)
+
+	var/current_points = profile_sources[source] || 0
+	if(points == current_points)
+		return FALSE
+
+	profile_sources[source] = points
+	if(points > current_points)
+		add_points(points - current_points, silent)
+	else
+		remove_points(current_points - points, silent)
+	return TRUE
+
+/datum/component/psionic_profile/proc/has_source(source)
+	return source && (source in profile_sources)
+
+/datum/component/psionic_profile/proc/get_total_source_points()
+	var/total_points = 0
+	for(var/source in profile_sources)
+		total_points += profile_sources[source] || 0
+	return total_points
 
 /datum/component/psionic_profile/proc/remove_source(source)
-	if(!source || !profile_sources[source])
+	if(!has_source(source))
 		return
 
+	var/source_points = profile_sources[source] || 0
 	profile_sources -= source
 	if(!length(profile_sources))
 		qdel(src)
+		return
+
+	remove_points(source_points, TRUE)
 
 /datum/component/psionic_profile/proc/set_rank(rank = PSIONIC_DEFAULT_RANK, latent_rank = null, limited = FALSE, new_max_strain = null)
 	if(rank)

@@ -33,9 +33,8 @@
 	if(!profile)
 		profile = AddComponent(/datum/component/psionic_profile, points, starting_powers, source)
 	else
-		profile.add_source(source)
-		profile.add_points(points)
-		profile.learn_starting_powers(starting_powers)
+		if(profile.add_source(source, points))
+			profile.learn_starting_powers(starting_powers)
 	return profile
 
 /mob/living/proc/revoke_psionics(source = PSIONIC_TRAIT_SOURCE)

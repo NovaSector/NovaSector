@@ -66,8 +66,13 @@
 	var/datum/component/psionic_profile/profile = target.get_psionic_profile()
 	var/limiter_active = profile && is_psionic_rank_above(potential_rank, limited_rank)
 	if(limiter_active)
+		var/limited_points = get_psionic_rank_points(limited_rank)
 		profile.set_rank(limited_rank, potential_rank, TRUE, PSIONIC_DEFAULT_MAX_STRAIN)
-		profile.reset_imprints(get_psionic_rank_points(limited_rank), TRUE)
+		if(profile.has_source(PSIONIC_SOURCE_QUIRK))
+			profile.set_source_points(PSIONIC_SOURCE_QUIRK, limited_points, TRUE)
+			profile.reset_imprints(profile.get_total_source_points(), TRUE)
+		else
+			profile.reset_imprints(limited_points, TRUE)
 	if(!silent && limiter_active)
 		to_chat(target, span_warning("A cold pressure folds your psionic potential down to [limited_rank]."))
 	return TRUE
@@ -83,7 +88,11 @@
 	var/limiter_active = profile && is_psionic_rank_above(potential_rank, limited_rank)
 	if(limiter_active)
 		profile.set_rank(potential_rank, potential_rank, FALSE, potential_max_strain)
-		profile.reset_imprints(potential_points, TRUE)
+		if(profile.has_source(PSIONIC_SOURCE_QUIRK))
+			profile.set_source_points(PSIONIC_SOURCE_QUIRK, potential_points, TRUE)
+			profile.reset_imprints(profile.get_total_source_points(), TRUE)
+		else
+			profile.reset_imprints(potential_points, TRUE)
 	if(!silent && limiter_active)
 		to_chat(source, span_purple("Your psionic limiter comes free, and the pressure behind it unfolds."))
 	return TRUE
