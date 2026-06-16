@@ -437,8 +437,6 @@
 	var/deactive_msg
 	/// Maximum range in tiles.
 	var/cast_range = 7
-	/// If TRUE, clicking a turf targets a living mob on it where possible.
-	var/aim_assist = TRUE
 
 /datum/action/cooldown/psionic/pointed/New(Target, original = TRUE)
 	. = ..()
@@ -476,16 +474,18 @@
 	build_all_button_icons()
 
 /datum/action/cooldown/psionic/pointed/InterceptClickOn(mob/living/clicker, params, atom/target)
-	var/atom/aim_assist_target
-	if(aim_assist)
-		aim_assist_target = aim_assist(clicker, target)
-	return ..(clicker, params, aim_assist_target || target)
+	var/was_unset_after_click = unset_after_click
+	if(unset_after_click)
+		unset_after_click = should_unset_after_psionic_click(clicker)
+	. = ..(clicker, params, target)
+	unset_after_click = was_unset_after_click
 
-/datum/action/cooldown/psionic/pointed/proc/aim_assist(mob/living/clicker, atom/target)
-	if(!isturf(target))
-		return
+/datum/action/cooldown/psionic/pointed/proc/should_unset_after_psionic_click(mob/living/clicker)
+	if(!istype(clicker))
+		return TRUE
 
-	return locate(/mob/living/carbon/human) in target || locate(/mob/living) in target
+	var/datum/component/psionic_profile/profile = clicker.get_psionic_profile()
+	return !profile || get_psionic_cooldown_time(profile) > 0
 
 /datum/action/cooldown/psionic/pointed/is_valid_target(atom/target)
 	var/mob/living/living_owner = owner
