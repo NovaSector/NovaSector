@@ -38,3 +38,84 @@ Current hooks:
 - `/datum/quirk/psionic_gift` awakens a character with the default point grant at round start.
 - `/obj/item/psionic_resonator` is a reusable admin/test item for awakening a living mob.
 - `/obj/item/clothing/head/psionic_dampener` is a psionic-only counter item.
+
+Adding powers:
+
+Power metadata lives on the action. The `/datum/psionic_power` entry only exposes
+that action to the imprinting tree and declares tree-only requirements.
+
+Minimal tree entry:
+
+```dm
+/datum/psionic_power/my_power
+	action_type = /datum/action/cooldown/psionic/my_power
+```
+
+Tree entry with prerequisites:
+
+```dm
+/datum/psionic_power/my_advanced_power
+	required_school_points = 3
+	required_powers = list(/datum/action/cooldown/psionic/my_power)
+	action_type = /datum/action/cooldown/psionic/my_advanced_power
+```
+
+Self-cast action template:
+
+```dm
+/datum/action/cooldown/psionic/my_power
+	name = "My Power"
+	desc = "Briefly do a psionic thing."
+	button_icon_state = "psi_my_power"
+	point_cost = 1
+	cooldown_time = 10 SECONDS
+	strain_gain = 10
+	psionic_flags = PSIONIC_PROTECTIVE
+	school = PSIONIC_SCHOOL_FLUX
+
+/datum/action/cooldown/psionic/my_power/psionic_activate(atom/target)
+	// Effect code goes here.
+	return TRUE
+```
+
+Pointed living-target action template:
+
+```dm
+/datum/action/cooldown/psionic/pointed/living_target/my_power
+	name = "My Power"
+	desc = "Focus a psionic effect on a nearby target."
+	button_icon_state = "psi_my_power"
+	point_cost = 1
+	cooldown_time = 10 SECONDS
+	cast_range = 6
+	strain_gain = 12
+	psionic_flags = PSIONIC_INTRUSIVE
+	school = PSIONIC_SCHOOL_BIOSCRAMBLER
+
+/datum/action/cooldown/psionic/pointed/living_target/my_power/psionic_activate(atom/target)
+	var/mob/living/living_target = target
+	// Effect code goes here.
+	return TRUE
+```
+
+Projectile action template:
+
+```dm
+/datum/action/cooldown/psionic/pointed/projectile/my_power
+	name = "My Power"
+	desc = "Launch a psionic projectile."
+	button_icon_state = "psi_my_power"
+	point_cost = 1
+	cooldown_time = 12 SECONDS
+	cast_range = 8
+	strain_gain = 14
+	psionic_flags = PSIONIC_KINETIC
+	school = PSIONIC_SCHOOL_GRAVITY
+	projectile_type = /obj/projectile/psionic/my_power
+
+/obj/projectile/psionic/my_power
+	name = "psionic projectile"
+	damage = 15
+	damage_type = BRUTE
+	range = 8
+```

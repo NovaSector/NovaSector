@@ -331,10 +331,12 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	for(var/action_type in starting_powers)
 		learn_power(action_type, 0, TRUE)
 
-/datum/component/psionic_profile/proc/learn_power(action_type, cost = 1, silent = FALSE)
+/datum/component/psionic_profile/proc/learn_power(action_type, cost = null, silent = FALSE)
 	if(!ispath(action_type, /datum/action/cooldown/psionic))
 		return FALSE
 	var/datum/psionic_power/catalog_power = get_psionic_power_for_action(action_type)
+	if(isnull(cost))
+		cost = catalog_power ? catalog_power.get_cost() : 1
 	if(action_type in known_powers)
 		if(!silent)
 			to_chat(psion, span_warning("You already know that discipline."))
@@ -353,8 +355,9 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	available_points -= cost
 	spent_points += cost
 	known_powers += action_type
-	if(cost > 0 && catalog_power?.school)
-		spent_points_by_school[catalog_power.school] = get_spent_school_points(catalog_power.school) + cost
+	var/catalog_school = catalog_power ? catalog_power.get_school_type() : null
+	if(cost > 0 && catalog_school)
+		spent_points_by_school[catalog_school] = get_spent_school_points(catalog_school) + cost
 	grant_action(action_type)
 
 	if(!silent)
@@ -386,11 +389,14 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 				continue
 
 			var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
-			return "Imprint [required_power?.name || "the prerequisite discipline"] first."
-	if(power.cost > available_points)
-		return "You need [power.cost] imprint point[power.cost == 1 ? "" : "s"] for that discipline."
-	if(power.required_school_points > get_spent_school_points(power.school))
-		var/datum/psionic_school/school = get_psionic_school(power.school)
+			var/required_power_name = required_power ? required_power.get_name() : "the prerequisite discipline"
+			return "Imprint [required_power_name] first."
+	var/power_cost = power.get_cost()
+	if(power_cost > available_points)
+		return "You need [power_cost] imprint point[power_cost == 1 ? "" : "s"] for that discipline."
+	var/power_school = power.get_school_type()
+	if(power.required_school_points > get_spent_school_points(power_school))
+		var/datum/psionic_school/school = get_psionic_school(power_school)
 		return "Spend [power.required_school_points] point[power.required_school_points == 1 ? "" : "s"] in [school?.name || "this school"] first."
 
 	return null
@@ -412,9 +418,9 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	var/datum/action/cooldown/psionic/action_type = power.action_type
 	return list(
 		"action_type" = "[action_type]",
-		"name" = power.name,
-		"desc" = power.desc,
-		"cost" = power.cost,
+		"name" = power.get_name(),
+		"desc" = power.get_desc(),
+		"cost" = power.get_cost(),
 		"required_school_points" = power.required_school_points,
 		"tier" = get_power_tier(power),
 		"learned" = (action_type in known_powers),
@@ -458,9 +464,10 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 	var/list/powers_by_school = list()
 	for(var/datum/psionic_power/power as anything in get_psionic_power_catalog())
-		if(!power.school)
+		var/power_school = power.get_school_type()
+		if(!power_school)
 			continue
-		LAZYADD(powers_by_school[power.school], power)
+		LAZYADD(powers_by_school[power_school], power)
 
 	for(var/school_type in get_psionic_school_catalog())
 		var/list/school_powers = powers_by_school[school_type]
@@ -502,7 +509,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 			if(!power)
 				return FALSE
 
-			return learn_power(action_type, power.cost)
+			return learn_power(action_type)
 
 /datum/component/psionic_profile/proc/decay_strain()
 	if(!last_strain_decay)

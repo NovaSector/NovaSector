@@ -117,26 +117,43 @@
 	return get_psionic_school_for_anomaly_core(anomaly_source_type)
 
 /datum/psionic_power
-	/// Display name in the imprinting menu.
-	var/name = "Psionic Power"
-	/// Short description in the imprinting menu.
-	var/desc = "A psionic discipline."
-	/// Imprint point cost.
-	var/cost = 1
 	/// Points that must already be spent in this power's school before it can be imprinted.
 	var/required_school_points = 0
 	/// Action type paths that must already be known before this power can be imprinted.
 	var/list/required_powers
-	/// Anomaly resonance school this power belongs to.
-	var/datum/psionic_school/school
 	/// Action type granted when learned.
 	var/datum/action/cooldown/psionic/action_type
 
-/datum/psionic_power/proc/get_school()
-	if(!school)
+/datum/psionic_power/proc/get_name()
+	if(!action_type)
+		return "Psionic Power"
+
+	return initial(action_type.name)
+
+/datum/psionic_power/proc/get_desc()
+	if(!action_type)
+		return "A psionic discipline."
+
+	return initial(action_type.desc)
+
+/datum/psionic_power/proc/get_cost()
+	if(!action_type)
+		return 0
+
+	return max(initial(action_type.point_cost), 0)
+
+/datum/psionic_power/proc/get_school_type()
+	if(!action_type)
 		return null
 
-	return get_psionic_school(school)
+	return initial(action_type.school)
+
+/datum/psionic_power/proc/get_school()
+	var/school_type = get_school_type()
+	if(!school_type)
+		return null
+
+	return get_psionic_school(school_type)
 
 /datum/psionic_power/proc/get_school_name()
 	var/datum/psionic_school/resonance_school = get_school()
@@ -145,17 +162,41 @@
 
 	return resonance_school.name
 
+/datum/psionic_power/proc/get_catalog_error()
+	if(!ispath(action_type, /datum/action/cooldown/psionic))
+		return "has no valid psionic action_type"
+	if(get_cost() <= 0)
+		return "has a non-positive action point_cost"
+	if(!get_school_type())
+		return "has no action school"
+	if(!get_school())
+		return "uses an unknown action school [get_school_type()]"
+	if(length(required_powers))
+		for(var/required_power_type in required_powers)
+			if(!ispath(required_power_type, /datum/action/cooldown/psionic))
+				return "has a non-psionic required power [required_power_type]"
+
+	return null
+
 /proc/get_psionic_power_catalog()
 	var/static/list/catalog
 	if(catalog)
 		return catalog
 
 	catalog = list()
+	var/list/cataloged_actions = list()
 	for(var/power_type in subtypesof(/datum/psionic_power))
 		var/datum/psionic_power/power = new power_type
-		if(!power.action_type)
+		var/catalog_error = power.get_catalog_error()
+		if(catalog_error)
+			stack_trace("[power.type] [catalog_error].")
 			qdel(power)
 			continue
+		if(cataloged_actions[power.action_type])
+			stack_trace("[power.type] duplicates psionic action [power.action_type].")
+			qdel(power)
+			continue
+		cataloged_actions[power.action_type] = TRUE
 		catalog += power
 
 	return catalog
@@ -171,59 +212,31 @@
 	return null
 
 /datum/psionic_power/telepathy
-	name = "Telepathic Whisper"
-	desc = "Send a private thought to a nearby living target."
-	cost = 1
-	school = PSIONIC_SCHOOL_BIOSCRAMBLER
 	action_type = /datum/action/cooldown/psionic/pointed/telepathy
 
 /datum/psionic_power/kinetic_shove
-	name = "Kinetic Shove"
-	desc = "Throw a nearby target away with focused force."
-	cost = 1
-	school = PSIONIC_SCHOOL_GRAVITY
 	action_type = /datum/action/cooldown/psionic/pointed/kinetic_shove
 
 /datum/psionic_power/spatial_slip
-	name = "Spatial Slip"
-	desc = "Blink a short distance through a bluespace fold."
-	cost = 1
-	school = PSIONIC_SCHOOL_BLUESPACE
 	action_type = /datum/action/cooldown/psionic/spatial_slip
 
 /datum/psionic_power/psychic_guard
-	name = "Psychic Guard"
-	desc = "Briefly shield yourself from intrusive and sensory psionics."
-	cost = 1
-	school = PSIONIC_SCHOOL_FLUX
 	action_type = /datum/action/cooldown/psionic/psychic_guard
 
 /datum/psionic_power/sense_health
-	name = "Sense Health"
-	desc = "Read a living target's physical condition at range as an advanced health analyzer."
-	cost = 1
-	school = PSIONIC_SCHOOL_BIOSCRAMBLER
 	action_type = /datum/action/cooldown/psionic/pointed/sense_health
 
 /datum/psionic_power/pyro_bolt
-	name = "Pyro Bolt"
-	desc = "Ignite your hand and lance a short barrage of orange thermal beams."
-	cost = 1
-	school = PSIONIC_SCHOOL_FLUX
 	action_type = /datum/action/cooldown/psionic/pointed/projectile/pyro_bolt
 
 /datum/psionic_power/pyro_assault
-	name = "Pyro Assault"
-	desc = "Compress psionic heat into an explosive fireball."
-	cost = 2
 	required_school_points = 1
 	required_powers = list(/datum/action/cooldown/psionic/pointed/projectile/pyro_bolt)
-	school = PSIONIC_SCHOOL_FLUX
 	action_type = /datum/action/cooldown/psionic/pointed/projectile/pyro_assault
 
 /datum/action/cooldown/psionic/pointed/telepathy
 	name = "Telepathic Whisper"
-	desc = "<b>Left click</b>: project a thought to a target. <b>Right click</b>: project to your last target."
+	desc = "Send a private thought to a nearby living target. Right-click repeats your last target."
 	button_icon_state = "psi_whisper"
 	cooldown_time = 3 SECONDS
 	cast_range = 7

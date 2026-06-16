@@ -140,6 +140,29 @@
 
 	return TRUE
 
+/datum/action/cooldown/psionic/pointed/living_target
+	/// If TRUE, dead living mobs can be targeted.
+	var/allow_dead_targets = FALSE
+	/// Balloon alert shown when the clicked target is not living.
+	var/no_living_target_alert = "no living target!"
+	/// Balloon alert shown when the clicked target is dead.
+	var/dead_target_alert = "no living mind!"
+
+/datum/action/cooldown/psionic/pointed/living_target/is_valid_target(atom/target)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!isliving(target))
+		owner.balloon_alert(owner, no_living_target_alert)
+		return FALSE
+
+	var/mob/living/living_target = target
+	if(!allow_dead_targets && living_target.stat == DEAD)
+		owner.balloon_alert(owner, dead_target_alert)
+		return FALSE
+
+	return TRUE
+
 /datum/action/cooldown/psionic/pointed/projectile
 	/// Projectile type launched by this psionic discipline.
 	var/obj/projectile/projectile_type
