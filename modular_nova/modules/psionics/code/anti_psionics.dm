@@ -102,13 +102,17 @@
 	. = ..(inventory_flags)
 	src.charges = charges
 	src.on_block = on_block
+	if(parent_is_item)
+		RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 
 /datum/component/psionic_protection/Destroy(force)
+	if(parent_is_item)
+		UnregisterSignal(parent, COMSIG_ATOM_EXAMINE)
 	on_block = null
 	return ..()
 
 /datum/component/psionic_protection/on_applied(mob/living/target)
-	if(parent_is_item)
+	if(parent_is_item && (charges == INFINITY || charges > 0))
 		to_chat(target, span_notice("You feel a layer of psionic protection settle over your thoughts."))
 
 /datum/component/psionic_protection/on_cleared(mob/living/target)
@@ -120,18 +124,30 @@
 
 	if(parent in psionic_sources)
 		return NONE
+	if(charges != INFINITY && charges <= 0)
+		return NONE
 
 	psionic_sources += parent
 	on_block?.Invoke(target, parent)
 	if(charges == INFINITY)
 		to_chat(target, span_notice("Your psionic protection absorbs the effect."))
 	else
-		charges -= max(charge_cost, 1)
+		charges = max(charges - max(charge_cost, 1), 0)
 		if(charges > 0)
 			to_chat(target, span_notice("Your psionic protection absorbs the effect ([charges] charge\s remaining)."))
 		else
 			to_chat(target, span_warning("Your psionic protection collapses!"))
 	return COMPONENT_PSIONIC_BLOCKED
+
+/datum/component/psionic_protection/proc/on_examine(atom/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+
+	if(charges == INFINITY)
+		examine_list += span_purple("Its psionic lattice hums with inexhaustible charge.")
+	else if(charges > 0)
+		examine_list += span_purple("Its psionic lattice has [charges] charge\s remaining.")
+	else
+		examine_list += span_purple("Its psionic lattice is spent.")
 
 
 /// Suppresses the wearer's own psionic projection entirely. Attached to items or mobs directly.
