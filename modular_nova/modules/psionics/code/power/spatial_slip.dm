@@ -39,6 +39,9 @@
 	if(!source_turf || !target_turf)
 		return
 
+	playsound(source_turf, 'sound/machines/airlock/airlockopen.ogg', 60, TRUE)
+	playsound(target_turf, 'sound/effects/magic/wand_teleport.ogg', 60, TRUE)
+
 	var/obj/effect/temp_visual/psionic_spatial_slip/source_effect = new(source_turf, manifestation_color)
 	if(source_turf == target_turf)
 		return
@@ -61,7 +64,7 @@
 /obj/effect/temp_visual/psionic_spatial_slip
 	name = "psionic fold"
 	icon = 'icons/effects/96x96.dmi'
-	icon_state = "hierophant_telegraph_teleport"
+	icon_state = "hierophant_telegraph_edge"
 	SET_BASE_VISUAL_PIXEL(-32, -32)
 	layer = BELOW_MOB_LAYER
 	plane = GAME_PLANE

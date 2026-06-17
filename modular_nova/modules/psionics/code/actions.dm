@@ -127,7 +127,9 @@
 
 	button.name = "[name] ([get_rank_variant_name(variant)])"
 	if(desc)
-		button.desc = "[desc]<br><b>Selected:</b> [get_rank_variant_description(variant)].<br><b>Right-click</b> to cycle unlocked forms."
+		button.desc = "[desc]<br><b>Selected:</b> [get_rank_variant_description(variant)]."
+		if(length(get_unlocked_rank_variants(profile)) > 1)
+			button.desc += "<br><b>Right-click</b> to cycle unlocked forms."
 
 /datum/action/cooldown/psionic/proc/get_rank_variants()
 	if(rank_variants)

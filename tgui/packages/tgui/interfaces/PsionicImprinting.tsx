@@ -22,6 +22,7 @@ type PsionicPower = {
   cost: number;
   required_school_points: number;
   required_powers: string[];
+  required_power_names: string[];
   tier: number;
   learned: BooleanLike;
   can_buy: BooleanLike;
@@ -64,24 +65,19 @@ const tierNames = [
   'Paramount',
 ];
 
-const POWER_NODE_WIDTH = 140;
-const POWER_NODE_HEIGHT = 140;
-const POWER_NODE_GAP = 20;
-const POWER_ROW_GAP = 58;
-const POWER_TIER_LABEL_WIDTH = 92;
-const POWER_MAP_PADDING = 14;
-const MAX_POWER_COLUMNS = 3;
+const POWER_NODE_WIDTH = 420;
+const POWER_NODE_MIN_HEIGHT = 126;
+const POWER_NODE_GAP = 18;
+const POWER_NODE_X = 56;
+const POWER_CONNECTOR_X = 28;
+const POWER_MAP_PADDING = 0;
+const POWER_TEXT_CHARS_PER_LINE = 42;
 
 type PowerLayoutNode = {
   power: PsionicPower;
   x: number;
   y: number;
-};
-
-type PowerLayoutRow = {
-  tier: number;
-  y: number;
-  showTitle: boolean;
+  height: number;
 };
 
 type PowerLayoutConnection = {
@@ -93,7 +89,6 @@ type PowerLayoutConnection = {
 
 type PowerLayout = {
   nodes: PowerLayoutNode[];
-  rows: PowerLayoutRow[];
   connections: PowerLayoutConnection[];
   width: number;
   height: number;
@@ -103,54 +98,60 @@ const getTierName = (tier: number) => {
   return tierNames[tier - 1] || `Depth ${tier}`;
 };
 
-const getPowerDependencyColumn = (
-  power: PsionicPower,
-  placedColumns: Map<string, number>,
-) => {
-  let total = 0;
-  let count = 0;
-
-  for (const requiredPower of power.required_powers || []) {
-    const column = placedColumns.get(requiredPower);
-    if (column === undefined) {
-      continue;
-    }
-
-    total += column;
-    count++;
-  }
-
-  return count ? total / count : Infinity;
+const getEstimatedLineCount = (text: string) => {
+  return Math.max(1, Math.ceil(text.length / POWER_TEXT_CHARS_PER_LINE));
 };
 
-const sortPowersForLayout = (
-  powers: PsionicPower[],
-  placedColumns: Map<string, number>,
-) => {
-  return [...powers].sort((first, second) => {
-    const firstDependencyColumn = getPowerDependencyColumn(
-      first,
-      placedColumns,
+const getPowerNodeHeight = (power: PsionicPower) => {
+  const prereqText = power.required_power_names?.length
+    ? `Prereq: ${power.required_power_names.join(', ')}`
+    : '';
+  const descLines = getEstimatedLineCount(power.desc || '');
+  const prereqLines = prereqText ? getEstimatedLineCount(prereqText) : 0;
+  const textHeight = 17 + descLines * 15 + 16 + prereqLines * 16;
+
+  return Math.max(POWER_NODE_MIN_HEIGHT, textHeight + 26);
+};
+
+const comparePowersForLayout = (first: PsionicPower, second: PsionicPower) => {
+  if (first.tier !== second.tier) {
+    return first.tier - second.tier;
+  }
+
+  if (first.required_school_points !== second.required_school_points) {
+    return first.required_school_points - second.required_school_points;
+  }
+
+  if (first.cost !== second.cost) {
+    return first.cost - second.cost;
+  }
+
+  return first.name.localeCompare(second.name);
+};
+
+const sortPowersForLayout = (powers: PsionicPower[]) => {
+  const schoolPowerTypes = new Set(powers.map((power) => power.action_type));
+  const placedPowerTypes = new Set<string>();
+  const remainingPowers = [...powers].sort(comparePowersForLayout);
+  const orderedPowers: PsionicPower[] = [];
+
+  while (remainingPowers.length) {
+    const readyPowerIndex = remainingPowers.findIndex((power) =>
+      (power.required_powers || []).every(
+        (requiredPower) =>
+          !schoolPowerTypes.has(requiredPower) ||
+          placedPowerTypes.has(requiredPower),
+      ),
     );
-    const secondDependencyColumn = getPowerDependencyColumn(
-      second,
-      placedColumns,
-    );
+    const nextPower = remainingPowers.splice(
+      readyPowerIndex >= 0 ? readyPowerIndex : 0,
+      1,
+    )[0];
+    orderedPowers.push(nextPower);
+    placedPowerTypes.add(nextPower.action_type);
+  }
 
-    if (firstDependencyColumn !== secondDependencyColumn) {
-      return firstDependencyColumn - secondDependencyColumn;
-    }
-
-    if (first.required_school_points !== second.required_school_points) {
-      return first.required_school_points - second.required_school_points;
-    }
-
-    if (first.cost !== second.cost) {
-      return first.cost - second.cost;
-    }
-
-    return first.name.localeCompare(second.name);
-  });
+  return orderedPowers;
 };
 
 const getConnectionState = (
@@ -169,56 +170,23 @@ const getConnectionState = (
 };
 
 const buildPowerLayout = (powers: PsionicPower[]): PowerLayout => {
-  const powersByTier: Record<number, PsionicPower[]> = {};
-  for (const power of powers) {
-    powersByTier[power.tier] ??= [];
-    powersByTier[power.tier].push(power);
-  }
-
-  const tierGroups = Object.entries(powersByTier)
-    .map(([tier, tierPowers]) => ({ tier: Number(tier), powers: tierPowers }))
-    .sort((first, second) => first.tier - second.tier);
-
   const nodes: PowerLayoutNode[] = [];
-  const rows: PowerLayoutRow[] = [];
   const nodeByAction = new Map<string, PowerLayoutNode>();
-  const placedColumns = new Map<string, number>();
-  let rowIndex = 0;
+  const orderedPowers = sortPowersForLayout(powers);
+  let nextNodeY = POWER_MAP_PADDING;
 
-  for (const tierGroup of tierGroups) {
-    const orderedPowers = sortPowersForLayout(tierGroup.powers, placedColumns);
-
-    for (
-      let index = 0;
-      index < orderedPowers.length;
-      index += MAX_POWER_COLUMNS
-    ) {
-      const rowPowers = orderedPowers.slice(index, index + MAX_POWER_COLUMNS);
-      const y =
-        POWER_MAP_PADDING + rowIndex * (POWER_NODE_HEIGHT + POWER_ROW_GAP);
-      rows.push({
-        tier: tierGroup.tier,
-        y,
-        showTitle: index === 0,
-      });
-
-      rowPowers.forEach((power, column) => {
-        const node = {
-          power,
-          x:
-            POWER_TIER_LABEL_WIDTH +
-            POWER_MAP_PADDING +
-            column * (POWER_NODE_WIDTH + POWER_NODE_GAP),
-          y,
-        };
-        nodes.push(node);
-        nodeByAction.set(power.action_type, node);
-        placedColumns.set(power.action_type, column);
-      });
-
-      rowIndex++;
-    }
-  }
+  orderedPowers.forEach((power) => {
+    const height = getPowerNodeHeight(power);
+    const node = {
+      power,
+      x: POWER_NODE_X,
+      y: nextNodeY,
+      height,
+    };
+    nodes.push(node);
+    nodeByAction.set(power.action_type, node);
+    nextNodeY += height + POWER_NODE_GAP;
+  });
 
   const connections: PowerLayoutConnection[] = [];
   for (const node of nodes) {
@@ -239,43 +207,23 @@ const buildPowerLayout = (powers: PsionicPower[]): PowerLayout => {
 
   return {
     nodes,
-    rows,
     connections,
-    width:
-      POWER_TIER_LABEL_WIDTH +
-      POWER_MAP_PADDING * 2 +
-      MAX_POWER_COLUMNS * POWER_NODE_WIDTH +
-      (MAX_POWER_COLUMNS - 1) * POWER_NODE_GAP,
-    height: rows.length
-      ? POWER_MAP_PADDING * 2 +
-        rows.length * POWER_NODE_HEIGHT +
-        (rows.length - 1) * POWER_ROW_GAP
-      : 0,
+    width: POWER_NODE_X + POWER_NODE_WIDTH + POWER_MAP_PADDING,
+    height: nodes.length ? nextNodeY - POWER_NODE_GAP + POWER_MAP_PADDING : 0,
   };
 };
 
 const getConnectionPath = (connection: PowerLayoutConnection) => {
-  const startX = connection.from.x + POWER_NODE_WIDTH / 2;
-  const startY = connection.from.y + POWER_NODE_HEIGHT;
-  const endX = connection.to.x + POWER_NODE_WIDTH / 2;
-  const endY = connection.to.y;
+  const startX = connection.from.x;
+  const startY = connection.from.y + connection.from.height / 2;
+  const endX = connection.to.x;
+  const endY = connection.to.y + connection.to.height / 2;
 
-  if (connection.from.y === connection.to.y) {
-    const middleY = connection.from.y + POWER_NODE_HEIGHT / 2;
-    return [
-      `M ${connection.from.x + POWER_NODE_WIDTH} ${middleY}`,
-      `C ${connection.from.x + POWER_NODE_WIDTH + POWER_NODE_GAP / 2} ${middleY},`,
-      `${connection.to.x - POWER_NODE_GAP / 2} ${middleY},`,
-      `${connection.to.x} ${middleY}`,
-    ].join(' ');
-  }
-
-  const curve = Math.max((endY - startY) / 2, 24);
   return [
     `M ${startX} ${startY}`,
-    `C ${startX} ${startY + curve},`,
-    `${endX} ${endY - curve},`,
-    `${endX} ${endY}`,
+    `H ${POWER_CONNECTOR_X}`,
+    `V ${endY}`,
+    `H ${endX}`,
   ].join(' ');
 };
 
@@ -460,22 +408,13 @@ const SchoolBranch = (props: { school: PsionicSchool }) => {
                   'PsionicImprinting__dependencyPoint',
                   `PsionicImprinting__dependencyPoint--${connection.state}`,
                 ].join(' ')}
-                cx={connection.to.x + POWER_NODE_WIDTH / 2}
-                cy={connection.to.y}
+                cx={POWER_CONNECTOR_X}
+                cy={connection.to.y + connection.to.height / 2}
                 r="3"
               />
             </g>
           ))}
         </svg>
-        {powerLayout.rows.map((row, index) => (
-          <Box
-            key={`${row.tier}-${index}`}
-            className="PsionicImprinting__tierLabel"
-            style={{ top: `${row.y + POWER_NODE_HEIGHT / 2 - 8}px` }}
-          >
-            {row.showTitle && getTierName(row.tier)}
-          </Box>
-        ))}
         {powerLayout.nodes.map((node) => (
           <Box
             key={node.power.action_type}
@@ -483,6 +422,7 @@ const SchoolBranch = (props: { school: PsionicSchool }) => {
             style={{
               left: `${node.x}px`,
               top: `${node.y}px`,
+              height: `${node.height}px`,
             }}
           >
             <PowerNode power={node.power} school={school} />
@@ -493,12 +433,16 @@ const SchoolBranch = (props: { school: PsionicSchool }) => {
   );
 };
 
-const PowerNode = (props: { power: PsionicPower; school: PsionicSchool }) => {
+const PowerNode = (props: {
+  power: PsionicPower;
+  school: PsionicSchool;
+}) => {
   const { act } = useBackend<PsionicImprintingData>();
   const { power, school } = props;
   const learned = !!power.learned;
   const canBuy = !!power.can_buy;
   const disabled = learned || !canBuy;
+  const requiredPowerNames = power.required_power_names || [];
 
   return (
     <Button
@@ -519,11 +463,11 @@ const PowerNode = (props: { power: PsionicPower; school: PsionicSchool }) => {
       onClick={() => act('imprint', { action_type: power.action_type })}
       style={{ borderColor: school.color }}
     >
-      <Stack vertical align="center" fill>
+      <Stack align="center" fill>
         <Stack.Item>
           <Box
             className="PsionicImprinting__nodeIcon"
-            style={{ boxShadow: `0 0 14px ${school.color}` }}
+            style={{ boxShadow: `0 0 10px ${school.color}` }}
           >
             <DmIcon
               icon={power.icon}
@@ -533,33 +477,31 @@ const PowerNode = (props: { power: PsionicPower; school: PsionicSchool }) => {
             />
           </Box>
         </Stack.Item>
-        <Stack.Item>
-          <Box bold textAlign="center" className="PsionicImprinting__nodeName">
+        <Stack.Item grow>
+          <Box bold className="PsionicImprinting__nodeName">
             {power.name}
           </Box>
+          <Box color="label" className="PsionicImprinting__nodeDesc">
+            {power.desc}
+          </Box>
+          <Box color="label" className="PsionicImprinting__nodeMeta">
+            {getTierName(power.tier)}
+            {!!power.required_school_points &&
+              ` | Branch ${power.required_school_points}`}
+          </Box>
+          {!!requiredPowerNames.length && (
+            <Box color="label" className="PsionicImprinting__nodeMeta">
+              Prereq: {requiredPowerNames.join(', ')}
+            </Box>
+          )}
         </Stack.Item>
-        <Stack.Item>
-          <Box
-            color="label"
-            textAlign="center"
-            className="PsionicImprinting__nodeMeta"
-          >
+        <Stack.Item width="74px" textAlign="right">
+          <Box className="PsionicImprinting__nodeCost">
             {learned
               ? 'Imprinted'
               : `${power.cost} point${power.cost === 1 ? '' : 's'}`}
           </Box>
         </Stack.Item>
-        {!!power.required_school_points && (
-          <Stack.Item>
-            <Box
-              color="label"
-              textAlign="center"
-              className="PsionicImprinting__nodeMeta"
-            >
-              Branch {power.required_school_points}
-            </Box>
-          </Stack.Item>
-        )}
       </Stack>
     </Button>
   );

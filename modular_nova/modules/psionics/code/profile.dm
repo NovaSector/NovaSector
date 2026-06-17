@@ -503,9 +503,12 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	var/lock_reason = get_power_lock_reason(power)
 	var/datum/action/cooldown/psionic/action_type = power.action_type
 	var/list/required_power_paths = list()
+	var/list/required_power_names = list()
 	if(length(power.required_powers))
 		for(var/required_power_type in power.required_powers)
 			required_power_paths += "[required_power_type]"
+			var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
+			required_power_names += required_power ? required_power.get_name() : "[required_power_type]"
 	return list(
 		"action_type" = "[action_type]",
 		"name" = power.get_name(),
@@ -513,6 +516,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		"cost" = power.get_cost(),
 		"required_school_points" = power.required_school_points,
 		"required_powers" = required_power_paths,
+		"required_power_names" = required_power_names,
 		"tier" = get_power_tier(power),
 		"learned" = (action_type in known_powers),
 		"can_buy" = isnull(lock_reason),

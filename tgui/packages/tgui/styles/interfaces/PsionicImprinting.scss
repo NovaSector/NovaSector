@@ -1,4 +1,4 @@
-.Layout__content.PsionicImprinting {
+.PsionicImprinting {
   --psionic-accent: #8dd8ff;
   --psionic-glow: rgba(141, 216, 255, 0.18);
   --psionic-symbol: url('../assets/psionic-bioscrambler.svg');
@@ -75,15 +75,15 @@
   }
 
   &__schoolSummary {
-    margin-bottom: 12px;
-    padding: 10px 12px;
+    margin-bottom: 6px;
+    padding: 6px 10px;
     border-left: 3px solid;
     background: rgba(0, 0, 0, 0.22);
   }
 
   &__powerMap {
     position: relative;
-    min-height: 168px;
+    margin-top: 0;
   }
 
   &__dependencyLines {
@@ -99,8 +99,9 @@
     fill: none;
     stroke: currentColor;
     stroke-linecap: round;
+    stroke-linejoin: round;
     stroke-width: 2px;
-    opacity: 0.54;
+    opacity: 0.46;
   }
 
   &__dependencyLine--locked {
@@ -132,45 +133,39 @@
     opacity: 0.92;
   }
 
-  &__tierLabel {
-    position: absolute;
-    left: 0;
-    z-index: 1;
-    width: 82px;
-    color: #dcecff;
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 0;
-    text-align: right;
-    text-transform: uppercase;
-  }
-
   &__nodeSlot {
     position: absolute;
     z-index: 2;
-    width: 140px;
-    height: 140px;
+    width: 420px;
+    min-height: 126px;
   }
 
   &__node {
-    width: 140px;
-    height: 140px;
-    padding: 10px 8px;
+    width: 420px;
+    height: 100%;
+    min-height: 126px;
+    padding: 10px 12px;
     border: 1px solid;
-    border-radius: 50%;
-    background: radial-gradient(
-      circle at 50% 25%,
-      rgba(255, 255, 255, 0.12),
-      rgba(0, 0, 0, 0.22) 62%
+    border-radius: 6px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(0, 0, 0, 0.24)
     );
     white-space: normal;
+    overflow: visible;
+
+    .Button__content {
+      overflow: visible;
+      white-space: normal;
+    }
   }
 
   &__node--learned {
-    background: radial-gradient(
-      circle at 50% 25%,
-      rgba(120, 255, 180, 0.18),
-      rgba(0, 0, 0, 0.2) 62%
+    background: linear-gradient(
+      135deg,
+      rgba(120, 255, 180, 0.16),
+      rgba(0, 0, 0, 0.2)
     );
   }
 
@@ -183,18 +178,30 @@
     width: 42px;
     height: 42px;
     padding: 5px;
-    border-radius: 50%;
+    border-radius: 6px;
     background: rgba(0, 0, 0, 0.35);
   }
 
   &__nodeName {
-    max-width: 112px;
-    line-height: 1.12;
+    line-height: 1.15;
+  }
+
+  &__nodeDesc {
+    margin-top: 2px;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
   }
 
   &__nodeMeta {
-    max-width: 112px;
+    margin-top: 4px;
     font-size: 11px;
     line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  &__nodeCost {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.15;
   }
 }
