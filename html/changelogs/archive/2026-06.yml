@@ -356,6 +356,9 @@
   - balance: You should now be able to walk around while eating about any vending
       machine snack, no longer just chips and a couple others.
   - bugfix: You no longer waddle when buckled to something.
+  Hardly, The_Hotline:
+  - rscadd: Added "Monochrome Touch" to the Mime's book, allowing them to drain colors
+      from any object they touch!
   Hatterhat:
   - spellcheck: Butterbean plants are now capitalized properly when planted.
   - bugfix: Spaceship plating now makes spaceship walls and not titanium material
