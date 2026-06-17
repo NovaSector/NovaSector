@@ -39,8 +39,10 @@
 	model_traits = list(TRAIT_NEGATES_GRAVITY, TRAIT_PUSHIMMUNE)
 	canDispose = TRUE
 	cyborg_base_icon = "tachi"
-	model_select_icon = "tachi"
+	model_select_icon = "lost"
+	model_select_alternate_icon = 'modular_nova/modules/borgs/icons/screen_cyborg.dmi'
 	hat_offset = INFINITY
+	interaction_range = INFINITY
 	borg_skins = list(
 		/// 32x32 Skins
 		"Walker Tank" = list(SKIN_ICON_STATE = "tachi", SKIN_ICON = 'modular_nova/modules/admin_tech/icons/mob/admin_robots.dmi'),
