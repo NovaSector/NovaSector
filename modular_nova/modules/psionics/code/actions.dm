@@ -240,6 +240,15 @@
 
 	return cooldown_time
 
+/// Returns the manifestation color of the owner's psionic profile, falling back to the default.
+/datum/action/cooldown/psionic/proc/get_manifestation_color()
+	var/mob/living/living_owner = owner
+	if(!istype(living_owner))
+		return PSIONIC_DEFAULT_COLOR
+
+	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
+	return profile?.psionic_color || PSIONIC_DEFAULT_COLOR
+
 /datum/action/cooldown/psionic/proc/can_use_hands(mob/living/living_owner, feedback = FALSE)
 	if(!needs_hands)
 		return TRUE
@@ -406,8 +415,6 @@
 	if(!before_psionic(target))
 		return FALSE
 	if(!IsAvailable(feedback = TRUE))
-		return FALSE
-	if(!is_valid_target(target))
 		return FALSE
 	var/activation_strain_gain = get_psionic_strain_gain(profile)
 	if(activation_strain_gain && !profile.try_gain_strain(activation_strain_gain, src))

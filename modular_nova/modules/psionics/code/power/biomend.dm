@@ -90,7 +90,7 @@
 
 	biomending = TRUE
 	biomend_target = carbon_target
-	var/manifestation_color = get_biomend_color(profile)
+	var/manifestation_color = get_manifestation_color()
 	biomend_filter_name = "psionic_biomend_[REF(src)]"
 	biomend_target.add_filter(biomend_filter_name, 2, outline_filter(size = 1, color = manifestation_color))
 	biomend_beam = living_owner.Beam(
@@ -121,9 +121,6 @@
 		return FALSE
 
 	return carbon_target.get_brute_loss_for_type(BODYTYPE_ORGANIC) > 0 || carbon_target.get_fire_loss_for_type(BODYTYPE_ORGANIC) > 0
-
-/datum/action/cooldown/psionic/pointed/living_target/biomend/proc/get_biomend_color(datum/component/psionic_profile/profile)
-	return profile?.psionic_color || PSIONIC_DEFAULT_COLOR
 
 /datum/action/cooldown/psionic/pointed/living_target/biomend/proc/on_owner_life(datum/source, seconds_per_tick)
 	SIGNAL_HANDLER

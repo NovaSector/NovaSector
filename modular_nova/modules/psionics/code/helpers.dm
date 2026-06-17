@@ -18,16 +18,13 @@
 		return FALSE
 
 	var/list/psionic_sources = list()
-	var/is_psionic_blocked = FALSE
 
 	if(SEND_SIGNAL(src, COMSIG_MOB_RECEIVE_PSIONICS, psionic_flags, charge_cost, psionic_sources) & COMPONENT_PSIONIC_BLOCKED)
-		is_psionic_blocked = TRUE
+		return TRUE
 	if(HAS_TRAIT(src, TRAIT_PSIONIC_DAMPENER))
-		is_psionic_blocked = TRUE
-	if(HAS_TRAIT(src, TRAIT_RESIST_PSYCHIC))
-		is_psionic_blocked = TRUE
+		return TRUE
 
-	return is_psionic_blocked
+	return HAS_TRAIT(src, TRAIT_RESIST_PSYCHIC)
 
 /mob/living/proc/get_psionic_profile()
 	return GetComponent(/datum/component/psionic_profile)

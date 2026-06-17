@@ -18,7 +18,7 @@
 	if(!source_turf)
 		return FALSE
 
-	var/manifestation_color = get_spatial_slip_color()
+	var/manifestation_color = get_manifestation_color()
 	if(!do_teleport(owner, source_turf, slip_range, no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE))
 		owner.balloon_alert(owner, "fold fails!")
 		return FALSE
@@ -26,14 +26,6 @@
 	show_spatial_slip_effects(source_turf, get_turf(owner), manifestation_color)
 	to_chat(owner, span_purple("You slip through a brief bluespace fold."))
 	return TRUE
-
-/datum/action/cooldown/psionic/spatial_slip/proc/get_spatial_slip_color()
-	var/mob/living/living_owner = owner
-	if(!istype(living_owner))
-		return PSIONIC_DEFAULT_COLOR
-
-	var/datum/component/psionic_profile/profile = living_owner?.get_psionic_profile()
-	return profile?.psionic_color || PSIONIC_DEFAULT_COLOR
 
 /datum/action/cooldown/psionic/spatial_slip/proc/show_spatial_slip_effects(turf/source_turf, turf/target_turf, manifestation_color)
 	if(!source_turf || !target_turf)

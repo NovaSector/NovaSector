@@ -36,16 +36,9 @@
 		profile.psionic_color = manifestation_color
 	if(profile && !isnull(max_strain))
 		original_max_strain = profile.max_strain
-		if(full_points > PSIONIC_ROUNDSTART_LIMIT_POINTS)
-			if(!grant_limiter_implant(full_points, max_strain))
-				profile.set_rank(
-					rank = psionic_rank,
-					latent_rank = psionic_rank,
-					limited = FALSE,
-					new_max_strain = max_strain,
-					new_strain_decay = strain_decay,
-				)
-		else
+		// Limiter grant may fail (non-carbon, insert refused); fall back to applying the rank directly.
+		var/limiter_granted = full_points > PSIONIC_ROUNDSTART_LIMIT_POINTS && grant_limiter_implant(full_points, max_strain)
+		if(!limiter_granted)
 			profile.set_rank(
 				rank = psionic_rank,
 				latent_rank = psionic_rank,

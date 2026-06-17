@@ -349,7 +349,7 @@
 	)
 	playsound(living_owner, 'sound/effects/magic/forcewall.ogg', 70, TRUE)
 
-	var/manifestation_color = get_kinetic_manifestation_color(living_owner)
+	var/manifestation_color = get_manifestation_color()
 	var/list/hit_atoms = list()
 	var/datum/weakref/owner_ref = WEAKREF(living_owner)
 	for(var/step_number in 1 to form.wave_range)
@@ -366,10 +366,6 @@
 		addtimer(wave_step, (step_number - 1) * form.wave_step_delay, TIMER_DELETE_ME)
 
 	return TRUE
-
-/datum/action/cooldown/psionic/pointed/kinetic_shove/proc/get_kinetic_manifestation_color(mob/living/living_owner)
-	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	return profile?.psionic_color || PSIONIC_DEFAULT_COLOR
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove/proc/resolve_kinetic_wave_step(datum/weakref/owner_ref, wave_direction, step_number, datum/psionic_rank_variant/kinetic_shove/form, manifestation_color, list/hit_atoms)
 	var/mob/living/living_owner = owner_ref?.resolve()
@@ -491,7 +487,7 @@
 		span_warning("A wave of invisible force erupts from [living_owner]."),
 		span_notice("You release a radial wave of focused force."),
 	)
-	show_radial_kinetic_effects(living_owner, get_kinetic_manifestation_color(living_owner))
+	show_radial_kinetic_effects(living_owner, get_manifestation_color())
 
 	var/affected_anything = FALSE
 	for(var/atom/movable/movable_target in view(form.radial_range, living_owner))
