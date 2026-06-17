@@ -1,7 +1,3 @@
-/datum/map_template/shuttle/arrival/outpost
-	suffix = "outpost"
-	name = "arrival shuttle (Outpost)"
-
 /datum/map_template/shuttle/emergency/outpost
 	suffix = "outpost"
 	prefix = "_maps/shuttles/nova/"
@@ -72,13 +68,6 @@
 	shuttle_home_id = "interdyne_cargo_home"
 
 /*Interdyne Cargo Shuttle End*/
-
-/datum/map_template/shuttle/prison_transport
-	prefix = "_maps/shuttles/nova/"
-	port_id = "prison_transport"
-	suffix = "nova"
-	name = "Prison Transporter NSS-74"
-
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/slaver
 	name = "Ship Navigation Computer"

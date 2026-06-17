@@ -61690,7 +61690,7 @@
 /turf/open/floor/engine,
 /area/station/engineering/atmos/upper)
 "rSn" = (
-/mob/living/simple_animal/bot/mulebot{
+/mob/living/basic/bot/mulebot{
 	home_destination = "QM #2";
 	suffix = "#2"
 	},
@@ -70397,7 +70397,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "usg" = (
-/mob/living/simple_animal/bot/mulebot{
+/mob/living/basic/bot/mulebot{
 	home_destination = "QM #1";
 	suffix = "#1"
 	},

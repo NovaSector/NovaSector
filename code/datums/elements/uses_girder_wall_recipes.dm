@@ -82,6 +82,8 @@
 	structure.add_fingerprint(user)
 	stack.add_fingerprint(user)
 
+	// Save refernce to the materials for the case when we place last tile in the stack
+	var/list/saved_mats_per_unit = stack.mats_per_unit
 	if (!stack.use_tool(structure, user, recipe.make_delay, recipe.stack_amount, extra_checks = CALLBACK(src, PROC_REF(check_recipe), structure, user, recipe)))
 		return
 
@@ -103,7 +105,7 @@
 	qdel(structure)
 
 	if (is_material_recipe)
-		wall.set_custom_materials(stack.mats_per_unit, recipe.stack_amount)
+		wall.set_custom_materials(saved_mats_per_unit, recipe.stack_amount)
 	user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 
 /// Checks if the user can do the wall recipe.
