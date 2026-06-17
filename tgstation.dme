@@ -7591,6 +7591,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\human\species_types\plasmamen.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\bumbles.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\clarp.dm"
+#include "modular_nova\master_files\code\modules\mob\living\pets\clownmouse.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\poppy.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\redpanda.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\syndicatefox.dm"
