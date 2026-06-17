@@ -218,7 +218,7 @@
 	use_power = NO_POWER_USE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	speech_span = SPAN_ROBOT
-	var/threshold = 500
+	var/threshold = 2000 // NOVA EDIT CHANGE - Accounts for the massively multiplied funds the crew has. - ORIGINAL: var/threshold = 500
 	var/static/list/approved_passengers = list()
 	var/static/list/check_times = list()
 	var/list/payees = list()

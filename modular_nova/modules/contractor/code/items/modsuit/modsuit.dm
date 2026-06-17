@@ -47,6 +47,7 @@
 		/obj/item/mod/module/shock_absorber,
 		/obj/item/mod/module/quick_cuff,
 		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/rad_protection,
 		/obj/item/mod/module/scorpion_hook,
 		/obj/item/mod/module/springlock/contractor/no_complexity,
 		/obj/item/mod/module/storage/syndicate,

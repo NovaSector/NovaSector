@@ -55,6 +55,7 @@
 	)
 
 	bodypart_flags = BODYPART_UNHUSKABLE
+	head_flags = HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_LIPS|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_EYEHOLES // All the default flags minus HEAD_DEBRAIN
 
 /datum/design/synth_head
 	name = "Android Head Base"

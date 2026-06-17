@@ -1,5 +1,3 @@
-#define NEST_FACTION "nest spawned"
-
 /obj/structure/mob_spawner
 	name = "nest"
 	desc = "A nasty looking pile of sticks and debris."
@@ -233,5 +231,3 @@
 	playsound(src, 'sound/effects/blob/blobattack.ogg', 100)
 	new /mob/living/basic/vatbeast(loc)
 	return ..()
-
-

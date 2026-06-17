@@ -197,3 +197,8 @@
 
 /obj/item/kinetic_crusher/robot/update_wielding()
 	return
+
+#undef BASE_SHAKER_JUICE_REAGENTS
+#undef BASE_SHAKER_ALCOHOL_REAGENTS
+#undef BASE_SHAKER_SODA_REAGENTS
+#undef BASE_SHAKER_MISC_REAGENTS
