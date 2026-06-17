@@ -34,7 +34,7 @@
 	AddElement(/datum/element/footstep, footstep_type = FOOTSTEP_MOB_CLAW)
 
 /mob/living/basic/pet/dog/pitbull/hungry //Evil but not the gorilla pitbull.
-	name = "\improper hungry pitbull"
+	name = "hungry pitbull"
 	desc = "A wild pitbull denied their daily baby ration."
 	health = 60
 	maxHealth = 60
