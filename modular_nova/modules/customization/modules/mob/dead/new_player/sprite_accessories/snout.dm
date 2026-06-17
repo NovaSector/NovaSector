@@ -317,7 +317,11 @@
 
 /datum/sprite_accessory/snouts/mammal/canine_alt
 	name = "Canine (Alt)"
-	icon_state = "caninealt"
+	icon_state = "caninealt"	
+
+/datum/sprite_accessory/snouts/mammal/vulptwoshade
+	name = "Vulp Twoshade"
+	icon_state = "vulptwoshade"
 
 /******************************************
 **************** Snouts *******************

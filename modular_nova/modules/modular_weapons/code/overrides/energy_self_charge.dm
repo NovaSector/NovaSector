@@ -57,8 +57,8 @@
 
 // Advanced Energy Gun
 /obj/item/gun/energy/e_gun/nuclear
-	charge_delay = 5 // compare/contrast tg's default delay of 8, tg's adv e-gun delay of 10, nova's egun self-charge delay of 15
-	self_charge_amount = STANDARD_ENERGY_GUN_SELF_CHARGE_RATE * 3 // recharges 15% of the internal cell per tick.
+	charge_delay = 8
+	self_charge_amount = STANDARD_ENERGY_GUN_SELF_CHARGE_RATE
 
 // Tesla Cannon
 /obj/item/gun/energy/tesla_cannon

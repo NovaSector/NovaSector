@@ -158,7 +158,7 @@
 /area/station/hallway/primary/central)
 "Q" = (
 /obj/structure/table/wood,
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = -2;
 	pixel_y = 6
 	},
