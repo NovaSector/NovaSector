@@ -3,7 +3,7 @@
 
 /datum/action/cooldown/psionic/levitate
 	name = "Levitate"
-	desc = "Toggle a careful psionic weightlessness, building strain while maintained."
+	desc = "Lift yourself off the ground, building strain while maintained."
 	button_icon_state = "psi_levitate"
 	cooldown_time = 0
 	point_cost = 1
@@ -63,8 +63,8 @@
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 
 	living_owner.visible_message(
-		span_notice("[living_owner] rises a handspan above the floor as the air warps around [living_owner.p_them()]."),
-		span_purple("You bias gravity around yourself and lift into careful weightlessness."),
+		span_notice("[living_owner] rises slightly off the floor."),
+		span_purple("You lift yourself off the ground."),
 	)
 	return TRUE
 
@@ -116,6 +116,6 @@
 		REMOVE_TRAIT(living_owner, TRAIT_SILENT_FOOTSTEPS, PSIONIC_LEVITATION_TRAIT_SOURCE)
 		living_owner.RemoveElement(/datum/element/forced_gravity, gravity = 0, can_override = TRUE)
 		if(!silent)
-			to_chat(living_owner, span_notice("The levitation pattern releases."))
+			to_chat(living_owner, span_notice("You settle back to the ground."))
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 	return TRUE

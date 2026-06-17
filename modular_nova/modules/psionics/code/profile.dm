@@ -163,7 +163,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	update_rank_traits()
 	grant_action(/datum/action/cooldown/psionic/open_menu)
 	install_strain_hud()
-	to_chat(psion, span_purple("Something latent unfolds behind your eyes. Your psionic potential awakens."))
+	to_chat(psion, span_purple("Your psionic potential awakens."))
 
 /datum/component/psionic_profile/proc/on_hud_created(datum/source)
 	SIGNAL_HANDLER

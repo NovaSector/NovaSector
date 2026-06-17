@@ -108,8 +108,8 @@
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 
 	living_owner.visible_message(
-		span_notice("A thread of restorative light reaches from [living_owner] to [biomend_target]."),
-		span_purple("You bind [biomend_target]'s wounds into a restorative pattern."),
+		span_notice("A beam of light reaches from [living_owner] to [biomend_target]."),
+		span_purple("You mend [biomend_target]'s wounds."),
 	)
 	return TRUE
 

@@ -119,7 +119,7 @@
 
 	living_owner.visible_message(
 		span_warning("[living_owner] shapes hardlight into [psiblade]."),
-		span_purple("You draw hardlight into [psiblade]."),
+		span_purple("You shape [psiblade] into your hand."),
 	)
 	playsound(living_owner, 'sound/items/weapons/saberon.ogg', 35, TRUE)
 	return TRUE
@@ -241,7 +241,7 @@
 
 /obj/item/psionic_blade/knife
 	name = "psionic knife"
-	desc = "A compact hardlight knife shaped by minor psionic focus."
+	desc = "A compact hardlight knife."
 	icon_state = "psiblade_epsilon"
 	inhand_icon_state = "psiblade_epsilon"
 	force = 10
@@ -254,11 +254,11 @@
 	psionic_rank = PSIONIC_RANK_EPSILON
 
 /obj/item/psionic_blade/machete
-	desc = "A chopping hardlight blade shaped by operant-rank psionics."
+	desc = "A chopping hardlight blade."
 
 /obj/item/psionic_blade/sabre
 	name = "psionic sabre"
-	desc = "A focused hardlight sabre shaped by master-rank psionics."
+	desc = "A focused hardlight sabre."
 	icon_state = "psiblade_delta"
 	inhand_icon_state = "psiblade_delta"
 	force = 25
@@ -269,7 +269,7 @@
 
 /obj/item/psionic_blade/energy
 	name = "psionic energy blade"
-	desc = "A lethal hardlight blade burning with grandmaster psionic focus."
+	desc = "A lethal hardlight blade."
 	icon_state = "psiblade_beta"
 	inhand_icon_state = "psiblade_beta"
 	force = 30
@@ -281,7 +281,7 @@
 
 /obj/item/psionic_blade/twinblade
 	name = "psionic twinblade"
-	desc = "A double-ended hardlight blade burning with paramount psionic focus."
+	desc = "A double-ended hardlight blade."
 	icon_state = "psiblade_alpha"
 	inhand_icon_state = "psiblade_alpha"
 	force = 40

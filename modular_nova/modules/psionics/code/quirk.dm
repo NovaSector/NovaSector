@@ -3,7 +3,7 @@
 	desc = "Your mind resonates with anomalous psionic potential. You awaken with imprint points to spend on psionic disciplines. Ranks above Gamma are unsafe around guns and sensitive technology."
 	icon = FA_ICON_ATOM
 	value = 4
-	gain_text = span_purple("A latent pressure unfolds behind your eyes.")
+	gain_text = span_purple("Your psionic potential stirs.")
 	lose_text = span_notice("The pressure behind your eyes falls silent.")
 	medical_record_text = "Patient presents with abnormal neural resonance consistent with latent psionic expression."
 
