@@ -1,0 +1,6 @@
+author: "theselfish"
+delete-after: True
+changes:
+  - rscadd: "The Clown Infection has infected some select mice now!"
+  - rscadd: "More things spawn in the vents, in that one uhh vent event."
+  - rscadd: "Clown pets now waddle."
