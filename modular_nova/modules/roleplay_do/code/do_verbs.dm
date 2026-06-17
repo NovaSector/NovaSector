@@ -14,7 +14,7 @@
 	if (!message || !doverb_checks(message))
 		return
 
-	if(!CAN_BYPASS_FILTER(usr)) // this is not try_speak because this is not speech. it's fine
+	if(!CAN_BYPASS_FILTER(usr))
 		var/list/filter_result = is_ic_filtered(message)
 
 		if(filter_result)
@@ -37,6 +37,10 @@
 			log_admin_private("[key_name(usr)] has passed the soft filter for emote \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Emote: \"[message]\"")
 			SSblackbox.record_feedback("tally", "passed_soft_ic_blocked_words", 1, LOWER_TEXT(config.soft_ic_filter_regex.match))
 			log_filter("Soft IC Emote (Passed)", message, filter_result)
+
+	if(usr.client?.prefs?.muted & MUTE_IC)
+		to_chat(usr, span_boldwarning("You cannot send IC messages (muted)."))
+		return
 
 	var/name_stub = " (<b>[usr]</b>)"
 	message = usr.apply_message_emphasis(message)
