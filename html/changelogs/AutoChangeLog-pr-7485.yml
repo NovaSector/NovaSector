@@ -1,4 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - bugfix: "Spaceship plating now makes spaceship walls and not titanium material walls."
