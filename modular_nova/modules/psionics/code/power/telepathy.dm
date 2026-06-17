@@ -1,6 +1,13 @@
 /datum/psionic_power/telepathy
 	action_type = /datum/action/cooldown/psionic/pointed/telepathy
 
+/datum/psionic_rank_variant/telepathy
+	rank = PSIONIC_RANK_EPSILON
+	variant_name = "whisper"
+	description = "A private thought sent to one nearby mind."
+	block_charge_cost = 1
+	block_message = "thought blocked!"
+
 /datum/action/cooldown/psionic/pointed/telepathy
 	name = "Telepathic Whisper"
 	desc = "Send a private thought to a nearby living target. Right-click repeats your last target."
@@ -11,6 +18,9 @@
 	strain_gain = 5
 	psionic_flags = PSIONIC_INTRUSIVE
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
+	rank_variant_types = list(
+		/datum/psionic_rank_variant/telepathy,
+	)
 	/// Last living target contacted by this action.
 	var/datum/weakref/last_target_ref
 	/// Message being projected for this activation.
@@ -62,11 +72,6 @@
 	return send_thought(owner, living_target, message)
 
 /datum/action/cooldown/psionic/pointed/telepathy/proc/send_thought(mob/living/caster, mob/living/target, thought)
-	if(target.can_block_psionics(PSIONIC_INTRUSIVE, charge_cost = 1))
-		caster.balloon_alert(caster, "thought blocked!")
-		to_chat(caster, span_warning("Your thought meets a hard, silent wall."))
-		return FALSE
-
 	log_directed_talk(caster, target, thought, LOG_SAY, tag = "psionic whisper")
 	last_target_ref = WEAKREF(target)
 

@@ -1,6 +1,13 @@
 /datum/psionic_power/sense_health
 	action_type = /datum/action/cooldown/psionic/pointed/sense_health
 
+/datum/psionic_rank_variant/sense_health
+	rank = PSIONIC_RANK_EPSILON
+	variant_name = "diagnosis"
+	description = "A focused read of one living target's condition."
+	block_charge_cost = 1
+	block_message = "sense blurred!"
+
 /datum/action/cooldown/psionic/pointed/sense_health
 	name = "Sense Health"
 	desc = "Read a nearby living target's condition as an advanced health analyzer."
@@ -11,6 +18,9 @@
 	strain_gain = 7
 	psionic_flags = PSIONIC_SENSORY
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
+	rank_variant_types = list(
+		/datum/psionic_rank_variant/sense_health,
+	)
 
 /datum/action/cooldown/psionic/pointed/sense_health/is_valid_target(atom/target)
 	. = ..()
@@ -24,11 +34,6 @@
 
 /datum/action/cooldown/psionic/pointed/sense_health/psionic_activate(atom/target)
 	var/mob/living/living_target = target
-	if(living_target.can_block_psionics(PSIONIC_SENSORY, charge_cost = 1))
-		owner.balloon_alert(owner, "sense blurred!")
-		to_chat(owner, span_warning("[living_target]'s condition blurs behind psionic dampening."))
-		return FALSE
-
 	to_chat(owner, span_purple("You unfold [living_target]'s condition into a diagnostic impression."))
 	healthscan(owner, living_target, mode = SCANNER_VERBOSE, advanced = TRUE)
 	return TRUE

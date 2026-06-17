@@ -21,8 +21,8 @@
 	var/radial_shove = FALSE
 	/// Radius affected by radial forms.
 	var/radial_range = 0
-	/// Anti-psionic charge cost for blocking this form.
-	var/dampener_charge_cost = 1
+	block_charge_cost = 1
+	block_message = "force dampened!"
 	/// If TRUE, this form launches a wide advancing wave in a targeted direction.
 	var/directional_wave = FALSE
 	/// Distance travelled by directional waves.
@@ -59,7 +59,7 @@
 	knockdown_time = 1.5 SECONDS
 	radial_shove = TRUE
 	radial_range = 4
-	dampener_charge_cost = 2
+	block_charge_cost = 2
 
 /datum/psionic_rank_variant/kinetic_shove/alpha
 	rank = PSIONIC_RANK_ALPHA
@@ -71,7 +71,7 @@
 	throw_distance = 3
 	stamina_damage = 0
 	knockdown_time = 2 SECONDS
-	dampener_charge_cost = 3
+	block_charge_cost = 3
 	directional_wave = TRUE
 	wave_range = 8
 	wave_width = 3
@@ -154,6 +154,9 @@
 		return selected_variant
 
 	return null
+
+/datum/action/cooldown/psionic/pointed/kinetic_shove/try_block_target(atom/target, datum/component/psionic_profile/profile)
+	return FALSE
 
 /datum/action/cooldown/psionic/pointed/kinetic_pull/proc/get_pull_form()
 	var/mob/living/living_owner = owner
@@ -297,9 +300,8 @@
 		return FALSE
 
 	var/mob/living/living_target = movable_target
-	if(istype(living_target) && living_target.can_block_psionics(PSIONIC_KINETIC, charge_cost = form.dampener_charge_cost))
+	if(istype(living_target) && living_target.try_block_psionics(owner, PSIONIC_KINETIC, charge_cost = form.block_charge_cost, alert = form.block_message))
 		if(announce)
-			owner.balloon_alert(owner, "force dampened!")
 			to_chat(owner, span_warning("Your force breaks against [living_target]'s psionic dampening."))
 		to_chat(living_target, span_warning("Invisible force breaks against your psionic dampening."))
 		return FALSE
@@ -456,7 +458,7 @@
 	wall_turf.dismantle_wall(devastated = FALSE, explode = TRUE)
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove/proc/hit_kinetic_wave_target(mob/living/living_target, mob/living/living_owner, wave_direction, datum/psionic_rank_variant/kinetic_shove/form)
-	if(living_target.can_block_psionics(PSIONIC_KINETIC, charge_cost = form.dampener_charge_cost))
+	if(living_target.try_block_psionics(living_owner, PSIONIC_KINETIC, charge_cost = form.block_charge_cost, alert = form.block_message))
 		to_chat(living_target, span_warning("Crushing force breaks against your psionic dampening."))
 		return FALSE
 

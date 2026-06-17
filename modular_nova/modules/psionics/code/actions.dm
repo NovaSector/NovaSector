@@ -17,6 +17,10 @@
 	var/active_msg
 	/// Cancel message used by pointed actions. If unset, the action's normal message is used.
 	var/deactive_msg
+	/// Anti-psionic charge cost to block this form. 0 means it bypasses blocking.
+	var/block_charge_cost = 0
+	/// Balloon alert shown to the caster when this form is blocked.
+	var/block_message = "blocked!"
 
 /datum/psionic_rank_variant/proc/get_name(datum/action/cooldown/psionic/action)
 	return variant_name || rank
@@ -50,6 +54,12 @@
 
 /datum/psionic_rank_variant/proc/get_deactive_msg(datum/action/cooldown/psionic/pointed/action)
 	return deactive_msg || action.deactive_msg
+
+/datum/psionic_rank_variant/proc/get_block_charge_cost(datum/action/cooldown/psionic/action)
+	return block_charge_cost
+
+/datum/psionic_rank_variant/proc/get_block_message(datum/action/cooldown/psionic/action)
+	return block_message
 
 /datum/psionic_rank_variant/proc/get_description(datum/action/cooldown/psionic/action)
 	var/form_description = description || get_name(action)
@@ -421,12 +431,43 @@
 		return FALSE
 	if(!start_concentration(living_owner, profile, TRUE))
 		return FALSE
+	if(try_block_target(target, profile))
+		stop_concentration(living_owner)
+		return FALSE
 	if(!psionic_activate(target))
 		stop_concentration(living_owner)
 		return FALSE
 
 	StartCooldown(get_psionic_cooldown_time(profile))
 	return TRUE
+
+/// Returns the charge cost to block this ability, 0 if it cannot be blocked.
+/// Override in subclasses for variant-specific costs.
+/datum/action/cooldown/psionic/proc/get_block_charge_cost(datum/component/psionic_profile/profile)
+	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
+	if(variant)
+		return variant.get_block_charge_cost(src)
+
+	return 0
+
+/// Returns the caster-facing block alert for the selected form.
+/datum/action/cooldown/psionic/proc/get_block_message(datum/component/psionic_profile/profile)
+	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
+	if(variant)
+		return variant.get_block_message(src)
+
+	return "blocked!"
+
+/// Checks whether [target] blocks this ability and emits standard caster feedback if it does.
+/// Returns TRUE if blocked. Called automatically by Activate() when get_block_charge_cost() is positive.
+/datum/action/cooldown/psionic/proc/try_block_target(atom/target, datum/component/psionic_profile/profile)
+	var/block_cost = get_block_charge_cost(profile)
+	if(block_cost <= 0)
+		return FALSE
+	if(!isliving(target))
+		return FALSE
+	var/mob/living/living_target = target
+	return living_target.try_block_psionics(owner, psionic_flags, charge_cost = block_cost, alert = get_block_message(profile))
 
 /datum/action/cooldown/psionic/proc/is_valid_target(atom/target)
 	return TRUE

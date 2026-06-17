@@ -3,6 +3,8 @@
 	var/psionic_mutation_rank
 
 /// Checks whether this mob can currently project psionics.
+/// `TRAIT_PSIONIC_DAMPENER` suppresses casting; `TRAIT_RESIST_PSYCHIC` does not, by design —
+/// resistance is receive-only (see `can_block_psionics`), not a casting lockout.
 /mob/proc/can_cast_psionics(psionic_flags = PSIONIC_ALL)
 	if(psionic_flags == NONE)
 		return TRUE
@@ -13,6 +15,8 @@
 	return !(SEND_SIGNAL(src, COMSIG_MOB_RESTRICT_PSIONICS, psionic_flags) & COMPONENT_PSIONIC_BLOCKED)
 
 /// Checks whether this mob blocks an incoming psionic effect.
+/// Both `TRAIT_PSIONIC_DAMPENER` and `TRAIT_RESIST_PSYCHIC` block incoming effects here,
+/// but only `TRAIT_PSIONIC_DAMPENER` also blocks casting in `can_cast_psionics()`.
 /mob/proc/can_block_psionics(psionic_flags = PSIONIC_INTRUSIVE, charge_cost = 1)
 	if(psionic_flags == NONE)
 		return FALSE
@@ -25,6 +29,16 @@
 		return TRUE
 
 	return HAS_TRAIT(src, TRAIT_RESIST_PSYCHIC)
+
+/// Checks whether this mob blocks an incoming psionic effect and emits standard feedback to [caster] if it does.
+/// Returns TRUE if blocked. Use this in powers instead of calling `can_block_psionics` directly
+/// to ensure consistent caster-side feedback without per-power ad-hoc messages.
+/mob/proc/try_block_psionics(mob/caster, psionic_flags = PSIONIC_INTRUSIVE, charge_cost = 1, alert = "blocked!")
+	if(can_block_psionics(psionic_flags, charge_cost))
+		if(istype(caster))
+			caster.balloon_alert(caster, alert)
+		return TRUE
+	return FALSE
 
 /mob/living/proc/get_psionic_profile()
 	return GetComponent(/datum/component/psionic_profile)

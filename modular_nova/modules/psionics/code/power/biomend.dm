@@ -2,6 +2,13 @@
 	required_school_points = 1
 	action_type = /datum/action/cooldown/psionic/pointed/living_target/biomend
 
+/datum/psionic_rank_variant/biomend
+	rank = PSIONIC_RANK_EPSILON
+	variant_name = "mend"
+	description = "A maintained restorative pattern for organic wounds."
+	block_charge_cost = 1
+	block_message = "mending blocked!"
+
 /datum/action/cooldown/psionic/pointed/living_target/biomend
 	name = "Biomend"
 	desc = "Channel a restorative psionic pattern into a living target, mending organic brute and burn trauma while your concentration holds."
@@ -18,12 +25,13 @@
 	deactive_msg = "You let the restorative pattern dissolve."
 	no_living_target_alert = "no patient!"
 	dead_target_alert = "no life pattern!"
+	rank_variant_types = list(
+		/datum/psionic_rank_variant/biomend,
+	)
 	/// Brute damage mended each second while the channel is active.
 	var/brute_healing_per_second = 3
 	/// Burn damage mended each second while the channel is active.
 	var/burn_healing_per_second = 3
-	/// Dampener charge cost for blocking the initial restorative pattern.
-	var/dampener_charge_cost = 1
 	/// TRUE while a target is being mended.
 	var/biomending = FALSE
 	/// Current target of the maintained channel.
@@ -83,11 +91,6 @@
 	var/datum/component/psionic_profile/profile = living_owner?.get_psionic_profile()
 	if(!istype(carbon_target))
 		return FALSE
-	if(carbon_target.can_block_psionics(psionic_flags, charge_cost = dampener_charge_cost))
-		living_owner.balloon_alert(living_owner, "mending blocked!")
-		to_chat(living_owner, span_warning("[carbon_target]'s body rejects your restorative pattern."))
-		return FALSE
-
 	biomending = TRUE
 	biomend_target = carbon_target
 	var/manifestation_color = get_manifestation_color()

@@ -8,6 +8,8 @@
 	strain_gain = 14
 	cooldown_time = 12 SECONDS
 	cast_range = 9
+	block_charge_cost = 1
+	block_message = "flame dampened!"
 	/// Projectile type launched by this form.
 	var/obj/projectile/projectile_type = /obj/projectile/psionic/pyro_bolt
 	/// Number of projectiles released by one activation.
@@ -74,6 +76,7 @@
 	cast_range = 8
 	active_msg = "A bright pressure gathers in your burning hand."
 	deactive_msg = "You let the fireball gutter out."
+	block_charge_cost = 2
 	projectile_type = /obj/projectile/psionic/pyro_fireball
 	projectiles_per_fire = 1
 	projectile_spread = 0
@@ -123,6 +126,9 @@
 
 	return null
 
+/datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/try_block_target(atom/target, datum/component/psionic_profile/profile)
+	return FALSE
+
 /datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/psionic_activate(atom/target)
 	var/mob/living/living_owner = owner
 	if(!istype(living_owner))
@@ -147,6 +153,22 @@
 	projectiles_per_fire = original_projectiles_per_fire
 	projectile_spread = original_projectile_spread
 	projectile_sound = original_projectile_sound
+
+/datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/ready_projectile(obj/projectile/to_fire, atom/target, mob/user, iteration)
+	. = ..()
+	if(!.)
+		return
+
+	var/obj/projectile/psionic/psionic_projectile = to_fire
+	if(!istype(psionic_projectile))
+		return .
+
+	var/datum/psionic_rank_variant/pyro_bolt/form = get_pyro_form()
+	if(!form)
+		return .
+
+	psionic_projectile.psionic_charge_cost = form.get_block_charge_cost(src)
+	psionic_projectile.psionic_block_message = form.get_block_message(src)
 
 /obj/item/psionic_pyro_hand
 	name = "\improper psionic flame"
@@ -177,6 +199,8 @@
 	var/psionic_flags = PSIONIC_THERMAL
 	/// Anti-psionic charge cost to block this projectile.
 	var/psionic_charge_cost = 1
+	/// Balloon alert shown to the firer when this projectile is blocked.
+	var/psionic_block_message = "flame dampened!"
 
 /obj/projectile/psionic/prehit_pierce(atom/target)
 	. = ..()
@@ -184,7 +208,10 @@
 		return .
 
 	var/mob/living/living_target = target
-	if(living_target.can_block_psionics(psionic_flags, psionic_charge_cost))
+	var/mob/caster
+	if(ismob(firer))
+		caster = firer
+	if(living_target.try_block_psionics(caster, psionic_flags, charge_cost = psionic_charge_cost, alert = psionic_block_message))
 		visible_message(span_warning("[src] unravels against [living_target]'s psionic dampening."))
 		return PROJECTILE_DELETE_WITHOUT_HITTING
 
