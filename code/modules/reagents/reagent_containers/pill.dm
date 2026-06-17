@@ -236,9 +236,10 @@
 	icon_state = "pill19"
 	list_reagents = list(/datum/reagent/medicine/sansufentanyl = 10) // NOVA EDIT CHANGE - ORIGINAL: list_reagents = list(/datum/reagent/medicine/sansufentanyl = 5)
 
+//Lower quantity mannitol pills (50u pills heal 250 brain damage, 5u pills heal 25)
 /obj/item/reagent_containers/applicator/pill/mannitol/braintumor
 	desc = "Used to treat symptoms for brain tumors."
-	list_reagents = list(/datum/reagent/medicine/mannitol = 15) // NOVA EDIT CHANGE - ORIGINAL: list_reagents = list(/datum/reagent/medicine/mannitol = 5)
+	list_reagents = list(/datum/reagent/medicine/mannitol = 5)
 
 /obj/item/reagent_containers/applicator/pill/mutadone
 	name = "mutadone pill"
