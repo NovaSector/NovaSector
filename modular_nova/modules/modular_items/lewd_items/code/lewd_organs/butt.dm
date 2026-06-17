@@ -66,7 +66,7 @@
 
 /datum/bodypart_overlay/mutant/genital/butt
 	feature_key = ORGAN_SLOT_BUTT
-	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_OVER | EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
 	//| EXTERNAL_BEHIND | EXTERNAL_FRONT
 /*
 //	layer_above_all = -(BODY_FRONT_LAYER - 0.02)
