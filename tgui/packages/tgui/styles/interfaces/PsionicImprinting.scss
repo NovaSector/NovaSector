@@ -81,50 +81,80 @@
     background: rgba(0, 0, 0, 0.22);
   }
 
-  &__tierTrack {
+  &__powerMap {
     position: relative;
+    min-height: 168px;
   }
 
-  &__tierTrack::before {
+  &__dependencyLines {
     position: absolute;
-    top: 16px;
-    bottom: 16px;
-    left: 22px;
-    border-left: 1px solid rgba(220, 236, 255, 0.28);
-    content: '';
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow: visible;
+    pointer-events: none;
   }
 
-  &__tier {
-    position: relative;
-    margin: 8px 0 14px;
-    padding: 12px 10px 10px 42px;
-    border-top: 1px solid;
+  &__dependencyLine {
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 2px;
+    opacity: 0.54;
   }
 
-  &__tier::before {
+  &__dependencyLine--locked {
+    stroke-dasharray: 5 5;
+    opacity: 0.24;
+  }
+
+  &__dependencyLine--available {
+    opacity: 0.68;
+  }
+
+  &__dependencyLine--complete {
+    opacity: 0.88;
+  }
+
+  &__dependencyPoint {
+    fill: #050811;
+    stroke: currentColor;
+    stroke-width: 2px;
+    opacity: 0.72;
+  }
+
+  &__dependencyPoint--locked {
+    opacity: 0.34;
+  }
+
+  &__dependencyPoint--complete {
+    fill: currentColor;
+    opacity: 0.92;
+  }
+
+  &__tierLabel {
     position: absolute;
-    top: -4px;
-    left: 18px;
-    width: 8px;
-    height: 8px;
-    border: 1px solid currentColor;
-    border-radius: 50%;
-    background: #111722;
-    content: '';
-  }
-
-  &__tierTitle {
-    margin-bottom: 8px;
+    left: 0;
+    z-index: 1;
+    width: 82px;
     color: #dcecff;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: bold;
+    letter-spacing: 0;
+    text-align: right;
     text-transform: uppercase;
   }
 
+  &__nodeSlot {
+    position: absolute;
+    z-index: 2;
+    width: 140px;
+    height: 140px;
+  }
+
   &__node {
-    width: 150px;
-    height: 150px;
-    margin: 4px;
+    width: 140px;
+    height: 140px;
     padding: 10px 8px;
     border: 1px solid;
     border-radius: 50%;
@@ -155,5 +185,16 @@
     padding: 5px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.35);
+  }
+
+  &__nodeName {
+    max-width: 112px;
+    line-height: 1.12;
+  }
+
+  &__nodeMeta {
+    max-width: 112px;
+    font-size: 11px;
+    line-height: 1.1;
   }
 }

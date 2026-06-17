@@ -502,12 +502,17 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 /datum/component/psionic_profile/proc/get_power_ui_data(datum/psionic_power/power)
 	var/lock_reason = get_power_lock_reason(power)
 	var/datum/action/cooldown/psionic/action_type = power.action_type
+	var/list/required_power_paths = list()
+	if(length(power.required_powers))
+		for(var/required_power_type in power.required_powers)
+			required_power_paths += "[required_power_type]"
 	return list(
 		"action_type" = "[action_type]",
 		"name" = power.get_name(),
 		"desc" = power.get_desc(),
 		"cost" = power.get_cost(),
 		"required_school_points" = power.required_school_points,
+		"required_powers" = required_power_paths,
 		"tier" = get_power_tier(power),
 		"learned" = (action_type in known_powers),
 		"can_buy" = isnull(lock_reason),
