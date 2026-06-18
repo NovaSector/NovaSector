@@ -5,9 +5,7 @@
 	get_quirks()
 	return SS_INIT_SUCCESS
 
-#define FEATHERWEIGHT_QUIRK_TRAIT "featherweight_quirk"
-#define FEATHERWEIGHT_FLIGHT_TRAIT "featherweight_flight"
-#define FEATHERWEIGHT_CARRY_TRAIT "featherweight_carry"
+#define FEATHERWEIGHT_TRAIT "featherweight"
 #define FEATHERWEIGHT_FRAGILITY_MOD 1.25
 #define FEATHERWEIGHT_FLIGHT_DISABLE_TIME (6 SECONDS)
 #define FEATHERWEIGHT_HIT_KNOCKDOWN_TIME (2 SECONDS)
@@ -158,10 +156,10 @@
 		return
 
 	human.physiology.stun_mod *= 2
-	human.add_traits(list(TRAIT_MOVE_FLOATING, TRAIT_IGNORING_GRAVITY, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_SILENT_FOOTSTEPS), FEATHERWEIGHT_FLIGHT_TRAIT)
+	human.add_traits(list(TRAIT_MOVE_FLOATING, TRAIT_IGNORING_GRAVITY, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_SILENT_FOOTSTEPS), FEATHERWEIGHT_TRAIT)
 	human.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/wings)
 	human.AddElement(/datum/element/forced_gravity, 0)
-	passtable_on(human, FEATHERWEIGHT_FLIGHT_TRAIT)
+	passtable_on(human, FEATHERWEIGHT_TRAIT)
 	if(!(human.pass_flags & PASSMACHINE))
 		added_passmachine = TRUE
 	human.pass_flags |= PASSMACHINE
@@ -177,10 +175,10 @@
 
 	if(is_flying(human))
 		human.physiology.stun_mod *= 0.5
-		human.remove_traits(list(TRAIT_MOVE_FLOATING, TRAIT_IGNORING_GRAVITY, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_SILENT_FOOTSTEPS), FEATHERWEIGHT_FLIGHT_TRAIT)
+		human.remove_traits(list(TRAIT_MOVE_FLOATING, TRAIT_IGNORING_GRAVITY, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_SILENT_FOOTSTEPS), FEATHERWEIGHT_TRAIT)
 		human.remove_movespeed_modifier(/datum/movespeed_modifier/jetpack/wings)
 		human.RemoveElement(/datum/element/forced_gravity, 0)
-		passtable_off(human, FEATHERWEIGHT_FLIGHT_TRAIT)
+		passtable_off(human, FEATHERWEIGHT_TRAIT)
 		if(!silent)
 			to_chat(human, span_notice("You settle gently back onto the ground..."))
 
@@ -243,7 +241,7 @@
 	return can_fly(get_human_owner(), silent = TRUE)
 
 /datum/component/featherweight_wing_flight/proc/is_flying(mob/living/carbon/human/human)
-	return human && HAS_TRAIT_FROM(human, TRAIT_MOVE_FLOATING, FEATHERWEIGHT_FLIGHT_TRAIT)
+	return human && HAS_TRAIT_FROM(human, TRAIT_MOVE_FLOATING, FEATHERWEIGHT_TRAIT)
 
 /datum/component/featherweight_wing_flight/proc/set_wings_open(mob/living/carbon/human/human, open)
 	var/obj/item/organ/wings/functional/functional_wings = wing_parent
@@ -328,7 +326,7 @@
 
 /datum/quirk/featherweight/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	ADD_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_QUIRK_TRAIT)
+	ADD_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_TRAIT)
 	human_holder.physiology.brute_mod *= FEATHERWEIGHT_FRAGILITY_MOD
 	human_holder.physiology.burn_mod *= FEATHERWEIGHT_FRAGILITY_MOD
 	RegisterSignals(human_holder, list(COMSIG_CARBON_GAIN_ORGAN, COMSIG_CARBON_LOSE_ORGAN), PROC_REF(on_wing_changed))
@@ -341,7 +339,7 @@
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	UnregisterSignal(human_holder, list(COMSIG_CARBON_GAIN_ORGAN, COMSIG_CARBON_LOSE_ORGAN))
-	REMOVE_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_QUIRK_TRAIT)
+	REMOVE_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_TRAIT)
 	human_holder.physiology.brute_mod /= FEATHERWEIGHT_FRAGILITY_MOD
 	human_holder.physiology.burn_mod /= FEATHERWEIGHT_FRAGILITY_MOD
 
@@ -371,8 +369,8 @@
 
 /mob/living/carbon/human/fireman_carry(mob/living/carbon/target)
 	if(target?.has_quirk(/datum/quirk/featherweight) && !HAS_TRAIT(src, TRAIT_QUICKER_CARRY))
-		ADD_TRAIT(src, TRAIT_QUICKER_CARRY, FEATHERWEIGHT_CARRY_TRAIT)
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, remove_traits), list(TRAIT_QUICKER_CARRY), FEATHERWEIGHT_CARRY_TRAIT), 0)
+		ADD_TRAIT(src, TRAIT_QUICKER_CARRY, FEATHERWEIGHT_TRAIT)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, remove_traits), list(TRAIT_QUICKER_CARRY), FEATHERWEIGHT_TRAIT), 0)
 
 	return ..()
 
@@ -389,9 +387,7 @@
 
 	remove_movespeed_modifier(/datum/movespeed_modifier/bulky_drag)
 
-#undef FEATHERWEIGHT_QUIRK_TRAIT
-#undef FEATHERWEIGHT_CARRY_TRAIT
-#undef FEATHERWEIGHT_FLIGHT_TRAIT
+#undef FEATHERWEIGHT_TRAIT
 #undef FEATHERWEIGHT_FRAGILITY_MOD
 #undef FEATHERWEIGHT_FLIGHT_DISABLE_TIME
 #undef FEATHERWEIGHT_HIT_KNOCKDOWN_TIME
