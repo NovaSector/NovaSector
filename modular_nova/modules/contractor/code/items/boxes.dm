@@ -76,10 +76,16 @@
 	ammo_box_to_spawn = /obj/item/ammo_box/c10mm/downer
 
 /obj/item/storage/toolbox/guncase/traitor/contractor_fisher/PopulateContents()
-	new weapon_to_spawn (src) // 1 pistol
-	new extra_to_spawn (src) // 1 spare sleeper mag, because oftentimes you'd rather not kill a guy
-	new extra2_to_spawn (src) // 1 spare lethal mag, because sometimes you DO have to just kill a guy
-	new ammo_box_to_spawn(src) // spare sleeper bullets
+	// 1 pistol
+	new weapon_to_spawn (src)
+	// 2 spare sleeper mags, because oftentimes you'd rather not kill a guy
+	new extra_to_spawn (src)
+	new extra_to_spawn (src)
+	// 2 spare lethal mags, because sometimes you'd do have to kill a guy
+	new extra2_to_spawn (src)
+	new extra2_to_spawn (src)
+	// 20 more sleeper rounds
+	new ammo_box_to_spawn(src)
 
 /datum/storage/toolbox/guncase/contractor_fisher
 	max_slots = 6 // gun, 4 mags, sleeper box
