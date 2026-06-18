@@ -89,15 +89,8 @@
 		flight_action = new(src)
 	flight_action.Grant(human)
 	update_damage_snapshot(human)
-	RegisterSignals(human, list(
-		COMSIG_MOB_STATCHANGE,
-		COMSIG_LIVING_SET_BODY_POSITION,
-		COMSIG_MOVABLE_MOVED,
-	), PROC_REF(on_owner_state_changed))
-	RegisterSignals(human, list(
-		COMSIG_LIVING_HEALTH_UPDATE,
-		COMSIG_LIVING_STATUS_KNOCKDOWN,
-	), PROC_REF(on_owner_grounded))
+	RegisterSignals(human, list(COMSIG_MOB_STATCHANGE, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOVABLE_MOVED), PROC_REF(on_owner_state_changed))
+	RegisterSignals(human, list(COMSIG_LIVING_HEALTH_UPDATE, COMSIG_LIVING_STATUS_KNOCKDOWN), PROC_REF(on_owner_grounded))
 
 /datum/component/featherweight_wing_flight/proc/on_wing_removed(obj/item/organ/wings/source, mob/living/carbon/organ_owner)
 	SIGNAL_HANDLER
@@ -196,9 +189,8 @@
 /datum/component/featherweight_wing_flight/proc/on_owner_state_changed(datum/source, changed_thing = null)
 	SIGNAL_HANDLER
 
-	var/mob/living/carbon/human/human = current_owner
-	if(is_flying(human) && !can_fly(human, silent = TRUE))
-		stop_flight(human)
+	if(is_flying(current_owner) && !can_fly(current_owner, silent = TRUE))
+		stop_flight(current_owner)
 
 /datum/component/featherweight_wing_flight/proc/on_owner_grounded(mob/living/carbon/human/source, knockdown_amount = null)
 	SIGNAL_HANDLER
@@ -212,19 +204,14 @@
 			disable_flight(source, knock_down = FALSE, show_message = FALSE)
 		return
 
-	var/current_brute_loss = source.get_brute_loss()
-	var/current_burn_loss = source.get_fire_loss()
-	if(current_brute_loss > last_brute_loss || current_burn_loss > last_burn_loss)
+	if(source.get_brute_loss() > last_brute_loss || source.get_fire_loss() > last_burn_loss)
 		disable_flight(source)
-	last_brute_loss = current_brute_loss
-	last_burn_loss = current_burn_loss
+	update_damage_snapshot(source)
 
 /datum/component/featherweight_wing_flight/proc/on_flight_lockout_finished()
 	var/mob/living/carbon/human/human = get_human_owner()
-	if(!human || world.time < next_flight_allowed)
-		return
-
-	to_chat(human, span_notice("Your wings feel steady enough to fly again."))
+	if(human && world.time >= next_flight_allowed)
+		to_chat(human, span_notice("Your wings feel steady enough to fly again."))
 
 /datum/component/featherweight_wing_flight/proc/can_jetpack()
 	return can_fly(get_human_owner(), silent = TRUE)
@@ -289,13 +276,7 @@
 		return
 
 	stop_flight(human, silent = TRUE)
-	UnregisterSignal(human, list(
-		COMSIG_MOB_STATCHANGE,
-		COMSIG_LIVING_SET_BODY_POSITION,
-		COMSIG_MOVABLE_MOVED,
-		COMSIG_LIVING_HEALTH_UPDATE,
-		COMSIG_LIVING_STATUS_KNOCKDOWN,
-	))
+	UnregisterSignal(human, list(COMSIG_MOB_STATCHANGE, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOVABLE_MOVED, COMSIG_LIVING_HEALTH_UPDATE, COMSIG_LIVING_STATUS_KNOCKDOWN))
 	flight_action?.Remove(human)
 	if(current_owner == human)
 		current_owner = null
@@ -320,9 +301,8 @@
 	human_holder.physiology.burn_mod *= FEATHERWEIGHT_FRAGILITY_MOD
 	RegisterSignal(human_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_wing_gained))
 	RegisterSignal(human_holder, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_wing_lost))
-	var/obj/item/organ/current_organ = human_holder.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
-	if(istype(current_organ, /obj/item/organ/wings))
-		var/obj/item/organ/wings/wings = current_organ
+	var/obj/item/organ/wings/wings = human_holder.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
+	if(istype(wings))
 		set_wing_component(wings)
 
 /datum/quirk/featherweight/remove()
@@ -339,11 +319,9 @@
 /datum/quirk/featherweight/proc/on_wing_gained(datum/source, obj/item/organ/changed_organ)
 	SIGNAL_HANDLER
 
-	if(!istype(changed_organ, /obj/item/organ/wings))
-		return
-
 	var/obj/item/organ/wings/wings = changed_organ
-	set_wing_component(wings)
+	if(istype(wings))
+		set_wing_component(wings)
 
 /datum/quirk/featherweight/proc/on_wing_lost(datum/source, obj/item/organ/changed_organ)
 	SIGNAL_HANDLER
