@@ -13,6 +13,15 @@
 	view_exploitables = TRUE
 	/// The outfit the contractor is equipped with
 	var/contractor_outfit = /datum/outfit/contractor
+	// taken from traitor datum
+	///reference to the uplink this contractor was given, if they were.
+	var/datum/weakref/uplink_ref
+	/// The uplink handler that this contractor belongs to.
+	var/datum/uplink_handler/uplink_handler
+	/// Minimum discounted items they can have
+	var/uplink_sales_min = 4
+	/// Maximum discounted items they can have
+	var/uplink_sales_max = 6
 
 /datum/antagonist/contractor/proc/equip_guy()
 	if(!ishuman(owner.current))
@@ -26,6 +35,24 @@
 	forge_objectives()
 	. = ..()
 	equip_guy()
+	var/datum/component/uplink/uplink = owner.find_syndicate_uplink()
+	uplink_ref = WEAKREF(uplink)
+	if(uplink)
+		if(uplink_handler)
+			uplink.uplink_handler = uplink_handler
+		else
+			uplink_handler = uplink.uplink_handler
+
+		var/list/uplink_items = list()
+		for(var/datum/uplink_item/item as anything in SStraitor.uplink_items)
+			if(item.item && !item.cant_discount && (item.purchasable_from & uplink_handler.uplink_flag) && item.cost >= TRAITOR_DISCOUNT_MIN_PRICE)
+				if(!length(item.restricted_roles) && !length(item.restricted_species))
+					uplink_items += item
+					continue
+				if((uplink_handler.assigned_role in item.restricted_roles) || (uplink_handler.assigned_species in item.restricted_species))
+					uplink_items += item
+					continue
+		uplink_handler.extra_purchasable += create_uplink_sales(rand(uplink_sales_min, uplink_sales_max), /datum/uplink_category/discounts, -1, uplink_items)
 
 /datum/antagonist/contractor/forge_objectives()
 	var/datum/objective/contractor_total/contract_objectives = new
