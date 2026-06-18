@@ -86,8 +86,7 @@
 
 	var/datum/mutant_bodypart/mutant_part = target.dna.mutant_bodyparts[relevant_mutant_bodypart]
 	if(mutant_part)
-		var/color_value = sanitize_hexcolor(value)
-		mutant_part.set_colors(list(color_value, color_value, color_value))
+		mutant_part.set_colors(list(value, value, value))
 
 /**
  * Base class for character feature togglers

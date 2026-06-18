@@ -767,7 +767,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module/malf))
 	power_type = /datum/action/innate/ai/break_fire_alarms
 	unlock_text = span_notice("You replace the thermal sensing capabilities of all fire alarms with a manual override, \
 		allowing you to turn them off at will.")
-	unlock_sound = 'sound/machines/fire_alarm/FireAlarm1.ogg'
+	unlock_sound = 'sound/machines/fire_alarm/fire_alarm1.ogg'
 
 /datum/action/innate/ai/break_fire_alarms
 	name = "Override Thermal Sensors"
@@ -1111,7 +1111,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module/malf))
 		/obj/structure,
 		/obj/item/radio/intercom,
 		/obj/item/modular_computer,
-		/mob/living/simple_animal/bot,
+		/mob/living/basic/bot,
 		/mob/living/silicon,
 	)
 

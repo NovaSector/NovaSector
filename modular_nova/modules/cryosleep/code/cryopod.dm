@@ -91,13 +91,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/item_retrieval_allowed = allowed(user)
 	data["item_retrieval_allowed"] = item_retrieval_allowed
 
-	var/obj/item/card/id/id_card
-	if(isliving(user))
-		var/mob/living/person = user
-		id_card = person.get_idcard()
-	if(id_card?.registered_name)
-		data["account_name"] = id_card.registered_name
-
 	return data
 
 /obj/machinery/computer/cryopod/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -112,7 +105,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			if(item in frozen_items)
 				item.forceMove(drop_location())
 				ui.user.put_in_hands(item)
-				LAZYREMOVE(frozen_items, item)
+				unfreeze_item(item)
 				visible_message("[src] dispenses \the [item].")
 				message_admins("[item] was retrieved by [ui.user] from cryostorage at [ADMIN_COORDJMP(src)]")
 			else
@@ -152,6 +145,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 					"PERSON" = user,
 					"RANK" = rank,
 				), src, list(announcement_channel), "Removing")
+
+/// Adds an item from the frozen items list.
+/// Use this or you will get hard deletes.
+/obj/machinery/computer/cryopod/proc/freeze_item(obj/item/item)
+	if(QDELETED(item))
+		return
+	LAZYADD(frozen_items, item)
+	RegisterSignal(item, COMSIG_QDELETING, PROC_REF(unfreeze_item))
+
+/// Removes an item from the frozen items list.
+/// Use this instead of directly removing it from the `frozen_items` list,
+/// as this also unregisters the qdel signal.
+/obj/machinery/computer/cryopod/proc/unfreeze_item(obj/item/item)
+	SIGNAL_HANDLER
+	UnregisterSignal(item, COMSIG_QDELETING)
+	LAZYREMOVE(frozen_items, item)
 
 // Cryopods themselves.
 /obj/machinery/cryopod
@@ -430,7 +439,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	if(!HAS_TRAIT_FROM(mob_occupant, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)) // Don't let ghost cafe people store items
 		for(var/obj/item/item_content in mob_occupant)
-			if(HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & (ABSTRACT|DROPDEL)) || (item_content.flags_1 & HOLOGRAM_1))
+			if(HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & (ABSTRACT|DROPDEL)) || (item_content.flags_1 & HOLOGRAM_1) || (item_content.obj_flags_nova & NO_CRYO_FREEZE) || QDELETED(item_content))
 				continue
 			if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
 				continue
@@ -440,8 +449,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 					for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
 						message_app.invisible = TRUE
 				mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
-				item_content.dropped(mob_occupant)
-				LAZYADD(control_computer.frozen_items, item_content)
+				control_computer.freeze_item(item_content)
 			else
 				mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
 

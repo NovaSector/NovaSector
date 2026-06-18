@@ -317,7 +317,11 @@
 
 /datum/sprite_accessory/snouts/mammal/canine_alt
 	name = "Canine (Alt)"
-	icon_state = "caninealt"
+	icon_state = "caninealt"	
+
+/datum/sprite_accessory/snouts/mammal/vulptwoshade
+	name = "Vulp Twoshade"
+	icon_state = "vulptwoshade"
 
 /******************************************
 **************** Snouts *******************
@@ -540,7 +544,7 @@
 	icon_state = "acrador_short"
 	color_src = USE_MATRIXED_COLORS
 
-/datum/sprite_accessory/snouts/snouts/mammal/acrador/normal_1
+/datum/sprite_accessory/snouts/mammal/acrador/normal_1
 	name = "Acrador 1 (Normal)"
 	icon_state = "acrador_1"
 
@@ -556,7 +560,7 @@
 	name = "Acrador 4 (Normal)"
 	icon_state = "acrador_4"
 
-/datum/sprite_accessory/snouts/mammal/acrador/normal_1/alt
+/datum/sprite_accessory/snouts/mammal/acrador/alt
 	name = "Acrador (Short) (Alt)"
 	icon_state = "acrador_short_alt"
 

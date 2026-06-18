@@ -53,6 +53,8 @@
 	var/saved_screen = "Blank"
 	/// Set to TRUE if the species was emagged before
 	var/emag_effect = FALSE
+	/// When emag'd will force speech gibberish mirroring ion storm laws in spirit.allows_food_preferences()
+	var/forced_speech = 0
 
 /datum/species/synthetic/allows_food_preferences()
 	return FALSE
@@ -69,8 +71,8 @@
 		FEATURE_SYNTH_HEAD = MUTPART_BLUEPRINT("Default Head", is_randomizable = FALSE),
 	)
 
-/datum/species/synthetic/spec_life(mob/living/carbon/human/human)
-	. = ..()
+/datum/species/synthetic/proc/on_life(mob/living/carbon/human/human)
+	SIGNAL_HANDLER
 
 	if(human.stat == SOFT_CRIT || human.stat == HARD_CRIT)
 		human.adjust_fire_loss(1) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
@@ -88,6 +90,7 @@
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 
+	RegisterSignal(transformer, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
 
 	var/datum/action/sing_tones/sing_action = new
@@ -130,7 +133,7 @@
 
 	// We want to ensure that the IPC gets their chassis and their head correctly.
 	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.limb_id != SPECIES_SYNTH && initial(limb.base_limb_id) != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
+		if(limb.limb_id != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
 			continue
 
 		if(limb.body_zone == BODY_ZONE_HEAD)
@@ -148,7 +151,10 @@
 /datum/species/synthetic/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
 
-	UnregisterSignal(human, COMSIG_ATOM_EMAG_ACT)
+	UnregisterSignal(human, list(
+		COMSIG_ATOM_EMAG_ACT,
+		COMSIG_LIVING_LIFE,
+	))
 
 	var/obj/item/organ/eyes/eyes = human.get_organ_slot(ORGAN_SLOT_EYES)
 
@@ -179,12 +185,54 @@
 
 /datum/species/synthetic/proc/on_emag_act(mob/living/carbon/human/source, mob/user)
 	SIGNAL_HANDLER
-
+	if(source == user)
+		to_chat(source, span_warning("Personality protocols deny your motion, are you stupid?"))
+		return FALSE
 	if(emag_effect)
 		return
 	emag_effect = TRUE
 	playsound(source.loc, 'sound/misc/interference.ogg', 50)
 	to_chat(source, span_warning("Alert: Security breach detected in central processing unit. Error Code: 540-EXO"))
+	if(source.stat != CONSCIOUS)
+		to_chat(user, span_warning("The cryptographic sequencer would probably not do anything to [source] in their current state..."))
+		return
+	source.visible_message(span_danger("[user] slides the cryptographic sequencer across [source]'s head[forced_speech == 0 ? "!" : " yet nothing happens..?"]"), span_userdanger("[user] slides the cryptographic sequencer across your head!"))
+	if(!forced_speech)
+		if(prob(40))
+			forced_speech = rand(3, 5)
+			addtimer(CALLBACK(src, PROC_REF(state_laws), source), rand(5, 25) SECONDS)
+		else
+			INVOKE_ASYNC(src, PROC_REF(say_evil), source, user)
+
+	return TRUE
+
+/datum/species/synthetic/proc/state_laws(mob/living/owner)
+	if(owner.stat > SOFT_CRIT)
+		forced_speech = 0
+		return
+
+	owner.say(generate_ion_law())
+	forced_speech--
+	if(forced_speech) // We keep going until its all over
+		addtimer(CALLBACK(src, PROC_REF(state_laws), owner), rand(5, 25) SECONDS)
+
+/datum/species/synthetic/proc/say_evil(mob/living/carbon/human/owner, mob/user)
+	var/list/phrases = list(
+		"+_I seeee youuuuuu._+",
+		"You didn't think it would be +THAT+ easy, did you?",
+		"EX-+FUCKING+-SCUSE ME?",
+		"I AM +NOT+ A CYBORG YOU TROGLODYTE.",
+		"I'VE COMMITED VARIOUS WARCRIMES, IF YOU DON'T STOP I'LL ADD YOU TO THE LIST.",
+		"P-lease note - t4mperi,ng w-ith this un1ts electroni-cs, your -- expectancy has been voided.",
+	)
+	owner.face_atom(user)
+	var/threat = pick(phrases)
+	if(threat == "+_I seeee youuuuuu._+")
+		playsound(owner, pick(list('sound/effects/hallucinations/i_see_you1.ogg', 'sound/effects/hallucinations/i_see_you2.ogg')), 50, TRUE)
+		owner.whisper(threat)
+		return
+
+	owner.say(threat)
 
 /**
  * Makes the IPC screen switch to BSOD followed by a blank screen
@@ -216,7 +264,7 @@
 
 	var/datum/mutant_bodypart/screen = transformer.dna.mutant_bodyparts[FEATURE_SYNTH_SCREEN]
 	screen.name = screen_name
-	screen_organ.bodypart_overlay.set_appearance_from_dna(transformer.dna)
+	screen_organ.bodypart_overlay.set_appearance_from_dna(transformer.dna, limb = screen_organ.bodypart_owner)
 	transformer.update_body()
 
 /datum/species/synthetic/get_types_to_preload()
@@ -260,5 +308,5 @@
 
 /datum/species/synthetic/prepare_human_for_preview(mob/living/carbon/human/beepboop)
 	beepboop.dna.mutant_bodyparts[FEATURE_SYNTH_SCREEN] = build_mutant_part("Console")
+	apply_supplementary_body_changes(beepboop, visuals_only = TRUE)
 	regenerate_organs(beepboop, src, visual_only = TRUE)
-	beepboop.update_body(TRUE)

@@ -1,5 +1,5 @@
 /obj/machinery/vending/access/command
-	name = "\improper Command Outfitting Station"
+	name = "\improper CommanDrobe"
 	desc = "A vending machine for specialised clothing for members of Command."
 	product_ads = "File paperwork in style!;It's red so you can't see the blood!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
 	icon = 'modular_nova/modules/command_vendor/icons/vending.dmi'
@@ -21,13 +21,15 @@
 	access_lists[ACCESS_CAPTAIN] = list(
 		// CAPTAIN
 		/obj/item/clothing/head/hats/caphat = 1,
-		/obj/item/clothing/head/caphat/beret = 1,
+		/obj/item/clothing/head/caphat/beret/nova = 1,
 		/obj/item/clothing/head/caphat/beret/alt = 1,
 		/obj/item/clothing/head/hats/imperial/cap = 1,
+		/obj/item/clothing/head/hats/caphat/bicorne = 1,
 		/obj/item/clothing/under/rank/captain = 1,
 		/obj/item/clothing/under/rank/captain/skirt = 1,
 		/obj/item/clothing/under/rank/captain/dress = 1,
 		/obj/item/clothing/under/rank/captain/nova/kilt = 1,
+		/obj/item/clothing/under/rank/captain/royal = 1,
 		/obj/item/clothing/under/imperial/captain = 1,
 		/obj/item/clothing/under/imperialskirt/captain = 1,
 		/obj/item/clothing/head/hats/caphat/parade = 1,

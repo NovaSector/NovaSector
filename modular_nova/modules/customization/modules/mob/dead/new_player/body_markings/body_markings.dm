@@ -49,6 +49,13 @@
 	icon = 'modular_nova/master_files/icons/mob/body_markings/other_markings.dmi'
 	recommended_species = null
 
+/datum/body_marking/other/eyebags
+	name = "Eye Bags"
+	icon = 'icons/mob/human/species/misc/bodypart_overlay_simple.dmi'
+	icon_state = "bags"
+	default_color = "#484848"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/drake_bone
 	name = "Drake Bone"
 	icon_state = "drakebone"
@@ -91,6 +98,12 @@
 /datum/body_marking/other/blank_face2
 	name = "Blank Round Face, Alt"
 	icon_state = "blankface2"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/blank_face3
+	name = "Blank Round Face, Flat"
+	icon_state = "blankface3"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
@@ -144,6 +157,18 @@
 /datum/body_marking/other/eyeliner
 	name = "Eyeliner"
 	icon_state = "eyeliner"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/clowncross
+	name = "Clown Cross"
+	icon_state = "clowncross"
+	default_color = "#FFFF00"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/clownlips
+	name = "Clown Lips"
+	icon_state = "clownlips"
+	default_color = "#FF0033"
 	affected_bodyparts = HEAD
 
 /datum/body_marking/other/topscars

@@ -4,9 +4,9 @@
 	/// Associative list, keyed by language typepath, pointing to LANGUAGE_UNDERSTOOD, or LANGUAGE_SPOKEN, for whether we understand or speak the language
 	var/list/languages = list()
 	/// List of chosen augmentations. It's an associative list with key name of the slot, pointing to a typepath of an augment define
-	var/augments = list()
+	var/list/augments = list()
 	/// List of chosen preferred styles for limb replacements
-	var/augment_limb_styles = list()
+	var/list/augment_limb_styles = list()
 	/// Which augment slot we currently have chosen, this is for UI display
 	var/chosen_augment_slot
 	/// A list of all bodymarkings
@@ -59,21 +59,6 @@
 	var/language = language_holder.spoken_languages[1]
 	return language
 
-/datum/preferences/proc/CanBuyAugment(datum/augment_item/target_aug, datum/augment_item/current_aug)
-	// Check biotypes
-	var/species_type = read_preference(/datum/preference/choiced/species)
-	var/datum/species/current_species = GLOB.species_prototypes[species_type]
-	if(!(current_species.inherent_biotypes & target_aug.allowed_biotypes))
-		return
-	var/quirk_points = GetQuirkBalance()
-	var/leverage = 0
-	if(current_aug)
-		leverage += current_aug.cost
-	if((quirk_points + leverage)>= target_aug.cost)
-		return TRUE
-	else
-		return FALSE
-
 /// This proc saves the damage currently on `character` (human) and reapplies it after `safe_transfer_prefs()` is applied to the `character`.
 /datum/preferences/proc/safe_transfer_prefs_to_with_damage(mob/living/carbon/human/character, icon_updates = TRUE, is_antag = FALSE)
 	if(!istype(character))
@@ -90,3 +75,5 @@
 /datum/preferences/safe_transfer_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, is_antag = FALSE)
 	. = ..()
 	GLOB.chat_colors_by_mob_name[character.name] = list(character.chat_color, character.chat_color_darkened) // by now the mob has had its prefs applied to it
+
+#undef MAX_MUTANT_ROWS

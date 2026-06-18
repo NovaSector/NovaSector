@@ -1,7 +1,3 @@
-/datum/map_template/shuttle/arrival/outpost
-	suffix = "outpost"
-	name = "arrival shuttle (Outpost)"
-
 /datum/map_template/shuttle/emergency/outpost
 	suffix = "outpost"
 	prefix = "_maps/shuttles/nova/"
@@ -73,13 +69,6 @@
 
 /*Interdyne Cargo Shuttle End*/
 
-/datum/map_template/shuttle/prison_transport
-	prefix = "_maps/shuttles/nova/"
-	port_id = "prison_transport"
-	suffix = "nova"
-	name = "Prison Transporter NSS-74"
-
-
 /obj/machinery/computer/camera_advanced/shuttle_docker/slaver
 	name = "Ship Navigation Computer"
 	desc = "Used to designate a precise custom destination to land."
@@ -103,21 +92,10 @@
 	possible_destinations = "syndicate_ne;syndicate_nw;syndicate_n;syndicate_se;syndicate_sw;syndicate_s"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-// formerly NO_DECONSTRUCTION
-/obj/machinery/computer/shuttle/slaver/default_deconstruction_screwdriver(mob/user, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/computer/shuttle/slaver/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
-	return NONE
-
-/obj/machinery/computer/shuttle/slaver/default_pry_open(mob/living/user,
-	obj/item/crowbar,
-	close_after_pry = FALSE,
-	open_density = FALSE,
-	closed_density = TRUE,
-	deconstruct_on_fail = FALSE,
-)
-	return NONE
+/obj/machinery/computer/shuttle/slaver/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /datum/map_template/shuttle/slaver_ship
 	port_id = "slaver ship"

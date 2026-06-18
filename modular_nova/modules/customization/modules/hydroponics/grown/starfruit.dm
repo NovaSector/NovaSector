@@ -506,6 +506,7 @@
 		/obj/item/food/grown/starfruit = 10,
 		/datum/reagent/water = 25,
 	)
+	category = CAT_FOOD
 	result = /obj/item/reagent_containers/condiment/starfruitjelly
 
 /obj/item/food/cookie/macaron/starfruit

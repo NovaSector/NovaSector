@@ -2,8 +2,8 @@
 	title = JOB_PRISONER
 	description = "Keep yourself occupied in permabrig."
 	faction = FACTION_STATION
-	total_positions = 12		// NOVA EDIT: Original value (0)
-	spawn_positions = 2
+	total_positions = 0
+	spawn_positions = 4
 	supervisors = "the security team"
 	exp_granted_type = EXP_TYPE_CREW
 	paycheck = PAYCHECK_LOWER

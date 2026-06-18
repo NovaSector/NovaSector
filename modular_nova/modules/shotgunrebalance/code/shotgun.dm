@@ -1,22 +1,3 @@
-#define AMMO_MATS_SHOTGUN list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4) // not quite as thick as a half-sheet
-
-#define AMMO_MATS_SHOTGUN_FLECH list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2,)
-
-#define AMMO_MATS_SHOTGUN_HIVE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/silver = SMALL_MATERIAL_AMOUNT * 1,)
-
-#define AMMO_MATS_SHOTGUN_TIDE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/gold = SMALL_MATERIAL_AMOUNT * 1,)
-
-#define AMMO_MATS_SHOTGUN_PLASMA list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2,)
-
-#define AMMO_MATS_SHOTGUN_PENDART list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3,\
-									/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1,)
-
 /obj/item/ammo_casing/shotgun
 	icon = 'modular_nova/modules/shotgunrebalance/icons/shotshells.dmi'
 	desc = "A 12 gauge iron slug."
@@ -367,7 +348,7 @@
 /obj/projectile/bullet/shotgun_slug/hunter/on_hit(atom/target, blocked, pierce_hit)
 	if(ismineralturf(target))
 		var/turf/closed/mineral/mineral_turf = target
-		mineral_turf.gets_drilled(firer, FALSE)
+		mineral_turf.gets_drilled(firer)
 		if(range > 0)
 			return BULLET_ACT_FORCE_PIERCE
 		return ..()

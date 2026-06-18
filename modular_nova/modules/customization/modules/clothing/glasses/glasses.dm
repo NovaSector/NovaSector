@@ -64,3 +64,6 @@
 	desc = "A cheaper brand of sunglasses rated for much lower UV levels. Offers the user no protection against bright lights."
 	icon_state = "sun"
 	inhand_icon_state = "sunglasses"
+
+#undef MODULAR_EYES_ICON
+#undef MODULAR_EYES_WORN_ICON

@@ -147,6 +147,9 @@
 	/// Generally for niche objects, atoms blacklisted can spawn if enabled by spawner.
 	var/spawn_blacklisted = FALSE
 
+	/// What color this shows up as on the tactical map
+	var/tacmap_color = TACMAP_SOLID
+
 /**
  * Top level of the destroy chain for most atoms
  *
@@ -191,15 +194,6 @@
 
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)
-
-#ifndef DISABLE_DREAMLUAU
-	// These lists cease existing when src does, so we need to clear any lua refs to them that exist.
-	if(!(datum_flags & DF_STATIC_OBJECT))
-		DREAMLUAU_CLEAR_REF_USERDATA(contents)
-		DREAMLUAU_CLEAR_REF_USERDATA(filters)
-		DREAMLUAU_CLEAR_REF_USERDATA(overlays)
-		DREAMLUAU_CLEAR_REF_USERDATA(underlays)
-#endif
 
 	return ..()
 
@@ -445,6 +439,10 @@
 
 ///Is this atom within 1 tile of another atom
 /atom/proc/HasProximity(atom/movable/proximity_check_mob as mob|obj)
+	return
+
+/// has a previously nearby atom moved away
+/atom/proc/OnProximityExit(atom/movable/proximity_check_mob as mob|obj)
 	return
 
 /// Sets the wire datum of an atom
@@ -904,9 +902,6 @@
 
 			if (contextual_screentip_returns & CONTEXTUAL_SCREENTIP_SET)
 				var/screentip_images = active_hud.screentip_images
-				// Disable screentip images for clients affected by https://www.byond.com/forum/post/2967731
-				if(ISINRANGE(client?.byond_build, MIN_BYOND_BUILD_DISABLE_SCREENTIP_ICONS, MAX_BYOND_BUILD_DISABLE_SCREENTIP_ICONS))
-					screentip_images = FALSE
 				// LMB and RMB on one line...
 				var/lmb_text = build_context(context, SCREENTIP_CONTEXT_LMB, screentip_images)
 				var/rmb_text = build_context(context, SCREENTIP_CONTEXT_RMB, screentip_images)

@@ -10,14 +10,12 @@
 /obj/machinery/ore_silo/colony_lathe/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/repackable, packed_type, 10 SECONDS)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 // such laziness...
 /obj/machinery/ore_silo/colony_lathe/silo_log(obj/machinery/machinery_in_question, action, amount, noun, list/mats)
 	. = ..()
 	playsound(src, 'sound/machines/beep/beep.ogg', 30, TRUE)
-
-/obj/machinery/ore_silo/colony_lathe/default_deconstruction_crowbar(mob/living/user, obj/item/crowbar)
-	return NONE
 
 // Item for deploying ore silos
 /obj/item/flatpacked_machine/ore_silo
