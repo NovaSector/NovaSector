@@ -28,8 +28,8 @@
 		related_anomaly_core_paths = list(anomaly_core_path)
 
 /datum/psionic_school/bioscrambler
-	name = "Bioscrambler"
-	desc = "Neural, somatic, and identity resonance."
+	name = "Biomancy"
+	desc = "Body, mind, and living patterns."
 	anomaly_path = /obj/effect/anomaly/bioscrambler
 	anomaly_core_path = /obj/item/assembly/signaler/anomaly/bioscrambler
 	ui_key = "bioscrambler"
@@ -37,7 +37,7 @@
 	ui_color = "#d86fff"
 
 /datum/psionic_school/gravity
-	name = "Gravity"
+	name = "Graviturgy"
 	desc = "Mass, inertia, and kinetic pressure."
 	anomaly_path = /obj/effect/anomaly/grav
 	anomaly_core_path = /obj/item/assembly/signaler/anomaly/grav
@@ -48,8 +48,8 @@
 	ui_color = "#61d878"
 
 /datum/psionic_school/bluespace
-	name = "Bluespace"
-	desc = "Distance, folds, and spatial discontinuity."
+	name = "Bluespace Conjuration"
+	desc = "The space in-between, teleportation, distance."
 	anomaly_path = /obj/effect/anomaly/bluespace
 	anomaly_core_path = /obj/item/assembly/signaler/anomaly/bluespace
 	ui_key = "bluespace"
@@ -58,8 +58,8 @@
 	ui_color = "#3fd6ff"
 
 /datum/psionic_school/flux
-	name = "Flux"
-	desc = "Interference, disruption, and reactive static."
+	name = "Elementomancy"
+	desc = "Flux, matter transitions, energy."
 	anomaly_path = /obj/effect/anomaly/flux
 	anomaly_core_path = /obj/item/assembly/signaler/anomaly/flux
 	ui_key = "flux"
