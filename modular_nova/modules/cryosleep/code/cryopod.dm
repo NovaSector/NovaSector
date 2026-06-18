@@ -322,7 +322,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 			// contractor handling
 			if(!istype(objective, /datum/objective/contract))
 				return
-			to_chat(world, "DEBUG: contract target cryo'd!")
 			var/datum/opposing_force/affected_contractor = objective.owner.opposing_force
 			var/datum/contractor_hub/affected_contractor_hub = affected_contractor.contractor_hub
 			for(var/datum/syndicate_contract/possible_affected_contract in affected_contractor_hub.assigned_contracts)
@@ -330,14 +329,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 					continue
 				var/datum/syndicate_contract/affected_contract = possible_affected_contract
 				var/contract_id = affected_contract.id
-				to_chat(world, "DEBUG: contract found: [affected_contract] id [contract_id]")
 				affected_contract.status = CONTRACT_STATUS_ABORTED
 				// replace the current one
 				affected_contractor_hub.assigned_contracts[contract_id] = affected_contractor_hub.create_single_contract(objective.owner, affected_contract.payout_type, contract_id)
 				// swap with a new one
 				if (affected_contractor_hub.current_contract == affected_contract)
 					affected_contractor_hub.current_contract = null // clear the old one, if active
-					to_chat(world, "DEBUG: current contract cryo'd? should be null [affected_contractor_hub.current_contract]")
 				qdel(affected_contract) // delete the old one
 				to_chat(objective.owner.current, "[span_userdanger("Contract target out of reach. Contract rerolled.")]")
 				break
