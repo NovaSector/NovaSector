@@ -5,7 +5,6 @@
 	get_quirks()
 	return SS_INIT_SUCCESS
 
-#define FEATHERWEIGHT_TRAIT "featherweight"
 #define FEATHERWEIGHT_FRAGILITY_MOD 1.25
 #define FEATHERWEIGHT_FLIGHT_DISABLE_TIME (6 SECONDS)
 #define FEATHERWEIGHT_HIT_KNOCKDOWN_TIME (2 SECONDS)
@@ -15,7 +14,7 @@
 	if(ishuman(exposed_mob) && exposed_mob.stat != DEAD && (methods & (INGEST | TOUCH)))
 		var/mob/living/carbon/human/exposed_human = exposed_mob
 		var/obj/item/bodypart/chest/chest = exposed_human.get_bodypart(BODY_ZONE_CHEST)
-		if(chest?.wing_types && reac_volume >= 5 && exposed_human.dna && exposed_human.has_quirk(/datum/quirk/featherweight))
+		if(chest?.wing_types && reac_volume >= 5 && exposed_human.dna && HAS_TRAIT(exposed_human, TRAIT_FEATHERWEIGHT))
 			exposed_human.remove_quirk(/datum/quirk/featherweight)
 
 	return ..()
@@ -92,7 +91,7 @@
 
 	var/mob/living/carbon/human/human = receiver
 	cleanup_owner(current_owner)
-	if(human.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS) != wing_parent || !human.has_quirk(/datum/quirk/featherweight))
+	if(human.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS) != wing_parent || !HAS_TRAIT(human, TRAIT_FEATHERWEIGHT))
 		return
 
 	current_owner = human
@@ -116,7 +115,7 @@
 	cleanup_owner(ishuman(organ_owner) ? organ_owner : current_owner)
 
 /datum/component/featherweight_wing_flight/proc/can_fly(mob/living/carbon/human/human, silent = FALSE)
-	if(!human || QDELETED(human) || human.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS) != wing_parent || !human.has_quirk(/datum/quirk/featherweight))
+	if(!human || QDELETED(human) || human.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS) != wing_parent || !HAS_TRAIT(human, TRAIT_FEATHERWEIGHT))
 		return FALSE
 
 	if(world.time < next_flight_allowed)
@@ -156,10 +155,10 @@
 		return
 
 	human.physiology.stun_mod *= 2
-	human.add_traits(list(TRAIT_MOVE_FLOATING, TRAIT_IGNORING_GRAVITY, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_SILENT_FOOTSTEPS), FEATHERWEIGHT_TRAIT)
+	human.add_traits(list(TRAIT_MOVE_FLOATING, TRAIT_IGNORING_GRAVITY, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_SILENT_FOOTSTEPS), TRAIT_FEATHERWEIGHT)
 	human.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/wings)
 	human.AddElement(/datum/element/forced_gravity, 0)
-	passtable_on(human, FEATHERWEIGHT_TRAIT)
+	passtable_on(human, TRAIT_FEATHERWEIGHT)
 	if(!(human.pass_flags & PASSMACHINE))
 		added_passmachine = TRUE
 	human.pass_flags |= PASSMACHINE
@@ -175,10 +174,10 @@
 
 	if(is_flying(human))
 		human.physiology.stun_mod *= 0.5
-		human.remove_traits(list(TRAIT_MOVE_FLOATING, TRAIT_IGNORING_GRAVITY, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_SILENT_FOOTSTEPS), FEATHERWEIGHT_TRAIT)
+		human.remove_traits(list(TRAIT_MOVE_FLOATING, TRAIT_IGNORING_GRAVITY, TRAIT_NOGRAV_ALWAYS_DRIFT, TRAIT_SILENT_FOOTSTEPS), TRAIT_FEATHERWEIGHT)
 		human.remove_movespeed_modifier(/datum/movespeed_modifier/jetpack/wings)
 		human.RemoveElement(/datum/element/forced_gravity, 0)
-		passtable_off(human, FEATHERWEIGHT_TRAIT)
+		passtable_off(human, TRAIT_FEATHERWEIGHT)
 		if(!silent)
 			to_chat(human, span_notice("You settle gently back onto the ground..."))
 
@@ -241,7 +240,7 @@
 	return can_fly(get_human_owner(), silent = TRUE)
 
 /datum/component/featherweight_wing_flight/proc/is_flying(mob/living/carbon/human/human)
-	return human && HAS_TRAIT_FROM(human, TRAIT_MOVE_FLOATING, FEATHERWEIGHT_TRAIT)
+	return human && HAS_TRAIT_FROM(human, TRAIT_MOVE_FLOATING, TRAIT_FEATHERWEIGHT)
 
 /datum/component/featherweight_wing_flight/proc/set_wings_open(mob/living/carbon/human/human, open)
 	var/obj/item/organ/wings/functional/functional_wings = wing_parent
@@ -316,7 +315,7 @@
 	desc = "Due to hollow bones, a chassis made of light alloys or other esoteric means, your body is lighter and more fragile than others'. You can be picked up with ease, and wings can carry you through the air. Your body will suffer more wounds and be more fragile as a result."
 	icon = FA_ICON_FEATHER
 	value = 0
-	mob_trait = TRAIT_GRABWEAKNESS
+	mob_trait = TRAIT_FEATHERWEIGHT
 	gain_text = span_notice("Your body feels lighter!")
 	lose_text = span_notice("Your body feels slightly more dense.")
 	medical_record_text = "Subject's body is lighter and more fragile than usual, they can be carried with relative ease."
@@ -326,7 +325,7 @@
 
 /datum/quirk/featherweight/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	ADD_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_TRAIT)
+	human_holder.add_traits(list(TRAIT_GRABWEAKNESS, TRAIT_EASILY_WOUNDED), TRAIT_FEATHERWEIGHT)
 	human_holder.physiology.brute_mod *= FEATHERWEIGHT_FRAGILITY_MOD
 	human_holder.physiology.burn_mod *= FEATHERWEIGHT_FRAGILITY_MOD
 	RegisterSignals(human_holder, list(COMSIG_CARBON_GAIN_ORGAN, COMSIG_CARBON_LOSE_ORGAN), PROC_REF(on_wing_changed))
@@ -339,7 +338,7 @@
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	UnregisterSignal(human_holder, list(COMSIG_CARBON_GAIN_ORGAN, COMSIG_CARBON_LOSE_ORGAN))
-	REMOVE_TRAIT(human_holder, TRAIT_EASILY_WOUNDED, FEATHERWEIGHT_TRAIT)
+	human_holder.remove_traits(list(TRAIT_GRABWEAKNESS, TRAIT_EASILY_WOUNDED), TRAIT_FEATHERWEIGHT)
 	human_holder.physiology.brute_mod /= FEATHERWEIGHT_FRAGILITY_MOD
 	human_holder.physiology.burn_mod /= FEATHERWEIGHT_FRAGILITY_MOD
 
@@ -367,27 +366,19 @@
 		qdel(featherweight_wings.GetComponent(/datum/component/featherweight_wing_flight))
 	featherweight_wings = null
 
-/mob/living/carbon/human/fireman_carry(mob/living/carbon/target)
-	if(target?.has_quirk(/datum/quirk/featherweight) && !HAS_TRAIT(src, TRAIT_QUICKER_CARRY))
-		ADD_TRAIT(src, TRAIT_QUICKER_CARRY, FEATHERWEIGHT_TRAIT)
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, remove_traits), list(TRAIT_QUICKER_CARRY), FEATHERWEIGHT_TRAIT), 0)
-
-	return ..()
-
 /mob/living/update_pull_movespeed()
 	. = ..()
 	if(!isliving(pulling))
 		return
 
 	var/mob/living/pulled_living = pulling
-	if(!pulled_living.has_quirk(/datum/quirk/featherweight) || HAS_TRAIT(pulled_living, TRAIT_HEAVYSET) || HAS_TRAIT(pulled_living, TRAIT_OVERSIZED))
+	if(!HAS_TRAIT(pulled_living, TRAIT_FEATHERWEIGHT) || HAS_TRAIT(pulled_living, TRAIT_HEAVYSET) || HAS_TRAIT(pulled_living, TRAIT_OVERSIZED))
 		return
 	if(pulled_living.body_position == STANDING_UP || pulled_living.buckled || grab_state >= GRAB_AGGRESSIVE)
 		return
 
 	remove_movespeed_modifier(/datum/movespeed_modifier/bulky_drag)
 
-#undef FEATHERWEIGHT_TRAIT
 #undef FEATHERWEIGHT_FRAGILITY_MOD
 #undef FEATHERWEIGHT_FLIGHT_DISABLE_TIME
 #undef FEATHERWEIGHT_HIT_KNOCKDOWN_TIME

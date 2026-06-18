@@ -1025,6 +1025,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_LIGHT_DRINKER "light_drinker"
 #define TRAIT_EVIL "evil"
 #define TRAIT_FRIENDLY "friendly"
+#define TRAIT_FEATHERWEIGHT "featherweight"
 #define TRAIT_GRABWEAKNESS "grab_weakness"
 #define TRAIT_GRABRESISTANCE "grab_resistance"
 #define TRAIT_SNOB "snob"
