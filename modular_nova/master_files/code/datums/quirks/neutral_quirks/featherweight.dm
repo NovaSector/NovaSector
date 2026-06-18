@@ -1,10 +1,3 @@
-/datum/controller/subsystem/processing/quirks/Initialize()
-	GLOB.quirk_blacklist += list(list(/datum/quirk/featherweight, /datum/quirk/oversized))
-	GLOB.quirk_string_blacklist = generate_quirk_string_blacklist()
-
-	get_quirks()
-	return SS_INIT_SUCCESS
-
 #define FEATHERWEIGHT_FRAGILITY_MOD 1.25
 #define FEATHERWEIGHT_FLIGHT_DISABLE_TIME (6 SECONDS)
 #define FEATHERWEIGHT_HIT_KNOCKDOWN_TIME (2 SECONDS)
