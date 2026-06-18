@@ -211,7 +211,7 @@ export function ExaminePanel(props) {
                               >
                                 {current_conflict_optin_status}
                               </span>
-                              {'\n'}
+                              {'\n\n'}
                             </Stack.Item>
                           )}
                           {formatURLs(ooc_notes)}
