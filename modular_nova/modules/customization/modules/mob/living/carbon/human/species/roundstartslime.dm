@@ -301,24 +301,24 @@
 	brainmob?.notify_revival("You are being revived!", sound = null, source = src) // no sound since it's a whopping 60 second wait time after this
 	if(!do_after(user, 60 SECONDS, src))
 		to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
-		return TRUE
+		return FALSE
 
 	user.visible_message(
 		span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."),
 		span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane.")
 	)
-	item.reagents.clear_reagents() //removes the whole shit
 	if(isnull(brainmob))
 		user.balloon_alert(user, "brain is not a viable candidate for repair!")
-		return TRUE
-
+		return FALSE
 	brainmob.grab_ghost()
 	if(isnull(brainmob.stored_dna))
 		user.balloon_alert(user, "brain does not contain any dna!")
-		return TRUE
+		return FALSE
 	if(isnull(brainmob.client))
 		user.balloon_alert(user, "brain does not contain a mind!")
-		return TRUE
+		return FALSE
+
+	item.reagents.clear_reagents() // Consume the Plasma.
 	regenerate()
 	return TRUE
 
@@ -343,10 +343,15 @@
 	new_body.undershirt = "Nude"
 	new_body.socks = "Nude"
 
-	// Handle Blood and Quriks
+	// Handle Blood and Quriks.
 	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 	SSquirks.AssignQuirks(new_body, brainmob.client)
-	// TODO: Handle removing quirk items spawning
+
+ 	// Remove any quirk items that spawn.
+	for(var/obj/item/contents in new_body.get_contents())
+		if(contents == src || istype(contents, /obj/item/organ) || istype(contents, /obj/item/bodypart)) // Only remove quirk items
+			continue
+		qdel(contents)
 
 	// Move the brain/core into the new body
 	src.replace_into(new_body)
@@ -358,8 +363,6 @@
 			to_remove += bodypart
 
 	for(var/obj/item/bodypart/rem in to_remove)
-		rem.moveToNullspace()
-		STOP_PROCESSING(SSobj, rem)
 		qdel(rem)
 
 	// Notify the player that their body has been rebuilt
