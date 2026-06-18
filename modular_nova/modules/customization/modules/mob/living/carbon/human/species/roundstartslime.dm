@@ -347,7 +347,7 @@
 	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 	SSquirks.AssignQuirks(new_body, brainmob.client)
 
- 	// Remove any quirk items that spawn.
+	// Remove any quirk items that spawn.
 	for(var/obj/item/contents in new_body.get_contents())
 		if(contents == src || istype(contents, /obj/item/organ) || istype(contents, /obj/item/bodypart)) // Only remove quirk items
 			continue
