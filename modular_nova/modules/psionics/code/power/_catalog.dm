@@ -2,7 +2,7 @@
 	/// Display name for this school.
 	var/name = "Unaligned"
 	/// Short description of the school's psionic expression.
-	var/desc = "Psionic expression without a known anomaly signature."
+	var/desc = "Unaligned."
 	/// Primary anomaly type this school resonates with.
 	var/obj/effect/anomaly/anomaly_path
 	/// Primary anomaly core type this school resonates with.
