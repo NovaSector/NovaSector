@@ -328,8 +328,12 @@
 	human_holder.add_traits(list(TRAIT_GRABWEAKNESS, TRAIT_EASILY_WOUNDED), TRAIT_FEATHERWEIGHT)
 	human_holder.physiology.brute_mod *= FEATHERWEIGHT_FRAGILITY_MOD
 	human_holder.physiology.burn_mod *= FEATHERWEIGHT_FRAGILITY_MOD
-	RegisterSignals(human_holder, list(COMSIG_CARBON_GAIN_ORGAN, COMSIG_CARBON_LOSE_ORGAN), PROC_REF(on_wing_changed))
-	update_wing_component()
+	RegisterSignal(human_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_wing_gained))
+	RegisterSignal(human_holder, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_wing_lost))
+	var/obj/item/organ/current_organ = human_holder.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
+	if(istype(current_organ, /obj/item/organ/wings))
+		var/obj/item/organ/wings/wings = current_organ
+		set_wing_component(wings)
 
 /datum/quirk/featherweight/remove()
 	remove_wing_component()
@@ -342,22 +346,26 @@
 	human_holder.physiology.brute_mod /= FEATHERWEIGHT_FRAGILITY_MOD
 	human_holder.physiology.burn_mod /= FEATHERWEIGHT_FRAGILITY_MOD
 
-/datum/quirk/featherweight/proc/on_wing_changed(datum/source, obj/item/organ/changed_organ)
+/datum/quirk/featherweight/proc/on_wing_gained(datum/source, obj/item/organ/changed_organ)
 	SIGNAL_HANDLER
 
-	if(istype(changed_organ, /obj/item/organ/wings))
-		update_wing_component()
+	if(!istype(changed_organ, /obj/item/organ/wings))
+		return
 
-/datum/quirk/featherweight/proc/update_wing_component()
+	var/obj/item/organ/wings/wings = changed_organ
+	set_wing_component(wings)
+
+/datum/quirk/featherweight/proc/on_wing_lost(datum/source, obj/item/organ/changed_organ)
+	SIGNAL_HANDLER
+
+	if(changed_organ == featherweight_wings)
+		remove_wing_component()
+
+/datum/quirk/featherweight/proc/set_wing_component(obj/item/organ/wings/wings)
+	if(wings == featherweight_wings)
+		return
+
 	remove_wing_component()
-	if(QDELETED(quirk_holder))
-		return
-
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	var/obj/item/organ/wings/wings = human_holder.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
-	if(!wings)
-		return
-
 	featherweight_wings = wings
 	wings.AddComponent(/datum/component/featherweight_wing_flight)
 
