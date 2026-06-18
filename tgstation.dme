@@ -7212,6 +7212,7 @@
 #include "modular_nova\master_files\code\game\objects\items\hand_items.dm"
 #include "modular_nova\master_files\code\game\objects\items\hhmirror.dm"
 #include "modular_nova\master_files\code\game\objects\items\holy_weapons.dm"
+#include "modular_nova\master_files\code\game\objects\items\maintenance_loot.dm"
 #include "modular_nova\master_files\code\game\objects\items\monkeycube.dm"
 #include "modular_nova\master_files\code\game\objects\items\oxygen_candle.dm"
 #include "modular_nova\master_files\code\game\objects\items\pneumaticCannon.dm"

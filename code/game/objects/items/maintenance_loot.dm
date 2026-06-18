@@ -23,7 +23,7 @@
 	demolition_mod = 1.25
 	pickup_sound = 'sound/items/handling/lead_pipe/lead_pipe_pickup.ogg'
 	drop_sound = 'sound/items/handling/materials/metal_drop.ogg'
-	throw_drop_sound = 'sound/items/handling/materials/metal_drop.ogg' // NOVA EDIT Original throw_drop_sound = 'sound/items/handling/lead_pipe/lead_pipe_drop.ogg'
+	throw_drop_sound = 'sound/items/handling/lead_pipe/lead_pipe_drop.ogg'
 	hitsound = 'sound/items/lead_pipe_hit.ogg'
 
 /obj/item/lead_pipe/grind_results()
