@@ -2750,7 +2750,6 @@
 	name = "Kitchen Maintenance"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/service/hydroponics,
-/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/hydroponics)
 "aSl" = (
@@ -21180,7 +21179,6 @@
 /obj/effect/turf_decal/stripes/end{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/multiz/dark/visible,
 /obj/machinery/atmospherics/pipe/multiz/violet/visible,
 /obj/structure/railing{
 	dir = 1
@@ -30556,8 +30554,8 @@
 /turf/open/floor/iron/dark/corner,
 /area/station/hallway/secondary/recreation)
 "iRz" = (
-/obj/effect/spawner/random/techstorage/tcomms_all,
 /obj/structure/table/glass,
+/obj/effect/spawner/random/techstorage/custom_shuttle,
 /turf/open/floor/iron/dark/small,
 /area/station/engineering/storage/tech)
 "iRN" = (
@@ -55118,7 +55116,6 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Kitchen Maintenance"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen)
 "pSI" = (
@@ -61693,7 +61690,7 @@
 /turf/open/floor/engine,
 /area/station/engineering/atmos/upper)
 "rSn" = (
-/mob/living/simple_animal/bot/mulebot{
+/mob/living/basic/bot/mulebot{
 	home_destination = "QM #2";
 	suffix = "#2"
 	},
@@ -61832,7 +61829,6 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Kitchen Freezer Maintenance"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -70401,7 +70397,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "usg" = (
-/mob/living/simple_animal/bot/mulebot{
+/mob/living/basic/bot/mulebot{
 	home_destination = "QM #1";
 	suffix = "#1"
 	},
@@ -76325,14 +76321,7 @@
 "vYq" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/rack/shelf,
-/obj/item/circuitboard/machine/telecomms/broadcaster{
-	pixel_y = 2;
-	pixel_x = -2
-	},
-/obj/item/circuitboard/machine/telecomms/bus{
-	pixel_y = -3;
-	pixel_x = 2
-	},
+/obj/effect/spawner/random/techstorage/tcomms_all,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/storage/tcomms)
 "vYt" = (
