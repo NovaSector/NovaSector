@@ -31,6 +31,9 @@
 		return
 	if(!dom.has_quirk(/datum/quirk/dominant_aura))
 		return
+	if(HAS_TRAIT(quirk_holder, TRAIT_QUICKREFLEXES))
+		examine_list += span_purple("Your reflexes keep you from getting flustered by <b>[dom]</b>.")
+		return
 	examine_list += span_purple("You can't look at <b>[dom]</b> for long before flustering away.")
 	if(!TIMER_COOLDOWN_FINISHED(dom, DOMINANT_COOLDOWN_EXAMINE))
 		return
@@ -45,6 +48,13 @@
 	if(!TIMER_COOLDOWN_FINISHED(quirk_holder, DOMINANT_COOLDOWN_NOTICE))
 		return
 	var/mob/living/carbon/human/closest_dom = find_closest_dom()
+	if(HAS_TRAIT(quirk_holder, TRAIT_QUICKREFLEXES))
+		if(closest_dom)
+			to_chat(quirk_holder, span_purple("Your reflexes keep <b>[closest_dom]</b>'s commanding presence at bay."))
+			TIMER_COOLDOWN_START(quirk_holder, DOMINANT_COOLDOWN_NOTICE, 15 SECONDS)
+		quirk_holder.clear_mood_event(DOMINANT_MOOD)
+		last_dom = null
+		return
 	if(!closest_dom)
 		if(last_dom)
 			quirk_holder.add_mood_event(DOMINANT_MOOD, /datum/mood_event/dominant_aura_need)

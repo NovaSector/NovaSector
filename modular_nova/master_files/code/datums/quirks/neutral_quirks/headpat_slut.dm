@@ -31,6 +31,8 @@
 /datum/element/pet_bonus/headpat/on_attack_hand(mob/living/pet, mob/living/petter, list/modifiers)
 	if(check_zone(petter.zone_selected) != BODY_ZONE_HEAD || petter == pet)
 		return
+	if(HAS_TRAIT(pet, TRAIT_QUICKREFLEXES))
+		return
 	// Mirror the parent's "this pat can actually land" guards so the giver moodlet only fires
 	// when the parent actually dispatched the pat.
 	if(pet.stat != CONSCIOUS || petter.combat_mode || LAZYACCESS(modifiers, RIGHT_CLICK))

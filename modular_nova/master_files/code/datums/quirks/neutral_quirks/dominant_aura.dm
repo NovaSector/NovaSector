@@ -28,6 +28,9 @@
 		return
 	if(!sub.has_quirk(/datum/quirk/submissive_aura))
 		return
+	if(HAS_TRAIT(sub, TRAIT_QUICKREFLEXES))
+		examine_list += span_purple("Their reflexes keep their submissiveness out of your reach.")
+		return
 	examine_list += span_purple("You can sense submissiveness radiating from them.")
 
 /// Emote hook. handle_snap goes async because it eventually calls emote() on subs,
@@ -49,6 +52,10 @@
 		if(!sub.has_quirk(/datum/quirk/submissive_aura))
 			continue
 		affected_someone = TRUE
+		if(HAS_TRAIT(sub, TRAIT_QUICKREFLEXES))
+			to_chat(quirk_holder, span_purple("<b>[sub]</b>'s reflexes keep them from responding to your snap."))
+			to_chat(sub, span_purple("Your reflexes keep <b>[quirk_holder]</b>'s snap from affecting you."))
+			continue
 		drop_sub(sub, firing_emote.key)
 	if(affected_someone)
 		TIMER_COOLDOWN_START(quirk_holder, DOMINANT_COOLDOWN_SNAP, 10 SECONDS)
