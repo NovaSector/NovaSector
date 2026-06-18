@@ -30,7 +30,7 @@
 	var/datum/action/innate/flight/featherweight/flight_action
 	var/datum/component/jetpack_component
 	var/mob/living/carbon/human/current_owner
-	var/next_flight_allowed = 0
+	COOLDOWN_DECLARE(flight_lockout)
 	var/last_brute_loss = 0
 	var/last_burn_loss = 0
 	var/wings_open = FALSE
@@ -101,9 +101,9 @@
 	if(!human || QDELETED(human) || human.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS) != wing_parent || !HAS_TRAIT(human, TRAIT_FEATHERWEIGHT))
 		return FALSE
 
-	if(world.time < next_flight_allowed)
+	if(!COOLDOWN_FINISHED(src, flight_lockout))
 		if(!silent)
-			to_chat(human, span_warning("You need [DisplayTimeText(next_flight_allowed - world.time)] before your wings can catch the air again!"))
+			to_chat(human, span_warning("You need [DisplayTimeText(COOLDOWN_TIMELEFT(src, flight_lockout))] before your wings can catch the air again!"))
 		return FALSE
 
 	var/obj/item/organ/wings/moth/moth_wings = wing_parent
@@ -174,7 +174,7 @@
 	if(!human || !is_flying(human))
 		return
 
-	next_flight_allowed = max(next_flight_allowed, world.time + FEATHERWEIGHT_FLIGHT_DISABLE_TIME)
+	COOLDOWN_START(src, flight_lockout, FEATHERWEIGHT_FLIGHT_DISABLE_TIME)
 	stop_flight(human, silent = TRUE)
 	if(knock_down)
 		human.Knockdown(FEATHERWEIGHT_HIT_KNOCKDOWN_TIME)
@@ -210,7 +210,7 @@
 
 /datum/component/featherweight_wing_flight/proc/on_flight_lockout_finished()
 	var/mob/living/carbon/human/human = get_human_owner()
-	if(human && world.time >= next_flight_allowed)
+	if(human && COOLDOWN_FINISHED(src, flight_lockout))
 		to_chat(human, span_notice("Your wings feel steady enough to fly again."))
 
 /datum/component/featherweight_wing_flight/proc/can_jetpack()
