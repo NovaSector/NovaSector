@@ -22,13 +22,42 @@
 		return FALSE
 
 	var/list/psionic_sources = list()
+	var/list/psionic_blockers = list()
 
-	if(SEND_SIGNAL(src, COMSIG_MOB_RECEIVE_PSIONICS, psionic_flags, charge_cost, psionic_sources) & COMPONENT_PSIONIC_BLOCKED)
+	SEND_SIGNAL(src, COMSIG_MOB_RECEIVE_PSIONICS, psionic_flags, charge_cost, psionic_sources, psionic_blockers)
+	var/datum/component/psionic_protection/blocker = pick_psionic_blocker(psionic_blockers)
+	if(blocker?.block_psionic_effect(src, charge_cost))
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_PSIONIC_DAMPENER))
 		return TRUE
 
 	return HAS_TRAIT(src, TRAIT_RESIST_PSYCHIC)
+
+/// Picks one active psionic blocker to handle an incoming effect.
+/// Infinite protection wins first, psionic ability protection wins next, and worn item protection is randomized last.
+/mob/proc/pick_psionic_blocker(list/psionic_blockers)
+	if(!length(psionic_blockers))
+		return null
+
+	var/list/infinite_blockers = list()
+	var/list/ability_blockers = list()
+	var/list/item_blockers = list()
+
+	for(var/datum/component/psionic_protection/blocker as anything in psionic_blockers)
+		if(blocker.charges == INFINITY)
+			infinite_blockers += blocker
+		else if(!blocker.parent_is_item)
+			ability_blockers += blocker
+		else
+			item_blockers += blocker
+
+	if(length(infinite_blockers))
+		return pick(infinite_blockers)
+	if(length(ability_blockers))
+		return pick(ability_blockers)
+	if(length(item_blockers))
+		return pick(item_blockers)
+	return null
 
 /// Checks whether this mob blocks an incoming psionic effect and emits standard feedback to [caster] if it does.
 /// Returns TRUE if blocked. Use this in powers instead of calling `can_block_psionics` directly

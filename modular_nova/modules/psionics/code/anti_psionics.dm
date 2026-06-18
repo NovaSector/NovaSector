@@ -119,7 +119,7 @@
 	if(parent_is_item && charges > 0)
 		to_chat(target, span_notice("Your psionic protection fades."))
 
-/datum/component/psionic_protection/proc/on_receive_psionics(mob/living/target, psionic_flags, charge_cost, list/psionic_sources)
+/datum/component/psionic_protection/proc/on_receive_psionics(mob/living/target, psionic_flags, charge_cost, list/psionic_sources, list/psionic_blockers)
 	SIGNAL_HANDLER
 
 	if(parent in psionic_sources)
@@ -128,6 +128,13 @@
 		return NONE
 
 	psionic_sources += parent
+	psionic_blockers += src
+	return NONE
+
+/datum/component/psionic_protection/proc/block_psionic_effect(mob/living/target, charge_cost)
+	if(charges != INFINITY && charges <= 0)
+		return FALSE
+
 	on_block?.Invoke(target, parent)
 	if(charges == INFINITY)
 		to_chat(target, span_notice("Your psionic protection absorbs the effect."))
@@ -137,7 +144,7 @@
 			to_chat(target, span_notice("Your psionic protection absorbs the effect ([charges] charge\s remaining)."))
 		else
 			to_chat(target, span_warning("Your psionic protection collapses!"))
-	return COMPONENT_PSIONIC_BLOCKED
+	return TRUE
 
 /datum/component/psionic_protection/proc/on_examine(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
