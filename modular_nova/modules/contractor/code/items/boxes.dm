@@ -25,7 +25,6 @@
 
 /obj/item/storage/box/syndicate/contract_kit/midround/PopulateContents()
 	new	/obj/item/storage/box/syndie_kit/emp(src)
-	new	/obj/item/shield/energy(src)
 
 	// finally. a real gun
 	new /obj/item/storage/toolbox/guncase/traitor/contractor_fisher(src)
