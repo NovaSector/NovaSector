@@ -12,9 +12,6 @@
 
 	return ..()
 
-/datum/component/jetpack/featherweight
-	dupe_mode = COMPONENT_DUPE_UNIQUE_PASSARGS
-
 /datum/action/innate/flight/featherweight
 	name = "Toggle Featherweight Flight"
 	desc = "Beat your wings to fly."
@@ -50,7 +47,7 @@
 	RegisterSignal(wing_parent, COMSIG_ORGAN_REMOVED, PROC_REF(on_wing_removed))
 	if(!istype(wing_parent, /obj/item/organ/wings/functional))
 		jetpack_component = wing_parent.AddComponent( \
-			/datum/component/jetpack/featherweight, \
+			/datum/component/jetpack, \
 			TRUE, \
 			FEATHERWEIGHT_WING_FORCE, \
 			COMSIG_WINGS_OPENED, \
