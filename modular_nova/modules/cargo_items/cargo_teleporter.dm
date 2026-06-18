@@ -157,3 +157,6 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 	var/area/src_area = get_area(src)
 	name = "[src_area.name] ([rand(100000,999999)])"
 	GLOB.cargo_marks += src
+
+#undef MAX_CARGO_TELEPORTER_ITEMS
+#undef CARGO_TELEPORTER_COOLDOWN

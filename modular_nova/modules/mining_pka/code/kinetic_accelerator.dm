@@ -105,21 +105,3 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock/add_bayonet_point()
 	return
-
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79
-	name = "proto-kinetic grenade launcher"
-	desc = parent_type::desc + " This variant launches mining charges, using the kinetic energy to propel them."
-	special_desc = "Made in a drunk frenzy during the creation of the kinetic railgun, the kinetic grenade launcher fires the same bombs used by \
-	the mining modsuit. Due to the technology needed to pack the bombs into this weapon, there is no space for modification."
-	icon = 'modular_nova/modules/mining_pka/icons/pka.dmi'
-	icon_state = "kineticglauncher"
-	base_icon_state = "kineticglauncher"
-	inhand_icon_state = "kineticgun"
-	pin = /obj/item/firing_pin/wastes
-	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/m79)
-	w_class = WEIGHT_CLASS_HUGE
-	weapon_weight = WEAPON_HEAVY
-	max_mod_capacity = 0
-
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79/add_bayonet_point()
-	return
