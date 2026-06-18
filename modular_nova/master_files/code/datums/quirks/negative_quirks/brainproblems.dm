@@ -5,6 +5,9 @@
 	medical_record_text = "Patient has a lethal condition in their brain that is slowly causing brain death."
 	icon = FA_ICON_BRAIN
 	species_quirks = list(/datum/species/synthetic = /datum/quirk/item_quirk/brainproblems/synth)
+	//overrides for brainproblems variables, halves the degradation speed and gives the player a normal mannitol bottle.
+	degradation_speed = 0.1
+	medicine_to_get = /obj/item/storage/pill_bottle/mannitol
 
 // Override of Brain Tumor quirk for species with artificial brains.
 // Does not appear in TGUI or the character preferences window.
