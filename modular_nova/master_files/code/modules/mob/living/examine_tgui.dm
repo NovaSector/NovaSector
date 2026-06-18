@@ -87,14 +87,14 @@
 			ooc_notes_nsfw += "ERP Mechanics: [e_prefs_mechanical]\n"
 			ooc_notes_nsfw += "\n"
 
-		if(!CONFIG_GET(flag/disable_antag_opt_in_preferences))
+/*		if(!CONFIG_GET(flag/disable_antag_opt_in_preferences))
 			var/antag_prefs = holder.mind?.ideal_antag_opt_in_level
 			var/effective_opt_in_level = holder.mind?.get_effective_antag_opt_in_level()
 			if(isnull(antag_prefs))
 				antag_prefs = preferences.read_preference(/datum/preference/choiced/antag_opt_in_status)
 			current_antag_optin_status = GLOB.antag_opt_in_strings[num2text(effective_opt_in_level)]
 			ideal_antag_optin_status = GLOB.antag_opt_in_strings[num2text(antag_prefs)]
-
+*/
 		if(!CONFIG_GET(flag/disable_conflict_opt_in_preferences))
 			var/conflict_prefs = holder.mind?.ideal_conflict_opt_in_level
 			var/effective_conflict_opt_in_level = holder.mind?.get_effective_conflict_opt_in_level()

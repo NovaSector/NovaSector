@@ -8135,6 +8135,7 @@
 #include "modular_nova\modules\condos\condo_subsystem.dm"
 #include "modular_nova\modules\condos\condo_teleporter.dm"
 #include "modular_nova\modules\condos\condo_templates.dm"
+#include "modular_nova\modules\conflict_opt_in\code\conflict_optin_aura.dm"
 #include "modular_nova\modules\conflict_opt_in\code\conflict_optin_config.dm"
 #include "modular_nova\modules\conflict_opt_in\code\conflict_optin_preferences.dm"
 #include "modular_nova\modules\conflict_opt_in\code\mind.dm"
