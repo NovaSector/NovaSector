@@ -33426,6 +33426,7 @@
 	pixel_x = 4
 	},
 /obj/structure/sign/calendar/directional/south,
+/obj/item/pneumatic_cannon/pie,
 /turf/open/floor/carpet/donk,
 /area/station/service/greenroom)
 "iSR" = (
@@ -36814,6 +36815,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/item/megaphone/clown,
 /turf/open/floor/carpet/donk,
 /area/station/service/greenroom)
 "jMt" = (
