@@ -5,6 +5,9 @@
 	medical_record_text = "Patient has a lethal condition in their brain that is slowly causing brain death."
 	icon = FA_ICON_BRAIN
 	species_quirks = list(/datum/species/synthetic = /datum/quirk/item_quirk/brainproblems/synth)
+	//overrides for brainproblems variables, halves the degradation speed and gives the player a normal mannitol bottle.
+	degradation_speed = 0.1
+	medicine_to_get = /obj/item/storage/pill_bottle/mannitol
 
 // Override of Brain Tumor quirk for species with artificial brains.
 // Does not appear in TGUI or the character preferences window.
@@ -14,6 +17,7 @@
 	lose_text = span_notice("You no longer feel glitchy.")
 	mail_goodies = list(/obj/item/storage/pill_bottle/liquid_solder/braintumor)
 	abstract_type = /datum/quirk/item_quirk/brainproblems/synth
+	medicine_to_get = /obj/item/storage/pill_bottle/liquid_solder
 
 // Adds custom medical flavortext for synthetic brains.
 /datum/quirk/item_quirk/brainproblems/synth/add()
@@ -40,19 +44,3 @@
 			name = "System Destabilization"
 
 	medical_record_text = "Patient has a malfunction in their [synth_brain.name] that is slowly causing brain death."
-
-// Synthetics get liquid_solder with Brain Tumor instead of mannitol.
-/datum/quirk/item_quirk/brainproblems/add_unique(client/client_source)
-	if(!issynthetic(quirk_holder))
-		return ..()
-	give_item_to_holder(
-		/obj/item/storage/pill_bottle/liquid_solder/braintumor,
-		list(
-			LOCATION_LPOCKET,
-			LOCATION_RPOCKET,
-			LOCATION_BACKPACK,
-			LOCATION_HANDS,
-		),
-		flavour_text = "These pills will keep you alive until you can secure a supply of medication. Don't rely on them too much!",
-		notify_player = TRUE,
-	)
