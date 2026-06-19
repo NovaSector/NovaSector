@@ -2000,7 +2000,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 
 ///Used for fish-infused tails, which come in different flavors.
 /datum/sprite_accessory/tails/fish
-	icon = 'icons/mob/human/fish_features.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/fish_features.dmi'
 	color_src = TRUE
 
 /datum/sprite_accessory/tails/fish/simple
@@ -2028,7 +2028,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	dimension_x = 36
 
 /datum/sprite_accessory/tails/lizard
-	icon = 'icons/mob/human/species/lizard/lizard_tails.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_tails.dmi'
 	spine_key = SPINE_KEY_LIZARD
 
 /datum/sprite_accessory/tails/lizard/none
@@ -2083,7 +2083,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 
 /datum/sprite_accessory/tails/xeno/default
 	name = "Xeno"
-	icon = 'icons/mob/human/species/alien/tail_xenomorph.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tail_xenomorph.dmi'
 	dimension_x = 40
 
 /datum/sprite_accessory/tails/xeno/queen
