@@ -5,9 +5,11 @@
 		if(config)
 			var/server_name = CONFIG_GET(string/servername)
 			if(server_name)
-				prefix += "<b>[server_name]</b> &#8212; "
-		prefix += " (<a href=\"[CONFIG_GET(string/discord_link)]\">Discord</a>)"
+				prefix += "<b>[server_name]</b><br> "
 		prefix += "<br>[CONFIG_GET(string/servertagline)]<br>"
+		prefix += "(<a href=\"[CONFIG_GET(string/discord_link)]\">Apply on Discord</a>) &#8212; "
+		prefix += "(<a href=\"[CONFIG_GET(string/wikiurl)]\">Wiki</a>) &#8212; "
+		prefix += "(<a href=\"[CONFIG_GET(string/githuburl)]\">Github</a>)"
 		status_prefix = prefix
 
 	var/list/features = list()
