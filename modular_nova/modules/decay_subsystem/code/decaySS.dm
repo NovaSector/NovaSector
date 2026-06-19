@@ -7,7 +7,7 @@ These procs are incredibly expensive and should only really be run once. That's 
 #define FLOOR_BLOOD_PERCENT_CHANCE 1
 #define FLOOR_VOMIT_PERCENT_CHANCE 1
 #define FLOOR_OIL_PERCENT_CHANCE 5
-#define FLOOR_TILE_MISSING_PERCENT_CHANCE 1
+#define FLOOR_TILE_MISSING_PERCENT_CHANCE 0
 #define FLOOR_COBWEB_PERCENT_CHANCE 1
 
 #define NEST_PERCENT_CHANCE 1
