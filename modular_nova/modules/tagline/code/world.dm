@@ -18,6 +18,9 @@
 
 	features += "~[players] player[players == 1 ? "": "s"]"
 
+	var/hostedby
+	if(config)
+		hostedby = CONFIG_GET(string/hostedby)
 	if (!host && hostedby)
 		features += "hosted by <b>[hostedby]</b>"
 
