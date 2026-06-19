@@ -11,10 +11,11 @@
 			var/server_name = CONFIG_GET(string/servername)
 			if(server_name)
 				prefix += "<b>[server_name]</b><br>"
+				var/discord = CONFIG_GET(string/discord_link)
+				if(discord)
+					prefix += " &#8212; (<a href=\"[]\">Discord</a>)<br>"
 			hostedby = CONFIG_GET(string/hostedby)
 		prefix += "[CONFIG_GET(string/servertagline)]<br>"
-		prefix += " (<a href=\"[CONFIG_GET(string/discord_link)]\">Discord</a>) &#8212; "
-		prefix += " (<a href=\"[CONFIG_GET(string/wikiurl)]\">Wiki</a>)<br>"
 		// If we at least have loaded the config system, we don't have to keep doing all this
 		if(global.config?.loaded)
 			cached_prefix = prefix
