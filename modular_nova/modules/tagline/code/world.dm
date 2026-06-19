@@ -1,7 +1,6 @@
 /world/proc/update_status()
 
 	var/list/features = list()
-
 	var/new_status = ""
 	var/hostedby
 	if(config)
