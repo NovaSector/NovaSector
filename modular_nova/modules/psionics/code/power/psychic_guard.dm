@@ -1,6 +1,12 @@
 /datum/psionic_power/psychic_guard
 	action_type = /datum/action/cooldown/psionic/psychic_guard
 
+/datum/psionic_rank_variant/psychic_guard
+	rank = PSIONIC_RANK_EPSILON
+	variant_name = "psychic guard"
+	description = "A brief self-shield against incoming psionic effects."
+	block_charge_cost = 0
+
 /datum/action/cooldown/psionic/psychic_guard
 	name = "Psychic Guard"
 	desc = "Briefly shield yourself from psionic effects."
@@ -10,6 +16,7 @@
 	strain_gain = 15
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_FLUX
+	rank_variant_types = list(/datum/psionic_rank_variant/psychic_guard)
 	/// Guard duration.
 	var/guard_duration = 10 SECONDS
 	/// Charges granted to the guard.

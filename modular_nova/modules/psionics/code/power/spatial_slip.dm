@@ -1,6 +1,12 @@
 /datum/psionic_power/spatial_slip
 	action_type = /datum/action/cooldown/psionic/spatial_slip
 
+/datum/psionic_rank_variant/spatial_slip
+	rank = PSIONIC_RANK_EPSILON
+	variant_name = "spatial slip"
+	description = "A short self-directed blink through a bluespace fold."
+	block_charge_cost = 0
+
 /datum/action/cooldown/psionic/spatial_slip
 	name = "Spatial Slip"
 	desc = "Blink a short distance through a bluespace fold."
@@ -10,6 +16,7 @@
 	strain_gain = 20
 	psionic_flags = PSIONIC_SPATIAL
 	school = PSIONIC_SCHOOL_BLUESPACE
+	rank_variant_types = list(/datum/psionic_rank_variant/spatial_slip)
 	/// Maximum inaccuracy range for the bluespace slip.
 	var/slip_range = 4
 

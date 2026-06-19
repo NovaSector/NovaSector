@@ -197,6 +197,12 @@
 		return "has no action school"
 	if(!get_school())
 		return "uses an unknown action school [get_school_type()]"
+	var/list/action_rank_variant_types = initial(action_type.rank_variant_types)
+	if(!length(action_rank_variant_types))
+		return "has no action rank variants"
+	for(var/variant_type in action_rank_variant_types)
+		if(!ispath(variant_type, /datum/psionic_rank_variant))
+			return "has a non-psionic rank variant [variant_type]"
 	if(length(required_powers))
 		for(var/required_power_type in required_powers)
 			if(!ispath(required_power_type, /datum/action/cooldown/psionic))

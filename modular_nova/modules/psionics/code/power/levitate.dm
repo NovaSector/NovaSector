@@ -1,6 +1,12 @@
 /datum/psionic_power/levitate
 	action_type = /datum/action/cooldown/psionic/levitate
 
+/datum/psionic_rank_variant/levitate
+	rank = PSIONIC_RANK_EPSILON
+	variant_name = "levitation"
+	description = "A maintained lift that lets you float above the floor."
+	block_charge_cost = 0
+
 /datum/action/cooldown/psionic/levitate
 	name = "Levitate"
 	desc = "Lift yourself off the ground, building strain while maintained."
@@ -11,6 +17,7 @@
 	active_strain_gain_per_second = 3
 	psionic_flags = PSIONIC_KINETIC
 	school = PSIONIC_SCHOOL_GRAVITY
+	rank_variant_types = list(/datum/psionic_rank_variant/levitate)
 	/// TRUE while the psion is actively maintaining levitation.
 	var/levitating = FALSE
 

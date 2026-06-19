@@ -88,10 +88,6 @@
 	var/active_strain_gain_per_second = 0
 	/// Psionic category flags used by counters.
 	var/psionic_flags = PSIONIC_INTRUSIVE
-	/// Anti-psionic charge cost to block this ability. 0 means it bypasses blocking. Overridden by variant.
-	var/block_charge_cost = 0
-	/// Balloon alert shown to the caster when the target blocks this ability. Overridden by variant.
-	var/block_message = "blocked!"
 	/// Anomaly resonance school this ability belongs to.
 	var/datum/psionic_school/school
 	/// If TRUE, this action can be used during burnout.
@@ -189,6 +185,21 @@
 		return stored_variant
 
 	return unlocked_variants[length(unlocked_variants)]
+
+/datum/action/cooldown/psionic/proc/get_selected_variant_as_type(variant_type)
+	if(!ispath(variant_type, /datum/psionic_rank_variant))
+		return null
+
+	var/mob/living/living_owner = owner
+	if(!istype(living_owner))
+		return null
+
+	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
+	var/datum/psionic_rank_variant/selected_variant = get_selected_rank_variant(profile)
+	if(istype(selected_variant, variant_type))
+		return selected_variant
+
+	return null
 
 /datum/action/cooldown/psionic/proc/cycle_rank_variant(mob/living/living_owner)
 	var/datum/component/psionic_profile/profile = living_owner?.get_psionic_profile()
@@ -455,7 +466,7 @@
 	if(variant)
 		return variant.get_block_charge_cost(src)
 
-	return block_charge_cost
+	return 0
 
 /// Returns the caster-facing block alert for the selected form.
 /datum/action/cooldown/psionic/proc/get_block_message(datum/component/psionic_profile/profile)
@@ -463,7 +474,7 @@
 	if(variant)
 		return variant.get_block_message(src)
 
-	return block_message
+	return "blocked!"
 
 /// Checks whether [target] blocks this ability and emits standard caster feedback if it does.
 /// Returns TRUE if blocked. Called automatically by Activate() when get_block_charge_cost() is positive.
