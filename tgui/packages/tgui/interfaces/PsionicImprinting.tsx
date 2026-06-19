@@ -1,3 +1,5 @@
+// THIS IS A NOVA SECTOR UI FILE
+
 import '../styles/interfaces/PsionicImprinting.scss';
 
 import { useState } from 'react';

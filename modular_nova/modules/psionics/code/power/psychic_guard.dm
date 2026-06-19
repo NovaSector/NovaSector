@@ -16,11 +16,15 @@
 	var/guard_charges = 2
 	/// Timer ID for the active guard cleanup, cleared on early teardown.
 	var/active_guard_timer
+	/// Active protection component granted by this guard.
+	var/datum/weakref/active_guard_ref
 
 /datum/action/cooldown/psionic/psychic_guard/psionic_activate(atom/target)
+	clear_active_guard()
 	var/datum/callback/block_callback = CALLBACK(src, PROC_REF(on_guard_block))
 	var/datum/component/psionic_protection/shield = owner.AddComponent(/datum/component/psionic_protection, charges = guard_charges, on_block = block_callback)
-	active_guard_timer = addtimer(CALLBACK(src, PROC_REF(clear_guard), WEAKREF(shield)), guard_duration, TIMER_STOPPABLE|TIMER_DELETE_ME)
+	active_guard_ref = WEAKREF(shield)
+	active_guard_timer = addtimer(CALLBACK(src, PROC_REF(clear_guard), active_guard_ref), guard_duration, TIMER_STOPPABLE|TIMER_DELETE_ME)
 	to_chat(owner, span_purple("You draw a quiet guard around your thoughts."))
 	return TRUE
 
@@ -37,6 +41,8 @@
 
 /datum/action/cooldown/psionic/psychic_guard/proc/clear_guard(datum/weakref/shield_ref)
 	active_guard_timer = null
+	if(active_guard_ref == shield_ref)
+		active_guard_ref = null
 	var/datum/component/psionic_protection/shield = shield_ref?.resolve()
 	if(shield)
 		qdel(shield)
@@ -46,3 +52,7 @@
 	if(active_guard_timer)
 		deltimer(active_guard_timer)
 		active_guard_timer = null
+	var/datum/component/psionic_protection/shield = active_guard_ref?.resolve()
+	active_guard_ref = null
+	if(shield)
+		qdel(shield)

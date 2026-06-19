@@ -56,7 +56,7 @@
 /obj/effect/temp_visual/psionic_spatial_slip
 	name = "psionic fold"
 	icon = 'icons/effects/96x96.dmi'
-	icon_state = "hierophant_telegraph_edge"
+	icon_state = "hierophant_telegraph_teleport"
 	SET_BASE_VISUAL_PIXEL(-32, -32)
 	layer = BELOW_MOB_LAYER
 	plane = GAME_PLANE

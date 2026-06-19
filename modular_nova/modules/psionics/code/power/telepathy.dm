@@ -64,6 +64,8 @@
 	message = autopunct_bare(capitalize(message))
 	if(!length(message))
 		return FALSE
+	if(!is_valid_target(target))
+		return FALSE
 
 	return TRUE
 
