@@ -487,6 +487,8 @@
 	var/deactive_msg
 	/// Maximum range in tiles.
 	var/cast_range = 7
+	/// If TRUE, the action can target its owner.
+	var/allow_self_target = FALSE
 
 /datum/action/cooldown/psionic/pointed/New(Target, original = TRUE)
 	. = ..()
@@ -542,7 +544,7 @@
 	if(!istype(living_owner))
 		return FALSE
 
-	if(target == living_owner)
+	if(target == living_owner && !allow_self_target)
 		to_chat(living_owner, span_warning("You cannot focus [src] on yourself."))
 		return FALSE
 	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()

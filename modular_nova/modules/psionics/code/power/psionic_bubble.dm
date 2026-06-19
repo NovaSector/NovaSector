@@ -15,6 +15,7 @@
 	button_icon_state = "psi_psionic_bubble"
 	cooldown_time = 30 SECONDS
 	cast_range = 5
+	allow_self_target = TRUE
 	point_cost = 1
 	strain_gain = 12
 	psionic_flags = PSIONIC_PROTECTIVE
@@ -45,7 +46,9 @@
 
 /datum/status_effect/psionic_bubble/on_apply()
 	. = ..()
-	bubble_overlay = mutable_appearance('icons/effects/effects.dmi', "bubbles")
+	bubble_overlay = mutable_appearance('icons/effects/effects.dmi', "shield-greyscale")
+	bubble_overlay.alpha = 180
+	bubble_overlay.transform = matrix().Scale(1.35)
 	owner.add_overlay(bubble_overlay)
 	owner.add_traits(list(TRAIT_OXYIMMUNE, TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTCOLD), PSIONIC_TRAIT_SOURCE)
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/psionic_bubble)
@@ -66,7 +69,7 @@
 /atom/movable/screen/alert/status_effect/psionic_bubble
 	name = "Psionic Bubble"
 	desc = "A psionic field is helping you survive hostile atmospheres."
-	icon_state = "buff"
+	icon_state = "slime_rainbowshield"
 
 /datum/movespeed_modifier/psionic_bubble
 	multiplicative_slowdown = 0.25
