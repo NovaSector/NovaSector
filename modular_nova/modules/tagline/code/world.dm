@@ -11,10 +11,10 @@
 			if(server_name)
 				prefix += "<b>[server_name]</b><br>"
 			hostedby = CONFIG_GET(string/hostedby)
+		prefix += "[CONFIG_GET(string/servertagline)]<br>"
 		prefix += " (<a href=\"[CONFIG_GET(string/discord_link)]\">Discord</a>) &#8212; "
 		prefix += " (<a href=\"[CONFIG_GET(string/wikiurl)]\">Wiki</a>) &#8212; "
-		prefix += " (<a href=\"[CONFIG_GET(string/githuburl)]\">Github</a>)"
-		prefix += "<br>[CONFIG_GET(string/servertagline)]<br>"
+		prefix += " (<a href=\"[CONFIG_GET(string/githuburl)]\">Github</a>)<br>"
 		status_prefix = prefix
 
 	if(SSmapping.current_map)
