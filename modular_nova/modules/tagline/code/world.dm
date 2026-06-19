@@ -14,7 +14,18 @@
 	new_status += "<a href=\"[CONFIG_GET(string/discord_link)]\">"
 	new_status += "Discord"
 	new_status += "</a>)"
-	new_status += "<br>[CONFIG_GET(string/servertagline)]<br>"
+	var/static/status_prefix
+	if(isnull(status_prefix))
+		var/prefix = ""
+		if(config)
+			var/server_name = CONFIG_GET(string/servername)
+			if(server_name)
+				prefix += "<b>[server_name]</b> &#8212; "
+		prefix += " (<a href=\"[CONFIG_GET(string/discord_link)]\">Discord</a>)"
+		prefix += "<br>[CONFIG_GET(string/servertagline)]<br>"
+		status_prefix = prefix
+
+	var/list/features = list()
 
 
 	var/players = GLOB.clients.len
