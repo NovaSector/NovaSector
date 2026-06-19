@@ -2739,61 +2739,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	female_sprite_flags = NO_FEMALE_UNIFORM
 
-//Tora's Body Pillow (DarkRilo)
-/obj/item/toy/pillow/torapillow
-	name = "Tora Body Pillow"
-	desc = "A poofy, soft looking pillow depicting a certain sharkette. One side a little less scandalous than the other."
-	icon_state = "torapillbod"
-	inhand_icon_state = null
-	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
-	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
-	icon = 'modular_nova/master_files/icons/donator/obj/torabod_pillow.dmi'
-	throw_range = 1
-
-	// Keep track of the original transform matrix
-	var/matrix/original_transform
-
-/obj/item/toy/pillow/torapillow/Initialize(mapload)
-	. = ..()
-	if(!original_transform)
-		original_transform = matrix(transform)
-
-	// Optional: If the pillow spawns on the ground (not in a mob's inventory),
-	// this makes it start at 50% size immediately.
-	if(!istype(loc, /mob))
-		var/matrix/M = matrix(original_transform)
-		M.Scale(0.5, 0.5)
-		transform = M
-
-/obj/item/toy/pillow/torapillow/pickup(mob/user)
-	..()
-	// Restore to original full size over 0.2 seconds
-	animate(src, transform = original_transform, time = 2, loop = 0)
-
-/obj/item/toy/pillow/torapillow/dropped(mob/user)
-	..()
-	// Shrink the item to 50% size over 0.2 seconds
-	var/matrix/M = matrix(original_transform)
-	M.Scale(0.5, 0.5)
-	animate(src, transform = M, time = 2, loop = 0)
-
-/obj/item/toy/pillow/torapillow/attack_self(mob/user)
-	adjust_item_style(user)
-
-/obj/item/toy/pillow/torapillow/click_alt(mob/user)
-	adjust_item_style(user)
-	return CLICK_ACTION_SUCCESS
-
-/obj/item/toy/pillow/torapillow/examine(mob/user)
-	. = ..()
-	. += span_notice("Alt-click [src] to flip it. It currently shows the '[src.icon_state]' side.")
-
-/obj/item/toy/pillow/torapillow/proc/adjust_item_style(mob/user)
-	if (icon_state == "torapillbod")
-		icon_state = "torapillbod-t"
-	else
-		icon_state = "torapillbod"
-	user.visible_message(span_notice("[user] flips the [src]."))
 
 /obj/structure/sign/flag/pride/bon
 	name = "\improper Bon's cape"

@@ -1,7 +1,7 @@
 //Towa's Croptop Bomber Jacker (DarkRilo)
 /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket
 	name = "\improper Croptop Bomber Jacket"
-	desc = "Placeholder"
+	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket"
 	inhand_icon_state = null
@@ -27,7 +27,7 @@
 
 /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_stripe
 	name = "\improper Croptop Bomber Jacket Stripe"
-	desc = "Placeholder"
+	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_stripe"
 	inhand_icon_state = null
@@ -53,7 +53,7 @@
 
 /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_badge
 	name = "\improper Croptop Bomber Jacket Badge"
-	desc = "Placeholder"
+	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_badge"
 	inhand_icon_state = null
@@ -79,7 +79,7 @@
 
 /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_plain
 	name = "\improper Croptop Bomber Jacket Plain"
-	desc = "Placeholder"
+	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_plain"
 	inhand_icon_state = null
