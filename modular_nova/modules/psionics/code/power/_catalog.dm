@@ -162,11 +162,22 @@
 
 	return resonance_school.name
 
+/datum/psionic_power/proc/get_action_rank_variant_types()
+	if(!ispath(action_type, /datum/action/cooldown/psionic))
+		return list()
+
+	var/datum/action/cooldown/psionic/action = new action_type
+	var/list/action_rank_variant_types = list()
+	if(length(action.rank_variant_types))
+		action_rank_variant_types = action.rank_variant_types.Copy()
+	qdel(action)
+	return action_rank_variant_types
+
 /datum/psionic_power/proc/get_minimum_rank()
 	if(!action_type)
 		return null
 
-	var/list/action_rank_variant_types = initial(action_type.rank_variant_types)
+	var/list/action_rank_variant_types = get_action_rank_variant_types()
 	if(!length(action_rank_variant_types))
 		return null
 
@@ -197,7 +208,7 @@
 		return "has no action school"
 	if(!get_school())
 		return "uses an unknown action school [get_school_type()]"
-	var/list/action_rank_variant_types = initial(action_type.rank_variant_types)
+	var/list/action_rank_variant_types = get_action_rank_variant_types()
 	if(!length(action_rank_variant_types))
 		return "has no action rank variants"
 	for(var/variant_type in action_rank_variant_types)
