@@ -257,7 +257,10 @@
 		return PSIONIC_DEFAULT_COLOR
 
 	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	return profile?.psionic_color || PSIONIC_DEFAULT_COLOR
+	if(!profile)
+		return PSIONIC_DEFAULT_COLOR
+
+	return profile.psionic_color || PSIONIC_DEFAULT_COLOR
 
 /datum/action/cooldown/psionic/proc/can_use_hands(mob/living/living_owner, feedback = FALSE)
 	if(!needs_hands)
