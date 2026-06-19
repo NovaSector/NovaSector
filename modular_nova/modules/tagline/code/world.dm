@@ -38,7 +38,5 @@
 	if (!host && hostedby)
 		features += "hosted by <b>[hostedby]</b>"
 
-		new_status += "\[[jointext(features, ", ")]\]"
-
-	status = new_status
+	status = status_prefix + (length(features) ? "\[[jointext(features, ", ")]\]" : "")
 
