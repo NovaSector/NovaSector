@@ -44,7 +44,7 @@
 /datum/action/cooldown/psionic/pointed/warp/psionic_activate(atom/target)
 	var/turf/closed/wall/wall_target = target
 	var/mob/living/living_owner = owner
-	if(!wall_target.psionic_warp(PSIONIC_WARP_DURATION, living_owner.get_psionic_profile()?.psionic_color))
+	if(!wall_target.psionic_warp(PSIONIC_WARP_DURATION, get_manifestation_color()))
 		living_owner.balloon_alert(living_owner, "warp failed!")
 		return FALSE
 	living_owner.visible_message(

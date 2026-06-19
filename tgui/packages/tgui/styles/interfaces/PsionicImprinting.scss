@@ -88,53 +88,6 @@
     margin-top: 0;
   }
 
-  &__dependencyLines {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    overflow: visible;
-    pointer-events: none;
-  }
-
-  &__dependencyLine {
-    fill: none;
-    stroke: currentColor;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 2px;
-    opacity: 0.46;
-  }
-
-  &__dependencyLine--locked {
-    stroke-dasharray: 5 5;
-    opacity: 0.24;
-  }
-
-  &__dependencyLine--available {
-    opacity: 0.68;
-  }
-
-  &__dependencyLine--complete {
-    opacity: 0.88;
-  }
-
-  &__dependencyPoint {
-    fill: #050811;
-    stroke: currentColor;
-    stroke-width: 2px;
-    opacity: 0.72;
-  }
-
-  &__dependencyPoint--locked {
-    opacity: 0.34;
-  }
-
-  &__dependencyPoint--complete {
-    fill: currentColor;
-    opacity: 0.92;
-  }
-
   &__nodeSlot {
     position: absolute;
     z-index: 2;
