@@ -13,7 +13,7 @@
 				prefix += "<b>[server_name]</b><br>"
 				var/discord = CONFIG_GET(string/discord_link)
 				if(discord)
-					prefix += " &#8212; (<a href=\"[]\">Discord</a>)<br>"
+					prefix += " &#8212; (<a href=\"[discord]\">Discord</a>)<br>"
 			hostedby = CONFIG_GET(string/hostedby)
 		prefix += "[CONFIG_GET(string/servertagline)]<br>"
 		// If we at least have loaded the config system, we don't have to keep doing all this
