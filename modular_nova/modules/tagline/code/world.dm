@@ -10,11 +10,11 @@
             new_status += "<b>[server_name]</b> &#8212; "
         hostedby = CONFIG_GET(string/hostedby)
 
-    new_status += " ("
-    new_status += "<a href=\"[CONFIG_GET(string/discord_link)]\">"
-    new_status += "Discord"
-    new_status += "</a>)"
-    new_status += "<br>[CONFIG_GET(string/servertagline)]<br>"
+	new_status += " ("
+	new_status += "<a href=\"[CONFIG_GET(string/discord_link)]\">"
+	new_status += "Discord"
+	new_status += "</a>)"
+	new_status += "<br>[CONFIG_GET(string/servertagline)]<br>"
 
 
     var/players = GLOB.clients.len
