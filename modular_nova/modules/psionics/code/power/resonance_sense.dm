@@ -150,17 +150,6 @@
 	/// Target selected during before_psionic() for the trace form.
 	var/datum/weakref/trace_target_ref
 
-/datum/action/cooldown/psionic/resonance/sense/proc/get_resonance_form()
-	var/mob/living/living_owner = owner
-	if(!istype(living_owner))
-		return null
-
-	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	var/datum/psionic_rank_variant/selected_variant = get_selected_rank_variant(profile)
-	if(istype(selected_variant, /datum/psionic_rank_variant/resonance_sense))
-		return selected_variant
-
-	return null
 
 /datum/action/cooldown/psionic/resonance/sense/before_psionic(atom/target)
 	trace_target_ref = null
@@ -168,7 +157,7 @@
 	if(!istype(living_owner))
 		return FALSE
 
-	var/datum/psionic_rank_variant/resonance_sense/form = get_resonance_form()
+	var/datum/psionic_rank_variant/resonance_sense/form = get_selected_variant_as_type(/datum/psionic_rank_variant/resonance_sense)
 	if(!form)
 		return FALSE
 	if(!form.traces_signature)
@@ -209,7 +198,7 @@
 	if(!istype(living_owner))
 		return FALSE
 
-	var/datum/psionic_rank_variant/resonance_sense/form = get_resonance_form()
+	var/datum/psionic_rank_variant/resonance_sense/form = get_selected_variant_as_type(/datum/psionic_rank_variant/resonance_sense)
 	if(!form)
 		return FALSE
 	if(form.traces_signature)

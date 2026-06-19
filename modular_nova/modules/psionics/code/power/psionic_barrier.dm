@@ -100,7 +100,7 @@
 	if(!can_maintain_barrier(living_owner, profile))
 		return FALSE
 
-	var/datum/psionic_rank_variant/psionic_barrier/form = get_barrier_form(profile)
+	var/datum/psionic_rank_variant/psionic_barrier/form = get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier)
 	if(!form)
 		return FALSE
 
@@ -126,12 +126,6 @@
 /datum/action/cooldown/psionic/psionic_barrier/proc/is_barrier_active()
 	return barrier_active && istype(owner, /mob/living)
 
-/datum/action/cooldown/psionic/psionic_barrier/proc/get_barrier_form(datum/component/psionic_profile/profile)
-	var/datum/psionic_rank_variant/selected_variant = get_selected_rank_variant(profile)
-	if(istype(selected_variant, /datum/psionic_rank_variant/psionic_barrier))
-		return selected_variant
-
-	return null
 
 /datum/action/cooldown/psionic/psionic_barrier/proc/apply_barrier_form(datum/psionic_rank_variant/psionic_barrier/form)
 	if(!form || !barrier_visual || QDELETED(barrier_visual))
@@ -174,7 +168,7 @@
 	if(!can_maintain_barrier(living_owner, profile))
 		clear_barrier(living_owner, TRUE)
 		return NONE
-	var/datum/psionic_rank_variant/psionic_barrier/form = get_barrier_form(profile)
+	var/datum/psionic_rank_variant/psionic_barrier/form = get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier)
 	if(!form)
 		clear_barrier(living_owner, TRUE)
 		return NONE
@@ -207,7 +201,7 @@
 	if(!can_maintain_barrier(living_owner, profile))
 		clear_barrier(living_owner, TRUE)
 		return FAILED_BLOCK
-	var/datum/psionic_rank_variant/psionic_barrier/form = get_barrier_form(profile)
+	var/datum/psionic_rank_variant/psionic_barrier/form = get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier)
 	if(!form)
 		clear_barrier(living_owner, TRUE)
 		return FAILED_BLOCK
@@ -317,7 +311,7 @@
 	if(!can_maintain_barrier(living_owner, profile))
 		clear_barrier(living_owner, TRUE)
 		return
-	if(!get_barrier_form(profile))
+	if(!get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier))
 		clear_barrier(living_owner, TRUE)
 
 /datum/action/cooldown/psionic/psionic_barrier/proc/on_owner_death(datum/source, gibbed)

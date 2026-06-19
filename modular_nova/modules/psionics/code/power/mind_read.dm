@@ -67,7 +67,7 @@
 		var/mob/enslaver = target_mind.enslaved_to.resolve()
 		readout += span_warning("<b>Compulsion:</b> loyalty bends toward [enslaver || "someone"].")
 	if(target_mind?.has_antag_datum(/datum/antagonist/hypnotized) || target_mind?.has_antag_datum(/datum/antagonist/obsessed))
-		readout += span_warning("<b>Compulsion:</b> an anomalous fixation coils through the thought pattern.")
+		readout += span_warning("<b>Compulsion:</b> an anomalous fixation is present.")
 
 	to_chat(reader, boxed_message(jointext(readout, "<br>")))
 	return TRUE

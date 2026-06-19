@@ -35,17 +35,6 @@
 	dead_target_alert = "mind silent!"
 	rank_variant_types = list(/datum/psionic_rank_variant/sunder)
 
-/datum/action/cooldown/psionic/pointed/living_target/sunder/proc/get_sunder_form()
-	var/mob/living/living_owner = owner
-	if(!istype(living_owner))
-		return null
-
-	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	var/datum/psionic_rank_variant/selected_variant = get_selected_rank_variant(profile)
-	if(istype(selected_variant, /datum/psionic_rank_variant/sunder))
-		return selected_variant
-
-	return null
 
 /datum/action/cooldown/psionic/pointed/living_target/sunder/is_valid_target(atom/target)
 	. = ..()
@@ -54,7 +43,7 @@
 
 	var/mob/living/living_owner = owner
 	var/mob/living/living_target = target
-	var/datum/psionic_rank_variant/sunder/form = get_sunder_form()
+	var/datum/psionic_rank_variant/sunder/form = get_selected_variant_as_type(/datum/psionic_rank_variant/sunder)
 	return can_sunder_target(living_owner, living_target, form, TRUE)
 
 /datum/action/cooldown/psionic/pointed/living_target/sunder/proc/can_sunder_target(mob/living/living_owner, mob/living/living_target, datum/psionic_rank_variant/sunder/form, feedback = FALSE)
@@ -90,7 +79,7 @@
 /datum/action/cooldown/psionic/pointed/living_target/sunder/psionic_activate(atom/target)
 	var/mob/living/living_owner = owner
 	var/mob/living/living_target = target
-	var/datum/psionic_rank_variant/sunder/form = get_sunder_form()
+	var/datum/psionic_rank_variant/sunder/form = get_selected_variant_as_type(/datum/psionic_rank_variant/sunder)
 	if(!can_sunder_target(living_owner, living_target, form, TRUE))
 		return FALSE
 
