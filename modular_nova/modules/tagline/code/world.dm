@@ -1,4 +1,8 @@
 /world/proc/update_status()
+	var/hostedby
+	var/list/features = list()
+	var/players = GLOB.clients.len
+
 	var/static/status_prefix
 	if(isnull(status_prefix))
 		var/prefix = ""
@@ -6,21 +10,16 @@
 			var/server_name = CONFIG_GET(string/servername)
 			if(server_name)
 				prefix += "<b>[server_name]</b> &#8212; "
+			hostedby = CONFIG_GET(string/hostedby)
 		prefix += " (<a href=\"[CONFIG_GET(string/discord_link)]\">Discord</a>)"
 		prefix += "<br>[CONFIG_GET(string/servertagline)]<br>"
 		status_prefix = prefix
-
-	var/list/features = list()
-	var/players = GLOB.clients.len
 
 	if(SSmapping.current_map)
 		features += "[SSmapping.current_map.map_name]"
 
 	features += "~[players] player[players == 1 ? "": "s"]"
 
-	var/hostedby
-	if(config)
-		hostedby = CONFIG_GET(string/hostedby)
 	if (!host && hostedby)
 		features += "hosted by <b>[hostedby]</b>"
 
