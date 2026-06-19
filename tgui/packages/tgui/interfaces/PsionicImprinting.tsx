@@ -59,14 +59,6 @@ type PsionicImprintingData = {
   schools: PsionicSchool[];
 };
 
-const tierNames = [
-  'Sensitivity',
-  'Operancy',
-  'Mastery',
-  'Grandmastery',
-  'Paramount',
-];
-
 const POWER_NODE_WIDTH = 420;
 const POWER_NODE_MIN_HEIGHT = 126;
 const POWER_NODE_GAP = 18;
@@ -85,10 +77,6 @@ type PowerLayout = {
   nodes: PowerLayoutNode[];
   width: number;
   height: number;
-};
-
-const getTierName = (tier: number) => {
-  return tierNames[tier - 1] || `Depth ${tier}`;
 };
 
 const getEstimatedLineCount = (text: string) => {
@@ -403,12 +391,11 @@ const PowerNode = (props: {
           <Box color="label" className="PsionicImprinting__nodeDesc">
             {power.desc}
           </Box>
-          <Box color="label" className="PsionicImprinting__nodeMeta">
-            {getTierName(power.tier)}
-            {!hasPowerPrereqs &&
-              !!power.required_school_points &&
-              ` | Branch ${power.required_school_points}`}
-          </Box>
+          {!hasPowerPrereqs && !!power.required_school_points && (
+            <Box color="label" className="PsionicImprinting__nodeMeta">
+              Branch {power.required_school_points}
+            </Box>
+          )}
           {!!requiredPowerNames.length && (
             <Box color="label" className="PsionicImprinting__nodeMeta">
               Prereq: {requiredPowerNames.join(', ')}
