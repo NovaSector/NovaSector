@@ -419,7 +419,9 @@ const PowerNode = (props: {
           <Box className="PsionicImprinting__nodeCost">
             {learned
               ? 'Imprinted'
-              : `${power.cost} point${power.cost === 1 ? '' : 's'}`}
+              : power.cost
+                ? `${power.cost} point${power.cost === 1 ? '' : 's'}`
+                : 'Free'}
           </Box>
         </Stack.Item>
       </Stack>

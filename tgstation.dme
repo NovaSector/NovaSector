@@ -9418,6 +9418,7 @@
 #include "modular_nova\modules\psionics\code\power\psychic_guard.dm"
 #include "modular_nova\modules\psionics\code\power\pyro_bolt.dm"
 #include "modular_nova\modules\psionics\code\power\rejuvenate.dm"
+#include "modular_nova\modules\psionics\code\power\resonance_sense.dm"
 #include "modular_nova\modules\psionics\code\power\sense_health.dm"
 #include "modular_nova\modules\psionics\code\power\spatial_slip.dm"
 #include "modular_nova\modules\psionics\code\power\telepathy.dm"

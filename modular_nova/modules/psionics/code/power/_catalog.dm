@@ -191,8 +191,8 @@
 /datum/psionic_power/proc/get_catalog_error()
 	if(!ispath(action_type, /datum/action/cooldown/psionic))
 		return "has no valid psionic action_type"
-	if(get_cost() <= 0)
-		return "has a non-positive action point_cost"
+	if(initial(action_type.point_cost) < 0)
+		return "has a negative action point_cost"
 	if(!get_school_type())
 		return "has no action school"
 	if(!get_school())

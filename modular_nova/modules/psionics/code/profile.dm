@@ -417,13 +417,14 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	if(!ispath(action_type, /datum/action/cooldown/psionic))
 		return FALSE
 	var/datum/psionic_power/catalog_power = get_psionic_power_for_action(action_type)
-	if(isnull(cost))
+	var/uses_catalog_cost = isnull(cost)
+	if(uses_catalog_cost)
 		cost = catalog_power ? catalog_power.get_cost() : 1
 	if(action_type in known_powers)
 		if(!silent)
 			to_chat(psion, span_warning("You already know that discipline."))
 		return FALSE
-	if(cost > 0 && catalog_power)
+	if(uses_catalog_cost && catalog_power)
 		var/lock_reason = get_power_lock_reason(catalog_power)
 		if(lock_reason)
 			if(!silent)
