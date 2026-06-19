@@ -38,7 +38,7 @@ GLOBAL_LIST_INIT(psionic_rank_strain_decay, list(
 	PSIONIC_RANK_GAMMA = PSIONIC_DEFAULT_STRAIN_DECAY,
 	PSIONIC_RANK_DELTA = 2.5,
 	PSIONIC_RANK_BETA = 3,
-	PSIONIC_RANK_ALPHA = 3.5,
+	PSIONIC_RANK_ALPHA = 4,
 ))
 
 GLOBAL_LIST_INIT(psionic_mutation_rank_weights, list(

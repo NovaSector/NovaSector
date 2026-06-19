@@ -17,7 +17,7 @@
 	cast_range = 3
 	allow_dead_targets = TRUE
 	point_cost = 3
-	strain_gain = 55
+	strain_gain = 100
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
 	requires_concentration = TRUE
