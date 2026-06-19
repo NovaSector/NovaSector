@@ -31,3 +31,4 @@
 		new_status += "\[[jointext(features, ", ")]\]"
 
 	status = new_status
+
