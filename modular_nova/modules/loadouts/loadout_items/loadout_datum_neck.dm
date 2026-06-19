@@ -615,7 +615,6 @@
 /datum/loadout_item/neck/security_cape
 	name = "Guard Cape (Colorable)"
 	item_path = /obj/item/clothing/neck/security_cape/shoulder
-	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /*
