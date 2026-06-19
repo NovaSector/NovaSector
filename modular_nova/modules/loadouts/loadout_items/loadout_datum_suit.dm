@@ -1238,18 +1238,20 @@
 	name = "Replica Parade Jacket"
 	item_path = /obj/item/clothing/suit/replica_parade_jacket
 
-/datum/loadout_item/suit/donator/croptopbomberjacket
+//Towa's Donator Public Items
+/datum/loadout_item/suit/croptopbomberjacket
 	name = "Croptop Bomber Jacket"
 	item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket
 
-/datum/loadout_item/suit/donator/croptopbomberjacket_stripe
+/datum/loadout_item/suit/croptopbomberjacket_stripe
 	name = "Croptop Bomber Jacket (Stripe)"
 	item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_stripe
 
-/datum/loadout_item/suit/donator/croptopbomberjacket_badge
+/datum/loadout_item/suit/croptopbomberjacket_badge
 	name = "Croptop Bomber Jacket (Badge)"
 	item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_badge
 
-/datum/loadout_item/suit/donator/croptopbomberjacket_plain
+/datum/loadout_item/suit/croptopbomberjacket_plain
 	name = "Croptop Bomber Jacket (Plain)"
 	item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_plain
+//End of Towa's Donator Public Items
