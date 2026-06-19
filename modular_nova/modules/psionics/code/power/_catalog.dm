@@ -48,7 +48,7 @@
 	ui_color = "#61d878"
 
 /datum/psionic_school/bluespace
-	name = "Bluespace Conjuration"
+	name = "Metakinetics"
 	desc = "The space in-between, teleportation, distance."
 	anomaly_path = /obj/effect/anomaly/bluespace
 	anomaly_core_path = /obj/item/assembly/signaler/anomaly/bluespace
