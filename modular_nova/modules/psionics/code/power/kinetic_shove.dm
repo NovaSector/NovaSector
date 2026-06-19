@@ -111,7 +111,7 @@
 /datum/action/cooldown/psionic/pointed/kinetic_pull
 	name = "Kinetic Pull"
 	desc = "Pull a loose item into your hand with focused psionic force."
-	button_icon_state = "psi_kinetic_shove"
+	button_icon_state = "psi_kinetic_pull"
 	cooldown_time = 8 SECONDS
 	cast_range = 5
 	point_cost = 1

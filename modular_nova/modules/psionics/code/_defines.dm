@@ -2,6 +2,8 @@
 #define PSIONIC_LEVITATION_TRAIT_SOURCE "psionic_levitation"
 #define PSIONIC_SOURCE_MUTATION "psionic_mutation"
 #define PSIONIC_SOURCE_QUIRK "psionic_quirk"
+#define PSIONIC_SOURCE_ADMIN "psionic_admin"
+#define PSIONIC_SOURCE_OPFOR "psionic_opfor"
 #define ORGAN_SLOT_PSIONIC_IMPLANT "psionic_implant"
 
 #define PSIONIC_DEFAULT_POINTS 3
