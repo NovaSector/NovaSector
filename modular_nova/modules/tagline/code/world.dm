@@ -9,9 +9,11 @@
 		if(config)
 			var/server_name = CONFIG_GET(string/servername)
 			if(server_name)
-				prefix += "<b>[server_name]</b> &#8212; "
+				prefix += "<b>[server_name]</b><br>"
 			hostedby = CONFIG_GET(string/hostedby)
-		prefix += " (<a href=\"[CONFIG_GET(string/discord_link)]\">Discord</a>)"
+		prefix += " (<a href=\"[CONFIG_GET(string/discord_link)]\">Discord</a>) &#8212; "
+		prefix += " (<a href=\"[CONFIG_GET(string/wikiurl)]\">Wiki</a>) &#8212; "
+		prefix += " (<a href=\"[CONFIG_GET(string/githuburl)]\">Github</a>)"
 		prefix += "<br>[CONFIG_GET(string/servertagline)]<br>"
 		status_prefix = prefix
 
