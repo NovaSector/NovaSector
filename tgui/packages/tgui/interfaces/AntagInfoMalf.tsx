@@ -3,6 +3,7 @@ import type { BooleanLike } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
+
 import { Rules } from './AntagInfoRules'; // NOVA EDIT ADDITION
 import {
   type Objective,
@@ -86,17 +87,24 @@ function FlavorSection(props) {
           mr={-0.8}
           mt={-0.5}
           icon="hammer"
-          /* NOVA EDIT: ORIGINAL TOOLTIP
+          /* // NOVA EDIT REMOVAL START: ORIGINAL TOOLTIP
           tooltip="
             This is a gameplay suggestion for bored ais.
             You don't have to follow it, unless you want some
             ideas for how to spend the round."
-          */
+          */ // NOVA EDIT REMOVAL END
+         // NOVA EDIT ADDITION START
           tooltip={`
               Please refer to the 'Antagonist Policy' section of the wiki
               if you have any questions.`}
           tooltipPosition="bottom-start"
-        />
+        // NOVA EDIT ADDITION END
+        /* // NOVA EDIT REMOVAL START: Remove button text to make it smaller, still has hammer icon
+        >
+          Policy
+        </Button>
+       */ // NOVA EDIT REMOVAL END
+        /> // NOVA EDIT ADDITION
       }
     >
       <Stack vertical fill>
@@ -181,9 +189,14 @@ function CodewordsSection(props) {
   );
 }
 
+
 export function AntagInfoMalf(props) {
   return (
-    <Window width={660} height={530} theme={'hackerman'}>
+    <Window
+      width={660}
+      height={530}
+      theme={'hackerman'}
+    >
       <Window.Content style={{ fontFamily: 'Consolas, monospace' }}>
         <Stack vertical fill>
           <Stack.Item grow>
