@@ -152,13 +152,3 @@
 	blacklisted_turfs -= typesof(/turf/closed/mineral)
 	banned_objects = typecacheof(/obj/structure/stone_tile)
 
-/datum/map_template/shelter/prefab_factory
-	name = "Nakamura Streamline Basics"
-	shelter_id = "prefab_factory"
-	description = "Factory in a box! Less compact and.... not really that efficient, but hey, automation is automation"
-	mappath = "_maps/templates/prefab_factory.dmm"
-
-/datum/map_template/shelter/prefab_factory/New()
-	. = ..()
-	blacklisted_turfs -= typesof(/turf/closed/mineral)
-	banned_objects = typecacheof(/obj/structure/stone_tile)

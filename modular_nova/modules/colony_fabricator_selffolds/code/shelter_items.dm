@@ -88,9 +88,4 @@
 	template_id = "prefab_botany"
 	icon_state = "prefab_natural"
 
-/obj/item/survivalcapsule/prefab/factory
-	name = "\improper Nakamura Streamline Basics"
-	desc = "One of the most complicated, assembled and weird things Nakamura has packed. A factory cell configured for basic production line. Sometimes you really need those 3000 drinking glasses huh?"
-	template_id = "prefab_factory"
-	icon_state = "prefab_nakamura_adv"
 

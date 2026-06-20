@@ -62,21 +62,6 @@
 /obj/item/gps/engineering,
 /obj/item/gps/engineering,
 /obj/structure/sign/poster/contraband/tools/directional/north,
-/obj/item/storage/belt/utility/xenoarch,
-/obj/item/xenoarch,
-/obj/item/xenoarch/anomaly_stabilizer,
-/obj/item/xenoarch/brush,
-/obj/item/xenoarch/core_sampler,
-/obj/item/storage/bag/xenoarch,
-/obj/item/paper/fluff/xenoarch_guide,
-/obj/item/xenoarch/hammer/cm10,
-/obj/item/xenoarch/hammer/cm2,
-/obj/item/xenoarch/hammer/cm6,
-/obj/item/xenoarch/hammer/cm5,
-/obj/item/xenoarch/hammer/cm4,
-/obj/item/xenoarch/hammer/cm3,
-/obj/item/xenoarch/handheld_scanner,
-/obj/item/xenoarch/handheld_recoverer,
 /turf/open/floor/plastic,
 /area/template_noop)
 "I" = (
@@ -101,6 +86,7 @@
 /area/template_noop)
 "P" = (
 /obj/effect/turf_decal/loading_area,
+/obj/structure/closet/xenoarch,
 /turf/open/floor/plastic,
 /area/template_noop)
 "T" = (
