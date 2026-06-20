@@ -665,39 +665,19 @@
 	user.whisper(message, spans = spans)
 
 // Donation reward for SlippyJoe
-/obj/item/clothing/head/avipilot
+/obj/item/clothing/head/costume/ushanka/avipilot
 	name = "smuggler's flying cap"
 	desc = "Shockingly, despite space winds, and the lack of any practicality, this pilot cap seems to be fairly well standing, there's a rabbit head seemingly stamped into the side of it."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	icon_state = "avipilotup"
 	inhand_icon_state = "rus_ushanka"
-	flags_inv = HIDEEARS|HIDEHAIR
-	cold_protection = HEAD
-	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT //about as warm as an ushanka
-	actions_types = list(/datum/action/item_action/adjust)
+	upsprite = "avipilotup"
+	downsprite = "avipilotdown"
 	supports_variations_flags = NONE
-	var/goggles = FALSE
-
-/obj/item/clothing/head/avipilot/proc/adjust_goggles(mob/living/carbon/user)
-	if(user?.incapacitated)
-		return
-	if(goggles)
-		icon_state = "avipilotup"
-		to_chat(user, span_notice("You put all your effort into pulling the goggles up."))
-	else
-		icon_state = "avipilotdown"
-		to_chat(user, span_notice("You focus all your willpower to put the goggles down on your eyes."))
-	goggles = !goggles
-	if(user)
-		user.update_worn_head()
-		user.update_mob_action_buttons()
-
-/obj/item/clothing/head/avipilot/ui_action_click(mob/living/carbon/user, action)
-	adjust_goggles(user)
-
-/obj/item/clothing/head/avipilot/attack_self(mob/living/carbon/user)
-	adjust_goggles(user)
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
 
 // Donation reward for NetraKyram - public use allowed via the command vendor
 /obj/item/clothing/under/rank/captain/dress
@@ -1303,6 +1283,9 @@
 
 /// We need to do a bit of code duplication here to ensure that we do the right kind of ui_action_click(), while keeping it modular.
 /datum/action/item_action/toggle_steampunk_goggles_welding_protection/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	if(!IsAvailable())
 		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_ACTION_TRIGGER, src) & COMPONENT_ACTION_BLOCK_TRIGGER)
@@ -2216,6 +2199,27 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "bwake_uniform"
 	can_adjust = FALSE
 
+/obj/item/clothing/under/ig_harness
+	name = "body harness"
+	desc = "An overly complicated network of securing straps and buckles. There remains plenty of slack and clips to fit any size."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	worn_icon_taur_snake = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "ig_harness"
+	body_parts_covered = NONE
+	attachment_slot_override = CHEST
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+	can_adjust = FALSE
+	slot_flags = ITEM_SLOT_ICLOTHING | ITEM_SLOT_OCLOTHING
+
+/obj/item/clothing/neck/ig_cloak
+	name = "\improper Kiara's cloak"
+	desc = "A form fitting cloak that seems exceptional at insulating the wearer."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon_state = "ig_cloak"
+
 // Donator reward for Latinfishy
 /obj/item/clothing/under/syndicate/tacticool/skirt/long
 	name = "long tacticool skirtleneck"
@@ -2599,3 +2603,135 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	. = ..()
 	allowed = GLOB.security_vest_allowed
 
+/obj/item/storage/belt/espatier
+	name = "dated Espatier holster"
+	desc = "An old outdated holster used by the Sol Federation Espatiers during the Rimward War \
+		with a sidearm holster and four pouches capable of containing anything from ammo and meds, \
+		to lucky charms. This one's been refurbished DarkRilo Apparel, though it's clearly been through a lot."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
+	icon_state = "espatier"
+	worn_icon_state = "espatier"
+	content_overlays = TRUE
+	storage_type = /datum/storage/holster/espatier
+
+/datum/storage/holster/espatier
+	max_slots = 5
+	max_limited_store = 1
+	max_specific_storage = 5
+	max_total_storage = WEIGHT_CLASS_SMALL * 5
+	open_sound = 'sound/items/handling/holster_open.ogg'
+	open_sound_vary = TRUE
+	rustle_sound = null
+
+/datum/storage/holster/espatier/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
+	. = ..()
+	set_holdable(list(
+		/obj/item/gun/ballistic/revolver/c38/detective,
+		/obj/item/gun/ballistic/revolver/c38/super,
+		/obj/item/ammo_box/speedloader/c38,
+		/obj/item/gun/ballistic/automatic/pistol/sol,
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+		/obj/item/healthanalyzer,
+		/obj/item/healthanalyzer/advanced,
+		/obj/item/door_remote, //All Command door remote
+		/obj/item/anomaly_neutralizer,
+		/obj/item/pen, //All pen
+		/obj/item/stamp, //All stamps
+		/obj/item/paper, //All paper
+		/obj/item/clipboard,
+		/obj/item/folder,
+		/obj/item/reagent_containers/hypospray/medipen, //All medipen
+		/obj/item/stack/medical/wrap/sticky_tape/surgical,
+		/obj/item/reagent_containers/cup/vial/small,
+		/obj/item/reagent_containers/cup/vial/large,
+		/obj/item/storage/pill_bottle,
+		/obj/item/radio,
+		/obj/item/restraints/handcuffs, //include cable
+		/obj/item/knife/combat/throwing,
+		/obj/item/binoculars,
+		/obj/item/gps,
+		/obj/item/experi_scanner,
+		/obj/item/mining_scanner, //manual mining scanner
+		/obj/item/t_scanner/adv_mining_scanner, // Automatic and advanced mining scanner
+		/obj/item/stack/cable_coil,
+		/obj/item/reagent_containers/cup/bottle,
+		/obj/item/hypospray,
+		/obj/item/reagent_containers/cup/glass/flask,
+		/obj/item/storage/fancy/cigarettes,
+		/obj/item/cigarette,
+		/obj/item/lighter,
+		/obj/item/reagent_containers/cup/beaker,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/flashlight,
+		/obj/item/hand_tele,
+		/obj/item/petri_dish,
+		/obj/item/food/grown/banana,
+	))
+
+//Ember's Donor Items
+/obj/item/clothing/suit/armor/donator/duke_armored_coat
+	name = "Duke's armored coat"
+	desc = "A custom-tailored armored Terran European officer's frock with a sewn-in steel-ceramic carapace. \
+			Embodies the spirit of 'old-world imperialism' to an almost aggressive degree, with the usage of bold, dark colors. \
+			The vest prominently displays the Rathenhaus family crest on the shoulders- \
+			a red-black dragon holding a Saxony coat of arms recolored to the Rathenhaus lineage palette."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon_state = "duke_armored_coat"
+	worn_icon_state = "duke_armored_coat"
+	inhand_icon_state = null
+	body_parts_covered = CHEST|ARM_LEFT
+	cold_protection = CHEST|ARM_LEFT
+	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
+	heat_protection = CHEST|ARM_LEFT
+	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
+	armor_type = /obj/item/clothing/suit/armor/vest/capcarapace::armor_type
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+//Towa's Donor Items
+/obj/item/clothing/head/helmet/donator/stachelm
+	name = "\improper Stachelm"
+	desc = "The S1N Special Tactics And Combat helmet is a prototype combat helmet made \
+			Modular with Integrated HUD and UI so it can be used for a wide range of combat scenarios, \
+			from stealth to heavy combat the S1N combat helmet has your skull covered."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	icon_state = "towa_stachelm"
+	worn_icon_state = "towa_stachelm"
+	body_parts_covered = HEAD
+	flags_inv = HIDEHAIR|HIDEEARS
+	actions_types = list(/datum/action/item_action/toggle_helmet_light)
+	armor_type = /obj/item/clothing/head/hats/caphat::armor_type
+	resistance_flags = FIRE_PROOF
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	light_system = OVERLAY_LIGHT_DIRECTIONAL
+	light_range = 4
+	light_power = 1
+	light_color = "#fff9f3"
+	light_on = FALSE
+
+/obj/item/clothing/head/helmet/donator/stachelm/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands)
+		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
+
+// Toggles the helmet light on if it was off previously, or off it was on
+/obj/item/clothing/head/helmet/donator/stachelm/proc/toggle_helmet_light(mob/living/user)
+	set_light_on(!light_on)
+
+/obj/item/clothing/head/helmet/donator/stachelm/attack_self(mob/living/user)
+	toggle_helmet_light(user)
+
+/obj/structure/sign/flag/pride/bon
+	name = "\improper Bon's cape"
+	desc = "The cape of Bon in all its glory, looks yummy."
+	icon_state = "flag_bon"
+	item_flag = /obj/item/sign/flag/pride/bon
+
+/obj/item/sign/flag/pride/bon
+	name = "folded Bon's cape"
+	desc = "The folded cape of Bon's ice cone hair."
+	icon_state = "folded_pride_bon"
+	sign_path = /obj/structure/sign/flag/pride/bon
+	worn_icon_state = "bon"

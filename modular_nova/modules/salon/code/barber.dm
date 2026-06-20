@@ -33,6 +33,7 @@
 	uniform = /obj/item/clothing/under/rank/barber
 	shoes = /obj/item/clothing/shoes/laceup
 	id_trim = /datum/id_trim/job/barber
+	skillchips = list(/obj/item/skillchip/hair_expert)
 
 /obj/structure/closet/secure_closet/barber
 	name = "barber's locker"

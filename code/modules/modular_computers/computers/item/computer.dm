@@ -13,6 +13,7 @@
 	armor_type = /datum/armor/item_modular_computer
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	interaction_flags_mouse_drop = NEED_HANDS | ALLOW_RESTING
+	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 
 	///The ID currently stored in the computer.
 	var/obj/item/card/id/stored_id
@@ -153,6 +154,15 @@
 	install_default_programs()
 	register_context()
 	update_appearance()
+	if(mapload)
+		return INITIALIZE_HINT_LATELOAD
+	else
+		if(SStts.tts_enabled)
+			voice = SStts.computer_voice
+
+/obj/item/modular_computer/LateInitialize()
+	if(SStts.tts_enabled)
+		voice = SStts.computer_voice
 
 ///Initialize the shell for this item, or the physical machinery it belongs to.
 /obj/item/modular_computer/proc/add_shell_component(capacity = SHELL_CAPACITY_MEDIUM, shell_flags = NONE)
@@ -371,6 +381,7 @@
  * * silent - Boolean, determines whether fluff text would be printed
  */
 /obj/item/modular_computer/remove_id(mob/user, silent = FALSE)
+	var/obj/item/lost_id = stored_id
 	if(!stored_id)
 		return ..()
 
@@ -381,8 +392,6 @@
 		user.put_in_hands(stored_id)
 	else
 		stored_id.forceMove(drop_location())
-
-	var/obj/item/lost_id = stored_id
 	stored_id = null
 	SEND_SIGNAL(src, COMSIG_MODULAR_COMPUTER_REMOVED_ID, stored_id, user) // NOVA EDIT ADDITION - Signal on ID removal
 
@@ -689,7 +698,7 @@
 
 	data["PC_programheaders"] = program_headers
 
-	data["PC_stationtime"] = station_time_timestamp()
+	data["PC_stationtime"] = round_timestamp()
 	data["PC_stationdate"] = "[time2text(world.realtime, "DDD, Month DD", NO_TIMEZONE)], [CURRENT_STATION_YEAR]"
 	data["PC_showexitprogram"] = !!active_program // Hides "Exit Program" button on mainscreen
 	return data
@@ -712,6 +721,7 @@
 		active_program = program
 		program.alert_pending = FALSE
 		idle_threads.Remove(program)
+		program.on_made_active_program(user)
 		if(open_ui)
 			INVOKE_ASYNC(src, PROC_REF(update_tablet_open_uis), user)
 		update_appearance(UPDATE_ICON)
@@ -737,6 +747,7 @@
 
 	active_program = program
 	program.alert_pending = FALSE
+	program.on_made_active_program(user)
 	if(open_ui)
 		INVOKE_ASYNC(src, PROC_REF(update_tablet_open_uis), user)
 	update_appearance(UPDATE_ICON)
@@ -967,7 +978,9 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/modular_computer/proc/photo_act(mob/user, obj/item/photo/scanned_photo)
-	if(!store_file(new /datum/computer_file/picture(scanned_photo.picture), user))
+	var/datum/picture/source_picture = scanned_photo.picture
+	var/datum/computer_file/image/image_file = new /datum/computer_file/image(source_picture.picture_image, display_name = source_picture.picture_name, source_photo_or_painting = source_picture)
+	if(!store_file(image_file, user))
 		balloon_alert(user, "no space!")
 		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "photo scanned")

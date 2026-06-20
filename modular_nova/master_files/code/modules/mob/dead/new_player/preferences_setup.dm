@@ -58,5 +58,6 @@
 				continue
 			mannequin.add_quirk(quirk_type, parent)
 
+	mannequin.dna.update_body_size()
 	mannequin.update_body()
 	return mannequin.appearance

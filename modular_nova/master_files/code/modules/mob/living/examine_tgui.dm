@@ -1,6 +1,6 @@
 /datum/examine_panel
 	/// Mob that the examine panel belongs to.
-	var/mob/living/holder
+	var/mob/living/carbon/holder
 	/// The screen containing the appearance of the mob
 	var/atom/movable/screen/map_view/examine_panel_screen/examine_panel_screen
 
@@ -9,14 +9,14 @@
 
 /datum/examine_panel/Destroy(force)
 	holder = null
-	qdel(examine_panel_screen)
+	QDEL_NULL(examine_panel_screen)
 	return ..()
 
 /datum/examine_panel/ui_state(mob/user)
 	return GLOB.always_state
 
 /datum/examine_panel/ui_close(mob/user)
-	user.client?.clear_map(examine_panel_screen.assigned_map)
+	examine_panel_screen.hide_from(user)
 
 /atom/movable/screen/map_view/examine_panel_screen
 	name = "examine panel screen"
@@ -29,7 +29,16 @@
 		examine_panel_screen.del_on_map_removal = FALSE
 		examine_panel_screen.screen_loc = "[examine_panel_screen.assigned_map]:1,1"
 
-	var/mutable_appearance/current_mob_appearance = new(holder)
+	// Awful snowflake fix for holosynth previews - scanlines mess them up
+	var/mutable_appearance/current_mob_appearance
+	if(isholosynth(holder))
+		holder.remove_filter(HOLOSYNTH_SCANLINE_FILTER_ID)
+		current_mob_appearance = new(holder)
+		var/datum/species/synthetic/holosynth/holo_species = holder.dna.species
+		holo_species.refresh_scanline(holder)
+	else
+		current_mob_appearance = new(holder)
+
 	current_mob_appearance.setDir(SOUTH)
 	current_mob_appearance.transform = matrix() // We reset their rotation, in case they're lying down.
 

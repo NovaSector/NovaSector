@@ -1,0 +1,30 @@
+{
+	"formal_pen_skirt": [
+		{
+			"type": "icon_state",
+			"icon_state": "penned_skirt_solo",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "under_penned_skirt",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"formal_pen_skirt_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "penned_skirt_solo",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "under_penned_skirt_d",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

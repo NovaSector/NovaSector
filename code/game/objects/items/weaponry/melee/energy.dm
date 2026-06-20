@@ -222,48 +222,6 @@
 
 	return ..()
 
-/obj/item/melee/energy/sword/cyborg
-	name = "cyborg energy sword"
-	sword_color_icon = "red"
-	/// The cell cost of hitting something.
-	var/hitcost = 0.05 * STANDARD_CELL_CHARGE
-
-/obj/item/melee/energy/sword/cyborg/attack(mob/target, mob/living/silicon/robot/user)
-	if(!user.cell)
-		return
-
-	var/obj/item/stock_parts/power_store/our_cell = user.cell
-	if(HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE) && !(our_cell.use(hitcost)))
-		attack_self(user)
-		to_chat(user, span_notice("It's out of charge!"))
-		return
-	return ..()
-
-/obj/item/melee/energy/sword/cyborg/cyborg_unequip(mob/user)
-	if(!HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
-		return
-	attack_self(user)
-
-/obj/item/melee/energy/sword/cyborg/saw //Used by medical Syndicate cyborgs
-	name = "energy saw"
-	desc = "For heavy duty cutting. It has a carbon-fiber blade in addition to a toggleable hard-light edge to dramatically increase sharpness."
-	icon = 'icons/obj/medical/surgery_tools.dmi'
-	icon_state = "esaw"
-	hitsound = 'sound/items/weapons/circsawhit.ogg'
-	force = 18
-	hitcost = 0.075 * STANDARD_CELL_CHARGE // Costs more than a standard cyborg esword.
-	w_class = WEIGHT_CLASS_NORMAL
-	sharpness = SHARP_EDGED
-	light_color = LIGHT_COLOR_LIGHT_CYAN
-	tool_behaviour = TOOL_SAW
-	toolspeed = 0.7 // Faster than a normal saw.
-
-	active_force = 30
-	sword_color_icon = null // Stops icon from breaking when turned on.
-
-/obj/item/melee/energy/sword/cyborg/saw/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
-	return FALSE
-
 // The colored energy swords we all know and love.
 /obj/item/melee/energy/sword/saber
 	/// Assoc list of all possible saber colors to color define. If you add a new color, make sure to update /obj/item/toy/sword too!
@@ -325,6 +283,51 @@
 	to_chat(user, span_warning("RNBW_ENGAGE"))
 	update_appearance(UPDATE_ICON_STATE)
 
+/obj/item/melee/energy/sword/saber/cyborg
+	name = "cyborg energy sword"
+	hacked = TRUE
+	sword_color_icon = "rainbow"
+	/// The cell cost of hitting something.
+	var/hitcost = 0.05 * STANDARD_CELL_CHARGE
+
+/obj/item/melee/energy/sword/saber/cyborg/Initialize(mapload)
+	. = ..()
+	set_light_range(5) //Cyborgs don't have inhand sprites, so we compensate by making it glow brightly.
+
+/obj/item/melee/energy/sword/saber/cyborg/attack(mob/target, mob/living/silicon/robot/user)
+	if(!user.cell)
+		return
+
+	var/obj/item/stock_parts/power_store/our_cell = user.cell
+	if(HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE) && !(our_cell.use(hitcost)))
+		attack_self(user)
+		to_chat(user, span_notice("It's out of charge!"))
+		return
+	return ..()
+
+/obj/item/melee/energy/sword/saber/cyborg/cyborg_unequip(mob/user)
+	if(!HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
+		return
+	attack_self(user)
+
+/obj/item/melee/energy/sword/saber/cyborg/saw //Used by medical Syndicate cyborgs
+	name = "energy saw"
+	desc = "For heavy duty cutting. It has a carbon-fiber blade in addition to a toggleable hard-light edge to dramatically increase sharpness."
+	icon = 'icons/obj/medical/surgery_tools.dmi'
+	icon_state = "esaw"
+	hitsound = 'sound/items/weapons/circsawhit.ogg'
+	force = 18
+	hitcost = 0.075 * STANDARD_CELL_CHARGE // Costs more than a standard cyborg esword.
+	w_class = WEIGHT_CLASS_NORMAL
+	sharpness = SHARP_EDGED
+	light_color = LIGHT_COLOR_LIGHT_CYAN
+	tool_behaviour = TOOL_SAW
+	toolspeed = 0.7 // Faster than a normal saw.
+	hacked = FALSE
+	active_force = 30
+	block_chance = 0 //Unlike assault cyborgs, syndicate medical cyborgs don't get any blocking capabilities
+	sword_color_icon = null // Stops icon from breaking when turned on.
+
 /obj/item/melee/energy/sword/pirate
 	name = "energy cutlass"
 	desc = "Arrrr matey."
@@ -358,7 +361,7 @@
 	heat = 3500
 	w_class = WEIGHT_CLASS_BULKY
 	/// Our linked spark system that emits from our sword.
-	var/datum/effect_system/spark_spread/spark_system
+	var/datum/effect_system/basic/spark_spread/spark_system
 	var/list/alt_continuous = list("stabs", "pierces", "impales")
 	var/list/alt_simple = list("stab", "pierce", "impale")
 
@@ -368,8 +371,7 @@
 	alt_continuous = string_list(alt_continuous)
 	alt_simple = string_list(alt_simple)
 	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple, -10)
-	spark_system = new /datum/effect_system/spark_spread()
-	spark_system.set_up(5, 0, src)
+	spark_system = new(5, FALSE, src)
 	spark_system.attach(src)
 	START_PROCESSING(SSobj, src)
 	ADD_TRAIT(src, TRAIT_TRANSFORM_ACTIVE, INNATE_TRAIT) // Functions as an extended esword
@@ -557,6 +559,7 @@
 	armour_penetration = 0
 	wound_bonus = -10
 	demolition_mod = 1
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	sword_color_icon = "blue"
 	light_color = LIGHT_COLOR_LIGHT_CYAN
 	active_force = 18

@@ -111,7 +111,7 @@
 /obj/item/modular_computer/pda/nanotrasen_consultant
 	name = "nanotrasen consultant's PDA"
 	inserted_disk = /obj/item/disk/computer/command/captain
-	inserted_item = /obj/item/pen/fountain/captain
+	inserted_item = /obj/item/pen/fountain/green
 	greyscale_colors = "#017941#0060b8"
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
@@ -126,7 +126,8 @@
 	new /obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant(src)
 	new /obj/item/clothing/under/rank/nanotrasen_consultant(src)
 	new /obj/item/clothing/under/rank/nanotrasen_consultant/skirt(src)
-	new /obj/item/clothing/under/rank/nanotrasen_consultant/naval(src)
+	new /obj/item/clothing/under/imperial/nanotrasen_consultant(src)
+	new /obj/item/clothing/under/imperialskirt/nanotrasen_consultant(src)
 	new /obj/item/clothing/under/rank/centcom/officer(src)
 	new /obj/item/clothing/under/rank/centcom/officer_skirt(src)
 	new /obj/item/clothing/head/nanotrasen_consultant(src)
@@ -177,3 +178,11 @@
 	)
 
 	return selectable_gun_types
+
+/obj/item/pen/fountain/green
+	name = "nanotrasen fountain pen"
+	desc = "It's an expensive green fountain pen. The case may be plastic, but that gold is real!"
+	icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi'
+	icon_state = "pen-fountain-nt"
+	colour = "#18610D"
+	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)

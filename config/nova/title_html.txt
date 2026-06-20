@@ -177,6 +177,13 @@
 					width: 5vmin;
 					animation: pulse_button 0.25s infinite alternate;
 				}
+                .menu_button.info_display {
+                    cursor: default;
+                    pointer-events: none;
+                }
+                .menu_button.info_display:hover {
+                    background: inherit;
+                }
 
 				@keyframes pollsbox {
 					0% {color: #cde;}

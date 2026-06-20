@@ -58,12 +58,14 @@
 				back = messenger //faction messenger bag
 			if(DDUFFELBAG)
 				back = duffelbag //faction duffel bag
-			if (TPACKB)
-				return /obj/item/storage/backpack/tinypakb //tiny packs, because they kinda drippin
-			if (TPACKA)
-				return /obj/item/storage/backpack/tinypaka
-			if (TPACKC)
-				return /obj/item/storage/backpack/tinypakc //No guncase option bc ????engineering company????
+			if(TPACKB)
+				back = /obj/item/storage/backpack/tinypakb //tiny packs, because they kinda drippin
+			if(TPACKA)
+				back = /obj/item/storage/backpack/tinypaka
+			if(TPACKC)
+				back = /obj/item/storage/backpack/tinypakc
+			if(UDCPACK)
+				back = /obj/item/storage/backpack/udc //No guncase option as of yet.
 			else
 				back = backpack //faction backpack fallback incase bag pref shits bed
 
@@ -332,3 +334,5 @@
 /obj/structure/closet/secure_closet/tarkon/engi
 	name = "Circuit Storage"
 	icon_state = "eng"
+
+#undef ROLE_TARKALIEN

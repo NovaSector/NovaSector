@@ -1,3 +1,6 @@
+/datum/disease/chronic_illness
+	stage_prob = 0.10 // Originally: stage_prob = 0.25
+
 /datum/quirk/item_quirk/chronic_illness
 	name = "Eradicative Chronic Illness"
 	desc = "You have an anomalous chronic illness that requires constant medication to keep under control, or else causes timestream correction."
@@ -10,8 +13,8 @@
 	mail_goodies = list(/obj/item/storage/pill_bottle/sansufentanyl)
 
 /datum/quirk/item_quirk/chronic_illness/add(client/client_source)
-	var/datum/disease/chronic_illness/hms = new /datum/disease/chronic_illness()
-	quirk_holder.ForceContractDisease(hms)
+	var/datum/disease/chronic_illness/hms = new()
+	quirk_holder.ForceContractDisease(hms, make_copy = FALSE, del_on_fail = TRUE)
 
 /datum/quirk/item_quirk/chronic_illness/add_unique(client/client_source)
 	give_item_to_holder(/obj/item/storage/pill_bottle/sansufentanyl, list(LOCATION_BACKPACK), flavour_text = "You've been provided with medication to help manage your condition. Take it regularly to avoid complications.", notify_player = TRUE)

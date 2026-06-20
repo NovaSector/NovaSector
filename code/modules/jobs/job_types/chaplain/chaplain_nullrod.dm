@@ -47,8 +47,6 @@ GLOBAL_LIST_INIT(nullrod_variants, init_nullrod_variants())
 	var/chaplain_spawnable = TRUE
 	/// Short description of what this item is capable of, for radial menu uses.
 	var/menu_description = "A standard chaplain's weapon. Fits in pockets. Can be worn on the belt."
-	/// Lazylist, tracks refs()s to all cultists which have been crit or killed by this nullrod.
-	var/list/cultists_slain
 	/// Affects GLOB.holy_weapon_type. Disable to allow null rods to change at will and without affecting the station's type.
 	var/station_holy_item = TRUE
 
@@ -72,26 +70,6 @@ GLOBAL_LIST_INIT(nullrod_variants, init_nullrod_variants())
 	user.visible_message(span_suicide("[user] is killing [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to get closer to god!"))
 	return (BRUTELOSS|FIRELOSS)
 
-/obj/item/nullrod/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(!user.mind?.holy_role)
-		return ..()
-	if(!IS_CULTIST(target_mob) || istype(target_mob, /mob/living/carbon/human/cult_ghost))
-		return ..()
-
-	var/old_stat = target_mob.stat
-	. = ..()
-	if(old_stat < target_mob.stat)
-		LAZYOR(cultists_slain, REF(target_mob))
-	return .
-
-/obj/item/nullrod/examine(mob/user)
-	. = ..()
-	if(!IS_CULTIST(user) || !GET_ATOM_BLOOD_DNA_LENGTH(src))
-		return
-
-	var/num_slain = LAZYLEN(cultists_slain)
-	. += span_cult_italic("It has the blood of [num_slain] fallen cultist[num_slain == 1 ? "" : "s"] on it. \
-		<b>Offering</b> it to Nar'sie will transform it into a [num_slain >= 3 ? "powerful" : "standard"] cult weapon.")
 
 /obj/item/nullrod/non_station
 	station_holy_item = FALSE
@@ -362,6 +340,10 @@ GLOBAL_LIST_INIT(nullrod_variants, init_nullrod_variants())
 	/// The icon which appears over the mob holding the item
 	var/shield_icon = "shield-red"
 
+/obj/item/nullrod/staff/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/walking_aid)
+
 /obj/item/nullrod/staff/worn_overlays(mutable_appearance/standing, isinhands)
 	. = ..()
 	if(isinhands)
@@ -613,6 +595,7 @@ GLOBAL_LIST_INIT(nullrod_variants, init_nullrod_variants())
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	force = 15
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	offspring_type = /obj/item/toy/plush/carpplushie
 	divine = TRUE
 
@@ -650,6 +633,7 @@ GLOBAL_LIST_INIT(nullrod_variants, init_nullrod_variants())
 		force_unwielded = 14, \
 		force_wielded = 18, \
 	)
+	AddComponent(/datum/component/walking_aid)
 
 /obj/item/nullrod/bostaff/update_icon_state()
 	icon_state = inhand_icon_state = "[base_icon_state][HAS_TRAIT(src, TRAIT_WIELDED)]"
@@ -724,6 +708,10 @@ GLOBAL_LIST_INIT(nullrod_variants, init_nullrod_variants())
 	sharpness = SHARP_EDGED
 	menu_description = "A sharp pitchfork. Can be worn on the back."
 
+/obj/item/nullrod/pitchfork/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/walking_aid)
+
 // Egyptian Staff - Used as a tool for making mummy wraps.
 
 /obj/item/nullrod/egyptian
@@ -740,6 +728,11 @@ GLOBAL_LIST_INIT(nullrod_variants, init_nullrod_variants())
 	attack_verb_continuous = list("bashes", "smacks", "whacks")
 	attack_verb_simple = list("bash", "smack", "whack")
 	menu_description = "A staff. Can be used as a tool to craft exclusive egyptian items. Easily stored. Can be worn on the back."
+
+
+/obj/item/nullrod/egyptian/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/walking_aid)
 
 // Hypertool - It does brain damage rather than normal damage.
 
@@ -781,6 +774,10 @@ GLOBAL_LIST_INIT(nullrod_variants, init_nullrod_variants())
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	menu_description = "A pointy spear which penetrates armor a little. Can be worn only on the belt."
 
+/obj/item/nullrod/spear/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/walking_aid)
+
 // Unholy version of above, since the gamemode is dead in the water
 
 /obj/item/brass_spear
@@ -803,6 +800,10 @@ GLOBAL_LIST_INIT(nullrod_variants, init_nullrod_variants())
 	attack_verb_continuous = list("stabs", "pokes", "slashes", "clocks")
 	attack_verb_simple = list("stab", "poke", "slash", "clock")
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
+
+/obj/item/brass_spear/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/walking_aid)
 
 // Nullblade - For when you really want to feel like rolling dice during combat
 

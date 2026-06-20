@@ -13,7 +13,7 @@
 	icon_state = "pillow_pink_round"
 	base_icon_state = "pillow"
 	inhand_icon_state = "pillow_pink_round"
-	var/datum/effect_system/feathers/pillow_feathers
+	var/datum/effect_system/basic/feathers/pillow_feathers
 	var/current_color = "pink"
 	var/current_form = "round"
 	var/color_changed = FALSE
@@ -76,8 +76,7 @@
 	if(!length(pillow_forms))
 		populate_pillow_forms()
 	//part of code for feathers spawn on hit
-	pillow_feathers = new
-	pillow_feathers.set_up(2, 0, src)
+	pillow_feathers = new(src, 2, FALSE)
 	pillow_feathers.attach(src)
 
 /obj/item/fancy_pillow/update_icon_state()
@@ -87,8 +86,7 @@
 
 /obj/item/fancy_pillow/Destroy()
 	if(pillow_feathers)
-		qdel(pillow_feathers)
-		pillow_feathers = null
+		QDEL_NULL(pillow_feathers)
 	return ..()
 
 //feathers effect on hit
@@ -99,7 +97,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_decals/lewd_decals.dmi'
 	duration = 14
 
-/datum/effect_system/feathers
+/datum/effect_system/basic/feathers
 	effect_type = /obj/effect/temp_visual/feathers
 
 /obj/item/fancy_pillow/attack(mob/living/carbon/human/affected_mob, mob/living/carbon/human/user)
@@ -110,7 +108,7 @@
 	if(prob(1.5)) // 1.5% chance of special tickling feather spawning. No idea why, i was thinking that this is funny idea. Do not erase it plz
 		new /obj/item/tickle_feather(loc)
 
-//and there is code for successful check, so we are hitting someone with a pillow
+	//and there is code for successful check, so we are hitting someone with a pillow
 	pillow_feathers.start()
 	switch(user.zone_selected) //to let code know what part of body we gonna hit
 

@@ -3,8 +3,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 ///talking in OOC uses this
 /client/verb/ooc(msg as text)
-	set name = "OOC" //Gave this shit a shorter name so you only have to time out "ooc" rather than "ooc message" to use it --NeoFite
-	set category = "OOC"
+	set name = VERB_OOC
 
 	if(GLOB.say_disabled) //This is here to try to identify lag problems
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
@@ -78,18 +77,30 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	mob.log_talk(raw_msg, LOG_OOC)
 
 	var/keyname = key
+	var/list/key_tags
+	var/key_prefix = ""
+	var/visible_unlock = prefs.unlock_content && (prefs.toggles & MEMBER_PUBLIC)
 
-	if(prefs.unlock_content)
-		if(prefs.toggles & MEMBER_PUBLIC)
-			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('icons/ui/chat/member_content.dmi', world, "blag")][keyname]</font>"
-	// NOVA EDIT ADDITION START - Donator icons in OOC
-	if(SSplayer_ranks.is_donator(src))
-		if(prefs.read_preference(/datum/preference/toggle/display_donator_status))
-			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('modular_nova/master_files/icons/donator/donator_chat_icon.dmi', world, "nova_logo")][keyname]</font>"
-	// NOVA EDIT ADDITION END
+	// heart first lol
 	if(prefs.hearted)
-		var/datum/asset/spritesheet_batched/sheet = get_asset_datum(/datum/asset/spritesheet_batched/chat)
-		keyname = "[sheet.icon_tag("emoji-heart")][keyname]"
+		LAZYADD(key_tags, "emoji-heart")
+	if(visible_unlock)
+		LAZYADD(key_tags, "byond_member")
+	// NOVA EDIT ADDITION START - Donator icons in OOC
+	if(SSplayer_ranks.is_donator(src) && prefs.read_preference(/datum/preference/toggle/display_donator_status))
+		LAZYADD(key_tags, "nova_donator")
+	// NOVA EDIT ADDITION END
+
+	if(LAZYLEN(key_tags))
+		var/datum/asset/spritesheet_batched/chat/sheet = get_asset_datum(/datum/asset/spritesheet_batched/chat)
+		for(var/icon_name in key_tags)
+			key_prefix = "[key_prefix][sheet.icon_tag(icon_name)]"
+		key_prefix = "<span style='vertical-align: text-top; padding-right: 0.2em'>[key_prefix]</span>"
+
+	keyname = "[key_prefix][keyname]"
+
+	if(visible_unlock)
+		keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[keyname]</font>"
 
 	//The linkify span classes and linkify=TRUE below make ooc text get clickable chat href links if you pass in something resembling a url
 	for(var/client/receiver as anything in GLOB.clients)
@@ -103,7 +114,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		if(holder)
 			if(!holder.fakekey || receiver.holder)
 				if(check_rights_for(src, R_ADMIN))
-					var/ooc_color = prefs.read_preference(/datum/preference/color/ooc_color)
+					var/ooc_color = ooc_colour ? ooc_colour : prefs.read_preference(/datum/preference/color/ooc_color)
 					to_chat(receiver, span_adminooc("[CONFIG_GET(flag/allow_admin_ooccolor) && ooc_color ? "<font color=[ooc_color]>" :"" ][span_prefix("OOC:")] <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]</span>"), avoid_highlighting = avoid_highlight)
 				else
 					to_chat(receiver, span_adminobserverooc(span_prefix("OOC:</span> <EM>[keyname][holder.fakekey ? "/([holder.fakekey])" : ""]:</EM> <span class='message linkify'>[msg]")), avoid_highlighting = avoid_highlight)
@@ -114,7 +125,9 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 					to_chat(receiver, span_ooc(span_prefix("OOC:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]")), avoid_highlighting = avoid_highlight)
 
 		else if(!(key in receiver.prefs.ignoring))
-			if(GLOB.OOC_COLOR)
+			if(ooc_colour)
+				to_chat(receiver, "<span class='oocplain'><font color='[ooc_colour]'><b>[span_prefix("OOC:")] <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font></span>", avoid_highlighting = avoid_highlight)
+			else if(GLOB.OOC_COLOR)
 				to_chat(receiver, "<span class='oocplain'><font color='[GLOB.OOC_COLOR]'><b>[span_prefix("OOC:")] <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font></span>", avoid_highlighting = avoid_highlight)
 			else
 				to_chat(receiver, span_ooc(span_prefix("OOC:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]")), avoid_highlighting = avoid_highlight)
@@ -138,7 +151,6 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 			return
 	else
 		GLOB.dooc_allowed = !GLOB.dooc_allowed
-
 
 /client/proc/set_ooc()
 	set name = "Set Player OOC Color"
@@ -358,16 +370,16 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	var/aspect_ratio = view_size[1] / view_size[2]
 
 	// Calculate desired pixel width using window size and aspect ratio
-	var/list/sizes = params2list(winget(src, "mainwindow.split;mapwindow", "size"))
+	var/list/sizes = params2list(winget(src, "[SKIN_MAINWINDOW_SPLIT];[SKIN_MAPWINDOW]", "size"))
 
 	// Client closed the window? Some other error? This is unexpected behaviour, let's
 	// CRASH with some info.
-	if(!sizes["mapwindow.size"])
+	if(!sizes["[SKIN_MAPWINDOW].size"])
 		CRASH("sizes does not contain mapwindow.size key. This means a winget failed to return what we wanted. --- sizes var: [sizes] --- sizes length: [length(sizes)]")
 
-	var/list/map_size = splittext(sizes["mapwindow.size"], "x")
+	var/list/map_size = splittext(sizes["[SKIN_MAPWINDOW].size"], "x")
 
-	var/split_size = splittext(sizes["mainwindow.split.size"], "x")
+	var/split_size = splittext(sizes["[SKIN_MAINWINDOW_SPLIT].size"], "x")
 	var/split_width = text2num(split_size[1])
 
 	// Window is minimized, we can't get proper data so return to avoid division by 0
@@ -401,12 +413,12 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 	// Calculate and apply a best estimate
 	// +4 pixels are for the width of the splitter's handle
 	var/pct = 100 * (desired_width + 4) / split_width
-	winset(src, "mainwindow.split", "splitter=[pct]")
+	winset(src, SKIN_MAINWINDOW_SPLIT, "splitter=[pct]")
 
 	// Apply an ever-lowering offset until we finish or fail
 	var/delta
 	for(var/safety in 1 to 10)
-		var/after_size = winget(src, "mapwindow", "size")
+		var/after_size = winget(src, SKIN_MAPWINDOW, "size")
 		map_size = splittext(after_size, "x")
 		var/got_width = text2num(map_size[1])
 
@@ -421,7 +433,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 			delta = -delta/2
 
 		pct += delta
-		winset(src, "mainwindow.split", "splitter=[pct]")
+		winset(src, SKIN_MAINWINDOW_SPLIT, "splitter=[pct]")
 
 /// Attempt to automatically fit the viewport, assuming the user wants it
 /client/proc/attempt_auto_fit_viewport()
@@ -472,7 +484,7 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 /client/verb/map_vote_tally_count()
 	set name = "Show Map Vote Tallies"
 	set desc = "View the current map vote tally counts."
-	set category = "Server"
+	set category = "OOC"
 	to_chat(mob, SSmap_vote.tally_printout)
 
 

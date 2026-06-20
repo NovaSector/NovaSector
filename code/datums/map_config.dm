@@ -34,8 +34,10 @@
 	var/wilderness_levels = 0
 	/// Directory to the wilderness area we can spawn in
 	var/wilderness_directory
+	/// Z-Level traits our wilderness maps will get, ice box traits by default
+	var/list/wilderness_z_traits = ZTRAITS_ICY_WILDS
 	/// Index of map names (inside wilderness_directory) with the amount to spawn. ("ice_planes" = 1) for one ice spawn
-	var/list/maps_to_spawn = list()
+	var/list/wilderness_maps_to_spawn = list()
 
 	///The type of mining Z-level that should be loaded.
 	var/minetype = MINETYPE_LAVALAND
@@ -76,6 +78,9 @@
 
 	/// Boolean that tells SSmapping to load all away missions in the codebase.
 	var/load_all_away_missions = FALSE
+
+	/// Number of additional weakpoints to spawn for SSminor_mapping
+	var/bonus_weakpoints = 0
 
 /**
  * Proc that simply loads the default map config, which should always be functional.
@@ -180,10 +185,6 @@
 		log_world("map_config shuttles is not a list!")
 		return
 
-	// NOVA ADD BEGIN - EMERGENCY SHUTTLE OVERRIDE
-	shuttles["emergency"] = "emergency_nova"
-	// NOVA ADD END
-
 	traits = json["traits"]
 	// "traits": [{"Linkage": "Cross"}, {"Space Ruins": true}]
 	if (islist(traits))
@@ -238,6 +239,10 @@
 	if ("give_players_hooks" in json)
 		give_players_hooks = json["give_players_hooks"]
 
+	if ("bonus_weakpoints" in json)
+		bonus_weakpoints = json["bonus_weakpoints"]
+
+
 	allow_custom_shuttles = json["allow_custom_shuttles"] != FALSE
 
 	if ("job_changes" in json)
@@ -268,8 +273,12 @@
 
 		// Just pick and take based on weight
 		for(var/i in 1 to wilderness_levels)
-			maps_to_spawn += pick_weight_take(wilderness)
-		shuffle(maps_to_spawn)
+			wilderness_maps_to_spawn += pick_weight_take(wilderness)
+		shuffle(wilderness_maps_to_spawn)
+
+	var/list/wilderness_level_traits = json["wilderness_level_traits"]
+	if (islist(wilderness_level_traits))
+		wilderness_z_traits = wilderness_level_traits
 
 #ifdef UNIT_TESTS
 	// Check for unit tests to skip, no reason to check these if we're not running tests

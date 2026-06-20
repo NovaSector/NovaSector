@@ -108,9 +108,6 @@
 /// trait that lets you do flips with a style meter
 #define TRAIT_STYLISH "stylish"
 
-/// trait that lets you do xenoarch magnification
-#define TRAIT_XENOARCH_QUALIFIED "trait_xenoarch_qualified"
-
 /// Traits granted by glassblowing
 #define TRAIT_GLASSBLOWING "glassblowing"
 
@@ -186,5 +183,11 @@
 
 /// Skillchip trait that lets the player expertly brush or cut hair faster
 #define TRAIT_HAIR_EXPERT "hair_expert"
+
+/// Trait for quirk: Illuminated
+#define TRAIT_COSGLOW "cosmetic_glow"
+
+/// The trait for Holosynths
+#define TRAIT_HOLOSYNTH "holosynthetic"
 
 // END TRAIT DEFINES

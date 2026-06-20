@@ -21,6 +21,7 @@
 	mutantlungs = /obj/item/organ/lungs/carp/akula
 	mutanttongue = /obj/item/organ/tongue/carp/akula
 	mutanteyes = /obj/item/organ/eyes/akula
+	meat = /obj/item/food/fishmeat/human
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -144,7 +145,7 @@
 	akula.dna.features[FEATURE_MUTANT_COLOR] = main_color
 	akula.dna.features[FEATURE_MUTANT_COLOR_TWO] = secondary_color
 	akula.dna.features[FEATURE_MUTANT_COLOR_THREE] = tertiary_color
-	akula.dna.mutant_bodyparts[FEATURE_TAIL] = akula.dna.species.build_mutant_part("Akula", list(main_color, secondary_color, tertiary_color))
+	akula.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Akula", list(main_color, secondary_color, tertiary_color))
 	akula.dna.features[FEATURE_LEGS] = NORMAL_LEGS
 	regenerate_organs(akula, src, visual_only = TRUE)
 	akula.update_body(TRUE)

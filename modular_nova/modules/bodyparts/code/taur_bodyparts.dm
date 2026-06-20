@@ -6,6 +6,8 @@
 	brute_modifier = 0.8
 	burn_modifier = 0.8
 	wound_resistance = 20
+	digitigrade_type = null
+	is_actually_just_invisible = TRUE
 
 /obj/item/bodypart/leg/right/taur/generate_icon_key()
 	RETURN_TYPE(/list)
@@ -20,6 +22,8 @@
 	brute_modifier = 0.8
 	burn_modifier = 0.8
 	wound_resistance = 20
+	digitigrade_type = null
+	is_actually_just_invisible = TRUE
 
 /obj/item/bodypart/leg/left/taur/generate_icon_key()
 	RETURN_TYPE(/list)
@@ -35,6 +39,8 @@
 	brute_modifier = 0.8
 	burn_modifier = 0.8
 	wound_resistance = 20
+	digitigrade_type = null
+	is_actually_just_invisible = TRUE
 
 /obj/item/bodypart/leg/right/synth/taur/generate_icon_key()
 	RETURN_TYPE(/list)
@@ -50,6 +56,8 @@
 	brute_modifier = 0.8
 	burn_modifier = 0.8
 	wound_resistance = 20
+	digitigrade_type = null
+	is_actually_just_invisible = TRUE
 
 /obj/item/bodypart/leg/left/Synth/taur/generate_icon_key()
 	RETURN_TYPE(/list)

@@ -1,5 +1,3 @@
-#define SHORTS_PANTS_SHIRTS_DIGIFILE 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
-
 /obj/item/clothing/under/pants
 	worn_icon_digi = SHORTS_PANTS_SHIRTS_DIGIFILE
 
@@ -160,7 +158,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_1 = IS_PLAYER_COLORABLE_1
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_DIGITIGRADE_MASK
 
 /obj/item/clothing/under/pants/nova/vicvest //there's no way I'm typing out a path called double_breasted 10 times over, too complex and everyone will be scared of it
 	name = "buttondown shirt with double-breasted vest"

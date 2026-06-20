@@ -30,8 +30,16 @@
 
 	always_customizable = FALSE
 
-/datum/species/pod/podweak/spec_life(mob/living/carbon/human/H, seconds_per_tick)
+/datum/species/pod/podweak/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons, replace_missing)
 	. = ..()
+	RegisterSignal(human_who_gained_species, COMSIG_LIVING_LIFE, PROC_REF(on_life))
+
+/datum/species/pod/podweak/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
+	. = ..()
+	UnregisterSignal(human, COMSIG_LIVING_LIFE)
+
+/datum/species/pod/podweak/proc/on_life(mob/living/carbon/human/H, seconds_per_tick)
+	SIGNAL_HANDLER
 	if(H.stat != CONSCIOUS)
 		return
 
@@ -58,7 +66,7 @@
 		new /obj/effect/temp_visual/annoyed/plant(get_turf(H))
 
 /datum/species/pod/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.mutant_bodyparts[FEATURE_POD_HAIR] = human.dna.species.build_mutant_part("Ivy", list(COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME))
+	human.dna.mutant_bodyparts[FEATURE_POD_HAIR] = build_mutant_part("Ivy", list(COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME, COLOR_VIBRANT_LIME))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)
 

@@ -181,6 +181,10 @@
 	if (proj.damage && armor_check < 100)
 		create_projectile_hit_effects(proj, def_zone, armor_check)
 
+	if(proj.fired_from)
+		SEND_SIGNAL(proj.fired_from, COMSIG_PROJECTILE_POST_HIT_LIVING, src, def_zone, armor_check)
+	SEND_SIGNAL(proj, COMSIG_PROJECTILE_SELF_POST_HIT_LIVING, src, def_zone, armor_check)
+
 /mob/living/proc/create_projectile_hit_effects(obj/projectile/proj, def_zone, blocked)
 	if (proj.damage_type != BRUTE)
 		return
@@ -223,8 +227,7 @@
 	. = combat_mode
 	combat_mode = new_mode
 	SEND_SIGNAL(src, COMSIG_COMBAT_MODE_TOGGLED)
-	if(hud_used?.action_intent)
-		hud_used.action_intent.update_appearance()
+	hud_used?.screen_objects[HUD_MOB_INTENTS]?.update_appearance()
 	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE // NOVA EDIT ADDITION
 	if(silent || !client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode))
 		return
@@ -330,13 +333,13 @@
  */
 /mob/living/proc/grab(mob/living/target)
 	if(!istype(target))
-		return FALSE
+		return GRAB_SKIP
 	if(SEND_SIGNAL(src, COMSIG_LIVING_GRAB, target) & (COMPONENT_CANCEL_ATTACK_CHAIN|COMPONENT_SKIP_ATTACK))
-		return FALSE
+		return GRAB_FAILURE
 	if(target.check_block(src, 0, "[src]'s grab", UNARMED_ATTACK))
-		return FALSE
+		return GRAB_FAILURE
 	target.grabbedby(src)
-	return TRUE
+	return GRAB_SUCCESS
 
 /**
  * Called when this mob is grabbed by another mob.
@@ -592,7 +595,7 @@
 	shock_damage *= siemens_coeff
 	if((flags & SHOCK_TESLA) && HAS_TRAIT(src, TRAIT_TESLA_SHOCKIMMUNE))
 		return FALSE
-	if(HAS_TRAIT(src, TRAIT_SHOCKIMMUNE))
+	if(!(flags & SHOCK_IGNORE_IMMUNITY) && HAS_TRAIT(src, TRAIT_SHOCKIMMUNE))
 		return FALSE
 	if(shock_damage < 1)
 		return FALSE

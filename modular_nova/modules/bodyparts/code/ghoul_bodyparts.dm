@@ -5,6 +5,7 @@
 /obj/item/bodypart/head/mutant/ghoul
 	icon_greyscale = BODYPART_ICON_GHOUL
 	is_dimorphic = FALSE
+	bodytype = parent_type::bodytype | BODYTYPE_GHOUL
 	limb_id = SPECIES_GHOUL
 	brute_modifier = GHOUL_BRUTE_MODIFIER
 	burn_modifier = GHOUL_BURN_MODIFIER
@@ -41,10 +42,10 @@
 /obj/item/bodypart/chest/mutant/ghoul
 	icon_greyscale = BODYPART_ICON_GHOUL
 	limb_id = SPECIES_GHOUL
+	bodytype = parent_type::bodytype | BODYTYPE_GHOUL
 	is_dimorphic = FALSE
 	brute_modifier = GHOUL_BRUTE_MODIFIER
 	burn_modifier = GHOUL_BURN_MODIFIER
-
 
 /obj/item/bodypart/chest/mutant/ghoul/Initialize(mapload)
 	worn_neck_offset = new(
@@ -57,6 +58,7 @@
 /obj/item/bodypart/arm/left/mutant/ghoul
 	icon_greyscale = BODYPART_ICON_GHOUL
 	limb_id = SPECIES_GHOUL
+	bodytype = parent_type::bodytype | BODYTYPE_GHOUL
 	unarmed_damage_low = 1 //lowest possible punch damage. if this is set to 0, punches will always miss
 	unarmed_damage_high = 5 //highest possible punch damage
 	unarmed_attack_verbs = list("punch")
@@ -64,12 +66,11 @@
 	unarmed_attack_sound = 'sound/items/weapons/punch1.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/punchmiss.ogg'
 	brute_modifier = GHOUL_BRUTE_MODIFIER
-	// burn_modifier = GHOUL_BURN_MODIFIER
-
 
 /obj/item/bodypart/arm/right/mutant/ghoul
 	icon_greyscale = BODYPART_ICON_GHOUL
 	limb_id = SPECIES_GHOUL
+	bodytype = parent_type::bodytype | BODYTYPE_GHOUL
 	unarmed_damage_low = 1 //lowest possible punch damage. if this is set to 0, punches will always miss
 	unarmed_damage_high = 5 //highest possible punch damage
 	unarmed_attack_verbs = list("punch")
@@ -79,10 +80,10 @@
 	brute_modifier = GHOUL_BRUTE_MODIFIER
 	burn_modifier = GHOUL_BURN_MODIFIER
 
-
 /obj/item/bodypart/leg/left/mutant/ghoul
 	icon_greyscale = BODYPART_ICON_GHOUL
 	limb_id = SPECIES_GHOUL
+	bodytype = parent_type::bodytype | BODYTYPE_GHOUL
 	brute_modifier = GHOUL_BRUTE_MODIFIER
 	burn_modifier = GHOUL_BURN_MODIFIER
 
@@ -90,9 +91,9 @@
 /obj/item/bodypart/leg/right/mutant/ghoul
 	icon_greyscale = BODYPART_ICON_GHOUL
 	limb_id = SPECIES_GHOUL
+	bodytype = parent_type::bodytype | BODYTYPE_GHOUL
 	brute_modifier = GHOUL_BRUTE_MODIFIER
 	burn_modifier = GHOUL_BURN_MODIFIER
-
 
 // LIMBS
 

@@ -194,6 +194,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		plural_form = "[name]\s"
 	if(!examine_limb_id)
 		examine_limb_id = id
+	// Carbons determine bodypart order by this list, so we need to make sure it's sorted properly
+	sortTim(bodypart_overrides, GLOBAL_PROC_REF(cmp_bodypart_by_body_part_asc), associative = TRUE)
 
 	return ..()
 
@@ -301,18 +303,24 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		// if we have an extra organ that before changing that the species didnt have, remove it
 		if(!new_organ)
+			/* // NOVA EDIT REMOVAL START = Original
 			if(existing_organ && (old_organ_type == existing_organ.type || replace_current))
-				//existing_organ.Remove(organ_holder) // NOVA EDIT REMOVAL
-				// NOVA EDIT ADDITION START - Remove so it can be reinserted + handled in modular_nova\modules\customization\modules\mob\living\carbon\human\species.dm
-				// We basically just want to keep from removing it from mutant_bodyparts
-				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
-				if(existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key])
-					existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
-				else
-					existing_organ.Remove(organ_holder)
-				// NOVA EDIT ADDITION END
+				existing_organ.Remove(organ_holder)
 				qdel(existing_organ)
 			continue
+			*/ // NOVA EDIT REMOVAL END
+			// NOVA EDIT ADDITION START
+			if(existing_organ)
+				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
+				var/keep_in_mutant_bodyparts = existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key]
+				if(old_organ_type == existing_organ.type || replace_current || existing_organ_feature_key)
+					if(keep_in_mutant_bodyparts)
+						existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
+					else
+						existing_organ.Remove(organ_holder, special = TRUE)
+					qdel(existing_organ)
+			continue
+			// NOVA EDIT ADDITION END
 
 		if(existing_organ && allow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
 			// we dont want to remove organs that were not from the old species (such as from freak surgery or prosthetics)
@@ -392,7 +400,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	human_who_gained_species.butcher_results = knife_butcher_results?.Copy()
 
 	//update body zones to match what they are supposed to have
-	human_who_gained_species.hud_used?.healthdoll.update_body_zones()
+	var/atom/movable/screen/healthdoll/doll = human_who_gained_species.hud_used?.screen_objects[HUD_MOB_HEALTHDOLL]
+	if (doll)
+		doll.update_body_zones()
 
 	if(old_species.type != type)
 		replace_body(human_who_gained_species, src)
@@ -405,7 +415,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		else if(old_species.exotic_bloodtype && isnull(exotic_bloodtype))
 			human_who_gained_species.set_blood_type(random_human_blood_type())
 
-	regenerate_organs(human_who_gained_species, old_species, replace_current = human_who_gained_species.visual_only_organs, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing) // NOVA EDIT CHANGE - Allows existing organs to be properly removed when regenerating organs - ORIGINAL: regenerate_organs(human_who_gained_species, old_species, replace_current = FALSE, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing)
+	regenerate_organs(human_who_gained_species, old_species, replace_current = FALSE, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing)
 	// Update locked slots AFTER all organ and body stuff is handled
 	human_who_gained_species.hud_used?.update_locked_slots()
 	// Drop the items the new species can't wear
@@ -444,7 +454,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	human_who_gained_species.living_flags &= ~STOP_OVERLAY_UPDATE_BODY_PARTS
 
 	//we don't allow it to update during species transition, so update it now
-	human_who_gained_species.hud_used?.healthdoll.update_appearance()
+	human_who_gained_species.hud_used?.screen_objects[HUD_MOB_HEALTHDOLL]?.update_appearance()
 
 /**
  * Proc called when a carbon is no longer this species.
@@ -557,11 +567,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		new_features["[sample_overlay.feature_key]"] = sample_overlay.get_random_appearance().name
 
 	return new_features
-
-/datum/species/proc/spec_life(mob/living/carbon/human/H, seconds_per_tick)
-	SHOULD_CALL_PARENT(TRUE)
-	if(HAS_TRAIT(H, TRAIT_NOBREATH) && (H.health < H.crit_threshold) && !HAS_TRAIT(H, TRAIT_NOCRITDAMAGE))
-		H.adjust_brute_loss(0.5 * seconds_per_tick)
 
 /datum/species/proc/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
 	if(no_equip_flags & slot && !(I.is_mod_shell_component() && (modsuit_slot_exceptions & slot))) // NOVA EDIT ADDITION - ORIGINAL: if(no_equip_flags & slot)
@@ -1306,7 +1311,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		return
 
 	// Lets pick a random body part and check for an existing burn
-	var/obj/item/bodypart/bodypart = pick(humi.bodyparts)
+	var/obj/item/bodypart/bodypart = pick(humi.get_bodyparts())
 	var/datum/wound/existing_burn
 	for (var/datum/wound/iterated_wound as anything in bodypart.wounds)
 		var/datum/wound_pregen_data/pregen_data = iterated_wound.get_pregen_data()
@@ -2024,7 +2029,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				body_choice = chassis_accessory[chassis.name]
 			if(body_choice && !body_choice.is_digi_compatible)
 				ignore_digi = TRUE
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 	var/list/final_bodypart_overrides = new_species.bodypart_overrides.Copy()
 	if(!ignore_digi && ((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features[FEATURE_LEGS] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)) //if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features[FEATURE_LEGS] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED) // NOVA EDIT - Digitigrade customization - ORIGINAL
@@ -2038,9 +2043,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		var/obj/item/bodypart/leg/left/l_leg = new_species.bodypart_overrides[BODY_ZONE_L_LEG]
 		if(l_leg)
 			final_bodypart_overrides[BODY_ZONE_L_LEG] = initial(l_leg.digitigrade_type)
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
 
-	for(var/obj/item/bodypart/old_part as anything in target.bodyparts)
+	for(var/obj/item/bodypart/old_part as anything in target.get_bodyparts())
 		if((old_part.change_exempt_flags & BP_BLOCK_CHANGE_SPECIES) || (old_part.bodypart_flags & BODYPART_IMPLANTED))
 			continue
 
@@ -2112,7 +2117,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 /// Remove body markings
 /datum/species/proc/remove_body_markings(mob/living/carbon/human/hooman)
-	for(var/obj/item/bodypart/part as anything in hooman.bodyparts)
+	for(var/obj/item/bodypart/part as anything in hooman.get_bodyparts())
 		for(var/datum/bodypart_overlay/simple/body_marking/marking in part.bodypart_overlays)
 			part.remove_bodypart_overlay(marking)
 

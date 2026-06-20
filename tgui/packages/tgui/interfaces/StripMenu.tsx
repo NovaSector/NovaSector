@@ -65,12 +65,12 @@ const ALTERNATE_ACTIONS: Record<string, AlternateAction> = {
   },
 
   enable_internals: {
-    icon: 'lungs', // NOVA EDIT - TGFONT IS FUCKED AND I DUNNO WHY SO HERE'S A BANDAID - original "tg-air-tank"
+    icon: 'tg-air-tank',
     text: 'Enable internals',
   },
 
   disable_internals: {
-    icon: 'lungs-virus', // NOVA EDIT - TGFONT IS FUCKED AND I DUNNO WHY SO HERE'S A BANDAID - original "tg-air-tank-slash"
+    icon: 'tg-air-tank-slash',
     text: 'Disable internals',
   },
 
@@ -88,11 +88,31 @@ const ALTERNATE_ACTIONS: Record<string, AlternateAction> = {
     icon: 'ribbon',
     text: 'Strip accessory',
   },
+
+  deploy: {
+    icon: 'plus',
+    text: 'Deploy MOD',
+  },
+
+  undeploy: {
+    icon: 'minus',
+    text: 'Undeploy MOD',
+  },
+
+  activate_mod: {
+    icon: 'power-off',
+    text: 'Activate MOD',
+  },
+  deactivate_mod: {
+    icon: 'power-off',
+    text: 'Deactivate MOD',
+  },
   // NOVA ADDITION BEGIN - entombed quirk suit reactivation
   entombed_emergency_reactivate: {
     icon: 'power-off',
     text: 'Emergency MODsuit reactivation',
-  }, // NOVA ADDITION END
+  },
+  // NOVA ADDITION END
 };
 
 const SLOTS: Record<

@@ -30,6 +30,7 @@ type CanvasData = {
   editable: BooleanLike;
   allowColorPicker: BooleanLike;
   showPlaque: BooleanLike;
+  year_offset: number;
 };
 
 type ZoomProps = {
@@ -70,25 +71,18 @@ const ZoomListener = ({
   pixelsPerUnit,
   children,
 }: PropsWithChildren<ZoomProps>) => (
-  <>
-    {/* I'm too lazy to go through the process of adding onWheel to BoxProps. */}
-    <div
-      onMouseOver={(ev) => ev.currentTarget.focus()}
-      onWheel={(ev) => {
-        if (!ev.shiftKey) return;
-        ev.preventDefault();
-        setZoom(
-          clamp(zoom + (Math.sign(-ev.deltaY) * 1) / pixelsPerUnit, 1, 3),
-        );
-      }}
-      style={{
-        width: '100%',
-        height: '100%',
-      }}
-    >
-      {children}
-    </div>
-  </>
+  <Box
+    width="100%"
+    height="100%"
+    onMouseOver={(ev) => ev.currentTarget.focus()}
+    onWheel={(ev) => {
+      if (!ev.shiftKey) return;
+      ev.preventDefault();
+      setZoom(clamp(zoom + (Math.sign(-ev.deltaY) * 1) / pixelsPerUnit, 1, 3));
+    }}
+  >
+    {children}
+  </Box>
 );
 
 type EditableCanvasProps = Pick<
@@ -222,7 +216,7 @@ const EditableCanvas = (props: EditableCanvasProps) => {
 
 type FinalizedCanvasProps = { data: AdvancedCanvasPropsBase['data'] } & Pick<
   CanvasData,
-  'metadata' | 'showPlaque'
+  'metadata' | 'showPlaque' | 'year_offset'
 > &
   CanvasCommonProps;
 
@@ -236,6 +230,7 @@ const FinalizedCanvas = (props: FinalizedCanvasProps) => {
     pixelsPerUnit,
     width,
     height,
+    year_offset,
   } = props;
   const { title, author, date, medium, patron } = metadata;
   const { act } = useBackend();
@@ -270,7 +265,7 @@ const FinalizedCanvas = (props: FinalizedCanvasProps) => {
               </Box>
               <Box bold>
                 {author}
-                {date && `- ${new Date(date).getFullYear() + 540}`}
+                {date && `- ${new Date(date).getFullYear() + year_offset}`}
               </Box>
               <Box italic>{medium}</Box>
               <Box italic>
@@ -300,6 +295,7 @@ export const Canvas = () => {
     editable,
     allowColorPicker,
     showPlaque,
+    year_offset,
   } = data;
   const { sprite } = editorData;
   const { width, height } = sprite;
@@ -320,6 +316,7 @@ export const Canvas = () => {
           zoom,
           setZoom,
           pixelsPerUnit,
+          year_offset,
         }}
       />
     );

@@ -19,6 +19,7 @@
 		/obj/item/construction/rcd/tarkon,
 		/obj/item/gun/energy/recharge/resonant_system,
 	)
+	prereq_ids = list(TECHWEB_NODE_CONSTRUCTION)
 	design_ids = list(
 		"mod_plating_tarkon",
 		"arcs",
@@ -30,7 +31,7 @@
 
 /datum/techweb_node/tarkonturret //Yes. Tarkon does not start with this unlocked.
 	id = TECHWEB_NODE_TARKON_DEFENSE
-	display_name = "Tarkon Industries Technology"
+	display_name = "Tarkon Industries Automated Turrets"
 	description = "Tarkon Industries Blackrust Salvage division's defense designs."
 	prereq_ids = list(TECHWEB_NODE_TARKON, TECHWEB_NODE_BASIC_ARMS, TECHWEB_NODE_AI)
 	design_ids = list(

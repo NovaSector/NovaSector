@@ -51,6 +51,12 @@
 				human_holder.balloon_alert(human_holder, "suit life support restored!")
 				human_holder.adjust_jitter(-(life_support_failure_threshold / 2)) // clear half of it, wow, that was unpleasant
 
+/// Proteans already have their own built-in modsuit, so they cannot take the entombed quirk.
+/datum/quirk/equipping/entombed/is_species_appropriate(datum/species/mob_species)
+	if(ispath(mob_species, /datum/species/protean))
+		return FALSE
+	return ..()
+
 /datum/quirk/equipping/entombed/proc/life_support_failure()
 	// Warn the player and begin the gradual dying process.
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -281,7 +287,7 @@
 	if (!..())
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/choiced/entombed_hardlight_theme/init_possible_values()
 	return list(
@@ -302,7 +308,7 @@
 	if (!..())
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/choiced/entombed_skin/apply_to_human(mob/living/carbon/human/target, value)
 	return
@@ -318,7 +324,7 @@
 	if (!..())
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_name/serialize(input)
 	return htmlrendertext(input)
@@ -343,7 +349,7 @@
 	if (!..())
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_desc/serialize(input)
 	return htmlrendertext(input)
@@ -369,7 +375,7 @@
 	if (!..())
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_prefix/serialize(input)
 	return htmlrendertext(input)
@@ -392,7 +398,7 @@
 	if (!..(preferences))
 		return FALSE
 
-	return "Entombed" in preferences.all_quirks
+	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/toggle/entombed_deploy_lock/apply_to_human(mob/living/carbon/human/target, value)
 	return

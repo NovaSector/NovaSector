@@ -37,12 +37,14 @@
 	)
 
 	page_holder.give_screen_object(
-		new /atom/movable/screen/escape_menu/text/clickable/admin_help(
+		new /atom/movable/screen/escape_menu/text/clickable/admin_ticket_notification(
 			null,
 			/* hud_owner = */ null,
 			/* escape_menu = */ src,
 			/* button_text = */ "Admin Help",
 			/* offset = */ list(-241, 30),
+			/* font_size = */ 24,
+			/* on_click_callback = */ CALLBACK(src, PROC_REF(open_admin_page)),
 		)
 	)
 	//NOVA EDIT REMOVAL BEGIN
@@ -60,6 +62,18 @@
 	)
 	*/
 	// NOVA EDIT REMOVAL END
+
+	page_holder.give_screen_object(
+		new /atom/movable/screen/escape_menu/text/clickable(
+			null,
+			/* hud_owner = */ null,
+			/* escape_menu = */ src,
+			/* button_text = */ "Quit",
+			/* offset = */ list(-381, 30), // NOVA EDIT - original /* offset = */ list(-311, 30),
+			/* font_size = */ 24,
+			/* on_click_callback = */ CALLBACK(src, PROC_REF(quit_game_prompt)),
+		)
+	)
 
 	//Bottom right buttons, from right to left, starting with the button to open the list.
 	page_holder.give_screen_object(new /atom/movable/screen/escape_menu/lobby_button/small(

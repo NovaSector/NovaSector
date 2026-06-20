@@ -3,9 +3,12 @@
 
 /datum/unit_test/valid_dna_infusion/Run()
 	for(var/datum/infuser_entry/infuser_entry as anything in assoc_to_values(GLOB.infuser_entries))
-		for(var/input_type in infuser_entry.input_obj_or_mob)
+		for(var/datum/input_type as anything in infuser_entry.input_obj_or_mob)
 			if(ispath(input_type, /mob/living))
 				continue
+			if(input_type == input_type::abstract_type)
+				input_type = pick(subtypesof(input_type))
+
 			var/atom/movable/movable = allocate(input_type)
 			if(!HAS_TRAIT(movable, TRAIT_VALID_DNA_INFUSION))
 				//TEST_FAIL() doesn't early return the unit test so we can keep checking.
@@ -39,11 +42,11 @@
 		var/output_organs = infuser_entry.output_organs
 		var/mob/living/carbon/human/lab_rat = allocate(/mob/living/carbon/human/consistent)
 		// NOVA EDIT ADDITION START - Customization
-		lab_rat.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = lab_rat.dna.species.build_mutant_part("Plain")
-		lab_rat.dna.mutant_bodyparts[FEATURE_TAIL] = lab_rat.dna.species.build_mutant_part("Light Tiger")
-		lab_rat.dna.mutant_bodyparts[FEATURE_SNOUT] = lab_rat.dna.species.build_mutant_part("Sharp + Light")
-		lab_rat.dna.mutant_bodyparts[FEATURE_HORNS] = lab_rat.dna.species.build_mutant_part("Simple")
-		lab_rat.dna.mutant_bodyparts[FEATURE_FRILLS] = lab_rat.dna.species.build_mutant_part("Aquatic")
+		lab_rat.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = build_mutant_part("Plain")
+		lab_rat.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Light Tiger")
+		lab_rat.dna.mutant_bodyparts[FEATURE_SNOUT] = build_mutant_part("Sharp + Light")
+		lab_rat.dna.mutant_bodyparts[FEATURE_HORNS] = build_mutant_part("Simple")
+		lab_rat.dna.mutant_bodyparts[FEATURE_FRILLS] = build_mutant_part("Aquatic")
 		// NOVA EDIT END
 		var/list/obj/item/organ/inserted_organs = list()
 

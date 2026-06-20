@@ -1,6 +1,7 @@
 
 /* EMOTE DATUMS */
 /datum/emote/living
+	abstract_type = /datum/emote/living
 	mob_type_allowed_typecache = /mob/living
 	mob_type_blacklist_typecache = list(/mob/living/brain)
 
@@ -302,7 +303,7 @@
 	message = "laughs."
 	message_mime = "laughs silently!"
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-	specific_emote_audio_cooldown = 8 SECONDS
+	manual_specific_emote_audio_cooldown = 8 SECONDS
 	vary = TRUE
 
 /datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional, params)
@@ -418,7 +419,9 @@
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	mob_type_blacklist_typecache = list(/mob/living/brain)
 	sound_wall_ignore = TRUE
-	specific_emote_audio_cooldown = 10 SECONDS
+	use_sound_tokens = TRUE
+	manual_specific_emote_audio_cooldown = 10 SECONDS
+	forced_specific_emote_audio_cooldown = 4 SECONDS
 	vary = TRUE
 
 /datum/emote/living/scream/run_emote(mob/user, params, type_override, intentional = FALSE)

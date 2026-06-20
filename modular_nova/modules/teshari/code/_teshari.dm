@@ -46,6 +46,7 @@
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/mutant/teshari,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/teshari,
 	)
+	meat = /obj/item/food/meat/slab/chicken/human
 
 /datum/species/teshari/get_species_description()
 	return placeholder_description
@@ -69,10 +70,10 @@
 	var/ear_color = "#e4c49b"
 
 	tesh.dna.features[FEATURE_MUTANT_COLOR] = base_color
-	tesh.dna.mutant_bodyparts[FEATURE_EARS] = tesh.dna.species.build_mutant_part("Teshari Feathers Upright", list(ear_color, ear_color, ear_color))
-	tesh.dna.mutant_bodyparts[FEATURE_TAIL] = tesh.dna.species.build_mutant_part("Teshari (Default)", list(base_color, base_color, ear_color))
+	tesh.dna.mutant_bodyparts[FEATURE_EARS] = build_mutant_part("Teshari Feathers Upright", list(ear_color, ear_color, ear_color))
+	tesh.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Teshari (Default)", list(base_color, base_color, ear_color))
 	regenerate_organs(tesh, src, visual_only = TRUE)
-	tesh.update_body(TRUE)
+	tesh.update_body_parts(TRUE)
 
 /datum/species/teshari/on_species_gain(mob/living/carbon/human/new_teshari, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()

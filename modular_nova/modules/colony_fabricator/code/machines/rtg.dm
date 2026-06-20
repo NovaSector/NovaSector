@@ -16,28 +16,19 @@
 	AddElement(/datum/element/repackable, repacked_type, 2 SECONDS)
 	AddElement(/datum/element/radioactive, 1, RAD_LIGHT_INSULATION, URANIUM_IRRADIATION_CHANCE * 0.5, URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME * 7)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 	if(!mapload)
 		flick("rtg_deploy", src)
 
 // Item for creating the arc furnace or carrying it around
 
-// formerly NO_DECONSTRUCTION
-/obj/machinery/power/rtg/portable/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/power/rtg/portable/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
-	return NONE
-
-/obj/machinery/power/rtg/portable/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
-	return NONE
-
 /obj/machinery/power/rtg/portable/atom_destruction(damage_flag)
 	if (damage_flag)
 		var/turf/this_turf = get_turf(src)
 		explosion(src, devastation_range = 0, heavy_impact_range = 2, light_impact_range = 4, flash_range = 5, adminlog = TRUE)
-		var/datum/effect_system/explosion/explosiooon
-		explosiooon = new /datum/effect_system/explosion/smoke
-		explosiooon.set_up(this_turf)
+		var/datum/effect_system/explosion/smoke/explosiooon
+		explosiooon = new (this_turf)
 		playsound(this_turf, 'sound/effects/chemistry/shockwave_explosion.ogg', 80, TRUE)
 		explosiooon.start()
 	return ..()

@@ -27,7 +27,7 @@
 	ph = 7
 	overdose_threshold = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	addiction_types = list(/datum/addiction/stimulants = 15)
+	addiction_types = list(/datum/addiction/stimulants = 50)
 	metabolized_traits = list(TRAIT_UNNATURAL_RED_GLOWY_EYES, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_FEARLESS, TRAIT_ANALGESIA)
 	/// How much time has the drug been in them?
 	var/constant_dose_time = 0
@@ -43,7 +43,7 @@
 	user_right_eye_color = our_guy.eye_color_right
 
 	our_guy.set_eye_color(BLOODCULT_EYE)
-	our_guy.update_body()
+	our_guy.update_eyes()
 
 	our_guy.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
 
@@ -63,7 +63,7 @@
 	. = ..()
 
 	our_guy.set_eye_color(user_left_eye_color,user_right_eye_color)
-	our_guy.update_body()
+	our_guy.update_eyes()
 
 	our_guy.sound_environment_override = NONE
 

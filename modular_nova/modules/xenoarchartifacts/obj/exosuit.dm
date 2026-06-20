@@ -77,7 +77,7 @@
 	playsound(chassis, 'sound/effects/hallucinations/wail.ogg', 100, TRUE)
 	to_chat(source, "[icon2html(src, source)]<font color='red' size='5'>AAAAAAAAAH</font>")
 	for(var/mob/living/carbon/carbon_mob in ohearers(6, chassis))
-		if(!carbon_mob.can_hear())
+		if(HAS_TRAIT(carbon_mob, TRAIT_DEAF))
 			continue
 		var/turf/turf_check = get_turf(carbon_mob)
 		if(isspaceturf(turf_check) && !turf_check.Adjacent(src)) //in space nobody can hear you scream.

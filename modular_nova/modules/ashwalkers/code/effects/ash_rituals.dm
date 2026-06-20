@@ -307,7 +307,7 @@
 			/mob/living/basic/mining/ice_demon,
 			/mob/living/basic/mining/ice_whelp,
 			/mob/living/basic/mining/lobstrosity,
-			/mob/living/simple_animal/hostile/asteroid/polarbear,
+			/mob/living/basic/mining/polarbear,
 			/mob/living/basic/mining/wolf,
 		)
 		new mob_type(success_rune.drop_location())
@@ -320,11 +320,11 @@
 		"north" = /obj/item/stack/ore/bluespace_crystal,
 		"south" = /obj/item/stack/sheet/animalhide/goliath_hide,
 		"east" = /obj/item/xenoarch/brush,
-		"west" = /obj/item/xenoarch/useless_relic,
+		"west" = /obj/item/xenoarch/broken_item,
 	)
 	consumed_components = list(
 		/obj/item/stack/sheet/animalhide/goliath_hide,
-		/obj/item/xenoarch/useless_relic,
+		/obj/item/xenoarch/broken_item,
 	)
 
 /datum/ash_ritual/uncover_rocks/ritual_success(obj/effect/ash_rune/success_rune)

@@ -34,7 +34,7 @@
 /// Adds text to the examine text of the parent item, explaining that the item can be used to enable the use of NIFSoft HUDs
 /datum/element/rsd_interface/proc/on_examine(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
-	examine_text += span_cyan("Souls can be transferred to [source], assuming it is inert.")
+	examine_text += span_cyan_nova("Souls can be transferred to [source], assuming it is inert.")
 
 /datum/element/rsd_interface/Detach(datum/target)
 	UnregisterSignal(target, COMSIG_ATOM_EXAMINE)

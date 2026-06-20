@@ -70,8 +70,6 @@
 	var/list/embedded_objects
 	/// are we a hand? if so, which one!
 	var/held_index = 0
-	/// A speed modifier we apply to the owner when attached, if any. Positive numbers make it move slower, negative numbers make it move faster.
-	var/speed_modifier = 0
 
 	// Limb disabling variables
 	///Whether it is possible for the limb to be disabled whatsoever. TRUE means that it is possible.
@@ -114,8 +112,6 @@
 
 	///the type of damage overlay (if any) to use when this bodypart is bruised/burned.
 	var/dmg_overlay_type = "human"
-	///a color (optionally matrix) for the damage overlays to give the limb
-	var/damage_overlay_color
 	/// If we're bleeding, which icon are we displaying on this part
 	var/bleed_overlay_icon
 
@@ -156,10 +152,10 @@
 	var/cached_bleed_rate = 0
 	/// How much generic bleedstacks we have on this bodypart
 	var/generic_bleedstacks
-	/// If we have a gauze wrapping currently applied (not including splints)
-	var/obj/item/stack/medical/gauze/current_gauze
 	/// If something is currently grasping this bodypart and trying to staunch bleeding (see [/obj/item/hand_item/self_grasp])
 	var/obj/item/hand_item/self_grasp/grasped_by
+	/// Lazylist of category to item applied to this limb
+	var/list/applied_items
 
 	///A list of all bodypart overlays to draw
 	var/list/bodypart_overlays = list()
@@ -233,6 +229,8 @@
 	var/static/list/butcher_drop_cache = list()
 	/// What state is the bodypart in for determining surgery availability
 	VAR_FINAL/surgery_state = NONE
+	/// Typepath of this limb as a stump
+	var/stump_typepath
 
 /obj/item/bodypart/apply_fantasy_bonuses(bonus)
 	. = ..()
@@ -281,6 +279,7 @@
 	if (length(drop_results))
 		butcher_drops = string_list(drop_results)
 		butcher_drop_cache[type] = butcher_drops
+	update_limb(TRUE)
 	update_icon_dropped()
 	refresh_bleed_rate()
 
@@ -296,7 +295,7 @@
 
 	owner = null
 
-	QDEL_NULL(current_gauze)
+	QDEL_LIST_ASSOC_VAL(applied_items)
 	QDEL_LAZYLIST(scars)
 
 	for(var/atom/movable/movable in contents)
@@ -432,14 +431,32 @@
 			continue
 		var/harmless = embedded_thing.get_embed().is_harmless()
 		var/stuck_wordage = harmless ? "stuck to" : "embedded in"
-		var/embed_text = "\t<a href='byond://?src=[REF(examiner)];embedded_object=[REF(embedded_thing)];embedded_limb=[REF(src)]'> There is [icon2html(embedded_thing, examiner)] \a [embedded_thing] [stuck_wordage] your [plaintext_zone]!</a>"
+		var/embed_text = "\t<a href='byond://?src=[REF(examiner)];embedded_object=[REF(embedded_thing)];embedded_limb=[REF(src)]'>There is [icon2html(embedded_thing, examiner)] \a [embedded_thing] [stuck_wordage] your [plaintext_zone]!</a>"
 		if (harmless)
 			check_list += span_italics(span_notice(embed_text))
 		else
 			check_list += span_boldwarning(embed_text)
 
-	if(current_gauze)
-		check_list += span_notice("\tThere is some [current_gauze.name] wrapped around it.")
+	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(applied_items, LIMB_ITEM_GAUZE)
+	var/obj/item/tourniquet/current_tourniquet = LAZYACCESS(applied_items, LIMB_ITEM_TOURNIQUET)
+	if(current_tourniquet || current_gauze)
+		if(current_tourniquet)
+			var/tourniquet_href = "<a href='byond://?src=[REF(owner)];remove_tourniquet=[REF(src)]'>[icon2html(current_tourniquet, examiner)] \a [current_tourniquet]</a>"
+			var/tourniquet_text = "\tThere is [tourniquet_href] tightly secured around [body_zone == BODY_ZONE_HEAD ? "your neck!" : "it."]"
+			if(body_zone == BODY_ZONE_HEAD)
+				check_list += span_boldwarning(tourniquet_text)
+			else
+				check_list += span_warning(tourniquet_text)
+		if(current_gauze)
+			// check_list += span_notice("\tThere is some [current_gauze.name] wrapped around it.") // NOVA EDIT REMOVAL
+			// NOVA EDIT ADDITION START - Copy of the tourniquet removal code above
+			var/gauze_href = "<a href='byond://?src=[REF(owner)];remove_gauze=[REF(src)]'>[icon2html(current_gauze, examiner)] \a [current_gauze]</a>"
+			var/gauze_text = "\tThere is some [gauze_href] wrapped around it."
+			if(body_zone == BODY_ZONE_HEAD)
+				check_list += span_boldwarning(gauze_text)
+			else
+				check_list += span_warning(gauze_text)
+			// NOVA EDIT ADDITION END
 	else if(can_bleed())
 		var/bleed_text = ""
 		switch(cached_bleed_rate)
@@ -458,9 +475,8 @@
 
 	return jointext(check_list, "<br>")
 
-/// Returns surgery self-check information for this bodypart
-/obj/item/bodypart/proc/get_surgery_self_check()
-	var/list/surgery_message = list()
+/// Returns all surgical states, filtering out stuff which should not be reported
+/obj/item/bodypart/proc/get_reported_surgery_state()
 	var/reported_state = surgery_state
 	if(!LIMB_HAS_SKIN(src))
 		reported_state &= ~SKINLESS_SURGERY_STATES
@@ -468,6 +484,18 @@
 		reported_state &= ~BONELESS_SURGERY_STATES
 	if(!LIMB_HAS_VESSELS(src))
 		reported_state &= ~VESSELLESS_SURGERY_STATES
+
+	// hide surgical states applied by wounds if the limb isn't being operated on, to keep it simple
+	if(!HAS_TRAIT(src, TRAIT_READY_TO_OPERATE))
+		for(var/datum/wound/wound as anything in wounds)
+			reported_state &= ~wound.surgery_states
+
+	return reported_state
+
+/// Returns surgery self-check information for this bodypart
+/obj/item/bodypart/proc/get_surgery_self_check()
+	var/list/surgery_message = list()
+	var/reported_state = get_reported_surgery_state()
 
 	if(HAS_SURGERY_STATE(reported_state, SURGERY_SKIN_CUT))
 		surgery_message += "skin has been incised"
@@ -497,7 +525,7 @@
 
 	if(length(surgery_message))
 		return span_tooltip("Your limb is undergoing surgery. If no doctors are around, \
-			you could suture or cauterize yourself to cancel it.", span_warning("Its [english_list(surgery_message)]!"))
+			you could suture or cauterize yourself to cancel it.", span_smalldanger("Its [english_list(surgery_message)]!"))
 	return ""
 
 /// Returns surgery examine information for this bodypart
@@ -506,13 +534,7 @@
 	var/capital_zone = owner ? "[owner.p_Their()] [plaintext_zone]" : capitalize("[src]")
 	var/single_message = ""
 	var/list/sub_messages = list()
-	var/reported_state = surgery_state
-	if(!LIMB_HAS_SKIN(src))
-		reported_state &= ~SKINLESS_SURGERY_STATES
-	if(!LIMB_HAS_BONES(src))
-		reported_state &= ~BONELESS_SURGERY_STATES
-	if(!LIMB_HAS_VESSELS(src))
-		reported_state &= ~VESSELLESS_SURGERY_STATES
+	var/reported_state = get_reported_surgery_state()
 
 	if(HAS_SURGERY_STATE(reported_state, SURGERY_SKIN_CUT))
 		sub_messages += "skin has been incised"
@@ -551,9 +573,9 @@
 		single_message = "[owner?.p_Their() || "The"] chest cavity is wide open!"
 
 	if(length(sub_messages) >= 2)
-		return span_danger("[capital_zone]'s [english_list(sub_messages)].")
+		return span_smalldanger("[capital_zone]'s [english_list(sub_messages)].")
 	if(single_message)
-		return span_danger(single_message)
+		return span_smalldanger(single_message)
 	return ""
 
 /obj/item/bodypart/blob_act()
@@ -620,10 +642,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	var/atom/drop_loc = drop_location()
-	if(IS_ORGANIC_LIMB(src))
-		playsound(drop_loc, 'sound/misc/splort.ogg', 50, TRUE, -1)
-
-	QDEL_NULL(current_gauze)
+	var/play_sfx = FALSE
 
 	for(var/obj/item/organ/bodypart_organ in contents)
 		if(bodypart_organ.organ_flags & ORGAN_UNREMOVABLE)
@@ -633,23 +652,23 @@
 			bodypart_organ.apply_organ_damage(bodypart_organ.maxHealth * 0.5)
 
 		if(owner)
-			if(!bodypart_organ.Remove(bodypart_organ.owner))
-				continue
+			bodypart_organ.Remove(bodypart_organ.owner)
 		else if(!bodypart_organ.bodypart_remove(src))
 			continue
 
 		if(drop_loc) //can be null if being deleted
 			bodypart_organ.forceMove(get_turf(drop_loc))
+			play_sfx = TRUE
 
 	if(drop_loc) //can be null during deletion
 		for(var/atom/movable/movable as anything in src)
 			movable.forceMove(drop_loc)
+			play_sfx = TRUE
+
+	if(play_sfx && IS_ORGANIC_LIMB(src))
+		playsound(drop_loc, 'sound/misc/splort.ogg', 50, TRUE, -1)
 
 	update_icon_dropped()
-
-//Return TRUE to get whatever mob this is in to update health.
-/obj/item/bodypart/proc/on_life(seconds_per_tick)
-	SHOULD_CALL_PARENT(TRUE)
 
 /**
  * #receive_damage
@@ -750,14 +769,15 @@
 					damaged_percent = DAMAGED_BODYPART_BONUS_WOUNDING_THRESHOLD
 				wounding_dmg = min(DAMAGED_BODYPART_BONUS_WOUNDING_BONUS, wounding_dmg + (damaged_percent * DAMAGED_BODYPART_BONUS_WOUNDING_COEFF))
 
-			if (istype(current_gauze, /obj/item/stack/medical/gauze))
-				var/obj/item/stack/medical/gauze/our_gauze = current_gauze
-				our_gauze.get_hit()
+			var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(applied_items, LIMB_ITEM_GAUZE)
+			if(istype(current_gauze, /obj/item/stack/medical/wrap/gauze))
+				var/obj/item/stack/medical/wrap/gauze/our_gauze = current_gauze
+				our_gauze.get_hit(src)
 			//NOVA EDIT ADDITION END - MEDICAL
 			check_wounding(wounding_type, wounding_dmg, wound_bonus, exposed_wound_bonus, attack_direction, damage_source = damage_source, wound_clothing = wound_clothing)
 
 	for(var/datum/wound/iter_wound as anything in wounds)
-		iter_wound.receive_damage(wounding_type, wounding_dmg, wound_bonus, damage_source)
+		iter_wound.receive_damage(wounding_type, wounding_dmg, wound_bonus, attack_direction, damage_source)
 
 	/*
 	// END WOUND HANDLING
@@ -1009,8 +1029,6 @@
 
 	owner = null
 
-	if(speed_modifier)
-		old_owner.update_bodypart_speed_modifier()
 	if(LAZYLEN(bodypart_traits))
 		old_owner.remove_traits(bodypart_traits, bodypart_trait_source)
 
@@ -1032,8 +1050,6 @@
 
 	owner = new_owner
 
-	if(speed_modifier)
-		owner.update_bodypart_speed_modifier()
 	if(LAZYLEN(bodypart_traits))
 		owner.add_traits(bodypart_traits, bodypart_trait_source)
 
@@ -1178,7 +1194,7 @@
 	update_draw_color()
 
 	if(!is_creating || !owner)
-		return
+		return FALSE
 
 	// There should technically to be an ishuman(owner) check here, but it is absent because no basetype carbons use bodyparts
 	// No, xenos don't actually use bodyparts. Don't ask.
@@ -1187,6 +1203,7 @@
 	limb_gender = (human_owner.physique == MALE) ? "m" : "f"
 	if(HAS_TRAIT(human_owner, TRAIT_USES_SKINTONES))
 		skin_tone = human_owner.skin_tone
+		species_color = "" // NOVA EDIT ADDITION
 	else if(HAS_TRAIT(human_owner, TRAIT_MUTANT_COLORS))
 		skin_tone = ""
 		var/datum/species/owner_species = human_owner.dna.species
@@ -1200,21 +1217,27 @@
 
 	update_draw_color()
 
-	// NOVA EDIT ADDITION
+	// NOVA EDIT ADDITION START - Alpha + Markings
 	var/datum/dna/owner_dna = human_owner.dna
 	var/datum/species/owner_species = owner_dna.species
 
 	if(owner_species && owner_species.specific_alpha != 255)
 		alpha = owner_species.specific_alpha
 
-	if(body_zone in owner_dna.body_markings)
-		markings = LAZYCOPY(owner_dna.body_markings[body_zone])
+	if(!(bodypart_flags & (BODYPART_PSEUDOPART | BODYPART_STUMP)) && !(bodyshape & BODYSHAPE_TAUR))
+		if(body_zone in owner_dna.body_markings)
+			markings = LAZYLISTDUPLICATE(owner_dna.body_markings[body_zone])
+		else
+			LAZYNULL(markings)
 		if(aux_zone && (aux_zone in owner_dna.body_markings))
-			aux_zone_markings = LAZYCOPY(owner_dna.body_markings[aux_zone])
+			aux_zone_markings = LAZYLISTDUPLICATE(owner_dna.body_markings[aux_zone])
+		else
+			LAZYNULL(aux_zone_markings)
 		markings_alpha = owner_species.markings_alpha
 	else
-		markings = list()
-	// NOVA EDIT END
+		LAZYNULL(markings)
+		LAZYNULL(aux_zone_markings)
+	// NOVA EDIT ADDITION END
 	// Recolors mutant overlays to match new mutant colors
 	for(var/datum/bodypart_overlay/mutant/overlay in bodypart_overlays)
 		overlay.inherit_color(src, force = TRUE)
@@ -1296,7 +1319,7 @@
 		update_icon_dropped()
 
 ///Generates an /image for the limb to be used as an overlay
-/obj/item/bodypart/proc/get_limb_icon(dropped, mob/living/carbon/update_on)
+/obj/item/bodypart/proc/get_limb_icon(dropped)
 	SHOULD_CALL_PARENT(TRUE)
 	RETURN_TYPE(/list)
 
@@ -1310,8 +1333,12 @@
 	// Handles invisibility (not alpha or actual invisibility but invisibility)
 	if(is_invisible)
 		. += image(icon_invisible, "invisible_[body_zone]", -BODYPARTS_LAYER, dir = image_dir)
-		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped, update_on)
+		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
 		return .
+	// NOVA EDIT ADDITION START - For invisible taur limbs, so we are not caching invalid keys and repeatedly adding the same overlay. I hate it here
+	if(is_actually_just_invisible)
+		return list()
+	// NOVA EDIT ADDITION END
 
 	// Normal non-husk handling
 	// This is the MEAT of limb icon code
@@ -1322,6 +1349,10 @@
 	var/used_state = "[limb_id]_[body_zone]"
 	if(is_dimorphic) // Does this type of limb have sexual dimorphism?
 		used_state = "[limb_id]_[body_zone]_[limb_gender]"
+	// NOVA EDIT ADDITION START
+	if(bodyshape & BODYSHAPE_DIGITIGRADE) // Is this a digi limb?
+		used_state += "_[ICON_KEY_DIGI]"
+	// NOVA EDIT ADDITION END
 
 	var/image/limb = image(used_icon, used_state, -BODYPARTS_LAYER, dir = image_dir)
 	var/image/aux = null
@@ -1338,7 +1369,7 @@
 		if(brutestate)
 			// divided into two overlays: one that gets colored and one that doesn't.
 			var/image/brute_blood_overlay = image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0", -DAMAGE_LAYER, dir = SOUTH)
-			brute_blood_overlay.color = get_color_from_blood_list(update_on ? update_on.get_blood_dna_list() : blood_dna_info) // living mobs can just get it fresh, dropped limbs use blood_dna_info
+			brute_blood_overlay.color = get_color_from_blood_list(blood_dna_info)
 			var/mutable_appearance/brute_damage_overlay = mutable_appearance('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0_overlay", -DAMAGE_LAYER, appearance_flags = RESET_COLOR)
 			if(brute_damage_overlay)
 				brute_blood_overlay.overlays += brute_damage_overlay
@@ -1402,34 +1433,35 @@
 	if(is_husked)
 		override_color = "#888888"
 	// We need to check that the owner exists(could be a placed bodypart) and that it's not a chainsawhand and that they're a human with usable DNA.
-	if(!(bodypart_flags & BODYPART_PSEUDOPART) && (!(bodyshape & BODYSHAPE_TAUR))) // taur legs never ever render
-		for(var/key in markings) // Cycle through all of our currently selected markings.
+	if(!(bodypart_flags & (BODYPART_PSEUDOPART | BODYPART_STUMP)) && (!(bodyshape & BODYSHAPE_TAUR))) // taur legs never ever render
+		for(var/key, marking in markings) // Cycle through all of our currently selected markings.
 			var/datum/body_marking/body_marking = GLOB.body_markings[key]
 			if (!body_marking) // Edge case prevention.
 				continue
 
-			var/render_limb_string = limb_id == BODYPART_ID_DIGITIGRADE ? "[BODYPART_ID_DIGITIGRADE]_[body_zone]" : body_zone
 			var/gender_modifier = ""
 			if(body_zone == BODY_ZONE_CHEST) // Chest markings have male and female versions.
 				if(body_marking.gendered)
 					gender_modifier = is_dimorphic ? "_[limb_gender]" : "_m"
-
+			var/digi_modifier = ""
+			if(bodyshape & BODYSHAPE_DIGITIGRADE)
+				digi_modifier = "digitigrade_"
 			var/mutable_appearance/accessory_overlay
 			var/mutable_appearance/emissive
-			accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string][gender_modifier]", -BODYPARTS_LAYER)
+			accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[digi_modifier][body_zone][gender_modifier]", -BODYPARTS_LAYER)
 			accessory_overlay.alpha = markings_alpha
-			if(markings[key][2])
+			if(marking[2])
 				emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
 			if(override_color)
 				accessory_overlay.color = override_color
 			else
-				accessory_overlay.color = markings[key][1]
+				accessory_overlay.color = marking[1]
 			. += accessory_overlay
 			if (emissive)
 				. += emissive
 
 		if(aux_zone)
-			for(var/key in aux_zone_markings)
+			for(var/key, marking in aux_zone_markings)
 				var/datum/body_marking/body_marking = GLOB.body_markings[key]
 				if (!body_marking) // Edge case prevention.
 					continue
@@ -1440,24 +1472,19 @@
 				var/mutable_appearance/accessory_overlay
 				accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string]", -aux_layer)
 				accessory_overlay.alpha = markings_alpha
-				if (aux_zone_markings[key][2])
+				if (marking[2])
 					emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
 				if(override_color)
 					accessory_overlay.color = override_color
 				else
-					accessory_overlay.color = aux_zone_markings[key][1]
+					accessory_overlay.color = marking[1]
 				. += accessory_overlay
 				if (emissive)
 					. += emissive
 	// NOVA EDIT ADDITION END - MARKINGS CODE END
-	// And finally put bodypart_overlays on if not husked
-	if(is_husked)
-		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped, update_on)
-		return .
-
 	// Draw external organs like horns and frills
 	for(var/datum/bodypart_overlay/overlay as anything in bodypart_overlays)
-		if(!overlay.can_draw_on_bodypart(src, owner))
+		if(!overlay.can_draw_on_bodypart(src, owner, is_husked))
 			continue
 
 		// Some externals have multiple layers for background, foreground and between
@@ -1465,7 +1492,7 @@
 			if(!(overlay.layers & external_layer))
 				continue
 
-			var/external_overlay = overlay.get_overlay(external_layer, src)
+			var/external_overlay = overlay.get_overlay(external_layer, src, is_husked)
 			if (!dropped)
 				. += external_overlay
 				continue
@@ -1480,7 +1507,7 @@
 		for(var/datum/layer in .)
 			overlay.modify_bodypart_appearance(layer)
 
-	SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped, update_on)
+	SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
 	return .
 
 /obj/item/bodypart/proc/huskify_image(image/thing_to_husk)
@@ -1492,6 +1519,7 @@
 	husk_blood.blend_mode = BLEND_INSET_OVERLAY
 	husk_blood.dir = thing_to_husk.dir
 	husk_blood.layer = thing_to_husk.layer
+	husk_blood.color = LAZYLEN(blood_dna_info) ? get_color_from_blood_list(blood_dna_info) : BLOOD_COLOR_RED
 	return husk_blood
 
 ///Add a bodypart overlay and call the appropriate update procs
@@ -1607,7 +1635,7 @@
 		else if(body_zone != BODY_ZONE_CHEST)
 			surgery_bloodloss *= 0.25
 		// bonus for being gauzed up
-		if(current_gauze)
+		if(LAZYACCESS(applied_items, LIMB_ITEM_GAUZE))
 			surgery_bloodloss *= 0.4
 
 		cached_bleed_rate += surgery_bloodloss
@@ -1630,6 +1658,9 @@
 
 	if(grasped_by)
 		cached_bleed_rate *= 0.7
+
+	if(LAZYACCESS(applied_items, LIMB_ITEM_TOURNIQUET))
+		cached_bleed_rate *= 0.1
 
 	// Our bleed overlay is based directly off bleed_rate, so go aheead and update that would you?
 	if(cached_bleed_rate != old_bleed_rate)
@@ -1678,41 +1709,69 @@
 	return ((biological_state & BIO_BLOODED) && (!owner || owner.can_bleed()))
 
 /**
- * apply_gauze() is used to- well, apply gauze to a bodypart
+ * Inserts an item into the applied items list for this bodypart
  *
- * As of the Wounds 2 PR, all bleeding is now bodypart based rather than the old bleedstacks system, and 90% of standard bleeding comes from flesh wounds (the exception is embedded weapons).
- * The same way bleeding is totaled up by bodyparts, gauze now applies to all wounds on the same part. Thus, having a slash wound, a pierce wound, and a broken bone wound would have the gauze
- * applying blood staunching to the first two wounds, while also acting as a sling for the third one. Once enough blood has been absorbed or all wounds with the ACCEPTS_GAUZE flag have been cleared,
- * the gauze falls off.
+ * Note: Forcemoves the item to the bodypart's contents when called!
  *
  * Arguments:
- * * gauze- Just the gauze stack we're taking a sheet from to apply here
+ * * applying_item - The item to apply
+ * * category - The category of item being applied (e.g. LIMB_ITEM_GAUZE). If null, defaults to the REF of the applying_item
+ * * override - If TRUE, will force the application of the item even if an item of the same category is already applied
+ *
+ * Returns TRUE if the item was successfully applied
+ * Returns FALSE if the item was not applied (e.g. an item of the same category is already applied and override is FALSE)
  */
-/obj/item/bodypart/proc/apply_gauze(obj/item/stack/medical/gauze/new_gauze)
-	if(!istype(new_gauze) || !new_gauze.absorption_capacity || !new_gauze.use(1))
-		return
-	var/newly_gauzed = !current_gauze
-	QDEL_NULL(current_gauze)
-	current_gauze = new new_gauze.type(src, 1)
-	current_gauze.gauzed_bodypart = src
-	if(newly_gauzed)
-		SEND_SIGNAL(src, COMSIG_BODYPART_GAUZED, current_gauze, new_gauze)
+/obj/item/bodypart/proc/apply_item(obj/item/applying_item, category, override = FALSE)
+	if(isnull(category))
+		category = REF(applying_item)
+
+	if(!override && LAZYACCESS(applied_items, category))
+		return FALSE
+
+	applying_item.forceMove(src)
+	LAZYSET(applied_items, category, applying_item)
+	SEND_SIGNAL(applying_item, COMSIG_ITEM_APPLIED_TO_LIMB, src)
+	return TRUE
+
+/obj/item/bodypart/Exited(atom/movable/gone, direction)
+	. = ..()
+	for(var/category, item in applied_items)
+		if(item != gone)
+			continue
+		LAZYREMOVE(applied_items, category)
+		SEND_SIGNAL(gone, COMSIG_ITEM_UNAPPLIED_FROM_LIMB, src)
 
 /**
- * seep_gauze() is for when a gauze wrapping absorbs blood or pus from wounds, lowering its absorption capacity.
+ * Get how splinted this bodypart is based on applied items
  *
- * The passed amount of seepage is deducted from the bandage's absorption capacity, and if we reach a negative absorption capacity, the bandages falls off and we're left with nothing.
+ * Multiplier applied to maluses, so lower = better
+ */
+/obj/item/bodypart/proc/get_splint_factor()
+	var/factor = 1
+	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(applied_items, LIMB_ITEM_GAUZE)
+	if(current_gauze)
+		factor *= current_gauze.splint_factor
+	return factor
+
+/**
+ * Attempts to use up some of gauze applied
+ * If we use up all of the gauze, it is deleted
  *
  * Arguments:
  * * seep_amt - How much absorption capacity we're removing from our current bandages (think, how much blood or pus are we soaking up this tick?)
+ *
+ * Return TRUE if we successfully used up some gauze
+ * Return FALSE if we had no gauze to use up
  */
 /obj/item/bodypart/proc/seep_gauze(seep_amt = 0)
-	if(!current_gauze)
-		return
+	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(applied_items, LIMB_ITEM_GAUZE)
+	if(!current_gauze || !current_gauze.absorption_capacity)
+		return FALSE
 	current_gauze.absorption_capacity -= seep_amt
 	if(current_gauze.absorption_capacity <= 0)
 		owner.visible_message(span_danger("\The [current_gauze.name] on [owner]'s [name] falls away in rags."), span_warning("\The [current_gauze.name] on your [name] falls away in rags."), vision_distance=COMBAT_MESSAGE_RANGE)
-		QDEL_NULL(current_gauze)
+		qdel(current_gauze)
+	return TRUE
 
 ///A multi-purpose setter for all things immediately important to the icon and iconstate of the limb.
 /obj/item/bodypart/proc/change_appearance(icon, id, greyscale, dimorphic)
@@ -1738,7 +1797,7 @@
 		owner.update_body_parts()
 
 	//This foot gun needs a safety
-	if(!icon_exists(icon_holder, "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""]"))
+	if(!icon_exists(icon_holder, "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""][(bodyshape & BODYSHAPE_DIGITIGRADE) ? "_[ICON_KEY_DIGI]" : ""]")) // NOVA EDIT CHANGE - ORIGINAL: if(!icon_exists(icon_holder, "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""]"))
 		reset_appearance()
 		stack_trace("change_appearance([icon], [id], [greyscale], [dimorphic]) generated null icon")
 
@@ -1890,3 +1949,34 @@
 	var/old_state = surgery_state
 	. = ..()
 	update_surgical_state(old_state, surgery_state ^ old_state)
+
+/// Adds biostate to the limb and ensures surgical states are updated accordingly
+/obj/item/bodypart/proc/add_biostate(new_biostate)
+	if(biological_state & new_biostate)
+		return
+
+	var/had_skin = LIMB_HAS_SKIN(src)
+	var/had_bones = LIMB_HAS_BONES(src)
+	var/had_vessels = LIMB_HAS_VESSELS(src)
+
+	biological_state |= new_biostate
+
+	if(!had_skin && LIMB_HAS_SKIN(src))
+		remove_surgical_state(SKINLESS_SURGERY_STATES)
+	if(!had_bones && LIMB_HAS_BONES(src))
+		remove_surgical_state(BONELESS_SURGERY_STATES)
+	if(!had_vessels && LIMB_HAS_VESSELS(src))
+		remove_surgical_state(VESSELLESS_SURGERY_STATES)
+
+/// Removes biostate from the limb and ensures surgical states are updated accordingly
+/obj/item/bodypart/proc/remove_biostate(old_biostate)
+	if(!(biological_state & old_biostate))
+		return
+
+	biological_state &= ~old_biostate
+	if(!LIMB_HAS_SKIN(src))
+		add_surgical_state(SKINLESS_SURGERY_STATES)
+	if(!LIMB_HAS_BONES(src))
+		add_surgical_state(BONELESS_SURGERY_STATES)
+	if(!LIMB_HAS_VESSELS(src))
+		add_surgical_state(VESSELLESS_SURGERY_STATES)

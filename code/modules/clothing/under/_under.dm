@@ -354,14 +354,11 @@
 		return
 	if(user && !user.temporarilyRemoveItemFromInventory(accessory))
 		return
-	if(!accessory.attach(src, user))
+	if(!accessory.try_attach(src, user))
 		return
 
-	LAZYADD(attached_accessories, accessory)
-	accessory.forceMove(src)
-
 	// Allow for accessories to react to the acccessory list now
-	accessory.successful_attach(src)
+	accessory.attach(src)
 
 	if(user && attach_message)
 		balloon_alert(user, "accessory attached")
@@ -458,7 +455,6 @@
 
 /obj/item/clothing/under/verb/toggle()
 	set name = "Adjust Suit Sensors"
-	set category = "Object"
 	set src in usr
 	var/mob/user_mob = usr
 	if(!can_toggle_sensors(user_mob))

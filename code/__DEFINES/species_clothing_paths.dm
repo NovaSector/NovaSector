@@ -9,3 +9,7 @@
 //DIGITIGRADE PATHS
 ///The dmi containing digitigrade uniforms
 #define DIGITIGRADE_UNIFORM_FILE 'modular_nova/master_files/icons/mob/clothing/uniform_digi.dmi' // NOVA EDIT CHANGE - ORIGINAL: #define DIGITIGRADE_UNIFORM_FILE 'icons/mob/human/species/misc/digitigrade.dmi'
+// NOVA EDIT ADDITION START - extra file defines
+#define BIG_LEGS_UNIFORM_FILE 'modular_nova/master_files/icons/mob/clothing/uniform_taur_big_legs.dmi'
+#define BIG_LEGS_STANCED_UNIFORM_FILE 'modular_nova/master_files/icons/mob/clothing/uniform_taur_big_legs_stanced.dmi'
+// NOVA EDIT ADDITION END

@@ -28,6 +28,8 @@
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.1
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.2
 
+	tacmap_color = TACMAP_DOOR
+
 	/// The animation we're currently playing, if any
 	var/animation
 	var/visible = TRUE
@@ -55,7 +57,7 @@
 	var/safe = TRUE
 	///whether the door is bolted or not.
 	var/locked = FALSE
-	var/datum/effect_system/spark_spread/spark_system
+	var/datum/effect_system/basic/spark_spread/spark_system
 	///ignore this, just use explosion_block
 	var/real_explosion_block
 	///if TRUE, this door will always open on red alert
@@ -63,7 +65,7 @@
 
 	/// Whether or not the door can crush mobs.
 	var/can_crush = TRUE
-	/// Whether or not the door can be opened by hand (used for blast doors and shutters)
+	/// Whether or not the door can be opened by hand (used for blast doors, shutters & firelocks primarily)
 	var/can_open_with_hands = TRUE
 	/// Whether or not this door can be opened through a door remote, ever
 	var/opens_with_door_remote = FALSE
@@ -120,8 +122,7 @@
 			GLOB.elevator_doors += src
 		else
 			stack_trace("Elevator door [src] ([x],[y],[z]) has no linked elevator ID!")
-	spark_system = new /datum/effect_system/spark_spread
-	spark_system.set_up(2, 1, src)
+	spark_system = new(src, 2, TRUE)
 	if(density)
 		flags_1 |= PREVENT_CLICK_UNDER_1
 	else
@@ -178,9 +179,7 @@
 /obj/machinery/door/Destroy()
 	if(elevator_mode)
 		GLOB.elevator_doors -= src
-	if(spark_system)
-		qdel(spark_system)
-		spark_system = null
+	QDEL_NULL(spark_system)
 	QDEL_NULL(filler)
 	air_update_turf(TRUE, FALSE)
 	return ..()
@@ -325,6 +324,10 @@
 		return
 	return ..()
 
+/obj/machinery/door/allowed(mob/accessor)
+	return ..() || emergency
+
+/// A mob is trying to open or close the door
 /obj/machinery/door/proc/try_to_activate_door(mob/user, access_bypass = FALSE, bumped = FALSE)
 	add_fingerprint(user)
 	if(operating || (obj_flags & EMAGGED))
@@ -336,24 +339,8 @@
 	if(elevator_mode && elevator_status != LIFT_PLATFORM_UNLOCKED)
 		return
 
-	var/access_check = access_bypass
-	if(emergency)
-		access_check = TRUE
-	else if(unrestricted_side(user) && !delayed_unres_open)
-		access_check = TRUE
-	else if(!requiresID())
-		access_check = TRUE
-	else if(allowed(user)) // You
-		access_check = TRUE
-	else for(var/mob/living/human_backpack in user.buckled_mobs)
-		if(allowed(human_backpack)) // Your partner in crime
-			access_check = TRUE
-			break
-
-	if(!access_check && unrestricted_side(user) && attempt_delayed_unres_open(user))
-		access_check = TRUE
-
-	if(access_check)
+	// note: if the ID wire is cut no ID cards are checked at all! (This is intentional!)
+	if(access_bypass || (requiresID() && user_can_activate_door(user)))
 		if(density)
 			open()
 		else
@@ -362,6 +349,18 @@
 
 	else if(!operating && density)
 		run_animation(DOOR_DENY_ANIMATION)
+
+/// Used in try_to_activate_door
+/obj/machinery/door/proc/user_can_activate_door(mob/user)
+	PRIVATE_PROC(TRUE)
+	if(allowed(user))
+		return TRUE
+	for(var/mob/living/human_backpack in user.buckled_mobs)
+		if(allowed(human_backpack))
+			return TRUE
+	if(unrestricted_side(user))
+		return !delayed_unres_open || attempt_delayed_unres_open(user)
+	return FALSE
 
 /// Allows for specific side of airlocks to be unrestricted (IE, can exit maint freely, but need access to enter)
 /obj/machinery/door/proc/unrestricted_side(mob/opener)
@@ -439,9 +438,6 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/door/crowbar_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
-
 	var/forced_open = FALSE
 	if(istype(tool, /obj/item/crowbar))
 		var/obj/item/crowbar/crowbar = tool

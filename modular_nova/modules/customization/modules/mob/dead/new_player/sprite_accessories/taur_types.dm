@@ -25,6 +25,7 @@
 	flags_for_organ = SPRITE_ACCESSORY_HIDE_SHOES
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/taur_mode = NONE
+	taur_mode = STYLE_TAUR_GENERIC /// So that every taur would crop clothes
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/alt_taur_mode = NONE
 
@@ -249,12 +250,13 @@
 /datum/sprite_accessory/taur/biglegs
 	name = "Big Legs"
 	icon_state = "biglegs"
-	taur_mode = STYLE_TAUR_PAW
+	taur_mode = STYLE_TAUR_BIG_LEGS
 	organ_type = /obj/item/organ/taur_body/anthro
 
 /datum/sprite_accessory/taur/biglegs/stanced
 	name = "Big Legs, Stanced"
 	icon_state = "biglegs_stanced"
+	taur_mode = STYLE_TAUR_BIG_LEGS_STANCED
 
 /datum/sprite_accessory/taur/biglegs/bird
 	name = "Big Legs, Bird"

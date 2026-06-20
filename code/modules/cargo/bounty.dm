@@ -1,8 +1,24 @@
+// The list of all current global, shared crew bounties, does not contain any personal bounties however.
+GLOBAL_LIST_EMPTY(shared_crew_bounties)
+
 /datum/bounty
+	/// A name for the bounty. Displayed on the bounty console/Paper sheets.
 	var/name
+	/// A description for the bounty.
 	var/description
+	/// Whether or not the bounty has been claimed by cargo. Only applies to cargo list bounties.
+	var/claimed = FALSE
+	/// Whether or not the bounty is high priority. High priority bounties appear at the top of the list.
+	var/high_priority = FALSE
+	/// The reward for completing the bounty in credits, before being split by cargo/the player.
 	VAR_PROTECTED/reward = CARGO_CRATE_VALUE * 5 // In credits.
 	var/allow_duplicate = FALSE
+	/// Can this bounty be selected got a new global bounty?
+	var/global_exempt = FALSE
+	///A list consisting of the accounts who sent several of the items required for a bounty payout. Used for distributing payout with the payment component.
+	var/list/contribution = list()
+	/// Is this bounty considered unique? This is for weird, singleton bounties that we don't want to roll into randomly, and we provide one of these
+	var/unique = FALSE
 
 /// Can this bounty be claimed right now?
 /datum/bounty/proc/can_claim()
@@ -11,6 +27,10 @@
 /// If an item in question can satisfy the bounty.
 /datum/bounty/proc/applies_to(obj/shipped)
 	return FALSE
+
+/// When calculating the contribution breakdown of an object shipped, how much does that object increase that account's cut?
+/datum/bounty/proc/contribution_amount(obj/shipped)
+	return 1
 
 /// Called when an object is sent on the bounty pad.
 /datum/bounty/proc/ship(obj/shipped)
@@ -22,7 +42,8 @@
 
 /// Returns the adjusted reward for this bounty, taking into account any global modifiers.
 /datum/bounty/proc/get_bounty_reward()
-	return reward * SSeconomy.bounty_modifier
+	var/high_priority_mult = high_priority ? 1.5 : 1
+	return reward * SSeconomy.bounty_modifier * high_priority_mult
 
 /// Called when this bounty is selected by the passed ID card
 /datum/bounty/proc/on_selected(obj/item/card/id/id_card)
@@ -36,7 +57,19 @@
 /datum/bounty/proc/on_reset(obj/item/card/id/id_card)
 	return
 
-/** Returns a new bounty of random type, but does not add it to GLOB.bounties_list.
+/// Proc that returns the current quantity of this bounty.
+/datum/bounty/proc/get_total()
+	return
+
+/// Proc that returns the current maximum quantity of this bounty.
+/datum/bounty/proc/get_max()
+	return
+
+/// If the user can actually get this bounty as a selection.
+/datum/bounty/proc/can_get()
+	return TRUE
+
+/** Returns a new bounty of random type.
  *
  * * Category determines what specific catagory of bounty should be chosen.
  */
@@ -99,19 +132,19 @@
 			if(DS2_JOB_SERVICE)
 				chosen_type = pick(subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/shared_botany) + subtypesof(/datum/bounty/item/ds2))
 			if(DS2_JOB_MECHANICAL)
-				chosen_type = pick(subtypesof(/datum/bounty/item/mech) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/ds2))
+				chosen_type = pick(subtypesof(/datum/bounty/item/mech) + subtypesof(/datum/bounty/item/ds2))
 			if(DS2_JOB_COMMAND)
 				chosen_type = pick(subtypesof(/datum/bounty/item/ds2) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/ds2))
 			if(DYNE_JOB_MINING)
-				chosen_type = pick(subtypesof(/datum/bounty/item/mining) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+				chosen_type = pick(subtypesof(/datum/bounty/item/mining) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
 			if(DYNE_JOB_SCIENCE)
 				chosen_type = pick(subtypesof(/datum/bounty/item/interdyne_med) + subtypesof(/datum/bounty/item/interdyne_slime) + subtypesof(/datum/bounty/interdyne_pill/simple_pill) + subtypesof(/datum/bounty/interdyne_reagent/chemical_simple) + subtypesof(/datum/bounty/interdyne_reagent/chemical_complex) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
 			if(DYNE_JOB_COMMAND)
-				chosen_type = pick(subtypesof(/datum/bounty/item/interdyne_med) + subtypesof(/datum/bounty/item/interdyne_slime) + subtypesof(/datum/bounty/interdyne_pill/simple_pill) + subtypesof(/datum/bounty/interdyne_reagent/chemical_simple) + subtypesof(/datum/bounty/interdyne_reagent/chemical_complex) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/mining) + subtypesof(/datum/bounty/item/sharedxenoarch))
+				chosen_type = pick(subtypesof(/datum/bounty/item/interdyne_med) + subtypesof(/datum/bounty/item/interdyne_slime) + subtypesof(/datum/bounty/interdyne_pill/simple_pill) + subtypesof(/datum/bounty/interdyne_reagent/chemical_simple) + subtypesof(/datum/bounty/interdyne_reagent/chemical_complex) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef) + subtypesof(/datum/bounty/item/mining))
 			if(TARKON_JOB_CREW)
-				chosen_type = pick(subtypesof(/datum/bounty/item/tarkon) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+				chosen_type = pick(subtypesof(/datum/bounty/item/tarkon) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
 			if(TARKON_JOB_COMMAND)
-				chosen_type = pick(subtypesof(/datum/bounty/item/tarkon) + subtypesof(/datum/bounty/item/sharedxenoarch) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
+				chosen_type = pick(subtypesof(/datum/bounty/item/tarkon) + subtypesof(/datum/bounty/item/shared_chef) + subtypesof(/datum/bounty/reagent/shared_chef))
 			// NOVA EDIT ADDITION END #5738
 		bounty_ref = new chosen_type
 		if(bounty_ref.can_get())
