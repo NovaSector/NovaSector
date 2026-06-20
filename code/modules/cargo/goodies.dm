@@ -455,7 +455,7 @@
 	desc = "A single broadcast camera which broadcasts to the station's entertainment monitors, for all your theatrical needs."
 	cost = PAYCHECK_COMMAND * 8
 	contains = list(/obj/item/broadcast_camera/cargo)
-  
+
 /datum/supply_pack/goody/fishing_portal
 	name = "Fishing Spot Capsule"
 	desc = "Oh hey! Their makers finally found a market, guess hotsprings really such a treat."
