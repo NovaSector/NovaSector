@@ -307,7 +307,6 @@
 		span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."),
 		span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane.")
 	)
-	item.reagents.clear_reagents() //removes the whole shit
 	if(isnull(brainmob))
 		user.balloon_alert(user, "brain is not a viable candidate for repair!")
 		return TRUE
@@ -319,6 +318,7 @@
 	if(isnull(brainmob.client))
 		user.balloon_alert(user, "brain does not contain a mind!")
 		return TRUE
+	item.reagents.remove_reagent(/datum/reagent/toxin/plasma, 100) // Consumes the plasma
 	regenerate()
 	return TRUE
 
