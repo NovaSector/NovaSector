@@ -264,10 +264,18 @@
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
 	var/atom/death_loc = victim.drop_location()
 	victim.unequip_everything()
-	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
-		Remove(victim)
+	// Drop the Brain/Core, and implants to the floor.
+	for(var/obj/item/organ/organs in victim)
+		if(istype(organs, /obj/item/organ/brain) || istype(organs, /obj/item/implant))
+			Remove(organs)
 	if(death_loc)
 		forceMove(death_loc)
+		// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
+		for(var/obj/item/organ/spilled_organ in death_loc)
+			if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
+				continue
+			else
+				qdel(spilled_organ)
 	src.wash(CLEAN_WASH)
 	new death_melt_type(death_loc, victim.dir)
 
@@ -277,7 +285,7 @@
 	if(gps_active) // adding the gps signal if they have activated the ability
 		AddComponent(/datum/component/gps, "[victim]'s Core")
 
-	qdel(victim)
+	qdel(victim) // Remove the body.
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 /**
@@ -347,23 +355,14 @@
 	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 	SSquirks.AssignQuirks(new_body, brainmob.client)
 
-	// Remove any quirk items that spawn.
+	// Remove non-chest limbs, and quirk spawned items
 	for(var/obj/item/contents in new_body.get_contents())
-		if(contents == src || istype(contents, /obj/item/organ) || istype(contents, /obj/item/bodypart)) // Only remove quirk items
+		if(contents == src || istype(contents, /obj/item/organ) || istype(contents, /obj/item/bodypart/chest))
 			continue
 		qdel(contents)
 
 	// Move the brain/core into the new body
 	src.replace_into(new_body)
-
-	// Remove non-chest body parts
-	var/list/to_remove = list()
-	for(var/obj/item/bodypart/bodypart in new_body.bodyparts)
-		if(!istype(bodypart, /obj/item/bodypart/chest))
-			to_remove += bodypart
-
-	for(var/obj/item/bodypart/rem in to_remove)
-		qdel(rem)
 
 	// Notify the player that their body has been rebuilt
 	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
