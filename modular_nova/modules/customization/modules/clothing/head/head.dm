@@ -316,3 +316,4 @@
 	greyscale_config = /datum/greyscale_config/henchmen
 	greyscale_config_worn = /datum/greyscale_config/henchmen/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+

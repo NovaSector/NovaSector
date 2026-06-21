@@ -39,6 +39,7 @@
 		slime_hydrophobia.Grant(new_jellyperson)
 		core_signal = new
 		core_signal.Grant(new_jellyperson)
+	RegisterSignal(new_jellyperson, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 
 /datum/species/jelly/on_species_loss(mob/living/carbon/former_jellyperson, datum/species/new_species, pref_load)
 	. = ..()
@@ -50,6 +51,7 @@
 		slime_hydrophobia.Remove(former_jellyperson)
 	if(core_signal)
 		core_signal.Remove(former_jellyperson)
+	UnregisterSignal(former_jellyperson, COMSIG_LIVING_LIFE)
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
@@ -355,8 +357,8 @@
 
 // HEALING SECTION
 // Handles passive healing and water damage for slimes and water-breathing variants.
-/datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick)
-	. = ..()
+/datum/species/jelly/proc/on_life(mob/living/carbon/human/slime, seconds_per_tick)
+	SIGNAL_HANDLER
 
 	// Skip if unconscious
 	if(slime.stat != CONSCIOUS)
