@@ -18,8 +18,7 @@
 		var/list/filter_result = is_ic_filtered(message)
 
 		if(filter_result)
-			to_chat(usr, span_warning("That emote contained a word prohibited in IC emotes! Consider reviewing the server rules."))
-			to_chat(usr, span_warning("\"[message]\""))
+			to_chat(usr, span_warning("That emote contained a word prohibited in IC emotes! Consider reviewing the server rules.\n\"[message]\""))
 			REPORT_CHAT_FILTER_TO_USER(usr, filter_result)
 			log_filter("IC Emote", message, filter_result)
 			SSblackbox.record_feedback("tally", "ic_blocked_words", 1, LOWER_TEXT(config.ic_filter_regex.match))
