@@ -71,7 +71,6 @@
 
 /datum/status_effect/sensitive_hearing/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_GOOD_HEARING, ORGAN_TRAIT)
-	UnregisterSignal(owner, COMSIG_ORGAN_REMOVED)
 
 	var/hearing_disable_message = "[owner] drops [owner.p_their()] ears down a bit, no longer listening as closely."
 	var/hearing_disable_usermessage = "You drop your ears down, no longer paying close attention."
