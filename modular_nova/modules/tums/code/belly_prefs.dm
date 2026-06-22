@@ -30,6 +30,17 @@
 		return FALSE
 	return ..()
 
+/datum/preference/toggle/erp/belly/post_write(value, datum/preferences/preferences)
+	. = ..()
+	if(preferences.parent.mob != null)
+		var/mob/living/player_as_living = preferences.parent.mob
+		if(istype(player_as_living))
+			SEND_SIGNAL(player_as_living, COMSIG_VIEW_PREFS_UPDATED)
+		else
+			var/mob/dead/player_as_dead = preferences.parent.mob
+			if(istype(player_as_dead))
+				SEND_SIGNAL(player_as_dead, COMSIG_VIEW_PREFS_UPDATED)
+
 /// Sound pref (full but not stuffed sounds)
 /datum/preference/toggle/erp/belly/sound_groans
 	savefile_key = "erp_belly_sound_groans"
@@ -118,8 +129,17 @@
 	minimum = 0
 	maximum = 16
 
-/datum/preference/numeric/erp_belly_maxsize/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE
+
+/datum/preference/numeric/erp_belly_maxsize/post_write(value, datum/preferences/preferences)
+	. = ..()
+	if(preferences.parent.mob != null)
+		var/mob/living/player_as_living = preferences.parent.mob
+		if(istype(player_as_living))
+			SEND_SIGNAL(player_as_living, COMSIG_VIEW_PREFS_UPDATED)
+		else
+			var/mob/dead/player_as_dead = preferences.parent.mob
+			if(istype(player_as_dead))
+				SEND_SIGNAL(player_as_dead, COMSIG_VIEW_PREFS_UPDATED)
 
 /datum/preference/numeric/erp_belly_maxsize/create_default_value()
 	return 3

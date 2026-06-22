@@ -15,6 +15,8 @@
 #define COMSIG_MOB_GIVE_DIRECT_CONTROL "mob_give_direct_control"
 /// Lets objects subscribe to step events on a target mob.
 #define COMSIG_GENERAL_STEP_ACTION "general_step_action"
+/// Fired by ERP prefs to trigger alt_appearance updates.
+#define COMSIG_VIEW_PREFS_UPDATED "view_prefs_updated"
 
 //Gun signals
 ///When a gun is switched to automatic fire mode
