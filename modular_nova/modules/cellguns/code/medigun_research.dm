@@ -242,3 +242,6 @@
 		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/device/custom_kit/empty_cell/relocator
+
+#undef RND_SUBCATEGORY_WEAPONS_MEDICALAMMO
+#undef RND_MEDICALAMMO_UTILITY

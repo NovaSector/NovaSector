@@ -125,12 +125,14 @@
 
 /turf/closed/mineral/asteroid/has_air
 	initial_gas_mix = OPENTURF_LOW_PRESSURE	//one that WONT screw with atmos if it's mapped somewhere
+	baseturfs = /turf/open/misc/asteroid/lowpressure
 
 /*
 *	HAZARD
 */
 /turf/closed/mineral/asteroid/has_more_air //this one is for if your checks are failing it might be because ya got dis rock, this can stay too as it will be convient for mappers in the future.
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid
 
 /turf/open/chasm/sandy	//just a retexture of the other chasm. making this was nothing but painful.
 	icon = 'modular_nova/modules/mapping/icons/turf/open/sandychasm.dmi'
@@ -143,3 +145,33 @@
 	light_color = LIGHT_COLOR_TUNGSTEN
 
 	initial_gas_mix = OPENTURF_LOW_PRESSURE
+
+/turf/open/misc/asteroid/basalt/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/misc/asteroid/basalt/standard_air
+
+/turf/open/misc/asteroid/basalt/smooth/shale/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/shale/standard_air
+	
+/turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+
+/turf/closed/mineral/random/volcanic/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid/basalt/standard_air
+	turf_type = /turf/open/misc/asteroid/basalt/standard_air
+
+/turf/closed/mineral/random/volcanic/red_rock/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+	turf_type = /turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+
+/turf/closed/mineral/random/volcanic/shale/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/shale/standard_air
+	turf_type = /turf/open/misc/asteroid/basalt/smooth/shale/standard_air

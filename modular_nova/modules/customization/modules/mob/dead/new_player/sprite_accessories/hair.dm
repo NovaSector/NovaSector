@@ -730,6 +730,10 @@
 	name = "Dreadtail"
 	icon_state = "hair_dreadtail"
 
+/datum/sprite_accessory/hair/nova/slimetails
+	name = "Slime Tails"
+	icon_state = "hair_slime_tails"
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/nova

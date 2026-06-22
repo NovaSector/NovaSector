@@ -4,7 +4,7 @@
  */
 GLOBAL_LIST_INIT(total_ui_len_by_block, populate_total_ui_len_by_block())
 
-GLOBAL_LIST_INIT(standard_mutation_sources, list(MUTATION_SOURCE_ACTIVATED, MUTATION_SOURCE_MUTATOR, MUTATION_SOURCE_TIMED_INJECTOR))
+GLOBAL_LIST_INIT(standard_mutation_sources, list(MUTATION_SOURCE_ACTIVATED, MUTATION_SOURCE_MUTATOR))
 
 /proc/populate_total_ui_len_by_block()
 	. = list()
@@ -44,10 +44,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	var/real_name
 	///All mutations are from now on here
 	var/list/mutations
-	///Temporary changes to the UE
-	var/list/temporary_mutations
-	///For temporary name/ui/ue/blood_type modifications
-	var/list/previous
 	var/mob/living/holder
 	///List of which mutations this carbon has and its assigned block
 	var/mutation_index[DNA_MUTATION_BLOCKS]
@@ -77,8 +73,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	QDEL_NULL(species)
 
 	LAZYNULL(mutations) //This only references mutations, just dereference.
-	LAZYNULL(temporary_mutations) //^
-	LAZYNULL(previous) //^
 
 	return ..()
 
@@ -94,9 +88,9 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	new_dna.body_markings = body_markings.Copy()
 	new_dna.update_body_size()
 	//NOVA EDIT ADDITION END
-	new_dna.temporary_mutations = LAZYLISTDUPLICATE(temporary_mutations)
-	new_dna.mutation_index = mutation_index
-	new_dna.default_mutation_genes = default_mutation_genes
+	if(transfer_flags & COPY_DNA_SE)
+		new_dna.mutation_index = mutation_index
+		new_dna.default_mutation_genes = default_mutation_genes
 	//if the new DNA has a holder, transform them immediately, otherwise save it
 	if(new_dna.holder)
 		if (iscarbon(new_dna.holder))
@@ -160,7 +154,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	var/datum/mutation/actual_mutation = get_mutation(mutation_to_remove)
 
 	if(!actual_mutation || !(sources & actual_mutation.sources))
-		return
+		return FALSE
 
 	actual_mutation.sources -= sources
 
@@ -174,6 +168,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		qdel(actual_mutation)
 
 	update_instability(FALSE)
+	return TRUE
 
 /datum/dna/proc/check_mutation(mutation_type)
 	return get_mutation(mutation_type)
