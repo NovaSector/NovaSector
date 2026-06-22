@@ -38,7 +38,7 @@
 
 // SSDecay - Percent chance that a floor will be randomly stripped down to damaged plating, scaled with SSDecay severity.
 /datum/config_entry/number/ssdecay_floor_tile_missing_percent_chance
-	default = 0
+	default = 1
 	min_val = 0
 
 // SSDecay - Percent chance that a floor will have cobwebs, scaled with SSDecay severity.
