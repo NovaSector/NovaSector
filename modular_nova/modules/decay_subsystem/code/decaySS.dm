@@ -15,16 +15,6 @@ SUBSYSTEM_DEF(decay)
 	var/list/possible_areas = list()
 	var/severity_modifier = 1
 
-	// variable holders for pulling from config
-	var/floor_dirt_percent_chance
-	var/floor_blood_percent_chance
-	var/floor_vomit_percent_chance
-	var/floor_oil_percent_chance
-	var/floor_tile_missing_percent_chance
-	var/floor_cobweb_percent_chance
-	var/nest_percent_chance
-	var/light_flicker_percent_chance
-
 	var/list/possible_nests = list(
 		/obj/structure/mob_spawner/spiders,
 		/obj/structure/mob_spawner/bush,
@@ -48,16 +38,6 @@ SUBSYSTEM_DEF(decay)
 		message_admins("SSDecay will not interact with this round.")
 		log_world("SSDecay will not interact with this round.")
 		return SS_INIT_NO_NEED
-
-	// The part where we get everything from configs in one go (this is that part)
-	floor_dirt_percent_chance = CONFIG_GET(number/ssdecay_floor_dirt_percent_chance)
-	floor_blood_percent_chance = CONFIG_GET(number/ssdecay_floor_blood_percent_chance)
-	floor_vomit_percent_chance = CONFIG_GET(number/ssdecay_floor_vomit_percent_chance)
-	floor_oil_percent_chance = CONFIG_GET(number/ssdecay_floor_oil_percent_chance)
-	floor_tile_missing_percent_chance = CONFIG_GET(number/ssdecay_floor_tile_missing_percent_chance)
-	floor_cobweb_percent_chance = CONFIG_GET(number/ssdecay_floor_cobweb_percent_chance)
-	nest_percent_chance = CONFIG_GET(number/ssdecay_nest_percent_chance)
-	light_flicker_percent_chance = CONFIG_GET(number/ssdecay_light_flicker_percent_chance)
 
 	for(var/area/iterating_area as anything in GLOB.areas)
 		if(!is_station_level(iterating_area.z))
@@ -90,6 +70,9 @@ SUBSYSTEM_DEF(decay)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/decay/proc/do_common()
+	var/floor_dirt_percent_chance = CONFIG_GET(number/ssdecay_floor_dirt_percent_chance)
+	var/floor_tile_missing_percent_chance = CONFIG_GET(number/ssdecay_floor_tile_missing_percent_chance)
+
 	for(var/turf/open/floor/iterating_floor in possible_turfs)
 		if(iterating_floor.turf_flags & CAN_DECAY_BREAK_1)
 			if(prob(floor_tile_missing_percent_chance * severity_modifier) && prob(60))
@@ -98,10 +81,11 @@ SUBSYSTEM_DEF(decay)
 		if(prob(floor_dirt_percent_chance * severity_modifier))
 			new /obj/effect/decal/cleanable/dirt(iterating_floor)
 
-		if(prob(floor_dirt_percent_chance * severity_modifier))
-			new /obj/effect/decal/cleanable/dirt(iterating_floor)
-
 /datum/controller/subsystem/decay/proc/do_maintenance()
+	var/floor_blood_percent_chance = CONFIG_GET(number/ssdecay_floor_blood_percent_chance)
+	var/floor_cobweb_percent_chance = CONFIG_GET(number/ssdecay_floor_cobweb_percent_chance)
+	var/nest_percent_chance = CONFIG_GET(number/ssdecay_nest_percent_chance)
+	var/light_flicker_percent_chance = CONFIG_GET(number/ssdecay_light_flicker_percent_chance)
 	for(var/area/station/maintenance/iterating_maintenance in possible_areas)
 		for(var/turf/open/iterating_floor in iterating_maintenance)
 			if(prob(floor_blood_percent_chance * severity_modifier))
@@ -115,7 +99,7 @@ SUBSYSTEM_DEF(decay)
 				if(!iterating_floor.Enter(spawned_web))
 					qdel(spawned_web)
 
-			if(!CONFIG_GET(flag/ssdecay_disable_nests) && prob(nest_percent_chance * severity_modifier) && prob(50))
+			if(!CONFIG_GET(flag/ssdecay_disable_nests) && prob(nest_percent_chance * severity_modifier))
 				var/spawner_to_spawn = pick(possible_nests)
 				var/obj/structure/mob_spawner/spawned_spawner = new spawner_to_spawn(iterating_floor)
 				if(!iterating_floor.Enter(spawned_spawner))
@@ -126,6 +110,8 @@ SUBSYSTEM_DEF(decay)
 				iterating_light.start_flickering()
 
 /datum/controller/subsystem/decay/proc/do_engineering()
+	var/floor_blood_percent_chance = CONFIG_GET(number/ssdecay_floor_blood_percent_chance)
+	var/floor_oil_percent_chance = CONFIG_GET(number/ssdecay_floor_oil_percent_chance)
 	for(var/area/station/engineering/iterating_engineering in possible_areas)
 		for(var/turf/open/iterating_floor in iterating_engineering)
 			if(prob(floor_blood_percent_chance * severity_modifier))
@@ -140,6 +126,9 @@ SUBSYSTEM_DEF(decay)
 					qdel(spawned_oil)
 
 /datum/controller/subsystem/decay/proc/do_medical()
+	var/floor_blood_percent_chance = CONFIG_GET(number/ssdecay_floor_blood_percent_chance)
+	var/floor_vomit_percent_chance = CONFIG_GET(number/ssdecay_floor_vomit_percent_chance)
+	var/light_flicker_percent_chance = CONFIG_GET(number/ssdecay_light_flicker_percent_chance)
 	for(var/area/station/medical/iterating_medical in possible_areas)
 		for(var/turf/open/iterating_floor in iterating_medical)
 			if(prob(floor_blood_percent_chance * severity_modifier))
