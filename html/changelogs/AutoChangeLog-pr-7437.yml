@@ -1,6 +1,0 @@
-author: "Balls2zawall"
-delete-after: True
-changes:
-  - qol: "Halved the speed of brain degeneration, it shouldn't be giving brain trauma's every two minutes anymore."
-  - balance: "Increased the starting dosage of mannitol for brain degeneration to 7 pills at 15u, from 4 at 5u."
-  - balance: "Increased the starting dosage of liquid solder for synthetic brain degradation to 7 pills."

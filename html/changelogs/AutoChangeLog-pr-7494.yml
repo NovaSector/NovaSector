@@ -1,5 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - bugfix: "[NOVA] Mutes (as in people who have the quirk and mimes) can use the Do verb."
-  - bugfix: "[NOVA] People who have been muted (as in people who got IC muted by an admin) can no longer use the Do verb."
