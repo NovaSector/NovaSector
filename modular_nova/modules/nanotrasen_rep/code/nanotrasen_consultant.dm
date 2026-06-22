@@ -162,19 +162,21 @@
 
 /obj/item/choice_beacon/ntc
 	name = "gunset beacon"
-	desc = "A single use beacon to deliver a gunset of your choice. Please only call this in your office"
+	desc = "A single use beacon to deliver a gunset or weapon of your choice. Please only call this in your office"
 	icon_state = "cc_beacon"
 	inhand_icon_state = "cc_beacon"
 	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
 	lefthand_file = 'modular_nova/modules/modular_items/icons/inhand/mobs/lefthand_remote.dmi'
 	righthand_file = 'modular_nova/modules/modular_items/icons/inhand/mobs/righthand_remote.dmi'
-	company_source = "Trappiste Fabriek Company"
+	company_source = "Nanotrasen™"
 	company_message = span_bold("Supply Pod incoming please stand by")
 
 /obj/item/choice_beacon/ntc/generate_display_names()
 	var/static/list/selectable_gun_types = list(
 		"Takbok Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok,
 		"Skild Pistol Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
+		"Green Nanotrasen™ Sheath" = /obj/item/storage/belt/sheath/sabre/consultant,
+		"Black Nanotrasen™ Sheath" = /obj/item/storage/belt/sheath/sabre/admiral,
 	)
 
 	return selectable_gun_types
@@ -186,3 +188,27 @@
 	icon_state = "pen-fountain-nt"
 	colour = "#18610D"
 	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)
+
+/obj/item/storage/belt/sheath/sabre/consultant
+	name = "Nanotrasen™ sabre sheath"
+	desc = "An ornate sheath designed to hold an officer's blade. This one is in green and a distinct Nanotrasen corporate identity."
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	icon_state = "cc-sheath"
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+	worn_icon_state = "cc-sheath"
+	storage_type = /datum/storage/sabre_belt
+	stored_blade = /obj/item/melee/sabre/centralcommand
+
+/obj/item/storage/belt/sheath/sabre/admiral
+	name = "Nanotrasen™ sabre sheath"
+	desc = "An ornate sheath designed to hold an officer's blade. This one comes in black and a distinct Nanotrasen corporate identity."
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	icon_state = "admiral-sheath"
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+	worn_icon_state = "admiral-sheath"
+	storage_type = /datum/storage/sabre_belt
+	stored_blade = /obj/item/melee/sabre/centralcommand
+
+/obj/item/melee/sabre/centralcommand
+	name = "Nanotrasen™ sabre"
+	desc = "An elegant weapon, its monomolecular edge is capable of cutting through flesh and bone with ease. This one carries a distinct Nanotrasen corporate identity."
