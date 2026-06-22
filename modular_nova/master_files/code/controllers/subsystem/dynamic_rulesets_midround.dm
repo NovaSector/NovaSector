@@ -36,10 +36,6 @@
 		human_body.dna.remove_all_mutations()
 		human_body.dna.update_dna_identity()
 
-
-
-
-
 /datum/dynamic_ruleset/midround/from_living/traitor
 	var/static/list/sleeper_current_polling = list()
 	var/static/list/rejected_traitor = list()
