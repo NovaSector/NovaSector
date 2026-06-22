@@ -23,17 +23,17 @@
 
 // SSDecay - Percent chance that a floor will be bloody, scaled with SSDecay severity.
 /datum/config_entry/number/ssdecay_floor_blood_percent_chance
-	default = 15
+	default = 1
 	min_val = 0
 
 // SSDecay - Percent chance that a floor will be vomit-covered, scaled with SSDecay severity.
 /datum/config_entry/number/ssdecay_floor_vomit_percent_chance
-	default = 15
+	default = 1
 	min_val = 0
 
 // SSDecay - Percent chance that a floor will be oily, scaled with SSDecay severity.
 /datum/config_entry/number/ssdecay_floor_oil_percent_chance
-	default = 15
+	default = 5
 	min_val = 0
 
 // SSDecay - Percent chance that a floor will be randomly stripped down to damaged plating, scaled with SSDecay severity.
@@ -43,12 +43,12 @@
 
 // SSDecay - Percent chance that a floor will have cobwebs, scaled with SSDecay severity.
 /datum/config_entry/number/ssdecay_floor_cobweb_percent_chance
-	default = 0
+	default = 1
 	min_val = 0
 
 // SSDecay - Percent chance that (if not previously disabled via SSDECAY_DISABLE_NESTS) a nest will spawn, scaled with SSDecay severity.
 /datum/config_entry/number/ssdecay_nest_percent_chance
-	default = 0
+	default = 1
 	min_val = 0
 
 // SSDecay - Percent chance that a light will be flickery.
