@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - qol: "Following complaints from engineering and janitorial staff, Nanotrasen station construction and refurbishment teams have been informed that their job includes making sure floor tiles are being properly placed. (The roundstart decay subsystem that places muck and broken tiles everywhere no longer breaks tiles.)"
+  - config: "Decay subsystem now uses configs. Check config_nova.txt!"
