@@ -168,6 +168,7 @@
 /obj/item/food/pizza/margherita/raw/make_bakeable()
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/margherita, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
+/* NOVA EDIT REMOVAL START
 /obj/item/food/pizza/margherita/robo
 	food_reagents = list(
 		/datum/reagent/cyborg_mutation_nanomachines = 70,
@@ -176,6 +177,7 @@
 		/datum/reagent/consumable/tomatojuice = 6,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
+*/ NOVA EDIT REMOVAL START
 
 /obj/item/food/pizzaslice/margherita
 	name = "margherita slice"
