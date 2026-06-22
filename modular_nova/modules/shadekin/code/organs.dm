@@ -186,5 +186,5 @@
 /obj/item/organ/ears/shadekin
 	name = "shadekin ears"
 	desc = "Ears, covered in fur."
-	damage_multiplier = 1.675
+	damage_multiplier = 1.7
 	actions_types = list(/datum/action/cooldown/spell/sensitive_hearing)
