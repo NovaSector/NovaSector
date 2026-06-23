@@ -33,13 +33,18 @@
 /datum/preference/toggle/erp/belly/post_write(value, datum/preferences/preferences)
 	. = ..()
 	if(preferences.parent.mob != null)
+		to_chat(preferences.parent, span_notice("You might need to update the setting a second time for the effects to show!"))
 		var/mob/living/player_as_living = preferences.parent.mob
 		if(istype(player_as_living))
-			SEND_SIGNAL(player_as_living, COMSIG_VIEW_PREFS_UPDATED)
+			for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
+				if(istype(bellyview))
+					bellyview.check_hud(player_as_living)
 		else
 			var/mob/dead/player_as_dead = preferences.parent.mob
 			if(istype(player_as_dead))
-				SEND_SIGNAL(player_as_dead, COMSIG_VIEW_PREFS_UPDATED)
+				for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
+					if(istype(bellyview))
+						bellyview.check_hud(player_as_dead)
 
 /// Sound pref (full but not stuffed sounds)
 /datum/preference/toggle/erp/belly/sound_groans
@@ -133,13 +138,18 @@
 /datum/preference/numeric/erp_belly_maxsize/post_write(value, datum/preferences/preferences)
 	. = ..()
 	if(preferences.parent.mob != null)
+		to_chat(preferences.parent, span_notice("You might need to update the setting a second time for the effects to show!"))
 		var/mob/living/player_as_living = preferences.parent.mob
 		if(istype(player_as_living))
-			SEND_SIGNAL(player_as_living, COMSIG_VIEW_PREFS_UPDATED)
+			for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
+				if(istype(bellyview))
+					bellyview.check_hud(player_as_living)
 		else
 			var/mob/dead/player_as_dead = preferences.parent.mob
 			if(istype(player_as_dead))
-				SEND_SIGNAL(player_as_dead, COMSIG_VIEW_PREFS_UPDATED)
+				for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
+					if(istype(bellyview))
+						bellyview.check_hud(player_as_dead)
 
 /datum/preference/numeric/erp_belly_maxsize/create_default_value()
 	return 3

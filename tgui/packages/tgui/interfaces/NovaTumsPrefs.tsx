@@ -278,7 +278,7 @@ const NovaTumsPrefsBelly = () => {
         <LabeledList.Item label="Full Size">
           <Tooltip
             content="Purely cosmetic full size; adds visual size and full
-            creaks/groans."
+            creaks/groans, if you have them enabled."
           >
             <Slider
               step={0.1}
@@ -299,7 +299,8 @@ const NovaTumsPrefsBelly = () => {
         <LabeledList.Item label="Stuffed Size">
           <Tooltip
             content="Purely cosmetic stuffed size; adds visual size,
-          full creaks/groans, and stuffed gurgles/churns."
+          full creaks/groans, and stuffed gurgles/churns,
+          if you have them enabled."
           >
             <Slider
               step={0.1}

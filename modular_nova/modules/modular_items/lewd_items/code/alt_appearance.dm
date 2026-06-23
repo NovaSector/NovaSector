@@ -35,7 +35,6 @@ GLOBAL_LIST_EMPTY(aaerp_maskcache)
 		COMSIG_MOB_GHOSTIZED,
 		COMSIG_MOB_MIND_TRANSFERRED_INTO,
 		COMSIG_MOB_MIND_TRANSFERRED_OUT_OF,
-		COMSIG_VIEW_PREFS_UPDATED,
 	)
 
 /datum/atom_hud/alternate_appearance/erp/New(key, image/base_image, options = AA_TARGET_SEE_APPEARANCE, in_target, in_basekey, in_size, in_bodytype)
