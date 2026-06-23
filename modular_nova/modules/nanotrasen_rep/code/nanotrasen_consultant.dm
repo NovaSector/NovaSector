@@ -218,5 +218,6 @@
 /obj/item/melee/sabre/centralcommand/Initialize(mapload)
 	. = ..()
 	// Remove every bane component since we don't want there to be any.
-	QDEL_LIST(GetComponents(/datum/component/bane))
+	var/list/bane_components = GetComponents(/datum/component/bane)
+	QDEL_LIST(bane_components)
 

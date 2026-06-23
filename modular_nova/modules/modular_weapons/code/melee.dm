@@ -25,7 +25,8 @@
 /obj/item/melee/sabre/cargo/Initialize(mapload)
 	. = ..()
 	// Remove every bane component since we don't want there to be any.
-	QDEL_LIST(GetComponents(/datum/component/bane))
+	var/list/bane_components = GetComponents(/datum/component/bane)
+	QDEL_LIST(bane_components)
 
 // This is here so that people can't buy the Sabres and craft them into powercrepes. No, you can't put your fine NANOTRASEN sabre in there, either.
 /datum/crafting_recipe/food/powercrepe
