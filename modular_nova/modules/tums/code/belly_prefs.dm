@@ -31,9 +31,11 @@
 	return ..()
 
 /datum/preference/toggle/erp/belly/write(list/save_data, value, datum/preferences/preferences)
-	. = ..()
+	var/success = ..()
+	if(!success)
+		return success
+	preferences.value_cache[src.type] = value
 	if(preferences.parent.mob != null)
-		to_chat(preferences.parent, span_boldnotice("You might need to update a view setting a second time for the effects to show!"))
 		var/mob/living/player_as_living = preferences.parent.mob
 		if(istype(player_as_living))
 			for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
@@ -45,6 +47,7 @@
 				for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
 					if(istype(bellyview))
 						bellyview.check_hud(player_as_dead)
+	return success
 
 /// Sound pref (full but not stuffed sounds)
 /datum/preference/toggle/erp/belly/sound_groans
@@ -136,9 +139,11 @@
 
 
 /datum/preference/numeric/erp_belly_maxsize/write(list/save_data, value, datum/preferences/preferences)
-	. = ..()
+	var/success = ..()
+	if(!success)
+		return success
+	preferences.value_cache[src.type] = value
 	if(preferences.parent.mob != null)
-		to_chat(preferences.parent, span_boldnotice("You might need to update a view setting a second time for the effects to show!"))
 		var/mob/living/player_as_living = preferences.parent.mob
 		if(istype(player_as_living))
 			for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
@@ -150,6 +155,7 @@
 				for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
 					if(istype(bellyview))
 						bellyview.check_hud(player_as_dead)
+	return success
 
 /datum/preference/numeric/erp_belly_maxsize/create_default_value()
 	return 3
