@@ -30,10 +30,10 @@
 		return FALSE
 	return ..()
 
-/datum/preference/toggle/erp/belly/post_write(value, datum/preferences/preferences)
+/datum/preference/toggle/erp/belly/write(list/save_data, value, datum/preferences/preferences)
 	. = ..()
 	if(preferences.parent.mob != null)
-		to_chat(preferences.parent, span_notice("You might need to update the setting a second time for the effects to show!"))
+		to_chat(preferences.parent, span_boldnotice("You might need to update a view setting a second time for the effects to show!"))
 		var/mob/living/player_as_living = preferences.parent.mob
 		if(istype(player_as_living))
 			for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
@@ -135,10 +135,10 @@
 	maximum = 16
 
 
-/datum/preference/numeric/erp_belly_maxsize/post_write(value, datum/preferences/preferences)
+/datum/preference/numeric/erp_belly_maxsize/write(list/save_data, value, datum/preferences/preferences)
 	. = ..()
 	if(preferences.parent.mob != null)
-		to_chat(preferences.parent, span_notice("You might need to update the setting a second time for the effects to show!"))
+		to_chat(preferences.parent, span_boldnotice("You might need to update a view setting a second time for the effects to show!"))
 		var/mob/living/player_as_living = preferences.parent.mob
 		if(istype(player_as_living))
 			for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
