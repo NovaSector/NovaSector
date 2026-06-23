@@ -4,7 +4,7 @@
 	name = "taur body"
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_EXTERNAL_TAUR
-	external_bodyshapes = BODYSHAPE_TAUR
+	external_bodyshapes = parent_type::external_bodyshapes | BODYSHAPE_TAUR_GENERIC
 	use_mob_sprite_as_obj_sprite = TRUE
 
 	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
@@ -49,6 +49,11 @@
 	var/hardened_soles
 	/// Did our owner have their feet blocked before we ran on_mob_insert? Used for determining if we should unblock their feet slots on removal.
 	var/owner_blocked_feet_before_insert
+
+/obj/item/organ/taur_body/on_mob_insert(mob/living/carbon/owner)
+	. = ..()
+	if(external_bodyshapes == initial(external_bodyshapes))
+		external_bodyshapes = initial(external_bodyshapes) | owner.get_taur_mode()
 
 /obj/item/organ/taur_body/horselike
 	can_use_saddle = TRUE
