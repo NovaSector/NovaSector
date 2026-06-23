@@ -120,7 +120,7 @@
 	if(accessory_overlay)
 		. += modify_accessory_overlay() // NOVA EDIT CHANGE - ORIGINAL: . += accessory_overlay
 
-/obj/item/clothing/under/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE) // NOVA EDIT CHANGE - ORIGINAL: separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
+/obj/item/clothing/under/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, bodyshape = NONE) // NOVA EDIT CHANGE - ORIGINAL: separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
 	. = ..()
 	if (isinhands)
 		return

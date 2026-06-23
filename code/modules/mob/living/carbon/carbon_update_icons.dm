@@ -270,7 +270,7 @@
 		if(IS_RIGHT_INDEX(get_held_index_of_item(I)))
 			icon_file = I.righthand_file
 
-		hands += I.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
+		hands += I.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE, bodyshape = bodyshape)
 	return hands
 
 /mob/living/carbon/proc/get_fire_icon_state(stacks, on_fire)
@@ -352,7 +352,7 @@
 
 	if(wear_mask)
 		if(!(obscured_slots & HIDEMASK))
-			overlays_standing[FACEMASK_LAYER] = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi')
+			overlays_standing[FACEMASK_LAYER] = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi', bodyshape = bodyshape)
 		update_hud_wear_mask(wear_mask)
 
 	apply_overlay(FACEMASK_LAYER)
@@ -366,7 +366,7 @@
 
 	if(wear_neck)
 		if(!(obscured_slots & HIDENECK))
-			overlays_standing[NECK_LAYER] = wear_neck.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = 'icons/mob/clothing/neck.dmi')
+			overlays_standing[NECK_LAYER] = wear_neck.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = 'icons/mob/clothing/neck.dmi', bodyshape = bodyshape)
 		update_hud_neck(wear_neck)
 
 	apply_overlay(NECK_LAYER)
@@ -379,7 +379,7 @@
 		inv.update_appearance()
 
 	if(back)
-		overlays_standing[BACK_LAYER] = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = 'icons/mob/clothing/back.dmi')
+		overlays_standing[BACK_LAYER] = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = 'icons/mob/clothing/back.dmi', bodyshape = bodyshape)
 		update_hud_back(back)
 
 	apply_overlay(BACK_LAYER)
@@ -407,7 +407,7 @@
 
 	if(head)
 		if(!(obscured_slots & HIDEHEADGEAR))
-			overlays_standing[HEAD_LAYER] = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/head/default.dmi')
+			overlays_standing[HEAD_LAYER] = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/head/default.dmi', bodyshape = bodyshape)
 		update_hud_head(head)
 
 	apply_overlay(HEAD_LAYER)
@@ -452,7 +452,7 @@
 /// Overlays for the worn overlay so you can overlay while you overlay
 /// eg: ammo counters, primed grenade flashing, etc.
 /// "icon_file" is used automatically for inhands etc. to make sure it gets the right inhand file
-/obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, mutant_styles = NONE) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file)
+/obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, bodyshape = NONE) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file)
 	SHOULD_CALL_PARENT(TRUE)
 	RETURN_TYPE(/list)
 
@@ -462,11 +462,11 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_GET_WORN_OVERLAYS, ., standing, isinhands, icon_file)
 
 /// worn_overlays to use when you'd want to use KEEP_APART. Don't use KEEP_APART neither there nor here, as it would break floating overlays
-/obj/item/proc/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE) // NOVA EDIT CHANGE - ORIGINAL: separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
+/obj/item/proc/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, bodyshape = NONE) // NOVA EDIT CHANGE - ORIGINAL: separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
 	SHOULD_CALL_PARENT(TRUE)
 	RETURN_TYPE(/list)
 	. = list()
-	SEND_SIGNAL(src, COMSIG_ITEM_GET_SEPARATE_WORN_OVERLAYS, ., standing, draw_target, isinhands, icon_file, mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: SEND_SIGNAL(src, COMSIG_ITEM_GET_SEPARATE_WORN_OVERLAYS, ., standing, draw_target, isinhands, icon_file)
+	SEND_SIGNAL(src, COMSIG_ITEM_GET_SEPARATE_WORN_OVERLAYS, ., standing, draw_target, isinhands, icon_file, bodyshape) // NOVA EDIT CHANGE - ORIGINAL: SEND_SIGNAL(src, COMSIG_ITEM_GET_SEPARATE_WORN_OVERLAYS, ., standing, draw_target, isinhands, icon_file)
 
 ///Checks to see if any bodyparts need to be redrawn, then does so. update_limb_data = TRUE redraws the limbs to conform to the owner.
 ///Returns an integer representing the number of limbs that were updated.

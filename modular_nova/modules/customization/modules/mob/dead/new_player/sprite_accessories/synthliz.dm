@@ -142,7 +142,7 @@
 /datum/sprite_accessory/taur/synthliz
 	name = "Cybernetic Lizard"
 	icon_state = "synthlizard"
-	taur_mode = STYLE_TAUR_PAW
+	taur_mode = BODYSHAPE_TAUR_PAW
 	recommended_species = null
 	organ_type = /obj/item/organ/taur_body/horselike/synth
 	can_lay_down = TRUE
@@ -167,8 +167,8 @@
 /datum/sprite_accessory/taur/synthliz/horse
 	name = "Cybernetic Horse"
 	icon_state = "synthhorse"
-	taur_mode = STYLE_TAUR_HOOF
-	alt_taur_mode = STYLE_TAUR_PAW
+	taur_mode = BODYSHAPE_TAUR_HOOF
+	alt_taur_mode = BODYSHAPE_TAUR_PAW
 	can_lay_down = TRUE
 	laydown_offset = -3
 
@@ -191,13 +191,13 @@
 /datum/sprite_accessory/taur/synthliz/synthnaga
 	name = "Cybernetic Naga"
 	icon_state = "synthnaga"
-	taur_mode = STYLE_TAUR_SNAKE
+	taur_mode = BODYSHAPE_TAUR_SNAKE
 	organ_type = /obj/item/organ/taur_body/serpentine/synth
 
 /datum/sprite_accessory/taur/synthliz/biglegs
 	name = "Synthetic Big Legs"
 	icon_state = "biglegs"
-	taur_mode = STYLE_TAUR_PAW
+	taur_mode = BODYSHAPE_TAUR_PAW
 	organ_type = /obj/item/organ/taur_body/anthro/synth
 
 /datum/sprite_accessory/taur/synthliz/biglegs/stanced

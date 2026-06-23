@@ -114,13 +114,6 @@ There are several things that need to be remembered:
 		//Female sprites have lower priority than digitigrade sprites
 		if(!dna.species.no_gender_shaping && dna.species.sexes && (bodyshape & BODYSHAPE_HUMANOID) && physique == FEMALE && !(female_sprite_flags & NO_FEMALE_UNIFORM)) // NOVA EDIT CHANGE - ORIGINAL: else if(dna.species.sexes && (bodyshape & BODYSHAPE_HUMANOID) && physique == FEMALE && !(uniform.female_sprite_flags & NO_FEMALE_UNIFORM)) //Agggggggghhhhh
 			woman = TRUE
-			// NOVA EDIT ADDITION START - Digi female gender shaping
-			if(digi)
-				mutant_styles |= STYLE_DIGI // for passing to wear_female_version
-				if(!(female_sprite_flags & FEMALE_UNIFORM_DIGI_FULL))
-					female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
-					female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP_ONLY bit if it is unset.
-			// NOVA EDIT ADDITION END
 
 		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(uniform)))
 			icon_file = DEFAULT_UNIFORM_FILE
@@ -132,15 +125,15 @@ There are several things that need to be remembered:
 				mutant_styles |= get_taur_mode()
 			female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
 			female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP_ONLY bit if it is unset.
-			if((mutant_styles & STYLE_TAUR_SNAKE) && uniform.worn_icon_taur_snake)
+			if((mutant_styles & BODYSHAPE_TAUR_SNAKE) && uniform.worn_icon_taur_snake)
 				uniform.worn_x_offset = -16
-			else if ((mutant_styles & STYLE_TAUR_PAW) && uniform.worn_icon_taur_paw)
+			else if ((mutant_styles & BODYSHAPE_TAUR_PAW) && uniform.worn_icon_taur_paw)
 				uniform.worn_x_offset = -16
-			else if ((mutant_styles & STYLE_TAUR_HOOF) && uniform.worn_icon_taur_hoof)
+			else if ((mutant_styles & BODYSHAPE_TAUR_HOOF) && uniform.worn_icon_taur_hoof)
 				uniform.worn_x_offset = -16
 			//big legs
-			if((mutant_styles & STYLE_TAUR_BIG_LEGS_ALL) && (uniform.supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
-				icon_file = mutant_styles & STYLE_TAUR_BIG_LEGS ? BIG_LEGS_UNIFORM_FILE : BIG_LEGS_STANCED_UNIFORM_FILE
+			if((mutant_styles & BODYSHAPE_TAUR_BIG_LEGS_ALL) && (uniform.supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
+				icon_file = mutant_styles & BODYSHAPE_TAUR_BIG_LEGS ? BIG_LEGS_UNIFORM_FILE : BIG_LEGS_STANCED_UNIFORM_FILE
 		else
 			uniform.worn_x_offset = 0
 		// NOVA EDIT ADDITION END
@@ -153,7 +146,7 @@ There are several things that need to be remembered:
 			female_uniform = woman ? female_sprite_flags : null, // NOVA EDIT CHANGE - Digi female gender shaping - ORIGINAL: female_uniform = woman ? uniform.female_sprite_flags : null,
 			override_state = target_overlay,
 			override_file = handled_by_bodyshape ? icon_file : null,
-			mutant_styles = mutant_styles, // NOVA EDIT ADDITION - Taur-friendly uniforms!
+			bodyshape = bodyshape,
 		)
 
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
@@ -181,7 +174,7 @@ There are several things that need to be remembered:
 
 		var/icon_file = 'icons/mob/clothing/id.dmi'
 
-		id_overlay = wear_id.build_worn_icon(default_layer = ID_LAYER, default_icon_file = icon_file)
+		id_overlay = wear_id.build_worn_icon(default_layer = ID_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 
 		if(!id_overlay)
 			return
@@ -235,7 +228,7 @@ There are several things that need to be remembered:
 			icon_file = species_icon_file
 			mutant_override = TRUE
 	// NOVA EDIT ADDITION END
-	var/mutable_appearance/gloves_overlay = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/gloves_overlay = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = icon_file)
+	var/mutable_appearance/gloves_overlay = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/gloves_overlay = gloves.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 
 	var/feature_y_offset = 0
 	//needs to be typed, hand_bodyparts can have nulls
@@ -282,21 +275,17 @@ There are several things that need to be remembered:
 
 		var/icon_file = 'icons/mob/clothing/eyes.dmi'
 
-		// NOVA EDIT ADDITION
+		// NOVA EDIT ADDITION START
 		var/mutant_override = FALSE
 		if(bodyshape & BODYSHAPE_CUSTOM)
 			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_GLASSES, glasses, src)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
+		var/mutable_appearance/glasses_overlay = glasses.build_worn_icon(default_layer = GLASSES_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/glasses_overlay = glasses.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
+		if(!mutant_override) my_head.worn_glasses_offset?.apply_offset(glasses_overlay) // NOVA EDIT CHANGE - ORIGINAL: my_head.worn_glasses_offset?.apply_offset(glasses_overlay)
 
-		var/mutable_appearance/glasses_overlay = glasses.build_worn_icon(default_layer = GLASSES_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE
-
-		// NOVA EDIT ADDITION
-		if(!mutant_override)
-			my_head.worn_glasses_offset?.apply_offset(glasses_overlay)
-		// NOVA EDIT END
 		overlays_standing[GLASSES_LAYER] = glasses_overlay
 	apply_overlay(GLASSES_LAYER)
 
@@ -321,21 +310,16 @@ There are several things that need to be remembered:
 
 		var/icon_file = 'icons/mob/clothing/ears.dmi'
 
-		// NOVA EDIT ADDITION
+		// NOVA EDIT ADDITION START
 		var/mutant_override = FALSE
 		if(bodyshape & BODYSHAPE_CUSTOM)
 			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_EARS, ears, src)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
-		// NOVA EDIT END
-
-		var/mutable_appearance/ears_overlay = ears.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE
-
-		// NOVA EDIT ADDITION
-		if(!mutant_override)
-			my_head.worn_ears_offset?.apply_offset(ears_overlay)
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
+		var/mutable_appearance/ears_overlay = ears.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/ears_overlay = ears.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
+		if(!mutant_override) my_head.worn_ears_offset?.apply_offset(ears_overlay) // NOVA EDIT CHANGE - ORIGINAL: my_head.worn_ears_offset?.apply_offset(ears_overlay)
 		overlays_standing[EARS_LAYER] = ears_overlay
 	apply_overlay(EARS_LAYER)
 
@@ -355,7 +339,7 @@ There are several things that need to be remembered:
 
 		var/icon_file = 'icons/mob/clothing/neck.dmi'
 
-		// NOVA EDIT ADDITION
+		// NOVA EDIT ADDITION START
 		var/mutant_override = FALSE
 		if(bodyshape & BODYSHAPE_CUSTOM)
 			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_NECK, wear_neck, src)
@@ -368,10 +352,8 @@ There are several things that need to be remembered:
 			if(snout_icon_file && icon_exists(snout_icon_file, RESOLVE_ICON_STATE(worn_item)))
 				icon_file = snout_icon_file
 				mutant_override = TRUE
-		// NOVA EDIT END
-
-		var/mutable_appearance/neck_overlay = worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE
-
+		// NOVA EDIT ADDITION END
+		var/mutable_appearance/neck_overlay = worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/neck_overlay = worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
 		my_chest?.worn_neck_offset?.apply_offset(neck_overlay)
 		// NOVA EDIT ADDITION START
@@ -416,10 +398,8 @@ There are several things that need to be remembered:
 				mutant_override = TRUE
 		if(bodyshape & BODYSHAPE_HIDE_SHOES)
 			return // We just don't want shoes that float if we're not displaying legs (useful for taurs, for now)
-		// NOVA EDIT END
-
-		var/mutable_appearance/shoes_overlay = shoes.build_worn_icon(default_layer = SHOES_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE
-
+		// NOVA EDIT ADDITION END
+		var/mutable_appearance/shoes_overlay = shoes.build_worn_icon(default_layer = SHOES_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/shoes_overlay = shoes.build_worn_icon(default_layer = SHOES_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 		if(!shoes_overlay)
 			return
 
@@ -436,7 +416,6 @@ There are several things that need to be remembered:
 		overlays_standing[SHOES_LAYER] = shoes_overlay
 
 	apply_overlay(SHOES_LAYER)
-	check_body_shape(BODYSHAPE_DIGITIGRADE, ITEM_SLOT_FEET)
 
 /mob/living/carbon/human/update_suit_storage()
 	remove_overlay(SUIT_STORE_LAYER)
@@ -473,7 +452,7 @@ There are several things that need to be remembered:
 
 		var/icon_file = 'icons/mob/clothing/head/default.dmi'
 
-		// NOVA EDIT ADDITION - This needs to be refactored.
+		// NOVA EDIT ADDITION START - This needs to be refactored.
 		var/mutant_override = FALSE
 		if(bodyshape & BODYSHAPE_CUSTOM)
 			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_HEAD, head, src)
@@ -485,19 +464,13 @@ There are several things that need to be remembered:
 			if(snout_icon_file && icon_exists(snout_icon_file, RESOLVE_ICON_STATE(worn_item)))
 				icon_file = snout_icon_file
 				mutant_override = TRUE
-		// NOVA EDIT END
-
-		var/mutable_appearance/head_overlay = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE
-
+		// NOVA EDIT ADDITION END
+		var/mutable_appearance/head_overlay = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/head_overlay = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 		var/obj/item/bodypart/head/my_head = get_bodypart(BODY_ZONE_HEAD)
-		// NOVA EDIT ADDITION
-		if(!mutant_override)
-			my_head?.worn_head_offset?.apply_offset(head_overlay)
-		// NOVA EDIT END
+		if(!mutant_override) my_head?.worn_head_offset?.apply_offset(head_overlay) // NOVA EDIT CHANGE - ORIGINAL: my_head?.worn_head_offset?.apply_offset(head_overlay)
 		overlays_standing[HEAD_LAYER] = head_overlay
 
 	apply_overlay(HEAD_LAYER)
-	check_body_shape(BODYSHAPE_SNOUTED, ITEM_SLOT_HEAD)
 
 /mob/living/carbon/human/update_worn_belt()
 	remove_overlay(BELT_LAYER)
@@ -515,22 +488,17 @@ There are several things that need to be remembered:
 
 		var/icon_file = 'icons/mob/clothing/belt.dmi'
 
-		// NOVA EDIT ADDITION
+		// NOVA EDIT ADDITION START
 		var/mutant_override = FALSE
 		if(bodyshape & BODYSHAPE_CUSTOM)
 			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_BELT, belt, src)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
-		// NOVA EDIT END
-
-		var/mutable_appearance/belt_overlay = belt.build_worn_icon(default_layer = BELT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE
-
+		// NOVA EDIT ADDITION END
+		var/mutable_appearance/belt_overlay = belt.build_worn_icon(default_layer = BELT_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/belt_overlay = belt.build_worn_icon(default_layer = BELT_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		// NOVA EDIT ADDITION
-		if(!mutant_override)
-			my_chest?.worn_belt_offset?.apply_offset(belt_overlay)
-		// NOVA EDIT END
+		if(!mutant_override) my_chest?.worn_belt_offset?.apply_offset(belt_overlay) // NOVA EDIT CHANGE - ORIGINAL: my_chest?.worn_belt_offset?.apply_offset(belt_overlay)
 		overlays_standing[BELT_LAYER] = belt_overlay
 
 	apply_overlay(BELT_LAYER)
@@ -550,10 +518,10 @@ There are several things that need to be remembered:
 			return
 
 		var/icon_file = DEFAULT_SUIT_FILE
+
 		// NOVA EDIT ADDITION START
 		var/mutant_override = FALSE
 		var/mutant_styles = NONE
-
 		if(bodyshape & BODYSHAPE_DIGITIGRADE)
 			if(worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)
 				icon_file = worn_item.worn_icon_digi || DIGITIGRADE_SUIT_FILE
@@ -569,20 +537,18 @@ There are several things that need to be remembered:
 			var/obj/item/clothing/suit/worn_suit = wear_suit
 			if(istype(worn_suit) && worn_suit.gets_cropped_on_taurs)
 				mutant_styles |= get_taur_mode()
-			if((mutant_styles & STYLE_TAUR_SNAKE) && worn_suit.worn_icon_taur_snake)
+			if((mutant_styles & BODYSHAPE_TAUR_SNAKE) && worn_suit.worn_icon_taur_snake)
 				worn_suit.worn_x_offset = -16
-			else if ((mutant_styles & STYLE_TAUR_PAW) && worn_suit.worn_icon_taur_paw)
+			else if ((mutant_styles & BODYSHAPE_TAUR_PAW) && worn_suit.worn_icon_taur_paw)
 				worn_suit.worn_x_offset = -16
-			else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_suit.worn_icon_taur_hoof)
+			else if ((mutant_styles & BODYSHAPE_TAUR_HOOF) && worn_suit.worn_icon_taur_hoof)
 				worn_suit.worn_x_offset = -16
 		else
 			wear_suit.worn_x_offset = 0
 		// NOVA EDIT ADDITION END
-
-		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null, mutant_styles = mutant_styles) // NOVA EDIT CHANGE - Mutant bodytypes and Taur-friendly suits! - ORIGINAL: var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file)
+		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		if(!mutant_override) // NOVA EDIT ADDITION
-			my_chest?.worn_suit_offset?.apply_offset(suit_overlay) // NOVA EDIT CHANGE - Indented
+		if(!mutant_override) my_chest?.worn_suit_offset?.apply_offset(suit_overlay) // NOVA EDIT CHANGE - ORIGINAL: my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
 		overlays_standing[SUIT_LAYER] = suit_overlay
 
 	update_body_parts()
@@ -629,7 +595,7 @@ There are several things that need to be remembered:
 
 		var/icon_file = 'icons/mob/clothing/mask.dmi'
 
-		// NOVA EDIT ADDITION
+		// NOVA EDIT ADDITION START
 		var/mutant_override = FALSE
 		if(bodyshape & BODYSHAPE_CUSTOM)
 			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_MASK, wear_mask, src)
@@ -641,18 +607,12 @@ There are several things that need to be remembered:
 			if(snout_icon_file && icon_exists(snout_icon_file, RESOLVE_ICON_STATE(worn_item)))
 				icon_file = snout_icon_file
 				mutant_override = TRUE
-		// NOVA EDIT END
-
-		var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE
-
-		// NOVA EDIT ADDITION
-		if(!mutant_override)
-			my_head.worn_mask_offset?.apply_offset(mask_overlay)
 		// NOVA EDIT ADDITION END
+		var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
+		if(!mutant_override) my_head.worn_mask_offset?.apply_offset(mask_overlay) // NOVA EDIT CHANGE - ORIGINAL: my_head.worn_mask_offset?.apply_offset(mask_overlay)
 		overlays_standing[FACEMASK_LAYER] = mask_overlay
 
 	apply_overlay(FACEMASK_LAYER)
-	update_body_parts() //e.g. upgate needed because mask now hides lizard snout
 
 /mob/living/carbon/human/update_worn_back()
 	remove_overlay(BACK_LAYER)
@@ -671,24 +631,20 @@ There are several things that need to be remembered:
 
 		var/icon_file = 'icons/mob/clothing/back.dmi'
 
-		// NOVA EDIT ADDITION
+		// NOVA EDIT ADDITION START
 		var/mutant_override = FALSE
 		if(bodyshape & BODYSHAPE_CUSTOM)
 			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_MISC, back, src)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
-		// NOVA EDIT END
-
-		back_overlay = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE
+		// NOVA EDIT ADDITION END
+		back_overlay = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: back_overlay = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 
 		if(!back_overlay)
 			return
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		// NOVA EDIT ADDITION
-		if(!mutant_override)
-			my_chest?.worn_back_offset?.apply_offset(back_overlay)
-		// NOVA EDIT END
+		if(!mutant_override) my_chest?.worn_back_offset?.apply_offset(back_overlay) // NOVA EDIT CHANGE - ORIGINAL: my_chest?.worn_back_offset?.apply_offset(back_overlay)
 		overlays_standing[BACK_LAYER] = back_overlay
 	apply_overlay(BACK_LAYER)
 
@@ -724,7 +680,7 @@ There are several things that need to be remembered:
 
 		var/mutable_appearance/hand_overlay
 		var/icon_file = IS_RIGHT_INDEX(held_index) ? worn_item.righthand_file : worn_item.lefthand_file
-		hand_overlay = worn_item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
+		hand_overlay = worn_item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE, bodyshape = bodyshape)
 		var/obj/item/bodypart/arm/held_in_hand = hand_bodyparts[held_index]
 		/* // NOVA EDIT REMOVAL START - Moved down below psionic holding, after an else block
 		held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
@@ -795,9 +751,10 @@ There are several things that need to be remembered:
 		// NOVA EDIT ADDITION END
 	return hands
 
+#define FEMALE_RELEVANT_BODYSHAPE (BODYSHAPE_DIGITIGRADE | BODYSHAPE_TAUR)
 /// Modifies a sprite slightly to conform to female body shapes
-/proc/wear_female_version(icon_state, icon, type, greyscale_colors, mutant_styles) // NOVA EDIT CHANGE - Digi female gender shaping - ORIGINAL: /proc/wear_female_version(icon_state, icon, type, greyscale_colors)
-	var/index = "[icon_state]-[greyscale_colors][(mutant_styles & STYLE_DIGI) ? "-d" : ""]" // NOVA EDIT CHANGE - Digi female gender shaping - Original: var/index = "[icon_state]-[greyscale_colors]]"
+/proc/wear_female_version(icon_state, icon, type, greyscale_colors, bodyshape) // NOVA EDIT CHANGE - Digi female gender shaping - ORIGINAL: /proc/wear_female_version(icon_state, icon, type, greyscale_colors)
+	var/index = "[icon_state]-[greyscale_colors]" // NOVA EDIT CHANGE - Digi female gender shaping - Original: var/index = "[icon_state]-[greyscale_colors]]"
 	var/static/list/female_clothing_icons = list()
 	var/icon/female_clothing_icon = female_clothing_icons[index]
 	if(!female_clothing_icon) //Create standing/laying icons if they don't exist
@@ -809,6 +766,7 @@ There are several things that need to be remembered:
 		female_clothing_icons[index] = female_clothing_icon
 
 	return icon(female_clothing_icon)
+#undef FEMALE_RELEVANT_BODYSHAPE
 
 /// Modifies a sprite to conform to digitigrade body shapes
 /proc/wear_digi_version(icon/base_icon, obj/item/item, key, greyscale_colors)
@@ -1017,7 +975,6 @@ in this situation default_icon_file is expected to match either the lefthand_ or
 female_uniform: A value matching a uniform item's female_sprite_flags var, if this is anything but NO_FEMALE_UNIFORM, we
 generate/load female uniform sprites matching all previously decided variables
 
-mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDIT ADDITION - Taur-friendly suits and uniforms
 */
 /obj/item/proc/build_worn_icon(
 	default_layer = 0,
@@ -1026,20 +983,20 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	female_uniform = NO_FEMALE_UNIFORM,
 	override_state = null,
 	override_file = null,
-	mutant_styles = NONE, // NOVA EDIT ADD - Further outfit modification for outfits (added `mutant_styles` argument)
+	bodyshape = NONE,
 )
 
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
 	var/using_taur_variant = FALSE
-	var/is_for_taur = mutant_styles & STYLE_TAUR_ALL
+	var/is_for_taur = !isinhands && (bodyshape & BODYSHAPE_TAUR)
 	if (isnull(override_file) && is_for_taur)
-		if ((mutant_styles & STYLE_TAUR_SNAKE) && worn_icon_taur_snake)
+		if ((bodyshape & BODYSHAPE_TAUR_SNAKE) && worn_icon_taur_snake)
 			override_file = worn_icon_taur_snake
 			using_taur_variant = TRUE
-		else if ((mutant_styles & STYLE_TAUR_PAW) && worn_icon_taur_paw)
+		else if ((bodyshape & BODYSHAPE_TAUR_PAW) && worn_icon_taur_paw)
 			override_file = worn_icon_taur_paw
 			using_taur_variant = TRUE
-		else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
+		else if ((bodyshape & BODYSHAPE_TAUR_HOOF) && worn_icon_taur_hoof)
 			override_file = worn_icon_taur_hoof
 			using_taur_variant = TRUE
 	// NOVA EDIT ADDITION END
@@ -1050,9 +1007,6 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	//Find a valid layer from variables+arguments
 	var/layer2use = alternate_worn_layer || default_layer
 
-	var/mob/living/carbon/wearer = loc
-	var/is_digi = istype(wearer) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE) && !wearer.is_digitigrade_squished()
-
 	var/mutable_appearance/draw_target // MA of the item itself, not the final result
 	var/icon/building_icon // used to construct an icon across multiple procs before converting it to MA
 	if(female_uniform)
@@ -1061,9 +1015,9 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			icon = file2use,
 			type = female_uniform,
 			greyscale_colors = greyscale_colors,
-			mutant_styles = mutant_styles, // NOVA EDIT ADDITION - Digi female gender shaping
+			bodyshape = bodyshape, // NOVA EDIT ADDITION - Digi female gender shaping
 		)
-	if(!isinhands && is_digi && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK) && !(supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)) // NOVA EDIT CHANGE - ORIGINAL: if(!isinhands && is_digi && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
+	if(!isinhands && (bodyshape & BODYSHAPE_DIGITIGRADE) && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK) && !(supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)) // NOVA EDIT CHANGE - ORIGINAL: if(!isinhands && (bodyshape & BODYSHAPE_DIGITIGRADE) && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
 		building_icon = wear_digi_version(
 			base_icon = building_icon || icon(file2use, t_state),
 			item = src,
@@ -1073,8 +1027,8 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
 	if (is_for_taur && !using_taur_variant)
 		building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
-	else if ((mutant_styles & STYLE_TAUR_BIG_LEGS_ALL) && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
-		building_icon = wear_big_legs_version(building_icon || icon(file2use, t_state), src, "[t_state]-[building_icon]-[female_uniform]", greyscale_colors, mutant_styles)
+	else if ((bodyshape & BODYSHAPE_TAUR_BIG_LEGS_ALL) && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
+		building_icon = wear_big_legs_version(building_icon || icon(file2use, t_state), src, "[t_state]-[building_icon]-[female_uniform]", greyscale_colors, bodyshape)
 	// NOVA EDIT ADDITION END
 	if(building_icon)
 		draw_target = mutable_appearance(building_icon, layer = -layer2use)
@@ -1083,7 +1037,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 
 	//Get the overlays for this item when it's being worn
 	//eg: ammo counters, primed grenade flashes, etc.
-	var/list/worn_overlays = worn_overlays(draw_target, isinhands, file2use, mutant_styles)  // NOVA EDIT CHANGE - ORIGINAL: var/list/worn_overlays = worn_overlays(draw_target, isinhands, file2use)
+	var/list/worn_overlays = worn_overlays(draw_target, isinhands, file2use, bodyshape)  // NOVA EDIT CHANGE - ORIGINAL: var/list/worn_overlays = worn_overlays(draw_target, isinhands, file2use)
 	if(length(worn_overlays))
 		draw_target.overlays += worn_overlays
 	draw_target = color_atom_overlay(draw_target)
@@ -1092,7 +1046,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	// but KEEP_APART breaks float layering, so what we need to do is make fake KEEP_APART for us to use
 	var/mutable_appearance/standing = mutable_appearance(layer = -layer2use, appearance_flags = KEEP_TOGETHER)
 	standing.overlays += draw_target
-	var/list/separate_overlays = separate_worn_overlays(standing, draw_target, isinhands, file2use, mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: var/list/separate_overlays = separate_worn_overlays(standing, draw_target, isinhands, file2use)
+	var/list/separate_overlays = separate_worn_overlays(standing, draw_target, isinhands, file2use, bodyshape) // NOVA EDIT CHANGE - ORIGINAL: var/list/separate_overlays = separate_worn_overlays(standing, draw_target, isinhands, file2use)
 	if(length(separate_overlays))
 		standing.overlays += separate_overlays
 	else // Don't nest overlays if there's nothing to nest against
@@ -1170,31 +1124,30 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		return .
 
 	// Underwear, Undershirts & Socks
-	var/active_bodyshapes = get_active_bodyshapes()
 	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES)) // NOVA EDIT CHANGE - ORIGINAL: if(underwear)
 		var/datum/sprite_accessory/clothing/underwear/undie_accessory = SSaccessories.underwear_list[underwear]
-		var/mutable_appearance/underwear_overlay = undie_accessory?.make_appearance(underwear_color, physique, active_bodyshapes)
+		var/mutable_appearance/underwear_overlay = undie_accessory?.make_appearance(underwear_color, physique, bodyshape)
 		if(underwear_overlay)
 			. += underwear_overlay
 
 	// NOVA EDIT ADDITION START - Bras
 	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
 		var/datum/sprite_accessory/clothing/bra/bra_accessory = SSaccessories.bra_list[bra]
-		var/mutable_appearance/bra_overlay = bra_accessory?.make_appearance(bra_color, physique, active_bodyshapes)
+		var/mutable_appearance/bra_overlay = bra_accessory?.make_appearance(bra_color, physique, bodyshape)
 		if(bra_accessory)
 			. += bra_overlay
 
 	// NOVA EDIT ADDITION END - Bras
 	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // NOVA EDIT CHANGE - ORIGINAL: if(undershirt))
 		var/datum/sprite_accessory/clothing/undershirt/shirt_accessory = SSaccessories.undershirt_list[undershirt]
-		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(undershirt_color, physique, active_bodyshapes) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(null, physique, active_bodyshapes)
+		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(undershirt_color, physique, bodyshape) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(null, physique, bodyshape)
 		if(shirt_overlay)
 			. += shirt_overlay
 
 	/* // NOVA EDIT REMOVAL START - Original TG sock handling
 	if(socks && num_legs >= 2 && !(bodyshape & BODYSHAPE_DIGITIGRADE))
 		var/datum/sprite_accessory/clothing/socks/sock_accessory = SSaccessories.socks_list[socks]
-		var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(null, physique, active_bodyshapes)
+		var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(null, physique, bodyshape)
 		if(socks_overlay)
 			. += socks_overlay
 	*/ // NOVA EDIT REMOVAL END
@@ -1203,7 +1156,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 		var/datum/mutant_bodypart/taur_body = dna.mutant_bodyparts[FEATURE_TAUR]
 		if(isnull(taur_body))
 			var/datum/sprite_accessory/clothing/socks/sock_accessory = SSaccessories.socks_list[socks]
-			var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(socks_color, physique, active_bodyshapes)
+			var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(socks_color, physique, bodyshape)
 			if(socks_overlay)
 				. += socks_overlay
 	// NOVA EDIT ADDITION END
@@ -1279,44 +1232,6 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	update_worn_mask()
 	update_eyes()
 	update_hair()
-
-/**
- * Used to perform regular updates to the limbs of humans with special bodyshapes
- *
- * * check_shapes: The bodyshapes to check for.
- * Any limbs or organs which share this shape, will be updated.
- * * ignore_slots: The slots to ignore when updating the limbs.
- * This is useful for things like digitigrade legs, where we can skip some slots that we're already updating.
- *
- * return an integer, the number of limbs updated
- */
-/mob/living/carbon/human/proc/check_body_shape(check_shapes = BODYSHAPE_DIGITIGRADE|BODYSHAPE_SNOUTED, ignore_slots = NONE)
-	. = 0
-	if(!(bodyshape & check_shapes))
-		// optimization - none of our limbs or organs have the desired shape
-		return .
-
-	for(var/obj/item/bodypart/limb as anything in get_bodyparts())
-		var/checked_bodyshape = limb.bodyshape
-		// accounts for stuff like snouts
-		for(var/obj/item/organ/organ in limb)
-			checked_bodyshape |= organ.external_bodyshapes
-
-		// any limb needs to be updated, so stop here and do it
-		if(checked_bodyshape & check_shapes)
-			. = update_body_parts()
-			break
-
-	if(!.)
-		return
-	// hardcoding this here until bodypart updating is more sane
-	// we need to update clothing items that may have been affected by bodyshape updates
-	if(check_shapes & BODYSHAPE_DIGITIGRADE)
-		for(var/obj/item/thing as anything in get_equipped_items(INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT))
-			if(thing.slot_flags & ignore_slots)
-				continue
-			if(thing.supports_variations_flags & DIGITIGRADE_VARIATIONS)
-				thing.update_slot_icon()
 
 // Hooks into human apply overlay so that we can modify all overlays applied through standing overlays to our height system.
 // Some of our overlays will be passed through a displacement filter to make our mob look taller or shorter.
