@@ -994,7 +994,7 @@ generate/load female uniform sprites matching all previously decided variables
 
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
 	var/using_taur_variant = FALSE
-	var/is_for_taur = bodyshape & BODYSHAPE_TAUR
+	var/is_for_taur = !isinhands && (bodyshape & BODYSHAPE_TAUR)
 	if (isnull(override_file) && is_for_taur)
 		if ((bodyshape & BODYSHAPE_TAUR_SNAKE) && worn_icon_taur_snake)
 			override_file = worn_icon_taur_snake
