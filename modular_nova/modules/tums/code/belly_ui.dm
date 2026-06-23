@@ -149,6 +149,20 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		.["global_sound_move_creaks"] = client.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_move_creaks) || FALSE
 		.["global_sound_move_sloshes"] = client.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_move_sloshes) || FALSE
 
+/datum/erp_belly_prefshelper/proc/recheck_alt_apperances(client/player)
+	if(player.mob != null)
+		var/mob/living/player_as_living = player.mob
+		if(istype(player_as_living))
+			for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
+				if(istype(bellyview))
+					bellyview.check_hud(player_as_living)
+		else
+			var/mob/dead/player_as_dead = player.mob
+			if(istype(player_as_dead))
+				for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
+					if(istype(bellyview))
+						bellyview.check_hud(player_as_dead)
+
 /datum/erp_belly_prefshelper/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
@@ -338,10 +352,12 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 			var/new_val = !(client.prefs.read_preference(/datum/preference/toggle/erp/belly) || FALSE)
 			client.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp/belly], new_val)
 			update_dummy = FALSE
+			recheck_alt_apperances(client)
 		if("changeGlobalMaxsize")
 			var/new_maxsize = text2num(params["newGlobalMaxsize"])
 			client.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_belly_maxsize], new_maxsize)
 			update_dummy = FALSE
+			recheck_alt_apperances(client)
 
 	if(update_dummy)
 		client.prefs.character_preview_view?.update_body()

@@ -30,25 +30,6 @@
 		return FALSE
 	return ..()
 
-/datum/preference/toggle/erp/belly/write(list/save_data, value, datum/preferences/preferences)
-	var/success = ..()
-	if(!success)
-		return success
-	preferences.value_cache[src.type] = value
-	if(preferences.parent.mob != null)
-		var/mob/living/player_as_living = preferences.parent.mob
-		if(istype(player_as_living))
-			for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
-				if(istype(bellyview))
-					bellyview.check_hud(player_as_living)
-		else
-			var/mob/dead/player_as_dead = preferences.parent.mob
-			if(istype(player_as_dead))
-				for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
-					if(istype(bellyview))
-						bellyview.check_hud(player_as_dead)
-	return success
-
 /// Sound pref (full but not stuffed sounds)
 /datum/preference/toggle/erp/belly/sound_groans
 	savefile_key = "erp_belly_sound_groans"
@@ -136,26 +117,6 @@
 	step = 1
 	minimum = 0
 	maximum = 16
-
-
-/datum/preference/numeric/erp_belly_maxsize/write(list/save_data, value, datum/preferences/preferences)
-	var/success = ..()
-	if(!success)
-		return success
-	preferences.value_cache[src.type] = value
-	if(preferences.parent.mob != null)
-		var/mob/living/player_as_living = preferences.parent.mob
-		if(istype(player_as_living))
-			for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
-				if(istype(bellyview))
-					bellyview.check_hud(player_as_living)
-		else
-			var/mob/dead/player_as_dead = preferences.parent.mob
-			if(istype(player_as_dead))
-				for(var/datum/atom_hud/alternate_appearance/erp/belly/bellyview in GLOB.active_alternate_appearances)
-					if(istype(bellyview))
-						bellyview.check_hud(player_as_dead)
-	return success
 
 /datum/preference/numeric/erp_belly_maxsize/create_default_value()
 	return 3
