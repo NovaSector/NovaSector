@@ -757,9 +757,9 @@ There are several things that need to be remembered:
 		// NOVA EDIT ADDITION END
 	return hands
 
+#define FEMALE_RELEVANT_BODYSHAPE (BODYSHAPE_DIGITIGRADE | BODYSHAPE_TAUR)
 /// Modifies a sprite slightly to conform to female body shapes
 /proc/wear_female_version(icon_state, icon, type, greyscale_colors, bodyshape) // NOVA EDIT CHANGE - Digi female gender shaping - ORIGINAL: /proc/wear_female_version(icon_state, icon, type, greyscale_colors)
-	#define FEMALE_RELEVANT_BODYSHAPE (BODYSHAPE_DIGITIGRADE | BODYSHAPE_TAUR)
 	var/index = "[icon_state]-[greyscale_colors][bodyshape & FEMALE_RELEVANT_BODYSHAPE]" // NOVA EDIT CHANGE - Digi female gender shaping - Original: var/index = "[icon_state]-[greyscale_colors]]"
 	var/static/list/female_clothing_icons = list()
 	var/icon/female_clothing_icon = female_clothing_icons[index]
@@ -772,6 +772,7 @@ There are several things that need to be remembered:
 		female_clothing_icons[index] = female_clothing_icon
 
 	return icon(female_clothing_icon)
+#undef FEMALE_RELEVANT_BODYSHAPE
 
 /// Modifies a sprite to conform to digitigrade body shapes
 /proc/wear_digi_version(icon/base_icon, obj/item/item, key, greyscale_colors)
