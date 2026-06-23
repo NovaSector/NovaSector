@@ -211,4 +211,12 @@
 
 /obj/item/melee/sabre/centralcommand
 	name = "Nanotrasen™ sabre"
-	desc = "An elegant weapon, its monomolecular edge is capable of cutting through flesh and bone with ease. This one carries a distinct Nanotrasen corporate identity."
+	desc = "An well crafted and elegant weapon, this one came out poorly from the nanofabricator with a bilayer edge capable of cutting through flesh and bone, but not as well as finer samples. This one carries a distinct Nanotrasen corporate identity carved into the hilt."
+	block_chance = 40
+	armour_penetration = 40
+
+/obj/item/melee/sabre/centralcommand/Initialize(mapload)
+	. = ..()
+	// Remove every bane component since we don't want there to be any.
+	QDEL_LIST(GetComponents(/datum/component/bane))
+
