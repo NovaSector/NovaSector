@@ -72,3 +72,7 @@
 /datum/supply_pack/goody/double_barrel
 	console_flag = CARGO_CONSOLE_NO
 	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE
+
+/datum/supply_pack/goody/handheld_crew_monitor
+	console_flag = CARGO_CONSOLE_NO
+	discountable = SUPPLY_PACK_NOT_DISCOUNTABLE

@@ -21,6 +21,7 @@
 	mutantlungs = /obj/item/organ/lungs/carp/akula
 	mutanttongue = /obj/item/organ/tongue/carp/akula
 	mutanteyes = /obj/item/organ/eyes/akula
+	meat = /obj/item/food/fishmeat/human
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,

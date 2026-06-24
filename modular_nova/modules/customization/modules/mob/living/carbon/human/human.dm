@@ -85,6 +85,9 @@
 /mob/living/carbon/human/species/monkey/roundstartkobold
 	race = /datum/species/monkey/kobold/roundstart
 
+/mob/living/carbon/human/species/protean
+	race = /datum/species/protean
+
 /mob/living/carbon/human/species/shadekin
 	race = /datum/species/shadekin
 

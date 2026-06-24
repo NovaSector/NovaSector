@@ -1,5 +1,5 @@
 /obj/machinery/vending/access/command
-	name = "\improper Command Outfitting Station"
+	name = "\improper CommanDrobe"
 	desc = "A vending machine for specialised clothing for members of Command."
 	product_ads = "File paperwork in style!;It's red so you can't see the blood!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
 	icon = 'modular_nova/modules/command_vendor/icons/vending.dmi'
