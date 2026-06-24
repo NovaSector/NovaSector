@@ -24,7 +24,6 @@
 		TRAIT_SPACEWALK,// No more 'admeme im stuck fix me' ahelps, thanks
 		TRAIT_FIREDOOR_STOP,// No more drone squishies, lets drones be a doorstop if they want to be
 		TRAIT_IMMERSE_STOPPED,// Drones float, as do most insects
-		TRAIT_FOOD_CHEF_MADE,// Drones get acknowledged for making food
 	), INNATE_TRAIT)
 
 // Access
