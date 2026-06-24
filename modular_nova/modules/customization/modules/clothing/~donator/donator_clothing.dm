@@ -2724,7 +2724,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/head/helmet/donator/stachelm/attack_self(mob/living/user)
 	toggle_helmet_light(user)
-
 //END OF Towa's Stachelm
 
 //Towa's Viper Suit (DarkRilo)
