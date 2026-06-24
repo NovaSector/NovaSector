@@ -15,7 +15,6 @@
 		/obj/item/organ/ears/cat = 1,
 		/obj/item/organ/tail/cat = 1,
 		/obj/item/clothing/mask/gas/clown_hat = 1,
-
 	)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
@@ -50,3 +49,9 @@
 		"henk!",
 	)
 	emote_see = list("plays tricks.", "slips.", "honks a tiny horn.")
+
+/mob/living/basic/pet/cat/clown/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg' = 1), 50)
+	AddElementTrait(TRAIT_WADDLING, REF(src), /datum/element/waddling)
+
