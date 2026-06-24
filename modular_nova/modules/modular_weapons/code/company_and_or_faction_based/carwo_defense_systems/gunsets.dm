@@ -101,8 +101,7 @@
 	generate_items_inside(list(
 		/obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil/no_mag = 1,
 		/obj/item/ammo_box/magazine/c980_grenade/drum/starts_empty = 2,
-		/obj/item/ammo_box/c980grenade/shrapnel = 1,
-		/obj/item/ammo_box/c980grenade/shrapnel/phosphor = 1,
+		/obj/item/ammo_box/c980grenade = 2,
 		/obj/item/ammo_box/c980grenade/smoke = 1,
 		/obj/item/ammo_box/c980grenade/riot = 1,
 	), src)

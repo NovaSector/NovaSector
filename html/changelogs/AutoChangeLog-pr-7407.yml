@@ -1,4 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - balance: "Reintroduces the X-ray laser by adding a \"reduced penetration\" variant that can't wallbang, but still has the 100 AP per shot. For dealing with particularly pesky exosuit pilots or big, bulky broadshields."

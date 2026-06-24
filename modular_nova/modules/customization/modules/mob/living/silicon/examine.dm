@@ -14,7 +14,7 @@
 		. += flavor_text_link
 
 	if (client?.prefs.read_preference(/datum/preference/text/character_ad))
-		. += span_notice("They have an ad in the character directory... <a href='byond://?src=[REF(src)];lookup_info=open_character_ad'>\[Open directory?\]</a>")
+		. += span_notice("[p_They()] [p_have()] an ad in the character directory... <a href='byond://?src=[REF(src)];lookup_info=open_character_ad'>\[Open directory?\]</a>")
 
 	if(client)
 		var/erp_status_pref = client.prefs.read_preference(/datum/preference/choiced/erp_status)
@@ -29,6 +29,6 @@
 
 	if(temporary_flavor_text)
 		if(length_char(temporary_flavor_text) <= 40)
-			. += span_notice("<b>They look different than usual:</b> [temporary_flavor_text]")
+			. += span_notice("<b>[p_They()] look[p_s()] different than usual:</b> [temporary_flavor_text]")
 		else
-			. += span_notice("<b>They look different than usual:</b> [copytext_char(temporary_flavor_text, 1, 37)]... <a href='byond://?src=[REF(src)];temporary_flavor=1'>More...</a>")
+			. += span_notice("<b>[p_They()] look[p_s()] different than usual:</b> [copytext_char(temporary_flavor_text, 1, 37)]... <a href='byond://?src=[REF(src)];temporary_flavor=1'>More...</a>")

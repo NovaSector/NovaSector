@@ -1,6 +1,0 @@
-author: "Macaroni"
-delete-after: True
-changes:
-  - rscadd: "Added the visitation center to Perma."
-  - qol: "Made the maint tunnel outside of T-Comms and the chem factory more accessible."
-  - qol: "Made a link between the north and south maint tunnel for security, granting accessibility."

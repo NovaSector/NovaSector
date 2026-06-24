@@ -16,6 +16,46 @@
 // To turn off SSDecay nests based on a config. If SSDecay is disabled, this won't matter.
 /datum/config_entry/flag/ssdecay_disable_nests
 
+// SSDecay - Percent chance that a floor will be dirty, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_dirt_percent_chance
+	default = 15
+	min_val = 0
+
+// SSDecay - Percent chance that a floor will be bloody, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_blood_percent_chance
+	default = 1
+	min_val = 0
+
+// SSDecay - Percent chance that a floor will be vomit-covered, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_vomit_percent_chance
+	default = 1
+	min_val = 0
+
+// SSDecay - Percent chance that a floor will be oily, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_oil_percent_chance
+	default = 5
+	min_val = 0
+
+// SSDecay - Percent chance that a floor will be randomly stripped down to damaged plating, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_tile_missing_percent_chance
+	default = 1
+	min_val = 0
+
+// SSDecay - Percent chance that a floor will have cobwebs, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_cobweb_percent_chance
+	default = 1
+	min_val = 0
+
+// SSDecay - Percent chance that (if not previously disabled via SSDECAY_DISABLE_NESTS) a nest will spawn, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_nest_percent_chance
+	default = 1
+	min_val = 0
+
+// SSDecay - Percent chance that a light will be flickery.
+/datum/config_entry/number/ssdecay_light_flicker_percent_chance
+	default = 10
+	min_val = 0
+
 // Turn on/off guncargo permit-locked firing pins
 /datum/config_entry/flag/permit_pins
 

@@ -136,9 +136,11 @@
 		"Top - Dom",
 		"Top - Sub",
 		"Top - Switch",
+		"Top - Stone",
 		"Bottom - Dom",
 		"Bottom - Sub",
 		"Bottom - Switch",
+		"Bottom - Stone",
 		"Verse-Top - Dom",
 		"Verse-Top - Sub",
 		"Verse-Top - Switch",
@@ -148,6 +150,10 @@
 		"Verse-Bottom - Dom",
 		"Verse-Bottom - Sub",
 		"Verse-Bottom - Switch",
+		"Side",
+		"Pillow Princesss - Dom",
+		"Pillow Princesss - Sub",
+		"Pillow Princesss - Switch",
 		"Free Use",
 	)
 

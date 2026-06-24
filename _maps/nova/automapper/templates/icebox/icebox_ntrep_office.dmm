@@ -9,7 +9,7 @@
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = -6
 	},
 /turf/open/floor/carpet/executive,
@@ -424,11 +424,8 @@
 /area/station/maintenance/central/greater)
 "JQ" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Nanotrasen Consultant's Office";
-	name = "Nanotrasen Consultant's Fax Machine"
-	},
 /obj/machinery/firealarm/directional/east,
+/obj/machinery/fax/heads/nanotrasen_consultant,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "Kq" = (
