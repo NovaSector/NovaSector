@@ -1123,13 +1123,10 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "aqY" = (
 /obj/structure/table/reinforced,
-/obj/machinery/fax{
-	fax_name = "Chief Engineer's Office";
-	name = "Chief Engineer's Fax Machine"
-	},
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/sign/calendar/directional/west,
 /obj/machinery/light/directional/west,
+/obj/machinery/fax/heads/ce,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/ce)
 "aqZ" = (
@@ -37178,11 +37175,6 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/rglass,
-/obj/machinery/fax{
-	fax_name = "Research Director's Office";
-	name = "Research Director's Fax Machine";
-	pixel_y = 3
-	},
 /obj/machinery/requests_console/directional/east{
 	department = "Research Director's Desk";
 	name = "Research Director's Requests Console"
@@ -37190,6 +37182,7 @@
 /obj/effect/mapping_helpers/requests_console/announcement,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/information,
+/obj/machinery/fax/heads/rd,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/rd)
 "kDR" = (
@@ -53133,15 +53126,10 @@
 /obj/structure/sign/painting/parting{
 	pixel_x = -32
 	},
-/obj/machinery/fax{
-	fax_name = "Captain's Office";
-	name = "Captain's Fax Machine";
-	pixel_x = -2;
-	pixel_y = 3
-	},
 /obj/machinery/camera/directional/west{
 	c_tag = "Command - Captain's Office"
 	},
+/obj/machinery/fax/heads/captain,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain)
 "pvi" = (
@@ -64788,11 +64776,7 @@
 /area/station/commons/dorms/room6)
 "sRc" = (
 /obj/structure/table/wood/fancy/green,
-/obj/machinery/fax{
-	fax_name = "Consultant's Office";
-	name = "Consultant's Fax Machine";
-	pixel_y = 3
-	},
+/obj/machinery/fax/heads/nanotrasen_consultant,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/nt_rep)
 "sRg" = (
@@ -74890,6 +74874,7 @@
 	pixel_x = -5;
 	pixel_y = 2
 	},
+/obj/machinery/fax/heads/hop,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -75512,11 +75497,8 @@
 "vUd" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/table/reinforced,
-/obj/machinery/fax{
-	fax_name = "Chief Engineer's Office";
-	name = "Chief Engineer's Fax Machine"
-	},
 /obj/structure/cable,
+/obj/machinery/fax/heads/hos,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hos)
 "vUn" = (
@@ -78622,11 +78604,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/fax{
-	fax_name = "Chief Medical Officer's Office";
-	name = "Chief Medical Officer's Fax Machine";
-	pixel_y = 3
-	},
+/obj/machinery/fax/heads/cmo,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/cmo)
 "wOa" = (
@@ -79826,12 +79804,8 @@
 /area/station/commons/lounge)
 "xgH" = (
 /obj/structure/table/reinforced,
-/obj/machinery/fax{
-	fax_name = "Quartermaster's Office";
-	name = "Quartermaster's Fax Machine";
-	pixel_y = 3
-	},
 /obj/effect/turf_decal/siding/wood,
+/obj/machinery/fax/heads/qm,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/qm)
 "xgK" = (

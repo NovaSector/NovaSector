@@ -1,11 +1,10 @@
-import { useState } from 'react';
-import { BlockQuote, Button, Section, Stack, Tabs } from 'tgui-core/components';
+import { BlockQuote, Button, Section, Stack } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
+
 import { Rules } from './AntagInfoRules'; // NOVA EDIT ADDITION
-import { MalfAiModules } from './common/MalfAiModules';
 import {
   type Objective,
   ObjectivePrintout,
@@ -88,17 +87,24 @@ function FlavorSection(props) {
           mr={-0.8}
           mt={-0.5}
           icon="hammer"
-          /* NOVA EDIT: ORIGINAL TOOLTIP
+          /* // NOVA EDIT REMOVAL START: ORIGINAL TOOLTIP
           tooltip="
             This is a gameplay suggestion for bored ais.
             You don't have to follow it, unless you want some
             ideas for how to spend the round."
-          */
+          */ // NOVA EDIT REMOVAL END
+         // NOVA EDIT ADDITION START
           tooltip={`
               Please refer to the 'Antagonist Policy' section of the wiki
               if you have any questions.`}
           tooltipPosition="bottom-start"
-        />
+        // NOVA EDIT ADDITION END
+        /* // NOVA EDIT REMOVAL START: Remove button text to make it smaller, still has hammer icon
+        >
+          Policy
+        </Button>
+       */ // NOVA EDIT REMOVAL END
+        /> // NOVA EDIT ADDITION
       }
     >
       <Stack vertical fill>
@@ -183,63 +189,29 @@ function CodewordsSection(props) {
   );
 }
 
-enum Screen {
-  Intro,
-  Modules,
-}
 
 export function AntagInfoMalf(props) {
-  const [antagInfoTab, setAntagInfoTab] = useState<Screen>(Screen.Intro);
-
   return (
     <Window
       width={660}
       height={530}
-      theme={antagInfoTab === Screen.Intro ? 'hackerman' : 'malfunction'}
+      theme={'hackerman'}
     >
       <Window.Content style={{ fontFamily: 'Consolas, monospace' }}>
         <Stack vertical fill>
-          <Stack.Item>
-            <Tabs fluid>
-              <Tabs.Tab
-                icon="info"
-                selected={antagInfoTab === Screen.Intro}
-                onClick={() => setAntagInfoTab(Screen.Intro)}
-              >
-                Information
-              </Tabs.Tab>
-              <Tabs.Tab
-                icon="code"
-                selected={antagInfoTab === Screen.Modules}
-                onClick={() => setAntagInfoTab(Screen.Modules)}
-              >
-                Malfunction Modules
-              </Tabs.Tab>
-            </Tabs>
+          <Stack.Item grow>
+            <Stack fill>
+              <Stack.Item width="70%">
+                <IntroductionSection />
+              </Stack.Item>
+              <Stack.Item width="30%">
+                <FlavorSection />
+              </Stack.Item>
+            </Stack>
           </Stack.Item>
-          {antagInfoTab === Screen.Intro ? (
-            <>
-              <Stack.Item grow>
-                <Stack fill>
-                  <Stack.Item width="70%">
-                    <IntroductionSection />
-                  </Stack.Item>
-                  <Stack.Item width="30%">
-                    <FlavorSection />
-                  </Stack.Item>
-                </Stack>
-              </Stack.Item>
-              <Stack.Item>
-                <CodewordsSection />
-              </Stack.Item>
-            </>
-          ) : (
-            <Stack.Item grow>
-              <Section fill>
-                <MalfAiModules />
-              </Section>
-            </Stack.Item>
-          )}
+          <Stack.Item>
+            <CodewordsSection />
+          </Stack.Item>
         </Stack>
       </Window.Content>
     </Window>
