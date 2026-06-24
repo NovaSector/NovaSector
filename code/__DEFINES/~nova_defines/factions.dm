@@ -14,3 +14,6 @@
 
 // Ruin Turret faction
 #define FACTION_MALF_TURRET "malf-turret"
+
+// Nest faction
+#define NEST_FACTION "nest spawned"

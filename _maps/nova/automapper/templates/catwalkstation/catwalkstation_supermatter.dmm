@@ -4,14 +4,14 @@
 /area/template_noop)
 "r" = (
 /turf/template_noop,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "w" = (
 /obj/machinery/atmospherics/components/unary/delam_scram/directional/west,
 /turf/template_noop,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "R" = (
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "T" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
