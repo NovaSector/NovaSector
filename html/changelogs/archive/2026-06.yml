@@ -540,3 +540,26 @@
   - balance: Objects with the walking aid reduce limbless slowdown by 40%, while dedicated
       medical crutches reduce it by 60%.
   - refactor: Refactor cane and crutch code logic into a modular walking aid component
+2026-06-22:
+  Balls2zawall:
+  - qol: Halved the speed of brain degeneration, it shouldn't be giving brain trauma's
+      every two minutes anymore.
+  - balance: Increased the starting dosage of mannitol for brain degeneration to 7
+      pills at 15u, from 4 at 5u.
+  - balance: Increased the starting dosage of liquid solder for synthetic brain degradation
+      to 7 pills.
+  Hatterhat:
+  - qol: Following complaints from engineering and janitorial staff, Nanotrasen station
+      construction and refurbishment teams have been informed that their job includes
+      making sure floor tiles are being properly placed. (The roundstart decay subsystem
+      that places muck and broken tiles everywhere no longer breaks tiles.)
+  - config: Decay subsystem now uses configs. Check config_nova.txt!
+  Neocloudy:
+  - bugfix: '[NOVA] Mutes (as in people who have the quirk and mimes) can use the
+      Do verb.'
+  - bugfix: '[NOVA] People who have been muted (as in people who got IC muted by an
+      admin) can no longer use the Do verb.'
+  sqnztb:
+  - sound: lead pipe's throw sound has been toned down.
+  - map: Snowglobe's clown quarters now has a pie cannon and megaphone.
+  - map: Ghost Cafe's genetics has been removed with non-working displays.
