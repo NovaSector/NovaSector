@@ -257,8 +257,13 @@ const NovaTumsPrefsBelly = () => {
             />
           </Tooltip>
         </LabeledList.Item>
-        <LabeledList.Item label="Cosmetic Size">
-          <Tooltip content="Purely cosmetic size; adds visual size.">
+        <LabeledList.Item label="Base Size">
+          <Tooltip
+            content="Purely cosmetic belly size; adds visual size.
+          Final size = base size + full size + stuffed size.  Note that the
+          final size calculation is volumetric- it takes exponentially more
+          to increase the sprite size the bigger you go!"
+          >
             <Slider
               step={0.1}
               my={1}
@@ -277,8 +282,9 @@ const NovaTumsPrefsBelly = () => {
         </LabeledList.Item>
         <LabeledList.Item label="Full Size">
           <Tooltip
-            content="Purely cosmetic full size; adds visual size and full
-            creaks/groans, if you have them enabled."
+            content="Purely cosmetic fullness size; adds additional base size
+            and full creaks/groans, if you have them enabled.
+            Final contribution to fullness sounds = full size + stuffed size."
           >
             <Slider
               step={0.1}
@@ -298,9 +304,8 @@ const NovaTumsPrefsBelly = () => {
         </LabeledList.Item>
         <LabeledList.Item label="Stuffed Size">
           <Tooltip
-            content="Purely cosmetic stuffed size; adds visual size,
-          full creaks/groans, and stuffed gurgles/churns,
-          if you have them enabled."
+            content="Purely cosmetic stuffed size; adds additional fullness
+          size, and stuffed gurgles/churns, if you have them enabled."
           >
             <Slider
               step={0.1}

@@ -106,7 +106,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		.["base_size_full"] = belly.base_size_full
 		.["base_size_stuffed"] = belly.base_size_stuffed
 		.["pred_mode"] = belly.pred_mode
-		.["endo_size_label"] = "Default endo size (sprite size [(((belly.endo_size / 10 * belly.sizemod) ** 1.5) / (4/3) / PI) ** (1/3)])"
+		.["endo_size_label"] = "Default new guest size (sprite size [(((belly.endo_size / 10 * belly.sizemod) ** 1.5) / (4/3) / PI) ** (1/3)])"
 		.["endo_size"] = belly.endo_size
 		// Possibly need to refactor this to store prey_mode on mobs somewhere to avoid constant pref reads
 		.["prey_mode"] = client.prefs.read_preference(/datum/preference/choiced/erp_vore_prey_pref) || "Never"
@@ -135,7 +135,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		.["base_size_stuffed"] = prefs_base_size_stuffed
 		.["pred_mode"] = client.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_pred_pref) || "Never"
 		var/prefs_endo_size = client.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_endo) || 1000
-		.["endo_size_label"] = "Default endo size (sprite size [(((prefs_endo_size / 10 * prefs_sizemod) ** 1.5) / (4/3) / PI) ** (1/3)])"
+		.["endo_size_label"] = "Default new guest size (sprite size [(((prefs_endo_size / 10 * prefs_sizemod) ** 1.5) / (4/3) / PI) ** (1/3)])"
 		.["endo_size"] = prefs_endo_size
 		.["prey_mode"] = client.prefs.read_preference(/datum/preference/choiced/erp_vore_prey_pref) || "Never"
 
@@ -317,8 +317,14 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 				client.prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/erp_bellyquirk_pred_pref], new_pred_mode)
 				if(new_pred_mode != belly?.pred_mode && confirm_sync(belly))
 					belly.pred_mode = new_pred_mode
+					if(new_pred_mode == "Never")
+						for(var/mob/living/carbon/human/nommed in belly.nommeds)
+							belly.free_target(nommed)
 			else if(belly != null)
 				belly.pred_mode = new_pred_mode
+				if(new_pred_mode == "Never")
+					for(var/mob/living/carbon/human/nommed in belly.nommeds)
+						belly.free_target(nommed)
 		if("changeEndoSize")
 			var/new_endo_size = text2num(params["newEndoSize"])
 			if(is_prefs_tab)
@@ -330,6 +336,12 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		if("changePreyMode")
 			var/new_prey_mode = params["newPreyMode"]
 			client.prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/erp_vore_prey_pref], new_prey_mode)
+			if(new_prey_mode == "Never")
+				var/mob/living/carbon/human/player = client.mob
+				if(istype(player))
+					var/obj/item/belly_function/a_belly = player.loc
+					if(istype(a_belly))
+						a_belly.free_target(player)
 			update_dummy = FALSE
 			//in-round prey mode edits don't exist yet, this may yet be refactored.
 		// === GLOBAL PREFS BREAKER ===

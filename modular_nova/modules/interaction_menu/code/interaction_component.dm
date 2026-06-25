@@ -127,7 +127,7 @@
 		// Don't offer vore if either party opts out, you're targeting yourself,
 		// or one of you is already inside the other.
 		var/already_nested = (self.loc in user.contents) || (user.loc in self.contents) || (self.loc?.loc == user) || (user.loc?.loc == self)
-		if(pred_mode != "Never" && prey_mode != "Never" && user != self && !already_nested)
+		if(pred_mode != "Never" && prey_mode != "Never" && user != self && !already_nested && self.Adjacent(user))
 			LAZYADD(categories[MECHANICAL_CATEGORY], VORE_ACT)
 			categories[MECHANICAL_CATEGORY] = sort_list(categories[MECHANICAL_CATEGORY])
 			descriptions[VORE_ACT] = "Put someone in your belly - if they're cool with it."
@@ -218,6 +218,9 @@
 			// Grab the associated player mobs.
 			var/mob/living/carbon/human/source = locate(params["userref"])
 			var/mob/living/carbon/human/target = locate(params["selfref"])
+			if(!source.Adjacent(target))
+				source.show_message(span_warning("You can't eat someone with your mind- get next to them!"))
+				return FALSE
 			// Pull the belly object from the pred's belly quirk.
 			var/datum/quirk/belly/bellyquirk = locate() in source.quirks
 			var/obj/item/belly_function/a_belly = bellyquirk?.the_bwelly

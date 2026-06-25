@@ -195,11 +195,15 @@
 /obj/item/belly_function/proc/config_menu(mob/living/user)
 	var/opt_list = list("Edit Settings")
 	var/list/mob/living/carbon/human/extra_size_list = list()
+	var/list/mob/living/carbon/human/release_list = list()
 
 	for(var/mob/living/carbon/human/nommed in nommeds)
 		extra_size_list["Set Size of [nommed.name]"] = nommed
+		release_list["Release [nommed.name]"] = nommed
 
 	for(var/text in extra_size_list)
+		opt_list += text
+	for(var/text in release_list)
 		opt_list += text
 
 	var/adjustment_mode = tgui_input_list(user, "Select ", "Belly Control", opt_list)
@@ -213,6 +217,10 @@
 					return
 				LAZYSET(nommed_sizes, extra_size_list[adjustment_mode], temp_size)
 				recalculate_guest_sizes()
+			else if(adjustment_mode in release_list)
+				var/mob/living/carbon/human/nommed = release_list[adjustment_mode]
+				if(istype(nommed))
+					free_target(nommed)
 			else
 				return
 

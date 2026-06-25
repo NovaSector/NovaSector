@@ -28,12 +28,44 @@
 /// Access helper for the belly-haver.  This lets them configure it & interact with guests.
 /datum/action/item_action/belly_menu/access
 	name = "Belly Access Helper"
-	desc = "LMB: Activate the belly-config menu without needing to alt-click. RMB: Access the config menu for your guests."
+	desc = "LMB: Activate the belly-config menu without needing to alt-click, or release guests. RMB: Knead into your belly and make it noisy!"
+
+	// TODO: we probably want to make these editable from the UI later
+
+	/// Squish interact messages, displayed to the owner.
+	var/list/squish_messages_owner = list(
+		"You press into your belly!",
+		"You knead into your belly!",
+		"You squish into your belly!",
+		"You rub over your belly!",
+		"You shift your belly about in your grasp!",
+		"You jostle your belly!"
+	)
+	/// Squish interact messages, displayed to the guests.
+	var/list/squish_messages_guest = list(
+		"You feel %USER% pressing into %THEIR% belly around you!",
+		"You feel %USER% kneading into %THEIR% belly around you!",
+		"You feel %USER% squishing into %THEIR% belly around you!",
+		"You feel %USER% rubbing over %THEIR% belly around you!",
+		"You feel %USER% shifting %THEIR% belly about around you!",
+		"You feel %USER% jostling %THEIR% belly around you!"
+	)
 
 /datum/action/item_action/belly_menu/access/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
-		my_belly.release_menu(owner)
+		var/sound_target = my_belly.lastuser || my_belly
+		if(my_belly.lastuser)
+			var/message_index = rand(1, length(squish_messages_owner))
+			to_chat(owner, span_notice(squish_messages_owner[message_index]))
+			var/message_guest = replacetext(squish_messages_guest[message_index], "%USER%", owner.name)
+			message_guest = span_notice(replacetext(squish_messages_guest[message_index], "%THEIR%", owner.p_their()))
+			for(var/mob/living/carbon/human/nommed in my_belly.nommeds)
+				to_chat(nommed, message_guest)
+		if(my_belly.allow_sound_move_creaks)
+			playsound_if_pref(sound_target, pick(my_belly.move_creaks), min(10 + round(my_belly.total_fullness / 40, 1), 30), TRUE, frequency = rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_creaks)
+		if(my_belly.stuffed_temp > 1 && my_belly.allow_sound_move_sloshes)
+			playsound_if_pref(sound_target, pick(my_belly.slosh_sounds), min(20 + round(my_belly.total_fullness / 32, 1), 50), TRUE, frequency = rand(40000, 50000), pref_to_check = /datum/preference/toggle/erp/belly/sound_move_sloshes)
 	else
 		my_belly.config_menu(owner)
 	return TRUE
@@ -103,7 +135,7 @@
 	/// Tracks the prey's (our target's) consent state.
 	var/consent_prey = FALSE
 	/// Helper for tgui_alert to provide standard yes or no.
-	var/list_yesno = list("Yes", "No")
+	var/list_yesno = list("No", "Yes")
 
 	/// Query the host if applicable.  This belly has to be configured to QUERY or ALWAYS mode; otherwise we exit early as the pred doesn't want this.
 	if(pred_mode == "Query")
@@ -140,6 +172,7 @@
 		return FALSE
 	// Step 1: put them in the list (your belly)
 	to_chat(target, span_danger("[user] gulps you down!"))
+	SStgui.force_close_all_windows(target)
 	to_chat(user, span_danger("You gulp down [target]!"))
 	LAZYADD(nommeds, target)
 	LAZYSET(nommed_sizes, target, endo_size)
