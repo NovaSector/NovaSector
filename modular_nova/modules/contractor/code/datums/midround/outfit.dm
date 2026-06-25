@@ -63,7 +63,6 @@
 	if(!istype(mod))
 		return
 	var/obj/item/mod/module/weapon_recall/contractor/recall = locate(/obj/item/mod/module/weapon_recall/contractor) in mod.modules
-	var/obj/item/mod/module/storage/syndicate/storage = locate(/obj/item/mod/module/storage/syndicate) in mod.modules
 	var/obj/item/weapon = locate(/obj/item/melee/baton/telescopic/contractor_baton) in user.get_all_contents()
 	if(!istype(weapon, recall.accepted_type))
 		return
