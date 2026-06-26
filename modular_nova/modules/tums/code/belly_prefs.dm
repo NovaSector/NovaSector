@@ -153,6 +153,26 @@
 /datum/preference/toggle/erp_bellyquirk_skintone/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
+/// Per-character pref, determines if the belly is hidden when an undersuit is equipped.
+/datum/preference/toggle/erp_bellyquirk_hide_with_uniform
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "erp_bellyquirk_hide_with_uniform"
+	default_value = FALSE
+
+/datum/preference/toggle/erp_bellyquirk_hide_with_uniform/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+/// Per-character pref, determines if the belly will try and recolor to match the equipped undersuit.
+/datum/preference/toggle/erp_bellyquirk_color_with_uniform
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "erp_bellyquirk_color_with_uniform"
+	default_value = FALSE
+
+/datum/preference/toggle/erp_bellyquirk_color_with_uniform/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
 /// Per-character pref, an overall sprite size modifier.
 /datum/preference/numeric/erp_bellyquirk_sizemod
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
@@ -316,6 +336,44 @@
 	return preferences.read_preference(/datum/preference/toggle/erp/belly_master)
 
 /datum/preference/choiced/erp_bellyquirk_pred_pref/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE
+
+/// Per-character pref, allows for some minute layer adjustments.
+/datum/preference/choiced/erp_bellyquirk_layer_mode
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "erp_bellyquirk_layer_mode"
+
+/datum/preference/choiced/erp_bellyquirk_layer_mode/init_possible_values()
+	// Calculate sanitized options once from the belly_function list.
+	var/static/list/layer_options = null
+	if(layer_options == null)
+		layer_options = list()
+		for(var/text in /obj/item/belly_function::layer_options)
+			layer_options += text
+	return layer_options
+
+/datum/preference/choiced/erp_bellyquirk_layer_mode/create_default_value()
+	return "Standard"
+
+/datum/preference/choiced/erp_bellyquirk_layer_mode/deserialize(input, datum/preferences/preferences)
+	if(!preferences.read_preference(/datum/preference/toggle/erp/belly_master))
+		return create_default_value()
+	return ..()
+
+/datum/preference/choiced/erp_bellyquirk_layer_mode/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_erp_preferences))
+		return FALSE
+
+	if(CONFIG_GET(flag/disable_tums_preferences))
+		return FALSE
+
+	return preferences.read_preference(/datum/preference/toggle/erp/belly_master)
+
+/datum/preference/choiced/erp_bellyquirk_layer_mode/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
 /// Per-character pref, a default size for a newly-nommed guest.

@@ -73,6 +73,12 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 	var/obj/item/belly_function/belly = get_assoc_belly(user)
 	.["has_belly"] = (belly != null || (/datum/quirk/belly::name in client?.prefs.all_quirks))
 	.["has_player"] = (belly != null)
+	var/static/list/layer_options = null
+	if(layer_options == null)
+		layer_options = list()
+		for(var/text in /obj/item/belly_function::layer_options)
+			layer_options += text
+	.["layer_options"] = layer_options
 
 	// Figure out what tab we're in
 	var/ui_tab = 2
@@ -94,6 +100,9 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		.["title"] = "Local belly prefs: [belly.lastuser]"
 		.["color"] = belly.color
 		.["use_skintone"] = belly.use_skintone
+		.["hide_with_uniform"] = belly.hide_with_uniform
+		.["color_with_uniform"] = belly.color_with_uniform
+		.["layer_mode"] = belly.layer_mode
 		.["sizemod"] = belly.sizemod
 		.["sizemod_autostuffed"] = belly.sizemod_autostuffed
 		.["sizemod_audio"] = belly.sizemod_audio
@@ -116,6 +125,9 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		.["title"] = "Character belly prefs: [client.prefs.read_preference(/datum/preference/name/real_name)]"
 		.["color"] = client.prefs.read_preference(/datum/preference/color/erp_bellyquirk_color) || "#FFFFFF"
 		.["use_skintone"] = client.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
+		.["hide_with_uniform"] = client.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_hide_with_uniform) || FALSE
+		.["color_with_uniform"] = client.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_color_with_uniform) || FALSE
+		.["layer_mode"] = client.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_layer_mode) || "Standard"
 		var/prefs_sizemod = client.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 1
 		.["sizemod"] = prefs_sizemod
 		var/prefs_sizemod_autostuffed = client.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed) || 1
@@ -210,15 +222,40 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 			if(is_prefs_tab)
 				var/new_use_skintone = !(client.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE)
 				client.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_skintone], new_use_skintone)
-				var/new_color = null
 				if(belly != null && confirm_sync(belly))
 					belly.use_skintone = new_use_skintone
-					if(new_color != null)
-						belly.color = new_color
 			else if(belly != null)
 				belly.use_skintone = !belly.use_skintone
 			belly?.do_alt_appearance(belly?.lastuser, TRUE, belly?.last_size)
 			belly?.last_size = -1
+		if("changeUniformHide")
+			if(is_prefs_tab)
+				var/new_hide_with_uniform = !(client.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_hide_with_uniform) || FALSE)
+				client.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_hide_with_uniform], new_hide_with_uniform)
+				if(belly != null && confirm_sync(belly))
+					belly.hide_with_uniform = new_hide_with_uniform
+			else if(belly != null)
+				belly.hide_with_uniform = !belly.hide_with_uniform
+			belly?.do_alt_appearance(belly?.lastuser, TRUE, belly?.last_size)
+			belly?.last_size = -1
+		if("changeUniformColor")
+			if(is_prefs_tab)
+				var/new_color_with_uniform = !(client.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_color_with_uniform) || FALSE)
+				client.prefs.write_preference(GLOB.preference_entries[/datum/preference/toggle/erp_bellyquirk_color_with_uniform], new_color_with_uniform)
+				if(belly != null && confirm_sync(belly))
+					belly.color_with_uniform = new_color_with_uniform
+			else if(belly != null)
+				belly.color_with_uniform = !belly.color_with_uniform
+			belly?.do_alt_appearance(belly?.lastuser, TRUE, belly?.last_size)
+			belly?.last_size = -1
+		if("changeLayerMode")
+			var/new_layer_mode = params["newLayerMode"]
+			if(is_prefs_tab)
+				client.prefs.write_preference(GLOB.preference_entries[/datum/preference/choiced/erp_bellyquirk_layer_mode], new_layer_mode)
+				if(new_layer_mode != belly?.layer_mode && confirm_sync(belly))
+					belly.update_layer_mode(new_layer_mode)
+			else if(belly != null)
+				belly.update_layer_mode(new_layer_mode)
 		if("changeSizemod")
 			var/new_sizemod = text2num(params["newSizemod"])
 			if(is_prefs_tab)
@@ -343,7 +380,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 					if(istype(a_belly))
 						a_belly.free_target(player)
 			update_dummy = FALSE
-			//in-round prey mode edits don't exist yet, this may yet be refactored.
+		//in-round prey mode edits don't exist yet, this may yet be refactored.
 		// === GLOBAL PREFS BREAKER ===
 		if("changeGlobalSoundGroans")
 			var/new_val = !(client.prefs.read_preference(/datum/preference/toggle/erp/belly/sound_groans) || FALSE)

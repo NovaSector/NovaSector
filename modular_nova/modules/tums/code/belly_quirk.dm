@@ -22,6 +22,13 @@
 	the_bwelly.color = client_source?.prefs.read_preference(/datum/preference/color/erp_bellyquirk_color) || "#FFFFFF"
 	/// Skintone toggle - this adjusts the sprite files.
 	the_bwelly.use_skintone = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_skintone) || FALSE
+	/// Hides belly when torso is covered.
+	the_bwelly.hide_with_uniform = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_hide_with_uniform) || FALSE
+	/// Tries to recolor belly to match a uniform when one is equipped.
+	the_bwelly.color_with_uniform = client_source?.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_color_with_uniform) || FALSE
+
+	/// Belly layering mode - changes where in the render order it should be relative to things like genitals and uniforms.
+	the_bwelly.layer_mode = client_source?.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_layer_mode) || "Standard"
 
 	/// Size modifier - overall.
 	the_bwelly.sizemod = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 1

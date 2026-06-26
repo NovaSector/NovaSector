@@ -50,7 +50,7 @@
 	var/icon/base_file = worn_icon
 	var/icon/base_file_64x = worn_icon_64x
 	var/is_teshari = istype(user.dna.species, /datum/species/teshari)
-	if(use_skintone)
+	if(use_skintone && draw_color == color)
 		base_file = skintone_worn_icon
 		base_file_64x = skintone_worn_icon_64x
 	else if(is_teshari)
@@ -71,6 +71,9 @@
 	/// Slimes need translucency
 	if(istype(user.dna.species, /datum/species/jelly))
 		alpha = 155
+
+	var/oldcolor = color
+	color = draw_color
 
 	for(var/cycles in 1 to max)
 		var/icon/iconfile = counter > 10 ? base_file_64x : base_file
@@ -112,6 +115,7 @@
 		counter -= 1
 
 	worn_icon_state = oldstate
+	color = oldcolor
 
 /// Belly AAERP setup - use the belly_maxsize pref.
 /datum/atom_hud/alternate_appearance/erp/belly/get_max_size(mob/viewer)

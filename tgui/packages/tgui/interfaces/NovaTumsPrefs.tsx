@@ -19,6 +19,9 @@ type NovaTumsPrefsData = {
   title: string;
   color: string;
   use_skintone: BooleanLike;
+  hide_with_uniform: BooleanLike;
+  color_with_uniform: BooleanLike;
+  layer_mode: string;
   sizemod: number;
   sizemod_autostuffed: number;
   sizemod_audio: number;
@@ -40,6 +43,7 @@ type NovaTumsPrefsData = {
   prey_options: string[];
   prey_mode: string;
   has_player: BooleanLike;
+  layer_options: string[];
   global_belly_visibility: BooleanLike;
   global_maxsize: number;
   global_sound_groans: BooleanLike;
@@ -231,6 +235,53 @@ const NovaTumsPrefsBelly = () => {
           >
             Use the skintone sprite palette?
           </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Hide with Uniform">
+          <Button.Checkbox
+            checked={data.hide_with_uniform}
+            fluid
+            onClick={() =>
+              act('changeUniformHide', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Hides your belly if you're wearing a uniform or suit that
+            would hide your torso.  Not always reliable due to inconsistent
+            bitflag application across undersuits!"
+          >
+            Hide belly with uniform?
+          </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Color with Uniform">
+          <Button.Checkbox
+            checked={data.color_with_uniform}
+            fluid
+            onClick={() =>
+              act('changeUniformColor', {
+                tab: currentTab,
+              })
+            }
+            tooltip="Tries to color your belly to match your equipped
+            undersuit.  This won't always be reliable- not all uniforms provide
+            colors for fallback generation!"
+          >
+            Color belly with uniform?
+          </Button.Checkbox>
+        </LabeledList.Item>
+        <LabeledList.Item label="Layer Mode">
+          <Tooltip content="Adjusts belly layering order.">
+            <Dropdown
+              options={data.layer_options}
+              selected={data.layer_mode}
+              onSelected={(e) =>
+                act('changeLayerMode', {
+                  newLayerMode: e,
+                  tab: currentTab,
+                })
+              }
+              width="100%"
+            />
+          </Tooltip>
         </LabeledList.Item>
       </LabeledList>
       <NoticeBox>{data.calculated_size}</NoticeBox>

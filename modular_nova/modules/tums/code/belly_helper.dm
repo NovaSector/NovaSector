@@ -17,6 +17,7 @@
 
 	w_class = WEIGHT_CLASS_TINY
 	color = "#ffffff"
+	var/draw_color = "#ffffff"
 
 	/// Whether or not to use the skintone spritesheet.
 	var/use_skintone = FALSE
@@ -67,6 +68,11 @@
 	var/allow_sound_move_creaks = TRUE
 	/// Sound preferences for active sloshes triggered by movement (size_stuffed)
 	var/allow_sound_move_sloshes = TRUE
+	/// Auto-hide belly with a uniform equipped.
+	var/hide_with_uniform = FALSE
+	/// Auto-color belly to match a uniform.
+	var/color_with_uniform = FALSE
+
 	/// Pred preferences.  QUERY throws an alert before trying, ALWAYS will always try pending on target prefs.
 	var/pred_mode = "Query"
 
@@ -124,6 +130,12 @@
 	var/horizontal_layer = UNIFORM_LAYER
 	var/south_layer = UNIFORM_LAYER
 	var/north_layer = BODY_BEHIND_LAYER
+	var/layer_mode = "Standard"
+	// uniform layer - 0.05 works to cover all (?) genitalia except breasts
+	// uniform layer + 0.01 works to go under the undersuit
+
+	/// A couple layer options for HORIZONTAL and SOUTH layers to play better with genitalia and certain styles of undersuit.
+	var/static/list/layer_options = list("Standard" = UNIFORM_LAYER, "Above Genitals" = UNIFORM_LAYER - 0.05, "Beneath Undersuit" = UNIFORM_LAYER + 0.01, "Above All" = BODY_FRONT_LAYER, "Above All & Genitals" = BODY_FRONT_LAYER - 0.05)
 
 /// Sanity checks & required edits to make the belly action get properly granted.
 /obj/item/belly_function/item_action_slot_check(slot, mob/user, datum/action/action)
@@ -160,22 +172,6 @@
 		move_creak_cooldown = move_creak_cooldown - (0.05 * total_fullness)
 	if(stuffed_temp >= 2)
 		move_slosh_cooldown = move_slosh_cooldown - (0.05 * (stuffed_temp + (total_fullness/10)))
-
-/// Secondary menu that, for now, is only used for releasing people.
-/// In the future this is likely where per-guest size edits will go...
-/// ...alongside the ability to do certain interactions, like open a target's Ctrl-Shift-Click menu.
-/obj/item/belly_function/proc/release_menu(mob/user)
-	if(LAZYLEN(nommeds) > 0)
-		var/opt_list = list()
-
-		for(var/mob/living/carbon/human/nommed in nommeds)
-			opt_list["Release [nommed.name]"] = nommed
-
-		var/release_target = tgui_input_list(user, "Release ", "Belly Control", opt_list)
-		if(release_target)
-			var/mob/living/carbon/human/nommed = opt_list[release_target]
-			if(istype(nommed))
-				free_target(nommed)
 
 /// Helper function that handles everything needed to free someone & do all associated sanity checks.
 /obj/item/belly_function/proc/free_target(mob/living/carbon/human/nommed)
@@ -268,6 +264,12 @@
 	for(var/nommed_friendo in nommeds)
 		total_endo_size += LAZYACCESS(nommed_sizes, nommed_friendo)
 
+/// Helper function that updates the layers in use
+/obj/item/belly_function/proc/update_layer_mode(new_layer_mode)
+	layer_mode = new_layer_mode
+	horizontal_layer = layer_options[layer_mode]
+	south_layer = layer_options[layer_mode]
+
 /// This is where the magic happens for calculating sizes, triggering noise, etc.
 /obj/item/belly_function/proc/belly_process(seconds_per_tick)
 	/// Sanity checks and user acquisition happen here.
@@ -300,6 +302,22 @@
 	current_size_unclamped = total_size
 	/// Finally, pick a sprite size to use & apply it.
 	var/spr_size = clamp(round(total_size, 1), 0, min(maxsize, 16))
+	if(hide_with_uniform && !user.is_topless())
+		spr_size = 0
+	draw_color = color
+	if(color_with_uniform && user.w_uniform != null)
+		if(user.w_uniform.greyscale_colors)
+			var/list/colors = SSgreyscale.ParseColorString(user.w_uniform.greyscale_colors)
+			draw_color = colors[1]
+		else
+			var/icon/human_icon = user.w_uniform.worn_icon || user.w_uniform.icon
+			var/human_icon_state = user.w_uniform.worn_icon_state || user.w_uniform.icon_state
+			var/icon/temp_icon = icon(human_icon, human_icon_state)
+			if(temp_icon != null)
+				var/coord = user.w_uniform.species_clothing_color_coords[1]
+				if(coord != null)
+					var/pixel = temp_icon.GetPixel(coord[1], coord[2])
+					draw_color = pixel || color
 	update_icon()
 	if(last_size != spr_size)
 		refresh_overlays(user, spr_size)
