@@ -197,25 +197,25 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	worn_icon_state = "cc-sheath"
 	storage_type = /datum/storage/sabre_belt
-	stored_blade = /obj/item/melee/sabre/centralcommand
+	stored_blade = /obj/item/melee/sabre/central_command
 
 /obj/item/storage/belt/sheath/sabre/admiral
-	name = "Nanotrasen™ sabre sheath"
+	name = "\improper Nanotrasen™ sabre sheath"
 	desc = "An ornate sheath designed to hold an officer's blade. This one comes in black and a distinct Nanotrasen corporate identity."
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	icon_state = "admiral-sheath"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	worn_icon_state = "admiral-sheath"
 	storage_type = /datum/storage/sabre_belt
-	stored_blade = /obj/item/melee/sabre/centralcommand
+	stored_blade = /obj/item/melee/sabre/central_command
 
 /obj/item/melee/sabre/centralcommand
-	name = "Nanotrasen™ sabre"
+	name = "\improper Nanotrasen™ sabre"
 	desc = "An well crafted and elegant weapon, this one came out poorly from the nanofabricator with a bilayer edge capable of cutting through flesh and bone, but not as well as finer samples. This one carries a distinct Nanotrasen corporate identity carved into the hilt."
 	block_chance = 40
 	armour_penetration = 40
 
-/obj/item/melee/sabre/centralcommand/Initialize(mapload)
+/obj/item/melee/sabre/central_command/Initialize(mapload)
 	. = ..()
 	// Remove every bane component since we don't want there to be any.
 	var/list/bane_components = GetComponents(/datum/component/bane)
