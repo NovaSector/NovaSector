@@ -932,11 +932,11 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 /// Draws overlay on the BODY_BEHIND_LAYER
 #define EXTERNAL_BEHIND (1 << 2)
 // NOVA EDIT ADDITION START - Customization
-/// Draws organ on the BODY_FRONT_UNDER_CLOTHES
+/// Draws overlay on the BODY_FRONT_UNDER_CLOTHES
 #define EXTERNAL_FRONT_UNDER_CLOTHES (1 << 3)
-/// Draws organ on the ABOVE_BODY_FRONT_HEAD_LAYER
+/// Draws overlay on the ABOVE_BODY_FRONT_HEAD_LAYER
 #define EXTERNAL_FRONT_OVER (1 << 4)
-/// Draws organ on the HEAD_LAYER, for things that need to be above hair but below hats.
+/// Draws overlay on the HEAD_LAYER, for things that need to be above hair but below hats.
 #define EXTERNAL_FRONT_ABOVE_HAIR (1 << 5)
 /// Draws organ on all EXTERNAL layers
 #define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
