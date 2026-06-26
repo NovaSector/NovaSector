@@ -411,4 +411,26 @@
 	max_sprite_size_affix = 19
 	skintone_max_sprite_size_affix = null
 
+// BUTT
+
+/datum/sprite_accessory/genital/butt
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/butt_onmob.dmi'
+	organ_type = /obj/item/organ/genital/butt
+	associated_organ_slot = ORGAN_SLOT_BUTT
+	key = ORGAN_SLOT_BUTT
+	color_src = USE_MATRIXED_COLORS
+	always_color_customizable = TRUE
+	has_skintone_shading = TRUE
+	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, BODY_FRONT_UNDER_CLOTHES, ABOVE_BODY_FRONT_HEAD_LAYER)
+
+/datum/sprite_accessory/genital/butt/none
+	icon_state = "none"
+	name = SPRITE_ACCESSORY_NONE
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/butt/pair
+	icon_state = "pair"
+	name = "Pair"
+
 #undef TAUR_DIMENSION_X
