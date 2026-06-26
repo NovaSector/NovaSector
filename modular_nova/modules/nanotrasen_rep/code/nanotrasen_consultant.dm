@@ -112,7 +112,19 @@
 	name = "nanotrasen consultant's PDA"
 	inserted_disk = /obj/item/disk/computer/command/captain
 	inserted_item = /obj/item/pen/fountain/green
+	/// Fax type to connect their PDA to (for use with fax notification app)
+	var/fax_type = /obj/machinery/fax/heads/nanotrasen_consultant
 	greyscale_colors = "#017941#0060b8"
+
+/obj/item/modular_computer/pda/nanotrasen_consultant/Initialize(mapload)
+	. = ..()
+	var/datum/computer_file/program/faxbond/fax_app = new
+	store_file(fax_app)
+	if (ispath(fax_type, /obj/machinery/fax))
+		var/datum/computer_file/program/faxbond/fax_notifier = locate() in stored_files
+		var/list/faxes_list = SSmachines.get_machines_by_type(fax_type)
+		var/obj/machinery/fax/rep_fax = length(faxes_list) ? pick(faxes_list) : null //there really shouldnt be more than one
+		fax_notifier.connect_fax(rep_fax)
 
 /obj/item/storage/bag/garment/nanotrasen_consultant
 	name = "nanotrasen consultant's garment bag"
@@ -157,8 +169,11 @@
 	new /obj/item/bedsheet/centcom(src)
 	new /obj/item/storage/bag/garment/nanotrasen_consultant(src)
 
-//Choice Beacon, I hope in the future they're going to be given proper unique gun but this will do.
+/obj/machinery/fax/heads/nanotrasen_consultant
+	name = "Nanotrasen Consultant's Fax Machine"
+	fax_name = "Nanotrasen Consultant's Office"
 
+//Choice Beacon, I hope in the future they're going to be given proper unique gun but this will do.
 
 /obj/item/choice_beacon/ntc
 	name = "gunset beacon"
