@@ -172,7 +172,6 @@
 		return FALSE
 	// Step 1: put them in the list (your belly)
 	to_chat(target, span_danger("[user] gulps you down!"))
-	SStgui.force_close_all_windows(target)
 	to_chat(user, span_danger("You gulp down [target]!"))
 	LAZYADD(nommeds, target)
 	LAZYSET(nommed_sizes, target, endo_size)
