@@ -141,7 +141,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket/blue
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/vested_jacket/blue"
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket/blue"
 	greyscale_colors = "#3F6E9E#39393F#EBEBEB"
 /*
 *	WARDEN
