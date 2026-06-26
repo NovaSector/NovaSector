@@ -2,7 +2,7 @@
 #define SMOKE_STATE_ACTIVE 1
 
 /obj/machinery/smartfridge/drying/rack/smoker
-	name = "primitive Smoker"
+	name = "primitive smoker"
 	desc = "A simple smoke-chamber used to dry food, hides, and herbs. A small firebox on the side burns logs or planks to produce the warm smoke needed for drying."
 	icon = 'modular_nova/modules/primitive_cooking_additions/icons/stone_kitchen_machines.dmi'
 	icon_state = "tribal_smoker"
