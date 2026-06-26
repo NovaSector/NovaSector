@@ -115,11 +115,6 @@ There are several things that need to be remembered:
 		//Female sprites have lower priority than digitigrade sprites
 		if(!dna.species.no_gender_shaping && dna.species.sexes && (bodyshape & BODYSHAPE_HUMANOID) && physique == FEMALE && !(female_sprite_flags & NO_FEMALE_UNIFORM)) // NOVA EDIT CHANGE - ORIGINAL: else if(dna.species.sexes && (bodyshape & BODYSHAPE_HUMANOID) && physique == FEMALE && !(uniform.female_sprite_flags & NO_FEMALE_UNIFORM)) //Agggggggghhhhh
 			woman = TRUE
-			// NOVA EDIT ADDITION START - Digi female gender shaping
-			if(digi && !(female_sprite_flags & FEMALE_UNIFORM_DIGI_FULL))
-				female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
-				female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP_ONLY bit if it is unset.
-			// NOVA EDIT ADDITION END
 
 		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(uniform)))
 			icon_file = DEFAULT_UNIFORM_FILE
@@ -760,7 +755,7 @@ There are several things that need to be remembered:
 #define FEMALE_RELEVANT_BODYSHAPE (BODYSHAPE_DIGITIGRADE | BODYSHAPE_TAUR)
 /// Modifies a sprite slightly to conform to female body shapes
 /proc/wear_female_version(icon_state, icon, type, greyscale_colors, bodyshape) // NOVA EDIT CHANGE - Digi female gender shaping - ORIGINAL: /proc/wear_female_version(icon_state, icon, type, greyscale_colors)
-	var/index = "[icon_state]-[greyscale_colors][bodyshape & FEMALE_RELEVANT_BODYSHAPE]" // NOVA EDIT CHANGE - Digi female gender shaping - Original: var/index = "[icon_state]-[greyscale_colors]]"
+	var/index = "[icon_state]-[greyscale_colors]" // NOVA EDIT CHANGE - Digi female gender shaping - Original: var/index = "[icon_state]-[greyscale_colors]]"
 	var/static/list/female_clothing_icons = list()
 	var/icon/female_clothing_icon = female_clothing_icons[index]
 	if(!female_clothing_icon) //Create standing/laying icons if they don't exist
