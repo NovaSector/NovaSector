@@ -35,7 +35,9 @@
 	else
 		worn_icon_state = "[icon_state]_left"
 
-	usr.update_worn_neck()
+	if(ismob(loc))
+		var/mob/wearer = loc
+		wearer.update_worn_neck()
 
 /obj/item/clothing/neck/security_cape/armplate
 	name = "guard gauntlet"
