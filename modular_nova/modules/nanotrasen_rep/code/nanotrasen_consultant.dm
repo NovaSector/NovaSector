@@ -190,7 +190,7 @@
 	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)
 
 /obj/item/storage/belt/sheath/sabre/consultant
-	name = "Nanotrasen™ sabre sheath"
+	name = "\improper Nanotrasen™ sabre sheath"
 	desc = "An ornate sheath designed to hold an officer's blade. This one is in green and a distinct Nanotrasen corporate identity."
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	icon_state = "cc-sheath"
