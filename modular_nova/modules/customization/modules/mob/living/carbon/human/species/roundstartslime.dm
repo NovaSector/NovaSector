@@ -267,7 +267,7 @@
 	// Drop the Brain/Core, and implants to the floor.
 	for(var/obj/item/organ/organs in victim)
 		if(istype(organs, /obj/item/organ/brain) || istype(organs, /obj/item/implant))
-			Remove(organs)
+			Remove(organs, special = TRUE)
 	if(death_loc)
 		forceMove(death_loc)
 		// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
@@ -343,7 +343,7 @@
 
 	// Transfer player prefrences to the new body
 	if(brainmob.client)
-		brainmob.client.prefs.apply_prefs_to(new_body)
+		brainmob.client.prefs.safe_transfer_prefs_to(new_body)
 
 	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
 	new_body.underwear = "Nude"
@@ -355,11 +355,15 @@
 	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 	SSquirks.AssignQuirks(new_body, brainmob.client)
 
-	// Remove non-chest limbs, and quirk spawned items
-	for(var/obj/item/contents in new_body.get_contents())
-		if(contents == src || istype(contents, /obj/item/organ) || istype(contents, /obj/item/bodypart/chest))
+	// Remove Quirk items.
+	for(var/obj/item/items in new_body.get_equipped_items(INCLUDE_POCKETS | INCLUDE_ACCESSORIES))
+		qdel(items)
+
+	// Remove non-chest limbs.
+	for(var/obj/item/bodypart/part in new_body.bodyparts)
+		if(part.body_zone == BODY_ZONE_CHEST)
 			continue
-		qdel(contents)
+		part.drop_limb(TRUE)
 
 	// Move the brain/core into the new body
 	src.replace_into(new_body)
