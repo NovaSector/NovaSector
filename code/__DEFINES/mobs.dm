@@ -864,11 +864,11 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// ID card layer
 #define ID_LAYER 18
 // NOVA EDIT ADDITION BEGIN - cursed layers under clothing
-	#define ANUS_LAYER 18.1
-	#define VAGINA_LAYER 18.2
+	#define BANDAGE_LAYER 18.1
+	#define NIPPLES_LAYER 18.2
 	#define PENIS_LAYER 18.3
-	#define NIPPLES_LAYER 18.4
-	#define BANDAGE_LAYER 18.5
+	#define VAGINA_LAYER 18.4
+	#define ANUS_LAYER 18.5
 //NOVA EDIT ADDITION END
 /// Jumpsuit clothing layer
 #define UNIFORM_LAYER 19
