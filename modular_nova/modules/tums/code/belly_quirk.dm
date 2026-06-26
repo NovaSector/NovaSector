@@ -116,7 +116,7 @@
 /datum/quirk/belly/remove()
 	. = ..()
 	the_bwelly.loc = src
-	if(the_bwelly.overlay_south != null && the_bwelly.lastuser != null)
+	if(the_bwelly.lastuser != null)
 		the_bwelly.remove_from_user(the_bwelly.lastuser)
 
 /// Extra qdels and nulling to minimize GC issues and CI errors.
