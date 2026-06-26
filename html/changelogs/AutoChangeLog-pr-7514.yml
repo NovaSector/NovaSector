@@ -1,0 +1,5 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - balance: "Shadekin ears have their base damage multiplier reduced from 250% to 150%."
+  - balance: "Shadekin ears have toggleable whisper-sensitive hearing (300% damage multiplier when active)."
