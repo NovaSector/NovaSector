@@ -2884,3 +2884,42 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Henchmen Worn"
 	icon_file = 'modular_nova/modules/GAGS/icons/monkehenchmenmob.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/henchmen/henchmen.json'
+
+// Croptop Bomber Jacket (DarkRilo)
+
+/datum/greyscale_config/croptopbomberjacket
+	name = "Croptop Bomber Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/croptopbomberjacket.json'
+
+/datum/greyscale_config/croptopbomberjacket/worn
+	name = "Croptop Bomber Jacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+
+/datum/greyscale_config/croptopbomberjacket_stripe
+	name = "Croptop Bomber Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/croptopbomberjacket_stripe.json'
+
+/datum/greyscale_config/croptopbomberjacket_stripe/worn
+	name = "Croptop Bomber Jacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+
+/datum/greyscale_config/croptopbomberjacket_badge
+	name = "Croptop Bomber Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/croptopbomberjacket_badge.json'
+
+/datum/greyscale_config/croptopbomberjacket_badge/worn
+	name = "Croptop Bomber Jacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+
+
+/datum/greyscale_config/croptopbomberjacket_plain
+	name = "Croptop Bomber Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/croptopbomberjacket_plain.json'
+
+/datum/greyscale_config/croptopbomberjacket_plain/worn
+	name = "Croptop Bomber Jacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
