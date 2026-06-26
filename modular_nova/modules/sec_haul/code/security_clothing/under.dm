@@ -32,7 +32,7 @@
 	greyscale_colors = "#A52F29#39393F#39393F"
 
 /obj/item/clothing/under/rank/security/nova/uniform/blue
-	icon_state = "/obj/item/clothing/under/rank/security/nova/officer/blue"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/uniform/blue"
 	greyscale_colors = "#3F6E9E#39393F#39393F"
 
 /obj/item/clothing/under/rank/security/nova/formal
