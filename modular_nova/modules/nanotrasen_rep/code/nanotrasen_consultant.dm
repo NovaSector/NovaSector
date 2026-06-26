@@ -209,7 +209,7 @@
 	storage_type = /datum/storage/sabre_belt
 	stored_blade = /obj/item/melee/sabre/central_command
 
-/obj/item/melee/sabre/centralcommand
+/obj/item/melee/sabre/central_command
 	name = "\improper Nanotrasen™ sabre"
 	desc = "An well crafted and elegant weapon, this one came out poorly from the nanofabricator with a bilayer edge capable of cutting through flesh and bone, but not as well as finer samples. This one carries a distinct Nanotrasen corporate identity carved into the hilt."
 	block_chance = 40

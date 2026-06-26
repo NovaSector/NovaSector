@@ -30,7 +30,7 @@
 
 // This is here so that people can't buy the Sabres and craft them into powercrepes. No, you can't put your fine NANOTRASEN sabre in there, either.
 /datum/crafting_recipe/food/powercrepe
-	blacklist = list(/obj/item/melee/sabre/cargo, /obj/item/melee/sabre/centralcommand)
+	blacklist = list(/obj/item/melee/sabre/cargo, /obj/item/melee/sabre/central_command)
 
 // Prevents our common weapons from being used to easily craft stunswords
 // Claymore blacklists can be found in code\datums\components\crafting\melee_weapon.dm
