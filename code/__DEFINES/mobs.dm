@@ -514,7 +514,6 @@
 #define AGE_MINOR 18 //NOVA EDIT CHANGE - We dont use these features, and its easier to just patch it from here. Original: AGE_MINOR 20 //legal age of space drinking and smoking
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
 #define APPRENTICE_AGE_MIN 29 //youngest an apprentice can be
-
 #define SHOES_SLOWDOWN 0 //How much shoes slow you down by default. Negative values speed you up
 #define POCKET_STRIP_DELAY (4 SECONDS) //time taken to search somebody's pockets
 #define DOOR_CRUSH_DAMAGE 20 //the amount of damage that airlocks deal when they crush you
@@ -925,21 +924,20 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	"[FACEMASK_LAYER]" = UPPER_BODY,
 ))
 
-//Bitflags for the layers an external organ can draw on (organs can be drawn on multiple layers)
-/// Draws organ on the BODY_FRONT_LAYER
-#define EXTERNAL_FRONT (1 << 1)
-/// Draws organ on the BODY_ADJ_LAYER
-#define EXTERNAL_ADJACENT (1 << 2)
-/// Draws organ on the BODY_BEHIND_LAYER
-#define EXTERNAL_BEHIND (1 << 3)
-// NOVA EDIT ADDITION - Customization
-/// Draws organ on the BODY_FRONT_UNDER_CLOTHES
-#define EXTERNAL_FRONT_UNDER_CLOTHES (1 << 4)
-/// Draws organ on the ABOVE_BODY_FRONT_HEAD_LAYER
-#define EXTERNAL_FRONT_OVER (1 << 5)
-/// Draws organ on the HEAD_LAYER, for things that need to be above hair but below hats.
-#define EXTERNAL_FRONT_ABOVE_HAIR (1 << 6)
-// NOVA EDIT END (not touching what comes next because we don't actually have to (nor want to))
+//Bitflags for the layers a bodypart overlay can draw on (can be drawn on multiple layers)
+/// Draws overlay on the BODY_FRONT_LAYER
+#define EXTERNAL_FRONT (1 << 0)
+/// Draws overlay on the BODY_ADJ_LAYER
+#define EXTERNAL_ADJACENT (1 << 1)
+/// Draws overlay on the BODY_BEHIND_LAYER
+#define EXTERNAL_BEHIND (1 << 2)
+// NOVA EDIT ADDITION START - Customization
+/// Draws overlay on the BODY_FRONT_UNDER_CLOTHES
+#define EXTERNAL_FRONT_UNDER_CLOTHES (1 << 3)
+/// Draws overlay on the ABOVE_BODY_FRONT_HEAD_LAYER
+#define EXTERNAL_FRONT_OVER (1 << 4)
+/// Draws overlay on the HEAD_LAYER, for things that need to be above hair but below hats.
+#define EXTERNAL_FRONT_ABOVE_HAIR (1 << 5)
 /// Draws organ on all EXTERNAL layers
 #define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
@@ -951,22 +949,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define EXTERNAL_RESTYLE_FLESH (1 << 1)
 /// This organ allows restyling with enamel restyling (like a fucking file or something?). It's for horns and shit
 #define EXTERNAL_RESTYLE_ENAMEL (1 << 2)
-
-//Mob Overlay Index Shortcuts for alternate_worn_layer, layers
-//Because I *KNOW* somebody will think layer+1 means "above"
-//IT DOESN'T OK, IT MEANS "UNDER"
-/// The layer underneath the uniform
-#define UNDER_UNIFORM_LAYER (UNIFORM_LAYER+1)
-/// The layer underneath the suit
-#define UNDER_SUIT_LAYER (SUIT_LAYER+1)
-/// The layer underneath the head (for hats)
-#define UNDER_HEAD_LAYER (HEAD_LAYER+1)
-
-//AND -1 MEANS "ABOVE", OK?, OK!?!
-/// The layer above shoes
-#define ABOVE_SHOES_LAYER (SHOES_LAYER-1)
-/// The layer above mutant body parts
-#define ABOVE_BODY_FRONT_LAYER (BODY_FRONT_LAYER-1)
 
 /// If gravity must be present to perform action (can't use pens without gravity)
 #define NEED_GRAVITY (1<<0)
