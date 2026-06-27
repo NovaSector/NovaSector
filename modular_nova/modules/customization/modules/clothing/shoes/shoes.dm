@@ -130,6 +130,7 @@
 	desc = "A pair of typical Nanotrasen-issue combat jackboots, long enough to reach the wearer's knee. Most commonly worn by commanding officers."
 	icon = MODULAR_SHOES_ICON
 	worn_icon = MODULAR_SHOES_WORN_ICON
+	alternate_worn_layer = UNDER_UNIFORM_LAYER
 	icon_state = "kneeboots"
 
 /obj/item/clothing/shoes/jackboots/timbs

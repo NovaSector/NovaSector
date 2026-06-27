@@ -7662,6 +7662,15 @@
 /obj/item/storage/lockbox/loyalty{
 	pixel_y = 2
 	},
+/obj/item/storage/box/silver_ids,
+/obj/item/storage/box/pdas{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/item/storage/box/ids{
+	pixel_x = 3;
+	pixel_y = 4
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -8620,9 +8629,7 @@
 /obj/machinery/firealarm/directional/west,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/item/pizzabox/random{
-	pixel_y = 10
-	},
+/obj/machinery/fax/heads/captain,
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/captain)
 "cBn" = (
@@ -27650,12 +27657,8 @@
 /area/station/maintenance/disposal/incinerator)
 "ibg" = (
 /obj/structure/table/reinforced,
-/obj/machinery/fax{
-	fax_name = "Chief Engineer's Office";
-	name = "Chief Engineer's Fax Machine";
-	pixel_y = 3
-	},
 /obj/item/paper/monitorkey,
+/obj/machinery/fax/heads/ce,
 /turf/open/floor/carpet/black,
 /area/station/command/heads_quarters/ce)
 "ibl" = (
@@ -36235,10 +36238,7 @@
 "kvd" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/table/reinforced,
-/obj/machinery/fax{
-	fax_name = "Head of Security's Office";
-	name = "Head of Security's Fax Machine"
-	},
+/obj/machinery/fax/heads/hos,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
 "kvi" = (
@@ -52479,12 +52479,8 @@
 	dir = 8
 	},
 /obj/structure/table,
-/obj/machinery/fax{
-	fax_name = "Quartermaster's Office";
-	name = "Quartermaster's Fax Machine";
-	pixel_y = 3
-	},
 /obj/machinery/light/warm/directional/east,
+/obj/machinery/fax/heads/qm,
 /turf/open/floor/iron/large,
 /area/station/command/heads_quarters/qm)
 "pfs" = (
@@ -57252,17 +57248,13 @@
 /area/station/commons/vacant_room/office)
 "qxe" = (
 /obj/structure/table/reinforced,
-/obj/machinery/fax{
-	fax_name = "Research Director's Office";
-	name = "Research Director's Fax Machine";
-	pixel_y = 6
-	},
 /obj/machinery/button/door/directional/north{
 	id = "rdoffice";
 	name = "Privacy Control";
 	req_access = list("rd")
 	},
 /obj/structure/cable,
+/obj/machinery/fax/heads/rd,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/rd)
 "qxl" = (
@@ -73373,13 +73365,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/treatment_center)
 "viD" = (
-/obj/machinery/fax{
-	fax_name = "Consultant's Office";
-	name = "Consultant's Fax Machine";
-	pixel_y = 3
-	},
 /obj/structure/table,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/fax/heads/nanotrasen_consultant,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/nt_rep)
 "viE" = (
@@ -78458,11 +78446,7 @@
 /area/station/maintenance/starboard/lesser)
 "wBQ" = (
 /obj/structure/table/reinforced,
-/obj/machinery/fax{
-	fax_name = "Chief Medical Officer's Office";
-	name = "Chief Medical Officer's Fax Machine";
-	pixel_y = 3
-	},
+/obj/machinery/fax/heads/cmo,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/cmo)
 "wCb" = (
@@ -82239,16 +82223,8 @@
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 1
 	},
-/obj/item/storage/box/ids{
-	pixel_x = 3;
-	pixel_y = 4
-	},
-/obj/item/storage/box/pdas{
-	pixel_x = -3;
-	pixel_y = 2
-	},
-/obj/item/storage/box/silver_ids,
 /obj/structure/table,
+/obj/machinery/fax/heads/hop,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},

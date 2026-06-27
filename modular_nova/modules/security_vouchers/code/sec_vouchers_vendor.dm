@@ -38,16 +38,14 @@
 		/obj/item/storage/belt/holster/energy/disabler,
 	)
 
-/datum/voucher_set/security/primary/e_carbine
-	name = "Energy Carbine"
-	description = "A standard model Energy Carbine manufacture by Nano-Trasen. Nothing fancy, just old reliable."
-	icon = 'icons/obj/weapons/guns/energy.dmi'
-	icon_state = "energy"
+/datum/voucher_set/security/primary/hybrid_taser
+	name = "Hybrid Taser"
+	description = "A dual-mode taser designed to fire both short-range high-power electrodes and long-range disabler beams."
 	set_items = list(
-		/obj/item/gun/energy/e_gun,
+		/obj/item/gun/energy/e_gun/advtaser,
 	)
 
-/datum/voucher_set/security/primary/disabler_smg
+/datum/voucher_set/security/primary/pepperball
 	name = "Pepperball AGH"
 	description = "A slower firing handgun that fires 'pepperballs', which easily drop targets to the floor."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/pepperball/pepperball.dmi'
@@ -60,8 +58,6 @@
 /datum/voucher_set/security/primary/strobe_shield
 	name = "Strobe Shield"
 	description = "A shield with a built in, high intensity light capable of blinding and disorienting suspects. Takes regular handheld flashes as bulbs."
-	icon = 'icons/obj/weapons/shields.dmi'
-	icon_state = "flashshield"
 	set_items = list(
 		/obj/item/shield/riot/flash,
 	)
