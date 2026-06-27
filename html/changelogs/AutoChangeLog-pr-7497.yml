@@ -1,4 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - qol: "Adds a cooldown to the access denied sound effect on airlocks."

@@ -1,7 +1,0 @@
-author: "Macaroni"
-delete-after: True
-changes:
-  - rscadd: "Added a new suite of clothing options for each respective department guard."
-  - rscadd: "Changed all security outfit names to guard outfits to better blend with department guards."
-  - qol: "Standardized both blue sec and red sec in the SecVendor."
-  - image: "The security: winter coat, vested jacket, beret, cap, bomber, formal uniform, patrol cap, garrison, cape, caped gauntlet, modskin, dress, pantsuit, suit, miniskirt, ushanka, skirt, turtleneck, trousers, shorts, gloves, hazard vest, hazard jacket, armor vest, and flak vest have all been modularized and respectively gray scaled."

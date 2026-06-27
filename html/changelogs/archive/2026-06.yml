@@ -668,3 +668,73 @@
   timothymtorres:
   - code_imp: Add immunity checks for atmos traits for simple/basic mobs
   - bugfix: Fix deep fryer to be refillable
+2026-06-27:
+  Balls2zawall:
+  - rscadd: Following up on heightened interest in combat capable silicon units, Gorlex
+      Marauders now supply their operatives with a paired encryption key with every
+      posibrain requisition.
+  CabinetOnFire:
+  - qol: DNA console now automatically matches genetic data with any held genetic
+      sequence scanner, for more efficient geneticist shenanigans!
+  EnterTheJake:
+  - balance: The AI Upload Console now requires AI Uplaod access for laws to be uploaded
+      (Captain,HoP,RD), emag also works.
+  - balance: The hacked AI upload board can bypass the access requirement and has
+      had its time requirement removed.
+  - image: added 2 new overlays for the AI upload console.
+  Ghommie:
+  - balance: Wearing a hard hat or any helmet as a station drone will actually improve
+      your armor values now!
+  Iajret:
+  - bugfix: adaptation mutations are invisible once again
+  - balance: Adaptation genes can be stacked together
+  - balance: Thermal vision gene is back on the menu
+  Macaroni:
+  - rscadd: Added a new suite of clothing options for each respective department guard.
+  - rscadd: Changed all security outfit names to guard outfits to better blend with
+      department guards.
+  - qol: Standardized both blue sec and red sec in the SecVendor.
+  - image: 'The security: winter coat, vested jacket, beret, cap, bomber, formal uniform,
+      patrol cap, garrison, cape, caped gauntlet, modskin, dress, pantsuit, suit,
+      miniskirt, ushanka, skirt, turtleneck, trousers, shorts, gloves, hazard vest,
+      hazard jacket, armor vest, and flak vest have all been modularized and respectively
+      gray scaled.'
+  MacaroniCritter:
+  - map: Fixed a handful of minor discrepancies within Snowglobe
+  - bugfix: The Security Trousers no longer have a stray pixel
+  Melbert:
+  - bugfix: Icebox gulag console doesn't vanish from reality
+  - balance: Obsessions get moderately stronger grabs against their objective targets
+      (this includes their obsession and any other kill/theft targets they may have).
+  - balance: While standing near their obsession (for 20 seconds or if they are incapacitated),
+      Obsessions get slightly stronger grabs against anyone, rather than just their
+      objective targets.
+  - balance: While standing near their obsession (for 20 seconds or if they are incapacitated),
+      Obsessions get slight stamina damage resistance.
+  - balance: Obsession stammering has been reduced in severity a bit, and also becomes
+      less likely the longer you stand around your obsession.
+  - balance: Obsession emotes have been made a bit less obvious, and also become less
+      likely the longer you stand around your obsession.
+  - balance: Taking Psicodine or drinking alcohol will prevent Obsessions from stammering
+      or emoting around their obsession, but also disables their stamina resistance
+      and stronger grabs.
+  - balance: Obsessions get a "permanent" mood bonus for killing their obsession (until
+      they are revived).
+  - refactor: Obsessed has been refactored significantly. It will now play a lot nicer
+      with mindswaps. Report any oddities.
+  - refactor: Grab strength has been refactored a bit, primarily affects martial arts
+      and drunken brawling. Report any oddities.
+  Neocloudy:
+  - qol: Adds a cooldown to the access denied sound effect on airlocks.
+  WholeSaleDoor:
+  - image: Added new reskinned sabre sheath sprites, touched up from the original
+      captain's
+  - rscadd: Added these two officer sabre sheathes to the NTC gunset
+  - code_imp: "Renamed the company in the choice beacon to 'Nanotrasen\u2122'"
+  - code_imp: Added the distinction of a gun or a weapon to include swords in the
+      choice beacon's description.
+  - code_imp: Removed the NT sabre from the powercrepe list
+  - code_imp: Removed assistant's bane from the NT and shamshir sabre
+  vinylspiders:
+  - bugfix: fixed an issue where you could exceed the smartfridge's capacity by using
+      a plant bag
