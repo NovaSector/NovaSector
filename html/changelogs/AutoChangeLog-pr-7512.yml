@@ -1,9 +1,0 @@
-author: "WholeSaleDoor"
-delete-after: True
-changes:
-  - image: "Added new reskinned sabre sheath sprites, touched up from the original captain's"
-  - rscadd: "Added these two officer sabre sheathes to the NTC gunset"
-  - code_imp: "Renamed the company in the choice beacon to 'Nanotrasen™'"
-  - code_imp: "Added the distinction of a gun or a weapon to include swords in the choice beacon's description."
-  - code_imp: "Removed the NT sabre from the powercrepe list"
-  - code_imp: "Removed assistant's bane from the NT and shamshir sabre"
