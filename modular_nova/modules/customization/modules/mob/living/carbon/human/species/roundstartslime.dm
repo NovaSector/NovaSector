@@ -185,6 +185,8 @@
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	/// Quirks Cache upon death.
+	var/list/cached_quirks
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
@@ -264,6 +266,11 @@
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
 	var/atom/death_loc = victim.drop_location()
 	victim.unequip_everything()
+
+	// Cache quirks
+	if(victim.quirks && victim.quirks.len)
+		src.cached_quirks = victim.quirks.Copy()
+
 	// Drop the Brain/Core, and implants to the floor.
 	for(var/obj/item/organ/organs in victim)
 		if(istype(organs, /obj/item/organ/brain) || istype(organs, /obj/item/implant))
@@ -351,13 +358,14 @@
 	new_body.undershirt = "Nude"
 	new_body.socks = "Nude"
 
-	// Handle Blood and Quriks.
+	// Handle Blood
 	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
-	SSquirks.AssignQuirks(new_body, brainmob.client)
 
-	// Remove Quirk items.
-	for(var/obj/item/items in new_body.get_equipped_items(INCLUDE_POCKETS | INCLUDE_ACCESSORIES))
-		qdel(items)
+	// Handle Quirks
+	if(src.cached_quirks)
+		brainmob.quirks = src.cached_quirks
+		brainmob.transfer_quirk_datums(new_body)
+		src.cached_quirks = null
 
 	// Remove non-chest limbs.
 	for(var/obj/item/bodypart/part in new_body.bodyparts)
@@ -372,6 +380,10 @@
 	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 	return TRUE
+
+	// CORE DESTROY SECTION
+	// Ensure to
+
 
 // HEALING SECTION
 // Handles passive healing and water damage for slimes and water-breathing variants.
