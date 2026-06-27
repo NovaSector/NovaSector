@@ -240,7 +240,7 @@ GLOBAL_LIST_INIT(subspace_box_illustrations, list(
 
 // Fun Boxes and Spawners//
 // Nova Plushie Spawners, no filtering
-/obj/effect/spawner/random/entertainment/plushie/nova/
+/obj/effect/spawner/random/entertainment/plushie/nova
 	name = "nova sector plushies spawner"
 	icon_state = "plushie"
 	loot_subtype_path = /obj/item/toy/plush/nova

@@ -35,7 +35,7 @@
 		/obj/item/holosign_creator/cyborg,
 		/obj/item/stamp/chameleon,
 		/obj/item/borg_shapeshifter,
-		)
+	)
 	model_traits = list(TRAIT_NEGATES_GRAVITY, TRAIT_PUSHIMMUNE)
 	canDispose = TRUE
 	cyborg_base_icon = "tachi"

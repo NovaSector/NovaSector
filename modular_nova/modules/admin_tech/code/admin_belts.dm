@@ -44,12 +44,12 @@
 /obj/item/storage/belt/utility/admin/full/bluespace
 	name = "\improper bluespace technician's satchel"
 	desc = "A hand crafted satchel made of the finest materials, processes, and a creatively integrated bluespace anomaly core. \
-	This one was carefully prestocked and organized by a Central Command Quartermaster to service an engineering aligned technician."
+		This one was carefully prestocked and organized by a Central Command Quartermaster to service an engineering aligned technician."
 
 /obj/item/storage/belt/utility/admin/full/subspace
 	name = "\improper subspace technician's satchel"
 	desc = "A hand crafted satchel made of the finest materials, processes, and a creatively integrated bluespace anomaly core. \
-	This one was carefully prestocked and organized by a Central Command Quartermaster to offer an extreme selection of goodies."
+		This one was carefully prestocked and organized by a Central Command Quartermaster to offer an extreme selection of goodies."
 
 /obj/item/storage/belt/utility/admin/full/subspace/PopulateContents()
 	new	/obj/item/blueprints(src)
