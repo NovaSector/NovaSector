@@ -56,7 +56,7 @@
 					continue
 			uplink_items += item
 
-		uplink_handler.extra_purchasable += create_uplink_sales(num = rand(uplink_sales_min, uplink_sales_max), category = /datum/uplink_category/discounts, limiting_stock = -1, sale_items = uplink_items)
+		uplink_handler.extra_purchasable += create_uplink_sales(num = rand(uplink_sales_min, uplink_sales_max), category = /datum/uplink_category/discounts, limited_stock = -1, sale_items = uplink_items)
 
 /datum/antagonist/contractor/forge_objectives()
 	var/datum/objective/contractor_total/contract_objectives = new
