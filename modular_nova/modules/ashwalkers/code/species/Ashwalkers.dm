@@ -12,6 +12,7 @@
 /datum/species/lizard/ashwalker/on_species_gain(mob/living/carbon/carbon_target, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	ADD_TRAIT(carbon_target, TRAIT_ASHSTORM_IMMUNE, SPECIES_TRAIT)
+	ADD_TRAIT(carbon_target, TRAIT_TRIBAL_DEN_ACCESS, SPECIES_TRAIT)
 	RegisterSignal(carbon_target, COMSIG_MOB_ITEM_ATTACK, PROC_REF(mob_attack))
 	carbon_target.AddComponent(/datum/component/ash_age)
 	carbon_target.apply_status_effect(/datum/status_effect/ash_age)
@@ -20,6 +21,7 @@
 /datum/species/lizard/ashwalker/on_species_loss(mob/living/carbon/carbon_target)
 	. = ..()
 	REMOVE_TRAIT(carbon_target, TRAIT_ASHSTORM_IMMUNE, SPECIES_TRAIT)
+	REMOVE_TRAIT(carbon_target, TRAIT_TRIBAL_DEN_ACCESS, SPECIES_TRAIT)
 	UnregisterSignal(carbon_target, COMSIG_MOB_ITEM_ATTACK)
 	carbon_target.remove_faction(FACTION_ASHWALKER)
 

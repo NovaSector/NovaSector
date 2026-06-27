@@ -19,6 +19,7 @@
 #define issnail(A) (is_species(A, /datum/species/snail))
 #define isluminescent(A) (is_species(A, /datum/species/jelly/luminescent))
 #define isprimitivedemihuman(A) (is_species(A, /datum/species/human/felinid/primitive))
+#define istribal(A) (isashwalker(A) || isprimitivedemihuman(A))
 #define isrogue(A) (is_species(A, /datum/species/abductor/abductorweak))
 #define iskobold(A) (is_species(A, /datum/species/monkey/kobold))
 //Antags
