@@ -9813,6 +9813,11 @@
 "iKR" = (
 /turf/open/floor/iron/large,
 /area/centcom/interlink)
+"iLh" = (
+/obj/machinery/door/poddoor/ert,
+/obj/machinery/nova/fan/self_powered,
+/turf/open/floor/iron/smooth_large,
+/area/centcom/interlink)
 "iLp" = (
 /obj/structure/chair/sofa/bench{
 	dir = 1
@@ -15002,6 +15007,7 @@
 /obj/machinery/door/poddoor{
 	id = "interlink_shuttles"
 	},
+/obj/machinery/nova/fan/self_powered,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "pLm" = (
@@ -39557,11 +39563,11 @@ vLx
 vLx
 wTk
 wTk
-llq
-llq
-llq
-llq
-llq
+iLh
+iLh
+iLh
+iLh
+iLh
 wTk
 wTk
 gRu

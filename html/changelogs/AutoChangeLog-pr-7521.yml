@@ -1,0 +1,4 @@
+author: "MacaroniCritter"
+delete-after: True
+changes:
+  - map: "Fixed a handful of minor discrepancies within Snowglobe"
