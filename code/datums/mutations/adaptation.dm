@@ -10,12 +10,9 @@
 	mutation_traits = list(TRAIT_WADDLING)
 	mutation_icon = 'icons/mob/effects/genetics.dmi'
 
-/* // NOVA EDIT REMOVAL START - Removes the visual indicators.
 /datum/mutation/adaptation/New(datum/mutation/copymut)
 	. = ..()
 	conflicts = typesof(/datum/mutation/adaptation)
-
-*/ // NOVA EDIT REMOVAL END
 
 /datum/mutation/adaptation/cold
 	name = "Cold Adaptation"
