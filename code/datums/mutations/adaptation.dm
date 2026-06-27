@@ -10,7 +10,7 @@
 	mutation_traits = list(TRAIT_WADDLING)
 	mutation_icon = 'icons/mob/effects/genetics.dmi'
 
-/* // NOVA EDIT REMOVAL START - Removes the visual indicators.
+/* // NOVA EDIT REMOVAL START - Removes limit on amount of adaptationes one can have
 /datum/mutation/adaptation/New(datum/mutation/copymut)
 	. = ..()
 	conflicts = typesof(/datum/mutation/adaptation)
