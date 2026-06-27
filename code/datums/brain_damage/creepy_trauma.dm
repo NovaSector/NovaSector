@@ -226,7 +226,7 @@
 		// NOVA EDIT ADDITION START - Players in the interlink can't be obsession targets + Antag Optin
 		if(SSticker.IsRoundInProgress() && istype(get_area(crewmember.current), /area/centcom/interlink))
 			continue
-		if (!opt_in_disabled && crewmember.get_effective_opt_in_level() < ANTAG_OPT_IN_YES_KILL)
+		if (!opt_in_disabled && crewmember.get_effective_antag_opt_in_level() < ANTAG_OPT_IN_YES_KILL)
 			continue
 		// NOVA EDIT ADDITION END
 
