@@ -14,7 +14,6 @@
 /datum/mutation/adaptation/New(datum/mutation/copymut)
 	. = ..()
 	conflicts = typesof(/datum/mutation/adaptation)
-
 */ // NOVA EDIT REMOVAL END
 
 /datum/mutation/adaptation/cold

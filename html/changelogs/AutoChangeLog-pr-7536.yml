@@ -1,0 +1,4 @@
+author: "MacaroniCritter"
+delete-after: True
+changes:
+  - bugfix: "The Security Trousers no longer have a stray pixel"

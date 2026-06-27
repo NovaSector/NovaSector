@@ -680,8 +680,9 @@
 			use_energy(50 JOULES)
 			playsound(src, soundin = doorClose, vol = 30, vary = TRUE)
 		if(DOOR_DENY_ANIMATION)
-			if(feedback)
+			if(feedback && COOLDOWN_FINISHED(src, denied_sound_cd)) // NOVA EDIT CHANGE - ORIGINAL: if(feedback)
 				playsound(src, soundin = doorDeni, vol = 50, vary = FALSE, extrarange = 3)
+				COOLDOWN_START(src, denied_sound_cd, 4 SECONDS) // NOVA EDIT ADDITION - No spamming this sound, sorry
 			addtimer(CALLBACK(src, PROC_REF(handle_deny_end)), AIRLOCK_DENY_ANIMATION_TIME)
 
 /obj/machinery/door/airlock/proc/handle_deny_end()
