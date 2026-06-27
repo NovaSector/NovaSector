@@ -371,10 +371,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/ai/satellite/interior)
-"adf" = (
-/obj/structure/lattice,
-/turf/open/water/deep_beach/planet_surface,
-/area/ocean/generated)
 "adg" = (
 /obj/structure/lattice,
 /turf/open/misc/beach/sand/nofishy,
@@ -480,12 +476,8 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/entry)
 "adx" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 10
-	},
-/turf/open/water/deep_beach/planet_surface,
-/area/ocean)
+/turf/closed/mineral/random/stationside/ocean,
+/area/ocean/generated/friendly_mobs)
 "adB" = (
 /turf/open/water/deep_beach/lethal/planet_surface,
 /area/ocean/generated/rocky)
@@ -11085,10 +11077,6 @@
 /turf/open/water/beach/planet_surface,
 /area/ocean/generated/shallow)
 "bda" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 1
-	},
 /turf/open/water/deep_beach/planet_surface,
 /area/ocean)
 "bdc" = (
@@ -36610,10 +36598,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/cargo/drone_bay)
-"jmM" = (
-/obj/structure/lattice,
-/turf/open/misc/beach/coast,
-/area/ocean)
 "jmV" = (
 /turf/open/misc/beach/coast{
 	dir = 1
@@ -37749,11 +37733,6 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
-"jUD" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing,
-/turf/open/water/deep_beach/planet_surface,
-/area/ocean)
 "jUE" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/tile/neutral{
@@ -41087,11 +41066,6 @@
 /obj/structure/table,
 /turf/open/floor/circuit,
 /area/station/ai/upload/chamber)
-"lLF" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing,
-/turf/open/floor/plating,
-/area/ocean)
 "lLL" = (
 /obj/structure/table/reinforced,
 /obj/item/kirbyplants/organic/plant18{
@@ -52524,15 +52498,6 @@
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/station/commons/fitness)
-"rMX" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/misc/beach/coast{
-	dir = 8
-	},
-/area/ocean/monestary)
 "rNj" = (
 /turf/closed/wall/r_wall,
 /area/station/command/meeting_room/council)
@@ -52991,13 +52956,6 @@
 /obj/structure/lattice,
 /turf/open/water/beach/planet_surface,
 /area/ocean/generated/deep)
-"saE" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing,
-/turf/open/misc/beach/coast{
-	dir = 8
-	},
-/area/ocean/monestary)
 "saF" = (
 /obj/item/broken_bottle,
 /obj/effect/spawner/random/maintenance,
@@ -53237,13 +53195,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/ce)
-"sfh" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 5
-	},
-/turf/open/water/deep_beach/planet_surface,
-/area/ocean)
 "sgc" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/iron/dark,
@@ -65165,11 +65116,6 @@
 /obj/structure/table/wood,
 /turf/open/floor/iron,
 /area/station/science/breakroom)
-"ykh" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/effect/turf_decal/stripes/box,
-/turf/open/floor/plating,
-/area/ocean/generated)
 "ykT" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Dormitory";
@@ -71035,13 +70981,13 @@ pVS
 pVS
 pVS
 pVS
+adx
+adx
 qmo
 qmo
 qmo
-qmo
-qmo
-qmo
-qmo
+adx
+adx
 pVS
 pVS
 pVS
@@ -71291,14 +71237,14 @@ pVS
 pVS
 qmo
 qmo
+adx
+adx
+adx
 qmo
 qmo
 qmo
-qmo
-qmo
-qmo
-qmo
-qmo
+adx
+adx
 pVS
 pVS
 pVS
@@ -71549,13 +71495,13 @@ qmo
 qmo
 qmo
 qmo
+adx
+adx
 qmo
 qmo
 qmo
 qmo
-qmo
-qmo
-qmo
+adx
 pVS
 pVS
 pVS
@@ -71812,7 +71758,7 @@ qmo
 qmo
 qmo
 qmo
-qmo
+adx
 pVS
 pVS
 pVS
@@ -72069,7 +72015,7 @@ qmo
 qmo
 qmo
 qmo
-qmo
+adx
 pVS
 pVS
 pVS
@@ -72325,8 +72271,8 @@ qmo
 qmo
 qmo
 qmo
-qmo
-qmo
+adx
+adx
 pVS
 pVS
 pVS
@@ -72582,7 +72528,7 @@ qmo
 qmo
 qmo
 qmo
-qmo
+adx
 pVS
 pVS
 pVS
@@ -72827,19 +72773,19 @@ kMZ
 kMZ
 kMZ
 pRZ
-bcZ
 oSZ
 oSZ
 oSZ
 oSZ
 oSZ
+oSZ
 qmo
 qmo
 qmo
 qmo
 qmo
 qmo
-pVS
+wUZ
 pVS
 pVS
 pVS
@@ -73084,9 +73030,9 @@ ahr
 ahr
 aeE
 iYB
-kMZ
-pRZ
-bcZ
+mtB
+mtB
+oSZ
 oSZ
 oSZ
 oSZ
@@ -73096,7 +73042,7 @@ qmo
 qmo
 qmo
 pVS
-pVS
+wUZ
 pVS
 pVS
 oSZ
@@ -73341,10 +73287,10 @@ gaZ
 adg
 adl
 agu
-iYB
-iYB
-pRZ
-bcZ
+mtB
+mtB
+mtB
+oSZ
 oSZ
 oSZ
 oSZ
@@ -73353,7 +73299,7 @@ oSZ
 qmo
 qmo
 pVS
-pVS
+wUZ
 pVS
 pVS
 oSZ
@@ -73597,20 +73543,20 @@ ait
 ait
 sSZ
 gDC
-jmM
-tin
-iYB
-iYB
-pRZ
-bcZ
+cGv
+mtB
+mtB
+mtB
+mtB
 oSZ
-oSZ
+mAd
+mAd
 oSZ
 oSZ
 oSZ
 pVS
-pVS
-pVS
+wUZ
+wUZ
 pVS
 oSZ
 oSZ
@@ -73855,18 +73801,18 @@ oSZ
 fTW
 ait
 mJW
-bcZ
-tin
-iYB
-iYB
-kMZ
-pRZ
-bcZ
+oSZ
+mtB
+mtB
+mtB
+mtB
+cIE
+mAd
+mAd
 oSZ
 oSZ
-oSZ
-pVS
-pVS
+wUZ
+wUZ
 pVS
 pVS
 oSZ
@@ -74113,17 +74059,17 @@ oSZ
 oSZ
 oSZ
 oSZ
-bcZ
-tin
-aff
-iYB
-iYB
-pRZ
-bcZ
+oSZ
+mtB
+mtB
+mtB
+mtB
+mtB
+mAd
 oSZ
 pVS
-pVS
-pVS
+wUZ
+wUZ
 pVS
 oSZ
 oSZ
@@ -74372,15 +74318,15 @@ oSZ
 oSZ
 oSZ
 oSZ
-bcZ
-tin
-iYB
-iYB
-pRZ
-bcZ
+oSZ
+mtB
+mtB
+mtB
+mtB
+oSZ
 pVS
 pVS
-pVS
+wUZ
 pVS
 oSZ
 oSZ
@@ -74630,14 +74576,14 @@ oSZ
 oSZ
 oSZ
 oSZ
-bcZ
-tin
-iYB
-iYB
-pRZ
-adf
+oSZ
+mtB
+mtB
+mtB
+mtB
 pVS
 pVS
+wUZ
 pVS
 oSZ
 oSZ
@@ -74888,11 +74834,11 @@ oSZ
 oSZ
 oSZ
 oSZ
-bcZ
-tin
-iYB
-jUD
-ykh
+oSZ
+mtB
+mtB
+bda
+pVS
 pVS
 pVS
 oSZ
@@ -75146,10 +75092,10 @@ oSZ
 oSZ
 oSZ
 oSZ
-bcZ
-jof
-nuT
-dJE
+oSZ
+bda
+bda
+bda
 pVS
 pVS
 oSZ
@@ -75404,10 +75350,10 @@ oSZ
 oSZ
 oSZ
 oSZ
-uav
-nuT
-lLF
-adf
+bda
+bda
+bda
+pVS
 pVS
 oSZ
 oSZ
@@ -75661,10 +75607,10 @@ oSZ
 oSZ
 oSZ
 pVS
-ykh
+pVS
 bda
-arF
-adx
+bda
+bda
 oSZ
 oSZ
 oSZ
@@ -75918,11 +75864,11 @@ oSZ
 oSZ
 oSZ
 pVS
-adf
-sfh
-arF
-jUD
-bcZ
+pVS
+bda
+bda
+bda
+oSZ
 oSZ
 oSZ
 oSZ
@@ -76176,10 +76122,10 @@ oSZ
 pVS
 pVS
 pVS
-adf
+pVS
 bda
-iYB
-pRZ
+mtB
+mtB
 oSZ
 oSZ
 oSZ
@@ -76434,9 +76380,9 @@ pVS
 pVS
 pVS
 pVS
-sfh
-iYB
-aCM
+bda
+mtB
+mtB
 oSZ
 oSZ
 oSZ
@@ -76691,9 +76637,9 @@ pVS
 pVS
 pVS
 pVS
-adf
-iMa
-aCM
+pVS
+mtB
+mtB
 oSZ
 oSZ
 oSZ
@@ -76949,8 +76895,8 @@ pVS
 pVS
 pVS
 oSZ
-iMa
-aCM
+mtB
+mtB
 oSZ
 oSZ
 oSZ
@@ -77206,9 +77152,9 @@ pVS
 pVS
 oSZ
 oSZ
-iMa
-aCM
-bcZ
+mtB
+mtB
+oSZ
 oSZ
 oSZ
 oSZ
@@ -77463,9 +77409,9 @@ pVS
 pVS
 oSZ
 oSZ
-iMa
-iYB
-pRZ
+mtB
+mtB
+mtB
 oSZ
 oSZ
 oSZ
@@ -77720,9 +77666,9 @@ pVS
 oSZ
 oSZ
 oSZ
-tin
-iYB
-aCM
+mtB
+mtB
+mtB
 oSZ
 oSZ
 oSZ
@@ -77977,9 +77923,9 @@ oSZ
 oSZ
 oSZ
 oSZ
-bcZ
-iMa
-aCM
+oSZ
+mtB
+mtB
 oSZ
 cfN
 crO
@@ -78235,8 +78181,8 @@ oSZ
 oSZ
 oSZ
 oSZ
-iMa
-aCM
+mtB
+mtB
 cfN
 kdf
 bNr
@@ -78492,8 +78438,8 @@ oSZ
 oSZ
 cfN
 crO
-rMX
-saE
+crO
+crO
 kdf
 bNr
 bNr
