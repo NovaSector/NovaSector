@@ -178,7 +178,7 @@
 		if(!(layer & layers))
 			continue
 
-		var/layertext = mutant_bodyparts_layertext(bitflag_to_layer(layer))
+		var/layertext = mutant_bodyparts_layertext(all_layers[layer])
 		if ("m_[feature_key]_[get_base_icon_state()]_[layertext]_primary" in cached_mutant_icon_states)
 			sprite_datum.color_layer_names["1"] = "primary"
 		if ("m_[feature_key]_[get_base_icon_state()]_[layertext]_secondary" in cached_mutant_icon_states)
@@ -206,14 +206,14 @@
 			return TRUE
 	return FALSE
 
-/datum/bodypart_overlay/mutant/genital/bitflag_to_layer(layer)
+/datum/bodypart_overlay/mutant/genital/get_overlay(layer, obj/item/bodypart/limb)
 	if(layer == EXTERNAL_FRONT_UNDER_CLOTHES)
 		if(layer_mode_check() == TRUE)
-			return layer_above_all
+			layer = layer_above_all
 		else if(underwear_check() == FALSE)
-			return layer_above_undies
+			layer = layer_above_undies
 		else
-			return layer_below_undies
+			layer = layer_below_undies
 	else
 		return ..()
 

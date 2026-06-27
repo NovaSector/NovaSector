@@ -210,7 +210,7 @@
 
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = FEATURE_TAUR
-	layers = ALL_EXTERNAL_OVERLAYS | EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_FRONT_OVER
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND | EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_FRONT_OVER
 	color_source = ORGAN_COLOR_OVERRIDE
 
 	/// If this taur body can lay down
