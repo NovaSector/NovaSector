@@ -381,10 +381,6 @@
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 	return TRUE
 
-	// CORE DESTROY SECTION
-	// Ensure to
-
-
 // HEALING SECTION
 // Handles passive healing and water damage for slimes and water-breathing variants.
 /datum/species/jelly/proc/on_life(mob/living/carbon/human/slime, seconds_per_tick)
