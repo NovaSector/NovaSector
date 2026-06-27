@@ -45,14 +45,18 @@
 
 		var/list/uplink_items = list()
 		for(var/datum/uplink_item/item as anything in SStraitor.uplink_items)
-			if(item.item && !item.cant_discount && (item.purchasable_from & uplink_handler.uplink_flag) && item.cost >= TRAITOR_DISCOUNT_MIN_PRICE)
-				if(!length(item.restricted_roles) && !length(item.restricted_species))
-					uplink_items += item
+			if(!item.item || item.cant_discount)
+				continue
+			if(!(item.purchasable_from & uplink_handler.uplink_flag))
+				continue
+			if(item.cost < TRAITOR_DISCOUNT_MIN_PRICE)
+				continue
+			if(length(item.restricted_roles) || length(item.restricted_species))
+				if(!(uplink_handler.assigned_role in item.restricted_roles) && !(uplink_handler.assigned_species in item.restricted_species))
 					continue
-				if((uplink_handler.assigned_role in item.restricted_roles) || (uplink_handler.assigned_species in item.restricted_species))
-					uplink_items += item
-					continue
-		uplink_handler.extra_purchasable += create_uplink_sales(rand(uplink_sales_min, uplink_sales_max), /datum/uplink_category/discounts, -1, uplink_items)
+			uplink_items += item
+
+		uplink_handler.extra_purchasable += create_uplink_sales(num = rand(uplink_sales_min, uplink_sales_max), category = /datum/uplink_category/discounts, limiting_stock = -1, sale_items = uplink_items)
 
 /datum/antagonist/contractor/forge_objectives()
 	var/datum/objective/contractor_total/contract_objectives = new
