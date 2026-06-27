@@ -10,9 +10,11 @@
 	mutation_traits = list(TRAIT_WADDLING)
 	mutation_icon = 'icons/mob/effects/genetics.dmi'
 
+/* // NOVA EDIT REMOVAL START - Removes limit on amount of adaptations one can have
 /datum/mutation/adaptation/New(datum/mutation/copymut)
 	. = ..()
 	conflicts = typesof(/datum/mutation/adaptation)
+*/ // NOVA EDIT REMOVAL END
 
 /datum/mutation/adaptation/cold
 	name = "Cold Adaptation"
