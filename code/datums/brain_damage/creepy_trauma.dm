@@ -224,9 +224,9 @@
 		if(!ishuman(crewmember.current) || crewmember.current.stat == DEAD || !GET_CLIENT(crewmember.current))
 			continue
 		// NOVA EDIT ADDITION START - Players in the interlink can't be obsession targets + Antag Optin
-		if(SSticker.IsRoundInProgress() && istype(get_area(crewmember), /area/centcom/interlink))
+		if(SSticker.IsRoundInProgress() && istype(get_area(crewmember.current), /area/centcom/interlink))
 			continue
-		if (!opt_in_disabled && crewmember.mind?.get_effective_opt_in_level() < OPT_IN_YES_KILL)
+		if (!opt_in_disabled && crewmember.get_effective_opt_in_level() < OPT_IN_YES_KILL)
 			continue
 		// NOVA EDIT ADDITION END
 
