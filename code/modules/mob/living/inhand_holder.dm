@@ -80,6 +80,12 @@
 			qdel(src)
 		return FALSE
 	var/mob/living/released_mob = held_mob
+	// NOVA EDIT ADDITION - Clear held_mob before dropItemToGround so the Moved hook
+	// below doesn't re-enter release() recursively when the mob_holder lands on a turf.
+	// Without this, a thrown mob_holder qdels itself in the inner release() and the
+	// outer call's drop_location() returns null, runtime-crashing forceMove.
+	held_mob = null
+	// NOVA EDIT END
 	if(isliving(loc))
 		var/mob/living/captor = loc
 		if(display_messages)
