@@ -7892,6 +7892,7 @@
 #include "modular_nova\modules\ashwalkers\code\items\worm_tunnel.dm"
 #include "modular_nova\modules\ashwalkers\code\species\Ashwalkers.dm"
 #include "modular_nova\modules\ashwalkers\code\species\damage_datum.dm"
+#include "modular_nova\modules\ashwalkers\code\species\demiwalkers.dm"
 #include "modular_nova\modules\ashwalkers\code\turfs\closed_turfs.dm"
 #include "modular_nova\modules\ashwalkers\code\turfs\icemoon_tiles.dm"
 #include "modular_nova\modules\automapper\code\area_spawn_entries.dm"

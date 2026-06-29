@@ -26,5 +26,31 @@
 	brute_modifier = ASHWALKER_BRUTE_MODIFIER
 	burn_modifier = ASHWALKER_BURN_MODIFIER
 
+
+/obj/item/bodypart/head/ashwalker
+	brute_modifier = ASHWALKER_BRUTE_MODIFIER
+	burn_modifier = ASHWALKER_BURN_MODIFIER
+
+/obj/item/bodypart/chest/ashwalker
+	brute_modifier = ASHWALKER_BRUTE_MODIFIER
+	burn_modifier = ASHWALKER_BURN_MODIFIER
+	bodypart_traits = list(TRAIT_NO_UNDERWEAR)
+
+/obj/item/bodypart/arm/left/ashwalker
+	brute_modifier = ASHWALKER_BRUTE_MODIFIER
+	burn_modifier = ASHWALKER_BURN_MODIFIER
+
+/obj/item/bodypart/arm/right/ashwalker
+	brute_modifier = ASHWALKER_BRUTE_MODIFIER
+	burn_modifier = ASHWALKER_BURN_MODIFIER
+
+/obj/item/bodypart/leg/left/ashwalker
+	brute_modifier = ASHWALKER_BRUTE_MODIFIER
+	burn_modifier = ASHWALKER_BURN_MODIFIER
+
+/obj/item/bodypart/leg/right/ashwalker
+	brute_modifier = ASHWALKER_BRUTE_MODIFIER
+	burn_modifier = ASHWALKER_BURN_MODIFIER
+
 #undef ASHWALKER_BRUTE_MODIFIER
 #undef ASHWALKER_BURN_MODIFIER
