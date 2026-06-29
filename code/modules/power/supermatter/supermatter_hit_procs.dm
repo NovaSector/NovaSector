@@ -68,7 +68,12 @@
 	var/mob/living/carbon/jedi = user
 	to_chat(jedi, span_userdanger("That was a really dense idea."))
 	jedi.investigate_log("had [jedi.p_their()] brain dusted by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
-	jedi.ghostize()
+	// NOVA EDIT ADDITION START - Supermatter replacement
+	if(ishuman(user))
+		replace_with_clone(user)
+	else
+		jedi.ghostize()
+	// NOVA EDIT ADDITION END
 	var/obj/item/organ/brain/rip_u = locate(/obj/item/organ/brain) in jedi.organs
 	if(rip_u)
 		rip_u.Remove(jedi)
@@ -123,6 +128,45 @@
 		return
 
 	return ..()
+// NOVA EDIT ADDITION START - Replace crewmembers who get dusted with a fresh copy from the cloning vats at arrivals.
+/obj/machinery/power/supermatter_crystal/proc/replace_with_clone(mob/living/carbon/human/replaced_person)
+	if(!replaced_person || !replaced_person.mind || (replaced_person.mind && istype(replaced_person.mind.assigned_role, /datum/job/unassigned)))
+		return // NT don't give a shit about replacing this person, they're either not a player, not crew or not a player with a job
+	var/datum/mind/our_mind = replaced_person.mind
+	var/atom/destination = our_mind.assigned_role.get_latejoin_spawn_point()
+	// A lot of this is copied from new_player, but we need to run through a lot of this boiler-plate to "properly" make a "just late-joined" character.
+	if(!destination)
+		CRASH("Failed to find a latejoin spawn point.")
+	our_mind.active = FALSE
+	if(!replaced_person.client)
+		CRASH("Client disconnected before we could make the replacement mob.")
+	var/mob/living/carbon/human/spawning_mob = our_mind.assigned_role.get_spawn_mob(replaced_person.client, destination)
+	our_mind.transfer_to(spawning_mob)
+	// Notably we do NOT set original character here, because this is not their actual original character.
+	spawning_mob.PossessByPlayer(replaced_person.ckey)
+	to_chat(spawning_mob, span_userdanger("You have forgotten everything you did this shift. You are left with a horrible sense of Deja Vu."))
+	var/area/joined_area = get_area(spawning_mob.loc)
+	if(joined_area)
+		joined_area.on_joining_game(spawning_mob)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CREWMEMBER_JOINED, spawning_mob, spawning_mob.mind.assigned_role.title)
+	SSjob.equip_rank(spawning_mob, our_mind.assigned_role, spawning_mob.client)
+	our_mind.assigned_role.after_latejoin_spawn(spawning_mob)
+	spawning_mob.increment_scar_slot()
+	spawning_mob.load_persistent_scars()
+	SSpersistence.load_modular_persistence(spawning_mob.get_organ_slot(ORGAN_SLOT_BRAIN))
+	if(GLOB.curse_of_madness_triggered)
+		give_madness(spawning_mob, GLOB.curse_of_madness_triggered)
+	if(our_mind.assigned_role.job_flags & JOB_ASSIGN_QUIRKS)
+		if(CONFIG_GET(flag/roundstart_traits))
+			SSquirks.AssignQuirks(spawning_mob, spawning_mob.client)
+	else
+		spawning_mob.clear_personalities()
+	var/list/loadout = spawning_mob.client?.get_loadout_datums()
+	for(var/datum/loadout_item/item as anything in loadout)
+		if (item.restricted_roles && length(item.restricted_roles) && !(our_mind.assigned_role.title in item.restricted_roles))
+			continue
+		item.post_equip_item(spawning_mob.client?.prefs, spawning_mob)
+// NOVA EDIT ADDITION END
 
 //Do not blow up our internal radio
 /obj/machinery/power/supermatter_crystal/contents_explosion(severity, target)
