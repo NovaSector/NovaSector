@@ -58,11 +58,15 @@
 	//Flash
 	var/attempt_flash = living_mob.flash_act(affect_silicon = 1)
 	if(attempt_flash == FLASH_COMPLETED)
+		/* // NOVA EDIT REMOVAL START
 		if(distance <= sweetspot_range || issilicon(living_mob))
 			living_mob.Paralyze(max(20/max(1, distance), 5))
 			living_mob.Knockdown(max(200/max(1, distance), 60))
 		else
 			living_mob.adjust_dizzy_up_to(max(200/max(1, distance), 5), 20 SECONDS)
+		living_mob.adjust_dizzy_up_to(max(200/max(1, distance), 5), 20 SECONDS)
+		*/ // NOVA EDIT REMOVAL END
+		living_mob.adjust_dizzy_up_to(max(200/max(1, distance), 5), 20 SECONDS) // NOVA EDIT ADDITION
 		living_mob.dropItemToGround(living_mob.get_active_held_item())
 		living_mob.dropItemToGround(living_mob.get_inactive_held_item())
 
@@ -71,15 +75,15 @@
 		return
 
 	if(!distance)
-		living_mob.soundbang_act(SOUNDBANG_OVERWHELMING, 20 SECONDS, 10, 15)
+		living_mob.soundbang_act(SOUNDBANG_OVERWHELMING, stun_pwr = 0 SECONDS, damage_pwr = 10, deafen_pwr = 15 SECONDS) // NOVA EDIT CHANGE - Remove stuns from flashbangs - ORIGINAL: living_mob.soundbang_act(SOUNDBANG_OVERWHELMING, 20 SECONDS, 10, 15)
 		return
 
 	if(distance <= 1) // Adds more stun as to not prime n' pull (#45381)
-		living_mob.soundbang_act(SOUNDBANG_STRONG, 3 SECONDS, 5)
+		living_mob.soundbang_act(SOUNDBANG_STRONG, stun_pwr = 0 SECONDS, damage_pwr = 5) // NOVA EDIT CHANGE - Remove stuns from flashbangs - ORIGINAL: living_mob.soundbang_act(SOUNDBANG_STRONG, 3 SECONDS, 5)
 		return
 
 	if(distance <= sweetspot_range)
-		living_mob.soundbang_act(SOUNDBANG_NORMAL, max(20 SECONDS / max(1, distance), 60), rand(0, 5))
+		living_mob.soundbang_act(SOUNDBANG_NORMAL, stun_pwr = 0 SECONDS, damage_pwr = rand(0, 5)) // NOVA EDIT CHANGE - Remove stuns from flashbangs - ORIGINAL: living_mob.soundbang_act(SOUNDBANG_NORMAL, max(20 SECONDS / max(1, distance), 60), rand(0, 5))
 		return
 
 	if(!living_mob.soundbang_act(SOUNDBANG_NORMAL, 0, rand(0, 2)))
