@@ -478,7 +478,7 @@
 			victim.set_eye_blur_if_lower(10 SECONDS)
 			victim.set_temp_blindness_if_lower(6 SECONDS)
 			victim.set_confusion_if_lower(5 SECONDS)
-			victim.Knockdown(3 SECONDS)
+			//victim.Knockdown(3 SECONDS) // NOVA EDIT REMOVAL - Disables pepper-spray knockdowns
 			victim.add_movespeed_modifier(/datum/movespeed_modifier/reagent/pepperspray)
 			addtimer(CALLBACK(victim, TYPE_PROC_REF(/mob, remove_movespeed_modifier), /datum/movespeed_modifier/reagent/pepperspray), 10 SECONDS)
 			ADD_TRAIT(victim, TRAIT_ANOSMIA, type)
