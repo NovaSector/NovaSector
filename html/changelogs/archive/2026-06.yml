@@ -738,3 +738,6 @@
   vinylspiders:
   - bugfix: fixed an issue where you could exceed the smartfridge's capacity by using
       a plant bag
+2026-06-29:
+  StrangeWeirdKitten:
+  - bugfix: ''' and " works again'
