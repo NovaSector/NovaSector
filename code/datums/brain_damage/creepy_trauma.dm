@@ -221,7 +221,7 @@
 
 	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences) // NOVA EDIT ADDITION - ANTAG OPT-IN
 	for(var/datum/mind/crewmember as anything in get_crewmember_minds())
-		if(!ishuman(crewmember.current) || crewmember.current.stat == DEAD || !GET_CLIENT(crewmember.current))
+		if(!ishuman(crewmember.current) || crewmember.current.stat == DEAD || crewmember.current == owner || !GET_CLIENT(crewmember.current))
 			continue
 		// NOVA EDIT ADDITION START - Players in the interlink can't be obsession targets + Antag Optin
 		if(SSticker.IsRoundInProgress() && istype(get_area(crewmember.current), /area/centcom/interlink))
