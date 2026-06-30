@@ -1,0 +1,51 @@
+## Title: Psionics
+
+MODULE ID: PSIONICS
+
+### Description:
+
+Adds a standalone psionics system. Psions spend imprint points on disciplines, build strain when using them, and burn out if they push too hard.
+
+Psionics are not spells. They do not use spell actions or antimagic checks; blocking and suppression go through psionic signals, psionic components, and `TRAIT_PSIONIC_DAMPENER`.
+
+### Features:
+
+- `Psionic Gift` quirk, with rank and manifestation color preferences.
+- `Psionic Resonance` mutation, which awakens a rolled psionic rank.
+- Psionic imprinting TGUI and strain HUD.
+- Rank ladder from Lambda to Alpha. Delta and above start capped to Gamma by a psionic limiter implant when gained from the roundstart quirk; ranks above Gamma also get gun restriction traits.
+- Individual power cooldowns, profile strain, burnout, and rank-specific power forms where needed.
+- Psionic dampener cuffs, a psionic dampener head item, and reusable protection/restriction components.
+- School commitment and anomaly-core attunement, both of which reduce strain in that school.
+
+### TG Proc/File Changes:
+
+N/A for direct TG proc overrides.
+
+### Modular Overrides / External Files:
+
+- `code/__DEFINES/~nova_defines/traits/declarations.dm`
+  - Adds `TRAIT_PSIONIC_DAMPENER`.
+- `modular_nova/master_files/code/modules/research/techweb/all_nodes.dm`
+  - Adds `psionic_dampener_cuffs` to riot suppression research.
+- `modular_nova/modules/implants/code/medical_nodes.dm`
+  - Adds `ci-psionic-limiter` to cybernetic implant research.
+- `tgui/packages/tgui/interfaces/PsionicImprinting.tsx`
+- `tgui/packages/tgui/styles/interfaces/PsionicImprinting.scss`
+- `tgui/packages/tgui/styles/assets/psionic-*.svg`
+- `tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/character_preferences/nova/psionics.tsx`
+
+### Defines:
+
+- `modular_nova/modules/psionics/code/_defines.dm`
+  - Psionic ranks, sources, schools, strain defaults, psionic flags, signal names, and component return flags.
+- `code/__DEFINES/~nova_defines/traits/declarations.dm`
+  - `TRAIT_PSIONIC_DAMPENER`
+
+### Notes for adding powers:
+
+Power files live in `code/power`. Keep each concrete power in its own file with its `/datum/psionic_power` entry, action type, rank variants if any, and owned helper objects or projectiles.
+
+Most metadata lives on the action. The `/datum/psionic_power` entry exposes the action to the imprinting tree and declares tree-only requirements such as prerequisites or spent school points.
+
+Use `mob/living/proc/awaken_psionics()` and `revoke_psionics()` for new sources. Use psionic flags and `can_block_psionics()` / `can_cast_psionics()` for counters instead of spell or antimagic hooks.
