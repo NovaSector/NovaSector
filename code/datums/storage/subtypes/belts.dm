@@ -15,10 +15,11 @@
 ///Medical belt
 /datum/storage/medical_belt
 	max_total_storage = 21
+	exception_max = 1
 
 /datum/storage/medical_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-	set_holdable(list(
+	set_holdable(can_hold_list = list(
 		/obj/item/bikehorn/rubberducky,
 		/obj/item/blood_filter,
 		/obj/item/blood_scanner,
@@ -33,7 +34,6 @@
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/neck/stethoscope,
 		/obj/item/construction/plumbing,
-		/obj/item/crowbar/power/paramedic,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
 		/obj/item/flashlight/pen,
@@ -80,11 +80,14 @@
 		// NOVA EDIT ADDITION START
 		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown,
 		/obj/item/hypospray/mkii,
-		/obj/item/storage/hypospraykit/,
+		/obj/item/storage/hypospraykit,
 		/obj/item/reagent_containers/cup/vial,
 		/obj/item/weaponcell/medical,
 		/obj/item/handheld_soulcatcher,
 		// NOVA EDIT ADDITION END
+	),
+	exception_hold_list = list(
+		/obj/item/crowbar/power/paramedic,
 	))
 
 ///Security belt
