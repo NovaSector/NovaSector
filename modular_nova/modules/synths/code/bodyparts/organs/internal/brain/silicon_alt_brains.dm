@@ -120,6 +120,8 @@
 
 /mob/living/silicon/robot/Initialize(mapload)
 	. = ..()
+	//gives interactable menu to silicons
+	AddComponent(/datum/component/interactable)
 	// Intentionally set like this, because people have different lore for their cyborgs, and there's no real non-invasive way to print posibrains that match.
 	RegisterSignal(src, COMSIG_MOB_MIND_TRANSFERRED_INTO, PROC_REF(on_mob_mind_transferred_into))
 

@@ -6,15 +6,28 @@ import { Window } from '../../layouts';
 import { InfoSection } from './InfoSection';
 import { MainContent } from './MainContent';
 
+type SimulatedGenital = {
+  name: string;
+  active: BooleanLike;
+};
+
 type Interaction = {
   self;
   use_subtler;
   erp_interaction: BooleanLike;
+  has_erp_interaction: BooleanLike;
+  simulated_genitals?: SimulatedGenital[];
 };
 
 export function InteractionPanel() {
   const { act, data } = useBackend<Interaction>();
-  const { self, use_subtler, erp_interaction, has_erp_interaction } = data;
+  const {
+    self,
+    use_subtler,
+    erp_interaction,
+    has_erp_interaction,
+    simulated_genitals,
+  } = data;
 
   return (
     <Window width={500} height={600} title={`Interact - ${self}`}>
@@ -39,6 +52,27 @@ export function InteractionPanel() {
               >
                 Use Subtler
               </Button.Checkbox>
+            </LabeledList>
+          </Section>
+        )}
+
+        {!!simulated_genitals?.length && (
+          <Section title="Simulated Slots">
+            <LabeledList>
+              {simulated_genitals.map((slot) => (
+                <Button.Checkbox
+                  key={slot.name}
+                  checked={!!slot.active}
+                  onClick={() =>
+                    act('toggle_genital_active', {
+                      genital: slot.name,
+                    })
+                  }
+                  tooltip={`Toggle ${slot.name} interactions`}
+                >
+                  {slot.name.charAt(0).toUpperCase() + slot.name.slice(1)}
+                </Button.Checkbox>
+              ))}
             </LabeledList>
           </Section>
         )}
