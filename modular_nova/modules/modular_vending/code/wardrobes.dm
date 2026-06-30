@@ -22,7 +22,6 @@
 		/obj/item/clothing/under/rank/medical/doctor_bunnysuit = 3,
 		/obj/item/clothing/under/rank/medical/paramedic_bunnysuit = 3,
 	)
-	premium_nova = list(/obj/item/clothing/gloves/latex/nitrile/ntrauma = 2,)
 
 /obj/machinery/vending/wardrobe/coroner_wardrobe
 	products_nova = list(
