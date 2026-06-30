@@ -813,6 +813,25 @@ export const pod_hair_emissive: Feature<boolean> = {
   component: CheckboxInput,
 };
 
+export const fourarms_toggle: FeatureToggle = {
+  name: 'Quad Arms',
+  component: CheckboxInput,
+};
+
+export const feature_fourarms: Feature<string> = {
+  name: 'Quad Arms Selection',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const fourarms_color: Feature<string[]> = {
+  name: 'Quad Arms Color',
+  component: FeatureTriColorInput,
+};
+
 export const holo_color: Feature<string> = {
   name: 'Holosynth Color',
   component: FeatureColorInput,
