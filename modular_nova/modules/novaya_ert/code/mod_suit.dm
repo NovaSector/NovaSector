@@ -159,6 +159,16 @@
 	. = ..()
 	create_reagents(reagent_max_amount)
 
+/obj/item/mod/module/auto_doc/on_install()
+	. = ..()
+	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_refill))
+	RegisterSignal(mod, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp))
+
+/obj/item/mod/module/auto_doc/on_uninstall(deleting = FALSE)
+	. = ..()
+	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
+	UnregisterSignal(mod, COMSIG_ATOM_EMP_ACT)
+
 /obj/item/mod/module/auto_doc/on_active_process(seconds_per_tick)
 	if(!reagents.has_reagent(reagent_required, reagent_required_amount))
 		balloon_alert(mod.wearer, "not enough chems!")
@@ -185,24 +195,24 @@
 	if(mod.wearer.health < health_threshold)
 		if(!COOLDOWN_FINISHED(src, heal_timer))
 			return FALSE
-		if(new_oxyloss && reagents.total_volume >= reagent_required_amount * seconds_per_tick)
+		if(new_oxyloss && !mod.wearer.reagents.has_reagent(/datum/reagent/medicine/salbutamol) && reagents.total_volume >= reagent_required_amount * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/items/internals/internals_on.ogg', 25, TRUE)
 			reagents.remove_reagent(reagent_required, reagent_required_amount * seconds_per_tick)
 			to_chat(mod.wearer, span_warning("Blood oxygen saturated."))
-		if(new_bruteloss && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
+		if(new_bruteloss && !mod.wearer.reagents.has_reagent(/datum/reagent/medicine/sal_acid) && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/sal_acid, 2.5 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
 			reagents.remove_reagent(reagent_required, reagent_required_amount * seconds_per_tick)
 			to_chat(mod.wearer, span_warning("Wound treatment administered."))
-		if(new_fireloss && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
+		if(new_fireloss && !mod.wearer.reagents.has_reagent(/datum/reagent/medicine/oxandrolone) && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 2.5 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
 			reagents.remove_reagent(reagent_required, reagent_required_amount * seconds_per_tick)
 			to_chat(mod.wearer, span_warning("Ointment applied."))
-		if(new_toxloss && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
+		if(new_toxloss && !mod.wearer.reagents.has_reagent(/datum/reagent/medicine/pen_acid) && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 			reagents.remove_reagent(reagent_required, reagent_required_amount * seconds_per_tick)
@@ -210,7 +220,7 @@
 		drain_power(use_energy_cost * seconds_per_tick)
 		COOLDOWN_START(src, heal_timer, general_cooldown)
 
-	if(new_stamloss > health_threshold && reagents.total_volume >= reagent_required_amount * seconds_per_tick)
+	if(new_stamloss > health_threshold && !mod.wearer.reagents.has_reagent(/datum/reagent/drug/cocaine) && reagents.total_volume >= reagent_required_amount * seconds_per_tick)
 		if(!COOLDOWN_FINISHED(src, stamina_timer))
 			return FALSE
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/morphine, 2.5 * seconds_per_tick)
@@ -221,10 +231,7 @@
 		drain_power(use_energy_cost * seconds_per_tick)
 		COOLDOWN_START(src, stamina_timer, general_cooldown)
 
-/obj/item/mod/module/auto_doc/emp_act(severity)
-	. = ..()
-	on_emp(src, severity, .)
-
+/// Fills you with chemicals that make frogs gay.
 /obj/item/mod/module/auto_doc/proc/on_emp(datum/source, severity, protection)
 	SIGNAL_HANDLER
 	if(protection & EMP_PROTECT_SELF)
@@ -243,23 +250,14 @@
 	balloon_alert(mod.wearer, "charge reloaded!")
 	return TRUE
 
-/obj/item/mod/module/auto_doc/on_install()
-	. = ..()
-	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_refill))
-	RegisterSignal(mod, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp))
-
-/obj/item/mod/module/auto_doc/on_uninstall(deleting = FALSE)
-	. = ..()
-	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
-	UnregisterSignal(mod, COMSIG_ATOM_EMP_ACT)
-
+/// Attempts to transfer the chemicals from the attacking item to the module's reagents storage.
 /obj/item/mod/module/auto_doc/proc/try_refill(source, mob/user, obj/item/attacking_item)
 	SIGNAL_HANDLER
 	if(charge_boost(attacking_item))
 		return COMPONENT_NO_AFTERATTACK
 	return NONE
 
-/// With a certain chance, triggers a spontaneous injection of protozine into the user's bloodstream; suit design's rather ancient and prone to mishaps.
+/// With a certain chance, triggers a spontaneous injection of protozine into the user's bloodstream.
 /obj/item/mod/module/auto_doc/proc/heal_aftereffects(mob/affected_mob)
 	if(!affected_mob)
 		return
