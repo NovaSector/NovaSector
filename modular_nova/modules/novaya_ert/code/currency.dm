@@ -126,11 +126,12 @@
 
 /obj/item/coin/mark/forge_mark/attack_self(mob/user)
 	if(icon_state == "coin_forge_mark_down")
-		to_chat(user, span_warning("You flip [src] over to its correct side."))
+		to_chat(user, span_notice("You flip [src] over to its correct side."))
 		icon_state = "coin_forge_mark_up"
 		update_appearance()
 		return TRUE
 	else
-		to_chat(user, span_warning("You heave [src] a bit, intending to flip it, before realizing that tossing a clumsy \
-		quarter-kilogram ingot of tungsten carbide into the air is somewhat ill-advised!") )
-		return FALSE
+		to_chat(user, span_notice("You flip [src] over to its incorrect side."))
+		icon_state = "coin_forge_mark_down"
+		update_appearance()
+		return TRUE
