@@ -186,6 +186,8 @@
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	/// Quirks Cache upon death.
+	var/list/cached_quirks
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
@@ -265,10 +267,23 @@
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
 	var/atom/death_loc = victim.drop_location()
 	victim.unequip_everything()
-	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
-		Remove(victim)
+
+	// Cache quirks
+	if(victim.quirks && victim.quirks.len)
+		src.cached_quirks = victim.quirks.Copy()
+
+	// Drop the Brain/Core, and implants to the floor.
+	for(var/obj/item/organ/organs in victim)
+		if(istype(organs, /obj/item/organ/brain) || istype(organs, /obj/item/implant))
+			Remove(organs, special = TRUE)
 	if(death_loc)
 		forceMove(death_loc)
+		// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
+		for(var/obj/item/organ/spilled_organ in death_loc)
+			if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
+				continue
+			else
+				qdel(spilled_organ)
 	src.wash(CLEAN_WASH)
 	new death_melt_type(death_loc, victim.dir)
 
@@ -278,7 +293,7 @@
 	if(gps_active) // adding the gps signal if they have activated the ability
 		AddComponent(/datum/component/gps, "[victim]'s Core")
 
-	qdel(victim)
+	qdel(victim) // Remove the body.
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 /**
@@ -302,24 +317,24 @@
 	brainmob?.notify_revival("You are being revived!", sound = null, source = src) // no sound since it's a whopping 60 second wait time after this
 	if(!do_after(user, 60 SECONDS, src))
 		to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
-		return TRUE
+		return FALSE
 
 	user.visible_message(
 		span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."),
 		span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane.")
 	)
-	item.reagents.clear_reagents() //removes the whole shit
 	if(isnull(brainmob))
 		user.balloon_alert(user, "brain is not a viable candidate for repair!")
-		return TRUE
-
+		return FALSE
 	brainmob.grab_ghost()
 	if(isnull(brainmob.stored_dna))
 		user.balloon_alert(user, "brain does not contain any dna!")
-		return TRUE
+		return FALSE
 	if(isnull(brainmob.client))
 		user.balloon_alert(user, "brain does not contain a mind!")
-		return TRUE
+		return FALSE
+
+	item.reagents.clear_reagents() // Consume the Plasma.
 	regenerate()
 	return TRUE
 
@@ -330,28 +345,39 @@
 		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
 
+	// Make a new body for them to put the brain in, and move the brain into it, effectively reviving them.
+	// This uses a basic human as a base
 	var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
 
-	brainmob.client?.prefs?.safe_transfer_prefs_to(new_body)
+	// Transfer player prefrences to the new body
+	if(brainmob.client)
+		brainmob.client.prefs.safe_transfer_prefs_to(new_body)
+
+	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
 	new_body.underwear = "Nude"
 	new_body.bra = "Nude"
-	new_body.undershirt = "Nude" //Which undershirt the player wants
-	new_body.socks = "Nude" //Which socks the player wants
-	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
-	new_body.dna.features[FEATURE_MUTANT_COLOR] = new_body.dna.features[FEATURE_MUTANT_COLOR]
-	new_body.dna.update_uf_block(FEATURE_MUTANT_COLOR)
-	new_body.real_name = new_body.dna.real_name
-	new_body.name = new_body.dna.real_name
-	new_body.updateappearance(mutcolor_update=1)
-	new_body.domutcheck()
-	new_body.forceMove(get_turf(src))
+	new_body.undershirt = "Nude"
+	new_body.socks = "Nude"
+
+	// Handle Blood
 	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
-	SSquirks.AssignQuirks(new_body, brainmob.client)
-	src.replace_into(new_body)
-	for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
-		if(!istype(bodypart, /obj/item/bodypart/chest))
-			bodypart.drop_limb()
+
+	// Handle Quirks
+	if(src.cached_quirks)
+		brainmob.quirks = src.cached_quirks
+		brainmob.transfer_quirk_datums(new_body)
+		src.cached_quirks = null
+
+	// Remove non-chest limbs.
+	for(var/obj/item/bodypart/part in new_body.bodyparts)
+		if(part.body_zone == BODY_ZONE_CHEST)
 			continue
+		part.drop_limb(TRUE)
+
+	// Move the brain/core into the new body
+	src.replace_into(new_body)
+
+	// Notify the player that their body has been rebuilt
 	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 	return TRUE
