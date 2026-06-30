@@ -300,7 +300,7 @@
 		span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards...")
 	)
 	brainmob?.notify_revival("You are being revived!", sound = null, source = src) // no sound since it's a whopping 60 second wait time after this
-	if(!do_after(user, 60 SECONDS, src))
+	if(!do_after(user, 15 SECONDS, src))
 		to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
 		return TRUE
 
@@ -308,7 +308,6 @@
 		span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."),
 		span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane.")
 	)
-	item.reagents.clear_reagents() //removes the whole shit
 	if(isnull(brainmob))
 		user.balloon_alert(user, "brain is not a viable candidate for repair!")
 		return TRUE
@@ -320,6 +319,7 @@
 	if(isnull(brainmob.client))
 		user.balloon_alert(user, "brain does not contain a mind!")
 		return TRUE
+	item.reagents.remove_reagent(/datum/reagent/toxin/plasma, 100) // Consumes the plasma
 	regenerate()
 	return TRUE
 
@@ -345,7 +345,7 @@
 	new_body.updateappearance(mutcolor_update=1)
 	new_body.domutcheck()
 	new_body.forceMove(get_turf(src))
-	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
+	new_body.set_blood_volume(BLOOD_VOLUME_NORMAL + 200)
 	SSquirks.AssignQuirks(new_body, brainmob.client)
 	src.replace_into(new_body)
 	for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
