@@ -9,7 +9,7 @@
 		demands mathematical perfection — a Mark can be divided into 128 equal parts, and so it shall be. \
 		The name is a relic of a darker era: before the Matrix's failsafes made 'coin-shaving' \
 		(physically clipping edges off coins to hoard metal) impossible. The hexagonal shape was chosen specifically to make such tampering \
-		detectable. These days, Shavings are minted by the millions, stacked in KMIF vaults, and almost never see the light of day. \
+		detectable. These days, Shavings are minted by the quadrillions, stacked in KMIF vaults, and almost never see the light of day. \
 		When a transaction requires fractions of a Mark, Soft Mark digital ledgers handle it. The physical Shaving is a ghost, a currency that exists \
 		mostly as a concept. Rim-world traders have been known to accept 'half a Shaving' by snapping a flake with their teeth, a practice that \
 		ruins the edge and drives logistics officers insane. The old Rim saying goes: 'A Shaving in the hand is worth a Soft Mark in the cloud', \
