@@ -22,7 +22,7 @@
 	/// Default wait time until can stun again.
 	var/cooldown = (4 SECONDS)
 	/// The length of the knockdown applied to a struck living, non-cyborg mob.
-	var/knockdown_time = (1.5 SECONDS)
+	var/knockdown_time = (0.25 SECONDS) // NOVA EDIT CHANGE - Nerfs baton knockdowns. - ORIGINAL: var/knockdown_time = (1.5 SECONDS)
 	/// If affect_cyborg is TRUE, this is how long we stun cyborgs for on a hit.
 	var/stun_time_cyborg = (5 SECONDS)
 	/// The length of the knockdown applied to the user on clumsy_check()
@@ -341,6 +341,7 @@
 	pickup_sound = 'sound/items/baton/telescopic_baton_folded_pickup.ogg'
 	drop_sound = 'sound/items/baton/telescopic_baton_folded_drop.ogg'
 	sound_vary = TRUE
+	knockdown_time = (0.1 SECONDS) // NOVA EDIT ADDITION
 	/// The sound effecte played when our baton is extended.
 	var/on_sound = 'sound/items/weapons/batonextend.ogg'
 	/// The inhand iconstate used when our baton is extended.
@@ -697,7 +698,7 @@
 	target.set_stutter_if_lower(16 SECONDS * (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
-	addtimer(CALLBACK(src, PROC_REF(apply_stun_effect_end), target), 2 SECONDS)
+	//addtimer(CALLBACK(src, PROC_REF(apply_stun_effect_end), target), 2 SECONDS) // NOVA EDIT REMOVAL - Disables knockdown on stun-batons.
 
 /// After the initial stun period, we check to see if the target needs to have the stun applied.
 /obj/item/melee/baton/security/proc/apply_stun_effect_end(mob/living/target)
