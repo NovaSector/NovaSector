@@ -60,7 +60,6 @@ subclass admin capsules for useful testing setups, such as instant departments a
 find a solution for reach_length passing a collisions check for BST radio headset. TRAIT_SKIP_BASIC_REACH_CHECK.
 /obj/item/pen/screwdriver/get_all_tool_behaviours()
 return list(TOOL_SCREWDRIVER)
-admin manufacturing company
 strip speed checks on admin items
 check traits list from protean mage cloak you made on the syndiehomepod
 investigate robotact pda app functionality
@@ -69,3 +68,4 @@ update the syndie infiltration module, dont subtype, make a new bespoke one for 
 Fix digi icons for suits
 Instant no effect spawn option
 Admin donk pockets
+desc = parent_type::desc + "To be used on subspace variants for bonus flavor"

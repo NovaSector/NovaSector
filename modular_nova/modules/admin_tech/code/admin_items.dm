@@ -5,7 +5,10 @@
 //! TODO:
 //! - pickup people or machines with it too? wouldn't that be cool
 //! - click interaction inspects
+// We should probably make an /obj/item base flag or a proc to run on /obj/'s for is_admin_thing which adaptively applies coverage
+/* Admin Item Flags Start
 
+*/
 /obj/item/storage/bag/admin
 	name = "bluespace pocket"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials."
@@ -1396,11 +1399,11 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	/// The item we turn into when repacked
 	repacked_type = /obj/item/flatpacked_machine
 	/// The sound loop played while the fabricator is making something
-//	var/datum/looping_sound/colony_fabricator_running/soundloop
+	//var/datum/looping_sound/colony_fabricator_running/soundloop
+
 /obj/machinery/rnd/production/colony_lathe/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
-
 
 /obj/item/flatpacked_machine/admin
 	name = "flat-packed rapid construction fabricator"
