@@ -3,6 +3,18 @@
 // TODO: player usable cc model, admin cc model, subspace borg, administrative (like literally about paperwork and shit)
 // TODO: modules
 // Baseline CC model, total generalist. Can do a bit of everything but lacks specialized tools.
+// code\modules\mob\living\silicon\robot\robot.dm:L152 absolutely unholy shit going on here.
+/* A solution that is not a solution. The glob is made inside the proc. I am in misery.
+		if(!client?.holder)
+			GLOB.cyborg_model_list += list(
+			"Admin" = /obj/item/robot_model/admin,
+			"CC Frontline" = /obj/item/robot_model/admin/frontline,
+			"CC Backline" = /obj/item/robot_model/admin/backline,
+			"CC Engineer" = /obj/item/robot_model/admin/engineer,
+		)
+*/
+// Currently looks like you'll only be able to directly create these borgs and not have a switchable selector, until I can figure out a way to run a holder check to expand that list. But then its updating a glob, which is for everyone.
+// Someone smarter than me will have to fix this one
 // When you need a general ERT or CC Borg, pick this.
 /obj/item/robot_model/admin
 	name = "Central Command"
@@ -39,8 +51,7 @@
 	model_traits = list(TRAIT_NEGATES_GRAVITY, TRAIT_PUSHIMMUNE)
 	canDispose = TRUE
 	cyborg_base_icon = "tachi"
-	model_select_alternate_icon = 'modular_nova/modules/borgs/icons/screen_cyborg.dmi'
-	model_select_icon = "lost"
+	model_select_icon = "malf"
 	hat_offset = INFINITY
 	breakable_modules = FALSE
 //	interaction_range = INFINITY
@@ -68,15 +79,11 @@
 	icon_state = "tachi"
 	designation = "CC"
 	faction = list(FACTION_ERT)
-	bubble_icon = "tachi"
+	bubble_icon = "guardian"
 	req_access = list(ACCESS_CENT_GENERAL)
 	lawupdate = FALSE
 	scrambledcodes = FALSE
 	ionpulse = TRUE
-	var/playstyle_string = "<span class='big bold'>You are a Syndicate assault cyborg!</span><br>\
-		<b>You are armed with powerful offensive tools to aid you in your mission: help the operatives secure the nuclear authentication disk. \
-		Your cyborg LMG will slowly produce ammunition from your power supply, and your operative pinpointer will find and locate fellow nuclear operatives. \
-		<i>Help the operatives secure the disk at all costs!</i></b>"
 	set_model = /obj/item/robot_model/admin
 	cell = /obj/item/stock_parts/power_store/cell/infinite
 	radio = /obj/item/radio/borg/syndicate
@@ -84,10 +91,15 @@
 // Admin Borg, Bluespace-tech Equivalent.
 // Just a placeholder for the moment
 /obj/item/robot_model/admin/subspace
+	name = "Bluespace Walker"
+
+/mob/living/silicon/robot/model/admin/subspace
+	set_model = /obj/item/robot_model/admin/subspace
+	icon_state = "tachi"
 
 // Assault / Frontline Establishment
 /obj/item/robot_model/admin/frontline
-	name = "Syndicate Assault"
+	name = "Frontline Walker"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/melee/energy/sword/cyborg,
@@ -99,9 +111,13 @@
 		/obj/item/pinpointer/syndicate_cyborg,
 	)
 
+/mob/living/silicon/robot/model/admin/frontline
+	set_model = /obj/item/robot_model/admin/frontline
+	icon_state = "tachi"
+
 // Backline Support
 /obj/item/robot_model/admin/backline
-	name = "Syndicate Medical"
+	name = "Backline Walker"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/reagent_containers/borghypo/syndicate,
@@ -122,9 +138,13 @@
 		/obj/item/storage/bag/chemistry,
 	)
 
+/mob/living/silicon/robot/model/admin/backline
+	set_model = /obj/item/robot_model/admin/backline
+	icon_state = "tachi"
+
 // Engineering Generalist
 /obj/item/robot_model/admin/engineer
-	name = "Syndicate Saboteur"
+	name = "Technical Walker"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/construction/rcd/borg/syndicate,
@@ -148,5 +168,31 @@
 		/obj/item/card/emag,
 	)
 
+/mob/living/silicon/robot/model/admin/engineer
+	set_model = /obj/item/robot_model/admin/engineer
+	icon_state = "tachi"
+
 // Modules to transform pre-existing borgs into an admin borg
-/obj/item/borg/upgrade/transform/syndicatejack
+/obj/item/borg/upgrade/transform/admin
+	name = "borg module picker (Central Command Administrative Walker)"
+	desc = "Allows you to to turn a cyborg into a experimental syndicate cyborg."
+	icon_state = "module_illegal"
+	new_model = /obj/item/robot_model/admin
+
+/obj/item/borg/upgrade/transform/admin/backline
+	name = "borg module picker (Central Command Backline Walker)"
+	desc = "Allows you to to turn a cyborg into a experimental syndicate cyborg."
+	icon_state = "module_illegal"
+	new_model = /obj/item/robot_model/admin/backline
+
+/obj/item/borg/upgrade/transform/admin/frontline
+	name = "borg module picker (Central Command Frontline Walker)"
+	desc = "Allows you to to turn a cyborg into a experimental syndicate cyborg."
+	icon_state = "module_illegal"
+	new_model = /obj/item/robot_model/admin/frontline
+
+/obj/item/borg/upgrade/transform/admin/engineer
+	name = "borg module picker (Central Command Engineer Walker)"
+	desc = "Allows you to to turn a cyborg into a experimental syndicate cyborg."
+	icon_state = "module_illegal"
+	new_model = /obj/item/robot_model/admin/engineer
