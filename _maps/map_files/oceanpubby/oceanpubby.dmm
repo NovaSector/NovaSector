@@ -33221,6 +33221,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/purple/corner,
 /turf/open/floor/iron/dark/corner,
 /area/station/hallway/primary/aft)
 "hsc" = (
