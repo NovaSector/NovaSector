@@ -976,7 +976,7 @@
 	var/skills_space
 	var/fitness_level = mind?.get_skill_level(/datum/skill/athletics) - 1
 	var/experience_reward = ATHLETICS_SKILL_MISC_EXP
-	if(HAS_TRAIT(src, TRAIT_QUICKER_CARRY))
+	if(HAS_TRAIT(src, TRAIT_QUICKER_CARRY) || HAS_TRAIT(target, TRAIT_FEATHERWEIGHT)) // NOVA EDIT CHANGE - Featherweight targets are quicker to carry.
 		carrydelay -= 2 SECONDS
 		experience_reward *= 3
 	else if(HAS_TRAIT(src, TRAIT_QUICK_CARRY))
