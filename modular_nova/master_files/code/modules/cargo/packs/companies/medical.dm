@@ -102,6 +102,10 @@
 	contains = list(/obj/item/stack/medical/wound_recovery/robofoam_super)
 	cost = CARGO_CRATE_VALUE * 2
 
+/datum/supply_pack/companies/medical/first_aid/robotic_patch
+	contains = list(/obj/item/stack/medical/robotic_patch)
+	cost = CARGO_CRATE_VALUE * 0.375
+
 /datum/supply_pack/companies/medical/first_aid/mannitol // Bitrunners and Degenerative players should not be out of a job if med is slow, gone or bad
 	contains = list(/obj/item/storage/pill_bottle/mannitol)
 	cost = CARGO_CRATE_VALUE * 2 // pricey to not obsolete med if they ARE here
@@ -146,8 +150,20 @@
 /datum/supply_pack/companies/medical/neuroware
 	cost = CARGO_CRATE_VALUE * 0.375
 
-/datum/supply_pack/companies/medical/neuroware/reset
-	contains = list(/obj/item/disk/neuroware/reset)
+/datum/supply_pack/companies/medical/neuroware/reboot
+	contains = list(/obj/item/disk/neuroware/reboot)
+
+/datum/supply_pack/companies/medical/neuroware/neuroware_deactivator
+	contains = list(/obj/item/disk/neuroware/neuroware_deactivator)
+
+/datum/supply_pack/companies/medical/neuroware/trauma_fixer
+	contains = list(/obj/item/disk/neuroware/trauma_fixer)
+
+/datum/supply_pack/companies/medical/neuroware/synaptizine
+	contains = list(/obj/item/disk/neuroware/synaptizine)
+
+/datum/supply_pack/companies/medical/neuroware/psicodine
+	contains = list(/obj/item/disk/neuroware/psicodine)
 
 /datum/supply_pack/companies/medical/neuroware/morphine
 	contains = list(/obj/item/disk/neuroware/morphine)

@@ -31,7 +31,7 @@
 	singular_name = "premium robotic break fix spray"
 	desc = "A needle-tip foam gun filled with an advanced foam that can fix \
 	<b>dents</b>, <b>broken latches</b>, and <b>loose or pierced lubricant tubing</b>. \
-	It's also got nanites that will <b>repair "
+	It's also got nanites that will <b>repair shredded lubricant tubing and destroyed electronics</b>."
 	icon_state = "robofoam_super"
 	inhand_icon_state = "implantcase"
 	applicable_wounds = list(
@@ -49,32 +49,42 @@
 	. += span_notice("This more <b>expensive</b> foam can be used to fix <b>any</b> type of wound on robotic limbs.")
 	return .
 
-// Synth repair patch, gives the synth a small amount of healing chems
-/obj/item/reagent_containers/applicator/pill/patch/robotic_patch
-	name = "robotic patch"
-	desc = "A chemical patch for touch-based applications on synthetics."
+/obj/item/stack/medical/robotic_patch
+	name = "robotic limb trauma patch"
+	desc = "A premium trauma patch for repairing surface-level blunt trauma and heat damage on robotic limbs."
+	gender = PLURAL
+	singular_name = "trauma patch"
 	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "synth_patch"
-	inhand_icon_state = null
-	possible_transfer_amounts = list()
-	volume = 40
 	self_delay = 3 SECONDS
+	other_delay = 1 SECONDS
+	amount = 15
+	heal_burn = 10
+	heal_brute = 10
+	max_amount = 15
+	repeating = TRUE
+	pickup_sound = SFX_REGEN_MESH_PICKUP
+	drop_sound = SFX_REGEN_MESH_DROP
+	heal_begin_sound = SFX_REGEN_MESH_BEGIN
+	heal_continuous_sound = SFX_REGEN_MESH_CONTINUOUS
+	heal_end_sound = SFX_REGEN_MESH_END
+	allowed_bodytype = BODYTYPE_ROBOTIC
+	merge_type = /obj/item/stack/medical/robotic_patch
 
-/obj/item/reagent_containers/applicator/pill/patch/robotic_patch/attack(mob/living/L, mob/user)
-	if(ishuman(L))
-		var/obj/item/bodypart/affecting = L.get_bodypart(check_zone(user.zone_selected))
-		if(!affecting)
-			to_chat(user, span_warning("The limb is missing!"))
-			return
-		if(!IS_ROBOTIC_LIMB(affecting))
-			to_chat(user, span_notice("Robotic patches won't work on an organic limb!"))
-			return
-	return ..()
+/datum/design/duct_tape
+	name = "Duct Tape"
+	id = "duct_tape"
+	build_type = AUTOLATHE | MECHFAB
+	materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1,
+	)
+	build_path = /obj/item/stack/medical/wrap/sticky_tape/duct
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
-/obj/item/reagent_containers/applicator/pill/patch/robotic_patch/canconsume(mob/eater, mob/user)
-	if(!iscarbon(eater))
-		return FALSE
-	return TRUE
 
 // Repairs a robotic organs directly, or during organ manipulation surgery.
 // Sprites: [@splat1125](https://github.com/splat1125)

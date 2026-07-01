@@ -101,7 +101,11 @@
 		/obj/item/clothing/head/beret/science/fancy/robo = 2,
 		/obj/item/tank/internals/anesthetic = 2,
 		/obj/item/clothing/mask/breath = 2,
-		/obj/item/disk/neuroware/reset = 4,
+		/obj/item/disk/neuroware/reboot = 4,
+		/obj/item/disk/neuroware/neuroware_deactivator = 4,
+		/obj/item/disk/neuroware/trauma_fixer = 4,
+		/obj/item/disk/neuroware/synaptizine = 4,
+		/obj/item/disk/neuroware/psicodine = 4,
 		/obj/item/disk/neuroware/morphine = 4,
 		/obj/item/disk/neuroware/lidocaine = 4,
 		/obj/item/reagent_containers/cup/bottle/morphine = 2,
@@ -111,6 +115,8 @@
 		/obj/item/reagent_containers/spray/dinitrogen_plasmide = 2,
 		/obj/item/stack/medical/wound_recovery/robofoam = 2,
 		/obj/item/stack/medical/wound_recovery/robofoam_super = 1,
+		/obj/item/stack/medical/robotic_patch = 4,
+		/obj/item/stack/medical/wrap/sticky_tape/duct = 4,
 		/obj/item/clothing/gloves/color/black = 2, // fire resistant, allows the robo to painlessly mold metal. also it's down here because it's a treatment item
 		/obj/item/bonesetter = 2, // for dislocations
 		/obj/item/cybernetic_repair_paste = 2, // for organ damage

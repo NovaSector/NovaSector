@@ -1,7 +1,8 @@
 /obj/machinery/vending/modularpc
 	desc = "All the parts you need for custom modular computers, personal AIs, and neurocomputing programs!"
 	products_nova = list(
-		/obj/item/disk/neuroware/reset = 4,
+		/obj/item/disk/neuroware/reboot = 4,
+		/obj/item/disk/neuroware/neuroware_deactivator = 4,
 		/obj/item/disk/neuroware/synthesizer/brass = 2,
 		/obj/item/disk/neuroware/synthesizer/guitar = 2,
 		/obj/item/disk/neuroware/synthesizer/percussion = 2,

@@ -56,6 +56,9 @@
 	var/heal_end_sound = null
 	/// The sound this makes when doing a continuous loop of healing with this item
 	var/heal_continuous_sound = null
+	// NOVA EDIT ADDITION START - Robots and synths medical rework
+	var/allowed_bodytype = BODYTYPE_ORGANIC
+	// NOVA EDIT ADDITION END
 
 /obj/item/stack/medical/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isliving(interacting_with))
@@ -281,10 +284,12 @@
 			if(!silent)
 				carbon_patient.balloon_alert(user, "no [parse_zone(healed_zone)]!")
 			return FALSE
-		if(!IS_ORGANIC_LIMB(affecting)) //Limb must be organic to be healed - RR
+		// NOVA EDIT ADDITION START - Robots and Synths
+		if(!(affecting.bodytype & allowed_bodytype))
 			if(!silent)
-				carbon_patient.balloon_alert(user, "[affecting.plaintext_zone] is not organic!")
+				carbon_patient.balloon_alert(user, "[affecting.plaintext_zone] is not compatible!")
 			return FALSE
+		// NOVA EDIT ADDITION END
 
 		var/datum/wound/burn/flesh/any_burn_wound = locate() in affecting.wounds
 		var/can_heal_burn_wounds = (flesh_regeneration || sanitization) && any_burn_wound?.can_be_ointmented_or_meshed()

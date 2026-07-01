@@ -38,7 +38,7 @@
 		/obj/item/stack/cable_coil/thirty = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/stack/medical/wound_recovery/robofoam = 3,
-		/obj/item/disk/neuroware/reset = 1,
+		/obj/item/disk/neuroware/reboot = 1,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 1,
 		/obj/item/healthanalyzer/simple = 1,
 	)
@@ -64,7 +64,7 @@
 		/obj/item/weldingtool = 1,
 		/obj/item/stack/medical/wound_recovery/robofoam = 3,
 		/obj/item/stack/medical/wound_recovery/robofoam_super = 1,
-		/obj/item/disk/neuroware/reset = 2,
+		/obj/item/disk/neuroware/reboot = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 2,
 		/obj/item/healthanalyzer/simple = 1,
 	)

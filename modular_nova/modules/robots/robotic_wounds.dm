@@ -121,8 +121,8 @@
 /datum/wound/robotic_bleed/severe
 	name = "Coolant Tube Hole"
 	desc = "The coolant tube on this part is cut open, leaking coolant everywhere.."
-	treat_text = "Apply <b>duct tape</b>(or any other kind of tape) to the tubing to repair it, or apply <b>robotic break fix spray</b>."
-	treat_text_short = "Apply <b>duct tape</b> to the limb, or apply <b>robotic break fix spray</b>."
+	treat_text = "Apply <b>robotic break fix spray</b> to the tubing to repair it, or apply <b>duct tape</b>(or any other kind of tape)."
+	treat_text_short = "Apply <b>robotic break fix spray</b> to the limb, or, in a pinch, apply <b>duct tape</b>."
 	examine_desc = "is pierced clear through, with coolant spewing from the damaged tubing"
 	occur_text = "looses a violent spray of blood, revealing a pierced wound"
 	severity = WOUND_SEVERITY_SEVERE
@@ -274,7 +274,7 @@
 	a_or_from = "a"
 	desc = "Part has been dented from blunt force being applied, causing limping or reduced dexterity, and sparks."
 	treat_text = "Apply <b>percussive maintenance</b> to the dented part to hammer it back into the correct shape, or apply <b>robotic break fix spray</b>."
-	treat_text_short = "Hit it with something blunt, like a toolbox, or apply <b>robotic break fix spray</b>."
+	treat_text_short = "Hit it with something blunt, like a wrench, or apply <b>robotic break fix spray</b>."
 	examine_desc = "is dented"
 	occur_text = "sparks, revealing a large dent"
 	severity = WOUND_SEVERITY_MODERATE
@@ -315,8 +315,8 @@
 /datum/wound/robotic_blunt/severe
 	name = "Broken Panel Latch"
 	desc = "The part's paneling latch has been broken open and the wiring is exposed."
-	treat_text = "Apply <b>duct tape</b>(or any other kind of tape) to the panel latch to hold it shut, or apply <b>robotic break fix spray</b>."
-	treat_text_short = "Apply <b>duct tape</b> to the part, or apply <b>robotic break fix spray</b>."
+	treat_text = "Apply <b>robotic break fix spray</b>, or apply <b>duct tape</b>(or any other kind of tape) to the panel latch to hold it shut."
+	treat_text_short = "Apply <b>robotic break fix spray</b> to the part, or, in a pinch, apply <b>duct tape</b>."
 	examine_desc = "has exposed wiring, the access panel hanging open"
 	occur_text = "'s access panel swings open as the latch is smashed to pieces"
 	treatable_tools = list(TOOL_DUCTTAPE)

@@ -1,5 +1,5 @@
 // Reboots the robot
-/obj/item/disk/neuroware/reset
+/obj/item/disk/neuroware/reboot
 	name = "system reboot neuroware"
 	desc = "A neuroware chip containing a system reboot program which initiates a hard reset of the robot. \
 	This clears any neuroware, fixes any speech impediments, corrects any hallucinations, and fixes any other minor \
@@ -12,7 +12,7 @@
 	uses = 3
 	is_nif_compatible = FALSE
 
-/obj/item/disk/neuroware/reset/install(mob/living/carbon/human/target, mob/living/carbon/human/user)
+/obj/item/disk/neuroware/reboot/install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	var/obj/item/organ/brain/robot_nova/robot_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!istype(robot_brain))
 		// we might be looking at a non-new synth, check if they've got the other brain type

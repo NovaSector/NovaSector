@@ -1,6 +1,10 @@
 /obj/machinery/vending/drugs
 	products_nova = list(
-		/obj/item/disk/neuroware/reset = 4,
+		/obj/item/disk/neuroware/reboot = 4,
+		/obj/item/disk/neuroware/neuroware_deactivator = 4,
+		/obj/item/disk/neuroware/trauma_fixer = 4,
+		/obj/item/disk/neuroware/synaptizine = 4,
+		/obj/item/disk/neuroware/psicodine = 4,
 		/obj/item/disk/neuroware/morphine = 4,
 		/obj/item/disk/neuroware/lidocaine = 4,
 	)

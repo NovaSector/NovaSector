@@ -11,5 +11,5 @@
 		/obj/item/food/energybar,
 		/obj/item/disk/neuroware/pumpup,
 	)
-	stim_medication = /obj/item/disk/neuroware/reset
+	stim_medication = /obj/item/disk/neuroware/trauma_fixer
 	abstract_type = /datum/quirk/item_quirk/narcolepsy/synth

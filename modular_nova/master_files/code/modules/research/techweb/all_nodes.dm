@@ -319,6 +319,7 @@
 	design_ids += list(
 		"borg_upgrade_snacks",
 		"mini_soulcatcher",
+		"duct_tape",
 	)
 	return ..()
 

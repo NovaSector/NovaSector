@@ -105,6 +105,13 @@ GLOBAL_DATUM_INIT(crewmonitor_robot, /datum/crewmonitor/robot, new)
 					"oil" = round((tracked_human.health / tracked_human.maxHealth) * 100, 1), // legacy symths don't have oil, use this to display health instead
 				)
 			entry["is_legacy_synth"] = TRUE
+		var/obj/item/bodypart/chest/synth/holosynth/holosynth_chassis = tracked_human.get_bodypart(BODY_ZONE_CHEST)
+		if(holosynth_chassis && istype(holosynth_chassis))
+			not_a_robot = FALSE
+			var/obj/item/holosynth_pen/projector = holosynth_chassis.owner_projector_ref?.resolve()
+			if(!projector)
+				continue // something has gone very wrong here
+			
 		if(not_a_robot)
 			continue // get outta here
 		// ID and id-related data

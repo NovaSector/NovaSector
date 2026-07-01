@@ -7,7 +7,7 @@
 #define HOLOSYNTH_WOUND_HEAL_RATE_DS 12
 /// Seconds of in-range pen exposure needed to dissolve a non-intensity synth wound
 #define HOLOSYNTH_WOUND_RESOLVE_SECONDS 15
-
+GLOBAL_LIST_EMPTY(holosynth_pens)
 /obj/item/holosynth_pen
 	name = "holosynth projector-magnet combo"
 	desc = "A complex mechanism that both projects the form of a hologram and manipulates its aerogel canvas. \
@@ -29,13 +29,16 @@
 	var/datum/weakref/linked_mob_ref
 	/// Weakref to the tile this pen saves to deploy the mob to and from
 	var/datum/weakref/saved_loc_ref
+	var/obj/effect/dummy/lighting_obj/moblight/robot_beacon/our_beacon
+	var/distress_beacon_active = FALSE
+	var/beacon_light_timer
 
 /obj/item/holosynth_pen/Initialize(mapload, mob/living/carbon/human/linked_mob)
 	. = ..()
 	AddElement(/datum/element/tool_renaming)
 	AddElement(/datum/element/strippable/holosynth_pen, GLOB.strippable_human_items, TYPE_PROC_REF(/mob/living/carbon/human/, should_strip))
 	AddComponent(/datum/component/gps/item, "HOLOSIGNAL", state = GLOB.deep_inventory_state, overlay_state = FALSE)
-
+	GLOB.holosynth_pens += src
 	if(linked_mob)
 		linked_mob_ref = WEAKREF(linked_mob)
 		saved_loc_ref = WEAKREF(get_turf(linked_mob))
@@ -43,6 +46,7 @@
 		create_transform_component()
 		RegisterSignal(src, COMSIG_TRANSFORMING_PRE_TRANSFORM, PROC_REF(transform_check))
 		RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
+		our_beacon = new(src)
 		RegisterSignal(linked_mob, COMSIG_LIVING_DEATH, PROC_REF(user_death))
 		RegisterSignal(linked_mob, COMSIG_QDELETING, PROC_REF(user_qdeleted))
 
@@ -83,6 +87,26 @@
 		w_class_on = w_class,\
 	)
 
+/obj/item/holosynth_pen/proc/activate_distress_beacon()
+	distress_beacon_active = TRUE
+	pulse_beacon_light()
+	beacon_light_timer = addtimer(CALLBACK(src, PROC_REF(pulse_beacon_light)), 2 SECONDS, TIMER_STOPPABLE | TIMER_LOOP | TIMER_DELETE_ME)
+
+/obj/item/holosynth_pen/proc/pulse_beacon_light()
+	our_beacon.set_light_on(!our_beacon.light_on) // toggle that mf
+
+/obj/item/holosynth_pen/proc/deactivate_distress_beacon()
+	distress_beacon_active = FALSE
+	our_beacon.set_light_on(FALSE)
+	deltimer(beacon_light_timer)
+
+/obj/item/holosynth_pen/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	if(distress_beacon_active)
+		deactivate_distress_beacon()
+
 /obj/item/holosynth_pen/proc/on_transform(obj/item/source, mob/user, active)
 	SIGNAL_HANDLER
 
@@ -110,6 +134,8 @@
 		if(get_dist(linked_mob, src) <= HOLOSYNTH_RANGE)
 			linked_mob.forceMove(saved_loc || get_turf(src))
 			linked_mob.heal_and_revive()
+			if(distress_beacon_active)
+				deactivate_distress_beacon()
 			new /obj/effect/temp_visual/guardian/phase(get_turf(linked_mob))
 		else
 			balloon_alert(user, "too far!")
@@ -119,7 +145,8 @@
 
 /obj/item/holosynth_pen/proc/user_death()
 	SIGNAL_HANDLER
-
+	if(!distress_beacon_active)
+		activate_distress_beacon()
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
 	if(QDELETED(linked_mob))
 		return
