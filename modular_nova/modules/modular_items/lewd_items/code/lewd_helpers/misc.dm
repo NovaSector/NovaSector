@@ -10,7 +10,7 @@
 	end_sound = 'modular_nova/modules/modular_items/lewd_items/sounds/bzzz-loop-1.ogg'
 	falloff_distance = 1
 	falloff_exponent = 5
-	extra_range = SILENCED_SOUND_EXTRARANGE
+	extra_range = -12
 	ignore_walls = FALSE
 
 /datum/looping_sound/lewd/vibrator/low
