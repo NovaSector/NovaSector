@@ -78,6 +78,9 @@
 	if(!ishuman(user))
 		return UI_CLOSE
 
+	if(!is_in_sight(user, self))
+		return UI_CLOSE
+
 	var/status = min(
 		ui_status_only_living(user, parent),
 		ui_status_user_is_abled(user, parent),
