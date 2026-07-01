@@ -2,6 +2,10 @@
   width: 80px;
 }
 
+.playtimesource {
+  width: 190px;
+}
+
 .right {
   width: 150px;
 }
@@ -21,6 +25,14 @@
   display: inline-block;
 }
 
+.playtimeroles {
+  min-width: 900px;
+}
+
+.playtimeroles .column {
+  width: 430px;
+}
+
 .long {
   width: 860px;
 }
@@ -31,6 +43,10 @@
 
 .command {
   background-color: #948f02;
+}
+
+.centralcommand {
+  background-color: #69ff69;
 }
 
 .security {
@@ -71,6 +87,10 @@
 
 .antagonistpositions {
   background-color: #6d3f40;
+}
+
+.playtimebanoptions {
+  background-color: #445a67;
 }
 
 .undefineddepartment {

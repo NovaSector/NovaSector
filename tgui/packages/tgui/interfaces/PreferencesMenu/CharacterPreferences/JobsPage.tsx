@@ -205,13 +205,15 @@ function JobRow(props: JobRowProps) {
   let rightSide: ReactNode;
 
   if (experienceNeeded) {
-    const { experience_type, required_playtime } = experienceNeeded;
-    const hoursNeeded = Math.ceil(required_playtime / 60);
+    const { experience_type, required_playtime, required_playtime_text } =
+      experienceNeeded;
+    const playtimeNeeded =
+      required_playtime_text || `${Math.ceil(required_playtime / 60)}h`;
 
     rightSide = (
       <Stack align="center" height="100%" pr={1}>
         <Stack.Item grow textAlign="right">
-          <b>{hoursNeeded}h</b> as {experience_type}
+          <b>{playtimeNeeded}</b> as {experience_type}
         </Stack.Item>
       </Stack>
     );

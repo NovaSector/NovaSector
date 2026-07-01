@@ -46,6 +46,10 @@ SUBSYSTEM_DEF(pai)
 		to_chat(user, span_warning("You are banned from playing pAI!"))
 		ui.close()
 		return FALSE
+	if(get_playtime_banned_role(user.ckey, ROLE_PAI))
+		to_chat(user, span_warning(get_playtime_ban_unavailable_message(user.ckey, ROLE_PAI)))
+		ui.close()
+		return FALSE
 	if(isnull(candidate))
 		to_chat(user, span_warning("There was an error. Please resubmit."))
 		ui.close()

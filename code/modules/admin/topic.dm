@@ -1224,6 +1224,17 @@
 		var/player_cid = href_list["newbancid"]
 		ban_panel(player_key, player_ip, player_cid)
 
+	else if(href_list["playtimebanpanel"])
+		var/player_key = href_list["keytext"]
+		var/player_ip = href_list["iptext"]
+		var/player_cid = href_list["cidtext"]
+		var/applies_to_admins = text2num(href_list["applyadmins"])
+		var/reason = href_list["reason"]
+		playtime_ban_panel(player_key, player_ip, player_cid, 1, EXP_TYPE_LIVING, applies_to_admins, reason)
+
+	else if(href_list["playtimeban"])
+		playtime_ban_parse_href(href_list)
+
 	else if(href_list["intervaltype"]) //check for ban panel, intervaltype is used as it's the only value which will always be present
 		if(href_list["roleban_delimiter"])
 			ban_parse_href(href_list)
@@ -1278,6 +1289,21 @@
 		var/admin_key = href_list["rebanadminkey"]
 		var/applies_to_admins = href_list["applies_to_admins"]
 		reban(ban_id, applies_to_admins, player_key, player_ip, player_cid, role, page, admin_key)
+
+	else if(href_list["unbanplaytimeid"])
+		var/ban_id = href_list["unbanplaytimeid"]
+		var/player_key = href_list["unbankey"]
+		var/role = href_list["unbanrole"]
+		var/admin_key = href_list["unbanadminkey"]
+		unban_playtime_ban(ban_id, player_key, role, admin_key)
+
+	else if(href_list["rebanplaytimeid"])
+		var/ban_id = href_list["rebanplaytimeid"]
+		var/player_key = href_list["rebankey"]
+		var/role = href_list["rebanrole"]
+		var/admin_key = href_list["rebanadminkey"]
+		var/applies_to_admins = href_list["applies_to_admins"]
+		reban_playtime_ban(ban_id, applies_to_admins, player_key, role, admin_key)
 
 	else if(href_list["unbanlog"])
 		var/ban_id = href_list["unbanlog"]

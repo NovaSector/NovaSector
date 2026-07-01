@@ -272,7 +272,7 @@
 				return
 
 			var/mob/living/brain/brainmob = M.brainmob
-			if(is_banned_from(brainmob.ckey, JOB_CYBORG) || QDELETED(src) || QDELETED(brainmob) || QDELETED(user) || QDELETED(M) || !Adjacent(user))
+			if(is_banned_from(brainmob.ckey, JOB_CYBORG) || get_playtime_banned_role(brainmob.ckey, JOB_CYBORG) || QDELETED(src) || QDELETED(brainmob) || QDELETED(user) || QDELETED(M) || !Adjacent(user))
 				if(!QDELETED(M))
 					to_chat(user, span_warning("This [M.name] does not seem to fit!"))
 				return

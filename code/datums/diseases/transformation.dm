@@ -69,7 +69,7 @@
 			affected_mob.dropItemToGround(I)
 		var/mob/living/new_mob = new new_form(affected_mob.loc)
 		if(istype(new_mob))
-			if(bantype && is_banned_from(affected_mob.ckey, bantype))
+			if(bantype && (is_banned_from(affected_mob.ckey, bantype) || get_playtime_banned_role(affected_mob.ckey, bantype)))
 				replace_banned_player(new_mob)
 			new_mob.set_combat_mode(TRUE)
 			if(affected_mob.mind)
