@@ -49,6 +49,8 @@
 	var/is_invisible = FALSE
 	///The ID of a species used to generate the icon. Needs to match the icon_state portion in the limbs file!
 	var/limb_id = SPECIES_HUMAN
+	///ID of a species to use as an override for species-based biological logic, such as what species to pull the meat from, if our limb_id doesn't match
+	var/species_id = null
 	//Defines what sprite the limb should use if it is also sexually dimorphic.
 	var/limb_gender = "m"
 	///Is there a sprite difference between male and female?
@@ -314,12 +316,14 @@
 		return FALSE
 	return  ..()
 
-/obj/item/bodypart/proc/get_butcher_drops()
-	if(!isnull(butcher_drops))
+/// Returns an assoc list of items dropped when the limb is butchered
+/// force - Force an update of drops ignoring the cache
+/obj/item/bodypart/proc/get_butcher_drops(force = FALSE)
+	if(!isnull(butcher_drops) && !force)
 		return butcher_drops
-	if (butcher_drop_cache[type])
+	if (butcher_drop_cache[type] && !force)
 		return butcher_drop_cache[type]
-	var/datum/species/species = GLOB.species_list[limb_id]
+	var/datum/species/species = GLOB.species_list[species_id || limb_id]
 	if (!species || !species.meat || !base_meat_amount)
 		return null
 	return list(species.meat = base_meat_amount)
@@ -1172,6 +1176,8 @@
 /obj/item/bodypart/proc/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 
+	SEND_SIGNAL(src, COMSIG_BODYPART_UPDATED, dropping_limb, is_creating)
+
 	if(IS_ORGANIC_LIMB(src))
 		// Try to add a cached blood type data, we must do it in here because for some reason DNA gets initialized AFTER the mob's limbs are created.
 		// Should be fine as this gets called before all the important stuff happens
@@ -1895,6 +1901,22 @@
 	if(isnull(owner))
 		return
 	REMOVE_TRAIT(owner, old_trait, bodypart_trait_source)
+
+/// Add a bodyshape to the bodypart, then synchronize with the owner if necessary
+/obj/item/bodypart/proc/add_bodyshape(new_shape)
+	if(bodyshape & new_shape)
+		return
+
+	bodyshape |= new_shape
+	owner?.synchronize_bodyshapes()
+
+/// Remove a bodyshape from the bodypart, then synchronize with the owner if necessary
+/obj/item/bodypart/proc/remove_bodyshape(old_shape)
+	if(!(bodyshape & old_shape))
+		return
+
+	bodyshape &= ~old_shape
+	owner?.synchronize_bodyshapes()
 
 /// Add one or multiple surgical states to the bodypart
 /obj/item/bodypart/proc/add_surgical_state(new_states)
