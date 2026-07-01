@@ -14,6 +14,10 @@
 		/obj/item/reagent_containers/cup/beaker,
 	)
 
+/obj/item/storage/part_replacer/bluespace/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /datum/storage/rped/bluespace/admin
 	max_slots = 1000
 	max_total_storage = 20000

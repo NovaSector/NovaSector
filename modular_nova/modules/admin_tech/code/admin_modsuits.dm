@@ -83,6 +83,10 @@
 		/obj/item/mod/module/anomaly_locked/kinesis/admin,
 	)
 
+/obj/item/mod/control/pre_equipped/bluespace/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /datum/mod_theme/subspace
 	name = "subspace"
 	desc = "A suit made of the condensed essence of suffering caused by thousands of ahelps."
@@ -198,6 +202,10 @@
 		/obj/item/mod/module/dispenser,
 		/obj/item/mod/module/balloon/advanced,
 	)
+
+/obj/item/mod/control/pre_equipped/subspace/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /// Extremely cursed modsuit that will self install every modsuit module in existence
 /obj/item/mod/control/pre_equipped/bluespace/danger_module_debug

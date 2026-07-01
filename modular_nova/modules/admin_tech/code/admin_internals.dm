@@ -20,6 +20,10 @@
 	distribute_pressure = TANK_DEFAULT_RELEASE_PRESSURE
 	volume = 490//default tanks are 70, and this is a multiple for some scaling and mixing formulae
 
+/obj/item/tank/internals/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /obj/item/tank/internals/admin/populate_gas()
 	return//spawns empty
 

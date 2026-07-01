@@ -16,6 +16,10 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
+/obj/item/storage/belt/utility/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /obj/item/storage/belt/utility/admin/full
 
 /obj/item/storage/belt/utility/admin/full/PopulateContents()

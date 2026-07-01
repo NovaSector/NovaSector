@@ -15,6 +15,11 @@
 */
 // Currently looks like you'll only be able to directly create these borgs and not have a switchable selector, until I can figure out a way to run a holder check to expand that list. But then its updating a glob, which is for everyone.
 // Someone smarter than me will have to fix this one
+//
+// TODO: Needs custom icons
+// TODO: Item list revists
+// TODO: Admin Borg Shapeshifter action, unpaired from the shapeshifter icon
+// TODO: Explore more borg hands? How many hands can a borg reasonably have?
 // When you need a general ERT or CC Borg, pick this.
 /obj/item/robot_model/admin
 	name = "Central Command"

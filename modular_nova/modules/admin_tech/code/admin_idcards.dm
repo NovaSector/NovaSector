@@ -2,7 +2,19 @@
 
 // NOVA MODULE ICSPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
 
-/obj/item/card/id/advanced/debug/bluespace
+/obj/item/card/id/advanced/debug/admin
+	name = "\improper Admin ID"
+	desc = "An Admin ID card. Has ALL the all access, you really shouldn't have this."
+	icon_state = "card_platinum"
+	assigned_icon_state = "assigned_centcom"
+	trim = /datum/id_trim/admin/bluespace
+	wildcard_slots = WILDCARD_LIMIT_ADMIN
+
+/obj/item/card/id/advanced/debug/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+/obj/item/card/id/advanced/debug/admin/bluespace
 	name = "\improper Bluespace ID"
 	desc = "A Bluespace ID card. Has ALL the all access, you really shouldn't have this."
 	icon_state = "card_platinum"
@@ -21,7 +33,7 @@
 	pointer_color = COLOR_BLUE
 
 //Subspace Tech bits
-/obj/item/card/id/advanced/debug/subspace
+/obj/item/card/id/advanced/debug/admin/subspace
 	name = "\improper Subspace ID"
 	desc = "A Subspace ID card. Has ALL the all access, you really shouldn't have this."
 	icon_state = "card_carp"
@@ -40,7 +52,7 @@
 	pointer_color = COLOR_PURPLE
 
 //Additional admin ID stuff
-/obj/item/card/id/advanced/debug/centcomm
+/obj/item/card/id/advanced/debug/admin/centcomm
 	name = "\improper CentComm Master ID"
 	desc = "A Master ID card from Central Command. Has ALL the all access, to a suspicious degree."
 	icon_state = "card_centcom"

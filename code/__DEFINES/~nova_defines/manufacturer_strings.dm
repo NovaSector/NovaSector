@@ -36,3 +36,6 @@
 #define COMPANY_KAHRAMAN "It has a <b>[span_red("red label")] with <b>[span_red("K - A - S")]</b> printed on it, alongside various xerxian proof-marks.</b>"
 
 #define COMPANY_REMOVED "It has had <b>[span_grey("all identifying marks scrubbed off")].</b>"
+
+/// Company for Admin unique items
+#define COMPANY_ADMIN "You can somehow tell that <b>[span_green("Central Command")]</b> produced this item."

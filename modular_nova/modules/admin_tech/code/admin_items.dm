@@ -16,6 +16,11 @@
 	slot_flags = ITEM_SLOT_POCKETS | ITEM_SLOT_BELT | ITEM_SLOT_BACK//I know someone will want a backpack with no worn icon so here shut up in advance
 	storage_type = /datum/storage/admin/bag
 
+// First usage of the admin manufacturing company, to specifically denote items added through this module.
+/obj/item/storage/bag/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /obj/item/storage/bag/admin/click_ctrl_shift(mob/user)
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
@@ -39,6 +44,10 @@
 	anchored = 1
 	storage_type = /datum/storage/admin
 
+/obj/item/storage/subspace_pouch/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /// Opens the bag on click. Considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories
 /obj/item/storage/subspace_pouch/attack_hand(mob/user, list/modifiers)
 	. = ..()
@@ -59,6 +68,10 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	slot_flags = ITEM_SLOT_POCKETS // pockets only >:( if i accidentally equip a construction bag to my belt slot instead of my pockets first, where the value proposition is much higher, i will explode
 	storage_type = /datum/storage/admin/bag
+
+/obj/item/storage/bag/construction/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /// Clears the bag
 /obj/item/storage/bag/construction/admin/click_alt_secondary(mob/user)
@@ -150,6 +163,10 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
+/obj/item/pinpointer/crew/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // Tech's Disruptor - its a fischer but with every flavor of phasing on the projectile
 // Sometimes you need something to just not work for a moment. You could just use buildmode, sure.
 // to-do: integrate various state application modes, such as remote emag and similar. Make this the utility version of the subspace rifle, instead of the fisher as it currently is. integrate radial, consider common state applications, and make projectiles to fit.
@@ -170,12 +187,20 @@
 	recharge_time = 0.25 SECONDS
 	ammo_type = list(/obj/item/ammo_casing/energy/fisher/admin)
 
+/obj/item/gun/energy/recharge/fisher/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // We need updated money for the debug box. Space cash is not splittable, and spawning 10 stacks of 5000 credits is not an ok solution to that problem
 // code\game\objects\items\credit_holochip.dm
 /obj/item/holochip/fiftythousand
 	name = "unusually dense holochip"
 	desc = "Oh lawd she thicc."
 	credits = 50000
+
+/obj/item/holochip/fiftythousand/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Subspace boxcutter to replace the BST's energy axe.
 // Tool mode / weapon mode alt hold state, weapon mode should have built in anti-drop + high destruction coef + rwall destruction abilities
@@ -198,6 +223,10 @@
 	obj_flags = EMAGGED
 	w_class = WEIGHT_CLASS_TINY
 
+/obj/item/door_remote/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // New admin RCD, but using the cooler RCD type. Did you know that there already exists a decently superior alternative to the /obj/item/construction/rcd/combat/admin?
 // It was /obj/item/construction/rcd/arcd and for whatever reason this unused one had the potential to be better. But wasn't used.
 // modular_nova\master_files\code\game\objects\items\RCD.dm
@@ -214,6 +243,10 @@
 	delay_mod = 0.1
 	construction_upgrades = RCD_ALL_UPGRADES & ~RCD_UPGRADE_SILO_LINK
 	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/construction/rcd/arcd/mattermanipulator/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // RCD Disks - What the fuck is this code man
 // Placeholder spot to put an admin RCD disk when I eventually get around to fixing upstream
@@ -234,6 +267,10 @@
 	construction_upgrades = RCD_UPGRADE_SILO_LINK
 	w_class = WEIGHT_CLASS_TINY
 
+/obj/item/construction/rld/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // Debug Emag & Doorjack
 // There is already a 'bluespace emag' but its pretty ugly, so I'll just do my own quick pallete swap icons
 // todo:icon variants, fix blacklist issues
@@ -247,6 +284,10 @@
 	type_blacklist = list()//this is the crucial change to restore global emag function
 	w_class = WEIGHT_CLASS_TINY
 
+/obj/item/card/emag/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // Admin Light Replacer
 // todo:icon variant
 // code\game\objects\items\devices\lightreplacer.dm
@@ -257,6 +298,10 @@
 	uses = INFINITY
 	max_uses = INFINITY
 	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/lightreplacer/blue/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Admin Atmos Holofan
 // I should probably make a version of this that places tinyfans instead.
@@ -270,6 +315,10 @@
 	projectable_through = list( /obj )
 	w_class = WEIGHT_CLASS_TINY
 
+/obj/item/holosign_creator/atmos/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /obj/structure/holosign/barrier/atmos
 	name = "subspace holofirelock"
 	desc = "A holographic barrier resembling a firelock. Though it does not prevent solid objects from passing through, gas is kept out."
@@ -277,6 +326,10 @@
 	base_icon_state = "holo_firelock"
 	rad_insulation = RAD_FULL_INSULATION
 	resistance_flags = FIRE_PROOF | FREEZE_PROOF
+
+/obj/structure/holosign/barrier/atmos/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Debug Forcefield Projector & It's Structure
 /obj/item/forcefield_projector/admin
@@ -291,6 +344,10 @@
 	creation_time = 0 SECONDS
 	w_class = WEIGHT_CLASS_TINY
 
+/obj/item/forcefield_projector/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /obj/structure/projected_forcefield/admin
 	name = "subspace forcefield"
 	desc = "A glowing barrier, generated by a projector nearby. You probably are not going to be able to break this."
@@ -300,6 +357,10 @@
 	resistance_flags = INDESTRUCTIBLE
 	can_atmos_pass = ATMOS_PASS_NO
 	armor_type = /datum/armor/admin/badmin
+
+/obj/structure/projected_forcefield/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Admin Capsules - Capsules to spawn things that players shouldnt be spawning on the regular
 // Tiny Fan Capsule
@@ -317,6 +378,10 @@
 	w_class = WEIGHT_CLASS_TINY
 	template_id = "capsule_tinyfan"
 	used = FALSE
+
+/obj/item/survivalcapsule/admin/fan/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Debug Plumbing Tool
 // todo:variant icon
@@ -386,7 +451,7 @@
 
 /obj/item/construction/plumbing/admin/Initialize(mapload)
 	plumbing_design_types = admin_design_types
-
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 	. = ..()
 
 // Admin Amputation Shears. This is more fun to play with than you might think.
@@ -397,6 +462,10 @@
 	icon_state = "shears"
 	toolspeed = 0
 	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/shears/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Admin Medigun
 // todo: REALLY I should go fix the base gun. Why do we cycle mode this??? We cant actually think list cycling is the best way to handle these. Make them radials, or make it configurable on how they interact. 'ctrl shift click to swap between radial and processive cell selection' or some shit
@@ -426,6 +495,10 @@
 		/obj/item/weaponcell/medical/utility/salve,
 	)
 
+/obj/item/gun/energy/cell_loaded/medigun/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /*
 * Admin Cells for Cellgun
 * I thought about making a spread of admin medicells to replace the hypospray kit, as well as relocation cells to move things around CC
@@ -451,6 +524,10 @@
 		/obj/item/blood_filter/advanced,
 	)
 
+/obj/item/surgery_tray/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // New admin PDA, thank you debug modular computer for existing.
 // deadmonwonderland requested this one
 // code\modules\modular_computers\computers\item\pda.dm
@@ -469,6 +546,10 @@
 	light_range = 10
 	light_angle = 360
 	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/modular_computer/pda/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // I will wait for someone with more knowledge than me to tell me the correct way to smoosh these procs together
 /obj/item/modular_computer/pda/admin/Initialize(mapload)
@@ -506,6 +587,10 @@
 	max_range = INFINITY
 	pointer_icon_state = "purple_laser" // Icon for the laser, affects both the laser dot and the laser pointer itself, as it shines a laser on the item itself. Something silly could be done here.
 
+/obj/item/laser_pointer/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // sets up our pointer to not be shit
 /obj/item/laser_pointer/admin/Initialize(mapload)
 	. = ..()
@@ -534,6 +619,10 @@
 	dart_insert_projectile_icon_state = "overlay_syringe_piercing_proj"
 	embed_type = /datum/embedding/syringe/piercing
 
+/obj/item/reagent_containers/syringe/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /datum/embedding/syringe/admin
 	embed_chance = 100
 	fall_chance = 0
@@ -553,6 +642,10 @@
 	embed_type = /datum/embedding/med_patch/admin
 	application_delay = 0 SECONDS
 	self_delay = 0 SECONDS
+
+/obj/item/reagent_containers/applicator/patch/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /obj/item/reagent_containers/applicator/patch/admin/instant
 	name = "subspace patch - instant"
@@ -582,6 +675,10 @@
 	volume = 1000
 	/// How many "layers" we have remaining. Each layer equates to 1 second of digestion -> var/layers_remaining = 3. This PRETTY COOL VARIABLE is used almost exclusively by unit tests. Very sad stuff.
 
+/obj/item/reagent_containers/applicator/pill/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // like adderall XR, yeah? extended release. theoretical pill to shove into people for plotarmor or other extremely heinous purposes
 /obj/item/reagent_containers/applicator/pill/admin/xr
 	name = "subspace shard"
@@ -601,6 +698,10 @@
 	list_reagents = list(/datum/reagent/medicine/adminordrazine = 1000)
 	refill_rate = 100
 	refill_reagent = /datum/reagent/medicine/adminordrazine
+
+/obj/item/reagent_containers/cup/watering_can/advanced/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // admin slimes stuff? dark cerulean regenerative
 
@@ -623,6 +724,7 @@
 	/// Flags to fullheal every metabolism tick code\__DEFINES\mobs.dm line 1022
 	full_heal_flags = ~(HEAL_BRUTE|HEAL_BURN|HEAL_TOX|HEAL_OXY|HEAL_STAM|HEAL_LIMBS|HEAL_ORGANS|HEAL_TRAUMAS|HEAL_ALL_REAGENTS|HEAL_NEGATIVE_DISEASES|HEAL_TEMP|HEAL_BLOOD|HEAL_STATUS|HEAL_CC_STATUS|HEAL_RESTRAINTS)
 
+
 // New Admin Injectors, to cut down on medbox spawns. Slime Jelly as your All-Heal option through the combat hypokit is cruel and unusual punishment by way of blorbo destruction.
 // Funny for upstream, less funny here where these tools are used to assist players
 // todo: probably like six unique icons? maybe ill look for a unique new model base
@@ -635,6 +737,10 @@
 	base_icon_state = "nanite_hypo"
 	volume = 100
 	list_reagents = list(/datum/reagent/medicine/adminordrazine/subspace = 100)
+
+/obj/item/reagent_containers/hypospray/combat/subspace/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /obj/item/reagent_containers/hypospray/combat/nanites/update_icon_state()
 	icon_state = "[base_icon_state][(reagents.total_volume > 0) ? null : 0]"
@@ -656,6 +762,10 @@
 	precision = TRUE
 	/// Sets the cooling_temperature of the water reagent datum inside of the extinguisher when it is refilled.
 	cooling_power = 10
+
+/obj/item/extinguisher/subspace/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Balls. Empty the stored balls in a directed space.
 // todo: cap charge? it spams chat. also fix the ctrl click interact
@@ -690,6 +800,10 @@
 	spin_item = TRUE
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
 	charge_type = /obj/item/toy/tennis/rainbow
+
+/obj/item/pneumatic_cannon/subspace/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /* All of this code is broken for some reason, I spent hours trying to fix it and I just cannot figure out why. The sbmp can just launch the best balls, for now.
 GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
@@ -735,6 +849,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	company_source = "Nanotrasen"
 	var/locker_path = list()
 
+/obj/item/choice_beacon/job_locker/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /obj/item/choice_beacon/job_locker/generate_display_names()
 	if(!locker_path)
 		return
@@ -748,6 +866,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	name = "debug job locker beacon"
 	company_source = /obj/item/choice_beacon::company_source
 	uses = INFINITY
+
+/obj/item/choice_beacon/job_locker/debug/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /obj/item/choice_beacon/job_locker/debug/generate_display_names()
 	var/locker_list = list()
@@ -764,6 +886,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	desc = "Delivers a Vendor via orbital drop with patented Donk Co. SafeTec Technology!"
 	uses = INFINITY
 
+/obj/item/summon_beacon/vendors/debug/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // It is time we create something terrible; a multicolor-pen-wand/gun that shoots anti-tank rounds. And also is an edagger. Fun admin-pda pen slot filler.
 /*
 /obj/item/gun/energy/meteorgun/pen
@@ -772,7 +898,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 /obj/item/gun/ballistic/automatic/lahti
 */
 // First lets make a new base that we might use again later. At minimum, it'll be a good blank to throw shit onto.
-/obj/item/gun/magic/subspace/
+/obj/item/gun/magic/subspace
 	name = "subspace wand"
 	desc = "That's not magic, that's a gun in the shape of a stick."
 	w_class = WEIGHT_CLASS_TINY
@@ -786,6 +912,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	antimagic_flags = null
 	max_charges = INFINITY
 	charges = INFINITY
+
+/obj/item/gun/magic/subspace/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // todo: sprites, add trigger guard, add minimum interact range, fix insertion on admin pda
 /obj/item/gun/magic/subspace/dagenblicky
@@ -915,6 +1045,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	pin_removable = FALSE
 	default_pin_auth = TRUE
 
+/obj/item/firing_pin/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /obj/item/firing_pin/admin/pin_auth(mob/living/user)
 	. = ..()
 	if(check_rights_for(CLIENT_FROM_VAR(user), R_ADMIN))
@@ -938,6 +1072,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	pixel_x = 0
 	max_syringes = 10
 	force = 0
+
+/obj/item/gun/syringe/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // todo: sprites. demo mod with this force ALMOST totally cracks a standard fulltile r-window. this is a 'soft demolition' tool, to 'soften' up the environment without utterly destroying it.
 // todo: add input popup for demo modifier.
@@ -964,6 +1102,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	homerun_ready = TRUE
 	/// Can we launch mobs thrown at us away?
 	mob_thrower = TRUE
+
+/obj/item/melee/baseball_bat/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Modular Admin Rifle. Another heretical creation.
 // todo: sprites, make and adjust speech json, adjust fire modes for damage, fix double fire that its inheriting for w/e reason
@@ -1010,6 +1152,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 /obj/item/gun/energy/modular_laser_rifle/admin/emp_act(severity)
 	. = ..()
 	speak_up("emp", TRUE) // She gets very upset if you emp her
+
+/obj/item/gun/energy/modular_laser_rifle/carbine/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // todo: base firing mode needs no damage but inflicts hallucinations / causes people to collapse and freakout / causes traumas
 // icons\obj\weapons\guns\projectiles.dmi icon arcane_barrage
@@ -1251,6 +1397,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	repacked_type = /obj/item/flatpacked_machine
 	/// The sound loop played while the fabricator is making something
 //	var/datum/looping_sound/colony_fabricator_running/soundloop
+/obj/machinery/rnd/production/colony_lathe/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 
 /obj/item/flatpacked_machine/admin
 	name = "flat-packed rapid construction fabricator"
@@ -1263,3 +1413,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	type_to_deploy = /obj/machinery/rnd/production/colony_lathe
 	/// How long it takes to create the structure in question.
 	deploy_time = 4 SECONDS
+
+/obj/item/flatpacked_machine/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)

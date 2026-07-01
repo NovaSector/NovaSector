@@ -34,6 +34,10 @@
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#2b2793#dca01b"
 
+/obj/item/encryptionkey/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // TODO: balloon popup on ghost ping use
 // TODO: revisit base model for vars to modify
 /obj/item/radio/headset/admin
@@ -56,6 +60,7 @@
 /obj/item/radio/headset/admin/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, EAR_PROTECTION_HEAVY)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Thank you, code\modules\mining\lavaland\mining_loot\megafauna\ash_drake.dm - /obj/item/melee/ghost_sword, very cool
 /obj/item/radio/headset/admin/item_ctrl_click(mob/user)
@@ -138,6 +143,10 @@
 	drop_sound = SFX_GOGGLES_DROP
 	equip_sound = SFX_GOGGLES_EQUIP
 
+/obj/item/clothing/glasses/meson/engine/admin/debug/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl_shift(mob/user)
 	if(!ishuman(user))
 		return CLICK_ACTION_BLOCKING
@@ -206,6 +215,7 @@
 /obj/item/clothing/head/helmet/perceptomatrix/admin/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/hat_stabilizer, loose_hat = FALSE)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 //Now we get really magical.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
@@ -260,6 +270,10 @@
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDEEARS|HIDEEYES|HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | EARS_COVERED
 
+/obj/item/clothing/mask/gas/atmos/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /obj/item/clothing/mask/gas/atmos/admin/subspace
 	name = "subspace mask"
 	desc = "A proprietary filtration mask which route gasses that CentCom deems toxic directly into the space between dimensions.\
@@ -287,6 +301,7 @@
 /obj/item/storage/neck/admin/cytotheca/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Creates a storage on the cytotheca, which acts as our base level storage for stablizied slime cores to interact with our mob
 // We populate with a subspace_pouch
@@ -400,6 +415,7 @@
 /obj/item/clothing/under/admin/Initialize(mapload)
 	. = ..()
 	// In the future, this can be generalized into just "magic scrolls that give you a specific spell".
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 	var/datum/action/cooldown/spell/teleport/area_teleport = locate() in actions
 	if(!area_teleport)
 		return
@@ -428,6 +444,10 @@
 	equip_delay_other = 4 SECONDS
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	var/hit_reflect_chance = 50
+
+/obj/item/clothing/suit/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /obj/item/clothing/suit/admin/IsReflect(def_zone)
 	if (prob(hit_reflect_chance))
@@ -462,6 +482,7 @@
 /obj/item/clothing/gloves/tackler/admin/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/martial_art_giver, /datum/martial_art/kaza_ruk)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /obj/item/clothing/gloves/tackler/admin/subspace
 	name = "subspace gauntlets"
@@ -472,6 +493,21 @@
 
 //Debug magbooties
 //Spacewalking toggle
+
+/obj/item/clothing/shoes/magboots/advance/admin//code\modules\clothing\shoes\magboots.dm
+	name = "bluespace magboots"
+	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
+	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	base_icon_state = "blue-magboots"
+	icon_state = "blue-magboots0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
+	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	slowdown_active = -0.25
+	magpulse_fishing_modifier = 10
+	fishing_modifier = 10
+	w_class = WEIGHT_CLASS_TINY
+	armor_type = /datum/armor/admin
+	var/admin_spacewalk = FALSE
+
 /obj/item/clothing/shoes/magboots/advance/admin/item_ctrl_click(mob/user)
 	if(!isliving(user))
 		return CLICK_ACTION_BLOCKING
@@ -502,25 +538,12 @@
 	. = ..()
 	. += span_notice("Ctrl-click while wearing to toggle spacewalking. Currently [admin_spacewalk ? "active" : "inactive"].")
 
-/obj/item/clothing/shoes/magboots/advance/admin//code\modules\clothing\shoes\magboots.dm
-	name = "bluespace magboots"
-	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
-	base_icon_state = "blue-magboots"
-	icon_state = "blue-magboots0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	slowdown_active = -0.25
-	magpulse_fishing_modifier = 10
-	fishing_modifier = 10
-	w_class = WEIGHT_CLASS_TINY
-	armor_type = /datum/armor/admin
-	var/admin_spacewalk = FALSE
-
 /obj/item/clothing/shoes/magboots/advance/admin/Initialize(mapload)// Give them pockets, damnit
 	. = ..()
 	create_storage(storage_type = /datum/storage/admin/pockets)//big pockets,,,
 	AddElement(/datum/element/ignites_matches)
 	AddComponent(/datum/component/squeak, list('sound/effects/jingle.ogg'=1), 25, 50, 16)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /obj/item/clothing/shoes/magboots/advance/admin/subspace
 	name = "subspace magboots"

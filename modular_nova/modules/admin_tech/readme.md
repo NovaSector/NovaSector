@@ -68,3 +68,4 @@ investigate lifeline pda app functionality
 update the syndie infiltration module, dont subtype, make a new bespoke one for admins that explains exactly what players are looking at and how they should react. currently techs are not inspectable, and this cannot be disabled w/o powering down their modsuit. this needs to be changed into a toggleable modules, and with information on the inspect blocking updated. what staff have equipped in these outfits should be irrelevant to players. the inspect check should also have a check for admin perms, so staff can bypass regardless. this should really be updated on the central module, as currently even staff are inspect blocked. big oversight.
 Fix digi icons for suits
 Instant no effect spawn option
+Admin donk pockets

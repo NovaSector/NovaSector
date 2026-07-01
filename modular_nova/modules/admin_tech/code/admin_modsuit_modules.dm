@@ -9,6 +9,10 @@
 	active_power_cost = 0
 	incompatible_modules = null
 
+/obj/item/mod/module/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 ///Creates new subspace boxes.
 /obj/item/mod/module/dispenser/subspacebox
 	name = "MOD subspace box dispenser module"
@@ -23,6 +27,10 @@
 	required_slots = list()
 	dispense_type = /obj/item/storage/box/debug
 
+/obj/item/mod/module/dispenser/subspacebox/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 /obj/item/mod/module/admin/carbine
 	name = "MOD linked subspace carbine module"
 	desc = "Provides technicians with a weapon they cannot be separated from."
@@ -35,6 +43,10 @@
 	required_slots = list()
 	/// Power consumed per bullet fired
 
+/obj/item/mod/module/admin/carbine/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // TODO: Should probably be removed, and we should use the new personal energy dune shields instead
 /obj/item/mod/module/energy_shield/admin
 	shield_icon = "none"
@@ -44,10 +56,18 @@
 	charge_recovery = 10
 	block_overwhelming_attacks = TRUE
 
+/obj/item/mod/module/energy_shield/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // Users of this module cannot be inspected, also acts as a weldshield
 // TODO: see readme.md for advanced idea of this module
 /obj/item/mod/module/infiltrator/admin
 	incompatible_modules = null
+
+/obj/item/mod/module/infiltrator/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Modsuit storage modules create their own storage datums, and dont reference a storage datum type
 // TODO: Investigate the runtime this seems to create
@@ -57,3 +77,7 @@
 		miniaturized bluespace pockets for the ultimate in storage technology; regardless of the weight of objects put inside."
 	icon_state = "storage_large"
 	storage_type = /datum/storage/admin
+
+/obj/item/mod/module/storage/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)

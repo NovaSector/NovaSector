@@ -152,6 +152,7 @@ GLOBAL_LIST_INIT(subspace_box_illustrations, list(
 /obj/item/storage/box/debug/Initialize(mapload)
 	. = ..()
 	register_context()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /obj/item/storage/box/debug/examine(mob/user)
 	. = ..()

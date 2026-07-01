@@ -12,7 +12,7 @@
 	belt = /obj/item/storage/belt/utility/admin/full
 	shoes = /obj/item/clothing/shoes/magboots/advance/admin
 	mask = /obj/item/clothing/mask/gas/atmos/admin
-	id = /obj/item/card/id/advanced/debug/bluespace
+	id = /obj/item/card/id/advanced/debug/admin/bluespace
 	box = /obj/item/storage/box/debug
 	l_pocket = /obj/item/storage/bag/admin
 	r_pocket = null
@@ -42,7 +42,7 @@
 	belt = /obj/item/storage/belt/utility/admin/full/subspace
 	shoes = /obj/item/clothing/shoes/magboots/advance/admin/subspace
 	mask = /obj/item/clothing/mask/gas/atmos/admin/subspace
-	id = /obj/item/card/id/advanced/debug/subspace
+	id = /obj/item/card/id/advanced/debug/admin/subspace
 	box = /obj/item/storage/box/debug
 	l_pocket = /obj/item/storage/bag/admin/subspace
 	r_pocket = null
