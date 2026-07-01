@@ -248,7 +248,7 @@ NOVA EDIT REMOVAL END */
 /turf/closed/indestructible/rock
 	name = "dense rock"
 	desc = "An extremely densely-packed rock, most mining tools or explosives would never get through this."
-	icon = MAP_SWITCH('modular_nova/master_files/icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi') // NOVA EDIT CHANGE - ORIGINAL: icon = MAP_SWITCH('icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi')
+	icon = MAP_SWITCH('icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi')
 	icon_state = "rock_indestructible"
 	base_icon_state = "smoothrocks"
 	smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_MINERAL_WALLS
