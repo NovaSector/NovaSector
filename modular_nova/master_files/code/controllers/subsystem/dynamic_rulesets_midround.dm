@@ -23,6 +23,18 @@
 		else
 			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
 
+// Nightmares should not load client appearance/loadout prefs on spawn.
+// This is identical to the normal prepare_for_role with the omission of the line
+// body.client?.prefs.safe_transfer_prefs_to(body)
+/datum/dynamic_ruleset/midround/from_ghosts/nightmare/prepare_for_role(datum/mind/candidate)
+	var/mob/living/body = create_ruleset_body()
+	if(isnull(body))
+		return
+	candidate.transfer_to(body, force_key_move = TRUE)
+	if(ishuman(body))
+		var/mob/living/carbon/human/human_body = body
+		human_body.dna.remove_all_mutations()
+		human_body.dna.update_dna_identity()
 
 /datum/dynamic_ruleset/midround/from_living/traitor
 	var/static/list/sleeper_current_polling = list()
