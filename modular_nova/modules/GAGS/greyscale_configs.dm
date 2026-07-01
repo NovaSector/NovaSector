@@ -436,6 +436,25 @@
 	name = "Neck gaiter (Worn, Teshari)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
 
+// GASMASK
+
+/datum/greyscale_config/gasmask
+	name = "Gasmask"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/gasmask/gasmask.json'
+
+/datum/greyscale_config/gasmask/worn
+	name = "Gasmask (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+
+/datum/greyscale_config/gasmask/worn/muzzled
+	name = "Gasmask (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+/datum/greyscale_config/gasmask/worn/teshari
+	name = "Gasmask (Worn, Teshari)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
+
 /*
 *	EYES
 */
