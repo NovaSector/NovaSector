@@ -460,7 +460,7 @@
 	)
 
 /datum/mod_theme/voskhod
-	name = "refitted voskhod"
+	name = "voskhod"
 	desc = "A Heliostatic Coalition standard-issue armored suit, designed for active mobile combat."
 	extended_desc = "A more expensive, yet more versatile replacement of the dated Voskhod powered armor, designed by the Magellanic Economic Corporate Union researchers \
 		in collaboration with and for the needs of the Heliostatic Coalition. An efficient implementation of mixed exoskeletons in between and underneath its armor plating \
