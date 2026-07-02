@@ -2,6 +2,8 @@
 #define TAUR_DIMENSION_X 64
 
 /datum/sprite_accessory/genital
+	/// The name that shows in examine descriptions and such, if you want it to be different from the name of the sprite accessory
+	var/display_name
 	var/associated_organ_slot
 	/// If true, then there should be a variant in the icon file that's slightly pinkier to match human base colors.
 	var/has_skintone_shading = FALSE
@@ -106,12 +108,14 @@
 
 /datum/sprite_accessory/genital/penis/human/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = PENIS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	max_sprite_size_affix = 5
 	skintone_max_sprite_size_affix = 4
 
 /datum/sprite_accessory/genital/penis/nondescript
+	display_name = ""
 	icon_state = "nondescript"
 	name = "Nondescript"
 	has_skintone_shading = TRUE
@@ -130,6 +134,7 @@
 
 /datum/sprite_accessory/genital/penis/knotted/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = PENIS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
@@ -142,6 +147,7 @@
 
 /datum/sprite_accessory/genital/penis/flared/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = PENIS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
@@ -154,6 +160,7 @@
 
 /datum/sprite_accessory/genital/penis/barbknot/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = PENIS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
@@ -166,6 +173,7 @@
 
 /datum/sprite_accessory/genital/penis/tapered/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = PENIS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
@@ -178,6 +186,7 @@
 
 /datum/sprite_accessory/genital/penis/tentacle/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = PENIS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
@@ -190,6 +199,7 @@
 
 /datum/sprite_accessory/genital/penis/hemi/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = PENIS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
@@ -202,6 +212,7 @@
 
 /datum/sprite_accessory/genital/penis/hemiknot/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = PENIS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
@@ -249,6 +260,7 @@
 
 /datum/sprite_accessory/genital/testicles/pair/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = TESTICLES_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	max_sprite_size_affix = 6
@@ -260,6 +272,7 @@
 
 /datum/sprite_accessory/genital/testicles/sheath/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = TESTICLES_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	has_skintone_shading = FALSE
@@ -382,6 +395,7 @@
 
 /datum/sprite_accessory/genital/breasts/pair/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = BREASTS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	color_src = USE_MATRIXED_COLORS
@@ -392,6 +406,7 @@
 
 /datum/sprite_accessory/genital/breasts/quad/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = BREASTS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	color_src = USE_MATRIXED_COLORS
@@ -405,6 +420,7 @@
 
 /datum/sprite_accessory/genital/breasts/sextuple/alt
 	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
 	icon = BREASTS_ICON_ALT
 	icon_state = parent_type::icon_state + "_alt"
 	color_src = USE_MATRIXED_COLORS

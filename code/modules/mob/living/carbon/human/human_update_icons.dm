@@ -535,7 +535,7 @@ There are several things that need to be remembered:
 
 		if(bodyshape & BODYSHAPE_TAUR)
 			var/obj/item/clothing/suit/worn_suit = wear_suit
-			if(istype(worn_suit) && worn_suit.gets_cropped_on_taurs)
+			if(istype(worn_suit) && !worn_suit.gets_cropped_on_taurs)
 				mutant_styles |= get_taur_mode()
 			if((mutant_styles & BODYSHAPE_TAUR_SNAKE) && worn_suit.worn_icon_taur_snake)
 				worn_suit.worn_x_offset = -16

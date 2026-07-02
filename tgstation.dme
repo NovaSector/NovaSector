@@ -7595,7 +7595,6 @@
 #include "modular_nova\master_files\code\modules\mob\dead\dead.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\latejoin_menu.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\new_player.dm"
-#include "modular_nova\master_files\code\modules\mob\dead\new_player\preferences_setup.dm"
 #include "modular_nova\master_files\code\modules\mob\living\blood.dm"
 #include "modular_nova\master_files\code\modules\mob\living\blood_types.dm"
 #include "modular_nova\master_files\code\modules\mob\living\damage_procs.dm"

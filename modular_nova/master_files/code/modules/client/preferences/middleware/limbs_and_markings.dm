@@ -42,6 +42,9 @@
 			continue
 		var/obj/item/bodypart/target_bodypart = target.get_bodypart(body_zone, include_stumps = TRUE)
 		target_bodypart.bodypart_flags = initial(target_bodypart.bodypart_flags) // Reset bodypart flags so stumps can clear out when we select 'None'
+		target_bodypart.bodyshape      = initial(target_bodypart.bodyshape)
+		target_bodypart.limb_id        = initial(target_bodypart.limb_id)
+		target_bodypart.is_dimorphic   = initial(target_bodypart.is_dimorphic)
 		if(should_greyscale_limbs)
 			target_bodypart?.change_appearance(icon = BODYPART_ICON_HUMANOID, id = SPECIES_HUMANOID, greyscale = TRUE)
 		else
