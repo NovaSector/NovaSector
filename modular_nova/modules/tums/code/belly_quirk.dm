@@ -31,13 +31,13 @@
 	the_bwelly.layer_mode = client_source?.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_layer_mode) || "Standard"
 
 	/// Size modifier - overall.
-	the_bwelly.sizemod = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 1
+	the_bwelly.sizemod = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 0
 	/// Size modifier - auto-calculated stuffed size.
-	the_bwelly.sizemod_autostuffed = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed) || 1
+	the_bwelly.sizemod_autostuffed = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed) || 0
 	/// Size modifier - audio size.
-	the_bwelly.sizemod_audio = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_audio) || 1
+	the_bwelly.sizemod_audio = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_audio) || 0
 	/// Maximum display size for this belly.
-	the_bwelly.maxsize = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_maxsize) || 16
+	the_bwelly.maxsize = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_maxsize) || 0
 
 	/// Base cosmetic size.
 	the_bwelly.base_size_cosmetic = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_base) || 0
@@ -58,7 +58,7 @@
 	/// Pred prefs mode
 	the_bwelly.pred_mode = client_source?.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_pred_pref) || "Never"
 	/// Default endosoma size
-	the_bwelly.endo_size = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_endo) || 1000
+	the_bwelly.endo_size = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_endo) || 0
 
 	/// Manually run add() for dummies so we get preview on the character screen.
 	if(isdummy(quirk_holder))
