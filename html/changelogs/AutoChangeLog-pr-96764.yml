@@ -1,0 +1,4 @@
+author: "Melbert"
+delete-after: True
+changes:
+  - rscdel: "Fixed jaws of recovery being able to be stored in the paramedic EMT belt"
