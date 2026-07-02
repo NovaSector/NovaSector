@@ -13,7 +13,10 @@
 
 /datum/bodypart_overlay/mutant/genital/penis
 	feature_key = ORGAN_SLOT_PENIS
-	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+	layers = list(
+		EXTERNAL_FRONT_UNDER_CLOTHES = UNDER_UNIFORM_LAYER,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+	)
 
 	/// Layer as high as possible
 	layer_above_all = -(BODY_FRONT_LAYER - 0.02)

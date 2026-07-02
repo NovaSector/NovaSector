@@ -144,10 +144,12 @@
 			return FALSE
 
 /datum/bodypart_overlay/mutant/genital
-	layers = EXTERNAL_FRONT_UNDER_CLOTHES
+	layers = list(
+		EXTERNAL_FRONT_UNDER_CLOTHES = UNDER_UNIFORM_LAYER,
+	)
 	color_source = ORGAN_COLOR_OVERRIDE
 	offset_location = LOWER_BODY
-	draw_on_husks = FALSE
+	draw_on_husks = HUSK_OVERLAY_NONE
 	/// The suffix appended to the feature_key for the overlays.
 	var/sprite_suffix
 	/// Owning human.  Used to adjust layers depending on underwear
@@ -178,25 +180,15 @@
 
 	var/list/cached_mutant_icon_states = SSaccessories.cached_mutant_icon_files[sprite_datum.icon]
 
-	for (var/layer in all_layers)
-		if(!(layer & layers))
-			continue
-
-		var/layertext = mutant_bodyparts_layertext(all_layers[layer])
-		if ("m_[feature_key]_[get_base_icon_state()]_[layertext]_primary" in cached_mutant_icon_states)
+	for (var/layer_index in layers)
+		if ("m_[feature_key]_[get_base_icon_state()]_[layer_index]_primary" in cached_mutant_icon_states)
 			sprite_datum.color_layer_names["1"] = "primary"
-		if ("m_[feature_key]_[get_base_icon_state()]_[layertext]_secondary" in cached_mutant_icon_states)
+		if ("m_[feature_key]_[get_base_icon_state()]_[layer_index]_secondary" in cached_mutant_icon_states)
 			sprite_datum.color_layer_names["2"] = "secondary"
-		if ("m_[feature_key]_[get_base_icon_state()]_[layertext]_tertiary" in cached_mutant_icon_states)
+		if ("m_[feature_key]_[get_base_icon_state()]_[layer_index]_tertiary" in cached_mutant_icon_states)
 			sprite_datum.color_layer_names["3"] = "tertiary"
 
 	return sprite_datum.color_layer_names
-
-/datum/bodypart_overlay/mutant/genital/mutant_bodyparts_layertext(layer)
-	if(layer == layer_below_undies || layer == layer_above_undies || layer == layer_above_all)
-		return "FRONT"
-	else
-		return ..()
 
 /// Return TRUE if this should overlay below underwear, otherwise it'll layer above it and the uniform.
 /datum/bodypart_overlay/mutant/genital/proc/underwear_check()
@@ -210,16 +202,16 @@
 			return TRUE
 	return FALSE
 
-/datum/bodypart_overlay/mutant/genital/get_overlay(layer, obj/item/bodypart/limb)
-	if(layer == EXTERNAL_FRONT_UNDER_CLOTHES)
-		if(layer_mode_check() == TRUE)
-			layer = layer_above_all
-		else if(underwear_check() == FALSE)
-			layer = layer_above_undies
+/datum/bodypart_overlay/mutant/genital/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
+	if(layer_index == EXTERNAL_FRONT_UNDER_CLOTHES)
+		// Swap out the real render layer depending on clothing/underwear/layer mode.
+		if(layer_mode_check())
+			layer_real = layer_above_all
+		else if(!underwear_check())
+			layer_real = layer_above_undies
 		else
-			layer = layer_below_undies
-	else
-		return ..()
+			layer_real = layer_below_undies
+	return ..()
 
 /mob/living/carbon/human/verb/toggle_genitals()
 	set category = "IC"
@@ -232,7 +224,7 @@
 
 	var/list/genital_list = list()
 	for(var/obj/item/organ/genital/genital in organs)
-		if(!genital.visibility_preference == GENITAL_SKIP_VISIBILITY)
+		if(genital.visibility_preference != GENITAL_SKIP_VISIBILITY)
 			genital_list += genital
 
 	if(!genital_list.len) //There is nothing to expose
@@ -277,7 +269,7 @@
 
 	var/list/genital_list = list()
 	for(var/obj/item/organ/genital/genital in organs)
-		if(!genital.aroused == AROUSAL_CANT)
+		if(genital.aroused != AROUSAL_CANT)
 			genital_list += genital
 
 	if(!genital_list.len) //There is nothing to modify.
