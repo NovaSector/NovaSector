@@ -153,9 +153,11 @@
 	if(xray)
 		vision_flags &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		detach_clothing_traits(TRAIT_XRAY_VISION)
+		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
 	else
 		vision_flags |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		attach_clothing_traits(TRAIT_XRAY_VISION)
+		remove_filter("admin_active_item")
 	xray = !xray
 	var/mob/living/carbon/human/human_user = user
 	human_user.update_sight()
@@ -194,8 +196,10 @@
 	admin_phasing = !admin_phasing
 	if(admin_phasing)
 		attach_clothing_traits(TRAIT_MOVE_PHASING)
+		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
 	else
 		detach_clothing_traits(TRAIT_MOVE_PHASING)
+		remove_filter("admin_active_item")
 
 	balloon_alert(user, "phasing [admin_phasing ? "enabled" : "disabled"]")
 	return CLICK_ACTION_SUCCESS
@@ -318,8 +322,7 @@
 	. = ..()
 	if(admin_godmode)
 		ADD_TRAIT(user, TRAIT_GODMODE, REF(user))
-//	if(user & slot & slot_flags & admin_godmode)
-		ADD_TRAIT(user, TRAIT_GODMODE, REF(user))
+		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
 
 /// Whether godmode is currently active
 /obj/item/storage/neck/admin/cytotheca/item_ctrl_click(mob/user)
@@ -335,8 +338,10 @@
 	admin_godmode = !admin_godmode
 	if(admin_godmode)
 		ADD_TRAIT(wearer, TRAIT_GODMODE, REF(src))
+		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
 	else
 		REMOVE_TRAIT(wearer, TRAIT_GODMODE, REF(src))
+		remove_filter("admin_active_item")
 	balloon_alert(user, "godmode [admin_godmode ? "enabled" : "disabled"]")
 	return CLICK_ACTION_SUCCESS
 
@@ -437,6 +442,7 @@
 	icon_state = "blue-jacket"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = "blue-jacket"
+	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/mob/clothing_digi.dmi'
 	inhand_icon_state = null
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	armor_type = /datum/armor/admin
@@ -501,6 +507,7 @@
 	base_icon_state = "blue-magboots"
 	icon_state = "blue-magboots0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/mob/clothing_digi.dmi'
 	slowdown_active = -0.25
 	magpulse_fishing_modifier = 10
 	fishing_modifier = 10
@@ -521,8 +528,10 @@
 	admin_spacewalk = !admin_spacewalk
 	if(admin_spacewalk)
 		attach_clothing_traits(TRAIT_SPACEWALK)
+		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
 	else
 		detach_clothing_traits(TRAIT_SPACEWALK)
+		remove_filter("admin_active_item")
 
 	balloon_alert(user, "spacewalking [admin_spacewalk ? "enabled" : "disabled"]")
 	return CLICK_ACTION_SUCCESS

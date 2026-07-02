@@ -1,12 +1,28 @@
-
+// Need to make a wand that uses the above to proc and apply to something.
 //! Admeme bags. Better than a trash bag, better than a pouch, cooler than your belt, and comes totally empty.
 //! These will let you quickly spawn in, grab a pile of leftovers from something like a body respawn, and poof out, destroying all of it quickly.
 //! Sprite redits to CEV-ERIS, y'all really fucked with this one, it has no reason to look this cool.
 //! TODO:
 //! - pickup people or machines with it too? wouldn't that be cool
+/* Magic macro that we cant get working. Commented trails sitting about the document.
+#define ADMIN_ITEM_VARS(path) ##path {\
+	w_class = WEIGHT_CLASS_TINY; \
+	slot_flags = ITEM_SLOT_ADMIN; \
+	resistance_flags = INDESTRUCTIBLE; \
+	obj_flags = ADMIN_OBJ_FLAGS; \
+}\
+// Thank you to sammy for the above insanity. That's called a macro! This is applied through ADMIN_ITEM_VARS(path) under each item, and applies our unique obj flags for admin types without having to update the three hundred items in here. See under /obj/item/storage/bag/admin for example usage.
+*/
+/*
+	add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
+	game_plane_master_controller.remove_filter("admin_active_item")
+*/
 //! - click interaction inspects
-// We should probably make an /obj/item base flag or a proc to run on /obj/'s for is_admin_thing which adaptively applies coverage
-/* Admin Item Flags Start
+/*
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
 
 */
 /obj/item/storage/bag/admin
@@ -15,9 +31,12 @@
 	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
 	icon_state = "blue-pocket"
 	worn_icon_state = "null"
-	w_class = WEIGHT_CLASS_TINY
-	slot_flags = ITEM_SLOT_POCKETS | ITEM_SLOT_BELT | ITEM_SLOT_BACK//I know someone will want a backpack with no worn icon so here shut up in advance
 	storage_type = /datum/storage/admin/bag
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/storage/bag/admin)
 
 // First usage of the admin manufacturing company, to specifically denote items added through this module.
 /obj/item/storage/bag/admin/Initialize(mapload)
@@ -43,9 +62,13 @@
 	icon_state = "storage_pouch_icon"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	worn_icon_state = "storage_pouch_icon"
-	w_class = WEIGHT_CLASS_TINY
 	anchored = 1
 	storage_type = /datum/storage/admin
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/storage/subspace_pouch)
 
 /obj/item/storage/subspace_pouch/Initialize(mapload)
 	. = ..()
@@ -67,10 +90,12 @@
 	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
 	icon_state = "blue-bag"
 	worn_icon_state = "null" // Don't fuck with my drip
-	w_class = WEIGHT_CLASS_TINY
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	slot_flags = ITEM_SLOT_POCKETS // pockets only >:( if i accidentally equip a construction bag to my belt slot instead of my pockets first, where the value proposition is much higher, i will explode
 	storage_type = /datum/storage/admin/bag
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/storage/bag/construction/admin)
 
 /obj/item/storage/bag/construction/admin/Initialize(mapload)
 	. = ..()
@@ -164,7 +189,10 @@
 	icon_state = "sub-sniffer"//you like sniffing subs, dont you
 	ignore_suit_sensor_level = TRUE
 	w_class = WEIGHT_CLASS_TINY
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/pinpointer/crew/admin)
 
 /obj/item/pinpointer/crew/admin/Initialize(mapload)
 	. = ..()
@@ -185,10 +213,14 @@
 /obj/item/gun/energy/recharge/fisher/admin
 	name = "subspace disruptor"
 	icon_state = "protolaser"
-	w_class = WEIGHT_CLASS_TINY
 	suppressed = SUPPRESSED_QUIET
 	recharge_time = 0.25 SECONDS
 	ammo_type = list(/obj/item/ammo_casing/energy/fisher/admin)
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/gun/energy/recharge/fisher/admin)
 
 /obj/item/gun/energy/recharge/fisher/admin/Initialize(mapload)
 	. = ..()
@@ -200,6 +232,11 @@
 	name = "unusually dense holochip"
 	desc = "Oh lawd she thicc."
 	credits = 50000
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/holochip/fiftythousand)
 
 /obj/item/holochip/fiftythousand/Initialize(mapload)
 	. = ..()
@@ -215,6 +252,7 @@
 
 // Debug Global Access Door Remote
 // code\game\objects\items\tools\control_wand.dm
+// This thing is emagged so it doesn't get the admin vars by macro.
 // todo:subspace icon variant, and maybe, fix this lazy behavior where emagging removes the useful screen-mode shit.
 /obj/item/door_remote/admin
 	name = "subspace door remote"
@@ -223,8 +261,10 @@
 	region_access = REGION_ALL_GLOBAL
 	owner_trim = /datum/id_trim/admin/subspace
 	our_domain = list( /area )
-	obj_flags = EMAGGED
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS | EMAGGED
 
 /obj/item/door_remote/admin/Initialize(mapload)
 	. = ..()
@@ -246,6 +286,10 @@
 	delay_mod = 0.1
 	construction_upgrades = RCD_ALL_UPGRADES & ~RCD_UPGRADE_SILO_LINK
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/construction/rcd/arcd/mattermanipulator/admin)
 
 /obj/item/construction/rcd/arcd/mattermanipulator/admin/Initialize(mapload)
 	. = ..()
@@ -269,6 +313,10 @@
 	max_matter = INFINITY
 	construction_upgrades = RCD_UPGRADE_SILO_LINK
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/construction/rld/admin)
 
 /obj/item/construction/rld/admin/Initialize(mapload)
 	. = ..()
@@ -286,6 +334,10 @@
 	prox_check = FALSE//makes wireless. be careful
 	type_blacklist = list()//this is the crucial change to restore global emag function
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/card/emag/admin)
 
 /obj/item/card/emag/admin/Initialize(mapload)
 	. = ..()
@@ -301,6 +353,10 @@
 	uses = INFINITY
 	max_uses = INFINITY
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/lightreplacer/blue/admin)
 
 /obj/item/lightreplacer/blue/admin/Initialize(mapload)
 	. = ..()
@@ -317,6 +373,10 @@
 	max_signs = INFINITY
 	projectable_through = list( /obj )
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/holosign_creator/atmos/admin)
 
 /obj/item/holosign_creator/atmos/admin/Initialize(mapload)
 	. = ..()
@@ -346,6 +406,10 @@
 	field_distance_limit = INFINITY
 	creation_time = 0 SECONDS
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/forcefield_projector/admin)
 
 /obj/item/forcefield_projector/admin/Initialize(mapload)
 	. = ..()
@@ -378,9 +442,13 @@
 	desc = "Portable, efficient, and packaged with a hyper-insulated tile, it's a wonder we don't let the normal crew access to such a luxurious device. Maybe we should."
 	icon_state = "capsule"
 	icon = 'icons/obj/mining.dmi'
-	w_class = WEIGHT_CLASS_TINY
 	template_id = "capsule_tinyfan"
 	used = FALSE
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/survivalcapsule/admin/fan)
 
 /obj/item/survivalcapsule/admin/fan/Initialize(mapload)
 	. = ..()
@@ -398,7 +466,6 @@
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	worn_icon_state = "plumbing"
 	icon = 'icons/obj/tools.dmi'
-	slot_flags = ITEM_SLOT_BELT
 	drop_sound = 'sound/items/handling/tools/rcd_drop.ogg'
 	pickup_sound = 'sound/items/handling/tools/rcd_pickup.ogg'
 	sound_vary = TRUE
@@ -406,6 +473,9 @@
 	max_matter = INFINITY
 	construction_upgrades = RCD_UPGRADE_SILO_LINK
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
 // Design types for debug service constructor, I just smushed the two lists together, because no other plumber exists with the full list. why are we like this? is this even all of them?
 	var/static/list/admin_design_types = list(
 		//Category 1 synthesizers
@@ -451,6 +521,7 @@
 			/obj/machinery/plumbing/floor_pump/output = 20,
 		),
 	)
+//ADMIN_ITEM_VARS(/obj/item/construction/plumbing/admin)
 
 /obj/item/construction/plumbing/admin/Initialize(mapload)
 	plumbing_design_types = admin_design_types
@@ -465,6 +536,10 @@
 	icon_state = "shears"
 	toolspeed = 0
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/shears/admin)
 
 /obj/item/shears/admin/Initialize(mapload)
 	. = ..()
@@ -481,7 +556,6 @@
 	inhand_icon_state = "chronogun" // Fits best with how the medigun looks, might be changed in the future
 	abstract_type = /obj/item/gun/energy/cell_loaded/medigun
 	ammo_type = list(/obj/item/ammo_casing/energy/medical) // The default option that heals oxygen
-	w_class = WEIGHT_CLASS_TINY
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun
 	maxcells = 12 // there are 12 medicells in code at the time of counting
 	allowed_cells = list(/obj/item/weaponcell/medical)
@@ -497,6 +571,11 @@
 		/obj/item/weaponcell/medical/utility/temperature,
 		/obj/item/weaponcell/medical/utility/salve,
 	)
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/gun/energy/cell_loaded/medigun/admin)
 
 /obj/item/gun/energy/cell_loaded/medigun/admin/Initialize(mapload)
 	. = ..()
@@ -512,7 +591,6 @@
 /obj/item/surgery_tray/admin
 	name = "technician's surgery tray"
 	desc = "Full of things that you will probably want to do surgery with. Objectively a better user experience than the omnitool, which is atrociously out of date."
-	w_class = WEIGHT_CLASS_TINY
 	starting_items = list(
 		/obj/item/reagent_containers/medigel/sterilizine,
 		/obj/item/stack/medical/bone_gel,
@@ -526,6 +604,11 @@
 		/obj/item/cautery/advanced,
 		/obj/item/blood_filter/advanced,
 	)
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/surgery_tray/admin)
 
 /obj/item/surgery_tray/admin/Initialize(mapload)
 	. = ..()
@@ -533,6 +616,7 @@
 
 // New admin PDA, thank you debug modular computer for existing.
 // deadmonwonderland requested this one
+// TODO: The dagenblicky is not reinsertable
 // code\modules\modular_computers\computers\item\pda.dm
 /obj/item/modular_computer/pda/admin
 	name = "technician's PDA"
@@ -549,6 +633,10 @@
 	light_range = 10
 	light_angle = 360
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/modular_computer/pda/admin)
 
 /obj/item/modular_computer/pda/admin/Initialize(mapload)
 	. = ..()
@@ -583,12 +671,16 @@
 	Turning it over, you notice a crudely hand-etched representation of a crying cyborg."
 	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "pointer"
-	w_class = WEIGHT_CLASS_TINY
 	effectchance = 100
 	energy = INFINITY
 	max_energy = INFINITY
 	max_range = INFINITY
 	pointer_icon_state = "purple_laser" // Icon for the laser, affects both the laser dot and the laser pointer itself, as it shines a laser on the item itself. Something silly could be done here.
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/laser_pointer/admin)
 
 /obj/item/laser_pointer/admin/Initialize(mapload)
 	. = ..()
@@ -621,6 +713,11 @@
 	dart_insert_casing_icon_state = "overlay_syringe_piercing"
 	dart_insert_projectile_icon_state = "overlay_syringe_piercing_proj"
 	embed_type = /datum/embedding/syringe/piercing
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/reagent_containers/syringe/admin)
 
 /obj/item/reagent_containers/syringe/admin/Initialize(mapload)
 	. = ..()
@@ -645,6 +742,11 @@
 	embed_type = /datum/embedding/med_patch/admin
 	application_delay = 0 SECONDS
 	self_delay = 0 SECONDS
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/reagent_containers/applicator/patch/admin)
 
 /obj/item/reagent_containers/applicator/patch/admin/Initialize(mapload)
 	. = ..()
@@ -676,7 +778,12 @@
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	volume = 1000
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
 	/// How many "layers" we have remaining. Each layer equates to 1 second of digestion -> var/layers_remaining = 3. This PRETTY COOL VARIABLE is used almost exclusively by unit tests. Very sad stuff.
+//ADMIN_ITEM_VARS(/obj/item/reagent_containers/applicator/pill/admin)
 
 /obj/item/reagent_containers/applicator/pill/admin/Initialize(mapload)
 	. = ..()
@@ -701,6 +808,11 @@
 	list_reagents = list(/datum/reagent/medicine/adminordrazine = 1000)
 	refill_rate = 100
 	refill_reagent = /datum/reagent/medicine/adminordrazine
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/reagent_containers/cup/watering_can/advanced/admin)
 
 /obj/item/reagent_containers/cup/watering_can/advanced/admin/Initialize(mapload)
 	. = ..()
@@ -727,7 +839,6 @@
 	/// Flags to fullheal every metabolism tick code\__DEFINES\mobs.dm line 1022
 	full_heal_flags = ~(HEAL_BRUTE|HEAL_BURN|HEAL_TOX|HEAL_OXY|HEAL_STAM|HEAL_LIMBS|HEAL_ORGANS|HEAL_TRAUMAS|HEAL_ALL_REAGENTS|HEAL_NEGATIVE_DISEASES|HEAL_TEMP|HEAL_BLOOD|HEAL_STATUS|HEAL_CC_STATUS|HEAL_RESTRAINTS)
 
-
 // New Admin Injectors, to cut down on medbox spawns. Slime Jelly as your All-Heal option through the combat hypokit is cruel and unusual punishment by way of blorbo destruction.
 // Funny for upstream, less funny here where these tools are used to assist players
 // todo: probably like six unique icons? maybe ill look for a unique new model base
@@ -740,6 +851,11 @@
 	base_icon_state = "nanite_hypo"
 	volume = 100
 	list_reagents = list(/datum/reagent/medicine/adminordrazine/subspace = 100)
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/reagent_containers/hypospray/combat/subspace)
 
 /obj/item/reagent_containers/hypospray/combat/subspace/Initialize(mapload)
 	. = ..()
@@ -765,6 +881,11 @@
 	precision = TRUE
 	/// Sets the cooling_temperature of the water reagent datum inside of the extinguisher when it is refilled.
 	cooling_power = 10
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/extinguisher/subspace)
 
 /obj/item/extinguisher/subspace/Initialize(mapload)
 	. = ..()
@@ -775,7 +896,6 @@
 /obj/item/pneumatic_cannon/subspace
 	name = "subspace ballmatter mass projector"
 	desc = "A subspace condensant powered cannon that can fire any object loaded into it. Also contains a shard of the elusive Ballmatter, which can be attenuated to different spherical wavelengths."
-	w_class = WEIGHT_CLASS_BULKY
 	force = 8 //Very heavy
 	attack_verb_continuous = list("bludgeons", "smashes", "beats")
 	attack_verb_simple = list("bludgeon", "smash", "beat")
@@ -803,6 +923,11 @@
 	spin_item = TRUE
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
 	charge_type = /obj/item/toy/tennis/rainbow
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/pneumatic_cannon/subspace)
 
 /obj/item/pneumatic_cannon/subspace/Initialize(mapload)
 	. = ..()
@@ -851,6 +976,11 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	desc = "A beacon which summons a locker with a job's items, what more is there to tell."
 	company_source = "Nanotrasen"
 	var/locker_path = list()
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/choice_beacon/job_locker)
 
 /obj/item/choice_beacon/job_locker/Initialize(mapload)
 	. = ..()
@@ -869,6 +999,11 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	name = "debug job locker beacon"
 	company_source = /obj/item/choice_beacon::company_source
 	uses = INFINITY
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/choice_beacon/job_locker/debug)
 
 /obj/item/choice_beacon/job_locker/debug/Initialize(mapload)
 	. = ..()
@@ -888,6 +1023,11 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	name = "debug vendor beacon"
 	desc = "Delivers a Vendor via orbital drop with patented Donk Co. SafeTec Technology!"
 	uses = INFINITY
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/summon_beacon/vendors/debug)
 
 /obj/item/summon_beacon/vendors/debug/Initialize(mapload)
 	. = ..()
@@ -909,12 +1049,17 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	clumsy_check = FALSE
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
 	//todo: admin firing pin
-	pin = /obj/item/firing_pin/magic
+	pin = /obj/item/firing_pin/admin
 	pinless = TRUE
 	school = SCHOOL_UNSET
 	antimagic_flags = null
 	max_charges = INFINITY
 	charges = INFINITY
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/gun/magic/subspace)
 
 /obj/item/gun/magic/subspace/Initialize(mapload)
 	. = ..()
@@ -1039,7 +1184,6 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	icon_state = "firing_pin_ayy"
 	inhand_icon_state = "pen"
 	worn_icon_state = "pen"
-	obj_flags = null
 	attack_verb_continuous = list("pokes")
 	attack_verb_simple = list("poke")
 	fail_message = "not an admin!"
@@ -1047,6 +1191,11 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	pin_hot_swappable = FALSE
 	pin_removable = FALSE
 	default_pin_auth = TRUE
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/firing_pin/admin)
 
 /obj/item/firing_pin/admin/Initialize(mapload)
 	. = ..()
@@ -1069,12 +1218,16 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	worn_icon_state = "gun"
-	w_class = WEIGHT_CLASS_TINY
-	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE | ITEM_SLOT_POCKETS | ITEM_SLOT_BACK
 	base_pixel_x = 0
 	pixel_x = 0
 	max_syringes = 10
 	force = 0
+	pin = /obj/item/firing_pin/admin
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/gun/syringe/admin)
 
 /obj/item/gun/syringe/admin/Initialize(mapload)
 	. = ..()
@@ -1097,14 +1250,17 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	demolition_mod = 5
 	attack_verb_continuous = list("beats", "smacks")
 	attack_verb_simple = list("beat", "smack")
-	resistance_flags = null
-	w_class = WEIGHT_CLASS_TINY
 	/// Are we able to do a homerun?
 	homerun_able = TRUE
 	/// Are we ready to do a homerun?
 	homerun_ready = TRUE
 	/// Can we launch mobs thrown at us away?
 	mob_thrower = TRUE
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/melee/baseball_bat/admin)
 
 /obj/item/melee/baseball_bat/admin/Initialize(mapload)
 	. = ..()
@@ -1113,19 +1269,19 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 // Modular Admin Rifle. Another heretical creation.
 // todo: sprites, make and adjust speech json, adjust fire modes for damage, fix double fire that its inheriting for w/e reason
 /obj/item/gun/energy/modular_laser_rifle/carbine/admin
-	name = "\improper modular subspace rifle"
+	name = "\improper modular subspace carbine"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns32x.dmi'
 	icon_state = "hoshi_kill"
 	inhand_icon_state = "hoshi_kill"
 	worn_icon_state = "hoshi_kill"
 	base_icon_state = "hoshi"
 	charge_sections = 3
+	burst_size = 1
 	cell_type = /obj/item/stock_parts/power_store/cell/infinite
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_small_hellfire)
-	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
+	pin = /obj/item/firing_pin/admin
 	SET_BASE_PIXEL(0, 0)
 	weapon_weight = WEAPON_LIGHT
-	w_class = WEIGHT_CLASS_TINY
 	weapon_mode_options = list(
 			/datum/laser_weapon_mode/admin,
 			/datum/laser_weapon_mode/admin/destroyer_pulse,
@@ -1151,6 +1307,11 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 		Her onboard machine intelligence, at first devised to support the operator and manage the internal reactor, \
 		was originally shipped with a more energetic personality—since influenced by 'negligence' \
 		from users in wiping the intelligence's memory before resale or transport."
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/gun/energy/modular_laser_rifle/carbine/admin)
 
 /obj/item/gun/energy/modular_laser_rifle/admin/emp_act(severity)
 	. = ..()
@@ -1411,12 +1572,98 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	desc = /obj/machinery/rnd/production/colony_lathe::desc
 	icon = 'modular_nova/modules/colony_fabricator/icons/packed_machines.dmi'
 	icon_state = "colony_lathe_packed"
-	w_class = WEIGHT_CLASS_TINY
 	/// What structure is created by this item.
 	type_to_deploy = /obj/machinery/rnd/production/colony_lathe
 	/// How long it takes to create the structure in question.
 	deploy_time = 4 SECONDS
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+//ADMIN_ITEM_VARS(/obj/item/flatpacked_machine/admin)
 
 /obj/item/flatpacked_machine/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// Dune-esque energy shields.
+/obj/item/clothing/accessory/energy_shield/admin
+	name = "\improper CC tactical shield projector"
+	desc = "A military-spec energy shield designed for Central Command Officials."
+	max_shield_health = 250
+	recharge_delay = 4 SECONDS
+	recharge_rate = 16
+	shield_color = "#4488ff"
+	max_armor_class = 200
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/clothing/accessory/energy_shield/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+/obj/item/clothing/accessory/energy_shield/admin/bluespace
+	name = "\improper bluespace shield projector"
+	desc = "A cutting edge energy shield designed for Central Command's technicians."
+	max_shield_health = 1000
+	recharge_delay = 2 SECONDS
+	recharge_rate = 64
+	shield_color = "#000fda"
+	max_armor_class = 200
+
+/obj/item/clothing/accessory/energy_shield/admin/subspace
+	name = "\improper subspace shield projector"
+	desc = "A narrative-bending energy shield designed for Central Command's technicians."
+	max_shield_health = 10000
+	recharge_delay = 0 SECONDS
+	recharge_rate = 128
+	shield_color = "#cc00ff"
+	max_armor_class = 200
+
+// Soap. Amazing
+/obj/item/soap/admin
+	name = "\improper subspace soap"
+	desc = "ACTUALLY the most advanced soap known to mankind. Because it does not actually exist. Where did you get this?"
+	icon_state = "soapomega"
+	inhand_icon_state = "soapomega"
+	worn_icon_state = "soapomega"
+	cleanspeed = 0 SECONDS
+	uses = INFINITY
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/soap/admin/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/slippery, 0) //Negates slippery component
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// Admeme mop. There is a funny comment on the parent, originally:
+// var/refill_reagent = /datum/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
+// We did finally make the Holy Mop of Purging.
+/obj/item/mop/advanced/admin
+	name = "HOLY MOP OF PURGING"
+	desc = "What, did a priest bless this? Why does it feel like that?"
+	max_reagent_volume = 100 // NOVA EDIT - ORIGINAL: 10
+	icon_state = "advmop"
+	inhand_icon_state = "advmop"
+	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/custodial_righthand.dmi'
+	force = 12
+	throwforce = 14
+	throw_range = 4
+	mopspeed = 0.8 SECONDS
+	refill_enabled = FALSE //Starts disabled.
+	refill_rate = 5
+	refill_reagent = /datum/reagent/space_cleaner/ez_clean //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/mop/advanced/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)

@@ -4,6 +4,9 @@
 	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly. Alt-Right-Click to manufacture parts, change settings, or clear its internal storage."
 	storage_type = /datum/storage/rped/bluespace/admin
 	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
 	/// Whether or not auto-clear is enabled
 	var/auto_clear = TRUE
 	/// List of valid types for pick_stock_part().

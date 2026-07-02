@@ -20,11 +20,16 @@ Links in with icspawning module from skyrat era, integrates some of its content 
 
 ### TG Code Changes and Modular Additions:
 
-N/A
+code\datums\elements\strippable.dm - Adds NOSTRIP trait to /datum/strippable_item/proc/try_unequip
+code\modules\mob\living\carbon\examine.dm - Adds TRAIT_TECHNICIAN_STEALTH which provides a unique obscuration flavor while blocking examines.
 
 ### Defines:
 
-none _yet_
+ADMIN_OBJ_FLAGS - code\_\_DEFINES\~nova_defines/obj_flags.dm - code\_\_DEFINES\~nova_defines_globalvars\bitfields.dm
+
+### Traits:
+
+TRAIT_NOSTRIP - Prevents item removal by Strip Menu
 
 ### Included files:
 
@@ -48,19 +53,13 @@ BunBun - Cration ([sic] from the original PR credits)
 
 Search TODO on this folder to find remaining known issues / missing content
 Icons. Everywhere. They all need icons. Either you do it, or hope I eventually do it. And I am anything but an artist
-Defines
-Globs file
-Atomize admin_items.dm?
 Revisit the currently used spawner wands and retheme / update them. Human spawner wand doesnt use tguilist for example.
-Add active outlines to click-toggle altered items
 Player appropriate tech loadout with considerations to reduce the need for admins to support them when they wish to test mechanics
-subspace boxcutter, to replace the energy axe. probably sub-path the spess knife. split state checks for combat mode -> interact to toggle the combat function, or non-combat mode for tool adjustments. add action to rclick open turf to tear hole in reality that only admins can enter to despawn. integrate the subspace baseball bat onto this. radial navigation menu, with tgui input functions. expand the radial, reduce popup times, make this a true omnitool.
-admin cyborgs and modules. /obj/item/soap/omega. subspace mop / liquids solution? new admin dune shield to replace the energy shield, seeds box
+subspace boxcutter, to replace the energy axe. probably sub-path the spess knife. split state checks for combat mode -> interact to toggle the combat function, or non-combat mode for tool adjustments. add action to rclick open turf to tear hole in reality that only admins can enter to despawn. integrate the subspace baseball bat onto this. radial navigation menu, with tgui input functions. expand the radial, reduce popup times, make this a true omnitool. seeds box
 subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
 find a solution for reach_length passing a collisions check for BST radio headset. TRAIT_SKIP_BASIC_REACH_CHECK.
 /obj/item/pen/screwdriver/get_all_tool_behaviours()
 return list(TOOL_SCREWDRIVER)
-strip speed checks on admin items
 check traits list from protean mage cloak you made on the syndiehomepod
 investigate robotact pda app functionality
 investigate lifeline pda app functionality
@@ -69,3 +68,4 @@ Fix digi icons for suits
 Instant no effect spawn option
 Admin donk pockets
 desc = parent_type::desc + "To be used on subspace variants for bonus flavor"
+Event-grade decal painter. Like the fun decals, like the ss13 logos.

@@ -126,7 +126,13 @@
 	var/obj/item/item = get_item(source)
 	if (isnull(item))
 		return FALSE
-
+	// NOVA EDIT ADDITION START
+	if (item.obj_flags & NOSTRIP)
+		if(user.client.holder)
+			return TRUE
+		to_chat(user, span_warning("You can't strip [item] from [source], it's stuck for some reason!"))
+		return FALSE
+	// NOVA EDIT ADDITION END
 	if (ismob(source))
 		if(SEND_SIGNAL(user, COMSIG_TRY_STRIP, source, item) & COMPONENT_CANT_STRIP)
 			return FALSE
