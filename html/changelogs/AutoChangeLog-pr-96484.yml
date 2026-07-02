@@ -1,0 +1,4 @@
+author: "Richard Blonski"
+delete-after: True
+changes:
+  - admin: "Added Ignored CIDs, a message will appear when a player joins with an Ignored CID."
