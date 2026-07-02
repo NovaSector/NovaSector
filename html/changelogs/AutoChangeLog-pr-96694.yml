@@ -1,0 +1,4 @@
+author: "Melbert"
+delete-after: True
+changes:
+  - bugfix: "Airlock pump \"timeout\" period no longer gets frozen alongside atmos itself, meaning airlock pumps will always consistently open after ten seconds, no matter if atmos is struggling"
