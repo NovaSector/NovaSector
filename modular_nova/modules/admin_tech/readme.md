@@ -22,6 +22,7 @@ Links in with icspawning module from skyrat era, integrates some of its content 
 
 code\datums\elements\strippable.dm - Adds NOSTRIP trait to /datum/strippable_item/proc/try_unequip
 code\modules\mob\living\carbon\examine.dm - Adds TRAIT_TECHNICIAN_STEALTH which provides a unique obscuration flavor while blocking examines.
+code\_\_HELPERS\pronouns.dm - TRAIT_TECHNICIAN_STEALTH
 
 ### Defines:
 
@@ -30,6 +31,7 @@ ADMIN_OBJ_FLAGS - code\_\_DEFINES\~nova_defines/obj_flags.dm - code\_\_DEFINES\~
 ### Traits:
 
 TRAIT_NOSTRIP - Prevents item removal by Strip Menu
+TRAIT_TECHNICIAN_STEALTH - Provides identity masking similar to the UNKNOWN_APPEARANCE trait, but special inspect texts
 
 ### Included files:
 
@@ -63,7 +65,6 @@ return list(TOOL_SCREWDRIVER)
 check traits list from protean mage cloak you made on the syndiehomepod
 investigate robotact pda app functionality
 investigate lifeline pda app functionality
-update the syndie infiltration module, dont subtype, make a new bespoke one for admins that explains exactly what players are looking at and how they should react. currently techs are not inspectable, and this cannot be disabled w/o powering down their modsuit. this needs to be changed into a toggleable modules, and with information on the inspect blocking updated. what staff have equipped in these outfits should be irrelevant to players. the inspect check should also have a check for admin perms, so staff can bypass regardless. this should really be updated on the central module, as currently even staff are inspect blocked. big oversight.
 Fix digi icons for suits
 Instant no effect spawn option
 Admin donk pockets

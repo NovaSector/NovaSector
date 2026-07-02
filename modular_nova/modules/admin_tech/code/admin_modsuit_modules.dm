@@ -63,7 +63,13 @@
 // Users of this module cannot be inspected, also acts as a weldshield
 // TODO: see readme.md for advanced idea of this module
 /obj/item/mod/module/infiltrator/admin
+	name = "technician's visual cloak"
+	removable = FALSE
+	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0
 	incompatible_modules = null
+	required_slots = list(ITEM_SLOT_FEET, ITEM_SLOT_HEAD, ITEM_SLOT_OCLOTHING)
+	/// List of traits added when the suit is activated
+	var/list/traits_to_add = list(TRAIT_SILENT_FOOTSTEPS, TRAIT_TECHNICIAN_STEALTH, TRAIT_UNKNOWN_VOICE, TRAIT_HEAD_INJURY_BLOCKED)
 
 /obj/item/mod/module/infiltrator/admin/Initialize(mapload)
 	. = ..()
