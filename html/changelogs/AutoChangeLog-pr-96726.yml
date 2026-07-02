@@ -1,0 +1,8 @@
+author: "lelandkemble"
+delete-after: True
+changes:
+  - bugfix: "It's no longer possible to softlock building a turret(if it ever was)"
+  - bugfix: "you can no longer stuff the blackbox recorder full with as many blackboxes as you've somehow collected"
+  - bugfix: "TTVs will no longer remain on your back as a ghost when you cut their wire straps"
+  - bugfix: "RCLs will now properly update their appearance when given their first coil of cleaners"
+  - code_imp: "50 files have been converted from attackby() to item_interaction()"
