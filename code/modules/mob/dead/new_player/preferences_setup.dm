@@ -128,5 +128,7 @@
 				continue
 			mannequin.add_quirk(quirk_type, parent, announce = FALSE)
 
+	// Height is applied universally once to save on filters
+	mannequin.apply_height(mannequin, ENTIRE_BODY)
 	return mannequin.appearance
 */
