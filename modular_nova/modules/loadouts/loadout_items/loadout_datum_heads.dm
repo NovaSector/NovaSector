@@ -715,13 +715,13 @@
 /datum/loadout_item/head/officerberet
 	name = "Guard Beret"
 	item_path = /obj/item/clothing/head/beret/sec/depgag
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/head/navyblueofficerberet
 	name = "Guard Beret (Navy Blue)"
 	item_path = /obj/item/clothing/head/beret/sec/navyofficer
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/head/officergarrisoncap
@@ -733,19 +733,19 @@
 /datum/loadout_item/head/officerpatrolcap
 	name = "Guard Cap - Patrol"
 	item_path = /obj/item/clothing/head/hats/warden/police/patrol
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/head/cowboyhat_sec
 	name = "Guard Cattleman Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/sec
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/head/cowboyhat_secwide
 	name = "Guard Cattleman Hat - Wide-Brimmed"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/wide/sec
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/head/ushanka/sec
