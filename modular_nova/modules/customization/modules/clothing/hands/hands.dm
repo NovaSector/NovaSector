@@ -125,7 +125,6 @@
 	greyscale_config = /datum/greyscale_config/recolorable_gloves/fingerless_long
 	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/fingerless_long/worn
 
-
 /datum/atom_skin/nitrile_gloves_long
 	abstract_type = /datum/atom_skin/nitrile_gloves_long
 
