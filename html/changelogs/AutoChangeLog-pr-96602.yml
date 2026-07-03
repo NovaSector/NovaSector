@@ -1,0 +1,4 @@
+author: "XeonMations"
+delete-after: True
+changes:
+  - bugfix: "Fixed the radio volume slider being missing in game preferences"
