@@ -13,7 +13,7 @@
 		outfits["Show All"] = "Show All"
 
 		var/dresscode
-		var/teleport_option = tgui_alert(usr, "How would you like to be spawned in?", "IC Quick Spawn", list("Bluespace", "Pod", "Cancel"))
+		var/teleport_option = tgui_alert(usr, "How would you like to be spawned in?", "IC Quick Spawn", list("Bluespace", "Pod", "Silent", "Cancel"))
 		if (teleport_option == "Cancel")
 			return
 		var/character_option = tgui_alert(usr, "Which character?", "IC Quick Spawn", list("Selected Character", "Randomly Created", "Cancel"))
@@ -98,6 +98,9 @@
 				spawned_player.forceMove(empty_pod)
 
 				new /obj/effect/pod_landingzone(current_turf, empty_pod)
+
+			if("Silent")
+				spawned_player.forceMove(current_turf)
 
 /client/proc/robust_dress_shop_nova()
 	var/list/baseoutfits = list("Naked", "Custom", "As Job...", "As Plasmaman...")
