@@ -13,7 +13,6 @@
 	mutanttongue = /obj/item/organ/tongue/vox
 	mutantlungs = /obj/item/organ/lungs/nitrogen/vox
 	mutantbrain = /obj/item/organ/brain/cybernetic/cortical/vox
-	breathid = "n2"
 
 	payday_modifier = 1.0
 	outfit_important_for_life = /datum/outfit/vox

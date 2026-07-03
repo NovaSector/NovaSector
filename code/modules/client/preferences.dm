@@ -303,6 +303,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if("update_preview")
 			preview_pref = params["updated_preview"]
 			character_preview_view.update_body()
+			previous_preview_pref = preview_pref
 			return TRUE
 
 		if ("open_food")

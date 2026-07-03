@@ -74,6 +74,7 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/blueshield/turtleneck
@@ -89,6 +90,7 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/blueshield/consult
@@ -103,6 +105,7 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/blueshield/russian
@@ -155,6 +158,7 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/imperial/nanotrasen_consultant
@@ -251,6 +255,7 @@
 	desc = "A naval skirt, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
 	name = "officer's naval jumpskirt"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	greyscale_colors = "#A49C9C#A49C9C#373741#FFFFFF#FFFFFF#FFFFFF"
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
@@ -280,6 +285,7 @@
 	greyscale_config_worn = /datum/greyscale_config/officersnavalskirtvest/worn
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	armor_type = /datum/armor/clothing_under/security_head_of_security
 	can_adjust = FALSE
 
@@ -308,4 +314,5 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE

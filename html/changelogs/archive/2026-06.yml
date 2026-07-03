@@ -741,3 +741,31 @@
 2026-06-29:
   StrangeWeirdKitten:
   - bugfix: ''' and " works again'
+2026-06-30:
+  CabinetOnFire:
+  - bugfix: Crafting shivs no longer inverts the do_after check
+  Charlotte-Sugar:
+  - rscadd: New hairstyles
+  Ghommie:
+  - map: Made it a bit harder to get stuck on away missions if you willingly or unwillingly
+      use teleportation techniques. You still definitely can, but usually only on
+      sections of the map that can be reached one way or another, including rock walls
+      that can be mined, just not those that cannot.
+  - image: Updated the visuals for indestructible rock walls to match the destructible
+      ones.
+  - balance: RNG teleportation should work marginally better around areas and turfs
+      where teleportation is restricted by skipping them instead of having a chance
+      to fumble because of that.
+  Melbert:
+  - bugfix: Obsession don't obsess with themselves
+  - code_imp: Cleaned up station name generation, report any weird looking auto-generated
+      station names
+  - rscadd: Pride holiday now has unique station prefixes
+  Pumpkinoe:
+  - bugfix: Fixed some weird turf decals on walls for the Ex-Interdyne Pirate Ship
+  SmArtKar:
+  - bugfix: Fixed chem implant injections not counting as such
+  - bugfix: Goliath tentacles now detach when the goliath dies
+  timothymtorres:
+  - bugfix: Fix `/datum/component/listen_prayers` not removing action button from
+      UI when component deleted from mob
