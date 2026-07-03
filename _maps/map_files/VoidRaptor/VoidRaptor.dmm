@@ -29267,7 +29267,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/smooth_edge,
 /area/station/engineering/atmos)
@@ -45567,11 +45566,6 @@
 	},
 /turf/open/floor/iron/edge,
 /area/station/hallway/primary/fore)
-"mMw" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
-/turf/open/floor/iron/smooth_large,
-/area/station/engineering/atmos)
 "mMB" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 4
@@ -55831,11 +55825,11 @@
 	},
 /area/station/hallway/primary/fore)
 "pzD" = (
-/obj/machinery/atmospherics/components/trinary/filter/atmos/co2{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 4
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
@@ -83365,7 +83359,6 @@
 "wXg" = (
 /obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden,
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Atmospherics Maintenance"
 	},
@@ -112832,7 +112825,7 @@ pkR
 iXs
 jmM
 wXg
-mMw
+ace
 irQ
 pzD
 qPY
