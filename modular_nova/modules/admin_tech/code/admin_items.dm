@@ -118,7 +118,7 @@
 
 /obj/item/storage/bag/construction/admin/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/stack/rods = 50,// amount should be null if it should spawn with the type's default amount
+		/obj/item/stack/rods/fifty = null,
 		/obj/item/stack/sheet/iron/fifty = null,
 		/obj/item/stack/rods/lava/thirty = null,
 		/obj/item/stack/rods/shuttle/fifty = null,
@@ -130,45 +130,45 @@
 		/obj/item/stack/sheet/plasteel/fifty = null,
 		/obj/item/stack/sheet/mineral/titanium/fifty = null,
 		/obj/item/stack/sheet/titaniumglass/fifty = null,
-		/obj/item/stack/sheet/mineral/plastitanium = 50,
+		/obj/item/stack/sheet/mineral/plastitanium/fifty = null,
 		/obj/item/stack/sheet/plastitaniumglass/fifty = null,
 		/obj/item/stack/sheet/mineral/gold/fifty = null,
 		/obj/item/stack/sheet/mineral/silver/fifty = null,
-		/obj/item/stack/sheet/mineral/uranium/fifty = null,//Radiation stack concerns dont exist, thats how fucking old the original comment on uranium was
+		/obj/item/stack/sheet/mineral/uranium/fifty = null,
 		/obj/item/stack/sheet/mineral/diamond/fifty = null,
 		/obj/item/stack/sheet/bluespace_crystal/fifty = null,
-		/obj/item/stack/sheet/mineral/bananium = 50,
+		/obj/item/stack/sheet/mineral/bananium/fifty = null,
 		/obj/item/stack/sheet/mineral/wood/fifty = null,
 		/obj/item/stack/sheet/plastic/fifty = null,
 		/obj/item/stack/sheet/runed_metal/fifty = null,
-		/obj/item/stack/sheet/mineral/abductor = 50,
-		/obj/item/stack/sheet/mineral/sandstone = 50,
+		/obj/item/stack/sheet/mineral/abductor/fifty = null,
+		/obj/item/stack/sheet/mineral/sandstone/fifty = null,
 		/obj/item/stack/sheet/cardboard/fifty = null,
-		/obj/item/stack/sheet/leather = 50,
-		/obj/item/stack/sheet/hairlesshide = 50,
-		/obj/item/stack/sheet/hot_ice = 50,
+		/obj/item/stack/sheet/leather/fifty = null,
+		/obj/item/stack/sheet/hairlesshide/fifty = null,
+		/obj/item/stack/sheet/hot_ice/fifty = null,
 		/obj/item/stack/sheet/mineral/sandbags/fifty = null,
-		/obj/item/stack/sheet/cloth = 50,
-		/obj/item/stack/cable_coil/thirty = null,
-		/obj/item/stack/sheet/mineral/snow = 50,
-		/obj/item/stack/sheet/mineral/adamantine = 50,
-		/obj/item/stack/sheet/mineral/runite = 50,
-		/obj/item/stack/sheet/mineral/coal = 50,
-		/obj/item/stack/sheet/mineral/metal_hydrogen = 50,
-		/obj/item/stack/sheet/paperframes = 50,
-		/obj/item/stack/sheet/meat = 50,
-		/obj/item/stack/sheet/durathread = 50,
-		/obj/item/stack/sheet/mineral/stone = 50,
-		/obj/item/stack/sheet/mineral/bamboo = 50,
-		/obj/item/stack/sheet/mineral/zaukerite = 50,
-		/obj/item/stack/sheet/brussite = 50,
-		/obj/item/stack/sheet/tinumium = 50,
-		/obj/item/stack/sheet/copporcitite = 50,//why do copper tools exist in minecraft?
-		/obj/item/stack/sheet/cobolterium = 50,
-		/obj/item/stack/sheet/pizza/fifty = 50,
-		/obj/item/stack/sheet/spaceship = 50,
-		/obj/item/stack/sheet/spaceshipglass = 50,
-		/obj/item/stack/circuit_stack/full = null,
+		/obj/item/stack/sheet/cloth/fifty = null,
+		/obj/item/stack/cable_coil = MAXCOIL,
+		/obj/item/stack/sheet/mineral/snow/fifty = null,
+		/obj/item/stack/sheet/mineral/adamantine/fifty = null,
+		/obj/item/stack/sheet/mineral/runite/fifty = null,
+		/obj/item/stack/sheet/mineral/coal/fifty = null,
+		/obj/item/stack/sheet/mineral/metal_hydrogen/fifty = null,
+		/obj/item/stack/sheet/paperframes/fifty = null,
+		/obj/item/stack/sheet/meat/fifty = null,
+		/obj/item/stack/sheet/durathread/fifty = null,
+		/obj/item/stack/sheet/mineral/stone/fifty = null,
+		/obj/item/stack/sheet/mineral/bamboo/fifty = null,
+		/obj/item/stack/sheet/mineral/zaukerite/fifty = null,
+		/obj/item/stack/sheet/brussite/fifty = null,
+		/obj/item/stack/sheet/tinumium/fifty = null,
+		/obj/item/stack/sheet/copporcitite/fifty = null,
+		/obj/item/stack/sheet/cobolterium/fifty = null,
+		/obj/item/stack/sheet/pizza/fifty = null,
+		/obj/item/stack/sheet/spaceship/fifty = null,
+		/obj/item/stack/sheet/spaceshipglass/fifty = null,
+		/obj/item/circuit_stack/full = null,
 	)
 	for(var/obj/item/stack/stack_type as anything in items_inside)
 		var/amt = items_inside[stack_type]
@@ -639,16 +639,9 @@
 //ADMIN_ITEM_VARS(/obj/item/modular_computer/pda/admin)
 
 /obj/item/modular_computer/pda/admin/Initialize(mapload)
+	starting_programs += subtypesof(/datum/computer_file/program)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
-
-// I will wait for someone with more knowledge than me to tell me the correct way to smoosh these procs together
-/obj/item/modular_computer/pda/admin/Initialize(mapload)
-	starting_programs += subtypesof(/datum/computer_file/program)
-	return ..()
-
-/obj/item/modular_computer/pda/admin/Initialize(mapload)
-	. = ..()
 	internal_cell = new /obj/item/stock_parts/power_store/cell/infinite
 	emag_act(forced = TRUE)//auto-emags our pda, oh wow so nice
 	var/datum/computer_file/program/themeify/theme_app = locate() in stored_files
@@ -685,10 +678,6 @@
 /obj/item/laser_pointer/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
-
-// sets up our pointer to not be shit
-/obj/item/laser_pointer/admin/Initialize(mapload)
-	. = ..()
 	diode = new /obj/item/stock_parts/micro_laser/quadultra
 	crystal_lens = new /obj/item/stack/ore/bluespace_crystal/refined
 
@@ -817,13 +806,6 @@
 /obj/item/reagent_containers/cup/watering_can/advanced/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
-
-// admin slimes stuff? dark cerulean regenerative
-
-// /obj/item/reagent_containers/cooler_jug - code\modules\reagents\reagent_containers\cooler_jug.dm - admin cooler jug.
-// /obj/item/reagent_containers/condiment/pack - code\modules\reagents\reagent_containers\condiment.dm - i want to make go gurt tubes...
-// /obj/item/reagent_containers/cup/beaker - code\modules\reagents\reagent_containers\cups\_cup.dm - subspace beaker, try and make state change for bonus features
-// /obj/item/inhaler & /obj/item/reagent_containers/inhaler_canister - code\modules\reagents\reagent_containers\inhaler.dm - might not do anything with this
 
 // New Admin chems, this is going in its own page later
 // code\modules\reagents\chemistry\reagents\medicine_reagents.dm
@@ -1207,7 +1189,58 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 		return TRUE
 	return FALSE
 
-// todo: sprites, reagent selector, utilize laser gun code to create and load syringes based on reagent selector, or create a reagent_container within contents which can be fed chems to fill syringes with.
+// Subspace beakers. Horrifying volume contents.
+/obj/item/reagent_containers/cup/beaker/admin
+	name = "small subspace beaker"
+	desc = "Tilting this from side to side is like looking into a tear in reality. It looks bottomless."
+	abstract_type = /obj/item/reagent_containers/cup
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(1, 5, 10, 50, 100)
+	volume = 250000//Lets be a LITTLE sane about this.
+	initial_reagent_flags = OPENCONTAINER | DUNKABLE
+	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon_state = "beakersubspace"
+	reagent_container_liquid_sound = SFX_DEFAULT_LIQUID_SLOSH
+	/// Like Edible's food type, what kind of drink is this?
+	drink_type = NONE
+	/// How much we drink at once, shot glasses drink more.
+	gulp_size = 5
+	/// Whether the 'bottle' is made of glass or not so that milk cartons dont shatter when someone gets hit by it.
+	isGlass = FALSE
+	/// Whether to allow heating up the contents with a source of flame.
+	heatable = TRUE
+	/// Can we put a lid on this container?
+	can_lid = TRUE
+	/// If TRUE, after we finish drinking, we try to drink again after do_after
+	loop_drink = TRUE
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+// TODO: Cute lil sprite for this
+/obj/item/reagent_containers/cup/beaker/admin/small
+	name = "fun sized subspace beaker"
+	desc = "Tilting this little thing from side to side is like looking into a tear in reality. It looks like it could hold an incredible amount of fluid.\
+	It might fill you with fear, but awwwwh look at it, its so cute! Imagine doing shots with this."
+	volume = 1000//Small but still strong. Tame as it'll be used elsewhere for technical purposes.
+
+/obj/item/reagent_containers/cup/beaker/admin/small/noreact
+	name = "fun sized stasis subspace beaker"
+	desc = "A statis variant of the adorably sized version of the bottomless beaker."
+	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon_state = "subspacenoreact"
+	initial_reagent_flags = OPENCONTAINER | NO_REACT | DUNKABLE
+
+// Reactionless subspace beaker
+/obj/item/reagent_containers/cup/beaker/admin/noreact
+	name = "stasis subspace beaker"
+	desc = "A reactionless version of the bottomless beaker."
+	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon_state = "subspacenoreact"
+	initial_reagent_flags = OPENCONTAINER | NO_REACT | DUNKABLE
+
+// TODO: sprites
 /obj/item/gun/syringe/admin
 	name = "subspace syringe projector"
 	desc = "A modification of the syringe gun design to be more compact and use a rotating cylinder to store up to ten syringes."
@@ -1683,7 +1716,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	obj_flags = ADMIN_OBJ_FLAGS
 
 	var/obj/item/reagent_containers/beaker
-	var/amount = /obj/item/reagent_containers/cup/beaker/bluespace::volume//I find myself dispensing full beakers rather than small drops of them.
+	var/amount = /obj/item/reagent_containers/cup/beaker/admin/small::volume//I find myself dispensing full beakers rather than small drops of them.
 	var/temperature = DEFAULT_REAGENT_TEMPERATURE
 	var/purity = 100
 
@@ -1731,7 +1764,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 		if("makecup")
 			if(beaker)
 				return
-			beaker = new /obj/item/reagent_containers/cup/beaker/bluespace(src)
+			beaker = new /obj/item/reagent_containers/cup/beaker/admin/small(src)
 			visible_message(span_notice("[src] dispenses a bluespace beaker."))
 			return TRUE
 

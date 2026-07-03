@@ -190,17 +190,23 @@
 /obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl_shift(mob/user)
 	if(!ishuman(user))
 		return CLICK_ACTION_BLOCKING
+	var/mob/living/carbon/human/human_user = user
+	if(human_user.get_item_by_slot(ITEM_SLOT_EYES) != src)
+		balloon_alert(user, "must be worn!")
+		return CLICK_ACTION_BLOCKING
+
+	xray = !xray
 	if(xray)
-		vision_flags &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		detach_clothing_traits(TRAIT_XRAY_VISION)
-		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
-	else
 		vision_flags |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		attach_clothing_traits(TRAIT_XRAY_VISION)
+		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
+	else
+		vision_flags &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		detach_clothing_traits(TRAIT_XRAY_VISION)
 		remove_filter("admin_active_item")
-	xray = !xray
-	var/mob/living/carbon/human/human_user = user
+
 	human_user.update_sight()
+	balloon_alert(user, "xray [xray ? "enabled" : "disabled"]")
 	return CLICK_ACTION_SUCCESS
 
 // Admin Helmet
@@ -453,6 +459,8 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
+	// It took a while to curate this trait list and I dont think its done. If you find anything else useful you should throw it on here.
+	clothing_traits = list(TRAIT_CLEANBOT_WHISPERER, TRAIT_AI_ACCESS, TRAIT_BLOB_ALLY, TRAIT_TENACIOUS, TRAIT_UNBREAKABLE, TRAIT_UNOBSERVANT, TRAIT_INVISIBLE_TO_CAMERA, TRAIT_CATLIKE_GRACE, TRAIT_NO_STRIP, TRAIT_TURF_IGNORE_SLIPPERY, TRAIT_TURF_IGNORE_SLOWDOWN, TRAIT_OVERWATCH_IMMUNE, TRAIT_TENTACLE_IMMUNE, TRAIT_WEATHER_IMMUNE, TRAIT_LAVA_IMMUNE, TRAIT_KNOW_ENGI_WIRES, TRAIT_FERAL_BITER, TRAIT_ADAMANTINE_EXTRACT_ARMOR, TRAIT_ROCK_EATER, TRAIT_SUPERMATTER_SOOTHER, TRAIT_UNNATURAL_RED_GLOWY_EYES, TRAIT_QUICKER_CARRY, TRAIT_NO_STAGGER, TRAIT_IGNORESLOWDOWN, TRAIT_NO_BLOOD_OVERLAY, TRAIT_NODISMEMBER, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_NODEATH)
 
 //Gives the undersuit the ability to teleport.
 //todo: apparently just doesnt work. fix this at some point.

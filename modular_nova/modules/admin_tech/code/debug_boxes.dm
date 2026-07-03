@@ -298,11 +298,7 @@ GLOBAL_LIST_INIT(subspace_box_illustrations, list(
 	icon_state = "plushie"
 	spawn_all_loot = TRUE
 
-//Same as above but spawns everything possible. This might not be a good thing to have existing
-/obj/effect/spawner/random/entertainment/plushie/nova/donator/all/
-	name = "nova sector donator all plushies spawner"
-	icon_state = "plushie"
-	spawn_all_loot = TRUE
+
 
 /obj/item/storage/box/hug/plushes/nova/donator/all/PopulateContents()
 	var/plush_path = /obj/effect/spawner/random/entertainment/plushie/nova/donator/all

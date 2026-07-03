@@ -10,7 +10,8 @@ Add Nova specific admin outfits, tools, debug items, and other quality of life c
 This module aims to migrate admin 'god-hand the world is changing magically around you' into the in-character sphere by providing nearly every concievable solution to problems that a staffer might encounter in the course of preparing for events or resolving problems with a body instead of tools like buildmode.
 
 'Bluespace' items are a baseline admin tool, identified usually by /admin as the breakpoint in it's path.
-'Subspace' items are meant to be the 'badmin' variant of the above, with additional extras tacked ontop of the Bluespace parent items. Some items only exist in this variant state. You should be really careful giving these items to players without supervision.
+'Subspace' items are meant to be the 'badmin' variant of the above, with additional extras tacked ontop of the Bluespace parent items. Some items only exist in this variant state.
+You should be really careful giving these items to players without supervision.
 
 Subspace refers to Telecommunications, or general data. If we consider a blackhole to be the ultimate medium for storage of information, then 'subspace' is the layer of data and information.
 I viewed this as these items existing from simply containing data into a form. It's writing on a fourth wall. I don't think it particularly makes sense, but it doesn't need to.
@@ -58,22 +59,17 @@ BunBun - Cration ([sic] from the original PR credits)
 
 Search TODO on this folder to find remaining known issues / missing content
 Icons. Everywhere. They all need icons. Either you do it, or hope I eventually do it. And I am anything but an artist
-Revisit the currently used spawner wands and retheme / update them. Human spawner wand doesnt use tguilist for example.
-Player appropriate tech loadout with considerations to reduce the need for admins to support them when they wish to test mechanics
-subspace boxcutter, to replace the energy axe. probably sub-path the spess knife. split state checks for combat mode -> interact to toggle the combat function, or non-combat mode for tool adjustments. add action to rclick open turf to tear hole in reality that only admins can enter to despawn. integrate the subspace baseball bat onto this. radial navigation menu, with tgui input functions. expand the radial, reduce popup times, make this a true omnitool. seeds box
-subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
-find a solution for reach_length passing a collisions check for BST radio headset. TRAIT_SKIP_BASIC_REACH_CHECK.
-/obj/item/pen/screwdriver/get_all_tool_behaviours()
-return list(TOOL_SCREWDRIVER)
-check traits list from protean mage cloak you made on the syndiehomepod
-investigate robotact pda app functionality
-investigate lifeline pda app functionality
-Fix digi icons for suits
-Instant no effect spawn option
-Admin donk pockets
 desc = parent_type::desc + "To be used on subspace variants for bonus flavor"
-Event-grade decal painter. Like the fun decals, like the ss13 logos.
+Instant no effect spawn option
+radial navigation menus everywhere. needs more tgui input functions. make a new radial type, expand the radial size, reduce time to show,
+
+Player appropriate tech loadout with considerations to reduce the need for admins to support them when they wish to test mechanics
+Revisit the currently used spawner wands and retheme / update them. Human spawner wand doesnt use tguilist for example.
+subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
+
+debug box ideas: seeds box
+
+investigate lifeline pda app functionality. Create new item using radar system that shows all mobs with clients connected, and also pulls from the user's admin-tags list for trackable targets. replace the subspace sniffer with this.
+
 Subspace reagent gun, give it a chem selector with no resevoir limit, just selects and flings chems at will
-Subspace beaker with chem selector.
-Admin drugs. Like, recreational drugs. For admins.
-Nullspace items, to like... Destroy things. Nullspace beaker for pouring things into to erase the transferred material?
+Nullspace items, to like... Destroy things. Nullspace beaker for pouring things into to erase the transferred material? Update the bluespace pocket from interact to clear, to a 'global deleting' state where you can put anything in, or pour liquids in, or pick anything up to delete it. Should probably look at an 'important items' blacklist.
