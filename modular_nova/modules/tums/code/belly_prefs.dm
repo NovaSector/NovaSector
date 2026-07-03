@@ -189,18 +189,18 @@
 	return 1
 
 /// Per-character pref, a multiplier that applies to auto-calculated stuffed size.
-/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed
+/datum/preference/numeric/erp_bellyquirk_sizemod_nutrition
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "erp_bellyquirk_sizemod_autostuffed"
+	savefile_key = "erp_bellyquirk_sizemod_nutrition"
 	step = 0.01
 	minimum = 0
 	maximum = 10
 
-/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+/datum/preference/numeric/erp_bellyquirk_sizemod_nutrition/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
-/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed/create_default_value()
+/datum/preference/numeric/erp_bellyquirk_sizemod_nutrition/create_default_value()
 	return 1
 
 /// Per-character pref, a size modifier that applies specifically to calculations for sound.

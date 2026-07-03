@@ -33,7 +33,7 @@
 	/// Size modifier - overall.
 	the_bwelly.sizemod = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 0
 	/// Size modifier - auto-calculated stuffed size.
-	the_bwelly.sizemod_autostuffed = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed) || 0
+	the_bwelly.sizemod_nutrition = client_source.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_nutrition) || 0
 	/// Size modifier - audio size.
 	the_bwelly.sizemod_audio = client_source?.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_audio) || 0
 	/// Maximum display size for this belly.
