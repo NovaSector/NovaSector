@@ -70,10 +70,8 @@
 	jedi.investigate_log("had [jedi.p_their()] brain dusted by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
 	//jedi.ghostize() // NOVA EDIT REMOVAL
 	// NOVA EDIT ADDITION START - Supermatter replacement
-	if(ishuman(user))
-		var/mob/living/carbon/human/jedi_human = user
-		jedi_human.replace_with_clone()
-	else
+	var/mob/living/carbon/human/jedi_human = user
+	if(!istype(jedi_human) || !jedi_human.replace_with_clone())
 		jedi.ghostize()
 	// NOVA EDIT ADDITION END
 	var/obj/item/organ/brain/rip_u = locate(/obj/item/organ/brain) in jedi.organs
