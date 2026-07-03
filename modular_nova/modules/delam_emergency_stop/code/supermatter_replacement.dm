@@ -1,3 +1,8 @@
+/**
+ * Replaces a crewmember who has been permanently removed from play (e.g. dusted by the
+ * supermatter) with a freshly spawned "clone" of their character, as if they had just
+ * late-joined the round.
+ */
 /mob/living/carbon/human/proc/replace_with_clone()
 	if(QDELETED(src) || !mind || istype(mind.assigned_role, /datum/job/unassigned))
 		return FALSE // NT don't give a shit about replacing this person, they're either not a player, not crew or not a player with a job
