@@ -23,7 +23,7 @@ type NovaTumsPrefsData = {
   color_with_uniform: BooleanLike;
   layer_mode: string;
   sizemod: number;
-  sizemod_autostuffed: number;
+  sizemod_nutrition: number;
   sizemod_audio: number;
   allow_sound_groans: BooleanLike;
   allow_sound_gurgles: BooleanLike;
@@ -321,7 +321,7 @@ const NovaTumsPrefsBelly = () => {
               value={data.base_size_cosmetic}
               minValue={0}
               maxValue={data.base_size_max}
-              unit="u"
+              unit="u^3"
               onChange={(e, value) =>
                 act('changeBaseCosmetic', {
                   newBaseCosmetic: value,
@@ -343,7 +343,7 @@ const NovaTumsPrefsBelly = () => {
               value={data.base_size_full}
               minValue={0}
               maxValue={data.base_size_max}
-              unit="u"
+              unit="u^3"
               onChange={(e, value) =>
                 act('changeBaseFull', {
                   newBaseFull: value,
@@ -364,10 +364,82 @@ const NovaTumsPrefsBelly = () => {
               value={data.base_size_stuffed}
               minValue={0}
               maxValue={data.base_size_max}
-              unit="u"
+              unit="u^3"
               onChange={(e, value) =>
                 act('changeBaseStuffed', {
                   newBaseStuffed: value,
+                  tab: currentTab,
+                })
+              }
+            />
+          </Tooltip>
+        </LabeledList.Item>
+      </LabeledList>
+      <NoticeBox>Size Modifiers</NoticeBox>
+      <LabeledList>
+        <LabeledList.Item label="Visual Size Modifier">
+          <Tooltip
+            content="This is a multiplier applied to all size sources when
+            calculating the sprite size.  Good if you're playing a shorter
+            critter who should be more heavily impacted- or vice-versa.  Stacks
+            multiplicatively with the nutrition size mod."
+          >
+            <Slider
+              step={0.01}
+              my={1}
+              value={data.sizemod}
+              minValue={0}
+              maxValue={10}
+              unit="x"
+              onChange={(e, value) =>
+                act('changeSizemod', {
+                  newSizemod: value,
+                  tab: currentTab,
+                })
+              }
+            />
+          </Tooltip>
+        </LabeledList.Item>
+        <LabeledList.Item label="Sound Size Modifier">
+          <Tooltip
+            content="This is a multiplier applied to all size sources when
+            calculating how intense belly sounds should be.  Applied separate
+            from the visual size modifier, for fine tuning.  Good if you're
+            playing a critter with a particularly cranky *or* calm belly."
+          >
+            <Slider
+              step={0.01}
+              my={1}
+              value={data.sizemod_audio}
+              minValue={0}
+              maxValue={10}
+              unit="x"
+              onChange={(e, value) =>
+                act('changeSizemodAudio', {
+                  newSizemodAudio: value,
+                  tab: currentTab,
+                })
+              }
+            />
+          </Tooltip>
+        </LabeledList.Item>
+        <LabeledList.Item label="Nutrition Size Modifier">
+          <Tooltip
+            content="Contributions to the Stuffed Size from your Nutrition and
+            stomach contents are multiplied by this.  Good if you'd rather have
+            manual control for a scene, or don't want to suddenly look stuffed
+            from taking the average veteran chemist's heal-all pill."
+          >
+            <Slider
+              step={0.01}
+              my={1}
+              value={data.sizemod_nutrition}
+              minValue={0}
+              maxValue={10}
+              unit="x"
+              onChange={(e, value) =>
+                act('changeSizemodNutrition', {
+                  newSizemodNutrition: value,
                   tab: currentTab,
                 })
               }
@@ -446,7 +518,7 @@ const NovaTumsPrefsBelly = () => {
               value={data.endo_size}
               minValue={0}
               maxValue={data.base_size_max}
-              unit="u"
+              unit="u^3"
               onChange={(e, value) =>
                 act('changeEndoSize', {
                   newEndoSize: value,

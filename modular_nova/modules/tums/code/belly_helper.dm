@@ -48,8 +48,8 @@
 	/// Size modifier applied to ALL belly size providers.  Good for making a 3ft teshi round out faster than a 12ft oversized shork.
 	var/sizemod = 1
 	/// Size modifier applied to automatic stuffing calculation from get_fullness.  Good for reducing its impact when Botany is nutrimentmaxxing.
-	var/sizemod_autostuffed = 1
-	/// Size modifier applied to the sound system.  Multiplicative with autostuffed but NOT base sizemod.
+	var/sizemod_nutrition = 1
+	/// Size modifier applied to the sound system.  Multiplicative with nutrition but NOT base sizemod.
 	var/sizemod_audio = 1
 
 	/// Maximum size for this belly to reach.
@@ -290,7 +290,7 @@
 	/// 1 unit of Nutriment counts as about 22.5 nutrition.
 	/// Exact volume gained from reagents varies due to varying metabolism rates & other things.
 	/// get_fullness is very scrungly.
-	var/stuffed_temp_orig = max(0, (user.get_fullness() - (user.nutrition * 0.6) - 500) * sizemod_autostuffed)
+	var/stuffed_temp_orig = max(0, (user.get_fullness() - (user.nutrition * 0.6) - 500) * sizemod_nutrition)
 	stuffed_temp_orig += base_size_stuffed
 
 	/// Calculate the baseline, nonexponential sizes...

@@ -264,14 +264,14 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 					belly.sizemod = new_sizemod
 			else if(belly != null)
 				belly.sizemod = new_sizemod
-		if("changeSizemodAutostuffed")
-			var/new_sizemod_autostuffed = text2num(params["newSizemodAutostuffed"])
+		if("changeSizemodNutrition")
+			var/new_sizemod_nutrition = text2num(params["newSizemodNutrition"])
 			if(is_prefs_tab)
-				client.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed], new_sizemod_autostuffed)
-				if(new_sizemod_autostuffed != belly?.sizemod_autostuffed && confirm_sync(belly))
-					belly.sizemod_autostuffed = new_sizemod_autostuffed
+				client.prefs.write_preference(GLOB.preference_entries[/datum/preference/numeric/erp_bellyquirk_sizemod_nutrition], new_sizemod_nutrition)
+				if(new_sizemod_nutrition != belly?.sizemod_nutrition && confirm_sync(belly))
+					belly.sizemod_nutrition = new_sizemod_nutrition
 			else if(belly != null)
-				belly.sizemod_autostuffed = new_sizemod_autostuffed
+				belly.sizemod_nutrition = new_sizemod_nutrition
 		if("changeSizemodAudio")
 			var/new_sizemod_audio = text2num(params["newSizemodAudio"])
 			if(is_prefs_tab)
