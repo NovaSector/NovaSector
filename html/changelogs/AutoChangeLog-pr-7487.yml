@@ -1,0 +1,6 @@
+author: "Diltyrr"
+delete-after: True
+changes:
+  - rscadd: "Added a fuel‑based Primitive Smoker that uses logs and planks instead of electricity."
+  - rscadd: "Added a crafting recipe for the Primitive Smoker."
+  - map: "Replaced the wooden drying rack with the Primitive Smoker in the Ashwalker and Hearthkin camps."
