@@ -89,8 +89,12 @@
 	else
 		murder = user.attack_verb_continuous
 	dust_mob(source, user, \
+	/* NOVA EDIT CHANGE - ORIGINAL:
 	span_danger("[user] unwisely [murder] [atom_source], and [user.p_their()] body burns brilliantly before flashing into ash!"), \
 	span_userdanger("You unwisely touch [atom_source], and your vision glows brightly as your body crumbles to dust. Oops."), \
+	*/
+	span_danger("[user] unwisely [murder] [atom_source], and [user.p_their()] body burns brilliantly before the blast hurls [user.p_them()] away!"), \
+	span_userdanger("You unwisely touch [atom_source], and your vision glows white-hot before the blast hurls you away. Oops."), \
 	"simple animal attack")
 
 /datum/component/supermatter_crystal/proc/hulk_hit(datum/source, mob/user)
@@ -124,7 +128,11 @@
 	if(!user.is_mouth_covered())
 		if(user.combat_mode)
 			dust_mob(source, user,
+				/* NOVA EDIT CHANGE - ORIGINAL:
 				span_danger("As [user] tries to take a bite out of [atom_source] everything goes silent before [user.p_their()] body starts to glow and burst into flames before flashing to ash."),
+				span_userdanger("You try to take a bite out of [atom_source], but find [p_them()] far too hard to get anywhere before everything starts burning and your ears fill with ringing!"),
+				*/
+				span_danger("As [user] tries to take a bite out of [atom_source] everything goes silent before [user.p_their()] body starts to glow white-hot and the blast hurls [user.p_them()] away."),
 				span_userdanger("You try to take a bite out of [atom_source], but find [p_them()] far too hard to get anywhere before everything starts burning and your ears fill with ringing!"),
 				"attempted bite"
 			)
@@ -133,7 +141,11 @@
 		var/obj/item/organ/tongue/licking_tongue = user.get_organ_slot(ORGAN_SLOT_TONGUE)
 		if(licking_tongue)
 			dust_mob(source, user,
+				/* NOVA EDIT CHANGE - ORIGINAL:
 				span_danger("As [user] hesitantly leans in and licks [atom_source] everything goes silent before [user.p_their()] body starts to glow and burst into flames before flashing to ash!"),
+				span_userdanger("You tentatively lick [atom_source], but you can't figure out what it tastes like before everything starts burning and your ears fill with ringing!"),
+				*/
+				span_danger("As [user] hesitantly leans in and licks [atom_source] everything goes silent before [user.p_their()] body starts to glow white-hot and the blast hurls [user.p_them()] away!"),
 				span_userdanger("You tentatively lick [atom_source], but you can't figure out what it tastes like before everything starts burning and your ears fill with ringing!"),
 				"attempted lick"
 			)
@@ -142,14 +154,22 @@
 	var/obj/item/bodypart/head/forehead = user.get_bodypart(BODY_ZONE_HEAD)
 	if(forehead)
 		dust_mob(source, user,
+			/* NOVA EDIT CHANGE - ORIGINAL:
 			span_danger("As [user]'s forehead bumps into [atom_source], inducing a resonance... Everything goes silent before [user.p_their()] [forehead] flashes to ash!"),
+			span_userdanger("You feel your forehead bump into [atom_source] and everything suddenly goes silent. As your head fills with ringing you come to realize that that was not a wise decision."),
+			*/
+			span_danger("As [user]'s forehead bumps into [atom_source], inducing a resonance... Everything goes silent before [user.p_their()] [forehead] chars black and the blast hurls [user.p_them()] away!"),
 			span_userdanger("You feel your forehead bump into [atom_source] and everything suddenly goes silent. As your head fills with ringing you come to realize that that was not a wise decision."),
 			"failed lick"
 		)
 		return
 
 	dust_mob(source, user,
+		/* NOVA EDIT CHANGE - ORIGINAL:
 		span_danger("[user] leans in and tries to lick [atom_source], inducing a resonance... [user.p_their()] body starts to glow and burst into flames before flashing into dust!"),
+		span_userdanger("You lean in and try to lick [atom_source]. Everything starts burning and all you can hear is ringing. Your last thought is \"That was not a wise decision.\""),
+		*/
+		span_danger("[user] leans in and tries to lick [atom_source], inducing a resonance... [user.p_their()] body starts to glow white-hot before the blast hurls [user.p_them()] away!"),
 		span_userdanger("You lean in and try to lick [atom_source]. Everything starts burning and all you can hear is ringing. Your last thought is \"That was not a wise decision.\""),
 		"failed lick"
 	)
@@ -201,7 +221,7 @@
 	if(atom_source.Adjacent(user)) //if the item is stuck to the person, kill the person too instead of eating just the item.
 		if(user.incorporeal_move || HAS_TRAIT(user, TRAIT_GODMODE))
 			return
-		var/vis_msg = span_danger("[user] reaches out and touches [atom_source] with [item], inducing a resonance... [item] starts to glow briefly before the light continues up to [user]'s body. [user.p_They()] burst[user.p_s()] into flames before flashing into dust!")
+		var/vis_msg = span_danger("[user] reaches out and touches [atom_source] with [item], inducing a resonance... [item] starts to glow briefly before the light continues up to [user]'s body. [user.p_They()] burst[user.p_s()] into flames and [user.p_are()] hurled away!") // NOVA EDIT CHANGE ORIGINAL var/vis_msg = span_danger("[user] reaches out and touches [atom_source] with [item], inducing a resonance... [item] starts to glow briefly before the light continues up to [user]'s body. [user.p_They()] burst[user.p_s()] into flames before flashing into dust!")
 		var/mob_msg = span_userdanger("You reach out and touch [atom_source] with [item]. Everything starts burning and all you can hear is ringing. Your last thought is \"That was not a wise decision.\"")
 		dust_mob(source, user, vis_msg, mob_msg)
 
@@ -223,7 +243,7 @@
 	if(istype(our_supermatter))
 		our_supermatter.log_activation(who = hit_object)
 	if(isliving(hit_object))
-		hit_object.visible_message(span_danger("\The [hit_object] slams into \the [atom_source] inducing a resonance... [hit_object.p_their()] body starts to glow and burst into flames before flashing into dust!"),
+		hit_object.visible_message(span_danger("\The [hit_object] slams into \the [atom_source] inducing a resonance... [hit_object.p_their()] body starts to glow white-hot before the blast hurls [hit_object.p_them()] away!"), // NOVA EDIT CHANGE ORIGINAL hit_object.visible_message(span_danger("\The [hit_object] slams into \the [atom_source] inducing a resonance... [hit_object.p_their()] body starts to glow and burst into flames before flashing into dust!"),
 			span_userdanger("You slam into \the [atom_source] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\""),
 			span_hear("You hear an unearthly noise as a wave of heat washes over you."))
 	else if(isobj(hit_object) && !iseffect(hit_object))
@@ -252,7 +272,7 @@
 	for(var/mob/living/poor_target in impacted_turf)
 		consume(atom_source, poor_target)
 		playsound(get_turf(atom_source), 'sound/effects/supermatter.ogg', 50, TRUE)
-		poor_target.visible_message(span_danger("\The [atom_source] slams into \the [poor_target] out of nowhere inducing a resonance... [poor_target.p_their()] body starts to glow and burst into flames before flashing into dust!"),
+		poor_target.visible_message(span_danger("\The [atom_source] slams into \the [poor_target] out of nowhere inducing a resonance... [poor_target.p_their()] body starts to glow white-hot before the blast hurls [poor_target.p_them()] away!"), // NOVA EDIT ORIGINAL poor_target.visible_message(span_danger("\The [atom_source] slams into \the [poor_target] out of nowhere inducing a resonance... [poor_target.p_their()] body starts to glow and burst into flames before flashing into dust!"),
 			span_userdanger("\The [atom_source] slams into you out of nowhere as your ears are filled with unearthly ringing. Your last thought is \"The fuck.\""),
 			span_hear("You hear an unearthly noise as a wave of heat washes over you."))
 
@@ -273,9 +293,9 @@
 		return
 	var/atom/atom_source = source
 	if(!vis_msg)
-		vis_msg = span_danger("[nom] reaches out and touches [atom_source], inducing a resonance... [nom.p_their()] body starts to glow and burst into flames before flashing into dust!")
+		vis_msg = span_danger("[nom] reaches out and touches [atom_source], inducing a resonance... [nom.p_their()] body starts to glow white-hot before the blast hurls [nom.p_them()] away!")
 	if(!mob_msg)
-		mob_msg = span_userdanger("You reach out and touch [atom_source]. Everything starts burning and all you can hear is ringing. Your last thought is \"That was not a wise decision.\"")
+		mob_msg = span_userdanger("You reach out and touch [atom_source]. Everything starts burning and all you can hear is ringing before the blast hurls you away.")
 	if(!cause)
 		cause = "contact"
 	nom.visible_message(vis_msg, mob_msg, span_hear("You hear an unearthly noise as a wave of heat washes over you."))
@@ -283,6 +303,21 @@
 	add_memory_in_range(atom_source, 7, /datum/memory/witness_supermatter_dusting, protagonist = nom, antagonist = atom_source)
 	playsound(get_turf(atom_source), 'sound/effects/supermatter.ogg', 50, TRUE)
 	consume(atom_source, nom)
+
+// NOVA EDIT ADDITION START - helper proc to blast someone out of the SM chamber and to relative safety. ish.
+/datum/component/supermatter_crystal/proc/find_blast_destination(atom/source)
+	var/atom/atom_source = source
+	var/list/possible_turfs = list()
+	for(var/turf/candidate as anything in RANGE_TURFS(12, atom_source))
+		if(get_dist(atom_source, candidate) < 4)
+			continue
+		if(candidate.is_blocked_turf())
+			continue
+		possible_turfs += candidate
+	if(!length(possible_turfs))
+		return null
+	return pick(possible_turfs)
+// NOVA EDIT ADDITION END
 
 /datum/component/supermatter_crystal/proc/consume(atom/source, atom/movable/consumed_object)
 	if(consumed_object.flags_1 & SUPERMATTER_IGNORES_1)
@@ -302,9 +337,14 @@
 	if(isliving(consumed_object))
 		var/mob/living/consumed_mob = consumed_object
 		object_size = consumed_mob.mob_size + 2
+		/* NOVA EDIT CHANGE ORIGINAL:
 		message_admins("[atom_source] has consumed [key_name_admin(consumed_mob)] [ADMIN_JMP(atom_source)].")
 		atom_source.investigate_log("has consumed [key_name(consumed_mob)].", INVESTIGATE_ENGINE)
 		consumed_mob.investigate_log("has been dusted by [atom_source].", INVESTIGATE_DEATHS)
+		*/
+		message_admins("[atom_source] has superheated [key_name_admin(consumed_mob)] [ADMIN_JMP(atom_source)].")
+		atom_source.investigate_log("has superheated [key_name(consumed_mob)].", INVESTIGATE_ENGINE)
+		consumed_mob.investigate_log("has been superheated and blasted away by [atom_source].", INVESTIGATE_DEATHS)
 		if(istype(consumed_mob, /mob/living/basic/parrot/poly)) // Dusting Poly creates a power surge
 			force_event(/datum/round_event_control/supermatter_surge/poly, "Poly's revenge")
 			notify_ghosts(
@@ -312,7 +352,15 @@
 				source = atom_source,
 				header = "Polytechnical Difficulties",
 			)
-		consumed_mob.dust(force = TRUE)
+			consumed_mob.dust(force = TRUE)
+		// NOVA EDIT ADDITION START
+		else
+			consumed_mob.apply_damage(600, BURN, spread_damage = TRUE)
+			consumed_mob.become_husk(BURN)
+			var/turf/blast_destination = find_blast_destination(atom_source)
+			if(blast_destination)
+				do_teleport(consumed_mob, blast_destination, no_effects = TRUE, forced = TRUE)
+		// NOVA EDIT ADDITION END
 		matter_increase += 100 * object_size * 2
 		if(is_clown_job(consumed_mob.mind?.assigned_role))
 			damage_increase += rand(-30, 30) * 2 // HONK

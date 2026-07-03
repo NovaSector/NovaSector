@@ -629,19 +629,31 @@
 	// Antagonist - The supermatter
 
 /datum/memory/witness_supermatter_dusting/get_names()
+	/* NOVA EDIT CHANGE - ORIGINAL:
 	return list("The dusting of [protagonist_name] by the [antagonist_name].")
+	*/
+	return list("[protagonist_name] being blasted away by the [antagonist_name].")
 
 /datum/memory/witness_supermatter_dusting/get_starts()
-	return list(
+	/* NOVA EDIT CHANGE - ORIGINAL:
 		"[protagonist_name] turning into a pile of bones after touching the [antagonist_name]",
 		"The [antagonist_name] turning [protagonist_name] into ash",
 		"The dusting of [protagonist_name] after they got too close to the [antagonist_name]",
+	*/
+	return list(
+		"[protagonist_name] glowing white-hot after touching the [antagonist_name] before vanishing in a flash of heat",
+		"The [antagonist_name] blasting [protagonist_name] away in a flash of heat",
+		"[protagonist_name] getting thrown away after they got too close to the [antagonist_name]",
 	)
 
 /datum/memory/witness_supermatter_dusting/get_moods()
-	return list(
+	/* NOVA EDIT CHANGE - ORIGINAL
 		"[protagonist_name] [mood_verb] as they faded way.",
 		"[protagonist_name] [mood_verb] as they are reduced to atoms.",
+	*/
+	return list(
+		"[protagonist_name] [mood_verb] as they vanished in a wash of heat.",
+		"[protagonist_name] [mood_verb] as they were hurled away.",
 	)
 
 /// Played cards with another person.
