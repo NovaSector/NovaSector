@@ -1,4 +1,0 @@
-author: "Ghommie"
-delete-after: True
-changes:
-  - refactor: "refactored food categories (the stuff that tells you if a food item is made of meat, fruits, veggies etc, when examined among other things) a little, allowing them to be passed down to the results of cooking or processing food with a kitchen utensil as well, and not just during crafting."

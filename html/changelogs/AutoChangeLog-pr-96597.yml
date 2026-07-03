@@ -1,4 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - bugfix: "Puts a check on departamental budget cards to not be used with custom vendors."
