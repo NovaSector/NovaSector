@@ -1,0 +1,4 @@
+author: "Iamgoofball"
+delete-after: True
+changes:
+  - qol: "Drops the cooldown on the door buzz sound down to the length of the sound, as door buzzing is an intended feature to get the attention of people beyond the door."
