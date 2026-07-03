@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useBackend } from 'tgui/backend';
-import { Dropdown, Flex, Stack } from 'tgui-core/components'; // NOVA EDIT CHANGE - ORIGINAL: import { Button, Stack } from 'tgui-core/components';
+import { Dropdown, Stack } from 'tgui-core/components'; // NOVA EDIT CHANGE - ORIGINAL: import { Button, Stack } from 'tgui-core/components';
 import { exhaustiveCheck } from 'tgui-core/exhaustive';
 
 import { PageButton } from '../components/PageButton';
@@ -37,27 +37,46 @@ type ProfileProps = {
 
 function CharacterProfiles(props: ProfileProps) {
   const { activeSlot, onClick, profiles } = props;
+  const firstEmptySlot = profiles.findIndex((profile) => !profile); // NOVA EDIT ADDITION - Index of the first null slot
+  let usedSlots = 0; // NOVA EDIT ADDITION - Used to check slots remaining
 
   return (
-    <Flex /* NOVA EDIT CHANGE START - Nova uses a dropdown instead of buttons */
+    <Stack /* NOVA EDIT CHANGE START - Nova uses a dropdown instead of buttons */
       align="center"
       justify="center"
     >
-      <Flex.Item width="25%">
+      <Stack.Item width="25%">
         <Dropdown
           width="100%"
           selected={activeSlot as unknown as string}
           displayText={profiles[activeSlot]}
-          options={profiles.map((profile, slot) => ({
-            value: slot,
-            displayText: profile ?? 'New Character',
-          }))}
+          options={profiles
+            .map((profile, slot) => {
+              // occupied slot
+              if (profile) {
+                usedSlots++;
+                return { value: slot, displayText: profile };
+              }
+              // first empty slot, this one can appear
+              if (slot === firstEmptySlot) {
+                return {
+                  value: slot,
+                  displayText: `New Character (${profiles.length - usedSlots} slots left)`,
+                };
+              }
+              // not the first empty slot, this one will not appear
+              return null;
+            })
+            .filter(
+              (option): option is { value: number; displayText: string } =>
+                option !== null,
+            )}
           onSelected={(slot) => {
             onClick(slot);
           }}
         />
-      </Flex.Item>
-    </Flex> /* NOVA EDIT CHANGE END */
+      </Stack.Item>
+    </Stack> /* NOVA EDIT CHANGE END */
   );
 }
 
