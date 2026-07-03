@@ -21,6 +21,7 @@
 		/obj/item/clothing/under/rank/civilian/psychologist_bunnysuit = 3,
 		/obj/item/clothing/under/rank/medical/doctor_bunnysuit = 3,
 		/obj/item/clothing/under/rank/medical/paramedic_bunnysuit = 3,
+		/obj/item/clothing/gloves/latex/nitrile/long = 2,
 	)
 
 /obj/machinery/vending/wardrobe/coroner_wardrobe
