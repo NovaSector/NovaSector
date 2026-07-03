@@ -2,11 +2,20 @@
   ArcaneMusic:
   - rscadd: Cargo may now purchase jet boots, boots that enable sustained flight,
       for 40,000 credits via the imports section.
+  Balls2zawall:
+  - rscadd: Medidrobe vendors now stock elbow high nitrile gloves, for when things
+      are getting truly messy. They also come in different colors!
   CabinetOnFire:
   - bugfix: Hot springs now use correct args for creating smoke
   - bugfix: Fixes crates not respecting density in all cases and being able to move
       into other crates or tables
   - bugfix: C4 no longer renders below floors when placed on floors
+  Diltyrr:
+  - rscadd: "Added a fuel\u2011based Primitive Smoker that uses logs and planks instead\
+      \ of electricity."
+  - rscadd: Added a crafting recipe for the Primitive Smoker.
+  - map: Replaced the wooden drying rack with the Primitive Smoker in the Ashwalker
+      and Hearthkin camps.
   Fghj240:
   - rscadd: Added a new cybernetic implant to the black market, the nutrient implant
       pump plus plus plus
@@ -108,6 +117,18 @@
   - refactor: Cursed/omen/bad luck has been refactored, report any oddities with it.
   - balance: Mutation toxins now work on plasmamen, skeletons, zombies, spirits, and
       vampires
+  - bugfix: Fixes some niche issues with settler/spacer looking off
+  - bugfix: Spacer is visible in prefs
+  - bugfix: Cybernetic reskinning should break less.
+  - bugfix: Horns and cat ears should be cut off less by height.
+  - bugfix: Bodypart textures should apply more consistently.
+  - refactor: Mutant parts like moth wings, lizard tails, cat eats, etc. have been
+      refactored a tiny bit, report any oddities.
+  - refactor: Bodypart textures were refactored a tiny bit, report any oddities.
+  - refactor: Refactored the way height works, report anything weird looking things
+      involving that.
+  - refactor: Refactored how digitigrade and snouts render, report any oddities with
+      that
   OrbisAnima:
   - bugfix: Puts a check on departamental budget cards to not be used with custom
       vendors.
@@ -145,6 +166,26 @@
   - code_imp: Cleaned up The Thing's aggro code
   - qol: Miner callouts are now off by default
   - bugfix: Miner callouts can now be used to command pets like regular pointing
+  - refactor: Refactors inventory UI to be completely datum and vis_contents-based
+  - bugfix: Observers should no longer see doubled up inventory UIs
+  - bugfix: Brimdust sac and fluid immersion overlays no longer look weird on humans
+      with extra-wide or tall bodyparts or organs
+  - bugfix: Some mobs now have more sensible health HUD positions
+  - bugfix: Health and security HUD now scales with player height, no more huds clipping
+      into spacer hair
+  - bugfix: Fixes digitigrade (and some other unique) limbs not being butcherable
+  - image: Digitigrade limbs now have unique bone sprites when butchered
+  Stalkeros:
+  - qol: Voskhod MOD's autodoc now won't inject you with brute/burn/healing chemicals,
+      if they're already present in your bloodstream.
+  - balance: Voskhod MOD's armor has been improved somewhat.
+  - balance: Voskhod MOD's been made a bit faster, insignificantly outshining the
+      security MODsuit in terms of speed.
+  - balance: Voskhod MOD's autodoc now takes one bottle's worth of protozine, yet
+      consumes way less than before.
+  - balance: Voskhod MOD's autodoc chemical outputs and consumptions should be equalised
+      and standardised.
+  - balance: Voskhod MOD's autodoc should start healing you way earlier than before.
   Stalkeros, splet for the sprites:
   - qol: You can flip Forge Marks around, if you want to, for no reason other than
       wanting to flip one over.
@@ -180,3 +221,7 @@
   vinylspiders:
   - code_imp: tgui-core bumped to v6.1, please report any tgui-related issues
   - bugfix: shale and siderite are no longer indistinguishable from ground textures
+  - code_imp: bodyshape is now accessible in build_worn_overlays() and similar procs.
+  - image: lizards now have support female gender shaping for their suits
+  vinylspiders, moonridden:
+  - config: Updates how we inform the byond hub and post our listing

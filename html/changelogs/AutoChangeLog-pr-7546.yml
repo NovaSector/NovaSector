@@ -1,9 +1,0 @@
-author: "Stalkeros"
-delete-after: True
-changes:
-  - qol: "Voskhod MOD's autodoc now won't inject you with brute/burn/healing chemicals, if they're already present in your bloodstream."
-  - balance: "Voskhod MOD's armor has been improved somewhat."
-  - balance: "Voskhod MOD's been made a bit faster, insignificantly outshining the security MODsuit in terms of speed."
-  - balance: "Voskhod MOD's autodoc now takes one bottle's worth of protozine, yet consumes way less than before."
-  - balance: "Voskhod MOD's autodoc chemical outputs and consumptions should be equalised and standardised."
-  - balance: "Voskhod MOD's autodoc should start healing you way earlier than before."
