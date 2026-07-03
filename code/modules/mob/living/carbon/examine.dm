@@ -12,7 +12,7 @@
 			return list(span_warning("You're struggling to make out any details..."))
 	// NOVA EDIT END
 	// NOVA EDIT ADDITION START
-	if(HAS_TRAIT(src, TRAIT_TECHNICIAN_STEALTH) && !isobserver(user))
+	if(HAS_TRAIT(src, TRAIT_ADMIN_STEALTH) && !isobserver(user))
 		if(!user.client.holder)
 			return list(span_warning("That is an administrative technician. You should not acknowledge their presence unless they acknowledge you."))
 	// NOVA EDIT ADDITION END

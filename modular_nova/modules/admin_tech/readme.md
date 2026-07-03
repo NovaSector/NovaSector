@@ -21,8 +21,9 @@ Links in with icspawning module from skyrat era, integrates some of its content 
 ### TG Code Changes and Modular Additions:
 
 code\datums\elements\strippable.dm - Adds NOSTRIP trait to /datum/strippable_item/proc/try_unequip
-code\modules\mob\living\carbon\examine.dm - Adds TRAIT_TECHNICIAN_STEALTH which provides a unique obscuration flavor while blocking examines.
-code\_\_HELPERS\pronouns.dm - TRAIT_TECHNICIAN_STEALTH
+code\modules\mob\living\carbon\examine.dm - Adds TRAIT_ADMIN_STEALTH which provides a unique obscuration flavor while blocking examines.
+code\_\_HELPERS\pronouns.dm - TRAIT_ADMIN_STEALTH
+code\modules\mob\mob.dm - can_see_target helper addition
 
 ### Defines:
 
@@ -31,7 +32,9 @@ ADMIN_OBJ_FLAGS - code\_\_DEFINES\~nova_defines/obj_flags.dm - code\_\_DEFINES\~
 ### Traits:
 
 TRAIT_NOSTRIP - Prevents item removal by Strip Menu
-TRAIT_TECHNICIAN_STEALTH - Provides identity masking similar to the UNKNOWN_APPEARANCE trait, but special inspect texts
+TRAIT_ADMIN_STEALTH - Provides identity masking similar to the UNKNOWN_APPEARANCE trait, but special inspect texts
+TRAIT_ADMIN_REACHABLE - Provides early TRUE returns on IsReachableBy in code_onclick\click.dm and can_perform_action code\modules\mob\living\living.dm. Also provides additions to code\game\machinery_machinery.dm
+TRAIT_SHOW_ALL_WIRES - Adds another method of showing the global wire legend without having to hold an abductor multi tool / be a borg / be holding a copy of the blueprints modular_nova\master_files\code\datums\wires_wires.dm
 
 ### Included files:
 
@@ -42,8 +45,8 @@ lol i'm not populating this until I'm done.
 moonridden - creation, general design, most items, some sprites
 plejek - debug headset and encryption key
 fluffles - code advice
-iamgoofball - code advice
-internetizen - code advice
+iamgoofball - lots of code advice
+internetizen - lots of code advice
 melon_a2 - a few feature ideas
 realwinterfrost - bluespace belt sprites, animations sampled
 
@@ -70,3 +73,7 @@ Instant no effect spawn option
 Admin donk pockets
 desc = parent_type::desc + "To be used on subspace variants for bonus flavor"
 Event-grade decal painter. Like the fun decals, like the ss13 logos.
+Subspace reagent gun, give it a chem selector with no resevoir limit, just selects and flings chems at will
+Subspace beaker with chem selector.
+Admin drugs. Like, recreational drugs. For admins.
+Nullspace items, to like... Destroy things. Nullspace beaker for pouring things into to erase the transferred material?

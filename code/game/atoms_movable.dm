@@ -2048,3 +2048,10 @@
 		factions_printout += "\n[faction_string]"
 
 	return jointext(factions_printout, "")
+
+// NOVA EDIT ADDITION START
+// Helper for checking if you can see something. This might be a horrible idea! Someone correct me if it is. :)
+/atom/movable/proc/can_see_target(atom/target)
+	var/mob/viewer = ismob(src) ? src : null
+	return target in view(viewer?.client?.view || world.view, src)
+// NOVA EDIT ADDITION END

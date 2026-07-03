@@ -54,8 +54,48 @@
 	w_class = WEIGHT_CLASS_TINY
 	/// A cache of ghosts orbiting this item
 	var/list/mob/dead/observer/spirits
+	/// Whether the debug-reach feature is currently toggled on
+	var/active = FALSE
 	/// Cooldown for pinging ghosts
 	COOLDOWN_DECLARE(subspace_harmonic_signaller_cooldown)
+
+/obj/item/radio/headset/admin/item_ctrl_click(mob/user)
+	. = CLICK_ACTION_BLOCKING
+	if(user.get_item_by_slot(slot_flags) != src)
+		to_chat(user, span_warning("You need to be wearing [src] to toggle it."))
+		return
+	if(active)
+		turn_off(user)
+	else
+		turn_on(user)
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/radio/headset/admin/proc/turn_on(mob/user)
+	active = TRUE
+	ADD_TRAIT(user, TRAIT_ADMIN_REACHABLE, ADMIN_GEAR_TRAIT)
+	ADD_TRAIT(user, TRAIT_MOVE_PHASING, ADMIN_GEAR_TRAIT)
+	add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
+	to_chat(user, span_notice("[src] tunnels through narrative continuity. Reach, interaction, and collision limits are bypassed."))
+	update_appearance()
+
+/obj/item/radio/headset/admin/proc/turn_off(mob/user)
+	active = FALSE
+	REMOVE_TRAIT(user, TRAIT_ADMIN_REACHABLE, ADMIN_GEAR_TRAIT)
+	REMOVE_TRAIT(user, TRAIT_MOVE_PHASING, ADMIN_GEAR_TRAIT)
+	remove_filter("admin_active_item")
+	to_chat(user, span_notice("[src] powers down and returns you to a non-reality warping state."))
+	update_appearance()
+
+// Safety: don't leave the wearer permanently phasing/omniscient if the suit comes off mid-use
+/obj/item/radio/headset/admin/dropped(mob/user, silent)
+	. = ..()
+	if(active)
+		turn_off(user)
+
+/obj/item/radio/headset/admin/doStrip(mob/user, mob/stripped_mob)
+	. = ..()
+	if(active)
+		turn_off(stripped_mob)
 
 /obj/item/radio/headset/admin/Initialize(mapload)
 	. = ..()
@@ -63,7 +103,7 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Thank you, code\modules\mining\lavaland\mining_loot\megafauna\ash_drake.dm - /obj/item/melee/ghost_sword, very cool
-/obj/item/radio/headset/admin/item_ctrl_click(mob/user)
+/obj/item/radio/headset/admin/click_ctrl_shift(mob/user)//CtrlShift click as its a secondary function for this item.
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, subspace_harmonic_signaller_cooldown))
 		to_chat(user, span_warning("The subspace harmonic signaller is cooling down! Using this too frequently might upset the powers that be!"))
@@ -112,7 +152,7 @@
 //Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
 //New trait code at modular_nova\master_files\code\datums\wires\_wires.dm to show all wires w/o needing to hold blueprints or abductor multitool
 //The one set of lenses to rule them all
-//todo: icon fuckery in procs. verify show wires element is working.
+//todo: icon fuckery in procs. verify show wires trait is working.
 /obj/item/clothing/glasses/meson/engine/admin/debug//code\modules\clothing\glasses\engine_goggles.dm & code\modules\clothing\glasses\_glasses.dm
 	name = "subspace contacts"
 	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."

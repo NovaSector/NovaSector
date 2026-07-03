@@ -536,6 +536,7 @@
 #include "code\__DEFINES\~nova_defines\customization\lists.dm"
 #include "code\__DEFINES\~nova_defines\customization\loadout.dm"
 #include "code\__DEFINES\~nova_defines\traits\declarations.dm"
+#include "code\__DEFINES\~nova_defines\traits\sources.dm"
 #include "code\__HELPERS\_auxtools_api.dm"
 #include "code\__HELPERS\_dreamluau.dm"
 #include "code\__HELPERS\_level_traits.dm"

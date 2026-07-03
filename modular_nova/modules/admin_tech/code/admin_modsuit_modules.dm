@@ -67,16 +67,15 @@
 	removable = FALSE
 	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0
 	incompatible_modules = null
-	required_slots = list(ITEM_SLOT_FEET, ITEM_SLOT_HEAD, ITEM_SLOT_OCLOTHING)
+	required_slots = null
 	/// List of traits added when the suit is activated
-	var/list/traits_to_add = list(TRAIT_SILENT_FOOTSTEPS, TRAIT_TECHNICIAN_STEALTH, TRAIT_UNKNOWN_VOICE, TRAIT_HEAD_INJURY_BLOCKED)
+	traits_to_add = list(TRAIT_SILENT_FOOTSTEPS, TRAIT_ADMIN_STEALTH, TRAIT_UNKNOWN_VOICE, TRAIT_HEAD_INJURY_BLOCKED)
 
 /obj/item/mod/module/infiltrator/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Modsuit storage modules create their own storage datums, and dont reference a storage datum type
-// TODO: Investigate the runtime this seems to create
 /obj/item/mod/module/storage/admin
 	name = "MOD subspace storage module"
 	desc = "A storage system developed by CentCom, these compartments employ \

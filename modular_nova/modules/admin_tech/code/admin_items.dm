@@ -1593,7 +1593,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	max_shield_health = 250
 	recharge_delay = 4 SECONDS
 	recharge_rate = 16
-	shield_color = "#4488ff"
+	shield_color = "#15ff00"
 	max_armor_class = 200
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_ADMIN
@@ -1638,8 +1638,9 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 /obj/item/soap/admin/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/slippery, 0) //Negates slippery component
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+	AddComponent(/datum/component/slippery, 0) //Negates slippery component
+
 
 // Admeme mop. There is a funny comment on the parent, originally:
 // var/refill_reagent = /datum/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
@@ -1655,7 +1656,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	force = 12
 	throwforce = 14
 	throw_range = 4
-	mopspeed = 0.8 SECONDS
+	mopspeed = 0 SECONDS
 	refill_enabled = FALSE //Starts disabled.
 	refill_rate = 5
 	refill_reagent = /datum/reagent/space_cleaner/ez_clean //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
@@ -1667,3 +1668,145 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 /obj/item/mop/advanced/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// And so we enter the era of hand-held machines.
+// Introducing the first, a pocket version of the debug chem synth.
+// TODO: Subspace beaker, and maybe a new icon
+/obj/item/handheld_debug_chem_synth
+	name = "subspace chem dispenser"
+	desc = "A miniaturized version of the debug chem synthesizer. You can see an ampoule with subspace condensate creeping and sticking around inside it's glass prison. You think its best not to question it."
+	icon = 'icons/obj/devices/remote.dmi'
+	icon_state = "camera_bug"
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+	var/obj/item/reagent_containers/beaker
+	var/amount = /obj/item/reagent_containers/cup/beaker/bluespace::volume//I find myself dispensing full beakers rather than small drops of them.
+	var/temperature = DEFAULT_REAGENT_TEMPERATURE
+	var/purity = 100
+
+/obj/item/handheld_debug_chem_synth/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+/obj/item/handheld_debug_chem_synth/attack_self(mob/user)
+	ui_interact(user)
+
+/obj/item/handheld_debug_chem_synth/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ChemDebugSynthesizer", name) // reuse the existing tgui interface, narsie bless the work of other people
+		ui.open()
+
+/obj/item/handheld_debug_chem_synth/ui_data(mob/user)
+	. = ..()
+	.["purity"] = purity
+	.["temp"] = temperature
+
+// same logic as chem_synthesizer's handle_ui_act, stolen wholesale to fit our needs here
+/obj/item/handheld_debug_chem_synth/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	switch(action)
+		if("input")
+			if(QDELETED(beaker))
+				return FALSE
+
+			var/selected_reagent = tgui_input_list(ui.user, "Select reagent", "Reagent", GLOB.name2reagent)
+			if(!selected_reagent)
+				return FALSE
+
+			var/datum/reagent/input_reagent = GLOB.name2reagent[selected_reagent]
+			if(!input_reagent)
+				return FALSE
+
+			beaker.add_hiddenprint(ui.user)
+			beaker.reagents.add_reagent(input_reagent, amount, reagtemp = temperature, added_purity = (purity / 100))
+			return TRUE
+
+		if("makecup")
+			if(beaker)
+				return
+			beaker = new /obj/item/reagent_containers/cup/beaker/bluespace(src)
+			visible_message(span_notice("[src] dispenses a bluespace beaker."))
+			return TRUE
+
+		if("amount")
+			var/input = params["amount"]
+			if(isnull(input))
+				return FALSE
+			input = text2num(input)
+			if(isnull(input))
+				return FALSE
+			amount = input
+			return TRUE
+
+		if("temp")
+			var/input = params["amount"]
+			if(isnull(input))
+				return FALSE
+			input = text2num(input)
+			if(isnull(input))
+				return FALSE
+			temperature = input
+			return TRUE
+
+		if("purity")
+			var/input = params["amount"]
+			if(isnull(input))
+				return FALSE
+			input = text2num(input)
+			if(isnull(input))
+				return FALSE
+			purity = input
+			return TRUE
+// Potential beaker insertion handling code. You can't actually stick pre-existing beakers in this rn. This isn't tested yet because it requires fucking with the tsx file which I'm not doing quite yet. SHOULD work if given buttons
+// Might try and fix this with an attack instead of adding a button, but, its handheld, this is a bit inconvenient to use, idk what the best playability choice is here.
+// Maybe just having the beakers at all is fine, and I can add a click combo to the subspace beaker to just instantly delete it from your hand or something
+/*
+		if("insert")
+			if(!QDELETED(beaker))
+				return FALSE // already holding one, eject first
+			var/obj/item/reagent_containers/container = ui.user.get_active_held_item()
+			if(!istype(container) || !container.is_chem_container())
+				return FALSE
+			if(!ui.user.can_perform_action(src, ALLOW_SILICON_REACH | FORBID_TELEKINESIS_REACH))
+				return FALSE
+			if(!ui.user.transferItemToLoc(container, src))
+				return FALSE
+			beaker = container
+			return TRUE
+
+		if("eject")
+			if(QDELETED(beaker))
+				return FALSE
+			ui.user.put_in_hands(beaker)
+			beaker = null
+			return TRUE
+*/
+	update_appearance()
+
+// Holds our info about the beaker itself
+/obj/item/handheld_debug_chem_synth/ui_data(mob/user)
+	. = list()
+	.["amount"] = amount
+	.["temp"] = temperature
+	.["purity"] = purity
+
+	var/list/beaker_data = null
+	if(!QDELETED(beaker))
+		beaker_data = list()
+		beaker_data["maxVolume"] = beaker.volume
+		beaker_data["transferAmounts"] = beaker.possible_transfer_amounts
+		beaker_data["pH"] = round(beaker.reagents.ph, 0.01)
+		beaker_data["currentVolume"] = round(beaker.reagents.total_volume, CHEMICAL_VOLUME_ROUNDING)
+		var/list/beakerContents = list()
+		if(length(beaker.reagents.reagent_list))
+			for(var/datum/reagent/reagent as anything in beaker.reagents.reagent_list)
+				beakerContents += list(list("name" = reagent.name, "volume" = round(reagent.volume, CHEMICAL_VOLUME_ROUNDING)))
+		beaker_data["contents"] = beakerContents
+	.["beaker"] = beaker_data

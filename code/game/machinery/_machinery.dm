@@ -653,6 +653,11 @@
 	if((machine_stat & (NOPOWER|BROKEN)) && !(interaction_flags_machine & INTERACT_MACHINE_OFFLINE)) // Check if the machine is broken, and if we can still interact with it if so
 		return FALSE
 
+	// NOVA EDIT ADDITION START
+	if(HAS_TRAIT(user, TRAIT_ADMIN_REACHABLE) && user.can_see_target(src))//badmin does touchies wowow
+		return TRUE
+	// NOVA EDIT ADDITION END
+
 	var/try_use_signal = SEND_SIGNAL(user, COMSIG_TRY_USE_MACHINE, src) | SEND_SIGNAL(src, COMSIG_TRY_USE_MACHINE, user)
 	if(try_use_signal & COMPONENT_CANT_USE_MACHINE_INTERACT)
 		return FALSE

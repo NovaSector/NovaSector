@@ -1441,6 +1441,10 @@ NOVA EDIT REMOVAL END */
 /mob/living/can_perform_action(atom/target, action_bitflags)
 	if(!istype(target))
 		CRASH("Missing target arg for can_perform_action")
+	// NOVA EDIT ADDITION START
+	if(HAS_TRAIT(src, TRAIT_ADMIN_REACHABLE) && can_see_target(target))
+		return TRUE
+	// NOVA EDIT ADDITION END
 
 	if(stat != CONSCIOUS)
 		to_chat(src, span_warning("You are not conscious enough for this action!"))
