@@ -156,5 +156,6 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "long_nitrile"
+
 #undef MODULAR_HANDS_ICON
 #undef MODULAR_HANDS_WORN_ICON
