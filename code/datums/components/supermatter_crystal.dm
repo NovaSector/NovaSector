@@ -355,11 +355,11 @@
 			consumed_mob.dust(force = TRUE)
 		// NOVA EDIT ADDITION START
 		else
-			consumed_mob.apply_damage(600, BURN, spread_damage = TRUE)
-			consumed_mob.become_husk(BURN)
 			var/turf/blast_destination = find_blast_destination(atom_source)
 			if(blast_destination)
 				do_teleport(consumed_mob, blast_destination, no_effects = TRUE, forced = TRUE)
+			consumed_mob.apply_damage(600, BURN, spread_damage = TRUE)
+			consumed_mob.become_husk(BURN)
 		// NOVA EDIT ADDITION END
 		matter_increase += 100 * object_size * 2
 		if(is_clown_job(consumed_mob.mind?.assigned_role))
