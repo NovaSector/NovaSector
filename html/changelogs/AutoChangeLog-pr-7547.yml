@@ -1,0 +1,5 @@
+author: "Stalkeros, splet for the sprites"
+delete-after: True
+changes:
+  - qol: "You can flip Forge Marks around, if you want to, for no reason other than wanting to flip one over."
+  - image: "Heliostatic Coalition's Guild Marks have been resprited in their entirety."

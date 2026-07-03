@@ -1,0 +1,4 @@
+author: "MacaroniCritter"
+delete-after: True
+changes:
+  - bugfix: "All gags related security items are now available in the loadout menu."

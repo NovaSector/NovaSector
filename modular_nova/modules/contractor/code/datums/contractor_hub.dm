@@ -7,8 +7,6 @@
 	var/list/purchased_items = list()
 	/// Static of contractor_item subtypes
 	var/static/list/contractor_items = typecacheof(/datum/contractor_item, ignore_root_path = TRUE)
-	/// Current index number for contract IDs
-	var/start_index = 1
 
 /// Generates a list of all valid hub items to set for purchase
 /datum/contractor_hub/proc/create_hub_items()
@@ -17,11 +15,10 @@
 
 		hub_items.Add(contractor_item)
 
-/datum/contractor_hub/proc/create_single_contract(datum/mind/owner, contract_payout_tier)
+/datum/contractor_hub/proc/create_single_contract(datum/mind/owner, contract_payout_tier, new_id)
 	var/datum/syndicate_contract/contract_to_add = new(owner, assigned_targets, contract_payout_tier)
 
 	assigned_targets.Add(contract_to_add.contract.target)
 
-	contract_to_add.id = start_index
-	assigned_contracts.Add(contract_to_add)
-	start_index++
+	contract_to_add.id = new_id
+	return contract_to_add

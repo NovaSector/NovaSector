@@ -24,19 +24,17 @@
 	new /obj/item/fulton_core(src)
 
 /obj/item/storage/box/syndicate/contract_kit/midround/PopulateContents()
-	new	/obj/item/crowbar/power/syndicate(src)
 	new	/obj/item/storage/box/syndie_kit/emp(src)
-	new	/obj/item/shield/energy(src)
 
 	// finally. a real gun
 	new /obj/item/storage/toolbox/guncase/traitor/contractor_fisher(src)
 
-	// Paper guide
-	new /obj/item/paper/contractor_guide/midround(src)
 	new /obj/item/reagent_containers/hypospray/medipen/atropine(src)
 	new /obj/item/jammer(src)
 	new /obj/item/storage/fancy/cigarettes/cigpack_syndicate(src)
 	new /obj/item/lighter(src)
+	// Paper guide
+	new /obj/item/paper/contractor_guide/midround(src)
 
 #undef SMALL_ITEM_AMOUNT
 
@@ -58,9 +56,8 @@
 
 /obj/item/storage/box/syndicate/contractor_loadout/tools/PopulateContents()
 	new /obj/item/screwdriver/nuke(src)
-	new /obj/item/wirecutters(src, "red")
+	new	/obj/item/crowbar/power/syndicate(src)
 	new /obj/item/multitool(src)
-	new /obj/item/crowbar/red(src)
 	new /obj/item/wrench(src)
 	new /obj/item/weldingtool/largetank(src)
 	new /obj/item/stack/cable_coil/thirty(src) // dual purpose: cablecuffs or fixing wires. no spare gloves because you already have them
@@ -71,13 +68,24 @@
 /obj/item/storage/toolbox/guncase/traitor/contractor_fisher
 	name = "contractor gun case"
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/pistol/clandestine/fisher/contractor // preloaded with sleeper bullets
+	storage_type = /datum/storage/toolbox/guncase/contractor_fisher
 	extra_to_spawn = /obj/item/ammo_box/magazine/m10mm/downer
 	/// What other magazine do we spawn in our case?
 	var/extra2_to_spawn = /obj/item/ammo_box/magazine/m10mm
 	ammo_box_to_spawn = /obj/item/ammo_box/c10mm/downer
 
 /obj/item/storage/toolbox/guncase/traitor/contractor_fisher/PopulateContents()
-	new weapon_to_spawn (src) // 1 pistol
-	new extra_to_spawn (src) // 1 spare sleeper mag, because oftentimes you'd rather not kill a guy
-	new extra2_to_spawn (src) // 1 spare lethal mag, because sometimes you DO have to just kill a guy
-	new ammo_box_to_spawn(src) // spare sleeper bullets
+	// 1 pistol
+	new weapon_to_spawn (src)
+	// 2 spare sleeper mags, because oftentimes you'd rather not kill a guy
+	new extra_to_spawn (src)
+	new extra_to_spawn (src)
+	// 2 spare lethal mags, because sometimes you'd do have to kill a guy
+	new extra2_to_spawn (src)
+	new extra2_to_spawn (src)
+	// 20 more sleeper rounds
+	new ammo_box_to_spawn(src)
+
+/datum/storage/toolbox/guncase/contractor_fisher
+	max_slots = 6 // gun, 4 mags, sleeper box
+	max_total_storage = ((WEIGHT_CLASS_SMALL * 5) + WEIGHT_CLASS_NORMAL)

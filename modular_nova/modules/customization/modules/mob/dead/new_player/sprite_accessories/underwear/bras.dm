@@ -113,6 +113,21 @@
 	icon_state = "bra_cow"
 	use_static = TRUE
 
+/datum/sprite_accessory/clothing/bra/bikini_cheetah
+	name = "Bikini - Cheetah"
+	icon_state = "bikini_cheetah"
+	use_static = TRUE
+
+/datum/sprite_accessory/clothing/bra/bikini_cow
+	name = "Bikini - Cow"
+	icon_state = "bikini_cow"
+	use_static = TRUE
+
+/datum/sprite_accessory/clothing/bra/bikini_zebra
+	name = "Bikini - Zebra"
+	icon_state = "bikini_zebra"
+	use_static = TRUE
+
 /datum/sprite_accessory/clothing/bra/hi_vis_bra
 	name = "Safekini"
 	icon_state = "hi_vis_bra"
