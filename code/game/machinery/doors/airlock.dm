@@ -682,7 +682,7 @@
 		if(DOOR_DENY_ANIMATION)
 			if(feedback && COOLDOWN_FINISHED(src, denied_sound_cd)) // NOVA EDIT CHANGE - ORIGINAL: if(feedback)
 				playsound(src, soundin = doorDeni, vol = 50, vary = FALSE, extrarange = 3)
-				COOLDOWN_START(src, denied_sound_cd, 4 SECONDS) // NOVA EDIT ADDITION - No spamming this sound, sorry
+				COOLDOWN_START(src, denied_sound_cd, 0.49 SECONDS) // NOVA EDIT ADDITION - Ensures the door buzz sound can't be overlapped.
 			addtimer(CALLBACK(src, PROC_REF(handle_deny_end)), AIRLOCK_DENY_ANIMATION_TIME)
 
 /obj/machinery/door/airlock/proc/handle_deny_end()
