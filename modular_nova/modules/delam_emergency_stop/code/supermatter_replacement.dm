@@ -42,3 +42,4 @@
 			continue
 		item.post_equip_item(spawning_mob.client?.prefs, spawning_mob)
 	return TRUE
+	return TRUE
