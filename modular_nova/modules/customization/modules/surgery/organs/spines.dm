@@ -1,6 +1,6 @@
 /datum/bodypart_overlay/mutant/spines
 	color_source = ORGAN_COLOR_OVERRIDE
-	layers = ALL_EXTERNAL_OVERLAYS
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
 /datum/bodypart_overlay/mutant/spines/override_color(rgb_value)
 	return draw_color
@@ -18,7 +18,7 @@
 
 /datum/bodypart_overlay/mutant/tail_spines
 	color_source = ORGAN_COLOR_OVERRIDE
-	layers = ALL_EXTERNAL_OVERLAYS
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
 /datum/bodypart_overlay/mutant/tail_spines/override_color(rgb_value)
 	return draw_color

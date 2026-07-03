@@ -8,7 +8,7 @@
 	locked = TRUE // fake parent
 	conflicts = list(/datum/mutation/adaptation)
 	mutation_traits = list(TRAIT_WADDLING)
-	mutation_icon = 'icons/mob/effects/genetics.dmi'
+	offset_location = FULL_BODY
 
 /* // NOVA EDIT REMOVAL START - Removes limit on amount of adaptations one can have
 /datum/mutation/adaptation/New(datum/mutation/copymut)

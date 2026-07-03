@@ -97,4 +97,6 @@ endmap
 
 map oceanpubby
     votable
+
+map runtimestation_minimal
 endmap
