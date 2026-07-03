@@ -1,17 +1,19 @@
 /mob/living/carbon/human/proc/replace_with_clone()
-	if(QDELETED(src) || !mind || (mind && istype(mind.assigned_role, /datum/job/unassigned)))
-		return // NT don't give a shit about replacing this person, they're either not a player, not crew or not a player with a job
+	if(QDELETED(src) || !mind || istype(mind.assigned_role, /datum/job/unassigned))
+		return FALSE // NT don't give a shit about replacing this person, they're either not a player, not crew or not a player with a job
 	var/atom/destination = mind.assigned_role.get_latejoin_spawn_point()
 	// A lot of this is copied from new_player, but we need to run through a lot of this boiler-plate to "properly" make a "just late-joined" character.
 	if(!destination)
 		CRASH("Failed to find a latejoin spawn point.")
-	mind.active = FALSE
 	if(!client)
 		CRASH("Client disconnected before we could make the replacement mob.")
+	mind.active = FALSE
 	var/mob/living/carbon/human/spawning_mob = mind.assigned_role.get_spawn_mob(client, destination)
 	mind.transfer_to(spawning_mob)
 	// Notably we do NOT set original character here, because this is not their actual original character.
 	spawning_mob.PossessByPlayer(ckey)
+	if(!spawning_mob.client)
+		CRASH("Client disconnected while we were making the replacement mob.")
 	to_chat(spawning_mob, span_userdanger("You have forgotten everything you did this shift. You are left with a horrible sense of Deja Vu."))
 	var/area/joined_area = get_area(spawning_mob.loc)
 	if(joined_area)
@@ -34,3 +36,4 @@
 		if (item.restricted_roles && length(item.restricted_roles) && !(spawning_mob.mind.assigned_role.title in item.restricted_roles))
 			continue
 		item.post_equip_item(spawning_mob.client?.prefs, spawning_mob)
+	return TRUE
