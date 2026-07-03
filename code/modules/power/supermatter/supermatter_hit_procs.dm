@@ -68,6 +68,7 @@
 	var/mob/living/carbon/jedi = user
 	to_chat(jedi, span_userdanger("That was a really dense idea."))
 	jedi.investigate_log("had [jedi.p_their()] brain dusted by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
+	//jedi.ghostize() // NOVA EDIT REMOVAL
 	// NOVA EDIT ADDITION START - Supermatter replacement
 	if(ishuman(user))
 		replace_with_clone(user)
