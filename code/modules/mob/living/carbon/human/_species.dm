@@ -33,7 +33,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	 */
 	var/plural_form
 
-	///Whether or not the race has sexual characteristics (biological genders). At the moment this is only FALSE for skeletons and shadows
+	/// Whether or not the race has sexual characteristics (biological genders). At the moment this is only FALSE for skeletons and shadows
 	var/sexes = TRUE
 
 	///The maximum number of bodyparts this species can have.
@@ -608,13 +608,13 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(ITEM_SLOT_FEET)
 			if(H.num_legs < 2)
 				return FALSE
-			/* NOVA EDIT REMOVAL
-			if((H.bodyshape & BODYSHAPE_DIGITIGRADE) && !(I.item_flags & IGNORE_DIGITIGRADE))
+			/* // NOVA EDIT REMOVAL START
+			if((H.bodytype & BODYTYPE_DIGITIGRADE) && !(I.item_flags & IGNORE_DIGITIGRADE))
 				if(!(I.supports_variations_flags & DIGITIGRADE_VARIATIONS))
 					if(!disable_warning)
 						to_chat(H, span_warning("The footwear around here isn't compatible with your feet!"))
 					return FALSE
-			*/
+			*/ // NOVA EDIT REMOVAL END
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_BELT)
 			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_CHEST)
@@ -2112,9 +2112,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 /// Remove body markings
 /datum/species/proc/remove_body_markings(mob/living/carbon/human/hooman)
+	var/needs_update = FALSE
 	for(var/obj/item/bodypart/part as anything in hooman.get_bodyparts())
 		for(var/datum/bodypart_overlay/simple/body_marking/marking in part.bodypart_overlays)
-			part.remove_bodypart_overlay(marking)
+			part.remove_bodypart_overlay(marking, update = FALSE)
+			needs_update = TRUE
+
+	if(needs_update && !(hooman.living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
+		hooman.update_body_parts()
 
 /**
  * Calculates the expected height values for this species

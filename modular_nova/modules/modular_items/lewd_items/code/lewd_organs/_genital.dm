@@ -13,8 +13,6 @@
 	var/genital_size = 1
 	///The maximum sprite affix for this type
 	var/max_sprite_size_affix
-	///Sprite name of the genital, it's what shows up on character creation
-	var/genital_name = "Human"
 	///Type of the genital. For penises tapered/horse/human etc. for breasts quadruple/sixtuple etc...
 	var/genital_type = SPECIES_HUMAN
 	///Used for determining what sprite is being used, derrives from size and type
@@ -64,9 +62,8 @@
 	our_overlay.owner = owner
 	our_overlay.organ_slot = src.slot
 
-
-/obj/item/organ/genital/proc/get_description_string(datum/sprite_accessory/genital/gas)
-	return "You see genitals"
+/obj/item/organ/genital/proc/get_description_string(datum/sprite_accessory/genital/genital)
+	return "You see genitals."
 
 /obj/item/organ/genital/proc/update_genital_icon_state()
 	return
@@ -98,7 +95,6 @@
 		return
 
 	var/datum/sprite_accessory/genital/accessory = SSaccessories.sprite_accessories[associated_key][bodypart.name]
-	genital_name = accessory.name
 	genital_type = accessory.icon_state
 	build_from_accessory(accessory, DNA)
 	update_sprite_suffix()
@@ -108,6 +104,13 @@
 	our_overlay.color_source = uses_skin_color ? ORGAN_COLOR_INHERIT : ORGAN_COLOR_OVERRIDE
 	our_overlay.owner = owner
 	our_overlay.organ_slot = src.slot
+
+/obj/item/organ/genital/proc/get_genital_descriptor(datum/sprite_accessory/genital/genital)
+	var/display_name = genital.display_name
+	if(!isnull(display_name))
+		return display_name
+
+	return genital.name
 
 /// for specific build_from_dna behavior that also checks the genital accessory.
 /obj/item/organ/genital/proc/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
@@ -178,7 +181,7 @@
 		if(!(layer & layers))
 			continue
 
-		var/layertext = mutant_bodyparts_layertext(bitflag_to_layer(layer))
+		var/layertext = mutant_bodyparts_layertext(all_layers[layer])
 		if ("m_[feature_key]_[get_base_icon_state()]_[layertext]_primary" in cached_mutant_icon_states)
 			sprite_datum.color_layer_names["1"] = "primary"
 		if ("m_[feature_key]_[get_base_icon_state()]_[layertext]_secondary" in cached_mutant_icon_states)
@@ -206,14 +209,14 @@
 			return TRUE
 	return FALSE
 
-/datum/bodypart_overlay/mutant/genital/bitflag_to_layer(layer)
+/datum/bodypart_overlay/mutant/genital/get_overlay(layer, obj/item/bodypart/limb)
 	if(layer == EXTERNAL_FRONT_UNDER_CLOTHES)
 		if(layer_mode_check() == TRUE)
-			return layer_above_all
+			layer = layer_above_all
 		else if(underwear_check() == FALSE)
-			return layer_above_undies
+			layer = layer_above_undies
 		else
-			return layer_below_undies
+			layer = layer_below_undies
 	else
 		return ..()
 

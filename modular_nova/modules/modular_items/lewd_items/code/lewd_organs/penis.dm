@@ -30,9 +30,10 @@
 			return TRUE
 
 
-/obj/item/organ/genital/penis/get_description_string(datum/sprite_accessory/genital/gas)
+/obj/item/organ/genital/penis/get_description_string(datum/sprite_accessory/genital/penis/penis)
 	var/returned_string = ""
-	var/pname = LOWER_TEXT(genital_name) == "nondescript" ? "" : LOWER_TEXT(genital_name) + " "
+	var/genital_descriptor = LOWER_TEXT(get_genital_descriptor(penis))
+	var/pname = genital_descriptor + "[length(get_genital_descriptor(penis)) ? " " : ""]"
 	if(sheath != SHEATH_NONE && aroused != AROUSAL_FULL) //Hidden in sheath
 		switch(sheath)
 			if(SHEATH_NORMAL)

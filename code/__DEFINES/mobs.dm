@@ -172,11 +172,13 @@
 #define BODYTYPE_SHADOW (1<<7)
 //This limb is a ghost limb and can phase through walls.
 #define BODYTYPE_GHOST (1<<8)
+/// Analagous to BODYSHAPE_DIGITIGRADE, though this one is not removed if the mob's shape changed
+#define BODYTYPE_DIGITIGRADE (1<<9)
 // NOVA EDIT ADDITION START
 ///The limb is synthetic, this is for an additional surgery check.
-#define BODYTYPE_SYNTHETIC (1<<9)
+#define BODYTYPE_SYNTHETIC (1<<10)
 /// It's a ghoul limb, which is detachable
-#define BODYTYPE_GHOUL (1<<10)
+#define BODYTYPE_GHOUL (1<<11)
 // NOVA EDIT ADDITION END
 
 // Bodyshape defines for how things can be worn, i.e., what "shape" the mob sprite is
@@ -192,13 +194,27 @@
 #define BODYSHAPE_GOLEM (1<<4)
 // NOVA EDIT ADDITION START
 ///The limb fits a modular custom shape
-#define BODYSHAPE_CUSTOM (1<<5)
-///The limb fits a taur body
-#define BODYSHAPE_TAUR (1<<6)
+#define BODYSHAPE_CUSTOM (1<<15)
 ///The limb causes shoes to no longer be displayed, useful for taurs.
-#define BODYSHAPE_HIDE_SHOES (1<<7)
+#define BODYSHAPE_HIDE_SHOES (1<<16)
 ///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
-#define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<8)
+#define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<17)
+/// For when you just want the leg cropping for taurs
+#define BODYSHAPE_TAUR_GENERIC (1<<18)
+/// Snake taurs
+#define BODYSHAPE_TAUR_SNAKE (1<<19)
+/// Taurs with paws
+#define BODYSHAPE_TAUR_PAW (1<<20)
+/// Taurs with hooves
+#define BODYSHAPE_TAUR_HOOF (1<<21)
+/// Big leg
+#define BODYSHAPE_TAUR_BIG_LEGS (1<<22)
+/// Big leg stanced
+#define BODYSHAPE_TAUR_BIG_LEGS_STANCED (1<<23)
+/// Big legs - all types
+#define BODYSHAPE_TAUR_BIG_LEGS_ALL (BODYSHAPE_TAUR_BIG_LEGS|BODYSHAPE_TAUR_BIG_LEGS_STANCED)
+/// All-encompassing taur bodyshape flag
+#define BODYSHAPE_TAUR (BODYSHAPE_TAUR_GENERIC|BODYSHAPE_TAUR_SNAKE|BODYSHAPE_TAUR_PAW|BODYSHAPE_TAUR_HOOF|BODYSHAPE_TAUR_BIG_LEGS|BODYSHAPE_TAUR_BIG_LEGS_STANCED)
 // NOVA EDIT ADDITION END
 
 /// List of body part flags that can not be bioscrambled
@@ -768,6 +784,16 @@
 #define GRADIENT_APPLIES_TO_HAIR (1<<0)
 #define GRADIENT_APPLIES_TO_FACIAL_HAIR (1<<1)
 
+// Used in applying height
+/// Used for overlays centered around the upper half of the human sprite
+#define UPPER_BODY "upper body"
+/// Used for overlays centered around the lower half of the human sprite
+#define LOWER_BODY "lower body"
+/// Used for overlays that should not offset at all
+#define NO_MODIFY "do not modify"
+/// Used for overlays that stretch the full body and thus need a filter
+#define ENTIRE_BODY "full body"
+
 // Height defines
 // - They are numbers so you can compare height values (x height < y height)
 // - They do not start at 0 for futureproofing
@@ -783,20 +809,19 @@
 #define HUMAN_HEIGHT_TALL 14
 #define HUMAN_HEIGHT_TALLER 16
 #define HUMAN_HEIGHT_TALLEST 18
+// If you add a height here update human_heights_to_offsets as well!
 
-/// Assoc list of all heights, cast to strings, to """"tuples"""""
-/// The first """tuple""" index is the upper body offset
-/// The second """tuple""" index is the lower body offset
-GLOBAL_LIST_INIT(human_heights_to_offsets, list(
-	"[MONKEY_HEIGHT_DWARF]" = list(-9, -3),
-	"[MONKEY_HEIGHT_MEDIUM]" = list(-7, -4),
-	"[HUMAN_HEIGHT_DWARF]" = list(-5, -4),
-	"[HUMAN_HEIGHT_SHORTEST]" = list(-2, -1),
-	"[HUMAN_HEIGHT_SHORT]" = list(-1, -1),
-	"[HUMAN_HEIGHT_MEDIUM]" = list(0, 0),
-	"[HUMAN_HEIGHT_TALL]" = list(1, 1),
-	"[HUMAN_HEIGHT_TALLER]" = list(2, 1),
-	"[HUMAN_HEIGHT_TALLEST]" = list(3, 2),
+/// Assoc list of all heights, to offset values
+GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
+	MONKEY_HEIGHT_DWARF   = list("[UPPER_BODY]" = -9, "[LOWER_BODY]" = -3),
+	MONKEY_HEIGHT_MEDIUM  = list("[UPPER_BODY]" = -7, "[LOWER_BODY]" = -4),
+	HUMAN_HEIGHT_DWARF    = list("[UPPER_BODY]" = -5, "[LOWER_BODY]" = -4),
+	HUMAN_HEIGHT_SHORTEST = list("[UPPER_BODY]" = -2, "[LOWER_BODY]" = -1),
+	HUMAN_HEIGHT_SHORT    = list("[UPPER_BODY]" = -1, "[LOWER_BODY]" = -1),
+	HUMAN_HEIGHT_MEDIUM   = list("[UPPER_BODY]" =  0, "[LOWER_BODY]" =  0),
+	HUMAN_HEIGHT_TALL     = list("[UPPER_BODY]" =  1, "[LOWER_BODY]" =  1),
+	HUMAN_HEIGHT_TALLER   = list("[UPPER_BODY]" =  2, "[LOWER_BODY]" =  1),
+	HUMAN_HEIGHT_TALLEST  = list("[UPPER_BODY]" =  3, "[LOWER_BODY]" =  2),
 ))
 
 /*
@@ -910,34 +935,6 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// (You ONLY need to update this if you add a standing overlay, adding an integer.)
 #define TOTAL_LAYERS 23
 
-#define UPPER_BODY "upper body"
-#define LOWER_BODY "lower body"
-#define NO_MODIFY "do not modify"
-
-/// Used for human height overlay adjustments
-/// Certain standing overlay layers shouldn't have a filter applied and should instead just offset by a pixel y
-/// This list contains all the layers that must offset, with its value being whether it's a part of the upper half of the body (TRUE) or not (FALSE)
-GLOBAL_LIST_INIT(layers_to_offset, list(
-	// Weapons commonly cross the middle of the sprite so they get cut in half by the filter
-	"[HANDS_LAYER]" = LOWER_BODY,
-	// Very tall hats will get cut off by filter
-	"[HEAD_LAYER]" = UPPER_BODY,
-	// Hair will get cut off by filter
-	"[HAIR_LAYER]" = UPPER_BODY,
-	// Doesn't do much
-	"[EYES_LAYER]" = UPPER_BODY,
-	// Long belts (sabre sheathe) will get cut off by filter
-	"[BELT_LAYER]" = LOWER_BODY,
-	// Everything below looks fine with or without a filter, so we can skip it and just offset
-	// (In practice they'd be fine if they got a filter but we can optimize a bit by not.)
-	"[NECK_LAYER]" = UPPER_BODY,
-	"[GLASSES_LAYER]" = UPPER_BODY,
-	"[GLOVES_LAYER]" = LOWER_BODY,
-	"[HANDCUFF_LAYER]" = LOWER_BODY,
-	"[ID_LAYER]" = UPPER_BODY,
-	"[FACEMASK_LAYER]" = UPPER_BODY,
-))
-
 //Bitflags for the layers a bodypart overlay can draw on (can be drawn on multiple layers)
 /// Draws overlay on the BODY_FRONT_LAYER
 #define EXTERNAL_FRONT (1 << 0)
@@ -952,8 +949,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define EXTERNAL_FRONT_OVER (1 << 4)
 /// Draws overlay on the HEAD_LAYER, for things that need to be above hair but below hats.
 #define EXTERNAL_FRONT_ABOVE_HAIR (1 << 5)
-/// Draws organ on all EXTERNAL layers
-#define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
+/// NOVA EDIT ADDITION END
 
 // Bitflags for external organs restylability
 #define EXTERNAL_RESTYLE_ALL ALL
