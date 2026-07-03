@@ -5260,7 +5260,10 @@
 /area/centcom/holding/cafe)
 "cgA" = (
 /obj/effect/turf_decal/tile/dark_green/anticorner,
-/obj/machinery/dna_infuser,
+/obj/structure/showcase/machinery/cloning_pod{
+	desc = "An old prototype cloning pod, permanently decommissioned following the incident.";
+	name = "decommissioned cloner"
+	},
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
 	},
@@ -9810,6 +9813,11 @@
 "iKR" = (
 /turf/open/floor/iron/large,
 /area/centcom/interlink)
+"iLh" = (
+/obj/machinery/door/poddoor/ert,
+/obj/machinery/nova/fan/self_powered,
+/turf/open/floor/iron/smooth_large,
+/area/centcom/interlink)
 "iLp" = (
 /obj/structure/chair/sofa/bench{
 	dir = 1
@@ -13273,7 +13281,11 @@
 /area/centcom/interlink)
 "nCr" = (
 /obj/effect/turf_decal/tile/dark_green/half,
-/obj/machinery/dna_scannernew,
+/obj/structure/showcase/machinery/cloning_pod{
+	desc = "An old decommissioned scanner, permanently scuttled.";
+	icon_state = "scanner";
+	name = "decommissioned cloning scanner"
+	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/centcom/holding/cafe)
 "nCz" = (
@@ -14995,6 +15007,7 @@
 /obj/machinery/door/poddoor{
 	id = "interlink_shuttles"
 	},
+/obj/machinery/nova/fan/self_powered,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "pLm" = (
@@ -17729,10 +17742,10 @@
 /area/centcom/holding/cafedorms)
 "tad" = (
 /obj/effect/turf_decal/tile/dark_green/half,
-/obj/machinery/computer/dna_console{
+/obj/machinery/light/cold/directional/south,
+/obj/structure/showcase/fakeid{
 	dir = 1
 	},
-/obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/centcom/holding/cafe)
 "tag" = (
@@ -39550,11 +39563,11 @@ vLx
 vLx
 wTk
 wTk
-llq
-llq
-llq
-llq
-llq
+iLh
+iLh
+iLh
+iLh
+iLh
 wTk
 wTk
 gRu

@@ -71,7 +71,7 @@
 	host.mind?.remove_antag_datum(/datum/antagonist/mutant)
 	host.remove_filter("infection_glow")
 	host.update_appearance()
-	addtimer(CALLBACK(host, /mob/living/carbon/human/proc/remove_mutant_immunity), rand(IMMUNITY_LOWER, IMMUNITY_UPPER), TIMER_STOPPABLE)
+	addtimer(CALLBACK(host, TYPE_PROC_REF(/mob/living/carbon/human, remove_mutant_immunity)), rand(IMMUNITY_LOWER, IMMUNITY_UPPER), TIMER_STOPPABLE)
 
 /datum/component/mutant_infection/proc/extract_rna()
 	if(rna_extracted)

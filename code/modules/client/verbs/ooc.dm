@@ -77,18 +77,30 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	mob.log_talk(raw_msg, LOG_OOC)
 
 	var/keyname = key
+	var/list/key_tags
+	var/key_prefix = ""
+	var/visible_unlock = prefs.unlock_content && (prefs.toggles & MEMBER_PUBLIC)
 
-	if(prefs.unlock_content)
-		if(prefs.toggles & MEMBER_PUBLIC)
-			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('icons/ui/chat/member_content.dmi', world, "blag")][keyname]</font>"
-	// NOVA EDIT ADDITION START - Donator icons in OOC
-	if(SSplayer_ranks.is_donator(src))
-		if(prefs.read_preference(/datum/preference/toggle/display_donator_status))
-			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('modular_nova/master_files/icons/donator/donator_chat_icon.dmi', world, "nova_logo")][keyname]</font>"
-	// NOVA EDIT ADDITION END
+	// heart first lol
 	if(prefs.hearted)
-		var/datum/asset/spritesheet_batched/sheet = get_asset_datum(/datum/asset/spritesheet_batched/chat)
-		keyname = "[sheet.icon_tag("emoji-heart")][keyname]"
+		LAZYADD(key_tags, "emoji-heart")
+	if(visible_unlock)
+		LAZYADD(key_tags, "byond_member")
+	// NOVA EDIT ADDITION START - Donator icons in OOC
+	if(SSplayer_ranks.is_donator(src) && prefs.read_preference(/datum/preference/toggle/display_donator_status))
+		LAZYADD(key_tags, "nova_donator")
+	// NOVA EDIT ADDITION END
+
+	if(LAZYLEN(key_tags))
+		var/datum/asset/spritesheet_batched/chat/sheet = get_asset_datum(/datum/asset/spritesheet_batched/chat)
+		for(var/icon_name in key_tags)
+			key_prefix = "[key_prefix][sheet.icon_tag(icon_name)]"
+		key_prefix = "<span style='vertical-align: text-top; padding-right: 0.2em'>[key_prefix]</span>"
+
+	keyname = "[key_prefix][keyname]"
+
+	if(visible_unlock)
+		keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[keyname]</font>"
 
 	//The linkify span classes and linkify=TRUE below make ooc text get clickable chat href links if you pass in something resembling a url
 	for(var/client/receiver as anything in GLOB.clients)

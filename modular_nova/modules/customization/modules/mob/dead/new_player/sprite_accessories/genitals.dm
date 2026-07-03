@@ -69,7 +69,7 @@
 	center = TRUE
 	special_x_dimension = TRUE
 	//default_color = DEFAULT_SKIN_OR_PRIMARY //This is the price we're paying for sheaths
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_UNDER_CLOTHES)
+	relevent_layers = list(BODY_BEHIND_LAYER, UNDER_UNIFORM_LAYER)
 	max_sprite_size_affix = 7
 	var/can_have_sheath = TRUE
 
@@ -277,7 +277,7 @@
 	key = FEATURE_VAGINA
 	always_color_customizable = TRUE
 	default_color = "#FFCCCC"
-	relevent_layers = list(BODY_FRONT_UNDER_CLOTHES)
+	relevent_layers = list(UNDER_UNIFORM_LAYER)
 	var/alt_aroused = TRUE
 
 /datum/sprite_accessory/genital/vagina/none
@@ -363,7 +363,7 @@
 	key = FEATURE_BREASTS
 	always_color_customizable = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_UNDER_CLOTHES)
+	relevent_layers = list(BODY_BEHIND_LAYER, UNDER_UNIFORM_LAYER)
 	has_skintone_shading = TRUE
 	genital_location = CHEST
 	max_sprite_size_affix = 5

@@ -7,6 +7,7 @@
 	icon_state = /obj/item/mmi/posibrain/circuit/disk/syndie::icon_state
 	set_items = list(
 		/obj/item/mmi/posibrain/circuit/disk/syndie,
+		/obj/item/encryptionkey/syndicate,
 	)
 
 /datum/voucher_set/traitor/supplies/science/concealed_bay
