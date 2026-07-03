@@ -1,0 +1,4 @@
+author: "Shroopy"
+delete-after: True
+changes:
+  - map: "Removed the actively detrimental CO2 filter in Void Raptor's atmospherics."
