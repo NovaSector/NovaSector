@@ -47,7 +47,7 @@ export const erp_bellyquirk_sizemod: Feature<number> = {
     'Size multiplier - all belly size sources are multiplied by this for determining overall impact.',
 };
 
-export const erp_bellyquirk_sizemod_autostuffed: Feature<number> = {
+export const erp_bellyquirk_sizemod_nutrition: Feature<number> = {
   name: 'Belly Sizemod - Nutrition',
   component: FeatureSliderInput,
   description:

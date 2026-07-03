@@ -32,7 +32,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 
 /// Fills the shared belly-size readout fields (calculated_size, base_size_max, maxsize)
 /// from a set of base sizes. Used identically by the local and character-prefs tabs.
-/datum/erp_belly_prefshelper/proc/build_size_data(list/out, cosmetic, full, stuffed, maxsize, sizemod, sizemod_autostuffed)
+/datum/erp_belly_prefshelper/proc/build_size_data(list/out, cosmetic, full, stuffed, maxsize, sizemod, sizemod_nutrition)
 	var/unclamped = ((((cosmetic + full + stuffed) / 10) ** 1.5) / (4/3) / PI) ** (1/3)
 	var/last_size = round(unclamped, 1)
 	if(last_size > 16)
@@ -42,8 +42,8 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 	if(last_size < 0)
 		last_size = 0
 	var/nutritionmaxxing = "N/A"
-	if(sizemod_autostuffed > 0 && sizemod > 0)
-		nutritionmaxxing = (((25.9852 * (unclamped ** 2)) / sizemod / sizemod_autostuffed) + 500) / 0.4
+	if(sizemod_nutrition > 0 && sizemod > 0)
+		nutritionmaxxing = (((25.9852 * (unclamped ** 2)) / sizemod / sizemod_nutrition) + 500) / 0.4
 	out["calculated_size"] = "Base cosmetic sizes: sprite size of [unclamped]/16 ([last_size]/[maxsize] clamped) or [nutritionmaxxing] nutrition."
 	// Per-category slider max: the value needed to reach a smidge beyond max sprite size.
 	out["base_size_max"] = sizemod > 0 ? (25.9852 * ((16+1)**2)) / sizemod : (25.9852 * ((16+1)**2))
@@ -104,13 +104,13 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		.["color_with_uniform"] = belly.color_with_uniform
 		.["layer_mode"] = belly.layer_mode
 		.["sizemod"] = belly.sizemod
-		.["sizemod_autostuffed"] = belly.sizemod_autostuffed
+		.["sizemod_nutrition"] = belly.sizemod_nutrition
 		.["sizemod_audio"] = belly.sizemod_audio
 		.["allow_sound_groans"] = belly.allow_sound_groans
 		.["allow_sound_gurgles"] = belly.allow_sound_gurgles
 		.["allow_sound_move_creaks"] = belly.allow_sound_move_creaks
 		.["allow_sound_move_sloshes"] = belly.allow_sound_move_sloshes
-		build_size_data(., belly.base_size_cosmetic, belly.base_size_full, belly.base_size_stuffed, belly.maxsize, belly.sizemod, belly.sizemod_autostuffed)
+		build_size_data(., belly.base_size_cosmetic, belly.base_size_full, belly.base_size_stuffed, belly.maxsize, belly.sizemod, belly.sizemod_nutrition)
 		.["base_size_cosmetic"] = belly.base_size_cosmetic
 		.["base_size_full"] = belly.base_size_full
 		.["base_size_stuffed"] = belly.base_size_stuffed
@@ -130,8 +130,8 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		.["layer_mode"] = client.prefs.read_preference(/datum/preference/choiced/erp_bellyquirk_layer_mode) || "Standard"
 		var/prefs_sizemod = client.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod) || 1
 		.["sizemod"] = prefs_sizemod
-		var/prefs_sizemod_autostuffed = client.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_autostuffed) || 1
-		.["sizemod_autostuffed"] = prefs_sizemod_autostuffed
+		var/prefs_sizemod_nutrition = client.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_nutrition) || 1
+		.["sizemod_nutrition"] = prefs_sizemod_nutrition
 		.["sizemod_audio"] = client.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_sizemod_audio) || 1
 		.["allow_sound_groans"] = client.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_groans) || FALSE
 		.["allow_sound_gurgles"] = client.prefs.read_preference(/datum/preference/toggle/erp_bellyquirk_gurgles) || FALSE
@@ -141,7 +141,7 @@ GLOBAL_DATUM_INIT(erp_belly_prefshelper, /datum/erp_belly_prefshelper, new)
 		var/prefs_base_size_full = client.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_full) || 0
 		var/prefs_base_size_stuffed = client.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_size_stuffed) || 0
 		var/prefs_maxsize = client.prefs.read_preference(/datum/preference/numeric/erp_bellyquirk_maxsize) || 0
-		build_size_data(., prefs_base_size_cosmetic, prefs_base_size_full, prefs_base_size_stuffed, prefs_maxsize, prefs_sizemod, prefs_sizemod_autostuffed)
+		build_size_data(., prefs_base_size_cosmetic, prefs_base_size_full, prefs_base_size_stuffed, prefs_maxsize, prefs_sizemod, prefs_sizemod_nutrition)
 		.["base_size_cosmetic"] = prefs_base_size_cosmetic
 		.["base_size_full"] = prefs_base_size_full
 		.["base_size_stuffed"] = prefs_base_size_stuffed
