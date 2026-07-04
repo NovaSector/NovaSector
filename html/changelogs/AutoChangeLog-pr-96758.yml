@@ -1,0 +1,5 @@
+author: "LT3"
+delete-after: True
+changes:
+  - bugfix: "Fixed duplicate priority announcements about a possible resonance cascade"
+  - code_imp: "Improved supermatter delamination logging"
