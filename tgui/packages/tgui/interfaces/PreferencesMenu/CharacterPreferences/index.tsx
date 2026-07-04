@@ -50,27 +50,7 @@ function CharacterProfiles(props: ProfileProps) {
           width="100%"
           selected={activeSlot as unknown as string}
           displayText={profiles[activeSlot]}
-          options={profiles
-            .map((profile, slot) => {
-              // occupied slot
-              if (profile) {
-                usedSlots++;
-                return { value: slot, displayText: profile };
-              }
-              // first empty slot, this one can appear
-              if (slot === firstEmptySlot) {
-                return {
-                  value: slot,
-                  displayText: `New Character (${profiles.length - usedSlots} slots left)`,
-                };
-              }
-              // not the first empty slot, this one will not appear
-              return null;
-            })
-            .filter(
-              (option): option is { value: number; displayText: string } =>
-                option !== null,
-            )}
+          options={dropdownOptions}
           onSelected={(slot) => {
             onClick(slot);
           }}
