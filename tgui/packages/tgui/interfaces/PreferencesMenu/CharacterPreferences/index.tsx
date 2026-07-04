@@ -38,7 +38,6 @@ type ProfileProps = {
 function CharacterProfiles(props: ProfileProps) {
   const { activeSlot, onClick, profiles } = props;
   const firstEmptySlot = profiles.findIndex((profile) => !profile); // NOVA EDIT ADDITION - Index of the first null slot
-  let usedSlots = 0; // NOVA EDIT ADDITION - Used to check slots remaining
 
   return (
     <Stack /* NOVA EDIT CHANGE START - Nova uses a dropdown instead of buttons */
