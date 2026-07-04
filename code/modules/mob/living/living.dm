@@ -550,9 +550,7 @@
 
 //mob verbs are a lot faster than object verbs
 //for more info on why this is not atom/pull, see examinate() in mob.dm
-/mob/living/verb/pulled(atom/movable/thing_pulled as mob|obj in oview(1))
-	set name = "Pull"
-
+GAME_VERB(/mob/living, pulled, "Pull", null, atom/movable/thing_pulled as mob|obj in oview(1))
 	if(istype(thing_pulled) && Adjacent(thing_pulled))
 		start_pulling(thing_pulled)
 
@@ -576,8 +574,7 @@
 	log_message("points at [pointing_at]", LOG_EMOTE)
 	visible_message(span_infoplain("[span_name("[src]")] points at [pointing_at]."), span_notice("You point at [pointing_at]."))
 
-/mob/living/verb/succumb(whispered as num|null)
-	set hidden = TRUE
+GAME_VERB_HIDDEN(/mob/living, succumb, "succumb", whispered as num|null)
 	if (!CAN_SUCCUMB(src))
 		if(HAS_TRAIT(src, TRAIT_SUCCUMB_OVERRIDE))
 			if(whispered)
@@ -636,10 +633,8 @@
 
 // MOB PROCS //END
 
-/* NOVA EDIT REMOVAL BEGIN - Handled in [modular_nova/master_files/code/modules/sleep/code/mob/living/living.dm]
-/mob/living/proc/mob_sleep()
-	set name = "Sleep"
-	set hidden = TRUE
+/* // NOVA EDIT REMOVAL BEGIN - Handled in [modular_nova/master_files/code/modules/sleep/code/mob/living/living.dm]
+GAME_VERB_PROC(/mob/living, mob_sleep, "Sleep", null)
 
 	if(IsSleeping())
 		to_chat(src, span_warning("You are already sleeping!"))
@@ -647,7 +642,7 @@
 	else
 		if(tgui_alert(usr, "You sure you want to sleep for a while?", "Sleep", list("Yes", "No")) == "Yes")
 			SetSleeping(400) //Short nap
-NOVA EDIT REMOVAL END */
+*/ //NOVA EDIT REMOVAL END
 
 
 /mob/proc/get_contents()
