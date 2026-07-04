@@ -185,13 +185,7 @@
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	/**
-	* Death/Revival Cache
-	* This is used to cache a new body in nullspace for storing the slime's quirks and preferences, so that when they are revived, they can be restored without issues.
-	*/
-	/// Quirks Cache upon death.
-	var/list/cached_quirks
-	/// The new body to regenerate into
+	/// This tracks a new body that is created when a slime core is killed, and is used to safely trasnfer quirks and prefrences to this body and than summon it upon revival.
 	var/mob/living/carbon/human/new_body
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
