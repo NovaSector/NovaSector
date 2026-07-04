@@ -62,7 +62,7 @@ function CharacterProfiles(props: ProfileProps) {
   */ // NOVA EDIT REMOVAL END
   // NOVA EDIT ADDITION START
   return (
-    <Stack /* NOVA EDIT CHANGE START - Nova uses a dropdown instead of buttons */
+    <Stack
       align="center"
       justify="center"
     >
