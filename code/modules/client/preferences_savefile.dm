@@ -454,7 +454,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		// NOVA EDIT ADDITION START
 		all_quirks = list()
 		// without this, the new slot's entry is saved nameless and reads as an empty slot once we move off it.
-		read_preference(/datum/preference/name/real_name)
 		recently_updated_keys |= /datum/preference/name/real_name
 		// NOVA EDIT ADDITION END
 		save_character()
