@@ -193,6 +193,12 @@
 	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
 	colorize()
 
+// Handle the slime core being destroyed, and if it has a new body, delete it as well.
+/obj/item/organ/brain/slime/Destroy(force)
+	if(new_body)
+		QDEL_NULL(new_body)
+	return ..()
+
 /obj/item/organ/brain/slime/examine()
 	. = ..()
 	if(gps_active)
