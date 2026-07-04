@@ -8506,7 +8506,6 @@
 #include "modular_nova\modules\delam_emergency_stop\code\admin_scram.dm"
 #include "modular_nova\modules\delam_emergency_stop\code\delam.dm"
 #include "modular_nova\modules\delam_emergency_stop\code\scram.dm"
-#include "modular_nova\modules\delam_emergency_stop\code\supermatter_replacement.dm"
 #include "modular_nova\modules\Department_Budgets\cards.dm"
 #include "modular_nova\modules\departmentization\cargo_technician.dm"
 #include "modular_nova\modules\departmentization\clothing_overrides.dm"
