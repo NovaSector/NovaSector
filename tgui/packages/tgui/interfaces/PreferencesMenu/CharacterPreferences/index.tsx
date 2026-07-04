@@ -42,22 +42,22 @@ function CharacterProfiles(props: ProfileProps) {
   type CharacterOption = { value: number; displayText: string };
   const dropdownOptions = useMemo<CharacterOption[]>(() => {
     const emptySlots = profiles.filter((profile) => !profile).length;
-    return profiles.reduce<CharacterOption[]>((options, profile, slot) => {
-      // occupied slot
+
+    const characterOptions = profiles.reduce<CharacterOption[]>((options, profile, slot) => {
       if (profile) {
         options.push({ value: slot, displayText: profile });
-        return options;
       }
-      // first empty slot, this one can appear
-      if (slot === firstEmptySlot) {
-        options.push({
-          value: slot,
-          displayText: `New Character (${emptySlots} slots left)`,
-        });
-      }
-      // not the first empty slot, this one will not appear
       return options;
     }, []);
+
+    if (firstEmptySlot !== -1) {
+      characterOptions.push({
+        value: firstEmptySlot,
+        displayText: `New Character (${emptySlots} slots left)`,
+      });
+    }
+
+    return characterOptions;
   }, [profiles, firstEmptySlot]);
   // NOVA EDIT ADDITION END
 
