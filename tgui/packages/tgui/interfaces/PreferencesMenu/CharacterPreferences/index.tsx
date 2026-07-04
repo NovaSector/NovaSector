@@ -80,6 +80,7 @@ function CharacterProfiles(props: ProfileProps) {
     </Stack> /* NOVA EDIT CHANGE END */
   );
 }
+  // NOVA EDIT ADDITION END
 
 /* // NOVA EDIT REMOVAL START
 export function CharacterPreferenceWindow(props) {
