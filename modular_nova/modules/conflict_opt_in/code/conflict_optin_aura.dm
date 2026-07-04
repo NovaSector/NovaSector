@@ -61,11 +61,7 @@
 	to_chat(src, span_notice("The conflict opt-in is visible now."))
 	return TRUE
 
-/mob/living/verb/show_conflict_opt_in_verb()
-	set name = "Show Conflict Opt-In"
-	set category = "IC"
-	set desc = "Display nearby conflict opt-in statuses."
-
+GAME_VERB_DESC(/mob/living, show_conflict_opt_in_verb, "Show Conflict Opt-In", "Display nearby conflict opt-in statuses.", "IC")
 	show_conflict_opt_in()
 
 /datum/keybinding/living/conflict_opt_in

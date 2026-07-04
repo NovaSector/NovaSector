@@ -278,12 +278,7 @@
 /obj/item/mmi/proc/replacement_ai_name()
 	return brainmob.name
 
-/obj/item/mmi/verb/Toggle_Listening()
-	set name = "Toggle Listening"
-	set desc = "Toggle listening channel on or off."
-	set category = "MMI"
-	set src = usr.loc
-	set popup_menu = FALSE
+GAME_VERB_SRC_DESC(/obj/item/mmi, Toggle_Listening, usr.loc, "Toggle Listening", "Toggle listening channel on or off.", "MMI")
 
 	if(IS_UNCONSCIOUS_OR_CRIT(brainmob))
 		to_chat(brainmob, span_warning("Can't do that while incapacitated or dead!"))
