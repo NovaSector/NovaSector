@@ -89,8 +89,8 @@
 	else
 		murder = user.attack_verb_continuous
 	dust_mob(source, user, \
-	span_danger("[user] unwisely [murder] [atom_source], and [user.p_their()] body burns brilliantly before the blast hurls [user.p_them()] away!"), \ // NOVA EDIT CHANGE - ORIGINAL: span_danger("[user] unwisely [murder] [atom_source], and [user.p_their()] body burns brilliantly before flashing into ash!"),
-	span_userdanger("You unwisely touch [atom_source], and your vision glows white-hot before the blast hurls you away. Oops."), \ // NOVA EDIT CHANGE - ORIGINAL: span_userdanger("You unwisely touch [atom_source], and your vision glows brightly as your body crumbles to dust. Oops."),
+	span_danger("[user] unwisely [murder] [atom_source], and [user.p_their()] body burns brilliantly before the blast hurls [user.p_them()] away!"), // NOVA EDIT CHANGE - ORIGINAL: span_danger("[user] unwisely [murder] [atom_source], and [user.p_their()] body burns brilliantly before flashing into ash!"),
+	span_userdanger("You unwisely touch [atom_source], and your vision glows white-hot before the blast hurls you away. Oops."), // NOVA EDIT CHANGE - ORIGINAL: span_userdanger("You unwisely touch [atom_source], and your vision glows brightly as your body crumbles to dust. Oops."),
 	"simple animal attack")
 
 /datum/component/supermatter_crystal/proc/hulk_hit(datum/source, mob/user)
