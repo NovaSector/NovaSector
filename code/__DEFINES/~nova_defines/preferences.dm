@@ -31,6 +31,6 @@
 #define PREFERENCE_CATEGORY_VOCALS "vocals"
 
 /// Max save slots for people not subscribed to BYOND and not a donator
-#define MAX_SAVE_SLOTS_NORMAL 50
+#define MAX_SAVE_SLOTS_NORMAL 45
 /// Max save slots for people who are subscribed to BYOND or a donator
 #define MAX_SAVE_SLOTS_SUBSCRIBER 100
