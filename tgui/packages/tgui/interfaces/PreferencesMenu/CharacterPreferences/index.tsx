@@ -40,6 +40,27 @@ function CharacterProfiles(props: ProfileProps) {
   // NOVA EDIT ADDITION START
   const firstEmptySlot = profiles.findIndex((profile) => !profile); // Index of the first null slot
 
+  /* // NOVA EDIT REMOVAL START - Nova uses a dropdown instead of buttons
+  return (
+    <Stack justify="center" wrap>
+      {profiles.map((profile, slot) => (
+        <Stack.Item key={slot} mb={1}>
+          <Button
+            selected={slot === activeSlot}
+            onClick={() => {
+              onClick(slot);
+            }}
+            fluid
+          >
+            {profile ?? 'New Character'}
+          </Button>
+        </Stack.Item>
+      ))}
+    </Stack>
+  );
+}
+  */ // NOVA EDIT REMOVAL END
+  // NOVA EDIT ADDITION START
   return (
     <Stack /* NOVA EDIT CHANGE START - Nova uses a dropdown instead of buttons */
       align="center"
