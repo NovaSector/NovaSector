@@ -77,7 +77,7 @@ function CharacterProfiles(props: ProfileProps) {
           }}
         />
       </Stack.Item>
-    </Stack> /* NOVA EDIT CHANGE END */
+    </Stack>
   );
 }
   // NOVA EDIT ADDITION END
