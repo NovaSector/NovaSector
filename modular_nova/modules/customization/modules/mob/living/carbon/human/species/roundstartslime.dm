@@ -185,8 +185,14 @@
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	/**
+	* Death/Revival Cache
+	* This is used to cache a new body in nullspace for storing the slime's quirks and preferences, so that when they are revived, they can be restored without issues.
+	*/
 	/// Quirks Cache upon death.
 	var/list/cached_quirks
+	/// The new body to regenerate into
+	var/mob/living/carbon/human/new_body
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
@@ -265,11 +271,11 @@
 	core_ejected = TRUE
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
 	var/atom/death_loc = victim.drop_location()
-	victim.unequip_everything()
 
-	// Cache quirks
-	if(victim.quirks && victim.quirks.len)
-		src.cached_quirks = victim.quirks.Copy()
+	// Create a new body in nullspace, and transfer their prefrences and quirks into it.
+	new_body = new(null)
+	victim.client?.prefs.safe_transfer_prefs_to(new_body)
+	victim.transfer_quirk_datums(new_body)
 
 	// Drop the Brain/Core, and implants to the floor.
 	for(var/obj/item/organ/organs in victim)
@@ -344,13 +350,8 @@
 		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
 
-	// Make a new body for them to put the brain in, and move the brain into it, effectively reviving them.
-	// This uses a basic human as a base
-	var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
-
-	// Transfer player prefrences to the new body
-	if(brainmob.client)
-		brainmob.client.prefs.safe_transfer_prefs_to(new_body)
+	// Retreive the new body we created from nullspace.
+	new_body.forceMove(src.drop_location())
 
 	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
 	new_body.underwear = "Nude"
@@ -360,12 +361,6 @@
 
 	// Handle Blood
 	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
-
-	// Handle Quirks
-	if(src.cached_quirks)
-		brainmob.quirks = src.cached_quirks
-		brainmob.transfer_quirk_datums(new_body)
-		src.cached_quirks = null
 
 	// Remove non-chest limbs.
 	for(var/obj/item/bodypart/part in new_body.bodyparts)
@@ -379,6 +374,7 @@
 	// Notify the player that their body has been rebuilt
 	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
+	new_body = null // Clear the new_body variable to avoid dangling references
 	return TRUE
 
 // HEALING SECTION
