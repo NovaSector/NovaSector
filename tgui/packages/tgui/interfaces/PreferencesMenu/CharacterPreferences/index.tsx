@@ -60,6 +60,7 @@ function CharacterProfiles(props: ProfileProps) {
     }, []);
   }, [profiles, firstEmptySlot]);
   // NOVA EDIT ADDITION END
+
   /* // NOVA EDIT REMOVAL START - Nova uses a dropdown instead of buttons
   return (
     <Stack justify="center" wrap>
