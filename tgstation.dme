@@ -8256,6 +8256,7 @@
 #include "modular_nova\modules\customization\game\objects\items\conversion_kits.dm"
 #include "modular_nova\modules\customization\game\objects\items\donator_plushies.dm"
 #include "modular_nova\modules\customization\game\objects\items\instruments.dm"
+#include "modular_nova\modules\customization\game\objects\items\pet_training.dm"
 #include "modular_nova\modules\customization\game\objects\items\plushes.dm"
 #include "modular_nova\modules\customization\game\objects\items\staff_reward_plushies.dm"
 #include "modular_nova\modules\customization\game\objects\items\devices\crutch.dm"
