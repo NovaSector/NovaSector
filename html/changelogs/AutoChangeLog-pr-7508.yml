@@ -1,0 +1,5 @@
+author: "Richard Blonski"
+delete-after: True
+changes:
+  - balance: "Slime players cores are faster to revive, and they start with slightly more blood upon revival."
+  - bugfix: "Slime player revival only consumes 100 plasma."
