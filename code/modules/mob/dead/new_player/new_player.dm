@@ -143,6 +143,10 @@
 			return "[jobtitle] requires you to have flavour text for your character."
 		if(JOB_UNAVAILABLE_AUGMENT)
 			return "[jobtitle] is restricted due to your selected body augments."
+		if(JOB_UNAVAILABLE_MEDREC)
+			return "[jobtitle] requires you to have medical records text for your character."
+		if(JOB_UNAVAILABLE_SECREC)
+			return "[jobtitle] requires you to have security records text for your character."
 		//NOVA EDIT END
 		if(JOB_UNAVAILABLE_ANTAG_INCOMPAT)
 			return "[jobtitle] is not compatible with some antagonist role assigned to you."

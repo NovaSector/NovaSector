@@ -142,7 +142,7 @@ SIZE_COLLAR_MAXIMUM 400
 SIZE_COLLAR_MINIMUM 15
 
 ## Uncomment to enable minimum flavor text requirements for joining the round
-#MIN_FLAVOR_TEXT
+MIN_FLAVOR_TEXT 300
 
 ## Minimum flavor text number needed to enter the game
 ## YOU MUST HAVE MIN_FLAVOR_TEXT ENABLED FOR THIS TO WORK.
