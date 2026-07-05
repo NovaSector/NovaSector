@@ -676,7 +676,7 @@
 /obj/item/laser_pointer/admin
 	name = "subspace laser pointer"
 	desc = "It's a fidget toy with a warning label, describing why you should definitely avoid pointing this rapidly enough for the universe to 'ratelimit' you, whatever that means. \
-	Turning it over, you notice a crudely hand-etched representation of a crying cyborg."
+		Turning it over, you notice a crudely hand-etched representation of a crying cyborg."
 	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "pointer"
 	effectchance = 100
