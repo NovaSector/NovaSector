@@ -1,0 +1,5 @@
+author: "lelandkemble"
+delete-after: True
+changes:
+  - bugfix: "Academy businessman doesn't buy a scanner wand, as it is not a wand"
+  - spellcheck: "Academy wizard dialogue has been cleared of all glaring spelling and capitalization errors"

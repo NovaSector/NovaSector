@@ -1,0 +1,5 @@
+author: "timothymtorres"
+delete-after: True
+changes:
+  - bugfix: "Fix runtime for spacetime distortion not playing sound"
+  - sound: "Spacetime distortion portals now play the same sound as the teleporter portals."
