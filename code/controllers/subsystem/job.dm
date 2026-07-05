@@ -1019,7 +1019,6 @@ SUBSYSTEM_DEF(job)
 				job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_SECREC)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 				return JOB_UNAVAILABLE_SECREC
 
-
 	if(possible_job.has_banned_augment(player.client.prefs))
 		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_AUGMENT)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_AUGMENT
