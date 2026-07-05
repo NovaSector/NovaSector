@@ -2,7 +2,7 @@
 // Admin Cyborg Models.
 // TODO: player usable cc model, admin cc model, subspace borg, administrative (like literally about paperwork and shit)
 // TODO: modules
-// Baseline CC model, total generalist. Can do a bit of everything but lacks specialized tools.
+
 // code\modules\mob\living\silicon\robot\robot.dm:L152 absolutely unholy shit going on here.
 /* A solution that is not a solution. The glob is made inside the proc. I am in misery.
 		if(!client?.holder)
@@ -18,8 +18,8 @@
 //
 // TODO: Needs custom icons
 // TODO: Item list revists
-// TODO: Admin Borg Shapeshifter action, unpaired from the shapeshifter icon
 // TODO: Explore more borg hands? How many hands can a borg reasonably have?
+// Baseline CC model, total generalist. Can do a bit of everything but lacks specialized tools.
 // When you need a general ERT or CC Borg, pick this.
 /obj/item/robot_model/admin
 	name = "Central Command"
@@ -62,25 +62,40 @@
 //	interaction_range = INFINITY
 	borg_skins = list(
 		/// 32x32 Skins
-		"Walker Tank" = list(SKIN_ICON_STATE = "tachi", SKIN_ICON = 'modular_nova/modules/admin_tech/icons/mob/admin_robots.dmi'),
+		"Walker Tank" = list(SKIN_ICON_STATE = "tachi", SKIN_ICON = 'modular_nova/modules/admin_tech/icons/admin_robots.dmi'),
 	)
 	var/datum/weakref/thermal_vision_ref
+	var/datum/weakref/disguise_action_ref
+	var/datum/weakref/xray_vision_ref
 
+// Cleans up refs when borg is kill
 /obj/item/robot_model/admin/Destroy(force)
 	QDEL_NULL(thermal_vision_ref)
+	QDEL_NULL(disguise_action_ref)
+	QDEL_NULL(xray_vision_ref)
 	return ..()
 
+// Handles the horrible stack of their transform
 /obj/item/robot_model/admin/be_transformed_to(obj/item/robot_model/old_model, forced = FALSE)
 	var/datum/action/cooldown/borg_thermal/thermal_vision = new(loc)
+	var/datum/action/cooldown/borg_disguise/disguise = new(loc)
+	var/datum/action/cooldown/borg_xray/xray_vision = new(loc)
 	. = ..()
 	if(!.)
 		return
 	thermal_vision.Grant(loc)
 	thermal_vision_ref = WEAKREF(thermal_vision)
+	disguise.Grant(loc)
+	disguise_action_ref = WEAKREF(disguise)
+	xray_vision.Grant(loc)
+	xray_vision_ref = WEAKREF(xray_vision)
+	var/mob/living/silicon/robot/borg = loc
+	borg.sight_mode |= BORGXRAY
+	borg.update_sight()
 
 // Spawnable Mob for the base model + additional config and benefits
 /mob/living/silicon/robot/model/admin
-	icon = 'modular_nova/modules/admin_tech/icons/mob/admin_robots.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_robots.dmi'
 	icon_state = "tachi"
 	designation = "CC"
 	faction = list(FACTION_ERT)
@@ -93,24 +108,66 @@
 	cell = /obj/item/stock_parts/power_store/cell/infinite
 	radio = /obj/item/radio/borg/syndicate
 
-// Admin Borg, Bluespace-tech Equivalent.
-// Just a placeholder for the moment
-/obj/item/robot_model/admin/subspace
+// Bluespace Walker, a bluespace technician stand-alone.
+/obj/item/robot_model/admin/bluespace
 	name = "Bluespace Walker"
+	basic_modules = list(
+		/obj/item/assembly/flash/cyborg,
+		/obj/item/crowbar/cyborg/power,
+		/obj/item/screwdriver/cyborg/power,
+		/obj/item/multitool/cyborg,
+		/obj/item/extinguisher,
+		/obj/item/handheld_debug_chem_synth,
+		/obj/item/gun/chem/admin,
+		/obj/item/gun/magic/subspace/dagenblicky,
+		/obj/item/pneumatic_cannon/subspace,
+		/obj/item/melee/baseball_bat/admin,
+		/obj/item/laser_pointer/admin,
+		/obj/item/modular_computer/pda/admin,
+		/obj/item/summon_beacon/vendors/debug,
+		/obj/item/borg_shapeshifter,
+	)
+
+/mob/living/silicon/robot/model/admin/bluespace
+	set_model = /obj/item/robot_model/admin/bluespace
+	icon_state = "tachi"
+
+// Subspace Walker - this is the flagship/showcase model for the subspace-tech-rework branch, so its kit doubles as a demo case for the admin_tech items themselves.
+/obj/item/robot_model/admin/subspace
+	name = "Subspace Walker"
+	basic_modules = list(
+		/obj/item/assembly/flash/cyborg,
+		/obj/item/crowbar/cyborg/power,
+		/obj/item/screwdriver/cyborg/power,
+		/obj/item/multitool/cyborg,
+		/obj/item/extinguisher,
+		/obj/item/handheld_debug_chem_synth,
+		/obj/item/gun/chem/admin,
+		/obj/item/gun/magic/subspace/dagenblicky,
+		/obj/item/pneumatic_cannon/subspace,
+		/obj/item/melee/baseball_bat/admin,
+		/obj/item/laser_pointer/admin,
+		/obj/item/modular_computer/pda/admin,
+		/obj/item/summon_beacon/vendors/debug,
+		/obj/item/borg_shapeshifter,
+	)
 
 /mob/living/silicon/robot/model/admin/subspace
 	set_model = /obj/item/robot_model/admin/subspace
 	icon_state = "tachi"
 
-// Assault / Frontline Establishment
+// Frontline Walker - the laser pointer needs a hitscan icon
 /obj/item/robot_model/admin/frontline
 	name = "Frontline Walker"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/melee/energy/sword/cyborg,
+		/obj/item/melee/baseball_bat/admin,
 		/obj/item/gun/energy/printer,
 		/obj/item/gun/ballistic/revolver/grenadelauncher/cyborg,
+		/obj/item/laser_pointer/admin,
 		/obj/item/card/emag,
+		/obj/item/restraints/handcuffs/cable/zipties,
 		/obj/item/crowbar/cyborg,
 		/obj/item/extinguisher/mini,
 		/obj/item/pinpointer/syndicate_cyborg,
@@ -120,12 +177,13 @@
 	set_model = /obj/item/robot_model/admin/frontline
 	icon_state = "tachi"
 
-// Backline Support
+// Backline Walker - the reagent gun carries this atm
 /obj/item/robot_model/admin/backline
 	name = "Backline Walker"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/reagent_containers/borghypo/syndicate,
+		/obj/item/gun/chem/admin,
 		/obj/item/shockpaddles/syndicate/cyborg,
 		/obj/item/healthanalyzer,
 		/obj/item/borg/cyborg_omnitool/medical,
@@ -138,7 +196,6 @@
 		/obj/item/pinpointer/syndicate_cyborg,
 		/obj/item/stack/medical/wrap/gauze,
 		/obj/item/stack/medical/bone_gel,
-		/obj/item/gun/medbeam,
 		/obj/item/borg/apparatus/organ_storage,
 		/obj/item/storage/bag/chemistry,
 	)
@@ -147,7 +204,7 @@
 	set_model = /obj/item/robot_model/admin/backline
 	icon_state = "tachi"
 
-// Engineering Generalist
+// Technical / Engie Walker
 /obj/item/robot_model/admin/engineer
 	name = "Technical Walker"
 	basic_modules = list(
@@ -201,3 +258,204 @@
 	desc = "Allows you to to turn a cyborg into a experimental syndicate cyborg."
 	icon_state = "module_illegal"
 	new_model = /obj/item/robot_model/admin/engineer
+
+/* Code block to review later.
+/obj/item/robot_model/admin
+	name = "Central Command"
+	basic_modules = list(
+		/obj/item/assembly/flash/cyborg,
+		/obj/item/extinguisher,
+		/obj/item/weldingtool/electric,
+		/obj/item/multitool/cyborg,
+		/obj/item/crowbar/cyborg/power,
+		/obj/item/screwdriver/cyborg/power,
+		/obj/item/construction/rcd/borg/syndicate,
+		/obj/item/lightreplacer,
+		/obj/item/stack/sheet/iron,
+		/obj/item/stack/sheet/glass,
+		/obj/item/borg/apparatus/sheet_manipulator,
+		/obj/item/stack/rods/cyborg,
+		/obj/item/stack/tile/iron,
+		/obj/item/stack/cable_coil,
+		/obj/item/restraints/handcuffs/cable/zipties,
+		/obj/item/stack/medical/wrap/gauze,
+		/obj/item/shockpaddles/cyborg,
+		/obj/item/healthanalyzer/advanced,
+		/obj/item/surgical_drapes,
+		/obj/item/retractor/advanced,
+		/obj/item/cautery/advanced,
+		/obj/item/scalpel/advanced,
+		/obj/item/gun/medbeam,
+		/obj/item/reagent_containers/borghypo/syndicate,
+		/obj/item/borg/lollipop,
+		/obj/item/holosign_creator/cyborg,
+		/obj/item/stamp/chameleon,
+	)
+	model_traits = list(TRAIT_NEGATES_GRAVITY, TRAIT_PUSHIMMUNE)
+	canDispose = TRUE
+	cyborg_base_icon = "tachi"
+	model_select_icon = "malf"
+	hat_offset = INFINITY
+	breakable_modules = FALSE
+//	interaction_range = INFINITY
+	borg_skins = list(
+		/// 32x32 Skins
+		"Walker Tank" = list(SKIN_ICON_STATE = "tachi", SKIN_ICON = 'modular_nova/modules/admin_tech/icons/mob/admin_robots.dmi'),
+	)
+	var/datum/weakref/thermal_vision_ref
+	var/datum/weakref/disguise_action_ref
+
+/obj/item/robot_model/admin/Destroy(force)
+	QDEL_NULL(thermal_vision_ref)
+	QDEL_NULL(disguise_action_ref)
+	return ..()
+
+/obj/item/robot_model/admin/be_transformed_to(obj/item/robot_model/old_model, forced = FALSE)
+	var/datum/action/cooldown/borg_thermal/thermal_vision = new(loc)
+	var/datum/action/cooldown/borg_disguise/disguise = new(loc)
+	. = ..()
+	if(!.)
+		return
+	thermal_vision.Grant(loc)
+	thermal_vision_ref = WEAKREF(thermal_vision)
+	disguise.Grant(loc)
+	disguise_action_ref = WEAKREF(disguise)
+
+// Same disguise logic as /obj/item/borg_shapeshifter, but as an action instead of a droppable/attackable item -
+// no signalCache disruption on being hit/EMP'd/set on fire, no power upkeep drain, no dropped()/equipped() reset.
+// Purely a manual toggle the borg itself controls.
+/datum/action/cooldown/borg_disguise
+	name = "Change Appearance"
+	desc = "Reversibly change your outward model appearance. Unlike the standard chameleon projector module, this cannot be disrupted by force."
+	button_icon = 'icons/obj/devices/syndie_gadget.dmi'
+	button_icon_state = "shield0"
+	cooldown_time = 0.5 SECONDS
+	/// Whether we're currently disguised.
+	var/active = FALSE
+	/// Saved appearance vars from before disguising, so toggling off cleanly reverts.
+	var/saved_icon
+	var/saved_icon_override
+	var/saved_name
+	var/saved_model_features
+	var/saved_special_light_key
+	var/saved_hat_offset
+	var/saved_bubble_icon
+
+/datum/action/cooldown/borg_disguise/Activate()
+	var/mob/living/silicon/robot/borg = owner
+	if(!istype(borg))
+		return
+	if(active)
+		revert_disguise(borg)
+		return
+	apply_disguise(borg)
+
+/datum/action/cooldown/borg_disguise/proc/check_menu(mob/user)
+	if(!istype(user))
+		return FALSE
+	if(user.incapacitated)
+		return FALSE
+	return TRUE
+
+/datum/action/cooldown/borg_disguise/proc/apply_disguise(mob/living/silicon/robot/borg)
+	var/static/list/model_icons = sort_list(list(
+		"Medical" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "medical"),
+		"Cargo" = image(icon = CYBORG_ICON_CARGO, icon_state = "cargoborg"),
+		"Engineer" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "engineer"),
+		"Security" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "sec"),
+		"Service" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "service_f"),
+		"Janitor" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "janitor"),
+		"Miner" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "miner"),
+		"Peacekeeper" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "peace"),
+		"Clown" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "clown"),
+		"Syndicate" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "synd_sec"),
+		"Spider Clan" = image(icon = CYBORG_ICON_NINJA, icon_state = "ninja_engi"),
+	))
+	var/model_selection = show_radial_menu(borg, borg, model_icons, custom_check = CALLBACK(src, PROC_REF(check_menu), borg), radius = 42, require_near = TRUE)
+	if(!model_selection)
+		return
+
+	var/obj/item/robot_model/model
+	switch(model_selection)
+		if("Medical")
+			model = new /obj/item/robot_model/medical
+		if("Cargo")
+			model = new /obj/item/robot_model/cargo
+		if("Engineer")
+			model = new /obj/item/robot_model/engineering
+		if("Security")
+			model = new /obj/item/robot_model/security
+		if("Service")
+			model = new /obj/item/robot_model/service
+		if("Janitor")
+			model = new /obj/item/robot_model/janitor
+		if("Miner")
+			model = new /obj/item/robot_model/miner
+		if("Peacekeeper")
+			model = new /obj/item/robot_model/peacekeeper
+		if("Clown")
+			model = new /obj/item/robot_model/clown
+		if("Syndicate")
+			model = new /obj/item/robot_model/syndicatejack
+		if("Spider Clan")
+			model = new /obj/item/robot_model/ninja
+		else
+			return
+
+	var/list/reskin_icons = list()
+	for(var/skin in model.borg_skins)
+		var/list/details = model.borg_skins[skin]
+		var/image/reskin = image(icon = details[SKIN_ICON] || 'icons/mob/silicon/robots.dmi', icon_state = details[SKIN_ICON_STATE])
+		if(!isnull(details[SKIN_FEATURES]) && (TRAIT_R_WIDE in details[SKIN_FEATURES]))
+			reskin.pixel_x -= 16
+		reskin_icons[skin] = reskin
+	var/borg_skin = show_radial_menu(borg, borg, reskin_icons, custom_check = CALLBACK(src, PROC_REF(check_menu), borg), radius = 38, require_near = TRUE)
+	if(!borg_skin)
+		qdel(model)
+		return
+
+	var/list/details = model.borg_skins[borg_skin]
+	var/disguise_icon_state = details[SKIN_ICON_STATE]
+	var/disguise_icon_override = details[SKIN_ICON]
+	var/disguise_special_light_key = details[SKIN_LIGHT_KEY]
+	var/disguise_model_features = details[SKIN_FEATURES]
+	var/picked_name = model.name
+	qdel(model)
+
+	if(!active)
+		saved_icon = borg.model.cyborg_base_icon
+		saved_bubble_icon = borg.bubble_icon
+		saved_icon_override = borg.model.cyborg_icon_override
+		saved_name = borg.model.name
+		saved_model_features = borg.model.model_features
+		saved_special_light_key = borg.model.special_light_key
+		saved_hat_offset = borg.model.hat_offset
+
+	borg.model.name = picked_name
+	borg.model.cyborg_base_icon = disguise_icon_state
+	borg.model.cyborg_icon_override = disguise_icon_override
+	borg.model.model_features = disguise_model_features
+	borg.model.special_light_key = disguise_special_light_key
+	borg.bubble_icon = "robot"
+	active = TRUE
+	to_chat(borg, span_notice("You are now disguised as [picked_name]."))
+	borg.update_icons()
+	borg.model.update_quadborg()
+	borg.model.update_tallborg()
+	build_all_button_icons()
+
+/datum/action/cooldown/borg_disguise/proc/revert_disguise(mob/living/silicon/robot/borg)
+	borg.model.name = saved_name
+	borg.model.cyborg_base_icon = saved_icon
+	borg.model.cyborg_icon_override = saved_icon_override
+	borg.model.model_features = saved_model_features
+	borg.model.special_light_key = saved_special_light_key
+	borg.model.hat_offset = saved_hat_offset
+	borg.bubble_icon = saved_bubble_icon
+	active = FALSE
+	to_chat(borg, span_notice("You revert to your true appearance."))
+	borg.update_icons()
+	borg.model.update_quadborg()
+	borg.model.update_tallborg()
+	build_all_button_icons()
+*/

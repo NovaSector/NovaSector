@@ -8,7 +8,7 @@
 /obj/item/tank/internals/admin
 	name = "subspace tank"
 	desc = "A palm-sized gas tank embedded with an ominous purple crystal. The longer your gaze lingers, the more unsettled you feel. Somewhere, a scientist yearns to print these. "
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-tank"
 	inhand_icon_state = "emergency_tank"
 	worn_icon_state = NONE

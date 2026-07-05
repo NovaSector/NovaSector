@@ -653,7 +653,7 @@
 	if((machine_stat & (NOPOWER|BROKEN)) && !(interaction_flags_machine & INTERACT_MACHINE_OFFLINE)) // Check if the machine is broken, and if we can still interact with it if so
 		return FALSE
 
-	// NOVA EDIT ADDITION START
+	// NOVA EDIT ADDITION START - ADMIN_TECH
 	if(HAS_TRAIT(user, TRAIT_ADMIN_REACHABLE) && user.can_see_target(src))//badmin does touchies wowow
 		return TRUE
 	// NOVA EDIT ADDITION END

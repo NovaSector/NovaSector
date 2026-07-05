@@ -28,7 +28,7 @@
 /obj/item/storage/bag/admin
 	name = "bluespace pocket"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "blue-pocket"
 	worn_icon_state = "null"
 	storage_type = /datum/storage/admin/bag
@@ -86,7 +86,7 @@
 	name = "bluespace construction bag"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
 	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "blue-bag"
 	worn_icon_state = "null" // Don't fuck with my drip
 	storage_type = /datum/storage/admin/bag
@@ -184,7 +184,7 @@
 /obj/item/pinpointer/crew/admin//code\game\objects\items\pinpointer.dm
 	name = "subspace target locator"
 	desc = "A sleek handheld tablet with a complex looking antennae."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-sniffer"//you like sniffing subs, dont you
 	ignore_suit_sensor_level = TRUE
 	w_class = WEIGHT_CLASS_TINY
@@ -246,7 +246,7 @@
 /obj/item/door_remote/admin
 	name = "subspace door remote"
 	desc = "This remote controls airlocks through narrative will alone. Also comes emagged, did you know that you can emag door remotes?"
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	department = "subspace"
 	region_access = REGION_ALL_GLOBAL
 	owner_trim = /datum/id_trim/admin/subspace
@@ -272,7 +272,7 @@
 /obj/item/construction/rcd/arcd/mattermanipulator/admin
 	name = "subspace matter manipulator"
 	desc = "Holding this fabulous piece of legally distinct technology fills you with a sense of determination. Works at range, and can deconstruct reinforced walls."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-manipulator"
 	max_matter = INFINITY
 	matter = INFINITY
@@ -296,7 +296,7 @@
 /obj/item/construction/rld/admin
 	name = "subspace rapid lighting device"
 	desc = "A device used to rapidly provide lighting sources to an area. Reload with iron, plasteel, glass or compressed matter cartridges."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-rld"
 	worn_icon_state = "RPD"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
@@ -320,7 +320,7 @@
 /obj/item/card/emag/admin
 	name = "subspace emag-doorjack"
 	desc = "It's a card with a magnetic strip attached to some circuitry that hurts to look at. Don't wave this at anything you care about."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	worn_icon_state = "emag"
 	prox_check = FALSE//makes wireless. be careful
 	type_blacklist = list()//this is the crucial change to restore global emag function
@@ -339,7 +339,7 @@
 /obj/item/lightreplacer/blue/admin
 	name = "subspace light replacer"
 	desc = "A modified light replacer that zaps lights into place by crystallizing your irritation caused by a lack of lux. Oddly, has endless material."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-lamp-replacer"
 	uses = INFINITY
 	max_uses = INFINITY
@@ -359,7 +359,7 @@
 /obj/item/holosign_creator/atmos/admin
 	name = "subspace ATMOS holofan projector"
 	desc = "A holographic projector that creates holographic barriers that prevent changes in atmosphere conditions. Did you know that right clicking this directly while it is in your active hand can turn on a 'clearview' mode, making the signs unclickable?"
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-projector-atmos"
 	max_signs = INFINITY
 	projectable_through = list( /obj )
@@ -389,7 +389,7 @@
 /obj/item/forcefield_projector/admin
 	name = "subspace forcefield projector"
 	desc = "An experimental device that can create several forcefields at a distance."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-projector-forcefield"
 	max_shield_integrity = INFINITY
 	shield_integrity = INFINITY
@@ -670,7 +670,7 @@
 		. = CONTEXTUAL_SCREENTIP_SET
 	return . || NONE
 
-// TODO: sprites
+// TODO: sprites, hitscan firing icon
 // Admin laser pointer, because the infinite laser pointer isn't good enough.
 // The code for these things is kinda unnervingly long.
 /obj/item/laser_pointer/admin
@@ -860,7 +860,7 @@
 	name = "subspace botanical can"
 	desc = "A gardening can embedded with technology that leaves you with a dull pain in your head. An ominous purple crystal wobbles and glimmers from inside the device, golden fluid leaking from momentarily visible pores like bubbling lava. \
 	You suddenly find yourself afraid of spilling the contents."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "adv_watering_can"
 	inhand_icon_state = "adv_watering_can"
 	volume = 1000
@@ -921,7 +921,7 @@
 /obj/item/extinguisher/subspace
 	name = "subspace extinguisher"
 	desc = "A tiny fire extinguisher, designed for putting out small fires. It feels like it has an infinite amount of water. How you can tell this, you aren't sure."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-extinguisher"
 	max_water = INFINITY
 	starting_water = TRUE
@@ -1079,9 +1079,6 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	return locker_list
 
 // Spawn all the vendors that you want.
-// TODO: This really isn't a great debug tool at the moment, as it uses a radial menu to select the vendor you want to spawn, which is really clunky with the number of vendors in the game, but, it works for now.
-// Also it has a limited list. Better than nothing, but still not finished.
-// Maybe I'll make a tguilist for it later.
 /obj/item/summon_beacon/vendors/debug
 	name = "debug vendor beacon"
 	desc = "Delivers a Vendor via orbital drop with patented Donk Co. SafeTec Technology!"
@@ -1095,6 +1092,23 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 /obj/item/summon_beacon/vendors/debug/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+	selectable_atoms = subtypesof(/obj/machinery/vending)
+
+// The parent /vendors subtype strips /obj/machinery/vending/dorms based on the equipping user's ERP preference toggle,
+// but this is a debug tool meant to offer every vendor type unconditionally, so it gets added back. Sorry sweaty.
+/obj/item/summon_beacon/vendors/debug/equipped(mob/user, slot, initial)
+	. = ..()
+	selectable_atoms |= /obj/machinery/vending/dorms
+
+// Swap the radial menu for a tgui list - there's way too many vendor types for a radial to be practical.
+/obj/item/summon_beacon/vendors/debug/show_options(mob/user)
+	var/list/display_names = generate_display_names()
+	if(!length(display_names))
+		return
+	var/picked_name = tgui_input_list(user, "Select a vendor to deliver", "Vendor Beacon", sort_list(display_names))
+	if(isnull(picked_name))
+		return
+	selected_atom = display_names[picked_name]
 
 // It is time we create something terrible; a multicolor-pen-wand/gun that shoots anti-tank rounds. And also is an edagger. Fun admin-pda pen slot filler.
 /*
@@ -1298,7 +1312,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	possible_transfer_amounts = list(1, 5, 10, 50, 100)
 	volume = 250000//Lets be a LITTLE sane about this.
 	initial_reagent_flags = OPENCONTAINER | DUNKABLE
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-beaker"
 	reagent_container_liquid_sound = SFX_DEFAULT_LIQUID_SLOSH
 	/// Like Edible's food type, what kind of drink is this?
@@ -1322,7 +1336,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 /obj/item/reagent_containers/cup/beaker/admin/noreact
 	name = "stasis subspace beaker"
 	desc = "A reactionless version of the bottomless beaker."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-beaker-noreact"
 	initial_reagent_flags = OPENCONTAINER | NO_REACT | DUNKABLE
 
@@ -1338,7 +1352,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 /obj/item/reagent_containers/cup/beaker/admin/small/noreact
 	name = "fun sized stasis subspace beaker"
 	desc = "A statis variant of the adorably sized version of the bottomless beaker."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-beaker-noreact"
 	initial_reagent_flags = OPENCONTAINER | NO_REACT | DUNKABLE
 
@@ -1374,7 +1388,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 /obj/item/melee/baseball_bat/admin
 	name = "subspace baseball bat"
 	desc = "There ain't a skull in the league that can withstand a nuclear bomb on a stick."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-bat"
 	inhand_icon_state = "baseball_bat"
 	icon_angle = -45
@@ -2046,11 +2060,11 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 /// Lets you adjust how many units of reagent get fired with each shot.
 /obj/item/gun/chem/admin/item_ctrl_click(mob/user)
-	var/new_amount = tgui_input_number(user, "Set reagent volume fired per shot", "Reagent Per Shot", reagent_per_shot, 90, 1)
+	var/new_amount = tgui_input_number(user, "Set reagent volume projected per shot", "Reagent Per Shot", reagent_per_shot, 90, 1)
 	if(isnull(new_amount))
 		return
 	reagent_per_shot = new_amount
-	to_chat(user, span_notice("\The [src] now fires [reagent_per_shot]u of reagent per shot."))
+	to_chat(user, span_notice("\The [src] now projects [reagent_per_shot]u of reagent per shot."))
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/ammo_casing/chemgun/admin

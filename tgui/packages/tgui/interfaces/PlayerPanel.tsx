@@ -1145,18 +1145,6 @@ const OtherActions = () => {
         >
           Apply Client Quirks
         </Button>
-        <Button
-          width="100%"
-          p=".5rem"
-          mb=".5rem"
-          textAlign="center"
-          disabled={
-            !client_ckey || !mob_type.includes('/mob/living/carbon/human')
-          }
-          onClick={() => act('apply_client_quirks')}
-        >
-          Apply Client Quirks
-        </Button>
       </Section>
     </Section>
   );

@@ -6,9 +6,9 @@
 /obj/item/storage/belt/utility/admin
 	name = "\improper bluespace satchel"
 	desc = "This bad boy can fit all your bus in one place. Why do you have this?!"
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "admeme_satchel"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_state = "admeme_satchel"
 	storage_type = /datum/storage/admin
 	w_class = WEIGHT_CLASS_TINY

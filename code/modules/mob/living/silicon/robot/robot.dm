@@ -175,6 +175,7 @@
 			GLOB.cyborg_model_list["Peacekeeper"] = /obj/item/robot_model/peacekeeper
 		if(!CONFIG_GET(flag/disable_secborg))
 			GLOB.cyborg_model_list["Security"] = /obj/item/robot_model/security
+
 		for(var/model in GLOB.cyborg_model_list)
 			// Creating the lists here since we know all the model icons will need them right after.
 			GLOB.cyborg_all_models_icon_list[model] = list()

@@ -126,7 +126,7 @@
 	var/obj/item/item = get_item(source)
 	if (isnull(item))
 		return FALSE
-	// NOVA EDIT ADDITION START
+	// NOVA EDIT ADDITION START - ADMIN_TECH
 	if (item.obj_flags & NOSTRIP)
 		if(user.client.holder)
 			return TRUE

@@ -1,4 +1,4 @@
-github link for pr here
+https://github.com/NovaSector/NovaSector/pull/6628
 
 ## Title: Advanced loadouts, tools, items, and machines for admins
 
@@ -25,6 +25,15 @@ code\datums\elements\strippable.dm - Adds NOSTRIP trait to /datum/strippable_ite
 code\modules\mob\living\carbon\examine.dm - Adds TRAIT_ADMIN_STEALTH which provides a unique obscuration flavor while blocking examines.
 code\_\_HELPERS\pronouns.dm - TRAIT_ADMIN_STEALTH
 code\modules\mob\mob.dm - can_see_target helper addition
+code_onclick\click.dm - TRAIT_ADMIN_REACHABLE early-return in IsReachableBy
+code\game\machinery_machinery.dm - TRAIT_ADMIN_REACHABLE early-return in interact gating
+code\_\_DEFINES\inventory.dm - ITEM_SLOT_ADMIN define
+code\_\_DEFINES\machines.dm - ADMIN_TECHWEB define
+config\admins.txt - added moonridden as Game Admin
+icons\map_icons\items\encryptionkey.dmi - (needs justification or revert, see below)
+icons\map_icons\items\pda.dmi - (needs justification or revert, see below)
+// Also fix: "code\modules\mob\mob.dm - can_see_target helper addition" is wrong path,
+// can_see_target is actually in code\game\atoms_movable.dm
 
 ### Defines:
 

@@ -42,9 +42,9 @@
 /obj/item/radio/headset/admin
 	name = "bluespace headset"
 	desc = "Keeps you tuned in on the subspace data streams and threads, enabling you to communicate and act with ease."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "blue-headset"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_state = "blue-headset"
 	keyslot2 = null
 	keyslot = /obj/item/encryptionkey/admin
@@ -220,9 +220,9 @@
 /obj/item/clothing/head/helmet/perceptomatrix/admin
 	name = "bluespace visor"
 	desc = "This exceptional piece of headgear seems to be one of the main reality-warping sources of the administrative kit. It feels nearly weightless on your head."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "blue-visor"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_state = "blue-visor"
 	base_icon_state = "blue-visor"
 	worn_icon_muzzled = "blue-visor"
@@ -276,9 +276,9 @@
 /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
 	name = "subspace visor"
 	desc = "This exceptional piece of headgear seems to be one of the main reality-warping sources of the administrative kit. It feels nearly weightless on your head."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "sub-visor"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_state = "sub-visor"
 	base_icon_state = "sub-visor"
 	worn_icon_muzzled = "sub-visor"
@@ -312,9 +312,9 @@
 	name = "bluespace mask"
 	desc = "A proprietary filtration mask which route gasses that CentCom deems toxic directly into the space between dimensions.\
 	Wasteful? Totally. Convenient? Extremely."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "blue-mask"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_state = "blue-mask"
 	inhand_icon_state = "null"
 	resistance_flags = FIRE_PROOF
@@ -333,9 +333,9 @@
 	name = "subspace mask"
 	desc = "A proprietary filtration mask which route gasses that CentCom deems toxic directly into the space between dimensions.\
 	Wasteful? Totally. Convenient? Extremely."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "sub-mask"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_state = "sub-mask"
 	armor_type = /datum/armor/admin/badmin
 
@@ -450,9 +450,9 @@
 	name = "bluespace techsuit"
 	desc = "A perfectly tailored and customized skin suit made specifically for this technician. \
 	Composed of experimental textiles, and assembled with the legendary Bluespace Sewing Machine, it fits the body with perfect comfort, and carries an air of security."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "blue-techsuit"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_state = "blue-techsuit"
 	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/mob/clothing_digi.dmi'
 	inhand_icon_state = "null"
@@ -491,9 +491,9 @@
 /obj/item/clothing/suit/admin
 	name = "bluespace letterman"
 	desc = "Hand-stitched by legendary tailors, these jackets are made specifically for each technician. Using the same advanced fabrics and techniques as the rest of their soft kit, the comfort of these coats is unrivaled."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "blue-jacket"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_state = "blue-jacket"
 	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/mob/clothing_digi.dmi'
 	inhand_icon_state = null
@@ -531,9 +531,9 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	clothing_traits = list()
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "blue-gauntlets"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	armor_type = /datum/armor/admin
 
 /obj/item/clothing/gloves/tackler/admin/Initialize(mapload)
@@ -543,9 +543,9 @@
 
 /obj/item/clothing/gloves/tackler/admin/subspace
 	name = "subspace gauntlets"
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "sub-gauntlets"
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	armor_type = /datum/armor/admin/badmin
 
 //Debug magbooties
@@ -554,10 +554,10 @@
 /obj/item/clothing/shoes/magboots/advance/admin//code\modules\clothing\shoes\magboots.dm
 	name = "bluespace magboots"
 	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	base_icon_state = "blue-magboots"
 	icon_state = "blue-magboots0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/mob/clothing_digi.dmi'
 	slowdown_active = -0.25
 	magpulse_fishing_modifier = 10
@@ -608,8 +608,8 @@
 /obj/item/clothing/shoes/magboots/advance/admin/subspace
 	name = "subspace magboots"
 	desc = "Exotic hand manufactured booties made of the finest alloys the Frontier has to offer. The bluespace crystals powering each boot gleam threateningly."
-	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	base_icon_state = "sub-magboots"
 	icon_state = "sub-magboots0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
-	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	armor_type = /datum/armor/admin/badmin
