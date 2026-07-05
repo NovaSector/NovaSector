@@ -92,6 +92,7 @@
 		LAZYREMOVE(my_area.firealarms, src)
 		my_area = null
 	QDEL_NULL(soundloop)
+	stack_trace("fire alarm destroyed")
 	return ..()
 
 // Area sensitivity is traditionally tied directly to power use, as an optimization
