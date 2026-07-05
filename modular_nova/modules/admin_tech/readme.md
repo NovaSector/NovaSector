@@ -77,10 +77,9 @@ BunBun - Cration ([sic] from the original PR credits)
 
 Search TODO on this folder to find remaining known issues / missing content
 Icons. Everywhere. They all need icons. Either you do it, or hope I eventually do it. And I am anything but an artist.
-
 Player appropriate tech loadout with considerations to reduce the need for admins to support them when they wish to test mechanics
+
 subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
-Subspace pipe dispenser tool
 
 Talk to sammy about the tgui machinery ui interact at distance situation
 
