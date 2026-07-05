@@ -107,6 +107,10 @@
 	name = "Ventriloquist Dummy"
 	item_path = /obj/item/toy/dummy
 
+/datum/loadout_item/toys/petclicker
+	name = "training clicker"
+	item_path = /obj/item/petclicker
+
 /*
 *	TENNIS BALLS
 */

@@ -1,10 +1,8 @@
 /obj/item/petclicker
-	name = "Training Clicker"
+	name = "training clicker"
 	desc = "A handheld clicker for reinforcing good behavior in trained animals. Activate it in-hand to click it. Alt-click to toggle how far the click carries."
 	icon = 'modular_nova/master_files/icons/obj/petclicker.dmi'
 	icon_state = "petclicker"
-	inhand_icon_state = "petclicker"
-	worn_icon_state = "petclicker"
 	w_class = WEIGHT_CLASS_TINY
 	var/click_sound_extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE
 
@@ -15,8 +13,6 @@
 
 /obj/item/petclicker/click_alt(mob/living/user)
 	click_sound_extrarange = (click_sound_extrarange == MEDIUM_RANGE_SOUND_EXTRARANGE) ? SHORT_RANGE_SOUND_EXTRARANGE : MEDIUM_RANGE_SOUND_EXTRARANGE
-	to_chat(user, span_notice("You set [src] to [click_sound_extrarange == MEDIUM_RANGE_SOUND_EXTRARANGE ? "normal" : "short"] click range."))
+	to_chat(user, span_notice("You set the [src] to [click_sound_extrarange == MEDIUM_RANGE_SOUND_EXTRARANGE ? "normal" : "short"] click range."))
 	balloon_alert(user, click_sound_extrarange == MEDIUM_RANGE_SOUND_EXTRARANGE ? "normal range" : "short range")
 	return CLICK_ACTION_SUCCESS
-
-
