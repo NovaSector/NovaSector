@@ -249,7 +249,7 @@ const SLOTS: Record<
     gridSpot: getGridSpotKey([4, 5]),
     image: 'inventory-pocket.png',
   },
-  // NOVA EDIT ADDITION
+  // NOVA EDIT ADDITION START
   vagina: {
     displayName: 'vagina',
     gridSpot: getGridSpotKey([5, 1]),
@@ -273,8 +273,23 @@ const SLOTS: Record<
     gridSpot: getGridSpotKey([5, 4]),
     image: 'inventory-pocket.png',
   },
+
+  left_hand_lower: {
+    displayName: 'left hand (lower)',
+    gridSpot: getGridSpotKey([3, 5]),
+    image: 'inventory-hand_l.png',
+    additionalComponent: <CornerText align="right">L2</CornerText>,
+  },
+
+  right_hand_lower: {
+    displayName: 'right hand (lower)',
+    gridSpot: getGridSpotKey([3, 4]),
+    image: 'inventory-hand_r.png',
+    additionalComponent: <CornerText align="left">R2</CornerText>,
+  },
+
 };
-// NOVA EDIT END
+// NOVA EDIT ADDITION END
 enum ObscuringLevel {
   Completely = 1,
   Hidden = 2,
