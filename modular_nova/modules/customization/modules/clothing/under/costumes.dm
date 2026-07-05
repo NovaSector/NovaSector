@@ -108,6 +108,7 @@
 	greyscale_config_worn = /datum/greyscale_config/custom_bunnysuit_worn
 	greyscale_config_worn_digi = /datum/greyscale_config/custom_bunnysuit_worn/digi
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 //CAPTAIN

@@ -18,7 +18,7 @@
 	return draw_color
 
 /datum/bodypart_overlay/mutant/pod_hair/color_images(list/image/overlays, draw_layer, obj/item/bodypart/limb)
-	if(draw_layer != bitflag_to_layer(color_swapped_layer))
+	if(draw_layer != all_layers[color_swapped_layer])
 		return ..()
 
 	for(var/index_to_color in overlay_indexes_to_color)
