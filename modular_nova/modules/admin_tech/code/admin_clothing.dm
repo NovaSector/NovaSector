@@ -184,10 +184,10 @@
 		TRAIT_BOT_PATH_HUD,
 		TRAIT_NEARSIGHTED_CORRECTED,
 	)
-	var/xray = FALSE
 	pickup_sound = SFX_GOGGLES_PICKUP
 	drop_sound = SFX_GOGGLES_DROP
 	equip_sound = SFX_GOGGLES_EQUIP
+	var/xray = FALSE
 
 /obj/item/clothing/glasses/meson/engine/admin/debug/Initialize(mapload)
 	. = ..()
