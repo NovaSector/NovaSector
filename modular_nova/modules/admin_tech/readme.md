@@ -29,8 +29,8 @@ code_onclick\click.dm - TRAIT_ADMIN_REACHABLE early-return in IsReachableBy
 code\game\machinery_machinery.dm - TRAIT_ADMIN_REACHABLE early-return in interact gating
 code\_\_DEFINES\inventory.dm - ITEM_SLOT_ADMIN define
 code\_\_DEFINES\machines.dm - ADMIN_TECHWEB define
-icons\map_icons\items\encryptionkey.dmi - Auto-Sprited, cant stop it
-icons\map_icons\items\pda.dmi - Auto-Sprited, cant stop it
+icons\map_icons\items\encryptionkey.dmi - Justification: Auto-Sprited, cant stop it
+icons\map_icons\items\pda.dmi - Justification: Auto-Sprited, cant stop it
 
 ### Defines:
 
@@ -58,7 +58,6 @@ modular_nova/modules/bluespace_admin/icons/obj/belt.dmi - removed, old module fo
 modular_nova/modules/borgs/icons/screen_cyborg.dmi - updated cyborg screen icon
 \_maps/nova/capsules/tiny_fan_capsule.dmm - map entry for a new admin item
 tgstation.dme - registers new/moved files
-tgui/packages/tgui/interfaces/PlayerPanel.tsx - Apply Client Quirks button
 
 ### Credits:
 
