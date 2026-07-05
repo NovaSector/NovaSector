@@ -1,0 +1,8 @@
+author: "Richard Blonski"
+delete-after: True
+changes:
+  - rscadd: "Player Slimes now will drop their implants upon death."
+  - bugfix: "Player Slimes now get revived with their character preferences/as actual slimes."
+  - bugfix: "Player Slimes dropping human limbs upon revival."
+  - bugfix: "Player Slimes revival consuming plasma when it fails."
+  - bugfix: "Player Slimes dropping organs upon death."

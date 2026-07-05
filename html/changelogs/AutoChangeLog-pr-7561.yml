@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes an issue where some skirts and other clothing would improperly get cropped on taurs"

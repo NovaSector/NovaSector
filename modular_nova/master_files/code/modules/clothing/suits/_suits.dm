@@ -1,10 +1,6 @@
-/obj/item/clothing/suit
-	/// Does this object get cropped when worn by a taur on their suit or uniform slot?
-	var/gets_cropped_on_taurs = TRUE
-
 // taur suit blood overlays
-/obj/item/clothing/suit/get_blood_overlay(blood_state, mutant_styles)
-	if(!(mutant_styles & STYLE_TAUR_ALL))
+/obj/item/clothing/suit/get_blood_overlay(blood_state, bodyshape)
+	if(!(bodyshape & BODYSHAPE_TAUR))
 		return ..()
 	if(!GET_ATOM_BLOOD_DNA_LENGTH(src))
 		return

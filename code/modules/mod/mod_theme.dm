@@ -294,6 +294,7 @@
 		/obj/item/construction/rcd,
 		/obj/item/fireaxe/metal_h2_axe,
 		/obj/item/storage/bag/construction,
+		/obj/item/gun/ballistic/rifle/rebarxbow,
 	)
 	variants = list(
 		"engineering" = list(
@@ -361,6 +362,7 @@
 		/obj/item/fireaxe/metal_h2_axe,
 		/obj/item/pipe_dispenser,
 		/obj/item/t_scanner,
+		/obj/item/gun/ballistic/rifle/rebarxbow,
 	)
 	variants = list(
 		"atmospheric" = list(
@@ -433,6 +435,7 @@
 		/obj/item/pipe_dispenser,
 		/obj/item/storage/bag/construction,
 		/obj/item/t_scanner,
+		/obj/item/gun/ballistic/rifle/rebarxbow,
 	)
 	variants = list(
 		"advanced" = list(

@@ -19,6 +19,7 @@
 	resistance_flags = NONE
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/skinsuit/Initialize(mapload)
 	. = ..()

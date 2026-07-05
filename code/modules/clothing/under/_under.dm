@@ -10,6 +10,7 @@
 	interaction_flags_click = NEED_DEXTERITY|ALLOW_RESTING
 	armor_type = /datum/armor/clothing_under
 	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+	bodyshapes_with_variations = BODYSHAPE_DIGITIGRADE
 	equip_sound = 'sound/items/equip/jumpsuit_equip.ogg'
 	drop_sound = 'sound/items/handling/cloth/cloth_drop1.ogg'
 	pickup_sound = 'sound/items/handling/cloth/cloth_pickup1.ogg'
@@ -110,7 +111,7 @@
 	return changed ? CONTEXTUAL_SCREENTIP_SET : .
 
 
-/obj/item/clothing/under/worn_overlays(mutable_appearance/standing, isinhands = FALSE)
+/obj/item/clothing/under/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, bodyshape = NONE)
 	. = ..()
 	if(isinhands)
 		return
@@ -120,11 +121,11 @@
 	if(accessory_overlay)
 		. += modify_accessory_overlay() // NOVA EDIT CHANGE - ORIGINAL: . += accessory_overlay
 
-/obj/item/clothing/under/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE) // NOVA EDIT CHANGE - ORIGINAL: separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
+/obj/item/clothing/under/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, bodyshape = NONE)
 	. = ..()
 	if (isinhands)
 		return
-	var/blood_overlay = get_blood_overlay("uniform")
+	var/blood_overlay = get_blood_overlay("uniform", bodyshape)
 	if (blood_overlay)
 		. += blood_overlay
 
@@ -217,6 +218,17 @@
 /obj/item/clothing/under/generate_digitigrade_icons(icon/base_icon, greyscale_colors)
 	var/icon/legs = icon(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/digitigrade, greyscale_colors), "jumpsuit_worn")
 	return replace_icon_legs(base_icon, legs)
+
+/obj/item/clothing/under/machine_wash()
+	. = ..()
+	if(stubborn_stains)
+		return
+
+	var/fresh_mood = AddComponent( \
+		/datum/component/onwear_mood, \
+		saved_event_type = /datum/mood_event/fresh_laundry, \
+	)
+	QDEL_IN(fresh_mood, 2 MINUTES)
 
 /obj/item/clothing/under/equipped(mob/living/user, slot)
 	..()
