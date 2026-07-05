@@ -541,7 +541,7 @@
 /obj/item/gun/energy/cell_loaded/medigun/admin
 	name = "subspace medigun"
 	desc = "VeyMed was not happy with this one, but they didn't get much of a say in it's manufacture. This 'aftermarket' (still manufactured by VeyMed) specification comes loaded with every cell. \
-	Test users said the switching was 'cumbersome' and that a 'floating radial' was a cooler choice, but the acquisitions manager lacked ability to describe the design to the producer."
+		Test users said the switching was 'cumbersome' and that a 'floating radial' was a cooler choice, but the acquisitions manager lacked ability to describe the design to the producer."
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/projectile.dmi'
 	icon_state = "medigun"
 	inhand_icon_state = "chronogun" // Fits best with how the medigun looks, might be changed in the future
