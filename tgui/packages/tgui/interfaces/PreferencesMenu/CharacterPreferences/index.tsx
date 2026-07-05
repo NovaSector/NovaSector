@@ -93,6 +93,8 @@ function CharacterProfiles(props: ProfileProps) {
           selected={activeSlot as unknown as string}
           displayText={profiles[activeSlot]}
           options={dropdownOptions}
+          searchInput
+          styledInput
           onSelected={(slot) => {
             onClick(slot);
           }}
