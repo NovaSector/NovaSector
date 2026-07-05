@@ -2,6 +2,7 @@
 /datum/outfit/admin/bluespace
 	name = "Bluespace Tech (MODsuit)"
 	uniform = /obj/item/clothing/under/admin
+	accessory = /obj/item/clothing/accessory/energy_shield/admin/bluespace
 	suit = /obj/item/clothing/suit/admin
 	suit_store = /obj/item/tank/internals/admin/pluoxium
 	head = /obj/item/clothing/head/helmet/perceptomatrix/admin
@@ -23,7 +24,7 @@
 		/obj/item/gun/magic/wand/death/debug = 1,
 		/obj/item/gun/magic/wand/safety/debug = 1,
 		/obj/item/melee/energy/axe = 1,
-		/obj/item/gun/energy/pulse/destroyer = 1,
+		/obj/item/gun/energy/pulse/destroyer/annihilator = 1,
 		/obj/item/boxcutter = 1,
 	)
 	belt_contents = list()
@@ -32,6 +33,7 @@
 /datum/outfit/admin/subspace
 	name = "Subspace Tech (MODsuit)"
 	uniform = /obj/item/clothing/under/admin/subspace
+	accessory = /obj/item/clothing/accessory/energy_shield/admin/subspace
 	suit = /obj/item/clothing/suit/admin/subspace
 	suit_store = /obj/item/tank/internals/admin/pluoxium
 	head = /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
@@ -49,10 +51,9 @@
 	back = /obj/item/mod/control/pre_equipped/subspace
 	backpack_contents = list(
 		/obj/item/melee/energy/axe = 1,
-		/obj/item/gun/energy/pulse/destroyer = 1,
+		/obj/item/gun/energy/pulse/destroyer/annihilator = 1,
 		/obj/item/boxcutter = 1,
 		/obj/item/gun/energy/taser/debug = 1,
-		/obj/item/gun/magic/hook/debug = 1,
 		/obj/item/debug/human_spawner = 1,
 		/obj/item/gun/magic/wand/resurrection/debug = 1,
 		/obj/item/gun/magic/wand/death/debug = 1,

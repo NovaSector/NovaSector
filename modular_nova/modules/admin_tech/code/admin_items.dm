@@ -23,8 +23,131 @@
 	slot_flags = ITEM_SLOT_ADMIN
 	resistance_flags = INDESTRUCTIBLE
 	obj_flags = ADMIN_OBJ_FLAGS
-
 */
+
+/*
+Admin Variants of Common Tools
+*/
+// Engie Tools
+// TODO: desc
+/obj/item/crowbar/power/alien/admin
+	name = "subspace jaws of life"
+	desc = "A set of jaws of life, compressed through the magic of science and augmented with alien technology. \
+		Depending on the installed hardlight emitter, it can pry or cut by itself, without any effort required."
+	usesound = 'sound/items/weapons/sonic_jackhammer.ogg'
+	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
+	toolspeed = 0.1
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/crowbar/power/alien/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// TODO: desc
+/obj/item/screwdriver/power/alien/admin
+	name = "subspace hand drill"
+	desc = "A powered hand drill, augmented with alien technology. \
+		Depending on the installed hardlight emitter, it can drive screws or turn bolts with little to no effort."
+	usesound = 'sound/items/pshoom/pshoom.ogg'
+	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
+	toolspeed = 0.1
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/screwdriver/power/alien/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// TODO: desc
+/obj/item/weldingtool/advanced/admin
+	name = "subspace welding tool"
+	desc = "A modern, experimental welding tool combined with an alien welding tool's generation methods, it never runs out of fuel and works almost as fast."
+	icon = 'modular_nova/modules/mapping/icons/obj/items/advancedtools.dmi'
+	icon_state = "welder"
+	toolspeed = 0.1
+	light_system = NO_LIGHT_SUPPORT
+	light_range = 0
+	change_icons = 0
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/weldingtool/advanced/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// Medical Tools
+/obj/item/scalpel/advanced/alien/admin
+	name = "subspace scalpel"
+	desc = "An advanced scalpel which uses laser technology, augmented with alien technology, \
+		to cut tissue or saw through denser material, like bone."
+	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
+	toolspeed = 0.1
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/scalpel/advanced/alien/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// TODO: desc
+/obj/item/retractor/advanced/alien/admin
+	name = "subspace mechanical pinches"
+	desc = "An agglomerate of rods and gears, augmented with alien technology, \
+		to clamp or retract tissue."
+	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
+	toolspeed = 0.1
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/retractor/advanced/alien/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// TODO: desc
+/obj/item/cautery/advanced/alien/admin
+	name = "subspace searing tool"
+	desc = "An advanced compact laser projector, augmented with alien technology, \
+		for medical applications such as cauterizing tissue or drilling bone."
+	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
+	toolspeed = 0.1
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/cautery/advanced/alien/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// TODO: desc
+/obj/item/blood_filter/advanced/alien/admin
+	name = "subspace medical combitool"
+	desc = "A confusing combination of a blood filter and bonesetter, augmented with alien technology, \
+		for filtering blood and tending to bones, including treating fractures even without surgical intervention."
+	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
+	toolspeed = 0.1
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/blood_filter/advanced/alien/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// Your best friend for cleanup
+// TODO: Update descs
 /obj/item/storage/bag/admin
 	name = "bluespace pocket"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials."
@@ -590,10 +713,10 @@
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown,//Did you know the gowns bypass clothing for surgery, so you dont actually need to look at people naked?
 		/obj/item/surgical_drapes,
-		/obj/item/scalpel/advanced,
-		/obj/item/retractor/advanced,
-		/obj/item/cautery/advanced,
-		/obj/item/blood_filter/advanced,
+		/obj/item/scalpel/advanced/alien/admin,
+		/obj/item/retractor/advanced/alien/admin,
+		/obj/item/cautery/advanced/alien/admin,
+		/obj/item/blood_filter/advanced/alien/admin,
 	)
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_ADMIN
@@ -901,8 +1024,8 @@
 	inhand_icon_state = "nanite_hypo"
 	icon_state = "nanite_hypo"
 	base_icon_state = "nanite_hypo"
-	volume = 100
-	list_reagents = list(/datum/reagent/medicine/adminordrazine/subspace = 100)
+	volume = 1000
+	list_reagents = list(/datum/reagent/medicine/adminordrazine/subspace = 1000)
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_ADMIN
 	resistance_flags = INDESTRUCTIBLE
@@ -1433,6 +1556,26 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/blue
 	muzzle_flash_color = LIGHT_COLOR_GREEN
 
+// New Pulse Gun
+/obj/item/gun/energy/pulse/destroyer/annihilator
+	name = "pulse annhilator"
+	desc = "An extreme-duty energy rifle built for pure destruction."
+	worn_icon_state = "pulse"
+	cell_type = /obj/item/stock_parts/power_store/cell/infinite
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/pulse/heavy)
+	pin = /obj/item/firing_pin/admin
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/gun/energy/pulse/destroyer/annihilator/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+/obj/item/gun/energy/pulse/destroyer/annihilator/attack_self(mob/living/user)
+	to_chat(user, span_danger("[src.name] has three settings, and they are all ANNIHILATE."))
+
 // Modular Admin Rifle. Another heretical creation.
 // TODO: sprites, make and adjust speech json, adjust fire modes for damage, fix double fire that its inheriting for w/e reason
 // TODO: find out why it's firing twice. probably the subtype gun we used
@@ -1832,7 +1975,6 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 	AddComponent(/datum/component/slippery, 0) //Negates slippery component
-
 
 // Admeme mop. There is a funny comment on the parent, originally:
 // var/refill_reagent = /datum/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING

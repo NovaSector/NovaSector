@@ -80,14 +80,10 @@ Icons. Everywhere. They all need icons. Either you do it, or hope I eventually d
 
 Player appropriate tech loadout with considerations to reduce the need for admins to support them when they wish to test mechanics
 subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
-
-Integrate the new alien tools
-Update subspace reagent gun reagent container size if you havent already
+Subspace pipe dispenser tool
 
 Talk to sammy about the tgui machinery ui interact at distance situation
 
-// code\game\objects\items\tools\control_wand.dm
+Debug Box Ideas: recreational / admin drugs, Antag, Research, Security, Service, Cargo, Medical Box revisit
 
-//TODO: recreational drugs box
-//TODO: fix all the slime boxes, those suck
-//TODO: Antag box, Research box, Security box, Service Box, Cargo Box, Medical Box revisit
+NT-Uplink
