@@ -197,11 +197,12 @@
 /datum/sprite_accessory/taur/synthliz/biglegs
 	name = "Synthetic Big Legs"
 	icon_state = "biglegs"
-	taur_mode = BODYSHAPE_TAUR_PAW
+	taur_mode = BODYSHAPE_TAUR_BIG_LEGS
 	organ_type = /obj/item/organ/taur_body/anthro/synth
 
 /datum/sprite_accessory/taur/synthliz/biglegs/stanced
 	name = "Synthetic Big Legs (Stanced)"
+	taur_mode = BODYSHAPE_TAUR_BIG_LEGS_STANCED
 	icon_state = "biglegs_stanced"
 
 /datum/sprite_accessory/taur/synthliz/biglegs/bird

@@ -813,7 +813,8 @@ generate/load female uniform sprites matching all previously decided variables
 )
 
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
-	var/is_for_taur = !isinhands && (bodyshape & BODYSHAPE_TAUR)
+	var/is_for_big_legs = !isinhands && (bodyshape & BODYSHAPE_TAUR_BIG_LEGS_ALL)
+	var/is_for_taur = !isinhands && (bodyshape & BODYSHAPE_TAUR) && !is_for_big_legs
 	var/using_taur_variant
 	if(is_for_taur)
 		using_taur_variant = !gets_cropped_on_taurs
@@ -855,7 +856,7 @@ generate/load female uniform sprites matching all previously decided variables
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
 	if(is_for_taur && !using_taur_variant)
 		building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
-	else if((bodyshape & BODYSHAPE_TAUR_BIG_LEGS_ALL) && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
+	else if(is_for_big_legs && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
 		building_icon = wear_big_legs_version(building_icon || icon(file2use, t_state), src, "[t_state]-[building_icon]-[female_uniform]", greyscale_colors, bodyshape)
 	// NOVA EDIT ADDITION END
 	if(building_icon)
