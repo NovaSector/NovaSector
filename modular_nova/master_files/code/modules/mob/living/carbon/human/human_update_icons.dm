@@ -1,15 +1,15 @@
 /// Modifies a sprite to conform to big legs (taur) body shapes
-/proc/wear_big_legs_version(icon/base_icon, obj/item/clothing/under/item, key, greyscale_colors, mutant_styles)
+/proc/wear_big_legs_version(icon/base_icon, obj/item/clothing/under/item, key, greyscale_colors, bodyshape)
 	ASSERT(istype(item), "wear_big_legs_version: no item passed")
 	ASSERT(istext(key), "wear_big_legs_version: no key passed")
 	if(isnull(greyscale_colors) || length(SSgreyscale.ParseColorString(greyscale_colors)) > 1)
 		greyscale_colors = item.get_general_color(base_icon)
 
-	var/index = "[key]-[item.type]-[greyscale_colors]-[mutant_styles]"
+	var/index = "[key]-[item.type]-[greyscale_colors]-[bodyshape]"
 	var/static/list/big_legs_clothing_cache = list()
 	var/icon/resulting_icon = big_legs_clothing_cache[index]
 	if(!resulting_icon)
-		resulting_icon = item.generate_big_legs_icons(base_icon, greyscale_colors, mutant_styles)
+		resulting_icon = item.generate_big_legs_icons(base_icon, greyscale_colors, bodyshape)
 		if(!resulting_icon)
 			stack_trace("[item.type] is set to generate a masked big legs icon, but generate_big_legs_icons was not implemented (or error'd).")
 			return base_icon

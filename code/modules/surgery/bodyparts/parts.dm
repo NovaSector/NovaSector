@@ -38,11 +38,11 @@
 	/// Which functional (i.e. flightpotion) wing types (if any) does this bodypart support? If count is >1 a radial menu is used to choose between all icons in list
 	var/list/wing_types = list(/obj/item/organ/wings/functional/angel)
 
-/obj/item/bodypart/chest/get_butcher_drops()
+/obj/item/bodypart/chest/get_butcher_drops(force = FALSE)
 	. = ..()
-	if(butcher_drops)
+	if(!isnull(butcher_drops) && !force)
 		return
-	var/datum/species/species = GLOB.species_list[limb_id]
+	var/datum/species/species = GLOB.species_list[species_id || limb_id]
 	if (!species || !species.skinned_type)
 		return
 	if (!islist(.))
@@ -207,12 +207,7 @@
 	old_owner.on_lost_hand(src)
 	if(interaction_modifier != 0 || click_cd_modifier != 1)
 		old_owner.remove_status_effect(/datum/status_effect/arm_speed_penalty, held_index)
-
-	if(!old_owner.hud_used)
-		return
-
-	var/atom/movable/screen/inventory/hand/hand = old_owner.hud_used.hand_slots[held_index]
-	hand?.update_appearance()
+	old_owner.hud_used?.update_inventory_slot(ITEM_SLOT_HANDS, held_index)
 
 /// We need to add hand hud items and appearance, so do that here
 /obj/item/bodypart/arm/apply_ownership(mob/living/carbon/new_owner)
@@ -226,12 +221,7 @@
 	new_owner.on_added_hand(src, held_index)
 	if(interaction_modifier != 0 || click_cd_modifier != 1)
 		new_owner.apply_status_effect(/datum/status_effect/arm_speed_penalty, held_index, interaction_modifier, click_cd_modifier)
-
-	if(!new_owner.hud_used)
-		return
-
-	var/atom/movable/screen/inventory/hand/hand = new_owner.hud_used.hand_slots[held_index]
-	hand?.update_appearance()
+	new_owner.hud_used?.update_inventory_slot(ITEM_SLOT_HANDS, held_index)
 
 /obj/item/bodypart/arm/set_disabled(new_disabled)
 	. = ..()
@@ -247,10 +237,7 @@
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(!bodypart_disabled)
 		owner.set_usable_hands(owner.usable_hands + 1)
-
-	if(owner.hud_used)
-		var/atom/movable/screen/inventory/hand/hand_screen_object = owner.hud_used.hand_slots[held_index]
-		hand_screen_object?.update_appearance()
+	owner.hud_used?.update_inventory_slot(ITEM_SLOT_HANDS, held_index)
 
 /obj/item/bodypart/arm/animate_atom_living(mob/living/owner)
 	var/mob/living/basic/slapper = ..()

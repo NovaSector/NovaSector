@@ -1,9 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - bugfix: "Contractors' contracts no longer bug out if a target cryos. (The uplink app will still require manual restarting, though.)"
-  - qol: "Drifting contractor's compact toolboxes now start with the jaws of death, replacing the crowbar and wirecutters."
-  - balance: "Drifting contractors' guncases now have two more magazines (one mag of downers, one mag of regular lethals)."
-  - balance: "The contractor baton holster is now a contractor baton *recall module*. Drifting contractors start with their baton pre-linked to the recall module. Other contractors are advised that linking the baton is done by simply activating the module with the baton in their active hand. As a bonus, it does mean that you can throw guns at people really hard, like how practitioners of Sleeping Carp can."
-  - balance: "Drifting contractors' uplinks now roll for discounts like traitors' uplinks do."
-  - balance: "Citing a small, but statistically significant budget cut, drifting contractors no longer receive a free energy combat shield."

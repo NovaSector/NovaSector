@@ -10,6 +10,7 @@
 	supports_variations_flags = NONE
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/security/detective/cowboy/armorless //Donator variant, just uses the sprite.
 	armor_type = /datum/armor/clothing_under
