@@ -1,0 +1,5 @@
+author: "PapaMichael"
+delete-after: True
+changes:
+  - balance: "Paradox Clones ghost poll for a specific target; ghosts are now signing up to be a specific person's clone."
+  - admin: "If admins spawn a Paradox Clone, they can choose the person to be cloned."
