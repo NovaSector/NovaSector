@@ -85,7 +85,7 @@
 /obj/item/storage/bag/construction/admin
 	name = "bluespace construction bag"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials. \
-	Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
+		Peeking inside the pocket, cherenkov-esque radiation illuminates a mass of materials and supplies."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
 	icon_state = "blue-bag"
 	worn_icon_state = "null" // Don't fuck with my drip
