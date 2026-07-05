@@ -225,3 +225,52 @@
   - image: lizards now have support female gender shaping for their suits
   vinylspiders, moonridden:
   - config: Updates how we inform the byond hub and post our listing
+2026-07-05:
+  Fghj240:
+  - bugfix: nutriment pump implant plus plus plus now has a sideways sprite
+  Ghommie:
+  - bugfix: Fixed the lobby interface NOT being able to show more than ONE button
+      related to station traits like special jobs and the skub trait.
+  LT3:
+  - map: Finished moving the plant outside Metastation medbay's side airlock, an astonishing
+      speed of 1 tile per 8 months.
+  - bugfix: Fixed duplicate priority announcements about a possible resonance cascade
+  - code_imp: Improved supermatter delamination logging
+  LemonInTheDark:
+  - bugfix: Fixed some sillyness with the stale map system
+  - config: MAP_VOTE_MIN_POP_TO_REMEMBER_MAPS -> MAP_VOTE_MINIMUM_POP_TO_REMEMBER_MAPS
+  QuiteLiterallyAnything:
+  - bugfix: Removed a singular stray disposals pipe on Catwalk Station.
+  Richard Blonski:
+  - balance: Slime players cores are faster to revive, and they start with slightly
+      more blood upon revival.
+  - bugfix: Slime player revival only consumes 100 plasma.
+  - rscadd: Player Slimes now will drop their implants upon death.
+  - bugfix: Player Slimes now get revived with their character preferences/as actual
+      slimes.
+  - bugfix: Player Slimes dropping human limbs upon revival.
+  - bugfix: Player Slimes revival consuming plasma when it fails.
+  - bugfix: Player Slimes dropping organs upon death.
+  SmArtKar:
+  - bugfix: Fixed random black siderite/shale tiles appearing after ash storms
+  - bugfix: Fixed rain overlay rendering (only) with particle weather enabled
+  - bugfix: Anchored nutraslop trays
+  TealSeer:
+  - bugfix: fixed being unable to view/modify trim accesses in Access Management app
+  - bugfix: fixed mousetrap beaker assemblies not triggering when container is opened
+  XeonMations:
+  - bugfix: Fixed the radio volume slider being missing in game preferences
+  lelandkemble:
+  - bugfix: hand teleporters can now close portals
+  - bugfix: Academy businessman doesn't buy a scanner wand, as it is not a wand
+  - spellcheck: Academy wizard dialogue has been cleared of all glaring spelling and
+      capitalization errors
+  timothymtorres:
+  - bugfix: Fix runtime for spacetime distortion not playing sound
+  - sound: Spacetime distortion portals now play the same sound as the teleporter
+      portals.
+  vinylspiders:
+  - bugfix: fixes an issue where some skirts and other clothing would improperly get
+      cropped on taurs
+  - bugfix: fixes an issue where biglegs clothing sprites were being cropped when
+      they weren't supposed to be

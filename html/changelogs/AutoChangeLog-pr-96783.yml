@@ -1,4 +1,0 @@
-author: "TealSeer"
-delete-after: True
-changes:
-  - bugfix: "fixed mousetrap beaker assemblies not triggering when container is opened"

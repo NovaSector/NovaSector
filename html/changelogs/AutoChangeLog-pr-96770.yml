@@ -1,5 +1,0 @@
-author: "LemonInTheDark"
-delete-after: True
-changes:
-  - bugfix: "Fixed some sillyness with the stale map system"
-  - config: "MAP_VOTE_MIN_POP_TO_REMEMBER_MAPS -> MAP_VOTE_MINIMUM_POP_TO_REMEMBER_MAPS"

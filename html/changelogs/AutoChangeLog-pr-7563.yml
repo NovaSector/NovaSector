@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes an issue where biglegs clothing sprites were being cropped when they weren't supposed to be"
