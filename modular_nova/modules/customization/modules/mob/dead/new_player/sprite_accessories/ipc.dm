@@ -6,7 +6,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ipc_screens.dmi'
 	color_src = null
 	key = FEATURE_SYNTH_SCREEN
-	relevent_layers = list(BODY_FRONT_UNDER_CLOTHES)
+	relevent_layers = list(UNDER_UNIFORM_LAYER)
 	organ_type = /obj/item/organ/synth_screen
 
 /datum/sprite_accessory/screen/none

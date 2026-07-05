@@ -37,8 +37,8 @@
 		passed_string += "_s"
 	icon_state = passed_string
 
-/obj/item/organ/genital/testicles/get_description_string(datum/sprite_accessory/genital/gas)
-	if(genital_name == "Internal") //Checks if Testicles are of Internal Variety
+/obj/item/organ/genital/testicles/get_description_string(datum/sprite_accessory/genital/testicles/testicles)
+	if(istype(testicles, /datum/sprite_accessory/genital/testicles/internal))
 		visibility_preference = GENITAL_SKIP_VISIBILITY //Removes visibility if yes.
 	else
 		return "You see a pair of testicles, they look [LOWER_TEXT(balls_size_to_description(genital_size))]."

@@ -32,31 +32,82 @@
 /datum/loadout_item/pocket_items/cheaplighter
 	name = "Lighter - Cheap"
 	item_path = /obj/item/lighter/greyscale
-	group = "Comfort"
+	group = "Smoking"
 
 /datum/loadout_item/pocket_items/lighter
 	name = "Lighter - Zippo"
-	group = "Comfort"
+	group = "Smoking"
 
 /datum/loadout_item/pocket_items/cigarettes
-	name = "Cigarette Pack"
+	name = "Space Cigarette Pack"
 	item_path = /obj/item/storage/fancy/cigarettes
-	group = "Comfort"
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/drom
+	name = "Dromedary Co. Cigarette Pack"
+	item_path = /obj/item/storage/fancy/cigarettes/dromedaryco
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/uplift
+	name = "Uplift Smooth Cigarette Pack"
+	item_path = /obj/item/storage/fancy/cigarettes/cigpack_uplift
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/robust
+	name = "Robust Cigarette Pack"
+	item_path = /obj/item/storage/fancy/cigarettes/cigpack_robust
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/robustgold
+	name = "Robust Gold Cigarette Pack"
+	item_path = /obj/item/storage/fancy/cigarettes/cigpack_robustgold
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/midori
+	name = "Midori Cigarette Pack"
+	item_path = /obj/item/storage/fancy/cigarettes/cigpack_midori
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/candycig
+	name = "Timmy's First Candy Cigarette Pack"
+	item_path = /obj/item/storage/fancy/cigarettes/cigpack_candy
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/weedcig
+	name = "Freak Brothers' Special Cigarette Pack"
+	item_path = /obj/item/storage/fancy/cigarettes/cigpack_cannabis
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/thccig
+	name = "Crown Smoke King's Haze Cigarette Pack"
+	item_path = /obj/item/storage/fancy/cigarettes/crownhaze
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/cigarcase
+	name = "Premium Cigar Case"
+	item_path = /obj/item/storage/fancy/cigarettes/cigars
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/robustocigarcase
+	name = "Cohiba Robusto Cigar Case"
+	item_path = /obj/item/storage/fancy/cigarettes/cigars/cohiba
+	group = "Smoking"
+
+/datum/loadout_item/pocket_items/matches
+	name = "Matchbox"
+	item_path = /obj/item/storage/box/matches
+	group = "Smoking"
 
 /datum/loadout_item/pocket_items/cigar
 	name = "Cigar"
 	item_path = /obj/item/cigarette/cigar
-	group = "Comfort"
+	group = "Smoking"
 
 /datum/loadout_item/pocket_items/folder
 	name = "Folder"
 	item_path = /obj/item/folder
 	group = "Comfort"
 
-/datum/loadout_item/pocket_items/matches
-	name = "Matchbox"
-	item_path = /obj/item/storage/box/matches
-	group = "Comfort"
 
 /datum/loadout_item/pocket_items/link_scryer
 	name = "MODlink Scryer"
@@ -501,9 +552,9 @@
 /datum/loadout_item/pocket_items/donator/havana_cigar_case
 	name = "Havanian Cigars"
 	item_path = /obj/item/storage/fancy/cigarettes/cigars/havana
-	group = "Comfort"
+	group = "Smoking"
 
 /datum/loadout_item/pocket_items/donator/vape
 	name = "E-Cigarette"
 	item_path = /obj/item/vape
-	group = "Comfort"
+	group = "Smoking"

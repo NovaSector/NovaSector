@@ -324,7 +324,7 @@
 	else
 		selected_wait_time = (mode == HYPO_INJECT) ? inject_wait : spray_wait
 
-	if(!do_after(user, selected_wait_time, injectee, extra_checks = CALLBACK(injectee, /mob/living/proc/can_inject, user, user.zone_selected, penetrates)))
+	if(!do_after(user, selected_wait_time, injectee, extra_checks = CALLBACK(injectee, TYPE_PROC_REF(/mob/living, can_inject), user, user.zone_selected, penetrates)))
 		return ITEM_INTERACT_BLOCKING
 	if(!vial || !vial.reagents.total_volume)
 		return ITEM_INTERACT_BLOCKING

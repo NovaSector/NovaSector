@@ -1,5 +1,3 @@
-#define SHORTS_PANTS_SHIRTS_DIGIFILE 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts_digi.dmi'
-
 /obj/item/clothing/under/pants
 	worn_icon_digi = SHORTS_PANTS_SHIRTS_DIGIFILE
 
@@ -217,4 +215,5 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN|LEGS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	can_adjust = FALSE

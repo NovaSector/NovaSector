@@ -42,7 +42,7 @@
 		if(rail == src)
 			continue
 
-		addtimer(CALLBACK(rail, /atom/proc/update_appearance), 1 SECONDS)
+		addtimer(CALLBACK(rail, TYPE_PROC_REF(/atom, update_appearance)), 1 SECONDS)
 	return ..()
 
 /obj/structure/railroad/update_appearance(updates)

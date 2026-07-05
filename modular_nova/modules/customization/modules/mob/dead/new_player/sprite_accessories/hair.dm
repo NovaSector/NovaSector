@@ -730,6 +730,192 @@
 	name = "Dreadtail"
 	icon_state = "hair_dreadtail"
 
+/datum/sprite_accessory/hair/nova/slimetails
+	name = "Slime Tails"
+	icon_state = "hair_slime_tails"
+
+/datum/sprite_accessory/hair/nova/singedblownback
+	name = "Singed Blown Back"
+	icon_state = "hair_singed_blown_back"
+
+/datum/sprite_accessory/hair/nova/singedpigtails
+	name = "Singed Pigtails"
+	icon_state = "hair_singed_pigtails"
+
+/datum/sprite_accessory/hair/nova/pigtailscupid
+	name = "Pigtails Cupid"
+	icon_state = "hair_pigtails_cupid"
+
+/datum/sprite_accessory/hair/nova/pigtailsantenna
+	name = "Pigtails Antenna"
+	icon_state = "hair_pigtails_antenna"
+
+/datum/sprite_accessory/hair/nova/tetodrills
+	name = "Teto Drills"
+	icon_state = "hair_teto_drills"
+
+/datum/sprite_accessory/hair/nova/killmonger
+	name = "Killmonger"
+	icon_state = "hair_killmonger"
+
+/datum/sprite_accessory/hair/nova/tayama
+	name = "Tayama"
+	icon_state = "hair_tayama"
+
+/datum/sprite_accessory/hair/nova/pigtails6
+	name = "Pigtails 6"
+	icon_state = "hair_pigtails_6"
+
+/datum/sprite_accessory/hair/nova/sadako
+	name = "Sadako"
+	icon_state = "hair_sadako"
+
+/datum/sprite_accessory/hair/nova/afroovereyes
+	name = "Afro Over Eyes"
+	icon_state = "hair_afro_over_eyes"
+
+/datum/sprite_accessory/hair/nova/wolfcut
+	name = "Wolf Cut"
+	icon_state = "hair_wolfcut"
+
+/datum/sprite_accessory/hair/nova/coily
+	name = "Coily"
+	icon_state = "hair_coily"
+
+/datum/sprite_accessory/hair/nova/mullet
+	name = "Mullet"
+	icon_state = "hair_mullet"
+
+/datum/sprite_accessory/hair/nova/mulletwithrattail
+	name = "Mullet with Rat Tail"
+	icon_state = "hair_mullet_with_rat_tail"
+
+/datum/sprite_accessory/hair/nova/moneypiece
+	name = "Money Piece"
+	icon_state = "hair_money_piece"
+
+/datum/sprite_accessory/hair/nova/fluffymess
+	name = "Fluffy Mess"
+	icon_state = "hair_fluffy_mess"
+
+/datum/sprite_accessory/hair/nova/slimefringelong
+	name = "Slime Fringe Long"
+	icon_state = "hair_slime_fringe_long"
+
+/datum/sprite_accessory/hair/nova/slimetails2
+	name = "Slime Tails 2"
+	icon_state = "hair_slime_tails_2"
+
+/datum/sprite_accessory/hair/nova/slimeponytaillow
+	name = "Slime Ponytail Low"
+	icon_state = "hair_slime_ponytail_low"
+
+/datum/sprite_accessory/hair/nova/slimeblobby
+	name = "Slime Blobby"
+	icon_state = "hair_slime_blobby"
+
+/datum/sprite_accessory/hair/nova/slimeponytailhigh
+	name = "Slime Ponytail High"
+	icon_state = "hair_slime_ponytail_high"
+
+/datum/sprite_accessory/hair/nova/afrothreequarters
+	name = "Afro Three Quarters"
+	icon_state = "hair_afro_three_quarters"
+
+/datum/sprite_accessory/hair/nova/longdreadsup
+	name = "Long Dreads Up"
+	icon_state = "hair_long_dreads_up"
+
+/datum/sprite_accessory/hair/nova/longdreads
+	name = "Long Dreads"
+	icon_state = "hair_long_dreads"
+
+/datum/sprite_accessory/hair/nova/ponytailfro
+	name = "Ponytail Fro"
+	icon_state = "hair_ponytail_fro"
+
+/datum/sprite_accessory/hair/nova/longsidecut
+	name = "Long Side Cut"
+	icon_state = "hair_long_sidecut"
+
+/datum/sprite_accessory/hair/nova/frizzysidecut
+	name = "Frizzy Side Cut"
+	icon_state = "hair_frizzy_sidecut"
+
+/datum/sprite_accessory/hair/nova/sidecutbang
+	name = "Side Cut Bang"
+	icon_state = "hair_sidecut_bang"
+
+/datum/sprite_accessory/hair/nova/pigtails5
+	name = "Pigtails 5"
+	icon_state = "hair_pigtails_5"
+
+/datum/sprite_accessory/hair/nova/bowlcutovereyes
+	name = "Bowl Cut Over Eyes"
+	icon_state = "hair_bowlcut_over_eyes"
+
+/datum/sprite_accessory/hair/nova/slimejelly
+	name = "Slime Jelly"
+	icon_state = "hair_slime_jelly"
+
+/datum/sprite_accessory/hair/nova/biggertails
+	name = "Bigger Tails"
+	icon_state = "hair_bigger_tails"
+
+/datum/sprite_accessory/hair/nova/ponytailscythe
+	name = "Ponytail Scythe"
+	icon_state = "hair_ponytail_scythe"
+	y_offset = 4
+
+/datum/sprite_accessory/hair/nova/mohawktall
+	name = "Tall Mohawk"
+	icon_state = "hair_tall_mohawk"
+	y_offset = 2
+
+/datum/sprite_accessory/hair/nova/hightopslant
+	name = "Hightop Slant"
+	icon_state = "hair_hightop_slant"
+
+/datum/sprite_accessory/hair/nova/gorgon
+	name = "Gorgon"
+	icon_state = "hair_gorgon"
+
+/datum/sprite_accessory/hair/nova/swirlycurls
+	name = "Swirly Curls"
+	icon_state = "hair_swirly_curls"
+
+/datum/sprite_accessory/hair/nova/swirlycurlsalt
+	name = "Swirly Curls Alt"
+	icon_state = "hair_swirly_curls_alt"
+
+/datum/sprite_accessory/hair/nova/shortwavy
+	name = "Short Wavy"
+	icon_state = "hair_short_wavy"
+
+/datum/sprite_accessory/hair/nova/longwavy
+	name = "Long Wavy"
+	icon_state = "hair_long_wavy"
+
+/datum/sprite_accessory/hair/nova/ponytailwavy
+	name = "Ponytail Wavy"
+	icon_state = "hair_ponytail_wavy"
+
+/datum/sprite_accessory/hair/nova/twintailswavy
+	name = "Twintails Wavy"
+	icon_state = "hair_twintails_wavy"
+
+/datum/sprite_accessory/hair/nova/animeprotag
+	name = "Anime Protagonist"
+	icon_state = "hair_anime_protag"
+
+/datum/sprite_accessory/hair/nova/shorterbangs
+	name = "Shorter Bangs"
+	icon_state = "hair_shorter_bangs"
+
+/datum/sprite_accessory/hair/nova/curtainbangs
+	name = "Curtain Bangs"
+	icon_state = "hair_curtain_bangs"
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/nova

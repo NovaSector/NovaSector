@@ -96,8 +96,8 @@
 		if(user.stat == CONSCIOUS)
 			if(prob(20))
 				user.emote("laugh")
-				addtimer(CALLBACK(user, /mob/proc/emote, "laugh"), 5 SECONDS)
-				addtimer(CALLBACK(user, /mob/proc/emote, "laugh"), 10 SECONDS)
+				addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, emote), "laugh"), 5 SECONDS)
+				addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, emote), "laugh"), 10 SECONDS)
 
 /obj/item/paper/joker
 	name = "disability card"

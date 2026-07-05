@@ -1,4 +1,0 @@
-author: "Happyowl93"
-delete-after: True
-changes:
-  - bugfix: "Holosynths can cross broken electrified grilles now."

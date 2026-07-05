@@ -85,10 +85,6 @@
 			if(target.penis != null)
 				target.dropItemToGround(target.penis, TRUE, target.loc, TRUE, FALSE, TRUE)
 
-
-	client.mob.hud_used.hidden_inventory_update(client.mob)
-	client.mob.hud_used.persistent_inventory_update(client.mob)
-
 /datum/preference/toggle/erp/sex_toy_sounds
 	savefile_key = "sextoy_sounds_pref"
 
@@ -139,9 +135,11 @@
 		"Top - Dom",
 		"Top - Sub",
 		"Top - Switch",
+		"Top - Stone",
 		"Bottom - Dom",
 		"Bottom - Sub",
 		"Bottom - Switch",
+		"Bottom - Stone",
 		"Verse-Top - Dom",
 		"Verse-Top - Sub",
 		"Verse-Top - Switch",
@@ -151,6 +149,10 @@
 		"Verse-Bottom - Dom",
 		"Verse-Bottom - Sub",
 		"Verse-Bottom - Switch",
+		"Side",
+		"Pillow Princesss - Dom",
+		"Pillow Princesss - Sub",
+		"Pillow Princesss - Switch",
 		"Free Use",
 	)
 

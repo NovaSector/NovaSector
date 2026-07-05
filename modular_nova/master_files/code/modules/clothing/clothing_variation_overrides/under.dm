@@ -4,90 +4,79 @@
  * Clothing that do not require a new icon to function correctly, think, big jackets.
  */
 
-/obj/item/clothing/under/costume/gladiator/ash_walker
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
 /obj/item/clothing/under/costume/maid
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/maid_costume
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/janitor/maid
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/costume/schoolgirl
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/centcom/intern
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/security/officer/spacepol
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/medical/doctor/nurse
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/engineering/chief_engineer/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/chaplain/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/cargo/qm/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/captain/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/suit/black/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/rnd/research_director/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/rnd/research_director/turtleneck/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/head_of_personnel/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/head_of_security/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/head_of_security/alt/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/warden/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/prisoner/skirt
 	greyscale_config_worn_digi = null
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/officer/skirt
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/cargo/tech/skirt
@@ -96,14 +85,17 @@
 
 /obj/item/clothing/under/rank/civilian/head_of_personnel/suit/skirt
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/hydroponics/skirt
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/janitor/skirt
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer/black/skirt
@@ -127,63 +119,50 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/lawyer/purpsuit/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/mime/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/civilian/curator/skirt
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/engineering/atmospheric_technician/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/engineering/engineer/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/medical/virologist/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/medical/doctor/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/medical/paramedic/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/rnd/scientist/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/rnd/roboticist/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/rnd/geneticist/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/detective/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/detective/noir/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/suit/white/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/suit/black_really/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/dress/skirt/turtleskirt
@@ -201,15 +180,16 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/captain/suit/skirt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/color/jumpskirt
+	greyscale_config_worn_digi = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/changeling
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/rnd/research_director/alt/skirt
 	gets_cropped_on_taurs = FALSE
@@ -252,23 +232,17 @@
 	gets_cropped_on_taurs = FALSE
 
 /**
- * NONE(Squash)
- * Clothing that does not have a digitigrade version, and thus will squash legs to fit.
- */
-/obj/item/clothing/under/suit/henchmen
-	supports_variations_flags = NONE
-
-
-/**
  * SUBTYPE WITH NEW ICON
  * Clothing that has a digitigrade version, but its parent was set to something else earlier in this file.
  */
 /obj/item/clothing/under/misc/bouncer
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/color
 	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/worn/digi
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/civilian/curator/nasa // this is really just a black jumpsuit, with stupid pathing
 	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/worn/digi
@@ -277,19 +251,24 @@
 
 /obj/item/clothing/under/suit/waiter
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/prisoner
 	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/prison/worn/digi
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/security/officer
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/medical/scrubs
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/striped
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/skirt
 	supports_variations_flags = CLOTHING_BIG_LEGS_MASK
