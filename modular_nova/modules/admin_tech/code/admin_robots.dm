@@ -68,14 +68,12 @@
 	var/datum/weakref/disguise_action_ref
 	var/datum/weakref/xray_vision_ref
 
-// Cleans up refs when borg is kill
 /obj/item/robot_model/admin/Destroy(force)
 	QDEL_NULL(thermal_vision_ref)
 	QDEL_NULL(disguise_action_ref)
 	QDEL_NULL(xray_vision_ref)
 	return ..()
 
-// Handles the horrible stack of their transform
 /obj/item/robot_model/admin/be_transformed_to(obj/item/robot_model/old_model, forced = FALSE)
 	var/datum/action/cooldown/borg_thermal/thermal_vision = new(loc)
 	var/datum/action/cooldown/borg_disguise/disguise = new(loc)
@@ -91,6 +89,155 @@
 	xray_vision_ref = WEAKREF(xray_vision)
 	var/mob/living/silicon/robot/borg = loc
 	borg.sight_mode |= BORGXRAY
+	borg.update_sight()
+
+/datum/action/cooldown/borg_disguise
+	name = "Change Appearance"
+	desc = "Reversibly change your outward model appearance. Unlike the standard chameleon projector module, this cannot be disrupted by force."
+	button_icon = 'icons/obj/devices/syndie_gadget.dmi'
+	button_icon_state = "shield0"
+	cooldown_time = 0.5 SECONDS
+	var/active = FALSE
+	var/saved_icon
+	var/saved_icon_override
+	var/saved_name
+	var/saved_model_features
+	var/saved_special_light_key
+	var/saved_hat_offset
+	var/saved_bubble_icon
+
+/datum/action/cooldown/borg_disguise/Activate()
+	var/mob/living/silicon/robot/borg = owner
+	if(!istype(borg))
+		return
+	if(active)
+		revert_disguise(borg)
+		return
+	apply_disguise(borg)
+
+/datum/action/cooldown/borg_disguise/proc/check_menu(mob/user)
+	if(!istype(user))
+		return FALSE
+	if(user.incapacitated)
+		return FALSE
+	return TRUE
+
+/datum/action/cooldown/borg_disguise/proc/apply_disguise(mob/living/silicon/robot/borg)
+	var/static/list/model_icons = sort_list(list(
+		"Medical" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "medical"),
+		"Cargo" = image(icon = CYBORG_ICON_CARGO, icon_state = "cargoborg"),
+		"Engineer" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "engineer"),
+		"Security" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "sec"),
+		"Service" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "service_f"),
+		"Janitor" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "janitor"),
+		"Miner" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "miner"),
+		"Peacekeeper" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "peace"),
+		"Clown" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "clown"),
+		"Syndicate" = image(icon = 'icons/mob/silicon/robots.dmi', icon_state = "synd_sec"),
+		"Spider Clan" = image(icon = CYBORG_ICON_NINJA, icon_state = "ninja_engi"),
+	))
+	var/model_selection = show_radial_menu(borg, borg, model_icons, custom_check = CALLBACK(src, PROC_REF(check_menu), borg), radius = 42, require_near = TRUE)
+	if(!model_selection)
+		return
+
+	var/obj/item/robot_model/model
+	switch(model_selection)
+		if("Medical")
+			model = new /obj/item/robot_model/medical
+		if("Cargo")
+			model = new /obj/item/robot_model/cargo
+		if("Engineer")
+			model = new /obj/item/robot_model/engineering
+		if("Security")
+			model = new /obj/item/robot_model/security
+		if("Service")
+			model = new /obj/item/robot_model/service
+		if("Janitor")
+			model = new /obj/item/robot_model/janitor
+		if("Miner")
+			model = new /obj/item/robot_model/miner
+		if("Peacekeeper")
+			model = new /obj/item/robot_model/peacekeeper
+		if("Clown")
+			model = new /obj/item/robot_model/clown
+		if("Syndicate")
+			model = new /obj/item/robot_model/syndicatejack
+		if("Spider Clan")
+			model = new /obj/item/robot_model/ninja
+		else
+			return
+
+	var/list/reskin_icons = list()
+	for(var/skin in model.borg_skins)
+		var/list/details = model.borg_skins[skin]
+		var/image/reskin = image(icon = details[SKIN_ICON] || 'icons/mob/silicon/robots.dmi', icon_state = details[SKIN_ICON_STATE])
+		if(!isnull(details[SKIN_FEATURES]) && (TRAIT_R_WIDE in details[SKIN_FEATURES]))
+			reskin.pixel_x -= 16
+		reskin_icons[skin] = reskin
+	var/borg_skin = show_radial_menu(borg, borg, reskin_icons, custom_check = CALLBACK(src, PROC_REF(check_menu), borg), radius = 38, require_near = TRUE)
+	if(!borg_skin)
+		qdel(model)
+		return
+
+	var/list/details = model.borg_skins[borg_skin]
+	var/disguise_icon_state = details[SKIN_ICON_STATE]
+	var/disguise_icon_override = details[SKIN_ICON]
+	var/disguise_special_light_key = details[SKIN_LIGHT_KEY]
+	var/disguise_model_features = details[SKIN_FEATURES]
+	var/picked_name = model.name
+	qdel(model)
+
+	if(!active)
+		saved_icon = borg.model.cyborg_base_icon
+		saved_bubble_icon = borg.bubble_icon
+		saved_icon_override = borg.model.cyborg_icon_override
+		saved_name = borg.model.name
+		saved_model_features = borg.model.model_features
+		saved_special_light_key = borg.model.special_light_key
+		saved_hat_offset = borg.model.hat_offset
+
+	borg.model.name = picked_name
+	borg.model.cyborg_base_icon = disguise_icon_state
+	borg.model.cyborg_icon_override = disguise_icon_override
+	borg.model.model_features = disguise_model_features
+	borg.model.special_light_key = disguise_special_light_key
+	borg.bubble_icon = "robot"
+	active = TRUE
+	to_chat(borg, span_notice("You are now disguised as [picked_name]."))
+	borg.update_icons()
+	borg.model.update_quadborg()
+	borg.model.update_tallborg()
+	build_all_button_icons()
+
+/datum/action/cooldown/borg_disguise/proc/revert_disguise(mob/living/silicon/robot/borg)
+	borg.model.name = saved_name
+	borg.model.cyborg_base_icon = saved_icon
+	borg.model.cyborg_icon_override = saved_icon_override
+	borg.model.model_features = saved_model_features
+	borg.model.special_light_key = saved_special_light_key
+	borg.model.hat_offset = saved_hat_offset
+	borg.bubble_icon = saved_bubble_icon
+	active = FALSE
+	to_chat(borg, span_notice("You revert to your true appearance."))
+	borg.update_icons()
+	borg.model.update_quadborg()
+	borg.model.update_tallborg()
+	build_all_button_icons()
+
+/datum/action/cooldown/borg_xray
+	name = "Toggle Perfect Vision"
+	desc = "Toggles perfect vision - full sight regardless of lighting, plus the ability to see mobs through walls."
+	button_icon = 'icons/mob/actions/actions_mecha.dmi'
+	button_icon_state = "meson"
+
+/datum/action/cooldown/borg_xray/Activate()
+	var/mob/living/silicon/robot/borg = owner
+	if(!istype(borg))
+		return
+	if(borg.sight_mode & BORGXRAY)
+		borg.sight_mode &= ~BORGXRAY
+	else
+		borg.sight_mode |= BORGXRAY
 	borg.update_sight()
 
 // Spawnable Mob for the base model + additional config and benefits

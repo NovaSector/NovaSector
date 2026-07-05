@@ -24,16 +24,13 @@ Links in with icspawning module from skyrat era, integrates some of its content 
 code\datums\elements\strippable.dm - Adds NOSTRIP trait to /datum/strippable_item/proc/try_unequip
 code\modules\mob\living\carbon\examine.dm - Adds TRAIT_ADMIN_STEALTH which provides a unique obscuration flavor while blocking examines.
 code\_\_HELPERS\pronouns.dm - TRAIT_ADMIN_STEALTH
-code\modules\mob\mob.dm - can_see_target helper addition
+code\game\atoms_movable.dm - can_see_target helper addition
 code_onclick\click.dm - TRAIT_ADMIN_REACHABLE early-return in IsReachableBy
 code\game\machinery_machinery.dm - TRAIT_ADMIN_REACHABLE early-return in interact gating
 code\_\_DEFINES\inventory.dm - ITEM_SLOT_ADMIN define
 code\_\_DEFINES\machines.dm - ADMIN_TECHWEB define
-config\admins.txt - added moonridden as Game Admin
-icons\map_icons\items\encryptionkey.dmi - (needs justification or revert, see below)
-icons\map_icons\items\pda.dmi - (needs justification or revert, see below)
-// Also fix: "code\modules\mob\mob.dm - can_see_target helper addition" is wrong path,
-// can_see_target is actually in code\game\atoms_movable.dm
+icons\map_icons\items\encryptionkey.dmi - Auto-Sprited, cant stop it
+icons\map_icons\items\pda.dmi - Auto-Sprited, cant stop it
 
 ### Defines:
 
@@ -48,7 +45,20 @@ TRAIT_SHOW_ALL_WIRES - Adds another method of showing the global wire legend wit
 
 ### Included files:
 
-lol i'm not populating this until I'm done.
+modular_nova/master_files/code/datums/wires/\_wires.dm - TRAIT_SHOW_ALL_WIRES hook
+modular_nova/master_files/code/game/objects/objs.dm - admin obj support
+modular_nova/master_files/code/modules/research/techweb/techweb_types.dm - ADMIN_TECHWEB node registration
+modular_nova/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/mod_themes.dm - admin MOD theme support
+modular_nova/modules/icspawning/code/cards_ids.dm - trimmed for admin outfit menu integration
+modular_nova/modules/icspawning/code/observer.dm - outfit selection converted to tgui list
+modular_nova/modules/icspawning/readme.md - updated for the above
+modular_nova/modules/job_locker_beacon/code/job_locker_beacon.dm - removed, folded into admin_tech
+modular_nova/modules/bluespace_admin/icons/mob/belt.dmi - removed, old module folded into admin_tech
+modular_nova/modules/bluespace_admin/icons/obj/belt.dmi - removed, old module folded into admin_tech
+modular_nova/modules/borgs/icons/screen_cyborg.dmi - updated cyborg screen icon
+\_maps/nova/capsules/tiny_fan_capsule.dmm - map entry for a new admin item
+tgstation.dme - registers new/moved files
+tgui/packages/tgui/interfaces/PlayerPanel.tsx - Apply Client Quirks button
 
 ### Credits:
 

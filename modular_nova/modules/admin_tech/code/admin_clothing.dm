@@ -454,7 +454,7 @@
 	icon_state = "blue-techsuit"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_state = "blue-techsuit"
-	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/mob/clothing_digi.dmi'
+	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing_digi.dmi'
 	inhand_icon_state = "null"
 	has_sensor = NO_SENSORS//admin techs should NEVER be on sensors
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -495,7 +495,7 @@
 	icon_state = "blue-jacket"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
 	worn_icon_state = "blue-jacket"
-	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/mob/clothing_digi.dmi'
+	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing_digi.dmi'
 	inhand_icon_state = null
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	armor_type = /datum/armor/admin
@@ -558,7 +558,7 @@
 	base_icon_state = "blue-magboots"
 	icon_state = "blue-magboots0"// My first icon, I am very sorry. This should probably be replaced, but watch it just stick around for a long time.
 	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
-	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/mob/clothing_digi.dmi'
+	worn_icon_digi = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing_digi.dmi'
 	slowdown_active = -0.25
 	magpulse_fishing_modifier = 10
 	fishing_modifier = 10
