@@ -321,7 +321,7 @@
 		span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards...")
 	)
 	brainmob?.notify_revival("You are being revived!", sound = null, source = src) // no sound since it's a whopping 60 second wait time after this
-	if(!do_after(user, 60 SECONDS, src))
+	if(!do_after(user, 15 SECONDS, src))
 		to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
 		return FALSE
 
@@ -340,7 +340,7 @@
 		user.balloon_alert(user, "brain does not contain a mind!")
 		return FALSE
 
-	item.reagents.clear_reagents() // Consume the Plasma.
+	item.reagents.remove_reagent(/datum/reagent/toxin/plasma, 100) // Consumes the plasma
 	regenerate()
 	return TRUE
 
