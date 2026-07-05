@@ -1462,7 +1462,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 			/datum/laser_weapon_mode/admin/meteor,
 			/datum/laser_weapon_mode/admin/ion,
 			/datum/laser_weapon_mode/admin/plasmacutter,
-			/datum/laser_weapon_mode/admin/gravity
+			/datum/laser_weapon_mode/admin/gravity,
 	)
 	default_selected_mode = "Disturb"
 //	speech_json_file = SHORT_MOD_LASER_SPEECH
