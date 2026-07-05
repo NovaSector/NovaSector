@@ -7722,7 +7722,6 @@
 #include "modular_nova\modules\admin\code\preferences_loadverb.dm"
 #include "modular_nova\modules\admin\code\sooc.dm"
 #include "modular_nova\modules\admin\code\smites\pie.dm"
-#include "modular_nova\modules\admin_tech\code\admin_applications.dm"
 #include "modular_nova\modules\admin_tech\code\admin_belts.dm"
 #include "modular_nova\modules\admin_tech\code\admin_clothing.dm"
 #include "modular_nova\modules\admin_tech\code\admin_datums.dm"

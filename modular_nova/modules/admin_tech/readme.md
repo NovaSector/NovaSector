@@ -58,18 +58,18 @@ BunBun - Cration ([sic] from the original PR credits)
 ### Remaining To-Do
 
 Search TODO on this folder to find remaining known issues / missing content
-Icons. Everywhere. They all need icons. Either you do it, or hope I eventually do it. And I am anything but an artist
-desc = parent_type::desc + "To be used on subspace variants for bonus flavor"
-Instant no effect spawn option
-radial navigation menus everywhere. needs more tgui input functions. make a new radial type, expand the radial size, reduce time to show,
+Icons. Everywhere. They all need icons. Either you do it, or hope I eventually do it. And I am anything but an artist.
 
 Player appropriate tech loadout with considerations to reduce the need for admins to support them when they wish to test mechanics
-Revisit the currently used spawner wands and retheme / update them. Human spawner wand doesnt use tguilist for example.
 subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
 
-debug box ideas: seeds box
+Integrate the new alien tools
+Update subspace reagent gun reagent container size if you havent already
 
-investigate lifeline pda app functionality. Create new item using radar system that shows all mobs with clients connected, and also pulls from the user's admin-tags list for trackable targets. replace the subspace sniffer with this.
+Talk to sammy about the tgui machinery ui interact at distance situation
 
-Subspace reagent gun, give it a chem selector with no resevoir limit, just selects and flings chems at will
-Nullspace items, to like... Destroy things. Nullspace beaker for pouring things into to erase the transferred material? Update the bluespace pocket from interact to clear, to a 'global deleting' state where you can put anything in, or pour liquids in, or pick anything up to delete it. Should probably look at an 'important items' blacklist.
+// code\game\objects\items\tools\control_wand.dm
+
+//TODO: recreational drugs box
+//TODO: fix all the slime boxes, those suck
+//TODO: Antag box, Research box, Security box, Service Box, Cargo Box, Medical Box revisit

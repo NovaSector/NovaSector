@@ -9,7 +9,6 @@
 		You're a badmin, of course you know what tears taste like. Those of your coworkers taste better."
 	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "captain"
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	post_init_icon_state = "cypherkey_cube"
 	channels = list(
 		RADIO_CHANNEL_AI_PRIVATE = 1,
@@ -33,16 +32,16 @@
 	)
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#2b2793#dca01b"
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/item/encryptionkey/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
-// TODO: balloon popup on ghost ping use
-// TODO: revisit base model for vars to modify
+// Our new headset.
 /obj/item/radio/headset/admin
 	name = "bluespace headset"
-	desc = "You can hear all of them. All OF THEM. THE VOICES. SO MANY VOICES. AAAAAAAAAA-"
+	desc = "Keeps you tuned in on the subspace data streams and threads, enabling you to communicate and act with ease."
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "blue-headset"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
@@ -50,6 +49,13 @@
 	keyslot2 = null
 	keyslot = /obj/item/encryptionkey/admin
 	inhand_icon_state = "null"
+	subspace_transmission = TRUE
+	/// If true, subspace_transmission can be toggled at will.
+	subspace_switchable = TRUE
+	freerange = TRUE
+	command = TRUE
+	radio_noise = FALSE
+	keylock = RADIO_KEYSLOT_LOCKED
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	w_class = WEIGHT_CLASS_TINY
 	/// A cache of ghosts orbiting this item
@@ -73,7 +79,7 @@
 /obj/item/radio/headset/admin/proc/turn_on(mob/user)
 	active = TRUE
 	ADD_TRAIT(user, TRAIT_ADMIN_REACHABLE, ADMIN_GEAR_TRAIT)
-	ADD_TRAIT(user, TRAIT_MOVE_PHASING, ADMIN_GEAR_TRAIT)
+//	ADD_TRAIT(user, TRAIT_MOVE_PHASING, ADMIN_GEAR_TRAIT)
 	add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
 	to_chat(user, span_notice("[src] tunnels through narrative continuity. Reach, interaction, and collision limits are bypassed."))
 	update_appearance()
@@ -81,7 +87,7 @@
 /obj/item/radio/headset/admin/proc/turn_off(mob/user)
 	active = FALSE
 	REMOVE_TRAIT(user, TRAIT_ADMIN_REACHABLE, ADMIN_GEAR_TRAIT)
-	REMOVE_TRAIT(user, TRAIT_MOVE_PHASING, ADMIN_GEAR_TRAIT)
+//	REMOVE_TRAIT(user, TRAIT_MOVE_PHASING, ADMIN_GEAR_TRAIT)
 	remove_filter("admin_active_item")
 	to_chat(user, span_notice("[src] powers down and returns you to a non-reality warping state."))
 	update_appearance()
@@ -152,7 +158,7 @@
 //Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
 //New trait code at modular_nova\master_files\code\datums\wires\_wires.dm to show all wires w/o needing to hold blueprints or abductor multitool
 //The one set of lenses to rule them all
-//todo: icon fuckery in procs. verify show wires trait is working.
+//TODO: icon fuckery in procs. verify show wires trait is working.
 /obj/item/clothing/glasses/meson/engine/admin/debug//code\modules\clothing\glasses\engine_goggles.dm & code\modules\clothing\glasses\_glasses.dm
 	name = "subspace contacts"
 	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."
@@ -210,7 +216,6 @@
 	return CLICK_ACTION_SUCCESS
 
 // Admin Helmet
-// todo: add inspect blocking to phasing mode, add a visual.
 // We love casting spells. Did you know the perceptomatrix counts for spell clothing? Aint that neat.
 /obj/item/clothing/head/helmet/perceptomatrix/admin
 	name = "bluespace visor"
@@ -241,10 +246,10 @@
 
 	admin_phasing = !admin_phasing
 	if(admin_phasing)
-		attach_clothing_traits(TRAIT_MOVE_PHASING)
+		attach_clothing_traits(TRAIT_MOVE_PHASING, TRAIT_ADMIN_STEALTH, TRAIT_UNKNOWN_VOICE,)
 		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
 	else
-		detach_clothing_traits(TRAIT_MOVE_PHASING)
+		detach_clothing_traits(TRAIT_MOVE_PHASING, TRAIT_ADMIN_STEALTH, TRAIT_UNKNOWN_VOICE,)
 		remove_filter("admin_active_item")
 
 	balloon_alert(user, "phasing [admin_phasing ? "enabled" : "disabled"]")
@@ -336,7 +341,7 @@
 
 // Glorious Stable Slime Management System
 // Cytotheca is greek!
-// todo: icons
+// TODO: sprites
 /obj/item/storage/neck/admin/cytotheca
 	name = "bluespace cytotheca"
 	desc = "Why is it squishy?"
@@ -432,7 +437,7 @@
 	new /obj/item/slimecross/stabilized/yellow(src)
 
 // Keeping it thematic
-// todo: icon
+// TODO: sprites
 /obj/item/storage/neck/admin/cytotheca/subspace
 	name = "subspace cytotheca"
 	desc = "How is this squishier?"
@@ -463,12 +468,12 @@
 	clothing_traits = list(TRAIT_CLEANBOT_WHISPERER, TRAIT_AI_ACCESS, TRAIT_BLOB_ALLY, TRAIT_TENACIOUS, TRAIT_UNBREAKABLE, TRAIT_UNOBSERVANT, TRAIT_INVISIBLE_TO_CAMERA, TRAIT_CATLIKE_GRACE, TRAIT_NO_STRIP, TRAIT_TURF_IGNORE_SLIPPERY, TRAIT_TURF_IGNORE_SLOWDOWN, TRAIT_OVERWATCH_IMMUNE, TRAIT_TENTACLE_IMMUNE, TRAIT_WEATHER_IMMUNE, TRAIT_LAVA_IMMUNE, TRAIT_KNOW_ENGI_WIRES, TRAIT_FERAL_BITER, TRAIT_ADAMANTINE_EXTRACT_ARMOR, TRAIT_ROCK_EATER, TRAIT_SUPERMATTER_SOOTHER, TRAIT_UNNATURAL_RED_GLOWY_EYES, TRAIT_QUICKER_CARRY, TRAIT_NO_STAGGER, TRAIT_IGNORESLOWDOWN, TRAIT_NO_BLOOD_OVERLAY, TRAIT_NODISMEMBER, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_NODEATH)
 
 //Gives the undersuit the ability to teleport.
-//todo: apparently just doesnt work. fix this at some point.
-//todo: non-restricted teleport_loc setup and new spell just for this. This'll do for now though.
+//TODO: apparently just doesnt work. fix this at some point.
+//TODO: non-restricted teleport_loc setup and new spell just for this. This'll do for now though.
 /obj/item/clothing/under/admin/Initialize(mapload)
 	. = ..()
-	// In the future, this can be generalized into just "magic scrolls that give you a specific spell".
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+	// In the future, this can be generalized into just "magic scrolls that give you a specific spell".
 	var/datum/action/cooldown/spell/teleport/area_teleport = locate() in actions
 	if(!area_teleport)
 		return
@@ -515,7 +520,6 @@
 	hit_reflect_chance = 100
 
 // Worlds most comfortable gloves, great for tickling spacetime
-// todo: add actions_types fun spell casting mode with a toggle, similar to xray function toggle above
 /obj/item/clothing/gloves/tackler/admin
 	name = "bluespace gauntlets"
 	desc = "Extraordinarily lightweight and pleasantly comfortable gauntlets packed full of useful technology. You feel perfectly capable of defending yourself."
@@ -526,11 +530,10 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	clothing_traits = list(TRAIT_FAST_CUFFING)
+	clothing_traits = list()
 	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "blue-gauntlets"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
-	w_class = WEIGHT_CLASS_TINY
 	armor_type = /datum/armor/admin
 
 /obj/item/clothing/gloves/tackler/admin/Initialize(mapload)

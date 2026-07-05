@@ -1,6 +1,4 @@
 //! Admin tech storage belts
-//!
-//! TODO: more variants for the other outfit types
 
 /// The base admin bluespace satchel (belt).
 /// This one is empty, subtypes should use [/obj/item/storage/belt/utility/admin/full]
@@ -8,9 +6,9 @@
 /obj/item/storage/belt/utility/admin
 	name = "\improper bluespace satchel"
 	desc = "This bad boy can fit all your bus in one place. Why do you have this?!"
-	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/obj/clothing.dmi'
 	icon_state = "admeme_satchel"
-	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
+	worn_icon = 'modular_nova/modules/admin_tech/icons/mob/clothing.dmi'
 	worn_icon_state = "admeme_satchel"
 	storage_type = /datum/storage/admin
 	w_class = WEIGHT_CLASS_TINY

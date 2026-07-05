@@ -1,16 +1,17 @@
 //! Debug & Admin Internals Tanks
 
 //code\game\objects\items\tanks\tank_types.dm
-//todo:variant icons
+// TODO: sprites, fix worn sprite
 //define TANK_LEAK_PRESSURE (30.*ONE_ATMOSPHERE) = The internal pressure in kPa at which a handheld gas tank begins to take damage.
 //So our magic multiplier should be 29! Right. Right???
 //Base Debug Tank, probably fucks hard when used with ordnance, I haven't tried and you probably shouldn't try on prod either.
 /obj/item/tank/internals/admin
 	name = "subspace tank"
 	desc = "A palm-sized gas tank embedded with an ominous purple crystal. The longer your gaze lingers, the more unsettled you feel. Somewhere, a scientist yearns to print these. "
-	icon_state = "emergency_double"
+	icon = 'modular_nova/modules/admin_tech/icons/obj/tools.dmi'
+	icon_state = "sub-tank"
 	inhand_icon_state = "emergency_tank"
-	worn_icon_state = "emergency_engi"
+	worn_icon_state = NONE
 	tank_holder_icon_state = "holder_emergency_engi"
 	worn_icon = null
 	obj_flags = CONDUCTS_ELECTRICITY

@@ -2,7 +2,6 @@
 
 // Unique Subspace Modules
 // Unfilled basic admin module
-// todo: fill this path
 /obj/item/mod/module/admin
 	allow_flags = MODULE_ALLOW_INACTIVE
 	complexity = 0
@@ -47,21 +46,7 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
-// TODO: Should probably be removed, and we should use the new personal energy dune shields instead
-/obj/item/mod/module/energy_shield/admin
-	shield_icon = "none"
-	max_charges = 10
-	recharge_start_delay = 5
-	charge_increment_delay = 0.5 SECONDS
-	charge_recovery = 10
-	block_overwhelming_attacks = TRUE
-
-/obj/item/mod/module/energy_shield/admin/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
-
 // Users of this module cannot be inspected, also acts as a weldshield
-// TODO: see readme.md for advanced idea of this module
 /obj/item/mod/module/infiltrator/admin
 	name = "technician's visual cloak"
 	removable = FALSE

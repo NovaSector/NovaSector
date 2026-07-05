@@ -1,7 +1,4 @@
-//todo: recreational drugs box
-//todo: fix all the slime boxes, those suck
-//TODO: Antag box, Research box, Security box, Service Box, Cargo Box, Medical Box revisit
-//Globals! Wow!
+//Oh neat, a Global list! Wow!
 GLOBAL_LIST_INIT(subspace_box_types, list(
 		"Clear All Items",
 		"Another Subspace Box",
@@ -11,6 +8,7 @@ GLOBAL_LIST_INIT(subspace_box_types, list(
 		"Care Package"
 ))
 
+// New boxes go here, and then their name in the selector above. The list above decides the sorting, so, be smart.
 GLOBAL_LIST_INIT(subspace_box_contents, list(
 		"Another Subspace Box" = list(
 			/obj/item/storage/box/debug = 1
@@ -71,7 +69,7 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/disk/tech_disk/debug = 1,
 			/obj/item/flashlight/flare/torch/everburning = 1
 		),
-        "Power" = list(//Power Debugging -- todo: flatpacks
+        "Power" = list(//Power Debugging -- TODO: flatpacks
 			/obj/item/stock_parts/power_store/cell/infinite = 7,
 			/obj/item/stock_parts/power_store/battery/infinite = 7,
 			/obj/item/mod/core/infinite = 2,
