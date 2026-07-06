@@ -75,8 +75,7 @@ SUBSYSTEM_DEF(decay)
 
 	for(var/turf/open/floor/iterating_floor in possible_turfs)
 		if(iterating_floor.turf_flags & CAN_DECAY_BREAK_1)
-			if(prob(floor_tile_missing_percent_chance * severity_modifier) && prob(60))
-				iterating_floor.break_tile_to_plating()
+			iterating_floor.break_tile_to_plating()
 
 		if(prob(floor_dirt_percent_chance * severity_modifier))
 			new /obj/effect/decal/cleanable/dirt(iterating_floor)
