@@ -439,21 +439,29 @@
 // GASMASK
 
 /datum/greyscale_config/gasmask
-	name = "Gasmask"
+	name = "Gasmask (Colorable)"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/gasmask/gasmask.json'
 
 /datum/greyscale_config/gasmask/worn
-	name = "Gasmask (Worn)"
+	name = "Gasmask (Colorable, Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 
 /datum/greyscale_config/gasmask/worn/muzzled
-	name = "Gasmask (Worn, Muzzled)"
+	name = "Gasmask (Colorable, Worn, Muzzled)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
 
 /datum/greyscale_config/gasmask/worn/teshari
-	name = "Gasmask (Worn, Teshari)"
+	name = "Gasmask (Colorable, Worn, Teshari)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
+
+/datum/greyscale_config/gasmask/worn/better_vox
+	name = "Gasmask (Colorable, Worn, Vox Primalis)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+
+/datum/greyscale_config/gasmask/worn/vox
+	name = "Gasmask (Colorable, Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
 
 /*
 *	EYES

@@ -29,6 +29,8 @@
 	greyscale_config_worn = /datum/greyscale_config/gasmask/worn
 	greyscale_config_worn_teshari = /datum/greyscale_config/gasmask/worn/teshari
 	greyscale_config_worn_muzzled = /datum/greyscale_config/gasmask/worn/muzzled
+	greyscale_config_worn_better_vox = /datum/greyscale_config/gasmask/worn/better_vox
+	greyscale_config_worn_vox = /datum/greyscale_config/gasmask/worn/vox
 	greyscale_colors = "#333333#04D17E"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
