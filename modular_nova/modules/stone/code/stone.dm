@@ -147,7 +147,7 @@ GLOBAL_LIST_INIT(stone_recipes, list (
 	smoothing_groups = SMOOTH_GROUP_STONE_WALLS + SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
 	canSmoothWith = SMOOTH_GROUP_STONE_WALLS
 
-/turf/closed/mineral/gets_drilled(mob/user, give_exp = FALSE)
+/turf/closed/mineral/gets_drilled(mob/user, exp_multiplier = 0, triggered_by_explosion = FALSE)
 	if(prob(5))
 		new /obj/item/stack/stone(src)
 

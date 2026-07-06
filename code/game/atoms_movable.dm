@@ -36,9 +36,13 @@
 	var/speech_span
 	///Are we moving with inertia? Mostly used as an optimization
 	var/inertia_moving = FALSE
-	///Multiplier for inertia based movement in space
-	var/inertia_move_multiplier = 1
-	///Object "weight", higher weight reduces acceleration applied to the object
+	/// Multiplies speed the movable drifts when unaffected by gravity.
+	/// "Passive" is used for referring "base drift speed" - only the smaller of the two are used.
+	var/inertia_move_multiplier_passive = 1
+	/// Multiplies speed the movable drifts when unaffected by gravity.
+	/// "Active" is used for referring to things boosting our drift speed, like jetpacks - only the smaller of the two are used.
+	var/inertia_move_multiplier_active = 1
+	/// Object "weight", higher weight reduces acceleration applied to the object
 	var/inertia_force_weight = 1
 	///The last time we pushed off something
 	///This is a hack to get around dumb him him me scenarios
@@ -1302,15 +1306,12 @@
 	if(!isturf(loc) || Process_Spacemove(angle2dir(inertia_angle), continuous_move = TRUE))
 		return FALSE
 
-	if (!isnull(drift_handler))
-		if (drift_handler.newtonian_impulse(inertia_angle, start_delay, drift_force, controlled_cap, force_loop))
-			return TRUE
+	if (drift_handler?.newtonian_impulse(inertia_angle, start_delay, drift_force, controlled_cap, force_loop))
+		return TRUE
 
 	new /datum/drift_handler(src, inertia_angle, instant, start_delay, drift_force)
-	// Something went wrong and it failed to create itself, most likely we have a higher priority loop already
-	if (QDELETED(drift_handler))
-		return FALSE
-	return TRUE
+	// Qdeleted = failed to create itself = most likely we have a higher priority loop already
+	return !QDELETED(drift_handler)
 
 /atom/movable/set_explosion_block(explosion_block)
 	var/old_block = src.explosion_block

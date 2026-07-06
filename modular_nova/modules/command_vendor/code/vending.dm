@@ -1,5 +1,5 @@
 /obj/machinery/vending/access/command
-	name = "\improper Command Outfitting Station"
+	name = "\improper CommanDrobe"
 	desc = "A vending machine for specialised clothing for members of Command."
 	product_ads = "File paperwork in style!;It's red so you can't see the blood!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
 	icon = 'modular_nova/modules/command_vendor/icons/vending.dmi'
@@ -21,13 +21,15 @@
 	access_lists[ACCESS_CAPTAIN] = list(
 		// CAPTAIN
 		/obj/item/clothing/head/hats/caphat = 1,
-		/obj/item/clothing/head/caphat/beret = 1,
+		/obj/item/clothing/head/caphat/beret/nova = 1,
 		/obj/item/clothing/head/caphat/beret/alt = 1,
 		/obj/item/clothing/head/hats/imperial/cap = 1,
+		/obj/item/clothing/head/hats/caphat/bicorne = 1,
 		/obj/item/clothing/under/rank/captain = 1,
 		/obj/item/clothing/under/rank/captain/skirt = 1,
 		/obj/item/clothing/under/rank/captain/dress = 1,
 		/obj/item/clothing/under/rank/captain/nova/kilt = 1,
+		/obj/item/clothing/under/rank/captain/royal = 1,
 		/obj/item/clothing/under/imperial/captain = 1,
 		/obj/item/clothing/under/imperialskirt/captain = 1,
 		/obj/item/clothing/head/hats/caphat/parade = 1,
@@ -211,15 +213,30 @@
 		/obj/item/clothing/head/nanotrasen_consultant/beret = 1,
 		/obj/item/clothing/head/beret/centcom_formal/nt_consultant = 1,
 		/obj/item/clothing/head/hats/imperial/nanotrasen_consultant = 1,
+		/obj/item/clothing/head/hats/centcom_cap = 1,
+		/obj/item/clothing/head/hats/centhat = 1,
+		/obj/item/clothing/head/hats/caphat/naval = 1,
+		/obj/item/clothing/head/hats/caphat/naval/fleet_admiral = 1,
+		/obj/item/clothing/head/hats/intern = 1,
 		/obj/item/clothing/under/rank/nanotrasen_consultant = 1,
 		/obj/item/clothing/under/rank/nanotrasen_consultant/skirt = 1,
 		/obj/item/clothing/under/imperial/nanotrasen_consultant = 1,
 		/obj/item/clothing/under/imperialskirt/nanotrasen_consultant = 1,
-		/obj/item/clothing/head/hats/centhat = 1,
-		/obj/item/clothing/suit/armor/centcom_formal/nt_consultant = 1,
-		/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant = 1,
+		/obj/item/clothing/under/rank/centcom/nova/naval = 1,
+		/obj/item/clothing/under/rank/centcom/nova/naval/commander = 1,
+		/obj/item/clothing/under/rank/centcom/nova/naval/admiral = 1,
+		/obj/item/clothing/under/rank/centcom/nova/naval/fleet_admiral = 1,
 		/obj/item/clothing/under/rank/centcom/officer = 1,
 		/obj/item/clothing/under/rank/centcom/officer_skirt = 1,
+		/obj/item/clothing/under/rank/centcom/intern = 1,
+		/obj/item/clothing/suit/armor/centcom_formal/nt_consultant = 1,
+		/obj/item/clothing/suit/armor/vest/nanotrasen_consultant/green = 1,
+		/obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant = 1,
+		/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant = 1,
+		/obj/item/clothing/gloves/combat/naval = 1,
+		/obj/item/clothing/gloves/combat/naval/fleet_admiral = 1,
+		/obj/item/clothing/neck/cloak/admiral = 1,
+		/obj/item/clothing/neck/cloak/fleet_admiral = 1,
 		/obj/item/clothing/head/playbunnyears/centcom = 1,
 		/obj/item/clothing/neck/tie/bunnytie/centcom = 1,
 		/obj/item/clothing/suit/jacket/tailcoat/centcom = 1,
@@ -228,6 +245,8 @@
 
 	access_lists[ACCESS_COMMAND] = list(
 		/obj/item/clothing/head/hats/imperial = 5,
+		/obj/item/clothing/head/hats/caphat/naval/custom = 5,
+		/obj/item/clothing/head/hats/caphat/naval/custom/gold = 5,
 		/obj/item/clothing/under/imperial = 5,
 		/obj/item/clothing/under/imperialskirt = 5,
 	)

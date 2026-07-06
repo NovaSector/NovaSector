@@ -28,6 +28,7 @@
 		/obj/item/watertank/pepperspray = 2,
 		/obj/item/storage/belt/holster/energy = 4,
 		/obj/item/storage/box/holobadge = 1,
+		/obj/item/ammo_box/advanced/s12gauge/frangible = 2,
 	)
 
 /obj/machinery/vending/wardrobe/sec_wardrobe
@@ -75,9 +76,6 @@
 				/obj/item/clothing/under/rank/security/security_assistant_bunnysuit = 6,
 				/obj/item/clothing/suit/armor/security_tailcoat/assistant = 6,
 				/obj/item/clothing/neck/tie/bunnytie/security_assistant = 6,
-				/obj/item/clothing/head/playbunnyears/prisoner = 6,
-				/obj/item/clothing/under/rank/security/prisoner_bunnysuit = 6,
-				/obj/item/clothing/neck/tie/bunnytie/prisoner = 6,
 			),
 		),
 

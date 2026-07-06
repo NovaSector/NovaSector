@@ -162,7 +162,7 @@ GLOBAL_VAR_INIT(liquid_debug_colors, FALSE)
 			cached_color = mix_color_from_reagent_list(cached_add)
 		mixed_color = cached_color
 
-	var/height = CEILING(cached_volume/LIQUID_HEIGHT_DIVISOR, 1)
+	var/height = ceil(cached_volume/LIQUID_HEIGHT_DIVISOR)
 
 	var/determined_new_state
 	var/state_height = height

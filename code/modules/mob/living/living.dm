@@ -13,6 +13,8 @@
 	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]
 	diag_hud.add_atom_to_hud(src)
 	add_ally(src)
+	if(!pull_force)
+		remove_verb(src, /mob/living/verb/pulled)
 	GLOB.mob_living_list += src
 	SSpoints_of_interest.make_point_of_interest(src)
 	update_fov()
@@ -547,14 +549,11 @@
 
 //mob verbs are a lot faster than object verbs
 //for more info on why this is not atom/pull, see examinate() in mob.dm
-/mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
+/mob/living/verb/pulled(atom/movable/thing_pulled as mob|obj in oview(1))
 	set name = "Pull"
-	set category = "Object"
 
-	if(istype(AM) && Adjacent(AM))
-		start_pulling(AM)
-	else if(!combat_mode) //Don;'t cancel pulls if misclicking in combat mode.
-		stop_pulling()
+	if(istype(thing_pulled) && Adjacent(thing_pulled))
+		start_pulling(thing_pulled)
 
 /mob/living/stop_pulling()
 	if(ismob(pulling))
@@ -563,13 +562,8 @@
 	update_pull_movespeed()
 	update_pull_hud_icon()
 
-/mob/living/verb/stop_pulling1()
-	set name = "Stop Pulling"
-	set category = "IC"
-	stop_pulling()
-
 //same as above
-/mob/living/pointed(atom/A as mob|obj|turf in view(client.view, src))
+/mob/living/pointed(atom/A)
 	if(INCAPACITATED_IGNORING(src, INCAPABLE_RESTRAINTS))
 		return FALSE
 
@@ -644,7 +638,7 @@
 /* NOVA EDIT REMOVAL BEGIN - Handled in [modular_nova/master_files/code/modules/sleep/code/mob/living/living.dm]
 /mob/living/proc/mob_sleep()
 	set name = "Sleep"
-	set category = "IC"
+	set hidden = TRUE
 
 	if(IsSleeping())
 		to_chat(src, span_warning("You are already sleeping!"))
@@ -700,9 +694,6 @@ NOVA EDIT REMOVAL END */
 		return account
 
 /mob/living/proc/toggle_resting()
-	set name = "Rest"
-	set category = "IC"
-
 	set_resting(!resting, FALSE)
 
 
@@ -825,15 +816,17 @@ NOVA EDIT REMOVAL END */
 
 /mob/living/update_rest_hud_icon()
 	. = ..()
-	if(!.)
+	if(!. || !hud_used)
 		return FALSE
-	if(!hud_used.sleep_icon || HAS_TRAIT(src, TRAIT_SLEEPIMMUNE))
+
+	var/atom/movable/screen/sleep/sleep_icon = hud_used.screen_objects[HUD_MOB_SLEEP]
+	if(!sleep_icon || HAS_TRAIT(src, TRAIT_SLEEPIMMUNE))
 		return TRUE
+
 	if(resting || HAS_TRAIT(src, TRAIT_FLOORED))
-		hud_used.static_inventory |= hud_used.sleep_icon
+		sleep_icon.RemoveInvisibility(INVISIBILITY_SOURCE_SLEEP_HUD_BUTTON)
 	else
-		hud_used.static_inventory -= hud_used.sleep_icon
-	hud_used.show_hud(hud_used.hud_version)
+		sleep_icon.SetInvisibility(INVISIBILITY_ABSTRACT, INVISIBILITY_SOURCE_SLEEP_HUD_BUTTON)
 	return TRUE
 
 //Recursive function to find everything a mob is holding. Really shitty proc tbh.
@@ -897,8 +890,8 @@ NOVA EDIT REMOVAL END */
 /mob/living/update_health_hud()
 	var/severity = 0
 	var/healthpercent = (health/maxHealth) * 100
-	if(hud_used?.healthdoll) //to really put you in the boots of a simplemob
-		var/atom/movable/screen/healthdoll/living/livingdoll = hud_used.healthdoll
+	var/atom/movable/screen/healthdoll/living/livingdoll = hud_used?.screen_objects[HUD_MOB_HEALTHDOLL]
+	if(istype(livingdoll)) //to really put you in the boots of a simplemob
 		switch(healthpercent)
 			if(100 to INFINITY)
 				severity = 0
@@ -923,6 +916,8 @@ NOVA EDIT REMOVAL END */
 				mob_mask = icon('icons/hud/screen_gen.dmi', health_doll_icon_state) //swap to something generic if they have no special doll
 			livingdoll.add_filter("mob_shape_mask", 1, alpha_mask_filter(icon = mob_mask))
 			livingdoll.add_filter("inset_drop_shadow", 2, drop_shadow_filter(size = -1))
+		livingdoll.health_overlay.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative'>[round(healthpercent, 1)]%</div>")
+
 	if(severity > 0)
 		overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, severity)
 	else
@@ -1200,10 +1195,7 @@ NOVA EDIT REMOVAL END */
 		return FALSE
 	return TRUE
 
-/mob/living/verb/resist()
-	set name = "Resist"
-	set category = "IC"
-
+/mob/living/proc/resist()
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(execute_resist)))
 
 ///proc extender of [/mob/living/verb/resist] meant to make the process queable if the server is overloaded when the verb is called
@@ -1312,9 +1304,9 @@ NOVA EDIT REMOVAL END */
 			//NOVA EDIT ADDITION
 			// Akula break-out flavor
 			if(HAS_TRAIT(src, TRAIT_SLIPPERY))
-				visible_message(span_cyan("[src] slips free of [pulledby]'s grip!"), \
-								span_cyan("You slip free of [pulledby]'s grip!"), null, null, pulledby)
-				to_chat(pulledby, span_cyan("[src] slips free of your grip!"))
+				visible_message(span_cyan_nova("[src] slips free of [pulledby]'s grip!"), \
+								span_cyan_nova("You slip free of [pulledby]'s grip!"), null, null, pulledby)
+				to_chat(pulledby, span_cyan_nova("[src] slips free of your grip!"))
 				playsound(loc, 'sound/misc/slip.ogg', 50, TRUE, -1)
 				log_combat(pulledby, src, "broke grab")
 				pulledby.stop_pulling()
@@ -1535,32 +1527,27 @@ NOVA EDIT REMOVAL END */
 	update_stamina_hud()
 
 /mob/living/update_stamina_hud(shown_stamina_loss)
-	if(!client || !hud_used?.stamina)
+	if(!client || !hud_used)
+		return
+
+	var/atom/movable/screen/stamina/stamina = hud_used.screen_objects[HUD_MOB_STAMINA]
+	if (!stamina)
+		return
+
+	if(stat == DEAD)
+		stamina.icon_state = "stamina_dead"
 		return
 
 	var/stam_crit_threshold = maxHealth - crit_threshold
+	if(shown_stamina_loss == null)
+		shown_stamina_loss = get_stamina_loss()
 
-	if(stat == DEAD)
-		hud_used.stamina.icon_state = "stamina_dead"
+	if(shown_stamina_loss >= stam_crit_threshold)
+		stamina.icon_state = "stamina_crit"
+	else if(shown_stamina_loss > 0 && maxHealth > 0)
+		stamina.icon_state = "stamina_[ceil(shown_stamina_loss / (maxHealth * 0.2))]"
 	else
-
-		if(shown_stamina_loss == null)
-			shown_stamina_loss = get_stamina_loss()
-
-		if(shown_stamina_loss >= stam_crit_threshold)
-			hud_used.stamina.icon_state = "stamina_crit"
-		else if(shown_stamina_loss > maxHealth*0.8)
-			hud_used.stamina.icon_state = "stamina_5"
-		else if(shown_stamina_loss > maxHealth*0.6)
-			hud_used.stamina.icon_state = "stamina_4"
-		else if(shown_stamina_loss > maxHealth*0.4)
-			hud_used.stamina.icon_state = "stamina_3"
-		else if(shown_stamina_loss > maxHealth*0.2)
-			hud_used.stamina.icon_state = "stamina_2"
-		else if(shown_stamina_loss > 0)
-			hud_used.stamina.icon_state = "stamina_1"
-		else
-			hud_used.stamina.icon_state = "stamina_full"
+		stamina.icon_state = "stamina_full"
 
 /mob/living/carbon/alien/update_stamina()
 	return
@@ -1643,7 +1630,7 @@ NOVA EDIT REMOVAL END */
 				/mob/living/basic/bot/dedbot = 25,
 				/mob/living/basic/bot/cleanbot = 25,
 				/mob/living/basic/bot/firebot = 25,
-				/mob/living/basic/bot/honkbot = 25,
+				/mob/living/basic/bot/secbot/honkbot = 25,
 				/mob/living/basic/bot/hygienebot = 25,
 				/mob/living/basic/bot/vibebot = 25,
 				/mob/living/basic/bot/medbot = 13,
@@ -1695,6 +1682,7 @@ NOVA EDIT REMOVAL END */
 				/mob/living/basic/bear/russian,
 				/mob/living/basic/blob_minion/blobbernaut,
 				/mob/living/basic/blob_minion/spore,
+				/mob/living/basic/blood_worm/hatchling/polymorph,
 				/mob/living/basic/butterfly,
 				/mob/living/basic/carp,
 				/mob/living/basic/carp/mega,
@@ -2212,6 +2200,13 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 				return FALSE
 			update_transform(var_value/current_size)
 			. = TRUE
+		if(NAMEOF(src, pull_force))
+			if(var_value == 0) //no more pulling
+				remove_verb(src, /mob/living/verb/pulled)
+			else
+				add_verb(src, /mob/living/verb/pulled)
+			. = TRUE
+
 
 	if(!isnull(.))
 		datum_flags |= DF_VAR_EDITED
@@ -2443,8 +2438,13 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /mob/living/proc/end_look()
 	reset_perspective()
 	looking_vertically = NONE
+	if(!looking_holder)
+		return
+	on_looking_z_level_change(looking_holder.loc, get_turf(src))
 	QDEL_NULL(looking_holder)
 
+/mob/living/proc/on_looking_z_level_change(turf/old_loc, turf/new_loc)
+	SEND_SIGNAL(src, COMSIG_LIVING_LOOK_Z_CHANGE, old_loc, new_loc)
 
 /**
  * look_up Changes the perspective of the mob to any openspace turf above the mob
@@ -2467,6 +2467,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	looking_vertically = UP
 	looking_holder = new(above_turf, src, UP)
 	reset_perspective(looking_holder)
+	on_looking_z_level_change(get_turf(src), above_turf)
 
 /mob/living/proc/get_looking_turf(direction)
 	//down needs to check this floor
@@ -2516,7 +2517,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		return
 
 	if(. <= UNCONSCIOUS || new_stat >= UNCONSCIOUS)
-		update_body() // to update eyes
+		update_eyes()
 
 	switch(.) //Previous stat.
 		if(CONSCIOUS)
@@ -3047,10 +3048,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	log_admin("[key_name(admin)] gave a guardian spirit controlled by [guardian_client] to [src].")
 	BLACKBOX_LOG_ADMIN_VERB("Give Guardian Spirit")
 
-/mob/living/verb/lookup()
-	set name = "Look Up"
-	set category = "IC"
-
+/mob/living/proc/lookup()
 	if(looking_vertically)
 		to_chat(src, "You set your head straight again.")
 		end_look()
@@ -3067,10 +3065,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	to_chat(src, "You tilt your head upwards.")
 	look_up()
 
-/mob/living/verb/lookdown()
-	set name = "Look Down"
-	set category = "IC"
-
+/mob/living/proc/lookdown()
 	if(looking_vertically)
 		to_chat(src, "You set your head straight again.")
 		end_look()

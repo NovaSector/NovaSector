@@ -10,6 +10,8 @@
 	assignment = "Syndicate Ship Captain"
 	trim_state = "trim_captain"
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS)
+	honorifics = list("Captain", "Cpt.")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /// DS-2
 
@@ -101,7 +103,7 @@
 	trim_state = "trim_ds2admiral"
 	sechud_icon_state = SECHUD_DS2_ADMIRAL
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS, ACCESS_SYNDICATE_LEADER)
-	honorifics = list("Admiral","Captain","Director")
+	honorifics = list("Admiral","Captain","Director", "Cpt.", "Adm.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /// Interdyne
@@ -119,6 +121,8 @@
 	assignment = "Interdyne Shaft Miner"
 	sechud_icon_state = SECHUD_INTERDYNE_SHAFTMINER
 	department_color = COLOR_CARGO_BROWN
+	honorifics = list("Lieutenant", "Mining Officer")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/syndicom/nova/interdyne/deckofficer
 	assignment = "Deck Officer"

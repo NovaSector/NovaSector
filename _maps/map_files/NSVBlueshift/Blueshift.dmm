@@ -1596,11 +1596,6 @@
 /obj/item/clothing/head/utility/hardhat,
 /turf/open/floor/iron,
 /area/station/maintenance/thruster_room/central)
-"arv" = (
-/obj/structure/flora/bush/stalky,
-/obj/effect/landmark/start/hangover,
-/turf/open/water/overlay,
-/area/station/hallway/primary/central)
 "arA" = (
 /turf/open/floor/iron/smooth_edge{
 	dir = 4
@@ -14852,6 +14847,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 5
 	},
+/obj/effect/spawner/random/gizmo,
 /turf/open/floor/engine,
 /area/station/science/explab)
 "cXH" = (
@@ -40769,7 +40765,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/mob/living/simple_animal/bot/secbot/beepsky/officer,
+/mob/living/basic/bot/secbot/beepsky/officer,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -45086,7 +45082,7 @@
 "jhL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/mob/living/simple_animal/bot/secbot{
+/mob/living/basic/bot/secbot{
 	name = "Officer Beats-The-Kobold"
 	},
 /turf/open/floor/iron/dark/side{
@@ -76691,7 +76687,7 @@
 "pzw" = (
 /obj/structure/cable,
 /obj/effect/landmark/event_spawn,
-/mob/living/simple_animal/bot/secbot/beepsky/armsky,
+/mob/living/basic/bot/secbot/beepsky/armsky,
 /obj/machinery/holopad/secure,
 /turf/open/floor/iron,
 /area/station/security/armory)
@@ -80503,7 +80499,7 @@
 	},
 /area/station/hallway/secondary/command)
 "qnM" = (
-/mob/living/simple_animal/bot/secbot/pingsky,
+/mob/living/basic/bot/secbot/pingsky,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -151842,7 +151838,7 @@ wWZ
 cYn
 prp
 nBY
-arv
+dIv
 cYn
 tbx
 gJY

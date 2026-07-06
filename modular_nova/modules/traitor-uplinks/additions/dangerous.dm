@@ -80,6 +80,14 @@
 	cost = /datum/uplink_item/low_medium_cost/weaponry::cost
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
 
+/datum/uplink_item/dangerous/alacran
+	name = "Alacrán PDW Case"
+	desc = "A compact bullpup PDW chambered in .27-54 Cesarzowa. \
+			Comes with three full magazines for sustained suppressive fire."
+	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/alacran
+	cost = /datum/uplink_item/low_medium_cost/weaponry::cost
+	purchasable_from = UPLINK_TRAITORS | UPLINK_SERIOUS_OPS
+
 // MEDIUM COST
 /datum/uplink_item/dangerous/nukeop_smg
 	name = "Scarborough C-20r Case"

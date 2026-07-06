@@ -27,7 +27,7 @@
 	if (!..(preferences))
 		return FALSE
 
-	return "Photophobia" in preferences.all_quirks
+	return /datum/quirk/photophobia::name in preferences.all_quirks
 
 /datum/preference/choiced/photophobia_severity/init_possible_values()
 	var/list/values = list("Sensitive", "Hypersensitive")

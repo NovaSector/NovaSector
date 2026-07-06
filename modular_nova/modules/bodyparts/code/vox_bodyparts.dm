@@ -36,9 +36,9 @@
 /obj/item/bodypart/leg/left/digitigrade/vox
 	icon_greyscale = BODYPART_ICON_VOX
 	bodyshape = parent_type::bodyshape | BODYSHAPE_SNOUTED | BODYSHAPE_CUSTOM
-	base_limb_id = SPECIES_VOX
+	limb_id = SPECIES_VOX
 
 /obj/item/bodypart/leg/right/digitigrade/vox
 	icon_greyscale = BODYPART_ICON_VOX
 	bodyshape = parent_type::bodyshape | BODYSHAPE_SNOUTED | BODYSHAPE_CUSTOM
-	base_limb_id = SPECIES_VOX
+	limb_id = SPECIES_VOX

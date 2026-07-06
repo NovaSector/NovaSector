@@ -192,7 +192,7 @@
 /obj/item/gun/ballistic/rifle/pulse_sniper/before_firing(atom/target, mob/user)
 	. = ..()
 	if(chambered?.loaded_projectile)
-		var/obj/projectile/beam/laser/plasma_glob/pulse/plasma_pulse = chambered.loaded_projectile
+		var/obj/projectile/bullet/pulse/plasma_pulse = chambered.loaded_projectile
 		if(chambered.loaded_projectile && istype(plasma_pulse))
 			plasma_pulse.armour_penetration = 10
 			plasma_pulse.secondary_armour_penetration = 10

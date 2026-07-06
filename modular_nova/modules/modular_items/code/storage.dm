@@ -19,3 +19,11 @@
 /datum/storage/pillbottle
 	max_slots = 21
 	max_total_storage = WEIGHT_CLASS_TINY * 21
+
+/datum/storage/katana_sheath/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(list(
+			/obj/item/katana,
+			/obj/item/forging/reagent_weapon/katana,
+		)
+	)

@@ -114,6 +114,10 @@
 	SIGNAL_HANDLER
 	SHOULD_CALL_PARENT(TRUE)
 
+	if(istype(implanted_organ, /obj/item/organ/heart))
+		var/obj/item/organ/heart/implanted_heart = implanted_organ
+		implanted_heart.blood_regeneration_multiplier = 1 // No heart blood regen buffs
+
 	if(implanted_organ != parent)
 		return FALSE
 
@@ -130,6 +134,10 @@
 /datum/component/organ_corruption/proc/unregister_signals_from_organ_loser(obj/item/organ/target, mob/living/carbon/loser)
 	SIGNAL_HANDLER
 	SHOULD_CALL_PARENT(TRUE)
+
+	if(istype(target, /obj/item/organ/heart))
+		var/obj/item/organ/heart/removed_heart = target
+		removed_heart.blood_regeneration_multiplier = initial(removed_heart.blood_regeneration_multiplier)
 
 	if(target != parent)
 		return FALSE
