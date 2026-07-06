@@ -54,7 +54,7 @@ SUBSYSTEM_DEF(decay)
 	if(!possible_turfs)
 		CRASH("SSDecay had no possible turfs to use!")
 
-	severity_modifier = rand(1, 4)
+	severity_modifier = 4
 
 	message_admins("SSDecay severity modifier set to [severity_modifier]")
 	log_world("SSDecay severity modifier set to [severity_modifier]")

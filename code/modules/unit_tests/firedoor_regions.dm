@@ -27,8 +27,6 @@
 /datum/unit_test/firedoor_regions/proc/check_fire_area(obj/machinery/door/firedoor/firedoor, datum/callback/room_cb, list/already_detected_turfs)
 	. = FALSE
 	for(var/turf/open/nearby as anything in get_adjacent_open_turfs(firedoor))
-		if(nearby in already_detected_turfs)
-			continue
 		if(!istype(get_area(nearby), /area/station)) // uhhhh icebox spawns ruins on the station z level
 			continue
 		if(locate(/obj/machinery/door/firedoor) in nearby) // firedoors adjacent to another firedoors
@@ -41,7 +39,6 @@
 		if(!detected_area)
 			continue
 
-		already_detected_turfs |= detected_area
 		if(!is_fire_alarm_in_list_of_turfs(detected_area))
 			TEST_FAIL("No fire alarm in region: [AREACOORD(nearby)] (Region size: [length(detected_area)] turfs)")
 			. = TRUE
