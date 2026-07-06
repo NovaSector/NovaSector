@@ -696,7 +696,7 @@ There are several things that need to be remembered:
 			digitigrade_clothing_cache[index] = fcopy_rsc(resulting_icon)
 
 		return icon(resulting_icon)
-	// NOVA EDIT ADDITION START
+	// NOVA EDIT ADDITION START - generated taur clothing icons
 
 	var/taur_variation = GET_TAUR_VARIATION(src, bodyshape)
 	switch(taur_variation)
