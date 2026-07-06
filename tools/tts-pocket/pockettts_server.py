@@ -12,7 +12,6 @@ import threading
 import time
 import warnings
 import wave
-from collections import OrderedDict
 from pathlib import Path
 from typing import Any
 
@@ -73,19 +72,9 @@ PRELOAD_MODEL = os.getenv("POCKETTTS_PRELOAD_MODEL", "0").strip().lower() in {"1
 PRELOAD_VOICES = os.getenv("POCKETTTS_PRELOAD_VOICES", "0").strip().lower() in {"1", "true", "yes", "on"}
 BACKGROUND_WARMUP = os.getenv("POCKETTTS_BACKGROUND_WARMUP", "1").strip().lower() in {"1", "true", "yes", "on"}
 WARMUP_VOICES = os.getenv("POCKETTTS_WARMUP_VOICES", "").strip()
-RESPONSE_CACHE_ENABLED = os.getenv("POCKETTTS_RESPONSE_CACHE", "1").strip().lower() in {"1", "true", "yes", "on"}
 LOG_TIMINGS = os.getenv("POCKETTTS_LOG_TIMINGS", "1").strip().lower() in {"1", "true", "yes", "on"}
-# Every spoken line fires /tts, /tts-radio and the gibberish /tts-radio with the
-# same voice+text, i.e. three identical full synthesis passes. On CPU that
-# redundancy dominates the client-perceived latency. This short-lived in-memory
-# WAV cache lets the 2nd and 3rd requests of a line reuse the first synthesis;
-# they then only differ in cheap post-processing (radio clicks / encode).
-SYNTH_CACHE_ENABLED = os.getenv("POCKETTTS_SYNTH_CACHE", "1").strip().lower() in {"1", "true", "yes", "on"}
-SYNTH_CACHE_TTL = float(os.getenv("POCKETTTS_SYNTH_CACHE_TTL", "120"))
-SYNTH_CACHE_MAX_ENTRIES = int(os.getenv("POCKETTTS_SYNTH_CACHE_MAX_ENTRIES", "64"))
 
 BLIP_SAMPLE_RATE = 24_000
-RADIO_CLICK_STYLE_VERSION = 2
 SILICON_FILTER = (
     "aresample=44100,"
     "acrusher=samples=2:level_out=3,"
@@ -102,10 +91,6 @@ _model_lock = threading.Lock()
 _inference_lock = threading.Lock()
 _voice_states: dict[tuple[str, str], dict[str, Any]] = {}
 _voice_state_lock = threading.Lock()
-_response_cache_lock = threading.Lock()
-# Guarded by _inference_lock (all access happens while synthesizing), so it
-# needs no lock of its own. Maps synth key -> (expiry_time, wav_bytes).
-_wav_cache: "OrderedDict[str, tuple[float, bytes]]" = OrderedDict()
 
 
 def log(message: str) -> None:
@@ -222,124 +207,12 @@ def request_filters() -> tuple[str, set[str]]:
     return filter_chain, special_filters
 
 
-def response_cache_dir() -> Path:
-    return CACHE_DIR / "responses"
-
-
-def voice_fingerprint(voice: VoiceDefinition | None, voice_name: str = "") -> str:
-    if voice is None:
-        return voice_name
-
-    source = resolve_source(voice.source, VOICE_CONFIG_PATH)
-    source_path = Path(source)
-    if source_path.exists():
-        stat = source_path.stat()
-        return f"{voice.name}:{source}:{stat.st_mtime_ns}:{stat.st_size}"
-    return f"{voice.name}:{source}"
-
-
-def response_cache_key(
-    kind: str,
-    voice: VoiceDefinition | None,
-    voice_name: str,
-    text: str,
-    filter_chain: str,
-    special_filters: set[str],
-    pitch: int,
-) -> str:
-    payload = {
-        "kind": kind,
-        "voice": voice_fingerprint(voice, voice_name),
-        "text": text,
-        "filter": filter_chain,
-        "special_filters": sorted(special_filters),
-        "pitch": pitch if ENABLE_PITCH else 0,
-        "ogg_bitrate": OGG_BITRATE,
-        "radio_click_style": RADIO_CLICK_STYLE_VERSION if "radio" in special_filters else None,
-    }
-    encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
-    return hashlib.sha256(encoded).hexdigest()
-
-
-def read_response_cache(cache_key: str) -> tuple[bytes, float] | None:
-    if not RESPONSE_CACHE_ENABLED:
-        return None
-
-    ogg_path = response_cache_dir() / f"{cache_key}.ogg"
-    metadata_path = response_cache_dir() / f"{cache_key}.json"
-    if not ogg_path.exists() or not metadata_path.exists():
-        return None
-
-    try:
-        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-        return ogg_path.read_bytes(), float(metadata.get("duration", 0))
-    except (OSError, ValueError, json.JSONDecodeError):
-        return None
-
-
-def write_response_cache(cache_key: str, ogg_bytes: bytes, duration: float) -> None:
-    if not RESPONSE_CACHE_ENABLED:
-        return
-
-    cache_dir = response_cache_dir()
-    cache_dir.mkdir(parents=True, exist_ok=True)
-    ogg_path = cache_dir / f"{cache_key}.ogg"
-    metadata_path = cache_dir / f"{cache_key}.json"
-    tmp_suffix = f"{os.getpid()}.{threading.get_ident()}"
-    tmp_ogg_path = cache_dir / f"{cache_key}.{tmp_suffix}.ogg.tmp"
-    tmp_metadata_path = cache_dir / f"{cache_key}.{tmp_suffix}.json.tmp"
-
-    with _response_cache_lock:
-        tmp_ogg_path.write_bytes(ogg_bytes)
-        tmp_metadata_path.write_text(json.dumps({"duration": duration}), encoding="utf-8")
-        tmp_ogg_path.replace(ogg_path)
-        tmp_metadata_path.replace(metadata_path)
-
-
-def synthesize_text_wav(voice: VoiceDefinition, text: str) -> tuple[bytes, bool]:
-    """Return (wav_bytes, reused). `reused` is True when the WAV came from the
-    synthesis cache and the model did not run."""
+def synthesize_text_wav(voice: VoiceDefinition, text: str) -> bytes:
     model = get_model()
     voice_state = get_voice_state(voice)
-    cache_key = _wav_cache_key(voice, text) if SYNTH_CACHE_ENABLED else None
-    # The check-and-store lives inside _inference_lock, which already serializes
-    # every synthesis. That makes it atomic per key with no extra lock: when a
-    # line's three near-simultaneous requests queue on the lock, the first
-    # synthesizes and the other two find the cached WAV and skip the model.
     with _inference_lock:
-        if cache_key is not None:
-            cached = _wav_cache_get(cache_key)
-            if cached is not None:
-                return cached, True
         audio = model.generate_audio(voice_state, text)
-        wav_bytes = tensor_to_wav_bytes(audio, model.sample_rate)
-        if cache_key is not None:
-            _wav_cache_put(cache_key, wav_bytes)
-        return wav_bytes, False
-
-
-def _wav_cache_key(voice: VoiceDefinition, text: str) -> str:
-    raw = f"{voice_fingerprint(voice)}\x00{text}".encode("utf-8")
-    return hashlib.sha256(raw).hexdigest()
-
-
-def _wav_cache_get(cache_key: str) -> bytes | None:
-    entry = _wav_cache.get(cache_key)
-    if entry is None:
-        return None
-    expiry, wav_bytes = entry
-    if expiry < time.monotonic():
-        del _wav_cache[cache_key]
-        return None
-    _wav_cache.move_to_end(cache_key)
-    return wav_bytes
-
-
-def _wav_cache_put(cache_key: str, wav_bytes: bytes) -> None:
-    _wav_cache[cache_key] = (time.monotonic() + SYNTH_CACHE_TTL, wav_bytes)
-    _wav_cache.move_to_end(cache_key)
-    while len(_wav_cache) > SYNTH_CACHE_MAX_ENTRIES:
-        _wav_cache.popitem(last=False)
+    return tensor_to_wav_bytes(audio, model.sample_rate)
 
 
 def synthesize_blip_wav(voice_name: str, text: str, pitch: int) -> bytes:
@@ -424,6 +297,18 @@ def format_filter_chain(filter_chain: str, wav_bytes: bytes) -> str:
     return filter_chain.replace("%SAMPLE_RATE%", str(wav_sample_rate(wav_bytes)))
 
 
+def _run_ffmpeg(wav_bytes: bytes, filters: list[str], out_args: list[str]) -> bytes:
+    command = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-f", "wav", "-i", "pipe:0"]
+    if filters:
+        command.extend(["-filter_complex", ",".join(filters)])
+    command.extend(out_args)
+    result = subprocess.run(command, input=wav_bytes, capture_output=True)
+    if result.returncode != 0:
+        app.logger.error("ffmpeg failed: %s", result.stderr.decode("utf-8", errors="replace"))
+        abort(500)
+    return result.stdout
+
+
 def wav_to_ogg(
     wav_bytes: bytes,
     filter_chain: str,
@@ -439,42 +324,32 @@ def wav_to_ogg(
     if "silicon" in special_filters:
         filters.append(SILICON_FILTER)
 
-    command = [
-        "ffmpeg",
-        "-hide_banner",
-        "-loglevel",
-        "error",
-        "-f",
-        "wav",
-        "-i",
-        "pipe:0",
-    ]
-    if filters:
-        command.extend(["-filter_complex", ",".join(filters)])
-    command.extend(["-vn", "-c:a", "libvorbis", "-b:a", OGG_BITRATE, "-f", "ogg", "pipe:1"])
+    ogg_out = ["-vn", "-c:a", "libvorbis", "-b:a", OGG_BITRATE, "-f", "ogg", "pipe:1"]
 
-    result = subprocess.run(command, input=wav_bytes, capture_output=True)
-    if result.returncode != 0:
-        app.logger.error("ffmpeg failed: %s", result.stderr.decode("utf-8", errors="replace"))
-        abort(500)
-
-    ogg_bytes = result.stdout
     if "radio" in special_filters:
-        ogg_bytes = add_radio_clicks(ogg_bytes)
+        # Single OGG encode. Apply the ffmpeg filters (if any) into PCM, splice
+        # the radio clicks in the audio-segment domain, then encode ogg ONCE.
+        # The old path encoded ogg here and then decoded + re-encoded it just to
+        # prepend/append the clicks -- two encodes plus a decode per radio
+        # request, and radio is fired twice per line, so it was a real serial
+        # cost. When there are no ffmpeg filters we skip ffmpeg entirely.
+        if filters:
+            voice_wav = _run_ffmpeg(wav_bytes, filters, ["-vn", "-f", "wav", "pipe:1"])
+            voice = AudioSegment.from_file(io.BytesIO(voice_wav), format="wav")
+        else:
+            voice = AudioSegment.from_file(io.BytesIO(wav_bytes), format="wav")
+        combined = radio_click(start=True) + voice + radio_click(start=False)
+        output = io.BytesIO()
+        combined.export(output, format="ogg", codec="libvorbis", bitrate=OGG_BITRATE)
+        ogg_bytes = output.getvalue()
+    else:
+        ogg_bytes = _run_ffmpeg(wav_bytes, filters, ogg_out)
 
     if not filter_chain and not special_filters:
         duration = wav_duration_seconds(wav_bytes)
     else:
         duration = audio_duration_seconds(ogg_bytes)
     return ogg_bytes, duration
-
-
-def add_radio_clicks(ogg_bytes: bytes) -> bytes:
-    audio = AudioSegment.from_file(io.BytesIO(ogg_bytes), format="ogg")
-    combined = radio_click(start=True) + audio + radio_click(start=False)
-    output = io.BytesIO()
-    combined.export(output, format="ogg", codec="libvorbis", bitrate=OGG_BITRATE)
-    return output.getvalue()
 
 
 def radio_click(start: bool) -> AudioSegment:
@@ -553,23 +428,16 @@ def text_to_speech() -> Any:
     text = request_text()
     filter_chain, special_filters = request_filters()
     pitch = request_pitch()
-    cache_key = response_cache_key("tts", voice, voice_name, text, filter_chain, special_filters, pitch)
-    cached_response = read_response_cache(cache_key)
-    if cached_response is not None:
-        log_timing(f"tts cache voice={voice_name!r} chars={len(text)} total={time.perf_counter() - total_start:.3f}s")
-        return audio_response(*cached_response)
 
     synth_start = time.perf_counter()
-    wav_bytes, wav_reused = synthesize_text_wav(voice, text or " ")
+    wav_bytes = synthesize_text_wav(voice, text or " ")
     synth_elapsed = time.perf_counter() - synth_start
     encode_start = time.perf_counter()
     ogg_bytes, duration = wav_to_ogg(wav_bytes, filter_chain, special_filters, pitch, is_blips=False)
     encode_elapsed = time.perf_counter() - encode_start
-    write_response_cache(cache_key, ogg_bytes, duration)
     log_timing(
         f"tts generated voice={voice_name!r} chars={len(text)} "
-        f"synth={synth_elapsed:.3f}s{' (wav reused)' if wav_reused else ''} "
-        f"encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
+        f"synth={synth_elapsed:.3f}s encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
     )
     return audio_response(ogg_bytes, duration)
 
@@ -587,11 +455,6 @@ def text_to_speech_blips() -> Any:
     text = request_text()
     filter_chain, special_filters = request_filters()
     pitch = request_pitch()
-    cache_key = response_cache_key("blips", voice, voice_name, text, filter_chain, special_filters, pitch)
-    cached_response = read_response_cache(cache_key)
-    if cached_response is not None:
-        log_timing(f"blips cache voice={voice_name!r} chars={len(text)} total={time.perf_counter() - total_start:.3f}s")
-        return audio_response(*cached_response)
 
     synth_start = time.perf_counter()
     wav_bytes = synthesize_blip_wav(voice_name, text, pitch)
@@ -599,7 +462,6 @@ def text_to_speech_blips() -> Any:
     encode_start = time.perf_counter()
     ogg_bytes, duration = wav_to_ogg(wav_bytes, filter_chain, special_filters, pitch, is_blips=True)
     encode_elapsed = time.perf_counter() - encode_start
-    write_response_cache(cache_key, ogg_bytes, duration)
     log_timing(
         f"blips generated voice={voice_name!r} chars={len(text)} "
         f"synth={synth_elapsed:.3f}s encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
@@ -621,23 +483,16 @@ def text_to_speech_radio() -> Any:
     filter_chain, special_filters = request_filters()
     special_filters.add("radio")
     pitch = request_pitch()
-    cache_key = response_cache_key("radio", voice, voice_name, text, filter_chain, special_filters, pitch)
-    cached_response = read_response_cache(cache_key)
-    if cached_response is not None:
-        log_timing(f"radio cache voice={voice_name!r} chars={len(text)} total={time.perf_counter() - total_start:.3f}s")
-        return audio_response(*cached_response)
 
     synth_start = time.perf_counter()
-    wav_bytes, wav_reused = synthesize_text_wav(voice, text or " ")
+    wav_bytes = synthesize_text_wav(voice, text or " ")
     synth_elapsed = time.perf_counter() - synth_start
     encode_start = time.perf_counter()
     ogg_bytes, duration = wav_to_ogg(wav_bytes, filter_chain, special_filters, pitch, is_blips=False)
     encode_elapsed = time.perf_counter() - encode_start
-    write_response_cache(cache_key, ogg_bytes, duration)
     log_timing(
         f"radio generated voice={voice_name!r} chars={len(text)} "
-        f"synth={synth_elapsed:.3f}s{' (wav reused, waited on lock)' if wav_reused else ''} "
-        f"encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
+        f"synth={synth_elapsed:.3f}s encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
     )
     return audio_response(ogg_bytes, duration)
 
@@ -656,11 +511,6 @@ def text_to_speech_blips_radio() -> Any:
     filter_chain, special_filters = request_filters()
     special_filters.add("radio")
     pitch = request_pitch()
-    cache_key = response_cache_key("blips-radio", voice, voice_name, text, filter_chain, special_filters, pitch)
-    cached_response = read_response_cache(cache_key)
-    if cached_response is not None:
-        log_timing(f"blips-radio cache voice={voice_name!r} chars={len(text)} total={time.perf_counter() - total_start:.3f}s")
-        return audio_response(*cached_response)
 
     synth_start = time.perf_counter()
     wav_bytes = synthesize_blip_wav(voice_name, text, pitch)
@@ -668,7 +518,6 @@ def text_to_speech_blips_radio() -> Any:
     encode_start = time.perf_counter()
     ogg_bytes, duration = wav_to_ogg(wav_bytes, filter_chain, special_filters, pitch, is_blips=True)
     encode_elapsed = time.perf_counter() - encode_start
-    write_response_cache(cache_key, ogg_bytes, duration)
     log_timing(
         f"blips-radio generated voice={voice_name!r} chars={len(text)} "
         f"synth={synth_elapsed:.3f}s encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
@@ -732,8 +581,6 @@ def root() -> Any:
 
 def preload() -> None:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
-    if RESPONSE_CACHE_ENABLED:
-        response_cache_dir().mkdir(parents=True, exist_ok=True)
     if PRELOAD_MODEL:
         log("Preloading model because POCKETTTS_PRELOAD_MODEL is enabled.")
         get_model()
