@@ -10,9 +10,17 @@ import random
 import subprocess
 import threading
 import time
+import warnings
 import wave
+from collections import OrderedDict
 from pathlib import Path
 from typing import Any
+
+# torchao fires UserWarnings (AffineQuantizedTensor / PlainLayout deprecation)
+# on every quantized-tensor op, i.e. every inference. Cosmetic only. The
+# PYTHONWARNINGS env var can't target this because it end-anchors the module
+# name; a real filter matched against the submodule prefix does the job.
+warnings.filterwarnings("ignore", category=UserWarning, module=r"torchao\..*")
 
 TORCH_THREADS = os.getenv("POCKETTTS_TORCH_THREADS", "").strip()
 if TORCH_THREADS:
@@ -67,6 +75,14 @@ BACKGROUND_WARMUP = os.getenv("POCKETTTS_BACKGROUND_WARMUP", "1").strip().lower(
 WARMUP_VOICES = os.getenv("POCKETTTS_WARMUP_VOICES", "").strip()
 RESPONSE_CACHE_ENABLED = os.getenv("POCKETTTS_RESPONSE_CACHE", "1").strip().lower() in {"1", "true", "yes", "on"}
 LOG_TIMINGS = os.getenv("POCKETTTS_LOG_TIMINGS", "1").strip().lower() in {"1", "true", "yes", "on"}
+# Every spoken line fires /tts, /tts-radio and the gibberish /tts-radio with the
+# same voice+text, i.e. three identical full synthesis passes. On CPU that
+# redundancy dominates the client-perceived latency. This short-lived in-memory
+# WAV cache lets the 2nd and 3rd requests of a line reuse the first synthesis;
+# they then only differ in cheap post-processing (radio clicks / encode).
+SYNTH_CACHE_ENABLED = os.getenv("POCKETTTS_SYNTH_CACHE", "1").strip().lower() in {"1", "true", "yes", "on"}
+SYNTH_CACHE_TTL = float(os.getenv("POCKETTTS_SYNTH_CACHE_TTL", "120"))
+SYNTH_CACHE_MAX_ENTRIES = int(os.getenv("POCKETTTS_SYNTH_CACHE_MAX_ENTRIES", "64"))
 
 BLIP_SAMPLE_RATE = 24_000
 RADIO_CLICK_STYLE_VERSION = 2
@@ -87,6 +103,9 @@ _inference_lock = threading.Lock()
 _voice_states: dict[tuple[str, str], dict[str, Any]] = {}
 _voice_state_lock = threading.Lock()
 _response_cache_lock = threading.Lock()
+# Guarded by _inference_lock (all access happens while synthesizing), so it
+# needs no lock of its own. Maps synth key -> (expiry_time, wav_bytes).
+_wav_cache: "OrderedDict[str, tuple[float, bytes]]" = OrderedDict()
 
 
 def log(message: str) -> None:
@@ -277,12 +296,50 @@ def write_response_cache(cache_key: str, ogg_bytes: bytes, duration: float) -> N
         tmp_metadata_path.replace(metadata_path)
 
 
-def synthesize_text_wav(voice: VoiceDefinition, text: str) -> bytes:
+def synthesize_text_wav(voice: VoiceDefinition, text: str) -> tuple[bytes, bool]:
+    """Return (wav_bytes, reused). `reused` is True when the WAV came from the
+    synthesis cache and the model did not run."""
     model = get_model()
     voice_state = get_voice_state(voice)
+    cache_key = _wav_cache_key(voice, text) if SYNTH_CACHE_ENABLED else None
+    # The check-and-store lives inside _inference_lock, which already serializes
+    # every synthesis. That makes it atomic per key with no extra lock: when a
+    # line's three near-simultaneous requests queue on the lock, the first
+    # synthesizes and the other two find the cached WAV and skip the model.
     with _inference_lock:
+        if cache_key is not None:
+            cached = _wav_cache_get(cache_key)
+            if cached is not None:
+                return cached, True
         audio = model.generate_audio(voice_state, text)
-    return tensor_to_wav_bytes(audio, model.sample_rate)
+        wav_bytes = tensor_to_wav_bytes(audio, model.sample_rate)
+        if cache_key is not None:
+            _wav_cache_put(cache_key, wav_bytes)
+        return wav_bytes, False
+
+
+def _wav_cache_key(voice: VoiceDefinition, text: str) -> str:
+    raw = f"{voice_fingerprint(voice)}\x00{text}".encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
+
+
+def _wav_cache_get(cache_key: str) -> bytes | None:
+    entry = _wav_cache.get(cache_key)
+    if entry is None:
+        return None
+    expiry, wav_bytes = entry
+    if expiry < time.monotonic():
+        del _wav_cache[cache_key]
+        return None
+    _wav_cache.move_to_end(cache_key)
+    return wav_bytes
+
+
+def _wav_cache_put(cache_key: str, wav_bytes: bytes) -> None:
+    _wav_cache[cache_key] = (time.monotonic() + SYNTH_CACHE_TTL, wav_bytes)
+    _wav_cache.move_to_end(cache_key)
+    while len(_wav_cache) > SYNTH_CACHE_MAX_ENTRIES:
+        _wav_cache.popitem(last=False)
 
 
 def synthesize_blip_wav(voice_name: str, text: str, pitch: int) -> bytes:
@@ -503,7 +560,7 @@ def text_to_speech() -> Any:
         return audio_response(*cached_response)
 
     synth_start = time.perf_counter()
-    wav_bytes = synthesize_text_wav(voice, text or " ")
+    wav_bytes, wav_reused = synthesize_text_wav(voice, text or " ")
     synth_elapsed = time.perf_counter() - synth_start
     encode_start = time.perf_counter()
     ogg_bytes, duration = wav_to_ogg(wav_bytes, filter_chain, special_filters, pitch, is_blips=False)
@@ -511,7 +568,8 @@ def text_to_speech() -> Any:
     write_response_cache(cache_key, ogg_bytes, duration)
     log_timing(
         f"tts generated voice={voice_name!r} chars={len(text)} "
-        f"synth={synth_elapsed:.3f}s encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
+        f"synth={synth_elapsed:.3f}s{' (wav reused)' if wav_reused else ''} "
+        f"encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
     )
     return audio_response(ogg_bytes, duration)
 
@@ -570,7 +628,7 @@ def text_to_speech_radio() -> Any:
         return audio_response(*cached_response)
 
     synth_start = time.perf_counter()
-    wav_bytes = synthesize_text_wav(voice, text or " ")
+    wav_bytes, wav_reused = synthesize_text_wav(voice, text or " ")
     synth_elapsed = time.perf_counter() - synth_start
     encode_start = time.perf_counter()
     ogg_bytes, duration = wav_to_ogg(wav_bytes, filter_chain, special_filters, pitch, is_blips=False)
@@ -578,7 +636,8 @@ def text_to_speech_radio() -> Any:
     write_response_cache(cache_key, ogg_bytes, duration)
     log_timing(
         f"radio generated voice={voice_name!r} chars={len(text)} "
-        f"synth={synth_elapsed:.3f}s encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
+        f"synth={synth_elapsed:.3f}s{' (wav reused, waited on lock)' if wav_reused else ''} "
+        f"encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
     )
     return audio_response(ogg_bytes, duration)
 
