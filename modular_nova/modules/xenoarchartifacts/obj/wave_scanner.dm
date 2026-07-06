@@ -7,6 +7,7 @@
 	icon_state = "wave_scanner"
 	worn_icon_state = "wave_scanner"
 	w_class = 3
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plasma = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = SMALL_MATERIAL_AMOUNT)
 
 	var/obj/item/xenoarch/searcher/processor
 

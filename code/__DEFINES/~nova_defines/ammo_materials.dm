@@ -44,11 +44,11 @@
 
 // shotgun ammo types
 #define AMMO_MATS_SHOTGUN list( \
-	/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4, \
+	/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, \
 ) // not quite as thick as a half-sheet
 
 #define AMMO_MATS_SHOTGUN_FLECH list( \
-	/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, \
+	/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, \
 	/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2, \
 	)
 
@@ -65,8 +65,7 @@
 	)
 
 #define AMMO_MATS_SHOTGUN_PLASMA list( \
-	/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, \
-	/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2, \
+	/datum/material/iron = SHEET_MATERIAL_AMOUNT, \
 	)
 
 #define AMMO_MATS_SHOTGUN_PENDART list( \
