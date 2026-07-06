@@ -75,14 +75,28 @@ WARMUP_VOICES = os.getenv("POCKETTTS_WARMUP_VOICES", "").strip()
 LOG_TIMINGS = os.getenv("POCKETTTS_LOG_TIMINGS", "1").strip().lower() in {"1", "true", "yes", "on"}
 
 BLIP_SAMPLE_RATE = 24_000
-SILICON_FILTER = (
-    "aresample=44100,"
-    "acrusher=samples=2:level_out=3,"
-    "aecho=0.8:0.88:45|85:0.25|0.14,"
-    "aemphasis=type=cd,"
-    "equalizer=f=7710:t=q:w=0.6:g=-6,"
-    "equalizer=f=33:t=q:w=0.44:g=-10,"
-    "alimiter=level_in=1:level_out=1:limit=0.5:attack=5:release=20"
+
+
+SFX_DIR = Path(os.getenv("POCKETTTS_SFX_DIR", BASE_DIR / "sfx")).resolve()
+RADIO_START_FILES = ["on1.wav", "on2.wav"]
+RADIO_END_FILES = ["off1.wav", "off2.wav", "off3.wav", "off4.wav"]
+RADIO_STATIC_FILE = "diffstatic.wav"
+SYNTH_IMPULSE_FILE = "SynthImpulse.wav"
+ROOM_IMPULSE_FILE = "RoomImpulse.wav"
+# tg mixes the static in at `static * 0.2`; 0.2 linear is ~-14 dB.
+RADIO_STATIC_GAIN_DB = -14.0
+
+
+RADIO_VOICE_FILTERS = ["highpass=f=300", "lowpass=f=3000", "asoftclip=type=tanh"]
+
+
+SILICON_COMPLEX_TAIL = (
+    "aresample=44100 [re_1]; [re_1] apad=pad_dur=2 [in_1]; [in_1] asplit=2 [in_1_1] [in_1_2]; "
+    "[in_1_1] [1] afir=dry=10:wet=10 [reverb_1]; [in_1_2] [reverb_1] amix=inputs=2:weights=8 1 [mix_1]; "
+    "[mix_1] asplit=2 [mix_1_1] [mix_1_2]; [mix_1_1] [2] afir=dry=1:wet=1 [reverb_2]; "
+    "[mix_1_2] [reverb_2] amix=inputs=2:weights=10 1 [mix_2]; "
+    "[mix_2] equalizer=f=7710:t=q:w=0.6:g=-6,equalizer=f=33:t=q:w=0.44:g=-10 [out]; "
+    "[out] alimiter=level_in=1:level_out=1:limit=0.5:attack=5:release=20:level=disabled"
 )
 
 app = Flask(__name__)
@@ -91,6 +105,8 @@ _model_lock = threading.Lock()
 _inference_lock = threading.Lock()
 _voice_states: dict[tuple[str, str], dict[str, Any]] = {}
 _voice_state_lock = threading.Lock()
+_sfx_cache: dict[str, AudioSegment] = {}
+_sfx_lock = threading.Lock()
 
 
 def log(message: str) -> None:
@@ -309,6 +325,59 @@ def _run_ffmpeg(wav_bytes: bytes, filters: list[str], out_args: list[str]) -> by
     return result.stdout
 
 
+def _run_silicon(wav_bytes: bytes, prefix_filters: list[str], out_args: list[str]) -> bytes:
+    # afir convolution reverb against the two impulse responses (tgtts-qwen3).
+    prefix = (",".join(prefix_filters) + ",") if prefix_filters else ""
+    filter_complex = f"[0] {prefix}{SILICON_COMPLEX_TAIL}"
+    command = [
+        "ffmpeg", "-hide_banner", "-loglevel", "error",
+        "-f", "wav", "-i", "pipe:0",
+        "-i", str(SFX_DIR / SYNTH_IMPULSE_FILE),
+        "-i", str(SFX_DIR / ROOM_IMPULSE_FILE),
+        "-filter_complex", filter_complex,
+    ]
+    command.extend(out_args)
+    result = subprocess.run(command, input=wav_bytes, capture_output=True)
+    if result.returncode != 0:
+        app.logger.error("ffmpeg (silicon) failed: %s", result.stderr.decode("utf-8", errors="replace"))
+        abort(500)
+    return result.stdout
+
+
+def load_sfx(name: str) -> AudioSegment:
+    cached = _sfx_cache.get(name)
+    if cached is not None:
+        return cached
+    with _sfx_lock:
+        cached = _sfx_cache.get(name)
+        if cached is not None:
+            return cached
+        segment = AudioSegment.from_file(SFX_DIR / name)
+        _sfx_cache[name] = segment
+        return segment
+
+
+def matched_sfx(name: str, frame_rate: int) -> AudioSegment:
+    # tg's load_and_match: mono, resampled to the target rate so concatenation and
+    # overlay line up with the synthesized voice instead of playing at the wrong speed.
+    return load_sfx(name).set_channels(1).set_frame_rate(frame_rate)
+
+
+def apply_radio_clicks(voice: AudioSegment) -> AudioSegment:
+    # Mix in looped diffstatic, then bracket with a random mic-on / mic-off click,
+    # matching tgtts-qwen3's radio_effect + radio prefix/suffix.
+    frame_rate = voice.frame_rate
+    static = matched_sfx(RADIO_STATIC_FILE, frame_rate)
+    if len(static) < len(voice):
+        static = static * (len(voice) // len(static) + 1)
+    static = static[: len(voice)].apply_gain(RADIO_STATIC_GAIN_DB)
+    voice = voice.overlay(static)
+
+    start = matched_sfx(random.choice(RADIO_START_FILES), frame_rate)
+    end = matched_sfx(random.choice(RADIO_END_FILES), frame_rate)
+    return start + voice + end
+
+
 def wav_to_ogg(
     wav_bytes: bytes,
     filter_chain: str,
@@ -316,32 +385,39 @@ def wav_to_ogg(
     pitch: int,
     is_blips: bool,
 ) -> tuple[bytes, float]:
+    is_radio = "radio" in special_filters
+    is_silicon = "silicon" in special_filters
+
     filters = []
     if ENABLE_PITCH and pitch and not is_blips:
         filters.append(f"rubberband=pitch={math.pow(2, pitch / 12):.6f}")
     if filter_chain:
         filters.append(format_filter_chain(filter_chain, wav_bytes))
-    if "silicon" in special_filters:
-        filters.append(SILICON_FILTER)
+    if is_radio:
+        filters.extend(RADIO_VOICE_FILTERS)
 
     ogg_out = ["-vn", "-c:a", "libvorbis", "-b:a", OGG_BITRATE, "-f", "ogg", "pipe:1"]
+    wav_out = ["-vn", "-f", "wav", "pipe:1"]
 
-    if "radio" in special_filters:
-        # Single OGG encode. Apply the ffmpeg filters (if any) into PCM, splice
-        # the radio clicks in the audio-segment domain, then encode ogg ONCE.
-        # The old path encoded ogg here and then decoded + re-encoded it just to
-        # prepend/append the clicks -- two encodes plus a decode per radio
-        # request, and radio is fired twice per line, so it was a real serial
-        # cost. When there are no ffmpeg filters we skip ffmpeg entirely.
-        if filters:
-            voice_wav = _run_ffmpeg(wav_bytes, filters, ["-vn", "-f", "wav", "pipe:1"])
-            voice = AudioSegment.from_file(io.BytesIO(voice_wav), format="wav")
+    if is_radio:
+        # Everything into PCM first, splice the click SFX in the audio-segment
+        # domain, then encode ogg ONCE (radio is fired twice per line, so the
+        # extra encode/decode the old path did was a real serial cost).
+        if is_silicon:
+            voice_wav = _run_silicon(wav_bytes, filters, wav_out)
+        elif filters:
+            voice_wav = _run_ffmpeg(wav_bytes, filters, wav_out)
         else:
-            voice = AudioSegment.from_file(io.BytesIO(wav_bytes), format="wav")
-        combined = radio_click(start=True) + voice + radio_click(start=False)
+            voice_wav = wav_bytes
+        voice = AudioSegment.from_file(io.BytesIO(voice_wav), format="wav")
+        combined = apply_radio_clicks(voice)
         output = io.BytesIO()
         combined.export(output, format="ogg", codec="libvorbis", bitrate=OGG_BITRATE)
-        ogg_bytes = output.getvalue()
+        return output.getvalue(), len(combined) / 1000.0
+
+    # Non-radio: a single ffmpeg call straight to ogg.
+    if is_silicon:
+        ogg_bytes = _run_silicon(wav_bytes, filters, ogg_out)
     else:
         ogg_bytes = _run_ffmpeg(wav_bytes, filters, ogg_out)
 
@@ -350,38 +426,6 @@ def wav_to_ogg(
     else:
         duration = audio_duration_seconds(ogg_bytes)
     return ogg_bytes, duration
-
-
-def radio_click(start: bool) -> AudioSegment:
-    duration = 85 if start else 120
-    total_samples = max(1, int(BLIP_SAMPLE_RATE * duration / 1000))
-    rng = np.random.default_rng(random.getrandbits(32))
-
-    noise = rng.normal(0.0, 1.0, total_samples).astype(np.float32)
-    short_average = np.convolve(noise, np.ones(5, dtype=np.float32) / 5, mode="same")
-    long_average = np.convolve(noise, np.ones(28, dtype=np.float32) / 28, mode="same")
-    static = short_average - (long_average * 0.45)
-
-    progress = np.linspace(0, 1, total_samples, dtype=np.float32)
-    attack = np.minimum(progress * (18 if start else 10), 1.0)
-    release = np.power(np.maximum(1 - progress, 0.0), 0.55 if start else 0.75)
-    envelope = attack * release
-
-    timeline = np.arange(total_samples, dtype=np.float32) / BLIP_SAMPLE_RATE
-    pop_frequency = 120 if start else 85
-    pop_decay = np.exp(-timeline * (55 if start else 38))
-    pop = np.sin(2 * np.pi * pop_frequency * timeline) * pop_decay
-
-    samples = (static * envelope * 0.34) + (pop * 0.18)
-    samples = np.tanh(samples * 1.7) / 1.7
-    pcm = (np.clip(samples, -1.0, 1.0) * 32767).astype("<i2").tobytes()
-
-    return AudioSegment(
-        data=pcm,
-        sample_width=2,
-        frame_rate=BLIP_SAMPLE_RATE,
-        channels=1,
-    ).apply_gain(-7)
 
 
 def audio_duration_seconds(ogg_bytes: bytes) -> float:
@@ -539,6 +583,14 @@ def pitch_available() -> Any:
     return make_response("Pitch available", 200)
 
 
+@app.route("/toggle-logging", methods=["GET", "POST"])
+def toggle_logging() -> Any:
+    require_authorization()
+    global LOG_TIMINGS
+    LOG_TIMINGS = not LOG_TIMINGS
+    return jsonify({"logging": LOG_TIMINGS})
+
+
 @app.route("/voices/reload", methods=["POST"])
 def reload_voices() -> Any:
     require_authorization()
@@ -579,8 +631,18 @@ def root() -> Any:
     )
 
 
+def warm_sfx() -> None:
+    # Decode the radio/silicon SFX once so the first radio line doesn't pay for it.
+    for name in [RADIO_STATIC_FILE, *RADIO_START_FILES, *RADIO_END_FILES]:
+        try:
+            load_sfx(name)
+        except Exception as error:
+            log(f"Failed to load SFX {name}: {error}")
+
+
 def preload() -> None:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    warm_sfx()
     if PRELOAD_MODEL:
         log("Preloading model because POCKETTTS_PRELOAD_MODEL is enabled.")
         get_model()

@@ -2,10 +2,12 @@
 
 This is a single-container TTS backend for NovaSector's existing TTS subsystem. It implements the game-facing endpoints already used by `code/controllers/subsystem/tts.dm`:
 
+- `GET /tts` / `GET /tts-radio`
+- `GET /tts-blips` / `GET /tts-blips-radio`
 - `GET /tts-voices`
 - `GET /pitch-available`
-- `GET /tts`
-- `GET /tts-blips`
+- `GET|POST /toggle-logging` — flip per-request timing logs at runtime
+- `GET /health-check`
 
 PocketTTS runs on CPU, so this avoids the old GPU/RVC path while keeping the BYOND config unchanged.
 
