@@ -173,6 +173,16 @@ def request_text() -> str:
     return text[:MAX_TEXT_CHARS]
 
 
+def request_text_radio() -> str:
+    # The radio-gibberish request sends raw_text/gibberish_text instead of text.
+    # We don't garble here, so fall back to whichever the caller provided.
+    payload = request.get_json(silent=True) or {}
+    text = payload.get("text")
+    if text is None:
+        text = payload.get("gibberish_text", payload.get("raw_text", ""))
+    return str(text)[:MAX_TEXT_CHARS]
+
+
 def request_pitch() -> int:
     raw_pitch = request.args.get("pitch", "0")
     try:
@@ -534,6 +544,74 @@ def text_to_speech_blips() -> Any:
     write_response_cache(cache_key, ogg_bytes, duration)
     log_timing(
         f"blips generated voice={voice_name!r} chars={len(text)} "
+        f"synth={synth_elapsed:.3f}s encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
+    )
+    return audio_response(ogg_bytes, duration)
+
+
+@app.route("/tts-radio", methods=["GET", "POST"])
+def text_to_speech_radio() -> Any:
+    require_authorization()
+    total_start = time.perf_counter()
+
+    voice_name = request.args.get("voice", "")
+    voice = find_voice(voice_name)
+    if voice is None:
+        abort(404)
+
+    text = request_text_radio()
+    filter_chain, special_filters = request_filters()
+    special_filters.add("radio")
+    pitch = request_pitch()
+    cache_key = response_cache_key("radio", voice, voice_name, text, filter_chain, special_filters, pitch)
+    cached_response = read_response_cache(cache_key)
+    if cached_response is not None:
+        log_timing(f"radio cache voice={voice_name!r} chars={len(text)} total={time.perf_counter() - total_start:.3f}s")
+        return audio_response(*cached_response)
+
+    synth_start = time.perf_counter()
+    wav_bytes = synthesize_text_wav(voice, text or " ")
+    synth_elapsed = time.perf_counter() - synth_start
+    encode_start = time.perf_counter()
+    ogg_bytes, duration = wav_to_ogg(wav_bytes, filter_chain, special_filters, pitch, is_blips=False)
+    encode_elapsed = time.perf_counter() - encode_start
+    write_response_cache(cache_key, ogg_bytes, duration)
+    log_timing(
+        f"radio generated voice={voice_name!r} chars={len(text)} "
+        f"synth={synth_elapsed:.3f}s encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
+    )
+    return audio_response(ogg_bytes, duration)
+
+
+@app.route("/tts-blips-radio", methods=["GET", "POST"])
+def text_to_speech_blips_radio() -> Any:
+    require_authorization()
+    total_start = time.perf_counter()
+
+    voice_name = request.args.get("voice", "")
+    voice = find_voice(voice_name)
+    if voice is None:
+        abort(404)
+
+    text = request_text()
+    filter_chain, special_filters = request_filters()
+    special_filters.add("radio")
+    pitch = request_pitch()
+    cache_key = response_cache_key("blips-radio", voice, voice_name, text, filter_chain, special_filters, pitch)
+    cached_response = read_response_cache(cache_key)
+    if cached_response is not None:
+        log_timing(f"blips-radio cache voice={voice_name!r} chars={len(text)} total={time.perf_counter() - total_start:.3f}s")
+        return audio_response(*cached_response)
+
+    synth_start = time.perf_counter()
+    wav_bytes = synthesize_blip_wav(voice_name, text, pitch)
+    synth_elapsed = time.perf_counter() - synth_start
+    encode_start = time.perf_counter()
+    ogg_bytes, duration = wav_to_ogg(wav_bytes, filter_chain, special_filters, pitch, is_blips=True)
+    encode_elapsed = time.perf_counter() - encode_start
+    write_response_cache(cache_key, ogg_bytes, duration)
+    log_timing(
+        f"blips-radio generated voice={voice_name!r} chars={len(text)} "
         f"synth={synth_elapsed:.3f}s encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
     )
     return audio_response(ogg_bytes, duration)
