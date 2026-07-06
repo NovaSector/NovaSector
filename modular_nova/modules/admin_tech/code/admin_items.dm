@@ -290,6 +290,7 @@ Admin Variants of Common Tools
 		/obj/item/stack/sheet/pizza/fifty = 50,
 		/obj/item/stack/sheet/spaceship = 50,
 		/obj/item/stack/sheet/spaceshipglass = 50,
+		/obj/item/stack/sheet/hot_ice = 50,
 		/obj/item/stack/circuit_stack/full = null,
 	)
 	for(var/obj/item/stack/stack_type as anything in items_inside)
@@ -444,6 +445,7 @@ Admin Variants of Common Tools
 	name = "subspace emag-doorjack"
 	desc = "It's a card with a magnetic strip attached to some circuitry that hurts to look at. Don't wave this at anything you care about."
 	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
+	icon_state = "sub-emag"
 	worn_icon_state = "emag"
 	prox_check = FALSE//makes wireless. be careful
 	type_blacklist = list()//this is the crucial change to restore global emag function
@@ -983,9 +985,9 @@ Admin Variants of Common Tools
 	name = "subspace botanical can"
 	desc = "A gardening can embedded with technology that leaves you with a dull pain in your head. An ominous purple crystal wobbles and glimmers from inside the device, golden fluid leaking from momentarily visible pores like bubbling lava. \
 	You suddenly find yourself afraid of spilling the contents."
-	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
-	icon_state = "adv_watering_can"
-	inhand_icon_state = "adv_watering_can"
+//	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
+//	icon_state = "adv_watering_can"
+//	inhand_icon_state = "adv_watering_can"
 	volume = 1000
 	list_reagents = list(/datum/reagent/medicine/adminordrazine = 1000)
 	refill_rate = 100
@@ -1045,7 +1047,9 @@ Admin Variants of Common Tools
 	name = "subspace extinguisher"
 	desc = "A tiny fire extinguisher, designed for putting out small fires. It feels like it has an infinite amount of water. How you can tell this, you aren't sure."
 	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
-	icon_state = "sub-extinguisher"
+	icon_state = "sub-extinguisher0"
+	base_icon_state = "sub-extinguisher0"
+	sprite_name = "sub-extinguisher0"
 	max_water = INFINITY
 	starting_water = TRUE
 	chem = /datum/reagent/water
@@ -1167,10 +1171,6 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	resistance_flags = INDESTRUCTIBLE
 	obj_flags = ADMIN_OBJ_FLAGS
 //ADMIN_ITEM_VARS(/obj/item/choice_beacon/job_locker)
-
-/obj/item/choice_beacon/job_locker/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /obj/item/choice_beacon/job_locker/generate_display_names()
 	if(!locker_path)
@@ -1312,7 +1312,6 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	. = ..()
 	alt_continuous = string_list(alt_continuous)
 	alt_simple = string_list(alt_simple)
-	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple, -5, TRAIT_TRANSFORM_ACTIVE)
 	AddComponent(/datum/component/butchering, \
 	speed = 6 SECONDS, \
@@ -1385,7 +1384,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 /obj/item/firing_pin/admin
 	name = "subspace firing pin"
 	desc = "A small authentication device, to be inserted into a firearm receiver to allow operation. Central Command's Technicians have had their bodies attenuated in a way that can be sampled with 'simple' technology."
-	icon = 'icons/obj/devices/gunmod.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-firing-pin"
 	inhand_icon_state = "pen"
 	worn_icon_state = "pen"
@@ -1414,7 +1413,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 // Subspace beakers. Horrifying volume contents.
 /obj/item/reagent_containers/cup/beaker/admin
-	name = "small subspace beaker"
+	name = "subspace beaker"
 	desc = "Tilting this from side to side is like looking into a tear in reality. It looks bottomless."
 	abstract_type = /obj/item/reagent_containers/cup
 	amount_per_transfer_from_this = 10
@@ -1580,7 +1579,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 // TODO: sprites, make and adjust speech json, adjust fire modes for damage, fix double fire that its inheriting for w/e reason
 // TODO: find out why it's firing twice. probably the subtype gun we used
 /obj/item/gun/energy/modular_laser_rifle/carbine/admin
-	name = "\improper modular subspace carbine"
+	name = "\improper subspace carbine"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns32x.dmi'
 	icon_state = "hoshi_kill"
 	inhand_icon_state = "hoshi_kill"
@@ -1663,11 +1662,19 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	/// How many charge sections does this variant of weapon have? This is used for deciding icon states to don't be dumb.
 	charge_sections = 3
 	/// What is the shot cooldown this variant applies to the weapon?
-	shot_delay = 0 SECONDS
+	shot_delay = 0.1 SECONDS
 	/// What json string do we check for when making chat messages with this mode?
 	json_speech_string = "disturb"
 	/// What do we change the gun's runetext color to when applied
 	gun_runetext_color = "#cd4456"
+	/// Keeps track of the autofire component for deleting later
+	var/datum/component/automatic_fire/autofire_component
+
+/datum/laser_weapon_mode/admin/apply_to_weapon(obj/item/gun/energy/applied_gun)
+	autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay)
+
+/datum/laser_weapon_mode/admin/remove_from_weapon(obj/item/gun/energy/applied_gun)
+	QDEL_NULL(autofire_component)
 
 // /obj/item/gun/energy/pulse/destroyer, an admin classic
 /datum/laser_weapon_mode/admin/destroyer_pulse
@@ -1702,6 +1709,14 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	gun_runetext_color = "#7a0bb7"
 	/// Keeps track of the scope component for deleting later
 	var/datum/component/scope/scope_component
+
+// Another attempt at the energy based anti tank shot
+/obj/item/ammo_casing/energy/mm20x138
+	name = "20x138mm bullet casing"
+	desc = "A 20x138mm bullet casing."
+	projectile_type = /obj/projectile/bullet/mm20x138
+	icon_state = ".50"
+	newtonian_force = 1.5
 
 /datum/laser_weapon_mode/admin/sniper/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	scope_component = applied_gun.AddComponent(/datum/component/scope, 3)
@@ -2097,7 +2112,16 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 				return FALSE
 			purity = input
 			return TRUE
-// Potential beaker insertion handling code. You can't actually stick pre-existing beakers in this rn. This isn't tested yet because it requires fucking with the tsx file which I'm not doing quite yet. SHOULD work if given buttons
+
+		if("eject")
+			if(QDELETED(beaker))
+				return FALSE
+			ui.user.put_in_hands(beaker)
+			beaker = null
+			return TRUE
+
+	update_appearance()
+// Potential beaker insertion handling code? You can't actually stick pre-existing beakers in this rn. This isn't tested yet because it requires fucking with the tsx file which I'm not doing quite yet. SHOULD work if given buttons
 // Might try and fix this with an attack instead of adding a button, but, its handheld, this is a bit inconvenient to use, idk what the best playability choice is here.
 // Maybe just having the beakers at all is fine, and I can add a click combo to the subspace beaker to just instantly delete it from your hand or something
 /*
@@ -2113,15 +2137,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 				return FALSE
 			beaker = container
 			return TRUE
-
-		if("eject")
-			if(QDELETED(beaker))
-				return FALSE
-			ui.user.put_in_hands(beaker)
-			beaker = null
-			return TRUE
 */
-	update_appearance()
 
 // Holds our info about the beaker itself
 /obj/item/handheld_debug_chem_synth/ui_data(mob/user)
@@ -2210,3 +2226,95 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 		loaded_projectile.name = "piercing chemical dart"
 		CG.syringes_left--
 	return ..()
+
+// Even more advanced.
+/obj/item/healthanalyzer/advanced/admin
+	name = "subspace health analyzer"
+	icon_state = "health_adv"
+	desc = "A hand-held body scanner able to distinguish vital signs of the subject with high accuracy."
+	advanced = TRUE
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/healthanalyzer/advanced/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// Fuck the original scan, really. I need more detail and less immersion for this thing.
+/obj/item/healthanalyzer/advanced/admin/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	. = ..()
+	if(!isliving(interacting_with))// Bail if not body
+		return
+	admin_diagnostic_scan(interacting_with, user)// Passes the scan to the next proc
+
+// The new diag scan
+/obj/item/healthanalyzer/advanced/admin/proc/admin_diagnostic_scan(mob/living/target, mob/user)
+	var/list/report = list("<span class='info'><b>Diagnostic Addendum for [target] ([round_timestamp()]):</b></span>")
+
+	if(ishuman(target))// Normal damage and organs
+		var/mob/living/carbon/human/human_target = target
+		for(var/sorted_slot in GLOB.organ_process_order)
+			var/obj/item/organ/organ = human_target.get_organ_slot(sorted_slot)
+			if(!organ)
+				continue
+			var/percent = round((organ.damage / organ.maxHealth) * 100, 0.1)
+			report += "<span class='info ml-1'>[capitalize(organ.name)]: [percent]% damaged (raw: [organ.damage]/[organ.maxHealth])</span>"
+
+	if(length(target.diseases))// Diseases
+		report += "<span class='alert ml-1'>Diseases:</span>"
+		for(var/datum/disease/disease as anything in target.diseases)
+			report += "<span class='alert ml-2'>&rdsh; [disease.name] (Stage [disease.stage]/[disease.max_stages])</span>"
+
+	if(target.reagents && length(target.reagents.reagent_list))// Reagents
+		report += "<span class='notice ml-1'>Reagents:</span>"
+		for(var/datum/reagent/reagent as anything in target.reagents.reagent_list)
+			report += "<span class='notice ml-2'>&rdsh; [reagent.name]: [round(reagent.volume, 0.1)]u</span>"
+
+	if(target.mind)// If there is a client connected
+		report += "<span class='notice ml-1'>Mind: [target.mind.name] (Key: [target.mind.key || "None"])</span>"
+		if(length(target.mind.antag_datums))// Bonus check for if there is an antagonist datum in this body.
+			report += "<span class='alert ml-1'>Antagonist roles:</span>"
+			for(var/datum/antagonist/antag as anything in target.mind.antag_datums)
+				report += "<span class='alert ml-2'>&rdsh; [antag.name]</span>"
+
+	report += "<span class='notice ml-1'>Status: [target.stat == CONSCIOUS ? "Conscious" : target.stat == UNCONSCIOUS ? "Unconscious" : target.stat == DEAD ? "Dead" : "Unknown"]</span>"
+		if(user.client.holder)// Secures CKEY data behind holder check.
+			report += "<span class='notice ml-1'>Client: [target.client ? "Connected ([target.client.ckey])" : "No client attached"]</span>"
+
+	to_chat(user, custom_boxed_message("purplebox_box", report.Join("<br>")))//ourple,,,
+
+// More QOL. Makes it work at range.
+// Left click at distance
+/obj/item/healthanalyzer/advanced/admin/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	return interact_with_atom(interacting_with, user, modifiers)
+
+// Right click at distance.
+/obj/item/healthanalyzer/advanced/admin/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
+	return interact_with_atom_secondary(interacting_with, user, modifiers)
+
+// Chem analyzer with some of the same tuneups as above
+/obj/item/ph_meter/admin
+	name = "subspace chemical analyzer"
+	icon_state = "pHmeter"
+	icon = 'icons/obj/medical/chemical.dmi'
+	desc = "A hand-held body scanner able to distinguish vital signs of the subject with high accuracy."
+	advanced = TRUE
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+
+/obj/item/healthanalyzer/advanced/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+// More QOL. Makes it work at range.
+// Left click at distance
+/obj/item/ph_meter/admin/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	return interact_with_atom(interacting_with, user, modifiers)
+
+// Right click at distance.
+/obj/item/ph_meter/admin/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
+	return interact_with_atom_secondary(interacting_with, user, modifiers)

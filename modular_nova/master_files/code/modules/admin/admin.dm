@@ -79,3 +79,33 @@ ADMIN_VERB(toggledchat, R_ADMIN, "Toggle Dead Chat", "Toggle dis bitch.", ADMIN_
 	log_admin("[usr.client] converted Ticket #[id] from [initiator_ckey] into Mentorhelp")
 
 	Close(key_name, TRUE)
+
+// Toggle Combohud Hotkey
+/datum/keybinding/admin/combo_hud
+	hotkey_keys = list(UNBOUND_KEY)
+	name = "combo_hud"
+	full_name = "Toggle Combo HUD"
+	description = "Toggles the Admin Combo HUD"
+	keybind_signal = COMSIG_KB_ADMIN_COMBOHUD_DOWN
+
+/datum/keybinding/admin/combo_hud/down(client/user, turf/target, mousepos_x, mousepos_y)
+	. = ..()
+	if(.)
+		return
+	SSadmin_verbs.dynamic_invoke_verb(user, /datum/admin_verb/combo_hud)
+	return TRUE
+
+// Toggle Wallhacks Hotkey
+/datum/keybinding/admin/wallhacks
+	hotkey_keys = list(UNBOUND_KEY)
+	name = "wallhacks"
+	full_name = "Admin Wallhacks"
+	description = "Toggles full-bright, perfect vision through walls, and hearing through walls"
+	keybind_signal = COMSIG_KB_ADMIN_WALLHACKS_DOWN
+
+/datum/keybinding/admin/wallhacks/down(client/user, turf/target, mousepos_x, mousepos_y)
+	. = ..()
+	if(.)
+		return
+	SSadmin_verbs.dynamic_invoke_verb(user, /datum/admin_verb/wallhacks)
+	return TRUE

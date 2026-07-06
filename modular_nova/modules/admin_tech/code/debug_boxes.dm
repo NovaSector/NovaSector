@@ -2,8 +2,8 @@
 GLOBAL_LIST_INIT(subspace_box_types, list(
 		"Clear All Items",
 		"Another Subspace Box",
-		"Medical",
 		"Debug Tools",
+		"Medical",
 		"Power",
 		"Care Package"
 ))
@@ -12,30 +12,6 @@ GLOBAL_LIST_INIT(subspace_box_types, list(
 GLOBAL_LIST_INIT(subspace_box_contents, list(
 		"Another Subspace Box" = list(
 			/obj/item/storage/box/debug = 1
-		),
-        "Medical" = list(//
-			/obj/item/gun/energy/cell_loaded/medigun/admin = 1,
-			/obj/item/reagent_containers/hypospray/combat/subspace = 1,
-			/obj/item/surgery_tray/admin = 1,
-			/obj/item/shears/admin = 1,
-			/obj/item/defibrillator/compact/combat/loaded/nanotrasen = 1,
-			/obj/item/reagent_containers/cup/bottle/adminordrazine = 1,
-			/obj/item/reagent_containers/hypospray/combat/nanites = 1,
-			/obj/item/reagent_containers/hypospray/combat = 1,
-			/obj/item/reagent_containers/syringe/admin = 1,
-			/obj/item/reagent_containers/applicator/patch/admin = 1,
-			/obj/item/reagent_containers/applicator/pill/admin = 1,
-			/obj/item/reagent_containers/applicator/pill/admin/xr = 1,
-			/obj/item/reagent_containers/cup/beaker/admin = 1,
-			/obj/item/reagent_containers/cup/beaker/admin/noreact = 1,
-			/obj/item/reagent_containers/cup/beaker/admin/small = 1,
-			/obj/item/reagent_containers/cup/beaker/admin/small/noreact = 1,
-			/obj/item/reagent_containers/cup/bottle/potion/flight = 1,
-			/obj/item/gun/syringe/admin = 1,
-			/obj/item/gun/chem/admin = 1,
-			/obj/item/slimepotion/speed = 1,
-			/obj/item/slimepotion/genderchange = 1,
-			/obj/item/slimepotion/peacepotion = 1
 		),
         "Debug Tools" = list(
 			/obj/item/storage/box/stabilized = 1,
@@ -74,6 +50,32 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/flashlight/flare/torch/everburning = 1,
 			/obj/item/firing_pin/admin = 1
 		),
+        "Medical" = list(//
+			/obj/item/gun/energy/cell_loaded/medigun/admin = 1,
+			/obj/item/surgery_tray/admin = 1,
+			/obj/item/shears/admin = 1,
+			/obj/item/defibrillator/compact/combat/loaded/nanotrasen = 1,
+			/obj/item/reagent_containers/cup/bottle/adminordrazine = 1,
+			/obj/item/reagent_containers/hypospray/combat/subspace = 1,
+			/obj/item/reagent_containers/hypospray/combat/nanites = 1,
+			/obj/item/reagent_containers/hypospray/combat = 1,
+			/obj/item/reagent_containers/syringe/admin = 1,
+			/obj/item/gun/syringe/admin = 1,
+			/obj/item/reagent_containers/applicator/patch/admin = 1,
+			/obj/item/reagent_containers/applicator/pill/admin = 1,
+			/obj/item/reagent_containers/applicator/pill/admin/xr = 1,
+			/obj/item/reagent_containers/cup/beaker/admin = 1,
+			/obj/item/reagent_containers/cup/beaker/admin/noreact = 1,
+			/obj/item/reagent_containers/cup/beaker/admin/small = 1,
+			/obj/item/reagent_containers/cup/beaker/admin/small/noreact = 1,
+			/obj/item/reagent_containers/cup/bottle/potion/flight = 1,
+			/obj/item/ph_meter/admin = 1,
+			/obj/item/healthanalyzer/advanced/admin = 1,
+			/obj/item/gun/chem/admin = 1,
+			/obj/item/slimepotion/speed = 1,
+			/obj/item/slimepotion/genderchange = 1,
+			/obj/item/slimepotion/peacepotion = 1
+		),
         "Power" = list(//Power Debugging -- TODO: flatpacks
 			/obj/item/stock_parts/power_store/cell/infinite = 7,
 			/obj/item/stock_parts/power_store/battery/infinite = 7,
@@ -105,8 +107,7 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/laser_pointer/infinite_range = 1,
 			/obj/item/pai_card = 1,
 			/obj/item/megaphone = 1,
-			/obj/item/swapper = 1,
-			/obj/item/swapper = 1,
+			/obj/item/swapper = 2,
 			/obj/item/desynchronizer = 1,
 			/obj/item/reagent_containers/cup/maunamug = 1,
 			/obj/item/clothing/head/helmet/perceptomatrix/functioning = 1,
@@ -190,10 +191,13 @@ GLOBAL_LIST_INIT(subspace_box_illustrations, list(
 	explosion(src, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 2, explosion_cause = src)
 	qdel(src)
 
+// Cleans all the contents out
 /obj/item/storage/box/debug/click_ctrl_shift(mob/user)
+	illustration = null
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
 		qdel(stored_item)
+	update_appearance()
 
 /obj/item/storage/box/debug/item_ctrl_click(mob/user)
 	// Ask the user what they want to make, or if they want to clear the storage.

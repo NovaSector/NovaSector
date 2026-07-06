@@ -56,7 +56,7 @@ modular_nova/modules/job_locker_beacon/code/job_locker_beacon.dm - removed, fold
 modular_nova/modules/bluespace_admin/icons/mob/belt.dmi - removed, old module folded into admin_tech
 modular_nova/modules/bluespace_admin/icons/obj/belt.dmi - removed, old module folded into admin_tech
 modular_nova/modules/borgs/icons/screen_cyborg.dmi - updated cyborg screen icon
-\_maps/nova/capsules/tiny_fan_capsule.dmm - map entry for a new admin item
+\_maps/nova/capsules/tiny_fan_capsule.dmm - simple reference capsule, places a tiny fan with super reinforced flooring
 tgstation.dme - registers new/moved files
 
 ### Credits:
@@ -82,7 +82,15 @@ Player appropriate tech loadout with considerations to reduce the need for admin
 subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
 
 Talk to sammy about the tgui machinery ui interact at distance situation
+Permanent portal management system + gateway support
+CC Cyborg Spawner Beacons
 
-Debug Box Ideas: recreational / admin drugs, Antag, Research, Security, Service, Cargo, Medical Box revisit
+Rebase our new admin chem through nooart revival mechs
+
+syndie ai card, make a cc one
+Target locator icons are bad
+Medicell gun is broke. installedcells needs code insertion
+
+Debug Box Ideas: recreational / admin drugs, Antag, Research, Security, Service, Cargo, Medical Box revisit, borgs / silicons, bots
 
 NT-Uplink

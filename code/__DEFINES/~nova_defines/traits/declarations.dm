@@ -193,4 +193,8 @@
 /// The trait for Holosynths
 #define TRAIT_HOLOSYNTH "holosynthetic"
 
+//Admin Traits
+/// Trait for wallhacks admin verb
+#define TRAIT_ADMIN_WALLHACKS "admin_wallhacks"
+
 // END TRAIT DEFINES

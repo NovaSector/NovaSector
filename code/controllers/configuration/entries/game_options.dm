@@ -528,3 +528,8 @@
 /datum/config_entry/number/minimum_ascension_time
 	default = 0 // 1 minute
 	min_val = 0
+
+// Used with the Manage Holosigns verb to control the maximum number of signs someone can place.
+/datum/config_entry/number/max_player_holosigns
+	default = 10
+	min_val = 1

@@ -50,13 +50,12 @@
 	r_pocket = null
 	back = /obj/item/mod/control/pre_equipped/subspace
 	backpack_contents = list(
-		/obj/item/melee/energy/axe = 1,
-		/obj/item/gun/energy/pulse/destroyer/annihilator = 1,
-		/obj/item/boxcutter = 1,
-		/obj/item/gun/energy/taser/debug = 1,
 		/obj/item/debug/human_spawner = 1,
 		/obj/item/gun/magic/wand/resurrection/debug = 1,
 		/obj/item/gun/magic/wand/death/debug = 1,
 		/obj/item/gun/magic/wand/safety/debug = 1,
+		/obj/item/melee/energy/axe = 1,
+		/obj/item/gun/energy/modular_laser_rifle/carbine/admin = 1,
+		/obj/item/boxcutter = 1,
 	)
 	belt_contents = list()

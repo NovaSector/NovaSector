@@ -158,15 +158,18 @@
 //Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
 //New trait code at modular_nova\master_files\code\datums\wires\_wires.dm to show all wires w/o needing to hold blueprints or abductor multitool
 //The one set of lenses to rule them all
+//code\modules\clothing\glasses\engine_goggles.dm & code\modules\clothing\glasses\_glasses.dm
 //TODO: icon fuckery in procs. verify show wires trait is working.
-/obj/item/clothing/glasses/meson/engine/admin/debug//code\modules\clothing\glasses\engine_goggles.dm & code\modules\clothing\glasses\_glasses.dm
+/obj/item/clothing/glasses/meson/engine/admin/debug
 	name = "subspace contacts"
 	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."
 	desc_controls = "Ctrl + Click to toggle xray and thermals. Use the action button to change goggle modes."
 	icon = 'icons/obj/devices/syndie_gadget.dmi'
 	icon_state = "contacts"
 	inhand_icon_state = "contacts"
-	worn_icon_state = "null"
+	worn_icon = null
+	worn_icon_state = null
+	base_icon_state =
 	inhand_icon_state = "null"
 	flags_cover = GLASSESCOVERSEYES
 	flash_protect = FLASH_PROTECTION_WELDER
@@ -204,11 +207,11 @@
 	xray = !xray
 	if(xray)
 		vision_flags |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		attach_clothing_traits(TRAIT_XRAY_VISION)
+		ADD_TRAIT(user.mob, TRAIT_XRAY_HEARING, ADMIN_TRAIT)
 		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
 	else
 		vision_flags &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		detach_clothing_traits(TRAIT_XRAY_VISION)
+		REMOVE_TRAIT(user.mob, TRAIT_XRAY_HEARING, ADMIN_TRAIT)
 		remove_filter("admin_active_item")
 
 	human_user.update_sight()

@@ -11,9 +11,9 @@
 	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "sub-tank"
 	inhand_icon_state = "emergency_tank"
-	worn_icon_state = NONE
+	worn_icon = "modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi"
+	worn_icon_state = "sub-tank"
 	tank_holder_icon_state = "holder_emergency_engi"
-	worn_icon = null
 	obj_flags = CONDUCTS_ELECTRICITY
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_TINY

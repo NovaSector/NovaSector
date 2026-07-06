@@ -471,6 +471,33 @@ ADMIN_VERB(combo_hud, R_ADMIN, "Toggle Combo HUD", "Toggles the Admin Combo HUD.
 
 #undef ADMIN_HUDS
 
+// NOVA EDIT ADDITION START - ADMIN_TECH
+ADMIN_VERB(wallhacks, R_ADMIN, "Admin Wallhacks", "Toggles full-bright, perfect vision (see mobs through walls), and hearing through walls.", ADMIN_CATEGORY_GAME)
+	if(!user.mob)
+		return
+
+	if(HAS_TRAIT(user.mob, TRAIT_ADMIN_WALLHACKS))
+		ADD_TRAIT(user.mob, TRAIT_XRAY_HEARING, ADMIN_TRAIT)
+		ADD_TRAIT(user.mob, TRAIT_ADMIN_WALLHACKS, ADMIN_TRAIT)
+		user.mob.sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		user.mob.see_invisible = SEE_INVISIBLE_LIVING
+		user.mob.lighting_cutoff = LIGHTING_CUTOFF_FULLBRIGHT
+
+	else
+		REMOVE_TRAIT(user.mob, TRAIT_XRAY_HEARING, ADMIN_TRAIT)
+		REMOVE_TRAIT(user.mob, TRAIT_ADMIN_WALLHACKS, ADMIN_TRAIT)
+		user.mob.sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		user.mob.see_invisible = initial(user.mob.see_invisible)
+		user.mob.lighting_cutoff = user.mob.default_lighting_cutoff()
+	user.mob.update_sight()
+
+	var/wallhacks_on = HAS_TRAIT(user.mob, TRAIT_ADMIN_WALLHACKS)
+	to_chat(user, "You toggled Admin Wallhacks [wallhacks_on ? "ON" : "OFF"].", confidential = TRUE)
+	message_admins("[key_name_admin(user)] toggled Admin Wallhacks [wallhacks_on ? "ON" : "OFF"].")
+	log_admin("[key_name(user)] toggled Admin Wallhacks [wallhacks_on ? "ON" : "OFF"].")
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Admin Wallhacks", "[wallhacks_on ? "Enabled" : "Disabled"]"))
+// NOVA EDIT ADDITION END - ADMIN_TECH
+
 ADMIN_VERB(show_traitor_panel, R_ADMIN, "Show Traitor Panel", "Edit mobs's memory and role", ADMIN_CATEGORY_GAME, mob/target_mob)
 	var/datum/mind/target_mind = target_mob.mind
 	if(!target_mind)
