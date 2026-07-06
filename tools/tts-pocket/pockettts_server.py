@@ -86,6 +86,14 @@ ROOM_IMPULSE_FILE = "RoomImpulse.wav"
 # tg mixes the static in at `static * 0.2`; 0.2 linear is ~-14 dB.
 RADIO_STATIC_GAIN_DB = -14.0
 
+# Radio-gibberish "corruption burst" approximation (see request_is_radio_gibberish).
+GIBBERISH_MIN_BURSTS = 2
+GIBBERISH_MAX_BURSTS = 4
+GIBBERISH_BURST_MIN_FRACTION = 0.05
+GIBBERISH_BURST_MAX_FRACTION = 0.12
+GIBBERISH_DUCK_DB = -18.0
+GIBBERISH_STATIC_GAIN_DB = -6.0
+
 
 RADIO_VOICE_FILTERS = ["highpass=f=300", "lowpass=f=3000", "asoftclip=type=tanh"]
 
@@ -201,6 +209,17 @@ def request_text_radio() -> str:
     if text is None:
         text = payload.get("gibberish_text", payload.get("raw_text", ""))
     return str(text)[:MAX_TEXT_CHARS]
+
+
+def request_is_radio_gibberish() -> bool:
+    # The BYOND client always sends raw_text/gibberish_text as identical strings
+    # (no client-side garbling), so there's nothing to diff word-for-word here -
+    # this just distinguishes "this is the corrupted-variant request" from the
+    # plain radio call, and random_corruption_bursts() approximates the effect.
+    payload = request.get_json(silent=True) or {}
+    return payload.get("text") is None and (
+        "raw_text" in payload or "gibberish_text" in payload
+    )
 
 
 def request_pitch() -> int:
@@ -378,12 +397,45 @@ def apply_radio_clicks(voice: AudioSegment) -> AudioSegment:
     return start + voice + end
 
 
+def random_corruption_bursts() -> list[tuple[float, float]]:
+    # Approximates tgtts-qwen3's word-aligned static corruption for high-interference
+    # broadcasts, without real forced-alignment: a few random windows (as fractions of
+    # total duration) get dropped out under static instead of specific corrupted words.
+    count = random.randint(GIBBERISH_MIN_BURSTS, GIBBERISH_MAX_BURSTS)
+    spans = []
+    for _ in range(count):
+        width = random.uniform(GIBBERISH_BURST_MIN_FRACTION, GIBBERISH_BURST_MAX_FRACTION)
+        start = random.uniform(0.0, max(0.0, 1.0 - width))
+        spans.append((start, start + width))
+    return spans
+
+
+def apply_corruption_bursts(voice: AudioSegment, spans: list[tuple[float, float]]) -> AudioSegment:
+    if not spans:
+        return voice
+    frame_rate = voice.frame_rate
+    duration_ms = len(voice)
+    static = matched_sfx(RADIO_STATIC_FILE, frame_rate)
+    if len(static) < duration_ms:
+        static = static * (duration_ms // len(static) + 2)
+    for start_frac, end_frac in sorted(spans):
+        start_ms = int(start_frac * duration_ms)
+        end_ms = min(duration_ms, int(end_frac * duration_ms))
+        if end_ms <= start_ms:
+            continue
+        burst_static = static[start_ms:end_ms].apply_gain(GIBBERISH_STATIC_GAIN_DB)
+        ducked = (voice[start_ms:end_ms] + GIBBERISH_DUCK_DB).overlay(burst_static)
+        voice = voice[:start_ms] + ducked + voice[end_ms:]
+    return voice
+
+
 def wav_to_ogg(
     wav_bytes: bytes,
     filter_chain: str,
     special_filters: set[str],
     pitch: int,
     is_blips: bool,
+    corruption_spans: list[tuple[float, float]] | None = None,
 ) -> tuple[bytes, float]:
     is_radio = "radio" in special_filters
     is_silicon = "silicon" in special_filters
@@ -410,6 +462,8 @@ def wav_to_ogg(
         else:
             voice_wav = wav_bytes
         voice = AudioSegment.from_file(io.BytesIO(voice_wav), format="wav")
+        if corruption_spans:
+            voice = apply_corruption_bursts(voice, corruption_spans)
         combined = apply_radio_clicks(voice)
         output = io.BytesIO()
         combined.export(output, format="ogg", codec="libvorbis", bitrate=OGG_BITRATE)
@@ -524,6 +578,7 @@ def text_to_speech_radio() -> Any:
         abort(404)
 
     text = request_text_radio()
+    is_gibberish = request_is_radio_gibberish()
     filter_chain, special_filters = request_filters()
     special_filters.add("radio")
     pitch = request_pitch()
@@ -532,10 +587,13 @@ def text_to_speech_radio() -> Any:
     wav_bytes = synthesize_text_wav(voice, text or " ")
     synth_elapsed = time.perf_counter() - synth_start
     encode_start = time.perf_counter()
-    ogg_bytes, duration = wav_to_ogg(wav_bytes, filter_chain, special_filters, pitch, is_blips=False)
+    corruption_spans = random_corruption_bursts() if is_gibberish else None
+    ogg_bytes, duration = wav_to_ogg(
+        wav_bytes, filter_chain, special_filters, pitch, is_blips=False, corruption_spans=corruption_spans
+    )
     encode_elapsed = time.perf_counter() - encode_start
     log_timing(
-        f"radio generated voice={voice_name!r} chars={len(text)} "
+        f"radio generated voice={voice_name!r} chars={len(text)} gibberish={is_gibberish} "
         f"synth={synth_elapsed:.3f}s encode={encode_elapsed:.3f}s total={time.perf_counter() - total_start:.3f}s"
     )
     return audio_response(ogg_bytes, duration)
