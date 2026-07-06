@@ -268,7 +268,7 @@ export function FeatureShortTextInput(
   );
 }
 // NOVA EDIT ADDITION START - NOVA FEATURES DOWN HERE
-export const FeatureTextInput = (
+export const FeatureLongTextInput = (
   props: FeatureValueProps<string, string, FeatureShortTextData>,
 ) => {
   const { serverData, handleSetValue, value } = props;
@@ -281,10 +281,9 @@ export const FeatureTextInput = (
     <TextArea
       height="100px"
       fluid
-      expensive
       value={value}
       maxLength={serverData?.maximum_length}
-      onChange={(value) => handleSetValue(value)}
+      onBlur={(value) => handleSetValue(value)}
     />
   );
 };

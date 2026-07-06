@@ -36,7 +36,6 @@
 
 	AddElement(/datum/element/can_hide/basic, list(/turf/open/misc/asteroid/forest/mushroom))
 	AddElement(/datum/element/ai_flee_while_injured)
-	AddElement(/datum/element/ai_retaliate)
 
 /mob/living/basic/mining/stillcap/red
 	name = "red stillcap"

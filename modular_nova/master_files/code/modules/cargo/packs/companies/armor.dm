@@ -172,3 +172,10 @@
 /datum/supply_pack/companies/armor/donk/fake_syndie_suit
 	contains = list(/obj/item/storage/box/fakesyndiesuit)
 
+// Bolt Fabrications
+/datum/supply_pack/companies/armor/bolt
+	cost = CARGO_CRATE_VALUE * 2
+
+/datum/supply_pack/companies/armor/bolt/energy_shield
+	contains = list(/obj/item/clothing/accessory/energy_shield/civilian)
+

@@ -21,6 +21,7 @@
 	mutantlungs = /obj/item/organ/lungs/carp/akula
 	mutanttongue = /obj/item/organ/tongue/carp/akula
 	mutanteyes = /obj/item/organ/eyes/akula
+	meat = /obj/item/food/fishmeat/human
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -166,7 +167,7 @@
 // set bonus
 /datum/status_effect/organ_set_bonus/carp/akula
 	id = "organ_set_bonus_carp_akula"
-	limb_overlay = null // no carpskin
+	limb_texture = null // no carpskin
 
 //Eyes
 /obj/item/organ/eyes/akula

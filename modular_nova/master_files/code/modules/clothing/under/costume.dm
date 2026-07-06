@@ -37,6 +37,7 @@
 	worn_icon = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
 	worn_icon_teshari = 'modular_nova/modules/GAGS/icons/suit/suit_teshari.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	greyscale_colors = "#ffffff"
 	greyscale_config = /datum/greyscale_config/bathrobe
 	greyscale_config_worn = /datum/greyscale_config/bathrobe/worn
@@ -83,6 +84,33 @@
 	greyscale_colors = "#EADB83#D98E43#A52F29#212026"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/costume/nova/maid_uniform
+	name = "maid uniform"
+	desc = "A simple maid uniform for housekeeping."
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/nova/maid_uniform"
+	post_init_icon_state = "maid_uniform"
+	greyscale_config = /datum/greyscale_config/maid_uniform
+	greyscale_config_worn = /datum/greyscale_config/maid_uniform/worn
+	greyscale_colors = "#2B2B31#EEEEEE"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	alternate_worn_layer = UNDER_SUIT_LAYER
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/costume/nova/maid_uniform_alt
+	name = "maid uniform"
+	desc = "A simple maid uniform for housekeeping."
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/nova/maid_uniform_alt"
+	post_init_icon_state = "maid_uniform_alt"
+	greyscale_config = /datum/greyscale_config/maid_uniform_alt
+	greyscale_config_worn = /datum/greyscale_config/maid_uniform_alt/worn
+	greyscale_colors = "#2B2B31#EEEEEE"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	alternate_worn_layer = UNDER_SUIT_LAYER
+	can_adjust = TRUE
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*
 *	LUNAR AND JAPANESE CLOTHES
@@ -162,6 +190,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/costume/nova/shihakusho
 	name = "shihakusho"
@@ -181,6 +210,7 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alternate_worn_layer = UNDER_SUIT_LAYER
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*
@@ -226,4 +256,19 @@
 
 /obj/item/clothing/under/trek/medsci
 	greyscale_config_worn_digi = /datum/greyscale_config/trek/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/camo/gags
+	name = "camouflage jumpsuit"
+	desc = "The space mall ninja fears the space mall soldier."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/solfed/marines"
+	post_init_icon_state = "solfed_camo"
+	worn_icon_state = "solfed_camo"
+	worn_icon_digi = "solfed_camo"
+	greyscale_config = /datum/greyscale_config/solfedcamo
+	greyscale_config_worn = /datum/greyscale_config/solfedcamo/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfedcamo/worn/digi
+	greyscale_colors = "#4d4d4d#333333#292929"
+	can_adjust = FALSE
 	flags_1 = IS_PLAYER_COLORABLE_1

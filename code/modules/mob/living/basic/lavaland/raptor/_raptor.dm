@@ -92,7 +92,7 @@ GLOBAL_LIST_EMPTY(raptor_population)
 	else
 		change_growth_stage(growth_stage, RAPTOR_ADULT)
 
-	add_traits(list(TRAIT_ASHSTORM_IMMUNE, TRAIT_SNOWSTORM_IMMUNE, TRAIT_MINING_AOE_IMMUNE), INNATE_TRAIT)
+	add_traits(list(TRAIT_ASHSTORM_IMMUNE, TRAIT_SNOWSTORM_IMMUNE, TRAIT_MINING_AOE_IMMUNE, TRAIT_NO_SLIP_ICE, TRAIT_NO_SLIP_SLIDE), INNATE_TRAIT)
 	AddElement(\
 		/datum/element/crusher_loot,\
 		trophy_type = /obj/item/crusher_trophy/raptor_feather,\
@@ -138,6 +138,9 @@ GLOBAL_LIST_EMPTY(raptor_population)
 	if(!iscarbon(target))
 		return
 	return ..()
+
+/mob/living/basic/raptor/get_hud_x_offset()
+	return -4
 
 /mob/living/basic/raptor/examine(mob/user)
 	. = ..()

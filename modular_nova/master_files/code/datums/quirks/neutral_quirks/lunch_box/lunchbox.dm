@@ -200,6 +200,7 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	"Sausage" = /obj/item/food/sausage,
 	"Tirizan Blood Sausage" = /obj/item/food/tiziran_sausage,
 	"Fried Blood Sausage" = /obj/item/food/fried_blood_sausage,
+	"Battered Sausage" = /obj/item/food/sausage/battered,
 	"Homestyle Noodles" = /obj/item/food/vendor_tray_meal/ramen,
 	"Fresh Carp Rolls" = /obj/item/food/vendor_tray_meal/sushi,
 	"Beef and Fried Rice" = /obj/item/food/vendor_tray_meal/beef_rice,
@@ -260,6 +261,8 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_meal_choice, list(
 	"Big Baked Rice" = /obj/item/food/big_baked_rice,
 	"Fiesta Corn Skillet" = /obj/item/food/fiesta_corn_skillet,
 	"Ratatouille" = /obj/item/food/ratatouille,
+	"Fish & Chips" = /obj/item/food/fishandchips,
+	"Fish Fingers" = /obj/item/food/fishfingers,
 ))
 
 /datum/preference/choiced/lunchbox_meal_choice/is_accessible(datum/preferences/preferences)
@@ -368,6 +371,10 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	"Buttered Baked Corn" = /obj/item/food/buttered_baked_corn,
 	"Mozzarella Sticks" = /obj/item/food/mozzarella_sticks,
 	"Voltölpaprik" = /obj/item/food/stuffed_peppers,
+	"Space Fries" = /obj/item/food/fries,
+	"Carrot Fries" = /obj/item/food/carrotfries,
+	"Cheesey Fries"  = /obj/item/food/cheesyfries,
+	"Garlic Bread" = /obj/item/food/garlicbread,
 ))
 
 /datum/preference/choiced/lunchbox_first_snack_choice/init_possible_values()
@@ -456,7 +463,8 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_drink_choice, list(
 	"Mushroom Tea" = /obj/item/reagent_containers/cup/glass/waterbottle/tea/mushroom,
 	"Korta" = /obj/item/reagent_containers/cup/soda_cans/nova/kortara,
 	"Astra Tea" = /obj/item/reagent_containers/cup/glass/waterbottle/tea/astra,
-	"Tea" = /obj/item/reagent_containers/cup/glass/waterbottle/tea,
+	"Tea (Glass)" = /obj/item/reagent_containers/cup/glass/waterbottle/tea,
+	"Tea (Cup)" = /obj/item/reagent_containers/cup/glass/mug/tea,
 	"Strawberry Tea" = /obj/item/reagent_containers/cup/glass/waterbottle/tea/strawberry,
 	"Catnip Tea" = /obj/item/reagent_containers/cup/glass/waterbottle/tea/nip,
 	"Beekhof Blauw Curacao" = /obj/item/reagent_containers/cup/glass/bottle/curacao,
@@ -487,6 +495,7 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_drink_choice, list(
 	"Space Beer (Canned)" = /obj/item/reagent_containers/cup/soda_cans/beer,
 	"Rice Beer" = /obj/item/reagent_containers/cup/soda_cans/beer/rice,
 	"Silly Cone's Synthanol" = /obj/item/reagent_containers/cup/soda_cans/nova/synthanolcan,
+	"Canned Laughter" = /obj/item/reagent_containers/cup/soda_cans/canned_laughter,
 ))
 
 /datum/preference/choiced/lunchbox_drink_choice/init_possible_values()

@@ -1,5 +1,5 @@
-/obj/item/clothing/shoes/get_blood_overlay(blood_state, mutant_styles)
-	if (!(mutant_styles & CLOTHING_DIGITIGRADE_VARIATION))
+/obj/item/clothing/shoes/get_blood_overlay(blood_state, bodyshape)
+	if (!(bodyshape & BODYSHAPE_DIGITIGRADE))
 		return ..()
 
 	if (!GET_ATOM_BLOOD_DECAL_LENGTH(src))

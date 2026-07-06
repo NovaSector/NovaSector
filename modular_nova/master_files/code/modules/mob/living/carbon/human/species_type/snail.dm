@@ -80,7 +80,7 @@
 	female_uniform = NO_FEMALE_UNIFORM,
 	override_state = null,
 	override_file = null,
-	mutant_styles = NONE,
+	bodyshape = NONE,
 )
 
 	var/mutable_appearance/standing = ..()

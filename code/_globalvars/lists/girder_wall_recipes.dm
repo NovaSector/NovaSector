@@ -27,6 +27,7 @@ GLOBAL_LIST_INIT(material_girder_wall_recipes, init_material_girder_wall_recipes
 			/turf/closed/wall/mineral/cult,
 			/turf/closed/wall/mineral/bronze,
 			/turf/closed/wall/material,
+			/turf/closed/wall/mineral/titanium/spaceship, // NOVA EDIT ADDITION
 		),
 		falsewall_types = list(
 			/obj/structure/falsewall,

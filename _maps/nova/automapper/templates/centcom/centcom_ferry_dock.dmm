@@ -306,7 +306,7 @@
 	shuttle_id = "ferry_away";
 	json_key = null;
 	name = "CentCom Ferry Dock";
-	roundstart_template = /datum/map_template/shuttle/ferry;
+	roundstart_template = /datum/map_template/shuttle/ferry/nova;
 	width = 20
 	},
 /turf/open/space/basic,

@@ -33,7 +33,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	 */
 	var/plural_form
 
-	///Whether or not the race has sexual characteristics (biological genders). At the moment this is only FALSE for skeletons and shadows
+	/// Whether or not the race has sexual characteristics (biological genders). At the moment this is only FALSE for skeletons and shadows
 	var/sexes = TRUE
 
 	///The maximum number of bodyparts this species can have.
@@ -140,13 +140,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/list/inherent_traits = list()
 	/// List of biotypes the mob belongs to. Used by diseases.
 	var/inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	/// The type of respiration the mob is capable of doing. Used by adjust_oxy_loss.
-	var/inherent_respiration_type = RESPIRATION_OXYGEN
 	///List of factions the mob gain upon gaining this species.
 	var/list/inherent_factions
-
-	///What gas does this species breathe? Used by suffocation screen alerts, most of actual gas breathing is handled by mutantlungs. See [life.dm][code/modules/mob/living/carbon/human/life.dm]
-	var/breathid = GAS_O2
 
 	///What anim to use for gibbing
 	var/gib_anim = "gibbed-h"
@@ -303,18 +298,24 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		// if we have an extra organ that before changing that the species didnt have, remove it
 		if(!new_organ)
+			/* // NOVA EDIT REMOVAL START = Original
 			if(existing_organ && (old_organ_type == existing_organ.type || replace_current))
-				//existing_organ.Remove(organ_holder) // NOVA EDIT REMOVAL
-				// NOVA EDIT ADDITION START - Remove so it can be reinserted + handled in modular_nova\modules\customization\modules\mob\living\carbon\human\species.dm
-				// We basically just want to keep from removing it from mutant_bodyparts
-				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
-				if(existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key])
-					existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
-				else
-					existing_organ.Remove(organ_holder, special = TRUE)
-				// NOVA EDIT ADDITION END
+				existing_organ.Remove(organ_holder)
 				qdel(existing_organ)
 			continue
+			*/ // NOVA EDIT REMOVAL END
+			// NOVA EDIT ADDITION START
+			if(existing_organ)
+				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
+				var/keep_in_mutant_bodyparts = existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key]
+				if(old_organ_type == existing_organ.type || replace_current || existing_organ_feature_key)
+					if(keep_in_mutant_bodyparts)
+						existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
+					else
+						existing_organ.Remove(organ_holder, special = TRUE)
+					qdel(existing_organ)
+			continue
+			// NOVA EDIT ADDITION END
 
 		if(existing_organ && allow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
 			// we dont want to remove organs that were not from the old species (such as from freak surgery or prosthetics)
@@ -390,7 +391,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	// Drop the items the new species can't wear
 	human_who_gained_species.mob_biotypes = inherent_biotypes
-	human_who_gained_species.mob_respiration_type = inherent_respiration_type
 	human_who_gained_species.butcher_results = knife_butcher_results?.Copy()
 
 	//update body zones to match what they are supposed to have
@@ -409,7 +409,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		else if(old_species.exotic_bloodtype && isnull(exotic_bloodtype))
 			human_who_gained_species.set_blood_type(random_human_blood_type())
 
-	regenerate_organs(human_who_gained_species, old_species, replace_current = human_who_gained_species.visual_only_organs, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing) // NOVA EDIT CHANGE - Allows existing organs to be properly removed when regenerating organs - ORIGINAL: regenerate_organs(human_who_gained_species, old_species, replace_current = FALSE, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing)
+	regenerate_organs(human_who_gained_species, old_species, replace_current = FALSE, visual_only = human_who_gained_species.visual_only_organs, replace_missing = replace_missing)
 	// Update locked slots AFTER all organ and body stuff is handled
 	human_who_gained_species.hud_used?.update_locked_slots()
 	// Drop the items the new species can't wear
@@ -512,7 +512,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(BODY_FRONT_LAYER)
 			return "FRONT"
 		//NOVA EDIT ADDITION BEGIN
-		if(BODY_FRONT_UNDER_CLOTHES)
+		if(UNDER_UNIFORM_LAYER)
 			return "FRONT_UNDER"
 		if(ABOVE_BODY_FRONT_HEAD_LAYER)
 			return "FRONT_OVER"
@@ -562,11 +562,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	return new_features
 
-/datum/species/proc/spec_life(mob/living/carbon/human/H, seconds_per_tick)
-	SHOULD_CALL_PARENT(TRUE)
-	if(HAS_TRAIT(H, TRAIT_NOBREATH) && (H.health < H.crit_threshold) && !HAS_TRAIT(H, TRAIT_NOCRITDAMAGE))
-		H.adjust_brute_loss(0.5 * seconds_per_tick)
-
 /datum/species/proc/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
 	if(no_equip_flags & slot && !(I.is_mod_shell_component() && (modsuit_slot_exceptions & slot))) // NOVA EDIT ADDITION - ORIGINAL: if(no_equip_flags & slot)
 		if(!I.species_exception || !is_type_in_list(src, I.species_exception))
@@ -613,13 +608,13 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(ITEM_SLOT_FEET)
 			if(H.num_legs < 2)
 				return FALSE
-			/* NOVA EDIT REMOVAL
-			if((H.bodyshape & BODYSHAPE_DIGITIGRADE) && !(I.item_flags & IGNORE_DIGITIGRADE))
+			/* // NOVA EDIT REMOVAL START
+			if((H.bodytype & BODYTYPE_DIGITIGRADE) && !(I.item_flags & IGNORE_DIGITIGRADE))
 				if(!(I.supports_variations_flags & DIGITIGRADE_VARIATIONS))
 					if(!disable_warning)
 						to_chat(H, span_warning("The footwear around here isn't compatible with your feet!"))
 					return FALSE
-			*/
+			*/ // NOVA EDIT REMOVAL END
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_BELT)
 			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_CHEST)
@@ -1958,12 +1953,13 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	var/list/to_add = list()
 
-	if (breathid != GAS_O2)
+	var/breath_id = get_breath_type()
+	if (breath_id && breath_id != GAS_O2)
 		to_add += list(list(
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = "wind",
-			SPECIES_PERK_NAME = "[capitalize(breathid)] Breathing",
-			SPECIES_PERK_DESC = "[plural_form] must breathe [breathid] to survive. You receive a tank when you arrive.",
+			SPECIES_PERK_NAME = "[capitalize(breath_id)] Breathing",
+			SPECIES_PERK_DESC = "[plural_form] must breathe [breath_id] to survive. You receive a tank when you arrive.",
 		))
 
 	return to_add
@@ -2116,9 +2112,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 /// Remove body markings
 /datum/species/proc/remove_body_markings(mob/living/carbon/human/hooman)
+	var/needs_update = FALSE
 	for(var/obj/item/bodypart/part as anything in hooman.get_bodyparts())
 		for(var/datum/bodypart_overlay/simple/body_marking/marking in part.bodypart_overlays)
-			part.remove_bodypart_overlay(marking)
+			part.remove_bodypart_overlay(marking, update = FALSE)
+			needs_update = TRUE
+
+	if(needs_update && !(hooman.living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
+		hooman.update_body_parts()
 
 /**
  * Calculates the expected height values for this species
@@ -2133,4 +2134,23 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(HAS_TRAIT(holder, TRAIT_TOO_TALL))
 		return HUMAN_HEIGHT_TALLEST
 
+	return null
+
+/**
+ * Returns what type of gas this species breathes
+ */
+/datum/species/proc/get_breath_type()
+	if(isnull(mutantlungs))
+		return null
+
+	if(mutantlungs::safe_plasma_min > 0)
+		return GAS_PLASMA
+
+	if(mutantlungs::safe_oxygen_min > 0)
+		return GAS_O2
+
+	if(mutantlungs::safe_nitro_min > 0)
+		return GAS_N2
+
+	stack_trace("Unsupported breath type for species with [mutantlungs]")
 	return null

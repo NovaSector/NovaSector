@@ -148,9 +148,8 @@
 /// Transfers the emote pref to the silicon mob
 /mob/living/silicon/proc/transfer_emote_pref(client/player_client)
 	var/chosen_scream = player_client?.prefs?.read_preference(/datum/preference/choiced/scream)
-	var/scream_id = GLOB.scream_types[chosen_scream]
-	if(scream_id)
-		var/datum/scream_type/scream_type = new scream_id
+	var/datum/scream_type/scream_type = GLOB.scream_types_by_name[chosen_scream]
+	if(scream_type)
 		selected_scream = scream_type
 
 /// Transfers the blooper prefs to the silicon mob
