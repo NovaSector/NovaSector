@@ -678,7 +678,7 @@ Admin Variants of Common Tools
 	item_flags = null
 	gun_flags = null // parent forbids turret
 	/// A list that contains the currently installed cells.
-	installedcells = list(
+	/* installedcells doesn't like being directly populated, so we will need to move it to the init or something
 		/obj/item/weaponcell/medical/brute/tier_3,
 		/obj/item/weaponcell/medical/burn/tier_3,
 		/obj/item/weaponcell/medical/toxin/tier_3,
@@ -686,7 +686,8 @@ Admin Variants of Common Tools
 		/obj/item/weaponcell/medical/utility/clotting,
 		/obj/item/weaponcell/medical/utility/temperature,
 		/obj/item/weaponcell/medical/utility/salve,
-	)
+	*/
+	installedcells = list()
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_ADMIN
 	resistance_flags = INDESTRUCTIBLE
@@ -1670,11 +1671,13 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	/// Keeps track of the autofire component for deleting later
 	var/datum/component/automatic_fire/autofire_component
 
+// This is where we add fun laser mode stuff to each mode. If we do. If not, do nothing
 /datum/laser_weapon_mode/admin/apply_to_weapon(obj/item/gun/energy/applied_gun)
-	autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay)
+	// autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay)
 
+// If you ever add something to the weapon, you will probably want to remove it when youre done with the mode, or it sticks to it the gun permanently
 /datum/laser_weapon_mode/admin/remove_from_weapon(obj/item/gun/energy/applied_gun)
-	QDEL_NULL(autofire_component)
+	// QDEL_NULL(autofire_component)
 
 // /obj/item/gun/energy/pulse/destroyer, an admin classic
 /datum/laser_weapon_mode/admin/destroyer_pulse
@@ -2227,7 +2230,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 		CG.syringes_left--
 	return ..()
 
-// Even more advanced.
+// Even more advanced. As if that was possible.
+// Riddle me this, batman, if I can analyze gas compositions inside of a pipe from a distance, why can't I health check idiots without the awful modsuit module to do it?
+// You can't tell me we have a good reason. Even medhuds have a shit scan. There should really be an on station ranged scanner.
+// TODO: make an IC version of this???
 /obj/item/healthanalyzer/advanced/admin
 	name = "subspace health analyzer"
 	icon_state = "health_adv"
@@ -2243,13 +2249,14 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Fuck the original scan, really. I need more detail and less immersion for this thing.
+// I might be able to prevent the parent scan from outputting somehow, or with a toggle, but whatever this is significantly better than what we had imo
 /obj/item/healthanalyzer/advanced/admin/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	. = ..()
 	if(!isliving(interacting_with))// Bail if not body
 		return
 	admin_diagnostic_scan(interacting_with, user)// Passes the scan to the next proc
 
-// The new diag scan
+// The new diag scan. Puts a block beneath the normal scan with all of the pertinent info without the fluff, as cleanly as we possibly can.
 /obj/item/healthanalyzer/advanced/admin/proc/admin_diagnostic_scan(mob/living/target, mob/user)
 	var/list/report = list("<span class='info'><b>Diagnostic Addendum for [target] ([round_timestamp()]):</b></span>")
 
@@ -2300,7 +2307,6 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	icon_state = "pHmeter"
 	icon = 'icons/obj/medical/chemical.dmi'
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject with high accuracy."
-	advanced = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_ADMIN
 	resistance_flags = INDESTRUCTIBLE

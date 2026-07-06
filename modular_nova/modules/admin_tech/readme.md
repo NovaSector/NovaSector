@@ -31,6 +31,7 @@ code\_\_DEFINES\inventory.dm - ITEM_SLOT_ADMIN define
 code\_\_DEFINES\machines.dm - ADMIN_TECHWEB define
 icons\map_icons\items\encryptionkey.dmi - Justification: Auto-Sprited, cant stop it
 icons\map_icons\items\pda.dmi - Justification: Auto-Sprited, cant stop it
+code\datums\storage\storage.dm - Replaces /datum/storage/proc/orient_storage() with one including a widescreen check for oversized storages, and paired var screen_max_columns_widescreen on master /datum/storage
 
 ### Defines:
 
@@ -90,7 +91,11 @@ Rebase our new admin chem through nooart revival mechs
 syndie ai card, make a cc one
 Target locator icons are bad
 Medicell gun is broke. installedcells needs code insertion
+carbine X selection throws runtime for autofire.
+holder checks everywhere. have some options to do so anyways which causes an alog or harms them
 
-Debug Box Ideas: recreational / admin drugs, Antag, Research, Security, Service, Cargo, Medical Box revisit, borgs / silicons, bots
+Debug Box Ideas: recreational / admin drugs, Antag, Research, Security, Service, Cargo, Medical Box revisit, borgs / silicons, bots, syndie theme, cc theme,
 
 NT-Uplink
+Bring firemode selector to some energy weapons, from ballistic weapons
+admin language

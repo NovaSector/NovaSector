@@ -107,6 +107,7 @@
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, EAR_PROTECTION_HEAVY)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+	AddElement(/datum/element/babel_clothing)
 
 // Thank you, code\modules\mining\lavaland\mining_loot\megafauna\ash_drake.dm - /obj/item/melee/ghost_sword, very cool
 /obj/item/radio/headset/admin/click_ctrl_shift(mob/user)//CtrlShift click as its a secondary function for this item.
@@ -157,25 +158,24 @@
 //Hey check out this cancerous atompath.
 //Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
 //New trait code at modular_nova\master_files\code\datums\wires\_wires.dm to show all wires w/o needing to hold blueprints or abductor multitool
+// TODO: sprites & verify show wires works
 //The one set of lenses to rule them all
 //code\modules\clothing\glasses\engine_goggles.dm & code\modules\clothing\glasses\_glasses.dm
-//TODO: icon fuckery in procs. verify show wires trait is working.
 /obj/item/clothing/glasses/meson/engine/admin/debug
 	name = "subspace contacts"
 	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."
-	desc_controls = "Ctrl + Click to toggle xray and thermals. Use the action button to change goggle modes."
+	desc_controls = "Ctrl + Shift + Click to cycle vision modes: normal, perfect vision, and omniscient."
 	icon = 'icons/obj/devices/syndie_gadget.dmi'
 	icon_state = "contacts"
 	inhand_icon_state = "contacts"
 	worn_icon = null
 	worn_icon_state = null
-	base_icon_state =
-	inhand_icon_state = "null"
-	flags_cover = GLASSESCOVERSEYES
-	flash_protect = FLASH_PROTECTION_WELDER
-	lighting_cutoff = LIGHTING_CUTOFF_HIGH
-	invis_view = SEE_INVISIBLE_OBSERVER
-	glass_colour_type = FALSE
+	base_icon_state = "contacts"
+	flags_cover = GLASSESCOVERSEYES// dont ask me why were doing this we just are
+	flash_protect = FLASH_PROTECTION_WELDER//No need for the welding gas mask from before
+	lighting_cutoff = LIGHTING_CUTOFF_HIGH//Slightly better vision just for wearing them, regardless of mode
+	invis_view = SEE_INVISIBLE_OBSERVER//On by default, gets defaulted to standard vision with switch mode 0
+	glass_colour_type = FALSE//Stop touching my icon omg
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	clothing_traits = list(
 		TRAIT_SHOW_ALL_WIRES,
@@ -190,35 +190,58 @@
 	pickup_sound = SFX_GOGGLES_PICKUP
 	drop_sound = SFX_GOGGLES_DROP
 	equip_sound = SFX_GOGGLES_EQUIP
-	var/xray = FALSE
+	// Sets up our ctrl shift click bonus feature
+	/// 0 = normal sight, 1 = perfect sight (see/hear through walls, see ghosts), 2 = omniscience (also sees abstract things like landmarks).
+	// You cannot set this to anything other than 1, because the switch updates are buried in the clickmod proc below. These wont process at initialize atm otherwise.
+	// If you're bothered enough do stuff with init before you modify this
+	var/vision_mode = 0
 
 /obj/item/clothing/glasses/meson/engine/admin/debug/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
+// The actual click proc itself
 /obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl_shift(mob/user)
-	if(!ishuman(user))
+	if(!ishuman(user))// sanity blocking if the click is somehow not coming from a human
 		return CLICK_ACTION_BLOCKING
 	var/mob/living/carbon/human/human_user = user
-	if(human_user.get_item_by_slot(ITEM_SLOT_EYES) != src)
-		balloon_alert(user, "must be worn!")
+	if(human_user.get_item_by_slot(ITEM_SLOT_EYES) != src)// checks through a new system that we're human, and its on our eyeballs. because we just checked if theyre human, this is of course a human_user, so just call them that
+		balloon_alert(user, "must be worn on your eyes!")// if not tell the dumbass
 		return CLICK_ACTION_BLOCKING
 
-	xray = !xray
-	if(xray)
-		vision_flags |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		ADD_TRAIT(user.mob, TRAIT_XRAY_HEARING, ADMIN_TRAIT)
-		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
-	else
-		vision_flags &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		REMOVE_TRAIT(user.mob, TRAIT_XRAY_HEARING, ADMIN_TRAIT)
-		remove_filter("admin_active_item")
+	vision_mode = (vision_mode + 1) % 3//math. take your current vision mode and add one, up to a maximum of three, cycling
+
+	switch(vision_mode)// the active switcher
+		if(0)// normal sight. this switch disables everything when hit
+			vision_flags &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)//that operator removes the flags, fuzzily
+			detach_clothing_traits(TRAIT_XRAY_VISION)// might not actually be necessary but fuck it, really,
+			REMOVE_TRAIT(human_user, TRAIT_XRAY_HEARING, ADMIN_TRAIT)// wall ears
+			human_user.see_invisible = initial(invis_view)// our actual see_invis processor
+			lighting_cutoff = LIGHTING_CUTOFF_HIGH// fullbright adjustment
+			remove_filter("admin_active_item")// clears outlines set later down this list
+			balloon_alert(user, "vision: normal")
+		if(1)// perfect sight. Goldilocks land
+			vision_flags |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
+			attach_clothing_traits(TRAIT_XRAY_VISION)
+			ADD_TRAIT(human_user, TRAIT_XRAY_HEARING, ADMIN_TRAIT)
+			human_user.see_invisible = SEE_INVISIBLE_OBSERVER// primary diff between this and switch 2
+			lighting_cutoff = LIGHTING_CUTOFF_FULLBRIGHT
+			add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
+			balloon_alert(user, "vision: perfect")
+		if(2)// omniscience. pretty much the same as last, except for
+			vision_flags |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
+			attach_clothing_traits(TRAIT_XRAY_VISION)
+			ADD_TRAIT(human_user, TRAIT_XRAY_HEARING, ADMIN_TRAIT)
+			human_user.see_invisible = INVISIBILITY_ABSTRACT// show me weird things so i dont have to take out sdmm or vv
+			lighting_cutoff = LIGHTING_CUTOFF_FULLBRIGHT
+			add_filter("admin_active_item", 1, outline_filter(2, "#ff0000", OUTLINE_SQUARE))// its worth adding an active outline differentiating the state. pretty sure this is the only place i've done this so far, atow
+			balloon_alert(user, "vision: omniscient")
 
 	human_user.update_sight()
-	balloon_alert(user, "xray [xray ? "enabled" : "disabled"]")
 	return CLICK_ACTION_SUCCESS
 
-// Admin Helmet
+// Admin Helmet. Percepto has the most kit shoved in it, we will just steal that
+// Now we get really magical. Eventually. I wanted the helmets to do something funny, but because its hidden under the modsuit... Needs to be less important.
 // We love casting spells. Did you know the perceptomatrix counts for spell clothing? Aint that neat.
 /obj/item/clothing/head/helmet/perceptomatrix/admin
 	name = "bluespace visor"
@@ -233,41 +256,6 @@
 	core_installed = TRUE
 	armor_type = /datum/armor/admin
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	var/admin_phasing = FALSE
-
-// Attempts to create a wall-phasing mode that you can enable with control clicking the helmet
-/// Whether phasing is currently active
-/obj/item/clothing/head/helmet/perceptomatrix/admin/item_ctrl_click(mob/user)
-	if(!isliving(user))
-		return CLICK_ACTION_BLOCKING
-
-	// Must be worn, not just held
-	var/mob/living/wearer = user
-	if(wearer.get_slot_by_item(src) != ITEM_SLOT_HEAD)
-		balloon_alert(user, "must be worn!")
-		return CLICK_ACTION_BLOCKING
-
-	admin_phasing = !admin_phasing
-	if(admin_phasing)
-		attach_clothing_traits(TRAIT_MOVE_PHASING, TRAIT_ADMIN_STEALTH, TRAIT_UNKNOWN_VOICE,)
-		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
-	else
-		detach_clothing_traits(TRAIT_MOVE_PHASING, TRAIT_ADMIN_STEALTH, TRAIT_UNKNOWN_VOICE,)
-		remove_filter("admin_active_item")
-
-	balloon_alert(user, "phasing [admin_phasing ? "enabled" : "disabled"]")
-	return CLICK_ACTION_SUCCESS
-
-/obj/item/clothing/head/helmet/perceptomatrix/admin/dropped(mob/user)
-	. = ..()
-	if(admin_phasing)
-		admin_phasing = FALSE
-		// detach_clothing_traits is already called by the parent unequip logic, but we reset our state variable here
-
-//Informs our silly staff that they can do this, if they bothered to inspect
-/obj/item/clothing/head/helmet/perceptomatrix/admin/examine(mob/user)
-	. = ..()
-	. += span_notice("Ctrl-Click while wearing to toggle phasing. Currently [admin_phasing ? "active" : "inactive"].")
 
 //Intercepts init icon state from parent, this might not be necessary. It also might not be working right, I dont know enough to know.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/Initialize(mapload)
@@ -275,7 +263,6 @@
 	AddComponent(/datum/component/hat_stabilizer, loose_hat = FALSE)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
-//Now we get really magical.
 /obj/item/clothing/head/helmet/perceptomatrix/admin/subspace
 	name = "subspace visor"
 	desc = "This exceptional piece of headgear seems to be one of the main reality-warping sources of the administrative kit. It feels nearly weightless on your head."
@@ -314,7 +301,7 @@
 /obj/item/clothing/mask/gas/atmos/admin
 	name = "bluespace mask"
 	desc = "A proprietary filtration mask which route gasses that CentCom deems toxic directly into the space between dimensions.\
-	Wasteful? Totally. Convenient? Extremely."
+	Wasteful? Totally. Convenient? Extremely. Has the added side effect of partially displacing you into that dimension."
 	icon = 'modular_nova/modules/admin_tech/icons/admin_clothing.dmi'
 	icon_state = "blue-mask"
 	worn_icon = 'modular_nova/modules/admin_tech/icons/worn_admin_clothing.dmi'
@@ -327,6 +314,42 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDEEARS|HIDEEYES|HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | EARS_COVERED
+	var/admin_phasing = FALSE
+
+// Attempts to create a wall-phasing mode that you can enable with control clicking the helmet
+/// Whether phasing is currently active
+/obj/item/clothing/mask/gas/atmos/admin/item_ctrl_click(mob/user)
+	if(!isliving(user))
+		return CLICK_ACTION_BLOCKING
+
+	// Must be worn, not just held
+	var/mob/living/wearer = user
+	if(wearer.get_slot_by_item(src) != ITEM_SLOT_HEAD)
+		balloon_alert(user, "must be worn!")
+		return CLICK_ACTION_BLOCKING
+
+	admin_phasing = !admin_phasing
+	if(admin_phasing)
+		attach_clothing_traits(TRAIT_MOVE_PHASING, TRAIT_ADMIN_STEALTH, TRAIT_UNKNOWN_VOICE,)
+		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
+	else
+		detach_clothing_traits(TRAIT_MOVE_PHASING, TRAIT_ADMIN_STEALTH, TRAIT_UNKNOWN_VOICE,)
+		remove_filter("admin_active_item")
+
+	balloon_alert(user, "phasing [admin_phasing ? "enabled" : "disabled"]")
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/clothing/mask/gas/atmos/admin/dropped(mob/user)
+	. = ..()
+	if(admin_phasing)
+		admin_phasing = FALSE
+		// detach_clothing_traits is already called by the parent unequip logic, but we reset our state variable here
+
+//Informs our silly staff that they can do this, if they bothered to inspect
+/obj/item/clothing/mask/gas/atmos/admin/examine(mob/user)
+	. = ..()
+	. += span_notice("Ctrl-Click while wearing to toggle phasing. Currently [admin_phasing ? "active" : "inactive"].")
+
 
 /obj/item/clothing/mask/gas/atmos/admin/Initialize(mapload)
 	. = ..()

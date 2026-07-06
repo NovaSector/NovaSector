@@ -6,7 +6,7 @@
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
 	max_total_storage = INFINITY
 	allow_quick_empty = TRUE
-	screen_max_columns = 13
+	screen_max_columns_widescreen = 13
 	allow_big_nesting = TRUE
 
 /// Used by bags like the trash bag/construction bag
