@@ -67,7 +67,6 @@ Keep `Man` or `Woman` in display names when you want the game's random gender ma
 - `POCKETTTS_PRELOAD_VOICES`: set `1` to load every voice state at boot.
 - `POCKETTTS_BACKGROUND_WARMUP`: set `0` to disable background model warmup.
 - `POCKETTTS_WARMUP_VOICES`: comma-separated voice names to warm in the background, or `all`; Docker defaults to `all`.
-- `POCKETTTS_RESPONSE_CACHE`: set `0` to disable on-disk OGG response caching.
 - `POCKETTTS_LOG_TIMINGS`: set `0` to disable per-request timing logs.
 - `POCKETTTS_WORKERS`: independent Gunicorn worker processes. Use this for multiple CPUs/cores.
 - `POCKETTTS_THREADS`: HTTP threads per worker. Keep this at `1` for synthesis-heavy use.
