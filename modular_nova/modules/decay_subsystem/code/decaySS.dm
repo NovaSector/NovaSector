@@ -33,12 +33,6 @@ SUBSYSTEM_DEF(decay)
 		log_world("SSDecay was disabled due to map filter.")
 		return SS_INIT_NO_NEED
 
-	// Putting this first so that it just doesn't waste time iterating through everything if it's not going to do anything anyway.
-	if(prob(50))
-		message_admins("SSDecay will not interact with this round.")
-		log_world("SSDecay will not interact with this round.")
-		return SS_INIT_NO_NEED
-
 	for(var/area/iterating_area as anything in GLOB.areas)
 		if(!is_station_level(iterating_area.z))
 			continue
@@ -54,7 +48,7 @@ SUBSYSTEM_DEF(decay)
 	if(!possible_turfs)
 		CRASH("SSDecay had no possible turfs to use!")
 
-	severity_modifier = 4
+	severity_modifier = 20
 
 	message_admins("SSDecay severity modifier set to [severity_modifier]")
 	log_world("SSDecay severity modifier set to [severity_modifier]")
@@ -71,7 +65,6 @@ SUBSYSTEM_DEF(decay)
 
 /datum/controller/subsystem/decay/proc/do_common()
 	var/floor_dirt_percent_chance = CONFIG_GET(number/ssdecay_floor_dirt_percent_chance)
-	var/floor_tile_missing_percent_chance = CONFIG_GET(number/ssdecay_floor_tile_missing_percent_chance)
 
 	for(var/turf/open/floor/iterating_floor in possible_turfs)
 		if(iterating_floor.turf_flags & CAN_DECAY_BREAK_1)
