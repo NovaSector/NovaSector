@@ -100,3 +100,7 @@ syndie ai card, make a cc one
 CC Cyborg Spawner Beacons
 Add radial select states for storing multiple multitool inputs on one multitool
 handheld fabricator
+
+### Useful-ish Breadcrumbs
+
+code\_\_DEFINES\admin.dm

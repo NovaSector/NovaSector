@@ -35,6 +35,7 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Our new headset.
+// TODO: Reach interactions on machines STILL do not work, despite my best efforts.
 /obj/item/radio/headset/admin
 	name = "bluespace headset"
 	desc = "Keeps you tuned in on the subspace data streams and threads, enabling you to communicate and act with ease."
@@ -57,53 +58,56 @@
 	/// A cache of ghosts orbiting this item
 	var/list/mob/dead/observer/spirits
 	/// Whether the debug-reach feature is currently toggled on
-	var/active = FALSE
+	var/admin_reach = FALSE
 	/// Cooldown for pinging ghosts
 	COOLDOWN_DECLARE(subspace_harmonic_signaller_cooldown)
-
-/obj/item/radio/headset/admin/item_ctrl_click(mob/user)
-	. = CLICK_ACTION_BLOCKING
-	if(user.get_item_by_slot(slot_flags) != src)
-		to_chat(user, span_warning("You need to be wearing [src] to toggle it."))
-		return
-	if(active)
-		turn_off(user)
-	else
-		turn_on(user)
-	return CLICK_ACTION_SUCCESS
-
-/obj/item/radio/headset/admin/proc/turn_on(mob/user)
-	active = TRUE
-	ADD_TRAIT(user, TRAIT_ADMIN_REACHABLE, ADMIN_GEAR_TRAIT)
-//	ADD_TRAIT(user, TRAIT_MOVE_PHASING, ADMIN_GEAR_TRAIT)
-	add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
-	to_chat(user, span_notice("[src] tunnels through narrative continuity. Reach, interaction, and collision limits are bypassed."))
-	update_appearance()
-
-/obj/item/radio/headset/admin/proc/turn_off(mob/user)
-	active = FALSE
-	REMOVE_TRAIT(user, TRAIT_ADMIN_REACHABLE, ADMIN_GEAR_TRAIT)
-//	REMOVE_TRAIT(user, TRAIT_MOVE_PHASING, ADMIN_GEAR_TRAIT)
-	remove_filter("admin_active_item")
-	to_chat(user, span_notice("[src] powers down and returns you to a non-reality warping state."))
-	update_appearance()
-
-// Safety: don't leave the wearer permanently phasing/omniscient if the suit comes off mid-use
-/obj/item/radio/headset/admin/dropped(mob/user, silent)
-	. = ..()
-	if(active)
-		turn_off(user)
-
-/obj/item/radio/headset/admin/doStrip(mob/user, mob/stripped_mob)
-	. = ..()
-	if(active)
-		turn_off(stripped_mob)
 
 /obj/item/radio/headset/admin/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, EAR_PROTECTION_HEAVY)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 	AddElement(/datum/element/babel_clothing)
+
+/obj/item/radio/headset/admin/examine(mob/user)
+	. = ..()
+	. += span_notice("Ctrl-Shift-Click while wearing to ping your subspace harmonic signaller, which will notify all observers to come orbit you.")
+	. += span_notice("Ctrl-Click while wearing to toggle Subspace Reach. Currently [admin_reach ? "active" : "inactive"].")
+
+/obj/item/radio/headset/admin/item_ctrl_click(mob/user)
+	. = CLICK_ACTION_BLOCKING
+	if(user.get_item_by_slot(slot_flags) != src)
+		to_chat(user, span_warning("You need to be wearing [src] to toggle it."))
+		return
+	if(admin_reach)
+		turn_off(user)
+	else
+		turn_on(user)
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/radio/headset/admin/proc/turn_on(mob/user)
+	admin_reach = TRUE
+	ADD_TRAIT(user, TRAIT_ADMIN_REACHABLE, ADMIN_GEAR_TRAIT)
+	add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
+	to_chat(user, span_notice("[src] tunnels through narrative continuity. Reach, interaction, and collision limits are bypassed."))
+	update_appearance()
+
+/obj/item/radio/headset/admin/proc/turn_off(mob/user)
+	admin_reach = FALSE
+	REMOVE_TRAIT(user, TRAIT_ADMIN_REACHABLE, ADMIN_GEAR_TRAIT)
+	remove_filter("admin_active_item")
+	to_chat(user, span_notice("[src] powers down and returns you to a non-reality warping state."))
+	update_appearance()
+
+// Safechecks
+/obj/item/radio/headset/admin/dropped(mob/user, silent)
+	. = ..()
+	if(admin_reach)
+		turn_off(user)
+
+/obj/item/radio/headset/admin/doStrip(mob/user, mob/stripped_mob)
+	. = ..()
+	if(admin_reach)
+		turn_off(stripped_mob)
 
 // Thank you, code\modules\mining\lavaland\mining_loot\megafauna\ash_drake.dm - /obj/item/melee/ghost_sword, very cool
 /obj/item/radio/headset/admin/click_ctrl_shift(mob/user)//CtrlShift click as its a secondary function for this item.
@@ -117,6 +121,7 @@
 
 	COOLDOWN_START(src, subspace_harmonic_signaller_cooldown, 5 SECONDS) // let's just assume the admin is responsible behind the wheel
 	to_chat(user, span_notice("The subspace harmonic signaller charges up and releases a pulse, notifying all the eyes-between-spaces of your activities!"))
+	message_admins("[ADMIN_LOOKUPFLW(user)] alerted ghosts with their [name].")// Also tell admemes. I forgor what the admin follow thing is.
 	notify_ghosts(
 		"[user.real_name] has attenuated and pulsed the subspace harmonic signaller of [user.p_their()] [name], alerting the eyes-between-spaces of their activities!",
 		source = user,
@@ -144,10 +149,6 @@
 
 	spirits = current_spirits
 	return length(spirits)
-
-/obj/item/radio/headset/admin/examine(mob/user)
-	. = ..()
-	. += span_notice("Ctrl-Shift-Click while wearing to ping your subspace harmonic signaller, which will notify all observers to come orbit you.")
 
 /obj/item/radio/headset/admin/subspace
 	name = "subspace headset"
@@ -572,13 +573,13 @@
 
 	var/atom/target = destinations[picked]// sets up our target from the selection through our destinations
 	var/turf/target_turf = get_turf(target)// checks the turf at our target. this does some kinda funny stuff if you sniff further in. dont, it's ok
-	if(!target_turf)// BUT WAIT, what if there ISNT a turf???
-		balloon_alert(user, "invalid destination!")// WHIIIINE
-		return CLICK_ACTION_BLOCKING// thanks for wasting all of the above resources :')
+	//if(!target_turf)// BUT WAIT, what if there ISNT a turf???
+		//balloon_alert(user, "invalid destination!")// WHIIIINE
+		//return CLICK_ACTION_BLOCKING// thanks for wasting all of the above resources :')
 
 	living_user.abstract_move(target_turf)// Poof!
-	log_admin("[key_name(user)] teleported via subspace techsuit to [picked]")// Log this shit because like lol lmao
-	message_admins("[key_name_admin(user)] teleported via subspace techsuit to [picked]")// Also tell admemes. I forgor what the admin follow thing is.
+	log_admin("[key_name(user)] teleported via subspace techsuit to [picked].")// Log this shit because like lol lmao
+	message_admins("[ADMIN_LOOKUPFLW(user)] teleported via subspace techsuit to [picked].")// Also tell admemes. I forgor what the admin follow thing is.
 	return CLICK_ACTION_SUCCESS// thanks for wasting all of the above resources :')
 
 /obj/item/clothing/under/admin/subspace

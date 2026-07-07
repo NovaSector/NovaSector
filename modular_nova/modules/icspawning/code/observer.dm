@@ -15,7 +15,7 @@
 		for(var/slot_name in prefs.preferred_spawn_methods)
 			custom_slots += "Slot: [slot_name]"
 
-		var/teleport_option = tgui_alert(usr, "How would you like to be spawned in?", "IC Quick Spawn", custom_slots + spawn_options + list("Save Current as Slot", "Clear Slots", "Cancel"))
+		var/teleport_option = tgui_alert(usr, "How would you like to be spawned in?", "IC Quick Spawn", custom_slots + spawn_options + list("Make a Custom Slot", "Clear Slots", "Cancel"))
 
 		if (teleport_option == "Cancel" || !teleport_option)
 			return
@@ -23,7 +23,7 @@
 		var/dresscode
 		var/character_option
 
-		if (teleport_option == "Save Current as Slot")
+		if (teleport_option == "Make a Custom Slot")
 			var/slot_name = tgui_input_text(usr, "Enter a name for this custom spawn slot", "Save Custom Slot")
 			if(!slot_name)
 				return
@@ -33,7 +33,7 @@
 			var/outfit = client.robust_dress_shop_nova()
 			if(!outfit)
 				return
-			
+
 			prefs.preferred_spawn_methods[slot_name] = method
 			prefs.preferred_spawn_outfits[slot_name] = outfit
 			prefs.save_preferences()
@@ -48,7 +48,7 @@
 				to_chat(usr, span_notice("Cleared all custom spawn slots."))
 			return
 
-		if (findtext(teleport_option, "Slot: "))
+		if (findtext(teleport_option, "Slot - "))
 			var/slot_name = copytext(teleport_option, 7) // Length of "Slot: " + 1
 			teleport_option = prefs.preferred_spawn_methods[slot_name]
 			dresscode = prefs.preferred_spawn_outfits[slot_name]
@@ -81,7 +81,7 @@
 
 		var/addquirks
 		if(character_option == "Selected Character")
-			addquirks = tgui_input_list(src, "Include quirks?", "Quirky", list("Quirks & Loadout", "Quirks Only", "Loadout Only", "Neither"))
+			addquirks = tgui_input_list(src, "Include quirks?", "Quirky", list("Quirks Only", "Quirks & Loadout", "Loadout Only", "Neither"))
 			if(!addquirks)
 				return
 

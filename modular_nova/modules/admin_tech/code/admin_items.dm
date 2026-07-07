@@ -1696,16 +1696,6 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 			/datum/laser_weapon_mode/admin/gravity,
 	)
 	default_selected_mode = "Disturb"
-//	speech_json_file = SHORT_MOD_LASER_SPEECH
-	lore_blurb = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
-		Cybersun Industries.<br><br>\
-		Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by SolFed \
-		to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. \
-		A lithe and mobile weapon, the Hoshi stars in close-quarters battle, trickshots, and area-of-effect blasts, \
-		at the cost of longer-ranged combat performance.<br><br>\
-		Her onboard machine intelligence, at first devised to support the operator and manage the internal reactor, \
-		was originally shipped with a more energetic personality—since influenced by 'negligence' \
-		from users in wiping the intelligence's memory before resale or transport."
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_ADMIN
 	resistance_flags = INDESTRUCTIBLE
@@ -1716,10 +1706,9 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	. = ..()
 	speak_up("emp", TRUE) // She gets very upset if you emp her
 
-// Hard reinit.
+// This might not be possible? With the elements
 /obj/item/gun/energy/modular_laser_rifle/admin/Initialize(mapload)
-	RemoveElement(/datum/element/manufacturer_examine, COMPANY_CYBERSUN)
-	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+	. = ..()
 	chat_color = "#cd4456"
 	chat_color_darkened = process_chat_color("#cd4456", sat_shift = 0.85, lum_shift = 0.85)
 	last_charge = cell.charge
@@ -1798,7 +1787,6 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	QDEL_NULL(scope_component)
 
 // Exists more for the component, but this is supposed to be a lahti
-// TODO: seems to not like it being a literal bullet. make an even more ridiculous destroyer pulse shot and stick it here
 /datum/laser_weapon_mode/admin/sniper
 	name = "Marksman"
 	casing = /obj/item/ammo_casing/energy/mm20x138

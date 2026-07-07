@@ -3,11 +3,11 @@
 /// Attach to clothing to grant the wearer all languages (Book of Babel effect) while worn, and revoke on unequip.
 /datum/element/babel_clothing// The base element
 
-//
 /datum/element/babel_clothing/Attach(datum/target)// Activates our element features when attaching to whatever
 	. = ..()
-	if(!isclothing(target))// If it's not clothing
-		return ELEMENT_INCOMPATIBLE// Turn element into whiny plush. I only made this to be used with clothing.
+	// headsets apparently aren't clothing, and that was the original target for this, so now I don't know what I want to do. Lets just remove the incompat for now.
+	//if(!isclothing(target))// If it's not clothing
+		//return ELEMENT_INCOMPATIBLE// Turn element into whiny plush. I only made this to be used with clothing.
 	ADD_TRAIT(target, TRAIT_BABEL_CLOTHING, REF(src))// Add our trait
 	RegisterSignal(target, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equipped))// Register a signal on our wearer to remove this should they take it off for whatever reason.
 
