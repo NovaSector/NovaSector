@@ -16,7 +16,7 @@
 	arousal_alert?.pain_level = level
 	arousal_alert?.pain_overlay = arousal_alert.update_pain()
 	arousal_alert?.add_overlay(arousal_alert.pain_overlay)
-	arousal_alert?.update_overlays()
+	arousal_alert?.update_appearance(UPDATE_OVERLAYS)
 
 /// Sends an icon to the screen that gives an approximate indication of the mob's pleasure. Looks like a pink-white border on the arousal alert heart.
 /datum/species/proc/overlay_pleasure(level, atom/movable/screen/alert/aroused/arousal_alert)
@@ -24,7 +24,7 @@
 	arousal_alert?.pleasure_level = level
 	arousal_alert?.pleasure_overlay = arousal_alert.update_pleasure()
 	arousal_alert?.add_overlay(arousal_alert.pleasure_overlay)
-	arousal_alert?.update_overlays()
+	arousal_alert?.update_appearance(UPDATE_OVERLAYS)
 
 /// Handles throwing the arousal alerts to screen.
 /datum/species/proc/handle_arousal(mob/living/carbon/human/target_human, atom/movable/screen/alert/aroused)
