@@ -175,8 +175,21 @@ def get_voice_state(voice: VoiceDefinition) -> dict[str, Any]:
         return state
 
 
+_voice_catalog_cache: list[VoiceDefinition] | None = None
+_voice_catalog_lock = threading.Lock()
+
+
 def voices() -> list[VoiceDefinition]:
-    return load_catalog(VOICE_CONFIG_PATH)
+    # find_voice() runs on every /tts* request (up to 5 per spoken line), so this
+    # gets called constantly - cache it instead of re-reading and re-parsing
+    # voices.json from disk every time. /voices/reload clears the cache.
+    global _voice_catalog_cache
+    if _voice_catalog_cache is not None:
+        return _voice_catalog_cache
+    with _voice_catalog_lock:
+        if _voice_catalog_cache is None:
+            _voice_catalog_cache = load_catalog(VOICE_CONFIG_PATH)
+        return _voice_catalog_cache
 
 
 def voice_names() -> list[str]:
@@ -475,10 +488,15 @@ def wav_to_ogg(
     else:
         ogg_bytes = _run_ffmpeg(wav_bytes, filters, ogg_out)
 
-    if not filter_chain and not special_filters:
-        duration = wav_duration_seconds(wav_bytes)
-    else:
+    if is_silicon:
+        # Silicon pads a reverb tail onto the end (apad=pad_dur=2 in
+        # SILICON_COMPLEX_TAIL), so duration has to come from the actual output.
         duration = audio_duration_seconds(ogg_bytes)
+    else:
+        # Pitch-only rubberband and the per-voice EQ/dynamics filters all preserve
+        # sample count, so the pre-filter WAV's duration is still accurate - skips
+        # spawning a second ffmpeg process just to decode the ogg back out.
+        duration = wav_duration_seconds(wav_bytes)
     return ogg_bytes, duration
 
 
@@ -652,8 +670,11 @@ def toggle_logging() -> Any:
 @app.route("/voices/reload", methods=["POST"])
 def reload_voices() -> Any:
     require_authorization()
+    global _voice_catalog_cache
     with _voice_state_lock:
         _voice_states.clear()
+    with _voice_catalog_lock:
+        _voice_catalog_cache = None
     return jsonify({"voices": voice_names()})
 
 
@@ -672,9 +693,20 @@ def warmup_voices() -> Any:
     return jsonify({"warming": requested_voices})
 
 
+_health_check_count = 0
+
+
 @app.route("/health-check", methods=["GET"])
 def health_check() -> Any:
-    gc.collect()
+    # Docker hits this every 5s (Dockerfile HEALTHCHECK). A full gc.collect() walks
+    # the whole object graph (torch model, voice/sfx caches included) and briefly
+    # pauses every thread in the process - fine occasionally, but doing it that
+    # often adds latency jitter to whatever synth happens to be in flight at the
+    # same moment for no real benefit over Python's own incremental collection.
+    global _health_check_count
+    _health_check_count += 1
+    if _health_check_count % 12 == 0:
+        gc.collect()
     return "OK", 200
 
 
