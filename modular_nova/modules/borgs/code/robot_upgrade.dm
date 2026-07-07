@@ -12,6 +12,7 @@
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/medical)
 	model_flags = BORG_MODEL_MEDICAL
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT, /datum/material/plasma = SHEET_MATERIAL_AMOUNT, /datum/material/diamond = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/borg/upgrade/surgerytools/action(mob/living/silicon/robot/borg)
 	. = ..()
@@ -109,6 +110,7 @@
 	model_type = list(/obj/item/robot_model/medical)
 	model_flags = BORG_MODEL_MEDICAL
 	items_to_add = list(/obj/item/autopsy_scanner)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/silver = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/borg/upgrade/chemistrygripper
 	name = "medical cyborg chemistry gripper"
@@ -118,6 +120,7 @@
 	model_type = list(/obj/item/robot_model/medical)
 	model_flags = BORG_MODEL_MEDICAL
 	items_to_add = list(/obj/item/borg/apparatus/sheet_manipulator/chemistry)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT)
 
 /*
 *	ADVANCED ENGINEERING CYBORG UPGRADES
@@ -152,6 +155,7 @@
 	icon_state = "module_engineer"
 	model_type = list(/obj/item/robot_model/engineering)
 	model_flags = BORG_MODEL_ENGINEERING
+	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/uranium = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/borg/upgrade/advanced_materials/action(mob/living/silicon/robot/borgo, user)
 	. = ..()
@@ -216,6 +220,7 @@
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/miner)
 	model_flags = BORG_MODEL_MINER
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/borg/upgrade/welder/action(mob/living/silicon/robot/R, user = usr)
 	. = ..()
@@ -294,6 +299,7 @@
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/cargo)
 	model_flags = BORG_MODEL_CARGO
+	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 
 
 /obj/item/borg/upgrade/better_clamp/action(mob/living/silicon/robot/cyborg, user = usr)
@@ -337,6 +343,7 @@
 	name = "Cyborg Shapeshifter Module"
 	desc = "An experimental device which allows a cyborg to disguise themself into another type of cyborg."
 	icon_state = "module_general"
+	custom_materials = list(/datum/material/silver = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/borg/upgrade/borg_shapeshifter/action(mob/living/silicon/robot/R, user = usr)
 	. = ..()
@@ -356,6 +363,7 @@
 	name = "borg affection module"
 	desc = "A module that upgrades the ability of borgs to display affection."
 	icon_state = "module_peace"
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/borg/upgrade/affectionmodule/action(mob/living/silicon/robot/borg)
 	. = ..()
@@ -440,6 +448,7 @@
 	name = "borg shrinker"
 	desc = "A cyborg resizer, it makes a cyborg small."
 	icon_state = "module_general"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4)
 
 /obj/item/borg/upgrade/shrink/action(mob/living/silicon/robot/borg, user = usr)
 	. = ..()

@@ -122,7 +122,7 @@
 	savefile_key = "new_genitalia_growth_pref"
 
 /datum/preference/choiced/erp_status
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_status_pref"
 
@@ -179,7 +179,7 @@
 	return FALSE
 
 /datum/preference/choiced/erp_status_nc
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_status_pref_nc"
 
@@ -217,7 +217,7 @@
 	return FALSE
 
 /datum/preference/choiced/erp_status_v
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_status_pref_v"
 
@@ -255,7 +255,7 @@
 	return FALSE
 
 /datum/preference/choiced/erp_status_mechanics
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_status_pref_mechanics"
 
@@ -324,7 +324,7 @@
 	return FALSE
 
 /datum/preference/choiced/erp_status_hypno
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_status_pref_hypnosis"
 

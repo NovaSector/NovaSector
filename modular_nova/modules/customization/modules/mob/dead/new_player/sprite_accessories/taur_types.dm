@@ -61,13 +61,13 @@
 		if (worn_uniform.flags_inv & HIDETAUR)
 			switch (taur_mode)
 				if (BODYSHAPE_TAUR_SNAKE)
-					if (worn_suit.worn_icon_taur_snake)
+					if (worn_uniform.worn_icon_taur_snake)
 						return TRUE
 				if (BODYSHAPE_TAUR_PAW)
-					if (worn_suit.worn_icon_taur_paw)
+					if (worn_uniform.worn_icon_taur_paw)
 						return TRUE
 				if (BODYSHAPE_TAUR_HOOF)
-					if (worn_suit.worn_icon_taur_hoof)
+					if (worn_uniform.worn_icon_taur_hoof)
 						return TRUE
 
 	if(target.owned_turf)

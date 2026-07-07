@@ -14,6 +14,7 @@
 	feature_key = FEATURE_HEAD_ACCESSORY
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = UPPER_BODY
 
 /datum/bodypart_overlay/mutant/head_accessory/override_color(rgb_value)
 	return draw_color
