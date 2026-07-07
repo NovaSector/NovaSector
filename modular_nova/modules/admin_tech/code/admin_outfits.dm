@@ -55,7 +55,6 @@
 		/obj/item/gun/magic/wand/death/debug = 1,
 		/obj/item/gun/magic/wand/safety/debug = 1,
 		/obj/item/melee/energy/axe = 1,
-		/obj/item/gun/energy/modular_laser_rifle/carbine/admin = 1,
 		/obj/item/boxcutter = 1,
 	)
 	belt_contents = list()

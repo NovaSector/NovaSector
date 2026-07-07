@@ -32,6 +32,8 @@ code\_\_DEFINES\machines.dm - ADMIN_TECHWEB define
 icons\map_icons\items\encryptionkey.dmi - Justification: Auto-Sprited, cant stop it
 icons\map_icons\items\pda.dmi - Justification: Auto-Sprited, cant stop it
 code\datums\storage\storage.dm - Replaces /datum/storage/proc/orient_storage() with one including a widescreen check for oversized storages, and paired var screen_max_columns_widescreen on master /datum/storage
+modular_nova\modules\cellguns\code\cellguns.dm - Updated for quality of life and stuff needed for admin and other cellgun types
+code\modules\tgui\states.dm - Modular edit to fix ui opening at distance with the subspace headset, thank you again internetizen
 
 ### Defines:
 
@@ -51,7 +53,7 @@ modular_nova/master_files/code/game/objects/objs.dm - admin obj support
 modular_nova/master_files/code/modules/research/techweb/techweb_types.dm - ADMIN_TECHWEB node registration
 modular_nova/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/mod_themes.dm - admin MOD theme support
 modular_nova/modules/icspawning/code/cards_ids.dm - trimmed for admin outfit menu integration
-modular_nova/modules/icspawning/code/observer.dm - outfit selection converted to tgui list
+modular_nova/modules/icspawning/code/observer.dm - outfit selection converted to tgui list, adds save slots
 modular_nova/modules/icspawning/readme.md - updated for the above
 modular_nova/modules/job_locker_beacon/code/job_locker_beacon.dm - removed, folded into admin_tech
 modular_nova/modules/bluespace_admin/icons/mob/belt.dmi - removed, old module folded into admin_tech
@@ -82,16 +84,9 @@ Player appropriate tech loadout with considerations to reduce the need for admin
 
 subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
 
-Talk to sammy about the tgui machinery ui interact at distance situation
-Permanent portal management system + gateway support
-CC Cyborg Spawner Beacons
+Talk to sammy about the tgui machinery ui interact at distance situation // attempting to handle with a modular edit on code\modules\tgui\states.dm
+Permanent portal management system + gateway support - already exists in code, make a box with the items /obj/item/permanent_portal_creator
 
-Rebase our new admin chem through nooart revival mechs
-
-syndie ai card, make a cc one
-Target locator icons are bad
-Medicell gun is broke. installedcells needs code insertion
-carbine X selection throws runtime for autofire.
 holder checks everywhere. have some options to do so anyways which causes an alog or harms them
 
 Debug Box Ideas: recreational / admin drugs, Antag, Research, Security, Service, Cargo, Medical Box revisit, borgs / silicons, bots, syndie theme, cc theme,
@@ -99,3 +94,8 @@ Debug Box Ideas: recreational / admin drugs, Antag, Research, Security, Service,
 NT-Uplink
 Bring firemode selector to some energy weapons, from ballistic weapons
 admin language
+handheld advanced camera console
+syndie ai card, make a cc one
+CC Cyborg Spawner Beacons
+Add radial select states for storing multiple multitool inputs on one multitool
+Techsuit teleportation system

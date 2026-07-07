@@ -46,6 +46,11 @@
 	/// If a food doesn't exist in this list, it uses the default value.
 	var/list/food_preferences = list()
 
+	/// Admin-only: Preferred spawn methods for the IC Quick Spawn menu.
+	var/list/preferred_spawn_methods = list()
+	/// Admin-only: Preferred outfit typepaths for the IC Quick Spawn menu.
+	var/list/preferred_spawn_outfits = list()
+
 /datum/preferences/proc/species_updated(species_type)
 	all_quirks = list()
 	// Reset cultural stuff

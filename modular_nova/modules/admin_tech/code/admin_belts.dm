@@ -12,7 +12,9 @@
 	worn_icon_state = "admeme_satchel"
 	storage_type = /datum/storage/admin
 	w_class = WEIGHT_CLASS_TINY
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
 
 /obj/item/storage/belt/utility/admin/Initialize(mapload)
 	. = ..()
@@ -29,7 +31,7 @@
 	new /obj/item/airlock_painter/decal/debug(src)
 	new	/obj/item/holosign_creator/atmos/admin(src)
 	new	/obj/item/forcefield_projector/admin(src)
-	new /obj/item/healthanalyzer/advanced(src)
+	new /obj/item/healthanalyzer/advanced/admin(src)
 	new	/obj/item/lightreplacer/blue/admin(src)
 	new	/obj/item/construction/rld/admin(src)
 	new	/obj/item/rwd/admin(src)
@@ -76,7 +78,7 @@
 	new /obj/item/airlock_painter/decal/debug(src)
 	new	/obj/item/forcefield_projector/admin(src)
 	new	/obj/item/holosign_creator/atmos/admin(src)
-	new /obj/item/healthanalyzer/advanced(src)
+	new /obj/item/healthanalyzer/advanced/admin(src)
 	new	/obj/item/lightreplacer/blue/admin(src)
 	new	/obj/item/construction/rld/admin(src)
 	new	/obj/item/rwd/admin(src)
@@ -85,7 +87,7 @@
 	new	/obj/item/construction/rtd/admin(src)
 	new	/obj/item/construction/rcd/arcd/mattermanipulator/admin(src)
 	new	/obj/item/multitool/abductor(src)
-	new	/obj/item/weldingtool/abductor(src)
+	new	/obj/item/weldingtool/advanced/admin(src)
 	new	/obj/item/crowbar/power(src)
 	new	/obj/item/screwdriver/power(src)
 	new	/obj/item/pipe_dispenser/bluespace(src)

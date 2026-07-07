@@ -131,7 +131,7 @@
 
 	// NOVA EDIT ADDITION START - ADMIN_TECH
 	/// Extra columns granted to viewers with the widescreen preference enabled.
-	var/screen_max_columns_widescreen = 11
+	var/screen_max_columns_widescreen = 13
 	// NOVA EDIT ADDITION END - ADMIN_TECH
 
 /datum/storage/New(

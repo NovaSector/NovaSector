@@ -5,6 +5,7 @@ GLOBAL_LIST_INIT(subspace_box_types, list(
 		"Debug Tools",
 		"Medical",
 		"Power",
+		"Portals and Teleportation",
 		"Care Package"
 ))
 
@@ -30,7 +31,7 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/modular_computer/debug = 1,
 			/obj/item/handheld_debug_chem_synth = 1,
 			/obj/item/handheld_soulcatcher = 1,
-			/obj/item/healthanalyzer/advanced = 1,
+			/obj/item/healthanalyzer/advanced/admin = 1,
 			/obj/item/pinpointer/crew/admin = 1,
 			/obj/item/sensor_device = 1,
 			/obj/item/debug/omnitool = 1,
@@ -48,7 +49,8 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/aicard/aitater = 1,
 			/obj/item/disk/tech_disk/debug = 1,
 			/obj/item/flashlight/flare/torch/everburning = 1,
-			/obj/item/firing_pin/admin = 1
+			/obj/item/firing_pin/admin = 1,
+			/obj/item/survivalcapsule/admin/fan = 1,
 		),
         "Medical" = list(//
 			/obj/item/gun/energy/cell_loaded/medigun/admin = 1,
@@ -74,7 +76,7 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/gun/chem/admin = 1,
 			/obj/item/slimepotion/speed = 1,
 			/obj/item/slimepotion/genderchange = 1,
-			/obj/item/slimepotion/peacepotion = 1
+			/obj/item/slimepotion/peacepotion = 1,
 		),
         "Power" = list(//Power Debugging -- TODO: flatpacks
 			/obj/item/stock_parts/power_store/cell/infinite = 7,
@@ -88,6 +90,15 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/screwdriver/power = 1,
 			/obj/item/clothing/gloves/chief_engineer = 1,
 			/obj/item/autosurgeon/toolset = 1,
+        ),
+        "Portals and Teleportation" = list(//Portals and Shit
+			/obj/item/permanent_portal_anchor = 1,
+			/obj/item/permanent_portal_creator = 1,
+			/obj/item/swapper = 2,
+			/obj/item/storage/box/teleport_blocker = 1,
+			/obj/item/quantum_keycard = 1,
+			/obj/item/storage/box/syndie_kit/syndicate_teleporter = 1,
+
         ),
         "Care Package" = list(//Should be populated with toys and room party stuff
 			/obj/item/storage/box/hug/plushes = 1,
@@ -107,7 +118,6 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/laser_pointer/infinite_range = 1,
 			/obj/item/pai_card = 1,
 			/obj/item/megaphone = 1,
-			/obj/item/swapper = 2,
 			/obj/item/desynchronizer = 1,
 			/obj/item/reagent_containers/cup/maunamug = 1,
 			/obj/item/clothing/head/helmet/perceptomatrix/functioning = 1,
@@ -121,15 +131,18 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
         ),
 ))
 
+// Re-enable if you want to pair
 //GLOBAL_LIST_INIT(subspace_box_icontype, list(
 //		"Medical" = "medbox",
 //))
 
+// Pairs selection to illustration update, look in icons\obj\storage\box.dmi for options
 GLOBAL_LIST_INIT(subspace_box_illustrations, list(
 		"Another Subspace Box" = "heart_black",
 		"Medical" = "pillbox",
 		"Debug Tools" = "disk_kit",
 		"Power" = "sparkler",
+		"Portals and Teleportation" = "blubeaker",
 		"Care Package" = "heart",
 ))
 

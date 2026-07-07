@@ -1,6 +1,3 @@
-// knownbugs: contacts icon state fucky
-// Debug Encryption Key and Headset, still manually populates the channel list because I am not a real coder, just a denthead
-
 /// Admin encryption key with basically every channel
 /obj/item/encryptionkey/admin
 	name = "\proper the subspace encryption key"
@@ -10,7 +7,7 @@
 	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "captain"
 	post_init_icon_state = "cypherkey_cube"
-	channels = list(
+	channels = list(// Debug Encryption Key and Headset, still manually populates the channel list because I am not a real coder, just a denthead
 		RADIO_CHANNEL_AI_PRIVATE = 1,
 		RADIO_CHANNEL_CENTCOM = 1,
 		RADIO_CHANNEL_COMMAND = 1,
@@ -28,7 +25,6 @@
 		RADIO_CHANNEL_SUPPLY = 1,
 		RADIO_CHANNEL_SYNDICATE = 1,
 		RADIO_CHANNEL_TARKON = 1,
-		RADIO_CHANNEL_UPLINK = 1,
 	)
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#2b2793#dca01b"
@@ -112,17 +108,20 @@
 // Thank you, code\modules\mining\lavaland\mining_loot\megafauna\ash_drake.dm - /obj/item/melee/ghost_sword, very cool
 /obj/item/radio/headset/admin/click_ctrl_shift(mob/user)//CtrlShift click as its a secondary function for this item.
 	. = ..()
+	if(!user.client.holder)
+		return
+
 	if(!COOLDOWN_FINISHED(src, subspace_harmonic_signaller_cooldown))
 		to_chat(user, span_warning("The subspace harmonic signaller is cooling down! Using this too frequently might upset the powers that be!"))
 		return
 
-	COOLDOWN_START(src, subspace_harmonic_signaller_cooldown, 15 SECONDS) // let's just assume the admin is responsible behind the wheel
+	COOLDOWN_START(src, subspace_harmonic_signaller_cooldown, 5 SECONDS) // let's just assume the admin is responsible behind the wheel
 	to_chat(user, span_notice("The subspace harmonic signaller charges up and releases a pulse, notifying all the eyes-between-spaces of your activities!"))
 	notify_ghosts(
 		"[user.real_name] has attenuated and pulsed the subspace harmonic signaller of [user.p_their()] [name], alerting the eyes-between-spaces of their activities!",
 		source = user,
 		ignore_key = POLL_IGNORE_SPECTRAL_BLADE, // we keep this because it's going to draw the same people—chronic observers
-		header = name,
+		header = "An Admin is trying to get the Ghosts attention!",
 	)
 	return CLICK_ACTION_SUCCESS
 
@@ -158,25 +157,35 @@
 //Hey check out this cancerous atompath.
 //Squishes together Syndie Thermal Xrays, Debug Goggles, and the Engine Admin glasses.
 //New trait code at modular_nova\master_files\code\datums\wires\_wires.dm to show all wires w/o needing to hold blueprints or abductor multitool
-// TODO: sprites & verify show wires works
+// TODO: sprites
 //The one set of lenses to rule them all
 //code\modules\clothing\glasses\engine_goggles.dm & code\modules\clothing\glasses\_glasses.dm
+
+#define MODE_NONE ""
+#define MODE_MESON "meson"
+#define MODE_TRAY "t-ray"
+#define MODE_SHUTTLE "shuttle"
+#define MODE_PIPE_CONNECTABLE "connectable"
+#define MODE_ATMOS_THERMAL "atmospheric-thermal"
+#define MODE_AREA_BLUEPRINTS "area-blueprints"
+
 /obj/item/clothing/glasses/meson/engine/admin/debug
 	name = "subspace contacts"
 	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."
 	desc_controls = "Ctrl + Shift + Click to cycle vision modes: normal, perfect vision, and omniscient."
-	icon = 'icons/obj/devices/syndie_gadget.dmi'
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "contacts"
-	inhand_icon_state = "contacts"
+	inhand_icon_state = "trayson-"
 	worn_icon = null
 	worn_icon_state = null
-	base_icon_state = "contacts"
+	base_icon_state = "trayson-"
 	flags_cover = GLASSESCOVERSEYES// dont ask me why were doing this we just are
 	flash_protect = FLASH_PROTECTION_WELDER//No need for the welding gas mask from before
 	lighting_cutoff = LIGHTING_CUTOFF_HIGH//Slightly better vision just for wearing them, regardless of mode
-	invis_view = SEE_INVISIBLE_OBSERVER//On by default, gets defaulted to standard vision with switch mode 0
+//	invis_view = SEE_INVISIBLE_OBSERVER//On by default, gets defaulted to standard vision with switch mode 0
 	glass_colour_type = FALSE//Stop touching my icon omg
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	modes = list(MODE_NONE, MODE_MESON, MODE_TRAY, MODE_PIPE_CONNECTABLE, MODE_ATMOS_THERMAL, MODE_AREA_BLUEPRINTS, MODE_SHUTTLE)
 	clothing_traits = list(
 		TRAIT_SHOW_ALL_WIRES,
 		TRAIT_REAGENT_SCANNER,
@@ -239,6 +248,14 @@
 
 	human_user.update_sight()
 	return CLICK_ACTION_SUCCESS
+
+#undef MODE_NONE
+#undef MODE_MESON
+#undef MODE_TRAY
+#undef MODE_SHUTTLE
+#undef MODE_PIPE_CONNECTABLE
+#undef MODE_ATMOS_THERMAL
+#undef MODE_AREA_BLUEPRINTS
 
 // Admin Helmet. Percepto has the most kit shoved in it, we will just steal that
 // Now we get really magical. Eventually. I wanted the helmets to do something funny, but because its hidden under the modsuit... Needs to be less important.
@@ -324,7 +341,7 @@
 
 	// Must be worn, not just held
 	var/mob/living/wearer = user
-	if(wearer.get_slot_by_item(src) != ITEM_SLOT_HEAD)
+	if(wearer.get_slot_by_item(src) != ITEM_SLOT_MASK)
 		balloon_alert(user, "must be worn!")
 		return CLICK_ACTION_BLOCKING
 
@@ -376,7 +393,9 @@
 	icon_state = "armplate_shemaugh"
 	slot_flags = ITEM_SLOT_NECK | ITEM_SLOT_POCKETS
 	storage_type = /datum/storage/admin/cytotheca
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	w_class = WEIGHT_CLASS_TINY
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
 	var/admin_godmode = TRUE
 
 /obj/item/storage/neck/admin/cytotheca/Initialize(mapload)
@@ -400,6 +419,12 @@
 	if(admin_godmode)
 		ADD_TRAIT(user, TRAIT_GODMODE, REF(user))
 		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
+
+/obj/item/storage/neck/admin/cytotheca/equipped(mob/user, slot, initial = TRUE)
+	. = ..()
+	if(admin_godmode)
+		REMOVE_TRAIT(user, TRAIT_GODMODE, REF(user))
+		remove_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))
 
 /// Whether godmode is currently active
 /obj/item/storage/neck/admin/cytotheca/item_ctrl_click(mob/user)
@@ -436,6 +461,7 @@
 	icon_state = "storage_pouch_icon"
 	worn_icon_state = "storage_pouch_icon"
 	storage_type = /datum/storage/admin/cytotheca
+	obj_flags = TRAIT_NODROP
 
 // Highway robbery off the stable slime box, idk if this is current for all available stables or not
 /obj/item/storage/subspace_pouch/cytotheca/PopulateContents()
@@ -492,20 +518,6 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
 	// It took a while to curate this trait list and I dont think its done. If you find anything else useful you should throw it on here.
 	clothing_traits = list(TRAIT_CLEANBOT_WHISPERER, TRAIT_AI_ACCESS, TRAIT_BLOB_ALLY, TRAIT_TENACIOUS, TRAIT_UNBREAKABLE, TRAIT_UNOBSERVANT, TRAIT_INVISIBLE_TO_CAMERA, TRAIT_CATLIKE_GRACE, TRAIT_NO_STRIP, TRAIT_TURF_IGNORE_SLIPPERY, TRAIT_TURF_IGNORE_SLOWDOWN, TRAIT_OVERWATCH_IMMUNE, TRAIT_TENTACLE_IMMUNE, TRAIT_WEATHER_IMMUNE, TRAIT_LAVA_IMMUNE, TRAIT_KNOW_ENGI_WIRES, TRAIT_FERAL_BITER, TRAIT_ADAMANTINE_EXTRACT_ARMOR, TRAIT_ROCK_EATER, TRAIT_SUPERMATTER_SOOTHER, TRAIT_UNNATURAL_RED_GLOWY_EYES, TRAIT_QUICKER_CARRY, TRAIT_NO_STAGGER, TRAIT_IGNORESLOWDOWN, TRAIT_NO_BLOOD_OVERLAY, TRAIT_NODISMEMBER, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_NODEATH)
-
-//Gives the undersuit the ability to teleport.
-//TODO: apparently just doesnt work. fix this at some point.
-//TODO: non-restricted teleport_loc setup and new spell just for this. This'll do for now though.
-/obj/item/clothing/under/admin/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
-	// In the future, this can be generalized into just "magic scrolls that give you a specific spell".
-	var/datum/action/cooldown/spell/teleport/area_teleport = locate() in actions
-	if(!area_teleport)
-		return
-	area_teleport.name = name
-	area_teleport.button_icon = icon
-	area_teleport.button_icon_state = icon_state
 
 /obj/item/clothing/under/admin/subspace
 	name = "subspace techsuit"

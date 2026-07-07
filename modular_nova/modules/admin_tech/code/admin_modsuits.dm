@@ -10,7 +10,6 @@
 		there will be an admin complaint. You have been warned."
 	default_skin = "bluespace"
 	armor_type = /datum/armor/admin
-	resistance_flags = INDESTRUCTIBLE|LAVA_PROOF|FIRE_PROOF|UNACIDABLE|ACID_PROOF
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	complexity_max = 1000
@@ -19,6 +18,7 @@
 	slowdown_deployed = 0
 	activation_step_time = MOD_ACTIVATION_STEP_TIME * 0.01
 	hearing_protection = EAR_PROTECTION_FULL
+	resistance_flags = INDESTRUCTIBLE
 	allowed_suit_storage = list(
 		/obj/item,
 	)
@@ -61,6 +61,8 @@
 	theme = /datum/mod_theme/bluespace
 	starting_frequency = MODLINK_FREQ_CENTCOM
 	applied_core = /obj/item/mod/core/infinite
+	w_class = WEIGHT_CLASS_TINY
+	obj_flags = ADMIN_OBJ_FLAGS
 	applied_modules = list(
 		/obj/item/mod/module/storage/admin,
 		/obj/item/mod/module/dispenser/subspacebox,
@@ -96,7 +98,6 @@
 		there will be an admin complaint. You have been warned."
 	default_skin = "subspace"
 	armor_type = /datum/armor/admin/badmin
-	resistance_flags = INDESTRUCTIBLE|LAVA_PROOF|FIRE_PROOF|UNACIDABLE|ACID_PROOF
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	complexity_max = 1000
@@ -105,6 +106,7 @@
 	slowdown_deployed = 0
 	activation_step_time = MOD_ACTIVATION_STEP_TIME * 0.01
 	hearing_protection = EAR_PROTECTION_FULL
+	resistance_flags = INDESTRUCTIBLE
 	allowed_suit_storage = list(
 		/obj/item,
 	)
@@ -147,6 +149,8 @@
 	theme = /datum/mod_theme/subspace
 	starting_frequency = MODLINK_FREQ_CENTCOM
 	applied_core = /obj/item/mod/core/infinite
+	w_class = WEIGHT_CLASS_TINY
+	obj_flags = ADMIN_OBJ_FLAGS
 	applied_modules = list(
 		/obj/item/mod/module/storage/admin,
 		/obj/item/mod/module/dispenser/subspacebox,
@@ -172,7 +176,7 @@
 		/obj/item/mod/module/defibrillator/combat,
 		/obj/item/mod/module/medbeam,
 		/obj/item/mod/module/surgical_processor/preloaded,
-		/obj/item/mod/module/holster,
+		/obj/item/mod/module/admin/carbine,
 		/obj/item/mod/module/baton_holster/preloaded,
 		/obj/item/mod/module/flamethrower,
 		/obj/item/mod/module/adrenaline_boost,
@@ -193,13 +197,12 @@
 		/obj/item/mod/module/dispenser/subspacebox,
 		/obj/item/mod/module/magboot/advanced,
 		/obj/item/mod/module/jetpack/advanced,
+		/obj/item/mod/module/admin/carbine,
 		/obj/item/mod/module/anomaly_locked/kinesis/admin,
 		/obj/item/mod/module/timeline_jumper,
 		/obj/item/mod/module/thermal_regulator,
 		/obj/item/mod/module/mister/atmos,
 		/obj/item/mod/module/paper_dispenser,
-		/obj/item/mod/module/dispenser,
-		/obj/item/mod/module/balloon/advanced,
 	)
 
 /obj/item/mod/control/pre_equipped/subspace/Initialize(mapload)
@@ -207,6 +210,8 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 /// Extremely cursed modsuit that will self install every modsuit module in existence
+// When you need to quickly reference complexities, power draw, etc, this should always spawn with all the modules in the path
+// Please please please do not spawn this on live servers. It will throw runtimes both when you spawn and despawn it
 /obj/item/mod/control/pre_equipped/bluespace/danger_module_debug
 	applied_modules = list()
 	default_pins = list()

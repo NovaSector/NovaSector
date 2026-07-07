@@ -147,7 +147,7 @@ Admin Variants of Common Tools
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
 // Your best friend for cleanup
-// TODO: Update descs
+// TODO: Update descs and worn sprites
 /obj/item/storage/bag/admin
 	name = "bluespace pocket"
 	desc = "An artisinally crafted pocket liner utilizing advanced technologies, techniques, and materials."
@@ -669,16 +669,18 @@ Admin Variants of Common Tools
 		Test users said the switching was 'cumbersome' and that a 'floating radial' was a cooler choice, but the acquisitions manager lacked ability to describe the design to the producer."
 	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/projectile.dmi'
 	icon_state = "medigun"
-	inhand_icon_state = "chronogun" // Fits best with how the medigun looks, might be changed in the future
+	inhand_icon_state = "chronogun"
 	abstract_type = /obj/item/gun/energy/cell_loaded/medigun
-	ammo_type = list(/obj/item/ammo_casing/energy/medical) // The default option that heals oxygen
+	ammo_type = list(/obj/item/ammo_casing/energy/medical)
 	cell_type = /obj/item/stock_parts/power_store/cell/medigun
-	maxcells = 12 // there are 12 medicells in code at the time of counting
+	pin = /obj/item/firing_pin/admin
+	maxcells = 13
 	allowed_cells = list(/obj/item/weaponcell/medical)
 	item_flags = null
-	gun_flags = null // parent forbids turret
-	/// A list that contains the currently installed cells.
-	/* installedcells doesn't like being directly populated, so we will need to move it to the init or something
+	gun_flags = null
+	can_install_cells = TRUE
+	can_remove_cells = TRUE
+	starting_cells = list(
 		/obj/item/weaponcell/medical/brute/tier_3,
 		/obj/item/weaponcell/medical/burn/tier_3,
 		/obj/item/weaponcell/medical/toxin/tier_3,
@@ -686,8 +688,7 @@ Admin Variants of Common Tools
 		/obj/item/weaponcell/medical/utility/clotting,
 		/obj/item/weaponcell/medical/utility/temperature,
 		/obj/item/weaponcell/medical/utility/salve,
-	*/
-	installedcells = list()
+	)
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_ADMIN
 	resistance_flags = INDESTRUCTIBLE
@@ -736,7 +737,7 @@ Admin Variants of Common Tools
 // TODO: select a different sprite
 // code\modules\modular_computers\computers\item\pda.dm
 /obj/item/modular_computer/pda/admin
-	name = "technician's PDA"
+	name = "subspace PDA"
 	desc = "An unassuming and oddly heavy PDA."
 	device_theme = PDA_THEME_SPOOKY
 	max_capacity = INFINITY
@@ -1016,6 +1017,69 @@ Admin Variants of Common Tools
 	metabolized_traits = list(TRAIT_ANALGESIA)
 	/// Flags to fullheal every metabolism tick code\__DEFINES\mobs.dm line 1022
 	full_heal_flags = ~(HEAL_BRUTE|HEAL_BURN|HEAL_TOX|HEAL_OXY|HEAL_STAM|HEAL_LIMBS|HEAL_ORGANS|HEAL_TRAUMAS|HEAL_ALL_REAGENTS|HEAL_NEGATIVE_DISEASES|HEAL_TEMP|HEAL_BLOOD|HEAL_STATUS|HEAL_CC_STATUS|HEAL_RESTRAINTS)
+	var/back_from_the_dead = FALSE
+	/// List of trait buffs to give to the affected mob, and remove as needed.
+	var/static/list/trait_buffs = list(
+		TRAIT_NOCRITDAMAGE,
+		TRAIT_NOCRITOVERLAY,
+		TRAIT_NODEATH,
+		TRAIT_NOHARDCRIT,
+		TRAIT_NOSOFTCRIT,
+		TRAIT_STABLEHEART,
+		TRAIT_NO_OXYLOSS_PASSOUT,
+	)
+
+// Adapting Penthrite / Nooart concepts. Guts the 'balance' of the original code to keep the revival functions.
+/datum/reagent/medicine/adminordrazine/subspace/on_mob_dead(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	. = ..()
+	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	affected_mob.add_traits(trait_buffs, type)
+	affected_mob.set_stat(CONSCIOUS) //This doesn't touch knocked out
+	affected_mob.updatehealth()
+	affected_mob.update_sight()
+	REMOVE_TRAIT(affected_mob, TRAIT_KNOCKEDOUT, STAT_TRAIT)
+	REMOVE_TRAIT(affected_mob, TRAIT_KNOCKEDOUT, CRIT_HEALTH_TRAIT) //Because these are normally updated using set_health() - but we don't want to adjust health, and the addition of NOHARDCRIT blocks it being added after, but doesn't remove it if it was added before
+	REMOVE_TRAIT(affected_mob, TRAIT_KNOCKEDOUT, OXYLOSS_TRAIT) //As above, removes unconsciousness if it was added before the reagent was administered
+	affected_mob.set_resting(FALSE) //Please get up, no one wants a deaththrows juggernaught that lies on the floor all the time
+	affected_mob.SetAllImmobility(0)
+	affected_mob.grab_ghost(force = FALSE) //Shoves them back into their freshly reanimated corpse.
+	back_from_the_dead = TRUE
+	affected_mob.emote("gasp")
+	affected_mob.playsound_local(affected_mob, 'sound/effects/health/fastbeat.ogg', 65)
+
+/datum/reagent/medicine/adminordrazine/subspace/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	. = ..()
+	if(!back_from_the_dead)
+		return
+	//Following is for those brought back from the dead only
+	var/creation_impurity = 1 - creation_purity
+	REMOVE_TRAIT(affected_mob, TRAIT_KNOCKEDOUT, CRIT_HEALTH_TRAIT)
+	REMOVE_TRAIT(affected_mob, TRAIT_KNOCKEDOUT, OXYLOSS_TRAIT)
+	for(var/datum/wound/iter_wound as anything in affected_mob.all_wounds)
+		iter_wound.adjust_blood_flow(4 * creation_impurity * metabolization_ratio * seconds_per_tick)
+	var/need_mob_update
+	need_mob_update = affected_mob.adjust_brute_loss(20 * creation_impurity * metabolization_ratio * seconds_per_tick, required_bodytype = affected_bodytype)
+	need_mob_update += affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART, 4 * ((1 + creation_impurity) * metabolization_ratio * seconds_per_tick), required_organ_flag = affected_organ_flags)
+	if(affected_mob.health < HEALTH_THRESHOLD_CRIT)
+		affected_mob.add_movespeed_modifier(/datum/movespeed_modifier/reagent/nooartrium)
+	if(affected_mob.health < HEALTH_THRESHOLD_FULLCRIT)
+		affected_mob.add_actionspeed_modifier(/datum/actionspeed_modifier/nooartrium)
+	if(need_mob_update)
+		return UPDATE_MOB_HEALTH
+
+// Clean procs
+/datum/reagent/medicine/adminordrazine/subspace/on_mob_delete(mob/living/carbon/affected_mob)
+	. = ..()
+
+// Do literally nothing for overdose. At least for now
+/datum/reagent/medicine/adminordrazine/subspace/overdose_start(mob/living/carbon/affected_mob, metabolization_ratio)
+	. = ..()
+
+/datum/reagent/medicine/adminordrazine/subspace/proc/remove_buffs(mob/living/carbon/affected_mob)
+	affected_mob.remove_traits(trait_buffs, type)
+	affected_mob.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/nooartrium)
+	affected_mob.remove_actionspeed_modifier(/datum/actionspeed_modifier/nooartrium)
+	affected_mob.update_sight()
 
 // New Admin Injectors, to cut down on medbox spawns. Slime Jelly as your All-Heal option through the combat hypokit is cruel and unusual punishment by way of blorbo destruction.
 // Funny for upstream, less funny here where these tools are used to assist players
@@ -1048,9 +1112,9 @@ Admin Variants of Common Tools
 	name = "subspace extinguisher"
 	desc = "A tiny fire extinguisher, designed for putting out small fires. It feels like it has an infinite amount of water. How you can tell this, you aren't sure."
 	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
-	icon_state = "sub-extinguisher0"
-	base_icon_state = "sub-extinguisher0"
-	sprite_name = "sub-extinguisher0"
+	icon_state = "extinguisher0"
+	base_icon_state = "extinguisher0"
+	sprite_name = "extinguisher0"
 	max_water = INFINITY
 	starting_water = TRUE
 	chem = /datum/reagent/water
@@ -1628,9 +1692,16 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	. = ..()
 	speak_up("emp", TRUE) // She gets very upset if you emp her
 
-/obj/item/gun/energy/modular_laser_rifle/carbine/admin/Initialize(mapload)
-	. = ..()
+// Hard reinit.
+/obj/item/gun/energy/modular_laser_rifle/admin/Initialize(mapload)
+	RemoveElement(/datum/element/manufacturer_examine)//death
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+	chat_color = "#cd4456"
+	chat_color_darkened = process_chat_color("#cd4456", sat_shift = 0.85, lum_shift = 0.85)
+	last_charge = cell.charge
+	tracked_soulcatcher = AddComponent(/datum/component/soulcatcher/modular_laser)
+	create_weapon_mode_stuff()
+	voice = null
 
 // TODO: base firing mode needs no damage but inflicts hallucinations / causes people to collapse and freakout / causes traumas
 // icons\obj\weapons\guns\projectiles.dmi icon arcane_barrage
@@ -2207,29 +2278,43 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 /// Lets you adjust how many units of reagent get fired with each shot.
 /obj/item/gun/chem/admin/item_ctrl_click(mob/user)
-	var/new_amount = tgui_input_number(user, "Set reagent volume fired per shot", "Reagent Per Shot", reagent_per_shot, 90, 1)
+	var/new_amount = tgui_input_number(user, "Set reagent volume fired per shot", "Reagent Per Shot", reagent_per_shot, 1000, 1)
 	if(isnull(new_amount))
 		return
 	reagent_per_shot = new_amount
 	to_chat(user, span_notice("\The [src] now fires [reagent_per_shot]u of reagent per shot."))
 	return CLICK_ACTION_SUCCESS
 
+// New Dart for our chemgun
+/obj/projectile/bullet/dart/admin
+	name = "subspace chem dart"
+	icon_state = "cbbolt"
+	damage = 0
+	embed_type = null
+	shrapnel_type = null
+	inject_flags = INJECT_CHECK_PENETRATE_THICK
+
+// The Casing for our dart itself.
 /obj/item/ammo_casing/chemgun/admin
 	name = "subspace dart synthesiser"
 	desc = "A high-power spring, linked to a subspace-fed piercing dart synthesiser."
+	projectile_type = /obj/projectile/bullet/dart/admin
 
+// Prepares the casing
 /obj/item/ammo_casing/chemgun/admin/ready_proj(atom/target, mob/living/user, quiet, zone_override = "")
 	if(!loaded_projectile)
 		return
 	if(istype(loc, /obj/item/gun/chem/admin))
-		var/obj/item/gun/chem/admin/CG = loc
-		if(CG.syringes_left <= 0)
+		var/obj/item/gun/chem/admin/CG = loc//MY SHORTEST VARIABLE YET
+		if(CG.syringes_left <= 0)// i dont like it
 			return
 		CG.reagents.trans_to(loaded_projectile, CG.reagent_per_shot, transferred_by = user)
 		loaded_projectile.name = "piercing chemical dart"
-		CG.syringes_left--
+		CG.syringes_left--// its too short. size queen vars.
 	return ..()
 
+/obj/projectile/bullet/dart/piercing
+	inject_flags = INJECT_CHECK_PENETRATE_THICK
 // Even more advanced. As if that was possible.
 // Riddle me this, batman, if I can analyze gas compositions inside of a pipe from a distance, why can't I health check idiots without the awful modsuit module to do it?
 // You can't tell me we have a good reason. Even medhuds have a shit scan. There should really be an on station ranged scanner.
@@ -2287,8 +2372,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 				report += "<span class='alert ml-2'>&rdsh; [antag.name]</span>"
 
 	report += "<span class='notice ml-1'>Status: [target.stat == CONSCIOUS ? "Conscious" : target.stat == UNCONSCIOUS ? "Unconscious" : target.stat == DEAD ? "Dead" : "Unknown"]</span>"
-		if(user.client.holder)// Secures CKEY data behind holder check.
-			report += "<span class='notice ml-1'>Client: [target.client ? "Connected ([target.client.ckey])" : "No client attached"]</span>"
+	if(user.client.holder)// Secures CKEY data behind holder check.
+		report += "<span class='notice ml-1'>Client: [target.client ? "Connected ([target.client.ckey])" : "No client attached"]</span>"
 
 	to_chat(user, custom_boxed_message("purplebox_box", report.Join("<br>")))//ourple,,,
 
@@ -2312,7 +2397,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	resistance_flags = INDESTRUCTIBLE
 	obj_flags = ADMIN_OBJ_FLAGS
 
-/obj/item/healthanalyzer/advanced/admin/Initialize(mapload)
+/obj/item/ph_meter/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 

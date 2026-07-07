@@ -33,21 +33,6 @@
 		cant_hold_list = list()
 	)
 
-// Overrides normal dumping code to instead dump from the pouch item inside
-// TODO: verify this works
-/datum/storage/admin/cytotheca/dump_content_at(atom/dest_object, dump_loc, mob/user)
-	var/atom/used_belt = parent
-	if(!used_belt)
-		return
-	var/obj/item/storage/subspace_pouch/cytotheca = locate() in real_location
-	if(!cytotheca)
-		cytotheca.balloon_alert(user, "no pouch!")
-		return //oopsie!! If we don't have a pouch! You're fucked!
-	if(locked)
-		cytotheca.balloon_alert(user, "locked!")
-		return
-	cytotheca.atom_storage.dump_content_at(dest_object, user = user)
-
 /// 2 slots, used by boots
 /datum/storage/admin/pockets
 	max_slots = 2

@@ -6,32 +6,71 @@
 
 /mob/dead/observer/proc/quickicspawn(mob/user)
 	if(isobserver(user) && check_rights(R_SPAWN))
-		var/list/outfits = list()
-		outfits["Bluespace Tech"] = /datum/outfit/debug/bst
-		outfits["Bluespace Tech (MODsuit)"] = /datum/outfit/admin/bluespace
-		outfits["Subspace Tech (MODsuit)"] = /datum/outfit/admin/subspace
-		outfits["Show All"] = "Show All"
+		var/datum/preferences/prefs = user.client?.prefs
+		if(!prefs)
+			return
+
+		var/list/spawn_options = list("Bluespace", "Pod", "Silent")
+		var/list/custom_slots = list()
+		for(var/slot_name in prefs.preferred_spawn_methods)
+			custom_slots += "Slot: [slot_name]"
+
+		var/teleport_option = tgui_alert(usr, "How would you like to be spawned in?", "IC Quick Spawn", custom_slots + spawn_options + list("Save Current as Slot", "Clear Slots", "Cancel"))
+
+		if (teleport_option == "Cancel" || !teleport_option)
+			return
 
 		var/dresscode
-		var/teleport_option = tgui_alert(usr, "How would you like to be spawned in?", "IC Quick Spawn", list("Bluespace", "Pod", "Silent", "Cancel"))
-		if (teleport_option == "Cancel")
-			return
-		var/character_option = tgui_alert(usr, "Which character?", "IC Quick Spawn", list("Selected Character", "Randomly Created", "Cancel"))
-		if (character_option == "Cancel")
-			return
-		var/initial_outfits = tgui_input_list(usr, "Select outfit", "Quick Dress", list("Show All Outfits", "Bluespace Tech", "Subspace Tech", "Cancel"))
-		if (initial_outfits == "Cancel")
+		var/character_option
+
+		if (teleport_option == "Save Current as Slot")
+			var/slot_name = tgui_input_text(usr, "Enter a name for this custom spawn slot", "Save Custom Slot")
+			if(!slot_name)
+				return
+			var/method = tgui_alert(usr, "Select spawn method for this slot", "Save Custom Slot", spawn_options)
+			if(!method)
+				return
+			var/outfit = client.robust_dress_shop_nova()
+			if(!outfit)
+				return
+			
+			prefs.preferred_spawn_methods[slot_name] = method
+			prefs.preferred_spawn_outfits[slot_name] = outfit
+			prefs.save_preferences()
+			to_chat(usr, span_notice("Saved custom spawn slot '[slot_name]'."))
 			return
 
-		switch(initial_outfits)
-			if("Bluespace Tech")
-				dresscode = /datum/outfit/admin/bluespace
-			if("Subspace Tech")
-				dresscode = /datum/outfit/admin/subspace
-			if("Show All Outfits")
-				dresscode = client.robust_dress_shop_nova()
-				if (!dresscode)
-					return
+		if (teleport_option == "Clear Slots")
+			if(tgui_alert(usr, "Are you sure you want to clear ALL custom spawn slots?", "Clear Slots", list("Yes", "No")) == "Yes")
+				prefs.preferred_spawn_methods = list()
+				prefs.preferred_spawn_outfits = list()
+				prefs.save_preferences()
+				to_chat(usr, span_notice("Cleared all custom spawn slots."))
+			return
+
+		if (findtext(teleport_option, "Slot: "))
+			var/slot_name = copytext(teleport_option, 7) // Length of "Slot: " + 1
+			teleport_option = prefs.preferred_spawn_methods[slot_name]
+			dresscode = prefs.preferred_spawn_outfits[slot_name]
+			character_option = "Selected Character" // Default for slots
+		else
+			character_option = tgui_alert(usr, "Which character?", "IC Quick Spawn", list("Selected Character", "Randomly Created", "Cancel"))
+			if (character_option == "Cancel" || !character_option)
+				return
+
+			var/initial_outfits = tgui_input_list(usr, "Select outfit", "Quick Dress", list("Show All Outfits", "Bluespace Tech", "Subspace Tech", "Cancel"))
+			if (initial_outfits == "Cancel" || !initial_outfits)
+				return
+
+			switch(initial_outfits)
+				if("Bluespace Tech")
+					dresscode = /datum/outfit/admin/bluespace
+				if("Subspace Tech")
+					dresscode = /datum/outfit/admin/subspace
+				if("Show All Outfits")
+					dresscode = client.robust_dress_shop_nova()
+					if (!dresscode)
+						return
 
 		// We're spawning someone else
 		var/give_return

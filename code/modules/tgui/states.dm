@@ -26,6 +26,10 @@
 		// If they turn on ghost AI control, admins can always interact.
 		if(isAdminGhostAI(user))
 			. = max(., UI_INTERACTIVE)
+		// NOVA EDIT ADDITION START - ADMIN_TECH
+		else if(HAS_TRAIT_FROM(user.client, TRAIT_ADMIN_REACHABLE, ADMIN_TRAIT))
+			. = max(., UI_INTERACTIVE)
+		// NOVA EDIT ADDITION END
 
 		// Regular ghosts can always at least view if in range.
 		if(user.client)

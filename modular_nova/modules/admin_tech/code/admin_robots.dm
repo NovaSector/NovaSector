@@ -1,6 +1,8 @@
 //! Contains admin and CC varianted robot models
 // Admin Cyborg Models.
 // TODO: player usable cc model, admin cc model, subspace borg, administrative (like literally about paperwork and shit)
+// TODO: Fine tune the perfect vision action, right now it needs to be used alongside thermal to work correctly. Works well enough rn though, it's REAL perfect vision not augmented, so like, see through walls but no highlights
+// TODO: sprites, finish compiling the dmi and organizing all the bits and bobs of the tachikoma stuff in place, help wanted
 // TODO: modules
 
 // code\modules\mob\living\silicon\robot\robot.dm:L152 absolutely unholy shit going on here.

@@ -9,6 +9,10 @@
 	assigned_icon_state = "assigned_centcom"
 	trim = /datum/id_trim/admin/bluespace
 	wildcard_slots = WILDCARD_LIMIT_ADMIN
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
 
 /obj/item/card/id/advanced/debug/admin/Initialize(mapload)
 	. = ..()

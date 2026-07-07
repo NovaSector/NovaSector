@@ -196,5 +196,6 @@
 //Admin Traits
 /// Trait for wallhacks admin verb
 #define TRAIT_ADMIN_WALLHACKS "admin_wallhacks"
-
+/// Trait for clothing which provides the effects of the book of babel, which is handled by the babel_clothing element
+#define TRAIT_BABEL_CLOTHING "babel_clothing"
 // END TRAIT DEFINES
