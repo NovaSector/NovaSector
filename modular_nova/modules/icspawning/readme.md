@@ -32,4 +32,4 @@ N/A
 Gandalf2k15 - Porting
 BunBun - Cration
 Moonridden - Partially gutted this and included it in nova module admin_tech. Migrated outfits + custom bst brped
-Manus AI - Admin custom slots
+Moonridden - Admin custom slots
