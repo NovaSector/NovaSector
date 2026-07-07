@@ -20,6 +20,20 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	dirt_state = "gas_wide_dirt"
 
+/obj/item/clothing/mask/gas/gags
+	flags_inv = NONE
+	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon_state = "/obj/item/clothing/mask/gasmask"
+	post_init_icon_state = "gasmask"
+	greyscale_config = /datum/greyscale_config/gasmask
+	greyscale_config_worn = /datum/greyscale_config/gasmask/worn
+	greyscale_config_worn_teshari = /datum/greyscale_config/gasmask/worn/teshari
+	greyscale_config_worn_muzzled = /datum/greyscale_config/gasmask/worn/muzzled
+	greyscale_config_worn_better_vox = /datum/greyscale_config/gasmask/worn/better_vox
+	greyscale_config_worn_vox = /datum/greyscale_config/gasmask/worn/vox
+	greyscale_colors = "#333333#04D17E"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/mask/gas/hecu
 	name = "M40 gas mask"
 	desc = "A deprecated field protective mask developed during the 20th century in Sol-3. It's designed to protect from chemical agents, biological agents, and nuclear fallout particles. It does not protect the user from ammonia or from lack of oxygen, though the filter can be replaced with a tube for any air tank."
