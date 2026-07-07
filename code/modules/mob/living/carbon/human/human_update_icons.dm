@@ -74,15 +74,10 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_undersuit()
 	remove_overlay(UNIFORM_LAYER)
-
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_ICLOTHING) + 1]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_ICLOTHING)
 
 	if(istype(w_uniform, /obj/item/clothing/under))
 		var/obj/item/clothing/under/uniform = w_uniform
-		update_hud_uniform(uniform)
-
 		if(HAS_TRAIT(uniform, TRAIT_NO_WORN_ICON) || (obscured_slots & HIDEJUMPSUIT))
 			return
 
@@ -124,8 +119,7 @@ There are several things that need to be remembered:
 		// NOVA EDIT ADDITION START - Taur-friendly suits!
 		var/mutant_styles = NONE
 		if(bodyshape & BODYSHAPE_TAUR)
-			if(istype(uniform) && (uniform.gets_cropped_on_taurs || (uniform.supports_variations_flags & CLOTHING_BIG_LEGS_MASK)))
-				mutant_styles |= get_taur_mode()
+			mutant_styles |= get_taur_mode()
 			female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
 			female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP_ONLY bit if it is unset.
 			if((mutant_styles & BODYSHAPE_TAUR_SNAKE) && uniform.worn_icon_taur_snake)
@@ -162,14 +156,10 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_id()
 	remove_overlay(ID_LAYER)
-
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_ID) + 1]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_ID)
 
 	if(wear_id)
 		var/obj/item/worn_item = wear_id
-		update_hud_id(worn_item)
 
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON))
 			return
@@ -187,10 +177,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_gloves()
 	remove_overlay(GLOVES_LAYER)
-
-	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_GLOVES) + 1])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_GLOVES) + 1]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_GLOVES)
 
 	//Bloody hands begin
 	if(isnull(gloves))
@@ -214,8 +201,6 @@ There are several things that need to be remembered:
 	// Bloody hands end
 
 	var/obj/item/worn_item = gloves
-	update_hud_gloves(worn_item)
-
 	if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (obscured_slots & HIDEGLOVES))
 		return
 
@@ -257,19 +242,14 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_glasses()
 	remove_overlay(GLASSES_LAYER)
+	hud_used?.update_inventory_slot(ITEM_SLOT_EYES)
 
 	var/obj/item/bodypart/head/my_head = get_bodypart(BODY_ZONE_HEAD)
 	if(isnull(my_head)) //decapitated
 		return
 
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_EYES) + 1]
-		inv.update_icon()
-
 	if(glasses)
 		var/obj/item/worn_item = glasses
-		update_hud_glasses(worn_item)
-
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (obscured_slots & HIDEEYES))
 			return
 
@@ -292,19 +272,14 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_ears()
 	remove_overlay(EARS_LAYER)
+	hud_used?.update_inventory_slot(ITEM_SLOT_EARS)
 
 	var/obj/item/bodypart/head/my_head = get_bodypart(BODY_ZONE_HEAD)
 	if(isnull(my_head)) //decapitated
 		return
 
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_EARS) + 1]
-		inv.update_icon()
-
 	if(ears)
 		var/obj/item/worn_item = ears
-		update_hud_ears(worn_item)
-
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (obscured_slots & HIDEEARS))
 			return
 
@@ -326,14 +301,10 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_neck()
 	remove_overlay(NECK_LAYER)
-
-	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_NECK) + 1])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_NECK) + 1]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_NECK)
 
 	if(wear_neck)
 		var/obj/item/worn_item = wear_neck
-		update_hud_neck(wear_neck)
 
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (obscured_slots & HIDENECK))
 			return
@@ -368,17 +339,13 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_shoes()
 	remove_overlay(SHOES_LAYER)
+	hud_used?.update_inventory_slot(ITEM_SLOT_FEET)
 
 	if(num_legs < 2)
 		return
 
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_FEET) + 1]
-		inv.update_icon()
-
 	if(shoes)
 		var/obj/item/worn_item = shoes
-		update_hud_shoes(worn_item)
 
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (obscured_slots & HIDESHOES))
 			return
@@ -416,15 +383,10 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_suit_storage()
 	remove_overlay(SUIT_STORE_LAYER)
-
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SUITSTORE) + 1]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_SUITSTORE)
 
 	if(s_store)
 		var/obj/item/worn_item = s_store
-		update_hud_s_store(worn_item)
-
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (obscured_slots & HIDESUITSTORAGE))
 			return
 
@@ -437,14 +399,10 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_head()
 	remove_overlay(HEAD_LAYER)
-	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_HEAD) + 1])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_HEAD) + 1]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_HEAD)
 
 	if(head)
 		var/obj/item/worn_item = head
-		update_hud_head(worn_item)
-
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (obscured_slots & HIDEHEADGEAR))
 			return
 
@@ -473,15 +431,10 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_belt()
 	remove_overlay(BELT_LAYER)
-
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BELT) + 1]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_BELT)
 
 	if(belt)
 		var/obj/item/worn_item = belt
-		update_hud_belt(worn_item)
-
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (obscured_slots & HIDEBELT))
 			return
 
@@ -505,14 +458,10 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_oversuit()
 	remove_overlay(SUIT_LAYER)
-
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_OCLOTHING) + 1]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_OCLOTHING)
 
 	if(wear_suit)
 		var/obj/item/worn_item = wear_suit
-		update_hud_wear_suit(worn_item)
 
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON))
 			return
@@ -534,17 +483,17 @@ There are several things that need to be remembered:
 				mutant_override = TRUE
 
 		if(bodyshape & BODYSHAPE_TAUR)
-			var/obj/item/clothing/suit/worn_suit = wear_suit
-			if(istype(worn_suit) && !worn_suit.gets_cropped_on_taurs)
-				mutant_styles |= get_taur_mode()
-			if((mutant_styles & BODYSHAPE_TAUR_SNAKE) && worn_suit.worn_icon_taur_snake)
-				worn_suit.worn_x_offset = -16
-			else if ((mutant_styles & BODYSHAPE_TAUR_PAW) && worn_suit.worn_icon_taur_paw)
-				worn_suit.worn_x_offset = -16
-			else if ((mutant_styles & BODYSHAPE_TAUR_HOOF) && worn_suit.worn_icon_taur_hoof)
-				worn_suit.worn_x_offset = -16
+			mutant_styles |= get_taur_mode()
+			if((mutant_styles & BODYSHAPE_TAUR_SNAKE) && worn_item.worn_icon_taur_snake)
+				worn_item.worn_x_offset = -16
+			else if ((mutant_styles & BODYSHAPE_TAUR_PAW) && worn_item.worn_icon_taur_paw)
+				worn_item.worn_x_offset = -16
+			else if ((mutant_styles & BODYSHAPE_TAUR_HOOF) && worn_item.worn_icon_taur_hoof)
+				worn_item.worn_x_offset = -16
+			else
+				worn_item.worn_x_offset = 0
 		else
-			wear_suit.worn_x_offset = 0
+			worn_item.worn_x_offset = 0
 		// NOVA EDIT ADDITION END
 		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 		apply_height(suit_overlay, ENTIRE_BODY)
@@ -556,41 +505,20 @@ There are several things that need to be remembered:
 	apply_overlay(SUIT_LAYER)
 
 /mob/living/carbon/human/update_pockets()
-	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv
-
-		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_LPOCKET) + 1]
-		inv.update_icon()
-		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_RPOCKET) + 1]
-		inv.update_icon()
-
-		if(l_store)
-			l_store.screen_loc = ui_storage1
-			if(hud_used.hud_shown)
-				client.screen += l_store
-			update_observer_view(l_store)
-
-		if(r_store)
-			r_store.screen_loc = ui_storage2
-			if(hud_used.hud_shown)
-				client.screen += r_store
-			update_observer_view(r_store)
+	if (hud_used)
+		hud_used.update_inventory_slot(ITEM_SLOT_LPOCKET)
+		hud_used.update_inventory_slot(ITEM_SLOT_RPOCKET)
 
 /mob/living/carbon/human/update_worn_mask()
 	remove_overlay(FACEMASK_LAYER)
+	hud_used?.update_inventory_slot(ITEM_SLOT_MASK)
 
 	var/obj/item/bodypart/head/my_head = get_bodypart(BODY_ZONE_HEAD)
 	if(isnull(my_head)) //Decapitated
 		return
 
-	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_MASK) + 1])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_MASK) + 1]
-		inv.update_icon()
-
 	if(wear_mask)
 		var/obj/item/worn_item = wear_mask
-		update_hud_wear_mask(worn_item)
-
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (obscured_slots & HIDEMASK))
 			return
 
@@ -618,10 +546,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_back()
 	remove_overlay(BACK_LAYER)
-
-	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK) + 1])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK) + 1]
-		inv.update_icon()
+	hud_used?.update_inventory_slot(ITEM_SLOT_BACK)
 
 	if(back)
 		if(HAS_TRAIT(back, TRAIT_NO_WORN_ICON))
@@ -645,6 +570,7 @@ There are several things that need to be remembered:
 	apply_overlay(BACK_LAYER)
 
 /mob/living/carbon/human/get_held_overlays()
+	hud_used?.update_inventory_slot(ITEM_SLOT_HANDS)
 	var/list/hands = list()
 	// NOVA EDIT ADDITION START
 	if(held_left)
@@ -656,20 +582,6 @@ There are several things that need to be remembered:
 	// NOVA EDIT ADDITION END
 	for(var/obj/item/worn_item in held_items)
 		var/held_index = get_held_index_of_item(worn_item)
-		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
-			worn_item.screen_loc = ui_hand_position(held_index)
-			client.screen += worn_item
-			if(observers?.len)
-				for(var/M in observers)
-					var/mob/dead/observe = M
-					if(observe.client && observe.client.eye == src)
-						observe.client.screen += worn_item
-					else
-						observers -= observe
-						if(!observers.len)
-							observers = null
-							break
-
 		var/t_state = worn_item.inhand_icon_state
 		if(!t_state)
 			t_state = worn_item.icon_state
@@ -769,20 +681,48 @@ There are several things that need to be remembered:
 /obj/item/proc/get_bodyshape_icon(icon/base_icon, key, bodyshape)
 	ASSERT(istext(key), "get_bodyshape_icon: no key passed")
 	if((bodyshape & BODYSHAPE_DIGITIGRADE) && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK) && !(supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)) // NOVA EDIT CHANGE - ORIGINAL: if((bodyshape & BODYSHAPE_DIGITIGRADE) && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
-		if(isnull(greyscale_colors) || length(SSgreyscale.ParseColorString(greyscale_colors)) > 1)
-			greyscale_colors = get_general_color(base_icon)
+		var/used_greyscale = greyscale_colors
+		if(isnull(used_greyscale) || length(SSgreyscale.ParseColorString(used_greyscale)) > 1)
+			used_greyscale = get_general_color(base_icon)
 
-		var/index = "[key]-[type]-[greyscale_colors]"
+		var/index = "[key]-[type]-[used_greyscale]"
 		var/static/list/digitigrade_clothing_cache = list()
 		var/icon/resulting_icon = digitigrade_clothing_cache[index]
 		if(!resulting_icon)
-			resulting_icon = generate_digitigrade_icons(base_icon, greyscale_colors)
+			resulting_icon = generate_digitigrade_icons(base_icon, used_greyscale)
 			if(!resulting_icon)
 				stack_trace("[type] is set to generate a masked digitigrade icon, but generate_digitigrade_icons was not implemented (or error'd).")
 				return base_icon
 			digitigrade_clothing_cache[index] = fcopy_rsc(resulting_icon)
 
 		return icon(resulting_icon)
+	// NOVA EDIT ADDITION START - generated taur clothing icons
+
+	var/taur_variation = GET_TAUR_VARIATION(src, bodyshape)
+	switch(taur_variation)
+		if(TAUR_VARIATION_CROP)
+			var/index = "[key]-[type]-[greyscale_colors]"
+			var/icon/taur_clothing_icon = GLOB.taur_clothing_icons[index]
+			if(!taur_clothing_icon) // Create standing/laying icons if they don't exist
+				taur_clothing_icon = generate_taur_clothing(index, base_icon, icon_state)
+			return taur_clothing_icon
+		if(TAUR_VARIATION_BIG_LEGS)
+			var/used_greyscale = greyscale_colors
+			if(isnull(used_greyscale) || length(SSgreyscale.ParseColorString(used_greyscale)) > 1)
+				used_greyscale = get_general_color(base_icon)
+			var/index = "[key]-[type]-[used_greyscale]-[bodyshape]"
+			var/static/list/big_legs_clothing_cache = list()
+			var/icon/resulting_icon = big_legs_clothing_cache[index]
+			if(!resulting_icon)
+				resulting_icon = generate_big_legs_icons(base_icon, used_greyscale, bodyshape)
+				if(!resulting_icon)
+					stack_trace("[type] is set to generate a masked big legs icon, but generate_big_legs_icons was not implemented (or error'd).")
+					return base_icon
+				big_legs_clothing_cache[index] = fcopy_rsc(resulting_icon)
+
+			return icon(resulting_icon)
+	return base_icon
+	// NOVA EDIT ADDITION END
 
 /// Modifies a sprite to replace the legs with a new version
 /proc/replace_icon_legs(icon/base_icon, icon/new_legs)
@@ -865,90 +805,6 @@ There are several things that need to be remembered:
 			out += overlays_standing[i]
 	return out
 
-
-//human HUD updates for items in our inventory
-
-/mob/living/carbon/human/proc/update_hud_uniform(obj/item/worn_item)
-	worn_item.screen_loc = ui_iclothing
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_id(obj/item/worn_item)
-	worn_item.screen_loc = ui_id
-	if((client && hud_used?.hud_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item)
-
-/mob/living/carbon/human/proc/update_hud_gloves(obj/item/worn_item)
-	worn_item.screen_loc = ui_gloves
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_glasses(obj/item/worn_item)
-	worn_item.screen_loc = ui_glasses
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_ears(obj/item/worn_item)
-	worn_item.screen_loc = ui_ears
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_shoes(obj/item/worn_item)
-	worn_item.screen_loc = ui_shoes
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_s_store(obj/item/worn_item)
-	worn_item.screen_loc = ui_sstore1
-	if(client && hud_used?.hud_shown)
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_wear_suit(obj/item/worn_item)
-	worn_item.screen_loc = ui_oclothing
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/proc/update_hud_belt(obj/item/worn_item)
-	belt.screen_loc = ui_belt
-	if(client && hud_used?.hud_shown)
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-/mob/living/carbon/human/update_hud_head(obj/item/worn_item)
-	worn_item.screen_loc = ui_head
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-//update whether our mask item appears on our hud.
-/mob/living/carbon/human/update_hud_wear_mask(obj/item/worn_item)
-	worn_item.screen_loc = ui_mask
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-//update whether our neck item appears on our hud.
-/mob/living/carbon/human/update_hud_neck(obj/item/worn_item)
-	worn_item.screen_loc = ui_neck
-	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
-		client.screen += worn_item
-	update_observer_view(worn_item,TRUE)
-
-//update whether our back item appears on our hud.
-/mob/living/carbon/human/update_hud_back(obj/item/worn_item)
-	worn_item.screen_loc = ui_back
-	if(client && hud_used?.hud_shown)
-		client.screen += worn_item
-	update_observer_view(worn_item, inventory = TRUE)
-
 /*
 Does everything in relation to building the /mutable_appearance used in the mob's overlays list
 covers:
@@ -983,19 +839,17 @@ generate/load female uniform sprites matching all previously decided variables
 	bodyshape = NONE,
 )
 
-	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
-	var/using_taur_variant = FALSE
-	var/is_for_taur = !isinhands && (bodyshape & BODYSHAPE_TAUR)
-	if (isnull(override_file) && is_for_taur)
-		if ((bodyshape & BODYSHAPE_TAUR_SNAKE) && worn_icon_taur_snake)
+	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits: pick a taur-fitted file if we have one
+	if(!isinhands && isnull(override_file) && (bodyshape & BODYSHAPE_TAUR) && !(bodyshape & BODYSHAPE_TAUR_BIG_LEGS_ALL))
+		if((bodyshape & BODYSHAPE_TAUR_SNAKE) && worn_icon_taur_snake)
 			override_file = worn_icon_taur_snake
-			using_taur_variant = TRUE
-		else if ((bodyshape & BODYSHAPE_TAUR_PAW) && worn_icon_taur_paw)
+		else if((bodyshape & BODYSHAPE_TAUR_PAW) && worn_icon_taur_paw)
 			override_file = worn_icon_taur_paw
-			using_taur_variant = TRUE
-		else if ((bodyshape & BODYSHAPE_TAUR_HOOF) && worn_icon_taur_hoof)
+		else if((bodyshape & BODYSHAPE_TAUR_HOOF) && worn_icon_taur_hoof)
 			override_file = worn_icon_taur_hoof
-			using_taur_variant = TRUE
+		if(override_file || !gets_cropped_on_taurs)
+			bodyshape &= ~BODYSHAPE_TAUR
+
 	// NOVA EDIT ADDITION END
 	//Find a valid icon_state from variables+arguments
 	var/t_state = override_state || (isinhands ? inhand_icon_state : worn_icon_state) || icon_state
@@ -1015,18 +869,12 @@ generate/load female uniform sprites matching all previously decided variables
 			greyscale_colors = greyscale_colors,
 			bodyshape = bodyshape,
 		)
-	if(!isinhands && (bodyshapes_with_variations & bodyshape))
+	if(!isinhands && ((bodyshapes_with_variations & bodyshape) || (gets_cropped_on_taurs && (bodyshape & BODYSHAPE_TAUR)))) // NOVA EDIT CHANGE - taur cropping routes through get_bodyshape_icon - ORIGINAL: if(!isinhands && (bodyshapes_with_variations & bodyshape)) // NOVA EDIT CHANGE - ORIGINAL: if(!isinhands && (bodyshapes_with_variations & bodyshape))
 		building_icon = get_bodyshape_icon(
 			base_icon = building_icon || icon(file2use, t_state),
 			key = "[t_state]-[file2use]-[female_uniform]",
 			bodyshape = bodyshape,
 		)
-	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
-	if (is_for_taur && !using_taur_variant)
-		building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
-	else if ((bodyshape & BODYSHAPE_TAUR_BIG_LEGS_ALL) && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
-		building_icon = wear_big_legs_version(building_icon || icon(file2use, t_state), src, "[t_state]-[building_icon]-[female_uniform]", greyscale_colors, bodyshape)
-	// NOVA EDIT ADDITION END
 	if(building_icon)
 		draw_target = mutable_appearance(building_icon, layer = -layer2use)
 	else
@@ -1085,21 +933,6 @@ generate/load female uniform sprites matching all previously decided variables
 			return list("x" = 0, "y" = 16)
 		else //No offsets or Unwritten number of hands
 			return list("x" = 0, "y" = 0)//Handle held offsets
-
-/mob/living/carbon/human/proc/update_observer_view(obj/item/worn_item, inventory)
-	if(observers?.len)
-		for(var/M in observers)
-			var/mob/dead/observe = M
-			if(observe.client && observe.client.eye == src)
-				if(observe.hud_used)
-					if(inventory && !observe.hud_used.inventory_shown)
-						continue
-					observe.client.screen += worn_item
-			else
-				observers -= observe
-				if(!observers.len)
-					observers = null
-					break
 
 /mob/living/carbon/human/update_body(is_creating = FALSE)
 	remove_overlay(BODY_LAYER)
@@ -1398,3 +1231,52 @@ generate/load female uniform sprites matching all previously decided variables
 	return appearance
 
 #undef RESOLVE_ICON_STATE
+
+// Wide organs or bodyparts shouldn't offset human HUD directly
+/mob/living/carbon/human/get_hud_x_offset()
+	return 0
+
+// But they are affected by height
+/mob/living/carbon/human/get_hud_y_offset()
+	return GLOB.human_heights_to_offsets[mob_height]["[UPPER_BODY]"]
+
+/mob/living/carbon/human/get_cached_width()
+	return cached_body_width
+
+/mob/living/carbon/human/get_cached_height()
+	return cached_body_height
+
+#define SUB_OVERLAY_X_INDEX 1
+#define SUB_OVERLAY_Y_INDEX 1
+
+/mob/living/carbon/human/update_body_parts(update_limb_data)
+	. = ..()
+	if (!.)
+		return
+	cached_body_width = ICON_SIZE_X
+	cached_body_height = ICON_SIZE_Y
+	var/list/bodypart_overlays = overlays_standing[BODYPARTS_LAYER]
+	if (!length(bodypart_overlays))
+		return
+	var/list/parsed_overlays = bodypart_overlays.Copy()
+	var/i = 1
+	while (i <= length(parsed_overlays))
+		var/mutable_appearance/overlay = parsed_overlays[i]
+		if (!isimage(overlay)) // Malformed overlays, etc
+			i += 1
+			continue
+		var/overlay_x = overlay.pixel_x + overlay.pixel_w
+		var/overlay_y = overlay.pixel_y + overlay.pixel_z
+		if (!isnull(parsed_overlays[overlay])) // Nested overlay
+			overlay_x += parsed_overlays[overlay][SUB_OVERLAY_X_INDEX]
+			overlay_y += parsed_overlays[overlay][SUB_OVERLAY_Y_INDEX]
+		cached_body_width = max(cached_body_width, overlay.get_cached_width())
+		cached_body_height = max(cached_body_height, overlay.get_cached_height())
+		cached_body_min_x_offset = min(cached_body_min_x_offset, overlay_x)
+		cached_body_min_y_offset = min(cached_body_min_y_offset, overlay_y)
+		for (var/sub_overlay in overlay.overlays)
+			parsed_overlays[sub_overlay] = list(overlay_x, overlay_y)
+		i += 1
+
+#undef SUB_OVERLAY_X_INDEX
+#undef SUB_OVERLAY_Y_INDEX

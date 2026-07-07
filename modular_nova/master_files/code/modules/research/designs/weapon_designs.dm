@@ -48,7 +48,7 @@
 		Can be filled with chemicals, which it injects upon striking a target. Otherwise, very weak. \
 		Much less capacity than a regular shotgun dart, but can penetrate armor."
 	build_type = PROTOLATHE | AWAY_LATHE
-	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1,)
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 1)
 	build_path = /obj/item/ammo_casing/shotgun/dart/piercing
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO

@@ -2,11 +2,20 @@
   ArcaneMusic:
   - rscadd: Cargo may now purchase jet boots, boots that enable sustained flight,
       for 40,000 credits via the imports section.
+  Balls2zawall:
+  - rscadd: Medidrobe vendors now stock elbow high nitrile gloves, for when things
+      are getting truly messy. They also come in different colors!
   CabinetOnFire:
   - bugfix: Hot springs now use correct args for creating smoke
   - bugfix: Fixes crates not respecting density in all cases and being able to move
       into other crates or tables
   - bugfix: C4 no longer renders below floors when placed on floors
+  Diltyrr:
+  - rscadd: "Added a fuel\u2011based Primitive Smoker that uses logs and planks instead\
+      \ of electricity."
+  - rscadd: Added a crafting recipe for the Primitive Smoker.
+  - map: Replaced the wooden drying rack with the Primitive Smoker in the Ashwalker
+      and Hearthkin camps.
   Fghj240:
   - rscadd: Added a new cybernetic implant to the black market, the nutrient implant
       pump plus plus plus
@@ -108,6 +117,18 @@
   - refactor: Cursed/omen/bad luck has been refactored, report any oddities with it.
   - balance: Mutation toxins now work on plasmamen, skeletons, zombies, spirits, and
       vampires
+  - bugfix: Fixes some niche issues with settler/spacer looking off
+  - bugfix: Spacer is visible in prefs
+  - bugfix: Cybernetic reskinning should break less.
+  - bugfix: Horns and cat ears should be cut off less by height.
+  - bugfix: Bodypart textures should apply more consistently.
+  - refactor: Mutant parts like moth wings, lizard tails, cat eats, etc. have been
+      refactored a tiny bit, report any oddities.
+  - refactor: Bodypart textures were refactored a tiny bit, report any oddities.
+  - refactor: Refactored the way height works, report anything weird looking things
+      involving that.
+  - refactor: Refactored how digitigrade and snouts render, report any oddities with
+      that
   OrbisAnima:
   - bugfix: Puts a check on departamental budget cards to not be used with custom
       vendors.
@@ -145,6 +166,26 @@
   - code_imp: Cleaned up The Thing's aggro code
   - qol: Miner callouts are now off by default
   - bugfix: Miner callouts can now be used to command pets like regular pointing
+  - refactor: Refactors inventory UI to be completely datum and vis_contents-based
+  - bugfix: Observers should no longer see doubled up inventory UIs
+  - bugfix: Brimdust sac and fluid immersion overlays no longer look weird on humans
+      with extra-wide or tall bodyparts or organs
+  - bugfix: Some mobs now have more sensible health HUD positions
+  - bugfix: Health and security HUD now scales with player height, no more huds clipping
+      into spacer hair
+  - bugfix: Fixes digitigrade (and some other unique) limbs not being butcherable
+  - image: Digitigrade limbs now have unique bone sprites when butchered
+  Stalkeros:
+  - qol: Voskhod MOD's autodoc now won't inject you with brute/burn/healing chemicals,
+      if they're already present in your bloodstream.
+  - balance: Voskhod MOD's armor has been improved somewhat.
+  - balance: Voskhod MOD's been made a bit faster, insignificantly outshining the
+      security MODsuit in terms of speed.
+  - balance: Voskhod MOD's autodoc now takes one bottle's worth of protozine, yet
+      consumes way less than before.
+  - balance: Voskhod MOD's autodoc chemical outputs and consumptions should be equalised
+      and standardised.
+  - balance: Voskhod MOD's autodoc should start healing you way earlier than before.
   Stalkeros, splet for the sprites:
   - qol: You can flip Forge Marks around, if you want to, for no reason other than
       wanting to flip one over.
@@ -180,3 +221,117 @@
   vinylspiders:
   - code_imp: tgui-core bumped to v6.1, please report any tgui-related issues
   - bugfix: shale and siderite are no longer indistinguishable from ground textures
+  - code_imp: bodyshape is now accessible in build_worn_overlays() and similar procs.
+  - image: lizards now have support female gender shaping for their suits
+  vinylspiders, moonridden:
+  - config: Updates how we inform the byond hub and post our listing
+2026-07-05:
+  Fghj240:
+  - bugfix: nutriment pump implant plus plus plus now has a sideways sprite
+  Ghommie:
+  - bugfix: Fixed the lobby interface NOT being able to show more than ONE button
+      related to station traits like special jobs and the skub trait.
+  LT3:
+  - map: Finished moving the plant outside Metastation medbay's side airlock, an astonishing
+      speed of 1 tile per 8 months.
+  - bugfix: Fixed duplicate priority announcements about a possible resonance cascade
+  - code_imp: Improved supermatter delamination logging
+  LemonInTheDark:
+  - bugfix: Fixed some sillyness with the stale map system
+  - config: MAP_VOTE_MIN_POP_TO_REMEMBER_MAPS -> MAP_VOTE_MINIMUM_POP_TO_REMEMBER_MAPS
+  QuiteLiterallyAnything:
+  - bugfix: Removed a singular stray disposals pipe on Catwalk Station.
+  Richard Blonski:
+  - balance: Slime players cores are faster to revive, and they start with slightly
+      more blood upon revival.
+  - bugfix: Slime player revival only consumes 100 plasma.
+  - rscadd: Player Slimes now will drop their implants upon death.
+  - bugfix: Player Slimes now get revived with their character preferences/as actual
+      slimes.
+  - bugfix: Player Slimes dropping human limbs upon revival.
+  - bugfix: Player Slimes revival consuming plasma when it fails.
+  - bugfix: Player Slimes dropping organs upon death.
+  SmArtKar:
+  - bugfix: Fixed random black siderite/shale tiles appearing after ash storms
+  - bugfix: Fixed rain overlay rendering (only) with particle weather enabled
+  - bugfix: Anchored nutraslop trays
+  TealSeer:
+  - bugfix: fixed being unable to view/modify trim accesses in Access Management app
+  - bugfix: fixed mousetrap beaker assemblies not triggering when container is opened
+  XeonMations:
+  - bugfix: Fixed the radio volume slider being missing in game preferences
+  lelandkemble:
+  - bugfix: hand teleporters can now close portals
+  - bugfix: Academy businessman doesn't buy a scanner wand, as it is not a wand
+  - spellcheck: Academy wizard dialogue has been cleared of all glaring spelling and
+      capitalization errors
+  timothymtorres:
+  - bugfix: Fix runtime for spacetime distortion not playing sound
+  - sound: Spacetime distortion portals now play the same sound as the teleporter
+      portals.
+  vinylspiders:
+  - bugfix: fixes an issue where some skirts and other clothing would improperly get
+      cropped on taurs
+  - bugfix: fixes an issue where biglegs clothing sprites were being cropped when
+      they weren't supposed to be
+2026-07-07:
+  Ghommie:
+  - refactor: Refactored a few things with techweb designs (the ones for autolathes,
+      protolathes, circuit printers, mechfabs etc.) to make sure that the materials
+      of items that can be made from these designs more closely match the materials
+      used to make them.
+  - bugfix: Lizard fries no longer need a plate to be made, like all other treats
+      that used to require plates in a distant past.
+  - balance: Tweaked the materials cost of RCD, RDD and RCD cartridges.
+  - image: Oven trays now have a more metallic hue.
+  - balance: Plates printed printed from lathes won't shatter like ceramic ones, in
+      virtue of them being made out of iron instead.
+  - bugfix: Fixed the subtle lack of symmetry on the monkey right arm and leg.
+  MacaroniCritter:
+  - rscadd: You can now recolor the original gasmask.
+  PapaMichael:
+  - balance: Paradox Clones ghost poll for a specific target; ghosts are now signing
+      up to be a specific person's clone.
+  - admin: If admins spawn a Paradox Clone, they can choose the person to be cloned.
+  RikuTheKiller:
+  - bugfix: Low temperature alerts now appear for basic mobs when the damage being
+      dealt is below 1 but above 0 (e.g. 0.5 DPS).
+  - balance: Blood worms are now breathless again.
+  - balance: Blood worms take damage from low pressures now (increases with growth
+      stage).
+  Robwo:
+  - rscadd: added heads of staff intercoms
+  - image: added color to departmental intercoms
+  - image: added a unique state for syndicate intercoms
+  SmArtKar:
+  - rscadd: Tendrils now remove their corrupted tiles after death
+  - bugfix: Tendrils got their death sound back
+  - rscadd: Added a magmawing variant of watcher wreaths
+  - rscadd: Magmawing and icewing watchers now drop unique sinew that can be crafted
+      into wreaths or trophies
+  - rscadd: Reworked colossus blaster tubes, and magmawing/icewing wing crusher trophies.
+  - balance: Crusher trophies are no longer random drops, and instead are crafted
+      from mob drops.
+  - balance: Wildhunter knife now refunds a large portion of components used to craft
+      a trophy, and its butchering bonus has been buffed from 10% to 25%
+  - bugfix: Fixed goliath trophy stating it deals 2 times less HP than it does in
+      reality in its description.
+  TealSeer:
+  - qol: added screentips for beaker assemblies
+  lelandkemble:
+  - bugfix: Wizards can now successfully refund summoning items
+  - bugfix: Holopayment stands can now take payment
+  - code_imp: 21 things have been moved from attackby() to item_interaction()
+  timothymtorres:
+  - balance: Change blood deficiency to start with 85% blood instead of 80%
+  - bugfix: Fix blood deficiency from causing gasping, stamina loss, and blurriness
+  vinylspiders:
+  - bugfix: shadows will no longer get the candidate's prefs applied to their mob
+  - bugfix: fixes an issue where snouts would disappear after unequipping a mask or
+      helmet.
+  - bugfix: fixes masks that hide snouts also preventing snouted helmet icons from
+      rendering properly
+  - bugfix: in prefs menu, changing your character name will now update your slot
+      button correctly
+  - bugfix: fixes an issue where switching slots would carry over the quirks of a
+      previous slot until you add or remove a quirk

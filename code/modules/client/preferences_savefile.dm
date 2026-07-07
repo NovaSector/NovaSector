@@ -349,14 +349,13 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	var/tree_key = "character[slot]"
 	var/list/save_data = savefile.get_entry(tree_key)
-	// NOVA EDIT ADDITION START
 	if(isnull(save_data))
 		for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
 			if (preference.savefile_identifier != PREFERENCE_CHARACTER)
 				continue
 			value_cache -= preference.type
 		return FALSE
-	// NOVA EDIT ADDITION END
+
 	var/data_validity_integer = check_savedata_version(save_data)
 	if(IS_DATA_OBSOLETE(data_validity_integer)) //fatal, can't load any data
 		return FALSE
@@ -451,11 +450,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if (!load_character(new_slot))
 		tainted_character_profiles = TRUE
 		randomise_appearance_prefs()
-		// NOVA EDIT ADDITION START
 		all_quirks = list()
-		// without this, the new slot's entry is saved nameless and reads as an empty slot once we move off it.
 		recently_updated_keys |= /datum/preference/name/real_name
-		// NOVA EDIT ADDITION END
 		save_character()
 
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)

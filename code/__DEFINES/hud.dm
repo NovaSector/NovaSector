@@ -75,7 +75,7 @@
 #define HUD_HUMAN_TOGGLE_INVENTORY "human_toggle_inventory"
 
 #define HUD_NEW_PLAYER_START_NOW "new_player_start_now"
-#define HUD_NEW_PLAYER_SIGN_UP "newp_layer_sign_up"
+#define HUD_NEW_PLAYER_LOBBY_BUTTON(type) "new_player_lobby_button:[type]"
 #define HUD_KEY_NEW_PLAYER(slot) "newplayer_hud:[slot]"
 
 #define HUD_SILICON_TAKE_IMAGE "silicon_camera"
@@ -86,7 +86,6 @@
 #define HUD_CYBORG_HANDS "cyborg_module"
 #define HUD_CYBORG_RADIO "cyborg_radio"
 #define HUD_CYBORG_DEATH "cyborg_death"
-#define HUD_KEY_CYBORG_MODULE(slot) "cyborg_module:[slot]"
 
 #define HUD_AI_FLOOR_INDICATOR "ai_floor_indicator"
 #define HUD_AI_GO_UP "ai_go_up"
