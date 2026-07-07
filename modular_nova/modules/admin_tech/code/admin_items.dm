@@ -1383,18 +1383,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	/// If this pen can be clicked in order to retract it
 	var/can_click = TRUE
 
-/obj/item/gun/magic/subspace/dagenblicky/proc/create_transform_component()
-	AddComponent( \
-		/datum/component/transforming, \
-		force_on = 18, \
-		throwforce_on = 35, \
-		throw_speed_on = 4, \
-		sharpness_on = SHARP_EDGED, \
-		w_class_on = WEIGHT_CLASS_NORMAL, \
-		inhand_icon_change = FALSE, \
-	)
-
-//
+//Setup our blicky
 /obj/item/gun/magic/subspace/dagenblicky/Initialize(mapload)
 	. = ..()
 	alt_continuous = string_list(alt_continuous)
@@ -1409,10 +1398,19 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	create_transform_component()
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
-// Guns unconditionally fire on any adjacent interact_with_atom - that's what was hijacking paper/ID clicks
-// before they ever got a chance to check get_writing_implement_details(). Treating anything adjacent as
-// "too close to fire" (a minimum range of 1 tile) and falling through to normal item interaction fixes both
-// the pen-signing case and lets the blade actually be used in melee once extended, instead of always shooting.
+// Our transform to make it a dagger, stolen code
+/obj/item/gun/magic/subspace/dagenblicky/proc/create_transform_component()
+	AddComponent( \
+		/datum/component/transforming, \
+		force_on = 18, \
+		throwforce_on = 35, \
+		throw_speed_on = 4, \
+		sharpness_on = SHARP_EDGED, \
+		w_class_on = WEIGHT_CLASS_NORMAL, \
+		inhand_icon_change = FALSE, \
+	)
+
+// Adjacency checks
 /obj/item/gun/magic/subspace/dagenblicky/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(user.Adjacent(interacting_with))
 		return NONE
@@ -1720,7 +1718,6 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 // Hard reinit.
 /obj/item/gun/energy/modular_laser_rifle/admin/Initialize(mapload)
-	. = ..()
 	RemoveElement(/datum/element/manufacturer_examine, COMPANY_CYBERSUN)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 	chat_color = "#cd4456"
