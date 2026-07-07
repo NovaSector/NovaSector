@@ -2729,7 +2729,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 //Towa's Viper Suit (DarkRilo)
 /obj/item/clothing/under/rank/civilian/viper_suit
 	name = "Viper Suit"
-	desc = "An old PMC uniform that has a small insignia of a Black Viper coiled around a black sword, It has seen better days..."
+	desc = "An old PMC uniform that has a small insignia of a Black Viper coiled around a black sword, it has seen better days..."
 	icon_state = "vipersuittowa"
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
