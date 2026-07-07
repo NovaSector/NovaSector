@@ -42,10 +42,6 @@
 	required_slots = list()
 	/// Power consumed per bullet fired
 
-/obj/item/mod/module/admin/carbine/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
-
 // Users of this module cannot be inspected, also acts as a weldshield
 /obj/item/mod/module/infiltrator/admin
 	name = "technician's visual cloak"

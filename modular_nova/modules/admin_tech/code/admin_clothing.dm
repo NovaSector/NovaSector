@@ -409,7 +409,8 @@
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
-	add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))//We are only doing this because admin_godmode is currently defaulting to true.
+	if(admin_godmode)
+		add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))//We are only doing this because admin_godmode is currently defaulting to true.
 
 // Creates a storage on the cytotheca, which acts as our base level storage for stablizied slime cores to interact with our mob
 // We populate with a subspace_pouch

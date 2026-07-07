@@ -1716,6 +1716,9 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	create_weapon_mode_stuff()
 	voice = null
 
+/obj/item/gun/energy/modular_laser_rifle/carbine/admin/init_manufacturer_examine()
+    AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
 // TODO: base firing mode needs no damage but inflicts hallucinations / causes people to collapse and freakout / causes traumas
 // icons\obj\weapons\guns\projectiles.dmi icon arcane_barrage
 // candidate for base: /obj/projectile/beam/mindflayer
