@@ -20,6 +20,8 @@
 
 	/// Preference of how the preview should show the character.
 	var/preview_pref = PREVIEW_PREF_JOB
+	/// What we previously had this set to (if we should update_body() or not)
+	var/previous_preview_pref
 
 	var/needs_update = TRUE
 

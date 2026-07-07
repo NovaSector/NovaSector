@@ -9,7 +9,7 @@
 		demands mathematical perfection — a Mark can be divided into 128 equal parts, and so it shall be. \
 		The name is a relic of a darker era: before the Matrix's failsafes made 'coin-shaving' \
 		(physically clipping edges off coins to hoard metal) impossible. The hexagonal shape was chosen specifically to make such tampering \
-		detectable. These days, Shavings are minted by the millions, stacked in KMIF vaults, and almost never see the light of day. \
+		detectable. These days, Shavings are minted by the quadrillions, stacked in KMIF vaults, and almost never see the light of day. \
 		When a transaction requires fractions of a Mark, Soft Mark digital ledgers handle it. The physical Shaving is a ghost, a currency that exists \
 		mostly as a concept. Rim-world traders have been known to accept 'half a Shaving' by snapping a flake with their teeth, a practice that \
 		ruins the edge and drives logistics officers insane. The old Rim saying goes: 'A Shaving in the hand is worth a Soft Mark in the cloud', \
@@ -33,7 +33,7 @@
 /obj/item/coin/mark
 	icon = 'modular_nova/modules/novaya_ert/icons/currency.dmi'
 	icon_state = "coin_mark"
-	resistance_flags = FIRE_PROOF|FIRE_PROOF
+	resistance_flags = LAVA_PROOF|FIRE_PROOF
 	override_material_worth = TRUE
 	material_flags = NONE
 	abstract_type = /obj/item/coin/mark
@@ -55,6 +55,7 @@
 		Which is to say: almost nothing, but reliably almost nothing."
 	icon_state = "bit"
 	sideslist = list("bit's heads","bit's tails")
+	heads_name = "bit's heads"
 	value = 4
 	custom_materials = list(/datum/material/titanium = COIN_MATERIAL_AMOUNT)
 
@@ -76,6 +77,7 @@
 		ongoing debate in Coalition philosophy circles."
 	icon_state = "mark"
 	sideslist = list("mark's heads","mark's tails")
+	heads_name = "mark's heads"
 	value = 128
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT)
 
@@ -96,6 +98,7 @@
 		a demonstration of material backing that speaks louder than any verbal reassurance."
 	icon_state = "crown"
 	sideslist = list("crown's heads(?)","crown's tails(?)")
+	heads_name = "crown's heads(?)"
 	value = 4096
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 4)
 
@@ -117,13 +120,18 @@
 		months' wages for an unskilled worker. It is the difference between life and death for a Rim-world settlement. Let the Forge Mark sit in its belt pouch, \
 		a quiet reassurance, a promise that the Coalition's reach extends even here, even now, even to the edge of nowhere."
 	icon_state = "forge_mark"
-	sideslist = list("forge_mark_up")
+	sideslist = list("forge_mark_up", "forge_mark_down")
 	value = 16384
 	custom_materials = list(/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 16)
 
 /obj/item/coin/mark/forge_mark/attack_self(mob/user)
-	if(length(sideslist) >= 1)
-		to_chat(user, span_warning("You heave [src] a bit, intending to flip it, before realizing that tossing a clumsy \
-		quarter-kilogram ingot of tungsten carbide into the air is somewhat ill-advised!") )
-		return FALSE
-	return ..()
+	if(icon_state == "coin_forge_mark_down")
+		to_chat(user, span_notice("You flip [src] over to its correct side."))
+		icon_state = "coin_forge_mark_up"
+		update_appearance()
+		return TRUE
+	else
+		to_chat(user, span_notice("You flip [src] over to its incorrect side."))
+		icon_state = "coin_forge_mark_down"
+		update_appearance()
+		return TRUE

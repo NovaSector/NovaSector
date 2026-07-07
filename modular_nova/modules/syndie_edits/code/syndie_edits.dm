@@ -6,7 +6,6 @@
 	icon_state = "syndievest"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-
 /obj/item/clothing/suit/armor/vest/capcarapace/syndicate/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_icon)
@@ -161,6 +160,7 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/syndicate/nova/maid/Initialize(mapload)
 	. = ..()
@@ -299,7 +299,6 @@
 	icon_state = "ip_labcoatwhite"
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
 
 /obj/item/clothing/suit/syndicate/interdyne_jacket
 	name = "interdyne jacket"

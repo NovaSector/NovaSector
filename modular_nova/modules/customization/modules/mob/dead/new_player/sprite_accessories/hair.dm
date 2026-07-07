@@ -862,6 +862,60 @@
 	name = "Bigger Tails"
 	icon_state = "hair_bigger_tails"
 
+/datum/sprite_accessory/hair/nova/ponytailscythe
+	name = "Ponytail Scythe"
+	icon_state = "hair_ponytail_scythe"
+	y_offset = 4
+
+/datum/sprite_accessory/hair/nova/mohawktall
+	name = "Tall Mohawk"
+	icon_state = "hair_tall_mohawk"
+	y_offset = 2
+
+/datum/sprite_accessory/hair/nova/hightopslant
+	name = "Hightop Slant"
+	icon_state = "hair_hightop_slant"
+
+/datum/sprite_accessory/hair/nova/gorgon
+	name = "Gorgon"
+	icon_state = "hair_gorgon"
+
+/datum/sprite_accessory/hair/nova/swirlycurls
+	name = "Swirly Curls"
+	icon_state = "hair_swirly_curls"
+
+/datum/sprite_accessory/hair/nova/swirlycurlsalt
+	name = "Swirly Curls Alt"
+	icon_state = "hair_swirly_curls_alt"
+
+/datum/sprite_accessory/hair/nova/shortwavy
+	name = "Short Wavy"
+	icon_state = "hair_short_wavy"
+
+/datum/sprite_accessory/hair/nova/longwavy
+	name = "Long Wavy"
+	icon_state = "hair_long_wavy"
+
+/datum/sprite_accessory/hair/nova/ponytailwavy
+	name = "Ponytail Wavy"
+	icon_state = "hair_ponytail_wavy"
+
+/datum/sprite_accessory/hair/nova/twintailswavy
+	name = "Twintails Wavy"
+	icon_state = "hair_twintails_wavy"
+
+/datum/sprite_accessory/hair/nova/animeprotag
+	name = "Anime Protagonist"
+	icon_state = "hair_anime_protag"
+
+/datum/sprite_accessory/hair/nova/shorterbangs
+	name = "Shorter Bangs"
+	icon_state = "hair_shorter_bangs"
+
+/datum/sprite_accessory/hair/nova/curtainbangs
+	name = "Curtain Bangs"
+	icon_state = "hair_curtain_bangs"
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/nova
