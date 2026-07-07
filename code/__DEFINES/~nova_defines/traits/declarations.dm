@@ -198,4 +198,6 @@
 #define TRAIT_ADMIN_WALLHACKS "admin_wallhacks"
 /// Trait for clothing which provides the effects of the book of babel, which is handled by the babel_clothing element
 #define TRAIT_BABEL_CLOTHING "babel_clothing"
+/// Trait involved in reveal_wires element, to show the wire legend of anything when working
+#define TRAIT_REVEAL_WIRES_ITEM "reveal_wires_item"
 // END TRAIT DEFINES

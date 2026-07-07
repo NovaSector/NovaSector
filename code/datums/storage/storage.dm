@@ -1212,7 +1212,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			real_location,
 			numbered_contents,
 		)
-// NOVA EDIT ADDITION END
+// NOVA EDIT ADDITION END - ADMIN_TECH
 
 /**
  * Toggles the collectmode of our storage.

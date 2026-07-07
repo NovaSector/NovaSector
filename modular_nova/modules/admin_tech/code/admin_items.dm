@@ -1694,6 +1694,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 // Hard reinit.
 /obj/item/gun/energy/modular_laser_rifle/admin/Initialize(mapload)
+	. () ..
 	RemoveElement(/datum/element/manufacturer_examine)//death
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 	chat_color = "#cd4456"
@@ -2409,3 +2410,77 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 // Right click at distance.
 /obj/item/ph_meter/admin/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	return interact_with_atom_secondary(interacting_with, user, modifiers)
+
+// I finally have a good idea for the multitool.
+// Buffer slots. Hell yeah.
+/obj/item/multitool/admin
+	name = "subspace multitool"
+	desc = "A civilian-grade multitool with a small subspace buffer bank, holding four buffers instead of one."
+	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
+	icon_state = "multitool"
+	inhand_icon_state = "multitool"
+	apc_scanner = FALSE
+	w_class = WEIGHT_CLASS_TINY
+	slot_flags = ITEM_SLOT_ADMIN
+	resistance_flags = INDESTRUCTIBLE
+	obj_flags = ADMIN_OBJ_FLAGS
+	/// Named buffer slots. Assoc slot_name -> stored buffer datum.
+	var/list/buffer_slots
+	/// Which slot is currently mirrored into `buffer`.
+	var/active_slot = "Slot 1"
+
+/obj/item/multitool/admin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+	buffer_slots = list("Slot 1" = null, "Slot 2" = null, "Slot 3" = null, "Slot 4" = null, "Slot 5" = null, "Slot 6" = null, "Slot 7" = null)// seven fits a radial
+
+/obj/item/multitool/admin/Destroy()
+	for(var/slot_name in buffer_slots)
+		var/datum/stored = buffer_slots[slot_name]
+		if(stored)
+			UnregisterSignal(stored, COMSIG_QDELETING)
+	buffer_slots = null
+	return ..()
+
+/obj/item/multitool/admin/examine(mob/user)
+	. = ..()
+	. += span_notice("Use in hand to switch between its [length(buffer_slots)] buffer slots. Currently on [active_slot].")
+
+/obj/item/multitool/admin/set_buffer(datum/new_buffer)
+	. = ..()
+	if(buffer_slots[active_slot])
+		UnregisterSignal(buffer_slots[active_slot], COMSIG_QDELETING)
+	buffer_slots[active_slot] = buffer
+	if(buffer)
+		RegisterSignal(buffer, COMSIG_QDELETING, PROC_REF(on_slot_buffer_deleted))
+
+/obj/item/multitool/admin/proc/on_slot_buffer_deleted(datum/source)
+	SIGNAL_HANDLER
+	for(var/slot_name in buffer_slots)
+		if(buffer_slots[slot_name] == source)
+			buffer_slots[slot_name] = null
+	if(buffer == source)
+		buffer = null
+
+/obj/item/multitool/admin/attack_self(mob/user, list/modifiers)
+	var/list/choices = list()
+	for(var/slot_name in buffer_slots)
+		var/image/radial_image = image(icon = icon, icon_state = icon_state)
+		radial_image.maptext = MAPTEXT("<span style='color:[slot_name == active_slot ? "#00ff00" : "#ffffff"]'>[copytext(slot_name, 6)]</span>")
+		choices[slot_name] = radial_image
+
+	var/picked = show_radial_menu(user, src, choices, custom_check = CALLBACK(src, PROC_REF(check_radial_menu), user), require_near = TRUE)
+	if(!picked)
+		return
+	active_slot = picked
+	buffer = buffer_slots[active_slot]
+	balloon_alert(user, "[picked]: [buffer ? "[buffer]" : "empty"]")
+
+/obj/item/multitool/admin/proc/check_radial_menu(mob/user)
+	if(!istype(user))
+		return FALSE
+	if(user.incapacitated)
+		return FALSE
+	if(user.get_active_held_item() != src)
+		return FALSE
+	return TRUE

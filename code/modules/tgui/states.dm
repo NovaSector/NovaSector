@@ -105,7 +105,30 @@
  * return UI_state The state of the UI.
  */
 /mob/living/proc/shared_living_ui_distance(atom/movable/src_object, viewcheck = TRUE, allow_tk = TRUE)
+	// NOVA EDIT ADDITION START - ADMIN_TECH
+	if(HAS_TRAIT_FROM(client, TRAIT_ADMIN_REACHABLE, ADMIN_TRAIT))
+		return UI_INTERACTIVE
+	// NOVA EDIT ADDITION END
 	var/obj/item/item_in_hand = get_active_held_item()
+	if(istype(item_in_hand, /obj/item/machine_remote)) //snowflake, this lets you interact with all.
+		var/obj/item/machine_remote/remote = item_in_hand
+		if(remote.controlling_machine_or_bot == src_object)
+			return UI_INTERACTIVE
+	// If the object is obscured, close it.
+	if(viewcheck && !(src_object in view(src)))
+		return UI_CLOSE
+	var/dist = get_dist(src_object, src)
+	// Open and interact if 1-0 tiles away.
+	if(dist <= 1)
+		return UI_INTERACTIVE
+	// View only if 2-3 tiles away.
+	else if(dist <= 2)
+		return UI_UPDATE
+	// Disable if 5 tiles away.
+	else if(dist <= 5)
+		return UI_DISABLED
+	// Otherwise, we got nothing.
+	return UI_CLOSE	var/obj/item/item_in_hand = get_active_held_item()
 	if(istype(item_in_hand, /obj/item/machine_remote)) //snowflake, this lets you interact with all.
 		var/obj/item/machine_remote/remote = item_in_hand
 		if(remote.controlling_machine_or_bot == src_object)

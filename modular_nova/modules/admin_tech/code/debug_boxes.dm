@@ -84,7 +84,7 @@ GLOBAL_LIST_INIT(subspace_box_contents, list(
 			/obj/item/mod/core/infinite = 2,
 			/obj/item/stack/cable_coil = 4,
 			/obj/item/clothing/glasses/meson/engine/admin = 1,
-			/obj/item/multitool/abductor = 1,
+			/obj/item/multitool/admin = 1,
 			/obj/item/inducer/empty = 1,
 			/obj/item/inducer = 1,
 			/obj/item/screwdriver/power = 1,

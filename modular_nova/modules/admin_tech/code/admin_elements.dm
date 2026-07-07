@@ -34,3 +34,51 @@
 	wearer.remove_all_languages(source = LANGUAGE_BABEL)// stupifies you cutely :3c
 	if(wearer.mind)// of course they have a mind, we're just... you know. we look first. its responsible to look both ways before crossing the street
 		REMOVE_TRAIT(wearer.mind, TRAIT_TOWER_OF_BABEL, REF(src))// cleans up last of the things we added
+
+///An Element which reveals the wire legend. If you need it for something.
+/datum/element/reveal_wires
+
+/datum/element/reveal_wires/Attach(datum/target)
+	. = ..()
+	if(!isitem(target))
+		return ELEMENT_INCOMPATIBLE
+	ADD_TRAIT(target, TRAIT_REVEAL_WIRES_ITEM, REF(src))
+	RegisterSignal(target, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equipped))
+	RegisterSignal(target, COMSIG_ITEM_PICKUP, PROC_REF(on_pickup))
+
+/datum/element/reveal_wires/Detach(datum/source, ...)
+	REMOVE_TRAIT(source, TRAIT_REVEAL_WIRES_ITEM, REF(src))
+	UnregisterSignal(source, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_PICKUP))
+	return ..()
+
+/datum/element/reveal_wires/proc/on_equipped(obj/item/source, mob/equipper, slot)
+	SIGNAL_HANDLER
+	if(!(slot & source.slot_flags))
+		return
+	grant(equipper)
+
+/datum/element/reveal_wires/proc/on_pickup(obj/item/source, mob/user)
+	SIGNAL_HANDLER
+	grant(user)
+
+/datum/element/reveal_wires/proc/grant(mob/holder)
+	ADD_TRAIT(holder, TRAIT_SHOW_ALL_WIRES, REF(src))
+	RegisterSignal(holder, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(on_mob_unequipped_item))
+	RegisterSignal(holder, COMSIG_ITEM_DROPPED, PROC_REF(on_mob_dropped_item))
+
+/datum/element/reveal_wires/proc/on_mob_unequipped_item(mob/wearer, obj/item/unequipped, force, atom/newloc, no_move, invdrop, silent)
+	SIGNAL_HANDLER
+	check_revoke(wearer, unequipped)
+
+/datum/element/reveal_wires/proc/on_mob_dropped_item(mob/wearer, obj/item/dropped)
+	SIGNAL_HANDLER
+	check_revoke(wearer, dropped)
+
+/datum/element/reveal_wires/proc/check_revoke(mob/wearer, obj/item/removed)
+	if(!HAS_TRAIT(removed, TRAIT_REVEAL_WIRES_ITEM))
+		return
+	for(var/obj/item/held as anything in wearer.get_equipped_items(include_hands = TRUE))
+		if(held != removed && HAS_TRAIT(held, TRAIT_REVEAL_WIRES_ITEM))
+			return
+	REMOVE_TRAIT(wearer, TRAIT_SHOW_ALL_WIRES, REF(src))
+	UnregisterSignal(wearer, list(COMSIG_MOB_UNEQUIPPED_ITEM, COMSIG_ITEM_DROPPED))

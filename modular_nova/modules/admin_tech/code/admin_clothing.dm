@@ -402,6 +402,7 @@
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+	add_filter("admin_active_item", 1, outline_filter(1, "#cc00ff", OUTLINE_SQUARE))//We are only doing this because admin_godmode is currently defaulting to true.
 
 // Creates a storage on the cytotheca, which acts as our base level storage for stablizied slime cores to interact with our mob
 // We populate with a subspace_pouch
@@ -518,6 +519,56 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
 	// It took a while to curate this trait list and I dont think its done. If you find anything else useful you should throw it on here.
 	clothing_traits = list(TRAIT_CLEANBOT_WHISPERER, TRAIT_AI_ACCESS, TRAIT_BLOB_ALLY, TRAIT_TENACIOUS, TRAIT_UNBREAKABLE, TRAIT_UNOBSERVANT, TRAIT_INVISIBLE_TO_CAMERA, TRAIT_CATLIKE_GRACE, TRAIT_NO_STRIP, TRAIT_TURF_IGNORE_SLIPPERY, TRAIT_TURF_IGNORE_SLOWDOWN, TRAIT_OVERWATCH_IMMUNE, TRAIT_TENTACLE_IMMUNE, TRAIT_WEATHER_IMMUNE, TRAIT_LAVA_IMMUNE, TRAIT_KNOW_ENGI_WIRES, TRAIT_FERAL_BITER, TRAIT_ADAMANTINE_EXTRACT_ARMOR, TRAIT_ROCK_EATER, TRAIT_SUPERMATTER_SOOTHER, TRAIT_UNNATURAL_RED_GLOWY_EYES, TRAIT_QUICKER_CARRY, TRAIT_NO_STAGGER, TRAIT_IGNORESLOWDOWN, TRAIT_NO_BLOOD_OVERLAY, TRAIT_NODISMEMBER, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_NODEATH)
+
+// Attempts to replace the teleport menu as observer with an IC solution.
+/obj/item/clothing/under/admin/click_ctrl_shift(mob/user)
+	if(!isliving(user))// If they're dead
+		return CLICK_ACTION_BLOCKING// go home ur dead
+	if(!user.client.holder)// if they arent holding admin perms
+		to_chat(user, span_warning("Absolutely not! Go apply for Staff!"))// sass the dumbass
+		return CLICK_ACTION_BLOCKING// go home pleb
+	var/mob/living/living_user = user// setup a var with our user
+	if(living_user.get_item_by_slot(ITEM_SLOT_ICLOTHING) != src)// if our living user is not wearing this in our jumpsuit slot
+		balloon_alert(user, "must be worn!")// give them a light reminder
+		return CLICK_ACTION_BLOCKING// try again buddy
+
+	var/list/destinations = list()// begins setting up our list of destinations. this might be too costly to keep depending on how this works on livetime
+
+	for(var/mob/player_mob as anything in GLOB.player_list)// for player mobs from anything the global player list
+		if(!player_mob.client)//if it doesnt have a client
+			continue// ignore it
+		destinations["[Player] [player_mob.name] ([player_mob.key])"] = player_mob//brackets add to list, each type has an identifier because this is a mixed list
+
+	for(var/area/possible_area as anything in get_sorted_areas())// populates possible areas from this sexy fucking proc that exists UGH look at that
+		destinations["[Area] [possible_area.name]"] = possible_area// follow our standard set above
+
+	for(var/obj/effect/landmark/marker as anything in GLOB.landmarks_list)// landmarks are mapped things, usually
+		destinations["[Landmark] [marker.name]"] = marker
+
+	for(var/datum/point_of_interest/mob_poi/mob_poi as anything in SSpoints_of_interest.mob_points_of_interest)// looks for interesting mobs
+		if(!mob_poi.target)
+			continue
+		destinations["[POI] [mob_poi.target.name]"] = mob_poi.target
+
+	for(var/datum/point_of_interest/other_poi as anything in SSpoints_of_interest.other_points_of_interest)// looks for novel pois
+		if(!other_poi.target)
+			continue
+		destinations["[POI] [other_poi.target.name]"] = other_poi.target
+
+	var/picked = tgui_input_list(user, "Select a destination", "Subspace Teleport", sort_list(destinations))// sets up our option list. sortlist is also sexy.
+	if(isnull(picked))// sanity cancelling out
+		return CLICK_ACTION_BLOCKING// thanks for wasting all of the above resources :')
+
+	var/atom/target = destinations[picked]// sets up our target from the selection through our destinations
+	var/turf/target_turf = get_turf(target)// checks the turf at our target. this does some kinda funny stuff if you sniff further in. dont, it's ok
+	if(!target_turf)// BUT WAIT, what if there ISNT a turf???
+		balloon_alert(user, "invalid destination!")// WHIIIINE
+		return CLICK_ACTION_BLOCKING// thanks for wasting all of the above resources :')
+
+	living_user.abstract_move(target_turf)// Poof!
+	log_admin("[key_name(user)] teleported via subspace techsuit to [picked]")// Log this shit because like lol lmao
+	message_admins("[key_name_admin(user)] teleported via subspace techsuit to [picked]")// Also tell admemes. I forgor what the admin follow thing is.
+	return CLICK_ACTION_SUCCESS// thanks for wasting all of the above resources :')
 
 /obj/item/clothing/under/admin/subspace
 	name = "subspace techsuit"
