@@ -287,6 +287,10 @@
   - balance: Plates printed printed from lathes won't shatter like ceramic ones, in
       virtue of them being made out of iron instead.
   - bugfix: Fixed the subtle lack of symmetry on the monkey right arm and leg.
+  Iamgoofball, NEOCloudy, Vinylspiders:
+  - bugfix: Adds more character slots because I'm out of slots and need to make more
+      characters
+  - qol: Character slot dropdown is now searchable
   MacaroniCritter:
   - rscadd: You can now recolor the original gasmask.
   PapaMichael:
