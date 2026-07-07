@@ -5,6 +5,7 @@
 	icon_state = "petclicker"
 	w_class = WEIGHT_CLASS_TINY
 	var/click_sound_extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/petclicker/attack_self(mob/living/user)
 	. = ..()
