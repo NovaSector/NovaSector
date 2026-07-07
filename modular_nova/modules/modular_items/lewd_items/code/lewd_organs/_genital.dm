@@ -146,6 +146,8 @@
 /datum/bodypart_overlay/mutant/genital
 	layers = EXTERNAL_FRONT_UNDER_CLOTHES
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = LOWER_BODY
+	draw_on_husks = FALSE
 	/// The suffix appended to the feature_key for the overlays.
 	var/sprite_suffix
 	/// Owning human.  Used to adjust layers depending on underwear
@@ -159,7 +161,6 @@
 	var/layer_above_undies = -(UNIFORM_LAYER - 0.06)
 	/// Ditto, but for BELOW UNDERWEAR
 	var/layer_below_undies = -(UNIFORM_LAYER + 0.06)
-	draw_on_husks = FALSE
 
 /datum/bodypart_overlay/mutant/genital/override_color(rgb_value)
 	return draw_color
