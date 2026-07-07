@@ -45,7 +45,7 @@
 	abstract_type = /datum/atom_skin/croptopbomberjacket_stripe
 	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_stripe
 
-/datum/atom_skin/croptopbomberjacket_stripe/croptop_bomber_stripe_alt
+/datum/atom_skin/croptopbomberjacket_stripe/alt
 	preview_name = "CropTop Bomber Jacker (Alt)"
 	new_icon_state = "croptop_bomber_stripe_t"
 
