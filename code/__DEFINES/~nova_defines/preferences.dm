@@ -29,6 +29,7 @@
 #define VOICE_TYPE_BARK "Vocal Barks"
 
 #define PREFERENCE_CATEGORY_VOCALS "vocals"
+#define PREFERENCE_CATEGORY_ERP "erp"
 
 /// Max save slots for people not subscribed to BYOND and not a donator
 #define MAX_SAVE_SLOTS_NORMAL 45
