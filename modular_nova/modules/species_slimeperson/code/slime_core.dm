@@ -100,9 +100,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	QDEL_NULL(membrane_murmur)
 	QDEL_NULL(stored_dna)
 	QDEL_LAZYLIST(stored_quirks)
-	QDEL_NULL(stored_language_holder))
+	QDEL_NULL(stored_language_holder)
 	QDEL_NULL(new_body)
-	return ..()
 
 	mind = null
 
@@ -344,11 +343,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		Remove(victim)
 	forceMove(core_loc)
 	// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
-		for(var/obj/item/organ/spilled_organ in death_loc)
-			if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
-				continue
-			else
-				qdel(spilled_organ)
+	for(var/obj/item/organ/spilled_organ in core_loc)
+		if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
+			continue
+		else
+			qdel(spilled_organ)
 	wash(CLEAN_WASH)
 	new death_melt_type(death_turf, victim.dir)
 
