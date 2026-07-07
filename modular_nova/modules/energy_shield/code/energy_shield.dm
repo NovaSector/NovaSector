@@ -107,9 +107,9 @@
 	appearance.overlays += color_overlay
 	return appearance
 
-/obj/item/clothing/accessory/energy_shield/successful_attach(obj/item/clothing/under/attached_to)
-	. = ..()
+/obj/item/clothing/accessory/energy_shield/attach(obj/item/clothing/under/attached_to)
 	RegisterSignal(attached_to, COMSIG_ATOM_EXAMINE, PROC_REF(on_uniform_examined))
+	return ..()
 
 /obj/item/clothing/accessory/energy_shield/detach(obj/item/clothing/under/detach_from)
 	UnregisterSignal(detach_from, COMSIG_ATOM_EXAMINE)

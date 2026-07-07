@@ -13,7 +13,7 @@
 	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID
 	mutantlungs = /obj/item/organ/lungs/nitrogen/vox
 	mutantbrain = /obj/item/organ/brain/cybernetic/cortical/vox //reparented vox brain
-	breathid = "n2"
+	meat = /obj/item/food/meat/slab/chicken/human
 
 	mutanttongue = /obj/item/organ/tongue/vox
 	payday_modifier = 1.0

@@ -28,9 +28,10 @@
 		else
 			return TRUE
 
-/obj/item/organ/genital/vagina/get_description_string(datum/sprite_accessory/genital/gas)
-	var/returned_string = "You see a [LOWER_TEXT(genital_name)] vagina."
-	if(LOWER_TEXT(genital_name) == "cloaca")
+/obj/item/organ/genital/vagina/get_description_string(datum/sprite_accessory/genital/vagina/vagina)
+	var/descriptor = get_genital_descriptor(vagina)
+	var/returned_string = "You see a [LOWER_TEXT(descriptor)] vagina."
+	if(LOWER_TEXT(descriptor) == "cloaca")
 		returned_string = "You see a cloaca." //i deserve a pipebomb for this
 	switch(aroused)
 		if(AROUSAL_NONE)

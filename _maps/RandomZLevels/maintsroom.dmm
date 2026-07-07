@@ -2795,7 +2795,7 @@
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/west,
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/random/food_or_drink/keg,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "jd" = (
@@ -3814,7 +3814,7 @@
 /area/awaymission/caves/maintsroom)
 "mx" = (
 /obj/structure/lattice/catwalk/mining,
-/obj/structure/closet/crate/goldcrate{
+/obj/structure/closet/crate/goldcrate/stocked{
 	name = "Bait?"
 	},
 /obj/item/upgradescroll,
@@ -7328,7 +7328,7 @@
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
 "yF" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/random/food_or_drink/keg,
 /obj/item/clothing/head/costume/festive,
 /obj/machinery/camera/xray/directional/north,
 /turf/open/floor/plating,
@@ -12454,7 +12454,7 @@
 "Qi" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/item/forging/reagent_weapon/sword,
-/obj/structure/closet/crate/goldcrate{
+/obj/structure/closet/crate/goldcrate/stocked{
 	name = "Bait"
 	},
 /obj/item/disk/design_disk/cleric_mace,

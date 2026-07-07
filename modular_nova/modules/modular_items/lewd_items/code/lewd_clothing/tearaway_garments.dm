@@ -10,6 +10,7 @@
 	greyscale_config_worn = /datum/greyscale_config/tearaway_garments/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	can_adjust = FALSE
 	gender = PLURAL
 

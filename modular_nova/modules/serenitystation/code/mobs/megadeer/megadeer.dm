@@ -44,7 +44,6 @@
 
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_CLAW)
 	AddElement(/datum/element/ai_flee_while_injured)
-	AddElement(/datum/element/ai_retaliate)
 
 /obj/item/crusher_trophy/deer_fur
 	name = "deer fur"

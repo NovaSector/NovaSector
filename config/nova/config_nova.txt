@@ -71,6 +71,30 @@ SSDECAY_DISABLED
 ## If SSDECAY_DISABLED is uncommented, then it does not matter if this is commented out since this config requires SSDecay to be enabled first.
 SSDECAY_DISABLE_NESTS
 
+## Percent chance that a floor will be randomly dirty, scaled with SSDecay severity.
+SSDECAY_FLOOR_DIRT_PERCENT_CHANCE 15
+
+## Percent chance that a floor will be randomly bloody, scaled with SSDecay severity.
+SSDECAY_FLOOR_BLOOD_PERCENT_CHANCE 1
+
+## Percent chance that a floor will be randomly vomit-covered, scaled with SSDecay severity.
+SSDECAY_FLOOR_VOMIT_PERCENT_CHANCE 1
+
+## Percent chance that a floor will be randomly oily, scaled with SSDecay severity.
+SSDECAY_FLOOR_OIL_PERCENT_CHANCE 5
+
+## Percent chance that a floor will be randomly stripped down to damaged plating, scaled with SSDecay severity.
+SSDECAY_FLOOR_TILE_MISSING_PERCENT_CHANCE 0
+
+## Percent chance that a floor will have cobwebs, scaled with SSDecay severity.
+SSDECAY_FLOOR_COBWEB_PERCENT_CHANCE 1
+
+## Percent chance that (if not previously disabled via SSDECAY_DISABLE_NESTS) a nest will spawn, scaled with SSDecay severity.
+SSDECAY_NEST_PERCENT_CHANCE 1
+
+## Percent chance that a light will be flickery, used with SSDecay.
+SSDECAY_LIGHT_FLICKER_PERCENT_CHANCE 10
+
 ## Disables any ERP preferences for codebases that don't want it.
 #DISABLE_ERP_PREFERENCES
 #DISABLE_LEWD_ITEMS

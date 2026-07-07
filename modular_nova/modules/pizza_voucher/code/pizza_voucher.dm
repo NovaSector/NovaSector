@@ -13,6 +13,7 @@
 	/obj/item/food/pizza/pineapple/raw, \
 	/obj/item/food/pizza/arnold/raw, \
 	/obj/item/food/pizza/energy/raw, \
+	/obj/item/food/pizza/margherita/robo, \
 )
 
 /obj/item/pizzavoucher

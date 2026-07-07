@@ -32,3 +32,18 @@
 		name = pick("Crayon", "Pimpy", "Staypuft", "Bape", "BLOODSKULL", "Baby G")
 	AddElement(/datum/element/tiny_mob_hunter, MOB_SIZE_SMALL) //He eats anything that he sees as a toddler.
 	AddElement(/datum/element/footstep, footstep_type = FOOTSTEP_MOB_CLAW)
+
+/mob/living/basic/pet/dog/pitbull/hungry //Evil but not the gorilla pitbull.
+	name = "hungry pitbull"
+	desc = "A wild pitbull denied their daily baby ration."
+	health = 60
+	maxHealth = 60
+	obj_damage = 20
+	melee_damage_lower = 10
+	melee_damage_upper = 15
+	wound_bonus = -25
+	exposed_wound_bonus = 45
+	sharpness = SHARP_EDGED
+	gold_core_spawnable = HOSTILE_SPAWN
+	faction = list(FACTION_HOSTILE)
+	ai_controller = /datum/ai_controller/basic_controller/guarddog

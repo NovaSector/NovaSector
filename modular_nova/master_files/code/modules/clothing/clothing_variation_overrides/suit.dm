@@ -209,6 +209,7 @@
 
 /obj/item/clothing/suit/hooded/explorer
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 //Chaplain Suits
 //TG neglected to sort between legged and robed, so we'll have to just manually set each one
