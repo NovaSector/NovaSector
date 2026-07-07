@@ -118,6 +118,10 @@
 	icon_state = "loincloth_alt"
 	female_sprite_flags = NO_FEMALE_UNIFORM
 
+/datum/sprite_accessory/clothing/underwear/groin_plating
+	name = "Groin Plating"
+	icon_state = "groin_plating"
+
 //Presets
 /datum/sprite_accessory/clothing/underwear/lizared
 	name = "LIZARED Underwear"
@@ -151,6 +155,24 @@
 /datum/sprite_accessory/clothing/underwear/cow
 	name = "Panties - Cow"
 	icon_state = "panties_cow"
+	gender = FEMALE
+	use_static = TRUE
+
+/datum/sprite_accessory/clothing/underwear/thong_cheetah
+	name = "Thong - Cheetah"
+	icon_state = "thong_cheetah"
+	gender = FEMALE
+	use_static = TRUE
+
+/datum/sprite_accessory/clothing/underwear/thong_cow
+	name = "Thong - Cow"
+	icon_state = "thong_cow"
+	gender = FEMALE
+	use_static = TRUE
+
+/datum/sprite_accessory/clothing/underwear/thong_zebra
+	name = "Thong - Zebra"
+	icon_state = "thong_zebra"
 	gender = FEMALE
 	use_static = TRUE
 

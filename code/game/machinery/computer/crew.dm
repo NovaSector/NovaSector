@@ -273,8 +273,8 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			continue
 		// NOVA EDIT ADDITION END
 
-		// NOVA EDIT ADDITION START - Checking for robotic race
-		if (issynthetic(tracked_human))
+		// NOVA EDIT ADDITION START - Checking for synthetic races
+		if (issynthetic(tracked_human) || isprotean(tracked_human))
 			entry["is_robot"] = TRUE
 		// NOVA EDIT ADDITION END
 

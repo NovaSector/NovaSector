@@ -20,6 +20,8 @@
 
 	/// Preference of how the preview should show the character.
 	var/preview_pref = PREVIEW_PREF_JOB
+	/// What we previously had this set to (if we should update_body() or not)
+	var/previous_preview_pref
 
 	var/needs_update = TRUE
 
@@ -75,3 +77,5 @@
 /datum/preferences/safe_transfer_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, is_antag = FALSE)
 	. = ..()
 	GLOB.chat_colors_by_mob_name[character.name] = list(character.chat_color, character.chat_color_darkened) // by now the mob has had its prefs applied to it
+
+#undef MAX_MUTANT_ROWS
