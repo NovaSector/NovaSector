@@ -1,12 +1,11 @@
-/// Tracks each player's currently-active holosigns placed via Manage Holosigns, keyed by ckey.
-// Admins are exempt from the CONFIG max_player_holosigns cap.
+/// Tracks each player's currently-active holosigns placed via Manage Holosigns, keyed by ckey. Admins are exempt from the CONFIG max_player_holosigns cap.
 GLOBAL_LIST_EMPTY(holosign_privacy_tracker)
 
 /mob/living/verb/manage_holosigns()
 	set name = "Manage Holosigns"
 	set category = "IC"
 
-	// Populate the list of types of holosigns
+	/// Populate the list of types of holosigns
 	var/list/options = list(
 		"Privacy Holosign" = /obj/structure/holosign/privacy,
 		"Clear All Holosigns" = "clear",
@@ -14,7 +13,7 @@ GLOBAL_LIST_EMPTY(holosign_privacy_tracker)
 	if(CONFIG_GET(flag/disable_erp_preferences) || client?.prefs.read_preference(/datum/preference/toggle/master_erp_preferences)) // Only if they have ERP preferences setup
 		options["Lewd Advisory Holosign"] = /obj/structure/holosign/privacy/erp
 
-	// Sets up our input list
+	/// Sets up our input list
 	var/choice = tgui_input_list(usr, "Choose an action", "Manage Holosigns", options)
 	if(!choice)// No choice kills the verb loop
 		return

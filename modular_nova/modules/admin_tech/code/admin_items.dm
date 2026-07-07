@@ -166,7 +166,13 @@ Admin Variants of Common Tools
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
+/obj/item/storage/bag/admin/examine(mob/user)
+	. = ..()
+	. += span_notice("Ctrl-Shift-Click to qDel all contents.")
+
 /obj/item/storage/bag/admin/click_ctrl_shift(mob/user)
+	if(!user.client?.holder)
+		return CLICK_ACTION_BLOCKING
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
 		qdel(stored_item)
@@ -223,15 +229,23 @@ Admin Variants of Common Tools
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
+/obj/item/storage/bag/admin/examine(mob/user)
+	. = ..()
+	. += span_notice("Alt-Right-Click to repopulate the bag contents. Ctrl-Click to qDel all contents.")
+
 /// Clears the bag
-/obj/item/storage/bag/construction/admin/click_alt_secondary(mob/user)
+/obj/item/storage/bag/construction/admin/click_ctrl_shift(mob/user)
+	if(!user.client?.holder)
+		return CLICK_ACTION_BLOCKING
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
 		qdel(stored_item)
 	return
 
 /// Refreshes the bag's contents
-/obj/item/storage/bag/construction/admin/click_ctrl_shift(mob/user)
+/obj/item/storage/bag/construction/admin/item_ctrl_click(mob/user)
+	if(!user.client?.holder)
+		return CLICK_ACTION_BLOCKING
 	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	for(var/obj/item/stored_item in inv_grab)
 		qdel(stored_item)
@@ -699,6 +713,8 @@ Admin Variants of Common Tools
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
+
+
 /*
 * Admin Cells for Cellgun
 * I thought about making a spread of admin medicells to replace the hypospray kit, as well as relocation cells to move things around CC
@@ -832,6 +848,8 @@ Admin Variants of Common Tools
 
 /// Cycles between the harmless pointer, a burning hitscan beam, and a melting/destroying hitscan beam.
 /obj/item/laser_pointer/admin/item_ctrl_click(mob/user)
+	if(!user.client?.holder)
+		return NONE
 	switch(beam_mode)
 		if("normal")
 			beam_mode = "burn"
@@ -1176,6 +1194,10 @@ Admin Variants of Common Tools
 /obj/item/pneumatic_cannon/subspace/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+/obj/item/pneumatic_cannon/subspace/examine(mob/user)
+	. = ..()
+	. += span_notice("Ctrl-Click to attune to a different ball type. Currently attuned to [charge_type ? initial(charge_type.name) : "nothing"].")
 
 GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	"Tennis" = /obj/item/toy/tennis,
@@ -1588,6 +1610,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 /obj/item/melee/baseball_bat/admin/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
+
+/obj/item/melee/baseball_bat/admin/examine(mob/user)
+	. = ..()
+	. += span_notice("Ctrl-Click to set the demolition modifier. Currently [demolition_mod].")
 
 // Neato demo-mod selector. Easy to adapt code for modifying variables on items.
 /obj/item/melee/baseball_bat/admin/item_ctrl_click(mob/user)
@@ -2064,6 +2090,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
+/obj/item/handheld_debug_chem_synth/examine(mob/user)
+	. = ..()
+	. += span_notice("Use in hand to open the synthesizer interface.")
+
 /obj/item/handheld_debug_chem_synth/attack_self(mob/user)
 	ui_interact(user)
 
@@ -2185,6 +2215,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 		beaker_data["contents"] = beakerContents
 	.["beaker"] = beaker_data
 
+// Admin Chem Gun
 // Why does the syringe gun exist when this beautiful creation exists. Some might call it balance, I call it hoarding the fun stuff to criminals
 /obj/item/gun/chem/admin
 	name = "subspace reagent projector"
@@ -2215,8 +2246,14 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	qdel(chambered)
 	chambered = new /obj/item/ammo_casing/chemgun/admin(src)
 
+obj/item/gun/chem/admin/examine(mob/user)
+	. = ..()
+	. += span_notice("Use in hand to synthesize any reagent, currently attuned to [selected_reagent]. Ctrl-Click to set the volume fired per shot. Currently [reagent_per_shot] units.")
+
 /// Lets you instantly (re)attune the gun's reagents to any chemical, at full volume, without needing to physically fill it.
 /obj/item/gun/chem/admin/attack_self(mob/user)
+	if(!user.client?.holder)
+		return
 	var/selected_reagent = tgui_input_list(user, "Select reagent", "Reagent", GLOB.name2reagent)
 	if(!selected_reagent)
 		return
@@ -2229,6 +2266,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 /// Lets you adjust how many units of reagent get fired with each shot.
 /obj/item/gun/chem/admin/item_ctrl_click(mob/user)
+	if(!user.client?.holder)
+		return NONE
 	var/new_amount = tgui_input_number(user, "Set reagent volume fired per shot", "Reagent Per Shot", reagent_per_shot, 1000, 1)
 	if(isnull(new_amount))
 		return
@@ -2365,7 +2404,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 // Buffer slots. Hell yeah.
 /obj/item/multitool/admin
 	name = "subspace multitool"
-	desc = "A civilian-grade multitool with a small subspace buffer bank, holding four buffers instead of one."
+	desc = "An administrative-grade multitool with a small subspace buffer bank, holding seven buffers instead of one."
 	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "multitool"
 	inhand_icon_state = "multitool"
@@ -2383,6 +2422,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 	buffer_slots = list("Slot 1" = null, "Slot 2" = null, "Slot 3" = null, "Slot 4" = null, "Slot 5" = null, "Slot 6" = null, "Slot 7" = null)// seven fits a radial
+
+/obj/item/multitool/admin/examine(mob/user)
+	. = ..()
+	. += span_notice("Use in hand to select a buffer slot. Currently on [active_slot].")
 
 /obj/item/multitool/admin/Destroy()
 	for(var/slot_name in buffer_slots)

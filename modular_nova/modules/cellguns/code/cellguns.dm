@@ -37,6 +37,7 @@
 	if(maxcells)
 		. += "<b>[installedcells.len]</b> out of <b>[maxcells]</b> cell slots are filled."
 		. += span_info("You can use Alt Click with an empty hand to remove the most recently inserted cell from the chamber.")
+		. += span_notice("Ctrl-Shift-Click to toggle between cycling cells and picking one via radial. Use in hand to [radial_select_mode ? "pick a cell" : "cycle cells"].")
 
 		for(var/cell in installedcells)
 			. += span_notice("There is \a [cell] loaded in the chamber.") //Shows what cells are currently inside of the gun

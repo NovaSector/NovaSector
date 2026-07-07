@@ -60,9 +60,9 @@ modular_nova/modules/bluespace_admin/icons/mob/belt.dmi - removed, old module fo
 modular_nova/modules/bluespace_admin/icons/obj/belt.dmi - removed, old module folded into admin_tech
 modular_nova/modules/borgs/icons/screen_cyborg.dmi - updated cyborg screen icon
 modular_nova/master_files/code/modules/client/preferences.dm - preferred_spawn_methods/preferred_spawn_outfits vars
-code\modules\client\preferences_savefile.dm - Saves/loads preferred_spawn_methods and preferred_spawn_outfits used inside the icspawning menu
-code\modules\mob\living\living.dm - TRAIT_ADMIN_REACHABLE early-return in can_perform_action
-code\modules\tgui\states.dm - Grants UI_INTERACTIVE to clients with TRAIT_ADMIN_REACHABLE, allowing admin UI interaction at range with stuff like machines
+code/modules/client/preferences_savefile.dm - Saves/loads preferred_spawn_methods and preferred_spawn_outfits used inside the icspawning menu
+code/modules/mob/living/living.dm - TRAIT_ADMIN_REACHABLE early-return in can_perform_action
+code/modules/tgui/states.dm - Grants UI_INTERACTIVE to clients with TRAIT_ADMIN_REACHABLE, allowing admin UI interaction at range with stuff like machines
 \_maps/nova/capsules/tiny_fan_capsule.dmm - simple reference capsule, places a tiny fan with super reinforced flooring
 tgstation.dme - registers new/moved files
 
@@ -88,10 +88,6 @@ Player appropriate tech loadout with considerations to reduce the need for admin
 
 subclass admin capsules for useful testing setups, such as instant departments and test environments. 'oh just use xyz location, it already exists-' shut up nerd
 
-examine(mob/user)
-. = ..()
-. += span_notice("use this to expand on to the examines of everything")
-
 holder checks everywhere. have some options to do so anyways which causes an alog or harms them
 
 Debug Box Ideas: recreational / admin drugs, Antag, Research, Security, Service, Cargo, Medical Box revisit, borgs / silicons, bots, syndie theme, cc theme,
@@ -103,3 +99,4 @@ handheld advanced camera console
 syndie ai card, make a cc one
 CC Cyborg Spawner Beacons
 Add radial select states for storing multiple multitool inputs on one multitool
+handheld fabricator

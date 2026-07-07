@@ -172,7 +172,6 @@
 /obj/item/clothing/glasses/meson/engine/admin/debug
 	name = "subspace contacts"
 	desc = "One of Central Command's best kept secrets, resting on the eyes of many of its officers, operatives, and technicians."
-	desc_controls = "Ctrl + Shift + Click to cycle vision modes: normal, perfect vision, and omniscient."
 	icon = 'modular_nova/modules/admin_tech/icons/admin_items.dmi'
 	icon_state = "contacts"
 	inhand_icon_state = "trayson-"
@@ -209,9 +208,15 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 
+/obj/item/clothing/glasses/meson/engine/admin/debug/examine(mob/user)
+	. = ..()
+	. += span_notice("Ctrl-Shift-Click to cycle vision modes. Currently: [vision_mode == 0 ? "normal" : vision_mode == 1 ? "perfect vision" : "omniscient"].")
+
 // The actual click proc itself
 /obj/item/clothing/glasses/meson/engine/admin/debug/click_ctrl_shift(mob/user)
 	if(!ishuman(user))// sanity blocking if the click is somehow not coming from a human
+		return CLICK_ACTION_BLOCKING
+	if(!user.client?.holder)
 		return CLICK_ACTION_BLOCKING
 	var/mob/living/carbon/human/human_user = user
 	if(human_user.get_item_by_slot(ITEM_SLOT_EYES) != src)// checks through a new system that we're human, and its on our eyeballs. because we just checked if theyre human, this is of course a human_user, so just call them that
@@ -338,7 +343,8 @@
 /obj/item/clothing/mask/gas/atmos/admin/item_ctrl_click(mob/user)
 	if(!isliving(user))
 		return CLICK_ACTION_BLOCKING
-
+	if(!user.client?.holder)
+		return NONE
 	// Must be worn, not just held
 	var/mob/living/wearer = user
 	if(wearer.get_slot_by_item(src) != ITEM_SLOT_MASK)
@@ -430,9 +436,10 @@
 /// Whether godmode is currently active
 /obj/item/storage/neck/admin/cytotheca/item_ctrl_click(mob/user)
 	. = ..()
+	if(!user.client?.holder)
+		return NONE
 	if(!isliving(user))
 		return CLICK_ACTION_BLOCKING
-
 	// Must be worn, not just held
 	var/mob/living/wearer = user
 	if(wearer.get_slot_by_item(src) != ITEM_SLOT_NECK)
@@ -520,6 +527,10 @@
 	// It took a while to curate this trait list and I dont think its done. If you find anything else useful you should throw it on here.
 	clothing_traits = list(TRAIT_CLEANBOT_WHISPERER, TRAIT_AI_ACCESS, TRAIT_BLOB_ALLY, TRAIT_TENACIOUS, TRAIT_UNBREAKABLE, TRAIT_UNOBSERVANT, TRAIT_INVISIBLE_TO_CAMERA, TRAIT_CATLIKE_GRACE, TRAIT_NO_STRIP, TRAIT_TURF_IGNORE_SLIPPERY, TRAIT_TURF_IGNORE_SLOWDOWN, TRAIT_OVERWATCH_IMMUNE, TRAIT_TENTACLE_IMMUNE, TRAIT_WEATHER_IMMUNE, TRAIT_LAVA_IMMUNE, TRAIT_KNOW_ENGI_WIRES, TRAIT_FERAL_BITER, TRAIT_ADAMANTINE_EXTRACT_ARMOR, TRAIT_ROCK_EATER, TRAIT_SUPERMATTER_SOOTHER, TRAIT_UNNATURAL_RED_GLOWY_EYES, TRAIT_QUICKER_CARRY, TRAIT_NO_STAGGER, TRAIT_IGNORESLOWDOWN, TRAIT_NO_BLOOD_OVERLAY, TRAIT_NODISMEMBER, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_NODEATH)
 
+/obj/item/clothing/under/admin/examine(mob/user)
+	. = ..()
+	. += span_notice("Ctrl-Shift-Click while worn to teleport to a player, area, landmark, or point of interest.")
+
 // Attempts to replace the teleport menu as observer with an IC solution.
 /obj/item/clothing/under/admin/click_ctrl_shift(mob/user)
 	if(!isliving(user))// If they're dead
@@ -535,25 +546,25 @@
 	var/list/destinations = list()// begins setting up our list of destinations. this might be too costly to keep depending on how this works on livetime
 
 	for(var/mob/player_mob as anything in GLOB.player_list)// for player mobs from anything the global player list
-		if(!player_mob.client)//if it doesnt have a client
-			continue// ignore it
-		destinations["[Player] [player_mob.name] ([player_mob.key])"] = player_mob//brackets add to list, each type has an identifier because this is a mixed list
+		if(!player_mob.client)
+			continue
+		destinations["\[Player\] [player_mob.name] ([player_mob.key])"] = player_mob//anything inside brackets will be checked as a var so regulate it with \ \ to stop that behavior
 
 	for(var/area/possible_area as anything in get_sorted_areas())// populates possible areas from this sexy fucking proc that exists UGH look at that
-		destinations["[Area] [possible_area.name]"] = possible_area// follow our standard set above
+		destinations["\[Area\] [possible_area.name]"] = possible_area// follow our standard set above
 
 	for(var/obj/effect/landmark/marker as anything in GLOB.landmarks_list)// landmarks are mapped things, usually
-		destinations["[Landmark] [marker.name]"] = marker
+		destinations["\[Landmark\] [marker.name]"] = marker
 
 	for(var/datum/point_of_interest/mob_poi/mob_poi as anything in SSpoints_of_interest.mob_points_of_interest)// looks for interesting mobs
 		if(!mob_poi.target)
 			continue
-		destinations["[POI] [mob_poi.target.name]"] = mob_poi.target
+		destinations["\[POI\] [mob_poi.target.name]"] = mob_poi.target
 
 	for(var/datum/point_of_interest/other_poi as anything in SSpoints_of_interest.other_points_of_interest)// looks for novel pois
 		if(!other_poi.target)
 			continue
-		destinations["[POI] [other_poi.target.name]"] = other_poi.target
+		destinations["\[POI\] [other_poi.target.name]"] = other_poi.target
 
 	var/picked = tgui_input_list(user, "Select a destination", "Subspace Teleport", sort_list(destinations))// sets up our option list. sortlist is also sexy.
 	if(isnull(picked))// sanity cancelling out
@@ -658,7 +669,8 @@
 /obj/item/clothing/shoes/magboots/advance/admin/item_ctrl_click(mob/user)
 	if(!isliving(user))
 		return CLICK_ACTION_BLOCKING
-
+	if(!user.client?.holder)
+		return NONE
 	// Must be worn, not just held
 	var/mob/living/wearer = user
 	if(wearer.get_slot_by_item(src) != ITEM_SLOT_FEET)
@@ -685,7 +697,7 @@
 
 /obj/item/clothing/shoes/magboots/advance/admin/examine(mob/user)
 	. = ..()
-	. += span_notice("Ctrl-click while wearing to toggle spacewalking. Currently [admin_spacewalk ? "active" : "inactive"].")
+	. += span_notice("Ctrl-Click while wearing to toggle spacewalking. Currently [admin_spacewalk ? "active" : "inactive"].")
 
 /obj/item/clothing/shoes/magboots/advance/admin/Initialize(mapload)// Give them pockets, damnit
 	. = ..()

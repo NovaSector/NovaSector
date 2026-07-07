@@ -254,7 +254,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	//favorite outfits
 	favorite_outfits = savefile.get_entry("favorite_outfits")
 
-	// NOVA EDIT ADDITION START - ADMIN_TECH
+	// NOVA EDIT ADDITION START - ICSPAWNING
 	preferred_spawn_methods = SANITIZE_LIST(savefile.get_entry("preferred_spawn_methods"))
 	var/list/raw_spawn_outfits = SANITIZE_LIST(savefile.get_entry("preferred_spawn_outfits"))
 	preferred_spawn_outfits = list()
@@ -345,7 +345,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	savefile.set_entry("key_bindings", key_bindings)
 	savefile.set_entry("hearted_until", (hearted_until > world.realtime ? hearted_until : null))
 	savefile.set_entry("favorite_outfits", favorite_outfits)
-	// NOVA EDIT ADDITION START - ADMIN_TECH
+	// NOVA EDIT ADDITION START - ICSPAWNING
 	savefile.set_entry("preferred_spawn_methods", preferred_spawn_methods)
 	var/list/serialized_spawn_outfits = list()
 	for(var/slot_name in preferred_spawn_outfits)

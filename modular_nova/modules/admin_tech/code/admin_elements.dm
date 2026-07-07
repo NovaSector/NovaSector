@@ -3,6 +3,7 @@
 /// Attach to clothing to grant the wearer all languages (Book of Babel effect) while worn, and revoke on unequip.
 /datum/element/babel_clothing// The base element
 
+//
 /datum/element/babel_clothing/Attach(datum/target)// Activates our element features when attaching to whatever
 	. = ..()
 	if(!isclothing(target))// If it's not clothing
@@ -36,7 +37,7 @@
 	if(wearer.mind)// of course they have a mind, we're just... you know. we look first. its responsible to look both ways before crossing the street
 		REMOVE_TRAIT(wearer.mind, TRAIT_TOWER_OF_BABEL, REF(src))// cleans up last of the things we added
 
-///An Element which reveals the wire legend. If you need it for something.
+/// An Element which reveals the wire legend. If you need it for something. Grants TRAIT_SHOW_ALL_WIRES to whoever is holding/wearing this item.
 /datum/element/reveal_wires
 
 /datum/element/reveal_wires/Attach(datum/target)
@@ -78,7 +79,7 @@
 /datum/element/reveal_wires/proc/check_revoke(mob/wearer, obj/item/removed)
 	if(!HAS_TRAIT(removed, TRAIT_REVEAL_WIRES_ITEM))
 		return
-	for(var/obj/item/held as anything in wearer.get_equipped_items(include_hands = TRUE))
+	for(var/obj/item/held as anything in wearer.get_equipped_items(INCLUDE_HELD))
 		if(held != removed && HAS_TRAIT(held, TRAIT_REVEAL_WIRES_ITEM))
 			return
 	REMOVE_TRAIT(wearer, TRAIT_SHOW_ALL_WIRES, REF(src))
