@@ -47,7 +47,7 @@
 	savefile_key = "erp_belly_sound_move_sloshes"
 
 /datum/preference/toggle/erp_vore_button
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_belly_button"
 
