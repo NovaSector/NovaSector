@@ -21,6 +21,7 @@
 		with keys to print niche non- or less-lethal ammunition."
 	icon_state = "nonlethal_mod"
 	ammo_categories = AMMO_CATEGORY_NICHE
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/ammo_workbench_module/lethal
 	name = "standard lethal " + parent_type::name
@@ -59,6 +60,7 @@
 		with keys to allow fabricating standard or niche ammunition."
 	icon_state = "lethal_gimmick_mod"
 	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_NICHE
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
 
 // esoteric ammo includes phasic, so probably be careful with this
 /obj/item/ammo_workbench_module/lethal_esoteric

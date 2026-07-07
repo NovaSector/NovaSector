@@ -646,6 +646,7 @@
 	consumed_on_removal = FALSE
 	consumable = FALSE
 	laser_color = COLOR_TRUE_BLUE
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5)
 
 /obj/item/emitter_disk/healing
 	name = "\improper Diode Disk: Bioregenerative"
@@ -654,6 +655,7 @@
 	consumed_on_removal = FALSE
 	consumable = FALSE
 	laser_color = COLOR_YELLOW
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT, /datum/material/silver = SMALL_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5)
 
 /obj/item/emitter_disk/incendiary
 	name = "\improper Diode Disk: Conflagratory"
@@ -662,7 +664,7 @@
 	consumed_on_removal = FALSE
 	consumable = FALSE
 	laser_color = COLOR_RED_LIGHT
-
+	custom_materials = list(/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 0.5)
 
 /obj/item/emitter_disk/sanity
 	name = "\improper Diode Disk: Psychosiphoning"
@@ -671,7 +673,7 @@
 	consumed_on_removal = FALSE
 	consumable = FALSE
 	laser_color = COLOR_TONGUE_PINK
-
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/uranium = SMALL_MATERIAL_AMOUNT * 0.5)
 
 /obj/item/emitter_disk/magnetic
 	name = "\improper Diode Disk: Magnetogenerative"
@@ -680,6 +682,7 @@
 	consumed_on_removal = FALSE
 	consumable = FALSE
 	laser_color = COLOR_SILVER
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/titanium = SMALL_MATERIAL_AMOUNT * 0.5)
 
 /obj/item/emitter_disk/blast
 	name = "\improper Diode Disk: Hyperconcussive"

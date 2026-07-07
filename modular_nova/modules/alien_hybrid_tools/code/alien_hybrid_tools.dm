@@ -3,7 +3,7 @@
 	desc = "A set of jaws of life, compressed through the magic of science and augmented with alien technology. \
 		Depending on the installed hardlight emitter, it can pry or cut by itself, without any effort required."
 	usesound = 'sound/items/weapons/sonic_jackhammer.ogg'
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.25, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plasma = SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 9.25, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5.75, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 5.75, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 4, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2)
 	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
 	toolspeed = 0.1
 	w_class = WEIGHT_CLASS_SMALL
@@ -13,7 +13,7 @@
 	desc = "A powered hand drill, augmented with alien technology. \
 		Depending on the installed hardlight emitter, it can drive screws or turn bolts with little to no effort."
 	usesound = 'sound/items/pshoom/pshoom.ogg'
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6.75, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3.25, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3.25, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plasma = SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 8.75, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5.25, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 5.25, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 4, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2)
 	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
 	toolspeed = 0.1
 	w_class = WEIGHT_CLASS_SMALL
@@ -22,7 +22,7 @@
 	name = "hybrid hardlight scalpel"
 	desc = "An advanced scalpel which uses laser technology, augmented with alien technology, \
 		to cut tissue or saw through denser material, like bone."
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4.25, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 2)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 11, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5.5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2.75, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2.2, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.75)
 	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
 	toolspeed = 0.25
 	w_class = WEIGHT_CLASS_SMALL
@@ -31,7 +31,7 @@
 	name = "hybrid mechanical pinches"
 	desc = "An agglomerate of rods and gears, augmented with alien technology, \
 		to clamp or retract tissue."
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 11.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4.75, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 6, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 5.5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2)
 	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
 	toolspeed = 0.25
 	w_class = WEIGHT_CLASS_SMALL
@@ -40,7 +40,7 @@
 	name = "hybrid searing tool"
 	desc = "An advanced compact laser projector, augmented with alien technology, \
 		for medical applications such as cauterizing tissue or drilling bone."
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 8.25, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4.75, /datum/material/uranium = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 4, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 4, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2, /datum/material/uranium = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT)
 	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
 	toolspeed = 0.25
 	w_class = WEIGHT_CLASS_SMALL
@@ -49,7 +49,7 @@
 	name = "hybrid medical combitool"
 	desc = "A confusing combination of a blood filter and bonesetter, augmented with alien technology, \
 		for filtering blood and tending to bones, including treating fractures even without surgical intervention."
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 9.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.5)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 6, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 5.5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2)
 	icon = 'modular_nova/modules/alien_hybrid_tools/icons/tools.dmi'
 	toolspeed = 0.25
 	w_class = WEIGHT_CLASS_SMALL
@@ -73,6 +73,7 @@
 	pickup_sound = 'sound/items/handling/materials/metal_pick_up.ogg'
 	drop_sound = 'sound/items/handling/materials/metal_drop.ogg'
 	sound_vary = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/alien_tool_upgrade/Initialize(mapload)
 	. = ..()

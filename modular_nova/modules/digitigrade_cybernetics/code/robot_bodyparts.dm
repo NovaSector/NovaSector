@@ -3,6 +3,7 @@
 
 /obj/item/bodypart/leg/right/robot
 	digitigrade_type = /obj/item/bodypart/leg/right/robot/digi
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/bodypart/leg/right/robot/digi
 	name = "cyborg digitigrade right leg"
