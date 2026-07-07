@@ -1,0 +1,4 @@
+author: "MacaroniCritter"
+delete-after: True
+changes:
+  - rscadd: "You can now recolor the original gasmask."

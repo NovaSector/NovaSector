@@ -228,7 +228,7 @@
 /turf/closed/mineral/strange_rock
 	mineral_amt = 1
 	MAP_SWITCH(, icon_state = "rock_strange")
-	icon = MAP_SWITCH('modular_nova/modules/liquids/icons/turf/smoothrocks.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
+	icon = MAP_SWITCH('modular_nova/master_files/icons/turf/smoothrocks.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
 	scan_icon = 'modular_nova/modules/xenoarch/icons/ore_visuals.dmi'
 	scan_state = "rock_strange"
 	mineral_type = /obj/item/xenoarch/strange_rock

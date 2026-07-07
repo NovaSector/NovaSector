@@ -27,8 +27,8 @@
 		else
 			return TRUE
 
-/obj/item/organ/genital/breasts/get_description_string(datum/sprite_accessory/genital/gas)
-	var/returned_string = "You see a [LOWER_TEXT(genital_name)] of breasts."
+/obj/item/organ/genital/breasts/get_description_string(datum/sprite_accessory/genital/breasts/breasts)
+	var/returned_string = "You see a [LOWER_TEXT(get_genital_descriptor(breasts))] of breasts."
 	var/size_description
 	var/translation = breasts_size_to_cup(genital_size)
 	switch(translation)

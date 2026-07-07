@@ -161,12 +161,15 @@
 	name = "security HUD aviators"
 	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. This HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting."
 	icon_state = "aviator_sec"
-	off_state = "aviator_sec_flash"
-	flash_protect = FLASH_PROTECTION_NONE
-	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/red
-	modes = list(MODE_OFF_FLASH_PROTECTION, MODE_ON)
-	modes_msg = list(MODE_OFF_FLASH_PROTECTION = "flash protection mode", MODE_ON = "optical matrix enabled")
+	clothing_traits = list(TRAIT_SECURITY_HUD)
+
+/obj/item/clothing/glasses/hud/ar/aviator/securityblue
+	name = "security HUD aviators"
+	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. This HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting."
+	icon_state = "aviator_bluesec"
+	glass_colour_type = /datum/client_colour/glass_colour/blue
+	clothing_traits = list(TRAIT_SECURITY_HUD)
 
 // Medical Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/health

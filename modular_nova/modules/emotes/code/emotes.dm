@@ -50,13 +50,13 @@
 	return
 
 /datum/emote/living/cough
-	specific_emote_audio_cooldown = 5 SECONDS
+	manual_specific_emote_audio_cooldown = 5 SECONDS
 
 /datum/emote/living/carbon/whistle
-	specific_emote_audio_cooldown = 5 SECONDS
+	manual_specific_emote_audio_cooldown = 5 SECONDS
 
 /datum/emote/living/sneeze
-	specific_emote_audio_cooldown = 5 SECONDS
+	manual_specific_emote_audio_cooldown = 5 SECONDS
 
 /datum/emote/living/sneeze/get_sound(mob/living/user)
 	. = ..()
@@ -307,7 +307,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
-	specific_emote_audio_cooldown = 5 SECONDS
+	manual_specific_emote_audio_cooldown = 5 SECONDS
 	affected_by_pitch = FALSE
 
 /datum/emote/living/clap/get_sound(mob/living/user)
@@ -434,7 +434,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/bork.ogg'
-	specific_emote_audio_cooldown = 4 SECONDS
+	manual_specific_emote_audio_cooldown = 4 SECONDS
 
 /datum/emote/living/hoot
 	key = "hoot"
@@ -452,7 +452,7 @@
 	muzzle_ignore = TRUE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/growl.ogg'
-	specific_emote_audio_cooldown = 4 SECONDS
+	manual_specific_emote_audio_cooldown = 4 SECONDS
 
 /datum/emote/living/woof
 	key = "woof"
@@ -485,7 +485,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/wurble.ogg'
-	specific_emote_audio_cooldown = 4 SECONDS
+	manual_specific_emote_audio_cooldown = 4 SECONDS
 
 /datum/emote/living/rattle
 	key = "rattle"
@@ -503,7 +503,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/cackle_yeen.ogg'
-	specific_emote_audio_cooldown = 5 SECONDS
+	manual_specific_emote_audio_cooldown = 5 SECONDS
 
 /mob/living/proc/do_ass_slap_animation(atom/slapped)
 	do_attack_animation(slapped, no_effect=TRUE)
@@ -551,7 +551,7 @@
 	muzzle_ignore = TRUE
 	vary = TRUE
 	sound = SFX_CAT_PURR
-	specific_emote_audio_cooldown = 5 SECONDS
+	manual_specific_emote_audio_cooldown = 5 SECONDS
 
 /datum/emote/living/moo
 	key = "moo"
@@ -674,7 +674,7 @@
 	message = "howls like coyote!"
 	message_mime = "acts out a coyote's howl!"
 	sound = 'modular_nova/modules/emotes/sound/voice/coyotehowl.ogg'
-	specific_emote_audio_cooldown = 2.8 SECONDS // Uses longest sound's time
+	manual_specific_emote_audio_cooldown = 2.8 SECONDS // Uses longest sound's time
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
@@ -694,7 +694,7 @@
 	message = "howls like wolf!"
 	message_mime = "acts out a wolf's howl!"
 	sound = 'modular_nova/modules/emotes/sound/voice/wolfhowl.ogg'
-	specific_emote_audio_cooldown = 6.3 SECONDS // Use length of longest sound file
+	manual_specific_emote_audio_cooldown = 6.3 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
@@ -708,7 +708,7 @@
 	message = "whines anxiously like a dog."
 	message_mime = "looks distressed and pouts a bit!"
 	sound = 'modular_nova/modules/emotes/sound/voice/dwhine.ogg'
-	specific_emote_audio_cooldown = 3.52 SECONDS // Use length of longest sound file
+	manual_specific_emote_audio_cooldown = 3.52 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
@@ -728,7 +728,7 @@
 	message = "growls like a dog."
 	message_mime = "grits and bares their teeth, leaning in and shaking their head like a dog!"
 	sound = 'modular_nova/modules/emotes/sound/voice/dgrowl.ogg'
-	specific_emote_audio_cooldown = 3.17 SECONDS // Use length of longest sound file
+	manual_specific_emote_audio_cooldown = 3.17 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
@@ -748,7 +748,7 @@
 	message = "barks aggressively!"
 	message_mime = "imitates barking aggressively, and gnashes at the air!"
 	sound = 'modular_nova/modules/emotes/sound/voice/aggrobark.ogg'
-	specific_emote_audio_cooldown = 2.5 SECONDS // Use length of longest sound file
+	manual_specific_emote_audio_cooldown = 2.5 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 
@@ -762,7 +762,7 @@
 	message = "complains like a dog."
 	message_mime = "imitates a canine's whine with neck stretched out."
 	sound = 'modular_nova/modules/emotes/sound/voice/dcomplain.ogg'
-	specific_emote_audio_cooldown = 2.6 SECONDS // Use length of longest sound file
+	manual_specific_emote_audio_cooldown = 2.6 SECONDS // Use length of longest sound file
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 

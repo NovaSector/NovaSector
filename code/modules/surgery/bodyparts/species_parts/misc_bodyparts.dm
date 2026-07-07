@@ -206,12 +206,12 @@
 /obj/item/bodypart/leg/left/zombie/infectious
 	limb_id = SPECIES_ZOMBIE
 	should_draw_greyscale = FALSE
-	speed_modifier = 0.8 //braaaaains
+	speed_modifier = 0.5 //braaaaains
 
 /obj/item/bodypart/leg/right/zombie/infectious
 	limb_id = SPECIES_ZOMBIE
 	should_draw_greyscale = FALSE
-	speed_modifier = 0.8 //braaaaains
+	speed_modifier = 0.5 //braaaaains
 
 ///PODPEOPLE
 /obj/item/bodypart/head/pod
@@ -434,6 +434,7 @@
 	limb_id = BODYPART_ID_BONE
 	// These are always disabled
 	disabling_threshold_percentage = 0
+	bodypart_disabled = TRUE
 
 /obj/item/bodypart/head/skeleton/nonfunctional/Initialize(mapload)
 	. = ..()
@@ -442,6 +443,7 @@
 /obj/item/bodypart/chest/skeleton/nonfunctional
 	limb_id = BODYPART_ID_BONE
 	disabling_threshold_percentage = 0
+	bodypart_disabled = TRUE
 
 /obj/item/bodypart/chest/skeleton/nonfunctional/Initialize(mapload)
 	. = ..()
@@ -460,6 +462,7 @@
 /obj/item/bodypart/arm/left/skeleton/nonfunctional
 	limb_id = BODYPART_ID_BONE
 	disabling_threshold_percentage = 0
+	bodypart_disabled = TRUE
 
 /obj/item/bodypart/arm/left/skeleton/nonfunctional/Initialize(mapload)
 	. = ..()
@@ -468,6 +471,7 @@
 /obj/item/bodypart/arm/right/skeleton/nonfunctional
 	limb_id = BODYPART_ID_BONE
 	disabling_threshold_percentage = 0
+	bodypart_disabled = TRUE
 
 /obj/item/bodypart/arm/right/skeleton/nonfunctional/Initialize(mapload)
 	. = ..()
@@ -476,6 +480,7 @@
 /obj/item/bodypart/leg/left/skeleton/nonfunctional
 	limb_id = BODYPART_ID_BONE
 	disabling_threshold_percentage = 0
+	bodypart_disabled = TRUE
 
 /obj/item/bodypart/leg/left/skeleton/nonfunctional/Initialize(mapload)
 	. = ..()
@@ -484,6 +489,7 @@
 /obj/item/bodypart/leg/right/skeleton/nonfunctional
 	limb_id = BODYPART_ID_BONE
 	disabling_threshold_percentage = 0
+	bodypart_disabled = TRUE
 
 /obj/item/bodypart/leg/right/skeleton/nonfunctional/Initialize(mapload)
 	. = ..()
@@ -742,6 +748,9 @@
 	ADD_TRAIT(src, TRAIT_IGNORED_BY_LIVING_FLESH, BODYPART_TRAIT)
 	AddElement(/datum/element/living_limb_initialiser)
 
+/obj/item/bodypart/arm/left/flesh/get_butcher_drops()
+	return list(/obj/item/food/meat/slab/synthmeat = 1)
+
 /obj/item/bodypart/arm/right/flesh
 	limb_id = BODYPART_ID_MEAT
 	should_draw_greyscale = FALSE
@@ -750,6 +759,9 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_IGNORED_BY_LIVING_FLESH, BODYPART_TRAIT)
 	AddElement(/datum/element/living_limb_initialiser)
+
+/obj/item/bodypart/arm/right/flesh/get_butcher_drops()
+	return list(/obj/item/food/meat/slab/synthmeat = 1)
 
 /obj/item/bodypart/leg/left/flesh
 	limb_id = BODYPART_ID_MEAT
@@ -760,6 +772,9 @@
 	ADD_TRAIT(src, TRAIT_IGNORED_BY_LIVING_FLESH, BODYPART_TRAIT)
 	AddElement(/datum/element/living_limb_initialiser)
 
+/obj/item/bodypart/leg/left/flesh/get_butcher_drops()
+	return list(/obj/item/food/meat/slab/synthmeat = 1)
+
 /obj/item/bodypart/leg/right/flesh
 	limb_id = BODYPART_ID_MEAT
 	should_draw_greyscale = FALSE
@@ -768,3 +783,6 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_IGNORED_BY_LIVING_FLESH, BODYPART_TRAIT)
 	AddElement(/datum/element/living_limb_initialiser)
+
+/obj/item/bodypart/leg/right/flesh/get_butcher_drops()
+	return list(/obj/item/food/meat/slab/synthmeat = 1)
