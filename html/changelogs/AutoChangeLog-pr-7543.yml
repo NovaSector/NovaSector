@@ -1,0 +1,5 @@
+author: "Iamgoofball, NEOCloudy, Vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "Adds more character slots because I'm out of slots and need to make more characters"
+  - qol: "Character slot dropdown is now searchable"
