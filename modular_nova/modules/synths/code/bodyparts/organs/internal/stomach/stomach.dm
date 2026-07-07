@@ -10,6 +10,7 @@
 	slot = "stomach"
 	desc = "A mini electrochemical reactor, for synthetic use only. Converts the chemical energy of a fuel into electricity to power synthetic bodies. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/stomach/synth/emp_act(severity)
 	. = ..()

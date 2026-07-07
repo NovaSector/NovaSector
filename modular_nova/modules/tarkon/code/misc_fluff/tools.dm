@@ -10,3 +10,4 @@
 	max_matter = 200	//Industrial/Combat RCD is like 500. Its still better than default 160 and wont matter once silo upgraded. also I like properly rounded numbers.
 	matter = 200
 	construction_upgrades = RCD_UPGRADE_FRAMES | RCD_UPGRADE_SIMPLE_CIRCUITS | RCD_UPGRADE_NO_FREQUENT_USE_COOLDOWN
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 30, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 10, /datum/material/uranium = SHEET_MATERIAL_AMOUNT * 4, /datum/material/bluespace = SHEET_MATERIAL_AMOUNT * 3, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2)

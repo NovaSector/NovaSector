@@ -8,7 +8,7 @@
 	target.dna.features[EXAMINE_DNA_FLAVOR_TEXT] = value
 
 /datum/preference/text/flavor_text_nsfw
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "flavor_text_nsfw"
 	maximum_value_length = MAX_FLAVOR_LEN
@@ -30,7 +30,7 @@
 /// `apply_to_human` does not fire with this, this is read directly in [/mob/living/silicon/proc/get_silicon_flavortext]
 /// and given to silicon examine but *not* given to tgui—that just reads this datum
 /datum/preference/text/silicon_flavor_text_nsfw
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "silicon_flavor_text_nsfw"
 	maximum_value_length = MAX_FLAVOR_LEN

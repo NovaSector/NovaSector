@@ -16,6 +16,7 @@
 	feature_key = FEATURE_XENOHEAD
 	layers = EXTERNAL_ADJACENT
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = UPPER_BODY
 
 /datum/bodypart_overlay/mutant/xenohead/override_color(rgb_value)
 	return draw_color

@@ -283,6 +283,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	obj_flags = UNIQUE_RENAME
 	attachment_slot = NONE
+	custom_materials = list(/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2.5)
 
 /obj/item/clothing/accessory/vaporizer/Initialize(mapload)
 	. = ..()
