@@ -1,0 +1,52 @@
+{
+	"depgag_jumpsuit": [
+		{
+			"type": "icon_state",
+			"icon_state": "jumpsuit",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_zipper",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_insignia",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_belt",
+			"blend_mode": "overlay"
+		}
+	],
+	"depgag_jumpsuit_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "jumpsuit_d",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_zipper",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_insignia_d",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_belt",
+			"blend_mode": "overlay"
+		}
+	]
+}

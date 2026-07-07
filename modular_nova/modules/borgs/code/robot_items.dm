@@ -788,3 +788,7 @@
 	if(!. && user)
 		balloon_alert(user, "insufficient charge!")
 	return .
+
+#undef CYBORG_FONT
+#undef MAX_PAPER_INTEGRATED_CLIPBOARD
+#undef BASE_NINJA_REAGENTS

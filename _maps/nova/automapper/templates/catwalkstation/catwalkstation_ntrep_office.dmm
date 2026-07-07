@@ -106,10 +106,7 @@
 /area/station/command/heads_quarters/nt_rep)
 "A" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Nanotrasen Consultant's Office";
-	name = "Nanotrasen Consultant's Fax Machine"
-	},
+/obj/machinery/fax/heads/nanotrasen_consultant,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "B" = (
@@ -158,7 +155,7 @@
 /area/station/hallway/primary/central)
 "Q" = (
 /obj/structure/table/wood,
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = -2;
 	pixel_y = 6
 	},

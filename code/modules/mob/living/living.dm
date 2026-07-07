@@ -395,8 +395,9 @@
 	now_pushing = FALSE
 
 /mob/living/start_pulling(atom/movable/AM, state, force = pull_force, supress_message = FALSE)
-	if(!AM || !src)
+	if(!src)
 		return FALSE
+	ASSERT(ismovable(AM), "[src] attempted to pull [AM ? "[AM], a nonmovable atom" : "a null object"]")
 	if(!(AM.can_be_pulled(src, force)))
 		return FALSE
 	if(throwing || !(mobility_flags & MOBILITY_PULL))
@@ -1036,10 +1037,11 @@ NOVA EDIT REMOVAL END */
 	if(heal_flags & HEAL_STAM)
 		set_stamina_loss(0, updating_stamina = FALSE, forced = TRUE)
 
-	// I don't really care to keep this under a flag
-	set_nutrition(NUTRITION_LEVEL_FED + 50)
-	overeatduration = 0
-	satiety = 0
+	// Only aheals really do this right now, so this flag should be fine for the time being
+	if(heal_flags & HEAL_ADMIN)
+		set_nutrition(NUTRITION_LEVEL_FED + 50)
+		overeatduration = 0
+		satiety = 0
 
 	// These should be tracked by status effects
 	losebreath = 0
@@ -1204,13 +1206,15 @@ NOVA EDIT REMOVAL END */
 		return
 	changeNext_move(CLICK_CD_RESIST)
 
-	SEND_SIGNAL(src, COMSIG_LIVING_RESIST, src)
+	if(SEND_SIGNAL(src, COMSIG_LIVING_RESIST) & COMPONENT_BLOCK_RESIST)
+		return
 	// NOVA EDIT ADDITION BEGIN - Enhanced sleep
 	// Allows resisting if the sleep verb was used
 	if(IsSleeping())
 		SetSleeping(0)
 		return
 	// NOVA EDIT ADDITION END
+
 	//resisting grabs (as if it helps anyone...)
 	if(!HAS_TRAIT(src, TRAIT_RESTRAINED) && pulledby)
 		log_combat(src, pulledby, "resisted grab")
@@ -1237,12 +1241,20 @@ NOVA EDIT REMOVAL END */
 /mob/living/resist_grab(moving_resist)
 	. = TRUE
 
-	//Our effective grab state. GRAB_PASSIVE is equal to 0, so if we have no other altering factors to our grab state, we can break free immediately on resist.
-	var/effective_grab_state = pulledby.grab_state
-	//The amount of damage inflicted on a failed resist attempt.
-	var/damage_on_resist_fail = rand(7, 13)
-	// Base chance to escape a grab. Divided by effective grab state
-	var/escape_chance = BASE_GRAB_RESIST_CHANCE
+	var/list/grab_stats = list(
+		// Our effective grab state.
+		// GRAB_PASSIVE is equal to 0, so if we have no other altering factors to our grab state, we can break free immediately on resist.
+		pulledby.grab_state,
+		/// The amount of damage inflicted on a failed resist attempt.
+		rand(7, 13),
+		// Base chance to escape a grab. Divided by effective grab state.
+		BASE_GRAB_RESIST_CHANCE,
+	)
+	SEND_SIGNAL(pulledby, COMSIG_MOVABLE_GRABBED_RESISTING, src, grab_stats)
+
+	var/effective_grab_state = grab_stats[GRAB_STAT_EFFECTIVE_STATE]
+	var/damage_on_resist_fail = grab_stats[GRAB_STAT_FAIL_DAMAGE]
+	var/escape_chance = grab_stats[GRAB_STAT_ESCAPE_CHANCE]
 
 	if(body_position == LYING_DOWN) //If prone, treat the grab state as one higher
 		effective_grab_state++
@@ -1264,26 +1276,14 @@ NOVA EDIT REMOVAL END */
 		effective_grab_state--
 	// NOVA EDIT ADDITION END
 
-	//If our puller is a human, and they have an active hand they're grabbing with (please don't ask how people grab without hands), then apply their unarmed values to the grab values
-	if(pulledby && ishuman(pulledby))
+	// If our puller is a human, and they have an active hand they're grabbing with (please don't ask how people grab without hands), then apply their unarmed values to the grab values
+	if(ishuman(pulledby))
 		var/mob/living/carbon/human/human_puller = pulledby
 		var/obj/item/bodypart/grabbing_bodypart = human_puller.get_active_hand()
 		if(grabbing_bodypart)
 			damage_on_resist_fail += (rand(grabbing_bodypart.unarmed_damage_low, grabbing_bodypart.unarmed_damage_high)) + grabbing_bodypart.unarmed_grab_damage_bonus
 			effective_grab_state += grabbing_bodypart.unarmed_grab_state_bonus
 			escape_chance += grabbing_bodypart.unarmed_grab_escape_chance_bonus
-
-		//If our puller is a drunken brawler, they add more damage based on their own damage taken so long as they're drunk and treat the grab state as one higher
-		var/puller_drunkenness = human_puller.get_drunk_amount()
-		if(puller_drunkenness && HAS_TRAIT(human_puller, TRAIT_DRUNKEN_BRAWLER))
-			damage_on_resist_fail += clamp((human_puller.get_fire_loss() + human_puller.get_brute_loss()) / 10, 3, 20)
-			effective_grab_state++
-
-		var/datum/martial_art/puller_art = GET_ACTIVE_MARTIAL_ART(human_puller)
-		if(puller_art?.can_use(human_puller))
-			damage_on_resist_fail += puller_art.grab_damage_modifier
-			effective_grab_state += puller_art.grab_state_modifier
-			escape_chance += puller_art.grab_escape_chance_modifier
 
 	//We only resist our grab state if we are currently in a grab equal to or greater than GRAB_AGGRESSIVE (1). Otherwise, break out immediately!
 	if(effective_grab_state >= GRAB_AGGRESSIVE)
@@ -2201,10 +2201,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 			update_transform(var_value/current_size)
 			. = TRUE
 		if(NAMEOF(src, pull_force))
-			if(var_value == 0) //no more pulling
-				remove_verb(src, /mob/living/verb/pulled)
-			else
-				add_verb(src, /mob/living/verb/pulled)
+			set_pull_force(var_value)
 			. = TRUE
 
 
@@ -2704,6 +2701,12 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	else if(!(movement_type & (FLYING | FLOATING)) && !usable_hands && !usable_legs) //Lost a hand, not flying, no hands left, no legs.
 		ADD_TRAIT(src, TRAIT_IMMOBILIZED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
 
+/mob/living/perform_hand_swap(held_index)
+	//safeguard for one-handed mobs lol
+	if(num_hands == 1)
+		held_index = 1
+
+	return ..()
 
 /// Whether or not this mob will escape from storages while being picked up/held.
 /mob/living/proc/will_escape_storage()
@@ -3153,3 +3156,15 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(HAS_TRAIT(src, TRAIT_ANALGESIA) && !force)
 		return
 	INVOKE_ASYNC(src, PROC_REF(emote), "scream")
+
+/mob/living/proc/set_pull_force(new_pull_force)
+	if(pull_force == new_pull_force)
+		return
+	pull_force = new_pull_force
+	pull_force_change()
+
+/mob/living/proc/pull_force_change()
+	if(!pull_force || HAS_TRAIT(src, TRAIT_PULL_BLOCKED))
+		remove_verb(src, /mob/living/verb/pulled)
+	else
+		add_verb(src, /mob/living/verb/pulled)

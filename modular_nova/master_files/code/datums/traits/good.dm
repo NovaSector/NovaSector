@@ -158,9 +158,10 @@
 
 	old_appendix = null
 
-/datum/quirk/sensitive_hearing // Teshari hearing but as a quirk
+/datum/quirk/sensitive_hearing
 	name = "Sensitive Hearing"
-	desc = "You can hear even the quietest of sounds, but you're more vulnerable to hearing damage as a result. NOTE: This is a direct downgrade for Teshari!"
+	desc = "You can hear even the quietest of sounds, but you're more vulnerable to hearing damage as a result. \
+			This is a direct downgrade for any species that has innate sensitive hearing!"
 	icon = FA_ICON_HEADPHONES_SIMPLE
 	value = 6
 	hidden_quirk = TRUE // disabled until reworked.
@@ -168,12 +169,12 @@
 	gain_text = span_notice("You could hear a pin drop from 10 feet away.")
 	lose_text = span_danger("Your hearing feels less sensitive.")
 	medical_record_text = "Patient scored very highly in hearing tests."
-	/// Teshari hearing is an action, so here is its holder
-	var/datum/action/cooldown/spell/teshari_hearing/hearing_action
+	/// Holds the sensitive hearing action
+	var/datum/action/cooldown/spell/sensitive_hearing/hearing_action
 
 /datum/quirk/sensitive_hearing/add_unique()
 	var/obj/item/organ/ears/ears = quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
-
+	ears.damage_multiplier *= 2 // You do want to think twice about taking this on certain species
 	hearing_action = new
 	LAZYADD(ears.actions_types, hearing_action.type)
 	ears.add_item_action(hearing_action)
@@ -189,7 +190,6 @@
 	LAZYREMOVE(ears.actions_types, hearing_action.type)
 	ears.remove_item_action(hearing_action)
 	hearing_action.Remove(quirk_holder)
-	//restore dmg multiplier of our current ears
-	//we could have any subtype at this point so just take that one's initial value
-	//as opposed to making a copy at the start of the player's round (what if they transplant it, etc)
+	// Doing ears.damage_multiplier /= 2 is not safe because the ears may've
+	// changed, so just set it to the initial value of the current ears
 	ears.damage_multiplier = initial(ears.damage_multiplier)

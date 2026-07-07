@@ -58,10 +58,10 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		LAZYADD(gas_filters, inserted_filter)
 	has_filter = TRUE
 
-/obj/item/clothing/mask/gas/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file, mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/clothing/gloves/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file)
+/obj/item/clothing/mask/gas/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands, icon_file, bodyshape = NONE)
 	. = ..()
 	if(!isinhands && cig)
-		. += cig.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi')
+		. += cig.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi', bodyshape = bodyshape)
 
 /obj/item/clothing/mask/gas/Destroy()
 	QDEL_LAZYLIST(gas_filters)
@@ -328,7 +328,7 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		"The Rainbow Color" = image(icon = src.icon, icon_state = "rainbow"),
 		"The Dealer" = image(icon = src.icon, icon_state = "cards"),
 		)
-	//AddElement(/datum/element/swabable, CELL_LINE_TABLE_CLOWN, CELL_VIRUS_TABLE_GENERIC, rand(2,3), 0) //NOVA EDIT REMOVAL
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CLOWN, CELL_VIRUS_TABLE_GENERIC, rand(2,3), 0)
 
 /obj/item/clothing/mask/gas/clown_hat/ui_action_click(mob/user)
 	if(!istype(user) || user.incapacitated)

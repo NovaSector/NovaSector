@@ -108,8 +108,8 @@
 /datum/opposing_force_equipment/modsuit_modules/holster
 	item_type = /obj/item/mod/module/holster
 
-/datum/opposing_force_equipment/modsuit_modules/baton_holster
-	item_type = /obj/item/mod/module/baton_holster
+/datum/opposing_force_equipment/modsuit_modules/baton_recall
+	item_type = /obj/item/mod/module/weapon_recall/contractor
 
 /datum/opposing_force_equipment/modsuit_modules/energy_shield
 	item_type = /obj/item/mod/module/energy_shield

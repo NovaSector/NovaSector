@@ -114,22 +114,6 @@ SUBSYSTEM_DEF(ticker)
 	else
 		set_lobby_music("[global.config.directory]/title_music/sounds/[pick(music)]")
 
-	if(!GLOB.syndicate_code_phrase)
-		GLOB.syndicate_code_phrase = generate_code_phrase(return_list=TRUE)
-
-		var/codewords = jointext(GLOB.syndicate_code_phrase, "|")
-		var/regex/codeword_match = new("([codewords])", "ig")
-
-		GLOB.syndicate_code_phrase_regex = codeword_match
-
-	if(!GLOB.syndicate_code_response)
-		GLOB.syndicate_code_response = generate_code_phrase(return_list=TRUE)
-
-		var/codewords = jointext(GLOB.syndicate_code_response, "|")
-		var/regex/codeword_match = new("([codewords])", "ig")
-
-		GLOB.syndicate_code_response_regex = codeword_match
-
 	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * (1 SECONDS))
 
 	return SS_INIT_SUCCESS
@@ -157,7 +141,6 @@ SUBSYSTEM_DEF(ticker)
 			SStitle.change_title_screen() // NOVA EDIT ADDITION - Title screen
 			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) // NOVA EDIT ADDITION - Title screen
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
-
 			fire()
 		if(GAME_STATE_PREGAME)
 			//lobby stats for statpanels

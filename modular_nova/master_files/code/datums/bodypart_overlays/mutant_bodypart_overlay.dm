@@ -42,12 +42,11 @@
 	modsuit_affected = sprite_datum.use_custom_mod_icon
 	draw_color = mutant_part.get_colors()
 	emissive_eligibility_by_color_index = mutant_part.get_emissive_tri_bool_list()
-	cache_key = jointext(generate_icon_cache(limb), "_")
+	cache_key = jointext(icon_render_key(limb), "_")
 	return TRUE
 
 // We do this here like this so that we handle matrixed color bodypart overlays and emissives.
 /datum/bodypart_overlay/mutant/get_overlay(layer, obj/item/bodypart/limb)
-	layer = bitflag_to_layer(layer)
 	. = get_images(layer, limb)
 	color_images(., layer, limb)
 	. = add_emissives(., limb)
@@ -55,7 +54,7 @@
 
 /// Generate a unique key based on our sprites. So that if we've aleady drawn these sprites,
 /// they can be found in the cache and wont have to be drawn again (blessing and curse, but mostly curse)
-/datum/bodypart_overlay/mutant/generate_icon_cache(obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/icon_render_key(obj/item/bodypart/limb)
 	. = list()
 	. += "[get_base_icon_state()]"
 	. += "[get_feature_key_for_overlay()]"
@@ -155,7 +154,7 @@
 
 
 // Cybernetic cat ears - special case - need a unique version for each inner color.
-/datum/bodypart_overlay/mutant/cat_ears/cybernetic/generate_icon_cache(obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/cat_ears/cybernetic/icon_render_key(obj/item/bodypart/limb)
 	. = ..()
 	. += inner_color
 
@@ -255,17 +254,6 @@
 	if(sprite_datum.center)
 		center_image(appearance, sprite_datum.special_x_dimension ? sprite_datum.get_special_x_dimension(owner) : sprite_datum.dimension_x, sprite_datum.dimension_y)
 
-	return appearance
-
-
-// Special case - fish tail
-/datum/bodypart_overlay/mutant/tail/fish/get_singular_image(image_icon_state, image_layer, mob/living/carbon/human/owner, icon_override = null, obj/item/bodypart/limb)
-	var/mutable_appearance/appearance = ..()
-	// We add all appearances the parent bodypart has to the tail to inherit scales and fancy effects
-	// but most other organs don't want to inherit those so we do it here and not on parent
-	for (var/datum/bodypart_overlay/texture/texture in limb.bodypart_overlays)
-		if(texture.can_draw_on_bodypart(limb, limb.owner, limb.is_husked))
-			texture.modify_bodypart_appearance(appearance)
 	return appearance
 
 

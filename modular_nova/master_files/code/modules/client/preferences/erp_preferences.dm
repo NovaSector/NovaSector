@@ -82,10 +82,6 @@
 			if(target.penis != null)
 				target.dropItemToGround(target.penis, TRUE, target.loc, TRUE, FALSE, TRUE)
 
-
-	client.mob.hud_used.hidden_inventory_update(client.mob)
-	client.mob.hud_used.persistent_inventory_update(client.mob)
-
 /datum/preference/toggle/erp/sex_toy_sounds
 	savefile_key = "sextoy_sounds_pref"
 

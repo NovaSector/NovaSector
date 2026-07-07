@@ -9,6 +9,7 @@
 	desc = "A utility uniform worn by NT-certified Genetics staff."
 	icon_state = "util_gene"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/rnd/geneticist/nova/utility/syndicate

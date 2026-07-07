@@ -111,3 +111,6 @@ GLOBAL_LIST_INIT(random_ship_events, init_random_ship_events())
 ///Additional effects when the ship actually spawns
 /datum/random_ship_event/proc/on_ship_spawn()
 	return
+
+#undef POSITIVE_ANSWER
+#undef NEGATIVE_ANSWER
