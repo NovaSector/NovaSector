@@ -678,7 +678,7 @@ There are several things that need to be remembered:
 #undef FEMALE_RELEVANT_BODYSHAPE
 
 /// Modifies a sprite to conform to custom body shapes
-/obj/item/proc/get_bodyshape_icon(icon/base_icon, key, bodyshape)
+/obj/item/proc/get_bodyshape_icon(icon/base_icon, key, greyscale_colors, bodyshape)
 	ASSERT(istext(key), "get_bodyshape_icon: no key passed")
 	if((bodyshape & BODYSHAPE_DIGITIGRADE) && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK) && !(supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)) // NOVA EDIT CHANGE - ORIGINAL: if((bodyshape & BODYSHAPE_DIGITIGRADE) && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
 		var/used_greyscale = greyscale_colors
@@ -873,6 +873,7 @@ generate/load female uniform sprites matching all previously decided variables
 		building_icon = get_bodyshape_icon(
 			base_icon = building_icon || icon(file2use, t_state),
 			key = "[t_state]-[file2use]-[female_uniform]",
+			greyscale_colors = greyscale_colors,
 			bodyshape = bodyshape,
 		)
 	if(building_icon)
