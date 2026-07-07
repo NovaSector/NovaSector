@@ -28,6 +28,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	/// The original language holder of the slime who died.
 	var/datum/language_holder/stored_language_holder
 
+	/// This tracks a new body that is created when a slime core is killed, and is used to safely trasnfer quirks and prefrences to this body and than summon it upon revival.
+	var/mob/living/carbon/human/new_body
 	/// Quirks stored inside the core after death
 	var/list/stored_quirks
 	/// Items stored inside the core after death
@@ -98,7 +100,9 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	QDEL_NULL(membrane_murmur)
 	QDEL_NULL(stored_dna)
 	QDEL_LAZYLIST(stored_quirks)
-	QDEL_NULL(stored_language_holder)
+	QDEL_NULL(stored_language_holder))
+	QDEL_NULL(new_body)
+	return ..()
 
 	mind = null
 
@@ -339,6 +343,12 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
 		Remove(victim)
 	forceMove(core_loc)
+	// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
+		for(var/obj/item/organ/spilled_organ in death_loc)
+			if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
+				continue
+			else
+				qdel(spilled_organ)
 	wash(CLEAN_WASH)
 	new death_melt_type(death_turf, victim.dir)
 
@@ -424,7 +434,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			brainmob.grab_ghost()
 
 		being_repaired = TRUE
-		if(!do_after(user, 30 SECONDS, src))
+		if(!do_after(user, 15 SECONDS, src))
 			being_repaired = FALSE
 			to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
 			return FALSE
@@ -584,7 +594,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		var/mob/holder = loc
 		holder.dropItemToGround(src, force = TRUE, silent = TRUE)
 
-	var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(drop_location())
+	// Retreive the new body we created from nullspace.
+	new_body.forceMove(src.drop_location())
 
 	GLOB.dead_slime_cores -= src
 	rebuilt = TRUE
@@ -621,8 +632,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
 			if(istype(bodypart, /obj/item/bodypart/chest))
 				continue
-			bodypart.drop_limb() // Drop limb should delete the limb for slimes unless someone changes it.
-		new_body.set_blood_volume(BLOOD_VOLUME_OKAY)
+			bodypart.drop_limb(TRUE) // Drop limb should delete the limb for slimes unless someone changes it.
+		new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 		new_body.bra = "Nude"
 		new_body.underwear = "Nude"
 		new_body.undershirt = "Nude"

@@ -9,6 +9,7 @@
 	mutantstomach = /obj/item/organ/stomach/slime
 	mutantbrain = /obj/item/organ/brain/slime
 	mutantears = /obj/item/organ/ears/jelly
+	mutantappendix = null // Slimes have no Appendix
 	smoker_lungs = /obj/item/organ/lungs/slime/slime_smoker
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
@@ -63,6 +64,7 @@
 		core_signal = new
 	core_signal.Grant(new_jellyperson)
 
+	RegisterSignal(new_jellyperson, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 	RegisterSignal(new_jellyperson, COMSIG_ATOM_EXPOSE_REAGENTS, PROC_REF(on_reagent_expose))
 	RegisterSignal(new_jellyperson, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_organ_gain))
 	RegisterSignal(new_jellyperson, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_organ_loss))
@@ -86,6 +88,8 @@
 	for(var/obj/item/organ/organ as anything in former_jellyperson.organs)
 		if(is_type_in_list(organ, organs_to_move))
 			organ.zone = initial(organ.zone)
+
+	UnregisterSignal(former_jellyperson, COMSIG_LIVING_LIFE)
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
@@ -136,8 +140,8 @@
  * HEALING SECTION
  * Handles passive healing and water damage for slimes and water-breathing variants.
  */
-/datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick)
-	. = ..()
+/datum/species/jelly/proc/on_life(mob/living/carbon/human/slime, seconds_per_tick)
+	SIGNAL_HANDLER
 
 	var/is_wet = HAS_TRAIT(slime, TRAIT_IS_WET)
 
