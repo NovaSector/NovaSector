@@ -16,3 +16,7 @@
 	to_chat(user, span_notice("You set the [src] to [click_sound_extrarange == MEDIUM_RANGE_SOUND_EXTRARANGE ? "normal" : "short"] click range."))
 	balloon_alert(user, click_sound_extrarange == MEDIUM_RANGE_SOUND_EXTRARANGE ? "normal range" : "short range")
 	return CLICK_ACTION_SUCCESS
+
+/obj/item/petclicker/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.7, 1)
