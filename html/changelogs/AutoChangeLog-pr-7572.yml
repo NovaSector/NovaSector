@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes an issue where snouts would disappear after unequipping a mask or helmet."
-  - bugfix: "fixes masks that hide snouts also preventing snouted helmet icons from rendering properly"

@@ -1,6 +1,0 @@
-author: "Robwo"
-delete-after: True
-changes:
-  - rscadd: "added heads of staff intercoms"
-  - image: "added color to departmental intercoms"
-  - image: "added a unique state for syndicate intercoms"

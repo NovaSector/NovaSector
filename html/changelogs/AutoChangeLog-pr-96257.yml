@@ -1,8 +1,0 @@
-author: "Ghommie"
-delete-after: True
-changes:
-  - refactor: "Refactored a few things with techweb designs (the ones for autolathes, protolathes, circuit printers, mechfabs etc.) to make sure that the materials of items that can be made from these designs more closely match the materials used to make them."
-  - bugfix: "Lizard fries no longer need a plate to be made, like all other treats that used to require plates in a distant past."
-  - balance: "Tweaked the materials cost of RCD, RDD and RCD cartridges."
-  - image: "Oven trays now have a more metallic hue."
-  - balance: "Plates printed printed from lathes won't shatter like ceramic ones, in virtue of them being made out of iron instead."
