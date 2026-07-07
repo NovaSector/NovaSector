@@ -47,13 +47,6 @@
 	icon_state = "enhead"
 	supports_variations_flags = NONE
 
-//Ushankas
-//These have to be subtypes of TG's ushanka to inherit the toggleability
-
-/obj/item/clothing/head/costume/ushanka/sec/blue
-	icon_state = "/obj/item/clothing/head/costume/ushanka/sec/blue"
-	greyscale_colors = "#C7B08B#3F6E9E"
-
 //Pelts
 //Not made into a subtype of /costume but stored in the same file
 /obj/item/clothing/head/pelt

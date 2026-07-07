@@ -1,0 +1,15 @@
+{
+	"depgag_shorts": [
+		{
+			"type": "icon_state",
+			"icon_state": "short_trousers",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_belt",
+			"blend_mode": "overlay"
+		}
+	]
+}

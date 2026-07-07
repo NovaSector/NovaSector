@@ -13,12 +13,13 @@
 	layers = EXTERNAL_FRONT_OVER|EXTERNAL_FRONT_ABOVE_HAIR
 	color_swapped_layer = EXTERNAL_FRONT_OVER
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = ENTIRE_BODY
 
 /datum/bodypart_overlay/mutant/pod_hair/override_color(rgb_value)
 	return draw_color
 
 /datum/bodypart_overlay/mutant/pod_hair/color_images(list/image/overlays, draw_layer, obj/item/bodypart/limb)
-	if(draw_layer != bitflag_to_layer(color_swapped_layer))
+	if(draw_layer != all_layers[color_swapped_layer])
 		return ..()
 
 	for(var/index_to_color in overlay_indexes_to_color)

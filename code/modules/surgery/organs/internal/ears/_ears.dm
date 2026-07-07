@@ -162,11 +162,12 @@
 	color_source = ORGAN_COLOR_HAIR
 	feature_key = FEATURE_EARS
 	dyable = TRUE
+	offset_location = UPPER_BODY
 
 	/// Layer upon which we add the inner ears overlay
 	var/inner_layer = EXTERNAL_FRONT
 
-/datum/bodypart_overlay/mutant/cat_ears/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner, is_husked = FALSE)
+/datum/bodypart_overlay/mutant/cat_ears/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
 	return ..() && !(bodypart_owner.owner?.obscured_slots & HIDEHAIR)
 
 /datum/bodypart_overlay/mutant/cat_ears/get_image(image_layer, obj/item/bodypart/limb)
@@ -174,7 +175,7 @@
 	base_ears.color = (dye_color || draw_color)
 
 	// Only add inner ears on the inner layer
-	if(image_layer != bitflag_to_layer(inner_layer))
+	if(image_layer != all_layers[inner_layer])
 		return base_ears
 
 	// Construct image of inner ears, apply to base ears as an overlay
@@ -199,13 +200,8 @@
 	sprite_accessory_override = /datum/sprite_accessory/ears/cat/cybernetic
 	organ_flags = ORGAN_ROBOTIC
 	failing_desc = "seems to be broken."
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT * 4, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 2.5)
 	restyle_flags = NONE
-
-/obj/item/organ/ears/cat/cybernetic/upgraded
-	name = "cybernetic cat ears"
-	icon_state = "ears-c-cat-u"
-	desc = "A cybernetic cat ear, still less durable than human ears."
-	damage_multiplier = 1.5
 
 /obj/item/organ/ears/cat/cybernetic/volume
 	name = "volume-adjusting cybernetic cat ears"
@@ -213,6 +209,7 @@
 	desc = "Advanced cybernetic cat ears capable of dampening loud noises to protect their user."
 	damage_multiplier = 1
 	bang_protect = 1
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/ears/cat/cybernetic/whisper
 	name = "whisper-sensiive cybernetic cat ears"
@@ -221,6 +218,7 @@
 	damage_multiplier = 3 // 4 would be excessive
 	organ_traits = list(TRAIT_GOOD_HEARING)
 	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears/cybernetic/green
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/ears/cat/cybernetic/xray
 	name = "wall-penetrating cybernetic cat ears"
@@ -229,6 +227,7 @@
 	damage_multiplier = 3 // As above, 4 would be excessive
 	organ_traits = list(TRAIT_XRAY_HEARING)
 	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears/cybernetic/blue
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic
 	color_source = null
@@ -237,7 +236,7 @@
 	var/inner_color = "#F0004A"
 
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic/get_image(image_layer, obj/item/bodypart/limb)
-	if (image_layer != bitflag_to_layer(inner_layer))
+	if (image_layer != all_layers[inner_layer])
 		return ..()
 	var/mutable_appearance/ear_holder = ..()
 	var/mutable_appearance/inner = ear_holder.overlays[2]
@@ -245,7 +244,7 @@
 	return ear_holder
 
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic/get_overlay(layer, obj/item/bodypart/limb)
-	if (layer != inner_layer)
+	if (layer != all_layers[inner_layer])
 		return ..()
 	var/list/all_images = ..()
 	//var/mutable_appearance/ear_holder = all_images[1] // NOVA EDIT REMOVAL - Our ear overlays are done differently, see /datum/bodypart_overlay/mutant/get_images()
@@ -259,6 +258,13 @@
 
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic/blue
 	inner_color = "#0079EA"
+
+/obj/item/organ/ears/cat/cybernetic/upgraded
+	name = "cybernetic cat ears"
+	icon_state = "ears-c-cat-u"
+	desc = "A cybernetic cat ear, still less durable than human ears."
+	damage_multiplier = 1.5
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/ears/ghost
 	name = "ghost ears"
@@ -288,12 +294,14 @@
 	damage_multiplier = 1.2
 	organ_flags = ORGAN_ROBOTIC
 	failing_desc = "seems to be broken."
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT * 4, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 2.5)
 
 /obj/item/organ/ears/cybernetic/upgraded
 	name = "cybernetic ears"
 	icon_state = "ears-c-u"
 	desc =  "A cybernetic ear, surpassing the performance of organic ears."
 	damage_multiplier = 0.75
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/ears/cybernetic/whisper
 	name = "whisper-sensitive cybernetic ears"
@@ -304,6 +312,7 @@
 	// The original idea was to use signals to do this not traits. Unfortunately, the star effect used for whispers applies before any relevant signals
 	// This seems like the least invasive solution
 	organ_traits = list(TRAIT_GOOD_HEARING)
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/ears/cybernetic/volume
 	name = "volume-adjusting cybernetic ears"
@@ -311,13 +320,7 @@
 	desc = "Advanced cybernetic ears capable of dampening loud noises to protect their user."
 	bang_protect = EAR_PROTECTION_NORMAL
 	damage_multiplier = 0.5
-
-/obj/item/organ/ears/cybernetic/volume
-	name = "volume-adjusting cybernetic ears"
-	icon_state = "ears-c-u"
-	desc = "Advanced cybernetic ears capable of dampening loud noises to protect their user."
-	bang_protect = 1
-	damage_multiplier = 0.5
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 // "X-ray ears" that let you hear through walls
 /obj/item/organ/ears/cybernetic/xray
@@ -327,6 +330,7 @@
 	// Same sensitivity as felinid ears
 	damage_multiplier = 2
 	organ_traits = list(TRAIT_XRAY_HEARING)
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/ears/cybernetic/emp_act(severity)
 	. = ..()

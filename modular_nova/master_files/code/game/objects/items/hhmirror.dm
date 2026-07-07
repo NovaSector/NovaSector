@@ -83,7 +83,7 @@
 			#undef MIN_MCOLOR_VALUE
 
 			human_user.update_body()
-			human_user.update_mutations_overlay() // no hulk lizard
+			human_user.update_appearance(UPDATE_OVERLAYS) // no hulk lizard
 
 		if("gender")
 			if(!(human_user.gender in list("male", "female"))) // blame the patriarchy
@@ -105,7 +105,7 @@
 					return
 			human_user.dna.update_ui_block(/datum/dna_block/identity/gender)
 			human_user.update_body()
-			human_user.update_mutations_overlay() // (hulk male/female)
+			human_user.update_appearance(UPDATE_OVERLAYS) // (hulk male/female)
 
 		if("hair")
 			var/hairchoice = tgui_alert(human_user, "Hair style or hair color?", "Change Hair", list("Style", "Color"))
@@ -187,7 +187,7 @@
 						return
 				human_user.dna.update_ui_block(/datum/dna_block/identity/gender)
 				human_user.update_body()
-				human_user.update_mutations_overlay() // (hulk male/female)
+				human_user.update_appearance(UPDATE_OVERLAYS) // (hulk male/female)
 
 			if("hair")
 				var/hairchoice = tgui_alert(human_user, "Hair style or hair color?", "Change Hair", list("Style", "Color"))

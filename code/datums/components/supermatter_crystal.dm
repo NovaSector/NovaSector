@@ -312,6 +312,11 @@
 				source = atom_source,
 				header = "Polytechnical Difficulties",
 			)
+		// NOVA EDIT ADDITION START - Supermatter clone replacement
+		if(ishuman(consumed_mob))
+			var/mob/living/carbon/human/consumed_human = consumed_mob
+			consumed_human.replace_with_clone()
+		// NOVA EDIT ADDITION END
 		consumed_mob.dust(force = TRUE)
 		matter_increase += 100 * object_size * 2
 		if(is_clown_job(consumed_mob.mind?.assigned_role))
