@@ -15,6 +15,7 @@
 	can_adjust = FALSE
 	strip_delay = 10
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	flags_inv = HIDETAUR
 
 //this fragment of code makes unequipping not instant
 /obj/item/clothing/under/misc/latex_catsuit/attack_hand(mob/user)
