@@ -52,6 +52,10 @@ BASE_DIR = Path(__file__).resolve().parent
 VOICE_CONFIG_PATH = Path(os.getenv("POCKETTTS_VOICE_CONFIG", BASE_DIR / "voices.json")).resolve()
 CACHE_DIR = Path(os.getenv("POCKETTTS_CACHE_DIR", BASE_DIR / "cache")).resolve()
 
+# Permanent (no TTL) cache keyed on exact voice+text match,
+SYNTH_CACHE_DIR = Path(os.getenv("POCKETTTS_SYNTH_CACHE_DIR", CACHE_DIR / "synth")).resolve()
+SYNTH_CACHE_VARIANTS = int(os.getenv("POCKETTTS_SYNTH_CACHE_VARIANTS", "5"))
+
 AUTHORIZATION_TOKEN = os.getenv("TTS_AUTHORIZATION_TOKEN", os.getenv("POCKETTTS_AUTHORIZATION_TOKEN", "coolio"))
 HOST = os.getenv("POCKETTTS_HOST", "0.0.0.0")
 PORT = int(os.getenv("POCKETTTS_PORT", "5002"))
@@ -261,6 +265,30 @@ def synthesize_text_wav(voice: VoiceDefinition, text: str) -> bytes:
     with _inference_lock:
         audio = model.generate_audio(voice_state, text)
     return tensor_to_wav_bytes(audio, model.sample_rate)
+
+
+_synth_cache_lock = threading.Lock()
+
+
+def synthesize_text_wav_cached(voice: VoiceDefinition, text: str) -> bytes:
+    if SYNTH_CACHE_VARIANTS <= 0:
+        return synthesize_text_wav(voice, text)
+
+    key = hashlib.sha1(f"{voice.name}\0{text}".encode("utf-8")).hexdigest()
+    key_dir = SYNTH_CACHE_DIR / key
+    with _synth_cache_lock:
+        existing = sorted(key_dir.glob("*.wav")) if key_dir.exists() else []
+        if len(existing) >= SYNTH_CACHE_VARIANTS:
+            return random.choice(existing).read_bytes()
+        next_index = len(existing)
+
+    wav_bytes = synthesize_text_wav(voice, text)
+    key_dir.mkdir(parents=True, exist_ok=True)
+    final_path = key_dir / f"{next_index}.wav"
+    temp_path = key_dir / f"{next_index}.wav.tmp{os.getpid()}"
+    temp_path.write_bytes(wav_bytes)
+    os.replace(temp_path, final_path)
+    return wav_bytes
 
 
 def synthesize_blip_wav(voice_name: str, text: str, pitch: int) -> bytes:
@@ -546,7 +574,7 @@ def text_to_speech() -> Any:
     pitch = request_pitch()
 
     synth_start = time.perf_counter()
-    wav_bytes = synthesize_text_wav(voice, text or " ")
+    wav_bytes = synthesize_text_wav_cached(voice, text or " ")
     synth_elapsed = time.perf_counter() - synth_start
     encode_start = time.perf_counter()
     ogg_bytes, duration = wav_to_ogg(wav_bytes, filter_chain, special_filters, pitch, is_blips=False)
@@ -602,7 +630,7 @@ def text_to_speech_radio() -> Any:
     pitch = request_pitch()
 
     synth_start = time.perf_counter()
-    wav_bytes = synthesize_text_wav(voice, text or " ")
+    wav_bytes = synthesize_text_wav_cached(voice, text or " ")
     synth_elapsed = time.perf_counter() - synth_start
     encode_start = time.perf_counter()
     corruption_spans = random_corruption_bursts() if is_gibberish else None
@@ -732,6 +760,7 @@ def warm_sfx() -> None:
 
 def preload() -> None:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    SYNTH_CACHE_DIR.mkdir(parents=True, exist_ok=True)
     warm_sfx()
     if PRELOAD_MODEL:
         log("Preloading model because POCKETTTS_PRELOAD_MODEL is enabled.")
