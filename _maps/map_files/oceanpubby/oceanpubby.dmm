@@ -57378,7 +57378,7 @@
 "uDH" = (
 /obj/machinery/requests_console/directional/south{
 	department = "AI";
-	name = ssssss
+	name = "AI Requests Console"
 	},
 /obj/item/radio/intercom/directional/south{
 	freerange = 1;
