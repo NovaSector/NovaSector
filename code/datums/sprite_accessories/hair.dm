@@ -599,7 +599,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	hair_appendages_inner = list("hair_longsidepart_a1" = HAIR_APPENDAGE_HANGING_FRONT)
 	hair_appendages_outer = list("hair_longsidepart_a1o" = HAIR_APPENDAGE_HANGING_FRONT)
 
-/datum/sprite_accessory/hair/nova/longwavy
+/datum/sprite_accessory/hair/longwavy
 	name = "Long Wavy"
 	icon_state = "hair_long_wavy"
 
@@ -858,7 +858,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	name = "Ronin"
 	icon_state = "hair_ronin"
 
-/datum/sprite_accessory/hair/nova/sadako
+/datum/sprite_accessory/hair/sadako
 	name = "Sadako"
 	icon_state = "hair_sadako"
 
@@ -1075,7 +1075,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	hair_appendages_inner = list("hair_wisp_a1" = HAIR_APPENDAGE_REAR)
 	hair_appendages_outer = list("hair_wisp_a1o" = HAIR_APPENDAGE_REAR)
 
-/datum/sprite_accessory/hair/nova/wolfcut
+/datum/sprite_accessory/hair/wolfcut
 	name = "Wolfcut"
 	icon_state = "hair_wolfcut"
 
