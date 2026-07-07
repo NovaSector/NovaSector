@@ -22,9 +22,7 @@ services:
       POCKETTTS_WORKER_TIMEOUT: ${POCKETTTS_WORKER_TIMEOUT:-180}
       HF_HOME: /app/cache/huggingface
       XDG_CACHE_HOME: /app/cache
-      # torchao emits UserWarnings every time the int8-quantized model is
-      # deserialized (AffineQuantizedTensor/PlainLayout deprecation). Cosmetic
-      # only — silence them to keep the logs readable.
+      # Silence useless warnings
       PYTHONWARNINGS: "ignore::UserWarning:torchao"
     volumes:
       - ./voices.json:/app/voices.json
