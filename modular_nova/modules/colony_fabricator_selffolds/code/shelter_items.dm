@@ -88,4 +88,3 @@
 	template_id = "prefab_botany"
 	icon_state = "prefab_natural"
 
-
