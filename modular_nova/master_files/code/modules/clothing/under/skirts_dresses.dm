@@ -44,8 +44,12 @@
 /obj/item/clothing/under/dress/skirt/nova/swept
 	name = "swept skirt"
 	desc = "Formal skirt."
-	icon_state = "skirt_swept"
 	body_parts_covered = GROIN
+	greyscale_config = /datum/greyscale_config/swept_skirt
+	greyscale_config_worn = /datum/greyscale_config/swept_skirt/worn
+	greyscale_colors = "#29292F"
+	post_init_icon_state = "swept_skirt"
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/swept"
 
 /obj/item/clothing/under/dress/skirt/nova/striped_skirt
 	name = "red bra and striped skirt"
