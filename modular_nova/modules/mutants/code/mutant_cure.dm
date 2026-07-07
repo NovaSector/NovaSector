@@ -3,12 +3,7 @@
 	desc = "A tool used to extract the RNA from viruses. Apply to skin."
 	icon = 'modular_nova/modules/mutants/icons/extractor.dmi'
 	icon_state = "extractor"
-	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
-		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-	)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT)
 	/// Our loaded vial.
 	var/obj/item/rna_vial/loaded_vial
 

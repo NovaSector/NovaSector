@@ -15,6 +15,7 @@
 	feature_key = FEATURE_SYNTH_SCREEN
 	layers = EXTERNAL_FRONT_UNDER_CLOTHES
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = UPPER_BODY
 
 /datum/bodypart_overlay/mutant/synth_screen/override_color(rgb_value)
 	return draw_color

@@ -69,7 +69,7 @@
 			/* hud_owner = */ null,
 			/* escape_menu = */ src,
 			/* button_text = */ "Quit",
-			/* offset = */ list(-311, 30),
+			/* offset = */ list(-381, 30), // NOVA EDIT - original /* offset = */ list(-311, 30),
 			/* font_size = */ 24,
 			/* on_click_callback = */ CALLBACK(src, PROC_REF(quit_game_prompt)),
 		)

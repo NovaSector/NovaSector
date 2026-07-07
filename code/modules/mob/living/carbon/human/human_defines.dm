@@ -5,7 +5,7 @@
 	icon = 'icons/mob/human/human.dmi'
 	icon_state = "human_basic"
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
-	hud_possible = list(HEALTH_HUD,STATUS_HUD,BLOOD_HUD,ID_HUD,WANTED_HUD,IMPLOYAL_HUD,IMPSEC_FIRST_HUD,IMPSEC_SECOND_HUD,ANTAG_HUD,GLAND_HUD,FAN_HUD,PERMIT_HUD,DNR_HUD) //NOVA EDIT ADDITION - PERMIT_HUD, DNR_HUD
+	hud_possible = list(HEALTH_HUD,STATUS_HUD,BLOOD_HUD,ID_HUD,WANTED_HUD,IMPLOYAL_HUD,IMPSEC_FIRST_HUD,IMPSEC_SECOND_HUD,ANTAG_HUD,GLAND_HUD,FAN_HUD,PERMIT_HUD,DNR_HUD,SHIELD_HUD) //NOVA EDIT ADDITION - PERMIT_HUD, DNR_HUD, SHIELD_HUD
 	hud_type = /datum/hud/human
 	pressure_resistance = 25
 	buckle_lying = 0
@@ -96,3 +96,12 @@
 
 	/// Tracks how long in seconds we've been in a low pressure environment
 	VAR_FINAL/seconds_in_low_pressure = 0
+
+	/// Combined width of our body sprite
+	VAR_PRIVATE/cached_body_width = ICON_SIZE_X
+	/// Combined height of our body sprite
+	VAR_PRIVATE/cached_body_height = ICON_SIZE_Y
+	/// Leftmost offset of our overlays
+	var/cached_body_min_x_offset = 0
+	/// Rightmost offset of our overlays
+	var/cached_body_min_y_offset = 0

@@ -2,7 +2,7 @@
 	name = "neck gaiter"
 	desc = "A cloth for covering your neck, and usually part of your face too, but that part's optional. Has a small respirator to be used with internals."
 	actions_types = list(/datum/action/item_action/adjust)
-	alternate_worn_layer = BODY_FRONT_UNDER_CLOTHES
+	alternate_worn_layer = UNDER_UNIFORM_LAYER
 	worn_icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	inhand_icon_state = "balaclava"
 	icon = 'icons/map_icons/clothing/mask.dmi'

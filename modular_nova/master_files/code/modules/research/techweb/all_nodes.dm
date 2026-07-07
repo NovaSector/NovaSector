@@ -106,6 +106,7 @@
 		"smartdartgun",
 		"cone_of_shame",
 		"defibrillator",
+		"medkit",
 	)
 	return ..()
 
@@ -378,11 +379,3 @@
 	)
 	return ..()
 
-///////////////////////// Weapons /////////////////////////
-
-// Modularly removes x-ray
-/datum/techweb_node/beam_weapons/New()
-	design_ids -= list(
-		"xray_laser",
-	)
-	return ..()

@@ -54,12 +54,14 @@
 	desc = "Designed to quickly reload revolvers. These rounds create small electromagnetic pulses upon impact."
 	ammo_type = /obj/item/ammo_casing/c38/haywire
 	ammo_band_color = COLOR_AMMO_EMP
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/uranium = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/ammo_box/magazine/m38/haywire
 	name = "battle rifle magazine (.38 Haywire)"
 	desc = parent_type::desc + " These bullets create small electromagnetic pulses on impact; devastating against electronics."
 	ammo_type = /obj/item/ammo_casing/c38/haywire
 	ammo_band_color = COLOR_AMMO_EMP
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15, /datum/material/uranium = SHEET_MATERIAL_AMOUNT * 4.5, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /*
 *	.357 Magnum
@@ -134,6 +136,11 @@
 	projectile_type = /obj/projectile/bullet/c45/rubber
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
+
+/obj/item/ammo_casing/c45/reaper
+	can_be_printed = FALSE
+	// it's a hitscan 50 damage 40 AP bullet designed to be fired out of a gun with a 2rnd burst and 1.25x damage multiplier
+	// Let's Not
 
 /obj/item/ammo_box/c45/large
 	name = "deluxe ammo box (.45)"
@@ -233,11 +240,6 @@
 	projectile_type = /obj/projectile/bullet/c10mm/downer
 	ammo_categories = AMMO_CLASS_SUPER_LTL
 	harmful = FALSE
-
-/obj/item/ammo_casing/c10mm/reaper
-	can_be_printed = FALSE
-	// it's a hitscan 50 damage 40 AP bullet designed to be fired out of a gun with a 2rnd burst and 1.25x damage multiplier
-	// Let's Not
 
 /obj/item/ammo_box/c10mm/large
 	name = "deluxe ammo box (10mm)"
