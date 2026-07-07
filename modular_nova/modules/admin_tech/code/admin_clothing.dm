@@ -524,7 +524,7 @@
 /obj/item/clothing/under/admin/click_ctrl_shift(mob/user)
 	if(!isliving(user))// If they're dead
 		return CLICK_ACTION_BLOCKING// go home ur dead
-	if(!user.client.holder)// if they arent holding admin perms
+	if(!user.client?.holder)// if they arent holding admin perms
 		to_chat(user, span_warning("Absolutely not! Go apply for Staff!"))// sass the dumbass
 		return CLICK_ACTION_BLOCKING// go home pleb
 	var/mob/living/living_user = user// setup a var with our user

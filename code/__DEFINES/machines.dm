@@ -77,6 +77,7 @@
 // NOVA EDIT ADDITION
 /// Can be made by the orderable colony fabricator
 #define COLONY_FABRICATOR (1<<11)
+/// NOVA EDIT ADDITION START - ADMIN_TECH
 /// Used by Admin fabricators to select from admin / debug / useful / fun prints
 #define ADMIN_TECHWEB (1<<12)
 // NOVA EDIT END

@@ -5,14 +5,15 @@
 
 /datum/element/babel_clothing/Attach(datum/target)// Activates our element features when attaching to whatever
 	. = ..()
-//	if(!isclothing(target))// If it's not clothing
-//		return ELEMENT_INCOMPATIBLE// Turn element into whiny plush. I only made this to be used with clothing.
+	if(!isclothing(target))// If it's not clothing
+		return ELEMENT_INCOMPATIBLE// Turn element into whiny plush. I only made this to be used with clothing.
 	ADD_TRAIT(target, TRAIT_BABEL_CLOTHING, REF(src))// Add our trait
 	RegisterSignal(target, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equipped))// Register a signal on our wearer to remove this should they take it off for whatever reason.
 
 /datum/element/babel_clothing/Detach(datum/source, ...)// Handles separation anxiet- I mean our element detaching from its source
 	REMOVE_TRAIT(source, TRAIT_BABEL_CLOTHING, REF(src))
 	UnregisterSignal(source, COMSIG_ITEM_EQUIPPED)
+	UnregisterSignal(source, COMSIG_MOB_UNEQUIPPED_ITEM)
 	return ..()
 
 /datum/element/babel_clothing/proc/on_equipped(obj/item/source, mob/equipper, slot)// Do thing when worn

@@ -1694,8 +1694,8 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 // Hard reinit.
 /obj/item/gun/energy/modular_laser_rifle/admin/Initialize(mapload)
-	. () ..
-	RemoveElement(/datum/element/manufacturer_examine)//death
+	. = ..()
+	RemoveElement(/datum/element/manufacturer_examine, COMPANY_CYBERSUN)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
 	chat_color = "#cd4456"
 	chat_color_darkened = process_chat_color("#cd4456", sat_shift = 0.85, lum_shift = 0.85)
@@ -1778,7 +1778,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 // TODO: seems to not like it being a literal bullet. make an even more ridiculous destroyer pulse shot and stick it here
 /datum/laser_weapon_mode/admin/sniper
 	name = "Marksman"
-	casing = /obj/item/ammo_casing/mm20x138
+	casing = /obj/item/ammo_casing/energy/mm20x138
 	weapon_icon_state = "kill"
 	json_speech_string = "sniper"
 	gun_runetext_color = "#7a0bb7"
@@ -1957,60 +1957,10 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 	applied_gun.attack_verb_simple = initial(applied_gun.attack_verb_simple)
 	applied_gun.hitsound = initial(applied_gun.hitsound)
 
-// Admin lathe
-// TODO: sprites, techweb define, flatpacks of common admin machines like the debug chem spawner, etc
-// Keep this block commented until a full pass is done for these techwebs.
-/*
-// techweb: modular_nova\master_files\code\modules\research\techweb\techweb_types.dm
-// machine.dm define w/ nova edit code\__DEFINES\machines.dm
-/obj/machinery/rnd/production/colony_lathe/admin
-	name = "administrative fabricator"
-	desc = "These bad boys are seen just about anywhere someone would want or need to build fast, damn the consequences. \
-		That tends to be colonies, especially on dangerous worlds, where the influences of this one machine can be seen \
-		in every bit of architecture."
-	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
-	icon_state = "colony_lathe"
-	base_icon_state = "colony_lathe"
-	circuit = null
-	production_animation = "colony_lathe_n"
-	light_color = LIGHT_COLOR_BRIGHT_YELLOW
-	light_power = 5
-	allowed_buildtypes = COLONY_FABRICATOR
-	speedup_disabled = TRUE
-	/// techweb we intend to use for unlocking stuff.
-	techweb_path = /datum/techweb/colony_fabricator
-	/// The item we turn into when repacked
-	repacked_type = /obj/item/flatpacked_machine/admin
-
-/obj/machinery/rnd/production/colony_lathe/admin/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
-
-/obj/item/flatpacked_machine/admin
-	name = "flat-packed rapid construction fabricator"
-	/// For all flatpacked machines, set the desc to the type_to_deploy followed by ::desc to reuse the type_to_deploy's description
-	desc = /obj/machinery/rnd/production/colony_lathe::desc
-	icon = 'modular_nova/modules/colony_fabricator/icons/packed_machines.dmi'
-	icon_state = "colony_lathe_packed"
-	/// What structure is created by this item.
-	type_to_deploy = /obj/machinery/rnd/production/colony_lathe/admin
-	/// How long it takes to create the structure in question.
-	deploy_time = 4 SECONDS
-	w_class = WEIGHT_CLASS_TINY
-	slot_flags = ITEM_SLOT_ADMIN
-	resistance_flags = INDESTRUCTIBLE
-	obj_flags = ADMIN_OBJ_FLAGS
-//ADMIN_ITEM_VARS(/obj/item/flatpacked_machine/admin)
-
-/obj/item/flatpacked_machine/admin/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_ADMIN)
-*/
-
 // Dune-esque energy shields.
 // This one can be used for high importance CC people
 /obj/item/clothing/accessory/energy_shield/admin
-	name = "\improper CC tactical shield projector"
+	name = "\improper centcom tactical shield projector"
 	desc = "A military-spec energy shield designed for Central Command Officials."
 	max_shield_health = 250
 	recharge_delay = 4 SECONDS
