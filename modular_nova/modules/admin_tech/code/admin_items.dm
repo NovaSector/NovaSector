@@ -2248,7 +2248,7 @@ GLOBAL_LIST_INIT(subspace_ballmatter_spheres, list(
 
 obj/item/gun/chem/admin/examine(mob/user)
 	. = ..()
-	. += span_notice("Use in hand to synthesize any reagent, currently attuned to [selected_reagent]. Ctrl-Click to set the volume fired per shot. Currently [reagent_per_shot] units.")
+	. += span_notice("Use in hand to synthesize any reagent. Ctrl-Click to set the volume fired per shot. Currently [reagent_per_shot] units.")
 
 /// Lets you instantly (re)attune the gun's reagents to any chemical, at full volume, without needing to physically fill it.
 /obj/item/gun/chem/admin/attack_self(mob/user)
