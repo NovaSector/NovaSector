@@ -446,7 +446,7 @@
 
 //Tora's Body Pillow (DarkRilo)
 /obj/item/toy/pillow/torapillow
-	name = "Shork.INC Body Pillow"
+	name = "\improper Shork.INC Body Pillow"
 	desc = "A poofy, soft looking pillow depicting a certain sharkette. One side a little less scandalous than the other. At the bottom a small tag label |DarkRilo Apparels|"
 	icon_state = "torapillbod"
 	inhand_icon_state = null
