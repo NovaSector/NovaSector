@@ -190,7 +190,7 @@
 
 /obj/item/clothing/sextoy/eggvib/signalvib/click_alt(mob/user)
 	if(!color_changed)
-		var/choice = show_radial_menu(user, src, vib_designs, custom_check = CALLBACK(src, /obj/item/clothing/sextoy/proc/check_menu, user), radius = 36, require_near = TRUE)
+		var/choice = show_radial_menu(user, src, vib_designs, custom_check = CALLBACK(src, TYPE_PROC_REF(/obj/item/clothing/sextoy, check_menu), user), radius = 36, require_near = TRUE)
 		if(!choice)
 			return CLICK_ACTION_BLOCKING
 		current_color = choice

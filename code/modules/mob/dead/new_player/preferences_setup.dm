@@ -94,12 +94,12 @@
 
 	return preview_job
 
-/* NOVA EDIT REMOVAL - MOVED TO MASTER FILES
 /datum/preferences/proc/render_new_preview_appearance(mob/living/carbon/human/dummy/mannequin, show_job_clothes = TRUE)
 	var/datum/job/no_job = SSjob.get_job_type(/datum/job/unassigned)
 	var/datum/job/preview_job = get_highest_priority_job() || no_job
+	LAZYCLEARLIST(mannequin.dna.mutant_bodyparts) // NOVA EDIT ADDITION
 
-	if(preview_job)
+	if(preview_pref == PREVIEW_PREF_JOB) // NOVA EDIT CHANGE - ORIGINAL: if(preview_job)
 		// Silicons only need a very basic preview since there is no customization for them.
 		if (istype(preview_job,/datum/job/ai))
 			return image('icons/mob/silicon/ai.dmi', icon_state = resolve_ai_icon(read_preference(/datum/preference/choiced/ai_core_display)), dir = SOUTH)
@@ -107,8 +107,9 @@
 			return image('icons/mob/silicon/robots.dmi', icon_state = "robot", dir = SOUTH)
 
 	// Set up the dummy for its photoshoot
-	apply_prefs_to(mannequin, TRUE)
+	apply_prefs_to(mannequin, TRUE, visuals_only = TRUE)
 
+	/* // NOVA EDIT REMOVAL START - Moved behind switch below
 	mannequin.job = preview_job.title
 	mannequin.dress_up_as_job(
 		equipping = show_job_clothes ? preview_job : no_job,
@@ -116,6 +117,45 @@
 		player_client = parent,
 		consistent = TRUE,
 	)
+	*/ // NOVA EDIT REMOVAL END
+	// NOVA EDIT ADDITION START
+	switch(preview_pref)
+		if(PREVIEW_PREF_JOB)
+			mannequin.job = preview_job.title
+			mannequin.dress_up_as_job(
+				equipping = show_job_clothes ? preview_job : no_job,
+				visual_only = TRUE,
+				player_client = parent,
+				consistent = TRUE,
+			)
+		if(PREVIEW_PREF_LOADOUT)
+			mannequin.underwear_visibility = NONE
+			var/default_outfit = new /datum/outfit()
+			mannequin.equip_outfit_and_loadout(default_outfit, src, TRUE)
+
+		if(PREVIEW_PREF_UNDERWEAR)
+			mannequin.underwear_visibility = NONE
+
+		if(PREVIEW_PREF_NAKED)
+			mannequin.underwear_visibility = UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_SOCKS | UNDERWEAR_HIDE_BRA
+			for(var/organ_key in list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_PENIS, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS))
+				var/obj/item/organ/genital/gent = mannequin.get_organ_slot(organ_key)
+				if(gent)
+					gent.aroused = AROUSAL_NONE
+					gent.update_sprite_suffix()
+
+		if(PREVIEW_PREF_NAKED_AROUSED)
+			mannequin.underwear_visibility = UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_SOCKS | UNDERWEAR_HIDE_BRA
+			for(var/organ_key in list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_PENIS, ORGAN_SLOT_BREASTS, ORGAN_SLOT_ANUS))
+				var/obj/item/organ/genital/gent = mannequin.get_organ_slot(organ_key)
+				if(gent)
+					gent.aroused = AROUSAL_FULL
+					gent.update_sprite_suffix()
+
+	mannequin.dna.update_body_size()
+	if(preview_pref != previous_preview_pref)
+		mannequin.update_body()
+	// NOVA EDIT ADDITION END
 
 	// Apply visual quirks
 	// Yes we do it every time because it needs to be done after job gear
@@ -128,5 +168,6 @@
 				continue
 			mannequin.add_quirk(quirk_type, parent, announce = FALSE)
 
+	// Height is applied universally once to save on filters
+	mannequin.apply_height(mannequin, ENTIRE_BODY)
 	return mannequin.appearance
-*/

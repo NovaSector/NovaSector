@@ -158,6 +158,24 @@
 	gender = FEMALE
 	use_static = TRUE
 
+/datum/sprite_accessory/clothing/underwear/thong_cheetah
+	name = "Thong - Cheetah"
+	icon_state = "thong_cheetah"
+	gender = FEMALE
+	use_static = TRUE
+
+/datum/sprite_accessory/clothing/underwear/thong_cow
+	name = "Thong - Cow"
+	icon_state = "thong_cow"
+	gender = FEMALE
+	use_static = TRUE
+
+/datum/sprite_accessory/clothing/underwear/thong_zebra
+	name = "Thong - Zebra"
+	icon_state = "thong_zebra"
+	gender = FEMALE
+	use_static = TRUE
+
 //Full-Body Underwear, i.e. swimsuits (Including re-enabling 3 from TG)
 //These likely require hides_breasts = TRUE
 /datum/sprite_accessory/clothing/underwear/swimsuit_onepiece //TG

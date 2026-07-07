@@ -680,8 +680,9 @@
 			use_energy(50 JOULES)
 			playsound(src, soundin = doorClose, vol = 30, vary = TRUE)
 		if(DOOR_DENY_ANIMATION)
-			if(feedback)
+			if(feedback && COOLDOWN_FINISHED(src, denied_sound_cd)) // NOVA EDIT CHANGE - ORIGINAL: if(feedback)
 				playsound(src, soundin = doorDeni, vol = 50, vary = FALSE, extrarange = 3)
+				COOLDOWN_START(src, denied_sound_cd, 0.49 SECONDS) // NOVA EDIT ADDITION - Ensures the door buzz sound can't be overlapped.
 			addtimer(CALLBACK(src, PROC_REF(handle_deny_end)), AIRLOCK_DENY_ANIMATION_TIME)
 
 /obj/machinery/door/airlock/proc/handle_deny_end()
@@ -1422,6 +1423,11 @@
 	if(!dangerous_close)
 		for(var/turf/checked_turf in locs)
 			for(var/atom/movable/blocking in checked_turf)
+				var/sigreturn = SEND_SIGNAL(blocking, COMSIG_MOVABLE_BLOCKING_AIRLOCK, src, forced, force_crush)
+				if(sigreturn & AIRLOCK_BLOCK_FORCE_CRUSH)
+					dangerous_close = TRUE
+					continue
+
 				if(blocking.density && blocking != src)
 					autoclose_in(DOOR_CLOSE_WAIT)
 					return FALSE

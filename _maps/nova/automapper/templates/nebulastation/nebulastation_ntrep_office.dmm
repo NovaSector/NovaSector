@@ -182,8 +182,8 @@
 /area/template_noop)
 "z" = (
 /obj/structure/table/wood,
-/obj/machinery/fax,
 /obj/effect/turf_decal/siding/wood/end,
+/obj/machinery/fax/heads/nanotrasen_consultant,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "A" = (
