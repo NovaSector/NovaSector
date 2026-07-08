@@ -21,7 +21,7 @@
 
 /datum/atom_skin/croptopbomberjacket/alt
 	preview_name = "Croptop Bomber Jacket (Alt)"
-	new_icon_state = "croptop_bomber_base_alt"
+	new_icon_state = "croptop_bomber_base_t"
 
 //Croptop Jacket Alt Stripe
 
