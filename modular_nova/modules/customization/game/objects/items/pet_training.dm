@@ -4,12 +4,13 @@
 	icon = 'modular_nova/master_files/icons/obj/petclicker.dmi'
 	icon_state = "petclicker"
 	w_class = WEIGHT_CLASS_TINY
-	var/click_sound_extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE
 	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT)
+	/// The current range of the click sound effect
+	var/click_sound_extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE
 
 /obj/item/petclicker/attack_self(mob/living/user)
 	. = ..()
-	playsound(src, 'sound/items/pen_click.ogg', 30, TRUE, click_sound_extrarange)
+	playsound(src, 'sound/items/pen_click.ogg', 30, vary = TRUE, extrarange = click_sound_extrarange)
 	balloon_alert(user, "clicked")
 
 /obj/item/petclicker/click_alt(mob/living/user)
