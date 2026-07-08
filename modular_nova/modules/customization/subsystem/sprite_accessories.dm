@@ -29,3 +29,5 @@
 
 		// Store reference
 		accessory_group[name] = instance
+
+	cached_mutant_icon_files = null // We don't really need to keep this list in memory once we're done creating our singletons

@@ -51,6 +51,14 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	// NOVA EDIT ADDITION START - Customization
 	var/list/sprite_accessories = list()
 	var/list/cached_mutant_icon_files = list()
+	var/list/all_layer_postfixes = list(
+		EXTERNAL_FRONT,
+		EXTERNAL_ADJACENT,
+		EXTERNAL_BEHIND,
+		EXTERNAL_FRONT_UNDER_CLOTHES,
+		EXTERNAL_FRONT_OVER,
+		EXTERNAL_FRONT_ABOVE_HAIR,
+	)
 	// NOVA EDIT ADDITION END
 
 /datum/controller/subsystem/accessories/PreInit() // this stuff NEEDS to be set up before GLOB for preferences and stuff to work so this must go here. sorry
@@ -146,11 +154,12 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	)
 
 	for(var/path in subtypesof(prototype))
-		var/datum/sprite_accessory/accessory = new path
 		// NOVA EDIT ADDITION START - Don't put organizational types (e.g. sprite_accessory/ears/big) in the list
-		if(!accessory.name)
+		var/datum/sprite_accessory/datum_path = path
+		if(isnull(datum_path::name))
 			continue
 		// NOVA EDIT ADDITION END
+		var/datum/sprite_accessory/accessory = new path
 
 		if(accessory.icon_state)
 			returnable_list[DEFAULT_SPRITE_LIST][accessory.name] = accessory
@@ -170,6 +179,18 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 		returnable_list[DEFAULT_SPRITE_LIST][SPRITE_ACCESSORY_NONE] = new /datum/sprite_accessory/blank
 
 	return returnable_list
+
+/// Fast-path fetch of the cached icon states assoc list for an icon file, building it on first miss.
+/// Cache hits compile to a bare list index at the call site.
+#define GET_CACHED_ICON_STATES(icon_file) (SSaccessories.cached_mutant_icon_files[icon_file] || SSaccessories.build_cached_icon_states(icon_file))
+
+/// Generates cached list of mutant_icon_files if it doesn't exist yet - Should never be called directly as it will just rebuild the cache each time.
+/datum/controller/subsystem/accessories/proc/build_cached_icon_states(icon_file)
+	var/list/cached = list()
+	for(var/state in icon_states(new /icon(icon_file)))
+		cached[state] = TRUE
+	cached_mutant_icon_files[icon_file] = cached
+	return cached
 
 #undef INIT_ACCESSORY
 #undef INIT_OPTIONAL_ACCESSORY

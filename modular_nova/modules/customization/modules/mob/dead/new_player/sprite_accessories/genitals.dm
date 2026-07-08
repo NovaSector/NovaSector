@@ -18,10 +18,17 @@
 	var/obj/item/organ/genital/badonkers = target_mob?.get_organ_slot(associated_organ_slot)
 	if(!badonkers)
 		return TRUE
+
 	switch(badonkers.visibility_preference)
 		if(GENITAL_ALWAYS_SHOW) //Never hidden
 			return FALSE
-		if(GENITAL_HIDDEN_BY_CLOTHES) //Hidden if the relevant body parts are covered by clothes or underwear
+		if(GENITAL_HIDDEN_BY_CLOTHES)
+			// Layering above clothing is meaningless if clothing still culls the sprite
+			var/datum/bodypart_overlay/mutant/genital/genital_overlay = badonkers.bodypart_overlay
+			if(genital_overlay?.layer_mode == GENITAL_LAYER_ABOVE_UNDIES)
+				return FALSE
+
+			//Hidden if the relevant body parts are covered by clothes or underwear
 			//Do they have a Uniform or Suit that covers them?
 			if((target_mob.w_uniform && target_mob.w_uniform.body_parts_covered & genital_location) || (target_mob.wear_suit && target_mob.wear_suit.body_parts_covered & genital_location))
 				return TRUE
@@ -61,6 +68,9 @@
 		else
 			return TRUE
 
+/datum/sprite_accessory/genital/get_sprite_suffix()
+	return "[icon_state]_[max_sprite_size_affix]"
+
 /datum/sprite_accessory/genital/penis
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/penis_onmob.dmi'
 	organ_type = /obj/item/organ/genital/penis
@@ -71,7 +81,6 @@
 	center = TRUE
 	special_x_dimension = TRUE
 	//default_color = DEFAULT_SKIN_OR_PRIMARY //This is the price we're paying for sheaths
-	relevent_layers = list(BODY_BEHIND_LAYER, UNDER_UNIFORM_LAYER)
 	max_sprite_size_affix = 7
 	var/can_have_sheath = TRUE
 
@@ -90,6 +99,9 @@
 		return dimension_x
 
 	return TAUR_DIMENSION_X
+
+/datum/sprite_accessory/genital/penis/get_sprite_suffix()
+	return "[icon_state]_[max_sprite_size_affix]_0" // flaccid variant of the largest size
 
 /datum/sprite_accessory/genital/penis/none
 	icon_state = "none"
@@ -226,7 +238,6 @@
 	always_color_customizable = TRUE
 	special_x_dimension = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 	max_sprite_size_affix = 8
 	var/has_size = TRUE
 
@@ -290,7 +301,6 @@
 	key = FEATURE_VAGINA
 	always_color_customizable = TRUE
 	default_color = "#FFCCCC"
-	relevent_layers = list(UNDER_UNIFORM_LAYER)
 	var/alt_aroused = TRUE
 
 /datum/sprite_accessory/genital/vagina/none
@@ -376,7 +386,6 @@
 	key = FEATURE_BREASTS
 	always_color_customizable = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
-	relevent_layers = list(BODY_BEHIND_LAYER, UNDER_UNIFORM_LAYER)
 	has_skintone_shading = TRUE
 	genital_location = CHEST
 	max_sprite_size_affix = 5
