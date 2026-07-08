@@ -1096,5 +1096,4 @@
 /datum/loadout_item/under/viper_suit
 	name = "Viper Suit"
 	item_path = /obj/item/clothing/under/rank/civilian/viper_suit
-	ckeywhitelist = list("ghostof93",  "rilomatic")
-	//If you see this remove Rilomatic after merge. Added for loadout testing
+	ckeywhitelist = list("ghostof93")
