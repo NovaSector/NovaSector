@@ -1,7 +1,7 @@
 // Towa's Croptop Bomber Jacket (DarkRilo)
 
 /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket
-	name = "\improper Croptop Bomber Jacket"
+	name = "croptop bomber jacket"
 	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket"
@@ -18,7 +18,7 @@
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/croptop_bomber_jacket)
 
 /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_stripe
-	name = "\improper Croptop Bomber Jacket Stripe"
+	name = "striped croptop bomber jacket"
 	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_stripe"
@@ -32,7 +32,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_badge
-	name = "\improper Croptop Bomber Jacket Badge"
+	name = "croptop bomber jacket with badge"
 	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_badge"
@@ -46,7 +46,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_plain
-	name = "\improper Croptop Bomber Jacket Plain"
+	name = "plain croptop bomber jacket"
 	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_plain"
