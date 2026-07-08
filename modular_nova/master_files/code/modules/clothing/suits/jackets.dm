@@ -1,102 +1,97 @@
-//Towa's Croptop Bomber Jacker (DarkRilo)
-/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket
+// Towa's Croptop Bomber Jacket (DarkRilo)
+
+/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket
 	name = "\improper Croptop Bomber Jacket"
 	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket"
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket"
 	inhand_icon_state = null
 	body_parts_covered = CHEST
 	post_init_icon_state = "croptop_bomber_base"
-	greyscale_config = /datum/greyscale_config/croptopbomberjacket
-	greyscale_config_worn = /datum/greyscale_config/croptopbomberjacket/worn
+	base_icon_state = "croptop_bomber_base"
+	greyscale_config = /datum/greyscale_config/croptop_bomber_jacket
+	greyscale_config_worn = /datum/greyscale_config/croptop_bomber_jacket/worn
 	greyscale_colors = "#227EFE#E5F0EA#B8BB59#FF0000"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/croptopbomberjacket)
+/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/croptop_bomber_jacket)
 
-/datum/atom_skin/croptopbomberjacket
-	abstract_type = /datum/atom_skin/croptopbomberjacket
-	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket
-
-/datum/atom_skin/croptopbomberjacket/alt
-	preview_name = "Croptop Bomber Jacket (Alt)"
-	new_icon_state = "croptop_bomber_base_t"
-
-//Croptop Jacket Alt Stripe
-
-/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_stripe
+/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_stripe
 	name = "\improper Croptop Bomber Jacket Stripe"
 	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_stripe"
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_stripe"
 	inhand_icon_state = null
 	body_parts_covered = CHEST
 	post_init_icon_state = "croptop_bomber_stripe"
-	greyscale_config = /datum/greyscale_config/croptopbomberjacket_stripe
-	greyscale_config_worn = /datum/greyscale_config/croptopbomberjacket_stripe/worn
+	base_icon_state = "croptop_bomber_stripe"
+	greyscale_config = /datum/greyscale_config/croptop_bomber_jacket_stripe
+	greyscale_config_worn = /datum/greyscale_config/croptop_bomber_jacket_stripe/worn
 	greyscale_colors = "#227EFE#E5F0EA#B8BB59"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_stripe/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/croptopbomberjacket_stripe)
-
-/datum/atom_skin/croptopbomberjacket_stripe
-	abstract_type = /datum/atom_skin/croptopbomberjacket_stripe
-	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_stripe
-
-/datum/atom_skin/croptopbomberjacket_stripe/alt
-	preview_name = "CropTop Bomber Jacker (Alt)"
-	new_icon_state = "croptop_bomber_stripe_t"
-
-//Croptop Jacket Alt Badge
-
-/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_badge
+/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_badge
 	name = "\improper Croptop Bomber Jacket Badge"
 	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_badge"
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_badge"
 	inhand_icon_state = null
 	body_parts_covered = CHEST
 	post_init_icon_state = "croptop_bomber_badge"
-	greyscale_config = /datum/greyscale_config/croptopbomberjacket_badge
-	greyscale_config_worn = /datum/greyscale_config/croptopbomberjacket_badge/worn
+	base_icon_state = "croptop_bomber_badge"
+	greyscale_config = /datum/greyscale_config/croptop_bomber_jacket_badge
+	greyscale_config_worn = /datum/greyscale_config/croptop_bomber_jacket_badge/worn
 	greyscale_colors = "#227EFE#E5F0EA#FF0000"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_badge/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/croptopbomberjacket_badge)
-
-/datum/atom_skin/croptopbomberjacket_badge
-	abstract_type = /datum/atom_skin/croptopbomberjacket_badge
-	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_badge
-
-/datum/atom_skin/croptopbomberjacket_badge/alt
-	preview_name = "CropTop Bomber Jacker (Alt)"
-	new_icon_state = "croptop_bomber_badge_t"
-
-//Croptop Jacket Alt Plain
-
-/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_plain
+/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_plain
 	name = "\improper Croptop Bomber Jacket Plain"
 	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_plain"
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_plain"
 	inhand_icon_state = null
 	body_parts_covered = CHEST
 	post_init_icon_state = "croptop_bomber_plain"
-	greyscale_config = /datum/greyscale_config/croptopbomberjacket_plain
-	greyscale_config_worn = /datum/greyscale_config/croptopbomberjacket_plain/worn
+	base_icon_state = "croptop_bomber_plain"
+	greyscale_config = /datum/greyscale_config/croptop_bomber_jacket_plain
+	greyscale_config_worn = /datum/greyscale_config/croptop_bomber_jacket_plain/worn
 	greyscale_colors = "#227EFE#E5F0EA"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_plain/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/croptopbomberjacket_plain)
+// Atom skins
 
-/datum/atom_skin/croptopbomberjacket_plain
-	abstract_type = /datum/atom_skin/croptopbomberjacket_plain
-	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_plain
+/datum/atom_skin/croptop_bomber_jacket
+	abstract_type = /datum/atom_skin/croptop_bomber_jacket
+	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket
 
-/datum/atom_skin/croptopbomberjacket_plain/alt
-	preview_name = "CropTop Bomber Jacker (Alt)"
-	new_icon_state = "croptop_bomber_plain_t"
+/datum/atom_skin/croptop_bomber_jacket/apply(atom/apply_to, mob/user)
+	. = ..()
+	if(isitem(apply_to)) // at the time of this, the system doesn't play nicely with differing greyscale_item_paths. so we just have to manually update all this I guess.
+		var/obj/item/item_applied_to = apply_to
+		var/obj/item/greyscale_item = greyscale_item_path
+		item_applied_to.greyscale_config = greyscale_item::greyscale_config
+		item_applied_to.greyscale_config_worn = greyscale_item::greyscale_config_worn
+		item_applied_to.icon_state = greyscale_item::post_init_icon_state
+		item_applied_to.post_init_icon_state = greyscale_item::post_init_icon_state
+		item_applied_to.base_icon_state = greyscale_item::base_icon_state
+		item_applied_to.update_greyscale()
+
+/datum/atom_skin/croptop_bomber_jacket/base
+	preview_name = "Croptop Bomber Jacket"
+	new_icon_state = "croptop_bomber_base"
+
+/datum/atom_skin/croptop_bomber_jacket/plain
+	preview_name = "Croptop Bomber Jacket Plain"
+	new_icon_state = "croptop_bomber_plain"
+	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_plain
+
+/datum/atom_skin/croptop_bomber_jacket/stripe
+	preview_name = "Croptop Bomber Jacket Stripe"
+	new_icon_state = "croptop_bomber_stripe"
+	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_stripe
+
+/datum/atom_skin/croptop_bomber_jacket/badge
+	preview_name = "Croptop Bomber Jacket Badge"
+	new_icon_state = "croptop_bomber_badge"
+	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket_badge

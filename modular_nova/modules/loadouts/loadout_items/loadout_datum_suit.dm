@@ -1260,24 +1260,7 @@
 	name = "Replica Parade Jacket"
 	item_path = /obj/item/clothing/suit/replica_parade_jacket
 
-//Towa's Donator Public Items
-/datum/loadout_item/suit/croptopbomberjacket
+/datum/loadout_item/suit/croptop_bomber_jacket
 	name = "Croptop Bomber Jacket"
-	item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket
-	reskin_datum = /datum/atom_skin/croptopbomberjacket
-
-/datum/loadout_item/suit/croptopbomberjacket_stripe
-	name = "Croptop Bomber Jacket (Stripe)"
-	item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_stripe
-	reskin_datum = /datum/atom_skin/croptopbomberjacket_stripe
-
-/datum/loadout_item/suit/croptopbomberjacket_badge
-	name = "Croptop Bomber Jacket (Badge)"
-	item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_badge
-	reskin_datum = /datum/atom_skin/croptopbomberjacket_badge
-
-/datum/loadout_item/suit/croptopbomberjacket_plain
-	name = "Croptop Bomber Jacket (Plain)"
-	item_path = /obj/item/clothing/suit/toggle/jacket/croptopbomberjacket_plain
-	reskin_datum = /datum/atom_skin/croptopbomberjacket_plain
-//End of Towa's Donator Public Items
+	item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket
+	reskin_datum = /datum/atom_skin/croptop_bomber_jacket
