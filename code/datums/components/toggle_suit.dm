@@ -89,9 +89,9 @@
 
 	toggled = !toggled
 	if(toggled)
-		source.icon_state = "[base_icon_state]_t"
+		source.icon_state = "[source.base_icon_state || base_icon_state]_t" // NOVA EDIT CHANGE - ORIGINAL: source.icon_state = "[base_icon_state]_t"
 	else
-		source.icon_state = base_icon_state
+		source.icon_state = source.base_icon_state || base_icon_state // NOVA EDIT CHANGE - ORIGINAL: source.icon_state = base_icon_state
 
 	if(isitem(source))
 		var/obj/item/item_source = source

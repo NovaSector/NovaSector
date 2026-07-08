@@ -29,6 +29,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
+	inherit_materials = DESIGN_INHERIT_MATS_SPECIAL
 
 /datum/design/rubbershot/sec
 	materials = list(
@@ -39,6 +40,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
+	inherit_materials = DESIGN_INHERIT_MATS_SPECIAL
 
 /datum/design/beanbag_slug/sec
 	materials = list(
@@ -49,6 +51,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
+	inherit_materials = DESIGN_INHERIT_MATS_SPECIAL
 
 /datum/design/shotgun_dart/sec
 	materials = list(
@@ -59,6 +62,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
+	inherit_materials = DESIGN_INHERIT_MATS_SPECIAL
 
 /datum/design/incendiary_slug/sec
 	materials = list(

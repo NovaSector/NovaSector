@@ -36,6 +36,7 @@
 
 /obj/item/bodypart/head/robot
 	head_flags = (HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 // Assorted duplicates created to support greyscaling robotic limbs in the Augments+ tab
 

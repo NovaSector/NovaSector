@@ -105,6 +105,7 @@
 	body_parts_covered = NONE //Allows surgeries despite wearing it; hiding genitals is handled in /datum/sprite_accessory/genital/is_hidden() (Only place it'd work sadly)
 	armor_type = /datum/armor/none
 	equip_delay_other = 8
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/examine_tags(mob/user)
 	. = ..()

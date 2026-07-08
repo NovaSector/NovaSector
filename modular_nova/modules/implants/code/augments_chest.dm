@@ -9,6 +9,7 @@
 	icon_state = "internal_HA"
 	actions_types = list(/datum/action/item_action/organ_action/use/internal_analyzer)
 	w_class = WEIGHT_CLASS_SMALL
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
 	/// Whether or not we have the chemical scan feature
 	var/has_chem_scan = TRUE
 	var/advanced_scan_allowed = TRUE

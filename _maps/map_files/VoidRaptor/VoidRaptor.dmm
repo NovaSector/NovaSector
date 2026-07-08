@@ -6247,6 +6247,18 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/large,
 /area/station/hallway/primary/central)
+"bQe" = (
+/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Atmospherics Maintenance"
+	},
+/obj/machinery/door/poddoor/preopen{
+	id = "atmoslock";
+	name = "Atmospherics Lockdown Blast Door"
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/maintenance/port)
 "bQf" = (
 /obj/structure/chair/sofa/bench/corner,
 /turf/open/floor/wood/large,
@@ -16005,6 +16017,15 @@
 /obj/item/kirbyplants/photosynthetic,
 /turf/open/floor/circuit/red,
 /area/station/ai/upload/chamber)
+"eDr" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/engineering/atmos)
 "eDt" = (
 /turf/closed/wall/r_wall,
 /area/station/science/research)
@@ -20949,17 +20970,6 @@
 /obj/structure/sign/poster/random/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
-"gcg" = (
-/obj/structure/closet/crate/goldcrate,
-/obj/item/stack/spacecash/c500,
-/obj/item/stack/spacecash/c500,
-/obj/item/stack/spacecash/c500,
-/obj/item/stack/spacecash/c500,
-/obj/machinery/airalarm/directional/north,
-/obj/machinery/light_switch/directional/west,
-/obj/effect/turf_decal/bot,
-/turf/open/floor/engine,
-/area/station/command/vault)
 "gcj" = (
 /obj/structure/chair/sofa/left/brown{
 	dir = 4
@@ -21194,18 +21204,6 @@
 /obj/structure/cable/layer3,
 /turf/open/floor/circuit,
 /area/station/ai/satellite/foyer)
-"ggD" = (
-/obj/machinery/door/firedoor,
-/obj/structure/table/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	dir = 4;
-	id = "Barshutters";
-	name = "Bar Shutters"
-	},
-/obj/structure/reagent_dispensers/beerkeg,
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron/large,
-/area/station/service/bar)
 "ggM" = (
 /obj/structure/cable,
 /obj/structure/closet/firecloset/wall{
@@ -25089,6 +25087,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/crew_quarters/bar)
+"hiK" = (
+/obj/effect/turf_decal/trimline/yellow/filled/warning{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/smooth_edge,
+/area/station/engineering/atmos)
 "hiN" = (
 /obj/machinery/airalarm/directional/east,
 /obj/machinery/suit_storage_unit/hos,
@@ -29260,17 +29268,6 @@
 /obj/effect/turf_decal/tile/purple/diagonal_centre,
 /turf/open/floor/iron/white/diagonal,
 /area/station/science/xenobiology)
-"irQ" = (
-/obj/effect/turf_decal/trimline/yellow/filled/warning{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/blue/filled/warning{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/iron/smooth_edge,
-/area/station/engineering/atmos)
 "irU" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -37072,6 +37069,18 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/plating,
 /area/space/nearstation)
+"kyl" = (
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "Barshutters";
+	name = "Bar Shutters"
+	},
+/obj/effect/spawner/random/food_or_drink/keg,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/large,
+/area/station/service/bar)
 "kyq" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 8
@@ -45567,11 +45576,6 @@
 	},
 /turf/open/floor/iron/edge,
 /area/station/hallway/primary/fore)
-"mMw" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
-/turf/open/floor/iron/smooth_large,
-/area/station/engineering/atmos)
 "mMB" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 4
@@ -55830,15 +55834,6 @@
 	dir = 4
 	},
 /area/station/hallway/primary/fore)
-"pzD" = (
-/obj/machinery/atmospherics/components/trinary/filter/atmos/co2{
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/turf/open/floor/iron/smooth_large,
-/area/station/engineering/atmos)
 "pzF" = (
 /obj/structure/disposalpipe/sorting/mail{
 	dir = 8;
@@ -57367,6 +57362,17 @@
 /obj/structure/table/reinforced/rglass,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/rd)
+"pWc" = (
+/obj/structure/closet/crate/goldcrate/stocked,
+/obj/item/stack/spacecash/c500,
+/obj/item/stack/spacecash/c500,
+/obj/item/stack/spacecash/c500,
+/obj/item/stack/spacecash/c500,
+/obj/machinery/airalarm/directional/north,
+/obj/machinery/light_switch/directional/west,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/engine,
+/area/station/command/vault)
 "pWe" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/disposalpipe/segment{
@@ -83362,19 +83368,6 @@
 	dir = 4
 	},
 /area/station/commons/fitness/recreation/entertainment)
-"wXg" = (
-/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden,
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Atmospherics Maintenance"
-	},
-/obj/machinery/door/poddoor/preopen{
-	id = "atmoslock";
-	name = "Atmospherics Lockdown Blast Door"
-	},
-/turf/open/floor/catwalk_floor/iron_smooth,
-/area/station/maintenance/port)
 "wXh" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/spider/stickyweb,
@@ -112831,10 +112824,10 @@ bow
 pkR
 iXs
 jmM
-wXg
-mMw
-irQ
-pzD
+bQe
+ace
+hiK
+eDr
 qPY
 hix
 ksH
@@ -118412,7 +118405,7 @@ oOu
 pZN
 kWe
 pZN
-ggD
+kyl
 bkr
 tAn
 osJ
@@ -126342,7 +126335,7 @@ iBJ
 xMq
 vIv
 vIv
-gcg
+pWc
 umw
 oFQ
 vIv

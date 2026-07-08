@@ -18,8 +18,8 @@
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
 	return sprite_datum.icon_state
 
-/datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	var/mob/living/carbon/human/wearer = bodypart_owner.owner
+/datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
+	var/mob/living/carbon/human/wearer = owner || bodypart_owner.owner
 	if(!istype(wearer))
 		return TRUE
 	var/list/used_in_turf = list(FEATURE_TAIL)
