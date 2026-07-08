@@ -57,7 +57,7 @@
 			/obj/item/clothing/head/costume/maid_headband = ITEM_SLOT_HEAD,
 			/obj/item/clothing/under/costume/maid = ITEM_SLOT_ICLOTHING,
 		),
-		"Maid Uniform (Colorable)" = list(
+		"Maid Uniform (Light Blue)" = list(
 			/obj/item/clothing/head/maid_headband = ITEM_SLOT_HEAD,
 			/obj/item/clothing/neck/maid_neck_cover = ITEM_SLOT_NECK,
 			/obj/item/clothing/gloves/maid_arm_covers = ITEM_SLOT_GLOVES,
@@ -70,6 +70,11 @@
 		"Maid Uniform (Alternative)" = list(
 			/obj/item/clothing/head/costume/nova/maid = ITEM_SLOT_HEAD,
 			/obj/item/clothing/under/costume/nova/maid_uniform_alt = ITEM_SLOT_ICLOTHING,
+		),
+		"Syndiemaid" = list(
+			/obj/item/clothing/head/costume/maid_headband/syndicate/loadout_headband = ITEM_SLOT_HEAD,
+			/obj/item/clothing/under/syndicate/nova/maid/loadout_maid = ITEM_SLOT_ICLOTHING,
+			/obj/item/clothing/gloves/tactical_maid = ITEM_SLOT_GLOVES,
 		),
 	)
 	var/chosen_outfit = tgui_input_list(user, "Which maid outfit should be applied?", "Maid-ification", outfit_options)
@@ -84,25 +89,3 @@
 			smite_item_protection(new_item)
 	if(!QDELETED(shamed))
 		shamed.visible_message(span_warning("A maid uniform appears on [shamed]!"))
-
-
-/*
-
-/obj/item/clothing/under/maid_costume
-/obj/item/clothing/gloves/maid_arm_covers
-/obj/item/clothing/neck/maid_neck_cover
-/obj/item/clothing/head/maid_headband
-
-
-/obj/item/clothing/head/costume/maid_headband
-/obj/item/clothing/under/costume/maid
-
-/obj/item/clothing/head/costume/maid_headband
-/obj/item/clothing/under/costume/nova/maid_uniform
-
-/obj/item/clothing/head/costume/maid_headband
-/obj/item/clothing/under/costume/nova/maid_uniform_alt
-
-
-todo - syndie
-*/
