@@ -12,7 +12,9 @@
 
 /datum/bodypart_overlay/mutant/genital/vagina
 	feature_key = ORGAN_SLOT_VAGINA
-	layers = EXTERNAL_FRONT_UNDER_CLOTHES
+	layers = list(
+		EXTERNAL_FRONT_UNDER_CLOTHES = UNDER_UNIFORM_LAYER,
+	)
 
 	/// Lowest-layering thing that affects the crotch
 	layer_above_all = -(BODY_FRONT_LAYER - 0.03)

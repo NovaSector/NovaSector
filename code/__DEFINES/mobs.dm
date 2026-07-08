@@ -935,20 +935,18 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 /// (You ONLY need to update this if you add a standing overlay, adding an integer.)
 #define TOTAL_LAYERS 23
 
-//Bitflags for the layers a bodypart overlay can draw on (can be drawn on multiple layers)
-/// Draws overlay on the BODY_FRONT_LAYER
-#define EXTERNAL_FRONT (1 << 0)
-/// Draws overlay on the BODY_ADJ_LAYER
-#define EXTERNAL_ADJACENT (1 << 1)
-/// Draws overlay on the BODY_BEHIND_LAYER
-#define EXTERNAL_BEHIND (1 << 2)
+// Legacy mutant bodypart layering defines for icon states
+// Don't change these without updating all relevant icon states
+#define EXTERNAL_FRONT "FRONT"
+#define EXTERNAL_ADJACENT "ADJ"
+#define EXTERNAL_BEHIND "BEHIND"
 // NOVA EDIT ADDITION START - Customization
 /// Draws overlay on the BODY_FRONT_UNDER_CLOTHES
-#define EXTERNAL_FRONT_UNDER_CLOTHES (1 << 3)
+#define EXTERNAL_FRONT_UNDER_CLOTHES "FRONT_UNDER"
 /// Draws overlay on the ABOVE_BODY_FRONT_HEAD_LAYER
-#define EXTERNAL_FRONT_OVER (1 << 4)
+#define EXTERNAL_FRONT_OVER "FRONT_OVER"
 /// Draws overlay on the HEAD_LAYER, for things that need to be above hair but below hats.
-#define EXTERNAL_FRONT_ABOVE_HAIR (1 << 5)
+#define EXTERNAL_FRONT_ABOVE_HAIR "FRONT_OVER_HAIR"
 /// NOVA EDIT ADDITION END
 
 // Bitflags for external organs restylability
