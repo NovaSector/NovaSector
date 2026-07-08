@@ -447,7 +447,7 @@
 //Tora's Body Pillow (DarkRilo)
 /obj/item/toy/pillow/torapillow
 	name = "\improper Shork.INC Body Pillow"
-	desc = "A poofy, soft looking pillow depicting a certain sharkette. One side a little less scandalous than the other. At the bottom a small tag label |DarkRilo Apparels|"
+	desc = "A poofy, soft looking pillow depicting a certain sharkette. One side a little less scandalous than the other. At the bottom is a small tag label |DarkRilo Apparels|."
 	icon_state = "torapillbod"
 	inhand_icon_state = null
 	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
@@ -466,9 +466,7 @@
 	// Optional: If the pillow spawns on the ground (not in a mob's inventory),
 	// this makes it start at 50% size immediately.
 	if(!istype(loc, /mob))
-		var/matrix/M = matrix(original_transform)
-		M.Scale(0.5, 0.5)
-		transform = M
+		transform = matrix(original_transform).Scale(0.5)
 
 /obj/item/toy/pillow/torapillow/pickup(mob/user)
 	..()
@@ -478,9 +476,7 @@
 /obj/item/toy/pillow/torapillow/dropped(mob/user)
 	..()
 	// Shrink the item to 50% size over 0.2 seconds
-	var/matrix/M = matrix(original_transform)
-	M.Scale(0.5, 0.5)
-	animate(src, transform = M, time = 2, loop = 0)
+	animate(src, transform = matrix(original_transform).Scale(0.5), time = 2)
 
 /obj/item/toy/pillow/torapillow/attack_self(mob/user)
 	adjust_item_style(user)
@@ -493,6 +489,7 @@
 	. = ..()
 	. += span_notice("Alt-click [src] to flip it. It currently shows the '[src.icon_state]' side.")
 
+/// Toggles between flipped/non-flipped
 /obj/item/toy/pillow/torapillow/proc/adjust_item_style(mob/user)
 	if (icon_state == "torapillbod")
 		icon_state = "torapillbod-t"
