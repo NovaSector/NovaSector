@@ -119,7 +119,7 @@
 	feature_key = FEATURE_BREASTS
 
 /datum/dna_block/feature/mutant/butt
-    feature_key = FEATURE_BUTT
+	feature_key = FEATURE_BUTT
 
 #undef FEATURE_HASH_PART_START
 #undef FEATURE_HASH_PART_END
