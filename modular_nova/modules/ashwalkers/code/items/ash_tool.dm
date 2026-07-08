@@ -166,7 +166,7 @@
 	name = "tendril seed"
 	desc = "A horrible fleshy mass that pulse with a dark energy."
 	icon_state = "tendril_seed"
-	spawn_list = list(/obj/structure/spawner/lavaland, /obj/structure/spawner/lavaland/goliath, /obj/structure/spawner/lavaland/legion)
+	spawn_list = list(/mob/living/basic/mining/tendril)
 
 /obj/item/ash_seed/vent
 	name = "ore seed"

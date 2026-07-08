@@ -1,0 +1,10 @@
+{
+	"depgag_garrison": [
+		{
+			"type": "icon_state",
+			"icon_state": "garrison",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

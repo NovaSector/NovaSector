@@ -51,6 +51,7 @@
 		/obj/item/storage/box/syndicate/contractor_loadout/stealth_contractor,
 		/obj/item/trench_tool, // multipurpose! digging graves. mining rocks. caving in faces. matches survival knife for force
 		/obj/item/pinpointer/crew/contractor,
+		/obj/item/melee/baton/telescopic/contractor_baton, // you kinda need this (moved here for visibility/pairing)
 	)
 
 /datum/outfit/contractor/post_equip(mob/living/carbon/human/user, visuals_only)
@@ -58,7 +59,14 @@
 	if(visuals_only)
 		return
 	handlebank(user)
-
+	var/obj/item/mod/control/mod = user.back
+	if(!istype(mod))
+		return
+	var/obj/item/mod/module/weapon_recall/contractor/recall = locate(/obj/item/mod/module/weapon_recall/contractor) in mod.modules
+	var/obj/item/weapon = locate(/obj/item/melee/baton/telescopic/contractor_baton) in user.get_all_contents()
+	if(!istype(weapon, recall.accepted_type))
+		return
+	recall.set_weapon(weapon)
 
 /datum/outfit/contractor_preview
 	name = "Syndicate Contractor (Preview only)"

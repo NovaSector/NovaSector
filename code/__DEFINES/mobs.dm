@@ -172,11 +172,13 @@
 #define BODYTYPE_SHADOW (1<<7)
 //This limb is a ghost limb and can phase through walls.
 #define BODYTYPE_GHOST (1<<8)
+/// Analagous to BODYSHAPE_DIGITIGRADE, though this one is not removed if the mob's shape changed
+#define BODYTYPE_DIGITIGRADE (1<<9)
 // NOVA EDIT ADDITION START
 ///The limb is synthetic, this is for an additional surgery check.
-#define BODYTYPE_SYNTHETIC (1<<9)
+#define BODYTYPE_SYNTHETIC (1<<10)
 /// It's a ghoul limb, which is detachable
-#define BODYTYPE_GHOUL (1<<10)
+#define BODYTYPE_GHOUL (1<<11)
 // NOVA EDIT ADDITION END
 
 // Bodyshape defines for how things can be worn, i.e., what "shape" the mob sprite is
@@ -192,13 +194,27 @@
 #define BODYSHAPE_GOLEM (1<<4)
 // NOVA EDIT ADDITION START
 ///The limb fits a modular custom shape
-#define BODYSHAPE_CUSTOM (1<<5)
-///The limb fits a taur body
-#define BODYSHAPE_TAUR (1<<6)
+#define BODYSHAPE_CUSTOM (1<<15)
 ///The limb causes shoes to no longer be displayed, useful for taurs.
-#define BODYSHAPE_HIDE_SHOES (1<<7)
+#define BODYSHAPE_HIDE_SHOES (1<<16)
 ///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
-#define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<8)
+#define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<17)
+/// For when you just want the leg cropping for taurs
+#define BODYSHAPE_TAUR_GENERIC (1<<18)
+/// Snake taurs
+#define BODYSHAPE_TAUR_SNAKE (1<<19)
+/// Taurs with paws
+#define BODYSHAPE_TAUR_PAW (1<<20)
+/// Taurs with hooves
+#define BODYSHAPE_TAUR_HOOF (1<<21)
+/// Big leg
+#define BODYSHAPE_TAUR_BIG_LEGS (1<<22)
+/// Big leg stanced
+#define BODYSHAPE_TAUR_BIG_LEGS_STANCED (1<<23)
+/// Big legs - all types
+#define BODYSHAPE_TAUR_BIG_LEGS_ALL (BODYSHAPE_TAUR_BIG_LEGS|BODYSHAPE_TAUR_BIG_LEGS_STANCED)
+/// All-encompassing taur bodyshape flag
+#define BODYSHAPE_TAUR (BODYSHAPE_TAUR_GENERIC|BODYSHAPE_TAUR_SNAKE|BODYSHAPE_TAUR_PAW|BODYSHAPE_TAUR_HOOF|BODYSHAPE_TAUR_BIG_LEGS|BODYSHAPE_TAUR_BIG_LEGS_STANCED)
 // NOVA EDIT ADDITION END
 
 /// List of body part flags that can not be bioscrambled
@@ -277,12 +293,15 @@
 ///Heartbeat is gone... He's dead Jim :(
 #define BEAT_NONE 0
 
-#define HUMAN_MAX_OXYLOSS 3
-#define HUMAN_CRIT_MAX_OXYLOSS (SSMOBS_DT/3)
+/// Damage dealt every life tick on suffocation
+#define SUFFOCATION_OXYLOSS 3
+/// Modifier to damage dealt every life tick on suffocation when the suffocator is in crit
+#define SUFFOCATION_OXYLOSS_CRIT_MODIFIER 0.22
 
 /// Combined brute and burn damage states on a human's head after which they become disfigured
 #define HUMAN_DISFIGURATION_HEAD_DAMAGE_STATES 3
 
+/// Lung temperature defines
 #define HEAT_DAMAGE_LEVEL_1 1 //Amount of damage applied when your body temperature just passes the 360.15k safety point
 #define HEAT_DAMAGE_LEVEL_2 1.5 //Amount of damage applied when your body temperature passes the 400K point
 #define HEAT_DAMAGE_LEVEL_3 4 //Amount of damage applied when your body temperature passes the 460K point and you are on fire
@@ -299,6 +318,14 @@
 #define COLD_GAS_DAMAGE_LEVEL_1 0.5 //Amount of damage applied when the current breath's temperature just passes the 260.15k safety point
 #define COLD_GAS_DAMAGE_LEVEL_2 1.5 //Amount of damage applied when the current breath's temperature passes the 200K point
 #define COLD_GAS_DAMAGE_LEVEL_3 3 //Amount of damage applied when the current breath's temperature passes the 120K point
+
+/// These are for the default lungs
+#define COLD_LEVEL_1_THRESHOLD 260
+#define COLD_LEVEL_2_THRESHOLD 200
+#define COLD_LEVEL_3_THRESHOLD 120
+#define HEAT_LEVEL_1_THRESHOLD 360
+#define HEAT_LEVEL_2_THRESHOLD 400
+#define HEAT_LEVEL_3_THRESHOLD 1000
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 20
@@ -345,6 +372,9 @@
 
 #define NUTRITION_LEVEL_START_MIN 250
 #define NUTRITION_LEVEL_START_MAX 400
+
+// After this amount of time overeating carbons become fat
+#define OVEREAT_TIME_LIMIT 200 SECONDS
 
 //Disgust levels for humans
 #define DISGUST_LEVEL_MAXEDOUT 150
@@ -514,7 +544,6 @@
 #define AGE_MINOR 18 //NOVA EDIT CHANGE - We dont use these features, and its easier to just patch it from here. Original: AGE_MINOR 20 //legal age of space drinking and smoking
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
 #define APPRENTICE_AGE_MIN 29 //youngest an apprentice can be
-
 #define SHOES_SLOWDOWN 0 //How much shoes slow you down by default. Negative values speed you up
 #define POCKET_STRIP_DELAY (4 SECONDS) //time taken to search somebody's pockets
 #define DOOR_CRUSH_DAMAGE 20 //the amount of damage that airlocks deal when they crush you
@@ -755,6 +784,16 @@
 #define GRADIENT_APPLIES_TO_HAIR (1<<0)
 #define GRADIENT_APPLIES_TO_FACIAL_HAIR (1<<1)
 
+// Used in applying height
+/// Used for overlays centered around the upper half of the human sprite
+#define UPPER_BODY "upper body"
+/// Used for overlays centered around the lower half of the human sprite
+#define LOWER_BODY "lower body"
+/// Used for overlays that should not offset at all
+#define NO_MODIFY "do not modify"
+/// Used for overlays that stretch the full body and thus need a filter
+#define ENTIRE_BODY "full body"
+
 // Height defines
 // - They are numbers so you can compare height values (x height < y height)
 // - They do not start at 0 for futureproofing
@@ -770,182 +809,145 @@
 #define HUMAN_HEIGHT_TALL 14
 #define HUMAN_HEIGHT_TALLER 16
 #define HUMAN_HEIGHT_TALLEST 18
+// If you add a height here update human_heights_to_offsets as well!
 
-/// Assoc list of all heights, cast to strings, to """"tuples"""""
-/// The first """tuple""" index is the upper body offset
-/// The second """tuple""" index is the lower body offset
-GLOBAL_LIST_INIT(human_heights_to_offsets, list(
-	"[MONKEY_HEIGHT_DWARF]" = list(-9, -3),
-	"[MONKEY_HEIGHT_MEDIUM]" = list(-7, -4),
-	"[HUMAN_HEIGHT_DWARF]" = list(-5, -4),
-	"[HUMAN_HEIGHT_SHORTEST]" = list(-2, -1),
-	"[HUMAN_HEIGHT_SHORT]" = list(-1, -1),
-	"[HUMAN_HEIGHT_MEDIUM]" = list(0, 0),
-	"[HUMAN_HEIGHT_TALL]" = list(1, 1),
-	"[HUMAN_HEIGHT_TALLER]" = list(2, 1),
-	"[HUMAN_HEIGHT_TALLEST]" = list(3, 2),
+/// Assoc list of all heights, to offset values
+GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
+	MONKEY_HEIGHT_DWARF   = list("[UPPER_BODY]" = -9, "[LOWER_BODY]" = -3),
+	MONKEY_HEIGHT_MEDIUM  = list("[UPPER_BODY]" = -7, "[LOWER_BODY]" = -4),
+	HUMAN_HEIGHT_DWARF    = list("[UPPER_BODY]" = -5, "[LOWER_BODY]" = -4),
+	HUMAN_HEIGHT_SHORTEST = list("[UPPER_BODY]" = -2, "[LOWER_BODY]" = -1),
+	HUMAN_HEIGHT_SHORT    = list("[UPPER_BODY]" = -1, "[LOWER_BODY]" = -1),
+	HUMAN_HEIGHT_MEDIUM   = list("[UPPER_BODY]" =  0, "[LOWER_BODY]" =  0),
+	HUMAN_HEIGHT_TALL     = list("[UPPER_BODY]" =  1, "[LOWER_BODY]" =  1),
+	HUMAN_HEIGHT_TALLER   = list("[UPPER_BODY]" =  2, "[LOWER_BODY]" =  1),
+	HUMAN_HEIGHT_TALLEST  = list("[UPPER_BODY]" =  3, "[LOWER_BODY]" =  2),
 ))
 
-// Mob Overlays Indexes
-/// Total number of layers for mob overlays
-/// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
-/// Also consider updating layers_to_offset
-#define TOTAL_LAYERS 45 // NOVA EDIT CHANGE - ORIGINAL: #define TOTAL_LAYERS 39
-/// Mutations layer - Tk headglows, cold resistance glow, etc
-#define MUTATIONS_LAYER 44 // NOVA EDIT CHANGE - ORIGINAL: #define MUTATIONS_LAYER 38
-/// Mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODY_BEHIND_LAYER 43 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_BEHIND_LAYER 37
-/// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-#define BODYPARTS_LOW_LAYER 42 // NOVA EDIT CHANGE - ORIGINAL: #define BODYPARTS_LOW_LAYER 36
-/// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
-#define BODYPARTS_LAYER 41 // NOVA EDIT CHANGE - ORIGINAL: #define BODYPARTS_LAYER 35
-/// Mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_ADJ_LAYER 40 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_ADJ_LAYER 34
-/// Underwear, undershirts, socks
-#define BODY_LAYER 39 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_LAYER 33
-/// Eyes and eyelids
-#define EYES_LAYER 38 // NOVA EDIT CHANGE - ORIGINAL: #define EYES_LAYER 32
-/// Mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define FRONT_MUTATIONS_LAYER 37 // NOVA EDIT CHANGE - ORIGINAL: #define FRONT_MUTATIONS_LAYER 31
-/// Damage indicators (cuts and burns)
-#define DAMAGE_LAYER 36 // NOVA EDIT CHANGE - ORIGINAL: #define DAMAGE_LAYER 30
-// NOVA EDIT ADDITION START
-/// This layer is used for things that shouldn't be over clothes, but should be over mutations
-#define BODY_FRONT_UNDER_CLOTHES 35
-// NOVA EDIT ADDITION END
-/// Jumpsuit clothing layer
-#define UNIFORM_LAYER 34 // NOVA EDIT CHANGE - ORIGINAL: #define UNIFORM_LAYER 29
-// NOVA EDIT ADDITION BEGIN - cursed layers under clothing
-#define ANUS_LAYER 33
-#define VAGINA_LAYER 32
-#define PENIS_LAYER 31
-#define NIPPLES_LAYER 30
-#define BANDAGE_LAYER 29
-//NOVA EDIT ADDITION END
-/// ID card layer
-#define ID_LAYER 28
-/// ID card layer (might be deprecated)
-#define ID_CARD_LAYER 27
-/// Layer for bodyparts that should appear above every other bodypart - Currently only used for hands
-#define BODYPARTS_HIGH_LAYER 26
-/// Gloves layer
-#define GLOVES_LAYER 25
-/// Shoes layer
-#define SHOES_LAYER 24
-/// Layer for masks that are worn below ears and eyes (like Balaclavas) (layers below hair, use flagsinv=HIDEHAIR as needed)
-#define LOW_FACEMASK_LAYER 23
-/// Ears layer (Spessmen have ears? Wow)
-#define EARS_LAYER 22
-/// Layer for neck apperal that should appear below the suit slot (like neckties)
-#define LOW_NECK_LAYER 21
-/// Suit layer (armor, coats, etc.)
-#define SUIT_LAYER 20
-/// Glasses layer
-#define GLASSES_LAYER 19
-/// Belt layer
-#define BELT_LAYER 18 //Possible make this an overlay of something required to wear a belt?
-/// Suit storage layer (tucking a gun or baton underneath your armor)
-#define SUIT_STORE_LAYER 17
-/// Neck layer (for wearing capes and bedsheets)
-#define NECK_LAYER 16
-/// Back layer (for backpacks and equipment on your back)
-#define BACK_LAYER 15
-/// Special layer for rendering beneath hair, for special facemasks
-#define BENEATH_HAIR_LAYER 14
-/// Hair layer (mess with the fro and you got to go!)
-#define HAIR_LAYER 13 //TODO: make part of head layer?
-/// Facemask layer (gas masks, breath masks, etc.)
-#define FACEMASK_LAYER 12
-/// Head layer (hats, helmets, etc.)
-#define HEAD_LAYER 11
-/// Hair that layers out above clothing, including hats (high ponytails and such)
-#define OUTER_HAIR_LAYER 10
-/// Handcuff layer (when your hands are cuffed)
-#define HANDCUFF_LAYER 9
-/// Legcuff layer (when your feet are cuffed)
-#define LEGCUFF_LAYER 8
-/// Hands layer (for the actual hand, not the arm... I think?)
-#define HANDS_LAYER 7
-/// Body front layer. Usually used for mutant bodyparts that need to be in front of stuff (e.g. cat ears)
-#define BODY_FRONT_LAYER 6
-/// Special body layer that actually require to be above the hair (e.g. lifted welding goggles)
-#define ABOVE_BODY_FRONT_GLASSES_LAYER 5
-/// Special body layer for the rare cases where something on the head needs to be above everything else (e.g. flowers)
-#define ABOVE_BODY_FRONT_HEAD_LAYER 4
-/// Bleeding wound icons
-#define WOUND_LAYER 3
-/// Blood cult ascended halo layer, because there's currently no better solution for adding/removing
-#define HALO_LAYER 2
+/*
+ * Mob overlays
+ *
+ * Integers are standing overlays which are managed by the mob overlay system
+ * They're drawn in order from least to greatest, with the lowest layer drawn highest on the screen
+ *
+ * Decimals are sub-layers or alternate layers
+ * These are not managed by the mob overlay system, but still layer according to their value
+ *
+ * Please keep this organized and in order, to make it easier to see at a glance how mobs layer
+ * Don't be afraid to change the values of existing layers either, it won't break anything so long as order is the same
+ *
+ * If you want to add a new layer, make sure to update TOTAL_LAYERS and layers_to_offset as needed
+ * NOTE: You ONLY need to add standing layers if you're using the standing overlay system, ie. apply_overlay(YOUR_LAYER)!
+ * If you're NOT using this sytem just add it as a sub-layer where appropriate
+ */
+
 /// The highest most layer for mob overlays. Unused
 #define HIGHEST_LAYER 1
+	/// Blood cult ascended halo layer
+	#define HALO_LAYER 1.1
+/// Bleeding wound icons
+#define WOUND_LAYER 2
+	/// Special body layer for the rare cases where something on the head needs to be above everything else (e.g. flowers)
+	#define ABOVE_BODY_FRONT_HEAD_LAYER 2.3
+	/// The layer above mutant body parts
+	#define ABOVE_BODY_FRONT_LAYER 2.4
+	/// Body front layer. Usually used for mutant bodyparts that need to be in front of stuff (e.g. cat ears)
+	#define BODY_FRONT_LAYER 2.5
+/// Hands layer (for the actual hand, not the arm... I think?)
+#define HANDS_LAYER 3
+/// Legcuff layer (when your feet are cuffed)
+#define LEGCUFF_LAYER 4
+/// Handcuff layer (when your hands are cuffed)
+#define HANDCUFF_LAYER 5
+	/// Hair that layers out above clothing, including hats (high ponytails and such)
+	#define OUTER_HAIR_LAYER 5.9
+/// Head layer (hats, helmets, etc.)
+#define HEAD_LAYER 6
+	/// The layer underneath the head (for hats)
+	#define UNDER_HEAD_LAYER 6.1
+/// Facemask layer (gas masks, breath masks, etc.)
+#define FACEMASK_LAYER 7
+/// Hair layer (mess with the fro and you got to go!)
+#define HAIR_LAYER 8
+	/// Special layer for rendering beneath hair, for special facemasks
+	#define BENEATH_HAIR_LAYER 8.1
+/// Back layer (for backpacks and equipment on your back)
+#define BACK_LAYER 9
+/// Neck layer (for wearing capes and bedsheets)
+#define NECK_LAYER 10
+/// Suit storage layer (tucking a gun or baton underneath your armor)
+#define SUIT_STORE_LAYER 11
+/// Belt layer
+#define BELT_LAYER 12 //Possible make this an overlay of something required to wear a belt?
+/// Glasses layer
+#define GLASSES_LAYER 13
+/// Suit layer (armor, coats, etc.)
+#define SUIT_LAYER 14
+	/// The layer underneath the suit
+	#define UNDER_SUIT_LAYER 14.1
+	/// Layer for neck apperal that should appear below the suit slot (like neckties)
+	#define LOW_NECK_LAYER 14.2
+/// Ears layer (Spessmen have ears? Wow)
+#define EARS_LAYER 15
+	/// Layer for masks that are worn below ears and eyes (like Balaclavas) (layers below hair, use flagsinv=HIDEHAIR as needed)
+	#define LOW_FACEMASK_LAYER 15.1
+	/// The layer above shoes
+	#define ABOVE_SHOES_LAYER 15.9
+/// Shoes layer
+#define SHOES_LAYER 16
+/// Gloves layer
+#define GLOVES_LAYER 17
+	/// Layer for bodyparts that should appear above every other bodypart - Currently only used for hands
+	#define BODYPARTS_HIGH_LAYER 17.5
+/// ID card layer
+#define ID_LAYER 18
+// NOVA EDIT ADDITION BEGIN - cursed layers under clothing
+	#define BANDAGE_LAYER 18.1
+	#define NIPPLES_LAYER 18.2
+	#define PENIS_LAYER 18.3
+	#define VAGINA_LAYER 18.4
+	#define ANUS_LAYER 18.5
+//NOVA EDIT ADDITION END
+/// Jumpsuit clothing layer
+#define UNIFORM_LAYER 19
+	/// The layer underneath the uniform
+	#define UNDER_UNIFORM_LAYER 19.1
+/// Damage indicators (cuts and burns)
+#define DAMAGE_LAYER 20
+	/// Mutations that should appear above everything else (e.g. laser eyes)
+	#define FRONT_MUTATIONS_LAYER 20.9
+/// Eyes and eyelids
+#define EYES_LAYER 21
+/// Underwear, undershirts, socks
+#define BODY_LAYER 22
+	/// Mutantrace features (snout, body markings) that must appear above the body parts
+	#define BODY_ADJ_LAYER 22.9
+/// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
+#define BODYPARTS_LAYER 23
+	/// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
+	#define BODYPARTS_LOW_LAYER 23.1
+	/// Mutantrace features (tail when looking south) that must appear behind the body parts
+	#define BODY_BEHIND_LAYER 23.2
+	/// Mutations layer - Tk headglows, cold resistance glow, etc. Very bottom of the mob
+	#define MUTATIONS_LAYER 23.9
+/// Total number of standing overlays.
+/// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK.
+/// (You ONLY need to update this if you add a standing overlay, adding an integer.)
+#define TOTAL_LAYERS 23
 
-#define UPPER_BODY "upper body"
-#define LOWER_BODY "lower body"
-#define NO_MODIFY "do not modify"
-
-/// Used for human height overlay adjustments
-/// Certain standing overlay layers shouldn't have a filter applied and should instead just offset by a pixel y
-/// This list contains all the layers that must offset, with its value being whether it's a part of the upper half of the body (TRUE) or not (FALSE)
-GLOBAL_LIST_INIT(layers_to_offset, list(
-	// Weapons commonly cross the middle of the sprite so they get cut in half by the filter
-	"[HANDS_LAYER]" = LOWER_BODY,
-	// Very tall hats will get cut off by filter
-	"[HEAD_LAYER]" = UPPER_BODY,
-	// Hair will get cut off by filter
-	"[HAIR_LAYER]" = UPPER_BODY,
-	// Doesn't do much
-	"[EYES_LAYER]" = UPPER_BODY,
-	// Long belts (sabre sheathe) will get cut off by filter
-	"[BELT_LAYER]" = LOWER_BODY,
-	// Everything below looks fine with or without a filter, so we can skip it and just offset
-	// (In practice they'd be fine if they got a filter but we can optimize a bit by not.)
-	"[NECK_LAYER]" = UPPER_BODY,
-	"[GLASSES_LAYER]" = UPPER_BODY,
-	"[LOW_NECK_LAYER]" = UPPER_BODY,
-	"[ABOVE_BODY_FRONT_GLASSES_LAYER]" = UPPER_BODY, // currently unused
-	"[ABOVE_BODY_FRONT_HEAD_LAYER]" = UPPER_BODY, // only used for head stuff
-	"[GLOVES_LAYER]" = LOWER_BODY,
-	"[HALO_LAYER]" = UPPER_BODY, // above the head
-	"[HANDCUFF_LAYER]" = LOWER_BODY,
-	"[ID_CARD_LAYER]" = UPPER_BODY, // unused
-	"[ID_LAYER]" = UPPER_BODY,
-	"[FACEMASK_LAYER]" = UPPER_BODY,
-	"[LOW_FACEMASK_LAYER]" = UPPER_BODY,
-	"[BENEATH_HAIR_LAYER]" = UPPER_BODY, // alt mask layer
-	// These two are cached, and have their appearance shared(?), so it's safer to just not touch it
-	"[MUTATIONS_LAYER]" = NO_MODIFY,
-	"[FRONT_MUTATIONS_LAYER]" = NO_MODIFY,
-	// These DO get a filter, I'm leaving them here as reference,
-	// to show how many filters are added at a glance
-	// BACK_LAYER (backpacks are big)
-	// BODYPARTS_HIGH_LAYER (arms)
-	// BODY_LAYER (body markings (full body), underwear (full body))
-	// BODY_ADJ_LAYER (external organs like wings)
-	// BODY_BEHIND_LAYER (external organs like wings)
-	// BODY_FRONT_LAYER (external organs like wings)
-	// DAMAGE_LAYER (full body)
-	// HIGHEST_LAYER (full body)
-	// UNIFORM_LAYER (full body)
-	// WOUND_LAYER (full body)
-))
-
-//Bitflags for the layers an external organ can draw on (organs can be drawn on multiple layers)
-/// Draws organ on the BODY_FRONT_LAYER
-#define EXTERNAL_FRONT (1 << 1)
-/// Draws organ on the BODY_ADJ_LAYER
-#define EXTERNAL_ADJACENT (1 << 2)
-/// Draws organ on the BODY_BEHIND_LAYER
-#define EXTERNAL_BEHIND (1 << 3)
-// NOVA EDIT ADDITION - Customization
-/// Draws organ on the BODY_FRONT_UNDER_CLOTHES
-#define EXTERNAL_FRONT_UNDER_CLOTHES (1 << 4)
-/// Draws organ on the ABOVE_BODY_FRONT_HEAD_LAYER
-#define EXTERNAL_FRONT_OVER (1 << 5)
-/// Draws organ on the HEAD_LAYER, for things that need to be above hair but below hats.
-#define EXTERNAL_FRONT_ABOVE_HAIR (1 << 6)
-// NOVA EDIT END (not touching what comes next because we don't actually have to (nor want to))
-/// Draws organ on all EXTERNAL layers
-#define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
+// Legacy mutant bodypart layering defines for icon states
+// Don't change these without updating all relevant icon states
+#define EXTERNAL_FRONT "FRONT"
+#define EXTERNAL_ADJACENT "ADJ"
+#define EXTERNAL_BEHIND "BEHIND"
+// NOVA EDIT ADDITION START - Customization
+/// Draws overlay on the BODY_FRONT_UNDER_CLOTHES
+#define EXTERNAL_FRONT_UNDER_CLOTHES "FRONT_UNDER"
+/// Draws overlay on the ABOVE_BODY_FRONT_HEAD_LAYER
+#define EXTERNAL_FRONT_OVER "FRONT_OVER"
+/// Draws overlay on the HEAD_LAYER, for things that need to be above hair but below hats.
+#define EXTERNAL_FRONT_ABOVE_HAIR "FRONT_OVER_HAIR"
+/// NOVA EDIT ADDITION END
 
 // Bitflags for external organs restylability
 #define EXTERNAL_RESTYLE_ALL ALL
@@ -955,20 +957,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define EXTERNAL_RESTYLE_FLESH (1 << 1)
 /// This organ allows restyling with enamel restyling (like a fucking file or something?). It's for horns and shit
 #define EXTERNAL_RESTYLE_ENAMEL (1 << 2)
-
-//Mob Overlay Index Shortcuts for alternate_worn_layer, layers
-//Because I *KNOW* somebody will think layer+1 means "above"
-//IT DOESN'T OK, IT MEANS "UNDER"
-/// The layer underneath the suit
-#define UNDER_SUIT_LAYER (SUIT_LAYER+1)
-/// The layer underneath the head (for hats)
-#define UNDER_HEAD_LAYER (HEAD_LAYER+1)
-
-//AND -1 MEANS "ABOVE", OK?, OK!?!
-/// The layer above shoes
-#define ABOVE_SHOES_LAYER (SHOES_LAYER-1)
-/// The layer above mutant body parts
-#define ABOVE_BODY_FRONT_LAYER (BODY_FRONT_LAYER-1)
 
 /// If gravity must be present to perform action (can't use pens without gravity)
 #define NEED_GRAVITY (1<<0)

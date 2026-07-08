@@ -14,7 +14,6 @@
 	mutantlungs = /obj/item/organ/lungs/nitrogen/vox
 	mutantbrain = /obj/item/organ/brain/cybernetic/cortical/vox //reparented vox brain
 	meat = /obj/item/food/meat/slab/chicken/human
-	breathid = "n2"
 
 	mutanttongue = /obj/item/organ/tongue/vox
 	payday_modifier = 1.0

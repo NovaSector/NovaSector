@@ -14,6 +14,7 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/civilian/mime/sexy
 	name = "sexy mime outfit"
@@ -32,15 +33,12 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	can_adjust = FALSE
 	supports_variations_flags = NONE
+	bodyshapes_with_variations = NONE
 
-//NOVA EDIT REMOVAL BEGIN
-/*
 /obj/item/clothing/under/rank/civilian/clown/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg'=1), 50, falloff_exponent = 20) //die off quick please
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CLOWN, CELL_VIRUS_TABLE_GENERIC, rand(2,3), 0)
-*/
-//NOVA EDIT REMOVAL END
 
 /obj/item/clothing/under/rank/civilian/clown/blue
 	name = "blue clown suit"

@@ -199,6 +199,7 @@
 	return
 
 /obj/item/clothing/glasses/hud/security/prescription
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 4)
 
 /obj/item/clothing/glasses/hud/security/prescription/setup_reskins()
 	return

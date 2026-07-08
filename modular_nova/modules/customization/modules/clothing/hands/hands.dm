@@ -125,5 +125,36 @@
 	greyscale_config = /datum/greyscale_config/recolorable_gloves/fingerless_long
 	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/fingerless_long/worn
 
+/datum/atom_skin/nitrile_gloves_long
+	abstract_type = /datum/atom_skin/nitrile_gloves_long
+
+/datum/atom_skin/nitrile_gloves_long
+	preview_name = "Basic Variant"
+	new_icon_state = "nitrile_long"
+
+/datum/atom_skin/nitrile_gloves_long/red
+	preview_name = "Red Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	new_icon_state = "long_nitrile_red"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+
+/datum/atom_skin/nitrile_gloves_long/black
+	preview_name = "Black Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	new_icon_state = "long_nitrile_black"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+
+/obj/item/clothing/gloves/latex/nitrile/long
+
+/obj/item/clothing/gloves/latex/nitrile/long/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/nitrile_gloves_long)
+
+/obj/item/clothing/gloves/latex/nitrile/long
+	name = "long nitrile gloves"
+	desc = "A pair of long nitrile gloves meant to protect the wearers forearms from fluids and splatter. For when things get truly messy."
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+	icon_state = "long_nitrile"
+
 #undef MODULAR_HANDS_ICON
 #undef MODULAR_HANDS_WORN_ICON

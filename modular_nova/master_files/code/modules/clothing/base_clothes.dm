@@ -52,6 +52,9 @@
 	/// Used for BODYSHAPE_CUSTOM: Needs to follow this syntax: a list() with the x and y coordinates of the pixel you want to get the color from. Colors are filled in as GAGs values for fallback.
 	var/list/species_clothing_color_coords[3]
 
+	/// Does this item's sprite get cropped on taurs when worn?
+	var/gets_cropped_on_taurs = TRUE
+
 /obj/item/clothing/head
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION
 
@@ -63,8 +66,8 @@
 
 /obj/item/clothing/under
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	bodyshapes_with_variations = BODYSHAPE_DIGITIGRADE | BODYSHAPE_TAUR
 	/// Does this object get cropped when worn by a taur on their suit or uniform slot?
-	var/gets_cropped_on_taurs = TRUE
 
 /obj/item/clothing/suit
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
@@ -75,4 +78,5 @@
 /obj/item/changeling
 	supports_variations_flags = NONE
 
-
+/obj/item/clothing/neck
+	gets_cropped_on_taurs = FALSE
