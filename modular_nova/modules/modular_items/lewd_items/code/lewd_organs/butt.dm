@@ -36,7 +36,6 @@
 
 	return "You see a [butt_style] of [size_name] asscheeks."
 
-
 /obj/item/organ/genital/butt/get_sprite_size_string()
 	. = "[genital_type]_[floor(genital_size)]"
 	if(uses_skintones)
