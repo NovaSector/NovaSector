@@ -469,12 +469,12 @@
 		transform = matrix(original_transform).Scale(0.5)
 
 /obj/item/toy/pillow/torapillow/pickup(mob/user)
-	..()
+	. = ..()
 	// Restore to original full size over 0.2 seconds
 	animate(src, transform = original_transform, time = 2, loop = 0)
 
 /obj/item/toy/pillow/torapillow/dropped(mob/user)
-	..()
+	. = ..()
 	// Shrink the item to 50% size over 0.2 seconds
 	animate(src, transform = matrix(original_transform).Scale(0.5), time = 2)
 
