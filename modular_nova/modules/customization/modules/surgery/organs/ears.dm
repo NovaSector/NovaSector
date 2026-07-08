@@ -17,6 +17,7 @@
 		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
 	)
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = UPPER_BODY
 
 /datum/bodypart_overlay/mutant/ears/set_appearance_from_name(accessory_name)
 	if(!accessory_name)
