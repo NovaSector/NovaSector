@@ -13,6 +13,7 @@
 	greyscale_config_worn = /datum/greyscale_config/croptop_bomber_jacket/worn
 	greyscale_colors = "#227EFE#E5F0EA#B8BB59#FF0000"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/croptop_bomber_jacket)
