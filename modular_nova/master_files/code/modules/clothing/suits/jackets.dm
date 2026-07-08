@@ -37,7 +37,6 @@
 	base_icon_state = "croptop_bomber_badge"
 
 /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/plain
-	name = "plain croptop bomber jacket"
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/plain"
 	post_init_icon_state = "croptop_bomber_plain"
 	base_icon_state = "croptop_bomber_plain"
