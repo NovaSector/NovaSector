@@ -17,6 +17,7 @@
 	feature_key = FEATURE_SKRELL_HAIR
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = ENTIRE_BODY
 
 /datum/bodypart_overlay/mutant/skrell_hair/override_color(rgb_value)
 	return draw_color

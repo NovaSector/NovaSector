@@ -207,6 +207,30 @@
 	erp_accessory = TRUE
 	has_custom_digi_sprite = TRUE
 
+/datum/sprite_accessory/clothing/socks/leggings/stockings
+	name = "Stockings - Recolorable"
+	icon_state = "stockings"
+	use_static = FALSE
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/leggings/stockings/cheetah
+	name = "Stockings - Cheetah"
+	icon_state = "stockings_cheetah"
+	use_static = TRUE
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/leggings/stockings/cow
+	name = "Stockings - Cow"
+	icon_state = "stockings_cow"
+	use_static = TRUE
+	has_custom_digi_sprite = TRUE
+
+/datum/sprite_accessory/clothing/socks/leggings/stockings/zebra
+	name = "Stockings - Zebra"
+	icon_state = "stockings_zebra"
+	use_static = TRUE
+	has_custom_digi_sprite = TRUE
+
 /datum/sprite_accessory/clothing/socks/thigh_m
 	name = "Thigh-high Socks - Shaded"
 	icon_state = "socks_thigh_m"

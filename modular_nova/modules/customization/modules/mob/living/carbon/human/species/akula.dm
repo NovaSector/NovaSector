@@ -167,7 +167,7 @@
 // set bonus
 /datum/status_effect/organ_set_bonus/carp/akula
 	id = "organ_set_bonus_carp_akula"
-	limb_overlay = null // no carpskin
+	limb_texture = null // no carpskin
 
 //Eyes
 /obj/item/organ/eyes/akula

@@ -922,7 +922,7 @@
 "uw" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/wall_torch/spawns_lit/directional/north,
-/obj/machinery/smartfridge/drying/rack,
+/obj/structure/table/wood,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "uI" = (
@@ -1732,6 +1732,10 @@
 	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"MC" = (
+/obj/machinery/smartfridge/drying/rack/smoker,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "MP" = (
 /obj/structure/wall_torch/spawns_lit/directional/east,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -2498,7 +2502,7 @@ yE
 bH
 rT
 rA
-wF
+MC
 je
 RB
 yp

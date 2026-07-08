@@ -7,6 +7,8 @@
 #define DOOR_AI_REQUEST_COOLDOWN (30 SECONDS)
 
 /obj/machinery/door/airlock
+	/// Cooldown for the access denied sound being played
+	COOLDOWN_DECLARE(denied_sound_cd)
 	//so the AI doesn't get spammed
 	COOLDOWN_DECLARE(answer_cd)
 	/// Tracks per-(player, door) AI-open-request cooldowns. Keyed by "[ckey]_[REF(door)]".
