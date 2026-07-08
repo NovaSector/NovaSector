@@ -4,15 +4,12 @@
 	icon = 'modular_nova/master_files/icons/obj/genitals/butt.dmi'
 	icon_state = "butt"
 	slot = ORGAN_SLOT_BUTT
-	// mutantpart_key = ORGAN_SLOT_BUTT // Removed duplicate definition
 	zone = BODY_ZONE_PRECISE_GROIN
 	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/butt
 	aroused = AROUSAL_CANT
 	drop_when_organ_spilling = FALSE
 	genital_type = "pair"
 	mutantpart_key = ORGAN_SLOT_BUTT
-
-//	mutantpart_info = list(MUTANT_INDEX_NAME = "Pair", MUTANT_INDEX_COLOR_LIST = list("#FFEEBB"))
 
 /obj/item/organ/genital/butt/get_description_string(datum/sprite_accessory/genital/gas)
 	var/size_name
@@ -67,12 +64,8 @@
 /datum/bodypart_overlay/mutant/genital/butt
 	feature_key = ORGAN_SLOT_BUTT
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
-	//| EXTERNAL_BEHIND | EXTERNAL_FRONT
-/*
-//	layer_above_all = -(BODY_FRONT_LAYER - 0.02)
-	layer_above_undies = -(UNIFORM_LAYER - 0.02)
-	layer_below_undies = -(UNIFORM_LAYER + 0.04)
-*/
+
+
 /datum/bodypart_overlay/mutant/genital/butt/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_BUTT]
 

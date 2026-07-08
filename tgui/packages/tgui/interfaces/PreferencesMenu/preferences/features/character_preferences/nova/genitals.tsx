@@ -267,6 +267,6 @@ export const butt_skin_color: FeatureToggle = {
 };
 
 export const butt_size: FeatureNumeric = {
-  name: 'Butt size',
+  name: 'Butt Size',
   component: FeatureNumberInput,
 };
