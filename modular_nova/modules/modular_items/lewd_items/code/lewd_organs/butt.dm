@@ -63,10 +63,10 @@
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_BUTT]
 
 /datum/bodypart_overlay/mutant/genital/butt/underwear_check()
-    if(!istype(owner))
-        return FALSE
-    else
-        if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
-            return FALSE
-        else
-            return TRUE
+	if(!istype(owner))
+		return FALSE
+	else
+		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
+			return FALSE
+		else
+			return TRUE
