@@ -11,6 +11,7 @@
 	force = 8
 	armor_type = /datum/armor/reactor_rod
 	volume = 50
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = SMALL_MATERIAL_AMOUNT * 2)
 	/// Used in reactor calculations related to the fuel rod.
 	var/pressure_limit = 9000
 	/// Used in reactor calculations related to the fuel rod.

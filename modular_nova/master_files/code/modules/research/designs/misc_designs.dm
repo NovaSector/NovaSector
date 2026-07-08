@@ -86,6 +86,13 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
+/obj/item/dice
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 0.2)
+
+// contains dice
+/obj/item/food/fudgedice
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 0.2)
+
 /datum/design/d4
 	name = "D4 Die"
 	id = "d4"
@@ -130,6 +137,9 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
+/obj/item/dice/d100
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 0.4)
+
 /datum/design/d00
 	name = "D00 Die"
 	id = "d00"
@@ -140,7 +150,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
-
 
 /datum/design/d12
 	name = "D12 Die"

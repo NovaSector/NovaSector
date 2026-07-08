@@ -133,6 +133,10 @@
 	name = "Cyborg Mask"
 	item_path = /obj/item/clothing/mask/gas/cyborg
 
+/datum/loadout_item/mask/gasmask_gags
+	name = "Gas Mask (Colorable)"
+	item_path = /obj/item/clothing/mask/gas/gags
+
 /*
 *	COSTUME
 */

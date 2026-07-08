@@ -225,6 +225,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/storage/box.dmi'
 	icon_state = "plasticbox"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/anesthetic_machine_kit/attack_self(mob/user)
 	new /obj/machinery/anesthetic_machine(user.loc)
