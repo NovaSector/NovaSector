@@ -135,7 +135,8 @@
 	// uniform layer + 0.01 works to go under the undersuit
 
 	/// A couple layer options for HORIZONTAL and SOUTH layers to play better with genitalia and certain styles of undersuit.
-	var/static/list/layer_options = list("Standard" = UNIFORM_LAYER, "Above Genitals" = UNIFORM_LAYER - 0.05, "Beneath Undersuit" = UNIFORM_LAYER + 0.01, "Above All" = BODY_FRONT_LAYER, "Above All & Genitals" = BODY_FRONT_LAYER - 0.05)
+	/// TODO: Restore higher layer options or migrate to a more robust system when genitalia do.  Ahhghh
+	var/static/list/layer_options = list("Standard" = UNDER_UNIFORM_LAYER + 0.1, "Above Genitals" = UNIFORM_LAYER, "Beneath Undersuit" = BODY_ADJ_LAYER)
 
 /// Sanity checks & required edits to make the belly action get properly granted.
 /obj/item/belly_function/item_action_slot_check(slot, mob/user, datum/action/action)
