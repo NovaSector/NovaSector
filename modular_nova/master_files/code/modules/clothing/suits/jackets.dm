@@ -27,24 +27,20 @@
 		item_applied_to.base_icon_state = greyscale_item::base_icon_state
 
 /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/stripe
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/stripe"
 	post_init_icon_state = "croptop_bomber_stripe"
 	base_icon_state = "croptop_bomber_stripe"
-	greyscale_colors = "#227EFE#E5F0EA#B8BB59#FF0000"
 
 /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/badge
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/badge"
 	post_init_icon_state = "croptop_bomber_badge"
 	base_icon_state = "croptop_bomber_badge"
-	greyscale_colors = "#227EFE#E5F0EA#B8BB59#FF0000"
 
 /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/plain
 	name = "plain croptop bomber jacket"
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/plain"
 	post_init_icon_state = "croptop_bomber_plain"
 	base_icon_state = "croptop_bomber_plain"
-	greyscale_colors = "#227EFE#E5F0EA#B8BB59#FF0000"
 
 // Atom skins
 
