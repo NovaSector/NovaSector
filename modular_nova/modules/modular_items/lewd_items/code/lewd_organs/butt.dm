@@ -36,7 +36,6 @@
 
 	return "You see a [butt_style] of [size_name] asscheeks."
 
-
 /obj/item/organ/genital/butt/get_sprite_size_string()
 	. = "[genital_type]_[floor(genital_size)]"
 	if(uses_skintones)
@@ -56,7 +55,6 @@
 /datum/bodypart_overlay/mutant/genital/butt
 	feature_key = ORGAN_SLOT_BUTT
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
-
 
 /datum/bodypart_overlay/mutant/genital/butt/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_BUTT]
