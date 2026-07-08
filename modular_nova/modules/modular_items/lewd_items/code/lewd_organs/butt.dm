@@ -35,16 +35,8 @@
 			size_name = "nonexistent"
 
 	return "You see a [butt_style] of [size_name] asscheeks."
-/*
-/obj/item/organ/genital/butt/set_size(size)
-	. = ..()
-	spawn(0) //set_size is called by build_from_dna.. which executes before Insert assigns owner. This gets around that
-		var/obj/item/organ/genital/anus/anus = owner?.get_organ_slot(ORGAN_SLOT_ANUS) //sometimes
-		if(!anus)
-			return
 
-		anus.set_size(size)
-*/
+
 /obj/item/organ/genital/butt/get_sprite_size_string()
 	. = "[genital_type]_[floor(genital_size)]"
 	if(uses_skintones)
