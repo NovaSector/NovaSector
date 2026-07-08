@@ -3195,31 +3195,3 @@ Cloaks
 /datum/greyscale_config/croptop_bomber_jacket/worn
 	name = "Croptop Bomber Jacket (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
-
-/datum/greyscale_config/croptop_bomber_jacket_stripe
-	name = "Croptop Bomber Jacket"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/croptop_bomber_jacket_stripe.json'
-
-/datum/greyscale_config/croptop_bomber_jacket_stripe/worn
-	name = "Croptop Bomber Jacket (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
-
-/datum/greyscale_config/croptop_bomber_jacket_badge
-	name = "Croptop Bomber Jacket"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/croptop_bomber_jacket_badge.json'
-
-/datum/greyscale_config/croptop_bomber_jacket_badge/worn
-	name = "Croptop Bomber Jacket (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
-
-
-/datum/greyscale_config/croptop_bomber_jacket_plain
-	name = "Croptop Bomber Jacket"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/croptop_bomber_jacket_plain.json'
-
-/datum/greyscale_config/croptop_bomber_jacket_plain/worn
-	name = "Croptop Bomber Jacket (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
