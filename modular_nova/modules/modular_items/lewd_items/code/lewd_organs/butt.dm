@@ -11,9 +11,9 @@
 	genital_type = "pair"
 	mutantpart_key = ORGAN_SLOT_BUTT
 
-/obj/item/organ/genital/butt/get_description_string(datum/sprite_accessory/genital/gas)
+/obj/item/organ/genital/butt/get_description_string(datum/sprite_accessory/genital/butt/butt)
 	var/size_name
-	var/butt_style = gas ? LOWER_TEXT(gas.icon_state) : LOWER_TEXT(genital_name)
+	var/butt_style = LOWER_TEXT(get_genital_descriptor(butt))
 	switch(round(genital_size))
 		if(1)
 			size_name = "average"
