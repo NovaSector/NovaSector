@@ -21,6 +21,8 @@
 	var/untie_timer
 	/// TRUE while the component is dragging the partner after the knotter moves.
 	var/dragging_partner = FALSE
+	/// If we've been untied already
+	var/untied
 
 /datum/component/knotted/Initialize(mob/living/partner, partner_slot, duration = KNOT_DEFAULT_DURATION)
 	if(!isliving(parent) || !isliving(partner) || parent == partner)
