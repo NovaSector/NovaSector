@@ -34,7 +34,7 @@
 
 /// Whether characters with knots can knot this character.
 /datum/preference/toggle/knotting/receive
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "knotting_receive"
 	default_value = FALSE
