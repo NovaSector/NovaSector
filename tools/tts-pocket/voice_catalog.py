@@ -117,6 +117,9 @@ def _normalize(raw_voices: Any) -> list[VoiceDefinition]:
         name = str(item.get("name", "")).strip()
         source = str(item.get("source", "")).strip()
         gender = str(item.get("gender", "")).strip().lower()
+        if gender not in ("", "male", "female"):
+            print(f"[voice-catalog] Unknown gender {gender!r} on voice {name!r} - treating as unset.")
+            gender = ""
         if not name or not source or name in seen_names:
             continue
 
