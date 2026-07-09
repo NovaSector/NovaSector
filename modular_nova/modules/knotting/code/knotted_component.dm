@@ -86,6 +86,7 @@
 
 /// Force-untie now. `silent` skips flavor messages used for death/qdel cleanup.
 /datum/component/knotted/proc/untie(silent = FALSE)
+	untied = TRUE
 	var/mob/living/knotter = parent
 	if(!silent && knotter && !QDELETED(knotter) && partner && !QDELETED(partner))
 		knotter.visible_message(
