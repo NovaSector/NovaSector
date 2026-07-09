@@ -279,7 +279,9 @@ def synthesize_text_wav_cached(voice: VoiceDefinition, text: str) -> bytes:
     if SYNTH_CACHE_VARIANTS <= 0:
         return synthesize_text_wav(voice, text)
 
-    key = hashlib.sha1(f"{voice.name}\0{text}".encode("utf-8")).hexdigest()
+    key = hashlib.sha1(
+        f"{_synth_config_fingerprint()}\0{voice.name}\0{source}\0{text}".encode("utf-8")
+    ).hexdigest()
     key_dir = SYNTH_CACHE_DIR / key
     with _synth_cache_lock:
         existing = sorted(key_dir.glob("*.wav")) if key_dir.exists() else []
