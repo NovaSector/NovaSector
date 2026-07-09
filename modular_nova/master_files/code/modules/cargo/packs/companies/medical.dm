@@ -32,9 +32,6 @@
 	cost = CARGO_CRATE_VALUE * 4
 
 
-//datum/supply_pack/companies/medical/first_aid_kit/orange_satchel
-	//contains = list(/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked)
-	//cost = CARGO_CRATE_VALUE * 4.75
 
 
 // Basic first aid supplies like gauze, sutures, mesh, so on
