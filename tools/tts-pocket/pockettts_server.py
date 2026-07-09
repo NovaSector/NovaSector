@@ -292,7 +292,7 @@ def synthesize_text_wav_cached(voice: VoiceDefinition, text: str) -> bytes:
     wav_bytes = synthesize_text_wav(voice, text)
     key_dir.mkdir(parents=True, exist_ok=True)
     final_path = key_dir / f"{next_index}.wav"
-    temp_path = key_dir / f"{next_index}.wav.tmp{os.getpid()}"
+    temp_path = key_dir / f"{next_index}.wav.tmp{os.getpid()}.{threading.get_ident()}"
     temp_path.write_bytes(wav_bytes)
     os.replace(temp_path, final_path)
     return wav_bytes
