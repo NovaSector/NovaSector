@@ -159,8 +159,7 @@ GLOBAL_LIST_EMPTY(aaerp_maskcache)
 			new_overlay.icon = get_masked_icon(new_overlay, offhand_iconstate)
 		else if(new_overlay.layer == -SHOES_LAYER)
 			new_overlay.icon = get_masked_icon(new_overlay, shoe_iconstate)
-		else
-			new_overlay.blend_mode = BLEND_INSET_OVERLAY
+		new_overlay.blend_mode = BLEND_INSET_OVERLAY
 
 		new_overlay.pixel_w -= image.pixel_w
 		new_overlay.pixel_z -= image.pixel_z

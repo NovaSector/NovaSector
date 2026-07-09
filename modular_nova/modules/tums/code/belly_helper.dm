@@ -136,7 +136,7 @@
 
 	/// A couple layer options for HORIZONTAL and SOUTH layers to play better with genitalia and certain styles of undersuit.
 	/// TODO: Restore higher layer options or migrate to a more robust system when genitalia do.  Ahhghh
-	var/static/list/layer_options = list("Standard" = UNDER_UNIFORM_LAYER + 0.1, "Above Genitals" = UNIFORM_LAYER, "Beneath Undersuit" = BODY_ADJ_LAYER)
+	var/static/list/layer_options = list("Standard" = UNIFORM_LAYER, "Above Most Genitals" = UNIFORM_LAYER - 0.05, "Beneath Undersuit" = BODY_ADJ_LAYER)
 
 /// Sanity checks & required edits to make the belly action get properly granted.
 /obj/item/belly_function/item_action_slot_check(slot, mob/user, datum/action/action)
@@ -269,6 +269,7 @@
 /obj/item/belly_function/proc/update_layer_mode(new_layer_mode)
 	layer_mode = new_layer_mode
 	horizontal_layer = layer_options[layer_mode]
+	to_chat(lastuser, span_notice("Setting belly layer mode to [layer_mode], with calculated layer [horizontal_layer]"))
 	south_layer = layer_options[layer_mode]
 
 /// This is where the magic happens for calculating sizes, triggering noise, etc.
