@@ -23,7 +23,7 @@
 /datum/preference/toggle/knotting/enable
 	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "knotting_enable"
+	savefile_key = "has_knot"
 	default_value = FALSE
 
 /datum/preference/toggle/knotting/enable/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
