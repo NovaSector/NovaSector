@@ -78,7 +78,7 @@
 	if(partner && !QDELETED(partner))
 		REMOVE_TRAIT(partner, TRAIT_KNOTTED, REF(src))
 
-	untie(silent = QDELING(parent) || QDELETED(partner))
+	untie(silent = untied)
 	partner = null
 	return ..()
 
