@@ -188,6 +188,11 @@
 	icon_state = "elephant"
 	color_src = USE_ONE_COLOR
 
+/datum/sprite_accessory/ears/external/experiment
+	name = "Experiment"
+	icon_state = "expear"
+	color_src = USE_ONE_COLOR
+
 /datum/sprite_accessory/ears/external/fennec
 	name = "Fennec"
 	icon_state = "fennec"
