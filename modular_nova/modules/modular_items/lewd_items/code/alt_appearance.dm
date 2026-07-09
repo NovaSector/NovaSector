@@ -51,8 +51,8 @@ GLOBAL_LIST_EMPTY(aaerp_maskcache)
 	image = base_image
 	/// Clone the original image to retain it for a final overlay.
 	original_image = image(base_image)
-	original_image.pixel_x -= image.pixel_x
-	original_image.pixel_y -= image.pixel_y
+	original_image.pixel_w -= image.pixel_w
+	original_image.pixel_z -= image.pixel_z
 	original_image.alpha = 255
 	image.appearance_flags |= KEEP_TOGETHER
 	var/temp_alpha = image.alpha
@@ -162,8 +162,8 @@ GLOBAL_LIST_EMPTY(aaerp_maskcache)
 		else
 			new_overlay.blend_mode = BLEND_INSET_OVERLAY
 
-		new_overlay.pixel_x -= image.pixel_x
-		new_overlay.pixel_y -= image.pixel_y
+		new_overlay.pixel_w -= image.pixel_w
+		new_overlay.pixel_z -= image.pixel_z
 		image.overlays += new_overlay
 
 	image.overlays += original_image

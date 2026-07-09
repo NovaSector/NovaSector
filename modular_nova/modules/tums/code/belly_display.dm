@@ -89,18 +89,18 @@
 
 		/// Sizes above 10 use the 64x icon file, and therefore need offsets.
 		if(counter > 10)
-			overlay_horizontal.pixel_x -= 16
-			overlay_horizontal.pixel_y -= 16
-			overlay_south.pixel_x -= 16
-			overlay_south.pixel_y -= 16
-			overlay_north.pixel_x -= 16
-			overlay_north.pixel_y -= 16
+			overlay_horizontal.pixel_w -= 16
+			overlay_horizontal.pixel_z -= 16
+			overlay_south.pixel_w -= 16
+			overlay_south.pixel_z -= 16
+			overlay_north.pixel_w -= 16
+			overlay_north.pixel_z -= 16
 
 		/// Teshari chests sit ~3px lower, keeping size variety without flattening out.
 		if(is_teshari)
-			overlay_horizontal.pixel_y -= 3
-			overlay_south.pixel_y -= 3
-			overlay_north.pixel_y -= 3
+			overlay_horizontal.pixel_z -= 3
+			overlay_south.pixel_z -= 3
+			overlay_north.pixel_z -= 3
 
 		/// Final image() instances suitable for alt_appearance, logged for later cutting.
 		overlay_horizontal = image(overlay_horizontal, loc = user, layer = overlay_horizontal.layer)
