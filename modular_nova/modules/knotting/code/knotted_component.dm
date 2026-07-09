@@ -28,6 +28,8 @@
 	if(QDELETED(partner))
 		return COMPONENT_INCOMPATIBLE
 	var/mob/living/knotter = parent
+	if(!knotter.Adjacent(partner))
+		return COMPONENT_INCOMPATIBLE
 	if(HAS_TRAIT(knotter, TRAIT_KNOTTED) || HAS_TRAIT(partner, TRAIT_KNOTTED))
 		return COMPONENT_INCOMPATIBLE
 
