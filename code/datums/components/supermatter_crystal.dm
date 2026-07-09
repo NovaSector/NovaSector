@@ -284,21 +284,6 @@
 	playsound(get_turf(atom_source), 'sound/effects/supermatter.ogg', 50, TRUE)
 	consume(atom_source, nom)
 
-// NOVA EDIT ADDITION START - helper proc to blast someone out of the SM chamber and to relative safety. ish.
-/datum/component/supermatter_crystal/proc/find_blast_destination(atom/source)
-	var/atom/atom_source = source
-	var/list/possible_turfs = list()
-	for(var/turf/candidate as anything in RANGE_TURFS(12, atom_source))
-		if(get_dist(atom_source, candidate) < 4)
-			continue
-		if(candidate.is_blocked_turf())
-			continue
-		possible_turfs += candidate
-	if(!length(possible_turfs))
-		return null
-	return pick(possible_turfs)
-// NOVA EDIT ADDITION END
-
 /datum/component/supermatter_crystal/proc/consume(atom/source, atom/movable/consumed_object)
 	if(consumed_object.flags_1 & SUPERMATTER_IGNORES_1)
 		return

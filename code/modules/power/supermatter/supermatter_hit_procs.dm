@@ -76,7 +76,7 @@
 		qdel(rip_u)
 	*/ // NOVA EDIT REMOVAL END
 	// NOVA EDIT ADDITION START
-	to_chat(jedi, span_userdanger("That was a really dense idea. Your body suddenly erupts in unbearable heat!")
+	to_chat(jedi, span_userdanger("That was a really dense idea. Your body suddenly erupts in unbearable heat!"))
 	jedi.investigate_log("was superheated by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
 	jedi.apply_damage(600, BURN, spread_damage = TRUE)
 	jedi.become_husk(BURN)
