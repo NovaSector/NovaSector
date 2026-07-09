@@ -133,4 +133,7 @@ def _is_remote_or_builtin(source: str) -> bool:
     lower_source = source.lower()
     if lower_source.startswith(("hf://", "http://", "https://")):
         return True
-    return not any(separator in source for separator in ("/", "\\")) and "." not in source
+    candidate = Path(source)
+    if not candidate.is_absolute():
+        candidate = _catalog_dir / candidate  # pass catalog_path in, same as resolve_source
+    return not candidate.exists()
