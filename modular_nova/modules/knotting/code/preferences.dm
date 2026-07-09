@@ -26,6 +26,11 @@
 	savefile_key = "knotting_enable"
 	default_value = FALSE
 
+/datum/preference/toggle/knotting/enable/is_accessible(datum/preferences/preferences)
+	if(!..(preferences))
+		return FALSE
+	return is_factual_sprite_accessory(ORGAN_SLOT_PENIS, preferences.read_preference(/datum/preference/choiced/genital/penis))
+
 /datum/preference/toggle/knotting/enable/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	if(value)
 		ADD_TRAIT(target, TRAIT_CAN_KNOT, ROUNDSTART_TRAIT)
