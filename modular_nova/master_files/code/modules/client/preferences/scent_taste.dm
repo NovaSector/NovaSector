@@ -8,4 +8,4 @@
 	savefile_key = "custom_smell"
 
 /datum/preference/text/erp_flavor/smell/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target.dna.features[FLAVOR_KEY_SMELL] = value
+	return
