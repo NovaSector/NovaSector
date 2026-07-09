@@ -315,7 +315,6 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 	epicenter = get_turf(epicenter)
 	if(!epicenter)
 		return
-	stack_trace("explosion at [epicenter.loc] ([epicenter.x], [epicenter.y], [epicenter.z])")
 
 	if(isnull(flame_range))
 		flame_range = light_impact_range
