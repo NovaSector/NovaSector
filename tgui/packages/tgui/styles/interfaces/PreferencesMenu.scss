@@ -3,19 +3,6 @@
 @use '../colors.scss';
 @use '../base.scss';
 
-$department_map: (
-  'Assistant': var(--color-gray),
-  'Captain': colors.fg(var(--color-blue)),
-  'Cargo': var(--color-brown),
-  'Command': var(--color-yellow),
-  'Security': var(--color-red),
-  'Engineering': hsl(from var(--color-orange) h s calc(l + 7.5)),
-  'Medical': var(--color-teal),
-  'Science': colors.fg(var(--color-purple)),
-  'Service': var(--color-green),
-  'Silicon': var(--color-pink),
-);
-
 .ChoicedSelection {
   padding: var(--space-m);
   background-color: var(--color-base);
@@ -126,18 +113,16 @@ $department_map: (
     }
 
     &__departments {
-      @each $department-name, $color-value in $department_map {
-        &--#{$department-name} {
           &.head {
-            background: $color-value;
+            background: colors.bg(var(--department-color));
 
             .job-name {
               font-weight: bold;
             }
           }
 
-          background: colors.fg($color-value);
-          border: var(--border-thickness-small) outset colors.fg($color-value);
+          background: var(--department-color);
+          border: var(--border-thickness-small) outset var(--department-color);
           color: black;
 
           > * {
@@ -172,7 +157,6 @@ $department_map: (
             justify-content: center;
             // NOVA EDIT END
           }
-        }
 
         &--Captain {
           border: var(--border-thickness-medium)
@@ -196,7 +180,6 @@ $department_map: (
           }
             */ // NOVA EDIT REMOVAL END
         }
-      }
 
       &__priority {
         border: var(--border-thickness-tiny) solid hsla(0, 0%, 0%, 0.3);
