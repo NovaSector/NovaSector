@@ -41,17 +41,17 @@
 	. += span_purple("[user.p_Their()] butt has a red tint to it.") + "\n"
 
 /mob/living/carbon/human/proc/get_arousal_flavor_text()
-	if(!dna)
+	if(!client?.prefs)
 		return ""
 
 	if(arousal >= AROUSAL_HIGH)
-		var/high_flavor = dna.features[FLAVOR_KEY_HIGH_AROUSAL]
+		var/high_flavor = client.prefs.read_preference(/datum/preference/text/erp_flavor/high_arousal)
 		return high_flavor ? span_userlove(high_flavor) + "\n" : ""
 	if(arousal >= AROUSAL_MEDIUM)
-		var/medium_flavor = dna.features[FLAVOR_KEY_MEDIUM_AROUSAL]
+		var/medium_flavor = client.prefs.read_preference(/datum/preference/text/erp_flavor/medium_arousal)
 		return medium_flavor ? span_userlove(medium_flavor) + "\n" : ""
 	if(arousal >= AROUSAL_LOW)
-		var/low_flavor = dna.features[FLAVOR_KEY_LOW_AROUSAL]
+		var/low_flavor = client.prefs.read_preference(/datum/preference/text/erp_flavor/low_arousal)
 		return low_flavor ? span_purple(low_flavor) + "\n" : ""
 	return ""
 

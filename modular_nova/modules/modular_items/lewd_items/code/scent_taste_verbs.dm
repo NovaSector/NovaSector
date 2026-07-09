@@ -4,10 +4,13 @@
 
 	if(!istype(target))
 		return FALSE
+	if(!get_organ_slot(ORGAN_SLOT_TONGUE))
+		to_chat(src, span_warning("You don't have a tongue to lick with."))
+		return FALSE
 	if(!can_use_erp_flavor_verb(target, "doesn't feel like being touched right now."))
 		return FALSE
 
-	var/taste = target.dna?.features?[FLAVOR_KEY_TASTE]
+	var/taste = target.client?.prefs?.read_preference(/datum/preference/text/erp_flavor/taste)
 	if(!taste)
 		to_chat(src, span_warning("[target] doesn't seem to have a taste."))
 		return FALSE
@@ -25,7 +28,7 @@
 	if(!can_use_erp_flavor_verb(target, "doesn't feel like being approached that close right now."))
 		return FALSE
 
-	var/scent = target.dna?.features?[FLAVOR_KEY_SMELL]
+	var/scent = target.client?.prefs?.read_preference(/datum/preference/text/erp_flavor/smell)
 	if(!scent)
 		to_chat(src, span_warning("[target] doesn't seem to have a smell."))
 		return FALSE
