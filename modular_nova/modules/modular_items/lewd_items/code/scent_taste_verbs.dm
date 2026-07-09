@@ -50,7 +50,7 @@
 /// Returns adjacent humans for the Lick/Smell IC verb target selector.
 /mob/living/proc/get_adjacent_humans()
 	var/list/nearby_humans = list()
-	for(var/mob/living/carbon/human/nearby_human in orange(1, src))
+	for(var/mob/living/carbon/human/nearby_human in range(1, src))
 		if(nearby_human == src)
 			continue
 		nearby_humans += nearby_human
