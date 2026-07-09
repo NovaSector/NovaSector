@@ -7,6 +7,7 @@
 	to invent their own devices. This one is a 'Wrangler' model NIF-Cutter, used for crudely wiping programs directly off a user's Framework."
 	icon = 'modular_nova/modules/modular_implants/icons/obj/devices.dmi'
 	icon_state = "nifsoft_remover"
+	custom_materials = list(/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT)
 
 	///Is a disk with the corresponding NIFSoft created when said NIFSoft is removed?
 	var/create_disk = FALSE
@@ -144,6 +145,7 @@
 	desc = "A kit that modifies select glasses to display HUDs for NIFs"
 	icon = 'modular_nova/master_files/icons/donator/obj/kits.dmi'
 	icon_state = "partskit"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plastic = SHEET_MATERIAL_AMOUNT)
 
 	/// Can this item be used multiple times? If not, it will delete itself after being used.
 	var/multiple_uses = FALSE

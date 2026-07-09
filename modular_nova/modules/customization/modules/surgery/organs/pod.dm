@@ -13,6 +13,7 @@
 	layers = EXTERNAL_FRONT_OVER|EXTERNAL_FRONT_ABOVE_HAIR
 	color_swapped_layer = EXTERNAL_FRONT_OVER
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = ENTIRE_BODY
 
 /datum/bodypart_overlay/mutant/pod_hair/override_color(rgb_value)
 	return draw_color

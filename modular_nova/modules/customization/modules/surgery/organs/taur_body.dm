@@ -212,6 +212,7 @@
 	feature_key = FEATURE_TAUR
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND | EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_FRONT_OVER
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = ENTIRE_BODY
 
 	/// If this taur body can lay down
 	var/can_lay_down = FALSE

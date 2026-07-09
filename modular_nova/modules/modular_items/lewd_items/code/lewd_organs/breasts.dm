@@ -17,6 +17,7 @@
 /datum/bodypart_overlay/mutant/genital/breasts
 	feature_key = ORGAN_SLOT_BREASTS
 	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+	offset_location = ENTIRE_BODY
 
 /datum/bodypart_overlay/mutant/genital/breasts/underwear_check()
 	if(!istype(owner))
