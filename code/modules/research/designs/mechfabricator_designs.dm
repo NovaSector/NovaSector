@@ -1,6 +1,4 @@
 //Cyborg
-
-/* //NOVA EDIT REMOVAL BEGIN - Costs lowered and time reduced -
 /datum/design/borg_suit
 	name = "Cyborg Endoskeleton"
 	id = "borg_suit"
@@ -77,7 +75,6 @@
 	category = list(
 		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS
 	)
-*///NOVA EDIT REMOVAL END
 
 //Advanced Robotic Limbs
 
@@ -1080,12 +1077,12 @@
 	name = "Plasma Generator"
 	id = "mech_generator"
 	build_type = MECHFAB
-	build_path = /obj/item/mecha_parts/mecha_equipment/generator
+	build_path = /obj/item/mecha_parts/mecha_equipment/generator/printed
 	materials = list(
 		/datum/material/iron=SHEET_MATERIAL_AMOUNT*5,
 		/datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver=SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma=SHEET_MATERIAL_AMOUNT * 2.5,
+		/datum/material/plasma=SHEET_MATERIAL_AMOUNT * 1.5,
 	)
 	construction_time = 10 SECONDS
 	category = list(

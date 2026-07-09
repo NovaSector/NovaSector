@@ -4,6 +4,7 @@
 	items_to_create = list(/obj/item/synth_powercord)
 	zone = "l_arm"
 	cannot_confiscate = TRUE
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/cyberimp/arm/toolkit/power_cord/emp_act(severity)
 	. = ..()

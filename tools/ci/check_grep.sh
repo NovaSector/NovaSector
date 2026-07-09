@@ -184,6 +184,13 @@ if $grep -i '(add_traits|remove_traits)\(.+,\s*src\)' "${code_files[@]}"; then
 	st=1
 fi;
 
+part "incorrect shuffle() usage"
+if $grep '^\t+shuffle\(.*\)$' "${code_files[@]}"; then
+    echo
+    echo -e "${RED}ERROR: shuffle() return was not assigned, use shuffle_inplace() instead if you wish to mutate the passed list!${NC}"
+    st=1
+fi;
+
 part "ensure proper lowertext usage"
 # lowertext() is a BYOND-level proc, so it can be used in any sort of code... including the TGS DMAPI which we don't manage in this repository.
 # basically, we filter out any results with "tgs" in it to account for this edgecase without having to enforce this rule in that separate codebase.
@@ -239,6 +246,13 @@ part "as anything on internal functions"
 if $grep 'var\/(turf|mob|obj|atom\/movable).+ as anything in o?(view|range|hearers)\(' "${code_files[@]}"; then
 	echo
 	echo -e "${RED}ERROR: 'as anything' typed for loop over an internal function. These functions have some internal optimization that relies on the loop not having 'as anything' in it.${NC}"
+	st=1
+fi;
+
+part "update_overlays() called without using return value"
+if $grep '^\t+update_overlays\(\)$' "${code_files[@]}"; then
+	echo
+	echo -e "${RED}ERROR: update_overlays() is being called without using the return value. Use update_appearance(UPDATE_OVERLAYS) instead if you dont understand what this means.${NC}"
 	st=1
 fi;
 

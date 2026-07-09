@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "shale and siderite are no longer indistinguishable from ground textures"

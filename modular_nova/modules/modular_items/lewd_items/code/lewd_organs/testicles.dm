@@ -14,7 +14,10 @@
 
 /datum/bodypart_overlay/mutant/genital/testicles
 	feature_key = ORGAN_SLOT_TESTICLES
-	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
+	layers = list(
+		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+	)
 
 	/// Layer a bit lower, but still close to as high as possible
 	layer_above_all = -(BODY_FRONT_LAYER - 0.01)
@@ -37,8 +40,8 @@
 		passed_string += "_s"
 	icon_state = passed_string
 
-/obj/item/organ/genital/testicles/get_description_string(datum/sprite_accessory/genital/gas)
-	if(genital_name == "Internal") //Checks if Testicles are of Internal Variety
+/obj/item/organ/genital/testicles/get_description_string(datum/sprite_accessory/genital/testicles/testicles)
+	if(istype(testicles, /datum/sprite_accessory/genital/testicles/internal))
 		visibility_preference = GENITAL_SKIP_VISIBILITY //Removes visibility if yes.
 	else
 		return "You see a pair of testicles, they look [LOWER_TEXT(balls_size_to_description(genital_size))]."

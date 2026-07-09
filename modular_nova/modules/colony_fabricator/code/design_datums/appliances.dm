@@ -68,6 +68,9 @@
 	)
 	construction_time = 30 SECONDS
 
+/obj/machinery/portable_atmospherics/pump
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3)
+
 /datum/design/portable_gas_scrubber
 	name = "Portable Air Scrubber"
 	id = "portable_scrubbs"
@@ -82,6 +85,9 @@
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_ATMOS,
 	)
 	construction_time = 30 SECONDS
+
+/obj/machinery/portable_atmospherics/scrubber
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3)
 
 /// Space heater, but it mounts on walls
 

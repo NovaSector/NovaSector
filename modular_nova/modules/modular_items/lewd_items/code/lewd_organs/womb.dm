@@ -15,6 +15,7 @@
 /datum/bodypart_overlay/mutant/genital/womb
 	feature_key = ORGAN_SLOT_WOMB
 	layers = NONE
+	offset_location = NO_MODIFY
 
 /datum/bodypart_overlay/mutant/genital/womb/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_WOMB]
