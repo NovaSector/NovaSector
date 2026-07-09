@@ -387,9 +387,16 @@ def wav_sample_rate(wav_bytes: bytes) -> int:
         return BLIP_SAMPLE_RATE
 
 
+DISALLOWED_FFMPEG_FILTERS = ("amovie", "azmq")
+
+
 def format_filter_chain(filter_chain: str, wav_bytes: bytes) -> str:
     if not filter_chain:
         return ""
+    lower_chain = filter_chain.lower()
+    for disallowed in DISALLOWED_FFMPEG_FILTERS:
+        if disallowed in lower_chain:
+            abort(400)
     return filter_chain.replace("%SAMPLE_RATE%", str(wav_sample_rate(wav_bytes)))
 
 
@@ -421,7 +428,11 @@ def _run_silicon(wav_bytes: bytes, prefix_filters: list[str], out_args: list[str
         "-filter_complex", filter_complex,
     ]
     command.extend(out_args)
-    result = subprocess.run(command, input=wav_bytes, capture_output=True)
+    try:
+        result = subprocess.run(command, input=wav_bytes, capture_output=True, timeout=30)
+    except subprocess.TimeoutExpired:
+        app.logger.error("ffmpeg (silicon) timed out after 30s")
+        abort(500)
     if result.returncode != 0:
         app.logger.error("ffmpeg (silicon) failed: %s", result.stderr.decode("utf-8", errors="replace"))
         abort(500)
