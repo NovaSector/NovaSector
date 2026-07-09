@@ -2,7 +2,7 @@
 
 /datum/preference/text/erp_flavor
 	abstract_type = /datum/preference/text/erp_flavor
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	maximum_value_length = MAX_FLAVOR_ERP_TEXT_LEN
 
