@@ -21,7 +21,7 @@
 
 /// Whether this character can knot a partner after climax.
 /datum/preference/toggle/knotting/enable
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "knotting_enable"
 	default_value = FALSE
