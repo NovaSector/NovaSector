@@ -716,10 +716,10 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	icon_state = "hair_pigtails_5"
 
 /datum/sprite_accessory/hair/nova/pigtails6
-	name = "Pigtails 6"
-	icon_state = "hair_pigtails_6"
-	hair_appendages_inner = list("hair_pigtails_6_a1" = HAIR_APPENDAGE_HANGING_FRONT)
-	hair_appendages_outer = list("hair_pigtails_6_a1o" = HAIR_APPENDAGE_HANGING_FRONT)
+	name = "Pigtails (Girly)"
+	icon_state = "hair_pigtails_girly"
+	hair_appendages_inner = list("hair_pigtails_girly_a1" = HAIR_APPENDAGE_HANGING_FRONT)
+	hair_appendages_outer = list("hair_pigtails_girly_a1o" = HAIR_APPENDAGE_HANGING_FRONT)
 
 /datum/sprite_accessory/hair/pigtailsantenna
 	name = "Pigtails (Antenna)"
