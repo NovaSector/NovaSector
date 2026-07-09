@@ -124,7 +124,7 @@
 		drag_partner_to(old_loc)
 		if(QDELETED(src))
 			return
-	if(knotter.z != partner.z || get_dist(knotter, partner) > 1)
+	if(!knotter.Adjacent(partner))
 		qdel(src)
 
 /datum/component/knotted/proc/should_drag_partner(mob/living/knotter, atom/old_loc)
