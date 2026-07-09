@@ -11,13 +11,6 @@
 #define CLIMAX_TARGET_ASSHOLE "asshole"
 #define CLIMAX_TARGET_MOUTH "mouth"
 
-// DNA feature keys for ERP flavor text, stored on /datum/dna.features.
-#define FLAVOR_KEY_LOW_AROUSAL "low_arousal"
-#define FLAVOR_KEY_MEDIUM_AROUSAL "medium_arousal"
-#define FLAVOR_KEY_HIGH_AROUSAL "high_arousal"
-#define FLAVOR_KEY_TASTE "taste"
-#define FLAVOR_KEY_SMELL "smell"
-
 #define REQUIRE_GENITAL_EXPOSED 1
 #define REQUIRE_GENITAL_UNEXPOSED 2
 #define REQUIRE_GENITAL_ANY 3
