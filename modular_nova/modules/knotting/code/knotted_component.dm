@@ -143,11 +143,10 @@
 	if(!move_success)
 		qdel(src)
 
-/datum/component/knotted/proc/on_resist(datum/source, mob/living/user)
+/datum/component/knotted/proc/on_resist(mob/living/source)
 	SIGNAL_HANDLER
 
-	if(user)
-		user.balloon_alert(user, "pulled free")
+	source.balloon_alert(source, "pulled free")
 	qdel(src)
 
 #undef KNOT_DEFAULT_DURATION
