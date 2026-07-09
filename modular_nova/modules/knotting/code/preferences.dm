@@ -27,9 +27,10 @@
 	default_value = FALSE
 
 /datum/preference/toggle/knotting/has_knot/is_accessible(datum/preferences/preferences)
-	if(!..(preferences))
-		return FALSE
-	return is_factual_sprite_accessory(ORGAN_SLOT_PENIS, preferences.read_preference(/datum/preference/choiced/genital/penis))
+	var/penis_choice = preferences.read_preference(/datum/preference/choiced/genital/penis)
+	if(penis_choice)
+		var/datum/preference/choiced/genital/penis/penis_choice_pref = GLOB.preference_entries[/datum/preference/choiced/genital/penis]
+		return penis_choice_pref.is_accessible(preferences) && is_factual_sprite_accessory(ORGAN_SLOT_PENIS, penis_choice)
 
 /datum/preference/toggle/knotting/has_knot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	if(value)
