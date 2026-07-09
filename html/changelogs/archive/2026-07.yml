@@ -383,3 +383,8 @@
   - qol: moves erp prefs out of the character profile tab and into the new heart tab
   - bugfix: fixes an issue where height filters would not be applied to many bodypart
       overlays
+2026-07-09:
+  Melbert:
+  - bugfix: Fix emote overlays sticking
+  Neocloudy:
+  - bugfix: Croptop bomber jacket works on characters with digitigrade legs.
