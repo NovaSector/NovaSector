@@ -26,7 +26,7 @@
 	savefile_key = "has_knot"
 	default_value = FALSE
 
-/datum/preference/toggle/knotting/enable/is_accessible(datum/preferences/preferences)
+/datum/preference/toggle/knotting/has_knot/is_accessible(datum/preferences/preferences)
 	if(!..(preferences))
 		return FALSE
 	return is_factual_sprite_accessory(ORGAN_SLOT_PENIS, preferences.read_preference(/datum/preference/choiced/genital/penis))
