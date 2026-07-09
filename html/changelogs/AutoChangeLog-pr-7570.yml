@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - rscadd: "Adds a pet clicker tool. To train your pets."
