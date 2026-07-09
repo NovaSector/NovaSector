@@ -20,7 +20,7 @@
 	return FALSE
 
 /// Whether this character can knot a partner after climax.
-/datum/preference/toggle/knotting/enable
+/datum/preference/toggle/knotting/has_knot
 	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "has_knot"
