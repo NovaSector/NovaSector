@@ -101,7 +101,8 @@
 	if(!QDELING(src))
 		qdel(src)
 
-/datum/component/knotted/proc/on_participant_gone(datum/source)
+/// Called on COMSIG_LIVING_DEATH and COMSIG_QDELETING
+/datum/component/knotted/proc/on_participant_gone(datum/source, gibbed)
 	SIGNAL_HANDLER
 	qdel(src)
 
