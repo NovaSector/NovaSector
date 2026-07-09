@@ -56,7 +56,12 @@ CACHE_DIR = Path(os.getenv("POCKETTTS_CACHE_DIR", BASE_DIR / "cache")).resolve()
 SYNTH_CACHE_DIR = Path(os.getenv("POCKETTTS_SYNTH_CACHE_DIR", CACHE_DIR / "synth")).resolve()
 SYNTH_CACHE_VARIANTS = int(os.getenv("POCKETTTS_SYNTH_CACHE_VARIANTS", "5"))
 
-AUTHORIZATION_TOKEN = os.getenv("TTS_AUTHORIZATION_TOKEN", os.getenv("POCKETTTS_AUTHORIZATION_TOKEN", "coolio"))
+AUTHORIZATION_TOKEN = os.getenv("TTS_AUTHORIZATION_TOKEN") or os.getenv("POCKETTTS_AUTHORIZATION_TOKEN") or ""
+if not AUTHORIZATION_TOKEN:
+    raise SystemExit(
+        "[tts-pocket] FATAL: no auth token configured - set TTS_AUTHORIZATION_TOKEN "
+        "(or POCKETTTS_AUTHORIZATION_TOKEN) before starting."
+    )
 HOST = os.getenv("POCKETTTS_HOST", "0.0.0.0")
 PORT = int(os.getenv("POCKETTTS_PORT", "5002"))
 WAITRESS_THREADS = int(os.getenv("POCKETTTS_THREADS", "2"))
