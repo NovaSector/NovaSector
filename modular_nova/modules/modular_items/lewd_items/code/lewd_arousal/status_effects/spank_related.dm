@@ -28,7 +28,7 @@
 
 /mob/living/carbon/human/examine(mob/user)
 	. = ..()
-	if(ishuman(user))
+	if(arousal && ishuman(user))
 		var/mob/living/carbon/human/examiner = user
 		if(examiner.can_see_erp_flavor(src))
 			var/arousal_flavor_text = get_arousal_flavor_text()
