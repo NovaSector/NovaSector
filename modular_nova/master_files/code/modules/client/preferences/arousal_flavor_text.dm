@@ -24,7 +24,7 @@
 	savefile_key = "low_arousal_text"
 
 /datum/preference/text/erp_flavor/low_arousal/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target.dna.features[FLAVOR_KEY_LOW_AROUSAL] = value
+	return
 
 /datum/preference/text/erp_flavor/medium_arousal
 	savefile_key = "medium_arousal_text"
