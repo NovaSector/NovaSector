@@ -3,7 +3,7 @@ services:
     container_name: tts-pocket
     build: .
     ports:
-      - "127.0.0.1:5002:5002"
+      - "5002:5002"
     restart: unless-stopped
     environment:
       TTS_AUTHORIZATION_TOKEN: ${TTS_AUTHORIZATION_TOKEN:-coolio}
