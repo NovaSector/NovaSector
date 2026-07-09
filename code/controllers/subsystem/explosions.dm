@@ -211,6 +211,9 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
  * - explosion_arc: The angle of the arc covered by a directional explosion (if 360 the explosion is non-directional.)
  */
 /proc/explosion(atom/origin, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 0, flame_range = null, flash_range = null, adminlog = TRUE, ignorecap = FALSE, silent = FALSE, smoke = FALSE, protect_epicenter = FALSE, atom/explosion_cause = null, explosion_direction = 0, explosion_arc = 360)
+	var/turf/location = get_turf(origin)
+	if(location && is_station_level(location.z))
+		stack_trace("explosion at [location.loc]([location.x], [location.y], [location.z])")
 	. = SSexplosions.explode(arglist(args))
 
 
@@ -312,6 +315,7 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 	epicenter = get_turf(epicenter)
 	if(!epicenter)
 		return
+	stack_trace("explosion at [epicenter.loc] ([epicenter.x], [epicenter.y], [epicenter.z])")
 
 	if(isnull(flame_range))
 		flame_range = light_impact_range
