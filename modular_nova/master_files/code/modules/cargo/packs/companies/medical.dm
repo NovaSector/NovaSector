@@ -31,9 +31,6 @@
 	contains = list(/obj/item/storage/medkit/robotic_repair/preemo/stocked)
 	cost = CARGO_CRATE_VALUE * 4
 
-//datum/supply_pack/companies/medical/first_aid_kit/first_responder
-	//contains = list(/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked)
-	//cost = CARGO_CRATE_VALUE * 5.25
 
 //datum/supply_pack/companies/medical/first_aid_kit/orange_satchel
 	//contains = list(/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked)
