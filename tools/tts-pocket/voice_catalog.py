@@ -84,7 +84,11 @@ def resolve_source(source: str, catalog_path: Path) -> str:
     source_path = Path(source)
     if not source_path.is_absolute():
         source_path = catalog_path.parent / source_path
-    return str(source_path.resolve())
+    resolved = source_path.resolve()
+    base = catalog_path.parent.resolve()
+    if not resolved.is_relative_to(base):
+        raise ValueError(f"Voice source escapes the catalog directory: {source}")
+    return str(resolved)
 
 
 def relative_to_catalog(path: Path, catalog_path: Path) -> str:
