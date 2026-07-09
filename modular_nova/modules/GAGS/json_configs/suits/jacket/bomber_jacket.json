@@ -1,14 +1,14 @@
 {
-	"bomberjacket": [
+	"bomber_jacket": [
 		{
 			"type": "icon_state",
-			"icon_state": "bomberjacket_base",
+			"icon_state": "bomber_jacket_base",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "bomberjacket_fur",
+			"icon_state": "bomber_jacket_fur",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}

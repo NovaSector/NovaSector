@@ -2613,6 +2613,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	. = ..()
 	allowed = GLOB.security_vest_allowed
 
+//Pyrite's Espatier Belt (DarkRilo)
 /obj/item/storage/belt/espatier
 	name = "dated Espatier holster"
 	desc = "An old outdated holster used by the Sol Federation Espatiers during the Rimward War \
@@ -2678,8 +2679,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		/obj/item/petri_dish,
 		/obj/item/food/grown/banana,
 	))
+//End of Pyrite's Espatier Belt
 
-//Ember's Donor Items
+//Ember's Donor Items (DarkRilo)
 /obj/item/clothing/suit/armor/donator/duke_armored_coat
 	name = "Duke's armored coat"
 	desc = "A custom-tailored armored Terran European officer's frock with a sewn-in steel-ceramic carapace. \
@@ -2699,7 +2701,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	armor_type = /obj/item/clothing/suit/armor/vest/capcarapace::armor_type
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-//Towa's Donor Items
+//Towa's Stachelm (DarkRilo)
 /obj/item/clothing/head/helmet/donator/stachelm
 	name = "\improper Stachelm"
 	desc = "The S1N Special Tactics And Combat helmet is a prototype combat helmet made \
@@ -2732,6 +2734,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/head/helmet/donator/stachelm/attack_self(mob/living/user)
 	toggle_helmet_light(user)
+//END OF Towa's Stachelm
+
+//Towa's Viper Suit (DarkRilo)
+/obj/item/clothing/under/rank/civilian/viper_suit
+	name = "\improper Viper Suit"
+	desc = "An old PMC uniform that has a small insignia of a Black Viper coiled around a black sword, it has seen better days..."
+	icon_state = "vipersuittowa"
+	inhand_icon_state = null
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	female_sprite_flags = NO_FEMALE_UNIFORM
+
 
 /obj/structure/sign/flag/pride/bon
 	name = "\improper Bon's cape"
@@ -2745,3 +2761,4 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "folded_pride_bon"
 	sign_path = /obj/structure/sign/flag/pride/bon
 	worn_icon_state = "bon"
+
