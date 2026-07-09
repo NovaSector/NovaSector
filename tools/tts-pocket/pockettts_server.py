@@ -274,6 +274,19 @@ def synthesize_text_wav(voice: VoiceDefinition, text: str) -> bytes:
 
 _synth_cache_lock = threading.Lock()
 
+def _synth_config_fingerprint() -> str:
+    return "\0".join(
+        str(part)
+        for part in (
+            MODEL_LANGUAGE,
+            MODEL_CONFIG,
+            MODEL_TEMPERATURE,
+            MODEL_LSD_DECODE_STEPS,
+            MODEL_EOS_THRESHOLD,
+            MODEL_NOISE_CLAMP,
+            MODEL_QUANTIZE,
+        )
+    )
 
 def synthesize_text_wav_cached(voice: VoiceDefinition, text: str) -> bytes:
     if SYNTH_CACHE_VARIANTS <= 0:
