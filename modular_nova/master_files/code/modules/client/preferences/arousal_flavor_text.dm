@@ -36,6 +36,6 @@
 	savefile_key = "high_arousal_text"
 
 /datum/preference/text/erp_flavor/high_arousal/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target.dna.features[FLAVOR_KEY_HIGH_AROUSAL] = value
+	return
 
 #undef MAX_FLAVOR_ERP_TEXT_LEN
