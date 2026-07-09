@@ -12,7 +12,9 @@
 
 /datum/bodypart_overlay/mutant/genital/vagina
 	feature_key = ORGAN_SLOT_VAGINA
-	layers = EXTERNAL_FRONT_UNDER_CLOTHES
+	layers = list(
+		EXTERNAL_FRONT_UNDER_CLOTHES = UNDER_UNIFORM_LAYER,
+	)
 
 	/// Lowest-layering thing that affects the crotch
 	layer_above_all = -(BODY_FRONT_LAYER - 0.03)
@@ -28,9 +30,10 @@
 		else
 			return TRUE
 
-/obj/item/organ/genital/vagina/get_description_string(datum/sprite_accessory/genital/gas)
-	var/returned_string = "You see a [LOWER_TEXT(genital_name)] vagina."
-	if(LOWER_TEXT(genital_name) == "cloaca")
+/obj/item/organ/genital/vagina/get_description_string(datum/sprite_accessory/genital/vagina/vagina)
+	var/descriptor = get_genital_descriptor(vagina)
+	var/returned_string = "You see a [LOWER_TEXT(descriptor)] vagina."
+	if(LOWER_TEXT(descriptor) == "cloaca")
 		returned_string = "You see a cloaca." //i deserve a pipebomb for this
 	switch(aroused)
 		if(AROUSAL_NONE)

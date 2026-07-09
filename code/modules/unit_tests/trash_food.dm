@@ -21,8 +21,7 @@
 		/obj/item/stack/rods, // kebab
 		/obj/item/paper/paperslip/fortune, // fortune cookie
 		/obj/item/dice/fudge, // /obj/item/food/fudgedice
-		// NOVA EDIT START: unit test compliance
-		/obj/item/trash/vendor_trash, // base type because it's a joke subtype
+		/obj/item/trash/vendor_trash, // base type because it's a joke subtype // NOVA EDIT ADDITION
 	)
 
 	for(var/path in subtypesof(/obj/item/food))

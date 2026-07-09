@@ -27,7 +27,6 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	"Medieval" = /datum/mutation/medieval,
 	"Mending Touch" = /datum/mutation/lay_on_hands,
 	"Nervousness" = /datum/mutation/nervousness,
-	"Pressure Adaptation" = /datum/mutation/adaptation/pressure,
 	"Restorative Metabolism" = /datum/mutation/restorative_metabolism,
 	"Stimmed" = /datum/mutation/stimmed,
 	"Strength" = /datum/mutation/strong,

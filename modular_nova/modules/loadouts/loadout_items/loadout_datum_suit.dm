@@ -22,7 +22,6 @@
 /datum/loadout_item/suit/croptop
 	name = "Crop Top Turtleneck"
 	item_path = /obj/item/clothing/suit/jacket/croptop
-	reskin_datum = /datum/atom_skin/cableknit_sweater
 
 /datum/loadout_item/suit/czech
 	name = "Czech Coat"
@@ -1057,13 +1056,13 @@
 /datum/loadout_item/suit/armorvest
 	name = "Armor Vest (Colorable)"
 	item_path = /obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/suit/flakvest
 	name = "Flak Vest (Colorable)"
 	item_path = /obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/suit/hazardvest
@@ -1087,7 +1086,7 @@
 /datum/loadout_item/suit/secbomber
 	name = "Guard Bomber Jacket (Colorable)"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/suit/vestedjacket
@@ -1123,13 +1122,13 @@
 /datum/loadout_item/suit/british_jacket
 	name = "Guard British Coat"
 	item_path = /obj/item/clothing/suit/british_officer
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/suit/navybluejacketofficer
 	name = "Guard Formal Jacket (Navy Blue)"
 	item_path = /obj/item/clothing/suit/jacket/officer/blue
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/suit/security_wintercoat
@@ -1147,19 +1146,19 @@
 /datum/loadout_item/suit/tailcoatsec
 	name = "Guard's Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/security_tailcoat
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/suit/tailcoatsecdept
 	name = "Guard's Deputy Tailcoat"
 	item_path = /obj/item/clothing/suit/armor/security_tailcoat/assistant
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/suit/tailcoatsecmedic
 	name = "Guard's Medicated Tailcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/security_medic/doctor_tailcoat
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 //Detective
@@ -1260,3 +1259,8 @@
 /datum/loadout_item/suit/donator/replica_parade_jacket
 	name = "Replica Parade Jacket"
 	item_path = /obj/item/clothing/suit/replica_parade_jacket
+
+/datum/loadout_item/suit/croptop_bomber_jacket
+	name = "Croptop Bomber Jacket"
+	item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket
+	reskin_datum = /datum/atom_skin/croptop_bomber_jacket
