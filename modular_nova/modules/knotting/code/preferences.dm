@@ -31,7 +31,7 @@
 		return FALSE
 	return is_factual_sprite_accessory(ORGAN_SLOT_PENIS, preferences.read_preference(/datum/preference/choiced/genital/penis))
 
-/datum/preference/toggle/knotting/enable/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+/datum/preference/toggle/knotting/has_knot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	if(value)
 		ADD_TRAIT(target, TRAIT_CAN_KNOT, ROUNDSTART_TRAIT)
 	else
