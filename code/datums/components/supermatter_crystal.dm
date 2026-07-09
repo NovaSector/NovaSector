@@ -327,7 +327,7 @@
 				source = atom_source,
 				header = "Polytechnical Difficulties",
 			)
-			consumed_mob.dust(force = TRUE)
+			consumed_mob.dust(force = TRUE) // NOVA EDIT ADDITION - Poly still gets dusted.
 		// NOVA EDIT ADDITION START
 		else
 			var/turf/blast_destination = find_blast_destination(atom_source)

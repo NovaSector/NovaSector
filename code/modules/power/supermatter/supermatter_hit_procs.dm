@@ -66,10 +66,9 @@
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/jedi = user
-	to_chat(jedi, span_userdanger("That was a really dense idea. Your body suddenly erupts in unbearable heat!")) // NOVA EDIT CHANGE - ORIGINAL to_chat(jedi, span_userdanger("That was a really dense idea."))
-
-	/* NOVA EDIT REMOVAL START - bringing the attack_tk in line with the contact husking.
-		jedi.investigate_log("had [jedi.p_their()] brain dusted by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
+	/* // NOVA EDIT REMOVAL START - bringing the attack_tk in line with the contact husking.
+	to_chat(jedi, span_userdanger("That was a really dense idea."))
+	jedi.investigate_log("had [jedi.p_their()] brain dusted by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
 	jedi.ghostize()
 	var/obj/item/organ/brain/rip_u = locate(/obj/item/organ/brain) in jedi.organs
 	if(rip_u)
@@ -77,6 +76,7 @@
 		qdel(rip_u)
 	*/ // NOVA EDIT REMOVAL END
 	// NOVA EDIT ADDITION START
+	to_chat(jedi, span_userdanger("That was a really dense idea. Your body suddenly erupts in unbearable heat!")
 	jedi.investigate_log("was superheated by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
 	jedi.apply_damage(600, BURN, spread_damage = TRUE)
 	jedi.become_husk(BURN)
