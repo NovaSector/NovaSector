@@ -398,7 +398,11 @@ def _run_ffmpeg(wav_bytes: bytes, filters: list[str], out_args: list[str]) -> by
     if filters:
         command.extend(["-filter_complex", ",".join(filters)])
     command.extend(out_args)
-    result = subprocess.run(command, input=wav_bytes, capture_output=True)
+    try:
+        result = subprocess.run(command, input=wav_bytes, capture_output=True, timeout=30)
+    except subprocess.TimeoutExpired:
+        app.logger.error("ffmpeg timed out after 30s")
+        abort(500)
     if result.returncode != 0:
         app.logger.error("ffmpeg failed: %s", result.stderr.decode("utf-8", errors="replace"))
         abort(500)
