@@ -1,3 +1,25 @@
+/// The genital visibility options
+GLOBAL_LIST_INIT(genital_visibility_options, list(
+	"Never show" = GENITAL_NEVER_SHOW,
+	"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
+	"Custom" = GENITAL_CUSTOM,
+))
+
+/// The genital layering options
+GLOBAL_LIST_INIT(genital_layering_options, list(
+	"Below underwear" = GENITAL_LAYER_BELOW_UNDIES,
+	"Normal" = GENITAL_LAYER_NORMAL,
+	"Above underwear" = GENITAL_LAYER_ABOVE_UNDIES,
+	"Above all clothing" = GENITAL_LAYER_ABOVE_ALL,
+))
+
+/// Reverse lookup: the label whose define matches the current value, or null.
+/proc/genital_option_label(list/options, value)
+	for(var/label in options)
+		if(options[label] == value)
+			return label
+	return null
+
 /obj/item/organ/genital
 	color = "#fcccb3"
 	organ_flags = parent_type::organ_flags | ORGAN_UNREMOVABLE | ORGAN_EXTERNAL | ORGAN_HIDDEN
@@ -131,22 +153,52 @@
 	var/mob/living/carbon/human/human = owner
 
 	switch(visibility_preference)
-		if(GENITAL_CUSTOM)
+		if(GENITAL_HIDDEN_BY_CLOTHES, GENITAL_CUSTOM)
 			var/datum/bodypart_overlay/mutant/genital/overlay = bodypart_overlay
-			if(overlay?.layer_mode == GENITAL_LAYER_ABOVE_ALL)
+			if(visibility_preference == GENITAL_CUSTOM && overlay?.layer_mode == GENITAL_LAYER_ABOVE_ALL)
 				return TRUE //Renders over everything, so it's on display regardless of clothing
-			//Otherwise physical coverage decides, same as hidden-by-clothes - rendering
-			//behind your underwear doesn't make you exposed while wearing a hardsuit.
-			if((human.w_uniform && human.w_uniform.body_parts_covered & genital_location) || (human.wear_suit && human.wear_suit.body_parts_covered & genital_location))
-				return FALSE
-			return TRUE
-		if(GENITAL_HIDDEN_BY_CLOTHES)
-			if((human.w_uniform && human.w_uniform.body_parts_covered & genital_location) || (human.wear_suit && human.wear_suit.body_parts_covered & genital_location))
-				return FALSE
-			else
-				return TRUE
-		else
+			// Every other case - including Custom's under-uniform layers and Custom + Normal - comes down to physical coverage.
+			return (human.w_uniform && human.w_uniform.body_parts_covered & genital_location) || (human.wear_suit && human.wear_suit.body_parts_covered & genital_location)
+		else //Never show, and anything unexpected.
 			return FALSE
+
+/// Applies a visibility option by its menu label. Returns TRUE and refreshes the body on success.
+/obj/item/organ/genital/proc/apply_visibility_label(label)
+	var/value = GLOB.genital_visibility_options[label]
+	if(isnull(value))
+		return FALSE
+	visibility_preference = value
+	owner?.update_body()
+	return TRUE
+
+/// Applies a layer_mode option option by its menu label. Returns TRUE and refreshes the body on success.
+/obj/item/organ/genital/proc/apply_layering_label(label)
+	var/value = GLOB.genital_layering_options[label]
+	if(isnull(value))
+		return FALSE
+	var/datum/bodypart_overlay/mutant/genital/overlay = bodypart_overlay
+	overlay.layer_mode = value
+	owner?.update_body()
+	return TRUE
+
+/// The per-genital config entry every configuring UI sends to tgui.
+/obj/item/organ/genital/proc/get_layering_ui_entry()
+	var/datum/bodypart_overlay/mutant/genital/overlay = bodypart_overlay
+	return list(
+		"name" = capitalize(name),
+		"ref" = REF(src),
+		"visibility" = genital_option_label(GLOB.genital_visibility_options, visibility_preference),
+		"layering" = genital_option_label(GLOB.genital_layering_options, overlay.layer_mode),
+		"custom" = (visibility_preference == GENITAL_CUSTOM),
+	)
+
+/// Every genital that should appear in configuration menus.
+/mob/living/carbon/human/proc/get_configurable_genitals()
+	var/list/result = list()
+	for(var/obj/item/organ/genital/genital in organs)
+		if(genital.visibility_preference != GENITAL_SKIP_VISIBILITY)
+			result += genital
+	return result
 
 /datum/bodypart_overlay/mutant/genital
 	layers = list(
@@ -176,14 +228,6 @@
 /datum/bodypart_overlay/mutant/genital/get_base_icon_state()
 	return sprite_suffix
 
-/datum/bodypart_overlay/mutant/genital/icon_render_key(obj/item/bodypart/limb)
-	. = ..()
-	// The layer only applies under Custom, so the key must capture both facts -
-	// otherwise toggling Custom on/off with the same remembered layer_mode
-	// serves a stale cached appearance.
-	. += is_custom_layered() ? "[layer_mode]" : "default"
-
-
 /// Whether the owning organ is set to Custom visibility, i.e. manual layer control.
 /datum/bodypart_overlay/mutant/genital/proc/is_custom_layered()
 	if(!istype(owner))
@@ -207,26 +251,12 @@
 	return ..()
 
 /// Per-organ menu for genital visibility + render layering.
-/// Two independent radio columns: visibility_preference and layer_mode.
+/// Options and apply logic live in the shared GLOBs and organ procs above.
 /datum/genital_layering_panel
 	/// The mob whose genitals we're editing.
 	var/mob/living/carbon/human/owner
 	/// The organ the tabs currently have selected.
 	var/obj/item/organ/genital/selected_organ
-
-	/// Menu label -> visibility_preference define.
-	var/static/list/visibility_options = list(
-		"Never show" = GENITAL_NEVER_SHOW,
-		"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
-		"Custom" = GENITAL_CUSTOM,
-	)
-	/// Menu label -> layer_mode define.
-	var/static/list/layering_options = list(
-		"Below underwear" = GENITAL_LAYER_BELOW_UNDIES,
-		"Normal" = GENITAL_LAYER_NORMAL,
-		"Above underwear" = GENITAL_LAYER_ABOVE_UNDIES,
-		"Above all clothing" = GENITAL_LAYER_ABOVE_ALL,
-	)
 
 /datum/genital_layering_panel/New(mob/living/carbon/human/owner)
 	src.owner = owner
@@ -234,7 +264,7 @@
 	if(length(eligible))
 		selected_organ = eligible[1]
 
-/datum/genital_layering_panel/Destroy(force)
+/datum/genital_layering_panel/Destroy()
 	if(owner?.genital_layering_panel == src)
 		owner.genital_layering_panel = null
 	owner = null
@@ -243,11 +273,7 @@
 
 /// Every genital that should appear in the menu.
 /datum/genital_layering_panel/proc/eligible_genitals()
-	var/list/result = list()
-	for(var/obj/item/organ/genital/genital in owner?.organs)
-		if(genital.visibility_preference != GENITAL_SKIP_VISIBILITY)
-			result += genital
-	return result
+	return owner?.get_configurable_genitals() || list()
 
 /datum/genital_layering_panel/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -266,12 +292,8 @@
 
 /datum/genital_layering_panel/ui_static_data(mob/user)
 	var/list/data = list()
-	data["visibility_options"] = list()
-	for(var/option in visibility_options)
-		data["visibility_options"] += option
-	data["layering_options"] = list()
-	for(var/option in layering_options)
-		data["layering_options"] += option
+	data["visibility_options"] = assoc_to_keys(GLOB.genital_visibility_options)
+	data["layering_options"] = assoc_to_keys(GLOB.genital_layering_options)
 	return data
 
 /datum/genital_layering_panel/ui_data(mob/user)
@@ -283,25 +305,15 @@
 	var/list/data = list()
 	data["genitals"] = list()
 	for(var/obj/item/organ/genital/genital as anything in eligible)
-		data["genitals"] += list(list(
-			"name" = capitalize(genital.name),
-			"ref" = REF(genital),
-		))
+		data["genitals"] += list(genital.get_layering_ui_entry())
 	data["selected"] = selected_organ ? REF(selected_organ) : null
 
 	if(selected_organ)
 		var/datum/bodypart_overlay/mutant/genital/overlay = selected_organ.bodypart_overlay
-		data["visibility"] = label_for(visibility_options, selected_organ.visibility_preference)
-		data["layering"] = label_for(layering_options, overlay.layer_mode)
+		data["visibility"] = genital_option_label(GLOB.genital_visibility_options, selected_organ.visibility_preference)
+		data["layering"] = genital_option_label(GLOB.genital_layering_options, overlay.layer_mode)
 		data["custom"] = (selected_organ.visibility_preference == GENITAL_CUSTOM)
 	return data
-
-/// Reverse lookup: the label whose define matches the current value, or null.
-/datum/genital_layering_panel/proc/label_for(list/options, value)
-	for(var/label in options)
-		if(options[label] == value)
-			return label
-	return null
 
 /datum/genital_layering_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -320,24 +332,13 @@
 
 	switch(action)
 		if("set_visibility")
-			// Labels come from the client; the assoc lookup is the whitelist.
-			var/value = visibility_options[params["option"]]
-			if(isnull(value))
+			if(!selected_organ.apply_visibility_label(params["option"]))
 				return
-			selected_organ.visibility_preference = value
-			ui.user.balloon_alert(ui.user, "[selected_organ.name] set to [LOWER_TEXT(params["option"])]")
-			. = TRUE
+			return TRUE
 		if("set_layering")
-			var/value = layering_options[params["option"]]
-			if(isnull(value))
+			if(!selected_organ.apply_layering_label(params["option"]))
 				return
-			var/datum/bodypart_overlay/mutant/genital/overlay = selected_organ.bodypart_overlay
-			overlay.layer_mode = value
-			ui.user.balloon_alert(ui.user, "[selected_organ.name] layering set to [LOWER_TEXT(params["option"])]")
-			. = TRUE
-
-	if(.)
-		owner.update_body()
+			return TRUE
 
 /mob/living/carbon/human/verb/toggle_genitals()
 	set category = "IC"

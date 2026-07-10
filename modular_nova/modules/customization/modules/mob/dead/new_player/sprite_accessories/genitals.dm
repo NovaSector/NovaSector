@@ -20,9 +20,13 @@
 		return TRUE
 
 	switch(badonkers.visibility_preference)
-		if(GENITAL_CUSTOM) // The artist formerly known as 'Always show'
-			return FALSE
-		if(GENITAL_HIDDEN_BY_CLOTHES)
+		if(GENITAL_HIDDEN_BY_CLOTHES, GENITAL_CUSTOM)
+			// Custom with an explicit layer override always renders - z-order handles
+			// occlusion. Custom + Normal means "no override", so it falls through to
+			// the classic clothing checks exactly like Hidden by clothes.
+			var/datum/bodypart_overlay/mutant/genital/overlay = badonkers.bodypart_overlay
+			if(badonkers.visibility_preference == GENITAL_CUSTOM && overlay?.layer_mode != GENITAL_LAYER_NORMAL) // The artist formerly known as 'Always show'
+				return FALSE // If it's not on 'Normal' mode, it's considered not hidden
 			var/datum/bodypart_overlay/mutant/genital/genital_overlay = badonkers.bodypart_overlay
 			var/layer_mode = genital_overlay?.layer_mode
 

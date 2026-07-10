@@ -83,6 +83,9 @@
 /datum/component/interactable/ui_static_data(mob/user)
 	var/list/data = list()
 	data["arousalLimit"] = AROUSAL_LIMIT
+	// Genital config option labels, shared with the standalone layering panel.
+	data["genital_visibility_options"] = assoc_to_keys(GLOB.genital_visibility_options)
+	data["genital_layering_options"] = assoc_to_keys(GLOB.genital_layering_options)
 	return data
 
 /datum/component/interactable/ui_data(mob/user)
@@ -169,6 +172,14 @@
 
 	data["lewd_slots"] = parts
 
+	// Genital visibility/layering config - only for your own body, so it only
+	// populates (and the tab only appears) when the panel is opened on yourself.
+	var/list/genital_config = list()
+	if(user == self)
+		for(var/obj/item/organ/genital/genital as anything in self.get_configurable_genitals())
+			genital_config += list(genital.get_layering_ui_entry())
+	data["genital_config"] = genital_config
+
 	return data
 
 /**
@@ -198,6 +209,17 @@
 	if(action == "toggle_subtler")
 		use_subtler = !use_subtler
 		return TRUE
+
+	if(action == "set_genital_visibility" || action == "set_genital_layering")
+		var/mob/living/carbon/human/actor = ui.user
+		if(actor != self) // You configure your own body, nobody else's.
+			return
+		// Locating within the actor's own configurable set is the ref whitelist.
+		var/obj/item/organ/genital/organ = locate(params["ref"]) in actor.get_configurable_genitals()
+		if(!organ)
+			return
+		var/is_layering = (action == "set_genital_layering")
+		return is_layering ? organ.apply_layering_label(params["option"]) : organ.apply_visibility_label(params["option"])
 
 	if(params["interaction"])
 		var/interaction_id = params["interaction"]

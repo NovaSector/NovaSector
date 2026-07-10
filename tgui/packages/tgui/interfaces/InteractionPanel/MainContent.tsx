@@ -1,5 +1,4 @@
 // THIS IS A NOVA SECTOR UI FILE
-
 import { useState } from 'react';
 import {
   Button,
@@ -11,26 +10,23 @@ import {
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../../backend';
-
 type Interaction = {
   erp_interaction: BooleanLike;
+  genital_config: { name: string; ref: string }[];
 };
-
-import { InteractionsTab, LewdItemsTab } from './tabs';
-
+import { GenitalLayeringTab, InteractionsTab, LewdItemsTab } from './tabs';
 export const MainContent = () => {
   const [searchText, setSearchText] = useState('');
   const [tabIndex, setTabIndex] = useState(0);
   const [showCategories, setShowCategories] = useState(true);
   const { data } = useBackend<Interaction>();
-  const { erp_interaction } = data;
+  const { erp_interaction, genital_config = [] } = data;
   const placeholder =
     tabIndex === 0
       ? 'Search for an interaction'
       : tabIndex === 1
         ? 'Search for an item'
         : 'Searching is unavailable for this tab';
-
   return (
     <Section fill>
       <Stack vertical fill>
@@ -39,6 +35,14 @@ export const MainContent = () => {
             <Tabs.Tab selected={tabIndex === 0} onClick={() => setTabIndex(0)}>
               Interactions
             </Tabs.Tab>
+            {genital_config.length > 0 && (
+              <Tabs.Tab
+                selected={tabIndex === 2}
+                onClick={() => setTabIndex(2)}
+              >
+                Genital Options
+              </Tabs.Tab>
+            )}
             {erp_interaction && (
               <Tabs.Tab
                 selected={tabIndex === 1}
@@ -78,7 +82,9 @@ export const MainContent = () => {
         </Stack.Item>
         <Stack.Item grow mb={-1.6}>
           <Section fill>
-            {tabIndex === 1 ? (
+            {tabIndex === 2 ? (
+              <GenitalLayeringTab />
+            ) : tabIndex === 1 ? (
               <LewdItemsTab searchText={searchText} />
             ) : (
               <InteractionsTab

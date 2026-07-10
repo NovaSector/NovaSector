@@ -180,11 +180,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 
 	return returnable_list
 
-/// Fast-path fetch of the cached icon states assoc list for an icon file, building it on first miss.
-/// Cache hits compile to a bare list index at the call site.
-#define GET_CACHED_ICON_STATES(icon_file) (SSaccessories.cached_mutant_icon_files[icon_file] || SSaccessories.build_cached_icon_states(icon_file))
-
-/// Generates cached list of mutant_icon_files if it doesn't exist yet - Should never be called directly as it will just rebuild the cache each time.
+/// Generates cached list of mutant_icon_files if it doesn't exist yet - Should never be called more than once.
 /datum/controller/subsystem/accessories/proc/build_cached_icon_states(icon_file)
 	var/list/cached = list()
 	for(var/state in icon_states(new /icon(icon_file)))

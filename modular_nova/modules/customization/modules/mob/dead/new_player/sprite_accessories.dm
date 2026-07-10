@@ -57,7 +57,7 @@
 		default_color = DEFAULT_MATRIXED
 		color_layer_names = list()
 
-		var/list/icon_states_list = GET_CACHED_ICON_STATES(icon)
+		var/list/icon_states_list = SSaccessories.cached_mutant_icon_files[icon] || SSaccessories.build_cached_icon_states(icon)
 		var/icon_state_prefix = "m_[key]_[get_sprite_suffix()]"
 
 		for(var/postfix in SSaccessories.all_layer_postfixes)
