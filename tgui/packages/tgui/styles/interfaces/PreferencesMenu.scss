@@ -113,73 +113,42 @@
     }
 
     &__departments {
-          &.head {
-            background: colors.bg(var(--department-color));
+      &.head {
+        background: colors.bg(var(--department-color));
 
-            .job-name {
-              font-weight: bold;
-            }
-          }
-
-          background: var(--department-color);
-          border: var(--border-thickness-small) outset var(--department-color);
-          color: black;
-
-          > * {
-            height: calc(100% + 0.2em);
-            //padding-bottom: 0.2em; // NOVA EDIT REMOVAL
-          }
-
-          // NOVA EDIT ADDITION START
-          .jobRow {
-            align-items: center;
-            justify-content: center;
-          }
-
-          .options .Button {
-            margin-right: 0.2em;
-            margin-top: 0.2em;
-          }
-
-          .options:last-child .Button {
-            margin-bottom: 0;
-            margin-right: 0.2em;
-            margin-top: 0.2em;
-          }
-          // NOVA EDIT ADDITION END
-          .options {
-            margin-right: var(--space-xxs);
-            background: hsla(0, 0%, 0%, 0.2);
-            height: 100%;
-            // NOVA EDIT START
-            text-align: right;
-            align-items: center;
-            justify-content: center;
-            // NOVA EDIT END
-          }
-
-        &--Captain {
-          border: var(--border-thickness-medium)
-            outset
-            hsla(60, 100%, 39.2%, 1);
-          border-bottom: 0; // NOVA EDIT ADDITION
-
-          &:first-child {
-            border-top: var(--border-thickness-medium)
-              outset
-              hsla(60, 100%, 39.2%, 1);
-          }
-          // NOVA EDIT ADDITION START
-          &:nth-last-child(1) {
-            border-bottom: 3px solid rgba(200, 200, 0, 1);
-          }
-          // NOVA EDIT ADDITION END
-          /* // NOVA EDIT REMOVAL START
-          .job-name {
-            font-size: 17px;
-          }
-            */ // NOVA EDIT REMOVAL END
+        .job-name {
+          font-weight: bold;
         }
+      }
+
+      background: colors.fg(var(--department-color));
+      border: var(--border-thickness-small) outset
+        colors.fg(var(--department-color));
+      color: black;
+
+      > * {
+        height: calc(100% + 0.2em);
+        padding-bottom: 0.2em;
+      }
+
+      .options {
+        margin-right: var(--space-xxs);
+        background: hsla(0, 0%, 0%, 0.2);
+        height: 100%;
+      }
+
+      &--Captain {
+        border: var(--border-thickness-medium) outset hsla(60, 100%, 39.2%, 1);
+
+        &:first-child {
+          border-top: var(--border-thickness-medium) outset
+            hsla(60, 100%, 39.2%, 1);
+        }
+
+        .job-name {
+          font-size: 17px;
+        }
+      }
 
       &__priority {
         border: var(--border-thickness-tiny) solid hsla(0, 0%, 0%, 0.3);
