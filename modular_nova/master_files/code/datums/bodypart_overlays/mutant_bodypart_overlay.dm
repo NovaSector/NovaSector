@@ -121,11 +121,9 @@
 
 	switch(sprite_datum.color_src)
 		if(USE_MATRIXED_COLORS)
-			var/list/color_layer_names = get_color_layer_names(build_icon_state_nova(gender, layer_index))
+			for (var/color_index in sprite_datum.color_layer_names)
 
-			for (var/color_index in color_layer_names)
-
-				var/mutable_appearance/color_layer_image = get_singular_image(build_icon_state_nova(gender, layer_index, color_layer_names[color_index]), layer_index, layer_real, owner, limb = limb)
+				var/mutable_appearance/color_layer_image = get_singular_image(build_icon_state_nova(gender, layer_index, sprite_datum.color_layer_names[color_index]), layer_index, layer_real, owner, limb = limb)
 				returned_images += color_layer_image
 
 				overlay_indexes_to_color += index
@@ -157,14 +155,6 @@
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic/icon_render_key(obj/item/bodypart/limb)
 	. = ..()
 	. += inner_color
-
-
-/**
- * Returns the color_layer_names of the sprite_datum associated with our datum.
- * Mainly here so that it can be overriden elsewhere to have other effects.
- */
-/datum/bodypart_overlay/mutant/proc/get_color_layer_names(icon_state_to_lookup)
-	return sprite_datum.color_layer_names
 
 
 /// Colors the given overlays list. Limb can be null.

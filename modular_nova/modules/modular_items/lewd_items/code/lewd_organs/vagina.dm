@@ -13,22 +13,10 @@
 /datum/bodypart_overlay/mutant/genital/vagina
 	feature_key = ORGAN_SLOT_VAGINA
 	layers = list(
-		EXTERNAL_FRONT_UNDER_CLOTHES = UNDER_UNIFORM_LAYER,
+		EXTERNAL_FRONT_UNDER_CLOTHES = VAGINA_LAYER,
 	)
-
-	/// Lowest-layering thing that affects the crotch
-	layer_above_all = -(BODY_FRONT_LAYER - 0.03)
-	layer_above_undies = -(UNIFORM_LAYER - 0.03)
-	layer_below_undies = -(UNIFORM_LAYER + 0.05)
-
-/datum/bodypart_overlay/mutant/genital/vagina/underwear_check()
-	if(!istype(owner))
-		return FALSE
-	else
-		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
-			return FALSE
-		else
-			return TRUE
+	offset_location = LOWER_BODY
+	genital_stack_rank = 4
 
 /obj/item/organ/genital/vagina/get_description_string(datum/sprite_accessory/genital/vagina/vagina)
 	var/descriptor = get_genital_descriptor(vagina)

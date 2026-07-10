@@ -17,7 +17,6 @@
 		SPECIES_MAMMAL = 1,
 	)
 	organ_type = /obj/item/organ/wings/custom
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer)
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
@@ -126,7 +125,6 @@
 		SPECIES_LIZARD = 1,
 		SPECIES_INSECT = 1,
 	)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	dimension_x = 46
 	dimension_y = 34
 	center = TRUE

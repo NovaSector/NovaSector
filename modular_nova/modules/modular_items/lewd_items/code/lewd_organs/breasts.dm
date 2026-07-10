@@ -17,19 +17,11 @@
 /datum/bodypart_overlay/mutant/genital/breasts
 	feature_key = ORGAN_SLOT_BREASTS
 	layers = list(
-		EXTERNAL_FRONT_UNDER_CLOTHES = UNDER_UNIFORM_LAYER,
+		EXTERNAL_FRONT_UNDER_CLOTHES = BREASTS_LAYER,
 		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
 	)
 	offset_location = ENTIRE_BODY
-
-/datum/bodypart_overlay/mutant/genital/breasts/underwear_check()
-	if(!istype(owner))
-		return FALSE
-	else
-		if((owner.underwear_visibility & UNDERWEAR_HIDE_SHIRT) && (owner.underwear_visibility & UNDERWEAR_HIDE_BRA))
-			return FALSE
-		else
-			return TRUE
+	genital_stack_rank = 1
 
 /obj/item/organ/genital/breasts/get_description_string(datum/sprite_accessory/genital/breasts/breasts)
 	var/returned_string = "You see a [LOWER_TEXT(get_genital_descriptor(breasts))] of breasts."

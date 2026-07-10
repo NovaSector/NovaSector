@@ -6,7 +6,6 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ipc_screens.dmi'
 	color_src = null
 	key = FEATURE_SYNTH_SCREEN
-	relevent_layers = list(UNDER_UNIFORM_LAYER)
 	organ_type = /obj/item/organ/synth_screen
 
 /datum/sprite_accessory/screen/none
@@ -149,7 +148,6 @@
 	default_color = DEFAULT_SECONDARY
 	recommended_species = list(SPECIES_SYNTH = 1)
 	key = FEATURE_SYNTH_ANTENNA
-	relevent_layers = list(BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/synth_antenna
 
 /datum/sprite_accessory/antenna/is_hidden(mob/living/carbon/human/wearer)
