@@ -4,6 +4,10 @@
 	var/wagging = FALSE
 
 /datum/bodypart_overlay/mutant/tail
+	layers = list(
+		EXTERNAL_FRONT = ABOVE_BODY_FRONT_HEAD_LAYER, // Changed from EXTERNAL_FRONT = BODY_FRONT_LAYER ON TG
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+	)
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/tail/get_global_feature_list()
