@@ -220,16 +220,13 @@
 		if(!organ)
 			return
 		var/success = FALSE
-		var/noun = ""
 		switch(action)
 			if("set_genital_visibility")
 				success = organ.apply_visibility_label(params["option"])
 			if("set_genital_layering")
 				success = organ.apply_layering_label(params["option"])
-				noun = "layering "
 			if("set_genital_arousal")
 				success = organ.apply_arousal_label(params["option"])
-				noun = "arousal "
 		return success
 
 	if(params["interaction"])
