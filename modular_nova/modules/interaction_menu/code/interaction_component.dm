@@ -86,6 +86,7 @@
 	// Genital config option labels, shared with the standalone layering panel.
 	data["genital_visibility_options"] = assoc_to_keys(GLOB.genital_visibility_options)
 	data["genital_layering_options"] = assoc_to_keys(GLOB.genital_layering_options)
+	data["genital_arousal_options"] = assoc_to_keys(GLOB.genital_arousal_options)
 	return data
 
 /datum/component/interactable/ui_data(mob/user)
@@ -210,7 +211,7 @@
 		use_subtler = !use_subtler
 		return TRUE
 
-	if(action == "set_genital_visibility" || action == "set_genital_layering")
+	if(action == "set_genital_visibility" || action == "set_genital_layering" || action == "set_genital_arousal")
 		var/mob/living/carbon/human/actor = ui.user
 		if(actor != self) // You configure your own body, nobody else's.
 			return
@@ -218,8 +219,20 @@
 		var/obj/item/organ/genital/organ = locate(params["ref"]) in actor.get_configurable_genitals()
 		if(!organ)
 			return
-		var/is_layering = (action == "set_genital_layering")
-		return is_layering ? organ.apply_layering_label(params["option"]) : organ.apply_visibility_label(params["option"])
+		var/success = FALSE
+		var/noun = ""
+		switch(action)
+			if("set_genital_visibility")
+				success = organ.apply_visibility_label(params["option"])
+			if("set_genital_layering")
+				success = organ.apply_layering_label(params["option"])
+				noun = "layering "
+			if("set_genital_arousal")
+				success = organ.apply_arousal_label(params["option"])
+				noun = "arousal "
+		if(success)
+			actor.balloon_alert(actor, "[organ.name] [noun]set to [LOWER_TEXT(params["option"])]")
+		return success
 
 	if(params["interaction"])
 		var/interaction_id = params["interaction"]

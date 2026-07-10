@@ -13,6 +13,13 @@ GLOBAL_LIST_INIT(genital_layering_options, list(
 	"Above all clothing" = GENITAL_LAYER_ABOVE_ALL,
 ))
 
+/// The genital arousal options
+GLOBAL_LIST_INIT(genital_arousal_options, list(
+	"Not aroused" = AROUSAL_NONE,
+	"Partly aroused" = AROUSAL_PARTIAL,
+	"Very aroused" = AROUSAL_FULL,
+))
+
 /// Reverse lookup: the label whose define matches the current value, or null.
 /proc/genital_option_label(list/options, value)
 	for(var/label in options)
@@ -143,6 +150,11 @@ GLOBAL_LIST_INIT(genital_layering_options, list(
 			max_sprite_size_affix = accessory.max_sprite_size_affix
 	return
 
+/// Whether the mob's worn clothing physically covers this genital's location.
+/obj/item/organ/genital/proc/covered_by_clothing(mob/living/carbon/human/human)
+	return (human.w_uniform && human.w_uniform.body_parts_covered & genital_location) \
+		|| (human.wear_suit && human.wear_suit.body_parts_covered & genital_location)
+
 /obj/item/organ/genital/proc/is_exposed()
 	if(!owner)
 		return TRUE
@@ -157,8 +169,8 @@ GLOBAL_LIST_INIT(genital_layering_options, list(
 			var/datum/bodypart_overlay/mutant/genital/overlay = bodypart_overlay
 			if(visibility_preference == GENITAL_CUSTOM && overlay?.layer_mode == GENITAL_LAYER_ABOVE_ALL)
 				return TRUE //Renders over everything, so it's on display regardless of clothing
-			// Every other case - including Custom's under-uniform layers and Custom + Normal - comes down to physical coverage.
-			return (human.w_uniform && human.w_uniform.body_parts_covered & genital_location) || (human.wear_suit && human.wear_suit.body_parts_covered & genital_location)
+			//Every other case - including Custom's under-uniform layers and Custom + Normal - comes down to physical coverage.
+			return !covered_by_clothing(human)
 		else //Never show, and anything unexpected.
 			return FALSE
 
@@ -181,6 +193,18 @@ GLOBAL_LIST_INIT(genital_layering_options, list(
 	owner?.update_body()
 	return TRUE
 
+/// Applies an arousal option by its menu label. Returns TRUE and refreshes the body on success.
+/obj/item/organ/genital/proc/apply_arousal_label(label)
+	var/value = GLOB.genital_arousal_options[label]
+	if(isnull(value))
+		return FALSE
+	if(aroused == AROUSAL_CANT) // Not arousable - don't let UIs force it.
+		return FALSE
+	aroused = value
+	update_sprite_suffix() // suffix has to be rebuilt before the update because the sprite changes
+	owner?.update_body()
+	return TRUE
+
 /// The per-genital config entry every configuring UI sends to tgui.
 /obj/item/organ/genital/proc/get_layering_ui_entry()
 	var/datum/bodypart_overlay/mutant/genital/overlay = bodypart_overlay
@@ -190,6 +214,8 @@ GLOBAL_LIST_INIT(genital_layering_options, list(
 		"visibility" = genital_option_label(GLOB.genital_visibility_options, visibility_preference),
 		"layering" = genital_option_label(GLOB.genital_layering_options, overlay.layer_mode),
 		"custom" = (visibility_preference == GENITAL_CUSTOM),
+		"arousal" = genital_option_label(GLOB.genital_arousal_options, aroused),
+		"can_arouse" = (aroused != AROUSAL_CANT),
 	)
 
 /// Every genital that should appear in configuration menus.
@@ -230,6 +256,8 @@ GLOBAL_LIST_INIT(genital_layering_options, list(
 
 /// Whether the owning organ is set to Custom visibility, i.e. manual layer control.
 /datum/bodypart_overlay/mutant/genital/proc/is_custom_layered()
+	if(layer_mode == GENITAL_LAYER_NORMAL)
+		return FALSE
 	if(!istype(owner))
 		return FALSE
 	var/obj/item/organ/genital/organ = owner.get_organ_slot(organ_slot)
@@ -334,10 +362,12 @@ GLOBAL_LIST_INIT(genital_layering_options, list(
 		if("set_visibility")
 			if(!selected_organ.apply_visibility_label(params["option"]))
 				return
+			ui.user.balloon_alert(ui.user, "[selected_organ.name] set to [LOWER_TEXT(params["option"])]")
 			return TRUE
 		if("set_layering")
 			if(!selected_organ.apply_layering_label(params["option"]))
 				return
+			ui.user.balloon_alert(ui.user, "[selected_organ.name] layering set to [LOWER_TEXT(params["option"])]")
 			return TRUE
 
 /mob/living/carbon/human/verb/toggle_genitals()
