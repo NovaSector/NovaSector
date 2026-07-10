@@ -180,14 +180,6 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 
 	return returnable_list
 
-/// Generates cached list of mutant_icon_files if it doesn't exist yet - Should never be called more than once.
-/datum/controller/subsystem/accessories/proc/build_cached_icon_states(icon_file)
-	var/list/cached = list()
-	for(var/state in icon_states(new /icon(icon_file)))
-		cached[state] = TRUE
-	cached_mutant_icon_files[icon_file] = cached
-	return cached
-
 #undef INIT_ACCESSORY
 #undef INIT_OPTIONAL_ACCESSORY
 
