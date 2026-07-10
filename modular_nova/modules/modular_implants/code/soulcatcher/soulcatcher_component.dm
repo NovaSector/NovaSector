@@ -423,9 +423,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	var/mob/dead/observer/observer = usr
 	observer.join_soulcatcher()
 
-/mob/dead/observer/verb/join_soulcatcher()
-	set name = "Enter Soulcatcher"
-
+GAME_VERB(/mob/dead/observer, join_soulcatcher, "Enter Soulcatcher", null)
 	var/list/joinable_soulcatchers = list()
 	for(var/datum/component/soulcatcher/soulcatcher in GLOB.soulcatchers)
 		if(!soulcatcher.ghost_joinable || !isobj(soulcatcher.parent) || !soulcatcher.check_for_vacancy())

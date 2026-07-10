@@ -6,10 +6,7 @@
 	lowercase_key = FALSE
 	splitter = ","
 
-/client/verb/connect_to_relay()
-	set name = "Connect to Relay"
-	set hidden = TRUE
-
+GAME_VERB_HIDDEN(/client, connect_to_relay, "Connect to Relay")
 	if(!CONFIG_GET(flag/enable_relays))
 		to_chat(src, span_danger("Relays are currently disabled!"))
 		return

@@ -220,11 +220,7 @@
 	else
 		return ..()
 
-/mob/living/carbon/human/verb/toggle_genitals()
-	set category = "IC"
-	set name = "Expose/Hide genitals"
-	set desc = "Allows you to toggle which genitals should show through clothes or not."
-
+GAME_VERB_DESC(/mob/living/carbon/human, toggle_genitals, "Expose/Hide genitals", "Allows you to toggle which genitals should show through clothes or not.", "IC")
 	if(stat != CONSCIOUS)
 		to_chat(usr, span_warning("You can't toggle genitals visibility right now..."))
 		return
@@ -265,11 +261,7 @@
 	balloon_alert(src, "set to [LOWER_TEXT(picked_visibility)]")
 	update_body()
 
-/mob/living/carbon/human/verb/toggle_arousal()
-	set category = "IC"
-	set name = "Toggle Arousal"
-	set desc = "Allows you to toggle how aroused your private parts are."
-
+GAME_VERB_DESC(/mob/living/carbon/human, toggle_arousal, "Toggle Arousal", "Allows you to toggle how aroused your private parts are.", "IC")
 	if(stat != CONSCIOUS)
 		to_chat(usr, span_warning("You can't toggle arousal right now..."))
 		return

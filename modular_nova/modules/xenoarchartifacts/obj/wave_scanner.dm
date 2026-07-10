@@ -18,10 +18,7 @@
 	toggle_searcher()
 
 // Tries to put searcher in hand
-/obj/item/xenoarch/wave_scanner_backpack/verb/toggle_searcher()
-	set name = "Toggle Searcher"
-	set category = "Object"
-
+GAME_VERB(/obj/item/xenoarch/wave_scanner_backpack, toggle_searcher, "Toggle Searcher", null)
 	if(!usr)
 		return
 

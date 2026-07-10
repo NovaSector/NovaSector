@@ -1,7 +1,4 @@
-/client/verb/mentorhelp(msg as text)
-	set category = "Mentor"
-	set name = "Mentorhelp"
-
+GAME_VERB(/client, mentorhelp, "Mentorhelp", "Mentor", msg as text)
 	//clean the input msg
 	if(!msg)
 		return

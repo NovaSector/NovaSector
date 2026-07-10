@@ -1,16 +1,12 @@
-/mob/verb/do_verb(message as message)
-	set name = "Do"
-	set category = "IC"
-	set instant = TRUE
-
+GAME_VERB(/mob, do_verb, "Do", "IC", message as message)
 	if(GLOB.say_disabled)
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
 
 	if(message)
-		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_VERB_REF(/mob/living, do_actual_verb), message), SSspeech_controller)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_PROC_REF(/mob/living, do_actual_verb), message), SSspeech_controller)
 
-/mob/living/verb/do_actual_verb(message as message)
+/mob/living/proc/do_actual_verb(message as message)
 	if (!message || !doverb_checks(message))
 		return
 
