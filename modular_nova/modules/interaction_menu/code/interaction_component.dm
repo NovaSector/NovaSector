@@ -230,8 +230,6 @@
 			if("set_genital_arousal")
 				success = organ.apply_arousal_label(params["option"])
 				noun = "arousal "
-		if(success)
-			actor.balloon_alert(actor, "[organ.name] [noun]set to [LOWER_TEXT(params["option"])]")
 		return success
 
 	if(params["interaction"])
