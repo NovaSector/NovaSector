@@ -1,7 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - qol: "expose/hide genitals has gotten a revamp, with 'Above all' being replaced with custom layering options, and can be found via the same verb as before OR the interactions menu"
-  - qol: "arousal may also be accessed via the interactions menu now"
-  - bugfix: "genital layering actually somewhat makes sense now, there is more room for improvements though"
-  - bugfix: "fixes digi curator and barber undersuits having the wrong sprite"
