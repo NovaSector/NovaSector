@@ -55,9 +55,11 @@
 /datum/bodypart_overlay/mutant/genital/butt
 	feature_key = ORGAN_SLOT_BUTT
 	layers = list(
-		EXTERNAL_FRONT = BUTT_LAYER,
+		EXTERNAL_FRONT_UNDER_CLOTHES = BUTT_LAYER,
 		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
 	)
+	offset_location = ENTIRE_BODY
+	genital_stack_rank = 5
 
 /datum/bodypart_overlay/mutant/genital/butt/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_BUTT]

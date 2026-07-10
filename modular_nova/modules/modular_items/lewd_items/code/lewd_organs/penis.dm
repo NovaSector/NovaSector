@@ -17,10 +17,8 @@
 		EXTERNAL_FRONT_UNDER_CLOTHES = PENIS_LAYER,
 		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
 	)
-	/// Layer as high as possible
-	layer_above_all = -(BODY_FRONT_LAYER - 0.002)
-	layer_above_undies = -(UNDER_UNIFORM_LAYER - 0.002)
-	layer_below_undies = -(UNDER_UNIFORM_LAYER + 0.004)
+	genital_stack_rank = 2
+	offset_location = ENTIRE_BODY
 
 /obj/item/organ/genital/penis/get_description_string(datum/sprite_accessory/genital/penis/penis)
 	var/returned_string = ""

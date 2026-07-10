@@ -4,7 +4,7 @@
 	use_static = FALSE
 	gender = FEMALE
 	em_block = TRUE
-	layer = UNDER_UNDER_UNIFORM_LAYER
+	layer = UNDER_UNIFORM_SOCKS_LAYER
 	abstract_type = /datum/sprite_accessory/clothing/bra
 
 /datum/sprite_accessory/clothing/bra/nude

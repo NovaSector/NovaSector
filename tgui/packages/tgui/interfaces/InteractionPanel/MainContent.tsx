@@ -71,6 +71,7 @@ export const MainContent = () => {
             <Stack.Item grow>
               <Input
                 fluid
+                width="200px"
                 value={searchText}
                 placeholder={placeholder}
                 onChange={(value) => setSearchText(value)}

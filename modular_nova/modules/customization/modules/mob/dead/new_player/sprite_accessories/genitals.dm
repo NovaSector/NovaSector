@@ -21,56 +21,11 @@
 
 	switch(badonkers.visibility_preference)
 		if(GENITAL_HIDDEN_BY_CLOTHES, GENITAL_CUSTOM)
-			// Custom with an explicit layer override always renders - z-order handles
-			// occlusion. Custom + Normal means "no override", so it falls through to
-			// the classic clothing checks exactly like Hidden by clothes.
-			var/datum/bodypart_overlay/mutant/genital/overlay = badonkers.bodypart_overlay
-			var/layer_mode = badonkers.get_effective_layer_mode()
-			if(layer_mode != GENITAL_LAYER_NORMAL) // The artist formerly known as 'Always show'
-				return FALSE // If it's not on 'Normal' mode, it's considered not hidden
-
-			// Renders above everything - no clothing can visually cover it, so nothing culls it.
-			if(layer_mode == GENITAL_LAYER_ABOVE_ALL)
+			if(badonkers.get_effective_layer_mode() != GENITAL_LAYER_NORMAL)
 				return FALSE
-
-			// Outer layer - OUTERWEAR. Applies to every remaining layer mode, since they all render below the uniform.
-			//Do they have a Uniform or Suit that covers them?
-			if((target_mob.w_uniform && target_mob.w_uniform.body_parts_covered & genital_location) || (target_mob.wear_suit && target_mob.wear_suit.body_parts_covered & genital_location))
-				return TRUE
-			//Do they have a Hospital Gown covering them? (The gown has no body_parts_covered so needs its own check)
-			if(istype(target_mob.wear_suit, /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown))
-				return TRUE
-
-			if(layer_mode != GENITAL_LAYER_NORMAL) // if we are in any layer mode other than normal, it's not considered hidden anymore
-				return FALSE
-
-			// Underclothes - UNDERWEAR FAMILY. Only NORMAL and BELOW_UNDIES get here.
-			//Are they wearing an Undershirt?
-			if(target_mob.undershirt != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
-				var/datum/sprite_accessory/clothing/undershirt/worn_undershirt = SSaccessories.undershirt_list[target_mob.undershirt]
-				//Does this Undershirt cover a relevant slot?
-				if(genital_location == CHEST) //(Undershirt always covers chest)
-					return TRUE
-				else if(genital_location == GROIN && worn_undershirt?.hides_groin)
-					return TRUE
-
-			//Undershirt didn't cover them, are they wearing Underwear?
-			if(target_mob.underwear != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
-				var/datum/sprite_accessory/clothing/underwear/worn_underwear = SSaccessories.underwear_list[target_mob.underwear]
-				//Does this Underwear cover a relevant slot?
-				if(genital_location == GROIN) //(Underwear always covers groin)
-					return TRUE
-				else if(genital_location == CHEST && worn_underwear?.hides_breasts)
-					return TRUE
-
-			//Are they wearing a bra?
-			if(target_mob.bra != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_BRA) && genital_location == CHEST)
-				return TRUE
-
-			//Nothing they're wearing will cover them
-			return FALSE
-
-		//If not always shown or hidden by clothes, then it defaults to always hidden
+			// Single source of coverage truth, shared with is_exposed() - render
+			return badonkers.covered_by_clothing(target_mob)
+		//If not hidden-by-clothes or custom, it defaults to always hidden
 		else
 			return TRUE
 
@@ -452,7 +407,7 @@
 	color_src = USE_MATRIXED_COLORS
 	always_color_customizable = TRUE
 	has_skintone_shading = TRUE
-	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER)
+	max_sprite_size_affix = 8
 
 /datum/sprite_accessory/genital/butt/none
 	icon_state = "none"

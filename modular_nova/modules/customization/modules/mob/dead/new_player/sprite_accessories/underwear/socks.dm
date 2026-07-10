@@ -2,7 +2,7 @@
 	//All underwear goes in the same file for the sake of digi variants
 	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
 	use_static = TRUE
-	layer = UNDER_UNDER_UNIFORM_LAYER
+	layer = UNDER_UNIFORM_SOCKS_LAYER
 
 /datum/sprite_accessory/clothing/socks/get_icon_state(physique, bodyshape)
 	if(has_custom_digi_sprite && (bodyshape & BODYSHAPE_DIGITIGRADE))

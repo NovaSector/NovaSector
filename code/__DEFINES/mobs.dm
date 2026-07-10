@@ -913,12 +913,13 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 	/// The layer underneath the uniform
 	#define UNDER_UNIFORM_LAYER 19.1
 	// NOVA EDIT ADDITION START
-	#define BREASTS_LAYER 19.2
-	#define PENIS_LAYER 19.3
-	#define TESTICLES_LAYER 19.4
-	#define VAGINA_LAYER 19.5
-	#define ANUS_LAYER 19.6
-	#define BUTT_LAYER 19.7
+	#define UNDER_UNDER_UNIFORM_LAYER 19.2
+	#define BREASTS_LAYER 19.3
+	#define PENIS_LAYER 19.4
+	#define TESTICLES_LAYER 19.5
+	#define VAGINA_LAYER 19.6
+	#define ANUS_LAYER 19.7
+	#define BUTT_LAYER 19.8
 	// NOVA EDIT ADDITION END
 /// Damage indicators (cuts and burns)
 #define DAMAGE_LAYER 20

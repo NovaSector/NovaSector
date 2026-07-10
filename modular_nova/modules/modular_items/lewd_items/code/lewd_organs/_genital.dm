@@ -152,8 +152,31 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 
 /// Whether the mob's worn clothing physically covers this genital's location.
 /obj/item/organ/genital/proc/covered_by_clothing(mob/living/carbon/human/human)
-	return (human.w_uniform && human.w_uniform.body_parts_covered & genital_location) \
-		|| (human.wear_suit && human.wear_suit.body_parts_covered & genital_location)
+	//Do they have a Uniform or Suit that covers them?
+	if((human.w_uniform && human.w_uniform.body_parts_covered & genital_location) || (human.wear_suit && human.wear_suit.body_parts_covered & genital_location))
+		return TRUE
+	//Do they have a Hospital Gown covering them? (The gown has no body_parts_covered so needs its own check)
+	if(istype(human.wear_suit, /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown))
+		return TRUE
+	//Are they wearing an Undershirt?
+	if(human.undershirt != "Nude" && !(human.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
+		var/datum/sprite_accessory/clothing/undershirt/worn_undershirt = SSaccessories.undershirt_list[human.undershirt]
+		if(genital_location == CHEST) //(Undershirt always covers chest)
+			return TRUE
+		if(genital_location == GROIN && worn_undershirt?.hides_groin)
+			return TRUE
+	//Are they wearing Underwear?
+	if(human.underwear != "Nude" && !(human.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
+		var/datum/sprite_accessory/clothing/underwear/worn_underwear = SSaccessories.underwear_list[human.underwear]
+		if(genital_location == GROIN) //(Underwear always covers groin)
+			return TRUE
+		if(genital_location == CHEST && worn_underwear?.hides_breasts)
+			return TRUE
+	//Are they wearing a bra?
+	if(human.bra != "Nude" && !(human.underwear_visibility & UNDERWEAR_HIDE_BRA) && genital_location == CHEST)
+		return TRUE
+	//Nothing they're wearing covers them
+	return FALSE
 
 /obj/item/organ/genital/proc/is_exposed()
 	if(!owner)
@@ -166,7 +189,6 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 
 	switch(visibility_preference)
 		if(GENITAL_HIDDEN_BY_CLOTHES, GENITAL_CUSTOM)
-			var/datum/bodypart_overlay/mutant/genital/overlay = bodypart_overlay
 			if(get_effective_layer_mode() == GENITAL_LAYER_ABOVE_ALL)
 				return TRUE //Renders over everything, so it's on display regardless of clothing
 			//Every other case - including Custom's under-uniform layers and Custom + Normal - comes down to physical coverage.
@@ -198,7 +220,7 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 	var/value = GLOB.genital_arousal_options[label]
 	if(isnull(value))
 		return FALSE
-	if(aroused == AROUSAL_CANT) // Not arousable - don't let UIs force it.
+	if(aroused == AROUSAL_CANT)
 		return FALSE
 	aroused = value
 	update_sprite_suffix() // suffix has to be rebuilt before the update because the sprite changes
@@ -247,12 +269,8 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 	var/organ_slot
 	/// Layering mode, determines if it tries to render above clothing or not.
 	var/layer_mode = GENITAL_LAYER_NORMAL
-	/// Layer used when FORCED ABOVE ALL CLOTHING.
-	var/layer_above_all = -(BODY_FRONT_LAYER - 0.006)
-	/// Layer used when ABOVE UNDERWEAR
-	var/layer_above_undies = -(UNDER_UNDER_UNIFORM_LAYER - 0.006)
-	/// Ditto, but for BELOW UNDERWEAR
-	var/layer_below_undies = -(UNDER_UNDER_UNIFORM_LAYER + 0.006)
+	/// Stacking rank among genitals in the same layer mode. LOWER = rendered on top.
+	var/genital_stack_rank = 1
 
 /datum/bodypart_overlay/mutant/genital/override_color(rgb_value)
 	return draw_color
@@ -261,7 +279,9 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 	return sprite_suffix
 
 /// Whether the owning organ is set to Custom visibility, i.e. manual layer control.
-/datum/bodypart_overlay/mutant/genital/proc/is_custom_layered()
+/datum/bodypart_overlay/mutant/genital/proc/is_custom_layered(layer_index)
+	if(layer_index && !(layer_index == EXTERNAL_FRONT_UNDER_CLOTHES))
+		return FALSE
 	if(layer_mode == GENITAL_LAYER_NORMAL)
 		return FALSE
 	if(!istype(owner))
@@ -274,14 +294,14 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 	. += is_custom_layered() ? "[layer_mode]" : "default"
 
 /datum/bodypart_overlay/mutant/genital/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
-	if(layer_index == EXTERNAL_FRONT_UNDER_CLOTHES && is_custom_layered())
+	if(is_custom_layered(layer_index))
 		switch(layer_mode)
 			if(GENITAL_LAYER_BELOW_UNDIES)
-				layer_real = layer_below_undies
+				layer_real = -(UNDER_UNIFORM_SOCKS_LAYER + genital_stack_rank * GENITAL_STACK_STEP)
 			if(GENITAL_LAYER_ABOVE_UNDIES)
-				layer_real = layer_above_undies
+				layer_real = -(UNDER_UNIFORM_LAYER - 0.1 + genital_stack_rank * GENITAL_STACK_STEP)
 			if(GENITAL_LAYER_ABOVE_ALL)
-				layer_real = layer_above_all
+				layer_real = -(BODY_FRONT_LAYER - 0.1 + genital_stack_rank * GENITAL_STACK_STEP)
 	return ..()
 
 /// Per-organ menu for genital visibility + render layering.
