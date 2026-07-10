@@ -167,7 +167,7 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 	switch(visibility_preference)
 		if(GENITAL_HIDDEN_BY_CLOTHES, GENITAL_CUSTOM)
 			var/datum/bodypart_overlay/mutant/genital/overlay = bodypart_overlay
-			if(visibility_preference == GENITAL_CUSTOM && overlay?.layer_mode == GENITAL_LAYER_ABOVE_ALL)
+			if(get_effective_layer_mode() == GENITAL_LAYER_ABOVE_ALL)
 				return TRUE //Renders over everything, so it's on display regardless of clothing
 			//Every other case - including Custom's under-uniform layers and Custom + Normal - comes down to physical coverage.
 			return !covered_by_clothing(human)
@@ -204,6 +204,12 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 	update_sprite_suffix() // suffix has to be rebuilt before the update because the sprite changes
 	owner?.update_body()
 	return TRUE
+
+/obj/item/organ/genital/proc/get_effective_layer_mode()
+	if(visibility_preference != GENITAL_CUSTOM)
+		return GENITAL_LAYER_NORMAL
+	var/datum/bodypart_overlay/mutant/genital/overlay = bodypart_overlay
+	return overlay?.layer_mode || GENITAL_LAYER_NORMAL
 
 /// The per-genital config entry every configuring UI sends to tgui.
 /obj/item/organ/genital/proc/get_layering_ui_entry()

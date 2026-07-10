@@ -25,10 +25,9 @@
 			// occlusion. Custom + Normal means "no override", so it falls through to
 			// the classic clothing checks exactly like Hidden by clothes.
 			var/datum/bodypart_overlay/mutant/genital/overlay = badonkers.bodypart_overlay
-			if(badonkers.visibility_preference == GENITAL_CUSTOM && overlay?.layer_mode != GENITAL_LAYER_NORMAL) // The artist formerly known as 'Always show'
+			var/layer_mode = badonkers.get_effective_layer_mode()
+			if(layer_mode != GENITAL_LAYER_NORMAL) // The artist formerly known as 'Always show'
 				return FALSE // If it's not on 'Normal' mode, it's considered not hidden
-			var/datum/bodypart_overlay/mutant/genital/genital_overlay = badonkers.bodypart_overlay
-			var/layer_mode = genital_overlay?.layer_mode
 
 			// Renders above everything - no clothing can visually cover it, so nothing culls it.
 			if(layer_mode == GENITAL_LAYER_ABOVE_ALL)
