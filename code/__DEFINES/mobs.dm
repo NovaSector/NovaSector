@@ -913,7 +913,7 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 	/// The layer underneath the uniform
 	#define UNDER_UNIFORM_LAYER 19.1
 	// NOVA EDIT ADDITION START
-	#define UNDER_UNDER_UNIFORM_LAYER 19.2
+	#define UNDER_UNIFORM_SOCKS_LAYER 19.101
 	#define BREASTS_LAYER 19.3
 	#define PENIS_LAYER 19.4
 	#define TESTICLES_LAYER 19.5
