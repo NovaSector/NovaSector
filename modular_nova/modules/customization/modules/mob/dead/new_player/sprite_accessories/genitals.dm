@@ -20,15 +20,17 @@
 		return TRUE
 
 	switch(badonkers.visibility_preference)
-		if(GENITAL_ALWAYS_SHOW) //Never hidden
+		if(GENITAL_CUSTOM) // The artist formerly known as 'Always show'
 			return FALSE
 		if(GENITAL_HIDDEN_BY_CLOTHES)
-			// Layering above clothing is meaningless if clothing still culls the sprite
 			var/datum/bodypart_overlay/mutant/genital/genital_overlay = badonkers.bodypart_overlay
-			if(genital_overlay?.layer_mode == GENITAL_LAYER_ABOVE_UNDIES)
+			var/layer_mode = genital_overlay?.layer_mode
+
+			// Renders above everything - no clothing can visually cover it, so nothing culls it.
+			if(layer_mode == GENITAL_LAYER_ABOVE_ALL)
 				return FALSE
 
-			//Hidden if the relevant body parts are covered by clothes or underwear
+			// Outer layer - OUTERWEAR. Applies to every remaining layer mode, since they all render below the uniform.
 			//Do they have a Uniform or Suit that covers them?
 			if((target_mob.w_uniform && target_mob.w_uniform.body_parts_covered & genital_location) || (target_mob.wear_suit && target_mob.wear_suit.body_parts_covered & genital_location))
 				return TRUE
@@ -36,14 +38,17 @@
 			if(istype(target_mob.wear_suit, /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown))
 				return TRUE
 
+			if(layer_mode != GENITAL_LAYER_NORMAL) // if we are in any layer mode other than normal, it's not considered hidden anymore
+				return FALSE
+
+			// Underclothes - UNDERWEAR FAMILY. Only NORMAL and BELOW_UNDIES get here.
 			//Are they wearing an Undershirt?
 			if(target_mob.undershirt != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
 				var/datum/sprite_accessory/clothing/undershirt/worn_undershirt = SSaccessories.undershirt_list[target_mob.undershirt]
 				//Does this Undershirt cover a relevant slot?
 				if(genital_location == CHEST) //(Undershirt always covers chest)
 					return TRUE
-
-				else if(genital_location == GROIN && worn_undershirt.hides_groin)
+				else if(genital_location == GROIN && worn_undershirt?.hides_groin)
 					return TRUE
 
 			//Undershirt didn't cover them, are they wearing Underwear?
@@ -52,8 +57,7 @@
 				//Does this Underwear cover a relevant slot?
 				if(genital_location == GROIN) //(Underwear always covers groin)
 					return TRUE
-
-				else if(genital_location == CHEST && worn_underwear.hides_breasts)
+				else if(genital_location == CHEST && worn_underwear?.hides_breasts)
 					return TRUE
 
 			//Are they wearing a bra?
@@ -61,8 +65,7 @@
 				return TRUE
 
 			//Nothing they're wearing will cover them
-			else
-				return FALSE
+			return FALSE
 
 		//If not always shown or hidden by clothes, then it defaults to always hidden
 		else

@@ -21,6 +21,8 @@
 		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
 	)
 	offset_location = ENTIRE_BODY
+	layer_above_undies = -(UNDER_UNIFORM_LAYER - 0.002)
+	layer_below_undies = -(UNDER_UNIFORM_LAYER + 0.004)
 
 /obj/item/organ/genital/breasts/get_description_string(datum/sprite_accessory/genital/breasts/breasts)
 	var/returned_string = "You see a [LOWER_TEXT(get_genital_descriptor(breasts))] of breasts."

@@ -19,9 +19,9 @@
 		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
 	)
 	/// Layer a bit lower, but still close to as high as possible
-	layer_above_all = -(BODY_FRONT_LAYER - 0.01)
-	layer_above_undies = -(UNDER_UNIFORM_LAYER - 0.01)
-	layer_below_undies = -(UNDER_UNIFORM_LAYER + 0.03)
+	layer_above_all = -(BODY_FRONT_LAYER - 0.001)
+	layer_above_undies = -(UNDER_UNIFORM_LAYER - 0.001)
+	layer_below_undies = -(UNDER_UNIFORM_LAYER + 0.003)
 
 /obj/item/organ/genital/testicles/update_genital_icon_state()
 	var/measured_size = clamp(genital_size, 1, TESTICLES_MAX_SIZE)

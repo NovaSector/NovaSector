@@ -131,7 +131,14 @@
 	var/mob/living/carbon/human/human = owner
 
 	switch(visibility_preference)
-		if(GENITAL_ALWAYS_SHOW)
+		if(GENITAL_CUSTOM)
+			var/datum/bodypart_overlay/mutant/genital/overlay = bodypart_overlay
+			if(overlay?.layer_mode == GENITAL_LAYER_ABOVE_ALL)
+				return TRUE //Renders over everything, so it's on display regardless of clothing
+			//Otherwise physical coverage decides, same as hidden-by-clothes - rendering
+			//behind your underwear doesn't make you exposed while wearing a hardsuit.
+			if((human.w_uniform && human.w_uniform.body_parts_covered & genital_location) || (human.wear_suit && human.wear_suit.body_parts_covered & genital_location))
+				return FALSE
 			return TRUE
 		if(GENITAL_HIDDEN_BY_CLOTHES)
 			if((human.w_uniform && human.w_uniform.body_parts_covered & genital_location) || (human.wear_suit && human.wear_suit.body_parts_covered & genital_location))
@@ -157,11 +164,11 @@
 	/// Layering mode, determines if it tries to render above clothing or not.
 	var/layer_mode = GENITAL_LAYER_NORMAL
 	/// Layer used when FORCED ABOVE ALL CLOTHING.
-	var/layer_above_all = -(BODY_FRONT_LAYER - 0.06)
+	var/layer_above_all = -(BODY_FRONT_LAYER - 0.006)
 	/// Layer used when ABOVE UNDERWEAR
-	var/layer_above_undies = -(UNDER_UNIFORM_LAYER - 0.06)
+	var/layer_above_undies = -(UNDER_UNDER_UNIFORM_LAYER - 0.006)
 	/// Ditto, but for BELOW UNDERWEAR
-	var/layer_below_undies = -(UNDER_UNIFORM_LAYER + 0.06)
+	var/layer_below_undies = -(UNDER_UNDER_UNIFORM_LAYER + 0.006)
 
 /datum/bodypart_overlay/mutant/genital/override_color(rgb_value)
 	return draw_color
@@ -169,69 +176,186 @@
 /datum/bodypart_overlay/mutant/genital/get_base_icon_state()
 	return sprite_suffix
 
-/datum/bodypart_overlay/mutant/genital/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
-	if(layer_index == EXTERNAL_FRONT_UNDER_CLOTHES)
-		switch(layer_mode)
-			if(GENITAL_ALWAYS_SHOW)
-				layer_real = layer_above_all
+/datum/bodypart_overlay/mutant/genital/icon_render_key(obj/item/bodypart/limb)
+	. = ..()
+	// The layer only applies under Custom, so the key must capture both facts -
+	// otherwise toggling Custom on/off with the same remembered layer_mode
+	// serves a stale cached appearance.
+	. += is_custom_layered() ? "[layer_mode]" : "default"
 
+
+/// Whether the owning organ is set to Custom visibility, i.e. manual layer control.
+/datum/bodypart_overlay/mutant/genital/proc/is_custom_layered()
+	if(!istype(owner))
+		return FALSE
+	var/obj/item/organ/genital/organ = owner.get_organ_slot(organ_slot)
+	return organ?.visibility_preference == GENITAL_CUSTOM
+
+/datum/bodypart_overlay/mutant/genital/icon_render_key(obj/item/bodypart/limb)
+	. = ..()
+	. += is_custom_layered() ? "[layer_mode]" : "default"
+
+/datum/bodypart_overlay/mutant/genital/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
+	if(layer_index == EXTERNAL_FRONT_UNDER_CLOTHES && is_custom_layered())
+		switch(layer_mode)
 			if(GENITAL_LAYER_BELOW_UNDIES)
 				layer_real = layer_below_undies
-
-			if(GENITAL_LAYER_NORMAL)
-				layer_real = initial(layer_real)
-
 			if(GENITAL_LAYER_ABOVE_UNDIES)
 				layer_real = layer_above_undies
-
+			if(GENITAL_LAYER_ABOVE_ALL)
+				layer_real = layer_above_all
 	return ..()
+
+/// Per-organ menu for genital visibility + render layering.
+/// Two independent radio columns: visibility_preference and layer_mode.
+/datum/genital_layering_panel
+	/// The mob whose genitals we're editing.
+	var/mob/living/carbon/human/owner
+	/// The organ the tabs currently have selected.
+	var/obj/item/organ/genital/selected_organ
+
+	/// Menu label -> visibility_preference define.
+	var/static/list/visibility_options = list(
+		"Never show" = GENITAL_NEVER_SHOW,
+		"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
+		"Custom" = GENITAL_CUSTOM,
+	)
+	/// Menu label -> layer_mode define.
+	var/static/list/layering_options = list(
+		"Below underwear" = GENITAL_LAYER_BELOW_UNDIES,
+		"Normal" = GENITAL_LAYER_NORMAL,
+		"Above underwear" = GENITAL_LAYER_ABOVE_UNDIES,
+		"Above all clothing" = GENITAL_LAYER_ABOVE_ALL,
+	)
+
+/datum/genital_layering_panel/New(mob/living/carbon/human/owner)
+	src.owner = owner
+	var/list/eligible = eligible_genitals()
+	if(length(eligible))
+		selected_organ = eligible[1]
+
+/datum/genital_layering_panel/Destroy(force)
+	if(owner?.genital_layering_panel == src)
+		owner.genital_layering_panel = null
+	owner = null
+	selected_organ = null
+	return ..()
+
+/// Every genital that should appear in the menu.
+/datum/genital_layering_panel/proc/eligible_genitals()
+	var/list/result = list()
+	for(var/obj/item/organ/genital/genital in owner?.organs)
+		if(genital.visibility_preference != GENITAL_SKIP_VISIBILITY)
+			result += genital
+	return result
+
+/datum/genital_layering_panel/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "GenitalLayering", "Expose/Hide genitals")
+		ui.open()
+
+/datum/genital_layering_panel/ui_status(mob/user, datum/ui_state/state)
+	// Self-service only, conscious only, and close if every genital vanished.
+	if(QDELETED(owner) || user != owner || user.stat != CONSCIOUS || !length(eligible_genitals()))
+		return UI_CLOSE
+	return UI_INTERACTIVE
+
+/datum/genital_layering_panel/ui_close(mob/user)
+	qdel(src)
+
+/datum/genital_layering_panel/ui_static_data(mob/user)
+	var/list/data = list()
+	data["visibility_options"] = list()
+	for(var/option in visibility_options)
+		data["visibility_options"] += option
+	data["layering_options"] = list()
+	for(var/option in layering_options)
+		data["layering_options"] += option
+	return data
+
+/datum/genital_layering_panel/ui_data(mob/user)
+	var/list/eligible = eligible_genitals()
+	// Selected organ can be removed (surgery, config qdel) while the window is open.
+	if(!(selected_organ in eligible))
+		selected_organ = length(eligible) ? eligible[1] : null
+
+	var/list/data = list()
+	data["genitals"] = list()
+	for(var/obj/item/organ/genital/genital as anything in eligible)
+		data["genitals"] += list(list(
+			"name" = capitalize(genital.name),
+			"ref" = REF(genital),
+		))
+	data["selected"] = selected_organ ? REF(selected_organ) : null
+
+	if(selected_organ)
+		var/datum/bodypart_overlay/mutant/genital/overlay = selected_organ.bodypart_overlay
+		data["visibility"] = label_for(visibility_options, selected_organ.visibility_preference)
+		data["layering"] = label_for(layering_options, overlay.layer_mode)
+		data["custom"] = (selected_organ.visibility_preference == GENITAL_CUSTOM)
+	return data
+
+/// Reverse lookup: the label whose define matches the current value, or null.
+/datum/genital_layering_panel/proc/label_for(list/options, value)
+	for(var/label in options)
+		if(options[label] == value)
+			return label
+	return null
+
+/datum/genital_layering_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	if(action == "select_organ")
+		var/obj/item/organ/genital/organ = locate(params["ref"]) in eligible_genitals()
+		if(!organ)
+			return
+		selected_organ = organ
+		return TRUE // Pushes fresh ui_data; no body update needed for a tab switch.
+
+	if(isnull(selected_organ))
+		return
+
+	switch(action)
+		if("set_visibility")
+			// Labels come from the client; the assoc lookup is the whitelist.
+			var/value = visibility_options[params["option"]]
+			if(isnull(value))
+				return
+			selected_organ.visibility_preference = value
+			ui.user.balloon_alert(ui.user, "[selected_organ.name] set to [LOWER_TEXT(params["option"])]")
+			. = TRUE
+		if("set_layering")
+			var/value = layering_options[params["option"]]
+			if(isnull(value))
+				return
+			var/datum/bodypart_overlay/mutant/genital/overlay = selected_organ.bodypart_overlay
+			overlay.layer_mode = value
+			ui.user.balloon_alert(ui.user, "[selected_organ.name] layering set to [LOWER_TEXT(params["option"])]")
+			. = TRUE
+
+	if(.)
+		owner.update_body()
 
 /mob/living/carbon/human/verb/toggle_genitals()
 	set category = "IC"
 	set name = "Expose/Hide genitals"
-	set desc = "Allows you to toggle which genitals should show through clothes or not."
+	set desc = "Change which genitals show through clothes and how they layer."
 
 	if(stat != CONSCIOUS)
 		to_chat(usr, span_warning("You can't toggle genitals visibility right now..."))
 		return
 
-	var/list/genital_list = list()
-	for(var/obj/item/organ/genital/genital in organs)
-		if(genital.visibility_preference != GENITAL_SKIP_VISIBILITY)
-			genital_list += genital
+	if(isnull(genital_layering_panel))
+		genital_layering_panel = new(src)
 
-	if(!length(genital_list)) //There is nothing to expose
+	if(isnull(genital_layering_panel.selected_organ)) //There is nothing to expose
+		QDEL_NULL(genital_layering_panel)
 		return
 
-	var/obj/item/organ/genital/picked_organ = tgui_input_list(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals", genital_list)
-
-	if(!picked_organ || !(picked_organ in organs))
-		return
-
-	var/static/list/gen_vis_trans = list(
-		"Never show" = GENITAL_NEVER_SHOW,
-		"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
-		"Always show" = GENITAL_ALWAYS_SHOW,
-		"Layer Below Underwear" = GENITAL_LAYER_BELOW_UNDIES,
-		"Layer Normally" = GENITAL_LAYER_NORMAL,
-		"Layer Above Underwear" = GENITAL_LAYER_ABOVE_UNDIES,
-	)
-
-	var/picked_visibility = tgui_input_list(src, "Choose visibility setting", "Expose/Hide genitals", gen_vis_trans)
-
-	if(!picked_visibility || !picked_organ || !(picked_organ in organs))
-		return
-
-	var/choice = gen_vis_trans[picked_visibility]
-	if(choice == GENITAL_LAYER_NORMAL || choice == GENITAL_LAYER_ABOVE_UNDIES || choice == GENITAL_LAYER_ABOVE_UNDIES)
-		balloon_alert(src, "set layering to [LOWER_TEXT(picked_visibility)]")
-	else
-		picked_organ.visibility_preference = choice
-		balloon_alert(src, "set to [LOWER_TEXT(picked_visibility)]")
-
-	var/datum/bodypart_overlay/mutant/genital/genital_overlay = picked_organ.bodypart_overlay
-	genital_overlay.layer_mode = choice
-	update_body()
+	genital_layering_panel.ui_interact(src)
 
 /mob/living/carbon/human/verb/toggle_arousal()
 	set category = "IC"
@@ -247,7 +371,7 @@
 		if(genital.aroused != AROUSAL_CANT)
 			genital_list += genital
 
-	if(!genital_list.len) //There is nothing to modify.
+	if(!length(genital_list)) //There is nothing to modify.
 		return
 
 	var/obj/item/organ/genital/picked_organ = tgui_input_list(src, "Choose which genitalia to the change arousal of", "Expose/Hide genitals", genital_list)

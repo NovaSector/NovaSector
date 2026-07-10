@@ -16,9 +16,9 @@
 		EXTERNAL_FRONT_UNDER_CLOTHES = VAGINA_LAYER,
 	)
 	/// Lowest-layering thing that affects the crotch
-	layer_above_all = -(BODY_FRONT_LAYER - 0.03)
-	layer_above_undies = -(UNDER_UNIFORM_LAYER - 0.03)
-	layer_below_undies = -(UNDER_UNIFORM_LAYER + 0.05)
+	layer_above_all = -(BODY_FRONT_LAYER - 0.003)
+	layer_above_undies = -(UNDER_UNIFORM_LAYER - 0.003)
+	layer_below_undies = -(UNDER_UNIFORM_LAYER + 0.005)
 
 /obj/item/organ/genital/vagina/get_description_string(datum/sprite_accessory/genital/vagina/vagina)
 	var/descriptor = get_genital_descriptor(vagina)

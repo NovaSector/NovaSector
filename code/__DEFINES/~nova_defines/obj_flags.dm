@@ -6,7 +6,8 @@
 #define GENITAL_LAYER_BELOW_UNDIES 4
 #define GENITAL_LAYER_NORMAL 5
 #define GENITAL_LAYER_ABOVE_UNDIES 6
-
+#define GENITAL_LAYER_ABOVE_ALL 7
+#define GENITAL_CUSTOM 8
 
 /// Whether something is repairable by the anvil
 #define ANVIL_REPAIR (1<<0)
