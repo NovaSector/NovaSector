@@ -186,20 +186,18 @@
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	/// This tracks a new body that is created when a slime core is killed, and is used to safely trasnfer quirks and prefrences to this body and than summon it upon revival.
-	var/mob/living/carbon/human/new_body
-	/// This caches the mob's prefrences for revival.
-	var/datum/preferences/cached_prefs
+	/// This tracks the Slime's body, we use this to send them to Nullspace when they die, and to regenerate them when they are revived.
+	var/mob/living/carbon/human/body
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
 	colorize()
 
-// Handle the slime core being destroyed, and if it has a new body, delete it as well.
+// Handle the slime core being destroyed, and if it has a body in nullspace, delete it as well.
 /obj/item/organ/brain/slime/Destroy(force)
-	if(new_body)
-		QDEL_NULL(new_body)
+	if(body)
+		QDEL_NULL(body)
 	return ..()
 
 /obj/item/organ/brain/slime/examine()
@@ -273,15 +271,9 @@
 		return
 	core_ejected = TRUE
 
-	// Create a new body in nullspace, and transfer their prefrences and quirks into it.
-	new_body = new(null)
-
-	// Cache the victim's prefrences in the Brain/Core, and transfer them and their quirks to the new body.
-	if(victim.client?.prefs)
-		src.cached_prefs = victim.client.prefs
-	if(src.cached_prefs)
-		src.cached_prefs.safe_transfer_prefs_to(new_body)
-	victim.transfer_quirk_datums(new_body)
+	// Cache the body refrence inside the Core/Brain.
+	if(!src.body)
+		src.body = victim
 
 	var/atom/death_loc = victim.drop_location()
 	if(!death_loc)
@@ -315,8 +307,7 @@
 
 	// Message the victim and the surrounding area that they have died.
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
-
-	qdel(victim) // Remove the body.
+	victim.moveToNullspace() // Move the body to nullspace.
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 /**
@@ -368,35 +359,32 @@
 		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
 
-	// Reapply prefrences from the Brain/Core in-case it failed in the Core Eject Proc.
-	if(src.cached_prefs)
-		src.cached_prefs.safe_transfer_prefs_to(new_body)
-
-	// Retreive the new body we created from nullspace.
-	new_body.forceMove(src.drop_location())
+	// Retreive, and revive our original body that we moved to Nullspace.
+	RegisterSignal(body, COMSIG_LIVING_DEATH)
+	body.revive(HEAL_ALL)
+	body.forceMove(src.drop_location())
 
 	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
-	new_body.underwear = "Nude"
-	new_body.bra = "Nude"
-	new_body.undershirt = "Nude"
-	new_body.socks = "Nude"
+	body.underwear = "Nude"
+	body.bra = "Nude"
+	body.undershirt = "Nude"
+	body.socks = "Nude"
 
 	// Handle Blood
-	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
+	body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 
 	// Remove non-chest limbs.
-	for(var/obj/item/bodypart/part in new_body.bodyparts)
+	for(var/obj/item/bodypart/part in body.bodyparts)
 		if(part.body_zone == BODY_ZONE_CHEST)
 			continue
 		part.drop_limb(TRUE)
 
-	// Move the brain/core into the new body
-	src.replace_into(new_body)
+	// Move the brain/core back into our body.
+	src.replace_into(body)
 
 	// Notify the player that their body has been rebuilt
-	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
+	body.visible_message(span_warning("[body]'s torso \"forms\" from [body.p_their()] core, yet to form the rest."))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
-	new_body = null // Clear the new_body variable to avoid dangling references
 	return TRUE
 
 // HEALING SECTION
