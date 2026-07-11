@@ -8,6 +8,14 @@
 	anchored = TRUE
 	density = FALSE
 	max_integrity = 15
+	/// Things that leave a longer lasting mark
+	var/static/list/long_trail = list(
+		"pawprint"  = TRUE,
+		"hoofprint" = TRUE,
+		"clawprint" = TRUE,
+		"footprint" = TRUE,
+		"shoeprint" = TRUE
+	)
 
 /obj/structure/mark_turf/Initialize(mapload, current_turf)
 	. = ..()
@@ -113,6 +121,17 @@
 			src.add_overlay(overlay)
 			playsound(get_turf(src), 'sound/items/weapons/thudswoosh.ogg', 25, TRUE)
 
+		if("coil")
+			name = "tail"
+			desc = "It's a scaly tail."
+			icon = 'modular_nova/master_files/icons/effects/turf_effects_64.dmi'
+			icon_state = "naga"
+			pixel_x = -16
+			var/mutable_appearance/overlay = mutable_appearance('modular_nova/master_files/icons/effects/turf_effects_64.dmi', "naga_top", EXTRA_ABOVE_MOB_LAYER, src)
+			overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
+			src.add_overlay(overlay)
+			playsound(get_turf(src), 'modular_nova/modules/emotes/sound/emotes/hiss.ogg', 25, TRUE)
+
 		//prints
 		if("pawprint")
 			name = "pawprint"
@@ -167,12 +186,10 @@
 			return
 
 /obj/structure/mark_turf/proc/turf_check(mob/living/user) //This gets called when a player leaves their turf
-	var/list/no_trail = list("tail")
-	var/list/long_trail = list("pawprint", "hoofprint", "clawprint", "footprint", "shoeprint")
-
-	if(user.owned_turf.name in no_trail)
+	var/owner_turf_name = user.owned_turf.name
+	if(owner_turf_name == "tail") // no trail
 		QDEL_NULL(src)
-	if(user.owned_turf.name in long_trail)
+	if(owner_turf_name in long_trail)
 		QDEL_IN(src, 150 SECONDS)
 		user.owned_turf = null
 	else

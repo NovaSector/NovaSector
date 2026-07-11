@@ -50,7 +50,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	volume = 200
 	obj_flags = UNIQUE_RENAME
-	reagent_flags = OPENCONTAINER | SMART_CAP
+	initial_reagent_flags = OPENCONTAINER | NO_SPLASH
 	fill_icon_thresholds = list(0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200)
 	possible_transfer_amounts = list(5, 10, 15, 30, 50, 100, 200)
 	adjust_color_contrast = TRUE
@@ -67,6 +67,11 @@
 	///You can use this var to tone down the strength of the highlight for less shiny types of plastic.
 	var/highlight_strenght = 1.0
 
+/obj/item/reagent_containers/cup/jerrycan/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/cuffable_item)
+	update_appearance()
+
 /obj/item/reagent_containers/cup/jerrycan/update_overlays()
 	. = ..()
 
@@ -80,7 +85,7 @@
 	if(cap_type)
 		. += mutable_appearance(icon, "[base_icon_state]_cap_[cap_type]")
 
-/obj/item/reagent_containers/cup/jerrycan/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+/obj/item/reagent_containers/cup/jerrycan/worn_overlays(mutable_appearance/standing, isinhands, icon_file, bodyshape = NONE)
 	. = ..()
 	if(!isinhands)
 		return
@@ -91,13 +96,9 @@
 	if(cap_type)
 		. += mutable_appearance(icon_file, "[base_icon_state]_cap_[cap_type]")
 
-/obj/item/reagent_containers/cup/jerrycan/Initialize(mapload)
-	. = ..()
-	update_appearance()
-
 /obj/item/reagent_containers/cup/jerrycan/opaque
 	fill_icon_thresholds = null
-	reagent_flags = REFILLABLE | DRAINABLE | SMART_CAP
+	initial_reagent_flags = parent_type::initial_reagent_flags & ~TRANSPARENT
 	highlight_strenght = 0.75
 
 /obj/item/reagent_containers/cup/jerrycan/opaque/yellow

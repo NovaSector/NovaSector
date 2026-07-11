@@ -13,6 +13,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	hitsound = 'sound/items/weapons/whip.ogg'
 	clothing_flags = INEDIBLE_CLOTHING
+	obj_flags_nova = ERP_ITEM
 	//When taking that thing in mouth
 	flags_cover = MASKCOVERSMOUTH
 	var/modifies_speech = TRUE
@@ -98,7 +99,7 @@
 
 	update_icon()
 	update_appearance()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 //to change color
 /obj/item/clothing/mask/leatherwhip/click_alt(mob/user)
@@ -149,7 +150,7 @@
 
 	update_icon()
 	update_appearance()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/clothing/mask/leatherwhip/update_icon_state()
 	. = ..()

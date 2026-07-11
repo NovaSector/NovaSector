@@ -39,7 +39,7 @@
 		// https://www.desmos.com/calculator/ffcsaaftzz
 		last_power_generation *= (1 + max(0, (rod_mix.temperature - T0C)/1500)**1.4)*(0.75 + (amount_to_consume/gas_consumption_base)*0.25) * seconds_per_tick * 0.5
 
-		var/range_cap = CEILING(GAS_REACTION_MAXIMUM_RADIATION_PULSE_RANGE * 0.5, 1)
+		var/range_cap = ceil(GAS_REACTION_MAXIMUM_RADIATION_PULSE_RANGE * 0.5)
 		if(meltdown)
 			last_radiation_pulse = min(last_power_generation*0.002, range_cap) //Double the rads, double the fun.
 		else
@@ -128,7 +128,7 @@
 			rod_mix.temperature += (rod_mix.temperature*0.02*rand() + (8000/rod_mix_heat_capacity)*(overclocked ? 2 : 1))*meltdown_multiplier //It's... it's not shutting down!
 			rod_mix.temperature = clamp(rod_mix.temperature, 5, 0xFFFFFF)
 		var/ionize_air_amount = min( (0.5 + rod_mix.temperature/2000) * meltdown_multiplier, 5) //For every 2000 kelvin. Capped at 5 tiles.
-		var/ionize_air_range = CEILING(ionize_air_amount, 1)
+		var/ionize_air_range = ceil(ionize_air_amount)
 		var/total_ion_amount = 0
 		for(var/turf/ion_turf as anything in RANGE_TURFS(ionize_air_range, turf_loc))
 			if(!prob(80)) //Atmos optimization.

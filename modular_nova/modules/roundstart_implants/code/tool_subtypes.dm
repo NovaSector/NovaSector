@@ -62,7 +62,6 @@
 
 /obj/item/surgical_drapes/integrated/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/surgery_initiator)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_INTERDYNE)
 
 /obj/item/hemostat/integrated
@@ -120,7 +119,7 @@
 	name = "integrated boxcutter"
 	desc = "Stolen from old Terran databanks, the design for this integration was originally some kind of wrist-sheathed assassin tool released into the public domain by an unnamed bitrunner. The FTU found that it worked great as a box cutter, and so authorized it for inclusion in their Deckhand toolset."
 
-/obj/item/stamp/integrated
+/obj/item/stamp/granted/integrated
 	name = "fingertip 'GRANTED' stamp"
 	desc = "Designed to swivel out of a specialized finger-pad mount, this stamp is the bane of budget-crunchers everywhere - for wherever it dares to touch, a loss of credits is sure to follow."
 

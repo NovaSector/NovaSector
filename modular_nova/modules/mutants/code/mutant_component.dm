@@ -71,7 +71,7 @@
 	host.mind?.remove_antag_datum(/datum/antagonist/mutant)
 	host.remove_filter("infection_glow")
 	host.update_appearance()
-	addtimer(CALLBACK(host, /mob/living/carbon/human/proc/remove_mutant_immunity), rand(IMMUNITY_LOWER, IMMUNITY_UPPER), TIMER_STOPPABLE)
+	addtimer(CALLBACK(host, TYPE_PROC_REF(/mob/living/carbon/human, remove_mutant_immunity)), rand(IMMUNITY_LOWER, IMMUNITY_UPPER), TIMER_STOPPABLE)
 
 /datum/component/mutant_infection/proc/extract_rna()
 	if(rna_extracted)
@@ -89,14 +89,14 @@
 
 /datum/component/mutant_infection/process(seconds_per_tick)
 	if(!ismutant(host) && host.stat != DEAD)
-		var/toxloss = host.getToxLoss()
+		var/toxloss = host.get_tox_loss()
 		if(toxloss < 50)
-			host.adjustToxLoss(tox_loss_mod * seconds_per_tick)
+			host.adjust_tox_loss(tox_loss_mod * seconds_per_tick)
 			if(SPT_PROB(5, seconds_per_tick))
 				to_chat(host, span_userdanger("You feel your motor controls seize up for a moment!"))
 				host.Paralyze(10)
 		else
-			host.adjustToxLoss((tox_loss_mod * 2) * seconds_per_tick)
+			host.adjust_tox_loss((tox_loss_mod * 2) * seconds_per_tick)
 			if(SPT_PROB(10, seconds_per_tick))
 				var/obj/item/bodypart/wound_area = host.get_bodypart(BODY_ZONE_CHEST)
 				if(wound_area)
@@ -187,3 +187,10 @@
 
 	animate(filter, alpha = 110, time = 1.5 SECONDS, loop = -1)
 	animate(alpha = 40, time = 2.5 SECONDS)
+
+#undef CURE_TIME
+#undef REVIVE_TIME_LOWER
+#undef REVIVE_TIME_UPPER
+#undef IMMUNITY_LOWER
+#undef IMMUNITY_UPPER
+#undef RNA_REFRESH_TIME

@@ -7,6 +7,7 @@
 	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	w_class = WEIGHT_CLASS_TINY
+	obj_flags_nova = ERP_ITEM
 
 /obj/item/tickle_feather/attack(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	. = ..()
@@ -67,7 +68,7 @@
 	if(!targetedsomewhere)
 		return
 	target.do_jitter_animation()
-	target.adjustStaminaLoss(4)
+	target.adjust_stamina_loss(4)
 	target.add_mood_event("tickled", /datum/mood_event/tickled)
 	target.adjust_arousal(3)
 	user.visible_message(span_purple("[user] [message]!"))

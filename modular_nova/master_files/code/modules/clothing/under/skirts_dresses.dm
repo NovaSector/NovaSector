@@ -1,5 +1,3 @@
-#define SKIRTS_DRESSES_DIGIFILE 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses_digi.dmi'
-
 /obj/item/clothing/under/dress
 	body_parts_covered = CHEST|GROIN	//For reference
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY //For reference - We dont want to cut a random hole in dresses
@@ -40,15 +38,6 @@
 //TG's icons only have a dress.dmi, but that means it's not ABC-sorted to be beside shorts_pants_shirts.dmi. So it's skirts_dresses for us.
 
 /*
- *	TG DIGI VERSION DRESSES
- */
-/obj/item/clothing/under/dress/striped
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/under/dress/skirt/plaid
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/*
  *	Skirts
  */
 
@@ -65,6 +54,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/skirt/nova/red_skirt
 	name = "red bra and skirt"
@@ -73,6 +63,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/skirt/nova/black_skirt
 	name = "black bra and skirt"
@@ -81,26 +72,14 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit //Essentially the same as the Turtleneck Skirt but with a different texture
-	name = "cableknit skirt"
-	desc = "A casual turtleneck skirt, with a cableknit pattern."
-	icon = 'icons/map_icons/clothing/under/dress.dmi'
-	icon_state = "/obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit"
-	post_init_icon_state = "turtleskirt_knit"
-	custom_price = PAYCHECK_CREW
-	greyscale_config = /datum/greyscale_config/turtleskirt_knit
-	greyscale_config_worn = /datum/greyscale_config/turtleskirt_knit/worn
-	greyscale_colors = "#cc0000#5f5f5f"
-	flags_1 = IS_PLAYER_COLORABLE_1
-	can_adjust = TRUE
-	alt_covers_chest = TRUE
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/skirt/nova/jean
 	name = "jean skirt"
 	desc = "Technically, is there much difference between these and jorts? It's just one big hole instead of two. Does that make this a jirt?"
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/skirt/nova/jean"
 	post_init_icon_state = "jean_skirt"
@@ -120,6 +99,7 @@
 	greyscale_config = /datum/greyscale_config/lone_skirt
 	greyscale_config_worn = /datum/greyscale_config/lone_skirt/worn
 	greyscale_colors = "#5f534a"
+	supports_variations_flags = CLOTHING_BIG_LEGS_MASK
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/dress/skirt/nova/medium
@@ -147,6 +127,18 @@
 	greyscale_colors = "#3a3c45"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
 	alternate_worn_layer = ABOVE_SHOES_LAYER
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/skirt/nova/mini_skirt
+	name = "mini skirt"
+	desc = "A hiked up miniskirt, perfect for showing off those legs or cute new socks!"
+	body_parts_covered = GROIN
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/mini_skirt"
+	post_init_icon_state = "mini_skirt"
+	greyscale_config = /datum/greyscale_config/mini_skirt
+	greyscale_config_worn = /datum/greyscale_config/mini_skirt/worn
+	greyscale_colors = "#898989#1c1c1c#a21278#eeeeee"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*
@@ -185,9 +177,25 @@
 /obj/item/clothing/under/dress/nova/countess
 	name = "countess dress"
 	desc = "A wide flowing dress fitting for a countess; may be prone to catching onto stuff as you pass."
-	icon_state = "countess"
+	greyscale_colors = "#880000"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/countess"
+	post_init_icon_state = "countess_dress"
+	greyscale_config = /datum/greyscale_config/countess_dress
+	greyscale_config_worn = /datum/greyscale_config/countess_dress/worn
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDESHOES
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/wedding_dress/ribbon
+	name = "wedding dress with ribbon"
+	desc = "A luxurious gown for once-in-a-lifetime occasions. Now with a cute ribbon, because you deserve it!"
+	greyscale_colors = "#FFFFFF#FF0000"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/wedding_dress/ribbon"
+	post_init_icon_state = "wedding_dress_with_ribbon"
+	greyscale_config = /datum/greyscale_config/wedding_dress_ribbon
+	greyscale_config_worn = /datum/greyscale_config/wedding_dress_ribbon/worn
 
 /obj/item/clothing/under/dress/nova/strapless
 	name = "strapless dress"
@@ -214,12 +222,13 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/dress/nova/jute
-	name = "Jacarta Dress"
+	name = "jacarta dress"
 	desc = "A thick dress with a strong rough exterior layer; lined with a soft breathable thin layer. It's loose-fitting, and has a tag inside that says 'Made in Jacarta'."
 	icon_state = "jute"
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/wedding_dress
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
@@ -233,6 +242,7 @@
 	flags_inv = HIDESHOES
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/wedding_dress/ribbon
 	name = "wedding dress with ribbon"
@@ -244,6 +254,54 @@
 	greyscale_config = /datum/greyscale_config/wedding_dress_ribbon
 	greyscale_config_worn = /datum/greyscale_config/wedding_dress_ribbon/worn
 
+/datum/atom_skin/giant_scarf
+	abstract_type = /datum/atom_skin/giant_scarf
+	greyscale_item_path = /obj/item/clothing/under/dress/nova/giant_scarf
+
+/datum/atom_skin/giant_scarf/giant_scarf
+	preview_name = "Plain"
+	new_icon_state = "giant_scarf"
+
+/datum/atom_skin/giant_scarf/giant_scarf_crystal
+	preview_name = "Crystal"
+	new_icon_state = "giant_scarf_crystal"
+
+/datum/atom_skin/giant_scarf/giant_scarf_stripe
+	preview_name = "Stripe"
+	new_icon_state = "giant_scarf_stripe"
+
+/datum/atom_skin/giant_scarf/giant_scarf_twotone
+	preview_name = "Two-tone"
+	new_icon_state = "giant_scarf_twotone"
+
+/datum/atom_skin/giant_scarf/giant_scarf_arrow
+	preview_name = "Arrow"
+	new_icon_state = "giant_scarf_arrow"
+
+/datum/atom_skin/giant_scarf/giant_scarf_fancy
+	preview_name = "Fancy"
+	new_icon_state = "giant_scarf_fancy"
+
+/datum/atom_skin/giant_scarf/giant_scarf_sepharim
+	preview_name = "Sepharim"
+	new_icon_state = "giant_scarf_sepharim"
+
+/datum/atom_skin/giant_scarf/giant_scarf_bones
+	preview_name = "Bones"
+	new_icon_state = "giant_scarf_bones"
+
+/datum/atom_skin/giant_scarf/giant_scarf_lines
+	preview_name = "Lines"
+	new_icon_state = "giant_scarf_lines"
+
+/datum/atom_skin/giant_scarf/giant_scarf_runes
+	preview_name = "Runes"
+	new_icon_state = "giant_scarf_runes"
+
+/datum/atom_skin/giant_scarf/giant_scarf_heart
+	preview_name = "Heart"
+	new_icon_state = "giant_scarf_heart"
+
 /obj/item/clothing/under/dress/nova/giant_scarf
 	name = "giant scarf"
 	desc = "An absurdly massive scarf, worn as the main article of clothing over the body. Ironically, not very suitable for the cold."
@@ -253,79 +311,180 @@
 	post_init_icon_state = "giant_scarf"
 	greyscale_config = /datum/greyscale_config/giant_scarf
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/worn
-	greyscale_colors = "#EEEEEE"
+	greyscale_colors = "#EEEEEE#bbbbbb"
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/dress/nova/giant_scarf/crystal
-	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/crystal"
-	post_init_icon_state = "giant_scarf_crystal"
-	greyscale_config = /datum/greyscale_config/giant_scarf/crystal
-	greyscale_config_worn = /datum/greyscale_config/giant_scarf/crystal/worn
-	greyscale_colors = "#EEEEEE#bbbbbb"
+/obj/item/clothing/under/dress/nova/giant_scarf/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/giant_scarf, initial_skin = "Plain")
 
-/obj/item/clothing/under/dress/nova/giant_scarf/stripe
-	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/stripe"
-	post_init_icon_state = "giant_scarf_stripe"
-	greyscale_config = /datum/greyscale_config/giant_scarf/stripe
-	greyscale_config_worn = /datum/greyscale_config/giant_scarf/stripe/worn
-	greyscale_colors = "#EEEEEE#bbbbbb"
+/datum/atom_skin/midnight_gown
+	abstract_type = /datum/atom_skin/midnight_gown
+	greyscale_item_path = /obj/item/clothing/under/dress/nova/midnight_gown
 
-/obj/item/clothing/under/dress/nova/giant_scarf/two_tone
-	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/two_tone"
-	post_init_icon_state = "giant_scarf_twotone"
-	greyscale_config = /datum/greyscale_config/giant_scarf/two_tone
-	greyscale_config_worn = /datum/greyscale_config/giant_scarf/two_tone/worn
-	greyscale_colors = "#EEEEEE#bbbbbb"
+/datum/atom_skin/midnight_gown/right
+	preview_name = "Right"
+	new_icon_state = "midnight_right"
 
-/obj/item/clothing/under/dress/nova/giant_scarf/arrow
-	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/arrow"
-	post_init_icon_state = "giant_scarf_arrow"
-	greyscale_config = /datum/greyscale_config/giant_scarf/arrow
-	greyscale_config_worn = /datum/greyscale_config/giant_scarf/arrow/worn
-	greyscale_colors = "#EEEEEE#bbbbbb"
+/datum/atom_skin/midnight_gown/left
+	preview_name = "Left"
+	new_icon_state = "midnight_left"
 
-/obj/item/clothing/under/dress/nova/giant_scarf/fancy
-	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/fancy"
-	post_init_icon_state = "giant_scarf_fancy"
-	greyscale_config = /datum/greyscale_config/giant_scarf/fancy
-	greyscale_config_worn = /datum/greyscale_config/giant_scarf/fancy/worn
-	greyscale_colors = "#EEEEEE#bbbbbb"
+/datum/atom_skin/midnight_gown/mid
+	preview_name = "Middle"
+	new_icon_state = "midnight_mid"
 
-/obj/item/clothing/under/dress/nova/giant_scarf/sepharim
-	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/sepharim"
-	post_init_icon_state = "giant_scarf_sepharim"
-	greyscale_config = /datum/greyscale_config/giant_scarf/sepharim
-	greyscale_config_worn = /datum/greyscale_config/giant_scarf/sepharim/worn
-	greyscale_colors = "#EEEEEE#bbbbbb"
+/obj/item/clothing/under/dress/nova/midnight_gown
+	name = "midnight gown"
+	desc = "A seductive gown purpose tailored to show off one's legs."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/midnight_gown"
+	post_init_icon_state = "midnight_right"
+	greyscale_config = /datum/greyscale_config/midnight_gown
+	greyscale_config_worn = /datum/greyscale_config/midnight_gown/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/midnight_gown/worn/digi
+	greyscale_colors = "#1D253B"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
+	body_parts_covered = CHEST|GROIN|LEGS
+	can_adjust = FALSE
+	alternate_worn_layer = ABOVE_SHOES_LAYER
+	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/under/dress/nova/giant_scarf/bones
-	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/bones"
-	post_init_icon_state = "giant_scarf_bones"
-	greyscale_config = /datum/greyscale_config/giant_scarf/bones
-	greyscale_config_worn = /datum/greyscale_config/giant_scarf/bones/worn
-	greyscale_colors = "#EEEEEE#bbbbbb"
+/obj/item/clothing/under/dress/nova/midnight_gown/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/midnight_gown)
 
-/obj/item/clothing/under/dress/nova/giant_scarf/lines
-	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/lines"
-	post_init_icon_state = "giant_scarf_lines"
-	greyscale_config = /datum/greyscale_config/giant_scarf/lines
-	greyscale_config_worn = /datum/greyscale_config/giant_scarf/lines/worn
-	greyscale_colors = "#EEEEEE#bbbbbb"
+// Windowed Dress
+/obj/item/clothing/under/dress/nova/windowed_dress
+	name = "windowed dress"
+	desc = "A chic dress with a tastefully sewn in 'windowed' effect on the back, that is both alluring and fashionable.\
+			This dress style is courtesy of |DarkRilo Apparels|."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/windowed_dress"
+	post_init_icon_state = "windowed_dress"
+	greyscale_config = /datum/greyscale_config/windowed_dress
+	greyscale_config_worn = /datum/greyscale_config/windowed_dress/worn
+	greyscale_colors = "#424242#424242"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN|LEGS
 
-/obj/item/clothing/under/dress/nova/giant_scarf/runes
-	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/runes"
-	post_init_icon_state = "giant_scarf_runes"
-	greyscale_config = /datum/greyscale_config/giant_scarf/runes
-	greyscale_config_worn = /datum/greyscale_config/giant_scarf/runes/worn
-	greyscale_colors = "#EEEEEE#bbbbbb"
+/obj/item/clothing/under/dress/nova/windowed_dress/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/windowed_dress)
 
-/obj/item/clothing/under/dress/nova/giant_scarf/heart
-	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/heart"
-	post_init_icon_state = "giant_scarf_heart"
-	greyscale_config = /datum/greyscale_config/giant_scarf/heart
-	greyscale_config_worn = /datum/greyscale_config/giant_scarf/heart/worn
-	greyscale_colors = "#EEEEEE#bbbbbb"
+/datum/atom_skin/windowed_dress
+	abstract_type = /datum/atom_skin/windowed_dress
+	greyscale_item_path = /obj/item/clothing/under/dress/nova/windowed_dress
+
+/datum/atom_skin/windowed_dress/deepv
+	preview_name = "Deep V"
+	new_icon_state = "windowed_dress_deepv"
+
+/datum/atom_skin/windowed_dress/opac
+	preview_name = "Tulle"
+	new_icon_state = "windowed_dress_opac"
+
+/datum/atom_skin/windowed_dress/no_opac
+	preview_name = "Straight Collared"
+	new_icon_state = "windowed_dress_no_opac"
+
+// Slit Dress
+/obj/item/clothing/under/dress/nova/slit_dress
+	name = "Slit Dress"
+	desc = "An elegant long dress with an alluring thigh high slit. In elegance, you only need show the bare minimum to exude beauty.\
+			This dress style is courtesy of |DarkRilo Apparels|."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/slit_dress"
+	post_init_icon_state = "slit_dress"
+	greyscale_config = /datum/greyscale_config/slit_dress
+	greyscale_config_worn = /datum/greyscale_config/slit_dress/worn
+	greyscale_colors = "#424242#424242"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN|LEGS
+
+/obj/item/clothing/under/dress/nova/slit_dress/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/slit_dress)
+
+/datum/atom_skin/slit_dress
+	abstract_type = /datum/atom_skin/slit_dress
+	greyscale_item_path = /obj/item/clothing/under/dress/nova/slit_dress
+
+/datum/atom_skin/slit_dress/deepv
+	preview_name = "Deep V"
+	new_icon_state = "slit_dress_deepv"
+
+/datum/atom_skin/slit_dress/opac
+	preview_name = "Tulle"
+	new_icon_state = "slit_dress_opac"
+
+/datum/atom_skin/slit_dress/no_opac
+	preview_name = "Straight Collared"
+	new_icon_state = "slit_dress_no_opac"
+
+// Shorter Dress
+/obj/item/clothing/under/dress/nova/shorter_dress
+	name = "Shorter Dress"
+	desc = "A pervasive short dress that brings life to any occasion. Short, sleek and alluring.\
+			This dress style is courtesy of |DarkRilo Apparels|."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/shorter_dress"
+	post_init_icon_state = "shorter_dress"
+	greyscale_config = /datum/greyscale_config/shorter_dress
+	greyscale_config_worn = /datum/greyscale_config/shorter_dress/worn
+	greyscale_colors = "#424242#424242"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN|LEGS
+
+/obj/item/clothing/under/dress/nova/shorter_dress/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/shorter_dress)
+
+/datum/atom_skin/shorter_dress
+	abstract_type = /datum/atom_skin/shorter_dress
+	greyscale_item_path = /obj/item/clothing/under/dress/nova/shorter_dress
+
+/datum/atom_skin/shorter_dress/deepv
+	preview_name = "Deep V"
+	new_icon_state = "shorter_dress_deepv"
+
+/datum/atom_skin/shorter_dress/opac
+	preview_name = "Tulle"
+	new_icon_state = "shorter_dress_opac"
+
+/datum/atom_skin/shorter_dress/no_opac
+	preview_name = "Straight Collared"
+	new_icon_state = "shorter_dress_no_opac"
+
+// Pen Skirt
+/obj/item/clothing/under/dress/nova/pen_skirt
+	name = "Pen Skirt"
+	desc = "A simple pencil skirt, stretchy and form fitting for both shapely and comfortable bureaucratic needs.\
+			Clothing by |DarkRilo Apparels|."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/pen_skirt"
+	post_init_icon_state = "pen_skirt"
+	greyscale_config = /datum/greyscale_config/pen_skirt
+	greyscale_config_worn = /datum/greyscale_config/pen_skirt/worn
+	greyscale_colors = "#424242"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = GROIN|LEGS
+
+// Formal Pen Skirt
+/obj/item/clothing/under/dress/nova/formal_pen_skirt
+	name = "Formal Pen suit"
+	desc = "A standard pencil dress suit. The blouse is thin and cool to the touch for long hours in the office.\
+			Clothing by |DarkRilo Apparels|."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/formal_pen_skirt"
+	post_init_icon_state = "formal_pen_skirt"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	can_adjust = TRUE
+	greyscale_config = /datum/greyscale_config/formal_pen_skirt
+	greyscale_config_worn = /datum/greyscale_config/formal_pen_skirt/worn
+	greyscale_colors = "#424242#424242"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+
 /*
  *	Others
  */
@@ -343,6 +502,7 @@
 	body_parts_covered = GROIN|LEGS
 	has_sensor = NO_SENSORS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt
 	name = "shorter loincloth"

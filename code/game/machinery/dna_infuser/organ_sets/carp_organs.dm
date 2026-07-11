@@ -11,7 +11,7 @@
 	bonus_deactivate_text = span_notice("Your DNA is once again mostly yours, and so fades your ability to space-swim...")
 	bonus_traits = list(TRAIT_SPACEWALK)
 	bonus_biotype = MOB_AQUATIC
-	limb_overlay = /datum/bodypart_overlay/texture/carpskin
+	limb_texture = /datum/bodypart_texture/carpskin
 	color_overlay_priority = LIMB_COLOR_CARP_INFUSION
 
 ///Carp lungs! You can breathe in space! Oh... you can't breathe on the station, you need low oxygen environments.
@@ -28,13 +28,12 @@
 	post_init_icon_state = "lungs"
 	greyscale_config = /datum/greyscale_config/mutant_organ
 	greyscale_colors = CARP_COLORS
-	organ_traits = list(TRAIT_NODROWN)
+	organ_traits = list(TRAIT_NODROWN, TRAIT_NO_BREATHLESS_DAMAGE)
 
 /obj/item/organ/lungs/carp/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/noticable_organ, "%PRONOUN_Their neck has odd gills.", BODY_ZONE_HEAD)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
-	ADD_TRAIT(src, TRAIT_SPACEBREATHING, REF(src))
 
 ///occasionally sheds carp teeth, stronger melee (bite) attacks, but you can't cover your mouth anymore.
 /obj/item/organ/tongue/carp
@@ -70,6 +69,7 @@
 	head.unarmed_damage_high = 15
 	head.unarmed_effectiveness = 15
 	head.unarmed_attack_effect = ATTACK_EFFECT_BITE
+	head.unarmed_sharpness = SHARP_POINTY
 
 /obj/item/organ/tongue/carp/on_mob_remove(mob/living/carbon/tongue_owner)
 	. = ..()
@@ -87,8 +87,9 @@
 	head.unarmed_damage_high = initial(head.unarmed_damage_high)
 	head.unarmed_effectiveness = initial(head.unarmed_effectiveness)
 	head.unarmed_attack_effect = initial(head.unarmed_attack_effect)
+	head.unarmed_sharpness = initial(head.unarmed_sharpness)
 
-/obj/item/organ/tongue/carp/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/tongue/carp/on_life(seconds_per_tick)
 	. = ..()
 	if(owner.stat != CONSCIOUS || !prob(0.1))
 		return
@@ -118,6 +119,7 @@
 	greyscale_config = /datum/greyscale_config/mutant_organ
 	greyscale_colors = CARP_COLORS
 	can_smoothen_out = FALSE
+	shade_color = "blue"
 
 	///Timer counting down. When finished, the owner gets a bad moodlet.
 	var/cooldown_timer

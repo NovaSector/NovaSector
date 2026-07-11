@@ -23,7 +23,7 @@
 	spawn_magazine_type = /obj/item/ammo_box/magazine/katyusha/buckshot
 
 	can_suppress = FALSE
-	fire_delay = 0.55 SECONDS
+	fire_delay = 0.80 SECONDS
 	fire_sound = 'modular_nova/master_files/sound/weapons/shotgun_nova.ogg' // Meatier shotgun sound
 
 	mag_display = TRUE

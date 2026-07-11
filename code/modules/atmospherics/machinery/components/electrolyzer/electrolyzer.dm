@@ -158,9 +158,9 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/electrolyzer/crowbar_act(mob/living/user, obj/item/tool)
-	return default_deconstruction_crowbar(tool)
+	return default_deconstruction_crowbar(user, tool)
 
-/obj/machinery/electrolyzer/attackby(obj/item/I, mob/user, list/modifiers)
+/obj/machinery/electrolyzer/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers)
 	add_fingerprint(user)
 	if(istype(I, /obj/item/stock_parts/power_store/cell))
 		if(!panel_open)

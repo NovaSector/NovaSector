@@ -58,7 +58,7 @@
 	to_chat(user, span_notice("The wire panel can be accessed without a screwdriver."))
 	return TRUE
 
-/obj/item/grenade/c4/attackby(obj/item/item, mob/user, list/modifiers)
+/obj/item/grenade/c4/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)
 	if(is_wire_tool(item))
 		wires.interact(user)
 	else
@@ -146,6 +146,8 @@
 		thrown_weapon.get_embed()?.embed_chance = 0
 	else if(isliving(bomb_target))
 		plastic_overlay.layer = FLOAT_LAYER
+	else if(isopenturf(bomb_target)) //Render them above open turf layer if theyre open turf
+		plastic_overlay.layer = ABOVE_OPEN_TURF_LAYER
 
 	target.add_overlay(plastic_overlay)
 	to_chat(user, span_notice("You plant the bomb. Timer counting down from [det_time]."))
@@ -188,4 +190,4 @@
 	inhand_icon_state = "plasticx4"
 	worn_icon_state = "x4"
 	directional = TRUE
-	boom_sizes = list(0, 2, 5)
+	boom_sizes = list(0, 5, 7)

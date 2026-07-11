@@ -1,22 +1,21 @@
-import { map } from 'common/collections';
+import { map } from 'es-toolkit/compat';
 import {
   Box,
   Button,
   LabeledList,
   NumberInput,
   Section,
-  Slider,
   Stack,
 } from 'tgui-core/components';
 import { toFixed } from 'tgui-core/math';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
 import { RADIO_CHANNELS } from '../constants';
 import { Window } from '../layouts';
 
 type RadioData = {
-  freqlock: number;
+  freqlock: BooleanLike;
   frequency: number;
   minFrequency: number;
   maxFrequency: number;
@@ -26,8 +25,7 @@ type RadioData = {
   useCommand: BooleanLike;
   subspace: BooleanLike;
   subspaceSwitchable: BooleanLike;
-  channels: string[];
-  radio_noises: number;
+  channels: Record<string, BooleanLike>;
 };
 
 export const Radio = (props) => {
@@ -43,7 +41,6 @@ export const Radio = (props) => {
     useCommand,
     subspace,
     subspaceSwitchable,
-    radio_noises,
   } = data;
   const tunedChannel = RADIO_CHANNELS.find(
     (channel) => channel.freq === frequency,
@@ -53,27 +50,26 @@ export const Radio = (props) => {
     status: !!value,
   }));
   // Calculate window height
-  let height = 133;
-  if (subspace) {
-    if (channels.length > 0) {
-      height += channels.length * 25 + 8;
-    } else {
-      height += 24;
-    }
+  let height = 105;
+  if (channels.length > 0) {
+    height += channels.length * 25 + 8;
+  } else if (subspace) {
+    height += 24;
   }
   return (
-    <Window width={376} height={height}>
+    <Window width={330} height={height}>
       <Window.Content>
         <Section>
           <LabeledList>
             <LabeledList.Item label="Frequency">
               {(freqlock && (
                 <Box inline color="light-gray">
-                  {toFixed(frequency / 10, 1) + ' kHz'}
+                  {`${toFixed(frequency / 10, 1)} kHz`}
                 </Box>
               )) || (
                 <NumberInput
                   animated
+                  tickWhileDragging
                   unit="kHz"
                   step={0.2}
                   stepPixelSize={10}
@@ -81,7 +77,7 @@ export const Radio = (props) => {
                   maxValue={maxFrequency / 10}
                   value={frequency / 10}
                   format={(value) => toFixed(value, 1)}
-                  onDrag={(value) =>
+                  onChange={(value) =>
                     act('frequency', {
                       adjust: value - frequency / 10,
                     })
@@ -128,21 +124,7 @@ export const Radio = (props) => {
                 />
               )}
             </LabeledList.Item>
-            <LabeledList.Item label="Radio Noise Volume">
-              <Slider
-                onChange={(e, value) => {
-                  act('set_radio_volume', {
-                    volume: value,
-                  });
-                }}
-                minValue={0}
-                maxValue={100}
-                step={1}
-                value={radio_noises}
-                stepPixelSize={10}
-              />
-            </LabeledList.Item>
-            {!!subspace && (
+            {(!!subspace || channels.length > 0) && (
               <LabeledList.Item label="Channels">
                 {channels.length === 0 && (
                   <Box inline color="bad">
@@ -162,6 +144,23 @@ export const Radio = (props) => {
                           })
                         }
                       />
+                      {!subspace && !freqlock && (
+                        <Button
+                          icon="walkie-talkie"
+                          ml={1}
+                          disabled={
+                            RADIO_CHANNELS.find((c) => c.name === channel.name)
+                              ?.freq === frequency
+                          }
+                          onClick={() =>
+                            act('tune_to_channel', {
+                              channel: channel.name,
+                            })
+                          }
+                        >
+                          Tune
+                        </Button>
+                      )}
                     </Box>
                   ))}
                 </Stack>

@@ -35,6 +35,7 @@
 		TPACKB,
 		TPACKA,
 		TPACKC,
+		UDCPACK,
 		GUNCASE,
 		// NOVA EDIT ADDITION END
 	)
@@ -60,8 +61,10 @@
 			return /obj/item/storage/backpack/tinypaka
 		if (TPACKC)
 			return /obj/item/storage/backpack/tinypakc
+		if (UDCPACK)
+			return /obj/item/storage/backpack/udc
 		if (GUNCASE)
-			return /obj/item/storage/toolbox/guncase/nova/empty
+			return /obj/item/storage/toolbox/guncase/nova
 		// NOVA EDIT ADDITION END
 
 		// In a perfect world, these would be your department's backpack.
@@ -130,7 +133,7 @@
 	return assoc_to_keys_features(SSaccessories.socks_list)
 
 /datum/preference/choiced/socks/create_default_value()
-	return /datum/sprite_accessory/socks/nude::name
+	return /datum/sprite_accessory/clothing/socks/nude::name
 
 /datum/preference/choiced/socks/icon_for(value)
 	var/static/datum/universal_icon/lower_half
@@ -159,15 +162,15 @@
 	return assoc_to_keys_features(SSaccessories.undershirt_list)
 
 /datum/preference/choiced/undershirt/create_default_value()
-	return /datum/sprite_accessory/undershirt/nude::name
+	return /datum/sprite_accessory/clothing/undershirt/nude::name
 
 /* // NOVA EDIT REMOVAL - sports bra doesn't exist as an undershirt. so just let this default to naked and we'll add underwear elsewhere
 /datum/preference/choiced/undershirt/create_informed_default_value(datum/preferences/preferences)
 	switch(preferences.read_preference(/datum/preference/choiced/gender))
 		if(MALE)
-			return /datum/sprite_accessory/undershirt/nude::name
+			return /datum/sprite_accessory/clothing/undershirt/nude::name
 		if(FEMALE)
-			return /datum/sprite_accessory/undershirt/sports_bra::name
+			return /datum/sprite_accessory/clothing/undershirt/sports_bra::name
 
 	return ..()
 */ // NOVA EDIT REMOVAL END
@@ -209,7 +212,7 @@
 	return assoc_to_keys_features(SSaccessories.underwear_list)
 
 /datum/preference/choiced/underwear/create_default_value()
-	return /datum/sprite_accessory/underwear/male_hearts::name
+	return /datum/sprite_accessory/clothing/underwear/male_hearts::name
 
 /datum/preference/choiced/underwear/icon_for(value)
 	var/static/datum/universal_icon/lower_half

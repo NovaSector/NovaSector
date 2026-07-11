@@ -166,7 +166,7 @@
 /area/ruin/turretbunker)
 "mI" = (
 /obj/structure/table/reinforced,
-/obj/item/xenoarch/hammer/cm1,
+/obj/item/xenoarch/hammer,
 /turf/open/floor/iron/colony,
 /area/ruin/turretbunker)
 "mT" = (
@@ -327,7 +327,7 @@
 /area/ruin/turretbunker)
 "Di" = (
 /obj/structure/table/reinforced,
-/obj/item/xenoarch/tape_measure,
+/obj/item/xenoarch,
 /obj/machinery/light/directional/east,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/colony,

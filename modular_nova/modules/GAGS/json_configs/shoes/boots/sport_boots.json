@@ -1,0 +1,22 @@
+{
+	"sport_boots": [
+		{
+			"type": "icon_state",
+			"icon_state": "sport_boots",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "sport_boots_sole",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "sport_boots_detail",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

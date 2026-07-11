@@ -31,7 +31,6 @@ GLOBAL_LIST_INIT(possible_unusual_biochem_blood_types, list(
 	var/mob/living/carbon/human/human_holder = quirk_holder
 
 	// Get rid of any exotic blood that we used to have
-	human_holder.dna.species.exotic_blood = null
 	human_holder.dna.species.exotic_bloodtype = null
 
 	human_holder.set_blood_type(blood_type)

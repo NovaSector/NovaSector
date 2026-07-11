@@ -91,7 +91,7 @@
 /turf/open/misc/asteroid/forest,
 /area/ruin/unpowered/luna)
 "y" = (
-/turf/open/water,
+/turf/open/water/forest_atmos,
 /area/ruin/unpowered/luna)
 "z" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner,

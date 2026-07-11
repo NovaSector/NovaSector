@@ -19,14 +19,13 @@
 	if(!LAZYLEN(incompatible_quirks))
 		return
 	var/list/message = list("The following quirks are incompatible with your selected species and will be removed: [incompatible_quirks.Join(", ")].")
-	if(CONFIG_GET(flag/disable_quirk_points))
+	if(!SSquirks.points_enabled)
 		message += "Would you like to continue?"
 	else
 		message += "If you do not have enough points to cover the removed quirks, your quirks will be reset. Would you like to continue?"
 	var/response = tgui_alert(user, message.Join(" "), "Quirks Incompatible", list("Yes", "No"))
 	if(response != "Yes")
 		return TRUE
-
 
 /datum/preference_middleware/quirks/post_set_preference(mob/user, preference, value)
 	if(preference != "species")
@@ -49,6 +48,7 @@
 	var/list/data = list()
 
 	data["selected_quirks"] = get_selected_quirks()
+	data["default_quirk_balance"] = SSquirks.default_quirk_points
 	data["species_disallowed_quirks"] = get_species_compatibility()
 
 	return data
@@ -68,7 +68,7 @@
 
 	var/list/quirks = SSquirks.get_quirks()
 
-	var/max_positive_quirks = CONFIG_GET(number/max_positive_quirks)
+	var/max_positive_quirks = SSquirks.max_positive_quirks
 	var/positive_quirks_disabled = max_positive_quirks == 0
 	for (var/quirk_name in quirks)
 		var/datum/quirk/quirk = quirks[quirk_name]
@@ -85,7 +85,7 @@
 			"value" = initial(quirk.value),
 			"customizable" = constant_data?.is_customizable(),
 			"customization_options" = customization_options,
-			"veteran_only" = initial(quirk.veteran_only), // NOVA EDIT ADDITION - Veteran quirks
+			"nova_stars_only" = initial(quirk.nova_stars_only), // NOVA EDIT ADDITION - Veteran quirks
 			"erp_quirk" = initial(quirk.erp_quirk), // NOVA EDIT ADDITION - Purple ERP quirks
 		)
 
@@ -93,11 +93,12 @@
 		"max_positive_quirks" = max_positive_quirks,
 		"quirk_info" = quirk_info,
 		"quirk_blacklist" = GLOB.quirk_string_blacklist,
-		"points_enabled" = !CONFIG_GET(flag/disable_quirk_points),
+		"points_enabled" = SSquirks.points_enabled,
 	)
 
 /datum/preference_middleware/quirks/on_new_character(mob/user)
 	tainted = TRUE
+	preferences.update_static_data(user, always_instant = TRUE)
 
 /datum/preference_middleware/quirks/proc/give_quirk(list/params, mob/user)
 	var/quirk_name = params["quirk"]
@@ -105,7 +106,7 @@
 	//NOVA EDIT ADDITION
 	var/list/quirks = SSquirks.get_quirks()
 	var/datum/quirk/quirk = quirks[quirk_name]
-	if(initial(quirk.veteran_only) && !SSplayer_ranks.is_veteran(preferences?.parent))
+	if(GLOB.nova_star_restrictions && initial(quirk.nova_stars_only) && !SSplayer_ranks.is_nova_star(preferences?.parent))
 		return FALSE
 	//NOVA EDIT END
 
@@ -115,11 +116,12 @@
 		// If the client is sending an invalid give_quirk, that means that
 		// something went wrong with the client prediction, so we should
 		// catch it back up to speed.
-		preferences.update_static_data(user)
+		preferences.update_static_data(user, always_instant = TRUE)
 		return TRUE
 
 	preferences.all_quirks = new_quirks
 	preferences.character_preview_view?.update_body()
+	preferences.update_static_data(user, always_instant = TRUE)
 
 	return TRUE
 
@@ -131,11 +133,12 @@
 		// If the client is sending an invalid remove_quirk, that means that
 		// something went wrong with the client prediction, so we should
 		// catch it back up to speed.
-		preferences.update_static_data(user)
+		preferences.update_static_data(user, always_instant = TRUE)
 		return TRUE
 
 	preferences.all_quirks = new_quirks
 	preferences.character_preview_view?.update_body()
+	preferences.update_static_data(user, always_instant = TRUE)
 
 	return TRUE
 
@@ -146,7 +149,7 @@
 		//NOVA EDIT ADDITION
 		var/list/quirks = SSquirks.get_quirks()
 		var/datum/quirk/quirk_datum = quirks[quirk]
-		if(initial(quirk_datum.veteran_only) && !SSplayer_ranks.is_veteran(preferences?.parent))
+		if(GLOB.nova_star_restrictions && initial(quirk_datum.nova_stars_only) && !SSplayer_ranks.is_nova_star(preferences?.parent))
 			preferences.all_quirks -= quirk
 			continue
 		//NOVA EDIT END

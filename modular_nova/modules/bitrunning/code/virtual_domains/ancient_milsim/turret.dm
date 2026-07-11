@@ -1,4 +1,4 @@
-/obj/machinery/porta_turret/syndicate/nri_raider/ancient_milsim
+/obj/machinery/porta_turret/syndicate/hc_police/ancient_milsim
 	scan_range = 7
 	shot_delay = 8
 	faction = list(FACTION_NEUTRAL,FACTION_SILICON,FACTION_TURRET)

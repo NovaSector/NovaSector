@@ -19,7 +19,9 @@
 	name = "supply utility uniform"
 	desc = "A utility uniform worn by employees of the Supply department."
 	icon_state = "util_cargo"
-	can_adjust = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/cargo/tech/nova/utility/syndicate
 	armor_type = /datum/armor/clothing_under/utility_syndicate
@@ -49,6 +51,8 @@
 	icon_state = "skirtleneck"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
+	gets_cropped_on_taurs = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_BIG_LEGS_MASK
 
 /obj/item/clothing/under/rank/cargo/tech/nova/evil
 	name = "black cargo uniform"
@@ -72,6 +76,20 @@
 	icon_state = "gorka_qm"
 	can_adjust = FALSE
 
+/obj/item/clothing/under/imperial/quartermaster
+	name = "quartermaster's naval uniform"
+	desc = "A uniform of the grand navy questionably granted to Nanotrasen's favorite union representative."
+	icon_state = "/obj/item/clothing/under/imperial/quartermaster"
+	greyscale_colors = "#8B4C31#8B4C31#3E3E48#373741#ccced1#DEB63D#DEB63D"
+	flags_1 = NONE
+
+/obj/item/clothing/under/imperialskirt/quartermaster
+	name = "quartermaster's naval skirt"
+	desc = "A uniform of the grand navy questionably granted to Nanotrasen's favorite union representative."
+	greyscale_colors = "#8B4C31#3E3E48#373741#ccced1#DEB63D#DEB63D"
+	icon_state = "/obj/item/clothing/under/imperialskirt/quartermaster"
+	flags_1 = NONE
+
 /obj/item/clothing/under/rank/cargo/qm/nova/turtleneck
 	name = "quartermaster's turtleneck"
 	desc = "A snug turtleneck sweater worn by the Quartermaster, characterized by the expensive-looking pair of suit pants."
@@ -82,6 +100,7 @@
 	desc = "A snug turtleneck sweater worn by the Quartermaster, as shown by the elegant double-lining of its silk skirt."
 	icon_state = "skirtleneckQM"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/cargo/qm/nova/interdyne
 	name = "deck officer's jumpsuit"
@@ -111,6 +130,8 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/cargo/qm/nova/casual
 	name = "quartermaster's casualwear"

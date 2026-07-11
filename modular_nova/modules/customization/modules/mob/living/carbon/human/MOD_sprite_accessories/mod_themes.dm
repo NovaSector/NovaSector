@@ -102,7 +102,6 @@
 /datum/mod_theme/marines
 	hardlight_theme = COSMIC_BLUE
 
-
 // Debug
 /datum/mod_theme/debug
 	hardlight_theme = COSMIC_BLUE

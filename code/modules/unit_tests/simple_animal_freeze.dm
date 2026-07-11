@@ -5,20 +5,6 @@
 	// Use the new basic mobs system instead.
 	// If you are refactoring a simple_animal, REMOVE it from this list
 	var/list/allowed_types = list(
-		/mob/living/simple_animal/bot,
-		/mob/living/simple_animal/bot/mulebot,
-		/mob/living/simple_animal/bot/mulebot/paranormal,
-		/mob/living/simple_animal/bot/secbot,
-		/mob/living/simple_animal/bot/secbot/beepsky,
-		/mob/living/simple_animal/bot/secbot/beepsky/armsky,
-		/mob/living/simple_animal/bot/secbot/beepsky/jr,
-		/mob/living/simple_animal/bot/secbot/beepsky/officer,
-		/mob/living/simple_animal/bot/secbot/beepsky/ofitser,
-		/mob/living/simple_animal/bot/secbot/ed209,
-		/mob/living/simple_animal/bot/secbot/genesky,
-		/mob/living/simple_animal/bot/secbot/grievous,
-		/mob/living/simple_animal/bot/secbot/grievous/toy,
-		/mob/living/simple_animal/bot/secbot/pingsky,
 		/mob/living/simple_animal/hostile,
 		/mob/living/simple_animal/hostile/asteroid,
 		/mob/living/simple_animal/hostile/asteroid/elite,
@@ -29,16 +15,7 @@
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnairehead,
 		/mob/living/simple_animal/hostile/asteroid/elite/pandora,
-		/mob/living/simple_animal/hostile/asteroid/polarbear,
-		/mob/living/simple_animal/hostile/asteroid/polarbear/lesser,
-		/mob/living/simple_animal/hostile/illusion,
-		/mob/living/simple_animal/hostile/illusion/escape,
-		/mob/living/simple_animal/hostile/illusion/mirage,
 		/mob/living/simple_animal/hostile/megafauna,
-		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner,
-		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom,
-		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/guidance,
-		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/hunter,
 		/mob/living/simple_animal/hostile/megafauna/bubblegum,
 		/mob/living/simple_animal/hostile/megafauna/bubblegum/hallucination,
 		/mob/living/simple_animal/hostile/megafauna/clockwork_defender,
@@ -58,7 +35,6 @@
 		/mob/living/simple_animal/hostile/ooze,
 		/mob/living/simple_animal/hostile/ooze/gelatinous,
 		/mob/living/simple_animal/hostile/ooze/grapes,
-		/mob/living/simple_animal/soulscythe,
 
 		// MODULAR NOVA ENTRIES
 		// PLEASE REFACTOR THESE AS YOU CAN

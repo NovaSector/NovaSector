@@ -16,15 +16,18 @@
 	desc = "A white satin shirt with some bronze rank pins at the neck."
 	name = "corrections officer's skirt"
 	icon_state = "corrections_officerw"
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/security/corrections_officer/sweater
 	desc = "A black combat sweater thrown over the standard issue shirt, perfect for wake up calls."
 	name = "corrections officer's sweater"
 	icon_state = "corrections_officer_sweat"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/security/corrections_officer/sweater/skirt
 	icon_state = "corrections_officer_sweatw"
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/radio/headset/corrections_officer
 	name = "\proper corrections officer's headset"

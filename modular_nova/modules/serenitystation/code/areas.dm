@@ -4,7 +4,7 @@
 	icon_state = "explored"
 	default_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
-	area_flags = UNIQUE_AREA | FLORA_ALLOWED
+	area_flags_mapping = UNIQUE_AREA | FLORA_ALLOWED
 	ambience_index = AMBIENCE_FOREST
 	sound_environment = SOUND_AREA_FOREST
 	ambient_buzz = 'sound/ambience/lavaland/magma.ogg'
@@ -24,7 +24,7 @@
 
 /area/forestplanet/outdoors/unexplored
 	icon_state = "unexplored"
-	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
+	area_flags_mapping = parent_type::area_flags_mapping | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
 	map_generator = /datum/map_generator/cave_generator/forest
 
 /area/forestplanet/outdoors/unexplored/deep

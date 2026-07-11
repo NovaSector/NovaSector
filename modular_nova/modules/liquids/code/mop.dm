@@ -1,7 +1,7 @@
 /obj/item/mop/Initialize(mapload)
 	. = ..()
 
-	AddComponent(/datum/component/liquids_interaction, TYPE_PROC_REF(/obj/item/mop, attack_on_liquids_turf))
+	AddElement(/datum/element/liquids_interaction)
 
 /obj/item/mop/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
 	var/turf/turf_to_clean = atom_to_clean
@@ -12,16 +12,9 @@
 
 	return ..()
 
-/**
- * Proc to remove liquids from a turf using a mop.
- *
- * Arguments:
- * * tile - On which tile we're trying to absorb liquids
- * * user - Who tries to absorb liquids with this?
- * * liquids - Liquids we're trying to absorb.
- */
-/obj/item/mop/proc/attack_on_liquids_turf(turf/tile, mob/user, obj/effect/abstract/liquid_turf/liquids)
-	if(!in_range(user, tile))
+// Remove liquids from a turf using a mop.
+/obj/item/mop/attack_liquids_turf(turf/target_turf, mob/living/user, obj/effect/abstract/liquid_turf/liquids)
+	if(!in_range(user, target_turf))
 		return FALSE
 
 	var/free_space = reagents.maximum_volume - reagents.total_volume

@@ -1,0 +1,15 @@
+/obj/structure/closet/secure_closet/engineering_chief/PopulateContents()
+	..()
+	new /obj/item/storage/box/gas_miner_beacons(src)
+	new /obj/item/construction/plumbing/engineering(src)
+	new /obj/item/circuitboard/machine/rodstopper(src)
+	new /obj/item/card/id/departmental_budget/eng(src)
+	new /obj/item/flatpacked_machine(src)
+
+/obj/structure/closet/secure_closet/engineering_personal/PopulateContents()
+	..()
+	new /obj/item/construction/plumbing/engineering(src)
+
+/obj/structure/closet/secure_closet/atmospherics/PopulateContents()
+	..()
+	new /obj/item/summon_beacon/gas_miner(src)

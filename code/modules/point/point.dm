@@ -7,7 +7,7 @@
  *
  * Not intended as a replacement for the mob verb
  */
-/atom/movable/proc/point_at(atom/pointed_atom, intentional = FALSE)
+/atom/movable/proc/point_at(atom/pointed_atom, intentional = FALSE, pointer_type = /obj/effect/temp_visual/point)
 	if(!isturf(loc))
 		return FALSE
 
@@ -20,12 +20,12 @@
 		return FALSE
 
 	var/turf/our_tile = get_turf(src)
-	var/obj/visual = new /obj/effect/temp_visual/point(our_tile, invisibility)
+	var/obj/visual = new pointer_type(our_tile, invisibility)
 
 	SEND_SIGNAL(src, COMSIG_MOVABLE_POINTED, pointed_atom, visual, intentional)
 
 	animate(visual, pixel_x = (tile.x - our_tile.x) * ICON_SIZE_X + pointed_atom.pixel_x, pixel_y = (tile.y - our_tile.y) * ICON_SIZE_Y + pointed_atom.pixel_y, time = 1.7, easing = EASE_OUT)
-	return TRUE
+	return visual
 
 /mob/point_at(atom/pointed_atom, intentional = FALSE)
 	. = ..()
@@ -48,10 +48,7 @@
 	pointed_atom_appearance.pixel_x = 0
 	pointed_atom_appearance.pixel_y = 0
 	thought_bubble.overlays += pointed_atom_appearance
-
-	var/hover_outline_index = pointed_atom.get_filter_index(HOVER_OUTLINE_FILTER)
-	if (!isnull(hover_outline_index))
-		pointed_atom_appearance.filters.Cut(hover_outline_index, hover_outline_index + 1)
+	pointed_atom_appearance.remove_filter(HOVER_OUTLINE_FILTER)
 
 	thought_bubble.pixel_w = 16
 	thought_bubble.pixel_z = 32
@@ -87,6 +84,13 @@
 	pixel_y = old_loc.pixel_y
 	SetInvisibility(set_invis)
 
+/obj/effect/temp_visual/point/holo
+	icon_state = "arrow_large_white"
+
+/obj/effect/temp_visual/point/holo/Initialize(mapload, set_invis = 0)
+	. = ..()
+	makeHologram()
+
 #undef POINT_TIME
 
 /**
@@ -102,25 +106,24 @@
  *
  * overridden here and in /mob/dead/observer for different point span classes and sanity checks
  */
-/mob/verb/pointed(atom/A as mob|obj|turf in view())
+/mob/verb/pointed(atom/A as mob|obj|turf in view(client.view, src))
 	set name = "Point To"
-	set category = "Object"
 
-	if(istype(A, /obj/effect/temp_visual/point))
+	if(isnull(A) || istype(A, /obj/effect/temp_visual/point) || isarea(A))
 		return FALSE
-
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(_pointed), A))
 
 /// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].
 /// either called immediately or in the tick after pointed() was called, as per the [DEFAULT_QUEUE_OR_CALL_VERB()] macro
 /mob/proc/_pointed(atom/pointing_at)
 	if(client) //Clientless mobs can just go ahead and point
+		var/atom/atom_to_view_verify = pointing_at
 		if(ismovable(pointing_at))
 			var/atom/movable/pointed_movable = pointing_at
-			if(pointed_movable.flags_1 & IS_ONTOP_1)
-				pointing_at = pointed_movable.loc
+			if(HAS_TRAIT(pointed_movable, TRAIT_SKIP_BASIC_REACH_CHECK) || pointing_at.loc.IsContainedAtomAccessible(pointing_at, src))
+				atom_to_view_verify = pointed_movable.loc
 
-		if(!(pointing_at in view(client.view, src)))
+		if(!(atom_to_view_verify in view(client.view, src)))
 			return FALSE
 	if(iscarbon(src)) // special interactions for carbons
 		var/mob/living/carbon/our_carbon = src

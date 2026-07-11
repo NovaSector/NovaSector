@@ -95,7 +95,7 @@
 	new /datum/mold_controller(src, passed_type)
 	. = ..()
 	soundloop = new(src, TRUE)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/mold/structure/core/Destroy()
 	if(mold_controller)
@@ -221,7 +221,7 @@
 	if(prob(7))
 		blooming = TRUE
 		set_light(2, 1, LIGHT_COLOR_LAVA)
-		update_overlays()
+		update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/mold/resin/Destroy()
 	if(mold_controller)
@@ -261,7 +261,7 @@
 	if(!isliving(nearby_atom))
 		return
 	var/mob/living/nearby_mob = nearby_atom
-	if(!(FACTION_MOLD in nearby_mob.faction))
+	if(!nearby_mob.has_faction(FACTION_MOLD))
 		INVOKE_ASYNC(src, PROC_REF(discharge))
 
 /obj/structure/mold/structure/bulb/proc/make_full()
@@ -272,8 +272,7 @@
 	icon_state = "blob_bulb_full"
 	set_light(2, 1, LIGHT_COLOR_LAVA)
 	density = TRUE
-	update_overlays()
-
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/mold/structure/bulb/proc/discharge()
 	if(!is_full)
@@ -285,12 +284,12 @@
 	icon_state = "blob_bulb_empty"
 	playsound(src, 'sound/effects/bamf.ogg', 100, TRUE)
 	set_light(0)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	density = FALSE
 	addtimer(CALLBACK(src, PROC_REF(make_full)), 1 MINUTES, TIMER_UNIQUE|TIMER_NO_HASH_WAIT)
 
 /obj/structure/mold/structure/bulb/attack_generic(mob/user, damage_amount, damage_type, damage_flag, sound_effect, armor_penetration)
-	if(FACTION_MOLD in user.faction)
+	if(user.has_faction(FACTION_MOLD))
 		return ..()
 	discharge()
 	. = ..()

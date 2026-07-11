@@ -1,0 +1,15 @@
+{
+	"beret_badge_clown": [
+		{
+			"type": "icon_state",
+			"icon_state": "beret",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "badge_clown",
+			"blend_mode": "overlay"
+		}
+	]
+}

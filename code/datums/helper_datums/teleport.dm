@@ -28,21 +28,19 @@
 
 	switch(channel)
 		if(TELEPORT_CHANNEL_BLUESPACE)
-			if(istype(teleatom, /obj/item/storage/backpack/holding))
-				precision = rand(1,100)
-
-			var/static/list/bag_cache = typecacheof(/obj/item/storage/backpack/holding)
-			var/list/bagholding = typecache_filter_list(teleatom.get_all_contents(), bag_cache)
-			if(bagholding.len)
-				precision = max(rand(1,100)*bagholding.len,100)
+			var/interference = 0
+			for(var/obj/item/check as anything in teleatom.get_all_contents_type(/obj/item))
+				if(check.item_flags & BLUESPACE_INTERFERENCE)
+					interference += 1
+			if(interference)
+				precision = max(rand(1,100)*interference,100)
 				if(isliving(teleatom))
 					var/mob/living/MM = teleatom
-					to_chat(MM, span_warning("The bluespace interface on your bag of holding interferes with the teleport!"))
+					to_chat(MM, span_warning("The clashing pulls of bluespace interfere with your teleport!"))
 
 			// if effects are not specified and not explicitly disabled, sparks
 			if((!effectin || !effectout) && !no_effects)
-				var/datum/effect_system/spark_spread/sparks = new
-				sparks.set_up(5, 1, teleatom)
+				var/datum/effect_system/basic/spark_spread/sparks = new(teleatom, 5, TRUE)
 				if (!effectin)
 					effectin = sparks
 				if (!effectout)
@@ -50,8 +48,7 @@
 		if(TELEPORT_CHANNEL_QUANTUM)
 			// if effects are not specified and not explicitly disabled, rainbow sparks
 			if ((!effectin || !effectout) && !no_effects)
-				var/datum/effect_system/spark_spread/quantum/sparks = new
-				sparks.set_up(5, 1, teleatom)
+				var/datum/effect_system/basic/spark_spread/quantum/sparks = new(teleatom, 5, TRUE)
 				if (!effectin)
 					effectin = sparks
 				if (!effectout)
@@ -59,16 +56,22 @@
 
 	// perform the teleport
 	var/turf/curturf = get_turf(teleatom)
-	var/turf/destturf = get_teleport_turf(get_turf(destination), precision)
-
-	if(!destturf || !curturf || destturf.is_transition_turf())
+	if(!curturf)
 		return FALSE
 
-	if(!forced)
-		if(!check_teleport_valid(teleatom, destturf, channel, original_destination = destination))
-			if(ismob(teleatom))
-				teleatom.balloon_alert(teleatom, "something holds you back!")
-			return FALSE
+	//The final destination chosen after a few checks
+	var/turf/destturf
+	//The turf of the original destination from the args
+	var/turf/og_destination = get_turf(destination)
+	if(precision)
+		destturf = get_valid_teleport_turf(curturf, og_destination, precision, skip_restrictions = forced)
+	else if(!og_destination.is_transition_turf())
+		destturf = og_destination
+
+	if(!destturf || (!forced && !check_teleport_valid(teleatom, destturf, channel, original_destination = destination)))
+		if(ismob(teleatom))
+			teleatom.balloon_alert(teleatom, "something holds you back!")
+		return FALSE
 
 	if(SEND_SIGNAL(teleatom, COMSIG_MOVABLE_TELEPORTING, destination, channel))
 		return FALSE
@@ -122,29 +125,55 @@
 	if(sound)
 		playsound(location, sound, 60, TRUE)
 	if(effect)
-		effect.attach(location)
-		effect.start()
+		effect.attach(location).start()
 
-// Safe location finder
-/proc/find_safe_turf(zlevel, list/zlevels, extended_safety_checks = FALSE, dense_atoms = FALSE)
-	if(!zlevels)
-		if (zlevel)
-			zlevels = list(zlevel)
-		else
-			zlevels = SSmapping.levels_by_trait(ZTRAIT_STATION)
-	var/cycles = 1000
-	for(var/cycle in 1 to cycles)
-		// DRUNK DIALLING WOOOOOOOOO
+/**
+ * Attempts to find a "safe" floor turf within some given z-levels
+ * * zlevel_or_levels: The list of z-levels we are searching though. You can supply just a number and it will be turned into a list.
+ * * extended_safety_checks: Will do some additional checks to make sure the destination is safe, see [/proc/is_safe_turf].
+ * * dense_atoms: Will additionally check to see if the turf has any dense obstructions, like machines or structures.
+ *
+ * Returns a safe floor turf,
+ * **BUT** there is a chance of it being null if an extremely large portion of a z-level is unsafe or blocked.
+ */
+/proc/find_safe_turf(zlevel_or_levels, extended_safety_checks = FALSE, dense_atoms = FALSE) as /turf/open/floor
+	SHOULD_BE_PURE(TRUE)
+	RETURN_TYPE(/turf/open/floor)
+
+	var/list/zlevels
+	if(islist(zlevel_or_levels))
+		zlevels = zlevel_or_levels
+	else if(zlevel_or_levels)
+		zlevels = list(zlevel_or_levels)
+	else
+		zlevels = SSmapping.levels_by_trait(ZTRAIT_STATION)
+
+	for(var/cycle in 1 to 1000)
 		var/x = rand(1, world.maxx)
 		var/y = rand(1, world.maxy)
 		var/z = pick(zlevels)
 		var/random_location = locate(x,y,z)
-
-		if(is_safe_turf(random_location, extended_safety_checks, dense_atoms, cycle < 300))//if the area is mostly NOTELEPORT (centcom) we gotta give up on this fantasy at some point.
+		var/keep_trying_no_teleport = (cycle < 300) //if the area is mostly NOTELEPORT (centcom) we gotta give up on this fantasy at some point.
+		if(is_safe_turf(random_location, extended_safety_checks, dense_atoms, keep_trying_no_teleport))
 			return random_location
 
-/// Checks if a given turf is a "safe" location
+/**
+ * Checks to see if a given turf is a "safe" location. Being safe requires the following to be true:
+ * * Must be a [floor][/turf/open/floor]
+ * * Must have air, and that air must have [breathable bounds][/proc/check_gases] for humans
+ * * Must have goldilocks temperature
+ * * Must have safe pressure
+ *
+ * Optionally:
+ * * extended_safety_checks: Will make additional checks for turfs that technically pass all previous requirements but still may not be safe
+ * * dense_atoms: Must be unobstructed (no blocking objects such as machines, structures or mobs)
+ * * no_teleport: Must not have [NOTELEPORT][/area/var/area_flag]
+ *
+ * Returns TRUE if all conditions pass, FALSE otherwise.
+ */
 /proc/is_safe_turf(turf/random_location, extended_safety_checks = FALSE, dense_atoms = FALSE, no_teleport = FALSE)
+	SHOULD_BE_PURE(TRUE)
+
 	. = FALSE
 	if(!isfloorturf(random_location))
 		return
@@ -160,18 +189,18 @@
 
 	var/list/floor_gases = floor_gas_mixture.gases
 	var/static/list/gases_to_check = list(
-		/datum/gas/oxygen = list(16, 100),
+		/datum/gas/oxygen = list(/obj/item/organ/lungs::safe_oxygen_min, 100),
 		/datum/gas/nitrogen,
-		/datum/gas/carbon_dioxide = list(0, 10)
+		/datum/gas/carbon_dioxide = list(0, /obj/item/organ/lungs::safe_co2_max)
 	)
 	if(!check_gases(floor_gases, gases_to_check))
 		return FALSE
 
 	// Aim for goldilocks temperatures and pressure
-	if((floor_gas_mixture.temperature <= 270) || (floor_gas_mixture.temperature >= 360))
+	if((floor_gas_mixture.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT) || (floor_gas_mixture.temperature >= BODYTEMP_HEAT_DAMAGE_LIMIT))
 		return
 	var/pressure = floor_gas_mixture.return_pressure()
-	if((pressure <= 20) || (pressure >= 550))
+	if((pressure <= HAZARD_LOW_PRESSURE) || (pressure >= HAZARD_HIGH_PRESSURE))
 		return
 
 	if(extended_safety_checks)
@@ -193,22 +222,29 @@
 	// DING! You have passed the gauntlet, and are "probably" safe.
 	return TRUE
 
-/proc/get_teleport_turfs(turf/center, precision = 0)
-	if(!precision)
-		return list(center)
-	var/list/posturfs = list()
-	for(var/turf/T as anything in RANGE_TURFS(precision,center))
-		if(T.is_transition_turf())
-			continue // Avoid picking these.
-		var/area/A = T.loc
-		if(!(A.area_flags & NOTELEPORT))
-			posturfs.Add(T)
-	return posturfs
+///Check for turfs within range of the center turf and perform simple checks to see which is a valid teleportation target. If so, add it to a list to pick the final destination from at the end.
+/proc/get_valid_teleport_turf(turf/origin, turf/center, range = 0, skip_restrictions = FALSE)
+	var/list/turfs = list()
+	var/area/origin_area = origin.loc
+	for(var/turf/turf as anything in RANGE_TURFS(range, center))
+		if(turf.is_transition_turf())
+			continue // Avoid picking these at all cost
+		if(skip_restrictions)
+			turfs.Add(turf)
+			continue
 
-/proc/get_teleport_turf(turf/center, precision = 0)
-	var/list/turfs = get_teleport_turfs(center, precision)
+		if(HAS_TRAIT(turf, TRAIT_NO_TELEPORT))
+			continue
+		var/area/area = turf.loc
+		if(area.area_flags & NOTELEPORT)
+			continue
+		if(((origin_area.area_flags & LOCAL_TELEPORT) || (area.area_flags & LOCAL_TELEPORT)) && origin_area != area)
+			continue
+		turfs.Add(turf)
+
 	if (length(turfs))
 		return pick(turfs)
+	return null
 
 /// Validates that the teleport being attempted is valid or not
 /proc/check_teleport_valid(atom/teleported_atom, atom/destination, channel, atom/original_destination = null)
@@ -222,7 +258,7 @@
 	var/area/destination_area = get_area(destination)
 	var/turf/destination_turf = get_turf(destination)
 
-	if(HAS_TRAIT(teleported_atom, TRAIT_NO_TELEPORT))
+	if(HAS_TRAIT(teleported_atom, TRAIT_NO_TELEPORT) || HAS_TRAIT(destination_turf, TRAIT_NO_TELEPORT))
 		return FALSE
 
 	// prevent unprecise teleports from landing you outside of the destination's reserved area
@@ -238,3 +274,50 @@
 		return FALSE
 
 	return TRUE
+
+//Gets the topmost teleportable container
+/proc/get_teleportable_container(atom/movable/teleportable, container_flags = ALL)
+	while(ismovable(teleportable.loc))
+		if(!(container_flags & TELEPORT_CONTAINER_INCLUDE_STORAGE) && isitem(teleportable))
+			var/obj/item/item = teleportable
+			if(item.item_flags & IN_STORAGE)
+				break
+		var/atom/movable/movable = teleportable.loc
+		if(movable.anchored)
+			break
+		if(isliving(movable))
+			var/mob/living/living = movable
+			if(!(container_flags & TELEPORT_CONTAINER_INCLUDE_INVENTORY))
+				var/list/equipped = living.get_equipped_items(INCLUDE_HELD|INCLUDE_POCKETS)
+				if((teleportable in equipped) && !HAS_TRAIT(teleportable, TRAIT_NODROP))
+					if(istype(teleportable, /obj/item/mod/control) && (container_flags & TELEPORT_CONTAINER_INCLUDE_SEALED_MODSUIT))
+						var/obj/item/mod/control/modsuit = teleportable
+						var/sealed = TRUE
+						for(var/datum/mod_part/part as anything in modsuit.get_part_datums(TRUE))
+							if((part.part_item == modsuit || part.part_item.loc != modsuit) && !part.sealed)
+								sealed = FALSE
+								break
+						if(!sealed)
+							break
+					else
+						break
+			if(living.buckled)
+				if(living.buckled.anchored)
+					break
+				else
+					var/obj/buckled_obj = living.buckled
+					buckled_obj.unbuckle_mob(living)
+		if(!(container_flags & TELEPORT_CONTAINER_INCLUDE_CLOSET) && iscloset(movable))
+			break
+		if(!(container_flags & TELEPORT_CONTAINER_INCLUDE_MECH_EQUIPMENT) && istype(movable, /obj/item/mecha_parts/mecha_equipment))
+			break
+		if(!(container_flags & TELEPORT_CONTAINER_INCLUDE_VEHICLE) && isvehicle(movable))
+			var/obj/vehicle/vehicle = movable
+			if(vehicle.is_occupant(teleportable))
+				break
+		if(!(container_flags & TELEPORT_CONTAINER_INCLUDE_STOMACH) && istype(movable, /obj/item/organ/stomach))
+			var/obj/item/organ/stomach/stomach = movable
+			if(teleportable in stomach.stomach_contents)
+				break
+		teleportable = movable
+	return teleportable

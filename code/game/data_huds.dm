@@ -8,48 +8,35 @@
 /* DATA HUD DATUMS */
 
 /atom/proc/add_to_all_human_data_huds()
-	for(var/datum/atom_hud/data/human/hud in GLOB.huds)
-		hud.add_atom_to_hud(src)
+	for(var/hud_key, hud_type in GLOB.huds)
+		astype(hud_type, /datum/atom_hud/data/human)?.add_atom_to_hud(src)
 
 /atom/proc/remove_from_all_data_huds()
-	for(var/datum/atom_hud/data/hud in GLOB.huds)
-		hud.remove_atom_from_hud(src)
+	for(var/hud_key, hud_type in GLOB.huds)
+		astype(hud_type, /datum/atom_hud/data)?.remove_atom_from_hud(src)
 
 /datum/atom_hud/data
 
 /datum/atom_hud/data/human/medical
-	hud_icons = list(STATUS_HUD, HEALTH_HUD, DNR_HUD) // NOVA EDIT ADDITION - DNR_HUD
+	hud_icons = list(STATUS_HUD, HEALTH_HUD, DNR_HUD, SHIELD_HUD) // NOVA EDIT ADDITION - DNR_HUD, SHIELD_HUD
 
+/// Sees health (0-100) status (alive, dead), but relies on suit sensors being on
 /datum/atom_hud/data/human/medical/basic
 
-/datum/atom_hud/data/human/medical/basic/proc/check_sensors(mob/living/carbon/human/human)
-	if(!istype(human))
-		return FALSE
-	if(HAS_TRAIT(human, HUMAN_SENSORS_VISIBLE_WITHOUT_SUIT))
-		return TRUE
-	var/obj/item/clothing/under/undersuit = human.w_uniform
-	if(!istype(undersuit))
-		return FALSE
-	if(undersuit.has_sensor < HAS_SENSORS)
-		return FALSE
-	if(undersuit.sensor_mode <= SENSOR_VITALS)
-		return FALSE
-	return TRUE
+/datum/atom_hud/data/human/medical/basic/add_atom_to_single_mob_hud(mob/requesting_mob, atom/hud_atom)
+	if(HAS_TRAIT(hud_atom, TRAIT_BASIC_HEALTH_HUD_VISIBLE))
+		return ..()
 
-/datum/atom_hud/data/human/medical/basic/add_atom_to_single_mob_hud(mob/M, mob/living/carbon/H)
-	if(check_sensors(H))
-		..()
-
-/datum/atom_hud/data/human/medical/basic/proc/update_suit_sensors(mob/living/carbon/H)
-	check_sensors(H) ? add_atom_to_hud(H) : remove_atom_from_hud(H)
-
+/// Sees health (0-100) status (alive, dead), always
 /datum/atom_hud/data/human/medical/advanced
 
 /datum/atom_hud/data/human/security
 
+/// Only sees ID card job
 /datum/atom_hud/data/human/security/basic
 	hud_icons = list(ID_HUD)
 
+/// Sees ID card job, implants, and wanted status
 /datum/atom_hud/data/human/security/advanced
 	hud_icons = list(ID_HUD, IMPSEC_FIRST_HUD, IMPLOYAL_HUD, IMPSEC_SECOND_HUD, WANTED_HUD, PERMIT_HUD, DNR_HUD) //NOVA EDIT ADDITION - PERMIT_HUD, DNR_HUD
 
@@ -75,11 +62,14 @@
 	. = ..()
 	if(!new_viewer || hud_users_all_z_levels.len != 1)
 		return
-	for(var/mob/eye/camera/ai/eye as anything in GLOB.camera_eyes)
+	for(var/mob/eye/camera/ai/eye in GLOB.camera_eyes)
 		eye.update_ai_detect_hud()
 
 /datum/atom_hud/data/malf_apc
 	hud_icons = list(MALF_APC_HUD)
+
+/datum/atom_hud/data/human/blood
+	hud_icons = list(BLOOD_HUD)
 
 /* MED/SEC/DIAG HUD HOOKS */
 
@@ -163,12 +153,22 @@ Medical HUD! Basic mode needs suit sensors on.
 		else
 			return "health-100"
 
-//HOOKS
+/// A helper for getting the appropriate icon state for the blood hud.
+/proc/round_blood_for_hud(mob/living/bloodbag)
+	var/blood_level = (bloodbag.get_blood_volume(apply_modifiers = TRUE) / BLOOD_VOLUME_NORMAL) * 100
+	switch(blood_level)
+		if(87.5 to INFINITY)
+			return "hudblood100"
+		if(62.5 to 87.5)
+			return "hudblood75"
+		if(37.5 to 62.5)
+			return "hudblood50"
+		if(12.5 to 37.5)
+			return "hudblood25"
+		if(-INFINITY to 12.5)
+			return "hudblood0"
 
-//called when a human changes suit sensors
-/mob/living/carbon/proc/update_suit_sensors()
-	var/datum/atom_hud/data/human/medical/basic/B = GLOB.huds[DATA_HUD_MEDICAL_BASIC]
-	B.update_suit_sensors(src)
+//HOOKS
 
 //called when a living mob changes health
 /mob/living/proc/med_hud_set_health()
@@ -189,8 +189,8 @@ Medical HUD! Basic mode needs suit sensors on.
 		set_hud_image_state(STATUS_HUD, "hudxeno")
 		return FALSE
 
-	if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
-		if(HAS_TRAIT(src, TRAIT_MIND_TEMPORARILY_GONE) || can_defib_client())
+	if(!appears_alive())
+		if(can_defib_client())
 			set_hud_image_state(STATUS_HUD, "huddefib")
 		else if(HAS_TRAIT(src, TRAIT_GHOSTROLE_ON_REVIVE))
 			set_hud_image_state(STATUS_HUD, "hudghost")
@@ -262,18 +262,21 @@ Security HUDs! Basic mode shows only the job.
 
 //HOOKS
 
-/mob/living/carbon/human/proc/sec_hud_set_ID()
+/mob/living/carbon/human/proc/update_ID_card()
+	SIGNAL_HANDLER
+
 	var/sechud_icon_state = wear_id?.get_sechud_job_icon_state()
-	if(!sechud_icon_state || HAS_TRAIT(src, TRAIT_UNKNOWN))
+	if(!sechud_icon_state || HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE))
 		sechud_icon_state = "hudno_id"
 	set_hud_image_state(ID_HUD, sechud_icon_state)
 	sec_hud_set_security_status()
-	//NOVA EDIT START
+	//NOVA EDIT ADDITION START
 	var/permit_icon_state = wear_id?.get_gun_permit_iconstate()
 	if(!permit_icon_state)
 		permit_icon_state = "hudfan_no"
 	set_hud_image_state(PERMIT_HUD, permit_icon_state)
-	//NOVA EDIT END
+	//NOVA EDIT ADDITION END
+	update_visible_name()
 
 /mob/living/proc/sec_hud_set_implants()
 	for(var/hud_type in (list(IMPSEC_FIRST_HUD, IMPLOYAL_HUD, IMPSEC_SECOND_HUD) & hud_list))
@@ -388,11 +391,11 @@ Diagnostic HUDs!
 
 //Borgie battery tracking!
 /mob/living/silicon/robot/proc/diag_hud_set_borgcell()
-	if(cell)
+	if(QDELETED(cell) || (cell.maxcharge == 0))
+		set_hud_image_state(DIAG_BATT_HUD, "hudnobatt")
+	else
 		var/chargelvl = (cell.charge/cell.maxcharge)
 		set_hud_image_state(DIAG_BATT_HUD, "hudbatt[RoundDiagBar(chargelvl)]")
-	else
-		set_hud_image_state(DIAG_BATT_HUD, "hudnobatt")
 
 //borg-AI shell tracking
 /mob/living/silicon/robot/proc/diag_hud_set_aishell() //Shows if AI is controlling a cyborg via a BORIS module
@@ -421,11 +424,11 @@ Diagnostic HUDs!
 	set_hud_image_state(DIAG_MECH_HUD, "huddiag[RoundDiagBar(atom_integrity/max_integrity)]")
 
 /obj/vehicle/sealed/mecha/proc/diag_hud_set_mechcell()
-	if(cell)
+	if(QDELETED(cell) || (cell.maxcharge == 0))
+		set_hud_image_state(DIAG_BATT_HUD, "hudnobatt")
+	else
 		var/chargelvl = cell.charge/cell.maxcharge
 		set_hud_image_state(DIAG_BATT_HUD, "hudbatt[RoundDiagBar(chargelvl)]")
-	else
-		set_hud_image_state(DIAG_BATT_HUD, "hudnobatt")
 
 /obj/vehicle/sealed/mecha/proc/diag_hud_set_mechstat()
 	if(!internal_damage)
@@ -458,46 +461,6 @@ Diagnostic HUDs!
 	else
 		set_hud_image_state(DIAG_CAMERA_HUD, "hudcamera")
 
-/*~~~~~~~~~
-	Bots!
-~~~~~~~~~~*/
-/mob/living/simple_animal/bot/proc/diag_hud_set_bothealth()
-	set_hud_image_state(DIAG_HUD, "huddiag[RoundDiagBar(health/maxHealth)]")
-
-/mob/living/simple_animal/bot/proc/diag_hud_set_botstat() //On (With wireless on or off), Off, EMP'ed
-	if(bot_mode_flags & BOT_MODE_ON)
-		set_hud_image_state(DIAG_STAT_HUD, "hudstat")
-	else if(stat) //Generally EMP causes this
-		set_hud_image_state(DIAG_STAT_HUD, "hudoffline")
-	else //Bot is off
-		set_hud_image_state(DIAG_STAT_HUD, "huddead2")
-
-/mob/living/simple_animal/bot/proc/diag_hud_set_botmode() //Shows a bot's current operation
-	if(client) //If the bot is player controlled, it will not be following mode logic!
-		set_hud_image_state(DIAG_BOT_HUD, "hudsentient")
-		return
-
-	switch(mode)
-		if(BOT_SUMMON, BOT_RESPONDING) //Responding to PDA or AI summons
-			set_hud_image_state(DIAG_BOT_HUD, "hudcalled")
-		if(BOT_CLEANING, BOT_HEALING) //Cleanbot cleaning, repairbot fixing, or Medibot Healing
-			set_hud_image_state(DIAG_BOT_HUD, "hudworking")
-		if(BOT_PATROL, BOT_START_PATROL) //Patrol mode
-			set_hud_image_state(DIAG_BOT_HUD, "hudpatrol")
-		if(BOT_PREP_ARREST, BOT_ARREST, BOT_HUNT) //STOP RIGHT THERE, CRIMINAL SCUM!
-			set_hud_image_state(DIAG_BOT_HUD, "hudalert")
-		if(BOT_MOVING, BOT_DELIVER, BOT_GO_HOME, BOT_NAV) //Moving to target for normal bots, moving to deliver or go home for MULES.
-			set_hud_image_state(DIAG_BOT_HUD, "hudmove")
-		else
-			set_hud_image_state(DIAG_BOT_HUD, "")
-
-/mob/living/simple_animal/bot/mulebot/proc/diag_hud_set_mulebotcell()
-	if(cell)
-		var/chargelvl = (cell.charge/cell.maxcharge)
-		set_hud_image_state(DIAG_BATT_HUD, "hudbatt[RoundDiagBar(chargelvl)]")
-	else
-		set_hud_image_state(DIAG_STAT_HUD, "hudnobatt")
-
 /*~~~~~~~~~~~~
 	Airlocks!
 ~~~~~~~~~~~~~*/
@@ -517,6 +480,14 @@ Diagnostic HUDs!
 	SET_PLANE(holder,ABOVE_LIGHTING_PLANE,src)
 	set_hud_image_active(MALF_APC_HUD)
 
+/*~~~~~~~~~~~~
+	BLOOD FOR THE BLOOD GOD!!!
+~~~~~~~~~~~~~*/
+
+/mob/living/proc/blood_hud_set_status()
+	if (CAN_HAVE_BLOOD(src))
+		set_hud_image_state(BLOOD_HUD, round_blood_for_hud(src))
+
 #define CACHED_WIDTH_INDEX "width"
 #define CACHED_HEIGHT_INDEX "height"
 
@@ -527,6 +498,18 @@ Diagnostic HUDs!
 	return dimensions[CACHED_WIDTH_INDEX]
 
 /atom/proc/get_cached_height()
+	if (isnull(icon))
+		return 0
+	var/list/dimensions = get_icon_dimensions(icon)
+	return dimensions[CACHED_HEIGHT_INDEX]
+
+/image/proc/get_cached_width()
+	if (isnull(icon))
+		return 0
+	var/list/dimensions = get_icon_dimensions(icon)
+	return dimensions[CACHED_WIDTH_INDEX]
+
+/image/proc/get_cached_height()
 	if (isnull(icon))
 		return 0
 	var/list/dimensions = get_icon_dimensions(icon)
@@ -557,12 +540,18 @@ Diagnostic HUDs!
 	)
 	return max(scale_list) - min(scale_list)
 
+/atom/proc/get_hud_x_offset()
+	return -(get_cached_width() - ICON_SIZE_X) / 2
+
+/atom/proc/get_hud_y_offset()
+	return get_cached_height() - ICON_SIZE_Y
+
 /atom/proc/adjust_hud_position(image/holder, animate_time = null)
 	if (animate_time)
-		animate(holder, pixel_w = -(get_cached_width() - ICON_SIZE_X) / 2, pixel_z = get_cached_height() - ICON_SIZE_Y, time = animate_time)
+		animate(holder, pixel_w = get_hud_x_offset(), pixel_z = get_hud_y_offset(), time = animate_time)
 		return
-	holder.pixel_w = -(get_cached_width() - ICON_SIZE_X) / 2
-	holder.pixel_z = get_cached_height() - ICON_SIZE_Y
+	holder.pixel_w = get_hud_x_offset()
+	holder.pixel_z = get_hud_y_offset()
 
 /atom/proc/set_hud_image_state(hud_type, hud_state, x_offset = 0, y_offset = 0)
 	if (!hud_list) // Still initializing

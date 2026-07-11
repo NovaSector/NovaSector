@@ -21,6 +21,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/museum/cafeteria)
+"ag" = (
+/turf/closed/indestructible/fakeglass,
+/area/awaymission/museum/inaccessible)
 "ai" = (
 /obj/structure/railing{
 	dir = 8
@@ -40,7 +43,7 @@
 /area/awaymission/museum)
 "ap" = (
 /turf/cordon,
-/area/awaymission/museum)
+/area/misc/cordon)
 "as" = (
 /obj/machinery/conveyor{
 	dir = 1
@@ -82,7 +85,7 @@
 	},
 /obj/machinery/light/small/dim/directional/south,
 /turf/open/indestructible/plating,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "aK" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/preopen,
@@ -103,7 +106,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "aR" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -118,12 +121,16 @@
 /obj/structure/closet/crate/bin,
 /turf/open/floor/wood/large,
 /area/awaymission/museum)
+"aZ" = (
+/obj/effect/mapping_helpers/no_tele_turf,
+/turf/closed/indestructible/reinforced,
+/area/awaymission/museum)
 "bg" = (
-/obj/structure/no_effect_signpost{
+/obj/structure/signpost{
 	name = "if youre reading this you stink and also made by jimmyl"
 	},
 /turf/open/floor/bluespace,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "bi" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -224,6 +231,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/textured_large,
 /area/awaymission/museum)
+"bP" = (
+/obj/effect/mapping_helpers/no_tele_turf,
+/turf/closed/indestructible/rock,
+/area/awaymission/museum)
 "bQ" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners,
 /obj/effect/decal/cleanable/dirt,
@@ -264,7 +275,7 @@
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "cm" = (
 /obj/machinery/door/airlock/grunge,
 /obj/structure/barricade/wooden/crude,
@@ -370,7 +381,7 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "cW" = (
 /obj/machinery/computer/old,
 /turf/open/floor/circuit/green,
@@ -446,7 +457,7 @@
 	range = 2;
 	target_turf_y = -4
 	},
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "dL" = (
 /obj/structure/sink/directional/west,
 /turf/open/floor/wood/tile,
@@ -482,7 +493,7 @@
 	hat = /obj/item/clothing/head/helmet/space
 	},
 /turf/open/floor/holofloor/hyperspace/ns,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "dZ" = (
 /obj/structure/lattice/catwalk/mining,
 /turf/open/chasm/true/no_smooth,
@@ -610,7 +621,7 @@
 	id = "nothing"
 	},
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "eO" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
@@ -685,7 +696,7 @@
 /area/awaymission/museum/cafeteria)
 "fn" = (
 /turf/open/floor/holofloor/hyperspace/ns,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "fo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -698,7 +709,7 @@
 	force = -200
 	},
 /turf/open/floor/bluespace,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "fy" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -735,7 +746,8 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/sign/painting{
 	pixel_y = 32;
-	persistence_id = "museumgate"
+	persistence_id = "museumgate";
+	dir = 1
 	},
 /obj/machinery/light/floor,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -811,11 +823,11 @@
 	},
 /obj/machinery/light/small/dim/directional/south,
 /turf/open/indestructible/plating,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "gE" = (
 /obj/item/clothing/suit/caution,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "gG" = (
 /obj/effect/turf_decal/siding/dark_blue/corner{
 	dir = 4
@@ -941,7 +953,7 @@
 "hE" = (
 /obj/machinery/light/floor,
 /turf/open/floor/holofloor/hyperspace/ns,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "hM" = (
 /turf/closed/wall/rock/porous,
 /area/awaymission/museum)
@@ -952,7 +964,7 @@
 	dir = 5
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "hT" = (
 /mob/living/basic/statue/mannequin{
 	name = "Dale Knox";
@@ -983,6 +995,9 @@
 	},
 /turf/open/floor/engine,
 /area/awaymission/museum)
+"ia" = (
+/turf/open/floor/iron/white/small,
+/area/awaymission/museum/cafeteria)
 "il" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/costume/judgerobe,
@@ -1044,16 +1059,14 @@
 /obj/effect/turf_decal/stripes/asteroid/line{
 	dir = 1
 	},
-/obj/machinery/button{
-	pixel_y = 32
-	},
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
 "iI" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/sign/painting{
 	pixel_y = 32;
-	persistence_id = "museumgate"
+	persistence_id = "museumgate";
+	dir = 1
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark,
@@ -1091,7 +1104,7 @@
 "iU" = (
 /obj/machinery/telecomms/relay/preset/auto,
 /turf/open/floor/bluespace,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "iV" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/structure/railing{
@@ -1120,7 +1133,7 @@
 	facedir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "jf" = (
 /mob/living/basic/mothroach,
 /turf/open/floor/wood/large,
@@ -1160,7 +1173,7 @@
 	name = "Restrooms"
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "jy" = (
 /mob/living/basic/statue/mannequin{
 	name = "Dale Knox";
@@ -1183,7 +1196,7 @@
 	queue_id = "museum_right_wing"
 	},
 /turf/closed/indestructible/reinforced,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "jF" = (
 /obj/machinery/suit_storage_unit/open,
 /obj/effect/turf_decal/box,
@@ -1315,7 +1328,7 @@
 	name = "Restrooms"
 	},
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "kA" = (
 /obj/machinery/conveyor{
 	dir = 1
@@ -1332,7 +1345,7 @@
 	id = "museum_cafeteria"
 	},
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "kO" = (
 /obj/structure/railing{
 	dir = 8
@@ -1343,7 +1356,7 @@
 "kQ" = (
 /obj/structure/fluff/meteor,
 /turf/open/floor/holofloor/hyperspace/ns,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "kX" = (
 /obj/structure/girder/displaced,
 /obj/structure/railing{
@@ -1508,11 +1521,12 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/museum)
 "mj" = (
+/obj/effect/mapping_helpers/no_tele_turf,
 /turf/open/mirage{
 	range = 2;
 	target_turf_y = 4
 	},
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "ml" = (
 /obj/structure/table/wood,
 /obj/item/food/hotcrossbun,
@@ -1524,6 +1538,10 @@
 	dir = 8
 	},
 /turf/open/chasm/true/no_smooth,
+/area/awaymission/museum)
+"mo" = (
+/obj/effect/mapping_helpers/no_tele_turf,
+/turf/closed/indestructible/reinforced/titanium/nodiagonal,
 /area/awaymission/museum)
 "ms" = (
 /turf/open/floor/iron,
@@ -1608,6 +1626,10 @@
 	},
 /turf/open/floor/engine,
 /area/awaymission/museum)
+"no" = (
+/obj/effect/mapping_helpers/no_tele_turf,
+/turf/closed/indestructible/reinforced,
+/area/awaymission/museum/cafeteria)
 "nq" = (
 /obj/structure/table/wood,
 /obj/item/paper/fluff/jobs/security/court_judgement,
@@ -1691,7 +1713,7 @@
 	facedir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "nH" = (
 /obj/structure/fluff/minepost,
 /obj/effect/turf_decal/siding{
@@ -1740,7 +1762,7 @@
 "nY" = (
 /obj/structure/sign/poster/official/no_erp/directional/north,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "nZ" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 1
@@ -1757,7 +1779,7 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/food/sandwich/cheese/grilled,
+/obj/item/food/sandwich/grilled_cheese,
 /turf/open/floor/iron/dark,
 /area/awaymission/museum)
 "of" = (
@@ -1831,7 +1853,7 @@
 	queue_id = "museum_cafeteria"
 	},
 /turf/closed/indestructible/reinforced,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "oQ" = (
 /turf/open/floor/holofloor/beach/coast{
 	dir = 1
@@ -1914,7 +1936,7 @@
 	id = "museum_cafeteria"
 	},
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "pD" = (
 /obj/structure/broken_flooring/corner/always_floorplane/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1954,7 +1976,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "pX" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance/two,
@@ -1966,6 +1988,10 @@
 /obj/item/pickaxe/drill/diamonddrill,
 /turf/open/misc/grass,
 /area/awaymission/museum/mothroachvoid)
+"qf" = (
+/obj/machinery/light/floor,
+/turf/open/floor/iron,
+/area/awaymission/museum/inaccessible)
 "qj" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
@@ -2097,7 +2123,7 @@
 /area/awaymission/museum)
 "re" = (
 /turf/cordon/secret,
-/area/awaymission/museum)
+/area/misc/cordon)
 "rm" = (
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
@@ -2169,7 +2195,7 @@
 "rP" = (
 /obj/item/clothing/mask/gas/clown_hat,
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "rQ" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -2233,7 +2259,7 @@
 	sentience_type = 2
 	},
 /turf/open/floor/black,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "sm" = (
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 8
@@ -2317,6 +2343,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/engine,
 /area/awaymission/museum)
+"sR" = (
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 10
+	},
+/turf/open/floor/iron/dark,
+/area/awaymission/museum/cafeteria)
 "sX" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -2454,8 +2487,9 @@
 	},
 /area/awaymission/museum)
 "tK" = (
-/obj/structure/sign/warning,
-/turf/closed/indestructible/reinforced,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/warning/directional/south,
+/turf/open/indestructible/plating,
 /area/awaymission/museum)
 "tM" = (
 /obj/structure/table/wood,
@@ -2522,7 +2556,7 @@
 /obj/structure/tank_holder/extinguisher/anti,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "up" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -2538,7 +2572,7 @@
 	id_tag = "museum_toilet2"
 	},
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "ut" = (
 /obj/machinery/light/very_dim/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2546,7 +2580,7 @@
 /obj/structure/mop_bucket,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "uu" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/engineering/material,
@@ -2581,7 +2615,7 @@
 "uT" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle/indestructible,
 /turf/open/indestructible/plating,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "uY" = (
 /turf/open/floor/iron,
 /area/awaymission/museum)
@@ -2694,6 +2728,9 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/iron/dark,
 /area/awaymission/museum)
+"vX" = (
+/turf/closed/indestructible/reinforced/titanium/nodiagonal,
+/area/awaymission/museum/inaccessible)
 "vZ" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/entertainment/toy,
@@ -2711,7 +2748,7 @@
 	note_info = "I'VE WORKED HERE FOR 7 YEARS! JUST TO BE REPLACED BY A VENDING MACHINE?! YOU KNOW WHAT? FUCK YOU, I'VE LOCKED DOWN THE CAFETERIA AND WON'T BE COMING OUT 'TILL YOU GIVE ME MY JOB BACK!"
 	},
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "wh" = (
 /obj/structure/broken_flooring/corner/always_floorplane/directional/west,
 /obj/structure/lattice,
@@ -2723,7 +2760,7 @@
 	id = "museum_right_wing"
 	},
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "wk" = (
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/iron/freezer,
@@ -2805,7 +2842,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "wZ" = (
 /turf/open/misc/beach/coast{
 	dir = 1
@@ -2900,7 +2937,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "xB" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3006,11 +3043,11 @@
 	dir = 10
 	},
 /turf/open/indestructible/plating,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "yq" = (
 /obj/structure/fluff/meteor/large,
 /turf/open/floor/holofloor/hyperspace/ns,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "yr" = (
 /mob/living/basic/mothroach,
 /obj/structure/chair/comfy,
@@ -3065,7 +3102,7 @@
 	},
 /obj/structure/fluff/fokoff_sign,
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "yM" = (
 /obj/machinery/door/poddoor{
 	id = "gatewayfake"
@@ -3086,7 +3123,7 @@
 /area/awaymission/museum)
 "yS" = (
 /turf/closed/wall/space,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "zc" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/stripes,
@@ -3111,7 +3148,7 @@
 	dir = 9
 	},
 /turf/open/indestructible/plating,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "zr" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/structure/railing{
@@ -3127,14 +3164,14 @@
 "zA" = (
 /obj/effect/mapping_helpers/ztrait_injector/museum,
 /turf/open/floor/bluespace,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "zC" = (
 /obj/machinery/vending/boozeomat,
 /turf/open/floor/wood/tile,
 /area/awaymission/museum)
 "zE" = (
-/turf/closed/indestructible/rock,
-/area/awaymission/museum)
+/turf/closed/indestructible/reinforced,
+/area/awaymission/museum/inaccessible)
 "zG" = (
 /mob/living/basic/statue/mannequin{
 	dir = 8;
@@ -3240,6 +3277,7 @@
 /obj/machinery/door/window/elevator/left/directional/south{
 	transport_linked_id = "museum_cargo"
 	},
+/obj/structure/sign/warning/directional/east,
 /turf/open/chasm/true/no_smooth,
 /area/awaymission/museum)
 "Ak" = (
@@ -3402,6 +3440,12 @@
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/museum)
+"BB" = (
+/obj/machinery/door/poddoor{
+	id = "gatewayfake"
+	},
+/turf/open/indestructible/plating,
+/area/awaymission/museum/inaccessible)
 "BF" = (
 /turf/open/misc/beach/coast{
 	dir = 6
@@ -3547,7 +3591,7 @@
 /obj/structure/mirror/directional/east,
 /obj/structure/sink/directional/west,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "CI" = (
 /obj/effect/turf_decal/caution,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3637,7 +3681,7 @@
 /area/awaymission/museum)
 "DD" = (
 /turf/open/floor/bluespace,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "DE" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -3673,7 +3717,7 @@
 "DT" = (
 /obj/structure/broken_flooring/side/always_floorplane/directional/south,
 /turf/open/floor/black,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "DU" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
 	dir = 1
@@ -3910,7 +3954,7 @@
 "Fw" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	name = "replica blood";
-	should_dry = 0
+	can_dry = 0
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3973,7 +4017,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "FY" = (
 /obj/structure/chair/sofa/bench/left,
 /turf/open/floor/iron/cafeteria,
@@ -4022,6 +4066,12 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/museum/cafeteria)
+"GD" = (
+/turf/open/mirage{
+	range = 2;
+	target_turf_y = 4
+	},
+/area/awaymission/museum/inaccessible)
 "GE" = (
 /obj/structure/plaque/static_plaque/golden/commission/meta,
 /turf/open/floor/mineral/gold,
@@ -4133,7 +4183,7 @@
 	id = "nothing"
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "Hw" = (
 /obj/machinery/computer/terminal/museum{
 	content = list("Early 1970s, 1978 - With the introduction of the microprocessor in the early 1970s, the world of computers became accessible to the masses via the introduction of the personal computer. Seizing on the opportunity to expand their horizons, Trasen-Knox would introduce their first personal computer, the TKC Personal Computer, in 1978, becoming a household name as well as the favourite computer producer of scientific groups in North America.")
@@ -4156,7 +4206,7 @@
 	id = "museum_right_wing"
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "HE" = (
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 1
@@ -4210,7 +4260,7 @@
 	},
 /obj/machinery/light/small/dim/directional/west,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "HY" = (
 /obj/machinery/light/floor,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4242,7 +4292,7 @@
 /area/awaymission/museum)
 "Ir" = (
 /turf/closed/indestructible/fakedoor,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "Iu" = (
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/museum)
@@ -4264,6 +4314,9 @@
 	},
 /turf/open/floor/grass,
 /area/awaymission/museum)
+"ID" = (
+/turf/open/chasm,
+/area/awaymission/museum/inaccessible)
 "IF" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/random/food_or_drink/refreshing_beverage,
@@ -4369,7 +4422,7 @@
 	id_tag = "museum_toilet1"
 	},
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "Js" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -4431,7 +4484,7 @@
 	dir = 8
 	},
 /turf/open/floor/black,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "JY" = (
 /turf/open/floor/iron/stairs{
 	dir = 8
@@ -4493,7 +4546,7 @@
 	content = list("Instructions; stand upright; remove safety clip; aim noozle at base of fire... the rest is up to you.")
 	},
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "KB" = (
 /obj/structure/sign/warning/no_smoking/circle/directional/east,
 /turf/open/floor/iron/cafeteria,
@@ -4525,7 +4578,7 @@
 /area/awaymission/museum)
 "Lm" = (
 /turf/open/floor/black,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "Lp" = (
 /obj/machinery/status_display/random_message{
 	firstline_to_secondline = list(NO="LITTERING", "YOU ARE"="BEING WATCHED", "DO NOT TOUCH"="THE EXHIBITS")
@@ -4623,7 +4676,7 @@
 /obj/effect/turf_decal/siding/dark_blue,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "Mg" = (
 /obj/structure/plaque/static_plaque/golden/commission/tram,
 /turf/closed/indestructible/reinforced,
@@ -4638,6 +4691,7 @@
 /obj/structure/broken_flooring/side/always_floorplane{
 	dir = 8
 	},
+/obj/structure/sign/warning/directional/east,
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
 "Mv" = (
@@ -4746,6 +4800,7 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/bin,
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/museum)
 "NB" = (
@@ -4971,6 +5026,12 @@
 	},
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
+"PI" = (
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/turf_decal/siding/dark_blue,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/dark,
+/area/awaymission/museum/cafeteria)
 "PK" = (
 /obj/machinery/door/poddoor{
 	id = "gatewayfake"
@@ -4979,7 +5040,7 @@
 	dir = 1
 	},
 /turf/open/indestructible/plating,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "PN" = (
 /obj/structure/girder/bronze,
 /turf/open/floor/bronze/flat,
@@ -5050,7 +5111,7 @@
 	dir = 4
 	},
 /turf/open/floor/black,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "Qf" = (
 /obj/effect/turf_decal/tile/green/opposingcorners,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5062,7 +5123,7 @@
 "Qi" = (
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /turf/open/indestructible/plating,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "Qj" = (
 /obj/structure/hedge,
 /obj/effect/turf_decal/siding/wood,
@@ -5148,11 +5209,15 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/textured_large,
 /area/awaymission/museum)
+"QO" = (
+/obj/effect/mapping_helpers/no_tele_turf,
+/turf/closed/indestructible/wood,
+/area/awaymission/museum)
 "QP" = (
 /obj/effect/playeronly_barrier,
 /obj/machinery/door/airlock/public/glass,
 /turf/open/floor/iron,
-/area/awaymission/museum)
+/area/awaymission/museum/mothroachvoid)
 "QU" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/broken_flooring/side/always_floorplane{
@@ -5184,6 +5249,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/sign/warning/directional/west,
+/obj/structure/sign/warning/directional/east,
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
 "Rl" = (
@@ -5200,6 +5267,12 @@
 	dir = 4
 	},
 /area/awaymission/museum)
+"Rn" = (
+/obj/machinery/conveyor{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/awaymission/museum/inaccessible)
 "Rq" = (
 /obj/structure/fluff/fake_camera{
 	dir = 5
@@ -5275,7 +5348,7 @@
 	baseturf = /turf/open/indestructible/plating
 	},
 /turf/open/floor/bluespace,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "Se" = (
 /mob/living/basic/mothroach,
 /obj/structure/chair/comfy/beige,
@@ -5291,7 +5364,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fluff/fake_scrubber,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "So" = (
 /obj/machinery/shower/directional/east,
 /turf/open/floor/iron/white/textured_large,
@@ -5340,7 +5413,7 @@
 	late_initialize_pop = 1
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "SU" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/spacecash/c1000,
@@ -5355,8 +5428,8 @@
 /turf/open/floor/iron/white/small,
 /area/awaymission/museum)
 "Tr" = (
-/obj/structure/plaque/static_plaque/golden/commission/kilo,
 /obj/machinery/light/floor,
+/obj/structure/plaque/static_plaque/golden/commission/kilo,
 /turf/open/floor/mineral/gold,
 /area/awaymission/museum)
 "Tt" = (
@@ -5427,6 +5500,7 @@
 	dir = 1
 	},
 /obj/item/kirbyplants/random/fullysynthetic,
+/obj/structure/sign/nanotrasen/directional/south,
 /turf/open/floor/mineral/titanium/blue,
 /area/awaymission/museum)
 "TO" = (
@@ -5462,8 +5536,13 @@
 	transport_linked_id = "museum_cargo"
 	},
 /obj/effect/spawner/random/maintenance/no_decals/seven,
+/obj/structure/sign/warning/directional/west,
 /turf/open/chasm/true/no_smooth,
 /area/awaymission/museum)
+"Ui" = (
+/obj/effect/mapping_helpers/no_tele_turf,
+/turf/closed/indestructible/rock,
+/area/awaymission/museum/mothroachvoid)
 "Um" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -5491,24 +5570,28 @@
 /obj/structure/fluff/fake_scrubber,
 /turf/open/floor/iron,
 /area/awaymission/museum)
+"Up" = (
+/obj/machinery/light/floor,
+/turf/open/floor/iron,
+/area/awaymission/museum/cafeteria)
 "Uq" = (
 /obj/effect/smooths_with_walls,
 /turf/cordon/secret,
-/area/awaymission/museum)
+/area/misc/cordon)
 "Ut" = (
 /mob/living/basic/statue/mannequin{
 	held_item = /obj/item/banner/command;
 	hat = /obj/item/clothing/head/helmet/space
 	},
 /turf/open/floor/holofloor/hyperspace/ns,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "Uu" = (
 /turf/open/floor/mineral/titanium/white,
 /area/awaymission/museum)
 "Ux" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/structure/table,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	name = "plant data disk";
 	icon_state = "datadisk_hydro"
 	},
@@ -5541,9 +5624,9 @@
 "UH" = (
 /obj/structure/mirror/broken/directional/east,
 /obj/structure/sink/directional/west,
-/obj/effect/decal/cleanable/oil/slippery,
+/obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "UI" = (
 /obj/effect/turf_decal/tile/green/opposingcorners,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5643,7 +5726,7 @@
 	},
 /obj/structure/fluff/fokoff_sign,
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "Vz" = (
 /obj/structure/grille/broken,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -5735,10 +5818,11 @@
 	id = "nothing"
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "We" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/sign/warning/directional/south,
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
 "Wf" = (
@@ -5772,7 +5856,7 @@
 	set_cap = 1
 	},
 /turf/closed/indestructible/rock,
-/area/awaymission/museum)
+/area/awaymission/museum/mothroachvoid)
 "Wt" = (
 /obj/machinery/computer/old{
 	name = "replica computer";
@@ -5798,7 +5882,7 @@
 	dir = 5
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "WB" = (
 /obj/structure/chair/stool/bar/directional/east,
 /turf/open/floor/wood/large,
@@ -5878,7 +5962,7 @@
 	},
 /obj/machinery/light/small/dim/directional/west,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "WZ" = (
 /obj/structure/chair/sofa/bench{
 	dir = 1
@@ -6001,17 +6085,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/broken_flooring/side/directional/east,
 /obj/machinery/door/airlock/atmos/glass,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/access/all/away/generic3,
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
-"Ye" = (
-/obj/structure/sign/nanotrasen,
-/turf/closed/indestructible/reinforced/titanium/nodiagonal,
-/area/awaymission/museum)
 "Yg" = (
-/mob/living/basic/cockroach,
+/obj/effect/mob_spawn/cockroach,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/indestructible/plating,
 /area/awaymission/museum)
@@ -6026,7 +6106,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fluff/fake_camera,
 /turf/open/floor/iron/white/small,
-/area/awaymission/museum)
+/area/awaymission/museum/cafeteria)
 "Yr" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/structure/table/reinforced,
@@ -6078,7 +6158,7 @@
 	dir = 1
 	},
 /turf/open/floor/black,
-/area/awaymission/museum)
+/area/awaymission/museum/inaccessible)
 "YY" = (
 /turf/open/floor/iron/stairs/left{
 	dir = 8
@@ -26946,20 +27026,20 @@ re
 re
 re
 re
-FK
+zE
 DT
 DT
 DT
-FK
+zE
 re
 re
 re
 re
+aZ
 FK
+aZ
 FK
-FK
-FK
-FK
+aZ
 Uq
 re
 re
@@ -27197,17 +27277,17 @@ re
 re
 re
 re
+aZ
 FK
 FK
 FK
-FK
-FK
+aZ
 re
-FK
+zE
 xx
-TM
+qf
 Wy
-FK
+zE
 re
 re
 re
@@ -27452,7 +27532,7 @@ yS
 re
 re
 re
-FK
+aZ
 FK
 FK
 IP
@@ -27460,14 +27540,14 @@ Zg
 fJ
 FK
 FK
-FK
+zE
 Hs
 eN
 Wc
-FK
+zE
 re
 re
-FK
+aZ
 FO
 FK
 ta
@@ -27981,7 +28061,7 @@ tD
 FK
 re
 re
-FK
+aZ
 FK
 FO
 IG
@@ -28214,11 +28294,11 @@ re
 re
 re
 yS
-fe
+vX
 uT
 uT
 uT
-fe
+vX
 yS
 re
 re
@@ -28438,6 +28518,7 @@ re
 re
 re
 re
+QO
 MF
 MF
 MF
@@ -28447,8 +28528,7 @@ MF
 MF
 MF
 MF
-MF
-MF
+QO
 re
 re
 re
@@ -28470,7 +28550,7 @@ re
 re
 re
 re
-fe
+mo
 fe
 Mx
 Ni
@@ -28724,7 +28804,7 @@ re
 re
 re
 re
-fe
+mo
 fe
 fe
 fe
@@ -29204,7 +29284,7 @@ re
 re
 re
 re
-MF
+QO
 MF
 MF
 MF
@@ -29283,9 +29363,9 @@ re
 re
 re
 re
-FK
-yM
-FK
+zE
+BB
+zE
 FK
 FK
 FK
@@ -29504,7 +29584,7 @@ iW
 go
 iW
 TN
-Ye
+fe
 FK
 FK
 FK
@@ -29532,17 +29612,17 @@ FK
 FK
 FK
 FK
+aZ
 FK
 FK
 FK
 FK
 FK
 FK
-FK
-FK
-FK
+zE
+zE
 aG
-FK
+zE
 Gv
 ek
 Gv
@@ -29797,9 +29877,9 @@ Ma
 Ma
 as
 PK
-EK
+Rn
 yo
-Kh
+ag
 Gv
 sN
 Gv
@@ -29991,7 +30071,7 @@ gM
 gM
 rA
 MF
-MF
+QO
 re
 re
 DS
@@ -30052,11 +30132,11 @@ Qk
 Ma
 Ma
 Ma
-tK
 FK
-FK
-Kh
-Kh
+zE
+zE
+ag
+ag
 ix
 ix
 ix
@@ -30275,7 +30355,7 @@ DU
 iW
 iW
 Ny
-Ye
+fe
 FK
 FK
 FK
@@ -30303,7 +30383,7 @@ FK
 bF
 FK
 We
-tK
+FK
 Ma
 VE
 zr
@@ -30487,7 +30567,7 @@ re
 re
 re
 re
-MF
+QO
 MF
 MF
 MF
@@ -30566,15 +30646,15 @@ do
 Ma
 Ma
 Ma
-tK
+FK
+zE
+zE
+ag
+ag
 FK
 FK
-Kh
-Kh
 FK
-FK
-FK
-FK
+aZ
 Uq
 re
 re
@@ -30825,10 +30905,10 @@ Ma
 Ma
 kA
 PK
-EK
-EK
+Rn
+Rn
 zh
-FK
+zE
 re
 re
 re
@@ -31037,7 +31117,7 @@ re
 re
 re
 re
-fe
+mo
 fe
 fe
 fe
@@ -31082,10 +31162,10 @@ Ma
 Ma
 VM
 PK
-EK
+Rn
 zh
 gC
-FK
+zE
 re
 re
 re
@@ -31340,9 +31420,9 @@ FK
 FK
 FK
 FK
-yM
-yM
-FK
+BB
+BB
+zE
 re
 re
 re
@@ -31547,12 +31627,12 @@ re
 re
 re
 re
+aZ
 FK
 FK
 FK
 FK
-FK
-FK
+aZ
 re
 fe
 qY
@@ -32056,7 +32136,7 @@ MF
 MF
 MF
 MF
-MF
+QO
 re
 re
 re
@@ -32068,7 +32148,7 @@ Ov
 tB
 FK
 re
-FK
+aZ
 FK
 iT
 FK
@@ -32100,21 +32180,21 @@ DY
 FK
 TB
 ZZ
-XK
-tK
-Kh
-Kh
-FK
-Kh
-Kh
-FK
-FK
-lU
-lU
-lU
 tK
 FK
+Kh
+Kh
 FK
+Kh
+Kh
+FK
+FK
+lU
+lU
+lU
+FK
+FK
+aZ
 Uq
 re
 re
@@ -32543,7 +32623,7 @@ re
 re
 re
 re
-MF
+QO
 MF
 MF
 MF
@@ -32575,12 +32655,12 @@ re
 re
 re
 re
+aZ
 FK
 FK
 FK
 FK
-FK
-FK
+aZ
 re
 FK
 IH
@@ -32806,7 +32886,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 eP
 xm
@@ -33062,8 +33142,8 @@ re
 re
 re
 re
-xu
-xu
+Ui
+Ui
 xu
 dx
 xm
@@ -33319,7 +33399,7 @@ re
 re
 re
 re
-xu
+Ui
 xu
 mV
 eP
@@ -33353,7 +33433,7 @@ re
 re
 re
 re
-FK
+aZ
 FK
 FK
 FK
@@ -33382,11 +33462,11 @@ re
 re
 re
 re
+aZ
 FK
 FK
 FK
 FK
-tK
 FK
 FK
 FK
@@ -33397,9 +33477,9 @@ FK
 FK
 PB
 PB
-tK
 FK
 FK
+aZ
 Uq
 re
 re
@@ -33576,7 +33656,7 @@ re
 re
 re
 re
-xu
+Ui
 xu
 mV
 eP
@@ -33587,18 +33667,18 @@ Ar
 wZ
 gu
 eP
-zE
+xu
 Wr
-zE
-zE
-zE
-zE
-zE
+xu
+xu
+xu
+xu
+xu
 MF
 MF
 MF
 MF
-MF
+QO
 re
 re
 re
@@ -33832,8 +33912,8 @@ re
 re
 re
 re
-zE
-xu
+Ui
+Ui
 xu
 mV
 eP
@@ -33844,14 +33924,14 @@ Ar
 wZ
 eP
 NB
-zE
+xu
 FK
 Fv
 re
 re
 re
 re
-zE
+bP
 re
 re
 re
@@ -33928,9 +34008,9 @@ FK
 FK
 FK
 FK
-FK
-FK
-FK
+zE
+zE
+zE
 re
 re
 re
@@ -34089,7 +34169,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 mV
 mV
@@ -34187,7 +34267,7 @@ hV
 hV
 iZ
 Vq
-FK
+zE
 re
 re
 re
@@ -34346,7 +34426,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 mV
 mV
@@ -34444,7 +34524,7 @@ uY
 uY
 cS
 rP
-FK
+zE
 re
 re
 re
@@ -34603,8 +34683,8 @@ re
 re
 re
 re
-zE
-xu
+Ui
+Ui
 xu
 mV
 dx
@@ -34701,7 +34781,7 @@ bV
 bV
 nF
 yK
-FK
+zE
 re
 re
 re
@@ -34860,7 +34940,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 mV
 mV
@@ -34872,15 +34952,15 @@ Ar
 wZ
 dx
 dR
-zE
+xu
 FK
 Fv
 re
 re
 re
 re
-zE
-zE
+Ui
+Ui
 re
 re
 re
@@ -34956,9 +35036,9 @@ FK
 FK
 FK
 FK
-FK
-FK
-FK
+zE
+zE
+zE
 re
 re
 re
@@ -35117,7 +35197,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 JY
 iV
@@ -35129,16 +35209,16 @@ Ar
 wZ
 eP
 eP
-zE
+xu
 Wr
-zE
-zE
-zE
-zE
-zE
-zE
-zE
-zE
+xu
+xu
+xu
+xu
+xu
+xu
+Ui
+Ui
 re
 re
 re
@@ -35215,11 +35295,11 @@ re
 re
 re
 re
+aZ
 FK
 FK
 FK
-FK
-FK
+aZ
 re
 re
 re
@@ -35374,7 +35454,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 hj
 tc
@@ -35395,7 +35475,7 @@ mV
 mV
 mV
 xu
-zE
+Ui
 re
 re
 re
@@ -35408,7 +35488,7 @@ re
 re
 re
 re
-FK
+aZ
 FK
 FK
 Xh
@@ -35440,7 +35520,7 @@ FK
 FK
 FK
 FK
-FK
+aZ
 FK
 FK
 FK
@@ -35481,7 +35561,7 @@ FK
 tG
 tG
 FK
-FK
+aZ
 Uq
 re
 re
@@ -35631,8 +35711,8 @@ re
 re
 re
 re
-zE
-xu
+Ui
+Ui
 xu
 mV
 eP
@@ -35652,8 +35732,8 @@ jm
 bs
 bs
 xu
-zE
-zE
+Ui
+Ui
 re
 re
 re
@@ -35888,8 +35968,8 @@ re
 re
 re
 re
-zE
-zE
+Ui
+Ui
 xu
 mV
 eP
@@ -35909,8 +35989,8 @@ xE
 eM
 bs
 xu
-xu
-zE
+Ui
+Ui
 re
 re
 re
@@ -35922,7 +36002,7 @@ re
 re
 re
 re
-FK
+aZ
 FK
 YD
 Vz
@@ -36146,7 +36226,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 mV
 eP
@@ -36167,7 +36247,7 @@ xE
 bs
 mV
 xu
-zE
+Ui
 re
 re
 re
@@ -36403,7 +36483,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 mV
 oC
@@ -36424,7 +36504,7 @@ xE
 mV
 mV
 xu
-zE
+Ui
 re
 re
 re
@@ -36512,7 +36592,7 @@ FK
 FK
 FK
 FK
-FK
+aZ
 Uq
 re
 re
@@ -36660,7 +36740,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 mV
 eP
@@ -36680,8 +36760,8 @@ xE
 Cq
 mV
 xu
-xu
-zE
+Ui
+Ui
 re
 re
 re
@@ -36694,7 +36774,7 @@ re
 re
 re
 re
-FK
+aZ
 FK
 vg
 bF
@@ -36917,7 +36997,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 mV
 gu
@@ -36937,8 +37017,8 @@ mV
 mV
 mV
 xu
-zE
-zE
+Ui
+Ui
 re
 re
 re
@@ -37026,7 +37106,7 @@ ns
 FK
 FK
 FK
-FK
+aZ
 re
 re
 re
@@ -37174,7 +37254,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 mV
 eP
@@ -37194,7 +37274,7 @@ Tt
 Tt
 Tt
 xu
-zE
+Ui
 re
 re
 re
@@ -37431,8 +37511,8 @@ re
 re
 re
 re
-zE
-xu
+Ui
+Ui
 xu
 eP
 xm
@@ -37451,7 +37531,7 @@ yE
 mV
 pY
 xu
-zE
+Ui
 re
 re
 re
@@ -37537,7 +37617,7 @@ LN
 Nc
 FK
 FK
-FK
+aZ
 re
 re
 re
@@ -37688,8 +37768,8 @@ re
 re
 re
 re
-zE
-xu
+Ui
+Ui
 xu
 xn
 ul
@@ -37700,15 +37780,15 @@ De
 xn
 xn
 xu
-zE
-zE
-zE
+Ui
+Ui
+Ui
+Ui
 xu
 xu
 xu
-xu
-xu
-zE
+Ui
+Ui
 re
 re
 re
@@ -37946,7 +38026,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 gu
 xm
@@ -37957,15 +38037,15 @@ wZ
 gu
 oC
 xu
-zE
+Ui
 re
-zE
-zE
-zE
-zE
-zE
-zE
-zE
+Ui
+Ui
+Ui
+Ui
+Ui
+Ui
+Ui
 re
 re
 re
@@ -38203,7 +38283,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 eP
 xm
@@ -38214,7 +38294,7 @@ wZ
 eP
 eP
 xu
-zE
+Ui
 re
 re
 re
@@ -38264,7 +38344,7 @@ HA
 re
 re
 re
-FK
+aZ
 re
 re
 re
@@ -38460,7 +38540,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 eP
 xm
@@ -38471,7 +38551,7 @@ wZ
 eP
 eP
 xu
-zE
+Ui
 re
 re
 re
@@ -38527,7 +38607,7 @@ re
 re
 re
 re
-FK
+aZ
 LQ
 LQ
 LQ
@@ -38565,7 +38645,7 @@ FK
 tG
 tG
 FK
-FK
+aZ
 Uq
 re
 re
@@ -38717,7 +38797,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 eP
 xm
@@ -38728,7 +38808,7 @@ wZ
 eP
 eP
 xu
-zE
+Ui
 re
 re
 re
@@ -38974,7 +39054,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 gu
 xm
@@ -38985,7 +39065,7 @@ wZ
 gu
 oC
 xu
-zE
+Ui
 re
 re
 re
@@ -39070,11 +39150,11 @@ re
 re
 re
 re
+aZ
 FK
 FK
 FK
-FK
-FK
+aZ
 re
 re
 re
@@ -39231,7 +39311,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 eP
 xm
@@ -39242,7 +39322,7 @@ wZ
 eP
 eP
 xu
-zE
+Ui
 re
 re
 re
@@ -39488,7 +39568,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 eP
 xm
@@ -39499,7 +39579,7 @@ wZ
 eP
 eP
 xu
-zE
+Ui
 re
 re
 re
@@ -39745,7 +39825,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 eP
 xm
@@ -39756,7 +39836,7 @@ wZ
 eP
 eP
 xu
-zE
+Ui
 re
 re
 re
@@ -39802,7 +39882,7 @@ FK
 FK
 FK
 FK
-FK
+aZ
 re
 re
 re
@@ -40002,7 +40082,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 gu
 xm
@@ -40013,7 +40093,7 @@ wZ
 gu
 oC
 xu
-zE
+Ui
 re
 re
 re
@@ -40259,7 +40339,7 @@ re
 re
 re
 re
-zE
+Ui
 xu
 eP
 xm
@@ -40270,7 +40350,7 @@ wZ
 eP
 eP
 xu
-zE
+Ui
 re
 re
 re
@@ -40516,7 +40596,8 @@ re
 re
 re
 re
-zE
+Ui
+Ui
 xu
 xu
 xu
@@ -40525,9 +40606,8 @@ xu
 xu
 xu
 xu
-xu
-xu
-zE
+Ui
+Ui
 re
 re
 re
@@ -40569,7 +40649,7 @@ jt
 WH
 AE
 FK
-FK
+aZ
 re
 re
 re
@@ -40773,18 +40853,18 @@ re
 re
 re
 re
-zE
-zE
-zE
-zE
-zE
-zE
-zE
-zE
-zE
-zE
-zE
-zE
+Ui
+Ui
+Ui
+Ui
+Ui
+Ui
+Ui
+Ui
+Ui
+Ui
+Ui
+Ui
 re
 re
 re
@@ -41328,19 +41408,19 @@ re
 re
 re
 re
-FK
-FK
-FK
-FK
+zE
+zE
+zE
+zE
 FK
 eW
 uY
 rQ
 FK
-FK
-FK
-FK
-FK
+zE
+zE
+zE
+zE
 re
 re
 re
@@ -41585,7 +41665,7 @@ re
 re
 re
 re
-FK
+zE
 re
 re
 dK
@@ -41597,7 +41677,7 @@ Qi
 mj
 re
 re
-FK
+zE
 re
 re
 re
@@ -41842,7 +41922,7 @@ re
 re
 re
 re
-FK
+zE
 re
 re
 dK
@@ -41854,7 +41934,7 @@ Qi
 mj
 re
 re
-FK
+zE
 re
 re
 re
@@ -42099,7 +42179,7 @@ re
 re
 re
 re
-FK
+zE
 re
 re
 dK
@@ -42111,7 +42191,7 @@ Qi
 mj
 re
 re
-FK
+zE
 re
 re
 re
@@ -42356,7 +42436,7 @@ re
 re
 re
 re
-FK
+zE
 re
 re
 dK
@@ -42368,7 +42448,7 @@ Qi
 mj
 re
 re
-FK
+zE
 re
 re
 re
@@ -42613,7 +42693,7 @@ re
 re
 re
 re
-FK
+zE
 re
 re
 dK
@@ -42625,7 +42705,7 @@ Qi
 mj
 re
 re
-FK
+zE
 re
 re
 re
@@ -42870,7 +42950,7 @@ re
 re
 re
 re
-FK
+zE
 re
 re
 dK
@@ -42879,10 +42959,10 @@ lb
 uY
 tD
 Qi
-mj
+GD
 re
 re
-FK
+zE
 re
 re
 re
@@ -43127,19 +43207,19 @@ re
 re
 re
 re
-FK
-FK
-FK
-FK
+zE
+zE
+zE
+zE
 FK
 lb
 uY
 RQ
 FK
-FK
-FK
-FK
-FK
+zE
+zE
+zE
+zE
 re
 re
 re
@@ -43388,11 +43468,11 @@ re
 re
 re
 re
-FK
+Ph
 HD
 wi
 ST
-FK
+Ph
 re
 re
 re
@@ -43637,17 +43717,17 @@ re
 re
 re
 re
-FK
-FK
-FK
-FK
-FK
-FK
-FK
+no
+Ph
+no
+Ph
+no
+Ph
+no
 re
-FK
-aa
-uY
+Ph
+PI
+ms
 ci
 jC
 re
@@ -43894,19 +43974,19 @@ re
 re
 re
 re
-FK
+Ph
 aO
-FK
+Ph
 WY
-FK
+Ph
 HW
-FK
-FK
-FK
+Ph
+Ph
+Ph
 Mb
-TM
+Up
 wV
-FK
+Ph
 re
 re
 re
@@ -44151,19 +44231,19 @@ re
 re
 re
 re
-FK
+Ph
 wg
-FK
+Ph
 us
-FK
+Ph
 Jp
-FK
+Ph
 um
-FK
+Ph
 Mb
-uY
+ms
 wV
-FK
+Ph
 re
 re
 re
@@ -44408,17 +44488,17 @@ re
 re
 re
 re
-FK
-Gn
-Gn
-Gn
+Ph
+ia
+ia
+ia
 Sm
-Gn
+ia
 Kz
-Gn
-FK
+ia
+Ph
 ju
-uY
+ms
 ci
 Ir
 re
@@ -44665,19 +44745,19 @@ re
 re
 re
 re
-FK
+Ph
 nY
-Gn
-Gn
-Gn
-Gn
-Gn
-Gn
+ia
+ia
+ia
+ia
+ia
+ia
 kx
-uY
-uY
+ms
+ms
 wV
-FK
+Ph
 re
 re
 re
@@ -44922,19 +45002,19 @@ re
 re
 re
 re
-FK
+Ph
 ut
 UH
 gE
 CG
-Gn
+ia
 CG
 Yn
-FK
-RC
-TM
+Ph
+sR
+Up
 FU
-FK
+Ph
 re
 re
 re
@@ -45179,19 +45259,19 @@ re
 re
 re
 re
-FK
-FK
-FK
-FK
-FK
-FK
-FK
-FK
-FK
+no
+Ph
+Ph
+Ph
+Ph
+Ph
+Ph
+Ph
+Ph
 Mb
-uY
+ms
 wV
-FK
+Ph
 Uq
 re
 re
@@ -45444,9 +45524,9 @@ re
 re
 re
 re
-FK
+Ph
 pN
-uY
+ms
 hS
 oP
 re
@@ -45701,11 +45781,11 @@ re
 re
 re
 re
-FK
-FK
+no
+Ph
 pz
 kL
-FK
+Ph
 re
 re
 re
@@ -45955,7 +46035,7 @@ re
 re
 re
 re
-Ph
+no
 Ph
 Ph
 Ph
@@ -45964,7 +46044,7 @@ ms
 TC
 Ph
 Ph
-Ph
+no
 re
 re
 re
@@ -48011,6 +48091,7 @@ re
 re
 re
 re
+no
 Ph
 Ph
 Ph
@@ -48019,8 +48100,7 @@ Ph
 Ph
 Ph
 Ph
-Ph
-Ph
+no
 re
 re
 re
@@ -71242,7 +71322,7 @@ re
 re
 re
 DD
-Ov
+ID
 zA
 re
 "}

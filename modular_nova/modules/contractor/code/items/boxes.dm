@@ -1,4 +1,4 @@
-#define SMALL_ITEM_AMOUNT 3
+#define SMALL_ITEM_AMOUNT 2
 
 /obj/item/storage/box/syndicate/contract_kit
 	desc = "It's just an ordinary box."
@@ -19,49 +19,22 @@
 	special_desc_requirement = EXAMINE_CHECK_CONTRACTOR
 	special_desc = "Supplied to Syndicate contractors, providing their specialised MODSuit and chameleon uniform."
 
-/obj/item/storage/box/syndicate/contractor_loadout/PopulateContents()
-	new /obj/item/mod/control/pre_equipped/contractor(src)
-	. = ..() // so their MODSuit is first
-	new /obj/item/uplink/old_radio(src)
-
 /obj/item/storage/box/contractor/fulton_extraction/PopulateContents()
 	new /obj/item/extraction_pack/contractor(src)
 	new /obj/item/fulton_core(src)
 
 /obj/item/storage/box/syndicate/contract_kit/midround/PopulateContents()
-	var/static/list/item_list = list(
-		/obj/item/storage/backpack/duffelbag/syndie/x4,
-		/obj/item/storage/box/syndie_kit/throwing_weapons,
-		/obj/item/gun/syringe/syndicate,
-		/obj/item/pen/edagger,
-		/obj/item/pen/sleepy,
-		/obj/item/flashlight/emp,
-		/obj/item/reagent_containers/syringe/mulligan,
-		/obj/item/storage/medkit/tactical,
-		/obj/item/clothing/glasses/thermal/syndi,
-		/obj/item/slimepotion/slime/sentience/nuclear,
-		/obj/item/storage/box/syndie_kit/imp_radio,
-		/obj/item/gun/ballistic/automatic/c20r/toy/unrestricted/riot,
-		/obj/item/reagent_containers/hypospray/medipen/stimulants,
-		/obj/item/storage/box/syndie_kit/imp_freedom,
-		/obj/item/crowbar/power/syndicate,
-		/obj/item/clothing/gloves/tackler/combat/insulated,
-		/obj/item/storage/box/syndie_kit/emp,
-		/obj/item/shield/energy,
-		/obj/item/healthanalyzer/rad_laser,
-	)
-	// All about 4 TC or less - some nukeops only items, but fit nicely to the theme.
-	for(var/iteration in 1 to SMALL_ITEM_AMOUNT)
-		var/obj/item/small_item = pick_n_take(item_list)
-		new small_item(src)
+	new	/obj/item/storage/box/syndie_kit/emp(src)
 
-	// Paper guide
-	new /obj/item/paper/contractor_guide/midround(src)
-	new /obj/item/fake_identity_kit(src)
+	// finally. a real gun
+	new /obj/item/storage/toolbox/guncase/traitor/contractor_fisher(src)
+
 	new /obj/item/reagent_containers/hypospray/medipen/atropine(src)
 	new /obj/item/jammer(src)
 	new /obj/item/storage/fancy/cigarettes/cigpack_syndicate(src)
 	new /obj/item/lighter(src)
+	// Paper guide
+	new /obj/item/paper/contractor_guide/midround(src)
 
 #undef SMALL_ITEM_AMOUNT
 
@@ -76,3 +49,43 @@
 	new /obj/item/clothing/mask/chameleon(src)
 	new /obj/item/clothing/under/chameleon(src)
 	new /obj/item/clothing/shoes/chameleon(src)
+
+/obj/item/storage/box/syndicate/contractor_loadout/tools
+	name = "compact toolbox"
+	desc = "Only a toolbox by technicality, considering it's just a box with tools."
+
+/obj/item/storage/box/syndicate/contractor_loadout/tools/PopulateContents()
+	new /obj/item/screwdriver/nuke(src)
+	new	/obj/item/crowbar/power/syndicate(src)
+	new /obj/item/multitool(src)
+	new /obj/item/wrench(src)
+	new /obj/item/weldingtool/largetank(src)
+	new /obj/item/stack/cable_coil/thirty(src) // dual purpose: cablecuffs or fixing wires. no spare gloves because you already have them
+
+/obj/item/gun/ballistic/automatic/pistol/clandestine/fisher/contractor
+	spawn_magazine_type = /obj/item/ammo_box/magazine/m10mm/downer
+
+/obj/item/storage/toolbox/guncase/traitor/contractor_fisher
+	name = "contractor gun case"
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/pistol/clandestine/fisher/contractor // preloaded with sleeper bullets
+	storage_type = /datum/storage/toolbox/guncase/contractor_fisher
+	extra_to_spawn = /obj/item/ammo_box/magazine/m10mm/downer
+	/// What other magazine do we spawn in our case?
+	var/extra2_to_spawn = /obj/item/ammo_box/magazine/m10mm
+	ammo_box_to_spawn = /obj/item/ammo_box/c10mm/downer
+
+/obj/item/storage/toolbox/guncase/traitor/contractor_fisher/PopulateContents()
+	// 1 pistol
+	new weapon_to_spawn (src)
+	// 2 spare sleeper mags, because oftentimes you'd rather not kill a guy
+	new extra_to_spawn (src)
+	new extra_to_spawn (src)
+	// 2 spare lethal mags, because sometimes you'd do have to kill a guy
+	new extra2_to_spawn (src)
+	new extra2_to_spawn (src)
+	// 20 more sleeper rounds
+	new ammo_box_to_spawn(src)
+
+/datum/storage/toolbox/guncase/contractor_fisher
+	max_slots = 6 // gun, 4 mags, sleeper box
+	max_total_storage = ((WEIGHT_CLASS_SMALL * 5) + WEIGHT_CLASS_NORMAL)

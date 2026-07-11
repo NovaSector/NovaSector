@@ -1,0 +1,18 @@
+{
+	"jumpsuit_worn": [
+		{
+			"type": "icon_state",
+			"icon_state": "jumpsuit",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"skirt_worn": [
+		{
+			"type": "icon_state",
+			"icon_state": "skirt",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

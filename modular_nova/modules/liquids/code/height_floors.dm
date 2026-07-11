@@ -50,7 +50,7 @@
 
 /turf/open/floor/iron/pool/cobble
 	name = "cobblestone pool floor"
-	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi'
+	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
 	base_icon_state = "cobble"
 	icon_state = "cobble"
 	footstep = FOOTSTEP_FLOOR

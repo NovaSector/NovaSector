@@ -34,7 +34,7 @@
 	if(istype(interacting_with, /obj/structure/boulder))
 		var/obj/structure/boulder/current = interacting_with
 		var/boulder_type = current.artifact_stabilizing_field
-		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER)
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
 		if(!selected)
 			return
 
@@ -62,5 +62,5 @@
 			span_notice("[user] finish applying the stabilizing field to the [current]."),
 			span_notice("You finish applying the stabilizing field to the [current]."),
 		)
-		user.mind?.adjust_experience(/datum/skill/research, 10)
+		user.mind?.adjust_experience(/datum/skill/archeology, 10)
 		return

@@ -14,6 +14,7 @@
 	custom_price = PAYCHECK_CREW * 2
 	action_slots = ALL
 	actions_types = list(/datum/action/item_action/toggle_dorms_headphones)
+	obj_flags_nova = ERP_ITEM
 	/// Are we playing music? Controls icon state and flavor text.
 	var/playing_music = FALSE
 
@@ -52,6 +53,9 @@
 	desc = "Plays a selection of some rather meditative music."
 
 /datum/action/item_action/toggle_dorms_headphones/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
 	var/obj/item/clothing/ears/dorms_headphones/headphones = target
 	if(istype(headphones))
 		headphones.toggle(owner)

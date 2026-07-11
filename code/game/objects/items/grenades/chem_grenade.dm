@@ -6,6 +6,7 @@
 	inhand_icon_state = "flashbang"
 	w_class = WEIGHT_CLASS_SMALL
 	force = 2
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 	/// Which stage of construction this grenade is currently at.
 	var/stage = GRENADE_EMPTY
 	/// The set of reagent containers that have been added to this grenade casing.
@@ -297,6 +298,7 @@
 	affected_area = 5
 	ignition_temp = 25 // Large grenades are slightly more effective at setting off heat-sensitive mixtures than smaller grenades.
 	threatscale = 1.1 // 10% more effective.
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/grenade/chem_grenade/large/detonate(mob/living/lanced_by)
 	if(stage != GRENADE_READY || dud_flags)
@@ -356,6 +358,7 @@
 	base_icon_state = "cryog"
 	affected_area = 2
 	ignition_temp = -100
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/grenade/chem_grenade/pyro // Intended for pyrotechnical mixes. Produces a small fire upon detonation, igniting potentially flammable mixtures.
 	name = "pyro grenade"
@@ -364,6 +367,7 @@
 	icon_state = "pyrog"
 	base_icon_state = "pyrog"
 	ignition_temp = 500 // This is enough to expose a hotspot.
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/grenade/chem_grenade/adv_release // Intended for weaker, but longer lasting effects. Could have some interesting uses.
 	name = "advanced release grenade"
@@ -371,6 +375,7 @@
 	casedesc = "This casing is able to detonate more than once. Can be configured using a multitool."
 	icon_state = "timeg"
 	base_icon_state = "timeg"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 	var/unit_spread = 10 // Amount of units per repeat. Can be altered with a multitool.
 
 /obj/item/grenade/chem_grenade/adv_release/multitool_act(mob/living/user, obj/item/tool)
@@ -546,6 +551,10 @@
 	beakers += beaker_one
 	beakers += beaker_two
 
+/obj/item/grenade/chem_grenade/teargas/instant/Initialize(mapload)
+	. = ..()
+	if(detonate())
+		return INITIALIZE_HINT_QDEL
 
 /obj/item/grenade/chem_grenade/facid
 	name = "acid grenade"
@@ -586,17 +595,17 @@
 	beakers += beaker_two
 
 /obj/item/grenade/chem_grenade/glitter
-	name = "generic glitter grenade"
-	desc = "You shouldn't see this description."
+	name = "white glitter grenade"
+	desc = "For that somnolent glittery look."
 	stage = GRENADE_READY
-	var/glitter_type = /datum/reagent/glitter
+	var/glitter_colors = list(COLOR_WHITE = 100)
 
 /obj/item/grenade/chem_grenade/glitter/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/cup/beaker/beaker_one = new(src)
 	var/obj/item/reagent_containers/cup/beaker/beaker_two = new(src)
 
-	beaker_one.reagents.add_reagent(glitter_type, 25)
+	beaker_one.reagents.add_reagent(/datum/reagent/glitter, 25, data = list("colors" = glitter_colors))
 	beaker_one.reagents.add_reagent(/datum/reagent/potassium, 25)
 	beaker_two.reagents.add_reagent(/datum/reagent/phosphorus, 25)
 	beaker_two.reagents.add_reagent(/datum/reagent/consumable/sugar, 25)
@@ -607,17 +616,12 @@
 /obj/item/grenade/chem_grenade/glitter/pink
 	name = "pink glitter bomb"
 	desc = "For that HOT glittery look."
-	glitter_type = /datum/reagent/glitter/pink
+	glitter_colors = list("#ff8080" = 100)
 
 /obj/item/grenade/chem_grenade/glitter/blue
 	name = "blue glitter bomb"
 	desc = "For that COOL glittery look."
-	glitter_type = /datum/reagent/glitter/blue
-
-/obj/item/grenade/chem_grenade/glitter/white
-	name = "white glitter bomb"
-	desc = "For that somnolent glittery look."
-	glitter_type = /datum/reagent/glitter/white
+	glitter_colors = list("#4040ff" = 100)
 
 /obj/item/grenade/chem_grenade/clf3
 	name = "clf3 grenade"

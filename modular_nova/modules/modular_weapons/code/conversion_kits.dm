@@ -9,6 +9,21 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
+	/// Optional lore blurb. If it exists, is passed along on examine.
+	var/lore_blurb
+
+/obj/item/crafting_conversion_kit/Initialize(mapload)
+	. = ..()
+	if(lore_blurb)
+		AddElement(/datum/element/examine_lore, \
+			lore_hint = span_notice("You can [EXAMINE_HINT("look closer")] to learn a little more about [src]."), \
+			lore = get_lore_blurb() \
+		)
+
+/// Much like guns, returns the lore blurb as a plain string, to be used for adding to the gun's examine_lore component.
+/// Made into a proc to allow overriding, for variant-specific blurbs.
+/obj/item/crafting_conversion_kit/proc/get_lore_blurb()
+	return lore_blurb
 
 /obj/item/crafting_conversion_kit/mosin_pro
 	name = "\improper Xhihao 'Rengo' rifle conversion kit"
@@ -16,6 +31,11 @@
 		It looks like this stuff could fit on an old Sakhno rifle, if only you had one of those around."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/cases.dmi'
 	icon_state = "xhihao_conversion_kit"
+
+	lore_blurb = "The Xhihao 'Rengo' rifle conversion kit is designed to take the receiver and barrel of the venerable \
+		Sakhno Precision Rifle, featuring detachable magazine support and an accessory rail, which typically mounts the same scope as the \
+		Lanca designated marksman rifle. However, the rearrangement of the rifle's geometry makes it unable to be sawed down, as to do so would \
+		make using the weapon prone to failure and hazardous to the user."
 
 /datum/crafting_recipe/mosin_pro
 	name = "Sakhno to Xhihao 'Rengo' Conversion"
@@ -26,16 +46,16 @@
 		/obj/item/crafting_conversion_kit/mosin_pro = 1
 	)
 	steps = list(
-		"Empty the rifle",
+		"Empty the magazine",
 		"Leave the bolt open"
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
-	time = 30 SECONDS
+	time = 15 SECONDS
 	category = CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/mosin_pro/New()
 	..()
-	blacklist |= subtypesof(/obj/item/gun/ballistic/rifle/boltaction) - list(/obj/item/gun/ballistic/rifle/boltaction/surplus)
+	LAZYOR(blacklist, subtypesof(/obj/item/gun/ballistic/rifle/boltaction) - list(/obj/item/gun/ballistic/rifle/boltaction/surplus))
 
 /datum/crafting_recipe/mosin_pro/check_requirements(mob/user, list/collected_requirements)
 	var/obj/item/gun/ballistic/rifle/boltaction/the_piece = collected_requirements[/obj/item/gun/ballistic/rifle/boltaction][1]

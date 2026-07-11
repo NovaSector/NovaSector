@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Ensures that we always load the last used save, QOL
 	var/default_slot = 1
 	/// The maximum number of slots we're allowed to contain
-	var/max_save_slots = 30 //NOVA EDIT - ORIGINAL 3
+	var/max_save_slots = MAX_SAVE_SLOTS_NORMAL // NOVA EDIT CHANGE - ORIGINAL: 3
 
 	/// Bitflags for communications that are muted
 	var/muted = NONE
@@ -92,10 +92,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	QDEL_NULL(character_preview_view)
 	QDEL_LIST(middleware)
 	value_cache = null
-	//NOVA EDIT ADDITION
-	if(pref_species)
-		QDEL_NULL(pref_species)
-	//NOVA EDIT END
 	return ..()
 
 /datum/preferences/New(client/parent)
@@ -105,8 +101,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		middleware += new middleware_type(src)
 
 	if(IS_CLIENT_OR_MOCK(parent))
-		load_and_save = !is_guest_key(parent.key)
-		load_path(parent.ckey)
+		if(is_guest_key(parent.key))
+			if(parent.is_localhost())
+				path = DEV_PREFS_PATH // guest + locallost = dev instance, load dev preferences if possible
+			else
+				load_and_save = FALSE // guest + not localhost = guest on live, don't save anything
+		else
+			load_path(parent.ckey) // not guest = load their actual savefile
 		if(load_and_save && !fexists(path))
 			try_savefile_type_migration()
 
@@ -123,11 +124,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/loaded_preferences_successfully = load_preferences()
 	if(loaded_preferences_successfully)
 		if(load_character())
-			// NOVA EDIT START - Sanitizing preferences
+			// NOVA EDIT ADDITION START - Sanitizing preferences
 			sanitize_languages()
 			sanitize_quirks()
-			// NOVA EDIT END
-			return // NOVA EDIT - Don't remove this. Just don't. Nothing is worth forced random characters.
+			// NOVA EDIT ADDITION END - Sanitizing preferences
+			return // Don't remove this. Just don't. Nothing is worth forced random characters. // NOVA EDIT CHANGE - Just adds comment - Original: return
 	//we couldn't load character data so just randomize the character appearance + name
 	randomise_appearance_prefs() //let's create a random character then - rather than a fat, bald and naked man.
 	if(parent)
@@ -149,6 +150,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		tainted_character_profiles = TRUE
 		character_preview_view = create_character_preview_view(user)
 		ui = new(user, src, "PreferencesMenu")
 		ui.set_autoupdate(FALSE)
@@ -195,9 +197,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	else
 		data["preview_options"] = list(PREVIEW_PREF_JOB, PREVIEW_PREF_LOADOUT, PREVIEW_PREF_UNDERWEAR, PREVIEW_PREF_NAKED, PREVIEW_PREF_NAKED_AROUSED)
 	// NOVA EDIT ADDITION END
-
-	data["character_profiles"] = create_character_profiles()
-
 	data["character_preview_view"] = character_preview_view.assigned_map
 	data["overflow_role"] = SSjob.get_job_type(SSjob.overflow_role).title
 	data["window"] = current_window
@@ -284,12 +283,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/default_value = read_preference(requested_preference.type)
 
 			// Yielding
-			var/new_color = input(
+			var/new_color = tgui_color_picker(
 				usr,
 				"Select new color",
 				null,
 				default_value || COLOR_WHITE,
-			) as color | null
+			)
 
 			if (!new_color)
 				return FALSE
@@ -302,11 +301,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if("update_preview")
 			preview_pref = params["updated_preview"]
 			character_preview_view.update_body()
+			previous_preview_pref = preview_pref
 			return TRUE
 
 		if ("open_food")
 			GLOB.food_prefs_menu.ui_interact(usr)
 			return TRUE
+		// NOVA EDIT ADDITION START: Background Selection
+		if("update_background")
+			update_preference(GLOB.preference_entries[/datum/preference/choiced/background_state], params["new_background"])
+			return TRUE
+		// NOVA EDIT ADDITION END
 
 		if ("set_tricolor_preference")
 			var/requested_preference_key = params["preference"]
@@ -325,12 +330,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/default_value = default_value_list[index_key]
 
 			// Yielding
-			var/new_color = input(
+			var/new_color = tgui_color_picker(
 				usr,
 				"Select new color",
 				null,
 				default_value || COLOR_WHITE,
-			) as color | null
+			)
 
 			if (!new_color)
 				return FALSE
@@ -371,7 +376,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		return TRUE
 
 /datum/preferences/proc/create_character_preview_view(mob/user)
-	character_preview_view = new(null, src)
+	character_preview_view = new(null, null, src)
 	character_preview_view.generate_view("character_preview_[REF(character_preview_view)]")
 	character_preview_view.update_body()
 
@@ -423,12 +428,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/datum/preferences/preferences
 	/// Whether we show current job clothes or nude/loadout only
 	var/show_job_clothes = TRUE
+	// NOVA EDIT ADDITION START: Better character preview: Rescales between 32x32, 64x64 and 96x96.
+	var/image/canvas
+	var/last_canvas_size
+	var/last_canvas_state
+	// NOVA EDIT ADDITION END
 
-/atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/preferences/preferences)
+/atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/hud/hud_owner, datum/preferences/preferences)
 	. = ..()
 	src.preferences = preferences
 
 /atom/movable/screen/map_view/char_preview/Destroy()
+	// NOVA EDIT ADDITION START: Better character preview
+	canvas?.cut_overlays()
+	canvas = null
+	// NOVA EDIT ADDITION END
 	QDEL_NULL(body)
 	preferences?.character_preview_view = null
 	preferences = null
@@ -443,6 +457,37 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	appearance = preferences.render_new_preview_appearance(body, show_job_clothes)
 
+	// NOVA EDIT ADDITION BEGIN: Better character preview
+	var/canvas_size = 0
+	var/canvas_state = preferences.read_preference(/datum/preference/choiced/background_state)
+
+	// if oversized trait (fixes size at 2.0) or over 1.1, scales up
+	if ((/datum/quirk/oversized::name in preferences.all_quirks) || (body.dna.features["body_size"] > 1.1))
+		canvas_size += 1
+	if (body.dna.mutant_bodyparts["taur"])
+		// taurs can be extra wide, so scale up in attempt to see their tails
+		canvas_size += 1
+	body.pixel_x = canvas_size * 16
+
+	if (isnull(canvas) || last_canvas_size != canvas_size || last_canvas_state != canvas_state)
+		switch (canvas_size)
+			if (0)
+				canvas = image('modular_nova/modules/character_preview_background/icons/background_32x32.dmi', icon_state = canvas_state)
+			if (1)
+				canvas = image('modular_nova/modules/character_preview_background/icons/background_64x64.dmi', icon_state = canvas_state)
+			if (2)
+				canvas = image('modular_nova/modules/character_preview_background/icons/background_96x96.dmi', icon_state = canvas_state)
+
+	// Update the map view bounds when canvas size changes to properly display the scaled preview
+	set_position(1, 1)
+	last_canvas_size = canvas_size
+	last_canvas_state = canvas_state
+
+	canvas.cut_overlays()
+	canvas.add_overlay(body.appearance)
+
+	appearance = canvas.appearance
+	// NOVA EDIT ADDITION END
 /atom/movable/screen/map_view/char_preview/proc/create_body()
 	QDEL_NULL(body)
 
@@ -493,7 +538,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	return TRUE
 
 /datum/preferences/proc/GetQuirkBalance()
-	var/bal = 0
+	var/bal = SSquirks.default_quirk_points
 	for(var/V in all_quirks)
 		var/datum/quirk/T = SSquirks.quirks[V]
 		bal -= initial(T.value)
@@ -523,7 +568,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(LAZYLEN(quirks_removed))
 		LAZYADD(feedback, "The following quirks are incompatible with your species:")
 		LAZYADD(feedback, quirks_removed)
-	if(!CONFIG_GET(flag/disable_quirk_points) && GetQuirkBalance() < 0)
+	if(SSquirks.points_enabled && GetQuirkBalance() < 0)
 		LAZYADD(feedback, "Your quirks have been reset.")
 		all_quirks = list()
 	if(LAZYLEN(feedback))
@@ -584,15 +629,25 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	apply_character_randomization_prefs(is_antag)
 	apply_prefs_to(character, icon_updates)
 
-/// Applies the given preferences to a human mob.
-/datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, visuals_only = FALSE)  // NOVA EDIT - Customization - ORIGINAL: /datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE)
-	character.dna.features = MANDATORY_FEATURE_LIST //NOVA EDIT CHANGE - We need to instansiate the list with the basic features.
+/**
+ * Applies the given preferences to a human mob.
+ *
+ * Arguments:
+ * * character - The human mob to apply the preferences to
+ * * icon_updates - Whether to update the mob's icons after applying preferences.
+ * Is often skipped to save processing when an update will happen later anyway.
+ * * do_not_apply - A list of preference types to skip when applying preferences.
+ */
+/datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, list/do_not_apply, visuals_only = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, list/do_not_apply)
+	character.dna.features = MANDATORY_FEATURE_LIST // NOVA EDIT CHANGE - We need to instansiate the list with the basic features. - ORIGINAL: character.dna.features = list()
 
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
 		if (preference.savefile_identifier != PREFERENCE_CHARACTER)
 			continue
+		if (preference.type in do_not_apply)
+			continue
 
-		preference.apply_to_human(character, read_preference(preference.type), src)
+		preference.apply_to_human(character, read_preference(preference.type), src) // NOVA EDIT CHANGE - ORIGINAL: preference.apply_to_human(character, read_preference(preference.type))
 
 	// NOVA EDIT ADDITION START - middleware apply human prefs
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
@@ -658,4 +713,4 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	unlock_content = !!byond_member
 	donator_status = !!GLOB.donator_list[parent.ckey] // NOVA EDIT ADDITION - DONATOR CHECK
 	if(unlock_content || donator_status) // NOVA EDIT CHANGE - ORIGINAL: if(unlock_content)
-		max_save_slots = 50 //NOVA EDIT - ORIGINAL: max_save_slots = 8
+		max_save_slots = MAX_SAVE_SLOTS_SUBSCRIBER // NOVA EDIT CHANGE - ORIGINAL: max_save_slots = 8

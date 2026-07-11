@@ -13,6 +13,7 @@
 	toolspeed = 0.8
 	harmful = TRUE
 	mech_flags = EXOSUIT_MODULE_RIPLEY
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 	///Bool for whether we beat the hell out of things we punch (and tear off their arms)
 	var/killer_clamp = TRUE
 	///How much base damage this clamp does
@@ -80,7 +81,7 @@
 		playsound(chassis, clampsound, 50, FALSE, -6)
 		chassis.visible_message(span_notice("[chassis] lifts [target] and starts to load it into cargo compartment."))
 		clamptarget.set_anchored(TRUE)
-		if(!do_after_cooldown(target, source))
+		if(!do_after_cooldown(target, source, flags = MECH_DO_AFTER_DIR_CHANGE_FLAG|MECH_DO_AFTER_ADJACENCY_FLAG))
 			clamptarget.set_anchored(FALSE)
 			return
 		clamptarget.set_anchored(FALSE)
@@ -96,7 +97,7 @@
 
 	var/mob/living/victim = target
 	if(victim.stat == DEAD)
-		return
+		return ..()
 
 	if(!source.combat_mode)
 		step_away(victim, chassis)
@@ -107,6 +108,9 @@
 			to_chat(source, "[icon2html(src, source)][span_notice("You push [target] out of the way.")]")
 			chassis.visible_message(span_notice("[chassis] pushes [target] out of the way."), \
 			span_notice("[chassis] pushes you aside."))
+		return ..()
+
+	if(victim.check_block(chassis, clamp_damage, name, attack_type = OVERWHELMING_ATTACK))
 		return ..()
 
 	if(iscarbon(victim) && killer_clamp)//meme clamp here
@@ -126,15 +130,15 @@
 						span_userdanger("[chassis] rips your arms off!"))
 			log_combat(source, carbon_victim, "removed both arms with a real clamp,", "[name]", "(COMBAT MODE: [uppertext(source.combat_mode)] (DAMTYPE: [uppertext(damtype)])")
 			return ..()
-
-	victim.take_overall_damage(clamp_damage)
-	if(isnull(victim)) //get gibbed stoopid
-		return ..()
-	victim.adjustOxyLoss(round(clamp_damage/2))
+	var/armor_check = clamp(victim.run_armor_check(null, MELEE) / 3, 0, 100) //our target only benefits from a third of their armor. Because it's a huge ass clamp
 	victim.visible_message(span_danger("[chassis] squeezes [victim]!"), \
 						span_userdanger("[chassis] squeezes you!"),\
 						span_hear("You hear something crack."))
 	log_combat(source, victim, "attacked", "[name]", "(Combat mode: [source.combat_mode ? "On" : "Off"]) (DAMTYPE: [uppertext(damtype)])")
+	var/final_damage = isalien(victim) ? clamp_damage * 3 : clamp_damage
+	chassis.do_attack_animation(victim)
+	playsound(chassis, clampsound, 30, FALSE, -6)
+	victim.apply_damage(final_damage, BRUTE, blocked = armor_check, spread_damage = TRUE)
 	return ..()
 
 //This is pretty much just for the death-ripley
@@ -157,7 +161,10 @@
 	energy_drain = 0
 	equipment_slot = MECHA_UTILITY
 	range = MECHA_MELEE|MECHA_RANGED
-	mech_flags = EXOSUIT_MODULE_WORKING
+	mech_flags = ALL
+	can_be_triggered = TRUE
+	action_type = /datum/action/vehicle/sealed/mecha/equipment/extinguisher_action
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 	///Minimum amount of reagent needed to activate.
 	var/required_amount = 80
 
@@ -230,6 +237,7 @@
 	energy_drain = 0 // internal RCD handles power consumption based on matter use
 	range = MECHA_MELEE | MECHA_RANGED
 	item_flags = NO_MAT_REDEMPTION
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 12.5, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 10, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 10)
 
 	///The location the mech was when it began using the rcd
 	var/atom/initial_location = FALSE
@@ -312,7 +320,7 @@
 	internal_rcd.mode = construction_mode
 	return TRUE
 
-/obj/item/mecha_parts/mecha_equipment/rcd/interact_with_atom(obj/item/attacking_item, mob/living/user, list/modifiers)
+/obj/item/mecha_parts/mecha_equipment/rcd/interact_with_atom(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = NONE
 	if(istype(attacking_item, /obj/item/rcd_upgrade))
 		internal_rcd.install_upgrade(attacking_item, user)
@@ -326,6 +334,7 @@
 	desc = "A pressurized canopy attachment kit for an Autonomous Power Loader Unit \"Ripley\" MK-I exosuit, to convert it to the slower, but space-worthy MK-II design. This kit cannot be removed, once applied."
 	icon_state = "ripleyupgrade"
 	mech_flags = EXOSUIT_MODULE_RIPLEY
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5)
 	var/result = /obj/vehicle/sealed/mecha/ripley/mk2
 
 /obj/item/mecha_parts/mecha_equipment/ripleyupgrade/can_attach(obj/vehicle/sealed/mecha/ripley/mecha, attach_right = FALSE, mob/user)
@@ -388,7 +397,7 @@
 		newmech.name = markone.name
 	markone.wreckage = FALSE
 	if(HAS_TRAIT(markone, TRAIT_MECHA_CREATED_NORMALLY))
-		ADD_TRAIT(newmech, TRAIT_MECHA_CREATED_NORMALLY, newmech)
+		ADD_TRAIT(newmech, TRAIT_MECHA_CREATED_NORMALLY, REF(newmech))
 	qdel(markone)
 	playsound(get_turf(newmech),'sound/items/tools/ratchet.ogg',50,TRUE)
 
@@ -397,6 +406,7 @@
 	desc = "A hardpoint modification kit for an Autonomous Power Loader Unit \"Ripley\" MK-I exosuit, to convert it to the Paddy lightweight security design. This kit cannot be removed, once applied."
 	icon_state = "paddyupgrade"
 	mech_flags = EXOSUIT_MODULE_RIPLEY
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5)
 	result = /obj/vehicle/sealed/mecha/ripley/paddy
 
 /obj/item/mecha_parts/mecha_equipment/ripleyupgrade/paddy/can_attach(obj/vehicle/sealed/mecha/ripley/mecha, attach_right = FALSE, mob/user)

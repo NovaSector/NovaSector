@@ -70,7 +70,7 @@
 
 //Dampening field
 
-/datum/proximity_monitor/advanced/projectile_dampener/peaceborg/clockwork/catch_bullet_effect(obj/projectile/bullet)
+/datum/proximity_monitor/advanced/bubble/projectile_dampener/peaceborg/clockwork/catch_bullet_effect(obj/projectile/bullet)
 	var/mob/living/shooter = bullet.firer
 	if(istype(shooter) && IS_CLOCK(shooter))
 		return

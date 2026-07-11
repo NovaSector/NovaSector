@@ -11,6 +11,7 @@
 	pass_flags = PASSTABLE
 	layer = BELOW_OBJ_LAYER //So newly spawned food appears on top of the board rather than under it
 	resistance_flags = FLAMMABLE
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5)
 	///List containg list of possible inputs and resulting recipe items, taken from processor.dm and processor_recipes.dm
 	var/static/list/processor_inputs
 
@@ -100,12 +101,12 @@
 		if(!processed_thing.reagents) //backup in case we really fuck up
 			continue
 
-		processed_thing.reagents.copy_to(new_food_item, processed_thing.reagents.total_volume, multiplier = 1 / food_multiplier)
+		processed_thing.reagents.trans_to(new_food_item, processed_thing.reagents.total_volume, multiplier = 1 / food_multiplier, copy_only = TRUE)
 
 	qdel(processed_thing)
 	update_appearance()
 
-/obj/item/cutting_board/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/item/cutting_board/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(user.combat_mode)
 		return ..()
 

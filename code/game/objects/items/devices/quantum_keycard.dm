@@ -12,6 +12,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	obj_flags = UNIQUE_RENAME
 	interaction_flags_click = NEED_DEXTERITY|ALLOW_RESTING
+	custom_materials = list(/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 	/// The linked quantum pad
 	var/obj/machinery/quantumpad/qpad
 
@@ -22,7 +23,7 @@
 		/area/station/service = COLOR_SERVICE_LIME,
 		/area/centcom = COLOR_CENTCOM_BLUE,  // how?
 		/area/station/command = COLOR_COMMAND_BLUE,
-		/area/station/ai_monitored = COLOR_COMMAND_BLUE,
+		/area/station/ai = COLOR_COMMAND_BLUE,
 		/area/station/medical = COLOR_MEDICAL_BLUE,
 		/area/station/science = COLOR_SCIENCE_PINK,
 		/area/station/engineering = COLOR_ENGINEERING_ORANGE,
@@ -45,9 +46,10 @@
 
 /obj/item/quantum_keycard/click_alt(mob/living/user)
 	to_chat(user, span_notice("You start pressing [src]'s unlink button..."))
-	if(do_after(user, 4 SECONDS, target = src))
-		to_chat(user, span_notice("The keycard beeps twice and disconnects the quantum link."))
-		set_pad()
+	if(!do_after(user, 4 SECONDS, target = src))
+		return CLICK_ACTION_BLOCKING
+	to_chat(user, span_notice("The keycard beeps twice and disconnects the quantum link."))
+	set_pad()
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/quantum_keycard/proc/set_pad(obj/machinery/quantumpad/new_pad)

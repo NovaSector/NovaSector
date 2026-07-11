@@ -12,6 +12,8 @@
 	greyscale_config_inhand_right = /datum/greyscale_config/sneakers/inhand_right
 	greyscale_colors = "#2d2d33#ffffff"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+	bodyshapes_with_variations = BODYSHAPE_DIGITIGRADE
+
 	flags_1 = IS_PLAYER_COLORABLE_1
 	interaction_flags_mouse_drop = NEED_HANDS
 
@@ -156,23 +158,21 @@
 		return
 	return ..()
 
-/obj/item/clothing/shoes/sneakers/orange/pre_attack(atom/movable/attacking_movable, mob/living/user, list/modifiers)
+/obj/item/clothing/shoes/sneakers/orange/pre_attack(atom/movable/attacking_movable, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(attached_cuffs || attacking_movable.type != /obj/item/restraints/handcuffs)
 		return ..()
 	attacking_movable.forceMove(src)
 	return TRUE
 
-/obj/item/clothing/shoes/sneakers/orange/attackby(obj/item/attacking_item, mob/user, list/modifiers)
+/obj/item/clothing/shoes/sneakers/orange/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(attached_cuffs || attacking_item.type != /obj/item/restraints/handcuffs) 	// Note: not using istype here because we want to ignore all subtypes
 		return ..()
 	attacking_item.forceMove(src)
 
-/obj/item/clothing/shoes/sneakers/orange/allow_attack_hand_drop(mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/C = user
-		if(C.shoes == src && attached_cuffs)
-			to_chat(user, span_warning("You need help taking these off!"))
-			return FALSE
+/obj/item/clothing/shoes/sneakers/orange/can_mob_unequip(mob/user)
+	if(user.get_item_by_slot(slot_flags) == src && attached_cuffs)
+		to_chat(user, span_warning("You need help taking these off!"))
+		return FALSE
 	return ..()
 
 /obj/item/clothing/shoes/sneakers/orange/mouse_drop_dragged(atom/over_object, mob/user)
@@ -197,8 +197,8 @@
 	greyscale_config = /datum/greyscale_config/sneakers_marisa
 	greyscale_config_worn = /datum/greyscale_config/sneakers_marisa/worn
 	greyscale_colors = "#2d2d33#ffffff"
-	strip_delay = 5
-	equip_delay_other = 50
+	strip_delay = 0.5 SECONDS
+	equip_delay_other = 5 SECONDS
 	fastening_type = SHOES_SLIPON
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 

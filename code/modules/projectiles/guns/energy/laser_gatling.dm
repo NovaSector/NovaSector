@@ -24,6 +24,7 @@
 	gun = new(src)
 	battery = new(src)
 	START_PROCESSING(SSobj, src)
+	AddElement(/datum/element/drag_pickup)
 
 /obj/item/minigunpack/Destroy()
 	if(!QDELETED(gun))
@@ -53,25 +54,17 @@
 	else
 		..()
 
-/obj/item/minigunpack/attackby(obj/item/W, mob/user, list/modifiers)
-	if(W == gun) //Don't need armed check, because if you have the gun assume its armed.
-		user.dropItemToGround(gun, TRUE)
-	else
-		..()
+/obj/item/minigunpack/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(tool != gun) //Don't need armed check, because if you have the gun assume its armed.
+		return NONE
+	user.dropItemToGround(gun, TRUE)
+	return ITEM_INTERACT_SUCCESS
+
 
 /obj/item/minigunpack/dropped(mob/user)
 	. = ..()
 	if(armed)
 		user.dropItemToGround(gun, TRUE)
-
-/obj/item/minigunpack/mouse_drop_dragged(atom/over_object, mob/user)
-	if(armed)
-		return
-
-	if(iscarbon(user))
-		if(istype(over_object, /atom/movable/screen/inventory/hand))
-			var/atom/movable/screen/inventory/hand/H = over_object
-			user.putItemFromInventoryInHandIfPossible(src, H.held_index)
 
 /obj/item/minigunpack/update_icon_state()
 	icon_state = armed ? "notholstered" : "holstered"
@@ -99,6 +92,7 @@
 	slowdown = 1
 	slot_flags = null
 	w_class = WEIGHT_CLASS_HUGE
+	spawn_blacklisted = TRUE
 	custom_materials = null
 	weapon_weight = WEAPON_HEAVY
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/minigun)

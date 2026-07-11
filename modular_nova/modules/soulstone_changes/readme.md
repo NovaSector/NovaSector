@@ -9,6 +9,7 @@ MODULE ID: SOULSTONE_CHANGES<!-- uppercase, underscore_connected name of your mo
 ### Description
 
 Makes soulstone no longer permakill people, and makes construct's souls return to their original bodies if the construct is killed.
+
 <!-- Here, try to describe what your PR does, what features it provides and any other directly useful information -->
 
 ### TG Proc/File Changes
@@ -21,7 +22,7 @@ Makes soulstone no longer permakill people, and makes construct's souls return t
 
 ### Defines
 
-- code/__DEFINES/~nova_defines/traits.dm > TRAIT_SACRIFICED
+- `code/__DEFINES/~nova_defines/traits.dm > TRAIT_SACRIFICED`
 <!-- If you needed to add any defines, mention the files you added those defines in -->
 
 ### Master file additions
@@ -37,4 +38,5 @@ Makes soulstone no longer permakill people, and makes construct's souls return t
 ### Credits
 
 `https://github.com/Arturlang`
+
 <!-- Here go the credits to you, dear coder, and in case of collaborative work or ports, credits to the original source of the code -->

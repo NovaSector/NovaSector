@@ -18,6 +18,6 @@
 		if(!is_type_in_list(found_item, items_to_send))
 			continue
 		transferItemToLoc(found_item, target_console, force = TRUE, silent = TRUE)
-		target_console.frozen_item += found_item
+		LAZYADD(target_console.frozen_items, found_item)
 
 	return TRUE

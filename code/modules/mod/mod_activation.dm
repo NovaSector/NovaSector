@@ -50,20 +50,14 @@
 		balloon_alert(user, "currently [active ? "unsealing" : "sealing"]!")
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return FALSE
-	var/deploy = FALSE
-	for(var/obj/item/part as anything in get_parts())
-		if(part.loc != src)
-			continue
-		deploy = TRUE
-		break
+	var/deploy = check_retracted()
 	wearer.visible_message(span_notice("[wearer]'s [src] [deploy ? "deploys" : "retracts"] its parts with a mechanical hiss."),
 		span_notice("[src] [deploy ? "deploys" : "retracts"] its parts with a mechanical hiss."),
 		span_hear("You hear a mechanical hiss."))
 	playsound(src, 'sound/vehicles/mecha/mechmove03.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	for(var/obj/item/part as anything in get_parts())
 		if(deploy && part.loc == src)
-			if(!deploy(null, part))
-				continue
+			deploy(null, part)
 		else if(!deploy && part.loc != src)
 			retract(null, part)
 	if(deploy)
@@ -86,13 +80,10 @@
 	if(part_datum.can_overslot)
 		var/obj/item/overslot = wearer.get_item_by_slot(part.slot_flags)
 		/* // NOVA EDIT REMOVAL START
-		if(overslot && istype(overslot, /obj/item/clothing))
-			var/obj/item/clothing/clothing = overslot
-			if(clothing.clothing_flags & CLOTHING_MOD_OVERSLOTTING)
-			if(!HAS_TRAIT(overslot, TRAIT_NODROP))
-				part_datum.overslotting = overslot
-				wearer.transferItemToLoc(overslot, part, force = TRUE)
-				RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
+		if(istype(overslot, /obj/item/clothing))
+			part_datum.overslotting = overslot
+			transfer_part_to_loc(overslot, part, force = TRUE, preserve_suit_storage = can_preserve_suit_storage(part, wearer.s_store))
+			RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
 		*/ // NOVA EDIT REMOVAL END
 		// NOVA EDIT ADDITION START
 		if(overslot && !HAS_TRAIT(overslot, TRAIT_NODROP))
@@ -129,6 +120,27 @@
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 	return FALSE
 
+/obj/item/mod/control/proc/can_preserve_suit_storage(obj/item/new_suit, obj/item/stored_item)
+	if(!istype(new_suit, /obj/item/clothing) || !stored_item)
+		return FALSE
+	if(HAS_TRAIT(stored_item, TRAIT_NODROP))
+		return FALSE
+	var/obj/item/clothing/new_clothing = new_suit
+	if(is_type_in_typecache(stored_item, GLOB.any_suit_storage) || stored_item.w_class == WEIGHT_CLASS_TINY)
+		return TRUE
+	if(stored_item.w_class > WEIGHT_CLASS_BULKY)
+		return FALSE
+	return is_type_in_list(stored_item, new_clothing.allowed)
+
+/// Moves a MOD part between the wearer and the suit without forcing valid suit-storage contents to drop.
+/obj/item/mod/control/proc/transfer_part_to_loc(obj/item/part, atom/newloc, force = FALSE, preserve_suit_storage = FALSE)
+	if(!preserve_suit_storage)
+		return wearer.transferItemToLoc(part, newloc, force = force)
+	if(!wearer.temporarilyRemoveItemFromInventory(part, force, idrop = FALSE, newloc = newloc))
+		return FALSE
+	part.forceMove(newloc)
+	return TRUE
+
 /// Retract a part of the suit from the user.
 /obj/item/mod/control/proc/retract(mob/user, obj/item/part, instant = FALSE)
 	var/datum/mod_part/part_datum = get_part_datum(part)
@@ -150,7 +162,8 @@
 			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return FALSE
 	REMOVE_TRAIT(part, TRAIT_NODROP, MOD_TRAIT)
-	wearer.transferItemToLoc(part, src, force = TRUE)
+	var/preserve_suit_storage = part_datum.overslotting && can_preserve_suit_storage(part_datum.overslotting, wearer.s_store)
+	transfer_part_to_loc(part, src, force = TRUE, preserve_suit_storage = preserve_suit_storage)
 	if(part_datum.overslotting)
 		var/obj/item/overslot = part_datum.overslotting
 		if(!QDELING(wearer) && !wearer.equip_to_slot_if_possible(overslot, overslot.slot_flags, qdel_on_fail = FALSE, disable_warning = TRUE))
@@ -272,6 +285,9 @@
 		part.heat_protection = initial(part.heat_protection)
 		part.cold_protection = initial(part.cold_protection)
 		part.alternate_worn_layer = part_datum.sealed_layer
+		if(part.slot_flags & ITEM_SLOT_HEAD)
+			var/datum/component/wearertargeting/protection = part.AddComponent(/datum/component/wearertargeting/earprotection, protection_amount = src.theme.hearing_protection)
+			protection.on_equip(src, wearer, ITEM_SLOT_HEAD)
 	else
 		part.icon_state = "[skin]-[part.base_icon_state]"
 		part.flags_cover &= ~part.visor_flags_cover
@@ -280,9 +296,11 @@
 		part.heat_protection = NONE
 		part.cold_protection = NONE
 		part.alternate_worn_layer = part_datum.unsealed_layer
+		if((part.slot_flags & ITEM_SLOT_HEAD) && istype(part, /obj/item/clothing/head/mod))
+			qdel(part.GetComponent(/datum/component/wearertargeting/earprotection))
 	update_speed()
 	wearer.update_clothing(part.slot_flags | slot_flags)
-	wearer.update_obscured_slots(part.visor_flags_inv)
+	wearer.refresh_obscured()
 	if((part.clothing_flags & (MASKINTERNALS|HEADINTERNALS)) && wearer.invalid_internals())
 		wearer.cutoff_internals()
 	SEND_SIGNAL(src, COMSIG_MOD_PART_SEALED, part_datum)
@@ -332,5 +350,13 @@
 	control_activation(is_on = TRUE)
 	for(var/obj/item/part as anything in get_parts())
 		deploy(null, part, instant = TRUE)
+
+/// Checks if the suit is fully retracted, with no parts outside
+/obj/item/mod/control/proc/check_retracted()
+	for(var/obj/item/part as anything in get_parts())
+		if(part.loc != src)
+			return FALSE
+	return TRUE
+
 
 #undef MOD_ACTIVATION_STEP_FLAGS

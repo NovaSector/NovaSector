@@ -2,7 +2,7 @@
 #define MEGAFAUNA_MEAT_AMOUNT 20
 
 //this is for revitalizing/preserving regen cores
-/obj/structure/lavaland/ash_walker/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/structure/lavaland/ash_walker/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(attacking_item, /obj/item/organ/monster_core/regenerative_core))
 		return ..()
 
@@ -57,7 +57,7 @@
 	if(allow_transform < REQUIRED_OBSERVERS)
 		balloon_alert_to_viewers("[src] rejects the request, not enough viewers!")
 		playsound(src, 'sound/effects/magic/demon_consume.ogg', 50, TRUE)
-		human_user.adjustBruteLoss(10)
+		human_user.adjust_brute_loss(10)
 		return
 
 	else
@@ -67,7 +67,7 @@
 		if(choice != "Yes")
 			balloon_alert_to_viewers("[src] feels rejected and punishes [human_user]!")
 			playsound(src, 'sound/effects/magic/demon_consume.ogg', 50, TRUE)
-			human_user.adjustBruteLoss(50)
+			human_user.adjust_brute_loss(50)
 			return
 
 		balloon_alert_to_viewers("[src] rejoices and transforms [human_user]!")

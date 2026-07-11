@@ -178,9 +178,9 @@
 	icon_state = "active_input"
 	base_icon_state = "active_input"
 
-/obj/machinery/plumbing/floor_pump/input/Initialize(mapload, bolt, layer)
+/obj/machinery/plumbing/floor_pump/input/Initialize(mapload, layer)
 	. = ..()
-	AddComponent(/datum/component/plumbing/simple_supply, bolt, layer || duct_layer)
+	AddComponent(/datum/component/plumbing/simple_supply, layer)
 
 /obj/machinery/plumbing/floor_pump/input/are_reagents_ready()
 	return reagents.total_volume < reagents.maximum_volume
@@ -235,9 +235,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/plumbing/floor_pump/input/on/waste, 0
 	/// Max pressure on the turf before we stop pumping.
 	var/max_ext_kpa = WARNING_HIGH_PRESSURE
 
-/obj/machinery/plumbing/floor_pump/output/Initialize(mapload, bolt, layer)
+/obj/machinery/plumbing/floor_pump/output/Initialize(mapload, layer)
 	. = ..()
-	AddComponent(/datum/component/plumbing/simple_demand, bolt, layer || duct_layer)
+	AddComponent(/datum/component/plumbing/simple_demand, layer)
 
 /obj/machinery/plumbing/floor_pump/output/examine(mob/user)
 	. = ..()
@@ -304,6 +304,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/plumbing/floor_pump/output/on/supply/
 	name = "engineering plumbing constructor"
 	desc = "A type of plumbing constructor designed to rapidly deploy the machines needed for logistics regarding fluids."
 	icon_state = "plumberer_engi"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 40, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 5, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
 	var/static/list/engineering_design_types = list(
 		//category 1 Synthesizers i.e devices which creates , reacts & destroys chemicals
 		"Synthesizers" = list(
@@ -347,7 +348,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/plumbing/floor_pump/output/on/supply/
 	pixel_x = 5
 	pixel_y = 5
 
-/obj/machinery/duct/supply/Initialize(mapload)
+/obj/machinery/duct/supply/Initialize(mapload, no_anchor, color_of_duct = null, layer_of_duct = null, force_connects, force_ignore_colors)
 	pixel_x = 0
 	pixel_y = 0
 	. = ..()
@@ -359,7 +360,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/plumbing/floor_pump/output/on/supply/
 	pixel_x = -5
 	pixel_y = -5
 
-/obj/machinery/duct/waste/Initialize(mapload)
+/obj/machinery/duct/waste/Initialize(mapload, no_anchor, color_of_duct = null, layer_of_duct = null, force_connects, force_ignore_colors)
 	pixel_x = 0
 	pixel_y = 0
 	. = ..()

@@ -217,7 +217,7 @@
 /obj/effect/turf_decal/weather/sand{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/oil/streak,
+/obj/effect/decal/cleanable/blood/splatter/oil,
 /turf/open/floor/wood,
 /area/virtual_domain/fullbright)
 "mp" = (
@@ -300,7 +300,7 @@
 /turf/open/floor/carpet/blue,
 /area/virtual_domain)
 "rm" = (
-/obj/structure/closet/crate/goldcrate,
+/obj/structure/closet/crate/goldcrate/stocked,
 /turf/open/misc/dirt/jungle,
 /area/virtual_domain/protected_space)
 "rn" = (
@@ -412,7 +412,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/wood,
 /area/virtual_domain/fullbright)
 "wu" = (

@@ -107,10 +107,10 @@
 /area/ruin/powered)
 "la" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /mob/living/basic/skeleton/settler{
 	name = "Village Hunter"
 	},
-/obj/effect/mob_spawn/corpse/human/doctor/noid,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "lg" = (
@@ -396,6 +396,7 @@
 /obj/item/clothing/under/rank/cargo/miner,
 /obj/item/clothing/suit/hooded/wintercoat/miner,
 /obj/item/clothing/shoes/winterboots,
+/obj/item/card/id/advanced/mining,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/ruin/powered)
@@ -438,7 +439,7 @@
 /area/ruin/powered)
 "PQ" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/illusion{
+/mob/living/basic/illusion{
 	death_message = "disperses into the air in a cloud of red mist, you feel slightly more at ease.";
 	desc = "You can't quite make out what you're seeing.";
 	faction = list("cult");

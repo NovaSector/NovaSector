@@ -23,7 +23,7 @@
 	)
 	crate_name = "mouse crate"
 
-/datum/supply_pack/critter/mouse/generate()
+/datum/supply_pack/critter/mouse/generate(atom/A, datum/bank_account/paying_account, crate_override)
 	. = ..()
 	for(var/i in 1 to 5)
 		new /mob/living/basic/mouse(.)
@@ -37,7 +37,7 @@
 	)
 	crate_name = "chinchilla crate"
 
-/datum/supply_pack/critter/chinchilla/generate()
+/datum/supply_pack/critter/chinchilla/generate(atom/A, datum/bank_account/paying_account, crate_override)
 	. = ..()
 	for(var/i in 1 to 3)
 		new /mob/living/basic/pet/chinchilla(.)
@@ -50,6 +50,23 @@
 	cost = CARGO_CRATE_VALUE * 7
 	contains = list(/mob/living/basic/pet/cat/fennec = 2)
 	crate_name = "fennec crate"
+
+/datum/supply_pack/critter/pitbull/pimpy
+	name = "Pedigree Stud Pitbull Crate"
+	desc = "Contains three pitbulls. Verified at the top of Mount Bullmore to be Pedigree Studs.."
+	cost = CARGO_CRATE_VALUE * 9
+	contains = list(
+		/mob/living/basic/pet/dog/pitbull = 3,
+	)
+	crate_name = "pedigree stud pitbull crate"
+
+/datum/supply_pack/critter/redpanda
+	name = "Red Panda Crate"
+	desc = "Your station needs a little more Wah? Some more red tails? Order this. You'll never escape your sadness."
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(
+		/mob/living/basic/pet/fox/redpanda = 2,)
+	crate_name = "wah crate"
 
 /*
 *	MEDICAL
@@ -126,7 +143,7 @@
 
 /datum/supply_pack/medical/medigun
 	name = "CWM-479 Medigun"
-	desc = "Contains a single VeyMedical CWM-479 model medical gun; cells not included."
+	desc = "Contains a single Vey-Medical CWM-479 model medigun; medicells not included."
 	cost = CARGO_CRATE_VALUE * 30
 	access = ACCESS_MEDICAL
 	contains = list(/obj/item/storage/briefcase/medicalgunset/standard)
@@ -134,7 +151,7 @@
 
 /datum/supply_pack/medical/medicells
 	name = "Medicell Replacement Crate"
-	desc = "Contains the tier I Medigun cells."
+	desc = "Contains a set of tier I brute, burn, and toxin medicells for Vey-Medical mediguns."
 	cost = CARGO_CRATE_VALUE * 5
 	access = ACCESS_MEDICAL
 	contains = list(
@@ -214,7 +231,6 @@
 		/obj/item/flatpack/ammo_workbench,
 		/obj/item/ammo_workbench_module/lethal,
 		/obj/item/ammo_workbench_module/gimmick,
-		/obj/item/ammo_workbench_reboot = 2,
 	)
 	crate_name = "ammunition workbench starter crate"
 
@@ -409,6 +425,9 @@
 		While it's a pretty cheap bootleg of the personal gravitic engines used by the Skrell, this one's been fitted with straps and a basic storage module."
 	cost = CARGO_CRATE_VALUE * 6 // 1200 credits
 	contains = list(/obj/item/gravity_harness)
+
+/datum/supply_pack/misc/commandkeys
+	order_flags = ORDER_EMAG_ONLY
 
 /*
 *	FOOD
@@ -688,7 +707,7 @@
 	name = "Authentic Renaissance Faire Crate"
 	desc = "Contains two authentic suits of armor, swords, and two bows and cuirass' for the cowards hiding in the back."
 	cost = CARGO_CRATE_VALUE * 30
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 	contains = list(
 		/obj/item/clothing/suit/armor/riot/knight/larp/red,
 		/obj/item/clothing/gloves/plate/larp/red,
@@ -714,8 +733,8 @@
 
 /datum/supply_pack/organic/lavalandsamples
 	name = "Planetary Flora Samples"
-	desc = "A box of samples taken from the surface of Lavaland. Requires Hydroponics access to open."
-	cost = CARGO_CRATE_VALUE * 6
+	desc = "A box of samples taken from the surface of Lavaland. Resold to you - yes, you! - at a premium. Requires Hydroponics access to open."
+	cost = CARGO_CRATE_VALUE * 36
 	access_view = ACCESS_HYDROPONICS
 	contains = list(
 		/obj/item/seeds/lavaland/polypore,
@@ -760,7 +779,7 @@
 	contains = list(/obj/item/grown/log)
 	crate_name = "lumber crate"
 
-/datum/supply_pack/materials/rawlumber/generate()
+/datum/supply_pack/materials/rawlumber/generate(atom/A, datum/bank_account/paying_account, crate_override)
 	. = ..()
 	for(var/i in 1 to 19)
 		new /obj/item/grown/log(.)
@@ -792,3 +811,36 @@
 
 /datum/supply_pack/imports/error
 	cost = CARGO_CRATE_VALUE * 400 // 20k is a lot on TG, it's not as much here. Upped to 80k
+
+/datum/supply_pack/misc/ancient_paperwork
+	name = "Unfiled Paperwork"
+	desc = "Hey, we've apparently got a backlog of paperwork here. It's pretty bad. \
+		If you guys could pay the shuttle guys to look the other way, and help us fill it out so we can file this stuff away, \
+		it'll look a lot nicer on our quarterly reports... which means we can justify putting a few extra credits in your budget. \
+		Thanks. For your convenience, we've repacked it into a single large folder. Be careful with it."
+	cost = CARGO_CRATE_VALUE * 5
+	/*
+	one properly stamped paperwork is CARGO_CRATE_VALUE * 4.
+	however, because getting stamps capital S Sucks, requiring IC interaction (or stamp theft),
+	it's probably fine for it to be decently profitable?
+	5 paperworks for 20 crates (4000cr), initial cost of 5 crates (1000cr), profit of 15 crates (3000cr)
+	*/
+	contains = list(
+		/obj/item/folder/ancient_paperwork/five,
+	)
+
+/*
+* ACCESS OVERWRITES
+*/
+
+/datum/supply_pack/engineering/portagrav
+	access_view = NONE
+
+/datum/supply_pack/engineering/powergamermitts
+	access_view = NONE
+
+/datum/supply_pack/engineering/pacman
+	access_view = NONE
+
+/datum/supply_pack/engineering/tools
+	access_view = NONE

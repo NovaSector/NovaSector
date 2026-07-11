@@ -24,7 +24,8 @@
 	icon = 'icons/obj/machines/atmospherics/unary_devices.dmi'
 	icon_state = "airlock_pump"
 	pipe_state = "airlock_pump"
-	use_power = ACTIVE_POWER_USE
+	use_power = IDLE_POWER_USE
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION
 	can_unwrench = TRUE
 	welded = FALSE
@@ -51,9 +52,9 @@
 	///Which pressure holds docked vessel\station for override of external_pressure_target
 	var/docked_side_pressure
 	///Rate of the pump to remove gases from the air
-	var/volume_rate = 1000
+	var/volume_rate = 2000
 	///The start time of the current cycle to calculate cycle duration
-	var/cycle_start_time
+	var/emergency_stop_timer
 	///Max duration of cycle, after which the pump will unlock the airlocks with a warning
 	var/cycle_timeout = 10 SECONDS
 	///List of the turfs adjacent to the pump for faster cycling and avoiding wind
@@ -89,7 +90,7 @@
 
 /obj/machinery/atmospherics/components/unary/airlock_pump/update_overlays()
 	. = ..()
-	if(!showpipe)
+	if(!underfloor_state)
 		return
 
 	var/mutable_appearance/distro_pipe_appearance = get_pipe_image(icon, "pipe_exposed", dir, COLOR_BLUE, piping_layer = 4)
@@ -122,7 +123,10 @@
 	. = ..()
 	if(mapload)
 		can_unwrench = FALSE
-
+	var/datum/gas_mixture/distro_air = airs[1]
+	var/datum/gas_mixture/waste_air = airs[2]
+	distro_air.volume = 1000
+	waste_air.volume = 1000
 
 /obj/machinery/atmospherics/components/unary/airlock_pump/post_machine_initialize()
 	. = ..()
@@ -153,14 +157,6 @@
 			tile_air_pressure = max(0, local_turf.return_air().return_pressure())
 		on_dock_request(tile_air_pressure)
 
-/obj/machinery/atmospherics/components/unary/airlock_pump/New()
-	. = ..()
-	var/datum/gas_mixture/distro_air = airs[1]
-	var/datum/gas_mixture/waste_air = airs[2]
-	distro_air.volume = 1000
-	waste_air.volume = 1000
-
-
 /obj/machinery/atmospherics/components/unary/airlock_pump/on_deconstruction(disassembled)
 	. = ..()
 	if(cycling_set_up)
@@ -176,14 +172,20 @@
 		to_chat(user, span_warning("You cannot unwrench [src], wait for the cycle completion!"))
 		return FALSE
 
+/obj/machinery/atmospherics/components/unary/airlock_pump/set_on(active)
+	. = ..()
+	if(active)
+		update_use_power(ACTIVE_POWER_USE)
+	else
+		update_use_power(IDLE_POWER_USE)
 
 /obj/machinery/atmospherics/components/unary/airlock_pump/process_atmos()
 	if(!on)
 		return
-
-	if(!powered())
-		stop_cycle("No power. Cycle aborted.", unbolt_only = TRUE)
-		return //Couldn't complete the cycle due to power outage
+	if(!is_operational)
+		stack_trace("Airlock pump on but not operational, it should've been cancelled by on_set_is_operational")
+		stop_cycle(null, unbolt_only = TRUE)
+		return
 
 	var/turf/location = get_turf(loc)
 	if(isclosedturf(location))
@@ -192,10 +194,6 @@
 	if(COOLDOWN_FINISHED(src, check_turfs_cooldown))
 		check_turfs()
 		COOLDOWN_START(src, check_turfs_cooldown, 2 SECONDS)
-
-	if(world.time - cycle_start_time > cycle_timeout)
-		stop_cycle("Cycling timed out, bolts unlocked.", unbolt_only = TRUE)
-		return //Couldn't complete the cycle before timeout
 
 	var/datum/gas_mixture/distro_air = airs[1]
 	var/datum/gas_mixture/tile_air = loc.return_air()
@@ -285,6 +283,11 @@
 	else if(airlock in internal_airlocks)
 		start_cycle(ATMOS_DIRECTION_RELEASING, airlock)
 
+/obj/machinery/atmospherics/components/unary/airlock_pump/proc/emergency_stop()
+	if(!on || airlocks_animating || !is_operational)
+		return // Already done
+
+	stop_cycle("Cycling timed out, bolts unlocked.", unbolt_only = TRUE)
 
 ///Start decompression or pressurization cycle depending on the passed direction
 /obj/machinery/atmospherics/components/unary/airlock_pump/proc/start_cycle(cycle_direction, obj/machinery/door/airlock/source_airlock = null)
@@ -300,8 +303,8 @@
 	stoplag(1 SECONDS) // Wait for closing animation
 	airlocks_animating = FALSE
 
-	on = TRUE
-	cycle_start_time = world.time
+	set_on(TRUE)
+	emergency_stop_timer = addtimer(CALLBACK(src, PROC_REF(emergency_stop)), cycle_timeout, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_DELETE_ME)
 
 	var/turf/local_turf = get_turf(src)
 	var/tile_air_pressure = max(0, local_turf.return_air().return_pressure())
@@ -334,15 +337,14 @@
 		if(is_cycling_audible)
 			source_airlock.say("Decompressing airlock.")
 
-	update_appearance(UPDATE_ICON)
 	return TRUE
-
 
 ///Complete/Abort cycle with the passed message
 /obj/machinery/atmospherics/components/unary/airlock_pump/proc/stop_cycle(message = null, unbolt_only = FALSE)
 	if(!on)
 		return FALSE
-	on = FALSE
+	set_on(FALSE)
+	deltimer(emergency_stop_timer)
 
 	// In case we can open both sides safe_dock will do it for us
 	// it also handles its own messages. If we can't - procceed
@@ -481,11 +483,22 @@
 	internal_airlocks = get_adjacent_airlocks(internal_airlocks_origin, perpendicular_dirs)
 	external_airlocks = get_adjacent_airlocks(external_airlocks_origin, perpendicular_dirs)
 
-	if(!internal_airlocks.len || !internal_airlocks.len)
+	// This is support for awkwardly shaped airlocks that cycle on a group ID
+	if(!length(internal_airlocks))
+		for(var/obj/machinery/door/airlock/external_airlock as anything in external_airlocks)
+			internal_airlocks |= external_airlock.close_others
+		// For double-wide airlocks, so we don't end up with doors in both lists
+		internal_airlocks -= external_airlocks
+	if(!length(external_airlocks))
+		for(var/obj/machinery/door/airlock/internal_airlock as anything in internal_airlocks)
+			external_airlocks |= internal_airlock.close_others
+		external_airlocks -= internal_airlocks
+
+	if(!length(external_airlocks) || !length(internal_airlocks))
 		if(!can_unwrench) //maploaded pump
 			CRASH("[type] couldn't find airlocks to cycle with!")
-		internal_airlocks = list()
-		external_airlocks = list()
+		internal_airlocks.Cut()
+		external_airlocks.Cut()
 		say("Cycling setup failed. No opposite airlocks found.")
 		return
 
@@ -497,7 +510,6 @@
 		else if(open_airlock_on_cycle)
 			INVOKE_ASYNC(airlock, TYPE_PROC_REF(/obj/machinery/door/airlock, secure_open))
 
-	cycle_timeout *= round((internal_airlocks.len + external_airlocks.len) / 2)
 	cycling_set_up = TRUE
 	if(can_unwrench)
 		say("Cycling setup complete.")
@@ -555,6 +567,8 @@
 
 ///Find airlocks and link up with them
 /obj/machinery/atmospherics/components/unary/airlock_pump/proc/unlink_airlock(airlock)
+	SIGNAL_HANDLER
+
 	UnregisterSignal(airlock, COMSIG_QDELETING)
 
 	if(airlock in internal_airlocks)
@@ -570,12 +584,12 @@
 /obj/machinery/atmospherics/components/unary/airlock_pump/proc/break_all_links()
 	for(var/obj/machinery/door/airlock/airlock as anything in (internal_airlocks + external_airlocks))
 		UnregisterSignal(airlock, COMSIG_QDELETING)
+		airlock.unbolt()
 
+	deltimer(emergency_stop_timer)
 	external_airlocks = list()
 	internal_airlocks = list()
-	cycle_timeout = initial(cycle_timeout)
 	cycling_set_up = FALSE
-
 
 /obj/machinery/atmospherics/components/unary/airlock_pump/relaymove(mob/living/user, direction)
 	if(initialize_directions & direction)
@@ -586,6 +600,24 @@
 		user.ventcrawl_layer = clamp(user.ventcrawl_layer - 2, PIPING_LAYER_DEFAULT - 1, PIPING_LAYER_DEFAULT + 1)
 	to_chat(user, "You align yourself with the [user.ventcrawl_layer == 2 ? 1 : 2]\th output.")
 
+/obj/machinery/atmospherics/components/unary/airlock_pump/on_set_is_operational(was_operational)
+	if(was_operational && !is_operational)
+		// unbolt all the doors but don't open them
+		for(var/obj/machinery/door/airlock/airlock as anything in (internal_airlocks + external_airlocks))
+			airlock.unbolt()
+		audible_message(span_notice("[src] whirrs as [p_they()] loses power, disengaging airlock bolts."))
+		deltimer(emergency_stop_timer)
+		set_on(FALSE)
+
+	else if(!was_operational && is_operational)
+		// upon regaining power, re-bolt relevant airlocks
+		for(var/obj/machinery/door/airlock/airlock as anything in external_airlocks)
+			INVOKE_ASYNC(airlock, TYPE_PROC_REF(/obj/machinery/door/airlock, secure_close))
+		for(var/obj/machinery/door/airlock/airlock as anything in internal_airlocks)
+			if(open_airlock_on_cycle)
+				INVOKE_ASYNC(airlock, TYPE_PROC_REF(/obj/machinery/door/airlock, secure_open))
+		audible_message(span_notice("[src] whirrs as [p_they()] regains power, re-engaging airlock bolts."))
+
 /obj/machinery/atmospherics/components/unary/airlock_pump/unbolt_only
 	open_airlock_on_cycle = FALSE
 
@@ -594,4 +626,3 @@
 
 /obj/machinery/atmospherics/components/unary/airlock_pump/lavaland
 	external_pressure_target = LAVALAND_EQUIPMENT_EFFECT_PRESSURE
-

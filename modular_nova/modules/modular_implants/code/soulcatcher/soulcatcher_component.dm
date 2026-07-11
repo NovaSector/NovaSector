@@ -1,9 +1,6 @@
 ///Global list containing any and all soulcatchers
 GLOBAL_LIST_EMPTY(soulcatchers)
 
-#define SOULCATCHER_DEFAULT_COLOR "#75D5E1"
-#define SOULCATCHER_WARNING_MESSAGE "You have entered a soulcatcher, do not share any information you have received while a ghost. If you have died within the round, you do not know your identity until your body has been scanned, standard blackout policy also applies."
-
 /**
  * Soulcatcher Component
  *
@@ -40,6 +37,8 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	create_room()
 	targeted_soulcatcher_room = soulcatcher_rooms[1]
 	GLOB.soulcatchers += src
+	if(ghost_joinable)
+		update_joinability()
 
 	var/obj/item/soulcatcher_holder/soul_holder = parent
 	if(istype(soul_holder) && ismob(soul_holder.loc))
@@ -51,6 +50,8 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 
 /datum/component/soulcatcher/Destroy(force)
 	GLOB.soulcatchers -= src
+	if(ghost_joinable)
+		update_joinability()
 
 	targeted_soulcatcher_room = null
 	for(var/datum/soulcatcher_room as anything in soulcatcher_rooms)
@@ -213,7 +214,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	if(!mind_to_add)
 		return FALSE
 
-	var/datum/component/soulcatcher/parent_soulcatcher = master_soulcatcher.resolve()
+	var/datum/component/soulcatcher/parent_soulcatcher = master_soulcatcher?.resolve()
 	var/datum/parent_object = parent_soulcatcher.parent
 	if(!parent_object)
 		return FALSE
@@ -235,6 +236,8 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	mind_to_add.transfer_to(new_soul, TRUE)
 	current_souls += new_soul
 	new_soul.current_room = WEAKREF(src)
+	if(length(current_souls) >= parent_soulcatcher.max_souls) //only send update if we become full
+		parent_soulcatcher.update_joinability()
 
 	var/datum/preferences/preferences = new_soul.client?.prefs
 	if(preferences)
@@ -242,7 +245,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 		if(!new_soul.body_scan_needed)
 			new_soul.soul_desc = preferences.read_preference(/datum/preference/text/flavor_text)
 
-	to_chat(new_soul, span_cyan("You find yourself now inside of: [name]"))
+	to_chat(new_soul, span_cyan_nova("You find yourself now inside of: [name]"))
 	to_chat(new_soul, span_notice(room_description))
 	to_chat(new_soul, span_doyourjobidiot("You have entered a soulcatcher, do not share any information you have received while a ghost. If you have died within the round, you do not know your identity until your body has been scanned, standard blackout policy also applies."))
 	to_chat(new_soul, span_notice("While inside of a soulcatcher, you are able to speak and emote by using the normal hotkeys and verbs, unless disabled by the owner."))
@@ -261,6 +264,9 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 /datum/soulcatcher_room/proc/remove_soul(mob/living/soulcatcher_soul/soul_to_remove)
 	if(!soul_to_remove || !(soul_to_remove in current_souls))
 		return FALSE
+	var/datum/component/soulcatcher/parent_soulcatcher = master_soulcatcher?.resolve()
+	if(length(current_souls) >= parent_soulcatcher.max_souls) //only send update if we were full
+		parent_soulcatcher.update_joinability()
 
 	current_souls -= soul_to_remove
 	soul_to_remove.current_room = null
@@ -283,7 +289,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	current_souls -= target_soul
 	target_room.current_souls += target_soul
 
-	to_chat(target_soul, span_cyan("you've been transferred to [target_room]!"))
+	to_chat(target_soul, span_cyan_nova("you've been transferred to [target_room]!"))
 	to_chat(target_soul, span_notice(target_room.room_description))
 
 	return TRUE
@@ -370,24 +376,55 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 
 	return ..()
 
-/datum/action/innate/join_soulcatcher
+/atom/movable/screen/ghost/join_soulcatcher
 	name = "Enter Soulcatcher"
-	background_icon = 'modular_nova/master_files/icons/mob/actions/action_backgrounds.dmi'
-	background_icon_state = "android"
-	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_nif.dmi'
-	button_icon_state = "soulcatcher_enter"
+	icon = 'modular_nova/master_files/icons/hud/screen_ghost.dmi'
+	icon_state = "soulcatcher"
+	screen_loc = ui_ghost_soulcatcher
+	/// Holder for maptext overlay showing how many soulcatchers there are
+	var/atom/movable/screen/num_overlay
 
-/datum/action/innate/join_soulcatcher/Activate()
+/atom/movable/screen/ghost/join_soulcatcher/New()
 	. = ..()
-	var/mob/dead/observer/joining_soul = owner
-	if(!joining_soul)
-		return FALSE
+	num_overlay = new
+	num_overlay.layer = layer+1
+	num_overlay.screen_loc = ui_ghost_soulcatcher
+	num_overlay.maptext = MAPTEXT("<span style='text-align: right; color: aqua'>[get_soulcatcher_count()]</span>")
+	num_overlay.transform = num_overlay.transform.Translate(-4, 2)
+	vis_contents += num_overlay
+	RegisterSignal(SSdcs, COMSIG_SOULCATCHER_UPDATE_JOINABILITY, PROC_REF(refresh_tally))
 
-	joining_soul.join_soulcatcher()
+/atom/movable/screen/ghost/join_soulcatcher/Destroy()
+	vis_contents -= num_overlay
+	QDEL_NULL(num_overlay)
+	UnregisterSignal(SSdcs, COMSIG_SOULCATCHER_UPDATE_JOINABILITY)
+	return ..()
+
+/// returns the number of soulcatcher components that are joinable by ghosts
+/atom/movable/screen/ghost/join_soulcatcher/proc/get_soulcatcher_count()
+	var/amount = 0
+	for(var/datum/component/soulcatcher/soulcatcher as anything in GLOB.soulcatchers)
+		if(!soulcatcher.ghost_joinable || !isobj(soulcatcher.parent) || !soulcatcher.check_for_vacancy())
+			continue
+		amount++
+	return amount
+
+/// refreshes the maptext number overlay on the ghost's soulcatcher button according to what get_soulcatcher_count() returns
+/atom/movable/screen/ghost/join_soulcatcher/proc/refresh_tally()
+	SIGNAL_HANDLER
+	if(!num_overlay)
+		return
+	var/original_transform = num_overlay.transform
+	animate(num_overlay, transform = num_overlay.transform.Translate(0, 4), time = 0.1 SECONDS, flags = ANIMATION_PARALLEL)
+	animate(transform = original_transform, time = 0.1 SECONDS)
+	num_overlay.maptext = MAPTEXT("<span style='text-align: right; color: aqua'>[get_soulcatcher_count()]</span>")
+
+/atom/movable/screen/ghost/join_soulcatcher/Click()
+	var/mob/dead/observer/observer = usr
+	observer.join_soulcatcher()
 
 /mob/dead/observer/verb/join_soulcatcher()
 	set name = "Enter Soulcatcher"
-	set category = "Ghost"
 
 	var/list/joinable_soulcatchers = list()
 	for(var/datum/component/soulcatcher/soulcatcher in GLOB.soulcatchers)
@@ -451,20 +488,3 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 		return TRUE
 
 	return ..()
-
-/mob/dead/observer/Login()
-	. = ..()
-	var/datum/preferences/preferences = client?.prefs
-	var/soulcatcher_action_given
-
-	if(preferences)
-		soulcatcher_action_given = preferences.read_preference(/datum/preference/toggle/soulcatcher_join_action)
-
-	if(!soulcatcher_action_given)
-		return
-
-	if(locate(/datum/action/innate/join_soulcatcher) in actions)
-		return
-
-	var/datum/action/innate/join_soulcatcher/new_join_action = new(src)
-	new_join_action.Grant(src)

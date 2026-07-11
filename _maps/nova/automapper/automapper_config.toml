@@ -75,6 +75,22 @@ required_map = "MetaStation.dmm"
 coordinates = [163, 155, 1]
 trait_name = "Station"
 
+# Metastation Public Garden
+[templates.metastation_garden]
+map_files = ["metastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [141, 149, 1]
+trait_name = "Station"
+
+# Metastation Bar Backroom
+[templates.metastation_bar_backroom]
+map_files = ["metastation_bar_backroom.dmm"]
+directory = "_maps/nova/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [129, 121, 1]
+trait_name = "Station"
+
 # DELTASTATION MAP EDITS
 # Deltastation Arrivals
 [templates.deltastation_arrivals]
@@ -122,6 +138,22 @@ map_files = ["deltastation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/deltastation/"
 required_map = "DeltaStation2.dmm"
 coordinates = [84, 109, 1]
+trait_name = "Station"
+
+# Deltastation Public Garden
+[templates.deltastation_garden]
+map_files = ["deltastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [151, 175, 1]
+trait_name = "Station"
+
+# Deltastation Bar Backroom
+[templates.deltastation_bar_backroom]
+map_files = ["deltastation_bar_backroom.dmm"]
+directory = "_maps/nova/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [148, 161, 1]
 trait_name = "Station"
 
 # ICEBOX MAP EDITS
@@ -205,6 +237,22 @@ required_map = "IceBoxStation.dmm"
 coordinates = [57, 82, 2]
 trait_name = "Station"
 
+# Icebox Public Garden
+[templates.icebox_garden]
+map_files = ["icebox_garden.dmm"]
+directory = "_maps/nova/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [59, 143, 3]
+trait_name = "Station"
+
+# Icebox Bar Backroom
+[templates.icebox_bar_backroom]
+map_files = ["icebox_bar_backroom.dmm"]
+directory = "_maps/nova/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [134, 145, 3]
+trait_name = "Station"
+
 # TRAMSTATION MAP EDITS
 # Tramstation Arrivals
 [templates.tramstation_arrivals]
@@ -254,61 +302,12 @@ required_map = "tramstation.dmm"
 coordinates = [118, 75, 1]
 trait_name = "Station"
 
-# BIRDSHOT MAP EDITS
-# Birdshot Arrivals
-[templates.birdshot_arrivals]
-map_files = ["birdshot_arrivals.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [136, 61, 1]
-trait_name = "Station"
-
-# Birdshot Armory
-[templates.birdshot_armory]
-map_files = ["birdshot_armory.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [51, 106, 1]
-trait_name = "Station"
-
-# Birdshot Cryo
-[templates.birdshot_cryo]
-map_files = ["birdshot_cryo.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [142, 84, 1]
-trait_name = "Station"
-
-# Birdshot Barber
-[templates.birdshot_barber]
-map_files = ["birdshot_barber.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [118, 145, 1]
-trait_name = "Station"
-
-# Birdshot NTC Office
-[templates.birdshot_ntrep_office]
-map_files = ["birdshot_ntrep_office.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [91, 143, 1]
-trait_name = "Station"
-
-# Birdshot ERT Bay
-[templates.birdshot_ert_bay]
-map_files = ["birdshot_ert_bay.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [188, 72, 1]
-trait_name = "Station"
-
-# Birdshot Supermatter Chamber
-[templates.birdshot_supermatter]
-map_files = ["birdshot_supermatter.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [67, 207, 1]
+# Tramstation Public Garden
+[templates.tramstation_garden]
+map_files = ["tramstation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [46, 109, 2]
 trait_name = "Station"
 
 # Lavaland NE Ashwalker Fortress
@@ -318,6 +317,14 @@ directory = "_maps/nova/automapper/templates/mining/"
 required_map = "Lavaland.dmm"
 coordinates = [203, 223, 1]
 trait_name = "Mining"
+
+# Tramstation Bar Backroom
+[templates.tramstation_bar_backroom]
+map_files = ["tramstation_bar_backroom.dmm"]
+directory = "_maps/nova/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [122, 133, 1]
+trait_name = "Station"
 
 # WAWASTATION MAP EDITS
 # Wawastation Arrivals
@@ -374,6 +381,22 @@ map_files = ["wawastation_asteroidbluecell.dmm"]
 directory = "_maps/nova/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
 coordinates = [142, 95, 2]
+trait_name = "Station"
+
+# Wawastation Public Garden
+[templates.wawastation_garden]
+map_files = ["wawastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [79, 82, 1]
+trait_name = "Station"
+
+# Wawastation Bar Backroom
+[templates.wawastation_bar_backroom]
+map_files = ["wawastation_bar_backroom.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [93, 83, 1]
 trait_name = "Station"
 
 # SNOWGLOBE STATION MAP EDITS
@@ -441,12 +464,28 @@ required_map = "NebulaStation.dmm"
 coordinates = [116, 95, 1]
 trait_name = "Station"
 
+# Nebulastation Public Garden
+[templates.nebula_garden]
+map_files = ["nebulastation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [141, 117, 2]
+trait_name = "Station"
+
+# Nebulastation Bar Backroom
+[templates.nebulastation_bar_backroom]
+map_files = ["nebulastation_bar_backroom.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [87, 113, 2]
+trait_name = "Station"
+
 #Catwalkstation Supermatter
 [templates.catwalkstation_supermatter]
 map_files = ["catwalkstation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [172, 163, 1]
+coordinates = [173, 163, 1]
 trait_name = "Station"
 
 #Catwalkstation NTRep Office
@@ -454,7 +493,15 @@ trait_name = "Station"
 map_files = ["catwalkstation_ntrep_office.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [114, 150, 1]
+coordinates = [115, 123, 1]
+trait_name = "Station"
+
+#Catwalkstation NTRep Office Upper
+[templates.catwalkstation_ntrep_office_upper]
+map_files = ["catwalkstation_ntrep_office_upper.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [115, 123, 2]
 trait_name = "Station"
 
 #Catwalkstation Arrivals
@@ -462,7 +509,7 @@ trait_name = "Station"
 map_files = ["catwalkstation_arrivals.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [120, 66, 1]
+coordinates = [120, 65, 1]
 trait_name = "Station"
 
 #Catwalkstation Cryo
@@ -470,7 +517,7 @@ trait_name = "Station"
 map_files = ["catwalkstation_cryo.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [132, 149, 1]
+coordinates = [129, 151, 1]
 trait_name = "Station"
 
 #Catwalkstation Armory
@@ -478,7 +525,7 @@ trait_name = "Station"
 map_files = ["catwalkstation_armory.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [69, 129, 2]
+coordinates = [64, 131, 2]
 trait_name = "Station"
 
 #Catwalkstation Barber
@@ -487,4 +534,12 @@ map_files = ["catwalkstation_barber.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
 coordinates = [99, 135, 1]
+trait_name = "Station"
+
+#Catwalkstation Bar Backroom
+[templates.catwalkstation_bar_backroom]
+map_files = ["catwalkstation_bar_backroom.dmm"]
+directory = "_maps/nova/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [92, 145, 1]
 trait_name = "Station"

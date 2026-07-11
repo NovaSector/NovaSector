@@ -51,14 +51,17 @@
 	//if true, we want to avoid any animation time, it'll tween and not rotate at all otherwise.
 	var/is_opposite_angle = REVERSE_ANGLE(lying_angle) == lying_prev
 	var/animate_time = is_opposite_angle ? 0 : UPDATE_TRANSFORM_ANIMATION_TIME
-	animate(src, transform = ntransform, time = animate_time, dir = final_dir, easing = (EASE_IN|EASE_OUT))
+	animate(src, transform = ntransform, time = animate_time, dir = final_dir, easing = SINE_EASING)
+	readjust_atom_huds(animate_time)
+
+	SEND_SIGNAL(src, COMSIG_LIVING_POST_UPDATE_TRANSFORM, resize, lying_angle, is_opposite_angle)
+	return TRUE
+
+/mob/living/proc/readjust_atom_huds(animate_time = null)
 	for (var/hud_key in hud_list)
 		var/image/hud_image = hud_list[hud_key]
 		if (istype(hud_image))
 			adjust_hud_position(hud_image, animate_time = animate_time)
-
-	SEND_SIGNAL(src, COMSIG_LIVING_POST_UPDATE_TRANSFORM, resize, lying_angle, is_opposite_angle)
-	return TRUE
 
 /// Calculates how far vertically the mob's transform should translate according to its size (1 being "default")
 /mob/living/proc/get_transform_translation_size(value)
@@ -124,6 +127,8 @@
 	if(new_w == pixel_w && new_x == pixel_x && new_y == pixel_y && new_z == pixel_z)
 		return FALSE
 
+	SEND_SIGNAL(src, COMSIG_LIVING_UPDATE_OFFSETS, new_x, new_y, new_w, new_z, animate)
+
 	if(!animate)
 		pixel_w = new_w
 		pixel_x = new_x
@@ -141,7 +146,6 @@
 		pixel_x = new_x,
 		pixel_y = new_y,
 		pixel_z = new_z,
-		easing = (EASE_IN|EASE_OUT),
 		flags = ANIMATION_PARALLEL,
 		time = UPDATE_TRANSFORM_ANIMATION_TIME,
 	)

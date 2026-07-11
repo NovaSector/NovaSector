@@ -31,7 +31,7 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = TRUE
 	icon_greyscale = BODYPART_ICON_IPC
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -54,8 +54,9 @@
 		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
 	)
 
-	head_flags = HEAD_ALL_FEATURES
 	bodypart_flags = BODYPART_UNHUSKABLE
+	head_flags = HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_LIPS|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_EYEHOLES // All the default flags minus HEAD_DEBRAIN
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.25, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT)
 
 /datum/design/synth_head
 	name = "Android Head Base"
@@ -87,7 +88,7 @@
 	is_dimorphic = FALSE
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -114,6 +115,7 @@
 	wing_types = list(
 		/obj/item/organ/wings/functional/robotic,
 	)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.25, /datum/material/silver = SMALL_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT)
 
 /datum/design/synth_chest
 	name = "Android Torso Base"
@@ -182,7 +184,7 @@
 	is_dimorphic = FALSE
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -206,6 +208,7 @@
 	)
 	disabling_threshold_percentage = 1
 	bodypart_flags = BODYPART_UNHUSKABLE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SMALL_MATERIAL_AMOUNT)
 
 /datum/design/synth_l_arm
 	name = "Android Left Arm Base"
@@ -235,7 +238,7 @@
 	is_dimorphic = FALSE
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -260,6 +263,7 @@
 		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
 	)
 	bodypart_flags = BODYPART_UNHUSKABLE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SMALL_MATERIAL_AMOUNT)
 
 /datum/design/synth_r_arm
 	name = "Android Right Arm Base"
@@ -290,7 +294,7 @@
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
 	digitigrade_type = /obj/item/bodypart/leg/left/synth/digitigrade
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -315,6 +319,7 @@
 		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
 	)
 	bodypart_flags = BODYPART_UNHUSKABLE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2)
 
 /datum/design/synth_l_leg
 	name = "Android Plantigrade Left Leg Base"
@@ -345,7 +350,7 @@
 	icon_greyscale = BODYPART_ICON_IPC
 	should_draw_greyscale = TRUE
 	digitigrade_type = /obj/item/bodypart/leg/right/synth/digitigrade
-	bodytype = BODYTYPE_ROBOTIC
+	bodytype = BODYTYPE_ROBOTIC | BODYTYPE_SYNTHETIC
 	bodyshape = BODYSHAPE_HUMANOID
 	change_exempt_flags = NONE
 	dmg_overlay_type = "robotic"
@@ -370,6 +375,7 @@
 		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
 	)
 	bodypart_flags = BODYPART_UNHUSKABLE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2)
 
 /datum/design/synth_r_leg
 	name = "Android Plantigrade Right Leg Base"
@@ -388,9 +394,9 @@
 
 /obj/item/bodypart/leg/left/synth/digitigrade
 	icon_greyscale = BODYPART_ICON_SYNTHLIZARD
-	limb_id = BODYPART_ID_DIGITIGRADE
+	limb_id = "synthliz"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = BODYPART_ID_DIGITIGRADE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2)
 
 /datum/design/synth_l_d_leg
 	name = "Android Digitigrade Left Leg Base"
@@ -409,9 +415,9 @@
 
 /obj/item/bodypart/leg/right/synth/digitigrade
 	icon_greyscale = BODYPART_ICON_SYNTHLIZARD
-	limb_id = BODYPART_ID_DIGITIGRADE
+	limb_id = "synthliz"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = BODYPART_ID_DIGITIGRADE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2)
 
 /datum/design/synth_r_d_leg
 	name = "Android Digitigrade Right Leg Base"

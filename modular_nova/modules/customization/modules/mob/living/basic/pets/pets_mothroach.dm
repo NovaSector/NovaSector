@@ -29,7 +29,7 @@
 	icon_living = "mr_fluff"
 	icon_dead = "mr_fluff_dead"
 
-/obj/item/clothing/head/mob_holder/pet/donator/centralsmith
+/obj/item/mob_holder/pet/donator/centralsmith
 	name = "Mr. Fluff"
 	desc = "Central's beloved pet mothroach, Mr. Fluff. He looks so happy to be here!"
 	icon = 'modular_nova/master_files/icons/mob/donator_pets.dmi'

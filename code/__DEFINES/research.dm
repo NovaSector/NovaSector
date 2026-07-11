@@ -1,6 +1,16 @@
 /// For instances where we don't want a design showing up due to it being for debug/sanity purposes
 #define DESIGN_ID_IGNORE "IGNORE_THIS_DESIGN"
 
+///The object printed from this design won't get the mats used to make it. Default setting for stacks unless specified otherwise
+#define DESIGN_DONT_INHERIT_MATS 0
+/**
+ * Default setting. The object printed from this design gets the mats used to make it.
+ * This will also be unit tested to ensure that that the mats of the printed object match with another object of the same type spawned in a generic way.
+ */
+#define DESIGN_INHERIT_MATS 1
+///The object printed from this design gets the mats used to make it but skips the unit test.
+#define DESIGN_INHERIT_MATS_SPECIAL 2
+
 //! Techweb names for new point types. Can be used to define specific point values for specific types of research (science, security, engineering, etc.)
 #define TECHWEB_POINT_TYPE_GENERIC "General Research"
 
@@ -55,6 +65,16 @@
 #define CELL_LINE_TABLE_QUEEN_BEE "cell_line_bee_queen_table"
 #define CELL_LINE_TABLE_BUTTERFLY "cell_line_butterfly_table"
 #define CELL_LINE_TABLE_MEGA_ARACHNID "cell_line_table_mega_arachnid"
+#define CELL_LINE_TABLE_GOAT "cell_line_table_goat"
+#define CELL_LINE_TABLE_PIG "cell_line_table_pig"
+
+//! Biopsy cell line organ types
+#define CELL_LINE_ORGAN_HEART "cell_line_organ_heart"
+#define CELL_LINE_ORGAN_LUNGS "cell_line_organ_lungs"
+#define CELL_LINE_ORGAN_LIVER "cell_line_organ_liver"
+#define CELL_LINE_ORGAN_STOMACH "cell_line_organ_stomach"
+
+#define CELL_LINE_ORGAN_HEART_CURSED "cell_line_organ_heart_cursed"
 
 //! All cell virus types
 #define CELL_VIRUS_TABLE_GENERIC "cell_virus_generic_table"
@@ -66,11 +86,12 @@
 //Defines how many percent of vat grown atoms come out as hue shifted color mutants. A flat chance for now, maybe in the future dependant on the cell line.
 #define CYTO_SHINY_CHANCE 15
 
-#define SCIPAPER_COOPERATION_INDEX 1
-#define SCIPAPER_FUNDING_INDEX 2
+#define SCIPAPER_COOPERATION_INDEX "cooperation"
+#define SCIPAPER_FUNDING_INDEX "funding"
 #define SCIENTIFIC_COOPERATION_PURCHASE_MULTIPLIER 0.01
 /// How much money is one point of gain worth.
 #define SCIPAPER_GAIN_TO_MONEY 125
+#define SCIPAPER_ALREADY_BOUGHT 2
 
 ///Connects the 'server_var' to a valid research server on your Z level.
 ///Used for machines in LateInitialize, to ensure that RND servers are loaded first.

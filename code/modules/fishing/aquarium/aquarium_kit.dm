@@ -5,11 +5,10 @@
 	icon = 'icons/obj/aquarium/supplies.dmi'
 	icon_state = "fish_feed"
 	w_class = WEIGHT_CLASS_TINY
-	spillable = FALSE
 	volume = 5
 	amount_per_transfer_from_this = 2.5
 	has_variable_transfer_amount = FALSE
-	reagent_flags = OPENCONTAINER
+	initial_reagent_flags = TRANSPARENT
 	reagent_container_liquid_sound = null
 	list_reagents = list(/obj/item/fish::food = 2.5) //Default fish diet
 	gulp_size = 1
@@ -29,6 +28,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	storage_type = /datum/storage/fish_case/adjust_size
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/plastic = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/storage/fish_case/Initialize(mapload)
 	. = ..()
@@ -114,6 +114,7 @@
 	desc = "An improved fish case to keep large fish in stasis in a compact little space."
 	w_class = WEIGHT_CLASS_NORMAL
 	storage_type = /datum/storage/fish_case
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/plastic = SMALL_MATERIAL_AMOUNT, /datum/material/bluespace = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/aquarium_kit
 	name = "DIY Aquarium Construction Kit"
@@ -121,6 +122,7 @@
 	icon = 'icons/obj/aquarium/supplies.dmi'
 	icon_state = "construction_kit"
 	w_class = WEIGHT_CLASS_TINY
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/aquarium_kit/Initialize(mapload)
 	. = ..()

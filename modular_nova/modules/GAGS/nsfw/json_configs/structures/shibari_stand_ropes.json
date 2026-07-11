@@ -4,7 +4,7 @@
 			"type": "icon_state",
 			"icon_state": "ropes_above_greyscale_nosnek",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		}
 	],
 	"ropes_behind": [
@@ -12,7 +12,7 @@
 			"type": "icon_state",
 			"icon_state": "ropes_behind_greyscale",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		}
 	],
 	"ropes_above_snek": [
@@ -20,7 +20,7 @@
 			"type": "icon_state",
 			"icon_state": "ropes_above_greyscale_snek",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		}
 	]
 }

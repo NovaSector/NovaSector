@@ -1,10 +1,13 @@
 GLOBAL_LIST_EMPTY(cargo_marks)
+#define MAX_CARGO_TELEPORTER_ITEMS 20 // same as the push broom.
+#define CARGO_TELEPORTER_COOLDOWN 8 SECONDS
 
 /obj/item/cargo_teleporter
 	name = "cargo teleporter"
 	desc = "An item that can set down a set number of markers, allowing them to teleport items within a tile to the set markers."
 	icon = 'modular_nova/modules/cargo_items/icons/cargo_teleporter.dmi'
 	icon_state = "cargo_tele"
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT)
 	///the list of markers spawned by this item
 	var/list/marker_children = list()
 	///which marker it is currently on
@@ -75,7 +78,11 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 
 	var/turf/moving_turf = get_turf(selected_mark)
 	var/turf/target_turf = get_turf(interacting_with)
+	var/teleported = 0
 	for(var/check_content in target_turf.contents)
+		if (teleported >= MAX_CARGO_TELEPORTER_ITEMS)
+			break
+
 		if(isobserver(check_content))
 			continue
 
@@ -92,10 +99,15 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 		if(movable_content.anchored)
 			continue
 
-		do_teleport(movable_content, moving_turf, asoundout = 'sound/effects/magic/Disable_Tech.ogg')
+		do_teleport(movable_content, moving_turf, no_effects = TRUE)
+		teleported++
 
+	playsound(target_turf, 'sound/effects/magic/Disable_Tech.ogg', 50)
+	playsound(moving_turf, 'sound/effects/magic/Disable_Tech.ogg', 50)
+	do_sparks(2, FALSE, target_turf)
+	do_sparks(2, FALSE, moving_turf)
 	new /obj/effect/decal/cleanable/ash(target_turf)
-	COOLDOWN_START(src, use_cooldown, 8 SECONDS)
+	COOLDOWN_START(src, use_cooldown, CARGO_TELEPORTER_COOLDOWN)
 	return ITEM_INTERACT_SUCCESS
 
 /datum/design/cargo_teleporter
@@ -125,9 +137,9 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 	light_range = 3
 	light_color = COLOR_VIVID_YELLOW
 
-/obj/effect/decal/cleanable/cargo_mark/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/cargo_teleporter))
-		to_chat(user, span_notice("You remove [src] using [W]."))
+/obj/effect/decal/cleanable/cargo_mark/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/cargo_teleporter))
+		to_chat(user, span_notice("You remove [src] using [attacking_item]."))
 		playsound(src, 'sound/machines/click.ogg', 50)
 		qdel(src)
 		return
@@ -146,3 +158,6 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 	var/area/src_area = get_area(src)
 	name = "[src_area.name] ([rand(100000,999999)])"
 	GLOB.cargo_marks += src
+
+#undef MAX_CARGO_TELEPORTER_ITEMS
+#undef CARGO_TELEPORTER_COOLDOWN

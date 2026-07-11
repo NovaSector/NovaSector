@@ -8,11 +8,12 @@
 	icon_state = "medipen_blue_unused"
 	base_icon_state = "medipen_blue"
 	inhand_icon_state = "medipen_blue"
-	reagent_flags = TRANSPARENT
+	initial_reagent_flags = TRANSPARENT
 	list_reagents = null
 	label_examine = FALSE
 	used_up = TRUE
 	init_empty = TRUE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1)
 
 /obj/item/reagent_containers/hypospray/medipen/universal/update_overlays()
 	. = ..()
@@ -32,7 +33,7 @@
 	. = ..()
 	if(. && used_up)
 		// Workaround to reset reagent flags after injection (gets set to 0 by parent proc)
-		reagents.flags = reagent_flags
+		reset_container_flags()
 
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure
 	name = "universal low-pressure medipen"
@@ -42,6 +43,7 @@
 	inhand_icon_state = "medipen_red"
 	volume = 30
 	amount_per_transfer_from_this = 30
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1)
 
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure/update_icon_state()
 	. = ..()

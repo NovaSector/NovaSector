@@ -13,6 +13,7 @@
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK
+	alternate_worn_layer = NONE
 	w_class = WEIGHT_CLASS_SMALL
 	flags_1 = IS_PLAYER_COLORABLE_1
 	interaction_flags_click = NEED_DEXTERITY
@@ -22,6 +23,10 @@
 	var/locked = FALSE
 	/// Is the lock busted?
 	var/broken_lock = FALSE
+
+/obj/item/clothing/neck/collar/examine(mob/user)
+	. = ..()
+	. += span_notice("The collar can be worn above or below your suit. Alt-Right-click to toggle.")
 
 /datum/storage/collar
 	max_slots = 1
@@ -111,6 +116,11 @@
 		return
 	to_chat(user, span_warning("You hear a heavy click near your neck - it's apparant the collar's locked on!"))
 
+/obj/item/clothing/neck/collar/click_alt_secondary(mob/user) //Adds a toggle to wear above or below suit slot items, for hiding it under a big coat or something :3
+	alternate_worn_layer = (alternate_worn_layer == initial(alternate_worn_layer) ? LOW_NECK_LAYER : initial(alternate_worn_layer))
+	user.update_clothing(ITEM_SLOT_NECK)
+	balloon_alert(user, "wearing [alternate_worn_layer == initial(alternate_worn_layer) ? "above" : "below"] suits")
+
 /// This is a KEY moment of this code. You got it. Key.
 /// ...
 /// It's 2:56 of 08.04.2021, i want to sleep. Please laugh. // your suffering has been preserved for future generations
@@ -121,6 +131,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "key_collar"
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
+	obj_flags_nova = ERP_ITEM
 	interaction_flags_click = NEED_DEXTERITY
 	/// The ID of the collar to pair with this key. Usually a ref to the collar.
 	var/key_id = null

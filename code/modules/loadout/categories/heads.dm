@@ -130,11 +130,11 @@
 /datum/loadout_item/head/plague_doctor
 	name = "Cap (Plague Doctor)"
 	item_path = /obj/item/clothing/head/bio_hood/plague
+*/ // NOVA REMOVAL END
 
 /datum/loadout_item/head/rose
 	name = "Rose"
 	item_path = /obj/item/food/grown/rose
-*/ // NOVA REMOVAL END
 
 /datum/loadout_item/head/sunflower
 	name = "Sunflower"
@@ -159,3 +159,8 @@
 /datum/loadout_item/head/wig
 	name = "Natural Wig"
 	item_path = /obj/item/clothing/head/wig/natural
+
+/datum/loadout_item/head/santa
+	name = "Santa Hat"
+	item_path = /obj/item/clothing/head/costume/santa/gags
+	required_holiday = FESTIVE_SEASON

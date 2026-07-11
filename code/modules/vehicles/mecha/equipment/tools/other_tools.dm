@@ -11,6 +11,7 @@
 	equip_cooldown = 150
 	energy_drain = STANDARD_CELL_CHARGE
 	range = MECHA_RANGED
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 5)
 	var/teleport_range = 7
 
 /obj/item/mecha_parts/mecha_equipment/teleporter/action(mob/source, atom/target, list/modifiers)
@@ -32,6 +33,7 @@
 	equip_cooldown = 50
 	energy_drain = 300
 	range = MECHA_RANGED
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 
 
 /obj/item/mecha_parts/mecha_equipment/wormhole_generator/action(mob/source, atom/target, list/modifiers)
@@ -73,6 +75,7 @@
 	equip_cooldown = 10
 	energy_drain = 100
 	range = MECHA_MELEE|MECHA_RANGED
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 	///Which atom we are movable_target onto for
 	var/atom/movable/movable_target
 	///Whether we will throw movable atomstothrow by locking onto them or just throw them back from where we click
@@ -127,7 +130,7 @@
 /obj/item/mecha_parts/mecha_equipment/gravcatapult/proc/do_scatter(atom/movable/scatter, atom/movable/target)
 	var/dist = 5 - get_dist(scatter, target)
 	var/delay = 2
-	GLOB.move_manager.move_away(scatter, target, delay = delay, timeout = delay * dist, flags = MOVEMENT_LOOP_START_FAST, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
+	GLOB.move_manager.move_away(scatter, target, delay = delay, timeout = delay * dist, flags = MOVEMENT_LOOP_START_INSTANT, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
 
 /obj/item/mecha_parts/mecha_equipment/gravcatapult/get_snowflake_data()
 	return list(
@@ -149,28 +152,25 @@
 //////////////////////////// ARMOR BOOSTER MODULES //////////////////////////////////////////////////////////
 /obj/item/mecha_parts/mecha_equipment/armor
 	equipment_slot = MECHA_ARMOR
-	///short protection name to display in the UI
-	var/protect_name = "you're mome"
-	///icon in armor.dmi that shows in the UI
-	var/iconstate_name
 	//how much the armor of the mech is modified by
 	var/datum/armor/armor_mod
 
 /obj/item/mecha_parts/mecha_equipment/armor/attach(obj/vehicle/sealed/mecha/new_mecha, attach_right)
 	. = ..()
-	chassis.set_armor(chassis.get_armor().add_other_armor(armor_mod))
+	if (armor_mod)
+		chassis.set_armor(chassis.get_armor().add_other_armor(armor_mod))
 
 /obj/item/mecha_parts/mecha_equipment/armor/detach(atom/moveto)
-	chassis.set_armor(chassis.get_armor().subtract_other_armor(armor_mod))
+	if (armor_mod)
+		chassis.set_armor(chassis.get_armor().subtract_other_armor(armor_mod))
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/armor/anticcw_armor_booster
 	name = "exosuit impact cushion plates"
 	desc = "Boosts exosuit armor against melee attacks"
 	icon_state = "mecha_abooster_ccw"
-	iconstate_name = "melee"
-	protect_name = "Melee Armor"
 	armor_mod = /datum/armor/mecha_equipment_ccw_boost
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2.5)
 
 /datum/armor/mecha_equipment_ccw_boost
 	melee = 20
@@ -179,9 +179,8 @@
 	name = "exosuit projectile shielding"
 	desc = "Boosts exosuit armor against ranged kinetic and energy projectiles. Completely blocks taser shots."
 	icon_state = "mecha_abooster_proj"
-	iconstate_name = "range"
-	protect_name = "Ranged Armor"
 	armor_mod = /datum/armor/mecha_equipment_ranged_boost
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2.5)
 
 /datum/armor/mecha_equipment_ranged_boost
 	bullet = 15
@@ -192,9 +191,8 @@
 	desc = "Boosts exosuit armor against energy-based attacks. Also shields the exosuit's internal wiring from hostile EMP attacks. However, this may leave the \
 		exosuit slightly more vulnerable to kinetic blows due to taking up valuable hull cushioning."
 	icon_state = "mecha_abooster_emp"
-	iconstate_name = "range"
-	protect_name = "EMP and Energy Armor"
 	armor_mod = /datum/armor/mecha_equipment_energy_boost
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2.5)
 
 /datum/armor/mecha_equipment_energy_boost
 	melee = -5
@@ -203,10 +201,10 @@
 
 /obj/item/mecha_parts/mecha_equipment/armor/antiemp_armor_booster/attach(obj/vehicle/sealed/mecha/new_mecha, attach_right)
 	. = ..()
-	chassis.AddElement(/datum/element/empprotection, EMP_PROTECT_WIRES)
+	chassis.AddElement(/datum/element/empprotection, EMP_PROTECT_WIRES|EMP_NO_EXAMINE)
 
 /obj/item/mecha_parts/mecha_equipment/armor/antiemp_armor_booster/detach(atom/moveto)
-	chassis.RemoveElement(/datum/element/empprotection, EMP_PROTECT_WIRES)
+	chassis.RemoveElement(/datum/element/empprotection, EMP_PROTECT_WIRES|EMP_NO_EXAMINE)
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/armor/antiemp_armor_booster/clandestine
@@ -230,6 +228,7 @@
 	can_be_toggled = TRUE
 	active = FALSE
 	equipment_slot = MECHA_UTILITY
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
 	/// Repaired health per second
 	var/health_boost = 0.5
 	var/icon/droid_overlay
@@ -305,6 +304,7 @@
 	equipment_slot = MECHA_POWER
 	can_be_toggled = TRUE
 	active = FALSE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 	///Type of fuel the generator is using. Is set in generator_init() to add the starting amount of fuel
 	var/obj/item/stack/sheet/fuel = null
 	///Fuel used per second while idle, not generating, in units
@@ -347,11 +347,11 @@
 			log_message("Deactivated.", LOG_MECHA)
 		return TRUE
 
-/obj/item/mecha_parts/mecha_equipment/generator/attackby(obj/item/weapon, mob/user, list/modifiers)
-	. = ..()
-	if(!istype(weapon, fuel))
-		return FALSE
-	load_fuel(weapon, user)
+/obj/item/mecha_parts/mecha_equipment/generator/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, fuel))
+		load_fuel(tool, user)
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /obj/item/mecha_parts/mecha_equipment/generator/process(seconds_per_tick)
 	if(!chassis)
@@ -393,7 +393,13 @@
 
 ///Introduces the actual fuel type to be used, as well as the starting amount of said fuel
 /obj/item/mecha_parts/mecha_equipment/generator/proc/generator_init()
-	fuel = new /obj/item/stack/sheet/mineral/plasma(src, 0)
+	fuel = new /obj/item/stack/sheet/mineral/plasma(src, 10)
+
+/// Version without the initial fuel
+/obj/item/mecha_parts/mecha_equipment/generator/printed
+
+/obj/item/mecha_parts/mecha_equipment/generator/generator_init()
+	return
 
 /////////////////////////////////////////// THRUSTERS /////////////////////////////////////////////
 
@@ -404,13 +410,14 @@
 	equipment_slot = MECHA_UTILITY
 	can_be_toggled = TRUE
 	active_label = "Thrusters"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 12.5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 1.5)
 	var/effect_type = /obj/effect/particle_effect/sparks
 
-/obj/item/mecha_parts/mecha_equipment/thrusters/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M, attach_right)
-	for(var/obj/item/I in M.equip_by_category[MECHA_UTILITY])
-		if(istype(I, src))
-			to_chat(user, span_warning("[M] already has this thruster package!"))
-			return FALSE
+/obj/item/mecha_parts/mecha_equipment/thrusters/try_attach_part(mob/user, obj/vehicle/sealed/mecha/mecha, attach_right)
+	for(var/obj/item/part in mecha.equip_by_category[MECHA_UTILITY])
+		if(istype(part, src))
+			to_chat(user, span_warning("[mecha] already has this thruster package!"))
+			return ITEM_INTERACT_BLOCKING
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/thrusters/attach(obj/vehicle/sealed/mecha/new_mecha, attach_right = FALSE)
@@ -502,7 +509,7 @@
 /obj/item/mecha_parts/mecha_equipment/concealed_weapon_bay/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M)
 	if(M.mech_type & EXOSUIT_MODULE_COMBAT)
 		to_chat(user, span_warning("[M] does not have the correct bolt configuration!"))
-		return
+		return ITEM_INTERACT_BLOCKING
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/concealed_weapon_bay/special_attaching_interaction(attach_right = FALSE, obj/vehicle/sealed/mecha/mech, mob/user, checkonly = FALSE)
@@ -540,15 +547,15 @@
 	icon = 'icons/obj/devices/mecha_equipment.dmi'
 	icon_state = "mecha_camera"
 	w_class = WEIGHT_CLASS_SMALL
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 5, /datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2, /datum/material/titanium = SMALL_MATERIAL_AMOUNT * 2)
 
 /obj/item/mecha_parts/camera_kit/try_attach_part(mob/user, obj/vehicle/sealed/mecha/mech, attach_right)
 	if(mech.chassis_camera)
 		balloon_alert(user, "already has a camera!")
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 
 	. = ..()
 
 	mech.chassis_camera = new /obj/machinery/camera/exosuit(mech)
 	mech.chassis_camera.update_c_tag(mech)
 	mech.diag_hud_set_camera()
-

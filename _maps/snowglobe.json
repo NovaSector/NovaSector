@@ -7,6 +7,7 @@
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0,
 	"planetary": 1,
+	"give_players_hooks": 1,
 	"shuttles": {
 		"cargo": "cargo_nova",
 		"ferry": "ferry_fancy",
@@ -40,11 +41,12 @@
 			"No Parallax": true
 		}
 	],
-	"minetype": "none",
+	"minetype": "ice",
 	"blacklist_file": "iceruinblacklist.txt",
 	"job_changes": {
 		"Captain": {
 			"special_charter": "moon"
 		}
-	}
+	},
+	"bonus_weakpoints": 2
 }

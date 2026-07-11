@@ -40,7 +40,7 @@
 	var/adv_scanned = FALSE
 
 	///The scan state for when encountering the strange rock ore in mining.
-	var/scan_state = "rock_Strange"
+	var/scan_state = "rock_strange"
 
 	///The tier of the item that was chosen, 1-100 then 1-3
 	var/choose_tier
@@ -63,16 +63,16 @@
 /obj/item/xenoarch/strange_rock/proc/create_item()
 	choose_tier = rand(1,100)
 	switch(choose_tier)
-		if(1 to 60)
-			hidden_item = pick_weight(GLOB.tier1_reward)
+		if(1 to 50)
+			hidden_item = /obj/effect/spawner/random/xenoarch/tier1
 			choose_tier = REWARD_ONE
 
-		if(61 to 87)
-			hidden_item = pick_weight(GLOB.tier2_reward)
+		if(51 to 87)
+			hidden_item = /obj/effect/spawner/random/xenoarch/tier2
 			choose_tier = REWARD_TWO
 
 		if(88 to 100)
-			hidden_item = pick_weight(GLOB.tier3_reward)
+			hidden_item = /obj/effect/spawner/random/xenoarch/tier3
 			choose_tier = REWARD_THREE
 
 /obj/item/xenoarch/strange_rock/proc/create_depth()
@@ -129,99 +129,109 @@
 	return BRUSH_NONE
 
 /obj/item/xenoarch/strange_rock/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if (!user.mind)
+		user.dropItemToGround(tool)
+		return ITEM_INTERACT_BLOCKING
 	if(istype(tool, /obj/item/xenoarch/hammer))
 		var/obj/item/xenoarch/hammer/xeno_hammer = tool
-		to_chat(user, span_notice("You begin carefully using your hammer."))
-		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER)
+		user.balloon_alert(user, "carefully hammering...")
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, xeno_hammer.dig_speed * skill_modifier, target = src))
-			to_chat(user, span_warning("You interrupt your careful planning, damaging the rock in the process!"))
+			user.balloon_alert(user, "interrupted, rock damaged!")
 			dug_depth += rand(1,5)
 			return ITEM_INTERACT_BLOCKING
 
 		switch(try_dig(xeno_hammer.dig_amount))
 			if(DIG_UNDEFINED)
+				user.balloon_alert(user, "something broke (oops)!")
 				message_admins("Tell coders something broke with xenoarch hammers and dig amount.")
 				return ITEM_INTERACT_BLOCKING
 
 			if(DIG_DELETE)
+				user.balloon_alert(user, "rock crumbles badly!")
 				to_chat(user, span_warning("The rock crumbles, leaving nothing behind."))
 				return ITEM_INTERACT_BLOCKING
 
 			if(DIG_ROCK)
-				to_chat(user, span_notice("You successfully dig around the item."))
-				user.mind?.adjust_experience(/datum/skill/research, 5)
+				user.balloon_alert(user, "item excavated successfully")
 				return ITEM_INTERACT_BLOCKING
 
 		return ITEM_INTERACT_BLOCKING
 
 	if(istype(tool, /obj/item/xenoarch/brush))
 		var/obj/item/xenoarch/brush/xeno_brush = tool
-		to_chat(user, span_notice("You begin carefully using your brush."))
-		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER)
+		user.balloon_alert(user, "carefully brushing...")
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, xeno_brush.dig_speed * skill_modifier, target = src))
-			to_chat(user, span_warning("You interrupt your careful planning, damaging the rock in the process!"))
+			user.balloon_alert(user, "interrupted, rock damaged!")
 			dug_depth += rand(1,5)
 			return ITEM_INTERACT_BLOCKING
 
 		switch(try_uncover())
 			if(BRUSH_DELETE)
-				to_chat(user, span_warning("The rock crumbles, leaving nothing behind."))
+				user.balloon_alert(user, "rock crumbles badly!")
 				return ITEM_INTERACT_BLOCKING
 
 			if(BRUSH_UNCOVER)
-				to_chat(user, span_notice("You successfully brush around the item, fully revealing the item!"))
-				user.mind?.adjust_experience(/datum/skill/research, 10)
+				user.balloon_alert(user, "item extracted successfully")
+				user.mind?.adjust_experience(/datum/skill/archeology, 20)
 				return ITEM_INTERACT_BLOCKING
 
 			if(BRUSH_NONE)
-				to_chat(user, span_notice("You brush around the item, but it wasn't revealed... hammer some more."))
-				user.mind?.adjust_experience(/datum/skill/research, 2)
+				user.balloon_alert(user, "rock needs more brushing")
 				return ITEM_INTERACT_BLOCKING
 
 		return ITEM_INTERACT_BLOCKING
 
-	if(istype(tool, /obj/item/xenoarch/tape_measure))
-		to_chat(user, span_notice("You begin carefully using your measuring tape."))
-		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER)
+	if(tool.type == /obj/item/xenoarch)
+		if(measured)
+			user.balloon_alert(user, "rock already marked!")
+			return ITEM_INTERACT_BLOCKING
+
+		user.balloon_alert(user, "affixing holo measuring tape...")
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, 4 SECONDS * skill_modifier, target = src))
-			to_chat(user, span_warning("You interrupt your careful planning, damaging the rock in the process!"))
+			user.balloon_alert(user, "interrupted, rock damaged!")
 			dug_depth += rand(1,5)
 			return ITEM_INTERACT_BLOCKING
 
 		if(get_measured())
-			to_chat(user, span_notice("You successfully attach a holo measuring tape to the strange rock; the strange rock will now report its dug depth always!"))
-			user.mind?.adjust_experience(/datum/skill/research, 5)
+			user.balloon_alert(user, "rock reporting excavation")
+			user.mind?.adjust_experience(/datum/skill/archeology, 10)
 			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_warning("The strange rock was already marked with a holo measuring tape."))
-		return ITEM_INTERACT_BLOCKING
 
 	if(istype(tool, /obj/item/xenoarch/handheld_scanner))
 		var/obj/item/xenoarch/handheld_scanner/item_scanner = tool
-		to_chat(user, span_notice("You begin to scan [src] using [item_scanner]."))
-		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/research, SKILL_SPEED_MODIFIER)
+		user.balloon_alert(user, "scanning...")
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/archeology, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, item_scanner.scanning_speed * skill_modifier, target = src))
-			to_chat(user, span_warning("You interrupt your scanning, damaging the rock in the process!"))
+			user.balloon_alert(user, "interrupted, rock damaged!")
 			dug_depth += rand(1,5)
 			return ITEM_INTERACT_BLOCKING
 
 		if(get_scanned(item_scanner.scan_advanced))
-			to_chat(user, span_notice("You successfully attach a holo scanning module to the strange rock; the strange rock will now report its depth information always!"))
-			user.mind?.adjust_experience(/datum/skill/research, 5)
+			var/report_string = "rock scanned"
+			user.mind?.adjust_experience(/datum/skill/archeology, 10)
 			if(adv_scanned)
-				to_chat(user, span_notice("The rock's item depth is being reported!"))
-
+				report_string += ", reporting depth"
+				if(get_measured())
+					report_string += " and excavation"
+					user.mind?.adjust_experience(/datum/skill/archeology, 10)
+			user.balloon_alert(user, report_string)
 			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_warning("The strange rock was already marked with a holo scanning module."))
+		user.balloon_alert(user, "rock already tagged!")
 		return ITEM_INTERACT_BLOCKING
 
 //turfs
 /turf/closed/mineral/strange_rock
-	mineralAmt = 1
-	icon = MAP_SWITCH('modular_nova/modules/liquids/icons/turf/smoothrocks.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
-	scan_state = "rock_Strange"
-	mineralType = /obj/item/xenoarch/strange_rock
+	mineral_amt = 1
+	MAP_SWITCH(, icon_state = "rock_strange")
+	icon = MAP_SWITCH('modular_nova/master_files/icons/turf/smoothrocks.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
+	scan_icon = 'modular_nova/modules/xenoarch/icons/ore_visuals.dmi'
+	scan_state = "rock_strange"
+	mineral_type = /obj/item/xenoarch/strange_rock
 
 /turf/closed/mineral/strange_rock/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -229,30 +239,14 @@
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	defer_change = TRUE
 
-/turf/closed/mineral/random/volcanic
-	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
-	baseturfs = /turf/open/misc/asteroid/basalt/lava_land_surface
-	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-	defer_change = TRUE
-	mineralChance = 10
-
 /turf/closed/mineral/random/volcanic/mineral_chances()
-	return list(
-		/obj/item/stack/ore/iron = 40,
-		/obj/item/stack/ore/plasma = 20,
-		/obj/item/stack/ore/silver = 12,
-		/obj/item/stack/ore/titanium = 11,
-		/obj/item/stack/ore/gold = 10,
-		/turf/closed/mineral/strange_rock/volcanic = 10,
-		/obj/item/stack/ore/uranium = 5,
-		/turf/closed/mineral/gibtonite/volcanic = 4,
-		/obj/item/stack/ore/diamond = 1,
-		/obj/item/stack/ore/bluespace_crystal = 1
-		)
+	return ..() + list(
+		/turf/closed/mineral/strange_rock/volcanic = 1,
+	)
 
 /turf/closed/mineral/strange_rock/ice
+	MAP_SWITCH(, icon_state = "icerock_strange")
 	icon = MAP_SWITCH('icons/turf/walls/icerock_wall.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
-	icon_state = "icerock_strange"
 	base_icon_state = "icerock_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	turf_type = /turf/open/misc/asteroid/snow/ice
@@ -266,44 +260,20 @@
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
 /turf/closed/mineral/random/snow/mineral_chances()
-	return list(
-		/obj/item/stack/ore/iron = 40,
-		/obj/item/stack/ore/plasma = 20,
-		/obj/item/stack/ore/silver = 12,
-		/obj/item/stack/ore/titanium = 11,
-		/obj/item/stack/ore/gold = 10,
-		/turf/closed/mineral/strange_rock/ice/icemoon = 10,
-		/obj/item/stack/ore/uranium = 5,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
-		/obj/item/stack/ore/diamond = 1,
-		/obj/item/stack/ore/bluespace_crystal = 1,
-		)
-
-/turf/closed/mineral/random/snow/underground
-	baseturfs = /turf/open/misc/asteroid/snow/icemoon
-	// abundant ore
-	mineralChance = 20
+	return ..() + list(
+		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
+	)
 
 /turf/closed/mineral/random/snow/underground/mineral_chances()
-	return list(
-		/obj/item/stack/ore/silver = 24,
-		/obj/item/stack/ore/titanium = 22,
-		/obj/item/stack/ore/gold = 20,
-		/obj/item/stack/ore/plasma = 20,
-		/obj/item/stack/ore/iron = 20,
-		/obj/item/stack/ore/uranium = 10,
-		/turf/closed/mineral/strange_rock/ice/icemoon = 10,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 8,
-		/obj/item/stack/ore/diamond = 4,
-		/obj/item/stack/ore/bluespace_crystal = 2,
-		/obj/item/stack/ore/bananium = 1,
-		)
+	return ..() + list(
+		/turf/closed/mineral/strange_rock/ice/icemoon = 1,
+	)
 
 //small gibonite fix
 /turf/closed/mineral/gibtonite/asteroid
-	icon = MAP_SWITCH('modular_nova/modules/xenoarch/icons/mining.dmi', 'icons/turf/mining.dmi')
-	icon_state = "redrock_Gibonite_inactive"
-	base_icon_state = "red_wall"
+	MAP_SWITCH(, icon_state = "red_rock_Gibtonite_inactive")
+	icon = MAP_SWITCH('icons/turf/walls/red_rock.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
+	base_icon_state = "red_rock"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	turf_type = /turf/open/misc/asteroid
 	baseturfs = /turf/open/misc/asteroid
@@ -311,9 +281,9 @@
 	defer_change = TRUE
 
 /turf/closed/mineral/strange_rock/asteroid
-	icon = MAP_SWITCH('modular_nova/modules/xenoarch/icons/mining.dmi', 'icons/turf/mining.dmi')
-	icon_state = "redrock_strange"
-	base_icon_state = "red_wall"
+	MAP_SWITCH(, icon_state = "red_rock_strange")
+	icon = MAP_SWITCH('icons/turf/walls/red_rock.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
+	base_icon_state = "red_rock"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	turf_type = /turf/open/misc/asteroid
 	baseturfs = /turf/open/misc/asteroid
@@ -323,7 +293,7 @@
 /turf/closed/mineral/random/stationside/asteroid/rockplanet
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	turf_type = /turf/open/misc/asteroid
-	mineralChance = 30
+	mineral_chance = 15
 
 /turf/closed/mineral/random/stationside/asteroid/rockplanet/mineral_chances()
 	return list(
@@ -332,7 +302,7 @@
 		/obj/item/stack/ore/silver = 12,
 		/obj/item/stack/ore/titanium = 11,
 		/obj/item/stack/ore/gold = 10,
-		/turf/closed/mineral/strange_rock/asteroid = 10,
+		/turf/closed/mineral/strange_rock/asteroid = 1,
 		/obj/item/stack/ore/uranium = 5,
 		/turf/closed/mineral/gibtonite/asteroid = 4,
 		/obj/item/stack/ore/bluespace_crystal = 1,

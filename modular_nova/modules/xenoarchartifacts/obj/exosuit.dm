@@ -39,7 +39,7 @@
 	icon_state = "phantom-broken"
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/mecha.dmi'
 	desc = "You almost get phantom pain from looking at this."
-	welder_salvage = list(/obj/item/computer_disk/virus/mime, /obj/item/clothing/head/beret)
+	welder_salvage = list(/obj/item/disk/computer/virus/mime, /obj/item/clothing/head/beret)
 
 /obj/vehicle/sealed/mecha/reticence/artifact/Initialize(mapload)
 	. = ..()
@@ -77,7 +77,7 @@
 	playsound(chassis, 'sound/effects/hallucinations/wail.ogg', 100, TRUE)
 	to_chat(source, "[icon2html(src, source)]<font color='red' size='5'>AAAAAAAAAH</font>")
 	for(var/mob/living/carbon/carbon_mob in ohearers(6, chassis))
-		if(!carbon_mob.can_hear())
+		if(HAS_TRAIT(carbon_mob, TRAIT_DEAF))
 			continue
 		var/turf/turf_check = get_turf(carbon_mob)
 		if(isspaceturf(turf_check) && !turf_check.Adjacent(src)) //in space nobody can hear you scream.
@@ -87,7 +87,7 @@
 		carbon_mob.adjust_stutter(40 SECONDS)
 		var/obj/item/organ/ears/ears = carbon_mob.get_organ_slot(ORGAN_SLOT_EARS)
 		if(ears)
-			ears.adjustEarDamage(0, 30)
+			carbon_mob.sound_damage(0, 30)
 		carbon_mob.Paralyze(6 SECONDS)
 		if(prob(30))
 			carbon_mob.Stun(20 SECONDS)

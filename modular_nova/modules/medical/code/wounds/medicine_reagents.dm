@@ -11,7 +11,7 @@
 	if (was_working_synth)
 		to_chat(affected_mob, span_warning("The chemicals sealing your faulty wires loses its effect!"))
 
-/datum/reagent/medicine/coagulant/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+/datum/reagent/medicine/coagulant/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
 
 	var/datum/wound/electrical_damage/zappiest_wound

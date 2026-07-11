@@ -91,15 +91,15 @@
 	icon_state = "transponder"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
-	var/datum/effect_system/spark_spread/sparks
+	var/datum/effect_system/basic/spark_spread/sparks
 	var/current_state = TURN_DIAL
 	var/next_activate = 0
 
 /obj/item/donator/transponder/Initialize(mapload)
 	. = ..()
-	sparks = new
-	sparks.set_up(2, 0, src)
+	sparks = new(src, 2, FALSE)
 	sparks.attach(src)
+	sparks.start()
 
 /obj/item/donator/transponder/Destroy()
 	if(sparks)
@@ -344,107 +344,6 @@
 	. = ..()
 	. += emissive_appearance('modular_nova/modules/GAGS/icons/head/catear_headphone.dmi', "catearphones_obj_lights_emissive", src, alpha = src.alpha)
 
-/obj/item/mod/skin_applier/akari
-	name = "nanite MODsuit refitter"
-	desc = "A small kit full of nanites designed to refit a MODsuit to Akari's personal design. Only compatible with fused MODsuits due to the refit's reliance on a symbiote."
-	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
-	icon_state = "skinapplier"
-	skin = "akari"
-
-/obj/item/mod/skin_applier/akari/pre_attack(atom/attacked_atom, mob/living/user, params)
-	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/entombed))
-		return ..()
-	var/obj/item/mod/control/mod = attacked_atom
-	mod.theme.variants += list("akari" = list(
-		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
-		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
-		/obj/item/clothing/head/mod = list(
-			UNSEALED_LAYER = HEAD_LAYER,
-			UNSEALED_CLOTHING = SNUG_FIT,
-			UNSEALED_COVER = HEADCOVERSEYES|PEPPERPROOF,
-			UNSEALED_INVISIBILITY = HIDEHAIR|HIDEEYES|HIDESNOUT,
-			SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE,
-			SEALED_INVISIBILITY =  HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
-			SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
-			UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
-			SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
-		),
-		/obj/item/clothing/suit/mod = list(
-			UNSEALED_CLOTHING = THICKMATERIAL,
-			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
-			SEALED_INVISIBILITY = HIDEJUMPSUIT|HIDETAIL,
-			UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
-			SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
-		),
-		/obj/item/clothing/gloves/mod = list(
-			UNSEALED_CLOTHING = THICKMATERIAL,
-			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
-			CAN_OVERSLOT = TRUE,
-			UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
-			SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
-		),
-		/obj/item/clothing/shoes/mod = list(
-			UNSEALED_CLOTHING = THICKMATERIAL,
-			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
-			CAN_OVERSLOT = TRUE,
-			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
-			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
-		),
-	))
-	return ..()
-
-// donation reward for Bonkai, the funny jumper
-/obj/item/mod/skin_applier/jumper
-	name = "\improper PA-4 MK-7 J.S supply crate"
-	desc = "A crate made mostly of titanium with handles on the side to carry. It seems to be pressure sealed and the lid seems to be hydraulically assisted. The inside of the crate opens up and folds out to display an entire toolkit with all the essentials to convert most armor into a Mark 7 PA-7 Variant Jump suit. This crate seems to have the emblem relating to a certain Commando... Perhaps you should return it to the owner where you found it, if you can even lift it."
-	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
-	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
-	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
-	icon_state = "jumper-box"
-	skin = "jumper"
-
-/obj/item/mod/skin_applier/jumper/pre_attack(atom/attacked_atom, mob/living/user, params)
-	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/security))
-		return ..()
-	var/obj/item/mod/control/mod = attacked_atom
-	mod.theme.variants += list("jumper" = list(
-		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
-		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
-		/obj/item/clothing/head/mod = list(
-			UNSEALED_LAYER = HEAD_LAYER,
-			UNSEALED_CLOTHING = SNUG_FIT,
-			UNSEALED_COVER = HEADCOVERSEYES|PEPPERPROOF,
-			UNSEALED_INVISIBILITY = HIDEHAIR|HIDEEYES|HIDESNOUT,
-			SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE,
-			SEALED_INVISIBILITY =  HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
-			SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
-			UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
-			SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
-		),
-		/obj/item/clothing/suit/mod = list(
-			UNSEALED_CLOTHING = THICKMATERIAL,
-			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
-			SEALED_INVISIBILITY = HIDEJUMPSUIT|HIDETAIL,
-			UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
-			SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
-		),
-		/obj/item/clothing/gloves/mod = list(
-			UNSEALED_CLOTHING = THICKMATERIAL,
-			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
-			CAN_OVERSLOT = TRUE,
-			UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
-			SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
-		),
-		/obj/item/clothing/shoes/mod = list(
-			UNSEALED_CLOTHING = THICKMATERIAL,
-			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
-			CAN_OVERSLOT = TRUE,
-			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
-			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
-		),
-	))
-	return ..()
-
 /obj/item/clothing/head/cone_of_shame
 	name = "collar cone"
 	desc = "A protective guard used to prevent infections. Its advertisement claims it is: \"used to prevent unnecessary scratching, biting or licking of wounds to better facilitate healing. Works on people and pets alike!\" You question its efficacy, while also feeling a mild sense of shame while wearing it."
@@ -457,6 +356,7 @@
 	slot_flags = parent_type::slot_flags | ITEM_SLOT_NECK
 	dog_fashion = /datum/dog_fashion/head/cone
 	var/toggle_state = "close"
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/clothing/head/cone_of_shame/click_alt(mob/user)
 	if(toggle_state == "open")
@@ -517,3 +417,82 @@
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/back.dmi'
 	inhand_icon_state = "backpack"
 
+// Latinfishy & HollandaiseSauce Donor Item
+/obj/item/device/custom_kit/ak105
+	name = "\improper AK-105 modernization kit"
+	desc = "Old gun parts to convert the Miezc into an AK-105."
+	from_obj = /obj/item/gun/ballistic/automatic/miecz
+	to_obj = /obj/item/gun/ballistic/automatic/miecz/ak105
+
+/obj/item/gun/ballistic/automatic/miecz/ak105
+	name = "\improper AK-105 SBR"
+	desc = "A light-weight assault rifle modernized to be chambered in .27-54 Cesarzowa with a high rate of fire."
+	lore_blurb = "An ancient design that has routes in the old sol nation of the Russian Federation, this rifle has been heavily modified with a modified barrel for extended firefights \
+		alongside a modified grip allowing it to be used most form of combat gloves alongside being able to have a good grip with wet hands, the stock has been swapped for a completely \
+		polymer design giving it a good form."
+	icon = 'modular_nova/master_files/icons/donator/obj/guns48x.dmi'
+	icon_state = "ak105sbr"
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/worn/weapons.dmi'
+	worn_icon_state = "ak105sbr"
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	inhand_icon_state = "ak105sbr"
+	suppressor_x_offset = 7
+	suppressor_y_offset = 0
+
+/obj/item/gun/ballistic/automatic/miecz/ak105/no_mag
+	//Made this one for completion, the thing is, the kit doesnt affect no_mag, so, the day we change the paradigm of the miecz to spawn with no_mag, likely we want this one. (alternatively we do somethiing better thhan to use subtypes.)
+	spawnwithmagazine = FALSE
+
+//Tora's Body Pillow (DarkRilo)
+/obj/item/toy/pillow/torapillow
+	name = "\improper Shork.INC Body Pillow"
+	desc = "A poofy, soft looking pillow depicting a certain sharkette. One side a little less scandalous than the other. At the bottom is a small tag label |DarkRilo Apparels|."
+	icon_state = "torapillbod"
+	inhand_icon_state = null
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/torabod_pillow.dmi'
+	throw_range = 1
+
+	// Keep track of the original transform matrix
+	var/matrix/original_transform
+
+/obj/item/toy/pillow/torapillow/Initialize(mapload)
+	. = ..()
+	if(!original_transform)
+		original_transform = matrix(transform)
+
+	// Optional: If the pillow spawns on the ground (not in a mob's inventory),
+	// this makes it start at 50% size immediately.
+	if(!istype(loc, /mob))
+		transform = matrix(original_transform).Scale(0.5)
+
+/obj/item/toy/pillow/torapillow/pickup(mob/user)
+	. = ..()
+	// Restore to original full size over 0.2 seconds
+	animate(src, transform = original_transform, time = 2, loop = 0)
+
+/obj/item/toy/pillow/torapillow/dropped(mob/user)
+	. = ..()
+	// Shrink the item to 50% size over 0.2 seconds
+	animate(src, transform = matrix(original_transform).Scale(0.5), time = 2)
+
+/obj/item/toy/pillow/torapillow/attack_self(mob/user)
+	adjust_item_style(user)
+
+/obj/item/toy/pillow/torapillow/click_alt(mob/user)
+	adjust_item_style(user)
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/toy/pillow/torapillow/examine(mob/user)
+	. = ..()
+	. += span_notice("Alt-click [src] to flip it. It currently shows the '[src.icon_state]' side.")
+
+/// Toggles between flipped/non-flipped
+/obj/item/toy/pillow/torapillow/proc/adjust_item_style(mob/user)
+	if (icon_state == "torapillbod")
+		icon_state = "torapillbod-t"
+	else
+		icon_state = "torapillbod"
+	user.visible_message(span_notice("[user] flips the [src]."))

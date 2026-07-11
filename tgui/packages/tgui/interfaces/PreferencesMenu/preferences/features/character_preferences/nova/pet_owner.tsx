@@ -1,9 +1,9 @@
 // THIS IS A NOVA SECTOR UI FILE
 import {
-  Feature,
-  FeatureChoiced,
+  type Feature,
+  type FeatureChoiced,
+  FeatureLongTextInput,
   FeatureShortTextInput,
-  FeatureTextInput,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
@@ -27,5 +27,5 @@ export const pet_name: Feature<string> = {
 export const pet_desc: Feature<string> = {
   name: 'Pet Description',
   description: "If blank, will use the mob's default description.",
-  component: FeatureTextInput,
+  component: FeatureLongTextInput,
 };

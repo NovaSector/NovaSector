@@ -38,7 +38,9 @@
 	dmg_overlay_type = null
 	attack_type = BURN //burn bish
 	unarmed_attack_verbs = list("burn", "sear")
+	unarmed_attack_verbs_continuous = list("burns", "sears")
 	grappled_attack_verb = "scorch"
+	grappled_attack_verb_continuous = "scorches"
 	unarmed_attack_sound = 'sound/items/weapons/etherealhit.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/etherealmiss.ogg'
 	brute_modifier = 1.25 //ethereal are weak to brute damage
@@ -56,7 +58,9 @@
 	dmg_overlay_type = null
 	attack_type = BURN // bish buzz
 	unarmed_attack_verbs = list("burn", "sear")
+	unarmed_attack_verbs_continuous = list("burns", "sears")
 	grappled_attack_verb = "scorch"
+	grappled_attack_verb_continuous = "scorches"
 	unarmed_attack_sound = 'sound/items/weapons/etherealhit.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/etherealmiss.ogg'
 	brute_modifier = 1.25 //ethereal are weak to brute damage
@@ -101,7 +105,6 @@
 		species_color = eth_holder.current_color
 
 /obj/item/bodypart/head/ethereal/lustrous
-	icon_state = "lustrous_head"
 	limb_id = SPECIES_ETHEREAL_LUSTROUS
 	head_flags = NONE
 	teeth_count = 0 // bro you seen these thinsg. they got a crystal for a head aint no teeth here

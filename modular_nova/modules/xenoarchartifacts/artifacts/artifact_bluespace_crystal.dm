@@ -64,15 +64,11 @@
 		if(living_mob.buckled)
 			living_mob.buckled.unbuckle_mob()
 
-		var/datum/effect_system/spark_spread/sparks = new /datum/effect_system/spark_spread()
-		sparks.set_up(3, 0, get_turf(living_mob))
-		sparks.start()
+		do_sparks(3, FALSE, living_mob)
 
 		var/turf/target_turf = pick(orange(get_turf(living_mob), 20 * weakness))
 		do_teleport(living_mob, target_turf, 4)
-		sparks = new /datum/effect_system/spark_spread()
-		sparks.set_up(3, 0, get_turf(living_mob))
-		sparks.start()
+		do_sparks(3, FALSE, living_mob)
 
 /obj/machinery/artifact/bluespace_crystal/ex_act(severity)
 	take_damage(50*severity, BURN, ENERGY, FALSE)

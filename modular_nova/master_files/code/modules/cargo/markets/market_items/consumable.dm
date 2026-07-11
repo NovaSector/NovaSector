@@ -62,3 +62,21 @@
 	price_max = CARGO_CRATE_VALUE * 5
 	availability_prob = 40
 
+/datum/market_item/consumable/overclock_neuroware
+	name = "Homebrew Overclock Neuroware"
+	desc = "A hacked neuroware chip containing someone's homebrew neurocomputing program. This one mimics the effects of adrenaline."
+	item = /obj/item/disk/neuroware/pumpup
+	stock_max = 3
+	price_min = PAYCHECK_CREW * 0.2
+	price_max = PAYCHECK_CREW * 0.4
+	availability_prob = 90
+
+/datum/market_item/consumable/maintenance_neuroware
+	name = "Unlabeled Neuroware"
+	desc = "A strange neuroware chip found in the depths of maintenance."
+	item = /obj/item/disk/neuroware/maintenance
+	stock_min = 5
+	stock_max = 35
+	price_min = CARGO_CRATE_VALUE * 0.05
+	price_max = CARGO_CRATE_VALUE * 0.3
+	availability_prob = 50

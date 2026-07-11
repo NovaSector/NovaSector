@@ -4,31 +4,31 @@
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_2",
 			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
+			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_3",
 			"blend_mode": "overlay",
-			"color_ids": [ 3 ]
+			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
-			"color_ids": [ 4 ]
+			"color_ids": [4]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "shield_eagle",
 			"blend_mode": "overlay",
-			"color_ids": [ 5 ]
+			"color_ids": [5]
 		}
 	],
 	"medal_espi": [
@@ -36,31 +36,31 @@
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_2",
 			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
+			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_3",
 			"blend_mode": "overlay",
-			"color_ids": [ 3 ]
+			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
-			"color_ids": [ 4 ]
+			"color_ids": [4]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "circle_alt",
 			"blend_mode": "overlay",
-			"color_ids": [ 5 ]
+			"color_ids": [5]
 		}
 	],
 	"medal_inter": [
@@ -68,31 +68,31 @@
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_2",
 			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
+			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_3",
 			"blend_mode": "overlay",
-			"color_ids": [ 3 ]
+			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
-			"color_ids": [ 4 ]
+			"color_ids": [4]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "bar_h",
 			"blend_mode": "overlay",
-			"color_ids": [ 5 ]
+			"color_ids": [5]
 		}
 	],
 	"medal_intel": [
@@ -100,31 +100,31 @@
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_2",
 			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
+			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_3",
 			"blend_mode": "overlay",
-			"color_ids": [ 3 ]
+			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
-			"color_ids": [ 4 ]
+			"color_ids": [4]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "paper",
 			"blend_mode": "overlay",
-			"color_ids": [ 5 ]
+			"color_ids": [5]
 		}
 	],
 	"medal_dili": [
@@ -132,31 +132,31 @@
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_2",
 			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
+			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_3",
 			"blend_mode": "overlay",
-			"color_ids": [ 3 ]
+			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
-			"color_ids": [ 4 ]
+			"color_ids": [4]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "bar",
 			"blend_mode": "overlay",
-			"color_ids": [ 5 ]
+			"color_ids": [5]
 		}
 	],
 	"medal_comms": [
@@ -164,31 +164,31 @@
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_2",
 			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
+			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_3",
 			"blend_mode": "overlay",
-			"color_ids": [ 3 ]
+			"color_ids": [3]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
-			"color_ids": [ 4 ]
+			"color_ids": [4]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "paper",
 			"blend_mode": "overlay",
-			"color_ids": [ 5 ]
+			"color_ids": [5]
 		}
 	]
 }

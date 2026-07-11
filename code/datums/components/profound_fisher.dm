@@ -105,7 +105,7 @@
 /datum/component/profound_fisher/proc/should_fish_on(mob/living/user, atom/target)
 	if(!HAS_TRAIT(target, TRAIT_FISHING_SPOT) || GLOB.fishing_challenges_by_user[user])
 		return FALSE
-	if(user.combat_mode || !user.CanReach(target))
+	if(user.combat_mode || !target.IsReachableBy(user))
 		return FALSE
 	return TRUE
 
@@ -141,6 +141,7 @@
 /obj/item/fishing_rod/mob_fisher
 	line = /obj/item/fishing_line/reinforced
 	bait = /obj/item/food/bait/doughball/synthetic/unconsumable
+	custom_materials = null
 	resistance_flags = INDESTRUCTIBLE
 	reel_overlay = null
 	show_in_wiki = FALSE //abstract fishing rod

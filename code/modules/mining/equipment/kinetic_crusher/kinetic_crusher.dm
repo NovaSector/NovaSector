@@ -12,6 +12,7 @@
 		suicidal miners against local fauna."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "crusher"
+	base_icon_state = "crusher"
 	inhand_icon_state = "crusher0"
 	icon_angle = -45
 	lefthand_file = 'icons/mob/inhands/weapons/hammers_lefthand.dmi'
@@ -56,21 +57,23 @@
 	var/detonation_damage = 50
 	/// Damage that the mark additionally does when hit by the crusher via backstab
 	var/backstab_bonus = 30
-	/// Used by retool kits when changing the crusher's appearance
-	var/current_inhand_icon_state = "crusher"
 	/// The file in which our projectile icon resides
 	var/projectile_icon = 'icons/obj/weapons/guns/projectiles.dmi'
 	/// Used by retool kits when changing the crusher's projectile sprite
 	var/projectile_icon_state = "pulse1"
 	/// Wielded damage we deal, aka our "real" damage
 	var/force_wielded = 20
+	/// Set to TRUE if the last projectile fired was point-blank at a living target
+	var/last_projectile_pb = FALSE
 
 /obj/item/kinetic_crusher/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/butchering, \
+	AddComponent( \
+		/datum/component/butchering, \
 		speed = 6 SECONDS, \
 		effectiveness = 110, \
 	)
+	update_reskin(null)
 	//technically it's huge and bulky, but this provides an incentive to use it
 	update_wielding()
 	// NOVA EDIT ADDITION START
@@ -78,6 +81,22 @@
 		return
 	// NOVA EDIT ADDITION END
 	register_context()
+
+/**
+ * Adds or updates the reskinning component on the crusher.
+ *
+ * * default_skin_typepath: The typepath of skin to apply by default.
+ * Passing null will either not apply a skin or will reset it to default if one is already applied.
+ * If a supplied skin is blacklisted, it will be un-blacklisted.
+ */
+/obj/item/kinetic_crusher/proc/update_reskin(datum/atom_skin/crusher_skin/default_skin_typepath)
+	AddComponent( \
+		/datum/component/reskinable_item, \
+		/datum/atom_skin/crusher_skin, \
+		infinite = TRUE, \
+		initial_skin = default_skin_typepath ? default_skin_typepath::preview_name : null, \
+		blacklisted_subtypes = subtypesof(/datum/atom_skin/crusher_skin/locked) - default_skin_typepath, \
+	)
 
 /obj/item/kinetic_crusher/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
@@ -104,12 +123,11 @@
 	for(var/obj/item/crusher_trophy/crusher_trophy as anything in trophies)
 		. += span_notice("It has \a [crusher_trophy] attached, which causes [crusher_trophy.effect_desc()].")
 
-/obj/item/kinetic_crusher/attackby(obj/item/attacking_item, mob/user, list/modifiers)
-	if(istype(attacking_item, /obj/item/crusher_trophy))
-		var/obj/item/crusher_trophy/crusher_trophy = attacking_item
-		crusher_trophy.add_to(src, user)
-		return
-	return ..()
+/obj/item/kinetic_crusher/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/crusher_trophy))
+		astype(tool, /obj/item/crusher_trophy).add_to(src, user)
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /obj/item/kinetic_crusher/crowbar_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -162,7 +180,7 @@
 		return FALSE
 	return TRUE
 
-/obj/item/kinetic_crusher/pre_attack(atom/A, mob/living/user, list/modifiers)
+/obj/item/kinetic_crusher/pre_attack(atom/A, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(.)
 		return TRUE
@@ -175,7 +193,7 @@
 	target.apply_status_effect(/datum/status_effect/crusher_damage)
 	return ..()
 
-/obj/item/kinetic_crusher/afterattack(mob/living/target, mob/living/user, list/modifiers)
+/obj/item/kinetic_crusher/afterattack(mob/living/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!isliving(target))
 		return
 	// Melee effect
@@ -184,33 +202,16 @@
 	if(QDELETED(target))
 		return
 	var/datum/status_effect/crusher_mark/mark = target.has_status_effect(/datum/status_effect/crusher_mark)
-	if(!mark)
-		return
-	var/boosted_mark = mark.boosted
-	if(!target.remove_status_effect(mark))
-		return
-	// Detonation effect
-	var/datum/status_effect/crusher_damage/crusher_damage_effect = target.has_status_effect(/datum/status_effect/crusher_damage) || target.apply_status_effect(/datum/status_effect/crusher_damage)
-	var/target_health = target.health
-	for(var/obj/item/crusher_trophy/crusher_trophy as anything in trophies)
-		crusher_trophy.on_mark_detonation(target, user)
-	if(QDELETED(target))
-		return
-	if(!QDELETED(crusher_damage_effect))
-		crusher_damage_effect.total_damage += target_health - target.health //we did some damage, but let's not assume how much we did
-	new /obj/effect/temp_visual/kinetic_blast(get_turf(target))
-	var/backstabbed = FALSE
-	var/combined_damage = detonation_damage
-	var/def_check = target.getarmor(type = BOMB)
-	// Backstab bonus
-	if(check_behind(user, target) || boosted_mark)
-		backstabbed = TRUE
-		combined_damage += backstab_bonus
-		playsound(user, backstab_sound, 100, TRUE) //Seriously who spelled it wrong
-	if(!QDELETED(crusher_damage_effect))
-		crusher_damage_effect.total_damage += combined_damage
-	SEND_SIGNAL(user, COMSIG_LIVING_CRUSHER_DETONATE, target, src, backstabbed)
-	target.apply_damage(combined_damage, BRUTE, blocked = def_check)
+	if(mark)
+		mark.detonate(src, user)
+
+/obj/item/kinetic_crusher/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/item/crusher_trophy))
+		return NONE
+	var/obj/item/crusher_trophy/new_trophy = interacting_with
+	if(new_trophy.add_to(src, user))
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /obj/item/kinetic_crusher/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
@@ -232,10 +233,12 @@
 	var/turf/proj_turf = user.loc
 	if(!isturf(proj_turf))
 		return
+	last_projectile_pb = get_dist(target, user) <= 1 && isliving(target)
 	var/obj/projectile/destabilizer/destabilizer = new(proj_turf)
 	SEND_SIGNAL(src, COMSIG_CRUSHER_FIRED_BLAST, target, user, destabilizer)
 	destabilizer.icon = projectile_icon
 	destabilizer.icon_state = projectile_icon_state
+	destabilizer.detonation_damage = detonation_damage
 	for(var/obj/item/crusher_trophy/attached_trophy as anything in trophies)
 		attached_trophy.on_projectile_fire(destabilizer, user)
 	destabilizer.aim_projectile(target, user, modifiers)
@@ -277,7 +280,7 @@
 	return TRUE
 
 /obj/item/kinetic_crusher/update_icon_state()
-	inhand_icon_state = "[current_inhand_icon_state][HAS_TRAIT(src, TRAIT_WIELDED)]" // this is not icon_state and not supported by 2hcomponent
+	inhand_icon_state = "[base_icon_state][HAS_TRAIT(src, TRAIT_WIELDED)]" // this is not icon_state and not supported by 2hcomponent
 	return ..()
 
 /obj/item/kinetic_crusher/update_overlays()
@@ -301,6 +304,10 @@
 	log_override = TRUE
 	/// Has this projectile been boosted
 	var/boosted = FALSE
+	/// Should this projectile go through allied mobs?
+	var/ignore_allies = FALSE
+	/// Mark detonation damage
+	var/detonation_damage = 50
 
 /obj/projectile/destabilizer/Initialize(mapload)
 	. = ..()
@@ -310,12 +317,23 @@
 	fired_from = null
 	return ..()
 
+/obj/projectile/destabilizer/is_hostile_projectile()
+	return TRUE
+
 /obj/projectile/destabilizer/proc/on_parry(mob/user)
 	SIGNAL_HANDLER
 	boosted = TRUE
 	// Get a bit of a damage/range boost after being parried
 	damage = 10
 	range = 9
+
+/obj/projectile/destabilizer/prehit_pierce(atom/target)
+	if(!isliving(target) || !firer || !ignore_allies)
+		return ..()
+	var/mob/living/victim = target
+	if(firer.faction_check_atom(victim))
+		return PROJECTILE_PIERCE_PHASE
+	return ..()
 
 /obj/projectile/destabilizer/on_hit(atom/target, blocked = 0, pierce_hit)
 	var/obj/item/kinetic_crusher/used_crusher
@@ -328,7 +346,12 @@
 		if(QDELETED(target))
 			return ..()
 		var/mob/living/living_target = target
-		living_target.apply_status_effect(/datum/status_effect/crusher_mark, boosted)
+		var/datum/status_effect/crusher_mark/crusher_mark = living_target.apply_status_effect(/datum/status_effect/crusher_mark, boosted, used_crusher)
+		if (!crusher_mark)
+			return ..()
+		crusher_mark.detonation_damage = detonation_damage
+		for(var/obj/item/crusher_trophy/crusher_trophy as anything in used_crusher?.trophies)
+			crusher_trophy.on_mark_applied(target, firer, crusher_mark)
 		return ..()
 
 	var/target_turf = get_turf(target)
@@ -350,4 +373,3 @@
 			used_crusher.attempt_recharge_projectile(used_crusher.charge_time * skill_modifier) //If you hit a mineral, you might get a quicker reload. epic gamer style.
 
 	return ..()
-

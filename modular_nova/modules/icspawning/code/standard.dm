@@ -25,14 +25,27 @@
 /obj/item/clothing/shoes/combat/debug
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/storage/belt/utility/chief/full/debug
+/obj/item/storage/belt/utility/full/powertools/debug
 	name = "\improper Bluespace Tech's belt"
 	w_class = WEIGHT_CLASS_TINY
+	storage_type = /datum/storage/debug
+	desc = "Can hold a boatload of things...  Why do you have this?!"
+	icon = 'modular_nova/modules/bluespace_admin/icons/obj/belt.dmi'
+	icon_state = "admeme_satchel"
+	worn_icon = 'modular_nova/modules/bluespace_admin/icons/mob/belt.dmi'
+	worn_icon_state = "admeme_satchel"
+
+
+/datum/storage/debug
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	max_total_storage = WEIGHT_CLASS_GIGANTIC * 21
+	max_slots = 21
+
 
 /datum/outfit/debug/bst //Debug objs
 	name = "Bluespace Tech"
 	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/chief/full/debug
+	belt = /obj/item/storage/belt/utility/full/powertools/debug
 	shoes = /obj/item/clothing/shoes/combat/debug
 	id = /obj/item/card/id/advanced/debug/bst
 	box = /obj/item/storage/box/debugtools
@@ -45,12 +58,14 @@
 		/obj/item/debug/omnitool = 1,
 		/obj/item/storage/box/stabilized = 1,
 		/obj/item/storage/hypospraykit/cmo/combat = 1,
+		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
+		/obj/item/choice_beacon/job_locker/debug = 1,
 	)
 
 /datum/outfit/admin/bst //Debug objs plus modsuit
 	name = "Bluespace Tech (MODsuit)"
 	uniform = /obj/item/clothing/under/syndicate/combat
-	belt = /obj/item/storage/belt/utility/chief/full/debug
+	belt = /obj/item/storage/belt/utility/full/powertools/debug
 	shoes = /obj/item/clothing/shoes/combat/debug
 	id = /obj/item/card/id/advanced/debug/bst
 	box = /obj/item/storage/box/debugtools
@@ -63,6 +78,8 @@
 		/obj/item/debug/omnitool = 1,
 		/obj/item/storage/box/stabilized = 1,
 		/obj/item/storage/hypospraykit/cmo/combat = 1,
+		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
+		/obj/item/choice_beacon/job_locker/debug = 1,
 	)
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst

@@ -6,6 +6,7 @@
 /obj/item/mod/construction/helmet
 	name = "MOD helmet"
 	icon_state = "helmet"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.5)
 
 /obj/item/mod/construction/helmet/examine(mob/user)
 	. = ..()
@@ -14,6 +15,7 @@
 /obj/item/mod/construction/chestplate
 	name = "MOD chestplate"
 	icon_state = "chestplate"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.5)
 
 /obj/item/mod/construction/chestplate/examine(mob/user)
 	. = ..()
@@ -22,6 +24,7 @@
 /obj/item/mod/construction/gauntlets
 	name = "MOD gauntlets"
 	icon_state = "gauntlets"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.5)
 
 /obj/item/mod/construction/gauntlets/examine(mob/user)
 	. = ..()
@@ -30,6 +33,7 @@
 /obj/item/mod/construction/boots
 	name = "MOD boots"
 	icon_state = "boots"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.5)
 
 /obj/item/mod/construction/boots/examine(mob/user)
 	. = ..()
@@ -67,7 +71,7 @@
 	. = ..()
 	. += span_notice("You could probably attach some <b>wires</b> to it...")
 
-/obj/item/mod/construction/lavalandcore/attackby(obj/item/weapon, mob/user, list/modifiers)
+/obj/item/mod/construction/lavalandcore/attackby(obj/item/weapon, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(weapon, /obj/item/stack/cable_coil))
 		return ..()
 	if(!weapon.tool_start_check(user, amount=2))
@@ -83,6 +87,7 @@
 	name = "MOD external plating"
 	desc = "External plating used to finish a MOD control unit."
 	icon_state = "standard-plating"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5)
 	var/datum/mod_theme/theme = /datum/mod_theme
 
 /obj/item/mod/construction/plating/Initialize(mapload)
@@ -94,21 +99,30 @@
 
 /obj/item/mod/construction/plating/civilian
 	theme = /datum/mod_theme/civilian
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5)
+
+/obj/item/mod/construction/plating/portable_suit
+	theme = /datum/mod_theme/portable_suit
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5)
 
 /obj/item/mod/construction/plating/engineering
 	theme = /datum/mod_theme/engineering
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 5, /datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5)
 
 /obj/item/mod/construction/plating/atmospheric
 	theme = /datum/mod_theme/atmospheric
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/titanium = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 5, /datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5)
 
 /obj/item/mod/construction/plating/medical
 	theme = /datum/mod_theme/medical
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 5, /datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5)
 
 /obj/item/mod/construction/plating/security
 	theme = /datum/mod_theme/security
 
 /obj/item/mod/construction/plating/cosmohonk
 	theme = /datum/mod_theme/cosmohonk
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/bananium = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 5, /datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5)
 
 #define START_STEP "start"
 #define CORE_STEP "core"
@@ -124,6 +138,7 @@
 	name = "MOD shell"
 	icon_state = "mod-construction_start"
 	desc = "A MOD shell."
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 2.5)
 	var/obj/item/core
 	var/obj/item/helmet
 	var/obj/item/chestplate
@@ -155,7 +170,7 @@
 			display_text = "All it's missing is <b>external plating</b>..."
 	. += span_notice(display_text)
 
-/obj/item/mod/construction/shell/attackby(obj/item/part, mob/user, list/modifiers)
+/obj/item/mod/construction/shell/attackby(obj/item/part, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	switch(step)
 		if(START_STEP)

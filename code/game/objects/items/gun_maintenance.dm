@@ -14,6 +14,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6)
 	/// How many times we can use this maintenance kit to maintain a gun
 	var/uses = 3
 	/// THe maximum uses, used for our examine text.
@@ -76,3 +77,4 @@
 	inhand_icon_state = "toolbox_blue"
 	uses = 1
 	max_uses = 1
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6, /datum/material/plastic = SMALL_MATERIAL_AMOUNT)

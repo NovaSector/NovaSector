@@ -2,77 +2,53 @@
 #define TAUR_DIMENSION_X 64
 
 /datum/sprite_accessory/genital
+	/// The name that shows in examine descriptions and such, if you want it to be different from the name of the sprite accessory
+	var/display_name
 	var/associated_organ_slot
 	/// If true, then there should be a variant in the icon file that's slightly pinkier to match human base colors.
 	var/has_skintone_shading = FALSE
 	///Where the genital is on the body. If clothing doesn't cover it, it shows up!
 	var/genital_location = GROIN
+	/// The biggest size that this sprite accessory goes up to (used for icon_state)
+	var/max_sprite_size_affix
+	/// The biggest size that this sprite accessory goes up to for the skintone version (used for icon_state)
+	var/skintone_max_sprite_size_affix
 
 /datum/sprite_accessory/genital/is_hidden(mob/living/carbon/human/target_mob)
 	var/obj/item/organ/genital/badonkers = target_mob?.get_organ_slot(associated_organ_slot)
 	if(!badonkers)
 		return TRUE
+
 	switch(badonkers.visibility_preference)
-		if(GENITAL_ALWAYS_SHOW) //Never hidden
-			return FALSE
-		if(GENITAL_HIDDEN_BY_CLOTHES) //Hidden if the relevant body parts are covered by clothes or underwear
-			//Do they have a Uniform or Suit that covers them?
-			if((target_mob.w_uniform && target_mob.w_uniform.body_parts_covered & genital_location) || (target_mob.wear_suit && target_mob.wear_suit.body_parts_covered & genital_location))
-				return TRUE
-			//Do they have a Hospital Gown covering them? (The gown has no body_parts_covered so needs its own check)
-			if(istype(target_mob.wear_suit, /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown))
-				return TRUE
-
-			//Are they wearing an Undershirt?
-			if(target_mob.undershirt != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
-				var/datum/sprite_accessory/undershirt/worn_undershirt = SSaccessories.undershirt_list[target_mob.undershirt]
-				//Does this Undershirt cover a relevant slot?
-				if(genital_location == CHEST) //(Undershirt always covers chest)
-					return TRUE
-
-				else if(genital_location == GROIN && worn_undershirt.hides_groin)
-					return TRUE
-
-			//Undershirt didn't cover them, are they wearing Underwear?
-			if(target_mob.underwear != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
-				var/datum/sprite_accessory/underwear/worn_underwear = SSaccessories.underwear_list[target_mob.underwear]
-				//Does this Underwear cover a relevant slot?
-				if(genital_location == GROIN) //(Underwear always covers groin)
-					return TRUE
-
-				else if(genital_location == CHEST && worn_underwear.hides_breasts)
-					return TRUE
-
-			//Are they wearing a bra?
-			if(target_mob.bra != "Nude" && !(target_mob.underwear_visibility & UNDERWEAR_HIDE_BRA) && genital_location == CHEST)
-				return TRUE
-
-			//Nothing they're wearing will cover them
-			else
+		if(GENITAL_HIDDEN_BY_CLOTHES, GENITAL_CUSTOM)
+			if(badonkers.get_effective_layer_mode() != GENITAL_LAYER_NORMAL)
 				return FALSE
-
-		//If not always shown or hidden by clothes, then it defaults to always hidden
+			// Single source of coverage truth, shared with is_exposed() - render
+			return badonkers.covered_by_clothing(target_mob)
+		//If not hidden-by-clothes or custom, it defaults to always hidden
 		else
 			return TRUE
+
+/datum/sprite_accessory/genital/get_sprite_suffix()
+	return "[icon_state]_[max_sprite_size_affix]"
 
 /datum/sprite_accessory/genital/penis
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/penis_onmob.dmi'
 	organ_type = /obj/item/organ/genital/penis
 	associated_organ_slot = ORGAN_SLOT_PENIS
-	key = ORGAN_SLOT_PENIS
+	key = FEATURE_PENIS
 	color_src = USE_MATRIXED_COLORS
 	always_color_customizable = TRUE
 	center = TRUE
 	special_x_dimension = TRUE
 	//default_color = DEFAULT_SKIN_OR_PRIMARY //This is the price we're paying for sheaths
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_UNDER_CLOTHES)
-	genetic = TRUE
+	max_sprite_size_affix = 7
 	var/can_have_sheath = TRUE
 
 /datum/sprite_accessory/genital/penis/get_special_icon(mob/living/carbon/human/target_mob)
 	var/taur_mode = target_mob?.get_taur_mode()
 
-	if(!taur_mode || !target_mob.dna.features["penis_taur_mode"] || taur_mode & STYLE_TAUR_SNAKE)
+	if(!taur_mode || !target_mob.dna.features["penis_taur_mode"] || taur_mode & BODYSHAPE_TAUR_SNAKE)
 		return icon
 
 	return 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/taur_penis_onmob.dmi'
@@ -80,15 +56,19 @@
 /datum/sprite_accessory/genital/penis/get_special_x_dimension(mob/living/carbon/human/target_mob)
 	var/taur_mode = target_mob?.get_taur_mode()
 
-	if(!taur_mode || !target_mob.dna.features["penis_taur_mode"] || taur_mode & STYLE_TAUR_SNAKE)
+	if(!taur_mode || !target_mob.dna.features["penis_taur_mode"] || taur_mode & BODYSHAPE_TAUR_SNAKE)
 		return dimension_x
 
 	return TAUR_DIMENSION_X
+
+/datum/sprite_accessory/genital/penis/get_sprite_suffix()
+	return "[icon_state]_[max_sprite_size_affix]_0" // flaccid variant of the largest size
 
 /datum/sprite_accessory/genital/penis/none
 	icon_state = "none"
 	name = SPRITE_ACCESSORY_NONE
 	factual = FALSE
+	natural_spawn = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/penis/human
@@ -99,54 +79,133 @@
 	has_skintone_shading = TRUE
 	can_have_sheath = FALSE
 
+/datum/sprite_accessory/genital/penis/human/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = PENIS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	max_sprite_size_affix = 5
+	skintone_max_sprite_size_affix = 4
+
 /datum/sprite_accessory/genital/penis/nondescript
+	display_name = ""
 	icon_state = "nondescript"
 	name = "Nondescript"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/penis/nondescript/alt
+	name = parent_type::name + " (Alt)"
+	icon = PENIS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	has_skintone_shading = FALSE
+	max_sprite_size_affix = 4
 
 /datum/sprite_accessory/genital/penis/knotted
 	icon_state = "knotted"
 	name = "Knotted"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/penis/knotted/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = PENIS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/penis/flared
 	icon_state = "flared"
 	name = "Flared"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/penis/flared/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = PENIS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/penis/barbknot
 	icon_state = "barbknot"
 	name = "Barbed, Knotted"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/penis/barbknot/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = PENIS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/penis/tapered
 	icon_state = "tapered"
 	name = "Tapered"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/penis/tapered/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = PENIS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/penis/tentacle
 	icon_state = "tentacle"
 	name = "Tentacled"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/penis/tentacle/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = PENIS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	has_skintone_shading = FALSE
+	max_sprite_size_affix = 4
 
 /datum/sprite_accessory/genital/penis/hemi
 	icon_state = "hemi"
 	name = "Hemi"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/penis/hemi/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = PENIS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/penis/hemiknot
 	icon_state = "hemiknot"
 	name = "Knotted Hemi"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/penis/hemiknot/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = PENIS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	has_skintone_shading = FALSE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/testicles
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob.dmi'
 	organ_type = /obj/item/organ/genital/testicles
 	associated_organ_slot = ORGAN_SLOT_TESTICLES
-	key = ORGAN_SLOT_TESTICLES
+	key = FEATURE_TESTICLES
 	always_color_customizable = TRUE
 	special_x_dimension = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
-	relevent_layers = list(BODY_FRONT_LAYER, BODY_BEHIND_LAYER)
-	genetic = TRUE
+	max_sprite_size_affix = 8
 	var/has_size = TRUE
 
 /datum/sprite_accessory/genital/testicles/get_special_icon(mob/living/carbon/human/target_mob)
 	var/taur_mode = target_mob?.get_taur_mode()
 
-	if(!taur_mode || !target_mob.dna.features["penis_taur_mode"] || taur_mode & STYLE_TAUR_SNAKE)
+	if(!taur_mode || !target_mob.dna.features["penis_taur_mode"] || taur_mode & BODYSHAPE_TAUR_SNAKE)
 		return icon
 
 	return 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/taur_penis_onmob.dmi'
@@ -154,7 +213,7 @@
 /datum/sprite_accessory/genital/testicles/get_special_x_dimension(mob/living/carbon/human/target_mob)
 	var/taur_mode = target_mob?.get_taur_mode()
 
-	if(!taur_mode || !target_mob.dna.features["penis_taur_mode"] || taur_mode & STYLE_TAUR_SNAKE)
+	if(!taur_mode || !target_mob.dna.features["penis_taur_mode"] || taur_mode & BODYSHAPE_TAUR_SNAKE)
 		return dimension_x
 
 	return TAUR_DIMENSION_X
@@ -163,12 +222,32 @@
 	icon_state = "none"
 	name = SPRITE_ACCESSORY_NONE
 	factual = FALSE
+	natural_spawn = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/testicles/pair
 	name = "Pair"
 	icon_state = "pair"
 	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/testicles/pair/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = TESTICLES_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	max_sprite_size_affix = 6
+
+/datum/sprite_accessory/genital/testicles/sheath
+	name = "Sheathed Pair"
+	icon_state = "sheath"
+	has_skintone_shading = TRUE
+
+/datum/sprite_accessory/genital/testicles/sheath/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = TESTICLES_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	has_skintone_shading = FALSE
 
 /datum/sprite_accessory/genital/testicles/internal
 	name = "Internal"
@@ -180,17 +259,16 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
 	organ_type = /obj/item/organ/genital/vagina
 	associated_organ_slot = ORGAN_SLOT_VAGINA
-	key = ORGAN_SLOT_VAGINA
+	key = FEATURE_VAGINA
 	always_color_customizable = TRUE
 	default_color = "#FFCCCC"
-	relevent_layers = list(BODY_FRONT_UNDER_CLOTHES)
-	genetic = TRUE
 	var/alt_aroused = TRUE
 
 /datum/sprite_accessory/genital/vagina/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	factual = FALSE
+	natural_spawn = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/vagina/human
@@ -231,13 +309,13 @@
 /datum/sprite_accessory/genital/womb
 	organ_type = /obj/item/organ/genital/womb
 	associated_organ_slot = ORGAN_SLOT_WOMB
-	key = ORGAN_SLOT_WOMB
-	genetic = TRUE
+	key = FEATURE_WOMB
 
 /datum/sprite_accessory/genital/womb/none
 	icon_state = "none"
 	name = SPRITE_ACCESSORY_NONE
 	factual = FALSE
+	natural_spawn = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/womb/normal
@@ -248,13 +326,13 @@
 /datum/sprite_accessory/genital/anus
 	organ_type = /obj/item/organ/genital/anus
 	associated_organ_slot = ORGAN_SLOT_ANUS
-	key = ORGAN_SLOT_ANUS
-	genetic = TRUE
+	key = FEATURE_ANUS
 
 /datum/sprite_accessory/genital/anus/none
 	icon_state = "none"
 	name = SPRITE_ACCESSORY_NONE
 	factual = FALSE
+	natural_spawn = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/anus/normal
@@ -266,30 +344,79 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob.dmi'
 	organ_type = /obj/item/organ/genital/breasts
 	associated_organ_slot = ORGAN_SLOT_BREASTS
-	key = ORGAN_SLOT_BREASTS
+	key = FEATURE_BREASTS
 	always_color_customizable = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_UNDER_CLOTHES)
 	has_skintone_shading = TRUE
 	genital_location = CHEST
-	genetic = TRUE
+	max_sprite_size_affix = 5
 
 /datum/sprite_accessory/genital/breasts/none
 	icon_state = "none"
 	name = SPRITE_ACCESSORY_NONE
 	factual = FALSE
+	natural_spawn = FALSE
 	color_src = null
 
 /datum/sprite_accessory/genital/breasts/pair
 	icon_state = "pair"
 	name = "Pair"
+	max_sprite_size_affix = 19
+
+/datum/sprite_accessory/genital/breasts/pair/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = BREASTS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/genital/breasts/quad
 	icon_state = "quad"
 	name = "Quad"
 
+/datum/sprite_accessory/genital/breasts/quad/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = BREASTS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	color_src = USE_MATRIXED_COLORS
+	max_sprite_size_affix = 19
+
 /datum/sprite_accessory/genital/breasts/sextuple
 	icon_state = "sextuple"
 	name = "Sextuple"
+	max_sprite_size_affix = 15
+	skintone_max_sprite_size_affix = 5
+
+/datum/sprite_accessory/genital/breasts/sextuple/alt
+	name = parent_type::name + " (Alt)"
+	display_name = parent_type::name
+	icon = BREASTS_ICON_ALT
+	icon_state = parent_type::icon_state + "_alt"
+	color_src = USE_MATRIXED_COLORS
+	max_sprite_size_affix = 19
+	skintone_max_sprite_size_affix = null
+
+// BUTT
+
+/datum/sprite_accessory/genital/butt
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/butt_onmob.dmi'
+	organ_type = /obj/item/organ/genital/butt
+	associated_organ_slot = ORGAN_SLOT_BUTT
+	key = ORGAN_SLOT_BUTT
+	color_src = USE_MATRIXED_COLORS
+	always_color_customizable = TRUE
+	has_skintone_shading = TRUE
+	max_sprite_size_affix = 8
+
+/datum/sprite_accessory/genital/butt/none
+	icon_state = "none"
+	name = SPRITE_ACCESSORY_NONE
+	factual = FALSE
+	color_src = null
+
+/datum/sprite_accessory/genital/butt/pair
+	icon_state = "pair"
+	name = "Pair"
 
 #undef TAUR_DIMENSION_X

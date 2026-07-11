@@ -1,7 +1,7 @@
 /proc/create_portal_pair(turf/source, turf/destination, _lifespan = 300, accuracy = 0, newtype = /obj/effect/portal)
 	if(!istype(source) || !istype(destination))
 		return
-	var/turf/actual_destination = get_teleport_turf(destination, accuracy)
+	var/turf/actual_destination = get_valid_teleport_turf(source, destination, accuracy)
 	var/obj/effect/portal/P1 = new newtype(source, _lifespan, null, FALSE, null)
 	var/obj/effect/portal/P2 = new newtype(actual_destination, _lifespan, P1, TRUE, null)
 	if(!istype(P1) || !istype(P2))
@@ -69,10 +69,12 @@
 /obj/effect/portal/newtonian_move(inertia_angle, instant = FALSE, start_delay = 0, drift_force = 0, controlled_cap = null)
 	return TRUE
 
-/obj/effect/portal/attackby(obj/item/W, mob/user, list/modifiers)
-	if(user && Adjacent(user))
-		teleport(user)
-		return TRUE
+/obj/effect/portal/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!Adjacent(user) || istype(tool, /obj/item/hand_tele))
+		return ..()
+
+	teleport(user)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/effect/portal/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
@@ -135,10 +137,10 @@
 		return ..()
 	return BULLET_ACT_FORCE_PIERCE
 
-/obj/effect/portal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
-	if (!teleport(hitting_projectile, force = TRUE))
-		return ..()
-	return BULLET_ACT_FORCE_PIERCE
+/obj/effect/portal/projectile_hit(obj/projectile/hitting_projectile, def_zone, piercing_hit, blocked)
+	if (teleport(hitting_projectile, force = TRUE))
+		return BULLET_ACT_FORCE_PIERCE
+	return ..()
 
 /obj/effect/portal/proc/teleport(atom/movable/moving, force = FALSE)
 	if(!force && (!istype(moving) || iseffect(moving) || (ismecha(moving) && !mech_sized) || (!isobj(moving) && !ismob(moving)))) //Things that shouldn't teleport.

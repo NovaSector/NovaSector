@@ -195,6 +195,10 @@
 	inhand_icon_state = "razor"
 	obj_flags = CONDUCTS_ELECTRICITY
 	w_class = WEIGHT_CLASS_TINY
+	sound_vary = TRUE
+	pickup_sound = SFX_GENERIC_DEVICE_PICKUP
+	drop_sound = SFX_GENERIC_DEVICE_DROP
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.7)
 
 /obj/item/razor/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins shaving [user.p_them()]self without the razor guard! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -207,9 +211,9 @@
 		skinhead.set_facial_hairstyle("Shaved", update = TRUE)
 	else
 		skinhead.set_hairstyle("Skinhead", update = TRUE)
-	playsound(loc, 'sound/items/tools/welder2.ogg', 20, TRUE)
+	playsound(loc, 'sound/items/hair-clippers.ogg', 20, TRUE)
 
-/obj/item/razor/attack(mob/target_mob, mob/living/user, list/modifiers)
+/obj/item/razor/attack(mob/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!ishuman(target_mob))
 		return ..()
 	var/mob/living/carbon/human/human_target = target_mob
@@ -230,8 +234,9 @@
 				var/new_style = tgui_input_list(user, "Select a facial hairstyle", "Grooming", SSaccessories.facial_hairstyles_list)
 				if(isnull(new_style))
 					return
-				if(!get_location_accessible(human_target, location))
-					to_chat(user, span_warning("The headgear is in the way!"))
+				var/covering = human_target.is_mouth_covered()
+				if(covering)
+					to_chat(user, span_warning("[covering] is in the way!"))
 					return
 				if(!(noggin.head_flags & HEAD_FACIAL_HAIR))
 					to_chat(user, span_warning("There is no facial hair to style!"))
@@ -248,8 +253,9 @@
 			else
 				return
 		else
-			if(!get_location_accessible(human_target, location))
-				to_chat(user, span_warning("The mask is in the way!"))
+			var/covering = human_target.is_mouth_covered()
+			if(covering)
+				to_chat(user, span_warning("[covering] is in the way!"))
 				return
 			if(!(noggin.head_flags & HEAD_FACIAL_HAIR))
 				to_chat(user, span_warning("There is no facial hair to shave!"))
@@ -286,7 +292,7 @@
 			var/new_style = tgui_input_list(user, "Select a hairstyle", "Grooming", SSaccessories.hairstyles_list)
 			if(isnull(new_style))
 				return
-			if(!get_location_accessible(human_target, location))
+			if(!human_target.is_location_accessible(location))
 				to_chat(user, span_warning("The headgear is in the way!"))
 				return
 			if(!(noggin.head_flags & HEAD_HAIR))
@@ -302,7 +308,7 @@
 				human_target.set_hairstyle(new_style, update = TRUE)
 				return
 		else
-			if(!get_location_accessible(human_target, location))
+			if(!human_target.is_location_accessible(location))
 				to_chat(user, span_warning("The headgear is in the way!"))
 				return
 			if(!(noggin.head_flags & HEAD_HAIR))

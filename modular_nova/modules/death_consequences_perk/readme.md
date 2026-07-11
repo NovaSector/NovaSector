@@ -17,18 +17,18 @@ A highly customizable quirk designed to make you fear death, and introduce a mor
 - healthscanner.dm: /proc/healthscan(), added text for the quirk
 - species_features.tsx: Necessary for the preference UI
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
-E.g: 
+E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
--->
+  -->
 
 ### Modular Overrides:
 
 - N/A
 <!-- If you added a new modular override (file or code-wise) for your module, you should list it here. Code files should specify what procs they changed, in case of multiple modules using the same file.
-E.g: 
+E.g:
 - `modular_nova/master_files/sound/my_cool_sound.ogg`
 - `modular_nova/master_files/code/my_modular_override.dm`: `proc/overriden_proc`, `var/overriden_var`
--->
+  -->
 
 ### Defines:
 

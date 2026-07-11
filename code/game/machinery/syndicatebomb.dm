@@ -15,11 +15,12 @@
 	subsystem_type = /datum/controller/subsystem/processing/fastprocess
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_OFFLINE
 	use_power = NO_POWER_USE
+	custom_materials = list(/datum/material/alloy/plasteel = SHEET_MATERIAL_AMOUNT * 10)
 
 	/// What is the lowest amount of time we can set the timer to?
 	var/minimum_timer = SYNDIEBOMB_MIN_TIMER_SECONDS
 	/// What is the highest amount of time we can set the timer to?
-	var/maximum_timer = 100 MINUTES
+	var/maximum_timer = 100*60 // 100 MINUTES // not using the MINUTES define because those are for deciseconds
 	/// What is the default amount of time we set the timer to?
 	var/timer_set = SYNDIEBOMB_MIN_TIMER_SECONDS
 	/// Can we be unanchored?
@@ -68,6 +69,12 @@
 /obj/machinery/syndicatebomb/process()
 	if(!active)
 		return PROCESS_KILL
+
+	for(var/obj/effect/forcefield/cosmic_field/potential_field as anything in GLOB.active_cosmic_fields)
+		if(get_dist(potential_field, src) < 3)
+			new /obj/effect/temp_visual/revenant(get_turf(src))
+			defuse()
+			return
 
 	if(!isnull(next_beep) && (next_beep <= world.time))
 		var/volume
@@ -189,24 +196,28 @@
 	return TRUE
 
 
-/obj/machinery/syndicatebomb/attackby(obj/item/I, mob/user, list/modifiers)
-
-	if(is_wire_tool(I) && open_panel)
+/obj/machinery/syndicatebomb/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(is_wire_tool(tool) && open_panel)
 		wires.interact(user)
+		return ITEM_INTERACT_SUCCESS
 
-	else if(istype(I, /obj/item/bombcore))
-		if(!payload)
-			if(!user.transferItemToLoc(I, src))
-				return
-			payload = I
-			to_chat(user, span_notice("You place [payload] into [src]."))
-		else
+	if(istype(tool, /obj/item/bombcore))
+		if(payload)
 			to_chat(user, span_warning("[payload] is already loaded into [src]! You'll have to remove it first."))
-	else
-		var/old_integ = atom_integrity
-		. = ..()
-		if((old_integ > atom_integrity) && active && (payload in src))
-			to_chat(user, span_warning("That seems like a really bad idea..."))
+			return ITEM_INTERACT_BLOCKING
+		if(!user.transferItemToLoc(tool, src))
+			return ITEM_INTERACT_BLOCKING
+		payload = tool
+		to_chat(user, span_notice("You place [payload] into [src]."))
+		return ITEM_INTERACT_SUCCESS
+
+	return NONE
+
+/obj/machinery/syndicatebomb/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	var/old_integ = atom_integrity
+	. = ..()
+	if((old_integ > atom_integrity) && active && payload)
+		to_chat(user, span_warning("That seems like a really bad idea..."))
 
 /obj/machinery/syndicatebomb/interact(mob/user)
 	wires.interact(user)
@@ -270,7 +281,7 @@
 	activate()
 	add_fingerprint(user)
 	// We don't really concern ourselves with duds or fakes after this
-	if(isnull(payload) || istype(payload, /obj/machinery/syndicatebomb/training))
+	if(isnull(payload) || istype(payload, /obj/item/bombcore/training))
 		return
 
 	notify_ghosts(
@@ -320,6 +331,17 @@
 	. = ..()
 	wires.cut_all()
 
+/obj/machinery/syndicatebomb/nukie/empty
+	name = "syndicate bomb"
+	desc = "An menancing looking device designed to detonate an explosive payload. Can be botled down using a wrench."
+	payload = null
+	open_panel = TRUE
+	timer_set = 120
+
+/obj/machinery/syndicatebomb/nukie/empty/Initialize(mapload)
+	. = ..()
+	wires.cut_all()
+
 /obj/machinery/syndicatebomb/self_destruct
 	name = "self-destruct device"
 	desc = "Do not taunt. Warranty invalid if exposed to high temperature. Not suitable for agents under 3 years of age."
@@ -339,18 +361,22 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1 // We detonate upon being exploded.
 	resistance_flags = FLAMMABLE //Burnable (but the casing isn't)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.05)
 	var/adminlog = null
 	var/range_heavy = 3
 	var/range_medium = 9
 	var/range_light = 17
 	var/range_flame = 17
+	/// Whether this core explodes when burnt
+	var/explodes_when_burnt = TRUE
 
 /obj/item/bombcore/ex_act(severity, target) // Little boom can chain a big boom.
 	detonate()
 	return TRUE
 
 /obj/item/bombcore/burn()
-	detonate()
+	if(explodes_when_burnt)
+		detonate()
 	..()
 
 /obj/item/bombcore/proc/detonate()
@@ -371,12 +397,10 @@
 /obj/item/bombcore/syndicate
 	name = "Donk Co. Super-Stable Bomb Payload"
 	desc = "After a string of unwanted detonations, this payload has been specifically redesigned to not explode unless triggered electronically by a bomb shell."
+	explodes_when_burnt = FALSE
 
 /obj/item/bombcore/syndicate/ex_act(severity, target)
 	return FALSE
-
-/obj/item/bombcore/syndicate/burn()
-	return ..()
 
 /obj/item/bombcore/syndicate/large
 	name = "Donk Co. Super-Stable Bomb Payload XL"
@@ -435,7 +459,8 @@
 
 /obj/item/bombcore/badmin/summon/detonate()
 	var/obj/machinery/syndicatebomb/B = loc
-	spawn_and_random_walk(summon_path, src, amt_summon, walk_chance=50, admin_spawn=TRUE, cardinals_only = FALSE)
+	for(var/atom/spawned as anything in spawn_and_random_walk(summon_path, src, amt_summon, walk_chance=50, admin_spawn=TRUE, cardinals_only = FALSE))
+		ADD_TRAIT(spawned, TRAIT_SPAWNED_MOB, INNATE_TRAIT)
 	qdel(B)
 	qdel(src)
 
@@ -533,63 +558,67 @@
 
 	playsound(loc, 'sound/effects/bamf.ogg', 75, TRUE, 5)
 
-/obj/item/bombcore/chemical/attackby(obj/item/I, mob/user, list/modifiers)
-	if(I.tool_behaviour == TOOL_CROWBAR && beakers.len > 0)
-		I.play_tool_sound(src)
-		for (var/obj/item/B in beakers)
-			B.forceMove(drop_location())
-			beakers -= B
-		return
-	else if(istype(I, /obj/item/reagent_containers/cup/beaker) || istype(I, /obj/item/reagent_containers/cup/bottle))
-		if(beakers.len < max_beakers)
-			if(!user.transferItemToLoc(I, src))
-				return
-			beakers += I
-			to_chat(user, span_notice("You load [src] with [I]."))
-		else
-			to_chat(user, span_warning("[I] won't fit! \The [src] can only hold up to [max_beakers] containers."))
-			return
-	..()
+/obj/item/bombcore/chemical/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/reagent_containers/cup/beaker) && !istype(tool, /obj/item/reagent_containers/cup/bottle))
+		return NONE
+	if(beakers.len >= max_beakers)
+		to_chat(user, span_warning("[tool] won't fit! \The [src] can only hold up to [max_beakers] containers."))
+		return ITEM_INTERACT_BLOCKING
+	if(!user.transferItemToLoc(tool, src))
+		return ITEM_INTERACT_BLOCKING
+	beakers += tool
+	to_chat(user, span_notice("You load [src] with [tool]."))
+	return ITEM_INTERACT_SUCCESS
 
-/obj/item/bombcore/chemical/CheckParts(list/parts_list)
-	..()
+/obj/item/bombcore/chemical/crowbar_act(mob/living/user, obj/item/tool)
+	if(!beakers.len)
+		return NONE
+	tool.play_tool_sound(src)
+	for (var/obj/item/beaker in beakers)
+		beaker.forceMove(drop_location())
+		beakers -= beaker
+	return ITEM_INTERACT_SUCCESS
+
+/obj/item/bombcore/chemical/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
 	// Using different grenade casings, causes the payload to have different properties.
-	var/obj/item/stock_parts/matter_bin/MB = locate(/obj/item/stock_parts/matter_bin) in src
-	if(MB)
-		max_beakers += MB.rating // max beakers = 2-5.
-		qdel(MB)
-	for(var/obj/item/grenade/chem_grenade/G in src)
+	var/obj/item/stock_parts/matter_bin/bin = locate(/obj/item/stock_parts/matter_bin) in components
+	if(bin)
+		max_beakers += bin.rating // max beakers = 2-5.
+	for(var/obj/item/grenade/chem_grenade/nade in components)
 
-		if(istype(G, /obj/item/grenade/chem_grenade/large))
-			var/obj/item/grenade/chem_grenade/large/LG = G
+		if(istype(nade, /obj/item/grenade/chem_grenade/large))
 			max_beakers += 1 // Adding two large grenades only allows for a maximum of 7 beakers.
 			spread_range += 2 // Extra range, reduced density.
 			temp_boost += 50 // maximum of +150K blast using only large beakers. Not enough to self ignite.
-			for(var/obj/item/slime_extract/S in LG.beakers) // And slime cores.
+			for(var/obj/item/slime_extract/slime in nade.beakers) // And slime cores.
 				if(beakers.len < max_beakers)
-					beakers += S
-					S.forceMove(src)
+					beakers += slime
+					slime.forceMove(src)
 				else
-					S.forceMove(drop_location())
+					slime.forceMove(drop_location())
 
-		if(istype(G, /obj/item/grenade/chem_grenade/cryo))
+		if(istype(nade, /obj/item/grenade/chem_grenade/cryo))
 			spread_range -= 1 // Reduced range, but increased density.
 			temp_boost -= 100 // minimum of -150K blast.
 
-		if(istype(G, /obj/item/grenade/chem_grenade/pyro))
+		if(istype(nade, /obj/item/grenade/chem_grenade/pyro))
 			temp_boost += 150 // maximum of +350K blast, which is enough to self ignite. Which means a self igniting bomb can't take advantage of other grenade casing properties. Sorry?
 
-		if(istype(G, /obj/item/grenade/chem_grenade/adv_release))
-			time_release += 50 // A typical bomb, using basic beakers, will explode over 2-4 seconds. Using two will make the reaction last for less time, but it will be more dangerous overall.
+		if(istype(nade, /obj/item/grenade/chem_grenade/adv_release))
+			time_release += 5 SECONDS // A typical bomb, using basic beakers, will explode over 2-4 seconds. Using two will make the reaction last for less time, but it will be more dangerous overall.
 
-		for(var/obj/item/reagent_containers/cup/B in G)
+		for(var/obj/item/reagent_containers/cup/beaker in nade)
 			if(beakers.len < max_beakers)
-				beakers += B
-				B.forceMove(src)
+				beakers += beaker
+				beaker.forceMove(src)
 			else
-				B.forceMove(drop_location())
+				beaker.forceMove(drop_location())
 
-		qdel(G)
+	return ..()
+
+/obj/item/bombcore/chemical/nukie
+	icon_state = "nukie_chemcore"
+	max_beakers = 5
 
 /obj/item/bombcore/emp
 	name = "EMP payload"
@@ -618,22 +647,20 @@
 	chosen_theme = null
 	return ..()
 
-/obj/item/bombcore/dimensional/CheckParts(list/parts_list)
+/obj/item/bombcore/dimensional/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
 	. = ..()
 	range_heavy = 13
-	for(var/obj/item/grenade/chem_grenade/nade in src)
+	for(var/obj/item/grenade/chem_grenade/nade in components)
 		if(istype(nade, /obj/item/grenade/chem_grenade/large) || istype(nade, /obj/item/grenade/chem_grenade/adv_release))
 			range_heavy += 1
 		for(var/obj/item/thing as anything in nade.beakers) //remove beakers, then delete the grenade.
 			thing.forceMove(drop_location())
-		qdel(nade)
-	var/obj/item/gibtonite/ore = locate() in src
+	var/obj/item/gibtonite/ore = locate() in components
 	switch(ore.quality)
 		if(GIBTONITE_QUALITY_LOW)
 			range_heavy -= 2
 		if(GIBTONITE_QUALITY_HIGH)
 			range_heavy += 4
-	qdel(ore)
 
 /obj/item/bombcore/dimensional/examine(mob/user)
 	. = ..()

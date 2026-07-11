@@ -50,6 +50,7 @@
  * https://secure.byond.com/docs/ref/index.html#/world/proc/Topic
 */
 
+// If you modify the protocol for this, update tools/Tgstation.PRAnnouncer
 /datum/world_topic/ping
 	keyword = "ping"
 	log = FALSE
@@ -68,6 +69,7 @@
 /datum/world_topic/playing/Run(list/input)
 	return GLOB.player_list.len
 
+// If you modify the protocol for this, update tools/Tgstation.PRAnnouncer
 /datum/world_topic/pr_announce
 	keyword = "announce"
 	var/static/list/PRcounts = list() //PR id -> number of times announced this round
@@ -303,14 +305,8 @@
 	var/author_key = input["author_ckey"]
 	var/channel_name = input["message"]
 
-	var/found_channel = FALSE
-	for(var/datum/feed_channel/channel as anything in GLOB.news_network.network_channels)
-		if(channel.channel_name == channel_name)
-			found_channel = TRUE
-			break
-
-	// No channel with a matching name, abort
-	if (!found_channel)
+	var/datum/feed_channel/chosen_channel = GLOB.news_network.network_channels_by_name[channel_name]
+	if(isnull(chosen_channel)) // No channel with a matching name, abort
 		return
 
 	message_admins(span_adminnotice("Incoming cross-sector newscaster article by [author_key] in channel [channel_name]."))

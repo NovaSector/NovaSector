@@ -22,8 +22,8 @@ Completely overhauls security to something that will hopefully fit us.
 
 - See: https://github.com/Skyrat-SS13/Skyrat-tg/pull/2860
 
-
 ### Credits:
+
 Code: Gandalf2k15
 Sprite modification: Gandalf2k15
 Uniforms and equipment sprites: JungleRat

@@ -4,13 +4,13 @@
 			"type": "icon_state",
 			"icon_state": "FancyLabCoatBaseClosed_Worn",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "FancyLabCoatStripeClosed_Worn",
 			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
+			"color_ids": [2]
 		}
 	],
 	"fancy_labcoat_t": [
@@ -18,13 +18,13 @@
 			"type": "icon_state",
 			"icon_state": "FancyLabCoatBaseOpen_Worn",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
 			"icon_state": "FancyLabCoatStripeOpen_Worn",
 			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
+			"color_ids": [2]
 		}
 	]
 }

@@ -40,11 +40,12 @@
 
 				/obj/item/kinky_shocker = 4,
 				/obj/item/clothing/mask/leatherwhip = 4,
-				/obj/item/bdsm_candle = 4,
+				/obj/item/bdsm_candle = 8,
 				/obj/item/spanking_pad = 4,
 				/obj/item/tickle_feather = 8,
 				/obj/item/borg/upgrade/dominatrixmodule = 5,
 				/obj/item/reagent_containers/venom_milker = 5,
+				/obj/item/petclicker = 4,
 			),
 		),
 		list(
@@ -52,9 +53,13 @@
 			"icon" = FA_ICON_SHIRT,
 			"products" = list(
 				/obj/item/clothing/under/pants/nova/chaps = 4,
+				/obj/item/clothing/under/costume/playbunny/greyscale = 5,
 				/obj/item/clothing/under/costume/bunnylewd = 5,
 				/obj/item/clothing/under/costume/bunnylewd/white = 5,
-				/obj/item/clothing/head/costume/rabbitears = 4,//Ears together, right after Bunny Suit.
+				/obj/item/clothing/head/costume/rabbitears = 5,//Ears together, right after Bunny Suit.
+				/obj/item/clothing/head/playbunnyears = 5,
+				/obj/item/clothing/suit/jacket/tailcoat = 5,
+				/obj/item/clothing/neck/tie/bunnytie = 5,
 				/obj/item/clothing/head/costume/kitty = 4,
 
 				/obj/item/clothing/head/domina_cap = 5,
@@ -72,7 +77,6 @@
 				/obj/item/clothing/head/costume/nova/maid = 5,
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
-				/obj/item/clothing/under/costume/lewdmaid = 5,
 				/obj/item/clothing/suit/corset = 5,
 
 				/obj/item/clothing/under/tearaway_garments = 5,
@@ -144,6 +148,12 @@
 				/obj/item/reagent_containers/cup/bottle/camphor = 3,
 				/obj/item/reagent_containers/cup/bottle/succubus_milk = 6, //Those are legal 'cause you can just turn off prefs in round in "CLOWN SMOKE MACHINE+PENIS ENLARGEMENT CHEMICAL CASE". Yes, i have special code-phrase for this. I've seen some shit.
 				/obj/item/reagent_containers/cup/bottle/incubus_draft = 6,
+
+				//neurowares
+				/obj/item/disk/neuroware/crocin = 30,
+				/obj/item/disk/neuroware/camphor = 20,
+				/obj/item/storage/box/flat/neuroware/crocin = 15,
+				/obj/item/storage/box/flat/neuroware/camphor = 10,
 			),
 		),
 		list(
@@ -166,27 +176,33 @@
 		/obj/item/clothing/neck/collar/thick/holocollar = 3,
 		/obj/item/clothing/neck/collar/leather/holocollar = 3,
 		/obj/item/clothing/neck/size_collar = 8,//It only works in the Interlink anyways
-		)
+	)
 
 	contraband = list(
-					/obj/item/electropack/shockcollar = 4,
-					/obj/item/clothing/neck/mind_collar = 2,
-					/obj/item/clothing/under/costume/jabroni = 4,
-					/obj/item/clothing/suit/straight_jacket/kinky_sleepbag = 2, //my favorite thing, spent 1 month on it. Don't remove please.
-					/obj/item/disk/nifsoft_uploader/dorms/contract = 5,
-					/obj/item/reagent_containers/applicator/pill/hexacrocin = 10,
-					/obj/item/reagent_containers/applicator/pill/pentacamphor = 5,
-					/obj/item/reagent_containers/cup/bottle/hexacrocin = 4,
-					/obj/item/reagent_containers/cup/bottle/pentacamphor = 2)
+		/obj/item/electropack/shockcollar = 4,
+		/obj/item/clothing/neck/mind_collar = 2,
+		/obj/item/clothing/under/costume/jabroni = 4,
+		/obj/item/clothing/suit/straight_jacket/kinky_sleepbag = 2, //my favorite thing, spent 1 month on it. Don't remove please.
+		/obj/item/disk/nifsoft_uploader/dorms/contract = 5,
+		/obj/item/reagent_containers/applicator/pill/hexacrocin = 10,
+		/obj/item/reagent_containers/applicator/pill/pentacamphor = 5,
+		/obj/item/reagent_containers/cup/bottle/hexacrocin = 4,
+		/obj/item/reagent_containers/cup/bottle/pentacamphor = 2,
+		/obj/item/disk/neuroware/hexacrocin = 15,
+		/obj/item/disk/neuroware/pentacamphor = 10,
+		/obj/item/storage/box/flat/neuroware/hexacrocin = 4,
+		/obj/item/storage/box/flat/neuroware/pentacamphor = 2,
+	)
 
 	refill_canister = /obj/item/vending_refill/lustwish
 	payment_department = ACCOUNT_SRV
 	default_price = PAYCHECK_CREW * 0.6
 	extra_price = PAYCHECK_COMMAND * 2.5
+	allow_custom = TRUE
 
 //Changes the settings on the vendor, if the user uses the discount card.
-/obj/machinery/vending/dorms/attackby(obj/item/used_item, mob/living/user, params)
-	if(!istype(used_item, /obj/item/lustwish_discount))
+/obj/machinery/vending/dorms/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(!istype(attacking_item, /obj/item/lustwish_discount))
 		return ..()
 
 	user.visible_message(span_boldnotice("Something changes in [src] with a loud clunk."))

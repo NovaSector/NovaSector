@@ -2,7 +2,6 @@
 	title = JOB_CORRECTIONS_OFFICER
 	description = "Guard the permabrig, stand around looking imposing, get fired for abusing the prisoners"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list("The Warden and Head of Security")
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -20,6 +19,7 @@
 	plasmaman_outfit = /datum/outfit/plasmaman/security
 	display_order = JOB_DISPLAY_ORDER_CORRECTIONS_OFFICER
 	liver_traits = list(TRAIT_LAW_ENFORCEMENT_METABOLISM)
+	bounty_types = CIV_JOB_SEC
 	departments_list = list(
 		/datum/job_department/security,
 	)
@@ -35,7 +35,7 @@
 	rpg_title = "Bailiff"
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law, /obj/item/clothing/head/security_cap, /obj/item/clothing/mask/whistle)
 
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 
 // OUTFIT
 /datum/outfit/job/corrections_officer

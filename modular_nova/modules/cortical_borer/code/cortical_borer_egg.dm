@@ -28,7 +28,7 @@
 	host_egg = null
 	return ..()
 
-/obj/effect/mob_spawn/ghost_role/borer_egg/special(mob/living/spawned_mob, mob/mob_possessor)
+/obj/effect/mob_spawn/ghost_role/borer_egg/special(mob/living/spawned_mob, mob/mob_possessor, apply_prefs)
 	. = ..()
 	spawned_mob.mind.add_antag_datum(/datum/antagonist/cortical_borer)
 	spawned_mob.name = "cortical borer ([generation]-[rand(100,999)])"

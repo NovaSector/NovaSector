@@ -10,8 +10,9 @@ Adds an emergency stop for the supermatter engine. Operable in the first 30 minu
 
 ### TG Proc Changes:
 
-File Location | Changed TG Proc
-------------- | ---------------
+| File Location | Changed TG Proc |
+| ------------- | --------------- |
+
 `code/modules/power/supermatter/supermatter.dm`
 `/obj/machinery/power/supermatter_crystal/proc/count_down`
 
@@ -21,13 +22,13 @@ File Location | Changed TG Proc
 ### TG File Changes:
 
 - code/modules/power/supermatter/supermatter.dm
-- code/modules/power/supermatter/supermatter_delamination/_sm_delam.dm
+- `code/modules/power/supermatter/supermatter_delamination/_sm_delam.dm`
 
 ### Defines:
 
-File Location | Defines
-------------- | -------
-code/__DEFINES/~nova_defines/signals.dm		| `#define COMSIG_MAIN_SM_DELAMINATING "delam_time"`
+| File Location                             | Defines                                            |
+| ----------------------------------------- | -------------------------------------------------- |
+| `code/__DEFINES/~nova_defines/signals.dm` | `#define COMSIG_MAIN_SM_DELAMINATING "delam_time"` |
 
 ### Master file additions
 
@@ -38,4 +39,5 @@ code/__DEFINES/~nova_defines/signals.dm		| `#define COMSIG_MAIN_SM_DELAMINATING 
 - N/A
 
 ### Credits:
+
 - LT3

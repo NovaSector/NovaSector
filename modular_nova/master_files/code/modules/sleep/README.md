@@ -58,4 +58,5 @@ Overrides the sleep verb and some associated code chunks to implement enhancesme
 - N/A
 
 ### Credits:
+
 - [@Floofies](https://github.com/Floofies)

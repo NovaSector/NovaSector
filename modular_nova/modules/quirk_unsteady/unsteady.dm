@@ -39,7 +39,7 @@
 	UnregisterSignal(quirk_holder, COMSIG_MOB_APPLY_DAMAGE)
 
 /// Knockdown if all our conditions are met and display a combat message for it
-/datum/quirk/unsteady/proc/ouchie(mob/living/carbon/source, damage, damagetype, def_zone, blocked, wound_bonus, bare_wound_bonus, sharpness, attack_direction, attacking_item)
+/datum/quirk/unsteady/proc/ouchie(mob/living/carbon/source, damage, damagetype, def_zone, blocked, wound_bonus, exposed_wound_bonus, sharpness, attack_direction, attacking_item)
 	SIGNAL_HANDLER
 
 	if(damagetype != BRUTE)

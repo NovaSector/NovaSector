@@ -37,7 +37,7 @@
 /obj/machinery/power/micro_reactor
 	icon = 'modular_nova/modules/mapping/icons/machinery/reactor.dmi'
 	name = "micro reactor"
-	desc = "Designed as a self-containing powersource for long-haul vessels, the stamp of SOAR Industries \
+	desc = "Designed as a self-containing power source for long-haul vessels, the stamp of <font color='#008080'><b>SOAR Industries</b></font> \
 		on the top. A steady output once active with plenty of safety features to ensure a meltdown is not possible, \
 		having one installed means a steady clean powersource for between 75-125 years."
 	icon_state = "reactor0_0"
@@ -60,20 +60,12 @@
 	. = ..()
 	soundloop = new(src, active)
 	connect_to_network()
+	AddElement(/datum/element/tool_blocker, TOOL_SCREWDRIVER)
+	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR)
 
 /obj/machinery/power/micro_reactor/Destroy()
 	QDEL_NULL(soundloop)
 	return ..()
-
-// formerly NO_DECONSTRUCTION
-/obj/machinery/power/micro_reactor/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
-	return NONE
-
-/obj/machinery/power/micro_reactor/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
-	return NONE
-
-/obj/machinery/power/micro_reactor/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
-	return NONE
 
 /obj/machinery/power/micro_reactor/update_icon_state()
 	icon_state = "[base_icon_state]_[active]"
@@ -127,3 +119,20 @@
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
 		. += "It is[!active?"n't":""] running."
+
+/obj/machinery/power/micro_reactor/bapgm
+	name = "B.A.P.G.M."
+	desc = "The Basic Automated Power Generation Machine also known as B.A.P.G.M is a reactor designed as a self-containing \
+		power source for long-haul vessels however it was built to be auxillary power generation to assure essential systems \
+		are online, the stamp of <font color='#008080'><b>SOAR Industries</b></font> \
+		on the top. A steady output once active with plenty of safety features to ensure a meltdown is not possible, \
+		having one installed means a steady clean powersource for between 75-125 years."
+	icon_state = "bapgm_0"
+	base_icon_state = "bapgm"
+	density = FALSE
+
+	power_gen = 100 KILO WATTS
+
+	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND
+
+	light_color = LIGHT_COLOR_ELECTRIC_CYAN

@@ -50,7 +50,7 @@ export const SyndContractorContent = (props) => {
     'Awaiting response...',
     'Awaiting response...',
     'Response received, ack 4851234...',
-    'CONFIRM ACC ' + Math.round(Math.random() * 20000),
+    `CONFIRM ACC ${Math.round(Math.random() * 20000)}`,
     'Setting up private accounts...',
     'CONTRACTOR ACCOUNT CREATED',
     'Searching for available contracts...',
@@ -249,56 +249,57 @@ const ContractsTab = (props) => {
           />
         }
       >
-        {contracts.map((contract) => {
-          if (
-            data.ongoing_contract &&
-            contract.status !== CONTRACT_STATUS_ACTIVE
-          ) {
-            return;
-          }
-          const active = contract.status > CONTRACT_STATUS_INACTIVE;
-          if (contract.status >= CONTRACT_STATUS_COMPLETE) {
-            return;
-          }
-          return (
-            <Section
-              key={contract.target}
-              title={
-                contract.target
-                  ? `${contract.target} (${contract.target_rank})`
-                  : 'Invalid Target'
-              }
-              level={active ? 1 : 2}
-              buttons={
-                <>
-                  <Box inline bold mr={1}>
-                    {`${contract.payout} (+${contract.payout_bonus}) TC`}
-                  </Box>
-                  <Button
-                    content={active ? 'Abort' : 'Accept'}
-                    disabled={contract.extraction_enroute}
-                    color={active && 'bad'}
-                    onClick={() =>
-                      act('PRG_contract' + (active ? '_abort' : '-accept'), {
-                        contract_id: contract.id,
-                      })
-                    }
-                  />
-                </>
-              }
-            >
-              <Stack>
-                <Stack.Item grow>{contract.message}</Stack.Item>
-                <Stack.Item>
-                  <Box bold mb={1}>
-                    Dropoff Location:
-                  </Box>
-                  <Box>{contract.dropoff}</Box>
-                </Stack.Item>
-              </Stack>
-            </Section>
-          );
-        })}
+        {contracts
+          .filter((contract) => {
+            if (
+              data.ongoing_contract &&
+              contract.status !== CONTRACT_STATUS_ACTIVE
+            ) {
+              return false;
+            }
+            return contract.status < CONTRACT_STATUS_COMPLETE;
+          })
+          .map((contract) => {
+            const active = contract.status > CONTRACT_STATUS_INACTIVE;
+            return (
+              <Section
+                key={contract.target}
+                title={
+                  contract.target
+                    ? `${contract.target} (${contract.target_rank})`
+                    : 'Invalid Target'
+                }
+                level={active ? 1 : 2}
+                buttons={
+                  <>
+                    <Box inline bold mr={1}>
+                      {`${contract.payout} (+${contract.payout_bonus}) TC`}
+                    </Box>
+                    <Button
+                      content={active ? 'Abort' : 'Accept'}
+                      disabled={contract.extraction_enroute}
+                      color={active && 'bad'}
+                      onClick={() =>
+                        act(`PRG_contract${active ? '_abort' : '-accept'}`, {
+                          contract_id: contract.id,
+                        })
+                      }
+                    />
+                  </>
+                }
+              >
+                <Stack>
+                  <Stack.Item grow>{contract.message}</Stack.Item>
+                  <Stack.Item>
+                    <Box bold mb={1}>
+                      Dropoff Location:
+                    </Box>
+                    <Box>{contract.dropoff}</Box>
+                  </Stack.Item>
+                </Stack>
+              </Section>
+            );
+          })}
       </Section>
       <Section
         title="Dropoff Locator"
@@ -317,12 +318,12 @@ const HubTab = (props) => {
   return (
     <Section>
       {contractor_hub_items.map((item) => {
-        const repInfo = item.cost ? item.cost + ' Rep' : 'FREE';
+        const repInfo = item.cost ? `${item.cost} Rep` : 'FREE';
         const limited = item.limited !== -1;
         return (
           <Section
             key={item.name}
-            title={item.name + ' - ' + repInfo}
+            title={`${item.name} - ${repInfo}`}
             level={2}
             buttons={
               <>

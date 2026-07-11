@@ -16,8 +16,8 @@
 	has_variable_transfer_amount = FALSE
 	list_reagents = list(/datum/reagent/drug/cocaine/freebase_cocaine = 40)
 
-/obj/item/reagent_containers/crackbrick/attackby(obj/item/W, mob/user, params)
-	if(W.get_sharpness())
+/obj/item/reagent_containers/crackbrick/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(attacking_item.get_sharpness())
 		user.show_message(span_notice("You cut \the [src] into some rocks."), MSG_VISUAL)
 		for(var/i = 1 to 4)
 			new /obj/item/reagent_containers/crack(user.loc)
@@ -51,6 +51,9 @@
 		covered = "mask"
 	if(covered)
 		to_chat(user, span_warning("You have to remove your [covered] first!"))
+	var/obj/item/organ/lungs/lungs = user.get_organ_slot(ORGAN_SLOT_LUNGS)
+	if(isnull(lungs) || istype(lungs, /obj/item/organ/lungs/synth))
+		to_chat(user, span_warning("You have to be able to breathe to snort the cocaine!"))
 		return
 	user.visible_message(span_notice("[user] starts snorting the [src]."))
 	if(do_after(user, 30))
@@ -59,8 +62,7 @@
 			reagents.trans_to(user, reagents.total_volume, transferred_by = user, methods = INGEST)
 		qdel(src)
 
-/obj/item/reagent_containers/cocaine/attack(mob/target, mob/user)
-	if(target == user)
+/obj/item/reagent_containers/cocaine/attack_self(mob/user)
 		snort(user)
 
 /obj/item/reagent_containers/cocaine/attack_hand_secondary(mob/user, list/modifiers)

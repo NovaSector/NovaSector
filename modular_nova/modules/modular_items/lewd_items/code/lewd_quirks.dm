@@ -54,6 +54,7 @@
 	var/lust_message = "Your breath begins to feel warm..."
 	//we are using if statements so that it slowly becomes more and more to the person
 	human_owner.manual_emote(pick(lust_emotes))
+	var/need_mob_update
 	if(stress >= 60)
 		human_owner.set_jitter_if_lower(40 SECONDS)
 		lust_message = "You feel a static sensation all across your skin..."
@@ -64,11 +65,13 @@
 		owner.adjust_hallucinations(60 SECONDS)
 		lust_message = "You begin to fantasize of what you could do to someone..."
 	if(stress >= 240)
-		human_owner.adjustStaminaLoss(30)
+		need_mob_update += human_owner.adjust_stamina_loss(30)
 		lust_message = "You body feels so very hot, almost unwilling to cooperate..."
 	if(stress >= 300)
-		human_owner.adjustOxyLoss(40)
+		need_mob_update += human_owner.adjust_oxy_loss(40)
 		lust_message = "You feel your neck tightening, straining..."
+	if(need_mob_update)
+		human_owner.updatehealth()
 	to_chat(human_owner, span_purple(lust_message))
 	return TRUE
 
@@ -262,7 +265,7 @@
 	random_gain = FALSE
 	resilience = TRAUMA_RESILIENCE_ABSOLUTE
 
-/datum/brain_trauma/very_special/sadism/on_life(seconds_per_tick, times_fired)
+/datum/brain_trauma/very_special/sadism/on_life(seconds_per_tick)
 	var/mob/living/carbon/human/affected_mob = owner
 	if(!owner.has_status_effect(/datum/status_effect/climax_cooldown) && affected_mob.client?.prefs?.read_preference(/datum/preference/toggle/erp) && someone_suffering())
 		affected_mob.adjust_arousal(2)
@@ -338,7 +341,7 @@
 /mob/living/carbon/human/examine(mob/user)
 	. = ..()
 	var/mob/living/examiner = user
-	if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH) || src == examiner || !HAS_TRAIT(examiner, TRAIT_EMPATH))
+	if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH) || src == examiner || !HAS_TRAIT(examiner, TRAIT_SEE_MASK_WHISPER)) // See mask whisper is for the empath quirk. This is more performant than GetComponent()...
 		return
 
 	if(examiner.client?.prefs?.read_preference(/datum/preference/toggle/erp))

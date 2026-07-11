@@ -23,6 +23,10 @@
 	///The rope inside the stand, that's actually tying the person to it
 	var/obj/item/stack/shibari_rope/ropee = null
 
+/obj/structure/chair/shibari_stand/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/tool_blocker, TOOL_WRENCH, TOOL_ACT_SECONDARY)
+
 /obj/structure/chair/shibari_stand/MakeRotate()
 	return
 
@@ -30,14 +34,16 @@
 	cut_overlay(shibari_shadow_overlay)
 	cut_overlay(shibari_rope_overlay)
 	cut_overlay(shibari_rope_overlay_behind)
-	if(ropee)
+	if(!QDELETED(ropee))
 		ropee.forceMove(get_turf(src))
+	ropee = null
 	. = ..()
-	if(current_mob)
+	if(!QDELETED(current_mob))
 		if(current_mob.handcuffed)
 			current_mob.handcuffed.dropped(current_mob)
 		current_mob.set_handcuffed(null)
 		current_mob.update_abstract_handcuffed()
+		current_mob = null
 	unbuckle_all_mobs(TRUE)
 
 //Examine changes for this structure
@@ -45,10 +51,6 @@
 	. = ..()
 	if(!has_buckled_mobs() && can_buckle)
 		. += span_notice("They need to be wearing <b>full-body shibari</b>, and you need to be <b>holding ropes</b>!")
-
-// formerly NO_DECONSTRUCT
-/obj/structure/chair/shibari_stand/wrench_act_secondary(mob/living/user, obj/item/weapon)
-	return NONE
 
 /obj/structure/chair/shibari_stand/user_unbuckle_mob(mob/living/buckled_mob, mob/living/user)
 	var/mob/living/buckled = buckled_mob
@@ -117,7 +119,7 @@
 			ropee.set_greyscale(rope.greyscale_colors)
 			rope.use(1)
 			add_overlay(shibari_shadow_overlay)
-			add_rope_overlays(ropee.greyscale_colors, hooman?.dna?.species?.mutant_bodyparts["taur"])
+			add_rope_overlays(ropee.greyscale_colors, hooman?.dna?.mutant_bodyparts[FEATURE_TAUR])
 			buckled.visible_message(span_warning("[user] tied [buckled] to \the [src]!"),\
 				span_userdanger("[user] tied you to \the [src]!"),\
 				span_hear("You hear ropes being completely tightened."))
@@ -153,7 +155,6 @@
 			current_mob.handcuffed.forceMove(loc)
 			current_mob.handcuffed.dropped(current_mob)
 			current_mob.set_handcuffed(null)
-			current_mob.update_handcuffed()
 
 		var/obj/item/restraints/handcuffs/milker/shibari/cuffs = new (current_mob)
 		current_mob.set_handcuffed(cuffs)

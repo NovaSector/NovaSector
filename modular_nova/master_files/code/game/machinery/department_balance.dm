@@ -16,6 +16,58 @@
 	/// If the screen is actively resetting or not
 	var/display_reset_state = 0
 
+/obj/machinery/status_display/department_balance/destwo
+	name = "DS-2 Budget Monitor"
+	credits_account = "DS2"
+	default_logo = "synd"
+
+/obj/machinery/status_display/department_balance/interdyne
+	name = "Interdyne Budget Monitor"
+	credits_account = "IP"
+
+/obj/machinery/status_display/department_balance/tarkon
+	name = "Tarkon Budget Monitor"
+	credits_account = "TI"
+
+/obj/machinery/status_display/department_balance/command
+	name = "Command Budget Monitor"
+	credits_account = "CMD"
+
+/obj/machinery/status_display/department_balance/medical
+	name = "Medical Budget Monitor"
+	credits_account = "MED"
+
+/obj/machinery/status_display/department_balance/security
+	name = "Security Budget Monitor"
+	credits_account = "SEC"
+
+/obj/machinery/status_display/department_balance/science
+	name = "Science Budget Monitor"
+	credits_account = "SCI"
+
+/obj/machinery/status_display/department_balance/cargo
+	name = "Cargo Budget Monitor"
+	credits_account = "CAR"
+
+/obj/machinery/status_display/department_balance/engineering
+	name = "Engineering Budget Monitor"
+	credits_account = "ENG"
+
+/obj/machinery/status_display/department_balance/civilian
+	name = "Civilian Budget Monitor"
+	credits_account = "CIV"
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/department_balance/destwo, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/department_balance/interdyne, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/department_balance/tarkon, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/department_balance/command, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/department_balance/medical, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/department_balance/security, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/department_balance/science, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/department_balance/cargo, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/department_balance/engineering, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/department_balance/civilian, 32)
+
 /obj/machinery/status_display/department_balance/post_machine_initialize()
 	. = ..()
 	start_process()

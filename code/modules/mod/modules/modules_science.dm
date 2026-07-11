@@ -12,11 +12,12 @@
 	active_power_cost = DEFAULT_CHARGE_DRAIN * 0.2
 	incompatible_modules = list(/obj/item/mod/module/reagent_scanner)
 	required_slots = list(ITEM_SLOT_HEAD|ITEM_SLOT_EYES|ITEM_SLOT_MASK)
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT * 5)
 
-/obj/item/mod/module/reagent_scanner/on_activation()
+/obj/item/mod/module/reagent_scanner/on_activation(mob/activator)
 	ADD_TRAIT(mod.wearer, TRAIT_REAGENT_SCANNER, REF(src))
 
-/obj/item/mod/module/reagent_scanner/on_deactivation(display_message = TRUE, deleting = FALSE)
+/obj/item/mod/module/reagent_scanner/on_deactivation(mob/activator, display_message = TRUE, deleting = FALSE)
 	REMOVE_TRAIT(mod.wearer, TRAIT_REAGENT_SCANNER, REF(src))
 
 /obj/item/mod/module/reagent_scanner/advanced
@@ -29,12 +30,12 @@
 	removable = FALSE
 	var/explosion_detection_dist = 21
 
-/obj/item/mod/module/reagent_scanner/advanced/on_activation()
+/obj/item/mod/module/reagent_scanner/advanced/on_activation(mob/activator)
 	. = ..()
 	ADD_TRAIT(mod.wearer, TRAIT_RESEARCH_SCANNER, REF(src))
 	RegisterSignal(SSdcs, COMSIG_GLOB_EXPLOSION, PROC_REF(sense_explosion))
 
-/obj/item/mod/module/reagent_scanner/advanced/on_deactivation(display_message = TRUE, deleting = FALSE)
+/obj/item/mod/module/reagent_scanner/advanced/on_deactivation(mob/activator, display_message = TRUE, deleting = FALSE)
 	. = ..()
 	REMOVE_TRAIT(mod.wearer, TRAIT_RESEARCH_SCANNER, REF(src))
 	UnregisterSignal(SSdcs, COMSIG_GLOB_EXPLOSION)
@@ -60,14 +61,15 @@
 	incompatible_modules = list(/obj/item/mod/module/atrocinator, /obj/item/mod/module/anomaly_locked/antigrav)
 	accepted_anomalies = list(/obj/item/assembly/signaler/anomaly/grav)
 	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.25, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/uranium = SHEET_MATERIAL_AMOUNT)
 
-/obj/item/mod/module/anomaly_locked/antigrav/on_activation()
+/obj/item/mod/module/anomaly_locked/antigrav/on_activation(mob/activator)
 	if(mod.wearer.has_gravity())
 		new /obj/effect/temp_visual/mook_dust(get_turf(src))
 	mod.wearer.AddElement(/datum/element/forced_gravity, 0)
 	playsound(src, 'sound/effects/gravhit.ogg', 50)
 
-/obj/item/mod/module/anomaly_locked/antigrav/on_deactivation(display_message = TRUE, deleting = FALSE)
+/obj/item/mod/module/anomaly_locked/antigrav/on_deactivation(mob/activator, display_message = TRUE, deleting = FALSE)
 	mod.wearer.RemoveElement(/datum/element/forced_gravity, 0)
 	if(deleting)
 		return
@@ -93,6 +95,7 @@
 	incompatible_modules = list(/obj/item/mod/module/anomaly_locked/teleporter)
 	accepted_anomalies = list(/obj/item/assembly/signaler/anomaly/bluespace)
 	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.25, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = SHEET_MATERIAL_AMOUNT)
 	/// Time it takes to teleport
 	var/teleport_time = 1 SECONDS
 	/// Maximum turf range

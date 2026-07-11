@@ -8,7 +8,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_dirt = FALSE
+	tiled_turf = FALSE
 // We don't want to create chasms upon destruction, as this is too easy to abuse.
 // For some reason, the dirt used Lavaland atmos (OPENTURF_LOW_PRESSURE), this would suck whilst on the planet.
 
@@ -84,15 +84,15 @@
 
 /turf/closed/mineral/random/asteroid/rockplanet	//A version that can be used on the mining planet without destroying atmos - starts with Low_Pressure, along with the rest of the planet.
 	name = "iron rock"
-	icon = MAP_SWITCH('icons/turf/walls/red_wall.dmi', 'icons/turf/mining.dmi')
+	icon = MAP_SWITCH('icons/turf/walls/red_rock.dmi', 'icons/turf/mining.dmi')
 	icon = 'icons/turf/mining.dmi'
-	icon_state = "redrock"
-	base_icon_state = "red_wall"
+	icon_state = "red_rock"
+	base_icon_state = "red_rock"
 	turf_type = /turf/open/misc/asteroid/lowpressure
 	baseturfs = /turf/open/misc/asteroid/lowpressure
 	initial_gas_mix = OPENTURF_LOW_PRESSURE
 	defer_change = TRUE
-	mineralChance = 25	//Higher mineral chance than normal
+	mineral_chance = 13	//Higher mineral chance than normal
 
 /turf/closed/mineral/random/asteroid/rockplanet/mineral_chances()
 	return list(
@@ -125,10 +125,14 @@
 
 /turf/closed/mineral/asteroid/has_air
 	initial_gas_mix = OPENTURF_LOW_PRESSURE	//one that WONT screw with atmos if it's mapped somewhere
+	baseturfs = /turf/open/misc/asteroid/lowpressure
 
 /*
 *	HAZARD
 */
+/turf/closed/mineral/asteroid/has_more_air //this one is for if your checks are failing it might be because ya got dis rock, this can stay too as it will be convient for mappers in the future.
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid
 
 /turf/open/chasm/sandy	//just a retexture of the other chasm. making this was nothing but painful.
 	icon = 'modular_nova/modules/mapping/icons/turf/open/sandychasm.dmi'
@@ -141,3 +145,33 @@
 	light_color = LIGHT_COLOR_TUNGSTEN
 
 	initial_gas_mix = OPENTURF_LOW_PRESSURE
+
+/turf/open/misc/asteroid/basalt/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/misc/asteroid/basalt/standard_air
+
+/turf/open/misc/asteroid/basalt/smooth/shale/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/shale/standard_air
+	
+/turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+
+/turf/closed/mineral/random/volcanic/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid/basalt/standard_air
+	turf_type = /turf/open/misc/asteroid/basalt/standard_air
+
+/turf/closed/mineral/random/volcanic/red_rock/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+	turf_type = /turf/open/misc/asteroid/basalt/smooth/siderite/standard_air
+
+/turf/closed/mineral/random/volcanic/shale/standard_air
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/shale/standard_air
+	turf_type = /turf/open/misc/asteroid/basalt/smooth/shale/standard_air

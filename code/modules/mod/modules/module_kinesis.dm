@@ -16,6 +16,7 @@
 	overlay_state_active = "module_kinesis_on"
 	accepted_anomalies = list(/obj/item/assembly/signaler/anomaly/grav)
 	required_slots = list(ITEM_SLOT_GLOVES)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.25, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 	/// Range of the knesis grab.
 	var/grab_range = 8
 	/// Time between us hitting objects with kinesis.
@@ -63,7 +64,7 @@
 	drain_power(use_energy_cost)
 	grab_atom(target)
 
-/obj/item/mod/module/anomaly_locked/kinesis/on_deactivation(display_message = TRUE, deleting = FALSE)
+/obj/item/mod/module/anomaly_locked/kinesis/on_deactivation(mob/activator, display_message = TRUE, deleting = FALSE)
 	clear_grab(playsound = !deleting)
 
 /obj/item/mod/module/anomaly_locked/kinesis/process(seconds_per_tick)

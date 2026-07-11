@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react'; // NOVA EDIT CHANGE - ORIGINAL: import { useState } from 'react';
 import { useBackend } from 'tgui/backend';
-import { Dropdown, Flex, Stack } from 'tgui-core/components'; // NOVA EDIT CHANGE - ORIGINAL: import { Button, Stack } from 'tgui-core/components';
+import { Dropdown, Stack } from 'tgui-core/components'; // NOVA EDIT CHANGE - ORIGINAL: import { Button, Stack } from 'tgui-core/components';
 import { exhaustiveCheck } from 'tgui-core/exhaustive';
 
 import { PageButton } from '../components/PageButton';
-import { PreferencesMenuData } from '../types';
+import type { PreferencesMenuData } from '../types';
 import { AntagsPage } from './AntagsPage';
 import { JobsPage } from './JobsPage';
 // NOVA EDIT ADDITION START
 import { LanguagesPage } from './LanguagesMenu';
-import { LimbsPage } from './LimbsPage';
+import { AugmentsTab, LimbsPage } from './LimbsPage';
 // NOVA EDIT ADDITION END
 import { LoadoutPage } from './loadout';
 import { MainPage } from './MainPage';
-import { QuirksPage } from './QuirksPage';
+import { QuirkPersonalityPage } from './QuirksPage';
 import { SpeciesPage } from './SpeciesPage';
 
 enum Page {
@@ -37,34 +37,94 @@ type ProfileProps = {
 
 function CharacterProfiles(props: ProfileProps) {
   const { activeSlot, onClick, profiles } = props;
+  // NOVA EDIT ADDITION START
+  const firstEmptySlot = profiles.findIndex((profile) => !profile); // Index of the first null slot
+  type CharacterOption = { value: number; displayText: string };
+  const dropdownOptions = useMemo<CharacterOption[]>(() => {
+    const emptySlots = profiles.filter((profile) => !profile).length;
 
+    const characterOptions = profiles.reduce<CharacterOption[]>((options, profile, slot) => {
+      if (profile) {
+        options.push({ value: slot, displayText: profile });
+      }
+      return options;
+    }, []);
+
+    if (firstEmptySlot !== -1) {
+      characterOptions.push({
+        value: firstEmptySlot,
+        displayText: `New Character (${emptySlots} slots left)`,
+      });
+    }
+
+    return characterOptions;
+  }, [profiles, firstEmptySlot]);
+  // NOVA EDIT ADDITION END
+
+  /* // NOVA EDIT REMOVAL START - Nova uses a dropdown instead of buttons
   return (
-    <Flex /* NOVA EDIT CHANGE START - Nova uses a dropdown instead of buttons */
+    <Stack justify="center" wrap>
+      {profiles.map((profile, slot) => (
+        <Stack.Item key={slot} mb={1}>
+          <Button
+            selected={slot === activeSlot}
+            onClick={() => {
+              onClick(slot);
+            }}
+            fluid
+          >
+            {profile ?? 'New Character'}
+          </Button>
+        </Stack.Item>
+      ))}
+    </Stack>
+  );
+}
+  */ // NOVA EDIT REMOVAL END
+  // NOVA EDIT ADDITION START
+  return (
+    <Stack
       align="center"
       justify="center"
     >
-      <Flex.Item width="25%">
+      <Stack.Item width="25%">
         <Dropdown
           width="100%"
           selected={activeSlot as unknown as string}
           displayText={profiles[activeSlot]}
-          options={profiles.map((profile, slot) => ({
-            value: slot,
-            displayText: profile ?? 'New Character',
-          }))}
+          options={dropdownOptions}
+          searchInput
+          styledInput
           onSelected={(slot) => {
             onClick(slot);
           }}
         />
-      </Flex.Item>
-    </Flex> /* NOVA EDIT CHANGE END */
+      </Stack.Item>
+    </Stack>
   );
 }
+  // NOVA EDIT ADDITION END
 
+/* // NOVA EDIT REMOVAL START
 export function CharacterPreferenceWindow(props) {
   const { act, data } = useBackend<PreferencesMenuData>();
 
   const [currentPage, setCurrentPage] = useState(Page.Main);
+*/ // NOVA EDIT REMOVAL END
+// NOVA EDIT ADDITION START
+export function CharacterPreferenceWindow(props: {
+  onAugmentsTabChange?: (tab: import('./LimbsPage').AugmentsTab | null) => void;
+}) {
+  const { act, data } = useBackend<PreferencesMenuData>();
+  const [augmentsTab, setAugmentsTab] = useState<AugmentsTab | null>(null);
+  const [currentPage, setCurrentPageRaw] = useState(Page.Main);
+  const setCurrentPage = (page: Page) => {
+    if (page !== Page.Limbs) props.onAugmentsTabChange?.(null);
+    else props.onAugmentsTabChange?.(AugmentsTab.Markings);
+    document.querySelector('[style*="overflow"]')?.scrollTo(0, 0);
+    setCurrentPageRaw(page);
+  };
+  // NOVA EDIT ADDITION END
 
   let pageContents;
 
@@ -88,7 +148,7 @@ export function CharacterPreferenceWindow(props) {
 
       break;
     case Page.Quirks:
-      pageContents = <QuirksPage />;
+      pageContents = <QuirkPersonalityPage />;
       break;
 
     case Page.Loadout:
@@ -96,7 +156,14 @@ export function CharacterPreferenceWindow(props) {
       break;
     // NOVA EDIT ADDITION START
     case Page.Limbs:
-      pageContents = <LimbsPage />;
+      pageContents = (
+        <LimbsPage
+          onTabChange={(tab) => {
+            props.onAugmentsTabChange?.(tab);
+            setAugmentsTab(tab);
+          }}
+        />
+      );
       break;
     case Page.Languages:
       pageContents = <LanguagesPage />;
@@ -199,7 +266,7 @@ export function CharacterPreferenceWindow(props) {
               page={Page.Quirks}
               setPage={setCurrentPage}
             >
-              Quirks
+              Quirks and Personality
             </PageButton>
           </Stack.Item>
         </Stack>

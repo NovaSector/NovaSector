@@ -5,6 +5,7 @@
 	icon_state = "anthill"
 	density = TRUE
 	anchored = TRUE
+	custom_materials = list(/datum/material/sand = SHEET_MATERIAL_AMOUNT * 20)
 
 	/// If the farm is occupied by ants
 	var/has_ants = FALSE
@@ -18,7 +19,6 @@
 		/obj/item/stack/ore/glass/basalt = 20,
 		/obj/item/stack/ore/plasma = 14,
 		/obj/item/stack/ore/silver = 8,
-		/obj/item/xenoarch/strange_rock = 8,
 		/obj/item/stack/stone = 8,
 		/obj/item/stack/sheet/mineral/coal = 8,
 		/obj/item/stack/ore/titanium = 8,

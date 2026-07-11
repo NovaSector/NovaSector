@@ -1,13 +1,11 @@
+// LOADOUT ITEM DATUMS FOR THE BELT SLOT
+
 /datum/loadout_category/belt
 	category_name = "Belt"
 	category_ui_icon = FA_ICON_SCREWDRIVER_WRENCH
 	type_to_generate = /datum/loadout_item/belts
 	tab_order = /datum/loadout_category/accessories::tab_order + 1
 
-
-/*
-*	LOADOUT ITEM DATUMS FOR THE BELT SLOT
-*/
 /datum/loadout_item/belts
 	abstract_type = /datum/loadout_item/belts
 
@@ -22,61 +20,61 @@
 
 	outfit.belt = item_path
 
+/*
+*	ITEMS BELOW HERE
+*/
+
 /datum/loadout_item/belts/fanny_pack_black
-	name = "Black Fannypack"
+	name = "Fannypack (Black)"
 	item_path = /obj/item/storage/belt/fannypack/black
 
 /datum/loadout_item/belts/fanny_pack_blue
-	name = "Blue Fannypack"
+	name = "Fannypack (Blue)"
 	item_path = /obj/item/storage/belt/fannypack/blue
 
 /datum/loadout_item/belts/fanny_pack_brown
-	name = "Brown Fannypack"
+	name = "Fannypack (Brown)"
 	item_path = /obj/item/storage/belt/fannypack
 
 /datum/loadout_item/belts/fanny_pack_cyan
-	name = "Cyan Fannypack"
+	name = "Fannypack (Cyan)"
 	item_path = /obj/item/storage/belt/fannypack/cyan
 
 /datum/loadout_item/belts/fanny_pack_green
-	name = "Green Fannypack"
+	name = "Fannypack (Green)"
 	item_path = /obj/item/storage/belt/fannypack/green
 
 /datum/loadout_item/belts/fanny_pack_orange
-	name = "Orange Fannypack"
+	name = "Fannypack (Orange)"
 	item_path = /obj/item/storage/belt/fannypack/orange
 
 /datum/loadout_item/belts/fanny_pack_pink
-	name = "Pink Fannypack"
+	name = "Fannypack (Pink)"
 	item_path = /obj/item/storage/belt/fannypack/pink
 
 /datum/loadout_item/belts/fanny_pack_purple
-	name = "Purple Fannypack"
+	name = "Fannypack (Purple)"
 	item_path = /obj/item/storage/belt/fannypack/purple
 
 /datum/loadout_item/belts/fanny_pack_red
-	name = "Red Fannypack"
+	name = "Fannypack (Red)"
 	item_path = /obj/item/storage/belt/fannypack/red
 
-/datum/loadout_item/belts/fanny_pack_yellow
-	name = "Yellow Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/yellow
-
 /datum/loadout_item/belts/fanny_pack_white
-	name = "White Fannypack"
+	name = "Fannypack (White)"
 	item_path = /obj/item/storage/belt/fannypack/white
 
-/datum/loadout_item/belts/thigh_satchel
-	name = "Thigh Satchel"
-	item_path = /obj/item/storage/belt/thigh_satchel
+/datum/loadout_item/belts/fanny_pack_yellow
+	name = "Fannypack (Yellow)"
+	item_path = /obj/item/storage/belt/fannypack/yellow
 
 /datum/loadout_item/belts/lantern
 	name = "Lantern"
 	item_path = /obj/item/flashlight/lantern
 
-/datum/loadout_item/belts/candle_box
-	name = "Candle Box"
-	item_path = /obj/item/storage/fancy/candle_box
+/datum/loadout_item/belts/thigh_satchel
+	name = "Thigh Satchel"
+	item_path = /obj/item/storage/belt/thigh_satchel
 
 // HOLSTERS
 
@@ -85,32 +83,26 @@
 	item_path = /obj/item/storage/belt/holster
 
 /datum/loadout_item/belts/holster_cowboy
-	name = "Holster (Thigh)"
+	name = "Holster (Thigh, Colorable)"
 	item_path = /obj/item/storage/belt/holster/thigh
 
-// RIGS/WEBBING (for military larpers)
+// RIGS (for military larpers)
 
 /datum/loadout_item/belts/cin_surplus_chestrig
-	name = "CIN Surplus Chest Rig (Standard)"
+	name = "Belt - CIN Surplus (Colorable)"
 	item_path = /obj/item/storage/belt/military/cin_surplus
 
 /datum/loadout_item/belts/cin_surplus_chestrig_desert
-	name = "CIN Surplus Chest Rig (Desert)"
+	name = "Belt - CIN Surplus (Desert)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/desert
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/cin_surplus_chestrig_forest
-	name = "CIN Surplus Chest Rig (Forest)"
+	name = "Belt - CIN Surplus (Forest)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/forest
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 
 /datum/loadout_item/belts/cin_surplus_chestrig_marine
-	name = "CIN Surplus Chest Rig (Marine)"
+	name = "Belt - CIN Surplus (Marine)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/marine
-
-/datum/loadout_item/belts/expeditionary_chestrig_belt
-	name = "Expeditionary Chest Rig/Webbing Belt"
-	item_path = /obj/item/storage/belt/military/expeditionary_corps
-
-/datum/loadout_item/belts/frontier_chestrig
-	name = "Frontier Chest Rig"
-	item_path = /obj/item/storage/belt/utility/frontier_colonist
-
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING

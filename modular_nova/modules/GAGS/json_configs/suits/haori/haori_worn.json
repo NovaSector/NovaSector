@@ -1,0 +1,58 @@
+{
+	"haori": [
+		{
+			"type": "icon_state",
+			"icon_state": "haori",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "haori_detail",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"split_haori": [
+		{
+			"type": "icon_state",
+			"icon_state": "split_haori",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "split_haori_detail",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"transparent_haori": [
+		{
+			"type": "icon_state",
+			"icon_state": "transparent_haori",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "transparent_haori_detail",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"transparent_split_haori": [
+		{
+			"type": "icon_state",
+			"icon_state": "transparent_split_haori",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "transparent_split_haori_detail",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

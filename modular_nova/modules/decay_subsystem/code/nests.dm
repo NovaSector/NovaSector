@@ -1,5 +1,3 @@
-#define NEST_FACTION "nest spawned"
-
 /obj/structure/mob_spawner
 	name = "nest"
 	desc = "A nasty looking pile of sticks and debris."
@@ -88,7 +86,7 @@
 
 	var/mob/living/entered_mob = AM
 
-	if((NEST_FACTION in entered_mob.faction))
+	if((entered_mob.has_faction(NEST_FACTION)))
 		return
 
 	spawn_mob()
@@ -104,7 +102,7 @@
 	var/mob/living/spawned_mob = new chosen_mob_type(loc)
 
 	spawned_mob.flags_1 |= (flags_1 & ADMIN_SPAWNED_1)
-	spawned_mob.faction = faction
+	spawned_mob.set_faction(faction)
 	spawned_mob.ghost_controllable = ghost_controllable
 
 	RegisterSignal(spawned_mob, COMSIG_LIVING_DEATH, PROC_REF(mob_death))
@@ -118,7 +116,7 @@
 
 /obj/structure/mob_spawner/attacked_by(obj/item/I, mob/living/user)
 	. = ..()
-	do_jiggle()
+	do_jiggle_nova()
 	if(!retaliated)
 		visible_message(span_danger("[src] grubbles angrily!"))
 		var/chosen_mob_type = pick(monster_types)
@@ -233,5 +231,3 @@
 	playsound(src, 'sound/effects/blob/blobattack.ogg', 100)
 	new /mob/living/basic/vatbeast(loc)
 	return ..()
-
-

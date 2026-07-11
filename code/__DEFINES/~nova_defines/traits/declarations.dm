@@ -33,6 +33,10 @@
 #define TRAIT_HYDRA_HEADS "hydrahead"
 /// Trait to spawn with a pet in a pet carrier (veteran only)
 #define TRAIT_PET_OWNER "pet_owner"
+/// Trait to spawn with a lunch box!
+#define TRAIT_LUNCHBOX_OWNER "lunchbox_owner"
+/// Trait used to block telepathy types (Genetics, Xenomorph, Revenant, Slime. Ideally should be all.)
+#define TRAIT_PSIONIC_DAMPENER "psionic_dampener"
 
 //AdditionalEmotes *turf traits
 #define TRAIT_WATER_ASPECT "water_aspect"
@@ -80,6 +84,9 @@
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
 
+/// The trait that allows taurs to lay down (loaf)
+#define TRAIT_TAUR_LOAF "taur-laydown"
+
 /// The trait accompanying the "Heavyset" quirk.
 #define TRAIT_HEAVYSET "trait_heavyset"
 
@@ -100,9 +107,6 @@
 
 /// trait that lets you do flips with a style meter
 #define TRAIT_STYLISH "stylish"
-
-/// trait that lets you do xenoarch magnification
-#define TRAIT_XENOARCH_QUALIFIED "trait_xenoarch_qualified"
 
 /// Traits granted by glassblowing
 #define TRAIT_GLASSBLOWING "glassblowing"
@@ -170,5 +174,26 @@
 
 //For the hemophage quirk that allows hemophages to eat/drink normal food/drink.
 #define TRAIT_MASQUERADE_FOOD "masquerade_food"
+
+/// Trait given while using /datum/action/cooldown/mob_cooldown/abdoment_pound
+#define TRAIT_ABDOMEN_POUND "abdoment_pound"
+
+///Insanity trait for Reality Dissociation Syndrome (to make it easier to work with)
+#define TRAIT_INSANITY "insanity"
+
+/// Skillchip trait that lets the player expertly brush or cut hair faster
+#define TRAIT_HAIR_EXPERT "hair_expert"
+
+/// Trait for quirk: Illuminated
+#define TRAIT_COSGLOW "cosmetic_glow"
+
+/// Mob has a knot and can tie partners after climax.
+#define TRAIT_CAN_KNOT "can_knot"
+
+/// Mob is currently tied by a knotting interaction.
+#define TRAIT_KNOTTED "knotted"
+
+/// The trait for Holosynths
+#define TRAIT_HOLOSYNTH "holosynthetic"
 
 // END TRAIT DEFINES

@@ -1,16 +1,16 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { ReactNode, useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import { Button, ByondUi, Section, Stack } from 'tgui-core/components';
 
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
 import { Window } from '../../layouts';
-import { ExaminePanelData } from './data';
+import type { ExaminePanelData } from './data';
 
 function formatURLs(text: string) {
   if (!text) return;
   const parts: ReactNode[] = [];
-  let regex = /https?:\/\/[^\s/$.?#].[^\s]*/gi;
+  const regex = /https?:\/\/[^\s/$.?#].[^\s]*/gi;
   let lastIndex = 0;
 
   text.replace(regex, (url, index) => {
@@ -48,7 +48,7 @@ export function ExaminePanel(props) {
     custom_species,
     custom_species_lore,
     headshot,
-    veteran_status,
+    nova_star_status,
     ideal_antag_optin_status,
     current_antag_optin_status,
     opt_in_colors,
@@ -163,15 +163,15 @@ export function ExaminePanel(props) {
                         </>
                       }
                     >
-                      {!!veteran_status && (
-                        <Stack.Item mb="30px">
+                      {!!nova_star_status && (
+                        <Stack.Item mb="8px">
                           <span
                             style={{
                               color: 'gold',
                               fontWeight: 'bold',
                             }}
                           >
-                            Player is a Veteran.
+                            Nova Star! ⭐
                           </span>
                         </Stack.Item>
                       )}
@@ -215,7 +215,7 @@ export function ExaminePanel(props) {
                       preserveWhitespace
                       title={
                         custom_species
-                          ? 'Species: ' + custom_species
+                          ? `Species: ${custom_species}`
                           : 'No Custom Species!'
                       }
                     >

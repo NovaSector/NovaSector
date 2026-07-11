@@ -9,7 +9,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	base_icon_state = "coil"
 	w_class = WEIGHT_CLASS_TINY
-	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*0.75)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.25)
 
 	/// The currently connected circuit
 	var/obj/item/integrated_circuit/attached_circuit
@@ -38,7 +38,7 @@
 	if (!isnull(attached_circuit))
 		. += span_notice("It is attached to [attached_circuit.shell || attached_circuit].")
 
-/obj/item/usb_cable/pre_attack(atom/target, mob/living/user, list/modifiers)
+/obj/item/usb_cable/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if (.)
 		return

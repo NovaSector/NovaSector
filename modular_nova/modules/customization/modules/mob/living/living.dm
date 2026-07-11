@@ -1,7 +1,13 @@
-/mob/living/Topic(href, href_list)
+/mob/living/Topic(href, list/href_list)
 	. = ..()
 	if(href_list["temporary_flavor"])
 		show_temp_ftext(usr)
+		return
+	if(href_list["loadout_examine"])
+		var/obj/item/examined_atom = locate(href_list["loadout_examine"])
+		if(!istype(examined_atom) || !HAS_TRAIT_FROM(examined_atom, TRAIT_WAS_RENAMED, "Loadout"))
+			return
+		run_examinate(examined_atom)
 
 /mob/living/proc/show_temp_ftext(mob/user)
 	if(temporary_flavor_text)

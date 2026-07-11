@@ -7,6 +7,7 @@
 	icon_state = "wave_scanner"
 	worn_icon_state = "wave_scanner"
 	w_class = 3
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plasma = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = SMALL_MATERIAL_AMOUNT)
 
 	var/obj/item/xenoarch/searcher/processor
 
@@ -78,7 +79,7 @@
 	attempt_pickup(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/item/xenoarch/wave_scanner_backpack/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/xenoarch/wave_scanner_backpack/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(attacking_item == processor)
 		remove_processor()
 	else

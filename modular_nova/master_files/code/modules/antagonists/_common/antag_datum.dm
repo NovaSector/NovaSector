@@ -26,7 +26,6 @@
 		/datum/crafting_recipe/ash_recipe/ash_robes,
 		/datum/crafting_recipe/ash_recipe/ash_plates,
 		/datum/crafting_recipe/ash_recipe/ash_plates/decorated,
-		/datum/crafting_recipe/thatch_bed,
 	)
 
 /datum/antagonist/heretic
@@ -56,6 +55,9 @@
 /datum/antagonist/traitor
 	view_exploitables = TRUE
 	give_objectives = FALSE
+
+/datum/antagonist/nightmare
+	view_exploitables = TRUE
 
 /datum/antagonist/pirate
 	view_exploitables = TRUE // pirates are flexible antags, not strictly bound by their objective. i could see this working

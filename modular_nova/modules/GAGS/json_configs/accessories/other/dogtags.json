@@ -1,0 +1,33 @@
+{
+	"dogtags": [
+		{
+			"type": "icon_state",
+			"icon_state": "dogtag_frame",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dogtag_back",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dogtag_second",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dogtag_text",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dogtag_necklace",
+			"blend_mode": "overlay"
+		}
+	]
+}

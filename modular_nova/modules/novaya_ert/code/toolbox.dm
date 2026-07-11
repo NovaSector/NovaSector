@@ -9,7 +9,7 @@
 /obj/item/storage/toolbox/ammobox/full/sakhno
 	name = "ammo box (Sakhno)"
 	desc = "If the label's accurate, it probably contains stripper clips for the Sakhno precision rifle or variants."
-	ammo_to_spawn = /obj/item/ammo_box/strilka310
+	ammo_to_spawn = /obj/item/ammo_box/speedloader/strilka310
 	amount = 7
 
 /obj/item/storage/toolbox/ammobox/full/lanca

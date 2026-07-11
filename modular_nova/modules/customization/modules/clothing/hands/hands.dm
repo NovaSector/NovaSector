@@ -64,13 +64,14 @@
 	greyscale_config_worn = /datum/greyscale_config/armwraps/worn
 	greyscale_colors = "#FFFFFF"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	armor_type = /datum/armor/none
 
 /obj/item/clothing/gloves
 	worn_icon_teshari = TESHARI_HANDS_ICON
 
 /obj/item/clothing/gloves/maid_arm_covers
 	name = "maid arm covers"
-	desc = "Maid in China."
+	desc = "Maid for you."
 	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/maid_arm_covers"
 	post_init_icon_state = "maid_arm_covers"
@@ -80,3 +81,80 @@
 	greyscale_config_inhand_right = null
 	greyscale_colors = "#7b9ab5#edf9ff"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/gloves/pink_clown
+	name = "pink clown gloves"
+	desc = "A pair of gloves dyed a bright candy-pink, ending in cuffs striped in every color of the rainbow."
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon =  'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+	icon_state = "pink_clown_gloves"
+
+/obj/item/clothing/gloves/recolorable
+	name = "gloves"
+	desc = "A pair of gloves, they don't look special in any way."
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/gloves/recolorable"
+	post_init_icon_state = "gloves"
+	greyscale_config = /datum/greyscale_config/recolorable_gloves
+	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/worn
+	greyscale_colors = "#252525"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/gloves/recolorable/fingerless
+	name = "fingerless gloves"
+	desc = "A pair of gloves. These ones are fingerless."
+	icon_state = "/obj/item/clothing/gloves/recolorable/fingerless"
+	post_init_icon_state = "gloves_fingerless"
+	greyscale_config = /datum/greyscale_config/recolorable_gloves/fingerless
+	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/fingerless/worn
+	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH)
+
+/obj/item/clothing/gloves/recolorable/long
+	name = "long gloves"
+	desc = "A pair of gloves. These ones have extra long cuffs."
+	icon_state = "/obj/item/clothing/gloves/recolorable/long"
+	post_init_icon_state = "gloves_long"
+	greyscale_config = /datum/greyscale_config/recolorable_gloves/long
+	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/long/worn
+
+/obj/item/clothing/gloves/recolorable/fingerless/long
+	name = "long fingerless gloves"
+	desc = "A pair of gloves. These ones are fingerless, and have extra long cuffs."
+	icon_state = "/obj/item/clothing/gloves/recolorable/fingerless/long"
+	post_init_icon_state = "gloves_fingerless_long"
+	greyscale_config = /datum/greyscale_config/recolorable_gloves/fingerless_long
+	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/fingerless_long/worn
+
+/datum/atom_skin/nitrile_gloves_long
+	abstract_type = /datum/atom_skin/nitrile_gloves_long
+
+/datum/atom_skin/nitrile_gloves_long
+	preview_name = "Basic Variant"
+	new_icon_state = "nitrile_long"
+
+/datum/atom_skin/nitrile_gloves_long/red
+	preview_name = "Red Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	new_icon_state = "long_nitrile_red"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+
+/datum/atom_skin/nitrile_gloves_long/black
+	preview_name = "Black Variant"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	new_icon_state = "long_nitrile_black"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+
+/obj/item/clothing/gloves/latex/nitrile/long
+
+/obj/item/clothing/gloves/latex/nitrile/long/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/nitrile_gloves_long)
+
+/obj/item/clothing/gloves/latex/nitrile/long
+	name = "long nitrile gloves"
+	desc = "A pair of long nitrile gloves meant to protect the wearers forearms from fluids and splatter. For when things get truly messy."
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+	icon_state = "long_nitrile"
+
+#undef MODULAR_HANDS_ICON
+#undef MODULAR_HANDS_WORN_ICON

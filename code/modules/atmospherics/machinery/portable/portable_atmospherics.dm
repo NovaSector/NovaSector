@@ -9,6 +9,7 @@
 	anchored = FALSE
 	layer = ABOVE_OBJ_LAYER
 	interaction_flags_click = NEED_DEXTERITY
+	damage_deflection = 11
 
 	///Stores the gas mixture of the portable component. Don't access this directly, use return_air() so you support the temporary processing it provides
 	var/datum/gas_mixture/air_contents
@@ -74,8 +75,10 @@
 	return ..()
 
 /obj/machinery/portable_atmospherics/Destroy()
-	disconnect()
+	disconnect(destroyed = TRUE)
 	air_contents = null
+	if(holding)
+		unregister_holding()
 	SSair.stop_processing_machine(src)
 
 	return ..()
@@ -193,12 +196,15 @@
 /**
  * Allow the portable machine to be disconnected from the connector
  */
-/obj/machinery/portable_atmospherics/proc/disconnect()
+/obj/machinery/portable_atmospherics/proc/disconnect(destroyed = FALSE)
 	if(!connected_port)
 		return FALSE
-	set_anchored(FALSE)
 	connected_port.connected_device = null
 	connected_port = null
+	if (destroyed)
+		return TRUE
+
+	set_anchored(FALSE)
 	pixel_x = 0
 	pixel_y = 0
 
@@ -265,7 +271,7 @@
 	update_appearance()
 	return TRUE
 
-/obj/machinery/portable_atmospherics/attackby(obj/item/item, mob/user, list/modifiers)
+/obj/machinery/portable_atmospherics/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(item, /obj/item/tank))
 		return replace_tank(user, FALSE, item)
 	return ..()
@@ -299,13 +305,20 @@
 	investigate_log("was connected to [possible_port] by [key_name(user)].", INVESTIGATE_ATMOS)
 	return TRUE
 
+/obj/machinery/portable_atmospherics/atom_break(damage_flag)
+	. = ..()
+	damage_deflection = 0
+
+/obj/machinery/portable_atmospherics/atom_fix()
+	. = ..()
+	damage_deflection = initial(damage_deflection)
+
 /obj/machinery/portable_atmospherics/attacked_by(obj/item/item, mob/user)
-	if(item.force < 10 && !(machine_stat & BROKEN))
-		take_damage(0)
+	. = ..()
+	if(. <= 0)
 		return
 	investigate_log("was smacked with \a [item] by [key_name(user)].", INVESTIGATE_ATMOS)
-	add_fingerprint(user)
-	return ..()
+	add_hiddenprint(user)
 
 /// Holding tanks can get to zero integrity and be destroyed without other warnings due to pressure change.
 /// This checks for that case and removes our reference to it.

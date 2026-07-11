@@ -7,6 +7,7 @@
 	to invent their own devices. This one is a 'Wrangler' model NIF-Cutter, used for crudely wiping programs directly off a user's Framework."
 	icon = 'modular_nova/modules/modular_implants/icons/obj/devices.dmi'
 	icon_state = "nifsoft_remover"
+	custom_materials = list(/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT)
 
 	///Is a disk with the corresponding NIFSoft created when said NIFSoft is removed?
 	var/create_disk = FALSE
@@ -15,10 +16,14 @@
 	. = ..()
 	var/obj/item/organ/cyberimp/brain/nif/target_nif = target_mob.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
 
-	if(!target_nif || !length(target_nif.loaded_nifsofts))
+	if(!target_nif || !LAZYLEN(target_nif.loaded_nifsofts))
 		balloon_alert(user, "[target_mob] has no NIFSofts!")
 		return
 
+	user.visible_message(span_warning("[user] starts to scan [src] [target_mob]"), span_notice("You start to scan [src] on [target_mob]"))
+	if(!do_after(user, 5 SECONDS, target_mob))
+		balloon_alert(user, "scan cancelled!")
+		return FALSE
 	var/list/installed_nifsofts = target_nif.loaded_nifsofts
 	var/datum/nifsoft/nifsoft_to_remove = tgui_input_list(user, "Chose a NIFSoft to remove.", "[src]", installed_nifsofts)
 
@@ -54,6 +59,42 @@
 	special_desc = "In the upper echelons of the corporate world, Nanite Implant Frameworks are everywhere. Valuable targets will almost always be in constant NIF communication with at least one or two points of contact in the event of an emergency. To bypass this unfortunate conundrum, Cybersun Industries invented the 'Scalpel' NIF-Cutter. A device no larger than a PDA, this gift to the field of neurological theft is capable of extracting specific programs from a target in five seconds or less. On top of that, high-grade programming allows for the tool to copy the specific 'soft to a disk for the wielder's own use."
 	icon_state = "nifsoft_remover_syndie"
 	create_disk = TRUE
+
+/obj/item/nifsoft_remover/syndie/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isliving(interacting_with))
+		return NONE
+
+	var/mob/living/carbon/human/target_mob = interacting_with
+	var/obj/item/organ/cyberimp/brain/nif/target_nif = target_mob.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
+
+	if(!target_nif || !LAZYLEN(target_nif.loaded_nifsofts))
+		balloon_alert(user, "[target_mob] has no NIFSofts!")
+		return ITEM_INTERACT_BLOCKING
+
+	var/datum/nifsoft/nifsoft_to_remove = tgui_input_list(user, "Choose a NIFSoft to remove.", "[src]", target_nif.loaded_nifsofts)
+	if(!nifsoft_to_remove)
+		return ITEM_INTERACT_BLOCKING
+
+	user.visible_message(span_warning("[user] starts to use [src] on [target_mob]"), span_notice("You start to use [src] on [target_mob]"))
+	if(!do_after(user, 5 SECONDS, target_mob))
+		balloon_alert(user, "removal cancelled!")
+		return ITEM_INTERACT_BLOCKING
+
+	if(!target_nif.remove_nifsoft(nifsoft_to_remove))
+		balloon_alert(user, "removal failed!")
+		return ITEM_INTERACT_BLOCKING
+
+	balloon_alert(user, "removal successful")
+	user.log_message("removed [nifsoft_to_remove] from [target_mob]", LOG_GAME)
+
+	if(create_disk)
+		var/obj/item/disk/nifsoft_uploader/new_disk = new
+		new_disk.loaded_nifsoft = nifsoft_to_remove.type
+		new_disk.name = "[nifsoft_to_remove] datadisk"
+		user.put_in_hands(new_disk)
+
+	qdel(nifsoft_to_remove)
+	return ITEM_INTERACT_SUCCESS
 
 /datum/uplink_item/device_tools/nifsoft_remover
 	name = "Cybersun 'Scalpel' NIF-Cutter"
@@ -104,6 +145,7 @@
 	desc = "A kit that modifies select glasses to display HUDs for NIFs"
 	icon = 'modular_nova/master_files/icons/donator/obj/kits.dmi'
 	icon_state = "partskit"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plastic = SHEET_MATERIAL_AMOUNT)
 
 	/// Can this item be used multiple times? If not, it will delete itself after being used.
 	var/multiple_uses = FALSE
@@ -140,7 +182,7 @@
 		compatible_glasses_names += glasses_name
 
 	if(length(compatible_glasses_names))
-		. += span_cyan("\n This item will work on the following glasses: [english_list(compatible_glasses_names)].")
+		. += span_cyan_nova("\n This item will work on the following glasses: [english_list(compatible_glasses_names)].")
 
 	return .
 

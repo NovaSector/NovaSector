@@ -8,7 +8,7 @@
 /obj/item/organ/cyberimp/sensory_enhancer
 	name = "\improper Qani-Laaca sensory computer"
 	desc = "An experimental implant replacing the spine of organics. When activated, it can give a temporary boost to mental processing speed, \
-		Which many users perceive as a slowing of time and quickening of their ability to act. Due to its nature, it is incompatible with \
+		which many users perceive as a slowing of time and quickening of their ability to act. Due to its nature, it is incompatible with \
 		systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "sandy"
@@ -21,6 +21,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	aug_icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	aug_overlay = "sandy"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/organ/cyberimp/sensory_enhancer/proc/vomit_blood()
 	owner.spray_blood(owner.dir, 2)
@@ -54,15 +55,20 @@
 
 	owner.log_message("triggered their qani-laaca implant in [(injection_amount > 10) ? "overdose" : "normal"] mode", LOG_ATTACK)
 
-	human_owner.reagents.add_reagent(/datum/reagent/drug/twitch, injection_amount)
+	if(human_owner.is_neuroware_compatible())
+		human_owner.reagents.add_reagent(/datum/reagent/drug/twitch/synth, injection_amount)
+		owner.visible_message(span_danger("[owner.name] jolts suddenly as their Qani-Laaca system whirs to life, uploading a program into their computing matrix."), \
+				span_userdanger("You jolt suddenly as your Qani-Laaca system begins uploading a sensory acceleration program into your computing matrix."))
+		playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
+	else
+		human_owner.reagents.add_reagent(/datum/reagent/drug/twitch, injection_amount)
+		owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
+				span_userdanger("You jolt suddenly as your Qani-Laaca system ejects two empty glass vials rearward, shattering as they land."))
+		playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
 
-	owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
-			span_userdanger("You jolt suddenly as your Qani-Laaca system ejects two empty glass vials rearward, shattering as they land."))
-	playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
-
-	var/obj/item/telegraph_vial = new /obj/item/qani_laaca_telegraph(get_turf(owner))
-	var/turf/turf_we_throw_at = get_step(owner, REVERSE_DIR(owner.dir))
-	telegraph_vial.throw_at(turf_we_throw_at, 1, 3, gentle = FALSE, quickstart = TRUE)
+		var/obj/item/telegraph_vial = new /obj/item/qani_laaca_telegraph(get_turf(owner))
+		var/turf/turf_we_throw_at = get_step(owner, REVERSE_DIR(owner.dir))
+		telegraph_vial.throw_at(turf_we_throw_at, 1, 3, gentle = FALSE, quickstart = TRUE)
 
 /obj/item/qani_laaca_telegraph
 	name = "spent Qani-Laaca cartridge"
@@ -96,7 +102,7 @@
 	human_owner.Knockdown(6 SECONDS)
 	human_owner.Stun(4 SECONDS)
 	human_owner.do_jitter_animation(18 SECONDS)
-	human_owner.blood_volume -= 90
+	human_owner.adjust_blood_volume(-90)
 	addtimer(CALLBACK(src, PROC_REF(vomit_blood)), 3 SECONDS)
 
 // Hackerman deck, lets you emag or doorjack things (NO CYBORGS) within a short range of yourself
@@ -115,6 +121,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	aug_icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	aug_overlay = "hackerman"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2)
 
 /datum/action/cooldown/spell/pointed/hackerman_deck
 	name = "Activate Ranged Hacking"
@@ -134,10 +141,15 @@
 	var/static/list/emag_blacklist = list(
 		/obj/machinery/satellite/meteor_shield,
 		/obj/machinery/computer/communications,
+		/obj/item/circuitboard/computer/communications,
 		/obj/machinery/computer/arcade,
+		/obj/item/circuitboard/computer/arcade,
+		/obj/machinery/computer/cargo,
+		/obj/item/circuitboard/computer/cargo,
 		/obj/machinery/computer/holodeck,
 		/obj/machinery/computer/emergency_shuttle,
 		/obj/machinery/recycler,
+		/obj/item/circuitboard/machine/recycler,
 		/obj/item/organ/cyberimp/arm/toolkit/armblade,
 	)
 	/// How far away we can hack things
@@ -147,11 +159,11 @@
 	. = ..()
 
 	if(ismob(cast_on) || is_type_in_list(cast_on, emag_blacklist))
-		owner.balloon_alert(owner, "security too strong")
+		owner.balloon_alert(owner, "can't find data access point!")
 		return FALSE
 
 	if(get_dist(owner, cast_on) > hack_range)
-		owner.balloon_alert(owner, "too far away")
+		owner.balloon_alert(owner, "too far away!")
 		return FALSE
 
 	return TRUE
@@ -204,3 +216,4 @@
 
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
 #undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE
+#undef HACKING_FORENSICS_SUCCESS_MESSAGE

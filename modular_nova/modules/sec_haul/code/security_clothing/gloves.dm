@@ -1,19 +1,18 @@
-/obj/item/clothing/gloves/color/black/security/white
-	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
-	icon_state = "gloves_white"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "gloves_black",
-			RESKIN_WORN_ICON_STATE = "gloves_black"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "gloves_blue",
-			RESKIN_WORN_ICON_STATE = "gloves_blue"
-		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "gloves_white",
-			RESKIN_WORN_ICON_STATE = "gloves_white"
-		),
-	)
+/obj/item/clothing/gloves/color/black/security/depgag
+	name = "guard gloves"
+	desc = "These gloves come with microchips that help the user quickly restrain suspects."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/gloves/color/black/security"
+	post_init_icon_state = "depgag_gloves"
+	greyscale_config = /datum/greyscale_config/depgag_gloves
+	greyscale_config_worn = /datum/greyscale_config/depgag_gloves/worn
+	greyscale_colors = "#2F2E31#A52F29"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/gloves/color/black/security/depgag/blue
+	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag/blue"
+	greyscale_colors = "#2F2E31#3F6E9E"
+
+/obj/item/clothing/gloves/color/black/security/depgag/white
+	icon_state = "/obj/item/clothing/gloves/color/black/security/depgag/white"
+	greyscale_colors = "#ECECEC#2F2E31"

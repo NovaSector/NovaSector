@@ -46,7 +46,7 @@
 		/mob/living/basic/alien/drone,
 		/mob/living/basic/alien/queen,
 		/mob/living/basic/alien/sentinel,
-		/mob/living/simple_animal/hostile/illusion,
+		/mob/living/basic/illusion,
 		/mob/living/basic/mimic,
 		/mob/living/basic/goose,
 		/mob/living/basic/living_limb_flesh,

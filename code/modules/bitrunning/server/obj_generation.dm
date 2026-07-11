@@ -45,6 +45,8 @@
 	if(!isnull(prefs))
 		prefs.safe_transfer_prefs_to(avatar)
 	ADD_TRAIT(avatar, TRAIT_CANNOT_CRYSTALIZE, "Bitrunning") // Stops the funny ethereal bug
+	if(isprotean(avatar)) // Protean mechanics (TRAIT_NODEATH, suit retreat) are incompatible with bitrunning ejection
+		avatar.set_species(/datum/species/human)
 	// NOVA EDIT ADDITION END
 	var/outfit_path = generated_domain.forced_outfit || netsuit
 	var/datum/outfit/to_wear = new outfit_path()
@@ -88,7 +90,7 @@
 	// NOVA EDIT ADDITION END
 	var/obj/item/card/id/outfit_id = avatar.wear_id
 	if(outfit_id)
-		outfit_id.registered_account = new()
+		outfit_id.set_account(new /datum/bank_account)
 		outfit_id.registered_account.replaceable = FALSE
 
 		SSid_access.apply_trim_to_card(outfit_id, /datum/id_trim/bit_avatar)
@@ -138,7 +140,7 @@
 
 /// Scans over neo's contents for bitrunning tech disks. Loads the items or abilities onto the avatar.
 /obj/machinery/quantum_server/proc/stock_gear(mob/living/carbon/human/avatar, mob/living/carbon/human/neo, datum/lazy_template/virtual_domain/generated_domain)
-	var/domain_forbids_flags = generated_domain.external_load_flags
+	var/domain_forbids_flags = generated_domain.domain_flags
 
 	var/import_ban = list()
 	var/disk_ban = list()

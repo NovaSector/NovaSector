@@ -1,6 +1,7 @@
 /obj/item/organ/cyberimp/chest
 	name = "cybernetic torso implant"
 	desc = "Implants for the organs in your torso."
+	abstract_type = /obj/item/organ/cyberimp/chest
 	zone = BODY_ZONE_CHEST
 
 /obj/item/organ/cyberimp/chest/nutriment
@@ -8,18 +9,24 @@
 	desc = "This implant will synthesize and pump into your bloodstream a small amount of nutriment when you are starving."
 	icon_state = "nutriment_implant"
 	aug_overlay = "nutripump"
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
 	var/hunger_threshold = NUTRITION_LEVEL_STARVING
 	var/synthesizing = 0
 	var/poison_amount = 5
 	slot = ORGAN_SLOT_STOMACH_AID
 
-/obj/item/organ/cyberimp/chest/nutriment/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/cyberimp/chest/nutriment/on_life(seconds_per_tick)
+	. = ..()
+
 	if(synthesizing)
 		return
 
 	if(owner.nutrition <= hunger_threshold)
 		synthesizing = TRUE
-		to_chat(owner, span_notice("You feel less hungry..."))
+		var/feed_text = "You feel less hungry..."
+		if(owner.nutrition >= NUTRITION_LEVEL_FED)
+			feed_text = "You feel very full..."
+		to_chat(owner, span_notice(feed_text))
 		owner.adjust_nutrition(25 * seconds_per_tick)
 		addtimer(CALLBACK(src, PROC_REF(synth_cool)), 5 SECONDS)
 
@@ -41,6 +48,20 @@
 	aug_overlay = "nutripump_adv"
 	hunger_threshold = NUTRITION_LEVEL_HUNGRY
 	poison_amount = 10
+	custom_materials = list(/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.6, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.6, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
+
+/obj/item/organ/cyberimp/chest/nutriment/black_market
+	name = "nutriment pump implant PLUS PLUS PLUS"
+	desc = "This implant will synthesize and pump into your bloodstream a large amount of nutriment basically whenever."
+	icon_state = "bm_nutriment_implant"
+	aug_overlay = "nutripump_bm"
+	hunger_threshold = NUTRITION_LEVEL_FAT
+	poison_amount = 15
+
+/obj/item/organ/cyberimp/chest/nutriment/black_market/on_life(seconds_per_tick)
+	. = ..()
+	if(owner.nutrition >= NUTRITION_LEVEL_FAT && owner.overeatduration <= OVEREAT_TIME_LIMIT)
+		owner.overeatduration = min(owner.overeatduration + 40 SECONDS, OVEREAT_TIME_LIMIT)
 
 /obj/item/organ/cyberimp/chest/reviver
 	name = "reviver implant"
@@ -49,17 +70,20 @@
 	aug_overlay = "reviver"
 	emissive_overlay = TRUE
 	slot = ORGAN_SLOT_HEART_AID
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 3)
 	var/revive_cost = 0
 	var/reviving = FALSE
 	COOLDOWN_DECLARE(reviver_cooldown)
 	COOLDOWN_DECLARE(defib_cooldown)
 
-/obj/item/organ/cyberimp/chest/reviver/on_death(seconds_per_tick, times_fired)
+/obj/item/organ/cyberimp/chest/reviver/on_death(seconds_per_tick)
 	if(isnull(owner)) // owner can be null, on_death() gets called by /obj/item/organ/process() for decay
 		return
 	try_heal() // Allows implant to work even on dead people
 
-/obj/item/organ/cyberimp/chest/reviver/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/cyberimp/chest/reviver/on_life(seconds_per_tick)
+	. = ..()
+
 	try_heal()
 
 /obj/item/organ/cyberimp/chest/reviver/proc/try_heal()
@@ -89,19 +113,19 @@
 	/// boolean that stands for if PHYSICAL damage being patched
 	var/body_damage_patched = FALSE
 	var/need_mob_update = FALSE
-	if(owner.getOxyLoss())
-		need_mob_update += owner.adjustOxyLoss(-5, updating_health = FALSE)
+	if(owner.get_oxy_loss())
+		need_mob_update += owner.adjust_oxy_loss(-5, updating_health = FALSE)
 		revive_cost += 5
-	if(owner.getBruteLoss())
-		need_mob_update += owner.adjustBruteLoss(-2, updating_health = FALSE)
+	if(owner.get_brute_loss())
+		need_mob_update += owner.adjust_brute_loss(-2, updating_health = FALSE)
 		revive_cost += 40
 		body_damage_patched = TRUE
-	if(owner.getFireLoss())
-		need_mob_update += owner.adjustFireLoss(-2, updating_health = FALSE)
+	if(owner.get_fire_loss())
+		need_mob_update += owner.adjust_fire_loss(-2, updating_health = FALSE)
 		revive_cost += 40
 		body_damage_patched = TRUE
-	if(owner.getToxLoss())
-		need_mob_update += owner.adjustToxLoss(-1, updating_health = FALSE)
+	if(owner.get_tox_loss())
+		need_mob_update += owner.adjust_tox_loss(-1, updating_health = FALSE)
 		revive_cost += 40
 	if(need_mob_update)
 		owner.updatehealth()
@@ -167,6 +191,7 @@
 	emissive_overlay = TRUE
 	actions_types = list(/datum/action/item_action/organ_action/toggle)
 	w_class = WEIGHT_CLASS_NORMAL
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT)
 	var/on = FALSE
 
 /obj/item/organ/cyberimp/chest/thrusters/Initialize(mapload)
@@ -175,7 +200,6 @@
 		/datum/component/jetpack, \
 		FALSE, \
 		1.5 NEWTONS, \
-		1.2 NEWTONS, \
 		COMSIG_THRUSTER_ACTIVATED, \
 		COMSIG_THRUSTER_DEACTIVATED, \
 		THRUSTER_ACTIVATION_FAILED, \
@@ -279,6 +303,7 @@
 		Contains a slot which can be upgraded with a gravity anomaly core, improving its performance."
 	icon_state = "herculean_implant"
 	slot = ORGAN_SLOT_SPINE
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/titanium = SMALL_MATERIAL_AMOUNT * 3, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 3)
 	/// How much faster does the spinal implant improve our lifting speed, workout ability, reducing falling damage and improving climbing and standing speed
 	var/athletics_boost_multiplier = 0.8
 	/// How much additional throwing speed does our spinal implant grant us.
@@ -296,7 +321,7 @@
 	. = ..()
 	if(!owner || . & EMP_PROTECT_SELF)
 		return
-	to_chat(owner, span_warning("You feel sheering pain as your body is crushed like a soda can!"))
+	to_chat(owner, span_warning("You feel shearing pain as your body is crushed like a soda can!"))
 	owner.apply_damage(20/severity, BRUTE, def_zone = BODY_ZONE_CHEST)
 
 /obj/item/organ/cyberimp/chest/spine/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
@@ -334,6 +359,7 @@
 	added_throw_speed = /obj/item/organ/cyberimp/chest/spine/atlas::added_throw_speed
 	strength_bonus = /obj/item/organ/cyberimp/chest/spine/atlas::strength_bonus
 	core_applied = TRUE
+	icon_state = "herculean_implant_core"
 	update_appearance()
 	qdel(tool)
 	return ITEM_INTERACT_SUCCESS

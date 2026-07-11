@@ -9,6 +9,7 @@
 	flags_1 = ON_BORDER_1
 	/// If we randomize our icon on spawning
 	var/random_icons = TRUE
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5)
 
 /obj/structure/railing/wooden_fencing/Initialize(mapload)
 	. = ..()
@@ -20,14 +21,11 @@
 		"fence_3",
 	)
 	update_appearance()
+	AddElement(/datum/element/tool_blocker, TOOL_WIRECUTTER)
 
 /obj/structure/railing/wooden_fencing/atom_deconstruct(disassembled)
 	var/obj/plank = new /obj/item/stack/sheet/mineral/wood(drop_location(), 5)
 	transfer_fingerprints_to(plank)
-
-// formerly NO_DECONSTRUCTION
-/obj/structure/railing/wooden_fencing/wirecutter_act(mob/living/user, obj/item/tool)
-	return NONE
 
 /obj/structure/railing/wooden_fencing/crowbar_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -45,6 +43,7 @@
 	random_icons = FALSE
 	/// Has the gate been opened or not?
 	var/opened = FALSE
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5)
 
 /obj/structure/railing/wooden_fencing/gate/attack_hand(mob/user, list/modifiers)
 	. = ..()

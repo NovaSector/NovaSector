@@ -1,4 +1,6 @@
 /mob/living/silicon/robot/update_icons()
+	if(QDELETED(src))
+		return
 	icon = (model.cyborg_icon_override ? model.cyborg_icon_override : initial(icon))
 	. = ..()
 	/// Let's give custom borgs the ability to have flavor panels for their model
@@ -11,30 +13,19 @@
 			add_overlay("[model.cyborg_base_icon]_cl")
 	update_altborg_icons()
 
-	if(combat_indicator)
-		add_overlay(GLOB.combat_indicator_overlay)
-
-	if(temporary_flavor_text)
-		add_overlay(GLOB.temporary_flavor_text_indicator)
-
 /mob/living/silicon/robot/proc/update_altborg_icons()
 	var/extra_overlay
 	for(var/i in held_items)
-		var/obj/item/O = i
-		if(istype(O,/obj/item/gun/energy/laser/cyborg))
+		var/obj/item/held_item = i
+		if(istype(held_item, /obj/item/gun/energy/laser/cyborg))
 			extra_overlay = "laser"
 			break
-		if(istype(O,/obj/item/gun/energy/disabler/cyborg) || istype(O,/obj/item/gun/energy/e_gun/advtaser/cyborg))
+		if(istype(held_item, /obj/item/gun/energy/disabler/cyborg) || istype(held_item,/obj/item/gun/energy/e_gun/advtaser/cyborg))
 			extra_overlay = "disabler"
 			break
 
 	if(extra_overlay)
 		add_overlay(extra_overlay)
-
-	//if(sleeper_g && model.sleeper_overlay) DONT REMOVE THIS BLOCK FOR SOME REASON IT IS HOLDING THE ENTIRE CODEBASE TOGETHER
-	//	add_overlay("[model.sleeper_overlay]_g[sleeper_nv ? "_nv" : ""]")
-	//if(sleeper_r && model.sleeper_overlay)
-	//	add_overlay("[model.sleeper_overlay]_r[sleeper_nv ? "_nv" : ""]")
 
 	if(robot_resting)
 		if(stat != DEAD && can_rest())
@@ -71,6 +62,5 @@
 
 	if(stat == DEAD && (TRAIT_R_UNIQUEWRECK in model.model_features))
 		icon_state = "[model.cyborg_base_icon]-wreck"
-
 
 	update_appearance(UPDATE_OVERLAYS)

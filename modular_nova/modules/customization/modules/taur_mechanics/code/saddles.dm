@@ -6,7 +6,7 @@
 	icon = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
 	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
-	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
+	supports_variations_flags = BODYSHAPE_TAUR_HOOF|BODYSHAPE_TAUR_PAW
 
 /obj/item/riding_saddle/Initialize(mapload)
 	. = ..()
@@ -54,7 +54,7 @@
 	icon = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
 	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
-	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
+	supports_variations_flags = BODYSHAPE_TAUR_HOOF|BODYSHAPE_TAUR_PAW
 
 	storage_type = /datum/storage/saddlebags
 
@@ -66,10 +66,10 @@
 	max_total_storage = 26
 	max_slots = 21
 
+
 /obj/item/storage/backpack/saddlebags/Initialize(mapload)
 	. = ..()
 
 	AddComponent(/datum/component/carbon_saddle, RIDING_TAUR|RIDER_NEEDS_ARM) // one arm
 	AddComponent(/datum/component/accessable_storage)
 	AddComponent(/datum/component/taur_clothing_offset)
-

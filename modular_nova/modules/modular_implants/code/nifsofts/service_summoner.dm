@@ -1,6 +1,7 @@
-/obj/item/disk/nifsoft_uploader/summoner/service
+/obj/item/disk/nifsoft_uploader/job/summoner/service
 	name = "Grimoire Hestia"
 	loaded_nifsoft = /datum/nifsoft/summoner/job/service
+	custom_materials = list(/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = SMALL_MATERIAL_AMOUNT)
 
 /datum/nifsoft/summoner/job/service
 	name = "Grimoire Hestia"
@@ -45,7 +46,7 @@
 	force = 0
 	throwforce = 0
 	wound_bonus = 0
-	bare_wound_bonus = 0
+	exposed_wound_bonus = 0
 
 /obj/item/kitchen/rollingpin/nanite
 	desc = "Used to chastise the bartender. The handles are glorious Caeruleam folded over 1000 times, and the body exudes a cane-do attitude from the mass of two Hestian folding canes."

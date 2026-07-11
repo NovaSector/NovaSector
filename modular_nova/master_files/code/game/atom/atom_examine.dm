@@ -1,6 +1,12 @@
 /mob/living/basic/drone
 	examine_thats = "This is"
 
+/obj/item/examine_title(mob/user, thats = FALSE)
+	. = ..()
+	if(thats || !HAS_TRAIT_FROM(src, TRAIT_WAS_RENAMED, "Loadout"))
+		return
+	return "<a href='byond://?src=[REF(user)];loadout_examine=[REF(src)]'>[.]</a>"
+
 // Species examine
 /mob/living/carbon/human/examine_title(mob/user, thats = FALSE)
 	. = ..()

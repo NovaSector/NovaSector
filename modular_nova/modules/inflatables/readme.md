@@ -22,6 +22,6 @@ Adds inflatable walls to the game, which will hopefully replace atmos holofans.
 
 - N/A
 
-
 ### Credits:
+
 Gandalf2k15 - Porting & OG

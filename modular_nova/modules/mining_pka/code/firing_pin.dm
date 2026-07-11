@@ -10,7 +10,7 @@
 			/area/icemoon/underground/unexplored,
 			/area/icemoon/underground/explored,
 			/area/lavaland/surface/outdoors,
-			/area/ocean/generated,
+			/area/ocean,
 			/area/ruin,
 	)
 

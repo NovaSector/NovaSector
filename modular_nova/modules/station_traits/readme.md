@@ -1,5 +1,3 @@
-
-
 ## Title: Station Traits
 
 MODULE ID: STATION_TRAITS
@@ -17,4 +15,5 @@ Nova changes to the roundstart station traits
 - N/A
 
 ### Credits:
+
 LT3

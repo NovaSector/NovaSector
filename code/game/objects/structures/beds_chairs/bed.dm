@@ -19,6 +19,7 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 100
 	integrity_failure = 0.35
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 	/// What material this bed is made of
 	var/build_stack_type = /obj/item/stack/sheet/iron
 	/// How many mats to drop when deconstructed
@@ -37,6 +38,40 @@
 		AddElement(/datum/element/elevation, pixel_shift = elevation)
 	update_buckle_vars(dir)
 	register_context()
+
+/obj/structure/bed/buckle_feedback(mob/living/being_buckled, mob/buckler)
+	if(HAS_TRAIT(being_buckled, TRAIT_RESTRAINED))
+		return ..()
+
+	if(being_buckled == buckler)
+		being_buckled.visible_message(
+			span_notice("[buckler] lays down on [src]."),
+			span_notice("You lay down on [src]."),
+			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
+		)
+	else
+		being_buckled.visible_message(
+			span_notice("[buckler] lays [being_buckled] down on [src]."),
+			span_notice("[buckler] lays you down on [src]."),
+			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
+		)
+
+/obj/structure/bed/unbuckle_feedback(mob/living/being_unbuckled, mob/unbuckler)
+	if(HAS_TRAIT(being_unbuckled, TRAIT_RESTRAINED))
+		return ..()
+
+	if(being_unbuckled == unbuckler)
+		being_unbuckled.visible_message(
+			span_notice("[unbuckler] gets up from [src]."),
+			span_notice("You get up from [src]."),
+			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
+		)
+	else
+		being_unbuckled.visible_message(
+			span_notice("[unbuckler] pulls [being_unbuckled] up from [src]."),
+			span_notice("[unbuckler] pulls you up from [src]."),
+			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
+		)
 
 /obj/structure/bed/examine(mob/user)
 	. = ..()
@@ -93,6 +128,7 @@
 	elevation = 0
 	buckle_sound = SFX_SEATBELT_BUCKLE
 	unbuckle_sound = SFX_SEATBELT_UNBUCKLE
+	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.7, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1.7)
 	/// The item it spawns when it's folded up.
 	var/foldable_type
 
@@ -174,7 +210,7 @@
 		. += mutable_appearance(icon, "brakes_down")
 		. += emissive_appearance(icon, "brakes_down", src, alpha = src.alpha)
 
-/obj/structure/bed/medical/emergency/attackby(obj/item/item, mob/user, list/modifiers)
+/obj/structure/bed/medical/emergency/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(item, /obj/item/emergency_bed/silicon))
 		var/obj/item/emergency_bed/silicon/silicon_bed = item
 		if(silicon_bed.loaded)
@@ -219,8 +255,9 @@
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	w_class = WEIGHT_CLASS_NORMAL // No more excuses, stop getting blood everywhere
+	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.7, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1.7)
 
-/obj/item/emergency_bed/attackby(obj/item/item, mob/living/user, list/modifiers)
+/obj/item/emergency_bed/attackby(obj/item/item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(istype(item, /obj/item/emergency_bed/silicon))
 		var/obj/item/emergency_bed/silicon/silicon_bed = item
 		if(silicon_bed.loaded)
@@ -280,6 +317,7 @@
 	build_stack_type = /obj/item/stack/sheet/mineral/wood
 	build_stack_amount = 10
 	elevation = 0
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
 	var/owned = FALSE
 
 /obj/structure/bed/dogbed/ian
@@ -347,6 +385,7 @@
 	icon_state = "bed_double"
 	build_stack_amount = 4
 	max_buckled_mobs = 2
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4)
 	/// The mob who buckled to this bed second, to avoid other mobs getting pixel-shifted before he unbuckles.
 	var/mob/living/goldilocks
 

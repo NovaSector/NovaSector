@@ -97,13 +97,13 @@
 	to_chat(user, span_danger("You crack the holobadge security checks."))
 	return TRUE
 
-/obj/item/clothing/accessory/badge/holo/attackby(obj/item/object as obj, mob/user as mob)
-	if(istype(object, /obj/item/card/id))
+/obj/item/clothing/accessory/badge/holo/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/card/id))
 
 		var/obj/item/card/id/id_card = null
 
-		if(istype(object, /obj/item/card/id))
-			id_card = object
+		if(istype(attacking_item, /obj/item/card/id))
+			id_card = attacking_item
 
 		if((ACCESS_SECURITY in id_card.access) || (obj_flags & EMAGGED))
 			to_chat(user, "You imprint your ID details onto the badge.")
@@ -239,40 +239,51 @@
 
 	. += span_nicegreen(examine_text)
 
-// Pride Pin Over-ride
+// Pride Pin Over-ride (item-version)
+/datum/atom_skin/pride_pin
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	allow_all_subtypes_in_loadout = TRUE // To allow for our icon override subtype to show up in the loadout menu.
+
+/datum/atom_skin/pride_pin/nova
+	abstract_type = /datum/atom_skin/pride_pin/nova
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+
+/datum/atom_skin/pride_pin/nova/man_loving_man
+	preview_name = "Man-Loving-Man / Gay Pride"
+	new_icon_state = "pride_mlm"
+
+/datum/atom_skin/pride_pin/nova/genderfluid
+	preview_name = "Genderfluid Pride"
+	new_icon_state = "pride_genderfluid"
+
+/datum/atom_skin/pride_pin/nova/genderqueer
+	preview_name = "Genderqueer Pride"
+	new_icon_state = "pride_genderqueer"
+
+/datum/atom_skin/pride_pin/nova/aromantic
+	preview_name = "Aromantic Pride"
+	new_icon_state = "pride_aromantic"
+
 /obj/item/clothing/accessory/pride
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-	unique_reskin = list(
-		"Rainbow Pride" = "pride",
-		"Bisexual Pride" = "pride_bi",
-		"Pansexual Pride" = "pride_pan",
-		"Asexual Pride" = "pride_ace",
-		"Non-binary Pride" = "pride_enby",
-		"Transgender Pride" = "pride_trans",
-		"Intersex Pride" = "pride_intersex",
-		"Lesbian Pride" = "pride_lesbian",
-		"Man-Loving-Man / Gay Pride" = "pride_mlm",
-		"Genderfluid Pride" = "pride_genderfluid",
-		"Genderqueer Pride" = "pride_genderqueer",
-		"Aromantic Pride" = "pride_aromantic",
-	)
 	attachment_slot = NONE
 
 // Accessory for Akula species, it makes them wet and happy! :)
 /obj/item/clothing/accessory/vaporizer
 	name = "\improper Stardress hydro-vaporizer"
 	desc = "An expensive device manufactured for the civilian work-force of the Azulean military power. \
-	Relying on an internal battery, the coil mechanism synthesizes a hydrogen oxygen mixture, \
-	which can then be used to moisturize the wearer's skin. \n\n\
-	<i>A label on its back warns about the potential dangers of electro-magnetic pulses.</i> \
-	<b>ctrl-click</b> in-hand to hide the device while worn."
+		Relying on an internal battery, the coil mechanism synthesizes a hydrogen oxygen mixture, \
+		which can then be used to moisturize the wearer's skin. \n\n\
+		<i>A label on its back warns about the potential dangers of electro-magnetic pulses.</i> \n\
+		<b>ctrl-click</b> in-hand to hide the device while worn. \n\
+		Can also be worn inside of a pocket."
 	icon_state = "wetmaker"
 	base_icon_state = "wetmaker"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	obj_flags = UNIQUE_RENAME
 	attachment_slot = NONE
+	custom_materials = list(/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2.5)
 
 /obj/item/clothing/accessory/vaporizer/Initialize(mapload)
 	. = ..()
@@ -297,18 +308,42 @@
 	update_icon() // update that mf
 	return CLICK_ACTION_SUCCESS
 
+/mob/living/carbon/human/emp_act(severity) // necessary to still emp when worn as accessory
+	. = ..()
+	var/obj/item/clothing/under/worn_uniform = w_uniform
+	if(!worn_uniform)
+		return
+	var/obj/item/clothing/accessory/vaporizer/vaporizer = locate() in worn_uniform.attached_accessories
+	vaporizer?.on_emp()
+	var/obj/item/clothing/accessory/energy_shield/energy_shield = locate() in worn_uniform.attached_accessories
+	energy_shield?.emp_act(severity)
+
 /obj/item/clothing/accessory/vaporizer/emp_act(severity)
 	. = ..()
-	var/obj/item/clothing/under/attached_to = loc
-	var/mob/living/carbon/human/wearer = attached_to.loc
-	if(!istype(wearer) || !istype(attached_to))
-		return
-	var/turf/open/tile = get_turf(wearer)
+	var/turf/open/tile = get_turf(src)
+	var/list/victims = get_hearers_in_view(4, tile)
 	if(istype(tile))
 		tile.atmos_spawn_air("[GAS_WATER_VAPOR]=50;[TURF_TEMPERATURE(1000)]")
-	wearer.balloon_alert(wearer, "overloaded!")
-	wearer.visible_message("<span class='danger'>[wearer] [wearer.p_their()] [src] overloads, exploding in a cloud of hot steam!</span>")
-	wearer.set_jitter_if_lower(10 SECONDS)
-	playsound(wearer, 'sound/effects/spray.ogg', 80)
-	detach(attached_to) // safely remove wetsuit status effect
+	tile.balloon_alert_to_viewers("overloaded!")
+	tile.visible_message("<span class='danger'>[src] overloads, exploding in a cloud of hot steam!</span>")
+	playsound(tile, 'sound/effects/spray.ogg', 80)
+	for(var/mob/living/collateral in victims)
+		collateral.set_jitter_if_lower(15 SECONDS)
+		collateral.set_eye_blur_if_lower(5 SECONDS)
 	qdel(src)
+
+/obj/item/clothing/accessory/vaporizer/proc/on_emp()
+	var/obj/item/clothing/under/attached_to = loc
+	detach(attached_to) // safely remove wetsuit status effect
+	emp_act(EMP_LIGHT)
+
+/datum/design/vaporizer
+	name = "Hydro-Vaporizer"
+	id = "vaporizer"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*2.5, /datum/material/silver =SMALL_MATERIAL_AMOUNT*5)
+	build_path = /obj/item/clothing/accessory/vaporizer
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_GAS_TANKS_EQUIPMENT
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING

@@ -8,7 +8,7 @@
 	anchored = FALSE
 	density = TRUE
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN
-	icon = 'icons/obj/pipes_n_cables/atmos.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
+	icon = 'icons/obj/pipes_n_cables/atmos.dmi'
 	icon_state = "sheater-off"
 	base_icon_state = "sheater"
 	name = "space heater"
@@ -39,8 +39,8 @@
 	var/settable_temperature_median = 30 + T0C
 	///Range of temperatures above and below the median that we can set our target temperature (increase by upgrading the capacitors)
 	var/settable_temperature_range = 30
-	///Should we add an overlay for open spaceheaters
-	var/display_panel = TRUE
+	/// The icon_state of the emissive, because improvised heaters are special and don't follow along with the modes
+	var/emissive_state
 
 /datum/armor/machinery_space_heater
 	fire = 80
@@ -118,8 +118,12 @@
 
 /obj/machinery/space_heater/update_overlays()
 	. = ..()
-	if(panel_open && display_panel)
+
+	if(on)
+		. += emissive_appearance(icon, "[emissive_state ? emissive_state : base_icon_state + "-" + mode]-emissive", src, alpha = src.alpha)
+	if(panel_open)
 		. += "[base_icon_state]-open"
+		. += emissive_blocker(icon, "[base_icon_state]-open", src, alpha = src.alpha)
 
 /obj/machinery/space_heater/on_set_panel_open()
 	update_appearance()
@@ -198,36 +202,41 @@
 		cell.emp_act(severity)
 
 /obj/machinery/space_heater/wrench_act(mob/living/user, obj/item/tool)
-	. = ..()
 	default_unfasten_wrench(user, tool)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/space_heater/attackby(obj/item/I, mob/user, list/modifiers)
-	add_fingerprint(user)
+/obj/machinery/space_heater/screwdriver_act(mob/living/user, obj/item/tool)
+	. = default_deconstruction_screwdriver(user, tool)
+	user.visible_message(
+		span_notice("[user] [panel_open ? "opens" : "closes"] the hatch on [src]."),
+		span_notice("You [panel_open ? "open" : "close"] the hatch on [src]."),
+	)
+	return .
 
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
-		user.visible_message(span_notice("\The [user] [panel_open ? "opens" : "closes"] the hatch on \the [src]."), span_notice("You [panel_open ? "open" : "close"] the hatch on \the [src]."))
-		update_appearance()
-		return TRUE
+/obj/machinery/space_heater/crowbar_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_crowbar(user, tool)
 
-	if(default_deconstruction_crowbar(I))
-		return TRUE
-
-	if(istype(I, /obj/item/stock_parts/power_store/cell))
+/obj/machinery/space_heater/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stock_parts/power_store/cell))
+		add_fingerprint(user)
 		if(!panel_open)
 			to_chat(user, span_warning("The hatch must be open to insert a power cell!"))
-			return
+			return ITEM_INTERACT_BLOCKING
 		if(cell)
 			to_chat(user, span_warning("There is already a power cell inside!"))
-			return
-		if(!user.transferItemToLoc(I, src))
-			return
-		cell = I
-		I.add_fingerprint(usr)
-		user.visible_message(span_notice("\The [user] inserts a power cell into \the [src]."), span_notice("You insert the power cell into \the [src]."))
+			return ITEM_INTERACT_BLOCKING
+		if(!user.transferItemToLoc(tool, src))
+			return ITEM_INTERACT_BLOCKING
+		cell = tool
+		tool.add_fingerprint(usr)
+		user.visible_message(
+			span_notice("[user] inserts [tool] into [src]."),
+			span_notice("You insert [tool] into [src]."),
+		)
 		SStgui.update_uis(src)
-		return TRUE
-	return ..()
+		return ITEM_INTERACT_SUCCESS
+
+	return NONE
 
 /obj/machinery/space_heater/attack_hand_secondary(mob/user, list/modifiers)
 	if(!can_interact(user))
@@ -313,16 +322,14 @@
 
 ///For use with heating reagents in a ghetto way
 /obj/machinery/space_heater/improvised_chem_heater
-	icon = 'icons/obj/medical/chemical.dmi'
-	icon_state = "sheater-off"
 	name = "improvised chem heater"
 	desc = "A space heater fashioned to reroute heating to a water bath on top."
 	panel_open = TRUE //This is always open - since we've injected wires in the panel
 	//We inherit the cell from the heater prior
 	cell = null
 	interaction_flags_click = FORBID_TELEKINESIS_REACH
-	display_panel = FALSE
 	settable_temperature_range = 50
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 	///The beaker within the heater
 	var/obj/item/reagent_containers/beaker = null
 	/// How quickly it delivers heat to the reagents. In watts per joule of the thermal energy difference of the reagent from the temperature difference of the current and target temperatures.
@@ -337,6 +344,18 @@
 /obj/machinery/space_heater/improvised_chem_heater/Destroy()
 	. = ..()
 	QDEL_NULL(beaker)
+
+/obj/machinery/space_heater/improvised_chem_heater/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
+	. = ..()
+	if(!isliving(crafter))
+		return
+	var/mob/living/user = crafter
+	var/obj/item/stock_parts/power_store/cell/cell = (locate() in range(1)) || user.is_holding_item_of_type(/obj/item/stock_parts/power_store/cell)
+	if(!cell)
+		return
+	var/turf/turf = get_turf(cell)
+	forceMove(turf)
+	attackby(cell, user) //puts it into the heater
 
 /obj/machinery/space_heater/improvised_chem_heater/heating_examine()
 	. = ..()
@@ -402,36 +421,40 @@
 			. = TRUE
 
 ///Slightly modified to ignore the open_hatch - it's always open, we hacked it.
-/obj/machinery/space_heater/improvised_chem_heater/attackby(obj/item/item, mob/user, list/modifiers)
+/obj/machinery/space_heater/improvised_chem_heater/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	add_fingerprint(user)
-	if(default_deconstruction_crowbar(item))
-		return
-	if(istype(item, /obj/item/stock_parts/power_store/cell))
+	if(istype(tool, /obj/item/stock_parts/power_store/cell))
 		if(cell)
 			to_chat(user, span_warning("There is already a power cell inside!"))
-			return
-		else if(!user.transferItemToLoc(item, src))
-			return
-		cell = item
-		item.add_fingerprint(usr)
+			return ITEM_INTERACT_BLOCKING
+		if(!user.transferItemToLoc(tool, src))
+			return ITEM_INTERACT_BLOCKING
+		cell = tool
+		tool.add_fingerprint(usr)
 
 		user.visible_message(span_notice("\The [user] inserts a power cell into \the [src]."), span_notice("You insert the power cell into \the [src]."))
 		SStgui.update_uis(src)
+		return ITEM_INTERACT_SUCCESS
+
 	//reagent containers
-	if(is_reagent_container(item) && !(item.item_flags & ABSTRACT) && item.is_open_container())
-		. = TRUE //no afterattack
-		var/obj/item/reagent_containers/container = item
+	if(is_reagent_container(tool) && !(tool.item_flags & ABSTRACT) && tool.is_open_container())
+		var/obj/item/reagent_containers/container = tool
 		if(!user.transferItemToLoc(container, src))
-			return
+			return ITEM_INTERACT_BLOCKING
 		replace_beaker(user, container)
 		to_chat(user, span_notice("You add [container] to [src]'s water bath."))
 		ui_interact(user)
-		return
+		return ITEM_INTERACT_SUCCESS
+
+	if(!beaker|| !is_type_in_list(tool, list(/obj/item/reagent_containers/dropper, /obj/item/ph_meter, /obj/item/ph_paper, /obj/item/reagent_containers/syringe)))
+		return NONE
 	//Dropper tools
-	if(beaker)
-		if(is_type_in_list(item, list(/obj/item/reagent_containers/dropper, /obj/item/ph_meter, /obj/item/ph_paper, /obj/item/reagent_containers/syringe)))
-			item.interact_with_atom(beaker, user)
-		return
+	tool.interact_with_atom(beaker, user)
+	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/space_heater/crowbar_act(mob/living/user, obj/item/tool)
+	add_fingerprint(user)
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/space_heater/improvised_chem_heater/on_deconstruction(disassembled = TRUE)
 	. = ..()
@@ -467,14 +490,24 @@
 	. = ..()
 	if(!on || !beaker || !cell)
 		icon_state = "sheater-off"
+		emissive_state = null
 		return
 	if(target_temperature < beaker.reagents.chem_temp)
 		icon_state = "sheater-cool"
+		emissive_state = icon_state
 		return
 	if(target_temperature > beaker.reagents.chem_temp)
 		icon_state = "sheater-heat"
+		emissive_state = icon_state
 		return
 	icon_state = "sheater-off"
+	emissive_state = null
+
+/obj/machinery/space_heater/improvised_chem_heater/update_overlays()
+	. += ..()
+	. += "[icon_state]-beaker"
+	. += "[base_icon_state]-rigged"
+	. += emissive_blocker(icon, "[base_icon_state]-rigged", src, alpha = src.alpha)
 
 /obj/machinery/space_heater/improvised_chem_heater/RefreshParts()
 	. = ..()

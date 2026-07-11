@@ -40,7 +40,6 @@
 		/obj/item/clothing/head/pelt/wolf = 5,
 		/obj/item/clothing/head/pelt/wolf/white = 5,
 		/obj/item/clothing/head/costume/nova/papakha = 5,
-		/obj/item/clothing/head/costume/nova/papakha/white = 5,
 		/obj/item/clothing/head/hair_tie = 5,
 	)
 

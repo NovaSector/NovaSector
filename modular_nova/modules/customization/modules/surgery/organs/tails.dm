@@ -1,14 +1,17 @@
 /obj/item/organ/tail
-	mutantpart_key = "tail"
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
+	mutantpart_key = FEATURE_TAIL
 	var/can_wag = TRUE
 	var/wagging = FALSE
 
 /datum/bodypart_overlay/mutant/tail
+	layers = list(
+		EXTERNAL_FRONT = ABOVE_BODY_FRONT_HEAD_LAYER, // Changed from EXTERNAL_FRONT = BODY_FRONT_LAYER ON TG
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+	)
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/tail/get_global_feature_list()
-	return SSaccessories.sprite_accessories["tail"]
+	return SSaccessories.sprite_accessories[FEATURE_TAIL]
 
 /datum/bodypart_overlay/mutant/tail/override_color(rgb_value)
 	return draw_color
@@ -19,50 +22,42 @@
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
 	return sprite_datum.icon_state
 
-/datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	var/mob/living/carbon/human/wearer = bodypart_owner.owner
+/datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
+	var/mob/living/carbon/human/wearer = owner || bodypart_owner.owner
 	if(!istype(wearer))
 		return TRUE
-	var/list/used_in_turf = list("tail")
+	var/list/used_in_turf = list(FEATURE_TAIL)
 	// Emote exception
 	if(wearer.owned_turf?.name in used_in_turf)
 		return FALSE
 
-	if(!wearer.w_uniform && !wearer.wear_suit)
+	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
+	if(isnull(wearer.w_uniform) && isnull(worn_suit))
 		return ..()
 
 	// Can hide if wearing uniform
 	if(feature_key in wearer.try_hide_mutant_parts)
 		return FALSE
 
-	if(wearer.wear_suit)
-		// Exception for MODs
-		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
-			return TRUE
+	// Exception for MODs
+	if(istype(worn_suit))
+		return TRUE
 
-		// Hide accessory if flagged to do so
-		else if(wearer.wear_suit.flags_inv & HIDETAIL)
-			return FALSE
-
-	return TRUE
-
+	return !(bodypart_owner.owner?.obscured_slots & HIDETAIL)
 
 /obj/item/organ/tail/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_WAG_ABLE)
 		wag_flags |= WAG_ABLE
 	return ..()
 
-/obj/item/organ/tail/cat
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list("#FFAA00"))
-
 /obj/item/organ/tail/monkey
 	wag_flags = WAG_ABLE // waggable monkey tails
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Monkey", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
-
-/obj/item/organ/tail/lizard
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list("#DDFFDD"))
 
 /obj/item/organ/tail/fluffy
 	name = "fluffy tail"
 
 /obj/item/organ/tail/fluffy/no_wag
+
+/obj/item/organ/tail/cat
+
+/obj/item/organ/tail/lizard

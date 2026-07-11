@@ -1,0 +1,1 @@
+/obj/machinery/oven/stone : /obj/machinery/oven/primitive{@OLD}

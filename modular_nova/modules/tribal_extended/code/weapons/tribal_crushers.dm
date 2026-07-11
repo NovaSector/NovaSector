@@ -16,6 +16,7 @@
 	light_color = COLOR_RUNIC_GLOW
 	attack_verb_continuous = list("slashes", "stabs", "slices", "cuts", "pierces", "thrusts", "lacerates", "carves")
 	attack_verb_simple = list("slash", "stab", "slice", "cut", "pierce", "thrust", "lacerate", "carve")
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/kinetic_crusher/runic_greatsword/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
@@ -36,6 +37,7 @@
 	light_color = COLOR_RUNIC_GLOW
 	attack_verb_continuous = list("chops", "cleaves", "hacks", "slashes", "sunders", "hewes", "splits", "smashes")
 	attack_verb_simple = list("chop", "cleave", "hack", "slash", "sunder", "hew", "split", "smash")
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/kinetic_crusher/spear/runic_spear
 	name = "runic spear"
@@ -45,6 +47,7 @@
 	light_range = RUNIC_LIGHT_RANGE
 	light_power = RUNIC_LIGHT_POWER
 	light_color = COLOR_RUNIC_GLOW
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
 
 /// Procs used to add the emissive layer (the runes) to the weapons.
 /obj/item/kinetic_crusher/proc/add_runic_glow()
@@ -132,11 +135,19 @@
 
 /obj/item/hearthkin_ship_fragment_inactive
 	name = "dormant fragment of the Stjarndrakkr"
-	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes. Perhaps the natives could uncover its purpose."
+	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes, their lines worn and shallow. Tribes whisper that only by carving them anew with a chisel can its purpose be revealed."
 	icon = 'icons/obj/antags/cult/items.dmi'
 	icon_state = "cult_sharpener_used"
 	drop_sound = SFX_STONE_DROP
 	pickup_sound = SFX_STONE_PICKUP
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
+
+// Doesn't mess with the spawners and replaces it anywhere if its ever spawns outside of heartkin maps
+/obj/item/hearthkin_ship_fragment_inactive/xenoarch/Initialize(mapload)
+	. = ..()
+	if(!length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)))
+		new /obj/item/stack/sheet/mineral/runite{amount = 5}(get_turf(src))
+		return INITIALIZE_HINT_QDEL
 
 /obj/item/hearthkin_ship_fragment_active
 	name = "fragment of the Stjarndrakkr"
@@ -168,12 +179,6 @@
 	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
-
-/// Adds a rare xenoarch mat to global list "tech_reward" if the map has the prerequisit for the icecat camp to spawn
-/datum/controller/subsystem/mapping/Initialize()
-	. = ..()
-	if(length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)))
-		GLOB.tech_reward[/obj/item/hearthkin_ship_fragment_inactive] = 1
 
 ///Adds an icon for the hammer in the crafting menu.
 /datum/asset/spritesheet_batched/crafting/create_spritesheets()

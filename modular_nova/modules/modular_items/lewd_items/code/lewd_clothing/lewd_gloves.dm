@@ -9,11 +9,12 @@
 	greyscale_config = /datum/greyscale_config/ball_mittens
 	greyscale_config_worn = /datum/greyscale_config/ball_mittens/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	obj_flags_nova = ERP_ITEM
 	breakouttime = 1 SECONDS
 	resist_cooldown = CLICK_CD_SLOW
 
 /// Reinforce the breakout time on this, if that's your thing
-/obj/item/clothing/gloves/ball_mittens/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/clothing/gloves/ball_mittens/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(.)
 		return

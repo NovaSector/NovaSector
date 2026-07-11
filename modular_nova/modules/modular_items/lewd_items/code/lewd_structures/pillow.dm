@@ -13,7 +13,7 @@
 	icon_state = "pillow_pink_round"
 	base_icon_state = "pillow"
 	inhand_icon_state = "pillow_pink_round"
-	var/datum/effect_system/feathers/pillow_feathers
+	var/datum/effect_system/basic/feathers/pillow_feathers
 	var/current_color = "pink"
 	var/current_form = "round"
 	var/color_changed = FALSE
@@ -21,6 +21,7 @@
 	var/static/list/pillow_colors
 	var/static/list/pillow_forms
 	w_class = WEIGHT_CLASS_SMALL
+	obj_flags_nova = ERP_ITEM // who the hell is getting freaky for pillows bruh
 
 // Create radial menu
 /obj/item/fancy_pillow/proc/populate_pillow_colors()
@@ -75,8 +76,7 @@
 	if(!length(pillow_forms))
 		populate_pillow_forms()
 	//part of code for feathers spawn on hit
-	pillow_feathers = new
-	pillow_feathers.set_up(2, 0, src)
+	pillow_feathers = new(src, 2, FALSE)
 	pillow_feathers.attach(src)
 
 /obj/item/fancy_pillow/update_icon_state()
@@ -86,8 +86,7 @@
 
 /obj/item/fancy_pillow/Destroy()
 	if(pillow_feathers)
-		qdel(pillow_feathers)
-		pillow_feathers = null
+		QDEL_NULL(pillow_feathers)
 	return ..()
 
 //feathers effect on hit
@@ -98,7 +97,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_decals/lewd_decals.dmi'
 	duration = 14
 
-/datum/effect_system/feathers
+/datum/effect_system/basic/feathers
 	effect_type = /obj/effect/temp_visual/feathers
 
 /obj/item/fancy_pillow/attack(mob/living/carbon/human/affected_mob, mob/living/carbon/human/user)
@@ -109,7 +108,7 @@
 	if(prob(1.5)) // 1.5% chance of special tickling feather spawning. No idea why, i was thinking that this is funny idea. Do not erase it plz
 		new /obj/item/tickle_feather(loc)
 
-//and there is code for successful check, so we are hitting someone with a pillow
+	//and there is code for successful check, so we are hitting someone with a pillow
 	pillow_feathers.start()
 	switch(user.zone_selected) //to let code know what part of body we gonna hit
 
@@ -172,9 +171,14 @@
 	build_stack_type = /obj/item/stack/sheet/cloth
 
 /obj/structure/bed/pillow_tiny/Initialize(mapload)
-	.=..()
+	. = ..()
 	update_icon_state()
 	update_icon()
+
+/obj/structure/bed/pillow_tiny/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Pick up"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/bed/pillow_tiny/update_icon_state()
 	. = ..()
@@ -182,7 +186,7 @@
 
 //picking up the pillow
 
-/obj/structure/bed/pillow_tiny/click_alt(mob/user)
+/obj/structure/bed/pillow_tiny/click_ctrl_shift(mob/user)
 	to_chat(user, span_notice("You pick up [src]."))
 	var/obj/item/fancy_pillow/taken_pillow = new()
 	user.put_in_hands(taken_pillow)
@@ -192,7 +196,6 @@
 	taken_pillow.color_changed = color_changed
 	taken_pillow.form_changed = form_changed
 
-	taken_pillow.update_icon_state()
 	taken_pillow.update_icon()
 	qdel(src)
 	return CLICK_ACTION_SUCCESS
@@ -212,9 +215,9 @@
 	affected_mob.pixel_y -= 6
 
 //"Upgrading" pillow
-/obj/structure/bed/pillow_tiny/attackby(obj/item/used_item, mob/living/user, params)
-	if(istype(used_item, /obj/item/fancy_pillow))
-		var/obj/item/fancy_pillow/used_pillow = used_item
+/obj/structure/bed/pillow_tiny/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/fancy_pillow))
+		var/obj/item/fancy_pillow/used_pillow = attacking_item
 		var/obj/structure/chair/pillow_small/pillow_pile
 		if(used_pillow.current_color == current_color)
 			to_chat(user, span_notice("You add [src] to a pile."))
@@ -273,23 +276,12 @@
 	. = ..()
 	AddElement(/datum/element/elevation, pixel_shift = 4)
 
-/obj/structure/chair/pillow_small/GetArmrest()
-	if(current_color == "pink")
-		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_pink_overlay")
-	if(current_color == "teal")
-		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_teal_overlay")
-
 /obj/structure/chair/pillow_small/post_buckle_mob(mob/living/affected_mob)
 	. = ..()
 	update_icon()
 	density = TRUE
 	//Push them up from the normal sitting position
 	affected_mob.pixel_y += 2
-
-/obj/structure/chair/pillow_small/update_overlays()
-	. = ..()
-	if(has_buckled_mobs())
-		. += mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_[current_color]_overlay", layer = ABOVE_MOB_LAYER + 0.2)
 
 /obj/structure/chair/pillow_small/post_unbuckle_mob(mob/living/affected_mob)
 	. = ..()
@@ -301,8 +293,12 @@
 	. = ..()
 	icon_state = "[base_icon_state]_[current_color]"
 
+/obj/structure/chair/pillow_small/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Take a pillow"
+	return CONTEXTUAL_SCREENTIP_SET
+
 //Removing pillow from a pile
-/obj/structure/chair/pillow_small/click_alt(mob/user)
+/obj/structure/chair/pillow_small/click_ctrl_shift(mob/user)
 	to_chat(user, span_notice("You take [src] from the pile."))
 	var/obj/item/fancy_pillow/taken_pillow = new()
 	var/obj/structure/bed/pillow_tiny/pillow_pile = new(get_turf(src))
@@ -319,17 +315,15 @@
 	taken_pillow.form_changed = pillow2_form_changed
 
 	//magic
-	taken_pillow.update_icon_state()
 	taken_pillow.update_icon()
-	pillow_pile.update_icon_state()
 	pillow_pile.update_icon()
 	qdel(src)
 	return CLICK_ACTION_SUCCESS
 
 //Upgrading pillow pile to a PILLOW PILE!
-/obj/structure/chair/pillow_small/attackby(obj/item/used_item, mob/living/user, params)
-	if(istype(used_item, /obj/item/fancy_pillow))
-		var/obj/item/fancy_pillow/used_pillow = used_item
+/obj/structure/chair/pillow_small/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/fancy_pillow))
+		var/obj/item/fancy_pillow/used_pillow = attacking_item
 		var/obj/structure/bed/pillow_large/pillow_pile
 		if(used_pillow.current_color == current_color)
 			to_chat(user, span_notice("You add [src] to the pile."))
@@ -349,7 +343,6 @@
 			pillow_pile.pillow3_color_changed = used_pillow.color_changed
 			pillow_pile.pillow3_form_changed = used_pillow.form_changed
 
-			pillow_pile.update_icon_state()
 			pillow_pile.update_icon()
 			qdel(src)
 			qdel(used_pillow)
@@ -399,11 +392,10 @@
 	update_icon()
 	return ..()
 
-/obj/structure/bed/pillow_large/proc/GetArmrest()
-	if(current_color == "pink")
-		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_pink_overlay")
-	if(current_color == "teal")
-		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_teal_overlay")
+/obj/structure/bed/pillow_large/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Take a pillow"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/bed/pillow_large/Destroy()
 	QDEL_NULL(armrest)
@@ -432,7 +424,7 @@
 	icon_state = "[base_icon_state]_[current_color]"
 
 //Removing pillow from a pile
-/obj/structure/bed/pillow_large/click_alt(mob/user)
+/obj/structure/bed/pillow_large/click_ctrl_shift(mob/user)
 	to_chat(user, span_notice("You take [src] from the pile."))
 	var/obj/item/fancy_pillow/taken_pillow = new()
 	var/obj/structure/chair/pillow_small/pillow_pile = new(get_turf(src))
@@ -454,9 +446,7 @@
 	taken_pillow.form_changed = pillow3_form_changed
 
 	//magic
-	taken_pillow.update_icon_state()
 	taken_pillow.update_icon()
-	pillow_pile.update_icon_state()
 	pillow_pile.update_icon()
 	qdel(src)
 	return CLICK_ACTION_SUCCESS

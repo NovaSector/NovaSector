@@ -1,0 +1,10 @@
+/obj/item/clothing/under/rank/captain/nova/imperial/generic/pants : /obj/item/clothing/under/imperial{@OLD}
+/obj/item/clothing/under/rank/captain/nova/imperial/generic/red : /obj/item/clothing/under/imperial/red{@OLD}
+/obj/item/clothing/under/rank/captain/nova/imperial/generic : /obj/item/clothing/under/imperial{@OLD}
+/obj/item/clothing/under/rank/captain/nova/imperial/generic/grey : /obj/item/clothing/under/imperial{@OLD}
+/obj/item/clothing/under/rank/captain/nova/imperial : /obj/item/clothing/under/imperial/captain{@OLD}
+/obj/item/clothing/under/rank/engineering/chief_engineer/nova/imperial : /obj/item/clothing/under/imperial/ce{@OLD}
+/obj/item/clothing/under/rank/medical/chief_medical_officer/nova/imperial : /obj/item/clothing/under/imperial/cmo{@OLD}
+/obj/item/clothing/under/rank/security/head_of_security/nova/imperial : /obj/item/clothing/under/imperial/hos{@OLD}
+/obj/item/clothing/under/rank/rnd/research_director/nova/imperial : /obj/item/clothing/under/imperial/rd{@OLD}
+/obj/item/clothing/under/rank/civilian/head_of_personnel/nova/imperial : /obj/item/clothing/under/imperial/hop{@OLD}

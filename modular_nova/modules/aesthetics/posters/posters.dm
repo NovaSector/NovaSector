@@ -72,3 +72,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/secborg_vale, 
 	icon_state = "poster_sr_killingjoke"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 32)
+
+/obj/structure/sign/poster/official/nova_signup
+	name = "Sign Up"
+	desc = "A poster advertising Nanotrasen. Sign up today!"
+	icon = 'modular_nova/modules/aesthetics/posters/official.dmi'
+	icon_state = "nova_signup"
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_signup, 32)

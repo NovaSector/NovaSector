@@ -9,7 +9,7 @@
 /turf/open/floor/carpet/purple,
 /area/ruin/space/has_grav/powered/turretfactory)
 "aR" = (
-/obj/structure/filingcabinet/filingcabinet,
+/obj/structure/filingcabinet/white,
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/powered/turretfactory)
 "aZ" = (

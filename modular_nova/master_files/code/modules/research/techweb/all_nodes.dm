@@ -38,6 +38,7 @@
 		"synth_r_leg",
 		"synth_l_d_leg",
 		"synth_r_d_leg",
+		"synth_diy",
 	)
 
 /datum/techweb_node/android_organs
@@ -47,26 +48,16 @@
 	description = "Internal Mechanisms for Synthetics and IPC's."
 	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
 	design_ids = list(
+		"synth_posi",
 		"synth_eyes",
 		"synth_tongue",
 		"synth_liver",
 		"synth_lungs",
 		"synth_stomach",
+		"synth_charger",
 		"synth_ears",
 		"synth_heart",
 	)
-
-/datum/techweb_node/ammobench_more
-	id = TECHWEB_NODE_AMMOBENCH_MORE
-	display_name = "Ammunition Bench Authentication Protocols"
-	description = "Turns out it's really easy to flash fabrication module reauthentication firmware onto blank circuits."
-	design_ids = list(
-		"ammobench_reauth",
-	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
-	hidden = TRUE
-	experimental = TRUE
-	announce_channels = list(RADIO_CHANNEL_SECURITY, RADIO_CHANNEL_SUPPLY)
 
 // MODULAR ADDITIONS AND REMOVALS
 
@@ -74,12 +65,14 @@
 /datum/techweb_node/atmos/New()
 	design_ids += list(
 		"vox_gas_filter",
+		"vaporizer",
 	)
 	return ..()
 
 /datum/techweb_node/construction/New()
 	design_ids += list(
 		"polarizer",
+		"airbag",
 	)
 	return ..()
 
@@ -87,6 +80,16 @@
 	design_ids += list(
 		"gbp_machine",
 		"pen",
+		"d2",
+		"d4",
+		"d6",
+		"d8",
+		"d10",
+		"d00",
+		"d12",
+		"d20",
+		"d100",
+		"fudge",
 	)
 	return ..()
 
@@ -102,6 +105,15 @@
 		"anesthetic_machine",
 		"smartdartgun",
 		"cone_of_shame",
+		"defibrillator",
+		"medkit",
+	)
+	return ..()
+
+/datum/techweb_node/material_processing/New()
+	design_ids += list(
+		"spaceship_plates",
+		"spaceship_glass",
 	)
 	return ..()
 
@@ -136,6 +148,7 @@
 /datum/techweb_node/consoles/New()
 	design_ids += list(
 		"nif_service_tools",
+		"idcard_guest",
 	)
 	return ..()
 
@@ -225,6 +238,7 @@
 /datum/techweb_node/riot_supression/New()
 	design_ids += list(
 		"ammobench_gimmick",
+		"pin_standard",
 	)
 	return ..()
 
@@ -234,17 +248,12 @@
 	)
 	return ..()
 
-/datum/techweb_node/mod_security/New()
-	design_ids += list(
-		"mod_retract_plates",
-	)
-	return ..()
-
 /datum/techweb_node/exotic_ammo/New()
 	design_ids += list(
 		"c38_haywire",
 		"c38_haywire_mag",
 		"ammobench_niche",
+		"sec_dart_pen",
 	)
 	return ..()
 
@@ -300,6 +309,7 @@
 	design_ids += list(
 		"mesons_prescription",
 		"bsc_nt",
+		"lrm_board",
 	)
 	return ..()
 
@@ -324,6 +334,8 @@
 		"borg_upgrade_clamp",
 		"borg_upgrade_brush",
 		"borg_upgrade_shrink",
+		"borg_upgrade_cargo_apparatus",
+		"borg_upgrade_cargo_teleporter",
 	)
 	return ..()
 
@@ -331,11 +343,39 @@
 	design_ids += list(
 		"advanced_materials",
 		"borg_upgrade_welding",
+		"rld_cyborg",
+		"borg_upgrade_brped",
 	)
 	return ..()
 
 /datum/techweb_node/borg_medical/New()
 	design_ids += list(
 		"borg_upgrade_surgicaltools",
+		"borg_upgrade_autopsyscanner",
+		"borg_upgrade_chemistrygripper",
 	)
 	return ..()
+
+///////////////////////// Applied Bluespace /////////////////////////
+
+/datum/techweb_node/applied_bluespace/New()
+	design_ids += list(
+		"plantbag_holding",
+	)
+	return ..()
+
+// modsuit stuff
+/datum/techweb_node/mod_security/New()
+	design_ids += list(
+		"mod_plating_security",
+		"mod_tether_grounded",
+	)
+	return ..()
+
+/datum/techweb_node/mod_equip/New()
+	design_ids += list(
+		"mod_retract_plates",
+		"mod_magnetic_deploy",
+	)
+	return ..()
+

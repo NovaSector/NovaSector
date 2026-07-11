@@ -1,0 +1,22 @@
+{
+	"double_skirt_dress": [
+		{
+			"type": "icon_state",
+			"icon_state": "double_skirt_dress_obj",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "double_skirt_dress_obj_top",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "double_skirt_dress_obj_detail",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

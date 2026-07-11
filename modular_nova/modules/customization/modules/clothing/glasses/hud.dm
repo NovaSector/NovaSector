@@ -6,9 +6,12 @@
 	icon_state = "hudpatch"
 	base_icon_state = "hudpatch"
 	inhand_icon_state = null
-
-	actions_types = list(/datum/action/item_action/toggle_wearable_hud,
-	/datum/action/item_action/flip)
+	abstract_type = /obj/item/clothing/glasses/hud/eyepatch
+	actions_types = list(
+		/datum/action/item_action/toggle_wearable_hud,
+		/datum/action/item_action/flip,
+	)
+	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT * 3, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5)
 	var/flipped = FALSE
 
 /*
@@ -55,7 +58,11 @@ scarred eye.
 End of the copy-paste.
 */
 
+/obj/item/clothing/glasses/hud/security/sunglasses/eyepatch // TG item, but we have a recipe for it and they don't
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.55, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.55)
+
 /obj/item/clothing/glasses/hud/eyepatch/med
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.55, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.55)
 	name = "medical HUD eyepatch"
 	desc = "A HUD designed to interface directly with optical nerves. This one scans humanoids in view and provides accurate data about their health status."
 	icon_state = "medpatch"
@@ -63,7 +70,9 @@ End of the copy-paste.
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
 
+
 /obj/item/clothing/glasses/hud/eyepatch/meson
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.55, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.55)
 	name = "mesons HUD eyepatch"
 	desc = "A HUD designed to interface directly with optical nerves. This one displays basic structural and terrain layouts through walls, regardless of lighting conditions."
 	icon_state = "mesonpatch"
@@ -76,6 +85,7 @@ End of the copy-paste.
 	actions_types = list(/datum/action/item_action/flip)
 
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.55, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.55)
 	name = "diagnostic HUD eyepatch"
 	desc = "A HUD designed to interface directly with optical nerves. This one analyzes the integrity and status of robotics and exosuits."
 	icon_state = "robopatch"
@@ -84,6 +94,7 @@ End of the copy-paste.
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
 
 /obj/item/clothing/glasses/hud/eyepatch/sci
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.55, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.55)
 	name = "science HUD eyepatch"
 	desc = "A HUD designed to interface directly with optical nerves. This one is fitted with an analyzer for scanning items and reagents."
 	icon_state = "scipatch"

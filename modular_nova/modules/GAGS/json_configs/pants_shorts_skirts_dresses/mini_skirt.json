@@ -1,0 +1,28 @@
+{
+	"mini_skirt": [
+		{
+			"type": "icon_state",
+			"icon_state": "minibuckle",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "minibelt",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "minibase",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "minilowerhem",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	]
+}

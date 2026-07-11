@@ -10,6 +10,7 @@
 	desc = "This kit will repaint your MODsuit to something unique."
 	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	icon_state = "paintkit"
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, /datum/material/plastic = SMALL_MATERIAL_AMOUNT * 5)
 	var/obj/item/mod/control/editing_mod
 	var/atom/movable/screen/map_view/proxy_view
 	var/list/current_color
@@ -142,7 +143,7 @@
 	name = "MOD skin applier"
 	desc = "This one-use skin applier will add a skin to MODsuits of a specific type. Must be used on an inactive control unit."
 	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
-	icon_state = "skinapplier"
+	icon_state = null
 	var/skin = "civilian"
 
 /obj/item/mod/skin_applier/Initialize(mapload)

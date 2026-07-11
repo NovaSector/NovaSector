@@ -20,11 +20,13 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 /turf/proc/copyTurf(turf/copy_to_turf, copy_air = FALSE, flags = null)
 	if(copy_to_turf.type != type)
-		copy_to_turf.ChangeTurf(type, flags)
+		copy_to_turf.ChangeTurf(type, null, flags)
 	if(copy_to_turf.icon_state != icon_state)
 		copy_to_turf.icon_state = icon_state
 	if(copy_to_turf.icon != icon)
 		copy_to_turf.icon = icon
+	if(length(custom_materials))
+		copy_to_turf.set_custom_materials(custom_materials)
 	if(LAZYLEN(atom_colours))
 		copy_to_turf.atom_colours = atom_colours.Copy()
 		copy_to_turf.update_atom_colour()
@@ -163,8 +165,12 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	if(SSlighting.initialized)
 		// Space tiles should never have lighting objects
 		if(!space_lit)
+			if(old_lighting_object)
+				lighting_object = old_lighting_object
+				vis_contents += lighting_object
 			// Should have a lighting object if we never had one
-			lighting_object = old_lighting_object || new /datum/lighting_object(src)
+			else
+				new /atom/movable/lighting_object(null, src)
 		else if (old_lighting_object)
 			qdel(old_lighting_object, force = TRUE)
 
@@ -222,7 +228,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	//NOVA EDIT END
 
 	if(old_opacity != opacity && SSticker)
-		GLOB.cameranet.bareMajorChunkChange(src)
+		SScameras.bare_major_chunk_change(src)
 
 	// We will only run this logic if the tile is not on the prime z layer, since we use area overlays to cover that
 	if(SSmapping.z_level_to_plane_offset[z])
@@ -320,7 +326,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		var/list/giver_gases = mix.gases
 		for(var/giver_id in giver_gases)
 			ASSERT_GAS_IN_LIST(giver_id, total_gases)
-			total_gases[giver_id][MOLES] += giver_gases[giver_id][MOLES]
+			total.adjust_gas(giver_id, giver_gases[giver_id][MOLES])
 
 	total.temperature = energy / heat_cap
 	for(var/id in total_gases)

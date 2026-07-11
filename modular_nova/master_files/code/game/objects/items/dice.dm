@@ -7,3 +7,9 @@
 	rigged = DICE_BASICALLY_RIGGED
 	rigged_value = 20
 	special_desc = /obj/item/dice/d20/nat1::special_desc
+	
+// Empty dice bag.
+
+/obj/item/storage/dice/empty/PopulateContents()
+	return
+

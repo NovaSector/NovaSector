@@ -9,7 +9,7 @@
 	embed_data = null
 	impact_effect_type = /obj/effect/temp_visual/impact_effect
 	wound_bonus = -30
-	bare_wound_bonus = -10
+	exposed_wound_bonus = -10
 
 /obj/item/ammo_casing/kineticball
 	name = "kinetic ball casing"
@@ -28,19 +28,5 @@
 	caliber = CALIBER_KINETICBALL
 	ammo_type = /obj/item/ammo_casing/kineticball
 	max_ammo = 13
-	casing_x_positions = list(
-		-7,
-		-6,
-		-5,
-		-3,
-		-2,
-		-1,
-		0,
-		1,
-		2,
-		3,
-		5,
-		6,
-		7,
-	)
-	casing_y_padding = 6
+	casing_w_spacing = 2
+	casing_z_padding = 6

@@ -25,5 +25,6 @@
 		"Captain": {
 			"special_charter": "asteroid field"
 		}
-	}
+	},
+	"bonus_weakpoints": 2
 }

@@ -10,6 +10,7 @@
 	throwforce = 2
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 1.5
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4)
 
 /obj/item/screwdriver/makeshift
 	name = "makeshift screwdriver"
@@ -21,6 +22,7 @@
 	throwforce = 1
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 1.5
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/weldingtool/makeshift
 	name = "makeshift welder"
@@ -33,6 +35,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	max_fuel = 10
 	heat = 1800
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6.5)
 
 /obj/item/wirecutters/makeshift
 	name = "makeshift wirecutters"
@@ -44,6 +47,11 @@
 	throwforce = 2
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 1.5
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
+	greyscale_config = null
+	greyscale_config_inhand_left = null
+	greyscale_config_inhand_right = null
+	greyscale_colors = null
 
 /obj/item/wrench/makeshift
 	name = "makeshift wrench"
@@ -54,3 +62,4 @@
 	throwforce = 2
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 1.5
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.5)

@@ -1,3 +1,6 @@
+/obj/item/organ/lungs/
+	var/safe_water_level = 16
+
 /obj/item/organ/lungs/Initialize(mapload)
 	. = ..()
 	add_gas_reaction(/datum/gas/goblin, while_present = PROC_REF(consume_goblin))

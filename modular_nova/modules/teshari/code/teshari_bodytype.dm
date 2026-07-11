@@ -42,9 +42,11 @@
 			human_icon = item.worn_icon_muzzled || SNOUTED_MASK_FILE
 			selected_offset = my_head?.worn_mask_offset
 
+		//#ifdef UNIT_TESTS - TODO - Unit test supports_variations_flags
 		// Did the snout variation flag lie to us?
 		if(!icon_exists(human_icon, human_icon_state))
 			return
+		//#endif
 
 		// Use already resolved icon
 		use_custom_worn_icon_cached()
@@ -56,6 +58,7 @@
 		var/icon/new_icon = icon('icons/blanks/32x32.dmi', "nothing")
 		new_icon.Blend(icon(human_icon, human_icon_state), ICON_OVERLAY, x = selected_offset.offset_x["north"], y = selected_offset.offset_y["north"])
 		new_icon.Insert(new_icon, human_icon_state)
+		new_icon = fcopy_rsc(new_icon)
 		set_custom_worn_icon_cached(human_icon, human_icon_state, "m", new_icon)
 		return new_icon
 

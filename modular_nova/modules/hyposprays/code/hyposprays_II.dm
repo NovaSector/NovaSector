@@ -1,13 +1,13 @@
 #define HYPO_INJECT 1
 #define HYPO_SPRAY 0
 
-#define WAIT_INJECT 2 SECONDS
+#define WAIT_INJECT 1.5 SECONDS
 #define WAIT_SPRAY 1.5 SECONDS
-#define SELF_INJECT 1.5 SECONDS
-#define SELF_SPRAY 1.5 SECONDS
+#define SELF_INJECT 2 SECONDS
+#define SELF_SPRAY 2 SECONDS
 
 #define DELUXE_WAIT_INJECT 0.5 SECONDS
-#define DELUXE_WAIT_SPRAY 0
+#define DELUXE_WAIT_SPRAY 0.5 SECONDS
 #define DELUXE_SELF_INJECT 1 SECONDS
 #define DELUXE_SELF_SPRAY 1 SECONDS
 
@@ -24,6 +24,8 @@
 	greyscale_config = /datum/greyscale_config/hypospray_mkii
 	desc = "A new development from DeForest Medical, this hypospray takes 50-unit vials as the drug supply for easy swapping."
 	w_class = WEIGHT_CLASS_TINY
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SHEET_MATERIAL_AMOUNT)
+	/// Allowed types for insertion into the vial slot.  These should always be hypovial subtypes.
 	var/list/allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
 	/// The presently-inserted vial.
 	var/obj/item/reagent_containers/cup/vial/vial
@@ -39,10 +41,15 @@
 	/// Time taken to spray self
 	var/spray_self = SELF_SPRAY
 
-	/// Can you hotswap vials? - now all hyposprays can!
+	/// Can you hotswap vials?
 	var/quickload = TRUE
 	/// Does it penetrate clothing?
 	var/penetrates = null
+	/// What options for injection amount does this hypospray frame support?
+	var/list/possible_transfer_amounts = list(1,3,5,10,15)
+	/// Currently-selected maximum transfer amount.
+	var/amount_per_transfer = 1
+
 	/// Used for GAGS-ified hypos.
 	var/gags_bodystate = "hypo2_normal"
 	/// The original icon file where our overlays reside.
@@ -59,12 +66,9 @@
 	name = "hypospray Mk.II advanced"
 	icon_state = "piercinghypo2"
 	gags_bodystate = "hypo2_piercing"
-	desc = "The advanced variant in the DeForest Hypospray Mk. II series, able to pierce through thick armor and quickly inject the chemicals."
-	inject_wait = DELUXE_WAIT_INJECT
-	spray_wait = DELUXE_WAIT_SPRAY
-	spray_self = DELUXE_SELF_INJECT
-	inject_self = DELUXE_SELF_SPRAY
+	desc = "The advanced variant in the DeForest Hypospray Mk. II series, able to pierce through thick armor."
 	penetrates = INJECT_CHECK_PENETRATE_THICK
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/titanium = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/hypospray/mkii/piercing/atropine
 	start_vial = /obj/item/reagent_containers/cup/vial/small/atropine
@@ -76,6 +80,7 @@
 	// don't tinker with a loaded (medi)gun. fool
 	from_obj = /obj/item/hypospray/mkii
 	to_obj = /obj/item/hypospray/mkii/deluxe
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 8, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/device/custom_kit/deluxe_hypo2/pre_convert_check(obj/target_obj, mob/user)
 	var/obj/item/hypospray/mkii/our_hypo = target_obj
@@ -91,19 +96,20 @@
 	name = "hypospray Mk.II deluxe: CMO edition"
 	icon_state = "cmo2"
 	gags_bodystate = "hypo2_cmo"
-	desc = "The CMO's prized Hypospray Mk. II Deluxe, able to take both 100u and 50u vials, acting faster and able to deliver more reagents per spray."
+	desc = "The CMO's prized Hypospray Mk. II Deluxe, able to take both 100u and 50u vials, acting faster, piercing armor, and able to deliver more reagents per spray."
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	inject_wait = DELUXE_WAIT_INJECT
 	spray_wait = DELUXE_WAIT_SPRAY
 	spray_self = DELUXE_SELF_SPRAY
 	inject_self = DELUXE_SELF_INJECT
 	penetrates = INJECT_CHECK_PENETRATE_THICK
+	possible_transfer_amounts = list(0.1,1,3,5,10,15,20,30)
 
 /obj/item/hypospray/mkii/deluxe/cmo/combat
 	name = "hypospray Mk.II deluxe: combat edition"
 	icon_state = "combat2"
 	gags_bodystate = "hypo2_tactical"
-	desc = "A variant of the Hypospray Mk. II Deluxe, able to take both 100u and 50u vials, with overcharged applicators and an armor-piercing tip."
+	desc = "A variant of the Hypospray Mk. II Deluxe, able to take both 100u and 50u vials, with overcharged high-volume applicators and an armor-piercing tip."
 	// Made non-indestructible since this is typically an admin spawn.  still robust though!
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	inject_wait = COMBAT_WAIT_INJECT
@@ -111,6 +117,30 @@
 	spray_self = COMBAT_SELF_INJECT
 	inject_self = COMBAT_SELF_SPRAY
 	penetrates = INJECT_CHECK_PENETRATE_THICK
+
+/obj/item/hypospray/mkii/interdyne
+	name = "hypospray Mk.II-Y"
+	allowed_containers = list(/obj/item/reagent_containers/cup/vial/interdyne_medium)
+	icon_state = "interdyne2"
+	gags_bodystate = "hypo2_interdyne"
+	desc = "Interdyne's specialist hypospray model, using improved Mk. II internals and a robust body frame fit for external, high-capacity vials."
+	inject_wait = DELUXE_WAIT_INJECT
+	spray_wait = DELUXE_WAIT_SPRAY
+	spray_self = DELUXE_SELF_SPRAY
+	inject_self = DELUXE_SELF_INJECT
+	penetrates = INJECT_CHECK_PENETRATE_THICK
+
+/obj/item/hypospray/mkii/interdyne/deckoff
+	name = "hypospray Mk.II-Y advanced"
+	icon_state = "interdynedeck2"
+	gags_bodystate = "hypo2_interdynedeck"
+	desc = "An even more upgraded version of Interdyne's specialist hypospray model, using improved and overclocked Mk. II internals and a robust body frame fit for external, high-capacity vials."
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	inject_wait = COMBAT_WAIT_INJECT
+	spray_wait = COMBAT_WAIT_SPRAY
+	spray_self = COMBAT_SELF_INJECT
+	inject_self = COMBAT_SELF_SPRAY
+	possible_transfer_amounts = list(0.1,1,3,5,10,15,20,30)
 
 /obj/item/hypospray/mkii/Initialize(mapload)
 	. = ..()
@@ -149,6 +179,7 @@
 	else
 		. += "It has no vial loaded in."
 	. += span_notice("Ctrl-Shift-Click to change up the colors or reset them.")
+	. += span_notice("Left-click or right-click in-hand to increase or decrease its application amount. It is currently set to [amount_per_transfer] units.")
 
 /obj/item/hypospray/mkii/click_ctrl_shift(mob/user)
 	var/choice = tgui_input_list(user, "GAGSify the hypo or reset to default?", "Fashion", list("GAGS", "Nope"))
@@ -210,27 +241,44 @@
 
 /obj/item/hypospray/mkii/attack_self(mob/user)
 	. = ..()
-	if(vial)
-		vial.attack_self(user)
-		return TRUE
+	change_transfer_amount(user, FORWARD)
+	return TRUE
 
 /obj/item/hypospray/mkii/attack_self_secondary(mob/user)
 	. = ..()
-	if(vial)
-		vial.attack_self_secondary(user)
-		return TRUE
+	change_transfer_amount(user, BACKWARD)
+	return TRUE
+
+/obj/item/hypospray/mkii/proc/change_transfer_amount(mob/user, direction = FORWARD)
+	var/list_len = length(possible_transfer_amounts)
+	if(!list_len)
+		return
+	var/index = possible_transfer_amounts.Find(amount_per_transfer) || 1
+	switch(direction)
+		if(FORWARD)
+			index = (index % list_len) + 1
+		if(BACKWARD)
+			index = (index - 1) || list_len
+		else
+			CRASH("change_transfer_amount() called with invalid direction value")
+	amount_per_transfer = possible_transfer_amounts[index]
+	balloon_alert(user, "transferring [amount_per_transfer]u")
 
 /obj/item/hypospray/mkii/emag_act(mob/user)
 	. = ..()
 	if(obj_flags & EMAGGED)
 		to_chat(user, "[src] happens to be already overcharged.")
 		return FALSE
-	//all these are 0
-	inject_wait = COMBAT_WAIT_INJECT
-	spray_wait = COMBAT_WAIT_SPRAY
-	spray_self = COMBAT_SELF_INJECT
-	inject_self = COMBAT_SELF_SPRAY
-	penetrates = INJECT_CHECK_PENETRATE_THICK
+	if(inject_wait == DELUXE_WAIT_INJECT)
+		inject_wait = COMBAT_WAIT_INJECT
+		spray_wait = COMBAT_WAIT_SPRAY
+		spray_self = COMBAT_SELF_INJECT
+		inject_self = COMBAT_SELF_SPRAY
+	else
+		inject_wait = DELUXE_WAIT_INJECT
+		spray_wait = DELUXE_WAIT_SPRAY
+		spray_self = DELUXE_SELF_INJECT
+		inject_self = DELUXE_SELF_SPRAY
 	to_chat(user, "You overcharge [src]'s control circuit.")
 	obj_flags |= EMAGGED
 	return TRUE
@@ -279,7 +327,7 @@
 	else
 		selected_wait_time = (mode == HYPO_INJECT) ? inject_wait : spray_wait
 
-	if(!do_after(user, selected_wait_time, injectee, extra_checks = CALLBACK(injectee, /mob/living/proc/can_inject, user, user.zone_selected, penetrates)))
+	if(!do_after(user, selected_wait_time, injectee, extra_checks = CALLBACK(injectee, TYPE_PROC_REF(/mob/living, can_inject), user, user.zone_selected, penetrates)))
 		return ITEM_INTERACT_BLOCKING
 	if(!vial || !vial.reagents.total_volume)
 		return ITEM_INTERACT_BLOCKING
@@ -292,13 +340,13 @@
 
 	switch(mode)
 		if(HYPO_INJECT)
-			vial.reagents.trans_to(injectee, vial.amount_per_transfer_from_this, methods = INJECT)
+			vial.reagents.trans_to(injectee, amount_per_transfer, methods = INJECT)
 		if(HYPO_SPRAY)
-			vial.reagents.trans_to(injectee, vial.amount_per_transfer_from_this, methods = PATCH)
+			vial.reagents.trans_to(injectee, amount_per_transfer, methods = PATCH)
 
-	var/long_sound = vial.amount_per_transfer_from_this >= 15
+	var/long_sound = amount_per_transfer >= 15
 	playsound(loc, long_sound ? 'modular_nova/modules/hyposprays/sound/hypospray_long.ogg' : pick('modular_nova/modules/hyposprays/sound/hypospray.ogg','modular_nova/modules/hyposprays/sound/hypospray2.ogg'), 50, 1, -1)
-	to_chat(user, span_notice("You [fp_verb] [vial.amount_per_transfer_from_this] units of the solution. The hypospray's cartridge now contains [vial.reagents.total_volume] units."))
+	to_chat(user, span_notice("You [fp_verb] [amount_per_transfer] units of the solution. The hypospray's cartridge now contains [vial.reagents.total_volume] units."))
 	update_appearance()
 	return ITEM_INTERACT_SUCCESS
 

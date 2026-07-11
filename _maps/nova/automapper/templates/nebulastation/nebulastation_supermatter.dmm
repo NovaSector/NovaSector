@@ -12,7 +12,7 @@
 "F" = (
 /obj/machinery/atmospherics/components/unary/delam_scram/directional/east,
 /turf/template_noop,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "L" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5

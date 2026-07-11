@@ -58,7 +58,7 @@
 	. = ..()
 	AddComponent(/datum/component/armor_plate, 2, armor_mod = /datum/armor/armor_forging_upgrade)
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_OCLOTHING)
-	AddComponent(/datum/component/adjust_fishing_difficulty, 4)
+	AddElement(/datum/element/adjust_fishing_difficulty, 4)
 
 	allowed += /obj/item/forging/reagent_weapon
 	allowed += /obj/item/kinetic_crusher
@@ -104,7 +104,7 @@
 	. = ..()
 	AddComponent(/datum/component/armor_plate, 1, armor_mod = /datum/armor/armor_forging_upgrade)
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_GLOVES)
-	AddComponent(/datum/component/adjust_fishing_difficulty, 4)
+	AddElement(/datum/element/adjust_fishing_difficulty, 4)
 
 // Helmets
 /obj/item/clothing/head/helmet/forging_plate_helmet
@@ -151,7 +151,7 @@
 	. = ..()
 	AddComponent(/datum/component/armor_plate, 1, armor_mod = /datum/armor/armor_forging_upgrade)
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_FEET)
-	AddComponent(/datum/component/adjust_fishing_difficulty, 2)
+	AddElement(/datum/element/adjust_fishing_difficulty, 2)
 
 // Misc
 /obj/item/clothing/gloves/ring/reagent_clothing
@@ -166,7 +166,7 @@
 /obj/item/clothing/gloves/ring/reagent_clothing/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_GLOVES)
-	AddComponent(/datum/component/adjust_fishing_difficulty, -4)
+	AddElement(/datum/element/adjust_fishing_difficulty, -4)
 
 /obj/item/clothing/neck/collar/reagent_clothing
 	name = "collar"

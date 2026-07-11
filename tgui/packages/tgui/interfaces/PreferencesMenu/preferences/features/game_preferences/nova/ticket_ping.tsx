@@ -1,5 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { CheckboxInput, FeatureToggle } from '../../base';
+import { CheckboxInput, type FeatureToggle } from '../../base';
 
 export const ticket_ping_pref: FeatureToggle = {
   name: 'Ticket ping',

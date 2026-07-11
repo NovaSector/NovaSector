@@ -8,7 +8,7 @@ Gives the server a customised tagline and description, while removing needless i
 
 ### TG Proc Changes:
 
- - REMOVAL: Skyrat-tg\code\game\world.dm > /world/proc/update_status()
+- REMOVAL: Skyrat-tg\code\game\world.dm > /world/proc/update_status()
 
 ### Defines:
 

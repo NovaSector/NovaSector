@@ -22,12 +22,20 @@
 	flags_cover = HEADCOVERSEYES|EARS_COVERED
 	flags_inv = HIDEHAIR|HIDEFACE
 	flash_protect = FLASH_PROTECTION_WELDER_SENSITIVE
+	tint = INFINITY
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	equip_sound = 'sound/items/handling/helmet/helmet_equip1.ogg'
 	pickup_sound = 'sound/items/handling/helmet/helmet_pickup1.ogg'
 	drop_sound = 'sound/items/handling/helmet/helmet_drop1.ogg'
 	armor_type = /datum/armor/head_helmet_matrix
 	actions_types = list(/datum/action/cooldown/spell/pointed/percept_hallucination)
+	custom_materials = list(
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium = SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+	)
 
 	/// If we have a core or not
 	var/core_installed = FALSE
@@ -66,7 +74,7 @@
 	. = ..()
 	update_appearance(UPDATE_ICON_STATE)
 	update_anomaly_state()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -7) // PSYCHIC FISHING
+	AddElement(/datum/element/adjust_fishing_difficulty, -7) // PSYCHIC FISHING
 	AddComponent(/datum/component/hat_stabilizer, loose_hat = TRUE)
 
 /obj/item/clothing/head/helmet/perceptomatrix/equipped(mob/living/user, slot)
@@ -95,14 +103,18 @@
 		detach_clothing_traits(additional_clothing_traits)
 		QDEL_LIST(active_components)
 		RemoveElement(/datum/element/wearable_client_colour, /datum/client_colour/perceptomatrix, ITEM_SLOT_HEAD, HELMET_TRAIT, forced = TRUE)
+		tint = INFINITY
+		astype(loc, /mob/living/carbon)?.update_tint()
 		return
 
 	clothing_flags = PERCEPTOMATRIX_ACTIVE_FLAGS
 	attach_clothing_traits(additional_clothing_traits)
+	tint = 0
+	astype(loc, /mob/living/carbon)?.update_tint()
 
 	// When someone makes TRAIT_DEAF an element, or status effect, or whatever, give this item a way to bypass said deafness.
 	// just blocking future instances of deafness isn't what the item is meant to do but there's no proper way to do it otherwise at the moment.
-	active_components += AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_HEAD), reduce_amount = 2) // should be same as highest value
+	active_components += AddComponent(/datum/component/wearertargeting/earprotection, EAR_PROTECTION_HEAVY) // should be same as highest value
 	active_components += AddComponent(
 		/datum/component/anti_magic, \
 		antimagic_flags = MAGIC_RESISTANCE_MIND, \
@@ -164,17 +176,6 @@
 	var/stagger_duration = 3 SECONDS
 	/// The amount of hallucination to apply
 	var/hallucination_duration = 25 SECONDS
-	/// Spark system
-	var/datum/effect_system/spark_spread/quantum/spark_sys
-
-/datum/action/cooldown/spell/pointed/percept_hallucination/New(Target)
-	. = ..()
-
-	spark_sys = new /datum/effect_system/spark_spread/quantum
-
-/datum/action/cooldown/spell/pointed/percept_hallucination/Destroy()
-	QDEL_NULL(spark_sys)
-	return ..()
 
 /datum/action/cooldown/spell/pointed/percept_hallucination/is_valid_target(atom/cast_on)
 	. = ..()
@@ -198,7 +199,7 @@
 		if(!chef.mind)
 			continue
 		// if cooked by chef, or if EITHER 5% chance OR its april fools. a || (b || c)
-		if(HAS_TRAIT_FROM(pancakes, TRAIT_FOOD_CHEF_MADE, REF(chef.mind)) || (prob(5) || check_holidays(APRIL_FOOLS)))
+		if(HAS_TRAIT_FROM(pancakes, TRAIT_HANDMADE, REF(chef.mind)) || (prob(5) || check_holidays(APRIL_FOOLS)))
 			chef.say("Ma fuckin' pancakes!")
 
 	playsound(pancakes, 'sound/effects/fuse.ogg', 80)
@@ -216,11 +217,8 @@
 
 /datum/action/cooldown/spell/pointed/percept_hallucination/proc/cast_fx(atom/cast_on)
 	owner.Beam(cast_on, icon_state = "greyscale_lightning", beam_color = COLOR_FADED_PINK, time = 0.5 SECONDS)
-
-	spark_sys.set_up(2, 1, get_turf(owner))
-	spark_sys.start()
-	spark_sys.set_up(4, 1, get_turf(cast_on))
-	spark_sys.start()
+	do_sparks(2, TRUE, get_turf(owner), spark_type = /datum/effect_system/basic/spark_spread/quantum)
+	do_sparks(4, TRUE, get_turf(owner), spark_type = /datum/effect_system/basic/spark_spread/quantum)
 
 /datum/action/cooldown/spell/pointed/percept_hallucination/cast(mob/living/carbon/human/cast_on)
 	. = ..()

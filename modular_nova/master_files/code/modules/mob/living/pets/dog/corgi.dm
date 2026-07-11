@@ -32,7 +32,7 @@
 	/// Has E-N been emagged already?
 	var/emagged = FALSE
 	/// A list of the things dropped when it dies
-	var/static/list/borgi_drops = list(/obj/effect/decal/cleanable/oil/slippery)
+	var/static/list/borgi_drops = list(/obj/effect/decal/cleanable/blood/oil/slippery)
 	/// The threshold of HP before the borgi attacks non-friends
 	var/rage_hp = 30
 	/// The chance to spark (on life)
@@ -121,7 +121,7 @@
 		if(hitting_projectile.damage_type != BRUTE && hitting_projectile.damage_type != BURN)
 			return
 
-		adjustBruteLoss(hitting_projectile.damage)
+		adjust_brute_loss(hitting_projectile.damage)
 		if(!isliving(target) || health <= 0)
 			return
 
@@ -154,7 +154,7 @@
 	fired_projectile.fired_from = src
 	fired_projectile.fire()
 
-/mob/living/basic/pet/dog/corgi/borgi/Life(seconds, times_fired)
+/mob/living/basic/pet/dog/corgi/borgi/Life(seconds)
 	. = ..()
 
 	// spark for no reason
@@ -270,3 +270,25 @@
 		return
 
 	borgi_pawn.shoot_at(target)
+
+/mob/living/basic/pet/dog/corgi/robocorgo
+	name = "robocorgi"
+	real_name = "corgi"
+	desc = "They're a corgi with various mechanical modifications. The first stage in an E-N's life cycle."
+	icon_state = "robocorgi"
+	icon_living = "robocorgi"
+	icon_dead = "robocorgi_dead"
+	held_state = "corgi"
+	gold_core_spawnable = FRIENDLY_SPAWN
+	collar_icon_state = "robocorgi"
+	maxHealth = 150
+	health = 150
+	butcher_results = list(
+		/obj/item/clothing/head/costume/nova/en = 1,
+		/obj/item/clothing/suit/corgisuit/en = 1,
+	)
+	death_message = "beeps, its mechanical parts hissing before the chassis collapses in a loud thud."
+	gold_core_spawnable = NO_SPAWN
+	can_be_shaved = FALSE
+	ai_controller = /datum/ai_controller/basic_controller/dog/borgi
+

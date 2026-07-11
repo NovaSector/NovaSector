@@ -15,5 +15,5 @@
 	reward_points = BITRUNNER_REWARD_HIGH
 	secondary_loot = list(
 		/obj/item/stack/spacecash/c100 = 12,
-		/obj/item/bitrunning_disk/item/ancient_milsim = 3,
+		/obj/item/disk/bitrunning/item/ancient_milsim = 3,
 	)

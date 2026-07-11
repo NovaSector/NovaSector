@@ -13,7 +13,7 @@ Gives Medical back its Hyposprays. Oldbase stuff is good.
 - CMO's locker now contains a new object, the CMO's Hypospray Kit. Old Hypospray has been commented out.
 - Chemistry lockers now contain two boxes of Standard Hypospray Kits.
 - Medical belts can carry the Mk II Hyposprays, vials, and Hypospray Kits.
-- Adds CAT_HYPOS to ``code/_globalvars/lists/reagents.dm`` to allow vials to be printed from chem dispensers.
+- Adds CAT_HYPOS to `code/_globalvars/lists/reagents.dm` to allow vials to be printed from chem dispensers.
 - Bluespace technicans get combat hypospray kits for QOL and testing.
 
 ### Defines:

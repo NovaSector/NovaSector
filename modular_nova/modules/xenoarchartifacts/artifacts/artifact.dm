@@ -53,6 +53,11 @@
 	if(holomark_adv)
 		. += span_notice("The item depth is [target_excavation_level] cm.")
 	. += span_notice("[measured ? "This boulder has been measured. Dug Depth: [excavation_level]." : "This boulder has not been measured."]")
+	var/datum/component/gps/our_gps = GetComponent(/datum/component/gps)
+	if(our_gps)
+		. += span_notice("A holotag's been attached, projecting \"<b>[artifact_id]</b>\".")
+	else
+		. += span_notice("It looks like you could probably scan and tag it with a <b>mining scanner</b> of some kind.")
 
 /obj/structure/boulder/Initialize(mapload)
 	. = ..()
@@ -80,7 +85,7 @@
 		"Chlorine diffusion emissions",
 		"Phoron saturated field",
 	))
-	artifact_id = "[pick("kappa","sigma","antaeres","beta","omicron","iota","epsilon","omega","gamma","delta","tau","alpha","fluffy","zeta")]-[rand(0,9999)]"
+	artifact_id = "[pick("Kappa","Sigma","Antaeres","Beta","Omicron","Iota","Epsilon","Omega","Gamma","Delta","Tau","Alpha","Fluffy","Zeta")]-[rand(0,9999)]"
 
 /**
  * Spawns artifact and check for it's stabilization status.
@@ -175,9 +180,22 @@
 	try_dig(1)
 	return BRUSH_NONE
 
-/obj/structure/boulder/attackby(obj/item/attack_item, mob/user)
+/// Tag the debris, giving it a GPS identifier.
+/obj/structure/boulder/proc/gps_tag(mob/user)
+	var/datum/component/gps/our_gps = GetComponent(/datum/component/gps)
+	if(our_gps)
+		to_chat(user, span_warning("[src] already has a holotag attached!"))
+		return
+	to_chat(user, span_notice("You affix a holotag to [src]."))
+	playsound(src, 'sound/machines/beep/twobeep.ogg', 100)
+	AddComponent(/datum/component/gps, "\[[artifact_id]\] Xenoarch Debris")
+
+/obj/structure/boulder/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(istype(attack_item, /obj/item/pickaxe))
+	if(istype(attacking_item, /obj/item/mining_scanner) || istype(attacking_item, /obj/item/t_scanner/adv_mining_scanner))
+		gps_tag(user)
+		return TRUE
+	if(istype(attacking_item, /obj/item/pickaxe))
 		user.visible_message(
 			span_notice("[user] begins smashing the [src]..."),
 			span_notice("You begin smashing the [src]...."),
@@ -204,8 +222,8 @@
 					blind_message = span_hear("You hear rocks crumbling."),
 				)
 
-	if(istype(attack_item, /obj/item/xenoarch/hammer))
-		var/obj/item/xenoarch/hammer/hammer = attack_item
+	if(istype(attacking_item, /obj/item/xenoarch/hammer))
+		var/obj/item/xenoarch/hammer/hammer = attacking_item
 		user.visible_message(
 			span_notice("[user] begins carefully using their hammer..."),
 			span_notice("You begin carefully using your hammer..."),
@@ -227,8 +245,8 @@
 			if(DIG_ROCK)
 				to_chat(user, span_notice("You successfully dig around the item."))
 
-	if (istype(attack_item, /obj/item/xenoarch/handheld_scanner))
-		var/obj/item/xenoarch/handheld_scanner/scanner = attack_item
+	if (istype(attacking_item, /obj/item/xenoarch/handheld_scanner))
+		var/obj/item/xenoarch/handheld_scanner/scanner = attacking_item
 		if (holomark_adv || (holomark && !istype(scanner, /obj/item/xenoarch/handheld_scanner/advanced)))
 			to_chat(user, span_notice("The boulder was already scanned. You can even see the holomark attached to it."))
 			return
@@ -247,7 +265,7 @@
 				to_chat(user, span_notice("Thanks to the advanced scanner the holomark now also displays the exact depth needed!"))
 			return
 
-	if(istype(attack_item, /obj/item/xenoarch/tape_measure))
+	if(attacking_item.type == /obj/item/xenoarch)
 		if (measured)
 			to_chat(user, span_notice("The boulder was already measured."))
 			return
@@ -264,8 +282,8 @@
 			to_chat(user, span_notice("You successfully attach a holo measuring tape to the boulder. The boulder will now report its dug depth always!"))
 			return
 
-	if(istype(attack_item, /obj/item/xenoarch/brush))
-		var/obj/item/xenoarch/brush/brush = attack_item
+	if(istype(attacking_item, /obj/item/xenoarch/brush))
+		var/obj/item/xenoarch/brush/brush = attacking_item
 		user.visible_message(
 			span_notice("[user] carefully brushes [src]."),
 			span_notice("You begin carefully using your brush."),
@@ -288,11 +306,11 @@
 			if(BRUSH_NONE)
 				to_chat(user, span_notice("You brush around the item, but it wasn't revealed... hammer some more."))
 
-	if(istype(attack_item, /obj/item/xenoarch/handheld_recoverer))
+	if(istype(attacking_item, /obj/item/xenoarch/handheld_radar))
 		to_chat(user, span_warning("The boulder must be stabilized using a different tool."))
 
-	if(istype(attack_item, /obj/item/xenoarch/core_sampler))
-		var/obj/item/xenoarch/core_sampler/sampler = attack_item
+	if(istype(attacking_item, /obj/item/xenoarch/core_sampler))
+		var/obj/item/xenoarch/core_sampler/sampler = attacking_item
 		if(sampler.used)
 			balloon_alert(user, "sampler already used!")
 			return

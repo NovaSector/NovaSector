@@ -1,8 +1,8 @@
-import { sortBy } from 'common/collections';
+import { sortBy } from 'es-toolkit';
 import {
-  ComponentType,
+  type ComponentType,
   createElement,
-  ReactNode,
+  type ReactNode,
   useEffect,
   useState,
 } from 'react';
@@ -17,13 +17,17 @@ import {
   Stack,
   TextArea, // NOVA EDIT ADDITION
 } from 'tgui-core/components';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
-import { createSetPreference, PreferencesMenuData } from '../../types';
+import {
+  type CharacterPreferencesData,
+  createSetPreference,
+  type PreferencesMenuData,
+} from '../../types';
 import { useServerPrefs } from '../../useServerPrefs';
 
 export function sortChoices(array: [string, ReactNode][]) {
-  return sortBy(array, ([name]) => name);
+  return sortBy(array, [([name]) => name]);
 }
 
 export type Feature<
@@ -59,6 +63,7 @@ export type FeatureValueProps<
   serverData: TServerData | undefined;
   shrink?: boolean;
   value: TReceiving;
+  character_preferences: CharacterPreferencesData;
 }>;
 
 export function FeatureColorInput(props: FeatureValueProps<string>) {
@@ -239,6 +244,7 @@ export function FeatureValueInput(props: FeatureValueInputProps) {
     shrink: props.shrink,
     handleSetValue: changeValue,
     value: predictedValue,
+    character_preferences: data.character_preferences,
   });
 }
 
@@ -262,7 +268,7 @@ export function FeatureShortTextInput(
   );
 }
 // NOVA EDIT ADDITION START - NOVA FEATURES DOWN HERE
-export const FeatureTextInput = (
+export const FeatureLongTextInput = (
   props: FeatureValueProps<string, string, FeatureShortTextData>,
 ) => {
   const { serverData, handleSetValue, value } = props;
@@ -275,10 +281,9 @@ export const FeatureTextInput = (
     <TextArea
       height="100px"
       fluid
-      expensive
       value={value}
       maxLength={serverData?.maximum_length}
-      onChange={(value) => handleSetValue(value)}
+      onBlur={(value) => handleSetValue(value)}
     />
   );
 };

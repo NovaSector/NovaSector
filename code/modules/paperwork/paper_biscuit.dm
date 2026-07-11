@@ -9,6 +9,8 @@
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
 	contents_hidden = TRUE
 	paper_overlay_state = "paperbiscuit_paper"
+	folder_type_name = "biscuit"
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 0.2)
 	/// Is biscuit cracked open or not?
 	var/cracked = FALSE
 	/// The paper slip inside, if there is one
@@ -48,7 +50,7 @@
 /obj/item/folder/biscuit/proc/crack_check(mob/user)
 	if (cracked)
 		return TRUE
-	balloon_alert(user, "unopened!")
+	balloon_alert(user, "open first!")
 	return FALSE
 
 /obj/item/folder/biscuit/examine()
@@ -59,6 +61,12 @@
 		. += span_notice("You'll need to crack it open to access its contents.")
 		if(contained_slip)
 			. += "This one contains [contained_slip.name]."
+
+/obj/item/folder/biscuit/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+	if((held_item == src) && !cracked)
+		context[SCREENTIP_CONTEXT_LMB] = "Crack open"
+		return CONTEXTUAL_SCREENTIP_SET
 
 //The next few checks are done to prevent you from reaching the contents or putting anything inside when it's not cracked open
 /obj/item/folder/biscuit/remove_item(obj/item/item, mob/user)
@@ -73,10 +81,14 @@
 
 	return ..()
 
-/obj/item/folder/biscuit/attackby(obj/item/weapon, mob/user, list/modifiers)
-	if (is_type_in_typecache(weapon, folder_insertables) && !crack_check(user))
-		return
+/obj/item/folder/biscuit/insertables_act(mob/living/user, obj/item/tool)
+	if(!crack_check(user))
+		return ITEM_INTERACT_BLOCKING
+	return ..()
 
+/obj/item/folder/biscuit/interact_with_insertables(atom/interacting_with, mob/living/user)
+	if(!crack_check(user))
+		return ITEM_INTERACT_BLOCKING
 	return ..()
 
 /obj/item/folder/biscuit/attack_self(mob/user)
@@ -99,6 +111,7 @@
 		On the back, <b>DO NOT DIGEST</b> is printed in large lettering."
 	icon_state = "paperbiscuit_secret"
 	bg_color = "#355e9f"
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 0.3)
 
 /obj/item/folder/biscuit/confidential/spare_id_safe_code
 	name = "spare ID safe code biscuit card"
@@ -125,11 +138,19 @@
 	if(!has_been_sealed)
 		. += span_notice("This one could be sealed <b>in hand</b>. Once sealed, the contents are inaccessible until cracked open again - but once opened this is irreversible.")
 
+/obj/item/folder/biscuit/unsealed/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+	if((held_item == src) && !has_been_sealed)
+		context[SCREENTIP_CONTEXT_LMB] = "Seal"
+		return CONTEXTUAL_SCREENTIP_SET
+
 //Asks if you want to seal the biscuit, after you do that it behaves like a normal paper biscuit.
 /obj/item/folder/biscuit/unsealed/attack_self(mob/user)
 	add_fingerprint(user)
 	if(!cracked)
 		return ..()
+	if(has_been_sealed)
+		return
 	if(tgui_alert(user, "Do you want to seal it? This can only be done once.", "Biscuit Sealing", list("Yes", "No")) != "Yes")
 		return
 	cracked = FALSE
@@ -145,3 +166,4 @@
 	icon_state = "paperbiscuit_secret_cracked"
 	bg_color = "#355e9f"
 	sealed_icon = "paperbiscuit_secret"
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 0.3)

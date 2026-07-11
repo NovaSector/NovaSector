@@ -15,8 +15,11 @@ Potential future ideas:
 
 /*
 // AWARDABLE MEDALS
-// These can be pinned onto others to 'award' them, appearing in the round-end screen
+// These can be pinned onto others on the under clothes slot to 'award' them, appearing in the round-end screen
 */
+/obj/item/clothing/accessory/medal
+	attachment_slot = NONE // lifts slot restriction for medal attachment
+
 /obj/item/clothing/accessory/medal/nova
 	name = "medal of robustness"
 	desc = "A medal dedicated to those who display robustness in many fields."
@@ -27,7 +30,6 @@ Potential future ideas:
 	greyscale_config_worn = /datum/greyscale_config/medals/syndicate/worn
 	greyscale_colors = "#ffff66#990000#ffff66#990000#ffffff"
 	minimize_when_attached = TRUE
-	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 // DS-2/Syndicate Medals
@@ -197,25 +199,73 @@ Potential future ideas:
 /*
 // Special Medals
 */
-/obj/item/clothing/accessory/nova/acc_medal/glowbar
-	name = "glowbar necklace"
-	desc = "A glowing rock strung from a necklace, a token of gratitude similar to a medal."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowbar"
-	post_init_icon_state = "bar"
-	greyscale_config = /datum/greyscale_config/medals/glow
-	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
-	greyscale_colors = "#ff99ff"
+
+/datum/atom_skin/glow_crystal_necklace
+	abstract_type = /datum/atom_skin/glow_crystal_necklace
+	greyscale_item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
+
+/datum/atom_skin/glow_crystal_necklace/necklace_crystal
+	preview_name = "Crystal"
+	new_icon_state = "necklace_crystal"
+
+/datum/atom_skin/glow_crystal_necklace/necklace_bar
+	preview_name = "Bar"
+	new_icon_state = "necklace_bar"
+
+/datum/atom_skin/glow_crystal_necklace/necklace_bar_hollow
+	preview_name = "Hollow Bar"
+	new_icon_state = "necklace_bar_hollow"
+
+/datum/atom_skin/glow_crystal_necklace/necklace_diamond
+	preview_name = "Diamond"
+	new_icon_state = "necklace_diamond"
+
+/datum/atom_skin/glow_crystal_necklace/necklace_diamond_hollow
+	preview_name = "Hollow Diamond"
+	new_icon_state = "necklace_diamond_hollow"
+
+/datum/atom_skin/glow_crystal_necklace/necklace_shard
+	preview_name = "Shard"
+	new_icon_state = "necklace_shard"
+
+/datum/atom_skin/glow_crystal_necklace/necklace_shard_hollow
+	preview_name = "Hollow Shard"
+	new_icon_state = "necklace_shard_hollow"
+
+/datum/atom_skin/glow_crystal_necklace/necklace_triangle
+	preview_name = "Triangle"
+	new_icon_state = "necklace_triangle"
+
+/datum/atom_skin/glow_crystal_necklace/necklace_triangle_hollow
+	preview_name = "Hollow Triangle"
+	new_icon_state = "necklace_triangle_hollow"
+
+/datum/atom_skin/glow_crystal_necklace/necklace_circle
+	preview_name = "Circle"
+	new_icon_state = "necklace_circle"
 
 /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
 	name = "glowcrystal necklace"
 	desc = "A glowing rock strung from a necklace, a token of gratitude similar to a medal."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowcrystal"
-	post_init_icon_state = "crystal"
+	post_init_icon_state = "necklace_crystal"
 	greyscale_config = /datum/greyscale_config/medals/glow
 	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
-	greyscale_colors = "#ff99ff"
+	greyscale_colors = "#7effff"
+
+/obj/item/clothing/accessory/nova/acc_medal/glowcrystal/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/glow_crystal_necklace)
+
+/obj/item/clothing/accessory/nova/acc_medal/dogtags
+	name = "dogtags"
+	desc = "A pair of standard issue dogtags. Rather outdated concept, but still do their job."
+	icon = 'icons/map_icons/clothing/accessory.dmi'
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/dogtags"
+	post_init_icon_state = "dogtags"
+	greyscale_config = /datum/greyscale_config/dogtags
+	greyscale_config_worn = /datum/greyscale_config/dogtags/worn
+	greyscale_colors = "#FCFCFD#CCCED1#8A8B9D#68697D"
 
 /*
 // Rank pins
@@ -304,6 +354,9 @@ Potential future ideas:
 	greyscale_config = /datum/greyscale_config/medals/military_ribbon
 	greyscale_config_worn = /datum/greyscale_config/medals/military_ribbon/worn
 	greyscale_colors = "#ff0000#04ff00#0008ff"
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/accessory/nova/military_ribbon/two
 	icon_state = "/obj/item/clothing/accessory/nova/military_ribbon/two"

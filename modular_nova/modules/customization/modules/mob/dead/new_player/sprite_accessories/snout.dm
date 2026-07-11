@@ -1,24 +1,23 @@
 /datum/sprite_accessory/snouts
-	key = "snout"
-	generic = "Snout"
+	key = FEATURE_SNOUT
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi'
 	flags_for_organ = SPRITE_ACCESSORY_USE_MUZZLED_SPRITE
 	organ_type = /obj/item/organ/snout
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD)
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_LIZARD = 1,
+		SPECIES_UNATHI = 1,
+		SPECIES_LIZARD_ASH = 1,
+		SPECIES_LIZARD_SILVER = 1,
+		SPECIES_KOBOLD = 1,
+	)
 
 /datum/sprite_accessory/snouts/is_hidden(mob/living/carbon/human/human)
-	if((human.wear_mask?.flags_inv & HIDESNOUT) || (human.head?.flags_inv & HIDESNOUT))
-		return TRUE
-
-	return FALSE
+	return !!(human.obscured_slots & HIDESNOUT)
 
 /obj/item/organ/snout
-	mutantpart_key = "snout"
-	mutantpart_info = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
+	mutantpart_key = FEATURE_SNOUT
 	external_bodyshapes = NONE // We don't actually want this to have  by default, since some of them don't apply that.
-	preference = "feature_snout"
 
 /datum/bodypart_overlay/mutant/snout
 	color_source = ORGAN_COLOR_OVERRIDE
@@ -26,12 +25,13 @@
 /datum/bodypart_overlay/mutant/snout/override_color(rgb_value)
 	return draw_color
 
-/datum/bodypart_overlay/mutant/snout/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	var/mob/living/carbon/human/human = bodypart_owner.owner
+/datum/bodypart_overlay/mutant/snout/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
+	if(!..())
+		return FALSE
+	var/mob/living/carbon/human/human = owner || bodypart_owner.owner
 	if(!istype(human))
 		return TRUE
 	return !sprite_datum.is_hidden(human)
-
 
 /obj/item/organ/snout/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_USE_MUZZLED_SPRITE)
@@ -44,15 +44,22 @@
 /obj/item/organ/snout/top
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout/top
 
-/datum/bodypart_overlay/mutant/snout/top
-	layers = EXTERNAL_FRONT
+/datum/bodypart_overlay/mutant/snout/get_global_feature_list()
+	return SSaccessories.sprite_accessories[FEATURE_SNOUT]
 
+/datum/bodypart_overlay/mutant/snout/top
+	layers = list(
+		EXTERNAL_FRONT = BODY_FRONT_LAYER,
+	)
 
 /obj/item/organ/snout/top_adj
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout/top_adj
 
 /datum/bodypart_overlay/mutant/snout/top_adj
-	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
+	layers = list(
+		EXTERNAL_FRONT = BODY_FRONT_LAYER,
+		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
+	)
 
 
 /datum/sprite_accessory/snouts/none
@@ -60,20 +67,37 @@
 	icon_state = "none"
 	flags_for_organ = NONE
 	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/snouts/mammal
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	color_src = USE_MATRIXED_COLORS
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMANOID)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_HUMANOID = 1,
+	)
 
 /datum/sprite_accessory/snouts/mammal/vulpkanin
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_VULP, SPECIES_HUMANOID)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_VULP = 1,
+		SPECIES_HUMANOID = 1,
+	)
 
 /datum/sprite_accessory/snouts/mammal/tajaran
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_TAJARAN, SPECIES_HUMANOID)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_TAJARAN = 1,
+		SPECIES_HUMANOID = 1,
+	)
 
 /datum/sprite_accessory/snouts/mammal/akula
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_AKULA, SPECIES_AQUATIC, SPECIES_HUMANOID)
+	recommended_species = list(
+		SPECIES_MAMMAL = 1,
+		SPECIES_AKULA = 1,
+		SPECIES_AQUATIC = 1,
+		SPECIES_HUMANOID = 1,
+	)
 
 /datum/sprite_accessory/snouts/mammal/bird
 	name = "Beak"
@@ -296,6 +320,10 @@
 	name = "Canine (Alt)"
 	icon_state = "caninealt"
 
+/datum/sprite_accessory/snouts/mammal/vulptwoshade
+	name = "Vulp Twoshade"
+	icon_state = "vulptwoshade"
+
 /******************************************
 **************** Snouts *******************
 *************but higher up*****************/
@@ -303,7 +331,6 @@
 /datum/sprite_accessory/snouts/mammal/top
 	flags_for_organ = SPRITE_ACCESSORY_USE_MUZZLED_SPRITE | SPRITE_ACCESSORY_USE_ALT_FACEWEAR_LAYER
 	organ_type = /obj/item/organ/snout/top
-	relevent_layers = list(BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/mammal/top/fbird
 	name = "Beak (Top)"
@@ -319,7 +346,6 @@
 	flags_for_organ = NONE
 	color_src = USE_MATRIXED_COLORS
 	organ_type = /obj/item/organ/snout/top_adj
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/mammal/top/bug_no_ant
 	name = "Bug (No Antennae)"
@@ -327,7 +353,6 @@
 	flags_for_organ = NONE
 	color_src = USE_MATRIXED_COLORS
 	organ_type = /obj/item/organ/snout/top_adj
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/mammal/top/fdragonfly
 	name = "Dragonfly (Top)"
@@ -335,7 +360,6 @@
 	flags_for_organ = NONE
 	color_src = USE_MATRIXED_COLORS
 	organ_type = /obj/item/organ/snout/top_adj
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/mammal/top/felephant
 	name = "Elephant (Top)"
@@ -507,13 +531,17 @@
 	color_src = USE_MATRIXED_COLORS
 	flags_for_organ = NONE
 
+/datum/sprite_accessory/snouts/mammal/snaggletooth
+	name = "Snaggletooth"
+	icon_state = "snaggletooth"
+
 /datum/sprite_accessory/snouts/mammal/acrador
 	name = "Acrador (Short)"
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	icon_state = "acrador_short"
 	color_src = USE_MATRIXED_COLORS
 
-/datum/sprite_accessory/snouts/snouts/mammal/acrador/normal_1
+/datum/sprite_accessory/snouts/mammal/acrador/normal_1
 	name = "Acrador 1 (Normal)"
 	icon_state = "acrador_1"
 
@@ -529,7 +557,7 @@
 	name = "Acrador 4 (Normal)"
 	icon_state = "acrador_4"
 
-/datum/sprite_accessory/snouts/mammal/acrador/normal_1/alt
+/datum/sprite_accessory/snouts/mammal/acrador/alt
 	name = "Acrador (Short) (Alt)"
 	icon_state = "acrador_short_alt"
 

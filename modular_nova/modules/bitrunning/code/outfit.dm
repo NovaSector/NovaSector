@@ -1,5 +1,5 @@
 /datum/outfit/job/bitrunner
-	r_pocket = /obj/item/bitrunning_disk/prefs
+	r_pocket = /obj/item/disk/bitrunning/prefs
 	ears = /obj/item/radio/headset/headset_cargo/bitrunning
 
 /obj/item/radio/headset/headset_cargo/bitrunning
@@ -15,3 +15,10 @@
 	post_init_icon_state = "cypherkey_cargo"
 	greyscale_config = /datum/greyscale_config/encryptionkey_cargo
 	greyscale_colors = "#49241a#a3344c"
+
+/datum/outfit/subcontracted_bitrunner
+	name = "Subcontracted Bitrunner"
+	uniform = /obj/item/clothing/under/rank/cargo/bitrunner
+	back = /obj/item/storage/backpack/messenger
+	shoes = /obj/item/clothing/shoes/sneakers/black
+	id = /obj/item/card/id/advanced

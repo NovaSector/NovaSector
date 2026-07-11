@@ -66,6 +66,7 @@ SUBSYSTEM_DEF(research)
 		/obj/item/assembly/signaler/anomaly/bioscrambler = MAX_CORES_BIOSCRAMBLER,
 		/obj/item/assembly/signaler/anomaly/dimensional = MAX_CORES_DIMENSIONAL,
 		/obj/item/assembly/signaler/anomaly/ectoplasm = MAX_CORES_ECTOPLASMIC,
+		/obj/item/assembly/signaler/anomaly/weather = MAX_CORES_WEATHER,
 	)
 
 	/// Lookup list for ordnance briefers.
@@ -80,7 +81,7 @@ SUBSYSTEM_DEF(research)
 	new /datum/techweb/science
 	new /datum/techweb/admin
 	new /datum/techweb/oldstation
-	new /datum/techweb/tarkon //NOVA EDIT
+	new /datum/techweb/tarkon // NOVA EDIT ADDITION
 	autosort_categories()
 	error_design = new
 	error_node = new

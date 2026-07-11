@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(atoms)
 		/datum/controller/subsystem/job,
 		/datum/controller/subsystem/automapper, // NOVA EDIT ADDITION
 	)
-	flags = SS_NO_FIRE
+	ss_flags = SS_NO_FIRE
 
 	/// A stack of list(source, desired initialized state)
 	/// We read the source of init changes from the last entry, and assert that all changes will come with a reset
@@ -48,7 +48,7 @@ SUBSYSTEM_DEF(atoms)
 
 	// Generate a unique mapload source for this run of InitializeAtoms
 	var/static/uid = 0
-	uid = (uid + 1) % (SHORT_REAL_LIMIT - 1)
+	uid = WRAP_UID(uid + 1)
 	var/source = "subsystem init [uid]"
 	set_tracked_initalized(INITIALIZATION_INNEW_MAPLOAD, source)
 
@@ -178,11 +178,11 @@ SUBSYSTEM_DEF(atoms)
 	BadInitializeCalls = SSatoms.BadInitializeCalls
 
 /datum/controller/subsystem/atoms/proc/setupGenetics()
-	var/list/mutations = subtypesof(/datum/mutation/human)
+	var/list/mutations = subtypesof(/datum/mutation)
 	shuffle_inplace(mutations)
 	for(var/i in 1 to LAZYLEN(mutations))
 		var/path = mutations[i] //byond gets pissy when we do it in one line
-		var/datum/mutation/human/B = new path ()
+		var/datum/mutation/B = new path ()
 		B.alias = "Mutation [i]"
 		GLOB.all_mutations[B.type] = B
 		GLOB.full_sequences[B.type] = generate_gene_sequence(B.blocks)

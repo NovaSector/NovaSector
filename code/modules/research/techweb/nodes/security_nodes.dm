@@ -16,6 +16,7 @@
 		"sec_dart",
 		"sec_Islug",
 		"sec_rshot",
+		"s12g_br",
 	)
 
 /datum/techweb_node/sec_equip
@@ -118,6 +119,8 @@
 	design_ids = list(
 		"xray_laser",
 		"nuclear_gun",
+		"c38_flare",
+		"c38_flare_mag",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SECURITY)

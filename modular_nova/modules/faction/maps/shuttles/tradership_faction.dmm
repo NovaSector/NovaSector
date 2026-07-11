@@ -182,9 +182,6 @@
 /area/shuttle/trader/crew)
 "au" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/tile/neutral{
@@ -247,17 +244,11 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/crew)
 "ax" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 8
-	},
 /turf/open/floor/plating/airless,
 /area/shuttle/trader/engine)
 "ay" = (
 /obj/structure/window/reinforced{
 	dir = 4
-	},
-/obj/structure/shuttle/engine/heater{
-	dir = 8
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/trader/engine)
@@ -416,12 +407,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/crew)
-"aL" = (
-/obj/structure/shuttle/engine/propulsion/right{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/trader/engine)
 "aM" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -433,7 +418,7 @@
 /area/shuttle/trader/engine)
 "aN" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating,
@@ -539,9 +524,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
@@ -621,9 +603,6 @@
 /area/shuttle/trader/crew)
 "bc" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -689,10 +668,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
@@ -710,7 +685,6 @@
 /obj/structure/rack,
 /obj/item/storage/belt/utility,
 /obj/item/weldingtool,
-/obj/item/clothing/head/welding,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -921,10 +895,6 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
 /obj/structure/closet/crate/secure/tradership_cargo_valuable{
 	used_preset = 3
 	},
@@ -1252,10 +1222,6 @@
 /area/shuttle/trader/bar)
 "cc" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
@@ -1291,9 +1257,6 @@
 /area/shuttle/trader/bridge)
 "ce" = (
 /obj/structure/table,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/folder/blue{
 	pixel_x = 6;
@@ -1312,7 +1275,6 @@
 	lethal = 1;
 	locked = 0;
 	pixel_y = 28;
-	req_access = null;
 	req_access = list("402")
 	},
 /obj/effect/decal/cleanable/blood/old,
@@ -1530,10 +1492,6 @@
 "cw" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
 /obj/effect/turf_decal/stripes/white/corner{
 	dir = 1
 	},
@@ -1622,7 +1580,6 @@
 	},
 /obj/machinery/vending/boozeomat{
 	pixel_y = -32;
-	req_access = null;
 	req_access = list("403")
 	},
 /turf/open/floor/iron/dark,
@@ -1702,10 +1659,6 @@
 	pixel_x = -2;
 	pixel_y = -1
 	},
-/obj/item/clothing/head/welding{
-	pixel_x = -2;
-	pixel_y = 1
-	},
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/engine)
@@ -1717,7 +1670,6 @@
 	pixel_x = -25
 	},
 /obj/structure/cable,
-/obj/structure/closet/crate/secure/tradership_cargo_very_valuable,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/cargo)
 "cK" = (
@@ -1819,10 +1771,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/cargo)
@@ -1883,10 +1831,6 @@
 /area/shuttle/trader/bar)
 "cU" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 4;
-	pixel_x = -24
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/processor,
 /obj/effect/decal/cleanable/dirt,
@@ -1926,9 +1870,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
-	},
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -2023,10 +1964,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/bot_white,
 /obj/structure/rack,
-/obj/item/clothing/head/welding{
-	pixel_x = -3;
-	pixel_y = 5
-	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/multitool{
 	pixel_x = 7;
@@ -2106,10 +2043,6 @@
 "dn" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/hydroponics/constructable,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
 	dir = 8
@@ -2139,7 +2072,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/cargo)
 "dr" = (
@@ -2216,10 +2149,6 @@
 "dy" = (
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/stripes/white/line,
 /obj/effect/turf_decal/tile/neutral{
@@ -2660,12 +2589,12 @@
 /area/shuttle/trader/bar)
 "el" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/plating,
 /area/shuttle/trader/engine)
 "em" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/cargo)
 "fa" = (
@@ -2716,9 +2645,6 @@
 /area/shuttle/trader/cargo)
 "qY" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/all_access{
-	pixel_y = 24
-	},
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/tile/neutral{
@@ -2785,7 +2711,7 @@
 aa
 ab
 ax
-aL
+ax
 ab
 aa
 aa
@@ -2796,7 +2722,7 @@ aa
 aa
 ab
 ax
-aL
+ax
 ab
 aa
 "}

@@ -46,6 +46,12 @@
 		return TRUE
 	return ..()
 
+/datum/species/mutant/get_species_description()
+	return placeholder_description
+
+/datum/species/mutant/get_species_lore()
+	return list(placeholder_lore)
+
 /mob/living/carbon/human/species/mutant
 	race = /datum/species/mutant
 
@@ -76,10 +82,14 @@
 	. = ..()
 	human_who_gained_species.AddComponent(/datum/component/mutant_hands, mutant_hand_path = hands_to_give)
 	RegisterSignal(human_who_gained_species, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(queue_regeneration))
+	RegisterSignal(human_who_gained_species, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 
 /datum/species/mutant/infectious/on_species_loss(mob/living/carbon/human/human_who_lost_species, datum/species/new_species, pref_load)
 	. = ..()
-	UnregisterSignal(human_who_lost_species, COMSIG_MOB_AFTER_APPLY_DAMAGE)
+	UnregisterSignal(human_who_lost_species, list(
+		COMSIG_MOB_AFTER_APPLY_DAMAGE,
+		COMSIG_LIVING_LIFE,
+	))
 
 /obj/item/bodypart/leg/left/mutant_zombie/infectious
 	speed_modifier = 0.5
@@ -131,7 +141,7 @@
 	speed_modifier = 0.75
 
 /// mutants do not stabilize body temperature they are the walking dead and are cold blooded
-/datum/species/mutant/body_temperature_core(mob/living/carbon/human/humi, seconds_per_tick, times_fired)
+/datum/species/mutant/body_temperature_core(mob/living/carbon/human/humi, seconds_per_tick)
 	return
 
 /datum/species/mutant/infectious/check_roundstart_eligible()
@@ -147,16 +157,19 @@
 	if(COOLDOWN_FINISHED(src, regen_cooldown))
 		COOLDOWN_START(src, regen_cooldown, REGENERATION_DELAY)
 
-/datum/species/mutant/infectious/spec_life(mob/living/carbon/carbon_mob, seconds_per_tick, times_fired)
-	. = ..()
+/datum/species/mutant/infectious/proc/on_life(mob/living/carbon/carbon_mob, seconds_per_tick)
+	SIGNAL_HANDLER
 	//mutants never actually die, they just fall down until they regenerate enough to rise back up.
 	if(COOLDOWN_FINISHED(src, regen_cooldown))
 		var/heal_amt = heal_rate
 		if(HAS_TRAIT(carbon_mob, TRAIT_CRITICAL_CONDITION))
 			heal_amt *= 2
-		carbon_mob.heal_overall_damage(heal_amt * seconds_per_tick, heal_amt * seconds_per_tick)
-		carbon_mob.adjustStaminaLoss(-heal_amt * seconds_per_tick)
-		carbon_mob.adjustToxLoss(-heal_amt * seconds_per_tick)
+		var/need_mob_update
+		need_mob_update += carbon_mob.heal_overall_damage(heal_amt * seconds_per_tick, heal_amt * seconds_per_tick, updating_health = FALSE)
+		need_mob_update += carbon_mob.adjust_stamina_loss(-heal_amt * seconds_per_tick, updating_stamina = FALSE)
+		need_mob_update += carbon_mob.adjust_tox_loss(-heal_amt * seconds_per_tick, updating_health = FALSE)
+		if(need_mob_update)
+			carbon_mob.updatehealth()
 		for(var/i in carbon_mob.all_wounds)
 			var/datum/wound/iter_wound = i
 			if(SPT_PROB(2-(iter_wound.severity/2), seconds_per_tick))
@@ -262,10 +275,10 @@
 		target.gib()
 		// zero as argument for no instant health update
 		var/need_health_update
-		need_health_update += user.adjustBruteLoss(-hp_gained, updating_health = FALSE)
-		need_health_update += user.adjustToxLoss(-hp_gained, updating_health = FALSE)
-		need_health_update += user.adjustFireLoss(-hp_gained, updating_health = FALSE)
+		need_health_update += user.adjust_brute_loss(-hp_gained, updating_health = FALSE)
+		need_health_update += user.adjust_tox_loss(-hp_gained, updating_health = FALSE)
+		need_health_update += user.adjust_fire_loss(-hp_gained, updating_health = FALSE)
 		if(need_health_update)
 			user.updatehealth()
-		user.adjustOrganLoss(ORGAN_SLOT_BRAIN, -hp_gained) // Zom Bee gibbers "BRAAAAISNSs!1!"
+		user.adjust_organ_loss(ORGAN_SLOT_BRAIN, -hp_gained) // Zom Bee gibbers "BRAAAAISNSs!1!"
 		user.set_nutrition(min(user.nutrition + hp_gained, NUTRITION_LEVEL_FULL))

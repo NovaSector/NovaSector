@@ -12,6 +12,7 @@
 	interaction_flags_click = FORBID_TELEKINESIS_REACH
 	interaction_flags_mouse_drop = FORBID_TELEKINESIS_REACH
 	storage_type = /datum/storage/portable_chem_mixer
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.5)
 
 	///Creating an empty slot for a beaker that can be added to dispense into
 	var/obj/item/reagent_containers/beaker
@@ -22,8 +23,8 @@
 
 /obj/item/storage/portable_chem_mixer/Initialize(mapload)
 	. = ..()
-
 	register_context()
+	AddElement(/datum/element/drag_pickup)
 
 /obj/item/storage/portable_chem_mixer/Destroy()
 	dispensable_reagents.Cut()
@@ -238,13 +239,6 @@
 			replace_beaker(ui.user)
 			update_appearance()
 			return TRUE
-
-/obj/item/storage/portable_chem_mixer/mouse_drop_dragged(atom/over_object)
-	if(ismob(loc))
-		var/mob/M = loc
-		if(istype(over_object, /atom/movable/screen/inventory/hand))
-			var/atom/movable/screen/inventory/hand/H = over_object
-			M.putItemFromInventoryInHandIfPossible(src, H.held_index)
 
 /obj/item/storage/portable_chem_mixer/click_alt(mob/living/user)
 	if(!atom_storage.locked)

@@ -1,8 +1,9 @@
+// THIS IS A NOVA SECTOR UI FILE
 import { Button, NoticeBox, Section, Stack } from 'tgui-core/components';
 
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
-import { NTOSData } from '../layouts/NtosWindow';
+import type { NTOSData } from '../layouts/NtosWindow';
 
 type Data = {
   authCard: string;
@@ -45,7 +46,7 @@ const SelfServePage = (props) => {
 
   return (
     <Section
-      title={authIDName ? 'Welcome, ' + authIDName : 'Please Insert Your ID'}
+      title={authIDName ? `Welcome, ${authIDName}` : 'Please Insert Your ID'}
     >
       {authIDName && (
         <Stack wrap="wrap">

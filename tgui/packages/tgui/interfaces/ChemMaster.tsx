@@ -5,8 +5,8 @@ import {
   Button,
   ColorBox,
   Divider,
-  DmIcon,
   Icon,
+  ImageButton,
   LabeledList,
   NumberInput,
   ProgressBar,
@@ -53,6 +53,7 @@ type AnalyzableBeaker = {
 type Data = {
   categories: Category[];
   isPrinting: BooleanLike;
+  customTransferAmount: number;
   printingProgress: number;
   printingTotal: number;
   selectedPillDuration: number;
@@ -65,6 +66,7 @@ type Data = {
   selectedContainerRef: string;
   selectedContainerVolume: number;
   selectedContainerCategory?: string;
+  hasBeakerInHand: BooleanLike;
 };
 
 export const ChemMaster = (props) => {
@@ -96,6 +98,7 @@ const ChemMasterContent = (props: {
   const { act, data } = useBackend<Data>();
   const {
     isPrinting,
+    customTransferAmount,
     printingProgress,
     printingTotal,
     selectedPillDuration,
@@ -107,6 +110,7 @@ const ChemMasterContent = (props: {
     categories,
     selectedContainerVolume,
     selectedContainerCategory,
+    hasBeakerInHand,
   } = data;
 
   const [itemCount, setItemCount] = useState<number>(1);
@@ -119,16 +123,46 @@ const ChemMasterContent = (props: {
       <Section
         title="Beaker"
         buttons={
-          beaker && (
+          beaker ? (
             <Box>
               <Box inline color="label" mr={2}>
                 <AnimatedNumber value={beaker.currentVolume} initial={0} />
                 {` / ${beaker.maxVolume} units`}
               </Box>
+              <Box inline color="label" mr={2}>
+                <NumberInput
+                  width="55px"
+                  unit="u"
+                  step={5}
+                  stepPixelSize={3}
+                  value={customTransferAmount}
+                  minValue={0}
+                  maxValue={beaker.maxVolume}
+                  onChange={(value) =>
+                    act('setCustomTransfer', {
+                      target: value,
+                    })
+                  }
+                />
+              </Box>
               <Button icon="eject" onClick={() => act('eject')}>
                 Eject
               </Button>
             </Box>
+          ) : (
+            <Button
+              icon="eject"
+              onClick={() => act('insert')}
+              style={{
+                opacity: hasBeakerInHand ? 1 : 0.5,
+              }}
+              tooltip={
+                !hasBeakerInHand && 'You need to hold a container in your hand'
+              }
+              tooltipPosition="bottom-start"
+            >
+              Insert
+            </Button>
           )
         }
       >
@@ -308,7 +342,7 @@ type ReagentProps = {
 const ReagentEntry = (props: ReagentProps) => {
   const { data, act } = useBackend<Data>();
   const { chemical, transferTo, analyze } = props;
-  const { isPrinting } = data;
+  const { isPrinting, customTransferAmount } = data;
   return (
     <Table.Row key={chemical.ref}>
       <Table.Cell color="label">
@@ -352,6 +386,18 @@ const ReagentEntry = (props: ReagentProps) => {
           }
         >
           10
+        </Button>
+        <Button
+          disabled={isPrinting}
+          onClick={() =>
+            act('transfer', {
+              reagentRef: chemical.ref,
+              amount: customTransferAmount,
+              target: transferTo,
+            })
+          }
+        >
+          {customTransferAmount}
         </Button>
         <Button
           disabled={isPrinting}
@@ -406,36 +452,28 @@ const ContainerButton = (props: CategoryButtonProps) => {
       key={container.ref}
       content={`${capitalize(container.name)}\xa0(${container.volume}u)`}
     >
-      <Button
-        overflow="hidden"
-        color={'transparent'}
-        backgroundColor={
+      <ImageButton
+        dmIcon={container.icon}
+        dmIconState={container.icon_state}
+        dmFallback={isPillPatch ? fallbackPillPatch : fallback}
+        imageSize={isPillPatch ? 48 : 64}
+        color={
           showPreferredContainer &&
           selectedContainerRef !== suggestedContainerRef && // if we selected the same container as the suggested then don't override color
           container.ref === suggestedContainerRef
             ? 'blue'
             : 'transparent'
         }
-        width={isPillPatch ? '32px' : '48px'}
-        height={isPillPatch ? '32px' : '48px'}
         selected={container.ref === selectedContainerRef}
         disabled={isPrinting}
+        m={isPillPatch ? '4px' : '2px'}
         p={0}
         onClick={() => {
           act('selectContainer', {
             ref: container.ref,
           });
         }}
-      >
-        <DmIcon
-          m={isPillPatch ? '-16px' : '-8px'}
-          fallback={isPillPatch ? fallbackPillPatch : fallback}
-          icon={container.icon}
-          icon_state={container.icon_state}
-          height="64px"
-          width="64px"
-        />
-      </Button>
+      />
     </Tooltip>
   );
 };

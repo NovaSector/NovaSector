@@ -1,0 +1,10 @@
+{
+	"papakha": [
+		{
+			"type": "icon_state",
+			"icon_state": "papakha",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

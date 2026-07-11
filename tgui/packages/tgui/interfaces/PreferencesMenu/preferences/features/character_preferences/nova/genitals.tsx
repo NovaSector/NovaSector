@@ -1,15 +1,15 @@
 // THIS IS A NOVA SECTOR UI FILE
 import {
   CheckboxInput,
-  Feature,
-  FeatureChoiced,
-  FeatureChoicedServerData,
+  type Feature,
+  type FeatureChoiced,
+  type FeatureChoicedServerData,
   FeatureNumberInput,
-  FeatureNumeric,
-  FeatureToggle,
+  type FeatureNumeric,
+  type FeatureToggle,
   FeatureTriBoolInput,
   FeatureTriColorInput,
-  FeatureValueProps,
+  type FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
@@ -235,4 +235,38 @@ export const erp_status_pref_hypnosis: FeatureChoiced = {
 export const erp_status_pref_mechanics: FeatureChoiced = {
   name: 'ERP Mechanical Status',
   component: FeatureDropdownInput,
+};
+
+export const feature_butt: Feature<string> = {
+  name: 'Butt Choice',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+export const butt_color: Feature<string[]> = {
+  name: 'Butt Color',
+  component: FeatureTriColorInput,
+};
+
+export const butt_emissive: Feature<boolean[]> = {
+  name: 'Butt Emissives',
+  description: 'Emissive parts glow in the dark.',
+  component: FeatureTriBoolInput,
+};
+
+export const butt_skin_tone: FeatureToggle = {
+  name: 'Butt uses Skin Tone',
+  component: CheckboxInput,
+};
+
+export const butt_skin_color: FeatureToggle = {
+  name: 'Butt uses Skin Color',
+  component: CheckboxInput,
+};
+
+export const butt_size: FeatureNumeric = {
+  name: 'Butt Size',
+  component: FeatureNumberInput,
 };

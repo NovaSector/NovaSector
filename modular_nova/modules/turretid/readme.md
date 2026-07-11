@@ -22,6 +22,6 @@ This systems enables you to assign turrets a system_id which will be placed into
 
 - N/A
 
-
 ### Credits:
+
 Gandalfk2k15 - Original Code

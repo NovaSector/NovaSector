@@ -9,6 +9,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	w_class = WEIGHT_CLASS_NORMAL
 	req_access = list(ACCESS_ROBOTICS)
 	braintype = "Android"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.85, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.67, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
 
 	///Message sent to the user when polling ghosts
 	var/begin_activation_message = span_notice("You carefully locate the manual activation switch and start the positronic brain's boot process.")
@@ -77,10 +78,8 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 
 /obj/item/mmi/posibrain/click_alt(mob/living/user)
 	var/input_seed = tgui_input_text(user, "Enter a personality seed", "Enter seed", ask_role, max_length = MAX_NAME_LEN)
-	if(isnull(input_seed))
+	if(isnull(input_seed) || !user.can_perform_action(src))
 		return CLICK_ACTION_BLOCKING
-	if(!user.can_perform_action(src))
-		return
 	to_chat(user, span_notice("You set the personality seed to \"[input_seed]\"."))
 	ask_role = input_seed
 	update_appearance()
@@ -162,6 +161,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 		to_chat(brainmob, policy)
 	brainmob.mind.set_assigned_role(SSjob.get_job_type(posibrain_job_path))
 	brainmob.set_stat(CONSCIOUS)
+	brainmob.grant_language(/datum/language/machine, source = LANGUAGE_ATOM)
 
 	visible_message(new_mob_message)
 	check_success()
@@ -210,7 +210,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	icon_state = "[base_icon_state]"
 	return
 
-/obj/item/mmi/posibrain/attackby(obj/item/O, mob/user, list/modifiers)
+/obj/item/mmi/posibrain/attackby(obj/item/O, mob/user, list/modifiers, list/attack_modifiers)
 	return
 
 /obj/item/mmi/posibrain/add_mmi_overlay()
@@ -231,6 +231,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	icon_state = "spheribrain"
 	base_icon_state = "spheribrain"
 	immobilize = FALSE
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4.2, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3.2, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2.5)
 	/// Delay between movements
 	var/move_delay = 0.5 SECONDS
 	/// when can we move again?

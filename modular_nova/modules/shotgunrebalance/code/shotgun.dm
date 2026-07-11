@@ -1,36 +1,32 @@
-#define AMMO_MATS_SHOTGUN list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 4) // not quite as thick as a half-sheet
-
-#define AMMO_MATS_SHOTGUN_FLECH list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2)
-
-#define AMMO_MATS_SHOTGUN_HIVE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/silver = SMALL_MATERIAL_AMOUNT * 1)
-
-#define AMMO_MATS_SHOTGUN_TIDE list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 1,\
-									/datum/material/gold = SMALL_MATERIAL_AMOUNT * 1)
-
-#define AMMO_MATS_SHOTGUN_PLASMA list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,\
-									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2)
-
 /obj/item/ammo_casing/shotgun
 	icon = 'modular_nova/modules/shotgunrebalance/icons/shotshells.dmi'
 	desc = "A 12 gauge iron slug."
-	custom_materials = AMMO_MATS_SHOTGUN
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/projectile/bullet/shotgun_slug
-	damage = 50 // based on old stats
+	// tg stats at time of writing: 25 damage, 30 AP, 0 wound bonus, 15 exposed wound bonus
+	// adjustment: +10 damage, to 35, +5 wound bonus, -5 wound bonus (still total 15 wound bonus). keeps the 30 AP to give it an actual niche
+	// wound bonuses still generally favor hitting people in bare limbs for wounds
+	damage = 35
+	wound_bonus = 5
+	exposed_wound_bonus = 10
 
 /obj/item/ammo_casing/shotgun/milspec
 	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
 	icon_state = "mblshell"
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 4
+	custom_materials = AMMO_MATS_HEAVY_FAST
 
 /obj/projectile/bullet/shotgun_slug/milspec
-	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
+	// tg stats at time of writing: 50 damage, 30 AP (inherited from base slugs)
+	// adjustment: -5 damage (still +10 from base slugs), +0.25 speed (tiles/sec?), +10 wound bonus, -10 exposed wound bonus (still 15 total wound bonus)
+	// frankly I think leaving it at 50 would be fine because crewside milspecs should be dead with the same PR this comment is in
+	// *shrug
+	damage = 50
+	armour_penetration = 30
 	speed = 1.5
+	wound_bonus = 10
+	exposed_wound_bonus = 5
 
 // THE BELOW TWO SLUGS ARE NOTED AS ADMIN ONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.
 /obj/item/ammo_casing/shotgun/executioner
@@ -45,15 +41,15 @@
 
 /obj/item/ammo_casing/shotgun/beanbag
 	harmful = FALSE
-	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/ammo_casing/shotgun/incendiary
 	desc = "A 12 gauge shotgun slug coated with incendiary material.\
 		<br><br>\
 		<i>INCENDIARY: Sets targets aflame. Leaves a flaming trail when shot.</i>"
 	ammo_categories = AMMO_CLASS_NICHE
-	custom_materials = AMMO_MATS_SHOTGUN_PLASMA
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/ammo_casing/shotgun/incendiary/no_trail
 	desc = "A 12 gauge shotgun slug coated with incendiary material.\
@@ -89,7 +85,7 @@
 	name = "buckshot shell"
 	icon_state = "gshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot
-	pellets = 12 // 5 * 12 for 60 damage if every pellet hits, we want to keep lethal shells ~50 damage
+	pellets = 8 // 5 * 12 for 40 damage if every pellet hits, we want to keep lethal shells ~35-40 damage
 	variance = 20
 
 /obj/item/ammo_casing/shotgun/buckshot/old
@@ -98,23 +94,23 @@
 	can_be_printed = FALSE // it's just not good
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
-	damage = 5
-	weak_against_armour = TRUE
+	damage = 6
+	wound_bonus = 5
+	exposed_wound_bonus = 10
 
 /obj/item/ammo_casing/shotgun/buckshot/milspec
 	desc = "A hot-loaded 12 gauge milspec buckshot shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
 	icon_state = "mgshell"
 	variance = 15
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 4
+	custom_materials = AMMO_MATS_AP
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
-	damage = 6 // 6 * 12 = 72
+	damage = 7 // 7 * 8 = 56
 	damage_falloff_tile = -0.1
 	wound_falloff_tile = -0.25
 	speed = 1.5
 	armour_penetration = 5
-	// weak_against_armour = FALSE // Probably don't uncomment this unless you have a really compelling reason.
 
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot shell"
@@ -125,12 +121,11 @@
 	variance = 27
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
-	print_cost = 0
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
 	speed = 1
-	weak_against_armour = TRUE
 
 /obj/item/ammo_casing/shotgun/incapacitate
 	name = "incapacitator shell"
@@ -147,20 +142,26 @@
 	name = "shredder flechette shell"
 	desc = "A 12 gauge flechette shell that specializes in cutting through armor and embedding like hell."
 	ammo_categories = AMMO_CLASS_SUPER // i mean with exotic tech you get to print this for free anyway
-	// but if you want early access you pay up
-	// pellets remaining unchanged but getting a damage buff
-	print_cost = 4
+	// Points-cost is gone, this may need additional balance.
+	// Why didn't these already use flechette materials though??
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 2)
 
 /obj/projectile/bullet/pellet/flechette
+	// tg stats at time of writing: 2 damage, 8 pellets, 30 AP, -0.2 damage falloff 1.2 speed (base projectiles at 1.25), 5 wound bonus, 5 exposed wound bonus
+	// adjustments: +2.5 damage per pellet (4*8=32 pb damage), damage falloff taken to -0.1, exposed wound buffed +5 to 10
+	// pellets, but specialized for AP/embeds. not as good for raw damage but more for making people regret running
 	name = "shredder flechette"
-	damage = 5 // 8*5 = 40 damage but you've got 30 AP which basically smokes most armor
-	damage_falloff_tile = -0.1 // less falloff/longer ranges, though
-	speed = 1.3 // you can have above average projectile speed. as a treat
-	// embeds staying untouched because i think they're evil and deserve to wreak havoc
+	damage = 5
+	damage_falloff_tile = -0.1
+	speed = 1.35 // you can have above average projectile speed. as a treat
+	wound_bonus = 5
+	exposed_wound_bonus = 10
+
+/datum/embedding/bullet/flechette
+	embed_chance = 40 // +15 from tg base (25 embed chance)
 
 /obj/item/ammo_casing/shotgun/flechette/donk
-	ammo_categories = AMMO_CLASS_NONE
-	print_cost = 0 // lmao
+	ammo_categories = AMMO_CLASS_NONE // i mean technically it's lethal or lethal gimmick but... it's a microplastic injection
 
 /obj/item/ammo_casing/shotgun/ion
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
@@ -174,12 +175,22 @@
 
 /obj/item/ammo_casing/shotgun/dart
 	ammo_categories = AMMO_CLASS_NICHE_LTL // technically.
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
+
+/obj/item/ammo_casing/shotgun/dart/piercing
+	name = "piercing shotgun dart"
+	desc = "A diamond-tipped piercing dart for use in shotguns, trading capacity for penetration. Can be injected with up to 5 units of any chemical."
+	icon_state = "pcshell"
+	projectile_type = /obj/projectile/bullet/dart/piercing
+	reagent_amount = 5
+	custom_materials = AMMO_MATS_SHOTGUN_PENDART
 
 /obj/item/ammo_casing/shotgun/dart/bioterror
 	can_be_printed = FALSE // PRELOADED WITH TERROR CHEMS MAYBE LET'S NOT
 
 /obj/item/ammo_casing/shotgun/breacher
 	ammo_categories = AMMO_CLASS_NICHE_LTL
+	can_be_printed = FALSE
 	// on one hand, 1k damage against airlocks. and mechs. and borgs.
 	// on the other hand like 5 damage against everyone else lmao
 
@@ -190,16 +201,17 @@
 		especially against the likes of vox."
 	icon_state = "magshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
-	pellets = 6 // Half as many pellets for twice the damage each pellet, same overall damage as buckshot
+	pellets = 4 // Half as many pellets for twice the damage each pellet, same overall damage as buckshot
 	variance = 20
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 2
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	name = "magnum blockshot"
-	damage = 10
-	bare_wound_bonus = 10
+	damage = 13
+	exposed_wound_bonus = 5
+	wound_bonus = 5
 	armour_penetration = 5
+	weak_against_armour = FALSE
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum/Initialize(mapload)
 	. = ..()
@@ -212,14 +224,14 @@
 	icon_state = "expshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/express
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 2
-	pellets = 15 // 4 * 15 for 60 damage, with less spread then buckshot.
+	pellets = 10 // 3 * 10 for 30 damage, with less spread then buckshot.
 	variance = 12 // Slightly less spread then buckshot
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express
 	name = "express pellet"
-	damage = 4
+	damage = 3
 	wound_bonus = 0
+	exposed_wound_bonus = 20
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express/Initialize(mapload)
 	. = ..()
@@ -239,9 +251,9 @@
 	name = "ripper flechette"
 	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "flechette"
-	damage = 6
+	damage = 7
 	wound_bonus = 0
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	sharpness = SHARP_EDGED //Did you knew flechettes fly sideways into people
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova/Initialize(mapload)
@@ -265,12 +277,12 @@
 	name = "hornet flechette"
 	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "hornet"
-	damage = 4
+	damage = 5
 	stamina = 15
 	damage_falloff_tile = -0.1
 	stamina_falloff_tile = -0.1
 	wound_bonus = -5
-	bare_wound_bonus = 5
+	exposed_wound_bonus = 5
 	wound_falloff_tile = 0
 	sharpness = NONE
 	ricochets_max = 5
@@ -292,6 +304,33 @@
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
 	ammo_categories = AMMO_CLASS_NICHE_LTL
 
+/obj/item/ammo_casing/shotgun/frangible
+	name = "frangible slug"
+	desc = "A weak anti material shell intended for dislodging airlock, breaking down barricades and structures. Not effective against people."
+	icon_state = "breacher"
+	projectile_type = /obj/projectile/bullet/frangible_slug
+	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2)
+
+/obj/projectile/bullet/frangible_slug
+	name = "frangible slug"
+	damage = 15 //I'd kill you if you manage to kill someone with this shit
+	wound_bonus = 30
+	exposed_wound_bonus = 30
+	demolition_mod = 2
+
+/obj/projectile/bullet/frangible_slug/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
+
+	var/static/list/valid_targets_typecache = typecacheof(list(
+		/obj/structure/window,
+		/obj/machinery/door/airlock,
+		/obj/structure/grille,
+		/obj/structure/door_assembly,
+		/obj/machinery/door/window
+	))
+	if(is_type_in_typecache(target, valid_targets_typecache))
+		demolition_mod = 50
+
 /obj/item/ammo_casing/shotgun/hunter
 	name = "hunter slug shell"
 	desc = "A 12 gauge slug shell that fires specially designed slugs that deal extra damage to local fauna."
@@ -310,7 +349,7 @@
 /obj/projectile/bullet/shotgun_slug/hunter/on_hit(atom/target, blocked, pierce_hit)
 	if(ismineralturf(target))
 		var/turf/closed/mineral/mineral_turf = target
-		mineral_turf.gets_drilled(firer, FALSE)
+		mineral_turf.gets_drilled(firer)
 		if(range > 0)
 			return BULLET_ACT_FORCE_PIERCE
 		return ..()
@@ -321,10 +360,6 @@
 		damage *= biotype_damage_multiplier
 	return ..()
 
-/obj/projectile/bullet/shotgun_slug/hunter/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = 5)
-
 /obj/item/ammo_casing/shotgun/honkshot
 	name = "confetti shell"
 	desc = "A 12 gauge buckshot shell thats been filled to the brim with confetti. Yippie!"
@@ -334,7 +369,6 @@
 	variance = 35
 	fire_sound = 'sound/items/bikehorn.ogg'
 	harmful = FALSE
-	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/honkshot

@@ -43,3 +43,194 @@
 /datum/outfit/centcom/asset_protection/leader
 	name = "Asset Protection Officer"
 	head = /obj/item/clothing/head/helmet/space/beret
+
+
+/// HIGH ALERT SOLFED RERSPONSE
+/datum/outfit/solfed/grand_espatier
+	name = "SolFed Espatier Rifleman (GRAND RESPONSE)"
+
+	uniform = /obj/item/clothing/under/solfed/marines
+	head = /obj/item/clothing/head/helmet/solfed/mk2
+	mask = /obj/item/clothing/mask/gas/alt
+	gloves = /obj/item/clothing/gloves/combat
+	suit = /obj/item/clothing/suit/armor/vest/sol/marine/mk2
+	shoes = /obj/item/clothing/shoes/jackboots
+	belt = /obj/item/storage/belt/military/solfed
+	neck = /obj/item/clothing/neck/mantle/solfed
+	accessory = null
+
+	back = /obj/item/storage/backpack
+	glasses = /obj/item/clothing/glasses/sunglasses/solfed
+	ears = /obj/item/radio/headset/headset_solfed/espatier
+	l_pocket = /obj/item/tank/internals/emergency_oxygen/double
+	r_pocket = /obj/item/flashlight/seclite
+	id = /obj/item/card/id/advanced/solfed
+	r_hand = /obj/item/gun/ballistic/automatic/sol_rifle
+	backpack_contents = list(
+		/obj/item/tank/internals/emergency_oxygen/double = 1,
+		/obj/item/storage/box/handcuffs = 1,
+		/obj/item/storage/box/flashbangs = 1,
+		/obj/item/storage/box/nri_flares = 1,
+		/obj/item/storage/medkit/frontier/stocked = 1,
+	)
+
+	id_trim = /datum/id_trim/solfed/espatier
+
+/datum/outfit/solfed/grand_espatier/engineer
+	name = "SolFed Espatier Engineer (GRAND RESPONSE)"
+	head = /obj/item/clothing/head/helmet/solfed/mk2/engineer
+	belt = /obj/item/storage/belt/utility/full/powertools
+	mask = /obj/item/clothing/mask/gas/welding/up
+	ears = /obj/item/radio/headset/headset_solfed/espatier/engineer
+	backpack_contents = list(
+		/obj/item/ammo_box/magazine/c40sol_rifle/standard = 4,
+		/obj/item/storage/box/nri_flares = 1,
+		/obj/item/storage/box/smart_metal_foam = 1,
+		/obj/item/stack/sheet/iron/fifty = 1,
+		/obj/item/storage/medkit/frontier/stocked = 1,
+	)
+
+/datum/outfit/solfed/grand_espatier/engineer/post_equip(mob/living/carbon/human/person, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/ID = person.wear_id
+	ID.assignment = "Solfed Espatier Engineer"
+	ID.update_label()
+	..()
+
+/datum/outfit/solfed/grand_espatier/corpsman
+	name = "SolFed Espatier Corpsman (GRAND RESPONSE)"
+	head = /obj/item/clothing/head/helmet/solfed/mk2/corpsman
+	ears = /obj/item/radio/headset/headset_solfed/espatier/corpsman
+	backpack_contents = list(
+		/obj/item/storage/medkit/surgery = 1,
+		/obj/item/storage/box/nri_flares = 1,
+		/obj/item/storage/medkit/tactical = 1,
+	)
+
+/datum/outfit/solfed/espatier/corpsman/post_equip(mob/living/carbon/human/person, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/ID = person.wear_id
+	ID.assignment = "Solfed Espatier Corpsman"
+	ID.update_label()
+	..()
+
+/datum/outfit/solfed/grand_espatier/squadleader
+	name = "SolFed Espatier Squad Leader (GRAND RESPONSE)"
+	head = /obj/item/clothing/head/helmet/solfed/mk2/squadlead
+	ears = /obj/item/radio/headset/headset_solfed/espatier/squadleader
+
+	backpack_contents = list(
+		/obj/item/storage/medkit/surgery = 1,
+		/obj/item/storage/medkit/tactical_lite = 1,
+		/obj/item/ammo_box/magazine/c40sol_rifle/standard = 4,
+		/obj/item/storage/box/nri_flares = 1,
+		/obj/item/binoculars = 1,
+	)
+
+/datum/outfit/solfed/grand_espatier/squadleader/post_equip(mob/living/carbon/human/person, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/ID = person.wear_id
+	ID.assignment = "Solfed Espatier Squad Leader"
+	ID.update_label()
+	..()
+
+/// REGULAR ALERT SOLFED RESPONSE (Used for events/admin shenanagins for lesser threats instead of kill everything)
+/datum/outfit/solfed/espatier
+	name = "SolFed Espatier Rifleman"
+
+	uniform = /obj/item/clothing/under/solfed/marines
+	head = /obj/item/clothing/head/helmet/solfed
+	mask = /obj/item/clothing/mask/gas/alt
+	gloves = /obj/item/clothing/gloves/combat
+	suit = /obj/item/clothing/suit/armor/vest/sol/marine
+	shoes = /obj/item/clothing/shoes/jackboots
+	belt = /obj/item/storage/belt/military/solfed
+	neck = /obj/item/clothing/neck/mantle/solfed
+	accessory = null
+
+	back = /obj/item/storage/backpack
+	glasses = /obj/item/clothing/glasses/sunglasses/solfed
+	ears = /obj/item/radio/headset/headset_solfed/espatier
+	l_pocket = /obj/item/tank/internals/emergency_oxygen/double
+	r_pocket = /obj/item/flashlight/seclite
+	id = /obj/item/card/id/advanced/solfed
+	r_hand = /obj/item/gun/ballistic/automatic/sol_rifle
+	backpack_contents = list(
+		/obj/item/tank/internals/emergency_oxygen/double = 1,
+		/obj/item/storage/box/handcuffs = 1,
+		/obj/item/storage/box/flashbangs = 1,
+		/obj/item/storage/box/nri_flares = 1,
+		/obj/item/storage/medkit/frontier/stocked = 1,
+	)
+
+	id_trim = /datum/id_trim/solfed/espatier
+
+/datum/outfit/solfed/espatier/engineer
+	name = "SolFed Espatier Engineer"
+	head = /obj/item/clothing/head/helmet/solfed/engineer
+	belt = /obj/item/storage/belt/utility/full/powertools
+	mask = /obj/item/clothing/mask/gas/welding/up
+	ears = /obj/item/radio/headset/headset_solfed/espatier/engineer
+	backpack_contents = list(
+		/obj/item/ammo_box/magazine/c40sol_rifle/standard = 4,
+		/obj/item/storage/box/nri_flares = 1,
+		/obj/item/storage/box/smart_metal_foam = 1,
+		/obj/item/stack/sheet/iron/fifty = 1,
+		/obj/item/storage/medkit/frontier/stocked = 1,
+	)
+
+/datum/outfit/solfed/espatier/engineer/post_equip(mob/living/carbon/human/person, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/ID = person.wear_id
+	ID.assignment = "Solfed Espatier Engineer"
+	ID.update_label()
+	..()
+
+/datum/outfit/solfed/espatier/corpsman
+	name = "SolFed Espatier Corpsman"
+	head = /obj/item/clothing/head/helmet/solfed/corpsman
+	ears = /obj/item/radio/headset/headset_solfed/espatier/corpsman
+	backpack_contents = list(
+		/obj/item/storage/medkit/surgery = 1,
+		/obj/item/storage/box/nri_flares = 1,
+		/obj/item/storage/medkit/tactical = 1,
+	)
+
+/datum/outfit/solfed/espatier/corpsman/post_equip(mob/living/carbon/human/person, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/ID = person.wear_id
+	ID.assignment = "Solfed Espatier Corpsman"
+	ID.update_label()
+	..()
+
+/datum/outfit/solfed/espatier/squadleader
+	name = "SolFed Espatier Squad Leader"
+	head = /obj/item/clothing/head/helmet/solfed/squadlead
+	ears = /obj/item/radio/headset/headset_solfed/espatier/squadleader
+
+	backpack_contents = list(
+		/obj/item/storage/medkit/surgery = 1,
+		/obj/item/storage/medkit/tactical_lite = 1,
+		/obj/item/ammo_box/magazine/c40sol_rifle/standard = 4,
+		/obj/item/storage/box/nri_flares = 1,
+		/obj/item/binoculars = 1,
+	)
+
+/datum/outfit/solfed/espatier/squadleader/post_equip(mob/living/carbon/human/person, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/ID = person.wear_id
+	ID.assignment = "Solfed Espatier Squad Leader"
+	ID.update_label()
+	..()

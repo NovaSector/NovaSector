@@ -12,7 +12,7 @@ Unfortunately, all 3 of the categories are not set up to be very modular, so thi
 - ./code/controllers/subsystem/job.dm > /datum/controller/subsystem/job/proc/EquipRank()
 - ./code/datums/datacore.dm > /datum/datacore/proc/get_manifest(), /datum/datacore/proc/get_manifest_html(), /datum/datacore/proc/manifest_inject()
 - ./code/modules/admin/verbs/admingame.dm > /client/proc/respawn_character()
-- ./code/modules/jobs/job_types/_job.dm > /datum/job/proc/announce_job(), /datum/job/proc/announce_head()
+- `./code/modules/jobs/job_types/_job.dm` > /datum/job/proc/announce_job(), /datum/job/proc/announce_head()
 - ./code/modules/mob/dead/new_player/new_player.dm > /mob/dead/new_player/proc/AttemptLateSpawn()
 
 ### Defines:
@@ -25,4 +25,5 @@ Unfortunately, all 3 of the categories are not set up to be very modular, so thi
 - ./tgui/packages/tgui/interfaces/NtosCrewManifest.js
 
 ### Credits:
+
 Tastyfish

@@ -69,9 +69,8 @@
 	stored_radio.set_listening(FALSE)
 	stored_radio.recalculateChannels()
 
-	find_and_hang_on_wall()
-
 	if(mapload)
+		find_and_mount_on_atom()
 		for(var/obj/machinery/power/rbmk2/reactor in range(10, src))
 			link_reactor(null, reactor)
 
@@ -98,13 +97,11 @@
 	QDEL_NULL(stored_radio)
 	return ..()
 
-/obj/machinery/rbmk2_sniffer/screwdriver_act(mob/living/user, obj/item/attack_item)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attack_item))
-		return ITEM_INTERACT_SUCCESS
+/obj/machinery/rbmk2_sniffer/screwdriver_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_screwdriver(user, tool)
 
-/obj/machinery/rbmk2_sniffer/crowbar_act(mob/living/user, obj/item/attack_item)
-	if(default_deconstruction_crowbar(attack_item))
-		return ITEM_INTERACT_SUCCESS
+/obj/machinery/rbmk2_sniffer/crowbar_act(mob/living/user, obj/item/tool)
+	return default_deconstruction_crowbar(user, tool)
 
 /obj/machinery/rbmk2_sniffer/multitool_act(mob/living/user, obj/item/multitool/tool)
 	if(panel_open)

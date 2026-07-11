@@ -11,12 +11,13 @@
 	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_SHIPWALLS + SMOOTH_GROUP_SURVIVAL_TITANIUM_POD
 
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal
-	icon_state = "map-shuttle_nd"
+	icon = MAP_SWITCH('modular_nova/modules/mapping/icons/unique/spaceships/shipwalls.dmi', 'modular_nova/modules/mapping/icons/unique/spaceships/ship_misc.dmi')
+	icon_state = MAP_SWITCH("ship_walls-0", "map-shuttle_nd")
 	smoothing_flags = SMOOTH_BITMASK
 
 /turf/closed/wall/mineral/titanium/spaceship/overspace
-	icon_state = "map-overspace"
-	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
+	icon = MAP_SWITCH('modular_nova/modules/mapping/icons/unique/spaceships/shipwalls.dmi', 'modular_nova/modules/mapping/icons/unique/spaceships/ship_misc.dmi')
+	icon_state = MAP_SWITCH("ship_walls-0", "map-overspace")
 	fixed_underlay = list("space" = TRUE)
 
 /turf/closed/wall/mineral/titanium/spaceship/interior/copyTurf(turf/T)
@@ -51,9 +52,12 @@
 	smoothing_groups = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_SHIPWALLS
 	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE
 	obj_flags = CAN_BE_HIT
+	custom_materials = list(/datum/material/alloy/titaniumglass = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/structure/window/reinforced/shuttle/spaceship/tinted
 	opacity = TRUE
 
 /obj/structure/window/reinforced/shuttle/spaceship/unanchored
 	anchored = FALSE
+	state = WINDOW_OUT_OF_FRAME
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/titanium = SHEET_MATERIAL_AMOUNT)

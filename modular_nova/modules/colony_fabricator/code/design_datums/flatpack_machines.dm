@@ -14,6 +14,9 @@
 	description = "Contains all of the colony fabricator's flatpack machine designs."
 	design_ids = list(
 		"flatpack_solar_panel",
+		"flatpack_solar_panel_titaniumglass",
+		"flatpack_solar_panel_plasmaglass",
+		"flatpack_solar_panel_plastitaniumglass",
 		"flatpack_solar_tracker",
 		"flatpack_arc_furnace",
 		"flatpack_colony_fab",
@@ -64,14 +67,45 @@
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 1,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/flatpacked_machine/solar
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_POWER,
 	)
-	construction_time = 5 SECONDS
+	construction_time = 4 SECONDS
+
+/datum/design/flatpack_solar_panel/titaniumglass
+	name = "Titanium Flat-Packed Solar Panel"
+	id = "flatpack_solar_panel_titaniumglass"
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/flatpacked_machine/solar/titaniumglass
+
+/datum/design/flatpack_solar_panel/plasmaglass
+	name = "Plasma Flat-Packed Solar Panel"
+	id = "flatpack_solar_panel_plasmaglass"
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/flatpacked_machine/solar/plasmaglass
+
+/datum/design/flatpack_solar_panel/plastitaniumglass
+	name = "Plastitanium Flat-Packed Solar Panel"
+	id = "flatpack_solar_panel_plastitaniumglass"
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/flatpacked_machine/solar/plastitaniumglass
 
 /datum/design/flatpack_solar_tracker
 	name = "Flat-Packed Solar Tracker"
@@ -165,19 +199,19 @@
 	)
 	construction_time = 30 SECONDS
 
-// Buildable RTG that is quite radioactive
+// Buildable RTG that is quite explosive
 
 /datum/design/flatpack_rtg
 	name = "Flat-Packed Radioisotope Thermoelectric Generator"
 	desc = "A deployable radioisotope generator capable of producing a practically free trickle of power. \
-		Free if you can tolerate the radiation that the machine makes while deployed, that is."
+		It's improved radiation shielding and stabilizing agents left it inert, if volatile."
 	id = "flatpack_rtg"
 	build_type = COLONY_FABRICATOR
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/flatpacked_machine/rtg
 	category = list(

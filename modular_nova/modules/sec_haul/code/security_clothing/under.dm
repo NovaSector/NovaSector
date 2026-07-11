@@ -5,6 +5,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/security_digi.dmi'
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/rank/security/warden/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
@@ -19,233 +20,194 @@
 /*
 *	SECURITY OFFICER
 */
+/obj/item/clothing/under/rank/security/nova/uniform
+	name = "guard jumpsuit"
+	desc = "A tactical jumpsuit for guards complete with Nanotrasen belt buckle."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/uniform"
+	post_init_icon_state = "depgag_jumpsuit"
+	greyscale_config = /datum/greyscale_config/depgag_jumpsuit
+	greyscale_config_worn = /datum/greyscale_config/depgag_jumpsuit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/depgag_jumpsuit/worn/digi
+	greyscale_colors = "#A52F29#39393F#39393F"
 
-//Redsec uniform with black pants
-/obj/item/clothing/under/rank/security/nova/officer/black
-	icon_state = "security_black"
-	alt_covers_chest = TRUE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ALT_COVERS_CHEST = TRUE,
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi',
-			RESKIN_ICON_STATE = "security_black",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi',
-			RESKIN_WORN_ICON_STATE = "security_black"
-		),
-		"White Variant" = list(
-			RESKIN_ALT_COVERS_CHEST = TRUE,
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi',
-			RESKIN_ICON_STATE = "security_white",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi',
-			RESKIN_WORN_ICON_STATE = "security_white"
-		),
-	)
-
-//Bluesec uniform
-/obj/item/clothing/under/rank/security/nova/officer
-	name = "security uniform"
-	desc = "A tactical security uniform for officers complete with Nanotrasen belt buckle."
-	icon_state = "security_blue_black"
-	alt_covers_chest = TRUE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "security_blue_black",
-			RESKIN_WORN_ICON_STATE = "security_blue_black"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "security_blue",
-			RESKIN_WORN_ICON_STATE = "security_blue"
-		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "security_white",
-			RESKIN_WORN_ICON_STATE = "security_white"
-		),
-	)
+/obj/item/clothing/under/rank/security/nova/uniform/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/uniform/blue"
+	greyscale_colors = "#3F6E9E#39393F#39393F"
 
 /obj/item/clothing/under/rank/security/nova/formal
-	name = "security formal suit"
-	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
-	icon_state = "formal"
+	name = "guard formal suit"
+	desc = "A formal suit for guards complete with Nanotrasen belt buckle."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/formal"
+	post_init_icon_state = "depgag_formal"
+	greyscale_config = /datum/greyscale_config/depgag_formal
+	greyscale_config_worn = /datum/greyscale_config/depgag_formal/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/depgag_formal/worn/digi
+	greyscale_colors = "#39393F#EBEBEB#A52F29#39393F"
 
 /obj/item/clothing/under/rank/security/nova/formal/blue
-	icon_state = "formal_blue"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/formal/blue"
+	greyscale_colors = "#39393F#EBEBEB#3F6E9E#39393F"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck
+	name = "guard turtleneck"
+	desc = "A turtleneck issued to guards complete with Nanotrasen belt buckle."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck"
+	post_init_icon_state = "depgag_turtleneck"
+	greyscale_config = /datum/greyscale_config/depgag_turtleneck
+	greyscale_config_worn = /datum/greyscale_config/depgag_turtleneck/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/depgag_turtleneck/worn/digi
+	greyscale_colors = "#A52F29#39393F#39393F"
+
+/obj/item/clothing/under/rank/security/nova/turtleneck/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/turtleneck/blue"
+	greyscale_colors = "#3F6E9E#39393F#39393F"
 
 /obj/item/clothing/under/rank/security/nova/skirt
-	name = "security jumpskirt"
-	desc = "A \"tactical\" security uniform with the legs replaced by a skirt."
-	icon_state = "jumpskirt_blue"
+	name = "guard jumpskirt"
+	desc = "A \"tactical\" uniform with the legs replaced by a skirt."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt"
+	post_init_icon_state = "depgag_skirt"
+	greyscale_config = /datum/greyscale_config/depgag_skirt
+	greyscale_config_worn = /datum/greyscale_config/depgag_skirt/worn
+	greyscale_colors = "#A52F29#39393F#39393F#A52F29"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "jumpskirt_blue",
-			RESKIN_WORN_ICON_STATE = "jumpskirt_blue"
-		),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "jumpskirt_black",
-			RESKIN_WORN_ICON_STATE = "jumpskirt_black"
-		),
-	)
 
-/obj/item/clothing/under/rank/security/nova/skirt/plain
-	name = "security plain skirt"
-	desc = "Plain-shirted uniform commonly worn by Nanotrasen officers, attached with a skirt."
-	icon_state = "plain_skirt_blue"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "plain_skirt_blue",
-			RESKIN_WORN_ICON_STATE = "plain_skirt_blue"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "plain_skirt_black",
-			RESKIN_WORN_ICON_STATE = "plain_skirt_black"
-	    ),
-	)
+/obj/item/clothing/under/rank/security/nova/skirt/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/skirt/blue"
+	greyscale_colors = "#3F6E9E#39393F#39393F#3F6E9E"
 
-/obj/item/clothing/under/rank/security/nova/skirt/mini
-	name = "security miniskirt"
+/obj/item/clothing/under/rank/security/nova/plainskirt
+	name = "guard plain skirt"
+	desc = "Plain-shirted uniform commonly worn by Nanotrasen protection guards, attached with a skirt."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt"
+	post_init_icon_state = "depgag_skirt_plain"
+	greyscale_config = /datum/greyscale_config/depgag_skirt_plain
+	greyscale_config_worn = /datum/greyscale_config/depgag_skirt_plain/worn
+	greyscale_colors = "#A52F29#39393F#39393F#A52F29"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/rank/security/nova/plainskirt/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/plainskirt/blue"
+	greyscale_colors = "#3F6E9E#39393F#3F6E9E#3F6E9E"
+
+/obj/item/clothing/under/rank/security/nova/miniskirt
+	name = "guard miniskirt"
 	desc = "This miniskirt was originally featured in a gag calendar, but entered official use once they realized its potential for arid climates."
-	icon_state = "miniskirt"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt",
-			RESKIN_WORN_ICON_STATE = "miniskirt"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_black",
-			RESKIN_WORN_ICON_STATE = "miniskirt_black"
-	    ),
-	)
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/miniskirt"
+	post_init_icon_state = "depgag_mini"
+	greyscale_config = /datum/greyscale_config/depgag_mini
+	greyscale_config_worn = /datum/greyscale_config/depgag_mini/worn
+	greyscale_colors = "#A52F29#39393F"
+	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/under/rank/security/nova/skirt/mini/blue
-	icon_state = "miniskirt_blue"
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_blue",
-			RESKIN_WORN_ICON_STATE = "miniskirt_blue"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_blue_black",
-			RESKIN_WORN_ICON_STATE = "miniskirt_blue_black"
-	    ),
-	)
+/obj/item/clothing/under/rank/security/nova/miniskirt/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/miniskirt/blue"
+	greyscale_colors = "#3F6E9E#39393F"
 
 /obj/item/clothing/under/rank/security/nova/utility
-	name = "security utility uniform"
-	desc = "A utility uniform worn by trained Security officers."
+	name = "guard utility uniform"
+	desc = "A utility uniform worn by trained guards."
 	icon_state = "util_sec"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	can_adjust = FALSE
-
-/obj/item/clothing/under/rank/security/nova/utility/blue
-	icon_state = "util_sec_blue"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/security/nova/dress
-	name = "security battle dress"
+	name = "guard battle dress"
 	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt."
-	icon_state = "security_skirt"
-	uses_advanced_reskins = FALSE
-	unique_reskin = null
-	alt_covers_chest = FALSE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress"
+	post_init_icon_state = "depgag_dress"
+	greyscale_config = /datum/greyscale_config/depgag_dress
+	greyscale_config_worn = /datum/greyscale_config/depgag_dress/worn
+	greyscale_colors = "#A52F29#39393F#A52F29"
 
 /obj/item/clothing/under/rank/security/nova/dress/blue
-	icon_state = "security_skirt_blue"
+	icon_state = "/obj/item/clothing/under/rank/security/nova/dress/blue"
+	greyscale_colors = "#3F6E9E#39393F#3F6E9E"
 
-/obj/item/clothing/under/rank/security/nova/trousers
-	name = "security trousers"
-	desc = "Some \"combat\" trousers. Probably should pair it with a vest for safety."
-	icon_state = "workpants"
+/obj/item/clothing/under/rank/security/nova/shorts
+	name = "pair of guard shorts"
+	desc = "Some \"combat\" shorts. Please don't actually wear these."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/secshorts"
+	post_init_icon_state = "depgag_shorts"
+	greyscale_config = /datum/greyscale_config/depgag_shorts
+	greyscale_config_worn = /datum/greyscale_config/depgag_shorts/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/depgag_shorts/worn/digi
+	greyscale_colors = "#A52F29"
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS|FEMALE_UNIFORM_TOP_ONLY
+
+/obj/item/clothing/under/rank/security/nova/shorts/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/shorts/blue"
+	greyscale_colors = "#3F6E9E"
+
+/obj/item/clothing/under/rank/security/nova/trousers
+	name = "pair of guard trousers"
+	desc = "Some \"combat\" trousers. Probably should pair it with a vest for safety."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers"
+	post_init_icon_state = "depgag_trousers"
+	greyscale_config = /datum/greyscale_config/depgag_trousers
+	greyscale_config_worn = /datum/greyscale_config/depgag_trousers/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/depgag_trousers/worn/digi
+	greyscale_colors = "#A52F29"
+	body_parts_covered = GROIN|LEGS
+	can_adjust = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "workpants",
-			RESKIN_WORN_ICON_STATE = "workpants"
-		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "workpants_white",
-			RESKIN_WORN_ICON_STATE = "workpants_white"
-		),
-	)
 
 /obj/item/clothing/under/rank/security/nova/trousers/blue
-	icon_state = "workpants_blue"
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "workpants_blue",
-			RESKIN_WORN_ICON_STATE = "workpants_blue"
-		),
-		"White Variant" = list(
-			RESKIN_ICON_STATE = "workpants_white",
-			RESKIN_WORN_ICON_STATE = "workpants_white"
-		),
-	)
+	icon_state = "/obj/item/clothing/under/rank/security/nova/trousers/blue"
+	greyscale_colors = "#3F6E9E"
 
-/obj/item/clothing/under/rank/security/nova/trousers/shorts
-	name = "security shorts"
-	desc = "Some \"combat\" shorts. Probably should pair it with a vest for safety."
-	icon_state = "workshorts"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant, Short" = list(
-			RESKIN_ICON_STATE = "workshorts",
-			RESKIN_WORN_ICON_STATE = "workshorts"
-		),
-		"Red Variant, Short Short" = list(
-			RESKIN_ICON_STATE = "workshorts_short",
-			RESKIN_WORN_ICON_STATE = "workshorts_short"
-		),
-		"White Variant, Short" = list(
-			RESKIN_ICON_STATE = "workshorts_white",
-			RESKIN_WORN_ICON_STATE = "workshorts_white"
-		),
-		"White Variant, Short Short" = list(
-			RESKIN_ICON_STATE = "workshorts_white_short",
-			RESKIN_WORN_ICON_STATE = "workshorts_white_short"
-		),
-	)
-
-/obj/item/clothing/under/rank/security/nova/trousers/shorts/blue
-	icon_state = "workshorts_blue"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Blue Variant, Short" = list(
-			RESKIN_ICON_STATE = "workshorts_blue",
-			RESKIN_WORN_ICON_STATE = "workshorts_blue"
-		),
-		"Blue Variant, Short Short" = list(
-			RESKIN_ICON_STATE = "workshorts_blue_short",
-			RESKIN_WORN_ICON_STATE = "workshorts_blue_short"
-		),
-		"White Variant, Short" = list(
-			RESKIN_ICON_STATE = "workshorts_white",
-			RESKIN_WORN_ICON_STATE = "workshorts_white"
-		),
-		"White Variant, Short Short" = list(
-			RESKIN_ICON_STATE = "workshorts_white_short",
-			RESKIN_WORN_ICON_STATE = "workshorts_white_short"
-		),
-	)
-
-/obj/item/clothing/under/rank/security/nova/turtleneck
-	name = "security turtleneck"
-	desc = "Turtleneck sweater commonly worn by trained Officers, attached with pants."
-	icon_state = "secturtleneck"
-	can_adjust = TRUE
+/obj/item/clothing/under/rank/security/nova/modskin
+	name = "guard M.O.D. skinsuit"
+	desc = "A M.O.D. skinsuit worn by trained Security officers."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin"
+	post_init_icon_state = "modskin"
+	greyscale_config = /datum/greyscale_config/modskin
+	greyscale_config_worn = /datum/greyscale_config/modskin/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/modskin/worn/digi
+	greyscale_colors = "#39393F#A52F29"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	flags_1 = IS_PLAYER_COLORABLE_1
+	bodyshapes_with_variations = NONE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
-/obj/item/clothing/under/rank/security/nova/turtleneck/blue
-	icon_state = "secturtleneck_blue"
+/obj/item/clothing/under/rank/security/nova/modskin/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/modskin/blue"
+	greyscale_colors = "#39393F#3F6E9E"
 
+/obj/item/clothing/under/rank/security/nova/depgag_pantsuit
+	name = "guard pantsuit"
+	desc = "A tactical jumpsuit for officers complete with Nanotrasen belt buckle."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/security/nova/depgag_pantsuit"
+	post_init_icon_state = "depgag_pantsuit"
+	greyscale_config = /datum/greyscale_config/depgag_pantsuit
+	greyscale_config_worn = /datum/greyscale_config/depgag_pantsuit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/depgag_pantsuit/worn/digi
+	greyscale_colors = "#A52F29#39393F#39393F#39393F"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/security/nova/depgag_pantsuit/blue
+	icon_state = "/obj/item/clothing/under/rank/security/nova/depgag_pantsuit/blue"
+	greyscale_colors = "#3F6E9E#39393F#39393F#39393F"
 /*
 *	WARDEN
 */
@@ -282,10 +244,20 @@
 /obj/item/clothing/under/rank/security/head_of_security/nova/formal/blue
 	icon_state = "formal_hos_blue"
 
-/obj/item/clothing/under/rank/security/head_of_security/nova/imperial //Rank pins of the Grand General
-	desc = "A tar black naval suit and a rank badge denoting the Officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
+
+/obj/item/clothing/under/imperialvest/hos
 	name = "head of security's naval jumpsuit"
-	icon_state = "imphos"
+	desc = "A tar black naval suit with a rank badge denoting the officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
+	icon_state = "/obj/item/clothing/under/imperialvest/hos"
+	greyscale_colors = "#39393f#39393f#39393f#373741#f8d860#21212B#f8d860#a52f29"
+	flags_1 = NONE
+
+/obj/item/clothing/under/imperialskirtvest/hos
+	name = "head of security's naval skirt"
+	desc = "A tar black naval skirt with a rank badge denoting the officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
+	greyscale_colors = "#39393f#39393f#373741#f8d860#21212B#f8d860#a52f29"
+	icon_state = "/obj/item/clothing/under/imperialskirtvest/hos"
+	flags_1 = NONE
 
 /obj/item/clothing/under/rank/security/head_of_security/nova/parade
 	name = "head of security's parade uniform"
@@ -315,6 +287,8 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
+	gets_cropped_on_taurs = FALSE
 
 /*
 *	SYNDICATE

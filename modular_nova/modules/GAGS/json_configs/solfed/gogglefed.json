@@ -1,0 +1,36 @@
+{
+	"federal_goggles": [
+		{
+			"type": "icon_state",
+			"icon_state": "goggles",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "goggles_glass",
+			"blend_mode": "overlay"
+		}
+	],
+	"mark_one_helmet": [
+		{
+			"type": "icon_state",
+			"icon_state": "mark_one",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"mark_two_helmet": [
+		{
+			"type": "icon_state",
+			"icon_state": "mark_two",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "helmet_strap",
+			"blend_mode": "overlay"
+		}
+	]
+}

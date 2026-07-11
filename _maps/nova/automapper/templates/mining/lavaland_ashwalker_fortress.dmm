@@ -19,7 +19,7 @@
 /area/ruin/unpowered/ash_walkers)
 "ar" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
-/obj/machinery/oven/stone,
+/obj/machinery/oven/primitive,
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
@@ -2556,11 +2556,11 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Lm" = (
-/obj/machinery/smartfridge/drying/rack,
 /obj/structure/stone_tile/block/cracked{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/no_lava,
+/obj/machinery/smartfridge/drying/rack/smoker,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Ln" = (

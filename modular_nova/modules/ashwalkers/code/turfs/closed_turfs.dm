@@ -1,14 +1,13 @@
-/turf/closed/attackby(obj/item/attacking_item, mob/user, params)
+/turf/closed/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/flashlight/flare/torch))
-		return place_torch(attacking_item, user, params)
+		return place_torch(attacking_item, user, modifiers)
 
 	return ..()
 
 // Try to place a torch on the wall such that we can only see it from one side
-/turf/closed/proc/place_torch(obj/item/flashlight/flare/torch/torch_to_place, mob/user, params)
+/turf/closed/proc/place_torch(obj/item/flashlight/flare/torch/torch_to_place, mob/user, modifiers)
 	if(user.transferItemToLoc(torch_to_place, user.drop_location(), silent = FALSE))
 		var/found_adjacent_turf = get_open_turf_in_dir(src, get_dir(src, user.loc))
-		var/list/modifiers = params2list(params)
 
 		// Center the icon where the user clicked.
 		if(LAZYACCESS(modifiers, ICON_X) && LAZYACCESS(modifiers, ICON_Y))

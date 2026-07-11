@@ -11,8 +11,9 @@
 	use_energy_cost = DEFAULT_CHARGE_DRAIN
 	incompatible_modules = list(/obj/item/mod/module/bikehorn)
 	cooldown_time = 1 SECONDS
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, /datum/material/plastic = SMALL_MATERIAL_AMOUNT * 5)
 
-/obj/item/mod/module/bikehorn/on_use()
+/obj/item/mod/module/bikehorn/on_use(mob/activator)
 	playsound(src, 'sound/items/bikehorn.ogg', 100, FALSE)
 	drain_power(use_energy_cost)
 
@@ -38,6 +39,7 @@
 	incompatible_modules = list(/obj/item/mod/module/microwave_beam, /obj/item/mod/module/organizer)
 	cooldown_time = 4 SECONDS
 	required_slots = list(ITEM_SLOT_GLOVES)
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, /datum/material/uranium = SMALL_MATERIAL_AMOUNT * 5)
 
 /obj/item/mod/module/microwave_beam/on_select_use(atom/target)
 	. = ..()
@@ -49,17 +51,13 @@
 		balloon_alert(mod.wearer, "not in storage!")
 		return
 	var/obj/item/microwave_target = target
-	var/datum/effect_system/spark_spread/spark_effect = new()
-	spark_effect.set_up(2, 1, mod.wearer)
-	spark_effect.start()
+	do_sparks(2, TRUE, mod.wearer)
 	mod.wearer.Beam(target,icon_state="lightning[rand(1,12)]", time = 5)
 	if(microwave_target.microwave_act(microwaver = mod.wearer) & COMPONENT_MICROWAVE_SUCCESS)
 		playsound(src, 'sound/machines/microwave/microwave-end.ogg', 50, FALSE)
 	else
 		balloon_alert(mod.wearer, "can't be microwaved!")
-	var/datum/effect_system/spark_spread/spark_effect_two = new()
-	spark_effect_two.set_up(2, 1, microwave_target)
-	spark_effect_two.start()
+	do_sparks(2, TRUE, microwave_target)
 	drain_power(use_energy_cost)
 
 //Waddle - Makes you waddle and squeak.
@@ -75,6 +73,7 @@
 	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0.2
 	incompatible_modules = list(/obj/item/mod/module/waddle)
 	required_slots = list(ITEM_SLOT_FEET)
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, /datum/material/plastic = SMALL_MATERIAL_AMOUNT * 5)
 
 /obj/item/mod/module/waddle/on_part_activation()
 	var/obj/item/shoes = mod.get_part_from_slot(ITEM_SLOT_FEET)
@@ -99,6 +98,7 @@
 	device = /obj/item/reagent_containers/spray/mister/janitor
 	volume = 100
 	active_power_cost = DEFAULT_CHARGE_DRAIN
+	custom_materials = list(/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/mod/module/mister/cleaner/Initialize(mapload)
 	. = ..()
@@ -109,3 +109,18 @@
 	var/refill_add = min(volume - reagents.total_volume, 2 * seconds_per_tick)
 	if(refill_add > 0)
 		reagents.add_reagent(/datum/reagent/space_cleaner, refill_add)
+
+/obj/item/mod/module/selfcleaner
+	name = "MOD perfumer module"
+	desc = "A small spray to clean oneself up. Has a pleasant scent."
+	icon_state = "cleaner"
+	module_type = MODULE_USABLE
+	use_energy_cost = DEFAULT_CHARGE_DRAIN * 5
+	complexity = 1
+	incompatible_modules = list(/obj/item/mod/module/selfcleaner)
+	cooldown_time = 10 SECONDS
+
+/obj/item/mod/module/selfcleaner/on_use(mob/activator)
+	activator.wash(CLEAN_WASH)
+	drain_power(use_energy_cost)
+	playsound(activator, 'sound/effects/spray.ogg', 50, FALSE)

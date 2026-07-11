@@ -1,13 +1,11 @@
+// LOADOUT ITEM DATUMS FOR THE EAR SLOT
+
 /datum/loadout_category/ears
 	category_name = "Ears"
 	category_ui_icon = FA_ICON_EAR_LISTEN
 	type_to_generate = /datum/loadout_item/ears
 	tab_order = /datum/loadout_category/face::tab_order + 1
 
-
-/*
-*	LOADOUT ITEM DATUMS FOR THE EAR SLOT
-*/
 /datum/loadout_item/ears
 	abstract_type = /datum/loadout_item/ears
 
@@ -24,6 +22,10 @@
 	else
 		outfit.ears = item_path
 
+/*
+*	ITEMS BELOW HERE
+*/
+
 /datum/loadout_item/ears/headphones
 	name = "Headphones"
 	item_path = /obj/item/instrument/piano_synth/headphones
@@ -31,3 +33,7 @@
 /datum/loadout_item/ears/earmuffs
 	name = "Earmuffs"
 	item_path = /obj/item/clothing/ears/earmuffs
+
+/datum/loadout_item/ears/frontier_radio
+	name = "Frontier Radio Headset"
+	item_path = /obj/item/radio/headset/headset_frontier_colonist
