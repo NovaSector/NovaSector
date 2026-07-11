@@ -274,3 +274,6 @@
 /datum/supply_pack/security/armory/laser_carbine
 	name = "SC-1R Laser Carbine Crate"
 	desc = "Contains three Type SC-1R laser burst carbines, developed by Allstar Lasers. Fires a rapid burst of slightly weaker laser projectiles."
+
+/obj/projectile/beam/disabler
+	speed = 1
