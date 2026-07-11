@@ -188,6 +188,8 @@
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	/// This tracks a new body that is created when a slime core is killed, and is used to safely trasnfer quirks and prefrences to this body and than summon it upon revival.
 	var/mob/living/carbon/human/new_body
+	/// This caches the mob's prefrences/quirks for revival.
+	var/datum/preferences/cached_prefs
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
@@ -270,34 +272,51 @@
 	if(core_ejected)
 		return
 	core_ejected = TRUE
-	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
-	var/atom/death_loc = victim.drop_location()
 
 	// Create a new body in nullspace, and transfer their prefrences and quirks into it.
 	new_body = new(null)
-	victim.client?.prefs.safe_transfer_prefs_to(new_body)
+	//victim.client?.prefs.safe_transfer_prefs_to(new_body)
+	//victim.transfer_quirk_datums(new_body)
+
+	// Cache the victim's prefrences in the Brain/Core, and transfer them and their quirks to the new body.
+	if(victim.client?.prefs)
+		src.cached_prefs = victim.client.prefs
+	if(src.cached_prefs)
+		src.cached_prefs.safe_transfer_prefs_to(new_body)
 	victim.transfer_quirk_datums(new_body)
 
-	// Drop the Brain/Core, and implants to the floor.
-	for(var/obj/item/organ/organs in victim)
-		if(istype(organs, /obj/item/organ/brain) || istype(organs, /obj/item/implant))
-			Remove(organs, special = TRUE)
+	var/atom/death_loc = victim.drop_location()
+	if(!death_loc)
+		death_loc = get_turf(victim) // Fallback to avoid the Slime core showing up in Nullspace.
+
+	// Drop their equipment, Brain/Core, and implants to the floor.
+	victim.unequip_everything()
+	src.Remove(victim, special = TRUE) // Brain/Core
+	for(var/obj/item/implant/implants in victim) // Implants
+		implants.forceMove(death_loc)
+
+	// Move the Brain/Core, and implants to the death location.
 	if(death_loc)
 		forceMove(death_loc)
-		// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
-		for(var/obj/item/organ/spilled_organ in death_loc)
-			if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
-				continue
-			else
-				qdel(spilled_organ)
+
+	// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
+	for(var/obj/item/organ/spilled_organ in death_loc)
+		if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
+			continue
+		else
+			qdel(spilled_organ)
+
 	src.wash(CLEAN_WASH)
 	new death_melt_type(death_loc, victim.dir)
 
-	do_steam_effects(get_turf(victim))
-	playsound(victim, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
+	do_steam_effects(death_loc)
+	playsound(death_loc, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
 
 	if(gps_active) // adding the gps signal if they have activated the ability
 		AddComponent(/datum/component/gps, "[victim]'s Core")
+
+	// Message the victim and the surrounding area that they have died.
+	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
 
 	qdel(victim) // Remove the body.
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
@@ -350,6 +369,10 @@
 	if(gps_active) // making sure the gps signal is removed if it's active on revival
 		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
+
+	// Reapply prefrences from the Brain/Core in-case it failed in the Core Eject Proc.
+	if(src.cached_prefs)
+		src.cached_prefs.safe_transfer_prefs_to(new_body)
 
 	// Retreive the new body we created from nullspace.
 	new_body.forceMove(src.drop_location())
