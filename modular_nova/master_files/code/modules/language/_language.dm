@@ -22,7 +22,10 @@
 	secret = TRUE
 
 /datum/language/monkey
-	secret = FALSE //NOVA EDIT -  Monkey language for all! Original: `secret = TRUE`
+	secret = FALSE
+	
+/datum/language/wormspeak
+	secret = TRUE
 
 /datum/language/mushroom
 	secret = TRUE
