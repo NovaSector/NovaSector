@@ -6,3 +6,4 @@
 	icon_state = "wormspeak"
 	default_priority = 90
 	always_use_default_namelist = TRUE
+	secret = TRUE // NOVA ADDITION - We don't have blood worms, and it barely makes sense even if we did.
