@@ -233,7 +233,7 @@
 /datum/antagonist/malf_ai/infected
 	name = "Infected AI"
 	employer = "Infected AI"
-	can_assign_self_objectives = FALSE
+	can_assign_self_objectives = TRUE
 	malf_sound = null
 	///The player, to who is this AI slaved
 	var/datum/mind/boss

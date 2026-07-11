@@ -13,13 +13,13 @@
 	hijack_speed = 0.5
 	ui_name = "AntagInfoChangeling"
 	suicide_cry = "FOR THE HIVE!!"
-	can_assign_self_objectives = FALSE // NOVA EDIT CHANGE - Too loose of a cannon, and doesn't have staff sign off - ORIGINAL: can_assign_self_objectives = TRUE
+	can_assign_self_objectives = TRUE
 	default_custom_objective = "Consume the station's most valuable genomes."
 	hardcore_random_bonus = TRUE
 	stinger_sound = 'sound/music/antag/ling_alert.ogg'
 
 	/// Whether to give this changeling objectives or not
-	var/give_objectives = TRUE
+	var/give_objectives = FALSE // NOVA EDIT
 	/// Weather we assign objectives which compete with other lings
 	var/competitive_objectives = FALSE
 

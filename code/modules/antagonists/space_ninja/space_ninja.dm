@@ -14,7 +14,7 @@
 	default_custom_objective = "Destroy vital station infrastructure, without being seen."
 	desensitized_modifier = DESENSITIZED_THRESHOLD
 	///Whether or not this ninja will obtain objectives
-	var/give_objectives = TRUE
+	var/give_objectives = FALSE
 
 /**
  * Proc that equips the space ninja outfit on a given individual.  By default this is the owner of the antagonist datum.
