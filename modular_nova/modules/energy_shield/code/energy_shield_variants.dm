@@ -45,6 +45,10 @@
 	blocks_projectiles = FALSE
 	blocks_melee = FALSE
 
+/obj/item/clothing/accessory/energy_shield/syndicate/stamina/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SCARBOROUGH)
+
 /// Syndicate shield tuned for projectile interception only. Transparent to melee.
 /obj/item/clothing/accessory/energy_shield/syndicate/phasic
 	name = "\improper Gorlex phasic deflector"
