@@ -188,7 +188,7 @@
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	/// This tracks a new body that is created when a slime core is killed, and is used to safely trasnfer quirks and prefrences to this body and than summon it upon revival.
 	var/mob/living/carbon/human/new_body
-	/// This caches the mob's prefrences/quirks for revival.
+	/// This caches the mob's prefrences for revival.
 	var/datum/preferences/cached_prefs
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
@@ -275,8 +275,6 @@
 
 	// Create a new body in nullspace, and transfer their prefrences and quirks into it.
 	new_body = new(null)
-	//victim.client?.prefs.safe_transfer_prefs_to(new_body)
-	//victim.transfer_quirk_datums(new_body)
 
 	// Cache the victim's prefrences in the Brain/Core, and transfer them and their quirks to the new body.
 	if(victim.client?.prefs)
