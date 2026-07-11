@@ -256,8 +256,7 @@
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 	if(gibbed)
-		qdel(src)
-		UnregisterSignal(victim, COMSIG_LIVING_DEATH)
+		core_ejection(victim)
 		return
 
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
@@ -359,10 +358,20 @@
 		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
 
-	// Retreive, and revive our original body that we moved to Nullspace.
-	RegisterSignal(body, COMSIG_LIVING_DEATH)
-	body.revive(HEAL_ALL)
-	body.forceMove(src.drop_location())
+	// If the Slime player has a body use that, otherwise create a new one for them and try to apply their prefrences to it.
+	if(!body || QDELETED(body))
+		var/mob/living/carbon/human/new_body = new(src.drop_location())
+		body = new_body
+		var/datum/preferences/prefs = brainmob?.client?.prefs || brainmob?.mind?.current?.client?.prefs
+		if(prefs)
+			prefs.apply_prefs_to(body)
+		// ISSUE: The new body gets no quirks, TODO: Add them
+
+	else
+		// Retreive, and revive our original body that we moved to Nullspace.
+		RegisterSignal(body, COMSIG_LIVING_DEATH)
+		body.revive(HEAL_ALL)
+		body.forceMove(src.drop_location())
 
 	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
 	body.underwear = "Nude"
