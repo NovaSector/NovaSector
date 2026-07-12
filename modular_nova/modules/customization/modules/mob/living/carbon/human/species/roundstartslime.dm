@@ -368,7 +368,7 @@
 		// ISSUE: The new body gets no quirks, TODO: Add them
 
 	else
-		// Retreive, and revive our original body that we moved to Nullspace.
+		// Retrieve, and revive our original body that we moved to Nullspace.
 		RegisterSignal(body, COMSIG_LIVING_DEATH)
 		body.revive(HEAL_ALL)
 		body.forceMove(src.drop_location())
