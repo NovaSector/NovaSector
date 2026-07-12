@@ -17774,6 +17774,7 @@
 /area/station/service/chapel/dock)
 "bMw" = (
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/dock)
 "bMx" = (
@@ -25336,7 +25337,7 @@
 	dir = 2;
 	dwidth = 8;
 	height = 11;
-	name = "Port Bay 2";
+	name = "Centcom Dock";
 	shuttle_id = "ferry_home";
 	width = 20
 	},
@@ -34898,14 +34899,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/virology)
-"ini" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/water/beach/planet_surface,
-/area/ocean)
 "inp" = (
 /obj/machinery/door/airlock{
 	name = "Cabin 4";
@@ -35022,6 +35015,7 @@
 	chamber_id = "engine"
 	},
 /obj/effect/mapping_helpers/airalarm/engine_access,
+/obj/effect/landmark/atmospheric_sanity/ignore_area,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "ipI" = (
@@ -80956,7 +80950,7 @@ kMZ
 kMZ
 kMZ
 kMZ
-ini
+kMZ
 iYB
 iYB
 cOs
