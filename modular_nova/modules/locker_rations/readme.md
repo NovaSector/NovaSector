@@ -8,11 +8,11 @@ Module ID: LOCKER_RATIONS
 
 ### Description:
 
-This module adds in emergency ration packs to the game, and the contents of packs.
+This module adds in emergency ration packs to the game, and the contents of the packs.
 
 ### TG Proc/File Changes:
 
-- `code/modules/mob/living.dm`: To add an emergency ration pack to the emergency locker contents.
+- `code/game/objects/structures/crates_lockers/closets/utility_closets.dm`: A ration pack was added to the emergency locker, expanding the existing Nova edit that added the emergency space suit case.
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g: 
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
@@ -20,7 +20,7 @@ E.g:
 
 ### Modular Overrides:
 
-- `modular_nova/modules/cargo/code/packs.dm`: To add the SolGov ration crate to cargo.
+- N/A
 <!-- If you added a new modular override (file or code-wise) for your module, you should list it here. Code files should specify what procs they changed, in case of multiple modules using the same file.
 E.g: 
 - `modular_nova/master_files/sound/my_cool_sound.ogg`
@@ -34,7 +34,8 @@ E.g:
 
 ### Included files that are not contained in this module:
 
-- `modular_nova/modules/imported_vendors/code/vendor_food.dm`: The ration mains/sides are subtypes of the vendor ones.
+- `modular_nova/modules/cargo/code/packs.dm`: A ration crate was added to cargo.
+- `modular_nova/modules/imported_vendors/code/vendor_food.dm`: The ration mains/sides are subtypes of the vendor ones. As well, a base type for a vendor main spawner was added in, because there originally wasn't one there like there was for vendor sides.
 
 ### Credits:
 

@@ -14,20 +14,15 @@
 	custom_price = PAYCHECK_CREW * 1.8
 	custom_materials = list(/datum/material/plastic =SHEET_MATERIAL_AMOUNT)
 	foldable_result = /obj/item/stack/sheet/plastic
-	var/first_main = /obj/effect/spawner/random/vendor_meal_mains/ration_one
-	var/second_main = /obj/effect/spawner/random/vendor_meal_mains/ration_two
-	var/first_side = /obj/effect/spawner/random/vendor_meal_sides/ration_one
-	var/second_side = /obj/effect/spawner/random/vendor_meal_sides/ration_two
-	var/condiment_pack = /obj/item/reagent_containers/condiment/pack/peanut_butter
 	
 /obj/item/storage/box/ration/PopulateContents()
 	. = ..()
-	new first_main(src)
-	new second_main(src)
-	new first_side(src)
-	new second_side(src)
-	new /obj/item/food/vendor_tray_meal/side/ration/bag/cracker(src) // Gauranteed crackers, no matter what.
-	new condiment_pack(src)
+	new /obj/effect/spawner/random/vendor_meal_mains/ration_one(src) // First main.
+	new /obj/effect/spawner/random/vendor_meal_mains/ration_two(src) // Second main.
+	new /obj/effect/spawner/random/vendor_meal_sides/ration_one(src) // First side.
+	new /obj/effect/spawner/random/vendor_meal_sides/ration_two(src) // Second side.
+	new /obj/item/food/vendor_tray_meal/side/ration/bag/cracker(src) // Crackers.
+	new /obj/item/reagent_containers/condiment/pack/peanut_butter(src) // Peanut butter.
 
 /obj/item/storage/box/ration/examine_more(mob/user)
 	. = ..()
@@ -86,6 +81,7 @@
 	desc = "This is the base type for emergency ration sides. If you somehow managed to get this in normal gameplay, please file a bug report."
 	icon = 'modular_nova/modules/locker_rations/icons/rations.dmi'
 	trash_type = /obj/item/trash/empty_side_pack/ration
+	foodtypes = VEGETABLES
 	
 /obj/item/food/vendor_tray_meal/side/ration/bag
 	trash_type = /obj/item/trash/empty_side_pack/ration/bag
@@ -95,7 +91,6 @@
 	desc = "A crisp, rice flour cracker. Would go great with some peanut butter"
 	icon_state = "bag_ration_cracker"
 	tastes = list("cracker" = 1)
-	foodtypes = VEGETABLES
 	
 /obj/item/food/vendor_tray_meal/side/ration/bag/cookie
 	name = "\improper Emergency Ration Side: Sweet Potato Cookie"
@@ -123,21 +118,18 @@
 	desc = "A bunch of crunchy corn nuts."
 	icon_state = "bag_ration_cornnuts"
 	tastes = list("roasted corn" = 1)
-	foodtypes = VEGETABLES
 
 /obj/item/food/vendor_tray_meal/side/ration/bag/pretzels
 	name = "\improper Emergency Ration Side: Pretzel Bites"
 	desc = "A bunch of crunchy, gluten free, salted pretzel bites."
 	icon_state = "bag_ration_pretzels"
 	tastes = list("hard pretzel" = 1)
-	foodtypes = VEGETABLES
 	
 /obj/item/food/vendor_tray_meal/side/ration/granola
 	name = "\improper Emergency Ration Side: Granola Bar"
 	desc = "A classic, honey and oat granola bar."
 	icon_state = "foodpack_ration_granola"
 	tastes = list("honey" = 1, "oats" = 1)
-	foodtypes = VEGETABLES
 
 /obj/item/reagent_containers/condiment/pack/peanut_butter // This didn't already exist, for some reason.
 	name = "peanut butter pack"
