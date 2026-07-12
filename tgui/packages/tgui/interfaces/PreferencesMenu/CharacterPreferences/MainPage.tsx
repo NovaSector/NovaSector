@@ -8,6 +8,7 @@ import {
   Button,
   Floating,
   Input,
+  Icon, // NOVA EDIT ADDITION
   LabeledList,
   Section,
   Stack,
@@ -522,15 +523,25 @@ export function MainPage(props: MainPageProps) {
     delete nonContextualPreferences.random_name;
   }
   // NOVA EDIT ADDITION BEGIN: SWAPPABLE PREF MENUS
+  const erpPreferences = {
+    ...data.character_preferences.erp,
+  };
+
   enum PrefPage {
     Visual, // The visual parts
     Profile, // Flavor Text, Age, Records, PDA ringtone, etc
+    ERP, // ERP Prefs
   }
 
   const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
+  const erpEnabled = !!data.erp_pref;
+  const filteredCurrentPrefPage =
+    currentPrefPage === PrefPage.ERP && !erpEnabled
+      ? PrefPage.Visual
+      : currentPrefPage;
 
   let prefPageContents;
-  switch (currentPrefPage) {
+  switch (filteredCurrentPrefPage) {
     case PrefPage.Visual:
       prefPageContents = (
         <PreferenceList
@@ -557,8 +568,21 @@ export function MainPage(props: MainPageProps) {
         />
       );
       break;
+    case PrefPage.ERP:
+    prefPageContents = (
+      <PreferenceList
+        randomizations={getRandomization(
+          erpPreferences,
+          serverData,
+          randomBodyEnabled,
+        )}
+        preferences={erpPreferences}
+        maxHeight="auto"
+      />
+    );
+    break;
     default:
-      exhaustiveCheck(currentPrefPage);
+      exhaustiveCheck(filteredCurrentPrefPage);
   }
   // NOVA EDIT ADDITION END
 
@@ -603,7 +627,8 @@ export function MainPage(props: MainPageProps) {
               <CharacterControls
                 gender={data.character_preferences.misc.gender}
                 handleOpenSpecies={props.openSpecies}
-                handleRotate={(value) => { // NOVA EDIT CHANGE - Original: handleRotate={() => { 
+                handleRotate={(value) => {
+                  // NOVA EDIT CHANGE - Original: handleRotate={() => {
                   act('rotate', { backwards: value }); // NOVA EDIT CHANGE - Original: act('rotate');
                 }}
                 setGender={createSetPreference(act, 'gender')}
@@ -713,7 +738,7 @@ export function MainPage(props: MainPageProps) {
         {/* ORIGINAL: <Stack.Item grow basis={0}> */}
         <Stack.Item grow basis={0} ml="4px">
           <Stack vertical fill>
-            { /* // NOVA EDIT REMOVAL START
+            {/* // NOVA EDIT REMOVAL START
              <PreferenceList
               randomizations={getRandomization(
                 contextualPreferences,
@@ -733,7 +758,7 @@ export function MainPage(props: MainPageProps) {
               preferences={nonContextualPreferences}
               maxHeight="auto"
             />
-            // NOVA EDIT REMOVAL END */ }
+            // NOVA EDIT REMOVAL END */}
             {/* NOVA EDIT ADDITION BEGIN: Swappable pref menus */}
             <Stack>
               <Stack.Item grow={2}>
@@ -754,6 +779,17 @@ export function MainPage(props: MainPageProps) {
                   Character Profile
                 </PageButton>
               </Stack.Item>
+             {erpEnabled && (
+              <Stack.Item grow={0.5}>
+                <PageButton
+                  currentPage={currentPrefPage}
+                  page={PrefPage.ERP}
+                  setPage={setCurrentPrefPage}
+                >
+                <Icon name="heart" />
+                </PageButton>
+              </Stack.Item>
+            )}
             </Stack>
             {prefPageContents}
           </Stack>

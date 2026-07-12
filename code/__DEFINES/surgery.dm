@@ -3,6 +3,11 @@
 /// Helper to figure out if an organ is robotic
 #define IS_ROBOTIC_ORGAN(organ) (organ.organ_flags & ORGAN_ROBOTIC)
 
+/// List of organ flags that can not be bioscrambled
+#define ORGAN_BIOSCRAMBLE_INCOMPATIBLE (ORGAN_ROBOTIC | ORGAN_MINERAL)
+/// Check to see if an organ can be bioscrambled
+#define ORGAN_CAN_BE_BIOSCRAMBLED(organ) (!(organ.organ_flags & ORGAN_BIOSCRAMBLE_INCOMPATIBLE) && !(organ.flags_1 & HOLOGRAM_1))
+
 // Flags for the organ_flags var on /obj/item/organ
 /// Organic organs, the default. Don't get affected by EMPs.
 #define ORGAN_ORGANIC (1<<0)
@@ -43,6 +48,8 @@
 #define ORGAN_SYNTHETIC_FROM_SPECIES (1<<17)
 /// Organ flag for organs of hemophage origin, or organs that have since been infected by an hemophage's tumor.
 #define ORGAN_TUMOR_CORRUPTED (1<<18)
+/// Organ flag for nanomachine organs
+#define ORGAN_NANOMACHINE (1<<19)
 // NOVA EDIT ADDITION END
 
 /// Organ flags that correspond to bodytypes

@@ -306,3 +306,4 @@
 	tastes = list("puffed minty piru bread" = 1, "rich cream" = 1, "super-sweet kiri jelly" = 1)
 	foodtypes = VEGETABLES | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_4
+

@@ -195,7 +195,7 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/melee/baton/security/stun_gun/stun_knife = 1, // NOVA EDIT ADDITION
 		/obj/item/melee/baton/security/stun_gun = 1, // NOVA EDIT ADDITION
 		/obj/item/gun/energy/taser/crank = 1, // NOVA EDIT ADDITION
-		/obj/item/gun/ballistic/automatic/pistol/doorhickey = 1, // NOVA EDIT ADDITION, yes it's lower in the code too, but it should be alot more common now
+		/obj/item/gun/ballistic/automatic/pistol/doohickey = 1, // NOVA EDIT ADDITION, yes it's lower in the code too, but it should be alot more common now
 		) = 8,
 
 	list(//equipment
@@ -267,6 +267,7 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/food/canned/peaches/maint = 1,
 		/obj/item/storage/box/donkpockets = 1,
 		/obj/item/storage/box/gum/happiness = 1,
+		/obj/item/storage/box/ramen_beef = 1,
 		/obj/item/pizzavoucher/free = 1, //NOVA EDIT ADDITION
 		list(//Donk Varieties
 			/obj/item/storage/box/donkpockets/donkpocketberry = 1,
@@ -341,7 +342,7 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 		/obj/item/weldingtool/hugetank = 1,
 		/obj/item/fishing_rod/telescopic/master = 1,
 		/obj/item/spess_knife = 1,
-		/obj/item/gun/ballistic/automatic/pistol/doorhickey = 1,
+		/obj/item/gun/ballistic/automatic/pistol/doohickey = 1,
 		) = 1,
 
 	list(//equipment
@@ -373,11 +374,15 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 			/obj/item/storage/medkit/emergency = 1,
 			/obj/item/storage/medkit/regular = 1,
 			/obj/item/storage/box/bandages = 1,
-			) = 1,
+			) = 2,
 		list(//medical chems
 			/obj/item/reagent_containers/hypospray/medipen/oxandrolone = 1,
 			/obj/item/reagent_containers/hypospray/medipen/salacid = 1,
 			/obj/item/reagent_containers/syringe/contraband/methamphetamine = 1,
+			) = 2,
+		list(
+			/obj/item/paper/secretrecipe/gorgium = 1,
+			/obj/item/paper/secretrecipe/metalgen = 1,
 			) = 1,
 		) = 1,
 

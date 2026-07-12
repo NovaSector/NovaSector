@@ -80,7 +80,7 @@
 /datum/element/nifsoft_hud/proc/on_examine(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_cyan("Wearing this item in your glasses slot will allow you to use NIFSoft HUDs.")
+	examine_text += span_cyan_nova("Wearing this item in your glasses slot will allow you to use NIFSoft HUDs.")
 
 /datum/element/nifsoft_hud/Detach(datum/target)
 	UnregisterSignal(target, COMSIG_ATOM_EXAMINE)
@@ -132,26 +132,32 @@
 /obj/item/disk/nifsoft_uploader/job/med_hud
 	name = "Medical Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/medical
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/disk/nifsoft_uploader/job/diag_hud
 	name = "Diagnostic Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/diagnostic
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/disk/nifsoft_uploader/job/sec_hud
 	name = "Security Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/security
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/disk/nifsoft_uploader/job/permit_hud
 	name = "Permit Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/cargo_tech
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/disk/nifsoft_uploader/job/sci_hud
 	name = "Science Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/science
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/disk/nifsoft_uploader/job/meson_hud
 	name = "Meson Scrying Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/job/meson
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 //
 // NIFSOFT HUD GLASSES

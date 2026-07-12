@@ -2,13 +2,13 @@ import { Fragment, useState } from 'react';
 import { useBackend } from 'tgui/backend';
 import { CharacterPreview } from 'tgui/interfaces/common/CharacterPreview';
 import { removeAllSkiplines } from 'tgui/interfaces/TextInputModal'; // NOVA EDIT ADDITION: Multiple loadout presets
-import { Flex } from 'tgui-core/components'; // NOVA EDIT ADDITION: Multiple loadout presets
 import {
   Box,
   Button,
   Dimmer, // NOVA EDIT ADDITION: Multiple loadout presets
   Divider,
   Dropdown, // NOVA EDIT ADDITION: Multiple loadout presets
+  Flex, // NOVA EDIT ADDITION: Multiple loadout presets
   Icon,
   Input,
   NoticeBox,
@@ -31,8 +31,7 @@ import { LoadoutModifyDimmer } from './ModifyPanel';
 export function LoadoutPage(props) {
   const serverData = useServerPrefs();
   const loadout_tabs = serverData?.loadout.loadout_tabs || [];
-  /* NOVA EDIT CHANGE - Original: const { data } = useBackend<LoadoutManagerData>();
-  const { erp_pref } = data; */
+  /* NOVA EDIT CHANGE - Original: const { data } = useBackend<LoadoutManagerData>(); */
   const erp_pref = useBackend<LoadoutManagerData>().data.erp_pref;
 
   const [searchLoadout, setSearchLoadout] = useState('');
@@ -473,7 +472,12 @@ function LoadoutPreviewSection() {
     >
       <Stack vertical fill>
         <Stack.Item grow align="center">
-          <CharacterPreview height="100%" width="240px" id={data.character_preview_view} /> {/* NOVA EDIT CHANGE - ORIGINAL: <CharacterPreview height="100%" id={data.character_preview_view} /> */}
+          <CharacterPreview
+            height="100%"
+            width="240px"
+            id={data.character_preview_view}
+          />{' '}
+          {/* NOVA EDIT CHANGE - ORIGINAL: <CharacterPreview height="100%" id={data.character_preview_view} /> */}
         </Stack.Item>
         <Stack.Divider />
         <Stack.Item align="center">

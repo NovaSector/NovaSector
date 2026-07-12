@@ -906,3 +906,32 @@
 	// This makes it so that it appears only when we have pod hair or allow mismatched parts.
 	check_mode = TRICOLOR_CHECK_ACCESSORY
 	type_to_check = /datum/preference/choiced/mutant_choice/pod_hair
+
+// Holosynth color preference
+/datum/preference/color/mutant/holosynth_color
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "holo_color"
+	relevant_inherent_trait = TRAIT_HOLOSYNTH
+
+/datum/preference/color/mutant/holosynth_color/create_default_value()
+	return COLOR_WHITE
+
+/datum/preference/color/mutant/holosynth_color/apply_to_human(mob/living/carbon/human/target, value)
+	// default case, nothing to do here either, so skip processing
+	if(value == COLOR_WHITE)
+		target.dna.features["holo_color"] = value
+		return
+
+	// Nudge near-black choices up to the darkest legible hologram instead of snapping to white,
+	// preserving the picked hue. Pure black has no hue to preserve → settle on dark gray.
+	var/list/rgb_list = rgb2num(value)
+	var/brightest = max(rgb_list[1], rgb_list[2], rgb_list[3])
+	if(brightest < 80)
+		if(brightest == 0)
+			value = rgb(80, 80, 80)
+		else
+			var/scale = 80 / brightest
+			value = rgb(rgb_list[1] * scale, rgb_list[2] * scale, rgb_list[3] * scale)
+	target.dna.features["holo_color"] = value
+

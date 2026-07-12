@@ -21,6 +21,7 @@
 		/obj/item/clothing/under/rank/civilian/psychologist_bunnysuit = 3,
 		/obj/item/clothing/under/rank/medical/doctor_bunnysuit = 3,
 		/obj/item/clothing/under/rank/medical/paramedic_bunnysuit = 3,
+		/obj/item/clothing/gloves/latex/nitrile/long = 2,
 	)
 
 /obj/machinery/vending/wardrobe/coroner_wardrobe
@@ -37,9 +38,11 @@
 		/obj/item/clothing/under/rank/engineering/engineer/nova/trouser = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/utility = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/hazard_chem = 3,
-		/obj/item/clothing/shoes/workboots/toeless = 3,
+		/obj/item/clothing/under/rank/engineering/engineer/nova/utility/telecomm = 3,
 		/obj/item/clothing/under/misc/overalls = 3,
+		/obj/item/clothing/shoes/workboots/toeless = 3,
 		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/engi = 3,
+		/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/tcomm = 3,
 		/obj/item/clothing/head/utility/hardhat/orange = 2,
 		/obj/item/clothing/head/utility/hardhat/welding/orange = 2,
 		/obj/item/clothing/head/utility/hardhat/dblue = 2,
@@ -63,6 +66,7 @@
 		/obj/item/clothing/shoes/workboots/heeled = 3,
 		/obj/item/clothing/suit/utility/fire/atmos_tech_tailcoat = 3,
 		/obj/item/clothing/under/rank/engineering/atmos_tech_bunnysuit = 3,
+		/obj/item/clothing/mask/gas/gags = 3,
 	)
 
 /obj/machinery/vending/wardrobe/cargo_wardrobe

@@ -7,7 +7,6 @@
 		SPECIES_MAMMAL = 1,
 		SPECIES_INSECT = 1,
 	)
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	organ_type = /obj/item/organ/fluff
 
 /datum/sprite_accessory/fluff/moth/none

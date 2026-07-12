@@ -44,7 +44,6 @@
 
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_CLAW)
 	AddElement(/datum/element/ai_flee_while_injured)
-	AddElement(/datum/element/ai_retaliate)
 
 /obj/item/crusher_trophy/deer_fur
 	name = "deer fur"
@@ -56,7 +55,7 @@
 /obj/item/crusher_trophy/deer_fur/effect_desc()
 	return "mark detonation to gain a slight speed boost temporarily"
 
-/obj/item/crusher_trophy/deer_fur/on_mark_detonation(mob/living/target, mob/living/user)
+/obj/item/crusher_trophy/deer_fur/on_mark_detonation(mob/living/target, mob/living/user, obj/item/kinetic_crusher/pkc)
 	. = ..()
 	user.apply_status_effect(/datum/status_effect/speed_boost, 1 SECONDS)
 

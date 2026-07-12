@@ -12,6 +12,8 @@
 #define UNDERWEAR_HIDE_BRA (1<<3)
 #define UNDERWEAR_HIDE_ALL (UNDERWEAR_HIDE_SOCKS | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_BRA)
 
+#define ICON_KEY_DIGI "digi"
+
 ///Defines for icons used for modular bodyparts, created to make it easier to relocate the module or files if necessary.
 #define BODYPART_ICON_HUMAN 'modular_nova/modules/bodyparts/icons/human_parts_greyscale.dmi'
 #define BODYPART_ICON_HUMANOID 'modular_nova/modules/bodyparts/icons/humanoid_parts_greyscale.dmi'
@@ -38,3 +40,25 @@
 #define BODYPART_ICON_HARPY 'modular_nova/modules/bodyparts/icons/bespoke/harpy_parts_greyscale.dmi'
 #define BODYPART_ICON_HARPY_HUMAN 'modular_nova/modules/bodyparts/icons/bespoke/harpy_parts_skintone.dmi'
 #define BODYPART_ICON_HUMAN_CRITTER 'modular_nova/modules/bodyparts/icons/bespoke/mutant_parts_skintone.dmi'
+
+/// Worn icon rendering macros and defines
+/// Should do nothing with the icon.
+#define TAUR_VARIATION_NONE 0
+/// Should crop the bottom half off this clothing icon
+#define TAUR_VARIATION_CROP 1
+/// Should generate a big legs mask for this clothing icon
+#define TAUR_VARIATION_BIG_LEGS 2
+
+/// Derives which taur handling applies for ITEM on a SHAPE-shaped wearer.
+/// SHAPE should have taur bits pre-masked if the rendered file is already taur-fitted.
+#define GET_TAUR_VARIATION(ITEM, SHAPE) ( \
+	((SHAPE) & BODYSHAPE_TAUR_BIG_LEGS_ALL) ? ( \
+		(((ITEM).supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !((ITEM).supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION)) \
+			? TAUR_VARIATION_BIG_LEGS \
+			: TAUR_VARIATION_NONE \
+	) : ( \
+		(((SHAPE) & BODYSHAPE_TAUR) && (ITEM).gets_cropped_on_taurs) \
+			? TAUR_VARIATION_CROP \
+			: TAUR_VARIATION_NONE \
+	) \
+)

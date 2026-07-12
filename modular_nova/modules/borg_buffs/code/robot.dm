@@ -159,6 +159,7 @@
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/janitor)
 	model_flags = BORG_MODEL_JANITOR
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/borg/upgrade/wirebrush/action(mob/living/silicon/robot/cyborg)
 	. = ..()
@@ -197,3 +198,8 @@
 
 /obj/item/kinetic_crusher/robot/update_wielding()
 	return
+
+#undef BASE_SHAKER_JUICE_REAGENTS
+#undef BASE_SHAKER_ALCOHOL_REAGENTS
+#undef BASE_SHAKER_SODA_REAGENTS
+#undef BASE_SHAKER_MISC_REAGENTS

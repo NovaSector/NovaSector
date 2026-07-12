@@ -13,7 +13,6 @@
 	mutanttongue = /obj/item/organ/tongue/vox
 	mutantlungs = /obj/item/organ/lungs/nitrogen/vox
 	mutantbrain = /obj/item/organ/brain/cybernetic/cortical/vox
-	breathid = "n2"
 
 	payday_modifier = 1.0
 	outfit_important_for_life = /datum/outfit/vox
@@ -44,6 +43,7 @@
 		LOADOUT_ITEM_EARS = VOX_EARS_ICON
 	)
 
+	meat = /obj/item/food/meat/slab/chicken/human
 /datum/species/vox/get_default_mutant_bodyparts()
 	return list(
 		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
@@ -79,7 +79,7 @@
 	// snowflakey but vox legs weird.
 	if(item_slot == LOADOUT_ITEM_SHOES)
 		var/obj/item/bodypart/leg = bodypart_overrides[BODY_ZONE_L_LEG] || bodypart_overrides[BODY_ZONE_R_LEG]
-		if(leg && initial(leg.limb_id) != BODYPART_ID_DIGITIGRADE)
+		if(leg && !(initial(leg.bodyshape) & BODYSHAPE_DIGITIGRADE))
 			// normal legs, use normal human shoes
 			return DEFAULT_SHOES_FILE
 

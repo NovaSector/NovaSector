@@ -31,29 +31,30 @@
 		/obj/item/mod/module/visor/thermal,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/flamethrower,
-		/obj/item/mod/module/baton_holster/preloaded,
+		/obj/item/mod/module/weapon_recall/contractor,
 	)
 	default_pins = list(
 		/obj/item/mod/module/visor/thermal,
 		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/baton_holster/preloaded,
+		/obj/item/mod/module/weapon_recall/contractor,
 		/obj/item/mod/module/flamethrower,
 	)
 
 /obj/item/mod/control/pre_equipped/contractor/upgraded/adminbus
 	applied_modules = list(
-		/obj/item/mod/module/baton_holster/preloaded,
+		/obj/item/mod/module/weapon_recall/contractor,
 		/obj/item/mod/module/emp_shield,
 		/obj/item/mod/module/shock_absorber,
 		/obj/item/mod/module/quick_cuff,
 		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/rad_protection,
 		/obj/item/mod/module/scorpion_hook,
 		/obj/item/mod/module/springlock/contractor/no_complexity,
 		/obj/item/mod/module/storage/syndicate,
 	)
 	default_pins = list(
 		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/baton_holster/preloaded,
+		/obj/item/mod/module/weapon_recall/contractor,
 		/obj/item/mod/module/scorpion_hook,
 	)
 

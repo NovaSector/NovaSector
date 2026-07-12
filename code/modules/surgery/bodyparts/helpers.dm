@@ -284,17 +284,12 @@
 			all_limb_flags |= organ.external_bodyshapes
 		all_limb_flags |= limb.bodyshape
 
-	bodyshape = all_limb_flags
+	/* // NOVA EDIT REMOVAL START - On TG, HIDESNOUT means the snout should not exist period, whereas we use it to hide the snout from rendering and poking out from snouted icons
+	if(obscured_slots & HIDESNOUT)
+		all_limb_flags &= ~BODYSHAPE_SNOUTED
+	*/ // NOVA EDIT REMOVAL END - For us bodyshape must remain the anatomical truth in this case, or snouted helmets will be wrongly affected by masks that 'hide' snouts.
 
-/// Get all bodyshapes but filter out bodyshapes that are currently being hidden
-/mob/living/carbon/proc/get_active_bodyshapes()
-	var/active_shapes = bodyshape
-	// future todo: both of these are state based, maybe we can just remove relevant bodyshapes directly. would remove the need for this proc
-	if((active_shapes & BODYSHAPE_DIGITIGRADE) && is_digitigrade_squished())
-		active_shapes &= ~BODYSHAPE_DIGITIGRADE
-	if((active_shapes & BODYSHAPE_SNOUTED) && (obscured_slots & HIDESNOUT))
-		active_shapes &= ~BODYSHAPE_SNOUTED
-	return active_shapes
+	bodyshape = all_limb_flags
 
 /proc/skintone2hex(skin_tone)
 	. = 0

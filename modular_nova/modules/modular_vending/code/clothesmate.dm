@@ -99,6 +99,7 @@
 				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
 				/obj/item/clothing/under/misc/nova/gear_harness = 5,
 				/obj/item/clothing/under/shorts/nova/shortershorts = 5,
+				/obj/item/clothing/under/camo/gags = 5,
 			),
 		),
 
@@ -135,6 +136,10 @@
 				/obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/smw = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/nrti = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova/cardigan = 5,
+				/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket = 5,
+				/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/stripe = 5,
+				/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/badge = 5,
+				/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/plain = 5,
 				/obj/item/clothing/suit/tailored_jacket = 5,
 				/obj/item/clothing/suit/tailored_jacket/short = 5,
 				/obj/item/clothing/suit/jacket/henchmen_coat = 5,
@@ -211,6 +216,7 @@
 				/obj/item/storage/backpack/tinypaka = 5,
 				/obj/item/storage/backpack/tinypakb = 5,
 				/obj/item/storage/backpack/tinypakc = 5,
+				/obj/item/toy/pillow/torapillow = 5,
 			)
 		)
 	)

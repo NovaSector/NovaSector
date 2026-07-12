@@ -49,6 +49,8 @@
 	var/is_invisible = FALSE
 	///The ID of a species used to generate the icon. Needs to match the icon_state portion in the limbs file!
 	var/limb_id = SPECIES_HUMAN
+	///ID of a species to use as an override for species-based biological logic, such as what species to pull the meat from, if our limb_id doesn't match
+	var/species_id = null
 	//Defines what sprite the limb should use if it is also sexually dimorphic.
 	var/limb_gender = "m"
 	///Is there a sprite difference between male and female?
@@ -158,7 +160,9 @@
 	var/list/applied_items
 
 	///A list of all bodypart overlays to draw
-	var/list/bodypart_overlays = list()
+	var/list/bodypart_overlays
+	///A list of all bodypart textures to apply
+	var/list/bodypart_textures
 
 	/// Type of an attack from this limb does. Arms will do punches, Legs for kicks, and head for bites. (TO ADD: tactical chestbumps)
 	var/attack_type = BRUTE
@@ -213,7 +217,7 @@
 	/// get_damage() / total_damage must surpass this to allow our limb to be disabled, even temporarily, by an EMP.
 	var/robotic_emp_paralyze_damage_percent_threshold = 0.3
 	/// A potential texturing overlay to put on the limb
-	var/datum/bodypart_overlay/texture/texture_bodypart_overlay
+	var/datum/bodypart_texture/texture_bodypart_overlay
 	/// Lazylist of /datum/status_effect/grouped/bodypart_effect types. Instances of this are applied to the carbon when added the limb is attached, and merged with similair limbs
 	var/list/bodypart_effects
 	/// The cached info about the blood this organ belongs to, set during on_removal()
@@ -279,6 +283,7 @@
 	if (length(drop_results))
 		butcher_drops = string_list(drop_results)
 		butcher_drop_cache[type] = butcher_drops
+	update_limb(TRUE)
 	update_icon_dropped()
 	refresh_bleed_rate()
 
@@ -294,8 +299,17 @@
 
 	owner = null
 
-	QDEL_LIST_ASSOC_VAL(applied_items)
+	if(LAZYLEN(applied_items))
+		QDEL_LIST_ASSOC_VAL(applied_items)
 	QDEL_LAZYLIST(scars)
+
+	// Overlays and textures may be owned by something else like a status effect,
+	// so we'll just remove them all rather than delete them
+	// Worst case scenario they'll just get swept up by GC and which is fine
+	for(var/datum/bodypart_overlay/remaining_overlay in bodypart_overlays)
+		remove_bodypart_overlay(remaining_overlay, update = FALSE)
+	for(var/datum/bodypart_texture/remaining_texture in bodypart_textures)
+		remove_bodypart_texture(remaining_texture, update = FALSE)
 
 	for(var/atom/movable/movable in contents)
 		qdel(movable)
@@ -312,12 +326,14 @@
 		return FALSE
 	return  ..()
 
-/obj/item/bodypart/proc/get_butcher_drops()
-	if(!isnull(butcher_drops))
+/// Returns an assoc list of items dropped when the limb is butchered
+/// force - Force an update of drops ignoring the cache
+/obj/item/bodypart/proc/get_butcher_drops(force = FALSE)
+	if(!isnull(butcher_drops) && !force)
 		return butcher_drops
-	if (butcher_drop_cache[type])
+	if (butcher_drop_cache[type] && !force)
 		return butcher_drop_cache[type]
-	var/datum/species/species = GLOB.species_list[limb_id]
+	var/datum/species/species = GLOB.species_list[species_id || limb_id]
 	if (!species || !species.meat || !base_meat_amount)
 		return null
 	return list(species.meat = base_meat_amount)
@@ -669,10 +685,6 @@
 
 	update_icon_dropped()
 
-//Return TRUE to get whatever mob this is in to update health.
-/obj/item/bodypart/proc/on_life(seconds_per_tick)
-	SHOULD_CALL_PARENT(TRUE)
-
 /**
  * #receive_damage
  *
@@ -780,7 +792,7 @@
 			check_wounding(wounding_type, wounding_dmg, wound_bonus, exposed_wound_bonus, attack_direction, damage_source = damage_source, wound_clothing = wound_clothing)
 
 	for(var/datum/wound/iter_wound as anything in wounds)
-		iter_wound.receive_damage(wounding_type, wounding_dmg, wound_bonus, damage_source)
+		iter_wound.receive_damage(wounding_type, wounding_dmg, wound_bonus, attack_direction, damage_source)
 
 	/*
 	// END WOUND HANDLING
@@ -1174,6 +1186,8 @@
 /obj/item/bodypart/proc/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 
+	SEND_SIGNAL(src, COMSIG_BODYPART_UPDATED, dropping_limb, is_creating)
+
 	if(IS_ORGANIC_LIMB(src))
 		// Try to add a cached blood type data, we must do it in here because for some reason DNA gets initialized AFTER the mob's limbs are created.
 		// Should be fine as this gets called before all the important stuff happens
@@ -1197,7 +1211,7 @@
 	update_draw_color()
 
 	if(!is_creating || !owner)
-		return
+		return FALSE
 
 	// There should technically to be an ishuman(owner) check here, but it is absent because no basetype carbons use bodyparts
 	// No, xenos don't actually use bodyparts. Don't ask.
@@ -1220,21 +1234,27 @@
 
 	update_draw_color()
 
-	// NOVA EDIT ADDITION
+	// NOVA EDIT ADDITION START - Alpha + Markings
 	var/datum/dna/owner_dna = human_owner.dna
 	var/datum/species/owner_species = owner_dna.species
 
 	if(owner_species && owner_species.specific_alpha != 255)
 		alpha = owner_species.specific_alpha
 
-	if(body_zone in owner_dna.body_markings)
-		markings = LAZYCOPY(owner_dna.body_markings[body_zone])
+	if(!(bodypart_flags & (BODYPART_PSEUDOPART | BODYPART_STUMP)) && !(bodyshape & BODYSHAPE_TAUR))
+		if(body_zone in owner_dna.body_markings)
+			markings = LAZYLISTDUPLICATE(owner_dna.body_markings[body_zone])
+		else
+			LAZYNULL(markings)
 		if(aux_zone && (aux_zone in owner_dna.body_markings))
-			aux_zone_markings = LAZYCOPY(owner_dna.body_markings[aux_zone])
+			aux_zone_markings = LAZYLISTDUPLICATE(owner_dna.body_markings[aux_zone])
+		else
+			LAZYNULL(aux_zone_markings)
 		markings_alpha = owner_species.markings_alpha
 	else
-		markings = list()
-	// NOVA EDIT END
+		LAZYNULL(markings)
+		LAZYNULL(aux_zone_markings)
+	// NOVA EDIT ADDITION END
 	// Recolors mutant overlays to match new mutant colors
 	for(var/datum/bodypart_overlay/mutant/overlay in bodypart_overlays)
 		overlay.inherit_color(src, force = TRUE)
@@ -1346,6 +1366,10 @@
 	var/used_state = "[limb_id]_[body_zone]"
 	if(is_dimorphic) // Does this type of limb have sexual dimorphism?
 		used_state = "[limb_id]_[body_zone]_[limb_gender]"
+	// NOVA EDIT ADDITION START
+	if(bodyshape & BODYSHAPE_DIGITIGRADE) // Is this a digi limb?
+		used_state += "_[ICON_KEY_DIGI]"
+	// NOVA EDIT ADDITION END
 
 	var/image/limb = image(used_icon, used_state, -BODYPARTS_LAYER, dir = image_dir)
 	var/image/aux = null
@@ -1418,42 +1442,42 @@
 			. -= limb_image
 			// Add two masked images based on the old one
 			. += leg_source.generate_masked_leg(limb_image)
-
-	// NOVA EDIT ADDITION BEGIN - MARKINGS CODE
+	// NOVA EDIT ADDITION START - MARKINGS CODE
 	var/override_color
 	var/atom/offset_spokesman = owner || src
 	// First, check to see if this bodypart is husked. If so, we don't want to apply our sparkledog colors to the limb.
 	if(is_husked)
 		override_color = "#888888"
 	// We need to check that the owner exists(could be a placed bodypart) and that it's not a chainsawhand and that they're a human with usable DNA.
-	if(!(bodypart_flags & BODYPART_PSEUDOPART) && (!(bodyshape & BODYSHAPE_TAUR))) // taur legs never ever render
-		for(var/key in markings) // Cycle through all of our currently selected markings.
+	if(!(bodypart_flags & (BODYPART_PSEUDOPART | BODYPART_STUMP)) && (!(bodyshape & BODYSHAPE_TAUR))) // taur legs never ever render
+		for(var/key, marking in markings) // Cycle through all of our currently selected markings.
 			var/datum/body_marking/body_marking = GLOB.body_markings[key]
 			if (!body_marking) // Edge case prevention.
 				continue
 
-			var/render_limb_string = limb_id == BODYPART_ID_DIGITIGRADE ? "[BODYPART_ID_DIGITIGRADE]_[body_zone]" : body_zone
 			var/gender_modifier = ""
 			if(body_zone == BODY_ZONE_CHEST) // Chest markings have male and female versions.
 				if(body_marking.gendered)
 					gender_modifier = is_dimorphic ? "_[limb_gender]" : "_m"
-
+			var/digi_modifier = ""
+			if(bodyshape & BODYSHAPE_DIGITIGRADE)
+				digi_modifier = "digitigrade_"
 			var/mutable_appearance/accessory_overlay
 			var/mutable_appearance/emissive
-			accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string][gender_modifier]", -BODYPARTS_LAYER)
+			accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[digi_modifier][body_zone][gender_modifier]", -BODYPARTS_LAYER)
 			accessory_overlay.alpha = markings_alpha
-			if(markings[key][2])
+			if(marking[2])
 				emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
 			if(override_color)
 				accessory_overlay.color = override_color
 			else
-				accessory_overlay.color = markings[key][1]
+				accessory_overlay.color = marking[1]
 			. += accessory_overlay
 			if (emissive)
 				. += emissive
 
 		if(aux_zone)
-			for(var/key in aux_zone_markings)
+			for(var/key, marking in aux_zone_markings)
 				var/datum/body_marking/body_marking = GLOB.body_markings[key]
 				if (!body_marking) // Edge case prevention.
 					continue
@@ -1464,40 +1488,49 @@
 				var/mutable_appearance/accessory_overlay
 				accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string]", -aux_layer)
 				accessory_overlay.alpha = markings_alpha
-				if (aux_zone_markings[key][2])
+				if (marking[2])
 					emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
 				if(override_color)
 					accessory_overlay.color = override_color
 				else
-					accessory_overlay.color = aux_zone_markings[key][1]
+					accessory_overlay.color = marking[1]
 				. += accessory_overlay
 				if (emissive)
 					. += emissive
 	// NOVA EDIT ADDITION END - MARKINGS CODE END
+
+	// Apply height to the overlays we generated so far
+	// This is done before collecting bodypart overlays so we don't apply height twice to the same overlays
+	if(!dropped && !isnull(owner))
+		for(var/image/generated_overlay as anything in .)
+			// While you may think that heads could be applied with UPPER_BODY instead of ENTIRE_BODY to save us one filter,
+			// it's more important to keep it consistent for things like getflaticon
+			owner.apply_height(generated_overlay, ENTIRE_BODY)
+
 	// Draw external organs like horns and frills
+	// Height is applied again in here so we can specify where the overlay is set (ie offset_location)
 	for(var/datum/bodypart_overlay/overlay as anything in bodypart_overlays)
-		if(!overlay.can_draw_on_bodypart(src, owner, is_husked))
+		if(!overlay.can_draw_on_bodypart(src, owner))
 			continue
 
-		// Some externals have multiple layers for background, foreground and between
-		for(var/external_layer in overlay.all_layers)
-			if(!(overlay.layers & external_layer))
-				continue
-
-			var/external_overlay = overlay.get_overlay(external_layer, src, is_husked)
-			if (!dropped)
-				. += external_overlay
-				continue
-
-			if (!islist(external_overlay))
-				. += image(external_overlay, dir = SOUTH)
-				continue
-
-			for (var/mutable_appearance/actual_overlay as anything in external_overlay)
+		for (var/mutable_appearance/actual_overlay as anything in overlay.get_all_overlays(src))
+			if(dropped || isnull(owner))
 				. += image(actual_overlay, dir = SOUTH)
+				continue
 
-		for(var/datum/layer in .)
-			overlay.modify_bodypart_appearance(layer)
+			owner.apply_height(actual_overlay, overlay.offset_location)
+			. += actual_overlay
+
+	// Then texture everything at once, including bodypart overlays
+	for(var/datum/bodypart_texture/texture as anything in bodypart_textures)
+		if(!texture.can_texture_bodypart(src))
+			continue
+		for(var/image/generated_overlay as anything in .)
+			var/appearance_plane = PLANE_TO_TRUE(generated_overlay.plane)
+			if(appearance_plane != FLOAT_PLANE && appearance_plane != GAME_PLANE)
+				continue
+
+			texture.modify_bodypart_appearance(generated_overlay)
 
 	SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
 	return .
@@ -1514,24 +1547,95 @@
 	husk_blood.color = LAZYLEN(blood_dna_info) ? get_color_from_blood_list(blood_dna_info) : BLOOD_COLOR_RED
 	return husk_blood
 
-///Add a bodypart overlay and call the appropriate update procs
+/**
+ * Adds a bodypart overlay to the limb
+ *
+ * * overlay: The overlay to add. Either an instance of a bodypart overlay or a typepath of a bodypart overlay.
+ * If you pass a typepath, the proc will avoid creating duplicates.
+ * * update: Whether to call update procs after adding the overlay.
+ * Set this to FALSE if you are adding multiple overlays at once.
+ *
+ * Returns the overlay that was added, or null if it was not added.
+ */
 /obj/item/bodypart/proc/add_bodypart_overlay(datum/bodypart_overlay/overlay, update = TRUE)
-	bodypart_overlays += overlay
+	if(ispath(overlay, /datum/bodypart_overlay))
+		if(locate(overlay) in bodypart_overlays)
+			return null
+		overlay = new overlay()
+
+	LAZYADD(bodypart_overlays, overlay)
 	overlay.added_to_limb(src)
 	if(!update)
+		return overlay
+	if(isnull(owner))
+		update_icon_dropped()
+	else if(!(owner.living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
+		owner.update_body_parts()
+	return overlay
+
+/**
+ * Removes a bodypart overlay from the limb
+ *
+ * * overlay: The overlay to remove. Either an instance of a bodypart overlay or a typepath of a bodypart overlay.
+ * If you pass a typepath, the first overlay of that typepath found will be removed.
+ * * update: Whether to call update procs after removing the overlay.
+ * Set this to FALSE if you are removing multiple overlays at once.
+ */
+/obj/item/bodypart/proc/remove_bodypart_overlay(datum/bodypart_overlay/overlay, update = TRUE)
+	if(ispath(overlay, /datum/bodypart_overlay))
+		overlay = locate(overlay) in bodypart_overlays
+		if(isnull(overlay))
+			return
+
+	LAZYREMOVE(bodypart_overlays, overlay)
+	overlay.removed_from_limb(src)
+	if(!update)
 		return
-	if(!owner)
+	if(isnull(owner))
 		update_icon_dropped()
 	else if(!(owner.living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
 		owner.update_body_parts()
 
-///Remove a bodypart overlay and call the appropriate update procs
-/obj/item/bodypart/proc/remove_bodypart_overlay(datum/bodypart_overlay/overlay, update = TRUE)
-	bodypart_overlays -= overlay
-	overlay.removed_from_limb(src)
+/**
+ * Adds a bodypart texture to the limb
+ *
+ * * texture: The texture to add. Either an instance of a bodypart texture or a typepath of a bodypart texture.
+ * If you pass a typepath, the proc will avoid creating duplicates.
+ * * update: Whether to call update procs after adding the texture.
+ * Set this to FALSE if you are adding multiple textures at once.
+ */
+/obj/item/bodypart/proc/add_bodypart_texture(datum/bodypart_texture/texture, update = TRUE)
+	if(ispath(texture, /datum/bodypart_texture))
+		if(locate(texture) in bodypart_textures)
+			return
+		texture = new texture()
+
+	LAZYADD(bodypart_textures, texture)
 	if(!update)
 		return
-	if(!owner)
+	if(isnull(owner))
+		update_icon_dropped()
+	else if(!(owner.living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
+		owner.update_body_parts()
+
+/**
+ * Removes a bodypart texture from the limb
+ *
+ * * texture: The texture to remove. Either an instance of a bodypart texture or a typepath of a bodypart texture.
+ * If you pass a typepath, the first texture of that typepath found will be removed.
+ * * update: Whether to call update procs after removing the texture.
+ * Set this to FALSE if you are removing multiple textures at once.
+ */
+/obj/item/bodypart/proc/remove_bodypart_texture(datum/bodypart_texture/texture, update = TRUE)
+	if(ispath(texture, /datum/bodypart_texture))
+		texture = locate(texture) in bodypart_textures
+		if(isnull(texture))
+			return
+
+	LAZYREMOVE(bodypart_textures, texture)
+	if(!update)
+		return
+	if(isnull(owner))
 		update_icon_dropped()
 	else if(!(owner.living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
 		owner.update_body_parts()
@@ -1789,7 +1893,7 @@
 		owner.update_body_parts()
 
 	//This foot gun needs a safety
-	if(!icon_exists(icon_holder, "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""]"))
+	if(!icon_exists(icon_holder, "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""][(bodyshape & BODYSHAPE_DIGITIGRADE) ? "_[ICON_KEY_DIGI]" : ""]")) // NOVA EDIT CHANGE - ORIGINAL: if(!icon_exists(icon_holder, "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""]"))
 		reset_appearance()
 		stack_trace("change_appearance([icon], [id], [greyscale], [dimorphic]) generated null icon")
 
@@ -1887,6 +1991,22 @@
 		return
 	REMOVE_TRAIT(owner, old_trait, bodypart_trait_source)
 
+/// Add a bodyshape to the bodypart, then synchronize with the owner if necessary
+/obj/item/bodypart/proc/add_bodyshape(new_shape)
+	if(bodyshape & new_shape)
+		return
+
+	bodyshape |= new_shape
+	owner?.synchronize_bodyshapes()
+
+/// Remove a bodyshape from the bodypart, then synchronize with the owner if necessary
+/obj/item/bodypart/proc/remove_bodyshape(old_shape)
+	if(!(bodyshape & old_shape))
+		return
+
+	bodyshape &= ~old_shape
+	owner?.synchronize_bodyshapes()
+
 /// Add one or multiple surgical states to the bodypart
 /obj/item/bodypart/proc/add_surgical_state(new_states)
 	if(!new_states)
@@ -1941,3 +2061,34 @@
 	var/old_state = surgery_state
 	. = ..()
 	update_surgical_state(old_state, surgery_state ^ old_state)
+
+/// Adds biostate to the limb and ensures surgical states are updated accordingly
+/obj/item/bodypart/proc/add_biostate(new_biostate)
+	if(biological_state & new_biostate)
+		return
+
+	var/had_skin = LIMB_HAS_SKIN(src)
+	var/had_bones = LIMB_HAS_BONES(src)
+	var/had_vessels = LIMB_HAS_VESSELS(src)
+
+	biological_state |= new_biostate
+
+	if(!had_skin && LIMB_HAS_SKIN(src))
+		remove_surgical_state(SKINLESS_SURGERY_STATES)
+	if(!had_bones && LIMB_HAS_BONES(src))
+		remove_surgical_state(BONELESS_SURGERY_STATES)
+	if(!had_vessels && LIMB_HAS_VESSELS(src))
+		remove_surgical_state(VESSELLESS_SURGERY_STATES)
+
+/// Removes biostate from the limb and ensures surgical states are updated accordingly
+/obj/item/bodypart/proc/remove_biostate(old_biostate)
+	if(!(biological_state & old_biostate))
+		return
+
+	biological_state &= ~old_biostate
+	if(!LIMB_HAS_SKIN(src))
+		add_surgical_state(SKINLESS_SURGERY_STATES)
+	if(!LIMB_HAS_BONES(src))
+		add_surgical_state(BONELESS_SURGERY_STATES)
+	if(!LIMB_HAS_VESSELS(src))
+		add_surgical_state(VESSELLESS_SURGERY_STATES)

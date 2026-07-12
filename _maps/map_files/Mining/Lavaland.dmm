@@ -972,7 +972,7 @@
 "fS" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/red/filled/line,
-/mob/living/simple_animal/bot/secbot/beepsky/ofitser,
+/mob/living/basic/bot/secbot/beepsky/ofitser,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -2475,7 +2475,7 @@
 	cycle_id = "lavaland_living_north"
 	},
 /turf/open/floor/iron/textured_large,
-/area/lavaland/surface/outdoors)
+/area/mine/lounge)
 "mJ" = (
 /obj/docking_port/stationary{
 	dwidth = 2;
@@ -3207,6 +3207,7 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/ore_box,
 /obj/structure/sign/poster/official/do_not_question/directional/north,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "qd" = (
@@ -3375,6 +3376,7 @@
 "rm" = (
 /obj/structure/sign/warning/gas_mask/directional/west,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "ro" = (
@@ -3577,7 +3579,6 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/departments/medbay/alt/directional/north,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/smooth_edge,
 /area/mine/laborcamp/production)
 "sH" = (
@@ -4172,7 +4173,7 @@
 "wc" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/textured_large,
-/area/lavaland/surface/outdoors)
+/area/mine/lounge)
 "wg" = (
 /obj/structure/chair/sofa/corp{
 	dir = 1
@@ -5075,10 +5076,6 @@
 /obj/structure/sign/poster/official/report_crimes/directional/west,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp)
-"BW" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/lavaland/surface/outdoors)
 "Ce" = (
 /turf/open/floor/plating,
 /area/mine/maintenance/public/south)
@@ -8058,7 +8055,6 @@
 /area/lavaland/surface/outdoors)
 "Ub" = (
 /obj/item/kirbyplants/random,
-/obj/machinery/light/small/directional/west,
 /obj/machinery/airalarm/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
@@ -8397,10 +8393,6 @@
 /obj/structure/lattice/catwalk/mining,
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"VL" = (
-/obj/machinery/ore_silo,
-/turf/closed/wall,
-/area/mine/mechbay)
 "VO" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
@@ -8814,7 +8806,7 @@
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
 "Yc" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/random/food_or_drink/keg,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
 	},
@@ -24783,7 +24775,7 @@ Nz
 Ez
 pQ
 uq
-Jw
+jU
 ff
 Gc
 RV
@@ -25297,7 +25289,7 @@ oq
 fe
 yu
 uq
-jU
+Jw
 ff
 Ge
 dr
@@ -43033,8 +43025,8 @@ iu
 pU
 aj
 aj
-FH
-BW
+Zq
+SP
 Zq
 kK
 Sm
@@ -43804,8 +43796,8 @@ ZM
 ZM
 LB
 Ke
-FH
-BW
+Zq
+SP
 Zq
 Zq
 bL
@@ -45846,7 +45838,7 @@ oA
 oA
 oA
 Vn
-VL
+QX
 QX
 vF
 QX

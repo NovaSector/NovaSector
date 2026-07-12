@@ -1,0 +1,27 @@
+{
+	"depgag_dress": [
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_skirt_shirt",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_dress",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_dress_belt",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_dress_trimline",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

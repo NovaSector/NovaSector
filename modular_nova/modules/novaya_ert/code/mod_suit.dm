@@ -136,17 +136,17 @@
 	)
 	complexity = 4
 	removable = FALSE
-	use_energy_cost = DEFAULT_CHARGE_DRAIN * 20
+	use_energy_cost = DEFAULT_CHARGE_DRAIN * 10
 	/// Reagent used as 'fuel'
 	var/reagent_required = /datum/reagent/medicine/omnizine/protozine
 	/// How much of a reagent we need to refill a single boost.
-	var/reagent_required_amount = 20
+	var/reagent_required_amount = 10
 	/// Maximum amount of reagents this module can hold.
-	var/reagent_max_amount = 120
+	var/reagent_max_amount = 100
 	/// Flat health threshold above which the module won't heal.
-	var/health_threshold = 65
+	var/health_threshold = 85
 	/// Cooldown betwen each treatment.
-	var/general_cooldown = 25 SECONDS
+	var/general_cooldown = 20 SECONDS
 
 	/// Timer for the healing cooldown.
 	COOLDOWN_DECLARE(heal_timer)
@@ -158,6 +158,16 @@
 /obj/item/mod/module/auto_doc/Initialize(mapload)
 	. = ..()
 	create_reagents(reagent_max_amount)
+
+/obj/item/mod/module/auto_doc/on_install()
+	. = ..()
+	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_refill))
+	RegisterSignal(mod, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp))
+
+/obj/item/mod/module/auto_doc/on_uninstall(deleting = FALSE)
+	. = ..()
+	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
+	UnregisterSignal(mod, COMSIG_ATOM_EMP_ACT)
 
 /obj/item/mod/module/auto_doc/on_active_process(seconds_per_tick)
 	if(!reagents.has_reagent(reagent_required, reagent_required_amount))
@@ -171,68 +181,62 @@
 	var/new_stamloss = mod.wearer.get_stamina_loss()
 	var/new_toxloss = mod.wearer.get_tox_loss()
 
-	if(mod.wearer.get_blood_volume() < BLOOD_VOLUME_OKAY && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
+	if(mod.wearer.get_blood_volume() < BLOOD_VOLUME_OKAY && reagents.total_volume >= reagent_required_amount * seconds_per_tick)
 		if(!COOLDOWN_FINISHED(src, blood_timer))
 			return FALSE
 		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"=mod.wearer.dna.blood_type,"resistances"=null,"trace_chem"=null))
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 2.5 * seconds_per_tick)
 		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
-		reagents.remove_reagent(reagent_required, reagent_required_amount * 0.5 * seconds_per_tick)
+		reagents.remove_reagent(reagent_required, reagent_required_amount * seconds_per_tick)
 		to_chat(mod.wearer, span_warning("Blood infused."))
-		drain_power(use_energy_cost * 10 * seconds_per_tick)
-		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		drain_power(use_energy_cost * seconds_per_tick)
 		COOLDOWN_START(src, blood_timer, general_cooldown)
 
 	if(mod.wearer.health < health_threshold)
 		if(!COOLDOWN_FINISHED(src, heal_timer))
 			return FALSE
-		if(new_oxyloss && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
+		if(new_oxyloss && !mod.wearer.reagents.has_reagent(/datum/reagent/medicine/salbutamol) && reagents.total_volume >= reagent_required_amount * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/items/internals/internals_on.ogg', 25, TRUE)
-			reagents.remove_reagent(reagent_required, reagent_required_amount * 0.5 * seconds_per_tick)
+			reagents.remove_reagent(reagent_required, reagent_required_amount * seconds_per_tick)
 			to_chat(mod.wearer, span_warning("Blood oxygen saturated."))
-		if(new_bruteloss && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
+		if(new_bruteloss && !mod.wearer.reagents.has_reagent(/datum/reagent/medicine/sal_acid) && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/sal_acid, 2.5 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
-			reagents.remove_reagent(reagent_required, reagent_required_amount * 1 * seconds_per_tick)
+			reagents.remove_reagent(reagent_required, reagent_required_amount * seconds_per_tick)
 			to_chat(mod.wearer, span_warning("Wound treatment administered."))
-		if(new_fireloss && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
+		if(new_fireloss && !mod.wearer.reagents.has_reagent(/datum/reagent/medicine/oxandrolone) && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 2.5 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
-			reagents.remove_reagent(reagent_required, reagent_required_amount * 1 * seconds_per_tick)
+			reagents.remove_reagent(reagent_required, reagent_required_amount * seconds_per_tick)
 			to_chat(mod.wearer, span_warning("Ointment applied."))
-		if(new_toxloss && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
+		if(new_toxloss && !mod.wearer.reagents.has_reagent(/datum/reagent/medicine/pen_acid) && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
-			reagents.remove_reagent(reagent_required, reagent_required_amount * 0.5 * seconds_per_tick)
+			reagents.remove_reagent(reagent_required, reagent_required_amount * seconds_per_tick)
 			to_chat(mod.wearer, span_warning("Antitoxin administered."))
-		drain_power(use_energy_cost * 15 * seconds_per_tick)
-		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS)
+		drain_power(use_energy_cost * seconds_per_tick)
 		COOLDOWN_START(src, heal_timer, general_cooldown)
 
-	if(new_stamloss > health_threshold && reagents.total_volume >= reagent_required_amount * 0.25 * seconds_per_tick)
+	if(new_stamloss > health_threshold && !mod.wearer.reagents.has_reagent(/datum/reagent/drug/cocaine) && reagents.total_volume >= reagent_required_amount * seconds_per_tick)
 		if(!COOLDOWN_FINISHED(src, stamina_timer))
 			return FALSE
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/morphine, 2.5 * seconds_per_tick)
 		mod.wearer.reagents.add_reagent(/datum/reagent/drug/cocaine, 2.5 * seconds_per_tick)
 		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
-		reagents.remove_reagent(reagent_required, reagent_required_amount * 0.25 * seconds_per_tick)
+		reagents.remove_reagent(reagent_required, reagent_required_amount * seconds_per_tick)
 		to_chat(mod.wearer, span_warning("Stimdose administered."))
-		drain_power(use_energy_cost * 5 * seconds_per_tick)
-		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		drain_power(use_energy_cost * seconds_per_tick)
 		COOLDOWN_START(src, stamina_timer, general_cooldown)
 
-/obj/item/mod/module/auto_doc/emp_act(severity)
-	. = ..()
-	on_emp(src, severity, .)
-
+/// Fills you with chemicals that make frogs gay.
 /obj/item/mod/module/auto_doc/proc/on_emp(datum/source, severity, protection)
 	SIGNAL_HANDLER
 	if(protection & EMP_PROTECT_SELF)
 		return
-	heal_aftereffects(mod.wearer, TRUE)
+	heal_aftereffects(mod.wearer)
 
 /// Refills the module with needed chemicals, assuming the container isn't closed or the module isn't full.
 /obj/item/mod/module/auto_doc/proc/charge_boost(obj/item/attacking_item, mob/user)
@@ -246,29 +250,20 @@
 	balloon_alert(mod.wearer, "charge reloaded!")
 	return TRUE
 
-/obj/item/mod/module/auto_doc/on_install()
-	. = ..()
-	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_refill))
-	RegisterSignal(mod, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp))
-
-/obj/item/mod/module/auto_doc/on_uninstall(deleting = FALSE)
-	. = ..()
-	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
-	UnregisterSignal(mod, COMSIG_ATOM_EMP_ACT)
-
+/// Attempts to transfer the chemicals from the attacking item to the module's reagents storage.
 /obj/item/mod/module/auto_doc/proc/try_refill(source, mob/user, obj/item/attacking_item)
 	SIGNAL_HANDLER
 	if(charge_boost(attacking_item))
 		return COMPONENT_NO_AFTERATTACK
 	return NONE
 
-/// With a certain chance, triggers a spontaneous injection of protozine into the user's bloodstream; suit design's rather ancient and prone to mishaps.
-/obj/item/mod/module/auto_doc/proc/heal_aftereffects(mob/affected_mob, forced)
+/// With a certain chance, triggers a spontaneous injection of protozine into the user's bloodstream.
+/obj/item/mod/module/auto_doc/proc/heal_aftereffects(mob/affected_mob)
 	if(!affected_mob)
 		return
 	var/fault_chance = (reagents.maximum_volume/(reagents.total_volume ? reagents.total_volume : 20))*5 // 5% at max protozine, 20% at low-to-none protozine
-	if(prob(fault_chance) || forced == TRUE)
-		reagents.trans_to(affected_mob, min(15,reagents.total_volume))
+	if(prob(fault_chance))
+		reagents.trans_to(affected_mob, min(10,reagents.total_volume))
 		balloon_alert(affected_mob, "protozine leak!")
 		affected_mob.playsound_local(mod, 'sound/effects/spray3.ogg', 25, TRUE)
 
@@ -305,7 +300,7 @@
 	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 /obj/effect/spawner/random/voskhod_refit
-	name = "converted MODskhod spaner"
+	name = "converted MODskhod spawner"
 	icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
 	icon_state = "voskhod-chestplate-sealed"
 	spawn_all_loot = TRUE

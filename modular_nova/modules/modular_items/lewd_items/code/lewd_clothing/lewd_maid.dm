@@ -11,6 +11,7 @@
 	greyscale_config_worn = /datum/greyscale_config/bunnysuitlewd/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 	body_parts_covered = CHEST|GROIN
 	can_adjust = TRUE
 	alt_covers_chest = FALSE

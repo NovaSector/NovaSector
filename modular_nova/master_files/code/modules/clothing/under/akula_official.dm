@@ -4,6 +4,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/centcom.dmi'
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/azulean/old_blood
 	name = "\improper Agurkrral Oldblood's royal regalia"

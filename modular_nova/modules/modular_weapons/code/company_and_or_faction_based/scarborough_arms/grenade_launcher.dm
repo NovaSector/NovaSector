@@ -185,3 +185,7 @@
 /obj/item/storage/toolbox/guncase/nova/boarder
 	weapon_to_spawn = /obj/item/gun/ballistic/pump_launcher
 	extra_to_spawn = /obj/item/ammo_box/a40mm
+
+#undef BOARDER_FOLD_EXTEND
+#undef BOARDER_FOLD_FOLDED
+#undef BOARDER_FOLD_NOPE

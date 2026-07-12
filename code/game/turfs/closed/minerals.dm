@@ -5,7 +5,7 @@
 
 /turf/closed/mineral //wall piece
 	name = "rock"
-	icon = MAP_SWITCH('modular_nova/modules/liquids/icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi') // NOVA EDIT CHANGE - ORIGINAL: icon = MAP_SWITCH('icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi')
+	icon = MAP_SWITCH('modular_nova/master_files/icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi') // NOVA EDIT CHANGE - ORIGINAL: icon = MAP_SWITCH('icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi')
 	icon_state = "rock"
 	smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_MINERAL_WALLS
 	canSmoothWith = SMOOTH_GROUP_MINERAL_WALLS
@@ -47,17 +47,12 @@
 	var/hand_mine_speed = 15 SECONDS
 	/// Distance to the nearest open turf
 	var/open_turf_distance = DEFAULT_BORDER_DISTANCE
+	/// Wall plane overlay icon state
+	var/wall_icon_state = "rock"
 
 /turf/closed/mineral/Initialize(mapload)
 	. = ..()
-	// Mineral turfs are big, so they need to be on the game plane at a high layer
-	// But they're also turfs, so we need to cut them out from the light mask plane
-	// So we draw them as if they were on the game plane, and then overlay a copy onto
-	// The wall plane (so emissives/light masks behave)
-	// I am so sorry
-	var/static/mutable_appearance/wall_overlay = mutable_appearance('icons/turf/mining.dmi', "rock", appearance_flags = RESET_TRANSFORM)
-	wall_overlay.plane = MUTATE_PLANE(WALL_PLANE, src)
-	overlays += wall_overlay
+	add_large_wall_overlay('icons/turf/mining.dmi', wall_icon_state)
 
 // Inlined version of the bump click element. way faster this way, the element's nice but it's too much overhead
 /turf/closed/mineral/Bumped(atom/movable/bumped_atom)
@@ -105,7 +100,7 @@
 	switch (ore_path::vein_type)
 		if (ORE_VEIN_CLUSTER)
 			for (var/turf/closed/mineral/rock in range(vein_size, src))
-				if (rock.mineral_type)
+				if (rock.mineral_type || istype(rock, /turf/closed/mineral/gibtonite))
 					continue
 
 				var/spread_prob = 100
@@ -121,7 +116,7 @@
 			for (var/turf/closed/mineral/rock in range(vein_size, src))
 				if (rock.base_icon_state != base_icon_state && prob(50))
 					continue
-				if (!rock.mineral_type)
+				if (!rock.mineral_type && !istype(rock, /turf/closed/mineral/gibtonite))
 					rocks += rock
 
 			for (var/i in 1 to rand(min_vein_size ** 2, max_vein_size ** 2))
@@ -135,7 +130,7 @@
 			for (var/turf/closed/mineral/rock in range(vein_size, src))
 				if (rock.base_icon_state != base_icon_state && prob(50))
 					continue
-				if (!rock.mineral_type)
+				if (!rock.mineral_type && !istype(rock, /turf/closed/mineral/gibtonite))
 					rocks += rock
 
 			if (!length(rocks))
@@ -170,7 +165,7 @@
 				for (var/turf/closed/mineral/rock in range(vein_size, src))
 					if (rock.base_icon_state != base_icon_state && prob(50))
 						continue
-					if (!rock.mineral_type)
+					if (!rock.mineral_type && !istype(rock, /turf/closed/mineral/gibtonite))
 						rocks += rock
 
 				if (!length(rocks))
@@ -183,7 +178,7 @@
 /turf/closed/mineral/proc/change_ore(ore_type, random = TRUE)
 	if (ispath(ore_type, /obj/item/boulder))
 		scan_state = "rock_boulder" // Yes even the lowly boulder has a scan state
-		spawned_boulder = /obj/item/boulder/gulag_expanded
+		spawned_boulder = /obj/item/boulder/gulag
 		return
 
 	if (random)
@@ -423,8 +418,8 @@
 		color = COLOR_BLUE
 	else
 		color = BlendRGB(COLOR_GREEN, COLOR_RED, clamp((open_turf_distance - 1) / 5, 0, 0.99))
-	maptext_x = 4
-	maptext_y = 4
+	maptext_x = -transform.c
+	maptext_y = -transform.f
 	maptext = MAPTEXT_TINY_UNICODE("[open_turf_distance]")
 #endif
 
@@ -608,6 +603,9 @@
 	tool_mine_speed = 5 SECONDS // 25% harder than basalt
 	hand_mine_speed = 17 SECONDS
 	mineral_chance = 8 // N% functionally, 6.67% default, accounts for ~22% turfs
+	wall_icon_state = "red_rock"
+	turf_type = /turf/open/misc/asteroid/basalt/smooth/siderite/lava_land_surface
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/siderite/lava_land_surface
 
 /turf/closed/mineral/random/volcanic/red_rock/mineral_chances()
 	return list(
@@ -634,6 +632,9 @@
 	tool_mine_speed = 7 SECONDS // 75% harder than basalt
 	hand_mine_speed = 20 SECONDS
 	mineral_chance = 8 // N% functionally, 7.01% default, accounts for ~13% turfs
+	wall_icon_state = "shale"
+	turf_type = /turf/open/misc/asteroid/basalt/smooth/shale/lava_land_surface
+	baseturfs = /turf/open/misc/asteroid/basalt/smooth/shale/lava_land_surface
 
 /turf/closed/mineral/random/volcanic/shale/mineral_chances()
 	return list(
@@ -661,6 +662,7 @@
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	weak_turf = TRUE
 	exposure_based = TRUE
+	wall_icon_state = "mountainrock"
 
 /turf/closed/mineral/random/snow/change_ore(ore_type, random = TRUE)
 	. = ..()
@@ -668,7 +670,6 @@
 		icon = 'icons/turf/walls/icerock_wall.dmi'
 		icon_state = "icerock_wall-0"
 		base_icon_state = "icerock_wall"
-		smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 
 /turf/closed/mineral/random/snow/mineral_chances()
 	return list(
@@ -680,7 +681,7 @@
 		/obj/item/stack/ore/silver = 8,
 		/obj/item/stack/ore/titanium = 11,
 		/obj/item/stack/ore/uranium = 5,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
+		/turf/closed/mineral/gibtonite/ice/icemoon = 2,
 	)
 
 /// Near exact same subtype as parent, just used in ruins to prevent other ruins/chasms from spawning on top of it.
@@ -690,7 +691,6 @@
 	turf_flags = NO_RUINS
 
 /turf/closed/mineral/random/snow/underground
-	baseturfs = /turf/open/misc/asteroid/snow/icemoon
 	// abundant ore
 	mineral_chance = 11
 
@@ -705,7 +705,7 @@
 		/obj/item/stack/ore/silver = 24,
 		/obj/item/stack/ore/titanium = 22,
 		/obj/item/stack/ore/uranium = 10,
-		/turf/closed/mineral/gibtonite/ice/icemoon = 8,
+		/turf/closed/mineral/gibtonite/ice/icemoon = 2,
 	)
 
 /turf/closed/mineral/random/snow/high_chance
@@ -727,8 +727,12 @@
 
 /turf/closed/mineral/random/labormineral/mineral_chances()
 	return list(
-		/obj/item/boulder/gulag = 165,
-		/turf/closed/mineral/gibtonite = 2,
+		/obj/item/boulder/gulag = 30,
+		/obj/item/stack/ore/gold = 10,
+		/obj/item/stack/ore/iron = 25,
+		/obj/item/stack/ore/plasma = 20,
+		/obj/item/stack/ore/silver = 20,
+		/turf/closed/mineral/gibtonite/volcanic = 2,
 	)
 
 /turf/closed/mineral/random/labormineral/volcanic
@@ -737,12 +741,6 @@
 	baseturfs = /turf/open/misc/asteroid/basalt/lava_land_surface
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	defer_change = TRUE
-
-/turf/closed/mineral/random/labormineral/volcanic/mineral_chances()
-	return list(
-		/obj/item/boulder/gulag_expanded = 166,
-		/turf/closed/mineral/gibtonite/volcanic = 2,
-	)
 
 // Subtypes for mappers placing ores manually.
 /turf/closed/mineral/random/labormineral/ice
@@ -760,7 +758,11 @@
 
 /turf/closed/mineral/random/labormineral/ice/mineral_chances()
 	return list(
-		/obj/item/boulder/gulag = 168,
+		/obj/item/boulder/gulag = 30,
+		/obj/item/stack/ore/gold = 10,
+		/obj/item/stack/ore/iron = 25,
+		/obj/item/stack/ore/plasma = 20,
+		/obj/item/stack/ore/silver = 20,
 		/turf/closed/mineral/gibtonite/ice/icemoon = 2,
 	)
 
@@ -929,27 +931,33 @@
 	icon = 'icons/turf/mining.dmi'
 	icon_state = "volcanic_biome"
 	smoothing_flags = NONE
+	/// Area type to whose generator we try to default to
+	var/default_area = /area/lavaland/surface/outdoors/unexplored/danger
 
 /turf/closed/mineral/volcanic/lava_land_surface/biome_replace/Initialize(mapload)
 	. = ..()
-	var/area/cur_area = loc
-	if (!cur_area) // what
-		return
-
 	// Just spawn a normal lavaland rock if we fail to get a mapgen, such as being spawned over lava
 	var/supposed_type = /turf/closed/mineral/volcanic/lava_land_surface
-	var/datum/map_generator/cave_generator/map_generator = cur_area.get_generator()
-	if (istype(map_generator))
-		for (var/datum/biome/biome as anything in map_generator.generated_turfs_per_biome)
-			var/list/gen_turfs = map_generator.generated_turfs_per_biome[biome]
-			if (gen_turfs[src])
-				// Ignore what we were supposed to spawn as in favor of the closed turf
-				supposed_type = biome.closed_turf_type
-				break
+	var/area/cur_area = loc
+	var/datum/map_generator/cave_generator/map_generator = cur_area?.get_generator()
+	if (!map_generator)
+		cur_area = GLOB.areas_by_type[default_area]
+		map_generator = cur_area?.get_generator()
 
-	var/turf/new_turf = new supposed_type(src)
-	if(turf_flags & NO_RUINS)
+	if (istype(map_generator))
+		var/biome = map_generator.get_biome_for_turf(src)
+		if (biome)
+			var/datum/biome/generating_biome = SSmapping.biomes[biome]
+			supposed_type = generating_biome.closed_turf_type
+
+	var/cur_flags = turf_flags
+	var/turf/new_turf = ChangeTurf(supposed_type, flags = CHANGETURF_FORCEOP | CHANGETURF_INHERIT_AIR)
+	if(cur_flags & NO_RUINS)
 		new_turf.turf_flags |= NO_RUINS
+
+/// A turf that can't we can't build openspace chasms on or spawn ruins in.
+/turf/closed/mineral/volcanic/lava_land_surface/do_not_chasm
+	turf_flags = NO_RUINS
 
 /// Wall piece
 /turf/closed/mineral/ash_rock
@@ -1020,6 +1028,7 @@
 	transform = MAP_SWITCH(TRANSLATE_MATRIX(-8, -8), matrix())
 	smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_RED_ROCK_WALLS
 	canSmoothWith = SMOOTH_GROUP_RED_ROCK_WALLS
+	wall_icon_state = "red_rock"
 
 /turf/closed/mineral/random/stationside/asteroid
 	name = "iron rock"
@@ -1029,6 +1038,7 @@
 	transform = MAP_SWITCH(TRANSLATE_MATRIX(-8, -8), matrix())
 	smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_RED_ROCK_WALLS
 	canSmoothWith = SMOOTH_GROUP_RED_ROCK_WALLS
+	wall_icon_state = "red_rock"
 
 /turf/closed/mineral/random/stationside/asteroid/porus
 	name = "porous iron rock"
@@ -1169,6 +1179,7 @@
 	canSmoothWith = SMOOTH_GROUP_RED_ROCK_WALLS
 	tool_mine_speed = 5 SECONDS // 25% harder than basalt
 	hand_mine_speed = 17 SECONDS
+	wall_icon_state = "red_rock"
 
 /turf/closed/mineral/gibtonite/volcanic/shale
 	name = "shale"
@@ -1180,6 +1191,7 @@
 	canSmoothWith = SMOOTH_GROUP_SHALE_WALLS
 	tool_mine_speed = 7 SECONDS // 75% harder than basalt
 	hand_mine_speed = 20 SECONDS
+	wall_icon_state = "shale"
 
 /turf/closed/mineral/gibtonite/volcanic/airless
 	turf_type = /turf/open/misc/asteroid/basalt

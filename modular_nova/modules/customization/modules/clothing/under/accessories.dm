@@ -283,6 +283,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	obj_flags = UNIQUE_RENAME
 	attachment_slot = NONE
+	custom_materials = list(/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2.5)
 
 /obj/item/clothing/accessory/vaporizer/Initialize(mapload)
 	. = ..()
@@ -310,9 +311,12 @@
 /mob/living/carbon/human/emp_act(severity) // necessary to still emp when worn as accessory
 	. = ..()
 	var/obj/item/clothing/under/worn_uniform = w_uniform
-	if(w_uniform)
-		var/obj/item/clothing/accessory/vaporizer/vaporizer = locate() in worn_uniform.attached_accessories
-		vaporizer?.on_emp()
+	if(!worn_uniform)
+		return
+	var/obj/item/clothing/accessory/vaporizer/vaporizer = locate() in worn_uniform.attached_accessories
+	vaporizer?.on_emp()
+	var/obj/item/clothing/accessory/energy_shield/energy_shield = locate() in worn_uniform.attached_accessories
+	energy_shield?.emp_act(severity)
 
 /obj/item/clothing/accessory/vaporizer/emp_act(severity)
 	. = ..()

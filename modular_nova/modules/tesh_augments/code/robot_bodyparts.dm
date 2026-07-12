@@ -16,6 +16,8 @@
 #define TESHARI_PUNCH_LOW 2
 #define TESHARI_PUNCH_HIGH 6
 
+#define BODYPART_ID_TESH_ROBOTIC "tesh_robotic"
+
 //Teshari normal
 
 /obj/item/bodypart/arm/left/robot/teshari
@@ -24,12 +26,14 @@
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon_static = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW
 	unarmed_damage_high = TESHARI_PUNCH_HIGH
 
 	brute_modifier = 1
 	burn_modifier = 0.9
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/bodypart/arm/right/robot/teshari
 	name = "cybernetic right raptoral forelimb"
@@ -37,12 +41,14 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW
 	unarmed_damage_high = TESHARI_PUNCH_HIGH
 
 	brute_modifier = 1
 	burn_modifier = 0.9
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/bodypart/leg/left/robot/teshari
 	name = "cybernetic left raptoral hindlimb"
@@ -50,6 +56,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW
 	unarmed_damage_high = TESHARI_PUNCH_HIGH
@@ -57,6 +64,7 @@
 	brute_modifier = 1
 	burn_modifier = 0.9
 	speed_modifier = -0.1
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/bodypart/leg/right/robot/teshari
 	name = "cybernetic right raptoral hindlimb"
@@ -64,6 +72,7 @@
 	icon_static =  'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW
 	unarmed_damage_high = TESHARI_PUNCH_HIGH
@@ -71,6 +80,7 @@
 
 	brute_modifier = 1
 	burn_modifier = 0.9
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/bodypart/chest/robot/teshari
 	name = "cybernetic raptoral torso"
@@ -78,11 +88,13 @@
 	icon_static =  'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	brute_modifier = 1
 	burn_modifier = 0.9
 
 	robotic_emp_paralyze_damage_percent_threshold = 0.5
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6)
 
 /obj/item/bodypart/head/robot/teshari
 	name = "cybernetic raptoral head"
@@ -90,6 +102,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW
 	unarmed_damage_high = TESHARI_PUNCH_HIGH
@@ -99,6 +112,7 @@
 
 	head_flags = HEAD_EYESPRITES|HEAD_EYECOLOR
 	eyes_icon = 'modular_nova/modules/organs/icons/teshari_eyes.dmi'
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.75)
 
 // teshari_ surplus
 
@@ -108,7 +122,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
-
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 0.3
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 0.5
@@ -127,6 +141,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 0.3
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 0.5
@@ -145,6 +160,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 0.3
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 0.5
@@ -164,6 +180,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 0.3
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 0.5
@@ -183,6 +200,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 0.3
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 0.5
@@ -201,6 +219,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 0.3
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 0.5
@@ -221,6 +240,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 0.3
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 0.5
@@ -241,6 +261,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 0.3
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 0.5
@@ -262,6 +283,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 2
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 3
@@ -273,6 +295,7 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 
 	biological_state = (BIO_METAL|BIO_JOINTED)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/bodypart/arm/right/robot/teshari_advanced
 	name = "advanced right raptoral forelimb"
@@ -280,6 +303,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 2
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 3
@@ -291,6 +315,7 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 
 	biological_state = (BIO_METAL|BIO_JOINTED)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/bodypart/leg/left/robot/teshari_advanced
 	name = "advanced left raptoral hindlimb"
@@ -298,6 +323,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 2
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 3
@@ -310,6 +336,7 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 
 	biological_state = (BIO_METAL|BIO_JOINTED)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/bodypart/leg/right/robot/teshari_advanced
 	name = "advanced right raptoral hindlimb"
@@ -317,6 +344,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 2
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 3
@@ -329,6 +357,7 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 
 	biological_state = (BIO_METAL|BIO_JOINTED)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/bodypart/arm/left/robot/teshari_advanced
 	name = "advanced left raptoral forelimb"
@@ -336,6 +365,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 2
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 3
@@ -354,6 +384,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 2
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 3
@@ -372,6 +403,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 2
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 3
@@ -391,6 +423,7 @@
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	limb_id = BODYPART_ID_TESH_ROBOTIC
 
 	unarmed_damage_low = TESHARI_PUNCH_LOW * 2
 	unarmed_damage_high = TESHARI_PUNCH_HIGH * 3
@@ -414,3 +447,5 @@
 
 #undef TESHARI_PUNCH_LOW
 #undef TESHARI_PUNCH_HIGH
+
+#undef BODYPART_ID_TESH_ROBOTIC

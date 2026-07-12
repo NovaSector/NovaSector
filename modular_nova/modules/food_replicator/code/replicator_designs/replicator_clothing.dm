@@ -1,65 +1,43 @@
-/datum/design/colonial_under
+/datum/design/biogen/hc_clothing
+	name = "HC Clothing Basetype"
+	id = DESIGN_ID_IGNORE
+	materials = list(/datum/material/biomass = 200)
+	build_path = /obj/item/clothing/under
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_HC_CLOTHING,
+	)
+
+/datum/design/biogen/hc_clothing/colonial_under
 	name = "Colonial Uniform"
 	id = "slavic_under"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 200)
 	build_path = /obj/item/clothing/under/colonial
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_HC_CLOTHING,
-	)
 
-/datum/design/colonial_boots
+/datum/design/biogen/hc_clothing/colonial_boots
 	name = "Colonial Half-Boots"
 	id = "slavic_boots"
-	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 150)
 	build_path = /obj/item/clothing/shoes/jackboots/colonial
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_HC_CLOTHING,
-	)
 
-/datum/design/colonial_cloak
+/datum/design/biogen/hc_clothing/colonial_cloak
 	name = "Colonial Cloak"
 	id = "slavic_cloak"
-	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 250)
 	build_path = /obj/item/clothing/neck/cloak/colonial
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_HC_CLOTHING,
-	)
 
-/datum/design/colonial_webbing
+/datum/design/biogen/hc_clothing/colonial_webbing
 	name = "Slim Colonial Webbing"
 	id = "slavic_webbing"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 200)
 	build_path = /obj/item/clothing/accessory/webbing/colonial
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_HC_CLOTHING,
-	)
 
-/datum/design/cool_hat
+/datum/design/biogen/hc_clothing/cool_hat
 	name = "Colonial Cap"
 	id = "slavic_cap"
-	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 150)
 	build_path = /obj/item/clothing/head/hats/colonial
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_HC_CLOTHING,
-	)
 
-/datum/design/cool_gloves
+/datum/design/biogen/hc_clothing/cool_gloves
 	name = "Black Gloves"
 	id = "slavic_gloves"
-	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/clothing/gloves/color/black
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_HC_CLOTHING,
-	)

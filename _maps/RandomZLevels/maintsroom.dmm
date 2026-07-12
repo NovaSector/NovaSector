@@ -1505,7 +1505,7 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "fc" = (
-/mob/living/simple_animal/bot/secbot/pingsky{
+/mob/living/basic/bot/secbot/pingsky{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/red,
@@ -2795,7 +2795,7 @@
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/west,
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/random/food_or_drink/keg,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "jd" = (
@@ -3814,7 +3814,7 @@
 /area/awaymission/caves/maintsroom)
 "mx" = (
 /obj/structure/lattice/catwalk/mining,
-/obj/structure/closet/crate/goldcrate{
+/obj/structure/closet/crate/goldcrate/stocked{
 	name = "Bait?"
 	},
 /obj/item/upgradescroll,
@@ -5293,7 +5293,7 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "rA" = (
-/mob/living/simple_animal/bot/secbot{
+/mob/living/basic/bot/secbot{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/red,
@@ -5658,7 +5658,7 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "sO" = (
-/mob/living/simple_animal/bot/secbot/grievous{
+/mob/living/basic/bot/secbot/grievous{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -6822,7 +6822,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "wP" = (
-/mob/living/simple_animal/bot/secbot/beepsky/jr{
+/mob/living/basic/bot/secbot/beepsky/jr{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -7328,7 +7328,7 @@
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
 "yF" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/random/food_or_drink/keg,
 /obj/item/clothing/head/costume/festive,
 /obj/machinery/camera/xray/directional/north,
 /turf/open/floor/plating,
@@ -11641,7 +11641,7 @@
 /turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/maintsroom)
 "Nv" = (
-/mob/living/simple_animal/bot/secbot/ed209{
+/mob/living/basic/bot/secbot/ed209{
 	name = "Commander Stun";
 	faction = list("hostile","cult")
 	},
@@ -11824,7 +11824,7 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "NW" = (
-/mob/living/simple_animal/bot/secbot/beepsky/officer{
+/mob/living/basic/bot/secbot/beepsky/officer{
 	faction = list("hostile","cult")
 	},
 /obj/machinery/light/red/directional/north,
@@ -12250,7 +12250,7 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "Py" = (
-/mob/living/simple_animal/bot/secbot/beepsky/armsky{
+/mob/living/basic/bot/secbot/beepsky/armsky{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -12454,7 +12454,7 @@
 "Qi" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/item/forging/reagent_weapon/sword,
-/obj/structure/closet/crate/goldcrate{
+/obj/structure/closet/crate/goldcrate/stocked{
 	name = "Bait"
 	},
 /obj/item/disk/design_disk/cleric_mace,
@@ -13532,7 +13532,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "TN" = (
-/mob/living/simple_animal/bot/secbot/grievous/toy{
+/mob/living/basic/bot/secbot/grievous/toy{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -13945,7 +13945,7 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "Vf" = (
-/mob/living/simple_animal/bot/secbot/beepsky{
+/mob/living/basic/bot/secbot/beepsky{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/mineral/plastitanium,

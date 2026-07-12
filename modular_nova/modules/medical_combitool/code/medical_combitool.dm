@@ -7,6 +7,7 @@
 	icon = 'modular_nova/modules/medical_combitool/icons/surgery_tools.dmi'
 	icon_state = "bonesetter"
 	toolspeed = 0.25
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/bonesetter/alien/get_all_tool_behaviours()
 	return list(TOOL_BONESET, TOOL_ALIEN_BONESET)
@@ -100,17 +101,19 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /obj/item/blood_filter/alien
-	name = "alien bloodfilter"
+	name = "alien blood filter"
 	desc = "Do aliens have blood to filter? Probably not. Do aliens have subjects whose blood they filter? It's a distinct possibility."
 	icon = 'modular_nova/modules/medical_combitool/icons/surgery_tools.dmi'
 	icon_state = "bloodfilter"
 	toolspeed = 0.25
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT)
 
 /datum/design/alienbloodfilter
 	name = "Alien Blood Filter"
 	desc = "An advanced blood filter obtained through Abductor technology."
 	id = "alien_bloodfilter"
 	build_path = /obj/item/blood_filter/alien
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 					/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 1.5,
 					/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 5,
@@ -181,6 +184,7 @@
 	desc = "This tool can be either used as a blood filter or bonesetter."
 	id = "combitool"
 	build_path = /obj/item/blood_filter/advanced
+	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6,
 					/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
 					/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,

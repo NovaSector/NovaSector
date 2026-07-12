@@ -9,6 +9,7 @@
 		mean that each tether drains much more charge when fired. It remains functional as a tether, though."
 	use_energy_cost = DEFAULT_CHARGE_DRAIN * 5
 	tether_type = /obj/projectile/tether/anti_teleport
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3)
 
 /obj/projectile/tether/anti_teleport
 	name = "grounding tether"
