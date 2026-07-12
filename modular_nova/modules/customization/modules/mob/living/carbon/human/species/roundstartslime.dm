@@ -197,6 +197,7 @@
 // Handle the slime core being destroyed, and if it has a body in nullspace, delete it as well.
 /obj/item/organ/brain/slime/Destroy(force)
 	if(body)
+		UnregisterSignal(body, COMSIG_MOB_LOGIN)
 		QDEL_NULL(body)
 	return ..()
 
