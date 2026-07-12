@@ -2,9 +2,9 @@
 
 https://github.com/NovaSector/NovaSector/pull/7616
 
-## Emergency Locker Rations
+## Emergency Rations
 
-Module ID: LOCKER_RATIONS
+Module ID: EMERGENCY_RATIONS
 
 ### Description:
 
@@ -12,7 +12,7 @@ This module adds in emergency ration packs to the game, and the contents of the 
 
 ### TG Proc/File Changes:
 
-- `code/game/objects/structures/crates_lockers/closets/utility_closets.dm`: A ration pack was added to the emergency locker, expanding the existing Nova edit that added the emergency space suit case.
+- N/A
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g: 
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
