@@ -8,7 +8,7 @@
 	name = "\improper emergency ration"
 	desc = "A blue plastic sack containing an emergency ration, meant to keep the crew fed in the event a chef is absent or incapable of working. \
 			Intended for distribution in times of disaster or war, its contents are nourishing, and intended to be edible to a wide variety of potential species."
-	icon = 'modular_nova/modules/locker_rations/icons/rations.dmi'
+	icon = 'modular_nova/modules/emergency_rations/icons/rations.dmi'
 	icon_state = "foodpack_ration_big"
 	illustration = null
 	custom_price = PAYCHECK_CREW * 1.8
@@ -34,7 +34,7 @@
 /obj/item/food/vendor_tray_meal/ration
 	name = "\improper Emergency Ration Main"
 	desc = "This is the base type for emergency ration mains. If you somehow managed to get this in normal gameplay, please file a bug report."
-	icon = 'modular_nova/modules/locker_rations/icons/rations.dmi'
+	icon = 'modular_nova/modules/emergency_rations/icons/rations.dmi'
 	icon_state = "foodtray_ricenbeans"
 	foodtypes = VEGETABLES
 
@@ -79,7 +79,7 @@
 /obj/item/food/vendor_tray_meal/side/ration
 	name = "\improper Emergency Ration Side"
 	desc = "This is the base type for emergency ration sides. If you somehow managed to get this in normal gameplay, please file a bug report."
-	icon = 'modular_nova/modules/locker_rations/icons/rations.dmi'
+	icon = 'modular_nova/modules/emergency_rations/icons/rations.dmi'
 	trash_type = /obj/item/trash/empty_side_pack/ration
 	foodtypes = VEGETABLES
 	
@@ -190,7 +190,7 @@
 	. = ..()
 	
 /obj/item/trash/empty_side_pack/ration
-	icon = 'modular_nova/modules/locker_rations/icons/rations.dmi'
+	icon = 'modular_nova/modules/emergency_rations/icons/rations.dmi'
 	icon_state = "foodpack_ration_trash"
 	
 /obj/item/trash/empty_side_pack/ration/bag
