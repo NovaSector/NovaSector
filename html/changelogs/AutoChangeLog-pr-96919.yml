@@ -1,0 +1,5 @@
+author: "Jacquerel"
+delete-after: True
+changes:
+  - bugfix: "You can cut off the heads of corpses using a chainsaw"
+  - balance: "You have to turn it on first"
