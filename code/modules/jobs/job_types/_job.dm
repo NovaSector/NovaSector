@@ -335,7 +335,7 @@
 			have been added to your ID card.")
 	//NOVA EDIT ADDITION BEGIN - ANTAG OPT IN
 	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
-		if (isnum(minimum_opt_in_level) && minimum_opt_in_level > OPT_IN_NOT_TARGET)
+		if (isnum(minimum_opt_in_level) && minimum_opt_in_level > ANTAG_OPT_OUT)
 			info += span_bolddanger("This job forces a minimum opt-in setting of [GLOB.antag_opt_in_strings["[minimum_opt_in_level]"]].")
 		if (heretic_sac_target)
 			info += span_bolddanger("This job can be sacrificed by heretics.")
