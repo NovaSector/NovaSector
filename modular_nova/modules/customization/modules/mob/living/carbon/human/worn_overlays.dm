@@ -1,5 +1,5 @@
 /**
- * Setup the final version of accessory_overlay given custom species options.
+ * Setup the final version of accessory's overlay given custom species options.
  */
 /obj/item/clothing/accessory/generate_accessory_overlay(obj/item/clothing/under/attached_to)
 	if(!ishuman(attached_to.loc))
