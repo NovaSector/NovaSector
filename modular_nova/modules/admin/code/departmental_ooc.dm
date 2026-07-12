@@ -2,7 +2,7 @@
 // me when i glob *lewdmoan
 // antag_channel check just opens the channel up if you have ANY antagonist datum whatsoever. if you want to repurpose this, refactor that to something like is_antag_type and then check for none / any / specific type
 // anon_prefix sets up the special naming for the anonymization layer in the different channels.
-// "name_of_channel" = new /datum/department_ooc_channel(
+// "name_of_channel" = new /datum/department_ooc_channel("shorthand", "colorhexforchat", list(job_defines_you_want), is_antag_channel = bool, anon_prefix = "anonymous_name_scheme"
 GLOBAL_LIST_INIT(department_ooc_channels, list(
 	"security" = new /datum/department_ooc_channel("SOOC", "#ff5454", list(JOB_CAPTAIN=TRUE, JOB_HEAD_OF_SECURITY=TRUE, JOB_WARDEN=TRUE, JOB_DETECTIVE=TRUE, JOB_SECURITY_OFFICER=TRUE, JOB_CORRECTIONS_OFFICER=TRUE, JOB_LAWYER=TRUE), anon_prefix = "Deputy"),
 	"medical" = new /datum/department_ooc_channel("MOOC", "#57b8f0", list(JOB_CAPTAIN=TRUE, JOB_CHIEF_MEDICAL_OFFICER=TRUE, JOB_CORONER=TRUE, JOB_MEDICAL_DOCTOR=TRUE, JOB_PARAMEDIC=TRUE, JOB_CHEMIST=TRUE, JOB_VIROLOGIST=TRUE, JOB_ORDERLY=TRUE, JOB_PSYCHOLOGIST=TRUE), anon_prefix = "Doctor"),
@@ -30,6 +30,8 @@ GLOBAL_LIST_INIT(department_ooc_channels, list(
 	var/list/ckey_to_anon_name
 	/// If TRUE, eligibility/listeners are based on having an antag datum instead of job_lookup.
 	var/is_antag_channel = FALSE
+	/// Special naming prefix for the anonymization layer in this channel.
+	var/anon_prefix
 
 // Sets us up
 /datum/department_ooc_channel/New(id, color, list/job_lookup, is_antag_channel, anon_prefix)
@@ -108,7 +110,7 @@ GLOBAL_LIST_INIT(department_ooc_channels, list(
 			listeners[antag_mind.current.client] = DEPT_OOC_LISTEN_PLAYER// oh look that define showed up
 	for(var/iterated_player in GLOB.player_list)// iterate our list from our glob into something we can poke
 		var/mob/iterated_mob = iterated_player// copy that over to a new thing we can poke
-		if(iterated_mob.client?.holder && !iterated_mob.client?.holder?.deadmined && iterated_mob.client?.prefs?.chat_toggles & CHAT_OOC)// if we are a holder and we arent deadminned and we have the relevant toggles alive
+		if(iterated_mob.client?.holder && !iterated_mob.client?.holder?.deadmined && (iterated_mob.client?.prefs?.chat_toggles & CHAT_OOC))// if we are a holder and we arent deadminned and we have the relevant toggles alive
 			listeners[iterated_mob.client] = DEPT_OOC_LISTEN_ADMIN// add them to the admeme list
 		else if(!channel.is_antag_channel && iterated_mob.mind)// hnnnng they arent an antag channel and also we have their mind in our previously iterated var
 			var/datum/mind/mob_mind = iterated_mob.mind// setup more shit by writing our mind into a datum
@@ -182,7 +184,7 @@ GLOBAL_LIST_INIT(department_ooc_channels, list(
 			listeners[iterated_mob.client] = TRUE// update values
 		else if(!channel.is_antag_channel && iterated_mob.mind)// its not an antag channel and our mind is iterated
 			var/datum/mind/mob_mind = iterated_mob.mind// populate our mob minds that arent antag minds by equating them
-			if(channel.job_lookup[mob_mind.assigned_role])// check if our assigned role of our mob's mind is in our relevant job checks in our channels
+			if(channel.job_lookup[mob_mind.assigned_role?.title])// check if our assigned role of our mob's mind is in our relevant job checks in our channels
 				listeners[iterated_mob.client] = TRUE// last. value. updated
 
 	for(var/iterated_listener in listeners)// this is speaking to essentially everyone, you know, this is how we speak to everyone globally. or atleast how im trying to.
@@ -194,15 +196,9 @@ ADMIN_VERB(toggledeptooc, R_ADMIN, "Toggle Department OOC", "Toggles a departmen
 	var/list/options = list()// setup var for our selections
 	for(var/channel_key in GLOB.department_ooc_channels)// prepare options from our glob
 		var/datum/department_ooc_channel/channel = GLOB.department_ooc_channels[channel_key]// prepare our selection
-		options["[channel.id] ([channel.allowed ? "Enabled" : "Disabled"])"] = channel_key// run those bits for data
-
+		options["[channel.id] ([channel.allowed ? "Enabled" : "Disabled"])"] = channel_key// run those bits for data to populate our options
 	var/picked = tgui_input_list(usr, "Select a channel to toggle", "Toggle Department OOC", options)// post our selector
-	if(isnull(picked))// if they pick nothing,
-		return// go home omg
-	var/channel_key = options[picked]// they did pick something? map that back to our var
-	var/datum/department_ooc_channel/channel = GLOB.department_ooc_channels[channel_key]// cross assosciate our moving pieces with our selection
-
-	toggle_department_ooc(channel_key)// use our selection to do the thing we came here to do
-	log_admin("[key_name(usr)] toggled [channel.id] OOC.")// admin.log
-	message_admins("[key_name_admin(usr)] toggled [channel.id] OOC.")// inform asay
-	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle [channel.id] OOC", "[channel.allowed ? "Enabled" : "Disabled"]"))
+	if(picked)// if we pick something
+		toggle_department_ooc(options[picked])// run the proc with our output
+		log_admin("[key_name(usr)] toggled [options[picked]] Department OOC.")// tell logs
+		message_admins("[key_name_admin(usr)] toggled [options[picked]] Department OOC.")// tell admemes
