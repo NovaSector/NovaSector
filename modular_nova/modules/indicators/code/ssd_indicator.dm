@@ -19,7 +19,6 @@ GLOBAL_DATUM_INIT(ssd_indicator_vis, /obj/effect/overlay/indicator/ssd, new)
 		vis_contents -= GLOB.ssd_indicator_vis
 		log_message("<font color='green'>is no longer SSD and lost their indicator!</font>", LOG_ATTACK)
 
-// There was a /mob/living/Login() proc here once, it now lives with all its siblings at modular_nova\master_files\code\modules\mob\living\living.dm
 /mob/living/Logout()
 	lastclienttime = world.time
 	set_ssd_indicator(TRUE)
