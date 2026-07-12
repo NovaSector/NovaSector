@@ -554,6 +554,11 @@
 	name = "Tiger"
 	icon_state = "tiger"
 
+/datum/sprite_accessory/tails/mammal/experiment
+	name = "Experiment"
+	icon_state = "exptail"
+	fluffy = TRUE
+
 /datum/sprite_accessory/tails/mammal/wagging/wolf
 	name = "Wolf"
 	icon_state = "wolf"
