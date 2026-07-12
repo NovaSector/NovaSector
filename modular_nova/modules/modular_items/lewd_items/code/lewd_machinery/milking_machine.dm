@@ -187,7 +187,7 @@
 		cuffs.parent_chair = WEAKREF(src)
 		current_mob.update_abstract_handcuffed()
 
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	affected_mob.layer = BELOW_MOB_LAYER
 	update_all_visuals()
 
@@ -517,7 +517,7 @@
 
 	icon_state = "milking_[machine_color]_[current_mode]"
 
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	update_icon_state()
 	update_icon()
 

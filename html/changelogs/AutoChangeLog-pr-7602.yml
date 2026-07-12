@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - map: "Fixed some coldroom issues on OceanPubby, Void Raptor, Blueshift, and Snowglobe. Also fixed a missing wire on Void Raptor."

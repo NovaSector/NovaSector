@@ -14,7 +14,9 @@
 
 /datum/bodypart_overlay/mutant/xenohead
 	feature_key = FEATURE_XENOHEAD
-	layers = EXTERNAL_ADJACENT
+	layers = list(
+		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
+	)
 	color_source = ORGAN_COLOR_OVERRIDE
 	offset_location = UPPER_BODY
 

@@ -1033,7 +1033,6 @@
 
 			var/obj/item/organ/replacement_organ = SSwardrobe.provide_type(selected_sprite_accessory.organ_type)
 			replacement_organ.sprite_accessory_flags = selected_sprite_accessory.flags_for_organ
-			replacement_organ.relevant_layers = selected_sprite_accessory.relevent_layers
 
 			var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part(
 				selected_sprite_accessory.name,

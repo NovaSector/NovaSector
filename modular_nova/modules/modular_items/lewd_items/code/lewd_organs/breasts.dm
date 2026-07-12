@@ -10,23 +10,18 @@
 	slot = ORGAN_SLOT_BREASTS
 	genital_location = CHEST
 	drop_when_organ_spilling = FALSE
-	var/lactates = FALSE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/breasts
 	internal_fluid_datum = /datum/reagent/consumable/breast_milk
+	var/lactates = FALSE
 
 /datum/bodypart_overlay/mutant/genital/breasts
 	feature_key = ORGAN_SLOT_BREASTS
-	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+	layers = list(
+		EXTERNAL_FRONT_UNDER_CLOTHES = BREASTS_LAYER,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+	)
 	offset_location = ENTIRE_BODY
-
-/datum/bodypart_overlay/mutant/genital/breasts/underwear_check()
-	if(!istype(owner))
-		return FALSE
-	else
-		if((owner.underwear_visibility & UNDERWEAR_HIDE_SHIRT) && (owner.underwear_visibility & UNDERWEAR_HIDE_BRA))
-			return FALSE
-		else
-			return TRUE
+	genital_stack_rank = 1
 
 /obj/item/organ/genital/breasts/get_description_string(datum/sprite_accessory/genital/breasts/breasts)
 	var/returned_string = "You see a [LOWER_TEXT(get_genital_descriptor(breasts))] of breasts."
@@ -36,7 +31,7 @@
 		if(BREAST_SIZE_FLATCHESTED)
 			size_description = " They are small and flat, however."
 		if(BREAST_SIZE_HUGE, BREAST_SIZE_GIGANTIC, BREAST_SIZE_ENORMOUS, BREAST_SIZE_MASSIVE, BREAST_SIZE_IMPOSSIBLE, BREAST_SIZE_BEYOND_MEASUREMENT)
-			size_description = "They are beyond the concept of cup-sizes, you estimate they're around [genital_size] inches in diameter."
+			size_description = " They are beyond the concept of cup-sizes, you estimate they're around [genital_size] inches in diameter."
 		else
 			size_description = " You estimate they are [translation]-cups."
 	returned_string += size_description

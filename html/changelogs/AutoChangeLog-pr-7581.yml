@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - qol: "moves erp prefs out of the character profile tab and into the new heart tab"

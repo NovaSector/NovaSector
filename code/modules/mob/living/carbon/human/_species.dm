@@ -1,8 +1,3 @@
-// NOVA EDIT ADDITION START
-// Local defines for now, TODO: put these in their own file with the rest of the offset defines
-#define NOVA_UNDERWEAR_UNDERSHIRT_LAYER (UNIFORM_LAYER + 0.01)
-#define NOVA_BRA_SOCKS_LAYER (UNIFORM_LAYER + 0.02)
-// NOVA EDIT ADDITION END
 /// List of roundstart races' their species_id's
 GLOBAL_LIST_EMPTY(roundstart_races)
 ///List of all roundstart languages by path except common
@@ -500,23 +495,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	SEND_SIGNAL(human, COMSIG_SPECIES_LOSS, src)
 
 	human.living_flags &= ~STOP_OVERLAY_UPDATE_BODY_PARTS
-
-// This exists so sprite accessories can still be per-layer without having to include that layer's
-// number in their sprite name, which causes issues when those numbers change.
-/datum/species/proc/mutant_bodyparts_layertext(layer)
-	switch(layer)
-		if(BODY_BEHIND_LAYER)
-			return "BEHIND"
-		if(BODY_ADJ_LAYER)
-			return "ADJ"
-		if(BODY_FRONT_LAYER)
-			return "FRONT"
-		//NOVA EDIT ADDITION BEGIN
-		if(UNDER_UNIFORM_LAYER)
-			return "FRONT_UNDER"
-		if(ABOVE_BODY_FRONT_HEAD_LAYER)
-			return "FRONT_OVER"
-		//NOVA EDIT ADDITION END
 
 ///Proc that will randomise the hair, or primary appearance element (i.e. for moths wings) of a species' associated mob
 /datum/species/proc/randomize_main_appearance_element(mob/living/carbon/human/human_mob)

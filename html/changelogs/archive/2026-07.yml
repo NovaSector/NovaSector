@@ -339,3 +339,71 @@
       button correctly
   - bugfix: fixes an issue where switching slots would carry over the quirks of a
       previous slot until you add or remove a quirk
+2026-07-08:
+  Aliceee2ch:
+  - image: Bacon was resprited
+  FalloutFalcon:
+  - code_imp: Ensures some code actually updates overlays instead of return a list
+      of them to nobody
+  Ghommie:
+  - bugfix: Custom material floors and walls of a shuttle are no longer lost on departure
+      or arrival.
+  JohnFulpWillard:
+  - spellcheck: Oldstation rnd notes now update properly when you mix them together.
+  Melbert:
+  - bugfix: Fix airlock pump only working when nonfunctional
+  - refactor: Surprise, a follow up refactor to species part rendering, report any
+      oddities with them (wings/snouts/tails/etc)
+  - qol: Adds an operation to un-widen the chest cavity
+  - qol: '"Fix bones" operation will wipe all surgical states for limbs without skin,
+      acting as an analog to "Mend incision" for species like Plasmamen'
+  PapaMichael:
+  - bugfix: Blood brothers once again have a 10% chance of being able to recruit a
+      team of 3.
+  Rilomatic:
+  - rscadd: Added Croptop Bomber Jacket with 4 variants to public
+  - rscadd: Added SHORK.INC body pillow with two sides (SFW and NSWF)
+  SmArtKar:
+  - bugfix: Fixed particle weather bleeding through z-levels when different weathers
+      are present
+  - bugfix: Fixed cube monkey cap runtimes
+  intense-skies:
+  - balance: Removes Pressure Adaptation from the Genetic Mutation quirk
+  lelandkemble:
+  - code_imp: 20 files have been converted from attackby() to item_interaction()
+  - bugfix: You can no longer repeatedly put anomaly cores into the anomaly core guns
+  - bugfix: A runtime that occured when opening a package with a boxcutter no longer
+      occurs.
+  - code_imp: 30 files have been moved from attackby() to item_interaction()
+  - balance: You can't see out of a perceptomatrix without a core
+  sergeirocks100:
+  - spellcheck: When untying a neckerchief, the item in question will no longer be
+      misspelled as "neckercheif".
+  vinylspiders:
+  - qol: moves erp prefs out of the character profile tab and into the new heart tab
+  - bugfix: fixes an issue where height filters would not be applied to many bodypart
+      overlays
+2026-07-09:
+  Melbert:
+  - bugfix: Fix emote overlays sticking
+  Neocloudy:
+  - bugfix: Croptop bomber jacket works on characters with digitigrade legs.
+2026-07-10:
+  Balls2zawall:
+  - rscdel: Removed First Responder, Orange, And Pink medical kits from unrestricted
+      access in cargo.
+  Happyowl93:
+  - rscadd: knotting and smell/taste is in.
+  Rilomatic:
+  - rscadd: Added the butt genital option to the game. 9 sizes to choose from with
+      larger size with different examine messages as well as easter egg size
+  sqnztb:
+  - rscadd: Adds a pet clicker tool. To train your pets.
+  vinylspiders:
+  - qol: expose/hide genitals has gotten a revamp, with 'Above all' being replaced
+      with custom layering options, and can be found via the same verb as before OR
+      the interactions menu
+  - qol: arousal may also be accessed via the interactions menu now
+  - bugfix: genital layering actually somewhat makes sense now, there is more room
+      for improvements though
+  - bugfix: fixes digi curator and barber undersuits having the wrong sprite

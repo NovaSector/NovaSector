@@ -66,8 +66,7 @@
 
 /obj/item/clothing/under
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
-	bodyshapes_with_variations = BODYSHAPE_DIGITIGRADE | BODYSHAPE_TAUR
-	/// Does this object get cropped when worn by a taur on their suit or uniform slot?
+	bodyshapes_with_variations = BODYSHAPE_DIGITIGRADE
 
 /obj/item/clothing/suit
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
