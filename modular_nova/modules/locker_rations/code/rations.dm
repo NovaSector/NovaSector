@@ -6,7 +6,7 @@
 
 /obj/item/storage/box/ration
 	name = "\improper emergency ration"
-	desc = "A blue plastic sack containing an emergency ration, meant to keep the crew fed in the event a chef is absent or incapable of working.\
+	desc = "A blue plastic sack containing an emergency ration, meant to keep the crew fed in the event a chef is absent or incapable of working. \
 			Intended for distribution in times of disaster or war, its contents are nourishing, and intended to be edible to a wide variety of potential species."
 	icon = 'modular_nova/modules/locker_rations/icons/rations.dmi'
 	icon_state = "foodpack_ration_big"
