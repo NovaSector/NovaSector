@@ -127,7 +127,7 @@ GLOBAL_LIST_INIT(department_ooc_channels, list(
 #undef DEPT_OOC_LISTEN_ADMIN
 // kill our defs
 // Sets up the general purpose selector verb for departmental oocs, per vinylspiders request
-/client/verb/department_ooc(msg as text)// i cannot express how much this hurts my head for no reason
+/client/verb/department_ooc()// i cannot express how much this hurts my head for no reason
 	set name = "Department OOC"// name our verb
 	set category = "OOC"// categorize it
 
@@ -152,8 +152,7 @@ GLOBAL_LIST_INIT(department_ooc_channels, list(
 	if(isnull(picked_id))// you didnt pick anything
 		return// thank 4 waste my time
 
-	if(isnull(msg))// no message, duh, but we check it to
-		msg = tgui_input_text(usr, "Message to send on [picked_id]", "Department OOC")// let them decide their message
+	var/msg = tgui_input_text(usr, "Message to send on [picked_id]", "Department OOC")// let them decide their message, tgui panel now that its not fighting a native prompt for the arg anymore
 	if(isnull(msg))// still no message?
 		return// kill, die even
 
