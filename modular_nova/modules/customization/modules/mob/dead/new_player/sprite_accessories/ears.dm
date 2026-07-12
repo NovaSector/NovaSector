@@ -1,7 +1,6 @@
 /datum/sprite_accessory/ears
 	key = FEATURE_EARS
 	organ_type = /obj/item/organ/ears_external
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer)
@@ -29,7 +28,6 @@
 		SPECIES_HUMANOID = 1,
 		SPECIES_GHOUL = 1,
 	)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_ONE_COLOR
 	has_inner = TRUE
 
@@ -186,6 +184,11 @@
 /datum/sprite_accessory/ears/external/elephant
 	name = "Elephant"
 	icon_state = "elephant"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/external/experiment
+	name = "Experiment"
+	icon_state = "expear"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/external/fennec

@@ -11,7 +11,6 @@
 		SPECIES_LIZARD_SILVER = 1,
 		SPECIES_KOBOLD = 1,
 	)
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/is_hidden(mob/living/carbon/human/human)
 	return !!(human.obscured_slots & HIDESNOUT)
@@ -332,7 +331,6 @@
 /datum/sprite_accessory/snouts/mammal/top
 	flags_for_organ = SPRITE_ACCESSORY_USE_MUZZLED_SPRITE | SPRITE_ACCESSORY_USE_ALT_FACEWEAR_LAYER
 	organ_type = /obj/item/organ/snout/top
-	relevent_layers = list(BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/mammal/top/fbird
 	name = "Beak (Top)"
@@ -348,7 +346,6 @@
 	flags_for_organ = NONE
 	color_src = USE_MATRIXED_COLORS
 	organ_type = /obj/item/organ/snout/top_adj
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/mammal/top/bug_no_ant
 	name = "Bug (No Antennae)"
@@ -356,7 +353,6 @@
 	flags_for_organ = NONE
 	color_src = USE_MATRIXED_COLORS
 	organ_type = /obj/item/organ/snout/top_adj
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/mammal/top/fdragonfly
 	name = "Dragonfly (Top)"
@@ -364,7 +360,6 @@
 	flags_for_organ = NONE
 	color_src = USE_MATRIXED_COLORS
 	organ_type = /obj/item/organ/snout/top_adj
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/mammal/top/felephant
 	name = "Elephant (Top)"

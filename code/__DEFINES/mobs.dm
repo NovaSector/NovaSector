@@ -903,15 +903,24 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 #define ID_LAYER 18
 // NOVA EDIT ADDITION BEGIN - cursed layers under clothing
 	#define BANDAGE_LAYER 18.1
-	#define NIPPLES_LAYER 18.2
-	#define PENIS_LAYER 18.3
-	#define VAGINA_LAYER 18.4
-	#define ANUS_LAYER 18.5
+	#define NIPPLES_CLOTHING_LAYER 18.2
+	#define PENIS_CLOTHING_LAYER 18.3
+	#define VAGINA_CLOTHING_LAYER 18.4
+	#define ANUS_CLOTHING_LAYER 18.5
 //NOVA EDIT ADDITION END
 /// Jumpsuit clothing layer
 #define UNIFORM_LAYER 19
 	/// The layer underneath the uniform
 	#define UNDER_UNIFORM_LAYER 19.1
+	// NOVA EDIT ADDITION START
+	#define UNDER_UNIFORM_SOCKS_LAYER 19.101
+	#define BREASTS_LAYER 19.3
+	#define PENIS_LAYER 19.4
+	#define TESTICLES_LAYER 19.5
+	#define VAGINA_LAYER 19.6
+	#define ANUS_LAYER 19.7
+	#define BUTT_LAYER 19.8
+	// NOVA EDIT ADDITION END
 /// Damage indicators (cuts and burns)
 #define DAMAGE_LAYER 20
 	/// Mutations that should appear above everything else (e.g. laser eyes)

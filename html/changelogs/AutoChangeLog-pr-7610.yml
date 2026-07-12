@@ -1,0 +1,5 @@
+author: "Jureiia"
+delete-after: True
+changes:
+  - rscadd: "Chimpanzee (Monkey) language is now a round start choice."
+  - rscdel: "Wormtongue language is no longer a round start choice."
