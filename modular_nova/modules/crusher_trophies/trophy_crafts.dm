@@ -1,4 +1,5 @@
 /datum/crafting_recipe/crusher_trophy
+	tool_paths = null
 	time = 2 SECONDS
 
 /datum/crafting_recipe/crusher_trophy/watcher_wing
