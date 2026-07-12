@@ -7,17 +7,17 @@
 	rank = PSIONIC_RANK_GAMMA
 	variant_name = "environmental sheath"
 	description = "A protective field against vacuum, cold, and suffocation."
+	cooldown_time = 30 SECONDS
+	cast_range = 5
+	strain_gain = 12
 	block_charge_cost = 0
 
 /datum/action/cooldown/psionic/pointed/living_target/psionic_bubble
 	name = "Psionic Bubble"
 	desc = "Wrap a living target in a short-lived environmental sheath."
 	button_icon_state = "psi_psionic_bubble"
-	cooldown_time = 30 SECONDS
-	cast_range = 5
 	allow_self_target = TRUE
 	point_cost = 1
-	strain_gain = 12
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
 	rank_variant_types = list(/datum/psionic_rank_variant/psionic_bubble)

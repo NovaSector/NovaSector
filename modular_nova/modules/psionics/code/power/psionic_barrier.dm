@@ -54,9 +54,7 @@
 	name = "Psionic Barrier"
 	desc = "Toggle a directional psionic barrier that catches incoming attacks, building strain with each block."
 	button_icon_state = "psi_psionic_barrier"
-	cooldown_time = 0
 	point_cost = 1
-	strain_gain = 0
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_FLUX
 	rank_variant_types = list(

@@ -5,6 +5,9 @@
 	rank = PSIONIC_RANK_EPSILON
 	variant_name = "levitation"
 	description = "A maintained lift that lets you float above the floor."
+	cooldown_time = 0
+	strain_gain = 0
+	active_strain_gain_per_second = 3
 	block_charge_cost = 0
 	/// If TRUE, this form allows controlled movement while weightless.
 	var/grants_free_float = FALSE
@@ -20,10 +23,7 @@
 	name = "Levitate"
 	desc = "Lift yourself off the ground, building strain while maintained."
 	button_icon_state = "psi_levitate"
-	cooldown_time = 0
 	point_cost = 1
-	strain_gain = 0
-	active_strain_gain_per_second = 3
 	psionic_flags = PSIONIC_KINETIC
 	school = PSIONIC_SCHOOL_GRAVITY
 	rank_variant_types = list(

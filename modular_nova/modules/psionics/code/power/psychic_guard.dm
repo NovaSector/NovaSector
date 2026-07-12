@@ -5,15 +5,15 @@
 	rank = PSIONIC_RANK_EPSILON
 	variant_name = "psychic guard"
 	description = "A brief self-shield against incoming psionic effects."
+	cooldown_time = 30 SECONDS
+	strain_gain = 15
 	block_charge_cost = 0
 
 /datum/action/cooldown/psionic/psychic_guard
 	name = "Psychic Guard"
 	desc = "Briefly shield yourself from psionic effects."
 	button_icon_state = "psi_psychic_guard"
-	cooldown_time = 30 SECONDS
 	point_cost = 1
-	strain_gain = 15
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_FLUX
 	rank_variant_types = list(/datum/psionic_rank_variant/psychic_guard)

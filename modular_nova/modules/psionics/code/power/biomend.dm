@@ -6,6 +6,10 @@
 	rank = PSIONIC_RANK_EPSILON
 	variant_name = "mend"
 	description = "A maintained restorative pattern for organic wounds."
+	cooldown_time = 8 SECONDS
+	cast_range = 6
+	strain_gain = 0
+	active_strain_gain_per_second = 10
 	block_charge_cost = 1
 	block_message = "mending blocked!"
 
@@ -13,11 +17,7 @@
 	name = "Biomend"
 	desc = "Channel a restorative psionic pattern into a living target, mending organic brute and burn trauma while your concentration holds."
 	button_icon_state = "psi_biomend"
-	cooldown_time = 8 SECONDS
-	cast_range = 6
 	point_cost = 1
-	strain_gain = 0
-	active_strain_gain_per_second = 10
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
 	requires_concentration = TRUE

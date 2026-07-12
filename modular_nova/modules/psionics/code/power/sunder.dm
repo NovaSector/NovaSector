@@ -23,10 +23,7 @@
 	name = "Psionic Sunder"
 	desc = "Rupture a weaker psion's connection and temporarily suppress their abilities."
 	button_icon_state = "psi_sunder"
-	cooldown_time = 60 SECONDS
-	cast_range = 1
 	point_cost = 2
-	strain_gain = 35
 	psionic_flags = PSIONIC_INTRUSIVE|PSIONIC_SPATIAL
 	school = PSIONIC_SCHOOL_BLUESPACE
 	active_msg = "You search for a nearby psionic connection to sunder..."

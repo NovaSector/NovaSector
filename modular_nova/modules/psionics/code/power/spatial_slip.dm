@@ -5,15 +5,15 @@
 	rank = PSIONIC_RANK_EPSILON
 	variant_name = "spatial slip"
 	description = "A short self-directed blink through a bluespace fold."
+	cooldown_time = 15 SECONDS
+	strain_gain = 20
 	block_charge_cost = 0
 
 /datum/action/cooldown/psionic/spatial_slip
 	name = "Spatial Slip"
 	desc = "Blink a short distance through a bluespace fold."
 	button_icon_state = "psi_spatial_slip"
-	cooldown_time = 15 SECONDS
 	point_cost = 1
-	strain_gain = 20
 	psionic_flags = PSIONIC_SPATIAL
 	school = PSIONIC_SCHOOL_BLUESPACE
 	rank_variant_types = list(/datum/psionic_rank_variant/spatial_slip)

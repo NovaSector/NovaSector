@@ -41,9 +41,7 @@
 	name = "Psiblade"
 	desc = "Shape hardlight into a melee weapon. Higher ranks form stronger blades."
 	button_icon_state = "psi_psiblade"
-	cooldown_time = 12 SECONDS
 	point_cost = 1
-	strain_gain = 18
 	psionic_flags = PSIONIC_KINETIC|PSIONIC_THERMAL
 	school = PSIONIC_SCHOOL_FLUX
 	needs_hands = TRUE

@@ -5,6 +5,9 @@
 	rank = PSIONIC_RANK_EPSILON
 	variant_name = "diagnosis"
 	description = "A focused read of one living target's condition."
+	cooldown_time = 8 SECONDS
+	cast_range = 8
+	strain_gain = 7
 	block_charge_cost = 1
 	block_message = "sense blurred!"
 
@@ -12,10 +15,7 @@
 	name = "Sense Health"
 	desc = "Read a nearby living target's condition as an advanced health analyzer."
 	button_icon_state = "psi_sense_health"
-	cooldown_time = 8 SECONDS
-	cast_range = 8
 	point_cost = 1
-	strain_gain = 7
 	psionic_flags = PSIONIC_SENSORY
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
 	rank_variant_types = list(

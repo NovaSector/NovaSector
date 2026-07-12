@@ -5,6 +5,9 @@
 	rank = PSIONIC_RANK_EPSILON
 	variant_name = "whisper"
 	description = "A private thought sent to one nearby mind."
+	cooldown_time = 3 SECONDS
+	cast_range = 7
+	strain_gain = 5
 	block_charge_cost = 1
 	block_message = "thought blocked!"
 
@@ -12,10 +15,7 @@
 	name = "Telepathic Whisper"
 	desc = "Send a private thought to a nearby living target. Right-click repeats your last target."
 	button_icon_state = "psi_whisper"
-	cooldown_time = 3 SECONDS
-	cast_range = 7
 	point_cost = 1
-	strain_gain = 5
 	psionic_flags = PSIONIC_INTRUSIVE
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
 	rank_variant_types = list(

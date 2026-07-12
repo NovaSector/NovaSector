@@ -7,17 +7,17 @@
 	rank = PSIONIC_RANK_DELTA
 	variant_name = "revival"
 	description = "A strenuous attempt to restart a recently dead organic body."
+	cooldown_time = 2 MINUTES
+	cast_range = 3
+	strain_gain = 100
 	block_charge_cost = 0
 
 /datum/action/cooldown/psionic/pointed/living_target/rejuvenate
 	name = "Rejuvenate"
 	desc = "Spend heavy strain to restart a dead organic body that still has the organs needed for revival."
 	button_icon_state = "psi_rejuvenate"
-	cooldown_time = 2 MINUTES
-	cast_range = 3
 	allow_dead_targets = TRUE
 	point_cost = 3
-	strain_gain = 100
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
 	requires_concentration = TRUE

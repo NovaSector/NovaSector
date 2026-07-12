@@ -24,8 +24,12 @@ N/A for direct TG proc overrides.
 
 ### Modular Overrides / External Files:
 
-- `code/__DEFINES/~nova_defines/traits/declarations.dm`
-  - Adds `TRAIT_PSIONIC_DAMPENER`.
+- `code/__DEFINES/~nova_defines/psionic.dm`
+  - Shared psionic ranks, sources, schools, strain defaults, flags, signals, HUD identifiers, and component return values.
+- `code/__DEFINES/~nova_defines/vv.dm`
+  - Adds the Give Psionics VV dropdown identifier.
+- `modular_nova/modules/extra_vv/code/extra_vv.dm`
+  - Adds the Give Psionics action to living mobs' VV dropdown.
 - `modular_nova/master_files/code/modules/research/techweb/all_nodes.dm`
   - Adds `psionic_dampener_cuffs` to riot suppression research.
 - `modular_nova/modules/implants/code/medical_nodes.dm`
@@ -37,10 +41,8 @@ N/A for direct TG proc overrides.
 
 ### Defines:
 
-- `modular_nova/modules/psionics/code/_defines.dm`
-  - Psionic ranks, sources, schools, strain defaults, psionic flags, signal names, and component return flags.
-- `code/__DEFINES/~nova_defines/traits/declarations.dm`
-  - `TRAIT_PSIONIC_DAMPENER`
+- `code/__DEFINES/~nova_defines/psionic.dm`
+  - Psionic ranks, sources, schools, strain defaults, flags, signal names, HUD identifiers, and component return values.
 
 ### Notes for adding powers:
 

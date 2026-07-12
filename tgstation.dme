@@ -9453,7 +9453,6 @@
 #include "modular_nova\modules\protean\code\verbs\protean_verbs.dm"
 #include "modular_nova\modules\protected_roles\code\_job.dm"
 #include "modular_nova\modules\protected_roles\code\antag_restricted_jobs.dm"
-#include "modular_nova\modules\psionics\code\_defines.dm"
 #include "modular_nova\modules\psionics\code\actions.dm"
 #include "modular_nova\modules\psionics\code\admin_vv.dm"
 #include "modular_nova\modules\psionics\code\anti_psionics.dm"

@@ -9,16 +9,16 @@
 	rank = PSIONIC_RANK_GAMMA
 	variant_name = "phase scar"
 	description = "A short-lived bluespace pass through a wall."
+	cooldown_time = 45 SECONDS
+	cast_range = 2
+	strain_gain = 28
 	block_charge_cost = 0
 
 /datum/action/cooldown/psionic/pointed/warp
 	name = "Warp"
 	desc = "Temporarily phase a nearby wall enough for passage."
 	button_icon_state = "psi_warp"
-	cooldown_time = 45 SECONDS
-	cast_range = 2
 	point_cost = 2
-	strain_gain = 28
 	psionic_flags = PSIONIC_SPATIAL
 	school = PSIONIC_SCHOOL_BLUESPACE
 	rank_variant_types = list(/datum/psionic_rank_variant/warp)

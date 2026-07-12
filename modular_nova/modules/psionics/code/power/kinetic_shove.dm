@@ -95,10 +95,7 @@
 	name = "Kinetic Shove"
 	desc = "Throw a nearby target away with focused psionic force."
 	button_icon_state = "psi_kinetic_shove"
-	cooldown_time = 12 SECONDS
-	cast_range = 5
 	point_cost = 1
-	strain_gain = 18
 	psionic_flags = PSIONIC_KINETIC
 	school = PSIONIC_SCHOOL_GRAVITY
 	rank_variant_types = list(
@@ -112,10 +109,7 @@
 	name = "Kinetic Pull"
 	desc = "Pull a loose item into your hand with focused psionic force."
 	button_icon_state = "psi_kinetic_pull"
-	cooldown_time = 8 SECONDS
-	cast_range = 5
 	point_cost = 1
-	strain_gain = 8
 	psionic_flags = PSIONIC_KINETIC
 	school = PSIONIC_SCHOOL_GRAVITY
 	needs_hands = TRUE

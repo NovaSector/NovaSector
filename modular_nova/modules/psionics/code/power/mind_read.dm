@@ -6,6 +6,9 @@
 	rank = PSIONIC_RANK_GAMMA
 	variant_name = "surface read"
 	description = "A close intrusive read of recent speech and surface identity."
+	cooldown_time = 30 SECONDS
+	cast_range = 1
+	strain_gain = 16
 	block_charge_cost = 2
 	block_message = "thoughts guarded!"
 
@@ -13,10 +16,7 @@
 	name = "Mind Read"
 	desc = "Touch a living target and read surface thoughts, recent speech, and identity impressions."
 	button_icon_state = "psi_mind_read"
-	cooldown_time = 30 SECONDS
-	cast_range = 1
 	point_cost = 2
-	strain_gain = 16
 	psionic_flags = PSIONIC_INTRUSIVE|PSIONIC_SENSORY
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
 	rank_variant_types = list(/datum/psionic_rank_variant/mind_read)

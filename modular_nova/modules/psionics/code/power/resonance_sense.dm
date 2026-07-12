@@ -140,9 +140,7 @@
 	name = "Resonance Sense"
 	desc = "Pulse your senses for nearby active psionic signatures."
 	button_icon_state = "psi_resonance_sense"
-	cooldown_time = 15 SECONDS
 	point_cost = 0
-	strain_gain = 3
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/resonance_sense,
 		/datum/psionic_rank_variant/resonance_sense/trace,

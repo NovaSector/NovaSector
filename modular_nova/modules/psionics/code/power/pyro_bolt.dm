@@ -94,11 +94,8 @@
 	button_icon_state = "psi_pyro_bolt"
 	active_msg = "Flame gathers over your palm."
 	deactive_msg = "The flame drains back into your skin."
-	cooldown_time = 12 SECONDS
-	cast_range = 9
 	click_cd_override = CLICK_CD_RANGE
 	point_cost = 1
-	strain_gain = 14
 	psionic_flags = PSIONIC_THERMAL
 	school = PSIONIC_SCHOOL_FLUX
 	needs_hands = TRUE
