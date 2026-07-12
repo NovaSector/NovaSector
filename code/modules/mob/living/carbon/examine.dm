@@ -339,12 +339,6 @@
 		if(erp_status_pref && !CONFIG_GET(flag/disable_erp_preferences) && user.client.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
 			. += span_info("ERP Status: [span_revenboldnotice(erp_status_pref)]")
 
-/*	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
-		var/antag_opt_in_status = mind?.get_effective_antag_opt_in_level()
-		if (!isnull(antag_opt_in_status))
-			var/stringified_optin = GLOB.antag_opt_in_strings["[antag_opt_in_status]"]
-			. += span_info("Dynamic Opt-In: <b><font color='[GLOB.antag_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
-*/
 	if (!CONFIG_GET(flag/disable_conflict_opt_in_preferences))
 		var/conflict_opt_in_status = mind?.get_effective_conflict_opt_in_level()
 		if (!isnull(conflict_opt_in_status))
