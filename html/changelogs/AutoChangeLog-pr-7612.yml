@@ -1,0 +1,4 @@
+author: "Stalkeros, NewyearnewmeUwu for the original PR"
+delete-after: True
+changes:
+  - rscadd: "Added Nervous Tremble, a quirk that makes aim worse when sanity is low."
