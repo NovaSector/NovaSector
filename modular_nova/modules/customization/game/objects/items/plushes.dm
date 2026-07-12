@@ -243,9 +243,9 @@
 		"captures",
 		"filters",
 		"multicasts",
-		)
+	)
 	attack_verb_simple = list(
 		"capture",
 		"filter",
 		"multicast",
-		)
+	)
