@@ -66,16 +66,6 @@
 /datum/objective/contract
 	default_opt_in_level = OPT_IN_YES_TEMP
 
-/* Use this if you only want Command and Sec targetted.
-/datum/objective/contract/opt_in_valid(datum/mind/target_mind)
-	var/datum/job/target_job = target_mind.assigned_role
-	if (!target_job?.contractable)
-		return FALSE
-
-	return ..()
-*/
-
-// Variant datum for modern policy
 // Appends Contractor targettable list to mark opt-kill+'s as valids in addition to forcing Sec and Command as targets.
 /datum/objective/contract/opt_in_valid(datum/mind/target_mind)
 	if(target_mind.get_effective_opt_in_level() >= OPT_IN_YES_KILL)
