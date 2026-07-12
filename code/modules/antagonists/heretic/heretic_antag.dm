@@ -59,7 +59,7 @@
 	/// Whether we are allowed to ascend
 	var/feast_of_owls = FALSE
 	/// Whether we give this antagonist objectives on gain.
-	var/give_objectives = FALSE//NOVA EDIT
+	var/give_objectives = TRUE
 	/// Whether we've ascended! (Completed one of the final rituals)
 	var/ascended = FALSE
 	/// Whether we're drawing a rune or not

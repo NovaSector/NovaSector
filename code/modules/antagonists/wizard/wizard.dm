@@ -16,7 +16,7 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 	default_custom_objective = "Demonstrate your incredible and destructive magical powers."
 	hardcore_random_bonus = TRUE
 
-	var/give_objectives = FALSE
+	var/give_objectives = TRUE
 	var/strip = TRUE //strip before equipping
 	var/allow_rename = TRUE
 	var/datum/team/wizard/wiz_team //Only created if wizard summons apprentices

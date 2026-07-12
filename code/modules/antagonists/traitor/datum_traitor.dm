@@ -22,7 +22,7 @@
 	///The flag of uplink that this traitor is supposed to have.
 	var/uplink_flag_given = UPLINK_TRAITORS
 
-	var/give_objectives = FALSE
+	var/give_objectives = TRUE
 	var/should_give_codewords = TRUE
 	///give this traitor an uplink?
 	var/give_uplink = TRUE
