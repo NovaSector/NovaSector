@@ -5,7 +5,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4.75,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.8,
-		/datum/material/nanocarbon = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/demo_charge_detonator
 	category = list(
@@ -19,7 +19,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | COLONY_FABRICATOR
 	materials = list(
 		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/aluminum = HALF_SHEET_MATERIAL_AMOUNT / 2,
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT / 2,
 		/datum/material/plasma = SMALL_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/grenade/c4/demo_charge
