@@ -1,5 +1,0 @@
-author: "Melbert"
-delete-after: True
-changes:
-  - bugfix: "Fixes a few potential exploits in the message monitor"
-  - balance: "Message monitors located off station can no longer change the station's message monitor password"
