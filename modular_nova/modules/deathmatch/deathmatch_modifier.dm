@@ -12,6 +12,8 @@
 	if(!preferences)
 		return
 	var/mob/living/carbon/human/human_player = player
-	var/datum/outfit/deathmatch_loadout/dm_outfit = lobby.players[human_player.ckey]["loadout"]
+	var/datum/outfit/deathmatch_loadout/dm_outfit
+	if(human_player.ckey)
+		dm_outfit = lobby.players[human_player.ckey]["loadout"]
 	human_player.equip_outfit_and_loadout(dm_outfit || new /datum/outfit, preferences)
 
