@@ -27,7 +27,6 @@
 
 	gold_core_spawnable = FRIENDLY_SPAWN
 
-	can_be_held = TRUE
 	held_w_class = WEIGHT_CLASS_TINY
 	held_state = "chinchilla_white"
 
@@ -47,6 +46,7 @@
 /mob/living/basic/pet/chinchilla/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/pet_bonus, "squeaks happily!")
+	AddElement(/datum/element/can_be_held)
 
 	if(isnull(body_color))
 		body_color = pick("black", "white")
