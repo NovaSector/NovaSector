@@ -601,7 +601,7 @@
 	var/list/group_names = list()
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
 		group_names |= department.department_name
-		group_names |= department.label_class
+		group_names |= department.get_label_class()
 		group_names |= ckey(department.department_name)
 
 	var/list/target_role_groups = get_playtime_ban_target_role_groups()
