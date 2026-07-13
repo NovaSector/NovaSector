@@ -13,7 +13,7 @@
 
 	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_SRV
-	display_order = JOB_DISPLAY_ORDER_BARTENDER
+	display_order = JOB_DISPLAY_ORDER_BARBER
 	bounty_types = CIV_JOB_BASIC
 	departments_list = list(
 		/datum/job_department/service,
@@ -30,7 +30,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/modular_computer/pda
 	ears = /obj/item/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/rank/barber
+	uniform = /obj/item/clothing/under/rank/civilian/barber
 	shoes = /obj/item/clothing/shoes/laceup
 	id_trim = /datum/id_trim/job/barber
 	skillchips = list(/obj/item/skillchip/hair_expert)

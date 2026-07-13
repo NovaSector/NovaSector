@@ -49,7 +49,7 @@
 /datum/armor/clothing_shoes
 	bio = 50
 
-/obj/item/clothing/shoes/suicide_act(mob/living/carbon/user)
+/obj/item/clothing/shoes/suicide_act(mob/living/user)
 	if(prob(50))
 		user.visible_message(span_suicide("[user] begins fastening \the [src] up waaay too tightly! It looks like [user.p_theyre()] trying to commit suicide!"))
 		var/obj/item/bodypart/leg/left = user.get_bodypart(BODY_ZONE_L_LEG)
@@ -67,18 +67,18 @@
 			playsound(user, 'sound/items/weapons/genhit2.ogg', 50, TRUE)
 		return BRUTELOSS
 
-/obj/item/clothing/shoes/worn_overlays(mutable_appearance/standing, isinhands = FALSE, mutant_styles = NONE) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/clothing/shoes/worn_overlays(mutable_appearance/standing, isinhands = FALSE)
+/obj/item/clothing/shoes/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, bodyshape = NONE)
 	. = ..()
 	if(isinhands)
 		return
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damagedshoe")
 
-/obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
+/obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, bodyshape = NONE)
 	. = ..()
 	if (isinhands)
 		return
-	var/blood_overlay = get_blood_overlay("shoe", mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: var/blood_overlay = get_blood_overlay("shoe")
+	var/blood_overlay = get_blood_overlay("shoe", bodyshape)
 	if (blood_overlay)
 		. += blood_overlay
 

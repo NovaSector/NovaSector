@@ -4,7 +4,7 @@
 	name = "taur body"
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_EXTERNAL_TAUR
-	external_bodyshapes = BODYSHAPE_TAUR
+	external_bodyshapes = parent_type::external_bodyshapes | BODYSHAPE_TAUR_GENERIC
 	use_mob_sprite_as_obj_sprite = TRUE
 
 	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
@@ -49,6 +49,11 @@
 	var/hardened_soles
 	/// Did our owner have their feet blocked before we ran on_mob_insert? Used for determining if we should unblock their feet slots on removal.
 	var/owner_blocked_feet_before_insert
+
+/obj/item/organ/taur_body/on_mob_insert(mob/living/carbon/owner)
+	. = ..()
+	if(external_bodyshapes == initial(external_bodyshapes))
+		external_bodyshapes = initial(external_bodyshapes) | owner.get_taur_mode()
 
 /obj/item/organ/taur_body/horselike
 	can_use_saddle = TRUE
@@ -205,8 +210,15 @@
 
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = FEATURE_TAUR
-	layers = ALL_EXTERNAL_OVERLAYS | EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_FRONT_OVER
+	layers = list(
+		EXTERNAL_FRONT = BODY_FRONT_LAYER,
+		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+		EXTERNAL_FRONT_UNDER_CLOTHES = UNDER_UNIFORM_LAYER,
+		EXTERNAL_FRONT_OVER = ABOVE_BODY_FRONT_HEAD_LAYER,
+	)
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = ENTIRE_BODY
 
 	/// If this taur body can lay down
 	var/can_lay_down = FALSE

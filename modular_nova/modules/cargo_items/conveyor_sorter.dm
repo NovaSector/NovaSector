@@ -3,6 +3,7 @@
 	desc = "A tool that is used to not only create the conveyor sorters, but give lists to the conveyor sorters."
 	icon = 'modular_nova/modules/cargo_items/icons/conveyor_sorter.dmi'
 	icon_state = "lister"
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT)
 	///the list of conveyor sorters spawned by
 	var/list/spawned_sorters = list()
 	///the list of things that are currently within the sorting list
@@ -160,6 +161,7 @@
 	max_sorters = 8
 	max_items = 10
 	conveyor_type = /obj/effect/decal/conveyor_sorter/improved
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/effect/decal/conveyor_sorter/improved
 	name = "improved conveyor sorter"

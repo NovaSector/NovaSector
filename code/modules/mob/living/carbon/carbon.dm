@@ -734,7 +734,6 @@
 		clear_mood_event("handcuffed")
 	update_mob_action_buttons() //some of our action buttons might be unusable when we're handcuffed.
 	update_worn_handcuffs()
-	update_hud_handcuffed()
 
 /mob/living/carbon/revive(full_heal_flags = NONE, excess_healing = 0, force_grab_ghost = FALSE)
 	if(excess_healing)
@@ -1386,7 +1385,8 @@
 	if(!can_bleed())
 		to_chat(src, span_notice("You get a headache."))
 		return
-	head.adjustBleedStacks(5)
+	var/add_stacks = HAS_TRAIT(src, TRAIT_BLOOD_FOUNTAIN) ? 7 : 5
+	head.adjustBleedStacks(add_stacks)
 	visible_message(span_notice("[src] gets a nosebleed."), span_warning("You get a nosebleed."))
 
 /mob/living/carbon/check_hit_limb_zone_name(hit_zone)

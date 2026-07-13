@@ -235,6 +235,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	item_flags = ABSTRACT  // don't put in storage
 	chem = null //holds no chems of its own, it takes from the tank.
+	custom_materials = null
 	var/obj/item/tank
 	var/nozzle_mode = 0
 	var/metal_synthesis_cooldown = 0
@@ -409,7 +410,7 @@
 		turn_on()
 
 //Todo : cache these.
-/obj/item/reagent_containers/chemtank/worn_overlays(mutable_appearance/standing, isinhands = FALSE) //apply chemcolor and level
+/obj/item/reagent_containers/chemtank/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, bodyshape = NONE) //apply chemcolor and level
 	. = ..()
 	//inhands + reagent_filling
 	if(isinhands || !reagents.total_volume)

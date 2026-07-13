@@ -8,7 +8,7 @@
 	icon = 'modular_nova/master_files/icons/obj/storage/plantbag_of_holding.dmi'
 	icon_state = "plantbag_of_holding"
 	worn_icon_state = "plantbag"
-	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 1.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 1.5)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.65, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.65, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 
 //4x the size of a normal plant bag. this probably won't break things. probably.
 
@@ -34,6 +34,7 @@
 	icon_state = "plantbag_of_holding_inert"
 	w_class = WEIGHT_CLASS_BULKY
 	item_flags = NO_MAT_REDEMPTION
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/plantbag_of_holding_inert/examine_more(mob/user)
 	. = ..()

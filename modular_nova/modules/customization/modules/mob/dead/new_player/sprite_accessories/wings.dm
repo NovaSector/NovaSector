@@ -17,7 +17,6 @@
 		SPECIES_MAMMAL = 1,
 	)
 	organ_type = /obj/item/organ/wings/custom
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer)
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
@@ -32,13 +31,13 @@
 	// Hide accessory if flagged to do so, taking species exceptions in account
 	return (wearer.obscured_slots & HIDEJUMPSUIT)
 
-/datum/bodypart_overlay/mutant/wings/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+/datum/bodypart_overlay/mutant/wings/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
 	if(!..())
 		return FALSE
-	if(isnull(bodypart_owner.owner))
+	if(isnull(owner || bodypart_owner.owner))
 		return TRUE
 
-	var/mob/living/carbon/human/wearer = bodypart_owner.owner
+	var/mob/living/carbon/human/wearer = owner || bodypart_owner.owner
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
 	if(isnull(wearer.w_uniform) && isnull(worn_suit))
 		return TRUE
@@ -126,7 +125,6 @@
 		SPECIES_LIZARD = 1,
 		SPECIES_INSECT = 1,
 	)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	dimension_x = 46
 	dimension_y = 34
 	center = TRUE

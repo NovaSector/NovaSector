@@ -3,6 +3,7 @@
 	desc = "This implant will automatically attempt to jolt you awake when it detects you have fallen unconscious outside of REM sleeping cycles. Has a short cooldown. Conflicts with the CNS Rebooter, making them incompatible with eachother."
 	icon_state = "brain_implant_rebooter"
 	slot = ORGAN_SLOT_BRAIN_CNS //One or the other, not both.
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.6, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.6, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
 	var/cooldown
 
 /obj/item/organ/cyberimp/brain/anti_sleep/on_life(seconds_per_tick)
