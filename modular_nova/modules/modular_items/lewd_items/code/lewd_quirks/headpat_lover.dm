@@ -28,19 +28,29 @@
 	timeout = 2 MINUTES
 	special_screen_obj = "mood_happiness_good"
 
-/datum/mood_event/better_headpat_lover/add_effects(mob/petter)
+/datum/mood_event/better_headpat_lover/add_effects(mob/living/living_petter)
 	if(HAS_PERSONALITY(owner, /datum/personality/aloof))
 		mood_change = 2
-		description = "[petter.name] gives great headpats, but I wish they'd stop touching me."
+		description = "[living_petter.name] gives great headpats, but I wish they'd stop touching me."
 		return
 	if(HAS_PERSONALITY(owner, /datum/personality/callous))
 		mood_change = 0
 		return
 
-	description = "[petter.name] gives great headpats, [petter.p_they()] make[petter.p_s()] me feel so happy!"
+	description = "[living_petter.name] gives great headpats, [living_petter.p_they()] make[living_petter.p_s()] me feel so happy!"
+
+/obj/effect/temp_visual/heart/red/Initialize(mapload)
+	color = COLOR_RED
+	. = ..()
 
 ///This component listens for when headpats happen
 /datum/component/headpat_lover
+
+/datum/component/headpat_lover/Initialize()
+	// Non-Human mobs can't use headpat lover
+	if(!ishuman(parent))
+		stack_trace("Headpat Lover component added to [parent] ([parent?.type]) which is not a /mob/living/carbon/human subtype.")
+		return COMPONENT_INCOMPATIBLE
 
 /datum/component/headpat_lover/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_CARBON_HELP_ACT, PROC_REF(check_headpat))
@@ -52,27 +62,31 @@
 	human_parent.clear_mood_event("better_headpat_lover")
 
 ///Calls pleasure_pet() if the mob received a pat on the head
-/datum/component/headpat_lover/proc/check_headpat(mob/living/carbon/human/human_parent, mob/living/carbon/human/human_petter)
+/datum/component/headpat_lover/proc/check_headpat(mob/living/carbon/human/human_parent, mob/living/living_petter)
 	SIGNAL_HANDLER
 
-	if(!(istype(human_petter)))
+	if(!(istype(living_petter)))
 		return
 
-	if(check_zone(human_petter.zone_selected) == BODY_ZONE_HEAD && human_parent.get_bodypart(BODY_ZONE_HEAD))
+	if(check_zone(living_petter.zone_selected) == BODY_ZONE_HEAD && human_parent.get_bodypart(BODY_ZONE_HEAD))
 		// Avoid blocking from TGUI alerting.
-		INVOKE_ASYNC(src, PROC_REF(pleasure_pet), human_parent, human_petter)
+		INVOKE_ASYNC(src, PROC_REF(pleasure_pet), human_parent, living_petter)
 
 // Needed because adjust_arousal (and etc.) call blocking TGUI procs which can't be executed from a signal handler.
 ///Increases human_parent's arousal and pleasure, and adds the relevant mood events
-/datum/component/headpat_lover/proc/pleasure_pet(mob/living/carbon/human/human_parent, mob/living/carbon/human/human_petter)
-	if(HAS_TRAIT(human_petter, TRAIT_FRIENDLY) && (human_petter.mob_mood.sanity >= SANITY_GREAT))
-		new /obj/effect/temp_visual/heart(human_parent.loc)
-		human_parent.add_mood_event("better_headpat_lover", /datum/mood_event/better_headpat_lover, human_petter)
+/datum/component/headpat_lover/proc/pleasure_pet(mob/living/carbon/human/human_parent, mob/living/living_petter)
+	if(HAS_TRAIT(living_petter, TRAIT_FRIENDLY) && (living_petter.mob_mood.sanity >= SANITY_GREAT))
+		human_parent.add_mood_event("better_headpat_lover", /datum/mood_event/better_headpat_lover, living_petter)
 	else
 		human_parent.add_mood_event("headpat_lover", /datum/mood_event/headpat_lover)
 
-	var/pref = human_petter.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_mechanics)
-	if(pref == "Mechanical only" || pref == "Mechanical and Roleplay")
+	// If the petter doesn't intend to be erotic, then early return
+	if(!living_petter.client?.prefs?.read_preference(/datum/preference/toggle/erp) || HAS_TRAIT(living_petter, TRAIT_QUICKREFLEXES))
+		return
+	// Only increase pleasure and arousal if the petter opted into mechanics
+	var/mechanics_pref = living_petter.client?.prefs?.read_preference(/datum/preference/choiced/erp_status_mechanics)
+	if(mechanics_pref == "Mechanical only" || mechanics_pref == "Mechanical and Roleplay")
+		new /obj/effect/temp_visual/heart/red(human_parent.loc)
 		human_parent.adjust_arousal(2)
 		human_parent.adjust_pleasure(2)
 
