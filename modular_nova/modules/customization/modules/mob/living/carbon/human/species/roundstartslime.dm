@@ -186,20 +186,11 @@
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	/// This tracks the Slime's body, we use this to send them to Nullspace when they die, and to regenerate them when they are revived.
-	var/mob/living/carbon/human/body
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
 	colorize()
-
-// Handle the slime core being destroyed, and if it has a body in nullspace, delete it as well.
-/obj/item/organ/brain/slime/Destroy(force)
-	if(body)
-		UnregisterSignal(body, COMSIG_MOB_LOGIN)
-		QDEL_NULL(body)
-	return ..()
 
 /obj/item/organ/brain/slime/examine()
 	. = ..()
@@ -271,10 +262,6 @@
 		return
 	core_ejected = TRUE
 
-	// Cache the body refrence inside the Core/Brain.
-	if(!src.body)
-		src.body = victim
-
 	var/atom/death_loc = victim.drop_location()
 	if(!death_loc)
 		death_loc = get_turf(victim) // Fallback to avoid the Slime core showing up in Nullspace.
@@ -307,7 +294,7 @@
 
 	// Message the victim and the surrounding area that they have died.
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
-	victim.moveToNullspace() // Move the body to nullspace.
+	qdel(victim) // Remove the Body.
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 /**
@@ -352,6 +339,10 @@
 	regenerate()
 	return TRUE
 
+/**
+* SLIME REVIVE PROC
+* This heals the core/brain, and creates a new body which we move the player/client into.
+*/
 /obj/item/organ/brain/slime/proc/regenerate()
 	//we have the plasma. we can rebuild them.
 	set_organ_damage(-maxHealth) //fully heals the brain
@@ -359,43 +350,55 @@
 		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
 
-	// If the Slime player has a body use that, otherwise create a new one for them and try to apply their prefrences to it.
-	if(!body || QDELETED(body))
-		var/mob/living/carbon/human/new_body = new(src.drop_location())
-		body = new_body
-		var/datum/preferences/prefs = brainmob?.client?.prefs || brainmob?.mind?.current?.client?.prefs
-		if(prefs)
-			prefs.apply_prefs_to(body)
-		// ISSUE: The new body gets no quirks, TODO: Add them
+	// Create a new body and spawn it on the Brain/Core, than register the signal for the player to be inserted into the new body.
+	var/mob/living/carbon/human/body = new(src.drop_location())
+	RegisterSignal(body, COMSIG_MOB_LOGIN, PROC_REF(on_gained_client))
 
-	else
-		// Retrieve, and revive our original body that we moved to Nullspace.
-		RegisterSignal(body, COMSIG_LIVING_DEATH)
-		body.revive(HEAL_ALL)
-		body.forceMove(src.drop_location())
-
-	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
-	body.underwear = "Nude"
-	body.bra = "Nude"
-	body.undershirt = "Nude"
-	body.socks = "Nude"
-
-	// Handle Blood
-	body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
-
-	// Remove non-chest limbs.
-	for(var/obj/item/bodypart/part in body.bodyparts)
-		if(part.body_zone == BODY_ZONE_CHEST)
-			continue
-		part.drop_limb(TRUE)
-
-	// Move the brain/core back into our body.
+	// Move the brain/core back into the body.
 	src.replace_into(body)
 
 	// Notify the player that their body has been rebuilt
 	body.visible_message(span_warning("[body]'s torso \"forms\" from [body.p_their()] core, yet to form the rest."))
 	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 	return TRUE
+
+/**
+* APPLY PREFRENCES & QUIRKS AND OTHER EDITS
+* When we gain a client, apply the prefrences, and apply quirks without spawning items.
+* In addition Remove their underwear, their non-chest limbs, and give them some extra blood for slime limb regen.
+*/
+/obj/item/organ/brain/slime/proc/on_gained_client(mob/living/source)
+	SIGNAL_HANDLER
+	if(!source.client)
+		return
+
+	// Handle Prefrences & Quirks.
+	var/datum/preferences/prefs = source.client.prefs || source.mind?.current?.client.prefs
+	if(prefs)
+		prefs.apply_prefs_to(source)
+		// Handle Quirks without spawning items.
+		for(var/quirks in prefs.all_quirks)
+			var/datum/quirk/quirk_path = SSquirks.quirks[quirks]
+			if(quirk_path)
+				source.add_quirk(quirk_path, add_unique = FALSE)
+
+	var/mob/living/carbon/human/body = source
+	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
+	body.underwear = "Nude"
+	body.bra = "Nude"
+	body.undershirt = "Nude"
+	body.socks = "Nude"
+
+	// Handle Blood, We give them extra blood so they can regenerate their limbs as soon as they are revived.
+	body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
+
+	// Remove non-chest limbs, they can use their regenerate ability to regain their limbs.
+	for(var/obj/item/bodypart/part in body.bodyparts)
+		if(part.body_zone == BODY_ZONE_CHEST)
+			continue
+		part.drop_limb(TRUE)
+
+	UnregisterSignal(source, COMSIG_MOB_LOGIN)
 
 // HEALING SECTION
 // Handles passive healing and water damage for slimes and water-breathing variants.
