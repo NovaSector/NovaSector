@@ -34,14 +34,14 @@
 	var/potential_rank = PSIONIC_DEFAULT_RANK
 	/// Max strain restored when the limiter is removed.
 	var/potential_max_strain = PSIONIC_DEFAULT_MAX_STRAIN
+	/// TRUE when a source has set the potential values before this implant is inserted.
+	var/preconfigured = FALSE
 
 /obj/item/organ/cyberimp/brain/psionic_limiter/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 
 	var/datum/component/psionic_profile/profile = organ_owner.get_psionic_profile()
-	var/limiter_active = profile && is_psionic_rank_above(potential_rank, limited_rank)
-	if(limiter_active)
-		apply_limit(profile)
+	try_apply_limit(profile)
 	return TRUE
 
 /obj/item/organ/cyberimp/brain/psionic_limiter/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
@@ -51,6 +51,24 @@
 	var/limiter_active = profile && is_psionic_rank_above(potential_rank, limited_rank)
 	if(limiter_active)
 		remove_limit(profile)
+	preconfigured = FALSE
+	return TRUE
+
+/// Records a wearer's existing psionic state when needed, then limits it to the configured rank.
+/obj/item/organ/cyberimp/brain/psionic_limiter/proc/try_apply_limit(datum/component/psionic_profile/profile)
+	if(!profile)
+		return FALSE
+
+	if(!preconfigured)
+		potential_points = profile.get_total_source_points()
+		potential_rank = profile.psionic_rank
+		potential_max_strain = profile.max_strain
+		preconfigured = TRUE
+
+	if(!is_psionic_rank_above(potential_rank, limited_rank))
+		return FALSE
+
+	apply_limit(profile)
 	return TRUE
 
 /obj/item/organ/cyberimp/brain/psionic_limiter/proc/apply_limit(datum/component/psionic_profile/profile)

@@ -59,6 +59,7 @@
 	limiter.limited_rank = PSIONIC_ROUNDSTART_LIMIT_RANK
 	limiter.potential_rank = psionic_rank
 	limiter.potential_max_strain = potential_max_strain
+	limiter.preconfigured = TRUE
 	if(!limiter.Insert(carbon_holder, movement_flags = DELETE_IF_REPLACED))
 		qdel(limiter)
 		return FALSE

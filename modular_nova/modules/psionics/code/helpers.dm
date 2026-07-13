@@ -98,6 +98,10 @@
 		new_max_strain = GLOB.psionic_rank_max_strain[mutation_rank],
 		new_strain_decay = GLOB.psionic_rank_strain_decay[mutation_rank],
 	)
+	if(iscarbon(src))
+		var/mob/living/carbon/carbon_psion = src
+		var/obj/item/organ/cyberimp/brain/psionic_limiter/limiter = carbon_psion.get_organ_slot(ORGAN_SLOT_PSIONIC_IMPLANT)
+		limiter?.try_apply_limit(profile)
 	to_chat(src, span_purple("Your latent psionic rating resolves as [mutation_rank]."))
 	return profile
 
