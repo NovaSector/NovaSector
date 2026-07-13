@@ -1,6 +1,0 @@
-author: "moonridden"
-delete-after: True
-changes:
-  - refactor: "Updates Antag-Opt module code structures and references across the code to support a new Opt pref"
-  - admin: "Introduces Conflict-Opt, a policy bound visual Opt-In preference found on the Character Profile page as a drop-down opt. Pair this with information on your Wiki or Discord."
-  - config: "Adds a new disable-config for Conflict Opt module."
