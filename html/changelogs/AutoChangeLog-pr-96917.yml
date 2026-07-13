@@ -1,0 +1,4 @@
+author: "san7890"
+delete-after: True
+changes:
+  - refactor: "Picking up mobs has been altered a bit, please report any bugs or glitches."
