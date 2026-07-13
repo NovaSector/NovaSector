@@ -91,7 +91,7 @@
 /datum/rat_fashion/
 	var/name = ""
 	var/allow_random = TRUE
-	var/icon = 'modular_nova\modules\ratqueens\icons\rat.dmi'
+	var/icon = 'modular_nova/modules/ratqueens/icons/rat.dmi'
 	var/icon_state_living
 	var/icon_state_dead
 
