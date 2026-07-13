@@ -14,8 +14,8 @@
 	feature_key = ORGAN_SLOT_ANUS
 	layers = NONE
 
-/obj/item/organ/genital/anus/get_description_string(datum/sprite_accessory/genital/gas)
-	var/returned_string = "You see an [LOWER_TEXT(genital_name)]."
+/obj/item/organ/genital/anus/get_description_string(datum/sprite_accessory/genital/anus/anus)
+	var/returned_string = "You see an [LOWER_TEXT(get_genital_descriptor(anus))]."
 	if(aroused == AROUSAL_PARTIAL)
 		returned_string += " It looks tight."
 	if(aroused == AROUSAL_FULL)

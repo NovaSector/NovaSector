@@ -73,8 +73,12 @@
 	/// Boolean - if TRUE, players spawn with grappling hooks in their bags
 	var/give_players_hooks = FALSE
 
+#if defined(UNIT_TESTS) || defined(SPACEMAN_DMM)
 	/// List of unit tests that are skipped when running this map
 	var/list/skipped_tests
+	/// If TRUE, only unit tests with UNIT_TEST_DEBUG_MAP_ONLY will run on this map
+	var/is_unit_test_map = FALSE
+#endif
 
 	/// Boolean that tells SSmapping to load all away missions in the codebase.
 	var/load_all_away_missions = FALSE
@@ -274,7 +278,7 @@
 		// Just pick and take based on weight
 		for(var/i in 1 to wilderness_levels)
 			wilderness_maps_to_spawn += pick_weight_take(wilderness)
-		shuffle(wilderness_maps_to_spawn)
+		shuffle_inplace(wilderness_maps_to_spawn)
 
 	var/list/wilderness_level_traits = json["wilderness_level_traits"]
 	if (islist(wilderness_level_traits))
@@ -288,6 +292,9 @@
 			stack_trace("Invalid path in mapping config for ignored unit tests: \[[path_as_text]\]")
 			continue
 		LAZYADD(skipped_tests, path_real)
+
+	if ("is_unit_test_map" in json)
+		is_unit_test_map = json["is_unit_test_map"]
 #endif
 
 	defaulted = FALSE

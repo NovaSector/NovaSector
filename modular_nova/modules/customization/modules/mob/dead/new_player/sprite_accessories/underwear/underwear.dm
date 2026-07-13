@@ -1,6 +1,6 @@
 /datum/sprite_accessory/clothing/underwear
 	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
-	layer = NOVA_UNDERWEAR_UNDERSHIRT_LAYER
+	layer = UNDER_UNIFORM_LAYER
 
 /datum/sprite_accessory/clothing/underwear/get_icon_state(physique, bodyshape)
 	if(has_custom_digi_sprite && (bodyshape & BODYSHAPE_DIGITIGRADE))
@@ -155,6 +155,24 @@
 /datum/sprite_accessory/clothing/underwear/cow
 	name = "Panties - Cow"
 	icon_state = "panties_cow"
+	gender = FEMALE
+	use_static = TRUE
+
+/datum/sprite_accessory/clothing/underwear/thong_cheetah
+	name = "Thong - Cheetah"
+	icon_state = "thong_cheetah"
+	gender = FEMALE
+	use_static = TRUE
+
+/datum/sprite_accessory/clothing/underwear/thong_cow
+	name = "Thong - Cow"
+	icon_state = "thong_cow"
+	gender = FEMALE
+	use_static = TRUE
+
+/datum/sprite_accessory/clothing/underwear/thong_zebra
+	name = "Thong - Zebra"
+	icon_state = "thong_zebra"
 	gender = FEMALE
 	use_static = TRUE
 

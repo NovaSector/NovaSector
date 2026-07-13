@@ -2795,7 +2795,7 @@
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/west,
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/random/food_or_drink/keg,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "jd" = (
@@ -3814,7 +3814,7 @@
 /area/awaymission/caves/maintsroom)
 "mx" = (
 /obj/structure/lattice/catwalk/mining,
-/obj/structure/closet/crate/goldcrate{
+/obj/structure/closet/crate/goldcrate/stocked{
 	name = "Bait?"
 	},
 /obj/item/upgradescroll,
@@ -7328,7 +7328,7 @@
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
 "yF" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/random/food_or_drink/keg,
 /obj/item/clothing/head/costume/festive,
 /obj/machinery/camera/xray/directional/north,
 /turf/open/floor/plating,
@@ -8658,7 +8658,7 @@
 "Dl" = (
 /obj/structure/table,
 /obj/item/food/grown/wheat,
-/obj/item/food/grown/watermelon,
+/obj/item/food/grown/melonlike/watermelon,
 /obj/item/food/grown/citrus/orange,
 /obj/item/food/grown/grapes,
 /obj/item/food/grown/cocoapod,
@@ -12454,7 +12454,7 @@
 "Qi" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/item/forging/reagent_weapon/sword,
-/obj/structure/closet/crate/goldcrate{
+/obj/structure/closet/crate/goldcrate/stocked{
 	name = "Bait"
 	},
 /obj/item/disk/design_disk/cleric_mace,
@@ -14340,8 +14340,8 @@
 /obj/item/knife/kitchen,
 /obj/item/storage/box/mousetraps,
 /obj/structure/broken_flooring/pile,
-/obj/item/food/grown/parsnip,
-/obj/item/food/grown/parsnip,
+/obj/item/food/grown/carrotlike/parsnip,
+/obj/item/food/grown/carrotlike/parsnip,
 /obj/item/food/cheese/wedge,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)

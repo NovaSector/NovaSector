@@ -1,6 +1,7 @@
 /obj/item/disk/nifsoft_uploader/job/summoner/surgery
 	name = "Grimoire Asclepius"
 	loaded_nifsoft = /datum/nifsoft/summoner/job/surgery
+	custom_materials = list(/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = SMALL_MATERIAL_AMOUNT)
 
 /datum/nifsoft/summoner/job/surgery
 	name = "Grimoire Asclepius"

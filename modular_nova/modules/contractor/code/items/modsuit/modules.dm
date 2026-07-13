@@ -1,37 +1,24 @@
-/obj/item/mod/module/baton_holster
-	name = "MOD baton holster module"
-	desc = "A module installed into the forearm and palm of a MODsuit, this allows you \
-		to retrieve an inserted baton from the suit at will, and provides the benefit of being \
-		magnetically locked, making it near-impossible to force out of a user's hands. \
-		Insert a baton by hitting the module, while it is removed from the suit, with the baton."
+/obj/item/mod/module/weapon_recall/contractor
+	name = "MOD baton recall module"
+	desc = "A module installed into the forearm and palm of a MODsuit, this allows users to remotely recall a paired contractor baton, \
+		by virtue of being paired to a proprietary miniature bluespace drive built into the handle of the baton. \
+		The magnetic system also allows you to throw guns at people really hard."
 	icon_state = "holster"
 	icon = 'modular_nova/modules/contractor/icons/modsuit_modules.dmi'
-	module_type = MODULE_ACTIVE
-	complexity = 3
-	active_power_cost = DEFAULT_CHARGE_DRAIN * 0.3
-	device = /obj/item/melee/baton/telescopic/contractor_baton
-	incompatible_modules = list(/obj/item/mod/module/baton_holster)
+	module_type = MODULE_USABLE
+	complexity = 2
+	use_energy_cost = DEFAULT_CHARGE_DRAIN * 2
+	incompatible_modules = list(/obj/item/mod/module/weapon_recall/contractor)
+	required_slots = list(ITEM_SLOT_GLOVES)
 	cooldown_time = 0.5 SECONDS
 	allow_flags = MODULE_ALLOW_INACTIVE
-	/// Have they sacrificed a baton to actually be able to use this?
-	var/eaten_baton = FALSE
+	accepted_type = /obj/item/melee/baton/telescopic/contractor_baton
 
-/obj/item/mod/module/baton_holster/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	. = ..()
-	if(!istype(attacking_item, /obj/item/melee/baton/telescopic/contractor_baton) || eaten_baton)
-		return
-	balloon_alert(user, "[attacking_item] inserted")
-	eaten_baton = TRUE
-	qdel(attacking_item)
+/obj/item/mod/module/weapon_recall/contractor/on_part_activation()
+	mod.wearer.add_traits(list(TRAIT_TOSS_GUN_HARD), REF(src))
 
-/obj/item/mod/module/baton_holster/on_activation()
-	if(!eaten_baton)
-		balloon_alert(mod.wearer, "no baton inserted")
-		return
-	return ..()
-
-/obj/item/mod/module/baton_holster/preloaded
-	eaten_baton = TRUE
+/obj/item/mod/module/weapon_recall/contractor/on_part_deactivation(deleting = FALSE)
+	mod.wearer.remove_traits(list(TRAIT_TOSS_GUN_HARD), REF(src))
 
 /obj/item/mod/module/chameleon/contractor // zero complexity module to match pre-TGification
 	removable = FALSE
@@ -43,11 +30,13 @@
 	with a distinct lack of ability to snap into place when exposed to moisture."
 	icon_state = "magnet"
 	icon = 'modular_nova/modules/contractor/icons/modsuit_modules.dmi'
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/mod/module/springlock/contractor/on_part_activation() // This module is actually *not* a death trap
 	return
 
 /obj/item/mod/module/springlock/contractor/on_part_deactivation(deleting = FALSE)
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 	return
 
 /// This exists for the adminbus contractor modsuit. Do not use otherwise

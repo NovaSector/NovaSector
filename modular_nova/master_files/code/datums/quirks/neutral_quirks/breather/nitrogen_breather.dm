@@ -32,7 +32,6 @@
 	target_lungs.add_gas_reaction(/datum/gas/oxygen, while_present = TYPE_PROC_REF(/obj/item/organ/lungs, too_much_oxygen))
 	target_lungs.add_gas_reaction(/datum/gas/oxygen, on_loss = TYPE_PROC_REF(/obj/item/organ/lungs, safe_oxygen))
 	// reflect correct lung flags
-	target_lungs.respiration_type = RESPIRATION_N2
 
 /datum/quirk/item_quirk/breather/nitrogen_breather/remove()
 	. = ..()

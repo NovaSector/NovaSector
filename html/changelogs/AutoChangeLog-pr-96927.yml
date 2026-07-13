@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Nanotrasen Wave (tm) support on standard, non-portable microwaves has been reinstated after a firmware update addressed an erroneous check (Regular microwaves can be used to recharge PDAs if properly upgraded again)."

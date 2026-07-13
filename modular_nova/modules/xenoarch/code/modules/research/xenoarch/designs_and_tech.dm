@@ -181,7 +181,7 @@
 	name = "Advanced Xenoarch Bag"
 	desc = "A bag that can hold about fifty strange rocks."
 	id = "xenoarch_bag_adv"
-	materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*2.5, /datum/material/uranium =SMALL_MATERIAL_AMOUNT*5) // same materials as the mining bag of holding.
+	materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2.5, /datum/material/uranium = SMALL_MATERIAL_AMOUNT * 5) // same materials as the mining bag of holding.
 	build_path = /obj/item/storage/bag/xenoarch/adv
 
 /datum/design/board/xenoarch

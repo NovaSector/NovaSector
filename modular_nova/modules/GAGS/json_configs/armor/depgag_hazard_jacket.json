@@ -1,0 +1,42 @@
+{
+	"depgag_hazard_jacket": [
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_hazard_jacket_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_hazard_jacket_accent",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_hazard_jacket_highlight",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"depgag_hazard_jacket_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_hazard_jacket_base_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_hazard_jacket_accent",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_hazard_jacket_highlight",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}
