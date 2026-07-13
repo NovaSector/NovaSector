@@ -1,0 +1,4 @@
+author: "PapaMichael"
+delete-after: True
+changes:
+  - bugfix: "The HOP ticket machine display now shows the correct number when tickets are destroyed"
