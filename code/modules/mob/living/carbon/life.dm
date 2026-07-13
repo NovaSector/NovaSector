@@ -1,13 +1,12 @@
 /mob/living/carbon/Life(seconds_per_tick = SSMOBS_DT)
 	if(HAS_TRAIT(src, TRAIT_NO_TRANSFORM))
 		return
-
-	//NOVA EDIT ADDITION
+	//NOVA EDIT ADDITION START
 	if(isopenturf(loc))
 		var/turf/open/my_our_turf = loc
 		if(my_our_turf.pollution)
 			my_our_turf.pollution.touch_act(src)
-	//NOVA EDIT END
+	//NOVA EDIT ADDITION END
 
 	if(damageoverlaytemp)
 		damageoverlaytemp = 0
