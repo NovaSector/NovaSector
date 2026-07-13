@@ -69,7 +69,7 @@
 				log_silicon("Artifact changed laws of [key_name(silicon_mob)] to [english_list(silicon_mob.laws.get_law_list(TRUE, TRUE))]")
 				silicon_mob.post_lawchange()
 
-	for(var/mob/living/simple_animal/bot/bot in GLOB.alive_mob_list)
+	for(var/mob/living/basic/bot/bot in GLOB.alive_mob_list)
 		if(SPT_PROB(12.5, seconds_per_tick))
 			bot.emag_act()
 

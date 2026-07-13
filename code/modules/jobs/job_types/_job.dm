@@ -1,4 +1,5 @@
 /datum/job
+	abstract_type = /datum/job
 	/// The name of the job , used for preferences, bans and more. Make sure you know what you're doing before changing this.
 	var/title = "NOPE"
 
@@ -335,7 +336,7 @@
 			have been added to your ID card.")
 	//NOVA EDIT ADDITION BEGIN - ANTAG OPT IN
 	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
-		if (isnum(minimum_opt_in_level) && minimum_opt_in_level > OPT_IN_NOT_TARGET)
+		if (isnum(minimum_opt_in_level) && minimum_opt_in_level > ANTAG_OPT_OUT)
 			info += span_bolddanger("This job forces a minimum opt-in setting of [GLOB.antag_opt_in_strings["[minimum_opt_in_level]"]].")
 		if (heretic_sac_target)
 			info += span_bolddanger("This job can be sacrificed by heretics.")
@@ -563,7 +564,7 @@
 	var/mob/living/spawn_instance
 	if(ispath(spawn_type, /mob/living/silicon/ai))
 		// This is unfortunately necessary because of snowflake AI init code. To be refactored.
-		spawn_instance = new spawn_type(get_turf(spawn_point), null, player_client.mob)
+		spawn_instance = new spawn_type(get_turf(spawn_point), null, player_client.mob, TRUE)
 	else
 		spawn_instance = spawn_point.JoinPlayerHere(spawn_type, TRUE)
 	spawn_instance.apply_prefs_job(player_client, src)
@@ -714,3 +715,10 @@
 		CRASH("[src.type] has no job icon state.")
 
 	return icon('icons/mob/huds/hud.dmi', icon_state)
+
+/datum/job/proc/display_order_with_department()
+	var/datum/job_department/main_department = departments_list?[1]
+	if(!main_department)
+		main_department = /datum/job_department/undefined
+
+	return display_order + (main_department::display_order * 1000)

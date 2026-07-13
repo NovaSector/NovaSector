@@ -53,6 +53,7 @@
 	desc = "The staple of any bunny themed syndicate assassins. Are those carbon nanotube stockings?"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	icon_state = "syndibunny"
 	body_parts_covered = CHEST|GROIN|LEGS
 
@@ -107,6 +108,7 @@
 	greyscale_config_worn = /datum/greyscale_config/custom_bunnysuit_worn
 	greyscale_config_worn_digi = /datum/greyscale_config/custom_bunnysuit_worn/digi
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 //CAPTAIN
@@ -131,6 +133,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -141,6 +144,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -151,6 +155,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -161,6 +166,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -171,6 +177,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -227,6 +234,7 @@
 	icon_state = "bunnysuit_paramedic"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -256,6 +264,7 @@
 	icon_state = "bunnysuit_coroner"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -277,6 +286,7 @@
 	icon_state = "bunnysuit_sci"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -286,6 +296,7 @@
 	icon_state = "bunnysuit_roboticist"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -295,6 +306,7 @@
 	icon_state = "bunnysuit_genetics"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -304,6 +316,7 @@
 	icon_state = "bunnysuit_rd"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
@@ -346,6 +359,7 @@
 	icon_state = "bunnysuit_brig_phys"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -398,6 +412,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -408,6 +423,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -418,6 +434,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 	custom_price = PAYCHECK_CREW
@@ -429,6 +446,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -439,6 +457,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -449,6 +468,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -459,6 +479,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -469,6 +490,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -479,6 +501,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -489,6 +512,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -499,6 +523,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 
@@ -553,6 +578,7 @@
 	inhand_icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/bunnysuits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/bunnysuits_digi.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
 

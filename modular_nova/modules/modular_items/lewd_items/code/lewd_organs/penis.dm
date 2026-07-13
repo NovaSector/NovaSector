@@ -13,26 +13,17 @@
 
 /datum/bodypart_overlay/mutant/genital/penis
 	feature_key = ORGAN_SLOT_PENIS
-	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+	layers = list(
+		EXTERNAL_FRONT_UNDER_CLOTHES = PENIS_LAYER,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+	)
+	genital_stack_rank = 2
+	offset_location = ENTIRE_BODY
 
-	/// Layer as high as possible
-	layer_above_all = -(BODY_FRONT_LAYER - 0.02)
-	layer_above_undies = -(UNIFORM_LAYER - 0.02)
-	layer_below_undies = -(UNIFORM_LAYER + 0.04)
-
-/datum/bodypart_overlay/mutant/genital/penis/underwear_check()
-	if(!istype(owner))
-		return FALSE
-	else
-		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
-			return FALSE
-		else
-			return TRUE
-
-
-/obj/item/organ/genital/penis/get_description_string(datum/sprite_accessory/genital/gas)
+/obj/item/organ/genital/penis/get_description_string(datum/sprite_accessory/genital/penis/penis)
 	var/returned_string = ""
-	var/pname = LOWER_TEXT(genital_name) == "nondescript" ? "" : LOWER_TEXT(genital_name) + " "
+	var/genital_descriptor = LOWER_TEXT(get_genital_descriptor(penis))
+	var/pname = genital_descriptor + "[length(get_genital_descriptor(penis)) ? " " : ""]"
 	if(sheath != SHEATH_NONE && aroused != AROUSAL_FULL) //Hidden in sheath
 		switch(sheath)
 			if(SHEATH_NORMAL)

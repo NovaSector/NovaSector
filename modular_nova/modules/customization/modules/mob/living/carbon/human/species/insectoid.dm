@@ -48,7 +48,7 @@
 	human_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#292929"
 	human_for_preview.dna.mutant_bodyparts[FEATURE_EARS] = build_mutant_part("Royal Antenna")
 	human_for_preview.dna.mutant_bodyparts[FEATURE_FLUFF] = build_mutant_part("Insectoid")
-	regenerate_organs(human_for_preview)
+	regenerate_organs(human_for_preview, src, visual_only = TRUE)
 	human_for_preview.update_body(is_creating = TRUE)
 
 /datum/species/insectoid/get_species_description()

@@ -52,9 +52,9 @@
 /obj/structure/closet/secure_closet/des_two/armory_gear_locker/PopulateContents()
 	..()
 
-	new /obj/item/storage/belt/holster/nukie(src)
-	new /obj/item/storage/belt/holster/nukie(src)
-	new /obj/item/storage/belt/holster/nukie(src)
+	new /obj/item/storage/belt/holster(src)
+	new /obj/item/storage/belt/holster(src)
+	new /obj/item/storage/belt/holster(src)
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/clothing/suit/armor/vest(src)

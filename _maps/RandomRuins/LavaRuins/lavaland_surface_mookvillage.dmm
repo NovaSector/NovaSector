@@ -169,12 +169,6 @@
 /obj/structure/flora/tree/jungle/style_5,
 /turf/open/misc/grass/jungle/lavaland,
 /area/lavaland/surface/outdoors)
-"S" = (
-/obj/item/flashlight/lantern{
-	start_on = 1
-	},
-/turf/open/misc/asteroid/basalt/lava_land_surface/biome_replace,
-/area/lavaland/surface/outdoors)
 "V" = (
 /obj/structure/chair/pew{
 	dir = 8
@@ -184,6 +178,12 @@
 "W" = (
 /obj/structure/flora/tree/jungle/style_3,
 /turf/open/misc/grass/jungle/lavaland,
+/area/lavaland/surface/outdoors)
+"X" = (
+/obj/item/flashlight/lantern{
+	start_on = 1
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface/biome_replace,
 /area/lavaland/surface/outdoors)
 "Y" = (
 /obj/structure/chair/pew/left{
@@ -228,7 +228,7 @@ a
 a
 a
 l
-S
+X
 a
 a
 a
@@ -294,14 +294,14 @@ g
 c
 c
 a
-S
+X
 a
 a
 a
 a
 P
 a
-S
+X
 F
 a
 a
@@ -493,7 +493,7 @@ h
 h
 h
 z
-S
+X
 l
 a
 a
@@ -606,7 +606,7 @@ a
 a
 l
 a
-S
+X
 h
 m
 c

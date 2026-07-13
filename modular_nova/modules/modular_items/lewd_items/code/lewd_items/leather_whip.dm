@@ -99,7 +99,7 @@
 
 	update_icon()
 	update_appearance()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 //to change color
 /obj/item/clothing/mask/leatherwhip/click_alt(mob/user)
@@ -150,7 +150,7 @@
 
 	update_icon()
 	update_appearance()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/clothing/mask/leatherwhip/update_icon_state()
 	. = ..()

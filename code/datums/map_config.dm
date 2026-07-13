@@ -34,8 +34,10 @@
 	var/wilderness_levels = 0
 	/// Directory to the wilderness area we can spawn in
 	var/wilderness_directory
+	/// Z-Level traits our wilderness maps will get, ice box traits by default
+	var/list/wilderness_z_traits = ZTRAITS_ICY_WILDS
 	/// Index of map names (inside wilderness_directory) with the amount to spawn. ("ice_planes" = 1) for one ice spawn
-	var/list/maps_to_spawn = list()
+	var/list/wilderness_maps_to_spawn = list()
 
 	///The type of mining Z-level that should be loaded.
 	var/minetype = MINETYPE_LAVALAND
@@ -71,8 +73,12 @@
 	/// Boolean - if TRUE, players spawn with grappling hooks in their bags
 	var/give_players_hooks = FALSE
 
+#if defined(UNIT_TESTS) || defined(SPACEMAN_DMM)
 	/// List of unit tests that are skipped when running this map
 	var/list/skipped_tests
+	/// If TRUE, only unit tests with UNIT_TEST_DEBUG_MAP_ONLY will run on this map
+	var/is_unit_test_map = FALSE
+#endif
 
 	/// Boolean that tells SSmapping to load all away missions in the codebase.
 	var/load_all_away_missions = FALSE
@@ -183,10 +189,6 @@
 		log_world("map_config shuttles is not a list!")
 		return
 
-	// NOVA ADD BEGIN - EMERGENCY SHUTTLE OVERRIDE
-	shuttles["emergency"] = "emergency_nova"
-	// NOVA ADD END
-
 	traits = json["traits"]
 	// "traits": [{"Linkage": "Cross"}, {"Space Ruins": true}]
 	if (islist(traits))
@@ -275,8 +277,12 @@
 
 		// Just pick and take based on weight
 		for(var/i in 1 to wilderness_levels)
-			maps_to_spawn += pick_weight_take(wilderness)
-		shuffle(maps_to_spawn)
+			wilderness_maps_to_spawn += pick_weight_take(wilderness)
+		shuffle_inplace(wilderness_maps_to_spawn)
+
+	var/list/wilderness_level_traits = json["wilderness_level_traits"]
+	if (islist(wilderness_level_traits))
+		wilderness_z_traits = wilderness_level_traits
 
 #ifdef UNIT_TESTS
 	// Check for unit tests to skip, no reason to check these if we're not running tests
@@ -286,6 +292,9 @@
 			stack_trace("Invalid path in mapping config for ignored unit tests: \[[path_as_text]\]")
 			continue
 		LAZYADD(skipped_tests, path_real)
+
+	if ("is_unit_test_map" in json)
+		is_unit_test_map = json["is_unit_test_map"]
 #endif
 
 	defaulted = FALSE

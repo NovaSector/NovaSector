@@ -7,6 +7,7 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 	desc = "An item that can set down a set number of markers, allowing them to teleport items within a tile to the set markers."
 	icon = 'modular_nova/modules/cargo_items/icons/cargo_teleporter.dmi'
 	icon_state = "cargo_tele"
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT)
 	///the list of markers spawned by this item
 	var/list/marker_children = list()
 	///which marker it is currently on
@@ -157,3 +158,6 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 	var/area/src_area = get_area(src)
 	name = "[src_area.name] ([rand(100000,999999)])"
 	GLOB.cargo_marks += src
+
+#undef MAX_CARGO_TELEPORTER_ITEMS
+#undef CARGO_TELEPORTER_COOLDOWN

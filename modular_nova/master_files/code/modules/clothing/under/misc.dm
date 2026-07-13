@@ -23,6 +23,7 @@
 	can_adjust = FALSE
 	slot_flags = ITEM_SLOT_ICLOTHING | ITEM_SLOT_OCLOTHING
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/misc/nova/gear_harness/suit // Functionally the same, this is just so the loadout system allows you to pick either one
 
@@ -69,3 +70,18 @@
 	melee = 10
 	fire = 50
 	acid = 40
+
+/obj/item/clothing/under/misc/nova/modskin
+	name = "M.O.D. skinsuit"
+	desc = "A M.O.D. skinsuit worn by... anyone, really."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/misc/nova/modskin"
+	post_init_icon_state = "modskin"
+	greyscale_config = /datum/greyscale_config/modskin
+	greyscale_config_worn = /datum/greyscale_config/modskin/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/modskin/worn/digi
+	greyscale_colors = "#39393F#B3B3B3"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	flags_1 = IS_PLAYER_COLORABLE_1
+	bodyshapes_with_variations = NONE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY

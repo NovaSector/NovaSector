@@ -82,10 +82,6 @@
 			if(target.penis != null)
 				target.dropItemToGround(target.penis, TRUE, target.loc, TRUE, FALSE, TRUE)
 
-
-	client.mob.hud_used.hidden_inventory_update(client.mob)
-	client.mob.hud_used.persistent_inventory_update(client.mob)
-
 /datum/preference/toggle/erp/sex_toy_sounds
 	savefile_key = "sextoy_sounds_pref"
 
@@ -123,35 +119,42 @@
 	savefile_key = "new_genitalia_growth_pref"
 
 /datum/preference/choiced/erp_status
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_status_pref"
 
 /datum/preference/choiced/erp_status/init_possible_values()
 	return list(
-		"Top - Dom",
-		"Top - Switch",
-		"Top - Sub",
-		"Verse-Top - Dom",
-		"Verse-Top - Switch",
-		"Verse-Top - Sub",
-		"Verse - Dom",
-		"Verse - Switch",
-		"Verse - Sub",
-		"Verse-Bottom - Dom",
-		"Verse-Bottom - Switch",
-		"Verse-Bottom - Sub",
-		"Bottom - Dom",
-		"Bottom - Switch",
-		"Bottom - Sub",
-		"Check OOC Notes",
-		"Ask (L)OOC",
 		"No",
+		"Ask (L)OOC",
+		"Check OOC Notes",
 		"Yes",
+		"Top - Dom",
+		"Top - Sub",
+		"Top - Switch",
+		"Top - Stone",
+		"Bottom - Dom",
+		"Bottom - Sub",
+		"Bottom - Switch",
+		"Bottom - Stone",
+		"Verse-Top - Dom",
+		"Verse-Top - Sub",
+		"Verse-Top - Switch",
+		"Verse - Dom",
+		"Verse - Sub",
+		"Verse - Switch",
+		"Verse-Bottom - Dom",
+		"Verse-Bottom - Sub",
+		"Verse-Bottom - Switch",
+		"Side",
+		"Pillow Princesss - Dom",
+		"Pillow Princesss - Sub",
+		"Pillow Princesss - Switch",
+		"Free Use",
 	)
 
 /datum/preference/choiced/erp_status/create_default_value()
-	return "Ask (L)OOC"
+	return "No"
 
 /datum/preference/choiced/erp_status/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
@@ -173,12 +176,20 @@
 	return FALSE
 
 /datum/preference/choiced/erp_status_nc
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_status_pref_nc"
 
 /datum/preference/choiced/erp_status_nc/init_possible_values()
-	return list("Yes - Switch", "Yes - Dom", "Yes - Sub", "Yes", "Ask (L)OOC", "Check OOC Notes", "No")
+	return list(
+		"No",
+		"Ask (L)OOC",
+		"Check OOC Notes",
+		"Yes",
+		"Yes - Dom",
+		"Yes - Sub",
+		"Yes - Switch",
+	)
 
 /datum/preference/choiced/erp_status_nc/create_default_value()
 	return "No"
@@ -203,12 +214,20 @@
 	return FALSE
 
 /datum/preference/choiced/erp_status_v
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_status_pref_v"
 
 /datum/preference/choiced/erp_status_v/init_possible_values()
-	return list("Yes - Switch", "Yes - Prey", "Yes - Pred", "Check OOC Notes", "Ask (L)OOC", "No", "Yes")
+	return list(
+		"No",
+		"Ask (L)OOC",
+		"Check OOC Notes",
+		"Yes",
+		"Yes - Pred",
+		"Yes - Prey",
+		"Yes - Switch",
+	)
 
 /datum/preference/choiced/erp_status_v/create_default_value()
 	return "No"
@@ -233,12 +252,17 @@
 	return FALSE
 
 /datum/preference/choiced/erp_status_mechanics
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_status_pref_mechanics"
 
 /datum/preference/choiced/erp_status_mechanics/init_possible_values()
-	return list("Roleplay only", "Mechanical only", "Mechanical and Roleplay", "None")
+	return list(
+		"None",
+		"Roleplay only",
+		"Mechanical only",
+		"Mechanical and Roleplay",
+	)
 
 /datum/preference/choiced/erp_status_mechanics/create_default_value()
 	return "None"
@@ -268,7 +292,11 @@
 	savefile_key = "erp_sexuality_pref"
 
 /datum/preference/choiced/erp_sexuality/init_possible_values()
-	return list("Gay", "Straight", "None") // For simplicity's sake we only have 3 options.
+	return list(
+		"None",
+		"Gay",
+		"Straight",
+	) // For simplicity's sake we only have 3 options.
 
 /datum/preference/choiced/erp_sexuality/create_default_value()
 	return "None"
@@ -293,12 +321,20 @@
 	return FALSE
 
 /datum/preference/choiced/erp_status_hypno
-	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	category = PREFERENCE_CATEGORY_ERP
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "erp_status_pref_hypnosis"
 
 /datum/preference/choiced/erp_status_hypno/init_possible_values()
-	return list("Always/Whenever", "Gameplay Only", "Ask (L)OOC", "Check OOC Notes", "No")
+	return list(
+		"No",
+		"Ask (L)OOC",
+		"Check OOC Notes",
+		"Always/Whenever",
+		"Yes/Sub",
+		"Yes/Dom",
+		"Gameplay Only",
+	)
 
 /datum/preference/choiced/erp_status_hypno/create_default_value()
 	return "No"

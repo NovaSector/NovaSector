@@ -1,0 +1,16 @@
+{
+	"depgag_cape": [
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_cape_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "depgag_cape_accent",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

@@ -430,7 +430,6 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 #undef SEE_DEADCHAT_ADMIN
 #undef SEE_DEADCHAT_NORMAL
 
-
 //Used in chemical_mob_spawn. Generates a random mob based on a given gold_core_spawnable value.
 /proc/create_random_mob(spawn_location, mob_class = HOSTILE_SPAWN)
 	var/static/list/mob_spawn_meancritters = list() // list of possible hostile mobs
@@ -458,32 +457,6 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 		chosen = pick(mob_spawn_meancritters)
 	var/mob/living/spawned_mob = new chosen(spawn_location)
 	return spawned_mob
-
-/proc/passtable_on(target, source)
-	var/mob/living/L = target
-	if (!HAS_TRAIT(L, TRAIT_PASSTABLE) && L.pass_flags & PASSTABLE)
-		ADD_TRAIT(L, TRAIT_PASSTABLE, INNATE_TRAIT)
-	ADD_TRAIT(L, TRAIT_PASSTABLE, source)
-	L.pass_flags |= PASSTABLE
-
-/proc/passtable_off(target, source)
-	var/mob/living/L = target
-	REMOVE_TRAIT(L, TRAIT_PASSTABLE, source)
-	if(!HAS_TRAIT(L, TRAIT_PASSTABLE))
-		L.pass_flags &= ~PASSTABLE
-
-/proc/passwindow_on(target, source)
-	var/mob/living/target_mob = target
-	if (!HAS_TRAIT(target_mob, TRAIT_PASSWINDOW) && target_mob.pass_flags & PASSWINDOW)
-		ADD_TRAIT(target_mob, TRAIT_PASSWINDOW, INNATE_TRAIT)
-	ADD_TRAIT(target_mob, TRAIT_PASSWINDOW, source)
-	target_mob.pass_flags |= PASSWINDOW
-
-/proc/passwindow_off(target, source)
-	var/mob/living/target_mob = target
-	REMOVE_TRAIT(target_mob, TRAIT_PASSWINDOW, source)
-	if(!HAS_TRAIT(target_mob, TRAIT_PASSWINDOW))
-		target_mob.pass_flags &= ~PASSWINDOW
 
 /proc/dance_rotate(atom/movable/AM, datum/callback/callperrotate, set_original_dir=FALSE)
 	set waitfor = FALSE

@@ -38,7 +38,7 @@
 	build_type = COLONY_FABRICATOR
 	build_path = /obj/item/crowbar
 	materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT*0.35,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5,
 	)
 	category = list(
 		RND_CATEGORY_INITIAL,

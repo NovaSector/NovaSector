@@ -75,10 +75,6 @@
 	///The visual delay to use for the current client.Move(), mostly used for making a client based move look like it came from some other slower source
 	var/visual_delay = 0
 
-		///////////////
-		//SOUND STUFF//
-		///////////////
-
 		////////////
 		//SECURITY//
 		////////////
@@ -255,6 +251,8 @@
 
 	/// The DPI scale of the client. 1 is equivalent to 100% window scaling, 2 will be 200% window scaling
 	var/window_scaling
+
+	var/datum/tgui_window/stat_panel
 
 	/// OOC colour of the clients messages.
 	var/ooc_colour = null

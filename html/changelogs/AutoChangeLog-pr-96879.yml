@@ -1,0 +1,4 @@
+author: "lelandkemble"
+delete-after: True
+changes:
+  - bugfix: "Vorpal scythe damage multiplier remains after the first hit"

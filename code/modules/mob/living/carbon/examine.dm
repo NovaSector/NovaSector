@@ -301,14 +301,12 @@
 		for(var/datum/gunpoint/GP in gunpointed)
 			. += "<span class='warning'><b>[GP.source.name] [GP.source.p_are()] holding [t_him] at gunpoint with [GP.aimed_gun.name]!</b></span>\n"
 	if(has_dna(src))
-		for(var/genital in GLOB.possible_genitals)
-			var/datum/mutant_bodypart/genital_part = dna.mutant_bodyparts[genital]
-			if(genital_part)
-				var/datum/sprite_accessory/genital/genital_accessory = SSaccessories.sprite_accessories[genital][genital_part.name]
-				if(genital_accessory)
-					if(!(genital_accessory.is_hidden(src)))
-						. += "<span class='notice'>[t_He] [t_has] exposed genitals... <a href='byond://?src=[REF(src)];lookup_info=genitals'>\[Look closer...\]</a></span>"
-						break
+		for(var/genital_slot in GLOB.possible_genitals)
+			var/obj/item/organ/genital/possible_genital = get_organ_slot(genital_slot)
+			if(possible_genital)
+				if(possible_genital.is_exposed())
+					. += "<span class='notice'>[t_He] [t_has] exposed genitals... <a href='byond://?src=[REF(src)];lookup_info=genitals'>\[Look closer...\]</a></span>"
+					break
 
 	var/flavor_text_link
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's "flavor_text" DNA feature. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.
@@ -328,9 +326,9 @@
 	//Temporary flavor text addition:
 	if(temporary_flavor_text)
 		if(length_char(temporary_flavor_text) < TEMPORARY_FLAVOR_PREVIEW_LIMIT)
-			. += span_revennotice("<br>They look different than usual: [temporary_flavor_text]")
+			. += span_revennotice("<br>[t_He] look[p_s()] different than usual: [temporary_flavor_text]")
 		else
-			. += span_revennotice("<br>They look different than usual: [copytext_char(temporary_flavor_text, 1, TEMPORARY_FLAVOR_PREVIEW_LIMIT)]... <a href='byond://?src=[REF(src)];temporary_flavor=1'>More...</a>")
+			. += span_revennotice("<br>[t_He] look[p_s()] look different than usual: [copytext_char(temporary_flavor_text, 1, TEMPORARY_FLAVOR_PREVIEW_LIMIT)]... <a href='byond://?src=[REF(src)];temporary_flavor=1'>More...</a>")
 
 	. += EXAMINE_SECTION_BREAK
 
@@ -339,11 +337,11 @@
 		if(erp_status_pref && !CONFIG_GET(flag/disable_erp_preferences) && user.client.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
 			. += span_info("ERP Status: [span_revenboldnotice(erp_status_pref)]")
 
-	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
-		var/opt_in_status = mind?.get_effective_opt_in_level()
-		if (!isnull(opt_in_status))
-			var/stringified_optin = GLOB.antag_opt_in_strings["[opt_in_status]"]
-			. += span_info("Antag Opt-in Status: <b><font color='[GLOB.antag_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
+	if (!CONFIG_GET(flag/disable_conflict_opt_in_preferences))
+		var/conflict_opt_in_status = mind?.get_effective_conflict_opt_in_level()
+		if (!isnull(conflict_opt_in_status))
+			var/stringified_optin = GLOB.conflict_opt_in_strings["[conflict_opt_in_status]"]
+			. += span_info("Conflict Opt-In: <b><font color='[GLOB.conflict_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
 	// NOVA EDIT ADDITION END
 
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
@@ -387,7 +385,7 @@
 	//This checks to see if the body is revivable
 	var/obj/item/organ/brain = get_organ_by_type(/obj/item/organ/brain)
 	if((brain && HAS_TRAIT(brain, TRAIT_GHOSTROLE_ON_REVIVE)) || HAS_TRAIT(src, TRAIT_GHOSTROLE_ON_REVIVE))
-		return span_deadsay("[t_He] [t_is] limp and unresponsive; but [t_his] soul might yet come back...")
+		return span_deadsay("[t_He] [t_is] limp and unresponsive; there are no signs of life, but another soul may take [t_his] place...")
 	var/client_like = client || HAS_TRAIT(src, TRAIT_MIND_TEMPORARILY_GONE)
 	var/valid_ghost = ghost?.can_reenter_corpse && ghost?.client
 	var/valid_soul = brain || !HAS_TRAIT(src, TRAIT_FAKE_SOULLESS)

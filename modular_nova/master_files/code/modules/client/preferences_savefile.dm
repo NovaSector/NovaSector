@@ -106,6 +106,7 @@
 				"womb_toggle" = /datum/preference/choiced/genital/womb,
 				"breasts_toggle" = /datum/preference/choiced/genital/breasts,
 				"anus_toggle" = /datum/preference/choiced/genital/anus,
+				"butt_toggle" = /datum/preference/choiced/genital/butt,
 			)
 
 		for(var/toggle in old_toggles)
@@ -620,3 +621,5 @@
 #undef VERSION_FEATHERY_WINGS_FIX
 #undef VERSION_DONK_MIGRATION
 #undef VERSION_AUGMENT_ITEMS_PATH_CHANGE
+#undef INDEX_UNDERWEAR
+#undef INDEX_BRA

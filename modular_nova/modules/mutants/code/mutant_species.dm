@@ -82,10 +82,14 @@
 	. = ..()
 	human_who_gained_species.AddComponent(/datum/component/mutant_hands, mutant_hand_path = hands_to_give)
 	RegisterSignal(human_who_gained_species, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(queue_regeneration))
+	RegisterSignal(human_who_gained_species, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 
 /datum/species/mutant/infectious/on_species_loss(mob/living/carbon/human/human_who_lost_species, datum/species/new_species, pref_load)
 	. = ..()
-	UnregisterSignal(human_who_lost_species, COMSIG_MOB_AFTER_APPLY_DAMAGE)
+	UnregisterSignal(human_who_lost_species, list(
+		COMSIG_MOB_AFTER_APPLY_DAMAGE,
+		COMSIG_LIVING_LIFE,
+	))
 
 /obj/item/bodypart/leg/left/mutant_zombie/infectious
 	speed_modifier = 0.5
@@ -153,8 +157,8 @@
 	if(COOLDOWN_FINISHED(src, regen_cooldown))
 		COOLDOWN_START(src, regen_cooldown, REGENERATION_DELAY)
 
-/datum/species/mutant/infectious/spec_life(mob/living/carbon/carbon_mob, seconds_per_tick)
-	. = ..()
+/datum/species/mutant/infectious/proc/on_life(mob/living/carbon/carbon_mob, seconds_per_tick)
+	SIGNAL_HANDLER
 	//mutants never actually die, they just fall down until they regenerate enough to rise back up.
 	if(COOLDOWN_FINISHED(src, regen_cooldown))
 		var/heal_amt = heal_rate

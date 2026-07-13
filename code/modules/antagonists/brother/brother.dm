@@ -140,6 +140,7 @@
 	brother2.dna.mutant_bodyparts[FEATURE_MOTH_ANTENNAE] = build_mutant_part("Plain") // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_ANTENNAE] = "Plain"
 	brother2.dna.mutant_bodyparts[FEATURE_MOTH_MARKINGS] = build_mutant_part(SPRITE_ACCESSORY_NONE) // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_MARKINGS] = "None"
 	brother2.dna.mutant_bodyparts[FEATURE_WINGS] = build_mutant_part("Moth (Plain)") // NOVA EDIT CHANGE - Customization - ORIGINAL: brother2.dna.features[FEATURE_MOTH_WINGS] = "Plain"
+	brother2.set_eye_color(COLOR_WHITE) // NOVA EDIT ADDITION
 	brother2.set_species(/datum/species/moth)
 
 	var/datum/universal_icon/brother1_icon = render_preview_outfit(/datum/outfit/job/quartermaster, brother1)
@@ -219,6 +220,7 @@
 	if (!new_member.has_antag_datum(/datum/antagonist/brother))
 		add_brother(new_member.current)
 	else
+		// the only place a joining member spends a conversion slot; converts get here via add_brother()
 		set_brothers_left(brothers_left - 1)
 
 /datum/team/brother_team/remove_member(datum/mind/member)
@@ -245,16 +247,16 @@
 		return FALSE
 #endif
 
-	set_brothers_left(brothers_left - 1)
+	// this spends a conversion slot via add_member()
+	new_brother.mind.add_antag_datum(/datum/antagonist/brother, src)
+
 	for (var/datum/mind/brother_mind as anything in members)
 		if (brother_mind == new_brother.mind)
 			continue
 
 		to_chat(brother_mind, span_notice("[span_bold("[new_brother.real_name]")] has been converted to aid you as your brother!"))
-		if (brothers_left == 0)
+		if (brothers_left <= 0)
 			to_chat(brother_mind, span_notice("You cannot recruit any more brothers."))
-
-	new_brother.mind.add_antag_datum(/datum/antagonist/brother, src)
 
 	return TRUE
 

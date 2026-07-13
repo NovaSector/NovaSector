@@ -60,8 +60,8 @@
 		active = FALSE
 	update_appearance()
 
-/obj/machinery/power/emitter/energycannon/magical/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
-	return
+/obj/machinery/power/emitter/energycannon/magical/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	return NONE
 
 /obj/machinery/power/emitter/energycannon/magical/ex_act(severity)
 	return FALSE
@@ -218,7 +218,7 @@
 	use_power = NO_POWER_USE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	speech_span = SPAN_ROBOT
-	var/threshold = 500
+	var/threshold = 2000 // NOVA EDIT CHANGE - Accounts for the massively multiplied funds the crew has. - ORIGINAL: var/threshold = 500
 	var/static/list/approved_passengers = list()
 	var/static/list/check_times = list()
 	var/list/payees = list()
@@ -249,8 +249,8 @@
 /obj/machinery/scanner_gate/luxury_shuttle/auto_scan(atom/movable/AM)
 	return
 
-/obj/machinery/scanner_gate/luxury_shuttle/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
-	return
+/obj/machinery/scanner_gate/luxury_shuttle/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	return NONE
 
 /obj/machinery/scanner_gate/luxury_shuttle/emag_act(mob/user, obj/item/card/emag/emag_card)
 	return FALSE

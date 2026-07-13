@@ -289,6 +289,18 @@
 	name = "Silly Snuppy Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/plush_hemlock
 
+/datum/loadout_item/toys/plush/plush_celica
+	name = "Researcher Serpent Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/plush_celica
+
+/datum/loadout_item/toys/plush/plush_lasti
+	name = "Espatier Captain Fox Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/plush_lasti
+
+/datum/loadout_item/toys/plush/pillow_towa
+	name = "Shork.INC Body Pillow"
+	item_path = /obj/item/toy/pillow/torapillow
+
 /*
 *	STAFF
 */

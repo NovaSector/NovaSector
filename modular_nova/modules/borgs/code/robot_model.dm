@@ -483,7 +483,7 @@
 		/obj/item/gun/energy/disabler/cyborg,
 		/obj/item/borg/stun,
 		/obj/item/restraints/handcuffs/cable/zipties,
-		/obj/item/melee/energy/sword/cyborg,
+		/obj/item/melee/energy/sword/saber/cyborg,
 		/obj/item/gun/energy/printer,
 		/obj/item/card/emag,
 		/obj/item/borg_shapeshifter,

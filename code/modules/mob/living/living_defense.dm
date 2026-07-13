@@ -595,7 +595,7 @@
 	shock_damage *= siemens_coeff
 	if((flags & SHOCK_TESLA) && HAS_TRAIT(src, TRAIT_TESLA_SHOCKIMMUNE))
 		return FALSE
-	if(HAS_TRAIT(src, TRAIT_SHOCKIMMUNE))
+	if(!(flags & SHOCK_IGNORE_IMMUNITY) && HAS_TRAIT(src, TRAIT_SHOCKIMMUNE))
 		return FALSE
 	if(shock_damage < 1)
 		return FALSE
@@ -826,6 +826,9 @@
 				span_userdanger("You[knocked_down ? "'re knocked down" : " resist falling down"] from a shove by [name]!"), span_hear("You hear aggressive shuffling [knocked_down ? "followed by a loud thud!" : ""]"), COMBAT_MESSAGE_RANGE, src)
 			to_chat(src, span_danger("You shove [target.name][knocked_down ? ", knocking [target.p_them()] down" : ""]!"))
 			log_combat(src, target, "shoved", "[knocked_down ? "knocking them down[weapon ? " with [weapon]" : ""]" : ""]")
+			if(ishuman(target))
+				var/mob/living/carbon/human/human_target = target
+				human_target.force_say()
 			return
 
 	if(shove_flags & SHOVE_CAN_KICK_SIDE) //KICK HIM IN THE NUTS
