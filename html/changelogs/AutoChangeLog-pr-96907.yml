@@ -1,4 +1,0 @@
-author: "Melbert"
-delete-after: True
-changes:
-  - bugfix: "Bioscrambler can no longer decapitate you (or remove any of your limbs for that matter)"
