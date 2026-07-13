@@ -24,6 +24,7 @@
 	greyscale_config = /datum/greyscale_config/hypospray_mkii
 	desc = "A new development from DeForest Medical, this hypospray takes 50-unit vials as the drug supply for easy swapping."
 	w_class = WEIGHT_CLASS_TINY
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SHEET_MATERIAL_AMOUNT)
 	/// Allowed types for insertion into the vial slot.  These should always be hypovial subtypes.
 	var/list/allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
 	/// The presently-inserted vial.
@@ -67,6 +68,7 @@
 	gags_bodystate = "hypo2_piercing"
 	desc = "The advanced variant in the DeForest Hypospray Mk. II series, able to pierce through thick armor."
 	penetrates = INJECT_CHECK_PENETRATE_THICK
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/titanium = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/hypospray/mkii/piercing/atropine
 	start_vial = /obj/item/reagent_containers/cup/vial/small/atropine
@@ -78,6 +80,7 @@
 	// don't tinker with a loaded (medi)gun. fool
 	from_obj = /obj/item/hypospray/mkii
 	to_obj = /obj/item/hypospray/mkii/deluxe
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 8, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/device/custom_kit/deluxe_hypo2/pre_convert_check(obj/target_obj, mob/user)
 	var/obj/item/hypospray/mkii/our_hypo = target_obj
@@ -324,7 +327,7 @@
 	else
 		selected_wait_time = (mode == HYPO_INJECT) ? inject_wait : spray_wait
 
-	if(!do_after(user, selected_wait_time, injectee, extra_checks = CALLBACK(injectee, /mob/living/proc/can_inject, user, user.zone_selected, penetrates)))
+	if(!do_after(user, selected_wait_time, injectee, extra_checks = CALLBACK(injectee, TYPE_PROC_REF(/mob/living, can_inject), user, user.zone_selected, penetrates)))
 		return ITEM_INTERACT_BLOCKING
 	if(!vial || !vial.reagents.total_volume)
 		return ITEM_INTERACT_BLOCKING

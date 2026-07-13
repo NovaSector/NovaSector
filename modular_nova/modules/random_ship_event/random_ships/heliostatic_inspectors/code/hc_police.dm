@@ -14,7 +14,7 @@
 		Vessel Model: Strider, Flight ETA: three minutes minimal. Vessel is authorized to perform inspection duties. We're clear for close orbit."
 
 	possible_answers = list("Accept the inspection.", "Decline the inspection at this time.")
-	response_accepted = "Thank you for your cooperation. As a token of appreciation for participating in our voluntary inspection program, a bonus of 10000 credits has been deposited to your station's account. Heliostatic Coalition departmental secretary out."
+	response_accepted = "Thank you for your cooperation. As a token of appreciation for participating in our voluntary inspection program, a bonus of 3 Crowns has been deposited to your station's account. Heliostatic Coalition departmental secretary out."
 	response_rejected = "Understood. We respect your decision. Should you change your mind, please feel free to contact us at a later time."
 
 	announcement_color = "purple"
@@ -50,6 +50,6 @@
 	// Give the station a cash bonus for accepting the voluntary inspection
 	var/datum/bank_account/bonused_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
 	if(bonused_account)
-		bonused_account.adjust_money(10000)
+		bonused_account.adjust_money(12288)
 		// Successfully added the bonus
 	return

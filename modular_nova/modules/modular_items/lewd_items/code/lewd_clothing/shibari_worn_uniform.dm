@@ -3,6 +3,7 @@
 	can_adjust = FALSE
 	body_parts_covered = NONE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = NONE
 	item_flags = DROPDEL
 	greyscale_colors = "#bd8fcf"
 	has_sensor = NO_SENSORS

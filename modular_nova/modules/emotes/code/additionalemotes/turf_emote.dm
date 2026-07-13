@@ -63,7 +63,7 @@
 				user.allowed_turfs += "tails"
 
 		var/taur_mode = human_user.get_taur_mode()
-		if(taur_mode & STYLE_TAUR_SNAKE)
+		if(taur_mode & BODYSHAPE_TAUR_SNAKE)
 			user.allowed_turfs -= list("pawprint", "hoofprint", "clawprint")
 			user.allowed_turfs += "coil"
 

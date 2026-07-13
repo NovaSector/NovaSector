@@ -1,6 +1,5 @@
 /datum/sprite_accessory/horns
 	key = FEATURE_HORNS
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/horns.dmi'
 	default_color = "#555555"
 	organ_type = /obj/item/organ/horns

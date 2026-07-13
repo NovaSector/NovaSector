@@ -23,6 +23,7 @@
 	name = "corrections officer's sweater"
 	icon_state = "corrections_officer_sweat"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/rank/security/corrections_officer/sweater/skirt
 	icon_state = "corrections_officer_sweatw"

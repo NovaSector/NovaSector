@@ -111,7 +111,7 @@
  *	MAP TEMPLATES
  */
 
-/datum/map_template/shuttle/ferry
+/datum/map_template/shuttle/ferry/nova
 	name = "NAV Monarch (Ferry)"
 	prefix = "_maps/shuttles/nova/"
 	port_id = "ferry"

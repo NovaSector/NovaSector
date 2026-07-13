@@ -161,12 +161,16 @@
 	name = "security HUD aviators"
 	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. This HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting."
 	icon_state = "aviator_sec"
-	off_state = "aviator_sec_flash"
-	flash_protect = FLASH_PROTECTION_NONE
-	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/red
-	modes = list(MODE_OFF_FLASH_PROTECTION, MODE_ON)
-	modes_msg = list(MODE_OFF_FLASH_PROTECTION = "flash protection mode", MODE_ON = "optical matrix enabled")
+	clothing_traits = list(TRAIT_SECURITY_HUD)
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 4, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 2)
+
+/obj/item/clothing/glasses/hud/ar/aviator/securityblue
+	name = "security HUD aviators"
+	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. This HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting."
+	icon_state = "aviator_bluesec"
+	glass_colour_type = /datum/client_colour/glass_colour/blue
+	clothing_traits = list(TRAIT_SECURITY_HUD)
 
 // Medical Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/health
@@ -176,6 +180,7 @@
 	flash_protect = FLASH_PROTECTION_NONE
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 4)
 
 // (Normal) meson scanner Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/meson
@@ -187,6 +192,7 @@
 	vision_flags = SEE_TURFS
 	color_cutoffs = list(5, 15, 5)
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 4)
 
 // diagnostic Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/diagnostic
@@ -196,6 +202,7 @@
 	flash_protect = FLASH_PROTECTION_NONE
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 4)
 
 // Science Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/science
@@ -207,6 +214,7 @@
 	resistance_flags = ACID_PROOF
 	armor_type = /datum/armor/aviator_science
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 4)
 
 /datum/armor/aviator_science
 	fire = 80
@@ -255,26 +263,31 @@
 	icon_state = "projector_meson"
 	vision_flags = SEE_TURFS
 	color_cutoffs = list(10, 30, 10)
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 4)
 
 /obj/item/clothing/glasses/hud/ar/projector/health
 	name = "retinal projector health HUD"
 	icon_state = "projector_med"
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 4)
 
 /obj/item/clothing/glasses/hud/ar/projector/security
 	name = "retinal projector security HUD"
 	icon_state = "projector_sec"
 	clothing_traits = list(TRAIT_SECURITY_HUD)
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 2)
 
 /obj/item/clothing/glasses/hud/ar/projector/diagnostic
 	name = "retinal projector diagnostic HUD"
 	icon_state = "projector_diagnostic"
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 4)
 
 /obj/item/clothing/glasses/hud/ar/projector/science
 	name = "science retinal projector"
 	icon_state = "projector_sci"
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 4)
 
 #undef MODE_OFF
 #undef MODE_OFF_FLASH_PROTECTION

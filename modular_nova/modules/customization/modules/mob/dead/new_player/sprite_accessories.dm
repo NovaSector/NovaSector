@@ -1,13 +1,3 @@
-// GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
-
-/// The flag to show that snouts should use the muzzled sprite.
-#define SPRITE_ACCESSORY_USE_MUZZLED_SPRITE (1<<0)
-/// The flag to show that this tail sprite can wag.
-#define SPRITE_ACCESSORY_WAG_ABLE (1<<1)
-/// The flag that controls whether or not this sprite accessory should force the wearer to hide its shoes.
-#define SPRITE_ACCESSORY_HIDE_SHOES (1<<2)
-/// The flag to that controls whether or not this sprite accessory should force worn facewear to use layers 5 (for glasses) and 4 (for masks and hats).
-#define SPRITE_ACCESSORY_USE_ALT_FACEWEAR_LAYER (1<<3)
 
 /datum/sprite_accessory
 	///Unique key of an accessory. All tails should have FEATURE_TAIL, ears FEATURE_EARS etc.
@@ -28,9 +18,6 @@
 	var/flags_for_organ = NONE
 
 	color_src = USE_ONE_COLOR
-
-	///Which layers does this accessory affect
-	var/relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BODY_FRONT_UNDER_CLOTHES, ABOVE_BODY_FRONT_HEAD_LAYER)
 
 	///This is used to determine whether an accessory gets added to someone. This is important for accessories that are "None", which should have this set to false
 	var/factual = TRUE
@@ -67,29 +54,26 @@
 				default_color = "#FFFFFF"
 
 	if(color_src == USE_MATRIXED_COLORS)
-
-		if(default_color != DEFAULT_MATRIXED)
-			default_color = DEFAULT_MATRIXED
-
+		default_color = DEFAULT_MATRIXED
 		color_layer_names = list()
 
-		if(!SSaccessories.cached_mutant_icon_files[icon])
-			SSaccessories.cached_mutant_icon_files[icon] = icon_states(new /icon(icon))
+		var/list/icon_states_list = SSaccessories.cached_mutant_icon_files[icon] || SSaccessories.build_cached_icon_states(icon)
+		var/icon_state_prefix = "m_[key]_[get_sprite_suffix()]"
 
-		var/icon_state_prefix = "m_[key]_[icon_state]"
-		var/list/icon_states_list = SSaccessories.cached_mutant_icon_files[icon]
-		for(var/layer in relevent_layers)
-			var/layertext = (layer == BODY_BEHIND_LAYER) ? "BEHIND" \
-							: ((layer == BODY_ADJ_LAYER) ? "ADJ" : "FRONT")
-
-			var/prefix = "[icon_state_prefix]_[layertext]"
-
+		for(var/postfix in SSaccessories.all_layer_postfixes)
+			var/prefix = "[icon_state_prefix]_[postfix]"
 			if("[prefix]_primary" in icon_states_list)
 				color_layer_names["1"] = "primary"
 			if("[prefix]_secondary" in icon_states_list)
 				color_layer_names["2"] = "secondary"
 			if("[prefix]_tertiary" in icon_states_list)
 				color_layer_names["3"] = "tertiary"
+			if(length(color_layer_names) == 3)
+				break // Found all three channels, nothing left to learn.
+
+/// Returns the 'suffix' of the sprite (by default just the icon_state)
+/datum/sprite_accessory/proc/get_sprite_suffix()
+	return icon_state
 
 /datum/sprite_accessory/proc/is_hidden(mob/living/carbon/human/owner)
 	return FALSE
@@ -160,7 +144,6 @@
 /datum/sprite_accessory/caps
 	key = FEATURE_MUSH_CAP
 	icon = 'icons/mob/human/species/mush_cap.dmi'
-	relevent_layers = list(BODY_ADJ_LAYER)
 	color_src = USE_ONE_COLOR
 	organ_type = /obj/item/organ/mushroom_cap
 

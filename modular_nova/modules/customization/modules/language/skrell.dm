@@ -6,7 +6,7 @@
 	between_word_space_chance = 75
 	additional_syllable_low = 0
 	additional_syllable_high = 1
-	flags = TONGUELESS_SPEECH
+	flags = LANGUAGE_TONGUELESS_SPEECH
 	key = "K"
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix")
 	default_priority = 90

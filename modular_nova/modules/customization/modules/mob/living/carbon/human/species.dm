@@ -214,7 +214,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 				// Apply accessory flags & layers
 				replacement.sprite_accessory_flags = mutant_accessory.flags_for_organ
-				replacement.relevant_layers = mutant_accessory.relevent_layers
 
 				if(robot_organs)
 					replacement.organ_flags |= ORGAN_ROBOTIC

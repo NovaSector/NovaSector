@@ -12,14 +12,16 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 	return ..()
 
 /// The code which handles generating a greyscale icon for worn clothing on big leg (taur) legs, for human_update_icons.dm
-/obj/item/clothing/under/proc/generate_big_legs_icons(icon/base_icon, greyscale_colors, mutant_styles)
+/obj/item/proc/generate_big_legs_icons(icon/base_icon, greyscale_colors, bodyshape)
 	var/greyscale_config = /datum/greyscale_config/digitigrade/big_leg
-	if(mutant_styles & STYLE_TAUR_BIG_LEGS_STANCED)
+	if(bodyshape & BODYSHAPE_TAUR_BIG_LEGS_STANCED)
 		greyscale_config = /datum/greyscale_config/digitigrade/big_leg_stanced
 	var/skirt = FALSE
-	// An assumption being made, that this combination of flags will basically always be a skirt
-	if((female_sprite_flags & FEMALE_UNIFORM_TOP_ONLY) && (supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON) && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
-		skirt = TRUE
+	if(istype(src, /obj/item/clothing/under))
+		var/obj/item/clothing/under/clothing_item = src
+		// An assumption being made, that this combination of flags will basically always be a skirt
+		if((clothing_item.female_sprite_flags & FEMALE_UNIFORM_TOP_ONLY) && (supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON) && (supports_variations_flags & CLOTHING_BIG_LEGS_MASK) && !(supports_variations_flags & CLOTHING_BIG_LEGS_VARIATION))
+			skirt = TRUE
 
 	var/icon/legs = icon(SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors), skirt ? "skirt_worn" : "jumpsuit_worn")
 	return replace_icon_legs(base_icon, legs)
@@ -44,32 +46,4 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 	taur_clothing_icon.Blend(taur_cropping_mask, ICON_MULTIPLY)
 	taur_clothing_icon = fcopy_rsc(taur_clothing_icon)
 	GLOB.taur_clothing_icons[index] = taur_clothing_icon
-	return taur_clothing_icon
-
-/**
- * Proc that handles returning a mutable appearance that can fit on a taur body without looking too janky!
- *
- * It will check the cache to see if there was already an icon created for the taur version of that item,
- * and will generate one if there was none, and will return the proper icon straight from `GLOB.taur_clothing_icons`,
- * to avoid expensive icon operations.
- *
- * Arguments:
- * * icon_state - The icon state that was used to create the icon that will now be processed.
- * Used to store the taur icon in the cache.
- * * icon_to_process (/icon) - The icon that we want to process. Do note that this is already
- * an icon, and NOT an icon file, because we want to be able to operate on icons that have been
- * modified to fit female bodytypes, for instance.
- * * female_type - The `female_flags` of the clothing item used to generate the icon that
- * we're operating on, if appropriate, to allow the caching of female-fitted uniforms.
- * * greyscale_colors - The colors of the icon if it was a greyscale one, to make this GAGS-compatible.
- *
- * Returns a taur-compatible mutable_appearance!
- */
-/proc/wear_taur_version(icon_state, icon/icon_to_process, female_type, greyscale_colors)
-	RETURN_TYPE(/mutable_appearance)
-
-	var/index = "[icon_state]-[greyscale_colors]-[female_type]"
-	var/icon/taur_clothing_icon = GLOB.taur_clothing_icons[index]
-	if(!taur_clothing_icon) 	//Create standing/laying icons if they don't exist
-		taur_clothing_icon = generate_taur_clothing(index, icon_to_process, icon_state)
 	return taur_clothing_icon

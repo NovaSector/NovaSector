@@ -8,6 +8,7 @@
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "posibrain-ipc"
 	brain_size = 0.8 // *compact* posibrain
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/bluespace = SHEET_MATERIAL_AMOUNT)
 	/// The last time (in ticks) a message about brain damage was sent. Don't touch.
 	var/last_message_time = 0
 	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)

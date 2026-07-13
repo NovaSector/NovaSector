@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Ensures that we always load the last used save, QOL
 	var/default_slot = 1
 	/// The maximum number of slots we're allowed to contain
-	var/max_save_slots = 30 //NOVA EDIT - ORIGINAL 3
+	var/max_save_slots = MAX_SAVE_SLOTS_NORMAL // NOVA EDIT CHANGE - ORIGINAL: 3
 
 	/// Bitflags for communications that are muted
 	var/muted = NONE
@@ -150,6 +150,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		tainted_character_profiles = TRUE
 		character_preview_view = create_character_preview_view(user)
 		ui = new(user, src, "PreferencesMenu")
 		ui.set_autoupdate(FALSE)
@@ -196,9 +197,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	else
 		data["preview_options"] = list(PREVIEW_PREF_JOB, PREVIEW_PREF_LOADOUT, PREVIEW_PREF_UNDERWEAR, PREVIEW_PREF_NAKED, PREVIEW_PREF_NAKED_AROUSED)
 	// NOVA EDIT ADDITION END
-
-	data["character_profiles"] = create_character_profiles()
-
 	data["character_preview_view"] = character_preview_view.assigned_map
 	data["overflow_role"] = SSjob.get_job_type(SSjob.overflow_role).title
 	data["window"] = current_window
@@ -303,6 +301,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if("update_preview")
 			preview_pref = params["updated_preview"]
 			character_preview_view.update_body()
+			previous_preview_pref = preview_pref
 			return TRUE
 
 		if ("open_food")
@@ -714,4 +713,4 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	unlock_content = !!byond_member
 	donator_status = !!GLOB.donator_list[parent.ckey] // NOVA EDIT ADDITION - DONATOR CHECK
 	if(unlock_content || donator_status) // NOVA EDIT CHANGE - ORIGINAL: if(unlock_content)
-		max_save_slots = 50 //NOVA EDIT - ORIGINAL: max_save_slots = 8
+		max_save_slots = MAX_SAVE_SLOTS_SUBSCRIBER // NOVA EDIT CHANGE - ORIGINAL: max_save_slots = 8
