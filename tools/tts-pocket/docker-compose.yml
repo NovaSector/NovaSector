@@ -5,6 +5,11 @@ services:
     ports:
       - "5002:5002"
     restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
     environment:
       TTS_AUTHORIZATION_TOKEN: ${TTS_AUTHORIZATION_TOKEN:?set TTS_AUTHORIZATION_TOKEN in the host env or .env file}
       POCKETTTS_LANGUAGE: ${POCKETTTS_LANGUAGE:-english}
