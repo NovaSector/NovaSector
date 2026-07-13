@@ -1,4 +1,0 @@
-author: "FalloutFalcon"
-delete-after: True
-changes:
-  - server: "status topic reports hostby config if we have no true world.host"
