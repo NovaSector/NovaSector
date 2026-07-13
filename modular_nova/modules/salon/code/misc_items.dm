@@ -78,6 +78,7 @@
 	icon_state = "razor"
 	obj_flags = CONDUCTS_ELECTRICITY
 	w_class = WEIGHT_CLASS_TINY
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.7)
 	// How long do we take to shave someone's (facial) hair?
 	var/shaving_time = 5 SECONDS
 

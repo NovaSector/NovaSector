@@ -201,6 +201,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF|LAVA_PROOF
 	type_to_deploy = /obj/structure/ore_box/boulder_collector
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/flatpacked_machine/boulder_collector/syndicate
 	name = "compacted Suspicious BSC Box"

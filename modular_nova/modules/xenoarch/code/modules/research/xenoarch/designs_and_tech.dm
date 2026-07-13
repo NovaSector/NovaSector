@@ -181,7 +181,7 @@
 	name = "Advanced Xenoarch Bag"
 	desc = "A bag that can hold about fifty strange rocks."
 	id = "xenoarch_bag_adv"
-	materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*2.5, /datum/material/uranium =SMALL_MATERIAL_AMOUNT*5) // same materials as the mining bag of holding.
+	materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2.5, /datum/material/uranium = SMALL_MATERIAL_AMOUNT * 5) // same materials as the mining bag of holding.
 	build_path = /obj/item/storage/bag/xenoarch/adv
 
 /datum/design/board/xenoarch
@@ -292,3 +292,8 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_SUPPLY)
+
+#undef RND_SUBCATEGORY_MACHINE_XENOARCH
+#undef RND_SUBCATEGORY_EQUIPMENT_XENOARCH
+#undef RND_SUBCATEGORY_TOOLS_XENOARCH
+#undef RND_SUBCATEGORY_TOOLS_XENOARCH_ADVANCED

@@ -1,0 +1,162 @@
+{
+	"croptop_bomber_base": [
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_collar",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_strip",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_badge",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	],
+	"croptop_bomber_base_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_base_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_collar_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_strip_t",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_badge_t",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	],
+	"croptop_bomber_stripe": [
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_collar",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_strip",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"croptop_bomber_stripe_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_base_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_collar_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_strip_t",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"croptop_bomber_badge": [
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_collar",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_badge",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"croptop_bomber_badge_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_base_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_collar_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_badge_t",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"croptop_bomber_plain": [
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_collar",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"croptop_bomber_plain_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_base_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crop_bomber_collar_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

@@ -81,6 +81,7 @@ export type Perk = {
 
 export type Department = {
   head?: string;
+  color?: string;
 };
 
 export type Job = {
@@ -228,6 +229,7 @@ export type CharacterPreferencesData = {
 
   names: Record<string, string>;
   vocals: Record<string, string>; // NOVA EDIT ADDITION
+  erp: Record<string, unknown>; // NOVA EDIT ADDITION
 
   misc: {
     gender: Gender;

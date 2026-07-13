@@ -22,7 +22,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = 1,
 		/obj/item/clothing/mask/gas/hc_police = 1,
 		/obj/item/modular_computer/pda/hc_police = 1,
-		/obj/item/stack/spacecash/c1000 = 1,
+		/obj/item/coin/mark/crown = 1,
 	)
 	l_pocket = /obj/item/folder/blue/hc_cop
 	r_pocket = /obj/item/storage/pouch/ammo

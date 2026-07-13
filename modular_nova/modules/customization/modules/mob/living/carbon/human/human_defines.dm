@@ -13,6 +13,8 @@
 	var/list/try_hide_mutant_parts
 	/// The Examine Panel datum for the mob.
 	var/datum/examine_panel/mob_examine_panel
+	/// The Genital Layering panel for the mob.
+	var/datum/genital_layering_panel/genital_layering_panel
 	// Whether or not the human has emissive eyes
 	var/emissive_eyes
 	// Whether or not the human has emissive hair

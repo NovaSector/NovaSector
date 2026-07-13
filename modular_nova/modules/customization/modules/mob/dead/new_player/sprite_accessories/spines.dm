@@ -7,7 +7,6 @@
 		SPECIES_LIZARD_ASH = 1,
 		SPECIES_LIZARD_SILVER = 1,
 	)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/spines
 
 /datum/sprite_accessory/spines/none
@@ -29,7 +28,6 @@
 /datum/sprite_accessory/tail_spines
 	key = FEATURE_TAILSPINES
 	default_color = DEFAULT_SECONDARY
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/tail_spines/none
 	name = SPRITE_ACCESSORY_NONE

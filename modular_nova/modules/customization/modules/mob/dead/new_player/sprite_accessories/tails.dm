@@ -2,7 +2,6 @@
 	key = FEATURE_TAIL
 	organ_type = /obj/item/organ/tail
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	/// Can we use this tail for the fluffy tail turf emote?
 	var/fluffy = FALSE
 
@@ -554,6 +553,11 @@
 /datum/sprite_accessory/tails/mammal/wagging/tiger
 	name = "Tiger"
 	icon_state = "tiger"
+
+/datum/sprite_accessory/tails/mammal/experiment
+	name = "Experiment"
+	icon_state = "exptail"
+	fluffy = TRUE
 
 /datum/sprite_accessory/tails/mammal/wagging/wolf
 	name = "Wolf"

@@ -1,0 +1,30 @@
+{
+	"modskin": [
+		{
+			"type": "icon_state",
+			"icon_state": "modskin_base",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "modskin_accent",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"modskin_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "modskin_base_d",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "modskin_accent_d",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}
