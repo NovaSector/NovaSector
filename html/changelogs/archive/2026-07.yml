@@ -407,3 +407,31 @@
   - bugfix: genital layering actually somewhat makes sense now, there is more room
       for improvements though
   - bugfix: fixes digi curator and barber undersuits having the wrong sprite
+2026-07-13:
+  Drifter7371:
+  - rscadd: 'Expie tail and ears under ''Experiment''.
+
+      :cl:'
+  Hatterhat:
+  - map: Fixed some coldroom issues on OceanPubby, Void Raptor, Blueshift, and Snowglobe.
+      Also fixed a missing wire on Void Raptor.
+  Jureiia:
+  - rscadd: Chimpanzee (Monkey) language is now a round start choice.
+  - rscdel: Wormtongue language is no longer a round start choice.
+  Neocloudy:
+  - code_imp: ERP taste/scent descriptions and arousal flavor texts now use DNA instead
+      of reading directly from preferences.
+  Stalkeros, NewyearnewmeUwu for the original PR:
+  - rscadd: Added Nervous Tremble, a quirk that makes aim worse when sanity is low.
+  bruhlookatthisdood:
+  - bugfix: ore generation subsystem will now not stop after one ghost_mining ore
+      vent and instead will continue for them all.
+  moonridden:
+  - refactor: Updates Antag-Opt module code structures and references across the code
+      to support a new Opt pref
+  - admin: Introduces Conflict-Opt, a policy bound visual Opt-In preference found
+      on the Character Profile page as a drop-down opt. Pair this with information
+      on your Wiki or Discord.
+  - config: Adds a new disable-config for Conflict Opt module.
+  sqnztb:
+  - rscadd: Maid smite gets more options.
