@@ -145,6 +145,10 @@
 				/obj/item/reagent_containers/applicator/pill/camphor = 10,
 				/obj/item/reagent_containers/cup/bottle/crocin = 6,
 				/obj/item/reagent_containers/cup/bottle/camphor = 3,
+				/obj/item/reagent_containers/applicator/pill/dapoxetine = 20,
+				/obj/item/reagent_containers/cup/bottle/dapoxetine = 6,
+				/obj/item/reagent_containers/applicator/pill/rutt = 20,
+				/obj/item/reagent_containers/cup/bottle/rutt = 6,
 				/obj/item/reagent_containers/cup/bottle/succubus_milk = 6, //Those are legal 'cause you can just turn off prefs in round in "CLOWN SMOKE MACHINE+PENIS ENLARGEMENT CHEMICAL CASE". Yes, i have special code-phrase for this. I've seen some shit.
 				/obj/item/reagent_containers/cup/bottle/incubus_draft = 6,
 
@@ -153,6 +157,10 @@
 				/obj/item/disk/neuroware/camphor = 20,
 				/obj/item/storage/box/flat/neuroware/crocin = 15,
 				/obj/item/storage/box/flat/neuroware/camphor = 10,
+				/obj/item/disk/neuroware/dapoxetine = 20,
+				/obj/item/disk/neuroware/rutt = 30,
+				/obj/item/storage/box/flat/neuroware/dapoxetine = 10,
+				/obj/item/storage/box/flat/neuroware/rutt = 15,
 			),
 		),
 		list(

@@ -8911,6 +8911,7 @@
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\camphor.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\crocin.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\cum.dm"
+#include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\dapoxetine.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\dopamine.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\hexacrocin.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_chemistry\reagents\incubus_draft.dm"

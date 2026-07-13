@@ -154,6 +154,7 @@
 #define TRAIT_MASOCHISM "masochism"
 #define TRAIT_SADISM "sadism"
 #define TRAIT_NO_LIBIDO "no libido"
+#define TRAIT_NO_CLIMAX "no climax"
 #define TRAIT_AMOROUS "amorous"
 #define TRAIT_RIGGER "rigger"
 #define TRAIT_ROPEBUNNY "rope bunny"

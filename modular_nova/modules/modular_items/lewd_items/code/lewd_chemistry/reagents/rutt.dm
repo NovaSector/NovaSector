@@ -4,25 +4,9 @@
 	taste_description = "potent and floral sexual musk"
 	color = "#ffa9a9"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED | REAGENT_NO_RANDOM_RECIPE
+	life_pref_datum = /datum/preference/toggle/erp/aphro
 	///The maximum amount of pleasure the reagent can cause per cycle
 	var/maximum_pleasure = 15
-
-/datum/glass_style/drinking_glass/rutt
-	required_drink_type = /datum/reagent/drug/aphrodisiac/rutt
-	name = "glass of R.U.T.T."
-	desc = "A glass of frothy pink juice. It smells floral and musky."
-
-/obj/item/reagent_containers/cup/bottle/rutt
-	name = "\improper R.U.T.T. bottle"
-	desc = "A bottle of frothy pink juice. It smells floral and musky."
-	list_reagents = list(/datum/reagent/drug/aphrodisiac/rutt = 30)
-
-/obj/item/reagent_containers/applicator/pill/rutt
-	name = "\improper R.U.T.T. pill (25u)"
-	desc = "This aphrodisiac is an extremely powerful narcotic which may cause unintended climax."
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_pills.dmi'
-	icon_state = "rutt"
-	list_reagents = list(/datum/reagent/drug/aphrodisiac/rutt = 10)
 
 /datum/reagent/drug/aphrodisiac/rutt/on_mob_add(mob/living/carbon/human/exposed_mob)
 	if(!(exposed_mob.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))
