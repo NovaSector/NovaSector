@@ -145,6 +145,10 @@
 				/obj/item/reagent_containers/applicator/pill/camphor = 10,
 				/obj/item/reagent_containers/cup/bottle/crocin = 6,
 				/obj/item/reagent_containers/cup/bottle/camphor = 3,
+				/obj/item/reagent_containers/applicator/pill/hexacrocin = 10,
+				/obj/item/reagent_containers/applicator/pill/pentacamphor = 5,
+				/obj/item/reagent_containers/cup/bottle/hexacrocin = 4,
+				/obj/item/reagent_containers/cup/bottle/pentacamphor = 2,
 				/obj/item/reagent_containers/applicator/pill/dapoxetine = 20,
 				/obj/item/reagent_containers/cup/bottle/dapoxetine = 6,
 				/obj/item/reagent_containers/applicator/pill/rutt = 20,
@@ -157,6 +161,10 @@
 				/obj/item/disk/neuroware/camphor = 20,
 				/obj/item/storage/box/flat/neuroware/crocin = 15,
 				/obj/item/storage/box/flat/neuroware/camphor = 10,
+				/obj/item/disk/neuroware/hexacrocin = 15,
+				/obj/item/disk/neuroware/pentacamphor = 10,
+				/obj/item/storage/box/flat/neuroware/hexacrocin = 4,
+				/obj/item/storage/box/flat/neuroware/pentacamphor = 2,
 				/obj/item/disk/neuroware/dapoxetine = 20,
 				/obj/item/disk/neuroware/rutt = 30,
 				/obj/item/storage/box/flat/neuroware/dapoxetine = 10,
@@ -183,24 +191,11 @@
 		/obj/item/clothing/neck/collar/thick/holocollar = 3,
 		/obj/item/clothing/neck/collar/leather/holocollar = 3,
 		/obj/item/clothing/neck/size_collar = 8,//It only works in the Interlink anyways
-	)
-
-	contraband = list(
 		/obj/item/electropack/shockcollar = 4,
 		/obj/item/clothing/neck/mind_collar = 2,
 		/obj/item/clothing/under/costume/jabroni = 4,
 		/obj/item/clothing/suit/straight_jacket/kinky_sleepbag = 2, //my favorite thing, spent 1 month on it. Don't remove please.
 		/obj/item/disk/nifsoft_uploader/dorms/contract = 5,
-		/obj/item/reagent_containers/applicator/pill/hexacrocin = 10,
-		/obj/item/reagent_containers/applicator/pill/pentacamphor = 5,
-		/obj/item/reagent_containers/applicator/pill/rutt = 10,
-		/obj/item/reagent_containers/cup/bottle/hexacrocin = 4,
-		/obj/item/reagent_containers/cup/bottle/pentacamphor = 2,
-		/obj/item/reagent_containers/cup/bottle/rutt = 4,
-		/obj/item/disk/neuroware/hexacrocin = 15,
-		/obj/item/disk/neuroware/pentacamphor = 10,
-		/obj/item/storage/box/flat/neuroware/hexacrocin = 4,
-		/obj/item/storage/box/flat/neuroware/pentacamphor = 2,
 	)
 
 	refill_canister = /obj/item/vending_refill/lustwish
