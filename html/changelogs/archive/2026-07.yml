@@ -415,6 +415,8 @@
   Hatterhat:
   - map: Fixed some coldroom issues on OceanPubby, Void Raptor, Blueshift, and Snowglobe.
       Also fixed a missing wire on Void Raptor.
+  JerryWester:
+  - rscadd: Added one new clothing item to the loadout screen and ClothesMate
   Jureiia:
   - rscadd: Chimpanzee (Monkey) language is now a round start choice.
   - rscdel: Wormtongue language is no longer a round start choice.
