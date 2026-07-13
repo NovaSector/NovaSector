@@ -43,8 +43,8 @@
 	obj_flags_nova = ERP_ITEM
 
 /obj/item/disk/neuroware/dapoxetine
-	name = "\improper Softlock™ neuroware"
-	desc = "A neuroware chip containing Lustwish Softlock™, an anaphrodisiac emulator which prevents orgasm. Multi-user license included."
+	name = "\improper Softlock neuroware"
+	desc = "A neuroware chip containing Softlock, an anaphrodisiac emulator which prevents orgasm. Multi-user license included."
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/dapoxetine/synth = 25)
 	icon_state = "/obj/item/disk/neuroware/dapoxetine"
 	post_init_icon_state = "chip_nolewd"
@@ -54,8 +54,8 @@
 	obj_flags_nova = ERP_ITEM
 
 /obj/item/disk/neuroware/rutt
-	name = "\improper Cli-Max™ neuroware"
-	desc = "A neuroware chip containing Lustwish Cli-Max™, an aphrodisiac emulator which causes orgasms. Multi-user license included."
+	name = "\improper Rut-Kit neuroware"
+	desc = "A neuroware chip containing Rut-Kit, an aphrodisiac emulator which causes orgasms. Multi-user license included."
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/rutt/synth = 25)
 	icon_state = "/obj/item/disk/neuroware/rutt"
 	post_init_icon_state = "chip_lewd"

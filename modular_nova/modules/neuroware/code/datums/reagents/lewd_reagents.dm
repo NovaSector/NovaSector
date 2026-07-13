@@ -44,7 +44,7 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/aphrodisiac/crocin/hexacrocin/sy
 NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/aphrodisiac/dapoxetine/synth)
 
 /datum/reagent/drug/aphrodisiac/rutt/synth
-	name = "cli-max.exe"
+	name = "rutkit.exe"
 	chemical_flags = REAGENT_NEUROWARE
 	process_flags = REAGENT_SYNTHETIC
 	self_consuming = TRUE
