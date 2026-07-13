@@ -22,32 +22,12 @@ Version 5.39, 19 April 2026, by SilverWolves
 adds playtime bans and playtime notes expiration
 
 ```sql
-CREATE TABLE `playtime_ban` (
-  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `bantime` DATETIME NOT NULL,
-  `server_name` VARCHAR(32) DEFAULT NULL,
-  `server_ip` INT(10) UNSIGNED NOT NULL,
-  `server_port` SMALLINT(5) UNSIGNED NOT NULL,
-  `round_id` INT(11) UNSIGNED NULL,
-  `role` VARCHAR(32) NOT NULL,
-  `required_playtime_type` VARCHAR(32) NOT NULL DEFAULT 'Living',
-  `start_playtime` INT(11) UNSIGNED NOT NULL,
-  `duration` INT(11) UNSIGNED NOT NULL,
-  `target_playtime` INT(11) UNSIGNED NOT NULL,
-  `applies_to_admins` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
-  `reason` VARCHAR(2048) NOT NULL,
-  `ckey` VARCHAR(32) NOT NULL,
-  `a_ckey` VARCHAR(32) NOT NULL,
-  `a_ip` INT(10) UNSIGNED NOT NULL,
-  `a_computerid` VARCHAR(32) NOT NULL,
-  `who` VARCHAR(2048) NOT NULL,
-  `adminwho` VARCHAR(2048) NOT NULL,
-  `unbanned_datetime` DATETIME NULL DEFAULT NULL,
-  `unbanned_ckey` VARCHAR(32) NULL DEFAULT NULL,
-  `unbanned_round_id` INT(11) UNSIGNED NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idx_playtime_ban_active` (`ckey`,`role`,`unbanned_datetime`,`target_playtime`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+ALTER TABLE `ban`
+  ADD COLUMN `required_playtime_type` VARCHAR(32) NULL DEFAULT NULL AFTER `role`,
+  ADD COLUMN `start_playtime` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `required_playtime_type`,
+  ADD COLUMN `playtime_duration` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `start_playtime`,
+  ADD COLUMN `target_playtime` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `playtime_duration`,
+  ADD INDEX `idx_ban_playtime_active` (`ckey`,`role`,`unbanned_datetime`,`target_playtime`);
 
 ALTER TABLE `messages`
   ADD COLUMN `expire_playtime` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `playtime`,

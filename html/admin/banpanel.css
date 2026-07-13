@@ -17,6 +17,7 @@
 }
 
 .rolegroup {
+  box-sizing: border-box;
   padding: 3px;
   width: 430px;
   border: none;
@@ -26,23 +27,75 @@
 }
 
 .playtimeroles {
-  min-width: 900px;
+  width: 100%;
+  min-width: 0;
 }
 
 .playtimeroles .column {
   width: 430px;
+  max-width: 100%;
+  margin-bottom: 8px;
+}
+
+.playtimeroles .longcolumn {
+  clear: both;
+  width: 860px;
+  max-width: 100%;
 }
 
 .long {
   width: 860px;
+  max-width: 100%;
 }
 
 .content {
+  box-sizing: border-box;
   text-align: center;
+}
+
+.longcolumn .content {
+  width: 860px;
+  max-width: 100%;
+}
+
+.command {
+  background-color: #948f02;
+}
+
+.centralcommand {
+  background-color: #69ff69;
+}
+
+.security {
+  background-color: #a30000;
+}
+
+.engineering {
+  background-color: #fb5613;
+}
+
+.medical {
+  background-color: #337296;
+}
+
+.science {
+  background-color: #993399;
+}
+
+.supply {
+  background-color: #a8732b;
+}
+
+.silicon {
+  background-color: #ff00ff;
 }
 
 .abstract {
   background-color: #708090;
+}
+
+.service {
+  background-color: #6eaa2c;
 }
 
 .ghostandotherroles {
@@ -57,6 +110,6 @@
   background-color: #445a67;
 }
 
-.no_department {
+.undefineddepartment {
   background-color: #111cf7;
 }

@@ -108,51 +108,67 @@
 	if(!SSdbcore.Connect())
 		return FALSE
 
-	var/table_name = format_table_name("playtime_ban")
-	var/datum/db_query/query_playtime_ban_table = SSdbcore.NewQuery({"
+	var/table_name = format_table_name("ban")
+	var/list/playtime_columns = list(
+		list("name" = "required_playtime_type", "definition" = "`required_playtime_type` VARCHAR(32) NULL DEFAULT NULL AFTER `role`"),
+		list("name" = "start_playtime", "definition" = "`start_playtime` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `required_playtime_type`"),
+		list("name" = "playtime_duration", "definition" = "`playtime_duration` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `start_playtime`"),
+		list("name" = "target_playtime", "definition" = "`target_playtime` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `playtime_duration`"),
+	)
+
+	for(var/list/column_data as anything in playtime_columns)
+		var/column_name = column_data["name"]
+		var/column_definition = column_data["definition"]
+		var/datum/db_query/query_column_exists = SSdbcore.NewQuery({"
+			SELECT COUNT(*)
+			FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_SCHEMA = DATABASE()
+				AND TABLE_NAME = :table_name
+				AND COLUMN_NAME = :column_name
+		"}, list("table_name" = table_name, "column_name" = column_name))
+		if(!query_column_exists.Execute(async = FALSE, log_error = FALSE))
+			qdel(query_column_exists)
+			return FALSE
+
+		var/column_exists = FALSE
+		if(query_column_exists.NextRow())
+			column_exists = text2num(query_column_exists.item[1]) > 0
+		qdel(query_column_exists)
+		if(column_exists)
+			continue
+
+		var/datum/db_query/query_add_column = SSdbcore.NewQuery("ALTER TABLE [table_name] ADD COLUMN [column_definition]")
+		if(!query_add_column.Execute(async = FALSE, log_error = FALSE))
+			log_sql("Failed to add missing ban.[column_name] column: [query_add_column.ErrorMsg()]")
+			qdel(query_add_column)
+			return FALSE
+		qdel(query_add_column)
+		log_sql("Added missing ban.[column_name] column.")
+
+	var/datum/db_query/query_index_exists = SSdbcore.NewQuery({"
 		SELECT COUNT(*)
-		FROM INFORMATION_SCHEMA.TABLES
+		FROM INFORMATION_SCHEMA.STATISTICS
 		WHERE TABLE_SCHEMA = DATABASE()
 			AND TABLE_NAME = :table_name
+			AND INDEX_NAME = 'idx_ban_playtime_active'
 	"}, list("table_name" = table_name))
-	if(!query_playtime_ban_table.Execute(async = FALSE, log_error = FALSE))
-		qdel(query_playtime_ban_table)
+	if(!query_index_exists.Execute(async = FALSE, log_error = FALSE))
+		qdel(query_index_exists)
 		return FALSE
 
-	var/table_exists = FALSE
-	if(query_playtime_ban_table.NextRow())
-		table_exists = text2num(query_playtime_ban_table.item[1]) > 0
-	qdel(query_playtime_ban_table)
-	if(!table_exists)
-		return FALSE
+	var/index_exists = FALSE
+	if(query_index_exists.NextRow())
+		index_exists = text2num(query_index_exists.item[1]) > 0
+	qdel(query_index_exists)
+	if(!index_exists)
+		var/datum/db_query/query_add_index = SSdbcore.NewQuery("ALTER TABLE [table_name] ADD INDEX `idx_ban_playtime_active` (`ckey`,`role`,`unbanned_datetime`,`target_playtime`)")
+		if(!query_add_index.Execute(async = FALSE, log_error = FALSE))
+			log_sql("Failed to add missing ban.idx_ban_playtime_active index: [query_add_index.ErrorMsg()]")
+			qdel(query_add_index)
+			return FALSE
+		qdel(query_add_index)
+		log_sql("Added missing ban.idx_ban_playtime_active index.")
 
-	var/datum/db_query/query_required_playtime_type = SSdbcore.NewQuery({"
-		SELECT COUNT(*)
-		FROM INFORMATION_SCHEMA.COLUMNS
-		WHERE TABLE_SCHEMA = DATABASE()
-			AND TABLE_NAME = :table_name
-			AND COLUMN_NAME = 'required_playtime_type'
-	"}, list("table_name" = table_name))
-	if(!query_required_playtime_type.Execute(async = FALSE, log_error = FALSE))
-		qdel(query_required_playtime_type)
-		return FALSE
-
-	var/has_required_playtime_type = FALSE
-	if(query_required_playtime_type.NextRow())
-		has_required_playtime_type = text2num(query_required_playtime_type.item[1]) > 0
-	qdel(query_required_playtime_type)
-	if(has_required_playtime_type)
-		playtime_ban_schema_checked = TRUE
-		return TRUE
-
-	var/datum/db_query/query_add_required_playtime_type = SSdbcore.NewQuery("ALTER TABLE [table_name] ADD COLUMN `required_playtime_type` VARCHAR(32) NOT NULL DEFAULT 'Living' AFTER `role`")
-	if(!query_add_required_playtime_type.Execute(async = FALSE, log_error = FALSE))
-		log_sql("Failed to add missing playtime_ban.required_playtime_type column: [query_add_required_playtime_type.ErrorMsg()]")
-		qdel(query_add_required_playtime_type)
-		return FALSE
-	qdel(query_add_required_playtime_type)
-
-	log_sql("Added missing playtime_ban.required_playtime_type column.")
 	playtime_ban_schema_checked = TRUE
 	return TRUE
 
@@ -207,8 +223,9 @@
 
 	var/datum/db_query/query_build_playtime_ban_cache = SSdbcore.NewQuery({"
 		SELECT role, required_playtime_type, target_playtime
-		FROM [format_table_name("playtime_ban")]
+		FROM [format_table_name("ban")]
 		WHERE ckey = :ckey
+			AND target_playtime IS NOT NULL
 			AND unbanned_datetime IS NULL
 			AND (NOT :must_apply_to_admins OR applies_to_admins = 1)
 	"}, list(
@@ -279,9 +296,10 @@
 	var/is_admin = !!(GLOB.admin_datums[player_ckey] || GLOB.deadmins[player_ckey])
 	var/datum/db_query/query_check_playtime_ban = SSdbcore.NewQuery({"
 		SELECT required_playtime_type, target_playtime
-		FROM [format_table_name("playtime_ban")]
+		FROM [format_table_name("ban")]
 		WHERE ckey = :ckey
 			AND role = :role
+			AND target_playtime IS NOT NULL
 			AND unbanned_datetime IS NULL
 			AND (NOT :must_apply_to_admins OR applies_to_admins = 1)
 	"}, list(
@@ -398,20 +416,21 @@
 			role,
 			required_playtime_type,
 			start_playtime,
-			duration,
+			playtime_duration,
 			target_playtime,
 			applies_to_admins,
 			reason,
-			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE [format_table_name("player")].ckey = [format_table_name("playtime_ban")].ckey), ckey),
-			ckey,
-			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE [format_table_name("player")].ckey = [format_table_name("playtime_ban")].a_ckey), a_ckey),
+			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE [format_table_name("player")].ckey = playtime_bans.ckey), playtime_bans.ckey),
+			playtime_bans.ckey,
+			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE [format_table_name("player")].ckey = playtime_bans.a_ckey), playtime_bans.a_ckey),
 			unbanned_datetime,
-			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE [format_table_name("player")].ckey = [format_table_name("playtime_ban")].unbanned_ckey), unbanned_ckey),
+			IFNULL((SELECT byond_key FROM [format_table_name("player")] WHERE [format_table_name("player")].ckey = playtime_bans.unbanned_ckey), playtime_bans.unbanned_ckey),
 			unbanned_round_id
-		FROM [format_table_name("playtime_ban")]
+		FROM [format_table_name("ban")] AS playtime_bans
 		WHERE
-			(:player_key IS NULL OR ckey = :player_key) AND
-			(:admin_key IS NULL OR a_ckey = :admin_key)
+			target_playtime IS NOT NULL AND
+			(:player_key IS NULL OR playtime_bans.ckey = :player_key) AND
+			(:admin_key IS NULL OR playtime_bans.a_ckey = :admin_key)
 		ORDER BY id DESC
 		LIMIT 50
 	"}, list(
@@ -485,11 +504,12 @@
 	var/kn = key_name(usr)
 	var/kna = key_name_admin(usr)
 	var/datum/db_query/query_unban_playtime_ban = SSdbcore.NewQuery({"
-		UPDATE [format_table_name("playtime_ban")] SET
+		UPDATE [format_table_name("ban")] SET
 			unbanned_datetime = NOW(),
 			unbanned_ckey = :admin_ckey,
 			unbanned_round_id = :round_id
 		WHERE id = :ban_id
+			AND target_playtime IS NOT NULL
 	"}, list("ban_id" = ban_id, "admin_ckey" = usr.client.ckey, "round_id" = GLOB.round_id))
 	if(!query_unban_playtime_ban.warn_execute())
 		qdel(query_unban_playtime_ban)
@@ -525,11 +545,12 @@
 	var/kn = key_name(usr)
 	var/kna = key_name_admin(usr)
 	var/datum/db_query/query_reban_playtime_ban = SSdbcore.NewQuery({"
-		UPDATE [format_table_name("playtime_ban")] SET
+		UPDATE [format_table_name("ban")] SET
 			unbanned_datetime = NULL,
 			unbanned_ckey = NULL,
 			unbanned_round_id = NULL
 		WHERE id = :ban_id
+			AND target_playtime IS NOT NULL
 	"}, list("ban_id" = ban_id))
 	if(!query_reban_playtime_ban.warn_execute())
 		qdel(query_reban_playtime_ban)
@@ -601,7 +622,7 @@
 	var/list/group_names = list()
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
 		group_names |= department.department_name
-		group_names |= department.get_label_class()
+		group_names |= department.label_class
 		group_names |= ckey(department.department_name)
 
 	var/list/target_role_groups = get_playtime_ban_target_role_groups()
@@ -657,9 +678,10 @@
 
 	var/datum/db_query/query_get_playtime_banned_roles = SSdbcore.NewQuery({"
 		SELECT role, required_playtime_type, target_playtime
-		FROM [format_table_name("playtime_ban")]
+		FROM [format_table_name("ban")]
 		WHERE
 			ckey = :player_ckey
+			AND target_playtime IS NOT NULL
 			AND unbanned_datetime IS NULL
 	"}, list("player_ckey" = player_ckey))
 	if(!query_get_playtime_banned_roles.warn_execute())
@@ -678,7 +700,7 @@
 
 /proc/render_playtime_ban_department_group(datum/job_department/department, list/banned_from)
 	var/list/output = list()
-	var/label_class = department.get_label_class()
+	var/label_class = department.label_class
 	var/department_name = department.department_name
 	var/group_class = ckey(department_name)
 	output += "<div class='column'><label class='rolegroup [label_class] [group_class]'><input type='checkbox' name='[group_class]' class='hidden' onClick='header_click_all_checkboxes(this)'> \
@@ -711,7 +733,7 @@
 /proc/render_playtime_ban_role_group(group_name, list/roles, list/banned_from)
 	var/list/output = list()
 	var/group_class = ckey(group_name)
-	output += "<div class='column'><label class='rolegroup long [group_class]'><input type='checkbox' name='[group_class]' class='hidden' onClick='header_click_all_checkboxes(this)'>[group_name]</label><div class='content'>"
+	output += "<div class='column longcolumn'><label class='rolegroup long [group_class]'><input type='checkbox' name='[group_class]' class='hidden' onClick='header_click_all_checkboxes(this)'>[group_name]</label><div class='content'>"
 	var/break_counter = 0
 	for(var/role in roles)
 		if(!role)
@@ -815,6 +837,8 @@
 	output += "<div class='row playtimeroles'>"
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
 		output += render_playtime_ban_department_group(department, banned_from)
+
+	output += "</div><div class='row playtimeroles'>"
 
 	var/list/target_role_groups = get_playtime_ban_target_role_groups()
 	for(var/group_name in target_role_groups)
@@ -930,6 +954,7 @@
 	var/list/special_columns = list(
 		"bantime" = "NOW()",
 		"server_ip" = "INET_ATON(?)",
+		"ip" = "INET_ATON(?)",
 		"a_ip" = "INET_ATON(?)",
 	)
 	var/list/sql_playtime_bans = list()
@@ -942,11 +967,13 @@
 			"role" = role,
 			"required_playtime_type" = required_playtime_type,
 			"start_playtime" = current_required_playtime,
-			"duration" = duration_minutes,
+			"playtime_duration" = duration_minutes,
 			"target_playtime" = target_playtime,
 			"applies_to_admins" = applies_to_admins,
 			"reason" = reason,
 			"ckey" = player_ckey,
+			"ip" = ip_check ? (player_ip || null) : null,
+			"computerid" = cid_check ? (player_cid || null) : null,
 			"a_ckey" = admin_ckey,
 			"a_ip" = admin_ip || 0,
 			"a_computerid" = admin_cid,
@@ -954,7 +981,7 @@
 			"adminwho" = adminwho,
 		))
 
-	if(!SSdbcore.MassInsert(format_table_name("playtime_ban"), sql_playtime_bans, warn = TRUE, special_columns = special_columns))
+	if(!SSdbcore.MassInsert(format_table_name("ban"), sql_playtime_bans, warn = TRUE, special_columns = special_columns))
 		return
 
 	var/target = ban_target_string(player_key, player_ip, player_cid)

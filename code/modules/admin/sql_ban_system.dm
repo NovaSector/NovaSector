@@ -67,6 +67,7 @@
 		WHERE
 			ckey = :player_ckey AND
 			role IN ([sql_roles]) AND
+			target_playtime IS NULL AND
 			unbanned_datetime IS NULL AND
 			(expiration_time IS NULL OR expiration_time > NOW())
 			AND (NOT :must_apply_to_admins OR applies_to_admins = 1)
@@ -107,6 +108,7 @@
 		FROM [format_table_name("ban")]
 		WHERE role = :role
 			AND (ckey = :ckey OR ip = INET_ATON(:ip) OR computerid = :computerid)
+			AND target_playtime IS NULL
 			AND unbanned_datetime IS NULL
 			AND (expiration_time IS NULL OR expiration_time > NOW())
 		ORDER BY bantime DESC
@@ -162,7 +164,7 @@
 	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
 		is_admin = TRUE
 	var/datum/db_query/query_build_ban_cache = SSdbcore.NewQuery(
-		"SELECT role, applies_to_admins FROM [format_table_name("ban")] WHERE ckey = :ckey AND unbanned_datetime IS NULL AND (expiration_time IS NULL OR expiration_time > NOW())",
+		"SELECT role, applies_to_admins FROM [format_table_name("ban")] WHERE ckey = :ckey AND target_playtime IS NULL AND unbanned_datetime IS NULL AND (expiration_time IS NULL OR expiration_time > NOW())",
 		list("ckey" = ckey)
 	)
 	var/query_successful = query_build_ban_cache.warn_execute()
@@ -309,6 +311,7 @@
 				WHERE
 					ckey = :player_ckey AND
 					role <> 'server'
+					AND target_playtime IS NULL
 					AND unbanned_datetime IS NULL
 					AND (expiration_time IS NULL OR expiration_time > NOW())
 			"}, list("player_ckey" = ckey(player_key)))
@@ -322,9 +325,9 @@
 		output += "<div class='row'>"
 
 		for(var/datum/job_department/department as anything in SSjob.joinable_departments)
-			var/label_class = department.get_label_class()
+			var/label_class = department.label_class
 			var/department_name = department.department_name
-			output += "<div class='column'><label class='rolegroup [label_class]' style='background-color: [department.ui_color];'><input type='checkbox' name='[label_class]' class='hidden' onClick='header_click_all_checkboxes(this)'> \
+			output += "<div class='column'><label class='rolegroup [label_class]'><input type='checkbox' name='[label_class]' class='hidden' onClick='header_click_all_checkboxes(this)'> \
 			[department_name]</label><div class='content'>"
 			for(var/datum/job/job_datum as anything in department.get_jobban_jobs())
 				if(break_counter > 0 && (break_counter % 3 == 0))
@@ -393,7 +396,6 @@
 				ROLE_MALF,
 				ROLE_NINJA,
 				ROLE_OPERATIVE,
-				ROLE_CLOWN_OPERATIVE,
 				ROLE_OVERTHROW,
 				ROLE_PARADOX_CLONE,
 				ROLE_REV,
@@ -704,7 +706,8 @@
 				(:player_key IS NULL OR ckey = :player_key) AND
 				(:admin_key IS NULL OR a_ckey = :admin_key) AND
 				(:player_ip IS NULL OR ip = INET_ATON(:player_ip)) AND
-				(:player_cid IS NULL OR computerid = :player_cid)
+				(:player_cid IS NULL OR computerid = :player_cid) AND
+				target_playtime IS NULL
 		"}, list(
 			"player_key" = ckey(player_key),
 			"admin_key" = ckey(admin_key),
@@ -762,7 +765,8 @@
 				(:player_key IS NULL OR ckey = :player_key) AND
 				(:admin_key IS NULL OR a_ckey = :admin_key) AND
 				(:player_ip IS NULL OR ip = INET_ATON(:player_ip)) AND
-				(:player_cid IS NULL OR computerid = :player_cid)
+				(:player_cid IS NULL OR computerid = :player_cid) AND
+				target_playtime IS NULL
 			ORDER BY id DESC
 			LIMIT :skip, :take
 		"}, list(
@@ -844,6 +848,7 @@
 			unbanned_round_id = :round_id,
 			edits = CONCAT(IFNULL(edits,''), :change_message)
 		WHERE id = :ban_id
+			AND target_playtime IS NULL
 	"}, list("ban_id" = ban_id, "admin_ckey" = usr.client.ckey, "admin_ip" = usr.client.address, "admin_cid" = usr.client.computer_id, "round_id" = GLOB.round_id, "change_message" = change_message))
 	if(!query_unban.warn_execute())
 		qdel(query_unban)
@@ -889,6 +894,7 @@
 			unbanned_round_id = NULL,
 			edits = CONCAT(IFNULL(edits,''), :change_message)
 		WHERE id = :ban_id
+			AND target_playtime IS NULL
 	"}, list("change_message" = change_message, "ban_id" = ban_id))
 	if(!query_reban.warn_execute())
 		qdel(query_reban)
@@ -916,7 +922,7 @@
 		var/datum/db_query/query_edit_ban_get_player = SSdbcore.NewQuery({"
 			SELECT
 				byond_key,
-				(SELECT bantime FROM [format_table_name("ban")] WHERE id = :ban_id),
+				(SELECT bantime FROM [format_table_name("ban")] WHERE id = :ban_id AND target_playtime IS NULL),
 				ip,
 				computerid
 			FROM [format_table_name("player")]
@@ -968,7 +974,7 @@
 	)
 	var/where
 	if(text2num(mirror_edit))
-		var/list/wherelist = list("bantime = '[bantime]'")
+		var/list/wherelist = list("bantime = '[bantime]'", "target_playtime IS NULL")
 		if(old_key)
 			wherelist += "ckey = :old_ckey"
 			arguments["old_ckey"] = ckey(old_key)
@@ -980,7 +986,7 @@
 			arguments["old_cid"] = old_cid
 		where = wherelist.Join(" AND ")
 	else
-		where = "id = :ban_id"
+		where = "id = :ban_id AND target_playtime IS NULL"
 		arguments["ban_id"] = ban_id
 
 	var/datum/db_query/query_edit_ban = SSdbcore.NewQuery({"
@@ -1068,6 +1074,7 @@
 		WHERE
 			a_ckey = :admin_ckey AND
 			applies_to_admins = 1 AND
+			target_playtime IS NULL AND
 			unbanned_datetime IS NULL AND
 			(expiration_time IS NULL OR expiration_time > NOW())
 	"}, list("admin_ckey" = admin_ckey))

@@ -190,12 +190,13 @@
 		"note_severity" = note_severity,
 		"playtime_expiry" = playtime_expiry || null,
 		"playtime_expiry_type" = playtime_expiry ? (playtime_expiry_type || EXP_TYPE_LIVING) : null,
+		"living_exp_type" = EXP_TYPE_LIVING,
 	)
 	if(timestamp)
 		parameters["timestamp"] = timestamp
 	var/datum/db_query/query_create_message = SSdbcore.NewQuery({"
 		INSERT INTO [format_table_name("messages")] (type, targetckey, adminckey, text, timestamp, server, server_ip, server_port, round_id, secret, expire_timestamp, severity, playtime, expire_playtime, expire_playtime_type)
-		VALUES (:type, :target_ckey, :admin_ckey, :text, [timestamp? ":timestamp" : "Now()"], :server, INET_ATON(:internet_address), :port, :round_id, :secret, :expiry, :note_severity, (SELECT `minutes` FROM [format_table_name("role_time")] WHERE `ckey` = :target_ckey AND `job` = 'Living'), :playtime_expiry, :playtime_expiry_type)
+		VALUES (:type, :target_ckey, :admin_ckey, :text, [timestamp? ":timestamp" : "Now()"], :server, INET_ATON(:internet_address), :port, :round_id, :secret, :expiry, :note_severity, (SELECT `minutes` FROM [format_table_name("role_time")] WHERE `ckey` = :target_ckey AND `job` = :living_exp_type), :playtime_expiry, :playtime_expiry_type)
 	"}, parameters)
 	var/pm = "[key_name(usr)] has created a [secret ? "secret " : ""][type][(type == "note" || type == "message" || type == "watchlist entry") ? " for [target_key]" : ""]: [text]"
 	var/header = "[key_name_admin(usr)] has created a [secret ? "secret " : ""][type][(type == "note" || type == "message" || type == "watchlist entry") ? " for [target_key]" : ""]"
@@ -455,7 +456,7 @@
 		"}, list("severity" = new_severity, "lasteditor" = editor_ckey, "edit_text" = edit_text, "id" = message_id))
 		if(!query_edit_note_severity.warn_execute(async = TRUE))
 			qdel(query_edit_note_severity)
-			qdel(query_find_edit_note_severity)
+			qdel(qdel(query_find_edit_note_severity))
 			return
 		qdel(query_edit_note_severity)
 		log_admin_private("[kn] has edited the severity of a [type] for [target_key] made by [admin_key] from [old_severity] to [new_severity]")
