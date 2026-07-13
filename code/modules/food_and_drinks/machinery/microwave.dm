@@ -854,7 +854,7 @@
 		pre_fail()
 		return
 
-	if(!vampire_charge_amount || !length(ingredients) || isnull(cell) || !cell.charge || vampire_charge_amount < 25)
+	if(!vampire_charge_amount || !length(ingredients) || vampire_charge_amount < 25 || (cell_powered && (isnull(cell) || !cell.charge)))
 		vampire_cell = null
 		charge_loop_finish(cooker)
 		return

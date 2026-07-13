@@ -43,7 +43,7 @@
 		/obj/item/food/piru_pasta = 1,
 		/obj/item/food/grown/kiri = 1,
 		/obj/item/food/grown/muli = 1,
-		/obj/item/food/grown/carrot = 1,
+		/obj/item/food/grown/carrotlike/carrot = 1,
 	)
 	result = /obj/item/food/sweet_piru_noodles
 	dish_category = DISH_NOODLES
@@ -98,7 +98,7 @@
 		/datum/reagent/consumable/muli_juice = 10,
 		/obj/item/food/meat/cutlet = 2,
 		/obj/item/food/grown/cabbage = 1,
-		/obj/item/food/grown/carrot = 1,
+		/obj/item/food/grown/carrotlike/carrot = 1,
 		/datum/reagent/consumable/nakati_spice = 5,
 	)
 	result = /obj/item/food/stewed_muli
