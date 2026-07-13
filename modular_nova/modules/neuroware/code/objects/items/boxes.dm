@@ -82,3 +82,17 @@
 /obj/item/storage/box/flat/neuroware/pentacamphor/PopulateContents()
 	for(var/i in 1 to 5)
 		new /obj/item/disk/neuroware/pentacamphor(src)
+
+/obj/item/storage/box/flat/neuroware/dapoxetine
+	name = "neuroware chips (Softlock)"
+
+/obj/item/storage/box/flat/neuroware/dapoxetine/PopulateContents()
+	for(var/i in 1 to 5)
+		new /obj/item/disk/neuroware/dapoxetine(src)
+
+/obj/item/storage/box/flat/neuroware/rutt
+	name = "neuroware chips (Eruptor)"
+
+/obj/item/storage/box/flat/neuroware/rutt/PopulateContents()
+	for(var/i in 1 to 5)
+		new /obj/item/disk/neuroware/rutt(src)

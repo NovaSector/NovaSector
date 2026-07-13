@@ -33,3 +33,21 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/aphrodisiac/crocin/synth)
 	purge_multiplier = 0
 
 NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/aphrodisiac/crocin/hexacrocin/synth)
+
+/datum/reagent/drug/aphrodisiac/dapoxetine/synth
+	name = "softlock.exe"
+	chemical_flags = REAGENT_NEUROWARE
+	process_flags = REAGENT_SYNTHETIC
+	self_consuming = TRUE
+	purge_multiplier = 0
+
+NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/aphrodisiac/dapoxetine/synth)
+
+/datum/reagent/drug/aphrodisiac/rutt/synth
+	name = "cli-max.exe"
+	chemical_flags = REAGENT_NEUROWARE
+	process_flags = REAGENT_SYNTHETIC
+	self_consuming = TRUE
+	purge_multiplier = 0
+
+NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/aphrodisiac/rutt/synth)
