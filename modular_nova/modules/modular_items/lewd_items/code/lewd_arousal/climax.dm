@@ -184,6 +184,7 @@
 			apply_status_effect(/datum/status_effect/climax_cooldown)
 			if(self_orgasm)
 				add_mood_event("orgasm", /datum/mood_event/climaxself)
+			SEND_SIGNAL(src, COMSIG_MOB_CLIMAXED)
 			return TRUE
 
 	if(climax_choice == CLIMAX_VAGINA || climax_choice == CLIMAX_BOTH)
@@ -200,6 +201,7 @@
 	apply_status_effect(/datum/status_effect/climax_cooldown)
 	if(self_orgasm)
 		add_mood_event("orgasm", /datum/mood_event/climaxself)
+	SEND_SIGNAL(src, COMSIG_MOB_CLIMAXED)
 	return TRUE
 
 #undef CLIMAX_VAGINA

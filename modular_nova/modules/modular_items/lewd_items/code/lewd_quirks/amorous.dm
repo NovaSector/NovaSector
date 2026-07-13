@@ -18,10 +18,10 @@
 	carbon_holder.cure_trauma_type(/datum/brain_trauma/very_special/amorous, TRAUMA_RESILIENCE_ABSOLUTE)
 
 /datum/brain_trauma/very_special/amorous
-	name = "Permanent hormonal disruption"
+	name = "Hormonal disruption"
 	desc = "The patient has completely lost the ability to regulate their hormones, and seems extremely aroused."
-	scan_desc = "permanent hormonal disruption"
-	gain_text = span_purple("Your thoughts get cloudy, but it turns you on like hell.")
+	scan_desc = "hormonal disruption"
+	gain_text = span_purple("Your thoughts get cloudy, but it turns you on a lot.")
 	lose_text = span_warning("A pleasant coolness spreads throughout your body. You are thinking clearly again.")
 	//people need to be able to gain it through the chemical OD
 	can_gain = TRUE
@@ -29,7 +29,7 @@
 	random_gain = FALSE
 	//we don't want this to be displayed on a scanner
 	display_scanner = FALSE
-	resilience = TRAUMA_RESILIENCE_LOBOTOMY
+	resilience = TRAUMA_RESILIENCE_BASIC
 	///how satisfied the person is, gained through climaxing
 	var/satisfaction = 1000
 	///The maximum number satisfaction is allowed to reach
@@ -46,6 +46,9 @@
 	COOLDOWN_DECLARE(desire_cooldown)
 	///The time between each desire message within company
 	var/desire_cooldown_number = 30 SECONDS
+	///The time to remain satisfied after orgasm
+	var/refractory_cooldown_time = 5 MINUTES
+	COOLDOWN_DECLARE(refractory_cooldown)
 
 /**
  * If we are not satisfied, this will be ran through
@@ -77,41 +80,38 @@
 	return TRUE
 
 /**
- * If we have climaxed, return true
+ * If we have climaxed, reduce stress and satisfaction, and begin refractory cooldown
  */
 /datum/brain_trauma/very_special/amorous/proc/check_climaxed()
-	if(owner.has_status_effect(/datum/status_effect/climax))
-		stress = 0
-		satisfaction = min(satisfaction + satisfaction_gain, satisfaction_max)
-		return TRUE
-	return FALSE
+	stress = 0
+	satisfaction = min(satisfaction + satisfaction_gain, satisfaction_max)
+	COOLDOWN_START(src, refractory_cooldown, refractory_cooldown_time)
 
 /datum/brain_trauma/very_special/amorous/on_life()
 	var/mob/living/carbon/human/human_owner = owner
 
 	//Check if we climaxed, if so, just stop for now
-	if(check_climaxed())
+	if(!COOLDOWN_FINISHED(src, refractory_cooldown))
 		return
-	//if we are satisfied, slowly lower satisfaction as well as stress
-	if(satisfaction)
-		satisfaction = clamp(satisfaction - 1, 0, satisfaction_max)
-		stress = clamp(stress - 1, 0, stress_max)
-	//since we are not satisfied, increase our stress
-	else
-		stress = clamp(stress + 1, 0, stress_max)
 
 	human_owner.adjust_arousal(10)
 	if(human_owner.pleasure < 45)
 		human_owner.adjust_pleasure(5)
 
+	//if we are satisfied, slowly lower satisfaction and stress, then return
+	if(satisfaction)
+		satisfaction = clamp(satisfaction - 1, 0, satisfaction_max)
+		stress = clamp(stress - 1, 0, stress_max)
+		return
+	//since we are not satisfied, increase our stress
+	else
+		stress = clamp(stress + 1, 0, stress_max)
+		try_unsatisfied()
+
 	//Anything beyond this obeys a cooldown system because we don't want to spam it
 	if(!COOLDOWN_FINISHED(src, desire_cooldown))
 		return
 	COOLDOWN_START(src, desire_cooldown, desire_cooldown_number)
-
-	//if we are unsatisfied, do this code block and then stop
-	if(try_unsatisfied())
-		return
 
 	//Anything beyond this requires company
 	if(!in_company())
@@ -149,6 +149,7 @@
 		ADD_TRAIT(owner, TRAIT_AMOROUS, TRAIT_LEWDCHEM)
 	if(!HAS_TRAIT_FROM(owner, TRAIT_MASOCHISM, TRAIT_APHRO))
 		ADD_TRAIT(owner, TRAIT_MASOCHISM, TRAIT_APHRO)
+	RegisterSignal(owner, COMSIG_MOB_CLIMAXED, PROC_REF(check_climaxed))
 
 /datum/brain_trauma/very_special/amorous/on_lose()
 	. = ..()
@@ -157,7 +158,8 @@
 		REMOVE_TRAIT(owner, TRAIT_AMOROUS, TRAIT_LEWDCHEM)
 	if(HAS_TRAIT_FROM(owner, TRAIT_MASOCHISM, TRAIT_APHRO))
 		REMOVE_TRAIT(owner, TRAIT_MASOCHISM, TRAIT_APHRO)
+	UnregisterSignal(owner, COMSIG_MOB_CLIMAXED)
 
 //Mood boost
 /datum/mood_event/amorous
-	description = span_purple("So-o... Turned..on... Lo-ve it!")
+	description = span_purple("So... Turned on... I love it!")
