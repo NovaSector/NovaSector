@@ -678,7 +678,7 @@
 
 /proc/render_playtime_ban_department_group(datum/job_department/department, list/banned_from)
 	var/list/output = list()
-	var/label_class = department.label_class
+	var/label_class = department.get_label_class()
 	var/department_name = department.department_name
 	var/group_class = ckey(department_name)
 	output += "<div class='column'><label class='rolegroup [label_class] [group_class]'><input type='checkbox' name='[group_class]' class='hidden' onClick='header_click_all_checkboxes(this)'> \
