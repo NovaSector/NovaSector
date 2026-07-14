@@ -1,0 +1,4 @@
+author: "Iamgoofball"
+delete-after: True
+changes:
+  - bugfix: "Command jobs now mandate your Security and Medical records be filled out before you can qualify for them, as per Server Policy"
