@@ -186,4 +186,4 @@
 		"For Whom The Bell Tolls",
 	)
 	desc = "Removable disk used to store data, with a paper label adhered to the side. \
-    This one has '[pick(hackerman_bits)]' ominously written on it."
+	This one has '[pick(hackerman_bits)]' ominously written on it."

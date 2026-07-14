@@ -106,6 +106,7 @@
 	area_flags = NO_GRAVITY
 	area_limited_icon_smoothing = /area/shuttle/salvaged_shuttle
 
+#undef SALVAGE_SHUTTLE_STRINGS
 #undef SALVAGE_SHUTTLE_OLDEST_PRODUCED
 #undef SALVAGE_SHUTTLE_NEWEST_PRODUCED
 #undef SALVAGE_SHUTTLE_LATEST_USED

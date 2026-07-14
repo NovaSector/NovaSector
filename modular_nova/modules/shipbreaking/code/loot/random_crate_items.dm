@@ -442,3 +442,5 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 	)
 
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/five_hundred_cigarettes)
+
+#undef SALVAGE_CRATE_LOOT_SPAWNER
