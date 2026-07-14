@@ -1,5 +1,5 @@
 /datum/crafting_recipe/crusher_trophy
-	tool_paths = null
+	tool_paths = null // originally: tool_paths = list(/obj/item/kinetic_crusher)
 	time = 2 SECONDS // originally 5 seconds. this... doesn't feel like it changes much for some reason, though
 
 /datum/crafting_recipe/crusher_trophy/watcher_wing
