@@ -60,3 +60,4 @@
 /obj/structure/window/reinforced/shuttle/spaceship/unanchored
 	anchored = FALSE
 	state = WINDOW_OUT_OF_FRAME
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/titanium = SHEET_MATERIAL_AMOUNT)

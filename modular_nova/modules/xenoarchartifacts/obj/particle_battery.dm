@@ -3,6 +3,7 @@
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/machinery.dmi'
 	icon_state = "particles_battery0"
 	w_class = WEIGHT_CLASS_TINY
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = SMALL_MATERIAL_AMOUNT)
 	/// Effect we cloned from artifact
 	var/datum/artifact_effect/battery_effect
 	/// Max battery capacity
@@ -32,6 +33,7 @@
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/machinery.dmi'
 	icon_state = "utilizer"
 	w_class = WEIGHT_CLASS_TINY
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT)
 	/// We have to wait COOLDOWN_TIME before activating it again after deactivation
 	var/cooldown = 0
 	/// Are we blasting alien waves at unsuspecting passers-by

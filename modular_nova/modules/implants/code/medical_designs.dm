@@ -165,6 +165,9 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
+/obj/item/organ/cyberimp/arm/toolkit/flash
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+
 /datum/design/cyberimp_botany
 	name = "Botany Arm Implant"
 	desc = "Everything a botanist needs in an arm implant, designed to be installed on a subject's arm."

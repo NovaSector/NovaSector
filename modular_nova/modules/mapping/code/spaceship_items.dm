@@ -18,7 +18,7 @@
 	inhand_icon_state = "sheet-plastitaniumglass"
 	singular_name = "spaceship window plate"
 	merge_type = /obj/item/stack/sheet/spaceshipglass
-	mats_per_unit = /obj/item/stack/sheet/titaniumglass::mats_per_unit
+	mats_per_unit = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT)
 
 GLOBAL_LIST_INIT(spaceshipglass_recipes, list(
 	new /datum/stack_recipe("fulltile spaceship window", /obj/structure/window/reinforced/shuttle/spaceship/unanchored, 2, time = 2 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_IS_FULLTILE, category = CAT_WINDOWS), \

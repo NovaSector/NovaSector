@@ -14,21 +14,12 @@
 
 /datum/bodypart_overlay/mutant/genital/testicles
 	feature_key = ORGAN_SLOT_TESTICLES
-	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
-
-	/// Layer a bit lower, but still close to as high as possible
-	layer_above_all = -(BODY_FRONT_LAYER - 0.01)
-	layer_above_undies = -(UNIFORM_LAYER - 0.01)
-	layer_below_undies = -(UNIFORM_LAYER + 0.03)
-
-/datum/bodypart_overlay/mutant/genital/testicles/underwear_check()
-	if(!istype(owner))
-		return FALSE
-	else
-		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
-			return FALSE
-		else
-			return TRUE
+	layers = list(
+		EXTERNAL_FRONT_UNDER_CLOTHES = TESTICLES_LAYER,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+	)
+	offset_location = LOWER_BODY
+	genital_stack_rank = 3
 
 /obj/item/organ/genital/testicles/update_genital_icon_state()
 	var/measured_size = clamp(genital_size, 1, TESTICLES_MAX_SIZE)

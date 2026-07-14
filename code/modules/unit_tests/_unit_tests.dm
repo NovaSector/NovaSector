@@ -127,6 +127,7 @@
 #include "blood_volume_procs.dm"
 #include "bloody_footprints.dm"
 #include "borg_tools.dm"
+#include "boulder_processing.dm"
 #include "breath.dm"
 #include "buckle.dm"
 #include "burning.dm"
@@ -219,6 +220,7 @@
 #include "interaction_door.dm"
 #include "interaction_silicon.dm"
 #include "interaction_structures.dm"
+#include "job_display_order.dm"
 #include "json_savefile_importing.dm"
 #include "keybinding_init.dm"
 #include "kinetic_crusher.dm"
@@ -367,6 +369,7 @@
 #include "weird_food.dm"
 #include "wizard_loadout.dm"
 // NOVA EDIT START
+#include "~nova\accessory_layers.dm"
 #include "~nova\augment_items.dm"
 #include "~nova\automapper.dm"
 #include "~nova\digi_underclothes.dm"

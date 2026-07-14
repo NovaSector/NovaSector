@@ -7,6 +7,7 @@
 	icon = 'modular_nova/modules/medical_combitool/icons/surgery_tools.dmi'
 	icon_state = "bonesetter"
 	toolspeed = 0.25
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/bonesetter/alien/get_all_tool_behaviours()
 	return list(TOOL_BONESET, TOOL_ALIEN_BONESET)
@@ -105,6 +106,7 @@
 	icon = 'modular_nova/modules/medical_combitool/icons/surgery_tools.dmi'
 	icon_state = "bloodfilter"
 	toolspeed = 0.25
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT)
 
 /datum/design/alienbloodfilter
 	name = "Alien Blood Filter"

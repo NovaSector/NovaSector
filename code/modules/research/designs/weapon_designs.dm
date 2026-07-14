@@ -290,12 +290,15 @@
 	desc = "This safety firing pin allows firearms to be operated within proximity to a firing range."
 	id = "pin_testing"
 	build_type = PROTOLATHE | AWAY_LATHE
-	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT * 3)
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, /datum/material/glass =SMALL_MATERIAL_AMOUNT * 3)
 	build_path = /obj/item/firing_pin/test_range
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_FIRING_PINS
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
+/obj/item/firing_pin/test_range
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3)
 
 /datum/design/pin_mindshield
 	name = "Mindshield Firing Pin"
@@ -635,7 +638,7 @@
 	desc = "A dirt cheap 3D printed gun. Only holds one bullet, and is infamous for sometimes exploding on it's user."
 	id = "liberator_gun"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 15)
+	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 	build_path = /obj/item/gun/ballistic/automatic/pistol/doohickey
 	category = list(RND_CATEGORY_IMPORTED)
 
