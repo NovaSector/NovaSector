@@ -37,7 +37,8 @@
 /// Stamina-only shield
 /obj/item/clothing/accessory/energy_shield/syndicate/stamina
 	name = "\improper Low energy shield projector"
-	desc = "A specialist barrier fine-tuned to wavelengths typically associated disabler beams, incidentally also stopping low-energy projectiles like rubber shot; lethal rounds will pass through unhindered. The low intensity emitters conform to any body armor. Typically used by those who confront the law."
+	desc = "A specialist barrier fine-tuned to wavelengths typically associated disabler beams, incidentally also stopping low-energy projectiles like rubber shot; lethal rounds will pass through unhindered. 
+		The low intensity emitters conform to any body armor. Typically used by those who confront the law."
 	max_shield_health = 100
 	recharge_delay = 20 SECONDS
 	recharge_rate = 10
