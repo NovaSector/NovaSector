@@ -466,13 +466,13 @@ function JoblessRoleDropdown(props) {
 }
 
 type CharacterSectionsProps = {
-  dragging: number; // NOVA EDIT ADDITION
+  dragging: number;
   setDragging: (dragging: number) => void;
   setHoveringOver: (hoveringOver: string) => void;
 };
 
 function CharacterSection(props: CharacterSectionsProps) {
-  const { dragging, setDragging, setHoveringOver } = props; // NOVA EDIT CHANGE - ORIGINAL:  const { setDragging, setHoveringOver } = props;
+  const { dragging, setDragging, setHoveringOver } = props;
   const { data } = useBackend<PreferencesMenuData>();
   const { character_profiles } = data;
 
@@ -483,18 +483,10 @@ function CharacterSection(props: CharacterSectionsProps) {
       placement="bottom-end"
       content={
         <Box
-          // Dumb way to copy dropdown styling but it works I guess
-          style={{
-            boxShadow: 'var(--dropdown-menu-blur)',
-            backgroundColor: 'var(--dropdown-menu-background)',
-            border: 'var(--dropdown-menu-border)',
-            borderRadius: 'var(--dropdown-menu-border-radius)',
-            // NOVA EDIT ADDITION START
-            opacity: dragging === -1 ? 1 : 0,
-            pointerEvents: dragging === -1 ? 'auto' : 'none',
-            transition: 'opacity 0.35s ease-out',
-            // NOVA EDIT ADDITION END
-          }}
+          className={classes([
+            'PreferencesMenu__Jobs__characterMenu',
+            dragging !== -1 && 'PreferencesMenu__Jobs__characterMenu--hidden',
+          ])}
           width="75%"
         >
           <Stack vertical p={1}>
@@ -511,14 +503,11 @@ function CharacterSection(props: CharacterSectionsProps) {
                       <Button
                         draggable
                         color="transparent"
-                        // NOVA EDIT REMOVAL onDragStart={() => setDragging(index)}
-                        // NOVA EDIT ADDITION START
                         onDragStart={() => {
                           // Deferred so the browser captures the drag image
                           // before the popup goes invisible
                           setTimeout(() => setDragging(index), 0);
                         }}
-                        // NOVA EDIT ADDITION END
                         onDragEnd={() => {
                           setDragging(-1);
                           setHoveringOver('');
@@ -554,7 +543,7 @@ export function JobsPage() {
       <Stack>
         <Stack.Item grow>
           <CharacterSection
-            dragging={dragging} // NOVA EDIT ADDITION
+            dragging={dragging}
             setDragging={setDragging}
             setHoveringOver={setHoveringOver}
           />
