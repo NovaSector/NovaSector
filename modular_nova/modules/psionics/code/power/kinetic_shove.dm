@@ -222,6 +222,8 @@
 	if(form.directional_wave)
 		return start_kinetic_wave(living_owner, target, form)
 
+	if(check_shove_block(target, form))
+		return TRUE
 	return shove_target(target, form)
 
 /datum/action/cooldown/psionic/pointed/kinetic_pull/psionic_activate(atom/target)
@@ -288,18 +290,25 @@
 	if(!QDELETED(pulled_item))
 		UnregisterSignal(pulled_item, COMSIG_MOVABLE_PRE_IMPACT)
 
+/// Checks whether [target] blocks this kinetic form, emitting standard feedback if it does.
+/datum/action/cooldown/psionic/pointed/kinetic_shove/proc/check_shove_block(atom/target, datum/psionic_rank_variant/kinetic_shove/form, announce = TRUE)
+	var/mob/living/living_target = target
+	if(!istype(living_target))
+		return FALSE
+	if(!living_target.try_block_psionics(owner, PSIONIC_KINETIC, charge_cost = form.block_charge_cost, alert = form.block_message))
+		return FALSE
+
+	if(announce)
+		to_chat(owner, span_warning("Your force breaks against [living_target]'s psionic dampening."))
+	to_chat(living_target, span_warning("Invisible force breaks against your psionic dampening."))
+	return TRUE
+
 /datum/action/cooldown/psionic/pointed/kinetic_shove/proc/shove_target(atom/target, datum/psionic_rank_variant/kinetic_shove/form, announce = TRUE)
 	var/atom/movable/movable_target = target
 	if(!istype(movable_target))
 		return FALSE
 
 	var/mob/living/living_target = movable_target
-	if(istype(living_target) && living_target.try_block_psionics(owner, PSIONIC_KINETIC, charge_cost = form.block_charge_cost, alert = form.block_message))
-		if(announce)
-			to_chat(owner, span_warning("Your force breaks against [living_target]'s psionic dampening."))
-		to_chat(living_target, span_warning("Invisible force breaks against your psionic dampening."))
-		return FALSE
-
 	var/throw_direction = get_dir(owner, get_step_away(movable_target, owner))
 	if(!throw_direction)
 		throw_direction = get_dir(owner, movable_target)
@@ -492,6 +501,8 @@
 		if(movable_target.anchored)
 			continue
 		if(!isturf(movable_target.loc))
+			continue
+		if(check_shove_block(movable_target, form, announce = FALSE))
 			continue
 
 		if(shove_target(movable_target, form, announce = FALSE))

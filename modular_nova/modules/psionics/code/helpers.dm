@@ -17,21 +17,22 @@
 /// Checks whether this mob blocks an incoming psionic effect.
 /// Both `TRAIT_PSIONIC_DAMPENER` and `TRAIT_RESIST_PSYCHIC` block incoming effects here,
 /// but only `TRAIT_PSIONIC_DAMPENER` also blocks casting in `can_cast_psionics()`.
+/// Free trait blocks are checked first so charged protection items are not consumed needlessly.
 /mob/proc/can_block_psionics(psionic_flags = PSIONIC_INTRUSIVE, charge_cost = 1)
 	if(psionic_flags == NONE)
 		return FALSE
+
+	if(HAS_TRAIT(src, TRAIT_PSIONIC_DAMPENER))
+		return TRUE
+	if(HAS_TRAIT(src, TRAIT_RESIST_PSYCHIC))
+		return TRUE
 
 	var/list/psionic_sources = list()
 	var/list/psionic_blockers = list()
 
 	SEND_SIGNAL(src, COMSIG_MOB_RECEIVE_PSIONICS, psionic_flags, charge_cost, psionic_sources, psionic_blockers)
 	var/datum/component/psionic_protection/blocker = pick_psionic_blocker(psionic_blockers)
-	if(blocker?.block_psionic_effect(src, charge_cost))
-		return TRUE
-	if(HAS_TRAIT(src, TRAIT_PSIONIC_DAMPENER))
-		return TRUE
-
-	return HAS_TRAIT(src, TRAIT_RESIST_PSYCHIC)
+	return !!blocker?.block_psionic_effect(src, charge_cost)
 
 /// Picks one active psionic blocker to handle an incoming effect.
 /// Infinite protection wins first, psionic ability protection wins next, and worn item protection is randomized last.

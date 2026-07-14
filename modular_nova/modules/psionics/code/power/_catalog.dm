@@ -123,6 +123,10 @@
 	var/list/required_powers
 	/// Action type granted when learned.
 	var/datum/action/cooldown/psionic/action_type
+	/// Lowest rank among this power's forms, cached at catalog build.
+	var/cached_minimum_rank
+	/// UI-ready form data (rank, name, description), cached at catalog build.
+	var/list/cached_variant_data
 
 /datum/psionic_power/proc/get_name()
 	if(!action_type)
@@ -174,30 +178,30 @@
 	return action_rank_variant_types
 
 /datum/psionic_power/proc/get_minimum_rank()
-	if(!action_type)
-		return null
+	return cached_minimum_rank
 
-	var/list/action_rank_variant_types = get_action_rank_variant_types()
-	if(!length(action_rank_variant_types))
-		return null
+/datum/psionic_power/proc/get_variant_data()
+	return cached_variant_data || list()
 
-	var/minimum_rank
+/// Instantiates the action once to snapshot form metadata, avoiding per-query action churn.
+/// Must run after get_catalog_error() has validated this power.
+/datum/psionic_power/proc/build_cache()
+	cached_minimum_rank = null
+	cached_variant_data = list()
+
+	var/datum/action/cooldown/psionic/action = new action_type
 	var/minimum_rank_level
-	for(var/variant_type in action_rank_variant_types)
-		if(!ispath(variant_type, /datum/psionic_rank_variant))
-			continue
-
-		var/datum/psionic_rank_variant/variant = new variant_type
-		var/variant_rank = variant.rank
-		qdel(variant)
-		var/variant_rank_level = get_psionic_rank_level(variant_rank)
-		if(!variant_rank_level)
-			continue
+	for(var/datum/psionic_rank_variant/variant as anything in action.get_rank_variants())
+		cached_variant_data += list(list(
+			"rank" = variant.rank,
+			"name" = variant.get_name(action),
+			"description" = variant.get_description(action),
+		))
+		var/variant_rank_level = get_psionic_rank_level(variant.rank)
 		if(isnull(minimum_rank_level) || variant_rank_level < minimum_rank_level)
-			minimum_rank = variant_rank
+			cached_minimum_rank = variant.rank
 			minimum_rank_level = variant_rank_level
-
-	return minimum_rank
+	qdel(action)
 
 /datum/psionic_power/proc/get_catalog_error()
 	if(!ispath(action_type, /datum/action/cooldown/psionic))
@@ -240,6 +244,7 @@
 			qdel(power)
 			continue
 		cataloged_actions[power.action_type] = TRUE
+		power.build_cache()
 		catalog += power
 
 	return catalog
@@ -248,8 +253,10 @@
 	if(!ispath(action_type, /datum/action/cooldown/psionic))
 		return null
 
-	for(var/datum/psionic_power/power as anything in get_psionic_power_catalog())
-		if(power.action_type == action_type)
-			return power
+	var/static/list/powers_by_action_type
+	if(isnull(powers_by_action_type))
+		powers_by_action_type = list()
+		for(var/datum/psionic_power/power as anything in get_psionic_power_catalog())
+			powers_by_action_type[power.action_type] = power
 
-	return null
+	return powers_by_action_type[action_type]

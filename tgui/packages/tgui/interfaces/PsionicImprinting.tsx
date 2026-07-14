@@ -17,6 +17,12 @@ import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
+type PsionicPowerVariant = {
+  rank: string;
+  name: string;
+  description: string;
+};
+
 type PsionicPower = {
   action_type: string;
   name: string;
@@ -25,6 +31,8 @@ type PsionicPower = {
   required_school_points: number;
   required_powers: string[];
   required_power_names: string[];
+  minimum_rank?: string;
+  variants: PsionicPowerVariant[];
   tier: number;
   learned: BooleanLike;
   can_buy: BooleanLike;
@@ -89,7 +97,13 @@ const getPowerNodeHeight = (power: PsionicPower) => {
     : '';
   const descLines = getEstimatedLineCount(power.desc || '');
   const prereqLines = prereqText ? getEstimatedLineCount(prereqText) : 0;
-  const textHeight = 17 + descLines * 15 + 16 + prereqLines * 16;
+  const variantLines = (power.variants || []).reduce(
+    (lines, variant) =>
+      lines + getEstimatedLineCount(`${variant.rank}: ${variant.description}`),
+    0,
+  );
+  const textHeight =
+    17 + descLines * 15 + 16 + prereqLines * 16 + variantLines * 15;
 
   return Math.max(POWER_NODE_MIN_HEIGHT, textHeight + 26);
 };
@@ -401,6 +415,15 @@ const PowerNode = (props: {
               Prereq: {requiredPowerNames.join(', ')}
             </Box>
           )}
+          {(power.variants || []).map((variant) => (
+            <Box
+              key={variant.rank}
+              color="label"
+              className="PsionicImprinting__nodeMeta"
+            >
+              {variant.rank}: {variant.description}
+            </Box>
+          ))}
         </Stack.Item>
         <Stack.Item width="74px" textAlign="right">
           <Box className="PsionicImprinting__nodeCost">

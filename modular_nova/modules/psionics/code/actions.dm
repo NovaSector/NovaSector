@@ -452,16 +452,22 @@
 		return FALSE
 	if(!IsAvailable(feedback = TRUE))
 		return FALSE
-	var/activation_strain_gain = get_psionic_strain_gain(profile)
-	if(activation_strain_gain && !profile.try_gain_strain(activation_strain_gain, src))
-		return FALSE
 	if(!start_concentration(living_owner, profile, TRUE))
 		return FALSE
-	if(try_block_target(target, profile))
+	var/activation_strain_gain = get_psionic_strain_gain(profile)
+	if(activation_strain_gain && !profile.try_gain_strain(activation_strain_gain, src))
 		stop_concentration(living_owner)
 		return FALSE
+	// A blocked cast was still cast: the strain sticks and the cooldown starts.
+	if(try_block_target(target, profile))
+		stop_concentration(living_owner)
+		StartCooldown(get_psionic_cooldown_time(profile))
+		return TRUE
+	// A cast that never resolved (interrupted channel, invalid state) refunds its strain.
 	if(!psionic_activate(target))
 		stop_concentration(living_owner)
+		if(activation_strain_gain)
+			profile.refund_strain(activation_strain_gain, src)
 		return FALSE
 
 	StartCooldown(get_psionic_cooldown_time(profile))

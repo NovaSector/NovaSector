@@ -77,7 +77,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	return get_psionic_rank_level(rank) > get_psionic_rank_level(threshold)
 
 /datum/component/psionic_profile
-	dupe_mode = COMPONENT_DUPE_UNIQUE
+	dupe_mode = COMPONENT_DUPE_UNIQUE_PASSARGS
 
 	/// Current awakened mob.
 	var/mob/living/psion
@@ -133,7 +133,11 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	awaken()
 	learn_starting_powers(starting_powers)
 
-/datum/component/psionic_profile/InheritComponent(points = PSIONIC_DEFAULT_POINTS, list/starting_powers, source = PSIONIC_TRAIT_SOURCE)
+/datum/component/psionic_profile/InheritComponent(datum/component/psionic_profile/new_profile, i_am_original, points = PSIONIC_DEFAULT_POINTS, list/starting_powers, source = PSIONIC_TRAIT_SOURCE)
+	// With COMPONENT_DUPE_UNIQUE_PASSARGS this receives (null, TRUE, ...raw args); a non-null
+	// new_profile means someone passed a pre-built instance, which carries no usable args.
+	if(new_profile)
+		return
 	if(add_source(source, points))
 		learn_starting_powers(starting_powers)
 
@@ -145,8 +149,10 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 			SIGNAL_ADDTRAIT(TRAIT_PSIONIC_DAMPENER),
 			SIGNAL_REMOVETRAIT(TRAIT_PSIONIC_DAMPENER),
 		))
-		remove_strain_hud()
-		psion.remove_traits(list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD), PSIONIC_TRAIT_SOURCE)
+		// A discarded duplicate must not strip the live profile's HUD and traits.
+		if(psion.get_psionic_profile() == src)
+			remove_strain_hud()
+			psion.remove_traits(list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD), PSIONIC_TRAIT_SOURCE)
 	for(var/action_type in granted_actions)
 		var/datum/action/action = granted_actions[action_type]
 		qdel(action)
@@ -518,6 +524,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		"required_school_points" = power.required_school_points,
 		"required_powers" = required_power_paths,
 		"required_power_names" = required_power_names,
+		"minimum_rank" = power.get_minimum_rank(),
+		"variants" = power.get_variant_data(),
 		"tier" = get_power_tier(power),
 		"learned" = (action_type in known_powers),
 		"can_buy" = isnull(lock_reason),
@@ -641,6 +649,16 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	else if(strain >= max_strain * 0.5)
 		to_chat(psion, span_notice("A dull pressure builds behind your eyes."))
 	return TRUE
+
+/// Returns strain charged through try_gain_strain() for a cast that never resolved.
+/// Applies the same school discount so the refund matches what was actually gained.
+/datum/component/psionic_profile/proc/refund_strain(amount, datum/action/cooldown/psionic/source_action)
+	amount = get_action_strain_gain(amount, source_action)
+	if(amount <= 0)
+		return
+
+	strain = max(strain - amount, 0)
+	update_strain_hud()
 
 /datum/component/psionic_profile/proc/is_burned_out()
 	return burnout_until > world.time
