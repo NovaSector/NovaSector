@@ -1010,8 +1010,8 @@ SUBSYSTEM_DEF(job)
 		if(length_char(player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
 			job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_FLAVOUR)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 			return JOB_UNAVAILABLE_FLAVOUR
-	if(CONFIG_GET(flag/min_records_text))
-		if(possible_job.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND) // Is it a head of staff?
+	if(possible_job.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND) // Is it a head of staff?
+		if(CONFIG_GET(flag/min_records_text))
 			if(length_char(player.client.prefs.read_preference(/datum/preference/text/medical)) <= CONFIG_GET(number/records_text_character_requirement))
 				job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_MEDREC)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 				return JOB_UNAVAILABLE_MEDREC
