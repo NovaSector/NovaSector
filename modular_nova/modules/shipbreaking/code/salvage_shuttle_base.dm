@@ -1,4 +1,4 @@
-#define SALVAGE_SHUTTLE_STRINGS "~nova/salvage_shuttle.json"
+#define SALVAGE_SHUTTLE_STRINGS "nova/salvage_shuttle.json"
 
 #define SALVAGE_SHUTTLE_OLDEST_PRODUCED (1990 + STATION_YEAR_OFFSET)
 #define SALVAGE_SHUTTLE_NEWEST_PRODUCED (2004 + STATION_YEAR_OFFSET)
@@ -9,7 +9,7 @@
 	description = "Surely there would be a ship here."
 	shuttle_id = "shuttle_salvage_scrap"
 	port_id = "salvage"
-	prefix = "_maps/shuttles/~nova/salvage/"
+	prefix = "_maps/shuttles/nova/salvage/"
 	who_can_purchase = null
 	width = 35
 	height = 24
