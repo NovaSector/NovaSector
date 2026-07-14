@@ -1,5 +1,0 @@
-author: "QuiteLiterallyAnything"
-delete-after: True
-changes:
-  - rscadd: "Health analyzers now display ethereal charge."
-  - rscadd: "It is also possible to check the charge of an ethereal (or their stomach equivalent) with a multitool."

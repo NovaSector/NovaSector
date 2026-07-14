@@ -1,4 +1,0 @@
-author: "zxaber"
-delete-after: True
-changes:
-  - bugfix: "You can now use experiment scanners on DNA Infusers correctly."
