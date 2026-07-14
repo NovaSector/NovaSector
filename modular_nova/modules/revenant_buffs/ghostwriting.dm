@@ -68,7 +68,7 @@
 	charges = INFINITE_CHARGES
 	self_contained = FALSE
 	edible = FALSE
-	can_change_colour = FALSE
+	can_change_colour = TRUE
 	paint_color = LIGHT_COLOR_PURPLE
 	actually_paints = TRUE
 	instant = TRUE
