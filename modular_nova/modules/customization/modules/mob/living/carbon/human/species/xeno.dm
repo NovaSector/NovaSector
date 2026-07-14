@@ -94,11 +94,11 @@
 	max_plasma = 55
 	plasma_rate = 2
 	heal_rate = 1.5
+	visual = FALSE
 	actions_types = list(
 		/datum/action/cooldown/alien/make_structure/plant_weeds/roundstart,
 		/datum/action/cooldown/alien/transfer,
 	)
-	visual = FALSE
 
 /datum/action/cooldown/alien/make_structure/plant_weeds
 	var/build_duration = 0 SECONDS //regular aliens can build instantly
