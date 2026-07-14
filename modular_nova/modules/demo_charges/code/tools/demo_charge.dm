@@ -21,8 +21,10 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 	name = "low-pyrotechnic shaped demolition vac-charge"
 	desc = "A special demolition charge for the rapid deconstruction of salvaged ships. Uses a special process to make use of minimal explosive mass \
 		vaporizing a precision formed strip of material, which then reflects off of the sturdy casing of the explosive to direct the full force into \
-		whatever surface the charge is attached to. Involves minimal risk to any operators standing near the charge. These have had extra adhesive smeared on the bottom to let \
-		it adhere in planetary environments."
+		whatever surface the charge is attached to. Involves minimal risk to any operators standing near the charge."
+	icon = 'modular_nova/modules/demo_charges/code/icons/tools.dmi'
+	icon_state = "charge0"
+	base_icon_state = "charge"
 	inhand_icon_state = "ninja-explosive"
 	worn_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/weapons/bombs_lefthand.dmi'
@@ -98,10 +100,7 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 	if(obj_flags & EMAGGED)
 		detonate()
 		return
-	var/turf/station_check = get_turf(bomb_target))
-	if(!station_check || is_station_level(station_check.z))
-		return FALSE
-	return TRUE
+	else
 		detonate()
 		return
 
@@ -118,9 +117,6 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 		if(isliving(bomb_target))
 			to_chat(user, span_warning("The demolition charge refuses to latch onto something living!"))
 			return FALSE
-		var/area/target_area = get_area(bomb_target)
-	if(istype(target_area, || is_station_level(station_check.z)))
-		to_chat(user, span_warning("The charge refuses to lock this close to the station's GPS signature!"))
 	if(bomb_target != user && HAS_TRAIT(user, TRAIT_PACIFISM) && isliving(bomb_target))
 		to_chat(user, span_warning("You don't want to harm other living beings!"))
 		return FALSE
