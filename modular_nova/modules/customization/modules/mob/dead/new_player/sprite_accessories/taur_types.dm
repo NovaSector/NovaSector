@@ -20,7 +20,6 @@
 	color_src = USE_MATRIXED_COLORS
 	dimension_x = 64
 	center = TRUE
-	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, UNDER_UNIFORM_LAYER, ABOVE_BODY_FRONT_HEAD_LAYER)
 	organ_type = /obj/item/organ/taur_body/horselike // horselike by default, dont forget to override if you make another bodytype
 	flags_for_organ = SPRITE_ACCESSORY_HIDE_SHOES
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
@@ -61,13 +60,13 @@
 		if (worn_uniform.flags_inv & HIDETAUR)
 			switch (taur_mode)
 				if (BODYSHAPE_TAUR_SNAKE)
-					if (worn_suit.worn_icon_taur_snake)
+					if (worn_uniform.worn_icon_taur_snake)
 						return TRUE
 				if (BODYSHAPE_TAUR_PAW)
-					if (worn_suit.worn_icon_taur_paw)
+					if (worn_uniform.worn_icon_taur_paw)
 						return TRUE
 				if (BODYSHAPE_TAUR_HOOF)
-					if (worn_suit.worn_icon_taur_hoof)
+					if (worn_uniform.worn_icon_taur_hoof)
 						return TRUE
 
 	if(target.owned_turf)

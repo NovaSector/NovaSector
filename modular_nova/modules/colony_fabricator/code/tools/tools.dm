@@ -147,6 +147,7 @@
 	light_power = 0.75
 	toolspeed = 1
 	power_use_amount = POWER_CELL_USE_INSANE
+	custom_materials = list(/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/weldingtool/electric/arc_welder/Initialize(mapload)
 	. = ..()

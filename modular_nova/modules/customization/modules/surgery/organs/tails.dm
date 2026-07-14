@@ -4,6 +4,10 @@
 	var/wagging = FALSE
 
 /datum/bodypart_overlay/mutant/tail
+	layers = list(
+		EXTERNAL_FRONT = ABOVE_BODY_FRONT_HEAD_LAYER, // Changed from EXTERNAL_FRONT = BODY_FRONT_LAYER ON TG
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+	)
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/tail/get_global_feature_list()
@@ -18,8 +22,8 @@
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
 	return sprite_datum.icon_state
 
-/datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	var/mob/living/carbon/human/wearer = bodypart_owner.owner
+/datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
+	var/mob/living/carbon/human/wearer = owner || bodypart_owner.owner
 	if(!istype(wearer))
 		return TRUE
 	var/list/used_in_turf = list(FEATURE_TAIL)

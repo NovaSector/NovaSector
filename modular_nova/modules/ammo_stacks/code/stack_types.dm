@@ -43,6 +43,7 @@
 
 /obj/item/ammo_casing/shotgun
 	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/s12gauge
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge
 	name = "12 gauge shells"

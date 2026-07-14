@@ -284,8 +284,10 @@
 			all_limb_flags |= organ.external_bodyshapes
 		all_limb_flags |= limb.bodyshape
 
+	/* // NOVA EDIT REMOVAL START - On TG, HIDESNOUT means the snout should not exist period, whereas we use it to hide the snout from rendering and poking out from snouted icons
 	if(obscured_slots & HIDESNOUT)
 		all_limb_flags &= ~BODYSHAPE_SNOUTED
+	*/ // NOVA EDIT REMOVAL END - For us bodyshape must remain the anatomical truth in this case, or snouted helmets will be wrongly affected by masks that 'hide' snouts.
 
 	bodyshape = all_limb_flags
 

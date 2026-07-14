@@ -2,6 +2,7 @@
 	race = /datum/species/synthetic
 
 /mob/living/carbon/human/species/synth/chest_only
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 25, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 10, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/gold = SHEET_MATERIAL_AMOUNT)
 
 /mob/living/carbon/human/species/synth/chest_only/Initialize(mapload)
 	. = ..()
