@@ -114,6 +114,7 @@
 
 //Resin spinner
 /obj/item/organ/alien/resinspinner/roundstart
+	visual = FALSE
 	actions_types = list(/datum/action/cooldown/alien/make_structure/resin/roundstart)
 
 /datum/action/cooldown/alien/make_structure/resin
