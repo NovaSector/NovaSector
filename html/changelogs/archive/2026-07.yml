@@ -546,9 +546,21 @@
 2026-07-14:
   Happyowl93:
   - rscadd: adds nova tts.
+  - rscadd: Stamina-only shield and drifting contractors get it by default with their
+      loadout.
+  Hatterhat:
+  - balance: Trophies can drop from regular Lavaland fauna again. Watcher wings now
+      cost less diamonds to make. Crusher trophies no longer require a crusher to
+      craft.
+  Iamgoofball:
+  - bugfix: Command jobs now mandate your Security and Medical records be filled out
+      before you can qualify for them, as per Server Policy
   MrMelbert:
   - rscadd: Allow you to assign character slots to jobs, to load that slot if you
       end up selected for that job.
+  Neocloudy:
+  - bugfix: '[NOVA] Loadout Enabled Deathmatch modifier now applies colors to recolorable
+      loadout items.'
   PapaMichael:
   - bugfix: The HOP ticket machine display now shows the correct number when tickets
       are destroyed

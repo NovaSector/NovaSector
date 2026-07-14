@@ -1,4 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - bugfix: "[NOVA] Loadout Enabled Deathmatch modifier now applies colors to recolorable loadout items."
