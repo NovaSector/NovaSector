@@ -656,7 +656,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	if(is_burned_out())
 		to_chat(psion, span_warning("Your mind is still ringing from psionic burnout."))
 		return FALSE
-	if(strain + amount > max_strain)
+	if(strain + amount >= max_strain)
 		trigger_burnout()
 		return FALSE
 

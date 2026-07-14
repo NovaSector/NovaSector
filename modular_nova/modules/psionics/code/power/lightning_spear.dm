@@ -80,6 +80,10 @@
 		living_owner.balloon_alert(living_owner, "charge interrupted!")
 		clear_charge_effects(living_owner, charge_overlays, charge_orb)
 		return FALSE
+	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
+	if(!can_finish_concentration(living_owner, profile, feedback = TRUE))
+		clear_charge_effects(living_owner, charge_overlays, charge_orb)
+		return FALSE
 	clear_charge_effects(living_owner, charge_overlays, charge_orb)
 
 	. = ..()

@@ -7,8 +7,6 @@
 	lose_text = span_notice("The pressure behind your eyes falls silent.")
 	medical_record_text = "Patient presents with abnormal neural resonance consistent with latent psionic expression."
 
-	/// Imprint points granted when this quirk awakens the holder.
-	var/psionic_points = PSIONIC_DEFAULT_POINTS
 	/// Rank chosen by the player in character preferences.
 	var/psionic_rank = PSIONIC_DEFAULT_RANK
 	/// Restored if this quirk is removed while another psionic source remains.
@@ -25,7 +23,6 @@
 		psionic_rank = PSIONIC_DEFAULT_RANK
 
 	var/full_points = get_psionic_rank_points(psionic_rank)
-	psionic_points = full_points
 	var/max_strain = GLOB.psionic_rank_max_strain[psionic_rank]
 	var/manifestation_color = client_source?.prefs?.read_preference(/datum/preference/color/psionic_color)
 	if(!manifestation_color)

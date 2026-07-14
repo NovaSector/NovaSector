@@ -48,7 +48,11 @@
 	if(!do_after(reader, 8 SECONDS, target = read_target, timed_action_flags = IGNORE_HELD_ITEM))
 		reader.balloon_alert(reader, "focus broken!")
 		return FALSE
-	if(QDELETED(read_target) || read_target.stat == DEAD || get_dist(reader, read_target) > cast_range)
+	var/datum/component/psionic_profile/profile = reader.get_psionic_profile()
+	if(!profile || profile.is_burned_out() || !reader.can_cast_psionics(psionic_flags))
+		reader.balloon_alert(reader, "mind lost!")
+		return FALSE
+	if(QDELETED(read_target) || read_target.stat == DEAD || get_dist(reader, read_target) > get_psionic_cast_range(profile))
 		reader.balloon_alert(reader, "mind lost!")
 		return FALSE
 

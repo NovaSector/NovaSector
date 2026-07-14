@@ -7341,6 +7341,7 @@
 #include "modular_nova\master_files\code\game\objects\structures\plaques\static_plaques.dm"
 #include "modular_nova\master_files\code\game\objects\structures\signs\signs_maps.dm"
 #include "modular_nova\master_files\code\game\turfs\closed\_closed.dm"
+#include "modular_nova\master_files\code\game\turfs\closed\walls.dm" // NOVA EDIT ADDITION - PSIONICS
 #include "modular_nova\master_files\code\game\turfs\closed\wall\mineral_walls.dm"
 #include "modular_nova\master_files\code\game\turfs\open\open.dm"
 #include "modular_nova\master_files\code\game\turfs\open\floor\fancy_floors.dm"
@@ -7725,6 +7726,7 @@
 #include "modular_nova\master_files\code\modules\reagents\reagent_containers\cups\_cup.dm"
 #include "modular_nova\master_files\code\modules\reagents\withdrawal\generic_addictions.dm"
 #include "modular_nova\master_files\code\modules\religion\religious_sects.dm"
+#include "modular_nova\master_files\code\modules\research\anomaly\anomaly_core.dm" // NOVA EDIT ADDITION - PSIONICS
 #include "modular_nova\master_files\code\modules\research\designs\biogenerator_designs.dm"
 #include "modular_nova\master_files\code\modules\research\designs\comp_board_designs.dm"
 #include "modular_nova\master_files\code\modules\research\designs\limbgrower_designs.dm"

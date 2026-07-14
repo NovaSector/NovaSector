@@ -98,6 +98,8 @@
 	var/requires_concentration = FALSE
 	/// Turf the psion must remain on while concentrating.
 	var/turf/concentration_turf
+	/// TRUE once a current concentration has been interrupted. Reset when concentration begins.
+	var/concentration_interrupted = FALSE
 	/// TRUE while this action's effect is being actively maintained. Set through start_maintaining().
 	var/maintaining = FALSE
 	/// Message shown to the psion when the maintained effect ends non-silently.
@@ -345,6 +347,7 @@
 	if(!can_concentrate(living_owner, profile, feedback))
 		return FALSE
 
+	concentration_interrupted = FALSE
 	concentration_turf = get_turf(living_owner)
 	RegisterSignal(living_owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_concentration_moved))
 	RegisterSignal(living_owner, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(on_concentration_health_update))
@@ -407,10 +410,22 @@
 	on_concentration_broken(living_owner)
 
 /datum/action/cooldown/psionic/proc/on_concentration_broken(mob/living/living_owner)
+	concentration_interrupted = TRUE
 	if(maintaining)
 		return stop_maintaining(living_owner)
 	stop_concentration(living_owner)
 	return FALSE
+
+/// Checks that an in-progress concentrated action was not interrupted while it was waiting.
+/datum/action/cooldown/psionic/proc/can_finish_concentration(mob/living/living_owner, datum/component/psionic_profile/profile, feedback = FALSE)
+	if(!requires_concentration)
+		return TRUE
+	if(concentration_interrupted)
+		if(feedback)
+			living_owner.balloon_alert(living_owner, "focus broken!")
+		return FALSE
+
+	return can_concentrate(living_owner, profile, feedback)
 
 /datum/action/cooldown/psionic/is_action_active(atom/movable/screen/movable/action_button/current_button)
 	if(is_maintaining())

@@ -1,6 +1,3 @@
-// makes it so held items float by their head
-#define TRAIT_FLOATING_HELD "held_items_float"
-
 #define PSIONIC_TRAIT_SOURCE "psionic_gifted"
 #define PSIONIC_LEVITATION_TRAIT_SOURCE "psionic_levitation"
 #define PSIONIC_SOURCE_MUTATION "psionic_mutation"
@@ -14,6 +11,7 @@
 #define PSIONIC_DEFAULT_STRAIN_DECAY 2
 #define PSIONIC_DEFAULT_COLOR "#34e6ff"
 #define PSIONIC_BURNOUT_TIME (20 SECONDS)
+#define PSIONIC_WARP_DURATION (8 SECONDS)
 
 #define PSIONIC_RANK_LAMBDA "Lambda"
 #define PSIONIC_RANK_EPSILON "Epsilon"

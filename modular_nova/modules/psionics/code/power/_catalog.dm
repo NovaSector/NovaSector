@@ -109,13 +109,6 @@
 
 	return null
 
-/proc/get_psionic_school_for_anomaly_source(anomaly_source_type)
-	var/datum/psionic_school/school = get_psionic_school_for_anomaly(anomaly_source_type)
-	if(school)
-		return school
-
-	return get_psionic_school_for_anomaly_core(anomaly_source_type)
-
 /datum/psionic_power
 	/// Points that must already be spent in this power's school before it can be imprinted.
 	var/required_school_points = 0
@@ -158,13 +151,6 @@
 		return null
 
 	return get_psionic_school(school_type)
-
-/datum/psionic_power/proc/get_school_name()
-	var/datum/psionic_school/resonance_school = get_school()
-	if(!resonance_school)
-		return "Unaligned"
-
-	return resonance_school.name
 
 /datum/psionic_power/proc/get_action_rank_variant_types()
 	if(!ispath(action_type, /datum/action/cooldown/psionic))

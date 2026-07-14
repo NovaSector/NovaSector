@@ -20,7 +20,12 @@ Psionics are not spells. They do not use spell actions or antimagic checks; bloc
 
 ### TG Proc/File Changes:
 
-N/A for direct TG proc overrides.
+- `modular_nova/master_files/code/datums/mind/_mind.dm`
+  - Stores the mutation-sourced psionic rank on each mind.
+- `modular_nova/master_files/code/game/turfs/closed/walls.dm`
+  - Adds temporary psionic wall phasing used by Warp.
+- `modular_nova/master_files/code/modules/research/anomaly/anomaly_core.dm`
+  - Adds psionic anomaly-core attunement interaction and examine text.
 
 ### Modular Overrides / External Files:
 
@@ -50,4 +55,4 @@ Power files live in `code/power`. Keep each concrete power in its own file with 
 
 Most metadata lives on the action. The `/datum/psionic_power` entry exposes the action to the imprinting tree and declares tree-only requirements such as prerequisites or spent school points.
 
-Use `mob/living/proc/awaken_psionics()` and `revoke_psionics()` for new sources. Use psionic flags and `can_block_psionics()` / `can_cast_psionics()` for counters instead of spell or antimagic hooks.
+Use `mob/living/proc/awaken_psionics()` and `revoke_psionics()` for point-only sources. Sources that grant a rank must restore the previous rank when removed. Use psionic flags and `can_block_psionics()` / `can_cast_psionics()` for counters instead of spell or antimagic hooks.

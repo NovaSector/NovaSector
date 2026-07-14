@@ -54,6 +54,9 @@
 	if(!do_after(caster, 12 SECONDS, target = carbon_target, timed_action_flags = IGNORE_HELD_ITEM))
 		caster.balloon_alert(caster, "focus broken!")
 		return FALSE
+	var/datum/component/psionic_profile/profile = caster.get_psionic_profile()
+	if(!can_finish_concentration(caster, profile, feedback = TRUE))
+		return FALSE
 	if(QDELETED(carbon_target) || carbon_target.stat != DEAD || !carbon_target.can_be_revived() || HAS_TRAIT(carbon_target, TRAIT_DNR))
 		caster.balloon_alert(caster, "revival failed!")
 		return FALSE

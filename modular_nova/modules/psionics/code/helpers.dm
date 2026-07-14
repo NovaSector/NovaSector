@@ -1,7 +1,3 @@
-/datum/mind
-	/// Mutation-sourced psionic rank rolled for this mind. Reused to prevent mutadone rerolls.
-	var/psionic_mutation_rank
-
 /// Checks whether this mob can currently project psionics.
 /// `TRAIT_PSIONIC_DAMPENER` suppresses casting; `TRAIT_RESIST_PSYCHIC` does not, by design —
 /// resistance is receive-only (see `can_block_psionics`), not a casting lockout.
@@ -104,8 +100,3 @@
 	var/datum/component/psionic_profile/profile = get_psionic_profile()
 	if(profile)
 		profile.remove_source(source)
-
-/mob/living/proc/forget_psionics()
-	var/datum/component/psionic_profile/profile = get_psionic_profile()
-	if(profile)
-		qdel(profile)
