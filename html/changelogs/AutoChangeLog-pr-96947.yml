@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes an issue that would cause the character preferences menu to bluescreen if you press f5 to reload or used the Refresh-Tgui verb while it was open"
+  - bugfix: "fixes an issue that was preventing a selected new slot from updating properly"

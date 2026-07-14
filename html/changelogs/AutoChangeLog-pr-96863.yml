@@ -1,0 +1,4 @@
+author: "MrMelbert"
+delete-after: True
+changes:
+  - rscadd: "Allow you to assign character slots to jobs, to load that slot if you end up selected for that job."
