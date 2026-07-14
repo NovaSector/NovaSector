@@ -12,11 +12,9 @@
 
 /mob/living/basic/mining/watcher/magmawing
 	crusher_loot = /obj/item/crusher_trophy/magma_wing
-	crusher_drop_chance = 100
 
 /mob/living/basic/mining/watcher/icewing
 	crusher_loot = /obj/item/crusher_trophy/ice_wing
-	crusher_drop_chance = 100
 
 // lobster
 /mob/living/basic/mining/lobstrosity
