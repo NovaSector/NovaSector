@@ -107,8 +107,6 @@
 	linked_rift = WEAKREF(new_linked_rift)
 
 /obj/effect/temp_visual/lesser_carp_rift/entrance/psionic/on_entered(datum/source, atom/movable/entered_atom)
-	SIGNAL_HANDLER
-
 	var/traveler_ref = REF(entered_atom)
 	if(recent_traveler_refs[traveler_ref])
 		return
