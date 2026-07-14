@@ -186,19 +186,11 @@
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	/// This tracks a new body that is created when a slime core is killed, and is used to safely trasnfer quirks and prefrences to this body and than summon it upon revival.
-	var/mob/living/carbon/human/new_body
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
 	colorize()
-
-// Handle the slime core being destroyed, and if it has a new body, delete it as well.
-/obj/item/organ/brain/slime/Destroy(force)
-	if(new_body)
-		QDEL_NULL(new_body)
-	return ..()
 
 /obj/item/organ/brain/slime/examine()
 	. = ..()
@@ -238,7 +230,7 @@
 
 /obj/item/organ/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
-	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
+	UnregisterSignal(organ_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOB_LOGIN))
 
 /**
 * Colors the slime's core (their brain) the same as their first mutant color.
@@ -256,8 +248,7 @@
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 	if(gibbed)
-		qdel(src)
-		UnregisterSignal(victim, COMSIG_LIVING_DEATH)
+		core_ejection(victim)
 		return
 
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
@@ -270,36 +261,40 @@
 	if(core_ejected)
 		return
 	core_ejected = TRUE
-	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
+
 	var/atom/death_loc = victim.drop_location()
+	if(!death_loc)
+		death_loc = get_turf(victim) // Fallback to avoid the Slime core showing up in Nullspace.
 
-	// Create a new body in nullspace, and transfer their prefrences and quirks into it.
-	new_body = new(null)
-	victim.client?.prefs.safe_transfer_prefs_to(new_body)
-	victim.transfer_quirk_datums(new_body)
+	// Drop their equipment, Brain/Core, and implants to the floor.
+	victim.unequip_everything()
+	src.Remove(victim, special = TRUE) // Brain/Core
+	for(var/obj/item/implant/implants in victim) // Implants
+		implants.forceMove(death_loc)
 
-	// Drop the Brain/Core, and implants to the floor.
-	for(var/obj/item/organ/organs in victim)
-		if(istype(organs, /obj/item/organ/brain) || istype(organs, /obj/item/implant))
-			Remove(organs, special = TRUE)
+	// Move the Brain/Core, and implants to the death location.
 	if(death_loc)
 		forceMove(death_loc)
-		// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
-		for(var/obj/item/organ/spilled_organ in death_loc)
-			if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
-				continue
-			else
-				qdel(spilled_organ)
+
+	// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
+	for(var/obj/item/organ/spilled_organ in death_loc)
+		if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
+			continue
+		else
+			qdel(spilled_organ)
+
 	src.wash(CLEAN_WASH)
 	new death_melt_type(death_loc, victim.dir)
 
-	do_steam_effects(get_turf(victim))
-	playsound(victim, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
+	do_steam_effects(death_loc)
+	playsound(death_loc, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
 
 	if(gps_active) // adding the gps signal if they have activated the ability
 		AddComponent(/datum/component/gps, "[victim]'s Core")
 
-	qdel(victim) // Remove the body.
+	// Message the victim and the surrounding area that they have died.
+	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
+	qdel(victim) // Remove the Body.
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 /**
@@ -344,6 +339,10 @@
 	regenerate()
 	return TRUE
 
+/**
+* SLIME REVIVE PROC
+* This heals the core/brain, and creates a new body which we move the player/client into.
+*/
 /obj/item/organ/brain/slime/proc/regenerate()
 	//we have the plasma. we can rebuild them.
 	set_organ_damage(-maxHealth) //fully heals the brain
@@ -351,32 +350,55 @@
 		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
 
-	// Retreive the new body we created from nullspace.
-	new_body.forceMove(src.drop_location())
+	// Create a new body and spawn it on the Brain/Core, than register the signal for the player to be inserted into the new body.
+	var/mob/living/carbon/human/body = new(src.drop_location())
+	RegisterSignal(body, COMSIG_MOB_LOGIN, PROC_REF(on_gained_client))
 
+	// Move the brain/core back into the body.
+	src.replace_into(body)
+
+	// Notify the player that their body has been rebuilt
+	body.visible_message(span_warning("[body]'s torso \"forms\" from [body.p_their()] core, yet to form the rest."))
+	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
+	return TRUE
+
+/**
+* APPLY PREFRENCES & QUIRKS AND OTHER EDITS
+* When we gain a client, apply the prefrences, and apply quirks without spawning items.
+* In addition Remove their underwear, their non-chest limbs, and give them some extra blood for slime limb regen.
+*/
+/obj/item/organ/brain/slime/proc/on_gained_client(mob/living/source)
+	SIGNAL_HANDLER
+	if(!source.client)
+		return
+
+	// Handle Prefrences & Quirks.
+	var/datum/preferences/prefs = source.client.prefs || source.mind?.current?.client.prefs
+	if(prefs)
+		prefs.apply_prefs_to(source)
+		// Handle Quirks without spawning items.
+		for(var/quirks in prefs.all_quirks)
+			var/datum/quirk/quirk_path = SSquirks.quirks[quirks]
+			if(quirk_path)
+				source.add_quirk(quirk_path, add_unique = FALSE)
+
+	var/mob/living/carbon/human/body = source
 	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
-	new_body.underwear = "Nude"
-	new_body.bra = "Nude"
-	new_body.undershirt = "Nude"
-	new_body.socks = "Nude"
+	body.underwear = "Nude"
+	body.bra = "Nude"
+	body.undershirt = "Nude"
+	body.socks = "Nude"
 
-	// Handle Blood
-	new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
+	// Handle Blood, We give them extra blood so they can regenerate their limbs as soon as they are revived.
+	body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 
-	// Remove non-chest limbs.
-	for(var/obj/item/bodypart/part in new_body.bodyparts)
+	// Remove non-chest limbs, they can use their regenerate ability to regain their limbs.
+	for(var/obj/item/bodypart/part in body.bodyparts)
 		if(part.body_zone == BODY_ZONE_CHEST)
 			continue
 		part.drop_limb(TRUE)
 
-	// Move the brain/core into the new body
-	src.replace_into(new_body)
-
-	// Notify the player that their body has been rebuilt
-	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
-	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
-	new_body = null // Clear the new_body variable to avoid dangling references
-	return TRUE
+	UnregisterSignal(source, COMSIG_MOB_LOGIN)
 
 // HEALING SECTION
 // Handles passive healing and water damage for slimes and water-breathing variants.
