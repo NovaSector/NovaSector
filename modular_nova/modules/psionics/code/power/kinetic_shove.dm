@@ -138,31 +138,13 @@
 	click_to_activate = was_click_to_activate
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove/proc/get_kinetic_form()
-	var/mob/living/living_owner = owner
-	if(!istype(living_owner))
-		return null
-
-	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	var/datum/psionic_rank_variant/selected_variant = get_selected_rank_variant(profile)
-	if(istype(selected_variant, /datum/psionic_rank_variant/kinetic_shove))
-		return selected_variant
-
-	return null
+	return get_selected_variant_as_type(/datum/psionic_rank_variant/kinetic_shove)
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove/try_block_target(atom/target, datum/component/psionic_profile/profile)
 	return FALSE
 
 /datum/action/cooldown/psionic/pointed/kinetic_pull/proc/get_pull_form()
-	var/mob/living/living_owner = owner
-	if(!istype(living_owner))
-		return null
-
-	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	var/datum/psionic_rank_variant/selected_variant = get_selected_rank_variant(profile)
-	if(istype(selected_variant, /datum/psionic_rank_variant/kinetic_pull))
-		return selected_variant
-
-	return null
+	return get_selected_variant_as_type(/datum/psionic_rank_variant/kinetic_pull)
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove/is_valid_target(atom/target)
 	var/datum/psionic_rank_variant/kinetic_shove/form = get_kinetic_form()

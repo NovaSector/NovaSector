@@ -92,13 +92,7 @@
 	if(!profile || !mutation_rank || profile.has_source(PSIONIC_SOURCE_QUIRK))
 		return profile
 
-	profile.set_rank(
-		rank = mutation_rank,
-		latent_rank = mutation_rank,
-		limited = FALSE,
-		new_max_strain = GLOB.psionic_rank_max_strain[mutation_rank],
-		new_strain_decay = GLOB.psionic_rank_strain_decay[mutation_rank],
-	)
+	profile.apply_rank(mutation_rank)
 	if(iscarbon(src))
 		var/mob/living/carbon/carbon_psion = src
 		var/obj/item/organ/cyberimp/brain/psionic_limiter/limiter = carbon_psion.get_organ_slot(ORGAN_SLOT_PSIONIC_IMPLANT)

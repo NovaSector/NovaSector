@@ -33,6 +33,9 @@
 
 #define HUD_PSIONIC_STRAIN "psionic_strain"
 #define UI_PSIONIC_STRAIN "WEST,CENTER+1:15"
+#define PSIONIC_HUD_COLOR_CALM "#8dd8ff"
+#define PSIONIC_HUD_COLOR_WARNING "#ec6cff"
+#define PSIONIC_HUD_COLOR_BURNOUT "#ff5cc6"
 
 #define PSIONIC_INTRUSIVE (1<<0)
 #define PSIONIC_KINETIC (1<<1)

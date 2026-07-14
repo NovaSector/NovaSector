@@ -74,14 +74,14 @@
 		maptext = ""
 		return
 
-	var/text_color = showing_burnout ? "#ff5cc6" : (current_level >= 4 ? "#ec6cff" : "#8dd8ff")
+	var/text_color = showing_burnout ? PSIONIC_HUD_COLOR_BURNOUT : (current_level >= 4 ? PSIONIC_HUD_COLOR_WARNING : PSIONIC_HUD_COLOR_CALM)
 	maptext = MAPTEXT("<div align='center' valign='middle' style='font-size:6px; -dm-text-outline:1px #050811'><font color='[text_color]'>[current_strain]/[current_max_strain]</font></div>")
 
 /atom/movable/screen/psionic/strain/proc/update_strain_filters()
 	remove_filter("psionic_strain_glow")
 	remove_filter("psionic_strain_warning")
 	if(showing_burnout)
-		add_filter("psionic_strain_glow", 1, drop_shadow_filter(0, 0, 3, 0, "#ff5cc6"))
-		add_filter("psionic_strain_warning", 2, outline_filter(1, "#ff5cc6", OUTLINE_SHARP))
+		add_filter("psionic_strain_glow", 1, drop_shadow_filter(0, 0, 3, 0, PSIONIC_HUD_COLOR_BURNOUT))
+		add_filter("psionic_strain_warning", 2, outline_filter(1, PSIONIC_HUD_COLOR_BURNOUT, OUTLINE_SHARP))
 	else if(current_level >= 4)
-		add_filter("psionic_strain_glow", 1, drop_shadow_filter(0, 0, 2, 0, "#ec6cff"))
+		add_filter("psionic_strain_glow", 1, drop_shadow_filter(0, 0, 2, 0, PSIONIC_HUD_COLOR_WARNING))

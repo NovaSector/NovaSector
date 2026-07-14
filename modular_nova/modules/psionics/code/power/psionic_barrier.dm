@@ -57,37 +57,16 @@
 	point_cost = 1
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_FLUX
+	maintain_end_message = "The psionic barrier dissolves."
+	maintain_end_sound = 'sound/vehicles/mecha/mech_shield_drop.ogg'
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/psionic_barrier,
 		/datum/psionic_rank_variant/psionic_barrier/beta,
 	)
-	/// TRUE while the psion is maintaining the barrier.
-	var/barrier_active = FALSE
 	/// Visible projection tracking the psion.
 	var/obj/effect/psionic_barrier/barrier_visual
 	/// Degrees on either side of the facing direction covered by the barrier.
 	var/block_angle = 60
-
-/datum/action/cooldown/psionic/psionic_barrier/Remove(mob/living/remove_from)
-	if(remove_from)
-		clear_barrier(remove_from, TRUE)
-	return ..()
-
-/datum/action/cooldown/psionic/psionic_barrier/IsAvailable(feedback = FALSE)
-	if(is_barrier_active())
-		return TRUE
-
-	return ..()
-
-/datum/action/cooldown/psionic/psionic_barrier/is_action_active(atom/movable/screen/movable/action_button/current_button)
-	return is_barrier_active()
-
-/datum/action/cooldown/psionic/psionic_barrier/Activate(atom/target)
-	var/mob/living/living_owner = owner
-	if(is_barrier_active())
-		return clear_barrier(living_owner)
-
-	return ..()
 
 /datum/action/cooldown/psionic/psionic_barrier/psionic_activate(atom/target)
 	var/mob/living/living_owner = owner
@@ -95,14 +74,13 @@
 		return FALSE
 
 	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	if(!can_maintain_barrier(living_owner, profile))
+	if(!can_maintain(living_owner, profile))
 		return FALSE
 
 	var/datum/psionic_rank_variant/psionic_barrier/form = get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier)
 	if(!form)
 		return FALSE
 
-	barrier_active = TRUE
 	barrier_visual = new /obj/effect/psionic_barrier(get_turf(living_owner), living_owner)
 	profile.apply_manifestation_color(barrier_visual)
 	apply_barrier_form(form)
@@ -110,9 +88,7 @@
 	RegisterSignal(living_owner, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(on_check_block))
 	RegisterSignal(living_owner, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(on_owner_dir_change))
 	RegisterSignal(living_owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
-	RegisterSignal(living_owner, COMSIG_LIVING_LIFE, PROC_REF(on_owner_life))
-	RegisterSignal(living_owner, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	start_maintaining(living_owner)
 
 	living_owner.visible_message(
 		span_notice("Static folds into a barrier before [living_owner]."),
@@ -121,9 +97,28 @@
 	playsound(living_owner, 'sound/vehicles/mecha/mech_shield_raise.ogg', 35, TRUE)
 	return TRUE
 
-/datum/action/cooldown/psionic/psionic_barrier/proc/is_barrier_active()
-	return barrier_active && istype(owner, /mob/living)
+/datum/action/cooldown/psionic/psionic_barrier/can_maintain(mob/living/living_owner, datum/component/psionic_profile/profile)
+	. = ..()
+	if(!.)
+		return FALSE
 
+	return isturf(living_owner.loc)
+
+/datum/action/cooldown/psionic/psionic_barrier/maintain_tick(mob/living/living_owner, datum/component/psionic_profile/profile, seconds_per_tick)
+	if(!get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier))
+		return FALSE
+
+	return ..()
+
+/datum/action/cooldown/psionic/psionic_barrier/on_maintain_stopped(mob/living/living_owner, silent = FALSE)
+	if(istype(living_owner))
+		UnregisterSignal(living_owner, list(
+			COMSIG_ATOM_PRE_BULLET_ACT,
+			COMSIG_LIVING_CHECK_BLOCK,
+			COMSIG_ATOM_POST_DIR_CHANGE,
+			COMSIG_MOVABLE_MOVED,
+		))
+	clear_barrier_visual(silent)
 
 /datum/action/cooldown/psionic/psionic_barrier/proc/apply_barrier_form(datum/psionic_rank_variant/psionic_barrier/form)
 	if(!form || !barrier_visual || QDELETED(barrier_visual))
@@ -133,27 +128,13 @@
 
 /datum/action/cooldown/psionic/psionic_barrier/on_rank_variant_selected(mob/living/living_owner, datum/psionic_rank_variant/variant)
 	. = ..()
-	if(!is_barrier_active())
+	if(!is_maintaining())
 		return
 	if(!istype(variant, /datum/psionic_rank_variant/psionic_barrier))
 		return
 
 	var/datum/psionic_rank_variant/psionic_barrier/barrier_form = variant
 	apply_barrier_form(barrier_form)
-
-/datum/action/cooldown/psionic/psionic_barrier/proc/can_maintain_barrier(mob/living/living_owner, datum/component/psionic_profile/profile)
-	if(action_disabled || !istype(living_owner) || !profile)
-		return FALSE
-	if(living_owner.stat != CONSCIOUS)
-		return FALSE
-	if(HAS_TRAIT(living_owner, TRAIT_INCAPACITATED))
-		return FALSE
-	if(!isturf(living_owner.loc))
-		return FALSE
-	if(profile.is_burned_out())
-		return FALSE
-
-	return living_owner.can_cast_psionics(psionic_flags)
 
 /datum/action/cooldown/psionic/psionic_barrier/proc/on_pre_bullet(mob/living/source, obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	SIGNAL_HANDLER
@@ -163,17 +144,17 @@
 		return NONE
 
 	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	if(!can_maintain_barrier(living_owner, profile))
-		clear_barrier(living_owner, TRUE)
+	if(!can_maintain(living_owner, profile))
+		stop_maintaining(living_owner, silent = TRUE)
 		return NONE
 	var/datum/psionic_rank_variant/psionic_barrier/form = get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier)
 	if(!form)
-		clear_barrier(living_owner, TRUE)
+		stop_maintaining(living_owner, silent = TRUE)
 		return NONE
 	if(!barrier_covers_projectile(living_owner, hitting_projectile))
 		return NONE
 	if(!profile.try_gain_strain(get_projectile_strain(hitting_projectile, form), src))
-		clear_barrier(living_owner, TRUE)
+		stop_maintaining(living_owner, silent = TRUE)
 		return NONE
 
 	if(barrier_visual && !QDELETED(barrier_visual))
@@ -196,17 +177,17 @@
 		return FAILED_BLOCK
 
 	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	if(!can_maintain_barrier(living_owner, profile))
-		clear_barrier(living_owner, TRUE)
+	if(!can_maintain(living_owner, profile))
+		stop_maintaining(living_owner, silent = TRUE)
 		return FAILED_BLOCK
 	var/datum/psionic_rank_variant/psionic_barrier/form = get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier)
 	if(!form)
-		clear_barrier(living_owner, TRUE)
+		stop_maintaining(living_owner, silent = TRUE)
 		return FAILED_BLOCK
 	if(!barrier_covers_atom(living_owner, hit_by))
 		return FAILED_BLOCK
 	if(!profile.try_gain_strain(get_attack_strain(damage, form), src))
-		clear_barrier(living_owner, TRUE)
+		stop_maintaining(living_owner, silent = TRUE)
 		return FAILED_BLOCK
 
 	if(barrier_visual && !QDELETED(barrier_visual))
@@ -297,47 +278,6 @@
 	var/mob/living/living_owner = owner
 	if(barrier_visual && !QDELETED(barrier_visual))
 		barrier_visual.sync_to_owner(living_owner)
-
-/datum/action/cooldown/psionic/psionic_barrier/proc/on_owner_life(datum/source, seconds_per_tick)
-	SIGNAL_HANDLER
-
-	var/mob/living/living_owner = source
-	if(!istype(living_owner))
-		return
-
-	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	if(!can_maintain_barrier(living_owner, profile))
-		clear_barrier(living_owner, TRUE)
-		return
-	if(!get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier))
-		clear_barrier(living_owner, TRUE)
-
-/datum/action/cooldown/psionic/psionic_barrier/proc/on_owner_death(datum/source, gibbed)
-	SIGNAL_HANDLER
-
-	var/mob/living/living_owner = source
-	clear_barrier(living_owner, TRUE)
-
-/datum/action/cooldown/psionic/psionic_barrier/proc/clear_barrier(mob/living/living_owner, silent = FALSE)
-	if(!barrier_active)
-		return FALSE
-
-	barrier_active = FALSE
-	if(istype(living_owner))
-		UnregisterSignal(living_owner, list(
-			COMSIG_ATOM_PRE_BULLET_ACT,
-			COMSIG_LIVING_CHECK_BLOCK,
-			COMSIG_ATOM_POST_DIR_CHANGE,
-			COMSIG_MOVABLE_MOVED,
-			COMSIG_LIVING_LIFE,
-			COMSIG_LIVING_DEATH,
-		))
-		if(!silent)
-			to_chat(living_owner, span_notice("The psionic barrier dissolves."))
-			playsound(living_owner, 'sound/vehicles/mecha/mech_shield_drop.ogg', 35, TRUE)
-	clear_barrier_visual(silent)
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
-	return TRUE
 
 /datum/action/cooldown/psionic/psionic_barrier/proc/clear_barrier_visual(silent = FALSE)
 	if(!barrier_visual || QDELETED(barrier_visual))

@@ -45,6 +45,8 @@
 	psionic_flags = PSIONIC_KINETIC|PSIONIC_THERMAL
 	school = PSIONIC_SCHOOL_FLUX
 	needs_hands = TRUE
+	maintain_end_message = "The psiblade disperses."
+	maintain_end_sound = 'sound/items/weapons/saberoff.ogg'
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/psiblade/epsilon,
 		/datum/psionic_rank_variant/psiblade,
@@ -56,28 +58,6 @@
 	var/obj/item/psionic_blade/psiblade
 	/// TRUE while the action is intentionally deleting its blade.
 	var/removing_psiblade = FALSE
-
-/datum/action/cooldown/psionic/psiblade/Remove(mob/living/remove_from)
-	clear_psiblade(remove_from, TRUE)
-	return ..()
-
-/datum/action/cooldown/psionic/psiblade/IsAvailable(feedback = FALSE)
-	if(has_active_psiblade())
-		return TRUE
-
-	return ..()
-
-/datum/action/cooldown/psionic/psiblade/is_action_active(atom/movable/screen/movable/action_button/current_button)
-	return has_active_psiblade()
-
-/datum/action/cooldown/psionic/psiblade/Activate(atom/target)
-	var/mob/living/living_owner = owner
-	if(!istype(living_owner))
-		return FALSE
-	if(has_active_psiblade())
-		return clear_psiblade(living_owner)
-
-	return ..()
 
 /datum/action/cooldown/psionic/psiblade/before_psionic(atom/target)
 	var/mob/living/living_owner = owner
@@ -111,9 +91,7 @@
 	psiblade = new_psiblade
 	RegisterSignal(psiblade, COMSIG_QDELETING, PROC_REF(on_psiblade_deleted))
 	RegisterSignal(psiblade, COMSIG_ITEM_DROPPED, PROC_REF(on_psiblade_dropped))
-	RegisterSignal(living_owner, COMSIG_LIVING_LIFE, PROC_REF(on_owner_life))
-	RegisterSignal(living_owner, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	start_maintaining(living_owner)
 
 	living_owner.visible_message(
 		span_warning("[living_owner] shapes hardlight into [psiblade]."),
@@ -122,56 +100,17 @@
 	playsound(living_owner, 'sound/items/weapons/saberon.ogg', 35, TRUE)
 	return TRUE
 
-/datum/action/cooldown/psionic/psiblade/proc/has_active_psiblade()
-	return psiblade && !QDELETED(psiblade)
-
-/datum/action/cooldown/psionic/psiblade/proc/can_maintain_psiblade(mob/living/living_owner, datum/component/psionic_profile/profile)
-	if(action_disabled || !istype(living_owner) || !profile)
-		return FALSE
-	if(living_owner.stat != CONSCIOUS)
-		return FALSE
-	if(HAS_TRAIT(living_owner, TRAIT_INCAPACITATED))
-		return FALSE
-	if(!can_use_hands(living_owner))
-		return FALSE
-	if(profile.is_burned_out())
-		return FALSE
-
-	return living_owner.can_cast_psionics(psionic_flags)
-
-/datum/action/cooldown/psionic/psiblade/proc/on_owner_life(datum/source, seconds_per_tick)
-	SIGNAL_HANDLER
-
-	var/mob/living/living_owner = source
-	var/datum/component/psionic_profile/profile = living_owner?.get_psionic_profile()
-	if(!can_maintain_psiblade(living_owner, profile))
-		clear_psiblade(living_owner)
-
-/datum/action/cooldown/psionic/psiblade/proc/on_owner_death(datum/source, gibbed)
-	SIGNAL_HANDLER
-
-	var/mob/living/living_owner = source
-	clear_psiblade(living_owner, TRUE)
-
-/datum/action/cooldown/psionic/psiblade/proc/clear_psiblade(mob/living/living_owner, silent = FALSE)
-	if(!has_active_psiblade())
+/datum/action/cooldown/psionic/psiblade/on_maintain_stopped(mob/living/living_owner, silent = FALSE)
+	if(!psiblade || QDELETED(psiblade))
 		psiblade = null
-		return FALSE
+		return
 
-	if(!istype(living_owner))
-		living_owner = owner
 	removing_psiblade = TRUE
 	UnregisterSignal(psiblade, list(COMSIG_QDELETING, COMSIG_ITEM_DROPPED))
 	if(istype(living_owner))
-		UnregisterSignal(living_owner, list(COMSIG_LIVING_LIFE, COMSIG_LIVING_DEATH))
 		living_owner.temporarilyRemoveItemFromInventory(psiblade, force = TRUE)
-		if(!silent)
-			to_chat(living_owner, span_notice("The psiblade disperses."))
-			playsound(living_owner, 'sound/items/weapons/saberoff.ogg', 35, TRUE)
 	QDEL_NULL(psiblade)
 	removing_psiblade = FALSE
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
-	return TRUE
 
 /datum/action/cooldown/psionic/psiblade/proc/on_psiblade_deleted(datum/source)
 	SIGNAL_HANDLER
@@ -180,9 +119,7 @@
 	if(removing_psiblade || QDELETED(owner))
 		return
 	var/mob/living/living_owner = owner
-	if(istype(living_owner))
-		UnregisterSignal(living_owner, list(COMSIG_LIVING_LIFE, COMSIG_LIVING_DEATH))
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	stop_maintaining(living_owner, silent = TRUE)
 
 /datum/action/cooldown/psionic/psiblade/proc/on_psiblade_dropped(datum/source, mob/living/dropper)
 	SIGNAL_HANDLER
@@ -191,9 +128,7 @@
 	if(removing_psiblade || QDELETED(owner))
 		return
 	var/mob/living/living_owner = owner
-	if(istype(living_owner))
-		UnregisterSignal(living_owner, list(COMSIG_LIVING_LIFE, COMSIG_LIVING_DEATH))
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	stop_maintaining(living_owner, silent = TRUE)
 
 
 /obj/item/psionic_blade

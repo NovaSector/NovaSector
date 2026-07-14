@@ -19,13 +19,7 @@
 		to_chat(usr, span_warning("Failed to awaken [src]'s psionics."))
 		return
 
-	profile.set_rank(
-		rank = psionic_rank,
-		latent_rank = psionic_rank,
-		limited = FALSE,
-		new_max_strain = GLOB.psionic_rank_max_strain[psionic_rank],
-		new_strain_decay = GLOB.psionic_rank_strain_decay[psionic_rank],
-	)
+	profile.apply_rank(psionic_rank)
 
 	var/msg = span_notice("[key_name_admin(usr)] gave [key_name(src)] [psionic_rank]-rank psionics.")
 	message_admins(msg)

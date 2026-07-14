@@ -21,6 +21,7 @@
 	psionic_flags = PSIONIC_PROTECTIVE
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
 	requires_concentration = TRUE
+	maintain_end_message = "The restorative pattern collapses."
 	active_msg = "You gather a restorative pattern..."
 	deactive_msg = "You let the restorative pattern dissolve."
 	no_living_target_alert = "no patient!"
@@ -32,8 +33,6 @@
 	var/brute_healing_per_second = 3
 	/// Burn damage mended each second while the channel is active.
 	var/burn_healing_per_second = 3
-	/// TRUE while a target is being mended.
-	var/biomending = FALSE
 	/// Current target of the maintained channel.
 	var/mob/living/carbon/biomend_target
 	/// Beam drawn from the psion to the patient.
@@ -42,35 +41,6 @@
 	var/biomend_filter_name
 	/// TRUE while this action is intentionally tearing down its beam.
 	var/clearing_biomend = FALSE
-
-/datum/action/cooldown/psionic/pointed/living_target/biomend/Remove(mob/living/remove_from)
-	clear_biomend(remove_from, TRUE)
-	return ..()
-
-/datum/action/cooldown/psionic/pointed/living_target/biomend/IsAvailable(feedback = FALSE)
-	if(is_biomending())
-		return TRUE
-
-	return ..()
-
-/datum/action/cooldown/psionic/pointed/living_target/biomend/is_action_active(atom/movable/screen/movable/action_button/current_button)
-	if(is_biomending())
-		return TRUE
-	return ..()
-
-/datum/action/cooldown/psionic/pointed/living_target/biomend/Trigger(mob/clicker, trigger_flags, atom/target)
-	if(is_biomending())
-		var/mob/living/living_owner = owner
-		return clear_biomend(living_owner)
-
-	return ..()
-
-/datum/action/cooldown/psionic/pointed/living_target/biomend/Activate(atom/target)
-	var/mob/living/living_owner = owner
-	if(is_biomending())
-		return clear_biomend(living_owner)
-
-	return ..()
 
 /datum/action/cooldown/psionic/pointed/living_target/biomend/is_valid_target(atom/target)
 	. = ..()
@@ -93,7 +63,7 @@
 	var/datum/component/psionic_profile/profile = living_owner?.get_psionic_profile()
 	if(!istype(carbon_target))
 		return FALSE
-	biomending = TRUE
+
 	biomend_target = carbon_target
 	var/manifestation_color = get_manifestation_color()
 	biomend_filter_name = "psionic_biomend_[REF(src)]"
@@ -106,11 +76,9 @@
 		beam_color = manifestation_color,
 	)
 	RegisterSignal(biomend_beam, COMSIG_QDELETING, PROC_REF(on_biomend_beam_deleted))
-	RegisterSignal(living_owner, COMSIG_LIVING_LIFE, PROC_REF(on_owner_life))
-	RegisterSignal(living_owner, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
 	RegisterSignal(biomend_target, COMSIG_LIVING_DEATH, PROC_REF(on_target_death))
 	RegisterSignal(biomend_target, COMSIG_QDELETING, PROC_REF(on_target_deleted))
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	start_maintaining(living_owner)
 
 	living_owner.visible_message(
 		span_notice("A beam of light reaches from [living_owner] to [biomend_target]."),
@@ -118,34 +86,23 @@
 	)
 	return TRUE
 
-/datum/action/cooldown/psionic/pointed/living_target/biomend/proc/is_biomending()
-	return biomending && istype(owner, /mob/living)
-
 /datum/action/cooldown/psionic/pointed/living_target/biomend/proc/has_healable_organic_damage(mob/living/carbon/carbon_target)
 	if(!istype(carbon_target))
 		return FALSE
 
 	return carbon_target.get_brute_loss_for_type(BODYTYPE_ORGANIC) > 0 || carbon_target.get_fire_loss_for_type(BODYTYPE_ORGANIC) > 0
 
-/datum/action/cooldown/psionic/pointed/living_target/biomend/proc/on_owner_life(datum/source, seconds_per_tick)
-	SIGNAL_HANDLER
-
-	if(!biomending)
-		return
-
-	var/mob/living/living_owner = source
-	var/datum/component/psionic_profile/profile = living_owner?.get_psionic_profile()
+/datum/action/cooldown/psionic/pointed/living_target/biomend/maintain_tick(mob/living/living_owner, datum/component/psionic_profile/profile, seconds_per_tick)
 	if(!istype(biomend_target) || QDELETED(biomend_target) || biomend_target.stat == DEAD)
-		clear_biomend(living_owner, TRUE)
-		return
+		stop_maintaining(living_owner, silent = TRUE)
+		return FALSE
 	var/turf/owner_turf = get_turf(living_owner)
 	var/turf/target_turf = get_turf(biomend_target)
 	if(!owner_turf || !target_turf || get_dist(owner_turf, target_turf) > get_psionic_cast_range(profile))
-		clear_biomend(living_owner)
-		return
+		return FALSE
 	if(!has_healable_organic_damage(biomend_target))
-		clear_biomend(living_owner, TRUE)
-		return
+		stop_maintaining(living_owner, silent = TRUE)
+		return FALSE
 
 	var/healed_damage = biomend_target.heal_overall_damage(
 		brute = brute_healing_per_second * seconds_per_tick,
@@ -153,33 +110,22 @@
 		required_bodytype = BODYTYPE_ORGANIC,
 	)
 	if(healed_damage <= 0)
-		clear_biomend(living_owner, TRUE)
-		return
+		stop_maintaining(living_owner, silent = TRUE)
+		return FALSE
 
-	if(!try_gain_active_strain(profile, seconds_per_tick))
-		clear_biomend(living_owner)
-
-/datum/action/cooldown/psionic/pointed/living_target/biomend/on_concentration_broken(mob/living/living_owner)
-	clear_biomend(living_owner)
-	return TRUE
-
-/datum/action/cooldown/psionic/pointed/living_target/biomend/proc/on_owner_death(datum/source, gibbed)
-	SIGNAL_HANDLER
-
-	var/mob/living/living_owner = source
-	clear_biomend(living_owner, TRUE)
+	return try_gain_active_strain(profile, seconds_per_tick)
 
 /datum/action/cooldown/psionic/pointed/living_target/biomend/proc/on_target_death(datum/source, gibbed)
 	SIGNAL_HANDLER
 
 	var/mob/living/living_owner = owner
-	clear_biomend(living_owner, TRUE)
+	stop_maintaining(living_owner, silent = TRUE)
 
 /datum/action/cooldown/psionic/pointed/living_target/biomend/proc/on_target_deleted(datum/source)
 	SIGNAL_HANDLER
 
 	var/mob/living/living_owner = owner
-	clear_biomend(living_owner, TRUE)
+	stop_maintaining(living_owner, silent = TRUE)
 
 /datum/action/cooldown/psionic/pointed/living_target/biomend/proc/on_biomend_beam_deleted(datum/source)
 	SIGNAL_HANDLER
@@ -189,20 +135,10 @@
 		return
 
 	var/mob/living/living_owner = owner
-	clear_biomend(living_owner)
+	stop_maintaining(living_owner)
 
-/datum/action/cooldown/psionic/pointed/living_target/biomend/proc/clear_biomend(mob/living/living_owner, silent = FALSE)
-	if(!biomending)
-		return FALSE
-
-	biomending = FALSE
+/datum/action/cooldown/psionic/pointed/living_target/biomend/on_maintain_stopped(mob/living/living_owner, silent = FALSE)
 	clearing_biomend = TRUE
-	stop_concentration(living_owner)
-	if(istype(living_owner))
-		UnregisterSignal(living_owner, COMSIG_LIVING_LIFE, PROC_REF(on_owner_life))
-		UnregisterSignal(living_owner, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
-		if(!silent)
-			to_chat(living_owner, span_notice("The restorative pattern collapses."))
 	if(istype(biomend_target))
 		UnregisterSignal(biomend_target, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING))
 		if(biomend_filter_name && !QDELETED(biomend_target))
@@ -214,5 +150,3 @@
 	biomend_target = null
 	biomend_filter_name = null
 	clearing_biomend = FALSE
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
-	return TRUE

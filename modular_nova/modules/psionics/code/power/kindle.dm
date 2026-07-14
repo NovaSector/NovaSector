@@ -28,6 +28,9 @@
 	if(ismob(target))
 		owner.balloon_alert(owner, "target an object or floor!")
 		return FALSE
+	if(!isturf(target) && !isturf(target.loc))
+		owner.balloon_alert(owner, "can't reach it!")
+		return FALSE
 
 	return TRUE
 

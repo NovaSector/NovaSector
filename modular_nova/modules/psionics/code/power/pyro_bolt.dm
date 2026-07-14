@@ -19,30 +19,6 @@
 	/// Sound played once when this form fires.
 	var/projectile_sound = 'sound/items/weapons/laser.ogg'
 
-/datum/psionic_rank_variant/pyro_bolt/proc/get_projectile_type(datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/action)
-	if(!isnull(projectile_type))
-		return projectile_type
-
-	return action.projectile_type
-
-/datum/psionic_rank_variant/pyro_bolt/proc/get_projectiles_per_fire(datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/action)
-	if(!isnull(projectiles_per_fire))
-		return projectiles_per_fire
-
-	return action.projectiles_per_fire
-
-/datum/psionic_rank_variant/pyro_bolt/proc/get_projectile_spread(datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/action)
-	if(!isnull(projectile_spread))
-		return projectile_spread
-
-	return action.projectile_spread
-
-/datum/psionic_rank_variant/pyro_bolt/proc/get_projectile_sound(datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/action)
-	if(!isnull(projectile_sound))
-		return projectile_sound
-
-	return action.projectile_sound
-
 /datum/psionic_rank_variant/pyro_bolt/proc/show_activation_message(mob/living/user)
 	user.visible_message(
 		span_warning("[user]'s hand blooms with orange fire."),
@@ -111,18 +87,6 @@
 	projectile_spread = 8
 	projectile_sound = 'sound/items/weapons/laser.ogg'
 
-/datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/proc/get_pyro_form()
-	var/mob/living/living_owner = owner
-	if(!istype(living_owner))
-		return null
-
-	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	var/datum/psionic_rank_variant/selected_variant = get_selected_rank_variant(profile)
-	if(istype(selected_variant, /datum/psionic_rank_variant/pyro_bolt))
-		return selected_variant
-
-	return null
-
 /datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/try_block_target(atom/target, datum/component/psionic_profile/profile)
 	return FALSE
 
@@ -131,27 +95,14 @@
 	if(!istype(living_owner))
 		return FALSE
 
-	var/datum/psionic_rank_variant/pyro_bolt/form = get_pyro_form()
+	var/datum/psionic_rank_variant/pyro_bolt/form = get_selected_variant_as_type(/datum/psionic_rank_variant/pyro_bolt)
 	if(!form)
 		return FALSE
 
-	var/obj/projectile/original_projectile_type = projectile_type
-	var/original_projectiles_per_fire = projectiles_per_fire
-	var/original_projectile_spread = projectile_spread
-	var/original_projectile_sound = projectile_sound
-
 	form.show_activation_message(living_owner)
-	projectile_type = form.get_projectile_type(src)
-	projectiles_per_fire = form.get_projectiles_per_fire(src)
-	projectile_spread = form.get_projectile_spread(src)
-	projectile_sound = form.get_projectile_sound(src)
-	. = ..()
-	projectile_type = original_projectile_type
-	projectiles_per_fire = original_projectiles_per_fire
-	projectile_spread = original_projectile_spread
-	projectile_sound = original_projectile_sound
+	return fire_psionic_projectiles(target, form.projectile_type, form.projectiles_per_fire, form.projectile_spread, form.projectile_sound)
 
-/datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/ready_projectile(obj/projectile/to_fire, atom/target, mob/user, iteration)
+/datum/action/cooldown/psionic/pointed/projectile/pyro_bolt/ready_projectile(obj/projectile/to_fire, atom/target, mob/user, iteration, fire_count = 1, fire_spread = 0)
 	. = ..()
 	if(!.)
 		return
@@ -160,7 +111,7 @@
 	if(!istype(psionic_projectile))
 		return .
 
-	var/datum/psionic_rank_variant/pyro_bolt/form = get_pyro_form()
+	var/datum/psionic_rank_variant/pyro_bolt/form = get_selected_variant_as_type(/datum/psionic_rank_variant/pyro_bolt)
 	if(!form)
 		return .
 

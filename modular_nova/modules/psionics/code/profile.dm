@@ -181,7 +181,6 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 	decay_strain()
 	update_strain_hud()
-	update_psionic_action_buttons()
 
 /datum/component/psionic_profile/proc/on_psionic_availability_changed(datum/source)
 	SIGNAL_HANDLER
@@ -273,6 +272,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		granted_actions -= action_type
 
 	known_powers.Cut()
+	selected_power_rank_variants.Cut()
 	spent_points_by_school.Cut()
 	spent_points = 0
 	available_points = points
@@ -354,6 +354,19 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	update_rank_traits()
 	update_strain_hud()
 	update_psionic_action_buttons(UPDATE_BUTTON_NAME|UPDATE_BUTTON_STATUS)
+
+/// Applies [rank] unlimited, with its standard table max strain and strain decay.
+/datum/component/psionic_profile/proc/apply_rank(rank = PSIONIC_DEFAULT_RANK)
+	if(isnull(GLOB.psionic_rank_points[rank]))
+		rank = PSIONIC_DEFAULT_RANK
+
+	set_rank(
+		rank = rank,
+		latent_rank = rank,
+		limited = FALSE,
+		new_max_strain = GLOB.psionic_rank_max_strain[rank],
+		new_strain_decay = GLOB.psionic_rank_strain_decay[rank],
+	)
 
 /datum/component/psionic_profile/proc/update_rank_traits()
 	if(!psion)
@@ -494,15 +507,20 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 	return null
 
-/datum/component/psionic_profile/proc/get_power_tier(datum/psionic_power/power)
+/datum/component/psionic_profile/proc/get_power_tier(datum/psionic_power/power, list/visited_powers)
 	var/power_tier = max(round(power.required_school_points / 2) + 1, 1)
-	if(length(power.required_powers))
-		for(var/required_power_type in power.required_powers)
-			var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
-			if(!required_power || required_power == power)
-				continue
+	if(!length(power.required_powers))
+		return power_tier
 
-			power_tier = max(power_tier, get_power_tier(required_power) + 1)
+	if(!visited_powers)
+		visited_powers = list()
+	visited_powers += power
+	for(var/required_power_type in power.required_powers)
+		var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
+		if(!required_power || (required_power in visited_powers))
+			continue
+
+		power_tier = max(power_tier, get_power_tier(required_power, visited_powers) + 1)
 
 	return power_tier
 
@@ -666,11 +684,23 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 /datum/component/psionic_profile/proc/trigger_burnout()
 	burnout_until = world.time + PSIONIC_BURNOUT_TIME
 	strain = max_strain
+	var/datum/action/cooldown/psionic/armed_psionic = psion.click_intercept
+	if(istype(armed_psionic) && !armed_psionic.can_use_during_burnout)
+		armed_psionic.unset_click_ability(psion, refund_cooldown = FALSE)
 	update_strain_hud()
 	update_psionic_action_buttons()
+	addtimer(CALLBACK(src, PROC_REF(end_burnout)), PSIONIC_BURNOUT_TIME, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_DELETE_ME)
 	to_chat(psion, span_userdanger("Your psionic focus collapses into static."))
 	psion.Knockdown(2 SECONDS)
 
 	if(iscarbon(psion))
 		var/mob/living/carbon/carbon_psion = psion
 		carbon_psion.adjust_organ_loss(ORGAN_SLOT_BRAIN, 10, 190)
+
+/datum/component/psionic_profile/proc/end_burnout()
+	if(is_burned_out())
+		return
+
+	update_strain_hud()
+	update_psionic_action_buttons()
+	to_chat(psion, span_notice("The static behind your eyes clears."))

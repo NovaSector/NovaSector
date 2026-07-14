@@ -35,7 +35,10 @@
 	var/is_charging = FALSE
 
 /datum/action/cooldown/psionic/pointed/projectile/lightning_spear/is_action_active(atom/movable/screen/movable/action_button/current_button)
-	return is_charging
+	if(is_charging)
+		return TRUE
+
+	return ..()
 
 /datum/action/cooldown/psionic/pointed/projectile/lightning_spear/try_block_target(atom/target, datum/component/psionic_profile/profile)
 	return FALSE
@@ -46,7 +49,7 @@
 	if(!istype(living_owner) || !form)
 		return FALSE
 	is_charging = TRUE
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	build_all_button_icons()
 
 	var/manifestation_color = get_manifestation_color()
 	var/mutable_appearance/charge_aura = mutable_appearance('icons/effects/effects.dmi', "electricity")
@@ -89,7 +92,7 @@
 	living_owner.stop_sound_channel(CHANNEL_CHARGED_SPELL)
 	stop_concentration(living_owner)
 	is_charging = FALSE
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	build_all_button_icons()
 
 /datum/action/cooldown/psionic/pointed/projectile/lightning_spear/proc/get_charge_hand_offset(mob/living/living_owner)
 	var/hand_offset = IS_LEFT_INDEX(living_owner.active_hand_index) ? -7 : 7
@@ -102,7 +105,7 @@
 			return -7
 	return hand_offset
 
-/datum/action/cooldown/psionic/pointed/projectile/lightning_spear/ready_projectile(obj/projectile/to_fire, atom/target, mob/user, iteration)
+/datum/action/cooldown/psionic/pointed/projectile/lightning_spear/ready_projectile(obj/projectile/to_fire, atom/target, mob/user, iteration, fire_count = 1, fire_spread = 0)
 	. = ..()
 	if(!.)
 		return

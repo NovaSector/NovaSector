@@ -27,7 +27,6 @@
 	var/full_points = get_psionic_rank_points(psionic_rank)
 	psionic_points = full_points
 	var/max_strain = GLOB.psionic_rank_max_strain[psionic_rank]
-	var/strain_decay = GLOB.psionic_rank_strain_decay[psionic_rank]
 	var/manifestation_color = client_source?.prefs?.read_preference(/datum/preference/color/psionic_color)
 	if(!manifestation_color)
 		manifestation_color = PSIONIC_DEFAULT_COLOR
@@ -39,13 +38,7 @@
 		// Limiter grant may fail (non-carbon, insert refused); fall back to applying the rank directly.
 		var/limiter_granted = full_points > PSIONIC_ROUNDSTART_LIMIT_POINTS && grant_limiter_implant(full_points, max_strain)
 		if(!limiter_granted)
-			profile.set_rank(
-				rank = psionic_rank,
-				latent_rank = psionic_rank,
-				limited = FALSE,
-				new_max_strain = max_strain,
-				new_strain_decay = strain_decay,
-			)
+			profile.apply_rank(psionic_rank)
 
 	gain_text = span_purple("Your latent psionic rating resolves as [psionic_rank].")
 
@@ -80,13 +73,7 @@
 	var/datum/component/psionic_profile/profile = quirk_holder.get_psionic_profile()
 	var/mutation_rank = quirk_holder.mind?.psionic_mutation_rank
 	if(profile?.has_source(PSIONIC_SOURCE_MUTATION) && !isnull(GLOB.psionic_rank_points[mutation_rank]))
-		profile.set_rank(
-			rank = mutation_rank,
-			latent_rank = mutation_rank,
-			limited = FALSE,
-			new_max_strain = GLOB.psionic_rank_max_strain[mutation_rank],
-			new_strain_decay = GLOB.psionic_rank_strain_decay[mutation_rank],
-		)
+		profile.apply_rank(mutation_rank)
 	else if(profile && !isnull(original_max_strain))
 		profile.max_strain = original_max_strain
 		profile.strain = min(profile.strain, profile.max_strain)

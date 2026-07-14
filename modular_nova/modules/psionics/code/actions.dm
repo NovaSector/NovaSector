@@ -98,6 +98,12 @@
 	var/requires_concentration = FALSE
 	/// Turf the psion must remain on while concentrating.
 	var/turf/concentration_turf
+	/// TRUE while this action's effect is being actively maintained. Set through start_maintaining().
+	var/maintaining = FALSE
+	/// Message shown to the psion when the maintained effect ends non-silently.
+	var/maintain_end_message
+	/// Sound played to the psion when the maintained effect ends non-silently.
+	var/maintain_end_sound
 	/// Ordered psionic rank variant datum types this action can use.
 	var/list/rank_variant_types
 	/// Cached rank variant datums.
@@ -110,6 +116,7 @@
 	return ..()
 
 /datum/action/cooldown/psionic/Remove(mob/remove_from)
+	stop_maintaining(remove_from, silent = TRUE)
 	stop_concentration(remove_from)
 	return ..()
 
@@ -118,6 +125,18 @@
 		var/mob/living/living_owner = owner
 		if(istype(living_owner))
 			return cycle_rank_variant(living_owner)
+
+	if(is_maintaining() && !(trigger_flags & TRIGGER_SECONDARY_ACTION))
+		var/mob/living/living_owner = owner
+		if(istype(living_owner))
+			return stop_maintaining(living_owner)
+
+	// Toggling a readied ability off must work even while unavailable (burnout, cooldown),
+	// which the parent's availability gate would otherwise block.
+	if(click_to_activate && isnull(target))
+		var/mob/user = clicker || owner
+		if(user?.click_intercept == src)
+			return unset_click_ability(user, refund_cooldown = TRUE)
 
 	return ..()
 
@@ -388,10 +407,100 @@
 	on_concentration_broken(living_owner)
 
 /datum/action/cooldown/psionic/proc/on_concentration_broken(mob/living/living_owner)
+	if(maintaining)
+		return stop_maintaining(living_owner)
 	stop_concentration(living_owner)
 	return FALSE
 
+/datum/action/cooldown/psionic/is_action_active(atom/movable/screen/movable/action_button/current_button)
+	if(is_maintaining())
+		return TRUE
+
+	return ..()
+
+/datum/action/cooldown/psionic/proc/is_maintaining()
+	return maintaining && istype(owner, /mob/living)
+
+/// Marks this action's effect as actively maintained and registers its upkeep signals.
+/// Call from psionic_activate() once the effect is up; end it with stop_maintaining().
+/// Registers COMSIG_LIVING_LIFE with override so concentration and maintenance can share it.
+/datum/action/cooldown/psionic/proc/start_maintaining(mob/living/living_owner)
+	if(maintaining || !istype(living_owner))
+		return FALSE
+
+	maintaining = TRUE
+	RegisterSignal(living_owner, COMSIG_LIVING_LIFE, PROC_REF(on_maintain_life), override = TRUE)
+	RegisterSignal(living_owner, COMSIG_LIVING_DEATH, PROC_REF(on_maintain_death))
+	// Full rebuild: the active background/overlay only redraw with the background and overlay flags.
+	build_all_button_icons()
+	return TRUE
+
+/datum/action/cooldown/psionic/proc/stop_maintaining(mob/living/living_owner, silent = FALSE)
+	if(!maintaining)
+		return FALSE
+
+	maintaining = FALSE
+	if(!istype(living_owner))
+		living_owner = owner
+	if(istype(living_owner))
+		UnregisterSignal(living_owner, list(COMSIG_LIVING_LIFE, COMSIG_LIVING_DEATH))
+	on_maintain_stopped(living_owner, silent)
+	stop_concentration(living_owner)
+	if(!silent && istype(living_owner))
+		if(maintain_end_message)
+			to_chat(living_owner, span_notice(maintain_end_message))
+		if(maintain_end_sound)
+			playsound(living_owner, maintain_end_sound, 35, TRUE)
+	build_all_button_icons()
+	return TRUE
+
+/// Override for maintained teardown side effects (visuals, traits, owned items).
+/datum/action/cooldown/psionic/proc/on_maintain_stopped(mob/living/living_owner, silent = FALSE)
+	return
+
+/// Whether the maintained effect can continue. Covers consciousness, incapacitation,
+/// hands, burnout, concentration, and psionic suppression; override to add conditions.
+/datum/action/cooldown/psionic/proc/can_maintain(mob/living/living_owner, datum/component/psionic_profile/profile)
+	if(action_disabled || !istype(living_owner) || !profile)
+		return FALSE
+	if(living_owner.stat != CONSCIOUS)
+		return FALSE
+	if(HAS_TRAIT(living_owner, TRAIT_INCAPACITATED))
+		return FALSE
+	if(!can_use_hands(living_owner))
+		return FALSE
+	if(profile.is_burned_out())
+		return FALSE
+	if(requires_concentration && !can_concentrate(living_owner, profile))
+		return FALSE
+
+	return living_owner.can_cast_psionics(psionic_flags)
+
+/// Per-tick upkeep while maintained. Return FALSE to end the effect.
+/datum/action/cooldown/psionic/proc/maintain_tick(mob/living/living_owner, datum/component/psionic_profile/profile, seconds_per_tick)
+	return try_gain_active_strain(profile, seconds_per_tick)
+
+/datum/action/cooldown/psionic/proc/on_maintain_life(datum/source, seconds_per_tick)
+	SIGNAL_HANDLER
+
+	if(!maintaining)
+		return
+
+	var/mob/living/living_owner = source
+	var/datum/component/psionic_profile/profile = living_owner?.get_psionic_profile()
+	if(!can_maintain(living_owner, profile) || !maintain_tick(living_owner, profile, seconds_per_tick))
+		stop_maintaining(living_owner)
+
+/datum/action/cooldown/psionic/proc/on_maintain_death(datum/source, gibbed)
+	SIGNAL_HANDLER
+
+	var/mob/living/living_owner = source
+	stop_maintaining(living_owner, silent = TRUE)
+
 /datum/action/cooldown/psionic/IsAvailable(feedback = FALSE)
+	if(is_maintaining())
+		return TRUE
+
 	. = ..()
 	if(!.)
 		return FALSE
@@ -414,7 +523,6 @@
 			living_owner.balloon_alert(living_owner, "already concentrating!")
 		return FALSE
 
-	profile.decay_strain()
 	if(!can_use_during_burnout && profile.is_burned_out())
 		if(feedback)
 			living_owner.balloon_alert(living_owner, "psionic burnout!")
@@ -441,6 +549,8 @@
 	var/mob/living/living_owner = owner
 	if(!istype(living_owner))
 		return FALSE
+	if(is_maintaining())
+		return stop_maintaining(living_owner)
 
 	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
 	if(!profile)
@@ -463,13 +573,19 @@
 		stop_concentration(living_owner)
 		StartCooldown(get_psionic_cooldown_time(profile))
 		return TRUE
-	// A cast that never resolved (interrupted channel, invalid state) refunds its strain.
+	// A cast that never resolved (interrupted channel, invalid state) refunds its strain
+	// and drops the readied targeting state so the button does not stay lit.
 	if(!psionic_activate(target))
 		stop_concentration(living_owner)
 		if(activation_strain_gain)
 			profile.refund_strain(activation_strain_gain, src)
+		if(living_owner.click_intercept == src)
+			unset_click_ability(living_owner, refund_cooldown = FALSE)
 		return FALSE
 
+	// Maintained effects keep concentrating; one-shot casts release it here.
+	if(!maintaining)
+		stop_concentration(living_owner)
 	StartCooldown(get_psionic_cooldown_time(profile))
 	return TRUE
 
@@ -666,18 +782,21 @@
 	remove_projectile_hand_visual(on_who)
 
 /datum/action/cooldown/psionic/pointed/projectile/psionic_activate(atom/target)
-	if(!projectile_type)
+	return fire_psionic_projectiles(target, projectile_type, projectiles_per_fire, projectile_spread, projectile_sound)
+
+/datum/action/cooldown/psionic/pointed/projectile/proc/fire_psionic_projectiles(atom/target, fire_type, fire_count = 1, fire_spread = 0, fire_sound)
+	if(!fire_type)
 		return FALSE
 	if(!isturf(owner.loc))
 		return FALSE
 
-	if(projectile_sound)
-		playsound(get_turf(owner), projectile_sound, 65, TRUE)
+	if(fire_sound)
+		playsound(get_turf(owner), fire_sound, 65, TRUE)
 
 	var/fired_projectile = FALSE
-	for(var/i in 1 to projectiles_per_fire)
-		var/obj/projectile/to_fire = new projectile_type()
-		if(!ready_projectile(to_fire, target, owner, i))
+	for(var/i in 1 to fire_count)
+		var/obj/projectile/to_fire = new fire_type()
+		if(!ready_projectile(to_fire, target, owner, i, fire_count, fire_spread))
 			qdel(to_fire)
 			continue
 
@@ -686,13 +805,13 @@
 
 	return fired_projectile
 
-/datum/action/cooldown/psionic/pointed/projectile/proc/ready_projectile(obj/projectile/to_fire, atom/target, mob/user, iteration)
+/datum/action/cooldown/psionic/pointed/projectile/proc/ready_projectile(obj/projectile/to_fire, atom/target, mob/user, iteration, fire_count = 1, fire_spread = 0)
 	to_fire.firer = user
 	to_fire.fired_from = src
 
 	var/deviation = 0
-	if(projectile_spread && projectiles_per_fire > 1)
-		deviation = (iteration - ((projectiles_per_fire + 1) / 2)) * projectile_spread
+	if(fire_spread && fire_count > 1)
+		deviation = (iteration - ((fire_count + 1) / 2)) * fire_spread
 
 	return to_fire.aim_projectile(target, user, null, deviation)
 

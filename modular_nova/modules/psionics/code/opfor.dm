@@ -6,13 +6,7 @@
 
 /datum/opposing_force_equipment/psionic/on_issue(mob/living/target)
 	var/datum/component/psionic_profile/profile = target.awaken_psionics(get_psionic_rank_points(psionic_rank), source = PSIONIC_SOURCE_OPFOR)
-	profile?.set_rank(
-		rank = psionic_rank,
-		latent_rank = psionic_rank,
-		limited = FALSE,
-		new_max_strain = GLOB.psionic_rank_max_strain[psionic_rank],
-		new_strain_decay = GLOB.psionic_rank_strain_decay[psionic_rank],
-	)
+	profile?.apply_rank(psionic_rank)
 
 /datum/opposing_force_equipment/psionic/delta
 	name = "Delta Psionic Awakening"
