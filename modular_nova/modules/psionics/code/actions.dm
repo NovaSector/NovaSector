@@ -319,6 +319,10 @@
 /datum/action/cooldown/psionic/proc/start_concentration(mob/living/living_owner, datum/component/psionic_profile/profile, feedback = FALSE)
 	if(!requires_concentration)
 		return TRUE
+	if(concentration_turf)
+		if(feedback)
+			living_owner.balloon_alert(living_owner, "already concentrating!")
+		return FALSE
 	if(!can_concentrate(living_owner, profile, feedback))
 		return FALSE
 
@@ -404,6 +408,10 @@
 	if(!profile)
 		if(feedback)
 			living_owner.balloon_alert(living_owner, "not awakened!")
+		return FALSE
+	if(requires_concentration && concentration_turf)
+		if(feedback)
+			living_owner.balloon_alert(living_owner, "already concentrating!")
 		return FALSE
 
 	profile.decay_strain()

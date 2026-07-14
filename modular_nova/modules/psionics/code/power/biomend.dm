@@ -54,7 +54,9 @@
 	return ..()
 
 /datum/action/cooldown/psionic/pointed/living_target/biomend/is_action_active(atom/movable/screen/movable/action_button/current_button)
-	return is_biomending()
+	if(is_biomending())
+		return TRUE
+	return ..()
 
 /datum/action/cooldown/psionic/pointed/living_target/biomend/Trigger(mob/clicker, trigger_flags, atom/target)
 	if(is_biomending())
