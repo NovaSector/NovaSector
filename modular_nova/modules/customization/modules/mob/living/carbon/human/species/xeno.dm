@@ -98,6 +98,7 @@
 		/datum/action/cooldown/alien/make_structure/plant_weeds/roundstart,
 		/datum/action/cooldown/alien/transfer,
 	)
+	visual = FALSE
 
 /datum/action/cooldown/alien/make_structure/plant_weeds
 	var/build_duration = 0 SECONDS //regular aliens can build instantly
