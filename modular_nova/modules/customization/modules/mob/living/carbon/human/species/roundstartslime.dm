@@ -231,7 +231,7 @@
 /obj/item/organ/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
 	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
-	UnregisterSignal(source, COMSIG_MOB_LOGIN)
+	UnregisterSignal(organ_owner, COMSIG_MOB_LOGIN)
 
 /**
 * Colors the slime's core (their brain) the same as their first mutant color.
