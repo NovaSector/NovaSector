@@ -61,7 +61,7 @@
 	if(istype(thrower))
 		// If they somehow have a datum. I won't judge
 		return should_interaction_fail(source, thrower) ? COMPONENT_CANCEL_THROW : NONE
-	// If the thrower isn't a mob, just block it here. It's probably an explosion
+	// If the thrower isn't a mob, just block it. It could be anything, but it's probably an explosion
 	source.visible_message(span_warning("\The [source] resists being thrown!"))
 	return COMPONENT_CANCEL_THROW
 
