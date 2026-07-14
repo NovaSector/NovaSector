@@ -392,12 +392,6 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	hair_appendages_inner = list("hair_doublebun_a1" = HAIR_APPENDAGE_REAR)
 	hair_appendages_outer = list("hair_doublebun_a1o" = HAIR_APPENDAGE_REAR)
 
-/datum/sprite_accessory/hair/nova/tetodrills
-	name = "Teto Drills"
-	icon_state = "hair_teto_drills"
-	hair_appendages_inner = list("hair_teto_drills_a1" = HAIR_APPENDAGE_HANGING_FRONT)
-	hair_appendages_outer = list("hair_teto_drills_a1o" = HAIR_APPENDAGE_HANGING_FRONT)
-
 /datum/sprite_accessory/hair/dreadlocks
 	name = "Dreadlocks"
 	icon_state = "hair_dreads"
@@ -715,7 +709,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	name = "Pigtails 5"
 	icon_state = "hair_pigtails_5"
 
-/datum/sprite_accessory/hair/nova/pigtails6
+/datum/sprite_accessory/hair/pigtails6
 	name = "Pigtails (Girly)"
 	icon_state = "hair_pigtails_girly"
 	hair_appendages_inner = list("hair_pigtails_girly_a1" = HAIR_APPENDAGE_HANGING_FRONT)

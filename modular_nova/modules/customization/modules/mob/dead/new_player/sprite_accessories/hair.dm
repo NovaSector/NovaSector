@@ -782,6 +782,12 @@
 	hair_appendages_inner = list("hair_gorgon_a1" = HAIR_APPENDAGE_HANGING_FRONT)
 	hair_appendages_outer = list("hair_gorgon_a1o" = HAIR_APPENDAGE_HANGING_FRONT)
 
+/datum/sprite_accessory/hair/nova/tetodrills
+	name = "Teto Drills"
+	icon_state = "hair_teto_drills"
+	hair_appendages_inner = list("hair_teto_drills_a1" = HAIR_APPENDAGE_HANGING_FRONT)
+	hair_appendages_outer = list("hair_teto_drills_a1o" = HAIR_APPENDAGE_HANGING_FRONT)
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/nova
