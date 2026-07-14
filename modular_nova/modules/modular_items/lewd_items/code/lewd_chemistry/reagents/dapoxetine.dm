@@ -5,7 +5,7 @@
 	color = "#e5e5e5"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED | REAGENT_NO_RANDOM_RECIPE
 	life_pref_datum = /datum/preference/toggle/erp/aphro
-	added_traits = TRAIT_NO_CLIMAX
+	added_traits = list(TRAIT_NO_CLIMAX)
 
 /datum/chemical_reaction/dapoxetine
 	results = list(/datum/reagent/drug/aphrodisiac/dapoxetine = 10)
