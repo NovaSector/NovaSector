@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - qol: "many features now have searchable dropdowns in the character preferences menu"
