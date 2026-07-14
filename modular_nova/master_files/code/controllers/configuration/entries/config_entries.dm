@@ -82,6 +82,12 @@
 /datum/config_entry/number/flavor_text_character_requirement
 	default = 150
 
+/datum/config_entry/flag/min_records_text
+	default = FALSE
+
+/datum/config_entry/number/records_text_character_requirement
+	default = 150
+
 /// Defines whether or not mentors can see ckeys alongside mobnames.
 /datum/config_entry/flag/mentors_mobname_only
 
