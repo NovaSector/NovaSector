@@ -1,0 +1,7 @@
+author: "Richard Blonski"
+delete-after: True
+changes:
+  - bugfix: "Fixed Slime Players cores being teleported into nullspace upon death."
+  - bugfix: "Fixed Slime Players equipment getting deleted upon death."
+  - bugfix: "Fixed Slime Players not getting their preferences or quirks upon revival."
+  - bugfix: "Fixed Slime Players getting removed when gibbed."
