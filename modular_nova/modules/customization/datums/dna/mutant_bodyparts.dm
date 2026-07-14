@@ -97,7 +97,7 @@ GLOBAL_LIST_EMPTY(emissive_list_cache)
  */
 /datum/mutant_bodypart/proc/set_colors(new_colors)
 	if(!length(new_colors))
-		CRASH("set_colors passed an empty list!")
+		CRASH("set_colors passed an invalid arg! It should be a color  string or list of color strings.")
 
 	if(istext(new_colors))
 		new_colors = list(new_colors, new_colors, new_colors)
