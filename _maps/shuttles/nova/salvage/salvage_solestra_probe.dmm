@@ -1,0 +1,894 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bo" = (
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/turf/open/floor/plating/nanocarbon/exterior/secondary_colour,
+/area/shuttle/salvaged_shuttle)
+"ce" = (
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
+/area/shuttle/salvaged_shuttle)
+"ez" = (
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/obj/machinery/exoscanner/shuttle_part/radio_dish/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"eB" = (
+/turf/closed/wall/mineral/nanocarbon/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"fI" = (
+/obj/structure/shuttle_decoration/junction_box/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"hx" = (
+/turf/open/floor/plating/nanocarbon/exterior/secondary_colour,
+/area/shuttle/salvaged_shuttle)
+"iy" = (
+/obj/machinery/exoscanner/shuttle_part/sensors_blister/directional/south,
+/turf/open/floor/plating/nanocarbon/exterior/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"jX" = (
+/obj/structure/shuttle_access_panel,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/salvaged_shuttle)
+"km" = (
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/salvaged_shuttle)
+"kO" = (
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/shuttle/salvaged_shuttle)
+"ly" = (
+/obj/machinery/exoscanner/shuttle_part/radio_dish/directional/east,
+/turf/open/floor/plating/nanocarbon/exterior/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"nP" = (
+/obj/structure/shuttle_decoration/liquid_tank/coolant,
+/turf/open/floor/plating/aluminum,
+/area/shuttle/salvaged_shuttle)
+"oM" = (
+/obj/structure/shuttle_decoration/rcs/directional/north,
+/obj/effect/mapping_helpers/salvage_anchor/end/seven,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/salvaged_shuttle)
+"rb" = (
+/obj/structure/shuttle_decoration/liquid_tank/battery,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/salvaged_shuttle)
+"tC" = (
+/obj/structure/lattice,
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/secondary_colour{
+	dir = 4
+	},
+/obj/structure/titanium_structure,
+/turf/template_noop,
+/area/shuttle/salvaged_shuttle)
+"uk" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
+"vn" = (
+/obj/structure/shuttle_decoration/rcs/directional/south,
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"vE" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/marker_beacon/yellow,
+/obj/effect/mapping_helpers/salvage_anchor/three,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
+"wC" = (
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/turf/open/floor/plating/nanocarbon/exterior/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"xx" = (
+/obj/structure/shuttle_decoration/extinguisher/directional/south,
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
+/area/shuttle/salvaged_shuttle)
+"yi" = (
+/obj/structure/shuttle_decoration/rcs/directional/south,
+/obj/effect/mapping_helpers/salvage_anchor/end/two,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/salvaged_shuttle)
+"zd" = (
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/obj/effect/mapping_helpers/salvage_anchor/end/six,
+/turf/open/floor/plating/nanocarbon/exterior/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"zm" = (
+/obj/machinery/exoscanner/shuttle_part/open_sensors_blister/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"BV" = (
+/obj/structure/shuttle_access_panel,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/salvaged_shuttle)
+"CC" = (
+/obj/machinery/exoscanner/shuttle_part/radar_panel/directional/north,
+/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
+/area/shuttle/salvaged_shuttle)
+"Ev" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/marker_beacon/yellow,
+/obj/effect/mapping_helpers/salvage_anchor/seven,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
+"Fz" = (
+/turf/open/floor/plating/nanocarbon/exterior/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"HG" = (
+/obj/machinery/exoscanner/shuttle_part/radar_panel/directional/south,
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
+/area/shuttle/salvaged_shuttle)
+"HR" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/marker_beacon/yellow,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
+"Ii" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/marker_beacon/yellow,
+/obj/effect/mapping_helpers/salvage_anchor/two,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
+"Im" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/marker_beacon/yellow,
+/obj/effect/mapping_helpers/salvage_anchor/six,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
+"IG" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
+/area/shuttle/salvaged_shuttle)
+"IM" = (
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/salvaged_shuttle)
+"IZ" = (
+/obj/structure/shuttle_access_panel,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/salvaged_shuttle)
+"Kk" = (
+/obj/structure/shuttle_decoration/liquid_tank/battery/shipmind,
+/turf/open/floor/plating/aluminum,
+/area/shuttle/salvaged_shuttle)
+"LV" = (
+/obj/machinery/exoscanner/shuttle_part/radar_panel/directional/east,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"Md" = (
+/obj/structure/engine_covers/ion_plate{
+	dir = 4
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"Me" = (
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/plating/nanocarbon/exterior/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"Mn" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/salvaged_shuttle)
+"MV" = (
+/obj/docking_port/mobile/salvage,
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/marker_beacon/yellow,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
+"NP" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 1
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/salvaged_shuttle)
+"PS" = (
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"Qv" = (
+/obj/structure/lattice,
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/black{
+	dir = 8
+	},
+/obj/structure/titanium_structure,
+/turf/template_noop,
+/area/shuttle/salvaged_shuttle)
+"QB" = (
+/obj/structure/engine_covers/ion_plate{
+	dir = 8
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/salvaged_shuttle)
+"UU" = (
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/obj/machinery/exoscanner/shuttle_part/radio_dish/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"VR" = (
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/obj/effect/mapping_helpers/salvage_anchor/end/three,
+/turf/open/floor/plating/nanocarbon/exterior/primary_colour,
+/area/shuttle/salvaged_shuttle)
+"YC" = (
+/turf/template_noop,
+/area/template_noop)
+"Zq" = (
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/salvaged_shuttle)
+"Zy" = (
+/obj/structure/shuttle_decoration/rcs/directional/north,
+/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
+/area/shuttle/salvaged_shuttle)
+
+(1,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(2,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(3,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(4,1,1) = {"
+YC
+uk
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+uk
+YC
+"}
+(5,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(6,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(7,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(8,1,1) = {"
+YC
+Ev
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+Ii
+YC
+"}
+(9,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(10,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(11,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+NP
+kO
+Mn
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(12,1,1) = {"
+uk
+YC
+YC
+YC
+YC
+YC
+QB
+YC
+NP
+QB
+Mn
+YC
+QB
+YC
+YC
+YC
+YC
+YC
+uk
+"}
+(13,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+oM
+Qv
+IM
+IM
+IM
+Qv
+yi
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(14,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+ce
+tC
+fI
+rb
+PS
+tC
+ce
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(15,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+Md
+YC
+IZ
+km
+jX
+YC
+Md
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(16,1,1) = {"
+HR
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+ez
+BV
+UU
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+MV
+"}
+(17,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+zm
+Me
+Fz
+CC
+Zq
+HG
+Fz
+hx
+iy
+YC
+YC
+YC
+YC
+YC
+"}
+(18,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+zd
+ly
+wC
+IG
+Kk
+xx
+wC
+bo
+VR
+YC
+YC
+YC
+YC
+YC
+"}
+(19,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+Zy
+nP
+vn
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(20,1,1) = {"
+uk
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+eB
+LV
+eB
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+uk
+"}
+(21,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(22,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(23,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(24,1,1) = {"
+YC
+Im
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+vE
+YC
+"}
+(25,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(26,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(27,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(28,1,1) = {"
+YC
+uk
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+uk
+YC
+"}
+(29,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(30,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(31,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
