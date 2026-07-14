@@ -114,6 +114,7 @@
 		SIGNAL_REMOVETRAIT(TRAIT_NO_TRANSFORM),
 	), PROC_REF(update_revenant_appearance))
 	name = generate_random_mob_name()
+	real_name = name // NOVA EDIT ADDITION
 
 	GLOB.revenant_relay_mobs |= src
 
