@@ -25,6 +25,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 		databanks. Likely to be from the very early concept stages of the Dark Locations type ships, where resources \
 		would be obtained through recycling the many old pioneer vessels scattered through the system."
 	id = "salvage_computer"
+	inherit_materials = DESIGN_INHERIT_MATS
 	build_path = /obj/machinery/computer/salvage_bay_controller
 	category = list(
 		RND_CATEGORY_COMPUTER + RND_SUBCATEGORY_COMPUTER_ENGINEERING
