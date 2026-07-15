@@ -32,6 +32,7 @@
 	update_appearance(updates = UPDATE_ICON_STATE)
 
 /mob/living/basic/regal_rat/update_icon_state()
+	. = ..()
 	icon_living = current_look::icon_state_living
 	icon_dead = current_look::icon_state_dead
 	icon_state = stat == DEAD ? icon_dead : icon_living
