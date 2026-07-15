@@ -5,14 +5,14 @@
 // Because i couldn't figure out how to override the PopulateContents() of the import vendor foodpack, i've decided to make the ration bag its own type.
 
 /obj/item/storage/box/ration
-	name = "\improper emergency ration"
+	name = "emergency ration"
 	desc = "A blue plastic sack containing an emergency ration, meant to keep the crew fed in the event a chef is absent or incapable of working. \
 			Intended for distribution in times of disaster or war, its contents are nourishing, and intended to be edible to a wide variety of potential species."
 	icon = 'modular_nova/modules/emergency_rations/icons/rations.dmi'
 	icon_state = "foodpack_ration_big"
 	illustration = null
 	custom_price = PAYCHECK_CREW * 1.8
-	custom_materials = list(/datum/material/plastic =SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT)
 	foldable_result = /obj/item/stack/sheet/plastic
 	
 /obj/item/storage/box/ration/PopulateContents()
@@ -32,17 +32,12 @@
 /* MAINS */
 
 /obj/item/food/vendor_tray_meal/ration
-	name = "\improper Emergency Ration Main"
-	desc = "This is the base type for emergency ration mains. If you somehow managed to get this in normal gameplay, please file a bug report."
-	icon = 'modular_nova/modules/emergency_rations/icons/rations.dmi'
-	icon_state = "foodtray_ricenbeans"
-	foodtypes = VEGETABLES
-
-/obj/item/food/vendor_tray_meal/ration/ricenbeans
 	name = "\improper Emergency Ration Main: Beans and Yellow Rice"
 	desc = "Red beans and green onion, mixed in with steaming yellow rice."
+	icon = 'modular_nova/modules/emergency_rations/icons/rations.dmi'
 	icon_state = "foodtray_ricenbeans"
 	tastes = list("rice" = 1, "beans" = 1, "onion" = 1)
+	foodtypes = VEGETABLES
 
 /obj/item/food/vendor_tray_meal/ration/peasnsauce
 	name = "\improper Emergency Ration Main: Peas and Carrots in Sauce"
@@ -81,10 +76,12 @@
 	desc = "This is the base type for emergency ration sides. If you somehow managed to get this in normal gameplay, please file a bug report."
 	icon = 'modular_nova/modules/emergency_rations/icons/rations.dmi'
 	trash_type = /obj/item/trash/empty_side_pack/ration
+	abstract_type = /obj/item/food/vendor_tray_meal/side/ration
 	foodtypes = VEGETABLES
 	
 /obj/item/food/vendor_tray_meal/side/ration/bag
 	trash_type = /obj/item/trash/empty_side_pack/ration/bag
+	abstract_type = /obj/item/food/vendor_tray_meal/side/ration/bag
 	
 /obj/item/food/vendor_tray_meal/side/ration/bag/cracker
 	name = "\improper Emergency Ration Side: Cracker"
@@ -143,51 +140,35 @@
 
 /obj/effect/spawner/random/vendor_meal_mains/ration_one
 	name = "random ration first main spawner"
-	icon_state = "loot"
-
-/obj/effect/spawner/random/vendor_meal_mains/ration_one/Initialize(mapload)
 	loot = list(
-		/obj/item/food/vendor_tray_meal/ration/ricenbeans,
+		/obj/item/food/vendor_tray_meal/ration,
 		/obj/item/food/vendor_tray_meal/ration/peasnsauce,
 		/obj/item/food/vendor_tray_meal/ration/pasta,
 	)
-	. = ..()
 	
 /obj/effect/spawner/random/vendor_meal_mains/ration_two
 	name = "random ration second main spawner"
-	icon_state = "loot"
-
-/obj/effect/spawner/random/vendor_meal_mains/ration_two/Initialize(mapload)
 	loot = list(
 		/obj/item/food/vendor_tray_meal/ration/bncstew,
 		/obj/item/food/vendor_tray_meal/ration/wildrice,
 		/obj/item/food/vendor_tray_meal/ration/splitpea,
 	)
-	. = ..()
 	
 /obj/effect/spawner/random/vendor_meal_sides/ration_one
 	name = "random ration first side spawner"
-	icon_state = "loot"
-
-/obj/effect/spawner/random/vendor_meal_sides/ration_one/Initialize(mapload)
 	loot = list(
 		/obj/item/food/vendor_tray_meal/side/ration/bag/cookie,
 		/obj/item/food/vendor_tray_meal/side/ration/bag/bstart,
 		/obj/item/food/vendor_tray_meal/side/ration/shortbread,
 	)
-	. = ..()
 	
 /obj/effect/spawner/random/vendor_meal_sides/ration_two
 	name = "random ration second side spawner"
-	icon_state = "loot"
-
-/obj/effect/spawner/random/vendor_meal_sides/ration_two/Initialize(mapload)
 	loot = list(
 		/obj/item/food/vendor_tray_meal/side/ration/granola,
 		/obj/item/food/vendor_tray_meal/side/ration/bag/pretzels,
 		/obj/item/food/vendor_tray_meal/side/ration/bag/cornnuts,
 	)
-	. = ..()
 	
 /obj/item/trash/empty_side_pack/ration
 	icon = 'modular_nova/modules/emergency_rations/icons/rations.dmi'
