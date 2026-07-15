@@ -110,7 +110,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 		message_admins("[src] attempted to fill the shipbreaking templates list, but it was already full, this is wrong!")
 		return
 	var/list/valid_shuttle_templates = valid_subtypesof(/datum/map_template/shuttle/salvage_scrap)
-	for(var/datum/map_template/shuttle/salvage_scrap/template in valid_shuttle_templates)
+	for(var/datum/map_template/shuttle/salvage_scrap/template as anything in valid_shuttle_templates)
 		if(!template.shows_up_as_salvage)
 			continue
 		GLOB.shipbreaking_templates.Add(template)
@@ -221,7 +221,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 	if(!length(template.ship_hazards))
 		ticket_contents += "No hazards were detected, continue with caution.<br>"
 	else
-		for(var/hazard in template.ship_hazards)
+		for(var/hazard as anything in template.ship_hazards)
 			ticket_contents += "- [hazard]<br>"
 	ticket_contents += "<hr />"
 	ticket_contents += "<p><font color=\"grey\">Signature or stamp confirms receipt of salvage ownership, and that any and all contents of the salvage are the direct responsibility of all signees.</font></p>"
