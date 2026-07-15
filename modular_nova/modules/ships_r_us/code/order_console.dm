@@ -30,7 +30,7 @@
 	/// Reference to the docking port we should send ships to
 	var/obj/docking_port/stationary/our_docking_port
 	/// How far away we should check for the docking port?
-	var/docking_port_check_distance = 10
+	var/docking_port_check_distance = 0
 	/// The types of shuttle templates we can sell from here
 	var/list/valid_shuttle_templates = list(
 		/datum/map_template/shuttle/personal_buyable/ferries,
@@ -60,13 +60,13 @@
 
 /// Asks SSshuttle if our set docking port id is around and in range
 /obj/machinery/computer/personal_shuttle_order/proc/try_and_find_a_dock()
-	/*if(our_docking_port)
+	if(our_docking_port)
 		return
-	var/obj/docking_port/stationary/potential_port = SSshuttle.getDock(docking_port_id)
-	if(!potential_port || (get_dist(src, potential_port) > docking_port_check_distance))*/
-	balloon_alert_to_viewers("no suitable dock in range")
+	//var/obj/docking_port/stationary/potential_port = SSshuttle.getDock(docking_port_id)
+	//if(!potential_port || (get_dist(src, potential_port) > docking_port_check_distance))
+	balloon_alert_to_viewers("This console is currently non-operational and should not be used.")
 	return
-	our_docking_port = potential_port
+	//our_docking_port = potential_port
 
 /// Fills the shopping list with names and templates
 /obj/machinery/computer/personal_shuttle_order/proc/try_and_fill_shopping_list()
