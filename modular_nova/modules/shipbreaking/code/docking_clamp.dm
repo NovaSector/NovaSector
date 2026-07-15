@@ -113,8 +113,8 @@
 	var/list/dock_bounds = temp_docking_port.return_coords()
 	var/list/overlappers = SSshuttle.get_dock_overlap(dock_bounds[1], dock_bounds[2], dock_bounds[3], dock_bounds[4], z)
 	if(length(overlappers)) // Overlappers list contains ourself as well
-		for(var/dock as anything in overlappers)
-			if(dock == temp_docking_port)
+		for(var/obj/docksearch as anything in overlappers)
+			if(docksearch == temp_docking_port)
 				continue
 			balloon_alert(user, "intersecting nearby dock!")
 			temp_docking_port.Destroy(TRUE)
@@ -140,7 +140,7 @@
 		return TRUE // what ?? No
 	var/list/docking_turfs = docking_port.return_turfs()
 	for(var/turf/checked_turf as anything in docking_turfs)
-		for(var/mob/living/living_mob as anything in checked_turf.contents)
+		for(var/mob/living/living_mob in checked_turf.contents)
 			return TRUE
 	return FALSE
 

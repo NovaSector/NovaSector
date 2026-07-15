@@ -221,7 +221,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 	if(!length(template.ship_hazards))
 		ticket_contents += "No hazards were detected, continue with caution.<br>"
 	else
-		for(var/hazard as anything in template.ship_hazards)
+		for(var/datum/hazard as anything in template.ship_hazards)
 			ticket_contents += "- [hazard]<br>"
 	ticket_contents += "<hr />"
 	ticket_contents += "<p><font color=\"grey\">Signature or stamp confirms receipt of salvage ownership, and that any and all contents of the salvage are the direct responsibility of all signees.</font></p>"
