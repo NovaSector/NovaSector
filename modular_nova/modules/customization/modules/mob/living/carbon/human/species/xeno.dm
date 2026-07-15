@@ -94,6 +94,7 @@
 	max_plasma = 55
 	plasma_rate = 2
 	heal_rate = 1.5
+	visual = FALSE
 	actions_types = list(
 		/datum/action/cooldown/alien/make_structure/plant_weeds/roundstart,
 		/datum/action/cooldown/alien/transfer,
@@ -113,6 +114,7 @@
 
 //Resin spinner
 /obj/item/organ/alien/resinspinner/roundstart
+	visual = FALSE
 	actions_types = list(/datum/action/cooldown/alien/make_structure/resin/roundstart)
 
 /datum/action/cooldown/alien/make_structure/resin

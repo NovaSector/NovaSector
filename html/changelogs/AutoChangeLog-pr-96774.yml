@@ -1,8 +1,0 @@
-author: "Melbert"
-delete-after: True
-changes:
-  - bugfix: "Fixed a bug where contractions were treated as rarer words than they should be for the sake of partial language understanding"
-  - balance: "Tweaked the formula of partial language understanding: Less common words are penalized less, more common words are rewarded more. In other words more words will be understood on average."
-  - balance: "Common Second Language numbers were tweaked according to the new formula. Now \"75%\", \"50%\", \"25%\"."
-  - balance: "Humans can now take Common Second Language. Doing so also grants Galactic Uncommon."
-  - rscadd: "Partially understood sentences now get an altered language icon in chat and runechat, indicating that only some of the words were translated."

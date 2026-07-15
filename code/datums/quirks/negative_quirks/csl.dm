@@ -15,6 +15,7 @@
 /datum/quirk/csl/add(client/client_source)
 	quirk_holder.remove_language(/datum/language/common, UNDERSTOOD_LANGUAGE, LANGUAGE_SPECIES)
 	quirk_holder.remove_language(/datum/language/common, UNDERSTOOD_LANGUAGE, LANGUAGE_ATOM)
+	quirk_holder.remove_language(/datum/language/common, UNDERSTOOD_LANGUAGE, LANGUAGE_MIND) // NOVA EDIT ADDITION - Language menu granted
 	if(length(quirk_holder.get_understood_languages()) < 1)
 		quirk_holder.grant_language(/datum/language/uncommon, SPOKEN_LANGUAGE|UNDERSTOOD_LANGUAGE, LANGUAGE_QUIRK)
 
