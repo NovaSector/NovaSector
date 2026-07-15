@@ -270,16 +270,14 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	/// The location the core will forceMove into
 	var/atom/core_loc = get_core_ejection_loc(victim, death_turf, loc_override)
 
+	// Store their items, drop their brain/core, and implants to the floor.
 	store_item_slots(victim)
-	victim.drop_all_held_items()
-	process_items(victim) // Start moving items before anything else can touch them.
-
-	forceMove(core_loc)
-	// Drop their equipment, Brain/Core, and implants to the floor.
-	victim.unequip_everything()
 	src.Remove(victim, special = TRUE) // Brain/Core
 	for(var/obj/item/implant/implants in victim) // Implants
 		implants.forceMove(death_turf)
+	victim.drop_all_held_items()
+	process_items(victim) // Start moving items before anything else can touch them.
+	forceMove(core_loc)
 
 	// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
 	for(var/obj/item/organ/spilled_organ in death_turf)
