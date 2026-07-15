@@ -15,6 +15,9 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 	research_icon_state = "security-plating"
 
+/obj/item/mod/construction/plating/security
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/uranium = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT)
+
 /datum/design/module/mod_tether_grounded
 	name = "Grounded Apprehension Module"
 	id = "mod_tether_grounded"
@@ -33,6 +36,9 @@
 	name = "Plate Compression Module"
 	id = "mod_retract_plates"
 	build_path = /obj/item/mod/module/plate_compression
+
+/obj/item/mod/module/plate_compression
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /datum/design/module/magnetic_deploy
 	name = "Magnetic Deployment Module"

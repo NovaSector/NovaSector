@@ -217,10 +217,12 @@
 #define BODYSHAPE_TAUR (BODYSHAPE_TAUR_GENERIC|BODYSHAPE_TAUR_SNAKE|BODYSHAPE_TAUR_PAW|BODYSHAPE_TAUR_HOOF|BODYSHAPE_TAUR_BIG_LEGS|BODYSHAPE_TAUR_BIG_LEGS_STANCED)
 // NOVA EDIT ADDITION END
 
-/// List of body part flags that can not be bioscrambled
-#define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG | BODYTYPE_GHOUL) // NOVA EDIT CHANGE - ORIGINAL: #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
 /// Check to see if a bodypart limb can be bioscrambled
-#define BODYPART_CAN_BE_BIOSCRAMBLED(bodypart) (!(bodypart.bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE) && !(bodypart.flags_1 & HOLOGRAM_1))
+#define BODYPART_CAN_BE_BIOSCRAMBLED(bodypart) ( \
+	!(bodypart.bodytype & (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG | BODYTYPE_GHOUL)) /* NOVA EDIT CHANGE - ORIGINAL: !(bodypart.bodytype & (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)) \ */ \
+	&& !(bodypart.flags_1 & HOLOGRAM_1) \
+	&& !(bodypart.bodypart_flags & BODYPART_STUMP) \
+)
 
 // Defines for Species IDs. Used to refer to the name of a species, for things like bodypart names or species preferences.
 #define SPECIES_ABDUCTOR "abductor"
@@ -903,15 +905,24 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 #define ID_LAYER 18
 // NOVA EDIT ADDITION BEGIN - cursed layers under clothing
 	#define BANDAGE_LAYER 18.1
-	#define NIPPLES_LAYER 18.2
-	#define PENIS_LAYER 18.3
-	#define VAGINA_LAYER 18.4
-	#define ANUS_LAYER 18.5
+	#define NIPPLES_CLOTHING_LAYER 18.2
+	#define PENIS_CLOTHING_LAYER 18.3
+	#define VAGINA_CLOTHING_LAYER 18.4
+	#define ANUS_CLOTHING_LAYER 18.5
 //NOVA EDIT ADDITION END
 /// Jumpsuit clothing layer
 #define UNIFORM_LAYER 19
 	/// The layer underneath the uniform
 	#define UNDER_UNIFORM_LAYER 19.1
+	// NOVA EDIT ADDITION START
+	#define UNDER_UNIFORM_SOCKS_LAYER 19.101
+	#define BREASTS_LAYER 19.3
+	#define PENIS_LAYER 19.4
+	#define TESTICLES_LAYER 19.5
+	#define VAGINA_LAYER 19.6
+	#define ANUS_LAYER 19.7
+	#define BUTT_LAYER 19.8
+	// NOVA EDIT ADDITION END
 /// Damage indicators (cuts and burns)
 #define DAMAGE_LAYER 20
 	/// Mutations that should appear above everything else (e.g. laser eyes)
@@ -935,20 +946,18 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 /// (You ONLY need to update this if you add a standing overlay, adding an integer.)
 #define TOTAL_LAYERS 23
 
-//Bitflags for the layers a bodypart overlay can draw on (can be drawn on multiple layers)
-/// Draws overlay on the BODY_FRONT_LAYER
-#define EXTERNAL_FRONT (1 << 0)
-/// Draws overlay on the BODY_ADJ_LAYER
-#define EXTERNAL_ADJACENT (1 << 1)
-/// Draws overlay on the BODY_BEHIND_LAYER
-#define EXTERNAL_BEHIND (1 << 2)
+// Legacy mutant bodypart layering defines for icon states
+// Don't change these without updating all relevant icon states
+#define EXTERNAL_FRONT "FRONT"
+#define EXTERNAL_ADJACENT "ADJ"
+#define EXTERNAL_BEHIND "BEHIND"
 // NOVA EDIT ADDITION START - Customization
 /// Draws overlay on the BODY_FRONT_UNDER_CLOTHES
-#define EXTERNAL_FRONT_UNDER_CLOTHES (1 << 3)
+#define EXTERNAL_FRONT_UNDER_CLOTHES "FRONT_UNDER"
 /// Draws overlay on the ABOVE_BODY_FRONT_HEAD_LAYER
-#define EXTERNAL_FRONT_OVER (1 << 4)
+#define EXTERNAL_FRONT_OVER "FRONT_OVER"
 /// Draws overlay on the HEAD_LAYER, for things that need to be above hair but below hats.
-#define EXTERNAL_FRONT_ABOVE_HAIR (1 << 5)
+#define EXTERNAL_FRONT_ABOVE_HAIR "FRONT_OVER_HAIR"
 /// NOVA EDIT ADDITION END
 
 // Bitflags for external organs restylability

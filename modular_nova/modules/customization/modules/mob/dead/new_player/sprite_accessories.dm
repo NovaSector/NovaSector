@@ -1,4 +1,3 @@
-// GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 
 /datum/sprite_accessory
 	///Unique key of an accessory. All tails should have FEATURE_TAIL, ears FEATURE_EARS etc.
@@ -19,9 +18,6 @@
 	var/flags_for_organ = NONE
 
 	color_src = USE_ONE_COLOR
-
-	///Which layers does this accessory affect
-	var/relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, UNDER_UNIFORM_LAYER, ABOVE_BODY_FRONT_HEAD_LAYER)
 
 	///This is used to determine whether an accessory gets added to someone. This is important for accessories that are "None", which should have this set to false
 	var/factual = TRUE
@@ -58,29 +54,26 @@
 				default_color = "#FFFFFF"
 
 	if(color_src == USE_MATRIXED_COLORS)
-
-		if(default_color != DEFAULT_MATRIXED)
-			default_color = DEFAULT_MATRIXED
-
+		default_color = DEFAULT_MATRIXED
 		color_layer_names = list()
 
-		if(!SSaccessories.cached_mutant_icon_files[icon])
-			SSaccessories.cached_mutant_icon_files[icon] = icon_states(new /icon(icon))
+		var/list/icon_states_list = SSaccessories.cached_mutant_icon_files[icon] || SSaccessories.build_cached_icon_states(icon)
+		var/icon_state_prefix = "m_[key]_[get_sprite_suffix()]"
 
-		var/icon_state_prefix = "m_[key]_[icon_state]"
-		var/list/icon_states_list = SSaccessories.cached_mutant_icon_files[icon]
-		for(var/layer in relevent_layers)
-			var/layertext = (layer == BODY_BEHIND_LAYER) ? "BEHIND" \
-							: ((layer == BODY_ADJ_LAYER) ? "ADJ" : "FRONT")
-
-			var/prefix = "[icon_state_prefix]_[layertext]"
-
+		for(var/postfix in SSaccessories.all_layer_postfixes)
+			var/prefix = "[icon_state_prefix]_[postfix]"
 			if("[prefix]_primary" in icon_states_list)
 				color_layer_names["1"] = "primary"
 			if("[prefix]_secondary" in icon_states_list)
 				color_layer_names["2"] = "secondary"
 			if("[prefix]_tertiary" in icon_states_list)
 				color_layer_names["3"] = "tertiary"
+			if(length(color_layer_names) == 3)
+				break // Found all three channels, nothing left to learn.
+
+/// Returns the 'suffix' of the sprite (by default just the icon_state)
+/datum/sprite_accessory/proc/get_sprite_suffix()
+	return icon_state
 
 /datum/sprite_accessory/proc/is_hidden(mob/living/carbon/human/owner)
 	return FALSE
@@ -151,7 +144,6 @@
 /datum/sprite_accessory/caps
 	key = FEATURE_MUSH_CAP
 	icon = 'icons/mob/human/species/mush_cap.dmi'
-	relevent_layers = list(BODY_ADJ_LAYER)
 	color_src = USE_ONE_COLOR
 	organ_type = /obj/item/organ/mushroom_cap
 

@@ -22,7 +22,6 @@
 /datum/loadout_item/suit/croptop
 	name = "Crop Top Turtleneck"
 	item_path = /obj/item/clothing/suit/jacket/croptop
-	reskin_datum = /datum/atom_skin/cableknit_sweater
 
 /datum/loadout_item/suit/czech
 	name = "Czech Coat"
@@ -1260,3 +1259,8 @@
 /datum/loadout_item/suit/donator/replica_parade_jacket
 	name = "Replica Parade Jacket"
 	item_path = /obj/item/clothing/suit/replica_parade_jacket
+
+/datum/loadout_item/suit/croptop_bomber_jacket
+	name = "Croptop Bomber Jacket"
+	item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket
+	reskin_datum = /datum/atom_skin/croptop_bomber_jacket
