@@ -110,7 +110,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 		message_admins("[src] attempted to fill the shipbreaking templates list, but it was already full, this is wrong!")
 		return
 	var/list/valid_shuttle_templates = valid_subtypesof(/datum/map_template/shuttle/salvage_scrap)
-	for(var/datum/map_template/shuttle/salvage_scrap/template as anything in valid_shuttle_templates)
+	for(var/datum/map_template/shuttle/salvage_scrap/template in valid_shuttle_templates)
 		if(!template.shows_up_as_salvage)
 			continue
 		GLOB.shipbreaking_templates.Add(template)

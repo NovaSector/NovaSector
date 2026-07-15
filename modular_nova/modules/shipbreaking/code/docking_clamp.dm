@@ -113,13 +113,13 @@
 	var/list/dock_bounds = temp_docking_port.return_coords()
 	var/list/overlappers = SSshuttle.get_dock_overlap(dock_bounds[1], dock_bounds[2], dock_bounds[3], dock_bounds[4], z)
 	if(length(overlappers)) // Overlappers list contains ourself as well
-		for(var/dock as anything in overlappers)
+		for(var/dock in overlappers)
 			if(dock == temp_docking_port)
 				continue
 			balloon_alert(user, "intersecting nearby dock!")
 			temp_docking_port.Destroy(TRUE)
 			return
-	for(var/turf/checked_turf as anything in docking_turfs)
+	for(var/turf/checked_turf in docking_turfs)
 		if(checked_turf.x <= 10 || checked_turf.y <= 10 || checked_turf.x >= world.maxx - 10 || checked_turf.y >= world.maxy - 10)
 			balloon_alert(user, "cannot place here!")
 			new /obj/effect/temp_visual/telegraphing/long_duration(checked_turf)
@@ -139,7 +139,7 @@
 	if(!docking_port)
 		return TRUE // what ?? No
 	var/list/docking_turfs = docking_port.return_turfs()
-	for(var/turf/checked_turf as anything in docking_turfs)
+	for(var/turf/checked_turf in docking_turfs)
 		for(var/mob/living/living_mob in checked_turf.contents)
 			return TRUE
 	return FALSE
