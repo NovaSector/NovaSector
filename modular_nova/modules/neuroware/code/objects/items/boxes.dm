@@ -91,7 +91,7 @@
 		new /obj/item/disk/neuroware/dapoxetine(src)
 
 /obj/item/storage/box/flat/neuroware/rutt
-	name = "neuroware chips (Eruptor)"
+	name = "neuroware chips (Rut-Kit)"
 
 /obj/item/storage/box/flat/neuroware/rutt/PopulateContents()
 	for(var/i in 1 to 5)
