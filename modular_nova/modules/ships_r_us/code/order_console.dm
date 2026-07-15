@@ -13,12 +13,6 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
-/datum/techweb_node/mining/New()
-	design_ids += list(
-		"personal_shuttle_console",
-	)
-	return ..()
-
 /obj/machinery/computer/personal_shuttle_order
 	name = "personal shuttle order console"
 	desc = "A console giving you access to only the sleaziest of shuttle sales services. \
@@ -62,16 +56,16 @@
 	. = ..()
 	if(our_docking_port)
 		return
-	. += span_danger("This console wasn't constructed close enough to a suitable shuttle dock, and will not work.")
+	. += span_danger("This console is currently non-operational and should not be used.")
 
 /// Asks SSshuttle if our set docking port id is around and in range
 /obj/machinery/computer/personal_shuttle_order/proc/try_and_find_a_dock()
-	if(our_docking_port)
+	/*if(our_docking_port)
 		return
 	var/obj/docking_port/stationary/potential_port = SSshuttle.getDock(docking_port_id)
-	if(!potential_port || (get_dist(src, potential_port) > docking_port_check_distance))
-		balloon_alert_to_viewers("no suitable dock in range")
-		return
+	if(!potential_port || (get_dist(src, potential_port) > docking_port_check_distance))*/
+	balloon_alert_to_viewers("no suitable dock in range")
+	return
 	our_docking_port = potential_port
 
 /// Fills the shopping list with names and templates

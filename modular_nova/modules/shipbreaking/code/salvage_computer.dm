@@ -45,7 +45,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 		databanks. Likely to be from the very early concept stages of the Dark Locations type ships, where resources \
 		would be obtained through recycling the many old pioneer vessels scattered throughout the system."
 	icon_screen = "supply"
-	circuit = /obj/item/circuitboard/computer/personal_shuttle_order
+	circuit = /obj/item/circuitboard/computer/salvage_computer
 	custom_materials = list(/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 	light_color = COLOR_BRIGHT_ORANGE
 	/// Are we currently spawning a shuttle? Prevents multiple shuttles trying to spawn and land on each other at once
