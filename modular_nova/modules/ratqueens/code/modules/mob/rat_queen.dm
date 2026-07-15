@@ -77,11 +77,6 @@
 	if (!pick)
 		return
 
-	var/datum/rat_fashion/chosen = picks_to_instances[pick]
-	if (rat_owner.current_look == pick)
-		owner.balloon_alert(owner, "nothing to change!")
-		return
-
 	var/turf/origin = get_turf(owner)
 	owner.balloon_alert_to_viewers("shudders...")
 
