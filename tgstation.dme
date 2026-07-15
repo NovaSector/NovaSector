@@ -8551,6 +8551,7 @@
 #include "modular_nova\modules\economy\code\materials_market.dm"
 #include "modular_nova\modules\economy\code\materials_packs.dm"
 #include "modular_nova\modules\electric_welder\code\electric_welder.dm"
+#include "modular_nova\modules\emergency_rations\code\rations.dm"
 #include "modular_nova\modules\emergency_spacesuit\code\emergency_spacesuit.dm"
 #include "modular_nova\modules\emote_panel\code\emote_panel.dm"
 #include "modular_nova\modules\emotes\code\dna_screams.dm"
