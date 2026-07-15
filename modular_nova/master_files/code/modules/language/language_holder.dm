@@ -2,7 +2,7 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 
 /// Language code needs to be purged. Make sure, once and for all, that we get the correct languages on spawn.
 /// Every time a crew member joins the adjustor will personally fix their language, because there is too much coupling between mind and language code to do it reliably otherwise.
-/// It has already needed to be fixed like 3 times. This will (hopefully) be the final time.
+/// It has already needed to be fixed like 4 times. This will (hopefully) be the final time.
 /datum/language_holder_adjustor/New()
 	RegisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED, PROC_REF(handle_new_player))
 
@@ -37,6 +37,8 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 	selected_language = null // reset it to recalculate after applying our prefs
 
 	for(var/lang_path in preferences.languages)
+		if(has_partial_language(lang_path))
+			continue
 		grant_language(lang_path, (preferences.languages[lang_path] == LANGUAGE_SPOKEN ? ALL : UNDERSTOOD_LANGUAGE))
 
 	get_selected_language()
