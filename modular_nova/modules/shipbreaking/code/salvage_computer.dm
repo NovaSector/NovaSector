@@ -25,7 +25,6 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 		databanks. Likely to be from the very early concept stages of the Dark Locations type ships, where resources \
 		would be obtained through recycling the many old pioneer vessels scattered through the system."
 	id = "salvage_computer"
-	inherit_materials = DESIGN_INHERIT_MATS
 	build_path = /obj/machinery/computer/salvage_bay_controller
 	category = list(
 		RND_CATEGORY_COMPUTER + RND_SUBCATEGORY_COMPUTER_ENGINEERING
@@ -47,6 +46,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 		would be obtained through recycling the many old pioneer vessels scattered throughout the system."
 	icon_screen = "supply"
 	circuit = /obj/item/circuitboard/computer/personal_shuttle_order
+	custom_materials = list(/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 	light_color = COLOR_BRIGHT_ORANGE
 	/// Are we currently spawning a shuttle? Prevents multiple shuttles trying to spawn and land on each other at once
 	var/bay_occupied = FALSE
