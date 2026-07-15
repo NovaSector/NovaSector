@@ -20,7 +20,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/maintenance_loot_structure/wall_jacke
 
 /obj/structure/maintenance_loot_structure/wall_jacket/Initialize(mapload)
 	. = ..()
-	find_and_mount_on_atom()
 
 /obj/structure/maintenance_loot_structure/wall_jacket/yellow
 	icon_state = "jacket_yellow"

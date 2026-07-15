@@ -6,7 +6,7 @@
 	anchored = TRUE
 	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE
 	armor_type = /datum/armor/structure_railing
-	max_integrity = 75
+	max_integrity = 300
 	layer = LOW_ITEM_LAYER
 	/// How long to either unwrench or unweld
 	var/unfasten_time = 1 SECONDS
@@ -19,9 +19,8 @@
 
 /obj/structure/shuttle_decoration/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
+	//ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
 	AddElement(/datum/element/simple_rotation, ROTATION_NEEDS_ROOM)
-	find_and_mount_on_atom()
 	register_context()
 
 /obj/structure/shuttle_decoration/shuttleRotate(rotation, params)
@@ -56,6 +55,7 @@
 	default_unfasten_wrench(user, tool, time = unfasten_time)
 	if(resets_pixelshifting)
 		SET_BASE_PIXEL(0, 0)
+
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/shuttle_decoration/welder_act(mob/living/user, obj/item/tool)
@@ -66,7 +66,6 @@
 		return ITEM_INTERACT_BLOCKING
 	set_anchored(!anchored)
 	if(anchored)
-		find_and_mount_on_atom()
 		if(resets_pixelshifting)
 			SET_BASE_PIXEL(initial(base_pixel_x), initial(base_pixel_y))
 	else if(resets_pixelshifting)
