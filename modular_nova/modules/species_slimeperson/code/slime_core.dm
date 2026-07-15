@@ -25,13 +25,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	/// The mind of the slime that became this core.
 	/// This MUST be named `mind`, in order to allow IS_[antag] macros to work on cores.
 	var/datum/mind/mind
-	/// The original language holder of the slime who died.
-	var/datum/language_holder/stored_language_holder
 
-	/// This tracks a new body that is created when a slime core is killed, and is used to safely trasnfer quirks and prefrences to this body and than summon it upon revival.
-	var/mob/living/carbon/human/new_body
-	/// Quirks stored inside the core after death
-	var/list/stored_quirks
 	/// Items stored inside the core after death
 	var/list/stored_items
 	/// Original item slots for stored items so a rebuilt slime can re-equip them
@@ -39,52 +33,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 	/// Item types that should never be stored in core and will drop on death. Takes priority over allowed lists.
 	var/static/list/bannedcore = typecacheof(list(/obj/item/disk/nuclear))
-	/// Extraneous organs not of slime origin. Usually cyber implants.
-	var/static/list/allowed_organ_types = typecacheof(list(
-		/obj/item/organ/antennae,
-		/obj/item/organ/frills,
-		/obj/item/organ/horns,
-		/obj/item/organ/snout,
-		/obj/item/organ/spines,
-		/obj/item/organ/tail,
-		/obj/item/organ/wings,
-		/obj/item/organ/alien,
-		/obj/item/organ/cyberimp,
-		/obj/item/organ/eyes/robotic/glow,
-		/obj/item/organ/heart/cursed,
-		/obj/item/organ/vocal_cords,
-	))
-	/// Quirks that roll unique effects or gives items to each new body should be saved between bodies.
-	var/static/list/saved_quirks = typecacheof(list(
-		/datum/quirk/dnr,
-		/datum/quirk/indebted,
-		/datum/quirk/item_quirk/addict,
-		/datum/quirk/item_quirk/allergic,
-		/datum/quirk/item_quirk/bald,
-		/datum/quirk/item_quirk/brainproblems,
-		/datum/quirk/item_quirk/clown_enjoyer,
-		/datum/quirk/item_quirk/family_heirloom,
-		/datum/quirk/item_quirk/fluoride_stare,
-		/datum/quirk/item_quirk/immunodeficiency,
-		/datum/quirk/item_quirk/mime_fan,
-		/datum/quirk/item_quirk/musician,
-		/datum/quirk/item_quirk/nearsighted,
-		/datum/quirk/item_quirk/photographer,
-		/datum/quirk/item_quirk/poster_boy,
-		/datum/quirk/item_quirk/scarred_eye,
-		/datum/quirk/item_quirk/signer,
-		/datum/quirk/item_quirk/tagger,
-		/datum/quirk/phobia,
-	))
-	/// Quirks that should just be completely skipped.
-	var/static/list/skip_quirks = typecacheof(list(
-		/datum/quirk/item_quirk/food_allergic,
-		/datum/quirk/prosthetic_limb,
-		/datum/quirk/prosthetic_organ,
-		/datum/quirk/quadruple_amputee,
-		/datum/quirk/tin_man,
-	))
-
 	/// Whether the core is alive or not
 	var/rebuilt = TRUE
 	/// Ability to allow them to murmur while dead
@@ -99,9 +47,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	GLOB.dead_slime_cores -= src
 	QDEL_NULL(membrane_murmur)
 	QDEL_NULL(stored_dna)
-	QDEL_LAZYLIST(stored_quirks)
-	QDEL_NULL(stored_language_holder)
-	QDEL_NULL(new_body)
 
 	mind = null
 
@@ -274,7 +219,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 /obj/item/organ/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
-	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
+	UnregisterSignal(organ_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOB_LOGIN))
 
 /obj/item/organ/brain/slime/proc/on_slime_death(mob/living/carbon/victim)
 	SIGNAL_HANDLER
@@ -298,11 +243,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		if(QDELETED(stored_dna))
 			stored_dna = new
 		slime.dna.copy_dna(stored_dna)
-
-	var/datum/language_holder/slime_language_holder = slime.get_language_holder()
-	if(slime_language_holder)
-		stored_language_holder = new slime_language_holder.type
-		stored_language_holder.copy_languages(slime_language_holder)
 
 	if(slime.blooper_id)
 		set_blooper(slime.blooper_id)
@@ -329,21 +269,20 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	var/turf/death_turf = loc_override || get_turf(victim)
 	/// The location the core will forceMove into
 	var/atom/core_loc = get_core_ejection_loc(victim, death_turf, loc_override)
-	for(var/datum/quirk/quirk in victim.quirks) // Store certain quirks safe to transfer between bodies.
-		if(!is_type_in_typecache(quirk, saved_quirks) || is_type_in_typecache(quirk, skip_quirks))
-			continue
-		quirk.remove_from_current_holder(quirk_transfer = TRUE)
-		LAZYADD(stored_quirks, quirk)
 
 	store_item_slots(victim)
 	victim.drop_all_held_items()
 	process_items(victim) // Start moving items before anything else can touch them.
 
-	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
-		Remove(victim)
 	forceMove(core_loc)
+	// Drop their equipment, Brain/Core, and implants to the floor.
+	victim.unequip_everything()
+	src.Remove(victim, special = TRUE) // Brain/Core
+	for(var/obj/item/implant/implants in victim) // Implants
+		implants.forceMove(death_turf)
+
 	// Cleans up spilled organs - When a mob is attacked, it has a chance to spill all its organs on the ground upon death, for slime people we do not need their organs as they regain them when they get revived.
-	for(var/obj/item/organ/spilled_organ in core_loc)
+	for(var/obj/item/organ/spilled_organ in death_turf)
 		if(istype(spilled_organ, /obj/item/organ/brain) || istype(spilled_organ, /obj/item/implant))
 			continue
 		else
@@ -358,15 +297,13 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		AddComponent(/datum/component/gps, "[victim.real_name]'s Core")
 
 	if(brainmob)
-		if(stored_language_holder)
-			brainmob.get_language_holder()?.copy_languages(stored_language_holder)
-
 		membrane_murmur.Grant(brainmob)
 
 	if(stored_dna)
 		rebuilt = FALSE
 		victim.transfer_observers_to(src)
 
+	mind = victim.mind
 	qdel(victim)
 
 	SEND_SIGNAL(mind, COMSIG_SLIME_CORE_EJECTED, src)
@@ -499,25 +436,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		victim.temporarilyRemoveItemFromInventory(item, force = TRUE, idrop = FALSE)
 		process_and_store_item(item, victim)
 
-	for(var/datum/action/item_action/activate_pill/pill_action in victim.actions) // Store dental implants
-		pill_action.Remove(victim)
-		var/obj/pill = pill_action.target
-		if(istype(pill))
-			process_and_store_item(pill, victim)
-
-	for(var/obj/item/implant/curimplant in victim.implants) // Process and store implants
-		if(curimplant.removed(victim))
-			var/obj/item/implantcase/case =  new /obj/item/implantcase
-			case.imp = curimplant
-			curimplant.forceMove(case) //Recase implant it doesn't like to be moved without it.
-			case.update_appearance()
-			process_and_store_item(case, victim)
-
-	for(var/obj/item/organ/organ as anything in victim.organs) // Process and store organ implants and related organs
-		if(is_type_in_typecache(organ, allowed_organ_types))
-			organ.Remove(victim)
-			process_and_store_item(organ, victim)
-
 /// Processes a single item (and its contents) for core storage, drops banned items and stores the rest.
 /obj/item/organ/brain/slime/proc/process_and_store_item(atom/movable/item, mob/living/carbon/human/victim) // Helper proc to finally move items
 	if(QDELETED(item))
@@ -555,8 +473,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			LAZYREMOVE(stored_items, item)
 	items_per_slot.Cut()
 
-/// Handles core revival.
-/obj/item/organ/brain/slime/proc/rebuild_body(mob/user, nugget = TRUE) as /mob/living/carbon/human
+/**
+* SLIME REVIVE PROC
+* This heals the core/brain, and creates a new body which we move the player/client into.
+*/
+/obj/item/organ/brain/slime/proc/rebuild_body(mob/user) as /mob/living/carbon/human
 	if(rebuilt)
 		return owner
 
@@ -593,74 +514,97 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		var/mob/holder = loc
 		holder.dropItemToGround(src, force = TRUE, silent = TRUE)
 
-	// Retreive the new body we created from nullspace.
-	new_body.forceMove(src.drop_location())
+	// Create a new body and spawn it on the Brain/Core, than register the signal for the player to be inserted into the new body.
+	var/mob/living/carbon/human/body = new(src.drop_location())
+	RegisterSignal(body, COMSIG_MOB_LOGIN, PROC_REF(on_gained_client))
+	// Move the brain/core back into the body.
+	src.replace_into(body)
+
+/**
+* APPLY PREFRENCES & QUIRKS AND OTHER EDITS
+* When we gain a client, apply the prefrences, and apply quirks without spawning items.
+* In addition Remove their underwear, their non-chest limbs, and give them some extra blood for slime limb regen.
+*/
+/obj/item/organ/brain/slime/proc/on_gained_client(mob/living/source, nugget = TRUE)
+	SIGNAL_HANDLER
+	if(!source.client)
+		return
+	UnregisterSignal(source, COMSIG_MOB_LOGIN)
+
+	// Handle Prefrences & Quirks.
+	var/datum/preferences/prefs = source.client.prefs || source.mind?.current?.client.prefs
+	if(prefs)
+		prefs.apply_prefs_to(source)
+		// Handle Quirks without spawning items.
+		for(var/quirks in prefs.all_quirks)
+			var/datum/quirk/quirk_path = SSquirks.quirks[quirks]
+			if(quirk_path)
+				source.add_quirk(quirk_path, add_unique = FALSE)
+
+	var/mob/living/carbon/human/body = source
 
 	GLOB.dead_slime_cores -= src
 	rebuilt = TRUE
 
 	var/client/original_client = brainmob?.client || mind?.current?.client
-	original_client?.prefs?.safe_transfer_prefs_to(new_body)
-	if(stored_language_holder)
-		new_body.get_language_holder()?.copy_languages(stored_language_holder)
-		QDEL_NULL(stored_language_holder)
+	original_client?.prefs?.safe_transfer_prefs_to(body)
 	if(blooper_id)
-		new_body.set_blooper(blooper_id)
-		new_body.blooper_pitch = blooper_pitch
-		new_body.blooper_pitch_range = blooper_pitch_range
-		new_body.blooper_volume = blooper_volume
-		new_body.blooper_speed = blooper_speed
-	stored_dna.copy_dna(new_body.dna, COPY_DNA_SE | COPY_DNA_SPECIES)
-	new_body.real_name = new_body.dna.real_name
-	new_body.name = new_body.dna.real_name
-	new_body.updateappearance(mutcolor_update = TRUE)
-	new_body.domutcheck()
-	new_body.forceMove(drop_location())
+		body.set_blooper(blooper_id)
+		body.blooper_pitch = blooper_pitch
+		body.blooper_pitch_range = blooper_pitch_range
+		body.blooper_volume = blooper_volume
+		body.blooper_speed = blooper_speed
+	stored_dna.copy_dna(body.dna, COPY_DNA_SE | COPY_DNA_SPECIES)
+	body.real_name = body.dna.real_name
+	body.name = body.dna.real_name
+	body.updateappearance(mutcolor_update = TRUE)
+	body.domutcheck()
+	body.forceMove(drop_location())
+
+	// If slime is not going to be nugget, let's keep them fed and re-equip them, currently not used, could probably make this work with cerulean or admin stuff.
 	if(!nugget)
-		new_body.set_nutrition(NUTRITION_LEVEL_FED)
-		reequip_items(new_body)
-	REMOVE_TRAIT(new_body, TRAIT_NO_TRANSFORM, REF(src))
-	if(LAZYLEN(stored_quirks))
-		for(var/datum/quirk/quirk in stored_quirks)
-			quirk.add_to_holder(new_body, quirk_transfer = TRUE) // Return their old quirk to them.
-		LAZYCLEARLIST(stored_quirks)
-	if(original_client)
-		SSquirks.AssignQuirks(new_body, original_client, blacklist = assoc_to_keys(skip_quirks)) // Still need to copy over the rest of their quirks.
-	replace_into(new_body)
+		body.set_nutrition(NUTRITION_LEVEL_FED)
+		reequip_items(body)
+	REMOVE_TRAIT(body, TRAIT_NO_TRANSFORM, REF(src))
+	replace_into(body)
 	if(nugget)
-		for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
+		for(var/obj/item/bodypart/bodypart as anything in body.bodyparts)
 			if(istype(bodypart, /obj/item/bodypart/chest))
 				continue
 			bodypart.drop_limb(TRUE) // Drop limb should delete the limb for slimes unless someone changes it.
-		new_body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
-		new_body.bra = "Nude"
-		new_body.underwear = "Nude"
-		new_body.undershirt = "Nude"
-		new_body.socks = "Nude"
-		new_body.visible_message(
-			span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."),
+
+		// Handle Blood, We give them extra blood so they can regenerate their limbs as soon as they are revived.
+		body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
+		body.visible_message(
+			span_warning("[body]'s torso \"forms\" from [body.p_their()] core, yet to form the rest."),
 			span_purple("Your torso fully forms out of your core, yet to form the rest."))
 		//Make slimes revive similar to other species.
-		new_body.set_jitter_if_lower(200 SECONDS)
-		INVOKE_ASYNC(new_body, TYPE_PROC_REF(/mob, emote), "scream")
+		body.set_jitter_if_lower(200 SECONDS)
+		INVOKE_ASYNC(body, TYPE_PROC_REF(/mob, emote), "scream")
 	else
-		new_body.visible_message(
-			span_warning("[new_body]'s body fully forms from [new_body.p_their()] core!"),
+		body.visible_message(
+			span_warning("[body]'s body fully forms from [body.p_their()] core!"),
 			span_purple("Your body fully forms from your core!")
 		)
 
+	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
+	body.bra = "Nude"
+	body.underwear = "Nude"
+	body.undershirt = "Nude"
+	body.socks = "Nude"
+
 	if(!QDELETED(brainmob))
 		membrane_murmur.Remove(brainmob)
-	brainmob?.mind?.transfer_to(new_body)
-	new_body.grab_ghost()
-	transfer_observers_to(new_body)
+	brainmob?.mind?.transfer_to(body)
+	body.grab_ghost()
+	transfer_observers_to(body)
 	to_chat(owner, span_danger("[CONFIG_GET(string/blackoutpolicy)]"))
 
-	drop_items_to_ground(new_body.drop_location())
+	drop_items_to_ground(body.drop_location())
 
 	if(mind)
-		SEND_SIGNAL(mind, COMSIG_SLIME_REVIVED, new_body, src)
-	return new_body
+		SEND_SIGNAL(mind, COMSIG_SLIME_REVIVED, body, src)
+	return body
 
 /obj/item/organ/brain/slime/Topic(href, list/href_list)
 	. = ..()
@@ -675,7 +619,7 @@ ADMIN_VERB(cmd_admin_heal_slime, R_ADMIN, "Heal Slime Core", "Use this to heal S
 	if(QDELETED(core))
 		to_chat(user, span_boldannounce("Invalid Slime Core."), confidential = TRUE)
 		return
-	var/mob/living/carbon/human/new_body = core.rebuild_body(nugget = FALSE)
+	var/mob/living/carbon/human/new_body = core.rebuild_body()
 
 	var/log_msg
 	var/msg
