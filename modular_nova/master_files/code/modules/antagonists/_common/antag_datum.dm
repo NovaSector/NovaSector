@@ -58,7 +58,6 @@
 /datum/antagonist/malf_ai
 	view_exploitables = TRUE
 	give_objectives = FALSE
-	can_assign_self_objectives = TRUE
 
 // Forcibly overriding the hard-baked proc providing objs.
 /datum/antagonist/malf_ai/New(give_objectives = FALSE)
