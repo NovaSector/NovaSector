@@ -70,7 +70,7 @@
 	var/list/rat_styles = subtypesof(/datum/rat_fashion)
 	for (var/datum/rat_fashion/style_path as anything in rat_styles)
 		var/datum/radial_menu_choice/fashion_choice = new
-		fashion_choice.image = image(style_path::icon), style_path::icon_state_living))
+		fashion_choice.image = image(style_path::icon, style_path::icon_state_living)
 		fashion_choice.name = style_path::name
 		options[style_path] = fashion_choice
 
