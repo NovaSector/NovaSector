@@ -593,3 +593,25 @@
   - bugfix: fixes an issue that was preventing a selected new slot from updating properly
   zxaber:
   - bugfix: You can now use experiment scanners on DNA Infusers correctly.
+2026-07-15:
+  Happyowl93:
+  - bugfix: opium and heroin should metabolize now
+  - bugfix: ammunition should be easily stackable again.
+  Hatterhat:
+  - qol: The ghost cafe now has honeysuckle and gelthi seeds lying around, along with
+      comically large quantum beakers and a slightly more full BRPED for all your
+      machinery-upgrading needs.
+  Neocloudy:
+  - bugfix: '[NOVA] Bitrunning objectives can''t be thrown by explosions.'
+  'Sprites: axietheaxolotl Code: VioletN':
+  - rscadd: Rat Queens, and a buff king. Rat Kings now have a skin system.
+  bruhlookatthisdood:
+  - rscadd: Pillpress volume increased by 20 units for large hypo vials
+  sergeirocks100:
+  - qol: The .27-54 ammo box has been reduced to 24 rounds to facilitate more convenient
+      loading of Alacran magazines, As a consequence, Miecz magazines have also been
+      reduced to 24 rounds.
+  vinylspiders:
+  - bugfix: fixes the csl quirk, it should work for anyone now
+  - bugfix: Vox and plasmamen can no longer use lung augments to bypass species breathing
+      restrictions

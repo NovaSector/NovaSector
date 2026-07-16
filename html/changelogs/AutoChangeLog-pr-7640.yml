@@ -1,4 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - bugfix: "[NOVA] Bitrunning objectives can't be thrown by explosions."
