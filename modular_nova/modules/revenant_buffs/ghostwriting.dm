@@ -18,9 +18,6 @@
 	unset_after_click = FALSE
 	var/list/click_params
 
-/datum/action/cooldown/spell/pointed/revenant/ghostwriting/can_cast_spell(feedback = TRUE)
-    return ..() && !HAS_TRAIT(owner, TRAIT_NO_TRANSFORM)
-
 /datum/action/cooldown/spell/pointed/revenant/ghostwriting/on_activation(mob/on_who)
 	. = ..()
 	if(!ghost_crayon)
