@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "penis sheaths should display properly once again"
+  - bugfix: "fixed issue where incubus draft was not able to make you grow new testicles"
