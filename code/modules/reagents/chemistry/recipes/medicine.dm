@@ -8,6 +8,7 @@
 	purity_min = 0.1
 	rate_up_lim = 35
 	reaction_tags = REACTION_TAG_HEALING | REACTION_TAG_EASY
+	thermic_constant = 50
 
 	//NOVA EDIT ADDITION
 	pollutant_type = /datum/pollutant/chemical_vapors
