@@ -66,7 +66,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		var/list/to_del = spawn_at.contents - cached_contents
 		if(length(to_del))
 			for(var/atom/to_kill in to_del)
-				qdel(to_kill)
+				// Some effects, such as liquid turfs, intentionally ignore ordinary qdel().
+				// Force them out of the test area before the next atom is created.
+				qdel(to_kill, force = TRUE)
 
 	GLOB.running_create_and_destroy = FALSE
 
