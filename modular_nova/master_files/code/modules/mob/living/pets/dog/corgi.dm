@@ -7,7 +7,6 @@
 	icon_dead = "borgi_dead"
 	gender = NEUTER
 	unique_pet = TRUE
-	can_be_held = FALSE
 	maxHealth = 150
 	health = 150
 	butcher_results = list(

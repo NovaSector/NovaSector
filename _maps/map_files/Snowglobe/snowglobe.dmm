@@ -25433,9 +25433,6 @@
 "gOP" = (
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/tlv_cold_room,
-/obj/machinery/atmospherics/components/unary/passive_vent{
-	dir = 1
-	},
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "gOR" = (
@@ -49478,7 +49475,6 @@
 /area/station/hallway/primary/fore)
 "nlz" = (
 /obj/machinery/status_display/ai/directional/west,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "nlE" = (
