@@ -615,3 +615,49 @@
   - bugfix: fixes the csl quirk, it should work for anyone now
   - bugfix: Vox and plasmamen can no longer use lung augments to bypass species breathing
       restrictions
+2026-07-16:
+  Aliceee2ch:
+  - qol: Made machinery with overlays actually be properly displayed in SDMM editor.
+  CabinetOnFire:
+  - bugfix: Fixed some sleeping procs that could run in procs that arent allowed to
+      sleep
+  FeudeyTF:
+  - qol: Notepad can edit and save text files
+  Fghj240:
+  - bugfix: cyberheart blood regeneration properly scales with heart damage
+  Gboster-0:
+  - code_imp: optimized deathmatch lobbies and meaty ores a tiny bit
+  Ghommie:
+  - qol: Improved how wiremod designs are organized in the component printer UI
+  JohnFulpWillard:
+  - qol: Better Emojipedia UI, better emojis, some more emojis.
+  Melbert:
+  - rscadd: On April Fools, or if you're exceptionally (un)lucky, ripping up a certain
+      poster will reveal a certain other poster underneath
+  Paxilmaniac, sergeirocks100:
+  - rscadd: There is now a box of 8 emergency rations for sale at cargo. Each ration
+      contains 2 random mains, 2 random sides, a cracker, and a peanut butter packet,
+      and are designed to be edible for a wide variety of species.
+  QuiteLiterallyAnything:
+  - rscadd: Maids in the Mirror now get random 1920s English/Welsh names.
+  SmArtKar:
+  - bugfix: Fixed atmos diffs and incorrect atmos in lavaland hermit ruin
+  antropod:
+  - refactor: Atmos refactor & speedup by utilizing BYOND 516 vector functions
+  lelandkemble:
+  - qol: crowbarring a transit tube pod out of a transit tube now provides messaging
+      when successful or unsuccessful
+  - bugfix: reinforcing plating that is then reinforced into reinforced plating no
+      longer reinforces the reinforced plating what was reinforced mid-reinforcement
+  - code_imp: 30 files (maybe 29) (maybe 28) (depends what order you're seeing these
+      changelogs in) have been converted from attackby() to item_interaction()
+  nPocToDark:
+  - rscadd: Now you can print Replica Katana in Service Protolathe and Hacked AutoLathe
+  san7890:
+  - refactor: Picking up your pets (or any holdable mob) requires an aggressive grab
+      now.
+  theselfish:
+  - spellcheck: Dogwhistle has been removed from a bounty description.
+  vinylspiders:
+  - bugfix: penis sheaths should display properly once again
+  - bugfix: fixed issue where incubus draft was not able to make you grow new testicles
