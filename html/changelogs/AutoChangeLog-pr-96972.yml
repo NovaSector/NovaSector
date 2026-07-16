@@ -1,0 +1,7 @@
+author: "Fghj240"
+delete-after: True
+changes:
+  - rscdel: "Removed ImmunoSilence and its trait"
+  - balance: "Aggressive healing has much lower stats"
+  - map: "Added sepsisillin pills to virology"
+  - spellcheck: "Clarified the description of aggressive healing"
