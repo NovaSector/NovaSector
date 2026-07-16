@@ -154,11 +154,7 @@
 	install_default_programs()
 	register_context()
 	update_appearance()
-	if(mapload)
-		return INITIALIZE_HINT_LATELOAD
-	else
-		if(SStts.tts_enabled)
-			voice = SStts.computer_voice
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/modular_computer/LateInitialize()
 	if(SStts.tts_enabled)
