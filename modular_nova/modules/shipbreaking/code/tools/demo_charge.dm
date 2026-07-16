@@ -133,7 +133,7 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 		var/turf/station_check = get_turf(user)
 		if(!istype(target_area, /area/shuttle/salvaged_shuttle))
 			if(!station_check || is_station_level(station_check.z))
-				to_chat(user, span_warning("The charge refuses to latch onto anything other than inactive salvage shuttles or areas nearby the station!"))
+				to_chat(user, span_warning("The charge refuses to latch onto anything other than inactive salvage shuttles or areas near the station!"))
 				return FALSE
 	if(bomb_target != user && HAS_TRAIT(user, TRAIT_PACIFISM) && isliving(bomb_target))
 		to_chat(user, span_warning("You don't want to harm other living beings!"))
