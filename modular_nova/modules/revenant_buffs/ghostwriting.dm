@@ -2,7 +2,7 @@
 
 /datum/action/cooldown/spell/pointed/revenant/ghostwriting
 	name = "Ghostwriting"
-	desc = "Write messages on the ground. In PURPLE!!"
+	desc = "Write messages on the ground. In ANY COLOR, NOT JUST PURPLE!!!"
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "arcane_barrage"
 	background_icon_state = "bg_revenant"
@@ -12,13 +12,14 @@
 
 	///The crayon used for the ghostwriting
 	var/obj/item/toy/crayon/revenant/ghost_crayon
-	var/obj/item/toy/crayon/revenant/active_ghost_crayon
-	///used to check if the ability is active
-	active_msg = "You inscribing doodles."
+	active_msg = "You start inscribing doodles."
 	deactive_msg = "You stop inscribing doodles."
 	aim_assist = FALSE
 	unset_after_click = FALSE
 	var/list/click_params
+
+/datum/action/cooldown/spell/pointed/revenant/ghostwriting/can_cast_spell(feedback = TRUE)
+    return ..() && !HAS_TRAIT(owner, TRAIT_NO_TRANSFORM)
 
 /datum/action/cooldown/spell/pointed/revenant/ghostwriting/on_activation(mob/on_who)
 	. = ..()
@@ -27,8 +28,6 @@
 		ghost_crayon.drawtype = pick(ghost_crayon.all_drawables)
 
 	ghost_crayon.forceMove(on_who)
-	active_ghost_crayon = ghost_crayon
-
 	ghost_crayon.ui_interact(on_who, null)
 
 /datum/action/cooldown/spell/pointed/revenant/ghostwriting/on_deactivation(mob/on_who, refund_cooldown)
@@ -37,21 +36,19 @@
 		SStgui.close_uis(ghost_crayon, on_who)
 		QDEL_NULL(ghost_crayon)
 
-	active_ghost_crayon = null
-
 /datum/action/cooldown/spell/pointed/revenant/ghostwriting/is_valid_target(atom/cast_on)
 	return isturf(cast_on)
 
 /datum/action/cooldown/spell/pointed/revenant/ghostwriting/cast(atom/cast_on)
 	. = ..()
-	if(active_ghost_crayon)
+	if(ghost_crayon)
 		if(!IsAvailable())
 			return FALSE
 
-		if(!active_ghost_crayon.can_use_on(cast_on, owner))
+		if(!ghost_crayon.can_use_on(cast_on, owner))
 			return FALSE
 		StartCooldown()
-		active_ghost_crayon.use_on(cast_on, owner, click_params)
+		ghost_crayon.use_on(cast_on, owner, click_params)
 		return TRUE
 	return FALSE
 
@@ -62,7 +59,7 @@
 //Crayon stuff neccessary for this
 /obj/item/toy/crayon/revenant
 	name = "ghostwriting"
-	desc = "If you're reading this, something went wrong. yell at coders."
+	desc = "If you're reading this, something went wrong. Yell at coders."
 	icon = null
 	icon_state = null
 	charges = INFINITE_CHARGES
