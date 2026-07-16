@@ -16,8 +16,8 @@
 	ship_primary_colour = "#5fcde4"
 	ship_secondary_colour = "#5b975a"
 
-/datum/shipbreaking_owner/medical/venezia
-	owner_name = "Venezia"
+/datum/shipbreaking_owner/medical/vvmed
+	owner_name = "Vintage Vital Medical "
 	ship_primary_colour = "#ffbb00"
 	ship_secondary_colour = "#d5d5d5"
 
@@ -31,7 +31,7 @@
 	ship_primary_colour = "#518997"
 	ship_secondary_colour = "#a43926"
 
-/datum/shipbreaking_owner/medical/gutzpaw
-	owner_name = "Gutzpaw 'n Gory"
-	ship_primary_colour = "#578263"
-	ship_secondary_colour = "#1ac0e5"
+/datum/shipbreaking_owner/medical/interdyne
+	owner_name = "Interdyne Pharmaceuticals"
+	ship_primary_colour = "#20cc29"
+	ship_secondary_colour = "#ebebeb"

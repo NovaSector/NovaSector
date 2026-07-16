@@ -8,16 +8,18 @@
 	],
 
 	"designation": [
-		"4CA",
-		"4CAV",
-		"NMFS",
-		"RLOS",
-		"MZH",
+		"IAV",
+		"ICV",
+		"NTS",
+		"HC",
+		"WSV",
+		"XRV",
+		"ZAV",
+		"GDV",
+		"AAV",
+		"LDS",
 		"TTV",
-		"3CARS",
-		"SSV",
-		"ARV",
-		"THS"
+		"NAV"
 	],
 
 	"name_word": [
@@ -92,7 +94,16 @@
 		"Northern",
 		"Southern",
 		"Western",
-		"Eastern"
+		"Eastern",
+		"Freedom",
+		"Glory",
+		"Dragonfly",
+		"Ascendant",
+		"Hawk",
+		"Haste",
+		"Beacon",
+		"Signal",
+		"Axiom"
 	],
 
 	"digit": [

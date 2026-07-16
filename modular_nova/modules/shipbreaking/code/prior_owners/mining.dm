@@ -1,7 +1,7 @@
 /datum/shipbreaking_owner/mining
 	abstract_type = /datum/shipbreaking_owner/mining
 
-/datum/shipbreaking_owner/mining/amundsen
+/datum/shipbreaking_owner/mining/amsco
 	owner_name = "Amundsen-Scott Mineral Prospecting"
 	ship_primary_colour = "#243f65"
 	ship_secondary_colour = "#c8c8c8"
@@ -27,16 +27,16 @@
 	ship_secondary_colour = "#3b3b3b"
 
 /datum/shipbreaking_owner/mining/crag_jumpers
-	owner_name = "Crag Jumpers"
-	ship_primary_colour = "#9c659b"
+	owner_name = "Kosmologistika"
+	ship_primary_colour = "#643c3c"
 	ship_secondary_colour = "#b17e46"
 
-/datum/shipbreaking_owner/mining/kel_vet
-	owner_name = "Kel'Vet Extraction"
-	ship_primary_colour = "#404040"
-	ship_secondary_colour = "#ca9340"
+/datum/shipbreaking_owner/mining/nanotrasen
+	owner_name = "Nanotrasen Heavy Industrie"
+	ship_primary_colour = "#3942c0"
+	ship_secondary_colour = "#746248ff"
 
-/datum/shipbreaking_owner/mining/brightstar
-	owner_name = "BrightStar Salvage Group"
+/datum/shipbreaking_owner/mining/laura
+	owner_name = "L&R Salvage Group"
 	ship_primary_colour = "#b18aa9"
 	ship_secondary_colour = "#55476e"

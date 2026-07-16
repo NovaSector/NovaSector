@@ -1,13 +1,13 @@
 /datum/shipbreaking_owner/shipping
 	abstract_type = /datum/shipbreaking_owner/shipping
 
-/datum/shipbreaking_owner/shipping/four_winds
-	owner_name = "Four Winds Freighting Caravan"
+/datum/shipbreaking_owner/shipping/teshari
+	owner_name = "Ischica's Foresight"
 	ship_primary_colour = "#5b5b71"
 	ship_secondary_colour = "#ffdd00"
 
 /datum/shipbreaking_owner/shipping/crusoe_intermodal
-	owner_name = "Crusoe's Intermodal Shipping"
+	owner_name = "Associato Petrochimico dell'Adriatico"
 	ship_primary_colour = "#169b5a"
 	ship_secondary_colour = "#176a96"
 
@@ -66,12 +66,12 @@
 	ship_primary_colour = "#d37e1c"
 	ship_secondary_colour = "#722c1e"
 
-/datum/shipbreaking_owner/shipping/princeton
-	owner_name = "Nouveau-Prince Interstellar Freight"
+/datum/shipbreaking_owner/shipping/biosustain
+	owner_name = "Biosustain Interstellar Freight"
 	ship_primary_colour = "#2e8332"
 	ship_secondary_colour = "#343434"
 
-/datum/shipbreaking_owner/shipping/arrai
-	owner_name = "Arrai-Tistodo Obligate Movers"
+/datum/shipbreaking_owner/shipping/exagon
+	owner_name = "Exagon-Ichikawa Storage Transport"
 	ship_primary_colour = "#353535"
 	ship_secondary_colour = "#7e2a2a"
