@@ -83,21 +83,21 @@
 	// Not important at all, really, but I don't want folk complaining about a removed feature.
 	var/static/list/species_to_penis = list(
 		SPECIES_HUMAN = list(
-			"sheath" = SHEATH_NONE,
+			"sheath" = SPRITE_ACCESSORY_NONE,
 			"mutant_index" = "Human",
 			"balls" = "Pair"
 		),
 		SPECIES_LIZARD = list(
-			"sheath" = SHEATH_SLIT,
+			"sheath" = /datum/sprite_accessory/genital/sheath/slit::name,
 			"color" = "#FFB6C1",
-			"mutant_index" = "Flared",
-			"balls" = "Internal"
+			"mutant_index" = /datum/sprite_accessory/genital/penis/flared::name,
+			"balls" = /datum/sprite_accessory/genital/testicles/internal::name,
 		),
 		SPECIES_LIZARD_ASH = list(
-			"sheath" = SHEATH_SLIT,
+			"sheath" = /datum/sprite_accessory/genital/sheath/slit::name,
 			"color" = "#FFB6C1",
-			"mutant_index" = "Flared",
-			"balls" = "Internal"
+			"mutant_index" = /datum/sprite_accessory/genital/penis/flared::name,
+			"balls" = /datum/sprite_accessory/genital/testicles/internal::name,
 		),
 	)
 
