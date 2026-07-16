@@ -10,6 +10,7 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4.75, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.8, /datum/material/nanocarbon = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/demo_charge_detonator/examine(mob/user)
 	. = ..()
@@ -33,12 +34,14 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 	base_icon_state = "charge"
 	inhand_icon_state = "ninja-explosive"
 	worn_icon_state = "electronic"
+
 	lefthand_file = 'icons/mob/inhands/weapons/bombs_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/bombs_righthand.dmi'
 	directional = TRUE
 	directional_arc = 90
 	boom_sizes = list(0, 3, 5)
 	full_damage_on_mobs = FALSE
+	custom_materials = list(/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/aluminum = SMALL_MATERIAL_AMOUNT * 2.5, /datum/material/plasma = SMALL_MATERIAL_AMOUNT)
 	/// How many times the detonator has pulsed on this demo charge
 	var/clacks = 0
 	/// How many times the detonator needs to be pulsed to detonate the charge
@@ -133,7 +136,7 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 		var/turf/station_check = get_turf(user)
 		if(!istype(target_area, /area/shuttle/salvaged_shuttle))
 			if(!station_check || is_station_level(station_check.z))
-				to_chat(user, span_warning("The charge refuses to latch onto anything other than inactive salvage shuttles or areas near the station!"))
+				to_chat(user, span_warning("The charge refuses to latch onto anything other than inactive salvage shuttles or areas neary the station!"))
 				return FALSE
 	if(bomb_target != user && HAS_TRAIT(user, TRAIT_PACIFISM) && isliving(bomb_target))
 		to_chat(user, span_warning("You don't want to harm other living beings!"))
