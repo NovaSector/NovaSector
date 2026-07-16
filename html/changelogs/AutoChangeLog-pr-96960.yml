@@ -1,4 +1,0 @@
-author: "san7890"
-delete-after: True
-changes:
-  - refactor: "Picking up your pets (or any holdable mob) requires an aggressive grab now."
