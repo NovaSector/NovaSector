@@ -33,7 +33,7 @@
 	/// The offset we get from laying down. Negative values move us down
 	var/laydown_offset = 0
 
-/datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target)
+/datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
 	var/obj/item/organ/taur_body/taur_body = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 	if (taur_body?.hide_self)
 		return TRUE

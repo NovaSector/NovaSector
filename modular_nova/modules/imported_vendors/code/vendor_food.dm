@@ -186,7 +186,6 @@
 /obj/item/food/vendor_tray_meal/side
 	name = "\improper NT-Side: Flatbread and Peanut Butter"
 	desc = "A small stack of tough flatbread, and a small spread of peanut butter for each."
-	icon = 'modular_nova/modules/imported_vendors/icons/imported_quick_foods.dmi'
 	icon_state = "foodpack_nt"
 	trash_type = /obj/item/trash/empty_side_pack/nt
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)

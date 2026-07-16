@@ -5,9 +5,9 @@
 	/// Can we use this tail for the fluffy tail turf emote?
 	var/fluffy = FALSE
 
-/datum/sprite_accessory/tails/is_hidden(mob/living/carbon/human/wearer)
-	if(wearer.owned_turf?.name == "tail")
+/datum/sprite_accessory/tails/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
 	// Emote exception
+	if(wearer.owned_turf?.name == FEATURE_TAIL)
 		return TRUE
 
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit

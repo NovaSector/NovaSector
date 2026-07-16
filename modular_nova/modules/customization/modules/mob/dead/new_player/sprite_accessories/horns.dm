@@ -4,7 +4,7 @@
 	default_color = "#555555"
 	organ_type = /obj/item/organ/horns
 
-/datum/sprite_accessory/horns/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/horns/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
 	var/obj/item/clothing/head/worn_head = wearer.head
 	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
 	if(isnull(worn_head) && isnull(worn_mask))

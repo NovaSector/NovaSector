@@ -3,7 +3,7 @@
 	organ_type = /obj/item/organ/ears_external
 	color_src = USE_MATRIXED_COLORS
 
-/datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
 	if(!(wearer.obscured_slots & HIDEHAIR))
 		return (key in wearer.try_hide_mutant_parts)
 	if(key in wearer.try_hide_mutant_parts)
