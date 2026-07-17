@@ -8,6 +8,9 @@
 	/// Some starting essence so you aren't sitting there puppy-eyed during greenshift.
 	essence_excess = 100
 
+/mob/living/basic/revenant/Initialize(mapload)
+	. = ..()
+	add_roleplay_powers()
 /// Adds languages and manifest
 /mob/living/basic/revenant/proc/add_roleplay_powers()
 	// Gives the manifest power

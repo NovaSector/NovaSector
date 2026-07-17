@@ -118,10 +118,6 @@
 
 	GLOB.revenant_relay_mobs |= src
 
-	// NOVA ADDITION EDIT BEGIN - Calls a proc that gives langauges + manifest powers
-	add_roleplay_powers()
-	// NOVA ADDITION EDIT END
-
 /mob/living/basic/revenant/Destroy()
 	GLOB.revenant_relay_mobs -= src
 	return ..()
