@@ -81284,6 +81284,11 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/science/breakroom)
+"xvw" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/landmark/firealarm_sanity,
+/turf/open/openspace,
+/area/station/engineering/atmos/upper)
 "xvx" = (
 /obj/effect/turf_decal/tile/red/half{
 	dir = 8
@@ -177375,7 +177380,7 @@ eCT
 wcA
 ajw
 gOs
-gOs
+xvw
 mFO
 iQK
 wYT
