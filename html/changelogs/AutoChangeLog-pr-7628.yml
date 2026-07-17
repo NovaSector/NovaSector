@@ -1,5 +1,0 @@
-author: "Shroopy"
-delete-after: True
-changes:
-  - bugfix: "Fixed blood accumulating as a reagent in the bloodstream."
-  - code_imp: "Undid the undocumented removal of the code that removes blood as a reagent from the bloodstream."

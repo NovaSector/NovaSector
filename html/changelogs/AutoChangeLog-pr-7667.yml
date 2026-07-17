@@ -1,0 +1,4 @@
+author: "Happyowl93"
+delete-after: True
+changes:
+  - bugfix: "Loading .38 revolver with .38 BR mag has a cooldown now."

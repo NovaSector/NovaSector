@@ -24,6 +24,11 @@
 	. = ..()
 	check_empty()
 
+/obj/item/ammo_box/magazine/ammo_stack/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isammocasing(interacting_with))
+		return NONE
+	return item_interaction(user, interacting_with, modifiers) || ITEM_INTERACT_BLOCKING
+
 /obj/item/ammo_box/magazine/ammo_stack/empty_magazine()
 	. = ..()
 	check_empty()
@@ -127,7 +132,9 @@
 
 /obj/item/ammo_casing/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(!istype(tool, /obj/item/ammo_casing))
-		return NONE
+		if(istype(tool, /obj/item/ammo_box/magazine/ammo_stack))
+			return NONE
+		return ..()
 
 	var/obj/item/ammo_casing/used_casing = tool
 	if(!used_casing.ammo_stack_type)
@@ -148,3 +155,4 @@
 	ammo_stack.give_round(used_casing)
 	user.put_in_hands(ammo_stack)
 	ammo_stack.update_appearance()
+	return ITEM_INTERACT_SUCCESS

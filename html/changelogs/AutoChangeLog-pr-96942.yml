@@ -1,5 +1,0 @@
-author: "SmArtKar"
-delete-after: True
-changes:
-  - code_imp: "Cleaned up generic mech code and moved subtype specific behaviors to said subtypes"
-  - refactor: "Refactored how Durand's shield works"
