@@ -9,14 +9,20 @@
 	overlay_icon_state = "bg_revenant_border"
 	antimagic_flags = MAGIC_RESISTANCE_HOLY
 	spell_requirements = NONE
+	cooldown_time = 0.2 SECONDS
 
-	///The crayon used for the ghostwriting
-	var/obj/item/toy/crayon/revenant/ghost_crayon
 	active_msg = "You start inscribing doodles."
 	deactive_msg = "You stop inscribing doodles."
 	aim_assist = FALSE
 	unset_after_click = FALSE
+	///The crayon used for the ghostwriting
+	var/obj/item/toy/crayon/revenant/ghost_crayon
+	/// Used to save the click's pixel precision in cast, there's not really a better way of moving this into there without a major refactor
 	var/list/click_params
+
+/datum/action/cooldown/spell/pointed/revenant/ghostwriting/Destroy(force)
+	QDEL_NULL(ghost_crayon)
+	return ..()
 
 /datum/action/cooldown/spell/pointed/revenant/ghostwriting/on_activation(mob/on_who)
 	. = ..()
@@ -59,6 +65,7 @@
 	desc = "If you're reading this, something went wrong. Yell at coders."
 	icon = null
 	icon_state = null
+	item_flags = ABSTRACT | DROPDEL
 	charges = INFINITE_CHARGES
 	self_contained = FALSE
 	edible = FALSE
