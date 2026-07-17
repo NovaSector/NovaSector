@@ -670,8 +670,17 @@
   - bugfix: Fixed synth centipede taur legs not actually being fully synthetic.
   Stalkeros, Absolucy for original PR:
   - rscadd: Revenants can now pick their own name!
+  Stalkeros, NiklasNeighbor for the original PR:
+  - rscadd: Added a ghostwriting ability to the revenant that works like a built-in
+      purple crayon
   Stalkeros, Paradise station for the sprite:
   - image: Revenants now look way better than before.
+  Stalkeros, TheOneAndOnlyCreeperJoe for the original PR.:
+  - rscadd: Revenant can now manifest themselves without using hostile ability, which
+      they can toggle at will.
+  - rscadd: Revenant can now understand almost all languages.
+  - balance: Revenant now has more starting essence and can buy some upgrades upon
+      first appearance
   TheRealSlimRedwoods:
   - bugfix: removing nitrogen breather quirk now clears the right alerts
   annikaRU:
