@@ -13,8 +13,8 @@
 /datum/unit_test/firedoor_regions/Run()
 	// NOVA EDIT ADDITION START - FIREDOOR_REGION_TEST - Ensure mapload adjacency updates are applied before testing.
 	// detect_room() uses cached atmos adjacency, which can still contain mapload updates.
-	// Process them before checking firedoor regions so the result does not depend on subsystem timing.
-	SSair.process_adjacent_rebuild()
+	// Initialization mode yields instead of leaving the queue partially processed when the tick budget is exhausted.
+	SSair.process_adjacent_rebuild(init = TRUE)
 	// NOVA EDIT ADDITION END
 
 	var/list/detected_turfs = list()
