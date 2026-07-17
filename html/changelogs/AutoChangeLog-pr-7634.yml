@@ -1,4 +1,0 @@
-author: "Stalkeros, NiklasNeighbor for the original PR"
-delete-after: True
-changes:
-  - rscadd: "Added a ghostwriting ability to the revenant that works like a built-in purple crayon"
