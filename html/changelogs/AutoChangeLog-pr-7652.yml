@@ -1,4 +1,0 @@
-author: "TheRealSlimRedwoods"
-delete-after: True
-changes:
-  - bugfix: "removing nitrogen breather quirk now clears the right alerts"

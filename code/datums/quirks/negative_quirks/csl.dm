@@ -43,11 +43,13 @@
 		quirk_holder.grant_language(/datum/language/common, UNDERSTOOD_LANGUAGE, LANGUAGE_ATOM)
 
 /datum/quirk/csl/is_species_appropriate(datum/species/mob_species)
+	/* // NOVA EDIT REMOVAL START - We only care about the languages menu - but we can't check from in here because there's no access to preferences.
 	var/datum/language_holder/species_holder = GLOB.prototype_language_holders[mob_species.species_language_holder]
 	if(isnull(species_holder))
 		return FALSE
 	if(length(species_holder.spoken_languages) < 2)
 		return FALSE
+	*/ // NOVA EDIT REMOVAL END - Not the end of the world honestly if they don't actually know a second language.
 	return ..()
 
 /// Gets our native language from our list of spoken languages
