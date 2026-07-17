@@ -1900,6 +1900,10 @@ TREK
 	name = "Knee Boots (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/knee_boots_worn.json'
 
+/datum/greyscale_config/knee_boots/worn/digi
+	name = "Knee Boots (Worn, Digi)"
+	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_digi.dmi'
+
 // Laceups
 
 /datum/greyscale_config/laceup
@@ -1912,15 +1916,19 @@ TREK
 	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/laceups/laceups_worn.json'
 
 /datum/greyscale_config/laceup/worn/digi
+	name = "Colorable Laceups (Worn, Digi)"
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_digi.dmi'
 
 /datum/greyscale_config/laceup/worn/teshari
+	name = "Colorable Laceups (Worn, Teshari)"
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_teshari.dmi'
 
 /datum/greyscale_config/laceup/worn/newvox
+	name = "Colorable Laceups (Worn, Vox Primalis)"
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_newvox.dmi'
 
 /datum/greyscale_config/laceup/worn/oldvox
+	name = "Colorable Laceups (Worn, Vox)"
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_oldvox.dmi'
 
 // Sandals
