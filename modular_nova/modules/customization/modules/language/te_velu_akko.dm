@@ -6,7 +6,7 @@
 			This part may require genemods for non-Azulean speakers."
 
 	key = "Z"
-	flags = TONGUELESS_SPEECH
+	flags = LANGUAGE_TONGUELESS_SPEECH
 	space_chance = 70
 	sentence_chance = 20
 	between_word_sentence_chance = 10
