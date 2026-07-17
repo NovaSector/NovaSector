@@ -1,0 +1,6 @@
+author: "Stalkeros, TheOneAndOnlyCreeperJoe for the original PR."
+delete-after: True
+changes:
+  - rscadd: "Revenant can now manifest themselves without using hostile ability, which they can toggle at will."
+  - rscadd: "Revenant can now understand almost all languages."
+  - balance: "Revenant now has more starting essence and can buy some upgrades upon first appearance"
