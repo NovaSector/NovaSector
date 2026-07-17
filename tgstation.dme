@@ -9656,6 +9656,7 @@
 #include "modular_nova\modules\shipbreaking\code\salvage_shuttles\research.dm"
 #include "modular_nova\modules\shipbreaking\code\salvage_shuttles\salvage.dm"
 #include "modular_nova\modules\shipbreaking\code\salvage_shuttles\unmanned.dm"
+#include "modular_nova/modules\shipbreaking\code\shipbreaking_cargopack.dm"
 #include "modular_nova\modules\shipbreaking\code\shuttle_parts\airlocks.dm"
 #include "modular_nova\modules\shipbreaking\code\shuttle_parts\crates.dm"
 #include "modular_nova\modules\shipbreaking\code\shuttle_parts\engine_covers.dm"

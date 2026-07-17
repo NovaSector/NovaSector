@@ -6,13 +6,13 @@
 	ship_primary_colour = "#5b5b71"
 	ship_secondary_colour = "#ffdd00"
 
-/datum/shipbreaking_owner/shipping/crusoe_intermodal
+/datum/shipbreaking_owner/shipping/apda
 	owner_name = "Associato Petrochimico dell'Adriatico"
 	ship_primary_colour = "#169b5a"
 	ship_secondary_colour = "#176a96"
 
-/datum/shipbreaking_owner/shipping/crusoe_settlement
-	owner_name = "Crusoe's Rest Settlement Oversight"
+/datum/shipbreaking_owner/shipping/osaka
+	owner_name = "Osaka Medical Systems"
 	ship_primary_colour = "#169b5a"
 	ship_secondary_colour = "#8f7930"
 
@@ -21,8 +21,8 @@
 	ship_primary_colour = "#5096e3"
 	ship_secondary_colour = "#cfcfcf"
 
-/datum/shipbreaking_owner/shipping/sunda
-	owner_name = "Sunda Galaksi Near Orbital"
+/datum/shipbreaking_owner/shipping/ganesha
+	owner_name = "Ganesha Near Orbital"
 	ship_primary_colour = "#e3b302"
 	ship_secondary_colour = "#3c3f45"
 
@@ -31,15 +31,15 @@
 	ship_primary_colour = "#e3b302"
 	ship_secondary_colour = "#cfcfcf"
 
-/datum/shipbreaking_owner/shipping/orion_spur
-	owner_name = "Orion Spur Logistics"
-	ship_primary_colour = "#e3b302"
-	ship_secondary_colour = "#16d8d2"
+/datum/shipbreaking_owner/shipping/nanotrasen
+	owner_name = "Nanotrasen Futures and Innovation"
+	ship_primary_colour = "#025ce3"
+	ship_secondary_colour = "#727272"
 
-/datum/shipbreaking_owner/shipping/li_interstellar
-	owner_name = "Li Interstellar & Industrial"
-	ship_primary_colour = "#d6d6d6"
-	ship_secondary_colour = "#844384"
+/datum/shipbreaking_owner/shipping/solfed
+	owner_name = "Sol Federation Interstellar & Industrial"
+	ship_primary_colour = "#d6d451"
+	ship_secondary_colour = "#434484"
 
 /datum/shipbreaking_owner/shipping/footpath
 	owner_name = "Footpath Stellar Transit"

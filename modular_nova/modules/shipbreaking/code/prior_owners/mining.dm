@@ -16,17 +16,17 @@
 	ship_primary_colour = "#d5d5d5"
 	ship_secondary_colour = "#d92d29"
 
-/datum/shipbreaking_owner/mining/honk_mimi
-	owner_name = "Marina's Interstellar Minerals, Incorperated"
-	ship_primary_colour = "#ffe600"
-	ship_secondary_colour = "#ffa291"
+/datum/shipbreaking_owner/mining/nakamura
+	owner_name = "Nakamura Engineering"
+	ship_primary_colour = "#978f54"
+	ship_secondary_colour = "#a55547"
 
 /datum/shipbreaking_owner/mining/blackbird_interactive
 	owner_name = "Blackbird Industrial"
 	ship_primary_colour = "#d4d4d4"
 	ship_secondary_colour = "#3b3b3b"
 
-/datum/shipbreaking_owner/mining/crag_jumpers
+/datum/shipbreaking_owner/mining/kosmologistika
 	owner_name = "Kosmologistika"
 	ship_primary_colour = "#643c3c"
 	ship_secondary_colour = "#b17e46"
