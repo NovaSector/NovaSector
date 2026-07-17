@@ -149,6 +149,7 @@
 	recommended_species = list(SPECIES_SYNTH = 1)
 	key = FEATURE_SYNTH_ANTENNA
 	organ_type = /obj/item/organ/synth_antenna
+	use_custom_mod_icon = TRUE
 
 /datum/sprite_accessory/antenna/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	var/obj/item/clothing/head/mod/worn_head = wearer.head

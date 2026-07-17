@@ -84,24 +84,6 @@
 /datum/sprite_accessory/proc/get_special_x_dimension(mob/living/carbon/human/H, passed_state)
 	return 0
 
-/// Creates a masked icon for sprite accessories which have 'use_custom_mod_icon' set to TRUE
-/datum/sprite_accessory/proc/get_custom_mod_icon(mob/living/carbon/human/owner, mutable_appearance/appearance_to_use = null)
-	if(!use_custom_mod_icon)
-		return null
-
-	if(!mod_overlay_active(owner))
-		return null
-	if(isnull(appearance_to_use))
-		return null // No source image -> nothing to blend. Callers composite per-pass.
-	var/obj/item/mod/control/modsuit_control = owner.back
-	var/datum/mod_theme/mod_theme = modsuit_control.theme
-
-	var/icon/special_icon = icon(appearance_to_use.icon, appearance_to_use.icon_state)
-	var/icon/MOD_texture = icon('modular_nova/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/icons/MOD_mask.dmi', "[mod_theme.hardlight_theme]")
-	special_icon.Blend("#fff", ICON_ADD)
-	special_icon.Blend(MOD_texture, ICON_MULTIPLY)
-	return special_icon
-
 /datum/sprite_accessory/proc/get_default_color(list/features, datum/species/species) //Needs features for the color information
 	var/list/colors
 	switch(default_color)

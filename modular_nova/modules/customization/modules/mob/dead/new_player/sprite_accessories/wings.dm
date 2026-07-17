@@ -17,6 +17,7 @@
 		SPECIES_MAMMAL = 1,
 	)
 	organ_type = /obj/item/organ/wings/custom
+	use_custom_mod_icon = TRUE
 
 /datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit

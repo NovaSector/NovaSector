@@ -1,42 +1,20 @@
-// Tail hardlight
-/datum/sprite_accessory/tails
-	use_custom_mod_icon = TRUE
+/// Creates a masked icon for sprite accessories which have 'use_custom_mod_icon' set to TRUE
+/datum/sprite_accessory/proc/get_custom_mod_icon(mob/living/carbon/human/owner, mutable_appearance/appearance_to_use = null)
+	if(!use_custom_mod_icon)
+		return null
 
-// Ears hardlight
-/datum/sprite_accessory/ears
-	use_custom_mod_icon = TRUE
+	if(!mod_overlay_active(owner))
+		return null
+	if(isnull(appearance_to_use))
+		return null // No source image -> nothing to blend. Callers composite per-pass.
+	var/obj/item/mod/control/modsuit_control = owner.back
+	var/datum/mod_theme/mod_theme = modsuit_control.theme
 
-// Wings hardlight
-/datum/sprite_accessory/wings
-	use_custom_mod_icon = TRUE
-
-// Antennae hardlight
-/datum/sprite_accessory/moth_antennae
-	use_custom_mod_icon = TRUE
-
-// IPC Antennae hardlight
-/datum/sprite_accessory/antenna
-	use_custom_mod_icon = TRUE
-
-// Horns hardlight
-/datum/sprite_accessory/horns
-	use_custom_mod_icon = TRUE
-
-// Taur hardlight
-/datum/sprite_accessory/taur
-	use_custom_mod_icon = TRUE
-
-// Lizard spines hardlight
-/datum/sprite_accessory/spines
-	use_custom_mod_icon = TRUE
-
-// Xenodorsal hardlight
-/datum/sprite_accessory/xenodorsal
-	use_custom_mod_icon = TRUE
-
-// Skrell hair hardlight
-/datum/sprite_accessory/skrell_hair
-	use_custom_mod_icon = TRUE
+	var/icon/special_icon = icon(appearance_to_use.icon, appearance_to_use.icon_state)
+	var/icon/MOD_texture = icon('modular_nova/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/icons/MOD_mask.dmi', "[mod_theme.hardlight_theme]")
+	special_icon.Blend("#fff", ICON_ADD)
+	special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+	return special_icon
 
 /// Is this accessory currently under an active hardlight MOD overlay? Used for determining if we should apply a mod overlay to a bodypart
 /datum/sprite_accessory/proc/mod_overlay_active(mob/living/carbon/human/wearer)

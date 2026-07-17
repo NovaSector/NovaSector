@@ -22,6 +22,7 @@
 	center = TRUE
 	organ_type = /obj/item/organ/taur_body/horselike // horselike by default, dont forget to override if you make another bodytype
 	flags_for_organ = SPRITE_ACCESSORY_HIDE_SHOES
+	use_custom_mod_icon = TRUE
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/taur_mode = NONE
 	taur_mode = BODYSHAPE_TAUR_GENERIC /// So that every taur would crop clothes
