@@ -1,0 +1,4 @@
+author: "Stalkeros, Absolucy for original PR"
+delete-after: True
+changes:
+  - rscadd: "Revenants can now pick their own name!"
