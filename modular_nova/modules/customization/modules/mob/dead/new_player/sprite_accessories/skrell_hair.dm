@@ -4,7 +4,7 @@
 	color_src = USE_ONE_COLOR
 	organ_type = /obj/item/organ/skrell_hair
 
-/datum/sprite_accessory/skrell_hair/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
+/datum/sprite_accessory/skrell_hair/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	// Exception for MODs
 	if(istype(wearer.head, /obj/item/clothing/head/mod))
 		return FALSE

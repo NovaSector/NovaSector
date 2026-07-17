@@ -75,7 +75,7 @@
 /datum/sprite_accessory/proc/get_sprite_suffix()
 	return icon_state
 
-/datum/sprite_accessory/proc/is_hidden(mob/living/carbon/human/owner, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
+/datum/sprite_accessory/proc/is_hidden(mob/living/carbon/human/owner, datum/bodypart_overlay/mutant/bodypart_overlay)
 	return FALSE
 
 /datum/sprite_accessory/proc/get_special_icon(mob/living/carbon/human/H, passed_state)
@@ -131,7 +131,7 @@
 	key = FEATURE_MOTH_MARKINGS
 	// organ_type = /obj/item/organ/moth_markings // UNCOMMENT THIS IF THEY EVER FIX IT UPSTREAM, CAN'T BE BOTHERED TO FIX IT MYSELF
 
-/datum/sprite_accessory/moth_markings/is_hidden(mob/living/carbon/human/owner, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
+/datum/sprite_accessory/moth_markings/is_hidden(mob/living/carbon/human/owner, datum/bodypart_overlay/mutant/bodypart_overlay)
 	return FALSE
 
 /datum/sprite_accessory/moth_markings/none
@@ -161,7 +161,7 @@
 	color_src = USE_ONE_COLOR
 	organ_type = /obj/item/organ/mushroom_cap
 
-/datum/sprite_accessory/caps/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
+/datum/sprite_accessory/caps/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/bodypart_overlay)
 	if(((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR)) || (key in human.try_hide_mutant_parts))
 		return TRUE
 

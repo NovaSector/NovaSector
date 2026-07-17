@@ -56,6 +56,7 @@
 	. += "[get_base_icon_state()]"
 	. += "[get_feature_key_for_overlay()]"
 
+	// MOD overlays on mutant parts
 	if(modsuit_affected && sprite_datum?.mod_overlay_active(limb?.owner))
 		. += "MOD_[sprite_datum.get_hardlight_theme_key(limb?.owner)]"
 

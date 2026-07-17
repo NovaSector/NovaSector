@@ -12,7 +12,7 @@
 		SPECIES_KOBOLD = 1,
 	)
 
-/datum/sprite_accessory/snouts/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
+/datum/sprite_accessory/snouts/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/bodypart_overlay)
 	return !!(human.obscured_slots & HIDESNOUT)
 
 /obj/item/organ/snout

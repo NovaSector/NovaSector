@@ -22,7 +22,7 @@
 	name = "Dorsal Down"
 	icon_state = "down"
 
-/datum/sprite_accessory/xenodorsal/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
+/datum/sprite_accessory/xenodorsal/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
 	if(!wearer.w_uniform && isnull(worn_suit))
 		return FALSE
