@@ -171,7 +171,7 @@
 		return
 
 	mermaid_body.Insert(user)
-	user.update_body() // to update the underwear, so sock will go away.
+	user.update_body() // to update the underwear, so socks will go away.
 
 /obj/item/organ/taur_body/serpentine
 	left_leg_name = "upper serpentine body"
