@@ -51,6 +51,7 @@
 	if(get_dist(our_turf, target) < PEER_MIN_DISTANCE)
 		return FALSE // too close to bother; let the normal click chain handle it
 	changeNext_move(CLICK_CD_LOOK_UP)
+	face_atom(target) // turn to look where we're peering
 	var/offset_x = clamp(target.x - our_turf.x, -PEER_MAX_OFFSET, PEER_MAX_OFFSET)
 	var/offset_y = clamp(target.y - our_turf.y, -PEER_MAX_OFFSET, PEER_MAX_OFFSET)
 	// The offset lives on the client, not us, so anything that repoints the view or takes us
