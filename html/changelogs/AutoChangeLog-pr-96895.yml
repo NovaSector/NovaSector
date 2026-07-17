@@ -1,0 +1,4 @@
+author: "lelandkemble"
+delete-after: True
+changes:
+  - rscadd: "Added craftable anti-mech tripwires. A mech that foolishly steps on one will fall down and be immobilized temporarily. Don't let it fall on you!"
