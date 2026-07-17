@@ -111,7 +111,7 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 		detonate()
 		return
 	if(istype(get_area(target), /area/shuttle/salvaged_shuttle))
-		balloon_alert_to_viewers("fizzles uselessly...")
+		detonate()
 		return
 	var/turf/station_check = get_turf(target)
 	if(!station_check || is_station_level(station_check.z))
