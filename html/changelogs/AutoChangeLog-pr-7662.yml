@@ -1,0 +1,8 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - refactor: "fixed a number of issues related to modsuit overlays for mutant parts, please report any new issues!"
+  - bugfix: "fixes an issue where larger sprites (like megamoth wings for example) were not being fully covered by the mod suit mesh"
+  - bugfix: "fixes an issue where mermaid taur were retaining their socks after transforming back into a mermaid"
+  - image: "recolorable kneeboots have gotten a sprite for for digi legs"
+  - bugfix: "fixes an issue where digi legs would not be applied properly when switching between taur and non-taur"
