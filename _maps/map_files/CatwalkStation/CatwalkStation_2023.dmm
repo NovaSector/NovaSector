@@ -83798,7 +83798,6 @@
 /area/station/medical/pharmacy)
 "wlx" = (
 /obj/structure/rack,
-/obj/effect/spawner/random/maintenance,
 /obj/item/storage/toolbox/fishing,
 /obj/item/storage/box/lights/mixed{
 	pixel_x = -8;
@@ -83808,6 +83807,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
+/obj/effect/spawner/random/maintenance/no_decals,
 /turf/open/water/no_planet_atmos,
 /area/station/maintenance/port/fore)
 "wlI" = (
