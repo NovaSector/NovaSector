@@ -1,6 +1,0 @@
-author: "Fghj240"
-delete-after: True
-changes:
-  - qol: "Ghosts can see alien embryo stage and all virus symptoms when health scanning"
-  - code_imp: "Health scanners now support multiple scan levels"
-  - bugfix: "Fixes medical kiosks not being able to identify advanced disease cures."

@@ -1,5 +1,0 @@
-author: "Lotte103"
-delete-after: True
-changes:
-  - map: "Added Thermomachines and Plasma Cannister to the HFR Room on Catwalk"
-  - map: "Replaced glass windows with reinforced plasmaglass windows in Atmos and Ordnance on Catwalk. Improving safety and allowing Atmos to operate the gas turbine without breaching the Atmos pump room."

@@ -1,4 +1,0 @@
-author: "Happyowl93"
-delete-after: True
-changes:
-  - bugfix: "stacking shells should no longer cause disappearing ones."
