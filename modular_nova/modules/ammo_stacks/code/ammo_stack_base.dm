@@ -8,7 +8,7 @@
 	appearance_flags = parent_type::appearance_flags | KEEP_TOGETHER
 	w_class = WEIGHT_CLASS_SMALL
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
-	ammo_box_multiload = AMMO_BOX_MULTILOAD_NONE
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_OUT
 	start_empty = TRUE
 	max_ammo = 12
 	/// Spacing between random w offsets of casings. Change based on the size of the casing being put into the stack.
@@ -27,7 +27,7 @@
 /obj/item/ammo_box/magazine/ammo_stack/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isammocasing(interacting_with))
 		return NONE
-	return item_interaction(user, interacting_with, modifiers)
+	return item_interaction(user, interacting_with, modifiers) || ITEM_INTERACT_BLOCKING
 
 /obj/item/ammo_box/magazine/ammo_stack/empty_magazine()
 	. = ..()
@@ -155,3 +155,4 @@
 	ammo_stack.give_round(used_casing)
 	user.put_in_hands(ammo_stack)
 	ammo_stack.update_appearance()
+	return ITEM_INTERACT_SUCCESS
