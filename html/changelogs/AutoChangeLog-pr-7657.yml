@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - rscdel: "CSL quirk species restrictions are lifted"

@@ -1,0 +1,5 @@
+author: "annikaRU"
+delete-after: True
+changes:
+  - bugfix: "Fixed alloys in the RCF"
+  - rscadd: "added shuttle machinery and titanium based alloys to the RCF"
