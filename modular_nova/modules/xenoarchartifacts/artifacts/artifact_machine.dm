@@ -232,7 +232,7 @@
 	if((first_effect?.trigger & TRIGGER_ATMOS) || (secondary_effect?.trigger & TRIGGER_ATMOS))
 		var/turf/our_turf = get_turf(src)
 		var/datum/gas_mixture/env = our_turf.return_air()
-		var/loc_gases = env.gases
+		var/loc_gases = env.moles
 		if(env)
 			//COLD ACTIVATION
 			if(env.temperature < 225)
@@ -244,19 +244,19 @@
 			else toggle_effects_off(TRIGGER_HEAT)
 			//PLASMA GAS ACTIVATION.
 			//Update 07.05.2024. No one remembers phoron anymore :( People say "plasma"
-			if(loc_gases[/datum/gas/plasma] && loc_gases[/datum/gas/plasma][MOLES] >= 10)
+			if(loc_gases[/datum/gas/plasma] >= 10)
 				toggle_effects_on(TRIGGER_PLASMA)
 			else toggle_effects_off(TRIGGER_PLASMA)
 			//OXYGEN GAS ACTIVATION
-			if(loc_gases[/datum/gas/oxygen] && loc_gases[/datum/gas/oxygen][MOLES] >= 10)
+			if(loc_gases[/datum/gas/oxygen] >= 10)
 				toggle_effects_on(TRIGGER_OXY)
 			else toggle_effects_off(TRIGGER_OXY)
 			//CO2 GAS ACTIVATION
-			if(loc_gases[/datum/gas/carbon_dioxide] && loc_gases[/datum/gas/carbon_dioxide][MOLES] >= 10)
+			if(loc_gases[/datum/gas/carbon_dioxide] >= 10)
 				toggle_effects_on(TRIGGER_CO2)
 			else toggle_effects_off(TRIGGER_CO2)
 			//NITROGEN GAS ACTIVATION
-			if(loc_gases[/datum/gas/nitrogen] && loc_gases[/datum/gas/nitrogen][MOLES] >= 10)
+			if(loc_gases[/datum/gas/nitrogen] >= 10)
 				toggle_effects_on(TRIGGER_NITRO)
 			else toggle_effects_off(TRIGGER_NITRO)
 	//TRIGGER_PROXY ACTIVATION

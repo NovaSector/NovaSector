@@ -1,13 +1,12 @@
 /mob/living/carbon/Life(seconds_per_tick = SSMOBS_DT)
 	if(HAS_TRAIT(src, TRAIT_NO_TRANSFORM))
 		return
-
-	//NOVA EDIT ADDITION
+	//NOVA EDIT ADDITION START
 	if(isopenturf(loc))
 		var/turf/open/my_our_turf = loc
 		if(my_our_turf.pollution)
 			my_our_turf.pollution.touch_act(src)
-	//NOVA EDIT END
+	//NOVA EDIT ADDITION END
 
 	if(damageoverlaytemp)
 		damageoverlaytemp = 0
@@ -199,7 +198,7 @@
 	breath.assert_gases(/datum/gas/bz, /datum/gas/carbon_dioxide, /datum/gas/freon, /datum/gas/plasma, /datum/gas/pluoxium, /datum/gas/miasma, /datum/gas/nitrous_oxide, /datum/gas/nitrium, /datum/gas/oxygen)
 
 	/// The list of gases in the breath.
-	var/list/breath_gases = breath.gases
+	var/list/breath_moles = breath.moles
 	/// Indicates if there are moles of gas in the breath.
 	var/has_moles = breath.total_moles() != 0
 
@@ -244,16 +243,16 @@
 	if(has_moles)
 		// Breath has more than 0 moles of gas.
 		// Partial pressures of "main gases".
-		pluoxium_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/pluoxium][MOLES])
-		o2_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/oxygen][MOLES] + (PLUOXIUM_PROPORTION * pluoxium_pp))
-		plasma_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/plasma][MOLES])
-		co2_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/carbon_dioxide][MOLES])
+		pluoxium_pp = breath.get_breath_partial_pressure(breath_moles[/datum/gas/pluoxium])
+		o2_pp = breath.get_breath_partial_pressure(breath_moles[/datum/gas/oxygen] + (PLUOXIUM_PROPORTION * pluoxium_pp))
+		plasma_pp = breath.get_breath_partial_pressure(breath_moles[/datum/gas/plasma])
+		co2_pp = breath.get_breath_partial_pressure(breath_moles[/datum/gas/carbon_dioxide])
 		// Partial pressures of "trace" gases.
-		bz_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/bz][MOLES])
-		freon_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/freon][MOLES])
-		miasma_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/miasma][MOLES])
-		n2o_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/nitrous_oxide][MOLES])
-		nitrium_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/nitrium][MOLES])
+		bz_pp = breath.get_breath_partial_pressure(breath_moles[/datum/gas/bz])
+		freon_pp = breath.get_breath_partial_pressure(breath_moles[/datum/gas/freon])
+		miasma_pp = breath.get_breath_partial_pressure(breath_moles[/datum/gas/miasma])
+		n2o_pp = breath.get_breath_partial_pressure(breath_moles[/datum/gas/nitrous_oxide])
+		nitrium_pp = breath.get_breath_partial_pressure(breath_moles[/datum/gas/nitrium])
 
 	// Breath has 0 moles of gas.
 	else if(can_breathe_vacuum)
@@ -271,7 +270,7 @@
 	// Behaves like Oxygen with 8X efficacy, but metabolizes into a reagent.
 	if(pluoxium_pp)
 		// Inhale Pluoxium. Exhale nothing.
-		breath_gases[/datum/gas/pluoxium][MOLES] = 0
+		breath_moles[/datum/gas/pluoxium] = 0
 		// Metabolize to reagent.
 		if(pluoxium_pp > gas_stimulation_min)
 			var/existing = reagents.get_reagent_amount(/datum/reagent/pluoxium)
@@ -283,7 +282,7 @@
 	// Minimum Oxygen effects. "Too little oxygen!"
 	if(!can_breathe_vacuum && (o2_pp < safe_oxygen_min))
 		// Breathe insufficient amount of O2.
-		oxygen_used = handle_suffocation(o2_pp, safe_oxygen_min, breath_gases[/datum/gas/oxygen][MOLES])
+		oxygen_used = handle_suffocation(o2_pp, safe_oxygen_min, breath_moles[/datum/gas/oxygen])
 		if(!HAS_TRAIT(src, TRAIT_ANOSMIA))
 			throw_alert(ALERT_NOT_ENOUGH_OXYGEN, /atom/movable/screen/alert/not_enough_oxy)
 	else
@@ -292,14 +291,14 @@
 		clear_alert(ALERT_NOT_ENOUGH_OXYGEN)
 		if(o2_pp)
 			// Inhale O2.
-			oxygen_used = breath_gases[/datum/gas/oxygen][MOLES]
+			oxygen_used = breath_moles[/datum/gas/oxygen]
 			// Heal mob if not in crit.
 			if(health >= crit_threshold)
 				adjust_oxy_loss(-5)
 	// Exhale equivalent amount of CO2.
 	if(o2_pp)
-		breath_gases[/datum/gas/oxygen][MOLES] -= oxygen_used
-		breath_gases[/datum/gas/carbon_dioxide][MOLES] += oxygen_used
+		breath_moles[/datum/gas/oxygen] -= oxygen_used
+		breath_moles[/datum/gas/carbon_dioxide] += oxygen_used
 
 	//-- CARBON DIOXIDE --//
 	// Maximum CO2 effects. "Too much CO2!"
@@ -329,7 +328,7 @@
 	// Maximum Plasma effects. "Too much Plasma!"
 	if(plasma_pp > safe_plas_max)
 		// Plasma side-effects.
-		var/ratio = (breath_gases[/datum/gas/plasma][MOLES] / safe_plas_max) * 10
+		var/ratio = (breath_moles[/datum/gas/plasma] / safe_plas_max) * 10
 		adjust_tox_loss(clamp(ratio, MIN_TOXIC_GAS_DAMAGE, MAX_TOXIC_GAS_DAMAGE))
 		if(!HAS_TRAIT(src, TRAIT_ANOSMIA))
 			throw_alert(ALERT_TOO_MUCH_PLASMA, /atom/movable/screen/alert/too_much_plas)
@@ -519,6 +518,7 @@
 
 	var/blood_transfusion_cap = (MONKEY_ORIGINS in chem.data) && chem.data[MONKEY_ORIGINS] ? BLOOD_VOLUME_NORMAL : BLOOD_VOLUME_MAXIMUM // NOVA EDIT ADDITION - Clamp the value so that being injected with monkey blood when you're past 560u doesn't do anything
 	var/blood_added = adjust_blood_volume(round(reac_volume, CHEMICAL_VOLUME_ROUNDING), maximum = blood_transfusion_cap) // NOVA EDIT CHANGE - ORIGINAL: var/blood_added = adjust_blood_volume(round(reac_volume, CHEMICAL_VOLUME_ROUNDING))
+	reagents.remove_reagent(chem.type, blood_added)
 
 	if(chem.data?[BLOOD_DATA_SYNTH_CONTENT] && !IS_BLOOD_ALWAYS_SYNTHETIC(src))
 		var/added_synth_volume = blood_added * chem.data[BLOOD_DATA_SYNTH_CONTENT]

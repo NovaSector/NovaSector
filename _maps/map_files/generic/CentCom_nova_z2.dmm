@@ -764,8 +764,12 @@
 /obj/item/choice_beacon/ingredient,
 /obj/item/reagent_containers/condiment/red_bay,
 /obj/item/reagent_containers/condiment/curry_powder,
-/obj/item/storage/box/stockparts/deluxe,
-/obj/item/storage/part_replacer/bluespace/tier4,
+/obj/item/storage/part_replacer/bluespace/tier4/cafe,
+/obj/item/storage/portable_chem_mixer,
+/obj/item/storage/box/beakers/cafe,
+/obj/item/storage/box/beakers/cafe,
+/obj/item/storage/box/beakers/cafe,
+/obj/item/storage/box/beakers/cafe,
 /turf/open/indestructible/kitchen,
 /area/centcom/holding/cafe)
 "amT" = (
@@ -1177,7 +1181,7 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cup/beaker/large,
+/obj/item/storage/box/beakers/cafe,
 /turf/open/indestructible/hoteltile{
 	icon_state = "darkfull"
 	},
@@ -2644,6 +2648,8 @@
 /obj/item/seeds/starfruit,
 /obj/item/seeds/starfruit,
 /obj/item/seeds/starfruit,
+/obj/item/seeds/honeysuckle,
+/obj/item/seeds/gelthi,
 /turf/open/indestructible/hoteltile{
 	icon_state = "darkfull"
 	},
@@ -3232,6 +3238,7 @@
 	},
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
+/obj/item/airlock_painter/decal,
 /turf/open/floor/plating/vox,
 /area/centcom/holding/cafevox)
 "aOI" = (
@@ -3437,6 +3444,7 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 3
 	},
+/obj/item/airlock_painter/decal,
 /turf/open/floor/wood/wood_7,
 /area/centcom/holding/cafe)
 "aQM" = (
@@ -9978,10 +9986,6 @@
 /area/centcom/holding/cafe)
 "iZr" = (
 /obj/structure/table/wood,
-/obj/machinery/reagentgrinder{
-	pixel_x = -2;
-	pixel_y = 8
-	},
 /obj/item/reagent_containers/cup/soda_cans/nova/welding_fizz{
 	pixel_x = 14;
 	pixel_y = 12
@@ -9993,6 +9997,7 @@
 /obj/item/reagent_containers/cup/soda_cans/nova/welding_fizz{
 	pixel_x = 14
 	},
+/obj/machinery/reagentgrinder,
 /turf/open/floor/wood/wood_1,
 /area/centcom/holding/cafe)
 "iZu" = (
@@ -15896,6 +15901,7 @@
 /area/centcom/holding/cafepark)
 "qNc" = (
 /obj/structure/table/wood,
+/obj/item/storage/portable_chem_mixer,
 /turf/open/floor/iron/checker,
 /area/centcom/holding/cafe)
 "qNu" = (
@@ -15982,9 +15988,7 @@
 /area/centcom/interlink)
 "qTu" = (
 /obj/structure/table/wood,
-/obj/machinery/reagentgrinder{
-	pixel_y = 8
-	},
+/obj/machinery/reagentgrinder,
 /turf/open/floor/wood/wood_3,
 /area/centcom/holding/cafe)
 "qUb" = (
@@ -16042,6 +16046,9 @@
 /obj/structure/table/wood,
 /obj/machinery/reagentgrinder{
 	pixel_x = 6
+	},
+/obj/item/storage/box/beakers/cafe{
+	pixel_x = -14
 	},
 /turf/open/floor/wood/large,
 /area/centcom/holding/cafe)
@@ -17109,33 +17116,10 @@
 	pixel_x = 7;
 	pixel_y = 12
 	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500
-	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500
-	},
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 8
 	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500
-	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500
-	},
+/obj/item/storage/portable_chem_mixer,
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "skr" = (
@@ -17720,6 +17704,14 @@
 /obj/machinery/reagentgrinder,
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 1
+	},
+/obj/item/storage/box/beakers/cafe{
+	pixel_x = -13;
+	pixel_y = 9
+	},
+/obj/item/storage/box/beakers/cafe{
+	pixel_x = -13;
+	pixel_y = 1
 	},
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
@@ -18592,6 +18584,7 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 1
 	},
+/obj/item/airlock_painter/decal,
 /turf/open/floor/wood/wood_7,
 /area/centcom/holding/cafe)
 "ubQ" = (
@@ -18689,18 +18682,6 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/condiment/enzyme,
 /obj/machinery/light/directional/south,
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500
-	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500
-	},
 /turf/open/floor/wood/large,
 /area/centcom/holding/cafe)
 "ueR" = (
@@ -18717,40 +18698,11 @@
 	pixel_x = -1;
 	pixel_y = 16
 	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500
-	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500;
-	pixel_x = -2;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500;
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500;
-	pixel_x = 7;
-	pixel_y = 1
-	},
 /obj/item/reagent_containers/dropper{
 	pixel_x = 0;
 	pixel_y = -9
 	},
+/obj/item/storage/box/beakers/cafe,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 8
 	},
@@ -21455,24 +21407,6 @@
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "xYA" = (
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500
-	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500
-	},
-/obj/item/reagent_containers/cup/beaker/bluespace{
-	luminosity = 3;
-	name = "floofmagic beaker";
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,150,200,250,500);
-	volume = 500
-	},
 /obj/structure/table/wood,
 /obj/item/reagent_containers/condiment/saltshaker{
 	pixel_x = 11;
@@ -21485,6 +21419,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
+/obj/item/storage/box/beakers/cafe,
 /turf/open/floor/iron/dark/brick,
 /area/centcom/holding/cafe)
 "xZe" = (
