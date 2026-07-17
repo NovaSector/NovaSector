@@ -1,16 +1,17 @@
 // Add a large variety of buffs and extra capabilities to the Revenant meant to make them more roleplay engaging and not just a vehicle for mechanics.
 
 /mob/living/basic/revenant
-	/// Starting essence: Buffed from 75 -> 200
+	// Starting essence: Buffed from 75 -> 200
 	essence = 200
-	/// Starting natural regen for Revenants: Buffed from 75 -> 100
+	// Starting natural regen for Revenants: Buffed from 75 -> 100
 	max_essence = 100
-	/// Some starting essence so you aren't sitting there puppy-eyed during greenshift.
+	// Some starting essence so you aren't sitting there puppy-eyed during greenshift.
 	essence_excess = 100
 
 /mob/living/basic/revenant/Initialize(mapload)
 	. = ..()
 	add_roleplay_powers()
+
 /// Adds languages and manifest
 /mob/living/basic/revenant/proc/add_roleplay_powers()
 	// Gives the manifest power
@@ -26,7 +27,7 @@
 			continue
 		grant_language(language.type, ALL, source = LANGUAGE_SPAWNER)
 
-// Makes you appear. For when you want to be visible while monologueing. Or stalk people spooky style.
+// Makes you appear. For when you want to be visible while monologuing. Or stalk people spooky style.
 /datum/action/cooldown/spell/revenant_manifest
 	name = "Manifest"
 	desc = "Manifests you into the realm of the living for all to see. Unlike your other powers, this keeps you perpetually visible until you activate this ability again."
@@ -55,7 +56,7 @@
 
 /datum/action/cooldown/spell/revenant_manifest/cast(mob/living/basic/revenant/cast_on)
 	. = ..()
-	// Decativates if active.
+	// Deaсtivates if active.
 	if(cast_on.has_status_effect(/datum/status_effect/revenant/revealed/manifest))
 		cast_on.remove_status_effect(/datum/status_effect/revenant/revealed/manifest)
 		cast_on.balloon_alert(cast_on, "unmanifested")
