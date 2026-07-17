@@ -59,7 +59,7 @@
 	can_use_saddle = TRUE
 
 /obj/item/organ/taur_body/horselike/synth
-	organ_flags = ORGAN_ROBOTIC | ORGAN_EXTERNAL
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /obj/item/organ/taur_body/horselike/deer
 
@@ -178,7 +178,7 @@
 	hardened_soles = TRUE
 
 /obj/item/organ/taur_body/serpentine/synth
-	organ_flags = ORGAN_ROBOTIC | ORGAN_EXTERNAL
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /obj/item/organ/taur_body/spider
 	left_leg_name = "left legs"
@@ -206,7 +206,7 @@
 	can_ride_saddled_taurs = TRUE
 
 /obj/item/organ/taur_body/anthro/synth
-	organ_flags = ORGAN_ROBOTIC
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = FEATURE_TAUR
