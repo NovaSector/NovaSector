@@ -1,4 +1,0 @@
-author: "Shroopy"
-delete-after: True
-changes:
-  - bugfix: "Fixed synth centipede taur legs not actually being fully synthetic."

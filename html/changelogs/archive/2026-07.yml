@@ -661,3 +661,21 @@
   vinylspiders:
   - bugfix: penis sheaths should display properly once again
   - bugfix: fixed issue where incubus draft was not able to make you grow new testicles
+2026-07-17:
+  Happyowl93:
+  - code_imp: fix CI pipeline related to create_and_destroy.
+  Shroopy:
+  - bugfix: Fixed modsuits not actually checking if you can keep your suit storage
+      item instead of dropping it.
+  - bugfix: Fixed synth centipede taur legs not actually being fully synthetic.
+  Stalkeros, Absolucy for original PR:
+  - rscadd: Revenants can now pick their own name!
+  Stalkeros, Paradise station for the sprite:
+  - image: Revenants now look way better than before.
+  TheRealSlimRedwoods:
+  - bugfix: removing nitrogen breather quirk now clears the right alerts
+  annikaRU:
+  - bugfix: Fixed alloys in the RCF
+  - rscadd: added shuttle machinery and titanium based alloys to the RCF
+  vinylspiders:
+  - rscdel: CSL quirk species restrictions are lifted
