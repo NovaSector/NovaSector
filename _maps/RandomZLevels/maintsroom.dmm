@@ -8658,7 +8658,7 @@
 "Dl" = (
 /obj/structure/table,
 /obj/item/food/grown/wheat,
-/obj/item/food/grown/watermelon,
+/obj/item/food/grown/melonlike/watermelon,
 /obj/item/food/grown/citrus/orange,
 /obj/item/food/grown/grapes,
 /obj/item/food/grown/cocoapod,
@@ -14340,8 +14340,8 @@
 /obj/item/knife/kitchen,
 /obj/item/storage/box/mousetraps,
 /obj/structure/broken_flooring/pile,
-/obj/item/food/grown/parsnip,
-/obj/item/food/grown/parsnip,
+/obj/item/food/grown/carrotlike/parsnip,
+/obj/item/food/grown/carrotlike/parsnip,
 /obj/item/food/cheese/wedge,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)

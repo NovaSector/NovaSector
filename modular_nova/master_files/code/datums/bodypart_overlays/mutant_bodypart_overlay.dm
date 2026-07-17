@@ -257,15 +257,16 @@
  * there's going to be issues with how the emissives are generated, so it won't
  * add them if the limb is missing, somehow.
  */
-/datum/bodypart_overlay/mutant/proc/add_emissives(list/image/overlays, obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/proc/add_emissives(list/mutable_appearance/overlays, obj/item/bodypart/limb)
 	if(!limb || !length(emissive_eligibility_by_color_index))
 		return overlays
 
-	var/list/image/emissives
+	var/list/mutable_appearance/emissives
 	var/max = min(MAX_MATRIXED_COLORS, length(overlays)) // only care about the first 3 indexes
 	for(var/index = 1 to max)
 		if(emissive_eligibility_by_color_index[index])
-			LAZYADD(emissives, emissive_appearance_copy(overlays[index], limb))
+			var/mutable_appearance/overlay = overlays[index]
+			LAZYADD(emissives, emissive_appearance(overlay.icon, overlay.icon_state, offset_spokesman = limb, layer = overlay.layer))
 
 	return emissives ? (overlays + emissives) : overlays
 

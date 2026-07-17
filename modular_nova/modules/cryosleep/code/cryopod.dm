@@ -21,6 +21,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	desc = "An interface between crew and the cryogenic storage oversight systems."
 	icon = 'modular_nova/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cellconsole_1"
+	generate_map_preview = FALSE
 	icon_keyboard = null
 	icon_screen = null
 	use_power = FALSE

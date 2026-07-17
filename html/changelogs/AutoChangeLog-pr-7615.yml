@@ -1,4 +1,0 @@
-author: "bruhlookatthisdood"
-delete-after: True
-changes:
-  - bugfix: "ore generation subsystem will now not stop after one ghost_mining ore vent and instead will continue for them all."

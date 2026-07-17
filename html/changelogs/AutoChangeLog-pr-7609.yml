@@ -1,4 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - code_imp: "ERP taste/scent descriptions and arousal flavor texts now use DNA instead of reading directly from preferences."
