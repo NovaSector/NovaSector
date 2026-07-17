@@ -48,12 +48,12 @@
 
 /datum/species/lizard/ashwalker/get_default_mutant_bodyparts()
 	var/list/default_parts = ..()
-	default_parts[FEATURE_SPINES] = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, TRUE)
+	default_parts[FEATURE_SPINES] = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = TRUE)
 	return default_parts
 
 /datum/species/lizard/silverscale/get_default_mutant_bodyparts()
 	var/list/default_parts = ..()
-	default_parts[FEATURE_SPINES] = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, TRUE)
+	default_parts[FEATURE_SPINES] = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = TRUE)
 	return default_parts
 
 /datum/species/lizard/randomize_features()
