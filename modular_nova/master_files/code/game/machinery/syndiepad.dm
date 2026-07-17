@@ -29,8 +29,8 @@
 	name = "\improper Soar Industries sales pad"
 	desc = "A Specialized Deepspace Teleportation Pad that has been made for selling goods long distance to other companies. Will accept various (non-living) objects."
 	circuit = /obj/item/circuitboard/machine/ghostpad
-	icon = MAP_SWITCH('modular_nova/master_files/icons/obj/machines/ghost_pad.dmi', 'icons/obj/fluff/map_previews.dmi')
-	icon_state = MAP_SWITCH("ghost_pad", "/obj/machinery/piratepad/ghostpad")
+	icon = 'modular_nova/master_files/icons/obj/machines/ghost_pad.dmi'
+	icon_state = "ghost_pad"
 	base_icon_state = "ghost_pad"
 
 	// The modifier to reduce warmuptime
@@ -66,6 +66,7 @@
 	name = "\improper SOAR Industries sales terminal"
 	desc = "A specially made SOAR Industries Sales Console for selling objects and things to deepspace buyers."
 	status_report = "Ready for delivery."
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/piratepad_control/ghostpad")
 	icon_screen = "civ_bounty"
 	icon_keyboard = "syndie_key"
 	warmup_time = SYN_BOUNTY_PAD_WARM_TIME
