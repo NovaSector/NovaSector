@@ -10,11 +10,18 @@
 	var/obj/item/mod/control/modsuit_control = owner.back
 	var/datum/mod_theme/mod_theme = modsuit_control.theme
 
-	var/icon/special_icon = icon(appearance_to_use.icon, appearance_to_use.icon_state)
-	var/icon/MOD_texture = icon('modular_nova/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/icons/MOD_mask.dmi', "[mod_theme.hardlight_theme]")
-	special_icon.Blend("#fff", ICON_ADD)
-	special_icon.Blend(MOD_texture, ICON_MULTIPLY)
-	return special_icon
+	var/index = "[appearance_to_use.icon]-[appearance_to_use.icon_state]-[mod_theme.hardlight_theme]"
+	var/static/list/mod_icon_cache = list()
+	var/icon/special_icon = mod_icon_cache[index]
+	if(!special_icon)
+		special_icon = icon(appearance_to_use.icon, appearance_to_use.icon_state)
+		var/icon/MOD_texture = icon('modular_nova/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/icons/MOD_mask.dmi', "[mod_theme.hardlight_theme]")
+		special_icon.Blend("#fff", ICON_ADD)
+		special_icon.Blend(MOD_texture, ICON_MULTIPLY)
+		special_icon = fcopy_rsc(special_icon)
+		mod_icon_cache[index] = special_icon
+
+	return icon(special_icon)
 
 /// Is this accessory currently under an active hardlight MOD overlay? Used for determining if we should apply a mod overlay to a bodypart
 /datum/sprite_accessory/proc/mod_overlay_active(mob/living/carbon/human/wearer)
