@@ -66,7 +66,7 @@
 
 /obj/item/clothing/neck/collar/proc/can_unequip(obj/item/source, force, atom/newloc, no_move, invdrop, silent)
 	var/mob/living/carbon/wearer = source.loc
-	if(istype(wearer) && wearer?.wear_neck == source && locked)
+	if(istype(wearer) && wearer.get_item_by_slot(ITEM_SLOT_NECK) == source && locked)
 		to_chat(wearer, span_warning("The collar is locked! You'll need to unlock it before you can take it off!"))
 		return COMPONENT_ITEM_BLOCK_UNEQUIP
 	return NONE
@@ -139,9 +139,10 @@
 // check the passed mob or collar to see if we can unlock their collar
 /obj/item/key/collar/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	var/mob/living/carbon/target = interacting_with
-	if(!istype(target) || !istype(target.wear_neck, /obj/item/clothing/neck/collar))
+	var/obj/item/clothing/neck/wear_neck = target.get_item_by_slot(ITEM_SLOT_NECK)
+	if(!istype(target) || !istype(wear_neck, /obj/item/clothing/neck/collar))
 		return NONE
-	var/obj/item/clothing/neck/collar/collar = target.wear_neck
+	var/obj/item/clothing/neck/collar/collar = wear_neck
 	if(REF(collar) == src.key_id)
 		collar.set_lock(!collar.locked, user)
 		return ITEM_INTERACT_SUCCESS
