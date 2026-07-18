@@ -779,3 +779,9 @@
   - image: recolorable kneeboots have gotten a sprite for for digi legs
   - bugfix: fixes an issue where digi legs would not be applied properly when switching
       between taur and non-taur
+2026-07-18:
+  bruhlookatthisdood:
+  - image: added new overlay for artifact vents, they no longer overlap the bluespace
+      and diamond when being scanned
+  vinylspiders:
+  - bugfix: fixes taur legs being broken
