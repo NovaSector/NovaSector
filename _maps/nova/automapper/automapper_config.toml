@@ -326,79 +326,6 @@ required_map = "tramstation.dmm"
 coordinates = [122, 133, 1]
 trait_name = "Station"
 
-# WAWASTATION MAP EDITS
-# Wawastation Arrivals
-[templates.wawastation_arrivals]
-map_files = ["wawastation_arrivals.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [79, 81, 2]
-trait_name = "Station"
-
-# Wawastation NTR Office
-[templates.wawastation_ntrep_office]
-map_files = ["wawastation_ntrep_office.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [108, 122, 1]
-trait_name = "Station"
-
-# Wawastation Supermatter
-[templates.wawastation_supermatter]
-map_files = ["wawastation_supermatter.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [162, 63, 1]
-trait_name = "Station"
-
-# Wawastation Barber
-[templates.wawastation_barber]
-map_files = ["wawastation_barber.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [87, 102, 1]
-trait_name = "Station"
-
-# Wawastation Armory
-[templates.wawastation_armory]
-map_files = ["wawastation_armory.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [64, 128, 2]
-trait_name = "Station"
-
-# Wawastation Cryo
-[templates.wawastation_cryo]
-map_files = ["wawastation_cryo.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [83, 92, 1]
-trait_name = "Station"
-
-# Wawastation TG-shenanigan removals.
-[templates.wawastation_asteroidbluecell]
-map_files = ["wawastation_asteroidbluecell.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [142, 95, 2]
-trait_name = "Station"
-
-# Wawastation Public Garden
-[templates.wawastation_garden]
-map_files = ["wawastation_garden.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [79, 82, 1]
-trait_name = "Station"
-
-# Wawastation Bar Backroom
-[templates.wawastation_bar_backroom]
-map_files = ["wawastation_bar_backroom.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [93, 83, 1]
-trait_name = "Station"
-
 # SNOWGLOBE STATION MAP EDITS
 # Icecats Camp Lower Level - Snowglobe
 [templates.snowglobe_icecats_lower]
@@ -542,4 +469,76 @@ map_files = ["catwalkstation_bar_backroom.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
 coordinates = [92, 145, 1]
+trait_name = "Station"
+
+#Kilostation Armory
+[templates.kilostation_armory]
+map_files = ["kilostation_armory.dmm"]
+directory = "_maps/nova/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [80, 77, 1]
+trait_name = "Station"
+
+#Kilostation Arrivals
+[templates.kilostation_arrivals]
+map_files = ["kilostation_arrivals.dmm"]
+directory = "_maps/nova/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [150, 80, 1]
+trait_name = "Station"
+
+#Kilostation Barber
+[templates.kilostation_barber]
+map_files = ["kilostation_barber.dmm"]
+directory = "_maps/nova/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [92, 149, 1]
+trait_name = "Station"
+
+#Kilostation Bar Backroom
+[templates.kilostation_bar_backroom]
+map_files = ["kilostation_bar_backroom.dmm"]
+directory = "_maps/nova/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [103, 130, 1]
+trait_name = "Station"
+
+#Kilostation Cryo
+[templates.kilostation_cryo]
+map_files = ["kilostation_cryo.dmm"]
+directory = "_maps/nova/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [103, 92, 1]
+trait_name = "Station"
+
+#Kilostation Garden
+[templates.kilostation_garden]
+map_files = ["kilostation_garden.dmm"]
+directory = "_maps/nova/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [97, 140, 1]
+trait_name = "Station"
+
+#Kilostation NT Rep Office
+[templates.kilostation_ntrep_office]
+map_files = ["kilostation_ntrep_office.dmm"]
+directory = "_maps/nova/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [125, 102, 1]
+trait_name = "Station"
+
+#Kilostation Supermatter
+[templates.kilostation_supermatter]
+map_files = ["kilostation_supermatter.dmm"]
+directory = "_maps/nova/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [140, 72, 1]
+trait_name = "Station"
+
+#Kilostation Teleporter Wiring Fix
+[templates.kilostation_telewire]
+map_files = ["kilostation_telewire.dmm"]
+directory = "_maps/nova/automapper/templates/kilostation/"
+required_map = "KiloStation.dmm"
+coordinates = [117, 108, 1]
 trait_name = "Station"

@@ -2,12 +2,13 @@
 	key = FEATURE_TAIL
 	organ_type = /obj/item/organ/tail
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
+	use_custom_mod_icon = TRUE
 	/// Can we use this tail for the fluffy tail turf emote?
 	var/fluffy = FALSE
 
-/datum/sprite_accessory/tails/is_hidden(mob/living/carbon/human/wearer)
-	if(wearer.owned_turf?.name == "tail")
+/datum/sprite_accessory/tails/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	// Emote exception
+	if(wearer.owned_turf?.name == FEATURE_TAIL)
 		return TRUE
 
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
