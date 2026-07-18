@@ -296,6 +296,10 @@
 	if(left_leg_to_remove)
 		left_leg_to_remove.drop_limb(special = TRUE, move_to_floor = FALSE)
 		left_leg_to_remove.moveToNullspace()
+
+	var/obj/item/bodypart/leg/left/leftover_left_leg = receiver.get_bodypart(BODY_ZONE_L_LEG)
+	if(leftover_left_leg)
+		qdel(leftover_left_leg)
 	new_left_leg.replace_limb(receiver)
 	new_left_leg.bodyshape |= external_bodyshapes
 
@@ -303,6 +307,9 @@
 	if(right_leg_to_remove)
 		right_leg_to_remove.drop_limb(special = TRUE, move_to_floor = FALSE)
 		right_leg_to_remove.moveToNullspace()
+	var/obj/item/bodypart/leg/right/leftover_right_leg = receiver.get_bodypart(BODY_ZONE_R_LEG)
+	if(leftover_right_leg)
+		qdel(leftover_right_leg)
 	new_right_leg.replace_limb(receiver)
 	new_right_leg.bodyshape |= external_bodyshapes
 
