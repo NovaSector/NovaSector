@@ -4,7 +4,6 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	relevant_mutant_bodypart = FEATURE_LEGS
-	priority = PREFERENCE_PRIORITY_BODYPARTS
 
 /datum/preference/choiced/digitigrade_legs/create_default_value()
 	return NORMAL_LEGS
