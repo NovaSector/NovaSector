@@ -539,7 +539,7 @@
 		animate(visual, alpha = 0, time = 4.5 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 
 	if(artifact_chance)
-		var/atom/movable/flick_visual/rare = flick_overlay_view(mutable_appearance('icons/effects/vent_overlays.dmi', "rare_ore"), 4.5 SECONDS)
+		var/atom/movable/flick_visual/rare = flick_overlay_view(mutable_appearance('modular_nova/master_files/icons/effects/vent_overlays.dmi', "artifact"), 4.5 SECONDS) // NOVA EDIT - Changed 'rare_ore' to 'artifact' for icon_state
 		animate(rare, alpha = 0, time = 4.5 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 
 
