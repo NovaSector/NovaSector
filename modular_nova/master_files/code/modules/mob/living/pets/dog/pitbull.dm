@@ -6,7 +6,6 @@
 	icon_dead = "pitbull_dead"
 	icon_living = "pitbull"
 	ai_controller = /datum/ai_controller/basic_controller/pitbull
-	can_be_held = FALSE //He's too big.
 
 /datum/ai_controller/basic_controller/pitbull
 	blackboard = list(
@@ -30,6 +29,7 @@
 	. = ..()
 	if(prob(1))
 		name = pick("Crayon", "Pimpy", "Staypuft", "Bape", "BLOODSKULL", "Baby G")
+	RemoveElement(/datum/element/can_be_held) //He's too big.
 	AddElement(/datum/element/tiny_mob_hunter, MOB_SIZE_SMALL) //He eats anything that he sees as a toddler.
 	AddElement(/datum/element/footstep, footstep_type = FOOTSTEP_MOB_CLAW)
 

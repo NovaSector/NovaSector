@@ -1,0 +1,4 @@
+author: "bruhlookatthisdood"
+delete-after: True
+changes:
+  - image: "added new overlay for artifact vents, they no longer overlap the bluespace and diamond when being scanned"

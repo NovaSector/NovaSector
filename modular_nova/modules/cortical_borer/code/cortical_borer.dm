@@ -94,7 +94,6 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	mob_size = MOB_SIZE_TINY
 	mob_biotypes = MOB_ORGANIC|MOB_BUG
 	//because they are small, why can't they be held?
-	can_be_held = TRUE
 	///what chemicals borers know, starting with none
 	var/list/known_chemicals = list()
 	///what chemicals the borer can learn
@@ -218,6 +217,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 		squash_damage = 25, \
 		squash_flags = SQUASHED_DONT_SQUASH_IN_CONTENTS, \
 	)
+	AddElement(/datum/element/can_be_held)
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT) //they need to be able to move around
 
 	var/matrix/borer_matrix = matrix(transform)

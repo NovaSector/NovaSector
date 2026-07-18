@@ -59,7 +59,7 @@
 	can_use_saddle = TRUE
 
 /obj/item/organ/taur_body/horselike/synth
-	organ_flags = ORGAN_ROBOTIC | ORGAN_EXTERNAL
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /obj/item/organ/taur_body/horselike/deer
 
@@ -171,6 +171,7 @@
 		return
 
 	mermaid_body.Insert(user)
+	user.update_body() // to update the underwear, so socks will go away.
 
 /obj/item/organ/taur_body/serpentine
 	left_leg_name = "upper serpentine body"
@@ -178,7 +179,7 @@
 	hardened_soles = TRUE
 
 /obj/item/organ/taur_body/serpentine/synth
-	organ_flags = ORGAN_ROBOTIC | ORGAN_EXTERNAL
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /obj/item/organ/taur_body/spider
 	left_leg_name = "left legs"
@@ -197,7 +198,7 @@
 	right_leg_name = "dozens of right legs"
 
 /obj/item/organ/taur_body/centipede/synth
-	organ_flags = parent_type::organ_flags | ORGAN_ROBOTIC
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /obj/item/organ/taur_body/anthro
 	left_leg_name = null
@@ -206,7 +207,7 @@
 	can_ride_saddled_taurs = TRUE
 
 /obj/item/organ/taur_body/anthro/synth
-	organ_flags = ORGAN_ROBOTIC
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = FEATURE_TAUR
