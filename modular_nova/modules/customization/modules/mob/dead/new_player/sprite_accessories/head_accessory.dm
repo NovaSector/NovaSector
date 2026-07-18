@@ -17,7 +17,7 @@
 	natural_spawn = FALSE
 	factual = FALSE
 
-/datum/sprite_accessory/head_accessory/is_hidden(mob/living/carbon/human/owner)
+/datum/sprite_accessory/head_accessory/is_hidden(mob/living/carbon/human/owner, datum/bodypart_overlay/mutant/bodypart_overlay)
 	var/obj/item/clothing/head/worn_head = owner.head
 	var/obj/item/clothing/mask/worn_mask = owner.wear_mask
 	if((worn_head?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \

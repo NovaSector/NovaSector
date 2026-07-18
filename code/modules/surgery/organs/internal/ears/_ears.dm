@@ -60,10 +60,10 @@
 	if(!special)
 		ADD_TRAIT(organ_owner, TRAIT_DEAF, NO_EARS)
 
-/obj/item/organ/ears/get_status_appendix(advanced, add_tooltips)
+/obj/item/organ/ears/get_status_appendix(scanpower, add_tooltips)
 	if(owner.stat == DEAD || !HAS_TRAIT(owner, TRAIT_DEAF))
 		return
-	if(advanced)
+	if(scanpower >= SCANPOWER_ADVANCED)
 		if(HAS_TRAIT_FROM(owner, TRAIT_DEAF, QUIRK_TRAIT))
 			return conditional_tooltip("Subject is permanently deaf.", "Irreparable under normal circumstances.", add_tooltips)
 		if(HAS_TRAIT_FROM(owner, TRAIT_DEAF, GENETIC_MUTATION))
@@ -170,8 +170,10 @@
 	/// Layer upon which we add the inner ears overlay
 	var/inner_layer = EXTERNAL_FRONT
 
+/* // NOVA EDIT REMOVAL START - No.
 /datum/bodypart_overlay/mutant/cat_ears/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
 	return ..() && !(bodypart_owner.owner?.obscured_slots & HIDEHAIR)
+*/ // NOVA EDIT REMOVAL END
 
 /datum/bodypart_overlay/mutant/cat_ears/get_image(obj/item/bodypart/limb, layer_index, layer_real)
 	var/mutable_appearance/base_ears = ..()

@@ -21,11 +21,3 @@
 	if(isnull(draw_color))
 		randomize_cap_color()
 	return draw_color
-
-/datum/bodypart_overlay/mutant/mushroom_cap/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
-	if(!..())
-		return FALSE
-	var/mob/living/carbon/human/human = owner || bodypart_owner.owner
-	if(!istype(human))
-		return TRUE
-	return !sprite_datum.is_hidden(human)

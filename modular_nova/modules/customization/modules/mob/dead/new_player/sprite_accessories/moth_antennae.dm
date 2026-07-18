@@ -1,8 +1,9 @@
 /datum/sprite_accessory/moth_antennae
 	key = FEATURE_MOTH_ANTENNAE
 	organ_type = /obj/item/organ/antennae
+	use_custom_mod_icon = TRUE
 
-/datum/sprite_accessory/moth_antennae/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/moth_antennae/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	var/obj/item/clothing/head/mod/worn_head = wearer.head
 	if(isnull(worn_head))
 		return FALSE
