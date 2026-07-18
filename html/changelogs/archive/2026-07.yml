@@ -661,3 +661,121 @@
   vinylspiders:
   - bugfix: penis sheaths should display properly once again
   - bugfix: fixed issue where incubus draft was not able to make you grow new testicles
+2026-07-17:
+  CabinetOnFire, Iamgoofball, SmartKar, Ben10omintrix:
+  - refactor: Replaces our AI system with behavior trees, porting all datum/ai to
+      it
+  Fghj240:
+  - bugfix: Many chemical reactions are no longer exothermic.
+  - rscadd: Medical doctors and CMOs can get old virologist bounties
+  - spellcheck: Changed "transmissible" to "transmission" in virologist bounties
+  - spellcheck: Strongarms crate decription now mentions "humanoid" instead of "human"
+      arms.
+  - qol: Ghosts can see alien embryo stage and all virus symptoms when health scanning
+  - code_imp: Health scanners now support multiple scan levels
+  - bugfix: Fixes medical kiosks not being able to identify advanced disease cures.
+  - rscdel: Removed ImmunoSilence and its trait
+  - balance: Aggressive healing has much lower stats
+  - map: Added sepsisillin pills to virology
+  - spellcheck: Clarified the description of aggressive healing
+  Ghommie:
+  - balance: humanized monkeys (that were born as monkeys) should have their primitive
+      ape brain untouched (not an advanced tool user unless they have the clever trait).
+  Happyowl93:
+  - code_imp: fix CI pipeline related to create_and_destroy.
+  - bugfix: People with missing limb can again use the remaining good one.
+  - bugfix: stacking shells should no longer cause disappearing ones.
+  - bugfix: Loading .38 revolver with .38 BR mag has a cooldown now.
+  LT3:
+  - bugfix: Tram signs only update on signals from their linked tram
+  - qol: Stamping a paper now automatically closes the paper UI
+  LemonInTheDark:
+  - bugfix: Starlight will light rock walls adjacent to space... better.
+  Lotte103:
+  - map: Added Thermomachines and Plasma Cannister to the HFR Room on Catwalk
+  - map: Replaced glass windows with reinforced plasmaglass windows in Atmos and Ordnance
+      on Catwalk. Improving safety and allowing Atmos to operate the gas turbine without
+      breaching the Atmos pump room.
+  Melbert:
+  - rscadd: Adds anomalous lure hook, a fishing hook which accepts (almost) any type
+      of anomaly core, causing unique effects depending on the core used.
+  - rscdel: Material fishing rods no longer innately catch material fish, you need
+      a dimensional anomaly core in an anomalous lure hook to catch material fish
+      now.
+  - code_imp: Cleaned up radio TTS handling a bit, maybe it'll perform better, report
+      anything weird
+  - balance: '"Holy whip" null rod no longer arbitrarily does 2x brute damage to vampires'
+  - balance: '"Holy whip" null rod is now made of silver, which does bonus burn damage
+      to vampires (~1.67x damage now)'
+  - balance: Silver material weapons deal more burn damage to vampires on average
+      now (from 5 flat to 4-16, depending on volume of silver in the weapon)
+  - balance: Silver material weapons are no longer completely blocked by any form
+      of clothing, instead now reduced / blocked by wound armor
+  Nitrix119:
+  - bugfix: Renaming input/output ports on a circuit module no longer crashes the
+      UI.
+  - admin: Renaming an argument on the Proc Call circuit component no longer crashes
+      the UI.
+  Shroopy:
+  - bugfix: Fixed modsuits not actually checking if you can keep your suit storage
+      item instead of dropping it.
+  - bugfix: Fixed synth centipede taur legs not actually being fully synthetic.
+  SmArtKar:
+  - refactor: Moved a lot of human-specific inventory code onto human mobs, report
+      if inventories break!
+  - bugfix: Fixed mechs being unable to interact with stuff
+  Stalkeros, Absolucy for original PR:
+  - rscadd: Revenants can now pick their own name!
+  Stalkeros, NiklasNeighbor for the original PR:
+  - rscadd: Added a ghostwriting ability to the revenant that works like a built-in
+      purple crayon
+  Stalkeros, Paradise station for the sprite:
+  - image: Revenants now look way better than before.
+  Stalkeros, TheOneAndOnlyCreeperJoe for the original PR.:
+  - rscadd: Revenant can now manifest themselves without using hostile ability, which
+      they can toggle at will.
+  - rscadd: Revenant can now understand almost all languages.
+  - balance: Revenant now has more starting essence and can buy some upgrades upon
+      first appearance
+  TealSeer:
+  - bugfix: fixed FaxBond not sending notifications when faxes are received
+  TheRealSlimRedwoods:
+  - bugfix: removing nitrogen breather quirk now clears the right alerts
+  TheRyeGuyWhoWillNowDie:
+  - rscadd: Kilostation
+  - rscdel: Wawastation
+  - spellcheck: Updated the station plaques for kilo and wawa
+  annikaRU:
+  - bugfix: Fixed alloys in the RCF
+  - rscadd: added shuttle machinery and titanium based alloys to the RCF
+  krookodilehunter:
+  - rscadd: Chickens can be picked up and held now! Sprites by mms142
+  lelandkemble:
+  - bugfix: you now can only use a wirecutter to take down a reinforced falsewall
+  - bugfix: meatspikes no longer runtime on construction
+  - bugfix: you no longer have to use a verb that you can't use to flip windoor assemblies
+  - qol: you can right click a gun locker to close it
+  - code_imp: 50 files have been moved from attackby() to item_interaction()
+  - rscadd: Added craftable anti-mech tripwires. A mech that foolishly steps on one
+      will fall down and be immobilized temporarily. Don't let it fall on you!
+  nPocToDark:
+  - rscadd: Curse of Ra is back. Now you can buy some pharaon costumes in DeusVend
+      (premium)
+  timothymtorres:
+  - balance: Modular computers (PDAs) now shutdown when out of power
+  - bugfix: PDA flashlights now turn off when out of power
+  - sound: Added a terminal off switch sound to PDAs when power runs out
+  - map: Fix Kilo engineering camera
+  vinylspiders:
+  - rscdel: CSL quirk species restrictions are lifted
+  - bugfix: fixed an issue that would prevent an emped mech from being able to melee
+      attack a target
+  - refactor: fixed a number of issues related to modsuit overlays for mutant parts,
+      please report any new issues!
+  - bugfix: fixes an issue where larger sprites (like megamoth wings for example)
+      were not being fully covered by the mod suit mesh
+  - bugfix: fixes an issue where mermaid taur were retaining their socks after transforming
+      back into a mermaid
+  - image: recolorable kneeboots have gotten a sprite for for digi legs
+  - bugfix: fixes an issue where digi legs would not be applied properly when switching
+      between taur and non-taur

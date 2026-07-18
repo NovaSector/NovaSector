@@ -1,4 +1,0 @@
-author: "Happyowl93"
-delete-after: True
-changes:
-  - code_imp: "fix CI pipeline related to create_and_destroy."

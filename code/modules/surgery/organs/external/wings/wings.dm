@@ -32,5 +32,7 @@
 	/// Slot we check against
 	var/slot_blocker = HIDEJUMPSUIT
 
+/* // NOVA EDIT REMOVAL START - No.
 /datum/bodypart_overlay/mutant/wings/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
 	return ..() && !(bodypart_owner.owner?.obscured_slots & slot_blocker)
+*/ // NOVA EDIT REMOVAL END

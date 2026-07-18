@@ -1,4 +1,0 @@
-author: "Shroopy"
-delete-after: True
-changes:
-  - bugfix: "Fixed modsuits not actually checking if you can keep your suit storage item instead of dropping it."
