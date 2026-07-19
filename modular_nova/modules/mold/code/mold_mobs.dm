@@ -82,6 +82,7 @@
 	ignite_target.ignite_mob()
 
 /datum/ai_controller/basic_controller/oil_shambler
+	behavior_tree_json = "modular_nova/modules/mold/code/oil_shambler.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
@@ -147,6 +148,7 @@
 		disease_target.ForceContractDisease(new given_disease(), FALSE, TRUE)
 
 /datum/ai_controller/basic_controller/diseased_rat
+	behavior_tree_json = "modular_nova/modules/mold/code/diseased_rat.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
@@ -206,6 +208,7 @@
 	AddElement(/datum/element/venomous, inject_reagent, inject_amount)
 
 /datum/ai_controller/basic_controller/electric_mosquito
+	behavior_tree_json = "modular_nova/modules/mold/code/electric_mosquito.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
@@ -280,6 +283,7 @@
 		playsound(src, 'modular_nova/modules/horrorform/sound/horror_scream.ogg', CENTAUR_ATTACK_SCREAM_VOLUME, TRUE)
 
 /datum/ai_controller/basic_controller/centaur
+	behavior_tree_json = "modular_nova/modules/mold/code/centaur.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)

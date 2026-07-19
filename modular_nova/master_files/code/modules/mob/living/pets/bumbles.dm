@@ -116,6 +116,7 @@
 
 // Bumble AI controller that adds find flowers, resting, and buzzing subtrees.
 /datum/ai_controller/basic_controller/bumbles
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/pets/bumbles.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/allow_items,
 	)

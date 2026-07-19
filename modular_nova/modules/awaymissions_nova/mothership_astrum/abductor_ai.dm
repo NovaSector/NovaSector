@@ -2,6 +2,7 @@
  * Melee
  */
 /datum/ai_controller/basic_controller/abductor
+	behavior_tree_json = "modular_nova/modules/awaymissions_nova/mothership_astrum/abductor.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
@@ -25,6 +26,7 @@
  */
 
 /datum/ai_controller/basic_controller/abductor/ranged
+	behavior_tree_json = "modular_nova/modules/awaymissions_nova/mothership_astrum/ranged.bt.json"
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/abductor,

@@ -35,6 +35,7 @@
 	light_on = TRUE
 
 /datum/ai_controller/basic_controller/poppy
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/pets/poppy.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)

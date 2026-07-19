@@ -57,6 +57,7 @@
 //ai behavior
 
 /datum/ai_controller/basic_controller/chinchilla
+	behavior_tree_json = "modular_nova/modules/basic_mobs/code/chinchilla.bt.json"
 	blackboard = list(
 		BB_CURRENT_HUNTING_TARGET = null, // dust to take dust baths
 	)

@@ -34,6 +34,7 @@
 	AddElement(/datum/element/pet_bonus, "cheeps happily!")
 
 /datum/ai_controller/basic_controller/kiwi
+	behavior_tree_json = "modular_nova/modules/basic_mobs/code/kiwi.bt.json"
 	blackboard = list()
 
 	ai_traits = STOP_MOVING_WHEN_PULLED

@@ -5,6 +5,7 @@
  */
 
 /datum/ai_controller/basic_controller/webslinger
+	behavior_tree_json = "modular_nova/modules/spider/spider_abilities/webslinger.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_BASIC_MOB_FLEE_DISTANCE = 5,
@@ -97,6 +98,7 @@
 
 
 /datum/ai_controller/basic_controller/voltaic
+	behavior_tree_json = "modular_nova/modules/spider/spider_abilities/voltaic.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
@@ -118,6 +120,7 @@
  * ### Pit Spider
  */
 /datum/ai_controller/basic_controller/pit
+	behavior_tree_json = "modular_nova/modules/spider/spider_abilities/pit.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
@@ -139,6 +142,7 @@
  * ### Carrier Spider
  */
 /datum/ai_controller/basic_controller/carrier
+	behavior_tree_json = "modular_nova/modules/spider/spider_abilities/carrier.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
@@ -160,6 +164,7 @@
  * ### Ogre Spider
  */
 /datum/ai_controller/basic_controller/ogre
+	behavior_tree_json = "modular_nova/modules/spider/spider_abilities/ogre.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
@@ -180,6 +185,7 @@
  * ### Baron Spider
  */
 /datum/ai_controller/basic_controller/baron
+	behavior_tree_json = "modular_nova/modules/spider/spider_abilities/baron.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
@@ -204,6 +210,7 @@
 
 
 /datum/ai_controller/basic_controller/badnana
+	behavior_tree_json = "modular_nova/modules/spider/spider_abilities/badnana.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
