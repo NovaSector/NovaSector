@@ -103,7 +103,7 @@
 	default = 2000
 
 /datum/config_entry/flag/enable_nova_star_restrictions
-	default = TRUE
+	default = FALSE
 
 /// Whether the techweb uses its default (vanilla) set of starting nodes (FALSE) or forces every node to start unlocked (TRUE).
 /datum/config_entry/flag/enable_nova_techweb_starting_nodes
