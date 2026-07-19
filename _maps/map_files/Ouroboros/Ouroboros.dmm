@@ -60686,7 +60686,7 @@
 /obj/item/seeds/potato,
 /obj/item/seeds/apple,
 /obj/item/grown/corncob,
-/obj/item/food/grown/carrot,
+/obj/item/food/grown/carrotlike/carrot,
 /obj/item/food/grown/wheat,
 /obj/structure/table/glass,
 /obj/item/food/grown/onion{

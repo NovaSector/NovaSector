@@ -1467,7 +1467,7 @@
 			accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[digi_modifier][body_zone][gender_modifier]", -BODYPARTS_LAYER)
 			accessory_overlay.alpha = markings_alpha
 			if(marking[2])
-				emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
+				emissive = emissive_appearance(accessory_overlay.icon, accessory_overlay.icon_state, offset_spokesman, offset_spokesman = offset_spokesman, layer = accessory_overlay.layer)
 			if(override_color)
 				accessory_overlay.color = override_color
 			else
@@ -1489,7 +1489,7 @@
 				accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string]", -aux_layer)
 				accessory_overlay.alpha = markings_alpha
 				if (marking[2])
-					emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
+					emissive = emissive_appearance(accessory_overlay.icon, accessory_overlay.icon_state, offset_spokesman = offset_spokesman, layer = accessory_overlay.layer)
 				if(override_color)
 					accessory_overlay.color = override_color
 				else

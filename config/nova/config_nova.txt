@@ -144,10 +144,18 @@ SIZE_COLLAR_MINIMUM 15
 ## Uncomment to enable minimum flavor text requirements for joining the round
 #MIN_FLAVOR_TEXT
 
+## Uncomment to enable minimum records text requirements for joining the round as command staff
+#MIN_RECORDS_TEXT
+
 ## Minimum flavor text number needed to enter the game
 ## YOU MUST HAVE MIN_FLAVOR_TEXT ENABLED FOR THIS TO WORK.
 ## Don't ever set this to 0, just disable MIN_FLAVOR_TEXT
 #FLAVOR_TEXT_CHARACTER_REQUIREMENT 150
+
+## Minimum records text number needed to enter the game as command staff
+## YOU MUST HAVE MIN_RECORDS_TEXT ENABLED FOR THIS TO WORK.
+## Don't ever set this to 0, just disable MIN_RECORDS_TEXT
+#RECORDS_TEXT_CHARACTER_REQUIREMENT 150
 
 ## Comment these out if you want to use the SQL-based player rank system, the
 ## legacy system uses the .txt files in the data folder instead.
@@ -160,8 +168,11 @@ NOVA_STAR_LEGACY_SYSTEM
 ## How much time arrivals shuttle should stay at station after its engines recharged before returning to interlink. In deciseconds. 150 - 15 seconds. 0 - disables autoreturn.
 ARRIVALS_WAIT 150
 
-## Uncomment to completely disable the opt-in system, which is a system that forces objectives to only roll on individuals who consent to it.
+## Uncomment to completely disable the antag opt-in system, which is a system that forces objectives to only roll on individuals who consent to it.
 #DISABLE_ANTAG_OPT_IN_PREFERENCES
+
+## Uncomment to completely disable the conflict opt-in system, which provides a preference on inspect to indicate someones willingness to engage with hostilities
+#DISABLE_CONFLICT_OPT_IN_PREFERENCES
 
 ## Uncomment to enable the replacing of flashbangs in secbelts with energy bolas
 REPLACE_SECBELT_FLASHBANGS_WITH_BOLA

@@ -10,7 +10,7 @@
 	if(!can_use_erp_flavor_verb(target, "doesn't feel like being touched right now."))
 		return FALSE
 
-	var/taste = target.client?.prefs?.read_preference(/datum/preference/text/erp_flavor/taste)
+	var/taste = target.dna.features[ERP_FLAVOR_DNA_TASTE]
 	if(!taste)
 		to_chat(src, span_warning("[target] doesn't seem to have a taste."))
 		return FALSE
@@ -28,7 +28,7 @@
 	if(!can_use_erp_flavor_verb(target, "doesn't feel like being approached that close right now."))
 		return FALSE
 
-	var/scent = target.client?.prefs?.read_preference(/datum/preference/text/erp_flavor/smell)
+	var/scent = target.dna.features[ERP_FLAVOR_DNA_SCENT]
 	if(!scent)
 		to_chat(src, span_warning("[target] doesn't seem to have a smell."))
 		return FALSE
