@@ -66,7 +66,14 @@
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/jedi = user
-	/* // NOVA EDIT REMOVAL START - bringing the attack_tk in line with the contact husking.
+	// NOVA EDIT ADDITION START
+	if(CONFIG_GET(flag/enable_sm_dusting))
+		to_chat(jedi, span_userdanger("That was a really dense idea. Your body suddenly erupts in unbearable heat!"))
+		jedi.investigate_log("was superheated by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
+		jedi.apply_damage(600, BURN, spread_damage = TRUE)
+		jedi.become_husk(BURN)
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	// NOVA EDIT ADDITION END
 	to_chat(jedi, span_userdanger("That was a really dense idea."))
 	jedi.investigate_log("had [jedi.p_their()] brain dusted by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
 	jedi.ghostize()
@@ -74,13 +81,6 @@
 	if(rip_u)
 		rip_u.Remove(jedi)
 		qdel(rip_u)
-	*/ // NOVA EDIT REMOVAL END
-	// NOVA EDIT ADDITION START
-	to_chat(jedi, span_userdanger("That was a really dense idea. Your body suddenly erupts in unbearable heat!"))
-	jedi.investigate_log("was superheated by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
-	jedi.apply_damage(600, BURN, spread_damage = TRUE)
-	jedi.become_husk(BURN)
-	// NOVA EDIT ADDITION END
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/power/supermatter_crystal/item_interaction(mob/living/user, obj/item/tool, list/modifiers)

@@ -218,3 +218,6 @@ SAVEFILE_UPLOAD_LIMIT 2000
 
 ## Uncomment to disable the Star rank restrictions
 #ENABLE_NOVA_STAR_RESTRICTIONS 0
+
+## Uncomment to make the supermatter superheat and blast mobs away instead of dusting them when touched
+#ENABLE_SM_DUSTING 0
