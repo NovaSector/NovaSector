@@ -16,6 +16,46 @@
 // To turn off SSDecay nests based on a config. If SSDecay is disabled, this won't matter.
 /datum/config_entry/flag/ssdecay_disable_nests
 
+// SSDecay - Percent chance that a floor will be dirty, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_dirt_percent_chance
+	default = 15
+	min_val = 0
+
+// SSDecay - Percent chance that a floor will be bloody, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_blood_percent_chance
+	default = 1
+	min_val = 0
+
+// SSDecay - Percent chance that a floor will be vomit-covered, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_vomit_percent_chance
+	default = 1
+	min_val = 0
+
+// SSDecay - Percent chance that a floor will be oily, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_oil_percent_chance
+	default = 5
+	min_val = 0
+
+// SSDecay - Percent chance that a floor will be randomly stripped down to damaged plating, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_tile_missing_percent_chance
+	default = 1
+	min_val = 0
+
+// SSDecay - Percent chance that a floor will have cobwebs, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_floor_cobweb_percent_chance
+	default = 1
+	min_val = 0
+
+// SSDecay - Percent chance that (if not previously disabled via SSDECAY_DISABLE_NESTS) a nest will spawn, scaled with SSDecay severity.
+/datum/config_entry/number/ssdecay_nest_percent_chance
+	default = 1
+	min_val = 0
+
+// SSDecay - Percent chance that a light will be flickery.
+/datum/config_entry/number/ssdecay_light_flicker_percent_chance
+	default = 10
+	min_val = 0
+
 // Turn on/off guncargo permit-locked firing pins
 /datum/config_entry/flag/permit_pins
 
@@ -40,6 +80,12 @@
 /// Config entry for enabling flavortext min character count, good to disable for debugging purposes
 // NEVER set this value to 0!!
 /datum/config_entry/number/flavor_text_character_requirement
+	default = 150
+
+/datum/config_entry/flag/min_records_text
+	default = FALSE
+
+/datum/config_entry/number/records_text_character_requirement
 	default = 150
 
 /// Defines whether or not mentors can see ckeys alongside mobnames.
@@ -103,6 +149,10 @@
 	default = 2000
 
 /datum/config_entry/flag/enable_nova_star_restrictions
+	default = TRUE
+
+/// Whether the supermatter dusts consumed mobs outright (FALSE) or superheats and blasts them away instead (TRUE).
+/datum/config_entry/flag/disable_sm_dusting
 	default = FALSE
 
 /// Whether the techweb uses its default (vanilla) set of starting nodes (FALSE) or forces every node to start unlocked (TRUE).

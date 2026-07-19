@@ -149,7 +149,7 @@ SUBSYSTEM_DEF(ore_generation)
 		var/local_vent_count = 0
 		for(var/obj/item/boulder/old_rock in current_vent.loc)
 			available_boulders += old_rock
-			local_vent_count++ 
+			local_vent_count++
 		*/ // NOVA EDIT REMOVAL END
 		// NOVA EDIT ADDITION START
 
@@ -175,6 +175,6 @@ SUBSYSTEM_DEF(ore_generation)
 			var/obj/structure/ore_vent/ghost_mining/crystal_check = current_vent
 			if(crystal_check.ghost_mining == TRUE)
 				current_vent.produce_boulder()
-				return
+				continue
 		// NOVA EDIT ADDITION END
 		available_boulders += current_vent.produce_boulder()

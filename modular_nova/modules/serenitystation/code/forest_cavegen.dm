@@ -2,7 +2,6 @@
 	weighted_open_turf_types = list(/turf/open/misc/asteroid/forest = 1)
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/forest = 1)
 	flora_spawn_chance = 25
-	smoothing_iterations = 15
 	mob_spawn_chance = 0
 
 	weighted_flora_spawn_list = list(

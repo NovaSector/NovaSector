@@ -42,7 +42,7 @@
 		if(rail == src)
 			continue
 
-		addtimer(CALLBACK(rail, /atom/proc/update_appearance), 1 SECONDS)
+		addtimer(CALLBACK(rail, TYPE_PROC_REF(/atom, update_appearance)), 1 SECONDS)
 	return ..()
 
 /obj/structure/railroad/update_appearance(updates)
@@ -96,11 +96,11 @@
 
 /obj/vehicle/ridden/rail_cart/post_buckle_mob(mob/living/M)
 	. = ..()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/vehicle/ridden/rail_cart/post_unbuckle_mob(mob/living/M)
 	. = ..()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/vehicle/ridden/rail_cart/update_overlays()
 	. = ..()
@@ -139,7 +139,7 @@
 		atom_storage.insert_on_attack = TRUE
 		atom_storage.attack_hand_interact = TRUE
 		atom_storage.locked = STORAGE_NOT_LOCKED
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	has_sand = FALSE
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/rail_cart)
 	return ITEM_INTERACT_SUCCESS
@@ -151,7 +151,7 @@
 			return NONE
 
 		connected_farm = AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 24))
-		update_overlays()
+		update_appearance(UPDATE_OVERLAYS)
 		has_sand = TRUE
 		max_drivers = 0
 		max_occupants = 0

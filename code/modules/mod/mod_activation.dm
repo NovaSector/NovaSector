@@ -79,18 +79,10 @@
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 	if(part_datum.can_overslot)
 		var/obj/item/overslot = wearer.get_item_by_slot(part.slot_flags)
-		/* // NOVA EDIT REMOVAL START
 		if(istype(overslot, /obj/item/clothing))
 			part_datum.overslotting = overslot
-			wearer.transferItemToLoc(overslot, part, force = TRUE)
+			transfer_part_to_loc(overslot, part, force = TRUE, preserve_suit_storage = can_preserve_suit_storage(part, wearer.s_store))
 			RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
-		*/ // NOVA EDIT REMOVAL END
-		// NOVA EDIT ADDITION START
-		if(overslot && !HAS_TRAIT(overslot, TRAIT_NODROP))
-			part_datum.overslotting = overslot
-			wearer.transferItemToLoc(overslot, part, force = TRUE)
-			RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
-		// NOVA EDIT ADDITION END
 	if(wearer.equip_to_slot_if_possible(part, part.slot_flags, qdel_on_fail = FALSE, disable_warning = TRUE))
 		ADD_TRAIT(part, TRAIT_NODROP, MOD_TRAIT)
 		wearer.update_clothing(slot_flags|part.slot_flags)
@@ -120,6 +112,27 @@
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 	return FALSE
 
+/obj/item/mod/control/proc/can_preserve_suit_storage(obj/item/new_suit, obj/item/stored_item)
+	if(!istype(new_suit, /obj/item/clothing) || !stored_item)
+		return FALSE
+	if(HAS_TRAIT(stored_item, TRAIT_NODROP))
+		return FALSE
+	var/obj/item/clothing/new_clothing = new_suit
+	if(is_type_in_typecache(stored_item, GLOB.any_suit_storage) || stored_item.w_class == WEIGHT_CLASS_TINY)
+		return TRUE
+	if(stored_item.w_class > WEIGHT_CLASS_BULKY)
+		return FALSE
+	return is_type_in_list(stored_item, new_clothing.allowed)
+
+/// Moves a MOD part between the wearer and the suit without forcing valid suit-storage contents to drop.
+/obj/item/mod/control/proc/transfer_part_to_loc(obj/item/part, atom/newloc, force = FALSE, preserve_suit_storage = FALSE)
+	if(!preserve_suit_storage)
+		return wearer.transferItemToLoc(part, newloc, force = force)
+	if(!wearer.temporarilyRemoveItemFromInventory(part, force, idrop = FALSE, newloc = newloc))
+		return FALSE
+	part.forceMove(newloc)
+	return TRUE
+
 /// Retract a part of the suit from the user.
 /obj/item/mod/control/proc/retract(mob/user, obj/item/part, instant = FALSE)
 	var/datum/mod_part/part_datum = get_part_datum(part)
@@ -141,7 +154,8 @@
 			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return FALSE
 	REMOVE_TRAIT(part, TRAIT_NODROP, MOD_TRAIT)
-	wearer.transferItemToLoc(part, src, force = TRUE)
+	var/preserve_suit_storage = part_datum.overslotting && can_preserve_suit_storage(part_datum.overslotting, wearer.s_store)
+	transfer_part_to_loc(part, src, force = TRUE, preserve_suit_storage = preserve_suit_storage)
 	if(part_datum.overslotting)
 		var/obj/item/overslot = part_datum.overslotting
 		if(!QDELING(wearer) && !wearer.equip_to_slot_if_possible(overslot, overslot.slot_flags, qdel_on_fail = FALSE, disable_warning = TRUE))

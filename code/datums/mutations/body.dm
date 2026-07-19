@@ -269,6 +269,7 @@
 	instability = NEGATIVE_STABILITY_MAJOR // mmmonky
 	remove_on_aheal = FALSE
 	locked = TRUE //Species specific, keep out of actual gene pool
+	warn_admins_on_inject = TRUE
 	var/datum/species/original_species = /datum/species/human
 	var/original_name
 
@@ -559,6 +560,7 @@
 	difficulty = 12 //pretty good for traitors
 	quality = NEGATIVE //holy shit no eyes or tongue or ears
 	text_gain_indication = span_warning("Something feels off.")
+	warn_admins_on_inject = TRUE
 
 /datum/mutation/headless/on_acquiring()
 	. = ..()
@@ -596,7 +598,8 @@
 		brain.zone = initial(brain.zone)
 		brain.Insert(owner, special = TRUE, movement_flags = NO_ID_TRANSFER)
 
-	owner.dna.species.regenerate_organs(owner, replace_current = FALSE, excluded_zones = list(BODY_ZONE_CHEST)) //replace_current needs to be FALSE to prevent weird adding and removing mutation healing
+	var/list/excluded_zones = GLOB.all_body_zones - BODY_ZONE_HEAD
+	owner.dna.species.regenerate_organs(owner, replace_current = FALSE, excluded_zones = excluded_zones) //replace_current needs to be FALSE to prevent weird adding and removing mutation healing
 	owner.apply_damage(damage = 50, damagetype = BRUTE, def_zone = BODY_ZONE_HEAD) //and this to DISCOURAGE organ farming, or at least not make it free.
 	owner.visible_message(span_warning("[owner]'s head returns with a sickening crunch!"), span_warning("Your head regrows with a sickening crack! Ouch."))
 	new /obj/effect/gibspawner/generic(get_turf(owner), owner)

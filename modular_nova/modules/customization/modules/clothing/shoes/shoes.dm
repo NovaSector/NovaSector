@@ -130,6 +130,7 @@
 	desc = "A pair of typical Nanotrasen-issue combat jackboots, long enough to reach the wearer's knee. Most commonly worn by commanding officers."
 	icon = MODULAR_SHOES_ICON
 	worn_icon = MODULAR_SHOES_WORN_ICON
+	alternate_worn_layer = UNDER_UNIFORM_LAYER
 	icon_state = "kneeboots"
 
 /obj/item/clothing/shoes/jackboots/timbs
@@ -267,6 +268,7 @@
 	post_init_icon_state = "knee_boots"
 	greyscale_config = /datum/greyscale_config/knee_boots
 	greyscale_config_worn = /datum/greyscale_config/knee_boots/worn
+	greyscale_config_worn_digi =/datum/greyscale_config/knee_boots/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/sport_boots
@@ -504,4 +506,5 @@
 	greyscale_colors = "#46464d"
 	flags_1 = null
 
-
+#undef MODULAR_SHOES_ICON
+#undef MODULAR_SHOES_WORN_ICON

@@ -111,6 +111,7 @@
 	desc = "A small, 60u capacity vial compatible with most hyposprays."
 	volume = 60
 	possible_transfer_amounts = list(5,10,15,20,30,60)
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/cup/vial/small/style
 	icon_state = "hypovial"
@@ -183,6 +184,7 @@
 	possible_transfer_amounts = list(5,10,15,20,30,40,60,120)
 	type_suffix = "-l"
 	greyscale_config = /datum/greyscale_config/hypovial/large
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/cup/vial/large/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial/large, blacklisted_subtypes = subtypesof(/datum/atom_skin/hypovial/interdyne_medium))

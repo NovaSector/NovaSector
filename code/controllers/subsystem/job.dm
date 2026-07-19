@@ -191,7 +191,7 @@ SUBSYSTEM_DEF(job)
 					new_joinable_departments_by_type[department_type] = department
 				department.add_job(job)
 
-	sortTim(new_all_occupations, GLOBAL_PROC_REF(cmp_job_display_asc))
+	sortTim(new_all_occupations, GLOBAL_PROC_REF(cmp_job_display_with_departments_asc))
 	for(var/datum/job/job as anything in new_all_occupations)
 		if(!job.exp_granted_type)
 			continue
@@ -200,13 +200,13 @@ SUBSYSTEM_DEF(job)
 	sortTim(new_joinable_departments_by_type, GLOBAL_PROC_REF(cmp_department_display_asc), associative = TRUE)
 	for(var/department_type in new_joinable_departments_by_type)
 		var/datum/job_department/department = new_joinable_departments_by_type[department_type]
-		sortTim(department.department_jobs, GLOBAL_PROC_REF(cmp_job_display_asc))
+		sortTim(department.department_jobs, GLOBAL_PROC_REF(cmp_job_display_with_departments_asc))
 		new_joinable_departments += department
 		if(department.department_experience_type)
 			new_experience_jobs_map[department.department_experience_type] = department.department_jobs.Copy()
 
 	all_occupations = new_all_occupations
-	joinable_occupations = sortTim(new_joinable_occupations, GLOBAL_PROC_REF(cmp_job_display_asc))
+	joinable_occupations = sortTim(new_joinable_occupations, GLOBAL_PROC_REF(cmp_job_display_with_departments_asc))
 	joinable_departments = new_joinable_departments
 	joinable_departments_by_type = new_joinable_departments_by_type
 	experience_jobs_map = new_experience_jobs_map
@@ -1010,6 +1010,14 @@ SUBSYSTEM_DEF(job)
 		if(length_char(player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
 			job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_FLAVOUR)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 			return JOB_UNAVAILABLE_FLAVOUR
+	if(possible_job.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND) // Is it a head of staff?
+		if(CONFIG_GET(flag/min_records_text))
+			if(length_char(player.client.prefs.read_preference(/datum/preference/text/medical)) <= CONFIG_GET(number/records_text_character_requirement))
+				job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_MEDREC)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
+				return JOB_UNAVAILABLE_MEDREC
+			if(length_char(player.client.prefs.read_preference(/datum/preference/text/security)) <= CONFIG_GET(number/records_text_character_requirement))
+				job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_SECREC)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
+				return JOB_UNAVAILABLE_SECREC
 
 	if(possible_job.has_banned_augment(player.client.prefs))
 		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_AUGMENT)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")

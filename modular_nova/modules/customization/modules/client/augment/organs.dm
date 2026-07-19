@@ -34,9 +34,6 @@
 	abstract_type = /datum/augment_item/organ/brain
 	slot = AUGMENT_SLOT_BRAIN
 	icon = FA_ICON_BRAIN
-#ifndef SPECIES_PROTEAN // TODO - REMOVE THIS
-	#define SPECIES_protean "protean"
-#endif // For testmerge purposes only
 	species_blacklist = list(SPECIES_PROTEAN = 1)
 
 /datum/augment_item/organ/brain/apply(mob/living/carbon/human/human_holder, character_setup = FALSE, datum/preferences/prefs)
@@ -92,6 +89,11 @@
 	abstract_type = /datum/augment_item/organ/lungs
 	slot = AUGMENT_SLOT_LUNGS
 	icon = FA_ICON_LUNGS
+	species_blacklist = list(
+		SPECIES_VOX = 1,
+		SPECIES_VOX_PRIMALIS = 1,
+		SPECIES_PLASMA = 1,
+	)
 
 /datum/augment_item/organ/lungs/normal
 	name = "Organic lungs"
