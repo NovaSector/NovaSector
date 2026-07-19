@@ -61,7 +61,7 @@
 		return FALSE
 	// NOVA EDIT ADDITION START - Don't hunt down synthetics
 	if(patient.mob_biotypes & MOB_ROBOTIC)
-		continue
+		return FALSE
 	// NOVA EDIT ADDITION END
 	var/mob/living/basic/bot/medbot/bot_pawn = living_mob
 	if((bot_pawn.bot_access_flags & BOT_COVER_EMAGGED) && patient.stat == CONSCIOUS)

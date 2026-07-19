@@ -17,9 +17,19 @@
 /datum/bt_node/ai_behavior/setup_shop
 
 /datum/bt_node/ai_behavior/setup_shop/perform(seconds_per_tick, datum/ai_controller/controller)
+	var/async_flags = handle_async()
+	if(async_flags)
+		return async_flags
+
 	var/datum/action/setup_shop/shop = controller.blackboard[BB_SETUP_SHOP]
 	if(!shop || !controller.blackboard_key_exists(BB_FIRST_CUSTOMER))
 		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
-	shop.Trigger()
+	return start_async()
+
+/datum/bt_node/ai_behavior/setup_shop/perform_async(datum/ai_controller/controller)
+	var/datum/action/setup_shop/shop = controller.blackboard[BB_SETUP_SHOP]
+	var/result = shop.Trigger()
+	if(!async_still_valid())
+		return
 	controller.clear_blackboard_key(BB_FIRST_CUSTOMER)
-	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
+	finish_async(result ? AI_BEHAVIOR_SUCCEEDED : AI_BEHAVIOR_FAILED)

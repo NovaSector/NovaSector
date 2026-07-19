@@ -44,6 +44,20 @@ STATIC_NODES: dict[str, str] = {
 # Source JSON structural keys that are consumed/transformed during compilation. please keep these updated if u add new stuff :D
 _CONSUMED_KEYS = frozenset({'type', 'children', 'child', 'decorator', 'behavior', 'vars', 'subtype', 'dm_type', 'bindings'})
 
+## NOVA EDIT ADDITION START
+# Roots that get stripped when mapping a source path to its compiled path, so code/ and
+# modular_nova/ trees share one flat build/behavior_trees/ tree. Mirrors BT_COMPILED_PATH
+# in code/__DEFINES/ai/behavior_trees.dm exactly
+_KNOWN_ROOTS = ('code/', 'modular_nova/')
+
+
+def strip_known_root(rel_to_repo: str) -> str:
+    """Strip a leading code/ or modular_nova/ from a repo-relative path, if present."""
+    for root in _KNOWN_ROOTS:
+        if rel_to_repo.startswith(root):
+            return rel_to_repo[len(root):]
+    return rel_to_repo
+## NOVA EDIT ADDITION END
 
 
 def parse_defines(repo_root: Path) -> dict:
@@ -63,8 +77,8 @@ def parse_defines(repo_root: Path) -> dict:
 
     pending: list[tuple[str, str]] = []
     seen_names: set[str] = set(defines)
-    defines_dir = repo_root / 'code'
-    for fpath in sorted(defines_dir.rglob('*.dm')):
+    dm_files = sorted(f for d in (repo_root / 'code', repo_root / 'modular_nova') if d.is_dir() for f in d.rglob('*.dm')) # NOVA EDIT CHANGE - ORIGINAL:  defines_dir = repo_root / 'code'
+    for fpath in dm_files: # NOVA EDIT CHANGE - ORIGINAL: for fpath in sorted(defines_dir.rglob('*.dm')):
         for line in fpath.read_text(encoding='utf-8', errors='ignore').splitlines():
             line = line.strip()
             if not line.startswith('#define '):
@@ -250,14 +264,14 @@ def main() -> int:
             repo_root = Path(sys.argv[idx + 1]).resolve()
 
     generated_dir = repo_root / 'build' / 'behavior_trees'
-    code_dir = repo_root / 'code'
+    #code_dir = repo_root / 'code' // NOVA EDIT REMOVAL
     generated_dir.mkdir(parents=True, exist_ok=True)
 
     print('Parsing DM defines...')
     defines = parse_defines(repo_root)
     print(f'  Resolved {len(defines)} defines.')
 
-    bt_files = sorted(repo_root.glob('code/**/*.bt.json'))
+    bt_files = sorted(repo_root.glob('code/**/*.bt.json')) + sorted(repo_root.glob('modular_nova/**/*.bt.json')) # NOVA EDIT CHANGE - ORIGINAL: bt_files = sorted(repo_root.glob('code/**/*.bt.json'))
     print(f'Found {len(bt_files)} .bt.json source files.')
 
     errors = 0
@@ -268,8 +282,8 @@ def main() -> int:
     generated_paths: set[Path] = set()
 
     for src_path in bt_files:
-        # The compiled file mirrors the source path relative to code/, so trees that share a basename dont fucking break.
-        rel = src_path.relative_to(code_dir).as_posix()  # "datums/ai/dog/dog.bt.json"
+        # The compiled file mirrors the source path relative to its root (code/ or modular_nova/), so trees that share a basename dont fucking break. # NOVA EDIT CHANGE - ORIGINAL: # The compiled file mirrors the source path relative to code/, so trees that share a basename dont fucking break.
+        rel = strip_known_root(src_path.relative_to(repo_root).as_posix())  # "datums/ai/dog/dog.bt.json" # NOVA EDIT CHANGE - ORIGINAL: rel = src_path.relative_to(code_dir).as_posix()  # "datums/ai/dog/dog.bt.json"
         tree_name = rel[:-len('.json')]                   # "datums/ai/dog/dog.bt"
         compiled_path = generated_dir / f'{tree_name}.compiled.json'
 
