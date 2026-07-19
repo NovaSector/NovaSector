@@ -67,7 +67,7 @@
 		return
 	var/mob/living/carbon/jedi = user
 	// NOVA EDIT ADDITION START
-	if(CONFIG_GET(flag/enable_sm_dusting))
+	if(!CONFIG_GET(flag/disable_sm_dusting))
 		to_chat(jedi, span_userdanger("That was a really dense idea. Your body suddenly erupts in unbearable heat!"))
 		jedi.investigate_log("was superheated by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
 		jedi.apply_damage(600, BURN, spread_damage = TRUE)

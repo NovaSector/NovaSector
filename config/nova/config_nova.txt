@@ -220,4 +220,4 @@ SAVEFILE_UPLOAD_LIMIT 2000
 #ENABLE_NOVA_STAR_RESTRICTIONS 0
 
 ## Uncomment to make the supermatter superheat and blast mobs away instead of dusting them when touched
-#ENABLE_SM_DUSTING 0
+#DISABLE_SM_DUSTING

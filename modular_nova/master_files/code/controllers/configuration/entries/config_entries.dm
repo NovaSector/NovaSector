@@ -145,6 +145,6 @@
 /datum/config_entry/flag/enable_nova_star_restrictions
 	default = TRUE
 
-/// Whether the supermatter dusts consumed mobs outright (TRUE) or superheats and blasts them away instead (FALSE).
-/datum/config_entry/flag/enable_sm_dusting
-	default = TRUE
+/// Whether the supermatter dusts consumed mobs outright (FALSE) or superheats and blasts them away instead (TRUE).
+/datum/config_entry/flag/disable_sm_dusting
+	default = FALSE
