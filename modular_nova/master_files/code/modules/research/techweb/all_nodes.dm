@@ -382,70 +382,76 @@
 /////// Roundstart Techweb/////////
 
 /datum/techweb_node
-	starting_node = TRUE
+	/// Whether this node starts unlocked if the enable_nova_techweb_starting_nodes config is ENABLED
+	var/nova_starting_node = TRUE
+
+/datum/techweb_node/New()
+	if(nova_starting_node && CONFIG_GET(flag/enable_nova_techweb_starting_nodes))
+		starting_node = TRUE
+	return ..()
 
 // Linter stuff
 /datum/techweb_node/error_node
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 // Nova stuff
 /datum/techweb_node/adv_vision
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/borg_shapeshifter
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 // bepis stuff
 /datum/techweb_node/light_apps
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/extreme_office
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/spec_eng
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/aus_security
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/interrogation
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/sticky_advanced
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/tackle_advanced
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/mod_experimental
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/posisphere
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/donk_shell
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 // Alien Stuff
 /datum/techweb_node/alientech
-	starting_node = FALSE
-
-/datum/techweb_node/alien_engi
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/alien_surgery
-	starting_node = FALSE
+	nova_starting_node = FALSE
+
+/datum/techweb_node/alien_engi
+	nova_starting_node = FALSE
 
 // Ilegal tech
 /datum/techweb_node/syndicate_basic
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/unregulated_bluespace
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 // Tarkon
 /datum/techweb_node/tarkon
-	starting_node = FALSE
+	nova_starting_node = FALSE
 
 /datum/techweb_node/tarkonturret
-	starting_node = FALSE
+	nova_starting_node = FALSE
