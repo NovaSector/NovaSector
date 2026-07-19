@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - balance: "Adds a config option to make touching the supermatter now husk you and teleport you a short distance away instead of dusting."
