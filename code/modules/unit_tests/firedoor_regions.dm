@@ -16,7 +16,6 @@
 	// Initialization mode yields instead of leaving the queue partially processed when the tick budget is exhausted.
 	SSair.process_adjacent_rebuild(init = TRUE)
 	// NOVA EDIT ADDITION END
-
 	var/list/detected_turfs = list()
 	var/any_fail = FALSE
 	var/datum/callback/room_cb = CALLBACK(src, PROC_REF(check_fire_area_callback))
