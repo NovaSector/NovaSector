@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - qol: "Adds a config option that makes all the tech webs that dont need special items to unlock (alien, tarkon, illegal, bepis) start unlocked."
