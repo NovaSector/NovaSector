@@ -276,4 +276,7 @@
 	desc = "Contains three Type SC-1R laser burst carbines, developed by Allstar Lasers. Fires a rapid burst of slightly weaker laser projectiles."
 
 /obj/projectile/beam/disabler
+	speed = 1.05
+
+/obj/projectile/beam/disabler/weak
 	speed = 1
