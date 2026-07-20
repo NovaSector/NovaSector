@@ -254,7 +254,7 @@
 	icon_state = "flechette"
 	damage = 6
 	wound_bonus = 0
-	exposed_wound_bonus = 15
+	exposed_wound_bonus = 18
 	weak_against_armour = TRUE
 	sharpness = SHARP_EDGED //Did you knew flechettes fly sideways into people
 
