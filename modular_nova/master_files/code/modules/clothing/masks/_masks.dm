@@ -44,7 +44,7 @@
  * @return TRUE if the mask was toggled, FALSE otherwise.
  */
 /obj/item/clothing/mask/proc/toggle_hide_face(mob/living/carbon/user, force = FALSE)
-	if(!user.wear_mask && !force)
+	if(istype(user) && !user.get_item_by_slot(ITEM_SLOT_MASK) && !force)
 		return FALSE
 
 	if(src.flags_inv & HIDEFACE)

@@ -184,10 +184,11 @@
 	if(!Adjacent(user))
 		to_chat(user, span_warning("You can't reach [src] from here!"))
 		return TRUE
-	if(iscarbon(user))
-		var/mob/living/carbon/human_to_test = user
-		if(human_to_test.gloves)
-			if(!istype(human_to_test.gloves, /obj/item/clothing/gloves/latex))
+	var/mob/living/carbon/carbon_to_test = user
+	if(istype(user))
+		var/obj/item/clothing/gloves/gloves = carbon_to_test.get_item_by_slot(ITEM_SLOT_HANDS)
+		if(gloves)
+			if(!istype(gloves, /obj/item/clothing/gloves/latex))
 				try_toggle_effects(TRIGGER_TOUCH)
 		else
 			try_toggle_effects(TRIGGER_TOUCH)
@@ -274,10 +275,11 @@
 			try_toggle_effects(TRIGGER_FORCE)
 	if(world.time >= last_time_touched + touch_cooldown)
 		last_time_touched = world.time
-		if(iscarbon(what_bumped))
-			var/mob/living/carbon/human_to_test = what_bumped
-			if(human_to_test.gloves)
-				if(!istype(human_to_test.gloves, /obj/item/clothing/gloves/latex))
+		if(istype(what_bumped))
+			var/mob/living/carbon/carbon_to_test = what_bumped
+			var/obj/item/clothing/gloves/gloves = carbon_to_test.get_item_by_slot(ITEM_SLOT_HANDS)
+			if(gloves)
+				if(gloves && !istype(gloves, /obj/item/clothing/gloves/latex))
 					try_toggle_effects(TRIGGER_TOUCH)
 			else
 				try_toggle_effects(TRIGGER_TOUCH)

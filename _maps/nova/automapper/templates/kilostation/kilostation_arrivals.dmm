@@ -1,0 +1,465 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/flora/grass/jungle/a/style_random,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/misc/asteroid/airless,
+/area/station/hallway/secondary/entry)
+"b" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"c" = (
+/turf/open/floor/plating/airless,
+/area/station/hallway/secondary/entry)
+"d" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/item/kirbyplants/organic/plant21,
+/obj/effect/turf_decal/tile/red/opposingcorners,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"e" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/obj/machinery/door/airlock/engineering{
+	name = "Emergency Storage"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"f" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"g" = (
+/turf/closed/wall/rust,
+/area/station/hallway/secondary/entry)
+"h" = (
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating/airless,
+/area/station/hallway/secondary/entry)
+"i" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"l" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/rack,
+/obj/item/storage/backpack,
+/obj/item/extinguisher{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/extinguisher,
+/obj/structure/sign/warning/no_smoking{
+	pixel_x = -30
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"m" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/security/glass{
+	name = "Security Customs Checkpoint"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/security/general,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"n" = (
+/obj/structure/sign/warning/docking,
+/turf/closed/wall,
+/area/station/hallway/secondary/entry)
+"o" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/flora/bush/pale/style_random,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/misc/asteroid/airless,
+/area/station/hallway/secondary/entry)
+"q" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/sign/warning/vacuum/external,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"r" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"s" = (
+/obj/effect/landmark/start/assistant,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"t" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"u" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"v" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/structure/closet/emcloset,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"w" = (
+/obj/structure/lattice/catwalk,
+/obj/docking_port/stationary{
+	dir = 4;
+	dwidth = 1;
+	height = 13;
+	shuttle_id = "arrivals_stationary";
+	name = "arrivals";
+	roundstart_template = null;
+	width = 5
+	},
+/turf/open/floor/plating/airless,
+/area/station/hallway/secondary/entry)
+"x" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/start/hangover,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"z" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/emcloset,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"A" = (
+/obj/machinery/atmospherics/pipe/layer_manifold/cyan/hidden{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"B" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/computer/shuttle/arrivals/recall{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"C" = (
+/obj/machinery/door/airlock/external{
+	name = "Arrival Shuttle Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"D" = (
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/space_heater,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"F" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light/small/directional/west,
+/obj/machinery/atmospherics/components/unary/airlock_pump/unbolt_only{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"G" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/flora/grass/jungle/a/style_random,
+/turf/open/misc/asteroid/airless,
+/area/station/hallway/secondary/entry)
+"J" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"K" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/airless,
+/area/station/hallway/secondary/entry)
+"L" = (
+/obj/machinery/door/airlock/external{
+	name = "Arrival Shuttle Airlock";
+	space_dir = 2
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"M" = (
+/turf/closed/wall,
+/area/station/hallway/secondary/entry)
+"N" = (
+/obj/machinery/light/directional/north,
+/obj/machinery/firealarm/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Arrivals Dock";
+	name = "shuttle camera"
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/structure/closet/firecloset,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"O" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/misc/asteroid/airless,
+/area/station/hallway/secondary/entry)
+"P" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/vending/clothing,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"R" = (
+/obj/item/kirbyplants/organic/applebush,
+/obj/machinery/airalarm/directional/west,
+/obj/machinery/status_display/ai/directional/north,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"S" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"T" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"U" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/firecloset,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"V" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"W" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"X" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/emergency{
+	pixel_y = 4
+	},
+/obj/item/crowbar,
+/obj/item/flashlight{
+	pixel_y = 2
+	},
+/obj/machinery/camera/directional/west{
+	c_tag = "Arrivals Storage";
+	name = "shuttle camera"
+	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"Y" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/effect/turf_decal/box,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+
+(1,1,1) = {"
+M
+X
+l
+M
+M
+g
+h
+K
+w
+h
+h
+"}
+(2,1,1) = {"
+e
+i
+r
+d
+g
+M
+n
+c
+c
+c
+c
+"}
+(3,1,1) = {"
+M
+D
+u
+t
+C
+F
+L
+c
+c
+c
+c
+"}
+(4,1,1) = {"
+M
+g
+S
+W
+f
+f
+f
+c
+c
+c
+c
+"}
+(5,1,1) = {"
+M
+R
+J
+T
+z
+f
+G
+c
+c
+c
+c
+"}
+(6,1,1) = {"
+m
+A
+x
+T
+U
+f
+O
+c
+c
+c
+c
+"}
+(7,1,1) = {"
+f
+v
+b
+Y
+B
+f
+o
+c
+c
+c
+c
+"}
+(8,1,1) = {"
+M
+N
+V
+s
+P
+q
+a
+c
+c
+c
+c
+"}
