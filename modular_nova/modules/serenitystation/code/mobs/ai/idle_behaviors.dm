@@ -1,9 +1,2 @@
-/datum/idle_behavior/idle_random_walk/hide
-
-
-/datum/idle_behavior/idle_random_walk/hide/perform_idle_behavior(seconds_per_tick, datum/ai_controller/controller)
-	// You can't move when you're hidden.
-	if(controller.blackboard[BB_HIDING_HIDDEN])
-		return FALSE
-
-	return ..()
+// Superseded: not wandering while hidden is now handled by gating the random_walk subtree
+// behind a bb_key_true(BB_HIDING_HIDDEN, invert=true) decorator directly in the tree JSON.

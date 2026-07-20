@@ -33,11 +33,9 @@
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 
 /datum/ai_controller/basic_controller/cat/clown
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/random_speech/catclown,
-	)
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/pets/cat/clown.bt.json"
 
-/datum/ai_planning_subtree/random_speech/catclown
+/datum/bt_node/ai_behavior/random_speech/catclown
 	speech_chance = 10
 	sound = list('sound/effects/footstep/clownstep1.ogg', 'sound/effects/footstep/clownstep2.ogg', 'sound/items/bikehorn.ogg',)
 	speak = list(

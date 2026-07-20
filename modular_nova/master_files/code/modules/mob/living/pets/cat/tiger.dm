@@ -19,11 +19,9 @@
 	)
 
 /datum/ai_controller/basic_controller/cat/tiger
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/random_speech/cattiger,
-	)
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/pets/cat/tiger.bt.json"
 
-/datum/ai_planning_subtree/random_speech/cattiger
+/datum/bt_node/ai_behavior/random_speech/cattiger
 	speech_chance = 10
 	speak = list(
 		"roar!",

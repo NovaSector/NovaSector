@@ -122,21 +122,10 @@ GLOBAL_LIST_EMPTY(clockwork_marauders)
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
+		BB_BASIC_MOB_MELEE_DELAY = 1.2 SECONDS,
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/basic_melee_attack_subtree/clockwork_marauder,
-	)
-
-
-/datum/ai_planning_subtree/basic_melee_attack_subtree/clockwork_marauder
-	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/clockwork_marauder
-
-
-/datum/ai_behavior/basic_melee_attack/clockwork_marauder
-	action_cooldown = 1.2 SECONDS
 
 #undef MARAUDER_SHIELD_MAX
 #undef WELDER_REPAIR_AMOUNT

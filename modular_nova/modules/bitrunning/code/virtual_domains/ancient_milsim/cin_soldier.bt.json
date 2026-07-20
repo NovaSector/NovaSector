@@ -1,5 +1,5 @@
 {
-	"dm_type": "/datum/ai_controller/basic_controller/voxraider",
+	"dm_type": "/datum/ai_controller/basic_controller/trooper/calls_reinforcements/ancient_milsim",
 	"type": "selector",
 	"children": [
 		{
@@ -39,6 +39,28 @@
 											{
 												"type": "selector",
 												"children": [
+													{
+														"type": "decorator",
+														"decorator": "/datum/bt_node/decorator/bb_key_equals",
+														"vars": {
+															"key": "BB_CALLS_REINFORCEMENTS",
+															"value": true
+														},
+														"child": {
+															"type": "decorator",
+															"decorator": "/datum/bt_node/decorator/cooldown",
+															"vars": {
+																"observer_abort": "BT_ABORT_LOWER_PRIORITY",
+																"cooldown_key": "BB_BASIC_MOB_REINFORCEMENTS_COOLDOWN",
+																"cooldown_duration": "30 SECONDS",
+																"lock_on_succeed": true
+															},
+															"child": {
+																"type": "leaf",
+																"behavior": "/datum/bt_node/ai_behavior/call_reinforcements"
+															}
+														}
+													},
 													{
 														"type": "leaf",
 														"behavior": "/datum/bt_node/ai_behavior/attack_obstructions",

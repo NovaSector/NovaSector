@@ -14,17 +14,3 @@
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance
-	idle_behavior = /datum/idle_behavior/idle_random_walk/hide
-
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/pet_planning,
-		/datum/ai_planning_subtree/simple_find_nearest_target_to_flee,
-		/datum/ai_planning_subtree/stop_hiding_if_target,
-		/datum/ai_planning_subtree/flee_target,
-		/datum/ai_planning_subtree/random_hiding,
-		/datum/ai_planning_subtree/target_retaliate/check_faction/stop_hiding,
-		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/stop_hiding_if_target,
-		/datum/ai_planning_subtree/attack_obstacle_in_path,
-		/datum/ai_planning_subtree/basic_melee_attack_subtree,
-	)
