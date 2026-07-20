@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixed an issue where donators would not have their ooc color prefs applied"

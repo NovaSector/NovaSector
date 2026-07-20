@@ -785,3 +785,15 @@
       and diamond when being scanned
   vinylspiders:
   - bugfix: fixes taur legs being broken
+2026-07-20:
+  Happyowl93:
+  - code_imp: Fix fire alarm flaky CI tests
+  OrbisAnima:
+  - qol: Adds a config option that makes all the tech webs that dont need special
+      items to unlock (alien, tarkon, illegal, bepis) start unlocked.
+  sqnztb:
+  - balance: Adds a config option to make touching the supermatter now husk you and
+      teleport you a short distance away instead of dusting.
+  vinylspiders:
+  - bugfix: taur emissives are no longer offset weirdly
+  - bugfix: fixed an issue where donators would not have their ooc color prefs applied
