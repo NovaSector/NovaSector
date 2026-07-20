@@ -314,7 +314,6 @@
 	ai_controller = /datum/ai_controller/basic_controller/scorpion
 
 /datum/ai_controller/basic_controller/scorpion
-	// no taunt/speech in the old data, so just reuse the premade combat-only tree directly.
 	behavior_tree_json = "code/datums/ai/basic_mobs/simple_hostile_obstacles.bt.json"
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
