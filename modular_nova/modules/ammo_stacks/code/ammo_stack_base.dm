@@ -27,7 +27,7 @@
 /obj/item/ammo_box/magazine/ammo_stack/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isammocasing(interacting_with))
 		return NONE
-	return item_interaction(user, interacting_with, modifiers)
+	return item_interaction(user, interacting_with, modifiers) || ITEM_INTERACT_BLOCKING
 
 /obj/item/ammo_box/magazine/ammo_stack/empty_magazine()
 	. = ..()
@@ -155,3 +155,4 @@
 	ammo_stack.give_round(used_casing)
 	user.put_in_hands(ammo_stack)
 	ammo_stack.update_appearance()
+	return ITEM_INTERACT_SUCCESS
