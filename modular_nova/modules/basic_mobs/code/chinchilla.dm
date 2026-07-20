@@ -1,8 +1,3 @@
-/// The dust pile a chinchilla is currently heading to roll in.
-#define BB_DUST_TARGET "bb_dust_target"
-/// Cooldown timer between dust baths.
-#define BB_DUST_COOLDOWN "bb_dust_cooldown"
-
 /mob/living/basic/pet/chinchilla
 	name = "chinchilla"
 	desc = "They're like a mouse, but Australian."

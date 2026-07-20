@@ -51,7 +51,7 @@
 	turn_to_human.Grant(src)
 	GRANT_ACTION(/datum/action/innate/devour)
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
-	emote("scream")
+	INVOKE_ASYNC(src, PROC_REF(emote), "scream")
 
 /mob/living/basic/true_changeling/Life()
 	. = ..()

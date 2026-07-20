@@ -1,6 +1,3 @@
-/// Target that retaliated against us and should be fought back, separate from the flee target.
-#define BB_RETALIATE_TARGET "bb_retaliate_target"
-
 /datum/ai_controller/basic_controller/megadeer
 	behavior_tree_json = "modular_nova/modules/serenitystation/code/mobs/megadeer/megadeer.bt.json"
 	blackboard = list(

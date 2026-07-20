@@ -1,6 +1,3 @@
-/// Whether bumbles is currently resting, used to gate idle wandering.
-#define BB_BUMBLES_RESTING "bb_bumbles_resting"
-
 /mob/living/basic/pet/bumbles
 	name = "Bumbles"
 	desc = "Bumbles, the very humble bumblebee."

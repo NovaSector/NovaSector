@@ -1,6 +1,3 @@
-/// Target a borgi is currently taking pot-shots at while emagged.
-#define BB_BORGI_EMAG_TARGET "bb_borgi_emag_target"
-
 /mob/living/basic/pet/dog/corgi/borgi
 	name = "E-N"
 	desc = "It's a borgi."
