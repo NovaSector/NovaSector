@@ -148,10 +148,10 @@
 
 /obj/projectile/bullet/pellet/flechette
 	// tg stats at time of writing: 2 damage, 8 pellets, 30 AP, -0.2 damage falloff 1.2 speed (base projectiles at 1.25), 5 wound bonus, 5 exposed wound bonus
-	// adjustments: +2.5 damage per pellet (4*8=32 pb damage), damage falloff taken to -0.1, exposed wound buffed +5 to 10
+	// adjustments: +2.25 damage per pellet (4.25*8=34 pb damage), damage falloff taken to -0.1, exposed wound buffed +5 to 10
 	// pellets, but specialized for AP/embeds. not as good for raw damage but more for making people regret running
 	name = "shredder flechette"
-	damage = 5
+	damage = 4.25
 	damage_falloff_tile = -0.1
 	speed = 1.35 // you can have above average projectile speed. as a treat
 	wound_bonus = 5
@@ -207,7 +207,8 @@
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	name = "magnum blockshot"
-	damage = 13
+	damage = 12
+	damage_falloff_tile = -0.6
 	exposed_wound_bonus = 5
 	wound_bonus = 5
 	armour_penetration = 5
@@ -251,9 +252,10 @@
 	name = "ripper flechette"
 	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "flechette"
-	damage = 7
+	damage = 6
 	wound_bonus = 0
 	exposed_wound_bonus = 15
+	weak_against_armour = TRUE
 	sharpness = SHARP_EDGED //Did you knew flechettes fly sideways into people
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova/Initialize(mapload)
