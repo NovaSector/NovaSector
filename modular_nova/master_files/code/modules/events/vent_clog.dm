@@ -27,7 +27,7 @@
 		/mob/living/basic/bee/toxin,
 		/mob/living/basic/carp,
 		/mob/living/basic/pet/dog/pitbull/hungry,
-		/mob/living/simple_animal/hostile/syndimouse,
+		/mob/living/basic/syndimouse,
 	)
 	return pick(mob_list)
 
@@ -38,10 +38,10 @@
 	/*	/mob/living/basic/carp, demoted */
 	/*	/mob/living/basic/cockroach/glockroach, removed because enough with the cockroaches, also a gun... rly? */
 	//	Nova additions:
-		/mob/living/simple_animal/hostile/cazador,
-		/mob/living/simple_animal/hostile/scorpion,
-		/mob/living/simple_animal/hostile/plantmutant,
-		/mob/living/simple_animal/hostile/bigcrab,
+		/mob/living/basic/cazador,
+		/mob/living/basic/scorpion,
+		/mob/living/basic/plantmutant,
+		/mob/living/basic/bigcrab,
 	)
 	return pick(mob_list)
 

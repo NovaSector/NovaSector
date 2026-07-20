@@ -4,22 +4,20 @@
 //Changelings in their true form.
 //Massive health and damage, but move slowly.
 
-/mob/living/simple_animal/hostile/true_changeling
+/mob/living/basic/true_changeling
 	name = "true changeling"
 	real_name = "true changeling"
 	desc = "Holy shit, what the fuck is that thing?!"
 	speak_emote = list("says with one of its faces")
-	emote_hear = list("says with one of its faces")
 	icon = 'modular_nova/modules/horrorform/icons/animal.dmi'
 	icon_state = "horror"
 	icon_living = "horror"
 	icon_dead = "horror_dead"
 	mob_biotypes = MOB_ORGANIC
 	speed = 0.5
-	stop_automated_movement = FALSE
 	status_flags = CANPUSH
-	atmos_requirements = null
-	minbodytemp = 0
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
 	maxHealth = 750 //Very durable
 	health = 500
 	lighting_cutoff_red = 0
@@ -28,12 +26,15 @@
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	melee_damage_lower = 40
 	melee_damage_upper = 40
-	wander = FALSE
 	attack_verb_continuous = "rips into"
 	attack_verb_simple = "rip into"
 	attack_sound = 'sound/effects/blob/blobattack.ogg'
 	butcher_results = list(/obj/item/food/meat/slab/human = 15) //It's a pretty big dude. Actually killing one is a feat.
-	gold_core_spawnable = FALSE //Should stay exclusive to changelings tbh, otherwise makes it much less significant to sight one
+	gold_core_spawnable = NO_SPAWN //Should stay exclusive to changelings tbh, otherwise makes it much less significant to sight one
+	faction = list(FACTION_HOSTILE)
+	basic_mob_flags = DEL_ON_DEATH
+	combat_mode = TRUE
+	ai_controller = /datum/ai_controller/basic_controller/true_changeling
 	var/datum/action/innate/turn_to_human
 	var/transformed_time = 0
 	var/playstyle_string = span_infoplain("<b><font size=3 color='red'>We have entered our true form!</font> We are unbelievably powerful, and regenerate life at a steady rate. However, most of \
@@ -42,29 +43,26 @@
 	var/mob/living/carbon/human/stored_changeling = null //The changeling that transformed
 	var/devouring = FALSE //If the true changeling is currently devouring a human
 
-/mob/living/simple_animal/hostile/true_changeling/New()
+/mob/living/basic/true_changeling/Initialize(mapload)
 	. = ..()
 	transformed_time = world.time
-	emote("scream")
-
-/mob/living/simple_animal/hostile/true_changeling/Initialize(mapload)
-	. = ..()
 	to_chat(src, playstyle_string)
 	turn_to_human = new(src)
 	turn_to_human.Grant(src)
 	GRANT_ACTION(/datum/action/innate/devour)
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+	emote("scream")
 
-/mob/living/simple_animal/hostile/true_changeling/Life()
+/mob/living/basic/true_changeling/Life()
 	. = ..()
 	adjust_brute_loss(-TRUE_CHANGELING_PASSIVE_HEAL)
 
-/mob/living/simple_animal/hostile/true_changeling/AttackingTarget()
-	..()
+/mob/living/basic/true_changeling/melee_attack(atom/target, list/modifiers, ignore_cooldown)
+	. = ..()
 	if(prob(10))
 		emote("scream")
 
-/mob/living/simple_animal/hostile/true_changeling/emote(act, m_type=1, message = null, intentional = TRUE)
+/mob/living/basic/true_changeling/emote(act, m_type=1, message = null, intentional = TRUE)
 	if(stat)
 		return
 	if(act == "scream")
@@ -74,7 +72,7 @@
 		return
 	. = ..()
 
-/mob/living/simple_animal/hostile/true_changeling/proc/scream(message)
+/mob/living/basic/true_changeling/proc/scream(message)
 	if(!message)
 		message = span_emote("<B>[src]</B> makes a loud, bone-chilling roar!")
 	var/frequency = get_rand_frequency() //so sound frequency is consistent
@@ -93,7 +91,7 @@
 				M.show_message(message)
 	audible_message(message)
 
-/mob/living/simple_animal/hostile/true_changeling/death()
+/mob/living/basic/true_changeling/death()
 	. = ..()
 	scream()
 	spawn_gibs()
@@ -108,14 +106,14 @@
 		visible_message(span_warning("[src] lets out a waning scream as it falls, twitching, to the floor."))
 		addtimer(CALLBACK(src, PROC_REF(revive_from_death)), 45 SECONDS)
 
-/mob/living/simple_animal/hostile/true_changeling/proc/revive_from_death()
+/mob/living/basic/true_changeling/proc/revive_from_death()
 	if(!src)
 		return
 	visible_message(span_warning("[src] stumbles upright and begins to move!"))
 	revive() //Changelings can self-revive, and true changelings are no exception
 	scream()
 
-/mob/living/simple_animal/hostile/true_changeling/proc/real_death()
+/mob/living/basic/true_changeling/proc/real_death()
 	for(var/i in 1 to 4)
 		spawn_gibs()
 	scream()
@@ -133,6 +131,14 @@
 	SEND_SIGNAL(src, COMSIG_HORRORFORM_EXPLODE)
 	explosion(src, 0, 0, 5, 5)
 	qdel(src)
+
+/// Idle AI (only relevant while nobody is actually piloting the changeling): finds a target and tears into it, doesn't wander.
+/datum/ai_controller/basic_controller/true_changeling
+	behavior_tree_json = "modular_nova/modules/horrorform/code/true_changeling.bt.json"
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+	)
+	ai_movement = /datum/ai_movement/basic_avoidance
 
 /obj/projectile/bullet/pellet/bone_fragment
 	name = "bone fragment"
@@ -188,7 +194,7 @@
 	. = ..()
 	if(!.)
 		return
-	var/mob/living/simple_animal/hostile/true_changeling/horrorform = owner
+	var/mob/living/basic/true_changeling/horrorform = owner
 	if(!horrorform.stored_changeling)
 		horrorform.balloon_alert(horrorform, "our only form!")
 		return FALSE
@@ -219,7 +225,7 @@
 	. = ..()
 	if(!.)
 		return
-	var/mob/living/simple_animal/hostile/true_changeling/horrorform = owner
+	var/mob/living/basic/true_changeling/horrorform = owner
 	if(horrorform.devouring)
 		horrorform.balloon_alert(horrorform, "already eating!")
 		return FALSE
