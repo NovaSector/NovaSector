@@ -27,6 +27,10 @@
 	AddElement(/datum/element/death_drops, banana_drops)
 	AddComponent(/datum/component/squashable, squash_chance = 50, squash_damage = 1)
 
+/// Same as a regular cockroach, but wanders less often (old walk_chance=10 vs the default 25).
+/datum/ai_controller/basic_controller/cockroach/banana_spider
+	behavior_tree_json = "modular_nova/modules/basic_mobs/code/banana_spider.bt.json"
+
 /obj/item/food/deadbanana_spider
 	name = "dead banana spider"
 	desc = "Thank god it's gone...but it does look slippery."

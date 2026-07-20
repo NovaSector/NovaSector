@@ -69,7 +69,11 @@
 
 /// Dust piles chinchillas will look for to roll around in.
 /datum/target_source/oview_typed/dust_bath
-	typecache = typecacheof(list(/obj/effect/decal/cleanable/ash, /obj/effect/decal/cleanable/food/flour))
+	typecache = list(/obj/effect/decal/cleanable/ash, /obj/effect/decal/cleanable/food/flour)
+
+/datum/target_source/oview_typed/dust_bath/New()
+	. = ..()
+	typecache = typecacheof(typecache)
 
 /datum/bt_node/ai_behavior/hunt_target/dust_roll
 	hunt_cooldown = 20 SECONDS

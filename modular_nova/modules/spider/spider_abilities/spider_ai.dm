@@ -6,7 +6,11 @@
 
 ///destroy surveillance objects to boost our stealth
 /datum/target_source/oview_typed/spider_surveillance
-	typecache = typecacheof(list(/obj/machinery/camera, /obj/machinery/light))
+	typecache = list(/obj/machinery/camera, /obj/machinery/light)
+
+/datum/target_source/oview_typed/spider_surveillance/New()
+	. = ..()
+	typecache = typecacheof(typecache)
 
 /datum/bt_node/ai_behavior/random_speech/insect
 	speech_chance = 5
