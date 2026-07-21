@@ -1,0 +1,4 @@
+author: "FalloutFalcon"
+delete-after: True
+changes:
+  - qol: "per department sorting for character setup matches latejoin menu"
