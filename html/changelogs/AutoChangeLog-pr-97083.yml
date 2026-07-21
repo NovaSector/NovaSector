@@ -1,0 +1,4 @@
+author: "CabinetOnFire"
+delete-after: True
+changes:
+  - refactor: "Ruin loading should now be more robust and should spawn less orphaned genturfs"
