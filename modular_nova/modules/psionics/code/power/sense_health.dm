@@ -35,5 +35,5 @@
 /datum/action/cooldown/psionic/pointed/sense_health/psionic_activate(atom/target)
 	var/mob/living/living_target = target
 	to_chat(owner, span_purple("You unfold [living_target]'s condition into a diagnostic impression."))
-	healthscan(owner, living_target, mode = SCANNER_VERBOSE, advanced = TRUE)
+	healthscan(owner, living_target, mode = SCANNER_VERBOSE, scanpower = SCANPOWER_ADVANCED)
 	return TRUE
