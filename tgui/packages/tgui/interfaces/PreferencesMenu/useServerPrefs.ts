@@ -6,7 +6,7 @@ export const ServerPrefs = createContext<ServerData | undefined>({
   jobs: {
     departments: {},
     jobs: {},
-    jobs_sorted: [], // NOVA EDIT ADDITION
+    jobs_sorted: [],
   },
   names: {
     types: {},

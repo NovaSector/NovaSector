@@ -1,5 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { ComponentProps, useMemo, useRef, useState} from 'react';
+import { type ComponentProps, useMemo, useRef, useState } from 'react';
 import { useBackend } from 'tgui/backend';
 import {
   Box,
