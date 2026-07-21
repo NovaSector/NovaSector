@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Ensures that we always load the last used save, QOL
 	var/default_slot = 1
 	/// The maximum number of slots we're allowed to contain
-	var/max_save_slots = 30 //NOVA EDIT - ORIGINAL 3
+	var/max_save_slots = MAX_SAVE_SLOTS_NORMAL // NOVA EDIT CHANGE - ORIGINAL: 3
 
 	/// Bitflags for communications that are muted
 	var/muted = NONE
@@ -45,8 +45,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//Quirk list
 	var/list/all_quirks = list()
 
-	//Job preferences 2.0 - indexed by job title , no key or value implies never
+	/**
+	 * List of job titles to their priority level, JP_LOW, JP_MEDIUM, JP_HIGH
+	 * If a job is absent from the list, it is considered to be "JP_NEVER"
+	 */
 	var/list/job_preferences = list()
+	/**
+	 * Lazylist of job titles to character slot numbers
+	 * When rolling for a job, if that job is present in this list, we load that slot instead of the active slot
+	 */
+	var/list/job_assigned_profiles
 
 	/// The current window, PREFERENCE_TAB_* in [`code/__DEFINES/preferences.dm`]
 	var/current_window = PREFERENCE_TAB_CHARACTER_PREFERENCES
@@ -85,8 +93,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Used to avoid expensive READ_FILE every time a preference is retrieved.
 	var/value_cache = list()
 
-	/// If set to TRUE, will update character_profiles on the next ui_data tick.
+	/// If set to TRUE, will update cached_character_profiles on the next ui_data tick.
 	var/tainted_character_profiles = FALSE
+	/// The character profiles, saved so we can cheaply recompute them in ui_data only when necessary, without having to use expensive update_static_data calls.
+	var/list/cached_character_profiles
 
 /datum/preferences/Destroy(force)
 	QDEL_NULL(character_preview_view)
@@ -150,6 +160,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		tainted_character_profiles = TRUE
 		character_preview_view = create_character_preview_view(user)
 		ui = new(user, src, "PreferencesMenu")
 		ui.set_autoupdate(FALSE)
@@ -167,8 +178,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/ui_data(mob/user)
 	var/list/data = list()
 
-	if (tainted_character_profiles)
-		data["character_profiles"] = create_character_profiles()
+	if (tainted_character_profiles || isnull(cached_character_profiles))
+		cached_character_profiles = create_character_profiles()
 		tainted_character_profiles = FALSE
 	//NOVA EDIT ADDITION BEGIN
 	data["preview_selection"] = preview_pref
@@ -177,6 +188,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	data["quirks_balance"] = GetQuirkBalance()
 	data["positive_quirk_count"] = GetPositiveQuirkCount()
 	//NOVA EDIT ADDITION END
+
+	data["character_profiles"] = cached_character_profiles
 
 	data["character_preferences"] = compile_character_preferences(user)
 
@@ -196,9 +209,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	else
 		data["preview_options"] = list(PREVIEW_PREF_JOB, PREVIEW_PREF_LOADOUT, PREVIEW_PREF_UNDERWEAR, PREVIEW_PREF_NAKED, PREVIEW_PREF_NAKED_AROUSED)
 	// NOVA EDIT ADDITION END
-
-	data["character_profiles"] = create_character_profiles()
-
 	data["character_preview_view"] = character_preview_view.assigned_map
 	data["overflow_role"] = SSjob.get_job_type(SSjob.overflow_role).title
 	data["window"] = current_window
@@ -365,6 +375,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	save_character()
 	save_preferences()
 	QDEL_NULL(character_preview_view)
+	cached_character_profiles = null
 
 /datum/preferences/Topic(href, list/href_list)
 	. = ..()
@@ -524,15 +535,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		var/datum/job/overflow_role = SSjob.overflow_role
 		var/overflow_role_title = initial(overflow_role.title)
 
-		for(var/other_job in job_preferences)
-			if(job_preferences[other_job] == JP_HIGH)
+		for(var/other_job, other_level in job_preferences)
+			if(other_level == JP_HIGH)
 				// Overflow role needs to go to NEVER, not medium!
 				if(other_job == overflow_role_title)
-					job_preferences[other_job] = null
+					job_preferences -= other_job
 				else
 					job_preferences[other_job] = JP_MEDIUM
 
-	if(level == null)
+	if(isnull(level))
 		job_preferences -= job.title
 	else
 		job_preferences[job.title] = level
@@ -715,4 +726,4 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	unlock_content = !!byond_member
 	donator_status = !!GLOB.donator_list[parent.ckey] // NOVA EDIT ADDITION - DONATOR CHECK
 	if(unlock_content || donator_status) // NOVA EDIT CHANGE - ORIGINAL: if(unlock_content)
-		max_save_slots = 50 //NOVA EDIT - ORIGINAL: max_save_slots = 8
+		max_save_slots = MAX_SAVE_SLOTS_SUBSCRIBER // NOVA EDIT CHANGE - ORIGINAL: max_save_slots = 8

@@ -109,6 +109,7 @@
 	liked_foodtypes = NONE
 	disliked_foodtypes = NONE
 	modifies_speech = TRUE
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 2, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 2)
 
 /obj/item/organ/tongue/cybernetic
 	name = "cybernetic tongue"
@@ -122,6 +123,7 @@
 	liked_foodtypes = NONE
 	disliked_foodtypes = NONE
 	toxic_foodtypes = NONE
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 2, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 2)
 
 /obj/item/organ/tongue/vox
 	name = "vox tongue"

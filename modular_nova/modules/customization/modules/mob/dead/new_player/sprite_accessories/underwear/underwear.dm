@@ -1,6 +1,6 @@
 /datum/sprite_accessory/clothing/underwear
 	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
-	layer = NOVA_UNDERWEAR_UNDERSHIRT_LAYER
+	layer = UNDER_UNIFORM_LAYER
 
 /datum/sprite_accessory/clothing/underwear/get_icon_state(physique, bodyshape)
 	if(has_custom_digi_sprite && (bodyshape & BODYSHAPE_DIGITIGRADE))

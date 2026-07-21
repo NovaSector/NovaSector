@@ -7,14 +7,14 @@
 		SPECIES_LIZARD_ASH = 1,
 		SPECIES_LIZARD_SILVER = 1,
 	)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/spines
+	use_custom_mod_icon = TRUE
 
 /datum/sprite_accessory/spines/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 
-/datum/sprite_accessory/spines/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/spines/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	var/obj/item/clothing/worn_uniform = wearer.w_uniform
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
 	if(worn_uniform?.flags_inv & HIDESPINE)
@@ -29,7 +29,6 @@
 /datum/sprite_accessory/tail_spines
 	key = FEATURE_TAILSPINES
 	default_color = DEFAULT_SECONDARY
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/tail_spines/none
 	name = SPRITE_ACCESSORY_NONE
@@ -37,7 +36,7 @@
 	factual = FALSE
 	natural_spawn = FALSE
 
-/datum/sprite_accessory/tail_spines/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/tail_spines/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	if(wearer.owned_turf?.name == "tail")
 	// Emote exception
 		return TRUE

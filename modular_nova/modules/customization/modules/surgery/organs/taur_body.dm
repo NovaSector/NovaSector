@@ -59,7 +59,7 @@
 	can_use_saddle = TRUE
 
 /obj/item/organ/taur_body/horselike/synth
-	organ_flags = ORGAN_ROBOTIC | ORGAN_EXTERNAL
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /obj/item/organ/taur_body/horselike/deer
 
@@ -171,6 +171,7 @@
 		return
 
 	mermaid_body.Insert(user)
+	user.update_body() // to update the underwear, so socks will go away.
 
 /obj/item/organ/taur_body/serpentine
 	left_leg_name = "upper serpentine body"
@@ -178,7 +179,7 @@
 	hardened_soles = TRUE
 
 /obj/item/organ/taur_body/serpentine/synth
-	organ_flags = ORGAN_ROBOTIC | ORGAN_EXTERNAL
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /obj/item/organ/taur_body/spider
 	left_leg_name = "left legs"
@@ -197,7 +198,7 @@
 	right_leg_name = "dozens of right legs"
 
 /obj/item/organ/taur_body/centipede/synth
-	organ_flags = parent_type::organ_flags | ORGAN_ROBOTIC
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /obj/item/organ/taur_body/anthro
 	left_leg_name = null
@@ -206,12 +207,19 @@
 	can_ride_saddled_taurs = TRUE
 
 /obj/item/organ/taur_body/anthro/synth
-	organ_flags = ORGAN_ROBOTIC
+	organ_flags = (parent_type::organ_flags | ORGAN_ROBOTIC) & ~ORGAN_ORGANIC & ~ORGAN_EDIBLE
 
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = FEATURE_TAUR
-	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND | EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_FRONT_OVER
+	layers = list(
+		EXTERNAL_FRONT = BODY_FRONT_LAYER,
+		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+		EXTERNAL_FRONT_UNDER_CLOTHES = UNDER_UNIFORM_LAYER,
+		EXTERNAL_FRONT_OVER = ABOVE_BODY_FRONT_HEAD_LAYER,
+	)
 	color_source = ORGAN_COLOR_OVERRIDE
+	offset_location = ENTIRE_BODY
 
 	/// If this taur body can lay down
 	var/can_lay_down = FALSE
@@ -288,6 +296,10 @@
 	if(left_leg_to_remove)
 		left_leg_to_remove.drop_limb(special = TRUE, move_to_floor = FALSE)
 		left_leg_to_remove.moveToNullspace()
+
+	var/obj/item/bodypart/leg/left/leftover_left_leg = receiver.get_bodypart(BODY_ZONE_L_LEG)
+	if(leftover_left_leg)
+		qdel(leftover_left_leg)
 	new_left_leg.replace_limb(receiver)
 	new_left_leg.bodyshape |= external_bodyshapes
 
@@ -295,6 +307,9 @@
 	if(right_leg_to_remove)
 		right_leg_to_remove.drop_limb(special = TRUE, move_to_floor = FALSE)
 		right_leg_to_remove.moveToNullspace()
+	var/obj/item/bodypart/leg/right/leftover_right_leg = receiver.get_bodypart(BODY_ZONE_R_LEG)
+	if(leftover_right_leg)
+		qdel(leftover_right_leg)
 	new_right_leg.replace_limb(receiver)
 	new_right_leg.bodyshape |= external_bodyshapes
 

@@ -1,0 +1,22 @@
+// THIS IS A NOVA SECTOR UI FILE
+@use '../colors.scss';
+
+.PreferencesMenu__Jobs__altTitleMenu {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--dropdown-menu-blur);
+  background-color: var(--dropdown-menu-background);
+  border: var(--border-thickness-small) solid transparent;
+  border-image: linear-gradient(
+      var(--department-color),
+      var(--department-color)
+    )
+    1;
+}
+.Button--selected {
+  color: colors.fg(var(--color-white));
+
+  &:hover {
+    color: var(--department-color);
+  }
+}

@@ -268,6 +268,7 @@
 	post_init_icon_state = "knee_boots"
 	greyscale_config = /datum/greyscale_config/knee_boots
 	greyscale_config_worn = /datum/greyscale_config/knee_boots/worn
+	greyscale_config_worn_digi =/datum/greyscale_config/knee_boots/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/sport_boots
