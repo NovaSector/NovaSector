@@ -14,7 +14,7 @@
 	ui_name = "AntagInfoTraitor"
 	suicide_cry = "FOR THE SYNDICATE!!"
 	preview_outfit = /datum/outfit/traitor
-	can_assign_self_objectives = FALSE // NOVA EDIT CHANGE - Too loose of a cannon, and doesn't have staff sign off - ORIGINAL: can_assign_self_objectives = TRUE
+	can_assign_self_objectives = TRUE
 	default_custom_objective = "Perform an overcomplicated heist on valuable Nanotrasen assets."
 	hardcore_random_bonus = TRUE
 	stinger_sound = 'sound/music/antag/traitor/tatoralert.ogg'
@@ -47,9 +47,13 @@
 	///the final objective the traitor has to accomplish, be it escaping, hijacking, or just martyrdom.
 	var/datum/objective/ending_objective
 
-/datum/antagonist/traitor/New(give_objectives = TRUE)
+// NOVA EDIT CHANGE BEGIN - Antags are objectiveless by default, so an unpassed arg has to defer to the subtype's own default - ORIGINAL: /datum/antagonist/traitor/New(give_objectives = TRUE)
+/datum/antagonist/traitor/New(give_objectives)
 	. = ..()
+	if(isnull(give_objectives)) // Nothing was passed, so keep whatever this subtype declares.
+		return
 	src.give_objectives = give_objectives
+// NOVA EDIT CHANGE END
 
 /datum/antagonist/traitor/on_gain()
 	if(give_uplink)
