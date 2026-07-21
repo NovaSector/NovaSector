@@ -1514,6 +1514,15 @@
 	name = "Swept Skirt (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
+/datum/greyscale_config/draped_dress
+	name = "Draped Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/draped_dress.json'
+
+/datum/greyscale_config/draped_dress/worn
+	name = "Draped Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
 // COSTUMES
 
 /datum/greyscale_config/jester_suit/worn/digi

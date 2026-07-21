@@ -43,7 +43,7 @@
 
 /obj/item/clothing/under/dress/skirt/nova/swept
 	name = "swept skirt"
-	desc = "Formal skirt."
+	desc = "An appealing side-swept skirt. Top not included."
 	body_parts_covered = GROIN
 	greyscale_config = /datum/greyscale_config/swept_skirt
 	greyscale_config_worn = /datum/greyscale_config/swept_skirt/worn
@@ -115,7 +115,7 @@
 	post_init_icon_state = "medium_skirt"
 	greyscale_config = /datum/greyscale_config/medium_skirt
 	greyscale_config_worn = /datum/greyscale_config/medium_skirt/worn
-	greyscale_colors = "#3a3c45"
+	greyscale_colors = "#3a3c45#3a3c45"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
 	flags_1 = IS_PLAYER_COLORABLE_1
 
@@ -488,6 +488,21 @@
 	greyscale_colors = "#424242#424242"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+
+// Draped Dress
+/obj/item/clothing/under/dress/nova/draped_dress
+	name = "Draped Dress"
+	desc = "A flowing dress with a draped design. The fabric falls in soft folds, creating a elegant silhouette."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/draped_dress"
+	post_init_icon_state = "draped_dress"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	can_adjust = TRUE
+	greyscale_config = /datum/greyscale_config/draped_dress
+	greyscale_config_worn = /datum/greyscale_config/draped_dress/worn
+	greyscale_colors = "#424242"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = GROIN|LEGS
 
 /*
  *	Others

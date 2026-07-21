@@ -120,6 +120,7 @@
 				/obj/item/clothing/under/dress/nova/shorter_dress = 5,
 				/obj/item/clothing/under/dress/nova/formal_pen_skirt = 5,
 				/obj/item/clothing/under/dress/nova/pen_skirt = 5,
+				/obj/item/clothing/under/dress/nova/draped_dress = 5,
 				/obj/item/clothing/suit/varsity = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova = 5,
 				/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags = 5,
