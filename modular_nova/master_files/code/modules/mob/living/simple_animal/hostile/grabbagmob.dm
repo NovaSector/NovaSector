@@ -366,11 +366,3 @@
 	speech_chance = 30
 	emote_hear = list("aggressively squeaks")
 	emote_see = list("squeaks.", "practices CQC.", "cocks the bolt of a tiny CR20.", "plots to steal DAT DISK!", "fiddles with a tiny radio.")
-
-/mob/living/basic/gorilla/pitbull
-	name = "pitbull"
-	desc = "Lover of Blood. Hater of Toddlers. Doesn't look too happy to see you."
-	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
-	icon_state = "pitbull"
-	icon_dead = "pitbull_dead"
-	icon_living = "pitbull"
