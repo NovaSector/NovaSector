@@ -79,11 +79,11 @@
 	attempt_pickup(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/item/xenoarch/wave_scanner_backpack/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(attacking_item == processor)
-		remove_processor()
-	else
+/obj/item/xenoarch/wave_scanner_backpack/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(tool != processor)
 		return ..()
+	remove_processor()
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/xenoarch/wave_scanner_backpack/dropped(mob/user)
 	. = ..()

@@ -245,20 +245,20 @@
 	. += span_notice("Using a hammer on [src] will repair its damage!")
 	. += span_notice("This weapon seems twice as effective when used on beasts and monsters.")
 
-/obj/item/shield/buckler/reagent_weapon/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/shield/buckler/reagent_weapon/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(atom_integrity >= max_integrity)
 		return ..()
-	if(istype(attacking_item, /obj/item/forging/hammer))
-		var/obj/item/forging/hammer/attacking_hammer = attacking_item
+	if(istype(tool, /obj/item/forging/hammer))
+		var/obj/item/forging/hammer/attacking_hammer = tool
 		var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) * attacking_hammer.toolspeed
 		while(atom_integrity < max_integrity)
 			if(!do_after(user, skill_modifier SECONDS, src))
-				return
+				return ITEM_INTERACT_BLOCKING
 			var/fixing_amount = min(max_integrity - atom_integrity, 5)
 			atom_integrity += fixing_amount
 			user.mind.adjust_experience(/datum/skill/smithing, 5)
 			balloon_alert(user, "partially repaired!")
-		return
+		return ITEM_INTERACT_SUCCESS
 	return ..()
 
 /obj/item/shield/buckler/reagent_weapon/pavise
@@ -312,29 +312,30 @@
 	AddComponent(/datum/component/reagent_weapon)
 	AddComponent(/datum/component/bane, affected_biotypes = (MOB_MINING | MOB_BEAST), damage_multiplier = FAUNA_MULTIPLIER)
 
-/obj/item/ammo_casing/arrow/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/ammo_casing/arrow/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	var/spawned_item
-	if(istype(attacking_item, /obj/item/stack/sheet/sinew))
+	if(istype(tool, /obj/item/stack/sheet/sinew))
 		spawned_item = /obj/item/ammo_casing/arrow/ash
 
-	if(istype(attacking_item, /obj/item/stack/sheet/bone))
+	if(istype(tool, /obj/item/stack/sheet/bone))
 		spawned_item = /obj/item/ammo_casing/arrow/bone
 
-	if(istype(attacking_item, /obj/item/stack/tile/bronze))
+	if(istype(tool, /obj/item/stack/tile/bronze))
 		spawned_item = /obj/item/ammo_casing/arrow/bronze
 
 	if(!spawned_item)
 		return ..()
 
-	var/obj/item/stack/stack_item = attacking_item
+	var/obj/item/stack/stack_item = tool
 	if(!stack_item.use(1))
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	var/obj/item/ammo_casing/arrow/converted_arrow = new spawned_item(get_turf(src))
 	transfer_fingerprints_to(converted_arrow)
 	remove_item_from_storage(user)
 	user.put_in_hands(converted_arrow)
 	qdel(src)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/forging/reagent_weapon/bokken
 	name = "bokken"
