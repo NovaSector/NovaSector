@@ -87,8 +87,8 @@
 	order_flags = ORDER_CONTRABAND
 	
 /datum/supply_pack/goody/ration
-	name = "Emergency Ration Single Pack"
-	desc = "A single emergency ration. designed to be nutritious, filling, and to be edible across a wide range of crew species. \
+	name = "Emergency Ration Single-Pack"
+	desc = "A single emergency ration, designed to be nutritious, filling, and to be edible across a wide range of crew species. \
 			Each ration comes with two randomly selected mains, two randomly selected sides, a cracker, and a peanut butter packet."
 	cost = CARGO_CRATE_VALUE * 0.375 // Should be around 75 credits?
 	contains = list(/obj/item/storage/box/ration)

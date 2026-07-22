@@ -103,6 +103,13 @@
 	icon_state = "bag_ration_bstart"
 	tastes = list("brown sugar" = 1, "pastry" = 1)
 	foodtypes = VEGETABLES | SUGAR
+	
+/obj/item/food/vendor_tray_meal/side/ration/bag/pktart
+	name = "\improper Emergency Ration Side: Pumpkin Toaster Pastry"
+	desc = "A gluten-free, rice flour-based toaster pastry. This one's pumpkin flavored."
+	icon_state = "bag_ration_pktart"
+	tastes = list("sweet pumpkin" = 1, "pastry" = 1)
+	foodtypes = VEGETABLES | SUGAR
 
 /obj/item/food/vendor_tray_meal/side/ration/shortbread
 	name = "\improper Emergency Ration Side: Shortbread Bar"
@@ -122,6 +129,12 @@
 	desc = "A bunch of crunchy, gluten free, salted pretzel bites."
 	icon_state = "bag_ration_pretzels"
 	tastes = list("hard pretzel" = 1)
+	
+/obj/item/food/vendor_tray_meal/side/ration/bag/pretzels
+	name = "\improper Emergency Ration Side: Eggplant Jerky"
+	desc = "Some chewy, sweet and salty, maple marinated eggplant jerky."
+	icon_state = "bag_ration_eggjerky"
+	tastes = list("eggplant" = 1, "salt" = 1, "maple syrup" = 1)
 
 /obj/item/food/vendor_tray_meal/side/ration/granola
 	name = "\improper Emergency Ration Side: Granola Bar"
