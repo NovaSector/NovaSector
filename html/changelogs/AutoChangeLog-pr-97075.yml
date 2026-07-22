@@ -1,0 +1,5 @@
+author: "lelandkemble"
+delete-after: True
+changes:
+  - code_imp: "converted calls to attackby() to calls to item_interaction()"
+  - bugfix: "MODsuit drill module manual activation works again"
