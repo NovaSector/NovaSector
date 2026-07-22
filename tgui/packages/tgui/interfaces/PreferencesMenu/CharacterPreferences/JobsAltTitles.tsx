@@ -8,9 +8,9 @@ import {
   Icon,
 } from 'tgui-core/components';
 
-import {
-  type Job,
-  type PreferencesMenuData,
+import type {
+  Job,
+  PreferencesMenuData,
 } from '../types';
 
 import { useServerPrefs } from '../useServerPrefs';

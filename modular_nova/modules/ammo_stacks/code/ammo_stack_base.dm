@@ -20,7 +20,7 @@
 	. = ..()
 	check_empty()
 
-/obj/item/ammo_box/magazine/ammo_stack/attackby(obj/item/A, mob/user, params, silent = FALSE, replace_spent = 0)
+/obj/item/ammo_box/magazine/ammo_stack/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	check_empty()
 
