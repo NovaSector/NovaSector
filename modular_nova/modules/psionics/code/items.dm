@@ -3,6 +3,7 @@
 	desc = "A subdermal regulator that suppresses dangerous psionic potential until removed."
 	icon = 'modular_nova/modules/psionics/icons/implants.dmi'
 	icon_state = "psionic_limiter"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.6, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.6, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 2)
 	w_class = WEIGHT_CLASS_TINY
 	slot = ORGAN_SLOT_PSIONIC_IMPLANT
 	aug_icon = 'modular_nova/modules/psionics/icons/implants.dmi'
