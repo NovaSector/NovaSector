@@ -216,94 +216,10 @@
 /turf/open/floor/emissive_test
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/engine/air
+/turf/open/floor/engine
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/engine/airless
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/antinoblium
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/bz
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/co2
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/freon
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/h2
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/h2o
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/halon
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/healium
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/helium
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/hull
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/hypernoblium
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/lowpressure
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/miasma
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/n2
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/n2o
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/nitrium
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/o2
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/plasma
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/pluoxium
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/proto_nitrate
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/telecomms
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/tritium
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/vacuum
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/xenobio
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine/zauker
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/grass/airless
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/grass/fairy
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/grass/lavaland
+/turf/open/floor/grass
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/holofloor/asteroid
@@ -348,34 +264,7 @@
 /turf/open/floor/light
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/mineral/abductor
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/mineral/bananium
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/mineral/diamond
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/mineral/gold
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/mineral/plasma
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/mineral/plastitanium/airless
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/mineral/plastitanium/red
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/mineral/silver
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/mineral/titanium
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/mineral/uranium
+/turf/open/floor/mineral
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/plastic
@@ -399,37 +288,13 @@
 /turf/open/floor/white
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/wood/airless
+/turf/open/floor/wood
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/wood/cold
+/turf/open/floor/noslip
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/wood/freezing
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/wood/icemoon
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/wood/large
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/wood/lavaland
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/wood/lowpressure
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/wood/moon
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/wood/parquet
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/wood/safe_planet
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/wood/tile
+/turf/open/floor/engine
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/catwalk_floor/iron_smooth
