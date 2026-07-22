@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "species quirk incompatibilities will now update immediately without the need to add/remove a quirk to force a ui update"
-  - code_imp: "quirks backend improved, it will no longer send full updates constantly and be faster"

@@ -1,4 +1,0 @@
-author: "CabinetOnFire"
-delete-after: True
-changes:
-  - bugfix: "Fixes mechs not qdel'ing when destroyed if they spawn a wreck"
