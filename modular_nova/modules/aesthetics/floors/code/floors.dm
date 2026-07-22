@@ -191,3 +191,243 @@
 
 /turf/open/floor/mineral/plastitanium/pod
 	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/asphalt
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/black
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/bluespace
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/eighties
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/bronze
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/cult
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/eighties/red
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/emissive_test
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/air
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/airless
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/antinoblium
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/bz
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/co2
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/freon
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/h2
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/h2o
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/halon
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/healium
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/helium
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/hull
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/hypernoblium
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/lowpressure
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/miasma
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/n2
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/n2o
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/nitrium
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/o2
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/plasma
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/pluoxium
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/proto_nitrate
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/telecomms
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/tritium
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/vacuum
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/xenobio
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine/zauker
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/grass/airless
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/grass/fairy
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/grass/lavaland
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/asteroid
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/basalt
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/grass
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/plating
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/pure_white
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/stairs
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/wood
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/bluespace
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/grimy
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/solarpanel
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/stairs
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/terracotta
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/tgmcemblem
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/light
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral/abductor
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral/bananium
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral/diamond
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral/gold
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral/plasma
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral/plastitanium/airless
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral/plastitanium/red
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral/silver
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral/titanium
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral/uranium
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plastic
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plating/abductor
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plating/abductor2
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plating/elevatorshaft
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plating/foam
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/vault
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/white
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/airless
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/cold
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/freezing
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/icemoon
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/large
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/lavaland
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/lowpressure
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/moon
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/parquet
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/safe_planet
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood/tile
+	icon = 'icons/turf/floors.dmi'
