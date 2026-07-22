@@ -381,12 +381,12 @@
 
 // Allows building lattices and floor tiles over water turfs
 // Code yoinked from /turf/open/openspace
-/turf/open/water/attackby(obj/item/attacking_item, mob/user, list/modifiers)
-	..()
-	if(istype(attacking_item, /obj/item/stack/rods))
-		build_with_rods(attacking_item, user)
-	else if(ismetaltile(attacking_item))
-		build_with_floor_tiles(attacking_item, user)
+/turf/open/water/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	. = ..()
+	if(istype(tool, /obj/item/stack/rods))
+		build_with_rods(tool, user)
+	else if(ismetaltile(tool))
+		build_with_floor_tiles(tool, user)
 
 /turf/open/water/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	if(the_rcd.mode == RCD_TURF && the_rcd.rcd_design_path == /turf/open/floor/plating/rcd)

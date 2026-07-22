@@ -10,11 +10,11 @@
 			QDEL_NULL(pin)
 		return INITIALIZE_HINT_QDEL
 
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/borg/upgrade/modkit/chassis_mod))
+/obj/item/gun/energy/recharge/kinetic_accelerator/variant/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/borg/upgrade/modkit/chassis_mod))
 		to_chat(user, span_notice("This weapon doesn't have variant appearances."))
-	else
-		return ..()
+		return ITEM_INTERACT_BLOCKING
+	return ..()
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/crowbar_act(mob/living/user, obj/item/I)
 	to_chat(user, span_notice("This weapon cannot have its modifications removed."))
@@ -22,11 +22,11 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/
 
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/borg/upgrade/modkit))
+/obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/borg/upgrade/modkit))
 		to_chat(user, span_notice("This weapon cannot have modifications applied."))
-	else
-		return ..()
+		return ITEM_INTERACT_BLOCKING
+	return ..()
 
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/railgun

@@ -96,7 +96,7 @@ const SelfServePage = (props) => {
         </Section>
       )}
       {authIDName ? (
-        !trimClockedOut || !!authCardHOPLocked || !!authCardTimeLocked ? (
+        !trimClockedOut || authCardHOPLocked || authCardTimeLocked ? (
           <Section title="Assignment Information">
             <Stack wrap="wrap">
               {!trimClockedOut && (
