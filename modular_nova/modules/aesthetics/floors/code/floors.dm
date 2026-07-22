@@ -297,5 +297,8 @@
 /turf/open/floor/engine
 	icon = 'icons/turf/floors.dmi'
 
+/turf/open/chasm/true/fakeout
+	icon = 'icons/turf/floors.dmi'
+
 /turf/open/floor/catwalk_floor/iron_smooth
 	icon = 'icons/turf/floors/catwalk_plating.dmi'
